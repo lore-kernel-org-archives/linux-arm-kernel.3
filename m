@@ -4,63 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CA4EB4906
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 11:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCDAEB48F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 11:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gZ+vOUTKPkChQcUt99cTDGDWOCEWcc1wTkyBYXVBDyQ=; b=tzgmjNCC/rmBkx+tY8znzgzGq3
-	bzkCPXfX95cLCMGu33tyxUx+91LaRtiya4BjL0aXUpyGxN3V/d8HIsFtIepTGXuvQuIOm+dLwDYlE
-	kD/z6RiIVYxLkA0ZwtXRABYR410gJsQR7gkq8RbCM+7ZnJWPfL3GvjoUr3QARWILFmc7aYFF2BIFS
-	XTUOMQmw5kh1Kp4VOHZE+dCRKOTMR6xkn7fIaIhNlsIJ5DgMh0hopK0zXrEtebEjyNGu5Iwyfx1UR
-	9XU8E5Vr3TQvm9bdO6qU/8Yt5SrID2f4PetlWu3Y1TmjygRqQ4jBmM9ayInW1Wz6n1iUTzCQWHwTo
-	+FJLY5jA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5PDGpXXd+WYqIC3XZToRU9plHqBK8VSdCl2nLvQovpI=; b=Af31d2DHJ0JMh/aaYXnEEFyTVH
+	GUf2gD7pDh/p+pEsQw8XdFpVmnnYMiSEtfWZlefaDmMrh6K/NZSe6mf7DFWQQfEowQD7V4Ro/23QG
+	MxTUfWNjmMPn7VF0dvnib4DQqybz0wihyfg+XhHtzSaQHkJs4kc+PlvLkiLz3pbe24QjfkfuwwtFa
+	qCQpx4RO27t3OXTnKorUvkZ2/G5yP0/4FRruM+qx/0zMoiENVRCUUehrmadMZ0txIWrG7137MWzxC
+	dsKr/9LhqqJti7paR4xfXuEYJ3SmnfSpbC/r9s+MvirToZGtUhzzuAGD+5LHwwVBAphAPACUWnmZm
+	cW+uLADA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqUhh-00000001z0P-1Gpo;
-	Thu, 12 Feb 2026 11:17:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqUhb-00000001yyO-3vE6
+	id 1vqUow-00000001zgj-2tMM;
+	Thu, 12 Feb 2026 11:25:18 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vqUot-00000001zg1-3nWZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 11:17:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6006B143D;
-	Thu, 12 Feb 2026 03:17:36 -0800 (PST)
-Received: from e137876.arm.com (e137876.arm.com [10.33.10.100])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C72163F632;
-	Thu, 12 Feb 2026 03:17:40 -0800 (PST)
-From: Debbie Horsfall <debbie.horsfall@arm.com>
-Date: Thu, 12 Feb 2026 11:16:52 +0000
-Subject: [PATCH v2 2/2] arm64: dts: zena: Add support for Zena CSS
+	Thu, 12 Feb 2026 11:25:17 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61CA0S1B2640742
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:25:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=5PDGpXXd+WYqIC3XZToRU9plHqBK8VSdCl2
+	nLvQovpI=; b=aguKT32Zh9CL5EEIJgDfEwKangY/qi/i/qNExPwDzTEdND8YvHF
+	uumIn88o7F0Vb63SG/gFMb1BrDyKFLkeMkqQ8BEwqVaQiuUg96yX9eGqmipxMIsy
+	GWPMZBQSOgq91zggXN5nGBc9KXGOMdTmBt6MWBAMdB749bxWOEeQLLG34HTzfpd4
+	ViTPh8OhQM2QoJIOOjU/3OMN2cTzjWETV3qk2VL9D0pdgjLQXiUbH13vGWiLynUq
+	WeuJBzGRiY++Fuge3CGsecO9PXD0+ACT+0tCPXDNHyzxxu8f2k5tv+JWhrsduCBO
+	XOukPyc2ehgUMoVvSpLP/tzk2F4zPag8ejw==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c90d6tf50-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:25:13 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c70e610242so2202172785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 03:25:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1770895513; x=1771500313; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5PDGpXXd+WYqIC3XZToRU9plHqBK8VSdCl2nLvQovpI=;
+        b=etH3yfdfo9vhXDyAgSvFuKP7OmEc6jCdGZdRdkkMhXc8qrVJ71trjXtd5JxdPySNg1
+         BSYwHgUUB0hHykay8oe+PEJ1iGNPSNT2hKvjgKbPUgUfrFclQgSeMMCEFV+noON3yKHB
+         isFRrELbrBZ+pCf5tJ7f/KddsLzEXaeEVo6egB9Rbk0khlukI+qCoZ7fPSrqSFOOhd5Y
+         dqVfEeAyiJ56TBY2aFpCWuKdsMo4ky9jt00y4p0NowYlPcPIGBSvtXSk/r5QHFAS5sD3
+         iJTDde90mYYOh8QABSzrMkAHMSJpPPXX1A6fdvTAHk9LVyTnzz4Npjn7rxH6AkwEHSAK
+         d5pA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770895513; x=1771500313;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5PDGpXXd+WYqIC3XZToRU9plHqBK8VSdCl2nLvQovpI=;
+        b=ZiLQsesVCJYZqlSYGG+x9uH5jrgZ63X3VM4HcxDM0GrVh4Xs0IbV6Wfr5atTmQ8Yla
+         B5sq4lrcceuUmAPu3aYUgaTctvu/3YfrX1TjpJeASPv3WfDohy2+i4akD1uIs/1QFU65
+         V/ZTOePCSxQA+oWZ7fmopsJJSsm5KAFP5Qvs/x1BG2vtT+UxVeMztkAkXv1VTPIQgBiU
+         ktQ/QOKLcxXfTM5EBb5Si/DYjowxLKSNNKwX9G47Ss2LNs74EL6+u0Wmn2XGdpehEyA5
+         TT98Q4NRY4hMKC6px3Zvx6Re1Yy4Ew8oq2wLHFWamwQ74yaBSJszPsYDi0kxkE8pXYjm
+         i8fA==
+X-Forwarded-Encrypted: i=1; AJvYcCWcmdRFnDXOU4fD6Ludjk/drI8rJIXVi/1sNnkaLVcFprLi2k4rMSN5LI1PJnWWwMV2ClasjzvoO5TLr0vms02F@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyHvFvAgrlTu5fRLJjI1vS7myTb5ln1+/i7sPpaLzLLU+vPJMd
+	GAJFw2t6CqW6sCyBsNX6ERfvx8Y0kHlpn7Vs10PnJ0CtEkIAOS8qWiqFgDq3quG2YaRpGAe/aU6
+	7EImY36Dfw4Ok9vMFOL8ZNT3JJrQjhgnOhJ0ItYoYzv6SPUWUHYzcBl05tIvRn3uYB8B4YrhY7A
+	B+QQ==
+X-Gm-Gg: AZuq6aJyeOeWjZH7k3iZlZJSlVm01OwPI9GveCpRjC8PkPXLS0R2H8Cmt968+aoirDY
+	oxdumsqJoOOFUaY9ReqGdGbsR0ZGfpR+n0JMcwywr8fCp5YKjaZrUQbNW5PT/Z54RzXFZohkwqv
+	ETN7/x5dsfAlF9LLobnofdDe4brBqzgt0T3a8aiGzk8LsPJ7Gr3f39IKfUOwd1DWGWzMRRAfWa+
+	dq9/4uRHmEQ//Y5lltnnGFwqC/PmVWdoy3kAaCQG9xVwvwHNQ0QmSoN31UxQ7er2z+5OT3jEQ7d
+	j+ARMN1udSFPL5kY6ZWEN4t7YDHNUddMdTi5ifEynlC/+UAv5Wmt71soVux72rPEB5kEzQmr8BR
+	xpcORF3S2SR5dKAZ7h8raZMgMNRpX/KyaCWijh6J8vO33xmu5Iw0=
+X-Received: by 2002:a05:620a:4112:b0:8c7:fdc:e87c with SMTP id af79cd13be357-8cb330fd638mr288562785a.51.1770895513071;
+        Thu, 12 Feb 2026 03:25:13 -0800 (PST)
+X-Received: by 2002:a05:620a:4112:b0:8c7:fdc:e87c with SMTP id af79cd13be357-8cb330fd638mr288559985a.51.1770895512532;
+        Thu, 12 Feb 2026 03:25:12 -0800 (PST)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:afaf:b495:9036:167a])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43783d4785fsm11453572f8f.11.2026.02.12.03.25.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Feb 2026 03:25:12 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Aaro Koskinen <aaro.koskinen@iki.fi>,
+        Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+        Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>,
+        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+        Arnd Bergmann <arnd@kernel.org>, Hans de Goede <hansg@kernel.org>
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, brgl@kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [RFT PATCH v3] ARM: omap1: enable real software node lookup of GPIOs on Nokia 770
+Date: Thu, 12 Feb 2026 12:25:08 +0100
+Message-ID: <20260212112508.73500-1-bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260212-zena-css-v2-2-d33ea23cb9c2@arm.com>
-References: <20260212-zena-css-v2-0-d33ea23cb9c2@arm.com>
-In-Reply-To: <20260212-zena-css-v2-0-d33ea23cb9c2@arm.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
- Sudeep Holla <sudeep.holla@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Linus Walleij <linusw@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Debbie Horsfall <debbie.horsfall@arm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770895056; l=22477;
- i=debbie.horsfall@arm.com; s=20260123; h=from:subject:message-id;
- bh=Ns8Wrp2qebBG8BK6nJsewB+asdC7cwbTFO+zC1i5jys=;
- b=ZoV1iY85Ft1G1GiqHti3Zl9a1lplAFGaxQX5LzK5vn6kcg5BE3ZdsQSDMSHtncj68PlA8oj7h
- hN8dVsN9wuIAgJCjDHFfIamCr3ZjGBy/JeaKz/cOX2UfGEIB1SgNDp8
-X-Developer-Key: i=debbie.horsfall@arm.com; a=ed25519;
- pk=PHSQwhhwfluuPcWn1fk950OfqGxCy2cjbyQb7dfAcFY=
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: Uxxza4rydh1aOVAfhnKU-mASoMIyrPEX
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjEyMDA4NSBTYWx0ZWRfXwyk7EGxkwVc5
+ lb5OGIMi+/nO0nzf9kjdSAo8mtNHh6hae2b+vSFXz7SZAPslAvKN/WJlvpi4qbGdVA1Tme6l68/
+ kN3drjekwWed47fqX4gZaINs9jyJM61Cw0mp5a5RsjrWNvT07wONL6v07M0Tp9cXYFnWS40rDIU
+ IBtvOCrhWRO7Hu8voRZD8cB1InOE80Co0+PxpaOQXO+V2pEQ+lbjN9jdWxz2C9RZ+9SqXs2m63+
+ SszUUL85AmSRok9n2gx1dBH/4nyOcIHmKjxw6NXUVn8U/wNkvy5GC7p6GUiz1klxwesyn/b+jzT
+ sZmO6D4CxmbivQqc3jl7r0XUdp0VBzIbOqYmYMNompveEHQB0SqW6NzFsi45igBvUekdMpDdL5q
+ UtsUl0CcT7HZ+8YUs5cK7ndrWOvYTFlY1JXl4jif+RjpGp9hHgu5ShVy9NJHiMq+sIMHBan+Ymp
+ fWx6faOjGdxg8GImKIQ==
+X-Authority-Analysis: v=2.4 cv=ZaMQ98VA c=1 sm=1 tr=0 ts=698db899 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=HzLeVaNsDn8A:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22
+ a=GgsMoib0sEa3-_RKJdDe:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=AKYXJijLabmKD37pI5EA:9 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-GUID: Uxxza4rydh1aOVAfhnKU-mASoMIyrPEX
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-12_03,2026-02-11_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 bulkscore=0 clxscore=1015 suspectscore=0
+ spamscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602120085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_031744_077348_527B7F3C 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20260212_032516_060772_4816794D 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,872 +142,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the Zena CSS Fixed Virtual Platform (FVP) dts. This is
-currently the only Zena CSS variant, however the common definitions are
-included in a common dtsi for extensibility.
+Currently the board file for Nokia 770 creates dummy software nodes not
+attached in any way to the actual GPIO controller devices and uses the
+fact that GPIOLIB matching swnode's name to the GPIO chip's label during
+software node lookup. This behavior is wrong and we want to remove it.
+To that end, we need to first convert all existing users to creating
+actual fwnode links.
 
-Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
+Create real software nodes for GPIO controllers on OMAP16xx and
+reference them from the software nodes in the nokia board file.
+
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- arch/arm64/boot/dts/arm/Makefile         |   1 +
- arch/arm64/boot/dts/arm/zena-css-fvp.dts |  55 +++
- arch/arm64/boot/dts/arm/zena-css.dtsi    | 777 +++++++++++++++++++++++++++++++
- 3 files changed, 833 insertions(+)
+Changes in v3:
+- fix references to the MPU node
 
-diff --git a/arch/arm64/boot/dts/arm/Makefile b/arch/arm64/boot/dts/arm/Makefile
-index f30ee045dc95..770fb145b4a9 100644
---- a/arch/arm64/boot/dts/arm/Makefile
-+++ b/arch/arm64/boot/dts/arm/Makefile
-@@ -8,3 +8,4 @@ dtb-$(CONFIG_ARCH_VEXPRESS) += vexpress-v2f-1xv7-ca53x2.dtb
- dtb-$(CONFIG_ARCH_VEXPRESS) += fvp-base-revc.dtb
- dtb-$(CONFIG_ARCH_VEXPRESS) += corstone1000-fvp.dtb corstone1000-mps3.dtb
- dtb-$(CONFIG_ARCH_VEXPRESS) += morello-sdp.dtb morello-fvp.dtb
-+dtb-$(CONFIG_ARCH_VEXPRESS) += zena-css-fvp.dtb
-diff --git a/arch/arm64/boot/dts/arm/zena-css-fvp.dts b/arch/arm64/boot/dts/arm/zena-css-fvp.dts
-new file mode 100644
-index 000000000000..b75204a91882
---- /dev/null
-+++ b/arch/arm64/boot/dts/arm/zena-css-fvp.dts
-@@ -0,0 +1,55 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-+/*
-+ * Copyright (c) 2025, Arm Limited. All rights reserved.
-+ */
-+
-+/dts-v1/;
-+
-+#include "zena-css.dtsi"
-+
-+/ {
-+	model = "Zena CSS Fixed Virtual Platform";
-+	compatible = "arm,zena-css-fvp", "arm,zena-css", "arm,vexpress";
-+
-+	chosen {
-+		stdout-path = &soc_serial0;
-+	};
-+};
-+
-+&soc {
-+	virtio@30020000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30020000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 257 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30030000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30030000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 258 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30040000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30040000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 259 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30050000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30050000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 260 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30060000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30060000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 261 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30080000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30080000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 263 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/arm/zena-css.dtsi b/arch/arm64/boot/dts/arm/zena-css.dtsi
-new file mode 100644
-index 000000000000..9899d2883337
---- /dev/null
-+++ b/arch/arm64/boot/dts/arm/zena-css.dtsi
-@@ -0,0 +1,777 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-+/*
-+ * Copyright (c) 2025, Arm Limited. All rights reserved.
-+ */
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+	interrupt-parent = <&gic>;
-+
-+	soc_clk24mhz: clock-24000000 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "refclk24mhz";
-+	};
-+
-+	cpus {
-+		#address-cells = <2>;
-+		#size-cells = <0>;
-+
-+		/*
-+		 * The latency and residency numbers below are for illustrative
-+		 * purposes only and may vary on actual silicon. These values are
-+		 * considered just to demonstrate that the cpuidle governor logic
-+		 * works.
-+		 */
-+		idle-states {
-+			entry-method = "psci";
-+
-+			cpu_sleep: cpu-sleep {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x10000>;
-+				entry-latency-us = <800>;
-+				exit-latency-us = <3200>;
-+				local-timer-stop;
-+				min-residency-us = <4200>;
-+			};
-+
-+			cluster_sleep: cluster-sleep {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x1010000>;
-+				entry-latency-us = <1000>;
-+				exit-latency-us = <3200>;
-+				local-timer-stop;
-+				min-residency-us = <4500>;
-+			};
-+		};
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 { cpu = <&cpu0>; };
-+				core1 { cpu = <&cpu1>; };
-+				core2 { cpu = <&cpu2>; };
-+				core3 { cpu = <&cpu3>; };
-+			};
-+
-+			cluster1 {
-+				core0 { cpu = <&cpu4>; };
-+				core1 { cpu = <&cpu5>; };
-+				core2 { cpu = <&cpu6>; };
-+				core3 { cpu = <&cpu7>; };
-+			};
-+
-+			cluster2 {
-+				core0 { cpu = <&cpu8>; };
-+				core1 { cpu = <&cpu9>; };
-+				core2 { cpu = <&cpu10>; };
-+				core3 { cpu = <&cpu11>; };
-+			};
-+
-+			cluster3 {
-+				core0 { cpu = <&cpu12>; };
-+				core1 { cpu = <&cpu13>; };
-+				core2 { cpu = <&cpu14>; };
-+				core3 { cpu = <&cpu15>; };
-+			};
-+		};
-+
-+		cpu0: cpu@0 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x0000>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl0_l2_0>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl0_l2_0: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl0_l3>;
-+			};
-+		};
-+
-+		cpu1: cpu@100 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x0100>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl0_l2_1>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl0_l2_1: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl0_l3>;
-+			};
-+		};
-+
-+		cpu2: cpu@200 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x0200>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl0_l2_2>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl0_l2_2: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl0_l3>;
-+			};
-+		};
-+
-+		cpu3: cpu@300 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x0300>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl0_l2_3>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl0_l2_3: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl0_l3>;
-+			};
-+		};
-+
-+		cpu4: cpu@10000 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x10000>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl1_l2_0>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl1_l2_0: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl1_l3>;
-+			};
-+		};
-+
-+		cpu5: cpu@10100 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x10100>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl1_l2_1>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl1_l2_1: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl1_l3>;
-+			};
-+		};
-+
-+		cpu6: cpu@10200 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x10200>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl1_l2_2>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl1_l2_2: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl1_l3>;
-+			};
-+		};
-+
-+		cpu7: cpu@10300 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x10300>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl1_l2_3>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl1_l2_3: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl1_l3>;
-+			};
-+		};
-+
-+		cpu8: cpu@20000 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x20000>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl2_l2_0>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl2_l2_0: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl2_l3>;
-+			};
-+		};
-+
-+		cpu9: cpu@20100 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x20100>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl2_l2_1>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl2_l2_1: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl2_l3>;
-+			};
-+		};
-+
-+		cpu10: cpu@20200 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x20200>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl2_l2_2>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl2_l2_2: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl2_l3>;
-+			};
-+		};
-+
-+		cpu11: cpu@20300 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x20300>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl2_l2_3>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl2_l2_3: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl2_l3>;
-+			};
-+		};
-+
-+		cpu12: cpu@30000 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x30000>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl3_l2_0>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl3_l2_0: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl3_l3>;
-+			};
-+		};
-+
-+		cpu13: cpu@30100 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x30100>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl3_l2_1>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl3_l2_1: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl3_l3>;
-+			};
-+		};
-+
-+		cpu14: cpu@30200 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x30200>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl3_l2_2>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl3_l2_2: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl3_l3>;
-+			};
-+		};
-+
-+		cpu15: cpu@30300 {
-+			compatible = "arm,cortex-a720ae";
-+			device_type = "cpu";
-+			reg = <0x00 0x30300>;
-+			enable-method = "psci";
-+
-+			clocks = <&scmi_dvfs 0>;
-+			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-+			next-level-cache = <&cl3_l2_3>;
-+
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+
-+			cl3_l2_3: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-line-size = <64>;
-+				cache-sets = <0x400>;	/* 8-way set */
-+				cache-size = <0x80000>;	/* 512KB */
-+				cache-unified;
-+				next-level-cache = <&cl3_l3>;
-+			};
-+		};
-+
-+		cl0_l3: l3-cache0 {
-+			compatible = "cache";
-+			cache-level = <3>;
-+			cache-line-size = <64>;
-+			cache-sets = <0x1000>;		/* 16-way set */
-+			cache-size = <0x400000>;	/* 4MB */
-+			cache-unified;
-+		};
-+
-+		cl1_l3: l3-cache1 {
-+			compatible = "cache";
-+			cache-level = <3>;
-+			cache-line-size = <64>;
-+			cache-sets = <0x1000>;		/* 16-way set */
-+			cache-size = <0x400000>;	/* 4MB */
-+			cache-unified;
-+		};
-+
-+		cl2_l3: l3-cache2 {
-+			compatible = "cache";
-+			cache-level = <3>;
-+			cache-line-size = <64>;
-+			cache-sets = <0x1000>;		/* 16-way set */
-+			cache-size = <0x400000>;	/* 4MB */
-+			cache-unified;
-+		};
-+
-+		cl3_l3: l3-cache3 {
-+			compatible = "cache";
-+			cache-level = <3>;
-+			cache-line-size = <64>;
-+			cache-sets = <0x1000>;		/* 16-way set */
-+			cache-size = <0x400000>;	/* 4MB */
-+			cache-unified;
-+		};
-+	};
-+
-+	firmware {
-+		scmi {
-+			compatible = "arm,scmi";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			mbox-names = "tx", "tx_reply", "rx";
-+			mboxes = <&mbox_db_tx 0 0 0>,
-+				 <&mbox_db_rx 0 0 0>,
-+				 <&mbox_db_rx 0 0 2>;
-+			shmem = <&scmi_shmem_tx &scmi_shmem_rx>;
-+
-+			scmi_dvfs: protocol@13 {
-+				reg = <0x13>;
-+				#clock-cells = <1>;
-+			};
-+		};
-+	};
-+
-+	dsu-pmu-0 {
-+		compatible = "arm,dsu-pmu";
-+		cpus = <&cpu0 &cpu1 &cpu2 &cpu3>;
-+		interrupts = <GIC_SPI 184 IRQ_TYPE_EDGE_RISING>;
-+	};
-+
-+	dsu-pmu-1 {
-+		compatible = "arm,dsu-pmu";
-+		cpus = <&cpu4 &cpu5 &cpu6 &cpu7>;
-+		interrupts = <GIC_SPI 185 IRQ_TYPE_EDGE_RISING>;
-+	};
-+
-+	dsu-pmu-2 {
-+		compatible = "arm,dsu-pmu";
-+		cpus = <&cpu8 &cpu9 &cpu10 &cpu11>;
-+		interrupts = <GIC_SPI 186 IRQ_TYPE_EDGE_RISING>;
-+	};
-+
-+	dsu-pmu-3 {
-+		compatible = "arm,dsu-pmu";
-+		cpus = <&cpu12 &cpu13 &cpu14 &cpu15>;
-+		interrupts = <GIC_SPI 187 IRQ_TYPE_EDGE_RISING>;
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0", "arm,psci-0.2";
-+		method = "smc";
-+	};
-+
-+	soc: soc {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		timer@1a810000 {
-+			compatible = "arm,armv7-timer-mem";
-+			reg = <0x0 0x1a810000 0x0 0x10000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			/*
-+			 * Map child space [0x0..0x30000) to parent @ 0x1a810000
-+			 */
-+			ranges = <0x0 0x0 0x1a810000 0x00030000>;
-+
-+			frame@20000 {
-+				reg = <0x20000 0x10000>;
-+				frame-number = <0>;
-+				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
-+			};
-+		};
-+
-+		gic: interrupt-controller@20800000 {
-+			compatible = "arm,gic-v3";
-+			#interrupt-cells = <3>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			#redistributor-regions = <16>;
-+			interrupt-controller;
-+			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			ranges;
-+
-+			/*
-+			 * With GIC-A720AE multiview enabled, GICR_TYPER.Last is
-+			 * always reported as 1 on redistributor views other than
-+			 * view 0. This breaks discovery of a single contiguous
-+			 * GICR frame region, so each core is described with its own
-+			 * redistributor region.
-+			 */
-+			reg = <0x0 0x20800000 0x0 0x10000>,	/* GICD */
-+			      <0x0 0x20880000 0x0 0x40000>,	/* 16 * GICR */
-+			      <0x0 0x208c0000 0x0 0x40000>,
-+			      <0x0 0x20900000 0x0 0x40000>,
-+			      <0x0 0x20940000 0x0 0x40000>,
-+			      <0x0 0x20980000 0x0 0x40000>,
-+			      <0x0 0x209c0000 0x0 0x40000>,
-+			      <0x0 0x20a00000 0x0 0x40000>,
-+			      <0x0 0x20a40000 0x0 0x40000>,
-+			      <0x0 0x20a80000 0x0 0x40000>,
-+			      <0x0 0x20ac0000 0x0 0x40000>,
-+			      <0x0 0x20b00000 0x0 0x40000>,
-+			      <0x0 0x20b40000 0x0 0x40000>,
-+			      <0x0 0x20b80000 0x0 0x40000>,
-+			      <0x0 0x20bc0000 0x0 0x40000>,
-+			      <0x0 0x20c00000 0x0 0x40000>,
-+			      <0x0 0x20c40000 0x0 0x40000>;
-+
-+			its: msi-controller@20840000 {
-+				compatible = "arm,gic-v3-its";
-+				reg = <0x0 0x20840000 0x0 0x40000>;
-+				msi-controller;
-+				#msi-cells = <1>;
-+			};
-+		};
-+
-+		/*
-+		 * UART is fixed at 24MHz, both UARTCLK and PCLK.
-+		 */
-+		soc_serial0: serial@1a400000 {
-+			compatible = "arm,pl011", "arm,primecell";
-+			reg = <0x0 0x1a400000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&soc_clk24mhz>, <&soc_clk24mhz>;
-+			clock-names = "uartclk", "apb_pclk";
-+		};
-+
-+		watchdog@1a420000 {
-+			compatible = "arm,sbsa-gwdt";
-+			reg = <0x0 0x1a420000 0x0 0x10000>,
-+			      <0x0 0x1a430000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		rtc@300d0000 {
-+			compatible = "arm,pl031", "arm,primecell";
-+			reg = <0x0 0x300d0000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&soc_clk24mhz>;
-+			clock-names = "apb_pclk";
-+		};
-+
-+		mbox_db_tx: mailbox@40020000 {
-+			compatible = "arm,mhuv3";
-+			reg = <0x0 0x40020000 0x0 0x30000>;
-+			interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "combined";
-+			clocks = <&soc_clk24mhz>;
-+			#mbox-cells = <3>;
-+		};
-+
-+		mbox_db_rx: mailbox@40060000 {
-+			compatible = "arm,mhuv3";
-+			reg = <0x0 0x40060000 0x0 0x30000>;
-+			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "combined";
-+			clocks = <&soc_clk24mhz>;
-+			#mbox-cells = <3>;
-+		};
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	sram: sram@104000 {
-+		compatible = "mmio-sram";
-+		reg = <0x0 0x00104000 0x0 0x00001000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0 0x0 0x00104000 0x00001000>;
-+
-+		scmi_shmem_tx: scpshmem-sram-section@0 {
-+			compatible = "arm,scmi-shmem";
-+			reg = <0x0 0x100>;
-+		};
-+
-+		scmi_shmem_rx: scpshmem-sram-section@100 {
-+			compatible = "arm,scmi-shmem";
-+			reg = <0x100 0x100>;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+
-+		/* ~2GB mapped at 2GB, another 2GB at 2TB */
-+		reg = <0x00000000 0x80000000 0x00000000 0x7f000000>,
-+		      <0x00000200 0x00000000 0x00000000 0x80000000>;
-+	};
-+};
+Changes in v2:
+- fix build with CONFIG_I2C_CBUS_GPIO
+- only export the two symbols that are actually required by the nokia
+  board file
 
+This is a follow up to the following discussion[1]. I don't have the
+hardware for testing so only build-tested it.
+
+[1] https://lore.kernel.org/all/aYkdKfP5fg6iywgr@jekhomev/
+
+ arch/arm/mach-omap1/board-nokia770.c | 30 +++++-----------------------
+ arch/arm/mach-omap1/common.h         |  3 +++
+ arch/arm/mach-omap1/gpio16xx.c       | 29 ++++++++++++++++++++++++++-
+ 3 files changed, 36 insertions(+), 26 deletions(-)
+
+diff --git a/arch/arm/mach-omap1/board-nokia770.c b/arch/arm/mach-omap1/board-nokia770.c
+index a5bf5554800fe..46f817f6316b7 100644
+--- a/arch/arm/mach-omap1/board-nokia770.c
++++ b/arch/arm/mach-omap1/board-nokia770.c
+@@ -36,25 +36,6 @@
+ #include "clock.h"
+ #include "mmc.h"
+ 
+-static const struct software_node nokia770_mpuio_gpiochip_node = {
+-	.name = "mpuio",
+-};
+-
+-static const struct software_node nokia770_gpiochip1_node = {
+-	.name = "gpio-0-15",
+-};
+-
+-static const struct software_node nokia770_gpiochip2_node = {
+-	.name = "gpio-16-31",
+-};
+-
+-static const struct software_node *nokia770_gpiochip_nodes[] = {
+-	&nokia770_mpuio_gpiochip_node,
+-	&nokia770_gpiochip1_node,
+-	&nokia770_gpiochip2_node,
+-	NULL
+-};
+-
+ #define ADS7846_PENDOWN_GPIO	15
+ 
+ static const unsigned int nokia770_keymap[] = {
+@@ -112,7 +93,7 @@ static const struct omap_lcd_config nokia770_lcd_config __initconst = {
+ };
+ 
+ static const struct property_entry nokia770_mipid_props[] = {
+-	PROPERTY_ENTRY_GPIO("reset-gpios", &nokia770_gpiochip1_node,
++	PROPERTY_ENTRY_GPIO("reset-gpios", &omap16xx_gpio1_swnode,
+ 			    13, GPIO_ACTIVE_LOW),
+ 	{ }
+ };
+@@ -138,7 +119,7 @@ static const struct property_entry nokia770_ads7846_props[] = {
+ 	PROPERTY_ENTRY_U16("ti,x-plate-ohms", 180),
+ 	PROPERTY_ENTRY_U16("ti,debounce-tol", 3),
+ 	PROPERTY_ENTRY_U16("ti,debounce-rep", 1),
+-	PROPERTY_ENTRY_GPIO("pendown-gpios", &nokia770_gpiochip1_node,
++	PROPERTY_ENTRY_GPIO("pendown-gpios", &omap16xx_gpio1_swnode,
+ 			    ADS7846_PENDOWN_GPIO, GPIO_ACTIVE_LOW),
+ 	{ }
+ };
+@@ -225,9 +206,9 @@ static inline void nokia770_mmc_init(void)
+ #if IS_ENABLED(CONFIG_I2C_CBUS_GPIO)
+ 
+ static const struct software_node_ref_args nokia770_cbus_gpio_refs[] = {
+-	SOFTWARE_NODE_REFERENCE(&nokia770_mpuio_gpiochip_node, 9, 0),
+-	SOFTWARE_NODE_REFERENCE(&nokia770_mpuio_gpiochip_node, 10, 0),
+-	SOFTWARE_NODE_REFERENCE(&nokia770_mpuio_gpiochip_node, 11, 0),
++	SOFTWARE_NODE_REFERENCE(&omap16xx_mpu_gpio_swnode, 9, 0),
++	SOFTWARE_NODE_REFERENCE(&omap16xx_mpu_gpio_swnode, 10, 0),
++	SOFTWARE_NODE_REFERENCE(&omap16xx_mpu_gpio_swnode, 11, 0),
+ };
+ 
+ static const struct property_entry nokia770_cbus_props[] = {
+@@ -318,7 +299,6 @@ static void __init omap_nokia770_init(void)
+ 	/* Unmask SleepX signal */
+ 	omap_writew((omap_readw(0xfffb5004) & ~2), 0xfffb5004);
+ 
+-	software_node_register_node_group(nokia770_gpiochip_nodes);
+ 	platform_add_devices(nokia770_devices, ARRAY_SIZE(nokia770_devices));
+ 
+ 	gpiod_add_lookup_table(&nokia770_irq_gpio_table);
+diff --git a/arch/arm/mach-omap1/common.h b/arch/arm/mach-omap1/common.h
+index 7a7c3d9eb84a0..c0f6e231fdb44 100644
+--- a/arch/arm/mach-omap1/common.h
++++ b/arch/arm/mach-omap1/common.h
+@@ -35,6 +35,9 @@
+ #include "soc.h"
+ #include "i2c.h"
+ 
++extern const struct software_node omap16xx_mpu_gpio_swnode;
++extern const struct software_node omap16xx_gpio1_swnode;
++
+ #ifdef CONFIG_OMAP_SERIAL_WAKE
+ int omap_serial_wakeup_init(void);
+ #else
+diff --git a/arch/arm/mach-omap1/gpio16xx.c b/arch/arm/mach-omap1/gpio16xx.c
+index 55acec22fef4e..177621cb47844 100644
+--- a/arch/arm/mach-omap1/gpio16xx.c
++++ b/arch/arm/mach-omap1/gpio16xx.c
+@@ -9,6 +9,7 @@
+  */
+ 
+ #include <linux/platform_data/gpio-omap.h>
++#include <linux/property.h>
+ #include <linux/soc/ti/omap1-io.h>
+ 
+ #include "hardware.h"
+@@ -55,6 +56,8 @@ static struct omap_gpio_platform_data omap16xx_mpu_gpio_config = {
+ 	.regs                   = &omap16xx_mpuio_regs,
+ };
+ 
++const struct software_node omap16xx_mpu_gpio_swnode = { };
++
+ static struct platform_device omap16xx_mpu_gpio = {
+ 	.name           = "omap_gpio",
+ 	.id             = 0,
+@@ -99,6 +102,8 @@ static struct omap_gpio_platform_data omap16xx_gpio1_config = {
+ 	.regs                   = &omap16xx_gpio_regs,
+ };
+ 
++const struct software_node omap16xx_gpio1_swnode = { };
++
+ static struct platform_device omap16xx_gpio1 = {
+ 	.name           = "omap_gpio",
+ 	.id             = 1,
+@@ -122,6 +127,8 @@ static struct resource omap16xx_gpio2_resources[] = {
+ 	},
+ };
+ 
++static const struct software_node omap16xx_gpio2_swnode = { };
++
+ static struct omap_gpio_platform_data omap16xx_gpio2_config = {
+ 	.bank_width		= 16,
+ 	.regs                   = &omap16xx_gpio_regs,
+@@ -155,6 +162,8 @@ static struct omap_gpio_platform_data omap16xx_gpio3_config = {
+ 	.regs                   = &omap16xx_gpio_regs,
+ };
+ 
++static const struct software_node omap16xx_gpio3_swnode = { };
++
+ static struct platform_device omap16xx_gpio3 = {
+ 	.name           = "omap_gpio",
+ 	.id             = 3,
+@@ -183,6 +192,8 @@ static struct omap_gpio_platform_data omap16xx_gpio4_config = {
+ 	.regs                   = &omap16xx_gpio_regs,
+ };
+ 
++static const struct software_node omap16xx_gpio4_swnode = { };
++
+ static struct platform_device omap16xx_gpio4 = {
+ 	.name           = "omap_gpio",
+ 	.id             = 4,
+@@ -201,6 +212,14 @@ static struct platform_device *omap16xx_gpio_dev[] __initdata = {
+ 	&omap16xx_gpio4,
+ };
+ 
++static const struct software_node *omap16xx_gpio_swnodes[] __initconst = {
++	&omap16xx_mpu_gpio_swnode,
++	&omap16xx_gpio1_swnode,
++	&omap16xx_gpio2_swnode,
++	&omap16xx_gpio3_swnode,
++	&omap16xx_gpio4_swnode,
++};
++
+ /*
+  * omap16xx_gpio_init needs to be done before
+  * machine_init functions access gpio APIs.
+@@ -208,7 +227,7 @@ static struct platform_device *omap16xx_gpio_dev[] __initdata = {
+  */
+ static int __init omap16xx_gpio_init(void)
+ {
+-	int i;
++	int i, ret;
+ 	void __iomem *base;
+ 	struct resource *res;
+ 	struct platform_device *pdev;
+@@ -244,6 +263,14 @@ static int __init omap16xx_gpio_init(void)
+ 		iounmap(base);
+ 
+ 		platform_device_register(omap16xx_gpio_dev[i]);
++
++		ret = device_add_software_node(&omap16xx_gpio_dev[i]->dev,
++					       omap16xx_gpio_swnodes[i]);
++
++		if (ret) {
++			dev_err(&pdev->dev, "Failed to add software node.\n");
++			return ret;
++		}
+ 	}
+ 
+ 	return 0;
 -- 
-2.43.0
+2.47.3
 
 
