@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA7E1EB4908
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 11:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E54B5EB4910
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 11:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IE/Vgcr5t87Qqgh2SdUbZlChZkDHZolRdsQDXZm2gn4=; b=Q/FL6zx+UIaaMY2k7VubNKLzw8
-	1WjqMMqpWGN8k3S7zJIuGICyKBXbKOGcjjmoRfzadsgElGEeuqOjHLMhMDv1f97m98oaTHNPTh4Wv
-	kSbhCMI3CRQCl4w924C1yyaFQ2rttYSWAjd2cQvyy40e3gUtj3SRlOWFsEv4Eq3v8XRr8gPwdpEvm
-	6VJuefVY8oM/OBKZdrQ5LQtPK1IIjz5dyqy/RBndk6Tv/O2GKenC3S7eH7X1BxmYVlRX4YnMo95jR
-	sZpkkea4NiBQSvrtpWa+tlzTH2T1qqpraL1qYrbPTxlgp63/H2JoHpuGtGDduuOseDsDxE6TqbMr1
-	egv6d+og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lh8EvkxbSGrnTWC/VbjKWDGUhTc4iJr3Q0U9QcNO9zE=; b=KKfrrG3J/2NLVIZ4N9qLJ2gpVm
+	OY5tOejHQ4Re/qPWLY72YJo7ZiG7nafGFh4uV6nWLcy9pG0QEey9IzyKziWOak1jHrwJYx8T5t6R9
+	D9AZHh7endUxdbI2rTdogJfEJSfMR1+IzlJXYWOvIpjPXzjCNRCBKweVtEP2AJ+Hv9nGSvTtGs0/2
+	wh/s8QWC3BbvKjUEchGq7H/0qCinwiRmDkupgXqcZ+sBRgj6gF47hySB6xVY/8VpZ5d2xtccuWLSa
+	522ZtQRPRCbB/whNypSGeA65bfGM2sKo7L1I+JLWce9+/RPNQW5penY0Kw6JZCvrewPtlt/mxcx/e
+	TsMbx4TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqV23-000000020fo-1JjD;
-	Thu, 12 Feb 2026 11:38:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vqV45-000000020o8-0JAN;
+	Thu, 12 Feb 2026 11:40:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqV22-000000020ff-1amF;
-	Thu, 12 Feb 2026 11:38:50 +0000
+	id 1vqV44-000000020o0-0zDG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Feb 2026 11:40:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC46560018;
-	Thu, 12 Feb 2026 11:38:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 002DCC4CEF7;
-	Thu, 12 Feb 2026 11:38:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 500E860018
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:40:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 057E2C4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770896329;
-	bh=arLUKyAHRvPe56Ev5yzgeEfNbshDPUKM/yENcqUmewA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GAiJIWMdGwqixyrJbqFT6iGQSV666A7TSnXGkmn9TwCoBOj9gImpE8CoT0ZrfioaB
-	 XPemdtpJWzXIq9NYJ0ytrpdk2aaEhIv5xv/BQFgveEH7Xdf1y76ruS8zII5FBUGP6X
-	 /KQkTTLJUL7gijaMMvqteycmdQWUv8NTrDVZkEgu5ntFB9334aY9Sbt/cZRdakLDEY
-	 sTjB8KZ0ZpDZu9ohUp1FDdYt9XsUyvGkcoE0OTKyAzSeTyRH7qv63wxjRnt0C/svuG
-	 MyZkBFGumVgONzBdegjlb29GSgUArmloR6ol/iMaZxY06aO/HlaBLPmOqVUZybUMar
-	 Zco8WyUKkPpDg==
-Date: Thu, 12 Feb 2026 12:38:46 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 7/7] arm64: dts: mt8167: Add additional mmsys reset bits
-Message-ID: <20260212-flawless-stirring-foxhound-c9fefc@quoll>
-References: <cover.1770836189.git.l.scorcia@gmail.com>
- <6f803b6dd1f61728c17afadd2fe983e9fdc0c109.1770836190.git.l.scorcia@gmail.com>
+	s=k20201202; t=1770896455;
+	bh=cR0ZtIgPDyATIxSFGdaV+xz08Ci/kVnvO0ZEE6vgbao=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=oKzFnfac63N7IG/adifXiKpS9V4EL5jHB5s9q/PFCbmVLeLH0qm7ILehYV3NwTwL8
+	 EIpPf3vYk6i5jeTdNOktfPjph/gw6K2rsfBFBnqcSwXd1VPPpua/Bmc4lqZSKgfRcU
+	 9ReNdK8Gecu4e6e2QNCXzoKbhW6fLXIKbCLlhz6LBv1N+J+dcaCZezUi11Ooct2J8w
+	 o+LuTahFdOP+WRcSKTf+y6UP/mxCpvUk0I3rHTTWM6kSvQL5FCat+PVZtESFxMRaPu
+	 nDiCTgMF23JSFJZOETZy/HxoLnM07GKD1Oq1MLEH645Wa9whd13ZUHOO4+W/UQTrgN
+	 lg58yZjQR731Q==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3870902760cso12738481fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 03:40:54 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUhlhan8Hp9tMtGKLSXkAQE9RJTguinnq1G/PWThZ/4IiSXHzdtoKCjnMGet18OqoBZfdVeNrjZT7fMnf1ejLgU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRpigYdHytiqxr75hJHLRplcB3Qy1V/34rXQ2uI7bq6Z3+oLfI
+	p0fz0s4KEXwriGOIw94NDtp6/4eodkc1RCNN9pSPGmiXQQBK3Jw8pNaCc52X5TE19Raw/Kz/btS
+	4opytXyVo9qopgL2heB2PJY1/JJSTX1pCgaMN0OQUMA==
+X-Received: by 2002:a2e:8a95:0:b0:383:1d66:c1fa with SMTP id
+ 38308e7fff4ca-38710f142dbmr8770101fa.10.1770896453688; Thu, 12 Feb 2026
+ 03:40:53 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <6f803b6dd1f61728c17afadd2fe983e9fdc0c109.1770836190.git.l.scorcia@gmail.com>
+References: <20260211131350.126966-1-bartosz.golaszewski@oss.qualcomm.com> <213b82de-fee8-4ebf-a8ee-d8ca783ce403@app.fastmail.com>
+In-Reply-To: <213b82de-fee8-4ebf-a8ee-d8ca783ce403@app.fastmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Thu, 12 Feb 2026 12:40:41 +0100
+X-Gmail-Original-Message-ID: <CAMRc=MeWgo3b8DTG3w8U2bxR6ejd2UmFVGASvRe7_tJkK2f4ug@mail.gmail.com>
+X-Gm-Features: AZwV_Qgc-yqBkaOF0yHyRhNZKzkVUTOEMiYSQPwa0VrLdPcUMMJ-QQP2mbVSAbo
+Message-ID: <CAMRc=MeWgo3b8DTG3w8U2bxR6ejd2UmFVGASvRe7_tJkK2f4ug@mail.gmail.com>
+Subject: Re: [RFT PATCH v2] ARM: omap1: enable real software node lookup of
+ GPIOs on Nokia 770
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
+	Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Hans de Goede <hansg@kernel.org>, 
+	Linux-OMAP <linux-omap@vger.kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,37 +84,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 11, 2026 at 07:03:28PM +0000, Luca Leonardo Scorcia wrote:
-> Some extra mmsys reset bits are defined in the Lenovo
-> Smart Clock kernel sources - file cmdq_mdp.c
-> 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> ---
->  include/dt-bindings/reset/mt8167-resets.h | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/include/dt-bindings/reset/mt8167-resets.h b/include/dt-bindings/reset/mt8167-resets.h
-> index f77c2ca897cf..b379f8f023d5 100644
-> --- a/include/dt-bindings/reset/mt8167-resets.h
-> +++ b/include/dt-bindings/reset/mt8167-resets.h
-> @@ -33,6 +33,15 @@
->  #define MT8167_TOPRGU_SW_RST_NUM		15
->  
->  /* MMSYS resets */
-> +#define MT8167_MMSYS_SW0_RST_B_SMI_COMMON	0
-> +#define MT8167_MMSYS_SW0_RST_B_SMI_LARB		1
-> +#define MT8167_MMSYS_SW0_RST_B_CAM_MDP		2
-> +#define MT8167_MMSYS_SW0_RST_B_MDP_RDMA0	3
-> +#define MT8167_MMSYS_SW0_RST_B_MDP_RSZ0		4
-> +#define MT8167_MMSYS_SW0_RST_B_MDP_RSZ1		5
-> +#define MT8167_MMSYS_SW0_RST_B_MDP_TDSHP0	6
-> +#define MT8167_MMSYS_SW0_RST_B_MDP_WDMA		7
-> +#define MT8167_MMSYS_SW0_RST_B_MDP_WROT0	8
+On Wed, Feb 11, 2026 at 5:32=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
+te:
+>
+> On Wed, Feb 11, 2026, at 14:13, Bartosz Golaszewski wrote:
+> > Currently the board file for Nokia 770 creates dummy software nodes not
+> > attached in any way to the actual GPIO controller devices and uses the
+> > fact that GPIOLIB matching swnode's name to the GPIO chip's label durin=
+g
+> > software node lookup. This behavior is wrong and we want to remove it.
+> > To that end, we need to first convert all existing users to creating
+> > actual fwnode links.
+> >
+> > Create real software nodes for GPIO controllers on OMAP16xx and
+> > reference them from the software nodes in the nokia board file.
+> >
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
+m>
+> > ---
+>
+> I don't see mistakes here, and I don't want to throw a wrench in
+> this patch, but I wonder if there is a way to take this one step further:
+>
+> > @@ -244,6 +263,14 @@ static int __init omap16xx_gpio_init(void)
+> >               iounmap(base);
+> >
+> >               platform_device_register(omap16xx_gpio_dev[i]);
+> > +
+> > +             ret =3D device_add_software_node(&omap16xx_gpio_dev[i]->d=
+ev,
+> > +                                            omap16xx_gpio_swnodes[i]);
+> > +
+> > +             if (ret) {
+> > +                     dev_err(&pdev->dev, "Failed to add software node.=
+\n");
+> > +                     return ret;
+> > +             }
+>
+> I was planning to go through the remaining 'static struct platform_device=
+'
+> definitions in arch/arm/ after the planned board file removal and
+> try to convert these to 'platform_device_info' or similar, using
+> platform_device_register_full(). Since that function already contains
+> code to dynamically allocate the software_node, I had hoped that
+> a lot of this would just go away.
+>
+> However, I see that your patch creates pointers to those software_node
+> instances, so  think that would become a bit harder, but I have not
+> actually tried it.
+>
+> Do you know if there is a good way to do this without using static
+> platform devices?
+>
 
-? You just added this file in other commit. Don't add half-baked
-bindings/code, but complete at once.
+Add a pointer to const struct software_node to platform_device_info
+and then use this if it's set and there's no fwnode? It's in line with
+what MFD does with its cells.
 
-Best regards,
-Krzysztof
+In any case, I'd prefer to not overcomplicate this patch, let's do it
+separately?
 
+Bart
 
