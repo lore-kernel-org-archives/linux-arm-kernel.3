@@ -4,84 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75599EE3691
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 14:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D2BEE3693
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 15:02:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEOpOcDfOcS6wohm/ZT/oXiVTSnkMys0KAI0V3vZXVQ=; b=olBHXm08YwbytYHVfnO2Zv5zEC
-	tDs/33Zej9yGoiZEBGK5GslU3GDYOeD3RvkN9L7Pegdko0uyy2dub/lC/RQ9T3Xx2vZei+xq8Jxit
-	TTTwy94LMuHJxphJ08sCz6hcm6J8fQDEtNma/ZKjbka6VnQni7vETSjToB6gdQkGy0XTUkRQ2VC82
-	DrKt1uevS9GPRrVBAX66DcYIDJ5m3rAHYjEUojGqPTHw4c7zNIzTGItcaf8FwfcbXQPmnkKS1LXd1
-	snN899pqOfQtBLXu4XsoXVwivG1bwJ9cDyNN8Y8Cbo7/wmA6Cj9r3fJhykQNg4VVDsp56iIM0MhJA
-	G5FVv9Ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Iu0gxguZujHcorch4QtQWnVO48o2ixZk67iurpOLFw=; b=0hRdLY2VffnXVe408Meg9PMUjD
+	XeoPoaNOq0Pqa+OqRHgsCJg+54q7wpEj9aONQDj6ciSaiFC7boG0gi87efZ40X7Sn/QK145Mr8grc
+	fMwRfPeVnPvxqT8DSJ4Pkl56eadyhtepb+KmwsxW33wAP4ogo/6Sg8eGIDjq6i8/SBi7QworQ4ZWB
+	JP1+e+meSNRj4pSWNXuDw52Ind2iGNUARwUZXRIxil3+V1w4XKB/NNfkDyzEkPkeb5Rp3OYrAQ8Fj
+	nocA8bxGaEOtyNaQHwwpC09T6WK3oBAcG/lyL8F6HIqFeC6kXZXl6t6gTJnkNKRP8uDnvjwaFwy3a
+	qXQLM/fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqY2x-00000002DvJ-35cT;
-	Thu, 12 Feb 2026 14:51:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqY2t-00000002Dug-3yyh
+	id 1vqYD7-00000002ErG-3Hr6;
+	Thu, 12 Feb 2026 15:02:29 +0000
+Received: from mail-northeuropeazon11022123.outbound.protection.outlook.com ([52.101.66.123] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vqYD4-00000002EqR-3hHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 14:51:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A72B0339;
-	Thu, 12 Feb 2026 06:51:45 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD4DE3F63F;
-	Thu, 12 Feb 2026 06:51:46 -0800 (PST)
-Message-ID: <962e8fc7-aec9-48bd-aa75-d33f3b068e2a@arm.com>
-Date: Thu, 12 Feb 2026 14:51:45 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/41] arm_mpam: Add KVM/arm64 and resctrl glue code
-From: Ben Horgan <ben.horgan@arm.com>
-To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
- "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
- "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
- "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
- "dave.martin@arm.com" <dave.martin@arm.com>,
- "david@kernel.org" <david@kernel.org>,
- "dfustini@baylibre.com" <dfustini@baylibre.com>,
- "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
- "gshan@redhat.com" <gshan@redhat.com>,
- "james.morse@arm.com" <james.morse@arm.com>,
- "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
- "kobak@nvidia.com" <kobak@nvidia.com>,
- "lcherian@marvell.com" <lcherian@marvell.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "peternewman@google.com" <peternewman@google.com>,
- "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
- "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
- "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
- "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
- "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
- "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
- "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>,
- "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>,
- "joey.gouly@arm.com" <joey.gouly@arm.com>,
- "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "zengheng4@huawei.com" <zengheng4@huawei.com>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
-References: <20260203214342.584712-1-ben.horgan@arm.com>
- <OSZPR01MB87983A126E58D3FE8A73A98F8B65A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
- <9a8a163e-887a-45fc-aae5-45e564360c8b@arm.com>
-Content-Language: en-US
-In-Reply-To: <9a8a163e-887a-45fc-aae5-45e564360c8b@arm.com>
+	Thu, 12 Feb 2026 15:02:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K/zUKjlLkTsP7aMEEP4N1Z30pc8yUZCPEF8KBIMR9d2G0kSITH0dXNJo+kR8h9Z3FK9NxT9Bv+KkSY03SE/Og9Nne8UthKwQ3EvwMuBnS+YTZRoQEIvkVtH9UO89yJJV1tGqGjUvng+Ua+Jk/VOyawk/pdl/VVTvGZXXemk7eeCmmNluWQxAn28kMvD5fkat90dRRKW47P+glNAcLAV8ewEmRqhtmqMh+bclj1EIbKtEyNsg6nqTz/rAwbFVEzQxxKICcPN0dVBGSIWa8VOvd1KaNMJ25Lu3R9SCc15FpcxyGdc/Rno07yOSA4xBT+Hi3aF+NBJ82fIg6UMsMg3Aqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7Iu0gxguZujHcorch4QtQWnVO48o2ixZk67iurpOLFw=;
+ b=inK3tr+R9PGbjsBEfzFleXZUtJRpUAogIOvnWLl0rcN0iDWDn2K1pVjwQCK7I7RWCIiIYE9/XdGpBu3wITck5Ylr1HpzBYhq+SE0kBDkn39qibBHChF7Qwnjq0yYXf5hHcdeSDqkkHx6VQxBGyHl/1pcCmn4uLHb6tMd4UAulbzxy6fN7JiuCAY46mrkl2OARzPL06IFBjqOlujg7OrZkdifNCn4VIgByRJusy4v2/edI6nxGhC4feiqlNRLmRrIIRSpmVcPSzl/+7BeH388xa/i+QtGKqi5Qi/QoynxKNPI6csWNthmspcYan+qBiTe9oJ8bmrj7WFYkQsQabQwvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axentia.se; dmarc=pass action=none header.from=axentia.se;
+ dkim=pass header.d=axentia.se; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axentia.se;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7Iu0gxguZujHcorch4QtQWnVO48o2ixZk67iurpOLFw=;
+ b=jyfl8Br6ISgHH9cBihd/XUyd0KYGllq/GsSdUUptbR/y7rjjfm4rX0n+UG2Pc+IgrqiUIPumaNHmbhZNjHwsEVxHFWFaHdXJyDreKKJP3OKUNCg1eyc9iKNtqSdNPl7hK9rr0j7v5Gqh0n9ygq1tSeqadR70gfA0NtYZxgXVpZk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axentia.se;
+Received: from AS8PR02MB9235.eurprd02.prod.outlook.com (2603:10a6:20b:5c1::5)
+ by GV2PR02MB11777.eurprd02.prod.outlook.com (2603:10a6:150:2d2::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.10; Thu, 12 Feb
+ 2026 15:02:19 +0000
+Received: from AS8PR02MB9235.eurprd02.prod.outlook.com
+ ([fe80::32a9:a9e6:ded:5714]) by AS8PR02MB9235.eurprd02.prod.outlook.com
+ ([fe80::32a9:a9e6:ded:5714%6]) with mapi id 15.20.9611.008; Thu, 12 Feb 2026
+ 15:02:18 +0000
+Message-ID: <2ecbebd8-0842-34fa-a593-25168c91aa6b@axentia.se>
+Date: Thu, 12 Feb 2026 16:02:16 +0100
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.0
+Subject: Re: [PATCH v4 2/5] i2c: mux: add support for per channel bus
+ frequency
+To: Marcus Folkesson <marcus.folkesson@gmail.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Michael Hennerich <michael.hennerich@analog.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com>
+ <20260128-i2c-mux-v4-2-dee49ce276c0@gmail.com>
+Content-Language: sv-SE
+From: Peter Rosin <peda@axentia.se>
+In-Reply-To: <20260128-i2c-mux-v4-2-dee49ce276c0@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: GV2PEPF00004537.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:158:401::349) To AS8PR02MB9235.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5c1::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR02MB9235:EE_|GV2PR02MB11777:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15f84786-1b33-40ab-8a39-08de6a47b75d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dW9hMmlWYXVjdTFESkVBQXBPaEp3TWdJVGhjT0FVOUhZaEZmODU1MTdqL0sr?=
+ =?utf-8?B?U0I1SElVeGdaZ3J5VWVHTXlpeEdBcHh5MVVyZWtlZld1RmtybUx0c2Njc1FC?=
+ =?utf-8?B?T3g2cUt1ajNvcW9MNlY1MHJlVGZRcEZQTXN0NlVaSXNkL3RxS0U0ckhVY0pN?=
+ =?utf-8?B?TGpCK2pWamJ1bTFDSzV0L05JL3YydTdvcnJhS215UEh1aTVBU2w0ZDA3MUln?=
+ =?utf-8?B?MFRxdG5nVzNQaTFJYk9EaUE4VWJiSHkzbDlUanowRXI4aTNkczdjclFIbEhy?=
+ =?utf-8?B?emxXUitGNERrZ0E1K3h2Wkk4ZFQzZDMwajAvd0syTWRGUkJETnVKWEp4Q2tH?=
+ =?utf-8?B?TW9RMVpnWkJxdlFnamI5eHI3cXpTZVNCUVB0VWZyRmY1VFZVR05rdUc2Umxp?=
+ =?utf-8?B?Y3JVVkxXVlVqUmNXZ3BpSmQ3MnRkQTVHTVlJVDNLVllZaEFWR1VHR0U3Vjlk?=
+ =?utf-8?B?OEErdWEzVTFhdU5SUnRLL0NWWThVZElIRlBvSWhzMTRPTDlxeWlMdU1lcUZN?=
+ =?utf-8?B?M1I3YiswY3kvalhGc3V0R0VodlFJNUU5SEh1R21MMmw0T2NSLzhTN25MeEZu?=
+ =?utf-8?B?T1hVeG9TTjFvTXF2dFEwYnRGKzB6K2hGQnBCekc1eVpaZk43dG1PdXUwNWtJ?=
+ =?utf-8?B?bjJFb1ZQWmhzdDdmSUp6R3g5WjdyODlXTkVmWXUxblJXbzhzSDJaQ2czSGRN?=
+ =?utf-8?B?bzBLQ2lDQlgxNUc2YnI0Y1dyUENSWndVdmhnbWUxd0dESlpjaWswcytpUUZs?=
+ =?utf-8?B?WEk2SkNHTFo3bjB1eGh5eGtvaUlCdXZRa1VnQ2VQR3I2M2xyT1NYcDZNbVJ3?=
+ =?utf-8?B?YUFFN3BBS1NEOXdPdStjUFhTM2pGRHZINzJqSmtIcjI1b21GdmFTbkN2Kzlw?=
+ =?utf-8?B?S2FWRGhyTzRkOUVZV3hYWlFEMUZxdEVITTFKYnVMQVNUd2FqZlByMHJKQy9N?=
+ =?utf-8?B?WVQrcVlMSWNyK2dzcnM2UkNWQ09UUEtPSjRnRUxSZXg4UEYyWlFwZVpIMWhJ?=
+ =?utf-8?B?ZWk2Qk5jblU1MjNTQXVsdEMwclJZZHlIQU1NQjgrc0IwVE1wL2hkczgyQzNN?=
+ =?utf-8?B?WDlLRlZBSFdGYjJNMjRyR2QwZXQ4Z0ZQb051anE3WmRkeXUvQTlqRkdNTFdO?=
+ =?utf-8?B?NGFKcDBFQ3FTb3JaMXNjSklha2VuTWIvQ1dWVXVoamNMdDViMjl6NlZQQk5n?=
+ =?utf-8?B?andLWDY0dHoxWDk0QjJxaVhpd054eS9hYzlLMTFDTUYvNFhGdjZTcUxrVnBS?=
+ =?utf-8?B?L09rVkJxQ3IxQ2l3Z2lma2QwTGR6WVozZW9zSDVJVFd6RlZ4blQxcjMrQVJ2?=
+ =?utf-8?B?VHJxK0x0UWVvT1Z1T2JYZWNZL3ZBNXpzK1F5S29kVFhyNnFYTmxBSjRYbXBS?=
+ =?utf-8?B?cTR4OEVCMjR2bjBoWVFHajhSQTJ3Mitpa2QxZzR0clY0SmEwZDNHMVh5ZXZF?=
+ =?utf-8?B?eEc2UU04WW9rUWxLbXFMbVphQmVNdHZodkp5cy9mUkVXeW5FdHhjV3RtNWZt?=
+ =?utf-8?B?MUxscVRwaVFNbXpGWGpmMG1oREhQT3lvU0ljVE9sbHRuNHZGTVpyS0lHWTJk?=
+ =?utf-8?B?eEttRDl6Qk1EYUZ0dVFyTFUydHEwelF5WDIzSDFSSEdheGlHTnA1SHlxdmxD?=
+ =?utf-8?B?YlM1U0J1VjZYL01KRHRiMFlCZEhKSVd0cnQydk41NE1jV2NiNTRsU2tFcStr?=
+ =?utf-8?B?bDlJZUY4SkN3eDhGR2JaczJSSlQxdGp3R2hCWG9yMVU1WTBZVUNJZUZzWUpn?=
+ =?utf-8?B?eVY5MklxVnc2OUI1YktkN2VYU01ZY3g5NkE2akFKZ0xLejA2QUhLVjFlSmxG?=
+ =?utf-8?B?M1ZzV0VGWVdHb2tKYlBsd0Z5S2JoZ0ZWNGdEMHhndi9aZnZLSGNDbllaakhN?=
+ =?utf-8?B?NDRIYkttQWx6cm5tQjRKRzJCelVKT1BIMy9QS2xiL3FORDUyNk12MTBvT3Zp?=
+ =?utf-8?B?ZTZhNm53ZkZZYXEwbzh6TU54Y2ZGeThXZ250ektucFMxeHdNRS9NR3Jwajhy?=
+ =?utf-8?B?ZDFIYlRocHVFMzdPVGJsSVVTTHgxTzBFeE9JSDdwaXVuOUxuWHVYOWlhODRN?=
+ =?utf-8?B?QkpoR2E2V1BjM0FlMk1UZndLaS9nQ0lSL3lwYjdYRGE5TnN2cUdlUnZLSnAr?=
+ =?utf-8?Q?nFw4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR02MB9235.eurprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UG84eSs1K1VJTUJsM0U5V1g0T2pKWVJhY0FzWEttWXpDMXhNTUpEK2JyS3BC?=
+ =?utf-8?B?akxVanNERG9HKzdNdXZzalgxcjFnd09pQk82NEJCK2syR1UrMWFPdXpIS0l4?=
+ =?utf-8?B?MGlsY1hhSUFLaEIyTHY2Wjg3MG1FSjloM2dteTQxa0R3OHhKQktzVGVTNmJi?=
+ =?utf-8?B?TWxmbGFyU2xkRk5PelFuSDFhRGVKS21NRFRyTVIwVWV5OTBhUzBmTGxFUTdi?=
+ =?utf-8?B?WGJVaEwrYlAwOGdmZ1VxOXZwK3gybExjODE1a3ByRmkwSFZKY0hFcTBFZnMz?=
+ =?utf-8?B?REZoUzA4eXNmNUUvTXFTZVNGL3lIT1NrVzZ3SFZRcDFJOUZZQmgyZjFWeWg4?=
+ =?utf-8?B?VjVGV1BxdDdvLzlDeCtZT2psMVF6SllWSlRqZEkrZFJINmVSOXJoV1RkbjFY?=
+ =?utf-8?B?UVdXUjlQQjI4NVNlQmprSFhkYWpHVmM4VldWTG9NYnpsUTFXaGJ2dzFKamd3?=
+ =?utf-8?B?b0VjRFY2cjEyb3FOK2JCQlFBN1hhMlN5Z01SRHZ3NFNHRmVJUmRUWHBZMHRW?=
+ =?utf-8?B?Wlo2U25IUUhXRHpyYzZzTUdlU1F4VGt0b21VakgxcXJ1bEgxRHQrbzRZV3dI?=
+ =?utf-8?B?MDBxTkV1SnBQWXJqS3pPQ2hjYy8yTkkxR2NxZWtuQmlib2trWFJDeEVSa2Js?=
+ =?utf-8?B?eU00Y3liWUoxWGNOSnJiNG9rcTgvc042UmVzL1VnbmVsd2dvcVdITDdrMmox?=
+ =?utf-8?B?UjV3b2xCKzRFdkJQVkcrSkJlUXozYXl0QUlpcjBucGxyZ1AzYTRCaU9oN0JS?=
+ =?utf-8?B?c1IzelFkZjhwenU3Z3NWd3NkQ0lWa1NEWEE1a2tIL3kyRzUxUnBLMW5EZGpM?=
+ =?utf-8?B?aVAyRmdnYi9WRWFZaTk3R2NkTlhobXMvaHR5K3VTZVdscTV6MVZNQ0I5UkQw?=
+ =?utf-8?B?VmQxRTJzSEhIdW9oN3JlQzY4TXNYNloxNWJnZmdQSldxTWdDSVBFaWZnZXha?=
+ =?utf-8?B?TW96czBMYTNyYTN3VnB0WTVlSUFRQkVRaG5TdERWb1QwZlNzYjVoUllFeitn?=
+ =?utf-8?B?engxTGo0MCtpWG82cy9MYlBYaFRZWFZiczR0VUJsL0tDZlVnY3hoMDlHNno0?=
+ =?utf-8?B?bFAxTmo0M1lCTVVobFBPbGhhMzYwSG1VRWpFK01sNFhxUEJ1M1RacVhkVzVa?=
+ =?utf-8?B?dDl1eXNKWUYreXM1VGVkWUJpZDQrOURXamoyZ0ZGVXZqRkt3amV6QmpRRE4x?=
+ =?utf-8?B?WENKZTR3Myt5RnNTeDhHdkNnVUFWM0E4RkVhU0tJZ2ZwcXJBQThqalRXcWVR?=
+ =?utf-8?B?SEsveXgxWXJqYkpzS3VNeFZmZnVsRDZEY042WTFoRUFJajZPR2ZseEU3NTZ4?=
+ =?utf-8?B?ckcxR2VlSlVmSU9weHNSbW5jUWFhdnVFMU90KzlmZkNiMmFGd3BxOXRWNmU4?=
+ =?utf-8?B?ckNQMnJoT1dFVmF1T0hnWVJFY01XLzhVRERTNHUrYzljMVNFUDdHSVpTZis3?=
+ =?utf-8?B?cG52MStnVU1zaDdNeitOT1ljRnlFblZhQ2wydnRuYlRPSlpkZVV1K1BBdFZr?=
+ =?utf-8?B?NkY0b3BaNXhHOFd5ZEV5clF3em4yTU1PaURPSWFKTEtoS2VqOWVrZkdnb2dG?=
+ =?utf-8?B?V0RXaEp5eG9GdU42MWtyR0o0aVNEUmlnYzBaQU5XVEs3V0N3RGdRU24yMExI?=
+ =?utf-8?B?ZjluMEpoZmYveFRiM1BiQjVWL2x0SEtsa0pGbk01REdEVG0vN090cEp0TUJk?=
+ =?utf-8?B?VHFDUXhQY0UycGRHRXNOejVxOEpxV2ZVTlk2YlNlRUVtaFZMbFpKdTVOUXdQ?=
+ =?utf-8?B?YTJMcGEzQUVhbzBOOEJyUXVyb3p5QTVIYS9PM2NJL29wb1RpTVZLTHhwZW95?=
+ =?utf-8?B?SVZPUkcvU0xmejNHVG11ZlhPaTVsanZ6U2JiRHJEakNzVE81RWVrTlRyNUVE?=
+ =?utf-8?B?SzVOc21ZbUgvMEVoVmtSUTVpVloxVVRDR3N4cDhyKzBaaTRtN1k2aWdzcmQw?=
+ =?utf-8?B?eFozeGVyWDFvb0x5QXVDV0NlbTRrT1RvbUw5UWVCMjB0bVE5Y1JleUh4SE4z?=
+ =?utf-8?B?QU5Wd0F6dEIyZ0pUMWtVY291c0ZQOXVnaUpzT3ZOb25oa3l3UEtUcFRCNzlx?=
+ =?utf-8?B?dzZQQ043VnFnYVpRRFl2NzZaMnNsRW5lR2lTTzdQeXNTa1FraStBTXc3ZWxZ?=
+ =?utf-8?B?aFRsbGhNMGtNR3V2Z280T0lTbERreUxrYWtuUGM1a1FGL0VoMnpqR3B2Z1FB?=
+ =?utf-8?B?a1RRaE9DNTFxVmc1LzQ4UkVRSmwwNk5ncjdFakdXVzlqVUxlaEdTYm5YQ01V?=
+ =?utf-8?B?NzUwYlNLR0FBdHBta3ByZUFyTWVoTFhaM04ySlpSb3BCdngvOWFLQnREam0y?=
+ =?utf-8?Q?U9zjTk2H2A9RbaHCvt?=
+X-OriginatorOrg: axentia.se
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15f84786-1b33-40ab-8a39-08de6a47b75d
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR02MB9235.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2026 15:02:18.6781
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4ee68585-03e1-4785-942a-df9c1871a234
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0ZOYYbkii1oCwz/vb9rzbbod100o6rrzJO/DU2bKKzrxzdGPHI1MKVWKL/RLZ9d6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR02MB11777
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_065156_070829_AFC0AA59 
-X-CRM114-Status: GOOD (  27.92  )
+X-CRM114-CacheID: sfid-20260212_070227_238777_35730B46 
+X-CRM114-Status: GOOD (  26.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,80 +188,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shaopeng,
+Hi!
 
-On 2/9/26 10:04, Ben Horgan wrote:
-> Hi Shaopeng,
+2026-01-28 at 10:54, Marcus Folkesson wrote:
+> There may be several reasons why you may need to use a certain speed
+> on an I2C bus. E.g.
 > 
-> On 2/9/26 08:25, Shaopeng Tan (Fujitsu) wrote:
->> Hello Ben,
->>
->>> This new version of the mpam missing pieces series has a few significant
->>> changes in the mpam driver part of the series. The heuristics for deciding
->>> if features should be exposed are tightened. This is to fix some
->>> inaccuracies and avoid overcommitting before needed - shout if this changes
->>> anything on your platform. The final patch adds documentation which
->>> explains which features you should expect. The ABMC emulation is dropped
->>> for the moment as it requires resctrl changes to support for MPAM without
->>> breaking the abi. The default 5% gap for min_bw is dropped in favour of a
->>> simple default (kept for grace). The series is based on x86/resctrl [1] as
->>> resctrl has telemetry patches queued which change the arch interface.
->>
->> Could you please elaborate on why fs/resctrl changes are required to support only the counter assignment part of ABMC?
->> Currently, many SoC chips have an insufficient number of memory bandwidth monitors.
+> - When several devices are attached to the bus, the speed must be
+>   selected according to the slowest device.
 > 
-> Sure. When the counter assignment mode is 'mbm_event; resctrl assumes the mbm events are configurable. 
-> The 'event_filter' files at
->     info/L3_MON/event_configs/<event>/event_filter 
-> are used to display and set this configuration.
+> - Electrical conditions may limit the usuable speed on the bus for
+>   different reasons.
 > 
-> In MPAM event configuration is not supported and so showing a read/writable 'event_filter' file is 
-> misleading to the user and needs to be hidden for MPAM support.
+> With an I2C multiplexer, it is possible to group the attached devices
+> after their preferred speed by e.g. put all "slow" devices on a separate
+> channel on the multiplexer.
 > 
-> Just to give you a flavour of the change, here's a hack to show the correct thing for MPAM:
+> Consider the following topology:
 > 
-> --- a/fs/resctrl/rdtgroup.c
-> +++ b/fs/resctrl/rdtgroup.c
-> @@ -2338,6 +2338,9 @@ static int resctrl_mkdir_event_configs(struct rdt_resource *r, struct kernfs_nod
->                 if (ret)
->                         goto out;
+>                       .----------. 100kHz .--------.
+>     .--------. 400kHz |          |--------| dev D1 |
+>     |  root  |--+-----| I2C MUX  |        '--------'
+>     '--------'  |     |          |--. 400kHz .--------.
+>                 |     '----------'  '-------| dev D2 |
+>                 |  .--------.               '--------'
+>                 '--| dev D3 |
+>                    '--------'
+> 
+> One requirement with this design is that a multiplexer may only use the
+> same or lower bus speed as its parent.
+> Otherwise, if the multiplexer would have to increase the bus frequency,
+> then all siblings (D3 in this case) would run into a clock speed it may
+> not support.
+> 
+> The bus frequency for each channel is set in the devicetree. As the
+> i2c-mux bindings import the i2c-controller schema, the clock-frequency
+> property is already allowed.
+> If no clock-frequency property is set, the channel inherit their parent
+> bus speed.
+> 
+> The following example uses dt bindings to illustrate the topology above:
+> 
+>     i2c {
+> 	clock-frequency = <400000>;
+> 
+>         i2c-mux {
+>             i2c@0 {
+>                 clock-frequency = <100000>;
+> 
+>                 D1 {
+>                     ...
+>                 };
+>             };
+> 
+>             i2c@1 {
+>                 D2 {
+>                   ...
+>                 };
+>             };
+>         };
+> 
+>         D3 {
+>             ...
+>         }
+>     };
+> 
+> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+> ---
+>  drivers/i2c/i2c-mux.c | 116 ++++++++++++++++++++++++++++++++++++++++++++------
+>  1 file changed, 104 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
+> index d59644e50f14..b7974161be4a 100644
+> --- a/drivers/i2c/i2c-mux.c
+> +++ b/drivers/i2c/i2c-mux.c
+> @@ -36,6 +36,72 @@ struct i2c_mux_priv {
+>  	u32 chan_id;
+>  };
 >  
-> +               if (!resctrl_arch_is_evt_configurable(mevt->evtid))
-> +                       continue;
+> +static int i2c_mux_select_chan(struct i2c_adapter *adap, u32 chan_id)
+> +{
+> +	struct i2c_mux_priv *priv = adap->algo_data;
+> +	struct i2c_mux_core *muxc = priv->muxc;
+> +	struct i2c_adapter *parent = muxc->parent;
+> +	struct i2c_adapter *root;
+> +	int ret;
 > +
-> 
-> 
->> We would be grateful if you could support the counter assignment part of ABMC.
-> 
-> It is not a big change in resctrl but I thought it best to not gate the rest of this series on
-> an additional change in another subsystem. I am current looking into this and hope to get the 
-> patches on the list early in the next cycle.
+> +	if (priv->adap.clock_hz && priv->adap.clock_hz != parent->clock_hz) {
+> +		root = i2c_root_adapter(&adap->dev);
+> +
+> +		/* if we are parent-locked and the root adapter is our parent,
+> +		 * we already have the lock we need. Otherwise take the bus lock for the root
+> +		 * adapter before changing bus clock.
+> +		 */
 
-There is another small change that will be required in resctrl to
-support ABMC with MPAM. As counter assignment means that it can't be
-guaranteed that each CTRL_MON group has a dedicated memory bandwidth
-counter the software controller (mbaMBps mount option) won't work but
-the mount won't fail. AMD doesn't hit this problem as it's MBA is
-non-linear. I was hoping to repurpose the delay_linear flag to just mean
-the software controller isn't supported but resctrl displays this
-information to the user in the 'delay_linear' file and we don't want to
-mislead.
+The assumptions made for the "otherwise" case is wrong, I think.
+Consider e.g. the case where we are parent-locket, our parent is
+another parent-locked mux and our grand-parent is the root adapter.
+In that case we also have all the locks we need. Trying to grab
+them again will be a deadlock.
 
-> 
->>
->> Best regards,
->> Shaopeng TAN
->>
->>
-> Thanks,
-> 
-> Ben
-> 
-> 
+The more correct approach is to do the parent walk in search of
+the first ancestor mux that is not parent-locked and then call
 
+	i2c_lock_bus(ancestor->parent, I2C_LOCK_ROOT_ADAPTER);
 
-Thanks,
+for it.
 
-Ben
+Again, I think. Famous last words. Handwaving...
 
+Cheers,
+Peter
+
+> +		if ((root != parent && !muxc->mux_locked) || muxc->mux_locked)
+> +			i2c_lock_bus(parent, I2C_LOCK_ROOT_ADAPTER);
+> +
+> +		ret = i2c_adapter_set_clk_freq(root, priv->adap.clock_hz);
+> +
+> +		if ((root != parent && !muxc->mux_locked) || muxc->mux_locked)
+> +			i2c_unlock_bus(parent, I2C_LOCK_ROOT_ADAPTER);
+> +
+> +		if (ret < 0) {
+> +			dev_err(&adap->dev,
+> +				"Failed to set clock frequency %dHz on root adapter %s: %d\n",
+> +				priv->adap.clock_hz, root->name, ret);
+> +
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	return muxc->select(muxc, priv->chan_id);
+> +}
 
