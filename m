@@ -4,100 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6888DEEA84E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 20:33:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C853AEEA850
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 21:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GnVOYFS1dOs4ytjskGYRNbag345ulKuZ+IaQUN3bwJk=; b=jaxsW1hDAtKD2oUsU0FvK34Yrj
-	3dnq03P17LFOl+BKy4O6shfWM9RoZLBldTZXBoYckoMReWpDakb74MTFi/hJAfLHYoQIR92hCXQSQ
-	WXdMzxpJeBfDsLX4irOfYUzxbRaHiJpxOsRWVakgIykQvbYs4RhK2gq1k2m8vwY0S9nsg6lJPAHUK
-	I8nnkX193UdKXRrMY4golb8W+4eao1eIrKUadkodng6NwQaUllsrzS3cIdB7LBWtqsHjIsWmdZDXS
-	BZcl74A6aGcPHtJfUnDfifxnj5Wp6kQ2Q6rGtjB6ciN504XbQFe2pLDnMSI0EZDAawK0kpQQFXogo
-	1Qmbu80g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=DEi6lE69DtAre9+98et1Td5y86Gv96d2+RPCeTq+27M=; b=1hrq4VzeHfjjZu
+	HoxScQvBAr+6bA/CRjVRs6eAJwKj3khn2/r3ZZkjI2oBeJoo9W63xSro40JUynC6csuyZRGKnbi1F
+	P1pfLKkSThLeFHs+oSt+Vcwgq1LJ1aHb7YsslqapfzG4Q0v6tuaa971ayWL6lHgxuyG1LyPGm7/jI
+	wRf5SvJh5z9y4kYbQsrjLeKBBGgqlc7XTuHo8TeW68ar+hlI7k5eN0bDBgwrBLDecnrMd7q7EXjQu
+	gpc40g9QIoOkdoGmVJDhxNr1gAMNbausm3Z8NbfhUPXLyxW4uFUlPq/WgV7BydFC+y8DaNWjpsRsq
+	HF76UCXP45modDSSoosA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqdNX-00000002cOz-0uxk;
-	Thu, 12 Feb 2026 20:33:35 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vqdvW-00000002dQ8-2P0F;
+	Thu, 12 Feb 2026 21:08:42 +0000
+Received: from mail-ot1-x34a.google.com ([2607:f8b0:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqdNU-00000002cOe-3mK5
+	id 1vqdvT-00000002dPm-2mRh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 20:33:34 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-4358fb60802so153961f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 12:33:32 -0800 (PST)
+	Thu, 12 Feb 2026 21:08:41 +0000
+Received: by mail-ot1-x34a.google.com with SMTP id 46e09a7af769-7d42e248b0bso1602089a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 13:08:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770928410; x=1771533210; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=GnVOYFS1dOs4ytjskGYRNbag345ulKuZ+IaQUN3bwJk=;
-        b=yO8pdgthr0OpTZUQoN0QbtsNlPth7bRBd7vUU5F8ZNidvT0Wsd4vL08EjWjSzxEpfU
-         5bW8i1samYGln81pMpAHsxY8SCqYkV2eU1S7LZ+LpDa//4FFGq/onNm5zs/+XQ2MA3Gi
-         KVek5sHDCyXoTLAh+KqtCh12JJ1WzeDHUG/vxgO17pqjrVUgv+hq9olw5QeSPX48OK6z
-         7Vq3kJ4X2rAc68nRElZzdEl/77XudApmsVEn14M2lk8ykKn/ot9QRZcezJs1yy4PHVWV
-         EIuful4ILXgMsH6PfCE5CpTPpZVEWBX5CdMo6Yp5ZCNiASPU7dV5sjShOmndIQHHS5LQ
-         XGlw==
+        d=google.com; s=20230601; t=1770930518; x=1771535318; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=DEi6lE69DtAre9+98et1Td5y86Gv96d2+RPCeTq+27M=;
+        b=2T8J3dQfoLqAPv6fSTZWvOpR2Y9b1Yr+WMHy7CBRcpA6Drvx01vjIiSXskecXdLNl4
+         GMpyRG8FjXkn4VzlYRCpGWpjU8l+POSyIhP9CA4XbMQ3AiS5diQg7VE4njJwtzuG4VJ8
+         HbO2nwY8unYYvPWoGoiK55IhR8nIfLt2ShinBZKAjwgK4PGt44d/TDDNplB76fDr+ioe
+         jR1ebHVj8Rw+YJHt3c4flmQsq03Ft8TGlxM74/OkuWWVdx4QsFW4pzs8hHdXhh22tTsn
+         4W0JXrqt5qRnfSRPqzkUE2zBNMvp0Pe/tCWghSLf7SVel74g2mGaUBu3ZeSMHwru5H2K
+         CicQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770928410; x=1771533210;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20230601; t=1770930518; x=1771535318;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GnVOYFS1dOs4ytjskGYRNbag345ulKuZ+IaQUN3bwJk=;
-        b=uj8BD4uB8lQs0zNTP77wH0ApducmW9dbW1vT81BTKglqnOvS7G93n1SV3ycysInh93
-         6gs0gN+Ig8HQ7Ham6s0fc+70Yy7ZRLuiQsYeKi7JnMvVUAcS9DsRLZjZqsT2l8rGj4WQ
-         AuQ4xaunzgaFfCvuosg64aINzvSJQp6HASY8TlooMFCruyYaQIrAQiq7uloUlcEgNy+3
-         hnZks8bh3D7TVT4FnTnjMGMKalaYSyFnIa9tSUt0f7uMjiX7GHoJZcV3l9k3r7lxiVrt
-         ZI3tSZ9o0VhKTRgzQQQbEjcY+AEfWz/d3CsZGAVOX7BvhFDr7OeCHUcuANTBiV24IK6a
-         st4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXMuVWKUxut853AndUJS4+3i/jUNelTejIS7M4Lvde+3UhrrHMETt0vdnLT8qeUifdhGP9cCf7lfN137jt3QTLh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1MMU1yLXEsP0fMOApTmro52QOZPS4A5wUE/udFzNZD4nW8UY9
-	lIwp7Ns3Nvj+gwct8IPYvsofKCalCPXMpBvWMey/zerklifM8K74WvIcfSyuTX/ICsg=
-X-Gm-Gg: AZuq6aJy0kttIgI+IBJC4M7PNJjtb/seittGFcm3mjxLHKboHRDHHIf9tMgLcbrerLO
-	OpVdD/21JJ0ZJAefNas4NjadZeE8rE1MA0gVQ64h886sTHd2FQE342ZJ1ySLZ2FjZH63WqWs1mP
-	hKE9erw4B3HPdD6KpA+DJaLcSfC0Tq+Znc7Izo7CZ+GJmiz+j4ozhjaMfS4yaB5OhSItuOOsCUq
-	Bs9qkCkN9VuYfkJf0lGnJjIpsGAlYqzazjLQ+AbtpJxUUVOSBCI0Gz4CkdcjjnWYD0XVCFycCnH
-	Y3lN0yOz9sCXD7ZMa6Skx5fFLx23cQzj3HBflFGo4zDECiA4X9BvL8VTCsX8TUBIyoQ7I9IS3Rq
-	fLKGNxnuev6nehN6eZNRbSN1in3FG62py184qOh+3VNMt0q51M5Rl7yA6VdDttixitDn9eMCM6a
-	CoLuE3eUHgPBrgT9vjXDhVJwJnovCDAcPvcFHLyODe
-X-Received: by 2002:a05:6000:3113:b0:435:9e81:105e with SMTP id ffacd0b85a97d-43796b22389mr268014f8f.19.1770928410444;
-        Thu, 12 Feb 2026 12:33:30 -0800 (PST)
-Received: from draszik.lan ([212.129.82.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796ac9d77sm419495f8f.33.2026.02.12.12.33.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Feb 2026 12:33:30 -0800 (PST)
-Message-ID: <f190f9a211a69bf5200098f9d26a40b117ff7953.camel@linaro.org>
-Subject: Re: [PATCH v5 04/10] dt-bindings: soc: google: gs101-pmu: allow
- power domains as children
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>,  Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Ulf Hansson	 <ulf.hansson@linaro.org>, Liam
- Girdwood <lgirdwood@gmail.com>, Mark Brown	 <broonie@kernel.org>, Peter
- Griffin <peter.griffin@linaro.org>, Tudor Ambarus	
- <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, Will McVicker
-	 <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
-Date: Thu, 12 Feb 2026 20:33:33 +0000
-In-Reply-To: <CAL_JsqKKig8ePmmMZH=QagSyw0d=FKrORTxKzj7HOZqd0jLZFg@mail.gmail.com>
-References: <20260205-gs101-pd-v5-0-ede49cdb57a6@linaro.org>
-	 <20260205-gs101-pd-v5-4-ede49cdb57a6@linaro.org>
-	 <20260211211229.GA3882182-robh@kernel.org>
-	 <b5078af810a681333043f64d71b7d6ea55ff44bb.camel@linaro.org>
-	 <CAL_JsqKKig8ePmmMZH=QagSyw0d=FKrORTxKzj7HOZqd0jLZFg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build4 
-MIME-Version: 1.0
+        bh=DEi6lE69DtAre9+98et1Td5y86Gv96d2+RPCeTq+27M=;
+        b=Kd/Bc+w9+jBOP99JMXZZnt0Zk4wS0GcbgV7WRkZlbGqISDf/bqbRifvJaJa+N1Fh47
+         fNSFUlbEqETL6Tx8zqO0lPjO86vQs3cG+VVCVnWZO4o4SQvCilVwSqPmZDUbi6A//dq2
+         ERqaNYK2DwSAzxRINqq3pWnmQq0Kd9qKbb9i16Y2/clld4bKCGPPfXlja3NummbO+n2x
+         3mr6OwjDl5CQwI8h0Vp5Dj3ogF0XsgKJ4cK6KI1V2pwcZC2OV3Tc0ftV0d2xBqFG8Ft5
+         zs2aj/t8FSlLKO3MXn63qJIuqYKHGZLZt1nKVb/emkr/QuHx9nNX/ODRQj1SJPPrI4U2
+         Q+rw==
+X-Forwarded-Encrypted: i=1; AJvYcCWcSvoiVG44fhwN7gxNKkB+PEDPFjRrTo7rPHn9UxXm5ZNgieCrZTWEjXwz8kwPpAW9rcCjyvaEnHmzviq0EpnK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJFG2tsa6C/ELyrVrk3UupSj/dH3cSbxLGwWrWc8vG83D29+ai
+	O/GWH7PWLExrLrRJfwPdcM6Bd5F6AhlXjgcZhi2wgS8YQBaJ2QMvDHa0isK+skjfCJNb67s991n
+	+Df5e+hoOFcpka8kSwPe4jpVDZg==
+X-Received: from ilmv6.prod.google.com ([2002:a92:c6c6:0:b0:468:4e21:6fcf])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6820:61d:b0:663:2b12:14f1 with SMTP id 006d021491bc7-677243b521amr65721eaf.83.1770930517469;
+ Thu, 12 Feb 2026 13:08:37 -0800 (PST)
+Date: Thu, 12 Feb 2026 21:08:36 +0000
+In-Reply-To: <86v7g5asp4.wl-maz@kernel.org> (message from Marc Zyngier on Tue,
+ 10 Feb 2026 08:49:59 +0000)
+Mime-Version: 1.0
+Message-ID: <gsnt8qcxhdpn.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH v6 00/19] ARM64 PMU Partitioning
+From: Colton Lewis <coltonlewis@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com, 
+	corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, 
+	will@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_123332_963954_93A4FEA0 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20260212_130839_756513_7A4E181C 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +93,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Hey Marc, thanks for the review.
 
-On Thu, 2026-02-12 at 14:06 -0600, Rob Herring wrote:
-> On Thu, Feb 12, 2026 at 6:03=E2=80=AFAM Andr=C3=A9 Draszik <andre.draszik=
-@linaro.org> wrote:
->=20
->=20
-> "google,gs101-pmu" represents some specific h/w. That h/w either has
-> power domains or it doesn't. So which is it?
+Marc Zyngier <maz@kernel.org> writes:
 
-It does have power domains, they were missing during the initial submission=
- of
-bindings and DTS.
+> On Mon, 09 Feb 2026 22:13:55 +0000,
+> Colton Lewis <coltonlewis@google.com> wrote:
 
->=20
+>> This series creates a new PMU scheme on ARM, a partitioned PMU that
+>> allows reserving a subset of counters for more direct guest access,
+>> significantly reducing overhead. More details, including performance
+>> benchmarks, can be read in the v1 cover letter linked below.
 
-> > The compatible doesn't change with these patches. So I'm not sure how t=
-o make
-> > your suggestion work without causing warnings for existing DTs. We can =
-either
-> > have an old incomplete DT+binding:
->=20
-> If this is considered incomplete, then you are going to complete it
-> and add the child nodes? If so, then the warnings are appropriate.
+>> An overview of what this series accomplishes was presented at KVM
+>> Forum 2025. Slides [1] and video [2] are linked below.
 
-Yes, I'm going to update the relevant DTS to include power domains.
+>> IMPORTANT: This iteration does not yet implement the dynamic counter
+>> reservation approach suggested by Will Deacon in January [3]. I am
+>> working on it, but wanted to send this version first to keep momentum
+>> going and ensure I've addressed all issues besides that.
 
-> If you were going to maintain both bindings forever, then you would
-> probably want a new compatible. Or just drop the properties from
-> required. Note that if you have child nodes with 'reg' and parent
-> missing #address-cells or #size-cells, then dtc will warn about that.
-> So it's not too important if the schema doesn't.
+> [...]
 
-Maybe the commit message or footer comment was clear enough, sorry for that=
-.
-I never intended to support both old (incomplete) and new DT.
+> As I have asked before, this is missing an example of how userspace is
+> going to use this. Without it, it is impossible to correctly review
+> this series.
 
-Dropping from required did cross my mind, as I also saw the warning about
-missing #address-cells or #size-cells in that case. Missing 'ranges' would
-still not trigger a warning, though.
+> Please consider this as a blocker.
 
-So does my above explanation mean you're OK with the patch as such? I can
-reword the commit message a bit to point out that while this binding update
-breaks existing DTS, I will update them as they're simply incomplete.
+Understood. I remember you asking for a QEMU patch specifically.
 
-Cheers,
-Andre'
+I had hoped that the use in the selftest was sufficient to show how to
+use the uAPI. If not, I can send out an example QEMU patch to the QEMU
+ARM mailing list.
+
+> Thanks,
+
+> 	M.
+
+> --
+> Without deviation from the norm, progress is not possible.
 
