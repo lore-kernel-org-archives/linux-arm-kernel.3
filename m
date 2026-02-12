@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E3DEE36B4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 17:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 146B6EE36B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 18:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVoDgNvFPAPR1EbqgE32vWztdqGv08NyBHpovwVsjTU=; b=x4pmWDYBQl2uXEiQxh7UC00e3A
-	rRhyR6RXOysvRWD27CcK9QL5Ir3YkAWu4ICKTk4+Mk3tZK8IzLpHJcftmMCNmFuOZ8Zu7SznXQin6
-	mTZHdRMyvwZRS6r2splL7CVFTFFX8pQKGhHv2onfYUmuR35ihE1Sjl+JopGNdHb82WdjgQQBypXm6
-	NLDhvaIrsKN7wpymrdrDr5jZEUZtgyvM0m3DsaPEMSLVY4NjPY/t+4CkmGYFEMoUmAUbaxtICHC9J
-	qWzrBukyRn9aE+nwdCLmWPagFCGQJTl+97oglJmUIeldtnEqJl4U4Z7/TLRYAL18ZNc52mcITpsQr
-	fmLghk0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+8kTUrc2o8wPYaMgFv2zk2qMqXHnJHp/twrSvkqJ9AQ=; b=Ma8YI+qeYoXxHiYpUx8AgcLJmH
+	oV0RD7NSGqI83M8rFQ0m4QDnYDmSlVwFhSBP81IMrQWnMYtPfRUu2tVcpQh8aAcdQzPA/751qRw/t
+	bErNtB0FwsdS30/spJL9D+4cT7DW1NTWBrR1neDXANRaTX01l0pvUtOE/cxUQuYYJPelt5mHgXbUZ
+	UmSHn9gHCvXLjKtGYLfub+ffS/Ok0pPjGBl5vcYlIDb6hZsEzUOfMBPKFcOPyBhtfchKpJCUhzJdO
+	muByM3cBIgaWiS8tymlDNuWS2wgY+6yGw8cDMvc9WoU5Pj6sYG4I2r4KdqHSW6RpGK9pWh6su7wkd
+	4zgX1QuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqasu-00000002TtE-1Lxo;
-	Thu, 12 Feb 2026 17:53:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vqb3i-00000002Uku-00xF;
+	Thu, 12 Feb 2026 18:04:58 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqasr-00000002TsY-1qtD
+	id 1vqb3e-00000002UkV-3RNx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 17:53:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4EFA343FAC;
-	Thu, 12 Feb 2026 17:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00E1FC4CEF7;
-	Thu, 12 Feb 2026 17:53:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770918824;
-	bh=ZwsAByPty+lTE4KYyectuJTv8ZOdcyIpbTH3QqcqjnY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=trWs5SlrsmoR2B9g/1WisjJh3lx4QRifD3oG3j6OvCHKmsS81sQUemKNKte6ZcfvL
-	 hYi0onICvtPKHsKRoAupiPGwshr6K8rJYJS4+P9Gqu8XAwJN02lySHtWixGJ0NtK2j
-	 3mZ8YhQIas6ym4fhmg9a3GS0ol8mZX/3amNNFpSMGdB83kutFCr7P7YnMVn/UhkG1H
-	 an8+z4oAh9EkaYRIimum2W2KrlkQwjJw9qlymRkjxlvvWanQSmOpFeXj1huZuRm/3j
-	 bmMrCy8D48PUuolOoA5AKiOPChvPTkuTvuFu+v/Q7O9W1YD4LMa2x1ydJ9EX7hgZFZ
-	 Pub7zi7PgEZPQ==
-Date: Thu, 12 Feb 2026 17:53:39 +0000
-From: Simon Horman <horms@kernel.org>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	UNGLinuxDriver@microchip.com, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: sparx5/lan969x: fix DWRR cost max to match
- hardware register width
-Message-ID: <aY4TozfU1piv40Nh@horms.kernel.org>
-References: <20260210-sparx5-fix-dwrr-cost-max-v1-1-58fbdbc25652@microchip.com>
+	Thu, 12 Feb 2026 18:04:57 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id AEC40C23DAB;
+	Thu, 12 Feb 2026 18:05:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 35E75606B8;
+	Thu, 12 Feb 2026 18:04:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5EA37103688A1;
+	Thu, 12 Feb 2026 19:04:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1770919490; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=+8kTUrc2o8wPYaMgFv2zk2qMqXHnJHp/twrSvkqJ9AQ=;
+	b=OItYGEKeYLv6ENHxiFbDlStUJY+eiUIKrhRIS5s+oy9EWcwC4xSa+/ZCPbMxjYFOh11Qzu
+	9b09NIO+0jumzK1YKqiygXfTR4T6SXEXIaJHLDf2tB2+XEVux6c5aqT9KGG+l3ZVcjZAU5
+	2dlXo/7YhSPhuHum5WinVv79hCcg9Itzlilzp4rHFffcH9SP2UzU71do+LD1lveZ6c80ci
+	waB/vcvME4XbrUrM6MmJStRzBRVxLwypl9nFIcZpRDHNSlxRKacGSbkLlzRFDaHXqEcRmV
+	d0G5clrJ26QwXtQ+Ux8eqZwQP8X+Ak/6r4U1hstaxxncFeQXJJFo45TbY9mTDw==
+Message-ID: <42049f4d-8258-4d9a-840c-a2d2eafc6bf6@bootlin.com>
+Date: Thu, 12 Feb 2026 19:04:44 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260210-sparx5-fix-dwrr-cost-max-v1-1-58fbdbc25652@microchip.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: sparx5/lan969x: fix PTP clock max_adj value
+To: Daniel Machon <daniel.machon@microchip.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Steen Hegelund <Steen.Hegelund@microchip.com>, UNGLinuxDriver@microchip.com,
+ Richard Cochran <richardcochran@gmail.com>,
+ Horatiu Vultur <horatiu.vultur@microchip.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260212-sparx5-ptp-max-adj-v2-v1-1-06b200e50ce3@microchip.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260212-sparx5-ptp-max-adj-v2-v1-1-06b200e50ce3@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_095345_494159_26DE127C 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20260212_100455_003893_298437A8 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,22 +82,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 10, 2026 at 02:44:01PM +0100, Daniel Machon wrote:
-> DWRR (Deficit Weighted Round Robin) scheduling distributes bandwidth
-> across traffic classes based on per-queue cost values, where lower cost
-> means higher bandwidth share.
+Hi Daniel,
+
+On 12/02/2026 12:02, Daniel Machon wrote:
+> The max_adj field in ptp_clock_info tells userspace how much the PHC
+> clock frequency can be adjusted. ptp4l reads this and will never request
+> a correction larger than max_adj.
 > 
-> The SPX5_DWRR_COST_MAX constant is 63 (6 bits) but the hardware
-> register field HSCH_DWRR_ENTRY_DWRR_COST is GENMASK(24, 20), only
-> 5 bits wide (max 31). This causes sparx5_weight_to_hw_cost() to
-> compute cost values that silently overflow via FIELD_PREP, resulting
-> in incorrect scheduling weights.
+> On both sparx5 and lan969x the clock offset may never converge because
+> the servo needs a frequency correction larger than the current max_adj
+> of 200000 (200 ppm) allows. The servo rails at the max and the offset
+> stays in the tens of microseconds.
 > 
-> Set SPX5_DWRR_COST_MAX to 31 to match the hardware register width.
+> The hardware has no inherent max adjustment limit; frequency correction
+> is done by writing a 64-bit clock period increment to CLK_PER_CFG, and
+> the register has plenty of range. The 200000 value was just an overly
+> conservative software limit. The max_adj is shared between sparx5 and
+> lan969x, and the increased value is safe for both.
 > 
-> Fixes: 211225428d65 ("net: microchip: sparx5: add support for offloading ets qdisc")
+> Fix this by increasing max_adj to 10000000 (10000 ppm), giving the
+> servo sufficient headroom.
+
+That's arbitrary, but looks like there's plenty of other drivers that do
+similar things :)
+
+> Fixes: 0933bd04047c ("net: sparx5: Add support for ptp clocks")
 > Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
 
 
