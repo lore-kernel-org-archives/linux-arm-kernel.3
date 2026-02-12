@@ -4,75 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8CABEE3695
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 15:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DB2EE3695
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 15:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZgZh/Rl+E/fs1x1zIL5h9Jc88D7SbPt0exYEgqnWeE=; b=2wS9mwscgosFcLieKQwDSdBYwf
-	mq6NIllLa/RXJ07z6hlbvEazmDJPYSzXVwpMgPlZxz87D3NxbrJDbNSaWEWb/N8tjpfm/v+I/LlF4
-	vK8iCBlcVsmzghimIcVbvTdQpHRT6Aeo4rbNtSKlWjj5VKeMTSnrUPN6bi/WytafiEbKZfpj40ZU7
-	JrTWWHwYNq3bhA0RQbyOlIJocG3EYZMg4fcLzl4cpUXtCY+HPd2kI7E8l1GI/qXhDBUnIreRnMmLX
-	SfdHKxYTN6Oizuh8XO9wSbxt5TXBnGvc7P8I3bUADDBfsTNPGyabdnN+OZMKDyo06Zvr91SulsmdB
-	nxnz/DWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HchJ1SWogrsJwfrTWRXT73uwYPcAoeL4M9mj5bl3diA=; b=2WlF25ug0O7yJMXzoFZrd+xahk
+	MX9BBqDyc1zF1jFvwyDZuxFd2v06vuvssYbJ+zeA7bNvuHVRBY9LOCLuvjlPT6De5noIhi9LzUYSa
+	xn/+0PUh7oBoth5DzzcQkSv+k5TtInKxSNSogIQNgnNHa7ybz3TMaW9ymcCjFCwI0bFayIWbHPXKH
+	iWhDADxrpv472a11N5AhxzZnV/yPNRiRWsDp5oGjXKGuKQOD2P/9cvVAdYnEs1HQjwluQEaAwVsyE
+	0QmYjZfEhNE9LBRFeG2nlkAkOMHb1QfJhwiAd9nWKPv3z9elOPU2KdZQVhnydKn8cyTldEIe/TKnG
+	XYNA2VPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqYhF-00000002HA2-292f;
-	Thu, 12 Feb 2026 15:33:37 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vqYjN-00000002HLp-1rjh;
+	Thu, 12 Feb 2026 15:35:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqYhC-00000002H9Y-0w0c
+	id 1vqYjL-00000002HLT-0t26
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 15:33:36 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 35554C23DA6;
-	Thu, 12 Feb 2026 15:28:13 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EE4DD606CA;
-	Thu, 12 Feb 2026 15:28:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CE86811971B29;
-	Thu, 12 Feb 2026 16:27:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770910067; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=xZgZh/Rl+E/fs1x1zIL5h9Jc88D7SbPt0exYEgqnWeE=;
-	b=oS49II96l26TrTW/awl+bmSz1iSh5Kq1IJOgFVETiBGM548rLYNTnjFGr7Ghz1C4wEESo3
-	/Z4Ys57xQAz6fRA4xUtser19qWpinCg3XguSpxyJkwmkb9MbP19Tgk89g4Mif8qxa/kfDX
-	wHgAsITVUj8uKc9rzXBcMfBf/WTfQx1r6yTf+A1Oajmj0IUsuHZxtBXp96VTI6BLY9HOaa
-	PQDu8TVxu1dOWSWDqLqBeOXq4Ej4H1b6OpO8vkONu3wPQdfdmwu7p/x1++D8E8wz1bb2Gc
-	fLheCV/KfqUpsZQo4znSLXJzTMP5KBVEJJjZwgqGYslWSflA+WxMY2u5DtXK4g==
-From: "Kory Maincent (TI)" <kory.maincent@bootlin.com>
-Date: Thu, 12 Feb 2026 16:26:15 +0100
-Subject: [PATCH 1/5] ARM: dts: ti: Enable overlays for all DTB files
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
-References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
-In-Reply-To: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
-To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
- Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-omap@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- dri-devel@lists.freedesktop.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Bajjuri Praneeth <praneeth@ti.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- "Kory Maincent (TI)" <kory.maincent@bootlin.com>
-X-Mailer: b4 0.14-dev-d4707
-X-Last-TLS-Session-Version: TLSv1.3
+	Thu, 12 Feb 2026 15:35:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D4604401B;
+	Thu, 12 Feb 2026 15:35:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 431CCC4CEF7;
+	Thu, 12 Feb 2026 15:35:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770910546;
+	bh=TO37eo+Xgib1YZz+3/bN23epC9tyuhnej0GE/4f9cu0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aWegDsBCbtfgIg9OB2Xop0lxMZQZwqnfB0XxDQ1ueSB7JcgdPabiA42A0ID30+YaT
+	 P/XSETTC7Yp7LAHJn1mdglYBFHY8apMm7aJjIdTv62SFR8OMUfOdbzlnUy2wCzeZ9P
+	 qeitAMtlBa4Dpu0Pld90mQkZsNlQEPhZhE3NsjwBsGOYAXM1Z0jy/tUfs3Uiy7Yzmq
+	 jqUs5QcXBDMLhWVRmFhrg4r6U4qsQmae3wNfbwYcj9s5SjXNuawXvxLGiKOZVh9R7+
+	 QNiq30C+UJ87E8cP7FBFGdAK0wCpMBxagWggHp00At/4AMI4cabCeJx5GC2bp1sUNM
+	 KIvbaqBP5G1gQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vqYjH-0000000AeWS-3lg7;
+	Thu, 12 Feb 2026 15:35:43 +0000
+Date: Thu, 12 Feb 2026 15:35:43 +0000
+Message-ID: <86ikc2asa8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1 1/3] KVM: arm64: Hide S1POE from guests when not supported by the host
+In-Reply-To: <CA+EHjTz-JU2gDfziCY2SguK9=6gGSCL5TN_U_C7FiZ5i0JTZqQ@mail.gmail.com>
+References: <20260212090252.158689-1-tabba@google.com>
+	<20260212090252.158689-2-tabba@google.com>
+	<86jywib98e.wl-maz@kernel.org>
+	<CA+EHjTz-JU2gDfziCY2SguK9=6gGSCL5TN_U_C7FiZ5i0JTZqQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_073334_434228_0A338DE1 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20260212_073547_294326_D2677DDF 
+X-CRM114-Status: GOOD (  33.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,32 +94,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow overlays to be applied to any DTB. This adds around ~40% to the
-total size of the DTB files on average.
+On Thu, 12 Feb 2026 09:41:22 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Thu, 12 Feb 2026 at 09:29, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > Hi Fuad,
+> >
+> > On Thu, 12 Feb 2026 09:02:50 +0000,
+> > Fuad Tabba <tabba@google.com> wrote:
+> > >
+> > > When CONFIG_ARM64_POE is disabled, KVM does not save/restore POR_EL1.
+> > > However, ID_AA64MMFR3_EL1 sanitisation currently exposes the feature to
+> > > guests whenever the hardware supports it, ignoring the host kernel
+> > > configuration.
+> >
+> > This is the umpteenth time we get caught by this. PAN was the latest
+> > instance until this one. Maybe an approach would be to have a default
+> > override when a config option is not enabled, so that KVM is
+> > consistent with the rest of the kernel?
+> 
+> I spoke to Will about this, and one thing he'll look into is whether
+> this value in `struct arm64_ftr_reg` can be made consistent with the
+> cpu configuration itself (in cpufeature.c itself) . This would avoid
+> the problem altogether if possible. The question is whether the kernel
+> needs to somehow know that a certain feature exists even if it's
+> disabled in the config...
+> 
+> If he thinks it's not doable at that level, I'll look into
+> alternatives to make it correct by construction.
 
-Signed-off-by: Kory Maincent (TI) <kory.maincent@bootlin.com>
---
+What I currently have for that is rather ugly:
 
-Enable overlays for all dtb similarly to what has been done for arch64
-TI boards, but we could only enable overlays for Beagle Bone and
-variant boards if required.
----
- arch/arm/boot/dts/ti/omap/Makefile | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm/boot/dts/ti/omap/Makefile b/arch/arm/boot/dts/ti/omap/Makefile
-index 14e500846875e..52df04328aff2 100644
---- a/arch/arm/boot/dts/ti/omap/Makefile
-+++ b/arch/arm/boot/dts/ti/omap/Makefile
-@@ -175,3 +175,6 @@ dtb-$(CONFIG_SOC_TI81XX) += \
- 	dm8148-t410.dtb \
- 	dm8168-evm.dtb \
- 	dra62x-j5eco-evm.dtb
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index 72f39cecce93a..3bde0ad5ea972 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -971,6 +971,7 @@ struct arm64_ftr_reg *get_arm64_ftr_reg(u32 sys_id);
+ extern struct arm64_ftr_override id_aa64mmfr0_override;
+ extern struct arm64_ftr_override id_aa64mmfr1_override;
+ extern struct arm64_ftr_override id_aa64mmfr2_override;
++extern struct arm64_ftr_override id_aa64mmfr3_override;
+ extern struct arm64_ftr_override id_aa64pfr0_override;
+ extern struct arm64_ftr_override id_aa64pfr1_override;
+ extern struct arm64_ftr_override id_aa64zfr0_override;
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 1a7eec542675b..32069da9651bf 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -778,6 +778,7 @@ static const struct arm64_ftr_bits ftr_raz[] = {
+ struct arm64_ftr_override __read_mostly id_aa64mmfr0_override;
+ struct arm64_ftr_override __read_mostly id_aa64mmfr1_override;
+ struct arm64_ftr_override __read_mostly id_aa64mmfr2_override;
++struct arm64_ftr_override __read_mostly id_aa64mmfr3_override;
+ struct arm64_ftr_override __read_mostly id_aa64pfr0_override;
+ struct arm64_ftr_override __read_mostly id_aa64pfr1_override;
+ struct arm64_ftr_override __read_mostly id_aa64zfr0_override;
+@@ -850,7 +851,8 @@ static const struct __ftr_reg_entry {
+ 			       &id_aa64mmfr1_override),
+ 	ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2,
+ 			       &id_aa64mmfr2_override),
+-	ARM64_FTR_REG(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3),
++	ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3,
++			       &id_aa64mmfr3_override),
+ 	ARM64_FTR_REG(SYS_ID_AA64MMFR4_EL1, ftr_id_aa64mmfr4),
+ 
+ 	/* Op1 = 0, CRn = 10, CRm = 4 */
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index 85bc629270bd9..202e165a4680c 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -51,6 +51,7 @@ PI_EXPORT_SYM(id_aa64isar2_override);
+ PI_EXPORT_SYM(id_aa64mmfr0_override);
+ PI_EXPORT_SYM(id_aa64mmfr1_override);
+ PI_EXPORT_SYM(id_aa64mmfr2_override);
++PI_EXPORT_SYM(id_aa64mmfr3_override);
+ PI_EXPORT_SYM(id_aa64pfr0_override);
+ PI_EXPORT_SYM(id_aa64pfr1_override);
+ PI_EXPORT_SYM(id_aa64smfr0_override);
+diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+index e5ea280452c3b..b8dbe02e53171 100644
+--- a/arch/arm64/kernel/pi/idreg-override.c
++++ b/arch/arm64/kernel/pi/idreg-override.c
+@@ -24,10 +24,12 @@
+ static u64 __boot_status __initdata;
+ 
+ typedef bool filter_t(u64 val);
++typedef void cfg_override_t(struct arm64_ftr_override *);
+ 
+ struct ftr_set_desc {
+ 	char 				name[FTR_DESC_NAME_LEN];
+ 	PREL64(struct arm64_ftr_override, override);
++	PREL64(cfg_override_t,		cfg_override);
+ 	struct {
+ 		char			name[FTR_DESC_FIELD_LEN];
+ 		u8			shift;
+@@ -106,6 +108,22 @@ static const struct ftr_set_desc mmfr2 __prel64_initconst = {
+ 	},
+ };
+ 
++static void __init cfg_mmfr3_override(struct arm64_ftr_override *override)
++{
++#ifndef CONFIG_ARM64_POE
++	override->mask |= ID_AA64MMFR3_EL1_S1POE_MASK;
++#endif
++}
 +
-+# Enable support for device-tree overlays
-+DTC_FLAGS := -@
++static const struct ftr_set_desc mmfr3 __prel64_initconst = {
++	.name		= "id_aa64mmfr3",
++	.override	= &id_aa64mmfr3_override,
++	.cfg_override	= cfg_mmfr3_override,
++	.fields		= {
++		{}
++	},
++};
++
+ static bool __init pfr0_sve_filter(u64 val)
+ {
+ 	/*
+@@ -221,6 +239,7 @@ PREL64(const struct ftr_set_desc, reg) regs[] __prel64_initconst = {
+ 	{ &mmfr0	},
+ 	{ &mmfr1	},
+ 	{ &mmfr2	},
++	{ &mmfr3	},
+ 	{ &pfr0 	},
+ 	{ &pfr1 	},
+ 	{ &isar1	},
+@@ -398,14 +417,19 @@ void __init init_feature_override(u64 boot_status, const void *fdt,
+ {
+ 	struct arm64_ftr_override *override;
+ 	const struct ftr_set_desc *reg;
++	cfg_override_t *cfg_override;
+ 	int i;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(regs); i++) {
+ 		reg = prel64_pointer(regs[i].reg);
+ 		override = prel64_pointer(reg->override);
++		cfg_override = prel64_pointer(reg->cfg_override);
+ 
+ 		override->val  = 0;
+ 		override->mask = 0;
++
++		if (cfg_override)
++			cfg_override(override);
+ 	}
+ 
+ 	__boot_status = boot_status;
+
+
+which works, but is not super friendly.
+
+Looking at the arm64_ftr_reg structure, this could work if
+FTR_VISIBLE_IF_IS_ENABLED() didn't simply put "HIDDEN" when the
+feature is not present, but forced things to be disabled
+altogether. The problem is that "HIDDEN" means not shown to userspace,
+and that we have plenty of HIDDEN features that must make it into KVM.
+
+I'll have a think.
+
+	M.
 
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
