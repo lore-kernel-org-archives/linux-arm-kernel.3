@@ -4,112 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C531EEA84C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 19:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE1CEEA845
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 20:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mpHRDkZlOYvBK1jMHMrk4jQz7fW7xddCyiPaMJKT8ts=; b=OfI2ZNQ1z6cqd7Dp+mn6MjPdR4
-	06VFVdythVXHScH10gmaS9b2N89c+Ck+s9X5F+J/hIAUO58QeHy31irmBRyxxtg619t+IP4jt5OcV
-	+xyLfLOcIp98QwZYp+tlI54mnpKLcuL35nXabUNYovII3rfpV2prsMRMkd9R9ioWFrFJJAXV7MuQA
-	s28CaJDKW6h0WvUc2qavovdZxqP9GSt+63mvLExfru0FzMyHrbys78m8mtEHMhQQES/bnraZgrxxp
-	VFB2s1QbDHt/gL25gEyDfb92AIlhoji8+K7FmAHF2WvMLUA0jPMkf2Nc2z8PJh1g+TulTxrMOVG3w
-	w+7+VGAw==;
+	bh=CqaUNs6Mj5QhZLrT316tnr1HzN3Okc05JKOp8OPkPTc=; b=snWsZXZv3TSKSIT3qd3bCeIcLg
+	g/RW74XvOt3HSTuLW7erCCSihTPDaSIPmK7V+7o9dNMfGUEAzLZL6YCqjC1RgG/fczXygK1wEJwkD
+	vDMqCtD34Q8dpDNKARpmKZMA+EkjGSNVzTNsnA2iM3Xkys53IH1C7yObINNuOvEgivkXXgITktwcg
+	osP4xhB5LdCgSMT2/Z1KelJV6SrnmjoKNQ4pykWsBOXdu4Aen11TocK5PIGI+7U6Oj2FNvbDKTa6y
+	be+eZWxS1avX2BRpO0fEegGzA0kfwtuetYOukvaxlSsxZcAad1P72U6r1bWPn8zU2C+2D5dnTDatJ
+	sW92RLqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqcaz-00000002aQD-1GWU;
-	Thu, 12 Feb 2026 19:43:25 +0000
-Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	id 1vqcxB-00000002bT8-373j;
+	Thu, 12 Feb 2026 20:06:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqcaw-00000002aPs-49l2
+	id 1vqcx9-00000002bSm-06GY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 19:43:24 +0000
-Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-124a635476fso324860c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:43:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770925402; cv=none;
-        d=google.com; s=arc-20240605;
-        b=bwBsKKpAH9Ye8XzrVmYlgBY5RUpcmyFUcOOBlyrtjFN8JyaSj4uNc4m6xaOq2WEl1G
-         qbtRj71rXJfv+YDWwBkikkrTuTFSezkc8e+ggFl1dCmQJ9DDcD7bXmxp5LFcqc1n1swu
-         fD8AAqy26DD8JYF2sMdwyP2BdAKpqaqi1HFujRq5+/D9nDw6aE25SZqeKqCRaC7qqvpL
-         dIJjukf36/BqImmaF6d1vAS4iPejimTzocBz9086mNe4c3ajW7zizyRyS57HDz6zgGOd
-         LE2KMG77qZi8CCaCZEa0xrbURCMBEUSkCPLEw2zCk4a/V4NU44sZQN6J22Yww8xsR3Of
-         9KzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=mpHRDkZlOYvBK1jMHMrk4jQz7fW7xddCyiPaMJKT8ts=;
-        fh=1BDcUhG/Rf6UWr3p7fpTX3YY1K66OQ48yW8QYzE1MmA=;
-        b=OgHJ74hw8TsF8P7GrdABLh0+0KNZl5ydopB1J93bDWQYp2yVGaEvHQB8QehbOpm2Pt
-         DN5ukwN84ExdzqEbxngdgueZRKSRYRQOhtBxaIVoCZXpMsnkOt8gW3QgDiv5Y07Xps8D
-         bnjO1ttbYWLkS4Eil5B1dvPN4UpfcNJeGZRosOTRoMZqpp+dufz2D5cneSsp8O7UbQhl
-         mETukenSLX3ftAOljE4zebvhfXkFPFupPuhyTL8naSY43o1B08PVQO190xanJ+QI7Gu8
-         PlS/98Nk2QeMOKiP49emfbsJQApa9uwOYQtCQJvtP3oH/Xf2QDWDD4MM9dRfVF1GzNGt
-         9XRQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770925402; x=1771530202; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mpHRDkZlOYvBK1jMHMrk4jQz7fW7xddCyiPaMJKT8ts=;
-        b=VThjwBASJrAUo/CVwO0qSv8pzDDeptSrJbyNajdrl6PY5FSEsY3ZwvK3emzAeTqmPM
-         a6AzKuh9L6/m4JQwTh9aorGUsblxHt+DPtRg13TwxCspkP0Z2MPQZlZVRAlQr4ubkgwY
-         +OWpYCtjW4htlKcWYw1YNnosRHu0tVndjRRsWIK0V/P7NaQZIBF7vDNiv6bVAysgqnMW
-         +2aFtCVUaxltkIHyeGMdiPF0/mf/K2A6bSFgRZZoXvwv4zFkzrwkK0WXTnmDhVM2Rbc6
-         AP5RwvkemkMPQo+oUO6B9i4uoKImPQ1W+SXXlHmQS7x+xHutM5qULDOuA6osPFEURwPP
-         Z+hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770925402; x=1771530202;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mpHRDkZlOYvBK1jMHMrk4jQz7fW7xddCyiPaMJKT8ts=;
-        b=Xg17pl2gHxyVr9mlbZVUkwGJBmc+eCNnf5hzgZQ5BDssNHAsl/gDO0OV9RKyW9fVVR
-         oITaIw2kqO7N+yGg0T+s7Qd/O0RZIrBbDdGzKHGdg9z7GPXVnfQhfM1cTYZKDPDXmD9q
-         Hr1grjDg1RSQbYjSkeiZ4eHfOzRSMe1qnjMJaD4GYHQ32dxM9bh88Ad5/ZI2bW8D+gGl
-         v7LI8lx1f1k2LoPeapW7308HsrsoG6zFUdc6SfGUiHrqBC/iR+/wNCsoIenxXdNE5i0Q
-         84yqULfktu+9YAIyi44ENx+ZHT6bjryNN3cXSPQLkM/ZR00I1gxsP8QKKmHVq7UV1qBT
-         CeKg==
-X-Forwarded-Encrypted: i=1; AJvYcCUmiIbTBrxyIdMgy5OT4irq6pwTcS9Y4zSbcReVfpZUYgrAwYe4tp2RiBaM5tSVBn/9d4XMlnu8+EWCN6wjwk9d@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTStRclauRC2W51oy6eBjvSyWZMA/leq0hzhTsnDwN/fFWpCx7
-	24TIOx7ocWRdi1gXcyiMIufGoOaPwRbiC09FdP1TBPAzBE3ejJSVXMl7mV+gZxPwOKH4LgJrlTD
-	Joz2aPHrxNkdM6Qs6N59JbRGwxatpVqM=
-X-Gm-Gg: AZuq6aLO2r821KiV09Nuex1MnZE8Cmnld/bWgFmFxiT9v+nL6Bd69gGIYEDGniWOybs
-	1lzAMzGUi/6PBfriw/lQwMlBug8n9cx95ik1UBlomSkkDUPCFyKzx0OYmyvCNFPEINyjXpyDF1m
-	X4U1tGeL3t4NM9ZrSjDNsDcRpElLV3xNdzcUhpLxVsLnc54+LYh0xm6S2ttgjnCJPicj650JyDu
-	nFasxj5IE4YLBE0HgKltCNl2SNAGc+msCW4uprwhcLCj4wgpQttCxSFXhAdyeP0F0Fj0hUaw2s6
-	3iFABudbnre0uYoT1hmRflP9k0vAhF91z2sQU8xJCSZVmID1/HNGcsG3TXVyGnIxEcqiS42wd7a
-	EiK9oS4lqjWWU43pKraDAIA==
-X-Received: by 2002:a05:7022:2218:b0:11b:9e5e:1a66 with SMTP id
- a92af1059eb24-127397b47a3mr48022c88.14.1770925401574; Thu, 12 Feb 2026
- 11:43:21 -0800 (PST)
+	Thu, 12 Feb 2026 20:06:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C18ED44408
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 20:06:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 889E7C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 20:06:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770926777;
+	bh=ydx6gVx6CLI/8rjjMaH4en1WRJjXMu1aXKvOuM+3YzA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=stXI6JBKTlCmUZ4mpHAXtp0CSpKirmFhDzLj8C0xwMKCNrG2f84jx0N4r5cbtg6CD
+	 NDP0UJ6hIu6XDv9g7RK9dWZ92fiDhG92DTDgv+EoSVFoxD2FcuUqHa62vsL1qJZBQL
+	 RAG+JdJUOfjjLJFbVjXp/zCpcj6WGyT8SXFzKvyQz+6SnABj5XcpHCTmDxU1MrzVNc
+	 3wBfhjylWR1XyUzyJKQEpGxFgvU0DWu/R/xXhnB+C00OUeF/JzeTHh8ieOGQjOxIsr
+	 l8BlBsbVLx33AxpTNCelo0eHqxiiwdKAl0+M16K/5VpEr6W/vSrkCravbgMilc9PL/
+	 6E8g4z3AcjF6g==
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-b8f7a30515aso21651166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 12:06:17 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW4T1+vhEOZ1H/9NU4PO9C00DgWo1Bt8JZW204Qctitu7MPatNfOTYF9HCUYyoF7v8BMr6AEEHEVuCEQr53hN11@lists.infradead.org
+X-Gm-Message-State: AOJu0YygJs//DThyrn5IR4rB+AuNBD1eI3ABWtMdEls7Ol5NvprTxMEI
+	/OeUfR2TQlfWKfVdDdezMsMGGBV8MA1qd/ByCEX0Er5h1L4FoUJKCrGINfXe7y60nBvNGSBQDbG
+	NuILFOFvEilDQxMV/Ys8VzZ8k1RzPMg==
+X-Received: by 2002:a17:907:78b:b0:b87:7938:7b77 with SMTP id
+ a640c23a62f3a-b8facde13demr12825666b.30.1770926775798; Thu, 12 Feb 2026
+ 12:06:15 -0800 (PST)
 MIME-Version: 1.0
-References: <20260211142321.55404-1-dakr@kernel.org> <10809444.nUPlyArG6x@steina-w>
- <9e33e5e5-76cd-4395-acb4-e2e03e436bf5@oss.nxp.com> <DGD5O31G6G9X.R8G6EBXXFKAH@kernel.org>
-In-Reply-To: <DGD5O31G6G9X.R8G6EBXXFKAH@kernel.org>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Thu, 12 Feb 2026 21:43:07 +0200
-X-Gm-Features: AZwV_Qi9zFnWs7AOJZOKq34_yl9qM1YaahPkhWTWEjwtIMb5KBMQENxC_CBtZ3Y
-Message-ID: <CAEnQRZDMXhh-V6p6ovtmSTx2Gc2R8p=pHg8jOFgJ8i3TNNJT-g@mail.gmail.com>
-Subject: Re: [PATCH] clk: scu/imx8qxp: do not register driver in probe()
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Daniel Baluta <daniel.baluta@oss.nxp.com>, 
-	Alexander Stein <alexander.stein@ew.tq-group.com>, abelvesa@kernel.org, peng.fan@nxp.com, 
-	mturquette@baylibre.com, sboyd@kernel.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	gregkh@linuxfoundation.org, rafael@kernel.org, hanguidong02@gmail.com, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
+References: <20260205-gs101-pd-v5-0-ede49cdb57a6@linaro.org>
+ <20260205-gs101-pd-v5-4-ede49cdb57a6@linaro.org> <20260211211229.GA3882182-robh@kernel.org>
+ <b5078af810a681333043f64d71b7d6ea55ff44bb.camel@linaro.org>
+In-Reply-To: <b5078af810a681333043f64d71b7d6ea55ff44bb.camel@linaro.org>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 12 Feb 2026 14:06:04 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqKKig8ePmmMZH=QagSyw0d=FKrORTxKzj7HOZqd0jLZFg@mail.gmail.com>
+X-Gm-Features: AZwV_QgH12zvtmgpHtYhs-H6vgHDqmWIaZbmOcDQ86b9Aj9PuKrMvtIh1vd2c0s
+Message-ID: <CAL_JsqKKig8ePmmMZH=QagSyw0d=FKrORTxKzj7HOZqd0jLZFg@mail.gmail.com>
+Subject: Re: [PATCH v5 04/10] dt-bindings: soc: google: gs101-pmu: allow power
+ domains as children
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_114323_093198_AF2403F0 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20260212_120619_125528_5BFCF8BC 
+X-CRM114-Status: GOOD (  35.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,39 +92,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 12, 2026 at 7:22=E2=80=AFPM Danilo Krummrich <dakr@kernel.org> =
-wrote:
+On Thu, Feb 12, 2026 at 6:03=E2=80=AFAM Andr=C3=A9 Draszik <andre.draszik@l=
+inaro.org> wrote:
 >
-> On Wed Feb 11, 2026 at 3:59 PM CET, Daniel Baluta wrote:
-> > On 2/11/26 16:43, Alexander Stein wrote:
-> >> Am Mittwoch, 11. Februar 2026, 15:23:16 CET schrieb Danilo Krummrich:
-> >>> +{
-> >>> +   int ret;
-> >>> +
-> >>> +   ret =3D platform_driver_register(&imx8qxp_clk_driver);
-> >>> +   if (ret)
-> >>> +           return ret;
-> >>> +
-> >>> +   ret =3D imx_clk_scu_module_init();
-> >>> +   if (ret)
-> >>> +           platform_driver_unregister(&imx8qxp_clk_driver);
-> >>> +
-> >>> +   return ret;
-> >>>
-> > Also, because the logical flow is that CLK driver is uing SCU for calls=
- I would first call
-> > imx_clk_scu_module_init and then register the imx8qxp_clk driver.
+> Hi Rob,
+>
+> On Wed, 2026-02-11 at 15:12 -0600, Rob Herring wrote:
+> > On Thu, Feb 05, 2026 at 09:42:32PM +0000, Andr=C3=A9 Draszik wrote:
+> > > The power domains are a property of / implemented in the PMU. As such=
+,
+> > > they should be modelled as child nodes of the PMU.
+> > >
+> > > Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> > > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> > > ---
+> > > v4:
+> > > - consistent quoting using " (Krzysztof)
+> > > - add samsung,dtzpc to example
+> > >
+> > > Note: Ideally, the newly added properties (ranges, etc.) should only =
+be
+> > > 'required' if "^power-domain@[0-9a-f]+$" exists as a patternProperty,
+> > > as they're needed only in that case. As-is, this patch now causes
+> > > warnings for existing DTs as they don't specify the new properties (a=
+nd
+> > > they shouldn't need to).
 > >
-> > But there is no functionality issues your your approach too, just a bet=
-ter logical flow.
+> > We can't have warnings added if they aren't valid.
+> >
+> > > Only if DTs are updated to include
+> > > power-domains, such an update should also add the new properties.
+> > >
+> > > I've not been able to come up with the correct schema syntax to achie=
+ve
+> > > that. dependencies, dependentRequired, and dependentSchemas don't see=
+m
+> > > to support patterns. Similarly,
+> > >   - if:
+> > >       required:
+> > >         - ...
+> > >     then:
+> > >       required:
+> > >         - ...
+> > >
+> > > doesn't allow patterns in the 'if' block (or I didn't get the syntax
+> > > right).
+> > >
+> > > Rob said in
+> > > https://lore.kernel.org/all/20251010141357.GA219719-robh@kernel.org/
+> > > that this is a known limitation in json-schema.
+> >
+> > For a given compatible, you should either have child nodes or you don't=
+.
+> > The h/w is not variable. So something like this should work:
+> >
+> > if:
+> >   properties:
+> >     compatible:
+> >       contains:
+> >         const: foo,bar
+> >
+> > then:
+> >   required:
+> >     - ranges
+> >     - '#address-cells'
+> >     - '#size-cells'
+> >
 >
-> I now remember why I kept it this way around. If we swap it we have to ca=
-ll
-> imx_clk_scu_module_exit() in the unwind path of imx8qxp_clk_init().
-> Consequently, we'd have to drop __exit from imx_clk_scu_module_exit().
+> Thanks Rob, yes, that works in general, but unfortunately in this case ex=
+isting
+> DTs don't specify ranges etc for the google,gs101-pmu compatible. (This b=
+inding
+> is specifically for google,gs101-pmu only anyway).
 >
-> Please let me know what you prefer.
+> The above suggestion will cause the same validation warnings for existing=
+ DTs
+> which is no different to just adding those properties to the top-level re=
+quired:
+> as my patch is doing. Unless I misunderstood your suggestion.
 
-I see. I prefer your initial implementation then maybe with an
-explanation in the commit message.
+"google,gs101-pmu" represents some specific h/w. That h/w either has
+power domains or it doesn't. So which is it?
+
+
+> The compatible doesn't change with these patches. So I'm not sure how to =
+make
+> your suggestion work without causing warnings for existing DTs. We can ei=
+ther
+> have an old incomplete DT+binding:
+
+If this is considered incomplete, then you are going to complete it
+and add the child nodes? If so, then the warnings are appropriate.
+
+If you were going to maintain both bindings forever, then you would
+probably want a new compatible. Or just drop the properties from
+required. Note that if you have child nodes with 'reg' and parent
+missing #address-cells or #size-cells, then dtc will warn about that.
+So it's not too important if the schema doesn't.
+
+>
+>         pmu_system_controller: system-controller@17460000 {
+>                 compatible =3D "google,gs101-pmu";
+>                 reg =3D <0x17460000 0x10000>;
+>         };
 
