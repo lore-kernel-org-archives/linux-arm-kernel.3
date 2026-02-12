@@ -4,168 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231B0EEA854
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 21:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08F35EEA85A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 21:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x+6zrowkqYHEmMiNBgFqqao62IWRHjgrWtm0SrJDens=; b=mE8tWvas0db0OqempK2XY2vwRX
-	3tomN2TxZsuyjDQaN6ZoN/nc3kd3tMXAQgr4PZ/Ks2ysguchtk6Lqju8nzL+nxFVWG0jasusqaSSy
-	wd7n7kPKstBtuDgdPa3UVgtqQZaKA02solGQobqag9EB6dEnBZG4FKMYbcqS26lvPiR7cP6C//mfh
-	kmVH9JjyuJfLKez+bYovO/PSgnGNOcbIWuDZiSNWAUJ3m6vILjh0QX8I61/6A7N2adV7voR0wEhd2
-	zq2ZZ4fZC8aY/M/W5uZ+ba185JMl62OVm9Dzeyu5FxO6z1Sn4ervby8ybfmJFke3swERNOYusIeIE
-	pqWxXuCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uI0DWSxvm6NFySyRZeE8NYakt+hMKZcgOA3uk/TYi0k=; b=J5Wmc2C1WjNsIsvrZouVm9AxlU
+	E25eav7mYfjh+LQsD0EwACk2649vThYtHtiUe2EBWzfmRovsj4ASOI5dUa7dQwxlGsT8nvv2fFgI0
+	ntKCl69wPS8F9mtICrv1YHQ3PrrtsBr2Kgm+3gXuUTg7r1ykbyxAacD565tXa0pkbqB9wopeXKl0+
+	TAF5bC7VOdrVxFq4haIqaCqW6G+aOZNwE1pFIVwKiQsTvm2hvGBFYVUbPBtpmBkWAhFb7sKv2ZyWJ
+	XePvRtyqiqysPLlEcm+HlepDcl69oEal6NIAwBr/oCydSf8CghoNtGTmq8IUtEzJof1lbQ9EY90do
+	lnbEai5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqeOY-00000002exw-0g5U;
-	Thu, 12 Feb 2026 21:38:42 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vqeXL-00000002fOh-0hNg;
+	Thu, 12 Feb 2026 21:47:47 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqeOU-00000002evy-2PdP
+	id 1vqeXI-00000002fOI-2fbS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 21:38:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dGSE91gs03zgZvtwwC19LuDV5N8RnUBqRaagIOiPOexiUKjQussslyTjLk9qqYieXsXtNfnNhQg/zmVwrCIimPsrH2J3mIW/SK9HrBQBr3Yg5QJ0Nda/EZJ+oH0OLrR914a7RqKmGwwI2rx6uKk5CK4dKY1xZ+F6xLuuam4QgZIXF4I+nX/dNKwMY/xCjDw8j/5n+r1QPU19zVrBGMgKTYMEHOXCVV2cfK8inRP4qz0lqwdv0wexM2FlGXUHVQctHdacRBu/YmTUWwhJ7CI+QX0vJ5QeCmN4hhSqCCJbrdqqUt2F6xbC3JaycD3xDFbUTZwV3Zvz2ce5Ch4YfTBwSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x+6zrowkqYHEmMiNBgFqqao62IWRHjgrWtm0SrJDens=;
- b=M4Xp2jbvYslW4Nr33s0Zzngca0YAvip3s4FCFO/uO4l6YUe0D/ysSPL1zTPGMDVuqIqJXjOPDUe7XunBVvRjGDEnTokKA9IigcjdUDCWmaJzqpATXutqIhB8IxDL4THtQmPezEsTzd7Q+fBaiKEi6AXac2BWEGh0fbErJN1J2cosYmJ9jNw8BrZZ6aVqTAiLMWTzNMWXibh7t7fWoBTBcccM3q2WWYkm4zAC2ELRbueCHarErRng3MSpuHvhVvMMonqm18XtqTyT8tM4mcDGwSRoeWTF5nmwCY9RPrDnIAiEvcRYqTrlzUt45946hzPr4+cLe6w5PnHs5xdcx1KYcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=linaro.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x+6zrowkqYHEmMiNBgFqqao62IWRHjgrWtm0SrJDens=;
- b=JWCFgxuv+43Frs8gPmkx255bwb6MWFFLo2yMJEAsfc0zoIHmr7hWBhjR2+TSoA8SQ2qO110dqa3OFiARaSpHGID7Gqt2Q8XBSsx96za1vu22NUsf1FfSUENxgwKgfw5s0JsGV7Jn5J2TDKxnj01yHegZI54gQptnxoAGhEwt3iY=
-Received: from SJ0PR13CA0105.namprd13.prod.outlook.com (2603:10b6:a03:2c5::20)
- by IA3PR10MB8372.namprd10.prod.outlook.com (2603:10b6:208:575::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.13; Thu, 12 Feb
- 2026 21:38:32 +0000
-Received: from SJ5PEPF000001CF.namprd05.prod.outlook.com
- (2603:10b6:a03:2c5:cafe::1) by SJ0PR13CA0105.outlook.office365.com
- (2603:10b6:a03:2c5::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9611.10 via Frontend Transport; Thu,
- 12 Feb 2026 21:38:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ5PEPF000001CF.mail.protection.outlook.com (10.167.242.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9611.8 via Frontend Transport; Thu, 12 Feb 2026 21:38:30 +0000
-Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 12 Feb
- 2026 15:38:25 -0600
-Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 12 Feb
- 2026 15:38:25 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 12 Feb 2026 15:38:25 -0600
-Received: from [127.0.1.1] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61CLcPvw019741;
-	Thu, 12 Feb 2026 15:38:25 -0600
-From: Kendall Willis <k-willis@ti.com>
-Date: Thu, 12 Feb 2026 15:38:09 -0600
-Subject: [PATCH] pinctrl: pinctrl-single: add ti,am62l-padconf compatible
- string
+	Thu, 12 Feb 2026 21:47:45 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-385bc6910eeso1985441fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 13:47:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770932862; x=1771537662; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=uI0DWSxvm6NFySyRZeE8NYakt+hMKZcgOA3uk/TYi0k=;
+        b=WqfdeeKTK68zU5owtuj6AueZZt6lt5vIsHAbFiaj/rmNHi+deiHwChOS6Ewvd+AUjk
+         JMMkInB2ednB14a2kFsG4lwj7hVRr+WktAczg3jTxqMbC1LcAvl2JlzPjavQRTa/xIdy
+         D7308U6VOKku7NOwDeMCmt4AU40ca9o6ofCrx7m/lrjcYiCufx93I1gpFx+fRcpbM0oa
+         XLwmDrnxC4pGy0naoIkp30+W4OOgjufHUG5bdRCWlEkrbwiDWnEanbUJT3YzyMSZDuNK
+         FIJT8qRYd8ZthYcpXUM6YXJX02gFL/uh5l15BKi3izP4AUQyafWnP2QiqPxu58BxvZvq
+         Kn2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770932862; x=1771537662;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uI0DWSxvm6NFySyRZeE8NYakt+hMKZcgOA3uk/TYi0k=;
+        b=fGriqd1IhOHTlCe/v91Z0XwfSLhLGC2edsuFF2thR6uOOoMEZF2Ap2RlMY3C9VcErt
+         2iDuSMdgx5vaBPJwkqRkXkcqlfUc8I/rSwWaF3S6zcq9hypgdurnITr9281P4s/CPiwq
+         F16ccmgXKTmS3rxiGy6gD3Z0ssF3J/ey6B5USvN58iAq/01j/7Xos7vOLrB7c6EmKQQQ
+         gC73G9mW454/j2ke/GDzxHA/lzb/gEnrgUEL9dFEvlT0DYUkm7a4EiR0uUcu4uGUdlMk
+         a1/XksR5B2vAZqpSqB3s8wpdSyxnGHN1YHqcuofVaZ8Rq2ei4pnub9I14QRMVrl1UB6z
+         9LaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX2YwF/4/Rh54jaHVQ7XWzAPLtBffaHHAkIIJ4X0v13LF4lsymYOB1rs81hrMe7OKCSY8fjeCHSftrJ3mUdDwbM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVUR/aQu9WqYLlzWiZ0kF6SnSAIdHd/hm+4ZZT96pRFb0HZlcM
+	35p3jtOhOxw/Axdjl30YtlXLv4shAcrrabCvT4epmXAq4kFjfC+KmntL
+X-Gm-Gg: AZuq6aKvJy6vgLqqcuO+dGIELkEjZPPjyTHcJZQ6D8+Kjrv052UheDBvp6pETIpSwCu
+	+MWG7MzUVgtf1F8SA8uhClbmG7HTe4qIGAVYKHRwInqLBV0iYPDTOK5JMICuJRANzcawQC7pLC3
+	4MfFuZSUKc6wiFK4yw1povpuac7ONnhXeirSu1V8q2Acwaqy2EynHyEO976P+24mZVI5F/eZzqh
+	I9k3VORXZFJq+X83GXDqI4M4eIS8En1tAuABVL+Vu3wrgit3bqSSYJipyP4MDShFarn98sfiXZZ
+	pyL1t2sHriEsLrs41QvcERsNtyv/Vy6kSXzVT57SMQP64eP3rleJ9XG6qtSYtncJyrXZaGiri+T
+	L2+GGkgnr4W/+1d2b9Nbm9JI3zPygvkPjKWt5KpR3SLtSmQNm4HRx2ChpIxfZJW/QOzSRWdbZNj
+	1jBeZfVEGayosDyYrPJ/hvrNvN1uKuCyEdawtUGOvYzDqhu1L9IyS0itXkFgVr
+X-Received: by 2002:a05:651c:41c7:b0:385:f7ce:f322 with SMTP id 38308e7fff4ca-387f80ded45mr477031fa.35.1770932861977;
+        Thu, 12 Feb 2026 13:47:41 -0800 (PST)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38706928d9esm10989251fa.42.2026.02.12.13.47.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Feb 2026 13:47:39 -0800 (PST)
+Date: Thu, 12 Feb 2026 22:47:36 +0100
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Peter Rosin <peda@axentia.se>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 2/5] i2c: mux: add support for per channel bus
+ frequency
+Message-ID: <aY5KeH3Z1S3MswHI@gmail.com>
+References: <20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com>
+ <20260128-i2c-mux-v4-2-dee49ce276c0@gmail.com>
+ <2ecbebd8-0842-34fa-a593-25168c91aa6b@axentia.se>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260212-am62l-padconf-v1-1-0bb6f066fabd@ti.com>
-X-B4-Tracking: v=1; b=H4sIAEBIjmkC/x3MQQqAIBBA0avErBPGAQ26SrSQnKmBslCIILx70
- vIt/n+hcFYuMHYvZL616JkabN/BsoW0stHYDITkkSyZcHjazRXiciYxIk48OrQ4BGjNlVn0+X/
- TXOsHpMjrGF8AAAA=
-X-Change-ID: 20260212-am62l-padconf-ff5f6050107a
-To: Tony Lindgren <tony@atomide.com>, Haojian Zhuang
-	<haojian.zhuang@linaro.org>, Linus Walleij <linusw@kernel.org>
-CC: <bb@ti.com>, <vishalm@ti.com>, <d-gole@ti.com>, <vigneshr@ti.com>,
-	<sebin.francis@ti.com>, <k-willis@ti.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
-	<linux-gpio@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770932305; l=1587;
- i=k-willis@ti.com; s=20251230; h=from:subject:message-id;
- bh=oZAeipa0850VO5Wjjc5hR76uErlzOyYo4kpVuXHR0TA=;
- b=7h9h9uyr1CzEeoeRDNerWVv3E9eRtX6k6vJXRk4cKQ907J5Rmbg1x3QcqPcOGE1LFKGwchGE1
- CJODTpBN1ukCpdgVZEEZs7PZ+r8HAwad2da5ILXEoTuGQl7vgqrI6xu
-X-Developer-Key: i=k-willis@ti.com; a=ed25519;
- pk=fQiPVFwmogfDAKdaAKq163RWSfgHZVE/MrsDzp0Xo1k=
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001CF:EE_|IA3PR10MB8372:EE_
-X-MS-Office365-Filtering-Correlation-Id: 635986e2-c9c4-41a0-cadd-08de6a7f1072
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NzlGbjdLUkxxNlBBQU95MjRoTk5IRXpOWkdmaHk4d2tPbXJLYTVXZElWd3pB?=
- =?utf-8?B?VlU0U1lDa1lLOTVaNEFna2pwTWRMWWlQbjhVSVJaN3pVQSsvTnBGNVdGaFdk?=
- =?utf-8?B?Mm5vRk9zSXhEdDI5SVVCWjFhMnd2WFNqWkZobGhFVXRQek9FRnl1SVRlRTdy?=
- =?utf-8?B?c2JSVnB0dm4vWG94TDZkQkRqaGo5Qys3REpWT1JKOHVObWZmYVNXWGlYOGRK?=
- =?utf-8?B?Qy9WMVAvU05OSGQ2NWowb2Q2dzNFYkZrMDRTTXVtdG8wVHZUaEdJM0xmcnQ0?=
- =?utf-8?B?czFaZVlVNm9XTmNSM3FXZlUxenJDRlIzb2NpRlhpRG02a1FhRzhxK1VkL21Q?=
- =?utf-8?B?bWdnc1JzUHN4S3NzK21JQTkycFVrWWlENFU4WThWUURFNEFtalhaMmdoU1hT?=
- =?utf-8?B?cVhTTDdDWXVoeWVkaG5waXU5Mi82MkNxelluQTdMN2xzSTdWWDJ6dXVSaDR1?=
- =?utf-8?B?WkozOHdTVXYweUxjVmkyUGVuekUzVEtuZkk4bElGWUk5b240QzNEL1h3VHZG?=
- =?utf-8?B?UWdGeWc4dzR5SWd3bGhBdm1wRldLS3VCSWNkVGRmbDkzOWZLU1hMZGNtSEVr?=
- =?utf-8?B?RUJBdS9nN1JlNW1veDA5cFBCSWxUS3AzNWpCNTJRcVJ4VGNoRnBWL0Z5MHFo?=
- =?utf-8?B?aUpFWituZTZwS3ZSU3NmeHRMcXNIbjZ1aEpTTEFNZjF0cUhaMEFnMW9WQ0ZQ?=
- =?utf-8?B?N3cyanJqRll1K0duQlF3dWhMRzhGM1N1Z0pBN0VKU0liWVpNSk0zMWlFOCtl?=
- =?utf-8?B?REtCTHE2NmVrb3ZXaG5SSlM3MkNpb2NOZjBqVWlIMTNCQ3U3RWtjUncyWnVY?=
- =?utf-8?B?bGlPa09CNExBUGdTZllUNmtFelVpamcrRmhtWDNkeFA1M2xQZWJUNjVCc0Rw?=
- =?utf-8?B?M3Y0bnAxcWJydzdwSGFTRUFJTzZJaVVGNEpvbmtub21BRkQxY3UvdUdPZHFW?=
- =?utf-8?B?NmtHcWNFd1ZIaEpJUlZIT2N0MUZ6N2RWc0ZKSGFiY0dzZHhFMEpsZ2g5Q3dL?=
- =?utf-8?B?VC9INUtGc0RwYTArK1NVTVRCVEYzSXVKeWdVYnJnWnN0bzN6Skd0WlpPRC96?=
- =?utf-8?B?V1pzNHRYUHUwQlpsM1VMNVdiSSt1WkV5M2U5ZW1PSVl5bDJyRkhJeStFRmNL?=
- =?utf-8?B?a0RwbG1uSkozOWxWR1hsWXppVFh2OUpEWEUvdHNtaisxc1IxWWZndS90L0tB?=
- =?utf-8?B?QnNGY3RWbzNsRDJaWjBUNk1hMlF5SmRudXBWK1lWdGlDVzE1TTEyWWFoUnRi?=
- =?utf-8?B?SkIvWC9aaFIyMzMzM085QW80TVdvVmpzVDJ1dC9CV1hKdnh1Y09UU2JVS0Ix?=
- =?utf-8?B?WFhkOXovZk05MlIzeTNYK3RDMkxYMjN4cW1WZnhSWnRVcXJ3MWlKd2I2WWNq?=
- =?utf-8?B?UFA3Q3FlS1lFTGQwUWhuTUxzNG9ac2xMUjRtMUVQZG4wSHhvazNHWDdrS2J2?=
- =?utf-8?B?SkdacmZaNlN2YnhOZExUL0dHYTJ5UWF1Ui91bzQweFZhRU42ZVBna2pzb1NR?=
- =?utf-8?B?aXVxOENBM3ljMFM3MDE1VU12aUViNUo0UEt4VzU1Q1NtSW9uRXJCZStNZmpP?=
- =?utf-8?B?ZlZ6N0RicFFYODZOUjFpMUM2YTVQTXNNNGh0RmU1T0ZocnEva2llcEFLM00y?=
- =?utf-8?B?V0Q2REk5YVY0NU9sQXR1N2M1WlVDRm4yeTlCSEFaME1Ed21wN0VXVG02WTRF?=
- =?utf-8?B?WXh0d2g4QUs0Ni9PYTEwNXpFZmVldTZDSVY4d04wVU5KNzdZOURDbnM3VXBo?=
- =?utf-8?B?NmlNKytKYkhhK09ONXBZU0QwUVdDOWlmT1UvQmxqN3UyTDk4eGpHU0U4aVhr?=
- =?utf-8?B?Y2JMaWZGb3VTeU05NzlkODYxUnNhb3I0NVpIbUFDUDVnNXg2cENMNTJmZi9p?=
- =?utf-8?B?VW16bnQvV3RvZjRyNnJNTG4wT1ZRbmh0bTY3d01mVTRUZ2lWYlA2SHhWdTJ4?=
- =?utf-8?B?NXVCeW1UTS96d2N5emovZkN0T2hIK3JURzJVRTRHalBTM2lGc2J6VStXZU5s?=
- =?utf-8?B?Q3RJbHhaNHdBRjRFa0k1VTZrdkxoOEppLy9md0xuOEx3eEN1Ym0wTVJSYXVo?=
- =?utf-8?B?dVFTM3VOcWtXYTFGYWwwUjNrRlZCTzZHRGFJdW5oQ0sybVJQbHBTMDdTNTh6?=
- =?utf-8?B?a1FabmlqYVhjbVJCZGcvcGlBUTZyd1EzemVqakhabTB4NmtvaDNRZEZUejNp?=
- =?utf-8?B?ZSsrQnpjVjNMcUhlY2IrYllEbVVWVkdUc21UOUU1NW00Q3BaUWIrbllnRnhM?=
- =?utf-8?B?a2VoQk1mR3RicXcvSzVCZ3J0R1hBPT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 9bUcG9pEjRw09V9gioxk2pxb1vVvCt3VBwzzm35vMmE6Av0pGXUPAGRpskW5wgmlcESc5vr8TL3gDGfrTxf590qRyAyi9284BGkPOqHYYSyOSTYFe6QDwSPJaH+2OSkRJxalRb4rEIU7jgo48yNKbsXrl9qSawl0jRhOozY3OuzlrqevIgIlIo8OPolwdpvVdV/U6RTMjtecR9sLE5gxnZK1kmzbT+eAlAVKz/Qe8nmXmLfKmt56G6ufgxPsjkJkPvPRFHsb/uVsa50l83wSed2mmaWSyum3QHyO1JY75za1wkvlmvhT4eDqogBrlvKMPXmcNGSjcDYiwo4o26uIs6uMtknpvLkPGXMMl3LYveSK5CwAQXfMmHfGGA6eN7vp+JY2SKdpkkOo4IZ+F1ra3F69AQ41DgFfLbWNmnwy0oKW2GGaMIzw8YeFub51tOVO
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2026 21:38:30.1210
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 635986e2-c9c4-41a0-cadd-08de6a7f1072
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001CF.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8372
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+EwcLp+XXXrhpKBe"
+Content-Disposition: inline
+In-Reply-To: <2ecbebd8-0842-34fa-a593-25168c91aa6b@axentia.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_133838_706818_AE98AFEC 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20260212_134744_722628_018078CA 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,43 +105,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vignesh Raghavendra <vigneshr@ti.com>
 
-Add "ti,am62l-padconf" compatible string for the AM62L SoC, which
-requires register configurations to be restored during system resume
-after suspend to RAM (RTC only + DDR mode). This reuses the j7200
-configuration which includes the PCS_CONTEXT_LOSS_OFF flag needed for
-proper restoration.
+--+EwcLp+XXXrhpKBe
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-Signed-off-by: Kendall Willis <k-willis@ti.com>
----
-RTC Only + DDR is a low power mode on the AM62L SoC where most of the
-SoC is off except for RTC, which is used as a wakeup source, and DDR
-which is in self-refresh.
----
- drivers/pinctrl/pinctrl-single.c | 1 +
- 1 file changed, 1 insertion(+)
+Hi Peter!
 
-diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
-index d85e6c1f632186b36e95b0b1338a7644ae751f99..288c9c9bce9a5b1cdfa96f69e6a104152439789f 100644
---- a/drivers/pinctrl/pinctrl-single.c
-+++ b/drivers/pinctrl/pinctrl-single.c
-@@ -1980,6 +1980,7 @@ static const struct of_device_id pcs_of_match[] = {
- 	{ .compatible = "ti,omap4-padconf", .data = &pinctrl_single_omap_wkup },
- 	{ .compatible = "ti,omap5-padconf", .data = &pinctrl_single_omap_wkup },
- 	{ .compatible = "ti,j7200-padconf", .data = &pinctrl_single_j7200 },
-+	{ .compatible = "ti,am62l-padconf", .data = &pinctrl_single_j7200 },
- 	{ .compatible = "pinctrl-single", .data = &pinctrl_single },
- 	{ .compatible = "pinconf-single", .data = &pinconf_single },
- 	{ },
+Thank you so much for your thoughs!
 
----
-base-commit: af98e93c5c39e6d0b87b42f0a32dd3066f795718
-change-id: 20260212-am62l-padconf-ff5f6050107a
+On Thu, Feb 12, 2026 at 04:02:16PM +0100, Peter Rosin wrote:
+> Hi!
+>=20
+
+[...]
+
+> > +static int i2c_mux_select_chan(struct i2c_adapter *adap, u32 chan_id)
+> > +{
+> > +	struct i2c_mux_priv *priv =3D adap->algo_data;
+> > +	struct i2c_mux_core *muxc =3D priv->muxc;
+> > +	struct i2c_adapter *parent =3D muxc->parent;
+> > +	struct i2c_adapter *root;
+> > +	int ret;
+> > +
+> > +	if (priv->adap.clock_hz && priv->adap.clock_hz !=3D parent->clock_hz)=
+ {
+> > +		root =3D i2c_root_adapter(&adap->dev);
+> > +
+> > +		/* if we are parent-locked and the root adapter is our parent,
+> > +		 * we already have the lock we need. Otherwise take the bus lock for=
+ the root
+> > +		 * adapter before changing bus clock.
+> > +		 */
+>=20
+> The assumptions made for the "otherwise" case is wrong, I think.
+
+I think you are right.
+
+> Consider e.g. the case where we are parent-locket, our parent is
+> another parent-locked mux and our grand-parent is the root adapter.
+> In that case we also have all the locks we need. Trying to grab
+> them again will be a deadlock.
+>=20
+> The more correct approach is to do the parent walk in search of
+> the first ancestor mux that is not parent-locked and then call
+
+Hrm, does it not apply for all mutex-locked ancestors?
+
+Consider the following chain:
+Root - P1 - M1 - M2 - P2 - D1
+
+P - Parent locked
+M - Mux locked
+D - Device
+
+In this case we need to lock both M1 and M2, not just M2 ?
+I'm not completely sure though, I need to refresh myself on the code
+base.
+
+>=20
+> 	i2c_lock_bus(ancestor->parent, I2C_LOCK_ROOT_ADAPTER);
+>=20
+> for it.
+>=20
+> Again, I think. Famous last words. Handwaving...
+>=20
+> Cheers,
+> Peter
+
 
 Best regards,
--- 
-Kendall Willis <k-willis@ti.com>
+Marcus Folkesson
 
+--+EwcLp+XXXrhpKBe
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmmOSnMACgkQiIBOb1ld
+UjJJuxAAry/YKUutgdQpqDwjHcLxJ8g9+h48FnCkvCuZYOtcjYn9DnGyzNEHJFRU
+QHHwGWr5YkH1I+mxO33fLPHDPcrvXiUeyPNaMbtzc5TJoLPa+3ijYKO0reKvQ2ky
+gg66PjR9X1GYAwCbObk7fuBjkMQvsOEG0z8nfT/1EMOMFBgnnkGB8rV/JajjsScT
+iek1dWSsdogCaaeC9HBMDrJtiybreMtIVpd6AyKSP4BZJ3SoCxnSzEfmUNsRbkTR
+FiekVhRCzE4x/ENnUAffaiPJJ85jkiAh/oiFCGXTbhaVrX3ECmuKBzXgwMG/KfUH
+A4Wkn2N/0XmO5DwlBgZjJgoPM+3jEBGmdxtR/8Els3/sbJeopKRJj/K+ugDX+sOi
+/aRgqSQSlbXfEGjCFdofLekKmHgu15IxqX6yMjKCVkF1nlUtSKlOyXwunSEwhTXd
+rPLJFXTFDd9VyEZt6kPD1QbaAyTqlXGmqD539T9vr/fOB9lYZRUxgS6J729XbWFg
+JDjkeEBsZZ+ET5mdGEboFzJY+Mdy5Pgt9sYv/MWsGuvAG4tdilD/EkCCueypcxt3
+syAtReFNlgkJCQkV0OI0pS1ttYdom3yzhdNH7GylSbERUTuCpsFX21fgWlgYsiaP
+OS+t0KqO4nCKaTEYkS28ZhUBmkgj41PN1vTFsRawGBrCntIfSDI=
+=NZ95
+-----END PGP SIGNATURE-----
+
+--+EwcLp+XXXrhpKBe--
 
