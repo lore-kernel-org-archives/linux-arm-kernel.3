@@ -4,108 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82726ECD6FE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 02:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E860EB597B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 02:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PizJXKd85zXyZ9iQQX+Ej3hfH7kGalbAW0kYbFZfhf4=; b=FrzbkbE3GYzv8IQ07lWuLkV4E9
-	e3gntufCJbU6gXac2DW9bGxvU8Yks8TwBYT1QAu5ldJsLbocsUCKRhjq3LlK0twVC5Z5zf91Y8Z8f
-	1LL8n9jjNdGd9cokfJAm5VkO5n0Xqm5zWagGCoWpP2k2IcVr1cXZEsSZtBjFi6TyALyzBavnKEs74
-	doc2dLqqnvV3JpP19pzdijHIkPqfWovTI9iPo2cqNGnSuuhvM3c/WN1NLQoK7RLZTFZdu1Do3u6Um
-	qLpN/UP8tMU7o+1JuppzrJQI23d83jmaP0f26kxueqKEVLPzSdJNH1S5c8cd1fPVf+6VB9LB71DEC
-	hvtJtWBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BW+Mgpaq6SwF9hkVhCNywA9aCMpLFaTHrW15uFZTbFY=; b=ZB8yCI0kZxXnlFrnebSNe5RinT
+	5SrdhceXxUccvOZpOzToJjD71qCTzDvEnKn2ohbBj2Mun1xkDXJS61OKpUe8BQIKeoLfEgUt0xr3C
+	Hneac6B7GRYp8WBynYPaaBQ9lMagWlqpwqxlaRb7p4w8HX50W6+nZoKK4+6QARYJWDSUHYdVkdimN
+	czVkEZ9ensveAK6xFqfkuz1vf6vP3Zwa05GbymQlT0MBkH+gVzUqon3iLPcRg1ZgjGF9vHpIJdkxS
+	1Lm890lQAHEJNxq8D57/U5rG+3SuQ9K4rddryWQCEGDT1iVhGV7hVcUgN7ZcdH5wHI1UNAvgfupA3
+	SfnNFWaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqM5F-00000001IWc-3ze7;
-	Thu, 12 Feb 2026 02:05:35 +0000
+	id 1vqMOY-00000001JMh-1FpG;
+	Thu, 12 Feb 2026 02:25:30 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqM5B-00000001IVo-3qY1
+	id 1vqMOU-00000001JLs-347U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 02:05:32 +0000
+	Thu, 12 Feb 2026 02:25:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1770861928;
+	s=mimecast20190719; t=1770863125;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PizJXKd85zXyZ9iQQX+Ej3hfH7kGalbAW0kYbFZfhf4=;
-	b=ULDh7QcQOGgvZj2wTFEoOjuxG4CSW61nO1C0xeArzSl5Q8k/eAwJOhFcOlv0KuUwdSUn0D
-	kdy083qKTD66V88t0Et4GMkxCkB9ukBB1aoR3l0SwJjds3a2gi1vO9mcvGGckNRsF8StIM
-	cA6s4WMAxT67AtNYsjwxkzY/MMOG/fA=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=BW+Mgpaq6SwF9hkVhCNywA9aCMpLFaTHrW15uFZTbFY=;
+	b=K5DoyXpPysvfVRTPxJtxGLMC8QdvDKiI1awH0JfD+qpxgQI4WUKX04/Y/GpIAP8y+gfu9Z
+	6eax6tD1013cF+NsClhFI9taXsZJzAGD0dBLW3Ad3Z3Cxn2sG4oB4NMTVDia5xpLG0dGei
+	a/cUcNCrQeNYIcYCLDHkaQd6AvSXjmM=
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
+ [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-423-wJ6UsP7AP5aq1hDa5seZgg-1; Wed, 11 Feb 2026 21:05:26 -0500
-X-MC-Unique: wJ6UsP7AP5aq1hDa5seZgg-1
-X-Mimecast-MFC-AGG-ID: wJ6UsP7AP5aq1hDa5seZgg_1770861926
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2aad5fc5b2fso26713245ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Feb 2026 18:05:26 -0800 (PST)
+ us-mta-649-my0dVWt9NyeRdR8VEIFoeQ-1; Wed, 11 Feb 2026 21:25:23 -0500
+X-MC-Unique: my0dVWt9NyeRdR8VEIFoeQ-1
+X-Mimecast-MFC-AGG-ID: my0dVWt9NyeRdR8VEIFoeQ_1770863122
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-81d9b88caf2so2596262b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Feb 2026 18:25:23 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770861926; x=1771466726;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PizJXKd85zXyZ9iQQX+Ej3hfH7kGalbAW0kYbFZfhf4=;
-        b=tTCAEmmf5qoXYAklSUiHx6f5XJUOQ2lEkFu62yg5KA4butHJmAQHqDc9PSjodd3RmQ
-         96YeuV87K7PjjnT0PysMonDSIA16zCJ3I+agXy6NZLEDaSqv0WP6elcBLWW4PDKdId9j
-         UvS2WF6+gWTB3iKjHjbAGOVaZSACbqFXvnA/oeYKRkZJEhAa9f74lTvzm3dGGKITVpNu
-         jdhTUYYI9cMJpi9x0rlPyvT7XWZir/9vI6KPK3Oybd4fKR+SuKJMOlkxJyqXueDiPhuN
-         q6SQvdAhL0DiXt3pFGsmoONEceH+pz0HkYB1LinXJXAmxNnfb8MuTTbMlvoHkSeXk/yL
-         GIXg==
-X-Forwarded-Encrypted: i=1; AJvYcCUlCWL2GLkupfIxAZM2WX04IAM2FkA9Ubs7LR4qoV4JL63eIyNnby4m/okKQCNSCFHFI6nGBmKdFD5ktIx1Zw4p@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj4b0POC8NkZtI+VyHdu0sbpgQ1TtND7kChpwnabJJtBm1lJRx
-	kfsZ77s/WzLruE6Zyd3FD7XiXWhoa+Q0wnExRKIMhmR2bgZV6CeB3JMTjbZsiHHsaAmsYINU+gm
-	iPUiVGS3zz38QUtm8V6QTlZNq060dNLRSHm/9VjZ2Odk9/AonW3VlLn/S4myJ56sypaithlWYKh
-	HM
-X-Gm-Gg: AZuq6aIRSevY/k6ezKvfIBgqdJX9S2mHoMxV5ezky9idPIXNIgeSSo24r5RAcSbwIGp
-	cqk0JuDFksugjZvFNO5dQL6Dr1iYZXLAu5OYT5UW9GLbbAc94P0t4LSihUC/U/TLNSm9ZcfM/t2
-	aJDX/telnEmPApdKDBpCI8RH4b8tXxZo8zxPDrwXYm3FC+3OBZr+NFMvOleBgXxazvnwhooGqJT
-	DZKsangvw4JutdyHvKwCkHVTljlU1DVx4EpLJdz16R+pp7RHGbT+CHHUI5lBXtLDNical6Zq7ap
-	VDEp5APtqcWpKq/qrBbdz+PXd0EaSGfU5f3hwP1aGChIL3+uB3pl4jdFOg/LhBKdvYe8t+xFQmk
-	hcmugpymKtDV/
-X-Received: by 2002:a17:903:1663:b0:2a0:de4f:c99 with SMTP id d9443c01a7336-2ab3b1583c5mr6716855ad.9.1770861925466;
-        Wed, 11 Feb 2026 18:05:25 -0800 (PST)
-X-Received: by 2002:a17:903:1663:b0:2a0:de4f:c99 with SMTP id d9443c01a7336-2ab3b1583c5mr6716465ad.9.1770861924935;
-        Wed, 11 Feb 2026 18:05:24 -0800 (PST)
+        d=1e100.net; s=20230601; t=1770863122; x=1771467922;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BW+Mgpaq6SwF9hkVhCNywA9aCMpLFaTHrW15uFZTbFY=;
+        b=kufhFVksktWNI1UU89FNpb7+4u7SnpsnCPJPWwOVGB4MgF+zhtAkH3Rq6srVhzCgGC
+         Lh8cqyzqqKnln++xPXe/NYKe6STto57APXkYt3c5CGAr+OPiekK/uZYrpLO7CkS/Tvyk
+         P5ysCnudyqFXsydAhokUju0PdYRwEByk45ipbiXlya9J42AxgMzteREkekcV43IhYwz8
+         ApOyYjy+kIxqy6ASo5d2TWSwpoUFxXd5cL5v2Qn0RCy4IOUxKf0t7Ntrt5dm4sk9xgFf
+         LRXxw8nmyTcx9HUVbpR6a+vz11al5PG0fjl1BK+NkMDu3s7K5YnuUChkTsTsNaS50GTW
+         vi/w==
+X-Forwarded-Encrypted: i=1; AJvYcCUsDzlXiM3wK5bh1kkdLUk4vYZl+QPzZgUax3N1NedPxIzoj/vtWePxR3cVJq6qCVj2U6IIoMps46dGB1KM4vLG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzY25XZaq5i32YimTJvbZa+sBigJESUTmsmHIfVIaMC+Bp5BIMB
+	cdUFvM0LhG03uS9Xdu2XPkKQIXlQbK6VhTELFXPSZ1rK017dleC97j99GM0dfVvHGEu1/7LOKJv
+	J1ULTfSxegcYlcU/vLedREvr+JDD26hmkrO8MYjuYDnWkUWdkUg10gzQxq+kY27zXjbSfhvl3p+
+	je
+X-Gm-Gg: AZuq6aLEHZ6CsVRzz4o9PMj+yLuTv7dxvmm9YLkt1UHHeGdNnZ+ZxwsYjjMo05QkSMa
+	ynLmTJ/8w84D4nqR3bi5r7VImY5FsYATi9pzLlJNAoP994c4cveWVkn1McIMjWkUSRgpNx8Agit
+	zsPYJaue9M3UbogY5YNGG3zxkIfvxrXu3nhXyHSpWdGmFmnNsosSwi0oNwSFSjfkWR2OhIhJT7q
+	JtlM09hvsUyM2UsdXUPba1lmjTJKCK/vrFReboO/qxc8fJ8EuB7Vh0MisBJ37bk2izqwkl2Mqdv
+	VO3QNJo0N50sqRXQ8J7Bxyo3cW9ygRQWKp/gbfvFkhgys2RQB7ewl663bD5vRnFK5wawh1doKWT
+	3/UG+po+kZH6Y
+X-Received: by 2002:a05:6a00:1d84:b0:824:9451:c1ee with SMTP id d2e1a72fcca58-824b3068659mr493733b3a.55.1770863122245;
+        Wed, 11 Feb 2026 18:25:22 -0800 (PST)
+X-Received: by 2002:a05:6a00:1d84:b0:824:9451:c1ee with SMTP id d2e1a72fcca58-824b3068659mr493667b3a.55.1770863121385;
+        Wed, 11 Feb 2026 18:25:21 -0800 (PST)
 Received: from localhost ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ab2984c07bsm34405605ad.7.2026.02.11.18.05.23
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8249e8198a6sm3984873b3a.50.2026.02.11.18.25.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Feb 2026 18:05:24 -0800 (PST)
-Date: Thu, 12 Feb 2026 10:01:58 +0800
+        Wed, 11 Feb 2026 18:25:20 -0800 (PST)
+Date: Thu, 12 Feb 2026 10:22:10 +0800
 From: Coiby Xu <coxu@redhat.com>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: kernel test robot <lkp@intel.com>
 Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, devicetree@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, devicetree@vger.kernel.org, oe-kbuild-all@lists.linux.dev, 
 	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>, 
 	Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Thomas Staudt <tstaudt@de.ibm.com>, 
-	Sourabh Jain <sourabhjain@linux.ibm.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Saravana Kannan <saravanak@kernel.org>, open list <linux-kernel@vger.kernel.org>
+	Andrew Morton <akpm@linux-foundation.org>, Linux Memory Management List <linux-mm@kvack.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Thomas Staudt <tstaudt@de.ibm.com>, Sourabh Jain <sourabhjain@linux.ibm.com>, 
+	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Saravana Kannan <saravanak@kernel.org>, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v4 2/2] arm64,ppc64le/kdump: pass dm-crypt keys to kdump
  kernel
-Message-ID: <aY0uGN67vdEP2b_F@Rk>
-References: <20260211082401.2407853-1-coxu@redhat.com>
- <20260211082401.2407853-3-coxu@redhat.com>
- <423a3431-1271-4c35-94fe-8ca880679ed9@kernel.org>
+Message-ID: <aY05DpHN6QL8xQQ4@Rk>
+References: <20260211082401.2407853-3-coxu@redhat.com>
+ <202602120648.RgQALnnI-lkp@intel.com>
 MIME-Version: 1.0
-In-Reply-To: <423a3431-1271-4c35-94fe-8ca880679ed9@kernel.org>
+In-Reply-To: <202602120648.RgQALnnI-lkp@intel.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: i2rYrTNmtHHcfB832Ixj1_1SR7yin-rd-48LPoUO31o_1770861926
+X-Mimecast-MFC-PROC-ID: C2XyhuevpUqVyMZSS2QkTiFqCpKA2p-zOVtkdlg_RVc_1770863122
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=iso-8859-1; format=flowed
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_180530_096441_AC190159 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20260211_182526_845473_CEE3DBB2 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,111 +118,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 11, 2026 at 10:55:17AM +0100, Christophe Leroy (CS GROUP) wrote:
+On Thu, Feb 12, 2026 at 06:35:52AM +0800, kernel test robot wrote:
+>Hi Coiby,
 >
+>kernel test robot noticed the following build errors:
 >
->Le 11/02/2026 à 09:24, Coiby Xu a écrit :
->>CONFIG_CRASH_DM_CRYPT has been introduced to support LUKS-encrypted
->>device dump target by addressing two challenges [1],
->>  - Kdump kernel may not be able to decrypt the LUKS partition. For some
->>    machines, a system administrator may not have a chance to enter the
->>    password to decrypt the device in kdump initramfs after the 1st kernel
->>    crashes
->>
->>  - LUKS2 by default use the memory-hard Argon2 key derivation function
->>    which is quite memory-consuming compared to the limited memory reserved
->>    for kdump.
->>
->>To also enable this feature for ARM64 and PowerPC, we only need to add
+>[auto build test ERROR on 2619c62b7ef2f463bcbbb34af122689c09855c23]
 >
->What do you want to say exactly with 'only' ?
+>url:    https://github.com/intel-lab-lkp/linux/commits/Coiby-Xu/crash_dump-dm-crypt-Don-t-print-in-arch-specific-code/20260211-162729
+>base:   2619c62b7ef2f463bcbbb34af122689c09855c23
+>patch link:    https://lore.kernel.org/r/20260211082401.2407853-3-coxu%40redhat.com
+>patch subject: [PATCH v4 2/2] arm64,ppc64le/kdump: pass dm-crypt keys to kdump kernel
+>config: powerpc64-randconfig-r111-20260212 (https://download.01.org/0day-ci/archive/20260212/202602120648.RgQALnnI-lkp@intel.com/config)
+>compiler: powerpc64-linux-gcc (GCC) 11.5.0
+>reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260212/202602120648.RgQALnnI-lkp@intel.com/reproduce)
+>
+>If you fix the issue in a separate patch/commit (i.e. not just a new version of
+>the same patch/commit), kindly add following tags
+>| Reported-by: kernel test robot <lkp@intel.com>
+>| Closes: https://lore.kernel.org/oe-kbuild-all/202602120648.RgQALnnI-lkp@intel.com/
+>
+>All errors (new ones prefixed by >>):
+>
+>   arch/powerpc/kexec/elf_64.c: In function 'elf64_load':
+>>> arch/powerpc/kexec/elf_64.c:82:23: error: implicit declaration of function 'crash_load_dm_crypt_keys' [-Werror=implicit-function-declaration]
+>      82 |                 ret = crash_load_dm_crypt_keys(image);
+>         |                       ^~~~~~~~~~~~~~~~~~~~~~~~
+>   cc1: some warnings being treated as errors
 
-Hi Christophe,
-
-Thanks for raising the question! To clarify, CONFIG_CRASH_DM_CRYPT
-provides the framework to address these challenges for LUKS-encrypted
-dump target. Since the heavy lifting is handled in the arch-independent
-code, we only need to...
-
-If it looks good to you, I'll rephrase it as "To also enable this
-feature for ARM64 and PowerPC, the missing piece is to let the kdump
-kernel know where to find the dm-crypt keys which are randomly stored in
-memory reserved for kdump. I'll introduce a new device tree property
-dmcryptkeys ...".
-
->
->>a device tree property dmcryptkeys [2] as similar to elfcorehdr to pass
->>the memory address of the stored info of dm-crypt keys to the kdump
->>kernel. Since this property is only needed by the kdump kernel, it won't
->>be exposed to user space.
->>
->>[1] https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore.kernel.org%2Fall%2F20250502011246.99238-1-coxu%40redhat.com%2F&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C0aa5f3b34d694b23b0cc08de6946f66c%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639063950684962054%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=8uCc%2Bg6YNojymf8UpZhmJY19vpWXJCC9KIf3qMyQ3dI%3D&reserved=0
->>[2] https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fdevicetree-org%2Fdt-schema%2Fpull%2F181&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C0aa5f3b34d694b23b0cc08de6946f66c%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639063950684987003%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=1s5NPHgF1LsXdrDXBhawduFXOqnHPlkbohQHHvolLw4%3D&reserved=0
->>
->>Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>
->>Cc: Baoquan he <bhe@redhat.com>
->>Cc: Dave Young <dyoung@redhat.com>
->>Cc: Kairui Song <ryncsn@gmail.com>
->>Cc: Pingfan Liu <kernelfans@gmail.com>
->>Cc: Andrew Morton <akpm@linux-foundation.org>
->>Cc: Krzysztof Kozlowski <krzk@kernel.org>
->>Cc: Rob Herring <robh@kernel.org>
->>Cc: Thomas Staudt <tstaudt@de.ibm.com>
->>Cc: Sourabh Jain <sourabhjain@linux.ibm.com>
->>Cc: Will Deacon <will@kernel.org>
->>Signed-off-by: Coiby Xu <coxu@redhat.com>
->>---
->>  arch/arm64/kernel/machine_kexec_file.c |  4 ++++
->>  arch/powerpc/kexec/elf_64.c            |  4 ++++
->>  drivers/of/fdt.c                       | 21 +++++++++++++++++++++
->>  drivers/of/kexec.c                     | 19 +++++++++++++++++++
->>  4 files changed, 48 insertions(+)
->>
->>diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
->>index 331646d667b9..2967e4aff807 100644
->>--- a/drivers/of/fdt.c
->>+++ b/drivers/of/fdt.c
->>@@ -866,6 +866,26 @@ static void __init early_init_dt_check_for_elfcorehdr(unsigned long node)
->>  		 elfcorehdr_addr, elfcorehdr_size);
->>  }
->>+static void __init early_init_dt_check_for_dmcryptkeys(unsigned long node)
->>+{
->>+	const char *prop_name = "linux,dmcryptkeys";
->>+	const __be32 *prop;
->>+
->>+	if (!IS_ENABLED(CONFIG_CRASH_DM_CRYPT))
->>+		return;
->>+
->>+	pr_debug("Looking for dmcryptkeys property... ");
->>+
->>+	prop = of_get_flat_dt_prop(node, prop_name, NULL);
->>+	if (!prop)
->>+		return;
->>+
->>+	dm_crypt_keys_addr = dt_mem_next_cell(dt_root_addr_cells, &prop);
->>+
->>+	/* Property only accessible to crash dump kernel */
->>+	fdt_delprop(initial_boot_params, node, prop_name);
->
->Shouldn't this property be deleted regardless of whether kernel is 
->built with CONFIG_CRASH_DM_CRYPT or without ?
-
-This property will be created only if 1) CONFIG_CRASH_DM_CRYPT is
-enabled and 2) the dump target is LUKS-encrypted. So there is no need to
-delete it if it doesn't exist at all.
-
->
->>+}
->>+
->>  static unsigned long chosen_node_offset = -FDT_ERR_NOTFOUND;
->>  /*
->>@@ -1097,6 +1117,7 @@ int __init early_init_dt_scan_chosen(char *cmdline)
->>  	early_init_dt_check_for_initrd(node);
->>  	early_init_dt_check_for_elfcorehdr(node);
->>+	early_init_dt_check_for_dmcryptkeys(node);
->>  	rng_seed = of_get_flat_dt_prop(node, "rng-seed", &l);
->>  	if (rng_seed && l > 0) {
->
+Thanks for reporting this issue. I'll fix this issue in new patch set.
 
 -- 
 Best regards,
