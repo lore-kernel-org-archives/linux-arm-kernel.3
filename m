@@ -4,110 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE8AEB48EB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 09:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C42DEB48EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 09:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8UBxJormBXMIna0vALf5yVJXI99hPt+eRkrBgltu420=; b=c+KbSsgiCl5AC6XfhbVEwptov4
-	MHbJ13/fl1VKhNANxG0kzKooca2xxPePH4zrwT10CTia0ulDVFLtD3/R+kpQHfGfDZALImotCOEI4
-	u16e94YA4q0SEJYKnQ5We2OICFsXz9Os7kB2MC4agSH4HqNewjy8h3Nm13meXQD4M/LbgvZ/FRX+2
-	Ja8W96uOSznElSVloHTtpdI1ts/NbkT6ZMTCLqj5QjXx//eamK0I+8cHnXxtMz7j1mXPI5djkM990
-	JF5Odc/KznsuGhrO1aOWveIrvpEWPZsXmAWJx0TBSeLOJecjc6il1xj/K29Fx6eeEZALTkitEx52m
-	BCaC9dCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cVndAX1vCJiQZT2vUkz3GfbNqdE3mYKlXDm5Ov0T3K4=; b=OEJNQOcBTI+RTILwrw4W0HtUKc
+	5DXRg6+l5wy+4+zJfeqA/Nlt3CA2TeES+6Ww6L5/FvrE3QD4A1anmPvQU1eFjglNpih40SaYAop2z
+	Yv2UjSl9I4TXbuFeBaAPGhwId7MSM4u7MarvxaKO0Wi4cFja3TMhiOMXVcoJ70AabD3LoFlJZ8txk
+	l6uMf5W8Zd0lBv3NxM0infPvP0fyOjhxfcQohUlpWoLGF9s7ZS30te0ERNsdR7thJmnWgfR9B8iYH
+	CoUHomXtj2LCSq21f7FY1H0/evrjqWm10zZXsK5crpC9H8JMR6Zo4j26c6A7qYB+OtRd12xnQiVCl
+	081wvH4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqT0M-00000001pix-3oM1;
-	Thu, 12 Feb 2026 09:28:58 +0000
-Received: from mail-dl1-x1232.google.com ([2607:f8b0:4864:20::1232])
+	id 1vqT15-00000001ppo-3Mqu;
+	Thu, 12 Feb 2026 09:29:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqT0K-00000001pic-1100
+	id 1vqT13-00000001poz-17u6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 09:28:57 +0000
-Received: by mail-dl1-x1232.google.com with SMTP id a92af1059eb24-12732e6a123so641550c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 01:28:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770888535; cv=none;
-        d=google.com; s=arc-20240605;
-        b=jcDMRZmtv9MMKDFqsngsktAFfApd3n7GTKZxuZ0DJvkYHWXPhmjyA7Ee36LDUFoG/H
-         D5ZCEaA8yh5ipqvKpz61QArbyNIlqILCcLz7lnisaDBWlBqOOM7Q/vaWDoHAFBcBYWtN
-         V4D5lkC01JC+xBxgsHCg9nbagTFasqkRqDlQTGZZlaXKg3FiffNZwdsqZbkqf+sHF/Va
-         Q8zIiUoNaBQKHSzVWHfzID7rs/4msIypOMnjuaqhr/G9nop8IXxl+vDUvoooLN+ZOAUw
-         d92GmkT3kFfDaC8vhEY1fMmtf16yj9rdbUb+NmeoWcEgnJQwIS7Fnbve3xaw8mYGYGNL
-         QZHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8UBxJormBXMIna0vALf5yVJXI99hPt+eRkrBgltu420=;
-        fh=hPKmStvGggTqv463UlLvhJ1a67hPGdmEtjXhLR7RFL0=;
-        b=VclnR/SZ0v4cjR75Un4ojkL27BImDGsmHcdFrfjRklbS/mkTdq0D0ITW4lFNcvd2sN
-         +uNjRhF6/v49Gldvk05febhkB2nZT3HaCFAVoBJMtPzFSkNYPBpVwTBngKO0dwoxwcUe
-         m19ycCYoAnjRQVdhV/g1H0REYt+i39PTbFV5J8TmvHzAg7PBk/IRgKy5qOZ7um9z47G4
-         OcQdNcmZGlFUnByeNLNLbvdJoSggGakfS5UKhk23f9SE7ompOHvZR/TcGKDPQTuWhJyd
-         SfdqGrmqL1d4+MjeN/hcrmqmhBxpTh8yHIABHQaLqYRRyiPhBSy43zzd3WhG6y6cmYhM
-         WtQw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770888535; x=1771493335; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8UBxJormBXMIna0vALf5yVJXI99hPt+eRkrBgltu420=;
-        b=ZVHmqREFZaZjo9iCk7t2MsEjF4+DW4sFuevmyMudJMHLIsgwX0ls2xmuc34XueTEIs
-         JMmEftaYPaNl388VHbLnZZMbG7IKJ7RNrLUtO26lYlSmIzOmn2WJWjR1iw+6vr2x4I3S
-         avAoXCr5oneMI5TZq+Qmgc4Nwbs2gzzRE8wHPOHdY7WBYMYGqC6aXQbVdV49yZngfoiQ
-         r+KThtWyMA+Deuuxbao2XbqJkpxBuSdi1b02kCXOCFfS3KE7qtbFOGA15vOyeoXdd5Jv
-         EB+Cxxonw61HFhCfKj2KtaZ1AmyE1lEAIiIrFleCAwRyTkagjPf4PRQlO0VYPMLYDZkX
-         Zsiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770888535; x=1771493335;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8UBxJormBXMIna0vALf5yVJXI99hPt+eRkrBgltu420=;
-        b=tG/u1vQKAS8uTnFes096YcGkQifmNY2FP8WNTVl3dWehNzBfNj7NewyRFMbyc6El3l
-         9qLLAccE3DDFuyA5CvO5MF8N7d+qIdiyDxaU0GDT8I711BYp8rBrd7Y638Q90XD3tqAi
-         pIs0yHHtPkKiwuA7KzzmQve074H4H6Gp6L0eNGcTSVf2qS0FkjLV+zexI9RYLA58azFB
-         /fFGsJBcPxhV+tjO8RhvdLbDyXtnGKNelYojPeSVGioGy8Fyy91eYyHDrT+DgaTIFD2R
-         GmkqK9wKr+RmarLJ643I08/RARqjUltS9NnxU+MnQXwTwpmS0sfst+70Utl6VeHos6Qg
-         Q5tA==
-X-Forwarded-Encrypted: i=1; AJvYcCXLMAuBXmDmJF4jNopxJsuBB/1TcfXRADCGNL02RwjXZrhQ2I5lDqDm4+56xQ/zYX8NFINJAIXoW8nX0/ENQ+/z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8FPLqQzrCfGaJvDTbA2ZK7tMboL/5jmyVNihVZpsPs19mWa4/
-	bsfYRSbHeeOtWptw4XhCpMjUOKlerhso/Qy0agdANKmjKINQNXf9wS2hhetlZqEhVCG4Z4hHSqh
-	B0fAUPkINBSXs2GukV5wsx9sGDjBYddRVSA==
-X-Gm-Gg: AZuq6aJ/uOsBiSXgjfU6Pb6cf5CEfmqYpb8KqAg0qFlrhtKaQH3vbKHlEL59l4Qfd4W
-	CEtdEgXBfpBZpbeqJYiLTWY2Jkre/sNOu3mD/lnm3KuSY3uHSBwsDskYYL/J1IenW+e2r4ErQ4i
-	d5XwbBVfQto4n9tLqQ3+HjJGTGNkTv91zJzZypvT50xDUD1cgW2PIXlbvtDOijkYjQvQnqnLg5w
-	f1gjeVzg8iCOWhBm6DniXv20aLGNVD0D+NYoBfTSEf4x6uUok3UvHQIFLM66hjtfGxauWFLlSK2
-	xYNZsJzrB2jMrFxq2If5iUAb2+djCSRccqFeIsXSMtaWyTCsy5wuvMOfeAOOj6MhXyV2Gs/m6xK
-	84ov1O4zS1pFYUYTZpUse33xqAbQvNgOU
-X-Received: by 2002:a05:7022:6081:b0:125:be41:db5b with SMTP id
- a92af1059eb24-1272f780d9cmr917943c88.42.1770888535262; Thu, 12 Feb 2026
- 01:28:55 -0800 (PST)
-MIME-Version: 1.0
-References: <20260211-imx25_dts_simple_warning-v1-0-7b40e1acca27@nxp.com> <20260211-imx25_dts_simple_warning-v1-2-7b40e1acca27@nxp.com>
-In-Reply-To: <20260211-imx25_dts_simple_warning-v1-2-7b40e1acca27@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Thu, 12 Feb 2026 11:31:37 +0200
-X-Gm-Features: AZwV_QgGMIlcIGcwVtxSix2gOB2fixK07XuT9MDhx5OR9fCA5qKRVtqrGhICOTY
-Message-ID: <CAEnQRZBUNOiTBhgypWDjBUYqNv2LBUf33REqKRM-zqnnkwx9TA@mail.gmail.com>
-Subject: Re: [PATCH 2/3] ARM: dts: imx27-eukrea-cpuimx27: rename uart8250 to serial
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Alexander Shiyan <shc_work@mail.ru>, Shawn Guo <shawn.guo@freescale.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 12 Feb 2026 09:29:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8217841ADF;
+	Thu, 12 Feb 2026 09:29:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59B38C4CEF7;
+	Thu, 12 Feb 2026 09:29:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770888580;
+	bh=iZyfNOwyD37sadNlp31+zwi7lJubFRN6RKclXfibhQU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=WMgzjksRKXmhbGYgMOwxiC5W35cIH5gveVPwAbB0ugycGDjtRFyhYm+pVLcLCKNZH
+	 mgYBR18nhaEB09FQmWkgWqRb3Hy6itiCTaZi5xp1oBM/Rz2NUp+yjdNYyTdjpKjXOL
+	 p2KxjU6sUMhkkM+8Xpffp1+3QrDskT6ZTwfJaPDeaI7ylWms4Yn9SwWzds+6AXzAvs
+	 7eZg7YX8rneAfFHB9hNH7El+/LsAx7R+F9sKZMEygrkhH/cWD5ASfMziXEHSMkJUP9
+	 vcGtYql3keB9zjO7TmY1jmMXoiYL5TQuKPD7278uJdB1UgkH/6fXXtUCkotomFtHwn
+	 uxYF3nCaEhGlw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vqT0z-0000000AZEb-3wuv;
+	Thu, 12 Feb 2026 09:29:38 +0000
+Date: Thu, 12 Feb 2026 09:29:37 +0000
+Message-ID: <86jywib98e.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1 1/3] KVM: arm64: Hide S1POE from guests when not supported by the host
+In-Reply-To: <20260212090252.158689-2-tabba@google.com>
+References: <20260212090252.158689-1-tabba@google.com>
+	<20260212090252.158689-2-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_012856_303299_4747B099 
-X-CRM114-Status: UNSURE (   8.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260212_012941_351424_A3B39BA9 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,14 +92,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 12, 2026 at 1:13=E2=80=AFAM Frank Li <Frank.Li@nxp.com> wrote:
->
-> Rename node name uart8250 to serial to fix below CHECK_DTBS warnings:
-> arch/arm/boot/dts/nxp/imx/imx27-eukrea-mbimxsd27-baseboard.dtb: uart8250@=
-3,200000 (ns8250): $nodename:0: 'uart8250@3,200000' does not match '^serial=
-(@.*)?$'
->
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Hi Fuad,
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+On Thu, 12 Feb 2026 09:02:50 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> When CONFIG_ARM64_POE is disabled, KVM does not save/restore POR_EL1.
+> However, ID_AA64MMFR3_EL1 sanitisation currently exposes the feature to
+> guests whenever the hardware supports it, ignoring the host kernel
+> configuration.
+
+This is the umpteenth time we get caught by this. PAN was the latest
+instance until this one. Maybe an approach would be to have a default
+override when a config option is not enabled, so that KVM is
+consistent with the rest of the kernel?
+
+> 
+> If a guest detects this feature and attempts to use it, the host will
+> fail to context-switch POR_EL1, potentially leading to state corruption.
+> 
+> Fix this by masking ID_AA64MMFR3_EL1.S1POE and preventing KVM from
+> advertising the feature when the host does not support it, i.e.,
+> system_supports_poe() is false.
+> 
+> Fixes: 70ed7238297f ("KVM: arm64: Sanitise ID_AA64MMFR3_EL1")
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_host.h | 3 ++-
+>  arch/arm64/kvm/sys_regs.c         | 3 +++
+>  2 files changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index ac7f970c7883..7af72ca749a6 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1592,7 +1592,8 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
+>  	(kvm_has_feat((k), ID_AA64MMFR3_EL1, S1PIE, IMP))
+>  
+>  #define kvm_has_s1poe(k)				\
+> -	(kvm_has_feat((k), ID_AA64MMFR3_EL1, S1POE, IMP))
+> +	(system_supports_poe() &&			\
+> +	 kvm_has_feat((k), ID_AA64MMFR3_EL1, S1POE, IMP))
+
+Why do we need to further key this on system_supports_poe()? I can see
+this is a potential optimisation, but I don't think this is part of
+the minimal fix.
+
+>  
+>  #define kvm_has_ras(k)					\
+>  	(kvm_has_feat((k), ID_AA64PFR0_EL1, RAS, IMP))
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 88a57ca36d96..237e8bd1cf29 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1816,6 +1816,9 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>  		       ID_AA64MMFR3_EL1_SCTLRX |
+>  		       ID_AA64MMFR3_EL1_S1POE |
+>  		       ID_AA64MMFR3_EL1_S1PIE;
+> +
+> +		if (!system_supports_poe())
+> +			val &= ~ID_AA64MMFR3_EL1_S1POE;
+
+How about S1PIE? It seems to have a similar problem, in the sense that
+it has extra state. But I guess because we don't put it behind a
+config option, we context-switch it anyway and all is good?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
