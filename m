@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE0B5EDF021
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 02:50:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC83EDF021
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 02:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rpbhbPxg+gu3tJ1/w30KRtOqtaU7542YRWWeRnaMZHM=; b=Sf6HHr6AXYOEOMOdcuXD1H+N0h
-	8Vcyhj1lKNIRVHnOMEI1TbBkBzgmLoL5j1o4GfuvutpVyOxQkTKBXZ7kcvKklf2tnhpMaWC4O00Kn
-	N+S1aCk+ku/azVeYdY8UH+BK/62vkSppw3+LUmCEOSkTUHtEa5zwRNqlPxYVoVS/Mh4wIqv7ImQoe
-	drulM6+D2P1grYJ/XMUmj+r+Cx8gaDbVmvcMintK7OMR+34GDph3eEu5NsE3SWhzN7LpJLbazuIZS
-	T2uvcno1h9SsLJ3A/4MD7HK2fXJHw5GSz9bCq9becGwpUXvooo6a68vRnAX9svEeXqRz8ndsJO8Om
-	+RnKm2Mw==;
+	bh=wgB3wurLjiYUioWjeSGxIO2fnPDJLoOj7l8RtV37cRU=; b=PRqwUxtkFn1DSUcuoqcy08PQkp
+	hdaQe32Y2JXT6skF1veDThFeqeBLSsk6biaDYZjiRGyqMnw6hb4R0dldx+ZD34xP9RDGaw6tDSkAN
+	qRIjg4rf/Q6INZbCN7mPyvCCUFUFiWesACxnIVldQtmmSO4Lz8WJVbHzVOrKsYsiiNtwCsrTS5YI6
+	dLucB6RDsCKG3mjCeqQotahxauyXzolYHzEt1SR0hY0IxZ96MeD8sgrAtg9aJrlSu3YwXKcQvQCXD
+	Xf69Luf92Ky6fWrz4SQa0eGNtuzgxIydrSWopp29kjLVz+1gV5+MC0GM1q4xds/mpewsMjkmW6o2K
+	bUvDN4cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqMmO-00000001N9f-0TEG;
-	Thu, 12 Feb 2026 02:50:08 +0000
+	id 1vqMmc-00000001NEY-1qoI;
+	Thu, 12 Feb 2026 02:50:22 +0000
 Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqMmJ-00000001N8B-2x4V
+	id 1vqMmY-00000001ND2-2881
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 02:50:06 +0000
+	Thu, 12 Feb 2026 02:50:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1770864603; x=1802400603;
+  t=1770864618; x=1802400618;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=rpbhbPxg+gu3tJ1/w30KRtOqtaU7542YRWWeRnaMZHM=;
-  b=CrnqZqkLdihU8X6KlO56XPgMhyxdQDndBgs/LL5lyyTliM1YXPDkpc65
-   h9Oul2X8IyJVzaChDEBl+eDR2x2VsidHRXFgyNLkt+7dxQI2Xrau4uWWF
-   3LoQSrsy/4K14jfDN8EbZWN8CTDdBVPTniiXiSWCzSV46mpzsmXxBh+67
-   zLeFN+CNuMDUAjyy4DCx9QApLmV52m97A4g93W7ntPW3o/iS+2m1WMzDY
-   Ay6Xbig5FkveRcOJZDplR7PnCQ8genmFaXAYXfeUV2Zet2Uvl8VkBUyn2
-   vcJabXp/rVrheCyprKmiJPYeuGF0cF6lN3sRegEgL8U7GpfEbL2byUM1Y
-   A==;
-X-CSE-ConnectionGUID: 5F/E3f8dQNiVGg2UzmuqAg==
-X-CSE-MsgGUID: +mw6SbhvQLqVBffFubyB3A==
+  bh=wgB3wurLjiYUioWjeSGxIO2fnPDJLoOj7l8RtV37cRU=;
+  b=B4cme2izNGb4GXoTiVsEPbMmwFyur4nwIlCOXRoF/+98wboTOwsUpuzl
+   vV3/S1zxol9/x7IAjP+1sF8WrsNdCY9F/lQgr84GfAPjHkAZdEUJZNyat
+   gTzr0d97RET8hbmFj7jnFqugmfesC/j4fGsmwBKxWwwRjSRcnZ7mWQrRS
+   3ASd26sqWJdCeCe0G/HgXGUaIdXGiwKSvyCICxUHOcVAXEB308XvyNoZf
+   91lEUW0unmK9wEVwDCTuV00ZYA15VWQBhD9pMK6MIVXMsw+0ZJvZkhxQh
+   6iM1u5RszOUhLpkZaZ2Wz8jqzKNQpTFA8PGMbKWnNDMhq3kxL0VDdiYmV
+   Q==;
+X-CSE-ConnectionGUID: 16Dqkm6HS+Gvb0Xtt8/cEA==
+X-CSE-MsgGUID: yhMAxWYoSTGoZiba0p3Egw==
 X-IronPort-AV: E=Sophos;i="6.21,285,1763424000"; 
-   d="scan'208";a="12721377"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 02:50:03 +0000
-Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.51:26164]
+   d="scan'208";a="12721399"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 02:50:18 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:24554]
  by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.61.62:2525] with esmtp (Farcaster)
- id 4601986b-18d6-45ee-8270-76dba3472325; Thu, 12 Feb 2026 02:50:02 +0000 (UTC)
-X-Farcaster-Flow-ID: 4601986b-18d6-45ee-8270-76dba3472325
+ id 968ce779-54cd-4bd2-94f5-597723c36c97; Thu, 12 Feb 2026 02:50:17 +0000 (UTC)
+X-Farcaster-Flow-ID: 968ce779-54cd-4bd2-94f5-597723c36c97
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 02:50:01 +0000
+ Thu, 12 Feb 2026 02:50:17 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 02:50:01 +0000
+ Thu, 12 Feb 2026 02:50:17 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>
@@ -70,9 +70,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-kbuild@vger.kernel.org>, <linux-modules@vger.kernel.org>
-Subject: [PATCH 010/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_SIG2 crypto
-Date: Thu, 12 Feb 2026 02:45:46 +0000
-Message-ID: <20260212024725.11264-11-wanjay@amazon.com>
+Subject: [PATCH 011/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_KPP2 crypto
+Date: Thu, 12 Feb 2026 02:45:47 +0000
+Message-ID: <20260212024725.11264-12-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260212024725.11264-1-wanjay@amazon.com>
 References: <20260212024725.11264-1-wanjay@amazon.com>
@@ -80,11 +80,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D035UWB001.ant.amazon.com (10.13.138.33) To
+X-ClientProxiedBy: EX19D038UWC001.ant.amazon.com (10.13.139.213) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_185003_804011_40038B32 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20260211_185019_984404_DD6FB1C1 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,7 +100,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Apply Crypto API wrappers to the exported crypto symbol in
-CONFIG_CRYPTO_SIG2-related crypto to convert them into pluggable
+CONFIG_CRYPTO_KPP2-related crypto to convert them into pluggable
 interface.
 
 This patch is partially based on work by Vegard Nossum, with
@@ -114,115 +114,125 @@ Co-developed-by: Vegard Nossum <vegard.nossum@oracle.com>
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
  crypto/Makefile               |  2 +-
- crypto/fips140/fips140-api.c  | 16 ++++++++++++++++
- include/crypto/internal/sig.h | 12 +++++-------
- include/crypto/sig.h          |  3 ++-
- 4 files changed, 24 insertions(+), 9 deletions(-)
+ crypto/fips140/fips140-api.c  | 17 +++++++++++++++++
+ include/crypto/internal/kpp.h | 12 +++++-------
+ include/crypto/kpp.h          |  5 +++--
+ 4 files changed, 26 insertions(+), 10 deletions(-)
 
 diff --git a/crypto/Makefile b/crypto/Makefile
-index 7d55be467108..2e722f7961d4 100644
+index 2e722f7961d4..21197857ad7d 100644
 --- a/crypto/Makefile
 +++ b/crypto/Makefile
-@@ -34,7 +34,7 @@ crypto_hash-y += shash.o
- crypto-objs-$(CONFIG_CRYPTO_HASH2) += crypto_hash.o
+@@ -35,7 +35,7 @@ crypto-objs-$(CONFIG_CRYPTO_HASH2) += crypto_hash.o
  
  crypto-objs-$(CONFIG_CRYPTO_AKCIPHER2) += akcipher.o
--obj-$(CONFIG_CRYPTO_SIG2) += sig.o
-+crypto-objs-$(CONFIG_CRYPTO_SIG2) += sig.o
- obj-$(CONFIG_CRYPTO_KPP2) += kpp.o
+ crypto-objs-$(CONFIG_CRYPTO_SIG2) += sig.o
+-obj-$(CONFIG_CRYPTO_KPP2) += kpp.o
++crypto-objs-$(CONFIG_CRYPTO_KPP2) += kpp.o
  obj-$(CONFIG_CRYPTO_HKDF) += hkdf.o
  
+ dh_generic-y := dh.o
 diff --git a/crypto/fips140/fips140-api.c b/crypto/fips140/fips140-api.c
-index 8d4d07060d86..c97806cfdd05 100644
+index c97806cfdd05..50603e7a8bb0 100644
 --- a/crypto/fips140/fips140-api.c
 +++ b/crypto/fips140/fips140-api.c
-@@ -270,4 +270,20 @@ DEFINE_CRYPTO_API_STUB(akcipher_register_instance);
- DEFINE_CRYPTO_API_STUB(crypto_akcipher_sync_encrypt);
- DEFINE_CRYPTO_API_STUB(crypto_akcipher_sync_decrypt);
+@@ -286,4 +286,21 @@ DEFINE_CRYPTO_API_STUB(crypto_unregister_sig);
+ DEFINE_CRYPTO_API_STUB(sig_register_instance);
+ DEFINE_CRYPTO_API_STUB(crypto_grab_sig);
  
 +#endif
 +
 +/*
-+ * crypto/sig.c
++ * crypto/kpp.c
 + */
-+#if IS_BUILTIN(CONFIG_CRYPTO_SIG2)
++#if IS_BUILTIN(CONFIG_CRYPTO_KPP2)
 +
-+#include <crypto/sig.h>
-+#include <crypto/internal/sig.h>
++#include <crypto/kpp.h>
++#include <crypto/internal/kpp.h>
 +
-+DEFINE_CRYPTO_API_STUB(crypto_alloc_sig);
-+DEFINE_CRYPTO_API_STUB(crypto_register_sig);
-+DEFINE_CRYPTO_API_STUB(crypto_unregister_sig);
-+DEFINE_CRYPTO_API_STUB(sig_register_instance);
-+DEFINE_CRYPTO_API_STUB(crypto_grab_sig);
++DEFINE_CRYPTO_API_STUB(crypto_alloc_kpp);
++DEFINE_CRYPTO_API_STUB(crypto_grab_kpp);
++DEFINE_CRYPTO_API_STUB(crypto_has_kpp);
++DEFINE_CRYPTO_API_STUB(crypto_register_kpp);
++DEFINE_CRYPTO_API_STUB(crypto_unregister_kpp);
++DEFINE_CRYPTO_API_STUB(kpp_register_instance);
 +
  #endif
 \ No newline at end of file
-diff --git a/include/crypto/internal/sig.h b/include/crypto/internal/sig.h
-index b16648c1a986..51d3a617c00d 100644
---- a/include/crypto/internal/sig.h
-+++ b/include/crypto/internal/sig.h
+diff --git a/include/crypto/internal/kpp.h b/include/crypto/internal/kpp.h
+index 0a6db8c4a9a0..eff35727f700 100644
+--- a/include/crypto/internal/kpp.h
++++ b/include/crypto/internal/kpp.h
 @@ -7,6 +7,7 @@
- #ifndef _CRYPTO_INTERNAL_SIG_H
- #define _CRYPTO_INTERNAL_SIG_H
- 
+  */
+ #ifndef _CRYPTO_KPP_INT_H
+ #define _CRYPTO_KPP_INT_H
 +#include <crypto/api.h>
+ #include <crypto/kpp.h>
  #include <crypto/algapi.h>
- #include <crypto/sig.h>
  
-@@ -39,7 +40,7 @@ static inline void *crypto_sig_ctx(struct crypto_sig *tfm)
+@@ -159,7 +160,7 @@ static inline void *kpp_instance_ctx(struct kpp_instance *inst)
   *
   * Return: zero on success; error code in case of error
   */
--int crypto_register_sig(struct sig_alg *alg);
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_SIG2, crypto_register_sig, int, (struct sig_alg *alg), (alg));
+-int crypto_register_kpp(struct kpp_alg *alg);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_KPP2, crypto_register_kpp, int, (struct kpp_alg *alg), (alg));
  
  /**
-  * crypto_unregister_sig() -- Unregister public key signature algorithm
-@@ -48,10 +49,9 @@ int crypto_register_sig(struct sig_alg *alg);
+  * crypto_unregister_kpp() -- Unregister key-agreement protocol primitive
+@@ -170,7 +171,7 @@ int crypto_register_kpp(struct kpp_alg *alg);
   *
   * @alg:	algorithm definition
   */
--void crypto_unregister_sig(struct sig_alg *alg);
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_SIG2, crypto_unregister_sig, void, (struct sig_alg *alg), (alg));
- 
--int sig_register_instance(struct crypto_template *tmpl,
--			  struct sig_instance *inst);
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_SIG2, sig_register_instance, int, (struct crypto_template *tmpl, struct sig_instance *inst), (tmpl, inst));
- 
- static inline struct sig_instance *sig_instance(struct crypto_instance *inst)
- {
-@@ -74,9 +74,7 @@ static inline void *sig_instance_ctx(struct sig_instance *inst)
- 	return crypto_instance_ctx(sig_crypto_instance(inst));
- }
- 
--int crypto_grab_sig(struct crypto_sig_spawn *spawn,
--		    struct crypto_instance *inst,
--		    const char *name, u32 type, u32 mask);
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_SIG2, crypto_grab_sig, int, (struct crypto_sig_spawn *spawn, struct crypto_instance *inst, const char *name, u32 type, u32 mask), (spawn, inst, name, type, mask));
- 
- static inline struct crypto_sig *crypto_spawn_sig(struct crypto_sig_spawn
- 								   *spawn)
-diff --git a/include/crypto/sig.h b/include/crypto/sig.h
-index fa6dafafab3f..1b0595b3b245 100644
---- a/include/crypto/sig.h
-+++ b/include/crypto/sig.h
-@@ -7,6 +7,7 @@
- #ifndef _CRYPTO_SIG_H
- #define _CRYPTO_SIG_H
- 
-+#include <crypto/api.h>
- #include <linux/crypto.h>
+-void crypto_unregister_kpp(struct kpp_alg *alg);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_KPP2, crypto_unregister_kpp, void, (struct kpp_alg *alg), (alg));
  
  /**
-@@ -91,7 +92,7 @@ struct sig_alg {
-  * Return: allocated handle in case of success; IS_ERR() is true in case
-  *	   of an error, PTR_ERR() returns the error code.
+  * kpp_register_instance() - Register a KPP template instance.
+@@ -178,8 +179,7 @@ void crypto_unregister_kpp(struct kpp_alg *alg);
+  * @inst: The KPP template instance to be registered.
+  * Return: %0 on success, negative error code otherwise.
   */
--struct crypto_sig *crypto_alloc_sig(const char *alg_name, u32 type, u32 mask);
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_SIG2, crypto_alloc_sig, struct crypto_sig *, (const char *alg_name, u32 type, u32 mask), (alg_name, type, mask));
+-int kpp_register_instance(struct crypto_template *tmpl,
+-			  struct kpp_instance *inst);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_KPP2, kpp_register_instance, int, (struct crypto_template *tmpl, struct kpp_instance *inst), (tmpl, inst));
  
- static inline struct crypto_tfm *crypto_sig_tfm(struct crypto_sig *tfm)
+ /*
+  * KPP spawn related functions.
+@@ -193,9 +193,7 @@ int kpp_register_instance(struct crypto_template *tmpl,
+  * @mask: The mask bismask to pass on to the lookup.
+  * Return: %0 on success, a negative error code otherwise.
+  */
+-int crypto_grab_kpp(struct crypto_kpp_spawn *spawn,
+-		    struct crypto_instance *inst,
+-		    const char *name, u32 type, u32 mask);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_KPP2, crypto_grab_kpp, int, (struct crypto_kpp_spawn *spawn, struct crypto_instance *inst, const char *name, u32 type, u32 mask), (spawn, inst, name, type, mask));
+ 
+ /**
+  * crypto_drop_kpp() - Release a spawn previously bound via crypto_grab_kpp().
+diff --git a/include/crypto/kpp.h b/include/crypto/kpp.h
+index 2d9c4de57b69..068a6e218344 100644
+--- a/include/crypto/kpp.h
++++ b/include/crypto/kpp.h
+@@ -9,6 +9,7 @@
+ #ifndef _CRYPTO_KPP_
+ #define _CRYPTO_KPP_
+ 
++#include <crypto/api.h>
+ #include <linux/atomic.h>
+ #include <linux/container_of.h>
+ #include <linux/crypto.h>
+@@ -107,9 +108,9 @@ struct kpp_alg {
+  * Return: allocated handle in case of success; IS_ERR() is true in case of
+  *	   an error, PTR_ERR() returns the error code.
+  */
+-struct crypto_kpp *crypto_alloc_kpp(const char *alg_name, u32 type, u32 mask);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_KPP2, crypto_alloc_kpp, struct crypto_kpp *, (const char *alg_name, u32 type, u32 mask), (alg_name, type, mask));
+ 
+-int crypto_has_kpp(const char *alg_name, u32 type, u32 mask);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_KPP2, crypto_has_kpp, int, (const char *alg_name, u32 type, u32 mask), (alg_name, type, mask));
+ 
+ static inline struct crypto_tfm *crypto_kpp_tfm(struct crypto_kpp *tfm)
  {
 -- 
 2.47.3
