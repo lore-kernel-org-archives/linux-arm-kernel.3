@@ -4,82 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DB2EE3695
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 15:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7B3EE369B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 15:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HchJ1SWogrsJwfrTWRXT73uwYPcAoeL4M9mj5bl3diA=; b=2WlF25ug0O7yJMXzoFZrd+xahk
-	MX9BBqDyc1zF1jFvwyDZuxFd2v06vuvssYbJ+zeA7bNvuHVRBY9LOCLuvjlPT6De5noIhi9LzUYSa
-	xn/+0PUh7oBoth5DzzcQkSv+k5TtInKxSNSogIQNgnNHa7ybz3TMaW9ymcCjFCwI0bFayIWbHPXKH
-	iWhDADxrpv472a11N5AhxzZnV/yPNRiRWsDp5oGjXKGuKQOD2P/9cvVAdYnEs1HQjwluQEaAwVsyE
-	0QmYjZfEhNE9LBRFeG2nlkAkOMHb1QfJhwiAd9nWKPv3z9elOPU2KdZQVhnydKn8cyTldEIe/TKnG
-	XYNA2VPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NTco/kPWu55YLeIqPcq43kzrY4AuicCJ5cyuAeTIvuI=; b=g+dTG4zmK4cxPGxQqVx/D8SrtB
+	ytGkbpAW40rist9p/KUaLZuLxq+8Ziz7K0Edn8nL4AFBV/rbw0uIBW2ZtFNKF9Tzr46YqQwpnGaWm
+	bnRkEFgGmXKVlrfAiJ0yVV9jf+3VRhmXOmSG82Yahp/DstoFskHZ9iP/jktMcfWPfiR+gITjASM7x
+	R7LlEwLqqSSuNjgftDkQDeu0nN3NDUBdRbmDH9fyuHai7APJx9pP0SUq2Mjx/LHmEDy9S2Tf2C0MR
+	Tz3ffBQ03OmW+udXACinOkM8SlOm25gTnrhdl393cOb1EAu0zngLYyKSoqeWdBKU05X0i9nXBhwqT
+	cZlL1CJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqYjN-00000002HLp-1rjh;
-	Thu, 12 Feb 2026 15:35:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vqYnp-00000002Hai-0fqm;
+	Thu, 12 Feb 2026 15:40:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqYjL-00000002HLT-0t26
+	id 1vqYnm-00000002HaV-1Foq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 15:35:48 +0000
+	Thu, 12 Feb 2026 15:40:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6D4604401B;
-	Thu, 12 Feb 2026 15:35:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 431CCC4CEF7;
-	Thu, 12 Feb 2026 15:35:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 23E0860051;
+	Thu, 12 Feb 2026 15:40:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 651F3C4CEF7;
+	Thu, 12 Feb 2026 15:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770910546;
-	bh=TO37eo+Xgib1YZz+3/bN23epC9tyuhnej0GE/4f9cu0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=aWegDsBCbtfgIg9OB2Xop0lxMZQZwqnfB0XxDQ1ueSB7JcgdPabiA42A0ID30+YaT
-	 P/XSETTC7Yp7LAHJn1mdglYBFHY8apMm7aJjIdTv62SFR8OMUfOdbzlnUy2wCzeZ9P
-	 qeitAMtlBa4Dpu0Pld90mQkZsNlQEPhZhE3NsjwBsGOYAXM1Z0jy/tUfs3Uiy7Yzmq
-	 jqUs5QcXBDMLhWVRmFhrg4r6U4qsQmae3wNfbwYcj9s5SjXNuawXvxLGiKOZVh9R7+
-	 QNiq30C+UJ87E8cP7FBFGdAK0wCpMBxagWggHp00At/4AMI4cabCeJx5GC2bp1sUNM
-	 KIvbaqBP5G1gQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vqYjH-0000000AeWS-3lg7;
-	Thu, 12 Feb 2026 15:35:43 +0000
-Date: Thu, 12 Feb 2026 15:35:43 +0000
-Message-ID: <86ikc2asa8.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1 1/3] KVM: arm64: Hide S1POE from guests when not supported by the host
-In-Reply-To: <CA+EHjTz-JU2gDfziCY2SguK9=6gGSCL5TN_U_C7FiZ5i0JTZqQ@mail.gmail.com>
-References: <20260212090252.158689-1-tabba@google.com>
-	<20260212090252.158689-2-tabba@google.com>
-	<86jywib98e.wl-maz@kernel.org>
-	<CA+EHjTz-JU2gDfziCY2SguK9=6gGSCL5TN_U_C7FiZ5i0JTZqQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_073547_294326_D2677DDF 
-X-CRM114-Status: GOOD (  33.48  )
+	s=k20201202; t=1770910820;
+	bh=NTco/kPWu55YLeIqPcq43kzrY4AuicCJ5cyuAeTIvuI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OS8LzFH9JBFCiVG84P5G/4QroKij0LJJ2QlsgtUrabn05GDecJ/2taaOSXbcFfqOB
+	 LM6kmjAZL5VaCQ+hcJO2pqE0Ve4em8hWuCMiDaWDm8Rlgc1NQbphnT3ic5VZVbtnjY
+	 HuzCWYCBWt7iBiJvj4ltipZ5P4xyQVMt2MW/MtlVbiS/RNBNtLgteQWWciv7vPVWzT
+	 J6vS6oacuq41XNsc0zWM3kiyqHYXD8my8927m3mncW/Dzt7yGHjK+DQCD+ZtKc/3in
+	 NdrQ1Nu9XebwCEr38DF88zTmaiVUaOvLnP6xGu/03V3i2cq3y+W1rLhg5BQIoDFthh
+	 MtV7nPj6dU45A==
+Message-ID: <d786d817-e97d-4270-a3be-4778730df35e@kernel.org>
+Date: Thu, 12 Feb 2026 16:40:14 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/5] ARM: multi_v7_defconfig: Enable ITE IT66121 driver
+To: "Kory Maincent (TI)" <kory.maincent@bootlin.com>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade
+ <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Bajjuri Praneeth <praneeth@ti.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Louis Chauvet <louis.chauvet@bootlin.com>
+References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
+ <20260212-feature_bbge-v1-4-29014a212f35@bootlin.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260212-feature_bbge-v1-4-29014a212f35@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,168 +125,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Feb 2026 09:41:22 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Thu, 12 Feb 2026 at 09:29, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > Hi Fuad,
-> >
-> > On Thu, 12 Feb 2026 09:02:50 +0000,
-> > Fuad Tabba <tabba@google.com> wrote:
-> > >
-> > > When CONFIG_ARM64_POE is disabled, KVM does not save/restore POR_EL1.
-> > > However, ID_AA64MMFR3_EL1 sanitisation currently exposes the feature to
-> > > guests whenever the hardware supports it, ignoring the host kernel
-> > > configuration.
-> >
-> > This is the umpteenth time we get caught by this. PAN was the latest
-> > instance until this one. Maybe an approach would be to have a default
-> > override when a config option is not enabled, so that KVM is
-> > consistent with the rest of the kernel?
-> 
-> I spoke to Will about this, and one thing he'll look into is whether
-> this value in `struct arm64_ftr_reg` can be made consistent with the
-> cpu configuration itself (in cpufeature.c itself) . This would avoid
-> the problem altogether if possible. The question is whether the kernel
-> needs to somehow know that a certain feature exists even if it's
-> disabled in the config...
-> 
-> If he thinks it's not doable at that level, I'll look into
-> alternatives to make it correct by construction.
+On 12/02/2026 16:26, Kory Maincent (TI) wrote:
+> Enable the ITE IT66121 HDMI bridge driver to support HDMI output on
+> the BeagleBone Green with the Seeed Studio HDMI cape.
 
-What I currently have for that is rather ugly:
+This is not one option per patch. All three patches should be squashed,
+because are logically one change.
 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 72f39cecce93a..3bde0ad5ea972 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -971,6 +971,7 @@ struct arm64_ftr_reg *get_arm64_ftr_reg(u32 sys_id);
- extern struct arm64_ftr_override id_aa64mmfr0_override;
- extern struct arm64_ftr_override id_aa64mmfr1_override;
- extern struct arm64_ftr_override id_aa64mmfr2_override;
-+extern struct arm64_ftr_override id_aa64mmfr3_override;
- extern struct arm64_ftr_override id_aa64pfr0_override;
- extern struct arm64_ftr_override id_aa64pfr1_override;
- extern struct arm64_ftr_override id_aa64zfr0_override;
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 1a7eec542675b..32069da9651bf 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -778,6 +778,7 @@ static const struct arm64_ftr_bits ftr_raz[] = {
- struct arm64_ftr_override __read_mostly id_aa64mmfr0_override;
- struct arm64_ftr_override __read_mostly id_aa64mmfr1_override;
- struct arm64_ftr_override __read_mostly id_aa64mmfr2_override;
-+struct arm64_ftr_override __read_mostly id_aa64mmfr3_override;
- struct arm64_ftr_override __read_mostly id_aa64pfr0_override;
- struct arm64_ftr_override __read_mostly id_aa64pfr1_override;
- struct arm64_ftr_override __read_mostly id_aa64zfr0_override;
-@@ -850,7 +851,8 @@ static const struct __ftr_reg_entry {
- 			       &id_aa64mmfr1_override),
- 	ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2,
- 			       &id_aa64mmfr2_override),
--	ARM64_FTR_REG(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3),
-+	ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3,
-+			       &id_aa64mmfr3_override),
- 	ARM64_FTR_REG(SYS_ID_AA64MMFR4_EL1, ftr_id_aa64mmfr4),
- 
- 	/* Op1 = 0, CRn = 10, CRm = 4 */
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index 85bc629270bd9..202e165a4680c 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -51,6 +51,7 @@ PI_EXPORT_SYM(id_aa64isar2_override);
- PI_EXPORT_SYM(id_aa64mmfr0_override);
- PI_EXPORT_SYM(id_aa64mmfr1_override);
- PI_EXPORT_SYM(id_aa64mmfr2_override);
-+PI_EXPORT_SYM(id_aa64mmfr3_override);
- PI_EXPORT_SYM(id_aa64pfr0_override);
- PI_EXPORT_SYM(id_aa64pfr1_override);
- PI_EXPORT_SYM(id_aa64smfr0_override);
-diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-index e5ea280452c3b..b8dbe02e53171 100644
---- a/arch/arm64/kernel/pi/idreg-override.c
-+++ b/arch/arm64/kernel/pi/idreg-override.c
-@@ -24,10 +24,12 @@
- static u64 __boot_status __initdata;
- 
- typedef bool filter_t(u64 val);
-+typedef void cfg_override_t(struct arm64_ftr_override *);
- 
- struct ftr_set_desc {
- 	char 				name[FTR_DESC_NAME_LEN];
- 	PREL64(struct arm64_ftr_override, override);
-+	PREL64(cfg_override_t,		cfg_override);
- 	struct {
- 		char			name[FTR_DESC_FIELD_LEN];
- 		u8			shift;
-@@ -106,6 +108,22 @@ static const struct ftr_set_desc mmfr2 __prel64_initconst = {
- 	},
- };
- 
-+static void __init cfg_mmfr3_override(struct arm64_ftr_override *override)
-+{
-+#ifndef CONFIG_ARM64_POE
-+	override->mask |= ID_AA64MMFR3_EL1_S1POE_MASK;
-+#endif
-+}
-+
-+static const struct ftr_set_desc mmfr3 __prel64_initconst = {
-+	.name		= "id_aa64mmfr3",
-+	.override	= &id_aa64mmfr3_override,
-+	.cfg_override	= cfg_mmfr3_override,
-+	.fields		= {
-+		{}
-+	},
-+};
-+
- static bool __init pfr0_sve_filter(u64 val)
- {
- 	/*
-@@ -221,6 +239,7 @@ PREL64(const struct ftr_set_desc, reg) regs[] __prel64_initconst = {
- 	{ &mmfr0	},
- 	{ &mmfr1	},
- 	{ &mmfr2	},
-+	{ &mmfr3	},
- 	{ &pfr0 	},
- 	{ &pfr1 	},
- 	{ &isar1	},
-@@ -398,14 +417,19 @@ void __init init_feature_override(u64 boot_status, const void *fdt,
- {
- 	struct arm64_ftr_override *override;
- 	const struct ftr_set_desc *reg;
-+	cfg_override_t *cfg_override;
- 	int i;
- 
- 	for (i = 0; i < ARRAY_SIZE(regs); i++) {
- 		reg = prel64_pointer(regs[i].reg);
- 		override = prel64_pointer(reg->override);
-+		cfg_override = prel64_pointer(reg->cfg_override);
- 
- 		override->val  = 0;
- 		override->mask = 0;
-+
-+		if (cfg_override)
-+			cfg_override(override);
- 	}
- 
- 	__boot_status = boot_status;
-
-
-which works, but is not super friendly.
-
-Looking at the arm64_ftr_reg structure, this could work if
-FTR_VISIBLE_IF_IS_ENABLED() didn't simply put "HIDDEN" when the
-feature is not present, but forced things to be disabled
-altogether. The problem is that "HIDDEN" means not shown to userspace,
-and that we have plenty of HIDDEN features that must make it into KVM.
-
-I'll have a think.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Best regards,
+Krzysztof
 
