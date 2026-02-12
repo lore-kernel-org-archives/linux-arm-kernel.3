@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FEEDEE3698
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 16:29:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C1EEE3695
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 16:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GuJ9chT/JRPI7PsW9vVIQG7JLSAt2fSvD4cDOqfmeEE=; b=DJsFcPaB37YUjykZbf/NcYHupG
-	JFpEVKUB/0GbnB7DwkG9bkXGvkmEZt3JwSSFEXq2hp7Iq5EQoWTASIfYBfl2x15PE6awAT0/37YBJ
-	axeus9yU0z/7i1yT+PQn+5RAXGnd4hlxpxYb3xSLwqlSZ5QMXdyyX635leoIomeJUcyy1i5NB3rno
-	mqO9yWZSU5leOSEHRxQbRug1R7i7RwtWfMbA5bWIrHxyn7hgrDUm4KjTcyC9dMPyX1oMQ07Xv75k9
-	JLL7ru6Kv6EnB720lEWdd8poXKPPLQWWL5P62j8r/aE1vHsmRWCQUmr+1utCDCoPZAaL41CzG474V
-	og6f8eWQ==;
+	bh=pyv4s4rmJqqWtjAiZNS8LktfZssUDapZ7Tjv3KU7sQA=; b=QXAQ/jGJoPR6j8vjzNyYeDKrDI
+	w4rWUdB4EXA5BVfxFqJUAoyJCH1KQzY/V1eeh3/tNTfpvNcoVQZF8UsJ0FnXBEA4D8kujOeEv52Zl
+	MLwvj5Hqi2lge93xUUjzZIyY1D/9ZYykTQCwyEr8rKQeqwDHPQkl56UE3CHNwnC/ZqzeisXEUGgyO
+	M/Oj0rXNApTsnwWX9c8pCPmqTZflEAwyEr4H2S+7gBFXPs5mToV4C5Uv5mvv2YZah5FjqwlSstX1a
+	gGQ3ENePSPehgictKwDB2H+WemdRQ+YkacocaruC5z6sUBe8BtUnh+wxYstzQHhNBiO5F8ydfYxd0
+	mGCi9gRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqZZb-00000002Mz9-36ue;
-	Thu, 12 Feb 2026 16:29:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vqZaB-00000002N3I-0FDL;
+	Thu, 12 Feb 2026 16:30:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqZZa-00000002Mz3-3DjE
+	id 1vqZa9-00000002N38-3C8C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 16:29:47 +0000
+	Thu, 12 Feb 2026 16:30:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E1016001A;
-	Thu, 12 Feb 2026 16:29:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A21C4CEF7;
-	Thu, 12 Feb 2026 16:29:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BC46F60010;
+	Thu, 12 Feb 2026 16:30:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F475C4CEF7;
+	Thu, 12 Feb 2026 16:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770913785;
-	bh=g6tjZlKG98dxqhFkJckuNNDVcuE6Nsc0MXhTp7hEh5Q=;
+	s=k20201202; t=1770913820;
+	bh=3ourdlWMcx/lqvoPyJvXSxAb1D6cN3WZIh4zW83XQOQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=olOXLC5rZfSWJ3Eyc7Y/ixoq1CoagnsZCIknizfGTNnlOCxfWWUpCW6GJAKJwM3OD
-	 nIivi4bEx6Fh7J3i5gzwY3ac5B/BnlONTl+lGjYP0gptZPUFCqOYyGB5XON0peiPP9
-	 R97UxUeQvOqNzYJGktePltyvuSyCRNJ3kyPLVZaUvm1Dxg8M0nzAbQ2jspfTMA0BDx
-	 CmJJrdvxMraT5Brom27ex36HRTwamBBDnxozgb96zfG+dQV9gsVsShc8RKOvYt1a2M
-	 g47Fax6lXQRY0s8YhYPjwlXW4nVAcfWHffElqsjhQbre9AHB2wUBSaZgFXAr4oU1k8
-	 YH0oE5tIHoYjg==
-Message-ID: <1f11cba3-205c-4d41-867c-1be58d9423d3@kernel.org>
-Date: Thu, 12 Feb 2026 17:29:39 +0100
+	b=GxvGO/rtzFiEwlUZQM43TkOkGSSud/30IikXC/1d8pQYnEnfJHn6u+ah12etCKKnb
+	 KeRvOTm2WlzJUm9Lx6v5JrEaBlTpBbnxNd63O/oikW0CP+rAEKNNoP8IG97Mvkz793
+	 lA9aS8O6+3YQHAybA5GBm1TRbKysKoAMwuPzJA/GK90YpDgC3H6WpWXCipDs6DeAr2
+	 Kmyw2h5ALdu9lIJRWMh/a5UtO69bkfr04h6+yH4mWnFEbjaXx5vAfV7BAu1IY0Cp2w
+	 bJIX+XYZb099ZIK2uYyeqEATafO0+wiABSufaxa54DzQbc1Uv3GkEZBjVhmeWlxWP4
+	 FzDRWs6bvjEVw==
+Message-ID: <f8012f1e-9d4a-48b1-8520-6577af60f81d@kernel.org>
+Date: Thu, 12 Feb 2026 17:30:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] dt-bindings: dmaengine: xilinx_dma: Add
- "xlnx,include-stscntrl-strm" property
+Subject: Re: [PATCH 2/7] dt-bindings: dmaengine: xilinx_dma: Move
+ xlnx,irq-delay to common AXI DMA and MCDMA section
 To: Srinivas Neeli <srinivas.neeli@amd.com>, vkoul@kernel.org
 Cc: michal.simek@amd.com, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, suraj.gupta2@amd.com, abin.joseph@amd.com,
@@ -57,7 +57,7 @@ Cc: michal.simek@amd.com, robh@kernel.org, krzk+dt@kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  git@amd.com
 References: <20260212135146.1185416-1-srinivas.neeli@amd.com>
- <20260212135146.1185416-7-srinivas.neeli@amd.com>
+ <20260212135146.1185416-3-srinivas.neeli@amd.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +103,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260212135146.1185416-7-srinivas.neeli@amd.com>
+In-Reply-To: <20260212135146.1185416-3-srinivas.neeli@amd.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,15 +121,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/02/2026 14:51, Srinivas Neeli wrote:
-> From: Suraj Gupta <suraj.gupta2@amd.com>
+> xlnx,irq-delay property is applicable to both AXI DMA and MCDMA
+> designs. Move it from "Optional properties for AXI DMA" to "Optional
+> properties for AXI DMA and MCDMA" section to correctly reflect its usage.
 > 
-> Add an optional boolean DT property "xlnx,include-stscntrl-strm" to
-> indicate that the AXI DMA IP is configured with the AXI4-Stream status
-> and control interface. This enables the use of APP fields in DMA
-> descriptors for metadata reporting.
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> ---
+>  Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
 
-Changes to TXT bindings are not allowed for long time. Convert the
-bindings first.
+
+First convert the binding, then make changes to it.
 
 Best regards,
 Krzysztof
