@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2BAEB490D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 11:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50961EB4912
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 11:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ase9xp9Kc9/jsnZ174Suydxg92duerBwfwT7Vhmzv8A=; b=BOUfw2yeIHofggHk3W4vJEDnGE
-	v6tpS6PIagdHyTRm26ReWt6yvKuYrDYJKpP3M7/R6OfJZDXBOQpMGRM9Yb62t4nj+N3WSlj7D6FW6
-	iPpfNHfTKx8XEO0jarnklSyI5iwRqx4QVniL976UXmHJbRGDWRbdHTtA/Eay3TZoD+h3kM/LWsddo
-	pJQVXMEkC4vMveRwRzkeix8f/M/npTHNDAx81RZgPxVbEvKm3MwXsFwLcyAWi62Dj4X2kMlzgpNDv
-	iMHFJpn0MC/TlvAladz0oUvuflqrHD2GhXQVrgnsNkacPqsS+NGQZRJMZWak4o1GGSFZwZpQVNDIw
-	tafCi/ZA==;
+	bh=wZFfPGxPusxBbKHt4baLlsQ9Gc0sz+hk6vgWNb44Ies=; b=MBIt86YHrB8ngmqo5eC3fNJSGA
+	a5y8UiTEUvACtcmhm8CTgkwB5o3UHLYSCXkn81Yv7OehHHboLn8ZxH2uKrRsO9YvCtsyyEDDMLs3I
+	zGghi105u19TEANEVCVfGCPfl+SgdJm8hMe946WdRwt2nz+UQ76IjXU1x6PJwRk1aATltc76s60Si
+	biReZP7ZLlhJSfms72xqlAl6qLMJ3gGCzhSRX6LaV5yED9Or0m5WWK4fD5oFfFTLVmxG0Tc69nF73
+	RHLpxkBWMZFm8qxMr8EDHQs5rGUn4S8VHSjYcc9BinRe5a4sCKEOLhNZ3dXn+qR8ckUBlCwmdGVOc
+	kfa445hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqV4O-000000020rA-1es7;
-	Thu, 12 Feb 2026 11:41:16 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1vqV6A-0000000219n-0aZ9;
+	Thu, 12 Feb 2026 11:43:06 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqV4L-000000020q6-1Um0
+	id 1vqV66-0000000219P-1sIO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 11:41:15 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260212114106epoutp042dce7a2cf62f2a6de4071972f2feb5e1~TfPQXVy4I1199511995epoutp04Q
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:41:06 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260212114106epoutp042dce7a2cf62f2a6de4071972f2feb5e1~TfPQXVy4I1199511995epoutp04Q
+	Thu, 12 Feb 2026 11:43:04 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260212114256epoutp0342364b60bd44da9a0e8c3fc8dd78055d~TfQ2nTp050839808398epoutp036
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:42:56 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260212114256epoutp0342364b60bd44da9a0e8c3fc8dd78055d~TfQ2nTp050839808398epoutp036
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1770896466;
-	bh=Ase9xp9Kc9/jsnZ174Suydxg92duerBwfwT7Vhmzv8A=;
+	s=mail20170921; t=1770896576;
+	bh=wZFfPGxPusxBbKHt4baLlsQ9Gc0sz+hk6vgWNb44Ies=;
 	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=l7q4JicQDyE41yBQC3b7C9oVa2Wxo6EYNZWYbJG4TlrH0etyhkfUnP/cgjTXZAJB8
-	 /DiupSopK4+m1GcHqoxMHKqFdl1ARNd38RcSveESJCPzKUK6zhVpAbFGfkRLSeEIZw
-	 HvdnfM14k87zcNSWBe5aW8gE0ArwANn2Pn9XtZzY=
+	b=V01GzbvO6RXPWeFELqZ4TgxQ2BkCMKmDhQtUzVeDPu1ZNnFrTErZ4XwpSAdmRIChw
+	 Nr1ZHTOZpf8lMbenCpHe2xD6zObpRm5ln8L8hegjbnt8xeOO9Lpn3/RVbNb0y3Z/Ta
+	 v9wIsuRbeIqxElwI9811HND+cjMcYlQQl8C9L/IU=
 Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20260212114105epcas5p4f65105fa457ae55644df5c7b14c8e102~TfPPMnHZi0123101231epcas5p4V;
-	Thu, 12 Feb 2026 11:41:05 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4fBYKD0NHpz2SSKY; Thu, 12 Feb
-	2026 11:41:04 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20260212114255epcas5p3dd248c72347f12241748104d76a5dbb5~TfQ2UcD8p3128431284epcas5p39;
+	Thu, 12 Feb 2026 11:42:55 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.95]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4fBYML5zPnz2SSKd; Thu, 12 Feb
+	2026 11:42:54 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
 	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260212114103epcas5p1ec7d13f32afcb566a9e262a4b24a1e3a~TfPN0eJmP1615316153epcas5p17;
-	Thu, 12 Feb 2026 11:41:03 +0000 (GMT)
-Received: from INBRO007194 (unknown [107.122.3.105]) by epsmtip2.samsung.com
+	20260212114254epcas5p1be7875dbd00568aaa8fdd04e09393b08~TfQ1CnGqP1171011710epcas5p1Z;
+	Thu, 12 Feb 2026 11:42:54 +0000 (GMT)
+Received: from INBRO007194 (unknown [107.122.3.105]) by epsmtip1.samsung.com
 	(KnoxPortal) with ESMTPA id
-	20260212114101epsmtip2f00e578354e624558cb0f6d56fe6b874~TfPMBqs5J1841218412epsmtip2W;
-	Thu, 12 Feb 2026 11:41:01 +0000 (GMT)
+	20260212114252epsmtip10d8f76a2a65e756f0876745b57923b5a~TfQzLNkY_1223812238epsmtip1X;
+	Thu, 12 Feb 2026 11:42:52 +0000 (GMT)
 From: <pritam.sutar@samsung.com>
 To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>
@@ -60,17 +60,17 @@ Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
 	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <15e8aac4-6633-49b0-87fb-4b29f62afb2f@kernel.org>
+In-Reply-To: <91adfc3d-1612-4bc8-8f4e-525141fd9e67@kernel.org>
 Subject: RE: [PATCH v2 3/3] arm64: dts: exynos: ExynosAutov920: Enable USB
  nodes
-Date: Thu, 12 Feb 2026 17:10:59 +0530
-Message-ID: <000101dc9c14$774a0190$65de04b0$@samsung.com>
+Date: Thu, 12 Feb 2026 17:12:50 +0530
+Message-ID: <000201dc9c14$b9502ab0$2bf08010$@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQEa27yOGkcSyej7W4JCG0x5iKXFKwH8TUbRAqvnhIQBf1ky2gNZK3OcAkJh59y2pFfeMA==
+Thread-Index: AQEa27yOGkcSyej7W4JCG0x5iKXFKwH8TUbRAqvnhIQBf1ky2gNZK3OcAfIgwmS2ptrFIA==
 Content-Language: en-us
-X-CMS-MailID: 20260212114103epcas5p1ec7d13f32afcb566a9e262a4b24a1e3a
+X-CMS-MailID: 20260212114254epcas5p1be7875dbd00568aaa8fdd04e09393b08
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
@@ -82,10 +82,10 @@ References: <20260122130721.205664-1-pritam.sutar@samsung.com>
 	<20260122130721.205664-4-pritam.sutar@samsung.com>
 	<6f381f88-3a51-4fc8-844c-41b167b07628@kernel.org>
 	<000f01dc8c3e$2b6dcf30$82496d90$@samsung.com>
-	<15e8aac4-6633-49b0-87fb-4b29f62afb2f@kernel.org>
+	<91adfc3d-1612-4bc8-8f4e-525141fd9e67@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_034114_309658_E9811C8E 
-X-CRM114-Status: GOOD (  27.44  )
+X-CRM114-CacheID: sfid-20260212_034303_123831_4B203C04 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,7 +104,7 @@ Hi Krzysztof,
 
 > -----Original Message-----
 > From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: Friday, January 23, 2026 1:36 PM
+> Sent: Wednesday, January 28, 2026 1:07 PM
 > To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; robh=40kernel.org;
 > krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com
 > Cc: devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;=
@@ -178,37 +178,25 @@ rg;
 > >
 > > The commit was added to align with the existing convention of
 > > separating node addition and enabling logic in USB configurations.
-> > This approach is
->=20
-> There was never such convention for Qualcomm or Samsung. Do not make
-> up fake conventions.
->=20
-> > referenced from commits such as:
->=20
-> No, it is not.
->=20
+> > This approach is referenced from commits such as:
 > >
 > > https://lore.kernel.org/all/20250710-resends-july-exynos990-dt-v2-5-55
 > > 033f73d1b0=40mentallysanemainliners.org/
 > > https://lore.kernel.org/all/20240429-usb-dts-gs101-v2-2-7c1797c9db80=40=
 l
 > > inaro.org/
->=20
-> Just look at these commits - they add complete node override to DTS. Not
-> half node now and half node later to the DTS file=21
->=20
 > >
 > > Please let me know if this commit to be merged in previous commit.
 >=20
-> Just look at the commits there.
+>=20
+> BTW, don't ever use AI to write code or code justifications. I will make =
+note
+> of it.
 >=20
 
-Got it, thank you for the highlighting. Will mention more details in commit
-and update single patch to add and enable USB nodes.
+Sorry for the misunderstanding. Will consider this in future.=20
+However, AI was used to correct spell and grammatic mistakes.
 
-> >
->=20
->=20
 > Best regards,
 > Krzysztof
 
