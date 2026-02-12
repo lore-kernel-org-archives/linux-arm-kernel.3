@@ -4,74 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01DE2EEA850
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 21:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60DE4EEA854
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 21:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/DYwaq4YjSmI7ukV9pfGEdIud1nDWjs1loeTNl6Sg8=; b=lVNsTV1WOLq1WVCTlMJwBBfgji
-	MpGVWPXQfh5t3n1qonDvBGuH5KKUsQ1Ne1lJwQw/eCBvGeV2UwaA2RiPFNszSismkQZoDuJ8A5o71
-	SN/NFz+zHrYyeh67Bv6EkptvEvwnQGLkDDHXEBzahrMeYtooyY75aadvxAVJhhLcJSL0tTrhl4/Tl
-	IVuTVv4FaTAORrhubxw0ECZtWcCeiqS5fDl5ig1SMKvcOnjlxsj/o2ZibUsqUzIsMDZGXO2brdhot
-	fpasNmYsvUrK00dehZzXYKK25qSoAW63zy6n3sbZ5AQ1po6LY69iY5ehhSgQTm91jeyvwJyc3YEJM
-	6q2kBv4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9u+o5I7Nd09Hz7oiEvZoe78/DtPn0vzoJC/yhbNUzig=; b=jGUhXPxPJWks1LEV8t3zk2TQKv
+	ui9tW4lJLzN6IPl1RrYBwSLJJhEp2xNmJ/p8yte2+5EIMQclFhJmNoeXkoD8TcDzvCp9h8OPtPl4P
+	qYrqeRJZ5LfPH6ejLacVBXPAoVgOzLsECCYaN0FEnRVRW99ohLt1wdVrIFlBxxO4XDKkOOhvDAJCt
+	Rwe5glkv/Pazld66IZrWajfkFmJdCYfOeZy0e6GQ9vHBIVUQZvWH0lVRnaoPvvR12tBaTxG0tEeNA
+	Uy1Jh0CbA+IdWMgSCCRTjbE6b1Z/fTEhVMzo/7Mrvk7Yt2vxWqfnFkIfBgm2xJk250ZqkpqRonRLl
+	xbql3AKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqdxM-00000002dXj-45Xo;
-	Thu, 12 Feb 2026 21:10:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vqeNn-00000002ecj-1dTf;
+	Thu, 12 Feb 2026 21:37:55 +0000
+Received: from mail-francecentralazon11013038.outbound.protection.outlook.com ([40.107.162.38] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqdxL-00000002dXJ-20UF
+	id 1vqeNl-00000002ec9-1ZEW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 21:10:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7060A6132B
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 21:10:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 133DBC2BCB2
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 21:10:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770930634;
-	bh=mvdPPd9MTlAzGcEDHBnGOWpQp3W0SRG282ox6GhN6yU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=MKedIuS7UHjUhPjWdfzeH7gPRKU9MGbhvFeNiyA4RcYeeFQjbnJ2z68IdbptFVcxS
-	 Hftd1/ErHqlf6F1LHtuf3bP31mAy6nscejBalABRjCZKIDmhWUFI1LIDpWNA8p0LFq
-	 jXxV1TPNwC2eQdhcjjP9vrht2WKzaRRnZL1sk6+G563h7bUBu3MRe7nsaEI9YFLwM2
-	 2/217ZxlFyDOqe2kmSMZf2GkOpJSMKGi2/es+J/b9YUsxmD4tPlzB8nmvaYVsRLiPl
-	 KDYDkaGYXDg4gIY0qg3Si7ap1P1O3BN+evLrMc9IWrM7y856l7oosyY5oDgaHCJIaG
-	 P7CxikvdtY8sg==
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-65a2fea1a1eso3638402a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 13:10:34 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW1QZYe7qNc0D2mG8AbQI4Kx3ofk3tymUIIFbXIArb3kWsSS7V+yvyYtYHkT40JPVlC/jTbAcQ2KaxsBcFBpw7b@lists.infradead.org
-X-Gm-Message-State: AOJu0YwG2u0SOnNNYS3RxZuGhb3UQF94kDrSMQ4q+9q3JwQsnaoyqFGm
-	ucGTItxxUwXlHSU9KIxRARqC4NwE8IEpUKOLrLpxl7A0K6+rSEGRVfsP18Q9cVgTpM8/sxSLmec
-	ytvbbR0WN11EMD9WrvCgk0UjI2HdWsQ==
-X-Received: by 2002:a17:907:72d2:b0:b73:37aa:87c0 with SMTP id
- a640c23a62f3a-b8f9069c11fmr208094466b.23.1770930632527; Thu, 12 Feb 2026
- 13:10:32 -0800 (PST)
+	Thu, 12 Feb 2026 21:37:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dyEtpIm0KvwuFRJ241bFPInoPS3wv2GPq7CPobS4vi87FkBxbCY6O8wf1lrUqFGKFPPDRGuN3/4ElPGc1mUcgT0BL6wQ7huxT/YNUZLebIdfuFbHMTjvzb8NFucUFvZWbyyQyKk9fnHdWLGMCZfQKQ6wXsvvkG7ihqetClQHUwxeJzlrHAbDtdda0mph9sHPKM7NGNtZNXda7vnm4Xd9X183yPfCV1WFl/HTnPpy/r2Swu7v9tuZ54rcGNxpFsQ3bZEvuTFJcNN+0SoxzTbwGw5frO6+9plMMfzpJwhvgqbTcd9uBtr5jMenHZLZL8YkPXhemCFfPQgqsw/mBfrhdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9u+o5I7Nd09Hz7oiEvZoe78/DtPn0vzoJC/yhbNUzig=;
+ b=kCFpuD0lRx7WMmB3X0lO800cVN3qW+GKrgRHVCtN7tv920sXx8RSIfnwKqsJIX9iKM/0M+HW1zMpu5I8yeAkgNJxwtSc1KvKzzu9l9XUtGXt3o/DZtnh38L2AEs880q3KKu1lzmsFp0MVuEvcq3BVx4DYfquvTCddkJBnDvVV/G3NvZ/2GWO3hUWjImhlpMN3jb96SE0CCUbNh/rkG68CwtXluV15d56MCsg4xXG3gXa9EY9JGqGiJPqCIop1qz/QlbrHvyo8l1rqpOc23PGDywpllhIluPJ+JAtnr2kGp11PP8liptmU0yPRSJtC7YJ0oxs3CSdlbKmieSDCxILWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9u+o5I7Nd09Hz7oiEvZoe78/DtPn0vzoJC/yhbNUzig=;
+ b=Lq2yowtJOjE6XR0JyMdFI59LbNMy9ognYbVx0LbIUiA4oS++5xWzV5Mqac2uGL+KYLcHMwL3lgpBlgG+oO7WBLtAH624SbDaOUShoYWjeKjFhgimZwNrrhizWheYnm4veKliVQ58i0g+aiHYmV5sInKJuotPkRHB8qU3sqVdHj0YBoNZBhtWswaGPXr8apW7qgiogYYXEu6YcVRtC+M+1oMq/SuE6wfOltlXJvzEO2qqbnLhClJb9diOHiNL7TdCbOHEzuXPWqckSvov2UDNmODAHpaof0sn6we7GzK/ZCt2b4InMhLdcEBoQzPbHAttApvZcS+qTpVWOqI0AkDxJQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by PA4PR04MB7936.eurprd04.prod.outlook.com (2603:10a6:102:c6::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.10; Thu, 12 Feb
+ 2026 21:37:47 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9611.008; Thu, 12 Feb 2026
+ 21:37:47 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Shuah Khan <skhan@linuxfoundation.org>,
+	linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-imx@nxp.com,
+	arnaud.pouliquen@foss.st.com
+Subject: [PATCH v8 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
+Date: Thu, 12 Feb 2026 15:36:52 -0600
+Message-ID: <20260212213656.662437-1-shenwei.wang@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH7PR17CA0040.namprd17.prod.outlook.com
+ (2603:10b6:510:323::26) To PAXPR04MB9185.eurprd04.prod.outlook.com
+ (2603:10a6:102:231::11)
 MIME-Version: 1.0
-References: <20260203161917.1666696-1-vincent.guittot@linaro.org>
- <20260203161917.1666696-2-vincent.guittot@linaro.org> <20260210004011.GA2188625-robh@kernel.org>
- <CAKfTPtA299R7yn3r=tCqhhP_tK3E_UpGSMrDLyRP4Ccwt1m58g@mail.gmail.com>
-In-Reply-To: <CAKfTPtA299R7yn3r=tCqhhP_tK3E_UpGSMrDLyRP4Ccwt1m58g@mail.gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 12 Feb 2026 15:10:20 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+SswpTjQShfkdhVwL_k8gJ_5+NrecPCUiFR52UB5zNMA@mail.gmail.com>
-X-Gm-Features: AZwV_QjelX9NLva1DLDx_tMGAWuQk_3-b-qqDMfkQH9yt3x_72JwdyevIvbKnTI
-Message-ID: <CAL_Jsq+SswpTjQShfkdhVwL_k8gJ_5+NrecPCUiFR52UB5zNMA@mail.gmail.com>
-Subject: Re: [PATCH 1/4 v2] dt-bindings: serdes: s32g: Add NXP serdes subsystem
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com, 
-	p.zabel@pengutronix.de, linux@armlinux.org.uk, ghennadi.procopciuc@nxp.com, 
-	Ionut.Vicovan@nxp.com, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
-	horms@kernel.org, Frank.li@nxp.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|PA4PR04MB7936:EE_
+X-MS-Office365-Filtering-Correlation-Id: 98642628-7c66-450a-c7da-08de6a7ef6dc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|52116014|376014|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VfGiYZowMDF7Urm/ULNfFPRMiMTDNYHHkCgBcQytx/vbf4PRvSazWv7VZTHk?=
+ =?us-ascii?Q?U2xDC4jAFwyDY50PLQWXxxVDr1b/rjN0W5/tHUvD/t5BJryNWp59AA9rx8Ck?=
+ =?us-ascii?Q?1Z0eIjQ8tevG4MQTO/tAePWeFiJHaLYcKo0ifTP+MtcbK5H4SSj7tO7z5A5J?=
+ =?us-ascii?Q?5o0ET7eiPba0hONZBDWfZnQ3JSRAueHbJyL8Raess6NcIAhP0SDGtXwIU5Ji?=
+ =?us-ascii?Q?krmEBdPHeq7Js6B/8zn9KmfAsPP+U32iWR+k6dg6eBybSedjaPS2Gtb3BGb0?=
+ =?us-ascii?Q?gJIeuhQXGXnN2RqVbhpP6UYSYQv7gGQIp66cISLVRQMMnkyfU766t5YZzcxr?=
+ =?us-ascii?Q?MR0n1uGDvmsGeUOoPhIN+PL7J9+D6dRYXHQQ+oIV+DOHVb7Wn6WGyLum7ZXl?=
+ =?us-ascii?Q?gIf+SNCEmNTKfJEmGQqObFUaZ82v+xQeoEQd+x04ILUHvaopMR5PQSv5huhk?=
+ =?us-ascii?Q?h0MoDvRQfaOxu4BUncGuov+xEQLMFBYgg/huabDhTUrYbAtOehHdEMdWAt6t?=
+ =?us-ascii?Q?xFF3rjQCp1jhEv7v1khcDOu8mjcNxhFKo/9clXlkdEavPzPRQXSSQRBNvp8C?=
+ =?us-ascii?Q?AX1aMFb/wsqjTfrpMXLAR7E4b4ZiySLZeNY+QU94QhjEsMNyrGmFmbaGYFp4?=
+ =?us-ascii?Q?MrGY0JN+j1bPfGKgFe95yU2w2fWHqnrWlC/KPbfxiNXkX8TlnuPzUacLxBtD?=
+ =?us-ascii?Q?SXdzhaurTv/KwAbmufuov6lts1+URbdkVepRzn3eox8h2gX63OiJheTS8Tqj?=
+ =?us-ascii?Q?GoRf0lucv05m/+bcHJjaifipIyZkVP8NuCjyYyex+gyNtbFajkGZdUAtgwAg?=
+ =?us-ascii?Q?g7De60vTlN+N4T88SYMCSBSEWmbLYlfKY18EFcGjdaoLjisYXgi5BGpLIUjv?=
+ =?us-ascii?Q?ttxfl587IWjLNLTHM9NN2NpN8aTsu2x4C2fKcaS0KIfOftKVF+C6nGPGwWy7?=
+ =?us-ascii?Q?lyCxF12zolbCD5q4dVLaqNQD7+tyqJv8u8jkBZ2SMOnxqq3xcj0Es9+CicnJ?=
+ =?us-ascii?Q?Y0ZQNHT/YKbzcJdgxKEErP01uSY1lefzvaiyhSBxxEYgJPWMNWGB2VDBO0+P?=
+ =?us-ascii?Q?3Boaeh1HLCusysL5uwnfbTyEKpirOJWOnbCHFnoHrLXdw5W47/ZB9ntB2O7H?=
+ =?us-ascii?Q?KFFcZ5gr2Knav63dFpMHOLWAJTBScXyw5e/iPiN0JlfS8gscLUsk1pnqthf4?=
+ =?us-ascii?Q?crVrKi0BNqWPp4LNO0BMmtn8HuFn8oCNY5aGHG30xZFUbPv6UxPmx4GuWoLi?=
+ =?us-ascii?Q?hvS0ndylt9Fwn1RWiG0WqiruF+PT5akIWnCKSYFKzLWXeWEf7ZJtYG3tSCbO?=
+ =?us-ascii?Q?Jor5xb+hJJfmn8v9kmgb7RyYcqhu0uln3PoLt/rEEL+6x1l6Ym+AcbyPL5gO?=
+ =?us-ascii?Q?YI2K9bVuSmsa7/2I8T3qqP90NINrT7DVWDvEONUdhtf/FfLoIJBAe8OhWFb1?=
+ =?us-ascii?Q?zVnxV48Y+uEF66RoFWxZ033yCwpZGbF9xOr16IFNAqg47mN3TXQ12sWIqUEO?=
+ =?us-ascii?Q?vku1qDpFsF5YBUkGurCLFtERjlMPIHjXN833EvBtdbnVGSmDS8qvRsESMxpV?=
+ =?us-ascii?Q?cGLBa0k8xhChUTSPMR9Xf5gN4g0POvKRuwSmEzObkaSaRvNPukRV2g1P7HWM?=
+ =?us-ascii?Q?ZmhCnenaEyQvHZjgydZ+mKFw0nJ7lPnDWqJW1toP9MU4?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(52116014)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bNSj1mypChlNQnwiYixQIktEY9mwxalV9sNejzI/f8XgzVDILBP+0RIU5tbh?=
+ =?us-ascii?Q?Spv8HvzRtbqz4dYH5/ITz1cJFvdFTVh9tNAPwM2FR/joZb+lKr8Qe8SRs4Vo?=
+ =?us-ascii?Q?teXQC7bifNoiyIg8B8nEFmAhouU+/yUyo9iN5jbUKBPV5shcCtK2iGn/6Fc9?=
+ =?us-ascii?Q?TYYmPDeFZgZvZe33LJw92PkLV+YyQ+DSVzKWA9y2+buglu00TtBvDqMi2Dfb?=
+ =?us-ascii?Q?AKCSwmegGobw/Q5mSxucBFkFFEk0kyUorpTk0+ILZkpN+JApoPJ0LL13fup5?=
+ =?us-ascii?Q?ReZTsCRdJNhcsMEunF+a+Guz+UU4LdgPZW2n0EYfRUepa/nAAkNA5mb867fE?=
+ =?us-ascii?Q?0yeDwFF+sgDh5HyeddUK+oCmRT+BPGzObwJB12u8+0GQNjaiNc3CltFsUZMf?=
+ =?us-ascii?Q?5tKpzAiOQA4wVmADhf95At6Oj30ki+C+nqaojhOO+AIUqvrVHfBmMk6AUKID?=
+ =?us-ascii?Q?CLKx8Zz2YyIQSAY4ic8eji8m3MXTRrqIe8dhavntScwegSfqAX1zn60AqTiI?=
+ =?us-ascii?Q?+OxWvVEQqkmvf5eKqx1mQfcvn5o68I8CB2yEDbwAU2wBpE0KF3gTzindx4PT?=
+ =?us-ascii?Q?S584BALK/tUwJnRFc3nE6Q6ARWiH07Kp5AYAkff/lMWBU1GODnaO5lQNdvQf?=
+ =?us-ascii?Q?zKRtDnKtBxq45HLz55LWx+I84JVy67E7f+QLXoltHSKzUqOSi3V+pyCz7ycb?=
+ =?us-ascii?Q?wgMJN6FqbB5UytyhFaymXlLt6tenhUisdUu25nM7zZ5YWz1qHgR/j6tkEFYS?=
+ =?us-ascii?Q?GxspG5xdwyI1lX5Y+h2IIGbfzK5B2q7QjpZXqf8nQXmneapY3QPK3GQPlqNO?=
+ =?us-ascii?Q?ABh7fxDp56VyZ9hhM98vO2vinMJbKyh5mue7weYltwkBDT2QXTtl5+RL/6jc?=
+ =?us-ascii?Q?PD+Y/f8YrZJH6oT7OApmHcJAsmcQvGhg//WQz1Fe2FEj0da2RTE+4tBSZjIn?=
+ =?us-ascii?Q?MRmklfhehLUgg4R/gCsJLqpgImktafy9MlJPr0y+UcfRz0UGk43tfW2AWD8C?=
+ =?us-ascii?Q?dpwWp15fwQypfgviP7ioVncBKyw77bB4lGrdrJ33S+IhsNi60teCExOfRtXZ?=
+ =?us-ascii?Q?b6Pl+u1KAbxmgRWcvrLUnC1Wts/WxpfCDBsXOUDD3ZL6gfwVGbfSj3wQ0T/o?=
+ =?us-ascii?Q?pGCo6uDvvSuO+nqWB5JWbltuPFKVrWYHS3Yc0P/FwDsrJMySVG1rHkF2Oqjn?=
+ =?us-ascii?Q?rcw3bvbZApodgds/WCmk5OmKSXyXvKG0ieV/dqJnCaxbUZgjgW0h+EXdgm+O?=
+ =?us-ascii?Q?QeYVSmmVAePhmMc38yeIMaUizZtVIL+KSKQ6kx0TKDyQlYlENpJywzi1eLNF?=
+ =?us-ascii?Q?+Vvm22cbfIQOFxYrR3nCPuTjTRHim9PXXCEGdATV+qfhU6B6e8a0vLUIHVQc?=
+ =?us-ascii?Q?+HaMNGD7Jrwix6/J4buUrD0zMQoH+MJ87n6cI6oLGXZMt6aEurFlJ8cXbGi5?=
+ =?us-ascii?Q?WK8j/owS460/fcq1fP+6Fn574sYKhZhM7X3fOhucTVlgMgQ4GXdJy3Li9Btr?=
+ =?us-ascii?Q?rv29TLuaioNKrGW1kiX50yTYKIRT5CjfAk05pZXu23fUHVKV9eSXpNxRFZs2?=
+ =?us-ascii?Q?ArnhP35MMKoYCrCgtl8gIyy7IB7lTkSrRHtV6gv20jafuucePDGEN+J+Bn57?=
+ =?us-ascii?Q?0H1GiurBTk4Km2TuO76swvO/wDNMaJQ+Zr6BnvitBOYBYwokdXT+JQKMtCHP?=
+ =?us-ascii?Q?3I05dI+rNI/BC0Zd3WE+ItBpGAehda0xAK/TBZiWHJ1TLZwQY5ZYkpatz8sD?=
+ =?us-ascii?Q?iZiDZ1H1/w=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 98642628-7c66-450a-c7da-08de6a7ef6dc
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2026 21:37:47.5689
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /CARB7P/PrgQBLYUqk0SuvPIVHG+3JDTxDFHGyQI+LttK0ll3vt7Yyc+y16ucDvuJhfNfz6SJtOMr/pbCaVklQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7936
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260212_133753_449274_9F7CB565 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,200 +181,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 12, 2026 at 1:17=E2=80=AFAM Vincent Guittot
-<vincent.guittot@linaro.org> wrote:
->
-> On Tue, 10 Feb 2026 at 01:40, Rob Herring <robh@kernel.org> wrote:
-> >
-> > On Tue, Feb 03, 2026 at 05:19:14PM +0100, Vincent Guittot wrote:
-> > > Describe the serdes subsystem available on the S32G platforms.
-> > >
-> > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > ---
-> > >  .../bindings/phy/nxp,s32g-serdes.yaml         | 154 ++++++++++++++++=
-++
-> > >  1 file changed, 154 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/phy/nxp,s32g-se=
-rdes.yaml
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.ya=
-ml b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
-> > > new file mode 100644
-> > > index 000000000000..fad34bee2a4f
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
-> > > @@ -0,0 +1,154 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/phy/nxp,s32g-serdes.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: NXP S32G2xxx/S32G3xxx SerDes PHY subsystem
-> > > +
-> > > +maintainers:
-> > > +  - Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> > > +
-> > > +description: |
-> > > +  The SerDes subsystem on S32G SoC Family includes two types of PHYs=
-:
-> > > +    - One PCIe PHY: Supports various PCIe operation modes
-> > > +    - Two Ethernet Physical Coding Sublayer (XPCS) controllers
-> > > +
-> > > +  SerDes operation mode selects the enabled PHYs and speeds. Clock f=
-requency
-> > > +  must be adapted accordingly. Below table describes all possible op=
-eration
-> > > +  modes.
-> > > +
-> > > +  Mode  PCIe XPCS0           XPCS1           PHY clock       Descrip=
-tion
-> > > +                SGMII                SGMII             (MHz)
-> > > +  ------------------------------------------------------------------=
--------
-> > > +  0  Gen3    N/A             N/A             100             Single =
-PCIe
-> > > +  1  Gen2    1.25Gbps        N/A             100             PCIe/SG=
-MII
-> > > +  2  Gen2    N/A             1.25Gbps        100             PCIe/SG=
-MII
-> > > +  3  N/A     1.25Gbps        1.25Gbps        100,125         SGMII
-> > > +  4  N/A     3.125/1.25Gbps  3.125/1.25Gbps  125             SGMII
-> > > +  5  Gen2    N/A             3.125Gbps       100             PCIe/SG=
-MII
-> >
-> > Mixed tabs and spaces. Drop the tabs.
->
-> okay
->
-> >
-> > What's not clear to me is do you have 2 or 4 lanes?
->
-> 2 lanes per serdes
-> as an example mode 0 is one PCIe x2 lane
-> and mode 1 is one PCIe x1 and one xpcs0/SGMII on lane 1
-> or mode 3 is one  xpcs0/SGMII on lane 0 and one xpcs1/SGMII on lane 1
+Support the remote devices on the remote processor via the RPMSG bus on
+i.MX platform.
 
-Still confused. So 2 total lanes?
+Changes in v8:
+ - Add "depends on REMOTEPROC" in Kconfig to fix the build error reported
+   by the kernel test robot.
+ - Move the .rst patch before the .yaml patch.
+ - Handle the "ngpios" DT property based on Andrew's feedback.
 
->
-> >
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    oneOf:
-> > > +      - enum:
-> > > +          - nxp,s32g2-serdes
-> > > +      - items:
-> > > +          - const: nxp,s32g3-serdes
-> > > +          - const: nxp,s32g2-serdes
-> > > +
-> > > +  reg:
-> > > +    maxItems: 4
-> > > +
-> > > +  reg-names:
-> > > +    items:
-> > > +      - const: ss_pcie
-> > > +      - const: pcie_phy
-> > > +      - const: xpcs0
-> > > +      - const: xpcs1
-> > > +
-> > > +  clocks:
-> > > +    minItems: 4
-> > > +    maxItems: 5
-> > > +
-> > > +  clock-names:
-> > > +    items:
-> > > +      - const: axi
-> > > +      - const: aux
-> > > +      - const: apb
-> > > +      - const: ref
-> > > +      - const: ext
-> > > +    minItems: 4
-> > > +
-> > > +  resets:
-> > > +    maxItems: 2
-> > > +
-> > > +  reset-names:
-> > > +    items:
-> > > +      - const: serdes
-> > > +      - const: pcie
-> > > +
-> > > +  nxp,sys-mode:
-> > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> >
-> >        maximum: 5
-> >
-> > Though isn't this redundant with the child nodes? You could use the
-> > standard 'phy-mode' property in each child.
->
-> not really because we can have mode 1 but only a node to describe
-> lane0 for PCIe x1 if the lane 1 is not used
->
-> >
-> > > +    description: |
-> > > +      SerDes operational mode. See above table for possible values.
-> > > +
-> > > +  '#address-cells':
-> > > +    const: 1
-> > > +
-> > > +  '#size-cells':
-> > > +    const: 0
-> > > +
-> > > +patternProperties:
-> > > +  '^serdes[0,1]_lane@[0,1]$':
-> >
-> > Do you need to support serdes0_lane@0 and serdes1_lane@0 (or similar
-> > with "@1")? That's illegal as you have 2 nodes with the same address.
->
-> okay, we can find other naming
->
-> >
-> > > +    description:
-> > > +      Describe a serdes lane.
-> > > +    type: object
-> > > +
-> > > +    properties:
-> > > +      compatible:
-> > > +        enum:
-> > > +          - nxp,s32g2-serdes-pcie-phy
-> > > +          - nxp,s32g2-serdes-xpcs
-> >
-> > Seems like phy-mode would be sufficient. Are these separate blocks from
-> > the parent?
->
-> Isn't phy-mode only for ethernet phy ?
+Changes in v7:
+ - Reworked the driver to use the rpmsg_driver framework instead of
+   platform_driver, based on feedback from Bjorn and Arnaud.
+ - Updated gpio-rpmsg.yaml and imx_rproc.yaml according to comments from
+   Rob and Arnaud.
+ - Further refinements to gpio-rpmsg.yaml per Arnaud's feedback.
 
-Sorry, it is "phy-type" that I was thinking about. That takes the
-types defined in dt-bindings/phy/phy.h. The type can be defined either
-in "phy-type" or in the phy cells if the type is per identifier.
+Changes in v6:
+ - make the driver more generic with the actions below:
+     rename the driver file to gpio-rpmsg.c
+     remove the imx related info in the function and variable names
+     rename the imx_rpmsg.h to rpdev_info.h
+     create a gpio-rpmsg.yaml and refer it in imx_rproc.yaml
+ - update the gpio-rpmsg.rst according to the feedback from Andrew and
+   move the source file to driver-api/gpio
+ - fix the bug reported by Zhongqiu Han
+ - remove the I2C related info
 
-Really, Given each lane doesn't have any of its own resources, I'd
-probably get rid of the child nodes and put the type into the phy
-cells. Then you'd have something like this:
+Changes in v5:
+ - move the gpio-rpmsg.rst from admin-guide to staging directory after
+   discussion with Randy Dunlap.
+ - add include files with some code improvements per Bartosz's comments.
 
-// PCIE on lanes 0 and 1 (mode 0)
-pcie {
-  phys =3D <&phy 0 PHY_TYPE_PCIE>, <&phy 1 PHY_TYPE_PCIE>;
-};
+Changes in v4:
+ - add a documentation to describe the transport protocol per Andrew's
+   comments.
+ - add a new handler to get the gpio direction.
 
-// PCIE on lane 0 (mode 1)
-pcie {
-  phys =3D <&phy 0 PHY_TYPE_PCIE>;
-};
-// Ethernet on lane 1
-ethernet {
-  phys =3D <&phy 1 PHY_TYPE_SGMII>;
-};
+Changes in v3:
+ - fix various format issue and return value check per Peng 's review
+   comments.
+ - add the logic to also populate the subnodes which are not in the
+   device map per Arnaud's request. (in imx_rproc.c)
+ - update the yaml per Frank's review comments.
 
-I perhaps don't have the cells right if it is more than just lane 0
-and lane 1, but you can put anything there you want. The cell
-definition is provider specific.
+Changes in v2:
+ - re-implemented the gpio driver per Linus Walleij's feedback by using
+   GPIOLIB_IRQCHIP helper library.
+ - fix various format issue per Mathieu/Peng 's review comments.
+ - update the yaml doc per Rob's feedback
 
-If you need to get the overall system wide configuration, that can be
-done. It's not terribly efficient, but you can iterate all 'phys'
-nodes in the DT, find the ones for your provider (&phy) and examine
-the cell values.
+Shenwei Wang (4):
+  docs: driver-api: gpio: rpmsg gpio driver over rpmsg bus
+  dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+  gpio: rpmsg: add generic rpmsg GPIO driver
+  arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
 
-Rob
+ .../devicetree/bindings/gpio/gpio-rpmsg.yaml  |  55 ++
+ .../bindings/remoteproc/fsl,imx-rproc.yaml    |  53 ++
+ Documentation/driver-api/gpio/gpio-rpmsg.rst  | 236 +++++++
+ Documentation/driver-api/gpio/index.rst       |   1 +
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  25 +
+ drivers/gpio/Kconfig                          |  17 +
+ drivers/gpio/Makefile                         |   1 +
+ drivers/gpio/gpio-rpmsg.c                     | 588 ++++++++++++++++++
+ 8 files changed, 976 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+ create mode 100644 Documentation/driver-api/gpio/gpio-rpmsg.rst
+ create mode 100644 drivers/gpio/gpio-rpmsg.c
+
+--
+2.43.0
+
 
