@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69FA9EDF021
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:04:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A366FEDF021
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zklCA3SUmDM/v9rDNjTx89O8GDJlgKC0gw76p2K+s/k=; b=UvKksuACAFWA13Dvr8dtqNpG2F
-	KcvxNWTg00vcP4opUwHHInkvMwAmG5wUQLlYMOOAmJEe6ZZMwepZz56hMYWg6HiqMXb7BAay73bER
-	Hj+KqaCgvE0wNdL4D/mwepcU0utaQ7sqjajJHeFE1d8ADigC969f5KseFZQ8jo6waN7paYLaWVk22
-	iilmXzxU8NVpuryMLHqbYMJCs66xv1+WLyZl1ESegW8bCaxG08emGUbhT5Cn2kum+KVANNrgwUa6F
-	XpqS8dXdcFmjjRp3677CuAglALaDM/ZI96C7O7YnGKuItQA9Z3nVvhZu+a1wxmhr62Dn2AidhltVu
-	WhL1Gbfw==;
+	bh=UVGkpJTVsL+FyCWcWP400rPsQjsveSWDb4RH3dOg7gE=; b=goY3sel8tNCRVdCqqVb1IiyBZj
+	Vq5s6LDOnVU0HvJKKDRtrZTdtGZ5NvuwbFtBTLOdJuQeteEZR/UBA7xfCyy05GW4W5SuzRCcVo0SJ
+	o6xE9HXgk3AQgYgvO1hsfXMrDWSnTQiPQ0IgYGd1jthARMbto9f3gR9rQs8oahASg+Z9x7yjhYRYX
+	Gybt7hmWxYJPdss25ZD5Q8IcqExCIQt/feGdHhtD5fG8v4Uhg8pBdJWo8hr+CE0Y0raCBuTccG+Ii
+	ye7a6CxPdbE9Jw3B0TR4edV7M5Gt22LXgCMNLcuhWqtbAdq1fIwAf3knXZyuY8Y7H1Jld3gDVtsQN
+	RRrcf6Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN0O-00000001SzK-3sSc;
-	Thu, 12 Feb 2026 03:04:36 +0000
-Received: from pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.245.243.92])
+	id 1vqN0e-00000001T4v-10WF;
+	Thu, 12 Feb 2026 03:04:52 +0000
+Received: from pdx-out-003.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.246.68.102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN0L-00000001SyC-3tPk
+	id 1vqN0a-00000001T3D-12Lp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 03:04:35 +0000
+	Thu, 12 Feb 2026 03:04:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1770865473; x=1802401473;
+  t=1770865488; x=1802401488;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=zklCA3SUmDM/v9rDNjTx89O8GDJlgKC0gw76p2K+s/k=;
-  b=Luos7p6TCS59g1qnKKnNpOFeoS/s8nlXYkI3aeqAGOo4sYiKqQA0m0fN
-   AX7svK2+dy6mDwpJu6xjzFKO+lqVB0gDCpysQ3JiK/DLXkxWo3t3JAZjx
-   3irgiWu729JQc7FBis1hlhOcwGSppPCGM9+U3OSsJ9Qho3dL8abV3H47e
-   yquqZGA1+mz3XKV/tv/3goJkdlx/wy1jSO6Va8suK14jyEV88ivklsfMT
-   TAAYuWGnbJNLMi3t9cl5WH4GCv+HwtIl2jFPXSvf/oh5tkCOZTiG3NN0m
-   0nkTBAgJH4AjvpYz8NliKocFMviMKuLYFYOnfAm0+P2JoLdC4/ORfG7uw
-   w==;
-X-CSE-ConnectionGUID: nF/vgnDRQZ6caAxpaVaEyw==
-X-CSE-MsgGUID: iWymHtvITVicPj6t5vx5iQ==
+  bh=UVGkpJTVsL+FyCWcWP400rPsQjsveSWDb4RH3dOg7gE=;
+  b=LGRj7g4cQ5dHxwSyH+OYhRATuYPB7t9aqP99f60blf4IRamQBpEdm7sG
+   fD7WP7SMIcOr8t0cF1LOcDwxO1afZghOFY5eH6dSs2RVP/jDzVz3/1me6
+   Z8TZPZ9qum1w2M4PFXhySy5X89DjdwTf0DI+EFAoNErhTqkNf3a4PX7/O
+   b6YcLaTySS+oyvfu772XDfEM8K4Xd9CnZubRdNF56paG65Bn7Xkjo2WiE
+   TIG/MLQ9KvebgkGdmcU0+7z7JkUolGdWifQa9osYLBAJFJfWOom8D5Du4
+   VvrBNzgY677JdOAsm1iohnF3GPsveSnVXwgaIku/MYheUyF6tShl2F0xy
+   Q==;
+X-CSE-ConnectionGUID: 18Sxd1zRRqO0OqvE4GnGhg==
+X-CSE-MsgGUID: C+082kb1R5iNgXAyweXmng==
 X-IronPort-AV: E=Sophos;i="6.21,285,1763424000"; 
-   d="scan'208";a="12455480"
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:04:33 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:12108]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.42.95:2525] with esmtp (Farcaster)
- id 8e2cff70-a55a-43a0-8247-bd29a6ea4afd; Thu, 12 Feb 2026 03:04:33 +0000 (UTC)
-X-Farcaster-Flow-ID: 8e2cff70-a55a-43a0-8247-bd29a6ea4afd
+   d="scan'208";a="12925744"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-003.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:04:47 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.105:9044]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.61.62:2525] with esmtp (Farcaster)
+ id 14d16219-9707-449e-baf1-fbb72541182d; Thu, 12 Feb 2026 03:04:47 +0000 (UTC)
+X-Farcaster-Flow-ID: 14d16219-9707-449e-baf1-fbb72541182d
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.217) with Microsoft SMTP Server
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:04:31 +0000
+ Thu, 12 Feb 2026 03:04:47 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:04:31 +0000
+ Thu, 12 Feb 2026 03:04:46 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>
@@ -70,9 +70,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-kbuild@vger.kernel.org>, <linux-modules@vger.kernel.org>
-Subject: [PATCH 066/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_SERPENT crypto
-Date: Thu, 12 Feb 2026 02:46:42 +0000
-Message-ID: <20260212024725.11264-67-wanjay@amazon.com>
+Subject: [PATCH 067/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_CAMELLIA crypto
+Date: Thu, 12 Feb 2026 02:46:43 +0000
+Message-ID: <20260212024725.11264-68-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260212024725.11264-1-wanjay@amazon.com>
 References: <20260212024725.11264-1-wanjay@amazon.com>
@@ -80,11 +80,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D041UWA002.ant.amazon.com (10.13.139.121) To
+X-ClientProxiedBy: EX19D046UWB001.ant.amazon.com (10.13.139.187) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_190434_021880_41EE3363 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20260211_190448_344661_6F15E288 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,104 +100,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Apply Crypto API wrappers to the exported crypto symbol in
-CONFIG_CRYPTO_SERPENT-related crypto to convert them into pluggable
+CONFIG_CRYPTO_CAMELLIA-related crypto to convert them into pluggable
 interface.
 
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
- crypto/Makefile              |  2 +-
- crypto/fips140/fips140-api.c | 13 +++++++++++++
- crypto/serpent_generic.c     |  4 ++--
- include/crypto/serpent.h     | 20 +++++++++++++++-----
- 4 files changed, 31 insertions(+), 8 deletions(-)
+ crypto/Makefile           | 2 +-
+ crypto/camellia_generic.c | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/crypto/Makefile b/crypto/Makefile
-index e93edc49840a..c14713e9cc55 100644
+index c14713e9cc55..4b6e56ad4d1c 100644
 --- a/crypto/Makefile
 +++ b/crypto/Makefile
-@@ -132,7 +132,7 @@ crypto-objs-$(CONFIG_CRYPTO_BLOWFISH) += blowfish_generic.o
- crypto-objs-$(CONFIG_CRYPTO_BLOWFISH_COMMON) += blowfish_common.o
- crypto-objs-$(CONFIG_CRYPTO_TWOFISH) += twofish_generic.o
- crypto-objs-$(CONFIG_CRYPTO_TWOFISH_COMMON) += twofish_common.o
--obj-$(CONFIG_CRYPTO_SERPENT) += serpent_generic.o
-+crypto-objs-$(CONFIG_CRYPTO_SERPENT) += serpent_generic.o
- CFLAGS_serpent_generic.o := $(call cc-option,-fsched-pressure)  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=79149
+@@ -137,7 +137,7 @@ CFLAGS_serpent_generic.o := $(call cc-option,-fsched-pressure)  # https://gcc.gn
  crypto-objs-$(CONFIG_CRYPTO_AES) += aes.o
  crypto-objs-$(CONFIG_CRYPTO_SM4) += sm4.o
-diff --git a/crypto/fips140/fips140-api.c b/crypto/fips140/fips140-api.c
-index 9ad530743d1f..475cab990549 100644
---- a/crypto/fips140/fips140-api.c
-+++ b/crypto/fips140/fips140-api.c
-@@ -683,3 +683,16 @@ DEFINE_CRYPTO_API_STUB(__twofish_setkey);
- DEFINE_CRYPTO_API_STUB(twofish_setkey);
- 
- #endif
-+/*
-+ * crypto/serpent_generic.c
-+ */
-+#if IS_BUILTIN(CONFIG_CRYPTO_SERPENT)
-+
-+#include <crypto/serpent.h>
-+
-+DEFINE_CRYPTO_API_STUB(__serpent_setkey);
-+DEFINE_CRYPTO_API_STUB(serpent_setkey);
-+DEFINE_CRYPTO_API_STUB(__serpent_encrypt);
-+DEFINE_CRYPTO_API_STUB(__serpent_decrypt);
-+
-+#endif
-diff --git a/crypto/serpent_generic.c b/crypto/serpent_generic.c
-index b21e7606c652..27c2da015d20 100644
---- a/crypto/serpent_generic.c
-+++ b/crypto/serpent_generic.c
-@@ -599,8 +599,8 @@ static void __exit serpent_mod_fini(void)
- 	crypto_unregister_alg(&srp_alg);
+ crypto-objs-$(CONFIG_CRYPTO_SM4_GENERIC) += sm4_generic.o
+-obj-$(CONFIG_CRYPTO_CAMELLIA) += camellia_generic.o
++crypto-objs-$(CONFIG_CRYPTO_CAMELLIA) += camellia_generic.o
+ obj-$(CONFIG_CRYPTO_CAST_COMMON) += cast_common.o
+ obj-$(CONFIG_CRYPTO_CAST5) += cast5_generic.o
+ obj-$(CONFIG_CRYPTO_CAST6) += cast6_generic.o
+diff --git a/crypto/camellia_generic.c b/crypto/camellia_generic.c
+index ee4336a04b93..15a68abc387b 100644
+--- a/crypto/camellia_generic.c
++++ b/crypto/camellia_generic.c
+@@ -1064,8 +1064,8 @@ static void __exit camellia_fini(void)
+ 	crypto_unregister_alg(&camellia_alg);
  }
  
--module_init(serpent_mod_init);
--module_exit(serpent_mod_fini);
-+crypto_module_init(serpent_mod_init);
-+crypto_module_exit(serpent_mod_fini);
+-module_init(camellia_init);
+-module_exit(camellia_fini);
++crypto_module_init(camellia_init);
++crypto_module_exit(camellia_fini);
  
+ MODULE_DESCRIPTION("Camellia Cipher Algorithm");
  MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("Serpent Cipher Algorithm");
-diff --git a/include/crypto/serpent.h b/include/crypto/serpent.h
-index 75c7eaa20853..8985ff684aeb 100644
---- a/include/crypto/serpent.h
-+++ b/include/crypto/serpent.h
-@@ -6,6 +6,7 @@
- #ifndef _CRYPTO_SERPENT_H
- #define _CRYPTO_SERPENT_H
- 
-+#include <crypto/api.h>
- #include <linux/types.h>
- #include <linux/crypto.h>
- 
-@@ -18,11 +19,20 @@ struct serpent_ctx {
- 	u32 expkey[SERPENT_EXPKEY_WORDS];
- };
- 
--int __serpent_setkey(struct serpent_ctx *ctx, const u8 *key,
--		     unsigned int keylen);
--int serpent_setkey(struct crypto_tfm *tfm, const u8 *key, unsigned int keylen);
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_SERPENT, __serpent_setkey, int,
-+	(struct serpent_ctx *ctx, const u8 *key, unsigned int keylen),
-+	(ctx, key, keylen));
- 
--void __serpent_encrypt(const void *ctx, u8 *dst, const u8 *src);
--void __serpent_decrypt(const void *ctx, u8 *dst, const u8 *src);
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_SERPENT, serpent_setkey, int,
-+	(struct crypto_tfm *tfm, const u8 *key, unsigned int keylen),
-+	(tfm, key, keylen));
-+
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_SERPENT, __serpent_encrypt, void,
-+	(const void *ctx, u8 *dst, const u8 *src),
-+	(ctx, dst, src));
-+
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_SERPENT, __serpent_decrypt, void,
-+	(const void *ctx, u8 *dst, const u8 *src),
-+	(ctx, dst, src));
- 
- #endif
 -- 
 2.47.3
 
