@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E54B5EB4910
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 11:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2BAEB490D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 11:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lh8EvkxbSGrnTWC/VbjKWDGUhTc4iJr3Q0U9QcNO9zE=; b=KKfrrG3J/2NLVIZ4N9qLJ2gpVm
-	OY5tOejHQ4Re/qPWLY72YJo7ZiG7nafGFh4uV6nWLcy9pG0QEey9IzyKziWOak1jHrwJYx8T5t6R9
-	D9AZHh7endUxdbI2rTdogJfEJSfMR1+IzlJXYWOvIpjPXzjCNRCBKweVtEP2AJ+Hv9nGSvTtGs0/2
-	wh/s8QWC3BbvKjUEchGq7H/0qCinwiRmDkupgXqcZ+sBRgj6gF47hySB6xVY/8VpZ5d2xtccuWLSa
-	522ZtQRPRCbB/whNypSGeA65bfGM2sKo7L1I+JLWce9+/RPNQW5penY0Kw6JZCvrewPtlt/mxcx/e
-	TsMbx4TQ==;
+	bh=Ase9xp9Kc9/jsnZ174Suydxg92duerBwfwT7Vhmzv8A=; b=BOUfw2yeIHofggHk3W4vJEDnGE
+	v6tpS6PIagdHyTRm26ReWt6yvKuYrDYJKpP3M7/R6OfJZDXBOQpMGRM9Yb62t4nj+N3WSlj7D6FW6
+	iPpfNHfTKx8XEO0jarnklSyI5iwRqx4QVniL976UXmHJbRGDWRbdHTtA/Eay3TZoD+h3kM/LWsddo
+	pJQVXMEkC4vMveRwRzkeix8f/M/npTHNDAx81RZgPxVbEvKm3MwXsFwLcyAWi62Dj4X2kMlzgpNDv
+	iMHFJpn0MC/TlvAladz0oUvuflqrHD2GhXQVrgnsNkacPqsS+NGQZRJMZWak4o1GGSFZwZpQVNDIw
+	tafCi/ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqV45-000000020o8-0JAN;
-	Thu, 12 Feb 2026 11:40:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vqV4O-000000020rA-1es7;
+	Thu, 12 Feb 2026 11:41:16 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqV44-000000020o0-0zDG
+	id 1vqV4L-000000020q6-1Um0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 11:40:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 500E860018
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:40:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 057E2C4CEF7
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:40:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770896455;
-	bh=cR0ZtIgPDyATIxSFGdaV+xz08Ci/kVnvO0ZEE6vgbao=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=oKzFnfac63N7IG/adifXiKpS9V4EL5jHB5s9q/PFCbmVLeLH0qm7ILehYV3NwTwL8
-	 EIpPf3vYk6i5jeTdNOktfPjph/gw6K2rsfBFBnqcSwXd1VPPpua/Bmc4lqZSKgfRcU
-	 9ReNdK8Gecu4e6e2QNCXzoKbhW6fLXIKbCLlhz6LBv1N+J+dcaCZezUi11Ooct2J8w
-	 o+LuTahFdOP+WRcSKTf+y6UP/mxCpvUk0I3rHTTWM6kSvQL5FCat+PVZtESFxMRaPu
-	 nDiCTgMF23JSFJZOETZy/HxoLnM07GKD1Oq1MLEH645Wa9whd13ZUHOO4+W/UQTrgN
-	 lg58yZjQR731Q==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3870902760cso12738481fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 03:40:54 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUhlhan8Hp9tMtGKLSXkAQE9RJTguinnq1G/PWThZ/4IiSXHzdtoKCjnMGet18OqoBZfdVeNrjZT7fMnf1ejLgU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRpigYdHytiqxr75hJHLRplcB3Qy1V/34rXQ2uI7bq6Z3+oLfI
-	p0fz0s4KEXwriGOIw94NDtp6/4eodkc1RCNN9pSPGmiXQQBK3Jw8pNaCc52X5TE19Raw/Kz/btS
-	4opytXyVo9qopgL2heB2PJY1/JJSTX1pCgaMN0OQUMA==
-X-Received: by 2002:a2e:8a95:0:b0:383:1d66:c1fa with SMTP id
- 38308e7fff4ca-38710f142dbmr8770101fa.10.1770896453688; Thu, 12 Feb 2026
- 03:40:53 -0800 (PST)
+	Thu, 12 Feb 2026 11:41:15 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260212114106epoutp042dce7a2cf62f2a6de4071972f2feb5e1~TfPQXVy4I1199511995epoutp04Q
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 11:41:06 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260212114106epoutp042dce7a2cf62f2a6de4071972f2feb5e1~TfPQXVy4I1199511995epoutp04Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1770896466;
+	bh=Ase9xp9Kc9/jsnZ174Suydxg92duerBwfwT7Vhmzv8A=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=l7q4JicQDyE41yBQC3b7C9oVa2Wxo6EYNZWYbJG4TlrH0etyhkfUnP/cgjTXZAJB8
+	 /DiupSopK4+m1GcHqoxMHKqFdl1ARNd38RcSveESJCPzKUK6zhVpAbFGfkRLSeEIZw
+	 HvdnfM14k87zcNSWBe5aW8gE0ArwANn2Pn9XtZzY=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20260212114105epcas5p4f65105fa457ae55644df5c7b14c8e102~TfPPMnHZi0123101231epcas5p4V;
+	Thu, 12 Feb 2026 11:41:05 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4fBYKD0NHpz2SSKY; Thu, 12 Feb
+	2026 11:41:04 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260212114103epcas5p1ec7d13f32afcb566a9e262a4b24a1e3a~TfPN0eJmP1615316153epcas5p17;
+	Thu, 12 Feb 2026 11:41:03 +0000 (GMT)
+Received: from INBRO007194 (unknown [107.122.3.105]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20260212114101epsmtip2f00e578354e624558cb0f6d56fe6b874~TfPMBqs5J1841218412epsmtip2W;
+	Thu, 12 Feb 2026 11:41:01 +0000 (GMT)
+From: <pritam.sutar@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <15e8aac4-6633-49b0-87fb-4b29f62afb2f@kernel.org>
+Subject: RE: [PATCH v2 3/3] arm64: dts: exynos: ExynosAutov920: Enable USB
+ nodes
+Date: Thu, 12 Feb 2026 17:10:59 +0530
+Message-ID: <000101dc9c14$774a0190$65de04b0$@samsung.com>
 MIME-Version: 1.0
-References: <20260211131350.126966-1-bartosz.golaszewski@oss.qualcomm.com> <213b82de-fee8-4ebf-a8ee-d8ca783ce403@app.fastmail.com>
-In-Reply-To: <213b82de-fee8-4ebf-a8ee-d8ca783ce403@app.fastmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Thu, 12 Feb 2026 12:40:41 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MeWgo3b8DTG3w8U2bxR6ejd2UmFVGASvRe7_tJkK2f4ug@mail.gmail.com>
-X-Gm-Features: AZwV_Qgc-yqBkaOF0yHyRhNZKzkVUTOEMiYSQPwa0VrLdPcUMMJ-QQP2mbVSAbo
-Message-ID: <CAMRc=MeWgo3b8DTG3w8U2bxR6ejd2UmFVGASvRe7_tJkK2f4ug@mail.gmail.com>
-Subject: Re: [RFT PATCH v2] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
-	Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Hans de Goede <hansg@kernel.org>, 
-	Linux-OMAP <linux-omap@vger.kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQEa27yOGkcSyej7W4JCG0x5iKXFKwH8TUbRAqvnhIQBf1ky2gNZK3OcAkJh59y2pFfeMA==
+Content-Language: en-us
+X-CMS-MailID: 20260212114103epcas5p1ec7d13f32afcb566a9e262a4b24a1e3a
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20260122125136epcas5p2db0fa3d04671ddc915e60ae8c5bcfb98
+References: <20260122130721.205664-1-pritam.sutar@samsung.com>
+	<CGME20260122125136epcas5p2db0fa3d04671ddc915e60ae8c5bcfb98@epcas5p2.samsung.com>
+	<20260122130721.205664-4-pritam.sutar@samsung.com>
+	<6f381f88-3a51-4fc8-844c-41b167b07628@kernel.org>
+	<000f01dc8c3e$2b6dcf30$82496d90$@samsung.com>
+	<15e8aac4-6633-49b0-87fb-4b29f62afb2f@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260212_034114_309658_E9811C8E 
+X-CRM114-Status: GOOD (  27.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,65 +100,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 11, 2026 at 5:32=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
-te:
->
-> On Wed, Feb 11, 2026, at 14:13, Bartosz Golaszewski wrote:
-> > Currently the board file for Nokia 770 creates dummy software nodes not
-> > attached in any way to the actual GPIO controller devices and uses the
-> > fact that GPIOLIB matching swnode's name to the GPIO chip's label durin=
-g
-> > software node lookup. This behavior is wrong and we want to remove it.
-> > To that end, we need to first convert all existing users to creating
-> > actual fwnode links.
-> >
-> > Create real software nodes for GPIO controllers on OMAP16xx and
-> > reference them from the software nodes in the nokia board file.
-> >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
-m>
-> > ---
->
-> I don't see mistakes here, and I don't want to throw a wrench in
-> this patch, but I wonder if there is a way to take this one step further:
->
-> > @@ -244,6 +263,14 @@ static int __init omap16xx_gpio_init(void)
-> >               iounmap(base);
-> >
-> >               platform_device_register(omap16xx_gpio_dev[i]);
-> > +
-> > +             ret =3D device_add_software_node(&omap16xx_gpio_dev[i]->d=
-ev,
-> > +                                            omap16xx_gpio_swnodes[i]);
-> > +
-> > +             if (ret) {
-> > +                     dev_err(&pdev->dev, "Failed to add software node.=
-\n");
-> > +                     return ret;
-> > +             }
->
-> I was planning to go through the remaining 'static struct platform_device=
-'
-> definitions in arch/arm/ after the planned board file removal and
-> try to convert these to 'platform_device_info' or similar, using
-> platform_device_register_full(). Since that function already contains
-> code to dynamically allocate the software_node, I had hoped that
-> a lot of this would just go away.
->
-> However, I see that your patch creates pointers to those software_node
-> instances, so  think that would become a bit harder, but I have not
-> actually tried it.
->
-> Do you know if there is a good way to do this without using static
-> platform devices?
->
+Hi Krzysztof,
 
-Add a pointer to const struct software_node to platform_device_info
-and then use this if it's set and there's no fwnode? It's in line with
-what MFD does with its cells.
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: Friday, January 23, 2026 1:36 PM
+> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; robh=40kernel.org;
+> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com
+> Cc: devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;=
+ linux-
+> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org;
+> rosa.pila=40samsung.com; dev.tailor=40samsung.com;
+> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
+> selvarasu.g=40samsung.com
+> Subject: Re: =5BPATCH v2 3/3=5D arm64: dts: exynos: ExynosAutov920: Enabl=
+e USB
+> nodes
+>=20
+> On 23/01/2026 08:59, Pritam Manohar Sutar wrote:
+> > Hi Krzysztof,
+> >
+> > Thank you for your feedback.
+> >
+> >> -----Original Message-----
+> >> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> >> Sent: 22 January 2026 07:05 PM
+> >> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>;
+> robh=40kernel.org;
+> >> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com
+> >> Cc: devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.o=
+rg;
+> >> linux- samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org;
+> >> rosa.pila=40samsung.com; dev.tailor=40samsung.com;
+> faraz.ata=40samsung.com;
+> >> muhammed.ali=40samsung.com; selvarasu.g=40samsung.com
+> >> Subject: Re: =5BPATCH v2 3/3=5D arm64: dts: exynos: ExynosAutov920:
+> >> Enable USB nodes
+> >>
+> >> On 22/01/2026 14:07, Pritam Manohar Sutar wrote:
+> >>> Enable USB PHY and DWC3 USB controllers' nodes.
+> >>>
+> >>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> >>> ---
+> >>>  .../boot/dts/exynos/exynosautov920-sadk.dts   =7C 21
+> >> +++++++++++++++++++
+> >>>  1 file changed, 21 insertions(+)
+> >>>
+> >>> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+> >>> b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+> >>> index f90f7704597c..5896dd69334a 100644
+> >>> --- a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+> >>> +++ b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+> >>> =40=40 -160,15 +160,20 =40=40 &xtcxo =7B
+> >>>  &usbdrd31_ssphy =7B
+> >>>  	dvdd-supply =3D <&dummy_regulator>;
+> >>>  	vdd18-supply =3D <&dummy_regulator>;
+> >>> +	status =3D =22okay=22;
+> >>
+> >> You just added the node in the previous patch, so why it cant be
+> >> enavled there?
+> >>
+> >>>  =7D;
+> >>>
+> >>>  &usbdrd31_hsphy =7B
+> >>>  	dvdd-supply =3D <&dummy_regulator>;
+> >>>  	vdd18-supply =3D <&dummy_regulator>;
+> >>>  	vdd33-supply =3D <&dummy_regulator>;
+> >>> +	status =3D =22okay=22;
+> >>>  =7D;
+> >>>
+> >>>  &usbdrd31_dwc3 =7B
+> >>> +	dr_mode =3D =22otg=22;
+> >>> +	usb-role-switch;
+> >>> +	role-switch-default-mode =3D =22peripheral=22;
+> >>
+> >> Why did you add incomplete node in previous commit?
+> >
+> > The commit was added to align with the existing convention of
+> > separating node addition and enabling logic in USB configurations.
+> > This approach is
+>=20
+> There was never such convention for Qualcomm or Samsung. Do not make
+> up fake conventions.
+>=20
+> > referenced from commits such as:
+>=20
+> No, it is not.
+>=20
+> >
+> > https://lore.kernel.org/all/20250710-resends-july-exynos990-dt-v2-5-55
+> > 033f73d1b0=40mentallysanemainliners.org/
+> > https://lore.kernel.org/all/20240429-usb-dts-gs101-v2-2-7c1797c9db80=40=
+l
+> > inaro.org/
+>=20
+> Just look at these commits - they add complete node override to DTS. Not
+> half node now and half node later to the DTS file=21
+>=20
+> >
+> > Please let me know if this commit to be merged in previous commit.
+>=20
+> Just look at the commits there.
+>=20
 
-In any case, I'd prefer to not overcomplicate this patch, let's do it
-separately?
+Got it, thank you for the highlighting. Will mention more details in commit
+and update single patch to add and enable USB nodes.
 
-Bart
+> >
+>=20
+>=20
+> Best regards,
+> Krzysztof
+
+Thank you,
+
+Regards,
+Pritam
+
 
