@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0CD4EDF021
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C0A9EDF021
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teRQ469Nql8dnjGK42odTTdwkBKcylLAZvUmdlwdLAM=; b=YD/4hA3L2MYcSMVMTGHKjQSbYr
-	IFA3ce1+n7/fi11LiUsw7Y7nLg5bQkVMX9pXI0xO2myvyDHi9rwopYWbbjVdM+cwd/+EETb232hbP
-	FgJLaddpEuYlXfLAOfxZ4OkwHXVDXEjVwbFVClipyEthz5Z6663mrPN+4QIBeQkcRZZgAD24kTMz0
-	8uFc4oqYYEpneEclxMaWpm1j++V3JJ+93+Vd71u2xNGTgZgn0kdx2rFkPpVPMREy0wVPI1wIBnoK3
-	XawqVrwxbq2EdP7A4nv+xyHmZKMGTvIfsTejO00+9jFBfmNLoZPft/hhs7RyYQ9r4bIYRXXGM2WFn
-	AZF4bC6Q==;
+	bh=v9y+iYdUq+u5qbwmOO4BGZaf5PyftfuT4Y2o/ZY6WxE=; b=a5hKyndtSgTDFJkKTahN4ujlJ/
+	5RJ+WqtGBC9EQmGPO+Y4eRH3hPIXrG9LrNHINtFrsHJaWaACOhA76mBAKA0z+xiMk/S6kEn1IDi6g
+	EaPKtLnCVqGd8TBqilPYpeKnio+LvLWT5Gal5nX/fVpsvutiAoBMSbBQelUQ9HJ4rg809tEoUgoL+
+	BeYyXyWS5kHnWX4vRXkeww3PVqY3GVzi5AvsRG+pI7vPlSftT+TEwqkyMJTrprshc5wnG2I4AnEJQ
+	/+hWIIqryIb+NoCWMC1MbhmgC60CpOr3pV2f1SE+uvPTJswK1Upuv88qlvT8xRqh0YHOSvq3D21zj
+	SGDv1BUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN6x-00000001VgS-4Bpf;
-	Thu, 12 Feb 2026 03:11:24 +0000
-Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
+	id 1vqN79-00000001Vlv-1Ldt;
+	Thu, 12 Feb 2026 03:11:35 +0000
+Received: from pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.13.214.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN6q-00000001VdU-29r2
+	id 1vqN77-00000001Vkb-2BHX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 03:11:19 +0000
+	Thu, 12 Feb 2026 03:11:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1770865876; x=1802401876;
+  t=1770865893; x=1802401893;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=teRQ469Nql8dnjGK42odTTdwkBKcylLAZvUmdlwdLAM=;
-  b=ca5ATE8SYqTFJzseKBgrhO2y88azMigUCPbYcQQAzUGv3H3pOvLE7lIW
-   YSVcvnMgpfg4FwngD2rOu3GABSMHskqNA9z6HchyqxacBBTPLaEeePnj9
-   IYaRz715EiehTbeCe9nK8XCG1sVVqRQEplKA8hTNMoRtigGBPaIXCAhLi
-   Jg73D6Un3mJA70RXGc/cQ+2j5cgwKq6hMIlIcUdIXZPwyd6TEuYYXR1UE
-   yF7mtCiUGOkP8mcu5RU52782Ue+1ty2HquPxiL/53JGGC+jP0CR3cY96F
-   Z8GclUlcdOxoEq0DL+gNBuey+N/vMzjy6XeEWKkOdF1opLxxd5AI0WraZ
+  bh=v9y+iYdUq+u5qbwmOO4BGZaf5PyftfuT4Y2o/ZY6WxE=;
+  b=SGt127E56SB47OA11koJtZIwW0esyCMAKioCLcjcR8gZV3zJ3SdJSH39
+   KkV0a3vY3eMhTnTMBmxy8umjDEcxr/a37P7NnHbYpzBpOx1H+NYRHuN6F
+   IsqrMsLLW2MKMdgnw9pNG1oZMw62QUrPSULkf3sw+2o6l06VHvQwXW3FW
+   VmUx1hRwoySd6Fu4br++Z5A8Mi8LGHssi5YdddEe6NU5rDAC6gg7co5jf
+   6ghGyri+9KAkESzvXHzVu5XG13eGK+78j5hJCM4d/PvdBwYsh6aJc1uD3
+   sKcGCCHpWiO7HvzSJsWAo634oh6zGFEEd6KXnhNJKaZeLRaJjfvx8ix3D
    A==;
-X-CSE-ConnectionGUID: RhsYn6fHS7yYJIdYgt5VEQ==
-X-CSE-MsgGUID: XmOXcqrQQguc+wadrHll/g==
+X-CSE-ConnectionGUID: zcksdY7eSiOWHvTvVWfLfw==
+X-CSE-MsgGUID: k/+9mgozSXmbG3kM9R8kPw==
 X-IronPort-AV: E=Sophos;i="6.21,285,1763424000"; 
-   d="scan'208";a="12727630"
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:11:16 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:25574]
+   d="scan'208";a="12918423"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:11:32 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.104:6718]
  by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.61.62:2525] with esmtp (Farcaster)
- id f7d5bce0-9999-4b4a-aff5-5f74cf21e156; Thu, 12 Feb 2026 03:11:15 +0000 (UTC)
-X-Farcaster-Flow-ID: f7d5bce0-9999-4b4a-aff5-5f74cf21e156
+ id 259bb3e1-9ae2-44b1-9200-a816fa42078f; Thu, 12 Feb 2026 03:11:32 +0000 (UTC)
+X-Farcaster-Flow-ID: 259bb3e1-9ae2-44b1-9200-a816fa42078f
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:11:15 +0000
+ Thu, 12 Feb 2026 03:11:31 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:11:15 +0000
+ Thu, 12 Feb 2026 03:11:30 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>
@@ -70,9 +70,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-kbuild@vger.kernel.org>, <linux-modules@vger.kernel.org>
-Subject: [PATCH 092/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_ECRDSA crypto
-Date: Thu, 12 Feb 2026 02:47:08 +0000
-Message-ID: <20260212024725.11264-93-wanjay@amazon.com>
+Subject: [PATCH 093/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_XOR_BLOCKS crypto
+Date: Thu, 12 Feb 2026 02:47:09 +0000
+Message-ID: <20260212024725.11264-94-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260212024725.11264-1-wanjay@amazon.com>
 References: <20260212024725.11264-1-wanjay@amazon.com>
@@ -80,11 +80,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D046UWA001.ant.amazon.com (10.13.139.112) To
+X-ClientProxiedBy: EX19D031UWA001.ant.amazon.com (10.13.139.88) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_191116_603928_F2D7E37D 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20260211_191133_678154_A266CB3C 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +100,83 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Apply Crypto API wrappers to the exported crypto symbol in
-CONFIG_CRYPTO_ECRDSA-related crypto to convert them into pluggable
+CONFIG_XOR_BLOCKS-related crypto to convert them into pluggable
 interface.
 
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
- crypto/Makefile | 2 +-
- crypto/ecrdsa.c | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ crypto/Makefile              |  2 +-
+ crypto/fips140/fips140-api.c | 10 ++++++++++
+ crypto/xor.c                 |  4 ++--
+ include/linux/raid/xor.h     |  7 +++++--
+ 4 files changed, 18 insertions(+), 5 deletions(-)
 
 diff --git a/crypto/Makefile b/crypto/Makefile
-index cdc74dcea2f1..dc70a464fc1a 100644
+index dc70a464fc1a..29e674c1f2ad 100644
 --- a/crypto/Makefile
 +++ b/crypto/Makefile
-@@ -191,7 +191,7 @@ $(obj)/ecrdsa.o: $(obj)/ecrdsa_params.asn1.h $(obj)/ecrdsa_pub_key.asn1.h
- ecrdsa_generic-y += ecrdsa.o
- ecrdsa_generic-y += ecrdsa_params.asn1.o
- ecrdsa_generic-y += ecrdsa_pub_key.asn1.o
--obj-$(CONFIG_CRYPTO_ECRDSA) += ecrdsa_generic.o
-+crypto-objs-$(CONFIG_CRYPTO_ECRDSA) += ecrdsa_generic.o
- 
+@@ -196,7 +196,7 @@ crypto-objs-$(CONFIG_CRYPTO_ECRDSA) += ecrdsa_generic.o
  #
  # generic algorithms and the async_tx api
-diff --git a/crypto/ecrdsa.c b/crypto/ecrdsa.c
-index 2c0602f0cd40..b9cd02a7e515 100644
---- a/crypto/ecrdsa.c
-+++ b/crypto/ecrdsa.c
-@@ -288,8 +288,8 @@ static void __exit ecrdsa_mod_fini(void)
- 	crypto_unregister_sig(&ecrdsa_alg);
- }
+ #
+-obj-$(CONFIG_XOR_BLOCKS) += xor.o
++crypto-objs-$(CONFIG_XOR_BLOCKS) += xor.o
+ obj-$(CONFIG_ASYNC_CORE) += async_tx/
+ obj-$(CONFIG_ASYMMETRIC_KEY_TYPE) += asymmetric_keys/
+ crypto_simd-y := simd.o
+diff --git a/crypto/fips140/fips140-api.c b/crypto/fips140/fips140-api.c
+index 298ab496a395..5bcfc1a3cc7e 100644
+--- a/crypto/fips140/fips140-api.c
++++ b/crypto/fips140/fips140-api.c
+@@ -784,6 +784,16 @@ DEFINE_CRYPTO_API_STUB(aria_decrypt);
  
--module_init(ecrdsa_mod_init);
--module_exit(ecrdsa_mod_fini);
-+crypto_module_init(ecrdsa_mod_init);
-+crypto_module_exit(ecrdsa_mod_fini);
+ DEFINE_CRYPTO_API_STUB(crypto_krb5enc_extractkeys);
  
- MODULE_LICENSE("GPL");
- MODULE_AUTHOR("Vitaly Chikunov <vt@altlinux.org>");
++#endif
++/*
++ * crypto/xor.c
++ */
++#if IS_BUILTIN(CONFIG_XOR_BLOCKS)
++
++#include <linux/raid/xor.h>
++
++DEFINE_CRYPTO_API_STUB(xor_blocks);
++
+ #endif
+ /*
+  * crypto/ecdh_helper.c
+diff --git a/crypto/xor.c b/crypto/xor.c
+index f39621a57bb3..a6b4e3b88f67 100644
+--- a/crypto/xor.c
++++ b/crypto/xor.c
+@@ -170,5 +170,5 @@ MODULE_LICENSE("GPL");
+ core_initcall(register_xor_blocks);
+ #endif
+ 
+-module_init(calibrate_xor_blocks);
+-module_exit(xor_exit);
++crypto_module_init(calibrate_xor_blocks);
++crypto_module_exit(xor_exit);
+diff --git a/include/linux/raid/xor.h b/include/linux/raid/xor.h
+index 51b811b62322..df8797d00b78 100644
+--- a/include/linux/raid/xor.h
++++ b/include/linux/raid/xor.h
+@@ -2,10 +2,13 @@
+ #ifndef _XOR_H
+ #define _XOR_H
+ 
++#include <crypto/api.h>
++
+ #define MAX_XOR_BLOCKS 4
+ 
+-extern void xor_blocks(unsigned int count, unsigned int bytes,
+-	void *dest, void **srcs);
++DECLARE_CRYPTO_API(CONFIG_XOR_BLOCKS, xor_blocks, void,
++	(unsigned int count, unsigned int bytes, void *dest, void **srcs),
++	(count, bytes, dest, srcs));
+ 
+ struct xor_block_template {
+         struct xor_block_template *next;
 -- 
 2.47.3
 
