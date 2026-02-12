@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE34EB48F3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 09:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52FCEEB48F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 09:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R+tuvUj0uZ+E/iRJY4A/XI30tcxovKf2pmddgkXjRlo=; b=ftQkmoe9oCmqCIYCif9UMtL8Lj
-	7MZpGMonMU/IacEd9KDOTbO5OEDUo1uOO2uzGKC2Ihmi8Q+ljELkUlHYCbD0qESCGlm20Vqw4sBbb
-	EY8fnyTWK2kQxV9i1guQmtcbkuMogZL6PBYfMVV2pXZOgGoU09D7BlqP4dzMMTXBIzuWg5y/BhTtf
-	8Zd9BEurtdzR4DwoVRbxboB2oDcTrpKzjA/wVqfHL1By3dLvEINw2UI8R/NQI1xDpH7Y/hytLs7x5
-	eQWyffxSX2ZZWucmNdwzErQf1oMxSZN/raO2nWqvg3HXYSFen5eaNSLkoL4JxMT5FEfdVxMMzbW9B
-	d6fpS/dQ==;
+	bh=GeIzQNHktktey8OIUpOTSIbvRhrXukd6Tv8SkGdUD7E=; b=tCugCN4Jc0LWFWDQfQh08BgPAv
+	qiR79Ro6L94GeviIY7Rua/wosG1F6T2wN/kxSLJxJQge19H9XL/W7jzfQ9Xjjfcz3N3ApEVZA4LyK
+	J/0PoZE3RNfZq/CesSpdZGy21a0rdQBEc3IrNNhLHrwa7vF0HX2JQmYbckAB1zihxoyA3bKon8tMt
+	0W0Maj4GMRjPRgNZ6gxiCI9VthabBhjUeH9PkMh3qZKfr721HKWjZm2E0I1x2TA+KIKJykOFFFSpd
+	/fweQsNBW6LBpNsK1qf5cGyDmLDCYKd3hM8TuU0jZIrsFoaFQSfA9Ba7ZZxCz6oOQ0pxr8meMAMgS
+	DB/3U8BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqTNE-00000001rVa-2b9a;
-	Thu, 12 Feb 2026 09:52:36 +0000
+	id 1vqTNI-00000001rY4-0n65;
+	Thu, 12 Feb 2026 09:52:40 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqTNB-00000001rV7-3Y4b;
-	Thu, 12 Feb 2026 09:52:35 +0000
+	id 1vqTNF-00000001rVZ-2CPU;
+	Thu, 12 Feb 2026 09:52:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770889949;
-	bh=Oyj79ZYPPb9fjfhBXxDNVreliut+vA9nSSdyxHrxr8M=;
+	s=mail; t=1770889953;
+	bh=ZJO2M53nFm+7JNZYH4Ke5ZPuzhwbrJ1wCVlgTaFyThE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=D7gbsXhSQ/BexUUN5j8FGV8j06Q6qAxSOuDzcAGyzp/SrQLiXGBEe/6gd7SI0KWvt
-	 kwM9lv0EZutE88KJJRXcBndzXwrv4tsNnup4OlZqLk2L/r0KAY4zFwBHVPntIXUQ2m
-	 iMxDX7lpf7OE8NSsUUFKQ1ntnMB7snxdgChrHggoXl4ozt3Gy2uKy8CKfiodsX0cmc
-	 uNlKMzIqPx+rRhBxVJMg3vuIkE94woPxjsHmvXjPfEX0lRFhrM37gJvL6Bm6D6QJcF
-	 UwqGjtglR8OPZBoR7xCucwBbIqz2cC6VRIUDM6FVaSNg3Ae8nbzy/VSjS7/hPXcm3m
-	 Rpt1QIp/sfQEw==
+	b=mCX3NnfOb/urR0DSg9JK0PA6HkIVPkKs0IrUqxWke0uoA4Lv6sh5JthDxhc96rfaC
+	 HHrXGNHb3E+PRjB+gPLX3yNgM6sHm2GALWy3ykCBnLHspOAF3mef9RuLeiM1CrcDWM
+	 cnFVMxKTkV96I+kS+mU0eauJfUluZ7ozuxJLfsM7HWL+ZEWPiDlfOGMSZOVXKTS7Qp
+	 P2k3UF8BoaqhJfGW36glmMiHKk6hzFpwbIgOJbFpur50QnrCh7GRTe86itiDADIbXq
+	 Nya+CPDn6nKUMcw4ZA9ZG0TBKKt7yKZtX0Pqteu+0uE6UFLjO+FC5iKos9kU0O+Cv2
+	 BNQnCRS96gFrw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BF3017E12D5;
-	Thu, 12 Feb 2026 10:52:29 +0100 (CET)
-Message-ID: <7ec57033-b0d8-4aa5-b23c-a7ab62fd38f4@collabora.com>
-Date: Thu, 12 Feb 2026 10:52:28 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 37B8117E1428;
+	Thu, 12 Feb 2026 10:52:33 +0100 (CET)
+Message-ID: <9e4968fb-8a04-4ac5-bb48-016cdb834af1@collabora.com>
+Date: Thu, 12 Feb 2026 10:52:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] soc: mediatek: mtk-mmsys: Add resets for mt8167
+Subject: Re: [PATCH 4/7] dt-bindings: watchdog: Support MediaTek MT8167 wdt
 To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
  linux-mediatek@lists.infradead.org
 Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
@@ -58,15 +58,16 @@ Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <cover.1770836189.git.l.scorcia@gmail.com>
- <0ab331c556d76ddfc7f287d6288c4f60f4ef90c8.1770836190.git.l.scorcia@gmail.com>
+ <560b1985c911ce25950c9caedc42677ae01fa8bb.1770836190.git.l.scorcia@gmail.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <0ab331c556d76ddfc7f287d6288c4f60f4ef90c8.1770836190.git.l.scorcia@gmail.com>
+In-Reply-To: <560b1985c911ce25950c9caedc42677ae01fa8bb.1770836190.git.l.scorcia@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_015234_051239_37FA2639 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20260212_015237_762543_238103DF 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +83,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 11/02/26 20:03, Luca Leonardo Scorcia ha scritto:
-> The mt8167 SoC has 64 MMSYS resets, split in two contiguous 32-bits
-> registers, MMSYS_SW0_RST_B (0x140) and MMSYS_SW1_RST_B (0x144), as
-> also stated in the downstream kernel for the Lenovo Smart Clock
-> in the ddp_reg.h header.
+> Modify dt-binding to add support for mt8167 dts node of wdt
 > 
 > Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> ---
->   drivers/soc/mediatek/mt8167-mmsys.h | 3 +++
->   drivers/soc/mediatek/mtk-mmsys.c    | 2 ++
->   2 files changed, 5 insertions(+)
-> 
-> diff --git a/drivers/soc/mediatek/mt8167-mmsys.h b/drivers/soc/mediatek/mt8167-mmsys.h
-> index eef14083c47b..2d20b21fb0ea 100644
-> --- a/drivers/soc/mediatek/mt8167-mmsys.h
-> +++ b/drivers/soc/mediatek/mt8167-mmsys.h
-> @@ -18,6 +18,9 @@
->   #define MT8167_DSI0_SEL_IN_RDMA0			0x1
->   #define MT8167_DSI0_SEL_IN_MASK				0x3
->   
-> +#define MT8167_MMSYS_SW0_RST_B				0x140
-> +#define MT8167_MMSYS_SW1_RST_B				0x144
-> +
->   static const struct mtk_mmsys_routes mt8167_mmsys_routing_table[] = {
->   	MMSYS_ROUTE(OVL0, COLOR0,
->   		    MT8167_DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, OVL0_MOUT_EN_COLOR0,
-> diff --git a/drivers/soc/mediatek/mtk-mmsys.c b/drivers/soc/mediatek/mtk-mmsys.c
-> index bb4639ca0b8c..03cbc393f978 100644
-> --- a/drivers/soc/mediatek/mtk-mmsys.c
-> +++ b/drivers/soc/mediatek/mtk-mmsys.c
-> @@ -57,6 +57,8 @@ static const struct mtk_mmsys_driver_data mt8167_mmsys_driver_data = {
->   	.clk_driver = "clk-mt8167-mm",
->   	.routes = mt8167_mmsys_routing_table,
->   	.num_routes = ARRAY_SIZE(mt8167_mmsys_routing_table),
-> +	.sw0_rst_offset = MT8167_MMSYS_SW0_RST_B,
-> +	.num_resets = 64,
 
-Unless you have the full reset table...
+Please put the binding patch before the driver patch (you anyway have to
+send a v2, so ...)
 
-	.rst_tb = (const u8[]) {
-		[MT8167_MMSYS_SW0_RST_B_SMI_COMMON] = MMSYS_RST_NR(0, 0),
-		[MT8167_MMSYS_SW0_RST_B_SMI_LARB] = MMSYS_RST_NR(0, 1),
-		[MT8167_MMSYS_SW0_RST_B_CAM_MDP] = MMSYS_RST_NR(0, 2),
-		[MT8167_MMSYS_SW0_RST_B_MDP_RDMA0] = MMSYS_RST_NR(0, 3),
-		[MT8167_MMSYS_SW0_RST_B_MDP_RSZ0] = MMSYS_RST_NR(0, 4),
-		[MT8167_MMSYS_SW0_RST_B_MDP_RSZ1] = MMSYS_RST_NR(0, 5),
-		[MT8167_MMSYS_SW0_RST_B_MDP_TDSHP0] = MMSYS_RST_NR(0, 6),
-		[MT8167_MMSYS_SW0_RST_B_MDP_WDMA] = MMSYS_RST_NR(0, 7),
-		[MT8167_MMSYS_SW0_RST_B_MDP_WROT0] = MMSYS_RST_NR(0, 8),
-		[MT8167_MMSYS_SW0_RST_B_DISP_DSI0] = MMSYS_RST_NR(0, 22),
-	},
-	.num_resets = 10,
-
-
-Cheers,
-Angelo
-
->   };
->   
->   static const struct mtk_mmsys_driver_data mt8173_mmsys_driver_data = {
-
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
