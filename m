@@ -4,110 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF972EF48CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 05:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8247BEF48D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 05:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hcm5N/FNl39nu4tcKBsHTHKuYwpRADdhLeVO76g9J1Q=; b=l+dyzm+qlKc6D0RwAXcv+5romX
-	GhPQjm+wAOjWKRI6wUn4+tpaDGKNHy/3FhBxGmZi3t1XTwnQ//pgbPWJiUthiMtTA3b9ICV7ppx31
-	EbobFIRV7RONoMErUeNvEE1XQEJcNmytBjK9oqqxqMaEBazNynoEtO5KZ9pxwNAwzwUmE9IwpXurq
-	ouqpfVhIHpOWS2JcPAHO3tXgtFdHSOfGZCRkgaOHMUsk/nKI9nvWG+ntUqgkPlR7Pln5V/g2rNdLt
-	Zl0RpnSWJondaAWKFaUnEI1RmHbpayQ3f6xJX/CEPOuycBN5MvvSeYBqaeOMJsjxd7bfvfdrjXekl
-	KsknCRtQ==;
+	bh=5YEwoFG2OaLSjd8Yl8JyESysYQ2pvDaXqlQbmK9OUVU=; b=tHMA6utPN+YuDmbMGrH7/3Du5Q
+	A/izKRdjhhLtevXKPY2gtxyWCBsJ5Fj2oJOv4uL9ECDeiUfGPJWarh4FyQpgHi4zVNraTjs7tGOif
+	H2x6JCazXETM/nl/cESTkJGAagcY89MGvdnCqgAiLBBesG9E8WCkeORldhUmsApQcEFojHG6O1IS0
+	6mqY7ccaHvomSogt4eHB2LsOECZxA2SLXXRowYnomNB8QqZXyUJOhNz3dMEowGSwUOwWRi6eNLg43
+	yTNKcYd++vYhl2V9horiVnoCMOL0moGSnLk/v/EK+npb8gy4w3+KU75cBdTa82+Iuulkt5SwWxiQL
+	b8zpctwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqlag-000000030PB-2XW0;
-	Fri, 13 Feb 2026 05:19:42 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1vqlon-000000031B1-47P6;
+	Fri, 13 Feb 2026 05:34:17 +0000
+Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqlae-000000030Oq-1a4M
+	id 1vqlok-000000031Af-1zre
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 05:19:41 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8cb40149037so51708685a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 21:19:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770959978; cv=none;
-        d=google.com; s=arc-20240605;
-        b=SxHdDHujXIPNgDdpZpF77GgO0rHc5B8t4Y49nQ6Z5INaTUfRgQTQTrULxsoz88scpj
-         8jYUE0s6yecKqemL8sHcdc4/5seOruURhWehocjYebnv+Uo1pX2EdQmA+gPr7Kt3aiXd
-         W4834APyqikfNkfLhyc50f4SnRDvVYHamFzaOxjQ0ro7bN3brtKEwDupAE+IIgmgDXon
-         J1sdXYfgQVz9Bq3Ny2916uJFAwqvkBLyibhCy/i0ar2zYDSxd46FxkozQJIWq85aPlKX
-         bKb9tGFdA/w/z67HzyseXKw2iITM5ngA314LrUhINbGrL6UxA4GnwORkKAIsbfElcDDu
-         D4pA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=hcm5N/FNl39nu4tcKBsHTHKuYwpRADdhLeVO76g9J1Q=;
-        fh=6dc5OxROSM+6uR1vpfAMYjVy6QWCirZ9W7zA+S2T2hQ=;
-        b=eCEN6EO4I5jEOXz5lnhyTe6+lhftK95K3aKNklVKlkvTCbRhY9Arb3Vc4mUYaJ15OW
-         eRLt9u5lnsAa/Yi9fU3F8RTvifjIBVbWkj8wGevDJlPWmu1Jz6bF+OHM0Jj7BNqnRTwz
-         wY8lRj1Hu/dSXDJd+QYx3MRYALjvU/szGJKOv7wTTJGszsP10gcEqQhAbFAmKo8ea5bz
-         CtJ8VXNgZwS8oMkV2SEn+eYJjyeyu/6wA5DoMGh078EI7ZfWRJuG6mj2opEt6toqFWWf
-         MaXutTSNfCk3bqEzwOQXMFlHQ9o9sFHcYdYK8EziHlJs57kxQpyD8ze826MK1eEOn1Ue
-         oc0g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770959978; x=1771564778; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hcm5N/FNl39nu4tcKBsHTHKuYwpRADdhLeVO76g9J1Q=;
-        b=Cn5S2fXE+4lwGBxS9ew3tgt5nIjIbhnhcT+UqFcFuGF6wck3iKJaD+TB+6xg/ccxGc
-         C5fNpe/kMZasAJ91c3+BPkEC2Rj8N3AQqxV00P+BU9iSl9bXRJk8BasycnV4uuX6RXzh
-         9gHh4c+r8DDe/QuRgR4PXkC9g3tO1c/dMaoUdYw50dzdNsa/2bUtTd+4QCiqjn1HC33T
-         P9bJY4p1deF0nkgKyLa5y1hz0Bv4nNp3qjVZW+J3/u3siYdGOVDpbEa931ULY7W7hfNo
-         ydSEQA6SRyUy1TTd4WpHqFjc2Kw/c2tNpgUfWVvOPIs0ZXGZDmU4hCjqSBphbILHU+Js
-         Ub2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770959978; x=1771564778;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hcm5N/FNl39nu4tcKBsHTHKuYwpRADdhLeVO76g9J1Q=;
-        b=WrhNpmbAMad2JoUHoHOY1lj7k9qqQLZyPe/ZjP9Oe1Lo77ZkqMTK/SWgbB41g2iHgo
-         OzZIJzrw2kInRuDh2GcSTv9t8BZvSO4ysr12/QKW84GaqUvHmvKn7/ArCM0DycVtx6iU
-         6q9LJU8iulECq0AfJn9k543D8c3rN/4kNWFpxcAukbP3bcrBLqRQFga9dCqXdnqn761g
-         WU51Q9bolpipWjJ/nhiCPrFKSS4veQcJyr5iZR9eff3XFpX5sF/HEoqgc4bXeWm1y7M1
-         orJXRwzxTNo5I6iGmxv+xt0zriqiiyKgkl/Kp+TlLHZIeNMNJfs6kaOBPoYN23GZz0k0
-         3HXw==
-X-Forwarded-Encrypted: i=1; AJvYcCWIvrQWWfKRG1Uoeb2plrUSNCoDDO3dDWKjzO9S6/WBXQVp3CXf+GDimDvY9OIextQxbSwKVWdas+gY3tD5C8jr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtphQTSEkPzRZMgQdID8urisjXM4Nw6ZhPf25z4h0jBXm4GOP4
-	YiPfPZu1TMO35c3lAU8fjdi2jE6fX8Ow/WmYWVOVyFZx1mZWI4K18XHlNkStR1SAZm3JCeqRu7z
-	B4wVebuLfIyYG2vxSiBPSuyC119WHowk=
-X-Gm-Gg: AZuq6aKkqeingClyoz94hVYCOLq4chiyBwKdl5nR4g/2vn/DYS2r5nmIB5kwmQnRyGm
-	jMd95QF101+u5cNjHjNzpAJtefSasrqpVPvanISGEe2ApG4RkVyIE9/knGbhkPqtbrXmbtim24S
-	oiXmCog/Q3s3/hAaYpDP9m2fz335f02GgcWWIkRvAo7rG3sO4qlqaLjU3UC8dNdxNohG03B4IFk
-	sRv+MpgOt5xT4o/1BbF2c91WVAUzmu/8CkXJvSwKS49khXvq/mksP0INavd1ZS7JN5UrrTK3AzS
-	JZHrdA==
-X-Received: by 2002:a05:620a:318a:b0:8c0:cbd8:20b0 with SMTP id
- af79cd13be357-8cb422bef85mr69698085a.34.1770959978020; Thu, 12 Feb 2026
- 21:19:38 -0800 (PST)
-MIME-Version: 1.0
-References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
- <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
- <46d0b6bf-db7e-418f-a497-983db4d4d786@kernel.org> <ddedb72a-d24f-48bc-88b2-f6f99f3d45ad@linux.alibaba.com>
-In-Reply-To: <ddedb72a-d24f-48bc-88b2-f6f99f3d45ad@linux.alibaba.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Fri, 13 Feb 2026 13:19:26 +0800
-X-Gm-Features: AZwV_QjOrB3mhYeaOWb88OQxVXS_adocoCi0wTeW_g2al2n0WylFx5HY55y2R0Y
-Message-ID: <CAGsJ_4xqtksoCwjLp-7Kvg5=LyqH+=aGWDWi8jRp8J0c-QiSwA@mail.gmail.com>
-Subject: Re: [PATCH v5 5/5] mm: rmap: support batched unmapping for file large folios
-To: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org, catalin.marinas@arm.com, 
-	will@kernel.org, lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, 
-	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com, 
-	mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com, 
-	willy@infradead.org, dev.jain@arm.com, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 13 Feb 2026 05:34:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1770960839; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=gnGSP7XBqFzhKVj9JBCmaNFbVQyX2TVmgA7490ha+uBZdGHnxu6W7AE8ga+hZQXW7D
+    ksc5myr1mGcqCBwEFO1q+SltV7d0Np8XVOcOFiUVYUE6iUqgF3KtCZooB53I5Mp/mMsc
+    YKqaSsix6iZZfLKqyVlJ+ijOfi8kzNvXNHIjQwzo7pXJBSJ+BABFqEQjW24UHfoPDh4b
+    YE9EJwIxGi53NmHqR+GJImfZJjZMOeQTa+YSBaG1rccWubz+AlsEVz0N7nUjSNhmGNBc
+    Kc5mBoz+Mr9TLJzXoWxGwTUqSNbG0MIIcNYoWqWJxzVAVHz+vuArDGSvHBzUJVBX8tc6
+    J0Yw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1770960839;
+    s=strato-dkim-0002; d=strato.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=5YEwoFG2OaLSjd8Yl8JyESysYQ2pvDaXqlQbmK9OUVU=;
+    b=WIcg/q71lCdX/NOhdCdnb7xUirNTmpH4YaEnMU6gBPy7kIg4O5bnzsdR6v7PlTX2Me
+    eskEVgU2s8uOdU7ogFhXdY8d5p/JR1tENy43HGkO7nxf2B7B3IgRC1DjAGkoFbHi5Q4w
+    m258fH60teuumO3eOqM4iW7bB8nCovi97Ku8NCO/qr/g6i5MFSH5QpnyD70kyQWktc8I
+    MxFSjGVYsIQqwacWev7Yt43NT0LgZSHoFIrt4fen5E8Mfh/mc8L2+Pc1s1LVzKWvqhXm
+    bE3IxlBI5TgdS0UVrDyYz3mqM0l/DCA8tluNnkyQDQJrkZmBU/1k2njMQhRgcPS3hV+m
+    Omdg==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo02
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1770960839;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=5YEwoFG2OaLSjd8Yl8JyESysYQ2pvDaXqlQbmK9OUVU=;
+    b=WhJDdEinlmCOH7tjMzGe3Wf3WYFeEQCybgpE97c1h9MpoK2Ewlp2ZVkkJw/yJuixdm
+    A+dSrbaZuCCMj20zqzZmjBWEVxsQdGzCXd2QnCudO1ek7ZWm74jIKKVr3f5arDMxv1RX
+    AXK+Obe7WzSAVefE6+aKLNq7ZGUIXC0S/nrcpOXel/O2Z7gqk+mapzCFlYbzBPcm8kq1
+    HA155Fi4K3KoPATNGB3CSzEc09HkOWBqIu687ZIheZ3GecVcEU58NWZwnQRo/wgoquUS
+    5UN6CI/FDzvPLgmrFPUhStZ7Mrq9Qft7IxZezekb2YILdm/EFSoFBLU0wvGJXbSSEVo6
+    AAFA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1770960839;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=5YEwoFG2OaLSjd8Yl8JyESysYQ2pvDaXqlQbmK9OUVU=;
+    b=v/DDwINB+0vQ4LL3/TCJecH2XW+VUC6T7quALpW1StFMJK3HkKmabY8vs5z+mP8PXo
+    fowTgXLR0kirz+TtIZBg==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9o12DNOsPj0lFzL1yfzsZ"
+Received: from smtpclient.apple
+    by smtp.strato.de (RZmta 55.0.1 DYNA|AUTH)
+    with ESMTPSA id Q3a36b21D5XvW2c
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
+	(Client did not present a certificate);
+    Fri, 13 Feb 2026 06:33:57 +0100 (CET)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.4\))
+Subject: Re: [PATCH 1/5] ARM: dts: ti: Enable overlays for all DTB files
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <20260212231907.6120a2e2@kemnade.info>
+Date: Fri, 13 Feb 2026 06:33:46 +0100
+Cc: "Kory Maincent (TI)" <kory.maincent@bootlin.com>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>,
+ Tony Lindgren <tony@atomide.com>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-omap@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Bajjuri Praneeth <praneeth@ti.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Louis Chauvet <louis.chauvet@bootlin.com>
 Content-Transfer-Encoding: quoted-printable
+Message-Id: <9D7424B6-2022-4B03-9B8C-455CD3E3FBF1@goldelico.com>
+References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
+ <20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
+ <B3366A17-641F-4E02-A5D4-978F525E0A96@goldelico.com>
+ <20260212174718.7daccb70@kemnade.info>
+ <719BF710-26DF-49AB-A016-D2306F0389E2@goldelico.com>
+ <20260212231907.6120a2e2@kemnade.info>
+To: Andreas Kemnade <andreas@kemnade.info>
+X-Mailer: Apple Mail (2.3826.700.81.1.4)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_211940_424943_41AFE67A 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20260212_213414_774533_9651FEBE 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,45 +130,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 9, 2026 at 5:43=E2=80=AFPM Baolin Wang
-<baolin.wang@linux.alibaba.com> wrote:
-[...]
-> >> ---
-> >>   mm/rmap.c | 7 ++++---
-> >>   1 file changed, 4 insertions(+), 3 deletions(-)
-> >>
-> >> diff --git a/mm/rmap.c b/mm/rmap.c
-> >> index 985ab0b085ba..e1d16003c514 100644
-> >> --- a/mm/rmap.c
-> >> +++ b/mm/rmap.c
-> >> @@ -1863,9 +1863,10 @@ static inline unsigned int
-> >> folio_unmap_pte_batch(struct folio *folio,
-> >>       end_addr =3D pmd_addr_end(addr, vma->vm_end);
-> >>       max_nr =3D (end_addr - addr) >> PAGE_SHIFT;
-> >> -    /* We only support lazyfree batching for now ... */
-> >> -    if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
-> >> +    /* We only support lazyfree or file folios batching for now ... *=
-/
-> >> +    if (folio_test_anon(folio) && folio_test_swapbacked(folio))
-> >>           return 1;
-> >
-> > Right, the anon folio handling would require a bit more work in the
-> >
-> >
-> >      } else if (folio_test_anon(folio)) {
-> >
-> > branch.
-> >
-> > Do you intend to tackle that one as well?
->  >> I'll reply to the fixup.
->
-> I'm not sure whether Barry has time to continue this work. If he does
-> not, I can take over. Barry?
+Hi,
 
-I expect to have some availability after April 1st.
-In the meantime, please feel free to send along any patches
-if you and Dev would like to move forward before then :-)
+> Am 12.02.2026 um 23:19 schrieb Andreas Kemnade <andreas@kemnade.info>:
+>=20
+> On Thu, 12 Feb 2026 17:55:43 +0100
+> "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+>=20
+>>> Am 12.02.2026 um 17:47 schrieb Andreas Kemnade =
+<andreas@kemnade.info>:
+>>>=20
+>>> On Thu, 12 Feb 2026 16:49:43 +0100
+>>> "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+>>>=20
+>>>>> Am 12.02.2026 um 16:26 schrieb Kory Maincent (TI) =
+<kory.maincent@bootlin.com>:
+>>>>>=20
+>>>>> Allow overlays to be applied to any DTB. This adds around ~40% to =
+the
+>>>>> total size of the DTB files on average.   =20
+>>>>=20
+>>>> Is this unconditionally enabled or can it be turned off by some =
+CONFIG? We have
+>>>> our own defconfig so I would not worry if if is enabled in =
+omap2plus_defconfig
+>>>> and disabled in ours.
+>>>>=20
+>>>> We have several devices where the boot loader can't handle overlays =
+(never touch
+>>>> a working boot-loader :) So this seems to only contribute to build =
+and load time
+>>>> without benefit.
+>>>>=20
+>>> As long as you do not add overlays, the bootloader does not care. I =
+would
+>>> like to simply carry around the 1-bit mmc overlay for one broken =
+board.
+>>> That would help me. So I think there is a benefit but nobody forces
+>>> you to use it. =20
+>>=20
+>> Well, it does not force to use the really good feature, but it forces =
+to add
+>> ~40% more file size and some more compile time, if I understand it =
+correctly.
+>>=20
+> Compile time, hardly measurable even if you just do make dtbs.
+>=20
+> Size on disk:
+> a) if it lives around in a /boot partitions with kernels and initrams =
+in it,
+>   then we are around 1% more space needed.
 
-Best regards
-Barry
+Ah, I see. I was too focussed on the "adds around ~40% to the total size =
+of the DTB files".
+
+For the Letux arm distro all DTBs are around 8.1 MB at the moment so it =
+will grow not that much
+(there are non-TI devices included).
+
+So you are right, it is ~1% of the total if the kernel image is counted.
+
+Therefore, space should not be something we should be too concerned =
+about (although I remember
+discussions for driver code where every single byte did count).
+
+On the other hand this increases load time from (sometimes slow) =C2=B5SD =
+for a specific DTB by 40%.
+That should at least be discussed.
+
+BR,
+Nikolaus=
 
