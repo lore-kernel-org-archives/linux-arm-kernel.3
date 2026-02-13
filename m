@@ -4,79 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACF9EEA860
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 09:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD69EEA870
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 09:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TKyMVcAM47MWjyXY/at45Mv8dOdf6sZDz3GFLupZ7a4=; b=s2Bx7u516UjMAA0EpDnuJ7OxIm
-	LILZszoXY/1Mw06cwAmEK38aufAoEujLW/VyOQ3x+xknEwZj7SXp7asB0z7kL4rORnokjxRNp3Xjw
-	U5jTxMvX2/JKDUKsulRH/7HuT7eiFyk1pu4nfYPkGE1DIg7Pd3O+usMJliYd92zkizL4IP5eyXmUH
-	bXT5v4D0jzhmPFZHAL07ohQD62plXwbazklmqenUpH7QB3LrXGPrwaKnlpl3xX1IGwSo70N9Q6Uvq
-	v9e+arsIG+NMQJO+T0GQ3SuBv/gTI/0RIz0rAMUk48JVl/53Bdx8ArhZHIzTJQ1ee5/puXyV5FFxT
-	C9pId8Yg==;
+	bh=876WDUbwlduu0yywfhi8SZwcOeCKXg0kKmj0fy9A9SY=; b=pkkrJqThRscE0mwY8nlTPGtC+A
+	Whuv823iQ28QS3oI4PcHtFvxUucPh8apKCA1wgvDSsiX0b16ZHq7Pzm9kziHVowG1K6NUgzgc8sEF
+	yZbZPPs5xyu251hPxTlSWLqKBqdIUyiArzqduYNcyejKctM5WXlJGxp6dvmUZGlq/mNKm4YP5yWpy
+	dTTEamQmm7YddeUSHXM24aw05s62Hd0wqFZJgmUKe3OeaF/95GAdNWqfms8zj8wFJE0WWGbqnZWAR
+	R8O7eaFDJ5YoOcOavC9sMd0wA/fOXt9X6h/kMcuuGvU6NBt3Th8KMX7Il77iw8ISbZe2H8jJoS/rJ
+	sVX20LvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqpqB-00000003GbH-0OUF;
-	Fri, 13 Feb 2026 09:51:59 +0000
+	id 1vqprv-00000003GkU-0bnz;
+	Fri, 13 Feb 2026 09:53:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqpq8-00000003Gaq-0mnf;
-	Fri, 13 Feb 2026 09:51:57 +0000
+	id 1vqprs-00000003GjP-1xb9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Feb 2026 09:53:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 61DC043775;
-	Fri, 13 Feb 2026 09:51:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22F08C116C6;
-	Fri, 13 Feb 2026 09:51:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2B36244204;
+	Fri, 13 Feb 2026 09:53:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A585EC16AAE;
+	Fri, 13 Feb 2026 09:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770976315;
-	bh=iRls6+U3fZPkaSGsvnSa1VmBaxah7AoJ/t5kH+owJDI=;
+	s=k20201202; t=1770976424;
+	bh=z68VAFgu03wyf7l3IWaQwDISBEKZz0P9EzF4N4uzcrM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Xic0u1p+3mB1x1welUSgDMMGR7fM6BznAqfSAVWCmIzzgQI3r4Bm0PVhOn72qiolF
-	 7bSBRRV4MfZ2/+885hwCgGVIUeKB9B1Z+YyXCbwDC9YnbhXZA8DZpMbX7o4VgBtJkE
-	 71H1LmdRuSj7M7Gx4KEg2Qn7HMWpYVcaoB57IsPXTDqR7H1uk0e4vgNW9LZaL30wtd
-	 zI+rN7OyFfo2Rujc/2ePhVnlq1jx9wZmEj3o3M3mfFSUDcXzE5MTtfWcGZl+BOZbss
-	 MH6ABCHimpP2TsrfoUZ03CyBc9y2Jhqhq1iuB6obhR0erTmvnAWlpdQ4a8ZSv3gknT
-	 rIPcTqEa3a8nA==
-Message-ID: <ece3f7ee-8ecc-4528-a6ce-da4eeb24b236@kernel.org>
-Date: Fri, 13 Feb 2026 10:51:47 +0100
+	b=Shln6tAtclu66CGUtl+strj0q/v+4yx/M34Gk3WD5urfoIJfKcGuBwb7kqWXXks22
+	 Yyx4Jt1IgaYs+wo85MUn4HC8YAEDSvy2pF24usmqLQ6FzKttEePR63uzXeHc5JR3v8
+	 rR9BnRHBWV00uLXF8eDKQNhTXiQQbNxXOoPzlgriH2RvJxJJ1aOi0Lj7ulfxowkofb
+	 gppTRjrNB4Elv1457kbv/CLj1ENK5EOlHBv1QmVtLzKcoWbAylnrTjlWriy7DBlf1A
+	 ohXtPJdwwTo/gl8S1/xJ2/PWg7fFnHv6ZpBouKToEypf6XfElPyb6d62riYPsaxUox
+	 xXxN5i4A+L+nA==
+Message-ID: <738dbc7c-9915-4308-8e0b-388d6b73b067@kernel.org>
+Date: Fri, 13 Feb 2026 10:53:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/6] dt-bindings: media: mediatek,vcodec-encoder: Add
- MT8196 with VCP support
-To: =?UTF-8?B?SXJ1aSBXYW5nICjnjovnkZ4p?= <Irui.Wang@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- =?UTF-8?B?TG9uZ2ZlaSBXYW5nICjnjovpvpnpo54p?= <Longfei.Wang@mediatek.com>,
- =?UTF-8?B?VGlmZmFueSBMaW4gKOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
- "wenst@chromium.org" <wenst@chromium.org>,
- "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?TWFvZ3VhbmcgTWVuZyAo5a2f5q+b5bm/KQ==?=
- <Maoguang.Meng@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- =?UTF-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>,
- =?UTF-8?B?WXVuZmVpIERvbmcgKOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "hverkuil-cisco@xs4all.nl" <hverkuil-cisco@xs4all.nl>,
- "sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-References: <20260212100104.11863-1-irui.wang@mediatek.com>
- <20260212100104.11863-6-irui.wang@mediatek.com>
- <20260213-didactic-whispering-impala-ea9e64@quoll>
- <13bf9b8673c6d47e07dee4a233945ed542e9b4f3.camel@mediatek.com>
- <e69cf0c6-f7cf-4f83-a7fc-dc4b9dfe174c@kernel.org>
- <dad64d23d0e9588979005f5770806105eb32a831.camel@mediatek.com>
+Subject: Re: [PATCH v11 3/7] i2c: xiic: switch to generic device property
+ accessors
+To: abdurrahman@nexthop.ai, Michal Simek <michal.simek@amd.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20260213-i2c-xiic-v11-0-5d18aea11bde@nexthop.ai>
+ <20260213-i2c-xiic-v11-3-5d18aea11bde@nexthop.ai>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -122,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <dad64d23d0e9588979005f5770806105eb32a831.camel@mediatek.com>
+In-Reply-To: <20260213-i2c-xiic-v11-3-5d18aea11bde@nexthop.ai>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_015156_275210_2095F7D5 
-X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-CacheID: sfid-20260213_015344_574332_52F42AC2 
+X-CRM114-Status: UNSURE (   7.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -143,34 +122,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2026 10:47, Irui Wang (王瑞) wrote:
->>>>
->>>> And here still did not implement the comment. So basically you
->>>> did
->>>> not
->>>> implement fully v2 and v3.
->>>
->>> If you are mean about the `else statement`, I left a comments and
->>> want
->>> to get an explanation from you, if you feel that my reply is
->>> unsatisfactory or incorrect, please let me know.
->>>
->>> The key point is that our patch can satisfy you and get a Reviewed-
->>> by
->>> from you.
->>>
->>
->> Neither your answer, nor commit description here are actually
->> ANSWERING
->> to my comment at v3. If you answer with irrelevant/unrelated comment,
->> the reviewer's feedback stays. OR explain please with different words
->> why other devices have vcp but your commit msg says they do not have
->> vcp.
+On 13/02/2026 01:15, Abdurrahman Hussain via B4 Relay wrote:
+> From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 > 
-> Why other devices have vcp? because I didn't write 'mediatek,vcp:false'
-> in else statement?
+> Use generic device property accessors.
 
-Yes
+You should explain here the impact, e.g. making them work for ACPI
+platforms.
+
+> 
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+> ---
+>  drivers/i2c/busses/i2c-xiic.c | 20 ++++++--------------
+>  1 file changed, 6 insertions(+), 14 deletions(-)
+> 
+
 
 Best regards,
 Krzysztof
