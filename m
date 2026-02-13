@@ -4,177 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6536CEDF150
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 11:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83854EDF148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 11:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+fOZBwXC4w57k2Cwg/bwbZ6SwA1coLkgaqCs9O2ONMs=; b=Obto/5FAm8F0+21c3oGQb77TTg
-	afeNWF4gS5IBnINu23cTisPL5sZsYdsGv4jZKAR+tE06ResFEZiWTtfR0uqUg0NVMHj+/oBSbuKHA
-	QkoiwvutVhIPUHsRPoE0h7PpkdZxQ8Cq9txRE+qNmkNRW0IvUFIrAp/3vCeI5/6Y7DR5pbXyg7yG1
-	bo5W3sXW6ANvb4fYXv0hk8hq5g6B9SxYF+lz6ixgFQs7Gtk6IDa5zfB4hOq5dDcXBRws34udyVmJS
-	DhtmBEKT4gNgcbLli9DbZKHLo5m5NNZhZJixqXL4QyOmDeWooKRvxZasJH0dPUbwuE4j/eppz1YRW
-	RfaujnIg==;
+	bh=PEkkLmmkFZin8djP7DhwaM2jbb7jPvUYx62XstqaFD4=; b=47I98uiSxf+xxQQ0PsPPcm2FPo
+	+nKvadncSf5x1GvQgzk5SuUpnV2WLHA9HV0pbt0TpabYx6bjWoKEJvsfNA5XVXI+pbVIRMPkI9b4A
+	H1aYUZcDxgkwwgezInK6hxYV+5NCIaqpbjvMcW4/9j30l2zrktzg7URcYjf8o8bbxPVg9m//PDOoR
+	blWZs5DpQL5f0Y2ELlrKhGfp0vhRpZSeqdVfup6GehjOktky/3Ed+YrKoFSoZIWmYRBEZbRYBmphz
+	NPy06C5Tt8hseN2Zk5xNeNuRKeBUZHYrcXthROqaohItQeJ2pnrwg/72Nv8mePAQLaz7pC7lde1Py
+	ZDtpeRlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqrUS-00000003PMq-0I3K;
-	Fri, 13 Feb 2026 11:37:40 +0000
-Received: from mail-francesouthazon11021107.outbound.protection.outlook.com ([40.107.130.107] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vqrYb-00000003Pc1-1HgM;
+	Fri, 13 Feb 2026 11:41:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqrUO-00000003PMQ-1J5r
+	id 1vqrYZ-00000003Pbt-3qK9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 11:37:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EBEHUkYRLwepg4aOxHoMsL9SVVj51rfNDyEecAOcpV7Bzwqh7UQFTiP/0e0ca6+W9ME0md4S/X04nSJFtiT83JaARot5nRNGqVLU/bUNFp+mHn0ihxyAlbmM4ZInAIouOPvSK9dFyt0t2etW+VibsuKf/NHuCS4zVG/m9m6dE1VhaKopqRrDPwyBXvuImfCOAN3inS8B00iZS7VBZsrykks8dKa/63vWxmcbJ//LCXRv9If9PFkqPEpM2H6imdvdEI1U8UwQHQXQXa4QVQB+bC6UbGqVLDTESCiZtctr2q4UO8uSh2Lmfv3sGp9oqHdb60SklnPt31GH+7ihbjDkug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+fOZBwXC4w57k2Cwg/bwbZ6SwA1coLkgaqCs9O2ONMs=;
- b=Tnfys3Y7v24rLJuTaUtX09fXmp2BxCtIcEYm4BoYlI8ZV/o3A9Dk6VXSexP0TrHrsXVQ6lbBvkG6AE00i45pMolvvlwv9Wa9UzlHpKrPe1gNabQRfm1Sru5atUASJ9MV+80hoEdDwaP0udV000t+EGr6E1gaX4MMdA2Zq96K9pGfAXan8f82kC2VGaFIf+CdA6oBX3nX1EOyYJF2KCYtlU39jsMD9oc+FawcOIU7WmREVgzwTwkpnrRe6BIeHngnSwfQW2ad+IzZ4Gj8RL/zQJMPT9AzJv9Er303pw3wa9HUMdFfQQ5n+Hok4qXEdNOgX4FoCJ95XsHhetlyLU6l4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axentia.se; dmarc=pass action=none header.from=axentia.se;
- dkim=pass header.d=axentia.se; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axentia.se;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+fOZBwXC4w57k2Cwg/bwbZ6SwA1coLkgaqCs9O2ONMs=;
- b=Zs/RQU29EkVO08+naf6q0MUhBG61WGlePVJvKK9Aul5ALifJsHK6hvEfRXI+ufhUux9cdesysRr6kgI8CJyZBu/JUFC3TvX9Gqrd2IXwiJXl+xOZsrTCEjxOLF+DghEZJNNtLhw5H2/ij9CsrMUb+Be4J1rLkxCVDCZz0LdayBA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axentia.se;
-Received: from AS8PR02MB9235.eurprd02.prod.outlook.com (2603:10a6:20b:5c1::5)
- by PA4PR02MB7150.eurprd02.prod.outlook.com (2603:10a6:102:10c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.13; Fri, 13 Feb
- 2026 11:37:30 +0000
-Received: from AS8PR02MB9235.eurprd02.prod.outlook.com
- ([fe80::32a9:a9e6:ded:5714]) by AS8PR02MB9235.eurprd02.prod.outlook.com
- ([fe80::32a9:a9e6:ded:5714%6]) with mapi id 15.20.9611.008; Fri, 13 Feb 2026
- 11:37:30 +0000
-Message-ID: <f38230f2-f74b-cf89-8d15-194d85f341df@axentia.se>
-Date: Fri, 13 Feb 2026 12:37:29 +0100
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.0
-Subject: Re: [PATCH v4 2/5] i2c: mux: add support for per channel bus
- frequency
-Content-Language: en-US
-To: Marcus Folkesson <marcus.folkesson@gmail.com>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Michael Hennerich <michael.hennerich@analog.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com>
- <20260128-i2c-mux-v4-2-dee49ce276c0@gmail.com>
- <2ecbebd8-0842-34fa-a593-25168c91aa6b@axentia.se>
- <aY5KeH3Z1S3MswHI@gmail.com>
-From: Peter Rosin <peda@axentia.se>
-In-Reply-To: <aY5KeH3Z1S3MswHI@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P251CA0011.EURP251.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d2::7) To AS8PR02MB9235.eurprd02.prod.outlook.com
- (2603:10a6:20b:5c1::5)
+	Fri, 13 Feb 2026 11:41:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EBDC76001A;
+	Fri, 13 Feb 2026 11:41:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE6D6C116C6;
+	Fri, 13 Feb 2026 11:41:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770982914;
+	bh=//FUPQtiHgkA6+8ggCTux5TUR6pLkT0fZp0gFDq5xRk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KQTI1b3u0Q4pyuXy0AQhK+daoEjRVYcgNTOfFMrdfdZ/HhxV617xG2c28/P8pq1D9
+	 iD6Nks4akO4w62sa5jNdbS1F3SbFTTRPizMUdXq1cLYFHPAp4bKBlvjlTaRgILYdoP
+	 yr2bOqqRtlh5pbgCIlnuOlrak4uvTjq6VUbgw+bWGAJs7gDbZSS9Oz80rWkzus5pmr
+	 LQ9t52v1iig1a0ANoVlL58TPaRATwVW6B4fAuR0VCVM7Pqsk8YrSNBf9BzttKJ4j+v
+	 UDPatfhhstyabt8VHBDQo07Uu8TWw2eXjm5ROfA4Slm+pmClEI6C7f5EzgQt3ZOw6D
+	 zYN4e8eHOIZ7w==
+Date: Fri, 13 Feb 2026 17:11:43 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Jens Wiklander <jens.wiklander@linaro.org>,
+	Matthew Wilcox <willy@infradead.org>, vbabka@suse.cz,
+	akpm@linux-foundation.org, kernel@pengutronix.de,
+	op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, ilias.apalodimas@linaro.org,
+	jan.kiszka@siemens.com, masahisa.kojima@linaro.org
+Subject: Re: [PATCH v2] tee: shm: fix slab page refcounting
+Message-ID: <aY8N90jMp25bBZhi@sumit-xelite>
+References: <20250325200740.3645331-1-m.felsch@pengutronix.de>
+ <Z-Pc6C1YUqLyej3Z@casper.infradead.org>
+ <20250326110718.qzbwpmaf6xlcb4xf@pengutronix.de>
+ <CAHUa44FUK_73oKSaqGdiPqB3geZbTNDFsC1Mh=KN3YPWr9=7gQ@mail.gmail.com>
+ <Z-TXMIXzaro0w60M@sumit-X1>
+ <CAHUa44HEsMkzQHZZufdwutQyZRtig6e0qWomhwgDZAhy2qDyhg@mail.gmail.com>
+ <20260212125830.jfwos3flga2l5uwk@pengutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR02MB9235:EE_|PA4PR02MB7150:EE_
-X-MS-Office365-Filtering-Correlation-Id: 94e2a003-12b7-4f26-c40b-08de6af4453d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WllSZ0xkZ1hJWkVWaFVvZktsZ3U3TGxhZjJ1aXYyQytYOEVFVnh0L3F6VHMr?=
- =?utf-8?B?UU9FWnZKNUVEWnpoRzBlVHdDeGk1SDNqOTA4NWF2TFJhTWRSWmpWU0RwSGpw?=
- =?utf-8?B?V0kyYW4yOWtzNzNYRGFISXFaREZoTDJFU3JZMkd3b29rclp5QXlvenEvRmRr?=
- =?utf-8?B?SWFmK3IzVTNWSjVyR2NtYjZNcW9pRmtsSzBNVk1BZjZTNi80alg1WWFEdnpT?=
- =?utf-8?B?blY4TWxjUmZCeHZRQWVSZHlUdjV4QVJCRDBDTzlDQjdiT2dNT1FMeWVYOHFM?=
- =?utf-8?B?dUppcm5VRHp0M3VjZk5XTlRNeFZBVnFMd0NON2NhNS93b0pVd3VEVUdBZmRR?=
- =?utf-8?B?RnQrUVBYbUlNb1h4aGRvWGRRQ0VidjhWamJISDR4L0EyVjhjTDhxYzhJUm5C?=
- =?utf-8?B?aEJ3VGVBUFg1bW1kWXBNSmppU3lGK3VlLy80Zm1LT2x6Tzg2UHJYVHNTc2tZ?=
- =?utf-8?B?bm54M1paMHBwdUxkVlNHTXhGQS93Z2tsak8vNy9iU1dmd3V3SkduWXc5TUpu?=
- =?utf-8?B?Mi95Vjd2b1llcC9XRHVsMGZIemdiVFJ1cjk1UjlJL0NPQTlQZmMzcGE3WDht?=
- =?utf-8?B?YloyTGxhOFFSV3ZSaGFFaE9ZWjV2WmN3TWtRV0VhczhKUzRiU3lqTXZoSVh3?=
- =?utf-8?B?OUkwcWQ0R0YwdlNIY1NnLzVIYmYxOVFMTUhRTkpTWXZWL1NidHQ4TjlwNFdE?=
- =?utf-8?B?OUhNYUZFcVhVNDVpWVcyZzB3QTBGbGdUeC9FVW9JM1QyK2FvLzhqblFDeUdy?=
- =?utf-8?B?enhMZlRvdi90OHNsVlVvOFo0TVpWdFNkbEJqaFVvQkVKcE9iWVhDRC81WHNy?=
- =?utf-8?B?MFZnMW8ya29XVmdIRW0yVnlBY2hoNWg4YVV1UFZXeHBoampkQ1J0dnRnVGhz?=
- =?utf-8?B?c0xvTkMzRlp5OVFGTmZLNEorMUZLbk1MdktTNk1uUDFybXJ5YUU5bURZcDFU?=
- =?utf-8?B?UkJZS3hCS3V6ZjdKTDlqSGVOVzMrQkZIK01MZVMyQWRKbWFNa1ZjWjR2Uko1?=
- =?utf-8?B?ZUUvaHdES1pjWEVmVmhhRXF2ZHRBTnBSQnRQdUFkOXkxcGFZSXVIUVhJeFNh?=
- =?utf-8?B?MkhCNkdFN0dhbE02dzNlaWhZZE1SbWtWRVdDaCtRdzAxUXpoK2VJSFRjdzRR?=
- =?utf-8?B?TnJ4UkV5VjR4UTJWc2FnTll6NG5xYTZEeUd4R1JHZ0duUFN0OVc4Rlk3Ny84?=
- =?utf-8?B?WGd2cDdEN1hFYUZYY3Q1WWRHWmRZTU9KWXhrSDN0dERQSTY2dWdES2FzWFFC?=
- =?utf-8?B?enJ4anZrbFJSRjdlNmx0UjZabVpkRHJYYldScGlFblRaWGpiOGdGZWR1bHNW?=
- =?utf-8?B?a2lEakhzNFA0NUwrUkdHRWo1aHNwYlVjY1k3UW5pQzBUSk5sTjhyWTJqbmw5?=
- =?utf-8?B?eUlYSUVSYkFOUWpWeXlNZm1XUnRJSDlVY1h4TWJ6bTZhN3ZDdWV3RWNlS1Zz?=
- =?utf-8?B?WEFXd2xZODBrbTZIYVZ4ZGMvcnlnN2dLc1N4VVVTWFFINWlRVStrbkNXbXhQ?=
- =?utf-8?B?SG1vV1pvdXlSdjlyazRQL2lVQ0RMM1NYS1k1cFF3Q2lNdEFmNE12endramFH?=
- =?utf-8?B?RmVGaWJRdDZwUkVPK3E0TnJhMmFVbHR4dm0vTUlFb2xLeG5wVW5VRmIxYkZ5?=
- =?utf-8?B?Z1ZsYS9GNjZUQnVpRHY5Sm15cndnRGdHbHhIR3FrTUQ0S2N2Y3BFU2t0anZ1?=
- =?utf-8?B?dmEzUWNqSnNqY3hrSjRyWjJMNkoxS0Q2YkUycHpXa0F2S0lHUjh4V1RnMmg5?=
- =?utf-8?B?QUxnSE9QZFNHSFpoMWR3WC9sRlVuRVAreFplM0NYMXpsZnBDaFMva2ZMRUlz?=
- =?utf-8?B?ZlRtajN6dlFvU1RUaUhyemVpUUZLaGNJY0JaMm1LZDRRN1A2enJsWitxelFV?=
- =?utf-8?B?U2lvOVhpS0NYc1N4aURzREt6Zjd0clR0L09SNE53a3dFbk1xTXF0NlQ3UmRJ?=
- =?utf-8?B?M2lodnF0cTVmU0ZhWlBJNUMvUjVmQXRick1IV2YyWVRmMERCNkxjNW1qUUxx?=
- =?utf-8?B?bjExc2ZXL1hGV3JyWGhSVVVtQVI4N1RodUFVOGZESWVtQVF6NDhvR1ZuOHor?=
- =?utf-8?B?bWlJQVEycFNtZ2hVWmdWNEZ2Ky95TUZaTVB4cVE5MWtrSndYS0N6ME1lMzVF?=
- =?utf-8?Q?VRuM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR02MB9235.eurprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZGtjL1MwZ2tHUnl1a2djY3lPaG5QdEVyOXE5LzQ5RGg2ZCtTVHQxdnhyTWVO?=
- =?utf-8?B?d0cxVkRJR3RLbWlrNmg0NHdXbXdET2tIeXJIQ0RKTVZEdVlUUEJ1Z3huY1Nr?=
- =?utf-8?B?aTFaWFZYYis4UmJyaXNDUHlqdVZEazZyT0VEeU1KUVJ4VUlFdmdmeVUrZ083?=
- =?utf-8?B?OGdpSGh4b3RQVG5uZGhxSFJHclJhVzBlZUY0UU9nelBuY1p6VG15VUNtV0lU?=
- =?utf-8?B?dTI0ZS8yeVVpdm1ham5selFoWWJqZFAvMFk4UWNYUVhkRHBzOHU2ckRRcWpo?=
- =?utf-8?B?WlVrN2hGZG5jc3kxaDliNDY4R0JxQzMyZ1hNTGN4am1GQUFFZW9oU1ArRkV3?=
- =?utf-8?B?cXZvMlA5UWhRZUVUZmk0VHBNbkNmcTM5L3ZVMGVNY1RqNDROMHo0Q1VoSU5l?=
- =?utf-8?B?N3ZMYnYwNTlqOUJPVW1McnJvSGM2KzF6aTF6TTZiK2IyS2V5dGYvMmRFWFFP?=
- =?utf-8?B?cWhMS1p6U0hqcGI4OWRZdTRqTjJCQTNTdEQ5T0FTTFJHZk1hK2JMSnJpQ0dB?=
- =?utf-8?B?d3VNU2xWZlBlb3VIWW4wM0ZBTVI0SVNLNWdGWms2TXlmMWwwY3FBbUxydVVu?=
- =?utf-8?B?RjJGZGVLOWRFeHFtNHJ2UmRneVlONGZLbXFyVlpwZTVkZ3dzRlA3TDN5aStK?=
- =?utf-8?B?b1dOT2tqa2RjVHQxZ0M5R0NNNHVCKzhSYkJibjgvNlNPR3FRM1VMQTBjQmtY?=
- =?utf-8?B?QmVaNEw4aHVHRi9IOXkrbGxESStkMGxEUTZJTy95U2JEMTJWN2E4VVNmbVp5?=
- =?utf-8?B?aW1UR0xyL1pDS1k3ckdmUmo2ZTl2TnRCWXZjOHN0eUk3b0JSdGtNakhhSnI4?=
- =?utf-8?B?NG1FNldaY05XWFRsWXEyVzRQbEFvVUp2b2NhVngwTGE5SGZWTE9iN2ZJTFRj?=
- =?utf-8?B?TmcyNG9FaDJaVGN6RGNmSExWQWIwcGhQLzlkQkM3T2VCbFpxSTF4cWhNWmh4?=
- =?utf-8?B?aGZwVldVV3E3Vi9YMkkvSkFrWWl0bkovc1RwYTQxMW53TEU3cFh0czlLRlFy?=
- =?utf-8?B?K0ZOeE1ybDE1ZWU1V3dnenZhcHQ3MDhkdjFJLzFSMHZwQkQ2STZCWVVtN2Zs?=
- =?utf-8?B?VVExMEdxZ3BXcnFWMTdxeGxqS1NpUXpYVGd1YUEyTW83cjBsZER5MzhEWjNB?=
- =?utf-8?B?SjZIaGhLd09XMXRKTjMzZzlXQ0J1WE9qeFYyQ3hua0tKL0ZjZ0UzSmdBMjk2?=
- =?utf-8?B?UXJhUm9qbXNEdExPbzZGbnd6TlNkNERUejd2S2lhZ2lHRU9CWlNIUm1FOG96?=
- =?utf-8?B?ZVNCbkpXOTA1TlpEUmVlbUk4bVFzSHBZR3ZzOEJoVnpIdk81NkdteTV3RWU1?=
- =?utf-8?B?b3FtWGoxYVA5bWlDbUhFWGk2cmR3UyttcXNacXJyd3ZQd0ZtcDljUUZ0cmtH?=
- =?utf-8?B?ZDJNR3VPdHllTWJ1cklhOGpPWXAwdVZVZVkrZGF4YW1scHZTS1ZSd1pXQWhk?=
- =?utf-8?B?cDBna29sWFlBbXh5czN5anY4ZmNPTnFGK21RNFdJUHJhZXdPWGhEMThSQVNt?=
- =?utf-8?B?Z3A3dXN1NmZtM2VvZW1URDBMMWVOenhtSUMxWTZQQjhuKzZGMVZvQzRqZ0hw?=
- =?utf-8?B?dm9oOXNueG9QM0pVZGEwclZSZzIvRFlrdXdEemFSOHlxWXN2VjRCcVlVdnZ1?=
- =?utf-8?B?M2FVU0EzakZreUtUZ25rNEVxOENhNzlLYlNab2xZY1ovL1EwcVJsVXM4c1B3?=
- =?utf-8?B?K3czbGNxY3NxYUxoN3JQZGR0cGREbFdOQXpHUWxCcm1lSU8yUkdxWDB5TFgr?=
- =?utf-8?B?RHhFY21ZSnhPQkw0ZmdYR3NKODJYVkZIWE5rb05VR0tvdUlMVzRDNG9GcGdX?=
- =?utf-8?B?UFY0SzY4WExlbGI5SEdMQU5NREx4bEEwZWJTdXQ5bUZxcDkxUmdOcE5QcWN3?=
- =?utf-8?B?Qi9MN05FUWpRVkpTSnVVdVR0RVpMQ2R2TmI0MjVPOElLT1YrT1dyZXoxLzNL?=
- =?utf-8?B?SmJxR0d3K013eWxjb0E4akJGRVNzTW52NXFzY0pDNEhBWERldjRuMzZJb3Y5?=
- =?utf-8?B?bitBc1lCTjgweHRuaTZabFNNay9mQS84NTF3blRVU3F0MmVPNklpSWdkYzVk?=
- =?utf-8?B?ekxsYUp6RWFxQlk1UzN4aENsSXYvUjFtVUNaTFdKenNlcjd5L2IxbkQzeVVV?=
- =?utf-8?B?QVVlSCtlVDcyWE9WdGFlM0orT3hwZDZlWWlRa0xveFlnWDYzNXFwOFEyRTQv?=
- =?utf-8?B?alZHQjgybXBOVFZ5NTFLKzBWQ1krdVkzSVg4elo5Ylp2NGcwYlhtQml0Qkdp?=
- =?utf-8?B?dHZhMmpMaTR3UmVWbUNYNXJuaTdyNllWSVJJeWFJUk0xVm85M0g4SWIweGYy?=
- =?utf-8?Q?sYbY/JaDk3eHuQedQE?=
-X-OriginatorOrg: axentia.se
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94e2a003-12b7-4f26-c40b-08de6af4453d
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR02MB9235.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2026 11:37:30.0891
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4ee68585-03e1-4785-942a-df9c1871a234
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /uZQiSJ0uFIpJC9RpZwduN8UTEIfKh/2kdbFtdaU+vxxVDTF7lyW9+L6+RxEzs7i
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR02MB7150
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_033737_454061_3F376EB9 
-X-CRM114-Status: GOOD (  21.62  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260212125830.jfwos3flga2l5uwk@pengutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,141 +81,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+Hi Marco,
 
-2026-02-12 at 22:47, Marcus Folkesson wrote:
->>> +static int i2c_mux_select_chan(struct i2c_adapter *adap, u32 chan_id)
->>> +{
->>> +	struct i2c_mux_priv *priv = adap->algo_data;
->>> +	struct i2c_mux_core *muxc = priv->muxc;
->>> +	struct i2c_adapter *parent = muxc->parent;
->>> +	struct i2c_adapter *root;
->>> +	int ret;
->>> +
->>> +	if (priv->adap.clock_hz && priv->adap.clock_hz != parent->clock_hz) {
->>> +		root = i2c_root_adapter(&adap->dev);
->>> +
->>> +		/* if we are parent-locked and the root adapter is our parent,
->>> +		 * we already have the lock we need. Otherwise take the bus lock for the root
->>> +		 * adapter before changing bus clock.
->>> +		 */
->>
->> The assumptions made for the "otherwise" case is wrong, I think.
+On Thu, Feb 12, 2026 at 01:58:30PM +0100, Marco Felsch wrote:
+> Hi Sumit,
 > 
-> I think you are right.
+> TBH: I was hoping that you will take care of this since you're marked as
+> maintainer for the tee-trusted-key and we noticed the warning with 6.14
+> and still no fix available :/
+
+Mathew did suggested a fix long back on which everybody agreed but
+didn't got enough attention from you to test and report if that fixed
+your issue. Since you insisted further, I have created a formal fix
+patch based on that here [1]. Care to test that?
+
+[1] https://lore.kernel.org/all/20260213113317.1728769-1-sumit.garg@kernel.org/
+
 > 
->> Consider e.g. the case where we are parent-locket, our parent is
->> another parent-locked mux and our grand-parent is the root adapter.
->> In that case we also have all the locks we need. Trying to grab
->> them again will be a deadlock.
->>
->> The more correct approach is to do the parent walk in search of
->> the first ancestor mux that is not parent-locked and then call
+> However please see below for further discussion.
 > 
-> Hrm, does it not apply for all mutex-locked ancestors?
+> On 25-04-28, Jens Wiklander wrote:
+> > On Thu, Mar 27, 2025 at 5:42 AM Sumit Garg <sumit.garg@kernel.org> wrote:
+> > >
+> > > On Wed, Mar 26, 2025 at 02:47:46PM +0100, Jens Wiklander wrote:
+> > > > On Wed, Mar 26, 2025 at 12:07 PM Marco Felsch <m.felsch@pengutronix.de> wrote:
+> > > > >
+> > > > > On 25-03-26, Matthew Wilcox wrote:
+> > > > > > On Tue, Mar 25, 2025 at 09:07:39PM +0100, Marco Felsch wrote:
+> > > > > > > Skip manipulating the refcount in case of slab pages according commit
+> > > > > > > b9c0e49abfca ("mm: decline to manipulate the refcount on a slab page").
+> > > > > >
+> > > > > > This almost certainly isn't right.  I know nothing about TEE, but that
+> > > > > > you are doing this indicates a problem.  The hack that we put into
+> > > > > > networking should not be blindly replicated.
+> > > > > >
+> > > > > > Why are you taking a reference on the pages to begin with?  Is it copy
+> > > > > > and pasted from somewhere else, or was there actual thought put into it?
+> > > > >
+> > > > > Not sure, this belongs to the TEE maintainers.
+> > > >
+> > > > I don't know. We were getting the user pages first, so I assume we
+> > > > just did the same thing when we added support for kernel pages.
+> > > >
+> > > > >
+> > > > > > If it's "prevent the caller from freeing the allocation", well, it never
+> > > > > > accomplished that with slab allocations.  So for callers that do kmalloc
+> > > > > > (eg setup_mm_hdr()  in drivers/firmware/efi/stmm/tee_stmm_efi.c), you
+> > > > > > have to rely on them not freeing the allocation while the TEE driver
+> > > > > > has it.
+> > >
+> > > It's not just about the TEE driver but rather if the TEE implementation
+> > > (a trusted OS) to whom the page is registered with. We don't want the
+> > > trusted OS to work on registered kernel pages if they gets free somehow
+> > > in the TEE client driver. Having a reference in the TEE subsystem
+> > > assured us that won't happen. But if you say slab allocations are still
+> > > prone the kernel pages getting freed even after refcount then can you
+> > > suggest how should we handle this better?
+> > >
+> > > As otherwise it can cause very hard to debug problems if trusted OS can
+> > > manipulate kernel pages that are no longer available.
+> > 
+> > We must be able to rely on the kernel callers to have the needed
+> > references before calling tee_shm_register_kernel_buf() and to keep
+> > those until after calling tee_shm_free().
 > 
-> Consider the following chain:
-> Root - P1 - M1 - M2 - P2 - D1
+> I checked the code once again and figured that we could drop/replace
+> tee_shm_register_kernel_buf() with tee_shm_alloc_kernel_buf(). I don't
+> see why a kernel driver needs to tee_shm_register_kernel_buf() in the
+> first place, maybe this is legacy. The only users of
+> tee_shm_register_kernel_buf() are trusted_tee.c and tee_stmm_efi.c.
+
+No it's not legacy but allows for efficient memory reuse within the
+kernel as to not create bounce buffers to share data with TEE.
+
+-Sumit
+
 > 
-> P - Parent locked
-> M - Mux locked
-> D - Device
+> +Cc the efi-stmm folks since they will be affected by this change as
+> well.
 > 
-> In this case we need to lock both M1 and M2, not just M2 ?
-> I'm not completely sure though, I need to refresh myself on the code
-> base.
-
-No, that should not be needed. The reason is that when you initiate a
-xfer for D1 the following happens (xfer is a locked transfer, __xfer
-is unlocked):
-
-- xfer using P2
- - lock(P2, I2C_LOCK_SEGMENT)
-  + take mux_lock for P2->parent == M2
-  + P2 is parent-locked -> recurse to P2->parent == M2
-   + lock(M2, I2C_LOCK_SEGMENT)
-    + take mux_lock for M2->parent == M1
-    + M2 is mux-locked -> no recursion
- - ***** (see below)
- - P2->select (commonly __xfer using M2, elided here)
- - __xfer using M2 (unlocked since P2 is parent-locked)
-  - §§§§§ (see below)
-  - M2->select (commonly xfer using M1, elided here)
-  - locked xfer using M1 (locked since M2 is mux-locked)
-   - lock(M1, I2C_LOCK_SEGMENT)
-    + take mux_lock for M1->parent == P1
-    + M1 is mux-locked -> no recursion
-   - M1->select (commonly xfer using P1, elided here)
-   - xfer using P1 (locked since M1 is mux-locked)
-    - lock(P1, I2C_LOCK_SEGMENT)
-     + take mux_lock for P1->parent == Root
-     + P1 is parent-locked -> recurse to P1->parent == Root
-      + lock(Root, I2C_LOCK_SEGMENT)
-       + take bus_lock for Root
-       + Root is Root -> no recursion
-    - P1->select (commonly __xfer using Root, elided here)
-
-    - __xfer using Root (unlocked since P1 is parent-locked)
-
-    - P1->deselect (commonly __xfer using Root, elided here)
-    - unlock(P1, I2C_LOCK_SEGMENT)
-     + P1 is parent-locked -> recurse to P1->parent == Root
-      + unlock(Root, I2C_LOCK_SEGMENT)
-       + Root is Root -> no recursion
-       + release bus_lock for Root
-     + release mux_lock for P1->parent == Root
-   - M1->deselect (commonly xfer using P1, elided here)
-   - unlock(M1, I2C_LOCK_SEGMENT)
-    + M1 is mux-locked -> no recursion
-    + release mux_unlock for M1->parent == P1
-  - M2->deselect (commonly xfer using M1, elided here)
- - P2->deselect (commonly __xfer using M2, elided here)
- - unlock(P2, I2C_LOCK_SEGMENT)
-  + P2 is parent-locked -> recurse to P2->parent == M2
-   + unlock(M2, I2C_LOCK_SEGMENT)
-    + M2 is mux-locked -> no recursion
-    + release mux_lock for M2->parent == P2
-  + release mux_lock for P2->parent == M2
-
-(Phhew, I wonder how many typos are in there...)
-
-So, between the steps lock(P2,...) and P2->select (at the ***** mark,
-which is where you add set_clk_freq), what you need to lock is M1,
-i.e. the parent of the first ancestor that is not mux-locked. When
-you lock with I2C_LOCK_ROOT_ADAPTER, this happens:
-
- - lock(M1, I2C_LOCK_ROOT_ADAPTER)
-  + take mux_lock for M1->parent == P1
-  + recures to M1->parent == P1
-   + lock(P1, I2C_LOCK_ROOT_ADAPTER)
-    + take mux_lock for P1->parent == Root
-    + recurse to P1->parent == Root
-     + lock(Root, I2C_LOCK_ROOT_ADAPTER)
-      + take bus_lock for Root
-      + Root is Root -> no recursion
- - Root->set_clk_freq                  <<<< the new thing
- - unlock(M1, I2C_LOCK_ROOT_ADAPTER)
-  + recurse to M1->parent == P1
-   + unlock(P1, I2C_LOCK_ROOT_ADAPTER)
-    + recurse to P1->parent == Root
-     + unlock(Root, I2C_LOCK_ROOT_ADAPTER)
-      + Root is Root, no recursion
-      + release bus_lock for Root
-    + release mux_lock for P1->parent == Root
-  + release mux_lock for M1->parent == P1
-
-However, spelling that out makes it clearer that Root->set_clk_freq
-will be inserted in more places in the "call tree". It will be added
-before every ->select call, e.g. at §§§§§. Since any of these
-additional set_clk_freq calls happen after the one at *****, they will
-take precedence and ruin the whole thing if any of them should request
-an intermediate frequency (1MHz at Root, 400kHz for any intermediate
-mux and 100kHz for D1, for example).
-
-I don't immediately see how to reverse that such that the set_clk_freq
-for the top-most level happens closest to the xfer on the root
-adapter.
-
-Cheers,
-Peter
+> Regards,
+>   Marco
+> 
+> 
+> > > > > > And if that's your API contract, then there's no point in taking
+> > > > > > refcounts on other kinds of pages either; it's just unnecessary atomic
+> > > > > > instructions.  So the right patch might be something like this:
+> > > > > >
+> > > > > > +++ b/drivers/tee/tee_shm.c
+> > > > > > @@ -15,29 +15,11 @@
+> > > > > >  #include <linux/highmem.h>
+> > > > > >  #include "tee_private.h"
+> > > > >
+> > > > > I had the same diff but didn't went this way since we can't be sure that
+> > > > > iov's are always slab backed. As far as I understood IOVs. In
+> > > > > 'worst-case' scenario an iov can be backed by different page types too.
+> > > >
+> > > > We're only using kvec's. Briefly, before commit 7bdee4157591 ("tee:
+> > > > Use iov_iter to better support shared buffer registration") we checked
+> > > > with is_vmalloc_addr() || is_kmap_addr(). I like Matthew's suggestion,
+> > > > it's nice to fix problems by deleting code. :-)
+> > > >
+> > > > Sumit, you know the callers better. What do you think?
+> > >
+> > > If we don't have a sane way to refcont registered kernel pages in TEE
+> > > subsystem then yeah we have to solely rely on the client drivers to
+> > > behave properly. Nevertheless, it's still within the kernel boundaries
+> > > which we can rely upon.
+> > 
+> > Yes.
+> > 
+> > Cheers,
+> > Jens
+> 
+> -- 
+> #gernperDu 
+> #CallMeByMyFirstName
+> 
+> Pengutronix e.K.                           |                             |
+> Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
