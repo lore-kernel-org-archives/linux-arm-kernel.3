@@ -4,156 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9090AEDF174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 15:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583DBEDF178
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 15:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwOAfyTpye1FiF6MO8YUN4PsBmvrnoGb71p5mSQFpxg=; b=PrpUmCZicYXtC0xLS2PDf3sxff
-	TWZsivkTdC/hyXcEQu4wxM1e9Os/46//2HapwaBp7Vt1N5zcrx4d0aQPVl94ehNHzoiaRPSeUBNvd
-	BBoPfeVhnmewIfyYHsqjtvqRb0QmBHz/C2l8aL6DQr6QXBiS7fakyfpILRVc4fg13O8+zUAY6wwC+
-	1hDJmz7eiencHa5LMmppFk1+L7Jablq24UZ5YvWvylBuzw69tj3mLR7gnWNcow5gKB/hO5fEY5LzP
-	YKpiPJEj2yO0zOx8i11rpJCWwO1MtnREnxCefP3jVCn5m/iPRJssiP+naHu//EfJCDiu9+gO7Lfnc
-	CfZSrpMA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wc3wuiR4d5qR9HNFKkQBL/RhcLLo/Jro4GjXQoKeDOE=; b=h7iGOejdfKEBJf
+	RZGLPR7fMWAf2KLQaEEtbCwng7VpJB4cA/VnJfgcgDvq08RZW9AcS/2ZjOW0erqHuMSj5g9Vqj8dK
+	z8XqrLJkKc5DNpyb/2BL/EExKgucQ4mAIns9u9OrrRQePjb5DU5RSNYhLu3SI/4L3acEwZNJWBurI
+	K4E7ko80blYhBQ+UCjBtEQ2V4rfyO3gn2UH/lkEAaGXuLdj7rY5JePLRk2UKQ6lLClLEDkcKmqpJ5
+	cY9Z9yp/UJGTmpF9/YPBQl2BOkj+ykHEFnYD+C2tDlLggz7/aA0ecYYzElTMJQ5EV5mF9SXOLz3/3
+	qaDSgWoNrNf/kvT+rDQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqvA1-00000003cGh-3Kwh;
-	Fri, 13 Feb 2026 15:32:49 +0000
-Received: from mail-francecentralazon11013006.outbound.protection.outlook.com ([40.107.162.6] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vqvJQ-00000003cbU-40c5;
+	Fri, 13 Feb 2026 15:42:32 +0000
+Received: from fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.197.217.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqv9z-00000003cGM-38gd
+	id 1vqvJM-00000003cb3-1yBr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 15:32:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=StNtTyJanPHzC1G+w0U/G4NsOVzqMqZzjybIhzCp7W5xTPxdf1UsYFC5LAQfxs2iUmxYVmZK6PhW3l5J9WXJz7esX5euzoLY0o82UxXwluHYOnVIHLOccYs3jw0NcMvDTvZDsYmxhrv1JGNnJC37HW0BfXHZqiO/XvvOCeFV6pX6BGPkNMlAavmcSsOG9qcksmT7Z8NVucQ3tUeglW1bI0TAv+1F70+hDWWXYeTaVgeVf5Y5gQ96+ZrUT1z+1zhKkFAJhMVyQqNG8MlNbhB+gASVIhzneC/jZYZI3b3Hr8yDliTSE/JaPJD2yfwkBvlYRVGZI9xN+UkNDgytXgw8fg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WwOAfyTpye1FiF6MO8YUN4PsBmvrnoGb71p5mSQFpxg=;
- b=KX5gwYxPOHBy/0FDRZ6s47fQV0D6xBg9XJLqZx6w/VICs5DsmT0ABRZfVjwv4hzlJM7yOfSKZl/T18I4rW7h5y7zcace+I02OMUtc5SltLaCEXpRr88JJJJgnpKB4bYrUkKCvd73LWHSSirAe+xaDUCBKkAzcUKykqCOYQFw1gzHCT8x3jnrRUUfgU3fnJQaYMWttnX6+3fT7byQwuwuXt6RIFZPEYpgGg0ljT2RMju6iJfgh3oVKOJF1X/0s4mkD7dBF4liXpb2X+1QB2yvNcP9teDOky9/wqnWQjk0NRHZfpHBdHcWJCuYnf2dETAP4rHb+n5AUr5hZtEmp5cqNg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WwOAfyTpye1FiF6MO8YUN4PsBmvrnoGb71p5mSQFpxg=;
- b=AsnhDBoxLTSwDaoVBtOwQQYHTFUCQozhNR2srylCkLhRyM9+DEvPUxVcH76zr1pZAk0K1m/C0ZmfWL6rssPkmXzEwuK6dH85f+BUnFhTiSYtJz95lZ21L04zSdHiNpmjpG2DL17RVg8JrnOFGaQblPksRKp1fXW4KtN4RI0mImQXEA8/PuiZ6PnMumu5mb4BgaSEuUdxF+ynes6rHQ6qWg71cmIplO2hziPIGeEJO60ldYHCj102IwyoGdnDsHpt61vJHZSUylnFvWmEMKecJxgXsKSlkWFEGAclT/VGveojytK52DMOZOT/LnIQgboSaasEXIuLc8czuJYIg2dhbQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DB9PR04MB8218.eurprd04.prod.outlook.com (2603:10a6:10:24a::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.11; Fri, 13 Feb
- 2026 15:32:42 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9611.008; Fri, 13 Feb 2026
- 15:32:41 +0000
-Date: Fri, 13 Feb 2026 10:32:33 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, bhelgaas@google.com,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	kernel@pengutronix.de, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V5 04/12] PCI: imx6: Add support for parsing the reset
- property in new Root Port binding
-Message-ID: <aY9EESNDhZ5ZvtL0@lizhi-Precision-Tower-5810>
-References: <20260213040852.3340547-1-sherry.sun@nxp.com>
- <20260213040852.3340547-5-sherry.sun@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260213040852.3340547-5-sherry.sun@nxp.com>
-X-ClientProxiedBy: PH0PR07CA0072.namprd07.prod.outlook.com
- (2603:10b6:510:f::17) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 13 Feb 2026 15:42:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1770997348; x=1802533348;
+  h=message-id:date:mime-version:reply-to:subject:to:cc:
+   references:from:in-reply-to:content-transfer-encoding;
+  bh=wc3wuiR4d5qR9HNFKkQBL/RhcLLo/Jro4GjXQoKeDOE=;
+  b=sxJUIR0TxOTxrjg8chCWngeI2JmWY548m3CnZnDhVrGg7J7tkVrNXyHa
+   Nu8oTjOR9QD86KT/7EO66yRUJkM5KmeaJtVNyhT08MeogvFzT3Gjh2ZPb
+   DAfHTj5asKYNtfNJPgJiRxaqG6472mzSm+rqZgShdmq4PnyDASqYfxPYx
+   6yrzL3p1+lw+PV6wbwxmKeRmZ0g+d1LvvzHKtbkTbnGeazdfzG4Y/gUgv
+   OvQOJkx8szgY4GiVfPPqZsmmXMeWrpvXeI4RiawuoU6aFXxhM2jxK5r3p
+   o0ekcrAuQzMXbAWYq8zNoRKGHFdrYN7loDu94AFSagXjlZULe3qAUWux2
+   A==;
+X-CSE-ConnectionGUID: xBWKtWbURmCvJTHWq/NQzw==
+X-CSE-MsgGUID: v1IpJRI/Q9ms7OkLKHCw5g==
+X-IronPort-AV: E=Sophos;i="6.21,288,1763424000"; 
+   d="scan'208";a="9442917"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2026 15:42:22 +0000
+Received: from EX19MTAEUA001.ant.amazon.com [54.240.197.233:18090]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.34.99:2525] with esmtp (Farcaster)
+ id 66f259df-d113-42b5-9bad-4cdd94991272; Fri, 13 Feb 2026 15:42:22 +0000 (UTC)
+X-Farcaster-Flow-ID: 66f259df-d113-42b5-9bad-4cdd94991272
+Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
+ EX19MTAEUA001.ant.amazon.com (10.252.50.223) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
+ Fri, 13 Feb 2026 15:42:21 +0000
+Received: from [192.168.1.242] (10.106.82.26) by EX19D005EUB003.ant.amazon.com
+ (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35; Fri, 13 Feb 2026
+ 15:42:21 +0000
+Message-ID: <a84ddba8-12da-489a-9dd1-ccdf7451a1ba@amazon.com>
+Date: Fri, 13 Feb 2026 15:42:16 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB9PR04MB8218:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62bcf291-bfca-499c-d243-08de6b15207b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|52116014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aMw6AXgGwPYNE733RFWDS0ZBnZYNMQB1JQg7S7cjLphoTzkfQZCEOmg9YFpD?=
- =?us-ascii?Q?kVKwXk5gbPrgYOjMEP6cLwEbKPtyGPLsSO2tkxg7iD3uV4ib+FgXCB40RDd/?=
- =?us-ascii?Q?1to4IMgdyFS5HM9W9hceLTgEyc+DL+04eX2R82dOPYO5UcE+YWj1k6VEuNwx?=
- =?us-ascii?Q?sEHvJRGh1/B9igP9uNZDotnA372Bkb3gNfxYYSHbe5j0TpI6E6C+TtG2gOEy?=
- =?us-ascii?Q?cVlNM6paYKzuL/RHJ3cEgtj95A/2qpTGkS5WztIRQftjfVN7tWqpz4HBGXky?=
- =?us-ascii?Q?9/GG2kLKImeiqj9gXMZh5NEUtunSfv4LJegQMOH8x0Q87wEriPfWYXbfakmH?=
- =?us-ascii?Q?98uXOFaOYd9ZNQxuALRkMFaaqFwrtoM8kdi9UIT/qHxLUfjg41T18mp38jPf?=
- =?us-ascii?Q?deAU/b0XyXHTKqD7LJTdPGR7bzeI7oZWygyO1eBW3x7tWP0lzg8hKFkMP3Nz?=
- =?us-ascii?Q?jTuYL3le1AVui42tKOYhStRx2pzOI0irFSpOHwjtmdQL2TliUTrKHGHa2qYe?=
- =?us-ascii?Q?Lf8d6ZtDCs8SkfyGxdHltgJjvOlb33vr21c2ePvABIk8l4e4BnATzEz2qM0n?=
- =?us-ascii?Q?WLOky38J5SMi+3XCjGZfkhikboG8jhMpQoorFxQ03CZF26f5p2fOgIy4FKTP?=
- =?us-ascii?Q?O6iL5jjwGqprKYiI2uAsyt2TbHFYV3OzbkyuGiv8euoArxOCP1TwFFRGCyG2?=
- =?us-ascii?Q?WGZQyAFLCKGzdVkzLuLQIaILrTfZvFw6wvJHa5I30Pf/kxAFWkCaPADdeQbC?=
- =?us-ascii?Q?mJZwgjFYleymtsvmS+JqyArdaKd/0eivRK0Z2JBowe+1jZ3nR4LNuIcyQSmu?=
- =?us-ascii?Q?GKKp8jrjvKnXCt9Bdv1BQt0rOi3aFwv1vwc9U2anIMtsV82oWTZrHF9qM6kq?=
- =?us-ascii?Q?wCO70wslUKjZcgHekBzxNuJQyRz9pbt4v8HL25nM82u2jmzv2BLMhvWy76Md?=
- =?us-ascii?Q?tudZzFCNstbxCwqjQrdGamgu6ZBUR3osOn9ykBXh2VZoyGlY9o1BScf34Fks?=
- =?us-ascii?Q?GYNQEyoL2MWf5II9ZLxtGUOB2TyzYbudYEz4AvxI2/CDo+zcHK8C/j27fltu?=
- =?us-ascii?Q?YjObMCdhGpaDYHagF3xnINiOIxjCke9n5m+wki4c+Kag2xeP6qZSTuFoRFzq?=
- =?us-ascii?Q?41w3qQ02HAAZW0JJ5FIdPVV27kJbeJwBE0W+OKoPgBQ9O9zN/p9y9kf1fN+V?=
- =?us-ascii?Q?5lnDuDaGKI9tMoerZfx1iN+vk3ojTmr51a7FRmYaAgB/Q8BlgwNNIuAN3LJq?=
- =?us-ascii?Q?dvMawF52sd8c3by//IajNS2fBsbVOzg5VKn45s6kTqJkEC+x2ez42fnFySev?=
- =?us-ascii?Q?N6xKlfurva6onzGumjvIxWZvBEQMOKkRsvGazBWrKs4EHOxnvpdQPZuwUqJm?=
- =?us-ascii?Q?w+27EJuI9lryyHrrq1LmFMxPteH0to1ijjcBFZX+qXOOR2Co2FfUmgySGB+d?=
- =?us-ascii?Q?LeMycq/CeNo0OZ5iNjUgzwXaoBT0ElG8QpjMlpXcF0LheOEp6/fBcjG2Ex4d?=
- =?us-ascii?Q?nEsL/NHRQU6IJGkIORk9hF4nr56MJ8P8CgMk786nFGCj3IseEqAhk01Ni0we?=
- =?us-ascii?Q?ZEEuiqzVGK17Kq0d3nN14bucUZOPgjfoqEqcrr+rSgD8zIowCNYfYiPGyVqR?=
- =?us-ascii?Q?GZpJKyal1fhbGY1agMhfg9Q=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(52116014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dsBWrEBSnlCatr8ty5vbn8Vio7p6hxaDdEjisBACQM3qldvcLMOMBw9WlShe?=
- =?us-ascii?Q?Wa6WMMfcshF2nYGO6s1AvKrCbUhO8/jgMz4Nt/ZN0HQgfd/WB+om+25hvj4e?=
- =?us-ascii?Q?7uGow4NhC1Q4mdw/09SKPiIScqa+Vh4rUy/FPJ7yS0X5VYehT4w+KO95zNYV?=
- =?us-ascii?Q?G/whFg/tEbexMCDaK7D6kZZgEoQ0OBrTvpJwOJrtuaQOfcGZlbM1wpMPlukr?=
- =?us-ascii?Q?VHQfrL1L1L+NUzkRV7fBgKNzaHxYI+nkbUtlCQFRVvwfXKRMmQ58oCBzRrSm?=
- =?us-ascii?Q?jeojY2qUcz3YIUqDv+M/FYKNX1aDWS3Z9hpxpIxjLb9a+ePOb93NZShhQom7?=
- =?us-ascii?Q?Bj5ZyI5r7zLaIMWC0Xr1gp3fVPu2nmDbqiyB2FXxxahrD12ow2QP2bxF9BSe?=
- =?us-ascii?Q?686qLPiux8oRQL6Iw+CbW8z+VACiHoxBf+6q3z9xZF9aFyLzXN+Hip84ReKP?=
- =?us-ascii?Q?yKAZ/7yRMK2IB2A7BpaMoEzlfPpx1mz+AO8hWRlEJkovjqxiwdlpCt30tKUh?=
- =?us-ascii?Q?0W4GDDJxzkxmcl8fsp82GAHFZb4kQtB+YVVbKt1Gf4vAn1NStxbGBhPAoI6a?=
- =?us-ascii?Q?mJd1IOIbnGvLi02bsNVjkXiSvvcBnQDouOq+H6Sr4p64TDScMSrpTvEw3eZo?=
- =?us-ascii?Q?/TBqoLYf5n+vjr7eFyF9zbeWl6pD2EUGi/UGr+uwsEy6sJAV9pksejfbMU7Q?=
- =?us-ascii?Q?Ro+MVymKq//xtIuOSP7MoNGJOyL6+ETf471d8UWzGfswoz2rPXhi7UI7jZyK?=
- =?us-ascii?Q?yPWLmuxZBxXdCY2iBAzNv2K4RebD9ddLiapEOXXOYPm8yk/FnmSxPRLBHrrx?=
- =?us-ascii?Q?Cc0FBgOcG2wNF2q6G29qsvxXK3GFDTzsppeCPgKbBSdYBEaO64u5Y1TaMpHS?=
- =?us-ascii?Q?NyLeJvNB5tHfUO1PR2RFG09eppZxRVcf6xuGodkjBA1tnEHOCz4jdwNS5NLN?=
- =?us-ascii?Q?DqWELkz2LUjC50ge4nwhHI0aF8duTgizqL9wF5Z8TWl/Kq4vwjNQNiBA3NWo?=
- =?us-ascii?Q?e6mkawR9iiDh0mKRaEoGGGb91OtEZKrmcbxLIpfee8x9eAXIkFQ0S2tBce5h?=
- =?us-ascii?Q?YKsI1xx5AEni+arL8UWmKuh+joBVIXlv4mxKoYQQc4KgqFpBzUJM4hC9Fgom?=
- =?us-ascii?Q?5/7WXYRRK67bMQbudwfj9fRhZkX3few4vvTBtPZsHYkQxm3mUsFd05pyzoUJ?=
- =?us-ascii?Q?kclu6Gtp/a374QNJbVQq/QSlOKPr4s46rGUZmmw6VruGwq08NgYQujPVT/gh?=
- =?us-ascii?Q?dLpEL1bvG8hYgfEv7nItLkH0wPJcd9QKgLq8K+i1DRZOaIMxzBlVqW2t5y+M?=
- =?us-ascii?Q?+8sEuEWjwIhARovsmOJBGLERjHQiI81iaX87jx9EREhbljRIGAF/9V/43MdZ?=
- =?us-ascii?Q?xJzqu0Zw5uilhWGZm4IfhZWUYz8F8dznb+eMU05A3NwBq6al/4LWudBTL69v?=
- =?us-ascii?Q?9PAwLGPoc9AamcW67NNna6+wss0PS0xihS2EVtFB3jPcZaDXfKxkWc92maP7?=
- =?us-ascii?Q?eOhxvyk43pHnHZxqlkz87I/idc2R4E8lj2dS7gYlHVbYiM+UFak7fSYfSMqB?=
- =?us-ascii?Q?lNiajQkv+TQF1gg9iydNDTX3Es1kTgHea7JvlB7/OBH8TKRKPP4KfbfLZXHH?=
- =?us-ascii?Q?RtRuCZdGwSe3O6Qh8Q36vWBiFwWPRxbAMaK8pHPiWziHUKXDaopcocYqMfYd?=
- =?us-ascii?Q?jFqfcP7mNGwVYrweFNwbwuLXaWP7q82KLWHsltIiqNYa5vMc73EyiSqyURLP?=
- =?us-ascii?Q?ouCVxULIkA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62bcf291-bfca-499c-d243-08de6b15207b
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2026 15:32:41.8018
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pI4JsNbXlI2ElCpm6hU8NR9BKwbK1zhkitwyyKbCq24bhEUCtPcTatWzxeb6ynGDG1/wIvs6A4Ru9RdJYO1Q/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8218
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/4] KVM: Avoid synchronize_srcu() in
+ kvm_io_bus_register_dev()
+To: Keir Fraser <keirf@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>
+CC: Sean Christopherson <seanjc@google.com>, Eric Auger
+	<eric.auger@redhat.com>, Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier
+	<maz@kernel.org>, Will Deacon <will@kernel.org>, Paolo Bonzini
+	<pbonzini@redhat.com>, Li RongQing <lirongqing@baidu.com>
+References: <20250909100007.3136249-1-keirf@google.com>
+ <20250909100007.3136249-5-keirf@google.com>
+Content-Language: en-US
+From: Nikita Kalyazin <kalyazin@amazon.com>
+Autocrypt: addr=kalyazin@amazon.com; keydata=
+ xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
+ JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
+ BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
+ IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
+ CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
+ ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
+ ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
+ i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
+In-Reply-To: <20250909100007.3136249-5-keirf@google.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.106.82.26]
+X-ClientProxiedBy: EX19D009EUA002.ant.amazon.com (10.252.50.88) To
+ EX19D005EUB003.ant.amazon.com (10.252.51.31)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_073247_952848_A1113FA8 
-X-CRM114-Status: GOOD (  29.62  )
+X-CRM114-CacheID: sfid-20260213_074228_822008_E20C8406 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,179 +103,161 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: kalyazin@amazon.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 13, 2026 at 12:08:44PM +0800, Sherry Sun wrote:
-> The current DT binding for pci-imx6 specifies the 'reset-gpios' property
-> in the host bridge node. However, the PERST# signal logically belongs to
-> individual Root Ports rather than the host bridge itself. This becomes
-> important when supporting PCIe KeyE connector and PCI power control
-> framework for pci-imx6 driver, which requires properties to be specified
-> in Root Port nodes.
->
-> Add support for parsing 'reset-gpios' from Root Port child nodes using
-> the common helper pci_host_common_parse_ports(). The parsed reset GPIOs
-> are stored in the bridge's ports list and accessed during core reset
-> operations. Pre-allocate pci_host_bridge in imx_pcie_probe() for RC mode
-> to enable early Root Port parsing.
->
-> To maintain DT backwards compatibility, fallback to the legacy method of
-> parsing the host bridge node if the reset property is not present in the
-> Root Port node.
->
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+
+
+On 09/09/2025 11:00, Keir Fraser wrote:
+> Device MMIO registration may happen quite frequently during VM boot,
+> and the SRCU synchronization each time has a measurable effect
+> on VM startup time. In our experiments it can account for around 25%
+> of a VM's startup time.
+> 
+> Replace the synchronization with a deferred free of the old kvm_io_bus
+> structure.
+
+
+Hi,
+
+We noticed that this change introduced a regression of ~20 ms to the 
+first KVM_CREATE_VCPU call of a VM, which is significant for our use case.
+
+Before the patch:
+45726 14:45:32.914330 ioctl(25, KVM_CREATE_VCPU, 0) = 28 <0.000137>
+45726 14:45:32.914533 ioctl(25, KVM_CREATE_VCPU, 1) = 30 <0.000046>
+
+After the patch:
+30295 14:47:08.057412 ioctl(25, KVM_CREATE_VCPU, 0) = 28 <0.025182>
+30295 14:47:08.082663 ioctl(25, KVM_CREATE_VCPU, 1) = 30 <0.000031>
+
+The reason, as I understand, it happens is call_srcu() called from 
+kvm_io_bus_register_dev() are adding callbacks to be called after a 
+normal GP, which is 10 ms with HZ=100.  The subsequent 
+synchronize_srcu_expedited() called from kvm_swap_active_memslots() 
+(from KVM_CREATE_VCPU) has to wait for the normal GP to complete before 
+making progress.  I don't fully understand why the delay is consistently 
+greater than 1 GP, but that's what we see across our testing scenarios.
+
+I verified that the problem is relaxed if the GP is reduced by 
+configuring HZ=1000.  In that case, the regression is in the order of 1 ms.
+
+It looks like in our case we don't benefit much from the intended 
+optimisation as the number of device MMIO registrations is limited and 
+and they don't cost us much (each takes at most 16 us, but most commonly 
+~6 us):
+
+      firecracker 68452 [054]  3053.183991: 
+kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
+      firecracker 68452 [054]  3053.184007: 
+kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
+ffffffffc03aa190)
+      firecracker 68452 [054]  3053.184007: 
+kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
+      firecracker 68452 [054]  3053.184014: 
+kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
+ffffffffc03aa1b9)
+      firecracker 68452 [054]  3053.184015: 
+kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
+      firecracker 68452 [054]  3053.184021: 
+kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
+ffffffffc03aa1db)
+      firecracker 68452 [054]  3053.184028: 
+kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
+      firecracker 68452 [054]  3053.184034: 
+kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
+ffffffffc03ac957)
+      firecracker 68452 [054]  3053.184093: 
+kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
+      firecracker 68452 [054]  3053.184099: 
+kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
+ffffffffc03ab51a)
+      firecracker 68452 [054]  3053.184100: 
+kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
+      firecracker 68452 [054]  3053.184106: 
+kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
+ffffffffc03ab549)
+      firecracker 68452 [054]  3053.193145: 
+kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
+      firecracker 68452 [054]  3053.193164: 
+kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
+ffffffffc0348c9f)
+      firecracker 68452 [054]  3053.193165: 
+kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
+      firecracker 68452 [054]  3053.193171: 
+kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
+ffffffffc0348c9f)
+
+Our env:
+  - 6.18
+  - Arch: the analysis above is from x86, but ARM regressed very similarly
+  - CONFIG_HZ=100
+  - VMM: Firecracker (https://github.com/firecracker-microvm/firecracker)
+
+
+I am not aware of way to make it fast for both use cases and would be 
+more than happy to hear about possible solutions.
+
+
+Thanks,
+Nikita
+
+> 
+> Tested-by: Li RongQing <lirongqing@baidu.com>
+> Signed-off-by: Keir Fraser <keirf@google.com>
 > ---
->  drivers/pci/controller/dwc/pci-imx6.c | 81 ++++++++++++++++++++++-----
->  1 file changed, 67 insertions(+), 14 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index a5b8d0b71677..75afd56dad50 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -34,6 +34,7 @@
->  #include <linux/pm_runtime.h>
->
->  #include "../../pci.h"
-> +#include "../pci-host-common.h"
->  #include "pcie-designware.h"
->
->  #define IMX8MQ_GPR_PCIE_REF_USE_PAD		BIT(9)
-> @@ -150,7 +151,6 @@ struct imx_lut_data {
->
->  struct imx_pcie {
->  	struct dw_pcie		*pci;
-> -	struct gpio_desc	*reset_gpiod;
->  	struct clk_bulk_data	*clks;
->  	int			num_clks;
->  	bool			supports_clkreq;
-> @@ -897,29 +897,40 @@ static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
->
->  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
->  {
-> +	struct dw_pcie *pci = imx_pcie->pci;
-> +	struct pci_host_bridge *bridge = pci->pp.bridge;
-> +	struct pci_host_port *port;
-> +
->  	reset_control_assert(imx_pcie->pciephy_reset);
->
->  	if (imx_pcie->drvdata->core_reset)
->  		imx_pcie->drvdata->core_reset(imx_pcie, true);
->
->  	/* Some boards don't have PCIe reset GPIO. */
-> -	gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 1);
-> +	if (bridge)
-> +		list_for_each_entry(port, &bridge->ports, list)
-> +			gpiod_set_value_cansleep(port->reset, 1);
->  }
->
->  static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
->  {
-> +	struct dw_pcie *pci = imx_pcie->pci;
-> +	struct pci_host_bridge *bridge = pci->pp.bridge;
-> +	struct pci_host_port *port;
-> +
->  	reset_control_deassert(imx_pcie->pciephy_reset);
->
->  	if (imx_pcie->drvdata->core_reset)
->  		imx_pcie->drvdata->core_reset(imx_pcie, false);
->
->  	/* Some boards don't have PCIe reset GPIO. */
-> -	if (imx_pcie->reset_gpiod) {
-> -		msleep(100);
-> -		gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 0);
-> -		/* Wait for 100ms after PERST# deassertion (PCIe r5.0, 6.6.1) */
-> -		msleep(100);
-> -	}
-> +	if (bridge)
-> +		list_for_each_entry(port, &bridge->ports, list)
-> +			if (port->reset) {
-> +				msleep(PCIE_T_PVPERL_MS);
-> +				gpiod_set_value_cansleep(port->reset, 0);
-> +				msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> +			}
->
->  	return 0;
->  }
-> @@ -1642,11 +1653,39 @@ static const struct dev_pm_ops imx_pcie_pm_ops = {
->  				  imx_pcie_resume_noirq)
->  };
->
-> +static int imx_pcie_parse_legacy_binding(struct imx_pcie *pcie)
+>   include/linux/kvm_host.h |  1 +
+>   virt/kvm/kvm_main.c      | 11 +++++++++--
+>   2 files changed, 10 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index e7d6111cf254..103be35caf0d 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -206,6 +206,7 @@ struct kvm_io_range {
+>   struct kvm_io_bus {
+>   	int dev_count;
+>   	int ioeventfd_count;
+> +	struct rcu_head rcu;
+>   	struct kvm_io_range range[];
+>   };
+>   
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 870ad8ea93a7..bcef324ccbf2 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -1320,6 +1320,7 @@ static void kvm_destroy_vm(struct kvm *kvm)
+>   		kvm_free_memslots(kvm, &kvm->__memslots[i][1]);
+>   	}
+>   	cleanup_srcu_struct(&kvm->irq_srcu);
+> +	srcu_barrier(&kvm->srcu);
+>   	cleanup_srcu_struct(&kvm->srcu);
+>   #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
+>   	xa_destroy(&kvm->mem_attr_array);
+> @@ -5952,6 +5953,13 @@ int kvm_io_bus_read(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx, gpa_t addr,
+>   }
+>   EXPORT_SYMBOL_GPL(kvm_io_bus_read);
+>   
+> +static void __free_bus(struct rcu_head *rcu)
 > +{
-> +	struct device *dev = pcie->pci->dev;
-> +	struct pci_host_bridge *bridge = pcie->pci->pp.bridge;
-> +	struct pci_host_port *port;
-> +	struct gpio_desc *reset;
+> +	struct kvm_io_bus *bus = container_of(rcu, struct kvm_io_bus, rcu);
 > +
-> +	if (!bridge) {
-> +		dev_err(dev, "Bridge not allocated yet\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-> +	if (IS_ERR(reset))
-> +		return PTR_ERR(reset);
-> +
-> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> +	if (!port)
-> +		return -ENOMEM;
-> +
-> +	port->reset = reset;
-> +	INIT_LIST_HEAD(&port->list);
-> +	list_add_tail(&port->list, &bridge->ports);
-> +
-> +	return 0;
+> +	kfree(bus);
 > +}
 > +
->  static int imx_pcie_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
->  	struct dw_pcie *pci;
->  	struct imx_pcie *imx_pcie;
-> +	struct pci_host_bridge *bridge;
->  	struct device_node *np;
->  	struct device_node *node = dev->of_node;
->  	int i, ret, domain;
-> @@ -1688,12 +1727,26 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  			return PTR_ERR(imx_pcie->phy_base);
->  	}
->
-> -	/* Fetch GPIOs */
-> -	imx_pcie->reset_gpiod = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-> -	if (IS_ERR(imx_pcie->reset_gpiod))
-> -		return dev_err_probe(dev, PTR_ERR(imx_pcie->reset_gpiod),
-> -				     "unable to get reset gpio\n");
-> -	gpiod_set_consumer_name(imx_pcie->reset_gpiod, "PCIe reset");
-> +	/* For RC mode, allocate bridge early so we can parse Root Ports. */
-> +	if (imx_pcie->drvdata->mode != DW_PCIE_EP_TYPE) {
-> +		bridge = devm_pci_alloc_host_bridge(dev, 0);
-> +		if (!bridge)
-> +			return -ENOMEM;
-> +
-> +		pci->pp.bridge = bridge;
-> +
-> +		/* Parse Root Port nodes */
-> +		ret = pci_host_common_parse_ports(bridge);
-> +		if (ret) {
-> +			if (ret != -ENOENT)
-> +				return dev_err_probe(dev, ret, "Failed to parse Root Port\n");
-> +
-> +			/* Fallback to legacy binding for DT backwards compatibility */
-> +			ret = imx_pcie_parse_legacy_binding(imx_pcie);
-> +			if (ret)
-> +				return dev_err_probe(dev, ret, "Unable to get reset gpio\n");
-> +		}
-> +	}
+>   int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
+>   			    int len, struct kvm_io_device *dev)
+>   {
+> @@ -5990,8 +5998,7 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
+>   	memcpy(new_bus->range + i + 1, bus->range + i,
+>   		(bus->dev_count - i) * sizeof(struct kvm_io_range));
+>   	rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
+> -	synchronize_srcu_expedited(&kvm->srcu);
+> -	kfree(bus);
+> +	call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
+>   
+>   	return 0;
+>   }
 
-if parse in dwc or in devm_pci_alloc_host_bridge(), needn't these code
-here.
-
-Frank
->
->  	/* Fetch clocks */
->  	imx_pcie->num_clks = devm_clk_bulk_get_all(dev, &imx_pcie->clks);
-> --
-> 2.37.1
->
 
