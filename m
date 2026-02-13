@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE36EF48DD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 07:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986BFEF48DD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 07:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vWiuB+OJ5TMezpUq3g297LZQT9wOrkp2zD9EqhVqw8Q=; b=nm8QLAz3Ri6hXvquUEaAIgn72m
-	2403CMHiX5lGNlGL+7sQjz7CK9NeTdn93FfBy+SMBwOQa03gzlyLyY951soARubjh1C+6EvNlJeCA
-	euNiKNmYd/yOGo6scJnnEwwma6IVnsBbExjUGq0SQQICfI8YT12iDILWCIKW+k0hInRVgp5Hd6LCF
-	mrzC2PGB2yKrN1KSDmoPsKy7IvOJiEaXts/tiWYwpmJJDZBbbEzzWXau1L8uWqpgr9oyw1MlsUbQ9
-	357Ivr1BIwDl9h/BPjc5ERuowcoBEPqsAcT5t4t8UYx5IKOy7LGU2IBzJemLmwnmZXJH7vzEFtYb3
-	w6ZEALvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3l+yKlSt1K5zuq02BNPpqerY/A2HiaOFFBT0RhhfwRg=; b=bMVgt4f86N5s+E0JnnmlKfwYHK
+	WElU7ExAexFUpI1EkVrNKP4K4iogNBie37hCMeqC4HpI6och9H1rzU8OlI8+C+cRikmwfPd/36wc4
+	hsJ1Qqy+xCurW2uhvFm7xUjoqMAgPIt58EeXt3aqyA5kZpCmM6ti1IDiVl5HbbdZpn1iKsJSRm2Xl
+	1ubt3KxpmiFgfTZT4/RyDupiYMgS8GXpxnsIfGLC8/jnpAvi8Vm3n8f3jnM2b+TdIbiqJaTj8o/Z1
+	xki/JM2C3XYG2NJHREdTh1p5ZH7txyVYIxxw280CvnuzJWDQ70vXhLesQJ/ORKrSYbo8OC5/rZ/Gl
+	W2FkaU6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqnkz-000000037A4-2FRq;
-	Fri, 13 Feb 2026 07:38:29 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1vqnmH-000000037RS-01Gu;
+	Fri, 13 Feb 2026 07:39:49 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqnkw-0000000378U-3gL1
+	id 1vqnmE-000000037Qq-2542
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 07:38:27 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-43591b55727so639246f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 23:38:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770968305; x=1771573105; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vWiuB+OJ5TMezpUq3g297LZQT9wOrkp2zD9EqhVqw8Q=;
-        b=UVzY08/SGEX0P/xueIKTUpL2gdu75WfbB9+wOTo+J0DLNZ3rinMgCyU0BczWUMfBOL
-         utcc8M4oZzWA36O7JeXIMBSLM1dd+irpLvoQV4Hi7ju9zMdRN0QMCUqEJYQst+hPbD2c
-         tGVnxKzwUnsDHPIFWCl7roW1EMV4rCR40p0jo3VsbUBULEKIM7/VWBQ9AMkNwNY1DKGn
-         /YmxeIXDhQsX5WJewlrAGVyIWScGCXqbJrIf85LE++f2H8/nAwav1jaLGzM3aZqWhNmO
-         TVHLsQ3eFd8pPALb0DzRJcZhsrd+7AfLZN96wgO9ClsOJmCurlqV9h5AS6EHqpftaY+Z
-         JNPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770968305; x=1771573105;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vWiuB+OJ5TMezpUq3g297LZQT9wOrkp2zD9EqhVqw8Q=;
-        b=gon08jzQv48RKJP4CuykTUK+gGaKcO25BXyANgs3AK6NqQC3Z1uxN4wtePYY0UYlPl
-         mep7c7XsFHAx+BzFpAjmkk1t5FPmQV+VlSvmguF66YzauwZZ7o+X0puaSAZ2IaZAVFN+
-         9w/HFcWi+isFLVELjNxeGEQT7Iqd6wgGaTWroMJlxN787Wu3LW/KeDcWy92mYEvH1nb8
-         gNnbm5i9xjO5UGkyyLpQzKYW92Sw2nIg/7/+z+uBqyK7hB3c4fuXdhgJ9tQzKnaRve6C
-         8DzEtB76Fr7QCVjshMWwL3Jbgjmz4KjX8EkfGFeiMy7Fr5rpwZDzAlhpUrOpmKsqOHHF
-         8vrg==
-X-Forwarded-Encrypted: i=1; AJvYcCVomdYlx6r4uwTdJW5rTjgjFtEGI44Fzd+6mHb9g5mxwxH46hpWiUsC24nBiRWgF/q/y6JOrrJyAUejr+oa/fdb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzqmw4euyRDKB3LwhHk4Jaxv5PkSwqYK7xYeShZF+SxAP31DDNm
-	YbyDqIP9V45GHAOOcUKEB51Z/XEJj0LBQojillpg1frBN8Zaj6JDe9DS
-X-Gm-Gg: AZuq6aJECU10YEg1SfJARnn0jRFOYB/cCISuBmIJg+lE3sYD9FMTUkAyQgImlJ1DNmf
-	CBUTdQRb79XW7ARtF4v3gCLM8qGi7QOETAUocHOO63X6YUkTZHwKEyBq7qkmmE1MZkIedMrSCWh
-	LLP9bV+lR5NAHJqlOPz8Y/uVCRz8z6PjMsvUIPjCtX9wCqHqjdsO6fO34TQtDi0IbZ2B/f+e3C4
-	1awWvsjSdS506BwlYXgI5vIT5NgHaq/DId2wxyPdkft2mziPx/1N3e0DpfZvPbNk07wOW3j7mxk
-	ylu6V7B6paOSL7CwsJQpyH0Mxa/1fzJzFabRj2EH6hM9CHEe6Pv8kZbvnMWoUZqLxcfbzJ3Sc1Y
-	EUHSMfM9BX+E6LvMlOkqpAIERPkNXGvK07ZvulaiyTeL56fyx06esA3ObiLjczPPIvyZ0cmSKP/
-	vMqJN8qiMKD41Z2AESX8/L
-X-Received: by 2002:a05:6000:22ca:b0:434:32cc:6c86 with SMTP id ffacd0b85a97d-437978cadc4mr1730591f8f.14.1770968304335;
-        Thu, 12 Feb 2026 23:38:24 -0800 (PST)
-Received: from arch.localdomain ([2409:8a28:a53:6b71::1002])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a6a5f0sm3622107f8f.11.2026.02.12.23.38.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Feb 2026 23:38:23 -0800 (PST)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Cc: martin.blumenstingl@googlemail.com,
-	jbrunet@baylibre.com,
-	khilman@baylibre.com,
-	neil.armstrong@linaro.org,
-	conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	yangxuan8282@gmail.com,
-	Jun Yan <jerrysteve1101@gmail.com>
-Subject: [PATCH] arm64: dts: amlogic: meson-gxl-s905d-phicomm-n1: add bluetooth node
-Date: Fri, 13 Feb 2026 15:38:10 +0800
-Message-ID: <20260213073810.552341-1-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Fri, 13 Feb 2026 07:39:47 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1770968382;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=3l+yKlSt1K5zuq02BNPpqerY/A2HiaOFFBT0RhhfwRg=;
+	b=Z/4wc4QkGz0WIuiLzDOVoCoDKrlnjYyxKg6VRLl7sxSVwKIkHdxRGhRwCQYWBdXtEhiyhR
+	FOeyRWiQBVg6l4H2ubRrNJ/CeGhwyDzJisTQYOjwiRrzG8xfCUGZMLrZyWg0pcY2p/Kgv2
+	CBU54JPb6h4VznAdlNsNfjcsQhgSkFQRHSJ3o8abLXn4SPHu1gjpluv/+l5kPcGZMlgJqn
+	YchAuybegDA7maBk3Vp6ppjoFGdteiIwo2aCZEjz4ONQBu1l5bvH7LTe7LcviFR5wUdKuB
+	fLjfe1A7g/7Sd2bKHHVFiI+rAWttVAFDkI9H7bS1sG4EsDE+mnUaSYy/AOuLqA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1770968382;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=3l+yKlSt1K5zuq02BNPpqerY/A2HiaOFFBT0RhhfwRg=;
+	b=IueS1IOmxQxEyGEPQKt2zd6/uqqB4UrVk6i+6dgSx8G5zokptn0E3id9qDLSFR1SNSefzD
+	kY6IdIO3kt/9vfCA==
+Date: Fri, 13 Feb 2026 08:39:29 +0100
+Subject: [PATCH] ARM: clean up the memset64() C wrapper
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20260213-arm-memset64-cleanup-v1-1-644a9735eeec@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDI0Mj3cSiXN3c1Nzi1BIzE93knNTEvNIC3WQTc4PENCNjo1QLcyWg1oK
+ i1LTMCrCx0bG1tQDVRsTGZgAAAA==
+X-Change-ID: 20260212-arm-memset64-cleanup-c470af232e87
+To: Russell King <linux@armlinux.org.uk>
+Cc: Matthew Wilcox <willy@infradead.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Linus Torvalds <torvalds@linux-foundation.org>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770968381; l=1659;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=j034vrbnVppCVaRqPOZKRQwx40dc39NXjppZYoTZ3t8=;
+ b=e6IdjNcnXqRoTgbcQAEUukScuvnw8+9Pu/oa9jhaVZtMMX/aqZh/sYqSz7Q/ZP6+pcmVo2qhA
+ /SAwScGKfuJAKQPNE29Ouu5RwUs3u5P3+Ypd5Ih5vgdGN2WAt0Q4oxL
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_233826_926287_478B8DEE 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20260212_233946_674764_7F63B63F 
+X-CRM114-Status: UNSURE (   9.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,43 +87,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Phicomm N1 uses a CY43455 (BCM43438) module with its Bluetooth
-interface connected to uart_A.
+The current logic to split the 64-bit argument into its 32-bit halves is
+byte-order specific and a bit clunky. Use a union instead which is
+easier to read and works in all cases.
 
-Add the required device tree node to enable proper functionality.
+GCC still generates the same machine code.
 
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+While at it, rename the arguments of the __memset64() prototype to
+actually reflect their semantics.
+
+Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- .../dts/amlogic/meson-gxl-s905d-phicomm-n1.dts    | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ arch/arm/include/asm/string.h | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts
-index 393d3cb33b9e..dea3a60e8527 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts
-@@ -30,6 +30,21 @@ &cvbs_vdac_port {
- 	status = "disabled";
- };
+diff --git a/arch/arm/include/asm/string.h b/arch/arm/include/asm/string.h
+index c35250c4991b..96fc6cf460ec 100644
+--- a/arch/arm/include/asm/string.h
++++ b/arch/arm/include/asm/string.h
+@@ -39,13 +39,17 @@ static inline void *memset32(uint32_t *p, uint32_t v, __kernel_size_t n)
+ }
  
-+&uart_A {
-+	status = "okay";
-+	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
+ #define __HAVE_ARCH_MEMSET64
+-extern void *__memset64(uint64_t *, uint32_t low, __kernel_size_t, uint32_t hi);
++extern void *__memset64(uint64_t *, uint32_t first, __kernel_size_t, uint32_t second);
+ static inline void *memset64(uint64_t *p, uint64_t v, __kernel_size_t n)
+ {
+-	if (IS_ENABLED(CONFIG_CPU_LITTLE_ENDIAN))
+-		return __memset64(p, v, n * 8, v >> 32);
+-	else
+-		return __memset64(p, v >> 32, n * 8, v);
++	union {
++		uint64_t val;
++		struct {
++			uint32_t first, second;
++		};
++	} word = { .val = v };
 +
-+	bluetooth {
-+		compatible = "brcm,bcm43438-bt";
-+		shutdown-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
-+		max-speed = <2000000>;
-+		clocks = <&wifi32k>;
-+		clock-names = "lpo";
-+	};
-+};
-+
- &usb {
- 	dr_mode = "host";
- };
++	return __memset64(p, word.first, n * 8, word.second);
+ }
+ 
+ /*
+
+---
+base-commit: 37a93dd5c49b5fda807fd204edf2547c3493319c
+change-id: 20260212-arm-memset64-cleanup-c470af232e87
+
+Best regards,
 -- 
-2.53.0
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 
 
