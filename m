@@ -4,119 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 574D4EDF150
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 11:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6536CEDF150
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 11:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0SsVTAYT1qfd4V24LesUSvVqRgfPOGy9nHzxLf/z2T4=; b=EiVRZjbthva5Ivg/OCDOSjS6dL
-	CTccpQMH958lvM5yHPMtNnKSJbLoVi2TkpiGL3OyJYhyh0gTEflt+h373kQFA0NQL8fNbdFN72pmJ
-	JJGOCihSkDGOv180gl1EDKQbYlGXlVh6i40tMMQIELGRJYvJpt7VlNJi2M684N6hWnLxAMlKGkTS+
-	RaEsv3wigg0t415TjkUUf+bANJCUVk2/dbjTV88hSuy3SUBZVlkCOpfONM1EkJ6fgak941MgwfpYp
-	G2RS/2Ooge5Uau3mBr1pZqudZm/VtRHiJkU2BaRB1ZJanfLwi1uR51kfxthkPeU8UfwFIMlPv/vwO
-	UqipA9Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+fOZBwXC4w57k2Cwg/bwbZ6SwA1coLkgaqCs9O2ONMs=; b=Obto/5FAm8F0+21c3oGQb77TTg
+	afeNWF4gS5IBnINu23cTisPL5sZsYdsGv4jZKAR+tE06ResFEZiWTtfR0uqUg0NVMHj+/oBSbuKHA
+	QkoiwvutVhIPUHsRPoE0h7PpkdZxQ8Cq9txRE+qNmkNRW0IvUFIrAp/3vCeI5/6Y7DR5pbXyg7yG1
+	bo5W3sXW6ANvb4fYXv0hk8hq5g6B9SxYF+lz6ixgFQs7Gtk6IDa5zfB4hOq5dDcXBRws34udyVmJS
+	DhtmBEKT4gNgcbLli9DbZKHLo5m5NNZhZJixqXL4QyOmDeWooKRvxZasJH0dPUbwuE4j/eppz1YRW
+	RfaujnIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqrNy-00000003P5P-0gxc;
-	Fri, 13 Feb 2026 11:30:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vqrUS-00000003PMq-0I3K;
+	Fri, 13 Feb 2026 11:37:40 +0000
+Received: from mail-francesouthazon11021107.outbound.protection.outlook.com ([40.107.130.107] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqrNu-00000003P4w-3VNw;
-	Fri, 13 Feb 2026 11:30:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0E70044109;
-	Fri, 13 Feb 2026 11:30:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFAEDC16AAE;
-	Fri, 13 Feb 2026 11:30:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770982253;
-	bh=hixAC+AobzuSMNvmaInhVVPwXDPHawk8Xpy+/sSA30Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SKp2xfqFV6BAsMTYNLlyaYvBxXlWGnHOSfiM58JHBMVeuw0YywETlnSenzSGUI/Ia
-	 cH0TvSCc4ioR8z5xWUczqqEugeDZ4aqukQ9yrOkOwPOH08k8/YGM7tQ4DRV7ZJDu4s
-	 ee1cW4XOXcbYE4rQhU0ULBjsA6wQ5SG4LA/Kwe3tQYveKf2JhpGNBsJwMlLxNZYMXD
-	 abPOo34qgR5XYw3BKVpMw8vOM8zjF/RRGQZ2gBrwCv5ZOzoGH9cguNlsOcXdaNcEX2
-	 1qj1Vhr9tVXVh9//jZb005oA5hw/eLVI6Gr4lWKe+Ih9c6zyZLPFYW7PGOevPo1yri
-	 XOCkVZz9DyUig==
-Message-ID: <14ee2088-032d-4cd4-8703-fd2f2d304b5b@kernel.org>
-Date: Fri, 13 Feb 2026 12:30:49 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v4 1/4] media: dt-bindings: Add Amlogic V4L2 video
- decoder
-To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Cc: Zhentao Guo <zhentao.guo@amlogic.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-References: <20260213-b4-s4-vdec-upstream-v4-0-c7112d00d662@amlogic.com>
- <20260213-b4-s4-vdec-upstream-v4-1-c7112d00d662@amlogic.com>
- <d96c689d-a5a3-453d-a1ab-56dc1bf01635@kernel.org>
- <75e55ceb-e6dd-47b5-a829-66f6fbb3e13e@amlogic.com>
- <2f68ee18-e9d9-4da6-900c-93a7663b3c9d@kernel.org>
- <598c161c-d157-40e5-992c-912540589d7e@amlogic.com>
- <58d57a6c-7c69-4f5b-a4c2-f34ef0238511@kernel.org>
- <D93350ED-72E3-43B5-BA4F-42E0FE491B2A@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+	id 1vqrUO-00000003PMQ-1J5r
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Feb 2026 11:37:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EBEHUkYRLwepg4aOxHoMsL9SVVj51rfNDyEecAOcpV7Bzwqh7UQFTiP/0e0ca6+W9ME0md4S/X04nSJFtiT83JaARot5nRNGqVLU/bUNFp+mHn0ihxyAlbmM4ZInAIouOPvSK9dFyt0t2etW+VibsuKf/NHuCS4zVG/m9m6dE1VhaKopqRrDPwyBXvuImfCOAN3inS8B00iZS7VBZsrykks8dKa/63vWxmcbJ//LCXRv9If9PFkqPEpM2H6imdvdEI1U8UwQHQXQXa4QVQB+bC6UbGqVLDTESCiZtctr2q4UO8uSh2Lmfv3sGp9oqHdb60SklnPt31GH+7ihbjDkug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+fOZBwXC4w57k2Cwg/bwbZ6SwA1coLkgaqCs9O2ONMs=;
+ b=Tnfys3Y7v24rLJuTaUtX09fXmp2BxCtIcEYm4BoYlI8ZV/o3A9Dk6VXSexP0TrHrsXVQ6lbBvkG6AE00i45pMolvvlwv9Wa9UzlHpKrPe1gNabQRfm1Sru5atUASJ9MV+80hoEdDwaP0udV000t+EGr6E1gaX4MMdA2Zq96K9pGfAXan8f82kC2VGaFIf+CdA6oBX3nX1EOyYJF2KCYtlU39jsMD9oc+FawcOIU7WmREVgzwTwkpnrRe6BIeHngnSwfQW2ad+IzZ4Gj8RL/zQJMPT9AzJv9Er303pw3wa9HUMdFfQQ5n+Hok4qXEdNOgX4FoCJ95XsHhetlyLU6l4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axentia.se; dmarc=pass action=none header.from=axentia.se;
+ dkim=pass header.d=axentia.se; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axentia.se;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+fOZBwXC4w57k2Cwg/bwbZ6SwA1coLkgaqCs9O2ONMs=;
+ b=Zs/RQU29EkVO08+naf6q0MUhBG61WGlePVJvKK9Aul5ALifJsHK6hvEfRXI+ufhUux9cdesysRr6kgI8CJyZBu/JUFC3TvX9Gqrd2IXwiJXl+xOZsrTCEjxOLF+DghEZJNNtLhw5H2/ij9CsrMUb+Be4J1rLkxCVDCZz0LdayBA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axentia.se;
+Received: from AS8PR02MB9235.eurprd02.prod.outlook.com (2603:10a6:20b:5c1::5)
+ by PA4PR02MB7150.eurprd02.prod.outlook.com (2603:10a6:102:10c::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.13; Fri, 13 Feb
+ 2026 11:37:30 +0000
+Received: from AS8PR02MB9235.eurprd02.prod.outlook.com
+ ([fe80::32a9:a9e6:ded:5714]) by AS8PR02MB9235.eurprd02.prod.outlook.com
+ ([fe80::32a9:a9e6:ded:5714%6]) with mapi id 15.20.9611.008; Fri, 13 Feb 2026
+ 11:37:30 +0000
+Message-ID: <f38230f2-f74b-cf89-8d15-194d85f341df@axentia.se>
+Date: Fri, 13 Feb 2026 12:37:29 +0100
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.0
+Subject: Re: [PATCH v4 2/5] i2c: mux: add support for per channel bus
+ frequency
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <D93350ED-72E3-43B5-BA4F-42E0FE491B2A@gmail.com>
+To: Marcus Folkesson <marcus.folkesson@gmail.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Michael Hennerich <michael.hennerich@analog.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com>
+ <20260128-i2c-mux-v4-2-dee49ce276c0@gmail.com>
+ <2ecbebd8-0842-34fa-a593-25168c91aa6b@axentia.se>
+ <aY5KeH3Z1S3MswHI@gmail.com>
+From: Peter Rosin <peda@axentia.se>
+In-Reply-To: <aY5KeH3Z1S3MswHI@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AS4P251CA0011.EURP251.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d2::7) To AS8PR02MB9235.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5c1::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR02MB9235:EE_|PA4PR02MB7150:EE_
+X-MS-Office365-Filtering-Correlation-Id: 94e2a003-12b7-4f26-c40b-08de6af4453d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WllSZ0xkZ1hJWkVWaFVvZktsZ3U3TGxhZjJ1aXYyQytYOEVFVnh0L3F6VHMr?=
+ =?utf-8?B?UU9FWnZKNUVEWnpoRzBlVHdDeGk1SDNqOTA4NWF2TFJhTWRSWmpWU0RwSGpw?=
+ =?utf-8?B?V0kyYW4yOWtzNzNYRGFISXFaREZoTDJFU3JZMkd3b29rclp5QXlvenEvRmRr?=
+ =?utf-8?B?SWFmK3IzVTNWSjVyR2NtYjZNcW9pRmtsSzBNVk1BZjZTNi80alg1WWFEdnpT?=
+ =?utf-8?B?blY4TWxjUmZCeHZRQWVSZHlUdjV4QVJCRDBDTzlDQjdiT2dNT1FMeWVYOHFM?=
+ =?utf-8?B?dUppcm5VRHp0M3VjZk5XTlRNeFZBVnFMd0NON2NhNS93b0pVd3VEVUdBZmRR?=
+ =?utf-8?B?RnQrUVBYbUlNb1h4aGRvWGRRQ0VidjhWamJISDR4L0EyVjhjTDhxYzhJUm5C?=
+ =?utf-8?B?aEJ3VGVBUFg1bW1kWXBNSmppU3lGK3VlLy80Zm1LT2x6Tzg2UHJYVHNTc2tZ?=
+ =?utf-8?B?bm54M1paMHBwdUxkVlNHTXhGQS93Z2tsak8vNy9iU1dmd3V3SkduWXc5TUpu?=
+ =?utf-8?B?Mi95Vjd2b1llcC9XRHVsMGZIemdiVFJ1cjk1UjlJL0NPQTlQZmMzcGE3WDht?=
+ =?utf-8?B?YloyTGxhOFFSV3ZSaGFFaE9ZWjV2WmN3TWtRV0VhczhKUzRiU3lqTXZoSVh3?=
+ =?utf-8?B?OUkwcWQ0R0YwdlNIY1NnLzVIYmYxOVFMTUhRTkpTWXZWL1NidHQ4TjlwNFdE?=
+ =?utf-8?B?OUhNYUZFcVhVNDVpWVcyZzB3QTBGbGdUeC9FVW9JM1QyK2FvLzhqblFDeUdy?=
+ =?utf-8?B?enhMZlRvdi90OHNsVlVvOFo0TVpWdFNkbEJqaFVvQkVKcE9iWVhDRC81WHNy?=
+ =?utf-8?B?MFZnMW8ya29XVmdIRW0yVnlBY2hoNWg4YVV1UFZXeHBoampkQ1J0dnRnVGhz?=
+ =?utf-8?B?c0xvTkMzRlp5OVFGTmZLNEorMUZLbk1MdktTNk1uUDFybXJ5YUU5bURZcDFU?=
+ =?utf-8?B?UkJZS3hCS3V6ZjdKTDlqSGVOVzMrQkZIK01MZVMyQWRKbWFNa1ZjWjR2Uko1?=
+ =?utf-8?B?ZUUvaHdES1pjWEVmVmhhRXF2ZHRBTnBSQnRQdUFkOXkxcGFZSXVIUVhJeFNh?=
+ =?utf-8?B?MkhCNkdFN0dhbE02dzNlaWhZZE1SbWtWRVdDaCtRdzAxUXpoK2VJSFRjdzRR?=
+ =?utf-8?B?TnJ4UkV5VjR4UTJWc2FnTll6NG5xYTZEeUd4R1JHZ0duUFN0OVc4Rlk3Ny84?=
+ =?utf-8?B?WGd2cDdEN1hFYUZYY3Q1WWRHWmRZTU9KWXhrSDN0dERQSTY2dWdES2FzWFFC?=
+ =?utf-8?B?enJ4anZrbFJSRjdlNmx0UjZabVpkRHJYYldScGlFblRaWGpiOGdGZWR1bHNW?=
+ =?utf-8?B?a2lEakhzNFA0NUwrUkdHRWo1aHNwYlVjY1k3UW5pQzBUSk5sTjhyWTJqbmw5?=
+ =?utf-8?B?eUlYSUVSYkFOUWpWeXlNZm1XUnRJSDlVY1h4TWJ6bTZhN3ZDdWV3RWNlS1Zz?=
+ =?utf-8?B?WEFXd2xZODBrbTZIYVZ4ZGMvcnlnN2dLc1N4VVVTWFFINWlRVStrbkNXbXhQ?=
+ =?utf-8?B?SG1vV1pvdXlSdjlyazRQL2lVQ0RMM1NYS1k1cFF3Q2lNdEFmNE12endramFH?=
+ =?utf-8?B?RmVGaWJRdDZwUkVPK3E0TnJhMmFVbHR4dm0vTUlFb2xLeG5wVW5VRmIxYkZ5?=
+ =?utf-8?B?Z1ZsYS9GNjZUQnVpRHY5Sm15cndnRGdHbHhIR3FrTUQ0S2N2Y3BFU2t0anZ1?=
+ =?utf-8?B?dmEzUWNqSnNqY3hrSjRyWjJMNkoxS0Q2YkUycHpXa0F2S0lHUjh4V1RnMmg5?=
+ =?utf-8?B?QUxnSE9QZFNHSFpoMWR3WC9sRlVuRVAreFplM0NYMXpsZnBDaFMva2ZMRUlz?=
+ =?utf-8?B?ZlRtajN6dlFvU1RUaUhyemVpUUZLaGNJY0JaMm1LZDRRN1A2enJsWitxelFV?=
+ =?utf-8?B?U2lvOVhpS0NYc1N4aURzREt6Zjd0clR0L09SNE53a3dFbk1xTXF0NlQ3UmRJ?=
+ =?utf-8?B?M2lodnF0cTVmU0ZhWlBJNUMvUjVmQXRick1IV2YyWVRmMERCNkxjNW1qUUxx?=
+ =?utf-8?B?bjExc2ZXL1hGV3JyWGhSVVVtQVI4N1RodUFVOGZESWVtQVF6NDhvR1ZuOHor?=
+ =?utf-8?B?bWlJQVEycFNtZ2hVWmdWNEZ2Ky95TUZaTVB4cVE5MWtrSndYS0N6ME1lMzVF?=
+ =?utf-8?Q?VRuM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR02MB9235.eurprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZGtjL1MwZ2tHUnl1a2djY3lPaG5QdEVyOXE5LzQ5RGg2ZCtTVHQxdnhyTWVO?=
+ =?utf-8?B?d0cxVkRJR3RLbWlrNmg0NHdXbXdET2tIeXJIQ0RKTVZEdVlUUEJ1Z3huY1Nr?=
+ =?utf-8?B?aTFaWFZYYis4UmJyaXNDUHlqdVZEazZyT0VEeU1KUVJ4VUlFdmdmeVUrZ083?=
+ =?utf-8?B?OGdpSGh4b3RQVG5uZGhxSFJHclJhVzBlZUY0UU9nelBuY1p6VG15VUNtV0lU?=
+ =?utf-8?B?dTI0ZS8yeVVpdm1ham5selFoWWJqZFAvMFk4UWNYUVhkRHBzOHU2ckRRcWpo?=
+ =?utf-8?B?WlVrN2hGZG5jc3kxaDliNDY4R0JxQzMyZ1hNTGN4am1GQUFFZW9oU1ArRkV3?=
+ =?utf-8?B?cXZvMlA5UWhRZUVUZmk0VHBNbkNmcTM5L3ZVMGVNY1RqNDROMHo0Q1VoSU5l?=
+ =?utf-8?B?N3ZMYnYwNTlqOUJPVW1McnJvSGM2KzF6aTF6TTZiK2IyS2V5dGYvMmRFWFFP?=
+ =?utf-8?B?cWhMS1p6U0hqcGI4OWRZdTRqTjJCQTNTdEQ5T0FTTFJHZk1hK2JMSnJpQ0dB?=
+ =?utf-8?B?d3VNU2xWZlBlb3VIWW4wM0ZBTVI0SVNLNWdGWms2TXlmMWwwY3FBbUxydVVu?=
+ =?utf-8?B?RjJGZGVLOWRFeHFtNHJ2UmRneVlONGZLbXFyVlpwZTVkZ3dzRlA3TDN5aStK?=
+ =?utf-8?B?b1dOT2tqa2RjVHQxZ0M5R0NNNHVCKzhSYkJibjgvNlNPR3FRM1VMQTBjQmtY?=
+ =?utf-8?B?QmVaNEw4aHVHRi9IOXkrbGxESStkMGxEUTZJTy95U2JEMTJWN2E4VVNmbVp5?=
+ =?utf-8?B?aW1UR0xyL1pDS1k3ckdmUmo2ZTl2TnRCWXZjOHN0eUk3b0JSdGtNakhhSnI4?=
+ =?utf-8?B?NG1FNldaY05XWFRsWXEyVzRQbEFvVUp2b2NhVngwTGE5SGZWTE9iN2ZJTFRj?=
+ =?utf-8?B?TmcyNG9FaDJaVGN6RGNmSExWQWIwcGhQLzlkQkM3T2VCbFpxSTF4cWhNWmh4?=
+ =?utf-8?B?aGZwVldVV3E3Vi9YMkkvSkFrWWl0bkovc1RwYTQxMW53TEU3cFh0czlLRlFy?=
+ =?utf-8?B?K0ZOeE1ybDE1ZWU1V3dnenZhcHQ3MDhkdjFJLzFSMHZwQkQ2STZCWVVtN2Zs?=
+ =?utf-8?B?VVExMEdxZ3BXcnFWMTdxeGxqS1NpUXpYVGd1YUEyTW83cjBsZER5MzhEWjNB?=
+ =?utf-8?B?SjZIaGhLd09XMXRKTjMzZzlXQ0J1WE9qeFYyQ3hua0tKL0ZjZ0UzSmdBMjk2?=
+ =?utf-8?B?UXJhUm9qbXNEdExPbzZGbnd6TlNkNERUejd2S2lhZ2lHRU9CWlNIUm1FOG96?=
+ =?utf-8?B?ZVNCbkpXOTA1TlpEUmVlbUk4bVFzSHBZR3ZzOEJoVnpIdk81NkdteTV3RWU1?=
+ =?utf-8?B?b3FtWGoxYVA5bWlDbUhFWGk2cmR3UyttcXNacXJyd3ZQd0ZtcDljUUZ0cmtH?=
+ =?utf-8?B?ZDJNR3VPdHllTWJ1cklhOGpPWXAwdVZVZVkrZGF4YW1scHZTS1ZSd1pXQWhk?=
+ =?utf-8?B?cDBna29sWFlBbXh5czN5anY4ZmNPTnFGK21RNFdJUHJhZXdPWGhEMThSQVNt?=
+ =?utf-8?B?Z3A3dXN1NmZtM2VvZW1URDBMMWVOenhtSUMxWTZQQjhuKzZGMVZvQzRqZ0hw?=
+ =?utf-8?B?dm9oOXNueG9QM0pVZGEwclZSZzIvRFlrdXdEemFSOHlxWXN2VjRCcVlVdnZ1?=
+ =?utf-8?B?M2FVU0EzakZreUtUZ25rNEVxOENhNzlLYlNab2xZY1ovL1EwcVJsVXM4c1B3?=
+ =?utf-8?B?K3czbGNxY3NxYUxoN3JQZGR0cGREbFdOQXpHUWxCcm1lSU8yUkdxWDB5TFgr?=
+ =?utf-8?B?RHhFY21ZSnhPQkw0ZmdYR3NKODJYVkZIWE5rb05VR0tvdUlMVzRDNG9GcGdX?=
+ =?utf-8?B?UFY0SzY4WExlbGI5SEdMQU5NREx4bEEwZWJTdXQ5bUZxcDkxUmdOcE5QcWN3?=
+ =?utf-8?B?Qi9MN05FUWpRVkpTSnVVdVR0RVpMQ2R2TmI0MjVPOElLT1YrT1dyZXoxLzNL?=
+ =?utf-8?B?SmJxR0d3K013eWxjb0E4akJGRVNzTW52NXFzY0pDNEhBWERldjRuMzZJb3Y5?=
+ =?utf-8?B?bitBc1lCTjgweHRuaTZabFNNay9mQS84NTF3blRVU3F0MmVPNklpSWdkYzVk?=
+ =?utf-8?B?ekxsYUp6RWFxQlk1UzN4aENsSXYvUjFtVUNaTFdKenNlcjd5L2IxbkQzeVVV?=
+ =?utf-8?B?QVVlSCtlVDcyWE9WdGFlM0orT3hwZDZlWWlRa0xveFlnWDYzNXFwOFEyRTQv?=
+ =?utf-8?B?alZHQjgybXBOVFZ5NTFLKzBWQ1krdVkzSVg4elo5Ylp2NGcwYlhtQml0Qkdp?=
+ =?utf-8?B?dHZhMmpMaTR3UmVWbUNYNXJuaTdyNllWSVJJeWFJUk0xVm85M0g4SWIweGYy?=
+ =?utf-8?Q?sYbY/JaDk3eHuQedQE?=
+X-OriginatorOrg: axentia.se
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94e2a003-12b7-4f26-c40b-08de6af4453d
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR02MB9235.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2026 11:37:30.0891
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4ee68585-03e1-4785-942a-df9c1871a234
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /uZQiSJ0uFIpJC9RpZwduN8UTEIfKh/2kdbFtdaU+vxxVDTF7lyW9+L6+RxEzs7i
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR02MB7150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_033055_234551_CFF317F2 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260213_033737_454061_3F376EB9 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,34 +189,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2026 12:14, Piotr Oniszczuk wrote:
->>
->>>>> In short, canvas is a hardware IP inside the Amlogic SoC. The decoder IP
->>>>> needs to access DDR through canvas IP, so we need to reference the
->>>> Why decoder cannot access DDR directly?
->>> The internal topology of the S4 chip is designed this way, we don't know 
->>> why our VLSI colleauges designed like this. But similar designs have 
->>> been removed in subsequent chips, eliminating the need to rely on a 
->>> common hardware IP.
->>
->> Quite poor explanation. Based on this, this as well could be entry in
->> device reg lists.
->>
->> Anyway, I am done guessing, explain properly the hardware instead of
->> answering with half-baked responses just so I will go away.
->>
->>
->> Best regards,
->> Krzysztof
->>
-> 
-> Krzysztof,
-> 
-> May you pls explain me: what added value - to upstreaming aml video decoder - will be provided by giving NAK .... because canvas/DDR access details explanations are not enough detailed FOR YOU?
+Hi!
 
-NAK is a disagreement with this patch being merged, so there is no added
-value in it. What sort of added value do you expect from NAKs?
+2026-02-12 at 22:47, Marcus Folkesson wrote:
+>>> +static int i2c_mux_select_chan(struct i2c_adapter *adap, u32 chan_id)
+>>> +{
+>>> +	struct i2c_mux_priv *priv = adap->algo_data;
+>>> +	struct i2c_mux_core *muxc = priv->muxc;
+>>> +	struct i2c_adapter *parent = muxc->parent;
+>>> +	struct i2c_adapter *root;
+>>> +	int ret;
+>>> +
+>>> +	if (priv->adap.clock_hz && priv->adap.clock_hz != parent->clock_hz) {
+>>> +		root = i2c_root_adapter(&adap->dev);
+>>> +
+>>> +		/* if we are parent-locked and the root adapter is our parent,
+>>> +		 * we already have the lock we need. Otherwise take the bus lock for the root
+>>> +		 * adapter before changing bus clock.
+>>> +		 */
+>>
+>> The assumptions made for the "otherwise" case is wrong, I think.
+> 
+> I think you are right.
+> 
+>> Consider e.g. the case where we are parent-locket, our parent is
+>> another parent-locked mux and our grand-parent is the root adapter.
+>> In that case we also have all the locks we need. Trying to grab
+>> them again will be a deadlock.
+>>
+>> The more correct approach is to do the parent walk in search of
+>> the first ancestor mux that is not parent-locked and then call
+> 
+> Hrm, does it not apply for all mutex-locked ancestors?
+> 
+> Consider the following chain:
+> Root - P1 - M1 - M2 - P2 - D1
+> 
+> P - Parent locked
+> M - Mux locked
+> D - Device
+> 
+> In this case we need to lock both M1 and M2, not just M2 ?
+> I'm not completely sure though, I need to refresh myself on the code
+> base.
 
-Best regards,
-Krzysztof
+No, that should not be needed. The reason is that when you initiate a
+xfer for D1 the following happens (xfer is a locked transfer, __xfer
+is unlocked):
+
+- xfer using P2
+ - lock(P2, I2C_LOCK_SEGMENT)
+  + take mux_lock for P2->parent == M2
+  + P2 is parent-locked -> recurse to P2->parent == M2
+   + lock(M2, I2C_LOCK_SEGMENT)
+    + take mux_lock for M2->parent == M1
+    + M2 is mux-locked -> no recursion
+ - ***** (see below)
+ - P2->select (commonly __xfer using M2, elided here)
+ - __xfer using M2 (unlocked since P2 is parent-locked)
+  - §§§§§ (see below)
+  - M2->select (commonly xfer using M1, elided here)
+  - locked xfer using M1 (locked since M2 is mux-locked)
+   - lock(M1, I2C_LOCK_SEGMENT)
+    + take mux_lock for M1->parent == P1
+    + M1 is mux-locked -> no recursion
+   - M1->select (commonly xfer using P1, elided here)
+   - xfer using P1 (locked since M1 is mux-locked)
+    - lock(P1, I2C_LOCK_SEGMENT)
+     + take mux_lock for P1->parent == Root
+     + P1 is parent-locked -> recurse to P1->parent == Root
+      + lock(Root, I2C_LOCK_SEGMENT)
+       + take bus_lock for Root
+       + Root is Root -> no recursion
+    - P1->select (commonly __xfer using Root, elided here)
+
+    - __xfer using Root (unlocked since P1 is parent-locked)
+
+    - P1->deselect (commonly __xfer using Root, elided here)
+    - unlock(P1, I2C_LOCK_SEGMENT)
+     + P1 is parent-locked -> recurse to P1->parent == Root
+      + unlock(Root, I2C_LOCK_SEGMENT)
+       + Root is Root -> no recursion
+       + release bus_lock for Root
+     + release mux_lock for P1->parent == Root
+   - M1->deselect (commonly xfer using P1, elided here)
+   - unlock(M1, I2C_LOCK_SEGMENT)
+    + M1 is mux-locked -> no recursion
+    + release mux_unlock for M1->parent == P1
+  - M2->deselect (commonly xfer using M1, elided here)
+ - P2->deselect (commonly __xfer using M2, elided here)
+ - unlock(P2, I2C_LOCK_SEGMENT)
+  + P2 is parent-locked -> recurse to P2->parent == M2
+   + unlock(M2, I2C_LOCK_SEGMENT)
+    + M2 is mux-locked -> no recursion
+    + release mux_lock for M2->parent == P2
+  + release mux_lock for P2->parent == M2
+
+(Phhew, I wonder how many typos are in there...)
+
+So, between the steps lock(P2,...) and P2->select (at the ***** mark,
+which is where you add set_clk_freq), what you need to lock is M1,
+i.e. the parent of the first ancestor that is not mux-locked. When
+you lock with I2C_LOCK_ROOT_ADAPTER, this happens:
+
+ - lock(M1, I2C_LOCK_ROOT_ADAPTER)
+  + take mux_lock for M1->parent == P1
+  + recures to M1->parent == P1
+   + lock(P1, I2C_LOCK_ROOT_ADAPTER)
+    + take mux_lock for P1->parent == Root
+    + recurse to P1->parent == Root
+     + lock(Root, I2C_LOCK_ROOT_ADAPTER)
+      + take bus_lock for Root
+      + Root is Root -> no recursion
+ - Root->set_clk_freq                  <<<< the new thing
+ - unlock(M1, I2C_LOCK_ROOT_ADAPTER)
+  + recurse to M1->parent == P1
+   + unlock(P1, I2C_LOCK_ROOT_ADAPTER)
+    + recurse to P1->parent == Root
+     + unlock(Root, I2C_LOCK_ROOT_ADAPTER)
+      + Root is Root, no recursion
+      + release bus_lock for Root
+    + release mux_lock for P1->parent == Root
+  + release mux_lock for M1->parent == P1
+
+However, spelling that out makes it clearer that Root->set_clk_freq
+will be inserted in more places in the "call tree". It will be added
+before every ->select call, e.g. at §§§§§. Since any of these
+additional set_clk_freq calls happen after the one at *****, they will
+take precedence and ruin the whole thing if any of them should request
+an intermediate frequency (1MHz at Root, 400kHz for any intermediate
+mux and 100kHz for D1, for example).
+
+I don't immediately see how to reverse that such that the set_clk_freq
+for the top-most level happens closest to the xfer on the root
+adapter.
+
+Cheers,
+Peter
 
