@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473CFEDF148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 10:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A03EDF149
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 10:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TurGlGTJXI+YO0VRGT89sXOJCp2aKjj3nJ6Q3j14rxo=; b=kYSc8YgIJ9lUrnNG21FMjhRPXZ
-	Whb4XwyC1BNNBnuij+m2hsUVf5l6kXdU2db23+/8ztTOaf/9sEyaaccCrOAGVofiewiw3XiM80u1Y
-	jYBV1uD2FYQ6ZkQd8FmhJnguA3b9oM2ZpHKvlA6YPzz2JElfWgu5Roag5MnCph9bddkhlhllrLejO
-	1Q6fi3TmeIcfCSUljat0K9OcCllQLi+7++G1x0yncBscisiQzYww4cKMu5oKFqB+vwPKsCDkhTXF3
-	Lf+kJC+7kSbgVPr+KRbf4yyIzfYw/RZEvygZa2sWhgZXa4pre7WXun3UzHeYXCpuyRSrbk9CpnNG/
-	jtzYXMLA==;
+	bh=G/yd+tN4zzajX82hvJ50hAhJS4PhdGy0aoqf41wbmSI=; b=Q4EiUFEu43/c1vArf/k5IJ4bjP
+	LaEMEPB+ZPPBMXS0PGHarc7ey2aAD+iNW1tSsDvntMMFl6MRy8O1obtSS+KCKC97QyMx5kP9/4i8w
+	cwPG1OV0b20Bt5Gbjyvy143BUEOrm0iGIZQax7CN+WfgsGWQ747WI5jB+yvPVW7ywCUvUD7IUY3eW
+	Uc9TjrWq9CpiH57S0/FiJ2DiI5uZREjyUNYG2meAiXG4tMG8Kb9VzF06V3M9Pfb0SrghWEWL56OhP
+	KV/M4tmUlbfDn02Xl/Iwy2ETqxKpfJtwY3oyYanchCZy8iaYKCJkFBSX7xs6M8R70NgL1zJ6wk+JK
+	/ilKxchA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqq9F-00000003ILn-1EOr;
-	Fri, 13 Feb 2026 10:11:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vqq9p-00000003ISC-3lsi;
+	Fri, 13 Feb 2026 10:12:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqq9C-00000003ILP-31AE
+	id 1vqq9o-00000003IRk-0jO2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 10:11:39 +0000
+	Fri, 13 Feb 2026 10:12:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F360E443FB;
-	Fri, 13 Feb 2026 10:11:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30685C19424;
-	Fri, 13 Feb 2026 10:11:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5D5A044336;
+	Fri, 13 Feb 2026 10:12:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E392C16AAE;
+	Fri, 13 Feb 2026 10:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770977497;
-	bh=SHPUymrUpb83eRmEalKKYl0ZBPV1Z4ReKCKK1ADCPs0=;
+	s=k20201202; t=1770977535;
+	bh=J+XvV6jIqmyrhArdkiSuYtiOfUyH7S6EIQyy0nQ3Gkk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T00IpjBTDuqx1kp6RyQUKTwgJOt4gf+wtU1uiV53/PIRFUwG51eIqcY+mK21PF+HH
-	 ZemI6V5JYQ8ynYLIfVO4z6nRU9rkhjB0mYjwEyZE9Pbh0YE5FparGLe09lpUknCskA
-	 LToDvM7Hy/NMcM7iCmHtSIhH6Vut53ep0LYtsJmpGhBJzoaxqtMG/+aapKUMcwMZCy
-	 WfOnB3ViSUjcE6rSdREafiFV+d6iPTR9XbzTSWO02ZaRS4G/DhTRgc+xFqCAtafhQF
-	 LQJ481HPWYe1OkPk06aY/BSHSc5btWl7WUymgA3jBbqOAaWLgBVt0zEqOILBttp6uj
-	 MoV/ydG4t7qag==
-Message-ID: <9cc741e5-e710-4c89-b0e0-dc12ac7d8e3d@kernel.org>
-Date: Fri, 13 Feb 2026 11:11:31 +0100
+	b=r4dcKnsus0PrXm86joHM7a3aMGWZBXA22wUHOE4zx1SXPEHSlgIxO40o9Plt1LsVU
+	 DNENGFp3ADbKm0rtQvrtQDsPzUgF9VuaQGdA8c4FLrzKnF4u55XuxGtXRndhP7h0VS
+	 TCa5ARtJBE2ixQaaY2RO8XLxZDPK2SADCTobm9bjQHxPizpn6YHHZoNvP+vV6qG7Hd
+	 niRErmC6njoMe3CW8IISN8nG+2xSOJGltHvMnC0i4THVaYlpQZSq98/Y1qWNp6ZpX3
+	 P4P26FdinIr7ZHFL9XcTq9TN9nXvxXmhWcF3Tv7JGUNbrkE473Uu0di2gquHatulCI
+	 uCv8aG68nruZA==
+Message-ID: <21472a9c-f996-484d-b1c8-1fefb12cc1dc@kernel.org>
+Date: Fri, 13 Feb 2026 11:12:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/7] thermal: samsung: Add support for GS101 TMU
+Subject: Re: [PATCH v2 5/7] MAINTAINERS: Add entry for Samsung Exynos ACPM
+ thermal driver
 To: Tudor Ambarus <tudor.ambarus@linaro.org>,
  "Rafael J. Wysocki" <rafael@kernel.org>,
  Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
@@ -62,7 +63,7 @@ Cc: willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com,
  linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
 References: <20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org>
- <20260119-acpm-tmu-v2-4-e02a834f04c6@linaro.org>
+ <20260119-acpm-tmu-v2-5-e02a834f04c6@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +109,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260119-acpm-tmu-v2-4-e02a834f04c6@linaro.org>
+In-Reply-To: <20260119-acpm-tmu-v2-5-e02a834f04c6@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_021138_836850_6967382F 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260213_021216_262020_3DA64ADF 
+X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,26 +131,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 19/01/2026 13:08, Tudor Ambarus wrote:
-> Add the thermal driver for the Google GS101 SoC.
-> 
-> The GS101 TMU utilizes a hybrid management model shared between the
-> Application Processor (AP) and the ACPM (Alive Clock and Power Manager)
-> firmware. The driver maintains direct memory-mapped access to the TMU
-> interrupt pending registers to identify thermal events, while delegating
-> functional tasks - such as sensor initialization, threshold configuration,
-> and temperature acquisition - to the ACPM firmware via the ACPM IPC
-> protocol.
+> Add a MAINTAINERS entry for the Samsung Exynos ACPM thermal driver.
 > 
 > Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > ---
->  drivers/thermal/samsung/Kconfig    |  16 +
->  drivers/thermal/samsung/Makefile   |   2 +
->  drivers/thermal/samsung/acpm-tmu.c | 643 +++++++++++++++++++++++++++++++++++++
->  3 files changed, 661 insertions(+)
 
-I did not perform full review, but after quick glance:
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
