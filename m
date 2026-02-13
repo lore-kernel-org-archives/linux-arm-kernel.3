@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1AFEF48E8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 08:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7EEEF48CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 08:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jz7vtUwnkx90fQXLmbBVcLdhqYtGqJ/IOHriRInnSbM=; b=lyRh2UwzzGaeAY1x0ALvBCXUBD
-	djwlGP/JRTofx75h2QSnGOXHbkG+N6xMaiMwt80C9Opt9m9JZWAxAKN7SLPbYQ+BizTr9OecZ9mg/
-	y6rLfeyecRW5saOjbcn0m1kQL7JFAlqFLZnjmg3OoN+NLaj+ekUbo2+Fvadt1PrFdY1A8se+udZ5m
-	Ss2xgmgTDOvYkIPtgagm+CmLRfC+WNUcSbvDTqH2VKEfdtdA+rkOowgCPtr8pSsxomONYAA0FR0vA
-	GlhxZLZ6K4A6CRK175voC7eD3/Svx+5gKTLkKEK+4bZMxjXMhiITR+AwG+LHjse1tELvLBlIr71BR
-	j8+cykGA==;
+	bh=31Wu3/tWO2ODSkX2yRcz/i+OXstdf/zoaI/u3hdeBgM=; b=4BtGwvs7HHNRzg4uYz94fJTaWw
+	sssabXCimC8XKg74d08BmqhNBxj3Xgtd3CMJjuG+Z74qzR71nuM9IfS4aNovk6OAyUh3dq+P+d6xR
+	0tRV7hhN+OGMDphAdQN5puhe5UqyWpABmQfrRzD7veg70xdWolBM06WsvAVpz6z8q1OzGy+MRZBbn
+	zhq1j5FG0j4nzhyVO09bS/K31bcBUe7zzdizY+iZTQihGMjqtsNtytmwO7OmyzlNwVLRIB4gQGvo4
+	Ljs6UEanqOFNy1hRfXMubP16WJBW1jRswKGRYILmzB15QH2a9GKbtKOKvC6ZUrOOM3Ww20k8KW8eu
+	urYw0yoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqoMM-000000039ey-2dKg;
-	Fri, 13 Feb 2026 08:17:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vqoMo-000000039nf-45Da;
+	Fri, 13 Feb 2026 08:17:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqoMK-000000039ei-2elp;
-	Fri, 13 Feb 2026 08:17:04 +0000
+	id 1vqoMl-000000039me-31OD;
+	Fri, 13 Feb 2026 08:17:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 049546001A;
-	Fri, 13 Feb 2026 08:17:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CB68C116C6;
-	Fri, 13 Feb 2026 08:17:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DC864405C8;
+	Fri, 13 Feb 2026 08:17:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9DCBC116C6;
+	Fri, 13 Feb 2026 08:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770970623;
-	bh=hbYAQt6TNDZ/qXSwhJHkgExQTtHCoS7ggq1824ovTnU=;
+	s=k20201202; t=1770970649;
+	bh=5IFVImr6FC2fCJmvhchlTJID5GokFgIO/taR4mmbo/8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sz+4oPuwy6Y0e3rrzOZBPH52OtlvC18v6Q17Tg/0qckunMalGdoOMAKPS5BvhWe0t
-	 E4XmiXd7zeq3gP8n6EJbjnWlMIh/kcAmlTPfX1oViwtfCtJkPYHif3MKg87/BnLhmn
-	 H0lo1MtX65GWK640lVwPj32jkNsBZb1TkxlNoFuOgpIT5swr6mWpIZBgSc6aNR+YOU
-	 zNJ1WZJ5nLj/JBh7IzaM6ILk7wvcEfk+q3CvzLjGl8zbLmMndKlw3RAOBoTtlhCWsI
-	 flAX+O9Cxh9tBV18rzv2V8XYRTUvbPKPlBZU8lnpl1TiiZVMQaIh6L/nNjh/GuA3x0
-	 kti5SGsXOxbmg==
-Message-ID: <2f68ee18-e9d9-4da6-900c-93a7663b3c9d@kernel.org>
-Date: Fri, 13 Feb 2026 09:16:58 +0100
+	b=Gd57xqK3n0VeLdt58JNtLAZ5WhFhI3RPika/DqHA6aOnlgS+8jyCq+JHfAnaJkSvv
+	 4+AC4B/TmbQiboJj+9Hqx3J7WyGihPIqqRSbOojTOma/n7vbLjSAYZsn/fWkcFvRqQ
+	 7/gJ2wPydMgvUdmaAuvfjs7VZnhTK7qvVW3k3Kqjs3ejOEtYOxM57/WiP8p5HYbt2I
+	 DDUdEjoAWWa2Cz390YjObU+JT/bFBMV0TcwpT6e6NE0RwU7JZPmOsxlEJOGO/Zokbd
+	 6VHGDbaA3mRw5pGkTddLojItB/YkxOEnJksPiV6QgkroywxqotuTdDL54c+vzieC2f
+	 ChPS1BjEfPIdA==
+Message-ID: <5d3e8678-9319-4e0e-a83d-5676127fe8b8@kernel.org>
+Date: Fri, 13 Feb 2026 09:17:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH RFC v4 1/4] media: dt-bindings: Add Amlogic V4L2 video
@@ -59,7 +59,7 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
 References: <20260213-b4-s4-vdec-upstream-v4-0-c7112d00d662@amlogic.com>
  <20260213-b4-s4-vdec-upstream-v4-1-c7112d00d662@amlogic.com>
  <d96c689d-a5a3-453d-a1ab-56dc1bf01635@kernel.org>
- <75e55ceb-e6dd-47b5-a829-66f6fbb3e13e@amlogic.com>
+ <fd56ede0-5d62-42ec-8d19-19552b246c7c@amlogic.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,9 +105,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <75e55ceb-e6dd-47b5-a829-66f6fbb3e13e@amlogic.com>
+In-Reply-To: <fd56ede0-5d62-42ec-8d19-19552b246c7c@amlogic.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260213_001731_800096_4851D25E 
+X-CRM114-Status: UNSURE (   4.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,106 +126,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2026 09:02, Zhentao Guo wrote:
-> Hi Krzysztof,
-> 
+On 13/02/2026 09:04, Zhentao Guo wrote:
 > 
 > 在 2026/2/13 15:35, Krzysztof Kozlowski 写道:
 >> [ EXTERNAL EMAIL ]
 >>
->> On 13/02/2026 06:12, Zhentao Guo via B4 Relay wrote:
->>> From: Zhentao Guo<zhentao.guo@amlogic.com>
->>>
->>> Describe the initial support for the V4L2 stateless video decoder
->>> driver used with the Amlogic S4 (S805X2) platform.
->>>
->>> Signed-off-by: Zhentao Guo<zhentao.guo@amlogic.com>
->>> ---
->>>   .../bindings/media/amlogic,s4-vcodec-dec.yaml      | 96 ++++++++++++++++++++++
->>>   1 file changed, 96 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vcodec-dec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vcodec-dec.yaml
->>> new file mode 100644
->>> index 000000000000..88780514d06c
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/media/amlogic,s4-vcodec-dec.yaml
->>> @@ -0,0 +1,96 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
->>> +%YAML 1.2
->>> +---
->>> +$id:http://devicetree.org/schemas/media/amlogic,s4-vcodec-dec.yaml#
->>> +$schema:http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Amlogic Video Decode Accelerator
->>> +
->>> +maintainers:
->>> +  - Zhentao Guo<zhentao.guo@amlogic.com>
->>> +
->>> +description:
->>> +  The Video Decoder Accelerator present on Amlogic SOCs.
->>> +  It supports stateless h264 decoding.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: amlogic,s4-vcodec-dec
->> Why do you repeat "dec" twice? codec means decoder, so what is the last
->> "dec" about?
-> In fact, codec means encoder+decoder, and dec is short for decoder.
 
-Yes, that's what I meant, so why do you repeat decoder?
-
->>> +
->>> +  reg:
->>> +    maxItems: 2
->>> +
->>> +  reg-names:
->>> +    items:
->>> +      - const: dos
->>> +      - const: dmc
->>> +
->>> +  interrupts:
->>> +    maxItems: 3
->>> +
->>> +  clocks:
->>> +    maxItems: 3
->>> +
->>> +  clock-names:
->>> +    items:
->>> +      - const: vdec
->>> +      - const: clk_vdec_mux
->>> +      - const: clk_hevcf_mux
->> Name them based on their role/name in this device. Why this device would
->> care that it receives a mux? Not a div? or not a gate?
-> Ok, previously we overlooked this. We will improve it in the next version.
->>> +
->>> +  power-domains:
->>> +    maxItems: 2
->>> +
->>> +  power-domain-names:
->>> +    items:
->>> +      - const: vdec
->>> +      - const: hevc
->>> +
->>> +  resets:
->>> +    maxItems: 1
->>> +
->>> +  amlogic,canvas:
->>> +    description: should point to a canvas provider node
->> Why? What for?
->>
->> What is canvas provider?
-> 
-> The canvas provider is: drivers/soc/amlogic/meson-canvas.c
-
-What is this "canvas" device.
-
-> 
-> In short, canvas is a hardware IP inside the Amlogic SoC. The decoder IP 
-> needs to access DDR through canvas IP, so we need to reference the 
-
-Why decoder cannot access DDR directly?
-
+Do not send me such emails more than once. Also, drop the "EXTERNAL
+EMAIL" markings.
 
 Best regards,
 Krzysztof
