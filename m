@@ -4,94 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A2B1EF48CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 07:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3469BEF48DB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 07:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8T5o+WgGfW/lBoBXgg51mLpZKPQ9oP0YY1GV2iyeVDY=; b=WDJCKPhWOhoId+ongwNhDRpIW2
-	g+hVTLavnQUVCg7hTZXChF6RBFFDBgp4hqAwoNybF/SFZWA+pgf2qaDPYa2H1DEEX6CrEB/fp0htM
-	TmHWmM/yuXZiP6oFor9a4uvFt6z0V0UaviNY02xaRl8Vd3Jz8PPyuLP6g5HiFKkHUbMtBzvYMJkqA
-	2V0xDjqr9zKL+TjWs6wDJOeJxsFkd3HhgMtTvS5PQlwMmMccyA+GCJ+M6DovrUWoIcFfq/kmfOGyn
-	BVuRXr7FVTmRcwk2ZZ9fFHKf19AbDG5u7+zJ5gda2EZAMeA6hRppeO7Ze3K/Vx+fJb27VqymmY3DX
-	1mmOZihA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aELfjNVlW1dmjhmPWFCI/JlXGBExKOG9bV8oM4+9wmI=; b=DACyjCF6zPFcKBpwdFRZ7LLYHU
+	TnMAOu8YrGRari2AJ9LX0xEu342nWc737yzgdV4atW3IUyh9yrc5JvgpRe0N43mnK2nvt9jrU4ffZ
+	8fqGxQjGoF+igT1U9zfCkmI8AQaHkyvtBHjoek0J23g9JP+C3Uo3LZRKgDNqy8TSz5dbHQU0UI2CC
+	53etX6JHwGi9xiNn9vW1h2YA5ueS0K+FPKjKG5uRTBIyhTJ5Qls/EBA5NzNRInGJMHILI07xmkFJE
+	duihVFMDAFWqLl7+7mwycgoMf5oxjK7qxMMdO15HHmtERUgQT88fLkSXf6KGL2HjQaPvdwgbl0mSX
+	Lbb8BySg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqna4-000000036HX-29DD;
-	Fri, 13 Feb 2026 07:27:12 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vqnfq-000000036g4-3kRl;
+	Fri, 13 Feb 2026 07:33:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqna1-000000036Go-21wn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 07:27:11 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4836e3288cdso3483145e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 23:27:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1770967627; x=1771572427; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8T5o+WgGfW/lBoBXgg51mLpZKPQ9oP0YY1GV2iyeVDY=;
-        b=KjfMZgh/fyMjNirGLUCpzhNIzQXNWtMUGsUM3ywZON6P6CJ/8H+PFFpXaVdXHNjdcs
-         t06O+IvWA81tkNsyxSO54PaOAaSvOou9GvRx3Ehz59Gex3U+sNpFiYdw5see6lCnfZbl
-         tFhKUmtpJt8wJhP0CLqlPiyDyNusNASHqeclgf7Ly3J+KDO7TOCthPhO5whm+LktX1eJ
-         DIQEJvbHvJILrKGOVxz6Bwa9Vt2p9JS9js/Nip+Oz0EneX5cKDSxkK17EE8xOfru+v80
-         5TdZi2yYvQAF+9Of7LT3vOGDDuEhWmHBL3pI1vmFTf8tESYxGC6/Kbw0BNES6pAEvIao
-         UmXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770967627; x=1771572427;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8T5o+WgGfW/lBoBXgg51mLpZKPQ9oP0YY1GV2iyeVDY=;
-        b=Lu+E0S5AUZnkKWQtJ1MD/bbFJsyCdDACY/S80XnqHr2E1dzaaL49z02RhLt7X3GkQu
-         dAd0A07Yz4JPkKR4uZfL2d713Z3gVXHUAMHUWTU77Dhb34p/w8nPAbFloYpen3yyVNeS
-         PjacLnFgTjmlE2OVnR60xCv4kDhOe/Zej5fgg86anUzlg81E614tnW51uuRbF0RLz0PN
-         8Yeh/E99SNT+R3ca8HqGvu9tjNyCr0IwlJ25RWaxgHaENIVoa+AzYbbe88FxcvRE5nhK
-         2svdGaQD5yAUISHgy4dlCJ0+CS3NxMRz/KajDIAVNdtJa6rpd3GryqLZ1C2fmM6mq85v
-         etdw==
-X-Forwarded-Encrypted: i=1; AJvYcCUGnIdODoTquTPF0YCXOdMY4I+UM4mFDPn7QnfsYAL6qolUvfBr98vGsMbCSKpEyYOB+rpZ64Ot9ztLxzbh1Lzb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL8KczGlWUtJ/QgWz7zHlgCAV84OjtMJ24Ikp26EeV1e18tg+F
-	9+FE0Lxpi6jh78a/kFUS+wbCXsS4zbXKYpIfX9ArtSecyotBEYBzD+/yXBAm+2aOhWA=
-X-Gm-Gg: AZuq6aLldqgYzLgThgj4apSKOKpiE7X9Tv1B8YjfKN7HN7SJPRzMSrLqTtLXU2p1lf0
-	kTz+epygfmVrV4qQHyGuiC0m+2W4VFvFIngH/G9CWPiGWQf+9KG/IjUk1ZXxGhCxdx24HqN/Wm2
-	kJPotwUBF6ApGvdpidi5h0ScytJa+7Y/9XIXYtUBFE/l4kLashfcQlz4H05ByCXYDkKBKllPop0
-	caPgpAtUG/GMGqub/W/501+up6CcQkPsP5DOi/H1XthFmOyGtwn4B9Zs7PRDU8QTE/8I7ibz52R
-	zCTS7UQY3jAn9QuF47zlmPwKY1/SnQm6W+CPDkpVtXFW7etzuQi5DN/O0C4nb6cIciUZfYTua/L
-	5oU2UX1y/3gKOoWp9qNUVPTAIT5VYzTVq90ZMuYkjnbqTN5mX5NTSXnJcwhDSsuXx+mT7fF3Pth
-	vpieutAGp2CxMsQ+cWgAuHtYcqjKo0W2cSaC1pMaFcaHPhTl+p6tzoAY8tBls2b3Y/17HSCFJCK
-	gc7eAtGnU2RMls=
-X-Received: by 2002:a05:600c:34c1:b0:475:ddad:c3a9 with SMTP id 5b1f17b1804b1-48372fd3c43mr11757265e9.13.1770967626654;
-        Thu, 12 Feb 2026 23:27:06 -0800 (PST)
-Received: from localhost (p200300f65f20eb04101188b09ed9186a.dip0.t-ipconnect.de. [2003:f6:5f20:eb04:1011:88b0:9ed9:186a])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-48371a10cacsm17260195e9.4.2026.02.12.23.27.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Feb 2026 23:27:06 -0800 (PST)
-Date: Fri, 13 Feb 2026 08:27:05 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] RM: dts: imx: set #size-cells to 0 to align with
- nand-controller.yaml
-Message-ID: <aY7SFS3LUC6rFwSB@monoceros>
-References: <20260211-imx25_nand_dtb_warnings-v1-0-2f06aaa1e3b9@nxp.com>
- <20260211-imx25_nand_dtb_warnings-v1-2-2f06aaa1e3b9@nxp.com>
+	id 1vqnfq-000000036fr-0U2U;
+	Fri, 13 Feb 2026 07:33:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1400A6001A;
+	Fri, 13 Feb 2026 07:33:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD06CC116C6;
+	Fri, 13 Feb 2026 07:33:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770967988;
+	bh=siIazgaFNVp4xVXr//i59eVLTynu0yrQq7vbq7Q2myU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZZwls2Wim7UUzP9c9QRFee5N6Y7sc5uz+mOBqz4VjBpy2V8U3023tsVyAOfk485q1
+	 ERKbptcP7jm0u8VlXJCrKRbVBdS3GRVkLTUnR0dhu5TuyL/wZFvwZYjdmy33Hn1sTm
+	 QATSI0qlqSIAquO9TGWzCYgePlh2CEnj1RvZX/gwOGi8KqBaJsIt3o2kJu0QsHhVik
+	 dGeNLc2Owe45iYOoqIknA9Kqm++IYUva8ucv7i2DSU3YZI3konF/PBZkVBJmIJdtiZ
+	 E8HqhG+C/eV3puvokwiiLT/Ln5bXE201fJ28QYLRsfnROKlTGKl7SHLVnKWEmOl817
+	 8lZD4ewvW+hvA==
+Message-ID: <795e507a-b0b7-40a5-8a75-25b464ba6b37@kernel.org>
+Date: Fri, 13 Feb 2026 08:33:03 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="suzgqi3scqpas5au"
-Content-Disposition: inline
-In-Reply-To: <20260211-imx25_nand_dtb_warnings-v1-2-2f06aaa1e3b9@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_232709_677005_0BC9C6E9 
-X-CRM114-Status: GOOD (  11.68  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v4 4/4] arm64: defconfig: Enable VDEC driver for
+ Amlogic SoCs
+To: zhentao.guo@amlogic.com, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20260213-b4-s4-vdec-upstream-v4-0-c7112d00d662@amlogic.com>
+ <20260213-b4-s4-vdec-upstream-v4-4-c7112d00d662@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260213-b4-s4-vdec-upstream-v4-4-c7112d00d662@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,46 +120,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 13/02/2026 06:12, Zhentao Guo via B4 Relay wrote:
+> From: Zhentao Guo <zhentao.guo@amlogic.com>
+> 
+> Enable the driver for Amlogic's stateless decoder.
 
---suzgqi3scqpas5au
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 2/3] RM: dts: imx: set #size-cells to 0 to align with
- nand-controller.yaml
-MIME-Version: 1.0
+Why? Read other commits how this is supposed to look like.
 
-On Wed, Feb 11, 2026 at 04:19:40PM -0500, Frank Li wrote:
-> Set #size-cells to 0 to align with nand-controller.yaml. Remove the
-> redundant empty clock-names property from the NFC node.
->=20
-> Fix below CHECK_DTBS warning:
-> arch/arm/boot/dts/nxp/imx/imx25-karo-tx25.dtb: nand-controller@bb000000 (=
-fsl,imx25-nand): #size-cells: 0 was expected
->         from schema $id: http://devicetree.org/schemas/mtd/nand-controlle=
-r.yam
-                                                                           =
-     ^
-Missing 'l' I guess -------------------------------------------------------=
------'
 
-Best regards
-Uwe
-
---suzgqi3scqpas5au
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmmO0kYACgkQj4D7WH0S
-/k5AVgf/QsQPSAIdM1RxlXudv1+osYGz6GEEo592KE57oRkdUvtyYxJXlqICexVq
-CcrktfuQdhxHkTa+TGp6zt0D5ud0nzXjBYtGZVIhE6iKYiav5EiFArQ3wPcvnDQP
-3x1upQR/8SgvfyApCIlLo47oipzbM/RDXrq7oKBgQQlvfjTdDJWeEn/+DAMULR//
-7/32JHfGYcuRTzcn5CRi8QotO47K9uUcx3Hp96n78OcP2CgahlMpdlQTU3k4YDMZ
-Yn1AJ+Ip34Pnhwi6RKW3AtyTLTsSmsgtogie1n20MHuTG7FGGLFze6oP6AWaxmDl
-Ed8LGzeR90IPomEYk2RYoB/o4eurFg==
-=y1p4
------END PGP SIGNATURE-----
-
---suzgqi3scqpas5au--
+Best regards,
+Krzysztof
 
