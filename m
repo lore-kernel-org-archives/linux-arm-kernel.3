@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB51EDF16E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 14:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2523DEDF16E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 14:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2EhD5ARQ8TNV7FJPQTkx5mhW0z5ojGhz+tn+MBPMaXs=; b=ZUoNAO2dnfREHjKMAiPzouoV/F
-	cd+1lUt2D9RxSAQmzuJ5QtEstrLYnMpqExZpb6FYKxXllE8jPNSKSmrXxz0h0RiVsQTp/etSqTeLY
-	gG1r4w4goOHdVV9hq4NeyZAupjAd5F+XXRIHvYA1/n12JDFtu/j7QeC/htkTsn1dhZbnVw16XtPQW
-	XeXpGPfnXWZQBGtSWiHKzSBpWam5Eck1i8iAZVkEwYXAlx3wrM5XJHiFOep8Qt3bMWpYwxJTE3U9t
-	2RXNObVIEq1ot7Z/GtwZM+9Ab1mqDkEg3vyEV9PNjvLkPYGwGFWFcChCYGEG/rJkBNmMGRXcP8lPS
-	DYZ9DpeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UUp+ZPHGqL5Ruf8kk7PuU1fhAJIx8L0ts8JU7bSIkH8=; b=dWmaFl8q8Gv9y83pW+86Vcgugc
+	v3y5xZoYCH1qF7w9g934UU6dz81ap52SmVS0yfU6zI6TN9mu32v44A8i8ADhvDZqsn9GvPPQ5XSpN
+	AYWmoiHzSKGYOFYrG5AILoL84fEV6b7+qhQ3k4ytTCwTv710auefUeu30getFhAgRmME/rXYt1ZSA
+	JChSW/9dphplyhWmYxPLbjvbPbsjMldE2tr8yrz2U3jRYnd+B30bGqtngdcoKCr6toNkqAlko750E
+	XPL5vZZYuLqS4SCRXT+hKUXeuEXaoNrrHU7RnbU/jS9nX18ZQnUI+2TUVd9soWTxiE8q4sb5FU01w
+	CkUqrggA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vquIS-00000003Xjw-2jKq;
-	Fri, 13 Feb 2026 14:37:28 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vquJJ-00000003Xtb-1xSm;
+	Fri, 13 Feb 2026 14:38:21 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vquIQ-00000003XjF-0Ecl;
-	Fri, 13 Feb 2026 14:37:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1770993431; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=NVCxn5dkyb5CqLLEY73qeZN+f2AqZndkyy09kpUGozULkqUpln17vdvx+aRlLN56b+oppXd8ZdIMSbd+GTp1FjdLt7fO9SRKRdTrz8AlEmlpZQNacYMbyOsSythICJpnNgkxF+MGIBbvEKPLQ5cPTJMA6hfMFhEUN0svO5G3uSQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1770993431; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=2EhD5ARQ8TNV7FJPQTkx5mhW0z5ojGhz+tn+MBPMaXs=; 
-	b=YsuhunsD70pLhylOzSl2JxIWckbRiXlLobgGa9DubriF4sf87y3zklMZ8G7aNlfLOBpUV3Nx+XlOuVB5J4lV3P+jkiiGu8gWkCZeNJVfjF3XO+Qh1rewUgmxwXj8oSBeAl3Z6z7XUPeRu5zLZ2w/69pcZ7AZ6JJby30FJHmlD4E=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1770993431;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=2EhD5ARQ8TNV7FJPQTkx5mhW0z5ojGhz+tn+MBPMaXs=;
-	b=TiiKj1YWqbnZYGQUfCXekYux2PEx3HUPTB8myE09Bf25xmVMMenSEJpDIbtlCg/C
-	Dswds/yHPFUc6QqvngTiKXxCosXvDbi7quUk6HUkcN7yWpI36C8txyeu5qhVNYH04Pw
-	ukq6pRqQESjMBSgIyufeEbMTBwsEj3BGjyZeh2y8=
-Received: by mx.zohomail.com with SMTPS id 1770993430367305.83315708574753;
-	Fri, 13 Feb 2026 06:37:10 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 2883D180716; Fri, 13 Feb 2026 15:37:06 +0100 (CET)
-Date: Fri, 13 Feb 2026 15:37:06 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Yubing Zhang <yubing.zhang@rock-chips.com>, 
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
-	Frank Wang <frank.wang@rock-chips.com>, William Wu <william.wu@rock-chips.com>
-Subject: Re: [PATCH 0/7] phy: rockchip: usbdp: Fixes, DP 1-lane support and
- cleanups
-Message-ID: <aY82Lv1rth6fiTJE@venus>
-References: <20260203-rockchip-usbdp-cleanup-v1-0-16a6f92ed176@collabora.com>
- <4a7a30c4.8848.19c288ea1f3.Coremail.andyshrk@163.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pyai57wb77urqxjr"
-Content-Disposition: inline
-In-Reply-To: <4a7a30c4.8848.19c288ea1f3.Coremail.andyshrk@163.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.1.0.1.4.3/270.955.72
-X-ZohoMailClient: External
+	id 1vquJH-00000003XsT-0ij6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Feb 2026 14:38:20 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b8faf5f2b38so94087466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 06:38:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1770993496; x=1771598296; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=UUp+ZPHGqL5Ruf8kk7PuU1fhAJIx8L0ts8JU7bSIkH8=;
+        b=l/XHKHZRZAi57yZ/BKzDF1gfW2NHJyqMdu4v9VQDUvE/dEtmClqSpxbD8hC+p0okOE
+         l+qtun6MTe6O2gaRwSXgeekIyLbYx2KvruPjLQgh6l31xDe+WGeB4davdvbLT34otp3C
+         GYiX/7gZVUuJW7RWnElXluF678BAcP+lBcycqGZruPQXXDpi4Qb1V9JzKkKOhdORwUMh
+         v67hQeJImLVVGys5a4TwQN02ssMFBIg45Z5H87jot9zErR8LivIygzKoKNmyKfj/ykgn
+         VHlXqsEJZlIQx9wdrSk1DYndhOteBuz/6B5C1glc2L4CjfPNZmetZBNcSRacHJ++w8Vz
+         6x0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770993496; x=1771598296;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UUp+ZPHGqL5Ruf8kk7PuU1fhAJIx8L0ts8JU7bSIkH8=;
+        b=gwLua1x21W9LQXE+OqtALGLIsF1XsdiV6BXw2ol4MIP4aHrGIMOK7vBt4tdiB1i2hJ
+         s9iHCwIJjDfxlD4c0CBHKICiJGHla2eNjB8TJkbWCKDxkA6w124TfrFylbfFYg3bXwpN
+         IkWKyYohxTPfUefno3+vN95hxJUuiNVUVGbh1naY2bw5+LLiYsZhfDgdsbUEQiZMl6Fx
+         iW48SSPtD7VMX6PINViFsEW3aaF9dlQrrYxAHGpuoQ0hBxiU0qpespXQCuZivXRDg5hw
+         zgsxTqPUtZPJexT8qgKdrsmUJWMgBXucui5X2j7YmSxiDDtuTJ6fPLs8oUrcF///s+O8
+         gJ6g==
+X-Forwarded-Encrypted: i=1; AJvYcCXZEOhRlY3ClK58yL8G+Qxvx/BUDjXOOFOght8YK8yupR5/TqTvwS4ZNhgqqzYTmi/v8HWDsY4IHtGSqb9EE08N@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6kjAQIPLAdAiG3y7hC2Pwryy+9kuZCe3UdqXQ8H+J8vFKDBF6
+	46ECy9m1NzkYAwS8I1WfNSncfKhVZVj2RJZIUYmnaP9hm4+P2un/Au2SimKh8hSwhS2R5Sk8/2U
+	TSQ==
+X-Received: from ejbme9.prod.google.com ([2002:a17:906:aec9:b0:b87:1864:34ed])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:728c:b0:b8f:848b:4456
+ with SMTP id a640c23a62f3a-b8fb41937f6mr98615266b.13.1770993496347; Fri, 13
+ Feb 2026 06:38:16 -0800 (PST)
+Date: Fri, 13 Feb 2026 14:38:11 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.273.g2a3d683680-goog
+Message-ID: <20260213143815.1732675-1-tabba@google.com>
+Subject: [PATCH v2 0/4] KVM: arm64: Fix guest feature sanitization and pKVM
+ state synchronization
+From: Fuad Tabba <tabba@google.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, tabba@google.com, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_063726_120026_1B317701 
-X-CRM114-Status: GOOD (  23.40  )
+X-CRM114-CacheID: sfid-20260213_063819_218073_535F4754 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,90 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series addresses state management and feature synchronization
+vulnerabilities in both standard KVM and pKVM implementations on arm64.
+The primary focus is ensuring that the hypervisor correctly handles
+architectural extensions during context switches to prevent state
+corruption.
 
---pyai57wb77urqxjr
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/7] phy: rockchip: usbdp: Fixes, DP 1-lane support and
- cleanups
-MIME-Version: 1.0
+Changes since v1 [1]:
+- Moved optimising away S1POE handling when not supported by host to a
+  separate patch.
+- Fixed clearing, checking and setting KVM_ARCH_FLAG_ID_REGS_INITIALIZED
 
-Hi,
+[1] https://lore.kernel.org/all/20260212090252.158689-1-tabba@google.com/
 
-On Wed, Feb 04, 2026 at 08:09:22PM +0800, Andy Yan wrote:
-> Hello Sebastian=EF=BC=8C
->=20
-> At 2026-02-04 02:41:26, "Sebastian Reichel" <sebastian.reichel@collabora.=
-com> wrote:
-> >As there are some issues with the DisplayPort support, I went
-> >though Rockchip's BSP kernel tree and looked for fixes. I found
-> >two small changes for the initial register setup, which do not
-> >help with the DP issue but seem sensible in general. Afterwards
-> >I added one more fix, which corrects an issue that effectively
-> >results in USB-C adapters with combined USB3+DP capabilities
-> >not being able to use the DP part.
-> >
-> >Afterwards I added one more patch adding single-lane DP support
-> >(found in Rockchip BSP kernel) and a couple of cleanups from my
-> >side. These are logically independent from the fixes, but I put
-> >all together in a single series because they need to be applied
-> >in the right order to avoid conflicts.
-> >
-> >Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> >---
-> >Frank Wang (1):
-> >      phy: rockchip: usbdp: Amend SSC modulation deviation
-> >
-> >Sebastian Reichel (4):
-> >      phy: rockchip: usbdp: Add missing mode_change update
-> >      phy: rockchip: usbdp: Rename DP lane functions
-> >      phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST
-> >      phy: rockchip: usbdp: Cleanup DP lane selection function
-> >
-> >William Wu (1):
-> >      phy: rockchip: usbdp: Fix LFPS detect threshold control
-> >
-> >Zhang Yubing (1):
-> >      phy: rockchip: usbdp: Support single-lane DP
-> >
-> > drivers/phy/rockchip/phy-rockchip-usbdp.c | 114 +++++++++++++----------=
--------
-> > 1 file changed, 48 insertions(+), 66 deletions(-)
->=20
-> After applying this series of patches, the hub that previously
-> couldn=E2=80=99t recognize Alt Mode can now detect it and work properly,
-> but it also triggers a USB-related SERR =E2=80=94 did I miss something=EF=
-=BC=9F
+Based on Linux 6.19.
 
-I thought this was from a different patch that I needed to get DP
-working. I've spent the last week debugging this and I'm just about
-to send v2 with a workaround. FWIW the SError is not introduced by
-this series, but before it was much harder to run into it.
+Cheers,
+/fuad
 
-Greetings,
+Cc: stable@vger.kernel.org
 
--- Sebastian
+Fuad Tabba (4):
+  KVM: arm64: Hide S1POE from guests when not supported by the host
+  KVM: arm64: Optimise away S1POE handling when not supported by host
+  KVM: arm64: Fix ID register initialization for non-protected pKVM
+    guests
+  KVM: arm64: Remove redundant kern_hyp_va() in unpin_host_sve_state()
 
---pyai57wb77urqxjr
-Content-Type: application/pgp-signature; name="signature.asc"
+ arch/arm64/include/asm/kvm_host.h |  3 ++-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c    | 37 ++++++++++++++++++++++++++++---
+ arch/arm64/kvm/sys_regs.c         |  3 +++
+ 3 files changed, 39 insertions(+), 4 deletions(-)
 
------BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmmPNwoACgkQ2O7X88g7
-+ppjZg/7ByGTasj1iMKoHN/SsfWXN5HMjVWOI9LP5Mnk6WWAq75c5fQsRbN5pGXf
-N4amUcoJQMdqtscF1nBL7Zr7VpMuckiaznIMtVZ5tJADKmGiZYFOVmX9pYrEtyBZ
-gBbDlwbGeSLGuyqRfIT5Qwk6yfRCp28UBI1TMDGZ9Tmpr1bXRrerxhQA4nmNgO8/
-PVbC+o708Jq/wA6N94wUuiSWfO8E2uoXT34jxxXlpafyd5CjRjig9YhTy8Hlx4FG
-74gJh6E+60pjd97VTYyHGQCUEeGfpdhssoXqMyKu/2PyKMq0IlOxA5+rfmy1fBrB
-LOn19SocAf8tvvHRYfxPy/ZAsITDPyaHNaDJXVm5ncy/zms7HxcXAj9BRcEhhmt+
-nQKoJHtO55H7ujYlFHFDNtHhTArE65KiE2N2vSpy5hj4aTfSf7bYKrpjBA7OKrDU
-eF6kGsnLU2zYbeC+gMnSH3KShJeX9oHljmLbb1UGNbhK065FdTcZfrRw0WPJFi5T
-s6tQeoUvrNB6Fcu3eGgx1itGLsyJtSKyIA+VA6NJuM5mlQqIeCHq+DjSQFAPRqpc
-RwoNmYmbVmoFIu80Zs21UAANl4AUdLPrkUBix7WA2pUrsaqCZz7ER1vt9FadYF7A
-ASn0UsvDpe0c/r+I2Kr2uNBRyY62qfRDBIHxK0nv68imoGOrE1o=
-=h3lh
------END PGP SIGNATURE-----
+base-commit: 05f7e89ab9731565d8a62e3b5d1ec206485eeb0b
+-- 
+2.53.0.273.g2a3d683680-goog
 
---pyai57wb77urqxjr--
 
