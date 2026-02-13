@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13EC9EEA860
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 17:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E888EF99C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 18:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLNCPhcI2W5xrHq/Yf54FeNp8YmonAJeCVTYOXhtjrs=; b=M4l1YCkBxjKC6lB9ch2vQA+kM6
-	pUwMlB2LTuljz6cuNuJ8rhNt9+sjv0zAC2XgJfTd6E5wgYpPFgp5tCPfhy+36mF/c9/vmoO/EHWSy
-	Oedzy8xur70KLcm5gsUVMwtjbqt+Urj+hKxA9jD18VWDCjguL/7mr8cfMNNKADImpNrRJJJEd5lN4
-	0xU+Z0D+4XfEV2DbY2LYdb9j+CPzaTes21iubfDROUzgB9wtUGJmLkbgpqm7xhCLdee1DOLRgx7L5
-	wTdc5caTHmcwOwU4ZGHZb+6mGGL5S7PGJAWu45XDUOBJODkvcHmQbcej72Sf9qaaM/wsgzkyJZSix
-	DdD2PzbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mY3KvVQTMdhlwCwGfxZ8paH0e/fwTPQdmCblgG7lpwo=; b=fil9n+SP9c+XWb5wLWI64NV0Zy
+	bG3Euzx7aoHB3+NL+JzMQ3ivQNhlnaSodn10zeoGMGAU8/qTuq9jhaCDjfFEEMCu4qJRnJdjhBGu6
+	CKcu1rkaI3ra4VWabwDDBlISeCIjy/Er3tvanPIU8HEijQtg+4cqp+MWFc0qwwUlWjm18bth6HXIK
+	VeZihwGEJVywcfqowa3Z1gZiL5EiqCA8VzQp4AQ/dG86gsP1SMhYWE451qzVoNtAE/G8+rp0Mx0Hx
+	1NRVTz4PijvL3eCunR3+sL/4hhTwpU0nMHJM3DaplPoDYUEMRBNIpy6jl45UxHH6qzzR3oHhBhaz+
+	l6df82RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqwp5-00000003jRO-1HCN;
-	Fri, 13 Feb 2026 17:19:19 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1vqxt5-00000003n5L-2ANy;
+	Fri, 13 Feb 2026 18:27:31 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqwp0-00000003jQc-3cAg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 17:19:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1771003152;
- bh=WLNCPhcI2W5xrHq/Yf54FeNp8YmonAJeCVTYOXhtjrs=;
- b=BoYLbTqIYXUPvfORAy3FfySxSC2kdAOWDt3KrT98gEuiLhuHGmgrwsNZDTZTfTb2DYgykorUk
- 1njok7hsXQHaDlWQUy4eLnGDi8qbY1ZMw+CYCrTeCcGYKj+JduYNhUW4v/j7958FIBQhSHwWDQy
- 92Lr+5ydHuuo9EkcVP+g6ilrnqBnCw2lkYw6ME6hrSZa+y+enR0QNtrgwEcfumXiqsgyoDKXqKQ
- 0MWphzGkzVH96OjfwrKqqO2U5yguwylz+ApmYvJgLWZEGOiLD86r9B5byTD0lnt/jrW1Wzmt6QG
- iFSLmSHZNPuqTvKlM2M4SslSUc73v62wpoQav94rqzKA==
-X-Forward-Email-ID: 698f5d0c11dfcf99c4b0aeb1
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.6.4
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <9083266d-2b18-4b7a-bc72-1d873edb7cdf@kwiboo.se>
-Date: Fri, 13 Feb 2026 18:19:05 +0100
+	id 1vqxt3-00000003n4h-05IT;
+	Fri, 13 Feb 2026 18:27:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771007223; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AzE9jYI3jHPtw3O8eJ+jhLILfMg2IbWH8pow8bZ7nAtg7VUBUjCGEBgnQqdpXWEZ9bvCm48cwwmaNEI+N1W8zAFHorCk55GA0dqo55mPy3sEDbX4WfYW5IwwDnKRffBjrAzv4rFdybZZNJfBJhPAcl48O3V+TwEZ3E6cBI9bN+I=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1771007223; h=Content-Type:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=mY3KvVQTMdhlwCwGfxZ8paH0e/fwTPQdmCblgG7lpwo=; 
+	b=I2lNyBs2W6XPUaVCHM7VGzGgWmN2+prqvI786acCyDDdxTOP9xfTFPEI7WcZLsTtMXE3ZsgFx1YDhILEfGiC0qAxoKXmOYX3yQP6BgmtQvcW6Kc/SU97u2rTxhJPt15zQ/IASDLo6ioP1aBN5wUk/VBQwYcxwfDFvkFhISXKhGc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771007223;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:Message-Id:Reply-To;
+	bh=mY3KvVQTMdhlwCwGfxZ8paH0e/fwTPQdmCblgG7lpwo=;
+	b=emu0VDIbvKpft0jaGTu82LjXNrUP9yxq0fM/SdxZsQcUHRK1EQKRKGlF7QIKpL/B
+	C5NrAoTaCsc6Nxdsi2O8aU/l61uGAfFLq4E6sDl86ZPvj6ECJwnnbOrOYAdXgAuQeCU
+	IdS3AeASN4s9jsHbzjC0jnYhIKk4RKk7WKwpw11k=
+Received: by mx.zohomail.com with SMTPS id 1771007221343248.33202963816166;
+	Fri, 13 Feb 2026 10:27:01 -0800 (PST)
+Date: Fri, 13 Feb 2026 18:26:44 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Yao Zi <me@ziyao.cc>, netdev@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Problematic understanding of phy-mode in Rockchip DWMAC driver
+Message-ID: <aY9s5PXP4zZ7R6fa@pie>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: rock-3b: Add phy-supply to
- pcie30phy
-To: MidG971 <midgy971@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>
-Cc: "linux-rockchip@lists.infradead.org"
- <linux-rockchip@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "heiko@sntech.de" <heiko@sntech.de>, Claude <noreply@anthropic.com>
-References: <20260213151452.535527-1-midgy971@gmail.com>
- <fe4c9352-7bf9-70cb-97ed-322fc739f409@rock-chips.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <fe4c9352-7bf9-70cb-97ed-322fc739f409@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_091914_918910_DD50E228 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20260213_102729_138769_94EDFB36 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,99 +83,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi folks,
 
-On 2/13/2026 5:10 PM, Shawn Lin wrote:
-> Hi
-> 
-> 在 2026/02/13 星期五 23:14, MidG971 写道:
->> The PCIe 3.0 PHY requires its power supply regulator to be enabled
->> before initialization. Without the phy-supply property, the PHY
->> driver does not ensure the regulator is enabled, causing SRAM
->> initialization to timeout with "lock failed" errors:
+I was looking through the RGMII delay setup logic found in
+rk_gmac_powerup() of dwmac-rk.c, and found its behavior is strange,
 
-This is incorrect, as already mentioned the ref clock is modeled as a
-regulator, and this regulator is both boot-on and always-on and should
-not be referenced as the phy-supply, and the reason why I did not do it
-in the initial board device tree submission.
+	switch (bsp_priv->phy_iface) {
+	case PHY_INTERFACE_MODE_RGMII:
+		dev_info(dev, "init for RGMII\n");
+		if (bsp_priv->ops->set_to_rgmii)
+			bsp_priv->ops->set_to_rgmii(bsp_priv,
+						    bsp_priv->tx_delay,
+						    bsp_priv->rx_delay);
+		break;
+	case PHY_INTERFACE_MODE_RGMII_ID:
+		dev_info(dev, "init for RGMII_ID\n");
+		if (bsp_priv->ops->set_to_rgmii)
+			bsp_priv->ops->set_to_rgmii(bsp_priv, 0, 0);
+		break;
+	case PHY_INTERFACE_MODE_RGMII_RXID:
+		dev_info(dev, "init for RGMII_RXID\n");
+		if (bsp_priv->ops->set_to_rgmii)
+			bsp_priv->ops->set_to_rgmii(bsp_priv,
+						    bsp_priv->tx_delay, 0);
+		break;
+	case PHY_INTERFACE_MODE_RGMII_TXID:
+		dev_info(dev, "init for RGMII_TXID\n");
+		if (bsp_priv->ops->set_to_rgmii)
+			bsp_priv->ops->set_to_rgmii(bsp_priv,
+						    0, bsp_priv->rx_delay);
+		break;
+	case PHY_INTERFACE_MODE_RMII:
+		dev_info(dev, "init for RMII\n");
+		if (bsp_priv->ops->set_to_rmii)
+			bsp_priv->ops->set_to_rmii(bsp_priv);
+		break;
+	default:
+		dev_err(dev, "NO interface defined!\n");
+	}
 
->>
->>    phy phy-fe8c0000.phy.1: phy poweron failed --> -110
->>    rockchip-snps-pcie3-phy fe8c0000.phy: PCIe3PHY lock failed 0x6890000
->>    rockchip-pcie fe280000.pcie: phy init failed: -110
+I don't think dwmac-rk.c does any fixup for phy_interface, so the MAC
+driver always connects the PHY with unmodified phy-mode.
 
-How did you manage to get this? Did you use wrong/bad boot firmware?
+ethernet-controller.yaml states,
 
-Please try mainline U-Boot for the ROCK 3B target, that will ensure that
-both the ref clock "regulator" and the two Ethernet phys are reset
-before entering Linux (or other OS) using the mainline Linux device tree
-for this board.
+> # Device Tree describes hardware, and in this case, it describes the
+> # PCB between the MAC and the PHY, if the PCB implements delays or
+> # not.
 
->>
->> This results in NVMe devices in the M.2 slot not being detected.
->>
->> Add phy-supply referencing vcc3v3_pi6c_03 regulator (which controls
->> the PI6C PCIe clock generator power via GPIO0_D4) to ensure proper
->> power sequencing during PHY initialization.
+So let's assume this is true for Rockchip's DWMAC glue, then the
+driver's behavior could be summarized as,
 
-As already mentioned, this is not a phy regulator so adding it as a
-phy-supply does not correctly reflect the hardware.
+phy-mode	PCB delay	Rockchip MAC delay	PHY delay[1]
+rgmii		TX & RX		TX & RX			TX & RX
+rgmii-id	None		None			TX & RX
+rgmii-rxid	TX		TX			RX
+rgmii-txid	RX		RX			TX
+[1]: if available
 
->> Fixes: 846ef7748fa9 ("arm64: dts: rockchip: Add Radxa ROCK 3B")
->> Signed-off-by: MidG971 <midgy971@gmail.com>
->> Co-developed-by: Claude <noreply@anthropic.com>
->> Signed-off-by: Claude <noreply@anthropic.com>
-> 
-> Should put your SOB at last.
-> 
->> ---
->>   arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> index c5f67dd6dfd9..a1b2c3d4e5f6 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> @@ -404,6 +404,7 @@ &pcie2x1 {
->>   };
->>
->>   &pcie30phy {
->> +	phy-supply = <&vcc3v3_pi6c_03>;
-> 
-> As a fix which need to be backported, it looks fine for just one-line
-> change.
+where only the "rgmii-id" case makes sense. Other cases come with 2ns
+delays added more than once, and would cause broken link.
 
-I disagree, as you mention below, and as mentioned in a comment in the
-device tree, the ref clk generator is modeled as a regulator that is
-boot-on and always-on that is normally enabled by boot firmware.
+It looks like dwmac-rk.c considers "phy-mode" to represent MAC's delay
+configuration. If so, the table would look like,
 
-> However, the whole commit message is misleading. power supply for
-> pcie30phy is powred up with all other phys' when booting, for instance,
-> USB, otherwise all IP using PHY should not work, not just PCIe. So 
-> actually it's not the power but the input refclk, and apprently pi6c
-> is a 100MHz clock generator which was designed to be a regulator by
-> mistake in the first place.
-> 
-> If you would like to clean it up later, you could use a 
-> gated-fixed-clock like:
+phy-mode	PCB delay	Rockchip MAC delay	PHY delay[1]
+rgmii		N/A		TX & RX			None
+rgmii-id	N/A		None			TX & RX
+rgmii-txid	N/A		TX			RX
+rgmii-rxid	N/A		RX			TX
 
-Agree, if anything please re-model the ref clk regulator as a
-gated-fixed-clock instead of adding an incorrect phy-supply.
+all cases have the necessary 2ns delay provided for both TX and RX
+signals, however on-PCB delays made by traces couldn't be described
+at all. This idea is also proved by comments in Rockchip devicetrees,
+for example, rk3576-roc-pc.dts,
 
-And please try mainline U-Boot targeted for you board if you intend on
-using mainline Linux for your board, should most likely fix your PCIe
-issue.
+	&gmac0 {
+		...
+		/* Use rgmii-rxid mode to disable rx delay inside Soc */
+		phy-mode = "rgmii-rxid";
+	};
 
-Regards,
-Jonas
+It seems for Rockchip DWMAC driver, "phy-mode" doesn't follow the
+generic definition. Should we annotate in rockchip-dwmac.yaml to mention
+the different usage of the property, or update both the driver and
+devicetrees to align with ethernet-controller.yaml? The later would
+break compatibility with existing devicetrees since there are already 15
+instances of "rgmii-rxid" found in arch/arm64/boot/dts/rockchip, but
+luckily most boards make use of "rgmii-id".
 
-> 
-> https://lore.kernel.org/linux-rockchip/35e97a41-b88b-f526-351f-d4c5f70ee4e9@rock-chips.com/T/#u
-> 
-> 
->>   	status = "okay";
->>   };
->>
->> --
->> 2.39.5
+I only did a brief search in lore but find no related discussion, please
+point out if there has already been messages around it, thanks.
+
+Best regards,
+Yao Zi
 
