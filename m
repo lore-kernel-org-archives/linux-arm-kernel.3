@@ -4,78 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC584EE369A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 09:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B415EE369A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 09:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z5QqmuQrBvbSfzwxccepjXNcjsxJHZZUf1QGqe+ZWp4=; b=dGdIpJoKflDos95StY/AYR2O7O
-	NMpMPqXIVYqK7H14K+nq+80GLxR9uHehpjcqA5iXYY7ZaaOscViXGMPWj15X53V4xn7Arfi0yPrKi
-	o6qMK/CtCvOrW38ZPtd22q68dBw3u/jWhs2dpStnQQ4xtmocy5VxB1bbDvtPmRDH6eSM86GvlF8nK
-	6zvO/heKA6LaoR9Gk/ScnizgrOqZ3woyL5maHEKmQsAGLk7SU4V6XxaEihirohEcjle9g9fCKqZfQ
-	nQ+jbBxmfia5QK6cGUUPA8tLnetPsAdN9+2/YI61tmH922X1NuOyZF84agYffVA4XsMmyL6v8ya4h
-	Y0bB8utg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:From:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H9O0hfGJ68ILZ5NSBjKdhMIkxtS3LKBC0EOPSu1XJKs=; b=ZHFkLaU6p2P4y4
+	Xq4Tsawvoepy7JIdruFF2vSOveJ4tcSDjgzXWWg+dMgoMJRaD8mWj4zTs249lgQgEKDopIRWd7aaT
+	zMnTmAmm3+T9kMs4NQ6k7301QbMalANpn3krfg4WgFnrGfEuP5TPGBP4WxkEMGsmjuiyfeKwkFSly
+	UQc1LUBoQn4SB2nWjofnOelv/XsFObAdEngNygwlAAGOwft0P0B/oZdyWJ9pcOgvPP5xuakdL+R8s
+	6BTgKQJNXQpL6D/N9xNoPSeYAXPgUxQV68kgfnunZM7sOAX0/BjOl0PN5IXwCBsvFAZqPSn9dXYch
+	juP+sWTwBP3IX+7OGrLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqpXj-00000003Ew5-1Mtt;
-	Fri, 13 Feb 2026 09:32:55 +0000
+	id 1vqpZ4-00000003F9w-2fQD;
+	Fri, 13 Feb 2026 09:34:18 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqpXh-00000003Evw-3qHu;
-	Fri, 13 Feb 2026 09:32:54 +0000
+	id 1vqpZ2-00000003F9E-1ynT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Feb 2026 09:34:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7DE16091C;
-	Fri, 13 Feb 2026 09:32:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 157A5C116C6;
-	Fri, 13 Feb 2026 09:32:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E138B6001A;
+	Fri, 13 Feb 2026 09:34:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A321C116C6;
+	Fri, 13 Feb 2026 09:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770975172;
-	bh=xsNmS3sMFINv6sJaT4EuuEnJmzEKekP8MtmtfTiiI+E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mH6gkC/JTizLJvfX6jl9NgswUC9kmfkZ9mi6DLpDS4mVuQ3M7VyNSzAP+nkzF7mon
-	 pLHb6qQR3Dfbuxmr0OeFO85yFfJw9kO267jk69Hhv7ZSD/40H7ijM3VhcAzds/EBhe
-	 SP1dhV6m0uwTRzmDxKiMTJBCV/4y6w55RRdeXUY0Mgp9jIxg+LzV+pWOvuTyeSC4Bb
-	 /J8PfcTYBRxWbsJCJgGvyYFuaV671vuiR2S+gfV0Z4xTyDtn0XSs6uKnaKGZX6t+1Z
-	 e0ys6YPuMUcu89CAkyEEVlnEy7ScG/k99N6jWMmAo/EBCgqDFUWTZkFNraWv3bOGXJ
-	 ZCYC8HO/93T2w==
-Message-ID: <e69cf0c6-f7cf-4f83-a7fc-dc4b9dfe174c@kernel.org>
-Date: Fri, 13 Feb 2026 10:32:46 +0100
+	s=k20201202; t=1770975255;
+	bh=kLzDEDU6DuCs88gMTVpNJzSWR/NAp6BxAmUjUjXlI4E=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=u4iP9FexcTOzhTjiCzCKW5MJYsKs/m7AmPTwzVI5xqamZfOG369k6PL6SZ5kjkZVy
+	 TVynqjKaILCdff1vN6sVaO8umwXTxuuoMy2Hx+nB1hxdTj27m8uP850IF6FyuvFBnm
+	 q3AjY4/Hq0X6EWK5QD29Q8bgBpYfaVEHxIv4S0rnGXBhsEz/0p1fkatkWRNKR/8ld3
+	 ctXtbEPndmoaMxl2PQbA9YSL8BY8abF2aVZ0qeCFHO/uc+zUYsOLxE9ylDFQ3z9LZd
+	 SSh3n1Gs1pgZ9futyqX81UbXFmhffYTS7Y9hqx+zqPX03zsnseTnnNS94J/UeNVm5z
+	 TIerD9lj5xqyw==
+Message-ID: <f54bd097-d56b-4f87-926f-4778476a96d5@kernel.org>
+Date: Fri, 13 Feb 2026 10:34:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/6] dt-bindings: media: mediatek,vcodec-encoder: Add
- MT8196 with VCP support
-To: =?UTF-8?B?SXJ1aSBXYW5nICjnjovnkZ4p?= <Irui.Wang@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- =?UTF-8?B?TG9uZ2ZlaSBXYW5nICjnjovpvpnpo54p?= <Longfei.Wang@mediatek.com>,
- =?UTF-8?B?VGlmZmFueSBMaW4gKOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
- "wenst@chromium.org" <wenst@chromium.org>,
- "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?TWFvZ3VhbmcgTWVuZyAo5a2f5q+b5bm/KQ==?=
- <Maoguang.Meng@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- =?UTF-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>,
- =?UTF-8?B?WXVuZmVpIERvbmcgKOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "hverkuil-cisco@xs4all.nl" <hverkuil-cisco@xs4all.nl>,
- "sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-References: <20260212100104.11863-1-irui.wang@mediatek.com>
- <20260212100104.11863-6-irui.wang@mediatek.com>
- <20260213-didactic-whispering-impala-ea9e64@quoll>
- <13bf9b8673c6d47e07dee4a233945ed542e9b4f3.camel@mediatek.com>
+Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: k3-dsp: Add C7xv dsp variant
+ for J722S
 From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Hari Nagalla <hnagalla@ti.com>
+References: <20260213001151.17370-1-hnagalla@ti.com>
+ <20260213001151.17370-2-hnagalla@ti.com>
+ <20260213-poised-archetypal-trout-fcb5d2@quoll>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -120,9 +97,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <13bf9b8673c6d47e07dee4a233945ed542e9b4f3.camel@mediatek.com>
+In-Reply-To: <20260213-poised-archetypal-trout-fcb5d2@quoll>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,118 +111,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: nm@ti.com, robh@kernel.org, conor+dt@kernel.org, vigneshr@ti.com, mathieu.poirier@linaro.org, devicetree@vger.kernel.org, andersson@kernel.org, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, b-padhi@ti.com, krzk+dt@kernel.org, kristo@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2026 10:27, Irui Wang (王瑞) wrote:
-> Dear Krzysztof,
+On 13/02/2026 09:13, Krzysztof Kozlowski wrote:
+> On Thu, Feb 12, 2026 at 06:11:48PM -0600, Hari Nagalla wrote:
+>> J722S uses the C7xv DSP based deep learning engine similar to AM62A,
+>> but the reset and module enable integration in the SoC is little
+>> different. It does not have local reset from power state controller.
+>> So, add a new compatible string to distinguish this difference.
 > 
-> I sincerely apologize for taking up your time to review and respond to
-> this patch. The maintainers' review comments are very important to us,
-> so we will never ignore them, there must be some misunderstanding in
-> this process.
-> 
-> On Fri, 2026-02-13 at 08:52 +0100, Krzysztof Kozlowski wrote:
->> On Thu, Feb 12, 2026 at 06:01:02PM +0800, Irui Wang wrote:
->>> Add support for MT8196 video encoder which uses VCP (Video Co-
->>> Processor)
->>> for firmware management. Unlike previous platforms that use
->>> SCP/VPU, MT8196
->>> requires VCP to load and execute the video encoding firmware, with
->>> the
->>> encoder communicating through VCP to perform encoding operations.
->>
->> Again, read review from v2. Subject is still wrong.
-
-Here "read review from v2"
-
-> 
-> From the reviews of v2 and v3, my understanding is that the patch lacks
-> details, so we add more description for current modification, for 'VCP'
-> usage. So we are very grateful if you could provide a `correct Subject
-> ` example for us, thanks a lot.
-
-You received one at v2.
-
-> 
-> 
->>>
->>> Add the "mediatek,mt8196-vcodec-enc" compatible string and
->>> introduce
->>> the "mediatek,vcp" property to reference the VCP device, which is
->>> required for MT8196 encoder operation.
->>>
->>> Signed-off-by: Irui Wang <irui.wang@mediatek.com>
->>> ---
->>>  .../media/mediatek,vcodec-encoder.yaml        | 19
->>> +++++++++++++++++++
->>>  1 file changed, 19 insertions(+)
->>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/media/mediatek,vcodec-
->>> encoder.yaml
->>> b/Documentation/devicetree/bindings/media/mediatek,vcodec-
->>> encoder.yaml
->>> index ebc615584f92..4c8acebeb9d3 100644
->>> --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-
->>> encoder.yaml
->>> +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-
->>> encoder.yaml
->>> @@ -24,6 +24,7 @@ properties:
->>>                - mediatek,mt8188-vcodec-enc
->>>                - mediatek,mt8192-vcodec-enc
->>>                - mediatek,mt8195-vcodec-enc
->>> +              - mediatek,mt8196-vcodec-enc
->>>        - items:
->>>            - const: mediatek,mt8186-vcodec-enc
->>>            - const: mediatek,mt8183-vcodec-enc
->>> @@ -58,6 +59,13 @@ properties:
->>>      description:
->>>        Describes point to scp.
->>>  
->>> +  mediatek,vcp:
->>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>> +    description:
->>> +      Reference to the VCP (Video Co-Processor) device that loads
->>> and executes
->>> +      the video encoding firmware. The encoder communicates with
->>> the firmware
->>> +      through VCP to perform encoding operations.
->>> +
->>>    power-domains:
->>>      maxItems: 1
->>>  
->>> @@ -76,6 +84,17 @@ required:
->>>    - iommus
->>>  
->>>  allOf:
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          contains:
->>> +            enum:
->>> +              - mediatek,mt8196-vcodec-enc
->>> +
->>> +    then:
->>> +      required:
->>> +        - mediatek,vcp
->>
->> And here still did not implement the comment. So basically you did
->> not
->> implement fully v2 and v3.
-> 
-> If you are mean about the `else statement`, I left a comments and want
-> to get an explanation from you, if you feel that my reply is
-> unsatisfactory or incorrect, please let me know.
-> 
-> The key point is that our patch can satisfy you and get a Reviewed-by
-> from you.
+> This does not explain lack of compatibility. You ALWAYS add new
+> compatible string. ALWAYS. Drop the last sentence and fix the patch.
 > 
 
-Neither your answer, nor commit description here are actually ANSWERING
-to my comment at v3. If you answer with irrelevant/unrelated comment,
-the reviewer's feedback stays. OR explain please with different words
-why other devices have vcp but your commit msg says they do not have vcp.
+
+And by "fix" I meant express compatibility or explain better why local
+reset is different than resets property, which applies to new device.
+The entire picture made by commit msg and existing binding is just very
+confusing.
 
 Best regards,
 Krzysztof
