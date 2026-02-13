@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49195EDF154
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 11:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F372EDF154
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 11:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1sfEh3PBJWD07hYds4N9dI7mviBas2gIyECRd0DbjpM=; b=S1HuMCpaQcqsX0tcsl54bVBm6r
-	REaMWi/qJovxa+yk+FQTRovv8nPA8am0vMK/Gc5IezlPHQmvs80C4LLMRamG5SgINlmAoZdxWqoON
-	nxNcJ5OzHaLwZ/Xxxme7A+LvBmkmOiP+fGhHumqNAurtrcICiH23r0wypIHPCXCgpaxDGx01ziGyN
-	ayL0lQb9Oo92nK5GP7/NRhzJ0OFhhClNO9cpHQXQxOVanJmH1qdjg5CNqUi1zBxit9w9puXYHgBba
-	KvHwPdWM8Pen1zPc7UasoNgwYhBRQ5ugrRHfo+jrwPC+l3qRRnPkF+ImKi1X4M1yuIGruB1jBh6Cz
-	bvYWHN5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dUnI+6T5xFaMCNRjMQt0zFHUYFPfSYLFKH8ymoS3U+o=; b=iX5vhgD3tQSOhAa+6WwH4DiuDQ
+	/Pf7kAcNX0860WbR2Ss2cHIYT7hoiYCgNLlBqrH+oNYuAqfL8Slr8D+n+3RKPHbe+aiHUC9fwe6eF
+	QGeqHABJdu5bEMWhvfs1xgFvfXBh2/f2ZpT475g34UlAnxFJmkiRIbq85EvWvc0l2ZWP7D6ELkv7U
+	xHDPJzL9zsbat4Wz7qLlLrJD1XXRV1QQKK3Kkm1wLsZvDMpNZyYKALs+JFie6DYO3XybFnNpjH6i6
+	oTYZHDvQhXVEAiNdl7ns4CVScn+oB53Py1e65prE/TdTzlc4K0jwpHRpCzUEzwsoggEIOzeo4Q5b/
+	JCN/5MJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqrhj-00000003Q2B-0EJf;
-	Fri, 13 Feb 2026 11:51:23 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1vqrml-00000003QRd-3kHz;
+	Fri, 13 Feb 2026 11:56:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqrhg-00000003Q1g-2JBP
+	id 1vqrmi-00000003QRB-1fen
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 11:51:21 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-65a3c6f587cso1102985a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 03:51:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1770983477; x=1771588277; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-disposition:mime-version
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1sfEh3PBJWD07hYds4N9dI7mviBas2gIyECRd0DbjpM=;
-        b=b8pZoNW7medpSoaWbmjq3n/GLNmNkeEAqmi8siL92hrO3Px8WTSJkJ7WpnRkhtK69e
-         oH3HksUc017wX6XSNauIOn8zNiBlws5UN+gLedMH6y3kjXGgt9013x7lOdwLXtWRv0XZ
-         tGtvbLW/2zVHWFtEWQVKv8yHt9H2mxwYWr1pkAMeVcCMRHheWCfKBF7yHJvkDxm2KSEW
-         o3d0ja6vwFDb+4EJhmYVc83cna9QzwNhIW7Fq04rV4mzlMCVyWDuUEdKtAayJNSUA37z
-         ua/NOc0MrqPbh1v3VuwM+apxQhTNl1/z6e6JXlpNs2cMenZmiCpBLErDxNue226Qn/lj
-         XHww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770983477; x=1771588277;
-        h=content-transfer-encoding:content-disposition:mime-version
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1sfEh3PBJWD07hYds4N9dI7mviBas2gIyECRd0DbjpM=;
-        b=ej9/qEWyNScBV+Mdk0KdFQi0s6Dx+xfWsvjfF57l3BXnzX9czKUOvRNeL1BoSAuli7
-         lb6dolBetSZznkEcN0wWY1gBEjO39VUt4DgEmVOn9CWe2/vvI6nMCQBa7vnS5vRspcuf
-         5zxkSmXoYGwrGL/6etBYO4PtuOEJ7wZj+XKri72Ud+Yu2ShM8Zw2zZx6Wm4FIMO43ks8
-         HUZZ4ECMMV8sJ+TEUJro4xO9AYFWwwMNso9GrLk24wkk2KBgL5zjRO5Q9OeYkvLkJojj
-         vo5vddA8otm0XSpHFgN4ks4hfhSoVLqAlrAB1NO9+m/QhmMf8noXF414WUUO6RDMx7Ns
-         GJZg==
-X-Forwarded-Encrypted: i=1; AJvYcCWOxgXkruqUK5WeASD5o1kLiDe7RlLTc3CUlmvS3YTM7tVwaZkKDvjH0HCqHy8mCva2aUI/se/KOgEMzp6vRGV5@lists.infradead.org
-X-Gm-Message-State: AOJu0YySv6JjYnQ3YlaLODkA5CuBU6w263o0fyVEeZXYClQdK9Z6kd+u
-	nppJQQ3dqCVJ6CmbEGZkR9GRoJDMsdH+O4+szPhVpj3n2VgwNlRXAnGExIAkJo4mHA==
-X-Gm-Gg: AZuq6aJY//nUPNkwgWQNYQpsTsywShO7XhhBVQ539p2qi8O4SEECIar3VxkE5qPp7GN
-	Yc7jbQRn10/fM0lcU6vL5NWHC2MleomipRK0zN8ydeW9QOhB1yam+RtmC5AjmAQDnOJZKbemRAj
-	4khyayrpfds7183BiDdKllLCDD1LTiDByn0nOCLaWah3u8ZP3TijgKngSXHRb4eK2R/Tz8ILpcX
-	+POIpnGRHH/2wGl7447PRyhHdWQTlfCmkXF98J8/FrWLc7ja141oG0r7VOw8htvQA7FtIx7bQXp
-	I4leJ5hSWLhphdaPOBVbppEHIGmTHk+1bCBnK3HbNfMIO5JtnKa9mk9Yd5lTDvDETcKYHZem/Et
-	9iobd20ikqfApnBbQ/pPXIb+8HDS/OgsOh3ShKDC167APMdmQ5ognHa17uf7xr2694ogxbPJBOW
-	FA9bxfFHZiXELTVhcJ3stB8BRlHRZxWx98+bI9B/Wf9M2sZVtgLycc/LHQa5YD
-X-Received: by 2002:a05:6402:5252:b0:65a:39ad:d655 with SMTP id 4fb4d7f45d1cf-65bb116de4amr646620a12.20.1770983477058;
-        Fri, 13 Feb 2026 03:51:17 -0800 (PST)
-Received: from google.com (105.165.204.35.bc.googleusercontent.com. [35.204.165.105])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-65bad3f0d09sm585900a12.25.2026.02.13.03.51.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Feb 2026 03:51:15 -0800 (PST)
-Date: Fri, 13 Feb 2026 12:51:07 +0100
-From: =?utf-8?Q?Pierre-Cl=C3=A9ment?= Tosi <ptosi@google.com>
-To: catalin.marinas@arm.com, will@kernel.org, suzuki.poulose@arm.com, 
-	maz@kernel.org, corbet@lwn.net
-Cc: yee.lee@mediatek.com, ascull@google.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: [PATCH] arm64: Optionally disable EL0 MTE via command-line
-Message-ID: <plslbeuzfag5dfizunxmhyw5axxbuz7r3jdlhjluzdwrm4rtzk@bm5xmxzmy6v3>
+	Fri, 13 Feb 2026 11:56:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 15DA7416C0;
+	Fri, 13 Feb 2026 11:56:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4061CC116C6;
+	Fri, 13 Feb 2026 11:56:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770983790;
+	bh=XQNPzZWydc6p77Rgg7V3csOKfyOPpgvpVR5E6zDGYhQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MKpMeL91vkzu4lrNrwMW7UCg1wpxzL496yPwACeCgxvR74/pQqKlghNhbtOJyFFwE
+	 Zqgk6IQHtNf7Z7aGPt2cTuWZh4LydmHns4n1eLaX09J+LTxv1RcTzyJXOI12MknKoq
+	 k8/UebDeW5KrMfg8D91SjW2g6gZQPRWlEaA6uFTuNsR6Hmr+Au0mWdOGuBwGbQr1zh
+	 5T4xK9UsjscSgju7qrIn9EAvTUOw+LTNyEGJ/kdPh/jI/TKb3HVXyWEJ9s+xrgdi5N
+	 tiLQuHUWzw6AVH9Rm/u4aS9DIEnBOBfyrXDKitfM+D7x/bMAS0B8qVSX8KCcWPypEt
+	 C3ms6oY9DGrXw==
+Date: Fri, 13 Feb 2026 11:56:25 +0000
+From: Will Deacon <will@kernel.org>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Jianpeng Chang <jianpeng.chang.cn@windriver.com>,
+	catalin.marinas@arm.com, ying.huang@linux.alibaba.com,
+	ardb@kernel.org, anshuman.khandual@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [v3 PATCH] arm64: mm: Fix kexec failure after
+ pte_mkwrite_novma() change
+Message-ID: <aY8RaYnzeFxb8DLT@willie-the-truck>
+References: <20251204062722.3367201-1-jianpeng.chang.cn@windriver.com>
+ <73e9c019-abd8-4914-a70a-277142e4f306@roeck-us.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <73e9c019-abd8-4914-a70a-277142e4f306@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_035120_610219_1C7A1573 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20260213_035632_504112_BDFF689D 
+X-CRM114-Status: GOOD (  23.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,97 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Although it is currently possible to fully disable MTE on MTE-capable
-CPUs (with arm64.nomte or id_aa64pfr1.mte=0) and to only use MTE in
-userspace (with kasan=off), there is no way to limit the use of MTE to
-the kernel because CPU capabilities are traditionally exposed directly
-to userspace.
+On Thu, Feb 12, 2026 at 10:51:45AM -0800, Guenter Roeck wrote:
+> On Thu, Dec 04, 2025 at 02:27:22PM +0800, Jianpeng Chang wrote:
+> > Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
+> > pte_mkwrite()") modified pte_mkwrite_novma() to only clear PTE_RDONLY
+> > when the page is already dirty (PTE_DIRTY is set). While this optimization
+> > prevents unnecessary dirty page marking in normal memory management paths,
+> > it breaks kexec on some platforms like NXP LS1043.
+> > 
+> > The issue occurs in the kexec code path:
+> > 1. machine_kexec_post_load() calls trans_pgd_create_copy() to create a
+> >    writable copy of the linear mapping
+> > 2. _copy_pte() calls pte_mkwrite_novma() to ensure all pages in the copy
+> >    are writable for the new kernel image copying
+> > 3. With the new logic, clean pages (without PTE_DIRTY) remain read-only
+> > 4. When kexec tries to copy the new kernel image through the linear
+> >    mapping, it fails on read-only pages, causing the system to hang
+> >    after "Bye!"
+> > 
+> > The same issue affects hibernation which uses the same trans_pgd code path.
+> > 
+> > Fix this by marking pages dirty with pte_mkdirty() in _copy_pte(), which
+> > ensures pte_mkwrite_novma() clears PTE_RDONLY for both kexec and
+> > hibernation, making all pages in the temporary mapping writable regardless
+> > of their dirty state. This preserves the original commit's optimization
+> > for normal memory management while fixing the kexec/hibernation regression.
+> > 
+> > Using pte_mkdirty() causes redundant bit operations when the page is
+> > already writable (redundant PTE_RDONLY clearing), but this is acceptable
+> > since it's not a hot path and only affects kexec/hibernation scenarios.
+> > 
+> > Fixes: 143937ca51cc ("arm64, mm: avoid always making PTE dirty in pte_mkwrite()")
+> > Signed-off-by: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
+> > Reviewed-by: Huang Ying <ying.huang@linux.alibaba.com>
+> 
+> We (Google) experience this problem with servers utilizing the Ampere Siryn
+> CPU. It now bubbled down all the way to v6.6.y (and maybe further),
+> essentially making kexec unusable on affected systems unless the backport
+> of commit 143937ca51cc is dropped.
+> 
+> What is the status of this patch ?
 
-To address this, introduce a new cmdline argument (inspired by the
-existing arm64.nomte) to only expose the MTE capability of the CPU to
-the kernel. Combined with KASAN, this results in only the kernel using
-the feature, while HWCAP2_MTE and the corresponding MSR ID_AA64PFR1_EL1
-field are hidden from userspace.
+Catalin and I would prefer to treat kernel mappings as dirty, as
+suggested in:
 
-Implement it as a software-only feature override, similar to nokaslr.
+https://lore.kernel.org/r/aVgUPNzXHHIBhh5A@arm.com
 
-Signed-off-by: Pierre-Clément Tosi <ptosi@google.com>
----
- Documentation/admin-guide/kernel-parameters.txt | 3 +++
- arch/arm64/include/asm/cpufeature.h             | 1 +
- arch/arm64/kernel/cpufeature.c                  | 8 ++++++++
- arch/arm64/kernel/pi/idreg-override.c           | 2 ++
- 4 files changed, 14 insertions(+)
+If somebody sends a (tested) patch, we'll take it.
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 0869294363b3..4d138c1826f0 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -564,6 +564,9 @@ Kernel parameters
- 	arm64.nomte	[ARM64] Unconditionally disable Memory Tagging Extension
- 			support
- 
-+	arm64.nomte_el0	[ARM64] Unconditionally disable Memory Tagging Extension
-+			support for userspace
-+
- 	arm64.nopauth	[ARM64] Unconditionally disable Pointer Authentication
- 			support
- 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 4de51f8d92cb..0944ff5084a2 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -18,6 +18,7 @@
- #define ARM64_SW_FEATURE_OVERRIDE_NOKASLR	0
- #define ARM64_SW_FEATURE_OVERRIDE_HVHE		4
- #define ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF	8
-+#define ARM64_SW_FEATURE_OVERRIDE_NOMTE_EL0	12
- 
- #ifndef __ASSEMBLER__
- 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 6044d463d3fb..81ea00050e56 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2412,6 +2412,14 @@ static void user_feature_fixup(void)
- 		if (regp)
- 			regp->user_mask &= ~ID_AA64PFR1_EL1_SSBS_MASK;
- 	}
-+
-+	if (arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_NOMTE_EL0)) {
-+		struct arm64_ftr_reg *regp;
-+
-+		regp = get_arm64_ftr_reg(SYS_ID_AA64PFR1_EL1);
-+		if (regp)
-+			regp->user_mask &= ~ID_AA64PFR1_EL1_MTE_MASK;
-+	}
- }
- 
- static void elf_hwcap_fixup(void)
-diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-index bc57b290e5e7..758141bf9e37 100644
---- a/arch/arm64/kernel/pi/idreg-override.c
-+++ b/arch/arm64/kernel/pi/idreg-override.c
-@@ -211,6 +211,7 @@ static const struct ftr_set_desc sw_features __prel64_initconst = {
- 		FIELD("nokaslr", ARM64_SW_FEATURE_OVERRIDE_NOKASLR, NULL),
- 		FIELD("hvhe", ARM64_SW_FEATURE_OVERRIDE_HVHE, hvhe_filter),
- 		FIELD("rodataoff", ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF, NULL),
-+		FIELD("nomte_el0", ARM64_SW_FEATURE_OVERRIDE_NOMTE_EL0, NULL),
- 		{}
- 	},
- };
-@@ -244,6 +245,7 @@ static const struct {
- 	  "id_aa64isar2.gpa3=0 id_aa64isar2.apa3=0"	   },
- 	{ "arm64.nomops",		"id_aa64isar2.mops=0" },
- 	{ "arm64.nomte",		"id_aa64pfr1.mte=0" },
-+	{ "arm64.nomte_el0",		"arm64_sw.nomte_el0=1" },
- 	{ "nokaslr",			"arm64_sw.nokaslr=1" },
- 	{ "rodata=off",			"arm64_sw.rodataoff=1" },
- 	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
--- 
-2.53.0.273.g2a3d683680-goog
-
-
--- 
-Pierre
+Will
 
