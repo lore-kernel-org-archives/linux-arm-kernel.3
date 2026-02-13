@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A437EDF14B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 10:13:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62A0EDF14B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 10:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vkKgfcqj0yJ2tNeHyeW6gL/W/zp+WdhZpQqn7k06pos=; b=axIchHP4Pfvn2vHEMNj3H33LIR
-	hBKh6vQQjAliW2IaKGfW4NrIzRnx44clS41EynfvphaJzn7C9u4f0D+SMbJdxXbHU6vyWcLgLdmes
-	jTGg9PWbJrv5ooogQ32OWWOoXQ6bwe4vLT20IzJywaDzzulQ+1H+CWSO3vVNtEeO+JXqdjAaM30sa
-	yvtVjgqH/3ecf/1CX8OH1CnWV9VEn5gyVDMFM8HPmoINLxsjyu9gaGu/nCMkKzcZmBKzI/wpHXG0E
-	mfDygIhA1nf+GMj2DmiLQCDyj2R99Zpm//w2l20JWktD9SF34Zo9Vnvg2gpVFv5ac7ycsBzFaAoQK
-	r6c8xrcQ==;
+	bh=o4cmEbRVa12+1HmbCNWlqbqsoNcLZDYpxce1J5WKWoE=; b=xf5Hxt1EWsuudreoPFrqkvLHgd
+	NFzqFEz86nS3we+urVuIL2bsPPnjqNkRcvGexsru56Z8ANPnaez7AowRJawkSL9Sn4cTMdJJgPfQp
+	Sgr9T78rfAXVwOoiIz1xebjUob5GvDlKA8C0Bf8sJBlsz+YcDhKNm0dTKTTZhowEN0ynCaVaNpVQc
+	PYTw73ww+z70kxl9bhpeu1IqN4WFetZMv+AArnU7+97fqUBqF2ZHSAMWshimsbskPSTJTCe0JesXm
+	DaioAu0E4TsPjyq/cV+ELXOSkLfheZOsCp+3N+MX7zgSmMuLlwdSw4XKvAAYdpcQpG9BzkRr4jzs8
+	CoQNyong==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqqBB-00000003Icx-1Wmr;
-	Fri, 13 Feb 2026 10:13:41 +0000
+	id 1vqqBg-00000003IiI-1CZJ;
+	Fri, 13 Feb 2026 10:14:12 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqqB8-00000003Icc-3Yg6
+	id 1vqqBd-00000003Ihv-2wnc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 10:13:40 +0000
+	Fri, 13 Feb 2026 10:14:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7528D409B2;
-	Fri, 13 Feb 2026 10:13:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2DC7C116C6;
-	Fri, 13 Feb 2026 10:13:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5274243BBF;
+	Fri, 13 Feb 2026 10:14:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A793C116C6;
+	Fri, 13 Feb 2026 10:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770977618;
-	bh=3c+cS/RiXj9a/tEsq8JFGH5GzbvMKF6sOirprFgjT/w=;
+	s=k20201202; t=1770977649;
+	bh=l5CYjcIX7ife3jcMHM5FPH09SSROAye2bDFMHLwLPa8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PRn9owiA8dET1O88GwUFAFCRiKFBamqnR9AHl28sOvnkG4oKsz4ypEdvAnvqK34Zb
-	 aOQj3wPF8mNFmJUpr2VOQ8Galo43gEaWQ01Odr4wV6QCmjQKY/HIrtx/9x86kjIu9B
-	 wKjaSFv/mZU9TrnBuotiELNCUHyUp0+fLKzUJ5KS/k5CAD0cCaLBk6onVbX4afrMk4
-	 ti7nT1NMNL3sjxLfzNHyCpmIOiQ3+0C4KAHnNhmfEn4KCZsaI2i+NHR18qGw03qoPH
-	 SsA5CVqZf0532zldeKX4YU0E9rvk235XPLA6e9P7G7FfBrPPp6e9ptF3rbozRGmo7T
-	 OskmHJIsazMVg==
-Message-ID: <1c12b053-0081-464d-8f1b-3033e0b73f51@kernel.org>
-Date: Fri, 13 Feb 2026 11:13:31 +0100
+	b=s+NSQx3fiUuq9jbg9LErpzv/uR1h2Ezs69bB/p3kQ6FuWyPi+1jCeJDRTmBcbFPr3
+	 3zG4HDC5O8SDQzhJ8dzQPXMI/iMZ6JIolrmBwsiH33xkM/kTcizliQXUcMTYu8MTTO
+	 cL9/kZF1Y7i5g02siyAxcnv6qw2duPvGKXlwg7SBQCl+w4Rpt6S7eku1ObX0xCvxLw
+	 LEKaanZLQdB0vEUz2jc2PvjYue029FWkdqHyRIVhDlP9UaMBDYQzT3QKTJiT3zUUFY
+	 G7iDEBG/XXl6aMChF5Tt7eruUiOuF2CC81BzhKyx3fqa8qWaYFGnuoC8TQUV8DD6AF
+	 ETLF2w5JQK5qQ==
+Message-ID: <1322b378-0208-4af8-b86c-5491c48aecd9@kernel.org>
+Date: Fri, 13 Feb 2026 11:14:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/7] arm64: dts: exynos: gs101: Add thermal management
- unit
+Subject: Re: [PATCH v2 7/7] arm64: defconfig: enable Exynos ACPM thermal
+ support
 To: Tudor Ambarus <tudor.ambarus@linaro.org>,
  "Rafael J. Wysocki" <rafael@kernel.org>,
  Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
@@ -63,7 +63,7 @@ Cc: willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com,
  linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
 References: <20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org>
- <20260119-acpm-tmu-v2-6-e02a834f04c6@linaro.org>
+ <20260119-acpm-tmu-v2-7-e02a834f04c6@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260119-acpm-tmu-v2-6-e02a834f04c6@linaro.org>
+In-Reply-To: <20260119-acpm-tmu-v2-7-e02a834f04c6@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_021338_952537_CBA40EB8 
-X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-CacheID: sfid-20260213_021409_787593_A731EE97 
+X-CRM114-Status: UNSURE (   9.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,26 +131,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 19/01/2026 13:08, Tudor Ambarus wrote:
-> +
-> +			cooling-maps {
-> +				map0 {
-> +					trip = <&little_control_temp>;
-> +					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-> +							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-> +							 <&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-> +							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-> +				};
-> +			};
-> +		};
-> +
+> Enable the Exynos ACPM thermal driver (CONFIG_EXYNOS_ACPM_THERMAL)
+> to allow temperature monitoring and thermal management on Samsung
+> Exynos SoCs that use the Alive Clock and Power Manager (ACPM)
+> protocol.
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 
-If there is going to be resend, drop stray blank line.
-
-Otherwise looks fine, so please ping me when binding is taken to thermal
-tree.
-> +	};
-
-
+I'll take it after driver gets accepted.
 
 Best regards,
 Krzysztof
