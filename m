@@ -4,77 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD82EDF150
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 11:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E6DEDF152
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 11:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5PY/PDkzPkXdYz4yf2i4/U2DRJK06ntsFOSUnN+RRmc=; b=BoLGFUwh58LxWUT8iAkAszLHjW
-	i9ZGx2WK++1RAW74xQ/W2IsS567k2WW5RvDW6wi04aW4YYUFAXQT0SKFsEagNoQtLzGwxptvaJXKh
-	mcqF7hXSOVCbgoU5uI+uPRqZmwJpyj/BkLcx+PqjHda8HyJRgbka60asK9RnhxPqI4CiAgc13gl1s
-	1YL0+BWAvtQzL80ooo/dPETeA01LyccCtQZnKUG3s4woMvBYxeqbthiOaEuLXmFLwmBVTRbzlRhR/
-	4w2xX/d8kHdSOYDXh2hHT0fWKAmkZ78gCcQY937O9KqF6XOr7Ykw00+6saWu/xZybAQ8oORnG+Q/5
-	Qz0V/VmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BhioMr+TlEkKghKMNX83e9mEkIV+C0EY/uR4/Y90u/g=; b=kJ4QlKg+c4gRSVZrrNMI1knpcC
+	cVD3JJFr1u0TXxoJ+lFCpW6Z0ExwfwS3uJ+OEUG6d1h5sDkiYwzhDFS5C4y0qoXgOlv9bLFXBpYWd
+	CuHme7C5YHW24b9YzS32e7jvv29ifR+wpXKBhzqO5w4XkKQJcKmhNQI6AS2pnoqftZ7mTOk00U9PG
+	Fnj0l3EKaBnAYmWFh3Tc1wSiqdrXc6S1Eo9aZftLZD3Df8Xx8+fDg252CMWyTG9OPXxLFZeMn0Cxc
+	fJcSwtqx5J8+l2cowU7XfD08nh9WmnOJFQ9TjJuQLpGRSDh+3iGPmgGpmXaDeJn62c8dXHYjXzFVj
+	hZpG1now==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqqyH-00000003MR3-1SoB;
-	Fri, 13 Feb 2026 11:04:25 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vqr1h-00000003MpR-3hrx;
+	Fri, 13 Feb 2026 11:07:57 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqqyC-00000003MPy-1iYk;
-	Fri, 13 Feb 2026 11:04:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770980657;
-	bh=4nZFI6B+4DaZ1xwgKXUjqRowetvZjkztwjYyqHMz+xc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=plpyxtUIxFe/gOImlgAHoJUSgVdLvn0eJMXXj/FJyqzIalCK1zIypr0FQ1HGJ1pAY
-	 3jUR1T9E4is+Xl8N6JbB/VRPv7MsKU5+j0vmn2JyNglpCU2cE5iS1l3xTAuhuIWZdr
-	 zTUxqpABXVdGZDyZWcLcwXosI8VcXrm0GDQWJvxB9pNXEBYLgXrWIvoeFy+QblZR61
-	 pJFzBWwLlgs70SJ6t/5WgXMN0faGiFqECbVfofSI9U4Xxtfter8u3iERgGxBCt+Kq2
-	 l6SxBhdXnys+wtZtINxvexBOgSd/WW9dk1ljzueIJh0+RXPUc0ogy0bjladzq17/aO
-	 FAnQ+k1oNXTOA==
-Received: from [192.168.1.90] (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9B4A217E1406;
-	Fri, 13 Feb 2026 12:04:16 +0100 (CET)
-Message-ID: <f73fe751-5812-4f27-b4ad-19f214c6e49a@collabora.com>
-Date: Fri, 13 Feb 2026 13:04:16 +0200
+	id 1vqr1f-00000003MoR-0F1D
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Feb 2026 11:07:57 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-5069a785ed2so343531cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 03:07:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770980873; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ad/xuQfIIQ/1u6Lou+h/n7NtSPR60P5E6+Fw0k6X3kwJvfujwqvQNrZr59c7qnuSnZ
+         kBWgLu037CV00f/xST3Wlb5f7sLWB3gIO1v3ULUJ3zt4JGShii4yIY2rdb1a2eFEbQLQ
+         pL6sH8A/7C8c5LuStXtgb2AQ0Em4YiYwVg1IFQ3HWxR/8jF6taFSJFj/TziGoLNtDl8/
+         367tdJSb8BxZEyFflXbhI0Nc/IY+XWwYdDgYV5E5w1geYr5YPqgMJfp+fdT0pZk/xjJu
+         rFOT2NF4f5P+xT2h1imdxSp10T3RE+Yc0y15x1nz6bIzlHErSNE116VcmEODoMtvaewi
+         4h/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=BhioMr+TlEkKghKMNX83e9mEkIV+C0EY/uR4/Y90u/g=;
+        fh=820zr5DyRGrrKi+yv9ntjFfyb7Tw0r/fBaF8tEBQWpM=;
+        b=FtYHEz3Jhe7XO3a1l/nUQq/2wwBkuRjj9JVXCwWNxCitYh16dSLg5vx/tVZyYEZT4+
+         AsCoA9UnUTbcUPhDB7jg+PTrNmm6dYLjmMjI/fAotV84qyXlcTT1aqgFko8FqY1GK400
+         aFt1Fm2NWczin7yHjKvDd4l04jzYM0xrizwXCrbflPpyJGw7tHcsAGDjfktf5R1CcUGr
+         aQvpfrPPKCulQEPjhsYBSr5rGsY174WU1h9pB9KSsO1BM0jkxXGNFZiybfqwegSaBsP6
+         gGxKE+Z5kKOwnKIC49I78/dh6il1wNCr0N8kNg4K9O746UBFwwldZtBTtpfBvJzYvTlF
+         /3WQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1770980873; x=1771585673; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=BhioMr+TlEkKghKMNX83e9mEkIV+C0EY/uR4/Y90u/g=;
+        b=1uFcSww8/lSSO5/qxlK8fqhWhhxmGDAVfItc8ok1F2x12AE7Ya1LP+1r9JO49W2x1H
+         QXUDHj32MQyOl71bgB8azWkNGwjCXSYbltakwtxvTAmu1kKCzzl/JxyTbcDQFKsfXU2m
+         //rpPg7aJAAg9xuJC48CB49Iv28/KofjhOqJ/eIIm83Y3YvLTeJNXHQgUadJUskSkjj3
+         JjAw0K+tukVfsljwUKjfNp33GGmWih5pbwANIYsnAD07vVDdC1Ybb/K1GSFkL31uHfM7
+         4p7xS0GhENuGSeCBs3av6pagUaCAIT7w5g6i7YTsjfNdKJRJy6i/UqwsK4IyeCeyl5eT
+         PQ7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770980873; x=1771585673;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BhioMr+TlEkKghKMNX83e9mEkIV+C0EY/uR4/Y90u/g=;
+        b=eoavtkanJ0wAfOwrZ0lZpiAF7cCEAJOC/qF+n4Die6IMxpH5e5iD1fmElZ1tQp+cp4
+         izCR9+ClRXBGEUNYhZexrhDnevBCWPNk09dUav3Qjkc7O0msc46iHSCwk4KCxt/S8ncd
+         Fq8f85lM/WUcSNKeCVoT74lFhROipvmkClkEGBYKn2lZtUgfylTM56zsu8N0tFNRv0wf
+         VlrRq4uUpsctsOnaWyICZjZI9ZPQt/qAggGerAM/JTAusF8jRMWPw+W2OjLYHgGDLsUf
+         Aech7tQPrYxvV9k9bwz4u06fINtsG6KyFoJyr9boksgZnTawewQkVzC6wPtCp2fuZ8x8
+         sf4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXyTg3pkeldoA/RsPJ5XR+6v8Jd+4OJF7r9CwZE0XIXFXGGaoKAi1ZjKLgwgerNPrXtu7kPZ5r2fWgXHw9bQAzp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyPVa8P1sSVq5fEFkLp7gb1qF7TkEJ5KeEL4CFu8jX5jRQEQk6
+	rqU5LzxHjZP8vLzuhwYc48eZVleTLbIbeIEaGCN+hGRIkSCXJ+4/WqNxxvG4j6DlRFNSVt8THfY
+	Bv8dcMykzURkLidR7XFPckiz9skR0wxYZyR6UhsyO
+X-Gm-Gg: AZuq6aIsF+UpHxIjcxY0P2IIGlWSDkW4jpxqH/jJLSfJJlUFstxyFURVquREQ+RPvgO
+	Wqc29x3SarYqYGmPGGSF2DwyEkx7lKOYjblRLUy6hmh4bjc1b97J8He/k841gNfm2ytcy8GfWlK
+	YwNQNuLUNN4x0jJo18hpXZ274efsmu3UA9GHTHDTYbe5UZPi8LJuOp2KCIeQOkTmR+gJXS4MK69
+	WWg0UDUYgoqCzkNJ5ZPt0sd8ZlUadwe0OQW5rC7FYH6GgvKINMgq4N+lijLP1PZLoIdgvBfnBG7
+	sfeL8FU/
+X-Received: by 2002:ac8:5794:0:b0:4ff:bfd9:dd31 with SMTP id
+ d75a77b69052e-506a8434debmr6596891cf.5.1770980872383; Fri, 13 Feb 2026
+ 03:07:52 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] drm/rockchip: vop2: Support setting custom
- background color
-To: Andy Yan <andyshrk@163.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>,
- Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com>
- <20251219-rk3588-bgcolor-v4-4-2ff1127ea757@collabora.com>
- <2750b73.10b0.19ba61052c8.Coremail.andyshrk@163.com>
- <9e4c8514-63e9-4ff7-85b1-b5af7dff9a2d@collabora.com>
- <67fb66b7-eee7-4109-8127-385593e88425@collabora.com>
- <539febc7.2cf9.19c55d3dfb0.Coremail.andyshrk@163.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <539febc7.2cf9.19c55d3dfb0.Coremail.andyshrk@163.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260212090252.158689-1-tabba@google.com> <20260212090252.158689-3-tabba@google.com>
+ <86ecmoc3dk.wl-maz@kernel.org>
+In-Reply-To: <86ecmoc3dk.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 13 Feb 2026 11:07:16 +0000
+X-Gm-Features: AZwV_QgSdg6ZxR7oLi_wuOeoAvMjVYMSeO2-E9Trn8UZX41x8tt3ScmTFjatuKs
+Message-ID: <CA+EHjTx1xjPCd0w56YDF42W=-HtKm9DYxUwGPd+2u-zmiSw9CQ@mail.gmail.com>
+Subject: Re: [PATCH v1 2/3] KVM: arm64: Fix ID register initialization for
+ non-protected pKVM guests
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_030422_066138_E6ED69F5 
-X-CRM114-Status: GOOD (  20.75  )
+X-CRM114-CacheID: sfid-20260213_030755_174727_1C4F5BD0 
+X-CRM114-Status: GOOD (  32.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,83 +118,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+On Fri, 13 Feb 2026 at 11:03, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Thu, 12 Feb 2026 09:02:51 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > In protected mode, the hypervisor maintains a separate instance of
+> > the `kvm` structure for each VM. For non-protected VMs, this structure is
+> > initialized from the host's `kvm` state.
+> >
+> > Currently, `pkvm_init_features_from_host()` copies the
+> > `KVM_ARCH_FLAG_ID_REGS_INITIALIZED` flag from the host without the
+> > underlying `id_regs` data being initialized. This results in the
+> > hypervisor seeing the flag as set while the ID registers remain zeroed.
+> >
+> > Consequently, `kvm_has_feat()` checks at EL2 fail (return 0) for
+> > non-protected VMs. This breaks logic that relies on feature detection,
+> > such as `ctxt_has_tcrx()` for TCR2_EL1 support. As a result, certain
+> > system registers (e.g., TCR2_EL1, PIR_EL1, POR_EL1) are not
+> > saved/restored during the world switch, which could lead to state
+> > corruption.
+> >
+> > Fix this by explicitly copying the ID registers from the host `kvm` to
+> > the hypervisor `kvm` for non-protected VMs during vCPU initialization,
+> > since we trust the host with its non-protected guests' features. Also
+> > ensure `KVM_ARCH_FLAG_ID_REGS_INITIALIZED` is cleared initially in
+> > `pkvm_init_features_from_host` so that `vm_copy_id_regs` can properly
+> > initialize them and set the flag once done.
+> >
+> > Fixes: 41d6028e28bd ("KVM: arm64: Convert the SVE guest vcpu flag to a vm flag")
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/pkvm.c | 37 ++++++++++++++++++++++++++++++++--
+> >  1 file changed, 35 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > index 12b2acfbcfd1..267854ed29c8 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > @@ -344,6 +344,8 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
+> >
+> >       /* No restrictions for non-protected VMs. */
+> >       if (!kvm_vm_is_protected(kvm)) {
+> > +             clear_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &host_arch_flags);
+> > +
+> >               hyp_vm->kvm.arch.flags = host_arch_flags;
+>
+> Can't you just have
+>
+>                 hyp_vm->kvm.arch.flags &= ~BIT_ULL(KVM_ARCH_FLAG_ID_REGS_INITIALIZED);
+>
+> since there are no atomicity requirements here?
 
-On 2/13/26 9:07 AM, Andy Yan wrote:
-> Hello Cristian，
-> 
-> At 2026-01-16 23:22:11, "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> wrote:
->> On 1/10/26 11:58 AM, Cristian Ciocaltea wrote:
->>> Hi Andy,
->>>
->>> On 1/10/26 6:00 AM, Andy Yan wrote:
->>>>
->>>>
->>>> Hello Cristian,
->>>> At 2025-12-20 05:47:01, "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> wrote:
->>>>> The Rockchip VOP2 display controller allows configuring the background
->>>>> color of each video output port.
->>>>>
->>>>> Since a previous patch introduced the BACKGROUND_COLOR CRTC property,
->>>>> which defaults to solid black, make use of it when programming the
->>>>> hardware.
->>>>>
->>>>> Note the maximum precision allowed by the display controller is 10bpc,
->>>>> while the alpha component is not supported, hence ignored.
->>>>>
->>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>>> ---
->>>>> drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 13 ++++++++++++-
->>>>> drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++++
->>>>> 2 files changed, 16 insertions(+), 1 deletion(-)
+I'll fix this.
 
-[...]
+> >
+> >               bitmap_copy(kvm->arch.vcpu_features,
+> > @@ -471,6 +473,36 @@ static int pkvm_vcpu_init_sve(struct pkvm_hyp_vcpu *hyp_vcpu, struct kvm_vcpu *h
+> >       return ret;
+> >  }
+> >
+> > +static int vm_copy_id_regs(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > +{
+> > +     struct pkvm_hyp_vm *hyp_vm = pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu);
+> > +     const struct kvm *host_kvm = hyp_vm->host_kvm;
+> > +     struct kvm *kvm = &hyp_vm->kvm;
+> > +
+> > +     if (!test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &host_kvm->arch.flags))
+> > +             return -EINVAL;
+> > +
+> > +     if (test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags))
+> > +             return 0;
+> > +
+> > +     memcpy(kvm->arch.id_regs, host_kvm->arch.id_regs, sizeof(kvm->arch.id_regs));
+> > +     set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
+>
+> This looks a bit odd. Can you have another vcpu doing this in
+> parallel? You seem to be holding vm_table_lock at this stage, so
+> that's probably OK,  but I'd have expected something like:
 
->>>>> -	vop2_vp_write(vp, RK3568_VP_DSP_BG, 0); +	/* Background color is
->>>>> programmed with 10 bits of precision */ +	val =
->>>>> FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_RED, DRM_ARGB64_GETR(bgcolor) >> 6); +
->>>>> val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_GREEN, DRM_ARGB64_GETG(bgcolor)
->>>>> >> 6);
->>>>
->>>>> +	val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_BLUE,
->>>>> DRM_ARGB64_GETB(bgcolor) >> 6);
->>>>
->>>>
->>>> the bit31 of  RK3568_VP_DSP_BG  is bg_display_en， that means when we set a
->>>> background color, we should set this bg_display_en bit.
->>
->> I performed several tests on my ROCK 3A (RK3568), ROCK 4D (RK3576) and ROCK
->> 5B (RK3588) boards and noticed that by setting bg_display_en bit to 1 or 0
->> doesn't have any influence on RK3568 and RK3576, the background color is
->> always active and cannot be disabled.
->>
->> However, flipping the bit to 1 on RK3588 has the unexpected effect of
->> covering the whole screen with the configured color, even when there's an
->> active plane displayed on top. Switching back to 0 makes it work as expected.
->>
->> Therefore I think we should keep this patch as is, unless there's something
->> else we're missing here.
->>
->>>> The default value of this bit is 1, which explains why the patch currently
->>>> works properly even though it doesn't set bit31.
->>>
->>> For some reason, the RK3588 TRM indicates 0x0 for the reset value.  I assume
->>> that's a mistake, as RK3576 TRM shows 0x1.
->>
->> Considering the observation above, it kinda makes sense now for RK3588 to
->> default to 0.
-> 
->    I further confirmed with our IC team: for RK3588, RK3528, and RK3562, if
->    the display_enbit is set, the background color will indeed cover all
->    layers. For other chips, this bit has no effect. So ACK
+You're right, it cannot happen in parallel, but another vCPU could
+have beaten this one to it.
 
-Thanks for clarifying!  
+>
+>         if (test_and_set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags))
+>                 return 0;
+>
+>         memcpy(kvm->arch.id_regs, host_kvm->arch.id_regs, sizeof(kvm->arch.id_regs));
+>
+> which makes the intent slightly clearer.
 
-This patch is the only one in the series missing a review, hence could you
-please provide your R-b (or A-b) tag on the last revision [1]? 
+I agree. I'll fix this too.
 
-Regards,
-Cristian
+Thanks,
+/fuad
 
-[1] https://lore.kernel.org/all/20260204-rk3588-bgcolor-v7-4-78d1d01c5ca1@collabora.com/
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
