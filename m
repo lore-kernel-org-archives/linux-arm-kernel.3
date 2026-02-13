@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC5CEDF173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 15:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B9DEDF17C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 16:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLaGjCWDxbX4vm4kttyHZ9dTKn5WJk6F8SMMRNi2mLI=; b=rz4Sl/Z7o0knDmqm5dmO8jan7j
-	EGR+OWAgkMuNTkGDtNrsukXcwhFJMwTykQm/qkImjzCUObpyjBQYEeo0/LiZJqkgVgYmH8ht5wPJG
-	gli6NKrYf8wcESXbcO78yXkiA//H5CaE6O0Hkuhm7MRMCf7CnjIvt5wl1dj0m55oF6KciYiNQV9Kv
-	Wql4Td9g4pdL4qCw0cxQfVn25msTgNJGSgL3DPBtSbkg8T9/gyH/UMjxRPuWNjFrizvvFMGrkaotq
-	AZzRdrvtm4wLQGFI+4z6KnwWev0nn5GcEC++zGBIrrFPYL9BluXDyuamlxjX9JfMe2rqcIu2u74Vm
-	bGQDEH+g==;
+	bh=JGbNh891szc7vgf4/dzdzthJCl9puQV3+VgCOQsi7II=; b=Zs2zvhCy1rWqnxLqclgkC7dcHf
+	QxyqnVz0LZUn6rQAixBwvaqX/cvn0c9hu+RhKnFRfUOVguAOEKT+ZyKzLU/CPNi8jX9ocrOKz8z9q
+	ryuPqyljUaWvlJ584feMGXXW/woKVMib+5/kCCp4wdvzdNrw/9gd7S0SjU+NfQgQrPCXGyXR9XZw1
+	ksaBUS04o1eFB5+PJC/zNUCcoOeb7f3f3bQ9JvEnucKWDEje9DjF00MR2m+EjfceSRx0RlrrKgB8I
+	bO7D7m/ZQI8ERRY8euaq9hkFIJeHlKiId9uqpSw4uSdURk1UMmyOFEUSdnPyX/9EzFXGHfY4gRXKn
+	ua+2Upjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqvWA-00000003dAV-3ROB;
-	Fri, 13 Feb 2026 15:55:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vqve6-00000003e3a-0Q3k;
+	Fri, 13 Feb 2026 16:03:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqvW8-00000003dA6-2KVv
+	id 1vqve5-00000003e3R-0uqp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 15:55:41 +0000
+	Fri, 13 Feb 2026 16:03:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0EDF643D71
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 15:55:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08912C116C6;
-	Fri, 13 Feb 2026 15:55:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 431DF6132B
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 16:03:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 130E5C116C6;
+	Fri, 13 Feb 2026 16:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770998138;
-	bh=Q/nO6Sx2GTyW72r7kuDcUyFCJB9hVjRlIUBTwMG0eNA=;
-	h=Date:Subject:From:To:References:In-Reply-To:From;
-	b=GjWknvkz0I0BdQvk9VG581uUacmh+ElT0t+HiigwqTJ+1ZQaNKCrVuPjmYYi4g3AX
-	 94jYTye0vKdLUtbSJ4nvfxVrRjmraUDA9WyKS5pfRGcEF56gW11yJ3a0qEGF5tXOfj
-	 N9F1OKYC/sYFxMpVfqHmnMLNXvc5t74k0C66OzJG3NKLpXqGR7kZBWe/ExVuP+KC8H
-	 SMxI8K5DFL4YNfwKl4j9L7cGsGzFRYDsTP3GA7IdWUb9qOLnTn7aU78MUpdEZS9KMV
-	 vY7DlsmIQCILc4ub7r8oelbenHqtUwd9j0RtP6T39PBejeJt7/V5Et7uXsDvP7hgeD
-	 3ir2X7XSiadYA==
-Message-ID: <f26c16f9-b05b-48a8-9dba-57ee7f0710ee@kernel.org>
-Date: Fri, 13 Feb 2026 16:55:36 +0100
+	s=k20201202; t=1770998632;
+	bh=odlojMx3qMyWKPR8XdiQyzidUO/YvlWWV3K7E4/PER8=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Hkncu3kmVvS/KGiXAdjcG1O8DDpjHExxFpRk9ltjjS7x18mjle44qavwfRkqf2oSF
+	 FiaSGz3y4UwOqF3w8LLHDF9arRV1StnrE7YAcREIaI7D5h7OjA3pydpD9T4xguWxH9
+	 39RT8szBZuBZjMNisS73rVgcxewqZTQP8JS/xhuOGffV499Axltrzq7w9Ffql9iILN
+	 pbg2fn4exYwl/oNqrI9D6uJ0Ry01McyFT1AhsyxeBeA34pxxI/zR5ktOHNAgjDTZED
+	 nMZKepz5jgufsBeA5zPyDu858XtHVrhZlJ03t8TBvIQTUmWZPpPxGBwoOUM3cbu5dP
+	 5qyq4lhYpLsZw==
+Message-ID: <dab3bfc2-adfc-44c8-a1f6-7f02acfe8cfc@kernel.org>
+Date: Fri, 13 Feb 2026 17:03:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] arm/arm64: dts: socfpga: updates for v6.20
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [GIT PULL v3] arm/arm64: dts: socfpga: updates for v6.20, version
+ 3
 To: Dinh Nguyen <dinguyen@kernel.org>, linux-arm-kernel@lists.infradead.org,
  soc@lists.linux.dev
-References: <20260124200118.2789128-1-dinguyen@kernel.org>
- <2b81a667-adad-4960-bc48-f60fbf740620@kernel.org>
- <7c6de5dc-8396-4793-a4fa-184bfe4096f3@kernel.org>
- <2fe11d07-2b95-4c38-8cac-183fd88dabe9@kernel.org>
+References: <20260203033211.149355-1-dinguyen@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -98,12 +96,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <2fe11d07-2b95-4c38-8cac-183fd88dabe9@kernel.org>
+In-Reply-To: <20260203033211.149355-1-dinguyen@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_075540_662086_3AF70121 
-X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,31 +113,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/02/2026 09:49, Krzysztof Kozlowski wrote:
->>>
->>>
->>> These are not SoC patches, unless maintainers are unresponsive which I
->>> believe is not a case here, so they should not be going via this tree.
->>>
->>> None of this, merged on 15th Dec, was fed to linux-next, so you don't
->>> even know if this conflicts with maintainer trees thus pushing conflict
->>> discover unto soc tree.
->>>
->>> Not being in the next is already a problem but gets more serious when
->>> taking other subsystem patches.
->>>
->>> That's my comment, but Arnd was looking at these whether to merge.
->>>
->>
->> Apologies! I did not hear any feedback from those maintainers nor did I 
->> remind them, so that's my fault. Let me rework this PR and take those 
->> patches through the respective maintainer's tree.
+On 03/02/2026 04:32, Dinh Nguyen wrote:
+> SoCFPGA DTS updates for v6.20, version 3
+> - dt-bindings updates:
+> 	- Add intel,socfpga-agilex5-socdk-modular for the Agilex5 mod board
+> 	- Add intel,socfpga-agilex-emmc for the Agilex eMMC daughter board
+> 	- Move entries in intel,socfpga.yaml into altera.yaml
+> 	- Add syscon as a fallback for sys-mgr
 > 
+> - Add dma-cohrerent property for Agilex5 NAND and DMA
+> - Add support for the Agilex5 modular board
+> - Add IOMMUS property for ethernet nodes for Agilex5
+> - Use lowercase hex for dts files
+> - Add #address-cells and #size-cells for sram
+> - Fix dtbs_check warning for fpga-region
+> - Move dma controller node for Agilex5 under simple-bus
+> - Add support for the Agilex eMMC daughter board
 > 
-> The bigger problem is that none of these were in the next. You need to
-> solve this problem.
+> ----------------------------------------------------------------
+> Dinh Nguyen (4):
+>       dt-bindings: arm: altera: combine Intel's SoCFPGA into altera.yaml
+>       dt-bindings: altera: document syscon as fallback for sys-mgr
+>       ARM: dts: socfpga: add #address-cells and #size-cells for sram node
+>       ARM: dts: socfpga: fix dtbs_check warning for fpga-region
+> 
+> Khairul Anuar Romli (2):
+>       arm64: dts: socfpga: agilex5: Add dma-coherent property
+>       arm64: dts: intel: agilex5: Add simple-bus node on top of dma controller node
+> 
+> Krzysztof Kozlowski (1):
+>       arm64: dts: altera: Use lowercase hex
+> 
+> Nazim Amirul (1):
+>       arm64: dts: socfpga: agilex5: Add IOMMUS property for ethernet nodes
+> 
+> Ng Tze Yee (2):
+>       arm64: dts: socfpga: agilex: add emmc support
+>       dt-bindings: intel: Add Agilex eMMC support
+> 
+> Niravkumar L Rabara (2):
+>       dt-bindings: intel: Add Agilex5 SoCFPGA modular board
+>       arm64: dts: socfpga: agilex5: add support for modular board
+> 
 
-This still did not improve, at least as of yesterday's next.
+I checked few of here and none of them were in the next at the time you
+sent pull request, even though some were sent and applied long time ago.
+
+Like this one - applied on 24th Dec:
+https://lore.kernel.org/all/4bd0643c-b9d4-49fa-92a5-f8878f75d1e1@kernel.org/
+
+but never in the next.
+
+In case if something is not clear: there must be in the linux-next at
+shortest interval after you apply the patches, so the NEXT linux-next
+after you apply.
+
+I already commented about this on 28 Jan and then again on 5 Feb. I
+don't understand why I need to ask three times about this, but that's
+the last time I ask/remind.
 
 Best regards,
 Krzysztof
