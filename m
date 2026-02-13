@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF9BEF48DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 08:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A87FFEF48E6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 08:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FlMFM8lb6whj7Eje16L7czXtxhAJx1UYksZKjTZ5oi0=; b=UOpW+c3HTQ/Aop8ZNAgDsF/ezi
-	NsRZVYrbwVRWYmeoB+vbwhPPkaCRGTTRf6a1Re6ufojYJfkQEPf27NgY2IaVymmPQbs21jTofqDDB
-	zgol8r+23xA2Ay9jmZhiSn6RrvfRojWBYbpxlHnC3aRDcPuIPXzwKpKp5Zm1sDnKzZ8MG/iba3WCR
-	/XqSDMiHwTALT7F/hvNGpAdZ45M+jZ6rhvcdD2TAvOqHI4JX0yLHc8IMiJMpbreSAnXdIl+wylWcR
-	zgRZTvz34iWZSSUwlCHUCZ7Ocvz7Z9SMpiHqMXZYWY6UeO+gcItd0KdDUApCPSmKN35jN52A1YNFD
-	P//0/qFA==;
+	bh=UE5Je9Fg+RzC0wVKNak9EnQCWei0KaHrxMzIlRVxPyU=; b=uwxaCahpdSCKE9MPvqxTNSbpiS
+	Shy6vzsLEdR9N5Ep64LjagINZ9iwM2pDrNrfqvNq2FgOQlwQd7sYuehPF855D+CCDk3m6Jm1hY0NQ
+	AJGUNhTeXKB2UTo6e1nggMM48xLXV0r7THE7ryfcb878hJ0BIbfNFN/63sjORssjM9ovTAF6dVVtG
+	8+S4hIOBuExDtFOM90gWfKj9EG8YVl8rM40NXKgi9pWZM50rtP9Ao0tmI8+nMlpBL7x0IlGo4DpdJ
+	vwstvTl2yc1qNAahgutpePxrwuBwhop4lR0N7OQdsfl1BpoJoP7b8rghOcZTmonuZGkM/6kF63IEl
+	k/wL6PCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqoJ5-000000039Kb-3rcL;
-	Fri, 13 Feb 2026 08:13:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vqoJp-000000039Rk-37vk;
+	Fri, 13 Feb 2026 08:14:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqoJ4-000000039KT-3ECo
+	id 1vqoJm-000000039RA-3UBU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 08:13:42 +0000
+	Fri, 13 Feb 2026 08:14:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C5A2B6091C;
-	Fri, 13 Feb 2026 08:13:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7D04C116C6;
-	Fri, 13 Feb 2026 08:13:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 17497435BD;
+	Fri, 13 Feb 2026 08:14:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67B3FC116C6;
+	Fri, 13 Feb 2026 08:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770970421;
-	bh=efH6EuANqnS2TxiSVaLEk2gpxJHIem6ZkrjkpUI/mZo=;
+	s=k20201202; t=1770970466;
+	bh=TYnHABlVGS+Vu5eoKfe227G8eLf+FnFIQUIXjC/86LQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QkZkpMJxDELSx0kyOcyzgRlBDuab8uiuaH+0QjEpnujwjpwC28sHsRqudyJxoqIrO
-	 zSA9dqAV3AtuPvRhuNwfIQTFYYG+xhY0ft0S13tI+DlSLjUam8YiI1XGNJdYT6dGl6
-	 mtynOORkRDeDs5pJh08Lv/6S2VjMqk2KMAsIHIkrXRjUfg2DG/2+If1CIr1/1rU6ef
-	 6hf/G/kKKf5SPz1BZ3DjMUSpCKqfEvBKGssta1R7rt198fE02nw9dlIAxL07d8VkA8
-	 xX0NhSHoWpNgCTK7KbMaP3XybkUALHrjaR973utl8/w4gbLqQGCdYdXPx1S4561yz/
-	 N5+YdwJUWolCw==
-Date: Fri, 13 Feb 2026 09:13:38 +0100
+	b=gazTslRnIMIDWpjlpzoNXslE4gjEG17Q06lpvj3vr5UJ2SzOUnnFF707+71aKGssN
+	 ETDdqGKORR1pRoj7zOmrR93bd5uZW2r0aIcQQRygJeh9xiLiW1O70dEUXjwS8asNoy
+	 NXVdVViyyUuUDDgbrPVnNL49Ioo+YO06p/XpkHhiAT2Wjgl0ZKH+Dr4EG9zxcPvw5S
+	 H+ZhxYQ0tdOgeApvqyNAw739C4k6StOD4NFGgXtkwBLS7MTNxO3y2gVBWtZYrK4dG1
+	 LGwODnaJYF1BUSB8JGVD4JT4asX4TqC64v64P+p9+jcjvkh//DqtwxfrRXL+19d6wh
+	 AYRMh4y05rKfQ==
+Date: Fri, 13 Feb 2026 09:14:23 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Hari Nagalla <hnagalla@ti.com>
-Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: k3-dsp: Add C7xv dsp
- variant for J722S
-Message-ID: <20260213-poised-archetypal-trout-fcb5d2@quoll>
+Subject: Re: [PATCH 2/4] arm64: dts: ti: k3-j722s-main: update compatible
+ string for C7XV dsps
+Message-ID: <20260213-fabulous-divergent-vulture-aa1abc@quoll>
 References: <20260213001151.17370-1-hnagalla@ti.com>
- <20260213001151.17370-2-hnagalla@ti.com>
+ <20260213001151.17370-3-hnagalla@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260213001151.17370-2-hnagalla@ti.com>
+In-Reply-To: <20260213001151.17370-3-hnagalla@ti.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260213_001426_888601_07268408 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,55 +72,31 @@ Cc: nm@ti.com, robh@kernel.org, conor+dt@kernel.org, vigneshr@ti.com, mathieu.po
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 12, 2026 at 06:11:48PM -0600, Hari Nagalla wrote:
-> J722S uses the C7xv DSP based deep learning engine similar to AM62A,
-> but the reset and module enable integration in the SoC is little
-> different. It does not have local reset from power state controller.
-> So, add a new compatible string to distinguish this difference.
-
-This does not explain lack of compatibility. You ALWAYS add new
-compatible string. ALWAYS. Drop the last sentence and fix the patch.
-
+On Thu, Feb 12, 2026 at 06:11:49PM -0600, Hari Nagalla wrote:
+> update the compatible string for C7XV deep learning DSP core in J722S.
 > 
 > Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
 > ---
->  .../devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml        | 3 +++
->  1 file changed, 3 insertions(+)
+>  arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-> index b51bb863d759..c241d88f640b 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-> @@ -29,11 +29,13 @@ properties:
->    compatible:
->      enum:
->        - ti,am62a-c7xv-dsp
-> +      - ti,j722s-c7xv-dsp
+> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> index 9ee5d0c8ffd1..0a746ede01dd 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> @@ -373,7 +373,7 @@ main_r5fss0_core0: r5f@78400000 {
+>  	};
+>  
+>  	c7x_0: dsp@7e000000 {
+> -		compatible = "ti,am62a-c7xv-dsp";
+> +		compatible = "ti,j722s-c7xv-dsp";
 
-721 < 722
+Silent, unjustified users break. Commit msg is so poor that this for
+sure should not be accepted.
 
->        - ti,j721e-c66-dsp
->        - ti,j721e-c71-dsp
->        - ti,j721s2-c71-dsp
->      description:
->        Use "ti,am62a-c7xv-dsp" for AM62A Deep learning DSPs on K3 AM62A SoCs
-> +      Use "ti,j722s-c7xv-dsp" for J722S Deep learning DSPs on K3 J722S SoCs
+NAK
 
-Same here
+Best regards,
+Krzysztof
 
->        Use "ti,j721e-c66-dsp" for C66x DSPs on K3 J721E SoCs
->        Use "ti,j721e-c71-dsp" for C71x DSPs on K3 J721E SoCs
->        Use "ti,j721s2-c71-dsp" for C71x DSPs on K3 J721S2 SoCs
-> @@ -127,6 +129,7 @@ allOf:
->          compatible:
->            enum:
->              - ti,am62a-c7xv-dsp
-> +            - ti,j722s-c7xv-dsp
->      then:
->        properties:
->          reg:
-> -- 
-> 2.34.1
-> 
 
