@@ -4,101 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B9DEDF17C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 16:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8817FEDF17C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 16:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGbNh891szc7vgf4/dzdzthJCl9puQV3+VgCOQsi7II=; b=Zs2zvhCy1rWqnxLqclgkC7dcHf
-	QxyqnVz0LZUn6rQAixBwvaqX/cvn0c9hu+RhKnFRfUOVguAOEKT+ZyKzLU/CPNi8jX9ocrOKz8z9q
-	ryuPqyljUaWvlJ584feMGXXW/woKVMib+5/kCCp4wdvzdNrw/9gd7S0SjU+NfQgQrPCXGyXR9XZw1
-	ksaBUS04o1eFB5+PJC/zNUCcoOeb7f3f3bQ9JvEnucKWDEje9DjF00MR2m+EjfceSRx0RlrrKgB8I
-	bO7D7m/ZQI8ERRY8euaq9hkFIJeHlKiId9uqpSw4uSdURk1UMmyOFEUSdnPyX/9EzFXGHfY4gRXKn
-	ua+2Upjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=smt2I3TIoGWQUiQ+jL/+iEqgzDTzVh0P/C3zq5KAyl0=; b=o4yGxqB6RpOBhjANUwMeY2PGBI
+	7v8lz/GV/DputmbBsd+ANWqW/P4MXs9qeq8QUeK8zWzNcSiL526GsiDhBSJ+EsmPT9EiAkv8SG2le
+	4IVv9ilAZ9BU7HXC4njgEmB2HncCpKkVWpaqZJvCL51IkHFZ591TJ9GcsRXHc9ZgltPxEMQokJukO
+	9nh7E1L/o+yiCRN2MMcCjWR0hMKSVbIGNanGTbhrxzSIrJm8QO8uJmLFkwJ8n+2wgphQgDQ+6o+9E
+	h6YuIpaNuDG0zpKPhLMD7+mzDfRT1p20vXAAbX9XwpZcxCENR2kRiCVu2qkh/D1fCCR51u0DAjFlv
+	hzYElGDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqve6-00000003e3a-0Q3k;
-	Fri, 13 Feb 2026 16:03:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vqvfc-00000003eEI-21m1;
+	Fri, 13 Feb 2026 16:05:28 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqve5-00000003e3R-0uqp
+	id 1vqvfa-00000003eDT-11qi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 16:03:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 431DF6132B
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 16:03:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 130E5C116C6;
-	Fri, 13 Feb 2026 16:03:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770998632;
-	bh=odlojMx3qMyWKPR8XdiQyzidUO/YvlWWV3K7E4/PER8=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=Hkncu3kmVvS/KGiXAdjcG1O8DDpjHExxFpRk9ltjjS7x18mjle44qavwfRkqf2oSF
-	 FiaSGz3y4UwOqF3w8LLHDF9arRV1StnrE7YAcREIaI7D5h7OjA3pydpD9T4xguWxH9
-	 39RT8szBZuBZjMNisS73rVgcxewqZTQP8JS/xhuOGffV499Axltrzq7w9Ffql9iILN
-	 pbg2fn4exYwl/oNqrI9D6uJ0Ry01McyFT1AhsyxeBeA34pxxI/zR5ktOHNAgjDTZED
-	 nMZKepz5jgufsBeA5zPyDu858XtHVrhZlJ03t8TBvIQTUmWZPpPxGBwoOUM3cbu5dP
-	 5qyq4lhYpLsZw==
-Message-ID: <dab3bfc2-adfc-44c8-a1f6-7f02acfe8cfc@kernel.org>
-Date: Fri, 13 Feb 2026 17:03:49 +0100
+	Fri, 13 Feb 2026 16:05:27 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-385d9fb297dso9839191fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 08:05:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770998724; x=1771603524; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=smt2I3TIoGWQUiQ+jL/+iEqgzDTzVh0P/C3zq5KAyl0=;
+        b=YPN3I3diwSD4XELhhqGERQLR0H9EHLe6nNFPD3hLoTM366oGuG62AQ3Vq5Dqqm1zFO
+         CPdNl/1q8C/969vkc9QZkZ1kSkXPElTtqvj++EY2Dsz8Fx6eMRxRNnHHOj0Y4DyjE0Z4
+         graDulKNuqZ0H0dJMnff/OD1vN/xAkCYnZsZUD16ntNGIs2UUe1a/1bZAY4yUfjLCnhm
+         JqOaVxtU5VrRJ+RYzLzQ8ay1PDlYsuUJV8XOArKCcmfrbTJHwPdaL+5A8XnutGF/4Njb
+         nogzJFiqIzgGiTkvKtrMfRYrwsu1UyU6FhQDrMnPJwcUxNAHHS8UGIC/1mDEeVLj9bYy
+         GUJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770998724; x=1771603524;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=smt2I3TIoGWQUiQ+jL/+iEqgzDTzVh0P/C3zq5KAyl0=;
+        b=shHC7n2qFFBxOAsFDtFLRzUNkwvbKr8StgLk2qlNSRDoF9d3Y72OiQZZZ1zpALdgdS
+         gRHJsHANCHKwvbq3kY525xPm4bXN+/dFStdVELaMs0NZhmG/SimLCrBUj29Q7CIQa+ON
+         3QliHPl5QiiQOFANDkABK/IF4qYmUCdyUapJK3U9XuXvrQ5rvjuSe27BG2xxJKR/8IOq
+         +P/iTVu+LaoQ/n14YFHb9PUKZs7tkMXUF/eaPUDrBgg2bZ9+rBxbUOtoXMEatzQAs8gK
+         EL0ImDWdeomjpRzkfWSNgVfm1GtJCDrNjgiyii8ceEGMRrO3B4uSNmG6084tOH76PfYs
+         P1JQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW+GE3JRgmhgFqnoglJC03K5NltlWSdnCBEO9F0t5vwxTNYI8IdULILAAOfmTbFXRtss+tANed8y1x7V7l+dSIR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8mWIPzKduGJpu7MqZAQUKCjGCogVI1hqTkpOenfxH8H0ZYrIQ
+	ZSVhVFKCebvzAXbs/KFqCIpF/k3ZiBWgX+1vg4THs4c9QvGVCMVSJ/rb
+X-Gm-Gg: AZuq6aLjj9VqYuIeQctstI5J8pCloJ4IpcKA6DUTn4f/uKMyzUEzieMuVCYI8HHYEoo
+	JliVG+D7s0FOFsfWfW2cRhw5ACx+hbmjER5TMPjA6caFrIyyHt2HrUVBufIKVUQNcda+f3ZoL9g
+	gUjY9P9PZtKA1kouCNawpO8WyPSH54FRzG4FTUvZA+mKIuUYsfZXS05zjOP396I4YeofxtvzyQj
+	XVr/mxFQq+VC+3zp/HaTxSzVGyXd1K3+YRqacvsfq0zRrN50qMCUewxkNLuSTQndZD/BlXfx7lA
+	6RLBBNeqfNy4Zq2BZz6xGAWGoLcMcTD/HI9GXA5AJZyS0PZAEH+kkLRqziSVhZgSBpSS50VWJc8
+	fyw2fKnMY8mcccBYeJ9aty5Sv4iq1mLkhwN2DYzTqpKxwmbSWMXZBEnb/FQxF0CH/v4BdN9mRaR
+	Z8QnvrCuBod3EtZy/7VX1vDJLqXoPwauvMCBcBxxloeq2bjNhdL06wdQtUNI9G
+X-Received: by 2002:a05:651c:2210:b0:385:d162:bf3d with SMTP id 38308e7fff4ca-3881050bed6mr7426771fa.4.1770998722513;
+        Fri, 13 Feb 2026 08:05:22 -0800 (PST)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-387068923aasm13048961fa.3.2026.02.13.08.05.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Feb 2026 08:05:21 -0800 (PST)
+Date: Fri, 13 Feb 2026 17:05:19 +0100
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Peter Rosin <peda@axentia.se>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 2/5] i2c: mux: add support for per channel bus
+ frequency
+Message-ID: <aY9LvwgTS50jLSCH@gmail.com>
+References: <20260213-i2c-mux-v5-0-fb2cbf9979b3@gmail.com>
+ <20260213-i2c-mux-v5-2-fb2cbf9979b3@gmail.com>
+ <ccd960bb-9dec-3a1b-cf3a-d22b4ccf4df9@axentia.se>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL v3] arm/arm64: dts: socfpga: updates for v6.20, version
- 3
-To: Dinh Nguyen <dinguyen@kernel.org>, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev
-References: <20260203033211.149355-1-dinguyen@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260203033211.149355-1-dinguyen@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6fcNXqbn+kKd91zT"
+Content-Disposition: inline
+In-Reply-To: <ccd960bb-9dec-3a1b-cf3a-d22b4ccf4df9@axentia.se>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260213_080526_312663_3FE88088 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,66 +105,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/02/2026 04:32, Dinh Nguyen wrote:
-> SoCFPGA DTS updates for v6.20, version 3
-> - dt-bindings updates:
-> 	- Add intel,socfpga-agilex5-socdk-modular for the Agilex5 mod board
-> 	- Add intel,socfpga-agilex-emmc for the Agilex eMMC daughter board
-> 	- Move entries in intel,socfpga.yaml into altera.yaml
-> 	- Add syscon as a fallback for sys-mgr
-> 
-> - Add dma-cohrerent property for Agilex5 NAND and DMA
-> - Add support for the Agilex5 modular board
-> - Add IOMMUS property for ethernet nodes for Agilex5
-> - Use lowercase hex for dts files
-> - Add #address-cells and #size-cells for sram
-> - Fix dtbs_check warning for fpga-region
-> - Move dma controller node for Agilex5 under simple-bus
-> - Add support for the Agilex eMMC daughter board
-> 
-> ----------------------------------------------------------------
-> Dinh Nguyen (4):
->       dt-bindings: arm: altera: combine Intel's SoCFPGA into altera.yaml
->       dt-bindings: altera: document syscon as fallback for sys-mgr
->       ARM: dts: socfpga: add #address-cells and #size-cells for sram node
->       ARM: dts: socfpga: fix dtbs_check warning for fpga-region
-> 
-> Khairul Anuar Romli (2):
->       arm64: dts: socfpga: agilex5: Add dma-coherent property
->       arm64: dts: intel: agilex5: Add simple-bus node on top of dma controller node
-> 
-> Krzysztof Kozlowski (1):
->       arm64: dts: altera: Use lowercase hex
-> 
-> Nazim Amirul (1):
->       arm64: dts: socfpga: agilex5: Add IOMMUS property for ethernet nodes
-> 
-> Ng Tze Yee (2):
->       arm64: dts: socfpga: agilex: add emmc support
->       dt-bindings: intel: Add Agilex eMMC support
-> 
-> Niravkumar L Rabara (2):
->       dt-bindings: intel: Add Agilex5 SoCFPGA modular board
->       arm64: dts: socfpga: agilex5: add support for modular board
-> 
 
-I checked few of here and none of them were in the next at the time you
-sent pull request, even though some were sent and applied long time ago.
+--6fcNXqbn+kKd91zT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Like this one - applied on 24th Dec:
-https://lore.kernel.org/all/4bd0643c-b9d4-49fa-92a5-f8878f75d1e1@kernel.org/
+Hi Peter!
 
-but never in the next.
+On Fri, Feb 13, 2026 at 12:48:13PM +0100, Peter Rosin wrote:
+> Hi!
+>=20
 
-In case if something is not clear: there must be in the linux-next at
-shortest interval after you apply the patches, so the NEXT linux-next
-after you apply.
+[...]
 
-I already commented about this on 28 Jan and then again on 5 Feb. I
-don't understand why I need to ask three times about this, but that's
-the last time I ask/remind.
+> > +	if (priv->adap.clock_hz && priv->adap.clock_hz !=3D parent->clock_hz)=
+ {
+> > +		mux_locked_ancestor =3D i2c_mux_topmost_mux_locked(adap);
+> > +		root =3D i2c_root_adapter(&adap->dev);
+> > +
+> > +		/*
+> > +		 * If there's a mux-locked mux in our ancestry, lock the parent
+> > +		 * of the topmost one. Mux-locked muxes don't propagate locking
+> > +		 * to their parents, so we must explicitly acquire the lock above
+> > +		 * the highest mux-locked ancestor to reach the root adapter.
+> > +		 */
+>=20
+> As may be more apparent from my recent v4 response(?), this is not
+> what you want. You want mux_locked_ancestor to be the nearest
+> mux-locked ancestor.
+
+Hrm, I think we are pointing at the same thing but naming it differently; M=
+1 in this chain:
+Root - P1 - M1 - M2 - P2 - D1
+
+I'm thinking 'topmost' means the one closest to the root (ancestor most
+far away), but I don't stick to that naming and I am happy to change it.
+
+>=20
+>=20
+> > +		if (mux_locked_ancestor)
+> > +			i2c_lock_bus(mux_locked_ancestor->parent, I2C_LOCK_ROOT_ADAPTER);
+> > +
+> > +		ret =3D i2c_adapter_set_clk_freq(root, priv->adap.clock_hz);
+> > +
+> > +		if (mux_locked_ancestor)
+> > +			i2c_unlock_bus(mux_locked_ancestor->parent, I2C_LOCK_ROOT_ADAPTER);
+> > +
+> > +		if (ret < 0) {
+> > +			dev_err(&adap->dev,
+> > +				"Failed to set clock frequency %dHz on root adapter %s: %d\n",
+> > +				priv->adap.clock_hz, root->name, ret);
+> > +
+> > +			return ret;
+> > +		}
+> > +	}
+> > +
+>=20
+> Here, you set the frequency /before/ ->select.
+>=20
+> > +	return muxc->select(muxc, priv->chan_id);
+> > +}
+> > +
+> > +static void i2c_mux_deselect_chan(struct i2c_adapter *adap, u32 chan_i=
+d)
+> > +{
+> > +	struct i2c_mux_priv *priv =3D adap->algo_data;
+> > +	struct i2c_mux_core *muxc =3D priv->muxc;
+> > +	struct i2c_adapter *parent =3D muxc->parent;
+> > +	struct i2c_mux_core *mux_locked_ancestor =3D NULL;
+> > +	struct i2c_adapter *root;
+> > +	int ret;
+>=20
+> And here, you restore the frequency, but /before/ ->deselect.
+>=20
+> Thers's no symmetry in that...
+
+Good point, I will change that.
+
+>=20
+> Cheers,
+> Peter
 
 Best regards,
-Krzysztof
+Marcus Folkesson
 
+--6fcNXqbn+kKd91zT
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmmPS7sACgkQiIBOb1ld
+UjJCaA//X2a3lgD8Yp6cOmM9sQs3eZosPkXjeUxzy15UbQSZrNOGnU3D/Ujz2CSQ
+QMwdD+KJKws3jTcawHXesvP8P5zePLAo+/Gj78jqJb9QWK6zEdTi4mJLKBDdaSG8
+L9UzSJF17NuHfolZ/nAVo3s84jooY4ZE3PU22FPoJzmwtRU28pyl7JKUQLTz8UT8
+25AtgTtO8OfYrYiNXcNilZ2ZqwEgamhE9q8U6GKjErrsDJFG97Pal795bis3fUVu
+JChwmQ/HT2NZhK/aXBGxqVqEYIirQL/0MC7ZbN4wnEtK2MqNXkwKK5if2Or6pKbE
+tP4Ijg5OXrtQsqUhsRbmfxH3Jb5MJsgvmxbde8NPAi0s4nc4IAicL2Ld1ZyaHSXF
+pZ0LiekLFCN+BJH3adCaPWUmu6hIxK9oLqXkNTxtZVXEai2ealPBeq1v1F1QfBkx
+XrJhb6NRFI82H20vZnAXJyN5z80fVeJHhv527zNwfFpvUIr5itDfB9uDBprDNFiI
+jpqwdxILKG4eP6OglarXcBWrVLMrqx+1YsEhTQUOvSMlqa+P6JIDFDhYxR9B+sdM
+lser0vwQyOBt3mrLkyJJCC/HDjZcdbZ2Q0WRRjiSyUlWoiaRD7wPNXpBHZLfyAqW
+KdOHkIJOJa0QgDJ00I9RfuzhHi5Zv2JtHnzoOBNkpagfCbbh8hY=
+=AYL/
+-----END PGP SIGNATURE-----
+
+--6fcNXqbn+kKd91zT--
 
