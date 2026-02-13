@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3684BEDF172
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 15:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD98EDF170
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 15:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ZDSniHGg4K0xScDddPYdJPxSWUb5J86uD3cucmWFx4=; b=uo1YGE+DLOQds6X7FgGuFpZj2T
-	VqVEb56aoeHS+N0MnsLZNINPMr3I+5k6ABFkeiMkk1ayJ4CEN7MgUz8QWRK/WxWLseo6OI1HdDo0t
-	rfmweeSEHTCqByURVIKKQ4aIk7+xCy7kU9tRWiKPEzk3PIdzMRbs6NKH6SyCIroOvf3UxEHBTv5Jd
-	u98l56SnBXABWhhHqUg5cSbK1Nuq84WHd9XLgyzVjDDUXMtCoWbQ4Hmqxszh0EmEpLvTL3IKIPR72
-	LsuB16X9F6z9U/4ggiFG9Av71FR7mNvF5kMnF8JJKG9fvL7NBPd2fQvhkf/z+vMT5P/dw7ZCXI0P0
-	NngIhvTA==;
+	bh=XbF4WLvJ/tgmEDJLq2wH09n4bdUaTkZmQZqvxf6O6tA=; b=Xq/RM8mjaDfS+almUfXv2TV+8V
+	Uo1S+Mw5UPmJR7Y8tym7XERCLLAO54+GfAyeoNy6stmnrowkXazbwpx0q6A6ckC4WX8GJC2hFmqRz
+	SYF6lYKcfgd86mCrsRk5FrbLbMUSLB5eBTrPwTCVGP/2NQETB3YAMECDoDrLPm2GVJ6oFMNgtLYYB
+	qHtzEbrGdVgsNqQNKmHSHTTs6lceOPupfDLe8cqdtXLHg710Uyt9V+aF2T+jHyoyVKaN+rwQLbLAn
+	tUOZA46Kg4Cqhi/hJydqHyg+q2g0azLK4gc9px2Iv/cqcsKnSGil8SJCWNzrvXoramVtLXV9t7poR
+	GkExUSvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqukQ-00000003apK-0kAF;
-	Fri, 13 Feb 2026 15:06:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vqulp-00000003awO-2LVg;
+	Fri, 13 Feb 2026 15:07:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqukO-00000003apC-2Gp6
+	id 1vquln-00000003avo-2jEK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 15:06:20 +0000
+	Fri, 13 Feb 2026 15:07:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 366E86001A;
-	Fri, 13 Feb 2026 15:06:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B12C8C19424;
-	Fri, 13 Feb 2026 15:06:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 13FC160054;
+	Fri, 13 Feb 2026 15:07:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08F24C116C6;
+	Fri, 13 Feb 2026 15:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770995178;
-	bh=7DNsYzDbp2Rq3SoXH+3vIIVKLF5rQK58LOjDKv+sPIA=;
+	s=k20201202; t=1770995266;
+	bh=fU3Smstkm9vsVdQ6PhIzTlsFAgeVVpZBvhQMAzyojZs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bR6ChcgiKp/4yRltNWtAIVcjp5Pg1aoAKQBrRG5qKuveLnXBKvvxXHa3DxuEnJQef
-	 FX+3ChCt6bU2UxnPdEepuju9FSuHlzC81R9Bs2kpUcVCKMVKpr3ois80reFXguoSOR
-	 H4CTz4vdT7Wv10ci0nggSvncAFkwpp5SQr9NkHoOCgTMFs4M9yFXuu9wBCtL3ylN1t
-	 UxdqTlP6MMiCKGSSHPVFg70KyGOnN+QAUJRdgEUy+G+mzJK/vpEm3RPy/cgRjzq4K3
-	 zRMb7dd09rN/etjWIMPnZyYDEQ1shBGD0wpsqx7Q0ko6UlF+o4qGB6JaL4OiAjQvhH
-	 ZMbfWs/RBinuQ==
-Message-ID: <ac793499-bebb-477b-b27e-089529f3ee4b@kernel.org>
-Date: Fri, 13 Feb 2026 16:06:14 +0100
+	b=L8aCvjJ3ggkAvsYLbrrqgGs2JXaim6L9ojNxxQpVeHdQRDAA7n0Rak8bQTx7sL+0i
+	 jpgADss010yQVG47/e3Z+lWuhUJiqIVw7OIbkkQnGtrGGWgLAo3+hs1/UrlCqdSEv1
+	 qM3w5ypQ2A75tSIdRLmocZuFpSiTsZQFUWSrPleq5p4V2KjsiLYctSjWiPocriuWxQ
+	 8ziTvzQmENvl4/3baBzaX/FO6WIxJ3Clbu/SsTMlT5KnnicEqPer0rNUod0Kl+ZNyl
+	 ERmWAcGuofcYOCrww2LS/6HOTbwx8D9VfDuZf7RcKHF0FHzXtOWbsur4aJ/dt/QUh4
+	 VszLfOE0qrkIA==
+Message-ID: <f45e77d7-0d0b-4236-a661-cc44d3460214@kernel.org>
+Date: Fri, 13 Feb 2026 16:07:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dt-bindings: soc: st: document the RISAB firewall
+Subject: Re: [PATCH v2 1/9] dt-bindings: bus: document the RISAB firewall
  peripheral
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
 Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260209-stm32_risab-v1-0-ef0b2b6a7e0a@foss.st.com>
- <20260209-stm32_risab-v1-1-ef0b2b6a7e0a@foss.st.com>
- <ee9759a6-1779-4891-8716-24c36134198a@kernel.org>
- <516036b6-b825-4a29-a48a-5d3af3234968@foss.st.com>
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org
+References: <20260212-stm32_risab-v2-0-02ef2859b596@foss.st.com>
+ <20260212-stm32_risab-v2-1-02ef2859b596@foss.st.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <516036b6-b825-4a29-a48a-5d3af3234968@foss.st.com>
+In-Reply-To: <20260212-stm32_risab-v2-1-02ef2859b596@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,63 +121,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2026 10:55, Gatien CHEVALLIER wrote:
->>> +  memory-region:
->>> +    minItems: 1
->>> +    maxItems: 32
->>> +    description:
->>> +      Phandle to nodes describing memory regions to be configured in the RISAB
->>> +      by the trusted domain of at least a RISAB page size.
->>> +      These regions cannot overlap. A zone must be within st,mem-map range and
->>> +      can be represented by one or more pages.
->>> +
->>> +  st,mem-map:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
->>> +    description: Memory address range covered by the RISAB.
->>> +    items:
->>> +      - description: Memory range base address
->>> +      - description: Memory range size
->>
->> Why do you need this property if you have memory-region already? This
->> also should be part of <reg>, although this mixing with memory-region is
->> anyway confusing.
->>
-> 
-> The RISAB is a memory firewall peripheral covering internal RAMs. It is
-> possible to configure multiple memory regions within these RAMs (done by
-> the Trusted Domain) with security, privilege and compartment isolation.
-> This peripheral allow 4kBytes page granularity. Each page can hold
-> different access rights, with 32 pages at most (hence the maxItems: 32).
-> That is some information that can be added to the documentation.
-> 
-> Moreover, when a region is delegated to a non-secure privileged
-> component, this component can configure the privilege level necessary to
-> access the region.
-> 
-> This property gives me the opportunity to get the memory range covered
-> by the RISAB. "reg" here is used to access the actual RISAB registers
-> holding the configuration.
+On 12/02/2026 11:10, Gatien Chevallier wrote:
+> +
+> +  memory-region:
+> +    minItems: 1
+> +    maxItems: 32
+> +    description:
+> +      Phandle to nodes describing memory regions to be configured in the RISAB
+> +      by the trusted domain of at least a RISAB page size.
+> +      These regions cannot overlap. A region must be within st,mem-map range and
+> +      can be represented by one or more pages. RISAB has a 4kBytes page
+> +      granularity and each page can hold different access rights.
+> +
+> +  st,mem-map:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    description: Memory address range covered by the RISAB.
+> +    items:
+> +      - description: Memory range base address
+> +      - description: Memory range size
 
-Looks awfully like memory regions still :/
-
-> 
->>> +
->>> +  st,srwiad:
->>> +    description:
->>> +      When set, the trusted domain configures the RISAB to allow secure
->>> +      read/write data accesses to non-secure blocks and pages. Secure execute
->>> +      remains illegal.
->>> +    type: boolean
->>
->> Shouldn't this be a property of given block from memory-regions, not
->> entire RISAB?
->>
-> 
-> It is a global setting for the whole RISAB (in RISAB_CR register) so I
-> think it's fine keeping it at RISAB level.
-
-And in the next version of your IP? It really feels like description of
-memory region, not the entire device.
+I did reply at v1 now. This is not a trivial device so should not be rushed.
 
 
 Best regards,
