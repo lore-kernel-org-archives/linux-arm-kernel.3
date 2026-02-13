@@ -4,83 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E44EEA853
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 00:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89376EEA853
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 00:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sKQ4e9FJS/11rd89l6wVpDw9AhD/lNLaw5X9//A6MSk=; b=PI7cJwwMLq2i2gVV1Yp56UyngD
-	Cq0bv/GI52SK1oFSR2sNUDJnwvQur1V3bt9N3pYVnjIu9Jmg4mIG9R5No2PkL1zopZ+x9LD1ezpYF
-	TPTGyxI+aQye90/e6LBOkzgmH2IL1b1VkEEonN/MTqIw8KCZZZpdXMWv1J/T77UCUKYj0nyxN9ybW
-	oPT+qrTKOJDZZClYSl3KfkZGkypiCnluO4YzZ1qfe45hSyFc5d89n0qSG2dYtgXBEvSqGe+xKlUma
-	96nj73AjR6M9NG0slAGXk+clk7TbDSI7Am0+O9pi90/hGEDi9biH3SldFfdbbeW1GmpxpcvSEo934
-	9t9yHgTw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NCxrXLqPIHOR917s+hZ+LxjiKySTWl0KpvB6DCQTllk=; b=nYggCNPc6sv3dx99zLpq726lgV
+	jMZ517vG3W5ySrLu89eqLYxXcsbktNrnIKosqk3A5gPfaGIMdQqchpGP4rhRjdIN64qU9WalI2dgt
+	Fie84OdPbnr2/W2VObALT1UuMu7v8mttzLtZjNTzUZtseInScvwfsgWOhaZ/C/ogW4GRq2zifcAZo
+	whWQQCbaJBdi8SmXjld8tpDqrFCFcRNVjlyyboaZU2msK8Lmx5PMHYXHQ2RIVhm0StB1OnlmZsSmS
+	S0xj1Bx0Ba6IjHG6TPm4Pdr1MMrXjigvNsEuq9CSU1/kKJe3Hqn4Lf6zTYx8fizGdWcTzAznBDBiz
+	3uRDWn1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqgqD-00000002lZu-44hB;
-	Fri, 13 Feb 2026 00:15:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vqgqI-00000002lcP-3Xta;
+	Fri, 13 Feb 2026 00:15:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqgqB-00000002lXD-2ZIq
+	id 1vqgqB-00000002lXH-3P4s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 00:15:24 +0000
+	Fri, 13 Feb 2026 00:15:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A307C4457A;
+	by sea.source.kernel.org (Postfix) with ESMTP id DE17E443FC;
 	Fri, 13 Feb 2026 00:15:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5BB21C19424;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A3D0FC2BCB3;
 	Fri, 13 Feb 2026 00:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1770941722;
-	bh=Sb1Z9ToRtr8u+pAOPxIENcrNfGSnJsAfpeH6JTyv4M4=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=At++tvikIcZRbahk7Vd1EDRf4auXmWXTUDF+crnKr+9OVuvlPOzrMUYXx3zaOHUHd
-	 mV4uVB+XgyAwZ10Re53SfowvIJfO3SXxiPiHf/rO/1SGlH+g3ox3Mb6/4PJkorVgXn
-	 7LAvP25o8UhuIoqAFrS42FNc1cVqADyg/Zs7AZ7gmcyJSwSfjTpNUxCX5jZJs/2MCz
-	 Ky+wxXegbZXGE3qLX+Qz1a8KS35Vf9NWcirS8sNHSx15myp0uYUIHJEaV7jjNxnCbS
-	 9DYJ/jlpNZIwjn4DX9bdK6v+WpQ3NKkemGcuhFcasjvM52wtsjCrV/HwaHIjhTodiR
-	 BHFXRmzscPfjA==
+	bh=0cagQQWs1EQdChAxlxHuUUZ51gQ+OoWY5PxjVHvtV3E=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=dBJgHY44dTIuOY9xXALHU9Y/QCqRKAHspXUjwHRr34EaF0+tLS9UWE8A9PreFAjpO
+	 i6BL4QzyR407nVAQvGJ/cuaNur5mEI/Vfg3x18glhy66hsmNmTHPfgkdatH8R1UkFd
+	 R2W7GTTkbzhrAC4ki0qFWNcRIu+xktyeSuxDWVfGw1QTgesnYgSFkxrY0J0eGkB5Se
+	 qqLdoDEz+A1gSfei/kDLBT1BiEJzOcwGlbVMrdA6meoB6xww1v8BAVYTD9xDTfbUp0
+	 /cuHwEu+EaDsqes3AOgKlSt0zf/QjAAnq7z//oWAzoewC44ZTOQNDNGvJFAjmRaMnC
+	 2aOQGCwqkVDYQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A4E7EEA870;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A4A6EEA872;
 	Fri, 13 Feb 2026 00:15:22 +0000 (UTC)
 From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Subject: [PATCH v11 0/7] i2c: xiic: use generic device property accessors
-Date: Fri, 13 Feb 2026 00:15:15 +0000
-Message-Id: <20260213-i2c-xiic-v11-0-5d18aea11bde@nexthop.ai>
+Date: Fri, 13 Feb 2026 00:15:19 +0000
+Subject: [PATCH v11 4/7] i2c: xiic: cosmetic cleanup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABNtjmkC/3XRPW7DMAwF4KsEnqtAov4z9R5FB8miag2xAzk1U
- gS5e+UsZaF2JMHv4QG8DyvWgutwOtyHiltZyzK3QYiXwzBOYf5AVlJbDMDBcAHACozsVsrIZAz
- O56wxeDm080vFXG7PrLf3Nue6nNl1qhhIgNCcg1PmCFo6zwQLMX3WGqZzmF9nvF2n5XIMZc+by
- npd6tez2gZ76h8lNmCcCamyTlZJdJGG7C02SaUkUjaJ0Y5JgVYp91L9J1WTKkiMQWrBR+ykptI
- QqZt0LggTwFkQYycNlZZIs7d1gJBNNtr20lLpibRNWrCopHLeYu6k+5HABZGuyYQRUhLaJRE66
- amkX/FNjqiM11mDsamTglOqCBV8txC9N+0xIPUv+3g8vgEqt8RTtAIAAA==
-X-Change-ID: 20260122-i2c-xiic-3ba89ff5ea93
+Message-Id: <20260213-i2c-xiic-v11-4-5d18aea11bde@nexthop.ai>
+References: <20260213-i2c-xiic-v11-0-5d18aea11bde@nexthop.ai>
+In-Reply-To: <20260213-i2c-xiic-v11-0-5d18aea11bde@nexthop.ai>
 To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>
 Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
  linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Abdurrahman Hussain <abdurrahman@nexthop.ai>, Andrew Lunn <andrew@lunn.ch>, 
- Jonathan Cameron <jonathan.cameron@huawei.com>
+ Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770941721; l=3438;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770941721; l=2969;
  i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=Sb1Z9ToRtr8u+pAOPxIENcrNfGSnJsAfpeH6JTyv4M4=;
- b=PZ0XbQV8s2UWSCFbiogIumjF/qg7yBN1gXJJy+KjQPg3jmjsMZcpIscrCEGlRBpjjacXq9IGD
- o4SKeCIUAiwDq/ZxZmRqIN6lNHpQoyiLAU9itKro+9ayaad7sYYCV0U
+ bh=4goe1hN23ExSd3bXmlNyi4c8jVT0rjfLxvQAv2IuPoE=;
+ b=UG0j3nVRP5W7SvnQm4//0ani0A3FVvsGWRY67oVUvfCso0Nr4yMGnTlpamwnzNcgayMcWb+rV
+ 6iFLUqzfA9tDd5RRgCfjO4tJxV4JbKRkZ2+2ER1kRMIdW8v0y/iOHjG
 X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
  pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
 X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
  auth_id=608
 X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_161523_699351_49C77DFB 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20260212_161523_902884_EB6BC6EC 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,92 +90,100 @@ Reply-To: abdurrahman@nexthop.ai
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Switch to generic device property accessors.
-- Switch to managed devm_ functions to simplify error handling.
-- General cleanups.
-- Skip clock setup on non-OF systems where clock is not specified via
-firmware.
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
+Re-use dev pointer instead of referencing &pdev->dev everywhere.
+
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 ---
-Changes in v11:
-- Cosmetic change to return 0 in patch 1.
-- Remove pm_runtime_dont_use_autosuspend() in patch 1.
-- Link to v10: https://lore.kernel.org/r/20260204-i2c-xiic-v10-0-c2b996425235@nexthop.ai
+ drivers/i2c/busses/i2c-xiic.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-Changes in v10:
-- Moved dev_dbg() change from patch 4 to patch 5.
-- Reworded description in patch 6.
-- Addressed Andy's comment in patch 7 (&pdev->dev -> dev).
-- Link to v9: https://lore.kernel.org/r/20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index 20cee7b6200c..377fa5948c3f 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -1429,7 +1429,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	u8 i;
+ 	u32 sr;
+ 
+-	i2c = devm_kzalloc(&pdev->dev, sizeof(*i2c), GFP_KERNEL);
++	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
+ 	if (!i2c)
+ 		return -ENOMEM;
+ 
+@@ -1445,13 +1445,13 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	if (irq < 0)
+ 		return irq;
+ 
+-	pdata = dev_get_platdata(&pdev->dev);
++	pdata = dev_get_platdata(dev);
+ 
+ 	/* hook up driver to tree */
+ 	platform_set_drvdata(pdev, i2c);
+ 	i2c->adap = xiic_adapter;
+ 	i2c_set_adapdata(&i2c->adap, i2c);
+-	i2c->adap.dev.parent = &pdev->dev;
++	i2c->adap.dev.parent = dev;
+ 	device_set_node(&i2c->adap.dev, dev_fwnode(dev));
+ 	snprintf(i2c->adap.name, sizeof(i2c->adap.name),
+ 		 DRIVER_NAME " %s", pdev->name);
+@@ -1467,9 +1467,10 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
+ 				     "failed to enable input clock.\n");
+ 
+-	i2c->dev = &pdev->dev;
+-	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
+-	pm_runtime_use_autosuspend(i2c->dev);
++	i2c->dev = dev;
++
++	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
++	pm_runtime_use_autosuspend(dev);
+ 	ret = devm_pm_runtime_set_active_enabled(dev);
+ 	if (ret)
+ 		return ret;
+@@ -1481,9 +1482,8 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	if (ret || i2c->i2c_clk > I2C_MAX_FAST_MODE_PLUS_FREQ)
+ 		i2c->i2c_clk = 0;
+ 
+-	ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
+-					xiic_process, IRQF_ONESHOT,
+-					pdev->name, i2c);
++	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
++					IRQF_ONESHOT, pdev->name, i2c);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -1526,21 +1526,21 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 
+ static void xiic_i2c_remove(struct platform_device *pdev)
+ {
++	struct device *dev = &pdev->dev;
+ 	struct xiic_i2c *i2c = platform_get_drvdata(pdev);
+ 	int ret;
+ 
+ 	/* remove adapter & data */
+ 	i2c_del_adapter(&i2c->adap);
+ 
+-	ret = pm_runtime_get_sync(i2c->dev);
+-
++	ret = pm_runtime_get_sync(dev);
+ 	if (ret < 0)
+-		dev_warn(&pdev->dev, "Failed to activate device for removal (%pe)\n",
++		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
+ 			 ERR_PTR(ret));
+ 	else
+ 		xiic_deinit(i2c);
+ 
+-	pm_runtime_put_sync(i2c->dev);
++	pm_runtime_put_sync(dev);
+ }
+ 
+ static const struct dev_pm_ops xiic_dev_pm_ops = {
 
-Changes in v9:
-- Fix an issue found by the test robot in the cleanup patch.
-- Reworded the clock change description.
-- Add a patch to switch to i2c_add_numbered_adapter().
-- Link to v8: https://lore.kernel.org/r/20260201-i2c-xiic-v8-0-deb2dd158d1a@nexthop.ai
-
-Changes in v8:
-- Made the clock change the last patch in the series.
-- Reworded the clock change description.
-- Changed dev->fwnode to dev_fwnode(dev).
-- Link to v7: https://lore.kernel.org/r/20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai
-
-Changes in v7:
-- Drop the dt-bindings patch.
-- Skip clock setup on non-OF systems.
-- Minor commit body rewording.
-- Applied code-review trailers with `b4 trailers -u`
-- Link to v6: https://lore.kernel.org/r/20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai
-
-Changes in v6:
-- Cosmetic changes to address the comments.
-- Added a patch to use resource format specifier in debug log.
-- Link to v5: https://lore.kernel.org/r/20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai
-
-Changes in v5:
-- Reorder the cosmetic patch to be the last in the series.
-- Added a documentation patch to describe the optional clock.
-- Minor commit body rewording.
-- Link to v4: https://lore.kernel.org/r/20260123-i2c-xiic-v4-0-4a3eba3510ce@nexthop.ai
-
-Changes in v4:
-- Reorder the cosmetic patch to be the first in the series.
-- Amend the mutex_init patch to also switch to the managed pm_runtime_
-  variant.
-- Link to v3: https://lore.kernel.org/r/20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai
-
-Changes in v3:
-- Reorder the "optional clock" patch to be the first in the series. 
-- Add a patch to switch to devm_mutex_init().
-- Remove dup message in error path.
-- Cosmetic: use temporary dev variable.
-- Link to v2: https://lore.kernel.org/r/20260122-i2c-xiic-v2-0-134f5d743e8b@nexthop.ai
-
-Changes in v2:
-- Split the patch into two independent changes.
-- Added struct device *dev at the top of probe() and remove() to re-use.
-- Switched to device_set_node(...)
-
----
-Abdurrahman Hussain (7):
-      i2c: xiic: switch to devres managed APIs
-      i2c: xiic: remove duplicate error message
-      i2c: xiic: switch to generic device property accessors
-      i2c: xiic: cosmetic cleanup
-      i2c: xiic: cosmetic: use resource format specifier in debug log
-      i2c: xiic: use numbered adapter registration
-      i2c: xiic: skip input clock setup on non-OF systems
-
- drivers/i2c/busses/i2c-xiic.c | 98 +++++++++++++++++++------------------------
- 1 file changed, 42 insertions(+), 56 deletions(-)
----
-base-commit: 18f7fcd5e69a04df57b563360b88be72471d6b62
-change-id: 20260122-i2c-xiic-3ba89ff5ea93
-
-Best regards,
 -- 
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
+2.52.0
 
 
 
