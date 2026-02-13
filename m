@@ -4,94 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583DBEDF178
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 15:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F6AEDF173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 15:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wc3wuiR4d5qR9HNFKkQBL/RhcLLo/Jro4GjXQoKeDOE=; b=h7iGOejdfKEBJf
-	RZGLPR7fMWAf2KLQaEEtbCwng7VpJB4cA/VnJfgcgDvq08RZW9AcS/2ZjOW0erqHuMSj5g9Vqj8dK
-	z8XqrLJkKc5DNpyb/2BL/EExKgucQ4mAIns9u9OrrRQePjb5DU5RSNYhLu3SI/4L3acEwZNJWBurI
-	K4E7ko80blYhBQ+UCjBtEQ2V4rfyO3gn2UH/lkEAaGXuLdj7rY5JePLRk2UKQ6lLClLEDkcKmqpJ5
-	cY9Z9yp/UJGTmpF9/YPBQl2BOkj+ykHEFnYD+C2tDlLggz7/aA0ecYYzElTMJQ5EV5mF9SXOLz3/3
-	qaDSgWoNrNf/kvT+rDQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uLc8bSL3pOampOTk05CBLNSg0vQLHPlJB9I/Kmo5iOY=; b=VaBVinowceY/tAI1DLdImeIPfN
+	q1jPTbRCEOdOZyNEU84fQF0xf9maPIuiM0Zl2069Aj4CEWBytk+QAfImGUqNRqLPGspG4ttH5HkWH
+	GYjy//ltl3cNw5WJlz7hgkoYoI3fRY4Z2jDum/3I3fQAsJdztPVXNuDqufq4ZvEsgZeC79IDuzEJY
+	yJf7EwKRYeDdgOIrphF7MA8dUzOYqzW9lSExSsOpg7rz2w6yGsQmJ5OdHMbuqNykPNCqUL+mDmP4o
+	fV+KJZwhqCFzHrbDIvPwK0vDWTTJfgcUCNauAZ6B7b2/vOpSU3cT7Kj5UzdQrzXd0AOxSVMBQ65sA
+	3ktd2UsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqvJQ-00000003cbU-40c5;
-	Fri, 13 Feb 2026 15:42:32 +0000
-Received: from fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.197.217.180])
+	id 1vqvU6-00000003d0P-1Qyv;
+	Fri, 13 Feb 2026 15:53:34 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqvJM-00000003cb3-1yBr
+	id 1vqvU4-00000003czv-11Xp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 15:42:31 +0000
+	Fri, 13 Feb 2026 15:53:33 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-59e5eaa491cso1299128e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 07:53:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1770997348; x=1802533348;
-  h=message-id:date:mime-version:reply-to:subject:to:cc:
-   references:from:in-reply-to:content-transfer-encoding;
-  bh=wc3wuiR4d5qR9HNFKkQBL/RhcLLo/Jro4GjXQoKeDOE=;
-  b=sxJUIR0TxOTxrjg8chCWngeI2JmWY548m3CnZnDhVrGg7J7tkVrNXyHa
-   Nu8oTjOR9QD86KT/7EO66yRUJkM5KmeaJtVNyhT08MeogvFzT3Gjh2ZPb
-   DAfHTj5asKYNtfNJPgJiRxaqG6472mzSm+rqZgShdmq4PnyDASqYfxPYx
-   6yrzL3p1+lw+PV6wbwxmKeRmZ0g+d1LvvzHKtbkTbnGeazdfzG4Y/gUgv
-   OvQOJkx8szgY4GiVfPPqZsmmXMeWrpvXeI4RiawuoU6aFXxhM2jxK5r3p
-   o0ekcrAuQzMXbAWYq8zNoRKGHFdrYN7loDu94AFSagXjlZULe3qAUWux2
-   A==;
-X-CSE-ConnectionGUID: xBWKtWbURmCvJTHWq/NQzw==
-X-CSE-MsgGUID: v1IpJRI/Q9ms7OkLKHCw5g==
-X-IronPort-AV: E=Sophos;i="6.21,288,1763424000"; 
-   d="scan'208";a="9442917"
-Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
-  by internal-fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2026 15:42:22 +0000
-Received: from EX19MTAEUA001.ant.amazon.com [54.240.197.233:18090]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.34.99:2525] with esmtp (Farcaster)
- id 66f259df-d113-42b5-9bad-4cdd94991272; Fri, 13 Feb 2026 15:42:22 +0000 (UTC)
-X-Farcaster-Flow-ID: 66f259df-d113-42b5-9bad-4cdd94991272
-Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUA001.ant.amazon.com (10.252.50.223) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Fri, 13 Feb 2026 15:42:21 +0000
-Received: from [192.168.1.242] (10.106.82.26) by EX19D005EUB003.ant.amazon.com
- (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35; Fri, 13 Feb 2026
- 15:42:21 +0000
-Message-ID: <a84ddba8-12da-489a-9dd1-ccdf7451a1ba@amazon.com>
-Date: Fri, 13 Feb 2026 15:42:16 +0000
+        d=gmail.com; s=20230601; t=1770998009; x=1771602809; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=uLc8bSL3pOampOTk05CBLNSg0vQLHPlJB9I/Kmo5iOY=;
+        b=Wm/KINNY9I9fG6PjTjUPZTptYmaU71Y0/qLz5NZwzOVUeG4n1+e3xZGx/R0Y8rCsV/
+         GYm38eu+u9XT3Ai4SG2hrRhVRlfbowY495/Ue3x1PxinVZsDKeZWaLuwmrqdiv8xF3NA
+         MjqPBoxa8Q505s/VRRN/fKz3EmHx7G0O6Wn0a5gXxqdWWRsebe88NvDtCi2P1VatrfKu
+         f1bgvgI3+eHTZxJrxNgyDdOfEMttUSIIiLYKPdOFufScW5L43dkkohn60HPEM5F5hlgI
+         pcQId2eqkNLlabmff74FilCqIdQFmGLYidjrtR29bz6pdBpK7GtfbIFb+dGU4C2AbsPj
+         YXAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770998009; x=1771602809;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uLc8bSL3pOampOTk05CBLNSg0vQLHPlJB9I/Kmo5iOY=;
+        b=uVDU5SPsZEcv5MD9Ee6xxlgm7/9qx6Q2WeYk2UtMTWHlUUOwUVqjD5QhgNhJnK36Fi
+         ++oPTe2IvD3Fd+FJm1ZO98kblmPIghHhvvUkSjParmwyJupWLhxiVRV+oLaYimDao52c
+         fAH4SWJ4c16yGzpjfuTnSB5LaWMiSjblsnjKlRKsvrjp8UDEuEaEln1Vxshd+fYSZvne
+         HLC4ifDFNOzmwto11MaN+p24UDu7LweMP93xEjzA5FBL5TAMJryZw0N+VQF75bNtMcsi
+         979C/6wi762kz8wO/MyoHYfddFD+cMc2+u+xpsolGfl0y/SdOHoLKxRpAaymrYYy2tUC
+         8l4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWOQRrQxx9Nowf9HHNTIabrC58+NqdsJAoewrKLa80qWISDcIFryuNCiwy7isD1SeSCfAJ+tmY1mFzQp2SP1US0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7YGvDcsx78ZJiOmHJmdJG4sQ0/bTfPzLmAm/KXuKeLpGHfy/Y
+	pJEHY5gfwYDEvwqGj9wi2hp07CFPkpiBrVuJMCm2f4ZeP6ZFKip1GKQ9
+X-Gm-Gg: AZuq6aIMu475+I1G2X1tZ0vu4FqcDSfcSqj86HamCWAm084xrMgfaSMC5X8lB1kRFsH
+	dNoC4zhnHW7iiwYveShhsJObRJQhjzGcCr4BtF1+JP/zcmL/2/LHIg54+dLkDUYEp4lrTlirfj0
+	rjUQ2CeAhLMIfC2ylwa1llj/7ZVE8467Z59LmqJI/GO5on6BFV4TrqkDplgSFtPks2reQjnSLnx
+	889YE1/vYY2oGs9mpa2GHgk0sw0dy7YV5uv386oX9rAcRv1ItijFNIhMCN7BPT8QfQP6npoF9JM
+	vyjFPyw43u9LaSvzkz2VvVMeux6pDwU7RUWALhemVA8jAMOKSWRGfiIgCd5FPMiSf0JZ3PkaTEJ
+	Dd+Vzht4PsxrLJVoE4tgyx/tLedSlevxetCkT4O5Ug3J0C2ifrIMDcKcHniTSm0N085hFEAsm9p
+	sOypGLvwUgxqNu4KRxhL/ajI+X2ColEh4aE1K47yxsQ2HDi4Ym/M602dhjb6HZ
+X-Received: by 2002:a05:6512:39c6:b0:59f:6c3b:6d2a with SMTP id 2adb3069b0e04-59f6c3b6f6fmr333275e87.25.1770998009086;
+        Fri, 13 Feb 2026 07:53:29 -0800 (PST)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e5f568dcfsm1666675e87.28.2026.02.13.07.53.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Feb 2026 07:53:28 -0800 (PST)
+Date: Fri, 13 Feb 2026 16:53:26 +0100
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Peter Rosin <peda@axentia.se>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 2/5] i2c: mux: add support for per channel bus
+ frequency
+Message-ID: <aY9I9r8Q82HrxEZM@gmail.com>
+References: <20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com>
+ <20260128-i2c-mux-v4-2-dee49ce276c0@gmail.com>
+ <2ecbebd8-0842-34fa-a593-25168c91aa6b@axentia.se>
+ <aY5KeH3Z1S3MswHI@gmail.com>
+ <f38230f2-f74b-cf89-8d15-194d85f341df@axentia.se>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] KVM: Avoid synchronize_srcu() in
- kvm_io_bus_register_dev()
-To: Keir Fraser <keirf@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>
-CC: Sean Christopherson <seanjc@google.com>, Eric Auger
-	<eric.auger@redhat.com>, Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier
-	<maz@kernel.org>, Will Deacon <will@kernel.org>, Paolo Bonzini
-	<pbonzini@redhat.com>, Li RongQing <lirongqing@baidu.com>
-References: <20250909100007.3136249-1-keirf@google.com>
- <20250909100007.3136249-5-keirf@google.com>
-Content-Language: en-US
-From: Nikita Kalyazin <kalyazin@amazon.com>
-Autocrypt: addr=kalyazin@amazon.com; keydata=
- xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
- JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
- BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
- IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
- CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
- ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
- ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
- i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
-In-Reply-To: <20250909100007.3136249-5-keirf@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.106.82.26]
-X-ClientProxiedBy: EX19D009EUA002.ant.amazon.com (10.252.50.88) To
- EX19D005EUB003.ant.amazon.com (10.252.51.31)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jvosexET//3GfWY0"
+Content-Disposition: inline
+In-Reply-To: <f38230f2-f74b-cf89-8d15-194d85f341df@axentia.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_074228_822008_E20C8406 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20260213_075332_374601_8900B673 
+X-CRM114-Status: GOOD (  31.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,161 +104,198 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kalyazin@amazon.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--jvosexET//3GfWY0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 09/09/2025 11:00, Keir Fraser wrote:
-> Device MMIO registration may happen quite frequently during VM boot,
-> and the SRCU synchronization each time has a measurable effect
-> on VM startup time. In our experiments it can account for around 25%
-> of a VM's startup time.
-> 
-> Replace the synchronization with a deferred free of the old kvm_io_bus
-> structure.
+Hi Peter!
+
+On Fri, Feb 13, 2026 at 12:37:29PM +0100, Peter Rosin wrote:
+> Hi!
+>=20
+> 2026-02-12 at 22:47, Marcus Folkesson wrote:
+> >>> +static int i2c_mux_select_chan(struct i2c_adapter *adap, u32 chan_id)
+> >=20
+
+[...]
+
+> > Consider the following chain:
+> > Root - P1 - M1 - M2 - P2 - D1
+> >=20
+> > P - Parent locked
+> > M - Mux locked
+> > D - Device
+> >=20
+> > In this case we need to lock both M1 and M2, not just M2 ?
+> > I'm not completely sure though, I need to refresh myself on the code
+> > base.
+>=20
+> No, that should not be needed. The reason is that when you initiate a
+> xfer for D1 the following happens (xfer is a locked transfer, __xfer
+> is unlocked):
+>=20
+> - xfer using P2
+>  - lock(P2, I2C_LOCK_SEGMENT)
+>   + take mux_lock for P2->parent =3D=3D M2
+>   + P2 is parent-locked -> recurse to P2->parent =3D=3D M2
+>    + lock(M2, I2C_LOCK_SEGMENT)
+>     + take mux_lock for M2->parent =3D=3D M1
+>     + M2 is mux-locked -> no recursion
+>  - ***** (see below)
+>  - P2->select (commonly __xfer using M2, elided here)
+>  - __xfer using M2 (unlocked since P2 is parent-locked)
+>   - =A7=A7=A7=A7=A7 (see below)
+>   - M2->select (commonly xfer using M1, elided here)
+>   - locked xfer using M1 (locked since M2 is mux-locked)
+>    - lock(M1, I2C_LOCK_SEGMENT)
+>     + take mux_lock for M1->parent =3D=3D P1
+>     + M1 is mux-locked -> no recursion
+>    - M1->select (commonly xfer using P1, elided here)
+>    - xfer using P1 (locked since M1 is mux-locked)
+>     - lock(P1, I2C_LOCK_SEGMENT)
+>      + take mux_lock for P1->parent =3D=3D Root
+>      + P1 is parent-locked -> recurse to P1->parent =3D=3D Root
+>       + lock(Root, I2C_LOCK_SEGMENT)
+>        + take bus_lock for Root
+>        + Root is Root -> no recursion
+>     - P1->select (commonly __xfer using Root, elided here)
+>=20
+>     - __xfer using Root (unlocked since P1 is parent-locked)
+>=20
+>     - P1->deselect (commonly __xfer using Root, elided here)
+>     - unlock(P1, I2C_LOCK_SEGMENT)
+>      + P1 is parent-locked -> recurse to P1->parent =3D=3D Root
+>       + unlock(Root, I2C_LOCK_SEGMENT)
+>        + Root is Root -> no recursion
+>        + release bus_lock for Root
+>      + release mux_lock for P1->parent =3D=3D Root
+>    - M1->deselect (commonly xfer using P1, elided here)
+>    - unlock(M1, I2C_LOCK_SEGMENT)
+>     + M1 is mux-locked -> no recursion
+>     + release mux_unlock for M1->parent =3D=3D P1
+>   - M2->deselect (commonly xfer using M1, elided here)
+>  - P2->deselect (commonly __xfer using M2, elided here)
+>  - unlock(P2, I2C_LOCK_SEGMENT)
+>   + P2 is parent-locked -> recurse to P2->parent =3D=3D M2
+>    + unlock(M2, I2C_LOCK_SEGMENT)
+>     + M2 is mux-locked -> no recursion
+>     + release mux_lock for M2->parent =3D=3D P2
+>   + release mux_lock for P2->parent =3D=3D M2
+>=20
+> (Phhew, I wonder how many typos are in there...)
+>=20
+> So, between the steps lock(P2,...) and P2->select (at the ***** mark,
+> which is where you add set_clk_freq), what you need to lock is M1,
+> i.e. the parent of the first ancestor that is not mux-locked. When
+> you lock with I2C_LOCK_ROOT_ADAPTER, this happens:
+>=20
+>  - lock(M1, I2C_LOCK_ROOT_ADAPTER)
+>   + take mux_lock for M1->parent =3D=3D P1
+>   + recures to M1->parent =3D=3D P1
+>    + lock(P1, I2C_LOCK_ROOT_ADAPTER)
+>     + take mux_lock for P1->parent =3D=3D Root
+>     + recurse to P1->parent =3D=3D Root
+>      + lock(Root, I2C_LOCK_ROOT_ADAPTER)
+>       + take bus_lock for Root
+>       + Root is Root -> no recursion
+>  - Root->set_clk_freq                  <<<< the new thing
+>  - unlock(M1, I2C_LOCK_ROOT_ADAPTER)
+>   + recurse to M1->parent =3D=3D P1
+>    + unlock(P1, I2C_LOCK_ROOT_ADAPTER)
+>     + recurse to P1->parent =3D=3D Root
+>      + unlock(Root, I2C_LOCK_ROOT_ADAPTER)
+>       + Root is Root, no recursion
+>       + release bus_lock for Root
+>     + release mux_lock for P1->parent =3D=3D Root
+>   + release mux_lock for M1->parent =3D=3D P1
+
+Thanks for the explaination, that makes it much clearer!
+>=20
+> However, spelling that out makes it clearer that Root->set_clk_freq
+> will be inserted in more places in the "call tree". It will be added
+> before every ->select call, e.g. at =A7=A7=A7=A7=A7. Since any of these
+> additional set_clk_freq calls happen after the one at *****, they will
+> take precedence and ruin the whole thing if any of them should request
+> an intermediate frequency (1MHz at Root, 400kHz for any intermediate
+> mux and 100kHz for D1, for example).
+>=20
+> I don't immediately see how to reverse that such that the set_clk_freq
+> for the top-most level happens closest to the xfer on the root
+> adapter.
+
+I've now experimented a bit and think I've landed on this solution:
+
+- i2c_mux_select_chan() will only lower the root bus frequency, this to
+  ensure that no intermediate mux will be able to change the frequency
+  (all muxes in the middle must have a higher frequency).
+- i2c_mux select_chan() store the original bus frequency
+- i2c_mux_deselect_chan() will restore the original bus frequency
 
 
-Hi,
+Something like this:
 
-We noticed that this change introduced a regression of ~20 ms to the 
-first KVM_CREATE_VCPU call of a VM, which is significant for our use case.
+static int i2c_mux_select_chan(struct i2c_adapter *adap, u32 chan_id, u32 *=
+oldclock)
+{
+	if (priv->adap.clock_hz && priv->adap.clock_hz < parent->clock_hz) {
+		*oldclock =3D root->clock_hz;
+		i2c_adapter_set_clk_freq(root, priv->adap.clock_hz);
+    }
+}
 
-Before the patch:
-45726 14:45:32.914330 ioctl(25, KVM_CREATE_VCPU, 0) = 28 <0.000137>
-45726 14:45:32.914533 ioctl(25, KVM_CREATE_VCPU, 1) = 30 <0.000046>
+static void i2c_mux_deselect_chan(struct i2c_adapter *adap, u32 chan_id, u3=
+2 oldclock)
+{
+	if (oldclock && oldclock !=3D priv->adap.clock_hz) {
+		i2c_adapter_set_clk_freq(root, oldclock);
+    }
+}
 
-After the patch:
-30295 14:47:08.057412 ioctl(25, KVM_CREATE_VCPU, 0) = 28 <0.025182>
-30295 14:47:08.082663 ioctl(25, KVM_CREATE_VCPU, 1) = 30 <0.000031>
+static int __i2c_mux_master_xfer(struct i2c_adapter *adap,
+				 struct i2c_msg msgs[], int num)
+{
+	u32 oldclock =3D 0;
 
-The reason, as I understand, it happens is call_srcu() called from 
-kvm_io_bus_register_dev() are adding callbacks to be called after a 
-normal GP, which is 10 ms with HZ=100.  The subsequent 
-synchronize_srcu_expedited() called from kvm_swap_active_memslots() 
-(from KVM_CREATE_VCPU) has to wait for the normal GP to complete before 
-making progress.  I don't fully understand why the delay is consistently 
-greater than 1 GP, but that's what we see across our testing scenarios.
+	ret =3D i2c_mux_select_chan(adap, priv->chan_id, &oldclock);
+    __i2c_transfer(parent, msgs, num);
+	i2c_mux_deselect_chan(adap, priv->chan_id, oldclock);
+}
 
-I verified that the problem is relaxed if the GP is reduced by 
-configuring HZ=1000.  In that case, the regression is in the order of 1 ms.
+I will do more testing during the weekend.
+I now have a virtual i2c bus with virtual mux drivers and virtual
+devices so that I can setup different combinations to test with.=20
 
-It looks like in our case we don't benefit much from the intended 
-optimisation as the number of device MMIO registrations is limited and 
-and they don't cost us much (each takes at most 16 us, but most commonly 
-~6 us):
+>=20
+> Cheers,
+> Peter
 
-      firecracker 68452 [054]  3053.183991: 
-kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
-      firecracker 68452 [054]  3053.184007: 
-kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
-ffffffffc03aa190)
-      firecracker 68452 [054]  3053.184007: 
-kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
-      firecracker 68452 [054]  3053.184014: 
-kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
-ffffffffc03aa1b9)
-      firecracker 68452 [054]  3053.184015: 
-kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
-      firecracker 68452 [054]  3053.184021: 
-kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
-ffffffffc03aa1db)
-      firecracker 68452 [054]  3053.184028: 
-kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
-      firecracker 68452 [054]  3053.184034: 
-kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
-ffffffffc03ac957)
-      firecracker 68452 [054]  3053.184093: 
-kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
-      firecracker 68452 [054]  3053.184099: 
-kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
-ffffffffc03ab51a)
-      firecracker 68452 [054]  3053.184100: 
-kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
-      firecracker 68452 [054]  3053.184106: 
-kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
-ffffffffc03ab549)
-      firecracker 68452 [054]  3053.193145: 
-kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
-      firecracker 68452 [054]  3053.193164: 
-kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
-ffffffffc0348c9f)
-      firecracker 68452 [054]  3053.193165: 
-kprobes:kvm_io_bus_register_dev: (ffffffffc0348390)
-      firecracker 68452 [054]  3053.193171: 
-kprobes:kvm_io_bus_register_dev__return: (ffffffffc0348390 <- 
-ffffffffc0348c9f)
+Best regards,
+Marcus Folkesson
 
-Our env:
-  - 6.18
-  - Arch: the analysis above is from x86, but ARM regressed very similarly
-  - CONFIG_HZ=100
-  - VMM: Firecracker (https://github.com/firecracker-microvm/firecracker)
+--jvosexET//3GfWY0
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
 
-I am not aware of way to make it fast for both use cases and would be 
-more than happy to hear about possible solutions.
+iQIzBAEBCgAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmmPSPEACgkQiIBOb1ld
+UjL9nhAAoWXpn7BR5ktipf8OeHDmccv+zlZeihJJjvfLz+woIz3DjpZlBicZIJB2
+/3SDKjT5jLJYgynI9uRRw3LH/Nte8DYaZ+IvvZ8c1cRlHVAAaaOFr5ffjLZafMSP
+GUWtop0BmIcfiwvLPCCeKvqnZNPmxM/XzpcXnOkf1llOU2hlpHLV4rPr5F5fJ94Q
+P4ViEjceKPli6D/17JmQdcYh7SRm5bsmJ/rj9vfJbVLsVecWgElx645k5KLMTeGI
+9U744hb2eHfc2fupF00VJhRIDH/cOLI2Yo9me1LvZB2qB+9qmVLTjMzOPJF36rPK
+LRE9Ei/L9jAivUryEOy4GVUFYkpixQ9YIcvVtn+tXUPpWRoY/aC7C8EuIL7mkDiV
+IYEcZCqL8se8FLze3KQNq07SUuodmBMFG9pJWUsZt8dvDxirDYIsJ9wgxpiQT8zI
+Er2VzjQpccC5DkG54wrC392KrLWp2V30g41Lg/DtbzXZ87XNRcjDqDajvDoVbq1I
+P2dNSpWPXeeV3G4+g5i1VmFaulnV0mCt/2XqMQd5TiIasydH6ns9ftexaXVNWPhW
+XA0W2ZuSiR1DKERm60A1vu+rW2O3Cx6BWdn5UHN31byBnqWbe+1VqFJtZXb1qcEK
+K+EpMQ0tXCQLHFiU7N1eKd6uMZbLNDezoylr/Md3PzZWR+eRnew=
+=I/TP
+-----END PGP SIGNATURE-----
 
-
-Thanks,
-Nikita
-
-> 
-> Tested-by: Li RongQing <lirongqing@baidu.com>
-> Signed-off-by: Keir Fraser <keirf@google.com>
-> ---
->   include/linux/kvm_host.h |  1 +
->   virt/kvm/kvm_main.c      | 11 +++++++++--
->   2 files changed, 10 insertions(+), 2 deletions(-)
-> 
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index e7d6111cf254..103be35caf0d 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -206,6 +206,7 @@ struct kvm_io_range {
->   struct kvm_io_bus {
->   	int dev_count;
->   	int ioeventfd_count;
-> +	struct rcu_head rcu;
->   	struct kvm_io_range range[];
->   };
->   
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 870ad8ea93a7..bcef324ccbf2 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -1320,6 +1320,7 @@ static void kvm_destroy_vm(struct kvm *kvm)
->   		kvm_free_memslots(kvm, &kvm->__memslots[i][1]);
->   	}
->   	cleanup_srcu_struct(&kvm->irq_srcu);
-> +	srcu_barrier(&kvm->srcu);
->   	cleanup_srcu_struct(&kvm->srcu);
->   #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
->   	xa_destroy(&kvm->mem_attr_array);
-> @@ -5952,6 +5953,13 @@ int kvm_io_bus_read(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx, gpa_t addr,
->   }
->   EXPORT_SYMBOL_GPL(kvm_io_bus_read);
->   
-> +static void __free_bus(struct rcu_head *rcu)
-> +{
-> +	struct kvm_io_bus *bus = container_of(rcu, struct kvm_io_bus, rcu);
-> +
-> +	kfree(bus);
-> +}
-> +
->   int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
->   			    int len, struct kvm_io_device *dev)
->   {
-> @@ -5990,8 +5998,7 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
->   	memcpy(new_bus->range + i + 1, bus->range + i,
->   		(bus->dev_count - i) * sizeof(struct kvm_io_range));
->   	rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
-> -	synchronize_srcu_expedited(&kvm->srcu);
-> -	kfree(bus);
-> +	call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
->   
->   	return 0;
->   }
-
+--jvosexET//3GfWY0--
 
