@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33558EDF148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 10:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB7CEDF148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 10:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nshzxh9y6WqEB4WRbDhitJymaUOLK/yf767h/KWPrU8=; b=BDfW/q67Xkw03DLx+iJpmX5fxn
-	2bV2eeecZBRdh7IBjguUQ2vAAkngdSiijrxRaHi6HE1apW6WzQ6Padou7XVlApMk0j6kVdpy8WXk3
-	BkdEdICGahLQbo30PDWFjlWTMQgGHe/qkG+RVNBhkSJd3A39+DrlkUiZynBOukltDrlaZgC+8mtTZ
-	2CyEfl9QzdXd4trA5CEhpNaKV3SJaNzwfvatXpr6aRNrkyYQ3kkc20nOcsT6TAxBmcyJvho4WiEKD
-	S9VKF56MX66gbwFr9Zp8jCzsGtZ7mI1d+FjdmeUsMUXctRFm0XHdcnY3d3vCNkOQahCxdtLATi3nh
-	djw+w+lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fbxz+9iae9EskUTjKGGFOvl34dFZakr6srmNCT/GDGc=; b=ut0I8c0yTmapD19ghXAdx8qPzT
+	Lf9w8EvM7OjQRjTSLmbGsNBZWO3KIbtjva+/Ytoz/Tu6HkUhoQsOZfWfYVHgzGl3W+5lUnjmYt0Ds
+	MapuxCueI5ze20BoeKVj6O2gGJslnsfYXFv1CQlsov6ihHATufL8LxgsZ0BRG0vSn1RAqqou/0mZf
+	loP3h/hAH5RzdqTP8vOADgDWEao+L/Co43oSQV53elz9s2KUA+n+w1W9ZOJ1eqoOvX5CanrDg9hAa
+	fAfY4FEIRAwKzsCKt7aplQAM+7hj+fUGcjPPnrMHCD77YwCT1l8jJCJoLP+8ejHLF9WwUEkoEQ0o7
+	QLf0oK4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqqUG-00000003JtN-1ZNd;
-	Fri, 13 Feb 2026 10:33:24 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1vqqar-00000003KxX-0suL;
+	Fri, 13 Feb 2026 10:40:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqqUC-00000003JrR-3x6K;
-	Fri, 13 Feb 2026 10:33:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1770978772;
-	bh=nshzxh9y6WqEB4WRbDhitJymaUOLK/yf767h/KWPrU8=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=ocWTGaDg9TLhmRn+O0719X89zgf3zeb9FEQgbTNtPWtPr6BP7H25kZEpGCE924fvg
-	 cAO5Tuuf7T9g09e+IHBC02oLRYkcMh4TCKunDaQIFPWF7TnfshOWwrPsp4cxV1KR9O
-	 ffnbQAHZXhx8xI3EhdzrNJN0fOepBroY9aag+XUM=
-X-QQ-mid: zesmtpgz8t1770978767t2c3fd337
-X-QQ-Originating-IP: TBATnZT9oxdxKnfXfChj4fGGtd3Cu+T1Z4H/cOr6yy4=
-Received: from [127.0.0.1] ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 13 Feb 2026 18:32:46 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4695454215096613574
-Message-ID: <B5000B8F1001C1D8+040b217f-8ee1-4f96-95ec-e44d140b589d@airkyi.com>
-Date: Fri, 13 Feb 2026 18:32:45 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: add node name for
- RK3588_PD_RKVDEC0/1 and RK3588_PD_VENC0/1
-To: Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <1770950113-19802-1-git-send-email-shawn.lin@rock-chips.com>
-Content-Language: en-US
-From: Chaoyi Chen <kernel@airkyi.com>
-In-Reply-To: <1770950113-19802-1-git-send-email-shawn.lin@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: OFWsfmE1GYcu9RcZm1zNdEiv/fV17XjKtVbokAv7tVfDInpMR9idsTrR
-	yDDRmNIj8kWnh7O7NwBg+DJKTv9mRKJ6M8hVBxow0z52BqFJJe/UGx6o6a7W57Fb2/FOrmE
-	mI6VAllmfwUbVIqT7EoBEQksnU8lePKtaSI9VZbuYBsYpGqzxNzHKEz5d8q5maoKYqtKOnG
-	kCcHrw8kgkaDy18eEQ54GLuvhLZNmDPrL2SJ5fHUoni0KWOPio41O/MjoswG3jvb6MdSzPO
-	tYfCARXp+6sz4B9198buqARMcGY5jHqPu5duhzyBxxYVgo6zT3b/xfytQWuo9tkA9Qaxt7j
-	oDzZ/f2dPW/+yrtlVNV1DZZMLs8wns4XsABawaxA7LE1l5NGdxU2MVrLmWF8cX+El9EEMet
-	EQKIMWiimtFKFfJ5X0HaxnuDWoUKVOgyOSanrWphAxWtwVAIYh/TX5dg2mmZrMkAC6luDVW
-	BtOm1KNthwA9CXrZNSgLZlmrIrlZob8Mz2G/4eTbn9yP2rPQc6KXzmkcoUYtqK9mDEQbaEQ
-	YUIPd/ABj93LxMfZeJUTW6gqBISwE/1pZ5DxZr5rUxhfBd3IjMKH5vs32xQ3gcI5W/mUvk6
-	DAb1wavSuachR9tg7Em45R0jGMgVGcCaNxoHh43SeI01MsN0NJvx9VXKMaV7LEHmcVwZw2y
-	mZT9U7y/TmnemqN23dHRMe4y/39Rr28EggcW6SnDcDwXKhkIS2z5+aNdWeoyiagpwICcyBt
-	CqydGY+SRibeePFDvL6rmeMnkrdDUmGuk+ZHs5GZhVZgi4DUhn3mAUtE9MbVi/O5gGhWWdt
-	LimOwjXUZLd57xVx5+mUVjxDckh7nYgne8jIn1FqY0BGQ2ByTgZErNBeNFT0TQDTjqhgWrl
-	fcsasZRo1Wg0PE+aVkXD4oV8roG/SyjZfWgFyCKPr48fy3i87lV71eX+5O/hL31eGpgF5gE
-	3BpYPdvPwTV5md4jhU7YO0c+VoB55kTSFhzbGGeIYTmmologxLlFgjQeFomdWPQj8msU=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_023321_452625_6A94C4D7 
-X-CRM114-Status: GOOD (  14.26  )
+	id 1vqqap-00000003KxN-2Kdp
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Feb 2026 10:40:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 063716091C;
+	Fri, 13 Feb 2026 10:40:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA286C116C6;
+	Fri, 13 Feb 2026 10:40:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770979209;
+	bh=Xqz6za0FavxiZ7fDMciG090joG/GKFc1LpHoJfcba0w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IpjTBKin7B81H+bwSfU+aUQh7ariYE9q67Gk6wzrek0HB0CLhpMF9utWlVFmsSg5a
+	 p+bKzkpCNCbcFFCmTJugmHeb3Gl1kKdW+sX0NiI19crR9kSoOCSN4pB/PRjEv8JWT0
+	 VEHYv3P882F97T0x78MSbCN4EjDymneEqWOW/Zx9/Sk0YU3qrH2aR9oRDW5lDiEdAn
+	 u1eeI6LO8Rtit1nX6T+lURFD2tJziUCldf1gs/GHFkGvRQsNOMRH7xp0UZf2pvZa6B
+	 qbbkDP03/zTHFBnCwK/Q8Ecatv9beYxm9kbFC1G3Fgm6LbZmZMP/krH6Lob9TVDWBT
+	 xMijghpMH5Fgw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vqqal-0000000Ar8t-1BHt;
+	Fri, 13 Feb 2026 10:40:07 +0000
+Date: Fri, 13 Feb 2026 10:40:06 +0000
+Message-ID: <86fr75apvd.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1 1/3] KVM: arm64: Hide S1POE from guests when not supported by the host
+In-Reply-To: <CA+EHjTwLcxB1e_FZsw_Semoj8tjMBUKZFM8+Vbo+64+=T4GN-Q@mail.gmail.com>
+References: <20260212090252.158689-1-tabba@google.com>
+	<20260212090252.158689-2-tabba@google.com>
+	<86jywib98e.wl-maz@kernel.org>
+	<CA+EHjTz-JU2gDfziCY2SguK9=6gGSCL5TN_U_C7FiZ5i0JTZqQ@mail.gmail.com>
+	<86ikc2asa8.wl-maz@kernel.org>
+	<CA+EHjTwLcxB1e_FZsw_Semoj8tjMBUKZFM8+Vbo+64+=T4GN-Q@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +93,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Shawn,
+On Thu, 12 Feb 2026 18:53:05 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 
-On 2/13/2026 10:35 AM, Shawn Lin wrote:
-> Thus the board dts files could add property for these nodes.
-> 
-> Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
-> ---
-You should also add pmdomain driver.
+> Ouch! Yeah, no easy solutions here. For now, as a fix to be able to
+> backport, would you like me to respin this without the change to
+> kvm_has_s1poe(), or with that change as a separate patch?
 
-I've encountered a similar issue before. 
-Finley told me to use the new PMIC, and that would solve the problem. 
-Maybe you're using the same old PMIC as I did :)
+I'll remove the hunk myself when applying the series, no need to
+resend (unless I find another issue in the rest of the series, but it
+looks good so far).
 
+FWIW, I have an alternative set of hacks at [1], which appear to work,
+but we need to collectively convince ourselves that this is the
+correct thing to do (i.e. the required traps are always set,
+irrespective of the configuration).
 
-> 
->  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> index 7fe9593..4fb8888 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> @@ -907,7 +907,7 @@
->  				#size-cells = <0>;
->  				#power-domain-cells = <0>;
->  
-> -				power-domain@RK3588_PD_RKVDEC0 {
-> +				pd_rkvdec0: power-domain@RK3588_PD_RKVDEC0 {
->  					reg = <RK3588_PD_RKVDEC0>;
->  					clocks = <&cru HCLK_RKVDEC0>,
->  						 <&cru HCLK_VDPU_ROOT>,
-> @@ -917,7 +917,7 @@
->  					pm_qos = <&qos_rkvdec0>;
->  					#power-domain-cells = <0>;
->  				};
-> -				power-domain@RK3588_PD_RKVDEC1 {
-> +				pd_rkvdec1: power-domain@RK3588_PD_RKVDEC1 {
->  					reg = <RK3588_PD_RKVDEC1>;
->  					clocks = <&cru HCLK_RKVDEC1>,
->  						 <&cru HCLK_VDPU_ROOT>,
-> @@ -926,7 +926,7 @@
->  					pm_qos = <&qos_rkvdec1>;
->  					#power-domain-cells = <0>;
->  				};
-> -				power-domain@RK3588_PD_VENC0 {
-> +				pd_venc0: power-domain@RK3588_PD_VENC0 {
->  					reg = <RK3588_PD_VENC0>;
->  					clocks = <&cru HCLK_RKVENC0>,
->  						 <&cru ACLK_RKVENC0>;
-> @@ -937,7 +937,7 @@
->  					#size-cells = <0>;
->  					#power-domain-cells = <0>;
->  
-> -					power-domain@RK3588_PD_VENC1 {
-> +				pd_venc1: power-domain@RK3588_PD_VENC1 {
->  						reg = <RK3588_PD_VENC1>;
->  						clocks = <&cru HCLK_RKVENC1>,
->  							 <&cru HCLK_RKVENC0>,
+This affects PAuth, SVE, MTE and S1POE. SME and GCS are not supported
+in KVM, and BTI has no additional state, so these shouldn't be
+affected.
+
+Thanks,
+
+	M.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=arm64/ftr_config
 
 -- 
-Best, 
-Chaoyi
-
-
+Without deviation from the norm, progress is not possible.
 
