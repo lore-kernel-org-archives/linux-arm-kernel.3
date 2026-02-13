@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD8DEF99DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 22:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCB9EF99E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 23:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKMNigztuqTGlg9wJdp0fxp4ayo1kIW0ikl8Ufv8adQ=; b=1gWitlMuCJdSVZjQWV3qBy7fJ4
-	QBW0KN1o4wteyn0LUgMvhCY1sTNTI7W1Yl6uTRhK4hpca4XDrRMWUIC1Y6rSVo7DwT7clKd1CrcDN
-	t7SXofwia8516Yogz2k5V7n/JYS19LawxwapWmZzM0aAMIHiDCrPVwLuLISXSl+Jt8cThNp/oVVFN
-	gMPYmeNRkE0tPWdV+0/YCUGy/EYg7xwxcOHE3ge8qz0qmtMYOEBqdyHEzHgYYT71a+OtCF880/WQH
-	E67+zDOvKT+DPlJClFtXhCp6SfETWz+mhj8u4g3HwDL4m/nrw9Dpzkqa4kL7rPGel5W7fGEk43XvQ
-	zL5vXbMA==;
+	bh=QnDyPwS4Q+llctp6LQ/SlEfYWHKNFhQHk4I55u+/ouQ=; b=a228o8PnL9JH9gsjARxXBymvJc
+	Z+HH7w5NC5PIrXrrmv5RtfM5zsW3qrAKz5Z7E+D0yMCWs+OGVoysc2lQJSmfyuD2fOzFKrw3A0uo9
+	eoT/0U5EJ4YCYBoleX8jVVeItYcXuR3Mmw+DqkUbJX8lYwcua3Dk7FsX0Rg9gMZHxSkXCNsu6iUHo
+	V41gViWFv/QHDoorS/cEF5fvFtWsLflpDz8p8Cy0hAZU8ydHJj8zOasJ2OKtZisX3Tw7YWM8Kcex/
+	WgwRHV7U/GPVWb8+WannpD8RvQ8BWtN2lGEh6ixN1NNM/NDCUHAi9QuU08ZtC3MbN2UczgJ4olJeP
+	Y0UQJZVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr1Hp-00000003yRW-3PTn;
-	Fri, 13 Feb 2026 22:05:17 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vr2T1-000000041mA-2H0p;
+	Fri, 13 Feb 2026 23:20:55 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr1Hm-00000003yR4-2lYB
+	id 1vr2Sy-000000041lm-2hNw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Feb 2026 22:05:16 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vr1HO-0005gD-9k; Fri, 13 Feb 2026 23:04:50 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vr1HL-000e8h-0S;
-	Fri, 13 Feb 2026 23:04:48 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vr1HM-000000008cL-1XIN;
-	Fri, 13 Feb 2026 23:04:48 +0100
-Date: Fri, 13 Feb 2026 23:04:48 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Sumit Garg <sumit.garg@kernel.org>
-Cc: Jens Wiklander <jens.wiklander@linaro.org>, 
-	Matthew Wilcox <willy@infradead.org>, vbabka@suse.cz, akpm@linux-foundation.org, kernel@pengutronix.de, 
-	op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, ilias.apalodimas@linaro.org, jan.kiszka@siemens.com, 
-	masahisa.kojima@linaro.org, spu@pengutronix.de
-Subject: Re: [PATCH v2] tee: shm: fix slab page refcounting
-Message-ID: <252s4lfnujhrl3bkqm3xwatdkcdd3tfge3e6fla6f2llq4szjm@xltjvpqjgffn>
-References: <20250325200740.3645331-1-m.felsch@pengutronix.de>
- <Z-Pc6C1YUqLyej3Z@casper.infradead.org>
- <20250326110718.qzbwpmaf6xlcb4xf@pengutronix.de>
- <CAHUa44FUK_73oKSaqGdiPqB3geZbTNDFsC1Mh=KN3YPWr9=7gQ@mail.gmail.com>
- <Z-TXMIXzaro0w60M@sumit-X1>
- <CAHUa44HEsMkzQHZZufdwutQyZRtig6e0qWomhwgDZAhy2qDyhg@mail.gmail.com>
- <20260212125830.jfwos3flga2l5uwk@pengutronix.de>
- <aY8N90jMp25bBZhi@sumit-xelite>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aY8N90jMp25bBZhi@sumit-xelite>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Fri, 13 Feb 2026 23:20:54 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-354c0eb08ceso5684707a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 15:20:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1771024850; x=1771629650; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QnDyPwS4Q+llctp6LQ/SlEfYWHKNFhQHk4I55u+/ouQ=;
+        b=0ZqqlSLBTJBzTOK6xCH0gNVlK75YgWjXuT5SK57B6DviQc7PiVVSTGr4U0CJD6/WcE
+         rr2VCRV3oadKN6Z2M6hwCvgJtRN9NZKFE1TPr8wsHV7cj2eZjaJhg3Ao7R298O5HEuAD
+         Z4YLOrasn67zPOR8uq8xeuHv8JdM3aNwTLGiKA84TkI5m/4Usdb04l8Bq0t+hWvwtoqg
+         bcCfHD/Q6PmI1HHaHc2s3rJdGlDv15aB91iQXI53zqG5NfnPqvt9SgmAw6ekYS7mvxre
+         SD1nV9QHPZ/dij7O0Z73OI2w0a2524Uyg5jmpHkqBPxV+9UoTAvk6DmWmlho77en5Fi2
+         0+HQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771024850; x=1771629650;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QnDyPwS4Q+llctp6LQ/SlEfYWHKNFhQHk4I55u+/ouQ=;
+        b=sQPv3tZNcCuODsfvz9VHmyHQSbIPLjp1ChpwJXMc0hfIw8oZiPsSgKCLiQjaKk1nh+
+         ia01BNJ0HuOJtEqFDdOBuPe3+bL+MInp56Wlnsdhzuzc9q8QuTYK6SMt6KHujQkYs+a3
+         MGTHy4DppV6QGjm8PoW9uPT80rMZkBN+cK8x9u1DzaqPqtyIHHhdQ5+jLJb9Mp0oYjze
+         oksM6t2/+xrM+zNtPBqafMHAN7/VyFaKYucTzMLM5hWUCNOp+xIectPdOcKF0k4IYlWk
+         D3b5BWr0XlY2p7xNlbX0bfdXNEhXM8InSS8lisnS23+PjT7cUrvtiVS1B2w6cCYqhk61
+         zxDw==
+X-Forwarded-Encrypted: i=1; AJvYcCUeklBfyDKb5swodS6pisXpoAmEpqUNNH9hTbqbN2XaO+DfV+7ero24cWOyCSTLQ4DM8KyZsYXGq0bf2RS+WdB6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3Fyctb8A+VblWJ/687RNSslbr2Y4vk6RRh19FW/Tx8uEH4Y6D
+	LLgKhGMLVny0CHQcByNFlMCOlRlap9k1fUwzgUgjnfoFmsdVaRP6OlmCrXUrbYDouGOEgaTCQyB
+	ref2eZQ==
+X-Received: from pjd4.prod.google.com ([2002:a17:90b:54c4:b0:352:d19a:6739])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:dfc7:b0:336:9dcf:ed14
+ with SMTP id 98e67ed59e1d1-356aad3cb00mr3334271a91.23.1771024849714; Fri, 13
+ Feb 2026 15:20:49 -0800 (PST)
+Date: Fri, 13 Feb 2026 15:20:48 -0800
+In-Reply-To: <a84ddba8-12da-489a-9dd1-ccdf7451a1ba@amazon.com>
+Mime-Version: 1.0
+References: <20250909100007.3136249-1-keirf@google.com> <20250909100007.3136249-5-keirf@google.com>
+ <a84ddba8-12da-489a-9dd1-ccdf7451a1ba@amazon.com>
+Message-ID: <aY-x0OlJQEqInyNF@google.com>
+Subject: Re: [PATCH v4 4/4] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
+From: Sean Christopherson <seanjc@google.com>
+To: Nikita Kalyazin <kalyazin@amazon.com>
+Cc: Keir Fraser <keirf@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	Eric Auger <eric.auger@redhat.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Li RongQing <lirongqing@baidu.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_140514_705480_6D9440C3 
-X-CRM114-Status: GOOD (  29.07  )
+X-CRM114-CacheID: sfid-20260213_152052_725051_383D48CC 
+X-CRM114-Status: GOOD (  30.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,68 +91,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sumit,
-
-On 26-02-13, Sumit Garg wrote:
-> Hi Marco,
+On Fri, Feb 13, 2026, Nikita Kalyazin wrote:
 > 
-> On Thu, Feb 12, 2026 at 01:58:30PM +0100, Marco Felsch wrote:
-> > Hi Sumit,
+> 
+> On 09/09/2025 11:00, Keir Fraser wrote:
+> > Device MMIO registration may happen quite frequently during VM boot,
+> > and the SRCU synchronization each time has a measurable effect
+> > on VM startup time. In our experiments it can account for around 25%
+> > of a VM's startup time.
 > > 
-> > TBH: I was hoping that you will take care of this since you're marked as
-> > maintainer for the tee-trusted-key and we noticed the warning with 6.14
-> > and still no fix available :/
+> > Replace the synchronization with a deferred free of the old kvm_io_bus
+> > structure.
 > 
-> Mathew did suggested a fix long back on which everybody agreed but
-
-You agreed. I said that the current TEE API also allows non-slabed based
-backed memory and therefore I don't wanted to send this patch approach
-and instead asked you to do so since you're the maintainer and fine with
-the change.
-
-> didn't got enough attention from you to test and report if that fixed
-
-Why should it get attention from us? Maybe we do have different views of
-being a maintainer.
-
-> your issue. Since you insisted further, I have created a formal fix
-
-Why is it our issue? It's everyones issue which uses the tee trusted-key
-driver.
-
-> patch based on that here [1]. Care to test that?
-
-A colleague of mine is going to test it and will reply on the patch.
-
-> [1] https://lore.kernel.org/all/20260213113317.1728769-1-sumit.garg@kernel.org/
-
-...
-
-> > I checked the code once again and figured that we could drop/replace
-> > tee_shm_register_kernel_buf() with tee_shm_alloc_kernel_buf(). I don't
-> > see why a kernel driver needs to tee_shm_register_kernel_buf() in the
-> > first place, maybe this is legacy. The only users of
-> > tee_shm_register_kernel_buf() are trusted_tee.c and tee_stmm_efi.c.
 > 
-> No it's not legacy but allows for efficient memory reuse within the
-> kernel as to not create bounce buffers to share data with TEE.
+> Hi,
+> 
+> We noticed that this change introduced a regression of ~20 ms to the first
+> KVM_CREATE_VCPU call of a VM, which is significant for our use case.
+> 
+> Before the patch:
+> 45726 14:45:32.914330 ioctl(25, KVM_CREATE_VCPU, 0) = 28 <0.000137>
+> 45726 14:45:32.914533 ioctl(25, KVM_CREATE_VCPU, 1) = 30 <0.000046>
+> 
+> After the patch:
+> 30295 14:47:08.057412 ioctl(25, KVM_CREATE_VCPU, 0) = 28 <0.025182>
+> 30295 14:47:08.082663 ioctl(25, KVM_CREATE_VCPU, 1) = 30 <0.000031>
+> 
+> The reason, as I understand, it happens is call_srcu() called from
+> kvm_io_bus_register_dev() are adding callbacks to be called after a normal
+> GP, which is 10 ms with HZ=100.  The subsequent synchronize_srcu_expedited()
+> called from kvm_swap_active_memslots() (from KVM_CREATE_VCPU) has to wait
+> for the normal GP to complete before making progress.  I don't fully
+> understand why the delay is consistently greater than 1 GP, but that's what
+> we see across our testing scenarios.
+> 
+> I verified that the problem is relaxed if the GP is reduced by configuring
+> HZ=1000.  In that case, the regression is in the order of 1 ms.
+> 
+> It looks like in our case we don't benefit much from the intended
+> optimisation as the number of device MMIO registrations is limited and and
+> they don't cost us much (each takes at most 16 us, but most commonly ~6 us):
 
-To be hones, there are only two driver using the API. The tee_stmm_efi
-driver can do the alloc during the probe(). The trusted_tee has to use a
-bounce buffer, yes but how often do you assume that (un)sealing and rng
-ops have to be done during runtime? This shouldn't be a overhead at all.
+Maybe differences in platforms for arm64 vs x86?
 
-Therefore my suggestion would be still to drop the internal kernel API
-and only use it for userspace pages, where it could really matter.
+> I am not aware of way to make it fast for both use cases and would be more
+> than happy to hear about possible solutions.
 
-Regards,
-  Marco
--- 
-#gernperDu 
-#CallMeByMyFirstName
+What if we key off of vCPUS being created?  The motivation for Keir's change was
+to avoid stalling during VM boot, i.e. *after* initial VM creation.
 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+--
+From: Sean Christopherson <seanjc@google.com>
+Date: Fri, 13 Feb 2026 15:15:01 -0800
+Subject: [PATCH] KVM: Synchronize SRCU on I/O device registration if vCPUs
+ haven't been created
+
+TODO: Write a changelog if this works.
+
+Fixes: 7d9a0273c459 ("KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()")
+Reported-by: Nikita Kalyazin <kalyazin@amazon.com>
+Closes: https://lkml.kernel.org/r/a84ddba8-12da-489a-9dd1-ccdf7451a1ba%40amazon.com
+Cc: stable@vger.kernel.org
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ virt/kvm/kvm_main.c | 25 ++++++++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
+
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 571cf0d6ec01..043b1c3574ab 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -6027,7 +6027,30 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
+ 	memcpy(new_bus->range + i + 1, bus->range + i,
+ 		(bus->dev_count - i) * sizeof(struct kvm_io_range));
+ 	rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
+-	call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
++
++	/*
++	 * To optimize VM creation *and* boot time, use different tactics for
++	 * safely freeing the old bus based on where the VM is at in its
++	 * lifecycle.  If vCPUs haven't yet been created, simply synchronize
++	 * and free, as there are unlikely to be active SRCU readers; if not,
++	 * defer freeing the bus via SRCU callback.
++	 *
++	 * If there are active SRCU readers, synchronizing will stall until the
++	 * current grace period completes, which can meaningfully impact boot
++	 * time for VMs that trigger a large number of registrations.
++	 *
++	 * If there aren't SRCU readers, using an SRCU callback can be a net
++	 * negative due to starting a grace period of its own, which in turn
++	 * can unnecessarily cause a future synchronization to stall.  E.g. if
++	 * devices are registered before memslots are created, then creating
++	 * the first memslot will have to wait for a superfluous grace period.
++	 */
++	if (!READ_ONCE(kvm->created_vcpus)) {
++		synchronize_srcu_expedited(&kvm->srcu);
++		kfree(bus);
++	} else {
++		call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
++	}
+ 
+ 	return 0;
+ }
+
+base-commit: 183bb0ce8c77b0fd1fb25874112bc8751a461e49
+--
 
