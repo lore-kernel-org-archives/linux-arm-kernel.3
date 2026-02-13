@@ -4,80 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E42DEF99CA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 18:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E268CEF99CD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Feb 2026 19:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+CYAUnK+niRWIHu86Cb3ZRb8xgU+ScOmOZY4dcuRFLQ=; b=zBv3LQ+/UJzyWEFDrxQiXN9heh
-	J5Kn0CAfkyBL+mCtySTzqVXQyfXX0g3pH/4N5XpB3pJN7eJ4E6gXBJUIImYXq7KqRl3WRx8y+peNE
-	0WoysXNUF7MJbxOCBEUKb9iKv8ml87WfwnzAI2+yKTvpxvneXfoH7dEjEWpZV+QI6B4YdDMNihQy/
-	N5RRodF0f5q8kuBlzZRjFwce6sTCz6kY5VHdCA+zDnLHMvEEegaztBY//5b5OqS8tpr2n0UnruPg9
-	cRjpGiBMaBaZdKuoZAZX+fMHHntv1QrQNyZDybxWAMAfWHt7nd4CFJVlXAx4g0q3v3TOKgkumh1P9
-	r6DQyciw==;
+	bh=uIcgBf4il0LuIs6XpFks2/eruz3alvNX/BPhA2+Hhxg=; b=aXvjGiXtjx0jfHyRfIM03AsgX+
+	48F6b0oDGm6rusZYDgH2zu51Qf3HoQ6z78MxnXXUnG2z0/SyiDsDAuX1oW9gPSBB2hXhE2v88QL5T
+	B+G3uLtXr9bMD9iuh3CsBoBoFNY926osZuKY3Ca1lk+ajJeTrghDOdJj+UyUMPl/W/h9bqozhl3bC
+	6U+zSF+H3eb2vQ/LY3noyGk7wRN29nDGGUZZXYVYG8Q87ZVV+3TAFU8dbNYbr5KfOMuxcHZFtKoKH
+	RTDxjpADjxnEFQUqEzoJ0idvL3PWqrn8CIyCRTsXGx84PK4gLC0xglQCbgM5ofchsDiz9iOZxOPkH
+	UoPyHUTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqyIz-00000003oLN-3pgB;
-	Fri, 13 Feb 2026 18:54:17 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1vqyf4-00000003q5J-0wPD;
+	Fri, 13 Feb 2026 19:17:06 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqyIv-00000003oGY-1yIE;
-	Fri, 13 Feb 2026 18:54:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+CYAUnK+niRWIHu86Cb3ZRb8xgU+ScOmOZY4dcuRFLQ=; b=npRGMechsKUCXm+XMJQPKqcok1
-	v/M5qsHFb0rupOQxEbdZx2xWCa1/MmgQiVwlqGmZmh0xQWttAqSTrK6Yp1MIZt/I53zOZVuoLPgHm
-	HXXJX6v3PhKs6fqZgBGqCOQqTBhiIoMD04tzw/T2gp186o1mmMsl2NlZTywmMigVhvdp2COGq0KJ+
-	TbZLyD7pLZdHN/iIWrddOKDyu+2B/DkEVAOXspD1H35tMzno/y5XxB42KhStxch3jjqRi9FgtDkth
-	6MTItMRdjgzPyDHjnJyca5Ue4y75NDsm3Hk1sJD9g+WZt42VaAtLU9iupNtMgQhjypd00NJBiFvlG
-	eN6irx0A==;
-Received: from [187.36.210.68] (helo=janis.local)
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1vqyIn-000Sqv-Ig; Fri, 13 Feb 2026 19:54:05 +0100
-From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Date: Fri, 13 Feb 2026 15:53:00 -0300
-Subject: [PATCH v5 7/7] drm/v3d: Introduce Runtime Power Management
+	id 1vqyf2-00000003q4r-06px
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Feb 2026 19:17:05 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-65a1974d3dfso2069838a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 11:17:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1771010221; x=1771615021; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uIcgBf4il0LuIs6XpFks2/eruz3alvNX/BPhA2+Hhxg=;
+        b=TfHo3RwwEAWgxaPJ05/49WIJit2MzJAbYKgtY1tBr6llxq3vldHN5hXc6A0wNV7Y6J
+         VERsTh6yVSudKXEsuEK8j0WXUqWsGJ3foxlnDVBvAbDjGLojxioJuKtHOiKucIy41Lcp
+         KiK7g6/uzX4b7WouJeA7e9+sCLCsXzdBu/a9M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771010221; x=1771615021;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=uIcgBf4il0LuIs6XpFks2/eruz3alvNX/BPhA2+Hhxg=;
+        b=w7guucfuBafJy2Lc4qVNysLh3bRs/3UlABjbTSnXyvuyEUeXaUWf4lGM+D/sg69Wks
+         FCJyz9bsNKVFdQApJnxTyg6ymUQhK3fh8g0jQ5gv7ArNNH1zsCSj+CwhS5/JtSVBInO9
+         cuhhT26cDQaY3BYAckz8EwcrzM+H7sNaEiEmD2ansQ1y+6BIuoNT5sXeJMGYQpMg/JPi
+         m6SztM35E2KtIUtFUW1vQT5J/HihegO3CztZEWoSyZtO5k1Rvz+Xo3N/nLPdHDpap3de
+         9Oe/1D8AaXONht/D8pykRnj3wfNLX50YMv2gDsr1JdbPv74tlSD4cxtjWUF1sV00rbap
+         a4pA==
+X-Forwarded-Encrypted: i=1; AJvYcCVblblDN1ZQKvLgceueyOyKoZwIAjI/N493wnL6/1cRHWPSRn4WebPzTeFOYDcA23X0yEgj9iChOnw9/qRiHBao@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFas+Rmp0DPcIVOztRv4hta5ge301ZZPgkXRRW5CJ+0VHRK7au
+	MXNwpWoev6dnsDbxRVduSTy9ABwJWFOGu1PA1doZKlR5R+gQbUrxSrueBIcvvPeHzXSv1Qt6Q/z
+	0Utg8Sfg=
+X-Gm-Gg: AZuq6aIp0WIHNXW/MV2Cse75dIw4l/gbUL8jmH0trdh7wdWDU4t+Ri/wom6UKnLINSj
+	ml2tOy5KllanOMXYbSvB6DZcVsk98+cTpbPEs3lHyRSEoyX44U5Hr1bQ4HGCazS9eioqGNjf39R
+	VGxlb9OHz78dljzEfQUTetGsgGschu4e5ZdH3H0nsUEnFusG2WAliLhOyjQdkDUKxvnuJQ4D4BD
+	bUSW3Rzk6MiV3M/CYBtZ+icnp1P2+lrOry9mv8HxwzlAvh7kfNXVnO5uXPp40jjTOukgQri/vUm
+	5WwPXYYuYOX/MFPIHobfyizwlGqhW7qZ/Qlkk+nK1cdzejmXjs6Edd2NwOAa7O94sho5KQ3W42A
+	JIkwIUT0rwFpo5ipHKcTiosrBdpUT5mAr3Bc1a2at3iRSfkdvNXSolyv77/yNUCsOE85SCyNP2R
+	Av4si+7eySPzxLRoE5YQJspt8uxt6y8we25MlXCi3xQY7MoVWiZua569FtUiMWgEBt8chMtoLZ
+X-Received: by 2002:a05:6402:51d4:b0:65b:a76d:6fe5 with SMTP id 4fb4d7f45d1cf-65bad13e623mr2008023a12.30.1771010221293;
+        Fri, 13 Feb 2026 11:17:01 -0800 (PST)
+Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com. [209.85.208.47])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-65bad3e39bfsm957567a12.22.2026.02.13.11.17.00
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Feb 2026 11:17:00 -0800 (PST)
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-65a25c3a86eso2077099a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 11:17:00 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWhO29d4kAbW2agQjWYqg/ZKQsmMbKxCqySCBpWKDGAjpwpq25AjDA4DDL55m4PxkR3vnaTsL97SaBIt1H2Dh8m@lists.infradead.org
+X-Received: by 2002:a17:907:968c:b0:b88:38e9:8f89 with SMTP id
+ a640c23a62f3a-b8fac8bc5eamr207154266b.0.1771010220381; Fri, 13 Feb 2026
+ 11:17:00 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260213-v3d-power-management-v5-7-7a8b381eb379@igalia.com>
-References: <20260213-v3d-power-management-v5-0-7a8b381eb379@igalia.com>
-In-Reply-To: <20260213-v3d-power-management-v5-0-7a8b381eb379@igalia.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Stefan Wahren <wahrenst@gmx.net>, Maxime Ripard <mripard@kernel.org>, 
- Melissa Wen <mwen@igalia.com>, Iago Toral Quiroga <itoral@igalia.com>, 
- Chema Casanova <jmcasanova@igalia.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- kernel-dev@igalia.com, =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=17083; i=mcanal@igalia.com;
- h=from:subject:message-id; bh=CbLehf9jW/NaFqBxRoiwdpZTMQIQDmqBsKIi4sqI1q0=;
- b=owEBbQGS/pANAwAIAT/zDop2iPqqAcsmYgBpj3MoBz1Azva369iVUA4wAnU2uZAJxpeyL0Ic8
- U7+J8J9NDeJATMEAAEIAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaY9zKAAKCRA/8w6Kdoj6
- qq9FCADcsX9TLKFznPTSBH9PslHGkmhVlExhQNZpAyX3wrWzMkRRz8inJy5acX9hj8Z/8uug2Sn
- dD4H13kl377S9WiynFYzaVmpGJtqQPmxQVDLVNSOyBCtB43cfgUsER200fXzOOl3TWxGrv03Kfj
- AGVlpoSRdspOLHN7oz19l22yJfilm12C3N3uSYCmj461wzVcXKHecBPh6zxoO+sS5CCNBwer7/J
- SA6yYfp04vATMKteMt6uQaM/j2QG2mLTwsYxAzVoimE6/ub5boLO/30iItfIlhyAU7GGUO8AeDz
- ubIb7b4eZMjuTK1ZRGaj7OJfuXEMJ+suOCkDxJtFoyiDp7zF
-X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
- fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
+References: <20260213-arm-memset64-cleanup-v1-1-644a9735eeec@linutronix.de>
+In-Reply-To: <20260213-arm-memset64-cleanup-v1-1-644a9735eeec@linutronix.de>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Fri, 13 Feb 2026 11:16:44 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wh+w2jR1Et5EvAt3Jn8dn5cwr2BHcb=n0qNK2Bv5Xh-Eg@mail.gmail.com>
+X-Gm-Features: AZwV_QjYnNtK9BhO3HcpHg9LrAlf4ausThmn8559IcIuqlBXApNWVOsq-6f9FG8
+Message-ID: <CAHk-=wh+w2jR1Et5EvAt3Jn8dn5cwr2BHcb=n0qNK2Bv5Xh-Eg@mail.gmail.com>
+Subject: Re: [PATCH] ARM: clean up the memset64() C wrapper
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Russell King <linux@armlinux.org.uk>, Matthew Wilcox <willy@infradead.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_105413_851527_45B6EEC3 
-X-CRM114-Status: GOOD (  24.50  )
+X-CRM114-CacheID: sfid-20260213_111704_081202_9FC41812 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,609 +105,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 90a64adb0876 ("drm/v3d: Get rid of pm code") removed the last
-bits of power management code that V3D had, which were actually never
-hooked. Therefore, currently, the GPU clock is enabled during probe
-and only disabled when removing the driver.
+On Thu, 12 Feb 2026 at 23:39, Thomas Wei=C3=9Fschuh
+<thomas.weissschuh@linutronix.de> wrote:
+>
+> The current logic to split the 64-bit argument into its 32-bit halves is
+> byte-order specific and a bit clunky. Use a union instead which is
+> easier to read and works in all cases.
+>
+> GCC still generates the same machine code.
+>
+> While at it, rename the arguments of the __memset64() prototype to
+> actually reflect their semantics.
 
-Implement proper power management using the kernel's Runtime PM
-framework.
+I'll just apply this directly since I suggested this change, and I'm
+doing some architecture patches - like your alpha fix for a missing
+argument - and pulls right now anyway.
 
-Signed-off-by: Maíra Canal <mcanal@igalia.com>
----
- drivers/gpu/drm/v3d/Makefile      |  3 +-
- drivers/gpu/drm/v3d/v3d_debugfs.c | 23 +++++++++-
- drivers/gpu/drm/v3d/v3d_drv.c     | 87 +++++++++++++++++------------------
- drivers/gpu/drm/v3d/v3d_drv.h     | 19 ++++++++
- drivers/gpu/drm/v3d/v3d_gem.c     |  7 +++
- drivers/gpu/drm/v3d/v3d_mmu.c     | 10 +++-
- drivers/gpu/drm/v3d/v3d_perfmon.c | 18 ++++++--
- drivers/gpu/drm/v3d/v3d_power.c   | 96 +++++++++++++++++++++++++++++++++++++++
- drivers/gpu/drm/v3d/v3d_submit.c  | 19 ++++++--
- 9 files changed, 223 insertions(+), 59 deletions(-)
-
-diff --git a/drivers/gpu/drm/v3d/Makefile b/drivers/gpu/drm/v3d/Makefile
-index b7d673f1153bef16db3800e50b2bfaf36bf8871b..9cb1fd4e4091dbb56e6a73e2b8a51fa0d242698b 100644
---- a/drivers/gpu/drm/v3d/Makefile
-+++ b/drivers/gpu/drm/v3d/Makefile
-@@ -13,7 +13,8 @@ v3d-y := \
- 	v3d_trace_points.o \
- 	v3d_sched.o \
- 	v3d_sysfs.o \
--	v3d_submit.o
-+	v3d_submit.o \
-+	v3d_power.o
- 
- v3d-$(CONFIG_DEBUG_FS) += v3d_debugfs.o
- 
-diff --git a/drivers/gpu/drm/v3d/v3d_debugfs.c b/drivers/gpu/drm/v3d/v3d_debugfs.c
-index 89f24eec62a74ec49b28f0b22dbf626ba7a35206..634cc796ba2324dc497694c070f2cfffcc4424c9 100644
---- a/drivers/gpu/drm/v3d/v3d_debugfs.c
-+++ b/drivers/gpu/drm/v3d/v3d_debugfs.c
-@@ -97,7 +97,11 @@ static int v3d_v3d_debugfs_regs(struct seq_file *m, void *unused)
- 	struct drm_debugfs_entry *entry = m->private;
- 	struct drm_device *dev = entry->dev;
- 	struct v3d_dev *v3d = to_v3d_dev(dev);
--	int i, core;
-+	int i, core, ret;
-+
-+	ret = v3d_pm_runtime_get(v3d);
-+	if (ret)
-+		return ret;
- 
- 	for (i = 0; i < ARRAY_SIZE(v3d_hub_reg_defs); i++) {
- 		const struct v3d_reg_def *def = &v3d_hub_reg_defs[i];
-@@ -139,6 +143,8 @@ static int v3d_v3d_debugfs_regs(struct seq_file *m, void *unused)
- 		}
- 	}
- 
-+	v3d_pm_runtime_put(v3d);
-+
- 	return 0;
- }
- 
-@@ -148,7 +154,11 @@ static int v3d_v3d_debugfs_ident(struct seq_file *m, void *unused)
- 	struct drm_device *dev = entry->dev;
- 	struct v3d_dev *v3d = to_v3d_dev(dev);
- 	u32 ident0, ident1, ident2, ident3, cores;
--	int core;
-+	int core, ret;
-+
-+	ret = v3d_pm_runtime_get(v3d);
-+	if (ret)
-+		return ret;
- 
- 	ident0 = V3D_READ(V3D_HUB_IDENT0);
- 	ident1 = V3D_READ(V3D_HUB_IDENT1);
-@@ -207,6 +217,8 @@ static int v3d_v3d_debugfs_ident(struct seq_file *m, void *unused)
- 		}
- 	}
- 
-+	v3d_pm_runtime_put(v3d);
-+
- 	return 0;
- }
- 
-@@ -234,6 +246,11 @@ static int v3d_measure_clock(struct seq_file *m, void *unused)
- 	uint32_t cycles;
- 	int core = 0;
- 	int measure_ms = 1000;
-+	int ret;
-+
-+	ret = v3d_pm_runtime_get(v3d);
-+	if (ret)
-+		return ret;
- 
- 	if (v3d->ver >= V3D_GEN_41) {
- 		int cycle_count_reg = V3D_PCTR_CYCLE_COUNT(v3d->ver);
-@@ -253,6 +270,8 @@ static int v3d_measure_clock(struct seq_file *m, void *unused)
- 	msleep(measure_ms);
- 	cycles = V3D_CORE_READ(core, V3D_PCTR_0_PCTR0);
- 
-+	v3d_pm_runtime_put(v3d);
-+
- 	seq_printf(m, "cycles: %d (%d.%d Mhz)\n",
- 		   cycles,
- 		   cycles / (measure_ms * 1000),
-diff --git a/drivers/gpu/drm/v3d/v3d_drv.c b/drivers/gpu/drm/v3d/v3d_drv.c
-index 592ef610d6a4bb7dfe64acf6f7283c947e9d2921..07a7de54de9432a970c9165bebed51f6984fe43d 100644
---- a/drivers/gpu/drm/v3d/v3d_drv.c
-+++ b/drivers/gpu/drm/v3d/v3d_drv.c
-@@ -59,6 +59,7 @@ static int v3d_get_param_ioctl(struct drm_device *dev, void *data,
- 		[DRM_V3D_PARAM_V3D_CORE0_IDENT1] = V3D_CTL_IDENT1,
- 		[DRM_V3D_PARAM_V3D_CORE0_IDENT2] = V3D_CTL_IDENT2,
- 	};
-+	int ret;
- 
- 	if (args->pad != 0)
- 		return -EINVAL;
-@@ -75,12 +76,19 @@ static int v3d_get_param_ioctl(struct drm_device *dev, void *data,
- 		if (args->value != 0)
- 			return -EINVAL;
- 
-+		ret = v3d_pm_runtime_get(v3d);
-+		if (ret)
-+			return ret;
-+
- 		if (args->param >= DRM_V3D_PARAM_V3D_CORE0_IDENT0 &&
- 		    args->param <= DRM_V3D_PARAM_V3D_CORE0_IDENT2) {
- 			args->value = V3D_CORE_READ(0, offset);
- 		} else {
- 			args->value = V3D_READ(offset);
- 		}
-+
-+		v3d_pm_runtime_put(v3d);
-+
- 		return 0;
- 	}
- 
-@@ -287,36 +295,6 @@ static const struct of_device_id v3d_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, v3d_of_match);
- 
--static void
--v3d_idle_sms(struct v3d_dev *v3d)
--{
--	if (v3d->ver < V3D_GEN_71)
--		return;
--
--	V3D_SMS_WRITE(V3D_SMS_TEE_CS, V3D_SMS_CLEAR_POWER_OFF);
--
--	if (wait_for((V3D_GET_FIELD(V3D_SMS_READ(V3D_SMS_TEE_CS),
--				    V3D_SMS_STATE) == V3D_SMS_IDLE), 100)) {
--		drm_err(&v3d->drm, "Failed to power up SMS\n");
--	}
--
--	v3d_reset_sms(v3d);
--}
--
--static void
--v3d_power_off_sms(struct v3d_dev *v3d)
--{
--	if (v3d->ver < V3D_GEN_71)
--		return;
--
--	V3D_SMS_WRITE(V3D_SMS_TEE_CS, V3D_SMS_POWER_OFF);
--
--	if (wait_for((V3D_GET_FIELD(V3D_SMS_READ(V3D_SMS_TEE_CS),
--				    V3D_SMS_STATE) == V3D_SMS_POWER_OFF_STATE), 100)) {
--		drm_err(&v3d->drm, "Failed to power off SMS\n");
--	}
--}
--
- static int
- map_regs(struct v3d_dev *v3d, void __iomem **regs, const char *name)
- {
-@@ -383,6 +361,9 @@ static int v3d_platform_drm_probe(struct platform_device *pdev)
- 	if (IS_ERR(v3d->clk))
- 		return dev_err_probe(dev, PTR_ERR(v3d->clk), "Failed to get V3D clock\n");
- 
-+	if (v3d->clk)
-+		v3d->max_clk_rate = clk_round_rate(v3d->clk, ULONG_MAX);
-+
- 	ret = v3d_irq_init(v3d);
- 	if (ret)
- 		return ret;
-@@ -400,19 +381,26 @@ static int v3d_platform_drm_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto dma_free;
- 
--	ret = clk_prepare_enable(v3d->clk);
--	if (ret) {
--		dev_err(&pdev->dev, "Couldn't enable the V3D clock\n");
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
- 		goto gem_destroy;
--	}
- 
--	v3d_idle_sms(v3d);
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		goto gem_destroy;
-+
-+	/* If PM is disabled, we need to call v3d_power_resume() manually. */
-+	if (!IS_ENABLED(CONFIG_PM)) {
-+		ret = v3d_power_resume(dev);
-+		if (ret)
-+			goto gem_destroy;
-+	}
- 
- 	mmu_debug = V3D_READ(V3D_MMU_DEBUG_INFO);
- 	mask = DMA_BIT_MASK(30 + V3D_GET_FIELD(mmu_debug, V3D_MMU_PA_WIDTH));
- 	ret = dma_set_mask_and_coherent(dev, mask);
- 	if (ret)
--		goto clk_disable;
-+		goto runtime_pm_put;
- 
- 	dma_set_max_seg_size(&pdev->dev, UINT_MAX);
- 
-@@ -433,26 +421,27 @@ static int v3d_platform_drm_probe(struct platform_device *pdev)
- 	v3d->rev = V3D_GET_FIELD(ident3, V3D_HUB_IDENT3_IPREV);
- 
- 	v3d_init_hw_state(v3d);
--	v3d_mmu_set_page_table(v3d);
--	v3d_irq_enable(v3d);
-+
-+	pm_runtime_set_autosuspend_delay(dev, 50);
-+	pm_runtime_use_autosuspend(dev);
- 
- 	ret = drm_dev_register(drm, 0);
- 	if (ret)
--		goto irq_disable;
-+		goto runtime_pm_put;
- 
- 	ret = v3d_sysfs_init(dev);
- 	if (ret)
- 		goto drm_unregister;
- 
-+	pm_runtime_mark_last_busy(dev);
-+	pm_runtime_put_autosuspend(dev);
-+
- 	return 0;
- 
- drm_unregister:
- 	drm_dev_unregister(drm);
--irq_disable:
--	v3d_irq_disable(v3d);
--clk_disable:
--	v3d_power_off_sms(v3d);
--	clk_disable_unprepare(v3d->clk);
-+runtime_pm_put:
-+	pm_runtime_put_sync_suspend(dev);
- gem_destroy:
- 	v3d_gem_destroy(drm);
- dma_free:
-@@ -470,21 +459,27 @@ static void v3d_platform_drm_remove(struct platform_device *pdev)
- 
- 	drm_dev_unregister(drm);
- 
--	v3d_power_off_sms(v3d);
-+	pm_runtime_suspend(dev);
- 
--	clk_disable_unprepare(v3d->clk);
-+	/* If PM is disabled, we need to call v3d_power_suspend() manually. */
-+	if (!IS_ENABLED(CONFIG_PM))
-+		v3d_power_suspend(dev);
- 
- 	v3d_gem_destroy(drm);
- 
- 	dma_free_wc(dev, 4096, v3d->mmu_scratch, v3d->mmu_scratch_paddr);
- }
- 
-+static DEFINE_RUNTIME_DEV_PM_OPS(v3d_pm_ops, v3d_power_suspend,
-+				 v3d_power_resume, NULL);
-+
- static struct platform_driver v3d_platform_driver = {
- 	.probe		= v3d_platform_drm_probe,
- 	.remove		= v3d_platform_drm_remove,
- 	.driver		= {
- 		.name	= "v3d",
- 		.of_match_table = v3d_of_match,
-+		.pm = pm_ptr(&v3d_pm_ops),
- 	},
- };
- 
-diff --git a/drivers/gpu/drm/v3d/v3d_drv.h b/drivers/gpu/drm/v3d/v3d_drv.h
-index ff90ef6876d65241975f259b44c6f09941d12ecb..724fad4311a6c36124b54b07a857d32684398886 100644
---- a/drivers/gpu/drm/v3d/v3d_drv.h
-+++ b/drivers/gpu/drm/v3d/v3d_drv.h
-@@ -3,6 +3,7 @@
- 
- #include <linux/delay.h>
- #include <linux/mutex.h>
-+#include <linux/pm_runtime.h>
- #include <linux/spinlock_types.h>
- #include <linux/workqueue.h>
- 
-@@ -134,6 +135,8 @@ struct v3d_dev {
- 	void __iomem *gca_regs;
- 	void __iomem *sms_regs;
- 	struct clk *clk;
-+	unsigned long max_clk_rate;
-+
- 	struct reset_control *reset;
- 
- 	/* Virtual and DMA addresses of the single shared page table. */
-@@ -321,6 +324,8 @@ struct v3d_job {
- 
- 	/* Callback for the freeing of the job on refcount going to 0. */
- 	void (*free)(struct kref *ref);
-+
-+	bool has_pm_ref;
- };
- 
- struct v3d_bin_job {
-@@ -594,6 +599,20 @@ int v3d_mmu_set_page_table(struct v3d_dev *v3d);
- void v3d_mmu_insert_ptes(struct v3d_bo *bo);
- void v3d_mmu_remove_ptes(struct v3d_bo *bo);
- 
-+/* v3d_power.c */
-+int v3d_power_suspend(struct device *dev);
-+int v3d_power_resume(struct device *dev);
-+
-+static __always_inline int v3d_pm_runtime_get(struct v3d_dev *v3d)
-+{
-+	return pm_runtime_resume_and_get(v3d->drm.dev);
-+}
-+
-+static __always_inline int v3d_pm_runtime_put(struct v3d_dev *v3d)
-+{
-+	return pm_runtime_put_autosuspend(v3d->drm.dev);
-+}
-+
- /* v3d_sched.c */
- void v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_info,
- 				   unsigned int count);
-diff --git a/drivers/gpu/drm/v3d/v3d_gem.c b/drivers/gpu/drm/v3d/v3d_gem.c
-index dd4ac899a489fb7341815592114cc4f1652f35e8..17f50e145d4b7b206b729bfe34b93d00a7fa80e6 100644
---- a/drivers/gpu/drm/v3d/v3d_gem.c
-+++ b/drivers/gpu/drm/v3d/v3d_gem.c
-@@ -118,6 +118,11 @@ void
- v3d_reset(struct v3d_dev *v3d)
- {
- 	struct drm_device *dev = &v3d->drm;
-+	int ret;
-+
-+	ret = v3d_pm_runtime_get(v3d);
-+	if (ret)
-+		return;
- 
- 	drm_err(dev, "Resetting GPU for hang.\n");
- 	drm_err(dev, "V3D_ERR_STAT: 0x%08x\n", V3D_CORE_READ(0, V3D_ERR_STAT));
-@@ -140,6 +145,8 @@ v3d_reset(struct v3d_dev *v3d)
- 	v3d_perfmon_stop(v3d, v3d->active_perfmon, false);
- 
- 	trace_v3d_reset_end(dev);
-+
-+	v3d_pm_runtime_put(v3d);
- }
- 
- static void
-diff --git a/drivers/gpu/drm/v3d/v3d_mmu.c b/drivers/gpu/drm/v3d/v3d_mmu.c
-index c513a393c0313772650fd6d7236127b2dc4101d9..630c64e51d2f2ad30e59fa2b175487efe0bfba49 100644
---- a/drivers/gpu/drm/v3d/v3d_mmu.c
-+++ b/drivers/gpu/drm/v3d/v3d_mmu.c
-@@ -39,7 +39,11 @@ static bool v3d_mmu_is_aligned(u32 page, u32 page_address, size_t alignment)
- 
- int v3d_mmu_flush_all(struct v3d_dev *v3d)
- {
--	int ret;
-+	int ret = 0;
-+
-+	/* Flush the PTs only if we're already awake */
-+	if (!pm_runtime_get_if_active(v3d->drm.dev))
-+		return 0;
- 
- 	V3D_WRITE(V3D_MMUC_CONTROL, V3D_MMUC_CONTROL_FLUSH |
- 		  V3D_MMUC_CONTROL_ENABLE);
-@@ -48,7 +52,7 @@ int v3d_mmu_flush_all(struct v3d_dev *v3d)
- 			 V3D_MMUC_CONTROL_FLUSHING), 100);
- 	if (ret) {
- 		dev_err(v3d->drm.dev, "MMUC flush wait idle failed\n");
--		return ret;
-+		goto pm_put;
- 	}
- 
- 	V3D_WRITE(V3D_MMU_CTL, V3D_READ(V3D_MMU_CTL) |
-@@ -59,6 +63,8 @@ int v3d_mmu_flush_all(struct v3d_dev *v3d)
- 	if (ret)
- 		dev_err(v3d->drm.dev, "MMU TLB clear wait idle failed\n");
- 
-+pm_put:
-+	v3d_pm_runtime_put(v3d);
- 	return ret;
- }
- 
-diff --git a/drivers/gpu/drm/v3d/v3d_perfmon.c b/drivers/gpu/drm/v3d/v3d_perfmon.c
-index c090fc30ba4b2c502cbdc4310ee0c35f6c8aefb0..1c3c0b8c46b8fcb7697742011bbd8311dc8cddb7 100644
---- a/drivers/gpu/drm/v3d/v3d_perfmon.c
-+++ b/drivers/gpu/drm/v3d/v3d_perfmon.c
-@@ -232,6 +232,9 @@ void v3d_perfmon_start(struct v3d_dev *v3d, struct v3d_perfmon *perfmon)
- 	if (WARN_ON_ONCE(!perfmon || v3d->active_perfmon))
- 		return;
- 
-+	if (!pm_runtime_get_if_active(v3d->drm.dev))
-+		return;
-+
- 	ncounters = perfmon->ncounters;
- 	mask = GENMASK(ncounters - 1, 0);
- 
-@@ -257,6 +260,8 @@ void v3d_perfmon_start(struct v3d_dev *v3d, struct v3d_perfmon *perfmon)
- 	V3D_CORE_WRITE(0, V3D_PCTR_0_OVERFLOW, mask);
- 
- 	v3d->active_perfmon = perfmon;
-+
-+	v3d_pm_runtime_put(v3d);
- }
- 
- void v3d_perfmon_stop(struct v3d_dev *v3d, struct v3d_perfmon *perfmon,
-@@ -268,10 +273,11 @@ void v3d_perfmon_stop(struct v3d_dev *v3d, struct v3d_perfmon *perfmon,
- 		return;
- 
- 	mutex_lock(&perfmon->lock);
--	if (perfmon != v3d->active_perfmon) {
--		mutex_unlock(&perfmon->lock);
--		return;
--	}
-+	if (perfmon != v3d->active_perfmon)
-+		goto out;
-+
-+	if (!pm_runtime_get_if_active(v3d->drm.dev))
-+		goto out_clear;
- 
- 	if (capture)
- 		for (i = 0; i < perfmon->ncounters; i++)
-@@ -279,7 +285,11 @@ void v3d_perfmon_stop(struct v3d_dev *v3d, struct v3d_perfmon *perfmon,
- 
- 	V3D_CORE_WRITE(0, V3D_V4_PCTR_0_EN, 0);
- 
-+	v3d_pm_runtime_put(v3d);
-+
-+out_clear:
- 	v3d->active_perfmon = NULL;
-+out:
- 	mutex_unlock(&perfmon->lock);
- }
- 
-diff --git a/drivers/gpu/drm/v3d/v3d_power.c b/drivers/gpu/drm/v3d/v3d_power.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..285f56acf544bbfd3d9848253e788a138aacf2af
---- /dev/null
-+++ b/drivers/gpu/drm/v3d/v3d_power.c
-@@ -0,0 +1,96 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/* Copyright (C) 2026 Raspberry Pi */
-+
-+#include <linux/clk.h>
-+#include <linux/reset.h>
-+
-+#include <drm/drm_print.h>
-+
-+#include "v3d_drv.h"
-+#include "v3d_regs.h"
-+
-+static void
-+v3d_resume_sms(struct v3d_dev *v3d)
-+{
-+	if (v3d->ver < V3D_GEN_71)
-+		return;
-+
-+	V3D_SMS_WRITE(V3D_SMS_TEE_CS, V3D_SMS_CLEAR_POWER_OFF);
-+
-+	if (wait_for((V3D_GET_FIELD(V3D_SMS_READ(V3D_SMS_TEE_CS),
-+				    V3D_SMS_STATE) == V3D_SMS_IDLE), 100)) {
-+		drm_err(&v3d->drm, "Failed to power up SMS\n");
-+	}
-+
-+	v3d_reset_sms(v3d);
-+}
-+
-+static void
-+v3d_suspend_sms(struct v3d_dev *v3d)
-+{
-+	if (v3d->ver < V3D_GEN_71)
-+		return;
-+
-+	V3D_SMS_WRITE(V3D_SMS_TEE_CS, V3D_SMS_POWER_OFF);
-+
-+	if (wait_for((V3D_GET_FIELD(V3D_SMS_READ(V3D_SMS_TEE_CS),
-+				    V3D_SMS_STATE) == V3D_SMS_POWER_OFF_STATE), 100)) {
-+		drm_err(&v3d->drm, "Failed to power off SMS\n");
-+	}
-+}
-+
-+int v3d_power_suspend(struct device *dev)
-+{
-+	struct drm_device *drm = dev_get_drvdata(dev);
-+	struct v3d_dev *v3d = to_v3d_dev(drm);
-+
-+	v3d_irq_disable(v3d);
-+	v3d_suspend_sms(v3d);
-+
-+	if (v3d->reset)
-+		reset_control_assert(v3d->reset);
-+
-+	/* Some firmware versions might not actually power off the clock
-+	 * when we set the clock state to off. Therefore, set the clock
-+	 * rate to 0 to ensure it is running in the minimum rate.
-+	 */
-+	if (v3d->clk)
-+		clk_set_rate(v3d->clk, 0);
-+
-+	clk_disable_unprepare(v3d->clk);
-+
-+	return 0;
-+}
-+
-+int v3d_power_resume(struct device *dev)
-+{
-+	struct drm_device *drm = dev_get_drvdata(dev);
-+	struct v3d_dev *v3d = to_v3d_dev(drm);
-+	int ret;
-+
-+	ret = clk_prepare_enable(v3d->clk);
-+	if (ret)
-+		return ret;
-+
-+	/* Set the clock to the maximum rate and let the firmware decide
-+	 * if we can actually keep it.
-+	 */
-+	if (v3d->clk)
-+		clk_set_rate(v3d->clk, v3d->max_clk_rate);
-+
-+	if (v3d->reset) {
-+		ret = reset_control_deassert(v3d->reset);
-+		if (ret)
-+			goto clk_disable;
-+	}
-+
-+	v3d_resume_sms(v3d);
-+	v3d_mmu_set_page_table(v3d);
-+	v3d_irq_enable(v3d);
-+
-+	return 0;
-+
-+clk_disable:
-+	clk_disable_unprepare(v3d->clk);
-+	return ret;
-+}
-diff --git a/drivers/gpu/drm/v3d/v3d_submit.c b/drivers/gpu/drm/v3d/v3d_submit.c
-index 794c3571662de7eb566bf4c0561571d7618dd234..fea7573505cd0d2b84d21efda88ed4da657d18d4 100644
---- a/drivers/gpu/drm/v3d/v3d_submit.c
-+++ b/drivers/gpu/drm/v3d/v3d_submit.c
-@@ -103,6 +103,9 @@ v3d_job_free(struct kref *ref)
- 	if (job->perfmon)
- 		v3d_perfmon_put(job->perfmon);
- 
-+	if (job->has_pm_ref)
-+		v3d_pm_runtime_put(job->v3d);
-+
- 	kfree(job);
- }
- 
-@@ -184,13 +187,13 @@ v3d_job_init(struct v3d_dev *v3d, struct drm_file *file_priv,
- 				if (copy_from_user(&in, handle++, sizeof(in))) {
- 					ret = -EFAULT;
- 					drm_dbg(&v3d->drm, "Failed to copy wait dep handle.\n");
--					goto fail_deps;
-+					goto fail_job_init;
- 				}
- 				ret = drm_sched_job_add_syncobj_dependency(&job->base, file_priv, in.handle, 0);
- 
- 				// TODO: Investigate why this was filtered out for the IOCTL.
- 				if (ret && ret != -ENOENT)
--					goto fail_deps;
-+					goto fail_job_init;
- 			}
- 		}
- 	} else {
-@@ -198,14 +201,22 @@ v3d_job_init(struct v3d_dev *v3d, struct drm_file *file_priv,
- 
- 		// TODO: Investigate why this was filtered out for the IOCTL.
- 		if (ret && ret != -ENOENT)
--			goto fail_deps;
-+			goto fail_job_init;
-+	}
-+
-+	/* CPU jobs don't require hardware resources */
-+	if (queue != V3D_CPU) {
-+		ret = v3d_pm_runtime_get(v3d);
-+		if (ret)
-+			goto fail_job_init;
-+		job->has_pm_ref = true;
- 	}
- 
- 	kref_init(&job->refcount);
- 
- 	return 0;
- 
--fail_deps:
-+fail_job_init:
- 	drm_sched_job_cleanup(&job->base);
- 	return ret;
- }
-
--- 
-2.52.0
-
+               Linus
 
