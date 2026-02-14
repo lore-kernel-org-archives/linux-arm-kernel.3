@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F155EF584C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 20:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A571EF5851
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 20:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9ZRp6qHyfxi/eFg7c6n4KnjO0baG/3uTh+De8ZnYxw=; b=FJRBxuV0Rr7NfyaL5f886T611D
-	B+SOZTlomfI3QGbj6PGab4UCzInALC1Un7GHUn2NhEfc87zeWmj/RrjmhfLmYXCMnd1y5CQ2ozynl
-	IXWSTkzDbQGR7wI/2qx2NTZRfXj0lXnPcPBUW1YIZspjb8SO+6cZTlpirLpIG96WiMtqn70CO1bGP
-	p6E3l5222g4b4s+YPRhLQM2mdN3wddbp27O1oLmNVEDxoT7dDV2pTjM3kbS5vaRZQoPFPeO2iia7n
-	Jz0z720JrhI5WDwFifgzUuQusbiT6ZgSYWq8dDiteDt5g72DK5VYW7gOufflYQwlydb8RqwWzzBqb
-	+53XraIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wy06XhncbdypgKZfdNnYkDzH+AyayYiXuFnCoBhvhBc=; b=ZsBnPVK8rywyc0MiHF8z+XBzqR
+	Wdadc53SRDVdOBkeYHeCiPuYnMeXqDtfJbrYLEM3yjKGxnkZmSacn8S+7su8Hx7EFtf0akbxv4KFP
+	DOhY8as58su4yjwnJdxbGo6UH1WKJkTROy3wcUF1WToUghBssa3jd9x+qVsMAOVrKuN4HLoChYcg5
+	EyHiWbAbISfg95drKgW0+kugFn+tU/iRsA63HApBGaAwVdHkxd99eguEct0BYjlREQ0GV9xuukvwx
+	uP+Kz7bz9Dw+5EpLIu8esABk/voeqLHS+F1sTp/A9mAgo8tTVMs2ENH+kZ9MiRXmgUmBu4hSqTc4W
+	d7VvbAwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrMUA-00000004uwj-1Z62;
-	Sat, 14 Feb 2026 20:43:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vrMez-00000004vNV-0W5N;
+	Sat, 14 Feb 2026 20:54:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrMU8-00000004uwc-40vR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 14 Feb 2026 20:43:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=C9ZRp6qHyfxi/eFg7c6n4KnjO0baG/3uTh+De8ZnYxw=; b=mCF5+kp9Ud/oCNu7myiHz9tC/m
-	5xCYf7Lh5mXCJO4H054uWwsBgGo3mEFnr011MsUqEJ262Cq1DoL7eP0OFQbm77wp+ZQDOGc8azmO7
-	USm0GEKB5lODMfzyLszAlVMxyA+UjMtNm+lIX6Uo36oiDXRSEHb7EEWZ4B8uGsYNJvdHBXMEsz6EI
-	nCM2dtFnkFUkBLNkz/Rrc7ybULJe3rz9uNGOYl54QkatqSqzH6DvfgxplHnNvhYKLbUcowOmyQYzH
-	2MUOTn8mPg+Q7nP87K4lY2jbgf+XlQlF5xvqVVdfI7Cy7MueYhKh0xeurI/ZTmT9WpWy+b5sQTC7a
-	/WCzpqIw==;
-Received: from mout.gmx.net ([212.227.15.18])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrMU1-0000000DLZQ-0PxL
+	id 1vrMex-00000004vND-0akJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 20:43:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1771101789; x=1771706589; i=marvin24@gmx.de;
-	bh=C9ZRp6qHyfxi/eFg7c6n4KnjO0baG/3uTh+De8ZnYxw=;
-	h=X-UI-Sender-Class:Date:From:To:cc:Subject:In-Reply-To:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=GN/m2nzM1fYlNUL9fpQg18689GLUOjoydlcrUknVjjA8UqTLcncJ5T638bFy6veL
-	 xaf/lYMi7zGziNVmYiRRBHUWm5WdHgku269cLafz31zOpWnlEMlkf/yhP8Qcygyhv
-	 v8ZfkMTkyibgIJhqNamHBXZi6Saf4I2bQ3Cq0tpXbVWxmVHj8Jz7pYhV42PeQwag+
-	 +xeLjGvsYTiXdom8BgESOMpcwU+Dl81v/wRkKZjWtb55/wg301U8+b58kc6LqqWOg
-	 2xR3BGmkrYl4LqMNzlGntgSyXT87os2IXLETiHyc89ZJrOtIoPTZs2BA7vYY5B62L
-	 t7AzUJGgJRyk0oFA1A==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from N8016W05 ([46.81.31.227]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1M6Db0-1vp8U90iUa-00DeDE; Sat, 14
- Feb 2026 21:43:09 +0100
-Date: Sat, 14 Feb 2026 21:43:08 +0100 (CET)
-From: Marc Dietrich <marvin24@gmx.de>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-cc: Thierry Reding <thierry.reding@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
-    Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-    devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] ARM: tegra: paz00: configure WiFi rfkill switch through
- device tree
-In-Reply-To: <aY_BpRQmLdqOOW2K@google.com>
-Message-ID: <82f24afb-1fd2-bfc9-2215-4526aff372ba@gmx.de>
-References: <aY_BpRQmLdqOOW2K@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII; format=flowed
-X-Provags-ID: V03:K1:DEwIXIws4ZApmvH+/inyf7x6DbTNScwVJ08pxdZflXECeWvZYAy
- wfuOUhmj8KToRROKDlgOrwW6Xep27PsIy5wysyzivl+1UyIYNcQG87jZJrf23NBqnZZ3ojf
- 5hUB1wsi9hEtgH5Rzq7TswcShm3130gsLXKrRdMP+M3j0bUDzaXI428Dvh4K+ecEwj9xdod
- 1dxlwyGt/IFbfvDN+6tfg==
-UI-OutboundReport: notjunk:1;M01:P0:6MVmqk673Sw=;+L2eaXGB8dhWgRJNXr3asFusg5a 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
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_204320_607395_EE7A7536 
-X-CRM114-Status: GOOD (  24.03  )
+	Sat, 14 Feb 2026 20:54:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C8CA0600C4;
+	Sat, 14 Feb 2026 20:54:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FBC7C16AAE;
+	Sat, 14 Feb 2026 20:54:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771102473;
+	bh=jUThX0Hjotf4C0yks4iSt4dfaxE5Zp1fcJr/QTFo2aM=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=iCQcK3Xkc4cqOPmVKEjxtmQ7wLX/gmGT8aFY+BmUFPlIjsvt2q9XGPSGLFBDN3sbY
+	 4Om8RM1pmFBIgED0zyzs8LQ/qW9dDoo7fQGWB34NIeS/DqMH7a6EOWJNR+znkP/RAD
+	 gTmYrmExe/ZjmJranhNnWMhDAUm5KI1GWCk1XSeRxofaE3AzNWLgZRoFObR2VVdhjs
+	 5nwYIBEl5ClYXzQpir0wGk4f000NWq7jPMA0nB+lhzrUP0WxWrgYvpvsd3ZfaJ27t1
+	 7ycLILDEN6Fj4qsmFEREuEVk+3KwfymMiWAB3vk1UX3OKvwMO+apV3Wc+trWlm33pi
+	 S6ySjThffmHWw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 0AFA5393091E;
+	Sat, 14 Feb 2026 20:54:28 +0000 (UTC)
+Subject: Re: [GIT PULL] Mailbox fixes for v6.20
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <CABb+yY0ErLA7X9OgU9OErDSg3Z3zXVLgp8JOrqAAuumTnznJqg@mail.gmail.com>
+References: <CABb+yY0ErLA7X9OgU9OErDSg3Z3zXVLgp8JOrqAAuumTnznJqg@mail.gmail.com>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <CABb+yY0ErLA7X9OgU9OErDSg3Z3zXVLgp8JOrqAAuumTnznJqg@mail.gmail.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v6.20
+X-PR-Tracked-Commit-Id: 75df94d05fc03fd9d861eaf79ce10fbb7a548bd8
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: f0a475aedd190db95cf92914ca7760c06fbdb704
+Message-Id: <177110246669.2897141.1938643283422716361.pr-tracker-bot@kernel.org>
+Date: Sat, 14 Feb 2026 20:54:26 +0000
+To: Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,166 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+The pull request you sent on Fri, 13 Feb 2026 20:47:38 -0600:
 
-On Fri, 13 Feb 2026, Dmitry Torokhov wrote:
+> git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v6.20
 
-> As of d64c732dfc9e ("net: rfkill: gpio: add DT support") rfkill-gpio
-> device can be instantiated via device tree.
->
-> Add the declaration there and drop board-paz00.c file and relevant
-> Makefile fragments.
->
-> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-> ---
->
-> This is not tested on real hardware, compile tested only...
->
-> arch/arm/boot/dts/nvidia/tegra20-paz00.dts |  8 ++++
-> arch/arm/mach-tegra/Makefile               |  2 -
-> arch/arm/mach-tegra/board-paz00.c          | 56 ----------------------
-> arch/arm/mach-tegra/board.h                |  2 -
-> arch/arm/mach-tegra/tegra.c                |  4 --
-> 5 files changed, 8 insertions(+), 64 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/nvidia/tegra20-paz00.dts b/arch/arm/boot/=
-dts/nvidia/tegra20-paz00.dts
-> index 1408e1e00759..d1093ad569e6 100644
-> --- a/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
-> +++ b/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
-> @@ -706,6 +706,14 @@ vdd_pnl_reg: regulator-3v0 {
-> 		enable-active-high;
-> 	};
->
-> +	rfkill {
-> +		compatible =3D "rfkill-gpio";
-> +		label =3D "wifi_rfkill";
-> +		radio-type =3D "wlan";
-> +		reset-gpios =3D <&gpio TEGRA_GPIO(D, 1) GPIO_ACTIVE_HIGH>;
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/f0a475aedd190db95cf92914ca7760c06fbdb704
 
-I guess this can be removed, as it should trigger the LED, which is=20
-already included elsewhere ....
+Thank you!
 
-> +		shutdown-gpios =3D <&gpio TEGRA_GPIO(K, 5) GPIO_ACTIVE_HIGH>;
-> +	};
-> +
-> 	sound {
-> 		compatible =3D "nvidia,tegra-audio-alc5632-paz00",
-> 			"nvidia,tegra-audio-alc5632";
-
-I'll give it a try and report back.
-
-Thanks for the nice cleanup!
-
-Marc
-
-
-> diff --git a/arch/arm/mach-tegra/Makefile b/arch/arm/mach-tegra/Makefile
-> index a2bb55bc0081..9e3abb14fbc1 100644
-> --- a/arch/arm/mach-tegra/Makefile
-> +++ b/arch/arm/mach-tegra/Makefile
-> @@ -15,5 +15,3 @@ obj-$(CONFIG_HOTPLUG_CPU)               +=3D hotplug.o
->
-> obj-$(CONFIG_ARCH_TEGRA_114_SOC)	+=3D pm-tegra30.o
-> obj-$(CONFIG_ARCH_TEGRA_124_SOC)	+=3D pm-tegra30.o
-> -
-> -obj-$(CONFIG_ARCH_TEGRA_2x_SOC)		+=3D board-paz00.o
-> diff --git a/arch/arm/mach-tegra/board-paz00.c b/arch/arm/mach-tegra/boa=
-rd-paz00.c
-> deleted file mode 100644
-> index 3ec810b6f1a7..000000000000
-> --- a/arch/arm/mach-tegra/board-paz00.c
-> +++ /dev/null
-> @@ -1,56 +0,0 @@
-> -// SPDX-License-Identifier: GPL-2.0-only
-> -/*
-> - * arch/arm/mach-tegra/board-paz00.c
-> - *
-> - * Copyright (C) 2011 Marc Dietrich <marvin24@gmx.de>
-> - *
-> - * Based on board-harmony.c
-> - * Copyright (C) 2010 Google, Inc.
-> - */
-> -
-> -#include <linux/err.h>
-> -#include <linux/gpio/machine.h>
-> -#include <linux/gpio/property.h>
-> -#include <linux/platform_device.h>
-> -#include <linux/printk.h>
-> -#include <linux/property.h>
-> -
-> -#include "board.h"
-> -
-> -static const struct software_node tegra_gpiochip_node =3D {
-> -	.name	=3D "tegra-gpio",
-> -};
-> -
-> -static const struct property_entry wifi_rfkill_prop[] __initconst =3D {
-> -	PROPERTY_ENTRY_STRING("name", "wifi_rfkill"),
-> -	PROPERTY_ENTRY_STRING("type", "wlan"),
-> -	PROPERTY_ENTRY_GPIO("reset-gpios",
-> -			    &tegra_gpiochip_node, 25, GPIO_ACTIVE_HIGH),
-> -	PROPERTY_ENTRY_GPIO("shutdown-gpios",
-> -			    &tegra_gpiochip_node, 85, GPIO_ACTIVE_HIGH),
-> -	{ }
-> -};
-> -
-> -static const struct platform_device_info wifi_rfkill_info __initconst =
-=3D {
-> -	.name		=3D "rfkill_gpio",
-> -	.id		=3D PLATFORM_DEVID_NONE,
-> -	.properties	=3D wifi_rfkill_prop,
-> -};
-> -
-> -void __init tegra_paz00_wifikill_init(void)
-> -{
-> -	struct platform_device *pd;
-> -	int err;
-> -
-> -	err =3D software_node_register(&tegra_gpiochip_node);
-> -	if (err) {
-> -		pr_err("failed to register %s node: %d\n",
-> -		       tegra_gpiochip_node.name, err);
-> -		return;
-> -	}
-> -
-> -	pd =3D platform_device_register_full(&wifi_rfkill_info);
-> -	err =3D PTR_ERR_OR_ZERO(pd);
-> -	if (err)
-> -		pr_err("failed to register WiFi rfkill device: %d\n", err);
-> -}
-> diff --git a/arch/arm/mach-tegra/board.h b/arch/arm/mach-tegra/board.h
-> index 7b3ef0dc9be1..86c3ea0d6b30 100644
-> --- a/arch/arm/mach-tegra/board.h
-> +++ b/arch/arm/mach-tegra/board.h
-> @@ -19,6 +19,4 @@
-> void __init tegra_map_common_io(void);
-> void __init tegra_init_irq(void);
->
-> -void __init tegra_paz00_wifikill_init(void);
-> -
-> #endif
-> diff --git a/arch/arm/mach-tegra/tegra.c b/arch/arm/mach-tegra/tegra.c
-> index 9ef1dfa7b926..f324a7e491d8 100644
-> --- a/arch/arm/mach-tegra/tegra.c
-> +++ b/arch/arm/mach-tegra/tegra.c
-> @@ -83,10 +83,6 @@ static void __init tegra_dt_init(void)
->
-> static void __init tegra_dt_init_late(void)
-> {
-> -	if (IS_ENABLED(CONFIG_ARCH_TEGRA_2x_SOC) &&
-> -	    of_machine_is_compatible("compal,paz00"))
-> -		tegra_paz00_wifikill_init();
-> -
-> 	if (IS_ENABLED(CONFIG_ARCH_TEGRA_2x_SOC) &&
-> 	    of_machine_is_compatible("nvidia,tegra20"))
-> 		platform_device_register_simple("tegra20-cpufreq", -1, NULL, 0);
-> --=20
-> 2.53.0.310.g728cabbaf7-goog
->
->
-> --=20
-> Dmitry
->
->
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
