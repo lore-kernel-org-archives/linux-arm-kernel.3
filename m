@@ -4,57 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC14CEF5852
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 21:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC0BEF5855
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 21:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGKJib+0WITKdpI220IMwglgT6GjONiYD8yYH1MaSFg=; b=M/u0MpEeP9PxppXZRQH8L7dtie
-	q/9ozR93jmRwLGUL1QCS8cRsIYwVimdFZJtRbX9CS0QGMPf9m5KUPY6gPAtJw7M2OzGQzBGIppk0O
-	RSYG6kBFOKQpZ19Xwsu/Kcp5dCQpHp6uWSqc5FiYcHkazN42EhCINPOGqJ4jgBnMM80HkwB77zrip
-	L/4uyJymILAm2mTex0ifTfmIeSCd4y9QuAg734eDTXSfkznEvZEu1JNUnRySmzgRDpreT04B7Gwdh
-	BN4Ar7ojSU7fMHyx7bcDabW9oCWVfJztKJff6Ja0KdKfFnLMxf5Xrvft0IA2d21lH/YreekGePps9
-	AoEuOIDQ==;
+	bh=ErBSkw+qsT894iqDmcRKRX3ClWoCNhw1vF99xVYmVT0=; b=tOFiFgliWjdHoD76pEiOAmgfx/
+	Yfz54ziOxBctm+K7GO09F16uLDMpZIvhT0XY0e6oUgzeBhS6V+Qf1wwthCitO6FuPmVSwbJwiVabQ
+	u+UxnKFzyajQwzh9ELGCl4GDnV9iCkC2C+FBf2i/oZ8af3Ga3lqSfQQND0WmbGc3SVShFN1r1Vd3I
+	Cc2y0a9oLH7sP6+ZvCvdpWSjT9bQ/3aw3p9Wt5Vg8cI2ti1VlHtc8bHlQxUDtezEgTe1sBIXnNdmu
+	j/ZCJsPKKeE0+ktOzDd7VH5klJcJKy+PCjWIL4a922HcNR12x72A99L2rI6oV5WFfc3bS099RgSVv
+	xYsgy+dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrMtD-00000004vwr-0r1u;
-	Sat, 14 Feb 2026 21:09:19 +0000
-Received: from mail-244122.protonmail.ch ([109.224.244.122])
+	id 1vrN9M-00000004wuC-05lP;
+	Sat, 14 Feb 2026 21:26:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrMtA-00000004vwW-2Q8c
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 21:09:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1771103353; x=1771362553;
-	bh=eGKJib+0WITKdpI220IMwglgT6GjONiYD8yYH1MaSFg=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=wSB7pnifFw7d637dCE6Oe2YIk+00Zdug8aP0uY805FsknyxLwXqipP774M/qiKgDc
-	 JcE/14B0Vz0eF8x4bmC8rCt0qZTEP6oaO8LxfYmgVoc3BdZ57MGUHeHrRPHiKCRYHx
-	 C9GmHoeMMvWyHXRCsbrdmzWZqP6ky9Vql0CEGFqiPu1rnOrZr2Yc8WwK0kg+eQE1HY
-	 mhkcHaoQ5Tb4h7fo582W8NpvOwXtZmAPE5NmzCESXXG44z3lzjQFYHA5sLOlg/oueK
-	 3AVc+WysGFur4NzCA+XpmwgrbBKz9E7xN+JruFvP9u5E7A2IvQgiCdSRMhL7kCRhn6
-	 r9Gfn4Wnpd9gA==
-Date: Sat, 14 Feb 2026 21:09:09 +0000
-To: Krzysztof Kozlowski <krzk@kernel.org>
-From: Harry Austen <hpausten@protonmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: clock: xilinx: add description of user monitor interrupt
-Message-ID: <2QWRaIfoa_z-SIFIhFu37bcpZtK9jYlmk-mziAtaZMAFazmFi_7nloNxIroQ0B8gMhm_FmgptlYexUgHVQQkU6PEcmFi_6DvwwQXDycQESA=@protonmail.com>
-In-Reply-To: <223c900f-e509-4c22-a3ea-3e2051ca6975@kernel.org>
-References: <20260214180933.42143-1-hpausten@protonmail.com> <20260214180933.42143-2-hpausten@protonmail.com> <20260214-daffy-roadrunner-of-inquire-babdce@quoll> <NptKiK70heOFOIj9x6tz-gtS1m7ueBoa3SNCijidv1yeFPpt9OAPd-LTgBUbrEfAA2u3DTJHzlUDjv17fuddIPZ4m2YEZ1dTaMQuiXDGkD0=@protonmail.com> <223c900f-e509-4c22-a3ea-3e2051ca6975@kernel.org>
-Feedback-ID: 53116287:user:proton
-X-Pm-Message-ID: cf7a540bc2054d661460ecfcb69c6bac455ed3f1
+	id 1vrN9J-00000004wt9-2u2w;
+	Sat, 14 Feb 2026 21:25:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ECAA6415F2;
+	Sat, 14 Feb 2026 21:25:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0559C19422;
+	Sat, 14 Feb 2026 21:25:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771104356;
+	bh=wXXapwFeYVgtQZwgGByrjTAqhAfXkHTGrYtefsyZo9E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mkOcGjHS+MbvpM5d1YKV1UJ+L9uNRLis4jTZ6Yz6eHiEohtOmJlP05sEqhUIhXQZb
+	 fP19pi33tJwsvTOFVUBSYIRQ3swen5FvPfnCfNvy8ZZHJU2Au3O4gj8g6uwxETv+u9
+	 2z5gTIiRzv7+rlAI07jbnzf2RhzrnHN+GERNkymZ83lIuH+OGSpfanR+qE2VYHWq1x
+	 eCp0bKyrVemD3G1LPjjGhvUS1fb/1eR4I//dUlPxKOEIFJX+NsCvmh/TIPYpPad6ty
+	 8PA91dvf+4b5wQHpPDByY7EkICmF/A9FXD1QpUTR1n61Ri2mY5HyFcq4KXw6II7+dZ
+	 i+ikxghzSluBQ==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Johnny-CC Chang <Johnny-CC.Chang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.19-5.10] PCI: Mark Nvidia GB10 to avoid bus reset
+Date: Sat, 14 Feb 2026 16:23:02 -0500
+Message-ID: <20260214212452.782265-37-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260214212452.782265-1-sashal@kernel.org>
+References: <20260214212452.782265-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.19
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_130916_783459_04D89DB6 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260214_132557_791581_4B62371A 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,48 +83,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Saturday, 14 February 2026 at 20:59, Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
+From: Johnny-CC Chang <Johnny-CC.Chang@mediatek.com>
 
-> On 14/02/2026 21:57, Harry Austen wrote:
-> >>>
-> >>> +  interrupts:
-> >>> +    items:
-> >>> +      - description: user clock monitor interrupt
-> >>> +
-> >>> +  interrupt-names:
-> >>> +    items:
-> >>> +      - const: monitor
-> >>> +
-> >>>    xlnx,static-config:
-> >>>      $ref: /schemas/types.yaml#/definitions/flag
-> >>>      description:
-> >>> @@ -66,12 +74,24 @@ required:
-> >>>    - xlnx,speed-grade
-> >>>    - xlnx,nr-outputs
-> >>>
-> >>> +if:
-> >>
-> >> Why isn't this in allOf? Code is fine, but why changing it?
-> >
-> > There is only a single if condition, so the allOf is not required. Remo=
-ved
-> > for simplicity and reduced indentation.
-> >
->=20
-> Heh, you might need to add it soon re-indenting everything on adding
-> just one more if, so for me that was wrong choice. And you got a review :=
-/
+[ Upstream commit c81a2ce6b6a844d1a57d2a69833a9d0f00403f00 ]
 
-Very fair points. Agreed, it was definitely the wrong thing to do. Not sure
-what I was thinking. Do you think it is okay as is, or would you like me to
-add the allOf back again?
+After asserting Secondary Bus Reset to downstream devices via a GB10 Root
+Port, the link may not retrain correctly, e.g., the link may retrain with a
+lower lane count or config accesses to downstream devices may fail.
 
->=20
-> Best regards,
-> Krzysztof
->=20
+Prevent use of Secondary Bus Reset for devices below GB10.
 
-Thanks again,
-Harry
+Signed-off-by: Johnny-CC Chang <Johnny-CC.Chang@mediatek.com>
+[bhelgaas: drop pci_ids.h update (only used once), update commit log]
+Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+Link: https://patch.msgid.link/20251113084441.2124737-1-Johnny-CC.Chang@mediatek.com
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+## Analysis of PCI Quirk for Nvidia GB10 Bus Reset
+
+### Commit Message Analysis
+
+The commit adds a PCI quirk to prevent Secondary Bus Reset (SBR) for
+devices behind Nvidia GB10 Root Ports. The problem is clearly stated:
+after asserting SBR, the link may not retrain correctly — leading to
+reduced lane count or complete failure of config accesses to downstream
+devices. This is a real hardware bug with concrete symptoms (link
+degradation, device inaccessibility).
+
+### Code Change Analysis
+
+The change is minimal and surgical:
+- Two `DECLARE_PCI_FIXUP_HEADER` lines are added for two specific Nvidia
+  device IDs (`0x22CE` and `0x22D0`)
+- Both call the existing `quirk_no_bus_reset()` function, which simply
+  sets `PCI_DEV_FLAGS_NO_BUS_RESET` on the device
+- A comment block explains why the quirk is needed, with a link to the
+  mailing list discussion
+
+The diff also shows context that there's already a similar quirk pattern
+for other Nvidia GPU devices (`quirk_nvidia_no_bus_reset` matching
+`0x2340` range), as well as Atheros devices. This is a well-established
+pattern in the kernel.
+
+### Classification: Hardware Quirk
+
+This falls squarely into the **hardware quirk** category, which is
+explicitly listed as a strong YES signal for stable backporting.
+Hardware quirks:
+- Fix real-world hardware issues
+- Are trivial additions to existing infrastructure
+- Have near-zero risk of regression (they only affect the specific
+  hardware identified by the PCI IDs)
+
+### Scope and Risk Assessment
+
+- **Lines changed**: ~8 lines (2 macro invocations + comment block)
+- **Files touched**: 1 (`drivers/pci/quirks.c`)
+- **Complexity**: Minimal — uses existing `quirk_no_bus_reset()`
+  function
+- **Risk**: Extremely low — only affects devices with vendor ID
+  `PCI_VENDOR_ID_NVIDIA` and device IDs `0x22CE` or `0x22D0`
+- **No dependencies**: The `quirk_no_bus_reset()` function and
+  `DECLARE_PCI_FIXUP_HEADER` macro have existed in the kernel for a very
+  long time
+
+### User Impact
+
+- **Who is affected**: Users with Nvidia GB10 Root Ports (likely
+  MediaTek platforms given the author's affiliation)
+- **Severity without fix**: Bus reset can cause downstream devices to
+  become inaccessible (config accesses fail) or degrade link performance
+  (lower lane count). This can manifest as device failures, system
+  hangs, or degraded performance
+- **Severity with fix**: Bus reset is avoided for these specific root
+  ports, preventing the link training failure
+
+### Stability Indicators
+
+- **Reviewed-by**: Manivannan Sadhasivam (PCI subsystem reviewer)
+- **Committed by**: Bjorn Helgaas (PCI subsystem maintainer), who also
+  edited the commit log
+- **Mailing list link**: Provided for traceability
+- The pattern is identical to many existing quirks in the same file
+
+### Dependency Check
+
+No dependencies. The `quirk_no_bus_reset()` function exists in all
+stable trees. `DECLARE_PCI_FIXUP_HEADER` and `PCI_VENDOR_ID_NVIDIA` are
+long-established. This will apply cleanly to any stable tree.
+
+### Conclusion
+
+This is a textbook hardware quirk addition — small, self-contained, zero
+regression risk, fixes a real hardware issue (bus reset failure causing
+device inaccessibility), uses existing well-tested infrastructure,
+reviewed and committed by the PCI subsystem maintainer. It meets all
+stable kernel criteria.
+
+**YES**
+
+ drivers/pci/quirks.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+index 54c76ba9a767e..5782dfb863cad 100644
+--- a/drivers/pci/quirks.c
++++ b/drivers/pci/quirks.c
+@@ -3748,6 +3748,14 @@ static void quirk_no_bus_reset(struct pci_dev *dev)
+ 	dev->dev_flags |= PCI_DEV_FLAGS_NO_BUS_RESET;
+ }
+ 
++/*
++ * After asserting Secondary Bus Reset to downstream devices via a GB10
++ * Root Port, the link may not retrain correctly.
++ * https://lore.kernel.org/r/20251113084441.2124737-1-Johnny-CC.Chang@mediatek.com
++ */
++DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_NVIDIA, 0x22CE, quirk_no_bus_reset);
++DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_NVIDIA, 0x22D0, quirk_no_bus_reset);
++
+ /*
+  * Some NVIDIA GPU devices do not work with bus reset, SBR needs to be
+  * prevented for those affected devices.
+-- 
+2.51.0
+
 
