@@ -4,149 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6D4EF99E1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 08:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C87EDF17F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 08:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dj3OWdeENCIuVX3rT5YkrxPfw/NujIXuD3SgDX3n85s=; b=F4eKaY9Jk/o78ihDYXCIZcKTtq
-	vjjHqbwUZYt3Y5GsUusi0Q5MGSQomWAzEEe5R/1oqiHDxTuaTUAS3dz0Vda/EApb6EVustQAojb9r
-	+XVlMJLLREThC29KfMaVFTJLCJVcak1szFUwUPSwmcyVHtksoQR/bS9QI/GvujdMo2Cu+ALiyDckl
-	Q6YqBPVuvTYPk6e9F6TcCOal16lIQWPdw5YLqJmRzQFQYG9mensAdcMuvBGmEpMyu6PMFhVpNeeJO
-	5LuypwYzrLDoioyEoQAmHKA5j/UE8+u8M06rLtK4T4RdbLhVwBFXmPjISY+n00Y5sj2cqxlo3oKXJ
-	maefmxFQ==;
+	bh=kMICv4TW/Vn0XmVwnlVyL+Leis56gTmqBtftHS2J++o=; b=oUYfCCD5OgumnAtCy8vmA8NU1z
+	CjtlLuIDtUlYxonqQ1iWpQkZGM1oYOlDE0+9s692S+7ncEb4jtk2FM/oso/GGtz0DRI3B+jyJxCIq
+	r8mYMYF4CsWRaMotXGtI6p0MX+WJldGQUvEGqC8ZY1Px3v3WFL7jca9lst0OQKE1u3c1fhBSTSYRR
+	nh7Ueag5YA2W5dkjZ93ADG7DIya0jgFBp7CKjUlMGiI7JiFJRwNnhDH7YjCYpqS2VHV9HWOTKG/6+
+	Po3vUyNt9p+WygPW1oxMLMLB+A16UR/qPYPBouX67KlTlNFlvkSrOHCzZ9xCGVJH463Mb8LyKrDS/
+	QnLqVidQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrAwu-00000004OVP-3Fpv;
-	Sat, 14 Feb 2026 08:24:20 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vrBS6-00000004PWE-0XzX;
+	Sat, 14 Feb 2026 08:56:34 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrAws-00000004OUj-1Pgj
+	id 1vrBS3-00000004PVj-1Hq4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 08:24:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iKTQaLYlbnYU8NmDpriiVHgoJsP9+VzBTFFxXv3muqCkyVeFHt2hMyeAMF/zNUTRC4Ga6Pc6+eh3OjV7A/kxLtw8hy14s+nI3F7SJPgHpDfSdhsBS+aHhkStZlMKkNvWf+okZyChbYP10sOUFwXWKJ4rQWHCWQJHsovEryE8Ds4TAb69Mys3xQee+3Wvb5KqmQY+cZDHnSoB27lVlM/am/UGe9Raz6H+VG8YiEXzqPpUEuhTLdbduKMWN2dNGgWzT16U3a+UyMdBy8ZQxQgRWOeb7oLncLOlQo2YQRB2y3yplvhDgIXIsmbfA2AM8koN4SiM93+uzGPt0Abi2LntEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dj3OWdeENCIuVX3rT5YkrxPfw/NujIXuD3SgDX3n85s=;
- b=fa42S3AmqZZyKMvEvEN9k1Y5C56C+lk04ozIp/fUn4IeBkjjChqiPualZ0opuhZBeWR/LXFPEjdjw9wEj/qBnNETm7GAn+rXMEiTOxVI6C8iBS3QM3hEOfNUnVtXovUIs9stgr6ATtDXcNj1kHf4nrmr/EoAW6vzx5oUcWuqgDBLRv6Zx53ohOhHPtc6sRraOk0/kDEelJNZ0ul7jka7Dlc+ckRgasSgXCfU8lx0UIZ6rIltKKwM7xNLHrT/n3HJ14tba+My7t8AucOiea8Kk3bCKqzW5fZw5lfjwgRO41rYPiYTkYGZ3dUYzK/AkNsuJKX3CUoRs7YEMzb5RYmdJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dj3OWdeENCIuVX3rT5YkrxPfw/NujIXuD3SgDX3n85s=;
- b=INuRwKwnycVwhSy6VaVUZBs8Z1BJEvrgdXTruVsWv5mKOppnfWn5K8ms1GVP536CRrIUKu1MB5IQbAKThX6l2e5sovynpoeG0Ktv+R1/wJoxogqoQ3E2Qp/7YrX6NtCAwArU317z9DqiwgHa3bUjtgy6t4p4Rhrl063665iD8oY=
-Received: from BN9PR03CA0802.namprd03.prod.outlook.com (2603:10b6:408:13f::27)
- by MN6PR10MB8070.namprd10.prod.outlook.com (2603:10b6:208:4fd::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.10; Sat, 14 Feb
- 2026 08:24:14 +0000
-Received: from BN2PEPF000055DC.namprd21.prod.outlook.com
- (2603:10b6:408:13f:cafe::72) by BN9PR03CA0802.outlook.office365.com
- (2603:10b6:408:13f::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9611.14 via Frontend Transport; Sat,
- 14 Feb 2026 08:24:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BN2PEPF000055DC.mail.protection.outlook.com (10.167.245.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.0 via Frontend Transport; Sat, 14 Feb 2026 08:24:13 +0000
-Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 14 Feb
- 2026 02:24:13 -0600
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 14 Feb
- 2026 02:24:13 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sat, 14 Feb 2026 02:24:13 -0600
-Received: from localhost (ula0502350.dhcp.ti.com [172.24.233.249])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61E8OBYp2164935;
-	Sat, 14 Feb 2026 02:24:12 -0600
-From: Paresh Bhagat <p-bhagat@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <praneeth@ti.com>, <khasim@ti.com>, <v-singh1@ti.com>, <devarsht@ti.com>,
-	<sen@ti.com>
-Subject: [PATCH 1/2] arm64: defconfig: Enable PCM6240 ADC driver as module
-Date: Sat, 14 Feb 2026 13:53:42 +0530
-Message-ID: <20260214082343.2109890-2-p-bhagat@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260214082343.2109890-1-p-bhagat@ti.com>
-References: <20260214082343.2109890-1-p-bhagat@ti.com>
+	Sat, 14 Feb 2026 08:56:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1771059391; x=1802595391;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FmU6sN6VTvK2lk9nkffJpXX9j+KGsN9TIxoBy1pLkF0=;
+  b=ZlAXzEkLk7xTQK/Hmyf5v2PTWK1cbtV6cNcluc0nXoojGwa6u/FUC1fg
+   VYxkhiCNWfyWaimtOEstsl/4PCU5LanM0sOw3gm/z8mrBfitdvbq9DhGa
+   vJ4/GORqVuDxj4u3yB/gikT/zNQkv9BHIS9ZAKqomT1flhuX19JKoT7up
+   QeYSgYYIsa5aEbdq4NVKSFdLk53QRlh3ngEZZ4bv8xwlpxh44jRk2528A
+   byDavI076gKVHOPq59FgpDj53Sb7mbaBxJj4uyAWjVxhDYGvhyfxkxkJo
+   ar+KCaQa/FNDYbzZeK4CkJWcFvUTnv5leDooBXI74g5kPDBerUx/Pzznj
+   g==;
+X-CSE-ConnectionGUID: SqEViffqRpqML+v4phkGQw==
+X-CSE-MsgGUID: X2G0G/wtQSeD3o+XxdI7wQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11700"; a="71428992"
+X-IronPort-AV: E=Sophos;i="6.21,290,1763452800"; 
+   d="scan'208";a="71428992"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Feb 2026 00:56:26 -0800
+X-CSE-ConnectionGUID: N824LeOqToGHpVGW64sH6Q==
+X-CSE-MsgGUID: Qhwja1+kR8SCKwHr/L7Utg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,290,1763452800"; 
+   d="scan'208";a="218110063"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 14 Feb 2026 00:56:20 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vrBRp-00000000wPI-1UDK;
+	Sat, 14 Feb 2026 08:56:17 +0000
+Date: Sat, 14 Feb 2026 16:56:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Lee Jones <lee@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Badhri Jagan Sridharan <badhri@google.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Mark Brown <broonie@kernel.org>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>,
+	Amit Sunil Dhamne <amitsd@google.com>
+Subject: Re: [PATCH v6 5/6] power: supply: max77759: add charger driver
+Message-ID: <202602141606.igFDFWAJ-lkp@intel.com>
+References: <20260214-max77759-charger-v6-5-28c09bda74b4@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000055DC:EE_|MN6PR10MB8070:EE_
-X-MS-Office365-Filtering-Correlation-Id: 579ae7be-4436-4d4a-594d-08de6ba26fe9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IxlUV/lVKCO0WN4vzYncUtYFpfsod5GyAKuAiCzLPZPj1immeuQahFyND2/E?=
- =?us-ascii?Q?9czy4AZRaSh2kJoaaS3EAZOG5Q14aFsKvfVnFx5JdxYE54NeS9OuPfL7x6IB?=
- =?us-ascii?Q?ubHS3FUbFtDr+eOUZ0EdPHAJ2V7dHpy6q3PGlvwVm3p0UCcMTBJxpwX9Q/VD?=
- =?us-ascii?Q?1HN7L7FU538NBI7cDasAj+OTKLbu0efS36MCVGV5oL4n18l1n5vMWbCFHoF1?=
- =?us-ascii?Q?QYBcDoaRo0rBQSvce0K62pqHljYyvzAjX8JPc3ddIm6zyUf9267Y+lomnGZZ?=
- =?us-ascii?Q?N+8QEIENSCR0MRNcD5LwuMluREbxiLO01C0ylJKJsRXXpg+IHAviOdPoj/iY?=
- =?us-ascii?Q?QxzrIsYu2qzejc5GPxSq5Z55N9Pho+WJ5DVMtslW0xryu545FR3zBTeeBlGR?=
- =?us-ascii?Q?YuScrPul/tTl7sK/gHpMc4pfH2c5THFt7TjWpl45KgkxMGehP0uHILhcWV/e?=
- =?us-ascii?Q?zZEXHtWgPBLgRkh32ZKexuz9decMQSV6HUczhoxaoiUghbyp4U/lFBICdOx2?=
- =?us-ascii?Q?ysgDwoRTbXzI+gFuz817Uk10Ot6pZSTCIrUQ/tjIrF7Vb30fLOTdXkgf6Eeu?=
- =?us-ascii?Q?SExr0cREf9vDywa2F8mtjS7UMxcdZdMJRVfByLBbUT0XfqmqbML47b4HAZpa?=
- =?us-ascii?Q?+utN/N+NuMC2UUJSflKSLZiK68gA1GTFd26KrK/OQE5KpGIOezTnJn3Qsj8C?=
- =?us-ascii?Q?s9FT71MLzyUVaQRkdCVq1Y7VJsHS/2YUPwB8lnavRyjPC6UMtymFupe9R7B9?=
- =?us-ascii?Q?RRKmWVzaSwnz60wDBX2vf41OL2MeqfmCXk4gp11dFvefKtOp8tltUApQrl8o?=
- =?us-ascii?Q?fB/qfirqzsY7kKAkqp9RDv3wQRGlv0bfVdOPsu1JehBSVSl30aqcTU5sc9hd?=
- =?us-ascii?Q?RuXlLp1OehGti9V/jDB1SJRlVeNxPizQVWU+1Kxv3RdQEnVM/7pgyAvKczYm?=
- =?us-ascii?Q?2G1XTrh820XsrHu4T2cOQjr7M67cGpTVRX+kvWxMTe2J0H7NsFFBkLA1kwXk?=
- =?us-ascii?Q?PdAkXyh3cAKG+qDSAysvbflFDhbzP40WRrl1pqoVzuXCDk7aQm9hTfN0ywA9?=
- =?us-ascii?Q?fvBafpV5ttC2preQX9QurKHpiF4igNL1z/lGHEOPOusMOKzLZv6NtCJbgS+4?=
- =?us-ascii?Q?ArUYh09Y2hchXHObKLCXav/K9Ecnhg+NWtFPC+d43lrp39A6Bq5XG6sDhAXi?=
- =?us-ascii?Q?iCC355q+gaXgnSKaM34rkTX5MwqmDc629pa2kARUufwCZV8O6OsT5DTRIban?=
- =?us-ascii?Q?PCDvYWhJ65/LcinQnhHwNnt+YtB1AHVtz15EFXW19meGz4teuys+LLWzQVIO?=
- =?us-ascii?Q?8CiaJPCzOrmWwNNJueyQI4d9gRApE8YTp3Ho2bN2jj4a20/7Q2w0zGfCJ7NU?=
- =?us-ascii?Q?nrWQMzTUyiTYyjK7ne/idFsZmH1skmI+DutiKS59u11oc13+WKyRcZRMpqrP?=
- =?us-ascii?Q?jwd48N3AkkYOEMQhz/ZkBgT+OcFCe/ZegbxQcmqQJ9YkdN7eMZEDWWfUHzy+?=
- =?us-ascii?Q?O53Co+xpu1URPSApCe20LR5OYIt5ryn22XYklzlrAhuIQRwFWrbkNhK+e3dU?=
- =?us-ascii?Q?/BI8zy+NI2xj0lrfSbznY06e1rqUhs+YvVO2hrPz6oMAnXoU/kJh6PNjMkUv?=
- =?us-ascii?Q?LlZUdBnmMLhrNvcRU2MUuy0PSLiB/rnDWODhbO2NUG5eHg33fcWWx3bh6+E0?=
- =?us-ascii?Q?2g02zw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: WWn6BnTXjKKEvMkJTap+6GbH0Nc96k0EZWCJXC3IFHxTJYvfD9/JANVXWxnHW/xNcn8Nel8cyEZKDyiLpcrq58JIl5GuJthgv5l5ZXQTmY7gmi5Rif05DNoRh809YqgLGMwYBpl1CnfngVpXJJJ4h4IJ/GE3NJk3bFc/Wsp3EkLAoRCoVS15ApmitV0YCFKzPInFTFmlg91l5AqAueU4vigAs8//xvOB6kaD6T3mAs0x/VGsHrRrhpQ+csEXbpMqsnmpVI+DvVV2B5GXQkkqPHMTYnicyAm2SOMGTZ7YZ9AjN6g0A7cdIYj0FyiaIX7QCKr1TimIQTNu78K5zK0V/zH7vwvBuHNegKlYpkJP4VQkKo+R6Bz+7xLDHXpOmzfrxRyvtmUwhGtHDjLlJ7z9JKKKP+wc3+ptd3NTqyr1bErtG5J0Pru3xvav4DP1N33w
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2026 08:24:13.8414
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 579ae7be-4436-4d4a-594d-08de6ba26fe9
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000055DC.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR10MB8070
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260214-max77759-charger-v6-5-28c09bda74b4@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_002418_376619_61FD755A 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260214_005631_401925_C90CB606 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,33 +108,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the Texas Instruments PCM6240 4-channel audio ADC driver
-as a loadable module. The PCM6240 provides multi-channel audio
-recording capabilities and is used on the AM62D2-EVM for
-professional audio input applications.
+Hi Amit,
 
-The driver supports up to 4-channel audio input with integrated
-microphone bias, boost, and input diagnostics features through
-I2C interface.
+kernel test robot noticed the following build errors:
 
-Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+[auto build test ERROR on 8dfce8991b95d8625d0a1d2896e42f93b9d7f68d]
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index b67d5b1fc45b..35a36496a603 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1147,6 +1147,7 @@ CONFIG_SND_SOC_GTM601=m
- CONFIG_SND_SOC_MSM8916_WCD_ANALOG=m
- CONFIG_SND_SOC_MSM8916_WCD_DIGITAL=m
- CONFIG_SND_SOC_PCM3168A_I2C=m
-+CONFIG_SND_SOC_PCM6240=m
- CONFIG_SND_SOC_RK3308=m
- CONFIG_SND_SOC_RK817=m
- CONFIG_SND_SOC_RT5640=m
+url:    https://github.com/intel-lab-lkp/linux/commits/Amit-Sunil-Dhamne-via-B4-Relay/dt-bindings-mfd-maxim-max77759-reference-power-supply-schema-and-add-regulator-property/20260214-111637
+base:   8dfce8991b95d8625d0a1d2896e42f93b9d7f68d
+patch link:    https://lore.kernel.org/r/20260214-max77759-charger-v6-5-28c09bda74b4%40google.com
+patch subject: [PATCH v6 5/6] power: supply: max77759: add charger driver
+config: powerpc64-randconfig-001-20260214 (https://download.01.org/0day-ci/archive/20260214/202602141606.igFDFWAJ-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 9b8addffa70cee5b2acc5454712d9cf78ce45710)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260214/202602141606.igFDFWAJ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202602141606.igFDFWAJ-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/power/supply/max77759_charger.c:623:4: error: cannot jump from this goto statement to its label
+     623 |                         goto err;
+         |                         ^
+   drivers/power/supply/max77759_charger.c:631:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
+     631 |         guard(mutex)(&chg->retry_lock);
+         |         ^
+   include/linux/cleanup.h:414:15: note: expanded from macro 'guard'
+     414 |         CLASS(_name, __UNIQUE_ID(guard))
+         |                      ^
+   include/linux/compiler.h:168:2: note: expanded from macro '__UNIQUE_ID'
+     168 |         __PASTE(__UNIQUE_ID_,                                   \
+         |         ^
+   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
+      16 | #define __PASTE(a, b) ___PASTE(a, b)
+         |                       ^
+   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
+      15 | #define ___PASTE(a, b) a##b
+         |                        ^
+   <scratch space>:18:1: note: expanded from here
+      18 | __UNIQUE_ID_guard_461
+         | ^
+   drivers/power/supply/max77759_charger.c:615:3: error: cannot jump from this goto statement to its label
+     615 |                 goto err;
+         |                 ^
+   drivers/power/supply/max77759_charger.c:631:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
+     631 |         guard(mutex)(&chg->retry_lock);
+         |         ^
+   include/linux/cleanup.h:414:15: note: expanded from macro 'guard'
+     414 |         CLASS(_name, __UNIQUE_ID(guard))
+         |                      ^
+   include/linux/compiler.h:168:2: note: expanded from macro '__UNIQUE_ID'
+     168 |         __PASTE(__UNIQUE_ID_,                                   \
+         |         ^
+   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
+      16 | #define __PASTE(a, b) ___PASTE(a, b)
+         |                       ^
+   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
+      15 | #define ___PASTE(a, b) a##b
+         |                        ^
+   <scratch space>:18:1: note: expanded from here
+      18 | __UNIQUE_ID_guard_461
+         | ^
+   drivers/power/supply/max77759_charger.c:606:3: error: cannot jump from this goto statement to its label
+     606 |                 goto err;
+         |                 ^
+   drivers/power/supply/max77759_charger.c:631:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
+     631 |         guard(mutex)(&chg->retry_lock);
+         |         ^
+   include/linux/cleanup.h:414:15: note: expanded from macro 'guard'
+     414 |         CLASS(_name, __UNIQUE_ID(guard))
+         |                      ^
+   include/linux/compiler.h:168:2: note: expanded from macro '__UNIQUE_ID'
+     168 |         __PASTE(__UNIQUE_ID_,                                   \
+         |         ^
+   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
+      16 | #define __PASTE(a, b) ___PASTE(a, b)
+         |                       ^
+   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
+      15 | #define ___PASTE(a, b) a##b
+         |                        ^
+   <scratch space>:18:1: note: expanded from here
+      18 | __UNIQUE_ID_guard_461
+         | ^
+   3 errors generated.
+
+
+vim +623 drivers/power/supply/max77759_charger.c
+
+   591	
+   592	static void psy_work_item(struct work_struct *work)
+   593	{
+   594		struct max77759_charger *chg =
+   595			container_of(work, struct max77759_charger, psy_work.work);
+   596		union power_supply_propval current_limit, online;
+   597		int ret;
+   598	
+   599		ret = power_supply_get_property(chg->tcpm_psy,
+   600						POWER_SUPPLY_PROP_CURRENT_MAX,
+   601						&current_limit);
+   602		if (ret) {
+   603			dev_err(chg->dev,
+   604				"Failed to get CURRENT_MAX psy property, ret=%d",
+   605				ret);
+   606			goto err;
+   607		}
+   608	
+   609		ret = power_supply_get_property(chg->tcpm_psy, POWER_SUPPLY_PROP_ONLINE,
+   610						&online);
+   611		if (ret) {
+   612			dev_err(chg->dev,
+   613				"Failed to get ONLINE psy property, ret=%d",
+   614				ret);
+   615			goto err;
+   616		}
+   617	
+   618		if (online.intval && current_limit.intval) {
+   619			ret = set_input_current_limit(chg, current_limit.intval);
+   620			if (ret) {
+   621				dev_err(chg->dev,
+   622					"Unable to set current limit, ret=%d", ret);
+ > 623				goto err;
+   624			}
+   625	
+   626			charger_set_mode(chg, MAX77759_CHGR_MODE_CHG_BUCK_ON);
+   627		} else {
+   628			charger_set_mode(chg, MAX77759_CHGR_MODE_OFF);
+   629		}
+   630	
+   631		guard(mutex)(&chg->retry_lock);
+   632	
+   633		if (chg->psy_work_retry_cnt)
+   634			dev_dbg(chg->dev, "chg psy_work succeeded after %u tries",
+   635				chg->psy_work_retry_cnt);
+   636		chg->psy_work_retry_cnt = 0;
+   637		return;
+   638	
+   639	err:
+   640		charger_set_mode(chg, MAX77759_CHGR_MODE_OFF);
+   641		guard(mutex)(&chg->retry_lock);
+   642	
+   643		if (chg->psy_work_retry_cnt >= MAX_NUM_RETRIES) {
+   644			dev_err(chg->dev, "chg psy work failed, giving up");
+   645			return;
+   646		}
+   647	
+   648		++chg->psy_work_retry_cnt;
+   649		dev_dbg(chg->dev, "Retrying %u/%u chg psy_work",
+   650			chg->psy_work_retry_cnt, MAX_NUM_RETRIES);
+   651		schedule_delayed_work(&chg->psy_work,
+   652				      msecs_to_jiffies(PSY_WORK_RETRY_DELAY_MS));
+   653	}
+   654	
+
 -- 
-2.34.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
