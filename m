@@ -4,95 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76D7EF99F0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 02:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F5DEF99F3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 02:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6VhO/qYqiosSKExqeNWU5ng7qojbf2T2pdtsPL45D4w=; b=PtO3EFyzjNfFMPjF7R132RKNcU
-	5txeF5piV87HTv2OKyk+DlvRj0YPFHMB+98qrw0M4nJF30+WfmGAPtYIxWRASeOBZ8Mdzd7f0fG+2
-	e2+NjOsr8JLt+a44/oSfAb12+i6WslWOlJWjRP8nezuWga8wYX0ZAfzzP4LB2i7a7yJX99sjQQYD0
-	NdJozP0wliWn10R3TMv6jxg65dIeiuMP+HFAIbPHXHFj7J5cezUnXkYQwxzcS7P/eGDJrj6x4jo7r
-	C5T4YlTnHmf0xT9O4qGePVTcXRmU7U0pfAx+WajkJemJPT3ecC/NoDj0cxMmpOxIyrSifJSP/JVhq
-	ogAFzI0A==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6NxJTt8x1pN1xYEpvvm4x+ssOBAPxMVEtMmjTeNfX7w=; b=3kzjAiyHviPyVpdE1kP6cxxcZW
+	lwWKn6eZUIqLct8pog0MXp2B/+B4APM3oP9Q8vQZgfmx4RlW1Q27alH36P40Yj98j88Q17XfX3Txx
+	Wx8IzouLeLednMufrM8Rdi6xeco34cFINL9pZ0QKPHn7/uq8ADMCtYJ890hzbu7IK+46mjXAQ3sTz
+	NoyjCYL4DUwJmOj4Q5xFHOT6AoK7gldcLDrfkp0FPRvd4V14mcKsRt00qoib+TdPZ2Xtd1HBltX+n
+	8LOlNbArADh1v73WUFK6e3K9kp8LBKzw/ApPs5xrbK+hKZCWKcnmGnhsBHEEaUTvZ9/U+/CXtG/1m
+	t4usXb1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr5EO-000000049gn-1PW9;
-	Sat, 14 Feb 2026 02:18:00 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vr5hJ-00000004BAR-2Y3u;
+	Sat, 14 Feb 2026 02:47:53 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr5EK-000000049aM-3GbI
+	id 1vr5hH-00000004B9w-2C9c
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 02:17:58 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-4358fb60802so1048880f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 18:17:56 -0800 (PST)
+	Sat, 14 Feb 2026 02:47:52 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7d4c65d772cso1042675a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 18:47:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771037270; cv=none;
+        d=google.com; s=arc-20240605;
+        b=L63+onTUX95LB4gxlGj3ykOXwllF5Kgu9maSEVVtElb/taCTsZZeRpPFEsC3hs01NI
+         UgCFjYzyJcQ2aQrHU14YLBuN06mlsz3PoFjDv0SzFynFIbqif537idcOlYRcwsR3PbQu
+         BeUOV+RJYh7u8I2XlNS9WMojv4Khxu0jBqIAfOk1E4/WL7qSXJOMbWw6c0YrbCe1ntbV
+         cPSoUXOJCpv5tiWvPBKM9SO37+ZtVjeYA6LqW+dUOQq2pTmV5DbACcQCaR7G7e2g7a7G
+         lfPvNobX1VmJP/Wf5uWF+gq2EOy4qOthp8VGoc+4vNWF5x0V1K4IkEZdc9z38lel54zB
+         H2UA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:dkim-signature;
+        bh=6NxJTt8x1pN1xYEpvvm4x+ssOBAPxMVEtMmjTeNfX7w=;
+        fh=pF6/PktA7FeWNVMTupqRKo7fdBM43NHIhYQuZj0R/bw=;
+        b=WddLmrB7scimmxnez9TSi7pA18GUASBfZnEx5KTqVT0j43YCxiucNOgCVeOYRXpenM
+         a8Wea2Tns7VtybQYNzX/+37XG+UybK1EVXBi5GlwuFmHKQb0gioOmhkSH0YbUd8Ku8mG
+         D5xvEx9cYz/l2qrjSwqJVzTEGWd6YC173YV2Z/s6j8jJwg7uXjUhfWmjuYIE122YzCDo
+         yoxftSXulch7X/wxqs2N7Wkf288CBzkKwh/h2/9tW17fOMU8U5SALOYjgMmsceHDzJRn
+         DxtGEIOwvL/54t9ioCD0o8RJmw1FoLpatWe9Sh5am9+4Zg1mYDkDchZuOC6zY4aF7nmc
+         ueFw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771035475; x=1771640275; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6VhO/qYqiosSKExqeNWU5ng7qojbf2T2pdtsPL45D4w=;
-        b=fBfO0aPgexkcYOfDzgKE9Yhta74snNNk59roKgy7FVyCspDGWWKAaTTd5wHHQQtBkj
-         J/VtTRNiogTJxYGnpdx2edsOGLtORjCQxuI9ZKGltC0FC7Qe/jmurA5ImWnRGwQQAFAh
-         eFhSNovar54+VR0D6Vwy/Za6zXnx1Y/sTLXpllH7dfjXNHXOYH2fnElY3yz1YrnWrYeZ
-         xPjPk7luuTxsZOosfA6c3jyKOuCm2RL8PYe2IW2vYLBhvblV9iamYfo0wH3xroqXP/2n
-         OzEwmgEXdiBVK+IaGYcePIs7yEPPGR5aYtyN4VPzRgmdL0rmZy9QBWnjo3pa+UzbTWGi
-         Z8aw==
+        d=gmail.com; s=20230601; t=1771037270; x=1771642070; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6NxJTt8x1pN1xYEpvvm4x+ssOBAPxMVEtMmjTeNfX7w=;
+        b=EXaIS19NinzpWbkkssl7fyhb6VTON8zkWI5w9sUOcw6mhTC+h4jivyaRTTXVcTGLth
+         l7NANfDMlZg/oRxesRGPjEuUBl0oe4n8pJ3hwUKCTD1+qcD9aAtVQa+05YU05o3uAEEh
+         /dB+CpCf0Aa8SKSGtu/0ViuI3IIxwCkg2KyGJJ3sDzHTyaAkEGGQ5+ovwm/jcgmJ1Bw9
+         VpfJeABOuVkFE1kBycSJwN+OxQdO4fPc7APgKsR2WXFshhBVWcBfHUSkVwZFUiLBxii0
+         5N4MEeTA8hAwefLOmhsDRHWb6GZACOPMfSuPjVDJ1e0t4UF/rIHOHozhkRdcsJKS9esU
+         /vUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771035475; x=1771640275;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=6VhO/qYqiosSKExqeNWU5ng7qojbf2T2pdtsPL45D4w=;
-        b=fs4UFyGwRnKKxNi0cbKJGlUzX5Vtf5+bqFHl5SvQHYH+XdwHO5xfi+G3ZhwDr4AgH7
-         Zwtdl53TaVmsivwZ8DCd9uJFq2/t/DdGIMs0xmowcUHUNvMFdnAP+XGpOZGd1HcWiInc
-         QojTQzGljNmqJb2WqwHakeAkSqoqyICNuBCl4EuTj7LWZ8Z4N+h6IKStC+FoBFCwU3YN
-         CkIhpX6VuPJX8dfeM+TU7GvsNGpJFxyTN+h3F7GqfdgyiGzwP+zWwRCdb+klMEpmQjQQ
-         7mV0eOWTuIM3mDGdh9/HtM/bkBra+4taB/Miv6ez3XV9Zk8RY9Wm6AEBllmqwYG4zhdD
-         vJBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU3ZRrAK6ZrruRxxOTckw1QBQ8y6FDYit86cfL4p2LHfoR113blv+7ocbojpg2/r3AbPjKX6E/2qE42sZMVyt11@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwCM1xVK6qXt3PYsF38svqRfnBoxdzeuKYyV8xTGDeeilPwrWq
-	y/vKiCmw91aKLAh9DyLq4lGdBlFcFU3uqo/QzDhqQvGB9TxZyVa/fF/Y
-X-Gm-Gg: AZuq6aJ8nJ9sa4X9GgtYgYJEonyPHtrK1/zFIMSNu2KWTx7ZnQLMsKakHcNIodQllRe
-	IkhJ0dWDQq6aHm4adfUMCcbrvSW/75G3C0PFNfQ7H4RSy63ZhrJ/sPAF6cHQYdnyvQTjUpMNv9f
-	4aamN8wP1DXj8C3U8VcLMRV7D1pimaukyDEH8lusrELuIuR1tuwJoOJPQPDEoUcOxE/vP9bC1Ih
-	qERPbT2pRW+IbOazIXla2QDcP89gSkt5x5oCJV5eukrOXCQrpdRjrgt2tbZ9HGvXEUwrJ8muYpu
-	CIO0rxslkmnoKoF7dS/dYjJi2CHbX9MXBNJgOFtI9KggPNHwIiI7VIO4wmnDxG8v4h4R0OqqfGE
-	6zqpiDfym67UE5ydVf2T+NzVJtRQFhPfLTAsnCg4ITaXNuRnv3I4LX+QaU3gElidW3N+vKkUwzN
-	Hfk3/jqXXR4H4CVsFGYGyv
-X-Received: by 2002:a05:6000:228a:b0:430:fd0e:a502 with SMTP id ffacd0b85a97d-4379d61a68amr3274684f8f.22.1771035474722;
-        Fri, 13 Feb 2026 18:17:54 -0800 (PST)
-Received: from arch.localdomain ([2409:8a28:a53:6b71::1002])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796acffcesm8608308f8f.37.2026.02.13.18.17.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Feb 2026 18:17:54 -0800 (PST)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	alchark@gmail.com,
-	dsimic@manjaro.org,
-	andyshrk@163.com,
-	jonas@kwiboo.se,
-	Jun Yan <jerrysteve1101@gmail.com>
-Subject: [PATCH v5 3/3] arm64: dts: rockchip: Add OneThing Edge Cube series
-Date: Sat, 14 Feb 2026 10:17:16 +0800
-Message-ID: <20260214021719.620752-4-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260214021719.620752-1-jerrysteve1101@gmail.com>
-References: <20260214021719.620752-1-jerrysteve1101@gmail.com>
+        d=1e100.net; s=20230601; t=1771037270; x=1771642070;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6NxJTt8x1pN1xYEpvvm4x+ssOBAPxMVEtMmjTeNfX7w=;
+        b=ONDhg7/8twHjf5ft97+p3c4rSzJR6bZQxUzdsp26lu6caY4OLIXC+xWlX3047VUfc9
+         Q0TOiI7xZ31DNZ148YEKii5fOlsSrKHBBeZPo8o7fUMk/eL9ICpN9DeIA0Ey3YR4aWQU
+         WAcxbi2A9cKtNKw78yhSBNVV2EsaVjbUc0Niut2HIzslSCVopOm1T1hYdrKvcvrGjOsA
+         UdRh5sWtzr8B7j7EanY0fY/q+KrJ4lhyDruDp4JRtgHJJp6yNwvmIdxz2NrAVCdwUXly
+         z2r0WoFueLjDqUq9hbgzJbYMMlVRhRaFPm4/yjBxczODybOtO8tZLVUgE6xYG1atc5Kk
+         2UuA==
+X-Gm-Message-State: AOJu0Yw7MsX/oHve74OkmwLfL1B5nCSxBxsjWSjVeJIqnhsgHEYqQUnr
+	my0P+CZHp8cg7M6NCpIF6wOYlQf6WihCXmjJPblZnRRHUTVyCrg5rvii4qB+GuBLu60jsFUg6iN
+	EWPT/25t8a2dMKOTLINkQHxIsVPXUoIU=
+X-Gm-Gg: AZuq6aIbZiVOWlUX3sEjCv5j9vrRqm/UQ7tqh4WIqV5bVBGOqt5eHxYuRTnB3lU8fQj
+	cVlNNc3KT7XFPFeo8vZW4/c2xFxoWYe/v5VIVfDDQ4AYtTlkyc4155rM7hLBgDj2UyW9vlmRqq1
+	vVYkWPBSFz4xXzzOWzyMnQFqXg72axlpTbcYVmc++dOCrBe1d8JHNcTPwEPGdQk5dAaGRZN0tRy
+	uM+GNano5GCadyR4mxzEh6u5poFS0EE0LUb0otlSHnbJOKRe4USnSRgmvO3UWxZybY9FfT18YTT
+	6P4eeg26
+X-Received: by 2002:a05:6820:1803:b0:66b:299f:f2b6 with SMTP id
+ 006d021491bc7-67769a7b2d2mr1807799eaf.73.1771037269843; Fri, 13 Feb 2026
+ 18:47:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Fri, 13 Feb 2026 20:47:38 -0600
+X-Gm-Features: AaiRm524NS-u7iOjrFPdjDcPr3KsQEfv-RCl17RpvYHz9wtyB0xxb796zkibnFM
+Message-ID: <CABb+yY0ErLA7X9OgU9OErDSg3Z3zXVLgp8JOrqAAuumTnznJqg@mail.gmail.com>
+Subject: [GIT PULL] Mailbox fixes for v6.20
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_181756_873051_45C4199F 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20260213_184751_578681_629250D3 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,401 +112,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The OneThing Edge Cube (OEC) series features the RK3566 SoC, 8GB
-eMMC storage, and supports one SATA interface, one Gigabit Ethernet
-port, and one USB 3.0 port.
+Hi Linus,
+The following changes since commit e84d960149e71e8d5e4db69775ce31305898ed0c=
+:
 
-Other than the difference in RAM capacity, the OEC and OEC-turbo are
-identical in all other specifications.
+  Merge tag 'for-6.19-rc5-tag' of
+git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux (2026-01-17
+19:29:32 -0800)
 
-  Specification:
-    - Rockchip RK3566
-    - LPDDR4X 2GB (OEC) / 4GB (OEC-turbo)
-    - eMMC 8GB
-    - Gigabit Ethernet port x 1
-    - USB 3.0 port x 1
-    - USB-C 2.0 port x 1
-    - 12V DC Power supply
-    - SATA 3.0 connector x 1
+are available in the Git repository at:
 
-These devices do not have a PMIC, and their hardware circuit design
-is highly similar to that of the rk3566-box-demo[1]. Hardware schematics
-are not available at this time, with the vendor firmware dts available
-for reference[2].
+  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
+tags/mailbox-v6.20
 
-Ethernet, USB 3.0 and SATA 3.0 ports tested, all working well.
+for you to fetch changes up to 75df94d05fc03fd9d861eaf79ce10fbb7a548bd8:
 
-[1] https://elixir.bootlin.com/linux/v6.18.6/source/arch/arm64/boot/dts/rockchip/rk3566-box-demo.dts
-[2] https://archive.org/download/wxy-oec-RK3566-4G-dump/wxy-oec-RK3566-4G-dump.dts
+  mailbox: sprd: mask interrupts that are not handled (2026-02-01
+18:59:52 -0600)
 
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../rockchip/rk3566-onething-edge-cube.dts    | 342 ++++++++++++++++++
- 2 files changed, 343 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-edge-cube.dts
+----------------------------------------------------------------
+mailbox: platform and core updates
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 4d384f153c13..71a7ab8e7223 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -104,6 +104,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg353v.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg353vs.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg503.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-odroid-m1s.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-onething-edge-cube.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v1.1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v2.1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-pinenote-v1.1.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-edge-cube.dts b/arch/arm64/boot/dts/rockchip/rk3566-onething-edge-cube.dts
-new file mode 100644
-index 000000000000..b57bf7bf10f5
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-edge-cube.dts
-@@ -0,0 +1,342 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include "rk3566.dtsi"
-+
-+/ {
-+	model = "OneThing Edge Cube (OEC)/OEC Turbo";
-+	compatible = "onething,edge-cube", "rockchip,rk3566";
-+
-+	aliases {
-+		ethernet0 = &gmac1;
-+		mmc0 = &sdhci;
-+	};
-+
-+	chosen: chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	gmac1_clkin: external-gmac1-clock {
-+		compatible = "fixed-clock";
-+		clock-frequency = <125000000>;
-+		clock-output-names = "gmac1_clkin";
-+		#clock-cells = <0>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		rgb_led_b: led-0 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PB3 GPIO_ACTIVE_LOW>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&rgb_led_b_enable_l>;
-+		};
-+
-+		rgb_led_g: led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "on";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PB4 GPIO_ACTIVE_LOW>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&rgb_led_g_enable_l>;
-+		};
-+
-+		rgb_led_r: led-2 {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio0 RK_PC3 GPIO_ACTIVE_LOW>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&rgb_led_r_enable_l>;
-+		};
-+	};
-+
-+	vcc_1v8: regulator-vcc-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_3v3: regulator-vcc-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc12v0_dcin: regulator-vcc12v0-dcin {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc12v0_dcin";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+	};
-+
-+	vcc3v3_sys: regulator-vcc3v3-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc12v0_dcin>;
-+	};
-+
-+	vcc5v0_sys: regulator-vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc12v0_dcin>;
-+	};
-+
-+	vcc5v0_usb_host: regulator-vcc5v0-usb-host {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_usb_host_en>;
-+		regulator-name = "vcc5v0_usb_host";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_cpu: regulator-vdd-cpu {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm0 0 5000 PWM_POLARITY_INVERTED>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-name = "vdd_cpu";
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <1200000>;
-+		regulator-settling-time-up-us = <250>;
-+		pwm-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_fixed: regulator-vdd-fixed {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-name = "vdd_fixed";
-+		regulator-min-microvolt = <950000>;
-+		regulator-max-microvolt = <950000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_logic: regulator-vdd-logic {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
-+		regulator-name = "vdd_logic";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <1100000>;
-+		regulator-settling-time-up-us = <250>;
-+		pwm-supply = <&vcc5v0_sys>;
-+	};
-+};
-+
-+
-+/* No hardware video output port */
-+&display_subsystem {
-+	status = "disabled";
-+};
-+
-+&combphy1 {
-+	status = "okay";
-+};
-+
-+&combphy2 {
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&gmac1 {
-+	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1>;
-+	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>, <&gmac1_clkin>;
-+	clock_in_out = "input";
-+	phy-handle = <&rgmii_phy1>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1m1_miim
-+		    &gmac1m1_tx_bus2
-+		    &gmac1m1_rx_bus2
-+		    &gmac1m1_rgmii_clk
-+		    &gmac1m1_rgmii_bus
-+		    &gmac1m1_clkinout>;
-+	status = "okay";
-+};
-+
-+&gpu {
-+	status = "okay";
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pinctrl {
-+	gmac {
-+		eth_phy_reset_pin: eth-phy-reset-pin {
-+			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	leds {
-+		rgb_led_b_enable_l: rgb-led-b-enable-l {
-+			rockchip,pins = <3 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		rgb_led_g_enable_l: rgb-led-g-enable-l {
-+			rockchip,pins = <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		rgb_led_r_enable_l: rgb-led-r-enable-l {
-+			rockchip,pins = <0 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb {
-+		vcc5v0_usb_host_en: vcc5v0-usb-host-en {
-+			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&pmu_io_domains {
-+	pmuio1-supply = <&vcc_3v3>;
-+	pmuio2-supply = <&vcc_3v3>;
-+	vccio1-supply = <&vcc_1v8>;
-+	vccio3-supply = <&vcc_3v3>;
-+	vccio4-supply = <&vcc_1v8>;
-+	vccio5-supply = <&vcc_3v3>;
-+	vccio6-supply = <&vcc_1v8>;
-+	vccio7-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&pwm0 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sata2 {
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-hs200-1_8v;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd &emmc_datastrobe>;
-+	status = "okay";
-+};
-+
-+&tsadc {
-+	rockchip,hw-tshut-mode = <1>;
-+	rockchip,hw-tshut-polarity = <0>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+&usb_host0_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host0_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host1_xhci  {
-+	status = "okay";
-+};
-+
-+&usb2phy0 {
-+	status = "okay";
-+};
-+
-+&usb2phy0_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy0_otg {
-+	status = "okay";
-+};
-+
-+&usb2phy1 {
-+	status = "okay";
-+};
-+
-+&usb2phy1_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy1_otg {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
--- 
-2.53.0
+PCC
+- Updates to transmission and interrupt handling, including
+  dynamic txdone configuration, ->last_tx_done() wiring, and SHMEM
+  initialization fixes. Reverted previous shared buffer patch.
 
+MediaTek
+- Introduce mtk-vcp-mailbox driver and bindings for MT8196 VCP.
+- Expand mtk-cmdq for MT8196 with GCE virtualization, mminfra_offset,
+  and instruction generation data.
+
+Spreadtrum (SPRD)
+- Add Mailbox Revision 2 support and UMS9230 bindings.
+- Fix unhandled interrupt masking and TX done delivery flags.
+
+Microchip
+- Add pic64gx compatibility to MPFS.
+- Fix out-of-bounds access and smatch warnings in mchp-ipc-sbi.
+
+Core & Misc Platform Updates
+- Prevent out-of-bounds access in fw_mbox_index_xlate().
+- Add bindings for Qualcomm CPUCP (Kaanapali).
+- Simplify mtk-cmdq and zynqmp-ipi with scoped OF child iterators.
+- Consolidate various minor fixes, dead code removal, and typo
+  corrections across Broadcom, NXP, Samsung, Xilinx, ARM, and
+  core headers.
+
+----------------------------------------------------------------
+Andr=C3=A9 Draszik (1):
+      mailbox: exynos: drop unneeded runtime pointer (pclk)
+
+Conor Dooley (1):
+      mailbox: mpfs: drop POLARFIRE from ARCH_MICROCHIP_POLARFIRE
+
+Geert Uytterhoeven (1):
+      mailbox: Improve RISCV_SBI_MPXY_MBOX guidance
+
+Harini T (1):
+      dt-bindings: mailbox: xlnx,zynqmp-ipi-mailbox: Document msg
+region requirement
+
+Jacky Bai (1):
+      mailbox: imx: Skip the suspend flag for i.MX7ULP
+
+Jason-JH Lin (4):
+      mailbox: mtk-cmdq: Add cmdq private data to cmdq_pkt for
+generating instruction
+      mailbox: mtk-cmdq: Add GCE hardware virtualization configuration
+      mailbox: mtk-cmdq: Add mminfra_offset configuration for DRAM transact=
+ion
+      mailbox: mtk-cmdq: Add driver data to support for MT8196
+
+Jingyi Wang (1):
+      dt-bindings: mailbox: qcom: Add CPUCP mailbox controller
+bindings for Kaanapali
+
+Jjian Zhou (2):
+      dt-bindings: mailbox: mediatek,mt8196-vcp-mbox: add mtk vcp-mbox docu=
+ment
+      mailbox: mediatek: Add mtk-vcp-mailbox driver
+
+Joonwon Kang (1):
+      mailbox: Prevent out-of-bounds access in fw_mbox_index_xlate()
+
+Krzysztof Kozlowski (2):
+      mailbox: mtk-cmdq: Simplify with scoped for each OF child loop
+      mailbox: zynqmp-ipi: Simplify with scoped for each OF child loop
+
+Kuninori Morimoto (1):
+      mailbox: remove unneeded double quotation
+
+Lakshmi S (2):
+      mailbox: cix: fix typo in error message
+      mailbox: arm_mhuv3: fix typo in comment
+
+Mark Brown (1):
+      mailbox: pcc: Remove spurious IRQF_ONESHOT usage
+
+Otto Pfl=C3=BCger (4):
+      dt-bindings: mailbox: sprd: add compatible for UMS9230
+      mailbox: sprd: clear delivery flag before handling TX done
+      mailbox: sprd: add support for mailbox revision 2
+      mailbox: sprd: mask interrupts that are not handled
+
+Peng Fan (1):
+      mailbox: Remove mailbox_client.h from controller drivers
+
+Pierre-Henry Moussay (1):
+      dt-bindings: mbox: add pic64gx mailbox compatibility to mpfs mailbox
+
+Sebastian Andrzej Siewior (1):
+      mailbox: bcm-ferxrm-mailbox: Use default primary handler
+
+Sudeep Holla (6):
+      Revert "mailbox/pcc: support mailbox management of the shared buffer"
+      mailbox: pcc: Wire up ->last_tx_done() for PCC channels
+      mailbox: pcc: Set txdone_irq/txdone_poll based on PCCT flags
+      mailbox: pcc: Mark Tx as complete in PCC IRQ handler
+      mailbox: pcc: Initialize SHMEM before binding the channel with the cl=
+ient
+      mailbox: pcc: Clear any pending responder interrupts before enabling =
+it
+
+Valentina Fernandez (2):
+      mailbox: mchp-ipc-sbi: fix out-of-bounds access in
+mchp_ipc_get_cluster_aggr_irq()
+      mailbox: mchp-ipc-sbi: fix uninitialized symbol and other smatch warn=
+ings
+
+ .../bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml |  49 ++++++
+ .../bindings/mailbox/microchip,mpfs-mailbox.yaml   |   6 +-
+ .../bindings/mailbox/qcom,cpucp-mbox.yaml          |   1 +
+ .../devicetree/bindings/mailbox/sprd-mailbox.yaml  |   1 +
+ .../bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml  |  11 ++
+ drivers/mailbox/Kconfig                            |  17 ++-
+ drivers/mailbox/Makefile                           |   2 +
+ drivers/mailbox/arm_mhuv3.c                        |   2 +-
+ drivers/mailbox/bcm-flexrm-mailbox.c               |  15 +-
+ drivers/mailbox/cix-mailbox.c                      |   2 +-
+ drivers/mailbox/cv1800-mailbox.c                   |   1 -
+ drivers/mailbox/exynos-mailbox.c                   |   9 +-
+ drivers/mailbox/imx-mailbox.c                      |   8 +-
+ drivers/mailbox/mailbox-mchp-ipc-sbi.c             |  41 +++--
+ drivers/mailbox/mailbox.c                          |   6 +-
+ drivers/mailbox/mtk-cmdq-mailbox.c                 |  86 +++++++++--
+ drivers/mailbox/mtk-vcp-mailbox.c                  | 170 +++++++++++++++++=
+++++
+ drivers/mailbox/omap-mailbox.c                     |   1 -
+ drivers/mailbox/pcc.c                              | 120 +++------------
+ drivers/mailbox/sprd-mailbox.c                     | 117 ++++++++++----
+ drivers/mailbox/zynqmp-ipi-mailbox.c               |   5 +-
+ include/acpi/pcc.h                                 |  29 ----
+ include/linux/mailbox/mtk-cmdq-mailbox.h           |  19 +++
+ include/linux/mailbox/mtk-vcp-mailbox.h            |  32 ++++
+ 24 files changed, 528 insertions(+), 222 deletions(-)
+ create mode 100644
+Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+ create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
+ create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
 
