@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B88EF99EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 01:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4983BEF99EB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 01:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RKS8xJV1QdyVnftGMy2JSixvrd8X2u5EdxEk+v2UwKk=; b=SQKj5Me5jS3zMmAMAM4EhgEfFq
-	1MaOU2KajD73CbLq7lEVtCd9hZIh/0Crh078Qm8bp8gRT85WSIRca+sEzR76zYf8owGZtOSGGr47P
-	NseIc2UWjPR6nhU75ApUGY16ofXiY7Y59WXByfJUwBmTSsRJJuHIb8zCNUCddhTAVVwmvjDlAUBBE
-	9fkuahKIY1dAmK+3psZHQqkQ17SwbhoniuuZ6r89bGuEwSxwCr31rq+CcDXoKf4xJP6N/kDgTs/Ch
-	1E87Zwh2wMUSStVWiXJkZiVEblPVuuKLY2XqBj7uTulARLGzioQmIUXXr06zMojhc98z9tEWX3+Ll
-	yUUww5lA==;
+	bh=/w/NFw1D6JmYMGD/vnJu03M8SHvvtLm/FNBH+/7eS3o=; b=EV1ZsrYIBw6uywIgEJOmDpPo1l
+	m6URWb/fk2NQk0+oDghg4+thojISgUqSsJknsWuDPb5Z/EPVM4dE5liBJkHNhpGAR2O1SCOYUBtfY
+	roEAxDeTFfKLZQ+ajFpfjaKlHuYUto3AxNFDP6aUFb/fBDbr2FRBhZ+mfUQYhXLoD5pRGFEFZp/x7
+	swnQhGaXkqjrvt+BFdl0w7V3QJc6KzXE9yYQv43RGWgn+/fqqN5qNixAanNG3tQDLNmusPuVnOujV
+	eqzyJt4w+9TexfryhT7AGwp+IMfnGmAR1qoPgF0iu/y4sB8ZNM4zRFGE2YIlK+7Yu8B9d8PAXOhVM
+	YZxoIEyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr45T-000000046Qt-3Gqe;
-	Sat, 14 Feb 2026 01:04:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vr46I-000000046d4-3VcF;
+	Sat, 14 Feb 2026 01:05:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr45S-000000046Q9-3nVI
+	id 1vr46G-000000046cd-1a3r
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 01:04:43 +0000
+	Sat, 14 Feb 2026 01:05:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4678F60140;
-	Sat, 14 Feb 2026 01:04:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD802C19424;
-	Sat, 14 Feb 2026 01:04:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 05FBE44371;
+	Sat, 14 Feb 2026 01:05:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEA1BC19423;
+	Sat, 14 Feb 2026 01:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771031082;
-	bh=lR0EcdqMlWvvA5jNcysPjb3oxsAOoV8NqBkIPRIFeqk=;
+	s=k20201202; t=1771031130;
+	bh=eBEsX1nyMrmXr/mfibb4cH9Xymd5V8ShqLBPnfWpmSI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uiYOuHwjAI+UUvqFU/vXWNnbZpvYQrt6DNFNeeNXfO1HSYtsllP0oduuL9oFmlG4S
-	 yiHQ494CFy26H/ZNkQ4MZUWBNH9rwGxaQ+YPMGC7V/wxoOBl3WtdvAdNFQZF0ybdHu
-	 kmFC21O8SNo2FaoEX+Ll+DIKShzFPDc6xRuUkU/KcrDRND7ZiJ7tBvAHCBIehL3xHu
-	 E6DsKhcyE8SS6lz04ut4/b9xlB1oMZyOU5SaJkqA5T0qAQzkEuYZiqUbFocVtFbz4Q
-	 aNN4+6p99XxntJ45TUBXW3HGo93lzoLdotgONbQ0tmn6FiOo11GwULY6iKE112YpAB
-	 z942pLpBZarQg==
+	b=Mnd8Lv+N72Pmpoq651k8GlpYaoE2hKL3IGdboT5PF608kwKOJd6WDBhASZnSAivX7
+	 +JrMZ3Dlxg3lPWuhtRBIQNauBvsBxX2stLMHw+pGG/UPhM6u+bdYz8JzqxziDh64qY
+	 zB5woGl9DJyCICmIchFYGbrpGaqXqi+KIIPIY64u3syO7Gp2H0g5vQK4zzuA0In05C
+	 ALiRD42rOAV1ZazFP6cR+u0pL074k3844/D7g+Ynb4SfWVITQa04mTrpUjogL0I+N0
+	 LRpKCH095zdZKo/z+YzVMk05PObxi9Qt5Hboci4jpFNVEJEei3LS9ML+anSRPk3XmR
+	 M7aRbjwWxG/Yw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Manikandan Muralidharan <manikandan.m@microchip.com>,
+Cc: Billy Tsai <billy_tsai@aspeedtech.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	dharma.b@microchip.com,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.19-5.15] drm/atmel-hlcdc: don't reject the commit if the src rect has fractional parts
-Date: Fri, 13 Feb 2026 19:58:54 -0500
-Message-ID: <20260214010245.3671907-54-sashal@kernel.org>
+	brgl@kernel.org,
+	joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org
+Subject: [PATCH AUTOSEL 6.19-5.10] gpio: aspeed-sgpio: Change the macro to support deferred probe
+Date: Fri, 13 Feb 2026 19:59:14 -0500
+Message-ID: <20260214010245.3671907-74-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260214010245.3671907-1-sashal@kernel.org>
 References: <20260214010245.3671907-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.19
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260213_170532_461941_7C578518 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,175 +84,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ludovic Desroches <ludovic.desroches@microchip.com>
+From: Billy Tsai <billy_tsai@aspeedtech.com>
 
-[ Upstream commit 06682206e2a1883354ed758c09efeb51f435adbd ]
+[ Upstream commit e18533b023ec7a33488bcf33140ce69bbba2894f ]
 
-Don’t reject the commit when the source rectangle has fractional parts.
-This can occur due to scaling: drm_atomic_helper_check_plane_state() calls
-drm_rect_clip_scaled(), which may introduce fractional parts while
-computing the clipped source rectangle. This does not imply the commit is
-invalid, so we should accept it instead of discarding it.
+Use module_platform_driver() to replace module_platform_driver_probe().
+The former utilizes platform_driver_register(), which allows the driver to
+defer probing when it doesn't acquire the necessary resources due to probe
+order. In contrast, the latter uses __platform_driver_probe(), which
+includes the comment "Note that this is incompatible with deferred
+probing." Since our SGPIO driver requires access to the clock resource, the
+former is more suitable.
 
-Signed-off-by: Ludovic Desroches <ludovic.desroches@microchip.com>
-Reviewed-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-Link: https://patch.msgid.link/20251120-lcd_scaling_fix-v1-1-5ffc98557923@microchip.com
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+Link: https://lore.kernel.org/r/20260123-upstream_sgpio-v2-1-69cfd1631400@aspeedtech.com
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Analysis of drm/atmel-hlcdc: don't reject the commit if the src rect
-has fractional parts
+## Analysis of gpio: aspeed-sgpio: Change the macro to support deferred
+probe
 
-### 1. COMMIT MESSAGE ANALYSIS
+### Commit Message Analysis
 
-The commit message clearly describes a bug fix: the driver was
-incorrectly rejecting valid plane configurations when the source
-rectangle had fractional (subpixel) parts. The fractional parts are
-legitimately introduced by `drm_rect_clip_scaled()` during the atomic
-check process, but the driver was treating them as invalid input and
-returning `-EINVAL`.
+The commit changes `module_platform_driver_probe()` to
+`module_platform_driver()` in the Aspeed SGPIO driver. The motivation is
+to support deferred probing — when the clock resource isn't available
+yet at probe time due to probe ordering, the driver should be able to
+defer and retry later. With `module_platform_driver_probe()` (which uses
+`__platform_driver_probe()`), deferred probing is explicitly not
+supported.
 
-Keywords: "don't reject" — this is fixing a false rejection of valid
-display configurations.
+### Code Change Analysis
 
-### 2. CODE CHANGE ANALYSIS
+The changes are:
 
-The change is straightforward and well-contained:
+1. **Remove `__init` annotation** from `aspeed_sgpio_probe()` —
+   necessary because with `module_platform_driver()`, the probe function
+   can be called after init (during deferred probe), so it can't be in
+   `.init` section.
 
-**What was happening before:**
-1. `hstate->src_x/y/w/h` were assigned the raw 16.16 fixed-point values
-   from `s->src`
-2. A check was performed: if any of these values had bits set in the
-   lower 16 bits (fractional part, via `SUBPIXEL_MASK = 0xffff`), the
-   function returned `-EINVAL`
-3. Only after passing that check were the values right-shifted by 16 to
-   get integer pixel coordinates
+2. **Move `.probe` into the `platform_driver` struct** — from being
+   passed as a second argument to `module_platform_driver_probe()` to
+   being set as `.probe = aspeed_sgpio_probe` in the struct.
 
-**What happens now:**
-1. `hstate->src_x/y/w/h` are assigned the values right-shifted by 16
-   immediately (converting to integer pixels)
-2. The subpixel mask check is completely removed
-3. The `SUBPIXEL_MASK` macro definition is removed as it's no longer
-   needed
+3. **Replace `module_platform_driver_probe()` with
+   `module_platform_driver()`** — the actual behavioral change.
 
-**The bug:** `drm_atomic_helper_check_plane_state()` calls
-`drm_rect_clip_scaled()`, which can introduce fractional parts when
-computing clipped source rectangles during scaling operations. This is
-normal DRM behavior — the fractional parts represent subpixel precision
-in the scaling calculation. The Atmel HLCDC hardware doesn't support
-subpixel addressing, so the correct behavior is to truncate (>> 16) and
-use integer coordinates, not reject the entire configuration.
+The probe function itself is completely unchanged in logic.
 
-**Impact of the bug:** When scaling is involved and clipping produces
-fractional coordinates, display operations would fail with `-EINVAL`.
-This means users would see display failures (plane updates rejected) in
-legitimate scaling scenarios. This is a real user-visible bug — display
-output fails when it shouldn't.
+### Bug Classification
 
-### 3. CLASSIFICATION
+This fixes a **real probe failure bug**. When the Aspeed SGPIO driver is
+compiled and the clock resource it depends on isn't yet available
+(common on device-tree platforms where probe order isn't guaranteed),
+the driver will fail to probe and **never retry**. This means the SGPIO
+hardware is permanently non-functional until reboot, and even then only
+if probe order happens to be favorable.
 
-This is a **bug fix**. The driver was incorrectly rejecting valid atomic
-commits, causing display failures during scaling operations. No new
-features are added, no new APIs introduced.
+This is a real-world issue on Aspeed BMC platforms (AST2400, AST2500,
+AST2600) which are widely used in server management. GPIO functionality
+being unavailable due to probe ordering is a tangible user-facing bug.
 
-### 4. SCOPE AND RISK ASSESSMENT
+### Scope and Risk Assessment
 
-- **Lines changed:** ~15 lines removed, ~4 lines modified — very small
-- **Files touched:** 1 file (`atmel_hlcdc_plane.c`)
-- **Subsystem:** DRM driver for Atmel HLCDC (embedded ARM display
-  controller)
-- **Risk:** Very low. The change simply truncates subpixel precision
-  instead of rejecting it. The hardware can only address whole pixels
-  anyway, so truncation is the correct behavior. The integer parts of
-  the coordinates are unchanged.
-- **Could it break something?** Extremely unlikely. The only behavioral
-  change is accepting configurations that were previously rejected. The
-  pixel coordinates used are identical (same >> 16 operation, just done
-  earlier).
+- **Lines changed**: Very small — removal of `__init`, moving the
+  `.probe` assignment, macro swap
+- **Files touched**: 1 file
+- **Risk**: Very low. The probe function logic is completely unchanged.
+  The only behavioral difference is that:
+  1. The probe function is no longer in `.init` section (minor memory
+     impact, but standard practice)
+  2. Deferred probing is now supported (fixes the bug)
+  3. The probe function pointer is stored in the driver struct rather
+     than being patched in at registration time
 
-### 5. USER IMPACT
+This is a well-understood pattern — many drivers have made this exact
+same transition over the years. The `module_platform_driver_probe()` to
+`module_platform_driver()` conversion is one of the most common and
+safest changes in the kernel.
 
-This affects users of Atmel/Microchip SAM9/SAMA5 SoC-based embedded
-systems that use the HLCDC display controller with plane scaling. When
-scaling is active and clipping occurs, display updates would fail. This
-is a real-world scenario for embedded display applications.
+### Stable Criteria Check
 
-### 6. STABILITY INDICATORS
+1. **Obviously correct and tested**: Yes — reviewed by Linus Walleij
+   (GPIO subsystem co-maintainer), standard pattern
+2. **Fixes a real bug**: Yes — probe failure when clock resource isn't
+   available due to ordering
+3. **Important issue**: Moderate — makes hardware permanently non-
+   functional on affected platforms
+4. **Small and contained**: Yes — minimal changes to one file
+5. **No new features**: Correct — deferred probing is an existing kernel
+   mechanism, this just enables the driver to participate in it
+6. **Applies cleanly**: Should apply cleanly to any stable tree that has
+   this driver
 
-- **Reviewed-by:** Manikandan Muralidharan (subsystem maintainer)
-- **Author:** Ludovic Desroches (Microchip engineer, familiar with the
-  hardware)
-- The fix is logically sound — truncating subpixel coordinates is
-  standard practice in DRM drivers that don't support subpixel precision
+### User Impact
 
-### 7. DEPENDENCY CHECK
+Aspeed BMC platforms are common in enterprise server management
+(OpenBMC). If SGPIO fails to probe due to clock resource ordering, GPIO
+pins managed by the SGPIO controller become unavailable, which can
+affect system monitoring, power control, and other BMC functions. This
+is a real-world issue that affects actual deployments.
 
-The commit is self-contained. It doesn't depend on any other changes.
-The code it modifies (`atmel_hlcdc_plane_atomic_check`) has been present
-in stable trees for a long time. The functions it interacts with
-(`drm_atomic_helper_check_plane_state`, `drm_rect_width/height`) are
-standard DRM helpers available in all stable trees.
+### Concerns
 
-### Summary
+- The commit doesn't have a `Fixes:` tag, which is expected for commits
+  under review
+- No explicit mention of user reports, but the commit author is from
+  Aspeed Technology, indicating this is a known issue in their platform
+- Minor: probe function no longer freed after init, but this is
+  negligible memory impact
 
-This is a small, well-understood bug fix for an incorrect rejection of
-valid display configurations in the Atmel HLCDC driver. The fix is
-surgical (removes an overly strict validation check and shifts the
-coordinate conversion earlier), has been reviewed by the subsystem
-maintainer, and carries minimal risk of regression. It fixes a real
-user-visible bug (display failures during scaling with clipping) that
-affects embedded systems using this display controller.
+### Decision
+
+This is a small, well-understood fix for a real probe failure bug on
+Aspeed BMC platforms. The pattern change (`module_platform_driver_probe`
+→ `module_platform_driver`) is one of the safest and most common
+conversions in the kernel. It fixes a real-world issue where hardware
+becomes non-functional due to probe ordering. The risk is minimal and
+the benefit is clear.
 
 **YES**
 
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c   | 19 ++++---------------
- 1 file changed, 4 insertions(+), 15 deletions(-)
+ drivers/gpio/gpio-aspeed-sgpio.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-index c0075894dc422..ec1fb5f9549a2 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-@@ -79,8 +79,6 @@ drm_plane_state_to_atmel_hlcdc_plane_state(struct drm_plane_state *s)
- 	return container_of(s, struct atmel_hlcdc_plane_state, base);
+diff --git a/drivers/gpio/gpio-aspeed-sgpio.c b/drivers/gpio/gpio-aspeed-sgpio.c
+index 7622f9e9f54af..318cd0e397416 100644
+--- a/drivers/gpio/gpio-aspeed-sgpio.c
++++ b/drivers/gpio/gpio-aspeed-sgpio.c
+@@ -516,7 +516,7 @@ static const struct of_device_id aspeed_sgpio_of_table[] = {
+ 
+ MODULE_DEVICE_TABLE(of, aspeed_sgpio_of_table);
+ 
+-static int __init aspeed_sgpio_probe(struct platform_device *pdev)
++static int aspeed_sgpio_probe(struct platform_device *pdev)
+ {
+ 	u32 nr_gpios, sgpio_freq, sgpio_clk_div, gpio_cnt_regval, pin_mask;
+ 	const struct aspeed_sgpio_pdata *pdata;
+@@ -611,11 +611,12 @@ static int __init aspeed_sgpio_probe(struct platform_device *pdev)
  }
  
--#define SUBPIXEL_MASK			0xffff
--
- static uint32_t rgb_formats[] = {
- 	DRM_FORMAT_C8,
- 	DRM_FORMAT_XRGB4444,
-@@ -745,24 +743,15 @@ static int atmel_hlcdc_plane_atomic_check(struct drm_plane *p,
- 	if (ret || !s->visible)
- 		return ret;
+ static struct platform_driver aspeed_sgpio_driver = {
++	.probe = aspeed_sgpio_probe,
+ 	.driver = {
+ 		.name = KBUILD_MODNAME,
+ 		.of_match_table = aspeed_sgpio_of_table,
+ 	},
+ };
  
--	hstate->src_x = s->src.x1;
--	hstate->src_y = s->src.y1;
--	hstate->src_w = drm_rect_width(&s->src);
--	hstate->src_h = drm_rect_height(&s->src);
-+	hstate->src_x = s->src.x1 >> 16;
-+	hstate->src_y = s->src.y1 >> 16;
-+	hstate->src_w = drm_rect_width(&s->src) >> 16;
-+	hstate->src_h = drm_rect_height(&s->src) >> 16;
- 	hstate->crtc_x = s->dst.x1;
- 	hstate->crtc_y = s->dst.y1;
- 	hstate->crtc_w = drm_rect_width(&s->dst);
- 	hstate->crtc_h = drm_rect_height(&s->dst);
- 
--	if ((hstate->src_x | hstate->src_y | hstate->src_w | hstate->src_h) &
--	    SUBPIXEL_MASK)
--		return -EINVAL;
--
--	hstate->src_x >>= 16;
--	hstate->src_y >>= 16;
--	hstate->src_w >>= 16;
--	hstate->src_h >>= 16;
--
- 	hstate->nplanes = fb->format->num_planes;
- 	if (hstate->nplanes > ATMEL_HLCDC_LAYER_MAX_PLANES)
- 		return -EINVAL;
+-module_platform_driver_probe(aspeed_sgpio_driver, aspeed_sgpio_probe);
++module_platform_driver(aspeed_sgpio_driver);
+ MODULE_DESCRIPTION("Aspeed Serial GPIO Driver");
 -- 
 2.51.0
 
