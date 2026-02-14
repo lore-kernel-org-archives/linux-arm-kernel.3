@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD09EF99EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 01:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15470EF99EA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 01:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F9jBCZof2KflqNaybxTzLtq9Mjcx8z9DFxizGag2cF0=; b=cS5kQEGo+Z6Q1rX0xaFAZYv2Iz
-	S+7u09M8/PRASdqXiAdqTPjdjCMzadWRpS+dBXGPfJlk+ey+CO69eQ7918Ag9VLbCIpR3TgHFUG7W
-	H6q/y8VEIJSs4SyWxW22P2u+ADNtZXkpfARv9fGqpgEXMkK0WzdESwdyw5ibug4NWxVAQZ/qOceSO
-	foP0H94HBfoP38WvbHM7ag9fw9HBkXDFkYgAa4jkrGpj2DO1Vk/ZaGnfiuh5aPP50L/OPWoAIFDlN
-	Q5KtILKxFTZJL5o2VuzJ/2cLluQAat/RjTLLm/auEokSO6kZ6Jv1W6mLZjDIwII31dW5wveJOv9FP
-	DFTHRyJg==;
+	bh=EYxsW2y+Ba72N45DIKbU3b1z/5MpxlqFpe3dAS5bkXU=; b=erDwuaGtxsuTImjA1Oa22w+ZsQ
+	1nxWMIF3GBGZHtNqoJ4FiF73eSXjRr6OhxfkyFa8W9pb3fK0+ESXbEogABpK3OeNFHOdqWiDpDMos
+	njPeSZ8rq7UFKkx+N8Z4nyqDDmwL7Txhh0IDxu9kV4hc6eHGbFolurMqKr6TcdM8wWq9a3gOFy3tk
+	IQduTTatkTls2Rbw/6So5JVb25uMI8aKDY7FAZvkhWl8EUT5U9NmAmBrE3gZBEedPn17U96co9tFy
+	rDgfGRGW7+y7avOVE2CRhn1n2ZYF56S8BJW9KWXSaShOpmEeZAjXsCxZ8VQ50BfNfT2v1eq7T0NHW
+	vaaAw4Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr47o-000000046ux-3Thf;
-	Sat, 14 Feb 2026 01:07:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vr48G-0000000473Z-42XM;
+	Sat, 14 Feb 2026 01:07:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr47m-000000046u4-2ssl;
-	Sat, 14 Feb 2026 01:07:06 +0000
+	id 1vr48E-0000000472u-3g6C
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 14 Feb 2026 01:07:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ACFA960140;
-	Sat, 14 Feb 2026 01:07:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F044DC116C6;
-	Sat, 14 Feb 2026 01:07:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 80E9C4071F;
+	Sat, 14 Feb 2026 01:07:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FB41C16AAE;
+	Sat, 14 Feb 2026 01:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771031225;
-	bh=rDcWMAVldkzNaS8lDSB7w2Yk/9/U2azR+6IWXKQYi50=;
+	s=k20201202; t=1771031254;
+	bh=AOhoK7iaQfSvFBn6Bfj98kL+WvUmkWg8zJklNjmc44Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ODDFwlURN5QaD6cm8CNWXh/XgakSO58kpoPQkT3XCs28MC3fdV5ios/DWlzP9XI/O
-	 DGlSTN9hkHBOc0oZ7Pvwe5RePIzX2ngCHHWsxW++TXKmb38zMVCJ5EE3OO3c1ZYgbY
-	 xjtYIbJOEXnVTuERaDFa7+tb4p0QfZZpLgX0FN1hs5Qez1kPmwiAtGmMCcrjwN16iE
-	 kyiQgFxo03gi5t5GdEE/Tq2MI2t3CdqAsV/8avoyW4jbm2YoEUAJJBNcVrd3bsy8+1
-	 v5vqOD7SSF/M8sYrxMhY7v573LVwX7Wpa9yjGcwEtT4ZxJDzA7Yl2Siji2L/6zL/M3
-	 FBrobmJoqpLig==
+	b=rTSGFlUHO7aysFGIXp3gp93nKV5Vz/UYi2M/nKEVwHhI/SeUKhKTODmsX0ZYmaoV7
+	 M6Fbn0HJraaByjgDS7WaAJRyiIbp9fk0hAR4EH79e3tJ/icis2NudwMJy3+gYy1Hd8
+	 i6lwheJsrhmL2fdgkBMnZKCXX+KyKDr3pc/EPQY85ReRZLE03TpQYiU+mR4evSPKt/
+	 iXj322sHsKvxNAUn+/8ZPLYBDr3g8CFIlaif1xT/xL5gxkqw2xLSncox5LkYpo1fga
+	 oP0nXjtlUAiub8ixd/sVxGDp6AFAqFvdZV21L4CZAZUpJKHMY5kyoLi8bNMCQa0iS6
+	 7vo2MkSGag8vA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
+Cc: Chen Ni <nichen@iscas.ac.cn>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	matthias.bgg@gmail.com,
-	neil.armstrong@linaro.org,
-	nhebert@chromium.org,
-	yelangyan@huaqin.corp-partner.google.com,
-	sebastian.fricke@collabora.com,
-	linux-kernel@vger.kernel.org,
+	fengzheng923@gmail.com,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.19-6.6] media: mediatek: vcodec: Don't try to decode 422/444 VP9
-Date: Fri, 13 Feb 2026 19:59:50 -0500
-Message-ID: <20260214010245.3671907-110-sashal@kernel.org>
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH AUTOSEL 6.19-6.1] ASoC: sunxi: sun50i-dmic: Add missing check for devm_regmap_init_mmio
+Date: Fri, 13 Feb 2026 20:00:02 -0500
+Message-ID: <20260214010245.3671907-122-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260214010245.3671907-1-sashal@kernel.org>
 References: <20260214010245.3671907-1-sashal@kernel.org>
@@ -66,8 +65,10 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.19
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260213_170734_958952_9D2B878B 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +83,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+From: Chen Ni <nichen@iscas.ac.cn>
 
-[ Upstream commit 3e92d7e4935084ecdbdc88880cc4688618ae1557 ]
+[ Upstream commit 74823db9ba2e13f3ec007b354759b3d8125e462c ]
 
-This is not supported by the hardware and trying to decode
-these leads to LAT timeout errors.
+Add check for the return value of devm_regmap_init_mmio() and return the
+error if it fails in order to catch the error.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+Link: https://patch.msgid.link/20260127033250.2044608-1-nichen@iscas.ac.cn
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
@@ -99,147 +100,101 @@ LLM Generated explanations, may be completely bogus:
 
 ## Analysis
 
-### 1. Commit Message Analysis
+### Commit Message Analysis
 
-The commit message is clear and direct: "Don't try to decode 422/444
-VP9" with the explanation that "this is not supported by the hardware
-and trying to decode these leads to LAT timeout errors." This describes
-a real hardware limitation that causes a user-visible failure (decode
-timeout).
+The commit adds a missing error check for `devm_regmap_init_mmio()` in
+the sun50i-dmic audio driver's probe function. The message is
+straightforward - it's adding a return value check that was missing.
 
-### 2. Code Change Analysis
+### Code Change Analysis
 
-The change adds exactly 6 lines of code to the
-`V4L2_CID_STATELESS_VP9_FRAME` case in `mtk_vdec_s_ctrl()`:
-
-```496:505:drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec
-_stateless.c
-        case V4L2_CID_STATELESS_VP9_FRAME:
-                frame = (struct v4l2_ctrl_vp9_frame *)hdr_ctrl->p_new.p;
-
-                if (frame->bit_depth == 10) {
-                        ctx->is_10bit_bitstream = true;
-                } else if (frame->bit_depth != 8) {
-                        mtk_v4l2_vdec_err(ctx, "VP9: bit_depth:%d",
-frame->bit_depth);
-                        return -EINVAL;
-                }
-                break;
+The change is a 3-line addition:
+```c
+if (IS_ERR(host->regmap))
+    return dev_err_probe(&pdev->dev, PTR_ERR(host->regmap),
+                         "failed to initialise regmap\n");
 ```
 
-The new code, inserted between the bit_depth check and the `break`,
-checks the VP9 frame's subsampling flags. Both
-`V4L2_VP9_FRAME_FLAG_X_SUBSAMPLING` and
-`V4L2_VP9_FRAME_FLAG_Y_SUBSAMPLING` must be set (indicating 4:2:0). If
-either is missing, it means the stream uses 4:2:2, 4:4:0, or 4:4:4 — all
-unsupported.
+This is inserted right after `devm_regmap_init_mmio()` returns into
+`host->regmap`. Without this check, if `devm_regmap_init_mmio()` fails,
+`host->regmap` will contain an ERR_PTR value. The driver then continues
+execution and eventually uses this regmap pointer in subsequent
+operations (regmap reads/writes), which would cause a NULL pointer
+dereference or other crash since the ERR_PTR would be interpreted as a
+valid pointer.
 
-### 3. The Bug Mechanism (Detailed)
+### Bug Mechanism
 
-The critical path that allows unsupported VP9 streams to reach the
-hardware:
+If `devm_regmap_init_mmio()` fails (e.g., memory allocation failure
+inside regmap), the error pointer gets stored in `host->regmap`. Later,
+when the driver tries to use regmap APIs with this invalid pointer, it
+will crash. This is a real bug - a missing error check that leads to use
+of an error pointer as a valid pointer.
 
-**Step 1**: The V4L2 core validates VP9 frame data in
-`validate_vp9_frame()` (in `v4l2-ctrls-core.c`). This validates *VP9
-spec compliance* — e.g., profile 0/2 must be 4:2:0, profile 1/3 must be
-non-4:2:0. It does NOT enforce driver-specific hardware limitations.
+### Severity Assessment
 
-```606:616:drivers/media/v4l2-core/v4l2-ctrls-core.c
-        /* Profile 0 and 2 only accept YUV 4:2:0. */
-        if ((frame->profile == 0 || frame->profile == 2) &&
-            (!(frame->flags & V4L2_VP9_FRAME_FLAG_X_SUBSAMPLING) ||
-             !(frame->flags & V4L2_VP9_FRAME_FLAG_Y_SUBSAMPLING)))
-                return -EINVAL;
+- **Trigger**: `devm_regmap_init_mmio()` would need to fail, which is
+  uncommon but possible (memory pressure, internal regmap errors)
+- **Consequence**: Kernel crash/oops when the invalid regmap pointer is
+  subsequently used
+- **Likelihood**: Low probability but non-zero, especially under memory
+  pressure
 
-        /* Profile 1 and 3 only accept YUV 4:2:2, 4:4:0 and 4:4:4. */
-        if ((frame->profile == 1 || frame->profile == 3) &&
-            ((frame->flags & V4L2_VP9_FRAME_FLAG_X_SUBSAMPLING) &&
-             (frame->flags & V4L2_VP9_FRAME_FLAG_Y_SUBSAMPLING)))
-                return -EINVAL;
-```
+### Stable Kernel Criteria
 
-**Step 2**: The VP9 PROFILE menu control and the VP9 FRAME compound
-control are **separate, independent V4L2 controls**. The profile field
-inside the FRAME control is not cross-validated against the PROFILE menu
-control. So userspace can submit a VP9 frame with profile=1 even if the
-PROFILE control only advertises support for profiles 0 and 2.
+1. **Obviously correct and tested**: Yes - this follows the exact same
+   pattern as all surrounding error checks in the same function. It's a
+   textbook missing error check fix.
+2. **Fixes a real bug**: Yes - missing error check on a function that
+   can fail, leading to use of an ERR_PTR as a valid pointer.
+3. **Important issue**: Moderate - it's a potential NULL deref/crash,
+   though the trigger condition is uncommon.
+4. **Small and contained**: Yes - 3 lines added, single file, no
+   behavioral change on success path.
+5. **No new features**: Correct - purely defensive error checking.
+6. **Applies cleanly**: The change is self-contained with no
+   dependencies.
 
-**Step 3**: The driver's `s_ctrl` handler only checked `bit_depth`, not
-subsampling. So a valid VP9 spec frame with profile 1 and 4:2:2
-subsampling would pass all checks and reach the hardware.
+### Risk Assessment
 
-**Step 4**: The MediaTek hardware decoder only supports 4:2:0. The VP9
-LAT decoder has a `struct vdec_vp9_slice_reference` with `subsampling_x`
-and `subsampling_y` fields that get passed to firmware/hardware.
-Attempting to decode non-4:2:0 causes a LAT hardware timeout (1000ms via
-`WAIT_INTR_TIMEOUT_MS`).
+- **Risk**: Extremely low. The change only affects the error path. On
+  the success path, behavior is identical.
+- **Benefit**: Prevents a kernel crash if regmap initialization fails.
+- **Pattern**: This is a very common type of stable fix - adding missing
+  error checks in driver probe functions.
 
-### 4. Impact on Stable Trees
+### Concerns
 
-**v6.6** is especially affected. I verified that:
-- The file and the `mtk_vdec_s_ctrl` function exist in v6.6 (added via
-  commit `9d86be9bda6cd`)
-- In v6.6, the VP9 profile control allows ALL profiles 0-3 (`max =
-  V4L2_MPEG_VIDEO_VP9_PROFILE_3`) with **no skip mask**. This means
-  profiles 1 and 3 (which require non-4:2:0 subsampling) are explicitly
-  advertised as supported, making the bug trivially reproducible with
-  any VP9 4:2:2 content.
-- The code context at the insertion point in v6.6 is identical to the
-  diff context, so the patch applies cleanly.
+This is a fairly minor fix for an uncommon failure path in a specific
+ARM SoC audio driver. The user base is limited to Allwinner sun50i
+platforms. However, the fix is trivially correct, has zero risk of
+regression, and prevents a real (if unlikely) crash.
 
-**v6.12** already has the profile restriction (`menu_skip_mask =
-BIT(V4L2_MPEG_VIDEO_VP9_PROFILE_1)`, `max = PROFILE_2`), which reduces
-the attack surface, but the bug still exists because the FRAME control's
-profile field is not validated against the PROFILE control.
+### Decision
 
-**v6.1 and earlier**: The `s_ctrl` handler doesn't exist, so the patch
-doesn't apply.
-
-### 5. Patch Characteristics
-
-- **Size**: 6 new lines
-- **Self-contained**: No dependencies on any other commits
-- **Pattern**: Follows the exact same validation pattern as the
-  `bit_depth` check immediately above it
-- **Error handling**: Standard `-EINVAL` return with diagnostic error
-  message
-- **Risk**: Extremely low — only rejects invalid configurations that the
-  hardware cannot handle
-- **Reviewed-by**: AngeloGioacchino Del Regno (Collabora, MediaTek
-  subsystem maintainer)
-
-### 6. Conclusion
-
-This commit fixes a real, user-visible hardware bug. Without this fix,
-attempting to decode VP9 4:2:2 or 4:4:4 content on MediaTek SoCs causes
-a 1-second hardware timeout, resulting in decode errors. The fix is
-small (6 lines), surgical, self-contained, follows existing code
-patterns exactly, and has zero risk of regression (it only rejects
-configurations that will always fail). It's especially important for
-v6.6 where the profile control doesn't even restrict non-4:2:0 profiles.
+The fix is small, obviously correct, follows existing patterns in the
+same function, prevents a potential crash from using an ERR_PTR, and has
+essentially zero regression risk. It meets all stable kernel criteria.
 
 **YES**
 
- .../mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c      | 6 ++++++
- 1 file changed, 6 insertions(+)
+ sound/soc/sunxi/sun50i-dmic.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
-index d873159b9b306..9eef3ff2b1278 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
-@@ -502,6 +502,12 @@ static int mtk_vdec_s_ctrl(struct v4l2_ctrl *ctrl)
- 			mtk_v4l2_vdec_err(ctx, "VP9: bit_depth:%d", frame->bit_depth);
- 			return -EINVAL;
- 		}
-+
-+		if (!(frame->flags & V4L2_VP9_FRAME_FLAG_X_SUBSAMPLING) ||
-+		    !(frame->flags & V4L2_VP9_FRAME_FLAG_Y_SUBSAMPLING)) {
-+			mtk_v4l2_vdec_err(ctx, "VP9: only 420 subsampling is supported");
-+			return -EINVAL;
-+		}
- 		break;
- 	case V4L2_CID_STATELESS_AV1_SEQUENCE:
- 		seq = (struct v4l2_ctrl_av1_sequence *)hdr_ctrl->p_new.p;
+diff --git a/sound/soc/sunxi/sun50i-dmic.c b/sound/soc/sunxi/sun50i-dmic.c
+index bab1e29c99887..eddfebe166169 100644
+--- a/sound/soc/sunxi/sun50i-dmic.c
++++ b/sound/soc/sunxi/sun50i-dmic.c
+@@ -358,6 +358,9 @@ static int sun50i_dmic_probe(struct platform_device *pdev)
+ 
+ 	host->regmap = devm_regmap_init_mmio(&pdev->dev, base,
+ 					     &sun50i_dmic_regmap_config);
++	if (IS_ERR(host->regmap))
++		return dev_err_probe(&pdev->dev, PTR_ERR(host->regmap),
++				     "failed to initialise regmap\n");
+ 
+ 	/* Clocks */
+ 	host->bus_clk = devm_clk_get(&pdev->dev, "bus");
 -- 
 2.51.0
 
