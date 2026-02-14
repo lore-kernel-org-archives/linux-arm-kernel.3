@@ -4,62 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A36DEF99EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 00:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 880F6EF99EB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 00:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D0jn9cYfP4Es5eDU+7Qw2Qc7IDbwS2ohUtktWsBGDss=; b=15hefBl79Z4fgc5kdjKnh94pU6
-	kTGS8YbVr4whbNI0z1HiLCnBuRSWB27i3LNSbc5YZiUpsSLBfVLw47TcYphrf9JMW00pKi/qGH0CO
-	zg3ya4Lo/pSZvbYBCZItZYxHd54tx8mJlLX/4Qd0N+A9lwN9aImm+dXsJadZoO8iEjDpU9k3QDgm+
-	dr8yNEFuK3cjXeCndWw71NV+OjYyMI/ZNt6Ug5dk/2WOXzH2WZ6memdcrtVF/Xjh535RDsbMVguXj
-	tOiw/SA5uPQbeJQSkrN71YDFFEidng1jrMmFAdkrstX0mqPDDFHJImSBhgTkakV6BamYnayWtPaJL
-	HkXSNs8A==;
+	bh=i9hNIPwLkx2tDIfMeilED+wk1wv71kb/R9vpOwr76Iw=; b=c95N1Oyri5Ryf+dc22uYQZYv6g
+	Lud8n+yJm7UgwGHk29BxWtqTUiJZrJF0bRLrV6dgrTj2199PmqCVBqvkFuNuWL3ML3Yv1euJYCwPJ
+	EnFqk4b2w+eQbA23r/HEP4dSWHOlUURxfqfTf1dg6jkIGcpv95fHASFioKnb/E4pStloIlH8XsBGo
+	/wiHXn8zV4Jt7Hvzg/DvcQ82DDora2wFNDQcQf0Em4ym2//3CpBoUSbMDsShaOc4FLq0dlIjSnU1M
+	y26t+xEjXc1xe3yuoaIts3SnPal8d4Q8IqWOSkniG3PneqObMnDhslFBb0ngNsjoilCVMjgk6GIEg
+	Ep/WAD3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr3zV-000000045VS-07N7;
-	Sat, 14 Feb 2026 00:58:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vr3zc-000000045WX-1LmX;
+	Sat, 14 Feb 2026 00:58:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr3zT-000000045VM-2YTB
+	id 1vr3za-000000045W4-3Vjr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 00:58:31 +0000
+	Sat, 14 Feb 2026 00:58:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 90B2E60054;
-	Sat, 14 Feb 2026 00:58:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E88F0C16AAE;
-	Sat, 14 Feb 2026 00:58:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B41EA42CEC;
+	Sat, 14 Feb 2026 00:58:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D757FC2BC9E;
+	Sat, 14 Feb 2026 00:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771030710;
-	bh=NEWEBH7sq+zU2qhpQKKuTK0qk9D0GCwG/6uIPj/b1Lk=;
+	s=k20201202; t=1771030717;
+	bh=oJk5DkIzIOcPUBLFNrFEmh7/x9GuEfuX178fRIzZMwE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XQacjNJqTN9vCo8aKrgcjCirDzQfC3X1DShrc8qFEHjXH7+t4FNGgic77si4k2/R2
-	 Y7tRTLeBpOYIGuHEFWzzCKX8YZUKI5pT1ngcdVmMpRmcC8OZGXztgNhOIgBmf8sdfk
-	 K+un3D/ApRtP5xlCApe9GKaegZTDdRMRfX4iD7PuZzh5sTLiHfoAHB5rsQ57jhnu9j
-	 eWH1uKn0gAag8j7oUo8K4Z5xcIUmaur+ny+sigkR8ye7eTdysXToe3m1t+d1w0INWh
-	 XPWJH/jtulXCXYBl+p3Ym+KwWWP8+5Rep3C2YTDDxbYMK9SLr6+plyHA+XKliZQNNo
-	 kVMbHgyY/1Hqg==
+	b=QbgsOnKvNGoeM8gsCJjbgpA4VJ5Ol+CkxSQwNWDpAbt/dFdDCP+Hc/uoaZ40xwF5o
+	 fCI8oRpgAIgNNgru8t2L8+E8a33SHfW10kwyoaXEG1BA9vkMH6MHSuQyMlR8+HARD8
+	 cuo7e4H7k0BX1Dy9w1dwiaScg99M2sJX7eRu9NBYxhuD18xOvZIyK5ZGywQ2u6RuhP
+	 PUTzdrtDFs7hktatKeOWqMylKPl9653rkRdahPt0ykv4n2bhPagIL1l7c0IbYkD9Xq
+	 r+wfLQmeIrr+ZLNhzWOgLJzEp0gsWwRXpP21GvHF820ANvNoSBa1j0qSzthGJjXvV6
+	 JKPvPciL9qnhg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Peng Fan <peng.fan@nxp.com>,
-	kernel test robot <lkp@intel.com>,
-	Dan Carpenter <error27@gmail.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
+Cc: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>,
+	Sudeep Holla <sudeep.holla@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	Frank.Li@nxp.com,
-	neil.armstrong@linaro.org,
-	yelangyan@huaqin.corp-partner.google.com,
-	imx@lists.linux.dev,
+	sudeep.holla@kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.19-6.18] soc: imx8m: Fix error handling for clk_prepare_enable()
-Date: Fri, 13 Feb 2026 19:58:08 -0500
-Message-ID: <20260214005825.3665084-2-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.19-6.12] firmware: arm_ffa: Unmap Rx/Tx buffers on init failure
+Date: Fri, 13 Feb 2026 19:58:11 -0500
+Message-ID: <20260214005825.3665084-5-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260214005825.3665084-1-sashal@kernel.org>
 References: <20260214005825.3665084-1-sashal@kernel.org>
@@ -67,7 +60,11 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.19
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260213_165838_923943_88C581AF 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,200 +79,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+From: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
 
-[ Upstream commit f6ef3d9ff81240e9bcc030f2da132eb0f8a761d7 ]
+[ Upstream commit 9fda364cb78c8b9e1abe4029f877300c94655742 ]
 
-imx8m_soc_prepare() directly returns the result of clk_prepare_enable(),
-which skips proper cleanup if the clock enable fails. Check the return
-value of clk_prepare_enable() and release resources if failure.
+ffa_init() maps the Rx/Tx buffers via ffa_rxtx_map() but on the
+partition setup failure path it never unmaps them.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Dan Carpenter <error27@gmail.com>
-Closes: https://lore.kernel.org/r/202601111406.ZVV3YaiU-lkp@intel.com/
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Signed-off-by: Shawn Guo <shawnguo@kernel.org>
+Add the missing ffa_rxtx_unmap() call in the error path so that
+the Rx/Tx buffers are properly released before freeing the backing
+pages.
+
+Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+Message-Id: <20251210031656.56194-1-lihaoxiang@isrc.iscas.ac.cn>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Interesting - in v6.15 and earlier, `clk_prepare_enable()` was called
-without checking its return value at all, but the code continued with
-proper cleanup on the success path. The v6.15 code has a different
-(arguably less severe) issue - it doesn't check `clk_prepare_enable()`
-return value but doesn't leak resources on normal exit.
-
-Now I have a complete picture. Let me write the analysis.
-
----
-
-## Detailed Analysis
+## Analysis
 
 ### 1. Commit Message Analysis
 
-The commit title explicitly says "Fix error handling for
-clk_prepare_enable()". The message clearly describes the bug:
-`imx8m_soc_prepare()` directly returns the result of
-`clk_prepare_enable()`, bypassing the `err_clk` cleanup label when the
-clock enable fails. This is a resource leak bug.
-
-**Reporters:** Kernel test robot (lkp) and Dan Carpenter (well-known
-Smatch/static analysis developer). This means the bug was found via
-static analysis (Smatch), not a runtime crash report. The presence of
-"Closes:" link to a kernel test robot report confirms this.
-
-**Reviews:** Two Reviewed-by tags (Marco Felsch and Daniel Baluta),
-indicating the fix was validated by subsystem developers.
+The commit message clearly describes a **resource leak on an error
+path**: `ffa_init()` maps Rx/Tx buffers via `ffa_rxtx_map()`, but when
+`ffa_setup_partitions()` fails, the error path frees the backing pages
+without first unmapping the buffers from the firmware. The fix adds the
+missing `ffa_rxtx_unmap()` call. The commit was accepted by the FF-A
+subsystem maintainer Sudeep Holla.
 
 ### 2. Code Change Analysis
 
-The bug is in `imx8m_soc_prepare()`:
+The fix is a **single line addition**:
 
-```131:156:drivers/soc/imx/soc-imx8m.c
-static int imx8m_soc_prepare(struct platform_device *pdev, const char
-*ocotp_compatible)
-{
-        // ... setup code ...
-        drvdata->ocotp_base = of_iomap(np, 0);    // resource 1: iomap
-        // ...
-        drvdata->clk = of_clk_get_by_name(np, NULL);  // resource 2:
-clock ref
-        // ...
-        return clk_prepare_enable(drvdata->clk);   // BUG: if this
-fails, ocotp_base is leaked!
-
-err_clk:
-        iounmap(drvdata->ocotp_base);
-        return ret;
-}
+```2071:2071:drivers/firmware/arm_ffa/driver.c
+        ffa_rxtx_unmap(drv_info->vm_id);
 ```
 
-**The bug mechanism:** When `clk_prepare_enable()` fails, the function
-returns directly with the error code, skipping the `err_clk` label which
-calls `iounmap(drvdata->ocotp_base)`. This leaks:
-1. The `ocotp_base` iomap mapping (definite leak)
-2. The clock reference from `of_clk_get_by_name()` (also leaked, since
-   `clk_put()` is not called - this is arguably still not fully fixed,
-   but the `err_clk` label was designed for the `of_clk_get_by_name`
-   failure case where `clk_put` should not be called)
+inserted between `ffa_notifications_cleanup()` and the `free_pages:`
+label.
 
-**The fix:** Check the return value, jump to `err_clk` on failure, which
-properly unmaps `ocotp_base`:
+**Understanding the bug mechanism:**
 
-```diff
-- return clk_prepare_enable(drvdata->clk);
-+       ret = clk_prepare_enable(drvdata->clk);
-+       if (ret)
-+               goto err_clk;
-+       return 0;
-```
+The `ffa_init()` function follows this flow:
+1. Allocates Rx/Tx buffer pages (lines 2038-2048)
+2. Maps them to firmware via `ffa_rxtx_map()` (line 2050) — this is an
+   FF-A SMC/HVC call to the secure firmware (e.g., TrustZone / Hafnium
+   hypervisor)
+3. Sets up partitions via `ffa_setup_partitions()` (line 2065)
+4. If partition setup fails, falls through to `free_pages:` which frees
+   the backing pages
 
-**Note:** There is a subtlety - when `clk_prepare_enable()` fails, the
-`err_clk` label only calls `iounmap()` but not `clk_put()`. The clock
-reference obtained from `of_clk_get_by_name()` is still leaked. However,
-this is a separate (pre-existing) concern. The fix as written is still
-an improvement: it's strictly better than the old code.
+The problem: Step 4 **never calls `ffa_rxtx_unmap()`**, so the firmware
+retains stale references to the freed physical pages. The `ffa_exit()`
+function (line 2081-2089) correctly calls `ffa_rxtx_unmap()` before
+freeing pages, confirming the error path was simply missing this
+cleanup.
 
-### 3. Dependency/Prerequisite Analysis
+**Consequences of the bug:**
+- The firmware (running in secure world or EL2 hypervisor) still holds
+  mappings to physical addresses of freed kernel pages
+- Those freed pages can be reallocated for other kernel purposes
+- The firmware could write to these stale mappings, causing **memory
+  corruption** of unrelated kernel data
+- On systems with a stage-2 hypervisor, the mapping entries are also
+  leaked
 
-This is **critical** for the backport decision:
+### 3. Bug Origin
 
-- The function `imx8m_soc_prepare()` was introduced in commit
-  `390c01073f5d0` ("soc: imx8m: Cleanup with adding
-  imx8m_soc_[un]prepare"), which first appeared in **v6.16-rc1**.
-- This means the **buggy code does NOT exist** in v6.15 or any earlier
-  stable tree (v6.14, v6.13, v6.12, v6.6, v6.1, 5.15, etc.).
-- The bug was introduced in v6.16 and the fix only applies to
-  **v6.16.y** stable and newer (v6.17.y, v6.18.y if applicable).
-- I confirmed the buggy code exists identically in v6.16.12 (latest
-  v6.16 stable), so the fix would apply cleanly.
+The bug was introduced by commit
+`0c565d16b80074e57e3e56240d13fc6cd6ed0334` ("firmware: arm_ffa: Handle
+partitions setup failures"), which first made `ffa_setup_partitions()`
+return an error and added an error path in `ffa_init()`. Before this
+commit, `ffa_setup_partitions()` was void and never triggered error
+cleanup. This commit landed in **v6.8**. The error path was later
+restructured by `be61da9385766` (v6.15), but the missing unmap persisted
+through both versions.
 
-### 4. Scope and Risk Assessment
+### 4. Classification
 
-- **Size:** 5 lines changed (+5/-1) in a single file - extremely small
-  and surgical.
-- **Risk:** Essentially zero. The fix only changes the error path
-  behavior (adds proper cleanup). The success path (when
-  `clk_prepare_enable()` works) is unchanged (returns 0 instead of the
-  return value of `clk_prepare_enable()`, but those are equivalent on
-  success).
-- **Subsystem:** SoC driver for NXP i.MX8M family, a widely-used
-  embedded platform.
+This is a **resource leak / firmware-side stale mapping fix** on an
+error path. It is NOT a new feature, API change, or refactoring — it is
+purely adding missing cleanup.
 
-### 5. User Impact
+### 5. Scope and Risk Assessment
 
-- **Affected hardware:** All i.MX8M family SoCs (i.MX8MQ, i.MX8MM,
-  i.MX8MN, i.MX8MP) - very common in embedded/industrial/automotive use.
-- **Trigger likelihood:** Low in practice. `clk_prepare_enable()` for
-  the OCOTP clock is unlikely to fail on real hardware under normal
-  conditions.
-- **Severity if triggered:** Resource leak (iomap + clock reference).
-  Not a crash, not security-critical, not data corruption. On repeated
-  failures (e.g., in a test environment or if the clock framework has
-  issues), could contribute to resource exhaustion.
-- **Detection method:** Static analysis (Smatch/kernel test robot), not
-  a user report.
+- **Lines changed**: 1 line added
+- **Files changed**: 1 file (`drivers/firmware/arm_ffa/driver.c`)
+- **Risk**: Extremely low. The `ffa_rxtx_unmap()` function is already
+  used in `ffa_exit()` for normal cleanup. Adding it to the error path
+  is the obvious correct fix. The function itself just issues an FF-A
+  call to the firmware.
+- **Regression potential**: Near zero. This only affects the failure
+  path of `ffa_setup_partitions()`, and calling unmap before freeing is
+  strictly correct.
 
-### 6. Classification
+### 6. User Impact
 
-This is a **real bug fix** - it fixes a resource leak on an error path.
-It falls into the category of "error path changes that fix resource
-leaks," which is explicitly identified as backport-worthy material
-despite being described as a "cleanup."
+This affects ARM platforms using FF-A (Firmware Framework for Arm) —
+notably ARM TrustZone/OP-TEE systems, Arm CCA systems, and virtualized
+ARM environments with Hafnium. While `ffa_setup_partitions()` failure is
+not the most common path, when it does occur, the consequences (firmware
+holding stale page references, potential memory corruption) are severe.
 
-### 7. Stable Criteria Check
+### 7. Stable Kernel Criteria Check
 
-| Criterion | Assessment |
+| Criterion | Met? |
 |---|---|
-| Obviously correct and tested | Yes - trivially correct, reviewed by 2
-developers |
-| Fixes a real bug | Yes - resource leak on error path |
-| Important issue | Moderate - resource leak, not crash/corruption |
-| Small and contained | Yes - 5 lines in 1 file |
-| No new features/APIs | Correct |
-| Applies cleanly | Yes - to v6.16.y |
+| Obviously correct and tested | Yes — mirrors `ffa_exit()` cleanup
+exactly |
+| Fixes a real bug | Yes — resource leak + potential memory corruption |
+| Important issue | Yes — firmware-side stale mapping to freed kernel
+pages |
+| Small and contained | Yes — 1 line in 1 file |
+| No new features | Yes — purely error-path cleanup |
+| Applies cleanly | Yes — for v6.8+ trees (may need minor adjustment for
+v6.8-v6.14 which used `cleanup_notifs:` label) |
+
+### 8. Dependency Check
+
+The fix depends on `0c565d16b80074e57e3e56240d13fc6cd6ed0334` (v6.8) for
+the error path to exist, and on `be61da9385766` (v6.15) for the exact
+code structure in the diff. For stable trees between v6.8 and v6.14, a
+trivially adjusted backport would be needed (placing the unmap call
+inside the `cleanup_notifs:` section instead of inline). The fix is
+self-contained and has no other dependencies.
 
 ### Conclusion
 
-This is a small, obviously correct fix for a resource leak in the i.MX8M
-SoC driver's error handling path. The fix is surgical (5 lines), well-
-reviewed, and applies cleanly to v6.16.y stable (the only stable tree
-that has the affected code). While the bug is unlikely to trigger in
-practice (it requires `clk_prepare_enable()` to fail), the fix has
-essentially zero regression risk and properly handles an error path that
-should have been handled from the start. The fix was reported by kernel
-test robot and Dan Carpenter, two well-known automated and manual static
-analysis sources, and was reviewed by two subsystem developers.
-
-The fix is appropriate for v6.16.y stable backport. It does NOT apply to
-older stable trees (v6.15.y and below) because the affected function was
-introduced in v6.16.
+This is a textbook error-path resource leak fix: a single line adding
+missing firmware unmap before freeing the backing pages. The bug leaves
+the firmware holding stale references to freed kernel memory, which
+could lead to memory corruption. The fix is minimal, obviously correct
+(mirrors `ffa_exit()`), and accepted by the subsystem maintainer. It
+meets all stable kernel criteria.
 
 **YES**
 
- drivers/soc/imx/soc-imx8m.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/firmware/arm_ffa/driver.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/soc/imx/soc-imx8m.c b/drivers/soc/imx/soc-imx8m.c
-index 04a1b60f2f2b5..8e2322999f099 100644
---- a/drivers/soc/imx/soc-imx8m.c
-+++ b/drivers/soc/imx/soc-imx8m.c
-@@ -148,7 +148,11 @@ static int imx8m_soc_prepare(struct platform_device *pdev, const char *ocotp_com
- 		goto err_clk;
- 	}
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index c72ee47565856..7209a630f6d16 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -2068,6 +2068,7 @@ static int __init ffa_init(void)
  
--	return clk_prepare_enable(drvdata->clk);
-+	ret = clk_prepare_enable(drvdata->clk);
-+	if (ret)
-+		goto err_clk;
-+
-+	return 0;
- 
- err_clk:
- 	iounmap(drvdata->ocotp_base);
+ 	pr_err("failed to setup partitions\n");
+ 	ffa_notifications_cleanup();
++	ffa_rxtx_unmap(drv_info->vm_id);
+ free_pages:
+ 	if (drv_info->tx_buffer)
+ 		free_pages_exact(drv_info->tx_buffer, rxtx_bufsz);
 -- 
 2.51.0
 
