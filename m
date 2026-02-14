@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C435BEF99E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 00:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A36DEF99EA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 00:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gcsnYHnaR+mbYSPKQbdhDU9Bq2aFrrJLZtDn7VH/fJc=; b=kxPxOBFnxHvjUY2fLPi1/5FgT4
-	0/sOn9Y92+BUjjrLa9oICr4KyVoHIWvT7TKTPoGiD3pAHLEKgWPtGTSCVE3evYWdWdtYXAhwTXzOw
-	2xPZDbNBcIzih/2DuTpg8X0RWNbH2IGEN1WAvcw4hCSvZ8U//QQWHLRy9DtdK6AlR+9pq9rcdWZGq
-	elf2bt+D6lXhhzvYnJI14QZF5h2gZBDvvP6AdViruFkoD0JP6bvUv2all6NVeEiSGh2HIUqOtanpH
-	Ak7nc8Zsfs7upynncPyc3Gjj5y5EpYfHcTmuuaGTbc2+Pf6jqp4rhbLtk9ywnvl39DhtquLSO/BaR
-	0wiaFWhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D0jn9cYfP4Es5eDU+7Qw2Qc7IDbwS2ohUtktWsBGDss=; b=15hefBl79Z4fgc5kdjKnh94pU6
+	kTGS8YbVr4whbNI0z1HiLCnBuRSWB27i3LNSbc5YZiUpsSLBfVLw47TcYphrf9JMW00pKi/qGH0CO
+	zg3ya4Lo/pSZvbYBCZItZYxHd54tx8mJlLX/4Qd0N+A9lwN9aImm+dXsJadZoO8iEjDpU9k3QDgm+
+	dr8yNEFuK3cjXeCndWw71NV+OjYyMI/ZNt6Ug5dk/2WOXzH2WZ6memdcrtVF/Xjh535RDsbMVguXj
+	tOiw/SA5uPQbeJQSkrN71YDFFEidng1jrMmFAdkrstX0mqPDDFHJImSBhgTkakV6BamYnayWtPaJL
+	HkXSNs8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr3dj-000000044mn-0mbv;
-	Sat, 14 Feb 2026 00:36:03 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1vr3zV-000000045VS-07N7;
+	Sat, 14 Feb 2026 00:58:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr3dg-000000044mN-3xLB
+	id 1vr3zT-000000045VM-2YTB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 00:36:02 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-1270ac5d3efso1530440c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 16:36:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771029359; x=1771634159; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gcsnYHnaR+mbYSPKQbdhDU9Bq2aFrrJLZtDn7VH/fJc=;
-        b=l3J8SOqfK0pqymYLV96erbD01YfanlgaKGNY2VTfBb2j7h7c7oYgXgET+xp/inoVcf
-         rYixcBoXCP0wbgW5AN3jh22JEA6zKbkfBjybyZnMJSau2sfzkeUgtsh2kdwdcWaUi4Le
-         S/IOGMsT+K545ljLiPxNFkew/VkJUT1iN94qfIIIiAtTcTx0+/oSn9t+xk2PIjhRDtVg
-         SWsfE5U/yOwPUb1T5tlp91BHJ0g/Q2zEI8WBl7qySdK1xPwRgWpAO3J7IQK919S6rKQU
-         1imF6EeT/SfcDDGzjlvIvNFEA0NBFkNH44F6u4RD5egMkpUaRPUViJly0Zp61rIutq1V
-         9Jvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771029359; x=1771634159;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gcsnYHnaR+mbYSPKQbdhDU9Bq2aFrrJLZtDn7VH/fJc=;
-        b=RJZ0Ju3BPxJWYwjUlyghmH83Lak/HPzTc/doMfpDMQ5JAbrKrOjjqFeIhAVo8HTK0P
-         KUz4FOvi/yF40IxvewNPBPFbHYR+ODuTHZ0mJfbUvkhmr3FvC0o3Mwbvy2CcBnxuhRCn
-         YW/72ViGHRmgisblhvcWC5HeZAvcLb8uroeoeInW8JuSArChFhEUTcUWVIvLLaKdtUE6
-         1+8En1n7WBWmo9V7Bkx3+FKbveO61fo09Mn+T7iPddsRjZ7xLye8f6kCr7cvizvGU3xn
-         lJEZ15HibWSUmerVjjO3Wou/rkM9pqLHxkYtr+BausoVJrjDhXGK4sFGnN46pUtdyzU5
-         SJlg==
-X-Forwarded-Encrypted: i=1; AJvYcCVn2rQ1+uVHxUawAVZqnAJbe9LrjEayvgNoik+FhaVzJmtOrMIPulBd7jiLz5k7nBeITI3VrTYqeSzrLBNpkcl5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaUvfJ8EzMfw/g9/EUY4aAIe/qK5kn9jLcj/0jAZe34wTrpEJO
-	kF9SHP6P6snC2tblCMUvsRO+qJW1dVnCfTVVoJ31HavagewcL7BoUXXZ
-X-Gm-Gg: AZuq6aJre3vu4+gLuBcraNzVxmU2RqZszka8Oq16Ebr+kzGLH30o4lrJHg2PY7iLGUK
-	8s6OWlz0dLbDKKIezEVsMX+J6j3hfCVmgrcY5NzuGCnx7gqb0AVc+xVX8zSrEpwtpzL3lj3zOad
-	H0wcpf7ugQCayMFJPHyJeQ41wKmtvCTCJSkhtV78D17kqaVs9MHepEPkKD7nVGrCLLWlSlj7Q8v
-	vh//cRZuhp+UGY9HuaHGg57tTwGhrgIVJuSBT95UdRC04moYX4+FTg0HXptiKOdWfqcTidDN7+o
-	j3CWdECvNTvb7Gb7Qba8DQ9bxsRh/vGZzPtpQy7+UmqjYkWMH9jw3scOyK0Iz5ZBL1OB4PL92yi
-	ya8MEZZcLB/HOy9RTA+zkJuGWrn+EjWMEgzIT79Cckr/GaiUhalZyulpUWHPTuIbyEf9vfEsjV0
-	3D5bPRxdG33xBVx8UIPhNDOWHxDWR6+8PWce5ZVBK8Ugrdor8drGMB9WerQrWzS5mz
-X-Received: by 2002:a05:7022:b81:b0:11b:d6f2:a6d6 with SMTP id a92af1059eb24-12741bc706cmr630038c88.34.1771029359310;
-        Fri, 13 Feb 2026 16:35:59 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:b713:5e7b:5963:d2ad])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12742c6ce01sm371859c88.7.2026.02.13.16.35.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Feb 2026 16:35:58 -0800 (PST)
-Date: Fri, 13 Feb 2026 16:35:56 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] ARM: tegra: paz00: configure WiFi rfkill switch through
- device tree
-Message-ID: <aY_BpRQmLdqOOW2K@google.com>
+	Sat, 14 Feb 2026 00:58:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 90B2E60054;
+	Sat, 14 Feb 2026 00:58:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E88F0C16AAE;
+	Sat, 14 Feb 2026 00:58:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771030710;
+	bh=NEWEBH7sq+zU2qhpQKKuTK0qk9D0GCwG/6uIPj/b1Lk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XQacjNJqTN9vCo8aKrgcjCirDzQfC3X1DShrc8qFEHjXH7+t4FNGgic77si4k2/R2
+	 Y7tRTLeBpOYIGuHEFWzzCKX8YZUKI5pT1ngcdVmMpRmcC8OZGXztgNhOIgBmf8sdfk
+	 K+un3D/ApRtP5xlCApe9GKaegZTDdRMRfX4iD7PuZzh5sTLiHfoAHB5rsQ57jhnu9j
+	 eWH1uKn0gAag8j7oUo8K4Z5xcIUmaur+ny+sigkR8ye7eTdysXToe3m1t+d1w0INWh
+	 XPWJH/jtulXCXYBl+p3Ym+KwWWP8+5Rep3C2YTDDxbYMK9SLr6+plyHA+XKliZQNNo
+	 kVMbHgyY/1Hqg==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Peng Fan <peng.fan@nxp.com>,
+	kernel test robot <lkp@intel.com>,
+	Dan Carpenter <error27@gmail.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	Frank.Li@nxp.com,
+	neil.armstrong@linaro.org,
+	yelangyan@huaqin.corp-partner.google.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.19-6.18] soc: imx8m: Fix error handling for clk_prepare_enable()
+Date: Fri, 13 Feb 2026 19:58:08 -0500
+Message-ID: <20260214005825.3665084-2-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260214005825.3665084-1-sashal@kernel.org>
+References: <20260214005825.3665084-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_163600_991814_8C1E0842 
-X-CRM114-Status: GOOD (  17.60  )
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.19
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,145 +82,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As of d64c732dfc9e ("net: rfkill: gpio: add DT support") rfkill-gpio
-device can be instantiated via device tree.
+From: Peng Fan <peng.fan@nxp.com>
 
-Add the declaration there and drop board-paz00.c file and relevant
-Makefile fragments.
+[ Upstream commit f6ef3d9ff81240e9bcc030f2da132eb0f8a761d7 ]
 
-Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+imx8m_soc_prepare() directly returns the result of clk_prepare_enable(),
+which skips proper cleanup if the clock enable fails. Check the return
+value of clk_prepare_enable() and release resources if failure.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Reported-by: Dan Carpenter <error27@gmail.com>
+Closes: https://lore.kernel.org/r/202601111406.ZVV3YaiU-lkp@intel.com/
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Signed-off-by: Shawn Guo <shawnguo@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-This is not tested on real hardware, compile tested only...
+LLM Generated explanations, may be completely bogus:
 
- arch/arm/boot/dts/nvidia/tegra20-paz00.dts |  8 ++++
- arch/arm/mach-tegra/Makefile               |  2 -
- arch/arm/mach-tegra/board-paz00.c          | 56 ----------------------
- arch/arm/mach-tegra/board.h                |  2 -
- arch/arm/mach-tegra/tegra.c                |  4 --
- 5 files changed, 8 insertions(+), 64 deletions(-)
+Interesting - in v6.15 and earlier, `clk_prepare_enable()` was called
+without checking its return value at all, but the code continued with
+proper cleanup on the success path. The v6.15 code has a different
+(arguably less severe) issue - it doesn't check `clk_prepare_enable()`
+return value but doesn't leak resources on normal exit.
 
-diff --git a/arch/arm/boot/dts/nvidia/tegra20-paz00.dts b/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
-index 1408e1e00759..d1093ad569e6 100644
---- a/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
-+++ b/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
-@@ -706,6 +706,14 @@ vdd_pnl_reg: regulator-3v0 {
- 		enable-active-high;
- 	};
+Now I have a complete picture. Let me write the analysis.
+
+---
+
+## Detailed Analysis
+
+### 1. Commit Message Analysis
+
+The commit title explicitly says "Fix error handling for
+clk_prepare_enable()". The message clearly describes the bug:
+`imx8m_soc_prepare()` directly returns the result of
+`clk_prepare_enable()`, bypassing the `err_clk` cleanup label when the
+clock enable fails. This is a resource leak bug.
+
+**Reporters:** Kernel test robot (lkp) and Dan Carpenter (well-known
+Smatch/static analysis developer). This means the bug was found via
+static analysis (Smatch), not a runtime crash report. The presence of
+"Closes:" link to a kernel test robot report confirms this.
+
+**Reviews:** Two Reviewed-by tags (Marco Felsch and Daniel Baluta),
+indicating the fix was validated by subsystem developers.
+
+### 2. Code Change Analysis
+
+The bug is in `imx8m_soc_prepare()`:
+
+```131:156:drivers/soc/imx/soc-imx8m.c
+static int imx8m_soc_prepare(struct platform_device *pdev, const char
+*ocotp_compatible)
+{
+        // ... setup code ...
+        drvdata->ocotp_base = of_iomap(np, 0);    // resource 1: iomap
+        // ...
+        drvdata->clk = of_clk_get_by_name(np, NULL);  // resource 2:
+clock ref
+        // ...
+        return clk_prepare_enable(drvdata->clk);   // BUG: if this
+fails, ocotp_base is leaked!
+
+err_clk:
+        iounmap(drvdata->ocotp_base);
+        return ret;
+}
+```
+
+**The bug mechanism:** When `clk_prepare_enable()` fails, the function
+returns directly with the error code, skipping the `err_clk` label which
+calls `iounmap(drvdata->ocotp_base)`. This leaks:
+1. The `ocotp_base` iomap mapping (definite leak)
+2. The clock reference from `of_clk_get_by_name()` (also leaked, since
+   `clk_put()` is not called - this is arguably still not fully fixed,
+   but the `err_clk` label was designed for the `of_clk_get_by_name`
+   failure case where `clk_put` should not be called)
+
+**The fix:** Check the return value, jump to `err_clk` on failure, which
+properly unmaps `ocotp_base`:
+
+```diff
+- return clk_prepare_enable(drvdata->clk);
++       ret = clk_prepare_enable(drvdata->clk);
++       if (ret)
++               goto err_clk;
++       return 0;
+```
+
+**Note:** There is a subtlety - when `clk_prepare_enable()` fails, the
+`err_clk` label only calls `iounmap()` but not `clk_put()`. The clock
+reference obtained from `of_clk_get_by_name()` is still leaked. However,
+this is a separate (pre-existing) concern. The fix as written is still
+an improvement: it's strictly better than the old code.
+
+### 3. Dependency/Prerequisite Analysis
+
+This is **critical** for the backport decision:
+
+- The function `imx8m_soc_prepare()` was introduced in commit
+  `390c01073f5d0` ("soc: imx8m: Cleanup with adding
+  imx8m_soc_[un]prepare"), which first appeared in **v6.16-rc1**.
+- This means the **buggy code does NOT exist** in v6.15 or any earlier
+  stable tree (v6.14, v6.13, v6.12, v6.6, v6.1, 5.15, etc.).
+- The bug was introduced in v6.16 and the fix only applies to
+  **v6.16.y** stable and newer (v6.17.y, v6.18.y if applicable).
+- I confirmed the buggy code exists identically in v6.16.12 (latest
+  v6.16 stable), so the fix would apply cleanly.
+
+### 4. Scope and Risk Assessment
+
+- **Size:** 5 lines changed (+5/-1) in a single file - extremely small
+  and surgical.
+- **Risk:** Essentially zero. The fix only changes the error path
+  behavior (adds proper cleanup). The success path (when
+  `clk_prepare_enable()` works) is unchanged (returns 0 instead of the
+  return value of `clk_prepare_enable()`, but those are equivalent on
+  success).
+- **Subsystem:** SoC driver for NXP i.MX8M family, a widely-used
+  embedded platform.
+
+### 5. User Impact
+
+- **Affected hardware:** All i.MX8M family SoCs (i.MX8MQ, i.MX8MM,
+  i.MX8MN, i.MX8MP) - very common in embedded/industrial/automotive use.
+- **Trigger likelihood:** Low in practice. `clk_prepare_enable()` for
+  the OCOTP clock is unlikely to fail on real hardware under normal
+  conditions.
+- **Severity if triggered:** Resource leak (iomap + clock reference).
+  Not a crash, not security-critical, not data corruption. On repeated
+  failures (e.g., in a test environment or if the clock framework has
+  issues), could contribute to resource exhaustion.
+- **Detection method:** Static analysis (Smatch/kernel test robot), not
+  a user report.
+
+### 6. Classification
+
+This is a **real bug fix** - it fixes a resource leak on an error path.
+It falls into the category of "error path changes that fix resource
+leaks," which is explicitly identified as backport-worthy material
+despite being described as a "cleanup."
+
+### 7. Stable Criteria Check
+
+| Criterion | Assessment |
+|---|---|
+| Obviously correct and tested | Yes - trivially correct, reviewed by 2
+developers |
+| Fixes a real bug | Yes - resource leak on error path |
+| Important issue | Moderate - resource leak, not crash/corruption |
+| Small and contained | Yes - 5 lines in 1 file |
+| No new features/APIs | Correct |
+| Applies cleanly | Yes - to v6.16.y |
+
+### Conclusion
+
+This is a small, obviously correct fix for a resource leak in the i.MX8M
+SoC driver's error handling path. The fix is surgical (5 lines), well-
+reviewed, and applies cleanly to v6.16.y stable (the only stable tree
+that has the affected code). While the bug is unlikely to trigger in
+practice (it requires `clk_prepare_enable()` to fail), the fix has
+essentially zero regression risk and properly handles an error path that
+should have been handled from the start. The fix was reported by kernel
+test robot and Dan Carpenter, two well-known automated and manual static
+analysis sources, and was reviewed by two subsystem developers.
+
+The fix is appropriate for v6.16.y stable backport. It does NOT apply to
+older stable trees (v6.15.y and below) because the affected function was
+introduced in v6.16.
+
+**YES**
+
+ drivers/soc/imx/soc-imx8m.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/soc/imx/soc-imx8m.c b/drivers/soc/imx/soc-imx8m.c
+index 04a1b60f2f2b5..8e2322999f099 100644
+--- a/drivers/soc/imx/soc-imx8m.c
++++ b/drivers/soc/imx/soc-imx8m.c
+@@ -148,7 +148,11 @@ static int imx8m_soc_prepare(struct platform_device *pdev, const char *ocotp_com
+ 		goto err_clk;
+ 	}
  
-+	rfkill {
-+		compatible = "rfkill-gpio";
-+		label = "wifi_rfkill";
-+		radio-type = "wlan";
-+		reset-gpios = <&gpio TEGRA_GPIO(D, 1) GPIO_ACTIVE_HIGH>;
-+		shutdown-gpios = <&gpio TEGRA_GPIO(K, 5) GPIO_ACTIVE_HIGH>;
-+	};
+-	return clk_prepare_enable(drvdata->clk);
++	ret = clk_prepare_enable(drvdata->clk);
++	if (ret)
++		goto err_clk;
 +
- 	sound {
- 		compatible = "nvidia,tegra-audio-alc5632-paz00",
- 			"nvidia,tegra-audio-alc5632";
-diff --git a/arch/arm/mach-tegra/Makefile b/arch/arm/mach-tegra/Makefile
-index a2bb55bc0081..9e3abb14fbc1 100644
---- a/arch/arm/mach-tegra/Makefile
-+++ b/arch/arm/mach-tegra/Makefile
-@@ -15,5 +15,3 @@ obj-$(CONFIG_HOTPLUG_CPU)               += hotplug.o
++	return 0;
  
- obj-$(CONFIG_ARCH_TEGRA_114_SOC)	+= pm-tegra30.o
- obj-$(CONFIG_ARCH_TEGRA_124_SOC)	+= pm-tegra30.o
--
--obj-$(CONFIG_ARCH_TEGRA_2x_SOC)		+= board-paz00.o
-diff --git a/arch/arm/mach-tegra/board-paz00.c b/arch/arm/mach-tegra/board-paz00.c
-deleted file mode 100644
-index 3ec810b6f1a7..000000000000
---- a/arch/arm/mach-tegra/board-paz00.c
-+++ /dev/null
-@@ -1,56 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * arch/arm/mach-tegra/board-paz00.c
-- *
-- * Copyright (C) 2011 Marc Dietrich <marvin24@gmx.de>
-- *
-- * Based on board-harmony.c
-- * Copyright (C) 2010 Google, Inc.
-- */
--
--#include <linux/err.h>
--#include <linux/gpio/machine.h>
--#include <linux/gpio/property.h>
--#include <linux/platform_device.h>
--#include <linux/printk.h>
--#include <linux/property.h>
--
--#include "board.h"
--
--static const struct software_node tegra_gpiochip_node = {
--	.name	= "tegra-gpio",
--};
--
--static const struct property_entry wifi_rfkill_prop[] __initconst = {
--	PROPERTY_ENTRY_STRING("name", "wifi_rfkill"),
--	PROPERTY_ENTRY_STRING("type", "wlan"),
--	PROPERTY_ENTRY_GPIO("reset-gpios",
--			    &tegra_gpiochip_node, 25, GPIO_ACTIVE_HIGH),
--	PROPERTY_ENTRY_GPIO("shutdown-gpios",
--			    &tegra_gpiochip_node, 85, GPIO_ACTIVE_HIGH),
--	{ }
--};
--
--static const struct platform_device_info wifi_rfkill_info __initconst = {
--	.name		= "rfkill_gpio",
--	.id		= PLATFORM_DEVID_NONE,
--	.properties	= wifi_rfkill_prop,
--};
--
--void __init tegra_paz00_wifikill_init(void)
--{
--	struct platform_device *pd;
--	int err;
--
--	err = software_node_register(&tegra_gpiochip_node);
--	if (err) {
--		pr_err("failed to register %s node: %d\n",
--		       tegra_gpiochip_node.name, err);
--		return;
--	}
--
--	pd = platform_device_register_full(&wifi_rfkill_info);
--	err = PTR_ERR_OR_ZERO(pd);
--	if (err)
--		pr_err("failed to register WiFi rfkill device: %d\n", err);
--}
-diff --git a/arch/arm/mach-tegra/board.h b/arch/arm/mach-tegra/board.h
-index 7b3ef0dc9be1..86c3ea0d6b30 100644
---- a/arch/arm/mach-tegra/board.h
-+++ b/arch/arm/mach-tegra/board.h
-@@ -19,6 +19,4 @@
- void __init tegra_map_common_io(void);
- void __init tegra_init_irq(void);
- 
--void __init tegra_paz00_wifikill_init(void);
--
- #endif
-diff --git a/arch/arm/mach-tegra/tegra.c b/arch/arm/mach-tegra/tegra.c
-index 9ef1dfa7b926..f324a7e491d8 100644
---- a/arch/arm/mach-tegra/tegra.c
-+++ b/arch/arm/mach-tegra/tegra.c
-@@ -83,10 +83,6 @@ static void __init tegra_dt_init(void)
- 
- static void __init tegra_dt_init_late(void)
- {
--	if (IS_ENABLED(CONFIG_ARCH_TEGRA_2x_SOC) &&
--	    of_machine_is_compatible("compal,paz00"))
--		tegra_paz00_wifikill_init();
--
- 	if (IS_ENABLED(CONFIG_ARCH_TEGRA_2x_SOC) &&
- 	    of_machine_is_compatible("nvidia,tegra20"))
- 		platform_device_register_simple("tegra20-cpufreq", -1, NULL, 0);
+ err_clk:
+ 	iounmap(drvdata->ocotp_base);
 -- 
-2.53.0.310.g728cabbaf7-goog
+2.51.0
 
-
--- 
-Dmitry
 
