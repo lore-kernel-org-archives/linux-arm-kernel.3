@@ -4,54 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11059EF584E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 18:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82D9EF584C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 18:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=04vk7Tkl67/hhgMqv+BcDZRWNDj7PkIykfjIdYJisGI=; b=wkE3gA5ZNQc1N4rfBFkEpTa8SM
-	64keguTrJK3E74PM8QoMzVHId12LqVkJRShZbIutp47A0XXYvUQUBI93UWqv2bm5XvWi+JOr8aXGS
-	JuF34RVOKMHIT1nhM/ArXYXS+X/pO8ofMj9uMQT09+h3sgmVuKngMOajtZrKc5gboQv1ht/p8kCnj
-	ofG7jeVSwtGyEWUzX1kf2XlDZPaxWYjFBGofITlJUjUIUPLMhxcqfJt+RkrCMpNwBuAXBWs/WKpl8
-	ESd+it5ooyAuf+JMApyuwtTLoH4gDpPCG4kX6e0pcdyJUvV2fwpRr4He9sxZKz08R0M4LH08T3hnk
-	pLI8k70Q==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rwsnzH8jOGlUyiBNnOHeUfIy3Fa0IVng/RKkWIkfN6c=; b=mbx90GMyYpX/ggNaKMRF76fHVw
+	zIHAVZx0v6cCR1zqC+fSWhMJVNRiCsDc+4NrtSgOq7a4iUax0O8E3cXrwjcP5kS/OqNDd6oXWH/fu
+	O8gOe+Czg1B7limhkJjy1zgvGiwGV9eGTpj8u/ji0jumgbQrxuJqNzVVCRcX19Lzwpw6h/UogSDrI
+	HtyLQG50JPRX9m+czPpCKhOtUIM0r6WkQc3DLBUNkQNGkrIQidZK4EQ3Cncj8QmheU8opTwM6LMAM
+	AwovCkDVWnOeQ0AqHlAB5c5CXkSDlbXmc+XnBv+dn1Mi+0ByEF45uVAUfrMlz6Kx2EaiWUXueKHQf
+	nKQuldMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrK60-00000004pBG-3RFA;
-	Sat, 14 Feb 2026 18:10:20 +0000
-Received: from mail-244123.protonmail.ch ([109.224.244.123])
+	id 1vrK6E-00000004pCV-0VFr;
+	Sat, 14 Feb 2026 18:10:34 +0000
+Received: from mail-106118.protonmail.ch ([79.135.106.118])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrK5y-00000004pAr-2aBD
+	id 1vrK68-00000004pBr-1JeB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 18:10:20 +0000
+	Sat, 14 Feb 2026 18:10:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1771092613; x=1771351813;
-	bh=04vk7Tkl67/hhgMqv+BcDZRWNDj7PkIykfjIdYJisGI=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=lzWNZnmzltXz6nKdjeyNDHOlSQzkdIsgEGnJuEuAIh+ldTYFsToo1a3JptAUkBRzK
-	 hVnnWL8OXZj55Idi+s7X6HaaUZ64MJDYSZl7/vP9T+KnnoUStrkI0couBie+1kl0+J
-	 HoX5nVotwuTsv+X1bHagi6PvugvvER0ewJWICrK1vfg/acODaJyjiwQ9H0kk2N3WBr
-	 doGNWDaC2wirfvlYWgMnh3FLeP9dflQrMW6u3T/3tNJXikg+Sqv66J/JBmH3CI5L5t
-	 sc09AcozxpqhCC/QgjCiPnawGU6cXvwfKfiFbrBalo/ZHPl+0cBh9JHBbt94zRUq7T
-	 I1TghprY9gVLw==
-Date: Sat, 14 Feb 2026 18:10:09 +0000
+	s=protonmail3; t=1771092624; x=1771351824;
+	bh=rwsnzH8jOGlUyiBNnOHeUfIy3Fa0IVng/RKkWIkfN6c=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=Tj6+zAEZlGr5eJXYuhw8QYFrTTTtk+TizrUM0X1sSioH79T+zvkIYr39lm73vLh8p
+	 F8IiLRU1SFgqXIzJzQf0G3diKLzB226f72p2POG66gqQ5i+XwubFZNHGnSCYT7eV+M
+	 Ltx+FFg/7P0wFD3zsvoXVO1yMIeR0yMEYofoqtPohespQDc4FxiB3FbQYLOLcIRWam
+	 6MaLgqO3ROhIVSCYkKJbvkpMb5Wmjpt6clNfAfXIAL1r4dmJl2k7ING/SgJig2PAnW
+	 8zXbv0V0cTP+0LEVilcY9NFW3jhCPNE31nrRyOmHsrzmVQqGT9oA78kqoTLPAK+91n
+	 lUVR/ugjDWbpw==
+Date: Sat, 14 Feb 2026 18:10:16 +0000
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>
 From: Harry Austen <hpausten@protonmail.com>
 Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Harry Austen <hpausten@protonmail.com>
-Subject: [PATCH v4 0/2] clk: clocking-wizard: add user clock monitor support
-Message-ID: <20260214180933.42143-1-hpausten@protonmail.com>
+Subject: [PATCH v4 1/2] dt-bindings: clock: xilinx: add description of user monitor interrupt
+Message-ID: <20260214180933.42143-2-hpausten@protonmail.com>
+In-Reply-To: <20260214180933.42143-1-hpausten@protonmail.com>
+References: <20260214180933.42143-1-hpausten@protonmail.com>
 Feedback-ID: 53116287:user:proton
-X-Pm-Message-ID: 33811916af14432e3496307dc748448316a346c8
+X-Pm-Message-ID: 7e6743f472392713e83bb028a7961a7e4545dc21
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_101018_811918_C247B071 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260214_101029_659267_BB607ECB 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,52 +70,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the clock monitor functionality added in version 6.0 of the
-Xilinx clocking wizard IP core, through use of devcoredump.
+This Xilinx clocking wizard IP core outputs this interrupt signal to
+indicate when one of the four optional user clock inputs is either
+stopped, overruns, underruns or glitches.
 
-This is a follow up from a patchset I submitted quite a while ago [1],
-where I was attempting to utilise the UIO subsystem instead. Stephen Boyd
-suggested use of devcoredump instead [2] and I have finally got round to
-giving this a go.
+This functionality was only added from version 6.0 onwards, so restrict
+it to particular compatible strings.
 
-This is currently untested on hardware, so any help testing this would be
-much appreciated!
-
-v3 -> v4:
-- Patches 1-4,8-9 dropped, as they were submitted/accepted separately [3]
-- Patch 7 removed, as no longer creating a new UIO driver
-- DT binding patch mostly unchanged. Slight rework and rebase, so removed
-  Krzysztof's R-b tag just in case
-- Clock monitor support patch now reworked to make use of devcoredump
-- Rebased on top of clk-next
-v2 -> v3:
-- Move kernel doc variable comment to bottom in clk_hw transition patch (2)
-- Remove extra line (and add Krzysztof's R-b tag) in binding patch (5)
-- Add Krzysztof's A-b tag to dynamic reconfig binding patch (8)
-v1 -> v2:
-- Split and improve clk_hw+devres transition patch (2+3)
-- Fix/improve DT binding patches (5+8)
-- Utilise auxiliary bus in monitor support patch (6)
-- Add dedicated UIO driver for monitor support (7)
-
-[1]: https://lore.kernel.org/linux-clk/20240826123602.1872-1-hpausten@proto=
-nmail.com/
-[2]: https://lore.kernel.org/linux-clk/1bd17a02bab46391872e4934895b83e8.sbo=
-yd@kernel.org/
-[3]: https://lore.kernel.org/linux-clk/20240913191037.2690-1-hpausten@proto=
-nmail.com/
-
-Harry Austen (2):
-  dt-bindings: clock: xilinx: add description of user monitor interrupt
-  clk: clocking-wizard: add user clock monitor support
-
- .../bindings/clock/xlnx,clocking-wizard.yaml  | 24 ++++++-
- drivers/clk/xilinx/Kconfig                    |  1 +
- drivers/clk/xilinx/clk-xlnx-clock-wizard.c    | 69 +++++++++++++++++--
- 3 files changed, 89 insertions(+), 5 deletions(-)
+Signed-off-by: Harry Austen <hpausten@protonmail.com>
 ---
-base-commit: ea7282e99ead6d2a294cef40acd2a29ada3ab71d
+v3 -> v4: Slight rework and rebase, removing Krzysztof's R-b tag
+v2 -> v3: Add Krzysztof's R-b tag
+v1 -> v2: Fix binding errors by moving interrupts up front, restrict later
 
+ .../bindings/clock/xlnx,clocking-wizard.yaml  | 24 ++++++++++++++++++-
+ 1 file changed, 23 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.y=
+aml b/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
+index b497c28e8094f..7688601f1f31b 100644
+--- a/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
++++ b/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
+@@ -38,6 +38,14 @@ properties:
+       - const: clk_in1
+       - const: s_axi_aclk
+=20
++  interrupts:
++    items:
++      - description: user clock monitor interrupt
++
++  interrupt-names:
++    items:
++      - const: monitor
++
+   xlnx,static-config:
+     $ref: /schemas/types.yaml#/definitions/flag
+     description:
+@@ -66,12 +74,24 @@ required:
+   - xlnx,speed-grade
+   - xlnx,nr-outputs
+=20
++if:
++  properties:
++    compatible:
++      enum:
++        - xlnx,clocking-wizard
++        - xlnx,clocking-wizard-v5.2
++then:
++  properties:
++    interrupts: false
++    interrupt-names: false
++
+ additionalProperties: false
+=20
+ examples:
+   - |
++    #include <dt-bindings/interrupt-controller/irq.h>
+     clock-controller@b0000000  {
+-        compatible =3D "xlnx,clocking-wizard";
++        compatible =3D "xlnx,clocking-wizard-v6.0";
+         reg =3D <0xb0000000 0x10000>;
+         #clock-cells =3D <1>;
+         xlnx,static-config;
+@@ -79,5 +99,7 @@ examples:
+         xlnx,nr-outputs =3D <6>;
+         clock-names =3D "clk_in1", "s_axi_aclk";
+         clocks =3D <&clkc 15>, <&clkc 15>;
++        interrupts-extended =3D <&intc 52 IRQ_TYPE_EDGE_RISING>;
++        interrupt-names =3D "monitor";
+     };
+ ...
 --=20
 2.53.0
 
