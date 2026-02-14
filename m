@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 880F6EF99EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 00:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8D5EF99EB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 00:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i9hNIPwLkx2tDIfMeilED+wk1wv71kb/R9vpOwr76Iw=; b=c95N1Oyri5Ryf+dc22uYQZYv6g
-	Lud8n+yJm7UgwGHk29BxWtqTUiJZrJF0bRLrV6dgrTj2199PmqCVBqvkFuNuWL3ML3Yv1euJYCwPJ
-	EnFqk4b2w+eQbA23r/HEP4dSWHOlUURxfqfTf1dg6jkIGcpv95fHASFioKnb/E4pStloIlH8XsBGo
-	/wiHXn8zV4Jt7Hvzg/DvcQ82DDora2wFNDQcQf0Em4ym2//3CpBoUSbMDsShaOc4FLq0dlIjSnU1M
-	y26t+xEjXc1xe3yuoaIts3SnPal8d4Q8IqWOSkniG3PneqObMnDhslFBb0ngNsjoilCVMjgk6GIEg
-	Ep/WAD3w==;
+	bh=IFGTMFqLQz2ZDTJpceUfrLUinwLvWCp920mBBUAx1Bk=; b=IGIHxf/ubHsj8Vn6KdrrM3dEEI
+	/70Xqt4CL5fsnGZwyTMCx76mkHDJ+nk4B5gER+XvrzfdMB9xwAWBi7mpZJIRZOye7Gua+MH2X4R62
+	pOded3E9QT9Pgbv7w5tpeNkyoqOvwh8rY6M9VIj9xSmgu+BbeZWgtb3InjiEhDWXMmKWLU2ffbNEi
+	jjpKztVJeSuqmuN71giy1GFAsAI+tN/qA8Y/WxCkPIcy9cm9+mllwcWZ+mLU8k2jw3Sr+eaJra67J
+	jq5k/8+j2A3XBVJ8mZAz4DM2C6Ag+51YtA0ezdlUcrErkTsvPQpCSZr6NkxyD97uFzt7ZqaduzGqU
+	QEccJhPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr3zc-000000045WX-1LmX;
-	Sat, 14 Feb 2026 00:58:40 +0000
+	id 1vr3zj-000000045Ye-2cbB;
+	Sat, 14 Feb 2026 00:58:47 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr3za-000000045W4-3Vjr
+	id 1vr3zh-000000045Xx-0tfx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 00:58:40 +0000
+	Sat, 14 Feb 2026 00:58:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B41EA42CEC;
-	Sat, 14 Feb 2026 00:58:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D757FC2BC9E;
-	Sat, 14 Feb 2026 00:58:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DF2D74048E;
+	Sat, 14 Feb 2026 00:58:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3AEFC116C6;
+	Sat, 14 Feb 2026 00:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771030717;
-	bh=oJk5DkIzIOcPUBLFNrFEmh7/x9GuEfuX178fRIzZMwE=;
+	s=k20201202; t=1771030724;
+	bh=rM84Vu3aZRI3MGaYNq8NQGpcoNuGw7GEZzVwqJyg4RA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QbgsOnKvNGoeM8gsCJjbgpA4VJ5Ol+CkxSQwNWDpAbt/dFdDCP+Hc/uoaZ40xwF5o
-	 fCI8oRpgAIgNNgru8t2L8+E8a33SHfW10kwyoaXEG1BA9vkMH6MHSuQyMlR8+HARD8
-	 cuo7e4H7k0BX1Dy9w1dwiaScg99M2sJX7eRu9NBYxhuD18xOvZIyK5ZGywQ2u6RuhP
-	 PUTzdrtDFs7hktatKeOWqMylKPl9653rkRdahPt0ykv4n2bhPagIL1l7c0IbYkD9Xq
-	 r+wfLQmeIrr+ZLNhzWOgLJzEp0gsWwRXpP21GvHF820ANvNoSBa1j0qSzthGJjXvV6
-	 JKPvPciL9qnhg==
+	b=eG/vwvGVlFFBdy6Rq6n19EKRLEKbzUYYghKKS0dtLnS9SKjGas2B0t6pp6X/dXGo2
+	 JDGkiBPzCK2u2G9UijJSxg/Xef9WO55W1btJAW2tvRbH8kh3Z23MMs8r+z6/wUZasg
+	 5Qv/24TEbWK/v8J0iS49ICBa+ysuZk3ywGbf8filTTxigU3kS5kS9+3+SSZtp3T4Nt
+	 KwGEPVUdEdK55QKVaRAKuzvKNo6f4TJ6t+vV92af1e6NdJIa26OSo7jwZMVBb7IR6s
+	 2MnhHpPgKM2jzTgggpF6a5my9oesgs0Cl67DDFElVfJd2RZY2DQ2t8X0TOd6VjZbpd
+	 Z3TsArguC/FZA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>,
-	Sudeep Holla <sudeep.holla@arm.com>,
+Cc: Tomas Melin <tomas.melin@vaisala.com>,
+	Michal Simek <michal.simek@amd.com>,
 	Sasha Levin <sashal@kernel.org>,
-	sudeep.holla@kernel.org,
+	neil.armstrong@linaro.org,
+	neal.frager@amd.com,
+	conor.dooley@microchip.com,
+	yelangyan@huaqin.corp-partner.google.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.19-6.12] firmware: arm_ffa: Unmap Rx/Tx buffers on init failure
-Date: Fri, 13 Feb 2026 19:58:11 -0500
-Message-ID: <20260214005825.3665084-5-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.19-6.12] Revert "arm64: zynqmp: Add an OP-TEE node to the device tree"
+Date: Fri, 13 Feb 2026 19:58:15 -0500
+Message-ID: <20260214005825.3665084-9-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260214005825.3665084-1-sashal@kernel.org>
 References: <20260214005825.3665084-1-sashal@kernel.org>
@@ -63,8 +66,8 @@ X-stable-base: Linux 6.19
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_165838_923943_88C581AF 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20260213_165845_298682_DF56A17B 
+X-CRM114-Status: GOOD (  22.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,159 +82,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+From: Tomas Melin <tomas.melin@vaisala.com>
 
-[ Upstream commit 9fda364cb78c8b9e1abe4029f877300c94655742 ]
+[ Upstream commit c197179990124f991fca220d97fac56779a02c6d ]
 
-ffa_init() maps the Rx/Tx buffers via ffa_rxtx_map() but on the
-partition setup failure path it never unmaps them.
+This reverts commit 06d22ed6b6635b17551f386b50bb5aaff9b75fbe.
 
-Add the missing ffa_rxtx_unmap() call in the error path so that
-the Rx/Tx buffers are properly released before freeing the backing
-pages.
+OP-TEE logic in U-Boot automatically injects a reserved-memory
+node along with optee firmware node to kernel device tree.
+The injection logic is dependent on that there is no manually
+defined optee node. Having the node in zynqmp.dtsi effectively
+breaks OP-TEE's insertion of the reserved-memory node, causing
+memory access violations during runtime.
 
-Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
-Message-Id: <20251210031656.56194-1-lihaoxiang@isrc.iscas.ac.cn>
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+Signed-off-by: Tomas Melin <tomas.melin@vaisala.com>
+Signed-off-by: Michal Simek <michal.simek@amd.com>
+Link: https://lore.kernel.org/r/20251125-revert-zynqmp-optee-v1-1-d2ce4c0fcaf6@vaisala.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Analysis
+Now I have a comprehensive understanding. Let me compile the full
+analysis.
 
-### 1. Commit Message Analysis
+---
 
-The commit message clearly describes a **resource leak on an error
-path**: `ffa_init()` maps Rx/Tx buffers via `ffa_rxtx_map()`, but when
-`ffa_setup_partitions()` fails, the error path frees the backing pages
-without first unmapping the buffers from the firmware. The fix adds the
-missing `ffa_rxtx_unmap()` call. The commit was accepted by the FF-A
-subsystem maintainer Sudeep Holla.
+## Detailed Analysis
 
-### 2. Code Change Analysis
+### 1. COMMIT MESSAGE ANALYSIS
 
-The fix is a **single line addition**:
+This is a **revert** commit. It reverts
+`06d22ed6b6635b17551f386b50bb5aaff9b75fbe` ("arm64: zynqmp: Add an OP-
+TEE node to the device tree"), which was merged for v6.9-rc1 (January
+2024).
 
-```2071:2071:drivers/firmware/arm_ffa/driver.c
-        ffa_rxtx_unmap(drv_info->vm_id);
+The revert message explains a concrete, real-world problem:
+- U-Boot's OP-TEE logic automatically injects a `reserved-memory` node
+  and `optee` firmware node into the kernel device tree at boot time
+- This U-Boot injection logic checks for the **absence** of a manually-
+  defined optee node — if one already exists, it skips injection
+  entirely
+- The original commit added a static optee node to `zynqmp.dtsi`, which
+  prevents U-Boot from injecting the `reserved-memory` node
+- Without the reserved-memory node, **memory access violations occur
+  during runtime**
+
+This is not speculative — the commit describes actual runtime memory
+access violations.
+
+### 2. CODE CHANGE ANALYSIS
+
+The change is extremely small and surgical — it removes exactly 5 lines
+(4 lines of DT node content + 1 blank line):
+
+```195:198:arch/arm64/boot/dts/xilinx/zynqmp.dtsi
+                optee: optee  {
+                        compatible = "linaro,optee-tz";
+                        method = "smc";
+                };
 ```
 
-inserted between `ffa_notifications_cleanup()` and the `free_pages:`
-label.
+This removes a statically-defined OP-TEE node from the ZynqMP base
+device tree include file (`zynqmp.dtsi`). The `optee` label is not
+referenced by any other DTS file in the xilinx directory tree, so there
+are no broken cross-references.
 
-**Understanding the bug mechanism:**
+### 3. BUG MECHANISM
 
-The `ffa_init()` function follows this flow:
-1. Allocates Rx/Tx buffer pages (lines 2038-2048)
-2. Maps them to firmware via `ffa_rxtx_map()` (line 2050) — this is an
-   FF-A SMC/HVC call to the secure firmware (e.g., TrustZone / Hafnium
-   hypervisor)
-3. Sets up partitions via `ffa_setup_partitions()` (line 2065)
-4. If partition setup fails, falls through to `free_pages:` which frees
-   the backing pages
+The bug mechanism is an interaction between the Linux kernel device tree
+and U-Boot bootloader:
 
-The problem: Step 4 **never calls `ffa_rxtx_unmap()`**, so the firmware
-retains stale references to the freed physical pages. The `ffa_exit()`
-function (line 2081-2089) correctly calls `ffa_rxtx_unmap()` before
-freeing pages, confirming the error path was simply missing this
-cleanup.
+1. **U-Boot's OP-TEE initialization**: U-Boot contains logic that
+   detects if OP-TEE is running and, if so, dynamically modifies the FDT
+   (Flattened Device Tree) before passing it to Linux. It adds:
+   - A `reserved-memory` node describing memory regions reserved for OP-
+     TEE
+   - The `optee` firmware node pointing to the TEE
 
-**Consequences of the bug:**
-- The firmware (running in secure world or EL2 hypervisor) still holds
-  mappings to physical addresses of freed kernel pages
-- Those freed pages can be reallocated for other kernel purposes
-- The firmware could write to these stale mappings, causing **memory
-  corruption** of unrelated kernel data
-- On systems with a stage-2 hypervisor, the mapping entries are also
-  leaked
+2. **Conditional injection**: U-Boot's injection is conditioned on there
+   being **no existing optee node** in the DT. If one is found, U-Boot
+   assumes the DT is already properly configured and skips injection.
 
-### 3. Bug Origin
+3. **The problem**: The static optee node in `zynqmp.dtsi` has
+   `compatible = "linaro,optee-tz"` and `method = "smc"`, but it does
+   NOT include the critical `reserved-memory` region. When U-Boot sees
+   this node, it skips its injection. The kernel then boots with:
+   - An optee node (so the OP-TEE driver probes and starts communicating
+     with the secure world)
+   - **No reserved-memory** for OP-TEE (so the kernel may allocate and
+     use memory that OP-TEE also uses)
 
-The bug was introduced by commit
-`0c565d16b80074e57e3e56240d13fc6cd6ed0334` ("firmware: arm_ffa: Handle
-partitions setup failures"), which first made `ffa_setup_partitions()`
-return an error and added an error path in `ffa_init()`. Before this
-commit, `ffa_setup_partitions()` was void and never triggered error
-cleanup. This commit landed in **v6.8**. The error path was later
-restructured by `be61da9385766` (v6.15), but the missing unmap persisted
-through both versions.
+4. **Result**: Memory access violations at runtime. The kernel and OP-
+   TEE stomp on each other's memory. This is a data corruption and crash
+   bug.
 
-### 4. Classification
+### 4. CLASSIFICATION
 
-This is a **resource leak / firmware-side stale mapping fix** on an
-error path. It is NOT a new feature, API change, or refactoring — it is
-purely adding missing cleanup.
+This is a **device tree fix** that addresses a **runtime memory
+corruption/access violation** bug. It falls squarely in the "DT updates
+for existing hardware" exception category. The severity is high:
+- Memory access violations = potential crashes, data corruption,
+  security boundary violations (TEE compromise)
+- Affects all ZynqMP boards running OP-TEE with U-Boot
 
-### 5. Scope and Risk Assessment
+### 5. ORIGINAL COMMIT ANALYSIS
 
-- **Lines changed**: 1 line added
-- **Files changed**: 1 file (`drivers/firmware/arm_ffa/driver.c`)
-- **Risk**: Extremely low. The `ffa_rxtx_unmap()` function is already
-  used in `ffa_exit()` for normal cleanup. Adding it to the error path
-  is the obvious correct fix. The function itself just issues an FF-A
-  call to the firmware.
-- **Regression potential**: Near zero. This only affects the failure
-  path of `ffa_setup_partitions()`, and calling unmap before freeing is
-  strictly correct.
+The original commit (06d22ed6b6635) claimed "having the DT node present
+doesn't cause any side effects." This turned out to be **wrong** — it
+has a significant side effect with U-Boot's standard OP-TEE injection
+flow. The original commit was a feature addition ("add it in case
+someone tries to load OP-TEE") that turned out to cause a real bug.
 
-### 6. User Impact
+### 6. SCOPE AND RISK ASSESSMENT
 
-This affects ARM platforms using FF-A (Firmware Framework for Arm) —
-notably ARM TrustZone/OP-TEE systems, Arm CCA systems, and virtualized
-ARM environments with Hafnium. While `ffa_setup_partitions()` failure is
-not the most common path, when it does occur, the consequences (firmware
-holding stale page references, potential memory corruption) are severe.
+- **Lines changed**: 5 lines removed (1 file)
+- **Risk**: Extremely low — removing a DT node that shouldn't have been
+  there
+- **Side effects**: None negative. If someone was using the static optee
+  node WITHOUT U-Boot injection, they would need to add it back in their
+  board-specific DT overlay. However, the standard OP-TEE workflow on
+  ZynqMP uses U-Boot injection, and the original commit was explicitly
+  designed as a convenience, not a necessity.
+- **Regression potential**: Near zero — the only "regression" is
+  returning to the pre-6.9 behavior, which worked correctly
 
-### 7. Stable Kernel Criteria Check
+### 7. AFFECTED STABLE TREES
 
-| Criterion | Met? |
-|---|---|
-| Obviously correct and tested | Yes — mirrors `ffa_exit()` cleanup
-exactly |
-| Fixes a real bug | Yes — resource leak + potential memory corruption |
-| Important issue | Yes — firmware-side stale mapping to freed kernel
-pages |
-| Small and contained | Yes — 1 line in 1 file |
-| No new features | Yes — purely error-path cleanup |
-| Applies cleanly | Yes — for v6.8+ trees (may need minor adjustment for
-v6.8-v6.14 which used `cleanup_notifs:` label) |
+The original commit (06d22ed6b6635) is present in:
+- v6.9 through v6.19 (all current stable trees from 6.9 onward)
+- Critically, it's in **6.12.y** (current LTS tree)
 
-### 8. Dependency Check
+The fix is relevant to 6.12.y, 6.13.y, and any other maintained stable
+tree based on 6.9+.
 
-The fix depends on `0c565d16b80074e57e3e56240d13fc6cd6ed0334` (v6.8) for
-the error path to exist, and on `be61da9385766` (v6.15) for the exact
-code structure in the diff. For stable trees between v6.8 and v6.14, a
-trivially adjusted backport would be needed (placing the unmap call
-inside the `cleanup_notifs:` section instead of inline). The fix is
-self-contained and has no other dependencies.
+### 8. DEPENDENCY CHECK
 
-### Conclusion
+The revert has **zero dependencies**. It simply removes 5 lines from a
+DTS file. No other code or DT changes are needed. The `optee` label is
+not referenced by any other file. The revert will apply cleanly to any
+stable tree that has the original commit.
 
-This is a textbook error-path resource leak fix: a single line adding
-missing firmware unmap before freeing the backing pages. The bug leaves
-the firmware holding stale references to freed kernel memory, which
-could lead to memory corruption. The fix is minimal, obviously correct
-(mirrors `ffa_exit()`), and accepted by the subsystem maintainer. It
-meets all stable kernel criteria.
+### 9. USER IMPACT
+
+- **Who is affected**: All ZynqMP users running OP-TEE with standard
+  U-Boot boot flow
+- **Severity**: HIGH — runtime memory access violations can cause:
+  - Kernel crashes/panics
+  - OP-TEE secure world corruption
+  - Silent data corruption
+  - Potential security boundary violation (TEE memory exposed to normal
+    world)
+- **Platform**: Xilinx ZynqMP (common in embedded, industrial,
+  automotive applications)
+
+### 10. TRUST INDICATORS
+
+- Submitted by Tomas Melin (Vaisala), indicating real-world usage and
+  testing
+- Accepted by Michal Simek (AMD/Xilinx SoC maintainer), indicating
+  subsystem maintainer approval
+- The commit message clearly explains the mechanism and consequences
+- Clean revert of a well-identified problematic commit
+
+### CONCLUSION
+
+This is a textbook stable backport candidate:
+1. **Fixes a real bug**: Runtime memory access violations on ZynqMP with
+   OP-TEE
+2. **Obviously correct**: Clean revert of a commit that introduced the
+   problem
+3. **Small and contained**: 5-line removal from a single DTS file
+4. **No new features**: Removes a broken feature addition
+5. **Zero risk**: Returns to the pre-6.9 behavior that worked correctly
+6. **No dependencies**: Self-contained change
+7. **Real-world impact**: Affects ZynqMP users with OP-TEE
+   (embedded/industrial platforms)
+8. **Applies to active stable trees**: The buggy commit is in 6.12.y LTS
+   and other maintained stables
+
+The fix is small, surgical, and meets all stable kernel criteria.
 
 **YES**
 
- drivers/firmware/arm_ffa/driver.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/xilinx/zynqmp.dtsi | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index c72ee47565856..7209a630f6d16 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -2068,6 +2068,7 @@ static int __init ffa_init(void)
+diff --git a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
+index 938b014ca9231..b55c6b2e8e0e1 100644
+--- a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
++++ b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
+@@ -192,11 +192,6 @@ psci {
+ 	};
  
- 	pr_err("failed to setup partitions\n");
- 	ffa_notifications_cleanup();
-+	ffa_rxtx_unmap(drv_info->vm_id);
- free_pages:
- 	if (drv_info->tx_buffer)
- 		free_pages_exact(drv_info->tx_buffer, rxtx_bufsz);
+ 	firmware {
+-		optee: optee  {
+-			compatible = "linaro,optee-tz";
+-			method = "smc";
+-		};
+-
+ 		zynqmp_firmware: zynqmp-firmware {
+ 			compatible = "xlnx,zynqmp-firmware";
+ 			#power-domain-cells = <1>;
 -- 
 2.51.0
 
