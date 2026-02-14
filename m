@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72789EF5848
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 18:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE6E7EF5848
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 18:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Y1oNWapjfNVh50FsYoZ5SBQ/1IdNgNulUCh0e82XQ4=; b=JnbAEZVvf24rUjrd2sjg8mT2zN
-	sr2Bi9rKzoa33wYaJJeklafimZMzy51EJq3HtfRnAEClCxnfPN24Tvqn6fKCwOpcDa7E5woVjQzMM
-	3LOA58hb3pLh7CnwijauGkNa5NAq9dC0oXRp4Ufh8ZnOjbszXf1DR6Pt7zgo2VPQ5uRUqkBCnaJdK
-	JSMKbFlPtHb6Lh15I5R87emeb/8qsUzzbI2qHIM5GuLBx0Cn6cP7xbocReC5yb4y5mPqP+JUlvo0z
-	kN6g/FdeMYQdajkWR/000ZJblsQgwv+zjCicObkbVWbTLk9u49EJKmft7bl1iEGUN23WnGA1Qa9U3
-	KylW3Cdg==;
+	bh=vQs0hMS3ix8i+/wRWb9Dj6VqM++U0M+jFLpORX82XoQ=; b=1s+9uURasDiGzYxtO4FJs8JBlM
+	zWeIK6JLwkzFHaLcmwgHsa3wDtOal4xqRapm/jzleq4RYpNPjr8OvMdlUrQtrfX4GGM7/8N9suy0x
+	Pg9iArruEIHgZg9n2d2H4oPOC41jjMUlBJ9Z2iEDaZ7r2/1GrugsJqyK+nLKpb87na9Gywp2CBBBA
+	cW8vDfG+su4BvPMh44WIWlevQG1MPLv12IdyOqcBKsMvMlTsSJxC+RWTTDUB4uOLLzWizPMBdbhLY
+	fFzpVGP1XBLxRKRZXJFi5bmXrhWe632mpx7ki2l9hiurIEmUVhfuFZrNLOTOMMQ2bndkBbF3rSXxa
+	RPbqlu6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrKFp-00000004qEi-0nOo;
-	Sat, 14 Feb 2026 18:20:29 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1vrKFy-00000004qL7-2Ei6;
+	Sat, 14 Feb 2026 18:20:38 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrKFn-00000004qDF-0EiF
+	id 1vrKFt-00000004qHq-2Kcy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 18:20:28 +0000
-Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-2aadc18f230so13505835ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Feb 2026 10:20:26 -0800 (PST)
+	Sat, 14 Feb 2026 18:20:37 +0000
+Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-2aaf9191da3so12891595ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Feb 2026 10:20:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771093226; x=1771698026; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1771093233; x=1771698033; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4Y1oNWapjfNVh50FsYoZ5SBQ/1IdNgNulUCh0e82XQ4=;
-        b=bGnlBE1o+PPv/4BNgmMLJ10a9AUcWXTw5BHqzUj0IWfimYNy+xYLzCR6xQm/OubeQa
-         o0rXaaaiCrVUiYrHZ2lvBMe89VY41SOyrW6wo2lg49qMvjFAiAP8EAAad/zJ4uV2+9L8
-         aCwy/LLvb7tGOB+saV/6UAKXbSBuhoKJ4yMJgNbKu1sVsg4Ouf0n/IumN/ud7+eVtVDC
-         50yflbSs+1w1jJUeQ8pV86bbfQOBZhYp/ZN7FbulyLoDU+XfEOr+EtPFXrVR/KZcxnFT
-         l9EGkccnpUqphZOjEqKKGSufCgDkQSDzx11p9tP4ZUbrMFmrPXe4XW6F7SIdH3b3h1N+
-         srkA==
+        bh=vQs0hMS3ix8i+/wRWb9Dj6VqM++U0M+jFLpORX82XoQ=;
+        b=Ey/7hBGz3qshSLroPhmAhfXXhUUcGegFAjcXIsQCDznAHk3RozoFrLZFKiht/pMfaz
+         SmerHXVo/GwcUMxxoDmV1gqbGeAKSqOLb/LaMkCSGuc9vniwq+zO8/cjTXS3IBtg5HbC
+         sTtzBJRbhU2SS4Uduhc8ZLIYX1wjsfSDkrqMM6DpE9Hcm1bFB2K6tWrDqT0s71x6JpV0
+         0nF5kgE4yuA31+hmbnvZErOCQwGtBTWKKKTBbWAFiEEE+jzNUNksN6N7GGv65SAcibuF
+         G0upct1QGRVx4edw0pVRQLLVnTDA9jTi4Rg6qcRGzj6u+tV8rp+ASwYJCOEL7M+yXj2E
+         mykg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771093226; x=1771698026;
+        d=1e100.net; s=20230601; t=1771093233; x=1771698033;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=4Y1oNWapjfNVh50FsYoZ5SBQ/1IdNgNulUCh0e82XQ4=;
-        b=SbEdPWJFtObmr9N0d3x7UrGf3lUZN6a11ncihAfTbVfS/cPoeNMIK+scr5BfKeKIIB
-         wzUiusFIlytKSMNxHwgtInS/5s95ghuUTQxJTsE+jIFrZOuFPaq/hmKbemTKOjpUeusX
-         XF2nNSCbrk6xkG0A3sHOLwf0wQVU46UVR6JWbBz82ACIrIKSwugWzC2Wi/HX7289c05R
-         gpAljIkQBrIpXfVzhPMu1ppj6bU0caMwVwCCNIgM0DWi0Flx2t8HHulFAXYT87/+gWEP
-         S5Q1n9DxuTvhd57l0zen0AZY/dK0Zsm83Pl/7Rj8BIkD+ke/f5y0bQyX2J9gH+D4yKS4
-         4SKg==
-X-Forwarded-Encrypted: i=1; AJvYcCVLv2Qf/LcFlgi4GdG42ATHi2tr3Asq7MwRa8kkoJRlz7bPyFE8IvmGbkwq3HuVEMp8bKcSLgn6pXJaNLaxrJ17@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUwRlAUErbzzBdal6XCyFBv0sp8uz5rLqh3hwDlxeC558tYip+
-	1zHl89DPXP2Iqt7NJfOpkbWDkoRV6MDFsuHkqPqOAkcN9P0COUsK+2ZD
-X-Gm-Gg: AZuq6aIw4SKDhaPUIcdVwtN3qr4UnKL8g6c9C7gjErP17BMCGD+7jiWaqC+0I7GhdMx
-	1ocpDnSpbPoJGc1ST5X3wUFxrKYFVb/40uwkjxq7d0tlboFtW9ORytXoHcLOWxcVtxFNLQIGv2B
-	tmUdkIv7PBDRnIZqYRPhRKmxBFpDwBD5ah00f9FU2L0R5lJ5/fIR4M4hrMbDCoSU+/MtGZsNEBq
-	TTSC+1BUX65PyS6q5SoiL5kWs7XtDh3oUFyfUVXCplrZ2VZprPYj9uDZasxOQC006zpoZqSS01J
-	Cs5arIIivbvPbbhzOD5L3bXTbqgEtU9enYUR88qmYcYcf4eUVYfpi/yij5pgRAoR2dZTyMtquLv
-	4PomcIL9E06cXNKesuC4liocEo3Bh4Hb+/enD99auoSryubEidBk9R0zLkT9lFsUke3fU5ycqk0
-	aKPEMohJAC15K0ooVCyq4=
-X-Received: by 2002:a17:903:1107:b0:2aa:e0c4:c076 with SMTP id d9443c01a7336-2ad17596f38mr36024625ad.54.1771093226306;
-        Sat, 14 Feb 2026 10:20:26 -0800 (PST)
+        bh=vQs0hMS3ix8i+/wRWb9Dj6VqM++U0M+jFLpORX82XoQ=;
+        b=XwH75R4SB0bJUPyDmaerukDY845xnaihKlCehjQDnilbPFv1o/QPb0ogFdX42jtTk2
+         nL6Hh4Jht0KfOoLhW+2NrrxaNKHpHVtRXYfiUgux58Iq0rH0kjM9sJl3WWOue6NSiPOy
+         zeTDwd5/SfNu8sDMIfaR7hrAyBZ5tq383NWBsOtm/Csz44BdrVQX9hASWNskVuYu+Smy
+         8rkppMArKp43JiJ1nwj6ZY+EZ6T/7pILSBlhghaunmE7OlJVVDMOg0px6EMlnQVHJCD8
+         GO+JHGwS/hvagHYGnI5IsZyxCICyKiweO+Sj5p5bd3XukScR7D10Xxva+WtzGmBK4zrS
+         bOWw==
+X-Forwarded-Encrypted: i=1; AJvYcCUIHZBDRq0xjrsm2EpXLzYMawb02z/wiFf8yNcaZrDRzMfFwUXU0xmhdfzyyed66/osorIdX2I7oKGU/7S6MpWW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoubSRKffxLiujOzKjqpvdWXAskHsRfUIbupgAtGz0ASi816/z
+	cWPBy36VO4KmGHCvKnudE//YoXmmDj/DOHrC8olLi06a27xr+QMepgtO
+X-Gm-Gg: AZuq6aKTwBW+LsT/CRKuK7Xet4FZvVx3Uf/jkqingEeF9DFpsvngY1SagCmq1WsKe6s
+	daN24y9ElCAShEvUuRU/GoZ82k1LqsKpzhr+5la8VhvJsJ1d7uGVXbiKCu890LzF0msih8Zrjiv
+	LyUtQxYSHqazyNrID7cqvqaydJqnCwrE3n5zi/QD13v29TlSngxDL66OH16mCANaL3OLiJv83Kn
+	pZI7PQSReR3ACixVxhe3vppl5zkAV1ehpfOI0mQWpQdCwL+112GQzcNWR2PJjpNdN2joGCTTMex
+	TLjYhnXDm/tqrVwtIrvUchZ+4EEY9ruku2NzBtGrdCfnMrsMW77WjwUAkarO/vxzmqt3jbtVED8
+	cSgIcRm/dO1bPYag3X8xO+LotD6stfN6s1BCA7VZZ9dqvirAmb+3l012CwuKe+6xwlNs+kS9MEK
+	Byj+64P8E43i43o7PtwNE=
+X-Received: by 2002:a17:902:ce12:b0:2a9:3211:29f0 with SMTP id d9443c01a7336-2ab5063261cmr51537235ad.58.1771093232858;
+        Sat, 14 Feb 2026 10:20:32 -0800 (PST)
 Received: from rockpi-5b ([45.112.0.78])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a9d5e06sm28406615ad.50.2026.02.14.10.20.22
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a9d5e06sm28406615ad.50.2026.02.14.10.20.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Feb 2026 10:20:25 -0800 (PST)
+        Sat, 14 Feb 2026 10:20:32 -0800 (PST)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
@@ -82,17 +82,17 @@ To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
 	linux-kernel@vger.kernel.org (open list)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v8 7/9] thermal/drivers/exynos: Relocate exynos_sensor_ops for forward declatition
-Date: Sat, 14 Feb 2026 23:49:04 +0530
-Message-ID: <20260214181930.238981-8-linux.amoon@gmail.com>
+Subject: [PATCH v8 8/9] thermal/drivers/exynos: Add missing drvdata assignment in Exynos TMU probe
+Date: Sat, 14 Feb 2026 23:49:05 +0530
+Message-ID: <20260214181930.238981-9-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260214181930.238981-1-linux.amoon@gmail.com>
 References: <20260214181930.238981-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_102027_104667_B7EA35AC 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20260214_102033_616948_B79E96A1 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,91 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Relocate exynos_set_trips() and exynos_sensor_ops to a different
-position in the file to resolve forward declaration dependencies
-for register to pointer to thermal_zone_device structure.
+Add dev_set_drvdata(&pdev->dev, data) early in the probe function,
+ensuring that the driver data is properly registered and accessible
+throughout the lifecycle of the device.
 
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
 v8: new patch.
 ---
- drivers/thermal/samsung/exynos_tmu.c | 56 ++++++++++++++--------------
- 1 file changed, 28 insertions(+), 28 deletions(-)
+ drivers/thermal/samsung/exynos_tmu.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index f77abdcdc62b..1d657802a310 100644
+index 1d657802a310..47b92c84ae98 100644
 --- a/drivers/thermal/samsung/exynos_tmu.c
 +++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -808,6 +808,34 @@ static void exynos4210_tmu_clear_irqs(struct exynos_tmu_data *data)
- 	writel(val_irq, data->base + tmu_intclear);
- }
+@@ -1070,6 +1070,8 @@ static int exynos_tmu_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
  
-+static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
-+{
-+	struct exynos_tmu_data *data = thermal_zone_device_priv(tz);
++	dev_set_drvdata(&pdev->dev, data);
 +
-+	mutex_lock(&data->lock);
-+	clk_enable(data->clk);
-+
-+	if (low > INT_MIN)
-+		data->soc_config->tmu_set_low_temp(data, low / MCELSIUS);
-+	else
-+		data->soc_config->tmu_disable_low(data);
-+	if (high < INT_MAX)
-+		data->soc_config->tmu_set_high_temp(data, high / MCELSIUS);
-+	else
-+		data->soc_config->tmu_disable_high(data);
-+
-+	clk_disable(data->clk);
-+	mutex_unlock(&data->lock);
-+
-+	return 0;
-+}
-+
-+static const struct thermal_zone_device_ops exynos_sensor_ops = {
-+	.get_temp = exynos_get_temp,
-+	.set_emul_temp = exynos_tmu_set_emulation,
-+	.set_trips = exynos_set_trips,
-+};
-+
- static const struct exynos_tmu_soc_config exynos3250_data = {
- 	.soc = SOC_ARCH_EXYNOS3250,
- 	.tmu_set_low_temp = exynos4412_tmu_set_low_temp,
-@@ -1008,34 +1036,6 @@ static int exynos_map_dt_data(struct platform_device *pdev)
- 	return 0;
- }
- 
--static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
--{
--	struct exynos_tmu_data *data = thermal_zone_device_priv(tz);
--
--	mutex_lock(&data->lock);
--	clk_enable(data->clk);
--
--	if (low > INT_MIN)
--		data->soc_config->tmu_set_low_temp(data, low / MCELSIUS);
--	else
--		data->soc_config->tmu_disable_low(data);
--	if (high < INT_MAX)
--		data->soc_config->tmu_set_high_temp(data, high / MCELSIUS);
--	else
--		data->soc_config->tmu_disable_high(data);
--
--	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
--
--	return 0;
--}
--
--static const struct thermal_zone_device_ops exynos_sensor_ops = {
--	.get_temp = exynos_get_temp,
--	.set_emul_temp = exynos_tmu_set_emulation,
--	.set_trips = exynos_set_trips,
--};
--
- static int exynos_tmu_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
+ 	data->clk = devm_clk_get_enabled(dev, "tmu_apbif");
+ 	if (IS_ERR(data->clk))
+ 		return dev_err_probe(dev, PTR_ERR(data->clk),
 -- 
 2.50.1
 
