@@ -4,57 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A979CEF584E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 18:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79226EF5848
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 18:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pG4KOGJ75N5YkKd/3GD69J7uY+UkiejpCarTJWjDjs8=; b=UTMeuSBXvgSDTEYH0Cst/G+p7Q
-	FJm44v/YTSFrjiyQ3UfYOIRqlR8X9a8xnxeyespxe1dwdQMPkd6V6tNL7byGDxBLOYde6zwUQqLlg
-	a9rNQ8ncP25MkZP7etDhjpYRDtrQ5CundoawP4Pkuermuqkw5t1ZyIbdb5tNjvJ+ZK5l3nJqccI/B
-	AP+r1zxyMHlfvIkJUwGvFeB8umVELN1m+gR2HPhG1CBeZGxtFIWSYrQ6rBlvjYTH0GC1jigOsnBZw
-	2wahN8L4YHuSkkHH3EbKCV7/mMxGe/Rtn6VeElwoe1k/yU9F4eroz0+4YNAKOVx3Rh4UXEsNhlUOn
-	dAZhat/g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZthU/dBSxhU1jw5Zz5Kc0iDhp0uS8p8MD7uxvdSwEY4=; b=Ap6iZFLa5vYFv7uwGUWEGCKXym
+	6nXPQgkI9LeDiZKqTVbiP0rCRd2livs1g9CNVf5ExKzZfHa5qfgswD0B2D/5z9XCmy3Szt8bKXVbm
+	8bSXkKP4kzVMtyFNtMLlk/rcmbX9P+CXDxNcy18PgPvmhnLjsqj0pqEbrKVUcXcyjPgNvrnKvYPBc
+	k/1jlfHw293bYwaM/iTF3ACD1If+hwLBZlV4IaP41itMI5CoSSCyPZXe39xUqp4Pt2DQcnotwgAhQ
+	AOHEylakiEvbUhR5sn2T+Z1DCVs0tB4AKlxamLXBUi4jM1KJZDJk2jegyIYwO8oMrDzAgGDvkN5LL
+	0xQeobkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrK6H-00000004pE5-1jya;
-	Sat, 14 Feb 2026 18:10:37 +0000
-Received: from mail-106118.protonmail.ch ([79.135.106.118])
+	id 1vrKF3-00000004psg-3qJH;
+	Sat, 14 Feb 2026 18:19:41 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrK6D-00000004pCB-3Pe0
+	id 1vrKF1-00000004psK-1RWA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 18:10:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1771092631; x=1771351831;
-	bh=pG4KOGJ75N5YkKd/3GD69J7uY+UkiejpCarTJWjDjs8=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=sFXrVGMS6QPQVOJNQimWlLVfz3MXDxgJNMap6EpjuT3RYIrTeXaOr4fhBcogJ+Cd6
-	 ScYURDtx1K0VIvH+yMc4RQd8883yQPcZ0xBq7ZO3Nh0wrEUJnDOONCOI2ZfpC7vHMQ
-	 spn8Y+DLjP3+hXDoZzOrvw4yKsQBqwCmTXdyVSfjb6MhZ6ebOtTcc8amn1lU0UCp0L
-	 6DxwFMYnKCxxXSPcZpuNoy3LzMsE8rJhNK7PYbl38dfJpnlz6Xd9TsXVb6S6DRH8k8
-	 g/LfD5D6pjbZDPaLTxBSEKqd7neYRkQ4oYOeEoZMhgVZ9vWOSSH21Nh4KI4J2oAdZF
-	 JAStsan9emBMw==
-Date: Sat, 14 Feb 2026 18:10:25 +0000
-To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>
-From: Harry Austen <hpausten@protonmail.com>
-Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Harry Austen <hpausten@protonmail.com>
-Subject: [PATCH v4 2/2] clk: clocking-wizard: add user clock monitor support
-Message-ID: <20260214180933.42143-3-hpausten@protonmail.com>
-In-Reply-To: <20260214180933.42143-1-hpausten@protonmail.com>
-References: <20260214180933.42143-1-hpausten@protonmail.com>
-Feedback-ID: 53116287:user:proton
-X-Pm-Message-ID: 2de2d7324fad0080ee117d3c2685689e6a3fc307
+	Sat, 14 Feb 2026 18:19:40 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2a9296b3926so12314285ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Feb 2026 10:19:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771093178; x=1771697978; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZthU/dBSxhU1jw5Zz5Kc0iDhp0uS8p8MD7uxvdSwEY4=;
+        b=E1PZgifBjm7p+sv9sn54mYks0hj1LLG8TtNHqoT8MhTxqAU4qpHqdF1LelVcH/nw5T
+         aqoM1VsEOI8mLex1/OfYFvPRF3T7UsA8b4yRJYsZ+Een5ObyAl8WeyeWTwKkl4K+cYm/
+         FHEQYxuN1jS1InVAnIc+tSgjdXxKRTHse3ol37gurKM7N0aaeVK0FD8lf7nBbL5Ur8+7
+         dwpWTOKuecBlwrqQU8XH9uoZrQIXJ4pYv8DJSyws92g/WEEMN/F4NFVT6Ljm86Pd6WMZ
+         EDwTZki6fDLZGfcql3VU/5Sf3nltLyite6iw6Aiuu4viEep29N6X9cCsoF+MVDi3hTho
+         eJsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771093178; x=1771697978;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZthU/dBSxhU1jw5Zz5Kc0iDhp0uS8p8MD7uxvdSwEY4=;
+        b=nX8C9x1ZE7vm8Ju1YwVgzvrl6fYcFSSeCCoIZc42npeL1TtJyNCwFr/17m+CUMypHD
+         2Zq7nMpAAZIdBCTXb32FbPe2lW2hzPmi2x+vXQrxtcjz2yrzDEPRC/G4PqFh5K9iV1tH
+         C/mpGCnxW6qW58jO5hxjbmaYemNYxyFLFg66w6CCbPlxJHS8ylp1wKdr/UuylZ0573Cx
+         YhCbtD6DLjip0ptUix0/YCliuxxD67etjiu0n/ya43mawTbq1BFKeTj84tdcYIb26e5Y
+         s0qcD8qgC68748E8FUcAI80pIG+LK/VkVGaK3Sq+NEyE0kIQYSLKqH6pTbFwSShFifSK
+         vTNg==
+X-Forwarded-Encrypted: i=1; AJvYcCW2IrHqKkGctDahEQZmUeYs2SvnhsAEgwDSO3yCCvYNvByqpTT+GShMUB5+w30nSNB5J/bFjTL4Hz5NX/jvQVIz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw21j+dyu4OAadYlec+zgI/FWguC7wJlxUpx3DlXeYbtDUQWnWM
+	G0bS5i93fWHwuW7TQKUAPt80V5YBsYx+TOlU095SXprJeV2JWdz05Oyv
+X-Gm-Gg: AZuq6aLpZy4C++U2e/ttdkrT0o2ExAoA7yjvRj0WrjzjwVjs/Od7R3jra96UKVF0LEi
+	nALM52kQ0Uqtdk/nG3EHwSlxhVPoiFPmwuTMcD+WNpkRo4Z4oRXftA6UNyvAipELAkN/sUk70J5
+	zazBgxEFUY8+tmOSpCwJlIHwfHFQgQgHHDT33817OplTr6QDO6w02uNxbTBHpnhOxk+0PbL7Y4t
+	kQ3Dq9N7Oaadg/ivqSVb5z9h71KmNLaTCA+gURZGKSna17VTpueXpH+wb/HzIUFD39B9rry69q9
+	dLuKhgBgZfV9MyRJU4QYTIT3PmjKHo0HvxAPfdOm4TBh8lAq/+3FyMlwRlTVon5G6yuYRN+LFGx
+	riWM5dcgcNeEgAJ9GsRk6YqPMNztSgfy93dhQogMdjnGQV7Kf6yFVPA/lKnEN2jaZeoobpRZg2R
+	wSiZRwsWgjGYeO2c8tu1Y=
+X-Received: by 2002:a17:903:37cc:b0:2a1:e19:ff0 with SMTP id d9443c01a7336-2ab505cf397mr61192685ad.39.1771093177563;
+        Sat, 14 Feb 2026 10:19:37 -0800 (PST)
+Received: from rockpi-5b ([45.112.0.78])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a9d5e06sm28406615ad.50.2026.02.14.10.19.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Feb 2026 10:19:36 -0800 (PST)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-pm@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v8 0/9] Exynos Thermal code improvement
+Date: Sat, 14 Feb 2026 23:48:57 +0530
+Message-ID: <20260214181930.238981-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_101034_026837_40CA39E2 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20260214_101939_410285_EB04B52A 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,228 +104,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Xilinx clocking wizard IP core supports monitoring of up to four
-optional user clock inputs, with a corresponding interrupt for
-notification in change of clock state (stop, underrun, overrun or
-glitch). Give userspace access to this monitor logic through use of the
-devcoredump framework.
+Hi All,
 
-Use presence of the user monitor interrupt description in devicetree to
-indicate whether or not this functionality should be enabled. Also, this
-functionality is only supported from v6.0 onwards, so add indication of
-support to the device match data, in order to be tied to the utilised
-compatible string.
+This patch series is a rework of my previous patch series [1],
+where the code changes were not adequately justified.
 
-All 16 user clock monitor trigger sources are enabled in the IER. When
-triggered, the values of the first 5 registers are recorded through
-devcoredump.
+In this new series, I have improved the commit subject
+and commit message to better explain the changes.
 
-Signed-off-by: Harry Austen <hpausten@protonmail.com>
----
-v3 -> v4: Rework from auxiliary bus and UIO to devcoredump
-v2 -> v3: No change
-v1 -> v2:
-- Remove direct UIO dependency by utilising auxiliary device
-- Move some logic from probe into clk_wzrd_setup_monitor for tidiness
+v8: Refactor SoC-specific configuration to new exynos_tmu_soc_config
+    structure which help clean up the callbacks.
+    dropped the IRQ clean up patches, with new approach 
+    it will be much eaasy for new SoC to be integrated
+    and the code will be much better way managed in the future.
+v7: Integrated my RFC patch which improves the IRQ framework
+    for all the SoC link below.
+v6: Add new patch to use devm_clk_get_enabled
+    and Fix few typo in subject as suggested by Daniel.
+v5: Drop the guard mutex patch
+v4: Tried to address Lukasz review comments.
 
- drivers/clk/xilinx/Kconfig                 |  1 +
- drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 69 ++++++++++++++++++++--
- 2 files changed, 66 insertions(+), 4 deletions(-)
+I dont have any Arm64 device the test and verify
+Tested on 32 bit Arch Odroid U3 amd XU4 SoC boards.
 
-diff --git a/drivers/clk/xilinx/Kconfig b/drivers/clk/xilinx/Kconfig
-index 051756953558b..37758ac9ab552 100644
---- a/drivers/clk/xilinx/Kconfig
-+++ b/drivers/clk/xilinx/Kconfig
-@@ -21,6 +21,7 @@ config COMMON_CLK_XLNX_CLKWZRD
- =09tristate "Xilinx Clocking Wizard"
- =09depends on OF
- =09depends on HAS_IOMEM
-+=09select WANT_DEV_COREDUMP
- =09help
- =09  Support for the Xilinx Clocking Wizard IP core clock generator.
- =09  Adds support for clocking wizard and compatible.
-diff --git a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c b/drivers/clk/xilin=
-x/clk-xlnx-clock-wizard.c
-index 4a0136349f71a..f14d1ec80a321 100644
---- a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-+++ b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-@@ -12,6 +12,7 @@
- #include <linux/platform_device.h>
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
-+#include <linux/devcoredump.h>
- #include <linux/slab.h>
- #include <linux/io.h>
- #include <linux/of.h>
-@@ -19,11 +20,15 @@
- #include <linux/module.h>
- #include <linux/overflow.h>
- #include <linux/err.h>
-+#include <linux/interrupt.h>
- #include <linux/iopoll.h>
-=20
- #define WZRD_NUM_OUTPUTS=097
- #define WZRD_ACLK_MAX_FREQ=09250000000UL
-+#define WZRD_NUM_DUMP_REGS=095
-=20
-+#define WZRD_INTR_STATUS=090x0C
-+#define WZRD_INTR_ENABLE=090x10
- #define WZRD_CLK_CFG_REG(v, n)=09(0x200 + 0x130 * (v) + 4 * (n))
-=20
- #define WZRD_CLKOUT0_FRAC_EN=09BIT(18)
-@@ -124,6 +129,7 @@ enum clk_wzrd_int_clks {
- /**
-  * struct clk_wzrd - Clock wizard private data structure
-  *
-+ * @pdev:=09=09Platform device
-  * @nb:=09=09=09Notifier block
-  * @base:=09=09Memory base
-  * @clk_in1:=09=09Handle to input clock 'clk_in1'
-@@ -131,9 +137,11 @@ enum clk_wzrd_int_clks {
-  * @clks_internal:=09Internal clocks
-  * @speed_grade:=09Speed grade of the device
-  * @suspended:=09=09Flag indicating power state of the device
-+ * @work:=09=09Delayed work for devcoredump
-  * @clk_data:=09=09Output clock data
-  */
- struct clk_wzrd {
-+=09struct platform_device *pdev;
- =09struct notifier_block nb;
- =09void __iomem *base;
- =09struct clk *clk_in1;
-@@ -141,6 +149,7 @@ struct clk_wzrd {
- =09struct clk_hw *clks_internal[wzrd_clk_int_max];
- =09unsigned int speed_grade;
- =09bool suspended;
-+=09struct delayed_work work;
- =09struct clk_hw_onecell_data clk_data;
- };
-=20
-@@ -177,8 +186,9 @@ struct clk_wzrd_divider {
- =09spinlock_t *lock;  /* divider lock */
- };
-=20
--struct versal_clk_data {
-+struct clk_wzrd_data {
- =09bool is_versal;
-+=09bool has_monitor;
- };
-=20
- #define to_clk_wzrd(_nb) container_of(_nb, struct clk_wzrd, nb)
-@@ -984,8 +994,13 @@ static int __maybe_unused clk_wzrd_resume(struct devic=
-e *dev)
- static SIMPLE_DEV_PM_OPS(clk_wzrd_dev_pm_ops, clk_wzrd_suspend,
- =09=09=09 clk_wzrd_resume);
-=20
--static const struct versal_clk_data versal_data =3D {
-+static const struct clk_wzrd_data version_6_0_data =3D {
-+=09.is_versal=09=3D false,
-+=09.has_monitor=09=3D true,
-+};
-+static const struct clk_wzrd_data versal_data =3D {
- =09.is_versal=09=3D true,
-+=09.has_monitor=09=3D true,
- };
-=20
- static int clk_wzrd_register_output_clocks(struct device *dev, int nr_outp=
-uts)
-@@ -993,7 +1008,7 @@ static int clk_wzrd_register_output_clocks(struct devi=
-ce *dev, int nr_outputs)
- =09const char *clkout_name, *clk_name, *clk_mul_name;
- =09struct clk_wzrd *clk_wzrd =3D dev_get_drvdata(dev);
- =09u32 regl, regh, edge, regld, reghd, edged, div;
--=09const struct versal_clk_data *data;
-+=09const struct clk_wzrd_data *data;
- =09unsigned long flags =3D 0;
- =09bool is_versal =3D false;
- =09void __iomem *ctrl_reg;
-@@ -1150,14 +1165,45 @@ static int clk_wzrd_register_output_clocks(struct d=
-evice *dev, int nr_outputs)
- =09return 0;
- }
-=20
-+static irqreturn_t clk_wzrd_user_mon_intr_handler(int irq, void *data)
-+{
-+=09struct clk_wzrd *clk_wzrd =3D platform_get_drvdata(data);
-+
-+=09schedule_delayed_work(&clk_wzrd->work, msecs_to_jiffies(10));
-+=09return IRQ_HANDLED;
-+}
-+
-+static void clk_wzrd_user_mon_work(struct work_struct *work)
-+{
-+=09struct clk_wzrd *clk_wzrd =3D container_of(work, struct clk_wzrd, work.=
-work);
-+=09u32 *dump =3D vmalloc(WZRD_NUM_DUMP_REGS * sizeof(*dump));
-+
-+=09ioread32_rep(clk_wzrd->base, dump, WZRD_NUM_DUMP_REGS);
-+=09dev_coredumpv(&clk_wzrd->pdev->dev, dump, WZRD_NUM_DUMP_REGS * sizeof(*=
-dump), GFP_KERNEL);
-+=09iowrite32(dump[WZRD_INTR_STATUS / sizeof(*dump)], clk_wzrd->base + WZRD=
-_INTR_STATUS);
-+}
-+
-+static void clk_wzrd_cancel_delayed_work(void *data)
-+{
-+=09struct delayed_work *work =3D data;
-+
-+=09cancel_delayed_work_sync(work);
-+}
-+
- static int clk_wzrd_probe(struct platform_device *pdev)
- {
-+=09const struct clk_wzrd_data *data =3D device_get_match_data(&pdev->dev);
- =09struct device_node *np =3D pdev->dev.of_node;
- =09struct clk_wzrd *clk_wzrd;
- =09unsigned long rate;
- =09int nr_outputs;
-+=09int irq;
- =09int ret;
-=20
-+=09irq =3D platform_get_irq_optional(pdev, 0);
-+=09if (irq < 0 && irq !=3D -ENXIO)
-+=09=09return dev_err_probe(&pdev->dev, irq, "failed to get irq\n");
-+
- =09ret =3D of_property_read_u32(np, "xlnx,nr-outputs", &nr_outputs);
- =09if (ret || nr_outputs > WZRD_NUM_OUTPUTS)
- =09=09return -EINVAL;
-@@ -1226,6 +1272,21 @@ static int clk_wzrd_probe(struct platform_device *pd=
-ev)
- =09=09}
- =09}
-=20
-+=09if (data && data->has_monitor && irq > 0) {
-+=09=09ret =3D devm_request_irq(&pdev->dev, irq, clk_wzrd_user_mon_intr_han=
-dler, IRQF_SHARED,
-+=09=09=09=09       "user_mon", clk_wzrd);
-+=09=09if (ret)
-+=09=09=09return dev_err_probe(&pdev->dev, ret, "failed to request irq\n");
-+
-+=09=09INIT_DELAYED_WORK(&clk_wzrd->work, clk_wzrd_user_mon_work);
-+=09=09ret =3D devm_add_action_or_reset(&pdev->dev, clk_wzrd_cancel_delayed=
-_work,
-+=09=09=09=09=09       &clk_wzrd->work);
-+=09=09if (ret)
-+=09=09=09return ret;
-+
-+=09=09writel(GENMASK(15, 0), clk_wzrd->base + WZRD_INTR_ENABLE);
-+=09}
-+
- =09return 0;
- }
-=20
-@@ -1233,7 +1294,7 @@ static const struct of_device_id clk_wzrd_ids[] =3D {
- =09{ .compatible =3D "xlnx,versal-clk-wizard", .data =3D &versal_data },
- =09{ .compatible =3D "xlnx,clocking-wizard"   },
- =09{ .compatible =3D "xlnx,clocking-wizard-v5.2"   },
--=09{ .compatible =3D "xlnx,clocking-wizard-v6.0"  },
-+=09{ .compatible =3D "xlnx,clocking-wizard-v6.0", .data =3D &version_6_0_d=
-ata },
- =09{ },
- };
- MODULE_DEVICE_TABLE(of, clk_wzrd_ids);
---=20
-2.53.0
+Please sare the feedback on this.
 
+[7] https://lore.kernel.org/all/20250813131007.343402-1-linux.amoon@gmail.com/
+[6] https://lore.kernel.org/all/20250616163831.8138-1-linux.amoon@gmail.com/
+[5] https://lore.kernel.org/all/20250430123306.15072-1-linux.amoon@gmail.com/
+[4] https://lore.kernel.org/all/20250410063754.5483-2-linux.amoon@gmail.com/
+[3] https://lore.kernel.org/all/20250310143450.8276-2-linux.amoon@gmail.com/
+[2] https://lore.kernel.org/all/20250216195850.5352-2-linux.amoon@gmail.com/
+[1] https://lore.kernel.org/all/20220515064126.1424-1-linux.amoon@gmail.com/
+[0] https://lore.kernel.org/lkml/CANAwSgS=08fVsqn95WHzSF71WTTyD2-=K2C6-BEz0tY0t6A1-g@mail.gmail.com/T/#m77e57120d230d57f34c29e1422d7fc5f5587ac30
+
+Thanks
+-Anand
+
+Anand Moon (9):
+  thermal/drivers/exynos: Refactor clk_sec initialization inside
+    SOC-specific case
+  thermal/drivers/exynos: Use devm_clk_get_enabled() helpers
+  thermal/drivers/exynos: Remove redundant IS_ERR() checks for clk_sec
+    clock
+  thermal/drivers/exynos: Fixed the efuse min max value for exynos5422
+  thermal/drivers/exynos: Remove unused base_second mapping and
+    references
+  thermal/drivers/exynos: Refactor SoC-specific configuration to new
+    exynos_tmu_soc_config structure
+  thermal/drivers/exynos: Relocate exynos_sensor_ops for forward
+    declatition
+  thermal/drivers/exynos: Add missing drvdata assignment in Exynos TMU
+    probe
+  thermal/drivers/exynos: Fix some coding style issue
+
+ drivers/thermal/samsung/exynos_tmu.c | 501 +++++++++++++--------------
+ 1 file changed, 249 insertions(+), 252 deletions(-)
+
+
+base-commit: 770aaedb461a055f79b971d538678942b6607894
+-- 
+2.50.1
 
 
