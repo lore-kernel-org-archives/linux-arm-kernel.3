@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4983BEF99EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 01:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9350EF99EA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 01:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/w/NFw1D6JmYMGD/vnJu03M8SHvvtLm/FNBH+/7eS3o=; b=EV1ZsrYIBw6uywIgEJOmDpPo1l
-	m6URWb/fk2NQk0+oDghg4+thojISgUqSsJknsWuDPb5Z/EPVM4dE5liBJkHNhpGAR2O1SCOYUBtfY
-	roEAxDeTFfKLZQ+ajFpfjaKlHuYUto3AxNFDP6aUFb/fBDbr2FRBhZ+mfUQYhXLoD5pRGFEFZp/x7
-	swnQhGaXkqjrvt+BFdl0w7V3QJc6KzXE9yYQv43RGWgn+/fqqN5qNixAanNG3tQDLNmusPuVnOujV
-	eqzyJt4w+9TexfryhT7AGwp+IMfnGmAR1qoPgF0iu/y4sB8ZNM4zRFGE2YIlK+7Yu8B9d8PAXOhVM
-	YZxoIEyw==;
+	bh=1mIo+0QEn7UTXIe2leAcOCA4FnmNodovrpmgdx4dd/E=; b=MaMHityL8uZ1ZH4qrDbdYxiSzN
+	ykNippfKQ5X2/P4HZXdDOY4jiakmn3Tefr/YIlGpRpdXRJbtigb/tAQhpX3FspyiRoej24V/+o+pR
+	zx2k2F4TjuH/1KcqAHqTpBjOS0cwx4s3EoWIUq1SeWAuUDCmN/DPZ9s4aZwfkTT2QFQC06UKhmJqE
+	Lv08BFqMw8cyMdI7vv7i4QMHma2yh1JAV519Kw3BmiZ0CHGZp8RG5R0cuNGoWEeJ/CzdrH1+EXe3s
+	Z6iwdF+Oiq+pQ0nu/hNxIOzJ++dIQkwS3XUISUHM0SIcg6bXJ96YKmgSLVZipFe6Xr3I8YqJG0+3x
+	mUGh9KNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr46I-000000046d4-3VcF;
-	Sat, 14 Feb 2026 01:05:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vr46o-000000046hT-0dTo;
+	Sat, 14 Feb 2026 01:06:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr46G-000000046cd-1a3r
+	id 1vr46m-000000046gt-0NIk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 01:05:33 +0000
+	Sat, 14 Feb 2026 01:06:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 05FBE44371;
-	Sat, 14 Feb 2026 01:05:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEA1BC19423;
-	Sat, 14 Feb 2026 01:05:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C64B443D3;
+	Sat, 14 Feb 2026 01:06:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65FC3C19423;
+	Sat, 14 Feb 2026 01:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771031130;
-	bh=eBEsX1nyMrmXr/mfibb4cH9Xymd5V8ShqLBPnfWpmSI=;
+	s=k20201202; t=1771031163;
+	bh=FJSLGiaQrTdjaNFn5/fWJS1Yn2FwKMG/XhZ9Z4b/a8I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Mnd8Lv+N72Pmpoq651k8GlpYaoE2hKL3IGdboT5PF608kwKOJd6WDBhASZnSAivX7
-	 +JrMZ3Dlxg3lPWuhtRBIQNauBvsBxX2stLMHw+pGG/UPhM6u+bdYz8JzqxziDh64qY
-	 zB5woGl9DJyCICmIchFYGbrpGaqXqi+KIIPIY64u3syO7Gp2H0g5vQK4zzuA0In05C
-	 ALiRD42rOAV1ZazFP6cR+u0pL074k3844/D7g+Ynb4SfWVITQa04mTrpUjogL0I+N0
-	 LRpKCH095zdZKo/z+YzVMk05PObxi9Qt5Hboci4jpFNVEJEei3LS9ML+anSRPk3XmR
-	 M7aRbjwWxG/Yw==
+	b=Maa9S8ztrtxiPXcPPr4zD9VhGNCx1BtgDUwmW05/XWWzkZ3mtUdkNg9op/dHMjhkM
+	 OcanWHJ9p9IUmjvSaNr9Jh2Y3gGNnbrlj5GUlwuhEB60Rc10v3AfIal46VwhneOYTT
+	 LohWm9IZ7gbqK1BGTS26CVUEFoMvlQqI+zgYNhSpCpZoDyy5UkwVDASazCKgRmM1Ze
+	 PTIGb2o/5RShVC4sFraTJ7vtj63nYhtYTevzriFXIrGYXG8TT2aK/bbQ3lSfKz4jl/
+	 y8kYQbTlM1Wjb+o9t8tIYjzgS6OWOk+VJT36Wj+zr9lpLiThAzW+XrMvQjGidjzJSf
+	 FyHXVKErFgW5A==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Billy Tsai <billy_tsai@aspeedtech.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Manikandan Muralidharan <manikandan.m@microchip.com>,
 	Sasha Levin <sashal@kernel.org>,
-	brgl@kernel.org,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org
-Subject: [PATCH AUTOSEL 6.19-5.10] gpio: aspeed-sgpio: Change the macro to support deferred probe
-Date: Fri, 13 Feb 2026 19:59:14 -0500
-Message-ID: <20260214010245.3671907-74-sashal@kernel.org>
+	dharma.b@microchip.com,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.19] drm/atmel-hlcdc: destroy properly the plane state in the reset callback
+Date: Fri, 13 Feb 2026 19:59:25 -0500
+Message-ID: <20260214010245.3671907-85-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260214010245.3671907-1-sashal@kernel.org>
 References: <20260214010245.3671907-1-sashal@kernel.org>
@@ -68,8 +67,8 @@ X-stable-base: Linux 6.19
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_170532_461941_7C578518 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20260213_170604_173689_B8D4B0D3 
+X-CRM114-Status: GOOD (  26.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,161 +83,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Billy Tsai <billy_tsai@aspeedtech.com>
+From: Ludovic Desroches <ludovic.desroches@microchip.com>
 
-[ Upstream commit e18533b023ec7a33488bcf33140ce69bbba2894f ]
+[ Upstream commit 81af99cbd9e4f238011af811d544fff75641fc25 ]
 
-Use module_platform_driver() to replace module_platform_driver_probe().
-The former utilizes platform_driver_register(), which allows the driver to
-defer probing when it doesn't acquire the necessary resources due to probe
-order. In contrast, the latter uses __platform_driver_probe(), which
-includes the comment "Note that this is incompatible with deferred
-probing." Since our SGPIO driver requires access to the clock resource, the
-former is more suitable.
+If there is a plane state to destroy when doing a plane reset, destroy
+it using the atmel_hlcdc_plane_destroy_state() function. So we call
+__drm_atomic_helper_plane_destroy_state() and avoid code duplication.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-Link: https://lore.kernel.org/r/20260123-upstream_sgpio-v2-1-69cfd1631400@aspeedtech.com
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Signed-off-by: Ludovic Desroches <ludovic.desroches@microchip.com>
+Reviewed-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Link: https://patch.msgid.link/20251218-lcd_cleanup_mainline-v2-8-df837aba878f@microchip.com
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Analysis of gpio: aspeed-sgpio: Change the macro to support deferred
-probe
+## Analysis of the Commit
 
 ### Commit Message Analysis
 
-The commit changes `module_platform_driver_probe()` to
-`module_platform_driver()` in the Aspeed SGPIO driver. The motivation is
-to support deferred probing — when the clock resource isn't available
-yet at probe time due to probe ordering, the driver should be able to
-defer and retry later. With `module_platform_driver_probe()` (which uses
-`__platform_driver_probe()`), deferred probing is explicitly not
-supported.
+The commit message says: "destroy properly the plane state in the reset
+callback" — the key word is **properly**. This suggests the previous
+destruction was **improper**, meaning there was a bug in the old code.
 
 ### Code Change Analysis
 
-The changes are:
+Let me examine the old vs new `atmel_hlcdc_plane_reset()` function
+carefully.
 
-1. **Remove `__init` annotation** from `aspeed_sgpio_probe()` —
-   necessary because with `module_platform_driver()`, the probe function
-   can be called after init (during deferred probe), so it can't be in
-   `.init` section.
+**Old code (being removed):**
+```c
+if (p->state) {
+    state = drm_plane_state_to_atmel_hlcdc_plane_state(p->state);
+    if (state->base.fb)
+        drm_framebuffer_put(state->base.fb);
+    kfree(state);
+    p->state = NULL;
+}
+```
 
-2. **Move `.probe` into the `platform_driver` struct** — from being
-   passed as a second argument to `module_platform_driver_probe()` to
-   being set as `.probe = aspeed_sgpio_probe` in the struct.
+**New code (replacement):**
+```c
+if (p->state) {
+    atmel_hlcdc_plane_atomic_destroy_state(p, p->state);
+    p->state = NULL;
+}
+```
 
-3. **Replace `module_platform_driver_probe()` with
-   `module_platform_driver()`** — the actual behavioral change.
+**What `atmel_hlcdc_plane_atomic_destroy_state()` does that the old
+inline code did NOT:**
+```c
+static void atmel_hlcdc_plane_atomic_destroy_state(...)
+{
+    // 1. Frees DMA descriptors from the DMA pool
+    for (i = 0; i < ARRAY_SIZE(state->dscrs); i++) {
+        dma_pool_free(dc->dscrpool, state->dscrs[i],
+                      state->dscrs[i]->self);
+    }
+    // 2. Puts the framebuffer reference
+    if (s->fb)
+        drm_framebuffer_put(s->fb);
+    // 3. Frees the state
+    kfree(state);
+}
+```
 
-The probe function itself is completely unchanged in logic.
+### Bug Identified: DMA Descriptor Resource Leak
 
-### Bug Classification
+The old reset code was **missing the DMA pool free** for the descriptors
+(`state->dscrs[i]`). Every time `atmel_hlcdc_plane_reset()` was called
+with an existing plane state, the DMA descriptors allocated from
+`dc->dscrpool` were **leaked** — they were never returned to the DMA
+pool.
 
-This fixes a **real probe failure bug**. When the Aspeed SGPIO driver is
-compiled and the clock resource it depends on isn't yet available
-(common on device-tree platforms where probe order isn't guaranteed),
-the driver will fail to probe and **never retry**. This means the SGPIO
-hardware is permanently non-functional until reboot, and even then only
-if probe order happens to be favorable.
+This is a **real resource leak**. DMA pool memory is coherent DMA
+memory, a finite and precious resource, especially on embedded ARM
+systems where this Atmel HLCDC display controller runs. DMA pool
+exhaustion can lead to allocation failures and display malfunction.
 
-This is a real-world issue on Aspeed BMC platforms (AST2400, AST2500,
-AST2600) which are widely used in server management. GPIO functionality
-being unavailable due to probe ordering is a tangible user-facing bug.
+Additionally, the old code was also **missing the
+`__drm_atomic_helper_plane_destroy_state()` call** that the proper
+destroy function would provide (though in this driver the destroy
+function doesn't call it either, it does its own fb put + kfree).
+However, the DMA descriptor leak is the primary bug.
+
+### Additional Change: CSC Initialization
+
+The new reset function also adds:
+```c
+if (plane->layer.desc->layout.csc)
+    dc->desc->ops->lcdc_csc_init(plane, plane->layer.desc);
+```
+
+This is a **new addition** — CSC (Color Space Conversion) initialization
+during plane reset. This is arguably a feature addition or a separate
+fix for missing initialization. This adds a bit of risk since it's not
+purely fixing the leak but also changing initialization behavior.
 
 ### Scope and Risk Assessment
 
-- **Lines changed**: Very small — removal of `__init`, moving the
-  `.probe` assignment, macro swap
-- **Files touched**: 1 file
-- **Risk**: Very low. The probe function logic is completely unchanged.
-  The only behavioral difference is that:
-  1. The probe function is no longer in `.init` section (minor memory
-     impact, but standard practice)
-  2. Deferred probing is now supported (fixes the bug)
-  3. The probe function pointer is stored in the driver struct rather
-     than being patched in at registration time
+- **Files changed:** 1 file
+- **Net change:** The function is reorganized, and the core fix (using
+  proper destroy) is straightforward
+- **Risk:** LOW for the resource leak fix. MEDIUM for the CSC init
+  addition — but CSC init during reset is standard practice and the code
+  only runs on Atmel HLCDC hardware
+- **Subsystem:** DRM driver for a specific ARM SoC (Atmel/Microchip
+  SAM9/SAMA5) — limited blast radius
 
-This is a well-understood pattern — many drivers have made this exact
-same transition over the years. The `module_platform_driver_probe()` to
-`module_platform_driver()` conversion is one of the most common and
-safest changes in the kernel.
+### Stable Criteria Assessment
 
-### Stable Criteria Check
-
-1. **Obviously correct and tested**: Yes — reviewed by Linus Walleij
-   (GPIO subsystem co-maintainer), standard pattern
-2. **Fixes a real bug**: Yes — probe failure when clock resource isn't
-   available due to ordering
-3. **Important issue**: Moderate — makes hardware permanently non-
-   functional on affected platforms
-4. **Small and contained**: Yes — minimal changes to one file
-5. **No new features**: Correct — deferred probing is an existing kernel
-   mechanism, this just enables the driver to participate in it
-6. **Applies cleanly**: Should apply cleanly to any stable tree that has
-   this driver
-
-### User Impact
-
-Aspeed BMC platforms are common in enterprise server management
-(OpenBMC). If SGPIO fails to probe due to clock resource ordering, GPIO
-pins managed by the SGPIO controller become unavailable, which can
-affect system monitoring, power control, and other BMC functions. This
-is a real-world issue that affects actual deployments.
+1. **Obviously correct:** Yes — the DMA descriptors were being leaked;
+   they must be freed via the proper destroy path
+2. **Fixes a real bug:** Yes — DMA pool memory leak on plane reset
+3. **Important issue:** Moderate — resource leak in a display driver; on
+   embedded systems with limited DMA pool memory, this could eventually
+   cause display failures
+4. **Small and contained:** Yes — one file, one function reorganized
+5. **No new features:** The CSC init addition is borderline — it's
+   initialization that was arguably missing, but it does add new
+   behavior
+6. **Applies cleanly:** Would need to verify, but it's self-contained
 
 ### Concerns
 
-- The commit doesn't have a `Fixes:` tag, which is expected for commits
-  under review
-- No explicit mention of user reports, but the commit author is from
-  Aspeed Technology, indicating this is a known issue in their platform
-- Minor: probe function no longer freed after init, but this is
-  negligible memory impact
+1. The CSC initialization addition goes beyond the pure leak fix and
+   introduces new behavior. This makes it slightly riskier than a pure
+   fix.
+2. The commit message doesn't emphasize the DMA descriptor leak — it's
+   described as avoiding "code duplication," which undersells the actual
+   bug being fixed. This is a classic case of a bug fix disguised as
+   cleanup.
+3. No `Fixes:` tag or syzbot report, but the bug is clearly visible in
+   the code.
 
-### Decision
+### Verdict
 
-This is a small, well-understood fix for a real probe failure bug on
-Aspeed BMC platforms. The pattern change (`module_platform_driver_probe`
-→ `module_platform_driver`) is one of the safest and most common
-conversions in the kernel. It fixes a real-world issue where hardware
-becomes non-functional due to probe ordering. The risk is minimal and
-the benefit is clear.
+The core of this commit fixes a **real DMA pool memory leak** — DMA
+descriptors were not being freed when the plane state was destroyed
+during reset. This is a legitimate resource leak bug fix. The change is
+small, contained to a single driver file, and the fix approach (reusing
+the existing proper destroy function) is obviously correct.
+
+The CSC initialization addition adds some risk but is limited to
+specific hardware and is part of proper plane reset behavior.
+
+On balance, the resource leak fix makes this worth backporting despite
+the small additional CSC change.
 
 **YES**
 
- drivers/gpio/gpio-aspeed-sgpio.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ .../gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c   | 52 +++++++++----------
+ 1 file changed, 26 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/gpio/gpio-aspeed-sgpio.c b/drivers/gpio/gpio-aspeed-sgpio.c
-index 7622f9e9f54af..318cd0e397416 100644
---- a/drivers/gpio/gpio-aspeed-sgpio.c
-+++ b/drivers/gpio/gpio-aspeed-sgpio.c
-@@ -516,7 +516,7 @@ static const struct of_device_id aspeed_sgpio_of_table[] = {
- 
- MODULE_DEVICE_TABLE(of, aspeed_sgpio_of_table);
- 
--static int __init aspeed_sgpio_probe(struct platform_device *pdev)
-+static int aspeed_sgpio_probe(struct platform_device *pdev)
- {
- 	u32 nr_gpios, sgpio_freq, sgpio_clk_div, gpio_cnt_regval, pin_mask;
- 	const struct aspeed_sgpio_pdata *pdata;
-@@ -611,11 +611,12 @@ static int __init aspeed_sgpio_probe(struct platform_device *pdev)
+diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
+index 92132be9823f1..0ffec44c6d317 100644
+--- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
++++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
+@@ -1155,32 +1155,6 @@ static int atmel_hlcdc_plane_alloc_dscrs(struct drm_plane *p,
+ 	return -ENOMEM;
  }
  
- static struct platform_driver aspeed_sgpio_driver = {
-+	.probe = aspeed_sgpio_probe,
- 	.driver = {
- 		.name = KBUILD_MODNAME,
- 		.of_match_table = aspeed_sgpio_of_table,
- 	},
- };
+-static void atmel_hlcdc_plane_reset(struct drm_plane *p)
+-{
+-	struct atmel_hlcdc_plane_state *state;
+-
+-	if (p->state) {
+-		state = drm_plane_state_to_atmel_hlcdc_plane_state(p->state);
+-
+-		if (state->base.fb)
+-			drm_framebuffer_put(state->base.fb);
+-
+-		kfree(state);
+-		p->state = NULL;
+-	}
+-
+-	state = kzalloc(sizeof(*state), GFP_KERNEL);
+-	if (state) {
+-		if (atmel_hlcdc_plane_alloc_dscrs(p, state)) {
+-			kfree(state);
+-			drm_err(p->dev,
+-				"Failed to allocate initial plane state\n");
+-			return;
+-		}
+-		__drm_atomic_helper_plane_reset(p, &state->base);
+-	}
+-}
+-
+ static struct drm_plane_state *
+ atmel_hlcdc_plane_atomic_duplicate_state(struct drm_plane *p)
+ {
+@@ -1222,6 +1196,32 @@ static void atmel_hlcdc_plane_atomic_destroy_state(struct drm_plane *p,
+ 	kfree(state);
+ }
  
--module_platform_driver_probe(aspeed_sgpio_driver, aspeed_sgpio_probe);
-+module_platform_driver(aspeed_sgpio_driver);
- MODULE_DESCRIPTION("Aspeed Serial GPIO Driver");
++static void atmel_hlcdc_plane_reset(struct drm_plane *p)
++{
++	struct atmel_hlcdc_plane_state *state;
++	struct atmel_hlcdc_dc *dc = p->dev->dev_private;
++	struct atmel_hlcdc_plane *plane = drm_plane_to_atmel_hlcdc_plane(p);
++
++	if (p->state) {
++		atmel_hlcdc_plane_atomic_destroy_state(p, p->state);
++		p->state = NULL;
++	}
++
++	state = kzalloc(sizeof(*state), GFP_KERNEL);
++	if (state) {
++		if (atmel_hlcdc_plane_alloc_dscrs(p, state)) {
++			kfree(state);
++			drm_err(p->dev,
++				"Failed to allocate initial plane state\n");
++			return;
++		}
++		__drm_atomic_helper_plane_reset(p, &state->base);
++	}
++
++	if (plane->layer.desc->layout.csc)
++		dc->desc->ops->lcdc_csc_init(plane, plane->layer.desc);
++}
++
+ static const struct drm_plane_funcs layer_plane_funcs = {
+ 	.update_plane = drm_atomic_helper_update_plane,
+ 	.disable_plane = drm_atomic_helper_disable_plane,
 -- 
 2.51.0
 
