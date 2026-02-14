@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79226EF5848
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 18:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B81EF584C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 18:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZthU/dBSxhU1jw5Zz5Kc0iDhp0uS8p8MD7uxvdSwEY4=; b=Ap6iZFLa5vYFv7uwGUWEGCKXym
-	6nXPQgkI9LeDiZKqTVbiP0rCRd2livs1g9CNVf5ExKzZfHa5qfgswD0B2D/5z9XCmy3Szt8bKXVbm
-	8bSXkKP4kzVMtyFNtMLlk/rcmbX9P+CXDxNcy18PgPvmhnLjsqj0pqEbrKVUcXcyjPgNvrnKvYPBc
-	k/1jlfHw293bYwaM/iTF3ACD1If+hwLBZlV4IaP41itMI5CoSSCyPZXe39xUqp4Pt2DQcnotwgAhQ
-	AOHEylakiEvbUhR5sn2T+Z1DCVs0tB4AKlxamLXBUi4jM1KJZDJk2jegyIYwO8oMrDzAgGDvkN5LL
-	0xQeobkw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GBz/VS0n7QHhwwTW/twbu0ESsUBq5BIV+GsuXlYuLBc=; b=Cp6s+Qes9riSGPCR0/4RFB23uQ
+	0J2m8VZqE1A4ZFjpbHokyCidJPc+GmXOw5qltQpo8HdgppwrTanGatr4i9vgleL39QFSXhZzUwcZB
+	VOEzSZhxaxCjeUf/78KigMPTr0mDx9zpnb+MkZNIiJ5KlNXLW/heEVu8iqIECVgPyQL/RRUJsyVCN
+	YpYCZtwb3OD9HkvnTqoWJcVsct/SfXhr7qewj44jwfpuDFc3vKMhz1SwdeXDV+wss9NRiC5ilPlvg
+	+3luxHZb44BvZx4IlmFsAMtNrmzf3UQIB2V0q7MmD2DIztXW8oTRC5HnYuRufmac7barcsKQIcOeS
+	PMNlETsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrKF3-00000004psg-3qJH;
-	Sat, 14 Feb 2026 18:19:41 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vrKFB-00000004pu7-0rbm;
+	Sat, 14 Feb 2026 18:19:49 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrKF1-00000004psK-1RWA
+	id 1vrKF9-00000004ptY-2HOP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 18:19:40 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2a9296b3926so12314285ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Feb 2026 10:19:38 -0800 (PST)
+	Sat, 14 Feb 2026 18:19:48 +0000
+Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-2a929245b6aso20953975ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Feb 2026 10:19:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771093178; x=1771697978; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZthU/dBSxhU1jw5Zz5Kc0iDhp0uS8p8MD7uxvdSwEY4=;
-        b=E1PZgifBjm7p+sv9sn54mYks0hj1LLG8TtNHqoT8MhTxqAU4qpHqdF1LelVcH/nw5T
-         aqoM1VsEOI8mLex1/OfYFvPRF3T7UsA8b4yRJYsZ+Een5ObyAl8WeyeWTwKkl4K+cYm/
-         FHEQYxuN1jS1InVAnIc+tSgjdXxKRTHse3ol37gurKM7N0aaeVK0FD8lf7nBbL5Ur8+7
-         dwpWTOKuecBlwrqQU8XH9uoZrQIXJ4pYv8DJSyws92g/WEEMN/F4NFVT6Ljm86Pd6WMZ
-         EDwTZki6fDLZGfcql3VU/5Sf3nltLyite6iw6Aiuu4viEep29N6X9cCsoF+MVDi3hTho
-         eJsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771093178; x=1771697978;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1771093186; x=1771697986; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZthU/dBSxhU1jw5Zz5Kc0iDhp0uS8p8MD7uxvdSwEY4=;
-        b=nX8C9x1ZE7vm8Ju1YwVgzvrl6fYcFSSeCCoIZc42npeL1TtJyNCwFr/17m+CUMypHD
-         2Zq7nMpAAZIdBCTXb32FbPe2lW2hzPmi2x+vXQrxtcjz2yrzDEPRC/G4PqFh5K9iV1tH
-         C/mpGCnxW6qW58jO5hxjbmaYemNYxyFLFg66w6CCbPlxJHS8ylp1wKdr/UuylZ0573Cx
-         YhCbtD6DLjip0ptUix0/YCliuxxD67etjiu0n/ya43mawTbq1BFKeTj84tdcYIb26e5Y
-         s0qcD8qgC68748E8FUcAI80pIG+LK/VkVGaK3Sq+NEyE0kIQYSLKqH6pTbFwSShFifSK
-         vTNg==
-X-Forwarded-Encrypted: i=1; AJvYcCW2IrHqKkGctDahEQZmUeYs2SvnhsAEgwDSO3yCCvYNvByqpTT+GShMUB5+w30nSNB5J/bFjTL4Hz5NX/jvQVIz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw21j+dyu4OAadYlec+zgI/FWguC7wJlxUpx3DlXeYbtDUQWnWM
-	G0bS5i93fWHwuW7TQKUAPt80V5YBsYx+TOlU095SXprJeV2JWdz05Oyv
-X-Gm-Gg: AZuq6aLpZy4C++U2e/ttdkrT0o2ExAoA7yjvRj0WrjzjwVjs/Od7R3jra96UKVF0LEi
-	nALM52kQ0Uqtdk/nG3EHwSlxhVPoiFPmwuTMcD+WNpkRo4Z4oRXftA6UNyvAipELAkN/sUk70J5
-	zazBgxEFUY8+tmOSpCwJlIHwfHFQgQgHHDT33817OplTr6QDO6w02uNxbTBHpnhOxk+0PbL7Y4t
-	kQ3Dq9N7Oaadg/ivqSVb5z9h71KmNLaTCA+gURZGKSna17VTpueXpH+wb/HzIUFD39B9rry69q9
-	dLuKhgBgZfV9MyRJU4QYTIT3PmjKHo0HvxAPfdOm4TBh8lAq/+3FyMlwRlTVon5G6yuYRN+LFGx
-	riWM5dcgcNeEgAJ9GsRk6YqPMNztSgfy93dhQogMdjnGQV7Kf6yFVPA/lKnEN2jaZeoobpRZg2R
-	wSiZRwsWgjGYeO2c8tu1Y=
-X-Received: by 2002:a17:903:37cc:b0:2a1:e19:ff0 with SMTP id d9443c01a7336-2ab505cf397mr61192685ad.39.1771093177563;
-        Sat, 14 Feb 2026 10:19:37 -0800 (PST)
+        bh=GBz/VS0n7QHhwwTW/twbu0ESsUBq5BIV+GsuXlYuLBc=;
+        b=exzBRoqt6l1c+VuixmKvUqN017jvnmFllv9TLVdU1Dw904EiezQMPgbKiYcmvkRvrd
+         ZS9Qpe2mgBtCiOApZBC8tsJJwiLKWP/94XjUnDU7UNANUMNAIXqdgRqXE3cPO8zLYxm5
+         +VKRb3gxJ88TSiKYuDcsA7we7o97xX8VfBbdzP/HVLrXYojdAeBdsWUr2+kCA/sPvPgZ
+         t5IfKfzws3B7KTxN/GsCrUBcnImjvr5irSBU81q7kPukwEmNEq5VEsmU4qabYw+SI4cu
+         rADbqAcW8cCpTBt2ORocA72/W1TSkP18KKYr+KuI0Tn5dQqjyzqe6luOT7X2SkeuTjG9
+         yeqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771093186; x=1771697986;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=GBz/VS0n7QHhwwTW/twbu0ESsUBq5BIV+GsuXlYuLBc=;
+        b=oxyT8lVssuyg9rKZxSrtPyCTI1Of6S+DwhmEvlfCFBPcMzORVesas2+BGpM8klJ0W6
+         Fu1D8QH7I3if6EghqvfkOvru1ig0Fofg7qt5c9zcuFb91+dsRjFuwP0hWSz1FvwlnIrE
+         fpHs17HlwM60XkKXpoix1wcfSI2CV8h6LD3/t0we9kKwFPhbMvW0aPZ45iJLoi6oZjQL
+         cwDK3px1ovm0bU2FuDfQwsrB6SmUepPiQwMoiQAYna5GqINPoUEZm1xmUfGqTzRI5OJc
+         L0P5gMr+BOsVBrQFNNtcyAcZH9QmXl38qpeW+hxsxK0XHewMOZuXSvo+uV8VK/zasHbS
+         6kUg==
+X-Forwarded-Encrypted: i=1; AJvYcCWJoU4C/oEuxPJ5RRB7WIF2+ETCKx4OveNJuypBWA8aaaXOwMAAUGmSY+AgNfdERZhKYBOyhll4EEz7iDmjrrVx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7Lwm7LBFIAvG2VwFXiTLHK0SyFBGFbRur2d1nBo0rNeXG3yNS
+	dcmII+XGCUAUcgKfywP6ExGYtG48tVUny75TamBVkgAYBvkg8FiRLjkg
+X-Gm-Gg: AZuq6aKturUYA5EIxjuLHYsKXhjFa0GWf0pHcMSDJmnursGjzhNgZo88Of797OQHQ4n
+	UGOSFwHPYeOeee0GHRMfdp9XA5Lv7eXQjA471VTsQrBMJbaXrzDh3xdepOx5MtJdqDrqZdr7ltg
+	1V45rXocQZ1CwQhrJoG/P2Oio2mcDi4omlL4tv3ZlKkON0UZJQNqEOWeV0LvYumdYUVB7Gdt9aQ
+	KpZ/MEn7sHLRyeJjMfTDjdfGTTXm/xomaMoDmVbPFpMXtIRz3TDdaOTfzs+kLa8k9P2Q0M9Hjdp
+	YoWcAMtxqKGYAQF+ZOL5xKwrWia3wAqzDcL5AnuBIjxHtY96aioVgRTIKt0neN7Xwkm+GcfmWUu
+	ujVxE5BQfo1CQa46IR3UFN0pRiyRWJP3bcTvgvohhablEkVzS809IfJbKQ+mp6vKFIg0jHBJ7lI
+	OcInz86iYxeR8D/p6G/Nw=
+X-Received: by 2002:a17:902:e5cc:b0:2a9:db7:446a with SMTP id d9443c01a7336-2ad1743398cmr29145525ad.9.1771093186513;
+        Sat, 14 Feb 2026 10:19:46 -0800 (PST)
 Received: from rockpi-5b ([45.112.0.78])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a9d5e06sm28406615ad.50.2026.02.14.10.19.33
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a9d5e06sm28406615ad.50.2026.02.14.10.19.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Feb 2026 10:19:36 -0800 (PST)
+        Sat, 14 Feb 2026 10:19:45 -0800 (PST)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
@@ -81,15 +82,17 @@ To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
 	linux-kernel@vger.kernel.org (open list)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v8 0/9] Exynos Thermal code improvement
-Date: Sat, 14 Feb 2026 23:48:57 +0530
-Message-ID: <20260214181930.238981-1-linux.amoon@gmail.com>
+Subject: [PATCH v8 1/9] thermal/drivers/exynos: Refactor clk_sec initialization inside SOC-specific case
+Date: Sat, 14 Feb 2026 23:48:58 +0530
+Message-ID: <20260214181930.238981-2-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260214181930.238981-1-linux.amoon@gmail.com>
+References: <20260214181930.238981-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_101939_410285_EB04B52A 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260214_101947_586464_31D83B83 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,65 +107,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+Refactor the initialization of the clk_sec clock to be inside the
+SOC_ARCH_EXYNOS5420_TRIMINFO case. It ensures that the clk_sec clock
+is only initialized for the specified SOC and not for other SOCs,
+thereby simplifying the code. The clk_sec clock is used by the TMU
+for GPU on the Exynos 542x platform.
 
-This patch series is a rework of my previous patch series [1],
-where the code changes were not adequately justified.
+Removed redundant IS_ERR() checks for the clk_sec clock since error
+handling is already managed internally by clk_unprepare() functions.
 
-In this new series, I have improved the commit subject
-and commit message to better explain the changes.
+Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+v8: None
+v7: None
+v6: Add Rb Lukasz and try to address Daniel review coments.
+v5: None
+v4: Fix the aligment of code clk for clk_prepare in proper if/else block.
+    update the commit for clk_sec used.
+    checked to goto clean up all the clks are proper.
+    drop IS_ERR() check for clk_sec.
+v3: improve the commit message.
+---
+ drivers/thermal/samsung/exynos_tmu.c | 36 +++++++++++++---------------
+ 1 file changed, 17 insertions(+), 19 deletions(-)
 
-v8: Refactor SoC-specific configuration to new exynos_tmu_soc_config
-    structure which help clean up the callbacks.
-    dropped the IRQ clean up patches, with new approach 
-    it will be much eaasy for new SoC to be integrated
-    and the code will be much better way managed in the future.
-v7: Integrated my RFC patch which improves the IRQ framework
-    for all the SoC link below.
-v6: Add new patch to use devm_clk_get_enabled
-    and Fix few typo in subject as suggested by Daniel.
-v5: Drop the guard mutex patch
-v4: Tried to address Lukasz review comments.
-
-I dont have any Arm64 device the test and verify
-Tested on 32 bit Arch Odroid U3 amd XU4 SoC boards.
-
-Please sare the feedback on this.
-
-[7] https://lore.kernel.org/all/20250813131007.343402-1-linux.amoon@gmail.com/
-[6] https://lore.kernel.org/all/20250616163831.8138-1-linux.amoon@gmail.com/
-[5] https://lore.kernel.org/all/20250430123306.15072-1-linux.amoon@gmail.com/
-[4] https://lore.kernel.org/all/20250410063754.5483-2-linux.amoon@gmail.com/
-[3] https://lore.kernel.org/all/20250310143450.8276-2-linux.amoon@gmail.com/
-[2] https://lore.kernel.org/all/20250216195850.5352-2-linux.amoon@gmail.com/
-[1] https://lore.kernel.org/all/20220515064126.1424-1-linux.amoon@gmail.com/
-[0] https://lore.kernel.org/lkml/CANAwSgS=08fVsqn95WHzSF71WTTyD2-=K2C6-BEz0tY0t6A1-g@mail.gmail.com/T/#m77e57120d230d57f34c29e1422d7fc5f5587ac30
-
-Thanks
--Anand
-
-Anand Moon (9):
-  thermal/drivers/exynos: Refactor clk_sec initialization inside
-    SOC-specific case
-  thermal/drivers/exynos: Use devm_clk_get_enabled() helpers
-  thermal/drivers/exynos: Remove redundant IS_ERR() checks for clk_sec
-    clock
-  thermal/drivers/exynos: Fixed the efuse min max value for exynos5422
-  thermal/drivers/exynos: Remove unused base_second mapping and
-    references
-  thermal/drivers/exynos: Refactor SoC-specific configuration to new
-    exynos_tmu_soc_config structure
-  thermal/drivers/exynos: Relocate exynos_sensor_ops for forward
-    declatition
-  thermal/drivers/exynos: Add missing drvdata assignment in Exynos TMU
-    probe
-  thermal/drivers/exynos: Fix some coding style issue
-
- drivers/thermal/samsung/exynos_tmu.c | 501 +++++++++++++--------------
- 1 file changed, 249 insertions(+), 252 deletions(-)
-
-
-base-commit: 770aaedb461a055f79b971d538678942b6607894
+diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
+index 47a99b3c5395..04517d52afbd 100644
+--- a/drivers/thermal/samsung/exynos_tmu.c
++++ b/drivers/thermal/samsung/exynos_tmu.c
+@@ -1040,26 +1040,26 @@ static int exynos_tmu_probe(struct platform_device *pdev)
+ 	if (IS_ERR(data->clk))
+ 		return dev_err_probe(dev, PTR_ERR(data->clk), "Failed to get clock\n");
+ 
+-	data->clk_sec = devm_clk_get(dev, "tmu_triminfo_apbif");
+-	if (IS_ERR(data->clk_sec)) {
+-		if (data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO)
+-			return dev_err_probe(dev, PTR_ERR(data->clk_sec),
+-					     "Failed to get triminfo clock\n");
+-	} else {
+-		ret = clk_prepare(data->clk_sec);
+-		if (ret) {
+-			dev_err(dev, "Failed to get clock\n");
+-			return ret;
+-		}
+-	}
+-
+ 	ret = clk_prepare(data->clk);
+ 	if (ret) {
+ 		dev_err(dev, "Failed to get clock\n");
+-		goto err_clk_sec;
++		return ret;
+ 	}
+ 
+ 	switch (data->soc) {
++	case SOC_ARCH_EXYNOS5420_TRIMINFO:
++		data->clk_sec = devm_clk_get(dev, "tmu_triminfo_apbif");
++		if (IS_ERR(data->clk_sec)) {
++			ret = dev_err_probe(dev, PTR_ERR(data->clk_sec),
++					    "Failed to get clk_sec clock\n");
++			goto err_clk;
++		}
++		ret = clk_prepare(data->clk_sec);
++		if (ret) {
++			dev_err(dev, "Failed to prepare clk_sec clock\n");
++			goto err_clk_sec;
++		}
++		break;
+ 	case SOC_ARCH_EXYNOS5433:
+ 	case SOC_ARCH_EXYNOS7:
+ 		data->sclk = devm_clk_get(dev, "tmu_sclk");
+@@ -1112,11 +1112,10 @@ static int exynos_tmu_probe(struct platform_device *pdev)
+ 
+ err_sclk:
+ 	clk_disable_unprepare(data->sclk);
++err_clk_sec:
++	clk_unprepare(data->clk_sec);
+ err_clk:
+ 	clk_unprepare(data->clk);
+-err_clk_sec:
+-	if (!IS_ERR(data->clk_sec))
+-		clk_unprepare(data->clk_sec);
+ 	return ret;
+ }
+ 
+@@ -1128,8 +1127,7 @@ static void exynos_tmu_remove(struct platform_device *pdev)
+ 
+ 	clk_disable_unprepare(data->sclk);
+ 	clk_unprepare(data->clk);
+-	if (!IS_ERR(data->clk_sec))
+-		clk_unprepare(data->clk_sec);
++	clk_unprepare(data->clk_sec);
+ }
+ 
+ #ifdef CONFIG_PM_SLEEP
 -- 
 2.50.1
 
