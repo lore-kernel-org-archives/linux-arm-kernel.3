@@ -4,100 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F5DEF99F3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 02:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59949EF99F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 03:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6NxJTt8x1pN1xYEpvvm4x+ssOBAPxMVEtMmjTeNfX7w=; b=3kzjAiyHviPyVpdE1kP6cxxcZW
-	lwWKn6eZUIqLct8pog0MXp2B/+B4APM3oP9Q8vQZgfmx4RlW1Q27alH36P40Yj98j88Q17XfX3Txx
-	Wx8IzouLeLednMufrM8Rdi6xeco34cFINL9pZ0QKPHn7/uq8ADMCtYJ890hzbu7IK+46mjXAQ3sTz
-	NoyjCYL4DUwJmOj4Q5xFHOT6AoK7gldcLDrfkp0FPRvd4V14mcKsRt00qoib+TdPZ2Xtd1HBltX+n
-	8LOlNbArADh1v73WUFK6e3K9kp8LBKzw/ApPs5xrbK+hKZCWKcnmGnhsBHEEaUTvZ9/U+/CXtG/1m
-	t4usXb1w==;
+	bh=V66pTPYwTwkXcZCo9hCSgcJ8DqeMyGSSMIaJM+3P4ng=; b=Od/64Ky3nBpQUodulF5QRWfuho
+	wzJMUhiTabsWGNq98RTWVql62kv/tlDtsLEnuLdpmQLN3dRMFGPJb9qHUkB+AwM7yvmih8T1zoDKs
+	2JwT+1hKJYGaCfnRy0yFkVNQNh/ecL2UPFQVrh12aPziVmn5xjWKS6bo4r8xVYRWrtCLbRjlZGd/k
+	bPAfilZio+yEiuYmt0WnpCfE4A1hox1zbaDpoAAUZjFTWScW7gwgQ03+gHWi+TJ6crpfFORy2P+A9
+	bFTlsppf1aC/eb7WIH9yaXOvZFdnZfuAXVstTEUnW8FmC6CsruXdluboztQsL0II0xZKbRZKsP9C3
+	Fq61DJmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr5hJ-00000004BAR-2Y3u;
-	Sat, 14 Feb 2026 02:47:53 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1vr66T-00000004Bwq-12bj;
+	Sat, 14 Feb 2026 03:13:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr5hH-00000004B9w-2C9c
+	id 1vr66S-00000004Bvd-10z8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 02:47:52 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7d4c65d772cso1042675a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 18:47:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771037270; cv=none;
-        d=google.com; s=arc-20240605;
-        b=L63+onTUX95LB4gxlGj3ykOXwllF5Kgu9maSEVVtElb/taCTsZZeRpPFEsC3hs01NI
-         UgCFjYzyJcQ2aQrHU14YLBuN06mlsz3PoFjDv0SzFynFIbqif537idcOlYRcwsR3PbQu
-         BeUOV+RJYh7u8I2XlNS9WMojv4Khxu0jBqIAfOk1E4/WL7qSXJOMbWw6c0YrbCe1ntbV
-         cPSoUXOJCpv5tiWvPBKM9SO37+ZtVjeYA6LqW+dUOQq2pTmV5DbACcQCaR7G7e2g7a7G
-         lfPvNobX1VmJP/Wf5uWF+gq2EOy4qOthp8VGoc+4vNWF5x0V1K4IkEZdc9z38lel54zB
-         H2UA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :mime-version:dkim-signature;
-        bh=6NxJTt8x1pN1xYEpvvm4x+ssOBAPxMVEtMmjTeNfX7w=;
-        fh=pF6/PktA7FeWNVMTupqRKo7fdBM43NHIhYQuZj0R/bw=;
-        b=WddLmrB7scimmxnez9TSi7pA18GUASBfZnEx5KTqVT0j43YCxiucNOgCVeOYRXpenM
-         a8Wea2Tns7VtybQYNzX/+37XG+UybK1EVXBi5GlwuFmHKQb0gioOmhkSH0YbUd8Ku8mG
-         D5xvEx9cYz/l2qrjSwqJVzTEGWd6YC173YV2Z/s6j8jJwg7uXjUhfWmjuYIE122YzCDo
-         yoxftSXulch7X/wxqs2N7Wkf288CBzkKwh/h2/9tW17fOMU8U5SALOYjgMmsceHDzJRn
-         DxtGEIOwvL/54t9ioCD0o8RJmw1FoLpatWe9Sh5am9+4Zg1mYDkDchZuOC6zY4aF7nmc
-         ueFw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771037270; x=1771642070; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6NxJTt8x1pN1xYEpvvm4x+ssOBAPxMVEtMmjTeNfX7w=;
-        b=EXaIS19NinzpWbkkssl7fyhb6VTON8zkWI5w9sUOcw6mhTC+h4jivyaRTTXVcTGLth
-         l7NANfDMlZg/oRxesRGPjEuUBl0oe4n8pJ3hwUKCTD1+qcD9aAtVQa+05YU05o3uAEEh
-         /dB+CpCf0Aa8SKSGtu/0ViuI3IIxwCkg2KyGJJ3sDzHTyaAkEGGQ5+ovwm/jcgmJ1Bw9
-         VpfJeABOuVkFE1kBycSJwN+OxQdO4fPc7APgKsR2WXFshhBVWcBfHUSkVwZFUiLBxii0
-         5N4MEeTA8hAwefLOmhsDRHWb6GZACOPMfSuPjVDJ1e0t4UF/rIHOHozhkRdcsJKS9esU
-         /vUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771037270; x=1771642070;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6NxJTt8x1pN1xYEpvvm4x+ssOBAPxMVEtMmjTeNfX7w=;
-        b=ONDhg7/8twHjf5ft97+p3c4rSzJR6bZQxUzdsp26lu6caY4OLIXC+xWlX3047VUfc9
-         Q0TOiI7xZ31DNZ148YEKii5fOlsSrKHBBeZPo8o7fUMk/eL9ICpN9DeIA0Ey3YR4aWQU
-         WAcxbi2A9cKtNKw78yhSBNVV2EsaVjbUc0Niut2HIzslSCVopOm1T1hYdrKvcvrGjOsA
-         UdRh5sWtzr8B7j7EanY0fY/q+KrJ4lhyDruDp4JRtgHJJp6yNwvmIdxz2NrAVCdwUXly
-         z2r0WoFueLjDqUq9hbgzJbYMMlVRhRaFPm4/yjBxczODybOtO8tZLVUgE6xYG1atc5Kk
-         2UuA==
-X-Gm-Message-State: AOJu0Yw7MsX/oHve74OkmwLfL1B5nCSxBxsjWSjVeJIqnhsgHEYqQUnr
-	my0P+CZHp8cg7M6NCpIF6wOYlQf6WihCXmjJPblZnRRHUTVyCrg5rvii4qB+GuBLu60jsFUg6iN
-	EWPT/25t8a2dMKOTLINkQHxIsVPXUoIU=
-X-Gm-Gg: AZuq6aIbZiVOWlUX3sEjCv5j9vrRqm/UQ7tqh4WIqV5bVBGOqt5eHxYuRTnB3lU8fQj
-	cVlNNc3KT7XFPFeo8vZW4/c2xFxoWYe/v5VIVfDDQ4AYtTlkyc4155rM7hLBgDj2UyW9vlmRqq1
-	vVYkWPBSFz4xXzzOWzyMnQFqXg72axlpTbcYVmc++dOCrBe1d8JHNcTPwEPGdQk5dAaGRZN0tRy
-	uM+GNano5GCadyR4mxzEh6u5poFS0EE0LUb0otlSHnbJOKRe4USnSRgmvO3UWxZybY9FfT18YTT
-	6P4eeg26
-X-Received: by 2002:a05:6820:1803:b0:66b:299f:f2b6 with SMTP id
- 006d021491bc7-67769a7b2d2mr1807799eaf.73.1771037269843; Fri, 13 Feb 2026
- 18:47:49 -0800 (PST)
+	Sat, 14 Feb 2026 03:13:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 10E7A60054;
+	Sat, 14 Feb 2026 03:13:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id AE412C116C6;
+	Sat, 14 Feb 2026 03:13:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771038830;
+	bh=AveWrvXusFxamxdRx0C3nhvuASpHXQtiNHJ9W6SVTD0=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=htf5QPpROUREoUzab+2Ap5vldjgcVTmZAzlsCvRDPOb0HZVPE1d5fq6+YGwi6ZV56
+	 ZmSZ4rF/boBnyP2L0XdVHXRsLgiR14urgfgntZ9GcruWFc94ku3cUWRzXQoPOgDjqb
+	 hxUnI+EbCPwWmT2C5jgu7QepBudvscP8mIIPmWhJgn3Xl4JzEJ5hNstbEBUybgU0Ae
+	 hS9OXPful/WXcsbbQnT1y2nIcXeR1iZ3EojR1/ZUD9cKvuTk5JTHrb+sxmE6ZBqzrJ
+	 7NW7d1KWZyqkxa+FO635Fs4kCFqIRn6zip+Blo7dnwhrBjHXhrpicgXefp+twQ2XFR
+	 u2OpC8NFhMQuw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 912A2EF99D5;
+	Sat, 14 Feb 2026 03:13:50 +0000 (UTC)
+From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
+Subject: [PATCH v6 0/6] Introduce MAX77759 charger driver
+Date: Sat, 14 Feb 2026 03:12:36 +0000
+Message-Id: <20260214-max77759-charger-v6-0-28c09bda74b4@google.com>
 MIME-Version: 1.0
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Fri, 13 Feb 2026 20:47:38 -0600
-X-Gm-Features: AaiRm524NS-u7iOjrFPdjDcPr3KsQEfv-RCl17RpvYHz9wtyB0xxb796zkibnFM
-Message-ID: <CABb+yY0ErLA7X9OgU9OErDSg3Z3zXVLgp8JOrqAAuumTnznJqg@mail.gmail.com>
-Subject: [GIT PULL] Mailbox fixes for v6.20
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_184751_578681_629250D3 
-X-CRM114-Status: GOOD (  13.86  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIACToj2kC/23QwW7DIAwG4FepOI8JDDaw095j2gESJ0VaS0Wmq
+ FOVdx+pNnVTcvyN/NnmJiaumSfxcriJynOecjm3QE8H0R3jeWSZ+5YFKECtFcpTvDrnMMj2XEe
+ u0iMkAuqJdBSt7VJ5yNc7+fbe8jFPn6V+3SfMeq3+YGC22KylkpSAbfKDG9C+jqWMH/zclZNYt
+ RkeAmi/I0ATIAGG4FUkTxvB/BHA7QimCWiZyA7YxQAbwf4KpNoSO4JdrwgWjO18z73eCPgQQO3
+ 9AzYhoTIBjaOIwz9hWZZvRNwDGLkBAAA=
+X-Change-ID: 20251105-max77759-charger-852b626d661a
+To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Lee Jones <lee@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Badhri Jagan Sridharan <badhri@google.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Mark Brown <broonie@kernel.org>, 
+ Matti Vaittinen <mazziesaccount@gmail.com>, 
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>, 
+ Amit Sunil Dhamne <amitsd@google.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1771038829; l=5661;
+ i=amitsd@google.com; s=20241031; h=from:subject:message-id;
+ bh=AveWrvXusFxamxdRx0C3nhvuASpHXQtiNHJ9W6SVTD0=;
+ b=c10MZSi5/tRPt3QQmxGUNygXPSvwX6fMeJjn0bye+BqKRxMW4brk9JP8Q2zStXD/7JS1HUKHP
+ Xaq6h0phelVCzdJmfF8dIaIkMnOHrNd4C++uP8YyxiRuBPMso6gvYCs
+X-Developer-Key: i=amitsd@google.com; a=ed25519;
+ pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
+X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
+ auth_id=262
+X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,166 +98,129 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: amitsd@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
-The following changes since commit e84d960149e71e8d5e4db69775ce31305898ed0c=
-:
+MAX77759 PMIC is used in Pixel 6 and 6 Pro (Oriole/Raven) boards.
+One of the functions of the MAX77759 PMIC is a battery charger. This
+patchset introduces a driver for this function. One of the unique
+features of this charger driver is that it works with a USB input where
+the Type-C controller is TCPCI based.
 
-  Merge tag 'for-6.19-rc5-tag' of
-git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux (2026-01-17
-19:29:32 -0800)
+Changes to the board files will follow soon once this patchset is reviewed.
 
-are available in the Git repository at:
+For reference to the MAX77759 MFD based patchset (present in upstream):
+https://lore.kernel.org/all/20250509-max77759-mfd-v10-0-962ac15ee3ef@linaro.org/
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
-tags/mailbox-v6.20
+Dependency list for patches (directionality indicates depends on):
+[6] -> [5] -> [4] & [3]
 
-for you to fetch changes up to 75df94d05fc03fd9d861eaf79ce10fbb7a548bd8:
+Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+---
+Changes in v6:
+-  Linear Range usage (André Draszik):
+  - Dedicate individual arrays for inlim, chgcc & chg_cv_prm to simplify
+    code.
+  - Use numerical values instead of macros for linear_range array init.
+  - Remove macros defining current and voltage limits due to above.
+  - Didn't use Reviewed-by tag for Patch 3 due to the above.
+  - Add new linear_ranges api to leverage it for obtaining selector
+    values.
+  - Improve voltage and current getters and setters functions by leveraging
+    existing and new linear_ranges API.
+- IRQ related changes (André Draszik)
+  - Dedicated names for individual irqs.
+  - Refactor irq handlers.
+  - Ratelimit prints
+- Retry mechanism (André Draszik):
+  - Initialize error retry counter to 0 when psy work is scheduled on a
+    new notifier event.
+  - Protect the counter using a lock.
+  - Add appropriate prints.
+- Link to v5: https://lore.kernel.org/r/20260203-max77759-charger-v5-0-b50395376a5f@google.com
 
-  mailbox: sprd: mask interrupts that are not handled (2026-02-01
-18:59:52 -0600)
+Changes in v5:
+- Use linear_range library instead of reinventing it. (André Draszik)
+  - This requires a selector_max value so modified mfd/max77759.h to
+    include it for CHGCC and CHG_ILIM.
+  - Removed "reviewed-by" for Patch 3 (mfd) due to above
+- Use asnyc probe type. (André Draszik)
+- Retry mechanism for psy_work. (André Draszik)
+- Minor nits (André Draszik):
+  - Use named initializers for instantiating structs.
+  - Use static qualifier for `psy_name` variable.
+  - Refactor if-else ladder to remove else handling if return in prior
+    "if" loop.
+  - Remove redundant `unlikely`.
+- Link to v4: https://lore.kernel.org/r/20260121-max77759-charger-v4-0-694234c8ded1@google.com
 
-----------------------------------------------------------------
-mailbox: platform and core updates
+Changes in v4:
+- Removed a stray tabspace in mfd/max77759.h. (André Draszik)
+- Fixed the following issues in Patch 4/5 (André Draszik):
+  - Re-order Kconfig entry
+  - Refactored to not use global variable
+  - Use of clamp() to clamp values instead of duplicating logic
+  - Return IRQ_NONE for unhandled irqs or error conditions
+  - Remove debug messages in irq handler
+  - Refactor code to use dev_err_probe in *_init_irqhandler()
+  - Remove unneeded irq_flags
+  - Check return values of regmap ops
+  - Other nits like newlines, not using greedy init, using print stmnts
+- Link to v3: https://lore.kernel.org/r/20251227-max77759-charger-v3-0-54e664f5ca92@google.com
 
-PCC
-- Updates to transmission and interrupt handling, including
-  dynamic txdone configuration, ->last_tx_done() wiring, and SHMEM
-  initialization fixes. Reverted previous shared buffer patch.
+Changes in v3:
+- Had incorrectly folded the charger sub-device with the pmic parent.
+  Corrected it. (Krzysztof Kozlowski)
+- Link to v2: https://lore.kernel.org/r/20251218-max77759-charger-v2-0-2b259980a686@google.com
 
-MediaTek
-- Introduce mtk-vcp-mailbox driver and bindings for MT8196 VCP.
-- Expand mtk-cmdq for MT8196 with GCE virtualization, mminfra_offset,
-  and instruction generation data.
+Changes in v2:
+- Fold charger binding in maxim,max77759-charger.yaml to its parent
+  node. (Krzysztof Kozlowski)
+- Renamed regulator supplier & consumer. (Krzysztof Kozlowski & Heikki
+  Krogerus)
+- Removed explicit setting of irq trigger types in max77759 driver.
+  (André Draszik & Krzysztof Kozlowski)
+- Complete bit definitions for IRQ registers. (André Draszik)
+- Consolidate all bit definitions for charger IP in mfd/max77759.h.
+  (André Draszik)
+- Modify the handling of charger IRQs such that regmap IRQ chip handles
+  masking, de-mux and acking of interrupts. (André Draszik)
+- Remove unused macro definitions relating to Charger modes in tcpci
+  maxim driver (André Draszik)
+- Add dependency on Regulator class in Kconfig definition for max77759
+  chg. (Kernel Test Robot)
+- Link to v1: https://lore.kernel.org/r/20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com
 
-Spreadtrum (SPRD)
-- Add Mailbox Revision 2 support and UMS9230 bindings.
-- Fix unhandled interrupt masking and TX done delivery flags.
+---
+Amit Sunil Dhamne (6):
+      dt-bindings: mfd: maxim,max77759: reference power-supply schema and add regulator property
+      dt-bindings: usb: maxim,max33359: Add supply property for vbus
+      mfd: max77759: add register bitmasks and modify irq configs for charger
+      lib/linear_ranges: Add linear_range_get_selector_high_array
+      power: supply: max77759: add charger driver
+      usb: typec: tcpm/tcpci_maxim: deprecate WAR for setting charger mode
 
-Microchip
-- Add pic64gx compatibility to MPFS.
-- Fix out-of-bounds access and smatch warnings in mchp-ipc-sbi.
+ .../devicetree/bindings/mfd/maxim,max77759.yaml    |  16 +-
+ .../devicetree/bindings/usb/maxim,max33359.yaml    |   4 +
+ MAINTAINERS                                        |   6 +
+ drivers/mfd/max77759.c                             |  91 ++-
+ drivers/power/supply/Kconfig                       |  11 +
+ drivers/power/supply/Makefile                      |   1 +
+ drivers/power/supply/max77759_charger.c            | 768 +++++++++++++++++++++
+ drivers/usb/typec/tcpm/tcpci_maxim.h               |   1 +
+ drivers/usb/typec/tcpm/tcpci_maxim_core.c          |  54 +-
+ include/linux/linear_range.h                       |   3 +
+ include/linux/mfd/max77759.h                       | 176 ++++-
+ lib/linear_ranges.c                                |  36 +
+ 12 files changed, 1108 insertions(+), 59 deletions(-)
+---
+base-commit: 8dfce8991b95d8625d0a1d2896e42f93b9d7f68d
+change-id: 20251105-max77759-charger-852b626d661a
 
-Core & Misc Platform Updates
-- Prevent out-of-bounds access in fw_mbox_index_xlate().
-- Add bindings for Qualcomm CPUCP (Kaanapali).
-- Simplify mtk-cmdq and zynqmp-ipi with scoped OF child iterators.
-- Consolidate various minor fixes, dead code removal, and typo
-  corrections across Broadcom, NXP, Samsung, Xilinx, ARM, and
-  core headers.
+Best regards,
+-- 
+Amit Sunil Dhamne <amitsd@google.com>
 
-----------------------------------------------------------------
-Andr=C3=A9 Draszik (1):
-      mailbox: exynos: drop unneeded runtime pointer (pclk)
 
-Conor Dooley (1):
-      mailbox: mpfs: drop POLARFIRE from ARCH_MICROCHIP_POLARFIRE
-
-Geert Uytterhoeven (1):
-      mailbox: Improve RISCV_SBI_MPXY_MBOX guidance
-
-Harini T (1):
-      dt-bindings: mailbox: xlnx,zynqmp-ipi-mailbox: Document msg
-region requirement
-
-Jacky Bai (1):
-      mailbox: imx: Skip the suspend flag for i.MX7ULP
-
-Jason-JH Lin (4):
-      mailbox: mtk-cmdq: Add cmdq private data to cmdq_pkt for
-generating instruction
-      mailbox: mtk-cmdq: Add GCE hardware virtualization configuration
-      mailbox: mtk-cmdq: Add mminfra_offset configuration for DRAM transact=
-ion
-      mailbox: mtk-cmdq: Add driver data to support for MT8196
-
-Jingyi Wang (1):
-      dt-bindings: mailbox: qcom: Add CPUCP mailbox controller
-bindings for Kaanapali
-
-Jjian Zhou (2):
-      dt-bindings: mailbox: mediatek,mt8196-vcp-mbox: add mtk vcp-mbox docu=
-ment
-      mailbox: mediatek: Add mtk-vcp-mailbox driver
-
-Joonwon Kang (1):
-      mailbox: Prevent out-of-bounds access in fw_mbox_index_xlate()
-
-Krzysztof Kozlowski (2):
-      mailbox: mtk-cmdq: Simplify with scoped for each OF child loop
-      mailbox: zynqmp-ipi: Simplify with scoped for each OF child loop
-
-Kuninori Morimoto (1):
-      mailbox: remove unneeded double quotation
-
-Lakshmi S (2):
-      mailbox: cix: fix typo in error message
-      mailbox: arm_mhuv3: fix typo in comment
-
-Mark Brown (1):
-      mailbox: pcc: Remove spurious IRQF_ONESHOT usage
-
-Otto Pfl=C3=BCger (4):
-      dt-bindings: mailbox: sprd: add compatible for UMS9230
-      mailbox: sprd: clear delivery flag before handling TX done
-      mailbox: sprd: add support for mailbox revision 2
-      mailbox: sprd: mask interrupts that are not handled
-
-Peng Fan (1):
-      mailbox: Remove mailbox_client.h from controller drivers
-
-Pierre-Henry Moussay (1):
-      dt-bindings: mbox: add pic64gx mailbox compatibility to mpfs mailbox
-
-Sebastian Andrzej Siewior (1):
-      mailbox: bcm-ferxrm-mailbox: Use default primary handler
-
-Sudeep Holla (6):
-      Revert "mailbox/pcc: support mailbox management of the shared buffer"
-      mailbox: pcc: Wire up ->last_tx_done() for PCC channels
-      mailbox: pcc: Set txdone_irq/txdone_poll based on PCCT flags
-      mailbox: pcc: Mark Tx as complete in PCC IRQ handler
-      mailbox: pcc: Initialize SHMEM before binding the channel with the cl=
-ient
-      mailbox: pcc: Clear any pending responder interrupts before enabling =
-it
-
-Valentina Fernandez (2):
-      mailbox: mchp-ipc-sbi: fix out-of-bounds access in
-mchp_ipc_get_cluster_aggr_irq()
-      mailbox: mchp-ipc-sbi: fix uninitialized symbol and other smatch warn=
-ings
-
- .../bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml |  49 ++++++
- .../bindings/mailbox/microchip,mpfs-mailbox.yaml   |   6 +-
- .../bindings/mailbox/qcom,cpucp-mbox.yaml          |   1 +
- .../devicetree/bindings/mailbox/sprd-mailbox.yaml  |   1 +
- .../bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml  |  11 ++
- drivers/mailbox/Kconfig                            |  17 ++-
- drivers/mailbox/Makefile                           |   2 +
- drivers/mailbox/arm_mhuv3.c                        |   2 +-
- drivers/mailbox/bcm-flexrm-mailbox.c               |  15 +-
- drivers/mailbox/cix-mailbox.c                      |   2 +-
- drivers/mailbox/cv1800-mailbox.c                   |   1 -
- drivers/mailbox/exynos-mailbox.c                   |   9 +-
- drivers/mailbox/imx-mailbox.c                      |   8 +-
- drivers/mailbox/mailbox-mchp-ipc-sbi.c             |  41 +++--
- drivers/mailbox/mailbox.c                          |   6 +-
- drivers/mailbox/mtk-cmdq-mailbox.c                 |  86 +++++++++--
- drivers/mailbox/mtk-vcp-mailbox.c                  | 170 +++++++++++++++++=
-++++
- drivers/mailbox/omap-mailbox.c                     |   1 -
- drivers/mailbox/pcc.c                              | 120 +++------------
- drivers/mailbox/sprd-mailbox.c                     | 117 ++++++++++----
- drivers/mailbox/zynqmp-ipi-mailbox.c               |   5 +-
- include/acpi/pcc.h                                 |  29 ----
- include/linux/mailbox/mtk-cmdq-mailbox.h           |  19 +++
- include/linux/mailbox/mtk-vcp-mailbox.h            |  32 ++++
- 24 files changed, 528 insertions(+), 222 deletions(-)
- create mode 100644
-Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
- create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
- create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
 
