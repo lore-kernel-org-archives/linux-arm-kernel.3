@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9350EF99EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 01:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD09EF99EB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 01:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1mIo+0QEn7UTXIe2leAcOCA4FnmNodovrpmgdx4dd/E=; b=MaMHityL8uZ1ZH4qrDbdYxiSzN
-	ykNippfKQ5X2/P4HZXdDOY4jiakmn3Tefr/YIlGpRpdXRJbtigb/tAQhpX3FspyiRoej24V/+o+pR
-	zx2k2F4TjuH/1KcqAHqTpBjOS0cwx4s3EoWIUq1SeWAuUDCmN/DPZ9s4aZwfkTT2QFQC06UKhmJqE
-	Lv08BFqMw8cyMdI7vv7i4QMHma2yh1JAV519Kw3BmiZ0CHGZp8RG5R0cuNGoWEeJ/CzdrH1+EXe3s
-	Z6iwdF+Oiq+pQ0nu/hNxIOzJ++dIQkwS3XUISUHM0SIcg6bXJ96YKmgSLVZipFe6Xr3I8YqJG0+3x
-	mUGh9KNQ==;
+	bh=F9jBCZof2KflqNaybxTzLtq9Mjcx8z9DFxizGag2cF0=; b=cS5kQEGo+Z6Q1rX0xaFAZYv2Iz
+	S+7u09M8/PRASdqXiAdqTPjdjCMzadWRpS+dBXGPfJlk+ey+CO69eQ7918Ag9VLbCIpR3TgHFUG7W
+	H6q/y8VEIJSs4SyWxW22P2u+ADNtZXkpfARv9fGqpgEXMkK0WzdESwdyw5ibug4NWxVAQZ/qOceSO
+	foP0H94HBfoP38WvbHM7ag9fw9HBkXDFkYgAa4jkrGpj2DO1Vk/ZaGnfiuh5aPP50L/OPWoAIFDlN
+	Q5KtILKxFTZJL5o2VuzJ/2cLluQAat/RjTLLm/auEokSO6kZ6Jv1W6mLZjDIwII31dW5wveJOv9FP
+	DFTHRyJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr46o-000000046hT-0dTo;
-	Sat, 14 Feb 2026 01:06:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vr47o-000000046ux-3Thf;
+	Sat, 14 Feb 2026 01:07:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr46m-000000046gt-0NIk
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 01:06:05 +0000
+	id 1vr47m-000000046u4-2ssl;
+	Sat, 14 Feb 2026 01:07:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C64B443D3;
-	Sat, 14 Feb 2026 01:06:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65FC3C19423;
-	Sat, 14 Feb 2026 01:06:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ACFA960140;
+	Sat, 14 Feb 2026 01:07:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F044DC116C6;
+	Sat, 14 Feb 2026 01:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771031163;
-	bh=FJSLGiaQrTdjaNFn5/fWJS1Yn2FwKMG/XhZ9Z4b/a8I=;
+	s=k20201202; t=1771031225;
+	bh=rDcWMAVldkzNaS8lDSB7w2Yk/9/U2azR+6IWXKQYi50=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Maa9S8ztrtxiPXcPPr4zD9VhGNCx1BtgDUwmW05/XWWzkZ3mtUdkNg9op/dHMjhkM
-	 OcanWHJ9p9IUmjvSaNr9Jh2Y3gGNnbrlj5GUlwuhEB60Rc10v3AfIal46VwhneOYTT
-	 LohWm9IZ7gbqK1BGTS26CVUEFoMvlQqI+zgYNhSpCpZoDyy5UkwVDASazCKgRmM1Ze
-	 PTIGb2o/5RShVC4sFraTJ7vtj63nYhtYTevzriFXIrGYXG8TT2aK/bbQ3lSfKz4jl/
-	 y8kYQbTlM1Wjb+o9t8tIYjzgS6OWOk+VJT36Wj+zr9lpLiThAzW+XrMvQjGidjzJSf
-	 FyHXVKErFgW5A==
+	b=ODDFwlURN5QaD6cm8CNWXh/XgakSO58kpoPQkT3XCs28MC3fdV5ios/DWlzP9XI/O
+	 DGlSTN9hkHBOc0oZ7Pvwe5RePIzX2ngCHHWsxW++TXKmb38zMVCJ5EE3OO3c1ZYgbY
+	 xjtYIbJOEXnVTuERaDFa7+tb4p0QfZZpLgX0FN1hs5Qez1kPmwiAtGmMCcrjwN16iE
+	 kyiQgFxo03gi5t5GdEE/Tq2MI2t3CdqAsV/8avoyW4jbm2YoEUAJJBNcVrd3bsy8+1
+	 v5vqOD7SSF/M8sYrxMhY7v573LVwX7Wpa9yjGcwEtT4ZxJDzA7Yl2Siji2L/6zL/M3
+	 FBrobmJoqpLig==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Manikandan Muralidharan <manikandan.m@microchip.com>,
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	dharma.b@microchip.com,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.19] drm/atmel-hlcdc: destroy properly the plane state in the reset callback
-Date: Fri, 13 Feb 2026 19:59:25 -0500
-Message-ID: <20260214010245.3671907-85-sashal@kernel.org>
+	matthias.bgg@gmail.com,
+	neil.armstrong@linaro.org,
+	nhebert@chromium.org,
+	yelangyan@huaqin.corp-partner.google.com,
+	sebastian.fricke@collabora.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.19-6.6] media: mediatek: vcodec: Don't try to decode 422/444 VP9
+Date: Fri, 13 Feb 2026 19:59:50 -0500
+Message-ID: <20260214010245.3671907-110-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260214010245.3671907-1-sashal@kernel.org>
 References: <20260214010245.3671907-1-sashal@kernel.org>
@@ -66,9 +68,6 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.19
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_170604_173689_B8D4B0D3 
-X-CRM114-Status: GOOD (  26.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,231 +82,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ludovic Desroches <ludovic.desroches@microchip.com>
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-[ Upstream commit 81af99cbd9e4f238011af811d544fff75641fc25 ]
+[ Upstream commit 3e92d7e4935084ecdbdc88880cc4688618ae1557 ]
 
-If there is a plane state to destroy when doing a plane reset, destroy
-it using the atmel_hlcdc_plane_destroy_state() function. So we call
-__drm_atomic_helper_plane_destroy_state() and avoid code duplication.
+This is not supported by the hardware and trying to decode
+these leads to LAT timeout errors.
 
-Signed-off-by: Ludovic Desroches <ludovic.desroches@microchip.com>
-Reviewed-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-Link: https://patch.msgid.link/20251218-lcd_cleanup_mainline-v2-8-df837aba878f@microchip.com
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Analysis of the Commit
+## Analysis
 
-### Commit Message Analysis
+### 1. Commit Message Analysis
 
-The commit message says: "destroy properly the plane state in the reset
-callback" — the key word is **properly**. This suggests the previous
-destruction was **improper**, meaning there was a bug in the old code.
+The commit message is clear and direct: "Don't try to decode 422/444
+VP9" with the explanation that "this is not supported by the hardware
+and trying to decode these leads to LAT timeout errors." This describes
+a real hardware limitation that causes a user-visible failure (decode
+timeout).
 
-### Code Change Analysis
+### 2. Code Change Analysis
 
-Let me examine the old vs new `atmel_hlcdc_plane_reset()` function
-carefully.
+The change adds exactly 6 lines of code to the
+`V4L2_CID_STATELESS_VP9_FRAME` case in `mtk_vdec_s_ctrl()`:
 
-**Old code (being removed):**
-```c
-if (p->state) {
-    state = drm_plane_state_to_atmel_hlcdc_plane_state(p->state);
-    if (state->base.fb)
-        drm_framebuffer_put(state->base.fb);
-    kfree(state);
-    p->state = NULL;
-}
+```496:505:drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec
+_stateless.c
+        case V4L2_CID_STATELESS_VP9_FRAME:
+                frame = (struct v4l2_ctrl_vp9_frame *)hdr_ctrl->p_new.p;
+
+                if (frame->bit_depth == 10) {
+                        ctx->is_10bit_bitstream = true;
+                } else if (frame->bit_depth != 8) {
+                        mtk_v4l2_vdec_err(ctx, "VP9: bit_depth:%d",
+frame->bit_depth);
+                        return -EINVAL;
+                }
+                break;
 ```
 
-**New code (replacement):**
-```c
-if (p->state) {
-    atmel_hlcdc_plane_atomic_destroy_state(p, p->state);
-    p->state = NULL;
-}
+The new code, inserted between the bit_depth check and the `break`,
+checks the VP9 frame's subsampling flags. Both
+`V4L2_VP9_FRAME_FLAG_X_SUBSAMPLING` and
+`V4L2_VP9_FRAME_FLAG_Y_SUBSAMPLING` must be set (indicating 4:2:0). If
+either is missing, it means the stream uses 4:2:2, 4:4:0, or 4:4:4 — all
+unsupported.
+
+### 3. The Bug Mechanism (Detailed)
+
+The critical path that allows unsupported VP9 streams to reach the
+hardware:
+
+**Step 1**: The V4L2 core validates VP9 frame data in
+`validate_vp9_frame()` (in `v4l2-ctrls-core.c`). This validates *VP9
+spec compliance* — e.g., profile 0/2 must be 4:2:0, profile 1/3 must be
+non-4:2:0. It does NOT enforce driver-specific hardware limitations.
+
+```606:616:drivers/media/v4l2-core/v4l2-ctrls-core.c
+        /* Profile 0 and 2 only accept YUV 4:2:0. */
+        if ((frame->profile == 0 || frame->profile == 2) &&
+            (!(frame->flags & V4L2_VP9_FRAME_FLAG_X_SUBSAMPLING) ||
+             !(frame->flags & V4L2_VP9_FRAME_FLAG_Y_SUBSAMPLING)))
+                return -EINVAL;
+
+        /* Profile 1 and 3 only accept YUV 4:2:2, 4:4:0 and 4:4:4. */
+        if ((frame->profile == 1 || frame->profile == 3) &&
+            ((frame->flags & V4L2_VP9_FRAME_FLAG_X_SUBSAMPLING) &&
+             (frame->flags & V4L2_VP9_FRAME_FLAG_Y_SUBSAMPLING)))
+                return -EINVAL;
 ```
 
-**What `atmel_hlcdc_plane_atomic_destroy_state()` does that the old
-inline code did NOT:**
-```c
-static void atmel_hlcdc_plane_atomic_destroy_state(...)
-{
-    // 1. Frees DMA descriptors from the DMA pool
-    for (i = 0; i < ARRAY_SIZE(state->dscrs); i++) {
-        dma_pool_free(dc->dscrpool, state->dscrs[i],
-                      state->dscrs[i]->self);
-    }
-    // 2. Puts the framebuffer reference
-    if (s->fb)
-        drm_framebuffer_put(s->fb);
-    // 3. Frees the state
-    kfree(state);
-}
-```
+**Step 2**: The VP9 PROFILE menu control and the VP9 FRAME compound
+control are **separate, independent V4L2 controls**. The profile field
+inside the FRAME control is not cross-validated against the PROFILE menu
+control. So userspace can submit a VP9 frame with profile=1 even if the
+PROFILE control only advertises support for profiles 0 and 2.
 
-### Bug Identified: DMA Descriptor Resource Leak
+**Step 3**: The driver's `s_ctrl` handler only checked `bit_depth`, not
+subsampling. So a valid VP9 spec frame with profile 1 and 4:2:2
+subsampling would pass all checks and reach the hardware.
 
-The old reset code was **missing the DMA pool free** for the descriptors
-(`state->dscrs[i]`). Every time `atmel_hlcdc_plane_reset()` was called
-with an existing plane state, the DMA descriptors allocated from
-`dc->dscrpool` were **leaked** — they were never returned to the DMA
-pool.
+**Step 4**: The MediaTek hardware decoder only supports 4:2:0. The VP9
+LAT decoder has a `struct vdec_vp9_slice_reference` with `subsampling_x`
+and `subsampling_y` fields that get passed to firmware/hardware.
+Attempting to decode non-4:2:0 causes a LAT hardware timeout (1000ms via
+`WAIT_INTR_TIMEOUT_MS`).
 
-This is a **real resource leak**. DMA pool memory is coherent DMA
-memory, a finite and precious resource, especially on embedded ARM
-systems where this Atmel HLCDC display controller runs. DMA pool
-exhaustion can lead to allocation failures and display malfunction.
+### 4. Impact on Stable Trees
 
-Additionally, the old code was also **missing the
-`__drm_atomic_helper_plane_destroy_state()` call** that the proper
-destroy function would provide (though in this driver the destroy
-function doesn't call it either, it does its own fb put + kfree).
-However, the DMA descriptor leak is the primary bug.
+**v6.6** is especially affected. I verified that:
+- The file and the `mtk_vdec_s_ctrl` function exist in v6.6 (added via
+  commit `9d86be9bda6cd`)
+- In v6.6, the VP9 profile control allows ALL profiles 0-3 (`max =
+  V4L2_MPEG_VIDEO_VP9_PROFILE_3`) with **no skip mask**. This means
+  profiles 1 and 3 (which require non-4:2:0 subsampling) are explicitly
+  advertised as supported, making the bug trivially reproducible with
+  any VP9 4:2:2 content.
+- The code context at the insertion point in v6.6 is identical to the
+  diff context, so the patch applies cleanly.
 
-### Additional Change: CSC Initialization
+**v6.12** already has the profile restriction (`menu_skip_mask =
+BIT(V4L2_MPEG_VIDEO_VP9_PROFILE_1)`, `max = PROFILE_2`), which reduces
+the attack surface, but the bug still exists because the FRAME control's
+profile field is not validated against the PROFILE control.
 
-The new reset function also adds:
-```c
-if (plane->layer.desc->layout.csc)
-    dc->desc->ops->lcdc_csc_init(plane, plane->layer.desc);
-```
+**v6.1 and earlier**: The `s_ctrl` handler doesn't exist, so the patch
+doesn't apply.
 
-This is a **new addition** — CSC (Color Space Conversion) initialization
-during plane reset. This is arguably a feature addition or a separate
-fix for missing initialization. This adds a bit of risk since it's not
-purely fixing the leak but also changing initialization behavior.
+### 5. Patch Characteristics
 
-### Scope and Risk Assessment
+- **Size**: 6 new lines
+- **Self-contained**: No dependencies on any other commits
+- **Pattern**: Follows the exact same validation pattern as the
+  `bit_depth` check immediately above it
+- **Error handling**: Standard `-EINVAL` return with diagnostic error
+  message
+- **Risk**: Extremely low — only rejects invalid configurations that the
+  hardware cannot handle
+- **Reviewed-by**: AngeloGioacchino Del Regno (Collabora, MediaTek
+  subsystem maintainer)
 
-- **Files changed:** 1 file
-- **Net change:** The function is reorganized, and the core fix (using
-  proper destroy) is straightforward
-- **Risk:** LOW for the resource leak fix. MEDIUM for the CSC init
-  addition — but CSC init during reset is standard practice and the code
-  only runs on Atmel HLCDC hardware
-- **Subsystem:** DRM driver for a specific ARM SoC (Atmel/Microchip
-  SAM9/SAMA5) — limited blast radius
+### 6. Conclusion
 
-### Stable Criteria Assessment
-
-1. **Obviously correct:** Yes — the DMA descriptors were being leaked;
-   they must be freed via the proper destroy path
-2. **Fixes a real bug:** Yes — DMA pool memory leak on plane reset
-3. **Important issue:** Moderate — resource leak in a display driver; on
-   embedded systems with limited DMA pool memory, this could eventually
-   cause display failures
-4. **Small and contained:** Yes — one file, one function reorganized
-5. **No new features:** The CSC init addition is borderline — it's
-   initialization that was arguably missing, but it does add new
-   behavior
-6. **Applies cleanly:** Would need to verify, but it's self-contained
-
-### Concerns
-
-1. The CSC initialization addition goes beyond the pure leak fix and
-   introduces new behavior. This makes it slightly riskier than a pure
-   fix.
-2. The commit message doesn't emphasize the DMA descriptor leak — it's
-   described as avoiding "code duplication," which undersells the actual
-   bug being fixed. This is a classic case of a bug fix disguised as
-   cleanup.
-3. No `Fixes:` tag or syzbot report, but the bug is clearly visible in
-   the code.
-
-### Verdict
-
-The core of this commit fixes a **real DMA pool memory leak** — DMA
-descriptors were not being freed when the plane state was destroyed
-during reset. This is a legitimate resource leak bug fix. The change is
-small, contained to a single driver file, and the fix approach (reusing
-the existing proper destroy function) is obviously correct.
-
-The CSC initialization addition adds some risk but is limited to
-specific hardware and is part of proper plane reset behavior.
-
-On balance, the resource leak fix makes this worth backporting despite
-the small additional CSC change.
+This commit fixes a real, user-visible hardware bug. Without this fix,
+attempting to decode VP9 4:2:2 or 4:4:4 content on MediaTek SoCs causes
+a 1-second hardware timeout, resulting in decode errors. The fix is
+small (6 lines), surgical, self-contained, follows existing code
+patterns exactly, and has zero risk of regression (it only rejects
+configurations that will always fail). It's especially important for
+v6.6 where the profile control doesn't even restrict non-4:2:0 profiles.
 
 **YES**
 
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c   | 52 +++++++++----------
- 1 file changed, 26 insertions(+), 26 deletions(-)
+ .../mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c      | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-index 92132be9823f1..0ffec44c6d317 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-@@ -1155,32 +1155,6 @@ static int atmel_hlcdc_plane_alloc_dscrs(struct drm_plane *p,
- 	return -ENOMEM;
- }
- 
--static void atmel_hlcdc_plane_reset(struct drm_plane *p)
--{
--	struct atmel_hlcdc_plane_state *state;
--
--	if (p->state) {
--		state = drm_plane_state_to_atmel_hlcdc_plane_state(p->state);
--
--		if (state->base.fb)
--			drm_framebuffer_put(state->base.fb);
--
--		kfree(state);
--		p->state = NULL;
--	}
--
--	state = kzalloc(sizeof(*state), GFP_KERNEL);
--	if (state) {
--		if (atmel_hlcdc_plane_alloc_dscrs(p, state)) {
--			kfree(state);
--			drm_err(p->dev,
--				"Failed to allocate initial plane state\n");
--			return;
--		}
--		__drm_atomic_helper_plane_reset(p, &state->base);
--	}
--}
--
- static struct drm_plane_state *
- atmel_hlcdc_plane_atomic_duplicate_state(struct drm_plane *p)
- {
-@@ -1222,6 +1196,32 @@ static void atmel_hlcdc_plane_atomic_destroy_state(struct drm_plane *p,
- 	kfree(state);
- }
- 
-+static void atmel_hlcdc_plane_reset(struct drm_plane *p)
-+{
-+	struct atmel_hlcdc_plane_state *state;
-+	struct atmel_hlcdc_dc *dc = p->dev->dev_private;
-+	struct atmel_hlcdc_plane *plane = drm_plane_to_atmel_hlcdc_plane(p);
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
+index d873159b9b306..9eef3ff2b1278 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
+@@ -502,6 +502,12 @@ static int mtk_vdec_s_ctrl(struct v4l2_ctrl *ctrl)
+ 			mtk_v4l2_vdec_err(ctx, "VP9: bit_depth:%d", frame->bit_depth);
+ 			return -EINVAL;
+ 		}
 +
-+	if (p->state) {
-+		atmel_hlcdc_plane_atomic_destroy_state(p, p->state);
-+		p->state = NULL;
-+	}
-+
-+	state = kzalloc(sizeof(*state), GFP_KERNEL);
-+	if (state) {
-+		if (atmel_hlcdc_plane_alloc_dscrs(p, state)) {
-+			kfree(state);
-+			drm_err(p->dev,
-+				"Failed to allocate initial plane state\n");
-+			return;
++		if (!(frame->flags & V4L2_VP9_FRAME_FLAG_X_SUBSAMPLING) ||
++		    !(frame->flags & V4L2_VP9_FRAME_FLAG_Y_SUBSAMPLING)) {
++			mtk_v4l2_vdec_err(ctx, "VP9: only 420 subsampling is supported");
++			return -EINVAL;
 +		}
-+		__drm_atomic_helper_plane_reset(p, &state->base);
-+	}
-+
-+	if (plane->layer.desc->layout.csc)
-+		dc->desc->ops->lcdc_csc_init(plane, plane->layer.desc);
-+}
-+
- static const struct drm_plane_funcs layer_plane_funcs = {
- 	.update_plane = drm_atomic_helper_update_plane,
- 	.disable_plane = drm_atomic_helper_disable_plane,
+ 		break;
+ 	case V4L2_CID_STATELESS_AV1_SEQUENCE:
+ 		seq = (struct v4l2_ctrl_av1_sequence *)hdr_ctrl->p_new.p;
 -- 
 2.51.0
 
