@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B527EF99EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 01:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD00FEF99F2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 02:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCaOLyOM/ce+PSXs51w6zIINx7guZVIzO8XfZ84+jzM=; b=LyjE9O+NbaGE3wPVVACg+lPZGM
-	+Tb6q7+6jh7WlFIx4wUL2DtPnGe07uELMT/tpOCTtRLQOcvSms1DQlu/Gl7GzsZruLaQdVcFaWLR0
-	SfbFb3F6xBFGZrcgMJKIJsuH3qvHYw7h3ooz+ui8ZY2ddnG6VE1D6gxUkvb2ScDU6baRNp4CVK4B7
-	L7kQJfz9UtphviB1Ema6VdCHaboV+ddspeb/k1RPXpIK3JEQcr4fr1c3xWaPrgYLuaqAMmnGf42xw
-	jTq7ZDqd/iem6W6+nrJJgMeB0FT+jh9vcSzP37TaXbCPUdLRZkFPSi1zFtmgHDzugJOcTSjodnXvg
-	smatTuvA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L7kXqefz6Mz84tkpvy0FFhVFi9KVDmRut/+pi1Uax3Y=; b=trFGWorLCRpLqQmdez0asJQyxQ
+	P4CAYFyGl4BWeSyHH1QGAFpEaKgytgqSBzqUA6gnvUX+/KMgWHCfIIOG/fEjEvreGBWF0bQg8q8jV
+	cIgdDCHFa+8cXZxpm1gpQRs6XssNm5qk2vnoWaGF93zrTGWSDhWlRj7+E6abvREdT8c6MMerzKhL4
+	qYVJxBe9k3MxRuwgHdTX7EZmoZjXcsoX7VdgjxiN+FWssCJxZ2Q3PDwJ1STgF+ft+UEc4LUCkMPz/
+	gtiZoBIrAhPyKK5HorRNH8yLF8JHWiGO2vQ/XZEw1lQbl4PROKF81SUhPmJacavv+QW2s2F9VFIJs
+	+32ftqAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr4TM-000000048IA-2av0;
-	Sat, 14 Feb 2026 01:29:24 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1vr5EB-000000049V6-1Dvf;
+	Sat, 14 Feb 2026 02:17:47 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr4TJ-000000048HV-0N10
+	id 1vr5E6-000000049SL-0HXi
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 01:29:23 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=iCaOLyOM/ce+PSXs51w6zIINx7guZVIzO8XfZ84+jzM=;
-	b=aXNITjpHV/qO31Mcq15Pt7+OkeoEPKqMbyVY9y2CiY+oqgrFRx534sHucxxJE8r2hkz1WkTkr
-	881DRPq7KQNG4q+32hDOszG2/OQjPhygA6NdUGJoNT4N42i5rspaOZtgb5ciXpQioDzecyGURly
-	zchhIYlyoocOkfWpcOXkkiQ=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fCWXm10jVznTVP;
-	Sat, 14 Feb 2026 09:24:24 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5F89B4056C;
-	Sat, 14 Feb 2026 09:29:11 +0800 (CST)
-Received: from [10.174.178.24] (10.174.178.24) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Sat, 14 Feb 2026 09:29:09 +0800
-Message-ID: <f78657e3-7981-ab16-29f7-9daf4de3d42b@huawei.com>
-Date: Sat, 14 Feb 2026 09:29:08 +0800
+	Sat, 14 Feb 2026 02:17:45 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-483770e0b25so8826345e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Feb 2026 18:17:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771035460; x=1771640260; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=L7kXqefz6Mz84tkpvy0FFhVFi9KVDmRut/+pi1Uax3Y=;
+        b=fPnpv0OcixEBLKAtAJ8EB9Y0SVhZ4DcjDiFSkSGj7kOE+9aML9XEl0RWIhUggNQ9u4
+         ApycLdhQu4ogPsuVN70rtETsV+YIA/GCEnXDWp3ZfJ3OscAlaBdKg5RDSGm3KtoIy8Ik
+         66ukupWhta3ArRWGcVKxOdLtPO6c7HYGwLUyp7cqfM5/h7Evz8XpxzEBIfgSY/pU0zJz
+         nGBBRrikXvs1vbjFGz9VwAymuxw23nGF5INrOG9vlAWA0guuDW4DR7rXrsfezcR0lwOi
+         8wUcGOx15uAjM3cKUh7xKOP6rSnUe/xA2OQd0hRDuOIGqSkaQNaWb4znapOac+dubKxm
+         U/1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771035460; x=1771640260;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L7kXqefz6Mz84tkpvy0FFhVFi9KVDmRut/+pi1Uax3Y=;
+        b=NQwoDZrWyxrXy+ytzW+eCtaY7NAheSOPhHSV2bT7y4lw9zqAp7QPYoJ9UWW50ZOnHl
+         /ktlK00fvqHJPqFmbBZ+SqzQQXv+9pzDI8WhIqFtD+lrVGm5j+XSe0ku4BwTjT1D6tg5
+         12WSlOl4UEbGmP0Ap2aabK0mm+0U5cpRhQuRw88X2DnFkLjtqxVTIgZzsiyZRzNa3FVp
+         pIL6aNpBxGDQop1lZnz0v4YoT6n1CD+zShSFG0mvsJ9bupTT1UB0OmMTnyDnO82wuT/z
+         q32elpk9Qu1SyPavJC4oYG2yvh2h7MMHwgXMmjB/SU99VMPF+w9n1pnn1nHV6HGtcV/1
+         swcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1IMEKbE4TnjzBaIo5GVAllgKbBL3CqMllB+Ld02oSnTbMcq28YZL6Dr0wfbJMjX7zVN9h+3hZzOpVwXJe2En/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRpbdn9dpC28/Pd5Us6WNt3heEPW6N/mS4FoQxBonEhkTBT47k
+	Be3m3WqjsSKB8EUr8mScuA7ZbKDdpcocBbWyyv2qJq0htqrOV/nr1870
+X-Gm-Gg: AZuq6aJp3e3IMUiHbN6SK+vgGc7H5oQe6YgIzaOoZDYwTxizrDespONsaAVF/T2CflU
+	zXXe7PhHjzDqtJNqgSKzGBOYsxJgY8LnemQrOG3zH2LwJ4mrG+cGOgyaRNozMiFBeYA8JgAndAb
+	PXYQq0xnEzc7dYwCo2wDqDxVth9p7RdjodOO0gXn0iDcDTlwrHxYfeG5F+5x5lFnMcnLe6oe5d6
+	R3LXlTWXaXv7a1G9sfyAqVJ0S91ybQQEqjfDfXGslH6N3sFubSW5jjN9a2XZ8Aia1hQEa3KUD22
+	I03X07CfMGvWZUqsv5M4Ag5tIHRA1CZURTmihjEpAdIlj9cOmhjUs/lpcXItOwKxzo0EWFr59nq
+	naNQ42f7mVxcyrEb6mBU9Z85UOx9PDS4Rp8rAxGAwNFY/CJF/eCuzLrnEunzFCfyAwDBSFJYZCH
+	aSvUkZZtLfzLgxpsIqUkUE
+X-Received: by 2002:a05:600c:37c6:b0:475:de12:d3b5 with SMTP id 5b1f17b1804b1-483710960dcmr70601475e9.34.1771035459856;
+        Fri, 13 Feb 2026 18:17:39 -0800 (PST)
+Received: from arch.localdomain ([2409:8a28:a53:6b71::1002])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796acffcesm8608308f8f.37.2026.02.13.18.17.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Feb 2026 18:17:38 -0800 (PST)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	alchark@gmail.com,
+	dsimic@manjaro.org,
+	andyshrk@163.com,
+	jonas@kwiboo.se,
+	Jun Yan <jerrysteve1101@gmail.com>
+Subject: [PATCH v5 0/3] board: rockchip: add OneThing Edge Cube series
+Date: Sat, 14 Feb 2026 10:17:13 +0800
+Message-ID: <20260214021719.620752-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v4 38/41] arm_mpam: Add workaround for T241-MPAM-4
-Content-Language: en-US
-To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>, Ben Horgan
-	<ben.horgan@arm.com>
-CC: "amitsinght@marvell.com" <amitsinght@marvell.com>,
-	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
-	"baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
-	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
-	"dave.martin@arm.com" <dave.martin@arm.com>, "david@kernel.org"
-	<david@kernel.org>, "dfustini@baylibre.com" <dfustini@baylibre.com>,
-	"fenghuay@nvidia.com" <fenghuay@nvidia.com>, "gshan@redhat.com"
-	<gshan@redhat.com>, "james.morse@arm.com" <james.morse@arm.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
-	"kobak@nvidia.com" <kobak@nvidia.com>, "lcherian@marvell.com"
-	<lcherian@marvell.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "peternewman@google.com"
-	<peternewman@google.com>, "punit.agrawal@oss.qualcomm.com"
-	<punit.agrawal@oss.qualcomm.com>, "quic_jiles@quicinc.com"
-	<quic_jiles@quicinc.com>, "reinette.chatre@intel.com"
-	<reinette.chatre@intel.com>, "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
-	"scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
-	"sdonthineni@nvidia.com" <sdonthineni@nvidia.com>, "xhao@linux.alibaba.com"
-	<xhao@linux.alibaba.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>,
-	"oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com"
-	<joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, Kefeng Wang
-	<wangkefeng.wang@huawei.com>
-References: <20260203214342.584712-1-ben.horgan@arm.com>
- <20260203214342.584712-39-ben.horgan@arm.com>
- <OSZPR01MB879872E55F0625D737AD06578B61A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <OSZPR01MB879872E55F0625D737AD06578B61A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.178.24]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_172921_792571_CE7BEC12 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20260213_181742_127830_9CA3081E 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,54 +105,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shaopeng,
+This series adds support for the OneThing Edge Cube series, Rockchip 
+RK3566-based PCDN (P2P Content Delivery Network) devices originally 
+marketed by OneThing Tech.
 
-On 2026/2/13 15:02, Shaopeng Tan (Fujitsu) wrote:
-> Hello Ben, Fenghua
-> 
->> From: Shanker Donthineni <sdonthineni@nvidia.com>
->>
->> In the T241 implementation of memory-bandwidth partitioning, in the absence
->> of contention for bandwidth, the minimum bandwidth setting can affect the
->> amount of achieved bandwidth. Specifically, the achieved bandwidth in the
->> absence of contention can settle to any value between the values of
->> MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
->> zero (below 0.78125%), once a core enters a throttled state, it will never
->> leave that state.
->>
->> The first issue is not a concern if the MPAM software allows to program
->> MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
->> MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
->>
->> In the scenario where the resctrl doesn't support the MBW_MIN interface via
->> sysfs, to achieve bandwidth closer to MBW_MAX in the absence of contention,
->> software should configure a relatively narrow gap between MBW_MIN and
->> MBW_MAX. The recommendation is to use a 5% gap to mitigate the problem.
-> 
-> I have a question regarding the MBW_MIN values.
-> Are there any cases where the sum of all MBW_MIN values from different control groups exceeds 100%?
-> And if so, is it acceptable for it to exceed 100%?"
-> 
-> Best regards,
-> Shaopeng TAN
-> 
+The V5 patch inlcudes some device tree adjustments, following Kwiboo's
+suggestions.
 
+The V4 patch includes minor improvements.
 
-Per the ARM MPAM architecture specification: "A PARTID that has used
-less than MIN is given preferential access to bandwidth."
+The V3 patch merges the separate dts files for OEC and OEC-turbo,
+following Dragan Simic's suggestion.
 
-MBW_MIN is not a guaranteed bandwidth allocation. Instead, it serves as
-a priority threshold: when a partid's memory bandwidth usage falls below
-the configured MBW_MIN value, its priority for memory bandwidth access
-is elevated.
+The V2 patch adds a new device, the OneThing OEC. Together with the 
+V1 patch OneThing OEC-turbo, these two devices share identical hardware 
+specifications except for the RAM capacity, enabling convenient support
+implementation.
 
-Therefore, it is acceptable for the sum of MBW_MIN values across
-different control groups to exceed 100%. There is no requirement
-for these values to add up to 100% or less.
+The V1 patch was submitted quite some time ago and is now in an archived
+state[1]. it has not been processed due to scheduling conflicts –
+apologies for this.
 
-Hope this clarifies the behavior.
+Changes in v5:
+- Add missing pinctrl for LEDs and ETH-PHY resets.
+- Using gpios property instead pf gpio property in pwm-reuglator.
+- Adjust and unify the order of regulator-* properties.
+- Drop rx/tx-delay properties in the gmac1 node.
+- Using PWM_POLARITY_INVERTED for pwms property instead of the trailing 1.
+- Link to v4: https://lore.kernel.org/all/20260204132700.329894-1-jerrysteve1101@gmail.com/
 
+Changes in v4:
+- Use a unified compatible name for OEC and OEC-turbo.
+- Drop the "series" string from the board dtb name.
+- Use a self-descriptive model name for the dtb.
+- Link to v3: https://lore.kernel.org/all/20260202150437.270567-1-jerrysteve1101@gmail.com/
 
-Best regards,
-Zeng Heng
+Changes in v3:
+- Use a single device tree for both OEC and OEC-turbo.
+- Align the compatible strings in dt-bindings and device tree.
+- Link to v2: https://lore.kernel.org/all/20260131153106.31723-1-jerrysteve1101@gmail.com/
+
+Changes in v2:
+- Fix typo in vendor-prefixes.
+- Simplify company and device names.
+- Add the new device OEC as part of the OneThing Edge Cube series for support.
+- Set display-subsystem node to "disabled" instead of using "delete-node".
+- Using generic node names for leds.
+- Follow DTS codeing style in vcc5v0_usb_host_en pinctrl node.
+- Modify the phy_mode of GMAC from rgmii to rgmii-id.
+- Adjust device tree node ordering to follow code style.
+- Link to v1: https://lore.kernel.org/all/20250713163255.163669-1-jerrysteve1101@gmail.com/
+
+[1] https://patchwork.kernel.org/project/linux-rockchip/cover/20250713163255.163669-1-jerrysteve1101@gmail.com/
+
+Jun Yan (3):
+  dt-bindings: vendor-prefixes: Add Shenzhen OneThing Technologies Co.,
+    Ltd.
+  dt-bindings: arm: rockchip: Add OneThing Edge Cube series
+  arm64: dts: rockchip: Add OneThing Edge Cube series
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../rockchip/rk3566-onething-edge-cube.dts    | 342 ++++++++++++++++++
+ 4 files changed, 350 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-edge-cube.dts
+
+-- 
+2.53.0
+
 
