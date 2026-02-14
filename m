@@ -4,81 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E47EF99E1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 07:43:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9420EDF142
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 08:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+v5pAbslEMYTGdjdZQDhHSyvhMUMNQICQR+cUdc+GgQ=; b=Avddl1mkdNpPvK9AidL3g3mUgL
-	u8KQrnj+pig+5dfTc6Kn2ivxKRb9zSmhx/sGDmct+VYC+YR+l4+/apLDQWDMFg+fvQYqRmE09EBzh
-	nG1rSmrOzDEw7D1KQXhjYcrXeDnxQo7x20c8Ng/v9bYVg/RIzFVbQgV1i3VBEm809f+KMxe8J9ZPa
-	R2WFNQsYQI6QXG0Y2VqTT4ZhDeSwRS3faCzC24V1cmQBHmq0amyGtsDYhK3iIIBan0moD1kyT4mIW
-	TZ3NP6pj4AwV9QGla0cT+B0J0fGww1/yudN8PuTZfRX5TYbFw2QvfJnStvyt1+1sH1Pev59a/0L75
-	mwv+nQow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a08x7aiD/FeWYagUYuXZV3kI050M7QlaiUd/xpyg2iM=; b=qhbx0zJWX0RCogSMDCxvWppN2Q
+	GeQDbGb1sXpsHwNGWtuxt75hDsxvR4MXb8tx7PzwTc2SS3n8KO9y1S5yHooBIMNZh1nkbvfew7mrp
+	358jykJH01I6bzgJaXNWrGiOtRt2Kz0bss3LF2NO2xS8iD9zcmQCEFlU3AdWTTeHY/HiVYrn5tQnv
+	YgF0EM4uRyhWdiyntlfBzTBFHwncqIl+Q8s7Uul+f4lOLUshIiJcSEO2eok9oPkrZ8qXJ/Bd9K6aq
+	BziamI4riKA+//pGm4PkPPv9K2ly63CKvgHUfpuln3ncUQiikf7a68qX0OjSFzW/XAHLuzqcdjLqG
+	7yF5lAPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrAIm-00000004NBI-1wpZ;
-	Sat, 14 Feb 2026 07:42:52 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1vrAwu-00000004OVL-1zHn;
+	Sat, 14 Feb 2026 08:24:20 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrAIj-00000004NAM-08DW;
-	Sat, 14 Feb 2026 07:42:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=+v5pAbslEMYTGdjdZQDhHSyvhMUMNQICQR+cUdc+GgQ=; b=T
-	BKEyd/70P5p0XXP5OUHUtm7AZ6I6tqNyhILHrI5l9oDiwXO9E6zlXh8dlH/Q1CgJ
-	b0CECQKVUi9zqQqMEF7KLrnKN9dr2BYwQP3p09ofL8ozkJ2SA5YJBUMEhb5aYFMX
-	zO75HP4EvO/Pm0dUyQ/gssxxwt/NaUUBdsumlSqklE=
-Received: from andyshrk$163.com ( [2409:8a55:33d7:2431:f10b:187b:3f26:ab0c]
- ) by ajax-webmail-wmsvr-40-117 (Coremail) ; Sat, 14 Feb 2026 15:41:12 +0800
- (CST)
-X-Originating-IP: [2409:8a55:33d7:2431:f10b:187b:3f26:ab0c]
-Date: Sat, 14 Feb 2026 15:41:12 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
-Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
-	"Maxime Ripard" <mripard@kernel.org>,
-	"Thomas Zimmermann" <tzimmermann@suse.de>,
-	"David Airlie" <airlied@gmail.com>,
-	"Simona Vetter" <simona@ffwll.ch>,
-	"Sandy Huang" <hjc@rock-chips.com>,
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-	"Andy Yan" <andy.yan@rock-chips.com>,
-	"Louis Chauvet" <louis.chauvet@bootlin.com>,
-	"Haneen Mohammed" <hamohammed.sa@gmail.com>,
-	"Melissa Wen" <melissa.srw@gmail.com>,
-	"Jani Nikula" <jani.nikula@linux.intel.com>,
-	"Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
-	"Robert Mader" <robert.mader@collabora.com>, kernel@collabora.com,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	"Diederik de Haas" <diederik@cknow-tech.com>
-Subject: Re:[PATCH v7 4/4] drm/rockchip: vop2: Support setting custom
- background color
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20251222(83accb85) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <20260204-rk3588-bgcolor-v7-4-78d1d01c5ca1@collabora.com>
-References: <20260204-rk3588-bgcolor-v7-0-78d1d01c5ca1@collabora.com>
- <20260204-rk3588-bgcolor-v7-4-78d1d01c5ca1@collabora.com>
-X-CM-CTRLMSGS: 0xem7nBsdXM9MTc3MTA1NDg3MzAxOV9mMzIxMGMxZjQ2NDU5YTk3OTJhOTllM
- jYyODkxNTJkNg==
-X-NTES-SC: AL_Qu2cA/yeu0As5CiZZ+kfmUgWjuw/WsG1v/Ul1YBSP556jD/p5wAhYnlFJHL90dOvNj6tnyiuTwJi+sdlbbJff74t27OnGnXYj8g71xfaPiVNkQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1vrAwr-00000004OUi-1qDf
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 14 Feb 2026 08:24:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gj/umLyW2ElZdZhOPQ/Xkj9n6zDgcxy/bPXyMfekl375qgxFOVrCydt40V4ePQv0asX0hyxoZhYN8Pzec0d9F7oVIjevi7g+dPor3Lm6ZGJPtkjcvK7cBF9HyoG5esgvPxMSwqlK3g58dAz2jqVrLnEQB1cuvFUxExTKaJ+VKzJ7/OMFsY1srALmxrHjWUXnxIjpyBdGQR8fcDOC3s4tGgs/u9iU1l6thMYiKVexBYBr4gBu6q+pK+i5Pt764V3NrnXhcD2B6iU3Zu3+3fcYNjFB5xs23cmNMGSBEtwOF/PBQHZsj19SwUdDsh2u4+UMMv48SR/6euhEkzf+TIC/Jg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=a08x7aiD/FeWYagUYuXZV3kI050M7QlaiUd/xpyg2iM=;
+ b=ZDqw6+Hgzw/8T6kjeGEp55YavBIA4d+6WCYRw2wSRHUPZl+e3AwDVQGaSuixKXWz5rz4I2vSGfcMPE89fN8eIR5L1aZtq3I2TnM9n7zciMp1MDo57/vJ6vjUklcBBg2vY5abUGNNs9vkZ3qAYBS6uIqqlAfLdN/mU5LWbq+/Ap51Qy/WS64y74Y5LZBqJAA5+XjRjz14M3fgI8M+d9tnzrUngc/mb1A80LKg3gfn5f+APTjcGA4d4jOkeQIsZPyJM3qEVtFqBaSodw8wXy2apAy0lHEV+GdTLKm88bbHTOnXPXRR08A/gDwMvbofaLcOFOvpw+RjWtYp86Kk+2EcVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=a08x7aiD/FeWYagUYuXZV3kI050M7QlaiUd/xpyg2iM=;
+ b=WV/CGaFe3DEBv3DkJ81l68s+ILOTKVB1AxlijYXXV+KaSS7iNZ2oXkU592h0xUcHMG16WgTtNrhSHU2LibICSKgdyvar/6YuoYuetdKmzAf18is7BGnqsOtOnT8HYzmtXguanbWNF2Oy/bjgTk8vtqijz4GtyG/uH2fjBcXhmW8=
+Received: from SJ0PR03CA0139.namprd03.prod.outlook.com (2603:10b6:a03:33c::24)
+ by LV3PR10MB7818.namprd10.prod.outlook.com (2603:10b6:408:1bb::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.14; Sat, 14 Feb
+ 2026 08:24:12 +0000
+Received: from MWH0EPF000C618B.namprd02.prod.outlook.com
+ (2603:10b6:a03:33c:cafe::e) by SJ0PR03CA0139.outlook.office365.com
+ (2603:10b6:a03:33c::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9611.13 via Frontend Transport; Sat,
+ 14 Feb 2026 08:24:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ MWH0EPF000C618B.mail.protection.outlook.com (10.167.249.123) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9611.8 via Frontend Transport; Sat, 14 Feb 2026 08:24:11 +0000
+Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 14 Feb
+ 2026 02:24:10 -0600
+Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 14 Feb
+ 2026 02:24:10 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Sat, 14 Feb 2026 02:24:10 -0600
+Received: from localhost (ula0502350.dhcp.ti.com [172.24.233.249])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61E8O92R2623092;
+	Sat, 14 Feb 2026 02:24:09 -0600
+From: Paresh Bhagat <p-bhagat@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <praneeth@ti.com>, <khasim@ti.com>, <v-singh1@ti.com>, <devarsht@ti.com>,
+	<sen@ti.com>
+Subject: [PATCH 0/2] Add PCM6240 ADC support for AM62D2 EVM
+Date: Sat, 14 Feb 2026 13:53:41 +0530
+Message-ID: <20260214082343.2109890-1-p-bhagat@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Message-ID: <7d35324b.1f93.19c5b18b8f6.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: dSgvCgB3p7oYJ5BpAj4oAA--.41162W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbC7hhOrGmQJxgIRwAA3d
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C618B:EE_|LV3PR10MB7818:EE_
+X-MS-Office365-Filtering-Correlation-Id: a200c823-90d3-4cba-a522-08de6ba26e5b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Qgt2dGL7pridYE3/0+8KMr9fY4C9rbsq48SOIjT9hSqPMhLmbxHfeHr+dNZr?=
+ =?us-ascii?Q?qJGPWV7pPwER/f0DtqXRPqC6iA+ctslg7073eQ1bihyMKdwsocyy1BVYRxIM?=
+ =?us-ascii?Q?W5wDdRpV2Tqfi0OSsJ9hHzxXeifjdSWmSEabsigzcmdjIVi8Lgz5YNaSbuXz?=
+ =?us-ascii?Q?paFl3EorOsPzNKlzDiZt/c8mV8yYV8WKWxke+jQmY2CWKMkPIHsakTYyIx1q?=
+ =?us-ascii?Q?zsr0Jo2LdMDPUnlfgjhg1OVU9uDx0bJB+5cSWFfru3R+Eec/RVveSUzCmKfO?=
+ =?us-ascii?Q?xmyDhDA/pspWLtKn1etP5w7CE9T+ev4SRbXucrE6RwEC6ymjApRjDnpdpdr4?=
+ =?us-ascii?Q?yrAVyBpyu/omb9fByIQikZcePcGPmWlor6gFrzdI+pLgFindwWnSLj3pvuX5?=
+ =?us-ascii?Q?POmIhGUa/pyFn2Hp/7aw9Txu72xdjEE9ydMlfFyLUfjdlYCdF1tGJyBOv12i?=
+ =?us-ascii?Q?6EtAqmybRVjsa+D6AV144NBBNjv6TUdEaj47HU0NHQszAqQjbB9pYjEUaa8c?=
+ =?us-ascii?Q?xGX/2s3VTmII+ReNAnqZ6KeNYEe8z0GJ/opEwzsvYKY/XXo7E57C9a5k8c3C?=
+ =?us-ascii?Q?ceRs+lOKY+HtOksf/DbAGE2KgCFIru3SX0MFe0mwSoQ+9XKxkLTql/3Si6jX?=
+ =?us-ascii?Q?BQfhmoqirb/VuapgxHYZJfvV3KJ1KNjnH2wEUNvyBjHquKFtdxbi2fFahvcX?=
+ =?us-ascii?Q?64NURjjtt+kULFpGqSDACbCH+kHapsq6BYjRkikTuzBa1GjnvHDK70LYRovA?=
+ =?us-ascii?Q?TOUxrA+byPNN8h4nDsGWqSDYf0AyrrTz9nx1FvTnlZaS1My5GyhTuiSYT1BM?=
+ =?us-ascii?Q?bLV2tVA85iOucI7ogoRvqGApJcfw1ePR7Wb8M43lX7Ee4u/ZC8i4AljO9Xd/?=
+ =?us-ascii?Q?2UrQtO0rV3aAahsQggMnUQj1u6bPXx7MXriSCxBCnOBRqTbb9RhlkhKGdlf1?=
+ =?us-ascii?Q?iKLyOxuAKN4VMIHfrVqbpHBHl72rP44FUwoiVjwtzR4DZny0b0lUKQMxi2pL?=
+ =?us-ascii?Q?lqKntyoioLcLoKf5kFf4YCtkf7LUlJYkJ1/rXzMKJKJSZxFyx6HEEMdhkzwC?=
+ =?us-ascii?Q?8NaNZwlfHoUUoutsbhpk9njwWl5B+8GgHqnVaAKq6tQxRymZZcA2ZBi76XOV?=
+ =?us-ascii?Q?37MOFE756zxnBaAHhp50+Zu2eGiVUTp0pgBF9Yi3888+Q/9xgRAEfolfM2hh?=
+ =?us-ascii?Q?PuXzkmAR/bmiGeQnwrOoX/kynB4v0+Cgh8xsMXmspDCb9PwAXNI8xr5iX0Gg?=
+ =?us-ascii?Q?BT3EA5K6oeZL2W6lyC8JDT1T0KSyFYgzcLeWmKfrbw37+OndVHrBEzIjcrem?=
+ =?us-ascii?Q?uZi3Z87b1Q7MyqMx6MfKbSj7iMczncQAvQ+DXEJ3QHW7f+9Jm00BNxrN3JfL?=
+ =?us-ascii?Q?+I4YZu28rSLn7JkJfigKY2N/zk+BHaGojz/ZWUwMtYBVtuKXppAPEhLUzin3?=
+ =?us-ascii?Q?5uv7+j3mUWtqnorvjOM+ylbbSREzq+1UmA0hOwBTGoQDg5itT6ucFYtfq11x?=
+ =?us-ascii?Q?BZ7HSJXGLhrIh40p5naNObfvoUndB5FWKskNp3V9ZxOX3xoUj1Z++fclSt7B?=
+ =?us-ascii?Q?J66nguTeL6cheTQhHb8GdoE7PHTrwKzXBm90WGRSXuFKEv2D502RB0Ivd0dO?=
+ =?us-ascii?Q?EFeDdCXeoPRAaVla9OG/hfE=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 7+e/nj9hoHT5hGMHjV9pXEeyhNefcgmyT578bmSGCdHRyO6C4BvQVZkOCYXJwMMXFvaHBbWEMTNmYsD2LszapZYLJrDdEIJh6O+6AD6xdJwiqC7vYumRT26ks8qMMk7rUIjFdQSXQeMY7MMAOHDLSAgTGNEquBmuqEAUgSs0UY4D7HpDgdW1Yr/myCRPP3SgGuDPla6qpB28AWMDWnZbrj/i6otBcREtAB3GpLIwC1nRghBifptlbkhqsc7VqCpOFAP1jOJ65r7aBHYHAa/AIO1m00SBTk5bT3o8+2MoYokNiSIOr0Bc7zjl7wdni2KdM/WoxMm0zcI9D53bdxpO4zLTCAuCL3xJ1oxJr3NcIpqAJM9ymXNpWp1SMARI6Qt/Q0lnBst8C36r0RRLM6iD4J9tu4q4aO0tDyfJufO3UNM+pYEtJ3wwMrl2NO1OVMGz
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2026 08:24:11.2276
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a200c823-90d3-4cba-a522-08de6ba26e5b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C618B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR10MB7818
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_234249_472931_83614BD3 
-X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-CacheID: sfid-20260214_002417_594852_385E52D2 
+X-CRM114-Status: UNSURE (   9.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,76 +158,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhlbGxvIENyaXN0aWFuLAoKQXQgMjAyNi0wMi0wNSAwNDowMjozMSwgIkNyaXN0aWFuIENpb2Nh
-bHRlYSIgPGNyaXN0aWFuLmNpb2NhbHRlYUBjb2xsYWJvcmEuY29tPiB3cm90ZToKPlRoZSBSb2Nr
-Y2hpcCBWT1AyIGRpc3BsYXkgY29udHJvbGxlciBhbGxvd3MgY29uZmlndXJpbmcgdGhlIGJhY2tn
-cm91bmQKPmNvbG9yIG9mIGVhY2ggdmlkZW8gb3V0cHV0IHBvcnQuCj4KPlNpbmNlIGEgcHJldmlv
-dXMgcGF0Y2ggaW50cm9kdWNlZCB0aGUgQkFDS0dST1VORF9DT0xPUiBDUlRDIHByb3BlcnR5LAo+
-d2hpY2ggZGVmYXVsdHMgdG8gc29saWQgYmxhY2ssIG1ha2UgdXNlIG9mIGl0IHdoZW4gcHJvZ3Jh
-bW1pbmcgdGhlCj5oYXJkd2FyZS4KPgo+Tm90ZSB0aGUgbWF4aW11bSBwcmVjaXNpb24gYWxsb3dl
-ZCBieSB0aGUgZGlzcGxheSBjb250cm9sbGVyIGlzIDEwYnBjLAo+d2hpbGUgdGhlIGFscGhhIGNv
-bXBvbmVudCBpcyBub3Qgc3VwcG9ydGVkLCBoZW5jZSBpZ25vcmVkLgo+Cj5UZXN0ZWQtYnk6IERp
-ZWRlcmlrIGRlIEhhYXMgPGRpZWRlcmlrQGNrbm93LXRlY2guY29tPgo+U2lnbmVkLW9mZi1ieTog
-Q3Jpc3RpYW4gQ2lvY2FsdGVhIDxjcmlzdGlhbi5jaW9jYWx0ZWFAY29sbGFib3JhLmNvbT4KCiAg
-IFJldmlld2VkLWJ5OiBBbmR5IFlhbiA8YW5keXNocmtAMTYzLmNvbT4KPi0tLQo+IGRyaXZlcnMv
-Z3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIHwgMTcgKysrKysrKysrKysrKysr
-Ky0KPiBkcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuaCB8ICA0ICsr
-KysKPiAyIGZpbGVzIGNoYW5nZWQsIDIwIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPgo+
-ZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5j
-IGIvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPmluZGV4IGVj
-M2I0ZmRlMTBkYi4uOGYyMmU5MGEyM2RkIDEwMDY0NAo+LS0tIGEvZHJpdmVycy9ncHUvZHJtL3Jv
-Y2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPisrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hp
-cC9yb2NrY2hpcF9kcm1fdm9wMi5jCj5AQCAtMTU1Miw2ICsxNTUyLDcgQEAgc3RhdGljIHZvaWQg
-dm9wMl9wb3N0X2NvbmZpZyhzdHJ1Y3QgZHJtX2NydGMgKmNydGMpCj4gCXN0cnVjdCB2b3AyX3Zp
-ZGVvX3BvcnQgKnZwID0gdG9fdm9wMl92aWRlb19wb3J0KGNydGMpOwo+IAlzdHJ1Y3Qgdm9wMiAq
-dm9wMiA9IHZwLT52b3AyOwo+IAlzdHJ1Y3QgZHJtX2Rpc3BsYXlfbW9kZSAqbW9kZSA9ICZjcnRj
-LT5zdGF0ZS0+YWRqdXN0ZWRfbW9kZTsKPisJdTY0IGJnY29sb3IgPSBjcnRjLT5zdGF0ZS0+YmFj
-a2dyb3VuZF9jb2xvcjsKPiAJdTE2IHZ0b3RhbCA9IG1vZGUtPmNydGNfdnRvdGFsOwo+IAl1MTYg
-aGRpc3BsYXkgPSBtb2RlLT5jcnRjX2hkaXNwbGF5Owo+IAl1MTYgaGFjdF9zdCA9IG1vZGUtPmNy
-dGNfaHRvdGFsIC0gbW9kZS0+Y3J0Y19oc3luY19zdGFydDsKPkBAIC0xNTk3LDcgKzE1OTgsMTUg
-QEAgc3RhdGljIHZvaWQgdm9wMl9wb3N0X2NvbmZpZyhzdHJ1Y3QgZHJtX2NydGMgKmNydGMpCj4g
-CQl2b3AyX3ZwX3dyaXRlKHZwLCBSSzM1NjhfVlBfUE9TVF9EU1BfVkFDVF9JTkZPX0YxLCB2YWwp
-Owo+IAl9Cj4gCj4tCXZvcDJfdnBfd3JpdGUodnAsIFJLMzU2OF9WUF9EU1BfQkcsIDApOwo+Kwkv
-Kgo+KwkgKiBCYWNrZ3JvdW5kIGNvbG9yIGlzIHByb2dyYW1tZWQgd2l0aCAxMCBiaXRzIG9mIHBy
-ZWNpc2lvbi4KPisJICogU2luY2UgcGVyZm9ybWFuY2UgaXMgbW9yZSBpbXBvcnRhbnQgdGhhbiBh
-Y2N1cmFjeSBoZXJlLAo+KwkgKiBtYWtlIHVzZSBvZiB0aGUgRFJNX0FSR0I2NF9HRVQqX0JQQ1Mo
-KSBoZWxwZXJzLgo+KwkgKi8KPisJdmFsID0gRklFTERfUFJFUChSSzM1NjhfVlBfRFNQX0JHX19E
-U1BfQkdfUkVELCBEUk1fQVJHQjY0X0dFVFJfQlBDUyhiZ2NvbG9yLCAxMCkpOwo+KwlGSUVMRF9N
-T0RJRlkoUkszNTY4X1ZQX0RTUF9CR19fRFNQX0JHX0dSRUVOLCAmdmFsLCBEUk1fQVJHQjY0X0dF
-VEdfQlBDUyhiZ2NvbG9yLCAxMCkpOwo+KwlGSUVMRF9NT0RJRlkoUkszNTY4X1ZQX0RTUF9CR19f
-RFNQX0JHX0JMVUUsICZ2YWwsIERSTV9BUkdCNjRfR0VUQl9CUENTKGJnY29sb3IsIDEwKSk7Cj4r
-CXZvcDJfdnBfd3JpdGUodnAsIFJLMzU2OF9WUF9EU1BfQkcsIHZhbCk7Cj4gfQo+IAo+IHN0YXRp
-YyBpbnQgdXNfdG9fdmVydGljYWxfbGluZShzdHJ1Y3QgZHJtX2Rpc3BsYXlfbW9kZSAqbW9kZSwg
-aW50IHVzKQo+QEAgLTE5ODMsNiArMTk5MiwxMCBAQCBzdGF0aWMgaW50IHZvcDJfY3J0Y19zdGF0
-ZV9kdW1wKHN0cnVjdCBkcm1fY3J0YyAqY3J0Yywgc3RydWN0IHNlcV9maWxlICpzKQo+IAkJICAg
-ZHJtX2dldF9idXNfZm9ybWF0X25hbWUodmNzdGF0ZS0+YnVzX2Zvcm1hdCkpOwo+IAlzZXFfcHJp
-bnRmKHMsICJcdG91dHB1dF9tb2RlWyV4XSIsIHZjc3RhdGUtPm91dHB1dF9tb2RlKTsKPiAJc2Vx
-X3ByaW50ZihzLCAiIGNvbG9yX3NwYWNlWyVkXVxuIiwgdmNzdGF0ZS0+Y29sb3Jfc3BhY2UpOwo+
-KwlzZXFfcHJpbnRmKHMsICJcdGJhY2tncm91bmQgY29sb3IgKDEwYnBjKTogcj0weCV4IGc9MHgl
-eCBiPTB4JXhcbiIsCj4rCQkgICBEUk1fQVJHQjY0X0dFVFJfQlBDUyhjc3RhdGUtPmJhY2tncm91
-bmRfY29sb3IsIDEwKSwKPisJCSAgIERSTV9BUkdCNjRfR0VUR19CUENTKGNzdGF0ZS0+YmFja2dy
-b3VuZF9jb2xvciwgMTApLAo+KwkJICAgRFJNX0FSR0I2NF9HRVRCX0JQQ1MoY3N0YXRlLT5iYWNr
-Z3JvdW5kX2NvbG9yLCAxMCkpOwo+IAlzZXFfcHJpbnRmKHMsICIgICAgRGlzcGxheSBtb2RlOiAl
-ZHglZCVzJWRcbiIsCj4gCQkgICBtb2RlLT5oZGlzcGxheSwgbW9kZS0+dmRpc3BsYXksIGludGVy
-bGFjZWQgPyAiaSIgOiAicCIsCj4gCQkgICBkcm1fbW9kZV92cmVmcmVzaChtb2RlKSk7Cj5AQCAt
-MjQ3Miw2ICsyNDg1LDggQEAgc3RhdGljIGludCB2b3AyX2NyZWF0ZV9jcnRjcyhzdHJ1Y3Qgdm9w
-MiAqdm9wMikKPiAJCQlyZXR1cm4gZGV2X2Vycl9wcm9iZShkcm0tPmRldiwgcmV0LAo+IAkJCQkJ
-ICAgICAiY3J0YyBpbml0IGZvciB2aWRlb19wb3J0JWQgZmFpbGVkXG4iLCBpKTsKPiAKPisJCWRy
-bV9jcnRjX2F0dGFjaF9iYWNrZ3JvdW5kX2NvbG9yX3Byb3BlcnR5KCZ2cC0+Y3J0Yyk7Cj4rCj4g
-CQlkcm1fY3J0Y19oZWxwZXJfYWRkKCZ2cC0+Y3J0YywgJnZvcDJfY3J0Y19oZWxwZXJfZnVuY3Mp
-Owo+IAkJaWYgKHZvcDItPmx1dF9yZWdzKSB7Cj4gCQkJY29uc3Qgc3RydWN0IHZvcDJfdmlkZW9f
-cG9ydF9kYXRhICp2cF9kYXRhID0gJnZvcDJfZGF0YS0+dnBbdnAtPmlkXTsKPmRpZmYgLS1naXQg
-YS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuaCBiL2RyaXZlcnMv
-Z3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5oCj5pbmRleCA5MTI0MTkxODk5YmEu
-LjM3NzIyNjUyODQ0YSAxMDA2NDQKPi0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2Nr
-Y2hpcF9kcm1fdm9wMi5oCj4rKysgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBf
-ZHJtX3ZvcDIuaAo+QEAgLTY1OCw2ICs2NTgsMTAgQEAgZW51bSBkc3RfZmFjdG9yX21vZGUgewo+
-ICNkZWZpbmUgUkszNTg4X1ZQX0NMS19DVFJMX19EQ0xLX09VVF9ESVYJCUdFTk1BU0soMywgMikK
-PiAjZGVmaW5lIFJLMzU4OF9WUF9DTEtfQ1RSTF9fRENMS19DT1JFX0RJVgkJR0VOTUFTSygxLCAw
-KQo+IAo+KyNkZWZpbmUgUkszNTY4X1ZQX0RTUF9CR19fRFNQX0JHX1JFRAkJCUdFTk1BU0soMjks
-IDIwKQo+KyNkZWZpbmUgUkszNTY4X1ZQX0RTUF9CR19fRFNQX0JHX0dSRUVOCQkJR0VOTUFTSygx
-OSwgMTApCj4rI2RlZmluZSBSSzM1NjhfVlBfRFNQX0JHX19EU1BfQkdfQkxVRQkJCUdFTk1BU0so
-OSwgMCkKPisKPiAjZGVmaW5lIFJLMzU2OF9WUF9QT1NUX1NDTF9DVFJMX19WU0NBTEVET1dOCQlC
-SVQoMSkKPiAjZGVmaW5lIFJLMzU2OF9WUF9QT1NUX1NDTF9DVFJMX19IU0NBTEVET1dOCQlCSVQo
-MCkKPiAKPgo+LS0gCj4yLjUyLjAKPgo=
+This patch series adds support for the PCM6240 audio ADC on the
+AM62D2 EVM board, enabling multi-channel audio record functionality.
+
+The series includes:
+- Enabling the PCM6240 driver in the ARM64 defconfig.
+- Adding device tree configuration for PCM6240 codec with McASP2
+  interface setup and corresponding pin multiplexing.
+
+This enables audio recording functionality on the AM62D2-EVM.
+
+Boot log-https://gist.github.com/paresh-bhagat12/7cf20989320bf06a3e72dfe69fba071f
+
+Tech Ref Manual-https://www.ti.com/lit/pdf/sprujd4
+Schematics Link-https://www.ti.com/lit/zip/sprcal5
+
+Paresh Bhagat (1):
+  arm64: defconfig: Enable PCM6240 ADC driver as module
+
+Vishnu Singh (1):
+  arm64: dts: ti: k3-am62d2-evm: Add PCM6240 ADC support
+
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 63 ++++++++++++++++++++++++
+ arch/arm64/configs/defconfig             |  1 +
+ 2 files changed, 64 insertions(+)
+
+-- 
+2.34.1
+
 
