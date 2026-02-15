@@ -4,69 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCBFEF586E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 15:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A69EF48D4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 16:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s5plnKFyC/vjHQ7I0zGiL3OzcbdKlPLy8GxWgUJXlcQ=; b=4Qr13RjnUB/h6Uw7SlrZjqBP41
-	msrhyRo+bD/7elCkgwixWzdTq4dhvFSNphKc3KKCmkXY/ddW6RehItq2VadudDDhXw4YlbMQctemd
-	ph4ASuYKurDJ8lgkvSGq8fseGsl4sMcK+B8XP7KDOh5IYn6b8s8KrExcSmOdsPXNPelhLByUEUOcD
-	9FPEUTJxoCM/rosHZUu9JB6GXVMg/JbCUhYk40OmbkS3TIwlqdQiicALc1O5+RVtbF+hrm/9wGRzu
-	hGdByBq8zzboIubz581NP+qMVqPGEklMEfbW4B0j7Bq+slhzwAuTEfMTE3Gmp1aN6/x/3tGn9o2bg
-	4qSs11Kw==;
+	bh=1j7VrNny21K3Eklartc96GfIRWb3fbVSSm8HKIdXzYo=; b=O2U0MuD6KjLa0y38meUCL1hp7v
+	APDXl+Ra27OgiiDYTcJlyo9X5kqitYe3udc6WkVSopLJausHH1q8rL4TmGut78DaSLaFiKKTwEl7a
+	mgE2WYNv4xJdFSTX6IIFEx/Y9BvxXUw9wrcDcc0/WCSSueq/+WuiFkMJkmvag9zevtnswCllpkUsJ
+	4MHvEyzJKjLdNJyD7umKZeplvejmSr8ztb6+n7ImOMvCEKE6hKs+y7ddokOj5+4rdUUDc6Ze9b3Iw
+	tulSepB1yowWytshvsaTD/wNIGdwG0caXdgVwAQUgD30rD2ZlDyHSlfCUGzehHF9c+J2iQmG4uWAI
+	g3jCL2aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrdev-00000005SBt-3iid;
-	Sun, 15 Feb 2026 15:03:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vrf9S-00000005VYZ-3rr0;
+	Sun, 15 Feb 2026 16:39:18 +0000
+Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrdet-00000005SBb-3LE0;
-	Sun, 15 Feb 2026 15:03:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77FF560008;
-	Sun, 15 Feb 2026 15:03:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E36BAC4CEF7;
-	Sun, 15 Feb 2026 15:03:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771167818;
-	bh=ALJQ6v0jihErAld2wDaIVC7Dc1Pu90VzccUmQjBo3qE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SnD4l3f95hoKZ/Qa9q6GeL+aHkkQKVGQWYcFSumWEgq764zoOJ+SDty/oFEzQOMYl
-	 lSM3cEflzIPYKNXUptUEOm3DlLfAonrrD6hxii/Vz95CXvLTu//U46YAHR2Vc9Cls5
-	 4n6DrSkRYbsSpscFIsDngHW/KOAxCoy9GBRWHFezHLSJrjnfzAnoEaIppTare5prrM
-	 57vm27zFvAnmjZx/0eH/CbGKvSPqpcbSy4DaVWwVXj3q57LZF4LpkjDG4JL8mFJonC
-	 FbPDZj8zapFhj9fzpbEYFua19kRVE8XXhciHFMChAQAWHAzjjJ0N4HHJvVw9uM8fg6
-	 JTwGGwMHJgF0A==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Keita Morisaki <keita.morisaki@tier4.jp>,
-	Peter Wang <peter.wang@mediatek.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Sasha Levin <sashal@kernel.org>,
-	chaotian.jing@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-scsi@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
+	id 1vrf9P-00000005VUT-3J0j;
+	Sun, 15 Feb 2026 16:39:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K3t13V/x1GdbMVe7gKGNZSFH5t5evaoRLUc4OQhQE/UjSXeRZ3qpojQN/NUXi8Lq5oKEPaFyRNR2aSKZHpGtZ0MUfI2cxFGUiR2cV72V6jWP1R/6ljiWgRrorFz2H58PD6qlykvCvLI0OhTV/J4SuHCy1D0T1ZZmtgZUIS6N97NF5NRwfGl/8jBFsMcg5RlDu/GyZA8tW42583pRJL8MN3lBVLerO5wWpkg+1o//EMmA2e5MLXdwnLAhzgIyf21ONsa0Che2dCbGHc3fTiUgoheSBWQ2zTs2gJ/CDeCmIko5l07Mc1R1iR0HXCMbHINAPxeKWi9674MaI/0Auyz1kQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1j7VrNny21K3Eklartc96GfIRWb3fbVSSm8HKIdXzYo=;
+ b=tDb9bhYeOHC4NAG1639vS3P1N3NO0gog/KT2PNnT7R9iHHi/ATTm/UxYLMXRQEEIbFLlVsEbUoEKxrgLWeGJI4LyfsNZisyx04z6vXxQfsFUvKQ+hfFjyBvST9tLaXBPKsK2TmmM91olUE88XoPG6g5oFXLBkugwK65K73rZfVhlhFtcoxhmnWxpOJoOiPGuKq9GVm9XGi3u9BtsSLJ3Cu2PX1VxPzc+g70CxLwp/KbQNaBwAl8VuTc3CpiQ2oiJKs4ALItR2kTUK5OPMzg8waAK3AJuNhS5kDtZhjuSG7N7qy1SmsXm8oTCL29EIZiZI91EvfZ01AKmQLkm1dzjUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
+ header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1j7VrNny21K3Eklartc96GfIRWb3fbVSSm8HKIdXzYo=;
+ b=dn+Hy8kKhE60RiSnpae3rPNXIorT8/vipnoCkQ91X2JYOIwJGnlqrpSNoGO14JG9MqhNOuj9+JopUyzf0N2bOpe9IteL3f1+68Fvg3LlQvcM9K34qyBPb+nyPNPnrW+Ut5DkeLCIC1noQX0WNfWvIfqDEymcwurl3Up38yDVC6Q=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=valinux.co.jp;
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:38f::10)
+ by OSCP286MB5196.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:34b::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Sun, 15 Feb
+ 2026 16:39:03 +0000
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32]) by TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32%5]) with mapi id 15.20.9611.013; Sun, 15 Feb 2026
+ 16:39:03 +0000
+From: Koichiro Den <den@valinux.co.jp>
+To: jingoohan1@gmail.com,
+	mani@kernel.org,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	heiko@sntech.de,
+	kishon@kernel.org,
+	jdmason@kudzu.us,
+	dave.jiang@intel.com,
+	allenbh@gmail.com,
+	cassel@kernel.org,
+	shawn.lin@rock-chips.com,
+	Frank.Li@nxp.com
+Cc: linux-pci@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.19-6.12] scsi: ufs: mediatek: Fix page faults in ufs_mtk_clk_scale() trace event
-Date: Sun, 15 Feb 2026 10:03:19 -0500
-Message-ID: <20260215150333.2150455-2-sashal@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	ntb@lists.linux.dev
+Subject: [PATCH v7 3/9] PCI: endpoint: Add auxiliary resource query API
+Date: Mon, 16 Feb 2026 01:38:41 +0900
+Message-ID: <20260215163847.3522572-4-den@valinux.co.jp>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260215150333.2150455-1-sashal@kernel.org>
-References: <20260215150333.2150455-1-sashal@kernel.org>
-MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.19
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20260215163847.3522572-1-den@valinux.co.jp>
+References: <20260215163847.3522572-1-den@valinux.co.jp>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TY4PR01CA0091.jpnprd01.prod.outlook.com
+ (2603:1096:405:37d::11) To TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:38f::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY7P286MB7722:EE_|OSCP286MB5196:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf366e5f-ffe6-4114-cc12-08de6cb0bae8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|7416014|376014|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OHY1xRdcZDRDL2kSXoUPJMZ641OJlWno1gH4/kD6nKkWHbjqWtLOQGfm0AZX?=
+ =?us-ascii?Q?BhhYBou2sQ+Kp1860E1xQaRAxjmY5PjYIw303bcs9jsf4A9zqQuy0k4n5y/y?=
+ =?us-ascii?Q?0AOa5TNt1uQX215yVdysOG0bwD9nWdz/npRxvoGPNaE5xYZ5DSTiO+Ix8v/M?=
+ =?us-ascii?Q?4TV+Ycqpm86UdsP5WFyTOUObWHLQCff19DUqSit9weFmhH14GTW8Mqr7f28Q?=
+ =?us-ascii?Q?meA2XjfHhFjP/oTHUsG/H+RKxi4gsWmI9HM1wvwrK79KaOIYd2xtiK8Xv2Kp?=
+ =?us-ascii?Q?L43/JFYxphnMAoJ2mcDg1rjmSzZy7oSLlrmjNIgikv90/EzBuDAZr+d0VmFr?=
+ =?us-ascii?Q?yy280wa9yOkPrKj6uEdDKgmN6anknrqWpJEoS81C18T5kmO60cRRIE1LQzJw?=
+ =?us-ascii?Q?k6H56qHFLl3gM2/UondIK+NMwaAhE5dGsDlFzzyLt7aBqMc+IpmNQ5qWhsID?=
+ =?us-ascii?Q?QOvocQSdjoFL/p7qe99yMG4V0VZthV+56XVnV1Fih7LGhf0B1P4vndcGHEDX?=
+ =?us-ascii?Q?EQvNiNW5eLiNhDwpG5KJzcgZahB52YNS0P91i9FUyMq4eXX/GDVWXGhZLnaF?=
+ =?us-ascii?Q?78LFpUxQ34w0yML3FpwmqwPfMdfalETN3vgowa/qnPVq/D/dHj89u8QovN8V?=
+ =?us-ascii?Q?eURV5hAZFrTkrUnls+wItbbF8Bxj707OMRW9dZzjXAhm8m3ANOd7xDBdJU6N?=
+ =?us-ascii?Q?+i/9yXBEahEUyYOMvsBj+hkUtj7DIeCW5OLQHPm1COPgPblpzswfUuAj0q2h?=
+ =?us-ascii?Q?WMke9SXzDrjcDxr0ZctXrZooktukAWZRYqYmHb6l9/XVcLqSp1ZqYmr8nxmQ?=
+ =?us-ascii?Q?tx3nDxczGChPWUFb3sepIfotOtG1QHMQ+PWpkw7GUzWY6dI9wR8yziB4YNYC?=
+ =?us-ascii?Q?syxOqSJSG2edgRYrmf/QQ8hMY9S28CdBoKUy4Mpamic0QItyC9aNli2+od1Z?=
+ =?us-ascii?Q?8CChs7A5to1XcAYmaqcQ1QWquXYEgslfj1t1hnHwxK91GDqqIVK4f2zzzX4m?=
+ =?us-ascii?Q?Rw9nJGyiBvxK6nMbdIVJ89OggMjaEgO4joWGNykD2ha41Vu1kWdCfTv3Yq3t?=
+ =?us-ascii?Q?v3AWnVcA2ilpMRP2yhWT5AruGGfbyNhaJLFaKMccxWpob05sxnmI9/Zq5WO1?=
+ =?us-ascii?Q?e+t680yuQsMplk13Jx2eSKA6LgP75TjDIzh3sjR+far4DM1m/UvQKu8uCF+8?=
+ =?us-ascii?Q?vRkgbip84ourLbZBJVUbvsCwMWiYF6fgpvST5Gxx1eT4Gr3KC/wRlOJwUQV1?=
+ =?us-ascii?Q?WtX+I/Y4Tb6yDLNhde2LVX9GUzxOm/kcwSRQ4onlmepbcZax6eiYKokODvgl?=
+ =?us-ascii?Q?QO/LeBgZCJLGUoRfgu8f2a7b0jow5lUf6I3K4PVwH7lqP/38yonfyelPeITP?=
+ =?us-ascii?Q?msmXcLmzbvq4x3OiYxsPh+RpvNSah5gin3gBngaEof0HftYkR3gfR3Ygbn+O?=
+ =?us-ascii?Q?bR8RGH47bsJRymamvtmOaQPTDE7kSp3PJTjfFDQ3Api0zs8dQQstVAyFmPUs?=
+ =?us-ascii?Q?DZxt9qyc0d9wgwUPcZYgl+ue8GtFgbT96i2OaWUS/NeaOOtPJcqKcDB5JD8W?=
+ =?us-ascii?Q?Jd2EceadxB7s1sSop89O2yaoHAUtZchFDbS++NyIzGvUu8Rt7tLOz72CtAJG?=
+ =?us-ascii?Q?TA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(7416014)(376014)(366016)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?stEHwIcqj8kFLotzU0taSvhQR//w1QwTgo2kI49IrlsjF2T8PbBwipCy42md?=
+ =?us-ascii?Q?5OYc9Ye1UmEpVVcCN5CnN049HVRlHdYJI3CrvgRlb+3hJ3pkyXC08nJHEn9f?=
+ =?us-ascii?Q?OBj1vnWW5OVxM/Ejmow4bOd5MOvHnJZSxx1QyciVHH5wVDMGqbl+GikjEbT3?=
+ =?us-ascii?Q?D5FnwDtMP3JZJklCOXB0haHytdiNLZ52j1AZQH2v1LRI1uKptapy1/NNj3vc?=
+ =?us-ascii?Q?ROVEn+J945KnBeMQmbth0j0jC5T5tNoe8cbZMq7nX0K0n2XQR5alw8ISp/NQ?=
+ =?us-ascii?Q?pISiNgwTf7Kr1M6IY5W6SCY1nTFs6xWBvXw5gIc7opij7v7g2NVAmwxqW9P3?=
+ =?us-ascii?Q?w/hAemQf+gqYFuBZfLWhqEXiHJqnIEJM2en2IQhfRDa5t3Yi3yLYfvYpD2yJ?=
+ =?us-ascii?Q?XROtpPFf19MqdK/wwYjBcLANkVlnkGigwafbehvyJQUZdiiVcoqynguK1VZy?=
+ =?us-ascii?Q?X7qAqMFAomYzoCDEznIA5t1oyIYyNPBHIjjVxQuGW4hNNvL8SP0/iRRGlqR2?=
+ =?us-ascii?Q?2+CwRV3gZdaeCa8Repc//gGG69Pd0wWhchJU1tThgv28xfxTDEpIuwOItwA2?=
+ =?us-ascii?Q?qzJBl5PBntYvbQeyvzyXzXUswJZx7FzlfdiNYP9OWVjMupNdDVUtEkliz9E+?=
+ =?us-ascii?Q?niqggl8vRu9RwsrMaw2ez9xEkIsJ1vb5WBBeOMTMDmBnTpC/jvHOQ8hMnzyW?=
+ =?us-ascii?Q?pz4oNkqpDorKbmv0DY5KzRoyr/OQ20NpxWjlRUfqXLKhcIjCcSrR71nJVR7W?=
+ =?us-ascii?Q?F846oOw5snMHODmrAkdHcfwiHdF5IzTx/q9LBK0AHAVG5QinKA4JBOwuhFPa?=
+ =?us-ascii?Q?hykv5pDEhzCurcBeEevwPOOsZG2TxZxi2JkhvKEwju6RiVJa7EBGQUadPfw6?=
+ =?us-ascii?Q?+j9wTaNisvjS/z/FilfuIANL7Q/6UFs1TP72KMjF2vIyC2dpJWiL7ON+olO2?=
+ =?us-ascii?Q?GYI27j+Xy48zEQ0jBlPjdhdggOOvKWI90krvi7dSGQzChr8pE8sJOt+fCrT+?=
+ =?us-ascii?Q?X3iecIwImdH792EZMLS+2/QOYM1dzPzU33lEmn3j45Qhk23LGF9nA2WJ6Odl?=
+ =?us-ascii?Q?j0+0Mil4fBkNdn321aZrkJ2t7XxbXDOkkPUQLzlmJ/na80B621/3+K78cS5a?=
+ =?us-ascii?Q?8Od2g1w0Md91Bm/y/NlAJCKBARQLYJXWQWIKJdqbv+MMY7ARUuhwupUsKf+p?=
+ =?us-ascii?Q?42NixN3GDljN2QCKkVvXaDoucuuNdCAGD4Hy3MRw/3iM1lBveDxyTsdrJwuY?=
+ =?us-ascii?Q?tV/4dpqQKnE8cQEBPs48tcHuqUlfoArnWvdH1gAxbYRsoD2ArI68sLOhQk2D?=
+ =?us-ascii?Q?gtxsDuDJJw4ZRhjQbjDDPp/v9sZChj6ELm5Zzrbt1/Gmd7DUSv6mg62t4cz8?=
+ =?us-ascii?Q?2PA6xEfq3MjsNGmc4Xz8lZeActGUy2ThU4SLIF4JkY1I2DzVq/p394BNHWUF?=
+ =?us-ascii?Q?gm6xiRcW0I4fr57HKgM5qc3ZNneJFTm04lTgN4Ndm73ExOs6o9/NNkMZvmu5?=
+ =?us-ascii?Q?ce117p89QAgyCIwn/cu6VIwgena7m+7bLAebq/FV2kpURo0dvmH19GxI4tjC?=
+ =?us-ascii?Q?r85Mtft9KbLA55z7v3NYE5W7REXGJo4Sx0JNWwbSUPM7o18NPyMBgTrUvtjj?=
+ =?us-ascii?Q?R6AG1fvOM4lBli1oiQ0wds1clA6ES6aHrAjw++T/dqFLV7ZMsZ3XPdclFBX0?=
+ =?us-ascii?Q?43zbFNxlhK8SvdUmQ84XFWyPZgKnc8NXQWwOSOhekgIXXNxD/bIGS3bwQmXD?=
+ =?us-ascii?Q?bOu/4igW73UFozQhvKkXPJr7Yh6NCqUR5DvS6nkHC2FJWmwwbcmx?=
+X-OriginatorOrg: valinux.co.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf366e5f-ffe6-4114-cc12-08de6cb0bae8
+X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Feb 2026 16:39:03.9448
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mNensatSCXt3dVlbbO7FPgY9tuX6nyLsPyhcjaIy0fxHPeaGw2HpLvt6V+1olNjybQEBm8fA5yBktCkkBXEccQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSCP286MB5196
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260215_083915_848315_26C632F2 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,99 +178,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Keita Morisaki <keita.morisaki@tier4.jp>
+Endpoint controller drivers may integrate auxiliary blocks (e.g. DMA
+engines) whose register windows and descriptor memories metadata need to
+be exposed to a remote peer. Endpoint function drivers need a generic
+way to discover such resources without hard-coding controller-specific
+helpers.
 
-[ Upstream commit 9672ed3de7d772ceddd713c769c05e832fc69bae ]
+Add pci_epc_get_aux_resources() and the corresponding pci_epc_ops
+get_aux_resources() callback. The API returns a list of resources
+described by type, physical address and size, plus type-specific
+metadata.
 
-The ufs_mtk_clk_scale() trace event currently stores the address of the
-name string directly via __field(const char *, name). This pointer may
-become invalid after the module is unloaded, causing page faults when the
-trace buffer is subsequently accessed.
+Passing resources == NULL (or num_resources == 0) returns the required
+number of entries.
 
-This can occur because the MediaTek UFS driver can be configured as a
-loadable module (tristate in Kconfig), meaning the name string passed to
-the trace event may reside in module memory that becomes invalid after
-module unload.
-
-Fix this by using __string() and __assign_str() to copy the string contents
-into the ring buffer instead of storing the pointer. This ensures the trace
-data remains valid regardless of module state.
-
-This change increases the memory usage for each ftrace entry by a few bytes
-(clock names are typically 7-15 characters like "ufs_sel" or
-"ufs_sel_max_src") compared to storing an 8-byte pointer.
-
-Note that this change does not affect anything unless all of the following
-conditions are met:
-
- - CONFIG_SCSI_UFS_MEDIATEK is enabled
-
- - ftrace tracing is enabled
-
- - The ufs_mtk_clk_scale event is enabled in ftrace
-
-Signed-off-by: Keita Morisaki <keita.morisaki@tier4.jp>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Link: https://patch.msgid.link/20260202024526.122515-1-keita.morisaki@tier4.jp
-Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Koichiro Den <den@valinux.co.jp>
 ---
+ drivers/pci/endpoint/pci-epc-core.c | 41 +++++++++++++++++++++++
+ include/linux/pci-epc.h             | 51 +++++++++++++++++++++++++++++
+ 2 files changed, 92 insertions(+)
 
-LLM Generated explanations, may be completely bogus:
-
-The `ufs_mtk_clk_scale` trace event was introduced in August 2022
-(kernel 6.1 era), so this buggy code exists in multiple stable trees
-(6.1.y, 6.6.y, and later).
-
-### 8. CONCLUSION
-
-This is a textbook stable backport candidate:
-- **Fixes a real crash** (page fault / use-after-free on dangling
-  pointer)
-- **Extremely small and contained** (4-line change in one file)
-- **Uses well-established patterns**
-  (`__string()/__assign_str()/__get_str()`) that are the correct and
-  standard approach
-- **Zero risk of regression** — this is strictly more correct than the
-  original code
-- **Affected code exists in stable trees** dating back to at least 6.1
-- **Reviewed and accepted** by the relevant maintainers
-- **Self-contained** — no dependencies on other patches
-
-The fix is small, surgical, and meets all stable kernel criteria.
-
-**YES**
-
- drivers/ufs/host/ufs-mediatek-trace.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/ufs/host/ufs-mediatek-trace.h b/drivers/ufs/host/ufs-mediatek-trace.h
-index b5f2ec3140748..0df8ac843379a 100644
---- a/drivers/ufs/host/ufs-mediatek-trace.h
-+++ b/drivers/ufs/host/ufs-mediatek-trace.h
-@@ -33,19 +33,19 @@ TRACE_EVENT(ufs_mtk_clk_scale,
- 	TP_ARGS(name, scale_up, clk_rate),
+diff --git a/drivers/pci/endpoint/pci-epc-core.c b/drivers/pci/endpoint/pci-epc-core.c
+index 068155819c57..01de4bd5047a 100644
+--- a/drivers/pci/endpoint/pci-epc-core.c
++++ b/drivers/pci/endpoint/pci-epc-core.c
+@@ -155,6 +155,47 @@ const struct pci_epc_features *pci_epc_get_features(struct pci_epc *epc,
+ }
+ EXPORT_SYMBOL_GPL(pci_epc_get_features);
  
- 	TP_STRUCT__entry(
--		__field(const char*, name)
-+		__string(name, name)
- 		__field(bool, scale_up)
- 		__field(unsigned long, clk_rate)
- 	),
++/**
++ * pci_epc_get_aux_resources() - query EPC-provided auxiliary resources
++ * @epc: EPC device
++ * @func_no: function number
++ * @vfunc_no: virtual function number
++ * @resources: output array (may be NULL to query required count)
++ * @num_resources: size of @resources array in entries (0 when querying count)
++ *
++ * Some EPC backends integrate auxiliary blocks (e.g. DMA engines) whose control
++ * registers and/or descriptor memories can be exposed to the host by mapping
++ * them into BAR space. This helper queries the backend for such resources.
++ *
++ * Return:
++ *   * >= 0: number of resources returned (or required, if @resources is NULL)
++ *   * -EOPNOTSUPP: backend does not support auxiliary resource queries
++ *   * other -errno on failure
++ */
++int pci_epc_get_aux_resources(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
++			      struct pci_epc_aux_resource *resources,
++			      int num_resources)
++{
++	int ret;
++
++	if (!epc || !epc->ops)
++		return -EINVAL;
++
++	if (func_no >= epc->max_functions)
++		return -EINVAL;
++
++	if (!epc->ops->get_aux_resources)
++		return -EOPNOTSUPP;
++
++	mutex_lock(&epc->lock);
++	ret = epc->ops->get_aux_resources(epc, func_no, vfunc_no, resources,
++					  num_resources);
++	mutex_unlock(&epc->lock);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(pci_epc_get_aux_resources);
++
+ /**
+  * pci_epc_stop() - stop the PCI link
+  * @epc: the link of the EPC device that has to be stopped
+diff --git a/include/linux/pci-epc.h b/include/linux/pci-epc.h
+index 7a87f5962dd0..fd79784b31db 100644
+--- a/include/linux/pci-epc.h
++++ b/include/linux/pci-epc.h
+@@ -61,6 +61,50 @@ struct pci_epc_map {
+ 	void __iomem	*virt_addr;
+ };
  
- 	TP_fast_assign(
--		__entry->name = name;
-+		__assign_str(name);
- 		__entry->scale_up = scale_up;
- 		__entry->clk_rate = clk_rate;
- 	),
++/**
++ * enum pci_epc_aux_resource_type - auxiliary resource type identifiers
++ * @PCI_EPC_AUX_DMA_CTRL_MMIO: Integrated DMA controller register window (MMIO)
++ * @PCI_EPC_AUX_DMA_CHAN_DESC: Per-channel DMA descriptor
++ * @PCI_EPC_AUX_DOORBELL_MMIO: Doorbell MMIO, that might be outside the DMA
++ *                             controller register window
++ *
++ * EPC backends may expose auxiliary blocks (e.g. DMA engines) by mapping their
++ * register windows and descriptor memories into BAR space. This enum
++ * identifies the type of each exposable resource.
++ */
++enum pci_epc_aux_resource_type {
++	PCI_EPC_AUX_DMA_CTRL_MMIO,
++	PCI_EPC_AUX_DMA_CHAN_DESC,
++	PCI_EPC_AUX_DOORBELL_MMIO,
++};
++
++/**
++ * struct pci_epc_aux_resource - a physical auxiliary resource that may be
++ *                               exposed for peer use
++ * @type:       resource type, see enum pci_epc_aux_resource_type
++ * @phys_addr:  physical base address of the resource
++ * @size:       size of the resource in bytes
++ * @bar:        BAR number where this resource is already exposed to the RC
++ *              (NO_BAR if not)
++ * @bar_offset: offset within @bar where the resource starts (valid iff
++ *              @bar != NO_BAR)
++ * @u:          type-specific metadata
++ */
++struct pci_epc_aux_resource {
++	enum pci_epc_aux_resource_type type;
++	phys_addr_t phys_addr;
++	resource_size_t size;
++	enum pci_barno bar;
++	resource_size_t bar_offset;
++
++	union {
++		/* PCI_EPC_AUX_DOORBELL_MMIO */
++		struct {
++			int irq;
++		} db_mmio;
++	} u;
++};
++
+ /**
+  * struct pci_epc_ops - set of function pointers for performing EPC operations
+  * @write_header: ops to populate configuration space header
+@@ -84,6 +128,7 @@ struct pci_epc_map {
+  * @start: ops to start the PCI link
+  * @stop: ops to stop the PCI link
+  * @get_features: ops to get the features supported by the EPC
++ * @get_aux_resources: ops to retrieve controller-owned auxiliary resources
+  * @owner: the module owner containing the ops
+  */
+ struct pci_epc_ops {
+@@ -115,6 +160,9 @@ struct pci_epc_ops {
+ 	void	(*stop)(struct pci_epc *epc);
+ 	const struct pci_epc_features* (*get_features)(struct pci_epc *epc,
+ 						       u8 func_no, u8 vfunc_no);
++	int	(*get_aux_resources)(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
++				     struct pci_epc_aux_resource *resources,
++				     int num_resources);
+ 	struct module *owner;
+ };
  
- 	TP_printk("ufs: clk (%s) scaled %s @ %lu",
--		  __entry->name,
-+		  __get_str(name),
- 		  __entry->scale_up ? "up" : "down",
- 		  __entry->clk_rate)
- );
+@@ -337,6 +385,9 @@ int pci_epc_start(struct pci_epc *epc);
+ void pci_epc_stop(struct pci_epc *epc);
+ const struct pci_epc_features *pci_epc_get_features(struct pci_epc *epc,
+ 						    u8 func_no, u8 vfunc_no);
++int pci_epc_get_aux_resources(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
++			      struct pci_epc_aux_resource *resources,
++			      int num_resources);
+ enum pci_barno
+ pci_epc_get_first_free_bar(const struct pci_epc_features *epc_features);
+ enum pci_barno pci_epc_get_next_free_bar(const struct pci_epc_features
 -- 
 2.51.0
 
