@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB12EF5855
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Feb 2026 21:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F778EF585B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 03:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BqF9ZXjLIAbUiP3IGwEWzLQGpJzvQEgIcNfjWzEnD24=; b=P/T/LK+5qc3pkcbBR7JbXHFmff
-	6/p5c5PYGhhpI+0NFkdmovd7EV12rsyNYRFDymScAhgediy2NWYhhuXxVOFMNdBB1tAyq3F7SEs/t
-	yoIJrrtK63JxosB10rZA6mPi6Q+wjO2xQVu9vM24QPgNdsgZWcYGIoErdiXA0xNL1P+9kJKz2IL2I
-	kJwE3Qck5zlMQBkPxdDT1PD9wHrI31su65R54AiBAdJ5ERLiNMS27T8VhZm+yIz28Y0gODJtQRQGH
-	pVZkkifFNtgC40xsH6O6LQOrG5B9CXcikG9E+XeDHsBkPaoykUu8lsogh8cvr63uCwZT15hKV51cw
-	/aGruWpw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZCuFX4wLWSbnn2ULZdbzI2FlhLkmO20FWopmI/RY+50=; b=ixU1iUP7r2UEvBPdeEvgfNykrK
+	hpH9VJSj1sUZKbTETHXIhrus9EuT9Q+oY7c7nLNbBmrf9ugEFDYi3q1QlOwpo3kJTybYTQLmXnbVt
+	UIj+YUPw1/C/3xlC51dHP15Ycph/rwD/jM1fPJTfW6X+pbg/cXEKtyjKHjVt3c1lQ0waW28BQ4sO+
+	EuPsyQbCboDH9hrw7NT8XjSiwyVBbD+LXx96VKKXyLK5AzE1cX/nP8ZkcTY0tVsXCBXL0GeA9cPrm
+	aoXuDOv4jBa3AtcL2aEWuolbAcgemRhudvs52EPhsaSDydbnEO9Du7tHrKN7+pabYvR2dhbU3Z9Im
+	KdzZkb5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrNAh-00000004xTf-3xWI;
-	Sat, 14 Feb 2026 21:27:23 +0000
+	id 1vrTGy-000000058e2-3qM4;
+	Sun, 15 Feb 2026 03:58:16 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrNAe-00000004xSr-2Nc4
+	id 1vrTGx-000000058dv-1cTG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Feb 2026 21:27:20 +0000
+	Sun, 15 Feb 2026 03:58:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F80C600BB;
-	Sat, 14 Feb 2026 21:27:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FDA8C19423;
-	Sat, 14 Feb 2026 21:27:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D5ED6001D;
+	Sun, 15 Feb 2026 03:58:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 809A0C4CEF7;
+	Sun, 15 Feb 2026 03:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771104439;
-	bh=5B+y1/9UFO5UHwNM95mpU5Yo9tgGTHgo0lH4ZEMMc7o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=c476ZOg5znoDeYJ/j14m2k0Al9UpEO53uRQ2SEgKAE9g35Kn8gZJ4lht2s1UzwgZ8
-	 8thLwKn8bRw4sCobvmBd7HNl4XJO+0nk4dc3Vgt6qufc6ZGdDv/VlLP07BBKCT4pQc
-	 a6htomWUJ5Pqqwrd4HEfGlxWBJbOV4LLxqWli+eRlz1XQFuqhLvWOkI1K9TRL8UKIg
-	 xRhULfIrr1AEFRlFLhq7gMs3U+7tOUKC9f+3BrVMumwKroCaA3af1Z1Oryz2ePsv3/
-	 Y/D4dUzI20+OW4q3Vdmmqh+MWJKKYfYF4nvMsZmQzzv0jS3H6D7bdu2zeBJOBJugUA
-	 opGFSKtoUn0zg==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Richard Zhu <hongxing.zhu@nxp.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sasha Levin <sashal@kernel.org>,
-	l.stach@pengutronix.de,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.19-6.18] PCI: imx6: Add CLKREQ# override to enable REFCLK for i.MX95 PCIe
-Date: Sat, 14 Feb 2026 16:23:49 -0500
-Message-ID: <20260214212452.782265-84-sashal@kernel.org>
+	s=k20201202; t=1771127892;
+	bh=jsM6rUIEAwjwmIUoIADEtW5CiHC9ZcogfvHijHZpuys=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AXEQZIueajJ7DSzROwzTv2ACIB0cWHnp8cKrN44oY7F4k5wUfahMoqA1vTzqNfbic
+	 RwRxyMU+tZqNsGzixcYy6Ki0Qfr23XH4NNGEbFTo5/8YzsXtaSCg3EyCjZYPvGq+nn
+	 7HXhlPR3evjZ+YVDMQV+NrTqlGmIDV1D4j+kMXdIgp95bsUYdMg3Q3DWAMcTQKsZji
+	 zS04TsnIjwFpvY09XV8HoOOTzoZ5yFJ3X/3byZt7Ur66jeGGpy7QAsqqBb6hXRrXBw
+	 b8j+qnMVgtbnVUUoDY5Py9xed73WuybqloJ/+Mc/QaiAlzD5jqskm8p75qTOXUul0E
+	 mSLg6dyP46nLw==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dennis Zhou <dennis@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@gentwo.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: [PATCH] arm64: remove HAVE_CMPXCHG_LOCAL
+Date: Sun, 15 Feb 2026 11:39:44 +0800
+Message-ID: <20260215033944.16374-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260214212452.782265-1-sashal@kernel.org>
-References: <20260214212452.782265-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.19
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,133 +71,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
+It turns out the generic disable/enable irq this_cpu_cmpxchg
+implementation is faster than LL/SC or lse implementation. Remove
+HAVE_CMPXCHG_LOCAL for better performance on arm64.
 
-[ Upstream commit 27a064aba2da6bc58fc36a6b8e889187ae3bf89d ]
+Tested on Quad 1.9GHZ CA55 platform:
+average mod_node_page_state() cost decreases from 167ns to 103ns
+the spawn (30 duration) benchmark in unixbench is improved
+from 147494 lps to 150561 lps, improved by 2.1%
 
-The CLKREQ# is an open drain, active low signal that is driven low by
-the card to request reference clock. It's an optional signal added in
-PCIe CEM r4.0, sec 2. Thus, this signal wouldn't be driven low if it's
-not exposed on the slot.
+Tested on Quad 2.1GHZ CA73 platform:
+average mod_node_page_state() cost decreases from 113ns to 85ns
+the spawn (30 duration) benchmark in unixbench is improved
+from 209844 lps to 212581 lps, improved by 1.3%
 
-On the i.MX95 EVK board, REFCLK to the host and endpoint is gated by this
-CLKREQ# signal. So if the CLKREQ# signal is not driven by the endpoint, it
-will gate the REFCLK to host too, leading to operational failure.
-
-Hence, enable the REFCLK on this SoC by enabling the CLKREQ# override using
-imx95_pcie_clkreq_override() helper during probe. This override should only
-be cleared when the CLKREQ# signal is exposed on the slot.
-
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-[mani: reworded description]
-Signed-off-by: Manivannan Sadhasivam <mani@kernel.org>
-Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Link: https://patch.msgid.link/20251015030428.2980427-11-hongxing.zhu@nxp.com
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
+ arch/arm64/Kconfig              |  1 -
+ arch/arm64/include/asm/percpu.h | 24 ------------------------
+ 2 files changed, 25 deletions(-)
 
-LLM Generated explanations, may be completely bogus:
-
-This is very instructive. The same author (Richard Zhu) previously fixed
-the same kind of issue for i.MX8MM — CLKREQ# not being asserted causing
-operational failures. That commit had a `Fixes:` tag and was clearly a
-bug fix. This commit for i.MX95 is the same pattern — the same bug, same
-root cause, same type of fix, just for a different SoC.
-
-### Summary Assessment
-
-**What the commit fixes**: On i.MX95, PCIe is non-functional when the
-endpoint doesn't drive the CLKREQ# signal (which is optional per PCIe
-CEM spec). Without this fix, the reference clock to the host is gated,
-causing complete operational failure of PCIe.
-
-**Nature of the fix**: This is a hardware workaround — it enables
-CLKREQ# override so the reference clock isn't gated. It's analogous to
-the `imx8mm_pcie_enable_ref_clk` which does the same thing (assert
-CLKREQ# override) for i.MX8MQ/8MM/8MP.
-
-**Dependencies**: The `enable_ref_clk` callback infrastructure (commit
-256867b74625a) must be present. This was added in the 6.11 timeframe
-along with i.MX95 support. The code should exist in stable trees that
-have i.MX95 support.
-
-**Risk**: Very low — only affects i.MX95 PCIe. Simple register writes.
-Uses well-established callback pattern already in use by all other SoC
-variants.
-
-**User impact**: HIGH for i.MX95 users — PCIe may be completely non-
-functional without this fix when CLKREQ# is not driven by the endpoint.
-
-**Stable criteria**:
-- Fixes a real bug (PCIe non-functional) — YES
-- Obviously correct (simple register writes, tested, reviewed) — YES
-- Small and contained (~30 lines, single file) — YES
-- No new features (it's a hardware workaround for existing platform) —
-  YES
-
-This is essentially a hardware quirk/workaround that makes an existing
-driver work correctly. It falls squarely into the category of hardware-
-specific workarounds that are acceptable for stable backporting. The
-same class of fix was previously done for i.MX8MM with a `Fixes:` tag.
-
-**YES**
-
- drivers/pci/controller/dwc/pci-imx6.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
-
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 4668fc9648bff..34f8f69ddfae9 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -52,6 +52,8 @@
- #define IMX95_PCIE_REF_CLKEN			BIT(23)
- #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
- #define IMX95_PCIE_SS_RW_REG_1			0xf4
-+#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
-+#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
- #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 38dba5f7e4d2..5e7e2e65d5a5 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -205,7 +205,6 @@ config ARM64
+ 	select HAVE_EBPF_JIT
+ 	select HAVE_C_RECORDMCOUNT
+ 	select HAVE_CMPXCHG_DOUBLE
+-	select HAVE_CMPXCHG_LOCAL
+ 	select HAVE_CONTEXT_TRACKING_USER
+ 	select HAVE_DEBUG_KMEMLEAK
+ 	select HAVE_DMA_CONTIGUOUS
+diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+index b57b2bb00967..70ffe566cb4b 100644
+--- a/arch/arm64/include/asm/percpu.h
++++ b/arch/arm64/include/asm/percpu.h
+@@ -232,30 +232,6 @@ PERCPU_RET_OP(add, add, ldadd)
+ #define this_cpu_xchg_8(pcp, val)	\
+ 	_pcp_protect_return(xchg_relaxed, pcp, val)
  
- #define IMX95_PE0_GEN_CTRL_1			0x1050
-@@ -706,6 +708,22 @@ static int imx7d_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
- 	return 0;
- }
+-#define this_cpu_cmpxchg_1(pcp, o, n)	\
+-	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
+-#define this_cpu_cmpxchg_2(pcp, o, n)	\
+-	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
+-#define this_cpu_cmpxchg_4(pcp, o, n)	\
+-	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
+-#define this_cpu_cmpxchg_8(pcp, o, n)	\
+-	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
+-
+-#define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
+-
+-#define this_cpu_cmpxchg128(pcp, o, n)					\
+-({									\
+-	typedef typeof(pcp) pcp_op_T__;					\
+-	u128 old__, new__, ret__;					\
+-	pcp_op_T__ *ptr__;						\
+-	old__ = o;							\
+-	new__ = n;							\
+-	preempt_disable_notrace();					\
+-	ptr__ = raw_cpu_ptr(&(pcp));					\
+-	ret__ = cmpxchg128_local((void *)ptr__, old__, new__);		\
+-	preempt_enable_notrace();					\
+-	ret__;								\
+-})
  
-+static void imx95_pcie_clkreq_override(struct imx_pcie *imx_pcie, bool enable)
-+{
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_EN,
-+			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_EN : 0);
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
-+			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_VAL : 0);
-+}
-+
-+static int imx95_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
-+{
-+	imx95_pcie_clkreq_override(imx_pcie, enable);
-+	return 0;
-+}
-+
- static int imx_pcie_clk_enable(struct imx_pcie *imx_pcie)
- {
- 	struct dw_pcie *pci = imx_pcie->pci;
-@@ -1913,6 +1931,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.core_reset = imx95_pcie_core_reset,
- 		.init_phy = imx95_pcie_init_phy,
- 		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
-+		.enable_ref_clk = imx95_pcie_enable_ref_clk,
- 	},
- 	[IMX8MQ_EP] = {
- 		.variant = IMX8MQ_EP,
-@@ -1969,6 +1988,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.core_reset = imx95_pcie_core_reset,
- 		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
- 		.epc_features = &imx95_pcie_epc_features,
-+		.enable_ref_clk = imx95_pcie_enable_ref_clk,
- 		.mode = DW_PCIE_EP_TYPE,
- 	},
- };
+ #ifdef __KVM_NVHE_HYPERVISOR__
+ extern unsigned long __hyp_per_cpu_offset(unsigned int cpu);
 -- 
 2.51.0
 
