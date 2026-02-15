@@ -4,118 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98D0EF586C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 08:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C51EF585E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 08:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VjHuDUCBdPuzPfZZ59hYejkXpV6FXrKXKbP88JxRbR0=; b=Sm8P/2L98lt/6skT7C5NmIFzj5
-	fFHOD7mXoyOsnoUyfKVMqG8i7jevQ9RBx0H0Q9q47lnm8Uwojpl7+oj/Q1cqqdFiE1ZXLm2YhaGZZ
-	UTBhkzConXZxEHXKI5ghKNLs0mYc0Peyhkv4LI5k8zwadEg2+FmE6bNJA+JbxtcuGCI5tymeRCYKh
-	npvcDgW6yxTDzh/+lnD70Ev+2KCB5yozqtJ6h3FI53+GcaCohnasqqKZbYz/K4TjA84ioSMfcYY2N
-	ztbRc7TmoFOtJulrAOZqZfWQNvYxhg3vDIMdZLgo3Qc75IY/2jD6FwfIzasCfwFS71DYns8dfSjgH
-	INcXsdtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tn8MLqjRGC6rH4LQSOFKnbDUrho/ZWIEDe6xAxlyGC0=; b=ENskWdq+1yHQy9Z7JkOPLyBCpZ
+	g1SbAoKAbe+8W6mWmqp7MFzVE7EElRU8FwZqK2o8wJGy3mfH8OhwPhF1Y2XGJZdGU5K31DuzgqH6y
+	AFnlEZnetorP/hIT/twh3965tOrYVWwRZGMlFmlv4vfBWarp1k+fVx++K/vbuitAMxMvPYNcUzeUe
+	OEay0SeQJEYA3tGruGWSj7e1E0tndkO5BAkqpmXtfEa7PxsnzLeAYkmUw0qQ2dhjcqm+MjtQSl0Q2
+	7uee5xAnSyHbHbGSE4gMvvZxwejoozmdBjXxaWiaryajDExVAy5ul8HvozreS+M2EvcUUqbZMkEbg
+	XcZhk3lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrX5p-00000005FVO-07Wz;
-	Sun, 15 Feb 2026 08:03:01 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1vrXlG-00000005GgY-12Ja;
+	Sun, 15 Feb 2026 08:45:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrX5m-00000005FV0-0is3;
-	Sun, 15 Feb 2026 08:02:59 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.stl.internal (Postfix) with ESMTP id 165901D00129;
-	Sun, 15 Feb 2026 03:02:56 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Sun, 15 Feb 2026 03:02:56 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm2; t=1771142575; x=1771228975; bh=Vj
-	HuDUCBdPuzPfZZ59hYejkXpV6FXrKXKbP88JxRbR0=; b=S90IxM2N5qUv15/Czj
-	XLOpP6/qAxOfHwagyIXkhS0W066iTYi1+9NOq2gqaXLc3aw6KAe1KEKKnN6MCL7/
-	zZFVpTCs0OfmRuaifL/9jLrJoJeQbuplnbowUDbakXIk9HUqXo/zR7PXfDdW1NKI
-	gCnt8K3HJ/T2pSk6MYs9wRRgsQVBHZR4cJBcO3oeHyohRcOVEfCXtJ9jF+iWRGTk
-	Mf0BDmxnDFDHRuLu0/gZbYqw5oKKiZge823v0uP9LryqWRyff6AEmjPBOaZJUsZw
-	+KMuki0VJIq5bsNKz85Qht9AA7zMeLUm13R9bGO93jFCkNADGOj8NJeuokEm6GJW
-	TgZQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1771142575; x=1771228975; bh=VjHuDUCBdPuzPfZZ59hYejkXpV6F
-	XrKXKbP88JxRbR0=; b=Q9nKH51Fk7FSD2Sz3PRLlOBg6dmwCOjfD8HSE/ernlsA
-	GAiwJ3L6MgFzw/rhZRl2kycqVnLIHCSAyA6tQxW9GX1WbhovNhlE3sb4I1DsS2UH
-	lN/evFwpvUAgOYXkUKv8HyeVIJcplsul/5lC7COH8LoKlxjgLTCRuCBvg7j2UWh5
-	pUnfS3neme1IaYxIWcVl1rlxJkhuchQMrj2IZsRo9p+6ZiPnjC10ukJKhoKcZP/g
-	ypRisZCczPWAmOTfxB4XnHTHvDrPqI2BUGz4y+hGAALrzNUmI+VupcqbKifILeOv
-	poKxfSklof4ad8N9AUQ8UlZlsdge7Dw0UfP6ycg+sg==
-X-ME-Sender: <xms:r32RaaASTCO0YH3nEKpObdSL2DBVsZBjeQAmtoHj-keQcqznH5sm0g>
-    <xme:r32Raa4sCp4G-wIOWuJoa3LyDndJbO6khD5RVgyHQAOHN5R9dHd3DADsducaPkBId
-    XAvYOainRAlEClxagfoopXErueoSwXeJTJWVmqoWUx05BbvjAMWFfE>
-X-ME-Received: <xmr:r32RaZ170f8DbzioOdn9Re-eFQ3iuvGLRvVDhh_lni5q5Vroleg60FQAObWAQyZw-i0l_wKXoyVAdIjq5TpfbahUADkn2lpAFaxLWg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvudefgeeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephfffufggtgfgkffvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgvucfi
-    rhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfeehle
-    dtheefteejfedvheetuedttdetleegudeuteejveetieefuedvfeffvdeinecuffhomhgr
-    ihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghpthhtohepuddv
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlih
-    hnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqphhhhieslhhishhtshdrihhnfhhr
-    rgguvggrugdrohhrghdprhgtphhtthhopehjsehjrghnnhgruhdrnhgvthdprhgtphhtth
-    hopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphht
-    thhopehvkhhouhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnvghilhdrrghrmh
-    hsthhrohhngheslhhinhgrrhhordhorhhgpdhrtghpthhtohepnhgvrghlsehgohhmphgr
-    rdguvghvpdhrtghpthhtohepuggrnhdrtggrrhhpvghnthgvrheslhhinhgrrhhordhorh
-    hgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhf
-    rhgruggvrggurdhorhhg
-X-ME-Proxy: <xmx:r32RaWlPaqHeBRU5NR7jUKqtU9gVr9-eJefxE-FufBFvyY4kAZPH4g>
-    <xmx:r32RaX4wUhkGOIEHk0hSndqMKSxyMAu_eGRqPSr6nMg-7ufU3545Zg>
-    <xmx:r32RaZklYqX-q1q9OdMtyK3QD4je9w9ijLzxBBZpwAvLn1WTt6J2yg>
-    <xmx:r32RaSVbi2kDPBAFqsaovAe3h-7k8hv910rePKv_hYHhKe-4JMQU9w>
-    <xmx:r32RaXWQTHJNCT-7b5CyPljOwtOX4UeM99oXw2uhYjqeuHadWEo1OKNN>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 15 Feb 2026 03:02:55 -0500 (EST)
-From: Janne Grunau <j@jannau.net>
-Date: Sun, 15 Feb 2026 09:02:51 +0100
-Subject: [PATCH phy-next v2] phy: apple: apple: Use local variable for
- ioremap return value
+	id 1vrXlE-00000005GgN-2AmW
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 15 Feb 2026 08:45:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 300BC6001D;
+	Sun, 15 Feb 2026 08:45:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3827EC4CEF7;
+	Sun, 15 Feb 2026 08:45:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771145146;
+	bh=teuVV1RIEZSoBCXM5QzsJwEcjt/jf/7xpDsBdFW3k1w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=X3dg9PTIygoR7eWWIh0gNa4+uqn6+5f9WVH3YcImkEH35C7cx3DhLA0LSy4W17vAO
+	 NXhKfBhOkbdQIr6h343FZf12BqySwVUfMHbAjC0d+KvjlDAhkPrua8clJYAOnyOF4s
+	 m0d9DaQL6zfL+0FqFqVNseRsG/tJ0Rr0Qf9otVrWSPSnXLo7CCXThXLmHDAh6g3HMr
+	 tCyvH0D5o+Yb+NtvzlafKUy2DY4emy/pE6HlpOJU60VyvFvfBOgfl6NiwyXLqgTkg+
+	 RyjgAk2GU80E/3vUjk7GvtroUBn5mRwWJJU5eBDGO0WxQ8XVcnsz/1RkMY03e6RVG0
+	 8BlL+76S3i8nw==
+Message-ID: <228a74f1-0d68-454b-8d33-aa69c516ac8b@kernel.org>
+Date: Sun, 15 Feb 2026 09:45:42 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] dt-bindings: clock: xilinx: add description of
+ user monitor interrupt
+To: Harry Austen <hpausten@protonmail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>
+Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260214180933.42143-1-hpausten@protonmail.com>
+ <20260214180933.42143-2-hpausten@protonmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260214180933.42143-2-hpausten@protonmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260215-phy-apple-resource-err-ptr-v2-1-e43c22453682@jannau.net>
-X-B4-Tracking: v=1; b=H4sIAKp9kWkC/42NQQ6CMBBFr0Jm7Zi2CFVW3sO4qHS0NaY0UyAQw
- t2tPYHLl5f//gaJ2FOCrtqAafbJDyGDOlTQOxNehN5mBiVUK5TQGN2KJsYPIVMaJu4JiRnjyNh
- cVG2lrMWpbSAHItPTLyV+g98u0DLCPRvn0zjwWl5nWfw/B7NEifqs6+YhNFllr28TgpmOgXJ33
- /cvR8pQ5M8AAAA=
-X-Change-ID: 20260207-phy-apple-resource-err-ptr-5923d1130465
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: asahi@lists.linux.dev, linux-phy@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Dan Carpenter <dan.carpenter@linaro.org>, 
- Vladimir Oltean <olteanv@gmail.com>, Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2061; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=k6Pu3hp4o8H6H3NimaF8MDzlCw3MXZsNEGNQ1rIeNOs=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsyJtetetQpGnf/pL9vm/svKLZDzzlW3u15q09a3iqr/a
- 1ErXF7WUcrCIMbFICumyJKk/bKDYXWNYkztgzCYOaxMIEMYuDgFYCIPbjMy/K5w5Tqdp3r5UPRG
- +ww/x9Y25okMHlzBxe8rRJZ0W56XYPif37m2eE6xyDd1FgOrJ5WuVh7la+/yNwrdvCAbLs66Tp0
- bAA==
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260215_000258_301111_C8B13905 
-X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,56 +120,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The indirection through the resources array is unnecessarily complicated
-and resuling in using IS_ERR() and PTR_ERR() on a valid address. A local
-variable for the devm_ioremap_resource() return value is both easier to
-read and matches expectations when reading code.
+On 14/02/2026 19:10, Harry Austen wrote:
+> This Xilinx clocking wizard IP core outputs this interrupt signal to
+> indicate when one of the four optional user clock inputs is either
+> stopped, overruns, underruns or glitches.
+> 
+> This functionality was only added from version 6.0 onwards, so restrict
+> it to particular compatible strings.
+> 
+> Signed-off-by: Harry Austen <hpausten@protonmail.com>
+> ---
+> v3 -> v4: Slight rework and rebase, removing Krzysztof's R-b tag
+> v2 -> v3: Add Krzysztof's R-b tag
+> v1 -> v2: Fix binding errors by moving interrupts up front, restrict later
+> 
 
-Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-Closes: https://lore.kernel.org/asahi/aYXvX1bYOXtYCgfC@stanley.mountain/
-Suggested-by: Vladimir Oltean <olteanv@gmail.com>
-Fixes: 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY")
-Signed-off-by: Janne Grunau <j@jannau.net>
----
-Changes in v2:
-- Use a local variable instead of the complex indirection with the
-  resources array
-- Link to v1: https://lore.kernel.org/r/20260207-phy-apple-resource-err-ptr-v1-1-78735b07ed2d@jannau.net
----
- drivers/phy/apple/atc.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
-index dc867f368b68748ea953e594ad998d7f965d8d1d..64d0c3dba1cbb95f867d338da706225ee0bf79f7 100644
---- a/drivers/phy/apple/atc.c
-+++ b/drivers/phy/apple/atc.c
-@@ -2202,14 +2202,16 @@ static int atcphy_map_resources(struct platform_device *pdev, struct apple_atcph
- 		{ "pipehandler", &atcphy->regs.pipehandler, NULL },
- 	};
- 	struct resource *res;
-+	void __iomem *addr;
- 
- 	for (int i = 0; i < ARRAY_SIZE(resources); i++) {
- 		res = platform_get_resource_byname(pdev, IORESOURCE_MEM, resources[i].name);
--		*resources[i].addr = devm_ioremap_resource(&pdev->dev, res);
--		if (IS_ERR(resources[i].addr))
--			return dev_err_probe(atcphy->dev, PTR_ERR(resources[i].addr),
-+		addr = devm_ioremap_resource(&pdev->dev, res);
-+		if (IS_ERR(addr))
-+			return dev_err_probe(atcphy->dev, PTR_ERR(addr),
- 					     "Unable to map %s regs", resources[i].name);
- 
-+		*resources[i].addr = addr;
- 		if (resources[i].res)
- 			*resources[i].res = res;
- 	}
-
----
-base-commit: dbeea86fecef7cf2b93aded4525d74f6277376ef
-change-id: 20260207-phy-apple-resource-err-ptr-5923d1130465
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
--- 
-Janne Grunau <j@jannau.net>
-
+Krzysztof
 
