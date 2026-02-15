@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE9CEF587B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 12:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7349EF584C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 12:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YT9yuCyLn7aGD3vcipqgHfjBGTFd9dvO3e/3u5sotQE=; b=gDPXXHzZ462U4bnVw+ROOSXXgH
-	KSocYifcVXi3nQ0eXZz1K9WR9iGKc1IXt+EwSEnuqx2Hy7hVcEQhBtykFKfk2CzgEMk7YNDOF69db
-	XO8CUnMso+2jsbR7oLORkDU8j+hmtlPRyZ96BkxI5cDD7vVVhwlXaz7HVIU3zOCy/zk5FUxBGhvKM
-	HP6bDrNOp5/hwakT7KIdptLb5eUWynRjFqvfyFvsbJ9Wy5kaKq24BvHtjlAdWzbbJexaKZTTfXqEJ
-	ZumZd/rlo0K9ubxzMtDe/QmMC8QDs25JjhZNAd/8zJWR452qQ/+yKKhNJ0ssooPTxWoQXzshN/hVK
-	tswjFDOw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VQDv5dqbLfmwjDpjsrsMcIq7TVKy2xH2Iv9N7SxzQ0w=; b=oMNPT+SvNYxWvZheh13zXvWab5
+	pvRY6fXwZP/GFp/2svSqsdcWjMnc0n2hAAaWBjJ1MzB/5D8YD3wM3t8uJ/g59Rfumy4H3rpjp/CEU
+	uCH/EZxybNPZkZrPiGk+0yKfbPp9pvD0KK/cbnkUbsyuiJPk+3zyuDIBcpKqUuVkxB3XAPYuT5f04
+	X1+uw/9GbSHymIja8zfbxU7osNFVH4oO8TaPSXCvs9SZjU5itz6q03x9UwGoYenFAcQtP4xbY6Mxa
+	5bX1gaTMfpVS7AQwab4K4owcxdb79ETRhwDIJKo+FOjsQt5SKeAD7IJXrDvjlwxQPtHgxfCMh1slA
+	kZh3zhLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrauh-00000005NPb-13BC;
-	Sun, 15 Feb 2026 12:07:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vrbSa-00000005OMm-3Fhf;
+	Sun, 15 Feb 2026 12:42:48 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vraug-00000005NP3-2E1P;
-	Sun, 15 Feb 2026 12:07:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2D46660008;
-	Sun, 15 Feb 2026 12:07:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94721C4CEF7;
-	Sun, 15 Feb 2026 12:07:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771157263;
-	bh=k7ugLwn3LPki04cTpPzVHBiS+9XSBjUJIw3j6aEaPnQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Wgv7TrLNr/wvsb7+FXoDuh8GSgUvzKtJ5MoAwGA1HLWdjmW7vF9Nic583ptw3dVZL
-	 mqkSJ2wLF6xVyY5Hzh9/oudN88gVtyGSIrkZFlKmPk3xOPySgOQxBr2ffWLdfwgsRz
-	 poSC9x3QXCa0zriwJHCeFRcJZBruVGUfn9T1xpdoOL7PnwYrMky3HBzF85tMzIgtXu
-	 0bYLjNwft35+Fi8IiPePHTNFuHjEdEMZYf76UkpweTQrh9X8QZtdOUpHzGoi9efhpK
-	 duZx64brw6jk34svlJx2LuubG4WmyK0c9uqmNnqZzkR3kePp4TM3s9RN3hMhAJ2jIv
-	 qI0rARCh+MZ1g==
-Message-ID: <02a35299-a7b9-4a52-abb2-372b19bee8fe@kernel.org>
-Date: Sun, 15 Feb 2026 13:07:39 +0100
+	id 1vrbSX-00000005OLE-2CoE
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 15 Feb 2026 12:42:47 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1771159342;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=VQDv5dqbLfmwjDpjsrsMcIq7TVKy2xH2Iv9N7SxzQ0w=;
+	b=wPRLSg96xUsy8p0iOsCDwnH5cj+9uMxzlvIGTbWq/QghBk2JoFRnw8cPsLy1GFm1cKZBJP
+	Y4M/bazNKlIAqhLC4Gp5JMR4uwl/vV//2IPvgAA9Wo+2NyHa/Vuzp/bfh54JxG6b7uR43v
+	Ls9QuLvIJwWiPrbMj3k+fFMyYhtFmwY=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Lothar Rubusch <l.rubusch@gmail.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	stable@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: atmel-sha204a - Fix OTP sysfs read and error handling
+Date: Sun, 15 Feb 2026 13:41:26 +0100
+Message-ID: <20260215124125.465162-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH phy-next v2] phy: apple: apple: Use local variable for
- ioremap return value
-To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: asahi@lists.linux.dev, linux-phy@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Dan Carpenter <dan.carpenter@linaro.org>, Vladimir Oltean <olteanv@gmail.com>
-References: <20260215-phy-apple-resource-err-ptr-v2-1-e43c22453682@jannau.net>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260215-phy-apple-resource-err-ptr-v2-1-e43c22453682@jannau.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260215_044246_220623_1A027FD7 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,61 +72,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15.02.26 09:02, Janne Grunau wrote:
-> The indirection through the resources array is unnecessarily complicated
-> and resuling in using IS_ERR() and PTR_ERR() on a valid address. A local
-> variable for the devm_ioremap_resource() return value is both easier to
-> read and matches expectations when reading code.
-> 
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Closes: https://lore.kernel.org/asahi/aYXvX1bYOXtYCgfC@stanley.mountain/
-> Suggested-by: Vladimir Oltean <olteanv@gmail.com>
-> Fixes: 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY")
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> ---
+Fix otp_show() to read and print all 64 bytes of the OTP zone.
+Previously, the loop only printed half of the OTP (32 bytes), and
+partial output was returned on read errors.
 
-Reviewed-by: Sven Peter <sven@kernel.org>
+Propagate the actual error from atmel_sha204a_otp_read() instead of
+producing partial output.
 
-> Changes in v2:
-> - Use a local variable instead of the complex indirection with the
->    resources array
-> - Link to v1: https://lore.kernel.org/r/20260207-phy-apple-resource-err-ptr-v1-1-78735b07ed2d@jannau.net
-> ---
->   drivers/phy/apple/atc.c | 8 +++++---
->   1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
-> index dc867f368b68748ea953e594ad998d7f965d8d1d..64d0c3dba1cbb95f867d338da706225ee0bf79f7 100644
-> --- a/drivers/phy/apple/atc.c
-> +++ b/drivers/phy/apple/atc.c
-> @@ -2202,14 +2202,16 @@ static int atcphy_map_resources(struct platform_device *pdev, struct apple_atcph
->   		{ "pipehandler", &atcphy->regs.pipehandler, NULL },
->   	};
->   	struct resource *res;
-> +	void __iomem *addr;
->   
->   	for (int i = 0; i < ARRAY_SIZE(resources); i++) {
->   		res = platform_get_resource_byname(pdev, IORESOURCE_MEM, resources[i].name);
-> -		*resources[i].addr = devm_ioremap_resource(&pdev->dev, res);
-> -		if (IS_ERR(resources[i].addr))
-> -			return dev_err_probe(atcphy->dev, PTR_ERR(resources[i].addr),
-> +		addr = devm_ioremap_resource(&pdev->dev, res);
-> +		if (IS_ERR(addr))
-> +			return dev_err_probe(atcphy->dev, PTR_ERR(addr),
->   					     "Unable to map %s regs", resources[i].name);
->   
-> +		*resources[i].addr = addr;
+Replace sprintf() with sysfs_emit_at(), which is preferred for
+formatting sysfs output because it provides safer bounds checking.
 
-This is much easier to understand. I missed return PTR_ERR(..) error in 
-the first version and introduced it originally due to the indirection as 
-well.
+Cc: stable@vger.kernel.org
+Fixes: 13909a0c8897 ("crypto: atmel-sha204a - provide the otp content")
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+Compile-tested only.
+---
+ drivers/crypto/atmel-sha204a.c | 19 ++++++++++---------
+ 1 file changed, 10 insertions(+), 9 deletions(-)
 
-
-
-Best,
-
-
-Sven
-
+diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
+index 0fcf4a39de27..793c8d739a0a 100644
+--- a/drivers/crypto/atmel-sha204a.c
++++ b/drivers/crypto/atmel-sha204a.c
+@@ -15,6 +15,7 @@
+ #include <linux/module.h>
+ #include <linux/scatterlist.h>
+ #include <linux/slab.h>
++#include <linux/sysfs.h>
+ #include <linux/workqueue.h>
+ #include "atmel-i2c.h"
+ 
+@@ -119,21 +120,21 @@ static ssize_t otp_show(struct device *dev,
+ {
+ 	u16 addr;
+ 	u8 otp[OTP_ZONE_SIZE];
+-	char *str = buf;
+ 	struct i2c_client *client = to_i2c_client(dev);
+-	int i;
++	ssize_t len = 0;
++	int i, ret;
+ 
+-	for (addr = 0; addr < OTP_ZONE_SIZE/4; addr++) {
+-		if (atmel_sha204a_otp_read(client, addr, otp + addr * 4) < 0) {
++	for (addr = 0; addr < OTP_ZONE_SIZE / 4; addr++) {
++		ret = atmel_sha204a_otp_read(client, addr, otp + addr * 4);
++		if (ret < 0) {
+ 			dev_err(dev, "failed to read otp zone\n");
+-			break;
++			return ret;
+ 		}
+ 	}
+ 
+-	for (i = 0; i < addr*2; i++)
+-		str += sprintf(str, "%02X", otp[i]);
+-	str += sprintf(str, "\n");
+-	return str - buf;
++	for (i = 0; i < OTP_ZONE_SIZE; i++)
++		len += sysfs_emit_at(buf, len, "%02X", otp[i]);
++	return sysfs_emit_at(buf, len, "\n");
+ }
+ static DEVICE_ATTR_RO(otp);
+ 
+-- 
+Thorsten Blum <thorsten.blum@linux.dev>
+GPG: 1D60 735E 8AEF 3BE4 73B6  9D84 7336 78FD 8DFE EAD4
 
 
