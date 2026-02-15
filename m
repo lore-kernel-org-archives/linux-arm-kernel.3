@@ -4,166 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F29FE63F01
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 16:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3EBE63F07
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 17:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8xqUzwhffuejSxAvNC4quupZc4ukQb8YBC/L5g5yYw=; b=x91TKVlYq+J5Pa4tq9PKFD4oDl
-	n6nIUhIqtzV8pnGro39Kykh6bq9aIp12JrSfRxNDvxnHeS3xpliClhfZ+DOji/S3tT6Kio/L9L7MA
-	z7wKIp3v1getJsl/POwXvb+7vzhR7DgBByl+k4mND9bov4cFI5yquDr8T2JdzXxvnT9n3JoxQFE2u
-	EmeK/CGfi7I4nEkON76KPxay8CQGHq/BcweJ+lCVSWOStVmVkAOl69JMGwHF6U0CmmAU7n3CVM55o
-	z7qV5echA9WVn9kGecAuztJSoco7OtD78fSI1SeMwTn4GGJlEtE+oC4FeKk8N98uMzyZtldi6JGg1
-	bN5nCNzA==;
+	bh=kTzZ93WXzT0xARqfiXyQ7Ne5TQwwCbpOwtLRQBrFWrA=; b=lA76CVbEWFCR6Plp783RGHhd4G
+	miiLHrp/DWBztF8tLlnGM3qwvlu4Ggz6c28E0PcUU0GsQonVv0XIO4WHce8EZAg1CXAkzBavrz4GR
+	+Ifrf7efZ+YQpuBDKPW5EkuUS7NtHsD3tRE3hTt9S6a3oiJw/IcLel7O9hTvFa1AVGDdvbJVXQEB9
+	/RfKX36m510x5HjQNtRmpfAgaE8d60ts29mLd+THV/EkLi/YHJGhBG+DKD6TAtQPumhnwA7Tz1GCw
+	Dt4X+QVy9y5IhszVT8dkDXG7Q5OGVxzjqDENgzFOPEnURmCVSSDj2MRZSXQ/ipkglqGYbNw8dlpl9
+	fFaHpvQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrf9c-00000005VlE-2onL;
-	Sun, 15 Feb 2026 16:39:28 +0000
-Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1vrg7d-00000005Yky-02mC;
+	Sun, 15 Feb 2026 17:41:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrf9V-00000005VUT-06To;
-	Sun, 15 Feb 2026 16:39:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=COMfuoHhgdG8EIq3e8TfRfK0Xz5QEUoY67WmbPqXIsRgiRJZoRU+m1aFYEjgXP3sMsEaJQCBvF1IgW3PRLixHCHCw97QfoYBy/H5LX3fP+qGAInGQhuN854KoxzU58Hki8Cc6POS45BfKqByB6WAKQuQ6xqCITMj5E5wj/blD0MQ1ZjuvHmk6spF/t75Z0zEEuiCUhd4H95xkPnpgQhX9BdaE13ZZ+3f3PDEYrCgYqG5tc36utMNwSojzvnyDT+1Lhnq3bPiokWj6BCk2XaehuWFLj3Z/MWBXmgXvjwNbA7X6htLHpdcqdlTgZz5yfrb7qQXOmFgymhX5VRPxnc3cg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=c8xqUzwhffuejSxAvNC4quupZc4ukQb8YBC/L5g5yYw=;
- b=LBFw3eQ9lsASbr+uzpuYB8EwTP+VgrJq30ybNE46+0PCEgJEFbe2s8TLJN69BfN/VR5cPguGHqh41eW+mjPMo0Rm/Wrun6Zplf730B/em0v7XsnmlIsBG3GASvkzXWt7ZRMx1p9Wo8AZol7R96KJ9lpGnRxswz3UeNWC56aVet/BFdtvASp1/gOZ1wPATU2FmDNcKndNrIaTmfx9lSc3KLUP8lMmxAFa1+C5Mucs2q6Gda3dbT/szPQ01g8RDi8CYeRLPMd3e+LKO2sgUooVAhWnOu8wRDupXOSBciYMqWW1sAsuKbQ1VV/HtYFBeA0z3Vzwz/n/7D2jz2q4z5BExg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
- header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c8xqUzwhffuejSxAvNC4quupZc4ukQb8YBC/L5g5yYw=;
- b=OTKkEZTdpPZZ8lfoUXpnGIdQrmUCOF5TW4uR4mFggUOj2QDcOpbcWENcHbLN1oL8hlzazCLN9FS6wTukIxkIyuVo+oednmdcKGgzJezhuDmW8m6lwRGpfKONQSlK7tdN+KKEuJNCV8Ook28/JvT8eW/KaktVyK7+E+BkaVK63wY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=valinux.co.jp;
-Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:38f::10)
- by OSCP286MB5196.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:34b::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Sun, 15 Feb
- 2026 16:39:08 +0000
-Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
- ([fe80::2305:327c:28ec:9b32]) by TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
- ([fe80::2305:327c:28ec:9b32%5]) with mapi id 15.20.9611.013; Sun, 15 Feb 2026
- 16:39:08 +0000
-From: Koichiro Den <den@valinux.co.jp>
-To: jingoohan1@gmail.com,
-	mani@kernel.org,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	heiko@sntech.de,
-	kishon@kernel.org,
-	jdmason@kudzu.us,
-	dave.jiang@intel.com,
-	allenbh@gmail.com,
-	cassel@kernel.org,
-	shawn.lin@rock-chips.com,
-	Frank.Li@nxp.com
-Cc: linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	ntb@lists.linux.dev
-Subject: [PATCH v7 8/9] PCI: endpoint: pci-epf-test: Reuse pre-exposed doorbell targets
-Date: Mon, 16 Feb 2026 01:38:46 +0900
-Message-ID: <20260215163847.3522572-9-den@valinux.co.jp>
+	id 1vrg7a-00000005YkX-1yMi
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 15 Feb 2026 17:41:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D73E44548;
+	Sun, 15 Feb 2026 17:41:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54DD8C19423;
+	Sun, 15 Feb 2026 17:41:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771177285;
+	bh=pYnGs/3Blk+Jl+2IOlkkNoJYHPaKrmAvSWEFOYdnE0o=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=oFJ1BYwxkmB/AlWSQPrpNdENeVqYdPWF4kiA8y04Gf/FeuwRTNrA27BpUDBxNIOEV
+	 jOguxLOINITTtdPbQXLhPmfgBsvATr2hATPboQvKlP+Y4bMyoaKji5QSrzpqDONzMW
+	 kG3miW7W0lIXcyb9gB/DpZ7MmugkvcRzSTZ5Yb9d3O9dRimSebxtw4tizTColrHG9P
+	 meVUIh4w/w2lQWAvbhN7hHIEzCS3EpEhJkmS/SFLtApOXJPNuN06BcZv/31xYfpcLC
+	 CZBgO2/zyBPEoBQEwjRxjmHZ+cXJVf3GIvWr9/+dwo4SZugjQVyA/me2WeOk+8DIsp
+	 //xYH1xUCeEMg==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Iuliana Prodan <iuliana.prodan@nxp.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Sasha Levin <sashal@kernel.org>,
+	andersson@kernel.org,
+	Frank.Li@nxp.com,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.19-6.1] remoteproc: imx_dsp_rproc: Skip RP_MBOX_SUSPEND_SYSTEM when mailbox TX channel is uninitialized
+Date: Sun, 15 Feb 2026 12:41:11 -0500
+Message-ID: <20260215174120.2390402-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260215163847.3522572-1-den@valinux.co.jp>
-References: <20260215163847.3522572-1-den@valinux.co.jp>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TY4P286CA0080.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:36d::12) To TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:38f::10)
+In-Reply-To: <20260215174120.2390402-1-sashal@kernel.org>
+References: <20260215174120.2390402-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY7P286MB7722:EE_|OSCP286MB5196:EE_
-X-MS-Office365-Filtering-Correlation-Id: 419f58ac-26ef-480f-1f58-08de6cb0bd98
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|7416014|376014|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?peDVLM8joTfoUcj/9z5kH6ol6V08Q32hBhUm9MFVUFplU9JWS62QmPT+leG3?=
- =?us-ascii?Q?lU/DFKQDGjgeGKaF/CyU/gyQgnRvYWfjB4MHcQnclqyZXexCbdhG0NBp/M1p?=
- =?us-ascii?Q?1T8HhaQPXAf5PjGW7PiHHWpyM5TGI1kvV6NPbOwWbPpILpfXOxSOqwmx0JR4?=
- =?us-ascii?Q?mx8P8RUCS0c1bOM53Tjt/wUX05PIOn7yiaHkLL0DVY9MnqSOFu3k08LEKfvk?=
- =?us-ascii?Q?XQ+s9L7PRETKeCPvfQOtTHvy+rgpYL58sfmLK5KRTGRo2/i8hPN/PKKqjvN+?=
- =?us-ascii?Q?Ca2eEVRV9fWgLJhZpK6O3IFpuiSUViLGINrBBbYGPFYTfVlQxOQ1pKCu5wPH?=
- =?us-ascii?Q?1lQKEho8+mFHrFzPXrgXibFaC5sPY7zOzEtFLQ9Zt9QGQs0egZWGq/VeSg6Y?=
- =?us-ascii?Q?5ApPcZArGPC8PiCoptmcGquhrGOBRpdv5qFAT9qm3Xjew9RR6jl+NpAG/DQl?=
- =?us-ascii?Q?fFPtzlBSHm3qpbfYzx+tcb2s255GogFuij4fFSwdF5w06BoKs5wxwHGrbzJF?=
- =?us-ascii?Q?iry9p3bvTmqiVVCtxHMM2pE8RFSWtkLv8lg0PxWnpzZSGufnMgE9Cwb2km9z?=
- =?us-ascii?Q?SGUVv5Twd0PMVeNnc2baW+FBiKg2BYq6SudBhzQmjfaZovnwNZ4lVE3yuwbm?=
- =?us-ascii?Q?HZiZtys/GGxgyts4URvHFdptiIQHMuouLUb8OxUL6Y3MNXmvBQ4QDRTn5PlO?=
- =?us-ascii?Q?kP0VroHl/STVtepoBT7d37uPU1/vibmozP1YlUmPobh9wRyfqrSPIFSCw1Ad?=
- =?us-ascii?Q?BNMc+XocVvggmv14MwyquD91CDJypaNbSIGZzDf/vQnOweiJDoniG29+BhYO?=
- =?us-ascii?Q?rOXeUY4OkpsCM4fi82GXLVTFXTw4NGruz8nAwHWECUqt6jy1JmWbJr9l+u3N?=
- =?us-ascii?Q?ofGXy/QZFZfDiMXbL8kmSMtug+gAXwUpojYPywqa4EV4gGYPZUrB5lYeFM5T?=
- =?us-ascii?Q?kdveFaoU3kJCpN4ynmKVwtReA7APvGyocGck9x1cQbSEaj7yti+LkXjX35FZ?=
- =?us-ascii?Q?hYJ458+jG+jaFnu21MItwgqNWzZZQq1WSphE6ETTKGxsuAU8UA0aRMA4iyZM?=
- =?us-ascii?Q?M44SSKpjcXxNSfY3Qw3x5LveHzyJoXoetX2Q+Ailhn/+DRFFaGyizm0M9On+?=
- =?us-ascii?Q?S+C5eC3B+vxQY8aSbx7+C3+g8wai2A5MWyqNp16SpTaJL4mPmyRaJ+FSwvV1?=
- =?us-ascii?Q?MWa2PBj0q+mlGfGQNuM7iKkNRtM8yeni+lbDGL1U9WUKaGzIHJOFddPR3G+G?=
- =?us-ascii?Q?GlsiURt7wG/1YJLAnvbuRTytPv2yfi8+A7l4ZggBbp4cHffeGB3rp327N88s?=
- =?us-ascii?Q?hjhgmEWhc1siNp+x4u8Sk7lFYQfN3lXWMA7KBE0HV76E56ayuI3g/mJqR46P?=
- =?us-ascii?Q?C7oTh7VFpU9QPysx3gwpurx10+f0euG8bLH9DWtKlk27ro9ofooCseC7/Svf?=
- =?us-ascii?Q?Er1MyBN/YKLTJUprPHyRSFvEFaBfOEWEmdzw2uow4i0tCx8/mAeJgR574TRN?=
- =?us-ascii?Q?rMWREQF++M9kwJA7GfN1jr1pknArlD3W1zKpAisba3tABk1zyJFYnq5b6RrQ?=
- =?us-ascii?Q?Qzn+sJS78EK7LNFbOyqurq27cEuLahH9SVAU1Go++3vA1l+WbQO/9HFVQljW?=
- =?us-ascii?Q?Jg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(7416014)(376014)(366016)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d2mcQDv+WdipefqRulofIC1m0mCRoaEEfMGquKi3QVoF4TSkD6wlrHskjgmU?=
- =?us-ascii?Q?bfqmTIElrGDRykKiEKzfx4fMoXxBCeeXI3aUVJ0jT731i7Zewg1ZMEUD53+R?=
- =?us-ascii?Q?obyqAslaBPZPG/rgRFu2zFT33T8fE2SliqN+ocM6fDplh1NDTmvLQQQ7Gc73?=
- =?us-ascii?Q?GT6QSgXBoZUIebPIU49jMVFRbDQmbcVeINE0cR8jCA3i8Zfx19T6h4f7G0S7?=
- =?us-ascii?Q?m1MOj1FUoudBRagWH52ZTu5dYrsCTQGfqf8k2w9KWie6YLy4A4LVhi0fe6ti?=
- =?us-ascii?Q?GwPFgXUkPynuJUdAlq0yJfrOUH/TblixGQ+L8At11+zs/9dxGSvxM8lur5Ui?=
- =?us-ascii?Q?DQF2RnIcOu0F5ug0NJb58s+B+RQGE+M9LGWf/l8DlqUQOTSrAMRbOYyUTN2F?=
- =?us-ascii?Q?8dxJtEBANBshokxRwByR/BxUdBsCBGE5MS1jHKTIhG10JYVvNbJ20OI0xrXf?=
- =?us-ascii?Q?ZjkgdjeBSBknm3Okr76P8cqhuSfWT7S/Gv3sN+4gmA6dWMzSBYTfx+coVHZ8?=
- =?us-ascii?Q?il/Kbxm7oFkgBexMVVCIgnTB68cReKccERWYUOGLo/ROhPiasbxL00gk+1W/?=
- =?us-ascii?Q?Kykyw8/hiIcsb+CPkoTjPOmM5FkN9sYOHaM2o65hcm8ze/M+mrF4DMilOmGL?=
- =?us-ascii?Q?iMJ24I49pU23UJKEQyIPiRvorm5sgER5qNjxfkQqKNRZkx8wfBAjbBe8wZfh?=
- =?us-ascii?Q?7n6D3x5Z/Y3iO/w9O8Y5wbNM3Pc7KJ2Mv8qS4m/QChgUnFh6Xf5k/G/7o0BY?=
- =?us-ascii?Q?BwCyDWqZZ6gEKq+DhaQ1RdLfNplCy6gEc3yCGirp57oNkDZZC8iwISafGf+Q?=
- =?us-ascii?Q?6zSZPyXDIcNKyf4v3JA5X6x7nbDcQVR5TuOFDnIiifE2z6MWv1zFNR1tWOri?=
- =?us-ascii?Q?hIuDL6mqhdKHb1OzSHduoAgKYAnj2tDmmuaIN7XbckMv4eTS6LeuSZWbe20X?=
- =?us-ascii?Q?ERdBXep4JDGgW6Y4N6lETPQzfhTRhLlfckKfmm54jTZC2cqpRrJ1EeKrveTB?=
- =?us-ascii?Q?8JgUEk+IVHPinkM418HTsCOwKJ90gFmr3I3QgLd5XDlPSIYvJpZIXVQdxASG?=
- =?us-ascii?Q?crhTSmDIUV8/NKUFHohIutHsUe8U89FXPtEFhUM9A8fvlqxd2+34u1bGQu/l?=
- =?us-ascii?Q?jAl/GaNNQ/nrQEzJx0ioafyNV/MIhx3BdFevptmNrQwv78zWeU3L0PI7VOck?=
- =?us-ascii?Q?teorVIw/UTNX5blNR6eh4Gy67mvTkVOyykMLXuwCCojkHqHfn5JchktWX6g9?=
- =?us-ascii?Q?jqriGgvowNhA/0MUCCsvxqYg062wSwL4o5C/3Ye9ZUU4qNwv1mrFNgQ/y5Gi?=
- =?us-ascii?Q?GH7DljASR70eQlBpKHNdf4BIhKGfOarOftykzMt4SVXSYzM2br7INp3NsZAp?=
- =?us-ascii?Q?yJbjZzkAGrJ2bFixiCTkwgi4/We6fBq6QFs9Vu3FNCIp3yoiGYaMTlX0aGEN?=
- =?us-ascii?Q?kdbkgG3oUs916ZmrB510uAUYMfPZbqssMc06G3EdlcsXzIO8gFhJZqMcxKVr?=
- =?us-ascii?Q?XKI1q5E/LP1R7KYqlGchHjZ+S15jljcpDiRVL2yzUSkCQe/1lc6mNnl8UDP6?=
- =?us-ascii?Q?Udjci2VrlNOmS3Uc6RN70y14c9tmAWI0RpcHUpfSPTmYA5nJ8YMc8edzP3Qn?=
- =?us-ascii?Q?OKWg/rxfVe8ppvGUSbRRUdR0ELoWKqHc8zp55DN1/y6JavIW84rbEN4SNmSq?=
- =?us-ascii?Q?FlH+JDC6wuhzt2jqheSnxDy8JLPTn4GUwdIfD3MhMWs+t3/dr2Wm8chrSnUC?=
- =?us-ascii?Q?wLrvbDBinQ2xjicl0JnpdSVlfWzMkw9WY73PY/k9qdd/d//8lhIF?=
-X-OriginatorOrg: valinux.co.jp
-X-MS-Exchange-CrossTenant-Network-Message-Id: 419f58ac-26ef-480f-1f58-08de6cb0bd98
-X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Feb 2026 16:39:08.4492
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uteHzoVgqq+kJlqckeGdgSRS93FTPH0JZaoqxF+BYrLTSZin6XyT0yGkEynEdm4ssBOKcdF8m/0X3kcRiLTrIQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSCP286MB5196
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.19
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260215_083921_085104_342552EE 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20260215_094126_556711_42516F1A 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,158 +82,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pci-epf-test advertises the doorbell target to the RC as a BAR number
-and an offset, and the RC rings the doorbell with a single DWORD MMIO
-write.
+From: Iuliana Prodan <iuliana.prodan@nxp.com>
 
-Some doorbell backends may report that the doorbell target is already
-exposed via a platform-owned fixed BAR (db_msg[0].bar/offset). In that
-case, reuse the pre-exposed window and do not reprogram the BAR with
-pci_epc_set_bar().
+[ Upstream commit d62e0e92e589c53c4320ed5914af5fe103f5ce7e ]
 
-Also honor db_msg[0].irq_flags when requesting the doorbell IRQ, and
-only restore the original BAR mapping on disable if pci-epf-test
-programmed it.
+Firmwares that do not use mailbox communication (e.g., the hello_world
+sample) leave priv->tx_ch as NULL. The current suspend logic
+unconditionally sends RP_MBOX_SUSPEND_SYSTEM, which is invalid without
+an initialized TX channel.
 
-Signed-off-by: Koichiro Den <den@valinux.co.jp>
+Detect the no_mailboxes case early and skip sending the suspend
+message. Instead, proceed directly to the runtime PM suspend path,
+which is the correct behavior for firmwares that cannot respond to
+mailbox requests.
+
+Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+Link: https://lore.kernel.org/r/20251204122825.756106-1-iuliana.prodan@oss.nxp.com
+Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/pci/endpoint/functions/pci-epf-test.c | 84 +++++++++++++------
- 1 file changed, 57 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/pci/endpoint/functions/pci-epf-test.c b/drivers/pci/endpoint/functions/pci-epf-test.c
-index defe1e2ea427..7b0955b4c703 100644
---- a/drivers/pci/endpoint/functions/pci-epf-test.c
-+++ b/drivers/pci/endpoint/functions/pci-epf-test.c
-@@ -87,6 +87,7 @@ struct pci_epf_test {
- 	const struct pci_epc_features *epc_features;
- 	struct pci_epf_bar	db_bar;
- 	bool			db_irq_requested;
-+	bool			db_bar_programmed;
- 	size_t			bar_size[PCI_STD_NUM_BARS];
- };
+LLM Generated explanations, may be completely bogus:
+
+So `no_mailboxes` was introduced in v6.4. This means the bug only
+affects kernels v6.4+. Let me check which stable trees are currently
+maintained.
+
+Now let me understand the actual bug severity more precisely. From the
+code analysis:
+
+1. When `no_mailboxes=1` is set, `imx_dsp_rproc_mbox_no_alloc()` is
+   used, which is a no-op — `priv->tx_ch` stays NULL.
+2. During suspend, `imx_dsp_suspend()` calls
+   `mbox_send_message(priv->tx_ch, ...)` where `priv->tx_ch` is NULL.
+3. `mbox_send_message()` checks `if (!chan || !chan->cl)` and returns
+   `-EINVAL` — so it **does NOT crash**.
+4. However, the return value is `-EINVAL` (negative), so the error path
+   is taken: `dev_err()` is printed and the function returns the error
+   code.
+5. This causes **suspend to fail** with an error, which means the system
+   **cannot suspend** when using `no_mailboxes` mode.
+
+This is a real functional bug — suspend is broken when the
+`no_mailboxes` module parameter is used. It won't crash, but it prevents
+the system from suspending, which is a significant issue for
+embedded/power-managed systems.
+
+## Summary of Analysis
+
+### What the commit fixes
+When the `no_mailboxes` module parameter is set (firmware doesn't use
+mailbox communication), `priv->tx_ch` remains NULL. The suspend function
+`imx_dsp_suspend()` unconditionally tries to send a message via the
+mailbox TX channel, which fails with `-EINVAL` when the channel is NULL.
+This causes **system suspend to fail** for all users of the
+`no_mailboxes` configuration.
+
+The fix adds a NULL check for `priv->tx_ch` before the
+`mbox_send_message()` call, skipping the mailbox communication and going
+directly to the PM runtime suspend path — which is the correct behavior
+for firmwares that don't use mailbox.
+
+### Stable kernel criteria assessment
+1. **Obviously correct and tested**: Yes — a simple NULL check that
+   mirrors the existing pattern in `imx_dsp_rproc_kick()` (line 764).
+   Signed off by the NXP developer and the remoteproc maintainer.
+2. **Fixes a real bug**: Yes — suspend is broken when `no_mailboxes=1`.
+3. **Important issue**: Moderate — it prevents system suspend for
+   affected configurations (embedded i.MX DSP users with no-mailbox
+   firmwares). On embedded/battery-powered devices, inability to suspend
+   is a significant problem.
+4. **Small and contained**: Yes — 9 lines added (NULL check + comment +
+   debug message), single file, single function.
+5. **No new features**: Correct — this is purely a bug fix.
+
+### Risk assessment
+- **Very low risk**: The added NULL check only triggers when
+  `priv->tx_ch` is NULL (the no-mailbox case). It has zero impact on the
+  normal mailbox path.
+- The pattern is already established in the same driver
+  (`imx_dsp_rproc_kick()` at line 764).
+- The fix is self-contained with no dependencies on other patches.
+
+### Affected versions
+The `no_mailboxes` module parameter was introduced in commit
+`11bb42a94648a` which landed in v6.4. The bug exists from v6.4 onwards.
+Currently maintained stable trees v6.6.y and v6.12.y would both be
+affected.
+
+### Verification
+- **Verified**: `mbox_send_message()` in `drivers/mailbox/mailbox.c:249`
+  returns `-EINVAL` when `chan` is NULL (not a crash, but causes suspend
+  failure since the error is propagated).
+- **Verified**: `priv->tx_ch` starts as NULL (zeroed by
+  `devm_rproc_alloc`) and remains NULL when
+  `imx_dsp_rproc_mbox_no_alloc()` is used (it's a no-op, confirmed at
+  line 635-638).
+- **Verified**: `no_mailboxes` module parameter was introduced in commit
+  `11bb42a94648a` (v6.4 cycle), confirmed via `git log -S
+  "no_mailboxes"`.
+- **Verified**: The existing `imx_dsp_rproc_kick()` function already has
+  an identical defensive NULL check for `priv->tx_ch` at line 764,
+  confirming the fix pattern is established.
+- **Verified**: The `imx_dsp_suspend()` function returns the error from
+  `mbox_send_message()` (line 1251), so a `-EINVAL` return causes
+  suspend to fail entirely.
+- **Verified**: The driver was introduced in `ec0e5549f3586d` (Oct 2021,
+  v5.16 cycle), so it exists in multiple stable trees.
+- **Verified**: The patch was reviewed and merged by remoteproc
+  maintainer Mathieu Poirier, with a Link to the mailing list
+  discussion.
+
+This is a clean, small, obviously correct bug fix for a real problem
+(broken suspend) in a specific but important use case (no-mailbox
+firmware on i.MX DSP). It follows an established pattern in the same
+driver and has very low regression risk.
+
+**YES**
+
+ drivers/remoteproc/imx_dsp_rproc.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+index 5130a35214c92..f51deaacc7008 100644
+--- a/drivers/remoteproc/imx_dsp_rproc.c
++++ b/drivers/remoteproc/imx_dsp_rproc.c
+@@ -1242,6 +1242,15 @@ static int imx_dsp_suspend(struct device *dev)
+ 	if (rproc->state != RPROC_RUNNING)
+ 		goto out;
  
-@@ -730,7 +731,9 @@ static void pci_epf_test_enable_doorbell(struct pci_epf_test *epf_test,
- {
- 	u32 status = le32_to_cpu(reg->status);
- 	struct pci_epf *epf = epf_test->epf;
-+	struct pci_epf_doorbell_msg *db;
- 	struct pci_epc *epc = epf->epc;
-+	unsigned long irq_flags;
- 	struct msi_msg *msg;
- 	enum pci_barno bar;
- 	size_t offset;
-@@ -742,13 +745,28 @@ static void pci_epf_test_enable_doorbell(struct pci_epf_test *epf_test,
- 	if (ret)
- 		goto set_status_err;
- 
--	msg = &epf->db_msg[0].msg;
--	bar = pci_epc_get_next_free_bar(epf_test->epc_features, epf_test->test_reg_bar + 1);
--	if (bar < BAR_0)
--		goto err_doorbell_cleanup;
-+	db = &epf->db_msg[0];
-+	msg = &db->msg;
-+	epf_test->db_bar_programmed = false;
-+
-+	if (db->bar != NO_BAR) {
-+		/*
-+		 * The doorbell target is already exposed via a platform-owned
-+		 * fixed BAR
-+		 */
-+		bar = db->bar;
-+		offset = db->offset;
-+	} else {
-+		bar = pci_epc_get_next_free_bar(epf_test->epc_features,
-+						epf_test->test_reg_bar + 1);
-+		if (bar < BAR_0)
-+			goto err_doorbell_cleanup;
++	/*
++	 * No channel available for sending messages;
++	 * indicates no mailboxes present, so trigger PM runtime suspend
++	 */
++	if (!priv->tx_ch) {
++		dev_dbg(dev, "No initialized mbox tx channel, suspend directly.\n");
++		goto out;
 +	}
 +
-+	irq_flags = epf->db_msg[0].irq_flags | IRQF_ONESHOT;
+ 	reinit_completion(&priv->pm_comp);
  
- 	ret = request_threaded_irq(epf->db_msg[0].virq, NULL,
--				   pci_epf_test_doorbell_handler, IRQF_ONESHOT,
-+				   pci_epf_test_doorbell_handler, irq_flags,
- 				   "pci-ep-test-doorbell", epf_test);
- 	if (ret) {
- 		dev_err(&epf->dev,
-@@ -761,25 +779,33 @@ static void pci_epf_test_enable_doorbell(struct pci_epf_test *epf_test,
- 	reg->doorbell_data = cpu_to_le32(msg->data);
- 	reg->doorbell_bar = cpu_to_le32(bar);
- 
--	msg = &epf->db_msg[0].msg;
--	ret = pci_epf_align_inbound_addr(epf, bar, ((u64)msg->address_hi << 32) | msg->address_lo,
--					 &epf_test->db_bar.phys_addr, &offset);
-+	if (db->bar == NO_BAR) {
-+		ret = pci_epf_align_inbound_addr(epf, bar,
-+						 ((u64)msg->address_hi << 32) |
-+						 msg->address_lo,
-+						 &epf_test->db_bar.phys_addr,
-+						 &offset);
- 
--	if (ret)
--		goto err_doorbell_cleanup;
-+		if (ret)
-+			goto err_doorbell_cleanup;
-+	}
- 
- 	if (size_add(offset, sizeof(u32)) > epf->bar[bar].size)
- 		goto err_doorbell_cleanup;
- 
- 	reg->doorbell_offset = cpu_to_le32(offset);
- 
--	epf_test->db_bar.barno = bar;
--	epf_test->db_bar.size = epf->bar[bar].size;
--	epf_test->db_bar.flags = epf->bar[bar].flags;
-+	if (db->bar == NO_BAR) {
-+		epf_test->db_bar.barno = bar;
-+		epf_test->db_bar.size = epf->bar[bar].size;
-+		epf_test->db_bar.flags = epf->bar[bar].flags;
- 
--	ret = pci_epc_set_bar(epc, epf->func_no, epf->vfunc_no, &epf_test->db_bar);
--	if (ret)
--		goto err_doorbell_cleanup;
-+		ret = pci_epc_set_bar(epc, epf->func_no, epf->vfunc_no, &epf_test->db_bar);
-+		if (ret)
-+			goto err_doorbell_cleanup;
-+
-+		epf_test->db_bar_programmed = true;
-+	}
- 
- 	status |= STATUS_DOORBELL_ENABLE_SUCCESS;
- 	reg->status = cpu_to_le32(status);
-@@ -806,17 +832,21 @@ static void pci_epf_test_disable_doorbell(struct pci_epf_test *epf_test,
- 
- 	pci_epf_test_doorbell_cleanup(epf_test);
- 
--	/*
--	 * The doorbell feature temporarily overrides the inbound translation
--	 * to point to the address stored in epf_test->db_bar.phys_addr, i.e.,
--	 * it calls set_bar() twice without ever calling clear_bar(), as
--	 * calling clear_bar() would clear the BAR's PCI address assigned by
--	 * the host. Thus, when disabling the doorbell, restore the inbound
--	 * translation to point to the memory allocated for the BAR.
--	 */
--	ret = pci_epc_set_bar(epc, epf->func_no, epf->vfunc_no, &epf->bar[bar]);
--	if (ret)
--		goto set_status_err;
-+	if (epf_test->db_bar_programmed) {
-+		/*
-+		 * The doorbell feature temporarily overrides the inbound translation
-+		 * to point to the address stored in epf_test->db_bar.phys_addr, i.e.,
-+		 * it calls set_bar() twice without ever calling clear_bar(), as
-+		 * calling clear_bar() would clear the BAR's PCI address assigned by
-+		 * the host. Thus, when disabling the doorbell, restore the inbound
-+		 * translation to point to the memory allocated for the BAR.
-+		 */
-+		ret = pci_epc_set_bar(epc, epf->func_no, epf->vfunc_no, &epf->bar[bar]);
-+		if (ret)
-+			goto set_status_err;
-+
-+		epf_test->db_bar_programmed = false;
-+	}
- 
- 	status |= STATUS_DOORBELL_DISABLE_SUCCESS;
- 	reg->status = cpu_to_le32(status);
+ 	/* Tell DSP that suspend is happening */
 -- 
 2.51.0
 
