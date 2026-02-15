@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2862EF5870
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 10:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E1CEEF586D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Feb 2026 10:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Vv9FfgQqvH0TBoG59PqObua5fNG91XD9um0Bs1qCyg=; b=QUBOdlo74TqgkUa3+bxc/o0e2/
-	nBfjcFnF9lVtK+BI5DcB38SkdHOJEd2jCLWeGn7lUy3+Uoqvucrrt5422qizajIoafMqmEzBUSDoG
-	6fxGa3cY3K88OovUkjcsz1G/ER8oZcrphDBtoqL8iYPdRGhgyxmFq23pP5aQLvw1jaDMqbfxmdM3I
-	hAo1NG7qdFvyo8aeI+JEtuH1htJ76RDuDA/S/bsztgRIVc5wy8C6hcYTXcE819TUbsDpV2m3XtDz1
-	4M0QlwnJVXQNIt25y9RWPmsipC/5S4eaBeBK/ZQebNlUiBteX6FnacPA09Mib2rvR9ULocMzi49Mc
-	/pHEfCQw==;
+	bh=zrOfDodwsRjXWlWkQGeNJg7umgK3RaicTw8A605zTzE=; b=Z0euzHsZyQVhif9yABZLMC+yoF
+	jYTvF+czKIEV+YF4CpkUN0E+tr8Zo7V5T3D/hDGMa3T59OSDrpJRVHu2NCgZT5SJB0hGuarf8pVMp
+	D7sI+V396ZY/jgvKIpuKYGemtH/+dXH2A4mxqsf+kvZ1/cVSRHgJtuRw33/IWbXKIErRh6DQrqtA4
+	VY8CwIi77N3WndfTqbCVqVj1ayCrmKFLqvpgkKfQnJdkhnthNU15/UGNiMd18Lm6MaJZ+eV+bG5Ye
+	uIofB3KuHgqEXspDywwg2y7vbrb6YRz3lgBP7Pzd0W4KGoD983aYznI244p0gMwZAGO2DPsflOsXW
+	fAh3SJ1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrZLa-00000005KgT-0L6o;
-	Sun, 15 Feb 2026 10:27:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vrZMh-00000005KqT-1PV8;
+	Sun, 15 Feb 2026 10:28:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrZLY-00000005KgG-20NG;
-	Sun, 15 Feb 2026 10:27:24 +0000
+	id 1vrZMe-00000005Kpq-1Y95;
+	Sun, 15 Feb 2026 10:28:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86C6F60008;
-	Sun, 15 Feb 2026 10:27:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7704C4CEF7;
-	Sun, 15 Feb 2026 10:27:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 43E4340D60;
+	Sun, 15 Feb 2026 10:28:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F8E4C4CEF7;
+	Sun, 15 Feb 2026 10:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771151243;
-	bh=WW2sJsLiN33IDcNFD+yTcKRGRq/XHiHSNUnM6YBZQkM=;
+	s=k20201202; t=1771151311;
+	bh=bGxgpM8q1KtuaIR5W2mi8ypkghhvkWa49uvXgAGIbZc=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=VvIzAzBTIP/IqXKObvuFK84rwbWIKYqZg29R7/1yft27bGFFhjpHqokO00++7FFOj
-	 J++OkHol5jj90i4mFg5i1YteTUMxz6+dJi6MVOYppmGYCYPxEp1bnh9qSBJLTwYreL
-	 /DkIwHHLKHycscmSMG+XgnfzIr++svu1J6eVt2T0rZcsJeT16e+unUaKUb0ai5XzHa
-	 HFXSSNDw9kAxDvnrRGT8nZo4Q79Ea4C7gcqHn0dDn/hfc7WXqgqeTnHA3SHLWAz70v
-	 ml+LH5hEP8SolRQ+Hso+dklpeWl0lWIl50fEDfYv9lMumvFM05cfSbaunY78OXyesF
-	 Al07vUaXHTNcw==
-Message-ID: <738a4531-fec8-4ca7-98fd-a3971c666bd5@kernel.org>
-Date: Sun, 15 Feb 2026 11:27:16 +0100
+	b=Kdj/ttr7V6ZOO32v/GouOpUDsEbrxgqw39j/gBi0e4VWvx1VT0KSG6ZIaCuUXoqxJ
+	 YUV9TZjYgt2Dm2zr3w9hhWv2Nx0JknpX581wZfldfbWqQPJd43wBcWVHLZ27bj72Z5
+	 MMa83PteR0hCY8sT3eyTySM4S9iyU80G035BmT+al7PMwM3q6sX0ktN/52/EEt5OOF
+	 pPmdfQJkjVfABF1BwdTwQu+F/c4ZGknSpaCNw1NkIt0nNtKO/kXSHvZpiKyz4MjCPe
+	 Htg4tH6dnjN2+yZjwO5nbN7JQxM2V5oJ+ruYxZX5atPEQCsk+U1BwWcFT82E/Gi2T5
+	 9/67B192ldLTg==
+Message-ID: <6a7cae58-f1a2-4641-832f-cd479a0bcc43@kernel.org>
+Date: Sun, 15 Feb 2026 11:28:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] arm64: dts: add missing sram-supply to mali gpu
- nodes
+Subject: Re: [PATCH v1 0/2] arm64: dts + drm/panthor: require explicit GPU
+ sram-supply
 To: =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20260215100302.136719-1-work@onurozkan.dev>
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, Geert Uytterhoeven
+ <geert+renesas@glider.be>, Heiko Stuebner <heiko@sntech.de>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-sunxi@lists.linux.dev, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Maxime Ripard
+ <mripard@kernel.org>, Rob Herring <robh@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, Simona Vetter <simona@ffwll.ch>,
+ Steven Price <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>
+References: <20260215100156.135374-1-work@onurozkan.dev>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,9 +113,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260215100302.136719-1-work@onurozkan.dev>
+In-Reply-To: <20260215100156.135374-1-work@onurozkan.dev>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260215_022832_453688_01105315 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,64 +133,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/02/2026 11:02, Onur Özkan wrote:
-> Some arm64 Mali GPU DT nodes define mali-supply but
-> are missing sram-supply.
+On 15/02/2026 11:01, Onur Özkan wrote:
+> Hi all,
 > 
-> As discussed in [1], sram-supply should be explicitly
-> defined for all relevant compatibles. If there is no
-> separate SRAM rail, it can reference the same regulator
-> as mali-supply.
-
-But is this then a sram-supply?
-
-For me it seems you just want to get rid of the warning from [1] and
-that is not correct patch. I don't care about that warning and you
-should not add DTS changes just to remove the warning.
-
-You should add a CORRECT supply, if one exist. If one does not exist,
-you cannot add it.
-
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-
+> This series follows the discussion around panthor's SRAM regulator handling
+> and the DT expectations for mali GPU nodes.
 > 
-> This change adds the missing sram-supply properties to
-> affected DT files. This aligns DTs with expected regulator
-> modeling and avoids relying on implicit fallback behavior.
+> Today, if sram-supply is missing in the DT file, panthor falls back to
+> a dummy regulator with a warning. This implicit behavior hides missing
+> DT wiring behind regulator core fallback.
 > 
-> [1]: https://lore.kernel.org/all/20260213155937.6af75786@nimda/
-
-That's not really relevant... and my first impression was that you miss
-bindings. You should rather explain this all in terms of hardware or
-bindings - e.g. this supply is or is not in the bindings and you are
-adding it because it's missing.
-
+> As discussed in [1], the agreed direction is:
+> - Update DTs to explicitly provide sram-supply, when no separate SRAM
+>   rail exists, use the same regulator as mali-supply.
+> - Make panthor to treat sram-supply as mandatory for all compatibles
+>   except mt8196-mali (as that SoC manages SRAM outside panthor).
 > 
-> Signed-off-by: Onur Özkan <work@onurozkan.dev>
 
-
-
-Please split your patch per Soc subsystems.
-
-
-> ---
-
-...
-
-> diff --git a/arch/arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi b/arch/arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi
-> index a1fb354dea9f..aba7f7325d8c 100644
-> --- a/arch/arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi
-> @@ -356,6 +356,7 @@ &dsi {
->  
->  &gpu {
->  	mali-supply = <&buck6_reg>;
-> +	sram-supply = <&buck6_reg>;
-
-There is no dedicated sram supply. It is probably routed internally, so
-I don't think we should expose it.
+Your threading is messed/broken. Start using b4 or just use git
+format-patch in a standard way (so one command and then one command for
+sending).
 
 Best regards,
 Krzysztof
