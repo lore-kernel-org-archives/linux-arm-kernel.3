@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE06E63F37
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948A7E63F39
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DL+/9I91y9/qc1bj5//jj3ZkjEziQ9/vnFv+9ooOS+4=; b=rRSVl4A/RAFy/2XyWT0lrYjnbx
-	wg6VBv14ucuX/bMXYN/qjnbMaJHi2upZf3sbvv6NPe22HvKrvpXv7UaiSz5KWartj13l+g/egYnb3
-	Is7BmazHQ1YN7FZdh2KaPEN79AOnJ/7bHZ3UXEy4skeL08K4+CG6p5B7hwYS7bhP6rhqUsQHKIQ8Q
-	bMn2ZHJAy1XQsPc8p8manGwKIIwYS7ZKhDlZaOSIcJwxv9mVLgNHcRqcImJrvOqwdUhUO9IKfjzff
-	UZa6fG1W2S5Or9YwmlprHyPLKMarQMYI37rIJ7WB/BMLD3b3Fksmk8elaQWTHZJOXeVyeiUH3kO6b
-	i0Ie6ONA==;
+	bh=e7iFP6xW5Xf2W9zO9vAqZDJHzHtTHjmzjY02AN6Ld78=; b=vTrVbpv2nFC+v3r6xkI4t/sjl6
+	houk/mhtfPy09uvNxkXLth/KcB8ZG7SsD/D8OuoIeUVRZ4yuf8CqX30cWW/Ax2X7MXEPP1/jXkJu3
+	gYf5QDKEYu6yhxx0CBGQ7v4FYxszmOjZ0l4iLkNV/c+f5TxMPcmeB7zuNbze0r1++6pLNE9GHpMGK
+	qx/D2Itym96C2CSEyNPPt3xfmRoXw5qcOmBly476CTvjEh72NGM5Lmn42UtBlW+2atDU//ZOLQoiK
+	yIv+WAWOBE0bdTB4qMVG/Kq2gfw4OPKqD0xFxRl0v5N7LblBs6P46otTcZzIBCpgrN8/mOigx75uH
+	RbQPtIfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtcI-0000000675j-3iIE;
-	Mon, 16 Feb 2026 08:06:02 +0000
-Received: from mx01.omp.ru ([90.154.21.10])
+	id 1vrtiB-000000067Rk-13tG;
+	Mon, 16 Feb 2026 08:12:08 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtcG-0000000674m-0yfA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 08:06:01 +0000
-Received: from [192.168.2.104] (213.87.133.175) by msexch01.omp.ru
- (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Mon, 16 Feb
- 2026 11:05:33 +0300
-Message-ID: <6e495cc2-3469-4855-8645-c5633d937f1e@omp.ru>
-Date: Mon, 16 Feb 2026 11:05:32 +0300
+	id 1vrti8-000000067Qs-3K0b;
+	Mon, 16 Feb 2026 08:12:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771229518;
+	bh=3HYqKGUDU9JGeXZAcBF46can3OoH/CCNNOhHTr/xDHE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SqF8Smib7nHdDc32RttjOuPwKqz4BLw1OCQwXYrdq2AGpmvo/C6HNk6IK7MGvcm+m
+	 jydz1JyhssE5o8cEMkUzIBCdHluxaCRisFF5xIHoy3gQjgvD0U1UJPJ5FRTtni62lD
+	 x+2CJO0rMWo42vedhE9z9llD9GcDuFVBmx21BtfVXWeM3zGo9/fLeBl+Y4I3IxX792
+	 ZL2XFXFDbM5ELc/7kax9yJ4eGvyVQT4ApOl55AYMaIE41N79vT86tP8lDhLmLbMj/h
+	 3rCoyOw/T5z8khP+MJEWr2kHWpLcvskOzKSmV68HvMXCt+MWp43r8XucmgwPXhEEe8
+	 cwed7IEOhWRJw==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8A80217E1406;
+	Mon, 16 Feb 2026 09:11:57 +0100 (CET)
+Message-ID: <eef04746-00cf-4971-8e65-37a2a3e60672@collabora.com>
+Date: Mon, 16 Feb 2026 09:11:56 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 02/13] hwspinlock: add callback to fill private
- data of a hwspinlock
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	<linux-renesas-soc@vger.kernel.org>
-CC: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, Bjorn Andersson
-	<andersson@kernel.org>, Baolin Wang <baolin.wang@linux.alibaba.com>,
-	<linux-remoteproc@vger.kernel.org>
-References: <20260215225501.6365-1-wsa+renesas@sang-engineering.com>
- <20260215225501.6365-3-wsa+renesas@sang-engineering.com>
+Subject: Re: [PATCH v2 4/6] media: synopsys: csi2rx: Use enum and u32 array
+ for register offsets
+To: Frank Li <Frank.Li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, imx@lists.linux.dev
+References: <20260213-imx93-dw-csi2-v2-0-8be6039f44c6@nxp.com>
+ <20260213-imx93-dw-csi2-v2-4-8be6039f44c6@nxp.com>
 Content-Language: en-US
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-Organization: Open Mobile Platform
-In-Reply-To: <20260215225501.6365-3-wsa+renesas@sang-engineering.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260213-imx93-dw-csi2-v2-4-8be6039f44c6@nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [213.87.133.175]
-X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
- (10.188.4.12)
-X-KSE-ServerInfo: msexch01.omp.ru, 9
-X-KSE-AntiSpam-Interceptor-Info: scan successful
-X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 02/16/2026 07:49:18
-X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
-X-KSE-AntiSpam-Method: none
-X-KSE-AntiSpam-Rate: 19
-X-KSE-AntiSpam-Info: Lua profiles 200515 [Feb 16 2026]
-X-KSE-AntiSpam-Info: Version: 6.1.1.20
-X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
-X-KSE-AntiSpam-Info: LuaCore: 87 0.3.87
- 7430d8ffafccd8879e1d8370e5b501352446c2ba
-X-KSE-AntiSpam-Info: {rep_avail}
-X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
-X-KSE-AntiSpam-Info: {SMTP from is not routable}
-X-KSE-AntiSpam-Info: {Found in DNSBL: 213.87.133.175 in (user)
- b.barracudacentral.org}
-X-KSE-AntiSpam-Info: d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;omp.ru:7.1.1;127.0.0.199:7.1.2
-X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
-X-KSE-AntiSpam-Info: FromAlignment: s
-X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.133.175
-X-KSE-AntiSpam-Info: {DNS response errors}
-X-KSE-AntiSpam-Info: Rate: 19
-X-KSE-AntiSpam-Info: Status: not_detected
-X-KSE-AntiSpam-Info: Method: none
-X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
- smtp.mailfrom=omp.ru;dkim=none
-X-KSE-Antiphishing-Info: Clean
-X-KSE-Antiphishing-ScanningType: Heuristic
-X-KSE-Antiphishing-Method: None
-X-KSE-Antiphishing-Bases: 02/16/2026 07:50:00
-X-KSE-Antivirus-Interceptor-Info: scan successful
-X-KSE-Antivirus-Info: Clean, bases: 2/16/2026 7:04:00 AM
-X-KSE-Attachment-Filter-Triggered-Rules: Clean
-X-KSE-Attachment-Filter-Triggered-Filters: Clean
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_000600_283172_838D415E 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20260216_001205_211354_7B374296 
+X-CRM114-Status: GOOD (  31.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +81,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/16/26 1:54 AM, Wolfram Sang wrote:
+Hi Frank,
 
-> To hide internal core structures from providers, a callback is added to
-> the ops which allows to set the 'priv' field of a hwspinlock. It is
-> called when a hwspinlock device is registered and, thus, iterated over
-> all locks. The register-functions are also extended to pass a data
-> pointer to this callback, so it can do necessary calculations for the
-> priv field of each hwspinlock. Providers are converted separately
-> because these changes need dedicated reviews.
+Thanks for the update.
+
+Some minor nitpicks, but it already looks good.
+
+On 2/13/26 21:25, Frank Li wrote:
+> Use enum dw_mipi_csi2rx_regs_index together with a u32 array to describe
+> register offsets. This allows supporting new IP versions with different
+> register layouts in a structured way.
 > 
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-[...]
+> Add rk3568_regs matching the previous macro definitions and pass it as
+> driver data during probe.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change in v2
+> - change to use enum and u32 array method
+> - use order
+>  - #includes
+>  - #defines
+>  - enum and struct definitions
+>  - the rest
+> ---
+>  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 91 ++++++++++++++++++++----
+>  1 file changed, 78 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> index a6d251ca5ad14c5138a6fd0202a970460e64c68f..b00ae5fb328da4cc78fe36b629d6661d438e124a 100644
+> --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> @@ -24,15 +24,6 @@
+>  #include <media/v4l2-mc.h>
+>  #include <media/v4l2-subdev.h>
+>  
+> -#define DW_MIPI_CSI2RX_N_LANES		0x04
+> -#define DW_MIPI_CSI2RX_RESETN		0x10
+> -#define DW_MIPI_CSI2RX_PHY_STATE	0x14
+> -#define DW_MIPI_CSI2RX_ERR1		0x20
+> -#define DW_MIPI_CSI2RX_ERR2		0x24
+> -#define DW_MIPI_CSI2RX_MSK1		0x28
+> -#define DW_MIPI_CSI2RX_MSK2		0x2c
+> -#define DW_MIPI_CSI2RX_CONTROL		0x40
+> -
+>  #define SW_CPHY_EN(x)		((x) << 0)
+>  #define SW_DSI_EN(x)		((x) << 4)
+>  #define SW_DATATYPE_FS(x)	((x) << 8)
+> @@ -40,12 +31,33 @@
+>  #define SW_DATATYPE_LS(x)	((x) << 20)
+>  #define SW_DATATYPE_LE(x)	((x) << 26)
+>  
+> +/* Help check wrong access unexisted register at difference IP version */
 
-> --- a/include/linux/hwspinlock.h
-> +++ b/include/linux/hwspinlock.h
-> @@ -30,7 +30,7 @@ struct hwspinlock_ops;
->  void *hwspin_lock_get_priv(struct hwspinlock *hwlock);
->  struct device *hwspin_lock_get_dev(struct hwspinlock *hwlock);
->  int hwspin_lock_register(struct hwspinlock_device *bank, struct device *dev,
-> -		const struct hwspinlock_ops *ops, int base_id, int num_locks);
-> +		const struct hwspinlock_ops *ops, int base_id, int num_locks, void *init_data);
->  int hwspin_lock_unregister(struct hwspinlock_device *bank);
->  struct hwspinlock *hwspin_lock_request_specific(unsigned int id);
->  int hwspin_lock_free(struct hwspinlock *hwlock);
-> @@ -49,7 +49,7 @@ int devm_hwspin_lock_unregister(struct device *dev,
->  int devm_hwspin_lock_register(struct device *dev,
->  			      struct hwspinlock_device *bank,
->  			      const struct hwspinlock_ops *ops,
-> -			      int base_id, int num_locks);
-> +			      int base_id, int num_locks, void *init_data);
+Maybe
 
-   Don't you break the existing users of this API with this change? I see
-you're fixing them up in the followup patches but that's not how it should
-be done -- the compilation shouldn't be broken...
+/* helper for checking whether register exists */
 
-[...]
+? However, I think the naming speaks for itself and you can leave the
+comment away.
 
-MBR, Sergey
+> +#define DW_REG_EXIST		BIT(31)
+> +#define DW_REG(x)		(DW_REG_EXIST | (x))
+> +
+> +enum dw_mipi_csi2rx_regs_index {
+> +	DW_MIPI_CSI2RX_N_LANES,
+> +	DW_MIPI_CSI2RX_RESETN,
+> +	DW_MIPI_CSI2RX_PHY_STATE,
+> +	DW_MIPI_CSI2RX_ERR1,
+> +	DW_MIPI_CSI2RX_ERR2,
+> +	DW_MIPI_CSI2RX_MSK1,
+> +	DW_MIPI_CSI2RX_MSK2,
+> +	DW_MIPI_CSI2RX_CONTROL,
+> +
+> +	DW_MIPI_CSI2RX_MAX,
+> +};
+> +
+>  enum {
+>  	DW_MIPI_CSI2RX_PAD_SINK,
+>  	DW_MIPI_CSI2RX_PAD_SRC,
+>  	DW_MIPI_CSI2RX_PAD_MAX,
+>  };
+>  
+> +struct dw_mipi_csi2rx_drvdata {
+> +	const u32 *regs;
+> +};
+> +
+>  struct dw_mipi_csi2rx_format {
+>  	u32 code;
+>  	u8 depth;
+> @@ -72,6 +84,23 @@ struct dw_mipi_csi2rx_device {
+>  
+>  	enum v4l2_mbus_type bus_type;
+>  	u32 lanes_num;
+> +
+> +	const struct dw_mipi_csi2rx_drvdata *drvdata;
+> +};
+> +
+> +static const u32 rk3568_regs[DW_MIPI_CSI2RX_MAX] = {
+> +	[DW_MIPI_CSI2RX_N_LANES] = DW_REG(0x4),
+> +	[DW_MIPI_CSI2RX_RESETN] = DW_REG(0x10),
+> +	[DW_MIPI_CSI2RX_PHY_STATE] = DW_REG(0x14),
+> +	[DW_MIPI_CSI2RX_ERR1] = DW_REG(0x20),
+> +	[DW_MIPI_CSI2RX_ERR2] = DW_REG(0x24),
+> +	[DW_MIPI_CSI2RX_MSK1] = DW_REG(0x28),
+> +	[DW_MIPI_CSI2RX_MSK2] = DW_REG(0x2c),
+> +	[DW_MIPI_CSI2RX_CONTROL] = DW_REG(0x40),
+> +};
+> +
+> +static const struct dw_mipi_csi2rx_drvdata rk3568_drvdata = {
+> +	.regs = rk3568_regs,
+>  };
+>  
+>  static const struct v4l2_mbus_framefmt default_format = {
+> @@ -186,16 +215,46 @@ static inline struct dw_mipi_csi2rx_device *to_csi2(struct v4l2_subdev *sd)
+>  	return container_of(sd, struct dw_mipi_csi2rx_device, sd);
+>  }
+>  
+> +static bool dw_mipi_csi2rx_is_exist(struct dw_mipi_csi2rx_device *csi2,
+
+Sounds a bit weird to me, maybe "dw_mipi_csi2rx_has_reg(ister)" or
+"dw_mipi_csi2rx_reg(ister)_exists?
+
+> +				    enum dw_mipi_csi2rx_regs_index index)
+> +{
+> +	if (index < DW_MIPI_CSI2RX_MAX &&
+> +	    (csi2->drvdata->regs[index] & DW_REG_EXIST))
+> +		return true;
+> +
+> +	return false;
+> +}
+> +
+> +static void __iomem *
+> +dw_mipi_csi2rx_get_regaddr(struct dw_mipi_csi2rx_device *csi2,
+> +			   enum dw_mipi_csi2rx_regs_index index)
+> +{
+> +	u32 off = (~DW_REG_EXIST) & csi2->drvdata->regs[index];
+> +
+> +	return csi2->base_addr + off;
+> +}
+> +
+>  static inline void dw_mipi_csi2rx_write(struct dw_mipi_csi2rx_device *csi2,
+> -					unsigned int addr, u32 val)
+> +					enum dw_mipi_csi2rx_regs_index index,
+> +					u32 val)
+>  {
+> -	writel(val, csi2->base_addr + addr);
+> +	if (dw_mipi_csi2rx_is_exist(csi2, index))
+> +		writel(val, dw_mipi_csi2rx_get_regaddr(csi2, index));
+> +
+> +	dev_err_once(csi2->dev,
+> +		     "write to non-existent register index: %d\n", index);
+
+Not sure about to control flow here, as the error message is shown in
+any case. Do you mean
+
+{
+	if (!dw_mipi_csi2rx_is_exist(csi2, index)) {
+		dev_err_once(csi2->dev,
+			"write to non-existent register index: %d\n",
+			index);
+		return;
+	}
+
+	writel(val, dw_mipi_csi2rx_get_regaddr(csi2, index));
+}
+
+?
+
+>  }
+>  
+>  static inline u32 dw_mipi_csi2rx_read(struct dw_mipi_csi2rx_device *csi2,
+> -				      unsigned int addr)
+> +				      enum dw_mipi_csi2rx_regs_index index)
+>  {
+> -	return readl(csi2->base_addr + addr);
+> +	if (dw_mipi_csi2rx_is_exist(csi2, index))
+> +		return readl(dw_mipi_csi2rx_get_regaddr(csi2, index));
+
+Here it seems to be correct, but personally I'd prefer
+
+{
+	if (!dw_mipi_csi2rx_is_exist(csi2, index)) {
+		// print error
+		return 0;
+	}
+
+	return readl(...);
+}
+Anyway, it should match the write method.
+
+> +
+> +	dev_err_once(csi2->dev,
+> +		     "read non-existent register index: %d\n", index);
+> +	/* Return 0 for unexisted registers */
+
+/* return 0 for non-existent registers */
+
+or leave away altogether.
+
+> +	return 0;
+>  }
+>  
+>  static const struct dw_mipi_csi2rx_format *
+> @@ -631,6 +690,7 @@ static void dw_mipi_csi2rx_unregister(struct dw_mipi_csi2rx_device *csi2)
+>  static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
+>  	{
+>  		.compatible = "rockchip,rk3568-mipi-csi2",
+> +		.data = &rk3568_drvdata,
+>  	},
+>  	{}
+>  };
+> @@ -652,6 +712,11 @@ static int dw_mipi_csi2rx_probe(struct platform_device *pdev)
+>  	if (IS_ERR(csi2->base_addr))
+>  		return PTR_ERR(csi2->base_addr);
+>  
+> +	csi2->drvdata = device_get_match_data(dev);
+> +	if (!csi2->drvdata)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "failed to get driver data\n");
+> +
+>  	ret = devm_clk_bulk_get_all(dev, &csi2->clks);
+>  	if (ret < 0)
+>  		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
+> 
+
+With the comments above addressed,
+
+Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+
+Best regards,
+Michael
 
 
