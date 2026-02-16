@@ -4,108 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1047BE81A42
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFDE0E81A40
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tqCD0BNLW8XMq70VZYZvuBAvYG0v4co2Px4uvRfSTgE=; b=ASjTRN+tjwc6g3YMrse3JIwlqs
-	SO+a9EtN2vYXMPw1evYIhNQGx15u4FKOUl8acXKogaGDAJvarTdPgHoylk0THBhtZ4KqYiDzp88Yw
-	O2f209adINz9aDDSX/BZFUaUOfRggyIiqk+X1h4eHBBRvO38HWcJVtWlXpCxEE8MM/9mV9ROOuDJq
-	OV5iToWFybpLLD+hwARViSrdgwL6FvDVq1n8r9WlwVpJwaggbmdNwQz4cLeHw0ps9dJKd9prLP7uH
-	D8rY1v1+a7UUbBxqAG+6I4aSn2jyQ/R0SF3eEBg+iY3JSrWS93G69BrctuQ9PP4PLDpwDRlc1Ljw0
-	07u++fPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zpEX3ehZPTvsZP4gkkPPg/6VHi3iz7xJ7MiP8D1uQ74=; b=M5Ug0Ra+C6C0RYAHWT1RTkP95E
+	9RYOOjqoBuF0sTmOq7aMjMxPSgbaiNkXpjdrg2MpzWuHilZgNK+8Aaa9VHkJwDH+dhwVA3nzJaJg4
+	hJZennS4pdrIujrCDsexBP90+4WdhI3y34j83N2I7TygdFVK/fxmfWQiFHemXRie4GH5rE9h8XRlG
+	3opLXtDI/lNbQLqi3t40fMPLatWD0x7olYmyqNwWEKtU1DnHo31/ophhvUrN3TotKbqS+dew5uIb4
+	TG5iwywba1Z31O90N5mb2D/Vr8YASn3r4nvyldql3pBZU7MEceuhgoJD3Tn0Egu887gJzK4H7/pM7
+	z4X6SdLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1PN-000000071Bw-38dU;
-	Mon, 16 Feb 2026 16:25:13 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vs1Q6-000000071fL-1G8p;
+	Mon, 16 Feb 2026 16:25:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1PF-000000070yD-2yPL
+	id 1vs1Q3-000000071c2-0mSJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Feb 2026 16:25:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=zpEX3ehZPTvsZP4gkkPPg/6VHi3iz7xJ7MiP8D1uQ74=; b=UiAqB1yCxo3KF4uahH7W0U9g/Z
+	ZLmolzzNUu4Al/0QX3vandnRaR/aZt/T/Rwoae7cc1LWdA3bD58W3fnqRTxu8OiUU040TVvFgctkl
+	T9De37sWDmkXHwNW1u2ddGlGJ8gtTVwyk7QckiSqrXNgFMjLZqlSdS/5varaNBig9cRKFgggXAeu0
+	wlgGQwNBKxh0zgmj529Fw6GlQBArEOQFmUO+0c7X00riZyvy03PjStqQaAn97wEOyV1emlVjUj2Ui
+	GTO8wjFV33AV3I/12nKT9mGkRrUTcUMj7o8zaP/3SRzy55N2DKMBsHLeF1qgXO6xjptMcOa8nV2LQ
+	riM6Xl6Q==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vs1Q0-0000000ErMW-1Erb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 16:25:06 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-43945763558so962712f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 08:25:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771259104; x=1771863904; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tqCD0BNLW8XMq70VZYZvuBAvYG0v4co2Px4uvRfSTgE=;
-        b=K0atujeeOBxV8oke8setTur2VV25ClJgp1OUSIMUy2nsweBw+jrkUWYFD+YJC5DgX8
-         0tcnpi7kb3hy4k40eTkMF/niRTowidg4eu5l4C7/KibRKFiOOFUMlFjYcSWHxNnmZTTR
-         WwXHzPxeqR6B5N6jqnftjcXWiKc8FB6pA5QyQxLycObbltk+8ueUgj6EGd42yppke86A
-         51REaKqf/lhvSJ8fOTlb8q59Mdiaa37aoxhptQTGuIJ0gsXybcHslNws+j2hFwlAuLwc
-         hx62fIxhZbacU3U8JZCSzVLIFbWKPJfH+dmbPKko9XrUHERwHmul5GOq22gXSYfaSAnV
-         Y5Pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771259104; x=1771863904;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tqCD0BNLW8XMq70VZYZvuBAvYG0v4co2Px4uvRfSTgE=;
-        b=GIvbGerj6+qVrZmqcWNngr4rihyVn/W76Sy2Ff07dBr/8V24N5/PwdMO+aiMU0tMXp
-         Tmp453JVEPZ/txrE/dElKkHk/mreDqUdazuKrl3DUF1RE3pwth1D8SDWiAQB97LJChKM
-         ET6zwa/y9T9s/0xDbiM17GhzisMyOkBHXy7sIbmZIwFBpGhR/Df97eMBa0/WV2WRYMqo
-         Y9m9v1uAsEJPzIpENBDF/742R1QqnZKENe6sIzsXCY+pu44FgZRlSbawd5hU17EH3yWD
-         MsC/fgU8bsamiahi1CpqBo9SXWDuxrDEfIh5HuZtyBrFNh/KuOglpNQ69Y+S7E8gB8ZH
-         Sfrg==
-X-Forwarded-Encrypted: i=1; AJvYcCVrljbnntCf1qjLs84yjRVPJ1EXc9XAbdmaZ33Bxar15SDUk9ui+dHCEFGfjVYGAdzPwp2G984lKkOY2smiGE0g@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1QkKXuwheBHSgEs7UT5i6Mv8wT/cOFl3lW5jqnUdg4KL5iE6Y
-	0K/NZthyB9IHlDHzPMI+5dpPaa390eaOrO9JacqlgH0XsUEqJRjFbz/y
-X-Gm-Gg: AZuq6aKRtzIjkHMz5Ls9P+Lp6PL3mPEn25+CTwde/uCotvQHGReIDkYqeV2gJeOA5qc
-	43OmOlhJ0uAPedOnJ3iGcHL56Vm/0Ri9mLu9XseUX3QkrH84O51XcyUfiX0k1KiVsGQZjGQxtQm
-	XZtDZcnA5webreWJPSxmX589bUeEVkLwysJGt1slMadFwxPHAMua2oNAS6E6JkwJff9L5Zb8lz8
-	DJLK7y8tskLn5ekyZ62V4eKlo2pvKIl/rikJP7C42PH3I0kYPfg/jB8Nwnrn+k7eAJOGn11XzPR
-	hJeMKFk9jXCYnPzsYBJJ4Dzu14llpMip/0bpz2qlRVLKhET2A8xRXblH3885pL2p99wXID3lrnm
-	Fx24KqC8vqMSkkbZSXHSK6V85K3suWbemkshcH/J1T4/XZa8X8bML337jH5V5E0+Cj0drtHYYT3
-	MZwKT17nZbs2QmKSu9aqU=
-X-Received: by 2002:a05:6000:238a:b0:437:6c23:3465 with SMTP id ffacd0b85a97d-43796ac1fc8mr18185802f8f.16.1771259103790;
-        Mon, 16 Feb 2026 08:25:03 -0800 (PST)
-Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a6a6desm28775962f8f.10.2026.02.16.08.25.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Feb 2026 08:25:03 -0800 (PST)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Val Packett <val@packett.cool>,
-	Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Jitao Shi <jitao.shi@mediatek.com>,
-	Fabien Parent <fparent@baylibre.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: [PATCH v2 6/6] gpu: drm: mediatek: ovl: add specific entry for mt8167
-Date: Mon, 16 Feb 2026 16:22:17 +0000
-Message-ID: <ee6bb10f8beb4a9d0d2bf49d5b053c7395ad6b50.1771258407.git.l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1771258407.git.l.scorcia@gmail.com>
-References: <cover.1771258407.git.l.scorcia@gmail.com>
+	Mon, 16 Feb 2026 16:25:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4407C4434D;
+	Mon, 16 Feb 2026 16:25:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0DE2C116C6;
+	Mon, 16 Feb 2026 16:25:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771259147;
+	bh=1TdioR8FnQTdDm82rwBeRHYCvAui4kNi9uauXUkTD+M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PqG0+0JJIHhN88iFpGAUKzkfebgoZc/5h4WeFN1JyACf0xTLktrs0xynTH6dIHJ7I
+	 vgTlxuPl4lrK3dIU52n5LIzA4Stj9FhamImA2Y3HlAy59uvvMLL6AXmXRjBYGxQXxq
+	 cYF66/QvXHMzprFWO3oeQ2d6c7/MDSZQEJ8Y0JZiFTBNSFO+NY26mon2CjCR8hEpuQ
+	 pxKi95ECxvp3/Vg5ZCDIDqlxEKmk/m7cUpdb0zNftefmzDuKpWFdgEZUwhjFA8Ha1e
+	 KASyaP9QtMhMMSXHzjjzA0BaJ2SwFluujuHRk7yhx1wOa/lrrNtkqgeLIqUJE8FeKv
+	 ToET9ctbzy70A==
+Date: Mon, 16 Feb 2026 21:55:30 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Sherry Sun <sherry.sun@nxp.com>, hongxing.zhu@nxp.com, 
+	l.stach@pengutronix.de, bhelgaas@google.com, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	s.hauer@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V5 03/12] PCI: dwc: Allow external allocation of
+ pci_host_bridge
+Message-ID: <ojqdb7ysx2ktosahpb2mm4uog3oijc7ni7xnz63xjjvy2fdcyg@upmxt7oxv6sr>
+References: <20260213040852.3340547-1-sherry.sun@nxp.com>
+ <20260213040852.3340547-4-sherry.sun@nxp.com>
+ <aY9DSPaTCMhcR8GC@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <aY9DSPaTCMhcR8GC@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_082505_770412_8A3EADF7 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20260216_162552_582246_1BD82330 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,51 +94,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Val Packett <val@packett.cool>
+On Fri, Feb 13, 2026 at 10:29:12AM -0500, Frank Li wrote:
+> On Fri, Feb 13, 2026 at 12:08:43PM +0800, Sherry Sun wrote:
+> > Currently, dw_pcie_host_init() always allocates a new pci_host_bridge
+> > structure internally using devm_pci_alloc_host_bridge(). This prevents
+> > drivers from pre-allocating the bridge structure when needed.
+> >
+> > Modify dw_pcie_host_init() to check if pp->bridge is already set. If
+> > set, use the pre-allocated bridge instead of allocating a new one. This
+> > maintains backward compatibility with existing drivers that don't set
+> > pp->bridge, while allowing new drivers to pre-allocate when needed.
+> >
+> > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> > ---
+> >  drivers/pci/controller/dwc/pcie-designware-host.c | 12 ++++++++----
+> >  1 file changed, 8 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > index 6ae6189e9b8a..c2de9830e1e9 100644
+> > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > @@ -575,11 +575,15 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+> >
+> >  	raw_spin_lock_init(&pp->lock);
+> >
+> > -	bridge = devm_pci_alloc_host_bridge(dev, 0);
+> > -	if (!bridge)
+> > -		return -ENOMEM;
+> > +	if (!pp->bridge) {
+> > +		bridge = devm_pci_alloc_host_bridge(dev, 0);
+> 
+> It'd better call parse port here, or in devm_pci_alloc_host_bridge().
+> 
 
-From: Val Packett <val@packett.cool>
+Agree. We should try to avoid calling devm_pci_alloc_host_bridge() from glue
+drivers.
 
-While this configuration is otherwise identical to mt8173, according
-to Android kernel sources, this SoC does need smi_id_en.
+- Mani
 
-Signed-off-by: Val Packett <val@packett.cool>
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+> If that, needn't check pp->bridge.
+> 
+> Frank
+> > +		if (!bridge)
+> > +			return -ENOMEM;
+> >
+> > -	pp->bridge = bridge;
+> > +		pp->bridge = bridge;
+> > +	} else {
+> > +		bridge = pp->bridge;
+> > +	}
+> >
+> >  	ret = dw_pcie_host_get_resources(pp);
+> >  	if (ret)
+> > --
+> > 2.37.1
+> >
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-index e0236353d499..97a899e4bd99 100644
---- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-@@ -671,6 +671,16 @@ static const struct mtk_disp_ovl_data mt2701_ovl_driver_data = {
- 	.num_formats = ARRAY_SIZE(mt8173_formats),
- };
- 
-+static const struct mtk_disp_ovl_data mt8167_ovl_driver_data = {
-+	.addr = DISP_REG_OVL_ADDR_MT8173,
-+	.gmc_bits = 8,
-+	.layer_nr = 4,
-+	.fmt_rgb565_is_0 = true,
-+	.smi_id_en = true,
-+	.formats = mt8173_formats,
-+	.num_formats = ARRAY_SIZE(mt8173_formats),
-+};
-+
- static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
- 	.addr = DISP_REG_OVL_ADDR_MT8173,
- 	.gmc_bits = 8,
-@@ -742,6 +752,8 @@ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
- static const struct of_device_id mtk_disp_ovl_driver_dt_match[] = {
- 	{ .compatible = "mediatek,mt2701-disp-ovl",
- 	  .data = &mt2701_ovl_driver_data},
-+	{ .compatible = "mediatek,mt8167-disp-ovl",
-+	  .data = &mt8167_ovl_driver_data},
- 	{ .compatible = "mediatek,mt8173-disp-ovl",
- 	  .data = &mt8173_ovl_driver_data},
- 	{ .compatible = "mediatek,mt8183-disp-ovl",
 -- 
-2.43.0
-
+மணிவண்ணன் சதாசிவம்
 
