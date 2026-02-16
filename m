@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DEDAE63F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07179E63F15
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MYUrElZd5euRNNovkbyYNrBa13z4xCHeSrn4eM2mcuA=; b=ECe0BT/UbFLL0G7tXmnxIVtx/r
-	4KOwOFdPI4wfzlXjtPzqlUc7FLpJzzEdtpCe/n8mTWSIre5rGjgQUtC6BosOaMm9Fch8TCUHriHSb
-	1PfdPcsQGcmw7qNw9V5GmLlm/zK3v5xArgHKt9n135c8pBZddm0lkCEATxO8hwjl+WUxHuqBSXCzM
-	/EGLFQ78cTM9I95w98j+uanM3c+y2kXo6pFzHNcdkEJo6v+0cfp3wShFrzeJu56c/aYvX2TAa6O1h
-	TKSCOSQc5Gvn7KjyaxJOBPwBT0sddCvKDEkyci1zOFU6IrTshEF9DxvGFpaVJqbBSyXquBHi8djTu
-	ZMO9WrmA==;
+	bh=/29nb0UCFYG377n8dEUbCtcfhg1xz1av28GbM8wMD6w=; b=QwCbPp9ETlAPnh8yYAvvu1wL6x
+	UNoEB13K/kafs8IApoc1XuPBb4tSTAyyD3WxldxManYdZS21rJmLiJQw1vzLpI7x42/waHzmpBk0M
+	JDVrRg9xFyQ5V35xDPLzt0UjzfNmix3NZ4u1N2z9jTpsmOSoSUAiKL2BUDk+0NmHPo5M9BvW0LiTa
+	yVaO8Bk+c2Mh2c1O/Y1yJJNnIRc64cbczr4NBX8rbuBC7QiVm7cCslSrQGSTn0IblW/gc1EgsoO1p
+	iAqINZFNqWueDP0e4PaWsKPLjAy1oxnjmW0X3re6GurIy4Ze0s9A43PS5iIbCCOXIWyGWCtSP+6gA
+	XATFYGWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vryp6-00000006gfF-4BKh;
-	Mon, 16 Feb 2026 13:39:37 +0000
+	id 1vrypA-00000006gjt-26zP;
+	Mon, 16 Feb 2026 13:39:40 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vryox-00000006gUb-16P6;
-	Mon, 16 Feb 2026 13:39:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1771249147; cv=none; 
+	id 1vryoy-00000006gVy-2qUQ;
+	Mon, 16 Feb 2026 13:39:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771249159; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=YqaFM5rFod5AIfN9gNz1+4D/he9mBH+S/bE8172rbjSMNwB0Mn6saXTzc+/yoqDTd94Z77Y5yZdsJWt9xS1X+vGzI7tikpTZzqCSD96nuaPqxJAIDkzphuPjARqrhyy5+R9ka6Sa8eQJ1WGFHCJPvidIASvFf5c477jKUkg/JJM=
+	b=B1hwFSmtWeJyJIBa0cpVrTS3IhMIf9+H8AzCxh6ogypYQ+RpErcw/yxqcMqUcvWKaeGXOJ1tZnCHjyMUAXWtlg9TG9QGIQGQ1dWxLjRuXi2k2HwPDN8EOyNMBfU8shU6VqRMe9M9f4lcyF1vnhL+nP5grAmGLBJ3KU4KajCV/rc=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1771249147; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=MYUrElZd5euRNNovkbyYNrBa13z4xCHeSrn4eM2mcuA=; 
-	b=X4lyqZ7PZvPORf8YYBAffY7hWzpA12Ht8dfKlOFL35IYSRsDfsEdg1gEIDhuqq9lzDvyg8ZS0GVRFVHHPjf7pT+h+kIPBNf2QNPbsiEA7O9fXaYfs7O8u33nMEy/uTV2BKuxTJUnxbJP7mN3rdv+ZjqdmAhAi0kToN9ANrZ6d3s=
+	t=1771249159; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=/29nb0UCFYG377n8dEUbCtcfhg1xz1av28GbM8wMD6w=; 
+	b=R5hT5PpOnaE8DKOkJ7zanK7VUyhpYYWX9RCugcvlX5WB/ntiEuH6b8CqBySmJl/HIcTvMf6RJwCDYwsBp2LspNJg5ozdgHmdwixx717ldwrhMxf06E8hFxblOsKmSAZRFYRVxKdMcMpF8fa2LsZ+HiMwwR3T4TGs7VxZ/qm4m9I=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771249147;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771249159;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=MYUrElZd5euRNNovkbyYNrBa13z4xCHeSrn4eM2mcuA=;
-	b=CXaAK9OpB/EK2uSKoarm4fQgm61aujl2kLKQCTVu0byJlpx/022rPHfDFZqu+pU5
-	8Qp6hh2xHmkK7Mr0dZek+YEiMKPlp7SLwiNqrq9xWPEBAXoI/uRYn7bbijmh21FWMYx
-	K2FNHdd6dYfp+9KUxCTHUVqJg9IFW8OvSnNUvQ5o=
-Received: by mx.zohomail.com with SMTPS id 1771249146982525.1915608706714;
-	Mon, 16 Feb 2026 05:39:06 -0800 (PST)
+	bh=/29nb0UCFYG377n8dEUbCtcfhg1xz1av28GbM8wMD6w=;
+	b=WqscSt7THSKEAY22xml82HDB3zAQssb2MsbHBNmE8GUynigmIN7PthMcCrDZpwPW
+	qtPgzkmhMhZb48aZtAvvltezW00xNeOQFIxE/LGj4tn7rHIi0eoYaVBtfHjox74LMUd
+	ONpmtFWml3sdKQrKwIN4z/54HFDvnaae6V1o2z6o=
+Received: by mx.zohomail.com with SMTPS id 1771249157962147.33691784780797;
+	Mon, 16 Feb 2026 05:39:17 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 16 Feb 2026 14:37:45 +0100
-Subject: [PATCH v7 12/23] scsi: ufs: mediatek: Remove vendor kernel quirks
- cruft
+Date: Mon, 16 Feb 2026 14:37:47 +0100
+Subject: [PATCH v7 14/23] scsi: ufs: mediatek: Remove
+ mediatek,ufs-broken-rtc property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260216-mt8196-ufs-v7-12-b5f2907c6da7@collabora.com>
+Message-Id: <20260216-mt8196-ufs-v7-14-b5f2907c6da7@collabora.com>
 References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
 In-Reply-To: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -75,12 +75,11 @@ Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  linux-phy@lists.infradead.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_053927_341654_287257CD 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20260216_053928_814236_ECEFED9C 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,104 +94,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both ufs_mtk_vreg_fix_vcc and ufs_mtk_vreg_fix_vccqx look like they are
-vendor kernel hacks to work around existing downstream device trees.
-Mainline does not need or want them, so remove them.
+This flag property was never described in the binding, and its
+capability wrapper seems pointless.
+
+If one of the MediaTek SoCs needs the ufshcd quirk applied, then this
+can be done per-compatible, without needing to give the device tree
+author the option to forget to set it.
+
+Remove it and the associated capability flag wrapping code.
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 69 -----------------------------------------
- 1 file changed, 69 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 5 -----
+ drivers/ufs/host/ufs-mediatek.h | 2 --
+ 2 files changed, 7 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index ff03bd153645..a26ca0673203 100644
+index 230e11533eac..424533538b90 100644
 --- a/drivers/ufs/host/ufs-mediatek.c
 +++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1017,73 +1017,6 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
- 	}
+@@ -655,9 +655,6 @@ static void ufs_mtk_init_host_caps(struct ufs_hba *hba)
+ 	if (of_property_read_bool(np, "mediatek,ufs-rtff-mtcmos"))
+ 		host->caps |= UFS_MTK_CAP_RTFF_MTCMOS;
+ 
+-	if (of_property_read_bool(np, "mediatek,ufs-broken-rtc"))
+-		host->caps |= UFS_MTK_CAP_MCQ_BROKEN_RTC;
+-
+ 	dev_info(hba->dev, "caps: 0x%x", host->caps);
  }
  
--#define MAX_VCC_NAME 30
--static int ufs_mtk_vreg_fix_vcc(struct ufs_hba *hba)
--{
--	struct ufs_vreg_info *info = &hba->vreg_info;
--	struct device_node *np = hba->dev->of_node;
--	struct device *dev = hba->dev;
--	char vcc_name[MAX_VCC_NAME];
--	struct arm_smccc_res res;
--	int err, ver;
--
--	if (info->vcc)
--		return 0;
--
--	if (of_property_read_bool(np, "mediatek,ufs-vcc-by-num")) {
--		ufs_mtk_get_vcc_num(res);
--		if (res.a1 > UFS_VCC_NONE && res.a1 < UFS_VCC_MAX)
--			snprintf(vcc_name, MAX_VCC_NAME, "vcc-opt%lu", res.a1);
--		else
--			return -ENODEV;
--	} else if (of_property_read_bool(np, "mediatek,ufs-vcc-by-ver")) {
--		ver = (hba->dev_info.wspecversion & 0xF00) >> 8;
--		snprintf(vcc_name, MAX_VCC_NAME, "vcc-ufs%u", ver);
--	} else {
--		return 0;
--	}
--
--	err = ufshcd_populate_vreg(dev, vcc_name, &info->vcc, false);
--	if (err)
--		return err;
--
--	err = ufshcd_get_vreg(dev, info->vcc);
--	if (err)
--		return err;
--
--	err = regulator_enable(info->vcc->reg);
--	if (!err) {
--		info->vcc->enabled = true;
--		dev_info(dev, "%s: %s enabled\n", __func__, vcc_name);
--	}
--
--	return err;
--}
--
--static void ufs_mtk_vreg_fix_vccqx(struct ufs_hba *hba)
--{
--	struct ufs_vreg_info *info = &hba->vreg_info;
--	struct ufs_vreg **vreg_on, **vreg_off;
--
--	if (hba->dev_info.wspecversion >= 0x0300) {
--		vreg_on = &info->vccq;
--		vreg_off = &info->vccq2;
--	} else {
--		vreg_on = &info->vccq2;
--		vreg_off = &info->vccq;
--	}
--
--	if (*vreg_on)
--		(*vreg_on)->always_on = true;
--
--	if (*vreg_off) {
--		regulator_disable((*vreg_off)->reg);
--		devm_kfree(hba->dev, (*vreg_off)->name);
--		devm_kfree(hba->dev, *vreg_off);
--		*vreg_off = NULL;
--	}
--}
--
- static void ufs_mtk_setup_clk_gating(struct ufs_hba *hba)
- {
- 	unsigned long flags;
-@@ -1981,8 +1914,6 @@ static void ufs_mtk_fixup_dev_quirks(struct ufs_hba *hba)
- 		hba->dev_quirks &= ~UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM;
- 	}
+@@ -1185,8 +1182,6 @@ static int ufs_mtk_init(struct ufs_hba *hba)
+ 	hba->quirks |= UFSHCI_QUIRK_SKIP_MANUAL_WB_FLUSH_CTRL;
  
--	ufs_mtk_vreg_fix_vcc(hba);
--	ufs_mtk_vreg_fix_vccqx(hba);
- 	ufs_mtk_fix_ahit(hba);
- 	ufs_mtk_fix_clock_scaling(hba);
- }
+ 	hba->quirks |= UFSHCD_QUIRK_MCQ_BROKEN_INTR;
+-	if (host->caps & UFS_MTK_CAP_MCQ_BROKEN_RTC)
+-		hba->quirks |= UFSHCD_QUIRK_MCQ_BROKEN_RTC;
+ 
+ 	hba->vps->wb_flush_threshold = UFS_WB_BUF_REMAIN_PERCENT(80);
+ 
+diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
+index 4e6a34f4ac39..9c377745f7a0 100644
+--- a/drivers/ufs/host/ufs-mediatek.h
++++ b/drivers/ufs/host/ufs-mediatek.h
+@@ -138,8 +138,6 @@ enum ufs_mtk_host_caps {
+ 	UFS_MTK_CAP_DISABLE_MCQ                = 1 << 8,
+ 	/* Control MTCMOS with RTFF */
+ 	UFS_MTK_CAP_RTFF_MTCMOS                = 1 << 9,
+-
+-	UFS_MTK_CAP_MCQ_BROKEN_RTC             = 1 << 10,
+ };
+ 
+ struct ufs_mtk_crypt_cfg {
 
 -- 
 2.53.0
