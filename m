@@ -4,154 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D43E81A40
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DAA7E81A40
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ngn9tF5nJ5mpLxM+lcLQmmhrtR/2eJ5Wpj4akTrxygo=; b=bEKiQQmSrnLpQsOP8a2NZJvAl8
-	m0UKWuVDMuUgplvkSEB1oFGqDLSyzIegFk8VrONG+5u1C3EsXSkkoXT5iAW6LvQHtghdjJhNW6m4Y
-	ijE6lHCswVFXpR6am/CZ5YQh+ky6JTf0ev45jkZZIk1myLSs3ABn6ozh0blviYorc1CPEC+tiGhXN
-	uw12kTOX+Qv9TY9Gr+ph87tyWoZQzan+cUz6NubxP97CvRrcP1IhwJaO72j9urSbGIfOwNdXSACK6
-	mvBfg7joH7R4p1HSAvQDvc/GgI6Sk84JpFK0bMtZ7fp3Glh2NJCP+A5kjHWWmOU/U0hIPdqxGIY9k
-	bBmKXD2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sYr4kH26Cd3kQ0Yi5Y6B01aBIxSE1jviWCAWWKW+n5w=; b=JRuMr807IaPGIq5QaBZTITQhvv
+	y1JiX/tHydjNhvhzNIvY4SRMXrWtgTonpekLhJmndejGcfbR3cBY1eCXc3FhInT8/w2vpQbHJJIG8
+	zmNIfyYXlp4ihyTA3Et4wohyqTzg7tMu5yrxF7x4BSH+I5yEqlRJXLiS/I+kqoiXa/QeVGJM6oQbZ
+	S24C/l8IN0hHJlMKQdHDYk4FqU9QX9eODKFbHtk8VSm7dYhRB3mPNeisfMBIYkz2kaatAHilUg05u
+	7PZH7bi6qhlDpCj0Ld0gL76OKy+45a4E7UbM82D52KKi/+Xy4so5QaxT+JTF3V2D8ubQIh9S8ESqt
+	ycNxN+Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1P6-000000070ok-3zhU;
-	Mon, 16 Feb 2026 16:24:56 +0000
-Received: from mail-francecentralazon11013065.outbound.protection.outlook.com ([40.107.162.65] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vs1PD-000000070wX-2olC;
+	Mon, 16 Feb 2026 16:25:03 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1P4-000000070ka-0oLT;
-	Mon, 16 Feb 2026 16:24:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NwgBfRo3D10A7VrFjbWyyf67Do6AVs8pOILc8vCNjb316pfDIpkTf7yJMgeB3ijW28mpBoOynzuzCTlxM8BMX4dCORz0Yqhmftyy7P2rY+FIsuFPTOzjmKgaEpwYMt0E7wyMkYOhcRb4S1kWcOoUOygyjTEjtDxyw2yDslUr5IfNyRwS25WCnLyJ4PPNNR8Ol2D5Snz19d7dpTYczxb7kSShg8FfwJEr8N5/MqvBNnlF0O5IyBVMNRCaoZDIUBGGBvBl8dIz9w4em7iqb7WUlgN3EqZ8TahdEX/VV0TI6rzkwnXhP7OI3Ale3DfKjcF9g1MP7OgqN/4rplJK7tIYAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ngn9tF5nJ5mpLxM+lcLQmmhrtR/2eJ5Wpj4akTrxygo=;
- b=CAZsj4AczE9Sc0mWMdiphhzMYKGgQ/iQ+OwkLeSgJNkAXKcwgiOPTpkue6OU4vNubvvAcjO9beBrSzjhW8GzRnuvv2VsnIG8vPnmMwg3y1M/C7JSp3uvP/KW6/MEZRX0D7VxjbI+g//3lyjvS86jORzc4vNjEDEt/gASS9tbY9uQVTFK3v8mhZWvgnGsQJ/fBo831y98w92kClvfuqcwwnnvFvtwoVVtgpII8YjfZxY94XOS5yWn7+g833sL6+je1mhGHDCiO3KpD0dcoaaUf0OiCz+uIb/N4mwHncLRf6ha0pQYn73vjYGBxEt17LlLgevec4MYIu3aL2iHaqZ5lQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ngn9tF5nJ5mpLxM+lcLQmmhrtR/2eJ5Wpj4akTrxygo=;
- b=RehVBVvSUxLw0YNU/8Gurp0mvXVorbQJ3fPw+HbteQ63orcnN03G1IhEliDQt8IYYK7NDCTEUNpSOmzARvGg6mVz747qgIVgAi9gJqYbWxeeS0h+pfFZFrnDms/50hUo/fggDHkTmwsHgarypKtvOU/3wxJIhSy8qDnACg/y1hCy9NAqgDOqIbiz1OiNdyWseBlk/ixFi2xpGuGHofwVRP6r7TUzj0B6ZXKx5G4X1cLNVetbPmthYTKQFEOI6S7LsgvHPOvZBsVuGywFhKadwfZWU7rm9I9qOtDM3DFj4Gqp+7vdzGtMXiwxGbrQAQTaiAoGHQwomK1qWEU5vMo7Sw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GVXPR04MB12237.eurprd04.prod.outlook.com (2603:10a6:150:2c6::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Mon, 16 Feb
- 2026 16:24:46 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9611.013; Mon, 16 Feb 2026
- 16:24:46 +0000
-Date: Mon, 16 Feb 2026 11:24:38 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Koichiro Den <den@valinux.co.jp>
-Cc: jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com,
-	heiko@sntech.de, kishon@kernel.org, jdmason@kudzu.us,
-	dave.jiang@intel.com, allenbh@gmail.com, cassel@kernel.org,
-	shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, ntb@lists.linux.dev
-Subject: Re: [PATCH v7 9/9] PCI: endpoint: pci-ep-msi: Add embedded eDMA
- doorbell fallback
-Message-ID: <aZNExmCvCgJ470z8@lizhi-Precision-Tower-5810>
-References: <20260215163847.3522572-1-den@valinux.co.jp>
- <20260215163847.3522572-10-den@valinux.co.jp>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260215163847.3522572-10-den@valinux.co.jp>
-X-ClientProxiedBy: PH8P223CA0008.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:2db::7) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1vs1P6-000000070mX-0jEJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 16:24:57 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-4359228b7c6so2533106f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 08:24:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771259094; x=1771863894; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sYr4kH26Cd3kQ0Yi5Y6B01aBIxSE1jviWCAWWKW+n5w=;
+        b=ZzDXFkyDve/tD9sOnt5GZqTBsCZSFQkl2328Ug2Cd03dg5OR1tjtLjLkYA0a23RoK2
+         UWp1Hgeg/jHQdE5sAAEmNWtujM/lWAVA50tcGzRva9qSgkJrenaxlS3CjPhY1poFnUmw
+         r2SgcQKW1RTaX9++wYBneO++Bla/z5/UKGFxV69Xl6216dZFB9LLGBbnHOuC3TXt42ay
+         Ye8GtPINCqJ+ySk8XwvkUQEWPJL4GJmixhmMrtspy6bVNRu42UWYnNkUpA0sz7E14YXj
+         MtvsS66PqfAYTF17lob+5XlmpHfzr1BN3XrzmWwJSX2CtUZIBLzyTAYOEzxVNf7Gqqke
+         kNXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771259094; x=1771863894;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=sYr4kH26Cd3kQ0Yi5Y6B01aBIxSE1jviWCAWWKW+n5w=;
+        b=SwnsOvPFuPr5hVSO+4QZoy9OpocnfNzInOsVM35htRCzurEqzdHUp9g2u5/moeT0zz
+         XRINAcpV5hH1T+jsX5H2CcTwfAIOBkCO7LeWk7So4KqiRf8MvIyXIgbaQ/br+DGy1vBm
+         /k5FwN289XKQhKjgc0Kc3YI+08gmiBCPgazrDVM1ozmCiK+7LrGtdudxKWJOKh4Ps+Sw
+         Ev+FyVkzViXScYveI3/IeurjFNV1cZ5DwITb+rEk73ASpME/w7WfhG1grVCFmCjThbnB
+         YE3DPW7lsdjYW+fOubzhlTbZL3o5sJBAcbG0NRF6TNuwdE9VDnbg2mrR32/LQ8TtYsNi
+         jbjg==
+X-Forwarded-Encrypted: i=1; AJvYcCWU1luOWk4dZftQn7MHO267R7NkGmfJWnXyGknevdjvxum7gAB47jFd8fQReC+GJxm5zKGoJ3bIpDKUXTZVErAs@lists.infradead.org
+X-Gm-Message-State: AOJu0YyC+/fK7i4tKWRKxqg39wts6sYu8rd2R9SuKPJS+57cos+GPkwy
+	+lteLGIWw8nroOoLjYYXodNQ/N/P89OByxKj3nV2OveTyUgNVL62ZfMm
+X-Gm-Gg: AZuq6aLQSIs78d5cRQLgMPh/Y3ZiGuP08nN/iLgLEIJg4PcuqWN4g35MNszq1tAy4gV
+	ZVr89khXM7JXwZTK8oyZrh282F04uDO09RhAmLsDXaoeQHTVpOZ44FaSyHJuH7PsChvzn45knDR
+	RI3VS4uhjVsXR7qn8M81qlg5F+UtwRhCgIjlU4rWrdwx2SWY7dXFrus9Z46GPkFiKON3SWd2Dni
+	P9THOsZcQWTJQbKyZyvItOD4WpX1anrgSdMTw3L70xTFUg/V0kOVoMwuE1RQ6CqQxl8vEiLAGE3
+	DXFuyN6dnZsmezBPV0fUR6bOO5TjFKZ1SnvQsHTY1q22wYjALMCtE2S4PDShzeMxTxNOZfzpJVO
+	P64Z5bLg+23duwKDTnpu+6/NRNOmKRrokpa0ZSA/gsuHqobblpOl/R3Mcq7VzK9gL/BHRIYMvYi
+	+pquMkMsidQuBZ7gV/Vh+mLq8/2Xl9SA==
+X-Received: by 2002:a5d:64e7:0:b0:437:8f98:8c91 with SMTP id ffacd0b85a97d-4379db34172mr14117696f8f.3.1771259094415;
+        Mon, 16 Feb 2026 08:24:54 -0800 (PST)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a6a6desm28775962f8f.10.2026.02.16.08.24.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Feb 2026 08:24:54 -0800 (PST)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jitao Shi <jitao.shi@mediatek.com>,
+	Fabien Parent <fparent@baylibre.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: [PATCH v2 2/6] dt-bindings: display: mediatek: Add compatibles for MediaTek mt8167
+Date: Mon, 16 Feb 2026 16:22:13 +0000
+Message-ID: <8f86f229e564723b424b4d621244cfbe158c0f08.1771258407.git.l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1771258407.git.l.scorcia@gmail.com>
+References: <cover.1771258407.git.l.scorcia@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB12237:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1ff86745-acb3-4158-0455-08de6d77e641
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|52116014|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7EcjDmU8XjRvi9pBp6Idmb4uBIR2IPgB7JgDl6eVefqrW0tT5rXYBdSyiiUt?=
- =?us-ascii?Q?18R1fIBZoUVCn7K0gsZG9XUlKKlbtxmGDVw0VixSQVvj0K5cNHkThgt+yYB4?=
- =?us-ascii?Q?IJHue97Sm5bjU6FgQcqP2AeT46x6tYkZPRGePDsfVHwY9wVVhIo03LHxnl6j?=
- =?us-ascii?Q?vAQ/zZZ/SQtpVKhPJokNTIlOjclntmA35HlNc1sJEvFODV290fcN3LScMUqn?=
- =?us-ascii?Q?AuRz9GPvh7aCPa8uMxoRZt8QvInPqvOZn3lsTYzwFCY2NemdukxQl0EtgglB?=
- =?us-ascii?Q?oED23lCAEGRk6ZAC3Z/YcgTNXayzWMnTs15NwjeS99vhqpOiWDQi5Vm39U8R?=
- =?us-ascii?Q?fO+oBS5awyVP6TdA64MpMGDSA5avI1KGOawfjPFYnMoWTF596saDIfF1fHl6?=
- =?us-ascii?Q?5CMhM8zlIyMJw+0TFF7a1/wDuOunYN9IBqVGL8QDhzbsHIjbLk3OACHwqqcg?=
- =?us-ascii?Q?MNf+cv3fHxyvVpQid5Z6VvB/pmLQdPLg1mcen01BpuMMn0UPgHufxVr575GG?=
- =?us-ascii?Q?CPT1MNcUivcHTJjKaNeeRGx28AJj1LM7n7TjnHJEYYophrSV2FprumfrvEJC?=
- =?us-ascii?Q?SpfJbDG0cl3MgybPYNHOisP21k4tCiywTe5l9k0FKVxkulz+xZhZRbMllTY9?=
- =?us-ascii?Q?DhcxDm1uyWiB9WTOK7BL4FwOlLdTGqbXg7okkIoox/eTEfB9rTXXKZY7023F?=
- =?us-ascii?Q?pvvvYMab6CVWXZbDsgn5npIkVADuXkjWYyPsR9gibPkyCcgcNWOUGYkBnQoy?=
- =?us-ascii?Q?161WGxubUOYXwSgdQva9gXlvZOuCJGyFle5cDpoUMoEttyVWCiU2dm+2k45i?=
- =?us-ascii?Q?GU/CjFBsZPfusVaiZayf1jRgsJjbuJUZCa9OfMuMxKKVd+oeVxE3NYkDZBRe?=
- =?us-ascii?Q?m/YCT6loeY7V/xtLCcWtSTm+61vBAGvCZKaiiGTo+sSkVW07bMTy+l2MjrF5?=
- =?us-ascii?Q?ys7+tev5xd5yOTKe9kJorE9/iMl1pZFbE4rvFujynH8onnGeb0TtK5l79t6N?=
- =?us-ascii?Q?SZJ5M+DpFvZ2Gef4yQ2zPHXVLd6dmsiJnwS4cRXQPNYmcA/o36ylnQj4Yt3C?=
- =?us-ascii?Q?jtb3sk8xSzvqzn6hMeT9MftWT9Xwjulcs6NPumVPUcc+ehJpxqsz8bkrUUZW?=
- =?us-ascii?Q?wBVH0EcY/kN35gApj5Ng74cB+AWepQp3IvgtHR/Kl80qZUfxyrOPqFyS/+Gj?=
- =?us-ascii?Q?FxAvUrZelElBUgMMG8dEC4Bll7G8dGVQQs7o+t/oEJVLbV1nIIEJqbfRGmNs?=
- =?us-ascii?Q?EQzTRB/nHKAe9IWzMWoJL+/BBeT77rRj+5QVKMmcrSC0frEGKXGcaBjr7T1/?=
- =?us-ascii?Q?yrW14zCBZXFi1IQg1fLIRj67v4yGNueh/rdn32Z80OL6m8qeSz97ouLee8p9?=
- =?us-ascii?Q?nvRAZ4UpRHA9I6ujbd85RoPdZx3Y/kcvvG1Du7JNtgR5VP99IhUym2oLX2bZ?=
- =?us-ascii?Q?CI9wAfbWC/A29+8GCDJ6/T5anQFLg/KcMFWyPUqoRhxOQ6Mvp+lj/jw12b/o?=
- =?us-ascii?Q?4zrPLAgz/pggTYMML92J9g4qmEPPMZjQB6wpj8Ck119NjUN+mPHn+vJb62ob?=
- =?us-ascii?Q?Vic2eZ+ASSKohY+CscZdk7FfxvRRFcBIpb40641g2c1JeTacZVLjuDDycTdv?=
- =?us-ascii?Q?iPv4qqbkhi4zxZ0nc54kWQU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(52116014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vX7JSiBLYRCAoEyPtmQcMYgnlhlwjB4FZk4LGFQ4wioj8WxtckzWa6/sYFhX?=
- =?us-ascii?Q?I9OSLsopzY637Yw2c5cXVl/gEKGrh1Fjiv+t/B1Ky4wDKSr3V+dOBtBEQoB6?=
- =?us-ascii?Q?L8FBRAUqO8K075disJLBtJA6HwbP7yAGP9oYSAGO4a1+zyPOGc1UhjR8ZWLU?=
- =?us-ascii?Q?6K7bE33FmjSVq020WpmdBEcxT/t9ymnEZH7pQAcJT/VSdUoOXxGEIePA5bsJ?=
- =?us-ascii?Q?r7TzdwOe8TQtEWpO7YXvM9U+4I5L40mCDhqvwBwJ4CE4r0MRdbsM/iqc4wZG?=
- =?us-ascii?Q?+ycMl38S/vT3FMSWTJn8o3rH1lEG/MznglZR0qdKuz2RefayBjPQwbRlof5y?=
- =?us-ascii?Q?QiwA80bmN3/1Zm26r0Fg3QPdsUvYHwVxoBCAkbUxxPq1s9W/fZsSkvUQtDcC?=
- =?us-ascii?Q?93rHSh4cN8wqH41cXndjBLIoCpptyvgmRm8UD1Zb+kewpN5ictlo/j2AH9HM?=
- =?us-ascii?Q?zVYwoqqJHy1lg3wF62PXxn2vuEg8t1gsdawq6x2lDguZ7DhmlPpEkxJ8lJoy?=
- =?us-ascii?Q?Z01BqiNo2x9lArf0ntmC+CqGXZG8yuUFXyWP1LNo5ahkAQ0hF1LV5WTw0Hzw?=
- =?us-ascii?Q?OS/iVhTfFVhiY6rXNA1bIJyfblx2GWG+Opc9jxeUttXvy46TOojpKAijP5xc?=
- =?us-ascii?Q?OyHPcug3t785n4h1j4K0AzD4tijxvdgUrULtq/XR7lcGPKvXwFcaALoOlmGf?=
- =?us-ascii?Q?OZqp8AC5xgpMTIL/qvOfK7scj6kXhP+wcNeUyeZOURAYOTb9zpWkwtz8zHPp?=
- =?us-ascii?Q?wWDRyxTWrz5tCWtB1D2ZicAJrKFo4sQFoJD98g7Z5MlaKfgWLKjctAeCMcno?=
- =?us-ascii?Q?aQN5EBHx/7KvgrBp96qMvGTllDd/ZOReI/ZpdR7ywfdYlGZiOdYsqDM3AKyV?=
- =?us-ascii?Q?tkhCyBZtCtRr6e5+JjCjGGWAvaSZ8G+7uEpoy7y0lbiMUMLJhtd/NmFvwHMk?=
- =?us-ascii?Q?E6SvU7gGMnPNLGpBph9gnSfK+b1k2G86kIquVd6N1tmM9NppNrhkEjxreCxL?=
- =?us-ascii?Q?W+4xYJV7jM1/3yKbPmqSI1ygX9G27nS74t99I8igAXe8itaOAXsVUTUdUY/2?=
- =?us-ascii?Q?hTt8sIaNkR30T/RQkriVP04qszp3tQFytK4gcxowZF9KKfn9A8Uk0GsnLRJS?=
- =?us-ascii?Q?OJ+a5mGfcwmrfBFTymIMasg6PDUI5/vmoK5pqne1U/UJ+X7Etlgmi5O3yb30?=
- =?us-ascii?Q?MTrkj8l9fd32cGB5ByM0Y4fGwmRD4Ez04RIRWf6tJ4If7IC6PRQE39ZdXhMQ?=
- =?us-ascii?Q?wTpudYo8hYL4f5LJ4IFR/Qwbpjrn+zIzJL/kEHIBlnOW0q+OGyuLz+GOesY6?=
- =?us-ascii?Q?J5gbVY3AYIsipbuTm4weVAy9tEaDyZke6lhgHh82tkJ0Abgx+nvnbhF57O2N?=
- =?us-ascii?Q?Sq97w7x+TXSyXkNva/XXVSAFiyLuVuVyUD3q0d1aeeMCQznlbk/2+C+HSJF7?=
- =?us-ascii?Q?fH/f5kshs4yo1VZuj95df3nAxBMmkkfRXyPeLStDtGEFCqZbtZgLPpxYD/bW?=
- =?us-ascii?Q?1EIZKK1Ij37cSjkpeAHmfNrLif5DKmfNxWIGQ78Tz6qYCRS0B34H9/MpGVvi?=
- =?us-ascii?Q?iH4c1sWq0pygCQTHlrQ7INnl1SwBbzZNzgNVIrXwS73UB7Aobf3VO+rC58Kh?=
- =?us-ascii?Q?3L8TeICcCyzqW5Xg/tImC0QOGnewQN/tI5Hv1DnQmZl26mh+bdnhZTzj2nnx?=
- =?us-ascii?Q?FLqP/Qzulyxj2wqJP5rExOm56W57XDYOSpX0uGzw7DmDtJU4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1ff86745-acb3-4158-0455-08de6d77e641
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Feb 2026 16:24:46.5711
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AxbSe6OfdUkoMNcfImiMjwivOBk4CBXpra+HSr9NI9rfCQyFAndZVFxsQNG0E5tURgJXSWvpslXFYVGW5obxXQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12237
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_082454_238038_337548C5 
-X-CRM114-Status: GOOD (  29.55  )
+X-CRM114-CacheID: sfid-20260216_082456_243334_4DE994E1 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,156 +120,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 01:38:47AM +0900, Koichiro Den wrote:
-> Some endpoint platforms cannot use platform MSI / GIC ITS to implement
-> EP-side doorbells. In those cases, EPF drivers cannot provide an
-> interrupt-driven doorbell and often fall back to polling.
->
-> Add an "embedded" doorbell backend that uses a controller-integrated
-> doorbell target (e.g. DesignWare integrated eDMA interrupt-emulation
-> doorbell).
->
-> The backend locates the doorbell register and a corresponding Linux IRQ
-> via the EPC aux-resource API. If the doorbell register is already
-> exposed via a fixed BAR mapping, provide BAR+offset. Otherwise provide
-> the physical address so EPF drivers can map it into BAR space.
->
-> When MSI doorbell allocation fails with -ENODEV,
-> pci_epf_alloc_doorbell() falls back to this embedded backend.
->
-> Signed-off-by: Koichiro Den <den@valinux.co.jp>
-> ---
->  drivers/pci/endpoint/pci-ep-msi.c | 90 +++++++++++++++++++++++++++++++
->  1 file changed, 90 insertions(+)
->
-> diff --git a/drivers/pci/endpoint/pci-ep-msi.c b/drivers/pci/endpoint/pci-ep-msi.c
-> index a42f69ad24ad..6e1524c2d891 100644
-> --- a/drivers/pci/endpoint/pci-ep-msi.c
-> +++ b/drivers/pci/endpoint/pci-ep-msi.c
-> @@ -6,6 +6,7 @@
->   * Author: Frank Li <Frank.Li@nxp.com>
->   */
->
-> +#include <linux/cleanup.h>
->  #include <linux/device.h>
->  #include <linux/export.h>
->  #include <linux/interrupt.h>
-> @@ -36,6 +37,82 @@ static void pci_epf_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
->  	pci_epc_put(epc);
->  }
->
-> +static int pci_epf_alloc_doorbell_embedded(struct pci_epf *epf, u16 num_db)
-> +{
-> +	const struct pci_epc_aux_resource *doorbell = NULL;
-> +	struct pci_epf_doorbell_msg *msg;
-> +	struct pci_epc *epc = epf->epc;
-> +	struct device *dev = &epf->dev;
-> +	int count, ret, i;
-> +	u64 addr;
-> +
-> +	count = pci_epc_get_aux_resources(epc, epf->func_no, epf->vfunc_no,
-> +					  NULL, 0);
-> +	if (count == -EOPNOTSUPP || count == 0)
-> +		return -ENODEV;
-> +	if (count < 0)
-> +		return count;
-> +
-> +	struct pci_epc_aux_resource *res __free(kfree) =
-> +				kcalloc(count, sizeof(*res), GFP_KERNEL);
-> +	if (!res)
-> +		return -ENOMEM;
-> +
-> +	ret = pci_epc_get_aux_resources(epc, epf->func_no, epf->vfunc_no,
-> +					res, count);
-> +	if (ret == -EOPNOTSUPP || ret == 0)
-> +		return -ENODEV;
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	count = ret;
-> +
-> +	for (i = 0; i < count; i++) {
-> +		if (res[i].type == PCI_EPC_AUX_DOORBELL_MMIO) {
-> +			if (doorbell) {
-> +				dev_warn(dev,
-> +					 "Duplicate DOORBELL_MMIO resource found\n");
-> +				continue;
-> +			}
-> +			doorbell = &res[i];
-> +		}
-> +	}
-> +	if (!doorbell)
-> +		return -ENODEV;
-> +
-> +	msg = kcalloc(num_db, sizeof(*msg), GFP_KERNEL);
-> +	if (!msg)
-> +		return -ENOMEM;
-> +
-> +	addr = doorbell->phys_addr;
-> +
-> +	/*
-> +	 * Embedded doorbell backends (e.g. DesignWare eDMA interrupt emulation)
-> +	 * typically provide a single IRQ and do not offer per-doorbell
-> +	 * distinguishable address/data pairs. The EPC aux resource therefore
-> +	 * exposes one DOORBELL_MMIO entry (u.db_mmio.irq).
-> +	 *
-> +	 * Still, pci_epf_alloc_doorbell() allows requesting multiple doorbells.
-> +	 * For such backends we replicate the same address/data for each entry
-> +	 * and mark the IRQ as shared (IRQF_SHARED). Consumers must treat them
-> +	 * as equivalent "kick" doorbells.
-> +	 */
-> +	for (i = 0; i < num_db; i++) {
-> +		msg[i].msg.address_lo = (u32)addr;
-> +		msg[i].msg.address_hi = (u32)(addr >> 32);
-> +		msg[i].msg.data = 0;
-> +		msg[i].virq = doorbell->u.db_mmio.irq;
-> +		msg[i].irq_flags = IRQF_SHARED;
-> +		msg[i].type = PCI_EPF_DOORBELL_EMBEDDED;
-> +		msg[i].bar = doorbell->bar;
-> +		msg[i].offset = (doorbell->bar == NO_BAR) ? 0 : doorbell->bar_offset;
-> +	}
-> +
-> +	epf->num_db = num_db;
-> +	epf->db_msg = msg;
-> +	return 0;
-> +}
-> +
->  static int pci_epf_alloc_doorbell_msi(struct pci_epf *epf, u16 num_db)
->  {
->  	struct pci_epf_doorbell_msg *msg;
-> @@ -110,6 +187,19 @@ int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
->  	if (!ret)
->  		return 0;
->
-> +	/*
-> +	 * Fall back to embedded doorbell only when platform MSI is unavailable
-> +	 * for this EPC.
-> +	 */
-> +	if (ret != -ENODEV)
-> +		return ret;
-> +
-> +	ret = pci_epf_alloc_doorbell_embedded(epf, num_db);
-> +	if (!ret) {
-> +		dev_info(dev, "Using embedded (DMA) doorbell fallback\n");
-> +		return 0;
-> +	}
+Add compatibles for various display-related blocks of MediaTek mt8167.
 
-here, needn't reverise logic, mostly we put err path in if branch.
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ .../devicetree/bindings/display/mediatek/mediatek,aal.yaml    | 1 +
+ .../devicetree/bindings/display/mediatek/mediatek,ccorr.yaml  | 4 +++-
+ .../devicetree/bindings/display/mediatek/mediatek,dither.yaml | 1 +
+ .../devicetree/bindings/display/mediatek/mediatek,gamma.yaml  | 1 +
+ .../devicetree/bindings/display/mediatek/mediatek,ovl.yaml    | 1 +
+ .../devicetree/bindings/display/mediatek/mediatek,rdma.yaml   | 1 +
+ .../devicetree/bindings/display/mediatek/mediatek,wdma.yaml   | 4 +++-
+ 7 files changed, 11 insertions(+), 2 deletions(-)
 
-	if (ret) {
-		dev_err(dev, "Failed to allocate doorbell: %d\n", ret);
-		return ret;
-	}
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
+index daf90ebb39bf..4bbea72b292a 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
+@@ -33,6 +33,7 @@ properties:
+           - enum:
+               - mediatek,mt2712-disp-aal
+               - mediatek,mt6795-disp-aal
++              - mediatek,mt8167-disp-aal
+           - const: mediatek,mt8173-disp-aal
+       - items:
+           - enum:
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
+index fca8e7bb0cbc..5c5068128d0c 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
+@@ -25,7 +25,9 @@ properties:
+           - mediatek,mt8183-disp-ccorr
+           - mediatek,mt8192-disp-ccorr
+       - items:
+-          - const: mediatek,mt8365-disp-ccorr
++          - enum:
++              - mediatek,mt8167-disp-ccorr
++              - mediatek,mt8365-disp-ccorr
+           - const: mediatek,mt8183-disp-ccorr
+       - items:
+           - enum:
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml
+index abaf27916d13..891c95be15b9 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml
+@@ -26,6 +26,7 @@ properties:
+           - mediatek,mt8183-disp-dither
+       - items:
+           - enum:
++              - mediatek,mt8167-disp-dither
+               - mediatek,mt8186-disp-dither
+               - mediatek,mt8188-disp-dither
+               - mediatek,mt8192-disp-dither
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
+index 48542dc7e784..ec1054bb06d4 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
+@@ -28,6 +28,7 @@ properties:
+       - items:
+           - enum:
+               - mediatek,mt6795-disp-gamma
++              - mediatek,mt8167-disp-gamma
+           - const: mediatek,mt8173-disp-gamma
+       - items:
+           - enum:
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
+index 4f110635afb6..679f731f0f15 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
+@@ -23,6 +23,7 @@ properties:
+     oneOf:
+       - enum:
+           - mediatek,mt2701-disp-ovl
++          - mediatek,mt8167-disp-ovl
+           - mediatek,mt8173-disp-ovl
+           - mediatek,mt8183-disp-ovl
+           - mediatek,mt8192-disp-ovl
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
+index 878f676b581f..cb187a95c11e 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
+@@ -36,6 +36,7 @@ properties:
+           - enum:
+               - mediatek,mt7623-disp-rdma
+               - mediatek,mt2712-disp-rdma
++              - mediatek,mt8167-disp-rdma
+           - const: mediatek,mt2701-disp-rdma
+       - items:
+           - enum:
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
+index a3a2b71a4523..816841a96133 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
+@@ -24,7 +24,9 @@ properties:
+       - enum:
+           - mediatek,mt8173-disp-wdma
+       - items:
+-          - const: mediatek,mt6795-disp-wdma
++          - enum:
++              - mediatek,mt6795-disp-wdma
++              - mediatek,mt8167-disp-wdma
+           - const: mediatek,mt8173-disp-wdma
+ 
+   reg:
+-- 
+2.43.0
 
-	dev_info(dev, "Using embedded (DMA) doorbell fallback\n");
-	return 0;
-
-Frank
-> +
->  	dev_err(dev, "Failed to allocate doorbell: %d\n", ret);
->  	return ret;
->  }
-> --
-> 2.51.0
->
 
