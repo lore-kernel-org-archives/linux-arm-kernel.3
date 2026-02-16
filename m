@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D828E81A49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2577E81A44
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rk33jShkc5GyZhH4ODiSXr2qkDwH0lTssejEJ6ovQ6U=; b=jpzRefB3CV5eB4
-	9QTmGGdPzWxO9px3S882wYMmPsVb2xFK0U+EuNfmoXu+2e23E4JfUOja1kERci6Yy/4RmC+RCkZHu
-	Xbzhsb0mYeHJNzztwL+P3MxmhOfaMzTkm4fhU+h5I1ycuKV/NxuT7FNH+1yE9akRBhAHGtF3X9C2l
-	1cky4qMNTMd1jluAZvbRGp8QhBe6QayfsxxJMC0CQEPvSTTxFrUW7T1347UIQEVxmDXFoUE3ibVKD
-	z0JuwAU0smgr4mcNS1refTWRS7D3iGOB+OXig/ZQzbn1CKqqbCMjU6Twt+aiV53F+f246ub+oEv0c
-	Wz3DLEa22JM9XKRsMegw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4shwJoUO9d8ENJW9So15wjmkKwrv/QiVKV353yfZbgw=; b=MqusENdk1nzkvjH/8/8Nfa38Iv
+	ym/isUlBLtrqoZe+YpGPrxAFi6BhOW/aLm+Wxpb2L93qak9vDFcJ7oZ0KwaLajOrgaj3wh4ZqCrbu
+	0U52CYQukWNsRCqPV4csIhTAYPNZobv3BxPTFeWnDrAqX9BruTQUAuqHyG5k9Ld+bt2KFCK4M9k/f
+	dO9Gf0Qo+ZESK5u0M/Jk97qcKIKF5A25xcFvWvfqyZSsMWIXTZm8eZY4PJuuRoDBDfkryQ16PrLya
+	TzjHsbmmUooXQPPukqA2FD8INCXcJ7vpqRH+bbYbn5GY52Ysy3OikAiZ5cDkZdgrUcY+ojizbMbd8
+	jCM9nD9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1tY-000000073c6-2TTV;
-	Mon, 16 Feb 2026 16:56:24 +0000
+	id 1vs1ta-000000073dO-3g2P;
+	Mon, 16 Feb 2026 16:56:26 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1tV-000000073aT-1osx
+	id 1vs1tX-000000073b4-0dtj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 16:56:23 +0000
+	Mon, 16 Feb 2026 16:56:25 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B12BE4E40E77;
-	Mon, 16 Feb 2026 16:56:17 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id B24184E40E7B;
+	Mon, 16 Feb 2026 16:56:21 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7EAB0606CF;
-	Mon, 16 Feb 2026 16:56:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 519E110368016;
-	Mon, 16 Feb 2026 17:56:11 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 88F53606CF;
+	Mon, 16 Feb 2026 16:56:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A9DD81036801F;
+	Mon, 16 Feb 2026 17:56:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1771260976; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=rk33jShkc5GyZhH4ODiSXr2qkDwH0lTssejEJ6ovQ6U=;
-	b=bz5zSQV3pLrKKxR0fLQsaBJAvoAvaUGQzTK+LpxUzlhx+i180FBz/iFwzA3caeM7gbmbkU
-	izBSorum1pxK4fcOoH9EFdpsH/etwbJ860KKT+z4LaIpsSKxK0HvJjPZKkM/xGkEkwJJoL
-	vpH0IzssWWlGxu76/KzjCuW+cd07Ed+aVTycQk/15TrIrFr/XjzL+zD2Frn+KQHQUNX8Cc
-	dU5hfQD9/avEq2h5iLwBemuJjQwTODdJBbK73R43iiXcSssyb0/sspuRI1ZLMlwIGFOc9O
-	Q3LIzh4H5i4RM48NGlc/fIVT1gw/4tQiHX5oz9U4B9cb8Z5sdw9BATfJgsM/Kg==
+	t=1771260980; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=4shwJoUO9d8ENJW9So15wjmkKwrv/QiVKV353yfZbgw=;
+	b=qmr6d71rz7cTuX+y2vRmcDRxpftFaq1BgbIP7ynUjJpWj98UbxpxEamY6BGizYqvM3ZNPZ
+	Wxxta5Ux9iT6zSMTMMSUlMUHDSROL7/5Ab2PCpIF08SGMoAOGdi/5j7O+V6QCv9wzvs4GH
+	gfWX9ddi69G+6Y1QKeFTUcVckY7Bw4HdWBwl8OknHJ0F8dg9h7dXdZBqMdo8+2IPdbnAN4
+	LqdRd67fTvZ1W1358c+szPqM7F6Ya17rlzE1IV/GVtqQk9miV6YPJoqELnGN4hyxmEpU/g
+	zPxtw/aOj8UxSI4IdFcAaZjjVxlNtHbO36zPJBKpZlDwyYhyDgwTfNZL9/PYew==
 From: "Kory Maincent (TI)" <kory.maincent@bootlin.com>
-Subject: [PATCH v2 0/3] Add support for Seeed Studio BeagleBone HDMI cape
- overlay
-Date: Mon, 16 Feb 2026 17:55:51 +0100
-Message-Id: <20260216-feature_bbge-v2-0-22805cfdbf62@bootlin.com>
+Date: Mon, 16 Feb 2026 17:55:53 +0100
+Subject: [PATCH v2 2/3] ARM: multi_v7_defconfig: omap2plus_defconfig:
+ Enable ITE IT66121 driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIABdMk2kC/3WMQQ7CIBBFr9LMWgxMrVpX3sM0BtrBTqJgAImm4
- e5i9y7ff/lvgUiBKcKpWSBQ5sjeVcBNA+Os3Y0ET5UBJe4lKhSWdHoFuhpTXd/i8SAN0mQ7qJd
- nIMvvNXcZKs8ckw+ftZ7Vb/0TykpIgb1UO12dbbuz8T7d2W1H/4ChlPIFmoudV6oAAAA=
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260216-feature_bbge-v2-2-22805cfdbf62@bootlin.com>
+References: <20260216-feature_bbge-v2-0-22805cfdbf62@bootlin.com>
+In-Reply-To: <20260216-feature_bbge-v2-0-22805cfdbf62@bootlin.com>
 To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
  Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
  Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
@@ -72,8 +72,9 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14-dev-d4707
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_085621_602105_65A1D39C 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20260216_085623_329116_079A07B0 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +89,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add devicetree overlay for the Seeed Studio BeagleBone HDMI cape, which
-provides HDMI output via an ITE IT66121 HDMI bridge and audio support
-through McASP.
+Enable the ITE IT66121 HDMI bridge driver to support HDMI output on
+the BeagleBone Green with the Seeed Studio HDMI cape.
 
-https://www.seeedstudio.com/Seeed-Studio-BeagleBoner-Green-HDMI-Cape.html
-
-This overlay requires the recent tilcdc cleanup patch series that was merged
-to drm-misc-next to function properly:
-https://lore.kernel.org/lkml/20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com/
-
-With this DRM tree dependency I don't know if this series should land in
-DRM tree or in OMAP tree.
+Enable CONFIG_DRM_TILCDC as a module on multi_v7_defconfig to provide
+display support for TI AM335x-based SoCs in this kernel configuration.
 
 Signed-off-by: Kory Maincent (TI) <kory.maincent@bootlin.com>
 ---
+
 Changes in v2:
-- Enable overlays only for am335x BeagleBoard boards.
 - Squash defconfig changes in one patch.
-- Link to v1: https://lore.kernel.org/r/20260212-feature_bbge-v1-0-29014a212f35@bootlin.com
-
 ---
-Kory Maincent (TI) (3):
-      ARM: dts: ti: Enable overlays for am335x BeagleBoard devicetrees
-      ARM: multi_v7_defconfig: omap2plus_defconfig: Enable ITE IT66121 driver
-      ARM: dts: am335x: Add Seeed Studio BeagleBone HDMI cape overlay
+ arch/arm/configs/multi_v7_defconfig  | 2 ++
+ arch/arm/configs/omap2plus_defconfig | 1 +
+ 2 files changed, 3 insertions(+)
 
- arch/arm/boot/dts/ti/omap/Makefile                 |  13 ++
- .../boot/dts/ti/omap/am335x-bone-hdmi-00a0.dtso    | 157 +++++++++++++++++++++
- arch/arm/configs/multi_v7_defconfig                |   2 +
- arch/arm/configs/omap2plus_defconfig               |   1 +
- 4 files changed, 173 insertions(+)
----
-base-commit: 40c1ccc1a3b86259e455a9a5082d5c8e0f944d62
-change-id: 20260212-feature_bbge-932870b2edf5
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index 7f1fa9dd88c92..2c9587855f044 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -735,6 +735,7 @@ CONFIG_DRM_RCAR_DU=m
+ CONFIG_DRM_SUN4I=m
+ CONFIG_DRM_OMAP=m
+ CONFIG_OMAP5_DSS_HDMI=y
++CONFIG_DRM_TILCDC=m
+ CONFIG_DRM_MSM=m
+ CONFIG_DRM_FSL_DCU=m
+ CONFIG_DRM_TEGRA=y
+@@ -750,6 +751,7 @@ CONFIG_DRM_PANEL_SAMSUNG_S6E63J0X03=m
+ CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=m
+ CONFIG_DRM_PANEL_SHARP_LQ101R1SX01=m
+ CONFIG_DRM_DISPLAY_CONNECTOR=m
++CONFIG_DRM_ITE_IT66121=m
+ CONFIG_DRM_LVDS_CODEC=m
+ CONFIG_DRM_NXP_PTN3460=m
+ CONFIG_DRM_PARADE_PS8622=m
+diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
+index 4e53c331cd841..cdf69ac2e5126 100644
+--- a/arch/arm/configs/omap2plus_defconfig
++++ b/arch/arm/configs/omap2plus_defconfig
+@@ -486,6 +486,7 @@ CONFIG_VIDEO_OMAP3=m
+ CONFIG_VIDEO_MT9P031=m
+ CONFIG_VIDEO_TVP5150=m
+ CONFIG_DRM=m
++CONFIG_DRM_ITE_IT66121=m
+ CONFIG_DRM_OMAP=m
+ CONFIG_OMAP5_DSS_HDMI=y
+ CONFIG_OMAP2_DSS_SDI=y
 
-Best regards,
 -- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+2.43.0
 
 
