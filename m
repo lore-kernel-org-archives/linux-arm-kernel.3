@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC80E63F3F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 09:04:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B35E1E63F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 09:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DsdFnr+H1jz9afEmukfdfmY0HCtOsV1PR+cEkRAy6Jw=; b=47RG8c0aO6umeTX6qV4aGIS1g4
-	je2ZgcWnC9teVmlBzKRWkEGMQKyoSGZYOU+o+dDS1PH4hj/vNqrcir3nZ/8X+E9FjrhSxPN2yBh9s
-	UWYEUyxgHvmgGXRSUy/jAJFqpbmjUfUJK7goZgYYyBPANJFpny7NYH3dooXujoSriFOc3GW10yFVp
-	tC1SIWBrjwMwgjiU46tfVZkLWy1a5D9waYnl946bYs4EFQM/fTM9mrcRJtQA5fILyfamw5y8Un6Sj
-	pbIX1sqw58Dn/aMjn2VFWGyPwGm9Au4o0Io8T1X6qKuTzfqok1f721c2WouIlZJOxJGpp+bHEutB3
-	VLwgVWug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=em6VPs2GZRn54p6b2nYQwPaDQws0EFVjZBMU1Ysa5Vc=; b=ouIJpOcPlVUir1lQS4HqdBEuKT
+	to4GjiKDVLWrpNtCO+B8oVirez1iXg0pe/bkNlB0sbrpMe8zkreckHqu3wXZPgPeBylQog/pQJzF5
+	PglbPqxCHI2NEOR/PS7yVuj+c3Ys4G+LdyAy/vbc9xs6G61InpPz1YU+yb3fH6wKoIHxGa8u+6X+q
+	Eg5a38bK4t5qZ6tq4PXRUNM2VX9ZmnnyvbQq1K3nyt9o2NBqjBsjDiP8bIrvkaBK3dpd1D6d6ktNS
+	E6bL55WmK7bUfpzcXstjw79ivb+rOVsFwt4P6V656S50VdZw4uqreVqJZ0HGdq+fnNdi1uPKJLqRc
+	+pPHu8bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vruWK-00000006DOq-0jR8;
-	Mon, 16 Feb 2026 09:03:56 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vruXR-00000006DbT-3tbH;
+	Mon, 16 Feb 2026 09:05:05 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vruWH-00000006DOS-1HXF;
-	Mon, 16 Feb 2026 09:03:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771232630;
-	bh=egyZNlVxOKps8c+uu05c+5nto53qJQKuDG16P33A490=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PxqPN+nj4/xel63axAnL+UABpl+Xy88tyLF+48q1YvuE0TXc+PQjjdnay1cPPdYqY
-	 XTLhup0YYmEnJtlUWYS8IweQuB16PAAGl1tR0HAhPoYEQlmU3C48xpUpt0aMa4eHNN
-	 bWYLMV9Jdf/tk56we0+mJVDhn8zMt/f1z5jMCdRCfOsU+BD1/+OtXN2uCfwZd3y52A
-	 4xiwjrNMvfiziZLcfoNDbGWbq8CpMOkhJ+wJVXejKBjiX20RYc5+T4PNkvJhKJqxLI
-	 +KRR8Kp5tchL5SO5PMhfPoRbbZwSYgdenbCxtWRqzOqUceNNjeyNhImTI6mY7LwD2A
-	 OYKJHXuvfkL6A==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B5D7717E137B;
-	Mon, 16 Feb 2026 10:03:49 +0100 (CET)
-Message-ID: <75abd9eb-6141-46cc-b2d7-0c4d112e2ca5@collabora.com>
-Date: Mon, 16 Feb 2026 10:03:49 +0100
+	id 1vruXN-00000006DZK-0StT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 09:05:04 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4359c54b682so261697f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 01:05:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771232699; x=1771837499; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=em6VPs2GZRn54p6b2nYQwPaDQws0EFVjZBMU1Ysa5Vc=;
+        b=icZg+t/fx2yso7qfWAxKn/ySdytgjFNirqpII4fmXrQgZKsXKMotbCueGqbHpCNV/v
+         TyZBEqSU9i0bCvZZTvk0Hp872GmA1NE7ETYtzWnQ1savduD7tMPe6j9qf0XKiHQgimU0
+         WfjIrjefgh/jXKz/pzbqhmP2sGpGngBONgNtMFsNDlE4lRnQim7Ds8/ybW/cArteOtH5
+         ESS/d2cE25XVqtQNwb73VeBPOijDCFiZKF/AqoaN/0NkEHtvSrIbCPldsv6LZoV/0QFc
+         rBRvVuMuZ39xDaIdoX2IFBf+IZLbS4g0pu9V67qJMIFzB7+KPdErsyY4UkcvXfLmrleM
+         rNmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771232699; x=1771837499;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=em6VPs2GZRn54p6b2nYQwPaDQws0EFVjZBMU1Ysa5Vc=;
+        b=Hkug3LZCFoz1i1sycCCnCjljtvNjDbXL86HfDF1TzEvis01hANr77VNG8A+RmEVOKa
+         BSdOyD5YSp2JT5qrn5Yed6JBDXMu2vyig24EFxxkU7JsgjaH719eiDamw0MlpRTRJkEb
+         nnG4JF5NqsTxHbFL3vcyariY/nUgyqKij39pY+jvfsdAFbzwLd9fAqwrmE1LtheWZSFV
+         xq491PrUrhNRK53xLRy8vSJXVDsa3iHpmVfDKoXq/SfaH5bI5caLrXN6CDJ3QOph/mMR
+         0RXDrQaXvcYisr8pYaLhUGHQeBzxHWbwktOK5eWZ0ktem+dRJ6eU0GUaWEdqP/9pyI7F
+         YFjg==
+X-Forwarded-Encrypted: i=1; AJvYcCU7kZzOwd1nz9JI1jnCU4JXVNCgrh69Fw9s8sT7PjIou/cQButl/x45fFcRX2XXHpHQemjtLJQrh4SHctNllRAz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+MXBL4ZK2giJGqp9oBqWbT/tKOhL+7vUSzW0Xtmug8maazrD9
+	p1UqsW9el0tq6FVF4CWBmJaPgvnsqD/vRdU/l+gfKm5LWHtrqgk4nPco
+X-Gm-Gg: AZuq6aKwYkAVDt4wqDjSAlmFJwkkk/yvulczI/ErjbtPtmu6mHSqhinIm+IVGj3W7CZ
+	5np0LkrqqmQ4mtFrGLPrjKGFyD2NGB1fA1Of/jdmRXtvWVeSIHFQfPyxZ60VJ9T34dOXO8K8v/s
+	OZEt5+y5PrGYkiNyhMhATZGyN/M5+hNqlxnAxgCM9GS5ZpD/gNvHeLIa7YemdxT/T9drBeNQCwh
+	HQYhjdmB735LeL343mKf4iDnOD3sLnbTr/Qm/6XxO+EDsjE0UVYcmSIhWecGdqo8wJWEFHT3azO
+	n18NgO9gXB2NDoZUcgN8Mr+UukXP1SUibE5yLL8rlSdNIb6B3a2RWzeLy+mDUAKSdbAMmqh3HoB
+	hRmK8Bu4bDwvjkZEknDerV01F7IG6gm8G4H8eO4ODa5lUXNA04myZtY3AKEhE+fO/vSCkrb3A+3
+	gPCuAUkUKy6g7oug==
+X-Received: by 2002:a05:6000:2508:b0:437:72ce:8954 with SMTP id ffacd0b85a97d-43796af4d32mr10923244f8f.6.1771232698983;
+        Mon, 16 Feb 2026 01:04:58 -0800 (PST)
+Received: from skbuf ([2a02:2f04:d501:d900:68e2:cc27:74c:c083])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796ac8075sm24922456f8f.29.2026.02.16.01.04.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Feb 2026 01:04:58 -0800 (PST)
+Date: Mon, 16 Feb 2026 11:04:56 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, asahi@lists.linux.dev,
+	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Dan Carpenter <dan.carpenter@linaro.org>
+Subject: Re: [PATCH phy-next v2] phy: apple: apple: Use local variable for
+ ioremap return value
+Message-ID: <20260216090456.23oko4jx5bcahq3p@skbuf>
+References: <20260215-phy-apple-resource-err-ptr-v2-1-e43c22453682@jannau.net>
+ <20260215-phy-apple-resource-err-ptr-v2-1-e43c22453682@jannau.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/6] media: synopsys: csi2rx: implement
- .get_frame_desc() callback
-To: Frank Li <Frank.Li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, imx@lists.linux.dev
-References: <20260213-imx93-dw-csi2-v2-0-8be6039f44c6@nxp.com>
- <20260213-imx93-dw-csi2-v2-3-8be6039f44c6@nxp.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260213-imx93-dw-csi2-v2-3-8be6039f44c6@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260215-phy-apple-resource-err-ptr-v2-1-e43c22453682@jannau.net>
+ <20260215-phy-apple-resource-err-ptr-v2-1-e43c22453682@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_010353_557611_BDE614C9 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20260216_010502_074794_71BA9A5E 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,82 +105,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
-
-On 2/13/26 21:25, Frank Li wrote:
-> Implement the .get_frame_desc() callback to fetch information from the
-> remote endpoint.
+On Sun, Feb 15, 2026 at 09:02:51AM +0100, Janne Grunau wrote:
+> The indirection through the resources array is unnecessarily complicated
+> and resuling in using IS_ERR() and PTR_ERR() on a valid address. A local
+> variable for the devm_ioremap_resource() return value is both easier to
+> read and matches expectations when reading code.
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Closes: https://lore.kernel.org/asahi/aYXvX1bYOXtYCgfC@stanley.mountain/
+> Suggested-by: Vladimir Oltean <olteanv@gmail.com>
+> Fixes: 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY")
+> Signed-off-by: Janne Grunau <j@jannau.net>
 > ---
-> change in v2
-> - add csi2rx in subject
+> Changes in v2:
+> - Use a local variable instead of the complex indirection with the
+>   resources array
+> - Link to v1: https://lore.kernel.org/r/20260207-phy-apple-resource-err-ptr-v1-1-78735b07ed2d@jannau.net
 > ---
->  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 25 ++++++++++++++++++++++++
->  1 file changed, 25 insertions(+)
-> 
-> diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> index f03fe01280013bf9a832433c6b06dab691bf8f4c..a6d251ca5ad14c5138a6fd0202a970460e64c68f 100644
-> --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> @@ -68,6 +68,8 @@ struct dw_mipi_csi2rx_device {
->  	struct v4l2_async_notifier notifier;
->  	struct v4l2_subdev sd;
->  
-> +	struct v4l2_subdev *remote_source;
-> +
->  	enum v4l2_mbus_type bus_type;
->  	u32 lanes_num;
->  };
-> @@ -429,10 +431,31 @@ static int dw_mipi_csi2rx_disable_streams(struct v4l2_subdev *sd,
->  	return ret;
->  }
->  
-> +static int
-> +dw_mipi_csi2rx_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
-> +			      struct v4l2_mbus_frame_desc *fd)
-> +{
-> +	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
-> +	struct media_pad *remote_pad;
-> +
-> +	if (!csi2->remote_source)
-> +		return -ENODEV;
-> +
-> +	remote_pad = media_pad_remote_pad_unique(&csi2->pads[DW_MIPI_CSI2RX_PAD_SINK]);
-> +	if (IS_ERR(remote_pad)) {
-> +		dev_err(csi2->dev, "can't get source pad of %s (%pe)\n",
-> +			csi2->remote_source->name, remote_pad);
-> +		return PTR_ERR(remote_pad);
-> +	}
 
-You can get the remote subdevice with
-	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-instead of storing it in the device data.
+Reviewed-by: Vladimir Oltean <olteanv@gmail.com>
 
-Best regards,
-Michael
-
-> +	return v4l2_subdev_call(csi2->remote_source, pad, get_frame_desc,
-> +				remote_pad->index, fd);
-> +}
-> +
->  static const struct v4l2_subdev_pad_ops dw_mipi_csi2rx_pad_ops = {
->  	.enum_mbus_code = dw_mipi_csi2rx_enum_mbus_code,
->  	.get_fmt = v4l2_subdev_get_fmt,
->  	.set_fmt = dw_mipi_csi2rx_set_fmt,
-> +	.get_frame_desc = dw_mipi_csi2rx_get_frame_desc,
->  	.set_routing = dw_mipi_csi2rx_set_routing,
->  	.enable_streams = dw_mipi_csi2rx_enable_streams,
->  	.disable_streams = dw_mipi_csi2rx_disable_streams,
-> @@ -485,6 +508,8 @@ static int dw_mipi_csi2rx_notifier_bound(struct v4l2_async_notifier *notifier,
->  		return ret;
->  	}
->  
-> +	csi2->remote_source = sd;
-> +
->  	return 0;
->  }
->  
-> 
-
+I hope this can be picked up for the linux-phy PR.
 
