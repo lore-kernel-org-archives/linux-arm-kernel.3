@@ -4,71 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26BCE81A40
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DEDE81A3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKTLKp3nWhZDwjOkHRJTFj5kVkczUXVF/iVpKSDYRWw=; b=DetYcoxQZtIpB4fQ7XZgsvSp8T
-	IlsgxDgoCcbDSsNP9rrCE95o7X0yUstLQdp3pavdaHL7u9VxIViIOu41P0fjyphvZ7bpPVbvpeTsX
-	qmRq3+0y/3LSNAPnJs9pxDoVd9NNN80r2Wphv3++KgDzF7x8L9pXrh3Ym26CIRyvuC1diFmHgqlTk
-	2Q5wWt2Wa2pAlEeOYEP0nvf20XYx29G/Xn+d5h80FCEr76w5ZuyqlMJSy5MxedzeHm6k5W6VQlXRO
-	/KGu6+a7nrs3WAVa2iJt8FewMXN2vbCysYPzCCIkVLuM2dKM6cECQbqhOo61GSi59ErmTCMF+GFrv
-	P/XT3Y4Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eFUae8M607uXIOUb6KuR+f1ZcnqADfRg4QxjDLkY0MQ=; b=E7t5BCM1Je1c6JIXfHFVLBtmIL
+	OwQHcurOSjifrL9rXUi7HvObsMPlGmhFNyVBaRUUMQmcurkLMgl6qqG7Nt0qsAf4TvBReSRCNCsH/
+	ntWR2wKds+LUHUtewdv7gXcOYDtF5bpl/BmOLbe0HI8XI15aA3cJbhbNrLBudNwEtJWMxuoA4jQsK
+	bKGSjxm/0EnC+fTvwPFhhvYpJk23uuNaz3QbCMlFmAxXysZCKWKlOOuS69+DUHGCW9/UsQf6CdRBq
+	NDkZ05GEeypR4vDuKjJ3Ur2AAny3cEXVn51Tc4Pl7xCC9PFZGPOuz5qt0up47VdvhtkNZlFcKN8Nb
+	/VkLIl7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1Mg-000000070Dc-3vGC;
-	Mon, 16 Feb 2026 16:22:27 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1vs1P6-000000070nt-2gVr;
+	Mon, 16 Feb 2026 16:24:56 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1Mf-000000070C2-0o5F
+	id 1vs1P2-000000070kV-3Mtf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 16:22:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=NKTLKp3nWhZDwjOkHRJTFj5kVkczUXVF/iVpKSDYRWw=; b=wzpY9zrj9WAxSHlWXxWbYSnhz5
-	AaehbjFO6gx6LALpnAEVjho9vUmSmI7tuHat6SGQR8yYzct8zKu39JEyG7ALK5J/AUXDoKvkhZ9Qd
-	l57eRi9VdCcebfBeOzYG6G/SM6CrLyVUvGnRtZXk7kQ56spDKHYA5ljzI7EM2hh5n7rQeNYzWS8Ho
-	AyGTPyULJedEa7ddTXoEbqu6EHKM0ifzVZ3oGGDTR2g8jOHsIH20bWlGHo8ehLsgABLqqaAWqWFtV
-	yUuApxi4zI7b/Fhdl48Rr42JZLi5cbRXN+Z0MUKfXTzTQnBUEmjY9RcFNggl9J3NExA39opSSKn3V
-	MsI3OBDg==;
-Date: Mon, 16 Feb 2026 17:22:07 +0100
-From: Andreas Kemnade <andreas@kemnade.info>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>
-Cc: "Kory Maincent (TI)" <kory.maincent@bootlin.com>, Aaro Koskinen
- <aaro.koskinen@iki.fi>, Kevin Hilman <khilman@baylibre.com>, Roger Quadros
- <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, Bajjuri Praneeth <praneeth@ti.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Louis
- Chauvet <louis.chauvet@bootlin.com>
-Subject: Re: [PATCH 1/5] ARM: dts: ti: Enable overlays for all DTB files
-Message-ID: <20260216172207.1b34324e@kemnade.info>
-In-Reply-To: <9D7424B6-2022-4B03-9B8C-455CD3E3FBF1@goldelico.com>
-References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
-	<20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
-	<B3366A17-641F-4E02-A5D4-978F525E0A96@goldelico.com>
-	<20260212174718.7daccb70@kemnade.info>
-	<719BF710-26DF-49AB-A016-D2306F0389E2@goldelico.com>
-	<20260212231907.6120a2e2@kemnade.info>
-	<9D7424B6-2022-4B03-9B8C-455CD3E3FBF1@goldelico.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	Mon, 16 Feb 2026 16:24:54 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-4362c635319so3372200f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 08:24:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771259090; x=1771863890; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eFUae8M607uXIOUb6KuR+f1ZcnqADfRg4QxjDLkY0MQ=;
+        b=Hf0f016kNMMNWUyaHj9FxHf7p2Vf0fUMSVMOkwfhWT17G5+zutvYEM1sZxu+v9SCJG
+         T/D9G5pdCNlkB9rGK1HVkBGKqCIzuqDwSA6JDrQtxDqC+G+3WQ63yYn+Lpmxu1x9Lq+N
+         OhYIGVsUp/XotrfzndPCvdHSOuXCZq/FGmxy5CZ7/7g5m+393FhOvFKz7UPb7qP0Hnpv
+         g2X7JOkShko8Ue8eKu+pa5jgMnKKDvReb9KcUcacPYySjUVq8RD8AHt9TIYLC8P87amA
+         uOl1Sm6wY5rYDHPVbi275uUJvEIFD8FidjJL4+sqJfY20ZyRI1RjQKPaXAXLc+6qlQQg
+         6RNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771259090; x=1771863890;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eFUae8M607uXIOUb6KuR+f1ZcnqADfRg4QxjDLkY0MQ=;
+        b=JVHKsbyVOQVK9nxl+gofSQQBb7Te7nwEeIdTjUe2/15BPpLkBdUG9B23jE5H8BALtP
+         BIZN4aEqzMl19WZLeGORZT2mbgUJO5klpUazgadxbJvkJay1Cf2+9EtYyfhd9NAKG3Im
+         tX+up0hmB15GDDnDprx2LeqaLicInjm6a8f2BQgse4Vz/aXp6mG8ssGOHgfZ/GZNVrge
+         IHagoNRGaHaheWNGx8jU/bw6H/p7ml6Cl7n/myyh0fc9m7mviUke24SYPbIKX3rlipY4
+         3ttr9Osh77BOxVs19B58EaW/EZEiiZgHNjybOUV/AZJz2DXvObJTm8dlgMS7c5xXB6lq
+         Gwlw==
+X-Forwarded-Encrypted: i=1; AJvYcCWilOOjbBf6WeWzN4kpQIFPm14qhFSFHmoJUpRaJ/AH8kkamPN9MzvCg1cReXlSkp6QIGztxmBlyQ/GRMKvhQSU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmnhymTblZC1AHS9cq5SKn2D4c97fzhrXSmoik+V0DVA1MlyzX
+	qzCj0ts3HwULJL6FU4+WIa4NHxFe4Oz1qPoz61zKJ+XpjfhNj6b7kfUu
+X-Gm-Gg: AZuq6aJDChQpaCFM1c4SzYhrfOIvQyFXHuXwDELwQNmKxVTFnlPO0TdgMnq2hPQT8dW
+	vUJ8T1vO85i3FuA6NAXQ9NQpfu9eoWc2vRVP25QkdWKb/kzjkLZ8ecy3CcsMsGWxXWBTk66d5Qf
+	sJs1O6ofED/1OiyWFbzMaIIVnpPgYBR3zbVoiacAdyU0xehOoHDq87/8raHN3QNmD68/riA9HvE
+	tjIAbksE2ddPgcm/USMvSrl6PfIniWGwD+H8ykTQbPoXmJTq82KQmdLmkn77JOhDsOKLPHl8FWd
+	tumWTaCdz4RWxurubSlOgzVoAJ7R+fkrQ0sbO29CSXQz4f9orZPcZVAmf2AbmGUiEDd2WJXl+WB
+	DyDExnyFl1zAdHG5pKIUJl2T57l275zFN38cDqijEXfQjHlBfz6YKmu6xi5CFkFvSH0jOEJgUNc
+	KWxMfatyd9W35VI/JNxUQ=
+X-Received: by 2002:a05:6000:2501:b0:435:e460:235b with SMTP id ffacd0b85a97d-4379795572emr15102960f8f.59.1771259089859;
+        Mon, 16 Feb 2026 08:24:49 -0800 (PST)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a6a6desm28775962f8f.10.2026.02.16.08.24.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Feb 2026 08:24:49 -0800 (PST)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jitao Shi <jitao.shi@mediatek.com>,
+	Fabien Parent <fparent@baylibre.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: [PATCH v2 0/6] Add support for mt8167 display blocks
+Date: Mon, 16 Feb 2026 16:22:11 +0000
+Message-ID: <cover.1771258407.git.l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_082225_259184_9949F5D5 
-X-CRM114-Status: GOOD (  27.80  )
+X-CRM114-CacheID: sfid-20260216_082452_857972_F0EA3604 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,91 +116,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Feb 2026 06:33:46 +0100
-"H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+This series adds support for the display blocks on MediaTek mt8167.
+Tested on Xiaomi Mi Smart Clock x04g.
 
-> Hi,
->=20
-> > Am 12.02.2026 um 23:19 schrieb Andreas Kemnade <andreas@kemnade.info>:
-> >=20
-> > On Thu, 12 Feb 2026 17:55:43 +0100
-> > "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
-> >  =20
-> >>> Am 12.02.2026 um 17:47 schrieb Andreas Kemnade <andreas@kemnade.info>:
-> >>>=20
-> >>> On Thu, 12 Feb 2026 16:49:43 +0100
-> >>> "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
-> >>>  =20
-> >>>>> Am 12.02.2026 um 16:26 schrieb Kory Maincent (TI) <kory.maincent@bo=
-otlin.com>:
-> >>>>>=20
-> >>>>> Allow overlays to be applied to any DTB. This adds around ~40% to t=
-he
-> >>>>> total size of the DTB files on average.     =20
-> >>>>=20
-> >>>> Is this unconditionally enabled or can it be turned off by some CONF=
-IG? We have
-> >>>> our own defconfig so I would not worry if if is enabled in omap2plus=
-_defconfig
-> >>>> and disabled in ours.
-> >>>>=20
-> >>>> We have several devices where the boot loader can't handle overlays =
-(never touch
-> >>>> a working boot-loader :) So this seems to only contribute to build a=
-nd load time
-> >>>> without benefit.
-> >>>>  =20
-> >>> As long as you do not add overlays, the bootloader does not care. I w=
-ould
-> >>> like to simply carry around the 1-bit mmc overlay for one broken boar=
-d.
-> >>> That would help me. So I think there is a benefit but nobody forces
-> >>> you to use it.   =20
-> >>=20
-> >> Well, it does not force to use the really good feature, but it forces =
-to add
-> >> ~40% more file size and some more compile time, if I understand it cor=
-rectly.
-> >>  =20
-> > Compile time, hardly measurable even if you just do make dtbs.
-> >=20
-> > Size on disk:
-> > a) if it lives around in a /boot partitions with kernels and initrams i=
-n it,
-> >   then we are around 1% more space needed. =20
->=20
-> Ah, I see. I was too focussed on the "adds around ~40% to the total size =
-of the DTB files".
->=20
-> For the Letux arm distro all DTBs are around 8.1 MB at the moment so it w=
-ill grow not that much
-> (there are non-TI devices included).
->=20
-> So you are right, it is ~1% of the total if the kernel image is counted.
->=20
-> Therefore, space should not be something we should be too concerned about=
- (although I remember
-> discussions for driver code where every single byte did count).
->=20
-> On the other hand this increases load time from (sometimes slow) =C2=B5SD=
- for a specific DTB by 40%.
-> That should at least be discussed.
->=20
-so also 1% of total loading time. And symbols can be stripped away during
-e.g. deployment.
-fdtput -r some_board.dtb /__symbols__
+The first patch just does some reordering of dts nodes with no other changes
+as this makes later patches cleaner and easier to follow.
 
-I am not strongly against it. It is just we are doing something unusual her=
-e.
-Are there reasons why it is unusual I do not understand?
-I think it can be useful for every board in some situations. For the
-ones with can carry a head, they are the most useful.
+v2:
+ - Separate patch for mediatek,dsi-phy binding;
+ - Separate patch for mt8167-dsi binding;
+ - Simplified OF graph endpoints in mt8167.dtsi.
 
-What was the reasoning to have it enabled for k3 for every board? K3 and Br=
-oadcom-64bit
-seem to be the only arch doing that. Broadcom mostly many RPis, some router=
-s.=20
+Luca Leonardo Scorcia (5):
+  arm64: dts: mt8167: Reorder nodes according to mmio address
+  dt-bindings: display: mediatek: Add compatibles for MediaTek mt8167
+  dt-bindings: display: mediatek: Correct compatibility for mt8167-dsi
+  dt-bindings: phy: mediatek,dsi-phy: Add support for mt8167
+  arm64: dts: mediatek: mt8167: Add DRM nodes
 
-Regards,
-Andreas
+Val Packett (1):
+  gpu: drm: mediatek: ovl: add specific entry for mt8167
+
+ .../display/mediatek/mediatek,aal.yaml        |   1 +
+ .../display/mediatek/mediatek,ccorr.yaml      |   4 +-
+ .../display/mediatek/mediatek,dither.yaml     |   1 +
+ .../display/mediatek/mediatek,dsi.yaml        |   5 +-
+ .../display/mediatek/mediatek,gamma.yaml      |   1 +
+ .../display/mediatek/mediatek,ovl.yaml        |   1 +
+ .../display/mediatek/mediatek,rdma.yaml       |   1 +
+ .../display/mediatek/mediatek,wdma.yaml       |   4 +-
+ .../bindings/phy/mediatek,dsi-phy.yaml        |   1 +
+ arch/arm64/boot/dts/mediatek/mt8167.dtsi      | 381 ++++++++++++++++--
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.c       |  12 +
+ 11 files changed, 377 insertions(+), 35 deletions(-)
+
+-- 
+2.43.0
+
 
