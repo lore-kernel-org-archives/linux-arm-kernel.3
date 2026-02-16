@@ -4,142 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D262FE63F33
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053FBE63F3A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rMVTVE6mXm25OeX+iOc5e0I0EziX9QVV9q1R0GXD3GM=; b=azeQooK0TBMzbKE0g27+z6x+Iw
-	euFCOr5LzZcU9xgUZuQAlouBJul0FfIkxDInMX/72ljWj8j5W/2T3C8p+HdXNA5XedlZpeDJoaYNU
-	vbEeOKh2l41Yg4RDoDzd6moMoHAGgx0DcBIdA2kOWioeS7DKpaMY+mxXPv+DNT14i1A9ZMKE10JrV
-	CTvvxpeL3mCmMkl7vPUgVTZsUBjB1bU045iJ1e+GVwtd55PXKy1H0x3POUc0TBTMLvEY1X4Ilhv99
-	mbZYzKZOsHViSd0Ua+0ETsKKScPCyzWklyUWF89SeuOWmY98X0l4KKrcD15T2NMqHLr6E1F0/hqUH
-	xJm5oBOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qpkkB5OZYTVJgaH3nRReFm4mkj/OQlGpcp/GRne8VYw=; b=J57deZpjRIgZ2iK8msWzyri5GF
+	9CvJESH9XaCkqETOFeMNaotIuSwDVmB55XYXi7YxL0T5l0HTM+Pn2ksELpApZZAW662Zw7n1Z8TIl
+	5asHvnYdzvOyyLbJakhTInRFmah834iqvQHMbhndBbvfxiX8cA6la5X1ga8eXBxB/Mcf6CmdL/wC3
+	Z0zC8SDPTeoRYGojxsebYiG16Xgl827zjQ8TfXrsGS6QYI7j9gFgRSMBjXR08Kn6V1rEggfzAkGoo
+	sBdvc6mIvd5YoPIs3OMPhViHJguEq621WLznJ/ILdvc/hVJYvgwN7Byqy5fEM32M00HM+/BT9ilTe
+	oeRzeYHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrttO-000000068VU-3m9C;
-	Mon, 16 Feb 2026 08:23:42 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vrtyl-000000068ug-1TuU;
+	Mon, 16 Feb 2026 08:29:16 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrttL-000000068V7-2JCZ
+	id 1vrtyh-000000068ts-3unV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 08:23:40 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61FMRib72101896
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 08:23:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=rMVTVE6mXm25OeX+iOc5e0I0EziX9QVV9q1
-	R0GXD3GM=; b=iyx/tN1aasJqaZGYZPuLefbZVo7i+OtYBnolNO0gKtexeEcH1H4
-	PRTekwxgJcs5MVE9SfvWD/l6h2O3LaKTbxS0247H8IQfOLOvlg38XhwsGpHubqwU
-	P60yRcA3At+TLvrTFqE6uZxAIWE9Mv8eQfnI2KUhOD8cVhvMKrTfMCUAHjz6egYx
-	7JXS/A6/0o2XJ5TkhZTO0LcDcIE9FFLA3IVuxZVfS5kP/okO/NIWjw84p/2G3tAv
-	Bl+QrGf95sVjCj42/U2wFlWmgnlfuPS/cpzsFverk2SK2GYceGxckMvW6FA2s+F8
-	g0tTxwPYMZjUMHNty95LTqI787IClNg62wA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cb6buj4ps-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 08:23:37 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8c882774f0dso1762204785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 00:23:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771230217; x=1771835017; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rMVTVE6mXm25OeX+iOc5e0I0EziX9QVV9q1R0GXD3GM=;
-        b=RIKEDxA0GP6dR/i78P9F/JPM0zMSlMHxVzyqBD8w3di1P5yeUfvwXvfTk6lQWUMZIL
-         tCeLL5+q7p0xoFm3Cq2RZcKgFiqGhQ6MvYPLJQ/WxG2s5Swzi5Ch3JEeIIHxCuPTTZzj
-         jM2lqkXLrZXBbFAh6hKkz61RjYdARIISBmFIALAkmsrOELhZGJrrbhjOkUwf35rT+Lhp
-         MXijj7vCq1XPPKFC4Mrd+1XrXUzHgZeZdsPkD2dwvZzLr0NIN2FlbJDmgVzgKSebjliV
-         flLBihnLyd4OWxlOFWUaNvjZlk0Q963Anw/hKNG6ipWvA4kyr9crf4xwPOiPvEzmNd6Q
-         lVKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771230217; x=1771835017;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rMVTVE6mXm25OeX+iOc5e0I0EziX9QVV9q1R0GXD3GM=;
-        b=sPO8awO7saDvKabpOw9eNtBxTPwTAjNdCBC7t09PEF2MXf4456DKqmuUDFK1X3X8/r
-         CQynoZscy2qCSdFB6SPKRQ/CkJqYDNEt3IDQrSA6MbYQhcy40KXy6ypAiQd2C7AxuwSV
-         dBmVNfzr4uXWUzZXUJpnQMAiGfvO4ToDvZZC7HmwBJXSG9S+QGYjZobF3VWGIn5ADuUs
-         qW62M/Z8Oh0pX6J3HOhXSrWzWwS/B6dcSgBb32iBDJKMvSGprrCKJiAqv7Dy9IjEU8ro
-         8zAVyMIpo4BtOOq76ejqIpC6qzRbKqc2BWeAANcsDvbvY6yc3HVHYfPCDIFEaykaXMr4
-         w26w==
-X-Forwarded-Encrypted: i=1; AJvYcCXQkbboJS6b0sJhmLbXI+C5Vuw2eetFi3mk5tpou+r2wRjCWE0QFzyTu98Vbq9nhg+W9v0DvDhIDc+1PeWcSipb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiX74cogo2XwL43zb302VV7wi8+S8fe+aR6jtnE1t7WY3i0jb/
-	/9m0Qtw7ACw2rbhhAO2jsu6i4fajkXxl/TP05nwCIqpIQogsCbbwllravuNgUWodLdngqGJk58P
-	ZS8EkQsv7QNdq1NQHLzC2LbPyPAxqbiuEnLzup3yHKjMlL7Emqk2K7l8mFEFUhbNaiv9DCNdACE
-	G9fQ==
-X-Gm-Gg: AZuq6aJAkC6JIlZHwCz9nkT1yeqj9UxRaYcu0zYdXh/sMpKH2y6OLf471Btf94N7L0v
-	yOU2B/tdpiiqCEFJTUApV1EZtOIpRC4AYTrCOS1meVR1RgyvMQZC0v6/s8VarRjrA76Mr595Pyy
-	P/bl4umPzXboTbMawZbrB6THhFedjuEd4JuutelYQOYr5U2i4R0DF/4Rr4QW9l2gd3GBhsmVLb1
-	ozz1xrN9dFcFKo//3sI9wJXiCk9Xs4zvTwmw0/21IsbYIiOuYLT0/FPMkkbK/Kq/zKNk6hCnQ9y
-	fOC9FMEEcA/FMZiFoZDMTChxlqRuvRidC//QHnIOohDYQ7KbjUrReHGKXJTziC+1Apyqud1Gcbl
-	qgjSXbO4wQSWUBIGUmJwag5sOy0XXrH/4QtIbjQ==
-X-Received: by 2002:a05:620a:4448:b0:8b2:e8a0:f4e with SMTP id af79cd13be357-8cb4c039214mr846298185a.77.1771230216930;
-        Mon, 16 Feb 2026 00:23:36 -0800 (PST)
-X-Received: by 2002:a05:620a:4448:b0:8b2:e8a0:f4e with SMTP id af79cd13be357-8cb4c039214mr846296885a.77.1771230216530;
-        Mon, 16 Feb 2026 00:23:36 -0800 (PST)
-Received: from quoll ([178.197.223.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48370ac3564sm218760205e9.5.2026.02.16.00.23.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Feb 2026 00:23:36 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH] firmware: imx: sm-misc: Make scmi_imx_misc_ctrl_nb variable static
-Date: Mon, 16 Feb 2026 09:23:30 +0100
-Message-ID: <20260216082329.32029-2-krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.51.0
+	Mon, 16 Feb 2026 08:29:13 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vrtyI-0007ps-BR; Mon, 16 Feb 2026 09:28:46 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vrtyF-00124l-14;
+	Mon, 16 Feb 2026 09:28:44 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vrtyG-00000005lQU-2Igd;
+	Mon, 16 Feb 2026 09:28:44 +0100
+Date: Mon, 16 Feb 2026 09:28:44 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: Jens Wiklander <jens.wiklander@linaro.org>, 
+	Matthew Wilcox <willy@infradead.org>, vbabka@suse.cz, akpm@linux-foundation.org, kernel@pengutronix.de, 
+	op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, ilias.apalodimas@linaro.org, jan.kiszka@siemens.com, 
+	masahisa.kojima@linaro.org, spu@pengutronix.de
+Subject: Re: [PATCH v2] tee: shm: fix slab page refcounting
+Message-ID: <3h43lflf4r7m4dmec4t4snomt2wdvuwdrikwdw5dc7zan44xmi@fcunxxskfnje>
+References: <20250325200740.3645331-1-m.felsch@pengutronix.de>
+ <Z-Pc6C1YUqLyej3Z@casper.infradead.org>
+ <20250326110718.qzbwpmaf6xlcb4xf@pengutronix.de>
+ <CAHUa44FUK_73oKSaqGdiPqB3geZbTNDFsC1Mh=KN3YPWr9=7gQ@mail.gmail.com>
+ <Z-TXMIXzaro0w60M@sumit-X1>
+ <CAHUa44HEsMkzQHZZufdwutQyZRtig6e0qWomhwgDZAhy2qDyhg@mail.gmail.com>
+ <20260212125830.jfwos3flga2l5uwk@pengutronix.de>
+ <aY8N90jMp25bBZhi@sumit-xelite>
+ <252s4lfnujhrl3bkqm3xwatdkcdd3tfge3e6fla6f2llq4szjm@xltjvpqjgffn>
+ <aZK4-grGSdOFXHTK@sumit-xelite>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=881; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=sFAr2t+BvnqFlwrW1ysGHeXPiGH3mfxxZ+VgNKOcNCY=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpktQCAupsWXrW1bsfGu0/qby30s34FN1H2791f
- KK8/j8IKGeJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaZLUAgAKCRDBN2bmhouD
- 18VvD/45qfZfCuBtVGeMp57N6vu1v5hp/gwgOWuzIwqLz70+h9S78rCOt9fvWJcwYxDyhsQ+t6P
- 56waeLYDE7JIskiHEurE+9Gnyk7IQiDEosEaK38E6nvq63wcxiqNfUGdxjohoUf4w1XB4IbxI6b
- 8ZE0AYXMGMgJsFkSQBWbsRGSoPRas7L5PDwXu4iv94jcw/+JqQ5SRwrMRednN1cyvTmBHpILMuk
- mJbsfKSJKdnf13Ch/5nyRfWJt7GGLSoDUdQoY34QccZbJnl8CnjFs/phkD6E8C1HEyewT+yyQNh
- hUOYumIBEItdCE5i7frpfHF+bSfiLfVWkGBrc+fWKAp0IemL9xBu2wEcZZK6w+k9tXb3k4dCZVn
- VcOZoWR92wzly6Db4VlDZpBORcHi3QpGjnYYo1/R9YHaPubJRBVI1U+bPBv5Q3CxxAMNoFzS00v
- TSvRjoX/X40gVhzvucRpKGgTLl9Z+4XEeuBCQ+DJ2Ec+2CTKGlzvHEpQPQQHE3hY4hU487436HP
- /OBg28lzzr5mwWwSExlVa2TB38Zy3Kc5fC4FimaIi3o3pqEnScIhKM4z+qKx2yf72gI5zZw49zO
- VbusvV4KUQTxKkMRtqG7pOeVmgUvk1rpXOZ/llREjp6RxVNJAB6CNYmQ7SF+DtUVo91/Gm1JU9Q IULPE4GaGIXa5ag==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: MWQgygTmoCZHk0RkqY9rG23N2wTwhk-4
-X-Proofpoint-ORIG-GUID: MWQgygTmoCZHk0RkqY9rG23N2wTwhk-4
-X-Authority-Analysis: v=2.4 cv=M8dA6iws c=1 sm=1 tr=0 ts=6992d40a cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
- a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=EUspDBNiAAAA:8
- a=lLDweYiKzoSJucHH224A:9 a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE2MDA2OSBTYWx0ZWRfXy55Ar60tUOJE
- qu2XCq0JEGFD0XErsCTyQ/XPdUmcq2By9gd8GrYZ+W2m7q1FQYUQlTmJThFOj7HgVPhnFQJByOz
- ELudj2wOzKySlJg1hZsNDf6Qwvmi4t3/sBuH/6U9yioyP1+su34vGsSNteYBMci02Xy2DTIBlh5
- sa0iJiw1J7yZLIrrejL9rZE63XW2DCDUVGZooQCisLDoDMLsT7nc9ftIQxLJ9x1pWgHDuA4MnLA
- sUT3jqVIW+HrzyyNA6ZxChb/mOpWNlTVQDrYjqMNfuGUTSaysZt6dHDAw6isxNDgoJVRd3e92Vq
- JoeYmckDB7j9I4+Mj52ARF0HJ0d3GQGOqb2rJLG0Z2Pvnwg47vgfSQbzo48Dogug/qnvGKZjRpb
- 7CBmoebdccboKvPh3GEJS20rxn8WtsbWYCUKOQYItrTWjXCEjoVhC4B/Fj05cHi7+ASMQqJpvKI
- M1CH3S2LhmX7DHGxCdw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-16_03,2026-02-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 suspectscore=0 bulkscore=0 impostorscore=0
- clxscore=1015 phishscore=0 lowpriorityscore=0 priorityscore=1501
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2602160069
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZK4-grGSdOFXHTK@sumit-xelite>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_002339_615939_606FB0C0 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20260216_002911_993583_5D851CE2 
+X-CRM114-Status: GOOD (  45.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,30 +88,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-File-scope 'scmi_imx_misc_ctrl_nb' is not used outside of this unit, so
-make it static to silence sparse warning:
+On 26-02-16, Sumit Garg wrote:
+> On Fri, Feb 13, 2026 at 11:04:48PM +0100, Marco Felsch wrote:
+> > Hi Sumit,
+> > 
+> > On 26-02-13, Sumit Garg wrote:
+> > > Hi Marco,
+> > > 
+> > > On Thu, Feb 12, 2026 at 01:58:30PM +0100, Marco Felsch wrote:
+> > > > Hi Sumit,
+> > > > 
+> > > > TBH: I was hoping that you will take care of this since you're marked as
+> > > > maintainer for the tee-trusted-key and we noticed the warning with 6.14
+> > > > and still no fix available :/
+> > > 
+> > > Mathew did suggested a fix long back on which everybody agreed but
+> > 
+> > You agreed. I said that the current TEE API also allows non-slabed based
+> > backed memory and therefore I don't wanted to send this patch approach
+> > and instead asked you to do so since you're the maintainer and fine with
+> > the change.
+> > 
+> > > didn't got enough attention from you to test and report if that fixed
+> > 
+> > Why should it get attention from us? Maybe we do have different views of
+> > being a maintainer.
+> 
+> It's really the basic expectation I have put here which every reporter
+> of a bug needs to say if a suggested fix works for them or not.
+> 
+> > 
+> > > your issue. Since you insisted further, I have created a formal fix
+> > 
+> > Why is it our issue? It's everyones issue which uses the tee trusted-key
+> > driver.
+> > 
+> > > patch based on that here [1]. Care to test that?
+> > 
+> > A colleague of mine is going to test it and will reply on the patch.
+> > 
+> > > [1] https://lore.kernel.org/all/20260213113317.1728769-1-sumit.garg@kernel.org/
+> > 
+> > ...
+> > 
+> > > > I checked the code once again and figured that we could drop/replace
+> > > > tee_shm_register_kernel_buf() with tee_shm_alloc_kernel_buf(). I don't
+> > > > see why a kernel driver needs to tee_shm_register_kernel_buf() in the
+> > > > first place, maybe this is legacy. The only users of
+> > > > tee_shm_register_kernel_buf() are trusted_tee.c and tee_stmm_efi.c.
+> > > 
+> > > No it's not legacy but allows for efficient memory reuse within the
+> > > kernel as to not create bounce buffers to share data with TEE.
+> > 
+> > To be hones, there are only two driver using the API. The tee_stmm_efi
+> > driver can do the alloc during the probe(). The trusted_tee has to use a
+> > bounce buffer, yes but how often do you assume that (un)sealing and rng
+> > ops have to be done during runtime? This shouldn't be a overhead at all.
+> > 
+> > Therefore my suggestion would be still to drop the internal kernel API
+> > and only use it for userspace pages, where it could really matter.
+> 
+> I don't disagree with what you are saying here but we really need to
+> promote efficient memory reuse for TEE clients. There will surely be
+> more use-cases coming in future which can benefit from the flexibility
+> to register buffer. One another kernel client being remoteproc subsystem
+> which is already under review for this API.
 
-  sm-misc.c:19:23: warning: symbol 'scmi_imx_misc_ctrl_nb' was not declared. Should it be static?
+I see, thanks for the pointer. I'm really curious why STM didn't
+reported the warning stacktrace, since they should trigger it too.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
- drivers/firmware/imx/sm-misc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Regards,
+  Marco
 
-diff --git a/drivers/firmware/imx/sm-misc.c b/drivers/firmware/imx/sm-misc.c
-index 0a8ada329c9d..8d95a901734a 100644
---- a/drivers/firmware/imx/sm-misc.c
-+++ b/drivers/firmware/imx/sm-misc.c
-@@ -16,7 +16,7 @@
- 
- static const struct scmi_imx_misc_proto_ops *imx_misc_ctrl_ops;
- static struct scmi_protocol_handle *ph;
--struct notifier_block scmi_imx_misc_ctrl_nb;
-+static struct notifier_block scmi_imx_misc_ctrl_nb;
- 
- int scmi_imx_misc_ctrl_set(u32 id, u32 val)
- {
+> 
+> -Sumit
+> 
+> > 
+> > Regards,
+> >   Marco
+> > -- 
+> > #gernperDu 
+> > #CallMeByMyFirstName
+> > 
+> > Pengutronix e.K.                           |                             |
+> > Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+> > 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+> > Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+> 
+
 -- 
-2.51.0
+#gernperDu 
+#CallMeByMyFirstName
 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
