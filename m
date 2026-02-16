@@ -4,106 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8965CE63F2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 07:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8823E63F33
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 07:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Opw+PLS0BWHyZnDPu+flYAjCe3cBc75M/F2mBVqI99A=; b=qnuaeEXjv++ltzNFhDvjjUf8iR
-	5r21Bzfpx0ESXK/RKFLd7Tqj3lPwiEuccBPa/lrC7Cm0XmKv76WMutJttDYZ8A9lo/27GsD92/5fh
-	+gtmyuzhL0lm9A8q80XSpO6JKVSuyR3Nh6hVx+LjKvz88o42oQg1pZfm03pCV9eRdWxaiP+TRsWP7
-	YNH92xyS2dGGfybe6Fo0/y26lqpXRU3u5JIR5351ksFggOYkDXha1Vy/mf1JD3gTFiwV5Z+OAkNQB
-	aArsKwMbxdtMEO+z+gx+EI6JmK/UAfuNwZtCDzRHbh0GF7skvlKeJr6vQOZJZMNXFYwqBpZ69smbW
-	it8lzMCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RLvrlavvqhsMsZumdIpLoyT+Im13G14jyGnOLsn5bKE=; b=G6CI7e/7RDgKtfYsZtoiVq8nEl
+	tspcR5IfLj/58Vf6S8JPKksha0fgLmXjMetJnq47LbeFaA5VgJ0tHXm3Dar0SQ4NSBZzbQBy0DXgP
+	jSd4H4tk44Qw4+xzcE/MI78znKyxncbZAzrOpZk2cP9fDGxqxkCD5yxsDaLLP4SDOPgKz3HGgg72z
+	0y04V69JXLAcu3Q2HyOHbb9jhgCvvMqiEniZJq7DnrkVEMM5CPSx7PuSV4OZiOq5V9ksPtChssCmL
+	Cw2hYNPrc7Ms3eGFup3AQDmUG7UP8BAA4iSiGkLLKBxtxxQ7phmWyxnvagyb2NBDYQaxsd2np6+gd
+	AbE5wODg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtDr-000000065tR-3czh;
-	Mon, 16 Feb 2026 07:40:47 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1vrtJ7-000000066DQ-2wVF;
+	Mon, 16 Feb 2026 07:46:13 +0000
+Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtDp-000000065sg-2DX7
+	id 1vrtJ3-000000066D4-2PEh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 07:40:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771227646; x=1802763646;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rzl01EmAAF3JPmfSnc9X96TJUHoCxLOHucj5Oexql0w=;
-  b=GKJ6V8PT/DaG4p45uLJbfGpFBsTHY2/hl+jefDsO9VTGzpaDNno3X+RN
-   m1E0Wtg5MXKX4LdFK8WqTCA6IP9Ble3K/CoWWjnf+oBk5c8GxSVtG3Wrd
-   Ih5eO2meQwbxnZe4lxzOcPEZrDNU9xhw/vh86eTWHEaF7/n6vzZ6uo2oI
-   fumXh1n5l94kwkMRo5e5mH2HXKelzWMZeBsVAjMEz5uaqpL1aLvzZmn1c
-   8J8kOWJRFDjSNKIzt4QHMlpcRz/unkcVR4ax9lrGK8eMxrG8wny7Dxa2J
-   ghht7NcrDMQJobXeUI1BcJpkPPqpnjdqKuaZidsqRlBwY/2+Mxjkpl4Lj
-   g==;
-X-CSE-ConnectionGUID: HmaykFUJQkeX8+kgGnkC6g==
-X-CSE-MsgGUID: iGNPZuxARMqFPuz8XX8+4Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11702"; a="74904118"
-X-IronPort-AV: E=Sophos;i="6.21,293,1763452800"; 
-   d="scan'208";a="74904118"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Feb 2026 23:40:45 -0800
-X-CSE-ConnectionGUID: BH0UtUILRuu9c8XvwWIhyw==
-X-CSE-MsgGUID: tFeetPcMQWKoSU6GurUL/g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,293,1763452800"; 
-   d="scan'208";a="212096952"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.188])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Feb 2026 23:40:35 -0800
-Date: Mon, 16 Feb 2026 09:40:33 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	David Lechner <dlechner@baylibre.com>, driver-core@lists.linux.dev,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Konrad Dybcio <konradybcio@kernel.org>, Lee Jones <lee@kernel.org>,
-	Linus Walleij <linusw@kernel.org>, linux-arm-msm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, Mark Brown <broonie@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Waiman Long <longman@redhat.com>,
-	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [RFC v2 PATCH 00/13] hwspinlock: move device alloc into core and
- refactor includes
-Message-ID: <aZLJ8Z4XOTEUJfmh@smile.fi.intel.com>
-References: <20260215225501.6365-1-wsa+renesas@sang-engineering.com>
+	Mon, 16 Feb 2026 07:46:12 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1771227964;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=RLvrlavvqhsMsZumdIpLoyT+Im13G14jyGnOLsn5bKE=;
+	b=RZ52Jdyxe6XiQTHXDsQO6GihvOPBgC0lqv3st4LY4st0n6eYcTDf7S+11dnYK8nSGx/hyh
+	bzgQBFfmjlJX9TUPTPKwh8k01uY2Nn7Jfr75wJ/nN4OLMcHT6o60Y8EDGTrUiiWnru4As1
+	YGJszJkW9kRtVdpj5oYMoDVnJzrcmrg=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Lothar Rubusch <l.rubusch@gmail.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	stable@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] crypto: atmel-sha204a - Fix OTP sysfs read and error handling
+Date: Mon, 16 Feb 2026 08:45:51 +0100
+Message-ID: <20260216074552.656814-1-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260215225501.6365-1-wsa+renesas@sang-engineering.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260215_234045_588561_5E0CC1E2 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20260215_234610_561757_9432BC3F 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,50 +72,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 15, 2026 at 11:54:40PM +0100, Wolfram Sang wrote:
-> My ultimate goal is to allow hwspinlock provider drivers outside of the
-> subsystem directory. It turned out that a simple split of the headers
-> files into a public provider and a public consumer header file is not
-> enough because core internal structure need to stay hidden. Even more,
-> their opaqueness could and should even be increased. That would also
-> allow the core to handle the de-/allocation of the hwspinlock device
-> itself.
-> 
-> This series does all that. Patches 1-7 abstract access to internal
-> structures away using helpers. Patch 8 then move hwspinlock device
-> handling to the core, simplifying drivers. The remaining patches
-> refactor the headers until the internal one is gone and the public ones
-> are divided into provider and consumer parts. More details are given in
-> the patch descriptions.
-> 
-> One note about using a callback to initialize hwspinlock priv: I also
-> experimented with a dedicated 'set_priv' helper function. It felt a bit
-> clumsy to me. Drivers would need to save the 'bank' pointer again and
-> iterate over it. Because most drivers will only have a simple callback
-> anyhow, it looked leaner to me.
-> 
-> This series is based on the cleanup series "hwspinlock: remove
-> platform_data from subsystem" and has been tested on a Renesas
-> SparrowHawk board (R-Car V4H) with a yet-to-be-upstreamed hwspinlock
-> driver for the MFIS IP core. A branch can be found here (the MFIS driver
-> is still WIP):
-> 
-> git://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux.git renesas/hwspinlock/refactor-alloc-buildtest
-> 
-> Buildbots seem to be happy, too.
-> 
-> Looking forward to comments. I especially wonder if the last patch
-> should stay as-is or if it should be broken out, so individual
-> subsystems can pick up their part (with a fallback in place, of course,
-> until the last user is converted).
+Fix otp_show() to read and print all 64 bytes of the OTP zone.
+Previously, the loop only printed half of the OTP (32 bytes), and
+partial output was returned on read errors.
 
-Coincidentally I have briefly reviewed it in the Git tree before you have sent
-this to ML. I like the whole series, but what I have missed is the explanation
-of the removal of Contact: comment in some of the files.
+Propagate the actual error from atmel_sha204a_otp_read() instead of
+producing partial output.
 
+Replace sprintf() with sysfs_emit_at(), which is preferred for
+formatting sysfs output because it provides safer bounds checking.
+
+Cc: stable@vger.kernel.org
+Fixes: 13909a0c8897 ("crypto: atmel-sha204a - provide the otp content")
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+Compile-tested only.
+
+Changes in v2:
+- Return the total number of bytes written by sysfs_emit_at() after
+  feedback from Lothar (thanks!)
+- Link to v1: https://lore.kernel.org/lkml/20260215124125.465162-2-thorsten.blum@linux.dev/
+---
+ drivers/crypto/atmel-sha204a.c | 20 +++++++++++---------
+ 1 file changed, 11 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
+index 0fcf4a39de27..8af767f903ea 100644
+--- a/drivers/crypto/atmel-sha204a.c
++++ b/drivers/crypto/atmel-sha204a.c
+@@ -15,6 +15,7 @@
+ #include <linux/module.h>
+ #include <linux/scatterlist.h>
+ #include <linux/slab.h>
++#include <linux/sysfs.h>
+ #include <linux/workqueue.h>
+ #include "atmel-i2c.h"
+ 
+@@ -119,21 +120,22 @@ static ssize_t otp_show(struct device *dev,
+ {
+ 	u16 addr;
+ 	u8 otp[OTP_ZONE_SIZE];
+-	char *str = buf;
+ 	struct i2c_client *client = to_i2c_client(dev);
+-	int i;
++	ssize_t len = 0;
++	int i, ret;
+ 
+-	for (addr = 0; addr < OTP_ZONE_SIZE/4; addr++) {
+-		if (atmel_sha204a_otp_read(client, addr, otp + addr * 4) < 0) {
++	for (addr = 0; addr < OTP_ZONE_SIZE / 4; addr++) {
++		ret = atmel_sha204a_otp_read(client, addr, otp + addr * 4);
++		if (ret < 0) {
+ 			dev_err(dev, "failed to read otp zone\n");
+-			break;
++			return ret;
+ 		}
+ 	}
+ 
+-	for (i = 0; i < addr*2; i++)
+-		str += sprintf(str, "%02X", otp[i]);
+-	str += sprintf(str, "\n");
+-	return str - buf;
++	for (i = 0; i < OTP_ZONE_SIZE; i++)
++		len += sysfs_emit_at(buf, len, "%02X", otp[i]);
++	len += sysfs_emit_at(buf, len, "\n");
++	return len;
+ }
+ static DEVICE_ATTR_RO(otp);
+ 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+Thorsten Blum <thorsten.blum@linux.dev>
+GPG: 1D60 735E 8AEF 3BE4 73B6  9D84 7336 78FD 8DFE EAD4
 
 
