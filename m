@@ -4,69 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948A7E63F39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D262FE63F33
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e7iFP6xW5Xf2W9zO9vAqZDJHzHtTHjmzjY02AN6Ld78=; b=vTrVbpv2nFC+v3r6xkI4t/sjl6
-	houk/mhtfPy09uvNxkXLth/KcB8ZG7SsD/D8OuoIeUVRZ4yuf8CqX30cWW/Ax2X7MXEPP1/jXkJu3
-	gYf5QDKEYu6yhxx0CBGQ7v4FYxszmOjZ0l4iLkNV/c+f5TxMPcmeB7zuNbze0r1++6pLNE9GHpMGK
-	qx/D2Itym96C2CSEyNPPt3xfmRoXw5qcOmBly476CTvjEh72NGM5Lmn42UtBlW+2atDU//ZOLQoiK
-	yIv+WAWOBE0bdTB4qMVG/Kq2gfw4OPKqD0xFxRl0v5N7LblBs6P46otTcZzIBCpgrN8/mOigx75uH
-	RbQPtIfw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rMVTVE6mXm25OeX+iOc5e0I0EziX9QVV9q1R0GXD3GM=; b=azeQooK0TBMzbKE0g27+z6x+Iw
+	euFCOr5LzZcU9xgUZuQAlouBJul0FfIkxDInMX/72ljWj8j5W/2T3C8p+HdXNA5XedlZpeDJoaYNU
+	vbEeOKh2l41Yg4RDoDzd6moMoHAGgx0DcBIdA2kOWioeS7DKpaMY+mxXPv+DNT14i1A9ZMKE10JrV
+	CTvvxpeL3mCmMkl7vPUgVTZsUBjB1bU045iJ1e+GVwtd55PXKy1H0x3POUc0TBTMLvEY1X4Ilhv99
+	mbZYzKZOsHViSd0Ua+0ETsKKScPCyzWklyUWF89SeuOWmY98X0l4KKrcD15T2NMqHLr6E1F0/hqUH
+	xJm5oBOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtiB-000000067Rk-13tG;
-	Mon, 16 Feb 2026 08:12:08 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vrttO-000000068VU-3m9C;
+	Mon, 16 Feb 2026 08:23:42 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrti8-000000067Qs-3K0b;
-	Mon, 16 Feb 2026 08:12:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771229518;
-	bh=3HYqKGUDU9JGeXZAcBF46can3OoH/CCNNOhHTr/xDHE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SqF8Smib7nHdDc32RttjOuPwKqz4BLw1OCQwXYrdq2AGpmvo/C6HNk6IK7MGvcm+m
-	 jydz1JyhssE5o8cEMkUzIBCdHluxaCRisFF5xIHoy3gQjgvD0U1UJPJ5FRTtni62lD
-	 x+2CJO0rMWo42vedhE9z9llD9GcDuFVBmx21BtfVXWeM3zGo9/fLeBl+Y4I3IxX792
-	 ZL2XFXFDbM5ELc/7kax9yJ4eGvyVQT4ApOl55AYMaIE41N79vT86tP8lDhLmLbMj/h
-	 3rCoyOw/T5z8khP+MJEWr2kHWpLcvskOzKSmV68HvMXCt+MWp43r8XucmgwPXhEEe8
-	 cwed7IEOhWRJw==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8A80217E1406;
-	Mon, 16 Feb 2026 09:11:57 +0100 (CET)
-Message-ID: <eef04746-00cf-4971-8e65-37a2a3e60672@collabora.com>
-Date: Mon, 16 Feb 2026 09:11:56 +0100
+	id 1vrttL-000000068V7-2JCZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 08:23:40 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61FMRib72101896
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 08:23:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=rMVTVE6mXm25OeX+iOc5e0I0EziX9QVV9q1
+	R0GXD3GM=; b=iyx/tN1aasJqaZGYZPuLefbZVo7i+OtYBnolNO0gKtexeEcH1H4
+	PRTekwxgJcs5MVE9SfvWD/l6h2O3LaKTbxS0247H8IQfOLOvlg38XhwsGpHubqwU
+	P60yRcA3At+TLvrTFqE6uZxAIWE9Mv8eQfnI2KUhOD8cVhvMKrTfMCUAHjz6egYx
+	7JXS/A6/0o2XJ5TkhZTO0LcDcIE9FFLA3IVuxZVfS5kP/okO/NIWjw84p/2G3tAv
+	Bl+QrGf95sVjCj42/U2wFlWmgnlfuPS/cpzsFverk2SK2GYceGxckMvW6FA2s+F8
+	g0tTxwPYMZjUMHNty95LTqI787IClNg62wA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cb6buj4ps-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 08:23:37 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8c882774f0dso1762204785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 00:23:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1771230217; x=1771835017; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rMVTVE6mXm25OeX+iOc5e0I0EziX9QVV9q1R0GXD3GM=;
+        b=RIKEDxA0GP6dR/i78P9F/JPM0zMSlMHxVzyqBD8w3di1P5yeUfvwXvfTk6lQWUMZIL
+         tCeLL5+q7p0xoFm3Cq2RZcKgFiqGhQ6MvYPLJQ/WxG2s5Swzi5Ch3JEeIIHxCuPTTZzj
+         jM2lqkXLrZXBbFAh6hKkz61RjYdARIISBmFIALAkmsrOELhZGJrrbhjOkUwf35rT+Lhp
+         MXijj7vCq1XPPKFC4Mrd+1XrXUzHgZeZdsPkD2dwvZzLr0NIN2FlbJDmgVzgKSebjliV
+         flLBihnLyd4OWxlOFWUaNvjZlk0Q963Anw/hKNG6ipWvA4kyr9crf4xwPOiPvEzmNd6Q
+         lVKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771230217; x=1771835017;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rMVTVE6mXm25OeX+iOc5e0I0EziX9QVV9q1R0GXD3GM=;
+        b=sPO8awO7saDvKabpOw9eNtBxTPwTAjNdCBC7t09PEF2MXf4456DKqmuUDFK1X3X8/r
+         CQynoZscy2qCSdFB6SPKRQ/CkJqYDNEt3IDQrSA6MbYQhcy40KXy6ypAiQd2C7AxuwSV
+         dBmVNfzr4uXWUzZXUJpnQMAiGfvO4ToDvZZC7HmwBJXSG9S+QGYjZobF3VWGIn5ADuUs
+         qW62M/Z8Oh0pX6J3HOhXSrWzWwS/B6dcSgBb32iBDJKMvSGprrCKJiAqv7Dy9IjEU8ro
+         8zAVyMIpo4BtOOq76ejqIpC6qzRbKqc2BWeAANcsDvbvY6yc3HVHYfPCDIFEaykaXMr4
+         w26w==
+X-Forwarded-Encrypted: i=1; AJvYcCXQkbboJS6b0sJhmLbXI+C5Vuw2eetFi3mk5tpou+r2wRjCWE0QFzyTu98Vbq9nhg+W9v0DvDhIDc+1PeWcSipb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiX74cogo2XwL43zb302VV7wi8+S8fe+aR6jtnE1t7WY3i0jb/
+	/9m0Qtw7ACw2rbhhAO2jsu6i4fajkXxl/TP05nwCIqpIQogsCbbwllravuNgUWodLdngqGJk58P
+	ZS8EkQsv7QNdq1NQHLzC2LbPyPAxqbiuEnLzup3yHKjMlL7Emqk2K7l8mFEFUhbNaiv9DCNdACE
+	G9fQ==
+X-Gm-Gg: AZuq6aJAkC6JIlZHwCz9nkT1yeqj9UxRaYcu0zYdXh/sMpKH2y6OLf471Btf94N7L0v
+	yOU2B/tdpiiqCEFJTUApV1EZtOIpRC4AYTrCOS1meVR1RgyvMQZC0v6/s8VarRjrA76Mr595Pyy
+	P/bl4umPzXboTbMawZbrB6THhFedjuEd4JuutelYQOYr5U2i4R0DF/4Rr4QW9l2gd3GBhsmVLb1
+	ozz1xrN9dFcFKo//3sI9wJXiCk9Xs4zvTwmw0/21IsbYIiOuYLT0/FPMkkbK/Kq/zKNk6hCnQ9y
+	fOC9FMEEcA/FMZiFoZDMTChxlqRuvRidC//QHnIOohDYQ7KbjUrReHGKXJTziC+1Apyqud1Gcbl
+	qgjSXbO4wQSWUBIGUmJwag5sOy0XXrH/4QtIbjQ==
+X-Received: by 2002:a05:620a:4448:b0:8b2:e8a0:f4e with SMTP id af79cd13be357-8cb4c039214mr846298185a.77.1771230216930;
+        Mon, 16 Feb 2026 00:23:36 -0800 (PST)
+X-Received: by 2002:a05:620a:4448:b0:8b2:e8a0:f4e with SMTP id af79cd13be357-8cb4c039214mr846296885a.77.1771230216530;
+        Mon, 16 Feb 2026 00:23:36 -0800 (PST)
+Received: from quoll ([178.197.223.140])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48370ac3564sm218760205e9.5.2026.02.16.00.23.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Feb 2026 00:23:36 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH] firmware: imx: sm-misc: Make scmi_imx_misc_ctrl_nb variable static
+Date: Mon, 16 Feb 2026 09:23:30 +0100
+Message-ID: <20260216082329.32029-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/6] media: synopsys: csi2rx: Use enum and u32 array
- for register offsets
-To: Frank Li <Frank.Li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, imx@lists.linux.dev
-References: <20260213-imx93-dw-csi2-v2-0-8be6039f44c6@nxp.com>
- <20260213-imx93-dw-csi2-v2-4-8be6039f44c6@nxp.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260213-imx93-dw-csi2-v2-4-8be6039f44c6@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Developer-Signature: v=1; a=openpgp-sha256; l=881; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=sFAr2t+BvnqFlwrW1ysGHeXPiGH3mfxxZ+VgNKOcNCY=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpktQCAupsWXrW1bsfGu0/qby30s34FN1H2791f
+ KK8/j8IKGeJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaZLUAgAKCRDBN2bmhouD
+ 18VvD/45qfZfCuBtVGeMp57N6vu1v5hp/gwgOWuzIwqLz70+h9S78rCOt9fvWJcwYxDyhsQ+t6P
+ 56waeLYDE7JIskiHEurE+9Gnyk7IQiDEosEaK38E6nvq63wcxiqNfUGdxjohoUf4w1XB4IbxI6b
+ 8ZE0AYXMGMgJsFkSQBWbsRGSoPRas7L5PDwXu4iv94jcw/+JqQ5SRwrMRednN1cyvTmBHpILMuk
+ mJbsfKSJKdnf13Ch/5nyRfWJt7GGLSoDUdQoY34QccZbJnl8CnjFs/phkD6E8C1HEyewT+yyQNh
+ hUOYumIBEItdCE5i7frpfHF+bSfiLfVWkGBrc+fWKAp0IemL9xBu2wEcZZK6w+k9tXb3k4dCZVn
+ VcOZoWR92wzly6Db4VlDZpBORcHi3QpGjnYYo1/R9YHaPubJRBVI1U+bPBv5Q3CxxAMNoFzS00v
+ TSvRjoX/X40gVhzvucRpKGgTLl9Z+4XEeuBCQ+DJ2Ec+2CTKGlzvHEpQPQQHE3hY4hU487436HP
+ /OBg28lzzr5mwWwSExlVa2TB38Zy3Kc5fC4FimaIi3o3pqEnScIhKM4z+qKx2yf72gI5zZw49zO
+ VbusvV4KUQTxKkMRtqG7pOeVmgUvk1rpXOZ/llREjp6RxVNJAB6CNYmQ7SF+DtUVo91/Gm1JU9Q IULPE4GaGIXa5ag==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: MWQgygTmoCZHk0RkqY9rG23N2wTwhk-4
+X-Proofpoint-ORIG-GUID: MWQgygTmoCZHk0RkqY9rG23N2wTwhk-4
+X-Authority-Analysis: v=2.4 cv=M8dA6iws c=1 sm=1 tr=0 ts=6992d40a cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
+ a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=EUspDBNiAAAA:8
+ a=lLDweYiKzoSJucHH224A:9 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE2MDA2OSBTYWx0ZWRfXy55Ar60tUOJE
+ qu2XCq0JEGFD0XErsCTyQ/XPdUmcq2By9gd8GrYZ+W2m7q1FQYUQlTmJThFOj7HgVPhnFQJByOz
+ ELudj2wOzKySlJg1hZsNDf6Qwvmi4t3/sBuH/6U9yioyP1+su34vGsSNteYBMci02Xy2DTIBlh5
+ sa0iJiw1J7yZLIrrejL9rZE63XW2DCDUVGZooQCisLDoDMLsT7nc9ftIQxLJ9x1pWgHDuA4MnLA
+ sUT3jqVIW+HrzyyNA6ZxChb/mOpWNlTVQDrYjqMNfuGUTSaysZt6dHDAw6isxNDgoJVRd3e92Vq
+ JoeYmckDB7j9I4+Mj52ARF0HJ0d3GQGOqb2rJLG0Z2Pvnwg47vgfSQbzo48Dogug/qnvGKZjRpb
+ 7CBmoebdccboKvPh3GEJS20rxn8WtsbWYCUKOQYItrTWjXCEjoVhC4B/Fj05cHi7+ASMQqJpvKI
+ M1CH3S2LhmX7DHGxCdw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-16_03,2026-02-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 suspectscore=0 bulkscore=0 impostorscore=0
+ clxscore=1015 phishscore=0 lowpriorityscore=0 priorityscore=1501
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2602160069
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_001205_211354_7B374296 
-X-CRM114-Status: GOOD (  31.34  )
+X-CRM114-CacheID: sfid-20260216_002339_615939_606FB0C0 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,238 +154,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+File-scope 'scmi_imx_misc_ctrl_nb' is not used outside of this unit, so
+make it static to silence sparse warning:
 
-Thanks for the update.
+  sm-misc.c:19:23: warning: symbol 'scmi_imx_misc_ctrl_nb' was not declared. Should it be static?
 
-Some minor nitpicks, but it already looks good.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ drivers/firmware/imx/sm-misc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On 2/13/26 21:25, Frank Li wrote:
-> Use enum dw_mipi_csi2rx_regs_index together with a u32 array to describe
-> register offsets. This allows supporting new IP versions with different
-> register layouts in a structured way.
-> 
-> Add rk3568_regs matching the previous macro definitions and pass it as
-> driver data during probe.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> change in v2
-> - change to use enum and u32 array method
-> - use order
->  - #includes
->  - #defines
->  - enum and struct definitions
->  - the rest
-> ---
->  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 91 ++++++++++++++++++++----
->  1 file changed, 78 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> index a6d251ca5ad14c5138a6fd0202a970460e64c68f..b00ae5fb328da4cc78fe36b629d6661d438e124a 100644
-> --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> @@ -24,15 +24,6 @@
->  #include <media/v4l2-mc.h>
->  #include <media/v4l2-subdev.h>
->  
-> -#define DW_MIPI_CSI2RX_N_LANES		0x04
-> -#define DW_MIPI_CSI2RX_RESETN		0x10
-> -#define DW_MIPI_CSI2RX_PHY_STATE	0x14
-> -#define DW_MIPI_CSI2RX_ERR1		0x20
-> -#define DW_MIPI_CSI2RX_ERR2		0x24
-> -#define DW_MIPI_CSI2RX_MSK1		0x28
-> -#define DW_MIPI_CSI2RX_MSK2		0x2c
-> -#define DW_MIPI_CSI2RX_CONTROL		0x40
-> -
->  #define SW_CPHY_EN(x)		((x) << 0)
->  #define SW_DSI_EN(x)		((x) << 4)
->  #define SW_DATATYPE_FS(x)	((x) << 8)
-> @@ -40,12 +31,33 @@
->  #define SW_DATATYPE_LS(x)	((x) << 20)
->  #define SW_DATATYPE_LE(x)	((x) << 26)
->  
-> +/* Help check wrong access unexisted register at difference IP version */
-
-Maybe
-
-/* helper for checking whether register exists */
-
-? However, I think the naming speaks for itself and you can leave the
-comment away.
-
-> +#define DW_REG_EXIST		BIT(31)
-> +#define DW_REG(x)		(DW_REG_EXIST | (x))
-> +
-> +enum dw_mipi_csi2rx_regs_index {
-> +	DW_MIPI_CSI2RX_N_LANES,
-> +	DW_MIPI_CSI2RX_RESETN,
-> +	DW_MIPI_CSI2RX_PHY_STATE,
-> +	DW_MIPI_CSI2RX_ERR1,
-> +	DW_MIPI_CSI2RX_ERR2,
-> +	DW_MIPI_CSI2RX_MSK1,
-> +	DW_MIPI_CSI2RX_MSK2,
-> +	DW_MIPI_CSI2RX_CONTROL,
-> +
-> +	DW_MIPI_CSI2RX_MAX,
-> +};
-> +
->  enum {
->  	DW_MIPI_CSI2RX_PAD_SINK,
->  	DW_MIPI_CSI2RX_PAD_SRC,
->  	DW_MIPI_CSI2RX_PAD_MAX,
->  };
->  
-> +struct dw_mipi_csi2rx_drvdata {
-> +	const u32 *regs;
-> +};
-> +
->  struct dw_mipi_csi2rx_format {
->  	u32 code;
->  	u8 depth;
-> @@ -72,6 +84,23 @@ struct dw_mipi_csi2rx_device {
->  
->  	enum v4l2_mbus_type bus_type;
->  	u32 lanes_num;
-> +
-> +	const struct dw_mipi_csi2rx_drvdata *drvdata;
-> +};
-> +
-> +static const u32 rk3568_regs[DW_MIPI_CSI2RX_MAX] = {
-> +	[DW_MIPI_CSI2RX_N_LANES] = DW_REG(0x4),
-> +	[DW_MIPI_CSI2RX_RESETN] = DW_REG(0x10),
-> +	[DW_MIPI_CSI2RX_PHY_STATE] = DW_REG(0x14),
-> +	[DW_MIPI_CSI2RX_ERR1] = DW_REG(0x20),
-> +	[DW_MIPI_CSI2RX_ERR2] = DW_REG(0x24),
-> +	[DW_MIPI_CSI2RX_MSK1] = DW_REG(0x28),
-> +	[DW_MIPI_CSI2RX_MSK2] = DW_REG(0x2c),
-> +	[DW_MIPI_CSI2RX_CONTROL] = DW_REG(0x40),
-> +};
-> +
-> +static const struct dw_mipi_csi2rx_drvdata rk3568_drvdata = {
-> +	.regs = rk3568_regs,
->  };
->  
->  static const struct v4l2_mbus_framefmt default_format = {
-> @@ -186,16 +215,46 @@ static inline struct dw_mipi_csi2rx_device *to_csi2(struct v4l2_subdev *sd)
->  	return container_of(sd, struct dw_mipi_csi2rx_device, sd);
->  }
->  
-> +static bool dw_mipi_csi2rx_is_exist(struct dw_mipi_csi2rx_device *csi2,
-
-Sounds a bit weird to me, maybe "dw_mipi_csi2rx_has_reg(ister)" or
-"dw_mipi_csi2rx_reg(ister)_exists?
-
-> +				    enum dw_mipi_csi2rx_regs_index index)
-> +{
-> +	if (index < DW_MIPI_CSI2RX_MAX &&
-> +	    (csi2->drvdata->regs[index] & DW_REG_EXIST))
-> +		return true;
-> +
-> +	return false;
-> +}
-> +
-> +static void __iomem *
-> +dw_mipi_csi2rx_get_regaddr(struct dw_mipi_csi2rx_device *csi2,
-> +			   enum dw_mipi_csi2rx_regs_index index)
-> +{
-> +	u32 off = (~DW_REG_EXIST) & csi2->drvdata->regs[index];
-> +
-> +	return csi2->base_addr + off;
-> +}
-> +
->  static inline void dw_mipi_csi2rx_write(struct dw_mipi_csi2rx_device *csi2,
-> -					unsigned int addr, u32 val)
-> +					enum dw_mipi_csi2rx_regs_index index,
-> +					u32 val)
->  {
-> -	writel(val, csi2->base_addr + addr);
-> +	if (dw_mipi_csi2rx_is_exist(csi2, index))
-> +		writel(val, dw_mipi_csi2rx_get_regaddr(csi2, index));
-> +
-> +	dev_err_once(csi2->dev,
-> +		     "write to non-existent register index: %d\n", index);
-
-Not sure about to control flow here, as the error message is shown in
-any case. Do you mean
-
-{
-	if (!dw_mipi_csi2rx_is_exist(csi2, index)) {
-		dev_err_once(csi2->dev,
-			"write to non-existent register index: %d\n",
-			index);
-		return;
-	}
-
-	writel(val, dw_mipi_csi2rx_get_regaddr(csi2, index));
-}
-
-?
-
->  }
->  
->  static inline u32 dw_mipi_csi2rx_read(struct dw_mipi_csi2rx_device *csi2,
-> -				      unsigned int addr)
-> +				      enum dw_mipi_csi2rx_regs_index index)
->  {
-> -	return readl(csi2->base_addr + addr);
-> +	if (dw_mipi_csi2rx_is_exist(csi2, index))
-> +		return readl(dw_mipi_csi2rx_get_regaddr(csi2, index));
-
-Here it seems to be correct, but personally I'd prefer
-
-{
-	if (!dw_mipi_csi2rx_is_exist(csi2, index)) {
-		// print error
-		return 0;
-	}
-
-	return readl(...);
-}
-Anyway, it should match the write method.
-
-> +
-> +	dev_err_once(csi2->dev,
-> +		     "read non-existent register index: %d\n", index);
-> +	/* Return 0 for unexisted registers */
-
-/* return 0 for non-existent registers */
-
-or leave away altogether.
-
-> +	return 0;
->  }
->  
->  static const struct dw_mipi_csi2rx_format *
-> @@ -631,6 +690,7 @@ static void dw_mipi_csi2rx_unregister(struct dw_mipi_csi2rx_device *csi2)
->  static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
->  	{
->  		.compatible = "rockchip,rk3568-mipi-csi2",
-> +		.data = &rk3568_drvdata,
->  	},
->  	{}
->  };
-> @@ -652,6 +712,11 @@ static int dw_mipi_csi2rx_probe(struct platform_device *pdev)
->  	if (IS_ERR(csi2->base_addr))
->  		return PTR_ERR(csi2->base_addr);
->  
-> +	csi2->drvdata = device_get_match_data(dev);
-> +	if (!csi2->drvdata)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "failed to get driver data\n");
-> +
->  	ret = devm_clk_bulk_get_all(dev, &csi2->clks);
->  	if (ret < 0)
->  		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
-> 
-
-With the comments above addressed,
-
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
-
-Best regards,
-Michael
+diff --git a/drivers/firmware/imx/sm-misc.c b/drivers/firmware/imx/sm-misc.c
+index 0a8ada329c9d..8d95a901734a 100644
+--- a/drivers/firmware/imx/sm-misc.c
++++ b/drivers/firmware/imx/sm-misc.c
+@@ -16,7 +16,7 @@
+ 
+ static const struct scmi_imx_misc_proto_ops *imx_misc_ctrl_ops;
+ static struct scmi_protocol_handle *ph;
+-struct notifier_block scmi_imx_misc_ctrl_nb;
++static struct notifier_block scmi_imx_misc_ctrl_nb;
+ 
+ int scmi_imx_misc_ctrl_set(u32 id, u32 val)
+ {
+-- 
+2.51.0
 
 
