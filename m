@@ -4,73 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D676BE7BD8B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 10:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F0EAE7BD8B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 10:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OnMEmv4tXPUBVCNIVWzb6zRXYCOhXVAqKRpsObQFSLg=; b=wwktXqtE6xWq4X7YBkkfFnGae1
-	eHqQh0MnQo7MlwVPh2B2yP2wqS3iiwLkxSUmRegxW2x7Yr04FnZabY5G1JrZJY/QBJC1DSv6DsW5d
-	8qIbKnss+jYnoIIRZKofnMmchEo7ZHpc6rmb3gIlvzuxPq75BQF2j2c4vBGrXYKGoSbSiiMtUw8/n
-	T8DSj8Rxu7sPQ0NlSjdZfPdp2C8nrp+Fk0dnl6XmVEK/FTHpspo9zjIpBhJDyxOJ3aONsxkWhTvfV
-	BWY3oddH1/JqezuOVAMj23JuLPZTFn1ab17UuGyoXN9QvUDaiUupESp72x9KqB9uzK61JHa/5EdwE
-	/Xm9zCww==;
+	bh=NVFYXNZ6okL6YFmTe2rDD9/sBQsf+RLu5VEz9wgQ6IQ=; b=hneRC8gPmmRxw/kG8pHNt5v6pr
+	seUqof1RLo29oSh9P2X71mYv2WZhx3bNhAaSw9IaNzBHzV6l/k4MuSFrmIjW4UMMLHlaw+k4oxLj0
+	I0UFLFAiloA+F0NL/pCZZPxdeSYw/7bgMxqJlQVwT0WLqgIZfuLoWkRwdJuC1eQPkfXgaqGQD1bh/
+	4TmHlT8oWJHfMZbxWGz+nhe8tG+9hO4tUf4QF8lddcvxYKO4ZvFpe1NFEa8z3EA3bC/t3L5ueNO1H
+	+kcuU8U+PHNMw9FbOL61sTVKjIL/CS8DGQdykZiK2xi45tkJ8vsCXPZi5HCdfa7Mh2uY3Uo2BdGuh
+	zko6bs/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrw3L-00000006N2Y-1mcL;
-	Mon, 16 Feb 2026 10:42:07 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vrw54-00000006NFN-1esJ;
+	Mon, 16 Feb 2026 10:43:54 +0000
+Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrw3I-00000006N1t-1DyF
+	id 1vrw51-00000006NF0-2DT7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 10:42:05 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vrw2i-0007nE-Km; Mon, 16 Feb 2026 11:41:28 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vrw2f-00138T-12;
-	Mon, 16 Feb 2026 11:41:26 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vrw2g-00000005pMv-2DGA;
-	Mon, 16 Feb 2026 11:41:26 +0100
-Date: Mon, 16 Feb 2026 11:41:26 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
-	Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, luca.ceresoli@bootlin.com, 
-	Frank.Li@nxp.com
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v9 0/3] Add i.MX91/93 parallel display support
-Message-ID: <fpnruayalannx3jrsjqfjzawrzxazy7ioo7ufxcwkbwj2eezfp@6i6ty7fz5xtc>
-References: <20260115-v6-18-topic-imx93-parallel-display-v9-0-2c5051e4b144@pengutronix.de>
+	Mon, 16 Feb 2026 10:43:52 +0000
+Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-649df3c22d4so2482208d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 02:43:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771238630; cv=none;
+        d=google.com; s=arc-20240605;
+        b=kHDq05lTyV+lyze7j3gt4EhOlM4NLbsHQQKXmcqY43cmNBhs1lNSHjBQqyOoUJJ0iL
+         HnT+xdv5G2GNs838Kd09KzlYzaiaBaSvMicHrxBd5zkzNM4TOerZexyuV8KkFLOvIoyw
+         SbZgCX5EyrrhDwLcS6tYEaYfqiP9UvR8AR6QItAIDzvLc13oAZZCgaJN4F4j478AfKDx
+         zGXCNMU+phY3TEg7SwieoNgJwvveIGw5mVL+lyDF+B4anJu6raQoxkAFXNqDLYmn4Gy7
+         PF1gMiZgVX1ljKEGhNSC/ZQXedfOYWzINNAOe6nJXb+iq4xzHijDJBSuJri1WOjmhB3q
+         oSgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=NVFYXNZ6okL6YFmTe2rDD9/sBQsf+RLu5VEz9wgQ6IQ=;
+        fh=92Tihb5vI6EoJsgV/7UESVZP0r7nK8je5hwE8ug3q/Y=;
+        b=W5HS0FkkCPIK2TMF5KYnc6lPEzZ3zua2F7D3i3ndSecyngLdVw8nv+7Uc0NgO230OU
+         XE2O20S06juuA3tXm2G2VgGL25DfnnFv+utHqB3ekulPkTwbm/2j3abMvEUkFvEYQ4rl
+         PTsvRCwfDAMOkeWgVXf0v3MNL0gtdZuZpqb1/ELEHcFUFn/gSrL+APBCaKLkXkK4SlTT
+         SrpyObVMNYgyW1ZJ4SiiOhcym0mtxbbazMOahemKKtu4evmnWAmDbNQNGCtoNFAUlCbt
+         zHcaQVAlgFC+s4KrIboVqTm6uWbvnv5DnkMxE090/O83LUL3E/69TXV7gh/RJ5EXTnWo
+         +/kQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1771238630; x=1771843430; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=NVFYXNZ6okL6YFmTe2rDD9/sBQsf+RLu5VEz9wgQ6IQ=;
+        b=yqRRNfdzcXVjGptdnCpiGR9c5lHmJ7EynJZRfl0etcSTeWrlcAiGFq2dIBlkju6f4U
+         IUDGcOoFG8N0ZWDgJ5Bbf5aM8qlQ/93GYlVlEIZGRpthVVc+tp2IGW2xqKmDYs3i0cS7
+         orY2nKYPBD30y8lJq4Z7BpUxIgIfyVAAEI9DPnMfbmaVh3+GPg2EYukgXa4vPOxTdgv1
+         2UpHTSqySdFe+lb5BmlSsSN06/icn4lC1cZdWKbVuzohEpJTafeU19CpacfNEC96Ry4M
+         ml0YkVzbHSB2munDi777OxCf8c0X7IMCviW8ilDcbdHnTxJdoHa0f8XOzITnbYgatI7c
+         YW+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771238630; x=1771843430;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NVFYXNZ6okL6YFmTe2rDD9/sBQsf+RLu5VEz9wgQ6IQ=;
+        b=i3FPwE/n0rXUFbLNk6HXuzP77dcjyDw875jJ9KRA0Lo1ZcTt5CE3H98Spe1p/isoJq
+         8q3BuQEHXRUzTiljLjJu7teBSPwBe/jDKNdRoijxc3mIi8XqF282GT5XKsLMdkhzh+/b
+         74K+5xMkLzozdkPT4lfR6B4Bu8P2OZb/K36yRp7EHJp3+cf4hiaaOv1FgHXFiYCK1W2s
+         qxoWAO3vUWetE9sKd2sgAlOC7ZI/T96QRziSrubnetefetKT9NADJjzyK/Z1wxcFWnwL
+         4ZKugXxwjbirfT/sIU7N0pKBGI1zt1RhJfgRshzTN4fYjmDUTgqndN1m21Egtm3BIrUQ
+         Jgaw==
+X-Forwarded-Encrypted: i=1; AJvYcCUf7hWIKaVQd9LPbQCZMDutjLajTn6Q5PUIjIpurWK/ObNe6wujH/0dCpGgf+Z3YYFxBzxkZ/mFKoF8dHLUsApC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAYOCLd/DZIeNYOBABzP0QDpmj8nC8gHsj+m4zyKEPIXvOChNM
+	DmROCQt3F3GJsrAPVR8oGGZ8Wb1Qi5NlYRIA7B+rL/pFIGdISFX0Fi7a+qX5BtHTrxAjqubRYuK
+	+SjT9NJmT/vaLhGCMmyOhudhmbFUmmG9jz/AEoqzGrA==
+X-Gm-Gg: AZuq6aJUf9AzwESSJ0+ewUb5zexaQyoz1reBWyUsGbSqgUYr+25SwRKtSegM/PVZVb7
+	og4p3b/LEgWWf7pS3XovZyYimAoOmQ9Fs2/6i/3h8ZimH0HNDQVDC/phUqHjV8Ct9qbX+i6znuf
+	eWV9B7PDbfzX9gYezBWOdVi+jgsA5FNGLLTIxUz0Ice6jTxyWbqcUz5srYy6lhAVvY/UHU92KSp
+	JIxW6kWJi/vJLaSqgVZTe0fsOuLuz1jZjmRt4OzYGIi9lO6tgu93BLpvw5qPtr13jgHhgSMbpkq
+	GgfnMtlOOuxyi8eQkyv7WSDsyg5Oy0abak5vdwoE7i+XKjnNGF3Qr6lGOrLSWcmU8kBfXzJVVJx
+	5GMt93beYeaKMArIfGXetdpF6+e3Tp173eOFyWEN2dYwo1ck0A16/kzxjJT0qzHDHDsOq/H4sNY
+	MTWRc7WfLDFQukerZM9VkWz2YoFBsVdAT5n4Sh0DSvTULi3vd0bYeWyRrX5+2mK8TD/X8PnNZVL
+	MmIdroSTGEzBm06B27b4qtFxhkVbz7eF93Njsyy2JCaII4YE3MMoEnFX5QdYBvau1FneSYZLC8n
+	qWwtXe1Mx6OTEPeUJUZ5kpGrY8CBjLpaTh6TEw1clIKI
+X-Received: by 2002:a05:690e:e85:b0:64a:e9cc:6b79 with SMTP id
+ 956f58d0204a3-64c21aa6bf8mr5891327d50.40.1771238630231; Mon, 16 Feb 2026
+ 02:43:50 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260115-v6-18-topic-imx93-parallel-display-v9-0-2c5051e4b144@pengutronix.de>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+References: <20260215110628.34293-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <CAC_iWjKQA0k+DTFpTDGieCK0qNL3=BCSiOPOtCo5gvdOtXd-cA@mail.gmail.com> <25d66619-23a2-4566-bbc3-83be8eae9d46@oss.qualcomm.com>
+In-Reply-To: <25d66619-23a2-4566-bbc3-83be8eae9d46@oss.qualcomm.com>
+From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Date: Mon, 16 Feb 2026 12:43:14 +0200
+X-Gm-Features: AZwV_QhZk8Ve-HVG4LywC7DTLkrzaAYTYg65ke5EPTaHQ49aWW-D7iWhOjZaNwY
+Message-ID: <CAC_iWjKXcp8mmUaFphHRjJc+n3RNasVi91+_eP-mm3a9pnmYSg@mail.gmail.com>
+Subject: Re: [PATCH] efi: stmm: Constify struct efivar_operations
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-efi@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_024204_382534_40443633 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20260216_024351_636651_D7C38296 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,105 +121,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, 16 Feb 2026 at 12:33, Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+>
+> On 16/02/2026 10:49, Ilias Apalodimas wrote:
+> > Hi Krzysztof,
+> >
+> > On Sun, 15 Feb 2026 at 13:06, Krzysztof Kozlowski
+> > <krzysztof.kozlowski@oss.qualcomm.com> wrote:
+> >>
+> >> The 'struct efivar_operations' is not modified by the driver after
+> >> initialization, so it should follow typical practice of being static
+> >> const for increased code safety and readability.
+> >
+> > get_maintainers doesn't include me in the cc list?
+>
+> I use only get_maintainers and as you can see no. You might want to add
+> yourself as maintainer of this driver if that's your part. Or have
+> korgalore/lei filters.
 
-maybe this fell through the cracks due to the maintainership change,
-therefore a gentle ping :)
+Hrrm, that's weird. Running it locally returns a more extended list
+which includes me and Sumit Garg.
+I'll have a look on what's going on.
 
-+To Frank
-
-Regards,
-  Marco
-
-On 26-01-15, Marco Felsch wrote:
-> Hi,
-> 
-> this patchset adds the driver, dt-bindings and dt integration required
-> to drive a parallel display on the i.MX93.
-> 
-> Since the i.MX91 register layout equals the one from the i.MX93, I added
-> the support for both but tested only the i.MX93 case.
-> 
-> This patchset depends on:
->  - https://lore.kernel.org/all/20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de/
-> 
-> @Conor Dooley
-> I dropped your r-b tag since I added the 'bus-width' property.
-> 
-> Regards,
->   Marco
-> 
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> ---
-> Changes in v9:
-> - Link to v8: https://lore.kernel.org/r/20260113-v6-18-topic-imx93-parallel-display-v8-0-4abccdc473a5@pengutronix.de
-> - dt-bindings: drop unncessary changes (Frank)
-> - imx93-pdfc: drop bridge.driver_private usage (Luca)
-> - Kconfig: Adapt Kconfig symbol and prompt (Luca)
-> 
-> Changes in v8:
-> - Link to v7: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de
-> - dt-bindings: add nxp,imx91-pdfc compatible (Liu)
-> - dt-bindings: use video-interfaces.yaml# (Liu)
-> - dt-bindings: s/data lanes/data lines/ (Liu)
-> - dt-bindings: drop 'reg' poperty
-> - dt-bindings: drop #address-cells, #size-cells
-> - imx93-pdfc: drop drm/drm_print.h include (Liu)
-> - imx93-pdfc: s/exist/exists/ (Liu)
-> - imx93-pdfc: drop MEDIA_BUS_FMT_FIXED from imx93_pdfc_bus_output_fmts
-> - imx93-pdfc: imx93_pdfc_bus_output_fmt_supported: make fmt const
-> - imx93-pdfc: Rework input-fmt selection to always fallback to a sane
->               default.
-> - imx93-pdfc: imx93_pdfc_bridge_atomic_check: make use of
-> 	      imx93_pdfc_bus_output_fmt_supported() 
-> - imx93-pdfc: drop 'reg' dt-property usage
-> - imx93-pdfc: imx93_pdfc_bridge_probe: pass -1 for endpoint reg value (Liu)
-> 
-> Changes in v7:
-> - Link to v6: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-parallel-display-v6-0-7b056e1e5b1e@pengutronix.de
-> - Add missing bits.h and bitfield.h headers (lkp)
-> 
-> Changes in v6:
-> - Link to v5: https://lore.kernel.org/all/20250304082434.834031-1-victor.liu@nxp.com/
-> - Add bus-width support
-> - rebase onto v6.18-rc1
-> - add review feedback (Alexander)
-> - driver license "GPL v2" -> "GPL" (checkpatch)
-> - make use of reg of-property
-> - fix to short Kconfig description (checkpath)
-> - add OF integration
-> 
-> ---
-> Liu Ying (2):
->       dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC subnode to schema and example
->       drm/bridge: imx: Add i.MX93 parallel display format configuration support
-> 
-> Marco Felsch (1):
->       arm64: dts: imx93: Add parallel display output nodes
-> 
->  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml |  78 +++++++
->  arch/arm64/boot/dts/freescale/imx91_93_common.dtsi |  54 +++++
->  arch/arm64/boot/dts/freescale/imx93.dtsi           |  12 ++
->  drivers/gpu/drm/bridge/imx/Kconfig                 |  11 +
->  drivers/gpu/drm/bridge/imx/Makefile                |   1 +
->  drivers/gpu/drm/bridge/imx/imx93-pdfc.c            | 226 +++++++++++++++++++++
->  6 files changed, 382 insertions(+)
-> ---
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> change-id: 20251201-v6-18-topic-imx93-parallel-display-95f9234bf6cc
-> 
+Thanks
+/Ilias
+>
 > Best regards,
-> -- 
-> Marco Felsch <m.felsch@pengutronix.de>
-> 
-> 
-
--- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+> Krzysztof
 
