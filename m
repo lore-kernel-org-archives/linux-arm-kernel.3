@@ -4,76 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15654E81A3A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 15:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98042E81A3D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 15:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M+jMja1Zv89qo6CGVUlDGqW3VaP/2uVG0TycnbL5bXI=; b=pHTIlJu/f5IX8j8sd3L1Se6ivg
-	BUFT203awWkwwaq31cQYlLPq7Zr/X6ik4OIhvrzKzGRl7JqlqrrxnEua9AUMIEvFrfhARQt37Hv79
-	Q+ZJ0JzVWxJ+IY6o4s0hQMStY9R8NYy2PDvoaf+XsBy1QARGD0SF7xwuFxkx0YpNsF3cFK7KlgqfH
-	GEAGlMd1hTVu/B1/h+qfqAfKGVk2bv+8Opss/85aGDa/p5Ag7IUQCMyt9qo9TwKDohUuuOjDD4bcI
-	97udT27ThlmMG9rbIL3eGb88IaQENrZkDHp2D8tRKhn3tpvy/DkBP6OeCBVLUCnwEGuulDL5MzAQi
-	fE0krA7g==;
+	bh=ZD5xWHMajXqRIAR/ZyL9vvuHjG+gt6rApJ8AOyoRlS4=; b=EbuLcE0/rIJiOdFf8k/MOSCRiw
+	WA4zP2mbVZYSP6peJt+G45eOwTB8iYAZqUMvgZ1pCxZcAZDij7Wxy4A2v4zGbyTQ8az0Qyk4g4+eN
+	wNorfuSp467UtPoChKMaXJS9Y7wJYTDfJFqKNkbyvp8KEdVqMmncnYkYQbbxfe5VKRowusF8Z/50q
+	J4HDpMZ5O5hFN+YgBlSFiQbhoP8HnRxfq5pBT+hGvXBBYSmbTQ4w3Smd10rStPHiJ6yFhLGOM11Ii
+	xTb//5JCR9vyNibRCFTuhDWSNH+XL5yDxOEJ8ZPz2D/O26BfGbPPjy8l/eMm4dMoWXstLBuiSuk6E
+	nb6Gcb+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs0sN-00000006wD5-3csW;
-	Mon, 16 Feb 2026 15:51:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vs0tf-00000006wKT-19hv;
+	Mon, 16 Feb 2026 15:52:27 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs0sM-00000006wCy-2WOl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 15:51:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A7F046012B;
-	Mon, 16 Feb 2026 15:51:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32EA8C116C6;
-	Mon, 16 Feb 2026 15:51:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771257065;
-	bh=pFk/aDcVt6B9y65xxH78nLz2y95aHuRINuZvvn9OfGs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=c5r6P8o5J3Kiq4J5AfCe4vEL+HN8lM8oeb1OzOPMkRIp2ILzJ517QbjswLUbaNEEW
-	 x7hyOrotigxo/F6bSuCT1hfxS+BgYCKA6Z2Zj9QFH1cHuzmgeqOHf9uk5rmMGgDQhV
-	 eyLBVztHi3v0u+4Dx2+h1xlgNbekHiuiP3bd6Uk9mf9TinPxCtDEWi/IJ0ER04kj7v
-	 NCjgjObBLlwAwu+0LvKjuYOw5V3kKZv0HXskJWbnYg/qVqfmA+oLtjleBQWdrUOfzz
-	 Po3RJOYGP9Q90U01knFiXMdySYDZxdoQKLqntUlgFvkC6jP6tvwG3RJWDaWIg31CWD
-	 oGhLMIai6jeOg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vs0sI-0000000BRLX-2DqW;
-	Mon, 16 Feb 2026 15:51:02 +0000
-Date: Mon, 16 Feb 2026 15:51:02 +0000
-Message-ID: <868qcsbsbd.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Will Deacon <will@kernel.org>,
-	kvmarm@lists.linux.dev,
-	mark.rutland@arm.com,
+	id 1vs0tc-00000006wJv-49fQ;
+	Mon, 16 Feb 2026 15:52:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UM/elingkvLho7xwyyKv6femoZjjsgWOjLdC2SkFepthoNzdHVlBPyCFDwNNUR6eszWXTO/4G6LprLO8SXwygdZiRhpr1YeqV76oNzCCBUY0UbF3/7cLsKxbuwlanh4IhhICXcRD5BVwMqTYMn346dtzQ8NaAipyPq65AyJE7pcVW8Lmgp3oC60VRwPXOkuwZZXjo3lwLknlJ/KdDKdgJTUQW6V1IUqlj3xC+tt4tDUrxhzg1qOxCdkOhKGN1xTiCT0Me3SDzD+G3M8/EgbVOkweKsSGzkonMHY1nNuj76b48tn2hGn9Y06CXTFLlCGuavxuabQ9mEdSIm/xFXrNnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZD5xWHMajXqRIAR/ZyL9vvuHjG+gt6rApJ8AOyoRlS4=;
+ b=b4aIiUdtMM0NFnTIx5Qg1JdGTkBXV4HEtDyvE3D1dY176fkwmFDPOI3MjvDn3RvhOb4M1ncfS5Ey7nDTEQLs/Jy2mut2H0nX5BQjk5uVsp7Zpn4XxuYqTI2GP/M+2N0MKHDiGbiRUb0Qzp0mUiUH4l8EiUfNPqOK4EmZTgSocSnxJRmSKDfAHvAw7Pdhq12iWMFAfPE/lX2orPe0a4SgOLeB54LrYwFuvy/+4QBarPrSGC6/cbjfUlSJE9GyBqpn72D6WUyLTQb+09HW8YcoMe4RG0XPYOeV4S+A6400T1LotjNDey95mJtoA8QQ844r9qJ4rdhJLkir5YgzAIpaqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZD5xWHMajXqRIAR/ZyL9vvuHjG+gt6rApJ8AOyoRlS4=;
+ b=I8NZa+WEf0iByxAfsSoCj7K1dM93A2b1EKCZAspf9aKjawmM1gM+zkjFWGBJg5fGZQ3VwWx++Macj6ZheSSmkO6LxPsfgYZGKjIdYRGraVfl8hPdBqwEnUTbKgvqtRhdybYuQOC846HjMtNxEpVwiVo7WqGR5DoeXroaA6SzaQAALQVNBeqmchBxHZsFaOM0TkMVLddY5LDHzRplyUL7eS5S1ONFZ7bkRY/yj2FBRkwcdTo1AOyYrj/smpeTaBXwvkXd+uemlHGzHpTaTSX3niXM/h+F045UztpV5XILsiuONT95Keod1PkqXMw+s/Rjkq6j7EC/de80qhqcWu00ig==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AM0PR04MB6995.eurprd04.prod.outlook.com (2603:10a6:208:18e::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Mon, 16 Feb
+ 2026 15:52:17 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9611.013; Mon, 16 Feb 2026
+ 15:52:17 +0000
+Date: Mon, 16 Feb 2026 10:52:07 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running in guest context
-In-Reply-To: <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
-References: <20260216130959.19317-1-will@kernel.org>
-	<86a4x8bw38.wl-maz@kernel.org>
-	<d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: james.clark@linaro.org, will@kernel.org, kvmarm@lists.linux.dev, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, leo.yan@arm.com, suzuki.poulose@arm.com, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-rockchip@lists.infradead.org,
+	Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	imx@lists.linux.dev,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v2 5/6] media: dt-bindings: add NXP i.MX93 compatible
+ string
+Message-ID: <aZM9JyKn_5q8fTa_@lizhi-Precision-Tower-5810>
+References: <20260213-imx93-dw-csi2-v2-0-8be6039f44c6@nxp.com>
+ <20260213-imx93-dw-csi2-v2-5-8be6039f44c6@nxp.com>
+ <50a82e17-1666-4ef6-ab6e-c0be3c780a0d@collabora.com>
+ <e06feb9d-47cd-40e6-8c43-b24ff8a3e800@collabora.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e06feb9d-47cd-40e6-8c43-b24ff8a3e800@collabora.com>
+X-ClientProxiedBy: PH0PR07CA0021.namprd07.prod.outlook.com
+ (2603:10b6:510:5::26) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM0PR04MB6995:EE_
+X-MS-Office365-Filtering-Correlation-Id: eadbb53f-0c13-497c-877b-08de6d735c74
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|19092799006|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vztDUD73kN03ddV4kfpNXCleWi5kLEqBRsE8gDXO/S7YG0KuCY2HBfMJyDyx?=
+ =?us-ascii?Q?CENz7+f4/yS1TyV01hFYzcSZzmpsCb/D8V5oQapWcrcgWpPnLAnrNVTreiJP?=
+ =?us-ascii?Q?xCNJJcnfLkavhcRmZW2n2eQhHiXpAQgYPMu/yoRFVQzzsSg6VBHwLZYI7eEP?=
+ =?us-ascii?Q?aKGxSfP6Jll5dJbn8HNkMHQZeD/t+UaOcy4tB+Mic81gwgX47xE2Y2qK7vf3?=
+ =?us-ascii?Q?5a7z9zQzHQDFe2E517EzEcyPDL+fSKGx66RYidUPkMOorV4cQHl7EnCRsvDi?=
+ =?us-ascii?Q?dTTnA1plFfxSMc6Q8xsLKZ/r1vOTtY1yTVUe8NB+jBbpChNcBn0/Ahwo8amc?=
+ =?us-ascii?Q?T4DorVarWMcyNrrZMHhUAz4SCOSKehpKx2LLvTSiNTdgH0vX/kN+RpiJV0qq?=
+ =?us-ascii?Q?XIpgbwtgyHtYC14WH6jx+p6HraBfU4PmHHGANVjP82saActXtyrg9TDYyi61?=
+ =?us-ascii?Q?mpiVAmRDMGCsZvLNkTbFkp1sHWp7jNutGW8XZnQx/27pmzUWWpKHO/XN71qa?=
+ =?us-ascii?Q?H/Hc8lVc3Gw/FQDEdNn/ExIpYBQwyUqzaPgt+MwV/xgspXMQsri7A7Z66F5y?=
+ =?us-ascii?Q?j/ELBOPcw0bbtYJ/q5qJPGGal94O+l8Fly5/4b9QYixIdz/rTi8R8ZCox77k?=
+ =?us-ascii?Q?M/wtwxHD2FpQ1UhWpQLhNNeGTe93NDOKhnvXvk7NKMFgC6GhNmdl0W+0TVh8?=
+ =?us-ascii?Q?n4LaBGWD/swRV3c07ehdXeDq3OvhtrFLQbraboKpPJT2L+n77/OPhoINR3Sz?=
+ =?us-ascii?Q?GwiWeeJ7yQBOqqymqaXhI33UqDgMPnwtSt/6iG04nvOo93WFKqHDS7QqX6In?=
+ =?us-ascii?Q?9uDHQwRKFO+Sw7c6cf96SnOYhYIsC5qNJKGzpQI1M9dXi/2kfBv+WrDlm149?=
+ =?us-ascii?Q?jHFlVNMWgl8RTvCTxPI9Wb3xHYvxg0ynUxvF5jC5D3T8TS8yofIPaIvm1QT4?=
+ =?us-ascii?Q?yoPxDXCjIS+tOADt8U6BiJALJoKr1Htl6+rLLnJpDn6ham/D5zxxn0g2Xcj+?=
+ =?us-ascii?Q?eS3n7YDGro2GdwvkTS4UIGINuUWQbfpnAvPousc2cpD8WJCWMWi+9JSZNgVJ?=
+ =?us-ascii?Q?B8CRq8CTONOJ7P3SS3qLDY/H8SyQWsoXvwa7BSgjqocnJ8d0dnP83k+InnKP?=
+ =?us-ascii?Q?o61ESyV7aXgyCa+MLg5iih6JOwEjFyWO+vxa39bGaJziY7qnWAjTzCrimnuM?=
+ =?us-ascii?Q?fuUT5UZTfpQspZgdf1x1vguR+yMMxZ7EIpGhKsfhYZlGSXJFZKieeq9Sgy1s?=
+ =?us-ascii?Q?jUtsWBg8ncixctyTYym7+4pd3sKKycclbJP3WoZfh7CytXgjVBEOUP7YOaML?=
+ =?us-ascii?Q?fmlHB4Kq8dDP+7Yr8A5etxr1ertPp7M2ikHRi8cXNF3QqLqLGb640LqP2iab?=
+ =?us-ascii?Q?EU1AAGncr3yzZbitf7NhoehS6cbpnKLtWNxiXxLEhRs85b2Opb9VSuFpWjfg?=
+ =?us-ascii?Q?BxiqTduHONBb6p2uzSdc43bQ8sR5bbotRSiAH8QXEf5Nkbq0dBRSLJHIPLpP?=
+ =?us-ascii?Q?nTkeFSq+nJVZcZKF3jb6f4dxo4vZhQu6mo1IfTT+zWgOyi6QDDXNWyO3Imn0?=
+ =?us-ascii?Q?ZzTNOqwRiWf7gA/5wPtqMkF9KC9HFxZWvlpjRWeUAUatyjx8F5PX1OXvhwVa?=
+ =?us-ascii?Q?DOQ8C6T0dIfcJUW7U02RStk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(19092799006)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Eqv+G8dWPnM+yijYDUUAQIjN923j6XTEXaOXYMgJgnygiJBB6Et5pWwFGB0z?=
+ =?us-ascii?Q?Jxv9xjylzhUmZQrBVDkY52/5sR79oUg5WdEb8IoOXKboOkkB/oUBwFgxJcOJ?=
+ =?us-ascii?Q?5CRMWHGelsnsuSgj4nPBo9u5BK8GQqkdYABqp2Mp2/qoBZM9FD6c0+UWHxrf?=
+ =?us-ascii?Q?OouSpih/rMI6KDiBpSjL+rAj1z77rIHPdcv6BoQ/CmN/2O5pWhD7c5H7vwxr?=
+ =?us-ascii?Q?ic2k+w2SYMEnhFBILniknHAfCwJUVNmuyfupf9EZ6n8zskYXzWbETzkU1HKJ?=
+ =?us-ascii?Q?EInSRtvjzkPNx2MCCJhtrLfFI/8NC0g67orrm5Edi/vGFkW3OtBu2kCKO1Bt?=
+ =?us-ascii?Q?ZT6PH7WAwthi6jnG3S9wI6J1U/a3BZcz1g8GXsoNCHthinbX+PZLETNlzbju?=
+ =?us-ascii?Q?AJPmZGa6ubpXO9dqsSg6NdJ127cgQT40yZHE6UdCSp1/5RVsH+kDbLiDvgpn?=
+ =?us-ascii?Q?zJU8BQAItm5bJv1U2+TVKvCeXnklj0deDjBTt3wDZK7pW0c2k4YVlfH/AMiN?=
+ =?us-ascii?Q?GIt4CaQkBgU0KdG6XzjEH6yIzWhRpbjAnW9eFQdfFjszmUiGCVpiHoOcQOVW?=
+ =?us-ascii?Q?Qf/ratMhUDD1f0q0S8tAI1smHPpEceViSH03p6RMWTu0Ze89cR5CSxo05sgq?=
+ =?us-ascii?Q?rhHJljSMPXXmVrZIZvw1maUn99TRtLb928yJUpelqADScz6GNzPYVGfIcm1s?=
+ =?us-ascii?Q?iJHsQZZFoaoiUWNFpymRwZHJGP/8S3IY1aKbftYo6aqdRWCK27R1xeUx27aY?=
+ =?us-ascii?Q?pSoDh89bs63CwW1vXo++mmDVhWWPIoH74vhRoFG8j99e48rLVJ+xL7cvkiWl?=
+ =?us-ascii?Q?aM+m5p2H+P7Fp5EhcgTdHG1p8HvHOGgnf/E286z6iKemHM0pWUxsvW7pG5aA?=
+ =?us-ascii?Q?QMQd1dqdEcFAshmRXLKVeKaX62elJQiH0kqSyfQ1CGAOSDwJqYu7AF8oQ5J4?=
+ =?us-ascii?Q?V0ZaQkU6RyzUg+72RwHjU5WZvNuQo09Gnfnc+TEX/Z3teZJrtJ15qii18Fd8?=
+ =?us-ascii?Q?x7pHEuYQuPRZ6xWwAWTP7WpJTJSCuay9Xsu+QdfnNvhfrXlm/BWUc+hZqCBy?=
+ =?us-ascii?Q?wuTS4/gohGL2bUtkB9FHUnRkgpiscMJCYqhTpSCiqdPyuuuYXkAAWocig2aH?=
+ =?us-ascii?Q?qAQmCRTye1oC2j2dY8hDCVz8i9qeAmJI3jjVZrjjdi8AZ7WUZBEB7NFLc+At?=
+ =?us-ascii?Q?I9JvweTFK3b+yRhEknZ27mUalR/qIpZcsZuGFpX1zJUazIJcX3/+r78NQ90F?=
+ =?us-ascii?Q?1V2vhp1yQErTrjIj4zzkbxnN50G5fWeBeZs/QfkssJFYU5hAq8raZWRWTSKB?=
+ =?us-ascii?Q?mMrt2dvN9O+JT2BmBSzSWm4ixItNL43Q1s6jlDS6OV03Fx7EFNNgtvse1RPr?=
+ =?us-ascii?Q?+GNQNq/KBdGIqfMKRM9fj5CIVnUibSVKCrCRHo+qaZaLnxEb/95OuabxDil4?=
+ =?us-ascii?Q?eq0WeG6BrKQLgAp018IQyxasd3M4KCmbb3dK2+E+DJ2gaJuuj7jDafEa1cbW?=
+ =?us-ascii?Q?IvaQbtT6YOswt4fI9i+W602bWrC3rOew9zywrfmA0386VCH6+6dQUwjO0LSm?=
+ =?us-ascii?Q?tgpmXaTrV4jMERpNJXQCfOQrWEs9z1oaSiZLFh9vFSbb1ogOKubf+qKDJjUw?=
+ =?us-ascii?Q?pdSpz1mWL9o7Z45mGD8BvGQo3O2Ef6EFmsxpJEGaPelPHmrAQVEb7i8YgFI+?=
+ =?us-ascii?Q?t3Nl95rUrImz6E9bk0LaWwK9o89kkTAXjPwhBNReE6UDihZ8?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eadbb53f-0c13-497c-877b-08de6d735c74
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Feb 2026 15:52:17.5374
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UoY3vIh5RwoLy1kI2oxrT6JbHREFB2BifdPOShfD4M6KjRuT/ctY7JWipBNAZYZ2kEKM/ftL2p0D4n1oPBgYlg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6995
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260216_075225_065774_24165E4D 
+X-CRM114-Status: GOOD (  24.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,157 +175,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Feb 2026 15:05:10 +0000,
-James Clark <james.clark@linaro.org> wrote:
-> 
-> 
-> 
-> On 16/02/2026 2:29 pm, Marc Zyngier wrote:
-> > On Mon, 16 Feb 2026 13:09:59 +0000,
-> > Will Deacon <will@kernel.org> wrote:
-> >> 
-> >> The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
-> >> generation in guest context when self-hosted TRBE is in use by the host.
-> >> 
-> >> Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
-> >> TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
-> >> per R_YCHKJ the Trace Buffer Unit will still be enabled if
-> >> TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
-> >> Trace Buffer Unit can perform address translation for the "owning
-> >> exception level" even when it is out of context.
-> > 
-> > Great. So TRBE violates all the principles that we hold true in the
-> > architecture. Does SPE suffer from the same level of brokenness?
-> > 
-> >> Consequently, we can end up in a state where TRBE performs speculative
-> >> page-table walks for a host VA/IPA in guest/hypervisor context depending
-> >> on the value of MDCR_EL2.E2TB, which changes over world-switch. The
-> >> result appears to be a heady mixture of data corruption and hardware
-> >> lockups.
-> >> 
-> >> Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
-> >> draining the buffer, restoring the register on return to the host.
-> >> 
-> >> Cc: Marc Zyngier <maz@kernel.org>
-> >> Cc: Oliver Upton <oupton@kernel.org>
-> >> Cc: James Clark <james.clark@linaro.org>
-> >> Cc: Leo Yan <leo.yan@arm.com>
-> >> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-> >> Cc: Fuad Tabba <tabba@google.com>
-> >> Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
-> >> Signed-off-by: Will Deacon <will@kernel.org>
-> >> ---
-> >> 
-> >> NOTE: This is *untested* as I don't have a TRBE-capable device that can
-> >> run upstream but I noticed this by inspection when triaging occasional
-> >> hardware lockups on systems using a 6.12-based kernel with TRBE running
-> >> at the same time as a vCPU is loaded. This code has changed quite a bit
-> >> over time, so stable backports are not entirely straightforward.
-> >> Hopefully James/Leo/Suzuki can help us test if folks agree with the
-> >> general approach taken here.
-> >> 
-> >>   arch/arm64/include/asm/kvm_host.h  |  1 +
-> >>   arch/arm64/kvm/hyp/nvhe/debug-sr.c | 36 ++++++++++++++++++++++--------
-> >>   2 files changed, 28 insertions(+), 9 deletions(-)
-> >> 
-> >> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> >> index ac7f970c7883..a932cf043b83 100644
-> >> --- a/arch/arm64/include/asm/kvm_host.h
-> >> +++ b/arch/arm64/include/asm/kvm_host.h
-> >> @@ -746,6 +746,7 @@ struct kvm_host_data {
-> >>   		u64 pmscr_el1;
-> >>   		/* Self-hosted trace */
-> >>   		u64 trfcr_el1;
-> >> +		u64 trblimitr_el1;
-> >>   		/* Values of trap registers for the host before guest entry. */
-> >>   		u64 mdcr_el2;
-> >>   		u64 brbcr_el1;
-> >> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-> >> index 2a1c0f49792b..fd389a26bc59 100644
-> >> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-> >> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-> >> @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
-> >>   	write_sysreg_el1(new_trfcr, SYS_TRFCR);
-> >>   }
-> >>   -static bool __trace_needs_drain(void)
-> >> +static void __trace_drain_and_disable(void)
-> >>   {
-> >> -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
-> >> -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
-> >> +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
-> >>   -	return host_data_test_flag(TRBE_ENABLED);
-> >> +	*trblimitr_el1 = 0;
-> >> +
-> >> +	if (is_protected_kvm_enabled()) {
-> >> +		if (!host_data_test_flag(HAS_TRBE))
-> >> +			return;
-> >> +	} else {
-> >> +		if (!host_data_test_flag(TRBE_ENABLED))
-> >> +			return;
-> >> +	}
-> >> +
-> >> +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
-> >> +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
-> >> +		isb();
-> >> +		tsb_csync();
-> >> +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
-> >> +		isb();
-> 
-> The TRBE driver might do an extra drain here as a workaround. Hard to
-> tell if it's actually required in this case (seems like probably not)
-> but it might be worth doing it anyway to avoid hitting the
-> issue. Especially if we add guest support later where some of the
-> affected registers might start being used.
-
-Just to set the expectations: guest TRBE support is not happening
-until the architecture is fixed. It cannot reliably give a trace that
-includes emulated exceptions, and until then, no TRBE for you.
-
-> See:
-> 
->     if (trbe_needs_drain_after_disable(cpudata))
->         trbe_drain_buffer();
-> 
-> 
-> >> +	}
-> > 
-> > Doesn't this mean we should be able to get rid of most of the TRFCR
-> > messing about that litters the entry/exit code and leave that to VHE
-> 
-> Technically you could have ETMs that and are connected to sinks other
-> than TRBE. Unless you somehow switch off those sinks you still need to
-> do the TRFCR switching stuff.
+On Mon, Feb 16, 2026 at 04:22:13PM +0100, Michael Riesch wrote:
+> Hi Frank,
 >
-> > only? And even then, I'm tempted to simply get rid of any sort of
-> > guest-only tracing, given that TRBE is not capable of representing
-> > exceptions that are synthesised by the host, making it the resulting
-> > traces useless.
-> 
-> I haven't heard of anyone tracing a guest from the host, but until we
-> add support for guests to be able to trace themselves it's the only
-> way of doing it, so it could be useful.
+> On 2/16/26 09:31, Michael Riesch wrote:
+> > Hi Frank,
+> >
+> > On 2/13/26 21:25, Frank Li wrote:
+> >> The i.MX93 uses the DW CSI-2 RX controller, which is similar to the
+> >> Rockchip RK3568 implementation.
+> >>
+> >> The i.MX93 variant provides one IRQ, two clocks, and no resets. Add the
+> >> "fsl,imx93-mipi-csi2" compatible string and keep the same constraints for
+> >> rk3568.
+> >
+> > RK3568.
+> >
+> >>
+> >> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> >> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> >
+> > With that cosmetic fix,
+> >
+> > Acked-by: Michael Riesch <michael.riesch@collabora.com>
+>
+> I just recalled a conversation with Heiko we had off-list a while ago,
+> and back then we kind of decided against a snps binding document and
+> compatible, since the integration in the respective SoC (family) varies.
+> Thus, we went for a Rockchip document (which shall be extended with the
+> RK3588 variant of this block, for example) and thought that any other
+> variant (e.g., the one of the imx93) could be documented in a separate
+> document fsl,somethingsomething.
+>
+> Seeing that interrupts, clocks, and resets are different, I would
+> recommend that you add a new fsl,... document.
+>
+> What do you think?
 
-But that's *not* working. If you trace EL1 only, even with a VHE host,
-the result is not usable.
+It is depend on how much difference. Conside Krzysztof Kozlowski already
+acked. we can split it when more soc will be added, if-else branch become
+extremly complex and abstract more common property likes dwc usb at that
+time.
 
-> Although all the messing
-> around with TRFCR before was from a request to disable guest trace
-> rather than enable it, as it was always on in nVHE.
+Frank
 
-I can't see how it could ever be "always on", unless you were happy to
-randomly corrupt memory?
-
-> > I'm still trying to get my hands on a TRBE-enabled system that has
-> > some actual firmware tables (my O6 seems to have the HW, but no
-> > description of the required coresight infra).
-> 
-> Leo has a guide, I haven't tried it myself yet but it should be
-> working. I'll send it to you.
-
-Thanks. But why isn't that stuff publicly documented? Sight...
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+>
+> Best regards,
+> Michael
+>
+>
+> >
+> > Best regards,
+> > Michael
+> >
+> >
+> >> ---
+> >>  .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  | 47 +++++++++++++++++++++-
+> >>  1 file changed, 45 insertions(+), 2 deletions(-)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> >> index 2c2bd87582eb8bfdd13720edd62a5f00dda958ba..4ac4a3b6f406408b9524c795e6cdeb117d3353da 100644
+> >> --- a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> >> +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> >> @@ -17,6 +17,7 @@ description:
+> >>  properties:
+> >>    compatible:
+> >>      enum:
+> >> +      - fsl,imx93-mipi-csi2
+> >>        - rockchip,rk3568-mipi-csi2
+> >>
+> >>    reg:
+> >> @@ -26,14 +27,23 @@ properties:
+> >>      items:
+> >>        - description: Interrupt that signals changes in CSI2HOST_ERR1.
+> >>        - description: Interrupt that signals changes in CSI2HOST_ERR2.
+> >> +    minItems: 1
+> >>
+> >>    interrupt-names:
+> >>      items:
+> >>        - const: err1
+> >>        - const: err2
+> >> +    minItems: 1
+> >>
+> >>    clocks:
+> >> -    maxItems: 1
+> >> +    minItems: 1
+> >> +    maxItems: 2
+> >> +
+> >> +  clock-names:
+> >> +    items:
+> >> +      - const: per
+> >> +      - const: pixel
+> >> +    minItems: 1
+> >>
+> >>    phys:
+> >>      maxItems: 1
+> >> @@ -88,10 +98,43 @@ required:
+> >>    - phys
+> >>    - ports
+> >>    - power-domains
+> >> -  - resets
+> >>
+> >>  additionalProperties: false
+> >>
+> >> +allOf:
+> >> +  - if:
+> >> +      properties:
+> >> +        compatible:
+> >> +          contains:
+> >> +            const: rockchip,rk3568-mipi-csi2
+> >> +    then:
+> >> +      properties:
+> >> +        interrupts:
+> >> +          minItems: 2
+> >> +        interrupt-names:
+> >> +          minItems: 2
+> >> +        clocks:
+> >> +          maxItems: 1
+> >> +        clock-names:
+> >> +          maxItems: 1
+> >> +      required:
+> >> +        - resets
+> >> +
+> >> +  - if:
+> >> +      properties:
+> >> +        compatible:
+> >> +          contains:
+> >> +            const: fsl,imx93-mipi-csi2
+> >> +    then:
+> >> +      properties:
+> >> +        interrupts:
+> >> +          maxItems: 1
+> >> +        interrupt-names: false
+> >> +        clocks:
+> >> +          minItems: 2
+> >> +        clock-names:
+> >> +          minItems: 2
+> >> +
+> >>  examples:
+> >>    - |
+> >>      #include <dt-bindings/clock/rk3568-cru.h>
+> >>
+> >
+>
 
