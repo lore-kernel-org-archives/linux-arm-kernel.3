@@ -4,166 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D91E81A48
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98BF9E81A48
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iHBfYqCTZ28qbHLcwdxMkm8k/uOAagYU2LVDOURVdlU=; b=xifv8NqKs1mZNV0nevQ2YU3fOh
-	rwiFaaUOk5zXo05VLem9tiDAKU46QwCD6du7aTgDQisMRKkgX2iofwt4uwhEWlAF2TBSb48MHLqWE
-	BXoNyTmHsBHSQ1leuK5Pa4Dlt3SM3C5tG9lBqGF95svnqxIXG7jrPHegVJdgLViK+hW3KU49Nlpqa
-	WkDafokveOaEN3E+Y7VAsFsFXewRG82+AAD5Id274lyokllUE6TRS4FZIzKyyYTppqGcoRGXL47gl
-	brDLevYhAw72TabJwB+ui78VDu8hewlfIckf2QYaA1rTABgGUmH6OTSaa4yCt3qHndczy1FNoksuH
-	dgUw2dTA==;
+	bh=ZLkgKnF2bePIuvkrJcjyb1aM9z+//rMQFkOjHPiFzQI=; b=ewt56UGqF3oae7ogtu4U5ztZT9
+	o21rrVvshYy6w1Dof0uAIgCx+J+5N/q84YZs3hpO+iN0/rYMrRcJ2GX9pF8ah1yZtyPxhfy26nmBK
+	6gfgDirTD+CZU7QrgfDPZ9apvRW+6zC92OWOXtC9Wc3yl4SO1JLbvSp/3x13owZwQpZC925Z2FrmN
+	XMrNlMNSSnZLFSIziZK6TfjKFt0xBJZ3St0uWzcSFTa5Z2are74Am+VGhVgW5rmm627jfy/4GFY+3
+	5iOD1gcCvzgr4L5Mh4UTvBuig70gUpRwtmOMwdaSolap4vV5P1hNh/7BG3NsoVwY5GKk0LqNST0Qu
+	Souj9q0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1lg-000000072wV-2fOb;
-	Mon, 16 Feb 2026 16:48:16 +0000
-Received: from mail-francesouthazon11011049.outbound.protection.outlook.com ([40.107.130.49] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vs1mX-0000000733C-2JE4;
+	Mon, 16 Feb 2026 16:49:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1ld-000000072wA-0tdC
+	id 1vs1mU-0000000732o-36A3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 16:48:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yrS1x/6Gm53gkhOr9H8aUoATO8gn0Vc+ArOtPt1jxFesAaL6By+vtQgUHTx7h5N5DEn4jf1RtVCtBgF/ndroG9fy+M2pvRVj5VukCeBAC2GPcYZV1EALpGlYlJCj4baY98yt65aX+NCT6BRaGGWirJO7C7ZAGU4qPrHXsphuYuaCw6ctX046Ebx9cPcErFBerS8AA0/uXZEZn8Cx4HKkz0X2rv3oXKBl0dcSjMZD8TCXv7aydEExTfoVysM2wEIt1/eW0WEJGeOmJqdkFb7zgdZywo4+ndrh/cpsyBFZGluZ9Wi7Ce2th0F5GEOgY8SXS6zcyBulYWhcPoDp9YXdRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iHBfYqCTZ28qbHLcwdxMkm8k/uOAagYU2LVDOURVdlU=;
- b=K0bZqa3orggPAtYEzBdEdW4MYsvLZxvtG0uxXNjj7jqgRdRZgtlSJVl4c8lwsUg924/eKlUi3y5r9ZT33z1D18k8LnIAAoRUEydjZOpK+2fHuV1jA9rU5lT5sdBj3Ty2j3uENQqLAX9cZxF7D9g6WTylbH3K+3sP0WQHaqHtzEnsf01PO7XqU6IeInYqDeEnWQYRDilHpmGtURWHi1VPeHXNnov2/GuCY4mk57jlhtf4ZmFwzbvLTZtEnFBWxRK7We4uudg/FakLXhb4oiS29on2FZpKtTkT/TXhEPAxfhb3gfAVenlj6hP2s/zynDrRcoxQk33uXjXFfqfjK01tuA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iHBfYqCTZ28qbHLcwdxMkm8k/uOAagYU2LVDOURVdlU=;
- b=kYgZrzQ+xlJyMVBB1v6msLGt0PO/OgUCYG0qL45n8oI5zIVIqNLAWEi/U0F9AjmKJLOUy/NcPLyPsGAits2uZqffzW9MplJsnhCo9ThlbNaFydoeUp3LGm4MOir42hjBW3ORYSVwd3n7yXSdwju1MyXHUpjNBLq6zvqlNxI1zF+iNM9tlTeM5ICNkkdkzPOrmPkF/FLEK2fEULv8u1ZLRKIMS0zCJkU+PKk3vSFMJ5Nhuj7alSgDTrUXBjdJwj82fQWJ08lSzyWZp5w83Ug06zgobuKPKRInvZX+AuNzwW4hTEPAR6SJTVJYfmi7OHFiCa0JSWbzljxOMcRmrj8+Iw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DU4PR04MB10767.eurprd04.prod.outlook.com (2603:10a6:10:580::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Mon, 16 Feb
- 2026 16:48:07 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9611.013; Mon, 16 Feb 2026
- 16:48:07 +0000
-Date: Mon, 16 Feb 2026 11:47:57 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	luca.ceresoli@bootlin.com, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v9 0/3] Add i.MX91/93 parallel display support
-Message-ID: <aZNKPVZunRSZ72zt@lizhi-Precision-Tower-5810>
-References: <20260115-v6-18-topic-imx93-parallel-display-v9-0-2c5051e4b144@pengutronix.de>
- <fpnruayalannx3jrsjqfjzawrzxazy7ioo7ufxcwkbwj2eezfp@6i6ty7fz5xtc>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fpnruayalannx3jrsjqfjzawrzxazy7ioo7ufxcwkbwj2eezfp@6i6ty7fz5xtc>
-X-ClientProxiedBy: PH7P221CA0090.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:328::25) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU4PR04MB10767:EE_
-X-MS-Office365-Filtering-Correlation-Id: e018afba-7525-41ea-46c4-08de6d7b2945
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|52116014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?R1l9/Gdwl8RvZHw5BXtGABaOHxBWK90CyHhp2mMNiaHD0Wsjnb14DgGnSjGq?=
- =?us-ascii?Q?YToIBI6O1EeVvigC+i6sgFC0i5ejkGVWPGkDLkWOC9VvtG3ff9m+6gGvSATM?=
- =?us-ascii?Q?F0OrN4OKkZx94ARNY5RUmCv+C/YFVL/cofQm6dKR4XhAAUKeQZA51ZYNZkN4?=
- =?us-ascii?Q?zTzROMNeifM0ZYXahtsqJekf5p/9x4bANvyJ+RuPAd9hsjMm2KLutFmMMjfP?=
- =?us-ascii?Q?YOH1dS0F1IH33PHfhnATOEjb/tlGKf+F+EsN/oR8cIDkvvqbnaq4JtTrdLnY?=
- =?us-ascii?Q?XXTe5Z4ePEftg9X/ln9G4NQNg5qV+LbH3TdtglVyHzoMh9MQC2Upo5iKSxxl?=
- =?us-ascii?Q?gegW/e01T4dNuUfhEi9bd5dvNQg1wcE57b6+TYB0+Dah0A/zHrZ0trSh6r42?=
- =?us-ascii?Q?uMnOKvwh3EFXQR4IeSS1gKdsPqaat24A6tlycZn5ihgGB/515B5MzLKEyp0/?=
- =?us-ascii?Q?MarjhoTy05k4dYw2k7YEIbG8sSCwBI/TZeUS6m4Lev97pnvUmgsR/5jPsMP9?=
- =?us-ascii?Q?3g3H9gYT5YkjeXWyUzLuAbdO4B4dfq5AdI1wikVCo5t4aTUNWegwAEugrXX9?=
- =?us-ascii?Q?mg2KV50fJLiR/Cn63hh9u2SdiBFPPfaL8PYyut4NQ5UumJrHsHjWLibuX9PS?=
- =?us-ascii?Q?TtPqQcg5xxHn+pPhtzyQHKKQKzbGjMfQX8Q1mLLwDxZr9OX2MX9sLoBjyIj4?=
- =?us-ascii?Q?EjHlTSwJfRZK39QemZfd1QZC8s9BBPnF38CklOKFrm9yDANXfaazfzX8fKVY?=
- =?us-ascii?Q?hPsj4mghVIak1Q1l6pejcDLMD1IHtA6OUlMJgL/cWjcwKvBmNM5dCqqZ59cR?=
- =?us-ascii?Q?mSC/fBbwNDhIWVLvXfBk8Nen+LcVUkIPQAbFgFGmafF4ZNHabdPLsDEgmpxg?=
- =?us-ascii?Q?VM8yPNNCaQnJPwOvoNryCNqjNRVbXhkKgYALpBryhXBxkK0odYamnp4ysLhd?=
- =?us-ascii?Q?lmhdS+AaMJcoQqcbg59ndIkH3OwZOG3Apbd1tmQQ63IFgf39rreC94Xdm38U?=
- =?us-ascii?Q?9JbxStU8FvOaEACjGjANLUlnh6x0QDM783lhkSZyLeAX0mADrUxmNcMiO/3X?=
- =?us-ascii?Q?1CR+RB/zpmqhiUgwcnpEdlphOCkQUwLXo4WKm6583CJfLDeQ65MqMh+fVcna?=
- =?us-ascii?Q?ajoxpS84LopodVtLHMM7A2Acj1M/UmiwUv64B0hM5VVOe6vTct9C8OweH8Xt?=
- =?us-ascii?Q?yX+cpajOn7yDf7Z/71q8HBGvNf8D1bKcTibzmeyE0mMGu4EoTnjb/hAnKenx?=
- =?us-ascii?Q?CQKvnXFAUZgN4fv59lVdYDeWGqZsyYfi+wqkJkAqQBjCEVvhdZ6Q71XQ2zni?=
- =?us-ascii?Q?UJzAYDvEVRR/0DE6Go35KWUug3KpIt8URwJpmb5cnQiExpX9MYTR2V/+8HlR?=
- =?us-ascii?Q?MDnfveVquYa5m0LMMca5Hs4Rob0nz/kfV1osd0Rc+b9VqP5cz3aq4om+/Ox0?=
- =?us-ascii?Q?1ppEXBT1zYTnv6vB2ScmbhyZhODoFrxsJH/rwiMET4FtFOSOJk/MZ77MFr6G?=
- =?us-ascii?Q?5le9NIfXsSfdD7Kzon82LA4nIxlhnWvq9hT9vC5OhJT3FSn3yZvzQhtIPCWN?=
- =?us-ascii?Q?9NfWAe5RtMc063uA+Kk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Fk0EtG0m6VE2fGtxkF7bKdkWsHATO6RE+8Q4aYaRPQK7wDlHOKuf9Tru8QOi?=
- =?us-ascii?Q?z0IbEtBIra0nK1eVo0H0L7kunBb8g2BJHFCZFR8VAGadjmeieQmtDSM/d8Yj?=
- =?us-ascii?Q?FWEMKvWyeJd7jLjGVegCCUNIrf/HGbFUsLwGciqxvgrGJeHH2Un/a17NiMuB?=
- =?us-ascii?Q?DNXRKfblm4qzVPgutcneAvKJ1KzngLZXqEeSSUWSkrwHDURZLD9xUwKF04HF?=
- =?us-ascii?Q?viwTcuU/wbl74W1f3KRoawgD2aBCDG9/ZkG5b9KL9YFryB/VOhRzTBctD6Pq?=
- =?us-ascii?Q?woktV1L6lSxO2tfy/s8TPZEgItAtkABcZk6FH8K+Of3XuL+MU/nG+k8LCNF5?=
- =?us-ascii?Q?YsXlym+HudGzucvvlWYlKgS5bB7lPT+M1c+bFlTPrI4HP1m92xxMQ/5YxZMR?=
- =?us-ascii?Q?Fun8rIaXIEwGHgKcdWN5T3m5IIXudSdetbM8A4YISbirZNyjNPd1Ruxp8zUE?=
- =?us-ascii?Q?WFV6LRbyMvIdTXBdxYpkf15yt7p3uVKOtAXTSjNaYF/E0hoKZChyS1iopy3E?=
- =?us-ascii?Q?bCkkMIQUzexH6rJEZ5ItilYRjPERBMF25gOgo2IJcv1o0Cu4r5sJzkS16Pjh?=
- =?us-ascii?Q?1p+q29qGmYCJMw0UwSk4pwKVfGIs/Zrb3lNvEx/izweynTIeR+jJcwhzZbMS?=
- =?us-ascii?Q?6aqN7SiD6Au8hc/R2e1RsE3WyR2zbjkZGVxvM6QJPTTQhvJprymA6QhFFU3h?=
- =?us-ascii?Q?q2/fQAL6oliz473jqjCB4IpRJQYm1ssbodOLBisYhhCNUjpLpA8H7QDxHOo9?=
- =?us-ascii?Q?oTp52W2kMwC2b5PXYi952SRrUung+5Iek/rOFq8P/2WOGq/eNUkuRz0gztEm?=
- =?us-ascii?Q?ScQCewzUWtPKrb0YAcltLe9YvXqckt9z23JMZMyryUXRs4Ym3VkJmuW7qsiF?=
- =?us-ascii?Q?I1R6jc22WaQqf0TQTvA0/UpyTgOCS7nFozbnz2q9Q0uJEnGGKKlYPO10roB+?=
- =?us-ascii?Q?5hxeFINRhayBSXolttfR76M+Fq2Y9U3s6HYuOmz5/6iLMxnRDDnHy6qFjktG?=
- =?us-ascii?Q?WZn0/i4dOz+k/yfx5b9Stn5DqQ1LUPyO4bVimCmkmFGZ3WDhM781sUFzzZSb?=
- =?us-ascii?Q?a10jMciF4ZEiKcWDTzansyTC7s9ymlZZv1PzYjLppqe7KlT1cTvwFCdqETDs?=
- =?us-ascii?Q?sR4OBZORjnkNGSyPwDjVMoCPMnzsIE1GneFwEecktZSWiDLlEXns9uMzKRYE?=
- =?us-ascii?Q?PQOCKr5FkgjPd/lM8olBreWY/RIW6kRUNcXdw2p9rbKV6mrlKUBLs01Fo8p7?=
- =?us-ascii?Q?jcGfPRppcJ67ipRjIJSnXptUSOij9Wv7Xe+lHdWe+SN5f/ISDimf1JSzzalL?=
- =?us-ascii?Q?qI4PAFQZMYZDKlqTqHOWKCegV2KDeQQXq1HG2LnDdCfVlFP14U7R2YTrZfdb?=
- =?us-ascii?Q?cA5IxwWFr0GbXZl3qpDEYggtd2YhrdkpcplDcrG/3YPvl7mMnt4bY2Hyg+8k?=
- =?us-ascii?Q?5i74p31J6VD3Rzg1QVCiwrgVxI/Ns5GTP7qo0sTIxBYddyL2z77vNA+5DRy3?=
- =?us-ascii?Q?3obbu0rFiIbKs4Gz8oAA5oIFnomQFHmjdldspDOwFpEYqbU65sZr6P9ECvf1?=
- =?us-ascii?Q?EQU6pZKjodHl9Nn0Z3UExOedpRAy92A7vQKtTbO31iW/ytIyybukgdUqakUA?=
- =?us-ascii?Q?l/BqlO7+/uMy6fYP8JRDTaimbW/TiVChwj5ji54yYnBjIJfgv0DquCOwZGLY?=
- =?us-ascii?Q?yo7O6X1cjL2NGxhbvEbssaQ7DUYHA+O41yH2htxv2rxlaY1c?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e018afba-7525-41ea-46c4-08de6d7b2945
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Feb 2026 16:48:07.6435
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IvjQ1kEWqk+XB588fHszJm/jsBbrScFYkK7XYar2wIgydthND7fANaSJ7D0sSHoZRyKyULJibiQkqdizs+6UUg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10767
+	Mon, 16 Feb 2026 16:49:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5AC7D4407C;
+	Mon, 16 Feb 2026 16:49:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 166C3C116C6;
+	Mon, 16 Feb 2026 16:49:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771260545;
+	bh=BErrwxXcdvksVWRaNfhl52UAkNtasvnjPSSNTtqEst8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=B3CbpGTzFGLvpAOK7os0yuDzLQ5KPUQAwt7Iq52UO9ryWnI8+ZQ8mRx7FT503YI6a
+	 m7syNXZ0xa2PJHJ2cI60n0ByAuZ6WoNuGBToO6snvdXOZ5nbYTnObwsVCVJjNzwI5Z
+	 ihvjxhzdYYO89HvHCaoUCVEavhAL3AdqTJaVCRocIgQ053U9rWkx77qUlqQILlcQBt
+	 2+mtNw7WtjqOh/zTmMyqUVcDZTByneBVNauO/cBqOizP12M8Ko4QYQ3QtoMAEyvh3u
+	 aUacPxo/Xlj4C1VLowHbaq9uTB1HR9w5RPwacItOLcu1QGNA3lIQR23j7Y8eqYwAZD
+	 i8rvXPlDiFGAQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vs1mQ-0000000BSIJ-3TjK;
+	Mon, 16 Feb 2026 16:49:02 +0000
+Date: Mon, 16 Feb 2026 16:49:02 +0000
+Message-ID: <867bscbpmp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Will Deacon <will@kernel.org>,
+	kvmarm@lists.linux.dev,
+	mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running in guest context
+In-Reply-To: <076e013a-b66d-4985-9709-734d7184ad72@linaro.org>
+References: <20260216130959.19317-1-will@kernel.org>
+	<86a4x8bw38.wl-maz@kernel.org>
+	<d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
+	<868qcsbsbd.wl-maz@kernel.org>
+	<076e013a-b66d-4985-9709-734d7184ad72@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, will@kernel.org, kvmarm@lists.linux.dev, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, leo.yan@arm.com, suzuki.poulose@arm.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_084813_259207_FA4D21C6 
-X-CRM114-Status: GOOD (  28.35  )
+X-CRM114-CacheID: sfid-20260216_084907_235342_A7C48D40 
+X-CRM114-Status: GOOD (  54.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,111 +93,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 11:41:26AM +0100, Marco Felsch wrote:
-> Hi,
->
-> maybe this fell through the cracks due to the maintainership change,
-> therefore a gentle ping :)
->
-> +To Frank
+On Mon, 16 Feb 2026 16:10:14 +0000,
+James Clark <james.clark@linaro.org> wrote:
+> 
+> 
+> 
+> On 16/02/2026 3:51 pm, Marc Zyngier wrote:
+> > On Mon, 16 Feb 2026 15:05:10 +0000,
+> > James Clark <james.clark@linaro.org> wrote:
+> >> 
+> >> 
+> >> 
+> >> On 16/02/2026 2:29 pm, Marc Zyngier wrote:
+> >>> On Mon, 16 Feb 2026 13:09:59 +0000,
+> >>> Will Deacon <will@kernel.org> wrote:
+> >>>> 
+> >>>> The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
+> >>>> generation in guest context when self-hosted TRBE is in use by the host.
+> >>>> 
+> >>>> Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
+> >>>> TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
+> >>>> per R_YCHKJ the Trace Buffer Unit will still be enabled if
+> >>>> TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
+> >>>> Trace Buffer Unit can perform address translation for the "owning
+> >>>> exception level" even when it is out of context.
+> >>> 
+> >>> Great. So TRBE violates all the principles that we hold true in the
+> >>> architecture. Does SPE suffer from the same level of brokenness?
+> >>> 
+> >>>> Consequently, we can end up in a state where TRBE performs speculative
+> >>>> page-table walks for a host VA/IPA in guest/hypervisor context depending
+> >>>> on the value of MDCR_EL2.E2TB, which changes over world-switch. The
+> >>>> result appears to be a heady mixture of data corruption and hardware
+> >>>> lockups.
+> >>>> 
+> >>>> Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
+> >>>> draining the buffer, restoring the register on return to the host.
+> >>>> 
+> >>>> Cc: Marc Zyngier <maz@kernel.org>
+> >>>> Cc: Oliver Upton <oupton@kernel.org>
+> >>>> Cc: James Clark <james.clark@linaro.org>
+> >>>> Cc: Leo Yan <leo.yan@arm.com>
+> >>>> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> >>>> Cc: Fuad Tabba <tabba@google.com>
+> >>>> Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
+> >>>> Signed-off-by: Will Deacon <will@kernel.org>
+> >>>> ---
+> >>>> 
+> >>>> NOTE: This is *untested* as I don't have a TRBE-capable device that can
+> >>>> run upstream but I noticed this by inspection when triaging occasional
+> >>>> hardware lockups on systems using a 6.12-based kernel with TRBE running
+> >>>> at the same time as a vCPU is loaded. This code has changed quite a bit
+> >>>> over time, so stable backports are not entirely straightforward.
+> >>>> Hopefully James/Leo/Suzuki can help us test if folks agree with the
+> >>>> general approach taken here.
+> >>>> 
+> >>>>    arch/arm64/include/asm/kvm_host.h  |  1 +
+> >>>>    arch/arm64/kvm/hyp/nvhe/debug-sr.c | 36 ++++++++++++++++++++++--------
+> >>>>    2 files changed, 28 insertions(+), 9 deletions(-)
+> >>>> 
+> >>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> >>>> index ac7f970c7883..a932cf043b83 100644
+> >>>> --- a/arch/arm64/include/asm/kvm_host.h
+> >>>> +++ b/arch/arm64/include/asm/kvm_host.h
+> >>>> @@ -746,6 +746,7 @@ struct kvm_host_data {
+> >>>>    		u64 pmscr_el1;
+> >>>>    		/* Self-hosted trace */
+> >>>>    		u64 trfcr_el1;
+> >>>> +		u64 trblimitr_el1;
+> >>>>    		/* Values of trap registers for the host before guest entry. */
+> >>>>    		u64 mdcr_el2;
+> >>>>    		u64 brbcr_el1;
+> >>>> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> >>>> index 2a1c0f49792b..fd389a26bc59 100644
+> >>>> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> >>>> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> >>>> @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+> >>>>    	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+> >>>>    }
+> >>>>    -static bool __trace_needs_drain(void)
+> >>>> +static void __trace_drain_and_disable(void)
+> >>>>    {
+> >>>> -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
+> >>>> -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
+> >>>> +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
+> >>>>    -	return host_data_test_flag(TRBE_ENABLED);
+> >>>> +	*trblimitr_el1 = 0;
+> >>>> +
+> >>>> +	if (is_protected_kvm_enabled()) {
+> >>>> +		if (!host_data_test_flag(HAS_TRBE))
+> >>>> +			return;
+> >>>> +	} else {
+> >>>> +		if (!host_data_test_flag(TRBE_ENABLED))
+> >>>> +			return;
+> >>>> +	}
+> >>>> +
+> >>>> +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
+> >>>> +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
+> >>>> +		isb();
+> >>>> +		tsb_csync();
+> >>>> +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+> >>>> +		isb();
+> >> 
+> >> The TRBE driver might do an extra drain here as a workaround. Hard to
+> >> tell if it's actually required in this case (seems like probably not)
+> >> but it might be worth doing it anyway to avoid hitting the
+> >> issue. Especially if we add guest support later where some of the
+> >> affected registers might start being used.
+> > 
+> > Just to set the expectations: guest TRBE support is not happening
+> > until the architecture is fixed. It cannot reliably give a trace that
+> > includes emulated exceptions, and until then, no TRBE for you.
+> > 
+> >> See:
+> >> 
+> >>      if (trbe_needs_drain_after_disable(cpudata))
+> >>          trbe_drain_buffer();
+> >> 
+> >> 
+> >>>> +	}
+> >>> 
+> >>> Doesn't this mean we should be able to get rid of most of the TRFCR
+> >>> messing about that litters the entry/exit code and leave that to VHE
+> >> 
+> >> Technically you could have ETMs that and are connected to sinks other
+> >> than TRBE. Unless you somehow switch off those sinks you still need to
+> >> do the TRFCR switching stuff.
+> >> 
+> >>> only? And even then, I'm tempted to simply get rid of any sort of
+> >>> guest-only tracing, given that TRBE is not capable of representing
+> >>> exceptions that are synthesised by the host, making it the resulting
+> >>> traces useless.
+> >> 
+> >> I haven't heard of anyone tracing a guest from the host, but until we
+> >> add support for guests to be able to trace themselves it's the only
+> >> way of doing it, so it could be useful.
+> > 
+> > But that's *not* working. If you trace EL1 only, even with a VHE host,
+> > the result is not usable.
+> > 
+> 
+> Do you mean not working because of the missing exceptions? I did a bit
+> of testing before and the trace did seem somewhat usable to me. It had
+> EL1 and EL0 atoms in there.
 
-Please wait for v7.0-rc1 tag create.
+Sure. Now try to look at what that means for NV, where all the
+EL1->EL2 exceptions are emulated, where all the EL2->EL1 exception
+returns are emulated.
 
-Frank
+What does it give you? A bag of nonsense.
 
->
-> Regards,
->   Marco
->
-> On 26-01-15, Marco Felsch wrote:
-> > Hi,
-> >
-> > this patchset adds the driver, dt-bindings and dt integration required
-> > to drive a parallel display on the i.MX93.
-> >
-> > Since the i.MX91 register layout equals the one from the i.MX93, I added
-> > the support for both but tested only the i.MX93 case.
-> >
-> > This patchset depends on:
-> >  - https://lore.kernel.org/all/20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de/
-> >
-> > @Conor Dooley
-> > I dropped your r-b tag since I added the 'bus-width' property.
-> >
-> > Regards,
-> >   Marco
-> >
-> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > ---
-> > Changes in v9:
-> > - Link to v8: https://lore.kernel.org/r/20260113-v6-18-topic-imx93-parallel-display-v8-0-4abccdc473a5@pengutronix.de
-> > - dt-bindings: drop unncessary changes (Frank)
-> > - imx93-pdfc: drop bridge.driver_private usage (Luca)
-> > - Kconfig: Adapt Kconfig symbol and prompt (Luca)
-> >
-> > Changes in v8:
-> > - Link to v7: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de
-> > - dt-bindings: add nxp,imx91-pdfc compatible (Liu)
-> > - dt-bindings: use video-interfaces.yaml# (Liu)
-> > - dt-bindings: s/data lanes/data lines/ (Liu)
-> > - dt-bindings: drop 'reg' poperty
-> > - dt-bindings: drop #address-cells, #size-cells
-> > - imx93-pdfc: drop drm/drm_print.h include (Liu)
-> > - imx93-pdfc: s/exist/exists/ (Liu)
-> > - imx93-pdfc: drop MEDIA_BUS_FMT_FIXED from imx93_pdfc_bus_output_fmts
-> > - imx93-pdfc: imx93_pdfc_bus_output_fmt_supported: make fmt const
-> > - imx93-pdfc: Rework input-fmt selection to always fallback to a sane
-> >               default.
-> > - imx93-pdfc: imx93_pdfc_bridge_atomic_check: make use of
-> > 	      imx93_pdfc_bus_output_fmt_supported()
-> > - imx93-pdfc: drop 'reg' dt-property usage
-> > - imx93-pdfc: imx93_pdfc_bridge_probe: pass -1 for endpoint reg value (Liu)
-> >
-> > Changes in v7:
-> > - Link to v6: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-parallel-display-v6-0-7b056e1e5b1e@pengutronix.de
-> > - Add missing bits.h and bitfield.h headers (lkp)
-> >
-> > Changes in v6:
-> > - Link to v5: https://lore.kernel.org/all/20250304082434.834031-1-victor.liu@nxp.com/
-> > - Add bus-width support
-> > - rebase onto v6.18-rc1
-> > - add review feedback (Alexander)
-> > - driver license "GPL v2" -> "GPL" (checkpatch)
-> > - make use of reg of-property
-> > - fix to short Kconfig description (checkpath)
-> > - add OF integration
-> >
-> > ---
-> > Liu Ying (2):
-> >       dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC subnode to schema and example
-> >       drm/bridge: imx: Add i.MX93 parallel display format configuration support
-> >
-> > Marco Felsch (1):
-> >       arm64: dts: imx93: Add parallel display output nodes
-> >
-> >  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml |  78 +++++++
-> >  arch/arm64/boot/dts/freescale/imx91_93_common.dtsi |  54 +++++
-> >  arch/arm64/boot/dts/freescale/imx93.dtsi           |  12 ++
-> >  drivers/gpu/drm/bridge/imx/Kconfig                 |  11 +
-> >  drivers/gpu/drm/bridge/imx/Makefile                |   1 +
-> >  drivers/gpu/drm/bridge/imx/imx93-pdfc.c            | 226 +++++++++++++++++++++
-> >  6 files changed, 382 insertions(+)
-> > ---
-> > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > change-id: 20251201-v6-18-topic-imx93-parallel-display-95f9234bf6cc
-> >
-> > Best regards,
-> > --
-> > Marco Felsch <m.felsch@pengutronix.de>
-> >
-> >
->
-> --
-> #gernperDu
-> #CallMeByMyFirstName
->
-> Pengutronix e.K.                           |                             |
-> Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+Same thing for EL2->EL0, by the way, so you can't even correctly
+profile an EL0 program that performs a syscall, or that gets
+interrupted. And while without NV, these exceptions are rare, having a
+trace that is unreliable has the potential of being worse than no
+trace at all.
+
+Until the architecture grows a way for KVM to inject the missing
+information into the trace, TRBE support for guest will stay out.
+
+> All you need is the mmap records from the
+> guest which you can get by running Perf in the guest and it's possible
+> to decode it. Maybe it's not complete but I don't think all use cases
+> require complete trace. AutoFDO for example just needs lots of small
+> snippets of execution history.
+
+I don't think it is OK to feed an FDO with traces that are known to be
+incomplete. Maybe that goes under the radar today, but my crystal ball
+is telling me things could be very different in the future, and I'm
+not going to take any bet.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
