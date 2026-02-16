@@ -4,75 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD28E7BD8A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 11:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7A8E7BD8A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 11:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGh5s0g/gXfsFp+8n/dXeKVwQ2ksM3C20e8GNz6qwOM=; b=3Vufpg9rKe2urPl9Gg9ZaLQc6w
-	TCm9Aho93ZuuGvG3C+eYGccmh1cxnpisQkCiKIXq7pltlhu4s6/mO8DqBwJ6siQA3vdnfAWjUYQPz
-	KcMAXNvNFUn7TY7BG7jm6NV+12/t5xwh6TOew6Ypm+cShJBItz9cezpxjitwTyjvL/GMvs6qaaSaM
-	JpoBcgLb7y1kX/L2jPX6X94SPc31RZ+yBw+gKBm+XbkEbpF2L+G7QRl/X5aoNYH13FV7EMCxB2xze
-	wGeREe7AYlrOGZqiOdV3rqwC9tK1yaky9n0AZiZ5g8muRfd+xF2R6S/1lNWSjPL7Z4+10Qmc0qktB
-	pTgxw7qw==;
+	bh=DnM6XrAsEbnpMV3CBb9OYkpwrCnXQYBrThDvOpySTPg=; b=uhrHmLlm4Dxce1JhV1ZRWhadKO
+	/sZmZ+sZl7tUZ0sQU8Ti7dt7ErMEykJZH4FIp3u4YrtJ8Hqwg6bawcsFjaKiNJCfPvAq71nhf20Lc
+	HupCuweTR5OtlL9tQOoeNjCxFwGKqMpWYoOXmcLuENY07iKxzA2jLWxE+pm00mc22xPMFcoCTF7w7
+	kKsbIMutXiBk/YNPGbcD2FrDzn4jMVras4xZ0cgaf8jPjXRIk/V0p345F4cLnPQTRrHb52x/eu3MP
+	EhLcjYFtqs3e8qJ2tKXd1CTGSZSIEF16mtFpHpDzkjGeQJMbrgn0eNVHAXPyN+mxaHv1pEHaXwqEE
+	4jFtwOTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwUU-00000006QEe-446T;
-	Mon, 16 Feb 2026 11:10:10 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vrwUq-00000006QPF-1qVS;
+	Mon, 16 Feb 2026 11:10:32 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwUP-00000006Q8Y-0BGY;
-	Mon, 16 Feb 2026 11:10:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771240202;
-	bh=IntVyqmcKxwafdHrksd0syn7OEBN/YV17IIzQF/SDJU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cScbLoDsYQ16Gwar4SVipw6ik0PXKTC4YzaM2tjFrkkO9ugwNyYHt0Z/yNcPdyqRP
-	 BIc8iw3yvxQDe5be6Z1Y8ITFWYqSnPtOoxQxAE6jMtoe2VgxNbUiWObWa87ekYSTdB
-	 25Cd0d+q2IdQF2GcBX+et365e3PcENQUpBB0K0fhvEe4fR1DKMGr60mn/7Tp8FH1XJ
-	 clUUkQeEFV7yu4vd/cyD+vajyz5paKptYFc+AKbBrij1lesbMKZR2jKCCgsw+EOS29
-	 FoiEW+4gs/tKdNJHVI/xjO2KDNr741Q+oG6gtql5TQSjHirxU+yoYt5fnYmwBtIjmw
-	 oEBWT5ZKruE7Q==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C89F017E1517;
-	Mon, 16 Feb 2026 12:10:01 +0100 (CET)
-Message-ID: <5718e8aa-a9a0-41d4-af15-37441909efc2@collabora.com>
-Date: Mon, 16 Feb 2026 12:10:01 +0100
+	id 1vrwUn-00000006QNg-3GB7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 11:10:31 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61G71ldk987905
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 11:10:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DnM6XrAsEbnpMV3CBb9OYkpwrCnXQYBrThDvOpySTPg=; b=Hw4zS3Dx+FYDKKtV
+	NKVVtXiLKIsinVKLGYjWOJ+HDxHubw/hZonHmGOEg2kK7q+O97mbXtNaZXLiWhZi
+	+JiFI+ICgf8Ylq5uDtreELSukeTyPYqChtpEdwV6XpfNt2GP1S4u4zcPoCNouhp3
+	L+WhwVW+dS5FTqeFmLamL1rF+///uTCN6PUmFg/d6hTkryJtGKceC70nHejjraGR
+	nWNHTODd2yZuCagXgrNQJ3BaON7S/uO22kWU4lAFZmOqCb+Ky+TfQXADDaHQ5aO/
+	DWEu/tpvsB1gR39uyIzXs6hKQOWkxkD6cqOChBpBskTaC0P8XMZjKi/3zxueYCTT
+	u/9EXg==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cagcf4ca4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 11:10:27 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cb3ad1b81aso3074216985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 03:10:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1771240227; x=1771845027; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DnM6XrAsEbnpMV3CBb9OYkpwrCnXQYBrThDvOpySTPg=;
+        b=NIkbO3ysR+9jR+qxbZVU7Hi/qbBMi+uHVZG4DUxNjhidEERAgXLbfBxLpFtLKOCopw
+         u+9UguUQWWetmUizawvCvitsKB5XZzp+O6Xl616HGPCABwZ0KGTRLqxOFpV2Onif8kh+
+         gOVt0nEb5cVS1KIpp8ucVYPqlWOm3oF6E6plfZY2EUb7O3qU2TAG3VbKC1gUaf+Akjv9
+         UaFuzA2+UDCo36FY707QwoWsDNP2orNwwS2BzeqAwmKnxxZPL+w4hEcsOdrqxe8tSlio
+         oHwVVANH3cHFlG2XH+kZa+VVDnj4hv7yYny9XAi3NQlunmvqr6214SZSOgaBrdWQkKYD
+         oXnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771240227; x=1771845027;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=DnM6XrAsEbnpMV3CBb9OYkpwrCnXQYBrThDvOpySTPg=;
+        b=JYwafhfYaCuNzuvwmiJ8KJZej9L68WcRqhsMH5ywPoAbqKFhpDHzkkitRT2qKA5bz9
+         uHccCuhUcq0+6VpkBAed/W3/22Dz360SvpbeWDzo6Dm16ev2CtaJYXXt5XDlMizSXJ4F
+         fzQBzzVG+kJggae13bq5U343H/nHzC3cH/57e/V7Z07COFNfMxOH86wuw+4MinPGhjpK
+         qVD05jYMrelRyEVF7BdOhywJ2PoXi3WGowKemgf+CgQCg/4x3jQo31vGjkQMnzbTcnwt
+         yDaRO6M2pjm2dc09613lwop7vogJ1yh8JFJFMCj+mCBMwgxW0NR938Ic32ArtunE6Iuz
+         j7vA==
+X-Forwarded-Encrypted: i=1; AJvYcCWrFcFlmsaJxKckcffaGBaRkeIfU4fmPl9YNxDbZRz7mN7zOrJh3ve6PEj0fF37sLtPB+q6swyE7KrnAuYEktFc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoGaigdPSyFB4uaL+Wl02ywFt09Xga+vdhPDRzHsJvm391oubl
+	Q+wajHWlTOmFeE0sPi/9EIy6IyoCVG4hX5QFMSo7k/Gm7tnveBzxBQpswsJix1P1zmzwGnEw+8y
+	tsj3CcprlF8argCObNWeKmB71zd/boOv9DKoV+ICTiwOc+V8ufr/yqn98j9L1EuMjNiFh5kC53l
+	Pw0g==
+X-Gm-Gg: AZuq6aLXM6vMGrgP/MOgOY+0frz0BoK1+3VH32sRig0J03s0YBFGWqwMhklxKZmmHBS
+	32HXATna8xODyzRzYi4hjfqfg6Aim+kALUFKopNDuT2sNcVhEk8BV2iDbKLMb8jjg+ct4PxSklU
+	61q+mM1BJv2J6QF8+V/AFjDI1ar/ZW6bOsTijHQYsghOILyxD4FVN+rwRH2MZnEI0pSfu4bH1Yg
+	12GopKvKTamsjSsKIdsx1oBahlgM3qJ8KqGHwIKDbHLzhYi/uGZPKHOAplVnXZmvSDa7mzJoNOe
+	JYGcTLEhxLSKCwyitTmbmRf4XKUyvsH/QNvKyRQWwxSUHmaC+OfYEMYYCEGJRREf66IcEhDPeur
+	ilQwMVOKZSXfiZrUTSX/k/l5Un7jc4GIVlsdXmLp/hV06l9egsCk=
+X-Received: by 2002:a05:620a:6c86:b0:8c7:33:cc97 with SMTP id af79cd13be357-8cb4bf9740emr943812485a.13.1771240227206;
+        Mon, 16 Feb 2026 03:10:27 -0800 (PST)
+X-Received: by 2002:a05:620a:6c86:b0:8c7:33:cc97 with SMTP id af79cd13be357-8cb4bf9740emr943809085a.13.1771240226739;
+        Mon, 16 Feb 2026 03:10:26 -0800 (PST)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:dc34:5caa:d44e:375d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a6c1bfsm27851016f8f.13.2026.02.16.03.10.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Feb 2026 03:10:26 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+        Ethan Tidmore <ethantidmore06@gmail.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+        linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] gpio: nomadik: Add missing IS_ERR() check
+Date: Mon, 16 Feb 2026 12:10:24 +0100
+Message-ID: <177124022115.18156.4939160850575737621.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260214044531.43539-1-ethantidmore06@gmail.com>
+References: <20260214044531.43539-1-ethantidmore06@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: mediatek: mt8167: Add DRM nodes
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
- linux-mediatek@lists.infradead.org
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chunfeng Yun
- <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Jitao Shi
- <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-References: <cover.1771144723.git.l.scorcia@gmail.com>
- <efed7184f27f7f85e9b811070a072b81e134e57e.1771144723.git.l.scorcia@gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <efed7184f27f7f85e9b811070a072b81e134e57e.1771144723.git.l.scorcia@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: ga7DiFkEBFvm1C_xqKioPDX06S74Ko4Y
+X-Proofpoint-ORIG-GUID: ga7DiFkEBFvm1C_xqKioPDX06S74Ko4Y
+X-Authority-Analysis: v=2.4 cv=Sc76t/Ru c=1 sm=1 tr=0 ts=6992fb23 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=iOnWDBcTrPUp0QyIlJAA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE2MDA5NCBTYWx0ZWRfXyyMZeWXuJvxS
+ Cwk0drAdBhLAVxJkadgF1yxMW5diBswUJURAuLYCnQGtd+AJpV8qErv3kSiZZvtr2HEzp8zNG6R
+ noBUMbPM+rIrvq51VD64eEzuWWSoEVX4Qv7AgmtTQW4KEYzIgJGGOZ+OWMNiYLUt8lYwC/0FOvY
+ 4cVceL8u+6KDAkLOeiXn/WhkzY3gVb95OG0Q2YrCpWfOXxtnaQhpmPHBIcLBnzwKb9RQW0PG5jG
+ G+S9ZunVq1iqWIBpLtqMoK2Pozabk7L1m9IhLfURnTDab5XZSpDr2e1+ZyEIozNVBwl7XT1fPWP
+ O9/21P4KOJU263Tql44IfvatsRUjK43+GlTs15EiDTydEMurfMJWR8UDG9c9KXSf+wKuKmxLZix
+ P75eiBoXK5P1PISy+PGwMLrQB++wvYMGcHI3rjxqxOoX14rr9AzEfCVYFLX3xjS2278UrqH1/4K
+ QenyTEO+SKQudwPsVMA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-16_04,2026-02-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0
+ impostorscore=0 spamscore=0 clxscore=1015 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602160094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_031005_304710_AC0588B5 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20260216_031029_961070_9A942D18 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,230 +145,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 15/02/26 09:53, Luca Leonardo Scorcia ha scritto:
-> Add all the DRM nodes required to get DSI to work on MT8167 SoC.
+
+On Fri, 13 Feb 2026 22:45:31 -0600, Ethan Tidmore wrote:
+> The function gpio_device_get_desc() can return an error pointer and is
+> not checked for one. Add check for error pointer.
 > 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> ---
->   arch/arm64/boot/dts/mediatek/mt8167.dtsi | 386 +++++++++++++++++++++++
->   1 file changed, 386 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8167.dtsi b/arch/arm64/boot/dts/mediatek/mt8167.dtsi
-> index 27cf32d7ae35..c6306234e592 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8167.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8167.dtsi
-> @@ -16,6 +16,20 @@
->   / {
->   	compatible = "mediatek,mt8167";
->   
-> +	aliases {
-> +		aal0 = &aal;
-> +		ccorr0 = &ccorr;
-> +		color0 = &color;
-> +		dither0 = &dither;
-> +		dsi0 = &dsi;
-> +		gamma0 = &gamma;
-> +		ovl0 = &ovl0;
-> +		pwm0 = &disp_pwm;
-> +		rdma0 = &rdma0;
-> +		rdma1 = &rdma1;
-> +		wdma0 = &wdma;
-> +	};
-> +
->   	soc {
->   		topckgen: topckgen@10000000 {
->   			compatible = "mediatek,mt8167-topckgen", "syscon";
-> @@ -120,10 +134,371 @@ iommu: m4u@10203000 {
->   			#iommu-cells = <1>;
->   		};
->   
-> +		disp_pwm: pwm@1100f000 {
-> +			compatible = "mediatek,mt8167-disp-pwm",
-> +				     "mediatek,mt8173-disp-pwm";
 
-The compatible strings fit in a single line. Up to 100 columns it's fine: for every
-node additions that you're doing, please use a single line wherever you can.
+Applied, thanks!
 
-> +			reg = <0 0x1100f000 0 0x1000>;
-> +			clocks = <&mmsys CLK_MM_DISP_PWM_26M>,
-> +				 <&mmsys CLK_MM_DISP_PWM_MM>;
-> +			clock-names = "main",
-> +				      "mm";
+[1/1] gpio: nomadik: Add missing IS_ERR() check
+      https://git.kernel.org/brgl/c/58433885ee99e8c96757e82ccf6d50646c4dfe09
 
-That also includes clock-names and, where possible, also clocks and anything
-else really.
-
-> +			power-domains = <&spm MT8167_POWER_DOMAIN_MM>;
-> +			#pwm-cells = <2>;
-> +			status = "disabled";
-> +		};
-> +
->   		mmsys: syscon@14000000 {
->   			compatible = "mediatek,mt8167-mmsys", "syscon";
->   			reg = <0 0x14000000 0 0x1000>;
-> +			power-domains = <&spm MT8167_POWER_DOMAIN_MM>;
->   			#clock-cells = <1>;
-> +
-> +			port {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				mmsys_main: endpoint@0 {
-> +					reg = <0>;
-> +					remote-endpoint = <&ovl0_in>;
-> +				};
-> +
-> +				mmsys_ext: endpoint@1 {
-> +					reg = <1>;
-> +					remote-endpoint = <&rdma1_in>;
-> +				};
-
-Nice! Thanks for expressing those connections with an OF Graph. That makes things
-simpler for other devices based on the same SoC.
-
-> +			};
-> +		};
-> +
-> +		ovl0: ovl0@14007000 {
-> +			compatible = "mediatek,mt8167-disp-ovl";
-> +			reg = <0 0x14007000 0 0x1000>;
-> +			clocks = <&mmsys CLK_MM_DISP_OVL0>;
-> +			interrupts = <GIC_SPI 160 IRQ_TYPE_LEVEL_LOW>;
-> +			iommus = <&iommu M4U_PORT_DISP_OVL0>;
-> +			power-domains = <&spm MT8167_POWER_DOMAIN_MM>;
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +					reg = <0>;
-
-For OVL, RDMA, COLOR, CCORR, and others, you have only one endpoint.
-
-Since there is only one, you can compress the nodes and avoid the text bloat
-(and please do), by declaring the nodes like:
-
-			ports {
-				#address-cells = <1>;
-				#size-cells = <0>;
-
-				port@0 {
-					reg = <0>;
-					ovl0_in: endpoint {
-						remote-endpoint = <&mmsys_main>;
-					};
-				};
-
-				port@1 {
-					reg = <1>;
-					ovl0_out: endpoint {
-						remote-endpoint = <&color_in>;
-					};
-				};
-			};
-
-Please do this for all nodes where you have only a single endpoint (so, for
-everything but mmsys).
-
-
-> +					ovl0_in: endpoint@0 {
-> +						reg = <0>;
-> +						remote-endpoint = <&mmsys_main>;
-> +					};
-> +				};
-> +
-> +				port@1 {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +					reg = <1>;
-> +					ovl0_out: endpoint@0 {
-> +						reg = <0>;
-> +						remote-endpoint = <&color_in>;
-> +					};
-> +				};
-> +			};
-> +		};
-
-...snip...
-
-> +
-> +		dsi: dsi@14012000 {
-> +			compatible = "mediatek,mt8167-dsi",
-> +				     "mediatek,mt2701-dsi";
-> +			reg = <0 0x14012000 0 0x1000>;
-> +			clocks = <&mmsys CLK_MM_DSI_ENGINE>,
-> +				 <&mmsys CLK_MM_DSI_DIGITAL>,
-> +				 <&mipi_tx>;
-> +			clock-names = "engine", "digital", "hs";
-> +			interrupts = <GIC_SPI 171 IRQ_TYPE_LEVEL_LOW>;
-> +			phys = <&mipi_tx>;
-> +			phy-names = "dphy";
-> +			power-domains = <&spm MT8167_POWER_DOMAIN_MM>;
-> +			status = "disabled";
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-
-..snip..
-
-> +
-> +				port@1 {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +					reg = <1>;
-> +					dsi_out: endpoint@0 {
-> +						reg = <0>;
-> +					};
-> +				};
-
-That's shorter, and simpler:
-				port@1 {
-					reg = <1>;
-					dsi_out: endpoint { };
-				};
-
-> +			};
-> +		};
-> +
-> +		mutex: mutex@14015000 {
-> +			compatible = "mediatek,mt8167-disp-mutex";
-> +			reg = <0 0x14015000 0 0x1000>;
-> +			interrupts = <GIC_SPI 153 IRQ_TYPE_LEVEL_LOW>;
-> +			power-domains = <&spm MT8167_POWER_DOMAIN_MM>;
->   		};
->   
->   		larb0: larb@14016000 {
-> @@ -145,6 +520,17 @@ smi_common: smi@14017000 {
->   			power-domains = <&spm MT8167_POWER_DOMAIN_MM>;
->   		};
->   
-> +		mipi_tx: dsi-phy@14018000 {
-> +			compatible = "mediatek,mt8167-mipi-tx",
-> +				     "mediatek,mt2701-mipi-tx";
-
-Fits in a single line :-)
-
-> +			reg = <0 0x14018000 0 0x90>;
-> +			clocks = <&topckgen CLK_TOP_MIPI_26M_DBG>;
-> +			clock-output-names = "mipi_tx0_pll";
-> +			#clock-cells = <0>;
-> +			#phy-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
->   		imgsys: syscon@15000000 {
->   			compatible = "mediatek,mt8167-imgsys", "syscon";
->   			reg = <0 0x15000000 0 0x1000>;
-Nice job, btw.
-
-Cheers,
-Angelo
-
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
