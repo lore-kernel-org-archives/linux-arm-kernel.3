@@ -4,72 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF40EF5867
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 09:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB64E63F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 09:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OhbOHynWdIqyd2LkLlh4zuE6O3h/dec0WUZPV7py2YA=; b=Vak1nCcI2qBM5ZP11GZH049Wdh
-	6mKdNPPtkT53cOPc0ZGbjA0ZxThxztHgR17TGjTbRReBZ+n34aqCs4IdCK4EPVtDn8iF39AOSStKS
-	GG6TcWtVKbHrYp6z85CxM6yFLyLra50myZC63u2nzNQJTPx8hou+W+trvIpO8ueDSxSqqj6sMMiM2
-	bbLbz4hddaqzP6as4opULmzDZ249JjCq2KJ1mB/Sb0M8VF12ZJSK7fdt+VZS4LXulzZHe1pMG7iRo
-	ZooSN/wpQxi/929FeVAL53/l5NENK0zUQawnlibQJkBSIqxPtR7M7QCSac2Vwp8WLAUAOTT9Xj4U7
-	6loZAo4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9KcAyYM/+QmM79Ib7dGqCC4dBkpE2RdJ6RsVIfszKMk=; b=2pDuFNJDUsnWdTNo8VTMz4MJqS
+	s5gxnstiQGLpxunuHOiBSzohgsAUYc0+8fFvCpiiRr2tzT9GujGf+iFgkEGRImsVbHrHAmF4EWwhS
+	ZcOxHF4Nd3Ugq6chAfRR3OmoSpZwYs02wZto/Bijo6KHR07cM6DSFg1w2SyX7Lng99BhnKxbNc9v5
+	o+YF3TWfAV4Baq5PhEEVndEPTU4jriHc7yS6fQBpqmlnFU/QRvD8tEE3wlL+ZXdrSQ9tA8doDW6AH
+	5cIDMwDNvO7PSeXiWh/cVhOkKpk2AY3KsqOUiq2apenQkboiYNUHRVG20tfb0pbsuld5L5Kise3p6
+	CcRvnecg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrv9s-00000006I7j-2U8q;
-	Mon, 16 Feb 2026 09:44:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vrvEq-00000006IQk-49mC;
+	Mon, 16 Feb 2026 09:49:57 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrv9a-00000006I1b-2d0P;
-	Mon, 16 Feb 2026 09:44:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771235068;
-	bh=ZmNpag6GBURIks4wmS3ojXtnwZVF30mG5EnZSm/42mM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FEiCZYIl0PM2WOaah9nVZrSvsCdSKwKNLfCD+UYJF/IgEmZSmsyUdvPWNVRDhU6Zz
-	 HLsdZID4K3bLcl7wVOEEePR+PyIjUjxlMBD0O3/F8GBitCJBvH/FnLWm3MfuAAKwDF
-	 2Hv3MiIVwzGLbxx+GyPk4Lr32zrHmgTbMz/3mO03RuvUyxlvHxAJhaRAFUgPTWZWlb
-	 yfO9tJEmjxotzi7TjCN904iA+CEiy1ytTOZJB0yGTK/v52v4NPe8v50fAQ+frMwPrE
-	 rKvgD4+TyXe7CCkD/iA9MRiuNLFjHwpToTbnBKSzL9CZ1ZYNjsC6vpOFtE7j3GWGM+
-	 YjCjTxQghzd0A==
-Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8841A17E137B;
-	Mon, 16 Feb 2026 10:44:27 +0100 (CET)
-Date: Mon, 16 Feb 2026 10:44:23 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Adam Ford <aford173@gmail.com>
-Cc: Onur =?UTF-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Steven Price
- <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v1 2/2] drm/panthor: treat sram as mandatory except
- mt8196
-Message-ID: <20260216104423.6b5bcc96@fedora>
-In-Reply-To: <CAHCN7xJJgLxPSf0QJ9nvY4Z3BguDmYJtpeprT+obD5DgA8rOgQ@mail.gmail.com>
-References: <20260215100302.136719-1-work@onurozkan.dev>
-	<20260215100302.136719-2-work@onurozkan.dev>
-	<CAHCN7xJJgLxPSf0QJ9nvY4Z3BguDmYJtpeprT+obD5DgA8rOgQ@mail.gmail.com>
-Organization: Collabora
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
+	id 1vrvEo-00000006IQP-1AU4
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 09:49:55 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-64ae1729637so2623469d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 01:49:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771235392; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FCfrROPCsRSre6E2kiJDRYnHh4omb/LzEYuWQWyUmglEfqv39bLEYhniWivyKvCxQ5
+         +s3GoWO5CfMHBgcYZ3WvVGYXRRO9U8isHJ+T/WlrZl/HsIarW1ZOJUqXuWj68uEzSrFL
+         y+evysfJ/ZwRnY8WfZ82gzDndBpDw2n38lNhlY89BaU0ufr/3IbBclY5gmOh+1lKCkE1
+         fsSudWVUwDLEZ+8nzf2tvXN2yPfGAk08efTI988vK7oMsOMA0TrBYiz6Ep40TqHGRdw8
+         DRiE0/n/MkJFYg9Ft6+RYTsYCQ//Xrxk6swIftW6V+sILs+QD8cnXtFNBnVe0O84Iz5v
+         xIBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=9KcAyYM/+QmM79Ib7dGqCC4dBkpE2RdJ6RsVIfszKMk=;
+        fh=KNYf58T0JKEiqiVFDQa13G5ey2ZYQpQXvUEoDH7BpUk=;
+        b=HKspPfc51V3V490SxqJ/LKBq4Zdi4RAUCyXFeDo8H5z/c1PCSRLDRAY/ro651vCpcb
+         7ODLz0/tE0xlCn3OzX3cd2CaFFaueAUB0oCY4v+Oldy037pieO4fXunB+8N2v1xlJ3v1
+         mrHAXIu8YJqB2tKRTprslRjosntXLbldqRueRWWmq5GhYE74taseGyHeUm/VkGi7Zvom
+         zQOveuSGtxBb+rjEe2LIAciBcy24aj+WUv2QJ9B64mBccPIA9aiIbBp27iPjBYZHLFhB
+         lzt9g9ONUspZ45EOTPclSc/bOgaZ+zgBIrlYm1unkInECNYLvQjG53n5NAnWkekjUlZa
+         72Lg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1771235392; x=1771840192; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=9KcAyYM/+QmM79Ib7dGqCC4dBkpE2RdJ6RsVIfszKMk=;
+        b=f+oS6tX/lHLfROCffZnIhwpnj0NBTpwh3t1KGpwkF8/uXq6DADLxTfEvidfwju64Sg
+         sw/OxXd50SRDJV1H+ds3mqNIdzS7/iHEBtHk0Z12KUupd/WWgnkhEHTR+rPgxCf9THO/
+         ALyi3r13cQHjukwm+8EBFBHIC3njyeEcg/7jHBv4wAMT3CxfyzhRxsHZYn9Cr+LkyDOj
+         dmz+Bb+1MRk1Fk68LIdefbzPDj0N4+TDGBat9Go0K24rSOubDIrBfnX1ToZrexVR4xjm
+         GgQ4x8hw0yPtT3y0FMHbWrcp81qYNzwnF7yYHpC0Za+pfAkuCw4OEJZl0Tpqma0U3xdS
+         uwCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771235392; x=1771840192;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9KcAyYM/+QmM79Ib7dGqCC4dBkpE2RdJ6RsVIfszKMk=;
+        b=sqNJknVrOYkSsM/pXE3SSjMTQyAKnyAztE2vZnRq2J7bRbA+JE3dvoYNY7N0psvkiK
+         Rsgdz4D0NPhxUerlAswfOapLcQnSmN/x9V+9aS0NugUx8Ev3ukt1izKiuLL2SR/MUuWa
+         oblg8IDesmW9lv0/FC34TrTbuvnzgNWQFR7NRSh/gaGvL9Q78ibWPacAxiUQAb0B5j43
+         lZ9dWB4lvEV9MM+OxLgNv0M3d2+RAKpO4vQNWk7/6bKgFSe43JLWwrc/EZ4KYRs+nY9w
+         v9aFNsSZF99+rBYV9RZiVXKbqsH1pJa8o6sDRplmeYV+tBHezslQbwj7ADy1kbIu1Qs9
+         iGIA==
+X-Forwarded-Encrypted: i=1; AJvYcCWcOxE1Ytr09//DMhPCFusUhuOl5NkUKqji+P4o5otrETtHrtovieskNLQoTjG8HRsPBAri2MpJytYG6v0+74Fw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGXtknrkTl/CJXi0X/7Q0v/UcrXfu3e0GuoAwxfP3z8n3UnBD1
+	E93Nlxrj2cnxcXo4DARotWyToK790uBRxrpkgwwt8sgBfkMIm2DHHCOD5nokP2WB5MZU/bMz3XO
+	YtQelMHK+qb7tY5qh71BraIc0cGPxH4GRbMnSJ6nrlHfuZsWkuFTujb+N5Q==
+X-Gm-Gg: AZuq6aJ2YPfuljX3Fbu+8Efi1pNGxCQVvJThsPh9JN1FpRBD+5Tl+PaJWj1j+U0A1df
+	Qbs6nNiZa2XS5du+RW8uHbfdgXq2HmBMcWKvF1+iu9euUq6XltAG3XsA8Hj8F4hhZL/0pXOA0We
+	lblV6MespFcfB26kvihiE+PLj0xyKdzG5nLNvf78CQDmAcUw85GfndklJvm300GyJ2qFJgXn/zq
+	Rzj1eyCT9/tXYUNM3JJpiluVX4JpAxJEPC0ldEg1+OWndAkVCM1ttNBIag39lGQajEeJ729SUxf
+	14GyztWhRWnh0FFytXcOwq2ti/r1FG7txaAXjrekanWhLslOe/3ZWN21+3zRA3ODerDkzs62ne8
+	WjxuSV9L4Z7t1PpfPUgkkjiU2IXM413olTSfHfjBi8Pf4mo+MNeWPJSo4Bo9Xpob+Yn4bwQ90L8
+	eMzEHxNucBOlPMZaVpfS+mxzcJhVzV9ASP/WjbkXhz0Eyry3Q+sgmp2qarDj+kAo0OiNLvvN7Ig
+	et1M3CRQfQD6pRAX0I1DUJsy4B4wnpJ3IGStJPro8D6CsXQrZSvRZqJUP19jYQn8ZMacqgDJAeG
+	onV8lwWXThXJKe4v+BA/pS6xCpAIa9sjA/pt0PeEGW2t
+X-Received: by 2002:a05:690e:1503:b0:649:44ac:cc01 with SMTP id
+ 956f58d0204a3-64c21b18a02mr5405053d50.55.1771235392354; Mon, 16 Feb 2026
+ 01:49:52 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+References: <20260215110628.34293-2-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260215110628.34293-2-krzysztof.kozlowski@oss.qualcomm.com>
+From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Date: Mon, 16 Feb 2026 11:49:16 +0200
+X-Gm-Features: AZwV_QiWccMZyM72m_4_u3dE4MCMJlyOZRCqnU7JaUjXWUFD4VNEgOXyE-7aI8E
+Message-ID: <CAC_iWjKQA0k+DTFpTDGieCK0qNL3=BCSiOPOtCo5gvdOtXd-cA@mail.gmail.com>
+Subject: Re: [PATCH] efi: stmm: Constify struct efivar_operations
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-efi@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_014431_077145_F7B20955 
-X-CRM114-Status: GOOD (  26.10  )
+X-CRM114-CacheID: sfid-20260216_014954_343912_DF9F82FC 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +120,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Adam,
+Hi Krzysztof,
 
-On Sun, 15 Feb 2026 16:21:34 -0600
-Adam Ford <aford173@gmail.com> wrote:
+On Sun, 15 Feb 2026 at 13:06, Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+>
+> The 'struct efivar_operations' is not modified by the driver after
+> initialization, so it should follow typical practice of being static
+> const for increased code safety and readability.
 
-> On Sun, Feb 15, 2026 at 4:04=E2=80=AFAM Onur =C3=96zkan <work@onurozkan.d=
-ev> wrote:
-> >
-> > If sram-supply is missing, Panthor falls back to a
-> > dummy regulator with a warning. This implicit behavior
-> > hides missing DT wiring behind regulator core fallback.
-> >
-> > Make SRAM handling explicit: require sram-supply for all
-> > Panthor compatibles except mt8196-mali where GPU supplies
-> > are intentionally managed outside Panthor and DT does not
-> > model sram-supply for that compatible.
-> >
-> > This keeps DT power modeling explicit and avoids relying on
-> > dummy-regulator fallback.
-> >
-> > Link: https://lore.kernel.org/all/20260213155937.6af75786@nimda/
-> > Signed-off-by: Onur =C3=96zkan <work@onurozkan.dev>
-> > ---
-> >  drivers/gpu/drm/panthor/panthor_devfreq.c | 13 +++++++++----
-> >  1 file changed, 9 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/dr=
-m/panthor/panthor_devfreq.c
-> > index 2249b41ca4af..5f6075f18fe3 100644
-> > --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
-> > +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
-> > @@ -206,12 +206,17 @@ int panthor_devfreq_init(struct panthor_device *p=
-tdev)
-> >          * But without knowing if it's beneficial or not (in term of po=
-wer
-> >          * consumption), or how much it slows down the suspend/resume s=
-teps,
-> >          * let's just keep regulators enabled for the device lifetime.
-> > +        *
-> > +        * Treat sram-supply as mandatory except for mt8196-mali. It ma=
-nages
-> > +        * SRAM outside Panthor so this driver must not require direct =
-control
-> > +        * over it.
-> >          */
-> > -       ret =3D devm_regulator_get_enable_optional(dev, "sram");
-> > -       if (ret && ret !=3D -ENODEV) {
-> > -               if (ret !=3D -EPROBE_DEFER)
-> > +       if (!of_device_is_compatible(dev->of_node, "mediatek,mt8196-mal=
-i")) { =20
->=20
-> I wonder if a more generic device tree flag would be better here.
+get_maintainers doesn't include me in the cc list?
 
-No, we don't want it as a separate DT flag. This is all stuff we can
-hide behind the compat, and every bit we add to the DT we don't
-strictly need turns out to be a liability in the long run in general.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
 
-> What happens if others do the same as Mediatek or Mediatek decides to
-> do this with more processors and this list grows?
+Reviewed-by: Ilias Apalodimas <ilias.apalodimas@linaro.org>
 
-That's what panthor_soc_data is for: you can attach per-compat
-properties without polluting the DT with more stuff that can be
-directly inferred from the compatible.
-
-> It seems like a
-> panthor binding might be useful to prevent future bloat.
-
-It's actually the opposite, the more we add to the DT, the trickier it
-gets to maintain, because we tend to get those things wrong (is the
-SRAM really not needed on mt8196, or is this just a workaround to hide
-the fact the PM is deferred to some FW?).
-
-Regards,
-
-Boris
+>  drivers/firmware/efi/stmm/tee_stmm_efi.c | 17 +++++++++--------
+>  1 file changed, 9 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/firmware/efi/stmm/tee_stmm_efi.c b/drivers/firmware/efi/stmm/tee_stmm_efi.c
+> index 7b04dd649629..3bea2ef50ef3 100644
+> --- a/drivers/firmware/efi/stmm/tee_stmm_efi.c
+> +++ b/drivers/firmware/efi/stmm/tee_stmm_efi.c
+> @@ -14,7 +14,6 @@
+>  #include "mm_communication.h"
+>
+>  static struct efivars tee_efivars;
+> -static struct efivar_operations tee_efivar_ops;
+>
+>  static size_t max_buffer_size; /* comm + var + func + data */
+>  static size_t max_payload_size; /* func + data */
+> @@ -520,6 +519,15 @@ static void tee_stmm_restore_efivars_generic_ops(void)
+>         efivars_generic_ops_register();
+>  }
+>
+> +static const struct efivar_operations tee_efivar_ops = {
+> +       .get_variable                   = tee_get_variable,
+> +       .get_next_variable              = tee_get_next_variable,
+> +       .set_variable                   = tee_set_variable,
+> +       .set_variable_nonblocking       = tee_set_variable_nonblocking,
+> +       .query_variable_store           = efi_query_variable_store,
+> +       .query_variable_info            = tee_query_variable_info,
+> +};
+> +
+>  static int tee_stmm_efi_probe(struct tee_client_device *tee_dev)
+>  {
+>         struct device *dev = &tee_dev->dev;
+> @@ -558,13 +566,6 @@ static int tee_stmm_efi_probe(struct tee_client_device *tee_dev)
+>                           MM_VARIABLE_COMMUNICATE_SIZE +
+>                           max_payload_size;
+>
+> -       tee_efivar_ops.get_variable             = tee_get_variable;
+> -       tee_efivar_ops.get_next_variable        = tee_get_next_variable;
+> -       tee_efivar_ops.set_variable             = tee_set_variable;
+> -       tee_efivar_ops.set_variable_nonblocking = tee_set_variable_nonblocking;
+> -       tee_efivar_ops.query_variable_store     = efi_query_variable_store;
+> -       tee_efivar_ops.query_variable_info      = tee_query_variable_info;
+> -
+>         efivars_generic_ops_unregister();
+>         pr_info("Using TEE-based EFI runtime variable services\n");
+>         efivars_register(&tee_efivars, &tee_efivar_ops);
+> --
+> 2.51.0
+>
+>
 
