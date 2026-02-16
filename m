@@ -4,88 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66959E83820
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 18:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE883E83821
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 18:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+UlvlE070gUnZu1JB77SJZotSZsX9PJX8xc0lTNuM0=; b=JypPvuueaUHdTnSJ6zQWT63wgz
-	EDL746TWA/BL0MaKAFfdWlxNdkDq2NQX8GnhHkJntzXBlZWkXpZ874o6VQnZXJyXkBbr2Zks4aJKV
-	9RS2GywN9W95SaRZvk9vlzyP67Uu4kp9c9Z8dzAT3G2MmDntvhdW/oWVOP+fn3en8lRQYcVGlrwd/
-	KKk689ncoksZfnuccsEfR6Dmg/jlcEffA2qb3k0yCik9nBBxGCIxw1vlyXhcUmDA6EhuZTfsELxNa
-	5mBcR8v0w1xYT/kQ6/g9O3NMI4DUlEOOLn7pGImkf0ZMaO3Od6Oth7nWKkW/e5LNEPwcJywl6gDxl
-	3lI8TfqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EUkS1R4gKSa9gYnFOdTnGq/mTEqeUYV+1IEX0/Uf5GY=; b=SC9f84+7wxDazkFQ/+kmjYUThP
+	oTEMLwerH/f2GxmZhADcUDAqFCVlgI8sj+WH/V6mQzjnIE7FNyuZP4X/gyxyL8FRw+N3Z/o7PzdC0
+	hJVFtMeZ5lex52VSVPm2qUuamZ7o4hlvHiwkEwHC5vC2+kdWxMLojZIeJgppo6+9aNkVfSjBF7ymW
+	sF2eCDTB8OituVzDtODwDDvG2Px8PymBTcT7SO33PiI29MiesbONzl6ME6xUvUUNwAn20AHctoRqD
+	KnLzsu0AML5cKqJ1CvLFof+CM3shrJH4TOclt8f/JIxlI7Aql70HJ3+zFBgWZo8TY55Q9bgDsz6BH
+	ss+TVIUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs34p-000000078Hd-2myi;
-	Mon, 16 Feb 2026 18:12:07 +0000
-Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
+	id 1vs36w-000000078gr-3OGU;
+	Mon, 16 Feb 2026 18:14:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs34i-000000078Eu-0CW7
+	id 1vs36v-000000078gl-20mt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 18:12:05 +0000
-Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-1233bc1117fso2940425c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 10:11:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1771265519; x=1771870319; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J+UlvlE070gUnZu1JB77SJZotSZsX9PJX8xc0lTNuM0=;
-        b=FzpF3gNU3JsRWYd5c4BOlXoqrZkV11GuvY6VQ5rzavmAxGKW/6uqzeUos02b697zTy
-         JMfX4QLhMfbXUyb5sEUcExi8Gv7hCwIj12ycsho3zvm9Lx2BIGOpUqWQ1k66oQm/kjA6
-         M9lPyXl1DeTlv5lPcgN5/WbOcdjBY7+LbIkq4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771265519; x=1771870319;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=J+UlvlE070gUnZu1JB77SJZotSZsX9PJX8xc0lTNuM0=;
-        b=uD/+lUalMiYRO3yi99i8ws1RpkUVP71tldPDHfFUGzSIB2MK2TRMeOvSZkwrkTBtDO
-         1aES1SSLj5m6P/UfS0bUa0dE/rVlvHtnTxC0J6aDy2EoseVKVKvufz0XEwDCkymDxw5l
-         fWcpIlbfQOO+Y1da6X2AgnoUXyTTVIXU8uhT3B6fzuhb+BQ3y+vXBdNmfGL6nXJF+Qyz
-         jsREUZowZvsgaDGq24oInwZVmj9DATPO+PC1Qvj+4Won2Po5XyGZk3Qht3FIBgdAwYdf
-         VPhfY7NCY9JwGwZOHqMlyPMlV05typ61xjxWqiN0UhlMSf4RfEYOQOHrEVDqdRZYdzw1
-         tORw==
-X-Forwarded-Encrypted: i=1; AJvYcCWK1Y9q1+bJXgp9fOjL05r6pycE0h+cLLzUI7OHtnyttQdatVlRswLABURx+fSmdc5NP3Tf2LVe6UVggjSbcQYL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxfc6Z9SXWRanYmtJ7MKBVmQEWRpAIZmLboGEso6ICQiS7kKCMw
-	8NXKryNmmmHWohCgzLtm4yWkIm/NhcfcEQr562+1vaITmCKKl4cdlxZfXUU3ygKkzw==
-X-Gm-Gg: AZuq6aKkdQUQVPucKa/Po++NTzus8k54CJGCCG/XkxwPCWAG50kqy+lnDM/SG2BK8bY
-	G4hAsMF7eZ+0ZcecK+zRbbNFvD74ANg0iH/7s2btePbT2KtZaQrO4K8BiZAs/WEx6Rk88d3itv/
-	OXenDgyJgV/mscqc4sYehv/8kYkAtEkdcMAsGwQFSE9lLuJgObGJPEIhA++R7+BDmKMFZpMMLh1
-	aEaMf+bl669+U8/Afx5mXKD8bMzMFwLWh5YQiL/XfjEybxpUK35EfBlDh57AmmVkGwpQ/xXbv4U
-	sO1IVD1C9uhHhMjaKq99YFbjGmDT0TPRnkvj4p7Oii+xURdJm7BIPK9do7804pE6cGgXrIVk6Rq
-	hYofXFx7Zr26gP0QqKMfyiR5lN/DpEw0vS4rbxypysztvrQaCkXuOTswF+366VEy3jhBuVJaB6Z
-	gYPaD6MEoNtXVerKfq0a1e4aL8GnLLjHXJ6VIghcj/nEk5EG7HJ64OO56y3evL+NN62fISdkeQM
-	sxxIkYnQWQ=
-X-Received: by 2002:a05:7022:45aa:b0:11b:3eb7:f9d7 with SMTP id a92af1059eb24-127410150b1mr3534714c88.14.1771265519181;
-        Mon, 16 Feb 2026 10:11:59 -0800 (PST)
-Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:2953:dae1:1e39:73b3])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12742c64282sm13724326c88.5.2026.02.16.10.11.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Feb 2026 10:11:56 -0800 (PST)
-From: Douglas Anderson <dianders@chromium.org>
-To: jassisinghbrar@gmail.com
-Cc: Douglas Anderson <dianders@chromium.org>,
-	jay.buddhabhatti@amd.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	marco.crivellari@suse.com,
-	michal.simek@amd.com
-Subject: [PATCH v3 15/15] drivers: firmware: xilinx: Use mbox_ring_doorbell() instead of NULL message
-Date: Mon, 16 Feb 2026 10:09:52 -0800
-Message-ID: <20260216100943.v3.15.Ib15a93253dc4bf021c41036096b8e289702878ba@changeid>
-X-Mailer: git-send-email 2.53.0.273.g2a3d683680-goog
-In-Reply-To: <20260216181002.3475421-1-dianders@chromium.org>
-References: <20260216181002.3475421-1-dianders@chromium.org>
+	Mon, 16 Feb 2026 18:14:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E28460133;
+	Mon, 16 Feb 2026 18:14:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70838C116C6;
+	Mon, 16 Feb 2026 18:14:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771265656;
+	bh=YxgSyIDm9AQ+DZmvuPojtK1Q533/tuFWmV3R30ZqBUE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=D3yvne0x3LHrXWCYdzoHRqyWySnpaFIm0v5963C8qQkMOsZSShfA3rIKHBMlErv6y
+	 bHsrBFKaDj+zL3bECrf4iXEe3Kq4sIzQLgr+llKsMAMiRaFTJycySWiKH+BSMZ8Y/v
+	 ENoQ7L0ejrOxdRwJrxWlThSNDHihtts/yoWPp9S4qHxeJFalP7bzoMg6pIu/jkp1Tt
+	 +P1X5n8pdf6+5kq1VTkmNT1WLKlB4fNJbdDBvVbnYhzE5ZTglK2T+FFDmOChGEQZsM
+	 PX80t7YPLBjtHN4ShaAK/sIIjS5KcI/CvLJ4pBTS+K5oZzrpJ2qAi6/kpg9BjU3qOX
+	 5aL1pOrUeI7yA==
+Date: Mon, 16 Feb 2026 18:14:11 +0000
+From: Will Deacon <will@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>, Leo Yan <leo.yan@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
+ in guest context
+Message-ID: <aZNec3B0Iou9PYGw@willie-the-truck>
+References: <20260216130959.19317-1-will@kernel.org>
+ <86a4x8bw38.wl-maz@kernel.org>
+ <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_101204_431182_B4D12341 
-X-CRM114-Status: GOOD (  13.27  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,37 +74,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per the patch ("mailbox: Deprecate NULL mbox messages; Introduce
-mbox_ring_doorbell()"), we want to switch all users of NULL mailbox
-messages to use mbox_ring_doorbell().
+On Mon, Feb 16, 2026 at 03:05:10PM +0000, James Clark wrote:
+> On 16/02/2026 2:29 pm, Marc Zyngier wrote:
+> > On Mon, 16 Feb 2026 13:09:59 +0000,
+> > Will Deacon <will@kernel.org> wrote:
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> > > index 2a1c0f49792b..fd389a26bc59 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> > > @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+> > >   	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+> > >   }
+> > > -static bool __trace_needs_drain(void)
+> > > +static void __trace_drain_and_disable(void)
+> > >   {
+> > > -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
+> > > -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
+> > > +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
+> > > -	return host_data_test_flag(TRBE_ENABLED);
+> > > +	*trblimitr_el1 = 0;
+> > > +
+> > > +	if (is_protected_kvm_enabled()) {
+> > > +		if (!host_data_test_flag(HAS_TRBE))
+> > > +			return;
+> > > +	} else {
+> > > +		if (!host_data_test_flag(TRBE_ENABLED))
+> > > +			return;
+> > > +	}
+> > > +
+> > > +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
+> > > +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
+> > > +		isb();
+> > > +		tsb_csync();
+> > > +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+> > > +		isb();
+> 
+> The TRBE driver might do an extra drain here as a workaround. Hard to tell
+> if it's actually required in this case (seems like probably not) but it
+> might be worth doing it anyway to avoid hitting the issue. Especially if we
+> add guest support later where some of the affected registers might start
+> being used. See:
+> 
+>     if (trbe_needs_drain_after_disable(cpudata))
+>         trbe_drain_buffer();
 
-This client only ever sent NULL messages, so the transition is
-straightforward. We can remove the call to mbox_client_txdone(). The
-call didn't do anything for NULL messages and it's now officially
-documented not to be called for doorbells.
+Oh great, this thing sucks even more than I realised!
 
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
----
+But thanks for pointing that out... this is presumably erratum #2064142,
+but we probably need to look at #2038923 as well :/
 
-(no changes since v1)
+I can't find any public documentation for the problems, but based on the
+kconfig text then I think we care about #2064142 so that the TRBE
+register writes when restoring the host context are effective and we
+care about #2038923 to avoid corrupting trace when re-enabling for the
+host.
 
- drivers/soc/xilinx/zynqmp_power.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+It also looks like we can't rely on the dsb(nsh) in the vcpu_run()
+path if that needs to be before the write to TRBLIMITR_EL1.
 
-diff --git a/drivers/soc/xilinx/zynqmp_power.c b/drivers/soc/xilinx/zynqmp_power.c
-index 9085db1b480a..b4e751247a35 100644
---- a/drivers/soc/xilinx/zynqmp_power.c
-+++ b/drivers/soc/xilinx/zynqmp_power.c
-@@ -144,7 +144,7 @@ static void ipi_receive_callback(struct mbox_client *cl, void *data)
- 			   &zynqmp_pm_init_suspend_work->callback_work);
- 
- 		/* Send NULL message to mbox controller to ack the message */
--		ret = mbox_send_message(rx_chan, NULL);
-+		ret = mbox_ring_doorbell(rx_chan);
- 		if (ret)
- 			pr_err("IPI ack failed. Error %d\n", ret);
- 	}
--- 
-2.53.0.273.g2a3d683680-goog
+In which case, the host->guest something hideous like:
 
+	isb();
+	tsb_csync();	// Executes twice if ARM64_WORKAROUND_TSB_FLUSH_FAILURE!
+	dsb(nsh);	// I missed this in my patch
+	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+	if (2064142) {
+		tsb_csync();
+		dsb(nsh);
+	}
+	isb();
+
+and then the guest->host part is:
+
+	write_sysreg_s(trblimitr_el1, SYS_TRBLIMITR_EL1);
+	isb();
+	if (2038923)
+		isb();
+
+Does that look right to you?
+
+Will
 
