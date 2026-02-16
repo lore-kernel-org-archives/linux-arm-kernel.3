@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE56E7BD8F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 10:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790E8E7BD8C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 10:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=73r6oJYAaTQYUPIRlcSqiRsKUT5t9iC1ySrVJ3cv2PA=; b=nPA1F92EnqqrYn3j2tuaYTEL4G
-	jtcFJlW/JEVbzQCv9iH/xXl7osFZpq8Viiq9JxJ4X/pO2h79LCMxptuojgamhFF5YeIq/1JbVRYK1
-	/mmOIqbGgBxCzNj4eHbfWjWEpqkOk8BPS988WJ145JAhy0uDtGKxrHlVremX7YGR/pkseBWBq+wAy
-	WsNEAWnq9ZPQCgwxoyVAWReA8VjcxEY8QbN6tFPxs5/xvhck0u+hK6EWhPimyEmqF8+WORmZiVo6w
-	WJtxaZxK51RaHsLJLbThPTDwM7DpDQ+iKFCWjvNdhX5Re0KKhWE+OxDI1hWRMIbrFFeVd9VfYPnkX
-	Zx7GdU/w==;
+	bh=yiCrxtYWRStBcB48EVBaE3Qi59Fgvi3biq62nXCK5YU=; b=lkNgc9zFBi9iHiGB+bY9x58E7Y
+	rwSKQpO1hnByjJSjI4+0LewzoFxn2YEypCo42d+C1p1OEXRvhtXsq4CgiCagv551Z5uwcDL2OybO7
+	jTFfIrtB7czkjn7iGy958J/cZiSZCQgaKgo4PCyVFOFT2BksgZ502Ss00BJpu2nYJ4AOwXQhwXoC7
+	GtRPiRwcPtGHxQRPPKfDt7BSlMcSbbMmMj6gHWrNfnVS0zWhVV7QZA4Pz+PQ67bIZ+HHU2ydUEZE1
+	OS3lZ5JAHjAKrEBLa/b48tqluORCVk9QJsUHtWDA14BAt/zB01b/AivssV3sbd4nge2yVyRHI8wth
+	mf2Hk6Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwEF-00000006Ny0-2ZTJ;
-	Mon, 16 Feb 2026 10:53:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vrwEf-00000006O2Q-2teF;
+	Mon, 16 Feb 2026 10:53:49 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwED-00000006NxZ-1ePU;
-	Mon, 16 Feb 2026 10:53:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E99F241993;
-	Mon, 16 Feb 2026 10:53:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ED90C116C6;
-	Mon, 16 Feb 2026 10:53:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771239199;
-	bh=73r6oJYAaTQYUPIRlcSqiRsKUT5t9iC1ySrVJ3cv2PA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OjIK17WmA0PJWl07PJBGiRBzUlffMMg2xOvZiE5oM0n6kc2Vd+/BhKjlBy700yag3
-	 YKu3VHDVat4mK4p4XdZOeznRaw3ZDdBlWmCqn85Vso3REjKwvDAdV9ndz3yjccgNJB
-	 CjSZh/dQj8kZiwSbwL7VhfyuN22WR0R5pbG5T9k8+xFTh/HtevsNdrGLFNLsxnnORl
-	 GVM1WC6D9Klv0Ho2RCijaUoFH3DJ19vJO0W1zBnl6n7JqckbMh3PVT+NoSXw5BBIn2
-	 X4Jp+/E72Gi7RxPth6eC8AoYL/FjM4IaJX6uoR5UDo7ptvBHtGml1T08DXaM5ihisa
-	 /pVQzuZlUCWvg==
-Date: Mon, 16 Feb 2026 11:53:16 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>, 
-	Iago Toral Quiroga <itoral@igalia.com>, Chema Casanova <jmcasanova@igalia.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-Subject: Re: [PATCH v5 3/7] clk: bcm: rpi: Mark PIXEL_CLK and HEVC_CLK as
- CLK_IGNORE_UNUSED
-Message-ID: <20260216-brave-ara-of-typhoon-cf90ba@houat>
-References: <20260213-v3d-power-management-v5-0-7a8b381eb379@igalia.com>
- <20260213-v3d-power-management-v5-3-7a8b381eb379@igalia.com>
+	id 1vrwEc-00000006O1S-19ic
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 10:53:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=yiCr
+	xtYWRStBcB48EVBaE3Qi59Fgvi3biq62nXCK5YU=; b=jz7SX77qvlrbNw4hCYfO
+	yCt1rz9NMBX3YTdqNAfVGeZxI9+Zm+h2GlAMFRyMKl9wz1u+Ub98NVdPovxla7QN
+	5r0OcbuhkZHKECkQkJ+/b/7PvAFlM/zi4MM+y3ctN/Buiov/FAu3yCe53zWLbkX8
+	BjiCN7t4x6yiJgl6V6y0kplGJ0fzdkJFEgXJXHRyUh6vemc01G1h5MURkBp7sBdY
+	nfSvkkCSax7aBUYlkrrzWaktywBBTvrNXmkfiFHBk3nKDBwhh1wxpKRhVhutjy9l
+	88OM9Ue2nsEdhsw9MEWthIAJE6kFGNY0ini5b6aQTP6h6gFn6XDZ+++7jU2MnAV9
+	tA==
+Received: (qmail 3207498 invoked from network); 16 Feb 2026 11:53:40 +0100
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 16 Feb 2026 11:53:40 +0100
+X-UD-Smtp-Session: l3s3148p1@2MaMxO5K3I4ujnu0
+Date: Mon, 16 Feb 2026 11:53:39 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Sergey Shtylyov <s.shtylyov@omp.ru>, linux-renesas-soc@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	linux-remoteproc@vger.kernel.org
+Subject: Re: [RFC PATCH v2 02/13] hwspinlock: add callback to fill private
+ data of a hwspinlock
+Message-ID: <aZL3M6hT45I2WUaQ@ninjato>
+References: <20260215225501.6365-1-wsa+renesas@sang-engineering.com>
+ <20260215225501.6365-3-wsa+renesas@sang-engineering.com>
+ <6e495cc2-3469-4855-8645-c5633d937f1e@omp.ru>
+ <aZLVU9toZRX2vKX7@ninjato>
+ <CAMuHMdWwJZ4fiNgh4DEGpr85QQrPwyA=F=RFyPq-iGzq=F5qMw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="7u5coffnzyskofrz"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260213-v3d-power-management-v5-3-7a8b381eb379@igalia.com>
+In-Reply-To: <CAMuHMdWwJZ4fiNgh4DEGpr85QQrPwyA=F=RFyPq-iGzq=F5qMw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_025321_460403_A077E41D 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260216_025347_195259_9ECA8BD0 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +80,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---7u5coffnzyskofrz
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 3/7] clk: bcm: rpi: Mark PIXEL_CLK and HEVC_CLK as
- CLK_IGNORE_UNUSED
-MIME-Version: 1.0
+> Is that the statistically most-used response to that question? ;-)
 
-Hi,
+That I don't know. I just know that I did build-testing for the whole
+series and the buildbots reported success. Need to look up why this was
+not caught.
 
-On Fri, Feb 13, 2026 at 03:52:56PM -0300, Ma=EDra Canal wrote:
-> If PIXEL_CLK or HEVC_CLK is disabled during boot, the firmware will skip
-> HSM initialization, which would result in a bus lockup. However, those
-> clocks are consumed by drivers (vc4 and HEVC decoder drivers,
-> respectively), which means that they can be enabled/disabled by the
-> drivers.
->=20
-> Mark those clocks as CLK_IGNORE_UNUSED to allow them to be disabled by
-> drivers when appropriate.
->=20
-> Acked-by: Melissa Wen <mwen@igalia.com>
-> Signed-off-by: Ma=EDra Canal <mcanal@igalia.com>
+Sorry Sergey, you were right...
 
-It looks like sync_state would be a better candidate to handle this?
+Hmm, so is merging all the user-conversion patches into this one an
+option? Maybe the RFC here can be reviewed per-driver and the real patch
+set have this all merged?
 
-Maxime
-
---7u5coffnzyskofrz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaZL3HAAKCRAnX84Zoj2+
-dohuAYC0vDJ/FuiU+oa1la5DCBEUlwydHTREfOq8Kpked+NeLcX1cm7K6HxdBWAK
-w8XBDiYBgPoI8xNj91inpm/hk0GtF3FcEv28ZHvBeTOznX63UWUs6ba5A4/AOq9z
-JpUmgE0Glg==
-=awDT
------END PGP SIGNATURE-----
-
---7u5coffnzyskofrz--
 
