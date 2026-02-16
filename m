@@ -4,111 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D42BE81A3B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 15:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32BFE81A3B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 15:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bezMUDPdWCGmwnaPwTB6hfRHesjLzhn5hwhatzwUAcg=; b=2+TdMl9UynmvtWrIcPHBzu53zW
-	yjLW97B6oDrGUr7ygdDKOh7jrR5AUxqfJ0j6+KSZn8W69XQy0o/tb3uymQ56s4Luak5D6An3DkEF8
-	68CqZb/b3NQyp+3G+rUXX6MPKyph/3KMoJa5Pws9JvqFWuysCAGPMPZi10zXOtxq5xtdcapI9gKp4
-	Crc0YXzByQQxYvfANcHstsPSkFRy0uBWX30J60DKFZ9d06EFFm/j91qzw+FoxTURKq1cpGCL5meHM
-	zSQ8J3Hk1S534QANFtGUgsrUf1fi9BRotKh7DRAqKd3BGYX+Vgcs267EFFjeYFCmCx6rAFCn5Ltsi
-	hmy6IEOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YcJklCdj+iuSWVZsmzfOlTt0HmcUV3JKhtJ9znekMoY=; b=bOhcXsDaU40pcODF1BLziCpUpQ
+	3GvSVn7h96Brwr9tMimfpZACZRSmH1pTo2bhVCWoRZksj123KQWpr1pbWRf7Crfzjx9TSGiTi6AF7
+	lvFsSP/Bb00FRk7wOgH7X68YS3Ijo+fKo6PWiEzf7eqaBArvs6pge/C3smot5oThprrB2VlzzchBB
+	sWn26oW/7TinZGjItcf/tayVOmOueoidruZ/KkWDEkq/hmQtw1Mfj5erKG84pim8ol4U+xr4wTVPO
+	VlRw/sLTwZAWQSAYiFoD1fWiIHP8K9vSRNfJ52sIglTspPEQ9FHVzsEsv0BiHGOFAI/hGYP0LbDas
+	uChyHaRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs0aN-00000006uKV-0hyb;
-	Mon, 16 Feb 2026 15:32:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vs0b9-00000006uUG-22ui;
+	Mon, 16 Feb 2026 15:33:19 +0000
+Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs0aL-00000006uK3-0rOp;
-	Mon, 16 Feb 2026 15:32:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F8E84444A;
-	Mon, 16 Feb 2026 15:32:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B15E2C19423;
-	Mon, 16 Feb 2026 15:32:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771255948;
-	bh=7sRFqvjn3E+nvWZqWiYbrCnM/0H2C7500YPYQf5MdUw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mFNV879SEjrojsot7pd6RHAXpCv0ObK4N9FaCpjv4dK59fg7DIukGosv0++Uac8hV
-	 eLhgE5dwlyGsva6hw2ypv+UP+GwkC1hAR4gHurA6GrjkxUOfMYhSc73urEHhXmPufP
-	 jimSyceyqBtBtkFL0q8HX2d2rS6zNOkCnD2o0TrQHqE2l54OYscOZkEHBaWsVxFome
-	 2GSiZ/624D4qCIT0gIV1OrmjZ5HTJE2+NJ53ceDV8X3SBsCgCHIk7OEItyWUdnczxB
-	 El9yvNlUAIueVW2VMRgRNNmWqTqTxl7GOIc+LC+I0exE/JoCWh/0HkQYVnu9BQzBdk
-	 uG7P/vlwXuOmA==
-Message-ID: <867cd496-0b7b-4a99-97e1-5926ffaa5eed@kernel.org>
-Date: Mon, 16 Feb 2026 16:32:23 +0100
+	id 1vs0b6-00000006uTN-0MFR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 15:33:18 +0000
+Received: by mail-ed1-x544.google.com with SMTP id 4fb4d7f45d1cf-658b6757f7fso6445302a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 07:33:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1771255994; x=1771860794; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YcJklCdj+iuSWVZsmzfOlTt0HmcUV3JKhtJ9znekMoY=;
+        b=HMrZE05VzL8o59gjecA69HZUFE0KJiK5tMsv9KhvRLjfQt4qIUrClBgEI1dBiUAQQ9
+         6awOZipT7VmKv0wYXYhWseJH17taWqxlQWQtqx0PnGmavUbxFE4clkhG+ebtPLSQnXsh
+         f/rWMcyEK0Tr7krTxDu8cejjIenxA/GjZykQo=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771255994; x=1771860794;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YcJklCdj+iuSWVZsmzfOlTt0HmcUV3JKhtJ9znekMoY=;
+        b=ZBhE72cQu8DdhZl5UKVHF1+cFWK+eY3kc4LlDjzFvy/erVjH4dLr7MBA8O1BmdbW+A
+         U2BBbiLCRmVAuOyuo/k/R++ecqNWDfRy068YW2jRVMiGXBsigqFjNOVOm7r7Y0uIspSa
+         8DqzglDH1Qb715wyfUMGh8/su4yOtBcsqzA+L1w3WyR+6lUnRMVW/5h60PpeoutnyKZr
+         ObMy3x/UN2KHUuSCgVwk47EN640doyUhh+Sav4xHovYDuDUKx6dCqBFltxN4zdtCds8R
+         iVoVT4trnQOnqxHoR8eGIxaaKcSPe0Py7Cbm+lu1WNt9adWJslxjErkkLyQmfYzlzxKc
+         UKJg==
+X-Forwarded-Encrypted: i=1; AJvYcCV6braoU6bd9Vi/QiHIXZHrdLBtUlwZd5vKG2J1VFtoqA/ohjGo8W/RJWfkde5X+XpoXCEbLM1xeFkIzQBuQMra@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmi65IbKratmt5CWISPH64iemFLzCUSzXokq4sBAhYrjzaTjP8
+	Pzqq1nPYMqhURvaSBB4sP/dRx/k44Zyav60Zj6aHX7+w9V8iMzHzbUdpAC3HIBPe/lpBzXpzn+b
+	DP1sDcCgXCg==
+X-Gm-Gg: AZuq6aI2s/edWdFJQQ+mdQC2o5z/YnzqBS7z9YFdlC+NZgoTO2DCWTW2whrDZ4ve1iD
+	c5ZlMUI/Y4jXMR36UYOF0mL2ml2X70PNsq+bWo0P5PkHF3Wf/dNJUBFoyhvdBD1bbvbz9rL6/8s
+	gof6j6VULEknEG+EVSfMpQ8t0xVaVV7lX8CebYT5ZloWjA9rrGNAQ7zzk08UweUfOU1uCF9/8Na
+	K1w0C851oaC3gt6XaPplLrcwX+9Pbc5JYVQCLBPQnL3Ag6KmcUxiZOARP+4p21HnxkJeiHqwjZB
+	6G0Fg3tJEyhTDfoLOj85xOLmogsjRrRXppmHbb7NRQQlAcvRJg4exqo8nNPI22krH0o6UB/gpFk
+	Y9/oMRYWnol23A2/w3c7PTxPq4UXsI44AAhT9nz/dLfsppnjntTrAPCf64CL5k3OZY6nZZ4v3vH
+	RG6iMyZt+D+TixbKuJNED8i9xZWGK9eZq5GZnkVwJUacTNHau3KgnaYmbjbqYPQLEOOvOYzX/r
+X-Received: by 2002:a17:907:2684:b0:b88:1e2:ed49 with SMTP id a640c23a62f3a-b8fc053d4a8mr462953766b.8.1771255993800;
+        Mon, 16 Feb 2026 07:33:13 -0800 (PST)
+Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com. [209.85.208.41])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8fc76278b8sm266725866b.33.2026.02.16.07.33.11
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Feb 2026 07:33:11 -0800 (PST)
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-65a1970b912so9028658a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 07:33:11 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX9H79pL1wKcZb+SuiFKi65zOXNKtUBD3hP0WH3Eo30saEmxFPRQ17LhzIWg9aFAsSX2QyF/T+nPXdxpn8A6Kr6@lists.infradead.org
+X-Received: by 2002:a17:907:6e86:b0:b8f:e98e:ff5d with SMTP id
+ a640c23a62f3a-b8fe98f297emr298866966b.13.1771255990932; Mon, 16 Feb 2026
+ 07:33:10 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 6/6] arm64: defconfig: enable Verisilicon IOMMU for
- Rockchip RK3588
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, joro@8bytes.org,
- will@kernel.org, robin.murphy@arm.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, nicolas.dufresne@collabora.com,
- p.zabel@pengutronix.de, mchehab@kernel.org
-Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org
-References: <20260216095144.107356-1-benjamin.gaignard@collabora.com>
- <20260216095144.107356-7-benjamin.gaignard@collabora.com>
- <07b62f39-d27b-4439-a60e-42fd47f49b13@kernel.org>
- <16e32780-07bb-42c9-a5c8-aa61f2366efa@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <16e32780-07bb-42c9-a5c8-aa61f2366efa@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260130132951.2714396-1-elver@google.com> <20260130132951.2714396-4-elver@google.com>
+ <aYDFOIskB20CbztD@willie-the-truck> <20260202192923.0707e463@pumpkin>
+ <aYHgNSF5a3F7UGU_@willie-the-truck> <CANpmjNNzx-zc_-ZPgwe5DoWLmexw5irT2n+XMUqxTrfwxTxTmg@mail.gmail.com>
+ <20260204131400.GI2995752@noisy.programming.kicks-ass.net>
+ <aYNUmEfDzq7lTFFr@willie-the-truck> <CANpmjNPHnt6eY-OfkTr5TksHaOon2GyLUokvagcMRa23B6i6_Q@mail.gmail.com>
+ <20260206182650.6c21b0ff@pumpkin> <CANpmjNNFXdMM6cL+HBsiXr2WUA=mttR1jDRMqNYD7+YZs6vRKg@mail.gmail.com>
+ <20260215221656.68b2fc1d@pumpkin> <CANpmjNOnOqq2k41=iNsgZLXAzspVQhcTZ88Nvms_c_0M+7b7YQ@mail.gmail.com>
+ <CAHk-=wioS+vB8aBxWBgdEfXqDq5Ynr9gyY=GhU7gxO9G_C+_6g@mail.gmail.com> <20260216110915.4f0d5490@pumpkin>
+In-Reply-To: <20260216110915.4f0d5490@pumpkin>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 16 Feb 2026 07:32:53 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wjJQQfWpAxigafuyrgxg8CdQWSimVYMk16_j0vWwEkjag@mail.gmail.com>
+X-Gm-Features: AaiRm51OTGvN2sCSlh8_Rn9ui_eyEBMKbWkgCuwNwrublXNq6jjEcgPmaKvEAvs
+Message-ID: <CAHk-=wjJQQfWpAxigafuyrgxg8CdQWSimVYMk16_j0vWwEkjag@mail.gmail.com>
+Subject: Re: [PATCH v3 3/3] arm64, compiler-context-analysis: Permit alias
+ analysis through __READ_ONCE() with CONFIG_LTO=y
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Marco Elver <elver@google.com>, Will Deacon <will@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Boqun Feng <boqun.feng@gmail.com>, 
+	Waiman Long <longman@redhat.com>, Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel test robot <lkp@intel.com>, Boqun Feng <boqun@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_073229_287594_60ECBF91 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260216_073316_145493_FD75BF81 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,23 +117,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/02/2026 16:30, Benjamin Gaignard wrote:
-> 
-> Le 16/02/2026 à 16:16, Krzysztof Kozlowski a écrit :
->> On 16/02/2026 10:51, Benjamin Gaignard wrote:
->>> Enable Verisilicon IOMMU used by Rockchip RK3588 AV1 hardware codec.
->>> This hardware block could be found in Radxa Rock 5B board.
->> I could not find such board. I even git grepped for some variants... It
->> seems you are adding it earlier to a known DTSI, so it will reach some
->> board, so the point is to use here REAL name of the board we do support.
-> 
-> Any rk3558 based board have this hardware block
-> and arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts describes Radxa Rock 5B board.
-> 
-> But maybe I miss understood your point ?
+On Mon, 16 Feb 2026 at 03:09, David Laight <david.laight.linux@gmail.com> wrote:
+>
+> volatile structure members are almost free
 
-Please use greppable names, so name is ROCK, not Rock. :/
+No, gcc does absolutely horrible things with volatiles. It disables a
+lot of very basic stuff.
 
-Best regards,
-Krzysztof
+Try doing something as simple as a "var++" on a volatile, and cry.
+
+We need to have explicit 'READ_ONCE()' etc atomic accesses, just to
+make it very very clear that the compiler will generate shit code.
+
+We do *not* hide them and make them implicit by marking data
+structures volatile. I very much want those explicit
+READ_ONCE/WRITE_ONCE cases.
+
+           Linus
 
