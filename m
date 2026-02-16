@@ -4,108 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB64E63F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 09:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D556E63F3F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 09:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9KcAyYM/+QmM79Ib7dGqCC4dBkpE2RdJ6RsVIfszKMk=; b=2pDuFNJDUsnWdTNo8VTMz4MJqS
-	s5gxnstiQGLpxunuHOiBSzohgsAUYc0+8fFvCpiiRr2tzT9GujGf+iFgkEGRImsVbHrHAmF4EWwhS
-	ZcOxHF4Nd3Ugq6chAfRR3OmoSpZwYs02wZto/Bijo6KHR07cM6DSFg1w2SyX7Lng99BhnKxbNc9v5
-	o+YF3TWfAV4Baq5PhEEVndEPTU4jriHc7yS6fQBpqmlnFU/QRvD8tEE3wlL+ZXdrSQ9tA8doDW6AH
-	5cIDMwDNvO7PSeXiWh/cVhOkKpk2AY3KsqOUiq2apenQkboiYNUHRVG20tfb0pbsuld5L5Kise3p6
-	CcRvnecg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A5x9W9JmmOSorhqlD413hHZqtOfOOYh/RoEyxxqd0Jc=; b=fq6KD17b/ubWLrtvz4heN3g52G
+	EFkq4D2rQQwXlrR9cdaqxOwXO2Q+iC0sAuzEV+TMw0/MI9J8hu5nz9bCsaA8wG9glBpXdUJjiFnmz
+	HkTbVUkur/aL1OQpmjqUaqtEL+CxZqzRK+D4j7NlV5WrbVz4tGxCLJdt6OQMT3bv7CS6ieQt871yB
+	fpiScwMV9a7wX2//1Q2gE6OyVMP7GSsWQhAjY4o2mKCvYxl8pgIMLE6PkmuI80V6cjxVQr0y/YWbo
+	E+/Y13n/Lf6Htu2YkDmwj9hQAKtonKJWOgyn7n44crmBlV8T5J/lVisUgi551IGktJ8jQ3AkGfXf/
+	UJaE/7Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrvEq-00000006IQk-49mC;
-	Mon, 16 Feb 2026 09:49:57 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1vrvGm-00000006Ihq-0LX8;
+	Mon, 16 Feb 2026 09:51:56 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrvEo-00000006IQP-1AU4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 09:49:55 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-64ae1729637so2623469d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 01:49:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771235392; cv=none;
-        d=google.com; s=arc-20240605;
-        b=FCfrROPCsRSre6E2kiJDRYnHh4omb/LzEYuWQWyUmglEfqv39bLEYhniWivyKvCxQ5
-         +s3GoWO5CfMHBgcYZ3WvVGYXRRO9U8isHJ+T/WlrZl/HsIarW1ZOJUqXuWj68uEzSrFL
-         y+evysfJ/ZwRnY8WfZ82gzDndBpDw2n38lNhlY89BaU0ufr/3IbBclY5gmOh+1lKCkE1
-         fsSudWVUwDLEZ+8nzf2tvXN2yPfGAk08efTI988vK7oMsOMA0TrBYiz6Ep40TqHGRdw8
-         DRiE0/n/MkJFYg9Ft6+RYTsYCQ//Xrxk6swIftW6V+sILs+QD8cnXtFNBnVe0O84Iz5v
-         xIBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9KcAyYM/+QmM79Ib7dGqCC4dBkpE2RdJ6RsVIfszKMk=;
-        fh=KNYf58T0JKEiqiVFDQa13G5ey2ZYQpQXvUEoDH7BpUk=;
-        b=HKspPfc51V3V490SxqJ/LKBq4Zdi4RAUCyXFeDo8H5z/c1PCSRLDRAY/ro651vCpcb
-         7ODLz0/tE0xlCn3OzX3cd2CaFFaueAUB0oCY4v+Oldy037pieO4fXunB+8N2v1xlJ3v1
-         mrHAXIu8YJqB2tKRTprslRjosntXLbldqRueRWWmq5GhYE74taseGyHeUm/VkGi7Zvom
-         zQOveuSGtxBb+rjEe2LIAciBcy24aj+WUv2QJ9B64mBccPIA9aiIbBp27iPjBYZHLFhB
-         lzt9g9ONUspZ45EOTPclSc/bOgaZ+zgBIrlYm1unkInECNYLvQjG53n5NAnWkekjUlZa
-         72Lg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771235392; x=1771840192; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=9KcAyYM/+QmM79Ib7dGqCC4dBkpE2RdJ6RsVIfszKMk=;
-        b=f+oS6tX/lHLfROCffZnIhwpnj0NBTpwh3t1KGpwkF8/uXq6DADLxTfEvidfwju64Sg
-         sw/OxXd50SRDJV1H+ds3mqNIdzS7/iHEBtHk0Z12KUupd/WWgnkhEHTR+rPgxCf9THO/
-         ALyi3r13cQHjukwm+8EBFBHIC3njyeEcg/7jHBv4wAMT3CxfyzhRxsHZYn9Cr+LkyDOj
-         dmz+Bb+1MRk1Fk68LIdefbzPDj0N4+TDGBat9Go0K24rSOubDIrBfnX1ToZrexVR4xjm
-         GgQ4x8hw0yPtT3y0FMHbWrcp81qYNzwnF7yYHpC0Za+pfAkuCw4OEJZl0Tpqma0U3xdS
-         uwCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771235392; x=1771840192;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9KcAyYM/+QmM79Ib7dGqCC4dBkpE2RdJ6RsVIfszKMk=;
-        b=sqNJknVrOYkSsM/pXE3SSjMTQyAKnyAztE2vZnRq2J7bRbA+JE3dvoYNY7N0psvkiK
-         Rsgdz4D0NPhxUerlAswfOapLcQnSmN/x9V+9aS0NugUx8Ev3ukt1izKiuLL2SR/MUuWa
-         oblg8IDesmW9lv0/FC34TrTbuvnzgNWQFR7NRSh/gaGvL9Q78ibWPacAxiUQAb0B5j43
-         lZ9dWB4lvEV9MM+OxLgNv0M3d2+RAKpO4vQNWk7/6bKgFSe43JLWwrc/EZ4KYRs+nY9w
-         v9aFNsSZF99+rBYV9RZiVXKbqsH1pJa8o6sDRplmeYV+tBHezslQbwj7ADy1kbIu1Qs9
-         iGIA==
-X-Forwarded-Encrypted: i=1; AJvYcCWcOxE1Ytr09//DMhPCFusUhuOl5NkUKqji+P4o5otrETtHrtovieskNLQoTjG8HRsPBAri2MpJytYG6v0+74Fw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGXtknrkTl/CJXi0X/7Q0v/UcrXfu3e0GuoAwxfP3z8n3UnBD1
-	E93Nlxrj2cnxcXo4DARotWyToK790uBRxrpkgwwt8sgBfkMIm2DHHCOD5nokP2WB5MZU/bMz3XO
-	YtQelMHK+qb7tY5qh71BraIc0cGPxH4GRbMnSJ6nrlHfuZsWkuFTujb+N5Q==
-X-Gm-Gg: AZuq6aJ2YPfuljX3Fbu+8Efi1pNGxCQVvJThsPh9JN1FpRBD+5Tl+PaJWj1j+U0A1df
-	Qbs6nNiZa2XS5du+RW8uHbfdgXq2HmBMcWKvF1+iu9euUq6XltAG3XsA8Hj8F4hhZL/0pXOA0We
-	lblV6MespFcfB26kvihiE+PLj0xyKdzG5nLNvf78CQDmAcUw85GfndklJvm300GyJ2qFJgXn/zq
-	Rzj1eyCT9/tXYUNM3JJpiluVX4JpAxJEPC0ldEg1+OWndAkVCM1ttNBIag39lGQajEeJ729SUxf
-	14GyztWhRWnh0FFytXcOwq2ti/r1FG7txaAXjrekanWhLslOe/3ZWN21+3zRA3ODerDkzs62ne8
-	WjxuSV9L4Z7t1PpfPUgkkjiU2IXM413olTSfHfjBi8Pf4mo+MNeWPJSo4Bo9Xpob+Yn4bwQ90L8
-	eMzEHxNucBOlPMZaVpfS+mxzcJhVzV9ASP/WjbkXhz0Eyry3Q+sgmp2qarDj+kAo0OiNLvvN7Ig
-	et1M3CRQfQD6pRAX0I1DUJsy4B4wnpJ3IGStJPro8D6CsXQrZSvRZqJUP19jYQn8ZMacqgDJAeG
-	onV8lwWXThXJKe4v+BA/pS6xCpAIa9sjA/pt0PeEGW2t
-X-Received: by 2002:a05:690e:1503:b0:649:44ac:cc01 with SMTP id
- 956f58d0204a3-64c21b18a02mr5405053d50.55.1771235392354; Mon, 16 Feb 2026
- 01:49:52 -0800 (PST)
+	id 1vrvGi-00000006Ifv-3AYY;
+	Mon, 16 Feb 2026 09:51:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771235510;
+	bh=biCcOHqP+do8XFkuUeXeQflxOQhc4E8/7vo1QY8UTEQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=X8Y+sCYznSOAKhUXvQM3fp9wFg6Wz2ou1+E3XMf8lilRg4/15XJJ6SjTbTDut3ljm
+	 6izl9yhMNJqEt5LzmT+pKLFKpYDJvhzlnyNsXWTx4RlsdyMVJ3EGjvd/zpSdqOk1uV
+	 3FqXraOjn9Ekj5mhQxIUHQWWrnpXq51PVp2Bou6QyyUKXJW5xZjteWcZVev6UX+0HA
+	 5gnQ24hodfAmolyGuGgzznQr2nqrWIxfeL1wip/Pns/o9dBO0I/In45K/ZqT9Ou4c8
+	 VWkqmtXMyTjdlYccZuNTgGp+vHFxzR9TMQZhW1ubboNAGhjGPS1ARmykSkx26jZif3
+	 rn7quSEv/IcxA==
+Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:f6d2:8ed9:560e:4f27])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 92A7217E12E9;
+	Mon, 16 Feb 2026 10:51:49 +0100 (CET)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	nicolas.dufresne@collabora.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org
+Cc: iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-media@vger.kernel.org,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH v13 0/6] Add support for Verisilicon IOMMU used by media
+Date: Mon, 16 Feb 2026 10:51:32 +0100
+Message-ID: <20260216095144.107356-1-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260215110628.34293-2-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260215110628.34293-2-krzysztof.kozlowski@oss.qualcomm.com>
-From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
-Date: Mon, 16 Feb 2026 11:49:16 +0200
-X-Gm-Features: AZwV_QiWccMZyM72m_4_u3dE4MCMJlyOZRCqnU7JaUjXWUFD4VNEgOXyE-7aI8E
-Message-ID: <CAC_iWjKQA0k+DTFpTDGieCK0qNL3=BCSiOPOtCo5gvdOtXd-cA@mail.gmail.com>
-Subject: Re: [PATCH] efi: stmm: Constify struct efivar_operations
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-efi@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=y
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_014954_343912_DF9F82FC 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20260216_015152_954538_2EAA144E 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,70 +85,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi all,
 
-On Sun, 15 Feb 2026 at 13:06, Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
->
-> The 'struct efivar_operations' is not modified by the driver after
-> initialization, so it should follow typical practice of being static
-> const for increased code safety and readability.
+This patch series adds support for the Verisilicon IOMMU, which is found
+in front
+of hardware encoder and decoder blocks in several SoCs using Verisilicon
+IP. 
+A first implementation of this IOMMU is available on the Rockchip RK3588
+SoC.
 
-get_maintainers doesn't include me in the cc list?
+Rockchip provides a driver for this hardware in their 6.1 kernel branch:
+https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/iommu/rockchip-iommu-av1d.c
 
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
+This series includes:
+- a new binding for the Verisilicon IOMMU
+- a driver implementation
+- DT updates for RK3588
 
-Reviewed-by: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+The driver was forward-ported from Rockchip’s 6.1 implementation, 
+the prefix was renamed to vsi for generality, and several fixes were
+applied.
 
->  drivers/firmware/efi/stmm/tee_stmm_efi.c | 17 +++++++++--------
->  1 file changed, 9 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/firmware/efi/stmm/tee_stmm_efi.c b/drivers/firmware/efi/stmm/tee_stmm_efi.c
-> index 7b04dd649629..3bea2ef50ef3 100644
-> --- a/drivers/firmware/efi/stmm/tee_stmm_efi.c
-> +++ b/drivers/firmware/efi/stmm/tee_stmm_efi.c
-> @@ -14,7 +14,6 @@
->  #include "mm_communication.h"
->
->  static struct efivars tee_efivars;
-> -static struct efivar_operations tee_efivar_ops;
->
->  static size_t max_buffer_size; /* comm + var + func + data */
->  static size_t max_payload_size; /* func + data */
-> @@ -520,6 +519,15 @@ static void tee_stmm_restore_efivars_generic_ops(void)
->         efivars_generic_ops_register();
->  }
->
-> +static const struct efivar_operations tee_efivar_ops = {
-> +       .get_variable                   = tee_get_variable,
-> +       .get_next_variable              = tee_get_next_variable,
-> +       .set_variable                   = tee_set_variable,
-> +       .set_variable_nonblocking       = tee_set_variable_nonblocking,
-> +       .query_variable_store           = efi_query_variable_store,
-> +       .query_variable_info            = tee_query_variable_info,
-> +};
-> +
->  static int tee_stmm_efi_probe(struct tee_client_device *tee_dev)
->  {
->         struct device *dev = &tee_dev->dev;
-> @@ -558,13 +566,6 @@ static int tee_stmm_efi_probe(struct tee_client_device *tee_dev)
->                           MM_VARIABLE_COMMUNICATE_SIZE +
->                           max_payload_size;
->
-> -       tee_efivar_ops.get_variable             = tee_get_variable;
-> -       tee_efivar_ops.get_next_variable        = tee_get_next_variable;
-> -       tee_efivar_ops.set_variable             = tee_set_variable;
-> -       tee_efivar_ops.set_variable_nonblocking = tee_set_variable_nonblocking;
-> -       tee_efivar_ops.query_variable_store     = efi_query_variable_store;
-> -       tee_efivar_ops.query_variable_info      = tee_query_variable_info;
-> -
->         efivars_generic_ops_unregister();
->         pr_info("Using TEE-based EFI runtime variable services\n");
->         efivars_register(&tee_efivars, &tee_efivar_ops);
-> --
-> 2.51.0
->
->
+AV1 decoding was tested using the stateless VPU driver and Fluster.
+The test results show a score of 205/239, which confirms that no
+regressions were introduced by this series.
+
+Feedback and testing welcome.
+
+changes in version 13:
+ - On top the driver file explicit why the hardware is different than Rockchip IOMMU
+ - Document why vsi_iommu_restore_ctx() is needed when using Verisilicon
+   stateless video decoder.
+
+changes in version 12:
+- Remove useless vsi_iommu_flush_tlb_all()
+- Merge MAINTAINERS changes in the patch introducing VSI iommu driver
+
+changes in version 11:
+- Fix dependency issue when decoder driver is build as module.
+
+changes in version 10:
+- Update vsi_iommu_identity_attach() and vsi_iommu_attach_device()
+  prototypes.
+- Fix build as module issue when Verisilicon video decoder is built-in.
+- Rebase on master branch.
+
+changes in version 9:
+- removing blanks lines.
+
+Benjamin Gaignard (6):
+  dt-bindings: vendor-prefixes: Add Verisilicon
+  dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
+  iommu: Add verisilicon IOMMU driver
+  media: verisilicon: AV1: Restore IOMMU context before decoding a frame
+  arm64: dts: rockchip: Add verisilicon IOMMU node on RK3588
+  arm64: defconfig: enable Verisilicon IOMMU for Rockchip RK3588
+
+ .../bindings/iommu/verisilicon,iommu.yaml     |  71 ++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |   8 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  11 +
+ arch/arm64/configs/defconfig                  |   1 +
+ drivers/iommu/Kconfig                         |  11 +
+ drivers/iommu/Makefile                        |   1 +
+ drivers/iommu/vsi-iommu.c                     | 794 ++++++++++++++++++
+ .../verisilicon/rockchip_vpu981_hw_av1_dec.c  |  15 +
+ include/linux/vsi-iommu.h                     |  21 +
+ 10 files changed, 935 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+ create mode 100644 drivers/iommu/vsi-iommu.c
+ create mode 100644 include/linux/vsi-iommu.h
+
+-- 
+2.43.0
+
 
