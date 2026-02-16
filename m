@@ -4,66 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78819E7BDB4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 12:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3F3E7BDB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 12:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nMYHyGlBwGWYWmbWylbDVILns9RJAFWZjoZwX6lPdyg=; b=pfHmylTKYx8PDEzbgS7y0l7+Bm
-	O8HL3cxX9FoKg7WZItThAz/9OQfCoyWOLyNNJrqORYL3OX7vqbevC08N7Svch2odC4NjJX0qvx2V0
-	4THFOcmzdAQPK9i9EB+vPl6vPb++hcH5snuxeZUqi6jNk8fbk7qGl+Mdt9l3mRPR6CGvbCfXW71vL
-	ZzB2zpQ80IvNiNM6tBm8CqVAhQ8NC2B7yaH2J4HGu7dBn35wJV6kY/63ZI1jXpA9ggKhcJTP7caDB
-	SNQhd5WC0f8EpDDQ5s328UMMJ6mQ3TGkW/tSnaRlVRH9m4S3/2/cIw118L9NCD4XMWd6QKJfrTlCj
-	DkJLtuuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Au9YGUWXJMl0Z1GJQIR2WyTwbfIwDLuybPtxyXmyVug=; b=y2PLK5NP3MUV07
+	/7Vkzk42UFTc0EuxvEVNMWjELHewqh4GrF6aFAHyCg2j547WYOnasSOqLIZY485B8Uii7kHXXr/K9
+	V2OnusYiILKqR/RGS2H2i0vArRPXBQBJWZBNRgxNxCBhOva864F+QMkrAOsUSSUCTkRZTiY14XUxl
+	XRJr4AzT4aGSDyQe3rkwDiJHcl4oD3mFi9zAKwkEKACgnIXZJckV8PCkAjdKHJVwT2vaQ4VuRjlmD
+	5/bqr32hER/KXF58CiSr7L+yREa8TjivKhFl67fzQbSjhL/SvzInX8+jElzedH8KfKwVGu2TrHLTh
+	wG2XtvV1qAS8BlpRVA1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrxnM-00000006WFW-10Fn;
-	Mon, 16 Feb 2026 12:33:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrxnJ-00000006WF1-1oFf
+	id 1vrxs3-00000006WZY-00au;
+	Mon, 16 Feb 2026 12:38:35 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vrxs1-00000006WZB-0jaR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 12:33:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3CBC5150C;
-	Mon, 16 Feb 2026 04:33:31 -0800 (PST)
-Received: from [10.57.56.155] (unknown [10.57.56.155])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 014843F73F;
-	Mon, 16 Feb 2026 04:33:32 -0800 (PST)
-Message-ID: <55fc4877-666c-4d5f-a167-5692f7cfbd0b@arm.com>
-Date: Mon, 16 Feb 2026 12:33:31 +0000
+	Mon, 16 Feb 2026 12:38:34 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-3870df2331aso43555201fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 04:38:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771245511; x=1771850311; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Au9YGUWXJMl0Z1GJQIR2WyTwbfIwDLuybPtxyXmyVug=;
+        b=Sok67nhr5Y9vrBlmeJuJveu94Y1l/kWnkNdn3J76BHAv3GaXzWJiux6yWVw28UqARo
+         iVcIJ44eDwwoomqbQ/u5c9YDpX400rUJ6HGhd+IO3NkrR0lokkHCROr6fesObpYdwKtI
+         nsUp9CY/YRvhaoi8tmd3uGnGfyyOE+TLyODsQIr/PBqMCyc9y5vVuk1duCZigCR2BqZ6
+         hvX8RKr7TDCvpU9F7lodyBXe2Fz8JwRYkeUoV5msS6ZTQsJX3bkDCddBAo/pxtVWyEjH
+         HFaISWaw/AFq+0IyYRqTBSOcJqEDIJlNLfTPye0TnzB7qgFP9MV9TKOojXZKN7Mb2/ot
+         7Czg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771245511; x=1771850311;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Au9YGUWXJMl0Z1GJQIR2WyTwbfIwDLuybPtxyXmyVug=;
+        b=jQLILRt5nnelWFHWyfd72WhVkqnDc+9lNm6a5m28CuU3MS17k/aWtZkBq7Zbe4i412
+         iTh1jcbJ2SFQ8s6YK0+IQysgaCTriK3YQsh8mfFAxWuenWP0hBKOzHvAC7eggW35uqJ8
+         CbZMcxCwQIZrz0cv1LPppUAZ0OobWoeaJEXw9BqBoseP4M9baenRB1p4M0cWnmj8DK90
+         FWETQ1+Tx0tw0t8IV94UD9QQhEilrCjn499KObJ9G2VmU5yrD6/3TfPFe9NRrFTW75HI
+         AmPsuwMp87bi/CXoFT2mkx2+iTRAxRdYVTnSf8/o94wUpufaOmU+IrgueRNVAqYZGPB7
+         FJ0A==
+X-Forwarded-Encrypted: i=1; AJvYcCX1G5QIZhL5JN8AhrxK0+FwOFFCSDs8MSLHIGaPN5g+zMY1bIeGyyMuSzayMisYNLXtcs5lUqxpp4LGJxCkU33V@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvFtiOviUKTvOd7CSaqUV+Q77jrLcSjLr/II57tPGXR1RgwF0E
+	GO7adRju7i7nzeHCqTNa5ywMjeZy11HvIFG4r5O4BXqD45zB0na+OIVZLSWVPA==
+X-Gm-Gg: AZuq6aKDDxr+s0gR8WeggRiZW7c6BaFO1h/yH6Vge/wLDsiFCovlYUoMn4v6DxgRYJj
+	MLxZNG38JhStXluGOw75eGdkDaGSDiqzyxOER8+JM8ZN9cY7wlMCSzY6uUoDR3zhVwIVlkfoQDb
+	LF5MfSuO1FOyiKcUsWkNrGlv+WUiaUMb1Ozfm7c4kMJLsKPwPejHJ4IAN6dIarsV11oz6nE/3Lu
+	79patgsvJtA1D7dhO1xvag8d5anecgZfLbfD8qKESZl17tsn0l/xE7Uigr717xh3VTT2eyKDd55
+	hKGB04aOzcACD4nysDmBXsyBg+33XV6S7i8Osw4nv1WKROlQYFJhNnNirUtrkw7fxsIhkM7BTcQ
+	BYLIfpdpYpkgNKHuhR6fVnOo5OWGTS6/8YuOEUL22N0UyAke6b6qREOCKFSJilzzkDF2WmLPN7b
+	xwJML71Cdp60kkPqqeMdlngenm74ObijFVMfWwXiYoBhPLVg+Ns2QjeHRKRhpJGYdzUBGq
+X-Received: by 2002:a05:6512:4019:b0:59e:13e8:fdbf with SMTP id 2adb3069b0e04-59f6d009bcdmr2231639e87.23.1771245510612;
+        Mon, 16 Feb 2026 04:38:30 -0800 (PST)
+Received: from [192.168.1.135] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e5f5b0577sm3175920e87.71.2026.02.16.04.38.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Feb 2026 04:38:28 -0800 (PST)
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+Subject: [PATCH v6 0/5] I2C Mux per channel bus speed
+Date: Mon, 16 Feb 2026 13:38:12 +0100
+Message-Id: <20260216-i2c-mux-v6-0-9be28ecfd7e3@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 00/46] arm64: Support for Arm CCA in KVM
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <aY4Sf4lMlWd9LyTo@p14s>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <aY4Sf4lMlWd9LyTo@p14s>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2XQ3U7DMAwF4FeZck2Q4/ys5or3mLhIHXeLRFfUs
+ mho6ruTTbCWcXkif8dWLmqSMcukXjYXNUrJUx6ONYSnjeJDPO5F51SzQkAPZKzOyLo/nXULEGw
+ SjOKSqtMfo3T5fGvavdV8yNPnMH7diou5vv50IN47itGgsWFyMRggC6/7Pub3Zx56de0oeHcGY
+ OWwujZQ44PjRD48OrtyCIuz1RE0kT139RD76NyvC2CwWZyrLok4YsFt4H93+sXh6o+Kr65rkdu
+ OaEvtn33zPH8D17xOKn4BAAA=
+X-Change-ID: 20250913-i2c-mux-b0063de2ae4d
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Peter Rosin <peda@axentia.se>, 
+ Michael Hennerich <michael.hennerich@analog.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@intel.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Marcus Folkesson <marcus.folkesson@gmail.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4059;
+ i=marcus.folkesson@gmail.com; h=from:subject:message-id;
+ bh=zoK8Y4JjjpVli0tYldWuwlOtwBvcNGDImLpHHn+2UNs=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpkw+3UKjjGG+HArNi7qEWkJojo+VcEAN8Y3wlQ
+ Q1POYGf2MCJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaZMPtwAKCRCIgE5vWV1S
+ Mk0CEACatGJ4NqlrpfxA+XkfhhVARSh35cMDQN6ViZwxsLi+JJRZ4J3aRHwrDirMr3xpV880EpA
+ kioBXdZ5wXemW/i5NIYXEmV/0AlPtFlqHC0CAPBds0SoPI32vRfDG9T3JYMR6+qF47+x50qg7ZU
+ P5p+3tVnFF6+D5gHodrpZkNrENg8qr5YLZB+KKVXVnEmC423iPOlV9IZc0DsSqK1hixy71Eka+X
+ u1NI5RE4NoAqoWSGVee/7AEQzNEabgsNVMd7moFXT4pSBObkkv9Y2IGhoBxqXuVuo7KfcV6hm7k
+ wFzX2FJ3s4QeaIJ0EVgvQgUHpb9tQr5/7MW9G2XyiCVhRKLSmlGTE5SxS5UndeTL0g5dq+nD6hS
+ 8PYVZm4Chs9FLU4PUhkIb5TFagxfSNqCjBje5Mw4N+erOuAllfdm2dxAJReOtocz/SaOramP4Kz
+ 6tYOYF8x2OUk9PmLFr0Tuk/+vAsuP2bmHFVQxl9oRpcK12jjrm5F5icsbTjppkJK0Aztlgv1o8j
+ tqOeocyvcnUzK0rPnys/GbTSiftBAXvs0Z+sYqfylTshqTHN4WyRmh1kZ5zHLxX9amDfGOXTu5+
+ zv6ZAfkzHhrFmls57wPSZtpyRLZgVQGuq+J30l5W9VXmNq0cveVJ5Sfc67Z3iCYwX566yBY4pEo
+ ShGxwREsHqbflWw==
+X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
+ fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_043341_572497_7A7D8E0D 
-X-CRM114-Status: GOOD (  36.65  )
+X-CRM114-CacheID: sfid-20260216_043833_293967_7CC6AFA2 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,198 +126,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/02/2026 17:48, Mathieu Poirier wrote:
-> Hi Steven,
-> 
-> On Wed, Dec 17, 2025 at 10:10:37AM +0000, Steven Price wrote:
->> This series adds support for running protected VMs using KVM under the
->> Arm Confidential Compute Architecture (CCA). I've changed the uAPI
->> following feedback from Marc.
->>
->> The main change is that rather than providing a multiplex CAP and
->> expecting the VMM to drive the different stages of realm construction,
->> there's now just a minimal interface and KVM performs the necessary
->> operations when needed.
->>
->> This series is lightly tested and is meant as a demonstration of the new
->> uAPI. There are a number of (known) rough corners in the implementation
->> that I haven't dealt with properly.
->>
->> In particular please note that this series is still targetting RMM v1.0.
->> There is an alpha quality version of RMM v2.0 available[1]. Feedback was
->> that there are a number of blockers for merging with RMM v1.0 and so I
->> expect to rework this series to support RMM v2.0 before it is merged.
->> That will necessarily involve reworking the implementation.
->>
->> Specifically I'm expecting improvements in:
->>
->>  * GIC handling - passing state in registers, and allowing the host to
->>    fully emulate the GIC by allowing trap bits to be set.
->>
->>  * PMU handling - again providing flexibility to the host's emulation.
->>
->>  * Page size/granule size mismatch. RMM v1.0 defines the granule as 4k,
->>    RMM v2.0 provide the option for the host to change the granule size.
->>    The intention is that Linux would simply set the granule size equal
->>    to its page size which will significantly simplify the management of
->>    granules.
->>
->>  * Some performance improvement from the use of range-based map/unmap
->>    RMI calls.
->>
->> This series is based on v6.19-rc1. It is also available as a git
->> repository:
->>
->> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v12
->>
->> Work in progress changes for kvmtool are available from the git
->> repository below:
->>
->> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v10
-> 
-> The first thing to note is that branch cca/v10 does not compile due to function
-> realm_configure_parameters() not being called anywhere.  Marking the function as
-> [[maybe_unused]] solved the problem on my side.
+This was a RFC on how to implement a feature to have different bus
+speeds on different channels with an I2C multiplexer/switch.
+As no major complaints on the design came up during the review, I
+decided to submit the series without the RFC tag.
 
-This is in the kvmtool code - and yes I agree "work in progress" is a
-bit generous for the current state of that code, "horrid ugly hacks to
-get things working" is probably more accurate ;)
+The benefit with this feature is that you may group devices after
+the fastest bus speed they can handle.
+A real-world example is that you could have e.g. a display running @400kHz
+and a smart battery running @100kHz using the same I2C controller.
 
-The issue here is that the two things that realm_configure_parameters()
-set up (hash algorithm and RPV) are currently unsupported with the Linux
-changes, but will need to be reintroduced in the future. So the contents
-of the functions which set this up (using the old uAPI) are just #if 0'd
-out.
+There are many corner cases where this may cause a problem for some
+hardware topologies. I've tried to describe those I could think of
+in the documentation, see Patch #5.
 
-Depending on the compile flags the code will compile with a warning, but
-using __attribute__((unused)) would at least make this clear. I'd want
-to avoid the "[[maybe_unused]]" as it's not used elsewhere in the code
-base and limits compatibility.
+E.g. one risk is that if the mux driver does not disconnect channels
+when Idle, this may cause a higher frequency to "leak" through to
+devices that are supposed to run at lower bus speed.
+This is not only a "problem" for changing bus speed but could also be
+an issue for potential address conflicts.
 
-> Using the FVP emulator, booting a Realm that includes EDK2 in its boot stack
-> worked.  If EDK2 is not part of the boot stack and a kernel is booted directly
-> from lkvm, mounting the initrd fails.  Looking into this issue further, I see
-> that from a Realm kernel's perspective, the content of the initrd is either
-> encrypted or has been trampled on.  
+This patchset has been used and tested heavily the last months
+on a custom board based on a da850 (DaVinci) platform.
 
-I can reproduce that, a quick fix is to change INITRD_ALIGN:
+The implementation is split up into several patches:
 
-#define INITRD_ALIGN	SZ_64K
+Patch #1 Introduce a callback for the i2c controller to set bus speed
+Patch #2 Introduce functionality to adjust bus speed depending on mux
+         channel.
+Patch #3 Cleanup i2c-davinci driver a bit to prepare it for set_clk_freq
+Parch #4 Implement set_clk_freq for the i2c-davinci driver
+Parch #5 Update documentation with this feature
 
-But the code was meant to be able to deal with an unaligned initrd -
-I'll see if I can figure out what's going wrong.
+Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+---
+Changes in v6:
+- Change logic to find which ancestor to lock with I2C_LOCK_ROOT_ADAPTER
+  It now find the first mux-locked ancestor and then lock its parent.
 
-Thanks,
-Steve
+- Remove bus_freq_hz in i2c-davinci and only use clock_hz instead
+- Mention in commit message that clock_hz can be used to store frequency in an uniform way
 
-> I'd be happy to provide more details on the above, just let me know.
-> 
-> Thanks,
-> Mathieu
-> 
->>
->> [1] https://developer.arm.com/documentation/den0137/latest/
->>
->> Jean-Philippe Brucker (7):
->>   arm64: RMI: Propagate number of breakpoints and watchpoints to
->>     userspace
->>   arm64: RMI: Set breakpoint parameters through SET_ONE_REG
->>   arm64: RMI: Initialize PMCR.N with number counter supported by RMM
->>   arm64: RMI: Propagate max SVE vector length from RMM
->>   arm64: RMI: Configure max SVE vector length for a Realm
->>   arm64: RMI: Provide register list for unfinalized RMI RECs
->>   arm64: RMI: Provide accurate register list
->>
->> Joey Gouly (2):
->>   arm64: RMI: allow userspace to inject aborts
->>   arm64: RMI: support RSI_HOST_CALL
->>
->> Steven Price (34):
->>   arm64: RME: Handle Granule Protection Faults (GPFs)
->>   arm64: RMI: Add SMC definitions for calling the RMM
->>   arm64: RMI: Add wrappers for RMI calls
->>   arm64: RMI: Check for RMI support at KVM init
->>   arm64: RMI: Define the user ABI
->>   arm64: RMI: Basic infrastructure for creating a realm.
->>   KVM: arm64: Allow passing machine type in KVM creation
->>   arm64: RMI: RTT tear down
->>   arm64: RMI: Activate realm on first VCPU run
->>   arm64: RMI: Allocate/free RECs to match vCPUs
->>   KVM: arm64: vgic: Provide helper for number of list registers
->>   arm64: RMI: Support for the VGIC in realms
->>   KVM: arm64: Support timers in realm RECs
->>   arm64: RMI: Handle realm enter/exit
->>   arm64: RMI: Handle RMI_EXIT_RIPAS_CHANGE
->>   KVM: arm64: Handle realm MMIO emulation
->>   KVM: arm64: Expose support for private memory
->>   arm64: RMI: Allow populating initial contents
->>   arm64: RMI: Set RIPAS of initial memslots
->>   arm64: RMI: Create the realm descriptor
->>   arm64: RMI: Add a VMID allocator for realms
->>   arm64: RMI: Runtime faulting of memory
->>   KVM: arm64: Handle realm VCPU load
->>   KVM: arm64: Validate register access for a Realm VM
->>   KVM: arm64: Handle Realm PSCI requests
->>   KVM: arm64: WARN on injected undef exceptions
->>   arm64: Don't expose stolen time for realm guests
->>   arm64: RMI: Always use 4k pages for realms
->>   arm64: RMI: Prevent Device mappings for Realms
->>   HACK: Restore per-CPU cpu_armpmu pointer
->>   arm_pmu: Provide a mechanism for disabling the physical IRQ
->>   arm64: RMI: Enable PMU support with a realm guest
->>   KVM: arm64: Expose KVM_ARM_VCPU_REC to user space
->>   arm64: RMI: Enable realms to be created
->>
->> Suzuki K Poulose (3):
->>   kvm: arm64: Include kvm_emulate.h in kvm/arm_psci.h
->>   kvm: arm64: Don't expose unsupported capabilities for realm guests
->>   arm64: RMI: Allow checking SVE on VM instance
->>
->>  Documentation/virt/kvm/api.rst       |   78 +-
->>  arch/arm64/include/asm/kvm_emulate.h |   31 +
->>  arch/arm64/include/asm/kvm_host.h    |   13 +-
->>  arch/arm64/include/asm/kvm_rmi.h     |  137 +++
->>  arch/arm64/include/asm/rmi_cmds.h    |  508 ++++++++
->>  arch/arm64/include/asm/rmi_smc.h     |  269 +++++
->>  arch/arm64/include/asm/virt.h        |    1 +
->>  arch/arm64/kernel/cpufeature.c       |    1 +
->>  arch/arm64/kvm/Kconfig               |    2 +
->>  arch/arm64/kvm/Makefile              |    2 +-
->>  arch/arm64/kvm/arch_timer.c          |   37 +-
->>  arch/arm64/kvm/arm.c                 |  179 ++-
->>  arch/arm64/kvm/guest.c               |   95 +-
->>  arch/arm64/kvm/hypercalls.c          |    4 +-
->>  arch/arm64/kvm/inject_fault.c        |    5 +-
->>  arch/arm64/kvm/mmio.c                |   16 +-
->>  arch/arm64/kvm/mmu.c                 |  214 +++-
->>  arch/arm64/kvm/pmu-emul.c            |    6 +
->>  arch/arm64/kvm/psci.c                |   30 +
->>  arch/arm64/kvm/reset.c               |   13 +-
->>  arch/arm64/kvm/rmi-exit.c            |  207 ++++
->>  arch/arm64/kvm/rmi.c                 | 1663 ++++++++++++++++++++++++++
->>  arch/arm64/kvm/sys_regs.c            |   53 +-
->>  arch/arm64/kvm/vgic/vgic-init.c      |    2 +-
->>  arch/arm64/kvm/vgic/vgic-v2.c        |    6 +-
->>  arch/arm64/kvm/vgic/vgic-v3.c        |   14 +-
->>  arch/arm64/kvm/vgic/vgic.c           |   55 +-
->>  arch/arm64/kvm/vgic/vgic.h           |   20 +-
->>  arch/arm64/mm/fault.c                |   28 +-
->>  drivers/perf/arm_pmu.c               |   20 +
->>  include/kvm/arm_arch_timer.h         |    2 +
->>  include/kvm/arm_pmu.h                |    4 +
->>  include/kvm/arm_psci.h               |    2 +
->>  include/linux/perf/arm_pmu.h         |    7 +
->>  include/uapi/linux/kvm.h             |   42 +-
->>  35 files changed, 3650 insertions(+), 116 deletions(-)
->>  create mode 100644 arch/arm64/include/asm/kvm_rmi.h
->>  create mode 100644 arch/arm64/include/asm/rmi_cmds.h
->>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
->>  create mode 100644 arch/arm64/kvm/rmi-exit.c
->>  create mode 100644 arch/arm64/kvm/rmi.c
->>
->> -- 
->> 2.43.0
->>
->>
+- Swap order for change freq/deselect to keep symmetry
+- Only allow bus frequency to be lowered in select()
+  This to not allow an intermediate frequency to be set when it is not
+  supposed to
+
+- check if(ret) instead of ret(<0) where appropriate
+- Fix typos in documentation
+- Change i2c_adapter.clock_hz from int to u32
+- Simplify i2c_adapter_set_clk_freq() by removing 'ret'
+- Link to v5: https://lore.kernel.org/r/20260213-i2c-mux-v5-0-fb2cbf9979b3@gmail.com
+
+Changes in v5:
+- Take the lock of the top-most mutex locked mux to make sure that the
+  root is locked
+- Link to v4: https://lore.kernel.org/r/20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com
+
+Changes in v4:
+- Rebase on master
+- Swap order for printing warning about "channel %u is slower than
+  parent on a non parent-locked mux\n"
+- Fix typo in comment, adaper->adapter
+- Link to v3: https://lore.kernel.org/r/20251020-i2c-mux-v3-0-908ac5cf9223@gmail.com
+
+Changes in v3:
+- Return -EINVAL if channel is faster than parent (kernel test robot)
+- Link to v2: https://lore.kernel.org/r/20251002-i2c-mux-v2-0-b698564cd956@gmail.com
+
+Changes in v2:
+- Changed bus_freq field to bus_freq_hz in davinci_i2c_dev (Bartosz Golaszewski)
+- Removed idle_state from mux core (Peter Rosin)
+- Link to v1: https://lore.kernel.org/r/20250922-i2c-mux-v1-0-28c94a610930@gmail.com
+
+---
+Marcus Folkesson (5):
+      i2c: core: add callback to change bus frequency
+      i2c: mux: add support for per channel bus frequency
+      i2c: davinci: calculate bus freq from Hz instead of kHz
+      i2c: davinci: add support for setting bus frequency
+      docs: i2c: i2c-topology: add section about bus speed
+
+ Documentation/i2c/i2c-topology.rst | 178 +++++++++++++++++++++++++++++++++++++
+ drivers/i2c/busses/i2c-davinci.c   |  42 ++++++---
+ drivers/i2c/i2c-mux.c              | 145 +++++++++++++++++++++++++++---
+ include/linux/i2c.h                |  11 +++
+ 4 files changed, 353 insertions(+), 23 deletions(-)
+---
+base-commit: 1f97d9dcf53649c41c33227b345a36902cbb08ad
+change-id: 20250913-i2c-mux-b0063de2ae4d
+
+Best regards,
+-- 
+Marcus Folkesson <marcus.folkesson@gmail.com>
 
 
