@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 260F8E7BD84
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 10:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 075A0E7BD85
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 10:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ljL0KslWAnfHi4SgTp5Lc48RlHOMSJjmrYiSfJnyksA=; b=VCHDiHrq+uzyV6cMP6WO06w4Dy
-	8q1ekYBWn6DDo03VEPAVXx4fWKY59ecdR1DFQQeFKMj6wNFcGOXv7skhcgzLizlSJHr5tAl+2pamT
-	6dP2eYI+MCdYGLWBlbs9pmIuacOaFRN+p/BGlCLWlFvZXn/VE33DVq58wg7bpB6ZBbhnkVDaKhT3D
-	QCVnVGKM+/MwxbN41sv4u5/ny8siDKNUGUxnmdUQJUBuo/5hfxi40gVwFhnJZ/db0CHjKI7MIjKPd
-	yY2/CiCSXRPGB8cW4vEPgRriAi8NifdhoBaEuRcM7znmS2FeqpcJWZ0iqN7ZdtBlRAI+tYan8mle/
-	AAoGnzQQ==;
+	bh=P13RQBdg6K1Wy1Hr9r4bT32rks9Vl0ToNw0MIIfQKTs=; b=uOOXX705S0fJa26tPLZxR1I02C
+	9euELwQG+3KhweTZli05xqBfxtX9u0cl5WKid6HeIDzb4oMKRlY+G1euMMq2etpiHOtB74weMezOz
+	kKeWSxRZprF6h1WvqTb0948+kjEmDg8v4d6Yxpd9zRkB3wQNMimpM8lsaGHaegkTiA5+HDFMHoRYa
+	0XwCN1qp9mop8qi3aNenQh0zHjWYfMxSXyy51Nz/Q6TyU/5yZjTR0iVWLMx3lnajkCgPN38vHdOgT
+	kMlmDt+FXNt2CvwHZNku/YWWua+Bs2GKwhfIa0o1JfNbswqX6M/h8Wzoop1N0hNYjKdAucOUM6E0/
+	3p1ETL3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrvRs-00000006JxQ-0oEu;
-	Mon, 16 Feb 2026 10:03:24 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vrvay-00000006KQY-3mFq;
+	Mon, 16 Feb 2026 10:12:48 +0000
+Received: from mail-ua1-f42.google.com ([209.85.222.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrvRp-00000006Jx2-3pn0;
-	Mon, 16 Feb 2026 10:03:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1771236187; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GeW8WqUGujtHQ7fGuMJvSj4yMhhoojmetQb2FFSqHun6vPZrVhgIJTj7EdTFQt6czPmKT0FFCLHghSM4IyIJEfXLn1PpYg7tKa3GI1GStT1NOIBQ1E1H95gOOYUPvu2y8F+URyKthpAutq7WLkL/PWmaOI+mloYF8QRfPslDShM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1771236187; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ljL0KslWAnfHi4SgTp5Lc48RlHOMSJjmrYiSfJnyksA=; 
-	b=JBzTzy7Oq15p36DSt1JDx7dvNI8a2ijRnk0LzWEFAzjVXGNVzSSewo9yrYZW/NECaowKnnb0EnZgXl17E6GGp8mcAlQXR87KyjtfSOiyeVXeSg2A4tq+BLbPbBNENN2yJEm8yoDVcLaxcV8QYp2z+EEt6DO9GlsnE0Kq4H77enc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771236187;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=ljL0KslWAnfHi4SgTp5Lc48RlHOMSJjmrYiSfJnyksA=;
-	b=aC4f98GATAkxV1cD6g89rK/6+jKkPSZPUiSszOX5kTMz1mYdnvKWusyZhvctbhtU
-	8pV+eAqCSP6mzT+f9iOaCXxtnr/+KrQiWf0hCupBIvPVLyQEdeeRAzPJxMbWo0nb8ct
-	Y3wAEqSXj3X+lc1NuR9T7QqR91mkC6eUsN2GHvT0=
-Received: by mx.zohomail.com with SMTPS id 1771236185662100.11990264353267;
-	Mon, 16 Feb 2026 02:03:05 -0800 (PST)
-Message-ID: <5f8401ba-b7fa-4fa3-850a-f815529b803c@collabora.com>
-Date: Mon, 16 Feb 2026 11:03:00 +0100
+	id 1vrvax-00000006KQC-0ylE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 10:12:48 +0000
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-94b07fddecbso1805367241.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 02:12:46 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771236766; x=1771841566;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=P13RQBdg6K1Wy1Hr9r4bT32rks9Vl0ToNw0MIIfQKTs=;
+        b=WrngHoUqC2brPOBf1E9n9I4/INzmPc1XRGmGXuYwz8w7eJBXEoGoHaHTAicjA4ikbC
+         Ix7TAUr6bBGczH885DRgIwDGiwECtdBYv+HAKqePrVlSy6ewGE/sqQuuvLBGsQM+M2Gd
+         Euf0PcVk4pfnue1IOwzwBY93Wlto1lMSYIDFMrMolbHz6x+DIdVk7k7+54s/ktVzTmG0
+         uLvLUFocatOBM0FZw5uEIrNnq9zbyKdbrGdugQxuV3N/M/MQAW83uYT8WfGMsF5/6dMW
+         l9h8moIblf7h4sq1WQdLTkaQZtE4mO70X2tzucJyb5rfOVEZ/GqT7wCMBsF98czGI6mG
+         dg9w==
+X-Forwarded-Encrypted: i=1; AJvYcCUJK1qyBNJc+A7/ONacD3KZxJ54o0ynU9erXvPkOm5T+aRsTMU703fX5cA7rKtmYK2CraE483VzYVOxdPw4PVnf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPuxCqdwCbGYYOiGZtH96k8bnxuTy2bJE5NcPq6btBgJgC1bHf
+	GJfzMLV5URVcuj0qV1Eo8O6RDy1miphTKtqM39wXhTj0O2sQOmDiBO9ykAgzWu1S
+X-Gm-Gg: AZuq6aLvkNTFXjC0p2KJ2ySc3FRpJo0WBM2YM5hmggfOReciYZR74nVUW43FkgkceS2
+	XztuVU7kKKumB8WVxiLrWjJ46fRMWNx2jELCCHhj4fP2/2Gma5fYIYDaK5ZQdqizQE1jpyRkA3t
+	5PebljZKC4RF5DrFOma/zmxxvr8djHaEot7SbChBWrkW8MHkKdZTrnZartzOFCdMLIAQOs+mkYr
+	psVDMfyN7iLT6VByoheBsY2QbH5ayTzETuHl/NZrJ0hBo/mYEgzDryMeNiVfqsZikr+HgdYpYDV
+	ZRypvXIpG4GNV6iQPwn7ClmQLx2F0Q3pR2TIloXzpqZP6D37efc+oGG8SmwD21grsLHVHSd/cLF
+	bpXtqD66O+GcITwTKV699K8MMFvfxN4tyS6Yfo1HRtHDAd5VtUUIsf417JCxT3LQRLw72I0Hxck
+	hmLySLqvv/qAYWPW2WMhXd1hFXadH48NBRIpSSn9BTZBL/bO5y+iVrgD1blfqY56C+
+X-Received: by 2002:a05:6102:ccc:b0:5ef:248b:d533 with SMTP id ada2fe7eead31-5fe2afaace7mr2729689137.31.1771236765693;
+        Mon, 16 Feb 2026 02:12:45 -0800 (PST)
+Received: from mail-vk1-f169.google.com (mail-vk1-f169.google.com. [209.85.221.169])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94afd37d557sm7202765241.12.2026.02.16.02.12.45
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Feb 2026 02:12:45 -0800 (PST)
+Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-56641b5a471so2310232e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 02:12:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVUgtvInp4IFRKFC7zOERrDlisacSTrR0CmuajK/UrPAbf0492q+v8CKVhub6IS732d5jxhbB3DZPpJpkFnWv7A@lists.infradead.org
+X-Received: by 2002:a05:6122:a03:b0:559:6960:be0d with SMTP id
+ 71dfb90a1353d-56889c06729mr2290707e0c.13.1771236764971; Mon, 16 Feb 2026
+ 02:12:44 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 3/7] iommu: Add verisilicon IOMMU driver
-To: Will Deacon <will@kernel.org>
-Cc: joro@8bytes.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
- kernel@collabora.com
-References: <aWZui-rn5RDPwpEO@willie-the-truck>
- <68a49f8b-178c-4fa2-b4a9-315ad602271d@collabora.com>
- <aWeTQ50DOtntcniN@willie-the-truck>
- <db0950f1-b357-47c2-9829-e33262ab456d@collabora.com>
- <aW4kb5EbxbrhTOxK@willie-the-truck>
- <b8f43fe8-3e07-4d98-a50d-817c31370710@collabora.com>
- <aXDL2JH_4RCDmAJv@willie-the-truck>
- <4b33b50f-f0c3-4db8-b394-dd2d4d6e3a55@collabora.com>
- <aXOsdlGMVzhHOrUr@willie-the-truck>
- <8fd2c508-cbe9-4050-ba02-85b22fcff10d@collabora.com>
- <aXd4CXE0fqWiKJXl@willie-the-truck>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <aXd4CXE0fqWiKJXl@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20260215225501.6365-1-wsa+renesas@sang-engineering.com>
+ <20260215225501.6365-3-wsa+renesas@sang-engineering.com> <6e495cc2-3469-4855-8645-c5633d937f1e@omp.ru>
+ <aZLVU9toZRX2vKX7@ninjato>
+In-Reply-To: <aZLVU9toZRX2vKX7@ninjato>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 16 Feb 2026 11:12:34 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWwJZ4fiNgh4DEGpr85QQrPwyA=F=RFyPq-iGzq=F5qMw@mail.gmail.com>
+X-Gm-Features: AaiRm53XX8yh0yo47xtUNtlKS0oVTVKQWhwNHvxvJ08yrbcLBEFD0v6qPau1ZLw
+Message-ID: <CAMuHMdWwJZ4fiNgh4DEGpr85QQrPwyA=F=RFyPq-iGzq=F5qMw@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 02/13] hwspinlock: add callback to fill private
+ data of a hwspinlock
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Sergey Shtylyov <s.shtylyov@omp.ru>, linux-renesas-soc@vger.kernel.org, 
+	Andy Shevchenko <andriy.shevchenko@intel.com>, linux-arm-kernel@lists.infradead.org, 
+	Bjorn Andersson <andersson@kernel.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	linux-remoteproc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_020322_013241_47480F3D 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20260216_021247_276625_C6EFC090 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,90 +100,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Wolfram,
 
-Le 26/01/2026 à 15:19, Will Deacon a écrit :
-> On Mon, Jan 26, 2026 at 10:03:19AM +0100, Benjamin Gaignard wrote:
->> Le 23/01/2026 à 18:14, Will Deacon a écrit :
->>> On Wed, Jan 21, 2026 at 02:50:18PM +0100, Benjamin Gaignard wrote:
->>>> Le 21/01/2026 à 13:51, Will Deacon a écrit :
->>>>> On Mon, Jan 19, 2026 at 03:03:44PM +0100, Benjamin Gaignard wrote:
->>>>>>>>>>>> +static const struct iommu_ops vsi_iommu_ops = {
->>>>>>>>>>>> +	.identity_domain = &vsi_identity_domain,
->>>>>>>>>>>> +	.release_domain = &vsi_identity_domain,
->>>>>>>>>>>> +	.domain_alloc_paging = vsi_iommu_domain_alloc_paging,
->>>>>>>>>>>> +	.of_xlate = vsi_iommu_of_xlate,
->>>>>>>>>>>> +	.probe_device = vsi_iommu_probe_device,
->>>>>>>>>>>> +	.release_device = vsi_iommu_release_device,
->>>>>>>>>>>> +	.device_group = generic_single_device_group,
->>>>>>>>>>>> +	.owner = THIS_MODULE,
->>>>>>>>>>>> +	.default_domain_ops = &(const struct iommu_domain_ops) {
->>>>>>>>>>>> +		.attach_dev		= vsi_iommu_attach_device,
->>>>>>>>>>>> +		.map_pages		= vsi_iommu_map,
->>>>>>>>>>>> +		.unmap_pages		= vsi_iommu_unmap,
->>>>>>>>>>>> +		.flush_iotlb_all	= vsi_iommu_flush_tlb_all,
->>>>>>>>>>> This has no callers and so your unmap routine appears to be broken.
->>>>>>>>>> It is a leftover of previous attempt to allow video decoder to clean/flush
->>>>>>>>>> the iommu by using a function from the API.
->>>>>>>>>> Now it is using vsi_iommu_restore_ctx().
->>>>>>>>>> I while remove it in version 12.
->>>>>>>>> Don't you still need some invalidation on the unmap path?
->>>>>>>> In vsi_iommu_unmap_iova() page is invalided by calling vsi_mk_pte_invalid().
->>>>>>> But that just writes an invalid descriptor and doesn't appear to invalidate
->>>>>>> the TLB at all.
->>>>>>>
->>>>>>>> That clear BIT(0) so the hardware knows the page is invalid.
->>>>>>>> Do I have miss something here ?
->>>>>>> Yes, the TLB structure needs to be invalidated so that the page-table
->>>>>>> walker sees the new value that you have written in memory.
->>>>>>>
->>>>>>> The rockchip driver gets this correct...
->>>>>> Rockchip hardware have a ZAP_ONE_LINE register which didn't exist on Verisilicon
->>>>>> hardware.
->>>>> Presumably you have some sort of Verisilicon datasheet or downstream driver
->>>>> from which you can infer the TLB invalidation runes?
->>>> I have only this downstream driver:
->>>> https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/iommu/rockchip-iommu-av1d.c
->>>> No datasheet...
->>>>
->>>>>> I have tried to use VSI_MMU_BIT_FLUSH on VSI driver after unmapping iova
->>>>>> but it doesn't work.
->>>>> What do you mean by "doesn't work"? If it works without doing any
->>>>> invalidation at all, then it's very peculiar that adding the invalidation
->>>>> would introduce issues.
->>>> I mean VSI_MMU_BIT_FLUSH register can't be used to invalid the TLB.
->>>> I think the hardware iterates over the pages tables in memory and
->>>> check the valid/invalid bit.
->>> I bet it doesn't: that would be horrible for performance.
->>>
->>> The hardware clearly has TLB invalidation support, as the downstream driver
->>> that you linked above implements av1_iommu_flush_tlb_all() to poke it.
->>> If the hardware has a TLB, then unmapping a page-table means you need to:
->>>
->>> 1. Clear the valid bit from the descriptor in memory
->>> 2. Have some sort of memory barrier
->>> 3. Invalidate the TLB
->>> 4. Wait for the invalidation to complete
->> That exactly what I had tried to do by calling vsi_iommu_flush_tlb_all() (minux the lock)
->> after calling vsi_iommu_unmap_iova() in vsi_iommu_unmap() but that doesn't work
->> and even make the system crash sometimes.
-> Then it sounds like you have some debugging to do...
+On Mon, 16 Feb 2026 at 09:29, Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
+> >    Don't you break the existing users of this API with this change? I s=
+ee
+> > you're fixing them up in the followup patches but that's not how it sho=
+uld
+> > be done -- the compilation shouldn't be broken...
 >
-> I don't think we should elide the TLB invalidation just because you
-> couldn't get it to work.
-
-Hi Will,
-
-I have send a v13 of this patchset where I had included Joerg's comments.
-V13 doesn't change how the TLB invalidation is done.
-I have look everywhere and there is no additional bit(s) or register(s) to
-do what you ask.
-V13 is update to date and rebased on v6.19. Unless I receive new documents
-or specifications about the hardware I don't plan to work on this anymore.
-
-Regards,
-Benjamin
-
+> I am not breaking them. The helper is an additional feature and the old
+> way still works until patch 8. Until then, all users are converted.
 >
-> Will
->
+> I built tested it :)
+
+Is that the statistically most-used response to that question? ;-)
+
+drivers/hwspinlock/sun6i_hwspinlock.c: In function =E2=80=98sun6i_hwspinloc=
+k_probe=E2=80=99:
+drivers/hwspinlock/sun6i_hwspinlock.c:182:16: error: too few arguments
+to function =E2=80=98devm_hwspin_lock_register=E2=80=99
+  182 |         return devm_hwspin_lock_register(&pdev->dev,
+priv->bank, &sun6i_hwspinlock_ops,
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~
+[...]
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
