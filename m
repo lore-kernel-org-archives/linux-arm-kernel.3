@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25002E63F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C6ACE63F3A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5SX/d54PXDjewqxCGR18EtEsbX5HuHmXdDmZUtDAJKY=; b=CQGf3RIpSCsr83to4VYJGkIVD0
-	f776lKL/ZweHXF43OTETMEhtWouxBx811jMrE+w6gWz0IGiHEhTX2GXRsBTwS5eDSM5iB+oqX0QZy
-	yMiKT0yiuqfuWMt54GHR8TQ6ELMrkxwMSRXEJyKbqomeN/1JlC4j9Xcx9wyythGOzD37WK08TkzMK
-	irHRjLwejR6bt8tbQk2kRf2kEayrlS9FPC6LYL9oHc1ueq3WWvFko3PP8XncWAYlKPCse47VXpjPn
-	rzP62FVsGTy8c4baVWWrp4cMhcBqMBKSA560AL1J8MlnQFxIVjcwEkfreljDclgWdOM9mOapjVgCF
-	UOtCk4FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JwQ1grxCUBM8Ff3Yf/qwgS/W7YehTUKfX5iiFa7RS8U=; b=sT8rYOm7dUU/CtruG1Qb9tlz9q
+	dOsjViRIXEc5tPwnGObMqFDhcPcfOKBMfyp9EiBsvu8GEJfl9WKfk8EoxuEoE5CNrL2c+tKT/3Bq2
+	RMSPZbWfVG3uc5/sEfa2CKihpgwyP56DSeK+vqesITzmbkk7XjzM5++vdhxRwzAj8tfvjnJe9wnYG
+	FJ79ynvmQt+FoX9d/F4/7LXaOwy1wJrYdMjtazb/ao7xApJKyYG83zztMp5ItNpbElgcm7AttTkoS
+	90atY3Ub9XRLzIIEP9sfc2p/S4r2lv8KEhblV/KeD7x1Ev/gZNdDSZGb/2WhBB1peVwqPY/60mB1b
+	/eIarENg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtyn-000000068vT-06eZ;
-	Mon, 16 Feb 2026 08:29:17 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1vrtzC-0000000692H-1hqL;
+	Mon, 16 Feb 2026 08:29:42 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtyi-000000068tt-0lP5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 08:29:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=5SX/
-	d54PXDjewqxCGR18EtEsbX5HuHmXdDmZUtDAJKY=; b=amzlBXRg6ZSAHSuMwTK9
-	fxzgQIr3ynoNeTpGYNEXubCW5Wi73ac6vU3LhKIl2+M2hard43Sl85cN5S95SR+D
-	i1Z3J4ZR75SjEt+M+lSQbltf6/PsMlBltEfxAgnmXWnDY6PsGim6jK7QjEi3NQZZ
-	WABZhMOCYalNPqAewYTbjLYK6a/ErIi89LTwUvur7Dlul5qbsYMFvxx706WkSzQq
-	Hi+npE0Qpte9x7ho6NPYQ/SQdOos+iA25htIvjHEXdTa/DpAuELe8O6oV7NrtG2o
-	s4pomPV4qsDjsTdc8SzTGY/Mg/2/p/Jfk1qBo+IM2mtYCc88jhCKkCzCSxRzniRT
-	Hg==
-Received: (qmail 3162847 invoked from network); 16 Feb 2026 09:29:07 +0100
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 16 Feb 2026 09:29:07 +0100
-X-UD-Smtp-Session: l3s3148p1@ObiYv+xK2JYujnu0
-Date: Mon, 16 Feb 2026 09:29:07 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Sergey Shtylyov <s.shtylyov@omp.ru>
-Cc: linux-renesas-soc@vger.kernel.org,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	linux-remoteproc@vger.kernel.org
-Subject: Re: [RFC PATCH v2 02/13] hwspinlock: add callback to fill private
- data of a hwspinlock
-Message-ID: <aZLVU9toZRX2vKX7@ninjato>
-References: <20260215225501.6365-1-wsa+renesas@sang-engineering.com>
- <20260215225501.6365-3-wsa+renesas@sang-engineering.com>
- <6e495cc2-3469-4855-8645-c5633d937f1e@omp.ru>
+	id 1vrtz8-0000000690c-0Ehe;
+	Mon, 16 Feb 2026 08:29:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771230574;
+	bh=aNdNJwsBi7HLicoOA5R3/iM476r6CjPzn0ksu8G7ON8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RtWHVrZdNkX7ZzsjUDe7HId6/GAfmW45yVY438DnH65a8Ef4FgZ+va5/2qChR1Jbt
+	 g6TyXV/uqFju83WRvVeTEznnU5Xo9s860r6an0sNeiXtGSXLHiFNMBZaCk+0FMZqK9
+	 /gOUyUh109mFsfxXyppQDeZ8vYHb2w63eApz8c5g4KlI3sS+siKIK+DJFm8R13h9NT
+	 0eG526e95TpDzb2yK+13JwPO92hqYGM5qT8ohvjEwcRpSNmIS9qy3Ob40UkCBL36mO
+	 agtW/Uho/uiBtjHVQSFkVEJqMVC8PInuiXS/ZU2502coCoHfjRM60IAjzizBnjPAjd
+	 dDukQb6S3Vz6Q==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 37E5417E150E;
+	Mon, 16 Feb 2026 09:29:34 +0100 (CET)
+Message-ID: <bfb98074-b256-4ed8-bca1-22a4dd4bf474@collabora.com>
+Date: Mon, 16 Feb 2026 09:29:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6e495cc2-3469-4855-8645-c5633d937f1e@omp.ru>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/6] media: synopsys: csi2rx: add i.MX93 support
+To: Frank Li <Frank.Li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, imx@lists.linux.dev
+References: <20260213-imx93-dw-csi2-v2-0-8be6039f44c6@nxp.com>
+ <20260213-imx93-dw-csi2-v2-6-8be6039f44c6@nxp.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260213-imx93-dw-csi2-v2-6-8be6039f44c6@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_002914_513797_DB5EEE2E 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260216_002940_266738_9A8059FD 
+X-CRM114-Status: GOOD (  29.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,14 +80,284 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Frank,
 
->    Don't you break the existing users of this API with this change? I see
-> you're fixing them up in the followup patches but that's not how it should
-> be done -- the compilation shouldn't be broken...
+Thanks for the update.
 
-I am not breaking them. The helper is an additional feature and the old
-way still works until patch 8. Until then, all users are converted.
+On 2/13/26 21:25, Frank Li wrote:
+> The i.MX93 uses a newer version of the DW CSI-2 controller with a changed
+> register layout and included an Image Pixel Interface (IPI), which convert
 
-I built tested it :)
+and an integrated Image Pixel Interface (IPI), which converts
+
+> the received CSI-2 packets, from byte to pixel format, and  produces a
+
+remove both ","
+remove extra space between "and" and "produces"
+
+> pixel data bus containing vertical and horizontal synchronism information.
+
+synchronization information?
+
+> 
+> The reset flow also differs, so add the .assert_reset(), .deassert_reset(),
+> and .idi_enable() callbacks to support it.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change in v2
+> - move macro define to header
+> - use new register access method
+> - Keep check register exist to avoid print error message. keep slicence to
+> access unexisting register may hide problem.
+> ---
+>  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 163 ++++++++++++++++++++++-
+>  1 file changed, 159 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> index b00ae5fb328da4cc78fe36b629d6661d438e124a..ff617a38e8e9ffed4701c15f59aebeca8e4c5553 100644
+> --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> @@ -35,6 +35,22 @@
+>  #define DW_REG_EXIST		BIT(31)
+>  #define DW_REG(x)		(DW_REG_EXIST | (x))
+>  
+> +#define DPHY_TEST_CTRL0_TEST_CLR	BIT(0)
+> +
+> +#define IPI_VCID_VC(x)			FIELD_PREP(GENMASK(1, 0), (x))
+> +#define IPI_VCID_VC_0_1(x)		FIELD_PREP(GENMASK(3, 2), (x))
+> +#define IPI_VCID_VC_2			BIT(4)
+> +
+> +#define IPI_DATA_TYPE_DT(x)		FIELD_PREP(GENMASK(5, 0), (x))
+> +#define IPI_DATA_TYPE_EMB_DATA_EN	BIT(8)
+> +
+> +#define IPI_MODE_CONTROLLER		BIT(1)
+> +#define IPI_MODE_COLOR_MODE16		BIT(8)
+> +#define IPI_MODE_CUT_THROUGH		BIT(16)
+> +#define IPI_MODE_ENABLE			BIT(24)
+> +
+> +#define IPI_MEM_FLUSH_AUTO		BIT(8)
+> +
+>  enum dw_mipi_csi2rx_regs_index {
+>  	DW_MIPI_CSI2RX_N_LANES,
+>  	DW_MIPI_CSI2RX_RESETN,
+> @@ -44,6 +60,16 @@ enum dw_mipi_csi2rx_regs_index {
+>  	DW_MIPI_CSI2RX_MSK1,
+>  	DW_MIPI_CSI2RX_MSK2,
+>  	DW_MIPI_CSI2RX_CONTROL,
+> +	/* imx93 (v150) new register */
+> +	DW_MIPI_CSI2RX_DPHY_RSTZ,
+> +	DW_MIPI_CSI2RX_PHY_TST_CTRL0,
+> +	DW_MIPI_CSI2RX_PHY_TST_CTRL1,
+> +	DW_MIPI_CSI2RX_PHY_SHUTDOWNZ,
+> +	DW_MIPI_CSI2RX_IPI_DATATYPE,
+> +	DW_MIPI_CSI2RX_IPI_MEM_FLUSH,
+> +	DW_MIPI_CSI2RX_IPI_MODE,
+> +	DW_MIPI_CSI2RX_IPI_SOFTRSTN,
+> +	DW_MIPI_CSI2RX_IPI_VCID,
+>  
+>  	DW_MIPI_CSI2RX_MAX,
+>  };
+> @@ -54,8 +80,13 @@ enum {
+>  	DW_MIPI_CSI2RX_PAD_MAX,
+>  };
+>  
+> +struct dw_mipi_csi2rx_device;
+> +
+>  struct dw_mipi_csi2rx_drvdata {
+>  	const u32 *regs;
+> +	void (*dphy_assert_reset)(struct dw_mipi_csi2rx_device *csi2);
+> +	void (*dphy_deassert_reset)(struct dw_mipi_csi2rx_device *csi2);
+> +	void (*ipi_enable)(struct dw_mipi_csi2rx_device *csi2);
+>  };
+>  
+>  struct dw_mipi_csi2rx_format {
+> @@ -103,6 +134,21 @@ static const struct dw_mipi_csi2rx_drvdata rk3568_drvdata = {
+>  	.regs = rk3568_regs,
+>  };
+>  
+> +static const u32 imx93_regs[DW_MIPI_CSI2RX_MAX] = {
+> +	[DW_MIPI_CSI2RX_N_LANES] = DW_REG(0x4),
+> +	[DW_MIPI_CSI2RX_RESETN] = DW_REG(0x8),
+> +	[DW_MIPI_CSI2RX_PHY_SHUTDOWNZ] = DW_REG(0x40),
+> +	[DW_MIPI_CSI2RX_DPHY_RSTZ] = DW_REG(0x44),
+> +	[DW_MIPI_CSI2RX_PHY_STATE] = DW_REG(0x48),
+> +	[DW_MIPI_CSI2RX_PHY_TST_CTRL0] = DW_REG(0x50),
+> +	[DW_MIPI_CSI2RX_PHY_TST_CTRL1] = DW_REG(0x54),
+> +	[DW_MIPI_CSI2RX_IPI_MODE] = DW_REG(0x80),
+> +	[DW_MIPI_CSI2RX_IPI_VCID] = DW_REG(0x84),
+> +	[DW_MIPI_CSI2RX_IPI_DATATYPE] = DW_REG(0x88),
+> +	[DW_MIPI_CSI2RX_IPI_MEM_FLUSH] = DW_REG(0x8c),
+> +	[DW_MIPI_CSI2RX_IPI_SOFTRSTN] = DW_REG(0xa0),
+> +};
+> +
+>  static const struct v4l2_mbus_framefmt default_format = {
+>  	.width = 3840,
+>  	.height = 2160,
+> @@ -319,14 +365,32 @@ static int dw_mipi_csi2rx_start(struct dw_mipi_csi2rx_device *csi2)
+>  		return -EINVAL;
+>  	}
+>  
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_RESETN, 0);
+> +
+> +	if (csi2->drvdata->dphy_assert_reset)
+> +		csi2->drvdata->dphy_assert_reset(csi2);
+> +
+>  	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
+>  		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
+>  
+>  	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_N_LANES, lanes - 1);
+> -	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_CONTROL, control);
+> +
+> +	if (dw_mipi_csi2rx_is_exist(csi2, DW_MIPI_CSI2RX_CONTROL))
+> +		dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_CONTROL, control);
+> +
+> +	ret = phy_power_on(csi2->phy);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (csi2->drvdata->dphy_deassert_reset)
+> +		csi2->drvdata->dphy_deassert_reset(csi2);
+> +
+>  	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_RESETN, 1);
+>  
+> -	return phy_power_on(csi2->phy);
+> +	if (csi2->drvdata->ipi_enable)
+> +		csi2->drvdata->ipi_enable(csi2);
+> +
+> +	return 0;
+>  }
+>  
+>  static void dw_mipi_csi2rx_stop(struct dw_mipi_csi2rx_device *csi2)
+> @@ -334,8 +398,12 @@ static void dw_mipi_csi2rx_stop(struct dw_mipi_csi2rx_device *csi2)
+>  	phy_power_off(csi2->phy);
+>  
+>  	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_RESETN, 0);
+> -	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK1, ~0);
+> -	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK2, ~0);
+> +
+> +	if (dw_mipi_csi2rx_is_exist(csi2, DW_MIPI_CSI2RX_MSK1))
+> +		dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK1, ~0);
+> +
+> +	if (dw_mipi_csi2rx_is_exist(csi2, DW_MIPI_CSI2RX_MSK2))
+> +		dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK2, ~0);
+>  }
+>  
+>  static const struct media_entity_operations dw_mipi_csi2rx_media_ops = {
+> @@ -687,7 +755,94 @@ static void dw_mipi_csi2rx_unregister(struct dw_mipi_csi2rx_device *csi2)
+>  	v4l2_async_nf_cleanup(&csi2->notifier);
+>  }
+>  
+> +static void imx93_csi2rx_dphy_assert_reset(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	u32 val;
+> +
+> +	/* Release synopsis DPHY test codes from reset */
+
+Synopsys
+
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_DPHY_RSTZ, 0);
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_PHY_SHUTDOWNZ, 0);
+> +
+> +	val = dw_mipi_csi2rx_read(csi2, DW_MIPI_CSI2RX_PHY_TST_CTRL0);
+> +	val &= ~DPHY_TEST_CTRL0_TEST_CLR;
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_PHY_TST_CTRL0, val);
+> +
+> +	/*
+> +	 * ndelay is not necessary have MMIO operation, need dummy read to make
+> +	 * sure above write reach target.
+
+/* use read to ensure that the write operation above reaches its target */
+?
+
+(Technically it's not a dummy read, as you use the result after the ndelay)
+
+> +	 */
+> +	val = dw_mipi_csi2rx_read(csi2, DW_MIPI_CSI2RX_PHY_TST_CTRL0);
+> +	/* Wait for at least 15ns */
+> +	ndelay(15);
+> +	val |= DPHY_TEST_CTRL0_TEST_CLR;
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_PHY_TST_CTRL0, val);
+> +}
+> +
+> +static void imx93_csi2rx_dphy_deassert_reset(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	/* Release PHY from reset */
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_PHY_SHUTDOWNZ, 0x1);
+> +	/*
+> +	 * ndelay is not necessary have MMIO operation, need dummy read to make
+> +	 * sure above write reach target.
+> +	 */
+
+Adjust comment accordingly.
+
+> +	dw_mipi_csi2rx_read(csi2, DW_MIPI_CSI2RX_PHY_SHUTDOWNZ);
+> +	ndelay(5);
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_DPHY_RSTZ, 0x1);
+> +
+> +	dw_mipi_csi2rx_read(csi2, DW_MIPI_CSI2RX_DPHY_RSTZ);
+> +	ndelay(5);
+> +}
+> +
+> +static void imx93_csi2rx_dphy_ipi_enable(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	int dt = csi2->formats->csi_dt;
+> +	u32 val;
+> +
+> +	/* Do IPI soft reset */
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_IPI_SOFTRSTN, 0x0);
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_IPI_SOFTRSTN, 0x1);
+> +
+> +	/* Select virtual channel and data type to be processed by IPI */
+> +	val = IPI_DATA_TYPE_DT(dt);
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_IPI_DATATYPE, val);
+> +
+> +	/* Set virtual channel 0 as default */
+> +	val  = IPI_VCID_VC(0);
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_IPI_VCID, val);
+> +
+> +	/*
+> +	 * Select IPI camera timing mode and allow the pixel stream
+> +	 * to be non-continuous when pixel interface FIFO is empty
+> +	 */
+> +	val = dw_mipi_csi2rx_read(csi2, DW_MIPI_CSI2RX_IPI_MODE);
+> +	val &= ~IPI_MODE_CONTROLLER;
+> +	val &= ~IPI_MODE_COLOR_MODE16;
+> +	val |= IPI_MODE_CUT_THROUGH;
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_IPI_MODE, val);
+> +
+> +	/* Memory is automatically flushed at each Frame Start */
+> +	val = IPI_MEM_FLUSH_AUTO;
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_IPI_MEM_FLUSH, val);
+> +
+> +	/* Enable IPI */
+> +	val = dw_mipi_csi2rx_read(csi2, DW_MIPI_CSI2RX_IPI_MODE);
+> +	val |= IPI_MODE_ENABLE;
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_IPI_MODE, val);
+> +}
+> +
+> +static const struct dw_mipi_csi2rx_drvdata imx93_drvdata = {
+> +	.regs = imx93_regs,
+> +	.dphy_assert_reset = imx93_csi2rx_dphy_assert_reset,
+> +	.dphy_deassert_reset = imx93_csi2rx_dphy_deassert_reset,
+> +	.ipi_enable = imx93_csi2rx_dphy_ipi_enable,
+> +};
+> +
+>  static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
+> +	{
+> +		.compatible = "fsl,imx93-mipi-csi2",
+> +		.data = &imx93_drvdata,
+> +	},
+>  	{
+>  		.compatible = "rockchip,rk3568-mipi-csi2",
+>  		.data = &rk3568_drvdata,
+> 
+
+With the nitpicks addressed,
+
+Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+
+Best regards,
+Michael
 
 
