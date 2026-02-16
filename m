@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87640E7BDBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAB9E7BDAC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O4moT373JLa7qmBC4kqm1/eRxfj+d2BSF6hrTYJRN1M=; b=0xx0XLVCAskLsDLzNNzwi3SQUz
-	UqaXAyL2Rd8jR97DOm5S+KZzFZ0fGB2B3WFjsfPXoScXtyMa/VpL5v2xqz3M4kz030kJ/AqOP8efc
-	oUthZQtG4Takr0Q7Vt/K3QsfDKIB1MZWXtQnD6yOP9DBHNZ8/ZFI88+yWeIo2M9ZoGNNr2Kk9wbN5
-	//OKVS2aTsr7woi7uUDjRWL7FN6V95fBfW9CmnI1Zoo7xWg2JdAML4vksJ8xNxkSZEomU6JnVpBTw
-	jetMS/PoC4ZOJkFK/zUASWsLXQrNGJ8bfOPabcNGLTX0/skqKi7QparbuPKZ/kXqsdhky4l7I1YLq
-	NQXcG8ZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JGu/7CadCfnI7dq3WybZJKcCnjrFanotW4mbepc0i+8=; b=Gqo8OdJFBxJNXSylGOX6K7ycxU
+	/9ZwUSoFRMBsBCC7ciCOLfbI9w9ZSwWDoJnUUH5ttXrtidCyNq/HtV76Hyxpjzuged4+5nV5H1uXq
+	s04yq5ECIL8jRS95zq0pRMQbh6dHRH0ZOJDq/oKc6jf6BWFRbRsGrTGouDayB06Oo2zJS+u9Skcft
+	jF6wqnalflL/2KCV9tAaswOsev+dim6jMJB4btNvRxxpyWBr9vdHwjDJs01ql+heGHEUI9YFgoOqX
+	t7Gavr5FJed0CXSrG13NwIMovFHdZhcFEDVFbdd4MqQ7q5z+HZuC0YA+mSZhlQcY3XfWItulCesJK
+	bnIHeH0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vryJy-00000006cEB-39L2;
-	Mon, 16 Feb 2026 13:07:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vryK6-00000006cKX-0p6s;
+	Mon, 16 Feb 2026 13:07:34 +0000
+Received: from sender4-pp-e109.zoho.com ([136.143.188.109])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vryJr-00000006cAH-3r2f
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 13:07:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F33A74453B;
-	Mon, 16 Feb 2026 13:07:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B0202C2BCB0;
-	Mon, 16 Feb 2026 13:07:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771247238;
-	bh=nXhJ5qwyu9YaT7RGaPSC4QTH6mG1an77Vgq++ARPup8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=CftWnMXwaxyIgYvGGoMHGOK9E6ekYruWMu8+y8nKVMmV0SyyGR2wsIbzt1C9yK4LS
-	 cKQl0fDhFv0JS2C61ErP4ZegTicDqcU/NGLgQTD+gpxUGqH3pMCuMwwlR4iQpA74uT
-	 h/vyf3uA8KvBhVrirMmbyFIDxVFfi1ISwpfEOH6dOaBEROqnZuw4SbK8UVeGRspoVE
-	 Fy3oKZhegqa5Dy4BtDUsspAJBRnJMNNK7/5dbErQwqsrS4xJbelDbsVNsY8/efNFLG
-	 moWV8Je+LJ/87YUhMkSM7RfhyYZdmR/QuyS+UqqmIiCHR61mRb1gMQhb4aOIgxDLp3
-	 0Jqmo70S5ES7g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A584EE7BDAC;
-	Mon, 16 Feb 2026 13:07:18 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Mon, 16 Feb 2026 14:07:10 +0100
-Subject: [PATCH v8 3/5] arm64: dts: freescale: add Ka-Ro Electronics
- tx8m-1610 COM
+	id 1vryK1-00000006cGJ-23Bg;
+	Mon, 16 Feb 2026 13:07:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771247244; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=MUtVUkjbO3wF62ULoQDCvoti7vkf2UzL/iIpWVg3OeoJYo1+T7R8hiZlZaC7dw/vHTHS/WyFCSHdhaPeKyY5C0muhUJ7X9yBEIqYJrzgP2G57+OV/jkW44YQrylU1owGIFFePMADjRslIfa0Z44QidN6kF/vD5RIfzifVpU+3jI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1771247244; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=JGu/7CadCfnI7dq3WybZJKcCnjrFanotW4mbepc0i+8=; 
+	b=nSKv8NHV22sUlwg5ny/7rf3YvJpPd04M4U1xXKJjPPHgJhgrqzh63p8uyhpcXFnlFFrdJGC9xUmxQlgxrd36wLUgIXAsAnIFfVTDJmxexqaa49SKAKcB7RmovADE41zaRSKIo/zXKmFkRuYFvLQ4R8+ApIy+QKJb6x/tIx1zt54=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771247244;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=JGu/7CadCfnI7dq3WybZJKcCnjrFanotW4mbepc0i+8=;
+	b=XdA74lDT681nugGdLFGw9r8VDO9Nj8sarers1MES3gQXiP2e/UfVCP+hDazo9vm2
+	2eYEc4ICdAi6dqZCXAUBLsWMGT9Xjl9EC0ehFtYyhQ4zGdKwuErxwMd6Ro3WGnWMlpR
+	JYGHnlnek4/rLDDOoYpkHL14zI1fiL9ParrisucA=
+Received: by mx.zohomail.com with SMTPS id 1771247243156433.035940506512;
+	Mon, 16 Feb 2026 05:07:23 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>,
+ Adam Ford <aford173@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Onur =?UTF-8?B?w5Z6a2Fu?= <work@onurozkan.dev>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Matthias Brugger <matthias.bgg@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v1 2/2] drm/panthor: treat sram as mandatory except mt8196
+Date: Mon, 16 Feb 2026 13:43:19 +0100
+Message-ID: <4730819.LvFx2qVVIh@workhorse>
+In-Reply-To: <523c7b99-33a7-410d-8efb-b7bb2f2f416d@collabora.com>
+References: <20260215100302.136719-1-work@onurozkan.dev> <20260216104423.6b5bcc96@fedora>
+ <523c7b99-33a7-410d-8efb-b7bb2f2f416d@collabora.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260216-mini_iv-v8-3-8d528e7cb454@gocontroll.com>
-References: <20260216-mini_iv-v8-0-8d528e7cb454@gocontroll.com>
-In-Reply-To: <20260216-mini_iv-v8-0-8d528e7cb454@gocontroll.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Matti Vaittinen <mazziesaccount@gmail.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771247236; l=14141;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=c345HFMUCxvDKsHsmMffkKCWFOp8H52DaqhuNuVJCMI=;
- b=xtoWQn3LYmjNi8amgCjTPBxUazlAQZjoisMVvLNs4hDuR3kEfB2LFqWhBhXPgW34W83cHHwKf
- xm4A3B96EeGDgBfl8nHOEoIDrC8bkyMC6OzVI09KzmH8CyRlRkvLKBN
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_050720_030283_4BDFAFED 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260216_050729_584631_141140E2 
+X-CRM114-Status: GOOD (  39.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,476 +81,148 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+On Monday, 16 February 2026 12:44:39 Central European Standard Time AngeloG=
+ioacchino Del Regno wrote:
+> Il 16/02/26 10:44, Boris Brezillon ha scritto:
+> > Hello Adam,
+> >=20
+> > On Sun, 15 Feb 2026 16:21:34 -0600
+> > Adam Ford <aford173@gmail.com> wrote:
+> >=20
+> >> On Sun, Feb 15, 2026 at 4:04=E2=80=AFAM Onur =C3=96zkan <work@onurozka=
+n.dev> wrote:
+> >>>
+> >>> If sram-supply is missing, Panthor falls back to a
+> >>> dummy regulator with a warning. This implicit behavior
+> >>> hides missing DT wiring behind regulator core fallback.
 
-The Ka-Ro Electronics tx8m-1610 is a COM based on the imx8mm SOC. It has
-1 GB of ram and 4 GB of eMMC storage on board.
+This is intentional design of the regulator API. A missing supply will
+always result in a dummy regulator. The _optional function bubbles the
+missing supply condition up to the caller.
 
-Add it to enable boards based on this module
+Catching device trees lacking supplies that are marked as required by
+the binding is done with dtbs_check, not at runtime.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- .../arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi | 444 +++++++++++++++++++++
- 1 file changed, 444 insertions(+)
+> >>>
+> >>> Make SRAM handling explicit: require sram-supply for all
+> >>> Panthor compatibles except mt8196-mali where GPU supplies
+> >>> are intentionally managed outside Panthor and DT does not
+> >>> model sram-supply for that compatible.
+> >>>
+> >>> This keeps DT power modeling explicit and avoids relying on
+> >>> dummy-regulator fallback.
+> >>>
+> >>> Link: https://lore.kernel.org/all/20260213155937.6af75786@nimda/
+> >>> Signed-off-by: Onur =C3=96zkan <work@onurozkan.dev>
+> >>> ---
+> >>>   drivers/gpu/drm/panthor/panthor_devfreq.c | 13 +++++++++----
+> >>>   1 file changed, 9 insertions(+), 4 deletions(-)
+> >>>
+> >>> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/=
+drm/panthor/panthor_devfreq.c
+> >>> index 2249b41ca4af..5f6075f18fe3 100644
+> >>> --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
+> >>> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
+> >>> @@ -206,12 +206,17 @@ int panthor_devfreq_init(struct panthor_device =
+*ptdev)
+> >>>           * But without knowing if it's beneficial or not (in term of=
+ power
+> >>>           * consumption), or how much it slows down the suspend/resum=
+e steps,
+> >>>           * let's just keep regulators enabled for the device lifetim=
+e.
+> >>> +        *
+> >>> +        * Treat sram-supply as mandatory except for mt8196-mali. It =
+manages
+> >>> +        * SRAM outside Panthor so this driver must not require direc=
+t control
+> >>> +        * over it.
+> >>>           */
+> >>> -       ret =3D devm_regulator_get_enable_optional(dev, "sram");
+> >>> -       if (ret && ret !=3D -ENODEV) {
+> >>> -               if (ret !=3D -EPROBE_DEFER)
+> >>> +       if (!of_device_is_compatible(dev->of_node, "mediatek,mt8196-m=
+ali")) {
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi
-new file mode 100644
-index 0000000000000..ba00f7063476b
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi
-@@ -0,0 +1,444 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2021 Lothar Waßmann <LW@KARO-electronics.de>
-+ * 2025 Maud Spierings <maudspierings@gocontroll.com>
-+ */
-+
-+#include "imx8mm.dtsi"
-+
-+/ {
-+	model = "Ka-Ro Electronics TX8M-1610";
-+	compatible = "karo,tx8m-1610", "fsl,imx8mm";
-+
-+	reg_3v3_etn: regulator-3v3-etn {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio1 23 GPIO_ACTIVE_HIGH>;
-+		pinctrl-0 = <&pinctrl_reg_3v3_etn>;
-+		pinctrl-names = "default";
-+		regulator-boot-on;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "3v3-etn";
-+	};
-+};
-+
-+&A53_0 {
-+	cpu-supply = <&reg_vdd_arm>;
-+};
-+
-+&A53_1 {
-+	cpu-supply = <&reg_vdd_arm>;
-+};
-+
-+&A53_2 {
-+	cpu-supply = <&reg_vdd_arm>;
-+};
-+
-+&A53_3 {
-+	cpu-supply = <&reg_vdd_arm>;
-+};
-+
-+&ddrc {
-+	operating-points-v2 = <&ddrc_opp_table>;
-+
-+	ddrc_opp_table: opp-table {
-+		compatible = "operating-points-v2";
-+
-+		opp-400000000 {
-+			opp-hz = /bits/ 64 <400000000>;
-+		};
-+	};
-+};
-+
-+&fec1 {
-+	assigned-clocks = <&clk IMX8MM_CLK_ENET_AXI>,
-+			  <&clk IMX8MM_CLK_ENET_TIMER>,
-+			  <&clk IMX8MM_CLK_ENET_REF>,
-+			  <&clk IMX8MM_CLK_ENET_REF>;
-+	assigned-clock-parents = <&clk IMX8MM_SYS_PLL1_266M>,
-+				 <&clk IMX8MM_SYS_PLL2_100M>,
-+				 <&clk IMX8MM_SYS_PLL2_50M>,
-+				 <&clk IMX8MM_SYS_PLL2_50M>;
-+	assigned-clock-rates = <0>, <100000000>, <50000000>, <50000000>;
-+	clocks = <&clk IMX8MM_CLK_ENET1_ROOT>,
-+		 <&clk IMX8MM_CLK_ENET1_ROOT>,
-+		 <&clk IMX8MM_CLK_ENET_TIMER>,
-+		 <&clk IMX8MM_CLK_ENET_REF>;
-+	phy-handle = <&ethphy0>;
-+	phy-mode = "rmii";
-+	phy-reset-duration = <25>;
-+	phy-reset-gpios = <&gpio1 29 GPIO_ACTIVE_LOW>;
-+	phy-reset-post-delay = <1>;
-+	phy-supply = <&reg_3v3_etn>;
-+	pinctrl-0 = <&pinctrl_fec1>, <&pinctrl_ethphy_rst>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy0: ethernet-phy@0 {
-+			reg = <0>;
-+			clocks = <&clk IMX8MM_CLK_ENET_REF>;
-+			interrupt-parent = <&gpio1>;
-+			interrupts = <28 IRQ_TYPE_EDGE_FALLING>;
-+			pinctrl-0 = <&pinctrl_ethphy_int>;
-+			pinctrl-names = "default";
-+			smsc,disable-energy-detect;
-+		};
-+	};
-+};
-+
-+&gpio1 {
-+	gpio-line-names = "SODIMM_152", "SODIMM_42", "SODIMM_153", "PMIC_IRQ_B",
-+			  "SODIMM_154", "SODIMM_155", "SODIMM_156", "SODIMM_157",
-+			  "SODIMM_158", "SODIMM_159", "SODIMM_161", "SODIMM_162",
-+			  "SODIMM_34", "SODIMM_36", "SODIMM_27", "SODIMM_28",
-+			  "", "", "", "",
-+			  "", "", "", "ENET_POWER",
-+			  "", "", "", "",
-+			  "ENET_nINT", "ENET_nRST", "", "";
-+};
-+
-+&gpio2 {
-+	gpio-line-names = "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "SODIMM_51", "SODIMM_57", "SODIMM_56", "SODIMM_52",
-+			  "SODIMM_53", "SODIMM_54", "SODIMM_55", "SODIMM_15",
-+			  "SODIMM_45", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "";
-+};
-+
-+&gpio3 {
-+	gpio-line-names = "SODIMM_103", "SODIMM_104", "SODIMM_105", "SODIMM_106",
-+			  "SODIMM_107", "SODIMM_112", "SODIMM_108", "SODIMM_109",
-+			  "SODIMM_95", "SODIMM_110", "SODIMM_96", "SODIMM_97",
-+			  "SODIMM_98", "SODIMM_99", "SODIMM_113", "SODIMM_114",
-+			  "SODIMM_115", "SODIMM_101", "SODIMM_100", "SODIMM_77",
-+			  "SODIMM_72", "SODIMM_73", "SODIMM_74", "SODIMM_75",
-+			  "SODIMM_76", "SODIMM_43", "", "",
-+			  "", "", "", "";
-+};
-+
-+&gpio4 {
-+	gpio-line-names = "SODIMM_178", "SODIMM_180", "SODIMM_184", "SODIMM_185",
-+			  "SODIMM_186", "SODIMM_187", "SODIMM_188", "SODIMM_189",
-+			  "SODIMM_190", "SODIMM_191", "SODIMM_179", "SODIMM_181",
-+			  "SODIMM_192", "SODIMM_193", "SODIMM_194", "SODIMM_195",
-+			  "SODIMM_196", "SODIMM_197", "SODIMM_198", "SODIMM_199",
-+			  "SODIMM_182", "SODIMM_79", "SODIMM_78", "SODIMM_84",
-+			  "SODIMM_87", "SODIMM_86", "SODIMM_85", "SODIMM_83",
-+			  "SODIMM_81", "SODIMM_80", "SODIMM_90", "SODIMM_93";
-+};
-+
-+&gpio5 {
-+	gpio-line-names = "SODIMM_92", "SODIMM_91", "SODIMM_89", "SODIMM_144",
-+			  "SODIMM_143", "SODIMM_146", "SODIMM_68", "SODIMM_67",
-+			  "SODIMM_70", "SODIMM_69", "SODIMM_48", "SODIMM_46",
-+			  "SODIMM_47", "SODIMM_44", "PMIC_SCL", "PMIC_SDA",
-+			  "SODIMM_41", "SODIMM_40", "SODIMM_148", "SODIMM_149",
-+			  "SODIMM_150", "SODIMM_151", "SODIMM_60", "SODIMM_59",
-+			  "SODIMM_64", "SODIMM_63", "SODIMM_62", "SODIMM_61",
-+			  "SODIMM_66", "SODIMM_65", "", "";
-+};
-+
-+&i2c1 {
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	pinctrl-1 = <&pinctrl_i2c1_gpio>;
-+	pinctrl-names = "default", "gpio";
-+	scl-gpios = <&gpio5 14 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 15 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
-+
-+	pmic: pmic@4b {
-+		compatible = "rohm,bd71847";
-+		reg = <0x4b>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&pinctrl_pmic>;
-+		pinctrl-names = "default";
-+		rohm,reset-snvs-powered;
-+
-+		regulators {
-+			BUCK1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microvolt = <780000>;
-+				regulator-name = "buck1";
-+				regulator-ramp-delay = <1250>;
-+			};
-+
-+			reg_vdd_arm: BUCK2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <950000>;
-+				regulator-min-microvolt = <805000>;
-+				regulator-name = "buck2";
-+				regulator-ramp-delay = <1250>;
-+				rohm,dvs-run-voltage = <950000>;
-+				rohm,dvs-idle-voltage = <810000>;
-+			};
-+
-+			BUCK3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microvolt = <805000>;
-+				regulator-name = "buck3";
-+			};
-+
-+			reg_vdd_3v3: BUCK4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-name = "buck4";
-+			};
-+
-+			reg_vdd_1v8: BUCK5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1950000>;
-+				regulator-min-microvolt = <1700000>;
-+				regulator-name = "buck5";
-+			};
-+
-+			BUCK6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <(1350000 + 100000)>;
-+				regulator-min-microvolt = <(1350000 - 67000)>;
-+				regulator-name = "buck6";
-+				rohm,fb-pull-up-microvolt = <0>;
-+				rohm,feedback-pull-up-r1-ohms = <2200>;
-+				rohm,feedback-pull-up-r2-ohms = <499>;
-+			};
-+
-+			LDO1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1980000>;
-+				regulator-min-microvolt = <1620000>;
-+				regulator-name = "ldo1";
-+			};
-+
-+			LDO2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microvolt = <760000>;
-+				regulator-name = "ldo2";
-+			};
-+
-+			LDO3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1890000>;
-+				regulator-min-microvolt = <1710000>;
-+				regulator-name = "ldo3";
-+			};
-+
-+			LDO4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1000000>;
-+				regulator-min-microvolt = <855000>;
-+				regulator-name = "ldo4";
-+			};
-+
-+			LDO5 {
-+				regulator-max-microvolt = <3300000>;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-name = "ldo5";
-+			};
-+
-+			LDO6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1260000>;
-+				regulator-min-microvolt = <1140000>;
-+				regulator-name = "ldo6";
-+			};
-+		};
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_ethphy_int: etnphy-intgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ENET_RD2_GPIO1_IO28
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT)
-+		>;
-+	};
-+
-+	pinctrl_ethphy_rst: etnphy-rstgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ENET_RD3_GPIO1_IO29
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_fec1: fec1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ENET_MDC_ENET1_MDC
-+				(MX8MM_DSE_X4 | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_ENET_MDIO_ENET1_MDIO
-+				(MX8MM_DSE_X4 | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_ENET_TD2_ENET1_TX_CLK
-+				(MX8MM_FSEL_FAST | MX8MM_SION)
-+			MX8MM_IOMUXC_ENET_TD0_ENET1_RGMII_TD0
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST)
-+			MX8MM_IOMUXC_ENET_TD1_ENET1_RGMII_TD1
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST)
-+			MX8MM_IOMUXC_ENET_RD0_ENET1_RGMII_RD0
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT)
-+			MX8MM_IOMUXC_ENET_RD1_ENET1_RGMII_RD1
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT)
-+			MX8MM_IOMUXC_ENET_RXC_ENET1_RX_ER
-+				MX8MM_FSEL_FAST
-+			MX8MM_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL
-+				MX8MM_FSEL_FAST
-+			MX8MM_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST)
-+		>;
-+	};
-+
-+	pinctrl_i2c1: i2c1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C1_SCL_I2C1_SCL
-+				MX8MM_I2C_DEFAULT
-+			MX8MM_IOMUXC_I2C1_SDA_I2C1_SDA
-+				MX8MM_I2C_DEFAULT
-+		>;
-+	};
-+
-+	pinctrl_i2c1_gpio: i2c1-gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C1_SCL_GPIO5_IO14
-+				MX8MM_I2C_DEFAULT
-+			MX8MM_IOMUXC_I2C1_SDA_GPIO5_IO15
-+				MX8MM_I2C_DEFAULT
-+		>;
-+	};
-+
-+	pinctrl_pmic: pmicgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3
-+				(MX8MM_PULL_UP | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_reg_3v3_etn: reg-3v3-etngrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ENET_TXC_GPIO1_IO23
-+				(MX8MM_DSE_X4 | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_CMD_USDHC1_CMD
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA0_USDHC1_DATA0
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA1_USDHC1_DATA1
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA2_USDHC1_DATA2
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA3_USDHC1_DATA3
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA4_USDHC1_DATA4
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA5_USDHC1_DATA5
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA6_USDHC1_DATA6
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA7_USDHC1_DATA7
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_STROBE_USDHC1_STROBE
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_RESET_B_USDHC1_RESET_B
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK
-+				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_CMD_USDHC1_CMD
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA0_USDHC1_DATA0
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA1_USDHC1_DATA1
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA2_USDHC1_DATA2
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA3_USDHC1_DATA3
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA4_USDHC1_DATA4
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA5_USDHC1_DATA5
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA6_USDHC1_DATA6
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA7_USDHC1_DATA7
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_STROBE_USDHC1_STROBE
-+				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_RESET_B_USDHC1_RESET_B
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_CMD_USDHC1_CMD
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA0_USDHC1_DATA0
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA1_USDHC1_DATA1
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA2_USDHC1_DATA2
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA3_USDHC1_DATA3
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA4_USDHC1_DATA4
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA5_USDHC1_DATA5
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA6_USDHC1_DATA6
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA7_USDHC1_DATA7
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_STROBE_USDHC1_STROBE
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_RESET_B_USDHC1_RESET_B
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+};
-+
-+&usdhc1 {
-+	assigned-clocks = <&clk IMX8MM_CLK_USDHC1>;
-+	assigned-clock-rates = <400000000>;
-+	bus-width = <8>;
-+	non-removable;
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	vmmc-supply = <&reg_vdd_3v3>;
-+	vqmmc-supply = <&reg_vdd_1v8>;
-+	status = "okay";
-+};
+If you really need a per-SoC branch then please just store it in the
+platform data so we don't have these "of_device_is_compatible" checks
+littered throughout the driver.
 
--- 
-2.53.0
+> >>
+> >> I wonder if a more generic device tree flag would be better here.
+> >=20
+> > No, we don't want it as a separate DT flag. This is all stuff we can
+> > hide behind the compat, and every bit we add to the DT we don't
+> > strictly need turns out to be a liability in the long run in general.
+> >=20
+> >> What happens if others do the same as Mediatek or Mediatek decides to
+> >> do this with more processors and this list grows?
+> >=20
+> > That's what panthor_soc_data is for: you can attach per-compat
+> > properties without polluting the DT with more stuff that can be
+> > directly inferred from the compatible.
+> >=20
+> >> It seems like a
+> >> panthor binding might be useful to prevent future bloat.
+> >=20
+> > It's actually the opposite, the more we add to the DT, the trickier it
+> > gets to maintain, because we tend to get those things wrong (is the
+> > SRAM really not needed on mt8196, or is this just a workaround to hide
+> > the fact the PM is deferred to some FW?).
+> >=20
+>=20
+> MT8196 has three supplies: core, stack, sram.
+>=20
+> For example, the Google Rauru Chromebooks use those:
+>=20
+>         core-supply =3D <&mt6373_vbuck7>;
+>         stack-supply =3D <&mt6316dp_vbuck0>;
+>         sram-supply =3D <&mt6316kp_vbuck1>;
+>=20
+> As of now (in our midstream trees), these supplies are declared in the gp=
+ufreq
+> node (the performance domain controller), and required to be on whenever =
+GPUEB
+> interaction is needed, other than whenever the GPU itself is, well, neede=
+d to
+> be powered.
+>=20
+> As of the current model, these supplies are getting powered on and off al=
+ong
+> with the MFG power domain.
+>=20
+> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/=
+drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c#n1005
+>=20
+> I'm not sure what happens if we also add those to the GPU node... for thi=
+s, I'm
+> adding Nicolas to the Ccs, as he is the one who developed support for EB.
+
+=46airly sure they need to be on as part of any of the operations the MFG s=
+tuff
+does, but I also am not 100% sure on this because I didn't take notes at the
+time.
+
+Either way, this patch shouldn't exist, it doesn't do anything useful, as a
+missing supply from the DT can be caught with `make dtbs_check`. It does not
+need to be booted on each device to then have the driver abort probe at run=
+time.
+
+>=20
+> Cheers,
+> Angelo
+>=20
+> > Regards,
+> >=20
+> > Boris
+>=20
+>=20
+>=20
+
+
 
 
 
