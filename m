@@ -4,93 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6197CE81A25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 15:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC3E8E81A2F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 15:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=02WfyqRe/4/tsQg8rPoM0EAoH++yVH5XNO/2ica7SAA=; b=QtaflLqlUJOpKDn+O9lxI3Oef1
-	fm1hs3GUaizL3svXoPS2kTz777y+bbyONDVMKyyZ3pOkzKDgQNlAZhoZTa6LcBMECu9ln0yr3HwST
-	UOzLNSyrJizX8mikyweVHYqefdG6d4mLPqqVFMZK+uFiMsev/uwLnekC1M33GWRrJqHQn109Txj2a
-	a66mWpONN2IupMLW+egGweESHhkaXXhRb1QXB6i4wwe9PEjaF3ns4DEFTlPqXS/UyB50CJHfYB1dw
-	4V36xqKV1IRUkpZIBZDdUNpyTNxjizMjEPEAqgEF7fdqJvM9Yk/xyhbgEluW1yuRAav7VQBVaW8ZS
-	OuVxJ6ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ryuUIiY/6ZhjKLy6l4wzTKf7ZpzxSkYSkY8n5vOYkE=; b=tyNNmrsRkjn5k394ckyPA7E4gs
+	jDfSMb6Pf+oRn18ZlftZjqkh6ST2vSx4OISzOUSP+Rnb5Ejy3uwy0QW2S9iGuwTi+S/91lSL3PFUe
+	xO1sQePD5gxGd1ouOzdv3s93O//pml2qRZH6tdlcIXpQhnnrrksUOaZ/6PJFK2l+6XETLlcyS3XpN
+	aZZ01rfp/2cQdK3sqPLlctxrHUWPadj2uwq5VhrzoZ+tkfNGsx6rorptt7s//W88/ZF/Zoh/Nz8Qm
+	VVJMWjAfifuT4yycu1Mt68Wh8iQUhkgKbji7sPdPmioljXXwzWc6qmuSpvtjNQPG9u8SeM5FerD0J
+	itWPpdBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs0A1-00000006qS7-2Dqq;
-	Mon, 16 Feb 2026 15:05:17 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vs0Az-00000006qXy-1ArE;
+	Mon, 16 Feb 2026 15:06:17 +0000
+Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs09y-00000006qRi-2k7k
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 15:05:15 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48371bb515eso36833395e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 07:05:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771254312; x=1771859112; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=02WfyqRe/4/tsQg8rPoM0EAoH++yVH5XNO/2ica7SAA=;
-        b=EV2KzLLklpMiZy8ulasKzbt0S4kWsFnIqF8qbu9iAF2vSThI5OKiHyMDIOX2cueaAz
-         JoG6cZhKWIC4hIwWyzXFt+FluunK62yq9243KgN+HLoV9zYFQHrfA25WjPiuhHhweRoq
-         ZEh7yyed+G6pDGnOSuUXHsAPxhz4GPLFAVeHtoQoCD/P1PXy6KZrOBI6j7/Y52xq7MNU
-         ijKGe8zvQKTGWl3hFlTD5M8cndmfN2UiOecqTDxayN3sUnExbsG2nXZ1VRVyxQtWQOt3
-         d1a8YhHKS9k6M7IYYNGebJypZDO7siEyR6tPegN1X6FgomiDg4DeoKL2rL1zfNk+k0B0
-         VzCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771254312; x=1771859112;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=02WfyqRe/4/tsQg8rPoM0EAoH++yVH5XNO/2ica7SAA=;
-        b=k4s4vlbZ5VbhWrThs0i3tW6syS02caOrXwG3q2jjNHWYY+ch3lnLPWjxnxLfUZ5vhN
-         ccTI9+vx9NLlwXxZOeA0K7m3vNQbspOYf7rorGqVo2cmbhyooLlktpN9d89eZwNPZFsX
-         uXymw2VfaV35xzEPSUkRqpteSedSx5eZVpkbgppzCfDH39q1Igwj8f9NcVyvHqmNEwRL
-         izBoIk4okWz16VcXssd7qhqYK8MEfjyi2XynTVjybQOhvwipdH9iweRujOYb8D5XQ1xe
-         PFfHjZ7Zmgg3WE7aM1MwQPrI13l3YMCxuEyw9VlBlyhjkqcIHA3BpfvUK7h09DOMNanS
-         4Oxw==
-X-Forwarded-Encrypted: i=1; AJvYcCXDDMi8zWfouVT8GVAKNuQLbBYdNynvIPcN8cijla8ajoULsS9QzEiqWAZQcg/jVCGjWBLnmK7PI664F1qikOuC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP/bzzhQfI9/k/StO/GypTna4g1ksJEm6wUojAxQFcDXFblju6
-	B1Zpu6bxRUHjBsXPnvP2oIuNKM0sujdP+a6Mib4AoAYelqRWpT0bE5CzjVI5LzpPi14=
-X-Gm-Gg: AZuq6aL0MvgQ6pGHxMqLO9BBBFJzeTR2Sze9SVv0Uobl8cwz5QAt/B/CGGn47CETc/Z
-	28k2IlXKnNDfTph3YlZjqwGp9MJohZwAunEpYJnjSpxIztvMphZhaZxZ99qoIIZgrE6s/5g7S2L
-	YG8SOtKHQ8vxFdDaHJk8ms9s0ijNaw76yb3gsOBoEEovDK5+uo6zNrO+OFyL8qpbbHpbFwWrqmy
-	D2VKP4RD+PhH202FxNX5NwJzXu/bxiLzAf/PCL++I7jLe8N6bLJvZIis5grlDds93T303+FJ6yO
-	L2pPH/FLTS1kisFC7Ob66dPMV7sUFt6OXlK/9KTKq8x6ffi8xVqbbG/9fnhYm6WPYugq6ktSxX8
-	5qjO+X6uyxYVajZiiJl4EQ4ERbdTw8rP0nE1UtLFksxV+PyWfG4dCc79wgZAqCWW7LQ1dRKETEq
-	g020oDREIJDtgkrwYfHX9ZyajaJWiG
-X-Received: by 2002:a05:600c:5246:b0:483:71f7:2782 with SMTP id 5b1f17b1804b1-48373a14406mr195601745e9.12.1771254312134;
-        Mon, 16 Feb 2026 07:05:12 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796ac8209sm29350054f8f.30.2026.02.16.07.05.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Feb 2026 07:05:11 -0800 (PST)
-Message-ID: <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
-Date: Mon, 16 Feb 2026 15:05:10 +0000
+	id 1vs0Ax-00000006qXO-2UEY;
+	Mon, 16 Feb 2026 15:06:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t4Fl2Gan5q7pRS8b+d02Okrf1isfApPIJbjLF1W85IZbDNWyNkeylxgj2vqeRqnc7HWDYrcqDcrGzAZhSBGjk4NarOIztwMG0fkiqG3tZLg2OOWMOlCvgqS4M0WEfeMgNjctJ5h3jqp+vXekdDGJl1RqkeO3U3QG9g6ALYNVb64+QKKhscGQG8ynGIMgdFWshQ8eboA6SVB+a0xWD1ErNqNt0Dr9xeD0Vt822unh6rNQ/BCYf/dRyOsfHCecZxaQ93zz1JLjF8GbAonAU9LwSlkNjq9wQud6K969GM27uZNU7IH2JHxWIK/IS0oPHCDd05Lx74pRJyRgf4zy2BVPrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/ryuUIiY/6ZhjKLy6l4wzTKf7ZpzxSkYSkY8n5vOYkE=;
+ b=JzF8gXaTIVpxYVJxo+PK9ssbdcjkNuepbcmdnPZ9ngGoLpTd2vCoO/zsBdylZBr+D51dA5RIyyVY27ebMW5uFC/sDnZyj9XmlgV1Y6kHCYfcFylpIULbBGZSGQDHtb+NTN0R39SphAwoqp1BgvU/aHuS5kCDdviJcwPoOaaEKS9ZFVJkOYMpjHuoaj2SvuPE7c9odKxhDYwXSFeH2+JlseV1c4VnPdc1fNq8FsFV6yUATMRUyzp25G2na97gy33sylyFY0mOPBUrBww+SJDQjHLkFFvhRAGdZHWyk2EhXmbvxAt1IZNgktAi08HFwIX+G3XVI9U306rvqqFyN71wfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
+ header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/ryuUIiY/6ZhjKLy6l4wzTKf7ZpzxSkYSkY8n5vOYkE=;
+ b=uNt+H92sFlKPziZZCYYzw+TWYiDz1Kl/POXvahBnRSVsmZMLYUtjyyLDF5yT/QaDqbBDDaCc5g1Ch6ya6b0BgJR2S7U05bHSrm2wBq8UJG/CWSwlLmZkfcPCcfbI/rMoGiFsGDka+P277NcOvlS4Aljhk4EWUC+j1T7twWAcf1Q=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=valinux.co.jp;
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:38f::10)
+ by OSZP286MB1677.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:1b6::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.15; Mon, 16 Feb
+ 2026 15:06:08 +0000
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32]) by TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32%5]) with mapi id 15.20.9611.013; Mon, 16 Feb 2026
+ 15:06:07 +0000
+Date: Tue, 17 Feb 2026 00:06:05 +0900
+From: Koichiro Den <den@valinux.co.jp>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, heiko@sntech.de, 
+	kishon@kernel.org, jdmason@kudzu.us, dave.jiang@intel.com, allenbh@gmail.com, 
+	shawn.lin@rock-chips.com, Frank.Li@nxp.com, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, ntb@lists.linux.dev
+Subject: Re: [PATCH v7 5/9] PCI: dwc: ep: Expose integrated eDMA resources
+ via EPC aux-resource API
+Message-ID: <lryeu64nxxp34mx7re3w4jy2anfie52xtxcxa4ff6dulzcwhjd@ce567iui6piz>
+References: <20260215163847.3522572-1-den@valinux.co.jp>
+ <20260215163847.3522572-6-den@valinux.co.jp>
+ <aZMl5SVsF_mzEsNT@ryzen>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZMl5SVsF_mzEsNT@ryzen>
+X-ClientProxiedBy: TY1PR01CA0206.jpnprd01.prod.outlook.com (2603:1096:403::36)
+ To TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:38f::10)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
- in guest context
-To: Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, mark.rutland@arm.com,
- linux-arm-kernel@lists.infradead.org, Oliver Upton <oupton@kernel.org>,
- Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Fuad Tabba <tabba@google.com>
-References: <20260216130959.19317-1-will@kernel.org>
- <86a4x8bw38.wl-maz@kernel.org>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <86a4x8bw38.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY7P286MB7722:EE_|OSZP286MB1677:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23adaf30-ca37-4f6c-6d4e-08de6d6ce969
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ciyujluYEapXqI59dchHFoGygI29XD0Q/5Ulgvwzu4EYGZfqdy94e+0vBz5p?=
+ =?us-ascii?Q?RF+Ist194LqTSFfcuIkT4mcZ7y09vG1NK7W1Ap3fj7Z7PFBsR36lyV6QljM4?=
+ =?us-ascii?Q?z/ZsZebJ9PRptITGy+3tzqgz6rUVz9KHkn5XyYy86icFLTjrLiMDvUMNb0Hq?=
+ =?us-ascii?Q?T64EHR9IakzFNkm5lKVopNIOhRf3BnGjIRgfoZMF4QrtJmRXuq/hEj1rPNrO?=
+ =?us-ascii?Q?v5YlWcKKEGLuScTmA70mYvQSKWWFM9lBFSt+gZXhrbXpVJVgCLOik+6EGeIk?=
+ =?us-ascii?Q?s6hnwSdounI5dnvzZqJr+7LHftSdjeJHBBNkS3rbXK8neW136FeHpjO9cq5e?=
+ =?us-ascii?Q?P8WzoTKC9fXiOctXGYQe6sDjJ/C7dCvrJMU0eQQAn7gXuvzlr7gI/ACH7CfQ?=
+ =?us-ascii?Q?YhBlCa+w/H36Y9i4zBft+soVJpQF53ago9EVaDS1zMuRMKOvPsUP+bl/ZeS8?=
+ =?us-ascii?Q?PP/7KdsQVgIVbShmRsEIGZLUrsL1Snxp7+UpM/EXXb1cXdmuDjM5IOqI5yAC?=
+ =?us-ascii?Q?/w4RPMd+xebFbT2IqH4+J/WvNA2rrLtzOrCZh6u4vrBYJ0H/4e9GuFX/i+W+?=
+ =?us-ascii?Q?rJd+QFgb+xSXSIm6VaMF7jYUL42CI9/PaE4qkaLZS1B2foI2zFc8okSnUWei?=
+ =?us-ascii?Q?oWfU7C9CWxDhHiRyFCTs/XVDGUMipepXjAXWAjhL+XDxTS4XJ8OqlH7xtHoi?=
+ =?us-ascii?Q?gEpq7MO67ijWcKPdrhxxHX9M7iVUVALIH/EUnBKZl/NrN8G+r9py65YrVnrX?=
+ =?us-ascii?Q?/yyhV+cokgtt2axKwdkXG0Xa+n5aQszGm7DxAeT6IHONBivxpmcIiOp7KERs?=
+ =?us-ascii?Q?IadVp+prAW84m9Jp/cnRBrMghi0YzPYE6U1YAyeg3hiczCd81N1ZJpDUx+gA?=
+ =?us-ascii?Q?uLF6F6ELTMNh67mILvMQ9WkMB5NCyN1GQgYuxFi2olJuZq44R3CdatoUPvdV?=
+ =?us-ascii?Q?ec+9XDhZ9ojkXl4NnOoz6DkPteaqQCg4wX11YZtF1Njmad1GvPFKQEDVscbq?=
+ =?us-ascii?Q?jo032mOCOJyc9PTkUZAnwyMEYdxeQa9BQAPDj13z1W14J/7mPoTT5sGoLgxn?=
+ =?us-ascii?Q?7fix+heMiTU7TEn/lBjgdyLo5Ms2xg5OHdx1tZb/WTypeLhvZXBd6g2ZV826?=
+ =?us-ascii?Q?UgrW53egMYuj4XBFl0PgBif3TjtgfFTE7LIDaGid8p5zR5C6lwuKDYURPSc8?=
+ =?us-ascii?Q?Pk8cXGTh1RtiRU5CuSnQAMaPr1LyyctAyxlOTfvLriIL7DuyZEDHHX8mDUXo?=
+ =?us-ascii?Q?L8TXT9ISMsYaWq6c19lumatjknSDk+alZwTGMUU+Xj9Vw75M8jdbikDZFWHS?=
+ =?us-ascii?Q?cJPdsO3bZPGDtpYIivCxeD3HzOqHwumbDO5VZU9MPR/xfNvb2VZ4Msg+VmQk?=
+ =?us-ascii?Q?sASJxxKpOuOfYPLisOAzVYr4SVBWjdbzS9Lr18Qythj95eCQKtRSVjDbyDBW?=
+ =?us-ascii?Q?OprpmuTNHbY6blGozaLrnkEgYmA/RPq9UyYY/0zuVvmbvtyzTqGP1iTwj+r/?=
+ =?us-ascii?Q?tN0f8h3jefV2ZeyY7pCg5g6IYmbr1qqJPdQpaTOY3YhlLBjutPK5cMLmoOVv?=
+ =?us-ascii?Q?x7eLkWZK+XJDIHOINFE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WkUHx55UE+Q8qNUNqVE1ns5lN0W8ySntIH/SdDM26PKmdALky8yTfjoNGOFs?=
+ =?us-ascii?Q?cP+7IPebIA80Z2v7cOmKUq1jhrNFdQ+F7KiWdgFIBOK0W264tT//IQ50KVQj?=
+ =?us-ascii?Q?HmyVf7n9Zr4kPV5AKkgy/Q+MG9n91b33SEyAPk6iXgNR+gDLgse4tHxhevXN?=
+ =?us-ascii?Q?CI/0TvmhdIhEn160ylxdV5sJqonOyCUrdERMDNF8xBknMmGKQDDQIr1YZy9s?=
+ =?us-ascii?Q?soDjKB8Fq1g7q3JHf3J7+XYU0I2CuRWIY+RwMIkbim9OK71dmT0PAAOTe7uE?=
+ =?us-ascii?Q?/kJCqS3RAYsAglJ7oQI7ZG8ClcIuQhuP60RACuZR7uL884wxtObtG6Mi4Yn4?=
+ =?us-ascii?Q?Aed3VCZwo4OqgsjmOPQaxm7yRupB4i/jIJdsQRtnMyTt35TCvbgnoZ31CEKo?=
+ =?us-ascii?Q?5JUPnNg1B1eW8FAiCFFmGNLlCyCkoS6WVNjGCcXmDuYN8dTx84Wp6X2VzpCi?=
+ =?us-ascii?Q?ve4j25Fbb7UVkDgBiUeL94OhYNykx6gsWAy+mWa5Gs8cA0xXLFuG1KSy18yz?=
+ =?us-ascii?Q?oWZxhtPBQFZVwPy29Sreo+L4nPJFuAdZeIUeCREv7DzZ++mP1xicOV7tFtRq?=
+ =?us-ascii?Q?f/ZRYtIP7O6XhyEwCsSovZcBV5XHYOOhyrm7s2A/U+CvV21gGM+ugBlKqaw+?=
+ =?us-ascii?Q?HyytmNV4IK1k5leHE1yZ21IgRhMnwhrU8u6VqG5lbUcGTxBagPCamTGCzloN?=
+ =?us-ascii?Q?bDZ0s0HgM+NbD9ekqzZDCLDumW/a4XY7IWZ/QEKlSFGwRn/1QE8p8AgbWjMH?=
+ =?us-ascii?Q?2N2ooBxBcrz/4/c/WdEW86F9d04xJPlr4taaB6WjdbP+kx402dFM7QNVa2/7?=
+ =?us-ascii?Q?TzGIR4kYiRTOT87UlPReCvtDFGxlxh+aBzQFbw/cf5iAGGak14HmZgXZUQ6y?=
+ =?us-ascii?Q?CXd9QGuKQ428b5oeEjzA+LXlhDoHmCukEVt7OrE8KjBZLzgx30SxaBS2iZ2C?=
+ =?us-ascii?Q?6I/5bdLRXW9gghY8hzhOR5mbyKcGmsbu3mMJ9UMjbtfVfzB3BAyZJj87SEhF?=
+ =?us-ascii?Q?xHq6nHMIpocNj0ZSLFJJYZrH1hNOjdHr9xwxElynFupBtQOcZjtnXVrOJr/M?=
+ =?us-ascii?Q?xIIXzfCJHDAbX7mfZ3HR+0KZ8h1vkLIbVFuicoGqZI1nbMaGoekIqJ74sG9j?=
+ =?us-ascii?Q?m30Bpnhyb4QYV2cKg7HGW0gUPUJD+PvEtFR4aj+grnoA2ot+J6bxOMp6hrdq?=
+ =?us-ascii?Q?a70yyJYXTm+2S34j5ZTsL5kjN17/hzQ4Ldtt0fzHyyi1XeJObD8iQ/Eflw8h?=
+ =?us-ascii?Q?Y01hudX9aq09NYZ0jjmTZYlSE9eJIVsYHLSIDkuQ759JECha2TcVp/ps4icM?=
+ =?us-ascii?Q?v1iXwgFIZHvc/QaiyO7mZ8UpFLRtsHsKKY2F6J08S0UfrGatlFriuHSaE4aH?=
+ =?us-ascii?Q?inKvTUGXrHwbpVkpzfpHENDebsolFEZJxeW2a5X2Q4bU3vr6RsFb7rC7lG87?=
+ =?us-ascii?Q?aYsSRgeMlnwSrGkLPULsrcofAJO0CeETk/jHTz5CyLjvWGE6mB+4m9vkL4JV?=
+ =?us-ascii?Q?5ISSHRPqjJeMfU+1QUyp4vYfmRobCtHlk73KrLxTSs6u4itlBaB37vUeLDkv?=
+ =?us-ascii?Q?c49VffRhma3l4tTXBMBdGe7wDjSmnELjvm2G1ty1hlPB93+x+05w1XG1YL5y?=
+ =?us-ascii?Q?7uC5TlJET/yo6ad5wtdQon9Cdrk9M4ik5FpCqj0OMZczbTYrMNUq15FY9VqC?=
+ =?us-ascii?Q?NyuqmXPDhGypXOV7o1Vb75Z4+OTfKKimqZDkgtZ3QgatxafnfCTilGs0+w/w?=
+ =?us-ascii?Q?dqK4JFH44uXmddvE7P9JNvH/4SsT+RhMf2skN9TVaxgeKh32dAoG?=
+X-OriginatorOrg: valinux.co.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23adaf30-ca37-4f6c-6d4e-08de6d6ce969
+X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Feb 2026 15:06:07.3557
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Kbh4cNNvT1++I1eZvAuJ+6W9BvIOXg+fx9hDD4OYVByRFUcChB3EOLASp3zDnDbS+RUOb83V8xt/c8X6alLY+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZP286MB1677
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_070514_760546_010199B2 
-X-CRM114-Status: GOOD (  38.13  )
+X-CRM114-CacheID: sfid-20260216_070615_640415_ED2ACBD5 
+X-CRM114-Status: GOOD (  27.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,145 +166,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 16/02/2026 2:29 pm, Marc Zyngier wrote:
-> On Mon, 16 Feb 2026 13:09:59 +0000,
-> Will Deacon <will@kernel.org> wrote:
->>
->> The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
->> generation in guest context when self-hosted TRBE is in use by the host.
->>
->> Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
->> TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
->> per R_YCHKJ the Trace Buffer Unit will still be enabled if
->> TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
->> Trace Buffer Unit can perform address translation for the "owning
->> exception level" even when it is out of context.
+On Mon, Feb 16, 2026 at 03:12:53PM +0100, Niklas Cassel wrote:
+> On Mon, Feb 16, 2026 at 01:38:43AM +0900, Koichiro Den wrote:
+> > Implement the EPC aux-resource API for DesignWare endpoint controllers
+> > with integrated eDMA.
+> > 
+> > Report:
+> >   - DMA controller MMIO window (PCI_EPC_AUX_DMA_CTRL_MMIO)
+> >   - interrupt-emulation doorbell register (PCI_EPC_AUX_DOORBELL_MMIO),
+> >     including its Linux IRQ
+> >   - per-channel LL descriptor regions (PCI_EPC_AUX_DMA_CHAN_DESC)
+> > 
+> > If the DMA controller MMIO window is already exposed via a
+> > platform-owned fixed BAR subregion, also provide the BAR number and
+> > offset so EPF drivers can reuse it without reprogramming the BAR.
+> > 
+> > Signed-off-by: Koichiro Den <den@valinux.co.jp>
+> > ---
+> >  .../pci/controller/dwc/pcie-designware-ep.c   | 149 ++++++++++++++++++
+> >  1 file changed, 149 insertions(+)
+> > 
+> > diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> > index 7e7844ff0f7e..ffd2797b7b81 100644
+> > --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
+> > +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> > @@ -808,6 +808,154 @@ dw_pcie_ep_get_features(struct pci_epc *epc, u8 func_no, u8 vfunc_no)
+> >  	return ep->ops->get_features(ep);
+> >  }
+> >  
+> > +static const struct pci_epc_bar_rsvd_region *
+> > +dw_pcie_ep_find_bar_rsvd_region(struct dw_pcie_ep *ep,
+> > +				enum pci_epc_bar_rsvd_region_type type,
+> > +				enum pci_barno *bar,
+> > +				resource_size_t *bar_offset)
+> > +{
+> > +	const struct pci_epc_features *features;
+> > +	const struct pci_epc_bar_desc *bar_desc;
+> > +	const struct pci_epc_bar_rsvd_region *r;
+> > +	int i, j;
+> > +
+> > +	if (!ep->ops->get_features)
+> > +		return NULL;
+> > +
+> > +	features = ep->ops->get_features(ep);
+> > +	if (!features)
+> > +		return NULL;
+> > +
+> > +	for (i = BAR_0; i <= BAR_5; i++) {
+> > +		bar_desc = &features->bar[i];
+> > +
+> > +		if (!bar_desc->nr_rsvd_regions || !bar_desc->rsvd_regions)
+> > +			continue;
+> > +
+> > +		for (j = 0; j < bar_desc->nr_rsvd_regions; j++) {
+> > +			r = &bar_desc->rsvd_regions[j];
+> > +
+> > +			if (r->type != type)
+> > +				continue;
+> > +
+> > +			if (bar)
+> > +				*bar = i;
+> > +			if (bar_offset)
+> > +				*bar_offset = r->offset;
+> > +			return r;
+> > +		}
+> > +	}
+> > +
+> > +	return NULL;
+> > +}
+> > +
+> > +static int
+> > +dw_pcie_ep_get_aux_resources(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
+> > +			     struct pci_epc_aux_resource *resources,
+> > +			     int num_resources)
+> > +{
+> > +	struct dw_pcie_ep *ep = epc_get_drvdata(epc);
+> > +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+> > +	const struct pci_epc_bar_rsvd_region *rsvd;
+> > +	struct dw_edma_chip *edma = &pci->edma;
+> > +	enum pci_barno dma_ctrl_bar = NO_BAR;
+> > +	int ll_cnt = 0, needed, idx = 0;
+> > +	resource_size_t db_offset = edma->db_offset;
+> > +	resource_size_t dma_ctrl_bar_offset = 0;
+> > +	resource_size_t dma_reg_size;
+> > +	unsigned int i;
+> > +
+> > +	if (!pci->edma_reg_size)
+> > +		return 0;
+> > +
+> > +	dma_reg_size = pci->edma_reg_size;
+> > +
+> > +	for (i = 0; i < edma->ll_wr_cnt; i++)
+> > +		if (edma->ll_region_wr[i].sz)
+> > +			ll_cnt++;
+> > +
+> > +	for (i = 0; i < edma->ll_rd_cnt; i++)
+> > +		if (edma->ll_region_rd[i].sz)
+> > +			ll_cnt++;
+> > +
+> > +	needed = 1 + ll_cnt + (db_offset != ~0 ? 1 : 0);
+> > +
+> > +	/* Count query mode */
+> > +	if (!resources || !num_resources)
+> > +		return needed;
+> > +
+> > +	if (num_resources < needed)
+> > +		return -ENOSPC;
+> > +
+> > +	rsvd = dw_pcie_ep_find_bar_rsvd_region(ep,
+> > +					       PCI_EPC_BAR_RSVD_DMA_CTRL_MMIO,
+> > +					       &dma_ctrl_bar,
+> > +					       &dma_ctrl_bar_offset);
+> > +	if (rsvd && rsvd->size < dma_reg_size)
+> > +		dma_reg_size = rsvd->size;
+> > +
+> > +	/* DMA register block */
+> > +	resources[idx++] = (struct pci_epc_aux_resource) {
+> > +		.type = PCI_EPC_AUX_DMA_CTRL_MMIO,
+> > +		.phys_addr = pci->edma_reg_phys,
+> > +		.size = dma_reg_size,
+> > +		.bar = dma_ctrl_bar,
+> > +		.bar_offset = dma_ctrl_bar_offset,
+> > +	};
+> > +
+> > +	/*
+> > +	 * For interrupt-emulation doorbells, report a standalone resource
+> > +	 * instead of bundling it into the DMA controller MMIO resource.
+> > +	 */
+> > +	if (db_offset != ~0) {
+> > +		if (dma_reg_size < sizeof(u32) ||
+> > +		    db_offset > dma_reg_size - sizeof(u32))
 > 
-> Great. So TRBE violates all the principles that we hold true in the
-> architecture. Does SPE suffer from the same level of brokenness?
+> In your other patch, you used:
 > 
->> Consequently, we can end up in a state where TRBE performs speculative
->> page-table walks for a host VA/IPA in guest/hypervisor context depending
->> on the value of MDCR_EL2.E2TB, which changes over world-switch. The
->> result appears to be a heady mixture of data corruption and hardware
->> lockups.
->>
->> Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
->> draining the buffer, restoring the register on return to the host.
->>
->> Cc: Marc Zyngier <maz@kernel.org>
->> Cc: Oliver Upton <oupton@kernel.org>
->> Cc: James Clark <james.clark@linaro.org>
->> Cc: Leo Yan <leo.yan@arm.com>
->> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Cc: Fuad Tabba <tabba@google.com>
->> Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
->> Signed-off-by: Will Deacon <will@kernel.org>
->> ---
->>
->> NOTE: This is *untested* as I don't have a TRBE-capable device that can
->> run upstream but I noticed this by inspection when triaging occasional
->> hardware lockups on systems using a 6.12-based kernel with TRBE running
->> at the same time as a vCPU is loaded. This code has changed quite a bit
->> over time, so stable backports are not entirely straightforward.
->> Hopefully James/Leo/Suzuki can help us test if folks agree with the
->> general approach taken here.
->>
->>   arch/arm64/include/asm/kvm_host.h  |  1 +
->>   arch/arm64/kvm/hyp/nvhe/debug-sr.c | 36 ++++++++++++++++++++++--------
->>   2 files changed, 28 insertions(+), 9 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->> index ac7f970c7883..a932cf043b83 100644
->> --- a/arch/arm64/include/asm/kvm_host.h
->> +++ b/arch/arm64/include/asm/kvm_host.h
->> @@ -746,6 +746,7 @@ struct kvm_host_data {
->>   		u64 pmscr_el1;
->>   		/* Self-hosted trace */
->>   		u64 trfcr_el1;
->> +		u64 trblimitr_el1;
->>   		/* Values of trap registers for the host before guest entry. */
->>   		u64 mdcr_el2;
->>   		u64 brbcr_el1;
->> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
->> index 2a1c0f49792b..fd389a26bc59 100644
->> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
->> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
->> @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
->>   	write_sysreg_el1(new_trfcr, SYS_TRFCR);
->>   }
->>   
->> -static bool __trace_needs_drain(void)
->> +static void __trace_drain_and_disable(void)
->>   {
->> -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
->> -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
->> +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
->>   
->> -	return host_data_test_flag(TRBE_ENABLED);
->> +	*trblimitr_el1 = 0;
->> +
->> +	if (is_protected_kvm_enabled()) {
->> +		if (!host_data_test_flag(HAS_TRBE))
->> +			return;
->> +	} else {
->> +		if (!host_data_test_flag(TRBE_ENABLED))
->> +			return;
->> +	}
->> +
->> +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
->> +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
->> +		isb();
->> +		tsb_csync();
->> +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
->> +		isb();
-
-The TRBE driver might do an extra drain here as a workaround. Hard to 
-tell if it's actually required in this case (seems like probably not) 
-but it might be worth doing it anyway to avoid hitting the issue. 
-Especially if we add guest support later where some of the affected 
-registers might start being used. See:
-
-     if (trbe_needs_drain_after_disable(cpudata))
-         trbe_drain_buffer();
-
-
->> +	}
+> 	if (size_add(offset, sizeof(u32)) > epf->bar[bar].size)
 > 
-> Doesn't this mean we should be able to get rid of most of the TRFCR
-> messing about that litters the entry/exit code and leave that to VHE
+> For consistency, do you perhaps want to use the same here?
+> 
+> size_add(db_offset, sizeof(u32)) > dma_reg_size ?
 
-Technically you could have ETMs that and are connected to sinks other 
-than TRBE. Unless you somehow switch off those sinks you still need to 
-do the TRFCR switching stuff.
+db_offset and dma_reg_size are resource_size_t, not size_t. resource_size_t can
+be wider than size_t on some 32-bit builds with CONFIG_PHYS_ADDR_T_64BIT, so
+using size_add() would potentially introduce a narrowing conversion. For that
+reason, I avoided it.
 
-> only? And even then, I'm tempted to simply get rid of any sort of
-> guest-only tracing, given that TRBE is not capable of representing
-> exceptions that are synthesised by the host, making it the resulting
-> traces useless.
+If that would be preferable, I'm happy to switch this part to something like:
 
-I haven't heard of anyone tracing a guest from the host, but until we 
-add support for guests to be able to trace themselves it's the only way 
-of doing it, so it could be useful. Although all the messing around with 
-TRFCR before was from a request to disable guest trace rather than 
-enable it, as it was always on in nVHE.
+        if (db_offset != ~0) {
+                if (range_end_overflows_t(resource_size_t, db_offset,
+                                          sizeof(u32), dma_reg_size))
+                        return -EINVAL;
+
+or alternatively use check_add_overflow().
+
+Best regards,
+Koichiro
 
 > 
-> I'm still trying to get my hands on a TRBE-enabled system that has
-> some actual firmware tables (my O6 seems to have the HW, but no
-> description of the required coresight infra).
-
-Leo has a guide, I haven't tried it myself yet but it should be working. 
-I'll send it to you.
-
-James
-
 > 
-> Thanks,
 > 
-> 	M.
 > 
-
+> Kind regards,
+> Niklas
 
