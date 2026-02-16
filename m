@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F93E81A40
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26BCE81A40
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4d9tukjx2UG1m0HAFrQCx142ubnHUGbDv/2/jRE+mU=; b=eX3DKF/O/9RTyVJrcqxHFuu4bZ
-	vrhkXtoahlLb74qB4VwnEqqncZmx0km7opgbUuyN7ZKyeAV+/kZY+86EcEG/X0kzyRIusv5D/RyRE
-	7Qo9TcWVX1Kjclbihc5bapuESz8KGYRJsB5w8EN4vqtgPr2ESO36jehGWf2dvVFwIEEXGcHR3H/9d
-	HJv8DhP4lwCZPIhZ8pMO5rxNCuBqmEpO23gAKaNfVYwNddDyUgQ2mYoeRR3Yzx6eBLYOKSzOOtbA5
-	JQfJdQNrLWUyDFbfAoPBzpyLhNmwofYqNSLkOBJacnxQ6EXF5N1gDT+WTksdoXGTUCFOvX/TECVhs
-	0sQCzUYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NKTLKp3nWhZDwjOkHRJTFj5kVkczUXVF/iVpKSDYRWw=; b=DetYcoxQZtIpB4fQ7XZgsvSp8T
+	IlsgxDgoCcbDSsNP9rrCE95o7X0yUstLQdp3pavdaHL7u9VxIViIOu41P0fjyphvZ7bpPVbvpeTsX
+	qmRq3+0y/3LSNAPnJs9pxDoVd9NNN80r2Wphv3++KgDzF7x8L9pXrh3Ym26CIRyvuC1diFmHgqlTk
+	2Q5wWt2Wa2pAlEeOYEP0nvf20XYx29G/Xn+d5h80FCEr76w5ZuyqlMJSy5MxedzeHm6k5W6VQlXRO
+	/KGu6+a7nrs3WAVa2iJt8FewMXN2vbCysYPzCCIkVLuM2dKM6cECQbqhOo61GSi59ErmTCMF+GFrv
+	P/XT3Y4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1MY-0000000709B-0d4V;
-	Mon, 16 Feb 2026 16:22:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vs1Mg-000000070Dc-3vGC;
+	Mon, 16 Feb 2026 16:22:27 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1MW-0000000705X-0LRh
+	id 1vs1Mf-000000070C2-0o5F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 16:22:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2605A61336;
-	Mon, 16 Feb 2026 16:22:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBDAEC116C6;
-	Mon, 16 Feb 2026 16:22:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771258934;
-	bh=/+qcMyQK4+5hc9Ldn03hDO8S8aBIYGQ/NqQ+XgKlnRk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Bg8pC+rqbGylvy2c8iMQH3VefDPhgMnwVm3sUXgz43ApVPmA1Gt6oIrnqIn+bqZyG
-	 /o1UluqSQl/d8LruUtUIpeRW1poeYQCUILIGI9RtwIk/Uk97b0gKsCa06POCCWXL6K
-	 carjxr+b8e5HIfAwpsMrS5/QF41XqtxMxW2z5fN6B/kFu+KeqH915D6Jr4q8PRXJ2c
-	 bqx5/YAaPCNn8oqVpAShu8C38WCbjvMSKacj1otD5/FtW97Ug+nREtUHxQLKy+cOqQ
-	 /6QHGFFbWuamrP1wEdaN+Yv1LGQPFj/oVCpWKLLSIz/YHXEPLi5naZiScFTmel9F/Y
-	 1Upgdr4UmxTIQ==
-Date: Mon, 16 Feb 2026 21:51:58 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, Frank.Li@nxp.com, 
-	bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
-	imx@lists.linux.dev, kernel@pengutronix.de, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V5 02/12] PCI: host-generic: Add common helpers for
- parsing Root Port properties
-Message-ID: <woglgacwnhpzy3wrevjs4am4rs754tajzmhvndli4u2fycmzuf@rvbwfzcgnsrf>
-References: <20260213040852.3340547-1-sherry.sun@nxp.com>
- <20260213040852.3340547-3-sherry.sun@nxp.com>
+	Mon, 16 Feb 2026 16:22:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=NKTLKp3nWhZDwjOkHRJTFj5kVkczUXVF/iVpKSDYRWw=; b=wzpY9zrj9WAxSHlWXxWbYSnhz5
+	AaehbjFO6gx6LALpnAEVjho9vUmSmI7tuHat6SGQR8yYzct8zKu39JEyG7ALK5J/AUXDoKvkhZ9Qd
+	l57eRi9VdCcebfBeOzYG6G/SM6CrLyVUvGnRtZXk7kQ56spDKHYA5ljzI7EM2hh5n7rQeNYzWS8Ho
+	AyGTPyULJedEa7ddTXoEbqu6EHKM0ifzVZ3oGGDTR2g8jOHsIH20bWlGHo8ehLsgABLqqaAWqWFtV
+	yUuApxi4zI7b/Fhdl48Rr42JZLi5cbRXN+Z0MUKfXTzTQnBUEmjY9RcFNggl9J3NExA39opSSKn3V
+	MsI3OBDg==;
+Date: Mon, 16 Feb 2026 17:22:07 +0100
+From: Andreas Kemnade <andreas@kemnade.info>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: "Kory Maincent (TI)" <kory.maincent@bootlin.com>, Aaro Koskinen
+ <aaro.koskinen@iki.fi>, Kevin Hilman <khilman@baylibre.com>, Roger Quadros
+ <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, Luca
+ Ceresoli <luca.ceresoli@bootlin.com>, Bajjuri Praneeth <praneeth@ti.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Louis
+ Chauvet <louis.chauvet@bootlin.com>
+Subject: Re: [PATCH 1/5] ARM: dts: ti: Enable overlays for all DTB files
+Message-ID: <20260216172207.1b34324e@kemnade.info>
+In-Reply-To: <9D7424B6-2022-4B03-9B8C-455CD3E3FBF1@goldelico.com>
+References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
+	<20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
+	<B3366A17-641F-4E02-A5D4-978F525E0A96@goldelico.com>
+	<20260212174718.7daccb70@kemnade.info>
+	<719BF710-26DF-49AB-A016-D2306F0389E2@goldelico.com>
+	<20260212231907.6120a2e2@kemnade.info>
+	<9D7424B6-2022-4B03-9B8C-455CD3E3FBF1@goldelico.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260213040852.3340547-3-sherry.sun@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260216_082225_259184_9949F5D5 
+X-CRM114-Status: GOOD (  27.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,171 +83,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 13, 2026 at 12:08:42PM +0800, Sherry Sun wrote:
-> Introduce generic helper functions to parse Root Port device tree nodes
-> and extract common properties like reset GPIOs. This allows multiple
-> PCI host controller drivers to share the same parsing logic.
-> 
-> Define struct pci_host_port to hold common Root Port properties
-> (currently only reset GPIO descriptor) and add
-> pci_host_common_parse_ports() to parse Root Port nodes from device tree.
-> 
-> Also add the 'ports' list to struct pci_host_bridge for better maintain
-> parsed Root Port information.
-> 
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> ---
->  drivers/pci/controller/pci-host-common.c | 58 ++++++++++++++++++++++++
->  drivers/pci/controller/pci-host-common.h | 15 ++++++
->  drivers/pci/probe.c                      |  2 +
->  include/linux/pci.h                      |  1 +
->  4 files changed, 76 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> index d6258c1cffe5..0c35907a5076 100644
-> --- a/drivers/pci/controller/pci-host-common.c
-> +++ b/drivers/pci/controller/pci-host-common.c
-> @@ -9,6 +9,7 @@
->  
->  #include <linux/kernel.h>
->  #include <linux/module.h>
-> +#include <linux/gpio/consumer.h>
->  #include <linux/of.h>
->  #include <linux/of_address.h>
->  #include <linux/of_pci.h>
-> @@ -17,6 +18,63 @@
->  
->  #include "pci-host-common.h"
->  
-> +/**
-> + * pci_host_common_parse_port - Parse a single Root Port node
-> + * @bridge: PCI host bridge
-> + * @node: Device tree node of the Root Port
-> + *
-> + * Returns: 0 on success, negative error code on failure
-> + */
-> +static int pci_host_common_parse_port(struct pci_host_bridge *bridge,
-> +				      struct device_node *node)
-> +{
-> +	struct device *dev = &bridge->dev;
-> +	struct pci_host_port *port;
-> +	struct gpio_desc *reset;
-> +
-> +	reset = devm_fwnode_gpiod_get(dev, of_fwnode_handle(node),
-> +				      "reset", GPIOD_OUT_HIGH, "PERST#");
+On Fri, 13 Feb 2026 06:33:46 +0100
+"H. Nikolaus Schaller" <hns@goldelico.com> wrote:
 
-For usecases like link retention from bootloader to kernel, this could be
-requested as GPIOD_ASIS:
-https://lore.kernel.org/linux-pci/20260109-link_retain-v1-3-7e6782230f4b@oss.qualcomm.com/
+> Hi,
+>=20
+> > Am 12.02.2026 um 23:19 schrieb Andreas Kemnade <andreas@kemnade.info>:
+> >=20
+> > On Thu, 12 Feb 2026 17:55:43 +0100
+> > "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+> >  =20
+> >>> Am 12.02.2026 um 17:47 schrieb Andreas Kemnade <andreas@kemnade.info>:
+> >>>=20
+> >>> On Thu, 12 Feb 2026 16:49:43 +0100
+> >>> "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+> >>>  =20
+> >>>>> Am 12.02.2026 um 16:26 schrieb Kory Maincent (TI) <kory.maincent@bo=
+otlin.com>:
+> >>>>>=20
+> >>>>> Allow overlays to be applied to any DTB. This adds around ~40% to t=
+he
+> >>>>> total size of the DTB files on average.     =20
+> >>>>=20
+> >>>> Is this unconditionally enabled or can it be turned off by some CONF=
+IG? We have
+> >>>> our own defconfig so I would not worry if if is enabled in omap2plus=
+_defconfig
+> >>>> and disabled in ours.
+> >>>>=20
+> >>>> We have several devices where the boot loader can't handle overlays =
+(never touch
+> >>>> a working boot-loader :) So this seems to only contribute to build a=
+nd load time
+> >>>> without benefit.
+> >>>>  =20
+> >>> As long as you do not add overlays, the bootloader does not care. I w=
+ould
+> >>> like to simply carry around the 1-bit mmc overlay for one broken boar=
+d.
+> >>> That would help me. So I think there is a benefit but nobody forces
+> >>> you to use it.   =20
+> >>=20
+> >> Well, it does not force to use the really good feature, but it forces =
+to add
+> >> ~40% more file size and some more compile time, if I understand it cor=
+rectly.
+> >>  =20
+> > Compile time, hardly measurable even if you just do make dtbs.
+> >=20
+> > Size on disk:
+> > a) if it lives around in a /boot partitions with kernels and initrams i=
+n it,
+> >   then we are around 1% more space needed. =20
+>=20
+> Ah, I see. I was too focussed on the "adds around ~40% to the total size =
+of the DTB files".
+>=20
+> For the Letux arm distro all DTBs are around 8.1 MB at the moment so it w=
+ill grow not that much
+> (there are non-TI devices included).
+>=20
+> So you are right, it is ~1% of the total if the kernel image is counted.
+>=20
+> Therefore, space should not be something we should be too concerned about=
+ (although I remember
+> discussions for driver code where every single byte did count).
+>=20
+> On the other hand this increases load time from (sometimes slow) =C2=B5SD=
+ for a specific DTB by 40%.
+> That should at least be discussed.
+>=20
+so also 1% of total loading time. And symbols can be stripped away during
+e.g. deployment.
+fdtput -r some_board.dtb /__symbols__
 
-- Mani
+I am not strongly against it. It is just we are doing something unusual her=
+e.
+Are there reasons why it is unusual I do not understand?
+I think it can be useful for every board in some situations. For the
+ones with can carry a head, they are the most useful.
 
-> +	if (IS_ERR(reset))
-> +		return PTR_ERR(reset);
-> +
-> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> +	if (!port)
-> +		return -ENOMEM;
-> +
-> +	port->reset = reset;
-> +	INIT_LIST_HEAD(&port->list);
-> +	list_add_tail(&port->list, &bridge->ports);
-> +
-> +	return 0;
-> +}
-> +
-> +/**
-> + * pci_host_common_parse_ports - Parse Root Port nodes from device tree
-> + * @bridge: PCI host bridge
-> + *
-> + * This function iterates through child nodes of the host bridge and parses
-> + * Root Port properties (currently only reset GPIO).
-> + *
-> + * Returns: 0 on success, -ENOENT if no ports found, other negative error codes
-> + * on failure
-> + */
-> +int pci_host_common_parse_ports(struct pci_host_bridge *bridge)
-> +{
-> +	struct device *dev = &bridge->dev;
-> +	int ret = -ENOENT;
-> +
-> +	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
-> +		if (!of_node_is_type(of_port, "pci"))
-> +			continue;
-> +		ret = pci_host_common_parse_port(bridge, of_port);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(pci_host_common_parse_ports);
-> +
->  static void gen_pci_unmap_cfg(void *ptr)
->  {
->  	pci_ecam_free((struct pci_config_window *)ptr);
-> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-> index b5075d4bd7eb..25d808319836 100644
-> --- a/drivers/pci/controller/pci-host-common.h
-> +++ b/drivers/pci/controller/pci-host-common.h
-> @@ -12,6 +12,21 @@
->  
->  struct pci_ecam_ops;
->  
-> +/**
-> + * struct pci_host_port - Generic Root Port properties
-> + * @list: List node for linking multiple ports
-> + * @reset: GPIO descriptor for PERST# signal
-> + *
-> + * This structure contains common properties that can be parsed from
-> + * Root Port device tree nodes.
-> + */
-> +struct pci_host_port {
-> +	struct list_head	list;
-> +	struct gpio_desc	*reset;
-> +};
-> +
-> +int pci_host_common_parse_ports(struct pci_host_bridge *bridge);
-> +
->  int pci_host_common_probe(struct platform_device *pdev);
->  int pci_host_common_init(struct platform_device *pdev,
->  			 struct pci_host_bridge *bridge,
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index 2975974f35e8..007a3fb8da86 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -647,6 +647,7 @@ static void pci_release_host_bridge_dev(struct device *dev)
->  
->  	pci_free_resource_list(&bridge->windows);
->  	pci_free_resource_list(&bridge->dma_ranges);
-> +	pci_free_resource_list(&bridge->ports);
->  
->  	/* Host bridges only have domain_nr set in the emulation case */
->  	if (bridge->domain_nr != PCI_DOMAIN_NR_NOT_SET)
-> @@ -671,6 +672,7 @@ static void pci_init_host_bridge(struct pci_host_bridge *bridge)
->  {
->  	INIT_LIST_HEAD(&bridge->windows);
->  	INIT_LIST_HEAD(&bridge->dma_ranges);
-> +	INIT_LIST_HEAD(&bridge->ports);
->  
->  	/*
->  	 * We assume we can manage these PCIe features.  Some systems may
-> diff --git a/include/linux/pci.h b/include/linux/pci.h
-> index 1c270f1d5123..b05482355abc 100644
-> --- a/include/linux/pci.h
-> +++ b/include/linux/pci.h
-> @@ -634,6 +634,7 @@ struct pci_host_bridge {
->  	int		domain_nr;
->  	struct list_head windows;	/* resource_entry */
->  	struct list_head dma_ranges;	/* dma ranges resource list */
-> +	struct list_head ports;		/* Root Port list (pci_host_port) */
->  #ifdef CONFIG_PCI_IDE
->  	u16 nr_ide_streams; /* Max streams possibly active in @ide_stream_ida */
->  	struct ida ide_stream_ida;
-> -- 
-> 2.37.1
-> 
+What was the reasoning to have it enabled for k3 for every board? K3 and Br=
+oadcom-64bit
+seem to be the only arch doing that. Broadcom mostly many RPis, some router=
+s.=20
 
--- 
-மணிவண்ணன் சதாசிவம்
+Regards,
+Andreas
 
