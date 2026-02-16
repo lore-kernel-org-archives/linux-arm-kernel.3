@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED58E7BD91
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 11:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F4CE7BD8A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 11:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eqj4FbKcoPvYRri6Bpbh4qn/QiQgcN7mnJQdrIpMpew=; b=dGgLUj4j6LUWC8DPropk2Yb3zF
-	pVU2Fs1csUdzOtw/0iqC5N4OxaSZu3SIz7Bel2U7lT7LZgnmRkI6WA2QnreKmGvYt+c47G5VAfnyf
-	wt4xwuIf5zC8l21a5xtj3B9k+QIzzI7J9kKyIgWYtdc63O+7hvAR3WbOrcur4LMsElU7dgXrfOFsX
-	Jtx8KCsDTkm82GE83npsYCCAhhuD+KgCDMSKjsNbCQK5kwGakP7MliM3qgjdCO9sqZXXWYcIjxY8n
-	z7rR1n/NSKugcThUa66c9oVIfTDjWPX5LqUh9aw1jMMVz5imnIPMG6e1Wjx5VW5AMqTvqz6mNC//j
-	f2myCv9Q==;
+	bh=UjYVUySNIkCUQa6/MHQunH6MUAIykDWx4dsDAl1l4rA=; b=LQ/Pfk4rJ6mMLzWcx4WvErKk1Y
+	+6lve4ia6Nhrk3rXqS3rAvjNQYJJwrDrdKZPXkNzV5aSjMRlDJtpLI+T/9rhjsqsKO7rfB+NBciiR
+	jq8QoU34DWfihGcTUVHjk5rV/Vmjs9FhIP5x5LTBzTKEgryEFe9DpDrbke2ivfcw/robxHeLbcnbY
+	YVbXks1Nzu0RdYVDQFjSUeyLap1Lj7Jk5PoYYQc4XL5NgL8njJ5NpYlHBJiCyIQt6i8LHnsXAKORc
+	CMoD/TZwIyVrkO1QiaDGE3JtLsB+WHLsWPRP2PGrVw3SvMLkgEs7qY8tkSJEKQMEqUhyCljoBJXKC
+	NaqfvyKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwUE-00000006Q21-1xkV;
-	Mon, 16 Feb 2026 11:09:54 +0000
+	id 1vrwUK-00000006Q5d-1bKv;
+	Mon, 16 Feb 2026 11:10:00 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwUC-00000006Q1N-00lt;
-	Mon, 16 Feb 2026 11:09:53 +0000
+	id 1vrwUG-00000006Q2e-2jnM;
+	Mon, 16 Feb 2026 11:09:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771240189;
-	bh=7ietRFN+k+TRUno7TzNeMRtjx+kFVY2I1NkiqflKaCU=;
+	s=mail; t=1771240194;
+	bh=2BYGDpWEMxrAcG3rC9ZLo1MRGuHLmJZBmcHxB19VUMk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Xi9XsN2XuP/NOMgD8xmsvfAskZ0p1oaCPQqEHR/XUh2U6uvr8WYr3P/QJ3POFiVTt
-	 qlQtrr6HjRt5oMOTC2v6SinHAWSTZJ192NsUTms78LmXflEmCzPyUodjfwS5EbrXvH
-	 QUJjBwYB1w9inrtcr/9dD7lR4lGGyAJw45NGVteuFX6IVd3Rztf1cmmXGAa8ifxF4b
-	 Mlzje39Ida3WYAUnVsHS9qpHpAS3P3Y2D5msTIhA9/4JMrBSz699d30Nc4E3gdO6iL
-	 jIiZFceBX4a8FOEvEiKIcVEEzdMwLfVbVvKytm2PYeeb6l3qWD/T2CzWdmzT9CZS1l
-	 ebTKR4cERKeSg==
+	b=AoJlRGvGYPajnvB4Cm/rRq9OLoK8tHBhM2r8RanKtVnkF06QXMlYr1bkkDJIyFCkd
+	 UAVbUc5Y8wfb+00JXuSviZD8B20oKyhZBY80eEYyl258CUHx7Oc023rQBxtiLChF5Z
+	 SWub+ywyhX5OvZ7xlEpD0R4AAjP1xvrjjuu+A4RuurDm3yXGc/7O/7tmXVxkmzf+80
+	 QCbKTC6qFIQBvOLlVyB4N93LgCtpzOd1e+fnFplGK/fHuHgGNo9XfSTLBeITkeFkBh
+	 aMEBuv75GvOSEBBWna7RNhjrQxW2Y+zrjkbNHNoH6PU4a4hbxM9MO+wh5BlafRypny
+	 ff45PBNGcucGw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AE9F317E12E9;
-	Mon, 16 Feb 2026 12:09:48 +0100 (CET)
-Message-ID: <02766a04-b777-4e8b-9908-7abfc4ba113c@collabora.com>
-Date: Mon, 16 Feb 2026 12:09:48 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 91B8917E1517;
+	Mon, 16 Feb 2026 12:09:53 +0100 (CET)
+Message-ID: <4e6b0282-acaf-4d7f-a2df-8163731569c3@collabora.com>
+Date: Mon, 16 Feb 2026 12:09:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] gpu: drm: mediatek: ovl: add specific entry for
- mt8167
+Subject: Re: [PATCH 2/4] dt-bindings: display: mediatek: Add compatibles for
+ MediaTek mt8167
 To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
  linux-mediatek@lists.infradead.org
-Cc: Val Packett <val@packett.cool>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Chunfeng Yun
  <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
@@ -65,15 +65,15 @@ Cc: Val Packett <val@packett.cool>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
 References: <cover.1771144723.git.l.scorcia@gmail.com>
- <b440a9c1972dedc4cfbf29a84366e635b0d7d984.1771144723.git.l.scorcia@gmail.com>
+ <826d54c75cfd1b8e4713431a9426e89edade9eb2.1771144723.git.l.scorcia@gmail.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <b440a9c1972dedc4cfbf29a84366e635b0d7d984.1771144723.git.l.scorcia@gmail.com>
+In-Reply-To: <826d54c75cfd1b8e4713431a9426e89edade9eb2.1771144723.git.l.scorcia@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_030952_211654_1FD2E4B9 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260216_030956_848743_4F0A6568 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,52 +89,88 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 15/02/26 09:53, Luca Leonardo Scorcia ha scritto:
-> From: Val Packett <val@packett.cool>
+> Add compatibles for various display-related blocks of MediaTek mt8167.
 > 
-> While this configuration is otherwise identical to mt8173, according
-> to Android kernel sources, this SoC does need smi_id_en.
-> 
-> Signed-off-by: Val Packett <val@packett.cool>
 > Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 
-Okay, sure.
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Awesome. I'd give you my R-b seal of approval, but there's a few nitpicks that
+you have to address. Please check below.
 
 > ---
->   drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 12 ++++++++++++
->   1 file changed, 12 insertions(+)
+>   .../devicetree/bindings/display/mediatek/mediatek,aal.yaml   | 1 +
+>   .../devicetree/bindings/display/mediatek/mediatek,ccorr.yaml | 4 +++-
+>   .../bindings/display/mediatek/mediatek,dither.yaml           | 1 +
+>   .../devicetree/bindings/display/mediatek/mediatek,dsi.yaml   | 5 ++++-
+>   .../devicetree/bindings/display/mediatek/mediatek,gamma.yaml | 1 +
+>   .../devicetree/bindings/display/mediatek/mediatek,ovl.yaml   | 1 +
+>   .../devicetree/bindings/display/mediatek/mediatek,rdma.yaml  | 1 +
+>   .../devicetree/bindings/display/mediatek/mediatek,wdma.yaml  | 4 +++-
+>   Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml  | 1 +
+>   9 files changed, 16 insertions(+), 3 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-> index e0236353d499..97a899e4bd99 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-> @@ -671,6 +671,16 @@ static const struct mtk_disp_ovl_data mt2701_ovl_driver_data = {
->   	.num_formats = ARRAY_SIZE(mt8173_formats),
->   };
->   
-> +static const struct mtk_disp_ovl_data mt8167_ovl_driver_data = {
-> +	.addr = DISP_REG_OVL_ADDR_MT8173,
-> +	.gmc_bits = 8,
-> +	.layer_nr = 4,
-> +	.fmt_rgb565_is_0 = true,
-> +	.smi_id_en = true,
-> +	.formats = mt8173_formats,
-> +	.num_formats = ARRAY_SIZE(mt8173_formats),
-> +};
-> +
->   static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
->   	.addr = DISP_REG_OVL_ADDR_MT8173,
->   	.gmc_bits = 8,
-> @@ -742,6 +752,8 @@ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
->   static const struct of_device_id mtk_disp_ovl_driver_dt_match[] = {
->   	{ .compatible = "mediatek,mt2701-disp-ovl",
->   	  .data = &mt2701_ovl_driver_data},
-> +	{ .compatible = "mediatek,mt8167-disp-ovl",
-> +	  .data = &mt8167_ovl_driver_data},
->   	{ .compatible = "mediatek,mt8173-disp-ovl",
->   	  .data = &mt8173_ovl_driver_data},
->   	{ .compatible = "mediatek,mt8183-disp-ovl",
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
+> index daf90ebb39bf..4bbea72b292a 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
 
+...snip...
 
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml
+> index 27ffbccc2a08..bcbde16648c0 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml
+> @@ -25,11 +25,14 @@ properties:
+>         - enum:
+>             - mediatek,mt2701-dsi
+>             - mediatek,mt7623-dsi
+> -          - mediatek,mt8167-dsi
+>             - mediatek,mt8173-dsi
+>             - mediatek,mt8183-dsi
+>             - mediatek,mt8186-dsi
+>             - mediatek,mt8188-dsi
+> +      - items:
+> +          - enum:
+> +              - mediatek,mt8167-dsi
+> +          - const: mediatek,mt2701-dsi
+
+This needs its own patch with its own commit description - as this change is not
+really "normal".
+
+You have to mention that you're removing the "mediatek,mt8167-dsi" compatible from
+that list and that it is safe to do so because:
+  - Bootloader doesn't rely on this single compatible; and
+  - There was never any upstreamed devicetree using this single compatible; and
+  - The MT8167 DSI Controller is fully compatible with the one found in MT2701.
+
+So, please, split this one out of the entire batch.
+
+>         - items:
+>             - enum:
+>                 - mediatek,mt6795-dsi
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
+> index 48542dc7e784..ec1054bb06d4 100644
+
+...snip...
+
+> diff --git a/Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml b/Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml
+> index acdbce937b0a..c6d0bbdbe0e2 100644
+> --- a/Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml
+> @@ -23,6 +23,7 @@ properties:
+>         - items:
+>             - enum:
+>                 - mediatek,mt7623-mipi-tx
+> +              - mediatek,mt8167-mipi-tx
+>             - const: mediatek,mt2701-mipi-tx
+>         - items:
+>             - enum:
+
+The PHY bindings are not applied by the same maintainer as the display bindings:
+please split that out in a different patch, so that each maintainer can apply
+the relevant patch(es).
+
+Besides - apart from those nits, everything in here looks great.
+
+Cheers,
+Angelo
 
