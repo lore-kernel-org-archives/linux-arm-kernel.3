@@ -4,94 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7379FE83821
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 18:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B06AE83824
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 19:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l2AvSSRlaXVJb7/w7Tk1weJEeTXvEX63lHs6sjttYiM=; b=i2P31gxD38EI4zD77CcMv/cmhc
-	3mVGuW3Y8ACELNvSxy1qsZq9ApgISdiDI9yGn4uLSMgHxuL2Ofd3Q0K/RC8jccmBmzYsy00n1VeTr
-	/jAQXVnaXvdLS2SMjmipsxQI/4zJ6a2lEZ9pldUmU+2l0BOPImLws9SiUs2+cnBt2mmPIiFGN5xrU
-	mk3LgzXyN7V/3eVY0zRajPbsp6/ub2smGWBqJHpRlIo9LIC4LVZEhKOyr8q8jEwIwgvLma+F7/9ar
-	KlEbZwS6lUVGgHzTDue2zNKJvjQbP8KxbpIhW0z67/SY5/QpClCKCojhmolF+EUlDU64VIVYNxjkQ
-	KjTpwCzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NJl/yKqTclNT9kEkBmAeTF7lEJo3F6xT2CC7EiH5zHk=; b=RdaUXu6x+YMqOu6Wy+FnqEfNYK
+	GbMsY9HwYk52Lqn3HZ8CoyOMqDPfJxbJ1PXgt5YWsKCw0eoVtyg7RXWUMzNnSnY1uy1bnFDZT58ds
+	MjHiBAjxsmy4iPw2+o/S1ujJ3+GbZf4aQH1Ik9cVLTV/Dj6ppnHAi6bq0dTbV6n+pSCuu8FZLDWR3
+	TGzByGE6V95irJDP0o6bxR6UkMb/1mA0emenPie60D2QUZf8zXMN0dai+cPO1acs4J04h5q1eauiW
+	SG6KOEPi4X50hNEqzSSkrK11H6p7C+Kkh6ApkWk9p0XtiEkKMm89NQj78SRm6djQ3MtNHkwpNK1dH
+	H5Fhp69A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs3fv-00000007AXf-22A0;
-	Mon, 16 Feb 2026 18:50:27 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1vs44Z-00000007BPo-3gGL;
+	Mon, 16 Feb 2026 19:15:55 +0000
+Received: from mail-qt1-x863.google.com ([2607:f8b0:4864:20::863])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs3fr-00000007AXC-0yLO
+	id 1vs44W-00000007BPN-2h9P
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 18:50:26 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-385e7cafef9so29262191fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 10:50:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771267821; x=1771872621; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=l2AvSSRlaXVJb7/w7Tk1weJEeTXvEX63lHs6sjttYiM=;
-        b=Gj0AgxOdYPootAFKq9NuEmzCX1TZWjrvV/+omVkqIROzTIkuYN9FSk/GKE838K4Z3f
-         1KDhbr/oYFobQBwTCNNlpikPlTjoKm7NIZTw9F8J28qmviTyotPRIqkWZC0u0CvEYW9y
-         XtQQ/4w25dmtMnpjpPkOAQb1F6p2PMe3HU3FQwuUE+alyo7pd/2i1TUx/9kIGA/gbN0H
-         VOyYakLMy0wF0Ox+7K7PGZpPgHJrxX0gMG2w71W1WA5gdD3hfz4wCm0zKPXWl7X4wtnQ
-         JRPx4Ag3Kk5xss1U6gGwN9UionYl03woWcHqJXPJFecOtbSSNQw255emR+y3nn8Abxzp
-         +mmw==
+	Mon, 16 Feb 2026 19:15:53 +0000
+Received: by mail-qt1-x863.google.com with SMTP id d75a77b69052e-506aa685d62so18042871cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 11:15:51 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771267821; x=1771872621;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1771269351; x=1771874151;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=l2AvSSRlaXVJb7/w7Tk1weJEeTXvEX63lHs6sjttYiM=;
-        b=YkkeUymQ4tEUtyOhE0wQp/Wk9CaczX+1A8P9rlFDTCuYy1gfoeImdgPNdeiX8mRVbR
-         wESMTq/mNPrcfU1RgOZTLJMJke7H1rAwyr31zwiez9cP8WOMCaOjPhicty6ktmxVihiG
-         +xcgY+c2I6hXfbZvxkL7IvjZ33cB4jLgQtKRifoZlbe7dqhB1airROHje7N60EBBhKb4
-         tUDwPIw1V0MvQsjxw92xvRKIWpa56TSFkn92ZWg/da3XyWNy3Rg9UEm7dxX7v+VRp0ig
-         qIZlQs0rW/y+94ybK2wzx9L/i7fxHb90FJlAKLfZmNqoz2X4uvn1RVWOSttghYdTDoCv
-         Qt5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWTyWUJrbEShSwlI7ylGm4quGb3I4cgebnzCxgX75YgRAt69XVbPei7NAbFwgPEUWyX6IIWZ0ZrqgLsB9qaW+U3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy49tGiBsWXZDUJI2n4oZFVUeaMn19Dq6Lnfs/5vXqILLk5yzQD
-	jyGgQ+6ZykQvV1UpZEmCPyM/DBAVl8Tm1tnD1fwqGGOpFQWjcHN0MZIVZW8buQ==
-X-Gm-Gg: AZuq6aJvnZyBvpc4SqSXrhPtJm1bSRYSygg5VV0n7EzXNPiRcWp7MvW61tDHi56vpqp
-	WPrpKvRFuySukRLcjs2IC62v5siUo36DKrf8TaG5EG9a939GrUdlF9PsGNoePcSBw3QIcYZ0Mhl
-	kAFdB8xYpidYm6na6htErGpmhlsbHWUeOzHKQS0cbA1wCcNvJ0K80wMv6UrO0oc6bX9QyrJ0bly
-	uZHIUFK/wM31Ilglja+gR6lZqhbpYSj4fK+G6vuneSw96iBwBUhUT+plon2mDzdnNIatW3Xg+Ew
-	2utf8ksgQw3gaPmNGk9GVbdSU3zU4J45Rmd3zuwHXsTmAnN8E4D9wG1Cdk16/Rsg24GBpSgTFkx
-	RagZ6Q8nvKTwMgAHPeKFlZcsfKeBahmSvueahLSLJ3H4rJB5Kd6HsdQoDDCN7ufnSMYz/mOd4OY
-	uEVa42Nz6Hub97ILgEMiUcuJU5Rc1GZj7nFKc6WOElT9ycqN6OhiLm6E1onC8e
-X-Received: by 2002:a05:6512:33ce:b0:59e:64d4:12f6 with SMTP id 2adb3069b0e04-59ef97f1e64mr3239213e87.16.1771267820730;
-        Mon, 16 Feb 2026 10:50:20 -0800 (PST)
-Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e5f5a4f5fsm3399455e87.56.2026.02.16.10.50.17
+        bh=NJl/yKqTclNT9kEkBmAeTF7lEJo3F6xT2CC7EiH5zHk=;
+        b=CgR7O046XZMOhG8kqlLh9unEhOTVX5HBSDAE2mSgYfbHqxATQYrjnRjpwXjSrYPaoR
+         9+/d+LQcEAUyI30/IcZIllybL3pDW9E2obp5YAy7KetzeWQfBqhJMvYIPY6FWsET0Srp
+         K5U4P8uF8L1Pagn196nmJiDAkM3oJS5H+/kHi93VUJYQOZrhT69TzpzerNu6xXLyKP0c
+         GY6HQlNzP4LOQovlY3xWBCN2YeIP6VJSOVrZNxJXHw8bdWBgTIB8gv+IPsqrQH2+V1qJ
+         gd2UPj2GYAbFTSdRW8odYJ3UsyvzWe7WdZvkbPtJ3c8pWczHOQn5H0ajlFgVcL1uPTui
+         9zPg==
+X-Forwarded-Encrypted: i=1; AJvYcCWJ1Nu6w9YPBOLvP8QrxFW5clzPmp8dJ2Taey0Y9LTrF4KadSLO6VKcdw2hrd6DIVFV5A2iriUrGAks5TJpj92e@lists.infradead.org
+X-Gm-Message-State: AOJu0YycGLKpIxzrktkXiUKdBQrUZG/9nCbrjGRTMFxquR7mIBCsz94x
+	ZxpqgibGCTck60FljjUShPiSxfx+3X8KveGYoPM9DwmYXhcb5ooTuuPTjPEC86hkFQrHUh8xBjh
+	F/9UW/cpdrLz3p7jxkY6b4VIOUQC1o/AyK0RNJqi1Bvm4PpZOxrws1oCVTLW0LODwB1LoDgg2wU
+	PLSpjcigY22S9JGLDQTsZWxjYErTE0TU/385zVrJwgVvUo25varjC8/oFbDx3mMxWdYlVhSlHhN
+	wqNlt4kl2RgOG8UYLpUTpXodYU=
+X-Gm-Gg: AZuq6aI//oHFQMFXYHFgPf6MWuZGbUFA5dJwCtVW5ck48ZgxKJgosWCgtRYg9Bhf/bl
+	uacNOcOl0RSilUX6m/aGA1A8BCf64BHZTQq1rYlP5EhCfkckmN0Ki2P0n4AG5lJ4wxq3rgm7zvw
+	eyVl/qcKajNL7YL3riDuF70Eanx4QC/bP9yYRi+lr/sapKCeYp6ZNtPys8uFTkJJxjXd3q4NNKX
+	17VOsfDaIGiRqV/7Z1VAzkpnv6uZYjbAoXW3TezjZQCMTwqCel2YNUpxRFaZajcFynCbpEYxXkO
+	duNSv/k0EV9481FH0KsUqNN/043a7UCN/W9gVID97o/gIuA9SdXAlcsae2JmtZ0qk5T8gNaPfnr
+	YOYnupfYj1HzcBUGZqQzcXjgACcXgQVYFVp45gPvpuxoDlDImpw5dFjwc8t20nQV+FfE7bNQuG8
+	8cUpZ10au32cvoB2K8M+ONxre8rsIS9fxh5fUwnERdF6rqnTjYPJ6vt8Dj
+X-Received: by 2002:a05:622a:1ba9:b0:4ee:4512:4a24 with SMTP id d75a77b69052e-506a835cb44mr150661021cf.72.1771269350725;
+        Mon, 16 Feb 2026 11:15:50 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-103.dlp.protect.broadcom.com. [144.49.247.103])
+        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-8971cd75df8sm21192736d6.30.2026.02.16.11.15.50
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Feb 2026 11:15:50 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-124a95b6f61so61568767c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 11:15:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1771269349; x=1771874149; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NJl/yKqTclNT9kEkBmAeTF7lEJo3F6xT2CC7EiH5zHk=;
+        b=Klv8WItwrYkUpGqPRNLDoLtR9KSzpR+MoGdlig5Huk8RwSZhfCDCjZDNsVRchXPr1M
+         puz9JnU9+CAXVMqilbIDg5c1QBnpRyYrMaNshlv1KF7b+kI9FXXF7MxxC1wYRJHNjJto
+         aAFEl0Bw3/h/FdIJ9bacRp0liIdFeKAW7SyBs=
+X-Forwarded-Encrypted: i=1; AJvYcCV7GoBjSzbyXIPFmmo4w+piav8ntVY7a1ccomiRktL1YvHgSZiDZMscoXbvKkQsOCp4uZqD1eavjPbCXhVRRqoa@lists.infradead.org
+X-Received: by 2002:a05:7022:439e:b0:122:153:d161 with SMTP id a92af1059eb24-1273ae1655dmr5050537c88.17.1771269349579;
+        Mon, 16 Feb 2026 11:15:49 -0800 (PST)
+X-Received: by 2002:a05:7022:439e:b0:122:153:d161 with SMTP id a92af1059eb24-1273ae1655dmr5050523c88.17.1771269348982;
+        Mon, 16 Feb 2026 11:15:48 -0800 (PST)
+Received: from mail.broadcom.net ([192.19.144.250])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12742cada1csm11067327c88.9.2026.02.16.11.15.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Feb 2026 10:50:18 -0800 (PST)
-Date: Mon, 16 Feb 2026 19:50:16 +0100
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-To: Peter Rosin <peda@axentia.se>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 2/5] i2c: mux: add support for per channel bus
- frequency
-Message-ID: <aZNm6LSK9C8DHC8U@gmail.com>
-References: <20260216-i2c-mux-v6-0-9be28ecfd7e3@gmail.com>
- <20260216-i2c-mux-v6-2-9be28ecfd7e3@gmail.com>
- <ab7090f3-4c03-098b-b118-4cd7a68af8f0@axentia.se>
+        Mon, 16 Feb 2026 11:15:48 -0800 (PST)
+From: Kamal Dasu <kamal.dasu@broadcom.com>
+To: adrian.hunter@intel.com,
+	ulf.hansson@linaro.org,
+	florian.fainelli@broadcom.com
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	linux-mmc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Kamal Dasu <kamal.dasu@broadcom.com>
+Subject: [PATCH] mmc: sdhci-brcmstb: use correct register offset for V1 pin_sel restore
+Date: Mon, 16 Feb 2026 14:15:43 -0500
+Message-Id: <20260216191543.2514647-1-kamal.dasu@broadcom.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pemrsl7Yj+LEV701"
-Content-Disposition: inline
-In-Reply-To: <ab7090f3-4c03-098b-b118-4cd7a68af8f0@axentia.se>
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_105024_659129_3847B3F4 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20260216_111552_744342_DCFA2392 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,77 +115,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The restore path for SDIO_CFG_CORE_V1 was incorrectly using
+SDIO_CFG_SD_PIN_SEL (offset 0x44) instead of SDIO_CFG_V1_SD_PIN_SEL
+(offset 0x54), causing the wrong register to be written on resume.
+The save path already uses the correct V1-specific offset. This
+affects BCM7445 and BCM72116 platforms which use the V1 config core.
 
---pemrsl7Yj+LEV701
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Fixes: b7e614802e3f ("mmc: sdhci-brcmstb: save and restore registers during PM")
+Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+---
+ drivers/mmc/host/sdhci-brcmstb.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Hi Peter!
+diff --git a/drivers/mmc/host/sdhci-brcmstb.c b/drivers/mmc/host/sdhci-brcmstb.c
+index c9442499876c..57e45951644e 100644
+--- a/drivers/mmc/host/sdhci-brcmstb.c
++++ b/drivers/mmc/host/sdhci-brcmstb.c
+@@ -116,7 +116,7 @@ static void sdhci_brcmstb_restore_regs(struct mmc_host *mmc, enum cfg_core_ver v
+ 		writel(sr->boot_main_ctl, priv->boot_regs + SDIO_BOOT_MAIN_CTL);
+ 
+ 	if (ver == SDIO_CFG_CORE_V1) {
+-		writel(sr->sd_pin_sel, cr + SDIO_CFG_SD_PIN_SEL);
++		writel(sr->sd_pin_sel, cr + SDIO_CFG_V1_SD_PIN_SEL);
+ 		return;
+ 	}
+ 
+-- 
+2.34.1
 
-On Mon, Feb 16, 2026 at 05:40:37PM +0100, Peter Rosin wrote:
-> Hi!
->=20
-> > +static struct i2c_mux_core *i2c_mux_first_mux_locked(struct i2c_adapte=
-r *adap)
-> > +{
-> > +	struct i2c_adapter *parent;
-> > +
-> > +	while ((parent =3D i2c_parent_is_i2c_adapter(adap)) !=3D NULL) {
-> > +		struct i2c_mux_priv *priv =3D adap->algo_data;
->=20
-> This assumption does not hold, making the cast pretty wild indeed. There
-> are other i2c_adapters with a parent besides muxes. See e.g. i2c_atr.c
-
-I see. Hrm, not sure how to decide if it is a mux or not. The best I
-could come up with is to look at the i2c_adapter.lock_ops. E.g.
-
-
-	while ((parent =3D i2c_parent_is_i2c_adapter(adap)) !=3D NULL) {
-		/*
-		 * Check if this adapter is a mux channel by verifying its
-		 * lock_ops. Only mux channels use these specific lock operations.
-		 */
-		if (adap->lock_ops =3D=3D &i2c_mux_lock_ops ||
-		    adap->lock_ops =3D=3D &i2c_parent_lock_ops) {
-			struct i2c_mux_priv *priv =3D adap->algo_data;
-
-			if (priv->muxc->mux_locked)
-				return priv->muxc;
-		}
-		adap =3D parent;
-	}
-
-Or do you have a better idea?
-
-
->=20
-> Cheers,
-> Peter
-
-
-Thank you in advance,
-Marcus Folkesson
-
---pemrsl7Yj+LEV701
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmmTZuIACgkQiIBOb1ld
-UjKMwA/9HbiaQBz/bkSFRLB6Z6Shz2Gp7lfqO/+FS7Ri4hgMDb//wcrTF2757mG8
-eCGPnGGAd0hpF+HX5bJ5JIvCDKPeBY1UtTCMJo+s7tfD8oVOabC/fKP6p3FKPtE3
-TA5MSGmprqTOrZLI1qv018S/UiGaxAriBqTeoMVD9xswh4llcQmQbmvB5yXTL59t
-Vqtlq51mmnHmcBA7UOUdbhthj8otdjs/mDJAFkBHpFAxfnpgFBncCH+cNQxJEtxO
-FqwP+vVD7nScYal3F7zayAWRiATY4ElxzcTY44N59Q0bg0kcP/raj5o4ZTAB97J1
-E8ij5R/c2BCweaUJsOUD6iNsxk80e1grDm1bqhBrZ0Hq+kzMnK5XjCc7ugb0dvND
-NvaH4q1GuNhpUIncPJk9gDTgO8+Pi2f+JBJCEYgktsO9yS8buL30GElw0XDukKa5
-P2TzX+W5Wt5W078ZHvA2387ZeOUSD88sGlJluvXKjo+W8Y6w3rVOa6WGUwQ1bpoK
-A0xXh2zwT966dimSnI63Vy2MudAlUudnQoyl89+HQoCS5EUCDtVpvQn4GhV/8+oe
-ANRL65P5hxThDvw6vo6DT09kl/xqat2LUKmTFw6E3NhFSwL7fkvKrAE5AgynFnde
-/eEGiirU2/gPW6hXmBkvuHF/9/F06HxyAtJYyjSNpdCdqM/duYg=
-=PrHK
------END PGP SIGNATURE-----
-
---pemrsl7Yj+LEV701--
 
