@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EAAE7BDBD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C078EE7BDBD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vQG1g3zL+BKbCUyUYcpkYqbknu7V71UGfW7Za3YjBSc=; b=gBEKf/ncyFWcKiUqdCgvGIX5PW
-	M6be0rcf3dtXIyKb2Rnr3T0ILU8mlF5CX8EXOFh/sv+vAmaMH8mF/H9ckIr3Naa1UCLT7x2eEYKlA
-	btV/OR0hvAzTv9BC9lMG0A0NswnZwzI5m5avhw4RzI4x8HWzkHGhaekYI4owuxfuZ4ondTlk83XgU
-	I+HIyObN5u60mqkTVkMNdAnma0b1pOqyXgRqXh61fZQAR1e1Yt3SqMARvIqyU5GXQ1RfFgU+UM5Sj
-	96D+Nfn+sr4MzIwl5efjHVez1nwolGp1KK5nkGxjiVbbpbD2v0whyeVTKoeK39viWcEyAlvV7kI5N
-	vxyKAmzA==;
+	bh=5LnxA1JU38LWEEDUOHdTJfl2OEL43g5hAFfOClgSk2c=; b=cEC8EQFbjoymZ8mWd+Qxs+ExZ2
+	V0olUutAcA3fMNzP8AxrlT2Ew8TiNE9UiGe2N6mxJ/FNmeHu3J0x3u9kVi01lOloCYl6e6iQ08PRU
+	Tp4Pel+i6xtFD4TeIbLj1OiCqxtCi9QThp58TC0MAydEyyC1xa1e7/4r8PzhMiQunDeMbH2Lbs4cN
+	VUp0q3cBUAYx9rCStBFWriEbHe4Ig7lRykkjc+3HUN3bYUsHfKjvUW7xro7Yy+xrVroMUNtYDmJLw
+	Xs6H6yZ/aBuF0iz8jEB2L7EWXNIkVYftmSVEDL/TXNPKellk842U4AXrAtvSityovKRH/Nz31XRNQ
+	jgBYDe3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrypl-00000006hRa-24cI;
-	Mon, 16 Feb 2026 13:40:17 +0000
+	id 1vrypu-00000006hbX-06tj;
+	Mon, 16 Feb 2026 13:40:26 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrypb-00000006hDM-0TkZ;
-	Mon, 16 Feb 2026 13:40:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1771249197; cv=none; 
+	id 1vryph-00000006hKq-1CAm;
+	Mon, 16 Feb 2026 13:40:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771249203; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=SyhSOH7u/FhbOGQmbaeXceRmKC57GRErH4rQNHWrbANZJAUZ3uhtGmKWlRSCv9uumC+SIinOnC6G/k7gZ83HwDQdFcHlSaSrDVY+1T/t6cOr+Vb3oWN2oQc+MQ69wDlTEmKZUh49/VfuCvi7XcI3Zh30eVw/FjrOrrASjeDJ+a8=
+	b=L2EF3JmXn57D0ii6OX/PLq6A/zM5wRqxClWvqFOn4tU1dflGoTL9t3iQAu9q4qTB/duAyUgjsmANo5NlGuOH5LAt8L1mKM4LHkpW4Wx/kiT1bkBrztn+S7lgIBPwMWpCsAbIMFr/2fS6GmL3KthsPzyxND8VLiQC6qsfxZn9uBc=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1771249197; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vQG1g3zL+BKbCUyUYcpkYqbknu7V71UGfW7Za3YjBSc=; 
-	b=CzXkTu7MQ40ipqJ3AZ7xyg8Y6vOeuXRRydzYyxeVdje6w98wXc2CTfsZ8E7i8niMKdn0DG3pjOgCVFelb+3UnBKIIG8Gac4/UY3hhjER2zk6iQwcB9fLH4mWARPBFiQoccxu1p5bfE+3T5Qh7Y9ThYQ+AlARs2R4cUhc6C1bObI=
+	t=1771249203; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=5LnxA1JU38LWEEDUOHdTJfl2OEL43g5hAFfOClgSk2c=; 
+	b=UlkGY8vypRzWkkhQ04fziFVN3nSyWYvmzgCcJeoXtZXarWUa3cIKULH4rgpdQaq0mrmHQbvvHFF2acKJc/gnQFKaS4OSvKgofx1HkQwerAdo9jwI+/KDOauJhIjrb3dWZVe86gOF8AudIgdygpGAwwau3xbF685FT+H9YZ7jKXo=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771249197;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771249203;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=vQG1g3zL+BKbCUyUYcpkYqbknu7V71UGfW7Za3YjBSc=;
-	b=WOjxxSQ9nv37l1cR9fy3XJIYyx9+QcljF9O+tdxT5bXrYzq7gxm78J0aKvLPvmds
-	xSbujXAzUpwDVPK677BqeHnt8YQO5TnXD3ZY5xeiUrl9uldIZ6NdTyeSPHOcT/ULSE+
-	L0iH3SN5At5uelL3nKTxnVj+qSr0lEPrmeJismo0=
-Received: by mx.zohomail.com with SMTPS id 1771249196462360.5065728806675;
-	Mon, 16 Feb 2026 05:39:56 -0800 (PST)
+	bh=5LnxA1JU38LWEEDUOHdTJfl2OEL43g5hAFfOClgSk2c=;
+	b=BfGI0ce45Qp9SHuKWOj6ZXjpG0ItYVxZOWqdV5fSoz89WmGT/80LCwAHXd31oq0+
+	Q0iG8JjgvHIDWRuJZYOTgNlYYhHU35QbGzOyEIKvAIJ8DufDwH42QelmfHPkYuSlCoS
+	VO7J1BfGUlbdcIg/jaG8W2W8dsOqydu14auqIIOE=
+Received: by mx.zohomail.com with SMTPS id 1771249201935370.9689229671135;
+	Mon, 16 Feb 2026 05:40:01 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 16 Feb 2026 14:37:54 +0100
-Subject: [PATCH v7 21/23] scsi: ufs: mediatek: Remove ret local from
- link_startup_notify
+Date: Mon, 16 Feb 2026 14:37:55 +0100
+Subject: [PATCH v7 22/23] scsi: ufs: mediatek: Remove undocumented
+ "clk-scale-up-vcore-min"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260216-mt8196-ufs-v7-21-b5f2907c6da7@collabora.com>
+Message-Id: <20260216-mt8196-ufs-v7-22-b5f2907c6da7@collabora.com>
 References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
 In-Reply-To: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -78,8 +78,8 @@ Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_054007_318552_6180E073 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20260216_054013_410478_499696CE 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,48 +94,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the "ret" local variable from ufs_mtk_link_startup_notify, as
-it's pointless; in all cases it is assigned, it is returned right after
-without being read first.
+The MediaTek UFS driver contains support for an undocumented,
+non-vendor-prefixed u32 property named "clk-scale-up-vcore-min".
 
-Rework the code to just return directly, and get rid of the default
-branch while at it.
+Since it is not part of any binding, and would not pass a bindings
+review in its current form, remove it.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To return this functionality, it needs to be resubmitted in a series
+that also introduces it to the binding, and justifies what it is used
+for. Compatibility with downstream device trees is not a valid
+justification for its existence.
+
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 12 +++---------
- 1 file changed, 3 insertions(+), 9 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 19 -------------------
+ 1 file changed, 19 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 046e2f9bb6c7..e863e4f8af55 100644
+index e863e4f8af55..dfa104207cc6 100644
 --- a/drivers/ufs/host/ufs-mediatek.c
 +++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1500,21 +1500,15 @@ static void ufs_mtk_post_link(struct ufs_hba *hba)
- static int ufs_mtk_link_startup_notify(struct ufs_hba *hba,
- 				       enum ufs_notify_change_status stage)
- {
--	int ret = 0;
--
- 	switch (stage) {
- 	case PRE_CHANGE:
--		ret = ufs_mtk_pre_link(hba);
--		break;
-+		return ufs_mtk_pre_link(hba);
- 	case POST_CHANGE:
- 		ufs_mtk_post_link(hba);
--		break;
--	default:
--		ret = -EINVAL;
--		break;
-+		return 0;
- 	}
+@@ -880,8 +880,6 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+ 	struct list_head *head = &hba->clk_list_head;
+ 	struct ufs_clk_info *clki, *clki_tmp;
+-	struct device *dev = hba->dev;
+-	u32 volt;
  
--	return ret;
-+	return -EINVAL;
+ 	/*
+ 	 * Find private clocks and store them in struct ufs_mtk_clk.
+@@ -918,24 +916,7 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
+ 	if (!ufs_mtk_is_clk_scale_ready(hba)) {
+ 		hba->caps &= ~UFSHCD_CAP_CLK_SCALING;
+ 		dev_info(hba->dev, "%s: Clock scaling unavailable", __func__);
+-		return;
+-	}
+-
+-	if (!host->reg_vcore)
+-		return;
+-
+-	if (of_property_read_u32(dev->of_node, "clk-scale-up-vcore-min",
+-				 &volt)) {
+-		dev_info(dev, "failed to get clk-scale-up-vcore-min");
+-		return;
+ 	}
+-
+-	host->mclk.vcore_volt = volt;
+-
+-	/* If default boot is max gear, request vcore */
+-	if (volt && host->clk_scale_up)
+-		if (regulator_set_voltage(host->reg_vcore, volt, INT_MAX))
+-			dev_err(hba->dev, "Failed to set vcore to %d\n", volt);
  }
  
- static int ufs_mtk_device_reset(struct ufs_hba *hba)
+ static void ufs_mtk_setup_clk_gating(struct ufs_hba *hba)
 
 -- 
 2.53.0
