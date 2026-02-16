@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A1DE83833
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 20:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE8DE83837
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 21:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ngboZP6RIhPLTK4sHHipZMO6vB+HpttFiw7t3wOgM8g=; b=37jbJSAsBUM7qervLf4Ksk+yuk
-	qlsd1th6+gzZ3ufwzirpkq/feXGE2QgvRn4mnZCUWhRdHpUzlpgEHpg/4M9BVZO4x99Jxc364c7Vc
-	01hHrztNwaJgBGg6VZCR3ybqXwPg9CviQy5wDL+L/odQqvUEqkn+ihkbm++eoQlXFnKXIKbKRiSJ4
-	VLoyTL7PR6ntTnLyFq+143eysM9XQkLufEKkAgC2FxTQAGlCvXF+LZVRkihST7p2dXLuf5pNyW8xo
-	ZzLjLVSId/Q+3jz78JY8d9fg4z77c6kbDNOe72kkiUZxElIEDjZbMxdotLNm7kObfS5bOeL97iH22
-	6yXyDCvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t8BYgHoDiUqLazySoLpLeVrihmYilevIB92jtHXcapg=; b=R0gsplGgJXmoaOrJVjTaocYvsW
+	YWyEGN460JiBmWeWMjXUyM+S9pQ0TMIvmQe0JN4WhFzqkkl3kOe7PtaX3X4zGr4D8faWRB63P+Qm9
+	w8uTNYeYUJHV80Lmyi1bBk+0TjGxfuScKeG9Ip5QFA48RWCvXXqf9D/S98b0PJVo2SlmCI/Uv02RC
+	cT4SEkO79+agbdn6eyXKQMcJezqIrso/G8Cm1HvbLk32eSuye2GEHDWn1ocR1KdoaobDpNblsC9dQ
+	hxNG3WvuFPydc2Fk28jUpZWI9SJ0ix9H6l6y4DZw02wggSAKVwz4U3NQRO7GBImk4YF8+MIb7VsID
+	hP/74w+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs5Kl-00000007GAc-3ShL;
-	Mon, 16 Feb 2026 20:36:43 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs5Kg-00000007GA9-3C2d;
-	Mon, 16 Feb 2026 20:36:38 +0000
-Message-ID: <e80c212c-9220-4621-8b21-5ce382ed92e5@infradead.org>
-Date: Mon, 16 Feb 2026 12:36:36 -0800
+	id 1vs6Ti-00000007JUo-2m45;
+	Mon, 16 Feb 2026 21:50:02 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vs6Tf-00000007JU4-0Oyb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 21:50:00 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vs6TQ-00034A-LG; Mon, 16 Feb 2026 22:49:44 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vs6TO-0018BD-0n;
+	Mon, 16 Feb 2026 22:49:43 +0100
+Received: from pengutronix.de (p54b15bf8.dip0.t-ipconnect.de [84.177.91.248])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 4494D4EA95C;
+	Mon, 16 Feb 2026 21:49:43 +0000 (UTC)
+Date: Mon, 16 Feb 2026 22:49:42 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Minghuan Lian <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, 
+	Jingoo Han <jingoohan1@gmail.com>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	Sascha Hauer <s.hauer@pengutronix.de>
+Subject: Re: [PATCH] PCI: layerscape: Allow to compile as module
+Message-ID: <20260216-mahogany-caterpillar-of-certainty-38b0bc-mkl@pengutronix.de>
+X-AI: stop_reason: "refusal"
+References: <20260112-v6-19-topic-layerscape-pcie-v1-1-1cd863fce50e@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 20/20] drm/bridge: Document bridge chain format
- selection
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>
-Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-doc@vger.kernel.org
-References: <20260216-color-format-v8-0-5722ce175dd5@collabora.com>
- <20260216-color-format-v8-20-5722ce175dd5@collabora.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260216-color-format-v8-20-5722ce175dd5@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="acibql3y7ovkmvyd"
+Content-Disposition: inline
+In-Reply-To: <20260112-v6-19-topic-layerscape-pcie-v1-1-1cd863fce50e@pengutronix.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260216_134959_140180_06DC7E00 
+X-CRM114-Status: GOOD (  25.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,98 +86,113 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--acibql3y7ovkmvyd
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] PCI: layerscape: Allow to compile as module
+MIME-Version: 1.0
 
-On 2/16/26 5:01 AM, Nicolas Frattaroli wrote:
-> The bridge chain format selection behaviour was, until now,
-> undocumented. With the addition of the "color format" DRM property, it's
-> not sufficiently complex enough that documentation is warranted,
-> especially for driver authors trying to do the right thing.
-> 
-> Add a high-level overview of how the process is supposed to work, and
-> mention what the display driver is supposed to do if it wants to make
-> use of this functionality.
-> 
-> Reviewed-by: Maxime Ripard <mripard@kernel.org>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Hello,
+
+Bjorn can you take this patch?
+
+On 12.01.2026 20:17:11, Steffen Trumtrar wrote:
+> From: Sascha Hauer <s.hauer@pengutronix.de>
+>
+> The layerscape pcie host controller could also be compiled as module.
+> Add the necessary infrastructure to allow building as module instead of
+> only as builtin driver.
+>
+> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
 > ---
->  Documentation/gpu/drm-kms-helpers.rst |  6 ++++++
->  drivers/gpu/drm/drm_bridge.c          | 39 +++++++++++++++++++++++++++++++++++
->  2 files changed, 45 insertions(+)
-> 
-> diff --git a/Documentation/gpu/drm-kms-helpers.rst b/Documentation/gpu/drm-kms-helpers.rst
-> index 781129f78b06..47c4f593cf9d 100644
-> --- a/Documentation/gpu/drm-kms-helpers.rst
-> +++ b/Documentation/gpu/drm-kms-helpers.rst
-> @@ -181,6 +181,12 @@ Bridge Operations
->  .. kernel-doc:: drivers/gpu/drm/drm_bridge.c
->     :doc: bridge operations
->  
-> +Bridge Chain Format Selection
-> +-----------------------------
+>  drivers/pci/controller/dwc/Kconfig          |  2 +-
+>  drivers/pci/controller/dwc/pci-layerscape.c | 16 +++++++++++++++-
+>  2 files changed, 16 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/=
+dwc/Kconfig
+> index 519b59422b479..abfa4a6e62c25 100644
+> --- a/drivers/pci/controller/dwc/Kconfig
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -121,7 +121,7 @@ config PCI_IMX6_EP
+>  	  DesignWare core functions to implement the driver.
+>
+>  config PCI_LAYERSCAPE
+> -	bool "Freescale Layerscape PCIe controller (host mode)"
+> +	tristate "Freescale Layerscape PCIe controller (host mode)"
+>  	depends on OF && (ARM || ARCH_LAYERSCAPE || COMPILE_TEST)
+>  	depends on PCI_MSI
+>  	select PCIE_DW_HOST
+> diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/co=
+ntroller/dwc/pci-layerscape.c
+> index a44b5c256d6e2..14d6ac4fc53fd 100644
+> --- a/drivers/pci/controller/dwc/pci-layerscape.c
+> +++ b/drivers/pci/controller/dwc/pci-layerscape.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/interrupt.h>
+>  #include <linux/init.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/module.h>
+>  #include <linux/of_pci.h>
+>  #include <linux/of_platform.h>
+>  #include <linux/of_address.h>
+> @@ -403,8 +404,16 @@ static const struct dev_pm_ops ls_pcie_pm_ops =3D {
+>  	NOIRQ_SYSTEM_SLEEP_PM_OPS(ls_pcie_suspend_noirq, ls_pcie_resume_noirq)
+>  };
+>
+> +static void ls_pcie_remove(struct platform_device *pdev)
+> +{
+> +	struct ls_pcie *pcie =3D platform_get_drvdata(pdev);
 > +
-> +.. kernel-doc:: drivers/gpu/drm/drm_bridge.c
-> +   :doc: bridge chain format selection
+> +	dw_pcie_host_deinit(&pcie->pci->pp);
+> +}
 > +
->  Bridge Connector Helper
->  -----------------------
->  
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index 36a5158f0554..93ef52c37e2c 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -198,6 +198,45 @@
->   * driver.
->   */
->  
-> +/**
-> + * DOC: bridge chain format selection
-> + *
-> + * A bridge chain, from display output processor to connector, may contain
-> + * bridges capable of converting between bus formats on their inputs, and
-> + * output formats on their outputs. For example, a bridge may be able to convert
-> + * from RGB to YCbCr 4:4:4, and pass through YCbCr 4:2:0 as-is, but not convert
-> + * from RGB to YCbCr 4:2:0. This means not all input formats map to all output
-> + * formats.
-> + *
-> + * Further adding to this, a desired output color format, as specified with the
-> + * "color format" DRM property, might not correspond to what the display driver
-> + * should set at its output 1:1. The bridge chain it feeds into may only be able
-
-Preferably put "1:1" after "might not correspond".
-
-> + * to reach the desired output format, if a conversion from a different starting
-> + * format is performed.
-> + *
-> + * To deal with this complexity, the recursive bridge chain bus format selection
-> + * logic starts with the last bridge in the chain, usually the connector, and
-> + * then recursively walks the chain of bridges backwards to the first bridge,
-> + * trying to find a path.
-> + *
-> + * For a display driver to work in such a scenario, it should read the first
-> + * bridge's bridge state to figure out which bus format the chain resolved to.
-> + * If the first bridge's input format resolved to %MEDIA_BUS_FMT_FIXED, then its
-> + * output format should be used.
-> + *
-> + * Special handling is done for HDMI as it relates to format selection. Instead
-> + * of directly using the "color format" DRM property for bridge chains that end
-> + * in HDMI bridges, the bridge chain format selection logic will trust the logic
-> + * that set the HDMI output format. For the common HDMI state helper
-> + * functionality, this means that %DRM_COLOR_FORMAT_ENUM_AUTO will allow
-> + * fallbacks to YCBCr 4:2:0 if the bandwidth requirements would otherwise be too
-> + * high but the mode and connector allow it.
-> + *
-> + * For bridge chains that do not end in an HDMI bridge,
-> + * %DRM_COLOR_FORMAT_ENUM_AUTO will be satisfied with the first output format on
-> + * the last bridge for which it can find a path back to the first bridge.
-> + */
+>  static struct platform_driver ls_pcie_driver =3D {
+>  	.probe =3D ls_pcie_probe,
+> +	.remove =3D ls_pcie_remove,
+>  	.driver =3D {
+>  		.name =3D "layerscape-pcie",
+>  		.of_match_table =3D ls_pcie_of_match,
+> @@ -412,4 +421,9 @@ static struct platform_driver ls_pcie_driver =3D {
+>  		.pm =3D &ls_pcie_pm_ops,
+>  	},
+>  };
+> -builtin_platform_driver(ls_pcie_driver);
+> +module_platform_driver(ls_pcie_driver);
 > +
->  /* Protect bridge_list and bridge_lingering_list */
->  static DEFINE_MUTEX(bridge_lock);
->  static LIST_HEAD(bridge_list);
-> 
+> +MODULE_AUTHOR("Minghuan Lian <Minghuan.Lian@freescale.com>");
+> +MODULE_DESCRIPTION("Layerscape PCIe host controller driver");
+> +MODULE_LICENSE("GPL");
+> +MODULE_DEVICE_TABLE(of, ls_pcie_of_match);
+>
+> ---
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> change-id: 20260112-v6-19-topic-layerscape-pcie-9d10b6542139
+>
+> Best regards,
+> --
+> Steffen Trumtrar <s.trumtrar@pengutronix.de>
+>
+>
 
-Thanks.
--- 
-~Randy
+--
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
+--acibql3y7ovkmvyd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCaZOQ9AAKCRDMOmT6rpmt
+0tf7AQDXPoIYzicQeUoeqqXVPMOTQI08mSHXaelfkvE716R56wD/VkqipmoUM5T7
+7U7qJt9nMZfyJSOd/p5RdeiJ92XG2AI=
+=hliI
+-----END PGP SIGNATURE-----
+
+--acibql3y7ovkmvyd--
 
