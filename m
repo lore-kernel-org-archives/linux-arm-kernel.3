@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C84E1E81A31
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 15:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6197CE81A25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 15:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fZ0BCqVUH5xPPVxomeaJKF0H4wRC7cRMGuNTgfAR7WI=; b=rp7NZHD4/CCsNTfESil8O0Nzy1
-	o9Jw0Ck8v50F0Vl4RRnxlyfPVF+FRUk8EGNoLW0oahqvAiPKTjjQrIHM9xyMqu3Akj4uxaGb+7grc
-	JeH9gPLRd55LWyheyp579mgXkMCMDi7PfNMp40cyWN8fnTPm7XHUD2Q+cHy798pGV3BnqRXspW0to
-	8QWloyIUkIEyIzY2oWn1q41KD4iB+9CggEswxQd681p9n0T3dwIxcezssWVZyp73KU0boSS9syrQ0
-	I3jDYmYvOu0cwmly3rfyquBEtWuS4Wics0wu9LhfXtbdAXvST7+wxNaPLc2jwtCOKnhS8eY1z8W8w
-	GLynpAXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=02WfyqRe/4/tsQg8rPoM0EAoH++yVH5XNO/2ica7SAA=; b=QtaflLqlUJOpKDn+O9lxI3Oef1
+	fm1hs3GUaizL3svXoPS2kTz777y+bbyONDVMKyyZ3pOkzKDgQNlAZhoZTa6LcBMECu9ln0yr3HwST
+	UOzLNSyrJizX8mikyweVHYqefdG6d4mLPqqVFMZK+uFiMsev/uwLnekC1M33GWRrJqHQn109Txj2a
+	a66mWpONN2IupMLW+egGweESHhkaXXhRb1QXB6i4wwe9PEjaF3ns4DEFTlPqXS/UyB50CJHfYB1dw
+	4V36xqKV1IRUkpZIBZDdUNpyTNxjizMjEPEAqgEF7fdqJvM9Yk/xyhbgEluW1yuRAav7VQBVaW8ZS
+	OuVxJ6ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs06O-00000006q7y-3q9e;
-	Mon, 16 Feb 2026 15:01:32 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vs0A1-00000006qS7-2Dqq;
+	Mon, 16 Feb 2026 15:05:17 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs06K-00000006q6Q-3Zti;
-	Mon, 16 Feb 2026 15:01:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=fZ0BCqVUH5xPPVxomeaJKF0H4wRC7cRMGuNTgfAR7WI=; b=w6PjxASXJb/jnKoq7U4mc7F09F
-	M+xmz3gOYR7Ca1HJInWEsV5zH2bW7wTOmUURs8Iqd/CedefWZsl40Eml0ThMfyZS96rueKMgBG4zv
-	Z3GYZTxYKJKEl1eD6d/vndPPB7BzF8znThFBD5KMyrGoWDlc50i6brFtlE32V91VSFrC/qEaiauFh
-	LgDo4370TZ7ofHrDPYb31I8cSwTfqRp4vVCbBly/4F8zr87B0JN3GmwCfaL9Df0ReNWQYLYuZZ/ZA
-	/dJjNkCQ+lPvU0WaSAfDlkFOELE+aN5C3/GsLc2AgZRHIp306ODXzaPchHtcOCqIKglF+c+m5/O7W
-	GOxrcLrQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47910)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vs05t-0000000073K-1oiw;
-	Mon, 16 Feb 2026 15:01:01 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vs05p-000000000K6-2pxV;
-	Mon, 16 Feb 2026 15:00:57 +0000
-Date: Mon, 16 Feb 2026 15:00:57 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Yao Zi <me@ziyao.cc>, Heiko Stuebner <heiko@sntech.de>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: Problematic understanding of phy-mode in Rockchip DWMAC driver
-Message-ID: <aZMxKdkl2Qa7e1WU@shell.armlinux.org.uk>
-References: <aY9s5PXP4zZ7R6fa@pie>
- <aY9xsslT56D9LGLe@shell.armlinux.org.uk>
- <f1e047e1-3f1c-4562-ab43-af2fe358fe04@lunn.ch>
- <aZDGsJNLZIty0242@shell.armlinux.org.uk>
- <a4aebacc-c273-4e42-97ff-0cdd88d771dd@lunn.ch>
+	id 1vs09y-00000006qRi-2k7k
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 15:05:15 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48371bb515eso36833395e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 07:05:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1771254312; x=1771859112; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=02WfyqRe/4/tsQg8rPoM0EAoH++yVH5XNO/2ica7SAA=;
+        b=EV2KzLLklpMiZy8ulasKzbt0S4kWsFnIqF8qbu9iAF2vSThI5OKiHyMDIOX2cueaAz
+         JoG6cZhKWIC4hIwWyzXFt+FluunK62yq9243KgN+HLoV9zYFQHrfA25WjPiuhHhweRoq
+         ZEh7yyed+G6pDGnOSuUXHsAPxhz4GPLFAVeHtoQoCD/P1PXy6KZrOBI6j7/Y52xq7MNU
+         ijKGe8zvQKTGWl3hFlTD5M8cndmfN2UiOecqTDxayN3sUnExbsG2nXZ1VRVyxQtWQOt3
+         d1a8YhHKS9k6M7IYYNGebJypZDO7siEyR6tPegN1X6FgomiDg4DeoKL2rL1zfNk+k0B0
+         VzCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771254312; x=1771859112;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=02WfyqRe/4/tsQg8rPoM0EAoH++yVH5XNO/2ica7SAA=;
+        b=k4s4vlbZ5VbhWrThs0i3tW6syS02caOrXwG3q2jjNHWYY+ch3lnLPWjxnxLfUZ5vhN
+         ccTI9+vx9NLlwXxZOeA0K7m3vNQbspOYf7rorGqVo2cmbhyooLlktpN9d89eZwNPZFsX
+         uXymw2VfaV35xzEPSUkRqpteSedSx5eZVpkbgppzCfDH39q1Igwj8f9NcVyvHqmNEwRL
+         izBoIk4okWz16VcXssd7qhqYK8MEfjyi2XynTVjybQOhvwipdH9iweRujOYb8D5XQ1xe
+         PFfHjZ7Zmgg3WE7aM1MwQPrI13l3YMCxuEyw9VlBlyhjkqcIHA3BpfvUK7h09DOMNanS
+         4Oxw==
+X-Forwarded-Encrypted: i=1; AJvYcCXDDMi8zWfouVT8GVAKNuQLbBYdNynvIPcN8cijla8ajoULsS9QzEiqWAZQcg/jVCGjWBLnmK7PI664F1qikOuC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyP/bzzhQfI9/k/StO/GypTna4g1ksJEm6wUojAxQFcDXFblju6
+	B1Zpu6bxRUHjBsXPnvP2oIuNKM0sujdP+a6Mib4AoAYelqRWpT0bE5CzjVI5LzpPi14=
+X-Gm-Gg: AZuq6aL0MvgQ6pGHxMqLO9BBBFJzeTR2Sze9SVv0Uobl8cwz5QAt/B/CGGn47CETc/Z
+	28k2IlXKnNDfTph3YlZjqwGp9MJohZwAunEpYJnjSpxIztvMphZhaZxZ99qoIIZgrE6s/5g7S2L
+	YG8SOtKHQ8vxFdDaHJk8ms9s0ijNaw76yb3gsOBoEEovDK5+uo6zNrO+OFyL8qpbbHpbFwWrqmy
+	D2VKP4RD+PhH202FxNX5NwJzXu/bxiLzAf/PCL++I7jLe8N6bLJvZIis5grlDds93T303+FJ6yO
+	L2pPH/FLTS1kisFC7Ob66dPMV7sUFt6OXlK/9KTKq8x6ffi8xVqbbG/9fnhYm6WPYugq6ktSxX8
+	5qjO+X6uyxYVajZiiJl4EQ4ERbdTw8rP0nE1UtLFksxV+PyWfG4dCc79wgZAqCWW7LQ1dRKETEq
+	g020oDREIJDtgkrwYfHX9ZyajaJWiG
+X-Received: by 2002:a05:600c:5246:b0:483:71f7:2782 with SMTP id 5b1f17b1804b1-48373a14406mr195601745e9.12.1771254312134;
+        Mon, 16 Feb 2026 07:05:12 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796ac8209sm29350054f8f.30.2026.02.16.07.05.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Feb 2026 07:05:11 -0800 (PST)
+Message-ID: <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
+Date: Mon, 16 Feb 2026 15:05:10 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a4aebacc-c273-4e42-97ff-0cdd88d771dd@lunn.ch>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
+ in guest context
+To: Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org, Oliver Upton <oupton@kernel.org>,
+ Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Fuad Tabba <tabba@google.com>
+References: <20260216130959.19317-1-will@kernel.org>
+ <86a4x8bw38.wl-maz@kernel.org>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <86a4x8bw38.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_070129_185928_C75FA0B4 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20260216_070514_760546_010199B2 
+X-CRM114-Status: GOOD (  38.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,22 +105,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 02:57:48AM +0100, Andrew Lunn wrote:
-> On Sat, Feb 14, 2026 at 07:02:08PM +0000, Russell King (Oracle) wrote:
-> > On Sat, Feb 14, 2026 at 05:50:15PM +0100, Andrew Lunn wrote:
-> > > Rockchip have recently started adding support for a new version, and
-> > > appear to of listened to what we have been saying. So it could be the
-> > > next generation of chips get this correct.
-> > 
-> > Have you seen any proposed code from Rockchip for their new scheme?
+
+
+On 16/02/2026 2:29 pm, Marc Zyngier wrote:
+> On Mon, 16 Feb 2026 13:09:59 +0000,
+> Will Deacon <will@kernel.org> wrote:
+>>
+>> The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
+>> generation in guest context when self-hosted TRBE is in use by the host.
+>>
+>> Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
+>> TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
+>> per R_YCHKJ the Trace Buffer Unit will still be enabled if
+>> TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
+>> Trace Buffer Unit can perform address translation for the "owning
+>> exception level" even when it is out of context.
 > 
-> There was a patch, including a rather odd formulae to convert register
-> value to delay. I gave some feedback, but it has been silence
-> afterwards.
+> Great. So TRBE violates all the principles that we hold true in the
+> architecture. Does SPE suffer from the same level of brokenness?
+> 
+>> Consequently, we can end up in a state where TRBE performs speculative
+>> page-table walks for a host VA/IPA in guest/hypervisor context depending
+>> on the value of MDCR_EL2.E2TB, which changes over world-switch. The
+>> result appears to be a heady mixture of data corruption and hardware
+>> lockups.
+>>
+>> Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
+>> draining the buffer, restoring the register on return to the host.
+>>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Oliver Upton <oupton@kernel.org>
+>> Cc: James Clark <james.clark@linaro.org>
+>> Cc: Leo Yan <leo.yan@arm.com>
+>> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Cc: Fuad Tabba <tabba@google.com>
+>> Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
+>> Signed-off-by: Will Deacon <will@kernel.org>
+>> ---
+>>
+>> NOTE: This is *untested* as I don't have a TRBE-capable device that can
+>> run upstream but I noticed this by inspection when triaging occasional
+>> hardware lockups on systems using a 6.12-based kernel with TRBE running
+>> at the same time as a vCPU is loaded. This code has changed quite a bit
+>> over time, so stable backports are not entirely straightforward.
+>> Hopefully James/Leo/Suzuki can help us test if folks agree with the
+>> general approach taken here.
+>>
+>>   arch/arm64/include/asm/kvm_host.h  |  1 +
+>>   arch/arm64/kvm/hyp/nvhe/debug-sr.c | 36 ++++++++++++++++++++++--------
+>>   2 files changed, 28 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>> index ac7f970c7883..a932cf043b83 100644
+>> --- a/arch/arm64/include/asm/kvm_host.h
+>> +++ b/arch/arm64/include/asm/kvm_host.h
+>> @@ -746,6 +746,7 @@ struct kvm_host_data {
+>>   		u64 pmscr_el1;
+>>   		/* Self-hosted trace */
+>>   		u64 trfcr_el1;
+>> +		u64 trblimitr_el1;
+>>   		/* Values of trap registers for the host before guest entry. */
+>>   		u64 mdcr_el2;
+>>   		u64 brbcr_el1;
+>> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>> index 2a1c0f49792b..fd389a26bc59 100644
+>> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>> @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+>>   	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+>>   }
+>>   
+>> -static bool __trace_needs_drain(void)
+>> +static void __trace_drain_and_disable(void)
+>>   {
+>> -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
+>> -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
+>> +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
+>>   
+>> -	return host_data_test_flag(TRBE_ENABLED);
+>> +	*trblimitr_el1 = 0;
+>> +
+>> +	if (is_protected_kvm_enabled()) {
+>> +		if (!host_data_test_flag(HAS_TRBE))
+>> +			return;
+>> +	} else {
+>> +		if (!host_data_test_flag(TRBE_ENABLED))
+>> +			return;
+>> +	}
+>> +
+>> +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
+>> +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
+>> +		isb();
+>> +		tsb_csync();
+>> +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+>> +		isb();
 
-Searching lore's netdev archive doesn't seem to bring anything up.
+The TRBE driver might do an extra drain here as a workaround. Hard to 
+tell if it's actually required in this case (seems like probably not) 
+but it might be worth doing it anyway to avoid hitting the issue. 
+Especially if we add guest support later where some of the affected 
+registers might start being used. See:
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+     if (trbe_needs_drain_after_disable(cpudata))
+         trbe_drain_buffer();
+
+
+>> +	}
+> 
+> Doesn't this mean we should be able to get rid of most of the TRFCR
+> messing about that litters the entry/exit code and leave that to VHE
+
+Technically you could have ETMs that and are connected to sinks other 
+than TRBE. Unless you somehow switch off those sinks you still need to 
+do the TRFCR switching stuff.
+
+> only? And even then, I'm tempted to simply get rid of any sort of
+> guest-only tracing, given that TRBE is not capable of representing
+> exceptions that are synthesised by the host, making it the resulting
+> traces useless.
+
+I haven't heard of anyone tracing a guest from the host, but until we 
+add support for guests to be able to trace themselves it's the only way 
+of doing it, so it could be useful. Although all the messing around with 
+TRFCR before was from a request to disable guest trace rather than 
+enable it, as it was always on in nVHE.
+
+> 
+> I'm still trying to get my hands on a TRBE-enabled system that has
+> some actual firmware tables (my O6 seems to have the HW, but no
+> description of the required coresight infra).
+
+Leo has a guide, I haven't tried it myself yet but it should be working. 
+I'll send it to you.
+
+James
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+
 
