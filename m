@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D3C5E81A22
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76DFBE81A20
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3UyihSAeptVMkOr8IcvDS8HZHotPOuxrYRIh/owu7o=; b=VbqoDzYegavv5OS1UGiMX/yDM3
-	nfMKE6EiP5EGoG6w5XTc8JKzB8ppE2pTCsf0mwgRg0g2rqVwNMz2IZckDFHcb0Y4beZiibU+iiV3y
-	OWrJROiDoB+ORKKiZyZMbXYXHrnTW53KvZ92gjpiHDJZPjkf4+4Fe75Ykq1jGcC3ghAXXUnUqXpwI
-	pm8C8nHZPwXr3lBSI81gPqtpUYnZ6he8sNwAWsDmX3TB6YPUO7TnkyI0hhBYFT3H0H28Olkp3L4F7
-	J9cPOEhu2PVqK8wXeVX8m00SHFMw0F/reZnXXlxLqhIcPDrGAWvNGfzz7p7VVDdk55BdmHh9QNHQl
-	VFRgp95g==;
+	bh=w4aYMBMwgDQbWsu7sPP17fmCYn5Q7Q+Av/DazE/N2Tg=; b=o5+8qXvhxdpkSPIaSDrQxr02lv
+	KEWN8w+UNVJkm+Zcaua8qz1iJj/wzP2sqpUPYd8Xiva5/1TV1FLjarjDJ2anqdh4gNImunuBYlLJw
+	46Ipob9SPvc7jTxnMjGSiYsM3DVkDQquYesG6Ku2dhwKG8fw274y+pG9+0L+aPM3saPjjAQcdn5HB
+	3uV2m72TPSfMk/lEAeOQHweQefy4C06cuiIPF89MbuBgTPDRqjnBdsNsHn1SL+NlZd3o130iQ/sSu
+	qYE8Ga+FISHayrO68om5SrE8H4Jvdwj3HE4CKL99+g5p4xlNfsGqUMFgrGihuhbOVV2uOmHQ7hdhY
+	9oWHXIbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vryzI-00000006inl-3mg3;
-	Mon, 16 Feb 2026 13:50:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vryzD-00000006ilM-157Z;
-	Mon, 16 Feb 2026 13:50:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 34E2B43E73;
-	Mon, 16 Feb 2026 13:50:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E2FCDC2BC86;
-	Mon, 16 Feb 2026 13:50:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771249802;
-	bh=Q1h/qyky6FFnfESCLb5k3aJdZMs2M0rnG3N0gR+NtuI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=RgmjHTmKsG5jgvrk5Hjqf+NjQLoG7y10p1StS07yZiSdQhjcFtfqFSniojND6xMLQ
-	 PjQDsZeXamt9srZC8A/nHERWiEQvZLKCKXaq3jXuF7VyzFXN5bMKRFrhu10zF0JbyA
-	 5ZkB8gZ3YSKajW39zefhg1NdutBb2zmepFr1smYvHeCUYZoW4t0eiwzWxiEYeJbxNa
-	 e0927yRPCTj6mN+WKbch4IyCwRjvR6wfyDbK4H0y6KXuen0ctnm+Rih5mp3zbJtEI0
-	 xuG1dVsDuJhCe02W0i9NILeTTVM6jwFfsbsn0IEmPP5oJCxUi/XL8rT/Cbm1GoyQtW
-	 ItTcpAOCu7hQQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CFA82E81A23;
-	Mon, 16 Feb 2026 13:50:01 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Mon, 16 Feb 2026 14:49:57 +0100
-Subject: [PATCH 2/2] media: rockchip: rkcif: comply with minimum number of
- buffers requirement
+	id 1vrz3K-00000006jVx-1GYb;
+	Mon, 16 Feb 2026 13:54:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vrz3G-00000006jVb-46YW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 13:54:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 547D4150C;
+	Mon, 16 Feb 2026 05:54:06 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 681CB3F73F;
+	Mon, 16 Feb 2026 05:54:07 -0800 (PST)
+Message-ID: <61684bd8-8156-4fe1-8033-eaa12c6d3437@arm.com>
+Date: Mon, 16 Feb 2026 13:54:05 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 26/41] arm_mpam: resctrl: Add support for 'MB' resource
+To: Zeng Heng <zengheng4@huawei.com>, james.morse@arm.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, kobak@nvidia.com,
+ lcherian@marvell.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, peternewman@google.com,
+ punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
+ reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ linux-doc@vger.kernel.org, Kefeng Wang <wangkefeng.wang@huawei.com>
+References: <20260203214342.584712-1-ben.horgan@arm.com>
+ <20260203214342.584712-27-ben.horgan@arm.com>
+ <20260205165018.0000089c@huawei.com>
+ <f6f865bc-319c-8944-9989-4fd83a59d4b8@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <f6f865bc-319c-8944-9989-4fd83a59d4b8@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260216-rkcif-fixes-v1-2-b16db20b6d68@collabora.com>
-References: <20260216-rkcif-fixes-v1-0-b16db20b6d68@collabora.com>
-In-Reply-To: <20260216-rkcif-fixes-v1-0-b16db20b6d68@collabora.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>, 
- Paul Elder <paul.elder@ideasonboard.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Cc: Collabora Kernel Team <kernel@collabora.com>, stable@kernel.org, 
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Michael Riesch <michael.riesch@collabora.com>
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771249800; l=2607;
- i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=0nRPaVD70VE4M5NIdqK3Pzeq8YDn4uwgLWyViuJm8KU=;
- b=PaJdJYi6MOVQOq+Mixf3SunaFC7vawj7W5FBzXafHeZ23AACayRw4D3n7m1b0c8PsgOgrB4Pp
- nTkIZhDVb6oBfS4slcjeb076DEEEkqVTUe+Lsx2lWilt0/nxjLXSxCs
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
- with auth_id=371
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_055003_346517_B26D50F7 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260216_055415_162941_B8FB92FC 
+X-CRM114-Status: GOOD (  23.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,90 +76,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Riesch <michael.riesch@collabora.com>
+Hi Zeng,
 
-Each stream requires CIF_REQ_BUFS_MIN=1 buffers to enable streaming.
-However, it failed with only one buffer provided.
+On 2/13/26 07:38, Zeng Heng wrote:
+> Hi Ben,
+> 
+> On 2026/2/6 0:50, Jonathan Cameron wrote:
+>> On Tue, 3 Feb 2026 21:43:27 +0000
+>> Ben Horgan <ben.horgan@arm.com> wrote:
+>>
+>>> From: James Morse <james.morse@arm.com>
+>>>
+>>> resctrl supports 'MB', as a percentage throttling of traffic from the
+>>> L3. This is the control that mba_sc uses, so ideally the class chosen
+>>> should be as close as possible to the counters used for mbm_total. If
+>>> there is a single L3 and the topology of the memory matches then the
+>>> traffic at the memory controller will be equivalent to that at egress of
+>>> the L3. If these conditions are met allow the memory class to back MB.
+>>>
+>>> MB's percentage control should be backed either with the fixed point
+>>> fraction MBW_MAX or bandwidth portion bitmaps. The bandwidth portion
+>>> bitmaps is not used as its tricky to pick which bits to use to avoid
+>>> contention, and may be possible to expose this as something other than a
+>>> percentage in the future.
+>>
+>> I'm very curious to know whether this heuristic is actually useful on
+>> many
+>> systems or whether many / most of them fail this 'shape' heuristic.
+>>
+> 
+> The current MPAM driver has restrictions that limit MB control support.
+> For example, on some systems, the MPAM memory class MSCs are not located
+> at the L3 cache but rather at the memory controller (e.g., Mata). In
+> such cases, MB control and mbm_total bandwidth monitoring cannot be
+> enabled.
+> > I'm unsure whether the community would welcome and be willing to review
+> a patch series supporting such systems. Of course, the changes would
+> involve minor refactoring in the resctrl common layer.
 
-Comply with the minimum number of buffers requirement and accept
-exactly one buffer.
+Having MSC at the memory controllers is quite common and it would be
+good for the mpam driver and resctrl to support this. My current
+priority is the initial MPAM support and look at this and other extra
+features later but I'd be happy to help progress support in this area
+through review and discussion. There is some discussion about adding new
+schema at [1] and we should make sure  this is consistent with monitors
+too. James has some out of tree patches from before that disccussion at [2].
 
-Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma blocks")
-Cc: stable@kernel.org
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
----
- .../media/platform/rockchip/rkcif/rkcif-stream.c   | 41 +++++++++++-----------
- 1 file changed, 21 insertions(+), 20 deletions(-)
+[1] https://lore.kernel.org/lkml/aPtfMFfLV1l%2FRB0L@e133380.arm.com/
+[2] git://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git
+ mpam/snapshot+extras/v6.18-rc1
 
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-index e00010a91e8b..5a5ab9e7e86e 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-@@ -106,19 +106,6 @@ static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
- {
- 	struct v4l2_pix_format_mplane *pix = &stream->pix;
- 
--	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
--	if (!stream->buffers[0])
--		goto err_buff_0;
--
--	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
--	if (!stream->buffers[1])
--		goto err_buff_1;
--
--	if (stream->queue_buffer) {
--		stream->queue_buffer(stream, 0);
--		stream->queue_buffer(stream, 1);
--	}
--
- 	stream->dummy.size = pix->num_planes * pix->plane_fmt[0].sizeimage;
- 	stream->dummy.vaddr =
- 		dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
-@@ -132,16 +119,30 @@ static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
- 			stream->dummy.buffer.buff_addr[i - 1] +
- 			pix->plane_fmt[i - 1].bytesperline * pix->height;
- 
--	return 0;
-+	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
-+	if (!stream->buffers[0])
-+		goto err_buff_0;
- 
--err_dummy:
--	rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEUED);
--	stream->buffers[1] = NULL;
-+	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
-+	if (!stream->buffers[1]) {
-+		stream->buffers[stream->frame_phase] = &stream->dummy.buffer;
-+		stream->buffers[stream->frame_phase]->is_dummy = true;
-+	}
-+
-+	if (stream->queue_buffer) {
-+		stream->queue_buffer(stream, 0);
-+		stream->queue_buffer(stream, 1);
-+	}
-+
-+	return 0;
- 
--err_buff_1:
--	rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEUED);
--	stream->buffers[0] = NULL;
- err_buff_0:
-+	dma_free_attrs(stream->rkcif->dev, stream->dummy.size,
-+		       stream->dummy.vaddr,
-+		       stream->dummy.buffer.buff_addr[0],
-+		       DMA_ATTR_NO_KERNEL_MAPPING);
-+	stream->dummy.vaddr = NULL;
-+err_dummy:
- 	return -EINVAL;
- }
- 
+> 
+> Any feedback would be greatly appreciated.
+> 
+> 
+> Best Regards,
+> Zeng Heng
 
--- 
-2.39.5
+Thanks,
 
+Ben
 
 
