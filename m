@@ -4,107 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F982E7BD8A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 11:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED58E7BD91
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 11:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=86+3Ol8ufgkpxEsjqivLYye2L+eLEE02N4njJxkXOz4=; b=dJSBvMRYITJcGYCoYKoXqzN/0v
-	BRO4eNB7o61hoNkXMF9FRtIkjbiJJr9HEXEArqMqY4VkYxqb/Ev/E+0lShx4GgpFEpfO/Bwhv75jD
-	67E5K3yAHCmZOYI/ev9Q1oabTf8vJwbWy/ogWLMzD5RAXo0DgGh5cy/Avw9fQfo6yjgDXBpvDO7kw
-	jo9x7SuEpO1M1F0pvg54rHOXOenxJJWWLQmTz0Vt5doWK0FqRsZjY6rE1slTBY1EKUv1ZrxwxPqTf
-	wXLUPoZq1TFbp0xYjmB5yNatfcqajTtwDJJBpN2nolbwEwf4I63GS+cN4v3O8MT4UJ/bDlI7tRv3D
-	uWxw/aEQ==;
+	bh=Eqj4FbKcoPvYRri6Bpbh4qn/QiQgcN7mnJQdrIpMpew=; b=dGgLUj4j6LUWC8DPropk2Yb3zF
+	pVU2Fs1csUdzOtw/0iqC5N4OxaSZu3SIz7Bel2U7lT7LZgnmRkI6WA2QnreKmGvYt+c47G5VAfnyf
+	wt4xwuIf5zC8l21a5xtj3B9k+QIzzI7J9kKyIgWYtdc63O+7hvAR3WbOrcur4LMsElU7dgXrfOFsX
+	Jtx8KCsDTkm82GE83npsYCCAhhuD+KgCDMSKjsNbCQK5kwGakP7MliM3qgjdCO9sqZXXWYcIjxY8n
+	z7rR1n/NSKugcThUa66c9oVIfTDjWPX5LqUh9aw1jMMVz5imnIPMG6e1Wjx5VW5AMqTvqz6mNC//j
+	f2myCv9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwTj-00000006Py0-01AC;
-	Mon, 16 Feb 2026 11:09:23 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1vrwUE-00000006Q21-1xkV;
+	Mon, 16 Feb 2026 11:09:54 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwTf-00000006PxW-0UOx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 11:09:22 +0000
-Received: by mail-wm1-x344.google.com with SMTP id 5b1f17b1804b1-4836f363ad2so34524235e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 03:09:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771240157; x=1771844957; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=86+3Ol8ufgkpxEsjqivLYye2L+eLEE02N4njJxkXOz4=;
-        b=f7hxkbSSPJ5BdyPrP3Cbg328RsvFRx66fsH1rs6YiHdOyMcqP9ssbRUa/CYrUTPJOK
-         9JIzD9jxSRgU7sD/NhHIvFHE9CQ9aYmBSJtEFk5A6xeYC3oWAhohI5704tPdjPUKkdCX
-         1lQRWzIndUGbqOzkX0v40ttV4CPzfmhEVGflaYFq1V1N8JTM3imCX+lxZyLYg2QL1ewv
-         AYQFxdqDmx2tQF2RbwCwVMIL0cmELLK4Z5FaiJ6av5UE0K9v6rCo8BjPaaDD3nXZwhYx
-         fVNmxKoe4LUWmBFNBzbcCZQea2Hn7SYIcyBiOn0ENN73DLYSeOwebN1dA41uy3nIuGzP
-         9X9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771240157; x=1771844957;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=86+3Ol8ufgkpxEsjqivLYye2L+eLEE02N4njJxkXOz4=;
-        b=NDxTQOF4jcHSmJmUbJtqYTAoRLSdjW2FgU49Zgg/OGBsEWrSm4jd48Ud8/O8AlbbBL
-         HgFEyYuVe/S5XOYNO0RZSiMJsVzQC18Bj3Cd/g2ZIuZkYiLSPMNsydTFqez3tUeH8oSl
-         fMbroO9wspQle0+Ff0rgu3Mfwjgwe53rJe54Brci0cvLsqXZ36sqlBMsrfJPVGQHzfsx
-         QOBD/Rtj8AiBciDsNMUz1XIC9n8SjrSYevy+Qv6t03kc3cmw4LqUjrTFTyHn2uPCl+ZQ
-         7EnMtflf6Lg8w37yurfBCH5DISYyhcOO7g1A0RTNVcJheQcJIEefqiQewk/p0ld+tcx4
-         J6dg==
-X-Forwarded-Encrypted: i=1; AJvYcCVKre7Fr8sjISp2ox6unGRMUpL2FYvniDQLlwo9zwLPUzoaNsG9uxa9kD26avDsJJyv+yA7H4Asqi8EZpEUGvFI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuT9CwZJ9K9Tbmg2FVjWWTuolJJpLTT/jQ6by4o1WhTOb8tYKL
-	kgFSibTRrHZOl4xUXoYPMUJdSGI1mL9x0V4wNfXso2+6AJOtp/Z/56Eq
-X-Gm-Gg: AZuq6aLfXyvwSB4HgRjSQbCd29LxFPLgXSQO+EwsjziTwdWL1+JVSHlN7VAi+jrMIGw
-	q15rZzZmUGxTRTo3aOLf4/8M8UylFMfgph7fD4mdJsb1wixhPx+yY6Wjkc27t9iE1FQ562ReCjI
-	NKXHHGZrsKXBq4KFJaSiJSFkeYGuhaJoNORr2wLmC7y3Mdv//qpbe9ekAYaBKd3u9x7nd+C24TC
-	xLmH/zNxpHC2oVhvaiGPKeSLN35qct74DrzIXsFdtxQcBYb4CboDLtrHYN3mZaj07+Hw7kl6pjQ
-	o494qANBDVIdq6fLNVhCvRd4TsAM8N8Gsavey911TxziEDYffBIGkXqvASMAGSRiJ9RZ9ebN/Le
-	BI5gk+iv7Q2SIP9CO1uSkS13j5jo+OM7hMn1jymZwW+oRyFQj1ZnBerqUEFdevR7c55mSs/dmm1
-	8tZEhW6+E/oaBHVRkh7+jDsmCssqd/qoQOjUa79xezde1PSVbS37FJ7gyZLywMhXjr
-X-Received: by 2002:a05:600c:3e87:b0:480:32da:f338 with SMTP id 5b1f17b1804b1-48373a0f961mr151759405e9.14.1771240156943;
-        Mon, 16 Feb 2026 03:09:16 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4835dcfafcdsm657254105e9.9.2026.02.16.03.09.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Feb 2026 03:09:16 -0800 (PST)
-Date: Mon, 16 Feb 2026 11:09:15 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Marco Elver <elver@google.com>, Will Deacon <will@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, Thomas
- Gleixner <tglx@linutronix.de>, Boqun Feng <boqun.feng@gmail.com>, Waiman
- Long <longman@redhat.com>, Bart Van Assche <bvanassche@acm.org>,
- llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, Arnd
- Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>, Boqun Feng
- <boqun@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>
-Subject: Re: [PATCH v3 3/3] arm64, compiler-context-analysis: Permit alias
- analysis through __READ_ONCE() with CONFIG_LTO=y
-Message-ID: <20260216110915.4f0d5490@pumpkin>
-In-Reply-To: <CAHk-=wioS+vB8aBxWBgdEfXqDq5Ynr9gyY=GhU7gxO9G_C+_6g@mail.gmail.com>
-References: <20260130132951.2714396-1-elver@google.com>
-	<20260130132951.2714396-4-elver@google.com>
-	<aYDFOIskB20CbztD@willie-the-truck>
-	<20260202192923.0707e463@pumpkin>
-	<aYHgNSF5a3F7UGU_@willie-the-truck>
-	<CANpmjNNzx-zc_-ZPgwe5DoWLmexw5irT2n+XMUqxTrfwxTxTmg@mail.gmail.com>
-	<20260204131400.GI2995752@noisy.programming.kicks-ass.net>
-	<aYNUmEfDzq7lTFFr@willie-the-truck>
-	<CANpmjNPHnt6eY-OfkTr5TksHaOon2GyLUokvagcMRa23B6i6_Q@mail.gmail.com>
-	<20260206182650.6c21b0ff@pumpkin>
-	<CANpmjNNFXdMM6cL+HBsiXr2WUA=mttR1jDRMqNYD7+YZs6vRKg@mail.gmail.com>
-	<20260215221656.68b2fc1d@pumpkin>
-	<CANpmjNOnOqq2k41=iNsgZLXAzspVQhcTZ88Nvms_c_0M+7b7YQ@mail.gmail.com>
-	<CAHk-=wioS+vB8aBxWBgdEfXqDq5Ynr9gyY=GhU7gxO9G_C+_6g@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1vrwUC-00000006Q1N-00lt;
+	Mon, 16 Feb 2026 11:09:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771240189;
+	bh=7ietRFN+k+TRUno7TzNeMRtjx+kFVY2I1NkiqflKaCU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Xi9XsN2XuP/NOMgD8xmsvfAskZ0p1oaCPQqEHR/XUh2U6uvr8WYr3P/QJ3POFiVTt
+	 qlQtrr6HjRt5oMOTC2v6SinHAWSTZJ192NsUTms78LmXflEmCzPyUodjfwS5EbrXvH
+	 QUJjBwYB1w9inrtcr/9dD7lR4lGGyAJw45NGVteuFX6IVd3Rztf1cmmXGAa8ifxF4b
+	 Mlzje39Ida3WYAUnVsHS9qpHpAS3P3Y2D5msTIhA9/4JMrBSz699d30Nc4E3gdO6iL
+	 jIiZFceBX4a8FOEvEiKIcVEEzdMwLfVbVvKytm2PYeeb6l3qWD/T2CzWdmzT9CZS1l
+	 ebTKR4cERKeSg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AE9F317E12E9;
+	Mon, 16 Feb 2026 12:09:48 +0100 (CET)
+Message-ID: <02766a04-b777-4e8b-9908-7abfc4ba113c@collabora.com>
+Date: Mon, 16 Feb 2026 12:09:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] gpu: drm: mediatek: ovl: add specific entry for
+ mt8167
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+ linux-mediatek@lists.infradead.org
+Cc: Val Packett <val@packett.cool>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chunfeng Yun
+ <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Jitao Shi
+ <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
+References: <cover.1771144723.git.l.scorcia@gmail.com>
+ <b440a9c1972dedc4cfbf29a84366e635b0d7d984.1771144723.git.l.scorcia@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <b440a9c1972dedc4cfbf29a84366e635b0d7d984.1771144723.git.l.scorcia@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_030919_176414_F8F60507 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20260216_030952_211654_1FD2E4B9 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,61 +88,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 15 Feb 2026 15:40:07 -0800
-Linus Torvalds <torvalds@linux-foundation.org> wrote:
+Il 15/02/26 09:53, Luca Leonardo Scorcia ha scritto:
+> From: Val Packett <val@packett.cool>
+> 
+> While this configuration is otherwise identical to mt8173, according
+> to Android kernel sources, this SoC does need smi_id_en.
+> 
+> Signed-off-by: Val Packett <val@packett.cool>
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 
-> On Sun, 15 Feb 2026 at 14:44, Marco Elver <elver@google.com> wrote:
-> >
-> > I found e.g. xen_get_runstate_snapshot_cpu_delta() uses the >8 byte
-> > case via __READ_ONCE(). READ_ONCE() itself is already restricted to <=
-> > 8 bytes (due to that static assert), but that itself uses the
-> > __READ_ONCE() helper which these patches were touching.  
-> 
-> I think we could just make __READ_ONCE() be totally unchecked - just
-> make it be "const volatile typeof()" and leave it at that.
-> 
-> Anybody who uses __READ_ONCE() would then have to deal with it.
-> 
-> There are very few users of that left, I think it's mainly
-> arch_atomic_read(), which just doesn't want any of the checking that a
-> regular "READ_ONCE()" does.
-> 
-> In fact, there are *so* few users left that I think we could probably
-> just remove __READ_ONCE() entirely, and make our "atomic_t" use
-> "volatile" in the type itself.
-> 
-> I generally absolutely hate volatile on data structures - it's a
-> design mistake (an understandable one: it was at least partly designed
-> for memory mapped IO accesses), and the volatile should be in the
-> accesses, not the data, because very often the volatility of the data
-> depends on context, not on the data.
+Okay, sure.
 
-IIRC The bots are now bleating when there is a READ_ONCE() in one
-place but a write without a matching WRITE_ONCE().
-That is effectively forcing all the accesses to be volatile regardless
-of the context.
-Which is pretty much equivalent to making the structure members volatile.
-So if all you care about is 'inverted CSE' and read/write tearing
-then volatile structure members DTRT.
-What you probably don't want is 'volatile struct foo *'.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-volatile structure members are almost free, you lose CSE and some versions
-of gcc 'forget' that a load zero/sign extended a byte and do it again.
-(I had to use barrier() rather than volatile in some code where I really
-did care about single instructions.)
-
-I've never see gcc reload a local, but I have seen it do CSE then
-spill the value to stack.
-
-	David
-
-
+> ---
+>   drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 12 ++++++++++++
+>   1 file changed, 12 insertions(+)
 > 
-> But our "atomic_t" is already properly wrapped, and nobody should be
-> accessing it with anything but our helpers, so putting the volatile
-> there looks ok.
-> 
->              Linus
-> 
+> diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> index e0236353d499..97a899e4bd99 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> @@ -671,6 +671,16 @@ static const struct mtk_disp_ovl_data mt2701_ovl_driver_data = {
+>   	.num_formats = ARRAY_SIZE(mt8173_formats),
+>   };
+>   
+> +static const struct mtk_disp_ovl_data mt8167_ovl_driver_data = {
+> +	.addr = DISP_REG_OVL_ADDR_MT8173,
+> +	.gmc_bits = 8,
+> +	.layer_nr = 4,
+> +	.fmt_rgb565_is_0 = true,
+> +	.smi_id_en = true,
+> +	.formats = mt8173_formats,
+> +	.num_formats = ARRAY_SIZE(mt8173_formats),
+> +};
+> +
+>   static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
+>   	.addr = DISP_REG_OVL_ADDR_MT8173,
+>   	.gmc_bits = 8,
+> @@ -742,6 +752,8 @@ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
+>   static const struct of_device_id mtk_disp_ovl_driver_dt_match[] = {
+>   	{ .compatible = "mediatek,mt2701-disp-ovl",
+>   	  .data = &mt2701_ovl_driver_data},
+> +	{ .compatible = "mediatek,mt8167-disp-ovl",
+> +	  .data = &mt8167_ovl_driver_data},
+>   	{ .compatible = "mediatek,mt8173-disp-ovl",
+>   	  .data = &mt8173_ovl_driver_data},
+>   	{ .compatible = "mediatek,mt8183-disp-ovl",
+
 
 
