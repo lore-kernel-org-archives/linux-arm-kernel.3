@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE2AE63F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 06:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC85E63F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 06:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RQRTYgLLjM1LaNITtkALPvlBTybAvCUABYNCXW2Zqzk=; b=wWHurvEnFXkSWqM2Gq/EJwMSNX
-	IJ0ALhmFHaT82bv8CO9e11rZoblCINeTT8/MOBDoqfwPJ+DTHPMVmrHZYx3k2ONGI1t8GsopASQvK
-	L2P9PH28dLDZBzmrZVn7JgfrfocDf7TiHi+lIWOOrRw1xYzXkwNXWPNh7u3Gzs78qKpZfCX2SuiZZ
-	3V42YSTFbEJakeeDNf/OhinglZ1dzv++9pnURmK09TzdM5cqW/yOJrn1dxSxkeT2Ht3avj16AoboA
-	whqvlXXNt7Cf0hzotVGwBTGTd8Cgvf7330jtm/I5pYcYoLNxNY7RZUOQKOIdFlg/m/xNQ4140TLs7
-	3I/h9xig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OemK6HUyQdUBR5NgHboWB8t27mpwBCoDQSpnP0oXjZE=; b=TZeYuPvQ5bSid5OHZs0+zbkAX3
+	9FcXKubIEjAIjplAUIdl7OzW7iw6AzdeypwSZfcT7AEms8ySb/yS7Rm8VXFOyiFVpjk/ygc/5kM9p
+	ExJVLJ+7vijEBMGwysEsTyJ/ucjkvM5Vf9mqfXtu5yEMfr65GwOtSmevBGiczA45F7UWeJHs4qcr6
+	wRK8QhzDxiIt9fYH7XVpKTYSGc0+p8OhYlQ4JCdz8iRcg/uPwAihE4q1OHDon3vvZOfmK+PKyuVUr
+	kmZote5DuXik1DA5EfpnG6isC32O2WQl6sg86oZH5NKNUgyGbQESKZVtHVzTTAyJZc7deKFZRr7Kp
+	LBX6PZxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrs5m-000000062CY-3nML;
-	Mon, 16 Feb 2026 06:28:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrs5m-000000062CS-0YNs
+	id 1vrs9U-000000062Un-3Hco;
+	Mon, 16 Feb 2026 06:32:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vrs9R-000000062U9-3CpL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 06:28:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5F801600B0;
-	Mon, 16 Feb 2026 06:28:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91B66C116C6;
-	Mon, 16 Feb 2026 06:28:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771223299;
-	bh=IB6S87GqJDUeZVCDWsj9FO7zAiiLNHQjIae0NCwbIyg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Vvw7taDtzIRHRPpyGWyElmvnZLUhQHz605cFYNwB67Xs3cPclrRcoUfPhUV/p1+75
-	 2AWNLD7UZLuLiQIUSuQxvIIBN07fbTMo+bamb3iFjWzFTTxVEqJvv0BS72OK+GbcQa
-	 MaGe1qIKa8LJ5Xlg3GXUwsHQHvvHz3gLFQ88OoTuAKfooJgVFServunzAKdNHlYzWM
-	 gjNSCngjfv6y6QYeB0jRGpsxVo5okoCk1MOqnLIEfZGaJBN6wS60aXFqkMnkI2TKqT
-	 /mhX+mzim3N96bnOeNAhpE8lKu7P8W+vWg6Nox4X7UttTiba7Dx09uyiWlZ7yjkhB5
-	 Euz23RmJRex/g==
-Date: Mon, 16 Feb 2026 11:58:10 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Jens Wiklander <jens.wiklander@linaro.org>,
-	Matthew Wilcox <willy@infradead.org>, vbabka@suse.cz,
-	akpm@linux-foundation.org, kernel@pengutronix.de,
-	op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, ilias.apalodimas@linaro.org,
-	jan.kiszka@siemens.com, masahisa.kojima@linaro.org,
-	spu@pengutronix.de
-Subject: Re: [PATCH v2] tee: shm: fix slab page refcounting
-Message-ID: <aZK4-grGSdOFXHTK@sumit-xelite>
-References: <20250325200740.3645331-1-m.felsch@pengutronix.de>
- <Z-Pc6C1YUqLyej3Z@casper.infradead.org>
- <20250326110718.qzbwpmaf6xlcb4xf@pengutronix.de>
- <CAHUa44FUK_73oKSaqGdiPqB3geZbTNDFsC1Mh=KN3YPWr9=7gQ@mail.gmail.com>
- <Z-TXMIXzaro0w60M@sumit-X1>
- <CAHUa44HEsMkzQHZZufdwutQyZRtig6e0qWomhwgDZAhy2qDyhg@mail.gmail.com>
- <20260212125830.jfwos3flga2l5uwk@pengutronix.de>
- <aY8N90jMp25bBZhi@sumit-xelite>
- <252s4lfnujhrl3bkqm3xwatdkcdd3tfge3e6fla6f2llq4szjm@xltjvpqjgffn>
+	Mon, 16 Feb 2026 06:32:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B730150C;
+	Sun, 15 Feb 2026 22:31:58 -0800 (PST)
+Received: from [10.164.19.71] (unknown [10.164.19.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C685E3F73F;
+	Sun, 15 Feb 2026 22:32:00 -0800 (PST)
+Message-ID: <b7711ebd-02fb-4cab-ade3-f4ff2f738de9@arm.com>
+Date: Mon, 16 Feb 2026 12:01:57 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <252s4lfnujhrl3bkqm3xwatdkcdd3tfge3e6fla6f2llq4szjm@xltjvpqjgffn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] [v2] arm64: hugetlbpage: avoid unused-but-set-parameter
+ warning (gcc-16)
+To: Arnd Bergmann <arnd@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Rohan McLure <rmclure@linux.ibm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Alistair Popple <apopple@nvidia.com>, Andrew Donnellan <ajd@linux.ibm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260213162219.1042965-1-arnd@kernel.org>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260213162219.1042965-1-arnd@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260215_223209_869458_24564ED7 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,82 +71,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 13, 2026 at 11:04:48PM +0100, Marco Felsch wrote:
-> Hi Sumit,
-> 
-> On 26-02-13, Sumit Garg wrote:
-> > Hi Marco,
-> > 
-> > On Thu, Feb 12, 2026 at 01:58:30PM +0100, Marco Felsch wrote:
-> > > Hi Sumit,
-> > > 
-> > > TBH: I was hoping that you will take care of this since you're marked as
-> > > maintainer for the tee-trusted-key and we noticed the warning with 6.14
-> > > and still no fix available :/
-> > 
-> > Mathew did suggested a fix long back on which everybody agreed but
-> 
-> You agreed. I said that the current TEE API also allows non-slabed based
-> backed memory and therefore I don't wanted to send this patch approach
-> and instead asked you to do so since you're the maintainer and fine with
-> the change.
-> 
-> > didn't got enough attention from you to test and report if that fixed
-> 
-> Why should it get attention from us? Maybe we do have different views of
-> being a maintainer.
 
-It's really the basic expectation I have put here which every reporter
-of a bug needs to say if a suggested fix works for them or not.
+On 13/02/26 9:52 pm, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> gcc-16 warns about an instance that older compilers did not:
+>
+> arch/arm64/mm/hugetlbpage.c: In function 'huge_pte_clear':
+> arch/arm64/mm/hugetlbpage.c:369:57: error: parameter 'addr' set but not used [-Werror=unused-but-set-parameter=]
+>
+> The issue here is that __pte_clear() does not actually use its second
+> argument when CONFIG_ARM64_CONTPTE is disabled.
 
-> 
-> > your issue. Since you insisted further, I have created a formal fix
-> 
-> Why is it our issue? It's everyones issue which uses the tee trusted-key
-> driver.
-> 
-> > patch based on that here [1]. Care to test that?
-> 
-> A colleague of mine is going to test it and will reply on the patch.
-> 
-> > [1] https://lore.kernel.org/all/20260213113317.1728769-1-sumit.garg@kernel.org/
-> 
-> ...
-> 
-> > > I checked the code once again and figured that we could drop/replace
-> > > tee_shm_register_kernel_buf() with tee_shm_alloc_kernel_buf(). I don't
-> > > see why a kernel driver needs to tee_shm_register_kernel_buf() in the
-> > > first place, maybe this is legacy. The only users of
-> > > tee_shm_register_kernel_buf() are trusted_tee.c and tee_stmm_efi.c.
-> > 
-> > No it's not legacy but allows for efficient memory reuse within the
-> > kernel as to not create bounce buffers to share data with TEE.
-> 
-> To be hones, there are only two driver using the API. The tee_stmm_efi
-> driver can do the alloc during the probe(). The trusted_tee has to use a
-> bounce buffer, yes but how often do you assume that (un)sealing and rng
-> ops have to be done during runtime? This shouldn't be a overhead at all.
-> 
-> Therefore my suggestion would be still to drop the internal kernel API
-> and only use it for userspace pages, where it could really matter.
+But that is true even when the config is on? __pte_clear has an unconditional definition.
 
-I don't disagree with what you are saying here but we really need to
-promote efficient memory reuse for TEE clients. There will surely be
-more use-cases coming in future which can benefit from the flexibility
-to register buffer. One another kernel client being remoteproc subsystem
-which is already under review for this API.
-
--Sumit
-
-> 
-> Regards,
->   Marco
-> -- 
-> #gernperDu 
-> #CallMeByMyFirstName
-> 
-> Pengutronix e.K.                           |                             |
-> Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+>
+> Replace the macro with an inline function to let the compiler see
+> how the argument is used.
+>
+> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> v2: replace my original patch with Catalin's suggestion
+> ---
+>  arch/arm64/include/asm/pgtable.h | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index a17eb8a76788..b3e58735c49b 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -144,8 +144,6 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+>  	__pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
+>  
+>  #define pte_none(pte)		(!pte_val(pte))
+> -#define __pte_clear(mm, addr, ptep) \
+> -				__set_pte(ptep, __pte(0))
+>  #define pte_page(pte)		(pfn_to_page(pte_pfn(pte)))
+>  
+>  /*
+> @@ -1284,6 +1282,13 @@ static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
+>  /*
+>   * Atomic pte/pmd modifications.
+>   */
+> +
+> +static inline void __pte_clear(struct mm_struct *mm,
+> +			       unsigned long addr, pte_t *ptep)
+> +{
+> +	__set_pte(ptep, __pte(0));
+> +}
+> +
+>  static inline int __ptep_test_and_clear_young(struct vm_area_struct *vma,
+>  					      unsigned long address,
+>  					      pte_t *ptep)
 
