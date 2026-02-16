@@ -4,96 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0884FE63F3F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 17:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAF2E81A5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 17:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xRJr1BxUVy81vOLOHmZNuiLSIyY1c4pkA4AMT3x7FlM=; b=4j/jluwNnh7dKN
-	GN2Dr06maBxKuRTGbPIIjYgsGBzT/EKhpvIKfCSOLLk6Bu4NYlz6UJfcB8a78gVV202x80FsUMKbB
-	WpKooKXiig4Xl8aOE//NNBxQ+UCJIlMm0fJVjpzk+5bx34H7JHsDqqnvEUQW94isZSKciIvSJRIyl
-	Gqnhv0zNXveGgn0Uu2hOrjxtQXA3ECaRmG7Co/GNuBoOGuDCjppYWXRPckuDNkbLH+NrSuHMhaYnZ
-	cn7AwD54Ci6UKrMExn7v9KMRt+dnNeHT5XTgtNYXELefvuJTGhj1ZEVhN+swLW4l9PmHExdC0XVJx
-	cNKOhojhTogwy9Bb1NuQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z+oXvLu6ZxeLpNomhtAAJKPtZu9MTBOvr2xjkuHRf3g=; b=EbfuPFbPVVa2isFIOL5z5ZqxLN
+	0llDgR1cHBpK3p5U6r0ygjZ8L7G1KBqk9z0MzCxybjrFuUMNz2bwQl/x/VI4BfqJHjO+Ic917qYTR
+	la4HQds2XjaHY9IvPQnww9gt5UphQ6p1074dEVksKHIX55HxQHEsy9ZV/QZ9qb6EE+qBtF+HynRNl
+	GslGgl3NyOtrwd63G8xiNenZz+5a3tbJqPpLEFzsxVxLlZ8hMGv1aVJH+zwqY2ayN8iTbv7siEroU
+	8dmjKEW3ZA9B805ErFpj4HoFBEQnlo/Uzy6sA8V1szfNBdK4dSm6NbZSmy7qns4SG2yrN+svEkA6l
+	+AoDJLig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs2nP-000000077Au-1UGO;
-	Mon, 16 Feb 2026 17:54:07 +0000
-Received: from fra-out-002.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([3.65.3.180])
+	id 1vs2pP-000000077Lr-1Azh;
+	Mon, 16 Feb 2026 17:56:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs2nL-000000077AZ-1Hje
+	id 1vs2pL-000000077Lf-2Uef
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 17:54:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1771264443; x=1802800443;
-  h=message-id:date:mime-version:reply-to:subject:to:cc:
-   references:from:in-reply-to:content-transfer-encoding;
-  bh=xRJr1BxUVy81vOLOHmZNuiLSIyY1c4pkA4AMT3x7FlM=;
-  b=i2yleRsnHCrEcpB9sQvaDF42oyf5wpM9G9lmQRxWyxfcPzBOk72lJFt4
-   YC57WaDqsbAQwtMBE4ZVu/r5gCI1KUaO5y0NhAC43RThUdF2JmDHEXyhe
-   m9yH2xNH44fRTvrc+HHDmOPREkOwswTNSTUKA4BfiYYjiJ6Es4xbpiQx8
-   zUrKc0rjqcSPsZQWtVnW6u/S4MuZv7Cpqn4FlwWhaX4orybu4e+cOqXhy
-   dao7pzgpaNcqYC6eYZU01uosu8+s7Djbt6fHq8Hpla5QdYh99YHTws4KP
-   +WxNitvVugfkTw8+YMJdIptLN7i0U44YO1OclPq0Pk71FLVNUkKTBtIov
-   Q==;
-X-CSE-ConnectionGUID: efT7Zpy3QrulWZTje+jljA==
-X-CSE-MsgGUID: Hxc3CJ4RTZuc556KvQ3Bow==
-X-IronPort-AV: E=Sophos;i="6.21,294,1763424000"; 
-   d="scan'208";a="9539976"
-Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
-  by internal-fra-out-002.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Feb 2026 17:53:58 +0000
-Received: from EX19MTAEUB001.ant.amazon.com [54.240.197.234:7682]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.19.89:2525] with esmtp (Farcaster)
- id 4dbc0cc7-432d-45ce-8078-fa45b54969a3; Mon, 16 Feb 2026 17:53:58 +0000 (UTC)
-X-Farcaster-Flow-ID: 4dbc0cc7-432d-45ce-8078-fa45b54969a3
-Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUB001.ant.amazon.com (10.252.51.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Mon, 16 Feb 2026 17:53:55 +0000
-Received: from [192.168.2.117] (10.106.83.6) by EX19D005EUB003.ant.amazon.com
- (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35; Mon, 16 Feb 2026
- 17:53:55 +0000
-Message-ID: <dcbd7a58-c961-4510-ae48-ef7fd4f4d75c@amazon.com>
-Date: Mon, 16 Feb 2026 17:53:53 +0000
+	Mon, 16 Feb 2026 17:56:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E2226012B;
+	Mon, 16 Feb 2026 17:56:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5217FC116C6;
+	Mon, 16 Feb 2026 17:56:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771264566;
+	bh=ERCGwbyY1bFkmKGwHWKrXtrTgLjADaBxpidUngYJSQw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Juskkyu4PhMtJRRrALXCQX062tnKt975IgYSRtZJX6mPz9cwEb8yGVTgDKrOSaYnm
+	 dI5oLYwoH+qOQJM8LukRHoSRGk6fz5j0Vd87XSZt+/QhL3JJ68RqhR1BBcx4sS/uBr
+	 080Cgf/ved1qRwSv/m+ZyRURyjeO0l9FQ3oaWTmWTq2tis6g9cVePXO//6hHA8XHzw
+	 aCCLTigZaq8AxfHKwrA+FxQXL1bbYkyUPgdr2cx3n3IMviy10ky+SxLCW6ebSzmfN7
+	 gWLP83d/4C3y1eBHc3Pp6tWceCwxLJ0SlFS6v16tb8hSKwM3a3marUNP6hvDgWLJwC
+	 0nqw01++FjbAA==
+Date: Mon, 16 Feb 2026 17:55:59 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Peter Maydell <peter.maydell@linaro.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Mark Rutland <mark.rutland@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v9 10/30] KVM: arm64: Document the KVM ABI for SME
+Message-ID: <831bae38-3d8c-4846-b23e-464d70e94a5b@sirena.org.uk>
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
+ <20251223-kvm-arm64-sme-v9-10-8be3867cb883@kernel.org>
+ <CAFEAcA-nhHdwuQODmT4-dBCEuiut-jbHsCGVYByoMF77-UWbCg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] KVM: Avoid synchronize_srcu() in
- kvm_io_bus_register_dev()
-To: Sean Christopherson <seanjc@google.com>
-CC: Keir Fraser <keirf@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>, Eric Auger
-	<eric.auger@redhat.com>, Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier
-	<maz@kernel.org>, Will Deacon <will@kernel.org>, Paolo Bonzini
-	<pbonzini@redhat.com>, Li RongQing <lirongqing@baidu.com>
-References: <20250909100007.3136249-1-keirf@google.com>
- <20250909100007.3136249-5-keirf@google.com>
- <a84ddba8-12da-489a-9dd1-ccdf7451a1ba@amazon.com>
- <aY-x0OlJQEqInyNF@google.com>
-Content-Language: en-US
-From: Nikita Kalyazin <kalyazin@amazon.com>
-Autocrypt: addr=kalyazin@amazon.com; keydata=
- xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
- JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
- BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
- IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
- CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
- ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
- ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
- i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
-In-Reply-To: <aY-x0OlJQEqInyNF@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.106.83.6]
-X-ClientProxiedBy: EX19D006EUA002.ant.amazon.com (10.252.50.65) To
- EX19D005EUB003.ant.amazon.com (10.252.51.31)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_095403_824644_A3D2FD2E 
-X-CRM114-Status: GOOD (  36.18  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="u9ZyI9Npf85AkB75"
+Content-Disposition: inline
+In-Reply-To: <CAFEAcA-nhHdwuQODmT4-dBCEuiut-jbHsCGVYByoMF77-UWbCg@mail.gmail.com>
+X-Cookie: Beware the one behind you.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,259 +79,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kalyazin@amazon.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--u9ZyI9Npf85AkB75
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On 13/02/2026 23:20, Sean Christopherson wrote:
-> On Fri, Feb 13, 2026, Nikita Kalyazin wrote:
->>
->>
->> On 09/09/2025 11:00, Keir Fraser wrote:
->>> Device MMIO registration may happen quite frequently during VM boot,
->>> and the SRCU synchronization each time has a measurable effect
->>> on VM startup time. In our experiments it can account for around 25%
->>> of a VM's startup time.
->>>
->>> Replace the synchronization with a deferred free of the old kvm_io_bus
->>> structure.
->>
->>
->> Hi,
->>
->> We noticed that this change introduced a regression of ~20 ms to the first
->> KVM_CREATE_VCPU call of a VM, which is significant for our use case.
->>
->> Before the patch:
->> 45726 14:45:32.914330 ioctl(25, KVM_CREATE_VCPU, 0) = 28 <0.000137>
->> 45726 14:45:32.914533 ioctl(25, KVM_CREATE_VCPU, 1) = 30 <0.000046>
->>
->> After the patch:
->> 30295 14:47:08.057412 ioctl(25, KVM_CREATE_VCPU, 0) = 28 <0.025182>
->> 30295 14:47:08.082663 ioctl(25, KVM_CREATE_VCPU, 1) = 30 <0.000031>
->>
->> The reason, as I understand, it happens is call_srcu() called from
->> kvm_io_bus_register_dev() are adding callbacks to be called after a normal
->> GP, which is 10 ms with HZ=100.  The subsequent synchronize_srcu_expedited()
->> called from kvm_swap_active_memslots() (from KVM_CREATE_VCPU) has to wait
->> for the normal GP to complete before making progress.  I don't fully
->> understand why the delay is consistently greater than 1 GP, but that's what
->> we see across our testing scenarios.
->>
->> I verified that the problem is relaxed if the GP is reduced by configuring
->> HZ=1000.  In that case, the regression is in the order of 1 ms.
->>
->> It looks like in our case we don't benefit much from the intended
->> optimisation as the number of device MMIO registrations is limited and and
->> they don't cost us much (each takes at most 16 us, but most commonly ~6 us):
-> 
-> Maybe differences in platforms for arm64 vs x86?
+On Mon, Feb 09, 2026 at 03:18:43PM +0000, Peter Maydell wrote:
+> On Tue, 23 Dec 2025 at 01:22, Mark Brown <broonie@kernel.org> wrote:
 
-Tested on ARM, and indeed kvm_io_bus_register_dev are occurring after 
-KVM_CREATE_VCPU, and the patch produces a visible optimisation:
+> A late reply, but I just noticed that the cover letter says:
 
-Without the patch (15-23 us per call):
+> > Userspace access to ZA and (if configured) ZT0 is always available, they
+> > will be zeroed when the guest runs if disabled in SVCR and the value
+> > read will be zero if the guest stops with them disabled. This mirrors
+> > the behaviour of the architecture, enabling access causes ZA and ZT0 to
+> > be zeroed, while allowing access to SVCR, ZA and ZT0 to be performed in
+> > any order.
 
-      firecracker 19916 [033]   404.518430: 
-probe:kvm_vm_ioctl_create_vcpu: (ffff800080059b18)
-      firecracker 19916 [033]   404.518446: 
-probe:kvm_vm_ioctl_create_vcpu: (ffff800080059b18)
-      firecracker 19916 [033]   404.518462: 
-probe:kvm_io_bus_register_dev: (ffff80008005f0e8)
-      firecracker 19916 [032]   404.518495: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f0e8 <- 
-ffff8000800a198c)
-      firecracker 19916 [032]   404.518498: 
-probe:kvm_io_bus_register_dev: (ffff80008005f0e8)
-      firecracker 19916 [033]   404.518521: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f0e8 <- 
-ffff8000800a198c)
-      firecracker 19916 [033]   404.518524: 
-probe:kvm_io_bus_register_dev: (ffff80008005f0e8)
-      firecracker 19916 [032]   404.518539: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f0e8 <- 
-ffff8000800a6d2c)
-      firecracker 19916 [032]   404.526900: 
-probe:kvm_io_bus_register_dev: (ffff80008005f0e8)
-      firecracker 19916 [033]   404.526924: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f0e8 <- 
-ffff800080060168)
-      firecracker 19916 [033]   404.526926: 
-probe:kvm_io_bus_register_dev: (ffff80008005f0e8)
-      firecracker 19916 [032]   404.526941: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f0e8 <- 
-ffff800080060168)
-        fc_vcpu 0 19924 [035]   404.530829: 
-probe:kvm_io_bus_register_dev: (ffff80008005f0e8)
-        fc_vcpu 0 19924 [035]   404.530848: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f0e8 <- 
-ffff80008009f6b4)
+> but the doc patch itself says:
 
-With the patch (1-6 us per call):
+> > +Access to the ZA and ZT0 registers is only available if SVCR.ZA is set
+> > +to 1.
 
-      firecracker 22806 [032]   427.687157: 
-probe:kvm_vm_ioctl_create_vcpu: (ffff800080059b38)
-      firecracker 22806 [032]   427.687174: 
-probe:kvm_vm_ioctl_create_vcpu: (ffff800080059b38)
-      firecracker 22806 [032]   427.687193: 
-probe:kvm_io_bus_register_dev: (ffff80008005f128)
-      firecracker 22806 [032]   427.687196: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f128 <- 
-ffff8000800a19cc)
-      firecracker 22806 [032]   427.687196: 
-probe:kvm_io_bus_register_dev: (ffff80008005f128)
-      firecracker 22806 [032]   427.687197: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f128 <- 
-ffff8000800a19cc)
-      firecracker 22806 [032]   427.687201: 
-probe:kvm_io_bus_register_dev: (ffff80008005f128)
-      firecracker 22806 [032]   427.687202: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f128 <- 
-ffff8000800a6d6c)
-      firecracker 22806 [029]   427.707660: 
-probe:kvm_io_bus_register_dev: (ffff80008005f128)
-      firecracker 22806 [029]   427.707666: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f128 <- 
-ffff8000800601a8)
-      firecracker 22806 [029]   427.707667: 
-probe:kvm_io_bus_register_dev: (ffff80008005f128)
-      firecracker 22806 [029]   427.707668: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f128 <- 
-ffff8000800601a8)
-        fc_vcpu 0 22829 [030]   427.711642: 
-probe:kvm_io_bus_register_dev: (ffff80008005f128)
-        fc_vcpu 0 22829 [030]   427.711645: 
-probe:kvm_io_bus_register_dev__return: (ffff80008005f128 <- 
-ffff80008009f6f4)
+> Which one is the intention here ?
 
+I guess the second if we're going with the approach of making everything
+depend on the state of SVCR, it's less pressing to do so than with
+SVCR.SM but it'd be consistent.  I'll update, thanks for spotting this.
 
-Also, it is the KVM_SET_USER_MEMORY_REGION (not KVM_CREATE_VCPU) that is 
-hit on ARM (but seems to be for the same reason):
+--u9ZyI9Npf85AkB75
+Content-Type: application/pgp-signature; name="signature.asc"
 
-45736 17:30:10.251430 ioctl(17, KVM_SET_USER_MEMORY_REGION, {slot=0, 
-flags=0, guest_phys_addr=0x80000000, memory_size=12884901888, 
-userspace_addr=0xfffcbedd6000}) = 0 <0.021021>
+-----BEGIN PGP SIGNATURE-----
 
-vs
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmTWi4ACgkQJNaLcl1U
+h9Co1gf/coUE4P4tuYn1rKP9lPsMEHvcfhSgIjltgex97NMRomE8Pls4cxLzQ43P
+WgNP+OmJtv1S3MECmR5aGn68bapqqQhEvHefBIAEiklWX96VRYvx8xkMzBq+9XYN
+pTvbPUuNghFiABfakJcYwkdmIdfe2WehVPxHQt4rXCgZTv02aRzhtxxo2dh8k4PQ
+NuoG0BpSFW9oDLllEm6je8EkUxjWiwnAoMSYIRouopHI3/LapX+crbLqJZiEEg5s
+kHKTgA+w6Ysm3tzmLRsIMkv02cb3xXi81Q/C99R9VcVtiiBJ6dDRBUcPkvLDT7u1
+ajwfzwv1+T6Kfp4y+Q9FFrSe9dmsLQ==
+=7KFU
+-----END PGP SIGNATURE-----
 
-30694 17:33:01.128985 ioctl(17, KVM_SET_USER_MEMORY_REGION, {slot=0, 
-flags=0, guest_phys_addr=0x80000000, memory_size=12884901888, 
-userspace_addr=0xfffc91fc9000}) = 0 <0.000016>
-
-> 
->> I am not aware of way to make it fast for both use cases and would be more
->> than happy to hear about possible solutions.
-> 
-> What if we key off of vCPUS being created?  The motivation for Keir's change was
-> to avoid stalling during VM boot, i.e. *after* initial VM creation.
-
-It doesn't work as is on x86 because the delay we're seeing occurs after 
-the created_cpus gets incremented so it doesn't allow to differentiate 
-the two cases (below is kvm_vm_ioctl_create_vcpu):
-
-	kvm->created_vcpus++; // <===== incremented here
-	mutex_unlock(&kvm->lock);
-
-	vcpu = kmem_cache_zalloc(kvm_vcpu_cache, GFP_KERNEL_ACCOUNT);
-	if (!vcpu) {
-		r = -ENOMEM;
-		goto vcpu_decrement;
-	}
-
-	BUILD_BUG_ON(sizeof(struct kvm_run) > PAGE_SIZE);
-	page = alloc_page(GFP_KERNEL_ACCOUNT | __GFP_ZERO);
-	if (!page) {
-		r = -ENOMEM;
-		goto vcpu_free;
-	}
-	vcpu->run = page_address(page);
-
-	kvm_vcpu_init(vcpu, kvm, id);
-
-	r = kvm_arch_vcpu_create(vcpu); // <===== the delay is here
-
-
-firecracker   583 [001]   151.297145: 
-probe:synchronize_srcu_expedited: (ffffffff813e5cf0)
-     ffffffff813e5cf1 synchronize_srcu_expedited+0x1 ([kernel.kallsyms])
-     ffffffff81234986 kvm_swap_active_memslots+0x136 ([kernel.kallsyms])
-     ffffffff81236cdd kvm_set_memslot+0x1cd ([kernel.kallsyms])
-     ffffffff81237518 kvm_set_memory_region.part.0+0x478 ([kernel.kallsyms])
-     ffffffff81264dbc __x86_set_memory_region+0xec ([kernel.kallsyms])
-     ffffffff8127e2dc kvm_alloc_apic_access_page+0x5c ([kernel.kallsyms])
-     ffffffff812b9ed3 vmx_vcpu_create+0x193 ([kernel.kallsyms])
-     ffffffff8126788a kvm_arch_vcpu_create+0x1da ([kernel.kallsyms])
-     ffffffff8123c54c kvm_vm_ioctl+0x5fc ([kernel.kallsyms])
-     ffffffff8167b331 __x64_sys_ioctl+0x91 ([kernel.kallsyms])
-     ffffffff8251a89c do_syscall_64+0x4c ([kernel.kallsyms])
-     ffffffff8100012b entry_SYSCALL_64_after_hwframe+0x76 
-([kernel.kallsyms])
-               6512de ioctl+0x32 (/mnt/host/firecracker)
-                d99a7 std::rt::lang_start+0x37 (/mnt/host/firecracker)
-
-
-Also, given that it stumbles after the KVM_CREATE_VCPU on ARM (in 
-KVM_SET_USER_MEMORY_REGION), it doesn't look like a universal solution.
-
-
-> 
-> --
-> From: Sean Christopherson <seanjc@google.com>
-> Date: Fri, 13 Feb 2026 15:15:01 -0800
-> Subject: [PATCH] KVM: Synchronize SRCU on I/O device registration if vCPUs
->   haven't been created
-> 
-> TODO: Write a changelog if this works.
-> 
-> Fixes: 7d9a0273c459 ("KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()")
-> Reported-by: Nikita Kalyazin <kalyazin@amazon.com>
-> Closes: https://lkml.kernel.org/r/a84ddba8-12da-489a-9dd1-ccdf7451a1ba%40amazon.com
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->   virt/kvm/kvm_main.c | 25 ++++++++++++++++++++++++-
->   1 file changed, 24 insertions(+), 1 deletion(-)
-> 
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 571cf0d6ec01..043b1c3574ab 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -6027,7 +6027,30 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
->          memcpy(new_bus->range + i + 1, bus->range + i,
->                  (bus->dev_count - i) * sizeof(struct kvm_io_range));
->          rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
-> -       call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
-> +
-> +       /*
-> +        * To optimize VM creation *and* boot time, use different tactics for
-> +        * safely freeing the old bus based on where the VM is at in its
-> +        * lifecycle.  If vCPUs haven't yet been created, simply synchronize
-> +        * and free, as there are unlikely to be active SRCU readers; if not,
-> +        * defer freeing the bus via SRCU callback.
-> +        *
-> +        * If there are active SRCU readers, synchronizing will stall until the
-> +        * current grace period completes, which can meaningfully impact boot
-> +        * time for VMs that trigger a large number of registrations.
-> +        *
-> +        * If there aren't SRCU readers, using an SRCU callback can be a net
-> +        * negative due to starting a grace period of its own, which in turn
-> +        * can unnecessarily cause a future synchronization to stall.  E.g. if
-> +        * devices are registered before memslots are created, then creating
-> +        * the first memslot will have to wait for a superfluous grace period.
-> +        */
-> +       if (!READ_ONCE(kvm->created_vcpus)) {
-> +               synchronize_srcu_expedited(&kvm->srcu);
-> +               kfree(bus);
-> +       } else {
-> +               call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
-> +       }
-> 
->          return 0;
->   }
-> 
-> base-commit: 183bb0ce8c77b0fd1fb25874112bc8751a461e49
-> --
-
+--u9ZyI9Npf85AkB75--
 
