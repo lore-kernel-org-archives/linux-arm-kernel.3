@@ -4,86 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2AD1E81A2F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 14:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C357E81A31
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 14:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kXC/RY+ImFp7XVttmkNZEvr++aoZ57qEep++tV+EnDE=; b=FplGeWJ08rEanZCrVa9xwMs0PL
-	bBQC5sUStiV5am6AbJyglBrxQJuqliuUIFAQf3Gr3ua5wVDWEoGCUWJJyaYcOTAUyKOIsJ7j71zVW
-	u28PYgR1p+eOVo5vHuqOJfuHjIR7NZKx5ezrAl/iCS3QYXqXSfYK5Lrtdn9ORAlrysU8026hjSBaj
-	QvBncQYSS6nG6x5q8zerl0AEq5Tsf6KKotFa+SHT5OqxL8lANzH3lEihxCnSYM+yMkGjX3R19ICDa
-	kHLC2oBMuVTjTb0z7dCrD9vYhIdU0dP7IE6I9fDfpY46tRi9OIS4RRVjUjuMjJIWYV31fJ0aCKvFM
-	fZNdXPbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TlPKEBv6IQ2bElkuTOfHR7LPZVbnNS4TJYo62QJXTrk=; b=qOd9J05xPE+944ECG+JUxjlVCf
+	e0VmZeIg8bAUEyjY0wb9r0Hr0NC3c2YmhywtEhxl9KikSEZX4VeEf/ymV9grwlU85uwZVLwyu2+pJ
+	hOAVabfbtCD6AD2Y/T4DcYd2p5CTiDpi7PVt7oewstCo4t87Aytxb5DVOdr71gyNKtZSwHaQRfEnF
+	8P6Pq6jxmaYtYTLiNBBmp35GaN1p6fUy6zJE327lRAet+n33YJhUqWvU2BOEozXh1u3UlM4vTC65p
+	603XIElPm8T19XGrYSE0ok/pH6/7WpihVZPju8uMt/UHFKf35TVwOxhVYgWxejKfoQV+fEMqrpaAd
+	ZGNZ/acg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs01y-00000006paM-0Hno;
-	Mon, 16 Feb 2026 14:56:58 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1vs03S-00000006pp7-11NN;
+	Mon, 16 Feb 2026 14:58:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs01u-00000006pZv-22Sh;
-	Mon, 16 Feb 2026 14:56:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771253815; x=1802789815;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=2HBXHXJmKKSSppv6LfuT5JP8JJjGH9rvGHiBwKrCMI0=;
-  b=TodYH5xe39CzF0ggdq1edUjn/zfiadIazt7qjURV4TMLUtw1tuyt0RLi
-   /dS10e10BF5E0Zpr6xXnVYy0ZsHcQSVBOCGcca4Axgj5mV1ayuvfshAp6
-   CIrAXQSH9QlOIfGfunxGQXslqdGwQeVa53np0tjFHLU6b4rSlNyldK1e6
-   upOsceERKXlSwmsTTtme2PqpknH9YoNg9E5U1RMMqNHIvxjtbkMLBtwVy
-   gX5WIPd/qcoDIkv/HyuckO5LtVALIgh5O1tlzHQdJj3PNBY5rJxHGp60W
-   uumI6sHlBCjNmuzH5LNoTAt4NtyKonmuisz9UuuT3lW+GZmo0+8hesygE
-   Q==;
-X-CSE-ConnectionGUID: 8GwaSTgnRHCAtZvzSUaQCg==
-X-CSE-MsgGUID: J0aBXI+OTkaExHqVd0Y6zw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11702"; a="72376831"
-X-IronPort-AV: E=Sophos;i="6.21,294,1763452800"; 
-   d="scan'208";a="72376831"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Feb 2026 06:56:52 -0800
-X-CSE-ConnectionGUID: DleU0ORnQyGf2Rx3AmowgQ==
-X-CSE-MsgGUID: XnvkmfuyQxGXxT3wMS5A4w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,294,1763452800"; 
-   d="scan'208";a="218165716"
-Received: from abityuts-desk.ger.corp.intel.com (HELO [10.245.245.13]) ([10.245.245.13])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Feb 2026 06:56:46 -0800
-Message-ID: <b50e26a3-6c89-40f4-80a1-c8fc6d091141@linux.intel.com>
-Date: Mon, 16 Feb 2026 15:56:44 +0100
+	id 1vs03P-00000006pnp-0yBi
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Feb 2026 14:58:28 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61G8fwcX2802096
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 14:58:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=TlPKEBv6IQ2bElkuTOfHR7LP
+	ZVbnNS4TJYo62QJXTrk=; b=gDCUIQJHDvPmPLc2Qo8VfZ7mqC/TUf6wxVzRXB5A
+	yS1HtSTB8Y3Tn4oLkg/37nM6zp93QE/WFRS+bJpBVlRVRkL+N67aafT0VS1TFrqe
+	N7fgir1bkG2RMX1L7d3YPPTlt6I639iaI18YSxadXX/FO+OW7GEySUv2peuSEbFe
+	+fV0xQzOXEbOqyXUMKUZsYFuXx1b4jFY4nqLv1nwhSJZIuJpmCCwnKXEyCKskjWj
+	njdAjvHg17/MXVhHCQRboAhQP+K5Ji0OCy9pTIGZjkClHQQVViLRRyPo3eToEsG1
+	ChClK87FopGK7H7uiuDw+wO2NL8kyh6O+gNuL4h2EEMHeg==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cbyxugwg2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 14:58:26 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c70b6a5821so1772473885a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 06:58:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1771253905; x=1771858705; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TlPKEBv6IQ2bElkuTOfHR7LPZVbnNS4TJYo62QJXTrk=;
+        b=RbVYtDFSe4h2VepPcfXhioOW0/RIDnYlEbIkk7UbB6/3K9RxDZSwHJzCU00IpM3g50
+         jAL0pCJtJTBiMkKXYiAUQNvitZxl+5jsOHJ6ADc9LscU5KiZGaHZFWTeq3fSORxBNZOH
+         f5PGTuoHIsy904mEB7ZradLdDH/wrPIh6pKtSL1i0EpZChjZL+JqsNC2UQNXU23nrEHa
+         G9SodAl86pgdvXPivwU56G5aWYQ6sSL5s7WRi/fe29JxJgPU70YeorVLCqQiqUHK9G5U
+         ikLubWadskILrhHhLEvH/vmR95lqf5Z5JdzbU16aUjk6AOsfTCrg1wnc7eo6EHF35nP9
+         Ou9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771253905; x=1771858705;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TlPKEBv6IQ2bElkuTOfHR7LPZVbnNS4TJYo62QJXTrk=;
+        b=iOej8Ww6TIqwsaSadjLeeI+GQS15HqjxXZa8c7zqMXi0cceMUimpqw36gHs8T6YOFT
+         Il14A97CVL5A6GljcHcPV/fDK+HCesYwZrhl4b78vocdHFRVDUPowZaCCnyO4yLkhjHl
+         TYkiqK58b/1/TkvWHxxxzKn6ivScR1+unLNxEuXNWvcET+EQFgTjGfkc5XddKujuCqsE
+         1SeQb1bOfjJ6KjwAbFfqcwgAEC47ODYHPLdDwCbelBEefJwmhO942BR6QdA5qLqpgPU4
+         MS6KUdIuzuohUsEppZizedmn7+xU49Cc+xYVN6xQadeMIOMXzsivOwlOC1HIRz+H+XyK
+         RP0w==
+X-Forwarded-Encrypted: i=1; AJvYcCXxP1dJh//HOeZXeECVD0O7yyFqr7Hp3nKrwfZXZJBnKhuw08V/dKfLofiJ/0pknZKKjPLFMyl3H7dHYvoaBWj0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+uyMmvBrdBeBiIk8CCfGMkaJmgtBZLhVWd7Jzo5tvX3H2Tu5Q
+	M2mnvLurwdSU9yBMi4xyNp35cGzRaO121Ds6o1L5KSM8y0Uw7aUuMZiqv2y7w/aDqd1WKRHdOl+
+	6EX0WBct2LvdBC3eualwsf5B70jTfi0jO2s9ZLWuJfW+N9p87JRaFbHjp3M65wlbYXCK+3cN0iA
+	3qeg==
+X-Gm-Gg: AZuq6aJFNZ+UlwMe7Yb5kOW3cU1me4HxdgJ0vKep7VOutJbSkX5rydIMat/OiDNbPBh
+	i8GFWUp4L6jWsjM/GK/PLicBQzy6cZEEd0ZKUntgxRXUCgoAfwFrmwBkfnGcwSZ/kwliCJGG/jS
+	O0dTrz4Kj1DUHdEjwD3frWBgiwkZpTeWuluTYvS9wpMpICz0RT85r5Qf1GzVGh3vtpHo6EHdZN2
+	MvBEomAShmBkvFVc5dJ6RNyfoWjtC0lJfskX5GCW2/kq+IAvSK1SICEju506RTzhLqHc2fgnowo
+	UUS6EvsbUJ41Acw253YDasUOxUlb3zAwLf8VRDsnEInO+hkxliScqnD8QYdFYMMmdxLlP7MjhwT
+	D/4bObyUZHmi7l34JFIy/mAQOeHL8AMxMpSmD
+X-Received: by 2002:a05:620a:4407:b0:8ca:2cf9:819a with SMTP id af79cd13be357-8cb423c2ea5mr1237439385a.40.1771253905465;
+        Mon, 16 Feb 2026 06:58:25 -0800 (PST)
+X-Received: by 2002:a05:620a:4407:b0:8ca:2cf9:819a with SMTP id af79cd13be357-8cb423c2ea5mr1237435585a.40.1771253904844;
+        Mon, 16 Feb 2026 06:58:24 -0800 (PST)
+Received: from oss.qualcomm.com ([86.121.162.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796abe3b3sm32479964f8f.18.2026.02.16.06.58.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Feb 2026 06:58:24 -0800 (PST)
+Date: Mon, 16 Feb 2026 16:58:22 +0200
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+        Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>, asahi@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH 3/3] phy: qcom: qmp-usbc: Simplify check for non-NULL
+ pointer
+Message-ID: <5k5i7zpr7y2wa5o2odkfyafhoiqk3ch53mwxt24g5thft3htxf@zxz5u2hobcmp>
+References: <20260216110413.159994-4-krzysztof.kozlowski@oss.qualcomm.com>
+ <20260216110413.159994-6-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/4] Introduce BACKGROUND_COLOR DRM CRTC property
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Diederik de Haas <diederik@cknow-tech.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Matt Roper <matthew.d.roper@intel.com>
-References: <20260204-rk3588-bgcolor-v7-0-78d1d01c5ca1@collabora.com>
-Content-Language: en-US
-From: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-In-Reply-To: <20260204-rk3588-bgcolor-v7-0-78d1d01c5ca1@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260216110413.159994-6-krzysztof.kozlowski@oss.qualcomm.com>
+X-Proofpoint-GUID: Fwn1in2E7Bv9nNCAa7v_A3cWNWgN7i22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE2MDEyNyBTYWx0ZWRfXwwKi2MjpIXS6
+ jiessUCY+ImwGl4Lm6uazMi8F4sbooNPAoi2xVFxMe+5KORd2GQFV/ipHdnW5ARZIKHl6CXgagt
+ bmvJNK0/BOuZBUt9fFG7LbuSBVIuukfmRzVgf2b9uinhj/9xkaZ5bxdT4v18kknnicSYtpRUtk0
+ d1B45HAlsCr9iF2LNxdSpKPJXAQ9I0oY/85biQx9Mlzeuev8Y6kBML6IkwcHLfKO3oIVJHErxbC
+ zaUgdMTOmxJkRGHm83UjbZsrx94WZRubspEyYzihHCwX7S3YV1WwZAp8sZrXWPmAMxPSfJVVVce
+ dU4wnlC84opzJ82w/SuCizFYWHgca2ycMmSSx7YZjuECu+xsK3CwPRcIMKPOaAWT8x+hi8J8nN4
+ AE/4+xsQ97CqNXccngma5AAoswWcE2VBsvInlM6DXssG2Ent1dQ81LnEPzKeDX38DSvWbzU4I3n
+ yumpU32JVcYoR4u7eUQ==
+X-Authority-Analysis: v=2.4 cv=BpuQAIX5 c=1 sm=1 tr=0 ts=69933092 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=oauzzCmhM186DRC0Y2yWPg==:17
+ a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
+ a=EUspDBNiAAAA:8 a=rQXAbXeZuVbgsyajZegA:9 a=CjuIK1q_8ugA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-ORIG-GUID: Fwn1in2E7Bv9nNCAa7v_A3cWNWgN7i22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-16_04,2026-02-16_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 adultscore=0 clxscore=1015 phishscore=0
+ lowpriorityscore=0 suspectscore=0 spamscore=0 malwarescore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602160127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_065654_637330_41FF1F5A 
-X-CRM114-Status: GOOD (  31.19  )
+X-CRM114-CacheID: sfid-20260216_065827_385027_793548B5 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,229 +146,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey,
+On 26-02-16 12:04:16, Krzysztof Kozlowski wrote:
+> Pointers should not use explicit '0' comparison, so just use standard
+> evaluation as non-NULL:
+> 
+>   phy-qcom-qmp-usbc.c:1682:31: warning: Using plain integer as NULL pointer
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Den 2026-02-04 kl. 21:02, skrev Cristian Ciocaltea:
-> Some display controllers can be hardware-configured to present non-black
-> colors for pixels which are not covered by any plane (or are exposed
-> through transparent regions of higher planes).
-> 
-> The 1st patch of the series provides DIV_ROUND_CLOSEST() to uapi, as a
-> prerequisite to the 2nd patch introducing the BACKGROUND_COLOR DRM
-> property that can be attached to a CRTC via a dedicated helper function.
-> A 64-bit ARGB color value format is also defined and can be manipulated
-> with the help of a few utility macros.
-> 
-> Note this is a reworked version of the patch [1] submitted (many) years
-> ago by Matt Roper.  The main changes are:
-> 
-> * Renamed DRM_ARGB_<COMP>() to DRM_ARGB64_GET<C>_BPC() while providing
->   convenience wrappers to extract all 16 bits of a specific color via
->   DRM_ARGB64_GET<C>()
-> * Replaced drm_argb() function with DRM_ARGB64_PREP_BPC() macro, to
->   improve uAPI consistency and readability; additionally fixed a bug in
->   case of using bpc < 16: the unused least-significant bits of a given
->   component in the output value would contain the unused
->   most-significant bits of the following component in the input value,
->   instead of being set to 0
-> * Replaced GENMASK_ULL(63, 0) with U64_MAX when calling
->   drm_property_create_range() to create the BACKGROUND_COLOR property
-> * Moved crtc_state->bgcolor initialization from
->   __drm_atomic_helper_crtc_reset() to
->   __drm_atomic_helper_crtc_state_reset()
-> * Replaced '*bgcolor*' occurrences to '*background_color*' for
->   consistency with the actual property name in both storage field and
->   helper functions names
-> 
-> The subsequent patches add background color support to VKMS and the VOP2
-> display controller used in the RK3568, RK3576, and RK3588 Rockchip SoC
-> families.
-> 
-> The validation has been done using a dedicated IGT test [2] - see the
-> reported results below.
-> 
-> On the userland side, a Weston merge request [3] is available, providing
-> support for the BACKGROUND_COLOR CRTC property to the DRM backend.  It
-> relies on the already existing background-color setting in weston.ini:
-> 
->   [shell]
->   background-color=0xAARRGGBB
-> 
-> [1] https://lore.kernel.org/all/20190930224707.14904-2-matthew.d.roper@intel.com/
-> [2] https://lore.kernel.org/all/20251219-crtc-bgcolor-v3-1-31b589911588@collabora.com/
-> [3] https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/1845
-> 
-> IGT kms_crtc_background_color test results
-> ==========================================
-> 
-> * VKMS
-> 
-> virtme-ng$ IGT_FORCE_DRIVER=vkms build/tests/kms_crtc_background_color
-> 
-> IGT-Version: 2.3-g6b07138e8 (x86_64) (Linux: 6.19.0-rc1-virtme x86_64)
-> Using IGT_SRANDOM=1766149634 for randomisation
-> Opened device: /dev/dri/card0
-> Starting subtest: background-color-red
-> Starting dynamic subtest: pipe-A-Virtual-1
-> Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.071s)
-> Subtest background-color-red: SUCCESS (0.073s)
-> Starting subtest: background-color-green
-> Starting dynamic subtest: pipe-A-Virtual-1
-> Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.074s)
-> Subtest background-color-green: SUCCESS (0.074s)
-> Starting subtest: background-color-blue
-> Starting dynamic subtest: pipe-A-Virtual-1
-> Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.074s)
-> Subtest background-color-blue: SUCCESS (0.074s)
-> Starting subtest: background-color-yellow
-> Starting dynamic subtest: pipe-A-Virtual-1
-> Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.072s)
-> Subtest background-color-yellow: SUCCESS (0.073s)
-> Starting subtest: background-color-purple
-> Starting dynamic subtest: pipe-A-Virtual-1
-> Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.072s)
-> Subtest background-color-purple: SUCCESS (0.074s)
-> Starting subtest: background-color-cyan
-> Starting dynamic subtest: pipe-A-Virtual-1
-> Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.074s)
-> Subtest background-color-cyan: SUCCESS (0.074s)
-> Starting subtest: background-color-black
-> Starting dynamic subtest: pipe-A-Virtual-1
-> Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.072s)
-> Subtest background-color-black: SUCCESS (0.072s)
-> Starting subtest: background-color-white
-> Starting dynamic subtest: pipe-A-Virtual-1
-> Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.073s)
-> Subtest background-color-white: SUCCESS (0.074s)
-> 
-> * Radxa ROCK 5B (RK3588)
-> 
-> rock5b$ build/tests/kms_crtc_background_color --device drm:/dev/dri/card1
-> 
-> IGT-Version: 2.2-g3e4ec308e (aarch64) (Linux: 6.18.0-rc1 aarch64)
-> Using IGT_SRANDOM=1762774806 for randomisation
-> Opened device: /dev/dri/card1
-> Starting subtest: background-color-red
-> Starting dynamic subtest: pipe-C-DP-1
-> Dynamic subtest pipe-C-DP-1: SUCCESS (0.491s)
-> Subtest background-color-red: SUCCESS (0.493s)
-> Starting subtest: background-color-green
-> Starting dynamic subtest: pipe-C-DP-1
-> Dynamic subtest pipe-C-DP-1: SUCCESS (0.533s)
-> Subtest background-color-green: SUCCESS (0.535s)
-> Starting subtest: background-color-blue
-> Starting dynamic subtest: pipe-C-DP-1
-> Dynamic subtest pipe-C-DP-1: SUCCESS (0.541s)
-> Subtest background-color-blue: SUCCESS (0.544s)
-> Starting subtest: background-color-yellow
-> Starting dynamic subtest: pipe-C-DP-1
-> Dynamic subtest pipe-C-DP-1: SUCCESS (0.535s)
-> Subtest background-color-yellow: SUCCESS (0.537s)
-> Starting subtest: background-color-purple
-> Starting dynamic subtest: pipe-C-DP-1
-> Dynamic subtest pipe-C-DP-1: SUCCESS (0.536s)
-> Subtest background-color-purple: SUCCESS (0.538s)
-> Starting subtest: background-color-cyan
-> Starting dynamic subtest: pipe-C-DP-1
-> Dynamic subtest pipe-C-DP-1: SUCCESS (0.539s)
-> Subtest background-color-cyan: SUCCESS (0.541s)
-> Starting subtest: background-color-black
-> Starting dynamic subtest: pipe-C-DP-1
-> (kms_crtc_background_color:744) igt_pipe_crc-WARNING: Warning on condition all_zero in function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
-> (kms_crtc_background_color:744) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
-> (kms_crtc_background_color:744) igt_pipe_crc-WARNING: Warning on condition all_zero in function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
-> (kms_crtc_background_color:744) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
-> Dynamic subtest pipe-C-DP-1: SUCCESS (0.535s)
-> Subtest background-color-black: SUCCESS (0.537s)
-> Starting subtest: background-color-white
-> Starting dynamic subtest: pipe-C-DP-1
-> Dynamic subtest pipe-C-DP-1: SUCCESS (0.540s)
-> Subtest background-color-white: SUCCESS (0.542s)
-> 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
-> Changes in v7:
-> - Consistently put "({" on a separate line for all macro definitions
->   (Andy Shevchenko)
-> - Rebased series onto latest drm-misc-next
-> - Link to v6: https://lore.kernel.org/r/20260129-rk3588-bgcolor-v6-0-c15f755a4055@collabora.com
-> 
-> Changes in v6:
-> - Collected Acked-by & Reviewed-by tags from Andy S & Angelo
-> - Handled feedback from Andy Shevchenko
->   * Fixed up styling for __KERNEL_DIV_ROUND_CLOSEST() macro
->   * Made use of __GENMASK() helper in __DRM_ARGB64_PREP*() and
->     __DRM_ARGB64_GET*() definitions
->   * Introduced DRM_ARGB64_GET*_BPCS() as an alternative for
->     DRM_ARGB64_GET*_BPC() to help when performance is more important
->     than accuracy, e.g. used it along with FIELD_MODIFY() in the vop2
->     related patch to simplify a bit the bgcolor operations
-> - Link to v5: https://lore.kernel.org/r/20260127-rk3588-bgcolor-v5-0-b25aa8613211@collabora.com
-> 
-> Changes in v5:
-> - Collected Reviewed-by & Tested-by tags from Nícolas & Diederik
-> - Dumped background_color prop value in drm_atomic_crtc_print_state()
->   and updated comment in drm_crtc_state (Nícolas)
-> - Documented the reasons of not using the DRM_ARGB64_GET*_BPC() helpers
->   in vop2 related patch (Nícolas)
-> - Rebased series onto latest drm-misc-next
-> - Link to v4: https://lore.kernel.org/r/20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com
-> 
-> Changes in v4:
-> - Switched to simple bit-shifting approach when performing the bpc
->   conversion in the vop2 driver, to avoid the expensive division since
->   we shouldn't be concerned anymore about the precision (Chaoyi)
-> - Rebased series onto latest drm-misc-next
-> - Link to v3: https://lore.kernel.org/r/20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com
-> 
-> Changes in v3:
-> - Added new patches:
->   * uapi: Provide DIV_ROUND_CLOSEST()
->   * drm/vkms: Support setting custom background color
-> - Improved DRM_ARGB64_{PREP|GET}*() helpers by using a conversion ratio
->   for better color approximation when dealing with less than 16 bits of
->   precision
-> - Mentioned the IGT test in the cover letter while documenting the
->   validation results; also dropped references to the now useless
->   modetest wrapper script and its generated report
-> - Rebased series onto latest drm-misc-next
-> - Link to v2: https://lore.kernel.org/r/20251013-rk3588-bgcolor-v2-0-25cc3810ba8c@collabora.com
-> 
-> Changes in v2:
-> - Improved uAPI consistency and readability by introducing
->   DRM_ARGB64_PREP*() and DRM_ARGB64_GET*() helper macros
-> - Updated several code comment sections
-> - Referenced the counterpart Weston support in the cover letter
-> - Rebased series onto v6.18-rc1
-> - Link to v1: https://lore.kernel.org/r/20250902-rk3588-bgcolor-v1-0-fd97df91d89f@collabora.com
-> 
-> ---
-> Cristian Ciocaltea (4):
->       uapi: Provide DIV_ROUND_CLOSEST()
->       drm: Add CRTC background color property
->       drm/vkms: Support setting custom background color
->       drm/rockchip: vop2: Support setting custom background color
-> 
->  drivers/gpu/drm/drm_atomic.c                 |  1 +
->  drivers/gpu/drm/drm_atomic_state_helper.c    |  1 +
->  drivers/gpu/drm/drm_atomic_uapi.c            |  4 ++
->  drivers/gpu/drm/drm_blend.c                  | 39 ++++++++++++--
->  drivers/gpu/drm/drm_mode_config.c            |  6 +++
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 17 +++++-
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++
->  drivers/gpu/drm/vkms/vkms_composer.c         | 10 +++-
->  drivers/gpu/drm/vkms/vkms_crtc.c             |  3 ++
->  include/drm/drm_blend.h                      |  4 +-
->  include/drm/drm_crtc.h                       | 12 +++++
->  include/drm/drm_mode_config.h                |  5 ++
->  include/linux/math.h                         | 18 +------
->  include/uapi/drm/drm_mode.h                  | 80 ++++++++++++++++++++++++++++
->  include/uapi/linux/const.h                   | 18 +++++++
->  15 files changed, 197 insertions(+), 25 deletions(-)
-> ---
-> base-commit: cff3f89ffbdd4b6c43a117c01aaf5b290ff80803
-> change-id: 20250829-rk3588-bgcolor-c1a7b9a507bc
-
-Excellent, I still have the original patches in a branch somewhere for intel/display.
-Will rebase once this lands!
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
 
