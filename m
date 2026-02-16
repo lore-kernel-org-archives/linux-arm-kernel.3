@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6AAE63F15
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61426E63F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OBcscLS26I9pXFmQRb4l8F70oVnHQdJhzBnuN7PcUAw=; b=NbBkGrjLGK+yjb9JHNViwmgzoA
-	MWmDraLevKmUSYWTThqv6TJdpD2DQM463Gr+Da4aNJW3+Ha6kzPRwKS241RBxkpbndvEFtB3OkxpU
-	Hn9SPNCOPgmoLgaOYUZn87zLS3DfiDXTbygYCyliCufuCpRBdxrs2HI5m+aZZbOxrVy2Hvk/cBNg8
-	aXw5PCaAQH2hUX/ndlOG3plQEHrFTYjvW4eBVSKWSK7HRVWTSNQ/zSY8YUFxyHh53Ta+248+hpyY0
-	NUWUikzJpEZS6L8TNq3wdfYDzHGL3p7O4vgDVPlS5IxF6O6k1rDNN3SNVW20vfCKooZ5jUraboKfG
-	xZ/tt8MA==;
+	bh=Dr7SYaOF9GXxAXeybGVFfG2ihAip1K7nCSsuUvHDmsI=; b=dDD/+t32j8NjElgxY8NTxFjGcy
+	4nwWGHKs/ZQGdlM5c7MToIBj5LIFM2MzX1z7MejLH2GoirvlP5qEXSmBMgQTM5E4wGDrP3vDBCZYf
+	2MVPoneeQHu0QNNMrtRxyuYLNMZ5/MxEFNuoe+whAMiCKpkOZpSnN/LJfhmHeL3jGprUbvIljFisG
+	yNGN38x+KCZadZFo33ejYn7HXFnjGUAPvkH4I8NOYLq7v3D4yA408m11pCerrPBMB0rBOqeDkwilU
+	uG5vhjTPXEtIYNyzhz/0elijA7pARsqnhl4gdmKPp7XKInt4PWlfjCy23SVIHLH8i+Ma/KSYlzxzg
+	1zGM3xMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrypZ-00000006hCD-2n57;
-	Mon, 16 Feb 2026 13:40:05 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vrypd-00000006hGI-0IbD;
+	Mon, 16 Feb 2026 13:40:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrypL-00000006guI-0kZC;
+	id 1vrypZ-00000006hAd-0QLG;
+	Mon, 16 Feb 2026 13:40:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=Dr7SYaOF9GXxAXeybGVFfG2ihAip1K7nCSsuUvHDmsI=; b=SEcdPECnfB8mYuIxPAbbeY6DdH
+	c2NRf07n3MphUAWVZQurJH8zYs0/FS5Qe2K2L9EImPlxzGGxy6wP0NAswy/EKYWbNky/SVoUOdfGB
+	sWre0C50438ls+92vkzGoeNQ3su9cBtQRvquYoTbq9AVtwR33QB0/N0pZC+CK/q9U9DZA0MzyHbpx
+	1w5/9jtrLfffunGDnVusAq0XTbdFHi9eMR+uA7mOPYqAzaO14qGLyuYeVfnDkieiGv1RDEJd3T6u2
+	twnlb/cQ1AteQZBESYrBOz46CoovrD4tC7dEAApXSh9mnD/stixa6zv7N28gOMnDLc5Z55u25Io4A
+	PeIMmYPQ==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vrypW-0000000EajO-05sV;
 	Mon, 16 Feb 2026 13:40:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1771249181; cv=none; 
+ARC-Seal: i=1; a=rsa-sha256; t=1771249191; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=BwLFqHe4h80X9AQAhAD44ntMuzOIjoNMXRkoU7u/c13R9qHUmwwC/cCjSDl2czWf50kQ1TboICkYsdmAIsH631ewiMHVRNw38LOoFgR/894ula3L/C1HSKQP+rzWtWBDDa4bH7xY1aUJ5Mo79aNcDeWJZoQJC7nEANQmVEGtN5o=
+	b=lD44U5X9ceF+W29/O91HBv2y0yPznpqIbV52iusZausTsHWnMNrfP+3TeBZA6P1siwDujz1tSEY0bLb72aZEoWpIj4pjCNoYW8aWyN4QGH4PmzXZxpqdKTJDm9G27KzeFOcDZd0nuU4iRnVUpaAT6oWcg0sOidNiIbguqTtb+9E=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1771249181; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=OBcscLS26I9pXFmQRb4l8F70oVnHQdJhzBnuN7PcUAw=; 
-	b=jtIAbi0WddfZ86wOz/cIcbxqV75U1yenIvNdkNfdgskskxj8ICCVC3ClSiBSzX69WN8XeTVz8X7m55c+639iNo87RvaLdRs9iYRYfjgHPuG6ISKaIFVhJ4GLh3hkwp/Ryqoe7H89IPi7XiiS8sOz0qY0Wtf5qTWimnPzzugesTE=
+	t=1771249191; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Dr7SYaOF9GXxAXeybGVFfG2ihAip1K7nCSsuUvHDmsI=; 
+	b=RzikIAYg39vK3nUL0rqfYTA5fzj6KpC/Hjo0Ijkd5cz+daAxm2Z5QgOxgNcKocD7x6fpdoxK4TCQ5wXRio6pyGcoePewvPcciViNpoabYZLsMxc2MqURzpys1nWDPLwnDfXsYNFLjVOWihqm59KaeofQKQr0tS3ldUsLYybBMNE=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771249181;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771249191;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=OBcscLS26I9pXFmQRb4l8F70oVnHQdJhzBnuN7PcUAw=;
-	b=VxFrARBiZKk40bXL0vpC4hrjG0oY3YNBvhMIUchcgXmf0sfpCpt7C3TUzkkFIErN
-	x48rkfg1ky3AzF/1bNt9KzL64yBcFNTL1VJqhYZqN5nSXwe93i1Y/Qrmtxmzf7Xdr3r
-	IrUuc17VLIDLSoEwCJv5s84KT3yDCqld39c0vpWk=
-Received: by mx.zohomail.com with SMTPS id 1771249180052299.86592692832426;
-	Mon, 16 Feb 2026 05:39:40 -0800 (PST)
+	bh=Dr7SYaOF9GXxAXeybGVFfG2ihAip1K7nCSsuUvHDmsI=;
+	b=gLUmmrtPoRhW+3abmcD9zkyePJlu7ZQwzG6ZAOAmReaP6yLz6+v/Amn3a+6ECCJo
+	a4NH5C2bc7NV3t9+IdDtAIDueI+zB0CvCGuKHYgY9X8xZdi50KTuvFEc/uKqYRCW6Vh
+	dyQELbazH45CAeI8hsf434UMsEL/FFPjB6g1qWy4=
+Received: by mx.zohomail.com with SMTPS id 177124919098161.743674467581286;
+	Mon, 16 Feb 2026 05:39:50 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 16 Feb 2026 14:37:51 +0100
-Subject: [PATCH v7 18/23] scsi: ufs: mediatek: Don't acquire dvfsrc-vcore
- twice
+Date: Mon, 16 Feb 2026 14:37:53 +0100
+Subject: [PATCH v7 20/23] scsi: ufs: mediatek: Back up idle timer in
+ per-instance struct
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260216-mt8196-ufs-v7-18-b5f2907c6da7@collabora.com>
+Message-Id: <20260216-mt8196-ufs-v7-20-b5f2907c6da7@collabora.com>
 References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
 In-Reply-To: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -78,8 +92,8 @@ Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_053951_396028_38214F3B 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20260216_134002_517080_4486744F 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,255 +108,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As part of its featureset, the ufs-mediatek driver needs to play with an
-optional dvfsrc-vcore regulator for some of them.
+The MediaTek UFS driver uses a function-scope static variable to back up
+a hardware register across a power change in the
+ufs_mtk_pwr_change_notify function. This is dangerous, as it's only
+correct if only ever one instance of the driver is loaded, which isn't
+true if there's more than one device on a SoC that needs it, or it
+otherwise gets loaded a second time.
 
-However, it currently does this by acquiring two different references to
-it in two different places, needlessly duplicating logic.
+Back it up into a member of the host struct instead, as this struct is
+per-instance. Rework the function to not use a pointless "ret" local as
+well.
 
-Move reg_vcore to the host struct, acquire it in the same function as
-avdd09 is acquired, and rework the users of reg_vcore.
-
+Fixes: f5ca8d0c7a63 ("scsi: ufs: host: mediatek: Disable auto-hibern8 during power mode changes")
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 73 +++++++++++++++++++----------------------
- drivers/ufs/host/ufs-mediatek.h |  3 +-
- 2 files changed, 34 insertions(+), 42 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 20 ++++++++------------
+ drivers/ufs/host/ufs-mediatek.h |  1 +
+ 2 files changed, 9 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index b5c75d228c85..e39412d59847 100644
+index ee677af6c700..046e2f9bb6c7 100644
 --- a/drivers/ufs/host/ufs-mediatek.c
 +++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -519,15 +519,13 @@ static void ufs_mtk_boost_crypt(struct ufs_hba *hba, bool boost)
+@@ -1398,28 +1398,24 @@ static int ufs_mtk_pwr_change_notify(struct ufs_hba *hba,
+ 				const struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
  {
- 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
- 	struct ufs_mtk_crypt_cfg *cfg;
--	struct regulator *reg;
- 	int volt, ret;
+-	int ret = 0;
+-	static u32 reg;
++	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
  
--	if (!ufs_mtk_is_boost_crypt_enabled(hba))
-+	if (!ufs_mtk_is_boost_crypt_enabled(hba) || !host->reg_vcore)
- 		return;
- 
- 	cfg = host->crypt;
- 	volt = cfg->vcore_volt;
--	reg = cfg->reg_vcore;
- 
- 	ret = clk_prepare_enable(cfg->clk_crypt_mux);
- 	if (ret) {
-@@ -537,7 +535,7 @@ static void ufs_mtk_boost_crypt(struct ufs_hba *hba, bool boost)
- 	}
- 
- 	if (boost) {
--		ret = regulator_set_voltage(reg, volt, INT_MAX);
-+		ret = regulator_set_voltage(host->reg_vcore, volt, INT_MAX);
- 		if (ret) {
- 			dev_err(hba->dev, "%s: Failed to set vcore to %d: %pe\n",
- 				__func__, volt, ERR_PTR(ret));
-@@ -548,7 +546,7 @@ static void ufs_mtk_boost_crypt(struct ufs_hba *hba, bool boost)
- 		if (ret) {
- 			dev_err(hba->dev, "%s: Failed to reparent clk_crypt_perf: %pe\n",
- 				__func__, ERR_PTR(ret));
--			regulator_set_voltage(reg, 0, INT_MAX);
-+			regulator_set_voltage(host->reg_vcore, 0, INT_MAX);
- 			goto out;
+ 	switch (stage) {
+ 	case PRE_CHANGE:
+ 		if (ufshcd_is_auto_hibern8_supported(hba)) {
+-			reg = ufshcd_readl(hba, REG_AUTO_HIBERNATE_IDLE_TIMER);
++			host->hibernate_idle_timer = ufshcd_readl(
++				hba, REG_AUTO_HIBERNATE_IDLE_TIMER);
+ 			ufs_mtk_auto_hibern8_disable(hba);
  		}
- 	} else {
-@@ -559,7 +557,7 @@ static void ufs_mtk_boost_crypt(struct ufs_hba *hba, bool boost)
- 			goto out;
- 		}
- 
--		ret = regulator_set_voltage(reg, 0, INT_MAX);
-+		ret = regulator_set_voltage(host->reg_vcore, 0, INT_MAX);
- 		if (ret) {
- 			dev_err(hba->dev, "%s: Failed to set vcore to minimum: %pe\n",
- 				__func__, ERR_PTR(ret));
-@@ -576,15 +574,12 @@ static void ufs_mtk_init_boost_crypt(struct ufs_hba *hba)
- 	struct device *dev = hba->dev;
- 	int ret;
- 
--	cfg = devm_kzalloc(dev, sizeof(*cfg), GFP_KERNEL);
--	if (!cfg)
-+	if (!host->reg_vcore)
- 		return;
- 
--	cfg->reg_vcore = devm_regulator_get_optional(dev, "dvfsrc-vcore");
--	if (IS_ERR(cfg->reg_vcore)) {
--		dev_err(dev, "Failed to get dvfsrc-vcore: %pe", cfg->reg_vcore);
-+	cfg = devm_kzalloc(dev, sizeof(*cfg), GFP_KERNEL);
-+	if (!cfg)
- 		return;
--	}
- 
- 	ret = of_property_read_u32(dev->of_node, "mediatek,boost-crypt-vcore-min",
- 				   &cfg->vcore_volt);
-@@ -889,7 +884,6 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
- 	struct list_head *head = &hba->clk_list_head;
- 	struct ufs_clk_info *clki, *clki_tmp;
- 	struct device *dev = hba->dev;
--	struct regulator *reg;
- 	u32 volt;
- 
- 	/*
-@@ -930,16 +924,8 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
- 		return;
+-		ret = ufs_mtk_pre_pwr_change(hba, dev_max_params,
+-					     dev_req_params);
+-		break;
++		return ufs_mtk_pre_pwr_change(hba, dev_max_params, dev_req_params);
+ 	case POST_CHANGE:
+ 		if (ufshcd_is_auto_hibern8_supported(hba))
+-			ufshcd_writel(hba, reg, REG_AUTO_HIBERNATE_IDLE_TIMER);
+-		break;
+-	default:
+-		ret = -EINVAL;
+-		break;
++			ufshcd_writel(hba, host->hibernate_idle_timer,
++				      REG_AUTO_HIBERNATE_IDLE_TIMER);
++		return 0;
  	}
  
--	/*
--	 * Default get vcore if dts have these settings.
--	 * No matter clock scaling support or not. (may disable by customer)
--	 */
--	reg = devm_regulator_get_optional(dev, "dvfsrc-vcore");
--	if (IS_ERR(reg)) {
--		if (PTR_ERR(reg) != -ENODEV)
--			dev_err(dev, "Failed to get dvfsrc-vcore: %pe\n", reg);
-+	if (!host->reg_vcore)
- 		return;
--	}
- 
- 	if (of_property_read_u32(dev->of_node, "clk-scale-up-vcore-min",
- 				 &volt)) {
-@@ -947,12 +933,11 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
- 		return;
- 	}
- 
--	host->mclk.reg_vcore = reg;
- 	host->mclk.vcore_volt = volt;
- 
- 	/* If default boot is max gear, request vcore */
--	if (reg && volt && host->clk_scale_up)
--		if (regulator_set_voltage(reg, volt, INT_MAX))
-+	if (volt && host->clk_scale_up)
-+		if (regulator_set_voltage(host->reg_vcore, volt, INT_MAX))
- 			dev_err(hba->dev, "Failed to set vcore to %d\n", volt);
+-	return ret;
++	return -EINVAL;
  }
  
-@@ -1064,6 +1049,17 @@ static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
- 	const struct ufs_mtk_soc_data *data = of_device_get_match_data(dev);
- 	int ret;
- 
-+	host->reg_vcore = devm_regulator_get_optional(dev, "dvfsrc-vcore");
-+	if (IS_ERR(host->reg_vcore)) {
-+		if (PTR_ERR(host->reg_vcore) != -ENODEV) {
-+			dev_err(dev, "Failed to get dvfsrc-vcore supply: %pe\n",
-+				host->reg_vcore);
-+			return PTR_ERR(host->reg_vcore);
-+		}
-+
-+		host->reg_vcore = NULL;
-+	}
-+
- 	if (!data)
- 		return 0;
- 
-@@ -1081,14 +1077,13 @@ static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
- 
- 	host->reg_avdd09 = devm_regulator_get_optional(dev, "avdd09");
- 	if (IS_ERR(host->reg_avdd09)) {
--		if (PTR_ERR(host->reg_avdd09) == -ENODEV) {
--			host->reg_avdd09 = NULL;
--			return 0;
-+		if (PTR_ERR(host->reg_avdd09) != -ENODEV) {
-+			dev_err(dev, "Failed to get avdd09 regulator: %pe\n",
-+				host->reg_avdd09);
-+			return PTR_ERR(host->reg_avdd09);
- 		}
- 
--		dev_err(dev, "Failed to get avdd09 regulator: %pe\n",
--			host->reg_avdd09);
--		return PTR_ERR(host->reg_avdd09);
-+		host->reg_avdd09 = NULL;
- 	}
- 
- 	return 0;
-@@ -1119,6 +1114,10 @@ static int ufs_mtk_init(struct ufs_hba *hba)
- 	host->hba = hba;
- 	ufshcd_set_variant(hba, host);
- 
-+	err = ufs_mtk_get_supplies(host);
-+	if (err)
-+		goto out_variant_clear;
-+
- 	/* Initialize host capability */
- 	ufs_mtk_init_host_caps(hba);
- 
-@@ -1173,10 +1172,6 @@ static int ufs_mtk_init(struct ufs_hba *hba)
- 
- 	ufs_mtk_init_clocks(hba);
- 
--	err = ufs_mtk_get_supplies(host);
--	if (err)
--		goto out_phy_exit;
--
- 	/*
- 	 * ufshcd_vops_init() is invoked after
- 	 * ufshcd_setup_clock(true) in ufshcd_hba_init() thus
-@@ -1916,7 +1911,6 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 	struct ufs_mtk_clk *mclk = &host->mclk;
- 	struct ufs_clk_info *clki = mclk->ufs_sel_clki;
- 	struct ufs_clk_info *fde_clki = mclk->ufs_fde_clki;
--	struct regulator *reg;
- 	int volt, ret = 0;
- 	bool clk_bind_vcore = false;
- 	bool clk_fde_scale = false;
-@@ -1927,9 +1921,8 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 	if (!clki || !fde_clki)
- 		return;
- 
--	reg = host->mclk.reg_vcore;
- 	volt = host->mclk.vcore_volt;
--	if (reg && volt != 0)
-+	if (host->reg_vcore && volt)
- 		clk_bind_vcore = true;
- 
- 	if (mclk->ufs_fde_max_clki && mclk->ufs_fde_min_clki)
-@@ -1953,7 +1946,7 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 
- 	if (scale_up) {
- 		if (clk_bind_vcore) {
--			ret = regulator_set_voltage(reg, volt, INT_MAX);
-+			ret = regulator_set_voltage(host->reg_vcore, volt, INT_MAX);
- 			if (ret) {
- 				dev_err(hba->dev, "Failed to set vcore to %d\n", volt);
- 				goto out;
-@@ -1993,7 +1986,7 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 		}
- 
- 		if (clk_bind_vcore) {
--			ret = regulator_set_voltage(reg, 0, INT_MAX);
-+			ret = regulator_set_voltage(host->reg_vcore, 0, INT_MAX);
- 			if (ret) {
- 				dev_err(hba->dev, "%s: Failed to set vcore to minimum: %pe\n",
- 					__func__, ERR_PTR(ret));
+ static int ufs_mtk_unipro_set_lpm(struct ufs_hba *hba, bool lpm)
 diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
-index 9c377745f7a0..fa27ab4d6d6c 100644
+index fa27ab4d6d6c..e5a3f70e7024 100644
 --- a/drivers/ufs/host/ufs-mediatek.h
 +++ b/drivers/ufs/host/ufs-mediatek.h
-@@ -141,7 +141,6 @@ enum ufs_mtk_host_caps {
- };
+@@ -187,6 +187,7 @@ struct ufs_mtk_host {
+ 	u16 ref_clk_gating_wait_us;
+ 	u32 ip_ver;
+ 	bool legacy_ip_ver;
++	u32 hibernate_idle_timer;
  
- struct ufs_mtk_crypt_cfg {
--	struct regulator *reg_vcore;
- 	struct clk *clk_crypt_perf;
- 	struct clk *clk_crypt_mux;
- 	struct clk *clk_crypt_lp;
-@@ -155,7 +154,6 @@ struct ufs_mtk_clk {
- 	struct ufs_clk_info *ufs_fde_clki; /* Mux */
- 	struct ufs_clk_info *ufs_fde_max_clki; /* Max src */
- 	struct ufs_clk_info *ufs_fde_min_clki; /* Min src */
--	struct regulator *reg_vcore;
- 	int vcore_volt;
- };
- 
-@@ -174,6 +172,7 @@ struct ufs_mtk_mcq_intr_info {
- struct ufs_mtk_host {
- 	struct phy *mphy;
- 	struct regulator *reg_avdd09;
-+	struct regulator *reg_vcore;
- 	struct reset_control_bulk_data resets[MTK_UFS_NUM_RESETS];
- 	struct ufs_hba *hba;
- 	struct ufs_mtk_crypt_cfg *crypt;
+ 	bool mcq_set_intr;
+ 	bool is_mcq_intr_enabled;
 
 -- 
 2.53.0
