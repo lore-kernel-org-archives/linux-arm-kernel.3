@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7D6E63F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 09:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E1EEF48D4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 09:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2vy6a1Meu+skf7rOG8rJ02x19jQsoOB+N+i06OG6jo=; b=t3CZfk0IObqB+CIYwWuRbKcDKn
-	Scm4JL0fh8jTZZtw67NcDvFJBEOnqEeNh8oTH+Ehl8209r3DbRpEWbo+nUFZfUL02xg7qX/LGbXGa
-	fZsNxaVse8tyVthi5wxOonRNHr5T+KHucngLBTp8deeEDIuCrt2MV275hkIQuR4SPD79LrvA5cJxJ
-	yHxUeAOUzJWGpKZaGnZpHRAv3IuFohK5vM6+Dnbfs+E5ZrrFiSh+U30n5E2l81//7g06cmGt4vH6G
-	8eSG45DApqvdXIV+rjiABPzkh257T10Xmd1HzCeWvx3TEVSJNdhV0rWfb/c/u0/CcQXneN4jjpBr0
-	bDNGCWTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y0P3/8AmZhIee9lYLx9bmxzl6xhHUp56M6HvqyzjpOM=; b=qYghtlSiEgq1KVLF4xzXQU95cT
+	lnCW472HCshewb2qKTvD2ptxX+JDQIqvfSP7rS9ChZ1PK3wcvUrjh77bnsMq1KXlRmJqvf4Jc3HlS
+	Pd5nVRXJtFYTA/lP1cnkXWG2c0duIG0e0QSr38iMa2gAFuZ11KIESPBXIPdFawuWKP6Xw7Yc/paYM
+	g9BNt3VBaonz9JpCd21RD3lYAXGuGzlr3udAIPfgb9cxmNA9pij20j1DDHNObJelP5BDFcq14R1Pc
+	qeb5/6ZY65rXsrABYXPVdJkh/3z1aJVghngJWGWn7/2VyzaDliBc5yTzIawVySeL0LNqfLWXLVJll
+	jk5tgcJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vruqB-00000006GgI-2zV8;
-	Mon, 16 Feb 2026 09:24:27 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1vruxK-00000006HCx-1vx6;
+	Mon, 16 Feb 2026 09:31:50 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vruq9-00000006Gfw-0dI2
+	id 1vruxH-00000006HCc-1e1i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 09:24:26 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4fDy5R1Rxqz9tVQ;
-	Mon, 16 Feb 2026 10:24:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1771233851;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=x2vy6a1Meu+skf7rOG8rJ02x19jQsoOB+N+i06OG6jo=;
-	b=VATDK8RJSlC2sJH92HI3+Xk72/x56bq1logEqJaAjaGfbVTFDoqdqEEVJyGNMxIZoODhNy
-	c3eE1WaySM1Kdvks+bvwiLBIt9hjoBmJTXLZEESlvEhzNvu/OB5vTVGbsCzqr779/j+UPn
-	YRaVzcu1RhRq2oZ4qOkJFJPKi3kFtpZnPfTUMNC8wdmqg9yY2ajeEu1+OuwQBIcHD5qNRI
-	uIIqfutbvd6YMH892tkQqrw4Ynka/UNeLGJjanx7RLglG+XMkzwDPe2Zzs7zZjXtZAggj5
-	lCNYEA3j+Alg39iq6OAVvW8AgSULz3cGOrXSmU7r+tkPHjPnqSBLhBmYahv35w==
-Date: Mon, 16 Feb 2026 10:23:59 +0100
-From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
- <andrew@lunn.ch>
-Subject: Re: [net-next v23 2/7] net: mtip: The L2 switch driver for imx287
-Message-ID: <20260216102359.37586219@wsk>
-In-Reply-To: <20260206112454.2e9a686f@wsk>
-References: <20260204232135.1024665-1-lukasz.majewski@mailbox.org>
-	<20260204232135.1024665-3-lukasz.majewski@mailbox.org>
-	<20260205182805.196fd832@kernel.org>
-	<20260206112454.2e9a686f@wsk>
-Organization: mailbox.org
+	Mon, 16 Feb 2026 09:31:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1771234307; x=1802770307;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=VqmQ8cU6ecdNri2hd0MgTCwaRZCbGcpQt8oiFnMymNw=;
+  b=A0SObN7GmV88on03iEM6FR/u07468FOv0+i6yf34T6igxVQS6DJIi1kn
+   GO6EhG9J7Kp95I4POd6KtBGLTGT4jskfeSLuBphT/zW6hnuiV/iiRM8SS
+   VMwNFwOLcOql6HPislCJC7bgC/6wwGxdNVN//rMRdi/pl+4fc3SZ5obFM
+   WHOq0TlVev7RGXYWwOU44Y0IB0vxNEQz/xPnb68s+fM9oReqiI4prt+Mw
+   WXbR6sHNTFhehkTIBodWKUvGWxwJPiqejnRwazb8mPbS2pP6bJKToloG5
+   4HaZ8wTWlFtvZQF4Yvb8pwfMbem+X0hj5mEArCwJ+2nccuZv+m6a8xqUQ
+   A==;
+X-CSE-ConnectionGUID: rYy/RkxYRyiwoItl/pZ1SQ==
+X-CSE-MsgGUID: 3HUwvsn/RDWRumL0xNdeIA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11702"; a="72355166"
+X-IronPort-AV: E=Sophos;i="6.21,293,1763452800"; 
+   d="scan'208";a="72355166"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Feb 2026 01:31:46 -0800
+X-CSE-ConnectionGUID: taENNqnyRY+eGYUhBVdZnw==
+X-CSE-MsgGUID: XKK/X2j2Qx6WHX3pf0yeTw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,293,1763452800"; 
+   d="scan'208";a="218104475"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.188])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Feb 2026 01:31:43 -0800
+Date: Mon, 16 Feb 2026 11:31:41 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Marcus Folkesson <marcus.folkesson@gmail.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 1/5] i2c: core: add callback to change bus frequency
+Message-ID: <aZLj_dGXOPzp4tMz@smile.fi.intel.com>
+References: <20260213-i2c-mux-v5-0-fb2cbf9979b3@gmail.com>
+ <20260213-i2c-mux-v5-1-fb2cbf9979b3@gmail.com>
+ <aY8HfN3c3qcVbOJj@black.igk.intel.com>
+ <aZLhuIfP7rh7o3MH@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-MBO-RS-ID: 251ff2ea1f4baad21a7
-X-MBO-RS-META: z4bao4g3s7pd9hey7cm8gwcj5wtksdmj
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aZLhuIfP7rh7o3MH@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_012425_350784_3D743CB1 
-X-CRM114-Status: GOOD (  23.18  )
+X-CRM114-CacheID: sfid-20260216_013147_528958_15984509 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,56 +94,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+On Mon, Feb 16, 2026 at 10:22:00AM +0100, Marcus Folkesson wrote:
+> On Fri, Feb 13, 2026 at 12:14:04PM +0100, Andy Shevchenko wrote:
+> > On Fri, Feb 13, 2026 at 12:06:50PM +0100, Marcus Folkesson wrote:
+> > > All devices on the same I2C bus share the same clock line and the bus
+> > > frequency has therefor be chosen so that all attached devices are able
+> > > to tolarate that clock rate. IOW, the bus speed must be set for the
+> > > slowest attached device.
+> > > 
+> > > With I2C multiplexers/switches on the other hand, it would be possible
+> > > to have different "domains" that runs with different speeds.
+> > > 
+> > > Prepare for such a feature by provide an optional callback function to
+> > > change bus frequency.
 
-> Hi Jakub,
->=20
-> > On Thu,  5 Feb 2026 00:21:30 +0100 Lukasz Majewski wrote: =20
-> > > This patch series provides support for More Than IP L2 switch
-> > > embedded in the imx287 SoC.
-> > >=20
-> > > This is a two port switch (placed between uDMA[01] and
-> > > MAC-NET[01]), which can be used for offloading the network
-> > > traffic.
-> > >=20
-> > > It can be used interchangeably with current FEC driver - to be
-> > > more specific: one can use either of it, depending on the
-> > > requirements.
-> > >=20
-> > > The biggest difference is the usage of DMA - when FEC is used,
-> > > separate DMAs are available for each ENET-MAC block.
-> > > However, with switch enabled - only the DMA0 is used to
-> > > send/receive data to/form switch (and then switch sends them to
-> > > respecitive ports).
-> > >=20
-> > > Signed-off-by: Lukasz Majewski <lukasz.majewski@mailbox.org>
-> > > Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-> > > Reviewed-by: Andrew Lunn <andrew@lunn.ch>   =20
-> >=20
-> > Transient build failure here:
-> >=20
-> > drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c:1072:32: warning:
-> > variable =E2=80=98priv=E2=80=99 set but not used [-Wunused-but-set-vari=
-able] 1072 |
-> >       struct mtip_ndev_priv *priv; |
-> > ^~~~
-> >=20
-> > I sent out the AI code reviews while at it, without looking at them.
-> > So please approach them with caution.. =20
->=20
-> IMHO, issues pointed with AI review have been at discussed and
-> (to my best knowledge) addressed.
->=20
-> Shall I prepare next version of this patch set?
->=20
+...
 
-I'm a bit confused regarding the next steps for this driver.
+> > > struct i2c_adapter {
+> > 
+> > > +	int clock_hz;
+> > 
+> > Why signed? Even inconsistent with the parameter of the below.
+> > 
+> > > +	int (*set_clk_freq)(struct i2c_adapter *adap, u32 clock_hz); /* Optional */
+> > 
+> > It's already a huge struct, can we make this compile-time chosen
+> > (when I²C muxes are not required, for example)?
+> 
+> Hrm, many bus drivers (k1, jz4780, stm32 to mention a few) already have
+> the clock value stored in their private data, so maybe it is better to
+> have this value in a uniform place in the i2c_adapter struct and make
+> those drivers use it instead?
 
-There was no reply regarding my last question - and I don't know how I
-shall proceed...
+Perhaps say it clearly in the commit message? It seems that commit message
+currently focused on I²C mux.
 
---=20
-Best regards,
+-- 
+With Best Regards,
+Andy Shevchenko
 
-=C5=81ukasz Majewski
+
 
