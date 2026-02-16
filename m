@@ -4,55 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9AD0E7BD8F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 10:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64103E7BD91
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 11:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=et0M9QIeKYJpMWLDuEx7jjkufYlirGMPzyVJS1cazuA=; b=hPD/LanavD/HGj0XFKzb+yGO5u
-	BRMmJ8SIJmYLGxSLIgKDRfUum5kBtiEUgUEyjYHFDh5284Qk+7sbbG0FRyJwsY7fnaxmCwIVYERpi
-	xDKABiAvyXvP/zKZ4bdMcD8M9K7bRLYjQiAnoblLsa5KMPp7kDTi+IjKnx5Kqxxv7DcGwIlB27hmp
-	HUI4qglflPfnCdnK/MLtoD3ltt+WQzBMFe3o72DEJyFFPUbhEvocs6Bg1aEr/ReWtsRVS2Tz2I/W4
-	/U2jXEXqo/z9Tkp/rCb1SoZymBLNbgi88U1tEkOtPd3QZ1I0Ub7VExTEZwbOnOM0esWTIV9NoLEgX
-	fJkoRcGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gn2cR0H1VaG37ZT27PlZVPTmATrjKTqR6VuyqOFczKY=; b=S2E3eMKMg9X5YBjwJWFSNbD4Dy
+	d/LkqgNe1j7an1pofw8eiWrE1hX3sf3N4Ezq0bbm4bR09z3JxHUZx2HK980t/9bwY5IUrP+VuDrnw
+	uSVKvrxyaL8A/kRN4pm1uxxNSiGvkfI/BUSdHxQ6ioxkN+WLoMuGTzTGNTbbt9uAD2h2uz/mTCw4e
+	00bS1AJU0tBLJtBqQp/ghOptz3Q95fdox3JNuINH/JOXh5SAeolxlXbQ64JMaXf07dXoTlH66vDy8
+	YDlGvIbZcmgcrXMZ+DiWM7eKLt6MR74nWqxNXobsHhcoNdZMgMrmMF+0RQ4tGHvUsijXI0xWTcWTG
+	G14TSMKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwJy-00000006OYS-38Kp;
-	Mon, 16 Feb 2026 10:59:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwJv-00000006OXf-0e15
+	id 1vrwLm-00000006Om5-0qIy;
+	Mon, 16 Feb 2026 11:01:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vrwLi-00000006OlB-3ztD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 10:59:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 666D11570;
-	Mon, 16 Feb 2026 02:59:06 -0800 (PST)
-Received: from [10.164.19.71] (unknown [10.164.19.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 640983F632;
-	Mon, 16 Feb 2026 02:59:10 -0800 (PST)
-Message-ID: <d2eb1116-44e8-4e55-bb09-e8d9af5787c6@arm.com>
-Date: Mon, 16 Feb 2026 16:29:07 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Mon, 16 Feb 2026 11:01:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8EA3844556;
+	Mon, 16 Feb 2026 11:01:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98832C19422;
+	Mon, 16 Feb 2026 11:01:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771239664;
+	bh=1aGpBeh4uTB95EnMRTLPvZfsnZO0+woMT4b5vKXb9oE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pdcz32uZUn9hgWq5Qk5Iruwxvu9Zmrvzsq+r/JIlJLbneE8xoBTfr4aj6UZoS1ymu
+	 EXpOXsFcYyvGEXZWH5XGJugsQmslOztNOyJ/T9qZEzKUX6pjCms1Qk0+gl/BLDfwei
+	 FOHVHRbdxNWXqKbA219UQKpQfGTvz6zHcp5Hu8WroHijRa7+DL76tCbDzHzR3kJPpy
+	 mYg50NjO3nhBjMzz2QQ3wjol4L73oHB2zaB3Xk8Srhh3k2u1vWuSWgr6W1f564Z41o
+	 jgK5yOOXhY7ccMRm6oiAEQDFLMX7g7hxIBdUtLrd/FCNNMYzDUVFJVzbH7KEFWnRKx
+	 ks9+0uyPSkoUQ==
+Date: Mon, 16 Feb 2026 11:00:59 +0000
+From: Will Deacon <will@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@gentwo.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, maz@kernel.org
 Subject: Re: [PATCH] arm64: remove HAVE_CMPXCHG_LOCAL
-To: Jisheng Zhang <jszhang@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
- Christoph Lameter <cl@gentwo.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
+Message-ID: <aZL46z1UZkQlF3Dd@willie-the-truck>
 References: <20260215033944.16374-1-jszhang@kernel.org>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 In-Reply-To: <20260215033944.16374-1-jszhang@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_025915_802277_F0AC26EB 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20260216_030107_030278_278E7ECF 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,40 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 15/02/26 9:09 am, Jisheng Zhang wrote:
+On Sun, Feb 15, 2026 at 11:39:44AM +0800, Jisheng Zhang wrote:
 > It turns out the generic disable/enable irq this_cpu_cmpxchg
 > implementation is faster than LL/SC or lse implementation. Remove
 > HAVE_CMPXCHG_LOCAL for better performance on arm64.
->
+> 
 > Tested on Quad 1.9GHZ CA55 platform:
 > average mod_node_page_state() cost decreases from 167ns to 103ns
 > the spawn (30 duration) benchmark in unixbench is improved
 > from 147494 lps to 150561 lps, improved by 2.1%
->
+> 
 > Tested on Quad 2.1GHZ CA73 platform:
 > average mod_node_page_state() cost decreases from 113ns to 85ns
 > the spawn (30 duration) benchmark in unixbench is improved
 > from 209844 lps to 212581 lps, improved by 1.3%
->
+> 
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
-
-Thanks. This concurs with my investigation on [1]. The problem
-isn't really LL/SC/LSE but preempt_disable()/enable() in
-this_cpu_* [1, 2].
-
-I think you should only remove the selection of the config,
-but keep the code? We may want to switch this on again if
-the real issue gets solved.
-
-[1] https://lore.kernel.org/all/5a6782f3-d758-4d9c-975b-5ae4b5d80d4e@arm.com/
-[2] https://lore.kernel.org/all/CAHbLzkpcN-T8MH6=W3jCxcFj1gVZp8fRqe231yzZT-rV_E_org@mail.gmail.com/
-
 >  arch/arm64/Kconfig              |  1 -
 >  arch/arm64/include/asm/percpu.h | 24 ------------------------
 >  2 files changed, 25 deletions(-)
->
+
+That is _entirely_ dependent on the system, so this isn't the right
+approach. I also don't think it's something we particularly want to
+micro-optimise to accomodate systems that suck at atomics.
+
+Will
+
 > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
 > index 38dba5f7e4d2..5e7e2e65d5a5 100644
 > --- a/arch/arm64/Kconfig
@@ -148,4 +148,7 @@ the real issue gets solved.
 >  
 >  #ifdef __KVM_NVHE_HYPERVISOR__
 >  extern unsigned long __hyp_per_cpu_offset(unsigned int cpu);
+> -- 
+> 2.51.0
+> 
 
