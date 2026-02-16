@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053FBE63F3A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25002E63F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qpkkB5OZYTVJgaH3nRReFm4mkj/OQlGpcp/GRne8VYw=; b=J57deZpjRIgZ2iK8msWzyri5GF
-	9CvJESH9XaCkqETOFeMNaotIuSwDVmB55XYXi7YxL0T5l0HTM+Pn2ksELpApZZAW662Zw7n1Z8TIl
-	5asHvnYdzvOyyLbJakhTInRFmah834iqvQHMbhndBbvfxiX8cA6la5X1ga8eXBxB/Mcf6CmdL/wC3
-	Z0zC8SDPTeoRYGojxsebYiG16Xgl827zjQ8TfXrsGS6QYI7j9gFgRSMBjXR08Kn6V1rEggfzAkGoo
-	sBdvc6mIvd5YoPIs3OMPhViHJguEq621WLznJ/ILdvc/hVJYvgwN7Byqy5fEM32M00HM+/BT9ilTe
-	oeRzeYHg==;
+	bh=5SX/d54PXDjewqxCGR18EtEsbX5HuHmXdDmZUtDAJKY=; b=CQGf3RIpSCsr83to4VYJGkIVD0
+	f776lKL/ZweHXF43OTETMEhtWouxBx811jMrE+w6gWz0IGiHEhTX2GXRsBTwS5eDSM5iB+oqX0QZy
+	yMiKT0yiuqfuWMt54GHR8TQ6ELMrkxwMSRXEJyKbqomeN/1JlC4j9Xcx9wyythGOzD37WK08TkzMK
+	irHRjLwejR6bt8tbQk2kRf2kEayrlS9FPC6LYL9oHc1ueq3WWvFko3PP8XncWAYlKPCse47VXpjPn
+	rzP62FVsGTy8c4baVWWrp4cMhcBqMBKSA560AL1J8MlnQFxIVjcwEkfreljDclgWdOM9mOapjVgCF
+	UOtCk4FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtyl-000000068ug-1TuU;
-	Mon, 16 Feb 2026 08:29:16 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vrtyn-000000068vT-06eZ;
+	Mon, 16 Feb 2026 08:29:17 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtyh-000000068ts-3unV
+	id 1vrtyi-000000068tt-0lP5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 08:29:13 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vrtyI-0007ps-BR; Mon, 16 Feb 2026 09:28:46 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vrtyF-00124l-14;
-	Mon, 16 Feb 2026 09:28:44 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vrtyG-00000005lQU-2Igd;
-	Mon, 16 Feb 2026 09:28:44 +0100
-Date: Mon, 16 Feb 2026 09:28:44 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Sumit Garg <sumit.garg@kernel.org>
-Cc: Jens Wiklander <jens.wiklander@linaro.org>, 
-	Matthew Wilcox <willy@infradead.org>, vbabka@suse.cz, akpm@linux-foundation.org, kernel@pengutronix.de, 
-	op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, ilias.apalodimas@linaro.org, jan.kiszka@siemens.com, 
-	masahisa.kojima@linaro.org, spu@pengutronix.de
-Subject: Re: [PATCH v2] tee: shm: fix slab page refcounting
-Message-ID: <3h43lflf4r7m4dmec4t4snomt2wdvuwdrikwdw5dc7zan44xmi@fcunxxskfnje>
-References: <20250325200740.3645331-1-m.felsch@pengutronix.de>
- <Z-Pc6C1YUqLyej3Z@casper.infradead.org>
- <20250326110718.qzbwpmaf6xlcb4xf@pengutronix.de>
- <CAHUa44FUK_73oKSaqGdiPqB3geZbTNDFsC1Mh=KN3YPWr9=7gQ@mail.gmail.com>
- <Z-TXMIXzaro0w60M@sumit-X1>
- <CAHUa44HEsMkzQHZZufdwutQyZRtig6e0qWomhwgDZAhy2qDyhg@mail.gmail.com>
- <20260212125830.jfwos3flga2l5uwk@pengutronix.de>
- <aY8N90jMp25bBZhi@sumit-xelite>
- <252s4lfnujhrl3bkqm3xwatdkcdd3tfge3e6fla6f2llq4szjm@xltjvpqjgffn>
- <aZK4-grGSdOFXHTK@sumit-xelite>
+	Mon, 16 Feb 2026 08:29:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=5SX/
+	d54PXDjewqxCGR18EtEsbX5HuHmXdDmZUtDAJKY=; b=amzlBXRg6ZSAHSuMwTK9
+	fxzgQIr3ynoNeTpGYNEXubCW5Wi73ac6vU3LhKIl2+M2hard43Sl85cN5S95SR+D
+	i1Z3J4ZR75SjEt+M+lSQbltf6/PsMlBltEfxAgnmXWnDY6PsGim6jK7QjEi3NQZZ
+	WABZhMOCYalNPqAewYTbjLYK6a/ErIi89LTwUvur7Dlul5qbsYMFvxx706WkSzQq
+	Hi+npE0Qpte9x7ho6NPYQ/SQdOos+iA25htIvjHEXdTa/DpAuELe8O6oV7NrtG2o
+	s4pomPV4qsDjsTdc8SzTGY/Mg/2/p/Jfk1qBo+IM2mtYCc88jhCKkCzCSxRzniRT
+	Hg==
+Received: (qmail 3162847 invoked from network); 16 Feb 2026 09:29:07 +0100
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 16 Feb 2026 09:29:07 +0100
+X-UD-Smtp-Session: l3s3148p1@ObiYv+xK2JYujnu0
+Date: Mon, 16 Feb 2026 09:29:07 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Sergey Shtylyov <s.shtylyov@omp.ru>
+Cc: linux-renesas-soc@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	linux-remoteproc@vger.kernel.org
+Subject: Re: [RFC PATCH v2 02/13] hwspinlock: add callback to fill private
+ data of a hwspinlock
+Message-ID: <aZLVU9toZRX2vKX7@ninjato>
+References: <20260215225501.6365-1-wsa+renesas@sang-engineering.com>
+ <20260215225501.6365-3-wsa+renesas@sang-engineering.com>
+ <6e495cc2-3469-4855-8645-c5633d937f1e@omp.ru>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aZK4-grGSdOFXHTK@sumit-xelite>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <6e495cc2-3469-4855-8645-c5633d937f1e@omp.ru>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_002911_993583_5D851CE2 
-X-CRM114-Status: GOOD (  45.13  )
+X-CRM114-CacheID: sfid-20260216_002914_513797_DB5EEE2E 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,100 +77,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-02-16, Sumit Garg wrote:
-> On Fri, Feb 13, 2026 at 11:04:48PM +0100, Marco Felsch wrote:
-> > Hi Sumit,
-> > 
-> > On 26-02-13, Sumit Garg wrote:
-> > > Hi Marco,
-> > > 
-> > > On Thu, Feb 12, 2026 at 01:58:30PM +0100, Marco Felsch wrote:
-> > > > Hi Sumit,
-> > > > 
-> > > > TBH: I was hoping that you will take care of this since you're marked as
-> > > > maintainer for the tee-trusted-key and we noticed the warning with 6.14
-> > > > and still no fix available :/
-> > > 
-> > > Mathew did suggested a fix long back on which everybody agreed but
-> > 
-> > You agreed. I said that the current TEE API also allows non-slabed based
-> > backed memory and therefore I don't wanted to send this patch approach
-> > and instead asked you to do so since you're the maintainer and fine with
-> > the change.
-> > 
-> > > didn't got enough attention from you to test and report if that fixed
-> > 
-> > Why should it get attention from us? Maybe we do have different views of
-> > being a maintainer.
-> 
-> It's really the basic expectation I have put here which every reporter
-> of a bug needs to say if a suggested fix works for them or not.
-> 
-> > 
-> > > your issue. Since you insisted further, I have created a formal fix
-> > 
-> > Why is it our issue? It's everyones issue which uses the tee trusted-key
-> > driver.
-> > 
-> > > patch based on that here [1]. Care to test that?
-> > 
-> > A colleague of mine is going to test it and will reply on the patch.
-> > 
-> > > [1] https://lore.kernel.org/all/20260213113317.1728769-1-sumit.garg@kernel.org/
-> > 
-> > ...
-> > 
-> > > > I checked the code once again and figured that we could drop/replace
-> > > > tee_shm_register_kernel_buf() with tee_shm_alloc_kernel_buf(). I don't
-> > > > see why a kernel driver needs to tee_shm_register_kernel_buf() in the
-> > > > first place, maybe this is legacy. The only users of
-> > > > tee_shm_register_kernel_buf() are trusted_tee.c and tee_stmm_efi.c.
-> > > 
-> > > No it's not legacy but allows for efficient memory reuse within the
-> > > kernel as to not create bounce buffers to share data with TEE.
-> > 
-> > To be hones, there are only two driver using the API. The tee_stmm_efi
-> > driver can do the alloc during the probe(). The trusted_tee has to use a
-> > bounce buffer, yes but how often do you assume that (un)sealing and rng
-> > ops have to be done during runtime? This shouldn't be a overhead at all.
-> > 
-> > Therefore my suggestion would be still to drop the internal kernel API
-> > and only use it for userspace pages, where it could really matter.
-> 
-> I don't disagree with what you are saying here but we really need to
-> promote efficient memory reuse for TEE clients. There will surely be
-> more use-cases coming in future which can benefit from the flexibility
-> to register buffer. One another kernel client being remoteproc subsystem
-> which is already under review for this API.
 
-I see, thanks for the pointer. I'm really curious why STM didn't
-reported the warning stacktrace, since they should trigger it too.
+>    Don't you break the existing users of this API with this change? I see
+> you're fixing them up in the followup patches but that's not how it should
+> be done -- the compilation shouldn't be broken...
 
-Regards,
-  Marco
+I am not breaking them. The helper is an additional feature and the old
+way still works until patch 8. Until then, all users are converted.
 
-> 
-> -Sumit
-> 
-> > 
-> > Regards,
-> >   Marco
-> > -- 
-> > #gernperDu 
-> > #CallMeByMyFirstName
-> > 
-> > Pengutronix e.K.                           |                             |
-> > Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-> > 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> > Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
-> 
+I built tested it :)
 
--- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
