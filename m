@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C9A6E81A40
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F93E81A40
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yrplvzHimehwQbv7UzsT11ysVk7MnWkqJpylB70YYDI=; b=bh7ie6WvmMzGvP3V/LL48JMOSH
-	2/YaLdGrpzfAKEgkDKEunxk8XOG9EHg8efjBbGkyIv966Nmbw499rIjlCLC9d9Vjq7iGZrGE+1+m4
-	Ei5WMYR1jPBui8UGouU5N3YgPYuAPE02iBEqgcmruFkQIZlPleCi9TV9EDuCdw+rzUgswELlP5bDl
-	YogAqE8c/cnCvPb2Bis7M7anZbd2WHv3CDhHJzZQiEBL3pb7OILPDrsoDW3l11peC5cw/gkRGJwGl
-	LLyon/FQaJp+y6PCFbYMT7iN9mkP9hMr2lpNl8rHTbu6cL/3KL3FzQVhvjzbHPdBkDb4z4Af62G3g
-	TLSW4iyA==;
+	bh=l4d9tukjx2UG1m0HAFrQCx142ubnHUGbDv/2/jRE+mU=; b=eX3DKF/O/9RTyVJrcqxHFuu4bZ
+	vrhkXtoahlLb74qB4VwnEqqncZmx0km7opgbUuyN7ZKyeAV+/kZY+86EcEG/X0kzyRIusv5D/RyRE
+	7Qo9TcWVX1Kjclbihc5bapuESz8KGYRJsB5w8EN4vqtgPr2ESO36jehGWf2dvVFwIEEXGcHR3H/9d
+	HJv8DhP4lwCZPIhZ8pMO5rxNCuBqmEpO23gAKaNfVYwNddDyUgQ2mYoeRR3Yzx6eBLYOKSzOOtbA5
+	JQfJdQNrLWUyDFbfAoPBzpyLhNmwofYqNSLkOBJacnxQ6EXF5N1gDT+WTksdoXGTUCFOvX/TECVhs
+	0sQCzUYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1ML-0000000700U-3UXq;
-	Mon, 16 Feb 2026 16:22:05 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vs1MY-0000000709B-0d4V;
+	Mon, 16 Feb 2026 16:22:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1MJ-00000006zzo-2SNN
+	id 1vs1MW-0000000705X-0LRh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 16:22:04 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48371bb515eso37810765e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 08:22:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771258921; x=1771863721; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yrplvzHimehwQbv7UzsT11ysVk7MnWkqJpylB70YYDI=;
-        b=LNDlmat5+H18mYlKFMLFVTox+4Ud2siepBOH1d7257dt2EiiFqDfiSPhlK8oq7vcmZ
-         uKHDt30snjYsgihyUeeznmFlEfGf5xYxCnHzOxzZuuMyqUwiulNbLRJts/WM+WBFPetl
-         zN/7BJKLWZSWlLCnZXsTKNdVzXRYSI2ExfxkL36crb+TIHaTv0trJ/wAlXwG9l5k9IYv
-         gGqwfhht3Q+49tUSV8OJFzNyWkB6WbCPRNDACOccWQXhesrfEbR51973NFMukMGGL1QC
-         xfJ1uYDsHBmSGNS6u6WvNebmlxxF3F2WpCT+vlr0sQRH2J+7fPc70Cfq7kIkGNMGjpqt
-         YsxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771258921; x=1771863721;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=yrplvzHimehwQbv7UzsT11ysVk7MnWkqJpylB70YYDI=;
-        b=cknEoeBmnXPYZJXlTiVV21ZIH8nsg7wU5b+lJUIx82bXCrirXlT7sy7NnX2j2hqxja
-         DpRrhiN0lG9U8TRCwB6qAOKMcAhvPpyYHwWd++aRhI6Jq8AVdL8TiYk4b0JgNlX8MveM
-         ZJYUnhwrxJAPDPFGfOe+0/7AGcA87eZJSZsMOTJ88pbNAiqAulATgOxj5frmtcTwyt0D
-         jOtxbfB2zohKxhxzRew5zf4c1an5DxTw3oft2UG0S1Wzr/3+q5ZnBTM/WW8ikdOZe6pG
-         Gomk2P3gpJNDrub7POvXw6/7cLQNjHFlkphwS7mIrg+JuxhuREsoXeAROw0HInOe1hVr
-         LaAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX+viYwPl5o6Lpwz9TJoaXe0nW5SbqGzZhdcGE5q8YS13hqlEaWwojf7lE5rrffOhUE/QGoCMIYuG4eqSlTDCrc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKLbNDdfc0akvBudIHyo/4GjA3L2jIEhVqNr8pqwfaEnVMsusf
-	wAi6RIpTifyuNbuEtzVC51xEfJSpc1FeRMHh8ZWibWZ3cSJUeqUeMSSw
-X-Gm-Gg: AZuq6aIoNsfDLp+CD4leki0PQAnNCFKx6wszAZ8w7po6YtppSU1VGabSdI09SfeMKhQ
-	McBEtYNaUuX9KVD5oFl6OtdgZYjAOyzKpUCUmHRd0oKSV2Qq/98BTAZM2dXqL9gEOXZNgYT8Exm
-	7Gysd8/x/CrNKyH09Mcm3d9ElNqoPeFdNTNCLDleunIbcdnC0DFU/159d8c2FiVhDvohMcjhwzx
-	TWg2+n7bj77g0LJKoMHvdZNOBOBEcTN+xhyG0qM6NoL+oYJdMWOR4uW7eDMPEpialVpC0nLYVVq
-	83wq0qdJTdF1CJZWRZcb+WI4ido/eAMd5skAcLPD3CxPr6kNE4rkJ/WwRcoMCwoNNIedktrvPPk
-	vMraAPtCorfvk84mHSxl5PXXtpkOxKj+yzkfd3WNbQX9cnzI6ywNf9DnVvZ5Oq6spSlDii9hSk4
-	0Vc21A3Y8ISzLwa5CU2bI59dBXdcPkInASuPvSzqnLi1DixSmelpJIyCSP0+Aqv0/0QE4xZuhTv
-	27AY+zqZSaX6D8LpQ==
-X-Received: by 2002:a05:600c:8b61:b0:480:6b76:dfb4 with SMTP id 5b1f17b1804b1-48373a083d7mr183030205e9.8.1771258921040;
-        Mon, 16 Feb 2026 08:22:01 -0800 (PST)
-Received: from jernej-laptop.localnet (178-79-79-213.dynamic.telemach.net. [178.79.79.213])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a74918sm27901928f8f.17.2026.02.16.08.21.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Feb 2026 08:22:00 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Bartosz Golaszewski <brgl@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>
-Cc: James Hilliard <james.hilliard1@gmail.com>,
- Andre Przywara <andre.przywara@arm.com>, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: sunxi: Implement gpiochip::get_direction()
-Date: Mon, 16 Feb 2026 17:21:58 +0100
-Message-ID: <12836817.O9o76ZdvQC@jernej-laptop>
-In-Reply-To: <20260216160946.2977985-1-wens@kernel.org>
-References: <20260216160946.2977985-1-wens@kernel.org>
+	Mon, 16 Feb 2026 16:22:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2605A61336;
+	Mon, 16 Feb 2026 16:22:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBDAEC116C6;
+	Mon, 16 Feb 2026 16:22:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771258934;
+	bh=/+qcMyQK4+5hc9Ldn03hDO8S8aBIYGQ/NqQ+XgKlnRk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Bg8pC+rqbGylvy2c8iMQH3VefDPhgMnwVm3sUXgz43ApVPmA1Gt6oIrnqIn+bqZyG
+	 /o1UluqSQl/d8LruUtUIpeRW1poeYQCUILIGI9RtwIk/Uk97b0gKsCa06POCCWXL6K
+	 carjxr+b8e5HIfAwpsMrS5/QF41XqtxMxW2z5fN6B/kFu+KeqH915D6Jr4q8PRXJ2c
+	 bqx5/YAaPCNn8oqVpAShu8C38WCbjvMSKacj1otD5/FtW97Ug+nREtUHxQLKy+cOqQ
+	 /6QHGFFbWuamrP1wEdaN+Yv1LGQPFj/oVCpWKLLSIz/YHXEPLi5naZiScFTmel9F/Y
+	 1Upgdr4UmxTIQ==
+Date: Mon, 16 Feb 2026 21:51:58 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, Frank.Li@nxp.com, 
+	bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
+	imx@lists.linux.dev, kernel@pengutronix.de, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V5 02/12] PCI: host-generic: Add common helpers for
+ parsing Root Port properties
+Message-ID: <woglgacwnhpzy3wrevjs4am4rs754tajzmhvndli4u2fycmzuf@rvbwfzcgnsrf>
+References: <20260213040852.3340547-1-sherry.sun@nxp.com>
+ <20260213040852.3340547-3-sherry.sun@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_082203_651164_C7CA7358 
-X-CRM114-Status: GOOD (  10.03  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260213040852.3340547-3-sherry.sun@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,22 +74,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne ponedeljek, 16. februar 2026 ob 17:09:45 Srednjeevropski standardni =C4=
-=8Das je Chen-Yu Tsai napisal(a):
-> After commit e623c4303ed1 ("gpiolib: sanitize the return value of
-> gpio_chip::get_direction()"), a warning will be printed if the
-> gpio driver does not implement this callback.
->=20
-> Implement it for the sunxi driver. This is simply a matter of reading
-> out the mux value from the registers, then checking if it is one of
-> the GPIO functions and which direction it is.
->=20
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+On Fri, Feb 13, 2026 at 12:08:42PM +0800, Sherry Sun wrote:
+> Introduce generic helper functions to parse Root Port device tree nodes
+> and extract common properties like reset GPIOs. This allows multiple
+> PCI host controller drivers to share the same parsing logic.
+> 
+> Define struct pci_host_port to hold common Root Port properties
+> (currently only reset GPIO descriptor) and add
+> pci_host_common_parse_ports() to parse Root Port nodes from device tree.
+> 
+> Also add the 'ports' list to struct pci_host_bridge for better maintain
+> parsed Root Port information.
+> 
+> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> ---
+>  drivers/pci/controller/pci-host-common.c | 58 ++++++++++++++++++++++++
+>  drivers/pci/controller/pci-host-common.h | 15 ++++++
+>  drivers/pci/probe.c                      |  2 +
+>  include/linux/pci.h                      |  1 +
+>  4 files changed, 76 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+> index d6258c1cffe5..0c35907a5076 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -9,6 +9,7 @@
+>  
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+> +#include <linux/gpio/consumer.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+>  #include <linux/of_pci.h>
+> @@ -17,6 +18,63 @@
+>  
+>  #include "pci-host-common.h"
+>  
+> +/**
+> + * pci_host_common_parse_port - Parse a single Root Port node
+> + * @bridge: PCI host bridge
+> + * @node: Device tree node of the Root Port
+> + *
+> + * Returns: 0 on success, negative error code on failure
+> + */
+> +static int pci_host_common_parse_port(struct pci_host_bridge *bridge,
+> +				      struct device_node *node)
+> +{
+> +	struct device *dev = &bridge->dev;
+> +	struct pci_host_port *port;
+> +	struct gpio_desc *reset;
+> +
+> +	reset = devm_fwnode_gpiod_get(dev, of_fwnode_handle(node),
+> +				      "reset", GPIOD_OUT_HIGH, "PERST#");
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+For usecases like link retention from bootloader to kernel, this could be
+requested as GPIOD_ASIS:
+https://lore.kernel.org/linux-pci/20260109-link_retain-v1-3-7e6782230f4b@oss.qualcomm.com/
 
-Best regards,
-Jernej
+- Mani
 
+> +	if (IS_ERR(reset))
+> +		return PTR_ERR(reset);
+> +
+> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> +	if (!port)
+> +		return -ENOMEM;
+> +
+> +	port->reset = reset;
+> +	INIT_LIST_HEAD(&port->list);
+> +	list_add_tail(&port->list, &bridge->ports);
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * pci_host_common_parse_ports - Parse Root Port nodes from device tree
+> + * @bridge: PCI host bridge
+> + *
+> + * This function iterates through child nodes of the host bridge and parses
+> + * Root Port properties (currently only reset GPIO).
+> + *
+> + * Returns: 0 on success, -ENOENT if no ports found, other negative error codes
+> + * on failure
+> + */
+> +int pci_host_common_parse_ports(struct pci_host_bridge *bridge)
+> +{
+> +	struct device *dev = &bridge->dev;
+> +	int ret = -ENOENT;
+> +
+> +	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
+> +		if (!of_node_is_type(of_port, "pci"))
+> +			continue;
+> +		ret = pci_host_common_parse_port(bridge, of_port);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(pci_host_common_parse_ports);
+> +
+>  static void gen_pci_unmap_cfg(void *ptr)
+>  {
+>  	pci_ecam_free((struct pci_config_window *)ptr);
+> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+> index b5075d4bd7eb..25d808319836 100644
+> --- a/drivers/pci/controller/pci-host-common.h
+> +++ b/drivers/pci/controller/pci-host-common.h
+> @@ -12,6 +12,21 @@
+>  
+>  struct pci_ecam_ops;
+>  
+> +/**
+> + * struct pci_host_port - Generic Root Port properties
+> + * @list: List node for linking multiple ports
+> + * @reset: GPIO descriptor for PERST# signal
+> + *
+> + * This structure contains common properties that can be parsed from
+> + * Root Port device tree nodes.
+> + */
+> +struct pci_host_port {
+> +	struct list_head	list;
+> +	struct gpio_desc	*reset;
+> +};
+> +
+> +int pci_host_common_parse_ports(struct pci_host_bridge *bridge);
+> +
+>  int pci_host_common_probe(struct platform_device *pdev);
+>  int pci_host_common_init(struct platform_device *pdev,
+>  			 struct pci_host_bridge *bridge,
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index 2975974f35e8..007a3fb8da86 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -647,6 +647,7 @@ static void pci_release_host_bridge_dev(struct device *dev)
+>  
+>  	pci_free_resource_list(&bridge->windows);
+>  	pci_free_resource_list(&bridge->dma_ranges);
+> +	pci_free_resource_list(&bridge->ports);
+>  
+>  	/* Host bridges only have domain_nr set in the emulation case */
+>  	if (bridge->domain_nr != PCI_DOMAIN_NR_NOT_SET)
+> @@ -671,6 +672,7 @@ static void pci_init_host_bridge(struct pci_host_bridge *bridge)
+>  {
+>  	INIT_LIST_HEAD(&bridge->windows);
+>  	INIT_LIST_HEAD(&bridge->dma_ranges);
+> +	INIT_LIST_HEAD(&bridge->ports);
+>  
+>  	/*
+>  	 * We assume we can manage these PCIe features.  Some systems may
+> diff --git a/include/linux/pci.h b/include/linux/pci.h
+> index 1c270f1d5123..b05482355abc 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -634,6 +634,7 @@ struct pci_host_bridge {
+>  	int		domain_nr;
+>  	struct list_head windows;	/* resource_entry */
+>  	struct list_head dma_ranges;	/* dma ranges resource list */
+> +	struct list_head ports;		/* Root Port list (pci_host_port) */
+>  #ifdef CONFIG_PCI_IDE
+>  	u16 nr_ide_streams; /* Max streams possibly active in @ide_stream_ida */
+>  	struct ida ide_stream_ida;
+> -- 
+> 2.37.1
+> 
 
+-- 
+மணிவண்ணன் சதாசிவம்
 
