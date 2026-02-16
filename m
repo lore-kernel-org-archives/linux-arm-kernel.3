@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46AD9E81A44
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 16:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE81BE81A49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 17:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pbMUYX90oorNbiOH6+eDHwT+ZNvoGjptVI0ItPpXrFg=; b=QMt5qGxPy2LVe7moynU5BWe4Ui
-	xVtYNWqE07Jmv3UU3Oz9jUAgL0CGs177y9OTeYlyF6ZE1EAceTOBv5/873eSinY5cvsYERPoOj06u
-	CwvuJpWrwef0vV5G5hr7VYJRELwBgrY0dY7a7/k0OvWSfx2kWvzBvlNTdF2KfoZ/TpIW/mTqFJpmG
-	mwJ2sVodMT83CJBrZkpySjF8uCSAl5CIX0nkDJ3iEHhDrJa4C/NrSh+ivnG9fxR1ByInWdHLClEn5
-	JdZNtAJqRJsvN0g35VlIWEr6nSkdcbxKok6ao47ZmVaGFM2wrTp6LM22dDuhqZ2pjyCXCSWVu0cIz
-	bAeBqV4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dWzEilwbO3rfOn/ogNyLeXlhfMf4w2MS7pE1EUjnJCQ=; b=G1vOWxTo4oF8iI2QTvlu6IzHVO
+	9+a3mjHIDNcHHM5mxFOLAzn/72fs80BOho02VF/UDV9Qxs1QYAbN+zaMnUjrs7xAff0ladnHO/y6U
+	bM3DibLwgqHLeOWSifFzaYOup/3K8gF0N2HjqiECseZOYHVIjXpv1m8f26Kzwexzaz/6SGz23sITF
+	j06tdG1pugditfG2Hc1JzCUPS4Bjyb3s088EuOlTD4xrGPMxSY3PXdcl59CUi6CPb7CA2fHP87Z8/
+	I1WQ1B0N1H553teb4YfBTr3ADqvvZM1T/AGwaewmNYo4hVHhrpF5RieLKdALSPUH6AhtJNMaFHG0s
+	vQaL3ZeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1th-000000073hA-0JvM;
-	Mon, 16 Feb 2026 16:56:33 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vs22r-000000074Jz-2bRU;
+	Mon, 16 Feb 2026 17:06:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs1tZ-000000073c5-1GLe
+	id 1vs22q-000000074JV-3dk5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 16:56:26 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id DBE35C16A27;
-	Mon, 16 Feb 2026 16:56:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CB620606CF;
-	Mon, 16 Feb 2026 16:56:23 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D1DC610368022;
-	Mon, 16 Feb 2026 17:56:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1771260982; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=pbMUYX90oorNbiOH6+eDHwT+ZNvoGjptVI0ItPpXrFg=;
-	b=x1xPDPkKnGqeJRwV8OAfCuVBIiBDAVs/7OQ2nkwaFt+U74TcKUDJqKakIn87QIl1CeEYBD
-	zbCTmIxwZ4gwVMl603QYfOn2IdPmJ7VsRhEkkW+0bKrmelzqfdnsJtvctJbXT2z9vrss0B
-	BXp9L/QwAyQ4Ji78ZfO4cTAXkpUxTOYeeTzjP9U/iC9kpp5rOOxr7jYN8uofWK1s35jKHh
-	JP4g3073kmEag/eLzCIHHR/jntb0sQIDoX/GETCaKx/PkqCaQIclgkq5onLSC+XOheR34Z
-	w0Z0IIw0jvlk5myizbZ5Ult2ZSH1vo/im33qKovZjyfvcuweoHdC59t3HpxuyA==
-From: "Kory Maincent (TI)" <kory.maincent@bootlin.com>
-Date: Mon, 16 Feb 2026 17:55:54 +0100
-Subject: [PATCH v2 3/3] ARM: dts: am335x: Add Seeed Studio BeagleBone HDMI
- cape overlay
+	Mon, 16 Feb 2026 17:06:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DCC466012B;
+	Mon, 16 Feb 2026 17:05:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6515C116C6;
+	Mon, 16 Feb 2026 17:05:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771261559;
+	bh=WZre1OzmSFXuIxVbmE23zObgowTy0L0he5FkW3BHZ+Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CquNvMmPT58a9dWKW9fQVK49sqQQ50xxE8G+FpljgDBX2nOe2pK0ZeKq9l/n+SGFs
+	 fmBPr7RE6gt/aUC52QWWcyhmDnIIPWARJYIpRHjFuddnhqLij/PHg402b7MGpPo3cG
+	 vslqpMRCkXHrgXjGPBWUU2fAm1NsPwoAJvBGEu2cNyXVzLul2lSGy5yGI3aCPN6TB2
+	 yA3bl+gJrXl07XIMHYQD/bUlDZGPkldLzKckc+pyCh+6FfEsbSe6GXGiinazyf84QY
+	 pmtunoIPchbNseshfDc8EZ3ZHwx+25aOqVhFxr3X2+zw0KLe1MwBPvA6pfkn++t3qs
+	 XRJkn/+UpqyJw==
+Date: Mon, 16 Feb 2026 17:05:54 +0000
+From: Will Deacon <will@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: kvmarm@lists.linux.dev, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Leo Yan <leo.yan@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
+ in guest context
+Message-ID: <aZNOcv2XxTrrrEnU@willie-the-truck>
+References: <20260216130959.19317-1-will@kernel.org>
+ <878e304e-4162-4981-8125-bd4f67ba9dd5@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260216-feature_bbge-v2-3-22805cfdbf62@bootlin.com>
-References: <20260216-feature_bbge-v2-0-22805cfdbf62@bootlin.com>
-In-Reply-To: <20260216-feature_bbge-v2-0-22805cfdbf62@bootlin.com>
-To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
- Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-omap@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- dri-devel@lists.freedesktop.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Bajjuri Praneeth <praneeth@ti.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- "Kory Maincent (TI)" <kory.maincent@bootlin.com>
-X-Mailer: b4 0.14-dev-d4707
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_085625_491612_3118795D 
-X-CRM114-Status: GOOD (  14.24  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <878e304e-4162-4981-8125-bd4f67ba9dd5@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,208 +73,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add devicetree overlay for the Seeed Studio BeagleBone HDMI cape, which
-provides HDMI output via an ITE IT66121 HDMI bridge and audio support
-through McASP.
+On Mon, Feb 16, 2026 at 03:13:54PM +0000, James Clark wrote:
+> 
+> 
+> On 16/02/2026 1:09 pm, Will Deacon wrote:
+> > The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
+> > generation in guest context when self-hosted TRBE is in use by the host.
+> > 
+> > Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
+> > TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
+> > per R_YCHKJ the Trace Buffer Unit will still be enabled if
+> > TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
+> > Trace Buffer Unit can perform address translation for the "owning
+> > exception level" even when it is out of context.
+> > 
+> > Consequently, we can end up in a state where TRBE performs speculative
+> > page-table walks for a host VA/IPA in guest/hypervisor context depending
+> > on the value of MDCR_EL2.E2TB, which changes over world-switch. The
+> > result appears to be a heady mixture of data corruption and hardware
+> > lockups.
+> > 
+> > Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
+> > draining the buffer, restoring the register on return to the host.
+> > 
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Cc: Oliver Upton <oupton@kernel.org>
+> > Cc: James Clark <james.clark@linaro.org>
+> > Cc: Leo Yan <leo.yan@arm.com>
+> > Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > Cc: Fuad Tabba <tabba@google.com>
+> > Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
+> > Signed-off-by: Will Deacon <will@kernel.org>
+> > ---
+> > 
+> > NOTE: This is *untested* as I don't have a TRBE-capable device that can
+> > run upstream but I noticed this by inspection when triaging occasional
+> > hardware lockups on systems using a 6.12-based kernel with TRBE running
+> > at the same time as a vCPU is loaded. This code has changed quite a bit
+> > over time, so stable backports are not entirely straightforward.
+> > Hopefully James/Leo/Suzuki can help us test if folks agree with the
+> > general approach taken here.
+> > 
+> >   arch/arm64/include/asm/kvm_host.h  |  1 +
+> >   arch/arm64/kvm/hyp/nvhe/debug-sr.c | 36 ++++++++++++++++++++++--------
+> >   2 files changed, 28 insertions(+), 9 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index ac7f970c7883..a932cf043b83 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -746,6 +746,7 @@ struct kvm_host_data {
+> >   		u64 pmscr_el1;
+> >   		/* Self-hosted trace */
+> >   		u64 trfcr_el1;
+> > +		u64 trblimitr_el1;
+> >   		/* Values of trap registers for the host before guest entry. */
+> >   		u64 mdcr_el2;
+> >   		u64 brbcr_el1;
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> > index 2a1c0f49792b..fd389a26bc59 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> > @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+> >   	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+> >   }
+> > -static bool __trace_needs_drain(void)
+> > +static void __trace_drain_and_disable(void)
+> >   {
+> > -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
+> > -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
+> > +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
+> > -	return host_data_test_flag(TRBE_ENABLED);
+> > +	*trblimitr_el1 = 0;
+> > +
+> > +	if (is_protected_kvm_enabled()) {
+> > +		if (!host_data_test_flag(HAS_TRBE))
+> > +			return;
+> > +	} else {
+> > +		if (!host_data_test_flag(TRBE_ENABLED))
+> > +			return;
+> > +	}
+> > +
+> > +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
+> > +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
+> > +		isb();
+> > +		tsb_csync();
+> > +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+> > +		isb();
+> > +	}
+> >   }
+> >   static bool __trace_needs_switch(void)
+> > @@ -79,15 +94,18 @@ static void __trace_switch_to_guest(void)
+> >   	__trace_do_switch(host_data_ptr(host_debug_state.trfcr_el1),
+> >   			  *host_data_ptr(trfcr_while_in_guest));
+> > -
+> > -	if (__trace_needs_drain()) {
+> > -		isb();
+> > -		tsb_csync();
+> > -	}
+> > +	__trace_drain_and_disable();
+> >   }
+> >   static void __trace_switch_to_host(void)
+> >   {
+> > +	u64 trblimitr_el1 = *host_data_ptr(host_debug_state.trblimitr_el1);
+> > +
+> > +	if (trblimitr_el1 & TRBLIMITR_EL1_E) {
+> > +		write_sysreg_s(trblimitr_el1, SYS_TRBLIMITR_EL1);
+> 
+> Will this restore a stale value if you do kvm_enable_trbe() then later
+> kvm_disable_trbe()? Looks like the read and save will be skipped unless
+> host_data_test_flag(TRBE_ENABLED) is true, so it will never save a disabled
+> value.
 
-The cape is designed for BeagleBone Green but is also compatible with
-BeagleBone and BeagleBone Black due to pin compatibility.
+__trace_drain_and_disable() sets the saved limit to 0 if TRBE_ENABLE is
+not set, so this shouldn't do anything in that case. Or did I
+misunderstand your scenario?
 
-Link: https://www.seeedstudio.com/Seeed-Studio-BeagleBoner-Green-HDMI-Cape.html
-Signed-off-by: Kory Maincent (TI) <kory.maincent@bootlin.com>
----
- arch/arm/boot/dts/ti/omap/Makefile                 |   5 +
- .../boot/dts/ti/omap/am335x-bone-hdmi-00a0.dtso    | 157 +++++++++++++++++++++
- 2 files changed, 162 insertions(+)
+> kvm_disable_trbe() might need to clear host_debug_state.trblimitr_el1.
 
-diff --git a/arch/arm/boot/dts/ti/omap/Makefile b/arch/arm/boot/dts/ti/omap/Makefile
-index dcc6d4422e411..d70706e6d467b 100644
---- a/arch/arm/boot/dts/ti/omap/Makefile
-+++ b/arch/arm/boot/dts/ti/omap/Makefile
-@@ -82,6 +82,10 @@ dtb-$(CONFIG_ARCH_OMAP4) += \
- 	omap4-var-stk-om44.dtb \
- 	omap4-xyboard-mz609.dtb \
- 	omap4-xyboard-mz617.dtb
-+
-+am335x-bonegreen-hdmi-00a0-dtbs := am335x-bonegreen-eco.dtb \
-+	am335x-bone-hdmi-00a0.dtbo
-+
- dtb-$(CONFIG_SOC_AM33XX) += \
- 	am335x-baltos-ir2110.dtb \
- 	am335x-baltos-ir3220.dtb \
-@@ -94,6 +98,7 @@ dtb-$(CONFIG_SOC_AM33XX) += \
- 	am335x-bonegreen.dtb \
- 	am335x-bonegreen-wireless.dtb \
- 	am335x-bonegreen-eco.dtb \
-+	am335x-bonegreen-hdmi-00a0.dtb \
- 	am335x-chiliboard.dtb \
- 	am335x-cm-t335.dtb \
- 	am335x-evm.dtb \
-diff --git a/arch/arm/boot/dts/ti/omap/am335x-bone-hdmi-00a0.dtso b/arch/arm/boot/dts/ti/omap/am335x-bone-hdmi-00a0.dtso
-new file mode 100644
-index 0000000000000..f43f44c79c96d
---- /dev/null
-+++ b/arch/arm/boot/dts/ti/omap/am335x-bone-hdmi-00a0.dtso
-@@ -0,0 +1,157 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * 2017 Copyright (c) Seeed Technology Inc.  All right reserved.
-+ * Author: Baozhu Zuo <zuobaozhu@gmail.com>
-+ * Copyright (c) Bootlin 2026
-+ *
-+ * This device tree overlay is compatible with the BeagleBone Black, Green
-+ * and their subversions.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/pinctrl/am33xx.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+&{/} {
-+	hdmi0: connector-hdmi {
-+		compatible = "hdmi-connector";
-+		label = "hdmi";
-+		type = "a";
-+		port {
-+			hdmi_connector_in: endpoint {
-+				remote-endpoint = <&it66121_out>;
-+			};
-+		};
-+	};
-+
-+	clk_mcasp0_fixed: clk-mcasp0-fixed {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <24576000>;
-+	};
-+
-+	clk_mcasp0: clk-mcasp0 {
-+		#clock-cells = <0>;
-+		compatible = "gpio-gate-clock";
-+		clocks = <&clk_mcasp0_fixed>;
-+		enable-gpios = <&gpio1 27 0>;
-+	};
-+
-+	sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "TI BeagleBone Green HDMI cape";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,bitclock-master = <&sound_master>;
-+		simple-audio-card,frame-master = <&sound_master>;
-+
-+		sound_master: simple-audio-card,cpu {
-+			sound-dai = <&mcasp0>;
-+			clocks = <&clk_mcasp0>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&it66121>;
-+		};
-+	};
-+};
-+
-+&am33xx_pinmux {
-+	bb_lcd_pins: pinmux-bb-lcd-pins {
-+		pinctrl-single,pins = <
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA0, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA1, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA2, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA3, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA4, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA5, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA6, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA7, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA8, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA9, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA10, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA11, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA12, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA13, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA14, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_DATA15, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_VSYNC, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_HSYNC, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_PCLK, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_LCD_AC_BIAS_EN, PIN_OUTPUT, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_GPMC_ADVN_ALE, PIN_OUTPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_GPMC_OEN_REN, PIN_OUTPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_GPMC_WEN, PIN_INPUT, MUX_MODE7)
-+		>;
-+	};
-+	mcasp0_pins: mcasp0-pins {
-+		pinctrl-single,pins = <
-+			AM33XX_PADCONF(AM335X_PIN_MCASP0_AHCLKX, PIN_INPUT_PULLUP, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_MCASP0_AHCLKR, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MCASP0_FSX, PIN_OUTPUT_PULLUP, MUX_MODE0)
-+			AM33XX_PADCONF(AM335X_PIN_MCASP0_ACLKX, PIN_OUTPUT_PULLDOWN, MUX_MODE0)
-+		>;
-+	};
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	it66121: it66121 {
-+		compatible = "ite,it66121";
-+		reg = <0x4d>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bb_lcd_pins>;
-+
-+		#sound-dai-cells = <0>;
-+
-+		interrupt-parent = <&gpio2>;
-+		interrupts = <4 IRQ_TYPE_EDGE_RISING>;
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+				it66121_in: endpoint {
-+					bus-width = <24>;
-+					remote-endpoint = <&lcdc_0>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+				it66121_out: endpoint {
-+					remote-endpoint = <&hdmi_connector_in>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&lcdc {
-+	status = "okay";
-+	blue-and-red-wiring = "straight";
-+	port {
-+		lcdc_0: endpoint@0 {
-+			remote-endpoint = <&it66121_in>;
-+		};
-+	};
-+};
-+
-+
-+&mcasp0 {
-+	status = "okay";
-+	#sound-dai-cells = <0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mcasp0_pins>;
-+	op-mode = <0>;
-+	tdm-slots = <2>;
-+	serial-dir = < 0 0 1 0 >;
-+	tx-num-evt = <32>;
-+	rx-num-evt = <32>;
-+};
-+
+pKVM can't rely on that thing being called, so the context switch still
+needs to be self-contained there.
 
--- 
-2.43.0
-
+Will
 
