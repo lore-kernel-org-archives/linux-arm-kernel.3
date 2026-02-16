@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C98E7BD8A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 11:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BDA9E7BD92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 11:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F01WUNnfmnbR0yYPB7Kz02Ieycgpy7j4Qjt4QDWos+A=; b=nkGYKYmEOkz42yesX27OHrqwdT
-	YoRDGdze+Ye6WiLNlKvevaBKy0x968Ky1kZ2oV/jIG32ZEEC331AvATzt0z9IvE2soz8ZeLN9FAb2
-	9TlYeTnTw3DzSNS0KFvs17IOBBAAE2wqPff4MlkXI2454J8KFNzOzryUrK/2EVuEScQt0Mm4QWynO
-	Z7BkMugfriQ+vYGcmstOKNrTq5Wj1UVI1bgcmiW6dP4aQqUQJD5IyXAJCwxKGoutdYVvye+YSmuMd
-	o9zjehx9YHFalswchqv1DnmoDBEdpUiNZSnuhUeipA1LWj9oeNeWwrfWojYGlgObqVhzv5U7Hk563
-	EbeCq2JA==;
+	bh=+4UOtGqik+QvwJz2/TB0+lT+eV9naglo3mkbHB9AkQc=; b=sH58oyUmdbDR5JOqufKx4RCEby
+	uLD49MnvCb31FLLxhd+UtY7oe2p3BuD9ktLuS5F0rKfjKePTOW7SqZWndd7hzW0ihBFEcPJbB7j92
+	kD7jLR1YJ8hmhGYV9VcV2HmwiHZ74rfNOdLONjPgGW1q7QcGoD5GntP18ZRhhu90AMS1bR4+IQ64v
+	H0yDj97MxJtt885JeafIFLqgA4oljUoXfGypGS8GydwU0nEC4RwQwOMuBOTtU7/2TpTxQfRMn4tuP
+	6DMx8olPrzWt9iaPXenRRS6FGl3L9QBa5GLnHW0mK+8ImMire/oGMQ4zTjpLpgis3avXynfDa5kRr
+	OORbNTmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwP0-00000006PH5-2fa8;
+	id 1vrwP0-00000006PHV-3wRS;
 	Mon, 16 Feb 2026 11:04:30 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrwOv-00000006PDo-3zZ5
+	id 1vrwOx-00000006PES-1hRv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 11:04:26 +0000
+	Mon, 16 Feb 2026 11:04:28 +0000
 Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61G0FUh93661176
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 11:04:25 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61GAHqq23272627
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 11:04:27 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=F01WUNnfmnb
-	R0yYPB7Kz02Ieycgpy7j4Qjt4QDWos+A=; b=Hjcr/oW07ut7NbClc0omdQp/L9M
-	wkcrxXS4KA1jfTn7aDyR8+ZvemvjvRWppcZN767DfNyIDpN2bWzk2zlBhe05fArT
-	pKICy9l09DPeiGncJBsvECtauhYLojMGsSh6rfxrtIKP3dqz1dsBGke509mNO3Cs
-	XVzJJN16vR1ThcXbbH9EmpHsRW6STCQWxszl1AEBr4NlUnMOyz1YFxUHui9IzlsC
-	hnl6YRr0ArVfxfcRcgeIoo91YJANHB8C4RCEsOK5TKozVXC0qDbzFkX14ni7BDF2
-	E/uSGcJvVeV0LkJ5ZFTwkrYtI935CcOVt5UKEeg+bTp503ltAcm3NPCwFWQ==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4caj7jc4t7-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=+4UOtGqik+Q
+	vwJz2/TB0+lT+eV9naglo3mkbHB9AkQc=; b=cmxjZIKmo5SdpDShUOOsFDSR6fr
+	TUYz2J13IMDwq3zI7dsLgcYWmcmym3kTYr4CvzAIC4xXQd0zhlJG6h/YZeMJE0El
+	DvkLNSf3I9TpEyL81oz/TdNtZh5q1nBOanEy1YZ+QCpueYkf42gv4s30q/Z14JNV
+	/XKMVFgAwdSZwdhwARVG4UetRhbTYTeiJSzmSJFTodBEFGm9OSFaKoPtfT7PLyPM
+	/+cA1o9zVKYr1SPObSwHcAIdj0kAW/fiCeb1iOagBeTvowndnviMyuUpmaFs3wnB
+	vPR+HOY/9v9cTH+cBzGH27Y2YUOAmta7mzdXKYanzXpnFJcZpEDJnnFsUgA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4caj7jc4t9-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 11:04:25 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cb413d0002so1896912285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 03:04:25 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 11:04:26 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cb3a129cd2so2129357285a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 03:04:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771239864; x=1771844664; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1771239866; x=1771844666; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=F01WUNnfmnbR0yYPB7Kz02Ieycgpy7j4Qjt4QDWos+A=;
-        b=P4wlPJvZTr8k+WVE6lpaSJyjxc8Fc1Eudty9Gv84j+Au4M53n0Ohm65KqfuN/y/qFA
-         JPxit6FmDvSNw61/0wnx8Y2UFFnF6b7khWm0brHwyr55oocbP4Sa+lHubQ3freWBhIb3
-         DvSwqS9J19pd21EOpP9EjKg8oRanHMEHAGeGfhttMi01DUx1xaKrtaWVaIXAINXKmjdU
-         OMO6tWkhG5Dm6poe+Zj0dYmUhUsDGAzRtfB2y4WsrAcJtYh5gmWM54yKphM71ur0iQOo
-         uoMPv3CwPnXdEyh9OkCWpm8o/ZmrE4f16ES5X7hu6ubklbj7Sn9NeT+W7zNYppWi7hiY
-         3M4A==
+        bh=+4UOtGqik+QvwJz2/TB0+lT+eV9naglo3mkbHB9AkQc=;
+        b=KRi6IBf5kUWj1DLKr0WhA1X32NLGKjzi6hNalUc7LehK1Np+aLnPS28PK+MxIqMKVk
+         j+i8bOViiiPXxxcCKUIpl8QOHApwLqNnVN3xxTFqIz6xI4p+STj07cBB/BjBm6ejfc92
+         l16JW1qrDKKu3IVQU8llZfRR8nC24QTF19ijISH2H1SackQWCpH9n2dsDCZ7q3aCxxbb
+         6YocKy30WDivGo4EGTZVlxHfboQ9KRNIf83YH/lKHU/eSM8Z0WvFclG6uCZMbaoBhMqo
+         urqNCGer5O5mPJOL1IG9tWSSnPlhkZA0V1TlKz0Csr9lbMPw6bPNn8e94R0KIYmg5mwT
+         u3Lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771239864; x=1771844664;
+        d=1e100.net; s=20230601; t=1771239866; x=1771844666;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=F01WUNnfmnbR0yYPB7Kz02Ieycgpy7j4Qjt4QDWos+A=;
-        b=Y53v63y2gB71HNMpFIg/ZNwYmpBC7EF6kWrK2MroPvExfNWbYp6/wNkbWG6w2CMBGV
-         5XdbtO0siZr6v6ppiCBhXzlAT1SLAjDCV5J7f+LEVERdo2TXxyBdNR1N11v9/u2HHF+y
-         uYR22v4gOmliyKuu3a8MD9tLivtyw7tUAA9jZoxKujTtd/YjWPFpHZS6w9KLgUnhSWSl
-         y+9jVe7e1stQ9oHJJ92DyUzEULaEOUd91cDcQ5ZBhInAPmDDHx3Zv4/NX+wNjY38ifme
-         BDJYfEQ41mBNbSApL1xZ8Sy20EyEweDe6tceWLQkwNq+7UnwInQexU+X8ljYrrexwtsN
-         HRyA==
-X-Forwarded-Encrypted: i=1; AJvYcCWxSt1XDNkCyqdZNSm24Riv4RoQHenHWQKSlctLXPVS0ZjWcd2VNLEvx37JsioHfUM3Txna72BH4+1+HYElMje4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmnHMsBQNsryGYY7tTstjqUR5/eVVMkW1AhgBFcU7NvZznljn6
-	OdAHM3s8ygmMRyX1GyRLNhdJpkncZyhOaPtexKPcSXbvg0B/BMeDoeLkWTwvg7jvqj9l4rv21me
-	gGTVQpmC2MtmRGhNlH9+hwPbf3PiAIsrIVenzdhemAO3+ECSWVYZ4vNQWrPNnryRs6IFKLS7apz
-	BFTw==
-X-Gm-Gg: AZuq6aKOXo5TY5Sb9MiTNNch5kjwWLXXlDUeGHJkypLFVaBLmfyAy6Ly2rgR9J59MJt
-	tAzm3tJ2vxOeaAo37izYeSyJ8+4a2P3mSoGW3qdv2iCMKc9HBMPuNOYcctpsOf4Pynm/OEr+jgh
-	xqwaFjmra52EwgmLwkcalcqYjNL+dWxzXjyZBhBp01SCHEUIn4z+9bEemfYVJokMx5sqP9jN8Pn
-	cRStAmvr5jW424JOH7qD+FIkRWEz6m4ev4skehjHzVk3Ho/LwcwES6VV/tvyPXBm3EFmEXd1tcX
-	dDISb3hxCDOgRa/DM+PfglnFOx2I0jp68BUZguVUrvP3dT4XpFX3bP+KJB9E58iFkq1UlGHIz9V
-	Ucg03oBFwraJrHftRtW+Pwj/0kA5QWnCrcVQDpA==
-X-Received: by 2002:a05:620a:7014:b0:8c7:3ff0:d472 with SMTP id af79cd13be357-8cb4ac01da8mr888185385a.15.1771239864237;
-        Mon, 16 Feb 2026 03:04:24 -0800 (PST)
-X-Received: by 2002:a05:620a:7014:b0:8c7:3ff0:d472 with SMTP id af79cd13be357-8cb4ac01da8mr888181985a.15.1771239863711;
-        Mon, 16 Feb 2026 03:04:23 -0800 (PST)
+        bh=+4UOtGqik+QvwJz2/TB0+lT+eV9naglo3mkbHB9AkQc=;
+        b=I5riNA5U4PhZ9bntxvVqaUhORSDawGFPtGUntEyl0+xeV9rq54VdEo/RQxg9BmGCnD
+         JoWhHPiwalDzn2nA61h3LFIpRXeAWCQXp6xvi3xILoEP3raP7VrkQc358UNcoHaIj0Ln
+         jU1oKJlImrCq5JyE4e0T/Dgl0uMu9SxsAGkF7NyzwOmaaNQs9P243mz3q+3DLHkx/a2G
+         rxlkkl1odvlsS1b520VaRy3Lgst2WyeaC0C834Aj0/dDJXkGddWc8rb/KkEvySmfV5gz
+         KpBc7stNVP+sN+Sok0CK+Zw0Dy/MGYc7yZRIRmX42yrulX2+DWPsToHpansziQQ8GBYZ
+         8IlA==
+X-Forwarded-Encrypted: i=1; AJvYcCVJqu8Y+mqzgPwf996stoBlx6twxO4UxsO3/o0MYKOIAptdnwtQqDH6bPFbafpH4rRFa0Z9xhjiNsJsGfqW6CMi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNkRVXt2X81gr0xmlwYmBKh+2+J4+NHNldHIG9TObiuyXp0vhD
+	E9k++/pJX1qDkPBBWujTqz+jnz951xmy4nr6OSbBVlHhuuE65LYHveAlJO5W6V1g30yVZyiij0w
+	qtuj4x9MxxoUJ+im4vYN8Do211ukbEgNXjdtrnAQFOPC9j5x4noGoR+iKZCWZvGbHddT8KIryek
+	c+jg==
+X-Gm-Gg: AZuq6aLwMdEG0QGQrWUpgqXU3xeQbMpR0PmNVBtrvqW6OveWb3ek/8ypnFkvzToYV/Q
+	IvEv2XbY/jA3XVgeCAUEgRxrhqI9jpGdX5UI1/nagZPi2AARQK9b/vGRkZxcpgd/qAYm+J/Nk/K
+	nLXkqZjMu0Yp+HcZk2U+EhgovyRGJGAFh62+9t9IbzGTaZiGtSkINJPhMKFZb2wPOVMrg6m5CUo
+	JvsmqeQMUnz8ofu++j/nc1Lae60A/qW6B8fPHlzxm9U7/8elBf2/SX9STHQFM+b3VqeH2irhaon
+	4FL+LEQUYI0Bztf5BIhCR59cegrDDYId1sc9ikrJIQoNfvxEUuYoUhKuk8vxFZL2RJehFP86Gg7
+	WLGdpWgLkmLrodTuTFDu+ouzz5Df06Q7aFEVX9w==
+X-Received: by 2002:a05:620a:46a8:b0:8b2:e3c1:24b7 with SMTP id af79cd13be357-8cb4ac7d40bmr980230385a.29.1771239865779;
+        Mon, 16 Feb 2026 03:04:25 -0800 (PST)
+X-Received: by 2002:a05:620a:46a8:b0:8b2:e3c1:24b7 with SMTP id af79cd13be357-8cb4ac7d40bmr980227885a.29.1771239865393;
+        Mon, 16 Feb 2026 03:04:25 -0800 (PST)
 Received: from quoll ([178.197.223.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4835d99497asm589572745e9.6.2026.02.16.03.04.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4835d99497asm589572745e9.6.2026.02.16.03.04.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Feb 2026 03:04:23 -0800 (PST)
+        Mon, 16 Feb 2026 03:04:24 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
         Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
@@ -96,43 +96,43 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
         linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 2/3] phy: marvell: mmp3-hsic: Avoid re-casting __iomem
-Date: Mon, 16 Feb 2026 12:04:15 +0100
-Message-ID: <20260216110413.159994-5-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 3/3] phy: qcom: qmp-usbc: Simplify check for non-NULL pointer
+Date: Mon, 16 Feb 2026 12:04:16 +0100
+Message-ID: <20260216110413.159994-6-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260216110413.159994-4-krzysztof.kozlowski@oss.qualcomm.com>
 References: <20260216110413.159994-4-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2660; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=5x7EKhBU5ewPua8ICjoklEgJzewBTCgQsGAMmItM3TY=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpkvmuGumLqCgJtNAvdAK3FxSfjsCCVupiMB6DO
- aRRH/Dds5yJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaZL5rgAKCRDBN2bmhouD
- 1xyPD/0doaU541CGXdyo+TDlx4q5IRHmoaKkM/nJvV55NxJGn9KWOqxb2jB4u1YpsFd/XOEh4vM
- EiQ1f5MP8+ovGUSJ8B7Gl9BUvMNfLKKjhLYGGMUYAnhsPY8dM9d/ru6RLrYFaWQFhR5Goqvo/jq
- Pd6vn+deb8KAswMtnQA4NMGggINzxnr560ONASrJReEYPcaKDxs0WHJj0IWaClC258cRFtCNXgr
- sheBqKuiTpsPGhqXhvL4Eq6Xm62PpCb7FYcBNlD2P7U93R+Idbllc7uetzQbpi/qgipDWRvJd5i
- eEptl9HfzgHd4lQpleW1Y8G6i24pm0xvCARUgZ8oNimjEjKrnLHBOqr6kmpPY8MeuQQHLjNYgPM
- 3r0bfai9ZsT74ygiraFpBz9/7uY8MCJ5863aMTfGaVOBJcyyR35IIoK2k147wjv/tNyz4mYieKs
- LMK9NB6FG0U0hn3kQ3iktoZCgwvwOBmX6WD6PmMdbaKsOREUlcfLLDDaBE7fISuRFpG9UXTB/Dy
- swSzMRK95Lxq0t1E3a4ZScx/5Px3CquXsdvJI8ezpzYrrSE2VZNyeBc9tpzUjNRtsr5OASc1Y+2
- xhd1UGwAgsB8tnlVWXFpCYKHi0zqKtR8JEhicIg/aHZDe6UYjiqLfCPNxF7UT2ZZg6kakhCQT4F pOuqDl66BwCcHsA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1484; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=PuKi//RWjSJoYL/Th2Gud7CekjaZAZonzL+Z2LBjfj4=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpkvmvJCfKJ0aoPYfKrLswzpxol6BGDAX4YsmZO
+ Bl4p9IrvUyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaZL5rwAKCRDBN2bmhouD
+ 15cAEACRnZMiu1htoX9cxB1Vwj+aBvwUSP7uhENSAuxz8GHr6mSXXOdQgpL68JJbK6ezXC2Bw3Q
+ eNAW2+4p4Hb8KznZpMYdQMLp9ojUjnYWOiPwGhn4aY9Ql+a5pgyy829zOmRFLRmvzgZGVpV/85s
+ RpKdcLEPNMQqJKWtxG60h2QehNJ/G98WeKyYv6wLxdLiDtPOzLIkGcMzGHzZq2Mo0vDGY7zLfvq
+ NLM36XwkuC72+xoSD+ZXu2ThHwNlQPnd0Y2LgQxeVJjQifxGpWl57sjCjDJELia4kONzGcD12Un
+ 0kOGlJ+M2IBJud1IZsh8tvXCbrW5xgUSw4TaUtcoh2aQEuZvYngOp1zz9scq7neibqfkjB9v6dq
+ 4AHVDf+JMyxSu8M82ni+fqzZhe/sfQFxHgeVDU2bmRq+mGG0gjUDbTHJLopusUvR+D+MzZBS0yr
+ rmgRl2wv5GmV2+rI/c9Uy5PCC2Ru+3ulCJlgUXP1n3potgdWQaq4lDJpsdH+BXbRAX6hN1rROwq
+ ZBewIiYOb5xvlrCU1fxeNxus8gtpAGFQK5fS+686iQFzKeccogPVZql9U6nDmvMpP3FMwY3PSlD
+ vbdyXChRug25nxLQLErXNk0wwmsFJd2Tn/Myi3k39XKAXm5ylBjNQR3YhFP2AAZJoLD3ikvaX1F vpaEdpXC8IZvJGQ==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=dIurWeZb c=1 sm=1 tr=0 ts=6992f9b9 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
+X-Authority-Analysis: v=2.4 cv=dIurWeZb c=1 sm=1 tr=0 ts=6992f9ba cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
  a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=EUspDBNiAAAA:8
- a=SkZ1eIaMs6HdBQsGQEkA:9 a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE2MDA5MyBTYWx0ZWRfX5AyWD7/4p5i9
- PyZPVCTwFnsFVHhnafCPhmjH6or4jy+PAvADIl0WN+KM+5wAh5zMmqCW5etR4r94Bfrl+i1kFKR
- FRSnG9mju0V/GDjZVawsDrSy2MgWysVjAnJjWOXyqvHexDY6JydTD6tHtzSFEin0dRIivunz+xk
- /A/+ugax1MgCfcdo1ZWgOvmzztZWrUcFDEEZCxq2eU7QB0zO7j/KI22DI8LJSSfacLITOL4/o7l
- 3MW6ofiYpZed/lwZA1XbipDooZNPJpCKsao0LTbsmc+SiuEA/Ytg8LJ84PmRnPYshBo5Zoo0Jic
- UK+b6Wqf1g84in2nWpyYpe08bSFFZwr1hd8PbxfnQlJYcGSDX2mRmJzT3Ckip9KXPQZB1mPBTbO
- 1WW13Ck7GCcdbSstjs5k7fCuXhZKye57DTUdY/bljophsbj2XYraGx41ndxfH8G9qLvZgmCsr3T
- 7Yck+sXch6Ba4dN91rA==
-X-Proofpoint-GUID: ms0TgZkuEZCowmgdTu2xoIT-0hr1zprO
-X-Proofpoint-ORIG-GUID: ms0TgZkuEZCowmgdTu2xoIT-0hr1zprO
+ a=RGc8Xe-UuCxs7xLLDosA:9 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE2MDA5MyBTYWx0ZWRfX+5Vs+VE79kUs
+ qg7mQDvu7ejLsr75TKN8E+trULVLVNH+cUc5zbyxJFdN5zBEiASwx7UvMqtMlQgmdGReempK2YY
+ mT/e8OVvY+rbKCOHkIEMgBuaHOOFKzGf6xQzS8Xm59DCmRRURjLhSXQtdl8knZcr6B7QK0fHglw
+ pqsz9NQpzyGsmTLFfpewatG6JDaQgEEThUt2leJoM1MCBD6Nwh6d1i15hQRsPml7egvxjeBhywT
+ EuvaOXDtMzt4j8dGBNRAIeYe9ApazviJgNy62/ZOW9r/6xGD+FQ09w37SENHprAgJ4GURp5nRqx
+ 0U/pjYHSCrqxzgmkRTWJqEWQi3u+Ww3WubnFniasYMhiD/XKO5xguettad0uCn60PuaxQKuF1wt
+ e9V8FB2EnuHjTTVpncDZ1k1V+pvbbXrKRDJu0/vrElTQB4jA+nG3yJf6k9WKiatc+7Q+X4fVR8z
+ T9XcrJxshKqylbqs67g==
+X-Proofpoint-GUID: qpIrohKVUBLfsN_wwEKA6DuCAUG9QJEI
+X-Proofpoint-ORIG-GUID: qpIrohKVUBLfsN_wwEKA6DuCAUG9QJEI
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-02-16_04,2026-02-16_01,2025-10-01_01
@@ -143,8 +143,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
  definitions=main-2602160093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_030426_005426_C0113A11 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20260216_030427_446881_5601B2E6 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,80 +159,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__iomem annotated memory must be accessed via dedicated accessors, even
-if actual code is correct (accessing the driver data in
-mmp3_hsic_phy_init() brings back the __iomem cast), but dropping its
-cast (with or without __force) when storing as driver data seems like
-less readable code for any future changes.  Instead, add a dedicated
-wrapping structure just to hold the pointer without changing the __iomem
-cast.  This makes the code explicit, obvious and solves the sparse
-warning:
+Pointers should not use explicit '0' comparison, so just use standard
+evaluation as non-NULL:
 
-  phy-mmp3-hsic.c:58:31: warning: cast removes address space '__iomem' of expression
+  phy-qcom-qmp-usbc.c:1682:31: warning: Using plain integer as NULL pointer
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- drivers/phy/marvell/phy-mmp3-hsic.c | 24 ++++++++++++++++--------
- 1 file changed, 16 insertions(+), 8 deletions(-)
+ drivers/phy/qualcomm/phy-qcom-qmp-usbc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/phy/marvell/phy-mmp3-hsic.c b/drivers/phy/marvell/phy-mmp3-hsic.c
-index 271f1a2258ef..72ab6da0ebc3 100644
---- a/drivers/phy/marvell/phy-mmp3-hsic.c
-+++ b/drivers/phy/marvell/phy-mmp3-hsic.c
-@@ -14,15 +14,19 @@
- #define HSIC_ENABLE	BIT(7)
- #define PLL_BYPASS	BIT(4)
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-usbc.c b/drivers/phy/qualcomm/phy-qcom-qmp-usbc.c
+index 14feb77789b3..c342479a3798 100644
+--- a/drivers/phy/qualcomm/phy-qcom-qmp-usbc.c
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-usbc.c
+@@ -1679,7 +1679,7 @@ static int qmp_usbc_register_clocks(struct qmp_usbc *qmp, struct device_node *np
+ 	if (ret)
+ 		return ret;
  
-+struct mmp3_hsic_data {
-+	void __iomem *base;
-+};
-+
- static int mmp3_hsic_phy_init(struct phy *phy)
- {
--	void __iomem *base = (void __iomem *)phy_get_drvdata(phy);
-+	struct mmp3_hsic_data *mmp3 = phy_get_drvdata(phy);
- 	u32 hsic_ctrl;
+-	if (qmp->dp_serdes != 0) {
++	if (qmp->dp_serdes) {
+ 		ret = phy_dp_clks_register(qmp, np);
+ 		if (ret)
+ 			return ret;
+@@ -1833,7 +1833,7 @@ static int qmp_usbc_parse_dt(struct qmp_usbc *qmp)
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
  
--	hsic_ctrl = readl_relaxed(base + HSIC_CTRL);
-+	hsic_ctrl = readl_relaxed(mmp3->base + HSIC_CTRL);
- 	hsic_ctrl |= HSIC_ENABLE;
- 	hsic_ctrl |= PLL_BYPASS;
--	writel_relaxed(hsic_ctrl, base + HSIC_CTRL);
-+	writel_relaxed(hsic_ctrl, mmp3->base + HSIC_CTRL);
+-	if (offs->dp_serdes != 0) {
++	if (offs->dp_serdes) {
+ 		qmp->dp_serdes = base + offs->dp_serdes;
+ 		qmp->dp_tx = base + offs->dp_txa;
+ 		qmp->dp_tx2 = base + offs->dp_txb;
+@@ -1982,7 +1982,7 @@ static int qmp_usbc_probe(struct platform_device *pdev)
  
- 	return 0;
- }
-@@ -41,13 +45,17 @@ MODULE_DEVICE_TABLE(of, mmp3_hsic_phy_of_match);
- static int mmp3_hsic_phy_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-+	struct mmp3_hsic_data *mmp3;
- 	struct phy_provider *provider;
--	void __iomem *base;
- 	struct phy *phy;
+ 	phy_set_drvdata(qmp->usb_phy, qmp);
  
--	base = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
--	if (IS_ERR(base))
--		return PTR_ERR(base);
-+	mmp3 = devm_kzalloc(dev, sizeof(*mmp3), GFP_KERNEL);
-+	if (!mmp3)
-+		return -ENOMEM;
-+
-+	mmp3->base = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
-+	if (IS_ERR(mmp3->base))
-+		return PTR_ERR(mmp3->base);
- 
- 	phy = devm_phy_create(dev, NULL, &mmp3_hsic_phy_ops);
- 	if (IS_ERR(phy)) {
-@@ -55,7 +63,7 @@ static int mmp3_hsic_phy_probe(struct platform_device *pdev)
- 		return PTR_ERR(phy);
- 	}
- 
--	phy_set_drvdata(phy, (void *)base);
-+	phy_set_drvdata(phy, mmp3);
- 	provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
- 	if (IS_ERR(provider)) {
- 		dev_err(dev, "failed to register PHY provider\n");
+-	if (qmp->dp_serdes != 0) {
++	if (qmp->dp_serdes) {
+ 		qmp->dp_phy = devm_phy_create(dev, np, &qmp_usbc_dp_phy_ops);
+ 		if (IS_ERR(qmp->dp_phy)) {
+ 			ret = PTR_ERR(qmp->dp_phy);
 -- 
 2.51.0
 
