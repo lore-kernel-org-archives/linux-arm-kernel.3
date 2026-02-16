@@ -4,69 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE51AE63F32
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 07:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE06E63F37
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 08:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hJHCqRRnankEoC/ErtC2hAAeRlqcyizmIk/mir5pSks=; b=2S+cFqCqJwXSZbwXDiwqDwFmNS
-	0ga+vUvoWpC/1H+wQq0VY6NWcOBdAPGFZJq2fu+vLnhibgXoXE+QxTFBkGGs00+/bNivMCb8HUlHD
-	SJkrodYVLaz1IBkZCi27r4tFEOaQoZ9ooQ3zzwjceGvbF7FYhKNK+1u9WYswzX/8LC4NByIRCfVh5
-	az3kA7EpELVTc0LZPNlo8Dt06eGWI0K1yKt5HGpfd1Wa6+nJcL3+jxF+P+XdMGxD4dbAPPQ0ldVLf
-	5ZZdv52TWMIHO/u6Y2VaMMrN2iH1hfqsPo7T7dyQVBvvBqtf5AWqCf5jeT/wHvMx3/NOtM/uUtVIo
-	H5dft6ZQ==;
+	bh=DL+/9I91y9/qc1bj5//jj3ZkjEziQ9/vnFv+9ooOS+4=; b=rRSVl4A/RAFy/2XyWT0lrYjnbx
+	wg6VBv14ucuX/bMXYN/qjnbMaJHi2upZf3sbvv6NPe22HvKrvpXv7UaiSz5KWartj13l+g/egYnb3
+	Is7BmazHQ1YN7FZdh2KaPEN79AOnJ/7bHZ3UXEy4skeL08K4+CG6p5B7hwYS7bhP6rhqUsQHKIQ8Q
+	bMn2ZHJAy1XQsPc8p8manGwKIIwYS7ZKhDlZaOSIcJwxv9mVLgNHcRqcImJrvOqwdUhUO9IKfjzff
+	UZa6fG1W2S5Or9YwmlprHyPLKMarQMYI37rIJ7WB/BMLD3b3Fksmk8elaQWTHZJOXeVyeiUH3kO6b
+	i0Ie6ONA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtQr-000000066av-2twS;
-	Mon, 16 Feb 2026 07:54:13 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
+	id 1vrtcI-0000000675j-3iIE;
+	Mon, 16 Feb 2026 08:06:02 +0000
+Received: from mx01.omp.ru ([90.154.21.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrtQo-000000066aL-1YWT
+	id 1vrtcG-0000000674m-0yfA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 07:54:11 +0000
-Content-Type: text/plain;
-	charset=us-ascii
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771228447;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hJHCqRRnankEoC/ErtC2hAAeRlqcyizmIk/mir5pSks=;
-	b=G3HZUODMvtoogeed1XFbneGODNDFnbuOfeHNYf5KJrz7EnBtOA8efe5w4od6wv1bmVMR7Y
-	0ytucaPzok6gtuYcP2hzx2FjfDjUiCkEY07KwZy4cT1aW0JR692rlU4umqKwyIzPmSl7vD
-	0KaWsxAX59a/IN2USDzNatyBDh4p0go=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.4\))
-Subject: Re: [PATCH] crypto: atmel-sha204a - Fix OTP sysfs read and error
- handling
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Thorsten Blum <thorsten.blum@linux.dev>
-In-Reply-To: <CAFXKEHb+D__WYugjdbqUSSnubfsOeibfH-Q33eJGjG3kvfndwg@mail.gmail.com>
-Date: Mon, 16 Feb 2026 08:53:34 +0100
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- stable@vger.kernel.org,
- linux-crypto@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <A3F0A8DE-C8F4-4D45-B98D-60E896EFCEA2@linux.dev>
-References: <20260215124125.465162-2-thorsten.blum@linux.dev>
- <CAFXKEHbCrp57ruvCF2TXXcnoJF93Z5bdUd7Nt5WtM9_abtc66w@mail.gmail.com>
- <2E9C85C9-AD05-4BB3-A945-5ADECCB5C7E4@linux.dev>
- <CAFXKEHb+D__WYugjdbqUSSnubfsOeibfH-Q33eJGjG3kvfndwg@mail.gmail.com>
-To: Lothar Rubusch <l.rubusch@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	Mon, 16 Feb 2026 08:06:01 +0000
+Received: from [192.168.2.104] (213.87.133.175) by msexch01.omp.ru
+ (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Mon, 16 Feb
+ 2026 11:05:33 +0300
+Message-ID: <6e495cc2-3469-4855-8645-c5633d937f1e@omp.ru>
+Date: Mon, 16 Feb 2026 11:05:32 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 02/13] hwspinlock: add callback to fill private
+ data of a hwspinlock
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	<linux-renesas-soc@vger.kernel.org>
+CC: Andy Shevchenko <andriy.shevchenko@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, Bjorn Andersson
+	<andersson@kernel.org>, Baolin Wang <baolin.wang@linux.alibaba.com>,
+	<linux-remoteproc@vger.kernel.org>
+References: <20260215225501.6365-1-wsa+renesas@sang-engineering.com>
+ <20260215225501.6365-3-wsa+renesas@sang-engineering.com>
+Content-Language: en-US
+From: Sergey Shtylyov <s.shtylyov@omp.ru>
+Organization: Open Mobile Platform
+In-Reply-To: <20260215225501.6365-3-wsa+renesas@sang-engineering.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [213.87.133.175]
+X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
+ (10.188.4.12)
+X-KSE-ServerInfo: msexch01.omp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 02/16/2026 07:49:18
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 19
+X-KSE-AntiSpam-Info: Lua profiles 200515 [Feb 16 2026]
+X-KSE-AntiSpam-Info: Version: 6.1.1.20
+X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
+X-KSE-AntiSpam-Info: LuaCore: 87 0.3.87
+ 7430d8ffafccd8879e1d8370e5b501352446c2ba
+X-KSE-AntiSpam-Info: {rep_avail}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: {SMTP from is not routable}
+X-KSE-AntiSpam-Info: {Found in DNSBL: 213.87.133.175 in (user)
+ b.barracudacentral.org}
+X-KSE-AntiSpam-Info: d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;omp.ru:7.1.1;127.0.0.199:7.1.2
+X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.133.175
+X-KSE-AntiSpam-Info: {DNS response errors}
+X-KSE-AntiSpam-Info: Rate: 19
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
+ smtp.mailfrom=omp.ru;dkim=none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Heuristic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 02/16/2026 07:50:00
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 2/16/2026 7:04:00 AM
+X-KSE-Attachment-Filter-Triggered-Rules: Clean
+X-KSE-Attachment-Filter-Triggered-Filters: Clean
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260215_235410_602653_F1CD81E7 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260216_000600_283172_838D415E 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +106,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16. Feb 2026, at 07:14, Lothar Rubusch wrote:
-> [...]
->=20
-> This would work. I'd squash this fixup together with the proposed
-> patch and resubmit a fixed version.
->=20
-> 8<-------------------------------------------------------------->8
-> root@dut02:~/atsha204a-modif# insmod atmel-i2c.ko
-> root@dut02:~/atsha204a-modif# insmod atmel-sha204a.ko
-> root@dut02:~/atsha204a-modif# cat =
-/sys/bus/i2c/devices/1-0064/atsha204a/otp
-> =
-0001ED86032D0002154C033750FFFFFF20B0F703DB0CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF=
-FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-> 8<-------------------------------------------------------------->8
+On 2/16/26 1:54 AM, Wolfram Sang wrote:
 
-Thanks for verifying and testing. v2 can be found here:
+> To hide internal core structures from providers, a callback is added to
+> the ops which allows to set the 'priv' field of a hwspinlock. It is
+> called when a hwspinlock device is registered and, thus, iterated over
+> all locks. The register-functions are also extended to pass a data
+> pointer to this callback, so it can do necessary calculations for the
+> priv field of each hwspinlock. Providers are converted separately
+> because these changes need dedicated reviews.
+> 
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+[...]
 
-=
-https://lore.kernel.org/lkml/20260216074552.656814-1-thorsten.blum@linux.d=
-ev/
+> --- a/include/linux/hwspinlock.h
+> +++ b/include/linux/hwspinlock.h
+> @@ -30,7 +30,7 @@ struct hwspinlock_ops;
+>  void *hwspin_lock_get_priv(struct hwspinlock *hwlock);
+>  struct device *hwspin_lock_get_dev(struct hwspinlock *hwlock);
+>  int hwspin_lock_register(struct hwspinlock_device *bank, struct device *dev,
+> -		const struct hwspinlock_ops *ops, int base_id, int num_locks);
+> +		const struct hwspinlock_ops *ops, int base_id, int num_locks, void *init_data);
+>  int hwspin_lock_unregister(struct hwspinlock_device *bank);
+>  struct hwspinlock *hwspin_lock_request_specific(unsigned int id);
+>  int hwspin_lock_free(struct hwspinlock *hwlock);
+> @@ -49,7 +49,7 @@ int devm_hwspin_lock_unregister(struct device *dev,
+>  int devm_hwspin_lock_register(struct device *dev,
+>  			      struct hwspinlock_device *bank,
+>  			      const struct hwspinlock_ops *ops,
+> -			      int base_id, int num_locks);
+> +			      int base_id, int num_locks, void *init_data);
 
-Best,
-Thorsten
+   Don't you break the existing users of this API with this change? I see
+you're fixing them up in the followup patches but that's not how it should
+be done -- the compilation shouldn't be broken...
+
+[...]
+
+MBR, Sergey
 
 
