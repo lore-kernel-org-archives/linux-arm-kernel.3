@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203E3E81A2F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 14:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE4EE81A30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 14:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zYdVr7BD//ML3cPspm8e51p1r/jn9khxfOY35saBUOQ=; b=Q9d7YHX2cTBnLb1q7NY4hIV2d5
-	cZ0KfeLs2/eVzHp5KGtrPVbmGJLL/6EsjelxQdVVUx3s/rsrxpwscr3r+s6A/YC6WocgdS+tlBlJp
-	EsAZwjIOiHcLZaP7n4d/gxEqQcv47ZYcB3UxkZmMthk3a46+G4NPnCpk86R9fuaMYd+5NWZbTxRSL
-	MY5nRJ4OURqow7l4z5HMyFPGFQrrN+WmFSALVbIdJzBoExn6lkuWJ5Zj4yuzXrKnEBTKJrLly6kJZ
-	YKhxYf7b/LRQpbDKNHNVM2rdrHZzh10yW2FH23AJWhSv7WYYCKYI0xJNHu2U05ZgJbgW1nN/53Mbr
-	C+sgv5pA==;
+	bh=a9bx2SVNA6p6zRS/D5nNjpug9N+EIaRo9Qayx0T8s/E=; b=KJR95uAXOnTEXD24NERRxumapy
+	gF6hcRfXlnWWKlxH296dTgX/HRYHkhhqnMJsWIXuVZAECM09hcZtsBJEVgjFYgsiTkVWbb5meFSrU
+	Xt+5ImGhq9WdjCj/kaLR2acGtXoYNvD/bSSs5LrD4s8WeGVp/5N8ojFYRXUEGy7KxU3aem9ssj9rY
+	xe+Q+SY5Qwe0GaWmvEdyy5b2O5zyh5UEAWbTphH85pogIVSXVBOizsUNhxSNxWPkNTcZ/w57KxwS+
+	sWaYHlwU6mlHzCuZvI9BfQDZWwdKT3ZvdPInCihsnwFsKXduGGIAeOYtL33o1P5EjsJaADqwUq7AK
+	O4bwRa4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrzwA-00000006oxH-0MVL;
-	Mon, 16 Feb 2026 14:50:58 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1vrzwE-00000006oy3-1Zyc;
+	Mon, 16 Feb 2026 14:51:02 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrzw7-00000006ovM-1Y6J
+	id 1vrzw7-00000006ovI-2KX5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 14:50:56 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-4376c206493so3100233f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 06:50:40 -0800 (PST)
+	Mon, 16 Feb 2026 14:50:57 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4837246211bso34013995e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 06:50:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771253439; x=1771858239; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1771253436; x=1771858236; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zYdVr7BD//ML3cPspm8e51p1r/jn9khxfOY35saBUOQ=;
-        b=UiUYv9iXyjzIB1bhqPYhdKWyy2D6iNkpKEa2xWV2ZEvsoX+tGe2wY0KACizZm1TG67
-         ZDUD0UPxiWcOz0/pPWxP9vCGEozDDVPla/3gKJc4rAM9kpAmStIODw/SVLz1R6VESqri
-         lfQ66bveAQC82fEyr0OkWYBY6RwvHglw32dsOW7brlPD3/aL0WgKse1YrbtO4ooTxwyp
-         CBny3U3KCiEjS4EXN4H2ZfcKnrdmnMtGQKakUAOojukpZZYVupgmSIPZHur3RfvJ3fOK
-         HtYiGWGlP+CwTpx4ZtveDdjpyrQGSfSzfJevxdg2ZxDzqr5OhNBrZC91uUfCd0TLwZ1Z
-         srvQ==
+        bh=a9bx2SVNA6p6zRS/D5nNjpug9N+EIaRo9Qayx0T8s/E=;
+        b=pPZ8r2VJDlm2Tlhdk9hwG8Yy2SBxFSJCt4Sx8e+a6EPZ0/0bfFYD7ru6CDWRikPzZE
+         m9uySGv133mvRuuSpskWnpZrTDnXfmDU/JN1So0ZSP2uvivnzzqyZJC+RgyU7uEnqbcB
+         OTB9vr1rVYbvCC0VIXzC4I0SHA/YVwrlA2PG49HBbH0cOSsPq5PKC5wsha3+6siVZ1Vk
+         jz+fATiN+sUUGs64VbMI/AnLPzOvmOKWw3pvZV/fBBsPI5Qlr9Xw8gsBT5nvEbUqpCWE
+         fiSU9QQFHWH0CMGFc2WNZCykq/YKonVtqmGq5DpAIQYrOFQ1sth/DyNufQzskbvg8rx+
+         thcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771253439; x=1771858239;
+        d=1e100.net; s=20230601; t=1771253436; x=1771858236;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zYdVr7BD//ML3cPspm8e51p1r/jn9khxfOY35saBUOQ=;
-        b=mPNe8N+HdVJn4lcEc3PmS1BT8L66HCvOuOMB3gqr8zqN/lqc6e6L5n5OjMmhRKsQIl
-         xPtCMqwJOAUTcAgmQnQimlMi3W3IaLi+CyZZHBfhgNEYHDhUYGbqNcRUCDPFea37qUCO
-         Ib4MMbxq5U+uaICK/GWzoPauW0ooDyimNIInXNQ1hJcmUIBjfXWXVxoHFSF0ecOQAu2B
-         7OyjuZMwLO7akADMknBzZaZ+K+FnfWh6nFBMoo+wE0AfiRONxW6MJPf9tfOAkAUnzjcC
-         KLe2FSTOYeO9cq39WeEH9y+j/JMJTI9BGRLUb5XnTU0XbiEbkxVsxZq5MxaqvBXg1osb
-         8ZvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU5XRb6TF49R7KnDtGME/7FBoDa8K2Yyatbs7HxgNXeIKZ4Ac4BfKe11a8v5bahAjwIeFfDLEfOBWHKL9MWYo+G@lists.infradead.org
-X-Gm-Message-State: AOJu0YyieE4ut4PDt81d+Zx1Rkd58q+THjOxTdX1eUBhpop/LQrunp+b
-	KXTSbGYuRvM40I0eTTkvul9Y6MQ6bLzAekq0JOhkYzJZtNeKZKqNnk4vtZzzZpLWNC9waodSWZO
-	vcw==
-X-Received: from wrqa11.prod.google.com ([2002:adf:f7cb:0:b0:437:72d9:7316])
- (user=elver job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:613:b0:435:a0ca:bdca
- with SMTP id ffacd0b85a97d-4379dbae796mr14728899f8f.57.1771253438836; Mon, 16
- Feb 2026 06:50:38 -0800 (PST)
-Date: Mon, 16 Feb 2026 15:16:23 +0100
+        bh=a9bx2SVNA6p6zRS/D5nNjpug9N+EIaRo9Qayx0T8s/E=;
+        b=EbUW9Hqfu1hnoaH9E67/cxOouOnTiPmSut8ZfMq0POgo+YetrGlqWlKF8d9P7QavSn
+         qtvtVo4jTDW+irZJCf0FkQ2Rcn/RS5BhlwV8qpM6NAR4Tp7u0+6ey/8YiH81aqK/A3II
+         9LV8Xm/33a6sXBpfdn18cwZVHQoowPvGtRvqPIH0g1LMODf1154bAwp1E3Vn3SY8zsll
+         fsKRc71pyLke70RPSqVOJY9P3k/jlpQoUy0pyJRIcwZI2VfSG1oRrlKA0XiMDO1T3DUO
+         HhLGvr6aYrFdKMKxVLsnwEtvGFeVq7yvjxpCZYS59ve2nB1a1M1tJzFovujMqJMdbHUP
+         uMtg==
+X-Forwarded-Encrypted: i=1; AJvYcCWfrEvcRt5U6EuQyMMkMKKhn8n4120hMA6Jst0h5rWpla1f2mJMqjescpac79djNk65JbNICIMDwFSHNrmUMu6W@lists.infradead.org
+X-Gm-Message-State: AOJu0Yym2a2hS5D0a6lDl0zFew3ddeYYHNLk2O1ofgpDzYnAbxQnoFdD
+	YckqiizUrFCquiYnK3ykp4iXX++73VCZz42MCxoehZSEdbWjYiu4F+FcpeUDNKb52sBTGW/Rp6f
+	ftw==
+X-Received: from wmbfj12.prod.google.com ([2002:a05:600c:c8c:b0:480:69c2:3949])
+ (user=elver job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1f8d:b0:47e:e87b:af8
+ with SMTP id 5b1f17b1804b1-48373a5ba01mr192805505e9.21.1771253436108; Mon, 16
+ Feb 2026 06:50:36 -0800 (PST)
+Date: Mon, 16 Feb 2026 15:16:22 +0100
 In-Reply-To: <20260216142436.2207937-2-elver@google.com>
 Mime-Version: 1.0
 References: <20260216142436.2207937-2-elver@google.com>
 X-Mailer: git-send-email 2.53.0.335.g19a08e0c02-goog
-Message-ID: <20260216142436.2207937-4-elver@google.com>
-Subject: [PATCH v4 2/2] arm64, compiler-context-analysis: Permit alias
- analysis through __READ_ONCE() with CONFIG_LTO=y
+Message-ID: <20260216142436.2207937-3-elver@google.com>
+Subject: [PATCH v4 1/2] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
 From: Marco Elver <elver@google.com>
 To: elver@google.com, Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>
 Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -75,11 +74,11 @@ Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
 	David Laight <david.laight.linux@gmail.com>, Al Viro <viro@zeniv.linux.org.uk>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Nathan Chancellor <nathan@kernel.org>, 
 	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>, Boqun Feng <boqun@kernel.org>
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_065055_421783_4FAC8617 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20260216_065055_624711_AEE42357 
+X-CRM114-Status: GOOD (  22.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,105 +93,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When enabling Clang's Context Analysis (aka. Thread Safety Analysis) on
-kernel/futex/core.o (see Peter's changes at [1]), in arm64 LTO builds we
-could see:
+Rework arm64 LTO __READ_ONCE() to improve code generation as follows:
 
-| kernel/futex/core.c:982:1: warning: spinlock 'atomic ? __u.__val : q->lock_ptr' is still held at the end of function [-Wthread-safety-analysis]
-|      982 | }
-|          | ^
-|    kernel/futex/core.c:976:2: note: spinlock acquired here
-|      976 |         spin_lock(lock_ptr);
-|          |         ^
-| kernel/futex/core.c:982:1: warning: expecting spinlock 'q->lock_ptr' to be held at the end of function [-Wthread-safety-analysis]
-|      982 | }
-|          | ^
-|    kernel/futex/core.c:966:6: note: spinlock acquired here
-|      966 | void futex_q_lockptr_lock(struct futex_q *q)
-|          |      ^
-|    2 warnings generated.
+1. Replace _Generic-based __unqual_scalar_typeof() with more complete
+   __rwonce_typeof_unqual(). This strips qualifiers from all types, not
+   just integer types, which is required to be able to assign (must be
+   non-const) to __u.__val in the non-atomic case (required for #2).
 
-Where we have:
+One subtle point here is that non-integer types of __val could be const
+or volatile within the union with the old __unqual_scalar_typeof(), if
+the passed variable is const or volatile. This would then result in a
+forced load from the stack if __u.__val is volatile; in the case of
+const, it does look odd if the underlying storage changes, but the
+compiler is told said member is "const" -- it smells like UB.
 
-	extern void futex_q_lockptr_lock(struct futex_q *q) __acquires(q->lock_ptr);
-	..
-	void futex_q_lockptr_lock(struct futex_q *q)
-	{
-		spinlock_t *lock_ptr;
+2. Eliminate the atomic flag and ternary conditional expression. Move
+   the fallback volatile load into the default case of the switch,
+   ensuring __u is unconditionally initialized across all paths.
+   The statement expression now unconditionally returns __u.__val.
 
-		/*
-		 * See futex_unqueue() why lock_ptr can change.
-		 */
-		guard(rcu)();
-	retry:
->>		lock_ptr = READ_ONCE(q->lock_ptr);
-		spin_lock(lock_ptr);
-	...
-	}
+This refactoring appears to help the compiler improve (or fix) code
+generation.
 
-At the time of the above report (prior to removal of the 'atomic' flag),
-Clang Thread Safety Analysis's alias analysis resolved 'lock_ptr' to
-'atomic ?  __u.__val : q->lock_ptr' (now just '__u.__val'), and used
-this as the identity of the context lock given it cannot "see through"
-the inline assembly; however, we want 'q->lock_ptr' as the canonical
-context lock.
+With a defconfig + LTO + debug options builds, we observe different
+codegen for the following functions:
 
-While for code generation the compiler simplified to '__u.__val' for
-pointers (8 byte case -> 'atomic' was set), TSA's analysis (a) happens
-much earlier on the AST, and (b) would be the wrong deduction.
+	btrfs_reclaim_sweep (708 -> 1032 bytes)
+	btrfs_sinfo_bg_reclaim_threshold_store (200 -> 204 bytes)
+	check_mem_access (3652 -> 3692 bytes) [inlined bpf_map_is_rdonly]
+	console_flush_all (1268 -> 1264 bytes)
+	console_lock_spinning_disable_and_check (180 -> 176 bytes)
+	igb_add_filter (640 -> 636 bytes)
+	igb_config_tx_modes (2404 -> 2400 bytes)
+	kvm_vcpu_on_spin (480 -> 476 bytes)
+	map_freeze (376 -> 380 bytes)
+	netlink_bind (1664 -> 1656 bytes)
+	nmi_cpu_backtrace (404 -> 400 bytes)
+	set_rps_cpu (516 -> 520 bytes)
+	swap_cluster_readahead (944 -> 932 bytes)
+	tcp_accecn_third_ack (328 -> 336 bytes)
+	tcp_create_openreq_child (1764 -> 1772 bytes)
+	tcp_data_queue (5784 -> 5892 bytes)
+	tcp_ecn_rcv_synack (620 -> 628 bytes)
+	xen_manage_runstate_time (944 -> 896 bytes)
+	xen_steal_clock (340 -> 296 bytes)
 
-Now that we've gotten rid of the 'atomic' ternary comparison, we can
-return '__u.__val' through a pointer that we initialize with '&x', but
-then update via a pointer-to-pointer. When READ_ONCE()'ing a context
-lock pointer, TSA's alias analysis does not invalidate the initial alias
-when updated through the pointer-to-pointer, and we make it effectively
-"see through" the __READ_ONCE().
+Increase of some functions are due to more aggressive inlining due to
+better codegen (in this build, e.g. bpf_map_is_rdonly is no longer
+present due to being inlined completely).
 
-Code generation is unchanged.
+NOTE: The return-value-of-function-drops-qualifiers hack was first
+suggested by Al Viro in [1], which notes some of its limitations which
+make it unsuitable for a general __unqual_scalar_typeof() replacement.
+Notably, array types are not supported, and GCC 8.1-8.3 still fail. Why
+should we use it here? READ_ONCE() does not support reading whole
+arrays, and the GCC version problem only affects 3 minor releases of a
+very ancient still-supported GCC version; not only that, this arm64
+READ_ONCE() version is currently only activated by LTO builds, which
+to-date are *only supported by Clang*!
 
-Link: https://lkml.kernel.org/r/20260121110704.221498346@infradead.org [1]
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202601221040.TeM0ihff-lkp@intel.com/
-Cc: Peter Zijlstra <peterz@infradead.org>
-Tested-by: Boqun Feng <boqun@kernel.org>
-Reviewed-by: David Laight <david.laight.linux@gmail.com>
+Link: https://lore.kernel.org/all/20260111182010.GH3634291@ZenIV/ [1]
 Signed-off-by: Marco Elver <elver@google.com>
 ---
+v4:
+* Use the return-value-of-function-drops-qualifiers hack to paint the
+  bikeshed.
+
 v3:
-* Use 'typeof(*__ret)'.
-* Commit message.
+* Comment.
 
 v2:
-* Rebase.
+* Add __rwonce_typeof_unqual() as fallback for old compilers.
 ---
- arch/arm64/include/asm/rwonce.h | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/rwonce.h | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-index 9fd24cef3376..0f3a01d30f66 100644
+index fc0fb42b0b64..9fd24cef3376 100644
 --- a/arch/arm64/include/asm/rwonce.h
 +++ b/arch/arm64/include/asm/rwonce.h
-@@ -42,8 +42,12 @@
-  */
+@@ -19,6 +19,17 @@
+ 		"ldapr"	#sfx "\t" #regs,				\
+ 	ARM64_HAS_LDAPR)
+ 
++/*
++ * Replace this with typeof_unqual() when minimum compiler versions are
++ * increased to GCC 14 and Clang 19. For the time being, we need this
++ * workaround, which relies on function return values dropping qualifiers.
++ */
++#define __rwonce_typeof_unqual(x) typeof(({				\
++	__diag_push()							\
++	__diag_ignore_all("-Wignored-qualifiers", "")			\
++	((typeof(x)(*)(void))0)();					\
++	__diag_pop() }))
++
+ /*
+  * When building with LTO, there is an increased risk of the compiler
+  * converting an address dependency headed by a READ_ONCE() invocation
+@@ -32,8 +43,7 @@
  #define __READ_ONCE(x)							\
  ({									\
--	typeof(&(x)) __x = &(x);					\
--	union { __rwonce_typeof_unqual(*__x) __val; char __c[1]; } __u;	\
-+	auto __x = &(x);						\
-+	auto __ret = (__rwonce_typeof_unqual(*__x) *)__x;		\
-+	/* Hides alias reassignment from Clang's -Wthread-safety. */	\
-+	auto __retp = &__ret;						\
-+	union { typeof(*__ret) __val; char __c[1]; } __u;		\
-+	*__retp = &__u.__val;						\
+ 	typeof(&(x)) __x = &(x);					\
+-	int atomic = 1;							\
+-	union { __unqual_scalar_typeof(*__x) __val; char __c[1]; } __u;	\
++	union { __rwonce_typeof_unqual(*__x) __val; char __c[1]; } __u;	\
  	switch (sizeof(x)) {						\
  	case 1:								\
  		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
-@@ -68,7 +72,7 @@
+@@ -56,9 +66,9 @@
+ 			: "Q" (*__x) : "memory");			\
+ 		break;							\
  	default:							\
- 		__u.__val = *(volatile typeof(*__x) *)__x;		\
+-		atomic = 0;						\
++		__u.__val = *(volatile typeof(*__x) *)__x;		\
  	}								\
--	__u.__val;							\
-+	*__ret;								\
+-	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(*__x) *)__x);\
++	__u.__val;							\
  })
  
  #endif	/* !BUILD_VDSO */
