@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829CBE81A23
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 13:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B76FCE81A28
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 14:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rUcAGLQZkv/PTBs//eYKKwXahaszOterbl1vVyU8vuo=; b=KAIa4aBAOIh3yiY+pxg8yPuEvc
-	zsLetHxcT3ukywgP3WGFA+mTZ1882fyhgJkD2f+SPCxI6nApQucCu8fKV7qxO2XgZAfJkok/vbla9
-	3JTLHWVQi2ongCR3SBM90sZgMdCpUSasSMUU8NZz/4rENqBmH7IxULdhqhEaU2Cj2wLx4sZ4I8qFG
-	7JBJEDzFHEw7pjUJD7mDrkplyFz/HM36hhQVx08ZgtRK7xE6L7QTKACa6DoeeS8nom5FXQSUwbm+X
-	LAtDB2UQWG4TgZHGqKomuiR/5UPbK+zAtlxhZ8R7arbml4BsA/2f+2fPaf0T6ZcJiMgi8tZ8slcyb
-	JNvKXaMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GBnL5Ro82QMQwqttY3lBrvEHg6LGLohS8MkpoiEXcp0=; b=i0Kwclt8DHtUpzKssdzuBycDhv
+	9uOj3N26C0fC8TCpoaHxh8w06Ljzvisg2+MBOCFsMOOCdaJ63Dzg9UCoRulLYxIJe39uecP8uo4FX
+	WxooPf3yPBYWLckWTuz4BhXeOH3a4JEjQUvWkU26OQ3R2efb3Zt6AWpK+z7ueuD4kuB3FtkXkQTKN
+	szNKF/QY8uZo6vG8aoCDNz3XBoWAwZ2L2hyfJWa7zs6EYW5Gt69EjtUuma+nTayeiDZJo034vDVsb
+	PaSukv9Xtj0ShObBEGkDlxmmdcFWlwD7h3zbDPeuRj4+twFhd2hB4kl95K+XIThVvIGKOX5nOHYf+
+	jPfgWZ4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrz7V-00000006jrA-00Ur;
-	Mon, 16 Feb 2026 13:58:37 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrz7S-00000006jqa-1f7i
+	id 1vrzAY-00000006kAo-47Yh;
+	Mon, 16 Feb 2026 14:01:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vrzAW-00000006k9v-0SjP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 13:58:35 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-59e60b3ccdfso4485774e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 05:58:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771250311; x=1771855111; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rUcAGLQZkv/PTBs//eYKKwXahaszOterbl1vVyU8vuo=;
-        b=PA7aAMVPlSYNILcS68pt41Q1ATT7wY7/yqp90rnZiqqhUqQvR0bSr8jvuSnvoUNw1M
-         GDRVvBTNVN/8D52MqWVL+P6JQ01ChTzI5Y0rAao5R0UVPm5A/k3CI+JINlXoFw9Cjf4Z
-         ZPqTqP6DQB6HPPxtiG4FMo3wrNeshqYkFo62wQ5mu916qWWZBAq87vaAEBUKItiI6A9i
-         EFYkFumhobggXVuV7CginzA3UaxUu0QL5aNiagLf0tK/6v3tQh/9VvbitrKgCH6j5qtU
-         BqQZmNOcjD3FdcMjGcgC3/h/6Ox+zYVeY5/x1ji4fweb9ZHsM0bgkGqHZ0UzLIg+fxpr
-         IFzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771250311; x=1771855111;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rUcAGLQZkv/PTBs//eYKKwXahaszOterbl1vVyU8vuo=;
-        b=oOcaS8R/34o1kOHrU9XJGSgmsj3v6TXni88q3pRc7Pl8m+jxa2EhreOsl8pAlL0sxM
-         yFoPiSs0yvt4Qti6Ex0vFIJr8VcDotnoZf2YYNYMgBHtV+QcR3nF6X8K+trFGkuYHNxF
-         On7DWDzOqIIkri5tgsSpEx77nR6uCybmcwh0de2Ux4/4hZxkV1Y9+7b79dSyLyfqkKPV
-         2PJOnZW7xnN7RjUcy+hVLzrq79q9hSKFG+QCq/6+rRAiEb+d/TUc3U4i67CXi/phIJT1
-         P+ibzMNeUvzppESYD5CsFVqcK9EEvyVU3u/oP04CYrq8tnwctJHkErfQbS6K6zS/+Q6a
-         iG8w==
-X-Forwarded-Encrypted: i=1; AJvYcCXYOTxpqREgBZ69sw6rprlkgr/g6j7iNiEiAmdt4Zbx+L54Z3i2G2cuS9Wj56gQ1bNTjaKOHRXwxEUHN1PzIz3R@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2sZ8czhvlUgqXXOQiz7OHCmkrjMSoNYYeeev9kVIbZB39VngH
-	E3uGH3aYkUxR78FquFgczdvMUHD0oTlBvjPVy3wtOU4FBhCmM+za/lzE
-X-Gm-Gg: AZuq6aKUTaP3cGX6JPhbvJRUcZAOIjBc6sJ7rj5Apl4f641uBR45REaaV8hg4vqqG2B
-	WaCDf1kP2h9tSZTER/vB5//tNEeaxEwDMpXvuC/0rmh6m3yR5uIla4AyHX2tICYVrNdgUizv3Vz
-	N/732Rxy1oS0L8zmnXuYop7yTgghOCZQzST7997GuVxuka/Ih5Lo4GTRetHs8Lb4xOoVP/ORj1X
-	cD2+bEhBsQrxbDw+CrVnL3cGKinW7THVqi/5YlsCiilJmQL5xhbOtxiOyXVNtxZcboAa9LmYEmx
-	yE/hM6qy7UEvtXqnyj3JnxPLNm8JynHzl3pIxt+PxQfzwhS2xx20drUPm/Sn8LLwGKqwRJ17WUq
-	5T+GZwe1Ns8FfEay9LeOMPS7ZKvaXIaV+IJYRVPFLzpExHaDq+Hg+bKfTnwceUHDyAqy3+7kLIi
-	8bhywkeQmwCSb7NMwymTPDAHg786mMcDSgL/XQ8AtEMEI=
-X-Received: by 2002:a05:6512:145a:10b0:59f:6db3:1526 with SMTP id 2adb3069b0e04-59f6db316f1mr1715840e87.10.1771250311130;
-        Mon, 16 Feb 2026 05:58:31 -0800 (PST)
-Received: from [10.38.18.54] ([213.255.186.37])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e5f5b2223sm3224103e87.79.2026.02.16.05.58.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Feb 2026 05:58:30 -0800 (PST)
-Message-ID: <5d889f66-7697-4a39-beed-33ace693a1ef@gmail.com>
-Date: Mon, 16 Feb 2026 15:58:28 +0200
+	Mon, 16 Feb 2026 14:01:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AD021570
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 06:01:34 -0800 (PST)
+Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 79F8E3F73F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 06:01:40 -0800 (PST)
+Date: Mon, 16 Feb 2026 13:59:27 +0000
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+	Adam Ford <aford173@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>,
+	Steven Price <steven.price@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v1 2/2] drm/panthor: treat sram as mandatory except mt8196
+Message-ID: <aZMiv7ARO4TUSUTa@e142607>
+References: <20260215100302.136719-1-work@onurozkan.dev>
+ <20260216104423.6b5bcc96@fedora>
+ <523c7b99-33a7-410d-8efb-b7bb2f2f416d@collabora.com>
+ <4730819.LvFx2qVVIh@workhorse>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] lib/linear_ranges: Add
- linear_range_get_selector_high_array
-To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Mark Brown <broonie@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20260214-max77759-charger-v6-0-28c09bda74b4@google.com>
- <20260214-max77759-charger-v6-4-28c09bda74b4@google.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20260214-max77759-charger-v6-4-28c09bda74b4@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4730819.LvFx2qVVIh@workhorse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_055834_810390_1649D6FA 
-X-CRM114-Status: GOOD (  28.91  )
+X-CRM114-CacheID: sfid-20260216_060144_231051_9F5CA47C 
+X-CRM114-Status: GOOD (  59.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,96 +79,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/02/2026 05:12, Amit Sunil Dhamne via B4 Relay wrote:
-> From: Amit Sunil Dhamne <amitsd@google.com>
+On Mon, Feb 16, 2026 at 01:43:19PM +0100, Nicolas Frattaroli wrote:
+> On Monday, 16 February 2026 12:44:39 Central European Standard Time AngeloGioacchino Del Regno wrote:
+> > Il 16/02/26 10:44, Boris Brezillon ha scritto:
+> > > Hello Adam,
+> > > 
+> > > On Sun, 15 Feb 2026 16:21:34 -0600
+> > > Adam Ford <aford173@gmail.com> wrote:
+> > > 
+> > >> On Sun, Feb 15, 2026 at 4:04 AM Onur Özkan <work@onurozkan.dev> wrote:
+> > >>>
+> > >>> If sram-supply is missing, Panthor falls back to a
+> > >>> dummy regulator with a warning. This implicit behavior
+> > >>> hides missing DT wiring behind regulator core fallback.
 > 
-> Add a helper function to find the selector for a given value in a linear
-> range array. The selector should be such that the value it represents
-> should be higher or equal to the given value.
+> This is intentional design of the regulator API. A missing supply will
+> always result in a dummy regulator. The _optional function bubbles the
+> missing supply condition up to the caller.
 > 
-> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-> ---
->   include/linux/linear_range.h |  3 +++
->   lib/linear_ranges.c          | 36 ++++++++++++++++++++++++++++++++++++
->   2 files changed, 39 insertions(+)
+> Catching device trees lacking supplies that are marked as required by
+> the binding is done with dtbs_check, not at runtime.
+
+I'm replying to this thread while I'm also trying to cover some discussion in the
+DT patch series.
+
+What we're trying to solve is this: the Mali GPUs have an L2$+bits power domain
+that in upstream ended up being called 'sram' for reasons. The domain is important
+both for ultimate power savings (you can turn off most of the other GPU domains
+and preserve enough state for the GPU to wake up on an interrupt) and for normal
+operations, for obvious reasons. Now, vendors either don't bother to put a
+separate domain just for "sram" or go to the extreme of handing over control over
+that domain to an MCU that implements aggresive and system-wide policies. We're
+trying to cater for all cases, include the (currently hypotetical) one where you
+have a separate "sram" power domain that Linux can control.
+
+When we have first upstreamed the bindings, inspired by Panfrost driver, we have
+added the sram-supply as mandatory which I think is turning out to be a mistake.
+Prompted by Mark Brown's reply[1] to Tyr adding 'sram-supply' as an optional
+property, Onur has started this and the DT patch series[2] to enforce the presence
+of an 'sram-supply' to reduce the number of warnings in dtbs_check. In reality
+what we are enforcing is a dummy supply that is the same as the one the GPU is using
+because most of the systems don't have a specific one.
+
+So the problem we have is: do we change the upstream binding and make 'sram-supply'
+optional for every compatible string given that it is unlikely to be provided (and
+the code did not enforce it in panthor_devfreq.c anyway from the beginning), or
+do we accept that this power domain is important but usually not specified and we
+go with the current DT patch series that provides one?
+
+[1] https://lore.kernel.org/all/20260212100538.170445-1-work@onurozkan.dev/
+[2] https://lore.kernel.org/all/20260215100302.136719-1-work@onurozkan.dev/
+
 > 
-> diff --git a/include/linux/linear_range.h b/include/linux/linear_range.h
-> index 2e4f4c3539c0..0f3037f1a94f 100644
-> --- a/include/linux/linear_range.h
-> +++ b/include/linux/linear_range.h
-> @@ -57,5 +57,8 @@ void linear_range_get_selector_within(const struct linear_range *r,
->   int linear_range_get_selector_low_array(const struct linear_range *r,
->   					int ranges, unsigned int val,
->   					unsigned int *selector, bool *found);
-> +int linear_range_get_selector_high_array(const struct linear_range *r,
-> +					 int ranges, unsigned int val,
-> +					 unsigned int *selector, bool *found);
->   
->   #endif
-> diff --git a/lib/linear_ranges.c b/lib/linear_ranges.c
-> index a1a7dfa881de..c85583678f6b 100644
-> --- a/lib/linear_ranges.c
-> +++ b/lib/linear_ranges.c
-> @@ -241,6 +241,42 @@ int linear_range_get_selector_high(const struct linear_range *r,
->   }
->   EXPORT_SYMBOL_GPL(linear_range_get_selector_high);
->   
-> +/**
-> + * linear_range_get_selector_high_array - return linear range selector for value
-> + * @r:		pointer to array of linear ranges where selector is looked from
-> + * @ranges:	amount of ranges to scan from array
-> + * @val:	value for which the selector is searched
-> + * @selector:	address where found selector value is updated
-> + * @found:	flag to indicate that given value was in the range
-> + *
-> + * Scan array of ranges for selector for which range value matches given
-> + * input value. Value is matching if it is equal or higher than given value
-> + * If given value is found to be in a range scanning is stopped and @found is
-> + * set true. If a range with values greater than given value is found
-> + * but the range min is being greater than given value, then the range's
-> + * lowest selector is updated to @selector and scanning is stopped.
-
-Is there a reason why the scanning is stopped here? What ensures that 
-the rest of the ranges wouldn't contain a better match?
-
-The logic is now different from the 
-linear_range_get_selector_low_array(), and I would like to understand 
-why? It'd be nice if these APIs were 'symmetric' to avoid confusion. 
-Hence, I would like to know rationale behind making them different.
-
-> + *
-> + * Return: 0 on success, -EINVAL if range array is invalid or does not contain
-> + * range with a value greater or equal to given value
-> + */
-> +int linear_range_get_selector_high_array(const struct linear_range *r,
-> +					 int ranges, unsigned int val,
-> +					 unsigned int *selector, bool *found)
-> +{
-> +	int i;
-> +	int ret;
-> +
-> +	for (i = 0; i < ranges; i++) {
-> +		ret = linear_range_get_selector_high(&r[i], val, selector,
-> +						     found);
-> +		if (!ret)
-> +			return 0;
-> +	}
-> +
-> +	return -EINVAL;
-> +}
-> +EXPORT_SYMBOL_GPL(linear_range_get_selector_high_array);
-> +
->   /**
->    * linear_range_get_selector_within - return linear range selector for value
->    * @r:		pointer to linear range where selector is looked from
+> > >>>
+> > >>> Make SRAM handling explicit: require sram-supply for all
+> > >>> Panthor compatibles except mt8196-mali where GPU supplies
+> > >>> are intentionally managed outside Panthor and DT does not
+> > >>> model sram-supply for that compatible.
+> > >>>
+> > >>> This keeps DT power modeling explicit and avoids relying on
+> > >>> dummy-regulator fallback.
+> > >>>
+> > >>> Link: https://lore.kernel.org/all/20260213155937.6af75786@nimda/
+> > >>> Signed-off-by: Onur Özkan <work@onurozkan.dev>
+> > >>> ---
+> > >>>   drivers/gpu/drm/panthor/panthor_devfreq.c | 13 +++++++++----
+> > >>>   1 file changed, 9 insertions(+), 4 deletions(-)
+> > >>>
+> > >>> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/panthor/panthor_devfreq.c
+> > >>> index 2249b41ca4af..5f6075f18fe3 100644
+> > >>> --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
+> > >>> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
+> > >>> @@ -206,12 +206,17 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
+> > >>>           * But without knowing if it's beneficial or not (in term of power
+> > >>>           * consumption), or how much it slows down the suspend/resume steps,
+> > >>>           * let's just keep regulators enabled for the device lifetime.
+> > >>> +        *
+> > >>> +        * Treat sram-supply as mandatory except for mt8196-mali. It manages
+> > >>> +        * SRAM outside Panthor so this driver must not require direct control
+> > >>> +        * over it.
+> > >>>           */
+> > >>> -       ret = devm_regulator_get_enable_optional(dev, "sram");
+> > >>> -       if (ret && ret != -ENODEV) {
+> > >>> -               if (ret != -EPROBE_DEFER)
+> > >>> +       if (!of_device_is_compatible(dev->of_node, "mediatek,mt8196-mali")) {
 > 
+> If you really need a per-SoC branch then please just store it in the
+> platform data so we don't have these "of_device_is_compatible" checks
+> littered throughout the driver.
 
+I agree, if we go with "sram-supply" being optional only for mt8196-mali then we should
+put this in the panthor_soc_data payload and here we use that.
+
+> 
+> > >>
+> > >> I wonder if a more generic device tree flag would be better here.
+> > > 
+> > > No, we don't want it as a separate DT flag. This is all stuff we can
+> > > hide behind the compat, and every bit we add to the DT we don't
+> > > strictly need turns out to be a liability in the long run in general.
+> > > 
+> > >> What happens if others do the same as Mediatek or Mediatek decides to
+> > >> do this with more processors and this list grows?
+> > > 
+> > > That's what panthor_soc_data is for: you can attach per-compat
+> > > properties without polluting the DT with more stuff that can be
+> > > directly inferred from the compatible.
+> > > 
+> > >> It seems like a
+> > >> panthor binding might be useful to prevent future bloat.
+> > > 
+> > > It's actually the opposite, the more we add to the DT, the trickier it
+> > > gets to maintain, because we tend to get those things wrong (is the
+> > > SRAM really not needed on mt8196, or is this just a workaround to hide
+> > > the fact the PM is deferred to some FW?).
+> > > 
+> > 
+> > MT8196 has three supplies: core, stack, sram.
+> > 
+> > For example, the Google Rauru Chromebooks use those:
+> > 
+> >         core-supply = <&mt6373_vbuck7>;
+> >         stack-supply = <&mt6316dp_vbuck0>;
+> >         sram-supply = <&mt6316kp_vbuck1>;
+> > 
+> > As of now (in our midstream trees), these supplies are declared in the gpufreq
+> > node (the performance domain controller), and required to be on whenever GPUEB
+> > interaction is needed, other than whenever the GPU itself is, well, needed to
+> > be powered.
+> > 
+> > As of the current model, these supplies are getting powered on and off along
+> > with the MFG power domain.
+> > 
+> > https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c#n1005
+> > 
+> > I'm not sure what happens if we also add those to the GPU node... for this, I'm
+> > adding Nicolas to the Ccs, as he is the one who developed support for EB.
+> 
+> Fairly sure they need to be on as part of any of the operations the MFG stuff
+> does, but I also am not 100% sure on this because I didn't take notes at the
+> time.
+> 
+> Either way, this patch shouldn't exist, it doesn't do anything useful, as a
+> missing supply from the DT can be caught with `make dtbs_check`. It does not
+> need to be booted on each device to then have the driver abort probe at runtime.
+
+So what should we do when dtbs_check catches it? Series [2] is trying to provide
+a supply, but it is a bogus one because in reality the vendors don't declare one.
+
+Best regards,
+Liviu
+
+> 
+> > 
+> > Cheers,
+> > Angelo
+> > 
+> > > Regards,
+> > > 
+> > > Boris
+> > 
+> > 
+> > 
+> 
+> 
+> 
+> 
 
 -- 
----
-Matti Vaittinen
-Linux kernel developer at ROHM Semiconductors
-Oulu Finland
-
-~~ When things go utterly wrong vim users can always type :help! ~~
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
