@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE8DE83837
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Feb 2026 21:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C517EE83848
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 00:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t8BYgHoDiUqLazySoLpLeVrihmYilevIB92jtHXcapg=; b=R0gsplGgJXmoaOrJVjTaocYvsW
-	YWyEGN460JiBmWeWMjXUyM+S9pQ0TMIvmQe0JN4WhFzqkkl3kOe7PtaX3X4zGr4D8faWRB63P+Qm9
-	w8uTNYeYUJHV80Lmyi1bBk+0TjGxfuScKeG9Ip5QFA48RWCvXXqf9D/S98b0PJVo2SlmCI/Uv02RC
-	cT4SEkO79+agbdn6eyXKQMcJezqIrso/G8Cm1HvbLk32eSuye2GEHDWn1ocR1KdoaobDpNblsC9dQ
-	hxNG3WvuFPydc2Fk28jUpZWI9SJ0ix9H6l6y4DZw02wggSAKVwz4U3NQRO7GBImk4YF8+MIb7VsID
-	hP/74w+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VRsP5HR2a0zAIgfaGgQyoiXAP0vfVu+/fqrKxMVOnIo=; b=WCCRz1efnn2TFMwN3O6OMYXGV4
+	gcAUfCv83Bavv4kq/IJcTlxEokE5CF68oe2ggtDVMAHmESuaCTtOO3s8FP0LRMu1U/ptTWstv6luS
+	RZRVeODbbGXk2r4EZahXIuT+T/yRUgYCI/wfM4tJ/5H8mhdGtU9sl3PkEgTYYn6d0cZGcZIrDz1pQ
+	C0lYiACaG4urFtBINN7sGwEiO8EmqFFEvMVfJ1qVE2lnOTqGADswBsMl1cxM5DdI/PA5+lsghDFFX
+	niO9gDuSOLKvw5PUeDPRgEY4CeFNcZYync40EukxBHOsV9PW6EdbtXzpXrjrDt51r4PrPjl68ed7c
+	N9FtygCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs6Ti-00000007JUo-2m45;
-	Mon, 16 Feb 2026 21:50:02 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vs8wS-00000007QzT-3aDl;
+	Tue, 17 Feb 2026 00:27:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs6Tf-00000007JU4-0Oyb
+	id 1vs8wQ-00000007Qz5-19Nq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Feb 2026 21:50:00 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vs6TQ-00034A-LG; Mon, 16 Feb 2026 22:49:44 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vs6TO-0018BD-0n;
-	Mon, 16 Feb 2026 22:49:43 +0100
-Received: from pengutronix.de (p54b15bf8.dip0.t-ipconnect.de [84.177.91.248])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 4494D4EA95C;
-	Mon, 16 Feb 2026 21:49:43 +0000 (UTC)
-Date: Mon, 16 Feb 2026 22:49:42 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Minghuan Lian <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, 
-	Jingoo Han <jingoohan1@gmail.com>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	Sascha Hauer <s.hauer@pengutronix.de>
-Subject: Re: [PATCH] PCI: layerscape: Allow to compile as module
-Message-ID: <20260216-mahogany-caterpillar-of-certainty-38b0bc-mkl@pengutronix.de>
-X-AI: stop_reason: "refusal"
-References: <20260112-v6-19-topic-layerscape-pcie-v1-1-1cd863fce50e@pengutronix.de>
+	Tue, 17 Feb 2026 00:27:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DCEC40B2B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 00:27:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3455C116C6;
+	Tue, 17 Feb 2026 00:27:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771288067;
+	bh=miH1HOpckvuMUtbowPwhwMGcskk67oyMGA3dDmxBoBw=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Suy4n9P3m1e4VefBZUGeo4z1+Fz6iQ/5kCZ6Ht0Vo+RnL5PSdwNZMwlQelsO1iXqG
+	 BEoRKkWfaoLp6IcqP199Fm6UGcysVRpbU+XiK4XPYsuG4PvqyOiO23+pHCYkbmniHu
+	 NLH7jbdHaDlJGdSQt0u1W1Et+WKlUJLgI781Faq099YAaRHLiaQ1f8ZWlPhnNJjKwJ
+	 IZptX91D0btxN+mAZxCQglgVn4298M9zIkKH05idT6ZthiR1ez06jSyRiDqWbY25BD
+	 HJiSAblulel8CDOWi03DAWOzwzApmkGbuZGRYKC6YqLf/wPY7aKvdqn23aQ2/Hc/d+
+	 PPr07GluVFi2w==
+Message-ID: <c31efa4e-28b8-4b7d-80c0-0082702dd996@kernel.org>
+Date: Mon, 16 Feb 2026 18:27:44 -0600
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="acibql3y7ovkmvyd"
-Content-Disposition: inline
-In-Reply-To: <20260112-v6-19-topic-layerscape-pcie-v1-1-1cd863fce50e@pengutronix.de>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL v3] arm/arm64: dts: socfpga: updates for v6.20, version
+ 3
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
+References: <20260203033211.149355-1-dinguyen@kernel.org>
+ <dab3bfc2-adfc-44c8-a1f6-7f02acfe8cfc@kernel.org>
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <dab3bfc2-adfc-44c8-a1f6-7f02acfe8cfc@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_134959_140180_06DC7E00 
-X-CRM114-Status: GOOD (  25.95  )
+X-CRM114-CacheID: sfid-20260216_162750_343452_C46B672F 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,113 +75,66 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---acibql3y7ovkmvyd
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] PCI: layerscape: Allow to compile as module
-MIME-Version: 1.0
 
-Hello,
+On 2/13/26 10:03, Krzysztof Kozlowski wrote:
+> On 03/02/2026 04:32, Dinh Nguyen wrote:
+>> SoCFPGA DTS updates for v6.20, version 3
+>> - dt-bindings updates:
+>> 	- Add intel,socfpga-agilex5-socdk-modular for the Agilex5 mod board
+>> 	- Add intel,socfpga-agilex-emmc for the Agilex eMMC daughter board
+>> 	- Move entries in intel,socfpga.yaml into altera.yaml
+>> 	- Add syscon as a fallback for sys-mgr
+>>
+>> - Add dma-cohrerent property for Agilex5 NAND and DMA
+>> - Add support for the Agilex5 modular board
+>> - Add IOMMUS property for ethernet nodes for Agilex5
+>> - Use lowercase hex for dts files
+>> - Add #address-cells and #size-cells for sram
+>> - Fix dtbs_check warning for fpga-region
+>> - Move dma controller node for Agilex5 under simple-bus
+>> - Add support for the Agilex eMMC daughter board
+>>
+>> ----------------------------------------------------------------
+>> Dinh Nguyen (4):
+>>        dt-bindings: arm: altera: combine Intel's SoCFPGA into altera.yaml
+>>        dt-bindings: altera: document syscon as fallback for sys-mgr
+>>        ARM: dts: socfpga: add #address-cells and #size-cells for sram node
+>>        ARM: dts: socfpga: fix dtbs_check warning for fpga-region
+>>
+>> Khairul Anuar Romli (2):
+>>        arm64: dts: socfpga: agilex5: Add dma-coherent property
+>>        arm64: dts: intel: agilex5: Add simple-bus node on top of dma controller node
+>>
+>> Krzysztof Kozlowski (1):
+>>        arm64: dts: altera: Use lowercase hex
+>>
+>> Nazim Amirul (1):
+>>        arm64: dts: socfpga: agilex5: Add IOMMUS property for ethernet nodes
+>>
+>> Ng Tze Yee (2):
+>>        arm64: dts: socfpga: agilex: add emmc support
+>>        dt-bindings: intel: Add Agilex eMMC support
+>>
+>> Niravkumar L Rabara (2):
+>>        dt-bindings: intel: Add Agilex5 SoCFPGA modular board
+>>        arm64: dts: socfpga: agilex5: add support for modular board
+>>
+> 
+> I checked few of here and none of them were in the next at the time you
+> sent pull request, even though some were sent and applied long time ago.
+> 
+> Like this one - applied on 24th Dec:
+> https://lore.kernel.org/all/4bd0643c-b9d4-49fa-92a5-f8878f75d1e1@kernel.org/
+> 
+> but never in the next.
+> 
+> In case if something is not clear: there must be in the linux-next at
+> shortest interval after you apply the patches, so the NEXT linux-next
+> after you apply.
+> 
 
-Bjorn can you take this patch?
+Sorry, I will make sure my branch gets pulled into linux-next in the future.
 
-On 12.01.2026 20:17:11, Steffen Trumtrar wrote:
-> From: Sascha Hauer <s.hauer@pengutronix.de>
->
-> The layerscape pcie host controller could also be compiled as module.
-> Add the necessary infrastructure to allow building as module instead of
-> only as builtin driver.
->
-> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
-> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-> ---
->  drivers/pci/controller/dwc/Kconfig          |  2 +-
->  drivers/pci/controller/dwc/pci-layerscape.c | 16 +++++++++++++++-
->  2 files changed, 16 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/=
-dwc/Kconfig
-> index 519b59422b479..abfa4a6e62c25 100644
-> --- a/drivers/pci/controller/dwc/Kconfig
-> +++ b/drivers/pci/controller/dwc/Kconfig
-> @@ -121,7 +121,7 @@ config PCI_IMX6_EP
->  	  DesignWare core functions to implement the driver.
->
->  config PCI_LAYERSCAPE
-> -	bool "Freescale Layerscape PCIe controller (host mode)"
-> +	tristate "Freescale Layerscape PCIe controller (host mode)"
->  	depends on OF && (ARM || ARCH_LAYERSCAPE || COMPILE_TEST)
->  	depends on PCI_MSI
->  	select PCIE_DW_HOST
-> diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/co=
-ntroller/dwc/pci-layerscape.c
-> index a44b5c256d6e2..14d6ac4fc53fd 100644
-> --- a/drivers/pci/controller/dwc/pci-layerscape.c
-> +++ b/drivers/pci/controller/dwc/pci-layerscape.c
-> @@ -13,6 +13,7 @@
->  #include <linux/interrupt.h>
->  #include <linux/init.h>
->  #include <linux/iopoll.h>
-> +#include <linux/module.h>
->  #include <linux/of_pci.h>
->  #include <linux/of_platform.h>
->  #include <linux/of_address.h>
-> @@ -403,8 +404,16 @@ static const struct dev_pm_ops ls_pcie_pm_ops =3D {
->  	NOIRQ_SYSTEM_SLEEP_PM_OPS(ls_pcie_suspend_noirq, ls_pcie_resume_noirq)
->  };
->
-> +static void ls_pcie_remove(struct platform_device *pdev)
-> +{
-> +	struct ls_pcie *pcie =3D platform_get_drvdata(pdev);
-> +
-> +	dw_pcie_host_deinit(&pcie->pci->pp);
-> +}
-> +
->  static struct platform_driver ls_pcie_driver =3D {
->  	.probe =3D ls_pcie_probe,
-> +	.remove =3D ls_pcie_remove,
->  	.driver =3D {
->  		.name =3D "layerscape-pcie",
->  		.of_match_table =3D ls_pcie_of_match,
-> @@ -412,4 +421,9 @@ static struct platform_driver ls_pcie_driver =3D {
->  		.pm =3D &ls_pcie_pm_ops,
->  	},
->  };
-> -builtin_platform_driver(ls_pcie_driver);
-> +module_platform_driver(ls_pcie_driver);
-> +
-> +MODULE_AUTHOR("Minghuan Lian <Minghuan.Lian@freescale.com>");
-> +MODULE_DESCRIPTION("Layerscape PCIe host controller driver");
-> +MODULE_LICENSE("GPL");
-> +MODULE_DEVICE_TABLE(of, ls_pcie_of_match);
->
-> ---
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> change-id: 20260112-v6-19-topic-layerscape-pcie-9d10b6542139
->
-> Best regards,
-> --
-> Steffen Trumtrar <s.trumtrar@pengutronix.de>
->
->
-
---
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---acibql3y7ovkmvyd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCaZOQ9AAKCRDMOmT6rpmt
-0tf7AQDXPoIYzicQeUoeqqXVPMOTQI08mSHXaelfkvE716R56wD/VkqipmoUM5T7
-7U7qJt9nMZfyJSOd/p5RdeiJ92XG2AI=
-=hliI
------END PGP SIGNATURE-----
-
---acibql3y7ovkmvyd--
+THanks,
+Dinh
 
