@@ -4,155 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD297E8384B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 01:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8F4E83848
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 01:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uJMIPRbFGimeYgyjOMeZbwsE7TgmloemMuZeleus/xU=; b=cRsw4KjmpKoHRo+GWmv7Fe9kBY
-	/9eu9gzU3fcAfRSj/jeb1tUsfkucSKAgMgHNGYG3w3P0KvyIaHH5ZgtWkWMWnN0qrzAbCgXii4blh
-	l+zbbDaU8BtpuLo0/sgThndTATgBV1Y+dcRp7SwuDXZXhuTF4fh8mNEHXtGnjtRW4OiiXrwyZoDpQ
-	dq6+ZpQhGYN2Z/3zkQV65oROPBp3sr5lN5JchJKiC+gq4BU1WmmnAVJuAMN4m0u0e5HN4tRX1psqs
-	QtWSBlGL3ThZPDEnEwG5nqf+jQ74qHt6bE5TFEkZjSGVPSSaXNHPBP0+AOuMXIC9JtBAYYKz1vpv2
-	TeVvq5eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BjA8YI4abbHFrmSC0kcj7gswukKzCoDbvbkarUE29Sw=; b=mm1f1dlDzEmqcdaqZk9kQh8eIt
+	hsobiNBRwmFXskf6aXUrJDogEQ22ErKFMgdOY8jqvVLNPmTVwTxD6I2+XjgHLLVZz2QD7/bGsYN57
+	WVWBx6ND5b/UOA9Mcb2+ChX+n4DKTsjqdlDyzM32EeypaORrRt+yEHP2Ak1rj1vooPdLUhFj6ngUs
+	epoK9SNvxKxigof9SKbKemp9AS2DtX2dglZjAoqr7fODONKCSwUbVIzyTpY1O71Zm8b2ivcuYHG+q
+	LjbfP8SQSSJOGyU2HknPRr4Ut+UTFnRkqlOU5LK0WCIeTj1ckmCMok0hLastKA+EI2+sGzqdBdu5F
+	mkcX9fng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsA6M-00000007UFi-46VQ;
-	Tue, 17 Feb 2026 01:42:11 +0000
-Received: from mail-japanwestazon11021124.outbound.protection.outlook.com ([40.107.74.124] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1vsACN-00000007UXn-2XE9;
+	Tue, 17 Feb 2026 01:48:23 +0000
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsA6K-00000007UFH-0wys;
-	Tue, 17 Feb 2026 01:42:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YbabUkiuu2oXbP0xXnAgNWzsNdQY7aH7s+ZeJGXOxNbVvfp6NpCaGblzjcXdLceJA0nL+I4WCA3NRkvTxMVHxUk283lOVf5aVMNoRN16XYf5gUkwF0fROKGvD+EllMKDFrbk/SEXSC5WS1HkaeFAsz8kiX9BMpGDSPGfYqe8hy2LArlB+SIYDQbE9Af3+vX+d+9MEmATXPED1v3y2hLrPJNH6QXtWB6iKdqXTRlUcYXasFLDYtZ+Zw/E2j2+8tO8O6Hz+LAF5ootRb4+in4508A9Q85iH2PRDJuTrIgeYOnjF78C5Tb2/ZdnhSfbDHPwAF7FhHInlvYJMxBS6DRaZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uJMIPRbFGimeYgyjOMeZbwsE7TgmloemMuZeleus/xU=;
- b=wc5GljrRr7OljiY4/XFs9h6N+GmUkHddk1u4y2K45qx6DLTPSNM3w5CYmO+yir+3+3rahnOoUFHWilKowRghu4Ee2Y41Z5BzCCvaCHrAAbRBSQcdZtkvcpgE8dZnzL5eqM8ORgSgTkjz6eNUgwAlnqZkchYnx+wHCicjYGv9xzly+CNjX0cewn8NSGf9g3Zgemdt8whTet7MpmKKJcTczqC5w1rlje/Khqcdrtq8RI60JJWO5tbUw9BI3pJJAHd3ni2LqSENFKdhaot2nYCFwx26hFV9viO9JpejgjE2DA02GzQdMrdjUqRkAZo72KS/H7/4NZWiLFEiqG1FQpSxxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
- header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uJMIPRbFGimeYgyjOMeZbwsE7TgmloemMuZeleus/xU=;
- b=kZ8io5Vxp/sYMen69nms7/6Cl7gbXYYRbRGzI/ES7IQKq7bV2ChCIRmsA9Qn9zSIw5mx/NMMkIUB24yvaEYz1QSd0dpOXNdYvTWKMnSPGE/85YHsOPeTCLPGIJxs1zPgoJwXigVix5Ty34TSnrKPQRYnPuYItSSY6drY6uVyaMg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=valinux.co.jp;
-Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:38f::10)
- by OS9P286MB6901.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:416::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Tue, 17 Feb
- 2026 01:42:05 +0000
-Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
- ([fe80::2305:327c:28ec:9b32]) by TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
- ([fe80::2305:327c:28ec:9b32%5]) with mapi id 15.20.9611.013; Tue, 17 Feb 2026
- 01:42:04 +0000
-Date: Tue, 17 Feb 2026 10:42:03 +0900
-From: Koichiro Den <den@valinux.co.jp>
-To: Frank Li <Frank.li@nxp.com>
-Cc: jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, heiko@sntech.de, 
-	kishon@kernel.org, jdmason@kudzu.us, dave.jiang@intel.com, allenbh@gmail.com, 
-	cassel@kernel.org, shawn.lin@rock-chips.com, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, ntb@lists.linux.dev
-Subject: Re: [PATCH v7 9/9] PCI: endpoint: pci-ep-msi: Add embedded eDMA
- doorbell fallback
-Message-ID: <a7frycy3m43simbbxl4qornzl4e5xujlmhq2llfyuqad7eb4iy@wpitxwzgmk6u>
-References: <20260215163847.3522572-1-den@valinux.co.jp>
- <20260215163847.3522572-10-den@valinux.co.jp>
- <aZNExmCvCgJ470z8@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aZNExmCvCgJ470z8@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: TYWPR01CA0014.jpnprd01.prod.outlook.com
- (2603:1096:400:a9::19) To TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:38f::10)
+	id 1vsACL-00000007UXR-42Ze
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Feb 2026 01:48:23 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-79639c2d2b5so38673477b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 17:48:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771292900; x=1771897700; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BjA8YI4abbHFrmSC0kcj7gswukKzCoDbvbkarUE29Sw=;
+        b=aThFcGxvByO3Qwy6l45tuQC4qXURPRj94fqoZrDapnfO4+jYMKwvIOIcHGNLNXsbNU
+         iWCr+QiMPyn0tD8fozlaoblFHuiDJv4GFYP+uUcszEdP0u3kt/BXg3Ne1p3RtpRZCPOc
+         1CJXiwsWvFfFMrgZT3A7xDApqFnpsNFS8GT3d4b7yIDt/MAcFMeZQA/N2czLRrpXFZsT
+         8bRAZzkGU2NcO1k5DQ5J8QzRMd8CaTobbb9VyYobyxzHGkjjyS++wen5MkDHUylOWYk8
+         L4tShHwwTHs+NOQHe8cWAE5ItKZJCeM+3IKI1FiIHKzc59uzLe8Ay2/cVmODwJx7CMS6
+         qY9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771292900; x=1771897700;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BjA8YI4abbHFrmSC0kcj7gswukKzCoDbvbkarUE29Sw=;
+        b=UeyrNeksP3puMmOdk2f3nm9+aysftqtF4zYq8gplLSCrSCHoauCSQS+DExxXTbzvAL
+         nKkEGbRsdw4u0ld/hGb9WD5jhX8RDxZTVot5Ns/h+G+gtPAn3QopOIA3u9GYFgAf7qJz
+         ERGJb7o5YzAgqBx2rYYzSiRosQ6g1dIjvAAnLYSa2svR1gbRMOJvCjeaMxWK7itTAuvi
+         hJe3vMyfl1k6o++AV9RS322RuG5SI6crcPMjns+2Wy8b91Svolpuemh9O1ghx43kJ/Y/
+         Bu0VDznsfhk5+iPL17skksJkGJwl75B2ABlJETZ8AqVW6bsYd5sADLSLtgnzssAK3zBT
+         Cemw==
+X-Forwarded-Encrypted: i=1; AJvYcCWz67x9UGZvn0QQU7u+pdT3/3sA/El/Hp01R+aEQFLMhHi5yEwkQBSqPIHN+jgVG3Iz1u5SfAuG3oLwBpMh10zj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz88idtqWat1RFK036zj/PqktqNt4xvyVH76HB4FjZXOhapHoxN
+	DIhW+65DKj5qSjKAt0qptaq+ltNjzU9hrk+yJ368ATuCts9zHLGgfrUk
+X-Gm-Gg: AZuq6aLhEq5JN5E3nM/qQl8E0kD9nYjEdwRiTqpFcqPbZzqCCEFhxYYWZXJ4xOLsiEU
+	EVHcXvbUBx3ZEP0rxzlicuyYwFzOsdkqaiKoY/xIxlAbt5zEqi6KfEJaU6rMleYdx/qAc2CHIM9
+	LjVEB0awVurE0P8iYRHeI9aAswNBEop6vjnixSuiXL0kpZhShPyUMFh3FbdDGw7DmPSrnwJ5XTH
+	65pMUt/0BSo6fXZmiprBSfUvx/oF2ZEq1ZpnWfn32+FtOb9qExSQRq4xKsZwRvRQekGUpGFr3i7
+	iEso3vH74abWCm67kuknrGkQEQtBURh+gu9mzN0znBv7RssFljZXWtycCvDNnTTQjCg8A2UE0l1
+	0nY2F1EwVUKOvG4nSx3zDX9Dqo/5zOLEWL61tYlmn6kBTxxR3dazzxUa0iRxsD3WtY6rI4S6XP0
+	evulTyGa3Bf+UkWPrb6+Jp/61WS8WhrPWDhPv0U6IqNi5UkVi2jH1pJb6/ePzevNND+EjlYTxje
+	caQ/jBiz4JCZNBxBjMygXweOfFAC0yp2PtHNUqsDKY=
+X-Received: by 2002:a05:690c:b1d:b0:796:55b1:a16b with SMTP id 00721157ae682-7979e81638bmr110018307b3.31.1771292900128;
+        Mon, 16 Feb 2026 17:48:20 -0800 (PST)
+Received: from tux ([2601:7c0:c37c:4c00:e3a8:26f7:7e08:88e1])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-797a668ad26sm43680067b3.37.2026.02.16.17.48.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Feb 2026 17:48:19 -0800 (PST)
+From: Ethan Tidmore <ethantidmore06@gmail.com>
+To: wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	mripard@kernel.org
+Cc: maarten.lankhorst@linux.intel.com,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	neil.armstrong@linaro.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ethan Tidmore <ethantidmore06@gmail.com>
+Subject: [PATCH] drm/sun4i: backend: fix error pointer dereference
+Date: Mon, 16 Feb 2026 19:48:01 -0600
+Message-ID: <20260217014801.60760-1-ethantidmore06@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY7P286MB7722:EE_|OS9P286MB6901:EE_
-X-MS-Office365-Filtering-Correlation-Id: 60bb8eb7-185f-4d1c-3dfe-08de6dc5c111
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|10070799003|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+a3tT0Mu1EyAv546qf/bpIs8ypgLkkLjDzpxxCR7dpKor8d5iaOkfp2Z9vbT?=
- =?us-ascii?Q?j9tWhsFg80vwti4jkqzAqWJutgwANkTnh8fuK62RUwM2inas++vKy8Qchufz?=
- =?us-ascii?Q?R3IAEH/ON7HholeR8F7L0C/P7xXFADiVZDtSqgXFE2foUZCsdR9MxRomGUI7?=
- =?us-ascii?Q?MJEUvgi+yegXop0mVns6TJCAL8tsR2jQu7MAlOo0x7IgLSFzFPtKPuRLbnD1?=
- =?us-ascii?Q?biVtC0bRdpvhu0o11ROsqtP3bUShizJ3NvxonrfByX3RHP7rPRYlS7r25YTF?=
- =?us-ascii?Q?AJZZLL+x/b79t3L7n0duPV82uGOVkLTJ0VXGfht4LBA+Ci2iJ8vtd6zicQVE?=
- =?us-ascii?Q?8x4UVwvIIeRkq7yLqvNjzvKLJWBC7Vl9nBV9Ddnw8QXQhynAkcuja3w5DMS3?=
- =?us-ascii?Q?oHAJSHJPb335yew7vANe89nhHRUvT3hH/sWrtKlfpSuIJyvijTJV8wxd6VFj?=
- =?us-ascii?Q?wqC9b0wI3oxyAnk+CMeSJMkb9BOk21Wep2c5XBxtLocS9hwqCAudpP4i7qMS?=
- =?us-ascii?Q?9EBALwuTaiLh/S4/bkR8r+0+SkLNTrRidecIkduMdrZHJqdX/ntK6ZUQYhBe?=
- =?us-ascii?Q?IQeJc0h6Q8FlK+OFzyO9s4xTSm7zl7O2z3gJZJBsxsWoxtufrYjjuDn8ZFVU?=
- =?us-ascii?Q?yWRZaA47a3LNgXFa9qyEKGxAvC+jA3Rk0KK1wlyIHqyzLXxlXvIK6Jsl7jAR?=
- =?us-ascii?Q?NvwSJBBWsOLBhYiRklAJoB6/mcYa6cbYyha5uH83sWnlNYgqAnr0gCzMyyCX?=
- =?us-ascii?Q?KxYleQVCpXSqnRgn7Wig7dGnEFyqDRiBjVIwNqEjF0j9huy2olpSjB63lRaf?=
- =?us-ascii?Q?/W0YVISMwz+QGctHzjKmbSGIRIDSiPioUdKIwnYpd9HOZZKFF2I7RtxGOYAq?=
- =?us-ascii?Q?06sJhahbmglyNEnt/SAkxrYuU4121z04TqquQ5ZTU9fuz8Stix0OaHMJSghD?=
- =?us-ascii?Q?IB93lZaJW0JHF30yVWXWaTaO8+m3W+zvch3bHh4u9Heqa0/ESVCdXezwK4QQ?=
- =?us-ascii?Q?ttH5SwJ+MYRUnSeYl8Mn+6CL1Wz4H73SjY/xyK4axAI+LrU7am4wiXj3gF1I?=
- =?us-ascii?Q?LKf9zEPWIg8TWUEPLjdCrDUKl3iWhS5RKBbBK8s5jVSlRmXKRuRgeVKGGpIr?=
- =?us-ascii?Q?/yERWRHutgD/6Eok9B05PY7IXuyV1Q/7WMKP/GhwTEEA7XGlJRJ3hlJYxLao?=
- =?us-ascii?Q?Ms2511qqdr/6TlmgRrUcJysyIkE85UigNrTMAxxpJeq1bYDO6L6TDGrMPOU8?=
- =?us-ascii?Q?MqOwaZZbTkiu9hpHM1bzVAJakArzbIXyTQXG3afnI3EvY181MGC5BTI9dkeQ?=
- =?us-ascii?Q?KHuTSmXyc0aLrSg47Jh/d4+duAVq5oISSIIsYoqGnLC7nSuRePWYUC+GCvTZ?=
- =?us-ascii?Q?rkFHJxyhoBmyGMScMKDR+H1uwEdhtbuxqaNnjRmTHK2MTLhPOAHUQhTDNjJg?=
- =?us-ascii?Q?C/z7Y8ftmH4E0vDbv2DPk5evAapuHeOqRPBdv7COBAYzQSXhqRmJ4ybv28Qs?=
- =?us-ascii?Q?UtfqJlSLec+lxOAY/KTbhhMXfN3zTMwJHgOm/yeC9hztGUSW+cVqCsQ+eaVx?=
- =?us-ascii?Q?F6+TkD+05CcxR7kkKkg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(10070799003)(7416014)(376014)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JSVTqCX3ck59i2Bo1uhsPV7hIUolTA5/eZZ3g7SlVl7TwRK6GS0KaD8Hva27?=
- =?us-ascii?Q?e64i9A1HxlRrWXBAViMaK2Bs/5d4/dBSIdjznVeB6puRrJ0WGbPJmwReRH9f?=
- =?us-ascii?Q?/3zhsrWGkC7A3kAltsyyvDPLO1SsPXBQPdQ8iZXq5TgbQfaioNWvEmuYNZ2G?=
- =?us-ascii?Q?4pCYlzNm8QtfTi1Ct8yuf9Hyj7XEfslbcvDCYcKavpwf5e7a4cHqnpJ9iBQZ?=
- =?us-ascii?Q?2ald5RPr7nXx7jWJE4B0pP8gqysCdzoz2izP30bbYTNas2uls5LLEqysy3Sq?=
- =?us-ascii?Q?ZgX2EJgQyytlZfTCczO/4t3IoTKstAOZMdlj7w6AA+jcH9D/Z0SFr8JWXK6k?=
- =?us-ascii?Q?7I1x33o28eQ5iTTD0uWLGUMoPVUf7XfFWO/bm1ubqRGIwtGHEy4ihA+6arwb?=
- =?us-ascii?Q?Zb/YzyFBMrm3xPiprex9QSFEybHfjqc/zsFBOLoK5NamNUFvhrea4rvpYIis?=
- =?us-ascii?Q?lxRSwpSneS2ZZjOTNQQn0/6dHALWKVIJ206McS251q9G8w+b9v5B/r2m2ZdM?=
- =?us-ascii?Q?v35k6Ip8+TKNm1rAhTaVyN0crx4kVJ9PQSW27TUBqy3P22t1FoZtyoUYWmrl?=
- =?us-ascii?Q?0wjrIK3I1SskbZ++dxaSSmCx/9U7w4EYHMJTS9te9MfmMz4OfJxwRIw4m8R/?=
- =?us-ascii?Q?i4jVetL5XPm1Vk169eoL8fAiAG/55xrIOZw5RPTQDTdTW1E/jk4K2eVBkJeA?=
- =?us-ascii?Q?da4LlHwOBo6NgFZaK6w3Ad2LcME9eSQOVkDCGoU4YNFpYA+uuxfR+fzLCgta?=
- =?us-ascii?Q?dGYMqLXKfgy2Ha1DUZuC+Q6OPWAK1gyPuEyUcNZOCqx0Pdp9QoYHRXAREYx5?=
- =?us-ascii?Q?ekcFWg+SnzGnjEagzKQU9bzojqy0eyjxfvB4LoO0uWwV3O8ZYPTtyvlBvYTV?=
- =?us-ascii?Q?InemBSHSBrO2nRg5dh5BcnMLMKm2PPsVAzbSdbW54BrxUa+9/khfdHZJYZPb?=
- =?us-ascii?Q?N3eLPKba7xMSEpIfxwlXW1XS+pPLcTjS6KVJW+D7t3O4LKEvasymq+noiMbz?=
- =?us-ascii?Q?/MoCDueSfYHA5Q/s1UmJYhSDWgd3s9Dc06Kustk26N2opfeV6rP/V3VW5GHw?=
- =?us-ascii?Q?R/gBguL0or5qVfTflzdn1K56FpZmCVcXBh46WrZsUsTWwurgsUCrMR0ALGUh?=
- =?us-ascii?Q?MuwyuHMHLU3PNcdYao4C3lljeBc4svEdQGi31JnnwmQEbHCja4khMQT3f8Zj?=
- =?us-ascii?Q?/+Bg1vZGa4ojPaVxYo7dY0QL4nzXOGh3veku9NslSat8lEe2K8RalGz2k7Uk?=
- =?us-ascii?Q?YyBIh4LCeqDENH9LXY7LXvGd9X03IYancvWfR8WEK2Nd10BZ1GvCO28UgkUn?=
- =?us-ascii?Q?Nw+EcKhHEOCjoeWLpBscSYzqn9De705/dyIxuepGicRGB5t3xCc0NmpKK6el?=
- =?us-ascii?Q?Y+xb1a4mMrQ3Q6caIzbvCIJ3139fOfZ1HTe5BDzW/BcKmh1LL2+Jx1gH5oRP?=
- =?us-ascii?Q?3hSB4OuxFd7LpyLhBTbbmy8dtYJGQwDZjD4QDhw1qJBHXZnG1dVkNjJ7l+Sm?=
- =?us-ascii?Q?DzelTM9DcuSuaMxR0Fa+gDqrlEptomDwhSeNmcJfOptjZjl6ocHUbyY6uinY?=
- =?us-ascii?Q?WtthlOK6e2bSGV6SAf7HVMZ42BQQUNaq4S0kAAPQLwXRnzeF4RrfP80//9/c?=
- =?us-ascii?Q?VEtOfiibhzvf9UjreshhzMNH0TPrP6oD//OKpbK58t1XVUf5tLAfmrUm1RBc?=
- =?us-ascii?Q?0yPQLlW8TjMjGeEx0OCdxIscCxghU6B7o3rcIMvmnACCfzCFiuu2EG+Ndqsu?=
- =?us-ascii?Q?LCfDUsMho/bC11KU8mNZ6Px6Wx0zO16J6shr9Yz68NaoG5d+eTjT?=
-X-OriginatorOrg: valinux.co.jp
-X-MS-Exchange-CrossTenant-Network-Message-Id: 60bb8eb7-185f-4d1c-3dfe-08de6dc5c111
-X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2026 01:42:04.9444
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dhfXaU5EV0zWeKY6OsaHfcP9V5hpSI9DtARxY4mJt47GsMIPjkN90QU5BM6ti6Bsystg2M54IrY7jEtaGysWUw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9P286MB6901
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_174208_294219_8D128E0F 
-X-CRM114-Status: GOOD (  31.39  )
+X-CRM114-CacheID: sfid-20260216_174822_005953_B13ED143 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,162 +107,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 11:24:38AM -0500, Frank Li wrote:
-> On Mon, Feb 16, 2026 at 01:38:47AM +0900, Koichiro Den wrote:
-> > Some endpoint platforms cannot use platform MSI / GIC ITS to implement
-> > EP-side doorbells. In those cases, EPF drivers cannot provide an
-> > interrupt-driven doorbell and often fall back to polling.
-> >
-> > Add an "embedded" doorbell backend that uses a controller-integrated
-> > doorbell target (e.g. DesignWare integrated eDMA interrupt-emulation
-> > doorbell).
-> >
-> > The backend locates the doorbell register and a corresponding Linux IRQ
-> > via the EPC aux-resource API. If the doorbell register is already
-> > exposed via a fixed BAR mapping, provide BAR+offset. Otherwise provide
-> > the physical address so EPF drivers can map it into BAR space.
-> >
-> > When MSI doorbell allocation fails with -ENODEV,
-> > pci_epf_alloc_doorbell() falls back to this embedded backend.
-> >
-> > Signed-off-by: Koichiro Den <den@valinux.co.jp>
-> > ---
-> >  drivers/pci/endpoint/pci-ep-msi.c | 90 +++++++++++++++++++++++++++++++
-> >  1 file changed, 90 insertions(+)
-> >
-> > diff --git a/drivers/pci/endpoint/pci-ep-msi.c b/drivers/pci/endpoint/pci-ep-msi.c
-> > index a42f69ad24ad..6e1524c2d891 100644
-> > --- a/drivers/pci/endpoint/pci-ep-msi.c
-> > +++ b/drivers/pci/endpoint/pci-ep-msi.c
-> > @@ -6,6 +6,7 @@
-> >   * Author: Frank Li <Frank.Li@nxp.com>
-> >   */
-> >
-> > +#include <linux/cleanup.h>
-> >  #include <linux/device.h>
-> >  #include <linux/export.h>
-> >  #include <linux/interrupt.h>
-> > @@ -36,6 +37,82 @@ static void pci_epf_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
-> >  	pci_epc_put(epc);
-> >  }
-> >
-> > +static int pci_epf_alloc_doorbell_embedded(struct pci_epf *epf, u16 num_db)
-> > +{
-> > +	const struct pci_epc_aux_resource *doorbell = NULL;
-> > +	struct pci_epf_doorbell_msg *msg;
-> > +	struct pci_epc *epc = epf->epc;
-> > +	struct device *dev = &epf->dev;
-> > +	int count, ret, i;
-> > +	u64 addr;
-> > +
-> > +	count = pci_epc_get_aux_resources(epc, epf->func_no, epf->vfunc_no,
-> > +					  NULL, 0);
-> > +	if (count == -EOPNOTSUPP || count == 0)
-> > +		return -ENODEV;
-> > +	if (count < 0)
-> > +		return count;
-> > +
-> > +	struct pci_epc_aux_resource *res __free(kfree) =
-> > +				kcalloc(count, sizeof(*res), GFP_KERNEL);
-> > +	if (!res)
-> > +		return -ENOMEM;
-> > +
-> > +	ret = pci_epc_get_aux_resources(epc, epf->func_no, epf->vfunc_no,
-> > +					res, count);
-> > +	if (ret == -EOPNOTSUPP || ret == 0)
-> > +		return -ENODEV;
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	count = ret;
-> > +
-> > +	for (i = 0; i < count; i++) {
-> > +		if (res[i].type == PCI_EPC_AUX_DOORBELL_MMIO) {
-> > +			if (doorbell) {
-> > +				dev_warn(dev,
-> > +					 "Duplicate DOORBELL_MMIO resource found\n");
-> > +				continue;
-> > +			}
-> > +			doorbell = &res[i];
-> > +		}
-> > +	}
-> > +	if (!doorbell)
-> > +		return -ENODEV;
-> > +
-> > +	msg = kcalloc(num_db, sizeof(*msg), GFP_KERNEL);
-> > +	if (!msg)
-> > +		return -ENOMEM;
-> > +
-> > +	addr = doorbell->phys_addr;
-> > +
-> > +	/*
-> > +	 * Embedded doorbell backends (e.g. DesignWare eDMA interrupt emulation)
-> > +	 * typically provide a single IRQ and do not offer per-doorbell
-> > +	 * distinguishable address/data pairs. The EPC aux resource therefore
-> > +	 * exposes one DOORBELL_MMIO entry (u.db_mmio.irq).
-> > +	 *
-> > +	 * Still, pci_epf_alloc_doorbell() allows requesting multiple doorbells.
-> > +	 * For such backends we replicate the same address/data for each entry
-> > +	 * and mark the IRQ as shared (IRQF_SHARED). Consumers must treat them
-> > +	 * as equivalent "kick" doorbells.
-> > +	 */
-> > +	for (i = 0; i < num_db; i++) {
-> > +		msg[i].msg.address_lo = (u32)addr;
-> > +		msg[i].msg.address_hi = (u32)(addr >> 32);
-> > +		msg[i].msg.data = 0;
-> > +		msg[i].virq = doorbell->u.db_mmio.irq;
-> > +		msg[i].irq_flags = IRQF_SHARED;
-> > +		msg[i].type = PCI_EPF_DOORBELL_EMBEDDED;
-> > +		msg[i].bar = doorbell->bar;
-> > +		msg[i].offset = (doorbell->bar == NO_BAR) ? 0 : doorbell->bar_offset;
-> > +	}
-> > +
-> > +	epf->num_db = num_db;
-> > +	epf->db_msg = msg;
-> > +	return 0;
-> > +}
-> > +
-> >  static int pci_epf_alloc_doorbell_msi(struct pci_epf *epf, u16 num_db)
-> >  {
-> >  	struct pci_epf_doorbell_msg *msg;
-> > @@ -110,6 +187,19 @@ int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
-> >  	if (!ret)
-> >  		return 0;
-> >
-> > +	/*
-> > +	 * Fall back to embedded doorbell only when platform MSI is unavailable
-> > +	 * for this EPC.
-> > +	 */
-> > +	if (ret != -ENODEV)
-> > +		return ret;
-> > +
-> > +	ret = pci_epf_alloc_doorbell_embedded(epf, num_db);
-> > +	if (!ret) {
-> > +		dev_info(dev, "Using embedded (DMA) doorbell fallback\n");
-> > +		return 0;
-> > +	}
-> 
-> here, needn't reverise logic, mostly we put err path in if branch.
-> 
-> 	if (ret) {
-> 		dev_err(dev, "Failed to allocate doorbell: %d\n", ret);
-> 		return ret;
-> 	}
-> 
-> 	dev_info(dev, "Using embedded (DMA) doorbell fallback\n");
-> 	return 0;
+The function drm_atomic_get_plane_state() can return an error pointer
+and is not checked for it. Add error pointer check.
 
-Thanks for pointing this out. I'll update it.
+Detected by Smatch:
+drivers/gpu/drm/sun4i/sun4i_backend.c:496 sun4i_backend_atomic_check() error:
+'plane_state' dereferencing possible ERR_PTR()
 
-Koichiro
+Fixes: 96180dde23b79 ("drm/sun4i: backend: Add a custom atomic_check for the frontend")
+Signed-off-by: Ethan Tidmore <ethantidmore06@gmail.com>
+---
+ drivers/gpu/drm/sun4i/sun4i_backend.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-> 
-> Frank
-> > +
-> >  	dev_err(dev, "Failed to allocate doorbell: %d\n", ret);
-> >  	return ret;
-> >  }
-> > --
-> > 2.51.0
-> >
+diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c b/drivers/gpu/drm/sun4i/sun4i_backend.c
+index 40405a52a073..6391bdc94a5c 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_backend.c
++++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
+@@ -491,6 +491,9 @@ static int sun4i_backend_atomic_check(struct sunxi_engine *engine,
+ 	drm_for_each_plane_mask(plane, drm, crtc_state->plane_mask) {
+ 		struct drm_plane_state *plane_state =
+ 			drm_atomic_get_plane_state(state, plane);
++		if (IS_ERR(plane_state))
++			return PTR_ERR(plane_state);
++
+ 		struct sun4i_layer_state *layer_state =
+ 			state_to_sun4i_layer_state(plane_state);
+ 		struct drm_framebuffer *fb = plane_state->fb;
+-- 
+2.53.0
+
 
