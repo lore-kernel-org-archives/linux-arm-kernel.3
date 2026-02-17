@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0750BE68173
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 11:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6CAE68165
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 11:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2UqZI7iscHApYsWoxbSsIfOsBYwdXDoKOyc0XcojPzw=; b=k5+JPnBXrjPtCvYygZdls7pdzp
-	XQIjh/3HL/w5WZY3FjpQ210BA436FQWBfac6DyciyXKf8X+xvws618iE5YnriuETNRveI6xf3IU7/
-	IV/P5mr0K0e4XtrJDtmWbjfeEUgxMfh7YuqctMirAds0bljviV9VOye5q0wUIHQpqSeaCp4eaJmpR
-	XZ5U7YweySbjQuw0Rs8XQ0dw+1D+3L5wnDea9NQITy1O80hxQISZXFDgHTU4VUWb7vY4LU2vUGnGN
-	/EV1aVilIFzuDB6aL2GGduOd/E/xeYXZzj4O0/1nB1By334tw5j/jE0l4w8Q7dBcK2m38qFpzqrWw
-	mQ8Ja/YA==;
+	bh=Ufl5jZDzffZq1Bxrg/McQqGCvj9/TyQy203e6kES/BI=; b=PbkfvkiOBUbzS9MUEt1RZXima9
+	N8FuH4jlYXpIo4mhkU2kSBW7Y2hEiBnxYxG53qDALkXeEPlAt1xD8GQe2xg2TFm2ycg7BUK/FcXBB
+	YjjvLntn9CzNKLeiFSkj+lvHJwhU6vGSeBmWOVhgLdb6ghCOYhdLxgRCoEpgHbccS+ShHtq+kxmLA
+	yIpPDRD49gcx+HXIkcymAxcIukKIM7E3NfL42RFCgJbvbMnwrYQf7xUoVEmRKw/qZVjFao1uKa5JE
+	2Nm/+/wy4ux7v6tWXWei+CBEtr66zgFIzN+NzwYeM0cHHlCfqVx5dRgIFOVhdf8FpZbr1QqXw+G1o
+	SoUUNFKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsJ74-000000086IW-28dh;
-	Tue, 17 Feb 2026 11:19:30 +0000
+	id 1vsJ79-000000086L4-3QL2;
+	Tue, 17 Feb 2026 11:19:35 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsJ72-000000086HA-3YeU
+	id 1vsJ77-000000086Jl-1afi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 11:19:30 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61HAA2Bk2803486
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 11:19:28 GMT
+	Tue, 17 Feb 2026 11:19:34 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61HB3hix1942880
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 11:19:32 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2UqZI7iscHApYsWoxbSsIfOsBYwdXDoKOyc0XcojPzw=; b=WDnVMHKntMf7wzZf
-	UJmFZWlfxOYLtbv4YWo82GzWA4NCgzanGcG2qFwa0HbXJjJaS51lkTfLard1TyNB
-	urMSPCD0yIvFwxvT5j/qDX+vbeBG+xXdGSFsb2U7n3G42uqPWhBO+FVb4CG/D4ii
-	dJP/+CpkgPwLgC3QQ/174RtPO7EvdEauzKirHDx+W6kWxKxQSW1Mv/Hpa0c0JPEA
-	F6NIgEmAzimJJETKH1iZhhD2ik9O3l2VbvjaEfdugAc6oDWGkdPAcuo9IbtmKHMI
-	iXyf5ixXPu5ajFX7oMKqpORlwBC2PFJVJQ+suIC1lBbD5wqvT8PO9ASZwTyWNpUh
-	zfc29Q==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cbyxuk62c-1
+	Ufl5jZDzffZq1Bxrg/McQqGCvj9/TyQy203e6kES/BI=; b=NEL5cguilh1bR/cM
+	a7PuV9BQ7AW0HX4J9m2MdiGrG7Fp46J7YHAotQdZJ99z6/tpvSWGq5aapmVf6WIl
+	mVHE48iPMzUegKNvvF+8XDpPBV7klhOu65cFgU4kb6HhUepYDIuWqTZE6VLlc/7E
+	1gSBeEnAA2psW0prH43t/H3TNRGYcS+PAIrHPpicWQV4fbanLwIBkdwOVheoo7xx
+	tw93XnNt/gsh6CuvrcyOLmlr7h14cePr5rCZVtXh5r+F1JrWOVvFrcdYlnebaykL
+	DsrkIZ/OWeTcCqUv5blkxgBJfWSGrZxbch77/zrE+qeiuACaIloYhimyD/+pAOzX
+	DrcxeA==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ccq4g01g1-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 11:19:27 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c6de06e6c08so3028112a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 03:19:27 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 11:19:32 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8243ae83898so1782787b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 03:19:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771327167; x=1771931967; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1771327171; x=1771931971; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=2UqZI7iscHApYsWoxbSsIfOsBYwdXDoKOyc0XcojPzw=;
-        b=S4JfOteASZMCcfK/yFZrd472Z/Wu9CH70FqUPQDoTrR+Zf6jxtpfZRQPgnxWzN2cse
-         kFAC7QU5kqV5xtPpt06d8nJ+lGsgu/pOdtbUqpgc7+zbN4HH11HNxmYRJaXLJxc4D0er
-         hzSLuT1ZYFARmIPEsUaOZOzgFuUZYhTKjw+Bj5L/WR6K3H8e56u7ZqOs+mud6H+Ty+V7
-         v/GGlLj0zxevZcI+s2kwUKp665ygEg1N20IjG2rcxyrjAb8ag2VQxdE6sWEVEDhwPkjx
-         NfJnyvPIE9WoIwHbXBMYIOweZnm05eIeB7so8e9d+w62F50Xj4bi6xeA2KvOPDW3KDW8
-         BEnw==
+        bh=Ufl5jZDzffZq1Bxrg/McQqGCvj9/TyQy203e6kES/BI=;
+        b=j+8kg3h0Dq0+58jVSU4qizQewzMb4qHZBfVSdv8hlb/N0hkorOlmqXIucF1sH02NYu
+         J2uHKPpuO5af94xJQjYbezL2Vxj3XBNawyse0XD4WVMGbAPUerjlVbYAzdynTGP47a0O
+         hZa3/+B/xvxxpmz/hN0/uzf3v/5rbAmxc1FiBY7Znbw0clgKPtFO/7NezQoXvNe71GY2
+         Tu2ppG54NsrZjFDSjuKddO+fLZiqv95e/uohnQERylDllWMkwLpKK3+AujWNNR+tDotZ
+         /7ZURfc3ohhbUMRDsPVWsxeDwgy8Tc5KCaBQVf3b7pL5rj5XnBilTlNG4g+z+ie3HiPd
+         ulvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771327167; x=1771931967;
+        d=1e100.net; s=20230601; t=1771327171; x=1771931971;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=2UqZI7iscHApYsWoxbSsIfOsBYwdXDoKOyc0XcojPzw=;
-        b=WzYIoCMUC2YccHocb3PzfHXvYwmkLIDFYQHEpyfp3YMEb7Ky+96a1Ve+zmmBltVjMe
-         vflqY/ataoKF4ogk8uGnyPaETJN+bS7ijqLWQQVjIjyFtpf8PPS43J4FIBTN5uEt12DK
-         i8VG0ezEfuXuW/wI4/CxrLD9URCMf4GTK3ZRCOuBCDjlOUY+Cti/9Hrw32WcBaON92lF
-         c4NdxrqfmVF1IUGtHpYO6TjFXw3Jj9uFXicwP1NDqpUWZeOTJCU/E9W2sMl+8xvy/Phb
-         y/NkptQOXd/0o+3e7/cF+jWSeMP/qiM9msZRig6vdkFRrd7Z7ituFYyoL1nO71S0HwjR
-         hUvA==
-X-Forwarded-Encrypted: i=1; AJvYcCVPHMdiYZxy+o6enTkQ6myB/u+5dLstE3kmjU4HPErBQkEsEJXWKg6tulfMKI6iqL6XpPAhaknwGh96qtEzBaBL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yybu+FdHggRDNcgzmhuWNw213pkObjHDKNwIrSWbHV1MULlfDLd
-	ERLc4R7ELRa/syULHAHxfIrCp7HXCqkWHeop+8wHemxlDv+KZTucFjOnPXjq0HsdyjEoQ3VLypg
-	04NIQeGvGm+GLfHWEEdMl9Jqk0QxIzfvibBlM8NGmDpT2rMie3SQ0nSlRQ8wcLQPhdqzIO2W2Mj
-	HSIA==
-X-Gm-Gg: AZuq6aIyPrTjU23M4Lkd5CQMsLXNfbIRBOw4D8MPli04PEmmJalbsTW8L8KBgDz1Vcc
-	fzkFjmJJvWI6PxI4Qk3aT/JinwoMnuz4IC5hB4Hp3OqbLPNGQynFU/Yj29FXaGoMYo3HPBHeMO4
-	iHfUE9dIv3dhG5NA/KxEUvwqfYRRJVUi14g5BXyV397oRNJ/MZx4VNFVVDfkz968bUFXQpMFB/6
-	P1nGcptSADsujj49E1HqWGo0IYj5RIHLspJk2FB7FICRzEIDOyM+d0po8sN4Tm2qyN8PwIlgOm4
-	LOZv/L2NlaLq9av4G0V+mXtIqq2vecrLVhSffs5y2IW97amNr0dWe0jxQxiP1Kfntnn7IkXBml6
-	i8PnESG3g9WG8fCrsyeoOP52Ydm+D0q5gnLkMNZjXf6jtQiqXIK8ZvMu+
-X-Received: by 2002:a05:6a00:1d9c:b0:824:a8ec:ed51 with SMTP id d2e1a72fcca58-824c94defa9mr11493629b3a.27.1771327166769;
-        Tue, 17 Feb 2026 03:19:26 -0800 (PST)
-X-Received: by 2002:a05:6a00:1d9c:b0:824:a8ec:ed51 with SMTP id d2e1a72fcca58-824c94defa9mr11493606b3a.27.1771327166245;
-        Tue, 17 Feb 2026 03:19:26 -0800 (PST)
+        bh=Ufl5jZDzffZq1Bxrg/McQqGCvj9/TyQy203e6kES/BI=;
+        b=J6bFT7KN2enIciyQ5GfTIqFU4CCGWOMarTGhK5DeYWk6taumgzgPfQbq0iRB0qbTgj
+         m1F3Dh70Y/3Ahzl56jNrKhJtYTKzbdtC7SPP/6oak3+mEYbe2F7Ee5h/g5vyWasoO7Pa
+         CEd1T/4fWUdkpJ/ARvtcoqW+MsZwdqy7RAe3FKAuffmM9iqbiElU5BmZPtRZ3glp5qxH
+         gbE7VFCbM2CA2osU8ptErqrEQPJZ67R+zQOLZlwNE+uYOARY/qi7H1+MQlV+aEKkJfSW
+         6VD5f5wFEogDHQMl2rdbx1LS14+xM6L/CHP6xBvGsIgL5fdXeek0UUh1cmd5uvq/5+/p
+         Mwkw==
+X-Forwarded-Encrypted: i=1; AJvYcCWLpIOPZM7RZAEqtuMOg+M60pKEgQMUVubqJAQKVfc24C3VKY964UE60QhIXERNlYdMYmELtMMgRShIEDjugTFc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYtFMkKzutTZUGk08fELUjch3ipiBYfaMYfgbtb0tw1svcA4T7
+	2eqiMAV1988aZHhlxp8ch0XcJH3kuMB3mC9jBRqRWy5ihhV5Tu0SJbz2x4tPutMg4Jo78Bo5w4H
+	2Qa7O1mvFGiIXObhJm3hiDeVhwKMKvwnsJOFmf4Viv6B2U7Zl6nGfWfBwTCoa1LEk8O4gCEqpAf
+	YCrA==
+X-Gm-Gg: AZuq6aLmCOOfEeWIj3PvClSevlcyC8QJLLcscT1R2w1qqX74BBMBH2CUDqmdCrDPSXg
+	z+maErSAtai5934Bo+Ll/RJgTLjxncnnNvreDW5a46W7F1xtXgEnrjgOYgmtvwJprFVCnflmTAZ
+	5L5OY+PvxQH/5seHObAzlwPpogAPMQ6R7eo9+Be2SksnDPgfM9tI5Op/av988STuGkXHUXBM5Bg
+	zmkRUNyF7wIr97H+ZI4Vu4WBtfTx2wOvtTd3e1gV/kk5W1NXZY0pQB2nj5O+vaOBLSmnCBXR5oF
+	xmWdWtW+McofbFzV0azNDbN0x/Nb4QUAfkDc1a7sFXN0UOZ3yiCbVGNOziMJ1/uD7IETYfyCZP5
+	ebW4GH1a9ks0eNR8yENK9APxfaAoq0A2HqJq1O9lfD7awqr0mC2bTjUN5
+X-Received: by 2002:a05:6a00:4acd:b0:823:1406:8797 with SMTP id d2e1a72fcca58-824d953488cmr8975260b3a.31.1771327171085;
+        Tue, 17 Feb 2026 03:19:31 -0800 (PST)
+X-Received: by 2002:a05:6a00:4acd:b0:823:1406:8797 with SMTP id d2e1a72fcca58-824d953488cmr8975235b3a.31.1771327170627;
+        Tue, 17 Feb 2026 03:19:30 -0800 (PST)
 Received: from hu-krichai-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-824c6b9a661sm13181914b3a.50.2026.02.17.03.19.22
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-824c6b9a661sm13181914b3a.50.2026.02.17.03.19.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 03:19:25 -0800 (PST)
+        Tue, 17 Feb 2026 03:19:30 -0800 (PST)
 From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Date: Tue, 17 Feb 2026 16:49:08 +0530
-Subject: [PATCH v2 3/5] PCI: qcom: Add .get_ltssm() helper
+Date: Tue, 17 Feb 2026 16:49:09 +0530
+Subject: [PATCH v2 4/5] PCI: qcom: Power down PHY via PARF_PHY_CTRL before
+ disabling rails/clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260217-d3cold-v2-3-89b322864043@oss.qualcomm.com>
+Message-Id: <20260217-d3cold-v2-4-89b322864043@oss.qualcomm.com>
 References: <20260217-d3cold-v2-0-89b322864043@oss.qualcomm.com>
 In-Reply-To: <20260217-d3cold-v2-0-89b322864043@oss.qualcomm.com>
 To: Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>,
@@ -108,40 +109,41 @@ Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
         jonathanh@nvidia.com, bjorn.andersson@oss.qualcomm.com,
         Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771327148; l=1721;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1771327148; l=4007;
  i=krishna.chundru@oss.qualcomm.com; s=20230907; h=from:subject:message-id;
- bh=ZcPk/Vi6V1NIpnr+WX6LGNudzcSd+NdHRwSIluMD/yo=;
- b=wlf3BtLYbA0NMXS2gRRkF9fo7E6YylcdKwmuOeuLWkmOYXxzeUzOvslTykYolcdSeh7TY+Q2k
- oYWx3bF2miTC2jawLmAMHHvoQseCHBVoL4fWsMIbES9uNXgRXzf+7Hv
+ bh=RI4q6fSSubOmDgNNa0gqplTxflnkQiZtd27PDlBbjys=;
+ b=li0xu+gi3ab5XV55aDVCdK4EDUgeaa7g/6a4LpfP39jcV9HM2K+TWtxoLN665Lm7JJn/gDR6A
+ p55CKSh6k9fAoU1f+ldOyKH3B3W6LSkcx7zyXglg17snwRy2jUfcT+Y
 X-Developer-Key: i=krishna.chundru@oss.qualcomm.com; a=ed25519;
  pk=10CL2pdAKFyzyOHbfSWHCD0X0my7CXxj8gJScmn1FAg=
-X-Proofpoint-GUID: yqscRlkmoCriap1S2jOplDmYelof-kYg
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE3MDA5NCBTYWx0ZWRfX3XHV2cqDe1du
- F+rGldeFRKZVpQqPkGxcw6gayWvBf07R3eIO2Yblm6aBmMFC4lrDy9FwmkIFp+6SknU4osd3tZI
- FHgr9kEj9HRVELjD1Vl5SsXeCh+eRsexsAU/M8vpP7g8VGdV/lvO4x7XXAsJj0uhCQB+O0qOPFj
- CF0G9CvcDf0sJyfXry2dC7n2pBr1N5jjx5YKKpr3eGjdEw2fslf6d/FRdatfF8+FMAz6wBvvu3/
- OfrCBNRAtFSTC8UK5QlLBGybzK3tpEusc4ZYFgglmqlHx4g9OsCSt5uEne/m7Pwsimzht4OyLAA
- uOiA12po7URcq/Tw11A4HnkjAQ2v50ZD5TjW9keHgRJX6IqxDavIyQCdf97wXogmOCmPs/D82BE
- IWMtCmFJdwpq3T7NnqlqczWD9E2Kj6XCOeSMLC701P3kjBsV/TXh8QhhImeUa4lA+MPKLZ6YklS
- NR6bMslr4e12Um/hY4Q==
-X-Authority-Analysis: v=2.4 cv=BpuQAIX5 c=1 sm=1 tr=0 ts=69944ebf cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE3MDA5NCBTYWx0ZWRfX+l0I6qhwjKHt
+ zVakYRPQ37VTT1Yk+PG8yJfGIDCXxzJ2rQkY/RgXAhgJlxdQuJGqv/1wrOJ19lsfPPdLTunGkpP
+ BEq6A2n5/B0OJaS0nRQ2Y9KWEvrkoAfr12BLcTdYkD7q3GeypMcSg+SNSZMx4Pv055YzXNkbSmj
+ GV/upy6PX8ZcFIKpNWlR9wJXYBYivdqE5SsLi5tAPOjnTBsaMlYmLyEZvQa6I4Th1WmT2p+v0a4
+ 624ESo2kLEZbqaRUwCxeR0w2t/p7B6OqJvU/Qnzm/vFjIYDKyBdWmTs6Y5FR3UinP395Sgk5U1S
+ tMmNuWvX4Ei5CaOV40dw4ADVYY3ML/58NseWU/seHkAtoROv3J8jsvZ2xM/oYzXU+4krvgeyEwq
+ fSY9bhjMpu7FX29y8gvp3i33blvrS4M7gE81Y63i+0W7ZI4MxC675sj0IbsmNpR97WCsMz6EGkr
+ pP8UqrsX+4v63CsXQNA==
+X-Proofpoint-ORIG-GUID: wctszhLwhY2fbveZUDkxYXoxg193IvsX
+X-Proofpoint-GUID: wctszhLwhY2fbveZUDkxYXoxg193IvsX
+X-Authority-Analysis: v=2.4 cv=YdiwJgRf c=1 sm=1 tr=0 ts=69944ec4 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
- a=EUspDBNiAAAA:8 a=Py5lcOcq67Lbq8UMOfUA:9 a=QEXdDO2ut3YA:10
- a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-ORIG-GUID: yqscRlkmoCriap1S2jOplDmYelof-kYg
+ a=EUspDBNiAAAA:8 a=h4B-02p0z56_JbXvspoA:9 a=QEXdDO2ut3YA:10
+ a=IoOABgeZipijB_acs4fv:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-02-17_01,2026-02-16_04,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 adultscore=0 clxscore=1015 phishscore=0
- lowpriorityscore=0 suspectscore=0 spamscore=0 malwarescore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602170094
+ impostorscore=0 adultscore=0 spamscore=0 bulkscore=0 malwarescore=0
+ lowpriorityscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2602170094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_031929_010731_A113F9F5 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20260217_031933_544984_B51ABA7D 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,53 +158,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For older targets like sc7280, we see reading DBI after sending PME
-turn off message is causing NOC error.
+Some Qcom PCIe controller variants bring the PHY out of test power-down
+(PHY_TEST_PWR_DOWN) during init. When the link is later transitioned
+towards D3cold and the driver disables PCIe clocks and/or regulators
+without explicitly re-asserting PHY_TEST_PWR_DOWN, the PHY can remain
+partially powered, leading to avoidable power leakage.
 
-To avoid unsafe DBI accesses, introduce qcom_pcie_get_ltssm(), which
-retrieves the LTSSM state from the PARF_LTSSM register instead.
+Update the init-path comments to reflect that PARF_PHY_CTRL is used to
+power the PHY on. Also, for controller revisions that enable PHY power
+in init (2.3.2, 2.3.3, 2.7.0 and 2.9.0), explicitly power the PHY down
+via PARF_PHY_CTRL in the deinit path before disabling clocks/regulators.
+
+This ensures the PHY is put into a defined low-power state prior to
+removing its supplies, preventing leakage when entering D3cold.
 
 Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 ---
- drivers/pci/controller/dwc/pcie-qcom.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ drivers/pci/controller/dwc/pcie-qcom.c | 30 +++++++++++++++++++++++++++---
+ 1 file changed, 27 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index 67a16af69ddc75fca1b123e70715e692a91a9135..2c4dc7134e006d3530a809f1bcc1a6488d4632ad 100644
+index 2c4dc7134e006d3530a809f1bcc1a6488d4632ad..b02c19bbdf2ea5db252c2a0281a569bb3a0cc497 100644
 --- a/drivers/pci/controller/dwc/pcie-qcom.c
 +++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -131,6 +131,7 @@
+@@ -513,7 +513,7 @@ static int qcom_pcie_post_init_2_1_0(struct qcom_pcie *pcie)
+ 	u32 val;
+ 	int ret;
  
- /* PARF_LTSSM register fields */
- #define LTSSM_EN				BIT(8)
-+#define PARF_LTSSM_STATE_MASK			GENMASK(5, 0)
- 
- /* PARF_NO_SNOOP_OVERRIDE register fields */
- #define WR_NO_SNOOP_OVERRIDE_EN			BIT(1)
-@@ -1255,6 +1256,15 @@ static bool qcom_pcie_link_up(struct dw_pcie *pci)
- 	return val & PCI_EXP_LNKSTA_DLLLA;
- }
- 
-+static enum dw_pcie_ltssm qcom_pcie_get_ltssm(struct dw_pcie *pci)
-+{
-+	struct qcom_pcie *pcie = to_qcom_pcie(pci);
+-	/* enable PCIe clocks and resets */
++	/* PHY power ON */
+ 	val = readl(pcie->parf + PARF_PHY_CTRL);
+ 	val &= ~PHY_TEST_PWR_DOWN;
+ 	writel(val, pcie->parf + PARF_PHY_CTRL);
+@@ -680,6 +680,12 @@ static int qcom_pcie_get_resources_2_3_2(struct qcom_pcie *pcie)
+ static void qcom_pcie_deinit_2_3_2(struct qcom_pcie *pcie)
+ {
+ 	struct qcom_pcie_resources_2_3_2 *res = &pcie->res.v2_3_2;
 +	u32 val;
 +
-+	val = readl(pcie->parf + PARF_LTSSM);
-+	return (enum dw_pcie_ltssm)FIELD_GET(PARF_LTSSM_STATE_MASK, val);
-+}
-+
- static void qcom_pcie_phy_power_off(struct qcom_pcie *pcie)
- {
- 	struct qcom_pcie_port *port;
-@@ -1507,6 +1517,7 @@ static const struct qcom_pcie_cfg cfg_fw_managed = {
- static const struct dw_pcie_ops dw_pcie_ops = {
- 	.link_up = qcom_pcie_link_up,
- 	.start_link = qcom_pcie_start_link,
-+	.get_ltssm = qcom_pcie_get_ltssm,
- };
++	/* PHY Power down */
++	val = readl(pcie->parf + PARF_PHY_CTRL);
++	val |= PHY_TEST_PWR_DOWN;
++	writel(val, pcie->parf + PARF_PHY_CTRL);
  
- static int qcom_pcie_icc_init(struct qcom_pcie *pcie)
+ 	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+ 	regulator_bulk_disable(ARRAY_SIZE(res->supplies), res->supplies);
+@@ -712,7 +718,7 @@ static int qcom_pcie_post_init_2_3_2(struct qcom_pcie *pcie)
+ {
+ 	u32 val;
+ 
+-	/* enable PCIe clocks and resets */
++	/* PHY Power ON */
+ 	val = readl(pcie->parf + PARF_PHY_CTRL);
+ 	val &= ~PHY_TEST_PWR_DOWN;
+ 	writel(val, pcie->parf + PARF_PHY_CTRL);
+@@ -844,6 +850,12 @@ static int qcom_pcie_get_resources_2_3_3(struct qcom_pcie *pcie)
+ static void qcom_pcie_deinit_2_3_3(struct qcom_pcie *pcie)
+ {
+ 	struct qcom_pcie_resources_2_3_3 *res = &pcie->res.v2_3_3;
++	u32 val;
++
++	/* PHY Power down */
++	val = readl(pcie->parf + PARF_PHY_CTRL);
++	val |= PHY_TEST_PWR_DOWN;
++	writel(val, pcie->parf + PARF_PHY_CTRL);
+ 
+ 	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+ }
+@@ -994,7 +1006,7 @@ static int qcom_pcie_init_2_7_0(struct qcom_pcie *pcie)
+ 	/* configure PCIe to RC mode */
+ 	writel(DEVICE_TYPE_RC, pcie->parf + PARF_DEVICE_TYPE);
+ 
+-	/* enable PCIe clocks and resets */
++	/* PHY power ON */
+ 	val = readl(pcie->parf + PARF_PHY_CTRL);
+ 	val &= ~PHY_TEST_PWR_DOWN;
+ 	writel(val, pcie->parf + PARF_PHY_CTRL);
+@@ -1065,6 +1077,12 @@ static void qcom_pcie_host_post_init_2_7_0(struct qcom_pcie *pcie)
+ static void qcom_pcie_deinit_2_7_0(struct qcom_pcie *pcie)
+ {
+ 	struct qcom_pcie_resources_2_7_0 *res = &pcie->res.v2_7_0;
++	u32 val;
++
++	/* PHY Power down */
++	val = readl(pcie->parf + PARF_PHY_CTRL);
++	val |= PHY_TEST_PWR_DOWN;
++	writel(val, pcie->parf + PARF_PHY_CTRL);
+ 
+ 	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+ 
+@@ -1169,6 +1187,12 @@ static int qcom_pcie_get_resources_2_9_0(struct qcom_pcie *pcie)
+ static void qcom_pcie_deinit_2_9_0(struct qcom_pcie *pcie)
+ {
+ 	struct qcom_pcie_resources_2_9_0 *res = &pcie->res.v2_9_0;
++	u32 val;
++
++	/* PHY Power down */
++	val = readl(pcie->parf + PARF_PHY_CTRL);
++	val |= PHY_TEST_PWR_DOWN;
++	writel(val, pcie->parf + PARF_PHY_CTRL);
+ 
+ 	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+ }
 
 -- 
 2.34.1
