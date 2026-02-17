@@ -4,145 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8443E6816B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 11:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FFDE68165
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 11:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rMBPdn2LsAmivgwpb9UlFxbQ9zyThXTU/1K9VkXS3k0=; b=ydwpcr04gCFlbxttjR0pUyTHbQ
-	3+PuKOZ/OBTK6tMPhJoQxrIB973vmSW/LG38msrzCENQ/3dwTvjc3CQukOdgnLUVFNgSyxjb2U58L
-	0k0llqGDuL7fSjKh52I9HNODpOPuUJakmDwSBGKVwffHtS43esM9Bq6MAT5CZJ3R2DOIcxZe1fb8L
-	rhEDylHQvyvJ6GXIY2uqWA4/GcdR97+ZSi+bzcgLjQleeIVIEebGHoyjfdqRdFn/DwqRb0Cfoacqb
-	XhkVpMcvurluIYEI7JW7Ejik6aaXhpwEtWjZzWegRSEnL1456qHrKGQUgOEKVU3AIyHjflYXA9kkP
-	G+IevWLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eIwZCY0zKRfC1+dyqf7bcb8270ONyoPFzl0pET2TSeE=; b=YtBR5gMh6iLJmKtdtILhcW8BcT
+	R/8gMR2bH/jIQYGRgoi7IKFvJOYj2tqheoXu4zPv7IfuusysXcPA1+Dkdno1wE9JpWULAPAhJSLuy
+	3Q1s7tF5adPuLab0PfzOVbD+Udb3VvqNZwAIac68UPcf87EUPHcwYC6qxuDLMxVM+xHNLjmWb1H/n
+	mAcPI8Qkdtq/KMjfAQCibpAon8CdK+hs22q6zI1+YL0rjF6MHzImm8yDwhxlGf7nRmJ7rZSsMpbQO
+	KwdmRCHa2X/D8vXGAaAIwfP4I9FOjqhnfks1VgaMutldpvPl2bwy4nE2zaP5kq1WX1o/Yk8RFe2K4
+	fN/9SqCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsJ7F-000000086O0-0Mpu;
-	Tue, 17 Feb 2026 11:19:41 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vsJ7o-000000086dj-3vFf;
+	Tue, 17 Feb 2026 11:20:17 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsJ7B-000000086LK-3xYn
+	id 1vsJ7l-000000086bj-1a5c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 11:19:39 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61HB40qQ1943469
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 11:19:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rMBPdn2LsAmivgwpb9UlFxbQ9zyThXTU/1K9VkXS3k0=; b=UsNyqI0Pm/RmWoKl
-	ymA2wqIzXteu5X5pBcvJ6asNk1aNLXpsaFUORhO3J/G24jq7mbr7a8smaMha9G3+
-	LaBYZlcaXmO/UtpQ7ZlD+48WYGsmSUS6MlVLZV+Uff1Uo89y4/mqxccHU8jwYZLt
-	3nW+V6heBwywIxUGP/zKp/TAfkoiBW6yDjjG2MoHCi3mJJdzjTLctRzkfl47WsJ5
-	n7rUHjnIEIKzriLWiCYYQ1JMK5UZma7bHyKlq20eiI0nG+J1L0wj2hrCG1GQaCtP
-	KltZ6j0esTAhfMDt8hwm7mFOBrbDVX35HC820e4+l2dVh3hjUEWMIR7sVQMak2U8
-	ce/Udw==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ccq4g01g6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 11:19:36 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b630753cc38so17018748a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 03:19:36 -0800 (PST)
+	Tue, 17 Feb 2026 11:20:15 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-65c5a778923so459615a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 03:20:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771327176; x=1771931976; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rMBPdn2LsAmivgwpb9UlFxbQ9zyThXTU/1K9VkXS3k0=;
-        b=VyjQzKjYvv1BddUA9cUj9X1ArCpK67GpFrWVsIAsdffVX50kNQFtcuvzTZkN4hrp7Y
-         3aociDeuE3FQytNzbGtOY7dMyVcKxDaY1a2JP3BIH47I3KUhWcbWdn4qsg51wA6WL7A+
-         7QkMyp4Mj4yIu77DjcbFj2iwf7EuNwDVp99S83xSZN6I5ZkLWJiUq3btFTcdbIkgn9Fe
-         FpyWmelPwlLuuwG1XvCMTr7hCp/le6ZVLXY3RbLL93uV24rjAsh+/4pAt+ksSSXYsSFZ
-         ESF70tfjddaD3VYBRDTYitTPiKYy3rHoja/3S0e7/XDh/od0O6EbRkvywY50vfzq3VYq
-         yQDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771327176; x=1771931976;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+        d=google.com; s=20230601; t=1771327210; x=1771932010; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=rMBPdn2LsAmivgwpb9UlFxbQ9zyThXTU/1K9VkXS3k0=;
-        b=kVSqV5CPQcxkE1bQPw+lCaWc9R+AA/4eip5fxCTlGhm0000Yn4wc9jplld7+fQ3/jL
-         fxBVmGZ15rebGg/g0bCPvWg9tUdcf/CytLyKKyLZmaFlNi22fe6tK5vjF1ha+swcTPui
-         6uqmn8tyvFh1ETg1iYEud85Pk9EzokHP94H3EfRvfxVczxmImh4JYecZOZNaYPcVWh4C
-         s5Yn3oVqIb/zFxsQTUkJYBjHY+uf77WCg/CgKCVQ+l5DwQN0fY2RxrTHPaYzqLMkUffh
-         I5do1nsp+chdXt2vZuob2kSbEDlrbNd2eKoLHl7UAmz1gDc1fgo1768P3Cl7A5UPwnFh
-         vfuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWNETZyc4rEgTfWlm9kQM2eT46B9fdiH2WEArs9b7P2lpcZYXJBXm3dSE9YVXFbx0RNER8T2PHQbjPtyrpe4AED@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuDaEYXiLKSy/jTPnk3heNf3rSgOtlqluwP/t7pk202J/gKYic
-	Q9BYePRrXV/7HR6Dca8vfUgbPnMgsWDjgcK6TwyqP4PlXzEPbdiywoZuSYAs2IaXedWD158C/tx
-	we0BE4MHi8CH8FMVJFsOD/yCL9VFYEmoVCX8HzgSWaUY3ui6aBpqA6bHXkbPtxAhXwqwJSEPSru
-	v6kg==
-X-Gm-Gg: AZuq6aK7IguwD9WySF917JNwSPnFAgXZJq7etj825RIce7xj6rGy7MDCVAVehdakUMu
-	vBpA5Yx7CDj57FT0v4AKczUcA5mcOMwcNQyz1tZq505b57n0+sxJ190lNocbWezCPfPjoKzq9ON
-	xpN4UbdfhpVXbuBcBu2mb01X1R0bPpeTH8iMAfP2560hbGCOQED6jsDnTEW+6q+SvnGUeTj3Kuh
-	t+ntvOYmux1aWc6Vv0xpO297FAwLRUMuN28DHY2Op4Lv7prlqKkvugvZbyd34MxdfZqRHcvbyUT
-	QMhb/qg3K2iqAxR1gdy8kADiFJZQGVmIiK2AMgIuGeow8iWNppejV2ON3KgXnXshRplHDme91n8
-	meZK1cvVD9wcReOvpDyntBN7/ECl6P0meOv1m5lDdygeEpvOGqXWJYthl
-X-Received: by 2002:a05:6a00:2d28:b0:824:374a:13f7 with SMTP id d2e1a72fcca58-824c613370cmr13273742b3a.55.1771327175583;
-        Tue, 17 Feb 2026 03:19:35 -0800 (PST)
-X-Received: by 2002:a05:6a00:2d28:b0:824:374a:13f7 with SMTP id d2e1a72fcca58-824c613370cmr13273711b3a.55.1771327175048;
-        Tue, 17 Feb 2026 03:19:35 -0800 (PST)
-Received: from hu-krichai-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-824c6b9a661sm13181914b3a.50.2026.02.17.03.19.31
+        bh=eIwZCY0zKRfC1+dyqf7bcb8270ONyoPFzl0pET2TSeE=;
+        b=YNl27kubvIur9ADXTTwVfjBNa0sPlaZPJdz/hvm0OGxq1tHb1UHHltp0/xGmggTXep
+         iQv7MuCMbD6FpNVTo5T/2yHKx9sekTzF4/XVHGcdlKUEZhbTz0JbaJkg2ll5eL9a6i6z
+         DnGjqhm6spDkJzj9CamYJPoJI2e2UqtnB58eAxSuwWL+uM/n7zsba+fC6btO8qQI6JTm
+         St29Cx2gvNOTKOuWt2ZBJ3iYAqNGhNdcIaO7+d0ZSw/lbAhI4x6JC+Ir6zi7dgMYEkJl
+         OQheVHqvkUpC1nJ1lAKQ3RbdwPT4BW5n4iSMZB4h9ryauVjofqQKlGajTQ1+kaycgxtW
+         M/rA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771327210; x=1771932010;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eIwZCY0zKRfC1+dyqf7bcb8270ONyoPFzl0pET2TSeE=;
+        b=DOysHzDgMC9HdHYunOvsAC5PHyKHhpOPEx67nMiDLvqxye6CVAFVBuy/gl98zXOa7P
+         GquTqtvTx8EMN7hzrG8FKJkV3rHb8bUqHHzbyX5jnNSDbxfse5NjOshHURW/+Ze7LX6F
+         Qd0s/i3mWAMd6PaWid2/JhaADdxhWfgMp4NWr+3NcPjYptZet1KWPOOxDXByOgrlxG95
+         5cnNhNC1aVGVK6l53JRde0kCsjZfzhI0fgZ3VGVarLjk8KzFboKBNq+0CO+RLk2z0x9e
+         o6NW9jPTfLh+kfAL9Jw7JULasUVW2n6nt2CoF2uCsyNWbZfBd/U4lo75fCgzGoPbXFWo
+         vdSA==
+X-Forwarded-Encrypted: i=1; AJvYcCWsXw6guiVDqiqn6y4T4UlWyAG1uPcjvBHsNmVd1wl4EV094u6F6ZcAYXYJ5MEmkuqinbZJ/2BStfqEYeEOLvg6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxhqcqi0NL2WniUqPQGTg/JM8Apvg1gREY6lgdV3sjR1RFDRm0W
+	+rgozuFmFPQEAhByg4whW6+R36pzB2v/92oVynZHYdu9qoeilIwU6UdKnfInLjkRFw==
+X-Gm-Gg: AZuq6aIc3ZHBv/IzIVNFQUzDxNax7eiQJdjeyOHSgRk5qHFxES4DbUZv34Bp40p8bvd
+	GFPKuSWYfMDEq9Jp+7sAQatqmIkWeddxcK+LXQAViP6oqDmMzRFZP5jFsAbEPNt3kvNpzXjELkh
+	T5clZfKvoPQbwjgVl02RenNIf03udDKQyr/3jGH5G1Qcb8AJKqVkIn8DgqmCGzNyE/68hUno1Wm
+	PHjs4mMasxuUVOraG5a+hJMQsslaijSeFgSiSaVlofUOe+1UMPLj+t/U4GEQdTRGKzgzx+zjvmU
+	IGWu0cUJVHd8w+82xcp+ND0R1zMngyFdea6ILuBOXYNjqLLT4r+qDgNVeyrt2GYHrlG8qVFDm2u
+	bopp4qIAUA04hEfv8N0pipQl1Eq6JdSapS6MUpAsyZd2Jbep8NEEkMSWooDtJKFUqtzm3+BLMbB
+	YDOIsYyjXugcSjZOcjqYF+/NMAd1LLLOobty2gk+1LRSqLqoAxMD8UgtWLztY4
+X-Received: by 2002:a17:906:6a17:b0:b87:6af7:c186 with SMTP id a640c23a62f3a-b8fc3d30cb2mr612995466b.54.1771327209938;
+        Tue, 17 Feb 2026 03:20:09 -0800 (PST)
+Received: from google.com (105.165.204.35.bc.googleusercontent.com. [35.204.165.105])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8fc735d185sm331579366b.14.2026.02.17.03.20.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 03:19:34 -0800 (PST)
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Date: Tue, 17 Feb 2026 16:49:10 +0530
-Subject: [PATCH v2 5/5] PCI: qcom: Add D3cold support
+        Tue, 17 Feb 2026 03:20:06 -0800 (PST)
+Date: Tue, 17 Feb 2026 12:20:02 +0100
+From: =?utf-8?Q?Pierre-Cl=C3=A9ment?= Tosi <ptosi@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: will@kernel.org, suzuki.poulose@arm.com, maz@kernel.org, 
+	corbet@lwn.net, yee.lee@mediatek.com, ascull@google.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	ptosi@google.com
+Subject: Re: [PATCH] arm64: Optionally disable EL0 MTE via command-line
+Message-ID: <p7wloz3ospiwaytzzns43hbyfrxfjoca6ljols3dq4hpha5y2v@weadvhpdng7a>
+References: <plslbeuzfag5dfizunxmhyw5axxbuz7r3jdlhjluzdwrm4rtzk@bm5xmxzmy6v3>
+ <aZRIHZ2Wq81S-FZY@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260217-d3cold-v2-5-89b322864043@oss.qualcomm.com>
-References: <20260217-d3cold-v2-0-89b322864043@oss.qualcomm.com>
-In-Reply-To: <20260217-d3cold-v2-0-89b322864043@oss.qualcomm.com>
-To: Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-        Will Deacon <will@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        jonathanh@nvidia.com, bjorn.andersson@oss.qualcomm.com,
-        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771327148; l=6515;
- i=krishna.chundru@oss.qualcomm.com; s=20230907; h=from:subject:message-id;
- bh=IAVEMPt0tOVYVQCFgBm15tr3uSMRBtLlDbxbCnOFZrQ=;
- b=wjF9Ok40l0LOgqKQkkPhl/h8dRDieyHrE+JHl4vXu3qG6H5Qh11tQtZ8Q5SfvNRzzzehxTmMs
- jJvG1KZaYAcBoHrk9mJo/xorBCcy23VvTGS4SE/tE4tf96AU3a1QeZ7
-X-Developer-Key: i=krishna.chundru@oss.qualcomm.com; a=ed25519;
- pk=10CL2pdAKFyzyOHbfSWHCD0X0my7CXxj8gJScmn1FAg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE3MDA5NCBTYWx0ZWRfXz0gP28dpMWmp
- 7LJVDgCPNz+Xaq2t1Dc7Qg1rqpfQEfOITBpc3OtYIOWm4nVGMBwJAUI1rxhFKS+I+Wl7rIKEW/e
- TgVUyQNgnJFgTwiCI1ftaspI2VqacEmu6HbwcwTCexkrpFFmlysCSXLN56NXgmwi73lVIGhL0qs
- b5EAGyM2BBcQaUGUOJ+HKCovkDTlR5/YEQate4x2ciEDBnsl8ngjDQIAhSyubXFgEWbEkjvBVnx
- uP8xN1Sz/bGgJ3HyabDDUir1BPFE16vqnoHWq+u9AOA459JIEQlRs25nsIl3RFj7LiJF0O20zUT
- IX3PvJHxAjVPQvEfEu2fF26DSWjRu3dPPEuhAJPgOgIZECmyfcVqt34J9y6R72/+dZPxMp/B2E+
- a6CCXU1Yd6Hwx9MPOKtGA0uSkZGXefP8bL2lMyqhrPNyZvUxUwN4tydBPwNxes4UPlFO1QLT2G1
- upFUKmUkk4pWlArNMig==
-X-Proofpoint-ORIG-GUID: -3AK6CyAEbpdRqzZJu7-dX1PpbuviP4o
-X-Proofpoint-GUID: -3AK6CyAEbpdRqzZJu7-dX1PpbuviP4o
-X-Authority-Analysis: v=2.4 cv=YdiwJgRf c=1 sm=1 tr=0 ts=69944ec8 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
- a=EUspDBNiAAAA:8 a=RN3yzfvplrNe8VIVIhoA:9 a=QEXdDO2ut3YA:10
- a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-17_01,2026-02-16_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 spamscore=0 bulkscore=0 malwarescore=0
- lowpriorityscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2602170094
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aZRIHZ2Wq81S-FZY@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_031938_141028_74118CF8 
-X-CRM114-Status: GOOD (  27.48  )
+X-CRM114-CacheID: sfid-20260217_032013_437543_5DA3B406 
+X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,212 +102,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for transitioning Qcom PCIe controllers into D3cold by
-integrating with the DWC core suspend/resume helpers.
+Hi Catalin,
 
-Implement PME_TurnOff message generation via ELBI_SYS_CTRL and hook it
-into the DWC host operations so the controller follows the standard
-PME_TurnOff-based power-down sequence before entering D3cold.
+On Tue, Feb 17, 2026 at 10:51:24AM +0000, Catalin Marinas wrote:
+> On Fri, Feb 13, 2026 at 12:51:07PM +0100, Pierre-Clément Tosi wrote:
+> > Although it is currently possible to fully disable MTE on MTE-capable
+> > CPUs (with arm64.nomte or id_aa64pfr1.mte=0) and to only use MTE in
+> > userspace (with kasan=off), there is no way to limit the use of MTE to
+> > the kernel because CPU capabilities are traditionally exposed directly
+> > to userspace.
+> > 
+> > To address this, introduce a new cmdline argument (inspired by the
+> > existing arm64.nomte) to only expose the MTE capability of the CPU to
+> > the kernel. Combined with KASAN, this results in only the kernel using
+> > the feature, while HWCAP2_MTE and the corresponding MSR ID_AA64PFR1_EL1
+> > field are hidden from userspace.
+> [...]
+> > +	arm64.nomte_el0	[ARM64] Unconditionally disable Memory Tagging Extension
+> > +			support for userspace
+> 
+> Why would we need this? It's a user-space choice whether it uses MTE or
+> not. It's not like the kernel is forcing it onto the user processes.
 
-When the link is suspended into D3cold, fully tear down interconnect
-bandwidth, OPP votes. If D3cold is not entered, retain existing behavior
-by keeping the required interconnect and OPP votes.
+Correct. This patch is useful when working with a pre-compiled distribution to
+ensure that a MTE-enabled userspace falls back to untagged allocations, without
+the need to introduce system-wide policies (and ABIs) for said distribution,
+which would also be inherently less robust than this kernel-level gating.
 
-Drop the qcom_pcie::suspended flag and rely on the existing
-dw_pcie::suspended state, which now drives both the power-management
-flow and the interconnect/OPP handling.
+In Android, we can simply append the flag to the kernel cmdline instead of
+relying on sysprops (or similar early userspace concepts) and hoping that all
+users are properly gated on that sysprop, etc. This can be used for A/B testing
+of the feature or as a highly-reliable "remote kill switch", for example.
 
-Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
----
- drivers/pci/controller/dwc/pcie-qcom.c | 121 ++++++++++++++++++++-------------
- 1 file changed, 74 insertions(+), 47 deletions(-)
+I should have mentioned this in the commit message and will in an eventual v2.
 
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index b02c19bbdf2ea5db252c2a0281a569bb3a0cc497..37442bbe588c36b0b0414cc4d0016da2d8424a87 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -145,6 +145,7 @@
- 
- /* ELBI_SYS_CTRL register fields */
- #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
-+#define ELBI_SYS_CTRL_PME_TURNOFF_MSG		BIT(4)
- 
- /* AXI_MSTR_RESP_COMP_CTRL0 register fields */
- #define CFG_REMOTE_RD_REQ_BRIDGE_SIZE_2K	0x4
-@@ -283,7 +284,6 @@ struct qcom_pcie {
- 	const struct qcom_pcie_cfg *cfg;
- 	struct dentry *debugfs;
- 	struct list_head ports;
--	bool suspended;
- 	bool use_pm_opp;
- };
- 
-@@ -1401,10 +1401,18 @@ static void qcom_pcie_host_post_init(struct dw_pcie_rp *pp)
- 		pcie->cfg->ops->host_post_init(pcie);
- }
- 
-+static void qcom_pcie_host_pme_turn_off(struct dw_pcie_rp *pp)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+
-+	writel(ELBI_SYS_CTRL_PME_TURNOFF_MSG, pci->elbi_base + ELBI_SYS_CTRL);
-+}
-+
- static const struct dw_pcie_host_ops qcom_pcie_dw_ops = {
- 	.init		= qcom_pcie_host_init,
- 	.deinit		= qcom_pcie_host_deinit,
- 	.post_init	= qcom_pcie_host_post_init,
-+	.pme_turn_off	= qcom_pcie_host_pme_turn_off,
- };
- 
- /* Qcom IP rev.: 2.1.0	Synopsys IP rev.: 4.01a */
-@@ -2069,53 +2077,51 @@ static int qcom_pcie_suspend_noirq(struct device *dev)
- 	if (!pcie)
- 		return 0;
- 
--	/*
--	 * Set minimum bandwidth required to keep data path functional during
--	 * suspend.
--	 */
--	if (pcie->icc_mem) {
--		ret = icc_set_bw(pcie->icc_mem, 0, kBps_to_icc(1));
--		if (ret) {
--			dev_err(dev,
--				"Failed to set bandwidth for PCIe-MEM interconnect path: %d\n",
--				ret);
--			return ret;
--		}
--	}
-+	ret = dw_pcie_suspend_noirq(pcie->pci);
-+	if (ret)
-+		return ret;
- 
--	/*
--	 * Turn OFF the resources only for controllers without active PCIe
--	 * devices. For controllers with active devices, the resources are kept
--	 * ON and the link is expected to be in L0/L1 (sub)states.
--	 *
--	 * Turning OFF the resources for controllers with active PCIe devices
--	 * will trigger access violation during the end of the suspend cycle,
--	 * as kernel tries to access the PCIe devices config space for masking
--	 * MSIs.
--	 *
--	 * Also, it is not desirable to put the link into L2/L3 state as that
--	 * implies VDD supply will be removed and the devices may go into
--	 * powerdown state. This will affect the lifetime of the storage devices
--	 * like NVMe.
--	 */
--	if (!dw_pcie_link_up(pcie->pci)) {
--		qcom_pcie_host_deinit(&pcie->pci->pp);
--		pcie->suspended = true;
--	}
-+	if (pcie->pci->suspended) {
-+		ret = icc_disable(pcie->icc_mem);
-+		if (ret)
-+			dev_err(dev, "Failed to disable PCIe-MEM interconnect path: %d\n", ret);
- 
--	/*
--	 * Only disable CPU-PCIe interconnect path if the suspend is non-S2RAM.
--	 * Because on some platforms, DBI access can happen very late during the
--	 * S2RAM and a non-active CPU-PCIe interconnect path may lead to NoC
--	 * error.
--	 */
--	if (pm_suspend_target_state != PM_SUSPEND_MEM) {
- 		ret = icc_disable(pcie->icc_cpu);
- 		if (ret)
- 			dev_err(dev, "Failed to disable CPU-PCIe interconnect path: %d\n", ret);
- 
- 		if (pcie->use_pm_opp)
- 			dev_pm_opp_set_opp(pcie->pci->dev, NULL);
-+	} else {
-+		/*
-+		 * Set minimum bandwidth required to keep data path functional during
-+		 * suspend.
-+		 */
-+		if (pcie->icc_mem) {
-+			ret = icc_set_bw(pcie->icc_mem, 0, kBps_to_icc(1));
-+			if (ret) {
-+				dev_err(dev,
-+					"Failed to set bandwidth for PCIe-MEM interconnect path: %d\n",
-+					ret);
-+				return ret;
-+			}
-+		}
-+
-+		/*
-+		 * Only disable CPU-PCIe interconnect path if the suspend is non-S2RAM.
-+		 * Because on some platforms, DBI access can happen very late during the
-+		 * S2RAM and a non-active CPU-PCIe interconnect path may lead to NoC
-+		 * error.
-+		 */
-+		if (pm_suspend_target_state != PM_SUSPEND_MEM) {
-+			ret = icc_disable(pcie->icc_cpu);
-+			if (ret)
-+				dev_err(dev, "Failed to disable CPU-PCIe interconnect path: %d\n",
-+					ret);
-+
-+			if (pcie->use_pm_opp)
-+				dev_pm_opp_set_opp(pcie->pci->dev, NULL);
-+		}
- 	}
- 	return ret;
- }
-@@ -2129,25 +2135,46 @@ static int qcom_pcie_resume_noirq(struct device *dev)
- 	if (!pcie)
- 		return 0;
- 
--	if (pm_suspend_target_state != PM_SUSPEND_MEM) {
-+	if (pcie->pci->suspended) {
- 		ret = icc_enable(pcie->icc_cpu);
- 		if (ret) {
- 			dev_err(dev, "Failed to enable CPU-PCIe interconnect path: %d\n", ret);
- 			return ret;
- 		}
--	}
- 
--	if (pcie->suspended) {
--		ret = qcom_pcie_host_init(&pcie->pci->pp);
--		if (ret)
--			return ret;
-+		ret = icc_enable(pcie->icc_mem);
-+		if (ret) {
-+			dev_err(dev, "Failed to enable PCIe-MEM interconnect path: %d\n", ret);
-+			goto disable_icc_cpu;
-+		}
- 
--		pcie->suspended = false;
-+		/*
-+		 * Ignore -ETIMEDOUT here since it is expected when no endpoint is
-+		 * connected to the PCIe link.
-+		 */
-+		ret = dw_pcie_resume_noirq(pcie->pci);
-+		if (ret && (ret != -ETIMEDOUT))
-+			goto disable_icc_mem;
-+	} else {
-+		if (pm_suspend_target_state != PM_SUSPEND_MEM) {
-+			ret = icc_enable(pcie->icc_cpu);
-+			if (ret) {
-+				dev_err(dev, "Failed to enable CPU-PCIe interconnect path: %d\n",
-+					ret);
-+				return ret;
-+			}
-+		}
- 	}
- 
- 	qcom_pcie_icc_opp_update(pcie);
- 
- 	return 0;
-+disable_icc_mem:
-+	icc_disable(pcie->icc_mem);
-+disable_icc_cpu:
-+	icc_disable(pcie->icc_cpu);
-+
-+	return ret;
- }
- 
- static const struct of_device_id qcom_pcie_match[] = {
+> 
+> -- 
+> Catalin
 
 -- 
-2.34.1
-
+Pierre
 
