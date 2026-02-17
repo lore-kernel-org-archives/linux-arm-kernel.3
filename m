@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFDEE68151
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:30:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E77E68152
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jQsq4pIYVJuFxexpa0z/daad86QvQuw/0HPGESIxbVs=; b=r2y1p9GWbzUwIqK9A8IWXpu8Ih
-	cFJfaTD7JMq2F9HF/MEx93qvT/ccU+p/DSuqWwLoTyQVMvvO+p4URawbZo65W76hNUr6BWZ1mVqRC
-	bdq/yBJX8fibasN2CgfhyXXwe6jqTD7HUHJSvpFF4RFdvJYVhG3cb0Io2BB5BpB/vp9Ah7fG5Q2rB
-	qr7klKFbO1pVdexUekY3XtzBg8NM1cOcr5y/DcGvQeaqoHMdOCcM0Yb8GAxUGfmjBCjPKKlCve2zm
-	0q0K2aMdmSmcgezCaImxyfM78oPvNMXsf1nKWLT3df2387ocGvugsOXJRNSyKk0q7/buAWCmROGlk
-	rKomC3nQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VFrPWXYQT32uJfy+Itx8pbUU2F6AZS8gWr+T1oJUeBs=; b=Y52ABcvfyM1XBcpC/h9A06DQvt
+	f7YIZkMLWPJbsToXz6hO6OQ6CJda3J/SupNG7+CN9Y7Fb95azU9foxZ1W1qLP5p9o2yi1BAoSSzT+
+	ONj6Dotxh48elE4vbElAJQDgq8YyUUoS4KCIZoGZrSVrtUGB/Lz2CGcfp9RpoGuAiglpGCviix6CO
+	gnvKgFCAGtDUZTUG7vWJrThGKhYokW9YcLMw6UTMLmx9BHAP+wbeLpNrX0OItyarfEU893p1ewRkA
+	N+i3gFg3c+DAsQecnpcrrpVzFRs5TZVQ8cQ56FNtFWp4CsgdfnjAdL+qyguCtC/iPB440QnbBVXT8
+	X24Sr4bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsHPF-00000007wql-47yV;
-	Tue, 17 Feb 2026 09:30:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vsHTx-00000007xAj-2uIO;
+	Tue, 17 Feb 2026 09:35:01 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsHPE-00000007wqf-39p8
+	id 1vsHTu-00000007x9y-1viy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 09:30:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA3D160128;
-	Tue, 17 Feb 2026 09:30:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62695C4CEF7;
-	Tue, 17 Feb 2026 09:30:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771320607;
-	bh=1k8IYuo7K3Yqw0fOXyGW+rdO/3WvYsWAMv00ZYTHAUU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=jsMehZnPdpzMgPFWtctXU1YG8FhPeOmx4M4tJrmXtZVI3nE9l30/bToxfUKgtCX5i
-	 L9i10wGo++GP7vJ2pgHnxZ72Wy+fFOFJyedK6H3FwWbeo6WDLDREEDzkYEL/KoR5vU
-	 i86UgarLbH6Ve3Gm3nBFuL255+rtCaHgKVBvtsbHnsmiQmmNd3a9fYbi7P+9TGGvAO
-	 1tKtS3KwMOrPWsXmeLz6Z9mSEGlnR1qkn22VH9YWC+wnlaHE2O2m5WaTvgeKCqOfIC
-	 OejKiGYBeffJfQ/a6rMHMmbZKYN84K5LUjwqca++QIp+tsrYjefa6TOt0ERSLtE4bT
-	 8uF9egvqRI99Q==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 554705FCAE; Tue, 17 Feb 2026 17:30:05 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: linux-sunxi@lists.linux.dev,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] clk: sunxi-ng: sun55i-a523-r: Add missing r-spi module clock
-Date: Tue, 17 Feb 2026 17:30:03 +0800
-Message-ID: <20260217093004.3239051-1-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Tue, 17 Feb 2026 09:35:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=VFrPWXYQT32uJfy+Itx8pbUU2F6AZS8gWr+T1oJUeBs=; b=RSQGvJp3nkM/KWKOE1V55N8Lrk
+	pwlO9cyFM2UUUiM+OgmuyOXTYUN069Nn9ur8aenxt2oYUrfT6Xx36cTV6NlcBCMuL1z82zvRdQ7lM
+	U8ix0yl1gi2hscTG2ZMJpv7qMAHudC6vgQ+mwh8s4jwXidPaR9XyGp2n/wQFTXRooXrbdZjHZU3f/
+	f1Ep8TxJoLLF+trVeaFahWpGQk+AZjQ+chkOk7pPPTDIbxa7nCZYYfBNo1Jp9P6EFvqmD9FeeRHTg
+	FaAxk25fMIvh48a4O4kYVM6SaC+hWi7f52xq92GU+oGnn16Tf2fe/EWR++vdz0bLhxPAx5P+8DsH8
+	xxePVT6Q==;
+Date: Tue, 17 Feb 2026 10:34:38 +0100
+From: Andreas Kemnade <andreas@kemnade.info>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: Kory Maincent <kory.maincent@bootlin.com>, Robert Nelson
+ <robertcnelson@gmail.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin
+ Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Tony
+ Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Russell
+ King <linux@armlinux.org.uk>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, Luca
+ Ceresoli <luca.ceresoli@bootlin.com>, Bajjuri Praneeth <praneeth@ti.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Louis
+ Chauvet <louis.chauvet@bootlin.com>
+Subject: Re: [PATCH 1/5] ARM: dts: ti: Enable overlays for all DTB files
+Message-ID: <20260217103438.4697deab@kemnade.info>
+In-Reply-To: <0EE0658D-56A7-480C-BF71-6B2EB81DC41C@goldelico.com>
+References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
+	<20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
+	<B3366A17-641F-4E02-A5D4-978F525E0A96@goldelico.com>
+	<20260212174718.7daccb70@kemnade.info>
+	<719BF710-26DF-49AB-A016-D2306F0389E2@goldelico.com>
+	<20260212231907.6120a2e2@kemnade.info>
+	<CAOCHtYicmeSzH5Q2_qTwAZw3s+__JRwUrXvz01+KCsJJHAznUw@mail.gmail.com>
+	<20260216161155.09fae580@kmaincent-XPS-13-7390>
+	<0EE0658D-56A7-480C-BF71-6B2EB81DC41C@goldelico.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260217_013459_474694_55DF9B1B 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,62 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the PRCM clk driver was added, somehow the r-spi module clock
-was skipped over.
+On Tue, 17 Feb 2026 09:58:04 +0100
+H. Nikolaus Schaller <hns@goldelico.com> wrote:
 
-Add it so that r-spi can actually work.
+> Hi Kory,
+> 
+> > Am 16.02.2026 um 16:11 schrieb Kory Maincent <kory.maincent@bootlin.com>:
+> >   
+> >>>>>   
+> >>>>>>> Am 12.02.2026 um 16:26 schrieb Kory Maincent (TI)
+> >>>>>>> <kory.maincent@bootlin.com>:
+> >>>>>>> 
+> >>>>>>> Allow overlays to be applied to any DTB. This adds around ~40% to the
+> >>>>>>> total size of the DTB files on average.    
+> > 
+> > Yes, I will move on to this solution for now to avoid too many complaints about
+> > the devicetree size increases.  
+> 
+> I have done some experimentation with this patch (on top of v6.19 and our private defconfig)
+> but could not find any DTB size increase.
+> 
+> Does it require another patch or CONFIG change?
+> 
+if it is your letux_defconfig, then it does not require anything else.
 
-Fixes: 8cea339cfb81 ("clk: sunxi-ng: add support for the A523/T527 PRCM CCU")
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
----
- drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+I think something already enables symbols in your tree. Look with
+fdtdump at the generated dtbs for a __symbols__ node.
+If it is there, then it is enabled.
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-index 0339c4af0fe5..db0e36d8838e 100644
---- a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-@@ -83,9 +83,22 @@ static SUNXI_CCU_MUX_DATA_WITH_GATE(r_pwmctrl_clk, "r-pwmctrl",
- static SUNXI_CCU_GATE_HW(bus_r_pwmctrl_clk, "bus-r-pwmctrl",
- 			 &r_apb0_clk.common.hw, 0x13c, BIT(0), 0);
- 
--/* SPI clock is /M/N (same as new MMC?) */
-+static const struct clk_parent_data r_spi_parents[] = {
-+	{ .fw_name = "hosc" },
-+	{ .fw_name = "pll-periph" },
-+	{ .name = "pll-periph0-300M" },
-+	{ .name = "pll-periph1-300M" },
-+	{ .name = "pll-audio" },
-+};
-+static SUNXI_CCU_DUALDIV_MUX_GATE(r_spi_clk, "r-spi", r_spi_parents, 0x150,
-+				  0, 5,		/* M */
-+				  8, 5,		/* P */
-+				  24, 3,	/* mux */
-+				  BIT(31),	/* gate */
-+				  0);
- static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi",
- 			 &r_ahb_clk.common.hw, 0x15c, BIT(0), 0);
-+
- static SUNXI_CCU_GATE_HW(bus_r_spinlock_clk, "bus-r-spinlock",
- 			 &r_ahb_clk.common.hw, 0x16c, BIT(0), 0);
- static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox",
-@@ -138,6 +151,7 @@ static struct ccu_common *sun55i_a523_r_ccu_clks[] = {
- 	&bus_r_twd_clk.common,
- 	&r_pwmctrl_clk.common,
- 	&bus_r_pwmctrl_clk.common,
-+	&r_spi_clk.common,
- 	&bus_r_spi_clk.common,
- 	&bus_r_spinlock_clk.common,
- 	&bus_r_msgbox_clk.common,
-@@ -169,6 +183,7 @@ static struct clk_hw_onecell_data sun55i_a523_r_hw_clks = {
- 		[CLK_BUS_R_TWD]		= &bus_r_twd_clk.common.hw,
- 		[CLK_R_PWMCTRL]		= &r_pwmctrl_clk.common.hw,
- 		[CLK_BUS_R_PWMCTRL]	= &bus_r_pwmctrl_clk.common.hw,
-+		[CLK_R_SPI]		= &r_spi_clk.common.hw,
- 		[CLK_BUS_R_SPI]		= &bus_r_spi_clk.common.hw,
- 		[CLK_BUS_R_SPINLOCK]	= &bus_r_spinlock_clk.common.hw,
- 		[CLK_BUS_R_MSGBOX]	= &bus_r_msgbox_clk.common.hw,
--- 
-2.47.3
-
+Regards,
+Andreas
 
