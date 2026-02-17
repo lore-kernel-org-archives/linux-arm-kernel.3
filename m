@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A35AE6814D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C9F2E6814D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EShtBib0/LfdoFiU0OtCTl35vH5saHc2UDRf8O6z9sM=; b=x0b6Zvab6LJdYTUODmbmYPSkcl
-	0tZLA1fKycHmdWq7GkDA0TYbW0Bkoqo0E+bQfn/Kkgjenzg6kqFFMOOcczVG8bXInjF2OY7ooebOs
-	rTww4mJYihH1f3TDSKbE5wGd8HvRySfOLpRxEitolF7VjLna0N31CRx/PKwte/SWcb8jhgFVgif1H
-	oZvrxwwGwerkcFBB5ydxkOs1HlFret7wt5beH6IMxy8lAhwKRuqdO36Z83Cd+iKNHU/KswgHUReSZ
-	vH3WKmZx+2iqXA5GCPCXN2nZ1K9ohkETfQXdHhPnLaj9plkdwE/f+xJwjB1fpRsiU5zDdscVradKZ
-	EzARnHzQ==;
+	bh=yeuyjR3Sfg0HdG8Q20S6pfDa9CduBvStQE7e70hM6Ag=; b=R21cuF8Cnzg/k6HRTTnYnzr/2y
+	hlnf/LKE3E5GWakQU/CtLsolzDiaSW9JJFag6W9DS9Fb/3wMhxRlWWnu6UISvECMKZA6+t6VXF1/8
+	RfLvJL3FNp8ws6TF5z6HF8h/+pB/ftUjUtN/j6BcLmRNeCuL5cIbcg0xssAhS/dXo0BySk//LrZm0
+	716oWEG2YKGuakSUrm7YP6h1+wlfhvd9VYbopLsBG5oxyq8D6syO9rsPX2U+gFqG4PsZ1s2WlQffr
+	V2AL4v8fCv6EGX5J279q2jyCmeyiUePq7U7hdWpCcKrB01BigxWZkM/x+Of4loSzGktqjwM4KSzg1
+	D7CeiRGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsGzY-00000007tih-2cvh;
-	Tue, 17 Feb 2026 09:03:36 +0000
+	id 1vsGzq-00000007tni-3sPj;
+	Tue, 17 Feb 2026 09:03:54 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsGzV-00000007thb-1KcN;
-	Tue, 17 Feb 2026 09:03:35 +0000
+	id 1vsGzo-00000007tml-0RYI;
+	Tue, 17 Feb 2026 09:03:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771319008;
-	bh=9GbJRlEzOKhvUfPYVZkq7x2pTPJxlFsurchmoJs+GK4=;
+	s=mail; t=1771319028;
+	bh=qnopI2z5k9lPpXvkwHmEJnULnub8VaeVUtQYFgxCcxM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CtfYHGR2qb6+VbmtAWTPsiAJVFmA0YWByKmTGWIgnyD7Gr1gBMN2y/7VQg2FJHKYj
-	 SSEPSuC2goNPL+OBycqn7GTaBjGkWc6e9RRUo6zIiy5EXHHCZWf9z2zvuZuC8OipRa
-	 9v8sgckzmoMj0cSVLVheSHYY+qj1qhxVTkd37GJirm06XMd5TRPaJy9OzHWF3gWP32
-	 GcvC7wYo72tXDlePRa4lJZWYeUspU+ZGT9rV7kloqL1h59Bb5gXI1axSuLKG0GKV04
-	 IwM8VMAiR/Ynm9rtP8lWKYok+PVG6V6jhEGGhzu5G9BQncbySjGW5b0i+H16X4pncK
-	 wp7T3YvEscqVQ==
+	b=HKGl60dDflSj0P8oU3Ahy2sjllUGkVMN98tvXZOljsqRluKpq2UuBCsa2Nnu46v0w
+	 plNHpfzU3oL4aWIUiZU14OvIFV2wgu2yTQ3zkZ5Us4ErpBRa3i7+s7+lT8SD7lSto1
+	 CaYYEgKV8pEhmEvgmcwEO8bLjJZG9nRzcLUM7+3DtA8DSGN9uI06gDjx4hMYo7LyxU
+	 EsJqMIDpaJnAY9/FfDelZBgIEUs8X7VH3BxSTtHFa6AOReo2shXAdBO/BxXm8qZ3Hh
+	 GtPI1H1k7hI/SU/rVDTpUgiNCHYCXtUwTbZhbbyKcT3Zyjoc9vDF1Anuz4hZuuEe4R
+	 lWoKTnW91imaA==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E9D3717E0C21;
-	Tue, 17 Feb 2026 10:03:27 +0100 (CET)
-Message-ID: <04a3d18b-80cc-4d1d-8657-cb35c4b5b797@collabora.com>
-Date: Tue, 17 Feb 2026 10:03:27 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48C4017E0071;
+	Tue, 17 Feb 2026 10:03:47 +0100 (CET)
+Message-ID: <45c20bf4-c955-4c1f-b1e8-344c2742644e@collabora.com>
+Date: Tue, 17 Feb 2026 10:03:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/6] dt-bindings: display: mediatek: Correct
- compatibility for mt8167-dsi
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org,
+Subject: Re: [PATCH v2 2/6] dt-bindings: display: mediatek: Add compatibles
+ for MediaTek mt8167
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+ linux-mediatek@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
  Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Chunfeng Yun
  <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
@@ -67,16 +67,16 @@ Cc: linux-mediatek@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-phy@lists.infradead.org
 References: <cover.1771258407.git.l.scorcia@gmail.com>
- <ff920a7cc94f2b0c03d4bb55142030fded30d07c.1771258407.git.l.scorcia@gmail.com>
- <20260217-stereotyped-dazzling-loon-f06e18@quoll>
+ <8f86f229e564723b424b4d621244cfbe158c0f08.1771258407.git.l.scorcia@gmail.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260217-stereotyped-dazzling-loon-f06e18@quoll>
+In-Reply-To: <8f86f229e564723b424b4d621244cfbe158c0f08.1771258407.git.l.scorcia@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_010333_575134_1A09026B 
-X-CRM114-Status: GOOD (  31.97  )
+X-CRM114-CacheID: sfid-20260217_010352_298246_916068B9 
+X-CRM114-Status: UNSURE (   5.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,86 +91,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 17/02/26 08:58, Krzysztof Kozlowski ha scritto:
-> On Mon, Feb 16, 2026 at 04:22:14PM +0000, Luca Leonardo Scorcia wrote:
->> Remove the dedicated "mediatek,mt8167-dsi" compatible from the device list and
->> describe it as compatible with mt2701 instead. It is safe to do so because:
+Il 16/02/26 17:22, Luca Leonardo Scorcia ha scritto:
+> Add compatibles for various display-related blocks of MediaTek mt8167.
 > 
-> You are not doing what you wrote. The dedicated mediatek,mt8167-dsi is
-> still there.
- >
-> And if you want to describe mediatek,mt8167-dsi with OTHER
-> compatible (mt2701), it is a NAK. It is wrong and not allowed by writing
-> bindings doc.
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Sorry, that was my apparently very-bad advice - and I recognize that, as a
-maintainer, I should have given different advices.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Still, check below the (bad, and not enough) reasons why I said that....
-
-> 
-> You just added fallback, didn't you?
-> 
-> Please wrap commit message according to Linux coding style / submission
-> process (neither too early nor over the limit):
-> https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-> 
-> Please run scripts/checkpatch.pl on the patches and fix reported
-> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-> patches and (probably) fix more warnings. Some warnings can be ignored,
-> especially from --strict run, but the code here looks like it needs a
-> fix. Feel free to get in touch if the warning is not clear.
-> 
->>
->> - Bootloader doesn't rely on this single compatible; and
-> 
-> Does not matter. You still CANNOT remove a compatible. If bootloader
-> starts to rely on this single compatible, you add it back? No.
-> 
-
-The issue here is that "mediatek,mt8167-dsi" was never used anywhere, and that
-alone makes zero sense as it is - by hardware - identical to mt2701.
-
-That, leaving alone the fact that nothing anywhere can make use of a node with
-just `compatible = "mediatek,mt8167-dsi"`.
-
-If it is not acceptable to remove something that was never used and should've never
-been there "alone" without fallbacks, it's ok. I'm sure that avoiding to delete the
-one line is not a big deal there.
-Also remember that we are talking about an old SoC that will never see a bootchain
-overhaul, nor will it see new bootloaders.
-
-Though, just a small note - please please please: when we see new contributors,
-especially when they're community ones, can we try and encourage them to do the
-right things, and follow the right processes, without being harsh in any way?
-
-And P.S.: Yeah I know you haven't been as harsh as you can (rightfully) be, so
-thanks for that.
-
-Luca, I'm sorry again, at this point - it would be great if you could please send
-a v3 without the removal of that line. Just add the fallback and that's it :-)
-
->> - There was never any upstreamed devicetree using this single compatible; and
->> - The MT8167 DSI Controller is fully compatible with the one found in MT2701.
->>
->> Fixes: 8867c4b39361 ("dt-bindings: display: mediatek: dsi: add documentation for MT8167 SoC")
->>
-> 
-> There is never a blank line between tags.
-
-Yeah, agreed.
-
-Cheers,
-Angelo
-
-> 
->> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
->> ---
->>   .../devicetree/bindings/display/mediatek/mediatek,dsi.yaml   | 5 ++++-
->>   1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> Best regards,
-> Krzysztof
-> 
 
 
