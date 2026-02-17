@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C9F2E6814D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C20E6814D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yeuyjR3Sfg0HdG8Q20S6pfDa9CduBvStQE7e70hM6Ag=; b=R21cuF8Cnzg/k6HRTTnYnzr/2y
-	hlnf/LKE3E5GWakQU/CtLsolzDiaSW9JJFag6W9DS9Fb/3wMhxRlWWnu6UISvECMKZA6+t6VXF1/8
-	RfLvJL3FNp8ws6TF5z6HF8h/+pB/ftUjUtN/j6BcLmRNeCuL5cIbcg0xssAhS/dXo0BySk//LrZm0
-	716oWEG2YKGuakSUrm7YP6h1+wlfhvd9VYbopLsBG5oxyq8D6syO9rsPX2U+gFqG4PsZ1s2WlQffr
-	V2AL4v8fCv6EGX5J279q2jyCmeyiUePq7U7hdWpCcKrB01BigxWZkM/x+Of4loSzGktqjwM4KSzg1
-	D7CeiRGw==;
+	bh=7aHNnCmHmEm8VGOc89bEcVc6S1LSe99d/u/k7RSJ+JI=; b=Jj5svTLvDDYoKRwxAauOmAqwHR
+	ILfeWYOXftxhZgCigXAUnjkgC6aMoGUKbWKs6yuaHQwm4R68zfyazI0so6R0tZ/Wmh1g/CtiA2sSY
+	F0xcyuDFNk6Rvx7HOdHhI+dEse8gV9KoB+QGmoK1OI/TVnYiHaoeFnxIwfCX5HPDjvvjT3g9Hm7wy
+	ugwkYHxZg5/QufM0/J569oacXk8Z5eiLmMewhqRASwTyfSzqUCqg2Zzy3TT+ElbMqNS4RwcfuF4pi
+	GNT7F8vH1JDciOodDU7G5eL0sMVhwCBGPL+u8RQR8XNLrCQokOmamadvraJMNk1RkOHeB2bRu0kQo
+	8p2bFmIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsGzq-00000007tni-3sPj;
-	Tue, 17 Feb 2026 09:03:54 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vsH0A-00000007tt2-3CdN;
+	Tue, 17 Feb 2026 09:04:14 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsGzo-00000007tml-0RYI;
-	Tue, 17 Feb 2026 09:03:53 +0000
+	id 1vsH08-00000007ts3-26kR;
+	Tue, 17 Feb 2026 09:04:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771319028;
-	bh=qnopI2z5k9lPpXvkwHmEJnULnub8VaeVUtQYFgxCcxM=;
+	s=mail; t=1771319049;
+	bh=vae++N3ldxpj2Z73jscqEQDSlh8brBYEzCGpMC1vzUY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HKGl60dDflSj0P8oU3Ahy2sjllUGkVMN98tvXZOljsqRluKpq2UuBCsa2Nnu46v0w
-	 plNHpfzU3oL4aWIUiZU14OvIFV2wgu2yTQ3zkZ5Us4ErpBRa3i7+s7+lT8SD7lSto1
-	 CaYYEgKV8pEhmEvgmcwEO8bLjJZG9nRzcLUM7+3DtA8DSGN9uI06gDjx4hMYo7LyxU
-	 EsJqMIDpaJnAY9/FfDelZBgIEUs8X7VH3BxSTtHFa6AOReo2shXAdBO/BxXm8qZ3Hh
-	 GtPI1H1k7hI/SU/rVDTpUgiNCHYCXtUwTbZhbbyKcT3Zyjoc9vDF1Anuz4hZuuEe4R
-	 lWoKTnW91imaA==
+	b=g7V7zRviG/A2FlbIgfMi/z1F+OVkYNcyBinkSsm88Vtm6HbMWL7G7StU6QMZ+yFQX
+	 lgBJR85Ar5TRMiylroVdyTY75Wv+9ae9+5sHUWWoYcUeNXkqA5yelJCPPiR1rsKqzA
+	 b4GamW5k/0ok4WvIsKG0QysP8vgN06+xKRhcshYWfzQiysPUe0S2vZHZbW3z1YCgWp
+	 e62bFS1ZU+zpEJYotjAZohnPw/VcjYJUOdm1B3IcYxNrgUwc0OykBz6K0m5WWEAkBP
+	 xaSQvdJ3bec5tfYNBb1ugNYsiXqD9TwNkp4GfJXnEQkNdRImZajDf9B+OpY0UMb9js
+	 fV3M+NIYvyoLA==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48C4017E0071;
-	Tue, 17 Feb 2026 10:03:47 +0100 (CET)
-Message-ID: <45c20bf4-c955-4c1f-b1e8-344c2742644e@collabora.com>
-Date: Tue, 17 Feb 2026 10:03:46 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7BD4617E0C21;
+	Tue, 17 Feb 2026 10:04:08 +0100 (CET)
+Message-ID: <22088c06-d412-452c-8d4c-c53e8f14fc59@collabora.com>
+Date: Tue, 17 Feb 2026 10:04:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] dt-bindings: display: mediatek: Add compatibles
- for MediaTek mt8167
+Subject: Re: [PATCH v2 4/6] dt-bindings: phy: mediatek,dsi-phy: Add support
+ for mt8167
 To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
  linux-mediatek@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
  Philipp Zabel <p.zabel@pengutronix.de>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -67,15 +66,15 @@ Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-phy@lists.infradead.org
 References: <cover.1771258407.git.l.scorcia@gmail.com>
- <8f86f229e564723b424b4d621244cfbe158c0f08.1771258407.git.l.scorcia@gmail.com>
+ <66fbd5dd3604ffc4fda45022c1db68e4e0be6714.1771258407.git.l.scorcia@gmail.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <8f86f229e564723b424b4d621244cfbe158c0f08.1771258407.git.l.scorcia@gmail.com>
+In-Reply-To: <66fbd5dd3604ffc4fda45022c1db68e4e0be6714.1771258407.git.l.scorcia@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_010352_298246_916068B9 
-X-CRM114-Status: UNSURE (   5.59  )
+X-CRM114-CacheID: sfid-20260217_010412_694122_250B1CA6 
+X-CRM114-Status: UNSURE (   6.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,10 +91,10 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 16/02/26 17:22, Luca Leonardo Scorcia ha scritto:
-> Add compatibles for various display-related blocks of MediaTek mt8167.
+> Add support for the MediaTek mt8167 SoC: the DSI PHY found
+> in this chip is fully compatible with the one found in the mt2701 SoC.
 > 
 > Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
