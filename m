@@ -4,50 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D88E909D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 16:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 950EFE909DF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 17:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HCwMruxlpjec1xfWAL85VuiIFN2j5Ld4KHWlaGonawQ=; b=nRUUeKKj0JA8H4GUp9Rix5AhvA
-	othFgvAyD2bCfkjySCMQ2KnI0h48QfV2bsd9KDk4Tfr6rgfegbEAHx7LIG+EvxZQY0crSVcuxlkHz
-	wnz8SEDUVpD7itAQO+uFs2S6FBXclxNRGHVUOJMDYsF+Jvt36knqR+10HR1G+cUdOh4D63KNr3t4Q
-	WuCuZSr/JecDcyK4bsOxr83yy7/kqwaYgeowcodJx1ZD2HwaOB645vbWeoT0kEiDyAVPO1/M8MtBB
-	trksfqxzR9pP1onbdh4/ithK6Eh4clSTr/5XLwBvLA9oeg4/3B+67u+YdeWj2Bj7XKy8cAysP2fuo
-	/gsmF+EA==;
+	bh=qOoRjgnSHrNjTvcalH2hcho9xgYd1gl35shmwDVmt2k=; b=0CBGya72PwHkcOCqPzrh2RT7GR
+	SLbYf6sIw+DTJUwYdQAgxzLbzOPQCLdpD4jb/wcwAEPHu0bjqoMqJQtHJ9ANui8P2xl3SFNaeMv3H
+	/mHqrjaaNUr0Aq1gssVQ8AUUIXX+ew4nNx6q5bbCzsImS7yFYfmnc437ItO5DEV1yd08UcaIRAUx2
+	4y1Wgq6cKBhOMpNYosSwq7whNpaHLqF68DKD8szYU41Hob5thSTy48YMagIHAbw8YhKmy9Fh8Ao8Y
+	+edDW4lpaBKyPp1DuaXaWjNnEQrnUWAFLvvWNVUm7YanpZuKcBIqGv1Zs4J8gPX8hKj30E3U4iurE
+	nLkaL/bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsOO1-00000008bdv-2ERF;
-	Tue, 17 Feb 2026 16:57:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsONt-00000008bce-47Jz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 16:57:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B9C91477;
-	Tue, 17 Feb 2026 08:57:06 -0800 (PST)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E3853F62B;
-	Tue, 17 Feb 2026 08:57:11 -0800 (PST)
-Date: Tue, 17 Feb 2026 16:57:08 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
-Subject: Re: [PATCH v2 2/2] arm64: insn: drop NOP from steppable hint list
-Message-ID: <aZSd5O0gdGM9dUkR@J2N7QTR9R3.cambridge.arm.com>
-References: <20251106104955.2089268-1-khaja.khaji@oss.qualcomm.com>
- <20260217133855.3142192-1-khaja.khaji@oss.qualcomm.com>
- <20260217133855.3142192-3-khaja.khaji@oss.qualcomm.com>
+	id 1vsOT1-00000008crc-2zbr;
+	Tue, 17 Feb 2026 17:02:31 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vsOR1-00000008bwX-05Bh;
+	Tue, 17 Feb 2026 17:00:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771347611; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=QHszZFOWTbW11U8NV6KPlrJZGsJUGGmvCS2afP1YX+VDV4DJzUcOieqGb5ON6MhIkMxKwHi/8S5ReAe4l11iZP8x1BJc+TFSc3qXFLKGY6cgq4SBub6n5RQbCVdyA3oe8nBK1ZZCb9cogQpzqPi9QCI2xt9YdKxOAnhYkPucrYc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1771347611; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=qOoRjgnSHrNjTvcalH2hcho9xgYd1gl35shmwDVmt2k=; 
+	b=CsVdkvxj+cocPq5qvwKi2A3KUkm2LhZSz+qfhsAXW+P1Zd2jp+tjXBsnRBD4s7IpnFlkF6cx4sk1vsqDlaLqJCsJorqNYCzo2dM5TJ9ExxHKWwBx1FVV39/WtnICb5Cg7UN3L56IOYuJ2qHQg2uT0klmRLcxigfs/0sq4Qx6U4E=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771347611;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=qOoRjgnSHrNjTvcalH2hcho9xgYd1gl35shmwDVmt2k=;
+	b=XFCehqo3rqYYi6FbsDMqUhqUfvbdhGZBsNhWdwP1dUlPjBFsAGe8YsZcyEkwFbgq
+	rzWk3SsYGvMz+fVq8BArAPieMwaNuOExAyqTjd5LpN6yDSaAxFKz2Ot+HT4tBup5AXw
+	1PdkmBEnSuTAA7c6xBB7szxGLmwEtKsAcq+eg+Co=
+Received: by mx.zohomail.com with SMTPS id 1771347608544533.6723972839652;
+	Tue, 17 Feb 2026 09:00:08 -0800 (PST)
+Message-ID: <c2e418a1fb0c8df38f47fed5010f2a22621afeaa.camel@collabora.com>
+Subject: Re: [PATCH v3 04/10] pmdomain: mediatek: Refactor bus protection
+ regmaps retrieval
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: Macpaul Lin =?UTF-8?Q?=28=E6=9E=97=E6=99=BA=E6=96=8C=29?=
+	 <Macpaul.Lin@mediatek.com>, AngeloGioacchino Del Regno
+	 <angelogioacchino.delregno@collabora.com>
+Cc: Pablo Sun =?UTF-8?Q?=28=E5=AD=AB=E6=AF=93=E7=BF=94=29?=	
+ <pablo.sun@mediatek.com>, "lihongbo22@huawei.com" <lihongbo22@huawei.com>, 
+ "robh@kernel.org"	 <robh@kernel.org>, "kernel@collabora.com"
+ <kernel@collabora.com>,  "ulf.hansson@linaro.org"	
+ <ulf.hansson@linaro.org>, Moudy Ho
+ =?UTF-8?Q?=28=E4=BD=95=E5=AE=97=E5=8E=9F=29?=	 <Moudy.Ho@mediatek.com>,
+ "mbrugger@suse.com" <mbrugger@suse.com>,  "conor+dt@kernel.org"	
+ <conor+dt@kernel.org>, Sjoerd Simons <sjoerd@collabora.com>, 
+ "linux-kernel@vger.kernel.org"	 <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org"	 <devicetree@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org"	 <linux-mediatek@lists.infradead.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,  Nicolas Prado
+ <nfraprado@collabora.com>, "wenst@chromium.org" <wenst@chromium.org>, Bear
+ Wang =?UTF-8?Q?=28=E8=90=A9=E5=8E=9F=E6=83=9F=E5=BE=B7=29?=	
+ <bear.wang@mediatek.com>, "y.oudjana@protonmail.com"
+ <y.oudjana@protonmail.com>,  "linux-pm@vger.kernel.org"	
+ <linux-pm@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"	
+ <matthias.bgg@gmail.com>, MandyJH Liu
+ =?UTF-8?Q?=28=E5=8A=89=E4=BA=BA=E5=83=96=29?=	 <MandyJH.Liu@mediatek.com>
+Date: Tue, 17 Feb 2026 18:00:01 +0100
+In-Reply-To: <54d3abf79ce1cc0f59a18cfff585699073918f60.camel@mediatek.com>
+References: <20250805074746.29457-1-angelogioacchino.delregno@collabora.com>
+		 <20250805074746.29457-5-angelogioacchino.delregno@collabora.com>
+		 <a2eae87efe46ebf397bcec3580eb9bc152b80846.camel@collabora.com>
+		 <be3a2d50-044b-429a-820c-5260c6ce730c@collabora.com>
+		 <fd071501b66fb332439617f2b270c837043b0862.camel@mediatek.com>
+		 <8fc93d93-7d99-4d38-9fa8-92951a0acdcf@collabora.com>
+	 <54d3abf79ce1cc0f59a18cfff585699073918f60.camel@mediatek.com>
+Organization: Collabora Ltd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260217133855.3142192-3-khaja.khaji@oss.qualcomm.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_085715_334048_8B62B4DB 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260217_090027_093717_0F42CCA7 
+X-CRM114-Status: GOOD (  57.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,35 +102,204 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: catalin.marinas@arm.com, dev.jain@arm.com, linux-kernel@vger.kernel.org, yang@os.amperecomputing.com, linux-arm-msm@vger.kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org, mhiramat@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 17, 2026 at 07:08:55PM +0530, Khaja Hussain Shaik Khaji wrote:
-> NOP is already handled via instruction emulation and does not require
-> single-stepping. Drop it from aarch64_insn_is_steppable_hint().
-> 
-> Signed-off-by: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
-> ---
->  arch/arm64/include/asm/insn.h | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-> index e1d30ba99d01..9429f76906e0 100644
-> --- a/arch/arm64/include/asm/insn.h
-> +++ b/arch/arm64/include/asm/insn.h
-> @@ -456,7 +456,6 @@ static __always_inline bool aarch64_insn_is_steppable_hint(u32 insn)
->  	case AARCH64_INSN_HINT_BTIC:
->  	case AARCH64_INSN_HINT_BTIJ:
->  	case AARCH64_INSN_HINT_BTIJC:
-> -	case AARCH64_INSN_HINT_NOP:
->  		return true;
->  	default:
->  		return false;
+Hi Angelo and Macpaul,
 
-The intent is that aarch64_insn_is_steppable_hint() says whether an
-instruction is safe to step, not whether it *must* be stepped. I think
-we can leave NOP here unless this is causing some functional problem?
+On Fri, 2026-02-13 at 16:07 +0000, Macpaul Lin (=E6=9E=97=E6=99=BA=E6=96=8C=
+) wrote:
+> On Thu, 2026-02-12 at 12:15 +0100, AngeloGioacchino Del Regno wrote:
+> > Il 12/02/26 08:58, Macpaul Lin (=E6=9E=97=E6=99=BA=E6=96=8C) ha scritto=
+:
+> > > On Tue, 2025-10-14 at 11:59 +0200, AngeloGioacchino Del Regno
+> > > wrote:
+> > > >=20
+> > > > External email : Please do not click links or open attachments
+> > > > until
+> > > > you have verified the sender or the content.
+> > > >=20
+> > > >=20
+> > > > Il 13/10/25 15:41, Sjoerd Simons ha scritto:
+> > > > > Hey,
+> > > > >=20
+> > > > > On Tue, 2025-08-05 at 09:47 +0200, AngeloGioacchino Del Regno
+> > > > > wrote:
+> > > > > > In preparation to add support for new generation SoCs like
+> > > > > > MT8196,
+> > > > > > MT6991 and other variants, which require to set bus
+> > > > > > protection on
+> > > > > > different busses than the ones found on legacy chips, and
+> > > > > > to
+> > > > > > also
+> > > > > > simplify and reduce memory footprint of this driver,
+> > > > > > refactor
+> > > > > > the
+> > > > > > mechanism to retrieve and use the bus protection regmaps.
+> > > > > >=20
+> > > > > > This is done by removing the three pointers to struct
+> > > > > > regmap
+> > > > > > from
+> > > > > > struct scpsys_domain (allocated for each power domain) and
+> > > > > > moving
+> > > > > > them to the main struct scpsys (allocated per driver
+> > > > > > instance) as
+> > > > > > an array of pointers to regmap named **bus_prot.
+> > > > >=20
+> > > > > Trying to boot v6.18.0-rc1 on a Genio 700 EVK using the arm64
+> > > > > defconfig,
+> > > > > ends up hanging at boot (seemingly when probing MTU3 and/or
+> > > > > mmc,
+> > > > > but that
+> > > > > might be a red herring).
+> > > > >=20
+> > > > > Either reverting this patch *or* having CONFIG_MTK_MMSYS
+> > > > > builtin
+> > > > > rather
+> > > > > then a module seems to solve that.
+> > > > >=20
+> > > >=20
+> > > > Thanks for the report.
+> > > >=20
+> > > > This is not a problem with this patch specifically, but surely
+> > > > some
+> > > > race condition
+> > > > that was already present before and that does get uncovered
+> > > > with
+> > > > this
+> > > > one in some
+> > > > conditions.
+> > > >=20
+> > > > Without the devicetree updates (which are not upstream yet)
+> > > > this
+> > > > patch is
+> > > > fully retaining the legacy functionality 1-to-1.
+> > > >=20
+> > > > I'll check what's going on ASAP.
+> > > >=20
+> > > > Cheers,
+> > > > Angelo
+> > > >=20
+> > >=20
+> > > This issue also happened on mt8195. I've done bisect on linux-
+> > > next
+> > > master with mt8195-genio-1200-evk board.
+> > > The result shows c29345fa5f66bea0790cf2219f57b974d4fc177b is the
+> > > first
+> > > bad commit.
+> > >=20
+> > > I cannot simply revert this commit since there are some
+> > > dependencies
+> > > commits.
+> > >=20
+> > > I'm not sure if there are any API or flag change would
+> > > affect interaction between the pm-domain driver and scp firmware.
+> >=20
+> > I'm 99% sure that the SCP firmware has nothing to do with this -
+> > but
+> > then
+> > even if it did, there's some quirk to be uncovered and properly
+> > handled.
+> >=20
+> > So - if it is (again, most probably not) a firmware issue, it was
+> > only a
+> > matter of time until this situation would've happened. It's pretty
+> > common
+> > to see two wrongs making one thing right (but in 100% of the cases
+> > it
+> > does
+> > eventually break).
+> >=20
+> > > Just a remind it is hard for MediaTek to update scp firmware for
+> > > a
+> > > mass production chip. Each scp firmware seems specifically
+> > > designed
+> > > for
+> > > each chip separately which leads the API might be changed between
+> > > each
+> > > chip.
+> > >=20
+> >=20
+> > Adding Louis-Alexis to the loop;
+> >=20
+> > Louis, can you please try to reproduce this one on any of our
+> > boards?
+> > I can't seem to be able to reproduce here.
+> >=20
+> > Cheers,
+> > Angelo
+> >=20
+> >=20
+>=20
+> Angelo and Louis,=20
+> Please put this issue to low priority.
+> I did reported this issue but it should be quite a while from now.
+>=20
+> I'm not sure why and how the mail client or mail server send out this
+> mail so late, and it has been sent twice until I've discovered right
+> now.
+> I guess this issue has been gone during 6.18-rcX period.
+> However, double check the latest status with latest kernel version is
+> good. I think it should be fixed already with AFBC patch or something
+> around that time.=20
+>=20
+This issue was indeed fixed by commit c1bac49fe91f ("pmdomains: mtk-pm-
+domains: Fix spinlock recursion in probe"), that was merged for v6.18
+release.
+I did not reproduce it with stable or linux-next tags since then, on
+the Genio boards I'm using.
 
-Mark.
+> > > The error log occurs on emmc at first and than rcu_preempt
+> > > happens.
+> > > [=C2=A0=C2=A0=C2=A0 1.291055] mtk-msdc 11240000.mmc: msdc_track_cmd_d=
+ata: cmd=3D8
+> > > arg=3D000001AA; host->error=3D0x00000002
+> > > [=C2=A0=C2=A0=C2=A0 1.292775] mtk-msdc 11240000.mmc: msdc_track_cmd_d=
+ata: cmd=3D55
+> > > arg=3D00000000; host->error=3D0x00000002
+> > > [=C2=A0=C2=A0=C2=A0 1.294539] mtk-msdc 11240000.mmc: msdc_track_cmd_d=
+ata: cmd=3D55
+> > > arg=3D00000000; host->error=3D0x00000002
+> > > [=C2=A0=C2=A0=C2=A0 1.296293] mtk-msdc 11240000.mmc: msdc_track_cmd_d=
+ata: cmd=3D55
+> > > arg=3D00000000; host->error=3D0x00000002
+> > > ...
+> > > [=C2=A0=C2=A0=C2=A0 1.430408] mtk-msdc 11240000.mmc: msdc_track_cmd_d=
+ata: cmd=3D55
+> > > arg=3D00000000; host->error=3D0x00000002
+> > > [=C2=A0=C2=A0=C2=A0 1.433766] mmc0: Failed to initialize a non-remova=
+ble card
+
+There are still some error logs related to mtk-msdc on Genio 1200-EVK
+board like those but unrelated to this issue. They appear during boot
+when no sdcard is inserted in the micro sd connector.
+It seems there is no card detection GPIO present on the board that
+could be used to prevent those log occurrences.
+
+There is also cases when emmc is enumerated as mmc1 (and sd as mmc0),
+as no mmc alias is declared in this board devicetree.
+I'll send a patch to add them.
+
+Regards,
+Louis-Alexis
+
+> > > [=C2=A0=C2=A0 22.297240] rcu: INFO: rcu_preempt detected stalls on
+> > > CPUs/tasks:
+> > > [=C2=A0=C2=A0 22.298723] rcu:=C2=A0=C2=A0=C2=A0=C2=A0 6-...0: (2 tick=
+s this GP)
+> > > idle=3D104c/1/0x4000000000000000 softirq=3D45/45 fqs=3D37
+> > > [=C2=A0=C2=A0 22.299827] rcu:=C2=A0=C2=A0=C2=A0=C2=A0 (detected by 2,=
+ t=3D5256 jiffies, g=3D-1051,
+> > > q=3D200
+> > > ncpus=3D8)
+> > > [=C2=A0=C2=A0 22.300689] Sending NMI from CPU 2 to CPUs 6:
+> > > ...
+> > >=20
+> > > Best regards,
+> > > Macpaul Lin
+> > >=20
+> >=20
+> >=20
+> Best regards,
+> Macpaul Lin
 
