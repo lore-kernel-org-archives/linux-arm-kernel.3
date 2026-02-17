@@ -4,72 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BEFAE8384B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 01:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E601AE8384B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 01:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4NIgF+PpgcqGfc8+it4Z2GsbbrwEy02AOFQUOkvsp0=; b=O01Coabl8cXqiVG/aPCZh5Jp04
-	3KkC8q2voYHo9T+aD3wokrfCmasjP4sSJhP7EbbEfPg0hm2Eb2fOaUGJ6ePvjgXlD9DXmh8wKU9KJ
-	Od7hUNSr8yW9WYx47E9DiSxErxj/UnqsvUnRk0crmiQPyHFmQ2EfTFdFyMR6CSXwOA+llgZYA+NML
-	n+7VvIifn9lZdPZ4Irg3VNn80cGdD9HVkOL8n6xnJlQ04Q4uJXFZDXvmM41FdAEaLoNPUltnss4Mi
-	zGdcaU/QMd6/4QtogT+Ng7YlfMZV/Qp315Fu6lLhVrO8nA/Ufuiezibc19nD9toPmknRk2g3aVYhJ
-	cw6XGjkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t8ZKfe7PpUxteoITbeefg/uEzXwMhzH44KvNiwdMwto=; b=B1Q4QkrrOac9ZtwKeUuZrFiGVl
+	RiLv+aU1qqdK3oCa56uG7Kwyr9d/sH55wb/6bAF88r6QV8Z/srHTS3OxBzrqU2vSY7fAxucrHw1Q2
+	T+hHSpi/hbgqmA6nvS0wZKA1EAAowEEbXO7wfD2hWWx3FCk36corU+j5u04xpfEUEIiIW1X5/PZ8y
+	Mq9L15YS0U/w24B7DDQfkrUQkdA6fTVGpkoF0mNYsA99PP0OwZnZYTprr7MQF4uE7iaTxGN38pfD3
+	3eOAFXCShCOhrsnSCEZ80VQsDpwyIEUnb6/iKz6HxOV+NkuxD+DEuAvrHV4FLYNU95KYkIMslYs8e
+	MUFZPafA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs9T0-00000007SQM-42js;
-	Tue, 17 Feb 2026 01:01:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vsA3c-00000007U1G-2xt3;
+	Tue, 17 Feb 2026 01:39:20 +0000
+Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs9Sw-00000007SPr-46H7;
-	Tue, 17 Feb 2026 01:01:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 462994453B;
-	Tue, 17 Feb 2026 01:01:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D46A6C2BC87;
-	Tue, 17 Feb 2026 01:01:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771290085;
-	bh=3CQR8MNuLy3NsGjQSjNTddHYGKdbU4uYpOwzcupblxg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Bwp48MMihd4Al5ZmBb87Sv8KwQ+2c4ApUINj/56l4mXnIWAagnXfdVj8+oPOdmjWS
-	 XLhl0JT3dSeNtMHMaAk00BldL/EIAE1PF8Bf65ZpsIfzcBVPrO7jwoFoCI5HRi55ZX
-	 C6PSli29FLb3zNn1UB1C9nxQK9SYSMh3hFiJvXBednk4Ne7VeAUVznVgL0+O9izm1H
-	 DnsgSwjCacZ9HILf5+sfE8yyH0Y/pq+a7Ljwp/pzvT45Vr5tDzNZ+k2MC70J6rWoXB
-	 vKjdz2Gt3ZX83NxwnyvN/gRmVSlbCR0PytP/iAn6onlcBC/TAL+Zfk7x4EsNhayAaS
-	 CmzJLF9zcDSpw==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Chuan Liu <chuan.liu@amlogic.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Sasha Levin <sashal@kernel.org>,
-	neil.armstrong@linaro.org,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	khilman@baylibre.com,
-	linux-amlogic@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.19-6.18] clk: amlogic: remove potentially unsafe flags from S4 video clocks
-Date: Mon, 16 Feb 2026 20:01:15 -0500
-Message-ID: <20260217010118.3503621-4-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260217010118.3503621-1-sashal@kernel.org>
-References: <20260217010118.3503621-1-sashal@kernel.org>
+	id 1vsA3Y-00000007U0r-3ftM;
+	Tue, 17 Feb 2026 01:39:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l5XFj8Muln0GUFsqWqr0oGjmYUFfeVly9iVJxMqBhiDFI5Khm2UtQXNSWzSQLjXX5FyXY8c0x8IVoZOrozM5/bLM5F3klX0mFKXt0fT4Sw19ZRCqlNIAhQlGGlw39nNav06afBKPlwc4uyA/2Tedktl1q6NDL7Nnc9ctLibgBtUQpoU/OQidRYPnyz2x6hia4yPJdjPSeqMv9+TzsceFQt4hUjmbaB00SgjGR7YtXC2dKbNuozkTOFc3XxQpaCcFyrwhQvUBheGplAhzZt6mnqqozRr+8Mlr2DqZ1K/V82aWxVkPks15P6Ve8N5sR/dTSuved6kT4sSMPsA7zEldSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t8ZKfe7PpUxteoITbeefg/uEzXwMhzH44KvNiwdMwto=;
+ b=XNdBVRF3i7xdMT2XFzRhm9620CeDdUHtTBA+sWE2sUHIBy+IIZ4x6DvjxgoH32AvPdfT2wdG1LELvAXVJycMIpSvhm6mj51zVqKi6/70XxQmZ4gCkhgk+WFiNJYbtQKygv6Dpz21rjNhfnmY2riIS1JiLMQXFUAxIQ7KSvtT7MzEP8COPVBeupm07fXaZVMkMeKHALkZm1U8gixVPmXRqmj28clnm9SFLXOCTijEG7GIyQkz2AHR68v8m2I6vd2gCkRiFTQvwRFar56LSRXrDVP1eDQ5V0kVqzz0ht4xda3qzdwC1fB+DzysL4YU3Fp55BCi0yZQwXZlwjtoCOr8yQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
+ header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t8ZKfe7PpUxteoITbeefg/uEzXwMhzH44KvNiwdMwto=;
+ b=NJEMSSztj1mp/kitgX8YykAFk7bbB8v9pVIewVXYUMSk/kwqduKLfXVjxoMnxf9fc3IwpWLMVhI2U10oFRfUkthr3r5rBBoP01aOMtP29Bb4CYk8wIJicyIO98xiTMWxaE7xX+wTLTpuasjaARED/7yi+3nCIuINh9MP1XDPfkQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=valinux.co.jp;
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:38f::10)
+ by OS9P286MB6903.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:412::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Tue, 17 Feb
+ 2026 01:39:08 +0000
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32]) by TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32%5]) with mapi id 15.20.9611.013; Tue, 17 Feb 2026
+ 01:39:06 +0000
+Date: Tue, 17 Feb 2026 10:39:05 +0900
+From: Koichiro Den <den@valinux.co.jp>
+To: Frank Li <Frank.li@nxp.com>
+Cc: jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, heiko@sntech.de, 
+	kishon@kernel.org, jdmason@kudzu.us, dave.jiang@intel.com, allenbh@gmail.com, 
+	cassel@kernel.org, shawn.lin@rock-chips.com, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, ntb@lists.linux.dev
+Subject: Re: [PATCH v7 7/9] PCI: endpoint: pci-epf-vntb: Reuse pre-exposed
+ doorbells and IRQ flags
+Message-ID: <6yjsrg55aqnxvdotyhjalx5uwytizjxsh3xk44smdm3f46zyc6@zwk25sgezz5n>
+References: <20260215163847.3522572-1-den@valinux.co.jp>
+ <20260215163847.3522572-8-den@valinux.co.jp>
+ <aZNCgkddVkDbtO_c@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZNCgkddVkDbtO_c@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: TY4P301CA0059.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:36a::12) To TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:38f::10)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.19.2
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY7P286MB7722:EE_|OS9P286MB6903:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2570a7f0-057b-4b17-2337-08de6dc556f1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Iq91L6MvPvTQed0ZW+AEBEpZzWcJ8ElE/J2XMVBUOsopE73FcTbcN0SThT+A?=
+ =?us-ascii?Q?8VbiW8KWRk5Dfi0f0rBz150MuLfYi9i+OG3c7NtV74T0p7AOpRzhnWUJmbLF?=
+ =?us-ascii?Q?ZfbuIlX7CxchXdeJ1uqP/gH3QCZj3I+43SWs/wQIzd8QEx6+D07bdUzohwiF?=
+ =?us-ascii?Q?DV5YBWh0jbkXB8bH/7HgNxb6qClbk5kwNSBxdOnTdefmkYlpBnv3HyXU0eDf?=
+ =?us-ascii?Q?jUGMlxs59IfUi9ObM7SIxEKRe7p02b1FRG5ryIW+SlK5Ch2PHjyESINfxlPo?=
+ =?us-ascii?Q?BrpL9Hze3MK7m8fmQeocQt+1dwctF22bUE5IAGlj+NjRzfswTuI/f7uAbAjm?=
+ =?us-ascii?Q?kJKrN23kx6FPPtyWUywYTF7tsPtzSw9QzaJ2fJaBBEfYQqdvENS/7Nvfzqsp?=
+ =?us-ascii?Q?ppX/H4mdmJxqdpB88jGIzZfj0eh+vv7mFWCWsPkzPVQmXe5mIQ39BBA6Kp62?=
+ =?us-ascii?Q?m7OFQECs2rO1+yuHXpuQzYTRDnhXJXZinsUX4nRPrT+TBRAd+TblV1x2pmm6?=
+ =?us-ascii?Q?bqpejdsTQSIloTY7QvDKDF8aGwjPLPDMNP52azmEC+gESHH7RqRgYpA2bf3o?=
+ =?us-ascii?Q?ZMMyTukVtbMWt86mZGcwvYSHf4KhvW+fKynzbJLCaqQG8f/lwO6IS3suRaXG?=
+ =?us-ascii?Q?Ax6SU2m8eF5vgydf16N5TR6FjZOJuzx6/jg7XoiXw43kGEQzQak12pDNjblX?=
+ =?us-ascii?Q?bs6hPI7PUFsTlQn28afc2vf8UqVh3DfuVUOfhBr87jXU7hnNA1gYATeUFkws?=
+ =?us-ascii?Q?bjlOuXOHLU+6xXR6EiKuq9n9pZEVh7fL8ypbtsl9MIeIbdxsPL6QFyLmz7Cc?=
+ =?us-ascii?Q?iK6RABtl+1pMfq63Rm03QiOW2NPP/BeVBxIp/7qWqtUkoUqWauLsEbJ1wESV?=
+ =?us-ascii?Q?tGXpl7qdADXVv6orU2xVTIOtwB9brQ1ZC+B4QrmmyPd4KgwnY1tNNHL4BLxD?=
+ =?us-ascii?Q?uE4vCqdD4I765BedoWyDQeTLiSQVMsuTdXjEhILcNM1us4FMEU5dvIxV/Wcw?=
+ =?us-ascii?Q?rdwa6D6kguiFMoJltYnAdt+XSdiU3mHlsaHBX7Zdlwbm/QEeifHj9CRaFvjF?=
+ =?us-ascii?Q?WcC/uRn4DqLY0K/Wk/4TeBJJNjTjhVB7jxdZAYH2U6V2XYDXuQOhVFHANizC?=
+ =?us-ascii?Q?Vv90o8X09FW1hSycWH/za5mnengSIx4ilo3/UwbV8PuOul9XlVl7eBWfci7l?=
+ =?us-ascii?Q?JFnU+CXoiaJYKhOZLUjWN+hOlCaohXW8j6sJnx9y5Bv0FCXAr+zUX0gnh3LM?=
+ =?us-ascii?Q?+2aDzdgzGhll81sdFRLDxVLVoccp3gkL+7hfOudg4W0L730353DBFBCBx5kn?=
+ =?us-ascii?Q?NhzUaC8x7AzLolGnHGXV+jVDvRR7uZB1P2jyQeHhB4Wgc2OABWdLz8pCo3Ne?=
+ =?us-ascii?Q?euJNiY/KNuk8qMYv6c4Xrc8NCTnNxAe4euZr/jWW1oRg7TVJEbsVV5C9vPSA?=
+ =?us-ascii?Q?HjDCnH1nmAC75PNV2k9vCg7j9mPRQwrS/z5kFtMFXpExj9Hh5kap2ehAC6Qh?=
+ =?us-ascii?Q?h/+HDpu50wS5F7UGYfJ8fPW6LmIeiq5ZWsDxWeVP8OMiVbebfhCS1hwaE4mX?=
+ =?us-ascii?Q?pm79V1vnLqiBYO+lEPM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(366016)(376014)(7416014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lxJsVtxjtAHqtcIj4Wb+s472/b5Tot8iAA/9z+exseozT4wUkp+rviKyue5b?=
+ =?us-ascii?Q?Y0p90aVESH+TbENFJXdRNsx0/z/WHcbeCbDzuMcuhZl6QyZSBePDI1zU04WK?=
+ =?us-ascii?Q?NhxYlZ/CiostsTECIdw7IcKnCTYo2lWN7lV8Z2SY1iuIMEjgFrFr+Sk/rekh?=
+ =?us-ascii?Q?IWU6yKSKsZD+IVsNPtoAbPvLOvfVkKeme/kn9F1gpyJAhhB9Ak6lysH4EaaL?=
+ =?us-ascii?Q?NUd8l7+A4nCi/juIKPF/WN144kwt7tvO9MGCyKUjIGDujvE9oESOZoiVwrGV?=
+ =?us-ascii?Q?Fg9qAFMV06F2Ch0Tu0iZgTo94vCTtJoPJeqs0Mqwg8NX/yhTrMJtMA1jHxaV?=
+ =?us-ascii?Q?4hzIlbDhhgVtt07mdY2+ui6eJr9sHvPVk3QRMu1zytjrXH5Bn/3t3NDp6P26?=
+ =?us-ascii?Q?ymV7LMe9a8qzEC7QWLOEWeyi1t+TW49M/XlDiPK1IZTwthLKdAGQUeM6iAo+?=
+ =?us-ascii?Q?FKrx1lyEBOvpGQNViL1h5iHzq9zkJXKfFzmPfBXYixKTj3II6cxWe4jzcvj0?=
+ =?us-ascii?Q?tsn1lWHngO+IKMAe8QdCEdtVqdf8EiU21YPWrswND90U3pXyv2/ybWs+aK4v?=
+ =?us-ascii?Q?mSBVHIyud4Q1tu9FTP7thToHMKXhQUxgQNPNgTAfRnW8Aes3Ay1FCSH5d9ei?=
+ =?us-ascii?Q?VHyImvTpDY0DS3txM5yHOF5m63CJ6TdtNavGocpIlLhmFMUGo9kNbz14cesg?=
+ =?us-ascii?Q?VU50RSHXdugNWcOx/llfl7YR/O1DbfBeB4/xW+WlbX7vzIqvfIyEems88N4A?=
+ =?us-ascii?Q?80VVFGD1x68qUO0x0NgF0FeZGkIE78n1YnG6pBSs2a18/j+2mTOTJAJ0agaX?=
+ =?us-ascii?Q?rfZ3B9xFB5kg2aZ0RyTspYEfNtsx+6FXk6yA44lgEPZkqbJ8yub0JLao2T8v?=
+ =?us-ascii?Q?yCudwrmuzMN4JanveuTHFaLk6gwcUgX/uFKnAtyCBsSYbAyJZS5Dtctmm/Bk?=
+ =?us-ascii?Q?q3kVW/AjDMqSRGHgGi2mdtUPK+fGQARFVy2LcLbQIc6faQSi7IBquAMd1jYi?=
+ =?us-ascii?Q?BpoAAp3jllJ1zrf1DWPPKo5Z2o9HY2sbj4W9s5yI3gjMX58QoqPv75pQXIX5?=
+ =?us-ascii?Q?S48NQne6KR3Qe5/z2Bt4oJP2jeP+b8WYsE6oKu010fgWH6deM/xo/DIkgVJK?=
+ =?us-ascii?Q?TzQLmvdYjOQN1yMSG0VnYyNIej4XFuu22/1S5iON9MOiGkqFHO+ET6ORu4st?=
+ =?us-ascii?Q?vG3ha8SsqkjARWzdIo/7Ep9Zl+I4kERXkZBf17N9brTPIIhIGNcMIJxGoyHn?=
+ =?us-ascii?Q?wg9XkG0giIgO9DvwhrNFgSUBATmmOvuwS8x2+1KBSp7aJdLYfpaVXaPMeoYE?=
+ =?us-ascii?Q?M5mdZXrjXDjvaNt8NIwr3plvN11SaWr1Up+TmP6LCywL5DDAusGZYZLptSAG?=
+ =?us-ascii?Q?2howjUFiV7SJ1XKde5z0AcRKzz0J1KHDSpJpweXY6RFFqO6aTVpBUP6m+56D?=
+ =?us-ascii?Q?/QvzIRTtQ3MUzVD3xW22qIZrrKe9ZzsrfdD/Tiv/CrxVqXUHKBUeWzFS0ZXM?=
+ =?us-ascii?Q?fSGBdRpp83B9sInvg7bvnEhAw183/BmVg2d2dDTyqhL8zBcGs57NtRjx1zer?=
+ =?us-ascii?Q?t3f/bjQ/rJLTTItmsqF3vwrJ+yUUWDKl/I+iOCUG6dAX8pmuE472QcIbTFV5?=
+ =?us-ascii?Q?Z9uSQoIXhERn0IseN0xf7aglwC+UC4dGsq1jNuhQJBXVW0AgfInoDlncb07J?=
+ =?us-ascii?Q?kmAuCTJ+RCUJ7xG5TSMPCD1qHmXTE30pIoS0oeiSFoOZHoofvfHR7z8dUnTd?=
+ =?us-ascii?Q?9BVNj+7byF6NfXEY7AIToA6ah4QAa8b0ekEXFIrgSnJdJVrrAk1M?=
+X-OriginatorOrg: valinux.co.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2570a7f0-057b-4b17-2337-08de6dc556f1
+X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2026 01:39:06.8562
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HvkGuWspdSVoPVKdNG4n+YqwRP12jmPaw4OPqt8nfh5i/PAx9CClYoOmcHPc06Du7elfdIlxuEgEjYb+/YzOKA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9P286MB6903
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_170127_091112_0F127292 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20260216_173917_102748_85CDA6CB 
+X-CRM114-Status: GOOD (  28.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,151 +167,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chuan Liu <chuan.liu@amlogic.com>
+On Mon, Feb 16, 2026 at 11:14:58AM -0500, Frank Li wrote:
+> On Mon, Feb 16, 2026 at 01:38:45AM +0900, Koichiro Den wrote:
+> > Support doorbell backends where the doorbell target is already exposed
+> > via a platform-owned fixed BAR mapping and/or where the doorbell IRQ
+> > must be requested with specific flags.
+> >
+> > When pci_epf_alloc_doorbell() provides db_msg[].bar/offset, reuse the
+> > pre-exposed BAR window and skip programming a new inbound mapping. Also
+> > honor db_msg[].irq_flags when requesting the doorbell IRQ.
+> >
+> > For embedded doorbells (e.g. interrupt-emulation), multiple doorbells
+> > may share a single address/data pair and a single Linux IRQ. Avoid
+> > requesting duplicate handlers by requesting only one IRQ in that case.
+> >
+> > Signed-off-by: Koichiro Den <den@valinux.co.jp>
+> > ---
+> >  drivers/pci/endpoint/functions/pci-epf-vntb.c | 57 +++++++++++++++++--
+> >  1 file changed, 52 insertions(+), 5 deletions(-)
+> >
+> > diff --git a/drivers/pci/endpoint/functions/pci-epf-vntb.c b/drivers/pci/endpoint/functions/pci-epf-vntb.c
+> > index 20efa27325f1..39ba4d6b7d8d 100644
+> > --- a/drivers/pci/endpoint/functions/pci-epf-vntb.c
+> > +++ b/drivers/pci/endpoint/functions/pci-epf-vntb.c
+> > @@ -134,6 +134,11 @@ struct epf_ntb {
+> >  	u16 vntb_vid;
+> >
+> >  	bool linkup;
+> > +
+> > +	/*
+> > +	 * True when doorbells are interrupt-driven (MSI or embedded), false
+> > +	 * when polled.
+> > +	 */
+> >  	bool msi_doorbell;
+> >  	u32 spad_size;
+> >
+> > @@ -523,7 +528,7 @@ static int epf_ntb_db_bar_init_msi_doorbell(struct epf_ntb *ntb,
+> >  					    enum pci_barno barno)
+> >  {
+> >  	struct pci_epf *epf = ntb->epf;
+> > -	unsigned int req;
+> > +	unsigned int req, cnt;
+> >  	dma_addr_t low, high;
+> >  	struct msi_msg *msg;
+> >  	size_t sz;
+> > @@ -534,9 +539,29 @@ static int epf_ntb_db_bar_init_msi_doorbell(struct epf_ntb *ntb,
+> >  	if (ret)
+> >  		return ret;
+> >
+> > -	for (req = 0; req < ntb->db_count; req++) {
+> > +	/*
+> > +	 * The doorbell target may already be exposed by a platform-owned fixed
+> > +	 * BAR. In that case, we must reuse it and the requested db_bar must
+> > +	 * match.
+> > +	 */
+> > +	if (epf->db_msg[0].bar != NO_BAR && epf->db_msg[0].bar != barno) {
+> > +		ret = -EINVAL;
+> > +		goto err_free_doorbell;
+> > +	}
+> > +
+> > +	/*
+> > +	 * For PCI_EPF_DOORBELL_EMBEDDED, the backend may provide a single MMIO
+> > +	 * address/data pair and a single Linux IRQ even if multiple doorbells
+> > +	 * were requested. Avoid requesting duplicate handlers in that case.
+> > +	 */
+> > +	cnt = ntb->db_count;
+> > +	if (epf->db_msg[0].type == PCI_EPF_DOORBELL_EMBEDDED)
+> > +		cnt = 1;
+> 
+> Most SoC combine all DMA channel to one irqs. But it should be not
+> neccessary for SoC design. It is possible each DMA channel have dedicate
+> irq number. I suggest check irq, instead of type.
 
-[ Upstream commit 4aca7e92023cac5018b4053bae324450f884c937 ]
+Sounds reasonable. I was trying to keep the code minimal, but your suggestion
+makes it more future-proof and avoids exposing PCI_EPF_DOORBELL_EMBEDDED details
+to this consumer layer. I'll adjust this part accordingly.
 
-The video clocks enci, encp, vdac and hdmitx share the same clock
-source. Adding CLK_SET_RATE_PARENT to the mux may unintentionally change
-the shared parent clock, which could affect other video clocks.
+THanks for the review,
+Koichiro
 
-Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-Link: https://lore.kernel.org/r/20250919-add_video_clk-v6-3-fe223161fb3f@amlogic.com
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-Wait, this is very confusing. The mailing list says patch 2 adds new
-clocks, but git blame shows these video clock muxes (`cts_enci_sel`,
-`cts_encp_sel`, etc.) were already in the original commit from 2023. Let
-me re-read the diff more carefully.
-
-Looking at the diff again: the commit removes `CLK_SET_RATE_PARENT` from
-`s4_cts_enci_sel`, `s4_cts_encp_sel`, `s4_cts_vdac_sel`, and
-`s4_hdmi_tx_sel`. Git blame confirmed these structures were added in
-`57b55c76aaf1b` (2023, v6.7). The patch 2 of the series adds **new**
-clocks (encl, cdac, demod, adc), but the ones being **fixed** in patch 3
-already existed.
-
-This means patch 3 (our commit) is **self-contained** with respect to
-the bug fix — it removes flags from clocks that already exist in stable
-trees. It does NOT depend on patch 2.
-
-## Final Analysis
-
-### Problem Description
-The `CLK_SET_RATE_PARENT` flag on the video clock mux selectors
-(`cts_enci_sel`, `cts_encp_sel`, `cts_vdac_sel`, `hdmi_tx_sel`) allows
-rate change requests to propagate from these muxes up to their shared
-parent clock. Since all four muxes share the same parent clock sources
-(vclk_div and vclk2_div families), any one of them requesting a rate
-change could alter the parent, breaking the other video outputs.
-
-### Impact Assessment
-- **Real bug**: Yes — when one video output (e.g., HDMI) requests a
-  clock rate change, it can modify the shared parent clock, causing
-  other video outputs (CVBS, encoder) to use the wrong clock rate. This
-  could result in display corruption or loss of video signal.
-- **Scope**: Affects all Amlogic S4 SoC users with multiple active video
-  outputs, since v6.7.
-- **Severity**: Medium — display corruption/failure when multiple video
-  outputs are active simultaneously.
-
-### Stable Kernel Criteria Assessment
-- **Obviously correct**: Yes — removing `CLK_SET_RATE_PARENT` from
-  shared mux selectors is a well-understood pattern for preventing
-  unintended parent clock modifications.
-- **Fixes a real bug**: Yes — prevents unintended shared parent clock
-  modification affecting other video clocks.
-- **Small and contained**: Yes — removes 4 lines (flag declarations)
-  from a single file.
-- **No new features**: Correct — purely a bug fix.
-- **Risk**: Very low — removing `CLK_SET_RATE_PARENT` means the mux
-  won't propagate rate changes upward, which is the desired behavior for
-  shared clock sources. The downstream gate clocks still have
-  `CLK_SET_RATE_PARENT`, so rate requests still propagate from the gate
-  to the mux; they just stop there instead of going further up.
-
-### Concerns
-- **Dependency check**: The fix is self-contained. The affected clock
-  structures exist since v6.7 (commit `57b55c76aaf1b`). No dependency on
-  other patches in the series.
-- **Behavioral change**: Users who relied on `CLK_SET_RATE_PARENT`
-  propagation through the mux to the parent might see different
-  behavior, but this "reliance" was always incorrect since it could
-  break other video outputs.
-
-## Verification
-
-- **git blame** confirmed `s4_cts_enci_sel`, `s4_cts_encp_sel`,
-  `s4_cts_vdac_sel`, `s4_hdmi_tx_sel` with `CLK_SET_RATE_PARENT` were
-  introduced in `57b55c76aaf1b` (v6.7, September 2023).
-- **git tag --contains 57b55c76aaf1b** confirmed the buggy code is in
-  v6.7+ and v6.12.y LTS.
-- **lore.kernel.org** confirmed this is patch 3/3 of the "add video-
-  related clocks for S4 SoC" series, accepted December 2025 by Jerome
-  Brunet.
-- **lore.kernel.org patch 2** confirmed patch 2 adds **different**
-  clocks (encl, cdac, demod, adc), not the ones being fixed here — the
-  fix is independent.
-- **Code inspection** confirmed `s4_cts_encl_sel` already lacked
-  `CLK_SET_RATE_PARENT` (consistent architecture — encl was already
-  correct).
-- **Code inspection** confirmed downstream gate clocks (`s4_cts_enci`,
-  `s4_cts_encp`) retain `CLK_SET_RATE_PARENT`, so rate propagation still
-  works from gate to mux but stops at the mux level.
-- **Could NOT verify** any user reports of actual display corruption
-  from this bug (unverified — but the mechanism is sound and the fix is
-  obvious).
-
-The fix is small, surgical, self-contained, fixes a real clock-tree
-correctness issue affecting all Amlogic S4 users since v6.7, and carries
-extremely low regression risk. It meets all stable kernel criteria.
-
-**YES**
-
- drivers/clk/meson/s4-peripherals.c | 4 ----
- 1 file changed, 4 deletions(-)
-
-diff --git a/drivers/clk/meson/s4-peripherals.c b/drivers/clk/meson/s4-peripherals.c
-index 6d69b132d1e1f..bab4f5700de47 100644
---- a/drivers/clk/meson/s4-peripherals.c
-+++ b/drivers/clk/meson/s4-peripherals.c
-@@ -1106,7 +1106,6 @@ static struct clk_regmap s4_cts_enci_sel = {
- 		.ops = &clk_regmap_mux_ops,
- 		.parent_hws = s4_cts_parents,
- 		.num_parents = ARRAY_SIZE(s4_cts_parents),
--		.flags = CLK_SET_RATE_PARENT,
- 	},
- };
- 
-@@ -1122,7 +1121,6 @@ static struct clk_regmap s4_cts_encp_sel = {
- 		.ops = &clk_regmap_mux_ops,
- 		.parent_hws = s4_cts_parents,
- 		.num_parents = ARRAY_SIZE(s4_cts_parents),
--		.flags = CLK_SET_RATE_PARENT,
- 	},
- };
- 
-@@ -1138,7 +1136,6 @@ static struct clk_regmap s4_cts_vdac_sel = {
- 		.ops = &clk_regmap_mux_ops,
- 		.parent_hws = s4_cts_parents,
- 		.num_parents = ARRAY_SIZE(s4_cts_parents),
--		.flags = CLK_SET_RATE_PARENT,
- 	},
- };
- 
-@@ -1169,7 +1166,6 @@ static struct clk_regmap s4_hdmi_tx_sel = {
- 		.ops = &clk_regmap_mux_ops,
- 		.parent_hws = s4_hdmi_tx_parents,
- 		.num_parents = ARRAY_SIZE(s4_hdmi_tx_parents),
--		.flags = CLK_SET_RATE_PARENT,
- 	},
- };
- 
--- 
-2.51.0
-
+> 
+> Frank
+> > +
+> > +	for (req = 0; req < cnt; req++) {
+> >  		ret = request_irq(epf->db_msg[req].virq, epf_ntb_doorbell_handler,
+> > -				  0, "pci_epf_vntb_db", ntb);
+> > +				  epf->db_msg[req].irq_flags, "pci_epf_vntb_db",
+> > +				  ntb);
+> >
+> >  		if (ret) {
+> >  			dev_err(&epf->dev,
+> > @@ -546,6 +571,22 @@ static int epf_ntb_db_bar_init_msi_doorbell(struct epf_ntb *ntb,
+> >  		}
+> >  	}
+> >
+> > +	if (epf->db_msg[0].bar != NO_BAR) {
+> > +		for (i = 0; i < ntb->db_count; i++) {
+> > +			msg = &epf->db_msg[i].msg;
+> > +
+> > +			if (epf->db_msg[i].bar != barno) {
+> > +				ret = -EINVAL;
+> > +				goto err_free_irq;
+> > +			}
+> > +
+> > +			ntb->reg->db_data[i] = msg->data;
+> > +			ntb->reg->db_offset[i] = epf->db_msg[i].offset;
+> > +		}
+> > +		goto out;
+> > +	}
+> > +
+> > +	/* Program inbound mapping for the doorbell */
+> >  	msg = &epf->db_msg[0].msg;
+> >
+> >  	high = 0;
+> > @@ -592,6 +633,7 @@ static int epf_ntb_db_bar_init_msi_doorbell(struct epf_ntb *ntb,
+> >  		ntb->reg->db_offset[i] = offset;
+> >  	}
+> >
+> > +out:
+> >  	ntb->reg->db_entry_size = 0;
+> >
+> >  	ntb->msi_doorbell = true;
+> > @@ -602,6 +644,7 @@ static int epf_ntb_db_bar_init_msi_doorbell(struct epf_ntb *ntb,
+> >  	while (req)
+> >  		free_irq(epf->db_msg[--req].virq, ntb);
+> >
+> > +err_free_doorbell:
+> >  	pci_epf_free_doorbell(ntb->epf);
+> >  	return ret;
+> >  }
+> > @@ -665,9 +708,13 @@ static void epf_ntb_db_bar_clear(struct epf_ntb *ntb)
+> >  	enum pci_barno barno;
+> >
+> >  	if (ntb->msi_doorbell) {
+> > -		int i;
+> > +		unsigned int cnt = ntb->db_count;
+> > +		unsigned int i;
+> >
+> > -		for (i = 0; i < ntb->db_count; i++)
+> > +		if (ntb->epf->db_msg[0].type == PCI_EPF_DOORBELL_EMBEDDED)
+> > +			cnt = 1;
+> > +
+> > +		for (i = 0; i < cnt; i++)
+> >  			free_irq(ntb->epf->db_msg[i].virq, ntb);
+> >  	}
+> >
+> > --
+> > 2.51.0
+> >
 
