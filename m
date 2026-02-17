@@ -4,125 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C5FE909C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 16:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F747E909CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 16:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:References:In-Reply-To:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lBO6AhQqWag/0+NNJRZQvsAXIIMwJp6QA15wbRYbOcE=; b=rEJjQcU/hNWunhU4au9qQtLlN1
-	mBCMw1daOrj0rhsqcgfNCd9KrR1F6uo55q56GrtvRn608nDq3GnteATS9t6vUegoo5Mfr7zaE5CCK
-	SKsUYB7cC1/JkG31qJGesRr/GshgIvwJqAyh8gAxcD5gVEkqRYb3TaD7u7Ia62wbVLFMKnwkl7AFp
-	BZe9JazZoNaoXhmZs/F8yQUcdmOSDhB4MkZkVgIb3aWpr7f3WG+P+0i36qoY+vk36S381WcoIwQvf
-	uyhAtSd5I0d322AvcJFqBZgST0Xe3OkL1BSTkXhjm62gq5sPGS5YfP2WCcWpfrZU42EE3T30qTIIC
-	u4HNFajg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p/FF67NgoAfTPvlqlnRaiD3XMiAyROgc0Pmn9okOe70=; b=QV/KIWeTW37lZIICuglS8Bof1J
+	1UhWNg0q9aMou3ydDd9qO7uzkB2vaxX3QlBtKyPwdP+ISjPfIayyPyPUK9raQCXtPt8a/tv3KFB9n
+	NX9uc9S1NjklWiXivsoWhG0khH9YBu3OCM5WnCkxSsM6i/A5x4x87edykVwEUecKZ9Ke/PEZNgt4u
+	skxQL2HpffdLgn1rDTi4lYKVS5gGapdSBZGmdmCGBXwc3fOhttbVugoowtQqGUUS1lRKlGddoDiRE
+	u5j8akTNoH0OPdA+5X8jl0KSAB/3NOJGoWRaman2043yXaSC6oIikI8vpOMVw8U/be48b0LIYWhWv
+	C5OrxaeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsNVO-00000008XOv-23nE;
-	Tue, 17 Feb 2026 16:00:54 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1vsNdV-00000008Xqq-0eY2;
+	Tue, 17 Feb 2026 16:09:17 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsNV5-00000008XId-3nUV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 16:00:42 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-65a3527c5easo6259446a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 08:00:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771344032; cv=none;
-        d=google.com; s=arc-20240605;
-        b=D504P1KBWl267zZJwoKT+LAA8e+oSB8OqeveVFQSotMSrkNFoaP1aKNkmWnYPf7yFp
-         EQ/d1cxRYsOmTo3eON4BIZRjx0cum4IemWw1wflEoGjQWI6LjoMquM29LFjUm7wKqB/U
-         KVACCHD/LTevLgWiy8D4ZN0N+ur3TEnHBq7Epw8ZkBw2VeOu60V3kjqOU/SlplTVrTD8
-         x27mE5cZwrEIe9LK9gDC7RiWh8sUW49RjKXW3UR94A/tJOjAe7B5G4Efnz8suV6PG7ks
-         nncCaXLSmKW249KBkmCnKDSY2BUe7eLMjnhgJUC1SQsei+N//pwo4e7/rUm0oyvB4FXH
-         mUbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:user-agent:from:references
-         :in-reply-to:mime-version:dkim-signature;
-        bh=lBO6AhQqWag/0+NNJRZQvsAXIIMwJp6QA15wbRYbOcE=;
-        fh=2citxdzjMoQ74N6uMKv9pVVDYhYOxRvqsBZBmPdBWb0=;
-        b=X6rb2rvf/rfz4Lz/RupDApFX23uW2tO1u08K40VRaNwmM1RBz4VIKcdC1/Ph5BCfZ3
-         CnlBfIamhMZJsWX68idYYVNG7CjPHrRrisG+ugRSp9emTzFJBZSeQiPq4u5gozbkqTpJ
-         V6G5lDJfwjl/DBL8WVH7o2smVKEdfQUFW46QLndZuvfaVCtLcTN9nD+BcAHap7MxExWk
-         ww7J9VuxNlBbnFUhkPz4L8Enhdg5ZBw3jzO0fy6xgU846Qgn/GRJ2m713p+CDLsIi9Ig
-         m7Ehn/PuH5lK3ylvpnWQBbWA519JK1w104Y7ZTnYeJSWMVuNyxss7axwlP6ig97/vldl
-         m+Fg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771344032; x=1771948832; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:user-agent:from:references
-         :in-reply-to:mime-version:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lBO6AhQqWag/0+NNJRZQvsAXIIMwJp6QA15wbRYbOcE=;
-        b=feApMFWHXl52sjpLvjCze87o23nZ4YdSyF14ZBMh34MtHhq9lnsjfGE8QmsWB/UpTQ
-         rP7ktvZeV6A5rLI+X5+65wtoOamtpu2zRAGjT4NVrSL4suU7zpEGdD1NxEgxq7S+61J0
-         oMUeI51oW5VRt9K0evEMiMepVNAMIX+cbSz2/cDAk28lbZCdPMDrIaSYMldrL0BKhSu9
-         48G4agR0vvAgUhDbaF0Q9fV8tUaIJDxwtm5aWL+TuJT7/Ulo6Yyao0UdtMw5rFa5p9jd
-         Yfm5WSGKypSYa9IS6TvYjUOeFnAPaPWB5pezT9LJQyZZxG5f+OH/hh3CUIsEEpK3xGUC
-         ckXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771344032; x=1771948832;
-        h=cc:to:subject:message-id:date:user-agent:from:references
-         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lBO6AhQqWag/0+NNJRZQvsAXIIMwJp6QA15wbRYbOcE=;
-        b=wpFn92zorAwcwUlN5MKDOgQopKb7mw7q131T+Ss+g6vPVezig50aRfja4NQ6EMIJL9
-         u1qsOMlt0YOmA0hSZTqfBGB8vYK2M+krK2guG/OdcvZA17Doobq27QRpADQ3VFrrYjB+
-         057wdgpqsgruuxbG1ZO8iE49j2CXzuUGSHJ2Xt82IWOxmHxSG5zKri+3YdUXXEbOoQP6
-         poPbDsGv+0zZXSMdN0OgWpu2iweOWLsUlb6iFmTvX9MWmhZyrWLO1h53qy1QY1AwdLL2
-         msm6bpdc+4uP6/XTpV11mytPrBC5VaW2o8ErMNgNIf+JOq2EebL0KJZmp9bib4cd+Fxm
-         RUtg==
-X-Forwarded-Encrypted: i=1; AJvYcCWbmgbes4vjpDFoEFdCxkZXd6I3v+ijMbnV33NLN6XzEzmBtPBOgQe8MpFi8eYVgZn3tN+JUl/HR2+ue4Mi6goR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyErFgxam0mEMMzlcVjXAkTtr4IE8TLc2Vn+AKq8KbwD4iLrECv
-	zbR5WKo7iXRXPo2oanuEv28ND1j3AF9DvBnakf7o0ShStthu0AJPZ5JriWtQ6Lr3rL9BTzLjoP/
-	DGZPtokIpaTMYAQDHZZVDoqzGUmGvBxM=
-X-Gm-Gg: AZuq6aLRH1oK+LBcUJUXneRW/tzs6MN76siuBkc+P7PJm5GbsgUO1geaogAcJAMPA0v
-	VnaqLM0apEcfnm9AIyuWmbhQmJLLpHUPk4Han3pWoqjw07hCr4p6y68qlSY7e/rZo3knMBKK2uF
-	vkVhoBIxoPBtuNnYqphnoROfI5IoEext+Hf64vveTk1iznICIXyiSbqS3NWRinWJLw5/IgVrx90
-	goCo6wriWb+7IsrnKAdEG/DZHt5Rhg1m4yEiVkD8EwYjsRd79iRBCTg9CBhHJGQRY2IQn7TVj9H
-	YqElOw==
-X-Received: by 2002:a05:6402:1ece:b0:659:329a:bc12 with SMTP id
- 4fb4d7f45d1cf-65bb13b7f0amr6896476a12.29.1771344031210; Tue, 17 Feb 2026
- 08:00:31 -0800 (PST)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 17 Feb 2026 10:00:29 -0600
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 17 Feb 2026 10:00:29 -0600
+	id 1vsNdR-00000008XqB-13dI;
+	Tue, 17 Feb 2026 16:09:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771344550;
+	bh=oj5P0IlCAmq5u6uQiTJRMhcL4zzj1vWIrVqyNs511+g=;
+	h=From:Date:Subject:To:Cc:From;
+	b=jdI9ajUoFpYWROHwud5emVcYcYmdduhc4kQ35JUNOO7peCot0an1riXYdVpy15UpO
+	 ETLXfKFK9efVmrR0I7cvtB8gz8Zqb9dClE4kf1PY4LdYdeZzuhD/JSGPZIupvTZMRL
+	 lIKT8Nw+Yc5u2kRixBUdseS+yw6SLx1sGdZRwNWRCFD/sPmb8bRkQaUTRyQEy36UtF
+	 tSwV6duRVjUbt3EMAQVjMWG3rvOALn3umccshdhZoBp/Dni4V0/GVYChJwpGdm1/It
+	 OJsqn5kj31WVRb8S9n6FIA6uBvdXcqtveY2BbYRaOakOhoH/ydI+ka/5zCfWA3XMoh
+	 Z3dRmuCuTAF1g==
+Received: from jupiter.universe (dyndsl-091-248-212-099.ewe-ip-backbone.de [91.248.212.99])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 66E9A17E0330;
+	Tue, 17 Feb 2026 17:09:10 +0100 (CET)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 0DDB4480024; Tue, 17 Feb 2026 17:09:10 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 17 Feb 2026 17:08:45 +0100
+Subject: [PATCH RFC] drm/rockchip: vop2: Add clock rate mode check
 MIME-Version: 1.0
-In-Reply-To: <20260130022705.1059214-1-inochiama@gmail.com>
-References: <20260130022705.1059214-1-inochiama@gmail.com>
-From: Emil Renner Berthing <emil.renner.berthing@gmail.com>
-User-Agent: alot/0.0.0
-Date: Tue, 17 Feb 2026 10:00:29 -0600
-X-Gm-Features: AaiRm52I-Ps0aB0W3gGP80VOXo7IKX3SoIAUz1UAML5FnQLUef3qoiKkhjg5t58
-Message-ID: <CANBLGczi6o4NwDF0fge0_RZ+TVX2dQ=vYD2PYMSupb5xSnabZQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 0/3] riscv: spacemit: Add ethernet support for K3
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, Boon Khai Ng <boon.khai.ng@altera.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paolo Abeni <pabeni@redhat.com>, Paul Walmsley <pjw@kernel.org>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Richard Cochran <richardcochran@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Shangjuan Wei <weishangjuan@eswincomputing.com>, 
-	Yanteng Si <siyanteng@cqsoftware.com.cn>, Yao Zi <ziyao@disroot.org>, 
-	Yixun Lan <dlan@gentoo.org>, Zhi Li <lizhi2@eswincomputing.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260217-vop2-clk-rate-check-v1-1-989b569119ba@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAIySlGkC/x3MwQpAQBCA4VfRnE0xh11clQdwlcM2BhOhXUnJu
+ 9scv8P/PxDEqwSokge8XBp03yLyNAGe3TYJ6hANlJHJKLd47Qchrwt6dwryLLwgmYJMaW3BjiG
+ Wh5dR7//aQdvU0L/vB10WRr5qAAAA
+X-Change-ID: 20260217-vop2-clk-rate-check-268269778cac
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: Daniel Stone <daniels@collabora.com>, 
+ Alexey Charkov <alchark@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5101;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=oj5P0IlCAmq5u6uQiTJRMhcL4zzj1vWIrVqyNs511+g=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGmUkqVmnkE0ziEh65jDJYT0fQOrGQj+8CiIZ
+ y0teNN50VKhdokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJplJKlAAoJENju1/PI
+ O/qa2+AQAIC1BxwLivVGw37HyasWny64ye/T3KMZr+M2AIFOa6P6p7HlyS9arV1Mx5qPzo846bV
+ F48bjx/uX0G8TeO8DHyNNjRnqg/aVxruL2INDUJ3B0PKSBkTHj/VxLhXYf6rSR0TLPopPDmnTQS
+ tRO6i60rNK5kONUyaNTWVvQiANUmkkteC5sq2wzq2VYyBus2iSvsnpQSP6SkTldEqS0nv7UXQx0
+ tC9MBxMN7FwyHR1r5qXh3PvB1jjzU5zAaVrSdOqGPm1hMIN737/i4In6LSYqDGFWqHHuA0KIV98
+ 4DWInIrWHZyfUdQLFpuSkpezKZwu3r5gk0lLVyYKpbZGefMQV0ys6R0Ie5Cr8brMQcTR1dWQbIN
+ Xbe4To763dEiW76Iywx5jWUu3vH0T2lPiX95+NHdmrjNAVyzyTwfBCXlKzZJIm0k6jgIw1lPxxn
+ LyYZ0n8DGusM3jryXYsF+hqKQ1ugBW3wgDb1zlZvyUtIf8RADSGCzx+jRHCnYJqpX6zKxo1Zuzu
+ 4nWXK0UoqLnONQgEHiGvfxSKEBu8QgqkHMjlxlp3EAYiZTQxgrpJVQ0IHJJcDG0o+er50MN+dG6
+ oMVFOBIKu56OtSD51wlElnjHkJoOmGV8kp6S9lbv6ZjhJnH0pXGHnLyVkCZqy81nisr+xVM36QW
+ 8CZJTJB1H4K4ladVaMlk17Q==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_080036_988495_811671FA 
-X-CRM114-Status: UNSURE (   7.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260217_080913_453892_75FB0344 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,16 +102,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Inochi Amaoto (2026-01-30 03:27:01)
-> Add initial support for ethernet controller of the Spacemit K3 SoC.
-> This ethernet controller is almost a standard Synopsys DesignWare
-> MAC (version 5.40a). This controller require a syscon device to
-> configure some basic features, like interface type and internal delay.
+The display might offer modes, which exceed the maximum clock rate of a
+video output. This usually happens for displays that offer refresh rates
+above 60 Hz. This results in no picture being displayed without manual
+intervention. Fix this by teaching the driver about the maximum
+achievable clock rates.
 
-Hi Inochi,
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+I've taken the max. clock rate information from the video output
+information of the RK3568/RK3588/RK3576 datasheets. The real max. clock
+rates should be above those to take blank times into account. I haven't
+found the proper information source for this. I hope Andy can help out.
+---
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c |  3 +++
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  1 +
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 10 ++++++++++
+ 3 files changed, 14 insertions(+)
 
-Do you have a tree that includes the dt entries?
-Otherwise how are we going to test this?
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index ec3b4fde10db..1051418e5fff 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1434,6 +1434,9 @@ static enum drm_mode_status vop2_crtc_mode_valid(struct drm_crtc *crtc,
+ 	if (mode->hdisplay > vp->data->max_output.width)
+ 		return MODE_BAD_HVALUE;
+ 
++	if (mode->clock > vp->data->max_clock_rate / 1000)
++		return MODE_CLOCK_HIGH;
++
+ 	return MODE_OK;
+ }
+ 
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+index 9124191899ba..42d70426bf08 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+@@ -225,6 +225,7 @@ struct vop2_video_port_data {
+ 	u16 gamma_lut_len;
+ 	u16 cubic_lut_len;
+ 	struct vop_rect max_output;
++	u32 max_clock_rate;
+ 	const u8 pre_scan_max_dly[4];
+ 	unsigned int offset;
+ 	/**
+diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+index f3950e8476a7..8be2cf0c47b6 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
++++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+@@ -559,18 +559,21 @@ static const struct vop2_video_port_data rk3568_vop_video_ports[] = {
+ 		.gamma_lut_len = 1024,
+ 		.cubic_lut_len = 9 * 9 * 9,
+ 		.max_output = { 4096, 2304 },
++		.max_clock_rate = 4096 * 2304 * 60,
+ 		.pre_scan_max_dly = { 69, 53, 53, 42 },
+ 		.offset = 0xc00,
+ 	}, {
+ 		.id = 1,
+ 		.gamma_lut_len = 1024,
+ 		.max_output = { 2048, 1536 },
++		.max_clock_rate = 2048 * 1536 * 60,
+ 		.pre_scan_max_dly = { 40, 40, 40, 40 },
+ 		.offset = 0xd00,
+ 	}, {
+ 		.id = 2,
+ 		.gamma_lut_len = 1024,
+ 		.max_output = { 1920, 1080 },
++		.max_clock_rate = 1920 * 1080 * 60,
+ 		.pre_scan_max_dly = { 40, 40, 40, 40 },
+ 		.offset = 0xe00,
+ 	},
+@@ -775,6 +778,7 @@ static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
+ 		.gamma_lut_len = 1024,
+ 		.cubic_lut_len = 9 * 9 * 9, /* 9x9x9 */
+ 		.max_output = { 4096, 2304 },
++		.max_clock_rate = 4096 * 2304 * 120,
+ 		/* win layer_mix hdr  */
+ 		.pre_scan_max_dly = { 10, 8, 2, 0 },
+ 		.offset = 0xc00,
+@@ -785,6 +789,7 @@ static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
+ 		.gamma_lut_len = 1024,
+ 		.cubic_lut_len = 729, /* 9x9x9 */
+ 		.max_output = { 2560, 1600 },
++		.max_clock_rate = 2560 * 1600 * 60,
+ 		/* win layer_mix hdr  */
+ 		.pre_scan_max_dly = { 10, 6, 0, 0 },
+ 		.offset = 0xd00,
+@@ -793,6 +798,7 @@ static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
+ 		.id = 2,
+ 		.gamma_lut_len = 1024,
+ 		.max_output = { 1920, 1080 },
++		.max_clock_rate = 1920 * 1080 * 60,
+ 		/* win layer_mix hdr  */
+ 		.pre_scan_max_dly = { 10, 6, 0, 0 },
+ 		.offset = 0xe00,
+@@ -1061,6 +1067,7 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
+ 		.gamma_lut_len = 1024,
+ 		.cubic_lut_len = 9 * 9 * 9, /* 9x9x9 */
+ 		.max_output = { 4096, 2304 },
++		.max_clock_rate = 7680 * 4320 * 60,
+ 		/* hdr2sdr sdr2hdr hdr2hdr sdr2sdr */
+ 		.pre_scan_max_dly = { 76, 65, 65, 54 },
+ 		.offset = 0xc00,
+@@ -1070,6 +1077,7 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
+ 		.gamma_lut_len = 1024,
+ 		.cubic_lut_len = 729, /* 9x9x9 */
+ 		.max_output = { 4096, 2304 },
++		.max_clock_rate = 4096 * 2304 * 60,
+ 		.pre_scan_max_dly = { 76, 65, 65, 54 },
+ 		.offset = 0xd00,
+ 	}, {
+@@ -1078,12 +1086,14 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
+ 		.gamma_lut_len = 1024,
+ 		.cubic_lut_len = 17 * 17 * 17, /* 17x17x17 */
+ 		.max_output = { 4096, 2304 },
++		.max_clock_rate = 4096 * 2304 * 60,
+ 		.pre_scan_max_dly = { 52, 52, 52, 52 },
+ 		.offset = 0xe00,
+ 	}, {
+ 		.id = 3,
+ 		.gamma_lut_len = 1024,
+ 		.max_output = { 2048, 1536 },
++		.max_clock_rate = 1920 * 1080 * 60,
+ 		.pre_scan_max_dly = { 52, 52, 52, 52 },
+ 		.offset = 0xf00,
+ 	},
 
-/Emil
+---
+base-commit: 9702969978695d9a699a1f34771580cdbb153b33
+change-id: 20260217-vop2-clk-rate-check-268269778cac
+
+Best regards,
+-- 
+Sebastian Reichel <sebastian.reichel@collabora.com>
+
 
