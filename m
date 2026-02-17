@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A2EE909AE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 14:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D950EE909B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 14:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWrOUlc6WmN3rEw2oGS4C02DYkL+sibKsPW3R80wFhQ=; b=VxFuMkC4QYDPvL4BsUmV8JB/n9
-	9kndUuZSTJiWAloI1Ch7d/b7nMWITsTMqxQOns4DjB9V2m5ReQ5E9Ttap2DN8OdS+BfKEUEpNfMky
-	NwlO5XTrMejrqotyQsdrjTovLOplU4xKQraGz08Is+ORzCoCYA3ztlMoALFsbehZjnwzX1NWCxnhE
-	AtJrqhcZNtZmOxYERIV2sAoFRdpJoM62sb8yTXbJDef05XHbKw5Qe0bERkiCfVPE8+eULzepzhdAC
-	GP3ShSEKgs0+61UpIWxm0L41hcQBTLvCUhshREZ0b0xePlF3jE798bDvxAZZc3LeSqQx5lutxvSeH
-	pUjVdkYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nMOe4RDxlvvysKllY378Tk/OsQq0qlkIMO2wJcC8mQc=; b=1niWbOIpi1k0HeTZEFzL9ZceWu
+	g1mOrSjBTHMUbsKMCXO2F4of6Qy3wZLlWTAGvPMIPB+YgTp1XkC9I16JNlXsHox/fS6AJosEtut+y
+	QmGFVkp/cqVWgIy/YnSPpPtX7sBgjk83A1gdoZr3U554Yup2yGU7NnWvq+Bu2ZRfjGACpBTEr0q3m
+	a8kYCmY89943DlSARkShKnjS+c17AJlxtCIrM/XDLWe3x3lk9CZL6eeukbzISP6TZFxtOZGooiGRO
+	bM9LhYuMK+3f00896JVaNv5NJWJDhJg8OeB/ZuPhHk1VJyg3cYqUCcqF1nhJr9MVUSAup+nrzFfxX
+	rmkz+rzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsMN9-00000008SZ2-4ATN;
-	Tue, 17 Feb 2026 14:48:20 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsMN5-00000008SYf-1GF0
+	id 1vsMPU-00000008SqQ-2AtK;
+	Tue, 17 Feb 2026 14:50:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vsMPS-00000008Sq6-23yJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 14:48:18 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4833115090dso38901205e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 06:48:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771339693; x=1771944493; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XWrOUlc6WmN3rEw2oGS4C02DYkL+sibKsPW3R80wFhQ=;
-        b=nQ3skE0Jt5zqDljFBE6f7KJZbJpP+EmyzB9UzY4Mvlr8DkhvcvsOQfHEIrXZXpoHlr
-         Y/f2RWa8uLgEvtzQSEpgvWhE19IO2oGLyFJXFmZYL4E6LD3fqFYHE7Zu9WfS24cSwngL
-         JFOI6N8+5VCdyNoG1XILzYzL6WYXNnGq1sa1kp4Kp5TUSJ49KYAPVTtpJbUdPYa6tauG
-         VBgbYElGdi0/NrNyd51Y18M3NcHUITaqbWGMrnrW+AjZZtjLfpzddkQtUc3s8/FhN/QC
-         Hsd54cVZcalbN42E6aTHr/gRqt5z2V57A2JkYO304O8bZiOVkcI8WHGsMcuR9ylmvoZ7
-         yEKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771339693; x=1771944493;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=XWrOUlc6WmN3rEw2oGS4C02DYkL+sibKsPW3R80wFhQ=;
-        b=EcvW6XgZVCYMXHLcDC0bEdM/bG91Sqzr4zgz/sbMvorW40k0+IDiuHthwfNPeYMJZT
-         8Q8qG0gQqKEtA336tdWX5Sqd5Aed1b1a39AAGzSDXm8BarJ/56rUImfjMym7Go1Qf3AJ
-         92EcIqceeCj3IlMpDr3iUFkbLQ7bD8Mqvr/L2d+G2d5YC7vRvwIFl87vU0Ld/oVe1pPw
-         Zy7NGW9+cd0T2cXgVnvM/4QFvyX0SteF776XKIkQh+1Cy/QgrYbSQdTXbtC6NXHdjYYK
-         yVXlKfPaMDdzdSdRIgFHAWQ809KOgVtJi/B10dscHclRsessvSMv8VaIcC1P370u4FAG
-         LRHg==
-X-Forwarded-Encrypted: i=1; AJvYcCW7YpM62ejTs1nHA6szwEPZM3AjnYpZlih9Mq9yiTjK1r6E936meugZFoGVuhKbjwhmPTqGxZqPTwQz7C2wA5Y9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzflRRA6MgJIcDqxPCzS3T+8lcv13d5ltABT5JGzuBZp8vMaone
-	vpa9e+/k+6lSV8LUVVKqCvDuK0s8Ky77BxEkX21w/Omfx/LXjzPaRWhu
-X-Gm-Gg: AZuq6aJRy+rgLioRGT3nI4hv0scP+NzXvUnaPpInM2rfKdD84SN7o6bB0LZvRcQddAM
-	CWaRLz7qhxd4QI4OXxqXKsUGK/QNyxXQp/Dc8VK2h3oPMtHToWk9kmGV0tgHEvEJOPB2bi/JcuD
-	2AH6MqdyNkpPNgiGGf2puXDTgnYTl7VwJZOukO7mGzenmFx6nAM7AZfeoPO+TeVug46JqZ94K4M
-	yWL1PwpTo7v3c13q2dC8gqCzvxVfZbYrqTGfpN/E30C9dK2IlPPQg1olK4/zsFU9Yk4lLq1GV/z
-	/GzFo4VtxhFjw29234u5tLsztsoi3GwD5hj46EY7r3zzv03I1EtZjX2S4+pPgSgUwVSZrBP29+Z
-	G2GhXp84KtpA2vgFs5NkeZkDkhVpHe3Glakwz85b1FU07Bzwgd8TZc7vW6XMGXkU9GLA+yT1RHD
-	HOmVpqkNTUeK1+g/Z2naEq4uFdI2DhhwCQzHr7p3jTa+TcRa9bRjEsHyBQb8vB+CATC53X1xDkJ
-	r85ig13NhSaXMlQQcw=
-X-Received: by 2002:a05:600c:1e1d:b0:477:8985:4036 with SMTP id 5b1f17b1804b1-48373a15f31mr228213415e9.1.1771339693045;
-        Tue, 17 Feb 2026 06:48:13 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-126-118.dynamic.telemach.net. [86.58.126.118])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48370a4e149sm164687075e9.2.2026.02.17.06.48.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 06:48:11 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Stephen Boyd <sboyd@kernel.org>,
- Chen-Yu Tsai <wens@kernel.org>
-Cc: linux-sunxi@lists.linux.dev, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: sunxi-ng: sun55i-a523-r: Add missing r-spi module clock
-Date: Tue, 17 Feb 2026 15:48:10 +0100
-Message-ID: <6238719.lOV4Wx5bFT@jernej-laptop>
-In-Reply-To: <20260217093004.3239051-1-wens@kernel.org>
-References: <20260217093004.3239051-1-wens@kernel.org>
+	Tue, 17 Feb 2026 14:50:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61D741477;
+	Tue, 17 Feb 2026 06:50:33 -0800 (PST)
+Received: from a080796.blr.arm.com (a080796.arm.com [10.164.21.51])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3E5A13F62B;
+	Tue, 17 Feb 2026 06:50:34 -0800 (PST)
+From: Dev Jain <dev.jain@arm.com>
+To: lsf-pc@lists.linux-foundation.org,
+	ryan.roberts@arm.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	ardb@kernel.org,
+	willy@infradead.org,
+	hughd@google.com,
+	baolin.wang@linux.alibaba.com,
+	akpm@linux-foundation.org,
+	david@kernel.org,
+	lorenzo.stoakes@oracle.com,
+	Liam.Howlett@oracle.com,
+	vbabka@suse.cz,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Dev Jain <dev.jain@arm.com>
+Subject: [LSF/MM/BPF TOPIC] Per-process page size
+Date: Tue, 17 Feb 2026 20:20:26 +0530
+Message-Id: <20260217145026.3880286-1-dev.jain@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_064817_084239_430A0EEC 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260217_065042_700755_EC3F3A4C 
+X-CRM114-Status: GOOD (  25.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,21 +78,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 17. februar 2026 ob 10:30:03 Srednjeevropski standardni =C4=8Das=
- je Chen-Yu Tsai napisal(a):
-> When the PRCM clk driver was added, somehow the r-spi module clock
-> was skipped over.
->=20
-> Add it so that r-spi can actually work.
->=20
-> Fixes: 8cea339cfb81 ("clk: sunxi-ng: add support for the A523/T527 PRCM C=
-CU")
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+Hi everyone,
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+We propose per-process page size on arm64. Although the proposal is for
+arm64, perhaps the concept can be extended to other arches, thus the
+generic topic name.
 
-Best regards,
-Jernej
+-------------
+INTRODUCTION
+-------------
+While mTHP has brought the performance of many workloads running on an arm64 4K
+kernel closer to that of the performance on an arm64 64K kernel, a performance
+gap still remains. This is attributed to a combination of greater number of
+pgtable levels, less reach within the walk cache and higher data cache footprint
+for pgtable memory. At the same time, 64K is not suitable for general
+purpose environments due to it's significantly higher memory footprint.
 
+To solve this, we have been experimenting with a concept called "per-process
+page size". This breaks the historic assumption of a single page size for the
+entire system: a process will now operate on a page size ABI that is greater
+than or equal to the kernel's page size. This is enabled by a key architectural
+feature on Arm: the separation of user and kernel page tables.
 
+This can also lead to a future of a single kernel image instead of 4K, 16K
+and 64K images.
+
+--------------
+CURRENT DESIGN
+--------------
+The design is based on one core idea; most of the kernel continues to believe
+there is only one page size in use across the whole system. That page size is
+the size selected at compile-time, as is done today. But every process (more
+accurately mm_struct) has a page size ABI which is one of the 3 page sizes
+(4K, 16K or 64K) as long as that page size is greater than or equal to the
+kernel page size (kernel page size is the macro PAGE_SIZE).
+
+Pagesize selection
+------------------
+A process' selected page size ABI comes into force at execve() time and
+remains fixed until the process exits or until the next execve(). Any forked
+processes inherit the page size of their parent.
+The personality() mechanism already exists for similar cases, so we propose
+to extend it to enable specifying the required page size.
+
+There are 3 layers to the design. The first two are not arch-dependent,
+and makes Linux support a per-process pagesize ABI. The last layer is
+arch-specific.
+
+1. ABI adapter
+--------------
+A translation layer is added at the syscall boundary to convert between the
+process page size and the kernel page size. This effectively means enforcing
+alignment requirements for addresses passed to syscalls and ensuring that
+quantities passed as “number of pages” are interpreted relative to the process
+page size and not the kernel page size. In this way the process has the illusion
+that it is working in units of its page size, but the kernel is working in
+units of the kernel page size.
+
+2. Generic Linux MM enlightenment
+---------------------------------
+We enlighten the Linux MM code to always hand out memory in the granularity
+of process pages. Most of this work is greatly simplified because of the
+existing mTHP allocation paths, and the ongoing support for large folios
+across different areas of the kernel. The process order will be used as the
+hard minimum mTHP order to allocate.
+
+File memory
+-----------
+For a growing list of compliant file systems, large folios can already be
+stored in the page cache. There is even a mechanism, introduced to support
+filesystems with block sizes larger than the system page size, to set a
+hard-minimum size for folios on a per-address-space basis. This mechanism
+will be reused and extended to service the per-process page size requirements.
+
+One key reason that the 64K kernel currently consumes considerably more memory
+than the 4K kernel is that Linux systems often have lots of small
+configuration files which each require a page in the page cache. But these
+small files are (likely) only used by certain processes. So, we prefer to
+continue to cache those using a 4K page.
+Therefore, if a process with a larger page size maps a file whose pagecache
+contains smaller folios, we drop them and re-read the range with a folio
+order at least that of the process order.
+
+3. Translation from Linux pagetable to native pagetable
+-------------------------------------------------------
+Assume the case of a kernel pagesize of 4K and app pagesize of 64K.
+Now that enlightenment is done, it is guaranteed that every single mapping
+in the 4K pagetable (which we call the Linux pagetable) is of granularity
+at least 64K. In the arm64 MM code, we maintain a "native" pagetable per
+mm_struct, which is based off a 64K geometry. Because of the guarantee
+aforementioned, any pagetable operation on the Linux pagetable
+(set_ptes, clear_flush_ptes, modify_prot_start_ptes, etc) is going to happen
+at a granularity of at least 16 PTEs - therefore we can translate this
+operation to modify a single PTE entry in the native pagetable.
+Given that enlightenment may miss corner cases, we insert a warning in the
+architecture code - on being presented with an operation not translatable
+into a native operation, we fallback to the Linux pagetable, thus losing
+the benefits borne out of the pagetable geometry but keeping
+the emulation intact.
+
+-----------------------
+What we want to discuss
+-----------------------
+ - Are there other arches which could benefit from this?
+ - What level of compatibility we can achieve - is it even possible to
+   contain userspace within the emulated ABI?
+ - Rough edges of compatibility layer - pfnmaps, ksm, procfs, etc. For
+   example, what happens when a 64K process opens a procfs file of
+   a 4K process?
+ - native pgtable implementation - perhaps inspiration can be taken
+   from other arches with an involved pgtable logic (ppc, s390)?
+
+-------------
+Key Attendees
+-------------
+ - Ryan Roberts (co-presenter)
+ - mm folks (David Hildenbrand, Matthew Wilcox, Liam Howlett, Lorenzo Stoakes,
+             and many others)
+ - arch folks
 
