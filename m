@@ -4,66 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14E37E83858
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 13:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3411E83844
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 13:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1QndBy6HwCLzefG8/6DHLCZ1CG7oFQV7ECSmysu1dAw=; b=QcGTUuCQKSkwg7X7UjrG0wzme3
-	wrvMHZM/DquUtV6zYQJvY9NfViYMwbDj1a1L4Y181QdyV2uW+Ge3kNGn/PI3UvBLuipiT4gm5a7IL
-	dp8Z0BY41ha2lC71z4mCH7iGV/kgKEdgD71nsqhzBH4sDSHhIalawaCGcuctc3VMNaJvkMhfUmDbN
-	yh67soJ9CrifPK3kvIOrcD31oRQV4HImTloUNjtVeCQVKWnTVECmxt/SP8ThaiOEbXXWoiUxIXc6v
-	xTgG8u0AVMZ5YXsR7ORFwbd+PaQ8ov+WMJEZjpl51dW90RGQl8gdDtnNtRQn5ZeL8kRO0oHrd3clm
-	6w9W+6ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E4b32zHjpuCQl2tQQhEOu3Tnf9yYsPWKmZS/OIB1GQ8=; b=iOUea+bhq0pN4306s0V2/0Ic/w
+	oVRuOlUgDIEI3bFRwoFqcEGa7nD4CwhLE//NB92/st2Is7FVCqW38qrRr4IIPkv2ck+dCo3y0tPxA
+	ED00Xu4rTmET7sMEkiS6PlNMFk9Jzd++8ETSZgKxJ3FPsf+4OVH62cKM6ICss8Co5iuFCZ1TOX2C2
+	iSKSU9FNyD+ez62Swh8LAVpJgPHHH3vruXywA238eGBHO1xWVZoWqNsBUw6GCMN3OJ32kZ+6PG4VQ
+	uE3tbG2jRm4Db/Ja4paxg7OnUL0erLzV07NgACsF33db+n/GB6FXRye0Xfv2ZEnG4BG4ynLMJyrn+
+	iGKHHjFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsKzq-00000008Ivi-2Tr0;
-	Tue, 17 Feb 2026 13:20:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsKzf-00000008ItX-27cd
+	id 1vsKzv-00000008Ixo-1olA;
+	Tue, 17 Feb 2026 13:20:15 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vsKzr-00000008Iva-04Hj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 13:20:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0FC71477;
-	Tue, 17 Feb 2026 05:19:47 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 400D93F632;
-	Tue, 17 Feb 2026 05:19:52 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 17 Feb 2026 13:19:43 +0000
-Subject: [PATCH] coresight: tmc: Fix overflow when calculating is bigger
- than 2GiB
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Tue, 17 Feb 2026 13:20:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MqZ+aZUttKyy4wYea/kIhOceM6Y6BsJbjLC3k/iKK2wKDF7lWRdSfJb5jDO5ltbtEWsw0peEY43RJV7O8sOWC77zIoBVXlDfQ0kh/BUSYrOb0gNhrJ2IaegBwKIl6gmlTfCgY9R1Q7pHgTk5J88leHwbnslVzI7gKEAVH5rjof0j2ORc19W32m4htmIUOyMqlOmvmRTugtoKFs5ce4GclUWzlkjKJn6SB24/2H5DEbvYd1UidpIRjraj2IZ0emNSg8L6aC3dFU+78epqH7qNouZJM+IuKYDVh6sPc5ubnjzjFpw+ATaFrwbqbSLQANm8BFaANfubrdMo9n2ghzA2sQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E4b32zHjpuCQl2tQQhEOu3Tnf9yYsPWKmZS/OIB1GQ8=;
+ b=mU5hTpUk+ZnEmNZvTCrT87uPszFCwl2k2YJm+WKtBX8HGyrvkxFiwo05RB0DJnegoEn6j6KpseE+J0SR4nx3U1qjaJhBOqx+fsEjn0113D5/Ur63X5qedHptp1xozPNaqYZcTnWYfvjpnahmEb7cGYkNSv7kqxgPmCW3cTY+FWt85W1ossJHXfw43UGQtFuJKf+7gTjjgjj8sy6akTrXdwZU0qy7r6z8wRs5YkKR5mqX2noTZqHQlsq8Znd7gKFm82Efso/OG1Ph1EZbvW6UjRjSQ13rKQfmnm2sTDvnRESvFWmCGGbFn7q1bZBkKWDvKSxdciIA3jx2ez4qvSf0LQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E4b32zHjpuCQl2tQQhEOu3Tnf9yYsPWKmZS/OIB1GQ8=;
+ b=nU/OYFJ9+wD8dMeDR2P8Sp7stPfkzYh5N8qs0lE2j80ZPIckfPNQaPX0XCuzdYOhyIC1gDFsqCeXKzsjSNBq4jtStcUQb3MZpuELcjrZ/5wDZQ+7sRK/q8bH4rFcmwQkrJ+yTax3iGRmoyu7oL9C/lBDWsnvDnjYNZySS0ITOhlZUK9tzkTH2EggVZqZJxjF+35z+wHKwipjKv6btaN2LzUgmFgm/41aDq5qykAkTnm+EeYOy9tUpQxDeWwdvoLuy+Bt/f1OQoo8CFmLa6e6yn78Wwcr9X/epigp6nyRo9PHD5Xy5tIk7IcMZSJTK8zhTkJGvTJHHCTJrHUWdtTLcA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+ by AMBPR04MB12208.eurprd04.prod.outlook.com (2603:10a6:20b:75a::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Tue, 17 Feb
+ 2026 13:20:06 +0000
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::e99:f504:ce75:9bed]) by AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::e99:f504:ce75:9bed%3]) with mapi id 15.20.9632.010; Tue, 17 Feb 2026
+ 13:20:04 +0000
+Message-ID: <600ec825-4402-46a5-85df-1e57f0ade49d@oss.nxp.com>
+Date: Tue, 17 Feb 2026 15:23:02 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] ARM: dts: imx: b850v3: Define GPIO line names
+To: Ian Ray <ian.ray@gehealthcare.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260217125952.53997-1-ian.ray@gehealthcare.com>
+ <20260217125952.53997-4-ian.ray@gehealthcare.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20260217125952.53997-4-ian.ray@gehealthcare.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260217-arm_coresight_fix_big_buffer_size-v1-1-774e893d8e3f@arm.com>
-X-B4-Tracking: v=1; b=H4sIAO5qlGkC/x2NywqDMBAAf0X23ICJxdevFFmibuIefLCrIhX/v
- aHHgWHmBiVhUmizG4ROVl6XBPaVwTD5JZLhMTG43JW5s5XxMuOwCinHacfAF/YcsT9CIEHlLxl
- f+7d1TV2UzQipswkl7f/4dM/zA49b5TtzAAAA
-X-Change-ID: 20260217-arm_coresight_fix_big_buffer_size-a8a41298369d
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Junhao He <hejunhao3@h-partners.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Michiel van Tol <michiel.vantol@arm.com>, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771334392; l=2289;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=gPxqymQQcc7AbS+KcuwCvzaL83DqtsIgMWR1FqdhBGA=;
- b=Oy9iM9uga+INKGsCTo0PDQ/ufp8IzfW2fLNBcxl2TcglCpZp05+KgSJ0kHdY1JPnMZwyIqOIA
- jymeSHOctMDDdcg9iA6O1QfHq6lHjzGu9PDLkjgO2KyHbxiFRjFN2JR
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-ClientProxiedBy: AS4P189CA0046.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:659::11) To AS8PR04MB8247.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3f2::13)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|AMBPR04MB12208:EE_
+X-MS-Office365-Filtering-Correlation-Id: f1b5d62a-7b07-412d-75ee-08de6e274328
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|366016|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MW13VTRobm1mVnBNY0NENWJ0ZktkR3VIa3UwZW9qbU9RTkFqRFlDMCs0NUp0?=
+ =?utf-8?B?Yk9jTkFZVVNVcFVHUkNFWTZFelJXQVRqbHRYRVlpQ0cvOGllTm5GN3VoWkp0?=
+ =?utf-8?B?SWpNREZzYlBUVzVqaEswR2wzYTJmdXR2TSt0NkFzRmRrYSs5TUxibnFOYkND?=
+ =?utf-8?B?OXBQbUdvU21rZkRSRTYxZVozMmVqeTNFTnpFZlgvZDBmc2pCRUxpM2YrUTJx?=
+ =?utf-8?B?TkxVLy9GM2o1Tlh5ekcvVllHUzFIWjJRMElSdWxHNkEyV3FoU09xUll2Vi8y?=
+ =?utf-8?B?N1pOZEl4eUJiRWtQSDB1Q3ZYdUdWRDZVSkQ2Z3VEdU02MnExdnhCWTdCUVJ4?=
+ =?utf-8?B?dkJlUFlBNnhFVmdQd09MNjJRVGRueGtKWW1NbjY3RDduVTBJWHA2OFhpa2Ni?=
+ =?utf-8?B?YmtIU1RJZVJZTThZSlM1ZlNqbXJaVFlKcDJ6YWFQYlR0K1hvTEF5U3FTWVVy?=
+ =?utf-8?B?dWUyeWdUVEttRUJINmlablNmV2ptcXYvQThtUkxHM3JpZ0tCK09Eb3hwNGk3?=
+ =?utf-8?B?TWZyVE1nVUhQWmdYS2MyMjZlVXhxOTJ0SzZURktHeEdCV1VSWkw4SDQ2ZFhM?=
+ =?utf-8?B?ZldYZFU0N3h3Tis0OVFJNThwT1hxTmlHVjVhT3M0Ym1yeWtGTkZPOHloMStk?=
+ =?utf-8?B?WUhqZEw1aTR1Uk9lTW1sV2lTL3c2b1d0N3ZJSHR0WGNQU2tMcTkraVV6dDJ2?=
+ =?utf-8?B?SVlkN0RORDlCL2V6dHUzQnJSaDZwZ3dNdmlhTC80WG9MekZRMlA1ZFVwY2pC?=
+ =?utf-8?B?ZUNsYWwyOTB2Y2JJdmp2UHM5SXJVNFRlN3dWZGdOczJkblJZa0h0Z1VoZVMy?=
+ =?utf-8?B?UW5wUzlqeXJ0di9mb0c4dm1vYnh5ZmlDaU5Ici9MaU1HcCtTdFNOVEpWVGZh?=
+ =?utf-8?B?enRRTEN0K2Y2eGt2SEQwZ2MxSVpUSnlzUHZPc29idmYxdmZjRGdQeVhnRTFu?=
+ =?utf-8?B?eE5JdGwrV1p0MVBtdC8zWWpjSG5SRGlNVVc3dzlhNFRoSUFNWGtMUVlUbE1u?=
+ =?utf-8?B?dHp3b21ZaXdvbjNNajRsUHU1Mzcvb3JCMkxmM08yTGVuRFFvU3FwUWhBTFVn?=
+ =?utf-8?B?eGtqRXV2SHpYUE5iNytFZWk1UmRLUWgzNjJBeWVJcytRVERUUDZJc25KR3VY?=
+ =?utf-8?B?Z3huYkhZRmdpeWs2MzZEekdiSDRZaEhNalhySC9NZDdBWEs1a25XcG9HSitx?=
+ =?utf-8?B?VktiWFVRdXQ1V0FaYmZoOThlRkxJNFIxOUlmS0FXSWhOcEpZbW55T2dna0VL?=
+ =?utf-8?B?d3c2NDYxdW5VelZ4TW9jS1RQM09tcGtLLytBSXNyajhzWEFTS21wbnowM3Zu?=
+ =?utf-8?B?ZzJpRmQvajRCb0hMNEw2d3p5anJ5S1o5NHZtSWdoS1UvemxMWVJjMVRDbjNY?=
+ =?utf-8?B?STFpdTFHK3o4bWxLVGw0RG0wamI4OW1uR0RzcnZhQlA0Z2tlNDhrbmZ5SGdU?=
+ =?utf-8?B?bGVIM2x2UWZGY1I0VVpBMUY1M3lCYUU0ZllEcnFBdWFWY21nQ3hZQVcxRFFG?=
+ =?utf-8?B?Q0kzQVQ0bjExSHJsS0t3Zk05Q2NwM2dCaTQ3QlkwNU5udlJCODROQ1BuclBF?=
+ =?utf-8?B?cmVCS0pCVVRLeE1ITmw3SVRUU080VFlMcGFnY09aM2pqM0FLVy9KL3pZWmx4?=
+ =?utf-8?B?RnYwT0ZLMUN1djVQQUZxa01rYmowdmtwQVc2cENIQWVubUdKWVdPdmNjU2hO?=
+ =?utf-8?B?V1g3VkZ5Vk80eUwrTWhmR2NqNVp4Z2dYeWR6MW5mRDFVd3B3NEhFQmE0U0lq?=
+ =?utf-8?B?dFhJcGREVTJ4NUtibVVMU1YrL0l6cXZ4aUhXN3FQMldtNW5CcTRMSEo4SkNk?=
+ =?utf-8?B?ekJPTUdqN1VVNE9HbFp4OG5Gd3QwY2ZuZ0JtanEyeXJKUG82SzdkT1AyRlA0?=
+ =?utf-8?B?OTY0RXc1OXFPTERHUGczWU1EMHZLekVqWjBtOGF2UDZyMndMMTJPY285dDh4?=
+ =?utf-8?B?Z0EwVEVOZ2ZmT2tkTmhJQTVkamsrNnpENFF0aDRQZ1FiczlJNDh1RXludGZT?=
+ =?utf-8?B?ZUYrakxxamwrb3FIa2tCRVJ6YS90bEJhYXRSYkVud3NoTDNmdEZGWlBTWjhs?=
+ =?utf-8?B?QUcxdEE0UTNiRTU0WHBob2QxNzFhZDdrbkhzUUxsR3N0cFF4b0xoeG9UQjdw?=
+ =?utf-8?Q?8PHw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(366016)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Qkx3bXExdDNmTTB0aXU2QkdlSWYvMUJLNVVvdC9NZUU4Y21xbFFXUmREdmJV?=
+ =?utf-8?B?dXUwTUx0NEVpOWprRUhDZjZPeVRRdlRwU0tCRHhIaDB3REVhaXZYTElEdEhk?=
+ =?utf-8?B?OWE2eWtyQ0tXbDYyVnovUUFJam0vVmFtWFROSlhDY2JKYUVLVFlFcDU5Nk5t?=
+ =?utf-8?B?RTRiU0k4WUU2ckZveENtdTNBSmUydHJ5U3N2K2JwSndmUkNBOXpiNlByMld6?=
+ =?utf-8?B?Qll4MUJHckdXdGNycXlWcnlxbXdHV1A0bjJrWXUwYkpOMGtpVktGSjhjZHVS?=
+ =?utf-8?B?eHFxWi9FTlhjTk5MR3JMb2R1dGpDbyt4NlJGcFdzTEIxM01TTkZWZUVDcVVG?=
+ =?utf-8?B?d1FvaEw4UFd3STY5Qi9KVzZzS2g2eXRsVTFTSktaQ1J0YTc4b2diZDUwMHZ1?=
+ =?utf-8?B?aWxjbm9ZZTArUkhIczY4K2tqZVg5T01BVnl1TGZJdStsNmZmN2FnRVFvRkl5?=
+ =?utf-8?B?VEZYQmx3RjEzYUlacGxWRjFHQ0w0OWlaWktNRXdhdUlDOUlrd0FIV29PcFQr?=
+ =?utf-8?B?c3NNMUtxdWdFazJqR21pN1lkWTROMHpnYXo1QjBIeWtLNUVMVDdsWm1xbktk?=
+ =?utf-8?B?K1FXUnY5KzZ1R1F4a253RmErby9JREp0bzBvMXV5eklSV0hGRGl1QTZMUkJS?=
+ =?utf-8?B?UUdsZFdEcXRvTFpkeVljL2E2UFM3ekJyMzc2UjR4YWNGQkJZbWdMN2pOa2o5?=
+ =?utf-8?B?Y2RSQlM0ZlZDb1cweUJoUVRSU20weEZScmpMYTIwL2VSYTh2WFBkQ0Z1aTNW?=
+ =?utf-8?B?SXhOK1I3c0Raa2c1TmJRTFZnMlZhYnYwcDdUdlBlZ0Z3a1psK09uWStCWEV1?=
+ =?utf-8?B?ZnJxZGMzSmtmZFFmMS9HYVZBWUxjcGVHcmFKK1JPSmpVQnVRUVFUTmZPcUxW?=
+ =?utf-8?B?SmVtakJ6VVZQNGlOSExRS3hwNUUySGU5Z090ZmN4TzFlQWRWc1Z4OFg4enZM?=
+ =?utf-8?B?MThjWjI3TWFjRWNnWnc1bDVYWHFTTzhoR1IwZFdlMkhRd2t5cVlPWlMzWkQ0?=
+ =?utf-8?B?WGNHenRZOElKUloyVG8rVk5PNndLbDRPa1lYMDJsQS9VbWwvRHBYM3lPdTZP?=
+ =?utf-8?B?YUh6RTFhMVo1VE5BTnl5T09XMDFRaGJtd2lrVExvUGdzdUgwa2hIZzBJRVI3?=
+ =?utf-8?B?V1RiNmJJeS9JOW1WYVpiOHltbzJIMk5SYS9PVWZaZCtGeGVpKzQ3RUVES096?=
+ =?utf-8?B?YWVYWkZRbVpzSGlGK05reFI3VjZ1QTNXUW5CenZyYkN2ZmQ0cTByZHhHWFlN?=
+ =?utf-8?B?KytwVlo5eFBoQzdyNnZsQzRMQytFbGhWRTJrSHZpcjNnamc5TUUrWUtZVGVn?=
+ =?utf-8?B?dm85emh6ejliZWpWU2hVc1FTSXBPbXJsdXU1UDFSYVhlQVBBZnFyQldPYUxR?=
+ =?utf-8?B?Rkdpd2RkTjJaMHZyZTM1T29VMUJnZGxBZ0R6VW9rU0NrcFBuakVzVVZPUU1E?=
+ =?utf-8?B?WmI3MmZ2d2Q2UDNiWGljbEdkcXpXT2s2c25UTW9UUUV1cEx3MmpMNnpGMUFi?=
+ =?utf-8?B?SXcyeVZQcnRMWEZTOHNQZk8zYXdMQ3Zzc1daMVRTYlJ1NEFnaUl4TEd6TUZY?=
+ =?utf-8?B?OXdpV0x6TkJTVEFMNkI4dVROOGxKTm1YWm5KejIvTDJUclFVcTZKVWFXc3ZS?=
+ =?utf-8?B?RGpMbDh2RWwxWENjSXBYVk5zaTRidGdRUGpoTm1KcHZzcENZcHZyWVZrTWxF?=
+ =?utf-8?B?S3Q2bmJ0SGV4bDlqVUZZV1NNSXFkeXBrUDlVTXdwbzBZV3drbzZLK1lCRFhC?=
+ =?utf-8?B?QkRiQjhpbDN1MkFyZk92WXh3R1ovNExPSHczcmJGTVZCYmV6MzlDaWUwWVZt?=
+ =?utf-8?B?cVNKQzh4VWxwekd2bUdqbW1hbzBwVjJGcDdsSTVxeEhJazltQ3VZVXpack1w?=
+ =?utf-8?B?YjdXeWxuS2l5aWUyU1ZrOGNYMmMweVRTbm41T0hHanFtMmRlZEhveXNla01w?=
+ =?utf-8?B?VFZTMGptSDhzYjR6RHp1MXlmUjNsTmp5YWpwSHdvTVUxbzRXcmVkODh4bGJl?=
+ =?utf-8?B?dTI1TlExaG1wc2IwSmFyVCtoMldjMkVnOE4vQWt4ZlJwNDFEUlliR09VVUFP?=
+ =?utf-8?B?UWNudnRDWkQvNDlLLzJhWUFLanV5UEJ2UGFLWnJnTGpqSlEzdWVVcG93dDNi?=
+ =?utf-8?B?akVSUGhvTVQ3a0R5TUR5S1VqTGhiWk1sU0Nsa1hzR2lQSkRlUXJaUmF1NjJD?=
+ =?utf-8?B?OEpZR1R6YzRLYUZNdjFQak9qUGZKT215K3BCa08weVYxT1Exd0djRlFxc0FC?=
+ =?utf-8?B?UnpEdVRuK1doa1Nub0xVTGJNblYzMXNoZDZyTzRadXRjejBxU0lFUVB5YWVr?=
+ =?utf-8?B?b3FUMUVaZUtrbjgreGp0N1lWSy9UWjVsZUhpcGNQVnZzUW8wRTRMZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f1b5d62a-7b07-412d-75ee-08de6e274328
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2026 13:20:04.6199
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +yFSwQXssShqS1BNfKeCfXDFZpOzZOTxzR6t5cvgo4Q25IRq0UB8BhIwleIw4Yqx2OxqQT/95JRW8xBGs+uijw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB12208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_051959_754129_353AA1F8 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20260217_052011_091245_86E3AEC4 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +190,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When specifying a 2GB AUX buffer, the ETR driver ends up allocating only
-a 1MB buffer instead:
 
-  # echo 'file coresight-tmc-etr.c +p' > \
-	/sys/kernel/debug/dynamic_debug/control
-  # perf record -e cs_etm/@tmc_etr0,timestamp=0/u -C 0 -m ,2G -- test
-  coresight tmc_etr0: allocated buffer of size 1024KB in mode 0
+On 2/17/26 14:59, Ian Ray wrote:
+> @@ -72,6 +72,18 @@ lvds0_out: endpoint {
+>         };
+>  };
+>
+> +&gpio4 {
+> +       gpio-line-names =
+> +               "", "", "", "",
+> +               "", "", "", "",
+> +               "", "", "", "",
+> +               "", "", "PWGIN", "",
+> +               "", "", "", "",
+> +               "", "", "", "",
+> +               "", "", "", "",
+> +               "", "", "", "";
+> +};
 
-The page index is an 'int' type, and shifting it by PAGE_SHIFT overflows
-when the resulting value exceeds 2GB.  This produces a negative value,
-causing the driver to fall back to the minimum buffer size (1MB).
+Looking at my latest version of code this node should be a little bit up in the
 
-Cast the page index to a wider type to accommodate large buffer sizes.
-Also fix a similar issue in the buffer offset calculation.
+file to preserve the alphabetical sorting of references modification.
 
-Reported-by: Michiel van Tol <michiel.vantol@arm.com>
-Fixes: 99443ea19e8b ("coresight: Add generic TMC sg table framework")
-Fixes: eebe8dbd8630 ("coresight: tmc: Decouple the perf buffer allocation from sysfs mode")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-tmc-etr.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+e.g
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index cee82e52c4ea96b035f1db71b2d9a006bfc1c51e..990bbb721e1d712d7b93f1e36087fdaf9d3baa3b 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -154,7 +154,7 @@ tmc_pages_get_offset(struct tmc_pages *tmc_pages, dma_addr_t addr)
- 	for (i = 0; i < tmc_pages->nr_pages; i++) {
- 		page_start = tmc_pages->daddrs[i];
- 		if (addr >= page_start && addr < (page_start + PAGE_SIZE))
--			return i * PAGE_SIZE + (addr - page_start);
-+			return (long)i * PAGE_SIZE + (addr - page_start);
- 	}
- 
- 	return -EINVAL;
-@@ -1381,7 +1381,7 @@ alloc_etr_buf(struct tmc_drvdata *drvdata, struct perf_event *event,
- 	node = (event->cpu == -1) ? NUMA_NO_NODE : cpu_to_node(event->cpu);
- 
- 	/* Use the minimum limit if the required size is smaller */
--	size = nr_pages << PAGE_SHIFT;
-+	size = (ssize_t)nr_pages << PAGE_SHIFT;
- 	size = max_t(ssize_t, size, TMC_ETR_PERF_MIN_BUF_SIZE);
- 
- 	/*
++&gpio4 {
 
----
-base-commit: eebe8dbd8630f51cf70b1f68a440cd3d7f7a914d
-change-id: 20260217-arm_coresight_fix_big_buffer_size-a8a41298369d
+... then
 
-Best regards,
--- 
-Leo Yan <leo.yan@arm.com>
+comes
+
+&ldb {
+
+
+etc.
+
 
 
