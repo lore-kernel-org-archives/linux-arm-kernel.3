@@ -4,150 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9025BE68166
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 10:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C4C8E6816B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 10:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G8i6+u/bpWa+b2K8kEUTWbYqKM2qsbXNNKPoTsSjMNs=; b=04jDz6hIAs37Vmf4JYLseK0fyt
-	QB3yJB2M7b6jTbuoh/EX1LD51lTbzLgvVtyNeVuQrhXni1Oq08dg8UuFeBHVVm2Qumu43UUz83djC
-	ttD6ciPB0LVTYxiTvjwAWx25DNqonBKMIv2qMgQGfKwsy3Sz7BteC9PnQQ1LAvia5N5nQ6GAcabXI
-	1U7ZIO3M6YlC0rU6Gdgazel4ltkUMHvJlHffTPrEcCQYi3jimvIdi2uRi/FnIF1ImGMqSj9igeH9B
-	mU4y5nV1TRoEngWNccpD9pJSU/IeiDnAD7rbK590UIAY+6XX1M6ajSVGNf6KTckMm88Obt67yOUUi
-	wGxT/VLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V+/JvRtAe7W6SXMnT8BD5ObjmKH2oFAc1EBFvqqazsk=; b=VsXSsPNHBT5KG6i/Ia+XcaQ6Wl
+	4VuyHSAYO3DDuaWEWv10TklV7MFuOu6lDeLFABPjr9QMnvjLjM6fMC1Xi3APwL8Qb5Dl5W2TpNSAS
+	f2oAf6KC8UhtgHQujf5axwXjDTfz39pLl6ed2tXIhfxBSopBxc5CI/RocH01mdr9xmS6yHLoBB4/e
+	mTQeJD8oa/+q7x/JGH2nA8qcxIIw6SahEWq1Mvja3r9o4KXTS/sVycQxoHeuhlfOlIFj1o7Z+vGR1
+	5ClWvxPddIXsg5uuRYa8vSicQH1L7CYigs6VIahkhMcXsbko94SHmJx5WFBZuuwBgLWqk/91VX0ps
+	eN+cNclQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsIEx-000000081LO-2l4A;
-	Tue, 17 Feb 2026 10:23:35 +0000
-Received: from mail-westus3azon11012017.outbound.protection.outlook.com ([40.107.209.17] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1vsIY4-000000082vw-185S;
+	Tue, 17 Feb 2026 10:43:20 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsIEv-000000081L0-2cGZ
+	id 1vsIY1-000000082vZ-0SA0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 10:23:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bf7MDvULi1PSh49nmS52onY2g78DGV7AlQbnezHW2NjoYw4jtsvko0Ng/LwK6/WnZfBA7ZtmVKymKH3hN2c0BU5ucXsaYawsQtwI0yaTHGqmTIypug0F5gXvALTV3VjSJCYJ/gA1wOUVSC4IPpLqesGmsbEGgArVBbifOHD2FYNbHUhzyKw6rQM08cVRD28YuotlyjWQ9cCexAP7OA10honpdNh5RirWbDzNA4SN+OHdpBEA33BNtDn9YWiF5pQCS2pVL+SjGQQWUPO082vWoouFZxpf1huKI5oAaxbPX7yb/4r2mz5KaYAfFiG3EP5VKiaGoe8ND6p7LjLlAohwHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G8i6+u/bpWa+b2K8kEUTWbYqKM2qsbXNNKPoTsSjMNs=;
- b=yXHFZhXOWGZPg/mYkHe1tet81lhspxaBkn59swFIwJMze0sWf6WZR9EnA6YRFAAxWgN8bYO12BtsVGOPr8O+YBmnQaI1oIfDRM3jZt/3cPE+I3Ice4ZK4HsCvVjgvnp65ws9mQJJXNdxhogkWiTvzN6K7OlbGO5huI8KUcQHNKJHh+DdGJnBK1IbOO50Av9hu++q+QNRp8CP3QYPbw7LW2KDlQPrpoHfwKuDCBDlmxC+xut+z0sZr4ZWnmmm05+HYwEQu9T7go2+YD6QHLM3px2oyh9nlP+XXb/L03ssTGRZbmmAGN6LBAIfe5zsT5RYqS30KExmVtD8A4EuBLWQyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
- pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G8i6+u/bpWa+b2K8kEUTWbYqKM2qsbXNNKPoTsSjMNs=;
- b=IyY6NGIRy6pUPJPKi21lyozsMmR4j2eBq8+WqOlUNZbQ/j1fWLquJYQmflTm3XW4rQHBZajSj4gXpr6bh0VwYA79yJUY/6JqfkPUCJTUMPDXXxwj300Ahe0z2k7hM01HGUHzc9oQ3LbuSyxNvUMoLhfCpz1+pSml8yRph9VxyuZbkHJUnVBAWbQYxkzSS7rTpRhDIksx0tgKtdLDsGP6HKs4HJpBFWLX15oDmtl4854CfDvDYDQE0HbhLqEafwr06L0qR785/GwbbZmCyGrW8REXLkD9w9H9zYbvPAYbH/4SVJRO9Z0UvSygE5UafmGD8guP80CRcdTqyLmM8EKyng==
-Received: from CH0PR13CA0023.namprd13.prod.outlook.com (2603:10b6:610:b1::28)
- by LV8PR22MB5151.namprd22.prod.outlook.com (2603:10b6:408:1c6::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Tue, 17 Feb
- 2026 10:23:29 +0000
-Received: from CH1PEPF0000A347.namprd04.prod.outlook.com
- (2603:10b6:610:b1:cafe::22) by CH0PR13CA0023.outlook.office365.com
- (2603:10b6:610:b1::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.13 via Frontend Transport; Tue,
- 17 Feb 2026 10:23:28 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
- smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
-Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
- not designate 165.85.157.49 as permitted sender)
- receiver=protection.outlook.com; client-ip=165.85.157.49;
- helo=mkerelay1.compute.ge-healthcare.net;
-Received: from mkerelay1.compute.ge-healthcare.net (165.85.157.49) by
- CH1PEPF0000A347.mail.protection.outlook.com (10.167.244.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Tue, 17 Feb 2026 10:23:28 +0000
-Received: from zeus (zoo13.fihel.lab.ge-healthcare.net [10.168.174.111])
-	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id 5FF92E8F41;
-	Tue, 17 Feb 2026 12:23:25 +0200 (EET)
-Date: Tue, 17 Feb 2026 12:23:24 +0200
-From: Ian Ray <ian.ray@gehealthcare.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: imx: pll14xx: Add 756 MHz entry for PLL1443x
-Message-ID: <aZRBnD2KOP4PYP16@zeus>
-References: <20260217094152.19958-1-ian.ray@gehealthcare.com>
- <rvz22m6k4g62gopbghfssyuwz43raxzoxeohfn7hpvbou3htoi@de2ajdoeybm5>
+	Tue, 17 Feb 2026 10:43:18 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61H1ldRM1232466
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 10:43:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	V+/JvRtAe7W6SXMnT8BD5ObjmKH2oFAc1EBFvqqazsk=; b=EE+UoIXh2LMx+AJB
+	glmDwFL4ppO8lSmJTteK2V7bWWKkOVkrg+d8AnZhtvO7eXeDcJQlxXjMqSl99NVV
+	mj6I+TTUewbk851LVzDdc2E5qdBkoqFrJ5RmO9kA5wn9s9efGSGUNV+9y6EbU9PD
+	GRKP6CrAPr2TfCZQ0hdwI7GipWb9UmxvEwyAZ+uPnKtJdWHBpo0WAHyM4hS/wCn/
+	FSvbYZQg4vyQtfDXDbls13cy3Fk1bIQnoGs6HPG5JJSx7NI0Hox47aKeCGjqSOwA
+	HJ/LRwOq5dIse8iwImMwR5WgLMy71iTrnWq5bjTG1bxq4Dl3tl/eUPIrKeiPm4S0
+	P0o2xg==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cca361fyu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 10:43:16 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2a8f8c81d02so39522275ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 02:43:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1771324996; x=1771929796; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=V+/JvRtAe7W6SXMnT8BD5ObjmKH2oFAc1EBFvqqazsk=;
+        b=BJi9ffkeDOdZF25hyVJg7s5UKGB0n+skZdweldHzNCK6zyXZABmh41a1wstv72CtSG
+         iuy2IV9PQC+WgFem9aWg1w54INR4E7qmLUYsZUO+SKtRJERJdXwDQWlZStpzDLPnvmVY
+         FDBURn493d9LDG8QAUpcW4OUB8ZrdGCCzZPV88PUf4HH4RHR00VDyW4ooNLGNJnTHdnK
+         giKzTTstKIWHOvVzfFloFUW1J2mBkCiocoMVswzGih04fy8mK6J2TsTdgsvUocM5obqW
+         QZG7M4C2grW1wIOfpBZ3yebYNm6BRVbkZS7gh9eZFfYp6HvOG1hEJlrXUDDT7E1bAElM
+         RwNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771324996; x=1771929796;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=V+/JvRtAe7W6SXMnT8BD5ObjmKH2oFAc1EBFvqqazsk=;
+        b=Sq0ZPfRRZXDpjm40Cul5NGACw8w1sp9x2gCQvC+1Fiv0Hv6ZPiqzpJ6DvCBlLRfUa1
+         b51iSp1gh/4FouklzgP/xPFLnnkZqo+PeBLwlNNj9/j3v+vSVmHGqG+RKSyX2YzJNeZ7
+         /JOynOW2q1HTLPtpzK6USKzO2X+2hOnEVuSDRztFlUCLOL04iW4DuT34E7J551qAuQbA
+         X5GyUvIYJuE4fzYmhFiOJ+cUBoBxTFxqEBG09aVz/f5bhrXXufhkp+VL7EKlt1hubed/
+         gXkJJdO8hE2lUM2DO6zk/KyrHBYa0677xlRBZnBFQa/JYw9Hu9ER/ny9cIzZUxnEx88D
+         Y2gw==
+X-Forwarded-Encrypted: i=1; AJvYcCWO8yuUkYvycjjCqmsXZUh7bPRXOsrHDx/qLQRJgLIgo1iWEWLnc5519i5umDODI3jVBzVSUBQBj23FcqaQPYAX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5i/QBonqoHeF0xg7HtQ2XTxrYr5PwK+Yv+dXECgdhMoHALOiR
+	f3h9DNFdQ38YEauOGf1U3bFli0OUtXYri4i6dvHZfXOH+5v09CFPxRxqZD/0lM/Hkj4WOB1eCqq
+	Ezj11sNmKtkDXAw/UpBitEgXtT+OxyAxGntiowmewpukf/L2eSWZ20vMOwGjGxPFKj20ub6+tns
+	KxTw==
+X-Gm-Gg: AZuq6aJTB6Mk/v5iBrmelTYIDXUKAxyK70HDFkCF6TmdMYsNHKMmxRif5KUoN9Nb8ho
+	Lh6nB3cXCo3Stl6G1zSWWUzmAwZoQTRuvpSa8Kx+uKdKiz4EmqjI4b2IFVuVLjeU3oPOxI5xovi
+	/YyBsdAxX9JeWaO+cBrl7xb6BSZAIykNqCdv9kqvejIUHCyXLyV7JqfNBEg2fPoi9or6ki0UTCe
+	vOGOdguHMLvrUNiYEH2c8Ti3StKWyls0vJdYoVT+S5nIQsvqrYo9wa8t19ysvIUaiNW1A3kIoKJ
+	o10SJLREKutPVBoCXxq5IQ/UB9YeqWzR1LVmKcCcwuAwpJObuEqdNRGiUbm3PT+/d5XQWlE1HL5
+	glsme090lPaWvcHFLZ5AP3yaKifinMxzn1r3/7nw01rOGsm9RmU8TksVT7cM9VQe00frrZulrcv
+	i1TEz29yLmH42p4gasC4LCxjKxKWXYR7AtJUWVe1emoQ==
+X-Received: by 2002:a17:903:3d0b:b0:2a7:a9e4:babc with SMTP id d9443c01a7336-2ab50647207mr149474895ad.61.1771324995782;
+        Tue, 17 Feb 2026 02:43:15 -0800 (PST)
+X-Received: by 2002:a17:903:3d0b:b0:2a7:a9e4:babc with SMTP id d9443c01a7336-2ab50647207mr149474455ad.61.1771324995265;
+        Tue, 17 Feb 2026 02:43:15 -0800 (PST)
+Received: from [10.79.196.238] (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a6fa21dsm94508805ad.12.2026.02.17.02.43.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Feb 2026 02:43:14 -0800 (PST)
+Message-ID: <237a1d5c-46a3-4459-b0d5-21fe2cb57a83@oss.qualcomm.com>
+Date: Tue, 17 Feb 2026 16:13:09 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <rvz22m6k4g62gopbghfssyuwz43raxzoxeohfn7hpvbou3htoi@de2ajdoeybm5>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000A347:EE_|LV8PR22MB5151:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0abbf2d-a522-4219-466d-08de6e0e979c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TzVmeE9RWHR4WGplYjJING1nUmR5UWh0aW5GYmVnTTVaQzErQ0w3ZUd1NURZ?=
- =?utf-8?B?WmcxSTh4ajhLUEs5RHJPc1I4djdxeis0REs1Q0FleE1JM043MXh0amdydnp4?=
- =?utf-8?B?SDZFMExDVU9tdzhGanZhWFJIQy9Zb082WHJENm1hU255cW5kWGk2MndONndK?=
- =?utf-8?B?bWZJVzI0SVVVL1FjdHQxQUtEUFp5bSs4MWZ1cDlRcktsSEE3MnBTTTNXR0xm?=
- =?utf-8?B?RzB2dEIvVWZ5eFRPTXBJR2FQZlYzZnZ0ekQwQ2QvcEp2Y09YNnBCcXV4KzhW?=
- =?utf-8?B?WUxSUVM5NE9WS2h3ajJmK0pyWGFPRVdITTh5QWh4MTlvUml5TTlDbDVCSklR?=
- =?utf-8?B?RGVxNHdJWW5UM1pQQlhyVG9xa0FJVmE5VFZFc3pleFJPY3BDRnZhZEJ4dGtt?=
- =?utf-8?B?dXNlNVlUZlJpQmEzaGhaVDRKSDVQMlVvdVA0TTBNYUpoeXcycXlxTEtHZUZx?=
- =?utf-8?B?WWY4Wlgrd3QvT3JOTUdYYU4wUDJrNmsrTGVWc3U4eWplUk40Tlh5RXpPRHQ2?=
- =?utf-8?B?UmRIY1JzVGhMODFOVE9KRGNZM1U2eHp2ZXVMZXFSZkZYNzBaMERHcCtWK1FX?=
- =?utf-8?B?L29WLzdYb2hYMEdvUDNQaGhVb29WUTRtc1RlRUlBbjNvZGVsUzRMV1I3SlBY?=
- =?utf-8?B?VmF1U1FLZ01rTVI5MnFYR2tScElxeUFTYXcwd1JjL0I4Q0JHcTdIaEpEMGtR?=
- =?utf-8?B?bVJQbnRkZUZ0SkFHNWV5cm5zVTV0eWd4S1MwRlMvQVY1MGRKRGlQcmJDemJa?=
- =?utf-8?B?MjBCZklGN3JFNzhhcWM1U29LOUI1YVFGRTIvUmQzMGdjVFFqYzQwY3RFWDRq?=
- =?utf-8?B?VWtEdEFVYkNmVlB0SmhoMENqd3M3U1RHOHBpUGlKempLQ2lWbUhWV0NsNElp?=
- =?utf-8?B?cnA5MkQwTEJxZEszakx3bmp6N0dDd2JQWkRQV3BUYWk2dFN3aWVaM0Nvb2g3?=
- =?utf-8?B?T3licFVpSWJ2R1BobkdWRnFJVzZrTUUzQWY3N1M5QzdlTGQzNUFvN1RobXJ2?=
- =?utf-8?B?c242QzF5ZXFYNHk3NmU2UTdiRUJHWDd6blBnQlBBTFdzVmtQN1I1R293VVFh?=
- =?utf-8?B?blVyWFZFZEs2dUE4NkpHVnZOVjJWUUxOL0hSM0pLZmFmMW03QkswU2Exc2Jp?=
- =?utf-8?B?MGNGMUVyVm9lWExzMWFyRXN3bnZiQkZrNzRMclk1cTFuak5DQVdZWHhHNVdT?=
- =?utf-8?B?UTBobE8vL1FXRGhFcFJ0bmJLcjZtRzhvY0F4NGRxSmRkV09QZGNUWEhXbkdV?=
- =?utf-8?B?aEx5MzBwZGxyamFJRzFSejJDaWQzK29yR0kxb1NqeStqRzNDbklBMWlIcytp?=
- =?utf-8?B?YWRiVWxQc3ZtSVJQRjNwNHB1MERjMUVGazFJcGE4U0VnNWZ6ODRhUDhVdURT?=
- =?utf-8?B?dkZEVEZ5YitidGFnbXRkOGJrblpUdk15N2pBYXdCeTZKeExLNUVIaG80TVJo?=
- =?utf-8?B?RzFXalhVc1ZIeWZsUUo5bDB0RmtGOEx2Qkp6NDVUQ2ZBNGJFZ3hXaVV1MitS?=
- =?utf-8?B?VWJ0eTNOVC9WSE9KSjI1MUdhemhPVW5QWmNSVGQ4SjR4YkRYU3I0SGNOZlVt?=
- =?utf-8?B?RjJxck9kSlA2Tm8xR0RQaGhaaG1rNkFTeEwvOGVoeW54QjhvNThEQmFnTWF4?=
- =?utf-8?B?NjRNYkZ1WVAxWDdRaXJ1SzluUEdPeHNjOU1kaElSbGhCcWhVMG5uQWkzSklt?=
- =?utf-8?B?TUZMNEduSnNadk1PMXVQZVZxRmQvNDljR0JFU1g5ZjRkdVc0SmVBU1pIMERl?=
- =?utf-8?B?OEF4T1FSRkZ5b2drUUlCL1ZER2k5RThtMHBOL1hHNnh6OTJFQVBIb20xc0Rh?=
- =?utf-8?B?L1NjNTE3OEtSeDFqTzhYZnBsN2I2QmUzNkxiYUhDRkRvK090eGJaSENxeEtB?=
- =?utf-8?B?N1VFa215R1V2aGdmODdtclVBcmNRbmIwNjBGNGJVOEI1b2Q1UTRmZGFNUjZv?=
- =?utf-8?B?a2d0ajQrWXVmK1luWThFNldFUDFwaVpiMXNnb0lTSFBYMlpEVnNhN1RsV1dk?=
- =?utf-8?B?WGdBZFovSEFiYXl5RUZ4WDc0c0lnSDJaWWtwVStmNW9kNjdlbDk4TjFDb0Fo?=
- =?utf-8?B?TUgyL04zMGRYMWw0S0ZTbGtsTWZYV3IwaDN2WnpBZEtDNHNQWStnbzBBK1RL?=
- =?utf-8?B?M3dqUGZxTkFLT3o4TkF6bkR3dWhYV0RkWWhLdnNlZEpVV0JFa256b0RXeHpi?=
- =?utf-8?B?YVE9PQ==?=
-X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mkerelay1.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: dqpWdcPXYGPvFE3LDJH8fxOHXWFs8yGe5P6zZt25mPPRkp7hcYOj/eTJL3BcxLidtj6GadMfhQrEv4EwjgM6D6Udar6MLRW/nlh0u6KMy7kIQkJHFNENtHZnb2JiL2rGTHfrQmHv+jMCBc3yI579qVVOrjxzSXHjbSHfEbf062McCIMhydKh89s/4SjrKdV9qOIoJUgqWW3qoWPRFes9gjxwoQQBCnUyKqfTwTGuKF/L/vMgnc8dIlutR57YU5tlGI1ZM9aXJQqRxQPiva16Hili4nwEAhh5rAY5JVi03OnVaWsw8H2a+fmRm8+PA7/gboN2toSPIlK/OKZo6RYhzEmqgzu1FnzZsC11iBNxD4+Wy7z5BqL/qBvXgroeWICrxh3bFcUsmMH044MnJGq61zsaYdX4onu7p1j1W9ks1m0bjQCNwuUfN6W/Z0V5hvmt
-X-OriginatorOrg: gehealthcare.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2026 10:23:28.4181
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0abbf2d-a522-4219-466d-08de6e0e979c
-X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[mkerelay1.compute.ge-healthcare.net]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CH1PEPF0000A347.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR22MB5151
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/35] KVM: arm64: Add support for protected guest
+ memory with pKVM
+To: Fuad Tabba <tabba@google.com>
+Cc: Trilok Soni <trilokkumar.soni@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu
+ <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Quentin Perret <qperret@google.com>,
+        Vincent Donnefort <vdonnefort@google.com>,
+        Mostafa Saleh <smostafa@google.com>
+References: <20260119124629.2563-1-will@kernel.org>
+ <f151a8ba-b76c-4037-b1aa-b6b52e92b7e1@oss.qualcomm.com>
+ <d2303150-5692-479e-9a56-11a52ba58c2b@oss.qualcomm.com>
+ <CA+EHjTycHq7WkOfD7d+1-9A7HOAkGzBTmEm-6DB8Y0TNq-Aftg@mail.gmail.com>
+Content-Language: en-US
+From: Venkata Rao Kakani <venkata.kakani@oss.qualcomm.com>
+In-Reply-To: <CA+EHjTycHq7WkOfD7d+1-9A7HOAkGzBTmEm-6DB8Y0TNq-Aftg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE3MDA4OSBTYWx0ZWRfX2YmThE5odxkQ
+ s3BpHquECq+Kg9Ou1lUeX7pfiRnn6HkSfAWHQmLqfLtC8/IHMode8AC7DaE1BebYo3HqEsea/Np
+ 3q+AdibZZlKRxHYlSznPOHojYRzAJoiEcB61q0wiWePG+XGNyGQK0gU/EnORuYLhVKh/9I9EXlp
+ +SJXUzFoym70kkzcFODkAH5Fg5HIwaSjwbYCoA8MPTxbCyg1gQFNIFzt0B5wGwXlJ49H06rykQn
+ Krb2v82EOB7tYzg0Uz1m4EuKzZPkz5PGEpcFV959M02ykGq5o3YhR4ijnrG3v1nt377rI/vyJsy
+ Ck4jfx2POBRTnqBL9Xcb3uvS2lQBAjJvl9xS3ZeOCfSndi+p0EbWN4bKNE6+BCn1kPIVTvyYnTJ
+ dcc5/IcrcnpnAiRdcOoW+L/l74edGRmbyysrSL33I60Uh/fUZ3bluEcpfG1sQKmV3Co2Lr3f4NR
+ T4TxlnDU+xuCIVUvs8A==
+X-Authority-Analysis: v=2.4 cv=b+G/I9Gx c=1 sm=1 tr=0 ts=69944644 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=jh8-4IubPDD_rd732qoA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-GUID: F336pzpNJdr-xoD__9dsJovg-aUs6ACy
+X-Proofpoint-ORIG-GUID: F336pzpNJdr-xoD__9dsJovg-aUs6ACy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-17_01,2026-02-16_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 lowpriorityscore=0 priorityscore=1501 malwarescore=0
+ suspectscore=0 bulkscore=0 impostorscore=0 adultscore=0 phishscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2602170089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_022333_666615_645B186B 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20260217_024317_160138_1E593908 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,60 +160,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 17, 2026 at 10:54:49AM +0100, Marco Felsch wrote:
-> CAUTION: This email originated from outside of GE HealthCare. Only open links or attachments if you trust the sender. Report suspicious emails using Outlook’s “Report” button.
-> 
-> Hi Ian,
-> 
-> On 26-02-17, Ian Ray wrote:
-> > The PLL1443x is used to implement VIDEO_PLL1 on i.MX8MP and can be used
-> > for dual-channel LVDS displays.  Add new rate 756 MHz, which divides by
-> > 7 to provide 108 MHz LVDS pixel clock, and by 2 for 378 MHz LDB clock.
-> 
-> the on-demand rate calculation doe for the PLL1443X PLLs is not
-> sufficient for you?
+Thanks Faud, it worked.
 
-Apologies! The on-demand rate calculation does indeed work. So please
-ignore this patch.
+On 2/16/2026 4:30 PM, Fuad Tabba wrote:
+> Hi Venkata,
+> 
+> On Mon, 16 Feb 2026 at 10:58, Venkata Rao Kakani
+> <venkata.kakani@oss.qualcomm.com> wrote:
+>>
+>> HI Faud/will,
+>>
+>> Can you please share tip of your commits to apply the patch series cleanly?
+>>
+>> I could not apply on tip of master branch.
+> 
+> The link Will provided in the cover letter above didn't work for you?
+> 
+>> As before, patches are based on v6.19-rc4 and are also available at:
+> 
+>>   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=kvm/protected-memory
+> 
+> I just tested it, and it seems to be fine, based on Linux 6.19-rc4.
+> 
+> Cheers,
+> /fuad
+> 
+>> Thanks - Venkat
+>>
+>>
+>>
+>> On 2/11/2026 12:28 AM, Trilok Soni wrote:
+>>> On 1/19/2026 4:45 AM, Will Deacon wrote:
+>>>> Hi folks,
+>>>>
+>>>> It's back and it's even bigger than before!
+>>>>
+>>>> Although the first patch has been picked up as a fix (thanks, Oliver),
+>>>> review feedback has resulted in some additional patches being included
+>>>> in the series. If you'd like to see the first version, it's available
+>>>> here:
+>>>
+>>> Is it possible to test this patch series w/ the QEMU or it will require
+>>> real SOC platform?
+>>>
+>>> ---Trilok Soni
+>>>
+>>
 
-(The patch was needed on kernel 6.12 IIRC, and I automatically re-based
-it on 6.18 without re-testing. Once again, apologies for the noise.)
-
-> 
-> Regards,
->   Marco
-> 
-> 
-> >
-> > Signed-off-by: Ian Ray <ian.ray@gehealthcare.com>
-> > ---
-> >  drivers/clk/imx/clk-pll14xx.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
-> > index 36d0e80b55b8..84279cf9f12b 100644
-> > --- a/drivers/clk/imx/clk-pll14xx.c
-> > +++ b/drivers/clk/imx/clk-pll14xx.c
-> > @@ -63,6 +63,7 @@ static const struct imx_pll14xx_rate_table imx_pll1416x_tbl[] = {
-> >
-> >  static const struct imx_pll14xx_rate_table imx_pll1443x_tbl[] = {
-> >       PLL_1443X_RATE(1039500000U, 173, 2, 1, 16384),
-> > +     PLL_1443X_RATE(756000000U, 252, 2, 2, 0),
-> >       PLL_1443X_RATE(650000000U, 325, 3, 2, 0),
-> >       PLL_1443X_RATE(594000000U, 198, 2, 2, 0),
-> >       PLL_1443X_RATE(519750000U, 173, 2, 2, 16384),
-> > --
-> > 2.49.0
-> >
-> >
-> >
-> 
-> --
-> #gernperDu
-> #CallMeByMyFirstName
-> 
-> Pengutronix e.K.                           |                             |
-> Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
