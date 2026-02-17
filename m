@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2703FE6816F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 11:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1740AE68172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 11:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=31wGoQCrJHiHHoy6Arff+pnfQmk9AyFwMKxIIalQup0=; b=PP1RUXbmlCPQGYEr72kK0afOuj
-	oofO+99+N1GIfVI2rtn+tBlYq4LvbpFSo28hQaHIof6X1zlDzRSNWwXILYVQAzxIcs9/CZMVaEH2e
-	JB4SnLWAF38iVIRr+bJRr4XxPpwTm6Y7ubjHEuReNV3e3YllT6SB8Mo4KBXJcyMopiSWFu2t0W1Wg
-	3pHGCpovw4g5cJEcH+fIW6Y1L2d9OJ3ZDmego/7uTQXu5NIRHOH8cZgGgKNfBq21jQWV++Ju+cgf4
-	+esBvuqv4BRNTTKKc023P69lwyr8B1ACh+k+ghuu/KLZf/QbfBQyd7HJ7xxjOunqWy0OonNfMo1ot
-	gFS0N9Hg==;
+	bh=TYlhtpdrfBQ8vdXnBTpJdJ7ccgw4Nw/Az0idcrGZBS8=; b=LL5k3UEuTUO8c78JJNVezwFO8t
+	cBh+7FGuwT5NIXWH7DwDwBOnkzvv3yYxyjmRj4kIU25ryZ/ZF4SCV/pPylrYOhCTDZZRplv/Ql+eX
+	DdGkGOdvl3YvnO1651+qjH8wbZC1DCH6L7NyZ4/9JIYlcTidwOuNs5wzzSRkx0Ic3PqV4qohAzDzz
+	8rksSu4kjhoARDIGd1KliDCX8sddQ9KjO2IWQRVgBQyLysmCwpeRPGcfKJ3YzecN8do7tLRHUV7w8
+	5UJsgZyNwe1DGiBZHTWqKQ7vJXDQjFWlsgAbRs0grcZZo+ZT5uFglkiHqPbkG3Eep8SaaCTDEcnWT
+	b+rdT59g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsIrG-000000084dM-11CA;
-	Tue, 17 Feb 2026 11:03:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vsJ0e-000000085OW-31XO;
+	Tue, 17 Feb 2026 11:12:52 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsIrD-000000084co-3nHS
+	id 1vsJ0Z-000000085Nw-38xH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 11:03:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8337D442C5
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 11:03:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 604F3C2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 11:03:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771326186;
-	bh=31wGoQCrJHiHHoy6Arff+pnfQmk9AyFwMKxIIalQup0=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=kS2/fK/F3NXnxlB/UQJy1PmXbWyHasTYR8JPJlTKlfDXlckXkzWlJa0FVxiAPcDdJ
-	 kabh7Yksq6+AbmiyfaOfBFHCRPQKO1Gf3175jJkcJyRo7V+BldsA9b1qd657Ee3GJR
-	 xxooqa95En5DIDcfD79U7QGYwxTLZvL2BA5jpJmw2bHewfHZN1+scuFhjwzb6+Bs4T
-	 F4sr7GZDDKVf38SRDmM4Z4kiPxzNkY+OuPZv7jH1TPHLSJvqs97WkoV+KjdiJGu6WY
-	 nCASxOHxMk+0ownDSswvYJYawrffEGcu7YKYII0iwfR9GarusG1eOncEuYKOXDE+Q3
-	 h1ytUERqLEq2A==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-59e614b3dbcso4296967e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 03:03:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXTaHyo6WFa4RExwbgZk0l3Ha0FRBP8kPhB7IRdPQyGXT/GcgFEVI06vFQUVF78i0IJGP9l5KX/9yhZnFiqecIq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhqII7QUuOiPh60S9984tUW6G1Ik8Gs1Ng2lra+5WXVfxk5Oxi
-	3ATTUPO7peXRzqZzw8gg4B+wpecYExBAphRIP1vVYWLI9Zm7P/AV5gVynihPTQ8IL0Id3HpfA3Y
-	cBQB0iAuSglJpoL2v1Vtf5VNc3/TGKT+nzmalfPXnOQ==
-X-Received: by 2002:a05:6512:1050:b0:59e:4786:2823 with SMTP id
- 2adb3069b0e04-59f69c3d26amr4503376e87.23.1771326184953; Tue, 17 Feb 2026
- 03:03:04 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 17 Feb 2026 03:03:03 -0800
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 17 Feb 2026 03:03:03 -0800
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260216160946.2977985-1-wens@kernel.org>
+	Tue, 17 Feb 2026 11:12:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vsJ0P-00086Q-FK; Tue, 17 Feb 2026 12:12:37 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vsJ0N-001E7b-1N;
+	Tue, 17 Feb 2026 12:12:36 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vsJ0O-00000007gOG-2jDJ;
+	Tue, 17 Feb 2026 12:12:36 +0100
+Date: Tue, 17 Feb 2026 12:12:36 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Ian Ray <ian.ray@gehealthcare.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: imx: pll14xx: Add 756 MHz entry for PLL1443x
+Message-ID: <il4ssuhxfnpgz2mrixybum4i5v2j6mmozqakedzav5miwbbezg@qfg25ybp7lpo>
+References: <20260217094152.19958-1-ian.ray@gehealthcare.com>
+ <rvz22m6k4g62gopbghfssyuwz43raxzoxeohfn7hpvbou3htoi@de2ajdoeybm5>
+ <aZRBnD2KOP4PYP16@zeus>
 MIME-Version: 1.0
-References: <20260216160946.2977985-1-wens@kernel.org>
-Date: Tue, 17 Feb 2026 03:03:03 -0800
-X-Gmail-Original-Message-ID: <CAMRc=MckMbg6W4d7x5OKvTEq-Gawqh1mzY+fvddhxjDv7Si0pQ@mail.gmail.com>
-X-Gm-Features: AaiRm50etZVT4Nx2EmA6QKebjX2RBcYIpgTucEC8eTHgaygABndvmN-wh6OFaXg
-Message-ID: <CAMRc=MckMbg6W4d7x5OKvTEq-Gawqh1mzY+fvddhxjDv7Si0pQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: sunxi: Implement gpiochip::get_direction()
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	James Hilliard <james.hilliard1@gmail.com>, Andre Przywara <andre.przywara@arm.com>, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aZRBnD2KOP4PYP16@zeus>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_030307_962435_CBE1A797 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20260217_031247_795031_DBA5D241 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,17 +81,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Feb 2026 17:09:45 +0100, Chen-Yu Tsai <wens@kernel.org> said:
-> After commit e623c4303ed1 ("gpiolib: sanitize the return value of
-> gpio_chip::get_direction()"), a warning will be printed if the
-> gpio driver does not implement this callback.
->
-> Implement it for the sunxi driver. This is simply a matter of reading
-> out the mux value from the registers, then checking if it is one of
-> the GPIO functions and which direction it is.
->
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> ---
+On 26-02-17, Ian Ray wrote:
+> On Tue, Feb 17, 2026 at 10:54:49AM +0100, Marco Felsch wrote:
+> > CAUTION: This email originated from outside of GE HealthCare. Only open links or attachments if you trust the sender. Report suspicious emails using Outlook’s “Report” button.
+> > 
+> > Hi Ian,
+> > 
+> > On 26-02-17, Ian Ray wrote:
+> > > The PLL1443x is used to implement VIDEO_PLL1 on i.MX8MP and can be used
+> > > for dual-channel LVDS displays.  Add new rate 756 MHz, which divides by
+> > > 7 to provide 108 MHz LVDS pixel clock, and by 2 for 378 MHz LDB clock.
+> > 
+> > the on-demand rate calculation doe for the PLL1443X PLLs is not
+> > sufficient for you?
+> 
+> Apologies! The on-demand rate calculation does indeed work. So please
+> ignore this patch.
+> 
+> (The patch was needed on kernel 6.12 IIRC, and I automatically re-based
+> it on 6.18 without re-testing. Once again, apologies for the noise.)
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+No worries, sometimes there are needs to very specific PLL setting due
+to emc or so but these are rare cases and therefore I asked :)
+
+Regards,
+  Marco
+
+
+> 
+> > 
+> > Regards,
+> >   Marco
+> > 
+> > 
+> > >
+> > > Signed-off-by: Ian Ray <ian.ray@gehealthcare.com>
+> > > ---
+> > >  drivers/clk/imx/clk-pll14xx.c | 1 +
+> > >  1 file changed, 1 insertion(+)
+> > >
+> > > diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
+> > > index 36d0e80b55b8..84279cf9f12b 100644
+> > > --- a/drivers/clk/imx/clk-pll14xx.c
+> > > +++ b/drivers/clk/imx/clk-pll14xx.c
+> > > @@ -63,6 +63,7 @@ static const struct imx_pll14xx_rate_table imx_pll1416x_tbl[] = {
+> > >
+> > >  static const struct imx_pll14xx_rate_table imx_pll1443x_tbl[] = {
+> > >       PLL_1443X_RATE(1039500000U, 173, 2, 1, 16384),
+> > > +     PLL_1443X_RATE(756000000U, 252, 2, 2, 0),
+> > >       PLL_1443X_RATE(650000000U, 325, 3, 2, 0),
+> > >       PLL_1443X_RATE(594000000U, 198, 2, 2, 0),
+> > >       PLL_1443X_RATE(519750000U, 173, 2, 2, 16384),
+> > > --
+> > > 2.49.0
+> > >
+> > >
+> > >
+> > 
+> > --
+> > #gernperDu
+> > #CallMeByMyFirstName
+> > 
+> > Pengutronix e.K.                           |                             |
+> > Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+> > 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+> > Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+> 
+
+-- 
+#gernperDu 
+#CallMeByMyFirstName
+
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
