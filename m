@@ -4,154 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 304BFE68153
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C9FE68149
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MS3hOD6m1Xbn2MbT5juObO378HbR+C+3UhwUs/0y+8A=; b=d3IbvKUYqU6c8y
-	VBLObShq5S+fdraLrfl+vwhpJgSlDQyn+eAX8yk9lOOih7shm914k9EM/qj4xXYgm7ObF0qyRlnyL
-	uXi59DgS9waFbuH1Mqdg/jbcJ7hrKlmnDvVH5US9QXbEgHQt6oPJWQeaJuCpWZAYjDXrfEzgfQqLH
-	UH+IB1CRrrP7u3czpr5Ose0a/rK42p4/AZ0RFi5YMZzvmhlphhibSf+NSuYy0yhGXNWVuMEXCZK+H
-	izhxnqLMWLMrK8KUWNIZ2X1grK7SKjONoX9leB2wPmbXYpZia1Ck+iUpRQr5ZHGXhdMDDwEbK6yyH
-	G6f1xljmesw7qurx3PYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OlcXTAXHsnl/WtrFqR8o0BlGKwsZMnh0pz3tx1Nme4Q=; b=itv5R7Y06amNS+amv1xe+7rC2M
+	W3V8/uXwcUo35XNRvQoKeCt4oZzJsKZHGv8KLUml0CcQ8Srzy41YLZTj1Dq9P9lkllUqmOhFetM5Q
+	FNWqE9lklYWGnmgyrWq2kHiB+9AAT9fzTu5lGiim9zAZt6Y9104LzZUmEDn1gTon/9dc2UXdH9UIG
+	rJAfuXAOOh+zr+KdJQrk79yQ3ajlcn/ekm008sZ6Bfx4AOt4aoMvs1Q+zHO2+Uc1IOXIiS3yI1HZS
+	fyEr5pFtTU9/l/J6SiHu2Y8f+Aa/3JJiE91KUhfTw3gdiScgTvaE+4dKes6VMojJsfKzBwj+W2rz3
+	640Dwagw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsHCO-00000007vD2-3Nye;
-	Tue, 17 Feb 2026 09:16:52 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vsHDd-00000007vfu-0L2n;
+	Tue, 17 Feb 2026 09:18:09 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsHCL-00000007vC5-2seo
+	id 1vsHDa-00000007vfS-3XwG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 09:16:50 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61H1lhKD1441859
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 09:16:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=MS3hOD6m1Xbn2MbT5juObO
-	378HbR+C+3UhwUs/0y+8A=; b=Tqs9XoGqMHyJhDnFRxMTnUMq6VMJPXp5/OyAMf
-	zLuLNEx/bq1D8lwYawytRf9T/eU9/VU+sIE68ljs6nsa4fBwzHjjSXZQkMRZhcsx
-	pbVK1hda901a13I5jS/Oj9MwBAmdRJn/Qpd8Tm3MdATDxHL7cqRFjHWWKFBdXPBN
-	5/5ryISPnlEU+88CPg9zFbp/YOqAcT0S4aoONWYHHcFL+7tE3+3AGVT+tPfEawvi
-	L8JIUgoDnS4K1ZGTxWXfVIp09/kT06aUMqd76cfPEi1VxH86ee0SJemjD6eDKhcL
-	29bWiGZYdiv1ML79O0UyF4Kw+o7eDdnY4G1rrjgSr1GcgI3Q==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cc6a9ss7u-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 09:16:47 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cb6291d95aso1534733085a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 01:16:47 -0800 (PST)
+	Tue, 17 Feb 2026 09:18:08 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48372efa020so28171345e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 01:18:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771319807; x=1771924607; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MS3hOD6m1Xbn2MbT5juObO378HbR+C+3UhwUs/0y+8A=;
-        b=OSER//pf6sGeb8HipuAdzbe7sQUnZ+6odxQSQ0Cbq3aUKGgzqpPnvwGf6ulvsEnTjo
-         L5ZfVAAyCrE4XG8YF9m76lCG3IP93jTMHpN1OcbxxkDnDIr6gtLn8XWzp2ij7xXGnUHz
-         S2ydmgloFMBvLokXmvva0/Oq5EF6Bm49UfrprwBCHvlRH3fpv2h3qH5XsjYLFffjf5as
-         JfNUhBEIcEEPETJtZcHin2UtT0TVKU415bxPqbnzmuPh7knOrU6JveJdrvmYpr4BRqJv
-         kCfr6iO8j2dmXWzxTXU4mm2PMh4h0zciYlRPk2vVeXXD12F9GpjlPJ6ekC7hEUVPl4sn
-         fv9g==
+        d=linaro.org; s=google; t=1771319885; x=1771924685; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OlcXTAXHsnl/WtrFqR8o0BlGKwsZMnh0pz3tx1Nme4Q=;
+        b=uEDhlPTOSEwLvv++Nwi3OM5Y6h8MqLFfFcIAcLMeKguA4Aa5jWru31j3VByXPfDkiq
+         m4gA2DFRZCtTwb58S3zq0EFe8F6ZMxDG3H8VUgUd9CSDlUtSkOXylmJgV1nCmYBq2vIo
+         mgm0YpSBJAuKItKRto7g87nod74wYKFIacy7rFCb5bZNnblgld0lJLkFQv850bjqaywU
+         X8oZvx4QzDsZMHcn5FN1tkiJTbLFEqz9D3c0rHld0ArSC5lbXVPKdP8QgxJeyUoBSSGa
+         tI7T83oU/K64Rqa5Tv+F+EQuKH4Y1L/MNfO/SZV+iUZ7Z8fbVJb2j3650Su+bzFFK3vO
+         99rA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771319807; x=1771924607;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MS3hOD6m1Xbn2MbT5juObO378HbR+C+3UhwUs/0y+8A=;
-        b=U935MMaAScrtOuZIfSgeBPZi0oxn/4m0p5kAT4CzZBYGSne9n3EygzZ5h6UBdyi6sB
-         mBBjTl+jFYQqF7cT5krPwe4rEeQUPLEaAU4sDMomgqPaOfpcuGZIeYq+PcTboousZh9Q
-         IFdexKL8rTn/1gLQy41OGp5s6/nOpC758GgQGUFGXcnz17G7lhSEhACy89smZIbyciKP
-         gpWT4VPVcnkN5LTzufQczMQoqmVyabwJuJK+G+AK4wKLqiwG4KyH2Dm+m8Zc0dxGFnPR
-         yMP9ztPu5CKuoW23xJne8jEWGd4Sg2bS7GZrgEp/Q3jQtv3VE+VVNUKKZlUaFtJAw5V1
-         x45g==
-X-Forwarded-Encrypted: i=1; AJvYcCUr6lT+xLRevjIG8v5jVDBirnWVhkpgSC5IyMNayUJnmJi2gPfxHmn17vMyBmMpPHlIIBoUm78s9dxAnc36Ccpr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeDeF8Kfksm2Rm8o+fNAXfF8j+9xmu/fcQPFbwrIvDi3k95o0Z
-	/QDHVKtFpn/6e+k00PjhwCdnDOvqcMRvscrFif5RSIX79zLbd2j/8PumtTW3m/UfXqD8jbpH66p
-	MpbamEh3n6deS+RBrshgJ50RwbYOJAWPSzeUPYz2P3CgD0oH63WxqzBtXvijnl6YLhvZOIQ0wt/
-	P5nA==
-X-Gm-Gg: AZuq6aLxQ9ngR/ozIlSn1lnZqKV17HYwSNYJYuE9TOjaGVbOGoHOuPiS1cr3KJvtPaH
-	6xpJWg9mCRc9E10RrPf/NZF0nATFScZk1GGeItc/n6MKBNEnZ6fy6OwqO38tqyOo6ue/S2+rJFR
-	raV5OtNvgKfFDLG6oLu8e99f49deUA7PTaVratxredHUUAFW/OQ4JtOSTAJLKm/OaymM9P/zSW/
-	ynVI3p9m+e0qYCpU0xFY/ZcriJbZd61GbaJyhbRUlCmcVPEkRdbTnkk6FsCUhth0VbZmXbrzF2e
-	asShTltDXyfm4EScUb5/drCekSm+UWMQYAQPzUmTlQq9Yk0wYJUgOgsq27moUx81AZUwsb6t0Gu
-	XycbVDnkvIDgV7ttI5/faIgR6hL+9xCrFpL8vi6aHC27Qog==
-X-Received: by 2002:a05:620a:414d:b0:8ca:2bab:a0fb with SMTP id af79cd13be357-8cb4bf9783emr1280047385a.11.1771319807175;
-        Tue, 17 Feb 2026 01:16:47 -0800 (PST)
-X-Received: by 2002:a05:620a:414d:b0:8ca:2bab:a0fb with SMTP id af79cd13be357-8cb4bf9783emr1280045785a.11.1771319806731;
-        Tue, 17 Feb 2026 01:16:46 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.223.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48371a23c6csm149659595e9.7.2026.02.17.01.16.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 01:16:46 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 0/3] arm64: tegra: Make ARCH_TEGRA_SOC_FOO defaults for
- Nvidia Tegra
-Date: Tue, 17 Feb 2026 10:16:35 +0100
-Message-Id: <20260217-soc-tegra-arch-kconfig-v1-0-81bf5674d032@oss.qualcomm.com>
+        d=1e100.net; s=20230601; t=1771319885; x=1771924685;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OlcXTAXHsnl/WtrFqR8o0BlGKwsZMnh0pz3tx1Nme4Q=;
+        b=WfaJLdUmxs7K+MiwDjHeM5b5mHcF++z3nildYtU4mum4pcZ8B8uLbAm1j/Li2DJ3gb
+         8oOWtXsM7Ojsch4NtZ0jn31tNtWbQ0V+knzX5m+CT992kHchWU8M+T1vQZunDN7L/r+P
+         8CTRNA9cBMg8s8yR1hM1GQpAdnTauuRQAbgNGbcC+Hdoz31wql9Ky9Z/FK5xVrmtAC1E
+         v7jN+lD1jjHCDl+h0FaZHAEWPnnsnX0W1Rwhq0m3I5n5wPjJ6PtSdM6Pne2S1bS6wwXA
+         Q7oP/TEmIbPWUj4GEjpzRDAVZD53rfI9BjD53rn9q9uKVyiLNCLpvIV2C1N6vmTXt4pT
+         eDUw==
+X-Forwarded-Encrypted: i=1; AJvYcCVwqrRT+/s4n/6dNFA02GEfG2YjEOSbyQ/wjJu+bLA9Hy572YZYRSFAohQPqW42rS/Sn87Oytc1GyaD6QvbYwDu@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPPvJfB32XGufThxKhcB+R6mcXxaPTgtPAVsHZsI24pNjf0mu0
+	EbQu3gQy45lCXsrmlD8xg3hvstguEZ+fO66Wl4h82+4OhrhyiPZirH5qU+hSKMHwMcg=
+X-Gm-Gg: AZuq6aJjIlZo6BiH0NXeZoTcl8mQjmsoNX5cdXpqN53rSkdJdhMz791SQQh5xeOUgDr
+	4z68PD2HH5Zz32An55zfe5LLOYLKmNRrk2RMIynymDiCUOLSLMvi8XhFYwcneCCP3lFOK5fV3QC
+	dMmgNclH7xVrxaFj5YrDKWfpfI88zB2usPc/8REMpnuCUM7wHMW3fdYYKIFmcaCNGc2oJnodgWg
+	UzRbJsblLLny+cFBOXWr9HT46lkyLZyzDTbXrYlo+VMzJ79I9rgiKGlU3w4c4eol8JBkKRrqwOM
+	V6TNR5jUoFH8gIMOUF3RND+k26T5WjJsklK6VSGw0HZXH0GkhciTIZycG3ZByBoSxog618bH0+W
+	RVesUysXaoY+3grVq9iYlnSVTBtAwNQqQLJmKVGXrsKj5bdm1uK+WbXnWPX8a1eWgQVyh8rDafl
+	dXkpHsF1hL0m3OzkW4I8RFiVMufjIT
+X-Received: by 2002:a05:600c:46c9:b0:46e:4a13:e6c6 with SMTP id 5b1f17b1804b1-48379bfd71cmr160954025e9.19.1771319884602;
+        Tue, 17 Feb 2026 01:18:04 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4836aa0847asm543941725e9.3.2026.02.17.01.18.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Feb 2026 01:18:04 -0800 (PST)
+Message-ID: <e36150c7-9098-495a-b0f1-626b38c0c3d0@linaro.org>
+Date: Tue, 17 Feb 2026 09:18:03 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
+ in guest context
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Leo Yan <leo.yan@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Fuad Tabba <tabba@google.com>
+References: <20260216130959.19317-1-will@kernel.org>
+ <878e304e-4162-4981-8125-bd4f67ba9dd5@linaro.org>
+ <aZNOcv2XxTrrrEnU@willie-the-truck>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <aZNOcv2XxTrrrEnU@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPMxlGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDI0Nz3eL8ZN2S1PSiRN3EouQM3ezk/Ly0zHTdNMOUNGMLEyPzJEtTJaD
- mgqLUtMwKsMHRsbW1ACWU88FoAAAA
-X-Change-ID: 20260217-soc-tegra-arch-kconfig-f1df38427b95
-To: Thierry Reding <thierry.reding@kernel.org>,
-        Jonathan Hunter <jonathanh@nvidia.com>,
-        Russell King <linux@armlinux.org.uk>
-Cc: linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1148;
- i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=EztO9yRXq58OPjDRS7fRx/PH0JJemW9dGn7fxYyzExE=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBplDH3YqwrUc5NnLK3u8481htj/Zn2sG7whA5Iv
- AzVI/nZXu2JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaZQx9wAKCRDBN2bmhouD
- 1ymAD/4y7IU/yGqe2u4a7mxvx1zRiBj0RQGP2t7jdlE7edxzaLOPE4HIeRIJAZzQM3/G19zhuSb
- gTC8DAkCFCsI7JenmsJBdt3KsFkZpuB2KIaXzi/EmvrIeHdixEWJ5JptGCvAqIOk/gMFR/AoWTj
- WHA+9MRfI4b4+CsQ3uG/I4q3VUL+ozNFOY+f96xm1iRAf/v6QFqjcjSpyBLke9sKfF5x1m5bo5R
- INGD2yehKC4EUUoQLIrl3NKmkGVVqGztcIP62QA8ncqh9RTPf3V4xWyjOjtT1Vnuphst4f8dCdG
- qZCxR1XReZoLXVQx89LtioyuBMcbj9+6K+nlTNDaaJkyo8juSDCvyiaWj+8l79Q1Pi4BzOzJSc2
- vm5ma9c45TmjOqjtc5F0XfvmhBhenU6p/b2WQoCNenK6Flh3/u717niS6FVobyBIL8LxcMYUtoD
- LosyW0n+FCO2uJREwD3Ro/MmvW5K4kSlfR4KOr7cwr2OwBKnOsk+8kdu+X+pi96q+sGIqHgWE88
- 1grbXtrvQfarY4xab3Qn/ll343iJ8NlkW3ADUR+9Ju16o0T2lBnCK5GSNrqDw+grJWambEH/O3s
- NEZFHqnZzoIShdCvTpSVh1ciw1w/ivjWuB/wVpue1N3vj5VDjA8H3JyB/8vYWEs0ar4bVabAH9k
- 8PgbXlkJMisNN0A==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE3MDA3NiBTYWx0ZWRfX6Y99irJNlRgV
- Sm1BvZ2efFmYOTY82gtKi/EEl7TfR0DoKpGs9E3OZoiy6Tf2021L4fXU05m6DNdxSxLEEKPbzmb
- iaK0xAiketj1k0iu14AnWHFK4sQuMAsm437RqaKfdYll7fH715s2kgw4yifZVYSxxz/E4KskC0b
- RYYmdfE7p1cBZds1DbeJUsCQWoc9BHPp8XWqFbNt3aPm5KVt8CO3v4x0dQuTZp4IK9fUcAFradM
- wj8JX75mwsTAnqb1pXV//W6IR9GESUJZEVW0nptPH7patdGuh7sjY3ZA3yR01JZyyHfJcV5sp0i
- mdkxIzEyA9tp6PGHRSmQRsFZ8tJvfTeqvhXUTAoE0T0V2SQ68g7NS3Txx6Pv1LHD7PNEleTjYgh
- iVmd6fZs+kYQZcPaL6kb6t9lB6LjxsBpmVJIbmZj0rzE0q3SzyhRaANP2EOE4ouKE9Jub5b0ADG
- JZoCkqrQgWM2QNsOaGw==
-X-Proofpoint-GUID: S-nKrfyV8Kn7VrCv_9yO1Y7z4tXRYmKe
-X-Proofpoint-ORIG-GUID: S-nKrfyV8Kn7VrCv_9yO1Y7z4tXRYmKe
-X-Authority-Analysis: v=2.4 cv=TPNIilla c=1 sm=1 tr=0 ts=699431ff cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
- a=EUspDBNiAAAA:8 a=8zlw5Bu2NciGkZGQnRMA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-17_01,2026-02-16_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
- malwarescore=0 priorityscore=1501 spamscore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602170076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_011649_866373_E0F780FD 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20260217_011806_920831_0FEC3E5F 
+X-CRM114-Status: GOOD (  27.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,38 +106,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Renesas was fixed (thanks folks!), so let's fix this one myself.
 
-By convention, only one globally selectable ARCH_PLATFORM is expected
-for given SoC platform, defined in arch/arm64/Kconfig.platforms or
-arch/arm/mach-*/Kconfig, because we target a single multi-platform
-kernel image.
 
-Dependency
-==========
-Further (2 and 3) patches depend on the first one, so should be taken
-via one branch or some cross-branch-merges.
+On 16/02/2026 5:05 pm, Will Deacon wrote:
+> On Mon, Feb 16, 2026 at 03:13:54PM +0000, James Clark wrote:
+>>
+>>
+>> On 16/02/2026 1:09 pm, Will Deacon wrote:
+>>> The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
+>>> generation in guest context when self-hosted TRBE is in use by the host.
+>>>
+>>> Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
+>>> TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
+>>> per R_YCHKJ the Trace Buffer Unit will still be enabled if
+>>> TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
+>>> Trace Buffer Unit can perform address translation for the "owning
+>>> exception level" even when it is out of context.
+>>>
+>>> Consequently, we can end up in a state where TRBE performs speculative
+>>> page-table walks for a host VA/IPA in guest/hypervisor context depending
+>>> on the value of MDCR_EL2.E2TB, which changes over world-switch. The
+>>> result appears to be a heady mixture of data corruption and hardware
+>>> lockups.
+>>>
+>>> Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
+>>> draining the buffer, restoring the register on return to the host.
+>>>
+>>> Cc: Marc Zyngier <maz@kernel.org>
+>>> Cc: Oliver Upton <oupton@kernel.org>
+>>> Cc: James Clark <james.clark@linaro.org>
+>>> Cc: Leo Yan <leo.yan@arm.com>
+>>> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>> Cc: Fuad Tabba <tabba@google.com>
+>>> Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
+>>> Signed-off-by: Will Deacon <will@kernel.org>
+>>> ---
+>>>
+>>> NOTE: This is *untested* as I don't have a TRBE-capable device that can
+>>> run upstream but I noticed this by inspection when triaging occasional
+>>> hardware lockups on systems using a 6.12-based kernel with TRBE running
+>>> at the same time as a vCPU is loaded. This code has changed quite a bit
+>>> over time, so stable backports are not entirely straightforward.
+>>> Hopefully James/Leo/Suzuki can help us test if folks agree with the
+>>> general approach taken here.
+>>>
+>>>    arch/arm64/include/asm/kvm_host.h  |  1 +
+>>>    arch/arm64/kvm/hyp/nvhe/debug-sr.c | 36 ++++++++++++++++++++++--------
+>>>    2 files changed, 28 insertions(+), 9 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>>> index ac7f970c7883..a932cf043b83 100644
+>>> --- a/arch/arm64/include/asm/kvm_host.h
+>>> +++ b/arch/arm64/include/asm/kvm_host.h
+>>> @@ -746,6 +746,7 @@ struct kvm_host_data {
+>>>    		u64 pmscr_el1;
+>>>    		/* Self-hosted trace */
+>>>    		u64 trfcr_el1;
+>>> +		u64 trblimitr_el1;
+>>>    		/* Values of trap registers for the host before guest entry. */
+>>>    		u64 mdcr_el2;
+>>>    		u64 brbcr_el1;
+>>> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>>> index 2a1c0f49792b..fd389a26bc59 100644
+>>> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>>> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>>> @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+>>>    	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+>>>    }
+>>> -static bool __trace_needs_drain(void)
+>>> +static void __trace_drain_and_disable(void)
+>>>    {
+>>> -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
+>>> -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
+>>> +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
+>>> -	return host_data_test_flag(TRBE_ENABLED);
+>>> +	*trblimitr_el1 = 0;
+>>> +
+>>> +	if (is_protected_kvm_enabled()) {
+>>> +		if (!host_data_test_flag(HAS_TRBE))
+>>> +			return;
+>>> +	} else {
+>>> +		if (!host_data_test_flag(TRBE_ENABLED))
+>>> +			return;
+>>> +	}
+>>> +
+>>> +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
+>>> +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
+>>> +		isb();
+>>> +		tsb_csync();
+>>> +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+>>> +		isb();
+>>> +	}
+>>>    }
+>>>    static bool __trace_needs_switch(void)
+>>> @@ -79,15 +94,18 @@ static void __trace_switch_to_guest(void)
+>>>    	__trace_do_switch(host_data_ptr(host_debug_state.trfcr_el1),
+>>>    			  *host_data_ptr(trfcr_while_in_guest));
+>>> -
+>>> -	if (__trace_needs_drain()) {
+>>> -		isb();
+>>> -		tsb_csync();
+>>> -	}
+>>> +	__trace_drain_and_disable();
+>>>    }
+>>>    static void __trace_switch_to_host(void)
+>>>    {
+>>> +	u64 trblimitr_el1 = *host_data_ptr(host_debug_state.trblimitr_el1);
+>>> +
+>>> +	if (trblimitr_el1 & TRBLIMITR_EL1_E) {
+>>> +		write_sysreg_s(trblimitr_el1, SYS_TRBLIMITR_EL1);
+>>
+>> Will this restore a stale value if you do kvm_enable_trbe() then later
+>> kvm_disable_trbe()? Looks like the read and save will be skipped unless
+>> host_data_test_flag(TRBE_ENABLED) is true, so it will never save a disabled
+>> value.
+> 
+> __trace_drain_and_disable() sets the saved limit to 0 if TRBE_ENABLE is
+> not set, so this shouldn't do anything in that case. Or did I
+> misunderstand your scenario?
+> 
 
-Best regards,
-Krzysztof
+No you're right. I saw the early return for !TRBE_ENABLED and thought 
+things only happened after that. But the zeroing is before, so it's ok.
 
----
-Krzysztof Kozlowski (3):
-      soc: tegra: Make ARCH_TEGRA_SOC_FOO defaults for Nvidia Tegra
-      ARM: tegra: defconfig: Drop redundant ARCH_TEGRA_foo_SOC
-      arm64: tegra: defconfig: Drop redundant ARCH_TEGRA_foo_SOC
-
- arch/arm/configs/multi_v7_defconfig |  4 ----
- arch/arm/configs/tegra_defconfig    |  4 ----
- arch/arm64/configs/defconfig        |  7 -------
- drivers/soc/tegra/Kconfig           | 11 +++++++++++
- 4 files changed, 11 insertions(+), 15 deletions(-)
----
-base-commit: 350adaf7fde9fdbd9aeed6d442a9ae90c6a3ab97
-change-id: 20260217-soc-tegra-arch-kconfig-f1df38427b95
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>> kvm_disable_trbe() might need to clear host_debug_state.trblimitr_el1.
+> 
+> pKVM can't rely on that thing being called, so the context switch still
+> needs to be self-contained there.
+> 
+> Will
 
 
