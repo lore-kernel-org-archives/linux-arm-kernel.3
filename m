@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F747E909CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 16:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4A2E909D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 16:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p/FF67NgoAfTPvlqlnRaiD3XMiAyROgc0Pmn9okOe70=; b=QV/KIWeTW37lZIICuglS8Bof1J
-	1UhWNg0q9aMou3ydDd9qO7uzkB2vaxX3QlBtKyPwdP+ISjPfIayyPyPUK9raQCXtPt8a/tv3KFB9n
-	NX9uc9S1NjklWiXivsoWhG0khH9YBu3OCM5WnCkxSsM6i/A5x4x87edykVwEUecKZ9Ke/PEZNgt4u
-	skxQL2HpffdLgn1rDTi4lYKVS5gGapdSBZGmdmCGBXwc3fOhttbVugoowtQqGUUS1lRKlGddoDiRE
-	u5j8akTNoH0OPdA+5X8jl0KSAB/3NOJGoWRaman2043yXaSC6oIikI8vpOMVw8U/be48b0LIYWhWv
-	C5OrxaeQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xhpHpdiFFO5ZL1q/tmFrQhOlbvRZt8hZGUIWiR6fiQ0=; b=ZMZ5ERCZYQCYNV
+	zN2A0dGHPoEs4KCwje/vY6n7ghUkJt4/XAvetYjXAiaaaTZojsyzGveWZXTNv3q1SEFz2SoQHMVWP
+	NQ15d3GWs0GXiuLMMOJrDsewZ4hdfPca51jOqysu8iiNukaBppOHtRSlqu4bgN9YF57a22TpY7hgt
+	4az3u3GZQo41VihPtxs3wHWtatiAp2UfZGnp2M+YlFplVW1ko8g87w0l7p/CO5I0JML/HCwJ2Luel
+	JcOQZO/KF2nBZY+n3c0bD5eNUSVUJx/YdecCKjKDHDSXksknYg0N8eDwFZJIlI9I1cfWv9lR99MzG
+	RVS+jQhjuYr6vQzIHwzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsNdV-00000008Xqq-0eY2;
-	Tue, 17 Feb 2026 16:09:17 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vsNkJ-00000008YMa-3Vp5;
+	Tue, 17 Feb 2026 16:16:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsNdR-00000008XqB-13dI;
-	Tue, 17 Feb 2026 16:09:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771344550;
-	bh=oj5P0IlCAmq5u6uQiTJRMhcL4zzj1vWIrVqyNs511+g=;
-	h=From:Date:Subject:To:Cc:From;
-	b=jdI9ajUoFpYWROHwud5emVcYcYmdduhc4kQ35JUNOO7peCot0an1riXYdVpy15UpO
-	 ETLXfKFK9efVmrR0I7cvtB8gz8Zqb9dClE4kf1PY4LdYdeZzuhD/JSGPZIupvTZMRL
-	 lIKT8Nw+Yc5u2kRixBUdseS+yw6SLx1sGdZRwNWRCFD/sPmb8bRkQaUTRyQEy36UtF
-	 tSwV6duRVjUbt3EMAQVjMWG3rvOALn3umccshdhZoBp/Dni4V0/GVYChJwpGdm1/It
-	 OJsqn5kj31WVRb8S9n6FIA6uBvdXcqtveY2BbYRaOakOhoH/ydI+ka/5zCfWA3XMoh
-	 Z3dRmuCuTAF1g==
-Received: from jupiter.universe (dyndsl-091-248-212-099.ewe-ip-backbone.de [91.248.212.99])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 66E9A17E0330;
-	Tue, 17 Feb 2026 17:09:10 +0100 (CET)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 0DDB4480024; Tue, 17 Feb 2026 17:09:10 +0100 (CET)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 17 Feb 2026 17:08:45 +0100
-Subject: [PATCH RFC] drm/rockchip: vop2: Add clock rate mode check
+	id 1vsNkI-00000008YLz-1c5Y
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Feb 2026 16:16:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 741C461850
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 16:16:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 271FAC4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 16:16:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771344977;
+	bh=/s1RSE8T94ukLF8gyrvHmN7vQg+U8Jmkrx6H9/OZWAs=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=nN+VI4WuCOwe4QC38vIXqvsap416Euw1liNmCKOikP7ZhCBV00LmzuDodGJ12Ppfy
+	 6RZoPYAIKoT8hCorpQlDODkmFQa6vY3P97n4WM9cf0FazkUpVuTsQVEaq9sRVMDCnS
+	 JiZvk5ey6/F7UU0BWXXJo9oZJxVAxHiknvlrflbtBaHCMJuAlauBt/1u0P1X7G5jBF
+	 OgOF5DNRPSGiTyE/alg8vG5ILSM8BJehojRd0cxPYHlnil8+ppOG9xVYGUqyiBd7pe
+	 r87ZeFIghE4NSSpSuBaaSsH1PzNVCM2qddK1OoUKDPh6dSCBBC9Voif6oAiVO7ZrDd
+	 xtIRbYsF6wYyw==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-385c2f88618so34311721fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 08:16:17 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX0vOgSYpd3+5ANrGB5Cq9WTAsqZKSgEV19CkGTLE1Lqy/SBMkOwY/fRRNLHplbRBy/gZgztxTd8tlH1l3exnhz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzyb0hpFJh8uGa4zyJsse+jdgBIuuQagD3Jid1WFKOjQ8O6WCJo
+	KvdvcPCNoumXNkgVeMWYBfva5nfb+LbNeSr4oMoZxfC2ilMaspGHYJgNFTYJoPB5ZIEsV0pGbJx
+	+gpPLdtQNpbVfeFimhiCDOP9eNcbcf1E=
+X-Received: by 2002:a05:651c:4201:b0:386:1ce2:11a9 with SMTP id
+ 38308e7fff4ca-38810570e54mr43358761fa.23.1771344975457; Tue, 17 Feb 2026
+ 08:16:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260217-vop2-clk-rate-check-v1-1-989b569119ba@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAIySlGkC/x3MwQpAQBCA4VfRnE0xh11clQdwlcM2BhOhXUnJu
- 9scv8P/PxDEqwSokge8XBp03yLyNAGe3TYJ6hANlJHJKLd47Qchrwt6dwryLLwgmYJMaW3BjiG
- Wh5dR7//aQdvU0L/vB10WRr5qAAAA
-X-Change-ID: 20260217-vop2-clk-rate-check-268269778cac
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>
-Cc: Daniel Stone <daniels@collabora.com>, 
- Alexey Charkov <alchark@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5101;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=oj5P0IlCAmq5u6uQiTJRMhcL4zzj1vWIrVqyNs511+g=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGmUkqVmnkE0ziEh65jDJYT0fQOrGQj+8CiIZ
- y0teNN50VKhdokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJplJKlAAoJENju1/PI
- O/qa2+AQAIC1BxwLivVGw37HyasWny64ye/T3KMZr+M2AIFOa6P6p7HlyS9arV1Mx5qPzo846bV
- F48bjx/uX0G8TeO8DHyNNjRnqg/aVxruL2INDUJ3B0PKSBkTHj/VxLhXYf6rSR0TLPopPDmnTQS
- tRO6i60rNK5kONUyaNTWVvQiANUmkkteC5sq2wzq2VYyBus2iSvsnpQSP6SkTldEqS0nv7UXQx0
- tC9MBxMN7FwyHR1r5qXh3PvB1jjzU5zAaVrSdOqGPm1hMIN737/i4In6LSYqDGFWqHHuA0KIV98
- 4DWInIrWHZyfUdQLFpuSkpezKZwu3r5gk0lLVyYKpbZGefMQV0ys6R0Ie5Cr8brMQcTR1dWQbIN
- Xbe4To763dEiW76Iywx5jWUu3vH0T2lPiX95+NHdmrjNAVyzyTwfBCXlKzZJIm0k6jgIw1lPxxn
- LyYZ0n8DGusM3jryXYsF+hqKQ1ugBW3wgDb1zlZvyUtIf8RADSGCzx+jRHCnYJqpX6zKxo1Zuzu
- 4nWXK0UoqLnONQgEHiGvfxSKEBu8QgqkHMjlxlp3EAYiZTQxgrpJVQ0IHJJcDG0o+er50MN+dG6
- oMVFOBIKu56OtSD51wlElnjHkJoOmGV8kp6S9lbv6ZjhJnH0pXGHnLyVkCZqy81nisr+xVM36QW
- 8CZJTJB1H4K4ladVaMlk17Q==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_080913_453892_75FB0344 
-X-CRM114-Status: GOOD (  13.87  )
+References: <20260217093004.3239051-1-wens@kernel.org> <20260217155717.0b99c310@orionap.fritz.box>
+In-Reply-To: <20260217155717.0b99c310@orionap.fritz.box>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 18 Feb 2026 00:16:02 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65tO56=7pJtaB8WaW8O9A9m0EGa_XLW_Jj-HN8pEHtvEg@mail.gmail.com>
+X-Gm-Features: AaiRm53DUWoECi_d8aGElFwN4vbWdscHSmspOWe2xrny_hmVpKJsk2TliQhvzuw
+Message-ID: <CAGb2v65tO56=7pJtaB8WaW8O9A9m0EGa_XLW_Jj-HN8pEHtvEg@mail.gmail.com>
+Subject: Re: [PATCH] clk: sunxi-ng: sun55i-a523-r: Add missing r-spi module clock
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Stephen Boyd <sboyd@kernel.org>, linux-sunxi@lists.linux.dev, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,141 +77,127 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The display might offer modes, which exceed the maximum clock rate of a
-video output. This usually happens for displays that offer refresh rates
-above 60 Hz. This results in no picture being displayed without manual
-intervention. Fix this by teaching the driver about the maximum
-achievable clock rates.
+On Tue, Feb 17, 2026 at 11:57=E2=80=AFPM Andre Przywara <andre.przywara@arm=
+.com> wrote:
+>
+> On Tue, 17 Feb 2026 17:30:03 +0800
+> Chen-Yu Tsai <wens@kernel.org> wrote:
+>
+> Hi,
+>
+> > When the PRCM clk driver was added, somehow the r-spi module clock
+> > was skipped over.
+> >
+> > Add it so that r-spi can actually work.
+>
+> The patch itself looks fine, compared against the manual, so for that:
+>
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+>
+> But I noticed one thing below....
+>
+> > Fixes: 8cea339cfb81 ("clk: sunxi-ng: add support for the A523/T527 PRCM=
+ CCU")
+> > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+> > ---
+> >  drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 17 ++++++++++++++++-
+> >  1 file changed, 16 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sun=
+xi-ng/ccu-sun55i-a523-r.c
+> > index 0339c4af0fe5..db0e36d8838e 100644
+> > --- a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
+> > +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
+> > @@ -83,9 +83,22 @@ static SUNXI_CCU_MUX_DATA_WITH_GATE(r_pwmctrl_clk, "=
+r-pwmctrl",
+> >  static SUNXI_CCU_GATE_HW(bus_r_pwmctrl_clk, "bus-r-pwmctrl",
+> >                        &r_apb0_clk.common.hw, 0x13c, BIT(0), 0);
+> >
+> > -/* SPI clock is /M/N (same as new MMC?) */
+>
+> Ooops, looks like I saw that clock, but someone managed to dodge it :-(
+> Sorry about that.
+>
+> > +static const struct clk_parent_data r_spi_parents[] =3D {
+> > +     { .fw_name =3D "hosc" },
+> > +     { .fw_name =3D "pll-periph" },
+> > +     { .name =3D "pll-periph0-300M" },
+> > +     { .name =3D "pll-periph1-300M" },
+> > +     { .name =3D "pll-audio" },
+>
+> Looking a bit closer, all the PRCM PLL-AUDIO clocks in the manual refer t=
+o
+> AUDIO1PLL4X, which is provided by the MCU CCU, not AUDIO0PLL4X provided b=
+y
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
-I've taken the max. clock rate information from the video output
-information of the RK3568/RK3588/RK3576 datasheets. The real max. clock
-rates should be above those to take blank times into account. I haven't
-found the proper information source for this. I hope Andy can help out.
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c |  3 +++
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  1 +
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 10 ++++++++++
- 3 files changed, 14 insertions(+)
+That's weird though, given that pll-audio1 only has /2 and /5 outputs.
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index ec3b4fde10db..1051418e5fff 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1434,6 +1434,9 @@ static enum drm_mode_status vop2_crtc_mode_valid(struct drm_crtc *crtc,
- 	if (mode->hdisplay > vp->data->max_output.width)
- 		return MODE_BAD_HVALUE;
- 
-+	if (mode->clock > vp->data->max_clock_rate / 1000)
-+		return MODE_CLOCK_HIGH;
-+
- 	return MODE_OK;
- }
- 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index 9124191899ba..42d70426bf08 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -225,6 +225,7 @@ struct vop2_video_port_data {
- 	u16 gamma_lut_len;
- 	u16 cubic_lut_len;
- 	struct vop_rect max_output;
-+	u32 max_clock_rate;
- 	const u8 pre_scan_max_dly[4];
- 	unsigned int offset;
- 	/**
-diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index f3950e8476a7..8be2cf0c47b6 100644
---- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -559,18 +559,21 @@ static const struct vop2_video_port_data rk3568_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 9 * 9 * 9,
- 		.max_output = { 4096, 2304 },
-+		.max_clock_rate = 4096 * 2304 * 60,
- 		.pre_scan_max_dly = { 69, 53, 53, 42 },
- 		.offset = 0xc00,
- 	}, {
- 		.id = 1,
- 		.gamma_lut_len = 1024,
- 		.max_output = { 2048, 1536 },
-+		.max_clock_rate = 2048 * 1536 * 60,
- 		.pre_scan_max_dly = { 40, 40, 40, 40 },
- 		.offset = 0xd00,
- 	}, {
- 		.id = 2,
- 		.gamma_lut_len = 1024,
- 		.max_output = { 1920, 1080 },
-+		.max_clock_rate = 1920 * 1080 * 60,
- 		.pre_scan_max_dly = { 40, 40, 40, 40 },
- 		.offset = 0xe00,
- 	},
-@@ -775,6 +778,7 @@ static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 9 * 9 * 9, /* 9x9x9 */
- 		.max_output = { 4096, 2304 },
-+		.max_clock_rate = 4096 * 2304 * 120,
- 		/* win layer_mix hdr  */
- 		.pre_scan_max_dly = { 10, 8, 2, 0 },
- 		.offset = 0xc00,
-@@ -785,6 +789,7 @@ static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 729, /* 9x9x9 */
- 		.max_output = { 2560, 1600 },
-+		.max_clock_rate = 2560 * 1600 * 60,
- 		/* win layer_mix hdr  */
- 		.pre_scan_max_dly = { 10, 6, 0, 0 },
- 		.offset = 0xd00,
-@@ -793,6 +798,7 @@ static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
- 		.id = 2,
- 		.gamma_lut_len = 1024,
- 		.max_output = { 1920, 1080 },
-+		.max_clock_rate = 1920 * 1080 * 60,
- 		/* win layer_mix hdr  */
- 		.pre_scan_max_dly = { 10, 6, 0, 0 },
- 		.offset = 0xe00,
-@@ -1061,6 +1067,7 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 9 * 9 * 9, /* 9x9x9 */
- 		.max_output = { 4096, 2304 },
-+		.max_clock_rate = 7680 * 4320 * 60,
- 		/* hdr2sdr sdr2hdr hdr2hdr sdr2sdr */
- 		.pre_scan_max_dly = { 76, 65, 65, 54 },
- 		.offset = 0xc00,
-@@ -1070,6 +1077,7 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 729, /* 9x9x9 */
- 		.max_output = { 4096, 2304 },
-+		.max_clock_rate = 4096 * 2304 * 60,
- 		.pre_scan_max_dly = { 76, 65, 65, 54 },
- 		.offset = 0xd00,
- 	}, {
-@@ -1078,12 +1086,14 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 17 * 17 * 17, /* 17x17x17 */
- 		.max_output = { 4096, 2304 },
-+		.max_clock_rate = 4096 * 2304 * 60,
- 		.pre_scan_max_dly = { 52, 52, 52, 52 },
- 		.offset = 0xe00,
- 	}, {
- 		.id = 3,
- 		.gamma_lut_len = 1024,
- 		.max_output = { 2048, 1536 },
-+		.max_clock_rate = 1920 * 1080 * 60,
- 		.pre_scan_max_dly = { 52, 52, 52, 52 },
- 		.offset = 0xf00,
- 	},
+The BSP code from https://github.com/radxa/allwinner-bsp.git also shows
+pll-audio0-4x as the parent for the r_spi module clock. It does show
+pll-audio1-4x as the parent for the ahbs clock, but "pll-audio1-4x" is
+nowhere to be found.
 
----
-base-commit: 9702969978695d9a699a1f34771580cdbb153b33
-change-id: 20260217-vop2-clk-rate-check-268269778cac
+So I think it's an error. Moreover, I think we might have discussed this
+on IRC at the time?
 
-Best regards,
--- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
+> the main CCU. So we would need to change the DT? I wonder if that breaks
+> boots with kernels which didn't know the MCU CCU yet (v6.15-v6.17)?
 
+Did you mean new DT with old kernel? I think we don't really support that?
+
+But even if you did do that, AFAIK the clk parent resolution is done
+opportunistically, so if this one is missing, it would be fine as long
+as no user is directly trying to select it with clk_set_parent(); and
+even if they did, it would probably fail?
+
+I could be wrong though.
+
+
+Anyway, thanks for being thorough.
+
+
+ChenYu
+
+> Cheers,
+> Andre.
+>
+> > +};
+> > +static SUNXI_CCU_DUALDIV_MUX_GATE(r_spi_clk, "r-spi", r_spi_parents, 0=
+x150,
+> > +                               0, 5,         /* M */
+> > +                               8, 5,         /* P */
+> > +                               24, 3,        /* mux */
+> > +                               BIT(31),      /* gate */
+> > +                               0);
+> >  static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi",
+> >                        &r_ahb_clk.common.hw, 0x15c, BIT(0), 0);
+> > +
+> >  static SUNXI_CCU_GATE_HW(bus_r_spinlock_clk, "bus-r-spinlock",
+> >                        &r_ahb_clk.common.hw, 0x16c, BIT(0), 0);
+> >  static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox",
+> > @@ -138,6 +151,7 @@ static struct ccu_common *sun55i_a523_r_ccu_clks[] =
+=3D {
+> >       &bus_r_twd_clk.common,
+> >       &r_pwmctrl_clk.common,
+> >       &bus_r_pwmctrl_clk.common,
+> > +     &r_spi_clk.common,
+> >       &bus_r_spi_clk.common,
+> >       &bus_r_spinlock_clk.common,
+> >       &bus_r_msgbox_clk.common,
+> > @@ -169,6 +183,7 @@ static struct clk_hw_onecell_data sun55i_a523_r_hw_=
+clks =3D {
+> >               [CLK_BUS_R_TWD]         =3D &bus_r_twd_clk.common.hw,
+> >               [CLK_R_PWMCTRL]         =3D &r_pwmctrl_clk.common.hw,
+> >               [CLK_BUS_R_PWMCTRL]     =3D &bus_r_pwmctrl_clk.common.hw,
+> > +             [CLK_R_SPI]             =3D &r_spi_clk.common.hw,
+> >               [CLK_BUS_R_SPI]         =3D &bus_r_spi_clk.common.hw,
+> >               [CLK_BUS_R_SPINLOCK]    =3D &bus_r_spinlock_clk.common.hw=
+,
+> >               [CLK_BUS_R_MSGBOX]      =3D &bus_r_msgbox_clk.common.hw,
+>
+>
 
