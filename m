@@ -4,95 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD8FE909AE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 14:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF496E909B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 14:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b67H6Br6AJpdiB9/1JXaxdAZWFTKfbCqKai2ICAEzVM=; b=ajm9sx8ZwoWyN0Biy0OxIhVHVu
-	Bc5kQk8upj+W3nfhpd6RYmdnZUvoI/1vQJK9v43LJlA5aWYb8L2+CwGpr8kzxT+Q/fVHkKerGd4zQ
-	7O3hfkDlI1bsnfdJrrXtjBinuadvCWVxOccFzgjnwGjN/OcZVxUBwoyTl/0ittzQNTOW4JCF+sExW
-	OqBwmhF5C2YPBjfAnWGttfBVq+G8GPo6gN/DtUONZnJVrdhoQe8fgYZjzXrvw6F/kPXcWsrIxEqkz
-	KtV8uEoLW8a4ia9xLakBR/HQ99IUUSV4BorEFzM9ZXImiTBDRtFYw1uKKMHr+bndgB1c6/32gRdDL
-	9gEymr5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GAfTNrmbEbrqCj355svFgP7yeQnDzCNVAF5tbyMQ9VU=; b=G/FJI79GsYHDeewdBp9JWYfiwi
+	1L+bUB5nMQGSD+XTNqoSKoxUBdl4a4glk5RzAVCMz8BaE/9vm722IZ6RjugzWtgmabyVqvbC/uZB/
+	yGpcOq/RSLBkoS/a+A/hXpK87ezZk9GMZi4cJnzSu/Ea6bk7tF13H1OJYt6VfJsvHFHiTT6p7q3Zd
+	RWWIMKT/ldJi2RHdngEC3QjEH9E9XgYnVtExkp9tWa2rrpWuaZGv6Yg2adMI4+//0YwE2v0BVaqW/
+	HBdD9B2SctUHG0v1200BXWXCu8U9JXMAZvhc/Gj6ZWTQiaoh8m/BKEw+gYoiA+hI9hBvcb2VydphM
+	W5VH9IxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsMQ4-00000008Svb-3piS;
-	Tue, 17 Feb 2026 14:51:20 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vsMRL-00000008T7L-3n0b;
+	Tue, 17 Feb 2026 14:52:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsMQ0-00000008Sv0-3nqT
+	id 1vsMRK-00000008T7B-3wOB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 14:51:19 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4359108fd24so2998258f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 06:51:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771339875; x=1771944675; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=b67H6Br6AJpdiB9/1JXaxdAZWFTKfbCqKai2ICAEzVM=;
-        b=WNKjw3xrbYlGFKuKJLtV1RWZu62glke7vX16nmw6/dJw5nV1x6XDO5M0eXfgEwE30e
-         w5Xc4VFZdEA9OpY/+dAiEDJTazz6MH2sJkFjVjWcxMBsz9ODTa5CmCMTRvjcSKhI5XO9
-         fe+tKWc6zv3dOwwiJT2fi5ujRjREPmwmhc5VIqNTzyTStiCHNA9IMuzeh1xl1iEIxY85
-         ieMy7XSiFqUaqI5JKowB9+NXvu5slJmw0eMTtNifuhigM7q5MDksCwfsMsCbdA/pdp7x
-         nwVtiPJoGvi/vE2qW4W6ruORMAd+IBchRWXehCvA+tiFISeFs8UWNmy0eEMo0JEhNrsy
-         FFnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771339875; x=1771944675;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=b67H6Br6AJpdiB9/1JXaxdAZWFTKfbCqKai2ICAEzVM=;
-        b=bFpRtclZgW9MkkMhfESe32Bfue2+m3jX1YFLewApDweniKRlkZa0kmg2ivbgc13FM8
-         aoSaruoVTVgw9hHy9ZWY8V0btsRpr0sgG+dyvuqMYZ1GJUYqd52z4Uza5wVu1sgbTMLf
-         E8+DWvISgillppQ966ToJd4eB32UngkM/jjiG0wv7mxnkzL8bVnW99/jJWiBx36z/aQZ
-         zZflDJv5FPMvfphD1qIC4gof9NE94XFTNOvwWPQYv4JyARkh8gQK7JkcUSArH5wkPQ8k
-         LKpPU+mC37nTJyYth7uy/sJjGde1V5AFFvGmaKBijd2fQknRJzGMkKscy4KWtgFC1ich
-         Cpag==
-X-Forwarded-Encrypted: i=1; AJvYcCXD1UAHDWDJHbuL0YE2utxioqW7JO5gMyZHFlBN/aIPNfbOq5MVY7GeYb0y/s+OuwaGQgxRKK1ezm88cC2l5Fs5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1bdN2Tr7UxNbl7TbF/fvSUAglOxL2OHW842xM80sT09TxB8ue
-	5GRTcDxxNdWtv8cfN9VvIrH9wvJzZNHzsIwQEpqZtVHQCK2DGtdf5a0dg+GK1w8Kd5w=
-X-Gm-Gg: AZuq6aKTGO5iw54h/GvX5VqXwpOEm7dfkuKJ/IsAlWkHCTZ6ZkDSyD214uGN9/Fddsr
-	VR+bHgd5gGVMTeik4e5zfpRX7HheuFpCs+jTXOysz4/CU7csIIE6uMixxbW8+GDiVQJHiEwJBOR
-	rrR9qHXnWrNSMVkscXP02J6TteJPdfU/+aJQxtCq73BucJi1zVnkTz98UYFzuFBZ3J1hwRbUoxc
-	+czKtDdijVof0RoEE+yU1sEPp6pd6xW8MS/ZGcUwX4breqtAyDn4HRDghxxbQptRtDCabGMTjIS
-	ZgAqMYi0O/6yq8bYcu/z9SG1qeGUhieOEzphnDqOmX8FKyHg8Ao/90QYgljPAXIQHN7t7CbWNCX
-	0aJTZyXK96fN7OquBxV+heFH6wf1DDB/os+ytk7UcAlpXJHP9DHT8NNwDH6CRUNi1HHpNoBzwEa
-	g02dQuWFb+3C0O3UCQQwnYBVM/WjgB
-X-Received: by 2002:a05:6000:1aca:b0:436:2fdf:b599 with SMTP id ffacd0b85a97d-437978ce4c6mr24612737f8f.21.1771339874899;
-        Tue, 17 Feb 2026 06:51:14 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439567aad3csm768498f8f.36.2026.02.17.06.51.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Feb 2026 06:51:14 -0800 (PST)
-Message-ID: <bc1fbb7c-94c3-4a82-8295-4fecb4f2d460@linaro.org>
-Date: Tue, 17 Feb 2026 14:51:13 +0000
+	Tue, 17 Feb 2026 14:52:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EAB7461334;
+	Tue, 17 Feb 2026 14:52:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE844C4CEF7;
+	Tue, 17 Feb 2026 14:52:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771339957;
+	bh=ZP+KYsRvEF5ApvHchr0EfNzRlljIbjaP/4zVMzS25Ww=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TkPendG5QIVTlKIjhshbQ6Num6+ZT5R8+Qw5Ka++bkV64I31aTaROkwCPDr2ILI1c
+	 6jqwN7HEdnfzrsH8pJttPEOa8SHqGv5xJMJilihNi9rWEIyyL8AbSFj40h3BM2x4DV
+	 YTKFkhFTPL/kbtYeSLpIvEQWQkJTy+XsSBHOkFDYrNt+XNkdxC9QmjzgEUTegNnuWo
+	 FyX3qNDOVcEjsl+uP2AK7+tfKDdZHDs1a0nbW3xeW5d7k0KnN/Jads5dUu4K0q8shH
+	 j+OekI6HtJUQ3rNsQG/GPKjAv2pnRlq5A8TMGxHAPfXaiCsGC+3MNsX/4i1kf8gpOC
+	 DO6pu6kv8NnNQ==
+Date: Tue, 17 Feb 2026 14:52:32 +0000
+From: Will Deacon <will@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: James Clark <james.clark@linaro.org>, Marc Zyngier <maz@kernel.org>,
+	kvmarm@lists.linux.dev, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
+ in guest context
+Message-ID: <aZSAsC1YI5_lK3e0@willie-the-truck>
+References: <20260216130959.19317-1-will@kernel.org>
+ <86a4x8bw38.wl-maz@kernel.org>
+ <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
+ <aZNec3B0Iou9PYGw@willie-the-truck>
+ <20260217141917.GA136967@e132581.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 8/8] coresight: Unify bus unregistration via
- coresight_unregister()
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Mike Leach <mike.leach@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Mao Jinlong <quic_jinlmao@quicinc.com>
-References: <20260209-arm_coresight_refactor_dev_register-v4-0-62d6042f76f7@arm.com>
- <20260209-arm_coresight_refactor_dev_register-v4-8-62d6042f76f7@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260209-arm_coresight_refactor_dev_register-v4-8-62d6042f76f7@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_065116_979710_F106D736 
-X-CRM114-Status: GOOD (  19.62  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260217141917.GA136967@e132581.arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,52 +77,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 09/02/2026 12:44 pm, Leo Yan wrote:
-> Once a device is successfully registered, set the "registered" flag to
-> true.  After that point, all failures jump to the out_unlock label to
-> unwind the flow via coresight_unregister().
+On Tue, Feb 17, 2026 at 02:19:17PM +0000, Leo Yan wrote:
+> On Mon, Feb 16, 2026 at 06:14:11PM +0000, Will Deacon wrote:
 > 
-> Since failure handling is unified, the comment about resource release
-> for the etm_perf_add_symlink_sink() failure is no need, remove it.
+> [...]
 > 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-core.c | 15 ++++-----------
->   1 file changed, 4 insertions(+), 11 deletions(-)
+> > > The TRBE driver might do an extra drain here as a workaround. Hard to tell
+> > > if it's actually required in this case (seems like probably not) but it
+> > > might be worth doing it anyway to avoid hitting the issue. Especially if we
+> > > add guest support later where some of the affected registers might start
+> > > being used. See:
+> > > 
+> > >     if (trbe_needs_drain_after_disable(cpudata))
+> > >         trbe_drain_buffer();
+> > 
+> > Oh great, this thing sucks even more than I realised!
+> > 
+> > But thanks for pointing that out... this is presumably erratum #2064142,
+> > but we probably need to look at #2038923 as well :/
+> > 
+> > I can't find any public documentation for the problems, but based on the
+> > kconfig text then I think we care about #2064142 so that the TRBE
+> > register writes when restoring the host context are effective and we
+> > care about #2038923 to avoid corrupting trace when re-enabling for the
+> > host.
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 955af43010446803030973c72f07315492b2fcf3..56320ce49cb23bf7168f69b7f1ad820ca83b8365 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -1383,20 +1383,13 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
->   		goto out_unlock;
->   	}
->   
-> -	ret = etm_perf_add_symlink_sink(csdev);
-> -
-> -	/*
-> -	 * As with the above, all resources are free'd explicitly via
-> -	 * coresight_device_release() triggered from put_device(), which is in
-> -	 * turn called from function device_unregister().
-> -	 */
-> -	if (ret && ret != -EOPNOTSUPP) {
-> -		device_unregister(&csdev->dev);
-> -		goto out_unlock;
-> -	}
->   	/* Device is now registered */
->   	registered = true;
->   
-> +	ret = etm_perf_add_symlink_sink(csdev);
-> +	if (ret && ret != -EOPNOTSUPP)
-> +		goto out_unlock;
-> +
->   	ret = coresight_create_conns_sysfs_group(csdev);
->   	if (ret)
->   		goto out_unlock;
+> Seems to me, this is correct.
 > 
+> > It also looks like we can't rely on the dsb(nsh) in the vcpu_run()
+> > path if that needs to be before the write to TRBLIMITR_EL1.
+> > 
+> > In which case, the host->guest something hideous like:
+> > 
+> > 	isb();
+> > 	tsb_csync();	// Executes twice if ARM64_WORKAROUND_TSB_FLUSH_FAILURE!
+> > 	dsb(nsh);	// I missed this in my patch
+> > 	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+> > 	if (2064142) {
+> > 		tsb_csync();
+> > 		dsb(nsh);
+> > 	}
+> > 	isb();
+> 
+> As I_QXJZX suggests, the section K10.5.10 "Context switching" gives
+> the flow.  I'd suggest the VM context switch is also aligned to the
+> description in S_VKHHY.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+I honestly have a hard time believing the sequence in S_VKHHY as the DSB
+seems to be in the wrong place which means the TSB CSYNC can float. It
+also isn't aligned with what the EL1 driver does...
 
+> When switching from host to guest, we need to clear TRCPRGCTLR.EN to
+> zero.  As the doc states "ETE trace compression logic is stateful,
+> and disabling the ETE resets this compression state".
+> 
+> > and then the guest->host part is:
+> > 
+> > 	write_sysreg_s(trblimitr_el1, SYS_TRBLIMITR_EL1);
+> > 	isb();
+> > 	if (2038923)
+> > 		isb();
+> > 
+> > Does that look right to you?
+> 
+> S_PKLXF gives the flow for switching in.
+
+Well, modulo errata, sure. I don't have access to the errata document so
+I was more interested in whether I got that right...
+
+Will
 
