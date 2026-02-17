@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3DC5E909A6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 14:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 443D0E909A6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 14:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NUmIRHJ5OxybzIq3ITnR5lPzqOAOM61VegDyAtQhqBQ=; b=BwqTas3QkK22Y2JqVclkb3k9YH
-	yo+GwRBwfG49OWoCYcKr4D4pIT4dPUExfuIwfFDI4bwSufIcpB5/YQiOI8NT5mlDAbR0HRrTYm0/6
-	ofnWYSjzsb0YuVzGjBEeAlmDrclgoFVY+rIwqYOG8In9vLqz6qbL2z5HIrfH6FsjsiBylTWaXunyj
-	2+5pfEhNPvbqxguRSIBkTdvyLIvs4xmxGS0WO6dHSX+3I13WOR2XftHlKD8zI7yZFm2CpwXVfuGpH
-	s4DupQfOYRSbHlVhok/kMca+usYlV+fwDgxesBqnb+WdS/AhXHo5onQIDQV03T4eOSfd9Xfl/1PKf
-	TylyRBhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MLpdqnB7xLYFqBu+I91ADfRDGElANrP7WKshi9XrU0A=; b=JHOtOnEwwj6oOyOPDI5d6mM3qv
+	uRM2fJs80XkYQrRl4+HA5XTk4vkiifIyNqhqdVjf7Y7eZlsAac0pJ9kzwPaTAQIEb9lxLnLa8DUPT
+	re5LYcoG1EUYXxZfi+fjNWIXRg7nxSg+A7JkxwoMHrTEd6ge9b461TKhJwDUbCZNkMgMwjGHJhqv7
+	3csnvPlHO3qoAv5sm5zU9ijGkbC8U2HK2JSS5SwfVcKGVC6YNRAVJeQ0aUwRFX+2P5jOVd9kfhtG7
+	bUj949ipHt11y4az6wT30I52MoOrN1rw/L0hTZc2wbNvtSKnwntMQ1nlfLnCAI0uGqzrOUISTZBrF
+	pyMYwQFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsLvG-00000008PmA-3kfM;
-	Tue, 17 Feb 2026 14:19:32 +0000
+	id 1vsLxK-00000008Q6o-1puA;
+	Tue, 17 Feb 2026 14:21:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsLv9-00000008Pkl-1SjD
+	id 1vsLxH-00000008Q5V-2OKG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 14:19:29 +0000
+	Tue, 17 Feb 2026 14:21:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3AAC21477;
-	Tue, 17 Feb 2026 06:19:14 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E6E73F62B;
-	Tue, 17 Feb 2026 06:19:19 -0800 (PST)
-Date: Tue, 17 Feb 2026 14:19:17 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: James Clark <james.clark@linaro.org>, Marc Zyngier <maz@kernel.org>,
-	kvmarm@lists.linux.dev, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
- in guest context
-Message-ID: <20260217141917.GA136967@e132581.arm.com>
-References: <20260216130959.19317-1-will@kernel.org>
- <86a4x8bw38.wl-maz@kernel.org>
- <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
- <aZNec3B0Iou9PYGw@willie-the-truck>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 523541477;
+	Tue, 17 Feb 2026 06:21:27 -0800 (PST)
+Received: from [10.1.30.186] (XHFQ2J9959.cambridge.arm.com [10.1.30.186])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EEFCD3F62B;
+	Tue, 17 Feb 2026 06:21:31 -0800 (PST)
+Message-ID: <7f30a8e4-49c3-421d-be05-08afb544aa41@arm.com>
+Date: Tue, 17 Feb 2026 14:21:30 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aZNec3B0Iou9PYGw@willie-the-truck>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.6 0/3] arm64: Speed up boot with faster linear map
+ creation
+Content-Language: en-GB
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jack Aboutboul <jaboutboul@microsoft.com>,
+ Sharath George John <sgeorgejohn@microsoft.com>,
+ Noah Meyerhans <nmeyerhans@microsoft.com>,
+ Jim Perrin <Jim.Perrin@microsoft.com>
+References: <20260217133411.2881311-1-ryan.roberts@arm.com>
+ <2026021700-chafe-jurist-cb24@gregkh>
+ <17c9efaf-6c33-4485-bde2-345cc15ac000@arm.com>
+ <2026021718-citrus-parakeet-dc60@gregkh>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <2026021718-citrus-parakeet-dc60@gregkh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_061928_181146_9AABF63F 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20260217_062135_653511_9E2D9D5B 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,66 +72,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 06:14:11PM +0000, Will Deacon wrote:
-
-[...]
-
-> > The TRBE driver might do an extra drain here as a workaround. Hard to tell
-> > if it's actually required in this case (seems like probably not) but it
-> > might be worth doing it anyway to avoid hitting the issue. Especially if we
-> > add guest support later where some of the affected registers might start
-> > being used. See:
-> > 
-> >     if (trbe_needs_drain_after_disable(cpudata))
-> >         trbe_drain_buffer();
+On 17/02/2026 14:10, Greg KH wrote:
+> On Tue, Feb 17, 2026 at 01:58:36PM +0000, Ryan Roberts wrote:
+>> On 17/02/2026 13:50, Greg KH wrote:
+>>> On Tue, Feb 17, 2026 at 01:34:05PM +0000, Ryan Roberts wrote:
+>>>> Hi All,
+>>>>
+>>>> This series is a backport that applies to stable kernel 6.6 (base v6.6.126), for
+>>>> some speed ups to enable significantly faster booting on systems with a lot of
+>>>> memory. The patches were originally posted at:
+>>>>
+>>>>   https://lore.kernel.org/linux-arm-kernel/20240412131908.433043-1-ryan.roberts@arm.com/
+>>>>
+>>>> ... and were originally merged upstream in v6.10-rc1.
+>>>>
+>>>> I'm requesting this be merged to stable on behalf of a partner who wants to get
+>>>> the benefit of this series in Debian 12.
+>>>
+>>> Why can't they just use a newer kernel version (i.e. 6.12)?  Surely they
+>>> would be able to justify moving to a newer kernel for performance
+>>> reasons, why enable them to stay on an older one, just delaying the
+>>> inevitable upgrade they will have to do anyway in a year or so?
+>>
+>> I can't answer this presicely, but I did ask and push for that approach. As I
+>> understand it, they are stuck with Debian 12, which is stuck with kernel 6.1.
+>> The Debian maintainer apparently requested that these go through stable in order
+>> to get them into Debian 12.
 > 
-> Oh great, this thing sucks even more than I realised!
+> I understand the position of Debian not wanting to take patches for new
+> features that are not already upstream, but really, Debian offers a
+> newer kernel for hardware that wants to use it for things like this,
+> right?  Why not just use that instead?
+
+Let me go push a bit harder. But I expect we are in the grey zone between bug
+and feature here; this is a performance bug fix, not a new feature. By
+selectively backporting I'm guessing they are avoiding the risk of new features
+that a new kernel brings introducing new bugs? I'm guessing there is a higher
+qualification bar for that.
+
 > 
-> But thanks for pointing that out... this is presumably erratum #2064142,
-> but we probably need to look at #2038923 as well :/
+> thanks,
 > 
-> I can't find any public documentation for the problems, but based on the
-> kconfig text then I think we care about #2064142 so that the TRBE
-> register writes when restoring the host context are effective and we
-> care about #2038923 to avoid corrupting trace when re-enabling for the
-> host.
+> greg k-h
 
-Seems to me, this is correct.
-
-> It also looks like we can't rely on the dsb(nsh) in the vcpu_run()
-> path if that needs to be before the write to TRBLIMITR_EL1.
-> 
-> In which case, the host->guest something hideous like:
-> 
-> 	isb();
-> 	tsb_csync();	// Executes twice if ARM64_WORKAROUND_TSB_FLUSH_FAILURE!
-> 	dsb(nsh);	// I missed this in my patch
-> 	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
-> 	if (2064142) {
-> 		tsb_csync();
-> 		dsb(nsh);
-> 	}
-> 	isb();
-
-As I_QXJZX suggests, the section K10.5.10 "Context switching" gives
-the flow.  I'd suggest the VM context switch is also aligned to the
-description in S_VKHHY.
-
-When switching from host to guest, we need to clear TRCPRGCTLR.EN to
-zero.  As the doc states "ETE trace compression logic is stateful,
-and disabling the ETE resets this compression state".
-
-> and then the guest->host part is:
-> 
-> 	write_sysreg_s(trblimitr_el1, SYS_TRBLIMITR_EL1);
-> 	isb();
-> 	if (2038923)
-> 		isb();
-> 
-> Does that look right to you?
-
-S_PKLXF gives the flow for switching in.
-
-Thanks,
-Leo
 
