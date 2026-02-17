@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F92AE63F2B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 07:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4141DE63F2B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 07:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W6FclGj2g+RRuQaD0dmY2WV4ee+8RDBWNqd7Z0J0TSQ=; b=SHh0wO0D18N3oyxuk/jWF1OUhV
-	jbTOecNEROS4pXED3fe8hV4UZkhn8paNRH5v2pGweXCc/ik3vPPBD9Z8UI7EaisP/5SjcxpfVjOuE
-	F17eToAaKAoXer7ERwEyuj1cpllHgTeWJVkDaylo1a4q6DJ7I/MvSCAxfEtkPzmWp2yy0x5d9IV+k
-	M5fr/XaeQZlnQQUiqND6jK8uJlPu2YfcS7uTW8/TTdLfFEB3mb3dSX7Iv3O5Hwitw+GkF3W/W5gIZ
-	OKlVmChKw5sUyhlGXURmPDxgoLKffYg4Uc6+r4RbqSgVXTQ14CZMcXI/OkHcqHPsTgDEStakJjguq
-	eqTgV/Kw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tA2t5oeOUZ8eAwOpBVyGbemY7+jVRLWknKxnMDhCYms=; b=gnZbvwCjckyHi6
+	4+NBBk1WvTvqOs2y5skz2qhWaJroaxAlDgUc3o/m19qV4hv2ouTHCWkKtcMR8MyYShRjZrCeXA2iR
+	5QV0bY8IyxzeAkM55Q38BoOjRotBOAHBJV1Zpn6wjgpOqqQPz45WfeCu6XMwj3H5bwsCo/bzPDRA6
+	zDd4eH9HkdVtFrucpidIRUIkt/DAS1IUmgLffqSyui1aovjnuqLEPqzc1FbnPATZybWDwgQpRo7qt
+	+Stqcehkl9m9sw/0qVBFYssKwgG2YJYteBLfS31rtxXHqa+cvzqvrIg2bPM8BITvtdtZcifCiz9Fi
+	LpTO9yCSlrhT4+fz08dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsFoZ-00000007mwS-43EY;
-	Tue, 17 Feb 2026 07:48:11 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vsFu5-00000007nRD-2bjH;
+	Tue, 17 Feb 2026 07:53:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsFoW-00000007mw4-2wJh;
-	Tue, 17 Feb 2026 07:48:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771314483;
-	bh=hV2LXUFRvp3gGdAS+sOIikPEF9/2c/sgwXOC2d/azYE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X2ZlmpzjoC1o4Lr2vL4mNberYUWTbWNcNWOzF7fPy9rS4rztiPfQWulvVccX/qOwJ
-	 rhB3Qgw3tPDe8X9VtMy0Qv1iS9ULe5oRYV7dxT3tLszOuLfpiLWL1CFkqQq+Ps6HrB
-	 Nx99Fu68lVfUQmLl81wvvcV0BwC3ZUroShPvloIEN0V/YSzopp2UGiwZdAKpMfySrG
-	 7JAxdKkPRGLiBqrAGrnHs3H0L3obTapJTwPMdu3AwB3ZCpQ+ROQOByKoFsCBtUr+jy
-	 VWbCVqjaTr1AcCn/4oJYOKlTAJ4ndfeQls3MrmPJiewc8VG4sEC11cKBek9T44hoOl
-	 WgYWLHIQnHR7Q==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4812417E114C;
-	Tue, 17 Feb 2026 08:48:03 +0100 (CET)
-Message-ID: <2c3f5c57-9ecc-4a99-9f8b-e1b09a98539b@collabora.com>
-Date: Tue, 17 Feb 2026 08:48:02 +0100
+	id 1vsFu2-00000007nQi-0Z4c
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Feb 2026 07:53:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DF73419F7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 07:53:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C703C2BCB2
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 07:53:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771314829;
+	bh=tA2t5oeOUZ8eAwOpBVyGbemY7+jVRLWknKxnMDhCYms=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=LNnvFNt8TzdVxP6kq+X0upGc19BXHfJFty3jpW6tHWQJBEFvfpyonpjVgsx+jJ8mW
+	 OhxWML1LoAuUxm6+M0IARUuQl8IpXeq3+tOEtWsvJuEwOD9nRjWDP/3PsuMsv7RZQ0
+	 xsb/4z/aHIf8IXV9W1PuBJDPsydg617d4nwN8d9c9v8y5b0MP32wNRAZT+Yeq1YnIF
+	 tKMvS140nE/O7gk0LldojB8VqdP+gJKoyiKObJFg59UEgD+cQ5qxdiadZ1yhraRSTT
+	 v8KRahk1cQUgDZRiKE/Ps5AcYuVJ6HpkkhH2HZ8FWx/l2liL76A5UDmxW0kJacNQvz
+	 bLZC7NTveINRg==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-38708180241so28132231fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Feb 2026 23:53:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWNPqN0fQGMElgGROES3poFdAXpQPxc0lJntH7XhSacdHwwCRv5d490kDg0DhXraANoEIXNoaDs6q+w5ObFss/C@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuLW8rAC8Og3++t0sAN/3gnoR0ejcSBZsHzMMZiGgXv5B19IBl
+	zWAGyHu6Dyf5AXgNY3VdR5dkqx6fX6oFE6elV3/4jLd6bkApXAulA+zZjn4709T52lDdPkF0c9W
+	6DZj3WawEt2E39ZVmCGTFwNi+NIn4V6k=
+X-Received: by 2002:a2e:be1e:0:b0:383:1232:379a with SMTP id
+ 38308e7fff4ca-3881050bca3mr34254911fa.2.1771314827466; Mon, 16 Feb 2026
+ 23:53:47 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/6] media: synopsys: csi2rx: implement
- .get_frame_desc() callback
-To: Frank Li <Frank.Li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, imx@lists.linux.dev
-References: <20260216-imx93-dw-csi2-v3-0-aabafee10923@nxp.com>
- <20260216-imx93-dw-csi2-v3-3-aabafee10923@nxp.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260216-imx93-dw-csi2-v3-3-aabafee10923@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260217014801.60760-1-ethantidmore06@gmail.com>
+In-Reply-To: <20260217014801.60760-1-ethantidmore06@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 17 Feb 2026 15:53:34 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64iwahkDyuTtWo3YsdgExBu-fs8XRcsgPvWX5ETb=irtg@mail.gmail.com>
+X-Gm-Features: AaiRm53D6IJmr1XrVqkJyD7FBEAc639vco0g_d6NG7g082rgVzjQ9c8XaAjLhcg
+Message-ID: <CAGb2v64iwahkDyuTtWo3YsdgExBu-fs8XRcsgPvWX5ETb=irtg@mail.gmail.com>
+Subject: Re: [PATCH] drm/sun4i: backend: fix error pointer dereference
+To: Ethan Tidmore <ethantidmore06@gmail.com>
+Cc: jernej.skrabec@gmail.com, samuel@sholland.org, mripard@kernel.org, 
+	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, airlied@gmail.com, 
+	simona@ffwll.ch, neil.armstrong@linaro.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_234808_984220_EE8F5716 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20260216_235351_181910_AFF5D2A7 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,70 +82,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Tue, Feb 17, 2026 at 9:48=E2=80=AFAM Ethan Tidmore <ethantidmore06@gmail=
+.com> wrote:
+>
+> The function drm_atomic_get_plane_state() can return an error pointer
+> and is not checked for it. Add error pointer check.
+>
+> Detected by Smatch:
+> drivers/gpu/drm/sun4i/sun4i_backend.c:496 sun4i_backend_atomic_check() er=
+ror:
+> 'plane_state' dereferencing possible ERR_PTR()
+>
+> Fixes: 96180dde23b79 ("drm/sun4i: backend: Add a custom atomic_check for =
+the frontend")
+> Signed-off-by: Ethan Tidmore <ethantidmore06@gmail.com>
 
-Thanks for the patch.
-
-On 2/16/26 20:18, Frank Li wrote:
-> Implement the .get_frame_desc() callback to fetch information from the
-> remote endpoint.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
-
-Best regards,
-Michael
-
-> ---
-> change in v3
-> - use media_entity_to_v4l2_subdev()
-> 
-> change in v2
-> - add csi2rx in subject
-> ---
->  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 21 +++++++++++++++++++++
->  1 file changed, 21 insertions(+)
-> 
-> diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> index f03fe01280013bf9a832433c6b06dab691bf8f4c..bcbf109a0bfd040c568c0652e28752c94a1bc30d 100644
-> --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> @@ -429,10 +429,31 @@ static int dw_mipi_csi2rx_disable_streams(struct v4l2_subdev *sd,
->  	return ret;
->  }
->  
-> +static int
-> +dw_mipi_csi2rx_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
-> +			      struct v4l2_mbus_frame_desc *fd)
-> +{
-> +	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
-> +	struct v4l2_subdev *remote_sd;
-> +	struct media_pad *remote_pad;
-> +
-> +	remote_pad = media_pad_remote_pad_unique(&csi2->pads[DW_MIPI_CSI2RX_PAD_SINK]);
-> +	if (IS_ERR(remote_pad)) {
-> +		dev_err(csi2->dev, "can't get remote source pad\n");
-> +		return PTR_ERR(remote_pad);
-> +	}
-> +
-> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-> +
-> +	return v4l2_subdev_call(remote_sd, pad, get_frame_desc,
-> +				remote_pad->index, fd);
-> +}
-> +
->  static const struct v4l2_subdev_pad_ops dw_mipi_csi2rx_pad_ops = {
->  	.enum_mbus_code = dw_mipi_csi2rx_enum_mbus_code,
->  	.get_fmt = v4l2_subdev_get_fmt,
->  	.set_fmt = dw_mipi_csi2rx_set_fmt,
-> +	.get_frame_desc = dw_mipi_csi2rx_get_frame_desc,
->  	.set_routing = dw_mipi_csi2rx_set_routing,
->  	.enable_streams = dw_mipi_csi2rx_enable_streams,
->  	.disable_streams = dw_mipi_csi2rx_disable_streams,
-> 
-
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 
