@@ -4,83 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534FBE68151
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42389E68153
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B7fIFqo1oYwWMlmqFx3EVRqOzUvsBalNSAM+yH2U3Eg=; b=zm5RwVViXAhENvBKP5/KLQ3z8v
-	rYSB5fPQqBI4oHQMkiIVc5RzquZdBfuXxBpjwPcpgx6rMg9Y1nHOOtZSU+8NC0GIdcz24csfU10Sh
-	9+j37wjMX5JZ2Kxv8KdQIHadLVlZiLp8eWmq28kOxfdeXQlhtQtg2myUTxW5gp7BMLaQqRedT1JJ8
-	TJHS+h6pihGM+JBklpFQCm8VjFDpN1ue6wfLwfDjraGzC+uL/LCOomrgihWzNTBSMoiuuVAClM7bq
-	vCSM0C+z6vRoq6Y9Qc3N9SaIAqolbf7chUcK7nStRucde2bSvVuAZ/AvMlieop3T6bn/hijJaEtVg
-	Kmgvwe7g==;
+	bh=mOdJWXBMhIvpFZRvEaBVaTcZ9cCxWbZXw+26UswX3a8=; b=DSJ+XfOBSHPfCOFxM3IzbCri4x
+	FQRY8vLUTEVnTKbWErDUmKNKhX+Kb/9u9GPGQk3+Tk/QvF9NdTCvz6ULsRH3sV9sb07LPCWupB66G
+	aCYQs9A/6QoRPZV+nfaETFx8MOu2L50V/oFCmHUuhf0R4k8hAgSkfXEzV+6pxU4rcv4tyuoEiS5g4
+	O3piVO0ZWrafZx9fqx4r8MzEPTiPr3zuFyF/lANNNsARUD4Smc8Ev3/UUr6204BNdESGpKvg/Xkor
+	Waw+ga0z8EXjwiZ9qsvEb0myxDvkfVAopuglDNrCh+p5DeEssGWJqbyIwKaIplC03vns56j8vnX96
+	ejUdXLtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsHVp-00000007xM4-0lEL;
-	Tue, 17 Feb 2026 09:36:57 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vsHWK-00000007xSZ-2E5y;
+	Tue, 17 Feb 2026 09:37:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsHVk-00000007xLW-2SOp
+	id 1vsHWI-00000007xS1-0jh8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 09:36:55 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id D95D4C13997;
-	Tue, 17 Feb 2026 09:37:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6B195606D1;
-	Tue, 17 Feb 2026 09:36:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B4C071036892F;
-	Tue, 17 Feb 2026 10:36:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1771321008; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=B7fIFqo1oYwWMlmqFx3EVRqOzUvsBalNSAM+yH2U3Eg=;
-	b=Zc4iEErOhbAXqNKAU/fxW/Dx8HoXN3/Lp+sorw59pU9J6sw6ujdzOofXuSHciUg/qpHOSw
-	CQuE/do3MsWTzyitrBuaUfWJq9UfZ7tKMQCEpNX8SQpKf+N496iD7LQOVLBJZhZginmgw7
-	bHT9cZ6GW1l7CrQC2YI9fYiZLhss4KWG1CFCgvG+FT4xgk8m2ym5wUfF3Pic3DH55uKzoG
-	QTQtZdL/GvLUO3UBb9xIWPT7hGIM0bV77vdC7JsOM2kWL7MZz/H6kWoTipInmhIZ610atR
-	6H5U/XTw5VNCrylESkBMGTxp0qP62biRMXJU8pjH1+YvkY8w2+xxwZwZKQ/kTw==
-Date: Tue, 17 Feb 2026 10:36:38 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>
-Cc: Robert Nelson <robertcnelson@gmail.com>, Andreas Kemnade
- <andreas@kemnade.info>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
- <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren
- <tony@atomide.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Bajjuri Praneeth <praneeth@ti.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Louis Chauvet
- <louis.chauvet@bootlin.com>
-Subject: Re: [PATCH 1/5] ARM: dts: ti: Enable overlays for all DTB files
-Message-ID: <20260217103638.30149f16@kmaincent-XPS-13-7390>
-In-Reply-To: <0EE0658D-56A7-480C-BF71-6B2EB81DC41C@goldelico.com>
-References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
-	<20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
-	<B3366A17-641F-4E02-A5D4-978F525E0A96@goldelico.com>
-	<20260212174718.7daccb70@kemnade.info>
-	<719BF710-26DF-49AB-A016-D2306F0389E2@goldelico.com>
-	<20260212231907.6120a2e2@kemnade.info>
-	<CAOCHtYicmeSzH5Q2_qTwAZw3s+__JRwUrXvz01+KCsJJHAznUw@mail.gmail.com>
-	<20260216161155.09fae580@kmaincent-XPS-13-7390>
-	<0EE0658D-56A7-480C-BF71-6B2EB81DC41C@goldelico.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	Tue, 17 Feb 2026 09:37:27 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61GL7gQG1613313
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 09:37:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mOdJWXBMhIvpFZRvEaBVaTcZ9cCxWbZXw+26UswX3a8=; b=feXbYHQhsk6KyW0C
+	jcPzZ366sWvrGDbdYnV76NaLBOIm4/riC6VmAwtTajiJDBuKy7OJYlhgSLXVQSNL
+	jHSQvPxwmOzKcHJUVcXFJGlDGuYUrzhghVraHuDfA6GBOjzDiI7SgiarKjiMtS+y
+	cjObx9Hi9RF5rH6jsMxFOTFEe5XvkECBK+GAEUEzqbbXkaZxrLlQVEMD5ohGIp78
+	7s5QA1mvtoEGZDHkhZkIDAWBNg6SSGRGuIGWt1mXeUPByvArbtxWukL/OUUHRK4J
+	vctRiOxUlXZN5sbKOZRqTl0VHN0Oc78+kIV6bWF+F8rMEfR+696h+hThz5JVjWI8
+	/M0f6Q==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cc662sv9c-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 09:37:24 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cb456d53a5so308812985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 01:37:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1771321044; x=1771925844; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mOdJWXBMhIvpFZRvEaBVaTcZ9cCxWbZXw+26UswX3a8=;
+        b=TPpLCzVMMEZbBapudl33A1FnzWWRgMp7gy57BoKSaQqkMnur1JXP6DYTRfPOoHIfQw
+         ucFlG5Ht835FqNjVWB9WgfDGfuL4g0EY6HkM9sFENegSI+7okTDtgnwILnqOcnIkCA6r
+         JYtXr8li0TpxSYZAtU0E3FNECocrd6j7O0gd5tr4c0R97CQXlU8juIAHOapRizfi7gwP
+         BZYapAYaSOAvwEvc2DWFHaabeAK/2YPiEMMoisWHtSvXp6Z925/OOVZN0JXqnbsgsQxf
+         dyVkDtLzgZUgzr+H+RL6XUZ7WuTDrUVKVCviCNyjGcr7lKL7hjF1pAezQxr6JOGZe508
+         YQnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771321044; x=1771925844;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mOdJWXBMhIvpFZRvEaBVaTcZ9cCxWbZXw+26UswX3a8=;
+        b=Oz4p6KR4+Yhf2p+f9jiKOsiWW492BGtAq9sZt7j+iWo326p11SG77hDHkoU4USTtaZ
+         V7dsYBatjbM0WJVqJwEbv7khHRTmTJD3CzQMLszNvkrW9RsUG519kPatk4DnaHW8UOro
+         DmseoKyU/IBk1WwoIQBZxvlP+klEez4BRjhciwtD4bK7bjLWToLDN0iwd8yjaYLRjAbc
+         GvJcKfVXsWC8hPxarQRyV1dnULt9pfZg5msnC4dmi0jmztJZeNpRN0YFmScDlxsY+J3I
+         uBRVXgY0if9cUw1MiHcy2862Tlk7iuE/yp6xBxyS+F1WXCQRwIr6+LzEKy85TPDcaSPE
+         nDdw==
+X-Forwarded-Encrypted: i=1; AJvYcCV6GsUmc9elnOIL+LSZ11v1cS3rb4VZGhAFKBAik7BduxXXHTP27Cy/rhqA8NSlKIZ2dnyqjj6Dp1wtKwgplxfZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmUqCHGYBMgf5Dzc1xY5D+aVDU6l5Z1eVYrIi7o29ODqPew6Ww
+	Qv7sqsjYe0rQCpBbXff4PzQk2Uz8X7NVzgWdgWazZtpDi6mGuuH1wCCEv63tKihgPN8uAjS2y2T
+	RRSrJKExSWLx8h8igDKVId3UuKRd64qEUD2AchwhX/o7G70npZqTrwF8fg0Vhqpu2VxnbJat6nm
+	LV9g==
+X-Gm-Gg: AZuq6aJdkvzmuGwiGjYVlVY41A9vPEQDBDLGB+C9atb/ewueLuBG6TnZczdE6NmlJd5
+	BkRXG9sFPBct7XQWhkV0L7cAtugI12fLUH8aABRNF/jJZj2HmRJg0G3iRkNIkP9cByAKGbKmO2c
+	0UYxWzJhEqF5Mbg37l6cmuuTRna/4AcQfl4MZ0sMjGjQ3gThMCXv1BsUoF4/o1W1IeoklbOYVQF
+	E+mmfYktOPUeIsQ1EOVa//sr3iuE9A7XGYQkMyrv2Re43MWAkkl2ZJ8ZOgjoaw19v3RCfna7dYo
+	0P8lNa3OfbSzEVg6wwzUJXAbiV+lL/ahMYSl+ms3rOKnbXRr3yBlOwfVEoX4EG7mSNhvrbao1gm
+	+8tQGRMbLfhOP9AGX8fLFsB0TfVNRH/MdIF/hdnuxS+A8XWW/Fdwp2Q8unlSNS4fEi17VfzWXs9
+	MNMRE=
+X-Received: by 2002:a05:620a:29d1:b0:8c9:fefa:89d5 with SMTP id af79cd13be357-8cb409141eamr1276350785a.10.1771321044284;
+        Tue, 17 Feb 2026 01:37:24 -0800 (PST)
+X-Received: by 2002:a05:620a:29d1:b0:8c9:fefa:89d5 with SMTP id af79cd13be357-8cb409141eamr1276347785a.10.1771321043876;
+        Tue, 17 Feb 2026 01:37:23 -0800 (PST)
+Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8fc7691f0esm337654766b.60.2026.02.17.01.37.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Feb 2026 01:37:23 -0800 (PST)
+Message-ID: <1653cdde-4db3-4473-9007-676a5bb23e16@oss.qualcomm.com>
+Date: Tue, 17 Feb 2026 10:37:19 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] arm64: dts: qcom: lemans-ride: Enable mdss1
+ display Port
+To: Mani Chandana Ballary Kuntumalla <mkuntuma@qti.qualcomm.com>,
+        dmitry.baryshkov@oss.qualcomm.com, marijn.suijten@somainline.org,
+        swboyd@chromium.org, mripard@kernel.org, abel.vesa@linaro.org,
+        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, robin.clark@oss.qualcomm.com,
+        jessica.zhang@oss.qualcomm.com, abhinav.kumar@linux.dev,
+        sean@poorly.run, airlied@gmail.com, simona@ffwll.ch,
+        alex.vinarskis@gmail.com
+Cc: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        freedreno@lists.freedesktop.org, quic_rajeevny@quicinc.com,
+        quic_vproddut@quicinc.com, dri-devel@lists.freedesktop.org,
+        quic_riteshk@quicinc.com
+References: <20260217071420.2240380-1-mkuntuma@qti.qualcomm.com>
+ <20260217071420.2240380-3-mkuntuma@qti.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260217071420.2240380-3-mkuntuma@qti.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE3MDA3OSBTYWx0ZWRfXyEiNMxVn4ZSM
+ sq3aGI1Rr07KnMn4mnLqm/nW2F1UbCTUl8sfzDgjs6hPwavboqESbu/fatJDiw9jP+VSPACuWAT
+ HpocUK5O79IesUaLk86ciO5p2z+y6hxe3xbMjeKaZa8llN5oHF8n17n7VdzsvCmr63/6Qh7GB0m
+ y/3wy+vRFOQBQ7rQNHstReF6ZVvsZX+rp/EmNjdXPVDO8TP3JZfYhehkw6ba1NTg3zgA6Ns+PS5
+ /MhgP3+0XQUjiH+6eVRCRygFyIzIIWOO/BLjfmdk5+c+R1obj0q97WD9wzwUwWFteMkPBEud3Ty
+ hcwHlCZqZtnGO4n8SeCfuVaJ82MDIr/opCX9AUIt3EcEfRAypMLe5opP3vn8TU2Rhhazi6DfciJ
+ 19kCud5DGjwu7IDE576fsRX8Z+G6jvdAlt+b134r7+w5HkIgi9v7Z6IS2ePefEyqaodZkRDo2Vl
+ SmsjDWO9tk5VG+3RMvA==
+X-Authority-Analysis: v=2.4 cv=Y6b1cxeN c=1 sm=1 tr=0 ts=699436d4 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
+ a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=XQLX8yjaJUNYVVxXu1AA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: soDEK1kCyK8-eP2S7LVU7k1qWwL6RHTO
+X-Proofpoint-ORIG-GUID: soDEK1kCyK8-eP2S7LVU7k1qWwL6RHTO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-17_01,2026-02-16_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 adultscore=0 priorityscore=1501 impostorscore=0
+ bulkscore=0 spamscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602170079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_013653_121086_B4C57E82 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20260217_013726_339349_ADD2094D 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,42 +159,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Feb 2026 09:58:04 +0100
-H. Nikolaus Schaller <hns@goldelico.com> wrote:
+On 2/17/26 8:14 AM, Mani Chandana Ballary Kuntumalla wrote:
+> From: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+> 
+> This change enables DP controllers, DPTX0 and DPTX1 alongside
+> their corresponding PHYs of mdss1 which corresponds to edp2
+> and edp3.
+> 
+> Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+> ---
 
-> Hi Kory,
->=20
-> > Am 16.02.2026 um 16:11 schrieb Kory Maincent <kory.maincent@bootlin.com=
->:
-> >  =20
-> >>>>>  =20
-> >>>>>>> Am 12.02.2026 um 16:26 schrieb Kory Maincent (TI)
-> >>>>>>> <kory.maincent@bootlin.com>:
-> >>>>>>>=20
-> >>>>>>> Allow overlays to be applied to any DTB. This adds around ~40% to=
- the
-> >>>>>>> total size of the DTB files on average.   =20
-> >=20
-> > Yes, I will move on to this solution for now to avoid too many complain=
-ts
-> > about the devicetree size increases. =20
->=20
-> I have done some experimentation with this patch (on top of v6.19 and our
-> private defconfig) but could not find any DTB size increase.
->=20
-> Does it require another patch or CONFIG change?
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-No, but maybe you had already the "DTC_FLAGS=3D-@" option enabled while bui=
-lding
-you image.
-This options add the "__symbols__" node listing the symbols to the built
-devicetree:
-$ fdtdump arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb 2>/dev/null | =
-grep symbols
-
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+Konrad
 
