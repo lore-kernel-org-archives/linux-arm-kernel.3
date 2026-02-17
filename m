@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F96E9A026
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 17:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C20BEE9A026
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 17:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PztaC61r8T/agLhxr+VFP5jBKRPKcCHks9q2YF1Murw=; b=pulZnMQij7qMFnFrvfaD3bHoYS
-	Pa5lPzPKCNaPc9bfdTuCT/YKdjYoK9Sm59vY0lh7W7sE9a3sGDEMSS8I0cAZUeAdMMCwMeoIGW8nB
-	AGrhjev/uqahRJwXRwcHc1QTQvRSndQS/wvBC8MzcDpymLY2viY0hjDWEYy//bP+V0MzKko+GS0kT
-	DpaHFrGiWSHhnpEtf1uQpdimveWw6UoY8k1KNLmo0jNDh1r3+FE3pN+FqzSlbVuVxlbyMrof6QN14
-	/iwdoH2hn2ZUt8Z01IgPK5OwY/tOO8Ra2nGL2fz72l4BxlRP3/lYdWTgswPBW4YI8FB3Z492+cFq4
-	NVpr27zw==;
+	bh=8AImxmxgvZ+XMASLITaGRzDO1GuJ5MxWuq8w6+FDiYM=; b=2sSl0JHdRUejQ1wu1HOoO2CKN3
+	vmPjciFLJnNWyv/Zl4UE0G5OL+8xfvwgKMfrVcODUsocKL8Wo6ELZ/gV7Gcp1fpLgN0UJusaB/k7E
+	MndNocz9KaNyJdBxSkpJJd6VQ1JE7J3g4hqONfk/fCtSdFxH2T2ooSWXCpOV/+Fuz35SeWdq1gl8D
+	ExsmxKkcn48/XBn0UYmmn/54cTi5xbc5Nmr4bNH1kVLgjfnAT11UDa7gRq1INsbnRckODIUbhAV5Q
+	LNkfiMPZDx2VgrmbGdKirGwytIU6vM90sNYQau2xnbc18aSRPHHRxyh+c+axbKhTV09Zyv1GGn0hL
+	sU00IsMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsPE5-00000008fxb-27pk;
-	Tue, 17 Feb 2026 17:51:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vsPEr-00000008g5b-3Zor;
+	Tue, 17 Feb 2026 17:51:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsPE3-00000008fxP-3Q9J
+	id 1vsPEr-00000008g5K-0FNy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 17:51:08 +0000
+	Tue, 17 Feb 2026 17:51:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C415A60053;
-	Tue, 17 Feb 2026 17:51:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DAD0C4CEF7;
-	Tue, 17 Feb 2026 17:51:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 265EF61858;
+	Tue, 17 Feb 2026 17:51:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7442C4CEF7;
+	Tue, 17 Feb 2026 17:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771350666;
-	bh=RohvUrABE3ONA2kD5YM2rA0XvwklkYs+Ttxew6GqdNc=;
+	s=k20201202; t=1771350715;
+	bh=nSlQybRCDf1ukcaNYL889KannvV086DVPELCuG/f9BE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dQX2u1Sljt6+W1rO3TGqvEeMKWhfzifUi6l+evzSC1hEQW3/km3YRP4f9HgUJS9rD
-	 +8zu+KKD/ZP3cCc6egcr4pG3MGPd8ot9PgCY46FtHZNldAIMx6issJ3ZKNrUaAi3oi
-	 1uzNzWdhZX1xnut1wMy5DKP8ABef6E/XutX52FVtXSt8p36l9JkYE1I67odN8Ixr6E
-	 kiBJLz8V27vxMM2wcFjA4Et2MTZeGeiQl3bo9OA2dzwnvbbiP0xpiysyxDsTrmn5fs
-	 z8UMZrhGKPGdjZ1dad0wcPX8ASWuUHKkilaJwOwrebBarOqSBOMkZ6i2xQ2PIgtR94
-	 7QhnVIl7Pt56Q==
-Date: Tue, 17 Feb 2026 17:51:02 +0000
+	b=fSqFCk9GF22E5iyln5OmUpGDTaQAzo/QLkCgApZTk6Jc/W2jps8X4ubPlnRkMDHmw
+	 9DzIrMO6LTojMGEFNVsk7Rkyrq/nTffXKdPV4mgZ/8926kYH6vMftel+Ali9Z7iueJ
+	 z9lAMosMzDTY9BAwdXvwHibRDE1yYItYhw4lNcYcXUB9CNq1EUvM5n0LThVwF8YxGo
+	 7NYfJfdBUuRCZS0B9CHDTxDp1OEmowwCz/XcjCZSLDJEmliAMCxxjvjAS/SNOpftKh
+	 OdlF7eLViuXWUUmI049XNvLm4uKRpEGidDS10rcY6jStXKxKDCA4q5KU4M7d5zNx+3
+	 rBzavAKhrBsMA==
+Date: Tue, 17 Feb 2026 17:51:51 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Akhila YS <akhilayalmati@gmail.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -52,15 +52,16 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/5] dt-bindings: Microchip/Atmel AT91/SAMA system
- peripherals: convert to YAML
-Message-ID: <20260217-cosigner-polka-de13bb9be569@spud>
+Subject: Re: [PATCH 1/5] dt-bindings: arm: microchip,sama7g5-chipid : convert
+ to DT schema
+Message-ID: <20260217-fleshy-giddily-80987f509638@spud>
 References: <20260217-arm-microchip-v1-0-ae5d907e10e3@gmail.com>
+ <20260217-arm-microchip-v1-1-ae5d907e10e3@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="EW0cnvbyt9G3Knl/"
+	protocol="application/pgp-signature"; boundary="Ycow4LfqyTcPTdK4"
 Content-Disposition: inline
-In-Reply-To: <20260217-arm-microchip-v1-0-ae5d907e10e3@gmail.com>
+In-Reply-To: <20260217-arm-microchip-v1-1-ae5d907e10e3@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,54 +77,89 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---EW0cnvbyt9G3Knl/
+--Ycow4LfqyTcPTdK4
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Feb 17, 2026 at 05:24:18PM +0000, Akhila YS wrote:
-> Convert various legacy .txt bindings for Microchip (formerly Atmel) AT91/=
-SAMA
-> family system peripherals to proper YAML schemas. This includes:
->=20
-> - CHIPID (SoC ID register block)
-> - PIT (Period Interval Timer, old style)
-> - PIT64B (64-bit Period Interval Timer, newer parts)
-> - ST (System Timer, including watchdog subnode)
-> - RAMC/SDRAMC/DDRAMC/UDDRC (SDRAM/DDR memory controller
+On Tue, Feb 17, 2026 at 05:24:19PM +0000, Akhila YS wrote:
+> Convert Atmel system registers binding to YAML format.
 >=20
 > Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
 > ---
-> Akhila YS (5):
->       dt-bindings: arm: microchip,sama7g5-chipid : convert to DT schema
->       dt-bindings: arm: atmel,at91sam9260-pit: convert to DT schema
->       dt-bindings: arm: microchip,sam9x60-pit64b : convert to DT schema
->       dt-bindings: arm: atmel,at91rm9200-st: convert to DT schema
->       dt-bindings: arm: atmel,at91rm9200-sdramc: convert to DT schema
->=20
->  .../bindings/arm/atmel,at91rm9200-sdramc.yaml      | 67 ++++++++++++++++=
-++++
->  .../bindings/arm/atmel,at91rm9200-st.yaml          | 65 ++++++++++++++++=
-++++
->  .../bindings/arm/atmel,at91sam9260-pit.yaml        | 49 +++++++++++++++
->  .../devicetree/bindings/arm/atmel-sysregs.txt      | 48 ---------------
->  .../bindings/arm/microchip,sam9x60-pit64b.yaml     | 71 ++++++++++++++++=
+>  .../bindings/arm/microchip,sama7g5-chipid.yaml     | 41 ++++++++++++++++=
 ++++++
->  .../bindings/arm/microchip,sama7g5-chipid.yaml     | 41 +++++++++++++
+>  1 file changed, 41 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/microchip,sama7g5-chip=
+id.yaml b/Documentation/devicetree/bindings/arm/microchip,sama7g5-chipid.ya=
+ml
+> new file mode 100644
+> index 000000000000..4227f308d43a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/microchip,sama7g5-chipid.yaml
+> @@ -0,0 +1,41 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/microchip,sama7g5-chipid.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Atmel/Microchip RAMC SDRAM/DDR Controller
+> +
+> +maintainers:
+> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
 
-Is this intentional? They all say "convert", but only one file is
-removed in one commit?
+> +  - Claudiu Beznea <claudiu.beznea@microchip.com>
 
---EW0cnvbyt9G3Knl/
+This email no longer exists, think the new one is claudiu@tuxon.dev.
+Look it up in MAINTAINERS.
+
+> +
+> +description:
+> +  This binding describes the Atmel/Microchip Chip ID register block used
+> +  for SoC identification and revision information. It requires compatible
+> +  strings matching specific SoC families and a reg property defining the
+> +  register address and size.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - atmel,sama5d2-chipid
+> +      - microchip,sama7g5-chipid
+> +      - microchip,sama7d65-chipid
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    chipid@fc069000 {
+> +        compatible =3D "atmel,sama5d2-chipid";
+> +        reg =3D <0xfc069000 0x8>;
+> +    };
+> +...
+>=20
+> --=20
+> 2.43.0
+>=20
+
+--Ycow4LfqyTcPTdK4
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZSqhgAKCRB4tDGHoIJi
-0nHEAP9pWj/18OTsKIU4OHlqjX4JDifXepNVguER5eS6+e6fMgEA3nMnIhpB9wQE
-1zw796iOZW9pOAf7LNYcUOR1P2FJ3QI=
-=aoNg
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZSqtwAKCRB4tDGHoIJi
+0iE6AQCbn0DVPLFR3ihEmzGdFRLqcLHrtfP8u+++3NdkjCmugAEAyW4JRnhN6Tr3
+rbcEKL3BsnvquINtkJwbola9wBp31A0=
+=67/P
 -----END PGP SIGNATURE-----
 
---EW0cnvbyt9G3Knl/--
+--Ycow4LfqyTcPTdK4--
 
