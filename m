@@ -4,91 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F0DE6816B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 12:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4C1E6817A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 12:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gSA69J8HH5ShQtT6NEI1mo38t8hiGEa6yEjtV86V/Kc=; b=iO+Sug73OZdVibJg5PoLmbrqSo
-	i74JrSL5qGKY329kWNFLyHEJNDL6ZqtNAucWR/pOW5dCrROuFQfw/bA9TmPClRJhjUHf7RW7YOo0C
-	RoqKrAN0q6LJGCjnzWwFzc+4IdeQLrB7Jzl4PC8Cy6Oe+TJeH78ZKve8n4TPlu1N4EeZNdyRrDu6y
-	Sdg9RlSzt7FnuK2SNHIHkMkgnqFVPwR3nWFIzvlTybyZUqan4ibIgDv+ZxksXFBDiH2GSrz72b4V+
-	lcJWWb8Ca0Gnpj6EBtltg/ygl84nrfsvQeGzdtdoXxlELt6LdQu+Y4lfWIrswQgbKn7HgmeJ/xv7o
-	l4ymfriQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=jx6DrwFX8ki8xaKk1CHdtcKX3GWYs/661XnR/V1nwGQ=; b=HpsP25vA76NuCSHnlb5HBxNj+J
+	80DB8e6PLvBCKqzaa0xLQMUXjoEqVT3NBoL0l/RwAjdqSnS/qyWPPR7ayGIec579lH+B/8/IIMm4m
+	4/RYvvF4MKtl5c//WR+J3NvlkTHAxfFz+d9yimbGiOzM9T/ck2CiNuEQvCkCBr4DDDaiDKrorsBYo
+	cHIBaTTwG8SBbxBi1YUkLMF7Z+ohgdo57SBuDYJ+c71xWbbtZnO1pAzdNY1JRAKVQc+oz76sPQ6Tx
+	81GpQBfU7yykPnL3/0ZzpKj6QN0iS1tuCl5DnAHkZr9CXM2wn9WZ/IKNrII2mqNq1nPkxowcDt9lb
+	WKDhlJgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsKFC-00000008DR5-0ft6;
-	Tue, 17 Feb 2026 12:31:58 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1vsKHQ-00000008DgI-2YBe;
+	Tue, 17 Feb 2026 12:34:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsKF9-00000008DPt-3RUU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 12:31:56 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b8f96f6956aso515143766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 04:31:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771331514; x=1771936314; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gSA69J8HH5ShQtT6NEI1mo38t8hiGEa6yEjtV86V/Kc=;
-        b=eNXiUmKYzMKjt76oK8d/Py0UFHJI7Sve/FQivPcu0+SFI1yMlX8p5NEAAEFAgAfSdH
-         ZmcXxQu03bVglz8dTLKuGjM9Kse6o5AR4nGtOqGYtJAtgkYqAPHU2kCvIOiqYZtsS17q
-         EYbFrRI2Hg/u38e+f9YEoDQk3xghvPW42OquadcAK1AvuHhaah6V9KXcakSrFZ8Psz42
-         PoW7ZlNO0cpn43vremK5h0xj6BKzGaFg0YzHJvFvze0jBk9kXZfh6WVpo0fIyqvn0Cfr
-         Q0Ae216BwfHi965qtKE7+Ru+G3oXvuDhcPdn2ZVHy6RgoU8Hms0/SXJBZiOGj9/jLHBk
-         VsCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771331514; x=1771936314;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gSA69J8HH5ShQtT6NEI1mo38t8hiGEa6yEjtV86V/Kc=;
-        b=FZTJ7KyVH+VheyjV3EY/UYbMdserkSRwin9MBX3PEppri6pVbS3Qb+01pO1Q7vIqoK
-         z6h9hnHWkUjoPAQiiPCDFFk732bCOx1WeJoO1t5OQOSEYWWGq4hXto75JbnaBoO/s+5c
-         AuaJR2M828rMW9EarcmcHyltdxWdO/xI6cgvr0Z8yZ0vmCI59WnQdNFpIT0WeoiU2nuq
-         I3HOhilDMQjJFX/KRr0WVaoGCOhdhppUJVSAr6fGDZkvCE6Hi3U9s07KBL4Rtcl7MsbS
-         aGyi6oTzFqtnKrxvbOG3kFWJRs2xGV9TuKHXWgl7sezQF+VEsIERzBM158XMxwYBcJYc
-         NCnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWH2GL6cq4cgm3EG9TbriC2/MckHkqgwAFWwhXUqLpY+9d0syXHToBwgFkfLQA/28NQNp/Hsczz3smtpVpOiDMQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZFd1xsEDyUF4KjrmwKdVNXcz/FRnabUiWxL+ulXDKvCy7gLyQ
-	+mBfL+yKkYTGO4DUe0PgQh/BK7KfoA/eWgrKnrbVY3/9ZpwZSjwiXGCJOXQiDu87pg==
-X-Gm-Gg: AZuq6aKGGr8YyFxcpRl4nMlyOBFhi7zN0zCeG+DK7u7vs/9SIYRzZRrJd/GG4nxsq9c
-	g7bM+BJw5RGFJoiA0CODaIXcyUUqJOpJdKiGJ0jJPJtr9s302ZpjltKYq/M+VMoao9VqjUaxcA1
-	rgzCvzmusO1fhPt3Ui7bvuRdBpRDJG9cFJ3TOt/fFyCsRIgh+dw82zeQ4h/2tFXyoPumUKOekUg
-	FrlarN9TKmYR5mSLpn9oqUUQZCbu6fSAoyn4M+hqxh3WOC7L4YyMaLfFfElwr+PBz6W9TWphMwF
-	1xYGKiH65U60fczlSwEOtFEeP0OsdGpipPIR8NMJQN4ccYcMvLxxvqx2DoIYehHwOXzK3ooL0fT
-	JO0XFVCEYo1IoGHJ0/HwuS2AcGqZLNdKi1tlMs0TEQQirF8pr5/8xnz29W1q1pew/S03EnPikMr
-	7O1cjCOY58wAd763mdDh9TsLJZcWs9rdTzuFbiZtG3mXieRdkeDXtVOXPlGa9+zyqYKZXGgsI=
-X-Received: by 2002:a17:907:3ea1:b0:b77:1b05:a081 with SMTP id a640c23a62f3a-b8fb4392456mr767722666b.27.1771331513280;
-        Tue, 17 Feb 2026 04:31:53 -0800 (PST)
-Received: from google.com (105.165.204.35.bc.googleusercontent.com. [35.204.165.105])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8fc73f7c24sm352630166b.30.2026.02.17.04.31.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 04:31:52 -0800 (PST)
-Date: Tue, 17 Feb 2026 13:31:49 +0100
-From: =?utf-8?Q?Pierre-Cl=C3=A9ment?= Tosi <ptosi@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, suzuki.poulose@arm.com, 
-	maz@kernel.org, corbet@lwn.net, yee.lee@mediatek.com, ascull@google.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH] arm64: Optionally disable EL0 MTE via command-line
-Message-ID: <2evhrm4tg52nxru7xeegs5ut7alnnczv5w2xsgkvhgbdlxdrht@shdj2wb4wcql>
-References: <plslbeuzfag5dfizunxmhyw5axxbuz7r3jdlhjluzdwrm4rtzk@bm5xmxzmy6v3>
- <aZRIHZ2Wq81S-FZY@arm.com>
- <p7wloz3ospiwaytzzns43hbyfrxfjoca6ljols3dq4hpha5y2v@weadvhpdng7a>
- <aZRY9UTSgw0Zf2Y-@willie-the-truck>
+	id 1vsKHP-00000008Dg9-3H1o;
+	Tue, 17 Feb 2026 12:34:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6422A61334;
+	Tue, 17 Feb 2026 12:33:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A87AC4CEF7;
+	Tue, 17 Feb 2026 12:33:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1771331624;
+	bh=UalrvtjqHt8yUx6RkL+iO3sCWQcaR1m9KEVeDW0Mpqc=;
+	h=Subject:To:Cc:From:Date:In-Reply-To:From;
+	b=c2E3uTyhnEQirat9EQC0ieZ76RAM27ZAIPSkRTQtvKd21fleQ4DwDiRrvv4htccAZ
+	 eLXAXl4Wec5yuQzNrN/9fVBh9mQZ6OpSFGTbn69sM3+27RgaaoV39hJ7EnayFTLda7
+	 cjk06pUmZVkPUbRHtv5fX1ZYkVACqFEIeHzx8Vcw=
+Subject: Patch "clk: mediatek: fix of_iomap memory leak" has been added to the 6.1-stable tree
+To: 1468888505@139.com,angelogioacchino.delregno@collabora.com,chun-jie.chen@mediatek.com,dzm91@hust.edu.cn,gregkh@linuxfoundation.org,ikjn@chromium.org,linux-arm-kernel@lists.infradead.org,linux-mediatek@lists.infradead.org,matthias.bgg@gmail.com,miles.chen@mediatek.com,mturquette@baylibre.com,patches@lists.linux.dev,sboyd@kernel.org,u201911157@hust.edu.cn,weiyi.lu@mediatek.com,wenst@chromium.org
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Tue, 17 Feb 2026 13:33:37 +0100
+In-Reply-To: <20260211012351.2076922-1-1468888505@139.com>
+Message-ID: <2026021737-from-steep-235b@gregkh>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aZRY9UTSgw0Zf2Y-@willie-the-truck>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_043155_898123_5B6724E2 
-X-CRM114-Status: GOOD (  30.49  )
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,49 +64,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 17, 2026 at 12:03:01PM +0000, Will Deacon wrote:
-> On Tue, Feb 17, 2026 at 12:20:02PM +0100, Pierre-Clément Tosi wrote:
-> > Hi Catalin,
-> > 
-> > On Tue, Feb 17, 2026 at 10:51:24AM +0000, Catalin Marinas wrote:
-> > > On Fri, Feb 13, 2026 at 12:51:07PM +0100, Pierre-Clément Tosi wrote:
-> > > > Although it is currently possible to fully disable MTE on MTE-capable
-> > > > CPUs (with arm64.nomte or id_aa64pfr1.mte=0) and to only use MTE in
-> > > > userspace (with kasan=off), there is no way to limit the use of MTE to
-> > > > the kernel because CPU capabilities are traditionally exposed directly
-> > > > to userspace.
-> > > > 
-> > > > To address this, introduce a new cmdline argument (inspired by the
-> > > > existing arm64.nomte) to only expose the MTE capability of the CPU to
-> > > > the kernel. Combined with KASAN, this results in only the kernel using
-> > > > the feature, while HWCAP2_MTE and the corresponding MSR ID_AA64PFR1_EL1
-> > > > field are hidden from userspace.
-> > > [...]
-> > > > +	arm64.nomte_el0	[ARM64] Unconditionally disable Memory Tagging Extension
-> > > > +			support for userspace
-> > > 
-> > > Why would we need this? It's a user-space choice whether it uses MTE or
-> > > not. It's not like the kernel is forcing it onto the user processes.
-> > 
-> > Correct. This patch is useful when working with a pre-compiled distribution to
-> > ensure that a MTE-enabled userspace falls back to untagged allocations, without
-> > the need to introduce system-wide policies (and ABIs) for said distribution,
-> > which would also be inherently less robust than this kernel-level gating.
-> > 
-> > In Android, we can simply append the flag to the kernel cmdline instead of
-> > relying on sysprops (or similar early userspace concepts) and hoping that all
-> > users are properly gated on that sysprop, etc. This can be used for A/B testing
-> > of the feature or as a highly-reliable "remote kill switch", for example.
-> 
-> Why isn't arm64.nomte sufficient for that? It seems weird to insist on
-> tag-based KASAN support for the purposes of userspace A/B testing...
 
-For a given architecture (and product goals), profiling of MTE might lead to the
-performance overhead being acceptable in the kernel - where security concerns
-are more prominent - but not in userspace, resulting in tag-based KASAN being
-required while a robust switch is needed to disable MTE in userspace but
-arm64.nomte is too coarse for that.
+This is a note to let you know that I've just added the patch titled
 
--- 
-Pierre
+    clk: mediatek: fix of_iomap memory leak
+
+to the 6.1-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+
+The filename of the patch is:
+     clk-mediatek-fix-of_iomap-memory-leak.patch
+and it can be found in the queue-6.1 subdirectory.
+
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From stable+bounces-215733-greg=kroah.com@vger.kernel.org Wed Feb 11 02:24:25 2026
+From: Li hongliang <1468888505@139.com>
+Date: Wed, 11 Feb 2026 09:23:51 +0800
+Subject: clk: mediatek: fix of_iomap memory leak
+To: gregkh@linuxfoundation.org, stable@vger.kernel.org, u201911157@hust.edu.cn
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org, mturquette@baylibre.com, sboyd@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, miles.chen@mediatek.com, wenst@chromium.org, chun-jie.chen@mediatek.com, ikjn@chromium.org, weiyi.lu@mediatek.com, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, dzm91@hust.edu.cn
+Message-ID: <20260211012351.2076922-1-1468888505@139.com>
+
+From: Bosi Zhang <u201911157@hust.edu.cn>
+
+[ Upstream commit 3db7285e044144fd88a356f5b641b9cd4b231a77 ]
+
+Smatch reports:
+drivers/clk/mediatek/clk-mtk.c:583 mtk_clk_simple_probe() warn:
+    'base' from of_iomap() not released on lines: 496.
+
+This problem was also found in linux-next. In mtk_clk_simple_probe(),
+base is not released when handling errors
+if clk_data is not existed, which may cause a leak.
+So free_base should be added here to release base.
+
+Fixes: c58cd0e40ffa ("clk: mediatek: Add mtk_clk_simple_probe() to simplify clock providers")
+Signed-off-by: Bosi Zhang <u201911157@hust.edu.cn>
+Reviewed-by: Dongliang Mu <dzm91@hust.edu.cn>
+Link: https://lore.kernel.org/r/20230422084331.47198-1-u201911157@hust.edu.cn
+Signed-off-by: Stephen Boyd <sboyd@kernel.org>
+Signed-off-by: Li hongliang <1468888505@139.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ drivers/clk/mediatek/clk-mtk.c |    7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+--- a/drivers/clk/mediatek/clk-mtk.c
++++ b/drivers/clk/mediatek/clk-mtk.c
+@@ -505,8 +505,10 @@ int mtk_clk_simple_probe(struct platform
+ 	num_clks += mcd->num_mux_clks;
+ 
+ 	clk_data = mtk_alloc_clk_data(num_clks);
+-	if (!clk_data)
+-		return -ENOMEM;
++	if (!clk_data) {
++		r = -ENOMEM;
++		goto free_base;
++	}
+ 
+ 	if (mcd->fixed_clks) {
+ 		r = mtk_clk_register_fixed_clks(mcd->fixed_clks,
+@@ -594,6 +596,7 @@ unregister_fixed_clks:
+ 					      mcd->num_fixed_clks, clk_data);
+ free_data:
+ 	mtk_free_clk_data(clk_data);
++free_base:
+ 	if (mcd->shared_io && base)
+ 		iounmap(base);
+ 
+
+
+Patches currently in stable-queue which might be from 1468888505@139.com are
+
+queue-6.1/devlink-rate-unset-parent-pointer-in-devl_rate_nodes_destroy.patch
+queue-6.1/ksmbd-set-attr_ctime-flags-when-setting-mtime.patch
+queue-6.1/clk-mediatek-fix-of_iomap-memory-leak.patch
 
