@@ -4,186 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C67E6817A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 12:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7353E6817E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 12:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RvEfrZDrpuXSo+8UNBbEgYFKbls9A5JiTcAP/1CGaK4=; b=LwhvRMTdqzga2ue6MKZ1NOYoY3
-	mwVEz9AuFvt8iXkAuIbxdFjYDD7VwQbhQL3iG/TYLykaPC5FXUrPU45oPj7qxKAB1uFVcpNtCJt++
-	ALV52joxzi7rae1WjwnTU4cGgyPu4GWTt4I3uqjH2HMLKmsKALVFNLbVDYaeWuFePoBRX6I9a5+Cr
-	FMAAovWkNKdiiIGqlkBIhXpP3sSPRtmqJBvEw5rjzXNBXrNiH0M0Q0djyBit8k9SR0hVNnxx8/p7O
-	cNtbcG7HCR+ELkfQaOvIGjkjyfn2rRA+d9MsEN47za3KIMO3QdUwlHnNu1751ZMWE9FqyaUzcI9NS
-	cMIlWEiA==;
+	bh=kPHvBI1Pan3M4iaidTIFZnbtqSz3AZ7jPYAHqyBo5u8=; b=2Gp392sW7lR3wUvTHsA6HbuJ5R
+	fOau6ZU8HY57cFz6HFi6tyyPTm50RInnYT/wSXHBBpXY4dZkcSS7Y7XiUBNhYzT1tDCWZ54mQq4fe
+	uTF9CM9rbnnHejzMrFlJNzXL3B0M52ENizLJfFA5F1WFlDsBIhDoAe5OC1S5qZ7SRlRROJTa/s/Ua
+	qbhOLgE6R4Zo3JurkOdtgtTolVwsyBUef7dpa4PZU8hGqVwiHBb7AY26xF0zawbaqAqTomtNZslMG
+	pK20VtMYGEHdWzzmsmruU6pvWgaRXKA4yCs6lUA6zwP5ERoW1a3fM6+MF9q228huf5/9iOQMtBn1z
+	PTO4IHzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsKI0-00000008Dor-2pbZ;
-	Tue, 17 Feb 2026 12:34:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vsKcf-00000008FgT-41hF;
+	Tue, 17 Feb 2026 12:56:13 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsKHz-00000008DoS-17mw
+	id 1vsKcb-00000008Ffi-0bds
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 12:34:52 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61H8fS2X1545010
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 12:34:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	RvEfrZDrpuXSo+8UNBbEgYFKbls9A5JiTcAP/1CGaK4=; b=LiAIaRXs6HrgIe0+
-	27FH4f1ZJkA90Rn3x5DuZnLxWfb7ctBdh1/h9y3Y6nFB1n7y4u2xewOr1l4VMCLI
-	U+QdDR0jpa1truWImPQNSjcRzZT7En5fDGHU0T6Km88oJSt0MBsOWytfUC4a6XN0
-	GODy77SLMl/95YPqBphumuirnDZjftkrFL454+ih7VITZXTbMXOlk0Y45NN/lt/2
-	7Ek5yD8H/OfQs3mAfkLamPiTQM725CLBc5DeV1Xyu/l6eLO0CUCNoAf3+pmAK1AV
-	GjTggxvXufhDb01ph8JhDoM/RtfCP44zkHThjOh8fULjF5M1zKIakjtDetK+GJEJ
-	nll9VA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cc7ajt6jm-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 12:34:50 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cb706313beso9530585a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 04:34:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771331690; x=1771936490; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=RvEfrZDrpuXSo+8UNBbEgYFKbls9A5JiTcAP/1CGaK4=;
-        b=d2/dBImDr8GUytLGzpLSpviFBaYf+48EyBiOpI/cvnMi8Ljv0TtKDODGly7oGXAE2+
-         7c5R8ltq4Xn6/BP1CxMUGCxlgwC1eT904U2Uq0opGnNJTw45JTCUV4P/1OYE1Lo31j9B
-         UIxFS2uEEClttMcN5FS5ge78pUTPe+CDKEDz8zs9E3zbShZiCjVZNnZQ4lYvQuR1EH14
-         MtVAEtVCOr+EtZ6e+ZmIyCHgFfsbu//6S7wgizsTEiSFkz4kVIq1fsRy1UCGxsa1ii95
-         Nk8bTCM6I4YzcoJxjq7alOiX3diHeQT9dJ4HiX8jzRdCNIgf5JgJlBYlDxpWDJb4uNWu
-         Zx0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771331690; x=1771936490;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RvEfrZDrpuXSo+8UNBbEgYFKbls9A5JiTcAP/1CGaK4=;
-        b=ue+90oGKIqlXChGfQ8rblm7HGcqiNcLPNmzkD4CO4URLXtLeWkVY2wjQXOecef8nGz
-         fBQO34+vtTaa5GW1rkKDYVHCkdgNvUGB0Az8FPVDi3uiHbirxiuy4zKFxlp41KEF1ejR
-         IAogXKUkTqjuApyjs2ou6wx9kHdKPgtb3aLHV7XD7k2ErZNorPamtpr2BN1lK0T1N/A8
-         xM+TSlFimS4uAPaAZRyBO1kvN0i/hHZQfc5bhi9wEDlYlspSKmw299aNgMILnEf+jrhs
-         mywhWvL4gV5/mQBzHjxJrV1BlQZd500K8Wca3PgJcT5ApOXckv0miZGiz8y4Ed+NDcvp
-         9LBg==
-X-Forwarded-Encrypted: i=1; AJvYcCXk1C3a6YyvNugeKWDcsKMacte8KQrIJR7OOJ8yDjw75w3eNNSKU/yHKUlxXdwr14ZmccnedVDOloTeDAt5kOde@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3HfhUdk6IAEn+sPvYfSxlnTcQ/WNK+1wT6nQBXhsOQRsTYzmF
-	WIFqPbq40PJ/DcZxaK5juNlKJRwZbqncT9ztMjpO/pm+okDxqVL+iaD8DGDk8HJFZYMIDZHutce
-	V3qVc9G3CouWpqDXrA/MVSMHmf7kVQvQED7J8rsWQVYd2agtjJuvqwmVKtogSf2YE1DOh5S64mW
-	ooow==
-X-Gm-Gg: AZuq6aIpOdFAJI+6KCn0YTdpZNTCy97NFeTGnGDrWZp38LBnmi9pPOnVyYwa89cCyBy
-	XQjRgARDSbmkt21r7OIs/P362XQJ/U3KlOy7bzEGy3UwEbmPAAULRgJBfxvPfotSb+oxyooc63+
-	3ohkk+zoS6G35R87wRPcRnV6+fquIKkchA9TEkcYDVdI21qm0OblagNb/5klQ0OEnUtZ5OSPSvL
-	MpadHeR6KANXRLBgRogpCu2RdSOPme05fsAwK7q4LIHVjx9dasGGU7qR8cMU1mcIKDoXIO72hAV
-	tauVQ8MMm4FqEIyEERVV+HadMYFhu0ASEHmbwB0dlC4+JLaSTP1EvaKKmCRd/xf+ZE2rssZf4wY
-	zc4JDoXzZXsvYRPUjJJHMKG2GydZnzM79SNDkrFlW90e2UNLSNw==
-X-Received: by 2002:a05:620a:1927:b0:892:7dd2:9f0f with SMTP id af79cd13be357-8cb4228d6d6mr1362114585a.19.1771331689733;
-        Tue, 17 Feb 2026 04:34:49 -0800 (PST)
-X-Received: by 2002:a05:620a:1927:b0:892:7dd2:9f0f with SMTP id af79cd13be357-8cb4228d6d6mr1362112085a.19.1771331689224;
-        Tue, 17 Feb 2026 04:34:49 -0800 (PST)
-Received: from [192.168.1.29] ([178.197.223.140])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796ac9d77sm31558282f8f.33.2026.02.17.04.34.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Feb 2026 04:34:48 -0800 (PST)
-Message-ID: <a2bd86d1-58ab-4a03-9539-74406b20861c@oss.qualcomm.com>
-Date: Tue, 17 Feb 2026 13:34:47 +0100
+	Tue, 17 Feb 2026 12:56:12 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260217125600euoutp01e702ba17a82df7a26cb54abe09518e80~VCfFtKJNi2750327503euoutp01K;
+	Tue, 17 Feb 2026 12:56:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260217125600euoutp01e702ba17a82df7a26cb54abe09518e80~VCfFtKJNi2750327503euoutp01K
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1771332961;
+	bh=kPHvBI1Pan3M4iaidTIFZnbtqSz3AZ7jPYAHqyBo5u8=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=qE2Na2wFoGobnNwByWm49yVZUxp6ZyqvGOKUcTxQmO/J9J6nwYoOSde40k3tzupbf
+	 5drCH58ib86rmTAuEFK3Dh2gBz0w2T0sLKmgAdsu5bu3cX1d1C762Ho+VBd2ZtAcrr
+	 Rpa2eUVwXatWI/hNEoqzx/baF+s1uCvrB4JykOMY=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260217125600eucas1p2f5a7aaf272ec1e8419eb4f30114ae4c0~VCfFifkBN0465704657eucas1p2k;
+	Tue, 17 Feb 2026 12:56:00 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260217125557eusmtip157747204999f9293afbbfbea0aadd349~VCfCuB9mO1169311693eusmtip1R;
+	Tue, 17 Feb 2026 12:55:57 +0000 (GMT)
+Message-ID: <7131d609-b083-4264-818a-21de38c1c3ed@samsung.com>
+Date: Tue, 17 Feb 2026 13:55:56 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] efi: stmm: Constify struct efivar_operations
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Ard Biesheuvel <ardb@kernel.org>,
-        Ilias Apalodimas <ilias.apalodimas@linaro.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        linux-efi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260215110628.34293-2-krzysztof.kozlowski@oss.qualcomm.com>
- <CAC_iWjKQA0k+DTFpTDGieCK0qNL3=BCSiOPOtCo5gvdOtXd-cA@mail.gmail.com>
- <25d66619-23a2-4566-bbc3-83be8eae9d46@oss.qualcomm.com>
- <CAC_iWjKXcp8mmUaFphHRjJc+n3RNasVi91+_eP-mm3a9pnmYSg@mail.gmail.com>
- <5823f778-d422-4190-99bf-d66ffa437f6c@oss.qualcomm.com>
- <93de9e85-faf1-4394-a374-f9207bd823c7@app.fastmail.com>
- <3ae05b60-0428-40ec-a6a8-e60395a8dccd@oss.qualcomm.com>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v5 11/14] sparc: Use physical address DMA mapping
+To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Leon
+	Romanovsky <leon@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Russell
+	King <linux@armlinux.org.uk>, Juergen Gross <jgross@suse.com>, Stefano
+	Stabellini <sstabellini@kernel.org>, Oleksandr Tyshchenko
+	<oleksandr_tyshchenko@epam.com>, Richard Henderson
+	<richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, Thomas
+	Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley"
+	<James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
+	<mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy
+	<christophe.leroy@csgroup.eu>, Geoff Levand <geoff@infradead.org>, "David S.
+ Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Thomas
+	Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+	Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, xen-devel@lists.xenproject.org,
+	linux-alpha@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, sparclinux
+	<sparclinux@vger.kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzTpLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQG9zcy5xdWFsY29tbS5jb20+wsGXBBMB
- CgBBFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmkknB4CGwMFCRaWdJoFCwkIBwICIgIGFQoJ
- CAsCBBYCAwECHgcCF4AACgkQG5NDfTtBYpuCRw/+J19mfHuaPt205FXRSpogs/WWdheqNZ2s
- i50LIK7OJmBQ8+17LTCOV8MYgFTDRdWdM5PF2OafmVd7CT/K4B3pPfacHATtOqQFHYeHrGPf
- 2+4QxUyHIfx+Wp4GixnqpbXc76nTDv+rX8EbAB7e+9X35oKSJf/YhLFjGOD1Nl/s1WwHTJtQ
- a2XSXZ2T9HXa+nKMQfaiQI4WoFXjSt+tsAFXAuq1SLarpct4h52z4Zk//ET6Xs0zCWXm9HEz
- v4WR/Q7sycHeCGwm2p4thRak/B7yDPFOlZAQNdwBsnCkoFE1qLXI8ZgoWNd4TlcjG9UJSwru
- s1WTQVprOBYdxPkvUOlaXYjDo2QsSaMilJioyJkrniJnc7sdzcfkwfdWSnC+2DbHd4wxrRtW
- kajTc7OnJEiM78U3/GfvXgxCwYV297yClzkUIWqVpY2HYLBgkI89ntnN95ePyTnLSQ8WIZJk
- ug0/WZfTmCxX0SMxfCYt36QwlWsImHpArS6xjTvUwUNTUYN6XxYZuYBmJQF9eLERK2z3KUeY
- 2Ku5ZTm5axvlraM0VhUn8yv7G5Pciv7oGXJxrA6k4P9CAvHYeJSTXYnrLr/Kabn+6rc0my/l
- RMq9GeEUL3LbIUadL78yAtpf7HpNavYkVureuFD8xK8HntEHySnf7s2L28+kDbnDi27WR5kn
- u/POwU0EVUNcNAEQAM2StBhJERQvgPcbCzjokShn0cRA4q2SvCOvOXD+0KapXMRFE+/PZeDy
- fv4dEKuCqeh0hihSHlaxTzg3TcqUu54w2xYskG8Fq5tg3gm4kh1Gvh1LijIXX99ABA8eHxOG
- mLPRIBkXHqJYoHtCvPc6sYKNM9xbp6I4yF56xVLmHGJ61KaWKf5KKWYgA9kfHufbja7qR0c6
- H79LIsiYqf92H1HNq1WlQpu/fh4/XAAaV1axHFt/dY/2kU05tLMj8GjeQDz1fHas7augL4ar
- gt4e+jum3NwtyupodQBxncKAUbzwKcDrPqUFmfRbJ7ARw8491xQHZDsP82JRj4cOJX32sBg8
- nO2N5OsFJOcd5IE9v6qfllkZDAh1Rb1h6DFYq9dcdPAHl4zOj9EHq99/CpyccOh7SrtWDNFF
- knCmLpowhct95ZnlavBrDbOV0W47gO33WkXMFI4il4y1+Bv89979rVYn8aBohEgET41SpyQz
- 7fMkcaZU+ok/+HYjC/qfDxT7tjKXqBQEscVODaFicsUkjheOD4BfWEcVUqa+XdUEciwG/SgN
- yxBZepj41oVqFPSVE+Ni2tNrW/e16b8mgXNngHSnbsr6pAIXZH3qFW+4TKPMGZ2rZ6zITrMi
- p+12jgw4mGjy5y06JZvA02rZT2k9aa7i9dUUFggaanI09jNGbRA/ABEBAAHCwXwEGAEKACYC
- GwwWIQSb0H4ODFH41ZZ3t1Qbk0N9O0FimwUCaBdQXwUJFpZbKgAKCRAbk0N9O0Fim07TD/92
- Vcmzn/jaEBcqyT48ODfDIQVvg2nIDW+qbHtJ8DOT0d/qVbBTU7oBuo0xuHo+MTBp0pSTWbTh
- LsSN1AuyP8wFKChC0JPcwOZZRS0dl3lFgg+c+rdZUHjsa247r+7fvm2zGG1/u+33lBJgnAIH
- 5lSCjhP4VXiGq5ngCxGRuBq+0jNCKyAOC/vq2cS/dgdXwmf2aL8G7QVREX7mSl0x+CjWyrpF
- c1D/9NV/zIWBG1NR1fFb+oeOVhRGubYfiS62htUQjGLK7qbTmrd715kH9Noww1U5HH7WQzeP
- t/SvC0RhQXNjXKBB+lwwM+XulFigmMF1KybRm7MNoLBrGDa3yGpAkHMkJ7NM4iSMdSxYAr60
- RtThnhKc2kLIzd8GqyBh0nGPIL+1ZVMBDXw1Eu0/Du0rWt1zAKXQYVAfBLCTmkOnPU0fjR7q
- VT41xdJ6KqQMNGQeV+0o9X91X6VBeK6Na3zt5y4eWkve65DRlk1aoeBmhAteioLZlXkqu0pZ
- v+PKIVf+zFKuh0At/TN/618e/QVlZPbMeNSp3S3ieMP9Q6y4gw5CfgiDRJ2K9g99m6Rvlx1q
- wom6QbU06ltbvJE2K9oKd9nPp1NrBfBdEhX8oOwdCLJXEq83vdtOEqE42RxfYta4P3by0BHp
- cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <3ae05b60-0428-40ec-a6a8-e60395a8dccd@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE3MDEwNCBTYWx0ZWRfX+2/lscnIaqoR
- pFilwPFcHiF59RKgF2R+1ilmnI1FEsaP+oRpDS99oxNJdkTJ7PSMjM5DiWsUMrFPlGIGTT7ntaM
- QlN7iEfBe7sSo5FpTEDRXII1Ga8XGu6zs+Hx9Ri/DDEQ+2ZaRU9335oBSKN1zXoprZFnpNtDhpA
- ylDVC3/RJycK+fVYl1BLo0N5zpFY3+5TodLU/+SiE/rTMlwwQHDtlvsLKlNdMxpq51lUlV9ce0+
- w2Ge3xx0AVgtS87WVnetAyxA1RWLq3lHKfSq1xj64OEQFKzIEJ5ITvGDbX+Ig/63OainbPWqICq
- uD+idjPzfXaxWsMJc9Vtnx0MCZOxzaLVTHeDmlMakBTL9gdfYRwXYBeOuPsl6IuIG4p0QNLv779
- DIUg4V9f3FcpLn35jepj+Lv714KZQWECdO2x0FibA5PuH4r6tWxRxGGAi0EBbuQYlyKAhhssezc
- cV8jeg0bwaapeB76ngA==
-X-Proofpoint-ORIG-GUID: hRGuzUqzQWlD5pD09PF9sAkvTwi_FzTu
-X-Authority-Analysis: v=2.4 cv=BryQAIX5 c=1 sm=1 tr=0 ts=6994606a cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
- a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=NT1zQuG-P9saifzZ494A:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-GUID: hRGuzUqzQWlD5pD09PF9sAkvTwi_FzTu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-17_01,2026-02-16_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0 phishscore=0
- clxscore=1015 adultscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602170104
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <e294484787a5032c531dcd40071b22362bddcad4.camel@physik.fu-berlin.de>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260217125600eucas1p2f5a7aaf272ec1e8419eb4f30114ae4c0
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260217123216eucas1p2d74189a3cdf08e9301bebf1840491364
+X-EPHeader: CA
+X-CMS-RootMailID: 20260217123216eucas1p2d74189a3cdf08e9301bebf1840491364
+References: <20251015-remove-map-page-v5-0-3bbfe3a25cdf@kernel.org>
+	<20251015-remove-map-page-v5-11-3bbfe3a25cdf@kernel.org>
+	<CGME20260217123216eucas1p2d74189a3cdf08e9301bebf1840491364@eucas1p2.samsung.com>
+	<e294484787a5032c531dcd40071b22362bddcad4.camel@physik.fu-berlin.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_043451_317774_44E7BE82 
-X-CRM114-Status: GOOD (  28.11  )
+X-CRM114-CacheID: sfid-20260217_045609_764545_CCDA37F3 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,76 +102,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/02/2026 13:25, Krzysztof Kozlowski wrote:
-> On 17/02/2026 12:30, Ard Biesheuvel wrote:
+On 17.02.2026 13:27, John Paul Adrian Glaubitz wrote:
+> On Wed, 2025-10-15 at 12:12 +0300, Leon Romanovsky wrote:
+>> From: Leon Romanovsky <leonro@nvidia.com>
 >>
+>> Convert sparc architecture DMA code to use .map_phys callback.
 >>
->> On Mon, 16 Feb 2026, at 12:07, Krzysztof Kozlowski wrote:
->>> On 16/02/2026 11:43, Ilias Apalodimas wrote:
->>>> On Mon, 16 Feb 2026 at 12:33, Krzysztof Kozlowski
->>>> <krzysztof.kozlowski@oss.qualcomm.com> wrote:
->>>>>
->>>>> On 16/02/2026 10:49, Ilias Apalodimas wrote:
->>>>>> Hi Krzysztof,
->>>>>>
->>>>>> On Sun, 15 Feb 2026 at 13:06, Krzysztof Kozlowski
->>>>>> <krzysztof.kozlowski@oss.qualcomm.com> wrote:
->>>>>>>
->>>>>>> The 'struct efivar_operations' is not modified by the driver after
->>>>>>> initialization, so it should follow typical practice of being static
->>>>>>> const for increased code safety and readability.
->>>>>>
->>>>>> get_maintainers doesn't include me in the cc list?
->>>>>
->>>>> I use only get_maintainers and as you can see no. You might want to add
->>>>> yourself as maintainer of this driver if that's your part. Or have
->>>>> korgalore/lei filters.
->>>>
->>>> Hrrm, that's weird. Running it locally returns a more extended list
->>>> which includes me and Sumit Garg.
->>>
->>> You might be using git fallback, but this is not a maintainer. It shows
->>> random people either involved or not involved (like cc-ing me on half of
->>> kernel drivers), thus it is not recommended for daily use and all tools
->>> (e.g b4 or personal scripts) do not use fallbacks.
->>>
+>> Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
+>> ---
+>>   arch/sparc/kernel/iommu.c     | 30 +++++++++++++++++-----------
+>>   arch/sparc/kernel/pci_sun4v.c | 31 ++++++++++++++++++-----------
+>>   arch/sparc/mm/io-unit.c       | 38 ++++++++++++++++++-----------------
+>>   arch/sparc/mm/iommu.c         | 46 ++++++++++++++++++++++---------------------
+>>   4 files changed, 82 insertions(+), 63 deletions(-)
 >>
->> The code you are touching came in via a different tree in the current merge window, and so this patch doesn't even apply to the EFI tree. Those 'random 
+>> diff --git a/arch/sparc/kernel/iommu.c b/arch/sparc/kernel/iommu.c
+>> index da0363692528..46ef88bc9c26 100644
+>> --- a/arch/sparc/kernel/iommu.c
+>> +++ b/arch/sparc/kernel/iommu.c
+>> @@ -260,26 +260,35 @@ static void dma_4u_free_coherent(struct device *dev, size_t size,
+>>   		free_pages((unsigned long)cpu, order);
+>>   }
+>>   
+>> -static dma_addr_t dma_4u_map_page(struct device *dev, struct page *page,
+>> -				  unsigned long offset, size_t sz,
+>> -				  enum dma_data_direction direction,
+>> +static dma_addr_t dma_4u_map_phys(struct device *dev, phys_addr_t phys,
+>> +				  size_t sz, enum dma_data_direction direction,
+>>   				  unsigned long attrs)
+>>   {
+>>   	struct iommu *iommu;
+>>   	struct strbuf *strbuf;
+>>   	iopte_t *base;
+>>   	unsigned long flags, npages, oaddr;
+>> -	unsigned long i, base_paddr, ctx;
+>> +	unsigned long i, ctx;
+>>   	u32 bus_addr, ret;
+>>   	unsigned long iopte_protection;
+>>   
+>> +	if (unlikely(attrs & DMA_ATTR_MMIO))
+>> +		/*
+>> +		 * This check is included because older versions of the code
+>> +		 * lacked MMIO path support, and my ability to test this path
+>> +		 * is limited. However, from a software technical standpoint,
+>> +		 * there is no restriction, as the following code operates
+>> +		 * solely on physical addresses.
+>> +		 */
+>> +		goto bad_no_ctx;
+>> +
+>>   	iommu = dev->archdata.iommu;
+>>   	strbuf = dev->archdata.stc;
+>>   
+>>   	if (unlikely(direction == DMA_NONE))
+>>   		goto bad_no_ctx;
+>>   
+>> -	oaddr = (unsigned long)(page_address(page) + offset);
+>> +	oaddr = (unsigned long)(phys_to_virt(phys));
+>>   	npages = IO_PAGE_ALIGN(oaddr + sz) - (oaddr & IO_PAGE_MASK);
+>>   	npages >>= IO_PAGE_SHIFT;
+>>   
+>> @@ -296,7 +305,6 @@ static dma_addr_t dma_4u_map_page(struct device *dev, struct page *page,
+>>   	bus_addr = (iommu->tbl.table_map_base +
+>>   		    ((base - iommu->page_table) << IO_PAGE_SHIFT));
+>>   	ret = bus_addr | (oaddr & ~IO_PAGE_MASK);
+>> -	base_paddr = __pa(oaddr & IO_PAGE_MASK);
+>>   	if (strbuf->strbuf_enabled)
+>>   		iopte_protection = IOPTE_STREAMING(ctx);
+>>   	else
+>> @@ -304,8 +312,8 @@ static dma_addr_t dma_4u_map_page(struct device *dev, struct page *page,
+>>   	if (direction != DMA_TO_DEVICE)
+>>   		iopte_protection |= IOPTE_WRITE;
+>>   
+>> -	for (i = 0; i < npages; i++, base++, base_paddr += IO_PAGE_SIZE)
+>> -		iopte_val(*base) = iopte_protection | base_paddr;
+>> +	for (i = 0; i < npages; i++, base++, phys += IO_PAGE_SIZE)
+>> +		iopte_val(*base) = iopte_protection | phys;
 
-Heh, and that's not even true. The code I touched came via YOUR tree
-with your SoB:
-c44b6be62e8dd4ee0a308c36a70620613e6fc55f
+'base_paddr' was aligned to start of a page before this patch, while 
+'phys' includes the offset within a page.
 
-and not in the current merge window. I don't what commit you are
-lecturing me, but I see:
 
-"Commit:     Ard Biesheuvel <ardb@kernel.org
-CommitDate: Mon Dec 11 11:19:18 2023 +0100"
+Could You check if the following change fixes the issue?
 
-There were however context changes coming from other tree which affects
-applying the patch (thus won't work for your tree indeed), but if you
-just bothered to check, you would see I don't touch ANYTHING from that
-part and actual code I am touching is from 2023.
+diff --git a/arch/sparc/kernel/iommu.c b/arch/sparc/kernel/iommu.c
+index 46ef88bc9c26..edb0ffb21e2f 100644
+--- a/arch/sparc/kernel/iommu.c
++++ b/arch/sparc/kernel/iommu.c
+@@ -312,6 +312,7 @@ static dma_addr_t dma_4u_map_phys(struct device 
+*dev, phys_addr_t phys,
+         if (direction != DMA_TO_DEVICE)
+                 iopte_protection |= IOPTE_WRITE;
 
-> 
-> It can wait till the merge window finishes and then it should apply
-> cleanly to your rc1 rebased tree, no?
-> 
->> people' are the ones you should have sent this to, if you had taken the time to look at the history of the code you are modifying. So please don't lecture other people on how to use the tools.
-> 
-> We are all using the tools. If Ilias is/wants to be the maintainer
-> (which I support), please add to the MAINTAINERS file, so the tools will
-> get it right, instead of relying on manual process of finding who
-> touched something. Contributors should not figure out how the code ended
-> up in the kernel because it does not really matter. What matters is who
-> should take it, who is the maintainer.
-> 
-> This is not a fix, so original author won't be pointed out by
-> get_maintainer poking at Fixes tag.
-> 
->>
->> I've queued this up now - I'll send it to Linus by the end of the week. Thanks.
++       phys -= offset_in_page(phys);
+         for (i = 0; i < npages; i++, base++, phys += IO_PAGE_SIZE)
+                 iopte_val(*base) = iopte_protection | phys;
 
-Best regards,
-Krzysztof
+ >> ...
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
