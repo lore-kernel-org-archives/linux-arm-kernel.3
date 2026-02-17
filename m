@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E95CE6817A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 12:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F0DE6816B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 12:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=veW04ITIm+kS0Va3WwG1j5wGlLSf3zAowo/9T/TxpYk=; b=sleq2zVbUX3SL5i9HuzDtvxGE8
-	ftsYyckodGdiizcge6Rls+pf/kI3OJtHQv/rYy6UJR4dXdUj74DGw/B/Q07+qa1jb/paSs2bS2U2S
-	OWRYW7Qe/xOpHkRDakfylrMeuF4Cc/mLqpryLAnVblJG/LaSIZZbLVb1TNd+ag5K0qqXqfSPlgPeN
-	eENYODR8B+sFIlDEW8nZBmr17IigXwQ92qiqJvSMhhXGQt06eAp/t2hltEm/3nxAubAC8cXnSzDqQ
-	JC+jwzubwSxvhX8lXHRMUcACFdlujVjTKnPPOnMHvxFqLmM5cxDBgcFOnEeNfcUJSev+nmVR0+2R7
-	+mpVVg3Q==;
+	bh=gSA69J8HH5ShQtT6NEI1mo38t8hiGEa6yEjtV86V/Kc=; b=iO+Sug73OZdVibJg5PoLmbrqSo
+	i74JrSL5qGKY329kWNFLyHEJNDL6ZqtNAucWR/pOW5dCrROuFQfw/bA9TmPClRJhjUHf7RW7YOo0C
+	RoqKrAN0q6LJGCjnzWwFzc+4IdeQLrB7Jzl4PC8Cy6Oe+TJeH78ZKve8n4TPlu1N4EeZNdyRrDu6y
+	Sdg9RlSzt7FnuK2SNHIHkMkgnqFVPwR3nWFIzvlTybyZUqan4ibIgDv+ZxksXFBDiH2GSrz72b4V+
+	lcJWWb8Ca0Gnpj6EBtltg/ygl84nrfsvQeGzdtdoXxlELt6LdQu+Y4lfWIrswQgbKn7HgmeJ/xv7o
+	l4ymfriQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsKDL-00000008DCT-0h2H;
-	Tue, 17 Feb 2026 12:30:03 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vsKFC-00000008DR5-0ft6;
+	Tue, 17 Feb 2026 12:31:58 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsKDJ-00000008DBl-1E2M
+	id 1vsKF9-00000008DPt-3RUU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 12:30:02 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-48371bb515eso47263105e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 04:30:00 -0800 (PST)
+	Tue, 17 Feb 2026 12:31:56 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b8f96f6956aso515143766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 04:31:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771331399; x=1771936199; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=veW04ITIm+kS0Va3WwG1j5wGlLSf3zAowo/9T/TxpYk=;
-        b=L70vlKBn6SQoBZ9y6B1zSz4gSVtp1tG1DTnLeYdkC0j2BbzQiSb7Q6/LrvUgm6HICz
-         6fAR3LUf20H7SetcMuSXpbUv+h60zs7Wm1fxy7Zz16z0+Mwti5hmJBvEt70yCvlp46CM
-         k5m5kd2hSKk8wURDj/VD4iSScWgPdxp7SwlLbyh9V0pjAEoqd2t5IcU8JiqXE9IZpA/k
-         Wee6Io6BN9IEvq8oQU2IxJXU+3T5N5Cok/Ejpn8LN3idRu0bqtLs81vz8p9F4mVI6De6
-         p57BPerqLrpgVnu0nu3UgSpm1896qBJVTvazUQ2MW+DE+po9Ddvgz4lFW84GuWmLIFqk
-         g7ww==
+        d=google.com; s=20230601; t=1771331514; x=1771936314; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=gSA69J8HH5ShQtT6NEI1mo38t8hiGEa6yEjtV86V/Kc=;
+        b=eNXiUmKYzMKjt76oK8d/Py0UFHJI7Sve/FQivPcu0+SFI1yMlX8p5NEAAEFAgAfSdH
+         ZmcXxQu03bVglz8dTLKuGjM9Kse6o5AR4nGtOqGYtJAtgkYqAPHU2kCvIOiqYZtsS17q
+         EYbFrRI2Hg/u38e+f9YEoDQk3xghvPW42OquadcAK1AvuHhaah6V9KXcakSrFZ8Psz42
+         PoW7ZlNO0cpn43vremK5h0xj6BKzGaFg0YzHJvFvze0jBk9kXZfh6WVpo0fIyqvn0Cfr
+         Q0Ae216BwfHi965qtKE7+Ru+G3oXvuDhcPdn2ZVHy6RgoU8Hms0/SXJBZiOGj9/jLHBk
+         VsCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771331399; x=1771936199;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20230601; t=1771331514; x=1771936314;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=veW04ITIm+kS0Va3WwG1j5wGlLSf3zAowo/9T/TxpYk=;
-        b=NW91HvZtQ1M9OjxV/nZ7N7/ZbNaNGBg2g6ThRGZ5NiB2y34Q9oRUud/8R4UcnG3HEo
-         25SvHdRr0k7vC0WdhVX+chIrUzWy/vyWBqnmCz8GrWWsQgHnaRKaiMoqydJkS3Ddf7Hc
-         Wb6s0nUTfOtQeTG+jLppePt+w+n+4mlWWahnrT38gkaLRlK11anJ8KCTcFkUzi8JAJRC
-         QDSrsHLseiF7GqYhKusVUKmN9devWRuSTq9bVfDmnCHKC+DRwCVK1+zAGoSU4bBiu0Sk
-         Q646ZBztHE1bYpEJ95shMlUKFA4Ekhl+nJmgyOi02raZMaOiFO5gOY7c6tkq9UaVsl6T
-         hSzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUwK5gwgssSHTNGSqesfbs3gOHJ90xR+wqL1RwULt6dB3412u5fKlpcU89c7eozAaIQo+G501ZekKMTXRWnqQuh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4qNIlJMqeizU+r60W2IXInN3vbOxo7GWGeM5IkBofKYIY/Pzr
-	/V1ifAR5VWrkmz/8Ir1hOk4mZnwUlQ3mKfRS5YfT9WffcaExuiGgoOIu3G+tFFdEnmE=
-X-Gm-Gg: AZuq6aLRo6J5SVtT7q09gT0b0j6qHRBZYvFxBBwxnTSe/BhBs01OKJoulnEyf2miKa6
-	lHJMb1iG3fwLbK2KqK50CZsZXbN2cMpUwEq3EvQQ0pLrhTpiEWfSXtpCLqYSc4r4NPTwi5RHlRs
-	LU2BhNXhKMBGaw9cvXaAxouXbcmdQpPhUju2f8RwHi9OF3vZTVKs2lgMJ2m3O9YD24mBsnA5fkq
-	APuL7ltJ/whR+tebl2/TB2pO8V48GU5TLCB8Jf+sH0avVQSItJUeLd27//lViK8YuM9c+F6PeyA
-	lcQnIEdOz1Aai6329GcZqOkJYVFeUjPdHQ8qIZzNdfZBhFiJqpzIFivDquRoPGaxaUftFkelvWq
-	jkGonNzMZT00EHBvE91MqNSNSs1X0N1smEa2UIjj6GHyk+gsu8TnrQoZfvTrM3YuE2ELueELgai
-	0Yf0qO9EB045N2BBBvOHoP+nuaqYg=
-X-Received: by 2002:a05:600c:1381:b0:483:4a95:66da with SMTP id 5b1f17b1804b1-48373a1ad50mr231637905e9.13.1771331398916;
-        Tue, 17 Feb 2026 04:29:58 -0800 (PST)
-Received: from draszik.lan ([212.129.84.5])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48371a44ae0sm99721435e9.29.2026.02.17.04.29.57
+        bh=gSA69J8HH5ShQtT6NEI1mo38t8hiGEa6yEjtV86V/Kc=;
+        b=FZTJ7KyVH+VheyjV3EY/UYbMdserkSRwin9MBX3PEppri6pVbS3Qb+01pO1Q7vIqoK
+         z6h9hnHWkUjoPAQiiPCDFFk732bCOx1WeJoO1t5OQOSEYWWGq4hXto75JbnaBoO/s+5c
+         AuaJR2M828rMW9EarcmcHyltdxWdO/xI6cgvr0Z8yZ0vmCI59WnQdNFpIT0WeoiU2nuq
+         I3HOhilDMQjJFX/KRr0WVaoGCOhdhppUJVSAr6fGDZkvCE6Hi3U9s07KBL4Rtcl7MsbS
+         aGyi6oTzFqtnKrxvbOG3kFWJRs2xGV9TuKHXWgl7sezQF+VEsIERzBM158XMxwYBcJYc
+         NCnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWH2GL6cq4cgm3EG9TbriC2/MckHkqgwAFWwhXUqLpY+9d0syXHToBwgFkfLQA/28NQNp/Hsczz3smtpVpOiDMQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZFd1xsEDyUF4KjrmwKdVNXcz/FRnabUiWxL+ulXDKvCy7gLyQ
+	+mBfL+yKkYTGO4DUe0PgQh/BK7KfoA/eWgrKnrbVY3/9ZpwZSjwiXGCJOXQiDu87pg==
+X-Gm-Gg: AZuq6aKGGr8YyFxcpRl4nMlyOBFhi7zN0zCeG+DK7u7vs/9SIYRzZRrJd/GG4nxsq9c
+	g7bM+BJw5RGFJoiA0CODaIXcyUUqJOpJdKiGJ0jJPJtr9s302ZpjltKYq/M+VMoao9VqjUaxcA1
+	rgzCvzmusO1fhPt3Ui7bvuRdBpRDJG9cFJ3TOt/fFyCsRIgh+dw82zeQ4h/2tFXyoPumUKOekUg
+	FrlarN9TKmYR5mSLpn9oqUUQZCbu6fSAoyn4M+hqxh3WOC7L4YyMaLfFfElwr+PBz6W9TWphMwF
+	1xYGKiH65U60fczlSwEOtFEeP0OsdGpipPIR8NMJQN4ccYcMvLxxvqx2DoIYehHwOXzK3ooL0fT
+	JO0XFVCEYo1IoGHJ0/HwuS2AcGqZLNdKi1tlMs0TEQQirF8pr5/8xnz29W1q1pew/S03EnPikMr
+	7O1cjCOY58wAd763mdDh9TsLJZcWs9rdTzuFbiZtG3mXieRdkeDXtVOXPlGa9+zyqYKZXGgsI=
+X-Received: by 2002:a17:907:3ea1:b0:b77:1b05:a081 with SMTP id a640c23a62f3a-b8fb4392456mr767722666b.27.1771331513280;
+        Tue, 17 Feb 2026 04:31:53 -0800 (PST)
+Received: from google.com (105.165.204.35.bc.googleusercontent.com. [35.204.165.105])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8fc73f7c24sm352630166b.30.2026.02.17.04.31.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 04:29:58 -0800 (PST)
-Message-ID: <9ac93f5456adb209bbc0e750434c356000eec6d6.camel@linaro.org>
-Subject: Re: [PATCH v6 3/6] mfd: max77759: add register bitmasks and modify
- irq configs for charger
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>, Rob Herring	
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, Greg Kroah-Hartman	
- <gregkh@linuxfoundation.org>, Badhri Jagan Sridharan <badhri@google.com>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, Peter Griffin
- <peter.griffin@linaro.org>, Tudor Ambarus	 <tudor.ambarus@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>, Mark Brown	 <broonie@kernel.org>, Matti
- Vaittinen <mazziesaccount@gmail.com>, Andrew Morton	
- <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, RD
- Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-Date: Tue, 17 Feb 2026 12:30:17 +0000
-In-Reply-To: <20260214-max77759-charger-v6-3-28c09bda74b4@google.com>
-References: <20260214-max77759-charger-v6-0-28c09bda74b4@google.com>
-	 <20260214-max77759-charger-v6-3-28c09bda74b4@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build4 
+        Tue, 17 Feb 2026 04:31:52 -0800 (PST)
+Date: Tue, 17 Feb 2026 13:31:49 +0100
+From: =?utf-8?Q?Pierre-Cl=C3=A9ment?= Tosi <ptosi@google.com>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, suzuki.poulose@arm.com, 
+	maz@kernel.org, corbet@lwn.net, yee.lee@mediatek.com, ascull@google.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH] arm64: Optionally disable EL0 MTE via command-line
+Message-ID: <2evhrm4tg52nxru7xeegs5ut7alnnczv5w2xsgkvhgbdlxdrht@shdj2wb4wcql>
+References: <plslbeuzfag5dfizunxmhyw5axxbuz7r3jdlhjluzdwrm4rtzk@bm5xmxzmy6v3>
+ <aZRIHZ2Wq81S-FZY@arm.com>
+ <p7wloz3ospiwaytzzns43hbyfrxfjoca6ljols3dq4hpha5y2v@weadvhpdng7a>
+ <aZRY9UTSgw0Zf2Y-@willie-the-truck>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aZRY9UTSgw0Zf2Y-@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_043001_356226_B6BBF0A6 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260217_043155_898123_5B6724E2 
+X-CRM114-Status: GOOD (  30.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,21 +103,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2026-02-14 at 03:12 +0000, Amit Sunil Dhamne via B4 Relay wrote:
-> From: Amit Sunil Dhamne <amitsd@google.com>
->=20
-> Add register bitmasks for charger function.
-> In addition split the charger IRQs further such that each bit represents
-> an IRQ downstream of charger regmap irq chip. In addition populate the
-> ack_base to offload irq ack to the regmap irq chip framework.
->=20
-> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-> ---
-> =C2=A0drivers/mfd/max77759.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 =
-91 ++++++++++++++++++++--
-> =C2=A0include/linux/mfd/max77759.h | 176 ++++++++++++++++++++++++++++++++=
-++++-------
-> =C2=A02 files changed, 230 insertions(+), 37 deletions(-)
+On Tue, Feb 17, 2026 at 12:03:01PM +0000, Will Deacon wrote:
+> On Tue, Feb 17, 2026 at 12:20:02PM +0100, Pierre-Clément Tosi wrote:
+> > Hi Catalin,
+> > 
+> > On Tue, Feb 17, 2026 at 10:51:24AM +0000, Catalin Marinas wrote:
+> > > On Fri, Feb 13, 2026 at 12:51:07PM +0100, Pierre-Clément Tosi wrote:
+> > > > Although it is currently possible to fully disable MTE on MTE-capable
+> > > > CPUs (with arm64.nomte or id_aa64pfr1.mte=0) and to only use MTE in
+> > > > userspace (with kasan=off), there is no way to limit the use of MTE to
+> > > > the kernel because CPU capabilities are traditionally exposed directly
+> > > > to userspace.
+> > > > 
+> > > > To address this, introduce a new cmdline argument (inspired by the
+> > > > existing arm64.nomte) to only expose the MTE capability of the CPU to
+> > > > the kernel. Combined with KASAN, this results in only the kernel using
+> > > > the feature, while HWCAP2_MTE and the corresponding MSR ID_AA64PFR1_EL1
+> > > > field are hidden from userspace.
+> > > [...]
+> > > > +	arm64.nomte_el0	[ARM64] Unconditionally disable Memory Tagging Extension
+> > > > +			support for userspace
+> > > 
+> > > Why would we need this? It's a user-space choice whether it uses MTE or
+> > > not. It's not like the kernel is forcing it onto the user processes.
+> > 
+> > Correct. This patch is useful when working with a pre-compiled distribution to
+> > ensure that a MTE-enabled userspace falls back to untagged allocations, without
+> > the need to introduce system-wide policies (and ABIs) for said distribution,
+> > which would also be inherently less robust than this kernel-level gating.
+> > 
+> > In Android, we can simply append the flag to the kernel cmdline instead of
+> > relying on sysprops (or similar early userspace concepts) and hoping that all
+> > users are properly gated on that sysprop, etc. This can be used for A/B testing
+> > of the feature or as a highly-reliable "remote kill switch", for example.
+> 
+> Why isn't arm64.nomte sufficient for that? It seems weird to insist on
+> tag-based KASAN support for the purposes of userspace A/B testing...
 
-Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+For a given architecture (and product goals), profiling of MTE might lead to the
+performance overhead being acceptable in the kernel - where security concerns
+are more prominent - but not in userspace, resulting in tag-based KASAN being
+required while a robust switch is needed to disable MTE in userspace but
+arm64.nomte is too coarse for that.
+
+-- 
+Pierre
 
