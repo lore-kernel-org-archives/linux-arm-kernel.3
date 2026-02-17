@@ -4,154 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42265E909D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 16:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E387E909D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 16:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywb5PJTUq5yA3zfq6NqtUfFaWNPIMhF/ZD1Sd1KDL9A=; b=qjJaLo9GKwGJ5AkWYC49S0sz2g
-	w5aCO4NEC4sIOEJNM6q2EJez1DWrIXxp5yFUYy8+AKR8IFGJWAcfPnxOqHa7NZj3OQOR0fK+V8mhV
-	l6jzpHeWftNOH187QhEbhqaCRo7zLbTK/eYLoBCaTv7ZpMDy++/Q3PvIZ2xekkQNZNABLPR+nupOx
-	H5kMm/uQC5BDrM+RpqwfgsDZFQ6rZH7gStddA5qed/uGl3bktkblzWTLL4Mnmmz1hLBxQsiW5/gAe
-	875vhcDuGZWohRk5DJ+P9VSbDL6TUf6qxSVSxfEyhxq6QjVoctWuwZUHWz/+VvJlVPRimZ2SE2E0M
-	aH9SYeAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e44I+gmR/Crii5lzJC5/nGh/rjAXjynQw2DgvMzop3k=; b=KrquxcT1IK0vVk
+	/Hqq/CszhjNcGvRNAG8RgkufsQ9HzluH9OIe03vWzg2RgIkXOD4+KlWuiPgtoHmWgFdq2aP1PxL3Z
+	HQF+ciaREhp5JE1KTweOpRGLdtU9l37Y1tGvSUkphR/oK47uZB/5HK+Bv3Wdo4IqN9FUIkJw3jjLn
+	tPrj9ePHbVUITzzsFFxYSwgAg3YnG9yPZiGZUBY1B5VQQehvp5Si+dNUXs6cqKsQWU3Vj05l0oCLg
+	drkujzjZjpU2bqE7fAjKCjSjEwfzLN/9RCVK2Z55EX0yuL1eBWznAhVzbVcebEdPMgM71WQS4qFRG
+	umu5/MW40JefdauQEQsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsOAZ-00000008aXF-20aU;
-	Tue, 17 Feb 2026 16:43:27 +0000
-Received: from mail-westeuropeazon11010035.outbound.protection.outlook.com ([52.101.69.35] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vsOAx-00000008adP-2ZuF;
+	Tue, 17 Feb 2026 16:43:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsOAW-00000008aWn-2FYs;
-	Tue, 17 Feb 2026 16:43:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H0KgGk/iAQOSGJ4HtyWIH7hE2JZnUH3/inUWYTORRM1U5b37OY3vB/8EbsdTmcFeJU2jXafgCsp+mv7Vf5h0Yy1GkMdjNFMIuxL2Tu800h8zT6IAsDJgYO9UfKOK3MAMvyIOncxj7WeoqvZf955LT3RIFakSEUY0Mf8NmiYvPm8srFVZoutpcSYtjYaKkVf3Oo9TJ+vFUk3reYIvHhTydwfyu87W+dA+nSlq6NghnFVXiYJnEaPN3E6WBbFo/HT+6ItDKd6q5ZSDOgA8dt1xASgxyjbzanKCb6XWi7tRpoP59BmMIilOxedfodrSmdhnbsoIZVKFm5UrKcOw1O+Y+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ywb5PJTUq5yA3zfq6NqtUfFaWNPIMhF/ZD1Sd1KDL9A=;
- b=SQxo08+N6tU839T/9jdqlJ5dz/jsWHlZcK4QnDsggKXgm9hHyhxerjNo4wndkG4MdGhRJ08WcQwhaqCRQPTB5y4dw2Ht42roEFGh/szVkegI4krbB04KDxZNB8k6hzXGOt3LbHz9r7NWZgE/HzNW2FK4aQhnIjU7h5WBUv+jEWdBfwC3XztFwdiWkKwIKtGNMfCytW/ZSDoXcJ7Kx4261zUSQU8gEVxVVvuY1Xjf+kZigm1CL2V5xI+RikT2tPS/G1lxopgK9Z+/GDxiKKwZobgjx11FcyvkAv4ykqUsPIjiHlbo6CDmy0lyc5+K+xTABlp8/k0YOMEt6SCBcAVYuw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ywb5PJTUq5yA3zfq6NqtUfFaWNPIMhF/ZD1Sd1KDL9A=;
- b=LAUPLqVhoJbVEdKAQC5YfoWpfbYqy1uGs5gKHtqJhIrEd7giiT7o80dQRcX+du6Pk/qLoLlBeBeD/izoy0G1MaqluizzbEkqc2KGQtNTiqSeTMhl6eD6dtXmN8ukYs8djB5Sii+6RIPMePt1NPFs0Jn/KVajM+Uw0stMGzbBPBXVoYxny2YQFpDhxliZAdKr63hTjfIgMKz+yrSouus6feKf089ounvOdIfotGNtfOpkAYZiHvfK9uNpRYY2/NOFFpK4JK5xSXl+BL0j91RXBDqSGzM0WYbXOzAjjt/MVjm7U/vr7UfYFagiT000bsWYMJnXL46UDj/QJYcaSn6Fiw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PAXPR04MB8557.eurprd04.prod.outlook.com (2603:10a6:102:214::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.13; Tue, 17 Feb
- 2026 16:43:19 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9611.013; Tue, 17 Feb 2026
- 16:43:19 +0000
-Date: Tue, 17 Feb 2026 11:43:10 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Koichiro Den <den@valinux.co.jp>
-Cc: jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com,
-	heiko@sntech.de, kishon@kernel.org, jdmason@kudzu.us,
-	dave.jiang@intel.com, allenbh@gmail.com, cassel@kernel.org,
-	shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, ntb@lists.linux.dev
-Subject: Re: [PATCH v8 6/9] PCI: endpoint: pci-ep-msi: Refactor doorbell
- allocation for new backends
-Message-ID: <aZSantK-I2pFAJ9d@lizhi-Precision-Tower-5810>
-References: <20260217080601.3808847-1-den@valinux.co.jp>
- <20260217080601.3808847-7-den@valinux.co.jp>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260217080601.3808847-7-den@valinux.co.jp>
-X-ClientProxiedBy: PH8PR05CA0007.namprd05.prod.outlook.com
- (2603:10b6:510:2cc::18) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1vsOAv-00000008acH-0QoP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Feb 2026 16:43:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 318844056A
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 16:43:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 118F6C4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 16:43:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771346626;
+	bh=e44I+gmR/Crii5lzJC5/nGh/rjAXjynQw2DgvMzop3k=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=uEinzWkhfejDthNLMSVfdDkyp7ZNlrdBHapzEqlt5sMHX0GPeazD25p14sZ81t/uP
+	 HOrdojvB5kGpj12bhyOuJ1+NgVk2RiV7+qSI9tGm/wnhbpZCNvcdXrGLqPwWPyenKo
+	 Jyoy0TVyjv5wQnb0OynEUCkF+uCIHjzS03bMZM8Qc+A+eguT/vzoLHG9nZKr3s3hX+
+	 55+uvw0F81gURTjMubgsUf5EPcuMTdpMLNo3DU9nDCsS9BHJdnHeSf24uJjVJigij2
+	 OcoKwaIgZ0ZNsA4Bf/weRPvx5MybGAtP4B5zNkEWklkrxEyo/qfnDPCpsuqbMHgaoK
+	 3LsEw+fwntDyQ==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-59e64657f0cso4297261e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 08:43:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUv6a53kvLgLFD0kW6Jfcs1ItLO2yhfkqRa7RAB/3ZBimI38naNn99DeO87tRHjcQU0/hGlflx88JTq1GXxpyf6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRtE8LAoAqWwq+cocmOOQ4xetb+yDPY07k2vk0dWWBufphTL3T
+	cgBjjY5g1LIevlZIvHNgpJGy2B6k4Vrp44LVu2A9XcXT2WAA26Gldfxp+oEh1eyejmC8hrA41rk
+	7gNBeyIXkhwx723FHT8SkKd06lVqIyuI=
+X-Received: by 2002:a05:6512:114a:b0:59e:340:e557 with SMTP id
+ 2adb3069b0e04-59f6d357cd8mr3391698e87.19.1771346624454; Tue, 17 Feb 2026
+ 08:43:44 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB8557:EE_
-X-MS-Office365-Filtering-Correlation-Id: edc4ec08-e5b3-4783-ca19-08de6e43a787
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|19092799006|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gjaDfYvSOLyZW7WDW8lRhTxX4g987lLCy3x0VAhfrQrQgs84UwQQvK9Howxa?=
- =?us-ascii?Q?HCAJ4ttuBw/IE9R2/Z+Q4UJ9n8xeHf3ii03k/U5/gSTFwY/VjQpda8RRgNq5?=
- =?us-ascii?Q?K/rW7YKEPXEoKXTrNtTNhGiypVSxgYH9Do+DJ+pMLRpMi4bijecE6eG70hzF?=
- =?us-ascii?Q?2Ok92VSU7I/o2Mm7Jg+INmzVoOFzFwFVeGQ5r9wWwy7G6TYq/9BA8uoN2Rab?=
- =?us-ascii?Q?RZuf0yb7mhj3/Qkf32pEHVFiSjuGVYxfYQJ4M7g/d5CD4rVIrCXhZe6t+EDO?=
- =?us-ascii?Q?OPQDJLmNucg6I3aSVMPDf+SEMAzIKZjAyE7I9X3sxotJ2DumD4qIv6N8Nagy?=
- =?us-ascii?Q?Fb1Re+SAtBsUtQ4fHBP7a8/4phgFltabn+e2AX9fTuV/fiXXI9BsFIKQzb3H?=
- =?us-ascii?Q?KJVL5vCgILRUiEj+3/RhJglWfJHRJiHyROoqxLh163P+UdW1rdnrWWgRWtWH?=
- =?us-ascii?Q?WV21GztCWsaH+FzXrw/kczxj3wwbCM9LqHBmh7Jdqp7ckHqzM+J7vq23qdCp?=
- =?us-ascii?Q?WA7PpphOsUTb492Hz71bs7k7SBVcsWZawwoM8MPUGXP6AHQVa8+OQwWdUte8?=
- =?us-ascii?Q?FehElgOZflqC9mEFpJAgUz+5S+Us7BFwdAb1D6a79guYY6YCcY+Wd/Wv8HJP?=
- =?us-ascii?Q?jUYd8ntU9BfAf+e4iqT5kzyIWyr+YKxzuZdGHXhsaNIFJaxs0wFdk/3FbTsI?=
- =?us-ascii?Q?h0WdOAaX0R5gPxyLu0BTUDy1EpljK+iCFk7MAExZXhVILsNCemFz50XdS9TI?=
- =?us-ascii?Q?1JDUORI0A5ZmldOiD292EAtVbUe1yp7kOwdXE68LtOPzx0zyUXN2iKes8DOW?=
- =?us-ascii?Q?i4kxDb0aL/TF1N6yhbL5Y9XXtjDUS958trdKliUWLqi7J+wk91eeqxdUMy0a?=
- =?us-ascii?Q?74jIkvzyE5c7miKeQoM+A8a6LRdZzzeSt/e/IjrpLMK4+jafassH9NJ8ZYrh?=
- =?us-ascii?Q?Mo06ihpz+bD34MbLuuXHAO2KpLhRXwDlQpGyTYBFgJARFgicJPo2rxz8k04N?=
- =?us-ascii?Q?rWVLEjYLsr5RH3hpuMP64T5m75rrfdNMogjbZAJl8YLqjhllUPfGicmmUZZR?=
- =?us-ascii?Q?EpTK0rVbMG+JRp9d9YmOIRA1QlHOErxiLO3H3clEzf8TBQZ6gdFLudRT7RSm?=
- =?us-ascii?Q?rBSMgHeB3ovDFVhpZciGkdZ5It8vZam4S33IKCZTYbFbLYfngoWwrF0bCVDP?=
- =?us-ascii?Q?CN3vUrkHFOVi3y52jeSeyXebLAb9pJjRH3h/rVmL/tJjrhzcUuT4IHFIZz8L?=
- =?us-ascii?Q?ObJ8HOZr9EwNaM1uPrIxjkAk1teOjcf4aOsNV3wEPVnJy9gSl/4NYhi4cJTN?=
- =?us-ascii?Q?NdKNKIhNYFeS+p1IOtI+tK0+ICiupyNAOCARlwLRs6lv0uxXHuFOXpkePZCX?=
- =?us-ascii?Q?seevF/vkZKB/aRvZYuPw8iE9scAMpLU6vC+/YkOUlBSs0q+dHE/GSS9FaiRL?=
- =?us-ascii?Q?xi/S+jb93rQk0kl7nJ5Bl/PE+VjEMnW+6mmELhNitfGTKlx7APIuERkRGvwt?=
- =?us-ascii?Q?wShv0GeR/28QidGWEZJ91WaLWI78cBbvXwE5iB10fDVC5H5TXvQ0kMI20L2h?=
- =?us-ascii?Q?2aR6VaAJrwSbTwhxiN+Wx+l9uvAvmfW3qhT8Aid1HTniFeRQHJxultpD9yk0?=
- =?us-ascii?Q?jNHaC3sJNOut7Hvw+hoTqQc=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(19092799006)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iAXSIziDFBOAyCcxlXt6VlsQUOOVEdk3dbjJruiYwmKe96pAp5RpAxXzWGH4?=
- =?us-ascii?Q?HN2IY1wlowTKsfI2uoE1CQ4LyXHMA+21Jvnzn84IX1bLbOdYYWjxEueaFwdM?=
- =?us-ascii?Q?Vx39xLhVd7rtmocduu6mKTf9oMtrjsKOZlFqrIl4fKgPnsy+udVGKgbD54Q6?=
- =?us-ascii?Q?MN3Iz7sS+qFMblxBBF3lmu629Wu33NpSY2RAXKZb09jpX3BpIthJKtJKroj6?=
- =?us-ascii?Q?jyi4zFK/AjxboaN1KrGTM/dYWlT7pH4QPY/OV29ZE1O1YqhYxnvIm85AUPIU?=
- =?us-ascii?Q?yqpqwXRDTIOJeYwdx+1mqQ233OsDwEvhiCUwKhrsYXsupISiebt+AM6B6Jmw?=
- =?us-ascii?Q?bqQD/+5jWUwWmWYnMR78qlcn1d9ydBQDtXIG0R0gpDhYpODN1WnSPlqvjezc?=
- =?us-ascii?Q?DVQv6RmVA/91UXzUBZBH15LWNVEJ84l+dJI7MaJgbjjZB10DH/QKq1EZyknB?=
- =?us-ascii?Q?fyOvojJppHOs4rhgzOmCSc/vTpeciXpsG0h2VKF47uE8bM8uHadpo/YkgfuY?=
- =?us-ascii?Q?omP7TdSFtTpie+Kw+8yCFqt2AXSgkLgwBOHY+HnnqThjWxSgV/JIAUzGh+z5?=
- =?us-ascii?Q?rDaqPDN2qm6sW35M6lQOtRebEwXY4NiuLEQH8b9CGpgBFDRPU+P2VK0PI1z4?=
- =?us-ascii?Q?aB+8Js5GraFTSNRzgqdNjRS0YIdejbIWZe/AJTbB3s17+wLbd9q0QJTIng9J?=
- =?us-ascii?Q?wgxrF2XrGfHC5wbwKP1ggVrOY9/24rKyWNxD93+qSSeqjiEEfk95av3tY/Tx?=
- =?us-ascii?Q?QNJu371jwC4C4ej89e/rltS/zeGG2HPDRSjo0QneugVkts71cSH25XJv9viJ?=
- =?us-ascii?Q?ZqYlM3czh1dabs0QEIu0g7KE3op9rkyD492cemLMwDU9ZNEm9hM+UNa77cwl?=
- =?us-ascii?Q?45I0OENeFDewiNk8qBq5XRIU23lf/QmbeGlTreK/FgdjRiJHsZSzM9Lfx63r?=
- =?us-ascii?Q?afPDrUr3RffnGuKaSYb/3Ilv7tnoRdcKxvH0686zzYdWqEqhNBomiLqvG3ZZ?=
- =?us-ascii?Q?YNV8JMHL/gSbq+TDm0EvArUdANTvgBXAtHevtOxq75gK0qSDuw+KBNxk5X+N?=
- =?us-ascii?Q?9NYmj42Hx/CzstPAowD+j0M9GhpzMBTvSfgHcPJXb1/iM8y1nItXfYi353Ps?=
- =?us-ascii?Q?AlsVyDUOgFPjsQ67pe5NW//DX9ZOMgW1Q7QqvXjpj2Eil5rbDtlQUD03COUo?=
- =?us-ascii?Q?rDUTkvD0yyeEY9hVE6DodvihSOkA17eBr+SSveO2OFE9lDECYGrjEar0igoc?=
- =?us-ascii?Q?pyeMD+O9OLyYmHyDKfWCkhbces4EqxbkkXdTrCnmayIckDHhVEcZm36Y4O9o?=
- =?us-ascii?Q?M2/zd6zXrguGo8nPe5Duw1gDWQhIHBPx6uanhYQGRr6a7noCHvvwvQbvciun?=
- =?us-ascii?Q?moFhkvBeUVtE7nuE/0K/OfVO+d3ATjO6aRCk7bOyj7sMaCUFhbpSR430DTJ9?=
- =?us-ascii?Q?R6fO+duLj1kbRcrli8HcPRisAAP35pXy58WKRQQ7N6KMIRfo+9dDqFw0e2Qq?=
- =?us-ascii?Q?XWbUW2Cb6XDcMEoFZZRVnugwfwUcCYwdcQpCTjZafJb8pRMGoyp/7VIpSwdP?=
- =?us-ascii?Q?Z3Vme/P0hPRh6ejCR4F5/1UTj97LgRh1a3mGf5ELmf3Uh61P1qfy6LMgrzyd?=
- =?us-ascii?Q?KKiE1dTqD693VnPCGn/HVtBxWq4MWJXzy2kc82ZeAw3duW6ycYCkE5ehDLFK?=
- =?us-ascii?Q?8WyPsYRV+47IDInUrNgU6O03/1kOm1kFBdwYpCfh77qjwRkG?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: edc4ec08-e5b3-4783-ca19-08de6e43a787
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2026 16:43:18.9551
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +/y5U6en1A3MjzCXBU8wnDboGJeHj9g62NHYol58Eau4M2H5DY6FnTZzuMatT1yXCFCVZPhIOI3tKiinegFoPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8557
+References: <20260216160946.2977985-1-wens@kernel.org> <20260217163208.5db4cd1e@orionap.fritz.box>
+In-Reply-To: <20260217163208.5db4cd1e@orionap.fritz.box>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 18 Feb 2026 00:43:31 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67NcduBxxrFeVkhi7eKyBBcMKy6dptHFrtZg2-Xs2Nf7w@mail.gmail.com>
+X-Gm-Features: AaiRm50IgvwBli9VJ3oskhBXlgPk6-8kaHQNo2uOGlyvC7LHA0MeNNq9rzrpr3Q
+Message-ID: <CAGb2v67NcduBxxrFeVkhi7eKyBBcMKy6dptHFrtZg2-Xs2Nf7w@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: sunxi: Implement gpiochip::get_direction()
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+	James Hilliard <james.hilliard1@gmail.com>, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_084324_623578_FDF3AC9C 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20260217_084349_182294_9C7CCE41 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,177 +82,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 17, 2026 at 05:05:58PM +0900, Koichiro Den wrote:
-> Prepare pci-ep-msi for non-MSI doorbell backends.
+On Wed, Feb 18, 2026 at 12:32=E2=80=AFAM Andre Przywara <andre.przywara@arm=
+.com> wrote:
 >
-> Factor MSI doorbell allocation into a helper and extend struct
-> pci_epf_doorbell_msg with:
+> On Tue, 17 Feb 2026 00:09:45 +0800
+> Chen-Yu Tsai <wens@kernel.org> wrote:
 >
->   - irq_flags: required IRQ request flags (e.g. IRQF_SHARED for some
->     backends)
->   - type: doorbell backend type
->   - bar/offset: pre-exposed doorbell target location, if any
+> > After commit e623c4303ed1 ("gpiolib: sanitize the return value of
+> > gpio_chip::get_direction()"), a warning will be printed if the
+> > gpio driver does not implement this callback.
 >
-> Initialize these fields for the existing MSI-backed doorbell
-> implementation.
->
-> Also add PCI_EPF_DOORBELL_EMBEDDED type, which is to be implemented in a
-> follow-up patch.
->
-> No functional changes.
->
-> Signed-off-by: Koichiro Den <den@valinux.co.jp>
-> ---
+> I am curious how this could slip through? Did the get_direction()
+> callback become mandatory at one point, but no one noticed that it was
+> missing for sunxi? It looks like the situation was even worse before that
+> patch, as it was dereferencing the function pointer without any check?
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Digging deeper, my attribution is incorrect. The actual commit that
+triggers the warning is 471e998c0e31 ("gpiolib: remove redundant callback
+check"), in which a check of .get_direction before calling it was removed.
+So I believe this just landed for the next release.
 
-> Changes since v7:
->   - Switch to designated initializer and rely on implicit
->     zero-initialization.
+Thanks for spotting that. I'll send a v2 to add that information.
+
+> > Implement it for the sunxi driver. This is simply a matter of reading
+> > out the mux value from the registers, then checking if it is one of
+> > the GPIO functions and which direction it is.
 >
->  drivers/pci/endpoint/pci-ep-msi.c | 54 ++++++++++++++++++++++---------
->  include/linux/pci-epf.h           | 23 +++++++++++--
->  2 files changed, 60 insertions(+), 17 deletions(-)
+> Mmh, it feels a bit backwards to resort to the function name *string* for
+> comparison, when it's always 0 for in and 1 for out (which we actually se=
+t
+> in pinctrl-sunxi-dt.c now). But the mux value for IRQ is different betwee=
+n
+> SoC generations, and I guess for historic reasons function strings are a
+> thing in pinctrl, so this is probably the best solution after all:
+
+Yeah, I was a bit undecided, but using the raw values for in / out and then
+having a string comparison for irq made things even weirder.
+
+> > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 >
-> diff --git a/drivers/pci/endpoint/pci-ep-msi.c b/drivers/pci/endpoint/pci-ep-msi.c
-> index ad8a81d6ad77..50badffa9d72 100644
-> --- a/drivers/pci/endpoint/pci-ep-msi.c
-> +++ b/drivers/pci/endpoint/pci-ep-msi.c
-> @@ -8,6 +8,7 @@
->
->  #include <linux/device.h>
->  #include <linux/export.h>
-> +#include <linux/interrupt.h>
->  #include <linux/irqdomain.h>
->  #include <linux/module.h>
->  #include <linux/msi.h>
-> @@ -35,23 +36,13 @@ static void pci_epf_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
->  	pci_epc_put(epc);
->  }
->
-> -int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
-> +static int pci_epf_alloc_doorbell_msi(struct pci_epf *epf, u16 num_db)
->  {
-> -	struct pci_epc *epc = epf->epc;
-> +	struct pci_epf_doorbell_msg *msg;
->  	struct device *dev = &epf->dev;
-> +	struct pci_epc *epc = epf->epc;
->  	struct irq_domain *domain;
-> -	void *msg;
-> -	int ret;
-> -	int i;
-> -
-> -	/* TODO: Multi-EPF support */
-> -	if (list_first_entry_or_null(&epc->pci_epf, struct pci_epf, list) != epf) {
-> -		dev_err(dev, "MSI doorbell doesn't support multiple EPF\n");
-> -		return -EINVAL;
-> -	}
-> -
-> -	if (epf->db_msg)
-> -		return -EBUSY;
-> +	int ret, i;
->
->  	domain = of_msi_map_get_device_domain(epc->dev.parent, 0,
->  					      DOMAIN_BUS_PLATFORM_MSI);
-> @@ -74,6 +65,12 @@ int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
->  	if (!msg)
->  		return -ENOMEM;
->
-> +	for (i = 0; i < num_db; i++)
-> +		msg[i] = (struct pci_epf_doorbell_msg) {
-> +			.type = PCI_EPF_DOORBELL_MSI,
-> +			.bar = NO_BAR,
-> +		};
-> +
->  	epf->num_db = num_db;
->  	epf->db_msg = msg;
->
-> @@ -90,13 +87,40 @@ int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
->  	for (i = 0; i < num_db; i++)
->  		epf->db_msg[i].virq = msi_get_virq(epc->dev.parent, i);
->
-> +	return 0;
-> +}
-> +
-> +int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
-> +{
-> +	struct pci_epc *epc = epf->epc;
-> +	struct device *dev = &epf->dev;
-> +	int ret;
-> +
-> +	/* TODO: Multi-EPF support */
-> +	if (list_first_entry_or_null(&epc->pci_epf, struct pci_epf, list) != epf) {
-> +		dev_err(dev, "Doorbell doesn't support multiple EPF\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (epf->db_msg)
-> +		return -EBUSY;
-> +
-> +	ret = pci_epf_alloc_doorbell_msi(epf, num_db);
-> +	if (!ret)
-> +		return 0;
-> +
-> +	dev_err(dev, "Failed to allocate doorbell: %d\n", ret);
->  	return ret;
->  }
->  EXPORT_SYMBOL_GPL(pci_epf_alloc_doorbell);
->
->  void pci_epf_free_doorbell(struct pci_epf *epf)
->  {
-> -	platform_device_msi_free_irqs_all(epf->epc->dev.parent);
-> +	if (!epf->db_msg)
-> +		return;
-> +
-> +	if (epf->db_msg[0].type == PCI_EPF_DOORBELL_MSI)
-> +		platform_device_msi_free_irqs_all(epf->epc->dev.parent);
->
->  	kfree(epf->db_msg);
->  	epf->db_msg = NULL;
-> diff --git a/include/linux/pci-epf.h b/include/linux/pci-epf.h
-> index 7737a7c03260..cd747447a1ea 100644
-> --- a/include/linux/pci-epf.h
-> +++ b/include/linux/pci-epf.h
-> @@ -152,14 +152,33 @@ struct pci_epf_bar {
->  	struct pci_epf_bar_submap	*submap;
->  };
->
-> +enum pci_epf_doorbell_type {
-> +	PCI_EPF_DOORBELL_MSI = 0,
-> +	PCI_EPF_DOORBELL_EMBEDDED,
-> +};
-> +
->  /**
->   * struct pci_epf_doorbell_msg - represents doorbell message
-> - * @msg: MSI message
-> - * @virq: IRQ number of this doorbell MSI message
-> + * @msg: Doorbell address/data pair to be mapped into BAR space.
-> + *       For MSI-backed doorbells this is the MSI message, while for
-> + *       "embedded" doorbells this represents an MMIO write that asserts
-> + *       an interrupt on the EP side.
-> + * @virq: IRQ number of this doorbell message
-> + * @irq_flags: Required flags for request_irq()/request_threaded_irq().
-> + *             Callers may OR-in additional flags (e.g. IRQF_ONESHOT).
-> + * @type: Doorbell type.
-> + * @bar: BAR number where the doorbell target is already exposed to the RC
-> + *       (NO_BAR if not)
-> + * @offset: offset within @bar for the doorbell target (valid iff
-> + *          @bar != NO_BAR)
->   */
->  struct pci_epf_doorbell_msg {
->  	struct msi_msg msg;
->  	int virq;
-> +	unsigned long irq_flags;
-> +	enum pci_epf_doorbell_type type;
-> +	enum pci_barno bar;
-> +	resource_size_t offset;
->  };
->
->  /**
-> --
-> 2.51.0
->
+> FWIW:
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+
+
+Thanks!
 
