@@ -4,105 +4,206 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D286FE9A026
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 17:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD094E9A026
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 17:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NzMITkEXZs34lceKZ1bkvJdV8jpP8i6Cd6H1ke9i4qg=; b=1l3AIivbuFwDeRVeWCVEiOAbL7
-	FrgLYgGmMtxLImWnAi3GzphAmA7VDet2lgehkPEHeNThY8S0fPsDrDPHgLIAqlgk9yVYtGrlbCOkX
-	dMt9oLL6inTkLKi0ozz5Lll7gKewELbyN7gEF9CYrhBqs1sPpV2RXeyRXdt4uv4G0qb7NI3LqueMS
-	o6laBzLiMOPPE5xjqVcK8zCN3PU6lrEebfuUSXXWOqwGZA9LrfRqevgCwdL4qagg3tCjiM0DeUqL9
-	7AzddWCQow4+AA8iJUigjs5cvOWovAby+QbDsvOQh4S3ypr9h0aeiVbQz9/hYt2+i9CwrIRWjmzf1
-	hMlHkPOA==;
+	bh=AuOgjMx5bdDJ2zpzm4DF1XZk0HnaPDdBWmCpmOLWMVA=; b=leRsQJthCr1LvMAkQqpisp7bxK
+	8zx5OIpX1Fwhl9lqvTra8f5YlpwWx7qG4zpjFYCF9I47ktI0JNHSKo+T8nGextGDvFlOeGjnBkeh/
+	fGqnM88+annTSAlANpahK0hUwBVOnY14XKCZ3P/6ssPD8A5UrjQw39G700errUn/H8EclPfECi01C
+	pSbCaLL4iwvcKRtMl+7VFvy5efWpLj49897f+wFmfuUmQGDn3ySDm0fR/cazDy5o4am44JJNEyLem
+	R/jauwAcf2QB5nsvBAZfBLW5baXnbFbpvnYs/1uAGi8/nlisLn26KbQn2BYstmWSXH/SdxZgQTXHL
+	mh00CHQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsPAz-00000008fhY-2YSO;
-	Tue, 17 Feb 2026 17:47:57 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vsPDQ-00000008ftW-1bzG;
+	Tue, 17 Feb 2026 17:50:29 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsPAv-00000008fgd-2gKV
+	id 1vsPDK-00000008fsg-2CAL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 17:47:56 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-8217f2ad01eso446043b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 09:47:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771350471; x=1771955271; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NzMITkEXZs34lceKZ1bkvJdV8jpP8i6Cd6H1ke9i4qg=;
-        b=xWsf4VgWclrjIWlkz/8y6esYI+UssVaP7O/EbKxxJYYzv5egAby/K4TcU018HdYpel
-         BH4EgR6nHt2ngZ85Gb1cChrMSkthUksOusUqVmlw9p+4d8nnVjmORvO3LJTMafsJrg87
-         J02EdB6hMa/Ki9DUbrD1n25ws/0Jj8csas49BP3omNb4hiJXGDyAzzwpPufCc0coOnzE
-         KOAJyxTpdfXowZwDA1CPghv2yzSvVrlSlWyDTfmFTQB1UtHtsDVFpc06pNfgzAxecBYl
-         z1cq/L/R+aw6FPMB98kyZz0A7bB+WVbCKLJtkYftk4nizR5SBPuStlSR8osPnNgZPDgO
-         8n/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771350471; x=1771955271;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NzMITkEXZs34lceKZ1bkvJdV8jpP8i6Cd6H1ke9i4qg=;
-        b=D7zXwX2JvqD6VLc0oqwJ+KwoGW3AGQtex+zJTAPXIZnF744zvNeqtrKsgiDxrDYOca
-         U4yVAr2ZfdU4lnMZtglwYKFwatJLOFE81XNH3Vr7neA2fS3CFuDdcRH+3VGJqyGKK3GC
-         VSNMbTzOjUd/LVqtq7T70sKi5PYadqt5jKN0I/Z46xCh6mtaSpl8fzsWcIGIpoSEGJwv
-         KbcbYYWsKne7X4USqcvmny1D+0GI2m+mGXbzq2SLMFOJSLYQjhqsm9MUXcsTgy8BeanC
-         wSYTNk3PQ+L5K+ybYHyYiYkzcF15wuMsw1s/WJCB76n1fDBCXEoQ+kB2oFlGFWWkivCh
-         Oy4A==
-X-Forwarded-Encrypted: i=1; AJvYcCUDtjbiRhByeUnSB34nVLuAXz+KUA5tDBJiPtvPvocyUgG+kq4RBgjYOILuXN/7p7PiJmHWHTWYRM0xi/1w3hNe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yww+LY7IHPxiMuQE2GdwxiFJ+qtv0QITIkt73syctl2NctExa40
-	Idwpvy4x/REm1ZBQPoVW/FlLmG0NQ3NBTM+M3Qv78nBbZ3zA9FVM+yKsmd4t6XBPinc=
-X-Gm-Gg: AZuq6aIEGQGT2LGneH3NwyBOI56P5l7cM8OtpBsSWVXlh9DTAMUG5AfyO/xWpPQbdn5
-	BYn+5uQi6Q/f0VNhi5dsfhdR6fpxIgKGDqCcOv5JFlzcMh2/xac8D9r94HMBHskm+eEJe8HC8Jj
-	gofDzSEc/cA3NMXl7pnEvUmurCDpT2sY+hcSILcxTCVOkE9NSMNOBc27bOPB7beEzfv06KeWCw6
-	9oBjdMtR+r3ejp66Tes/bZ4kwLfzp5UraxrXgJBSmoqZFN9kCgK9QLll/WrnBgPkiySKc5F6ZGl
-	DaSsqJtviqLv3rQxEX5/5MVUVDyVaNyfY+GFMSemgkuL7tesym5fD/cLn+tONDBYhUyeNxedE/a
-	udtFVmklsmVLR5zFh1tP9rhsC8DSKZCfrjw2b3ARKzR+F+N8pHYAC8HlSWzNLxqYl49nc0s+BaO
-	TOaxucVqPO7Fm9LBvSn1GOqAOumQ==
-X-Received: by 2002:a05:6a21:4916:b0:38b:ebdd:919f with SMTP id adf61e73a8af0-394671145b5mr13583057637.1.1771350471095;
-        Tue, 17 Feb 2026 09:47:51 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:970a:754:4a36:44d0])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c6e5331ba14sm10310210a12.29.2026.02.17.09.47.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 09:47:50 -0800 (PST)
-Date: Tue, 17 Feb 2026 10:47:46 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v12 00/46] arm64: Support for Arm CCA in KVM
-Message-ID: <aZSpwlZmpjdh3Oxr@p14s>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <aY4Sf4lMlWd9LyTo@p14s>
- <55fc4877-666c-4d5f-a167-5692f7cfbd0b@arm.com>
- <9140efaa-dc54-4a1b-8936-3ef876ca9121@arm.com>
+	Tue, 17 Feb 2026 17:50:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1771350622; x=1802886622;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=/jrE4cHVwd882sq+w+VPpv4SaAOVibdVbqGDY0FnuKo=;
+  b=ch0WMBlbPqtlAoDK0f4g6KT+22bojAJ8Y2HbTlnUBeDCOiEwcpoMMVXg
+   qPsEi2dzDojWbfRWEIEez23DXz9kCScr21iA3dGe1oPx8SCteV3T2NVvq
+   gFQZXVLQ9gLE9DRC2t37ECKWZR1B5K1fPpsK/6kKM98ezbfPTGn0N9mfz
+   1TwcXSVyDnecwngE/HSekj6EagawB8lXlN7NvbK5y6kM6BfJRk5qGJn6W
+   QeiIy/DfKJg9EUH70JCUbfkaympD3b1bzfTxJ/lPYPZP8uuL4lsXxP1zy
+   GONwteVGXo3BFGpjr4miuoEUDsHbONWxqZF9iJ94RwTGbsk/RFla48xH8
+   g==;
+X-CSE-ConnectionGUID: NibYT9I5Qs+2t+QEi0wl2g==
+X-CSE-MsgGUID: 4WG8PPX8SQ6FYhoMdLdAVQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11704"; a="72601224"
+X-IronPort-AV: E=Sophos;i="6.21,296,1763452800"; 
+   d="scan'208";a="72601224"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Feb 2026 09:50:20 -0800
+X-CSE-ConnectionGUID: C0E0xh2RQn+R3VfGoBpqBA==
+X-CSE-MsgGUID: qzf4El08QGiGpDUqRobYcw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,296,1763452800"; 
+   d="scan'208";a="218486513"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Feb 2026 09:50:20 -0800
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35; Tue, 17 Feb 2026 09:50:19 -0800
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35 via Frontend Transport; Tue, 17 Feb 2026 09:50:19 -0800
+Received: from CH1PR05CU001.outbound.protection.outlook.com (52.101.193.29) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35; Tue, 17 Feb 2026 09:50:19 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yrxW022Ki6xTo2HgS5KU/w9cT45FAt0BbWQXDCSj6E1iqVcAwYKShHVrFNEqNoCmoR3hz/XfwoWpvzNG20Ms6KS6Sqagl5XnSI9SDBhCkXa0eJcdTBhuqmycGjBDA/sZnLB9enx1zyMzwfrQHkLgxZbkGAGLklv3Bjph6ureyVnBQ3+6ypzvNjkodFQBrvWrDxodpHe+3nmshAj4+VS4YItzgE/IuXNvHCEbBxkOLenfAM5DXxQJKXmRXEmVfXuoAKUFHKEIjGku9o+vrOPHR+3MdqWu7YxNBx3yuKeCsrERgkSfhODyyjKtxWFeY93LnastR3M8TAro0yHqD7LIaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AuOgjMx5bdDJ2zpzm4DF1XZk0HnaPDdBWmCpmOLWMVA=;
+ b=wbyBl+dD6/QhOEjQfJoEy2JFwxA1eqvI50LBrt0wHCrsz54+xpR3BiEVyCSjO1SWdRVfJNPL69aBuaTqLYwA+44yiKi9GfIY2GrUQkOG2hiqoPiez/peBTIuw/qqbiR4cbBWwG4LaFXpKzQILkQocCWXNBflGYHQx8VKPeZXFzDamlVUXrk26ric6ZQpZTyMaqW7mpeuwWFXnWLvTAPl04zq2YHIDcGkgOkeDBKu6T21zM1RaFBnObsBDfgvJHeM1d6mQpmohUuDBYbzgv49ykNonaWbUG2J80BQX+rU6gT/XJY1okX00ro/AWLY+aM3vSjC4qYNpahd8UOIIjcdkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com (2603:10b6:a03:4d2::10)
+ by SA1PR11MB5779.namprd11.prod.outlook.com (2603:10b6:806:22b::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.13; Tue, 17 Feb
+ 2026 17:50:17 +0000
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d]) by SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d%6]) with mapi id 15.20.9611.013; Tue, 17 Feb 2026
+ 17:50:16 +0000
+Message-ID: <15262941-4d8b-4a6c-a09d-f44747c0fcc6@intel.com>
+Date: Tue, 17 Feb 2026 09:49:15 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/5] kselftests/resctrl: Detect the ARM architecture
+To: Shaopeng Tan <tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>,
+	<ben.horgan@arm.com>, <james.morse@arm.com>, <shuah@kernel.org>
+CC: <linux-kselftest@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260123044034.141247-1-tan.shaopeng@fujitsu.com>
+ <20260123044034.141247-2-tan.shaopeng@fujitsu.com>
+Content-Language: en-US
+From: Reinette Chatre <reinette.chatre@intel.com>
+In-Reply-To: <20260123044034.141247-2-tan.shaopeng@fujitsu.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR03CA0103.namprd03.prod.outlook.com
+ (2603:10b6:303:b7::18) To SJ2PR11MB7573.namprd11.prod.outlook.com
+ (2603:10b6:a03:4d2::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9140efaa-dc54-4a1b-8936-3ef876ca9121@arm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB7573:EE_|SA1PR11MB5779:EE_
+X-MS-Office365-Filtering-Correlation-Id: 14139cb5-5c2a-4fd6-9f8e-08de6e4d027a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UDMzZldROGYxMmNXUG9WKzY0UU53cXpJOE5Ea2pYdGpRTWRmbW5iZmlITHVy?=
+ =?utf-8?B?Rkl3cE1LR2dKUzlOR3FNeUd3WWZOVWdsODNkUDVsemJNanBJSTk3aHJRUEhD?=
+ =?utf-8?B?R3BwZktFNXlqSTZpdHdrYmNyNjBNQ3pNbjRCUWROZVV3R2hZd2R2NmNOZ0gw?=
+ =?utf-8?B?ejF1eUZZR2xXbkErSlpOMG9kdjJoMWhtUGZVeUJXaGNsdDVYZjl4alNjMGx2?=
+ =?utf-8?B?WFhCS2tWZjBMUnJLSDBmTUIwVHc1cVpqV2ppTWJhRnI0aENraFNhWFQwcmpn?=
+ =?utf-8?B?OUFidmYvZEdPOEtpV1hmbitKS2FtZXk1TWppbVNndDE4UThyQnF2UkREVFlP?=
+ =?utf-8?B?QmZQYlVieDlMQXdOT1MyQU1iUlprOWppT1JkeTdldnJQcWZMTGR5b054SXhF?=
+ =?utf-8?B?UVFwaHNXVEtHcXJnbDhUTmVPZ2ZqZGZ6Rmw0UTR6N0hzMVI2Ym40bXhudGt5?=
+ =?utf-8?B?NUVwQ08xd0Z3ek5lM2tFc1pCcDJua0VyMlhLVU51aXM4K0hWaFpUNGxhOURr?=
+ =?utf-8?B?eUV1dUhDQkN3eDdNVmZWOG1TOWdtZ29QYjQzZm1vVlYwUHlCWTFmRFlWZWo5?=
+ =?utf-8?B?ejdQeDJqTkNXKytveHhlYkgrU1lqb2NpTmtydVdDK3ZjUUZzK21PbGZzYjdG?=
+ =?utf-8?B?Y2N1TzV4bHVzRmdNWWExc09jNHRSR2xONkJTVzlwK3pSblFGYndEM25CR1d6?=
+ =?utf-8?B?ZE1TSE9qc3lINUNyS1hJMU1CN0srWi83RTZzR1hmMDNwVEJzNkx1RWJ5Z24r?=
+ =?utf-8?B?b0Z0TkNGMWR5YmxXdnlTZzZjejk5ZFE5V0k1YVo5MjZibCs3dDkvRVJZTlVv?=
+ =?utf-8?B?YzNKUEtueThiNWZ6NGVUZ0Zra3UxbGlzaUs3T2d0bmk2MFYvaGpXdEpmMDNJ?=
+ =?utf-8?B?N2FIbWxMUXV3cll0RFdoU2JURmxTZ0hMeXRVS0xwT0pFckFlb2FPZTRCWk5Y?=
+ =?utf-8?B?WjA0QVV2bnpIakVEaXhsZis1VW5zdzBNVGlQVEpXd2Y2Qit4bWlYNldlZFl0?=
+ =?utf-8?B?NGNzTXl3TllVRUxzbFJIZzlxNUVNYWtkY2ZXT3NXaXB0SUdJa2MyTnhsVkF4?=
+ =?utf-8?B?KzRsSStyN2Q3WEltRkRKRGQxK0ZMY0YzNCtNTDg4T2VwTllDR0czM0RoTE43?=
+ =?utf-8?B?Y1lHa1hRWEdtMlJHK1hUNHc0V2tSTENLZTNNdkpDd0Q4aDBmVFFKVjVVYTRE?=
+ =?utf-8?B?Q1h1U2tXeDUxUWlQZ1NHRUZqZStjelpPdXEzVU1sWUsrS1dvMGx1dzBLV2Ev?=
+ =?utf-8?B?VHpJc3pVdHVMZlF5T3JiZ3FQT0tvWVdzNnpTUzd6YWpnaUNxemtGS25TTmd6?=
+ =?utf-8?B?M2Nwc1ltRkJUeHdxSDBPdy90QVpVNmM5b3h3NzF1MTc2Zkh0S0FXaHkwTzl6?=
+ =?utf-8?B?MVN0dWFmLzZBRmtJZGh3dnBwRXFJWjgrQzZ3V0tmRmJpQkJxZTZEeTNZUmxw?=
+ =?utf-8?B?YXBvZ1hsT2pUaEQ2cGJDS1l6YU9JTW5TcnFhNWI0MWFmS3BhaXFBcXU2MUlK?=
+ =?utf-8?B?QVJFdDFTcm1rVGRKQ0ZGazlXUlJYTmI5RXZZQWF3RThwVXJaRzFxYktsUGFo?=
+ =?utf-8?B?cEVudmZSWlp0clRsVWtHbml0TnlqTitNdTZCeXhPVjlkZWZmRnRrd2dVcDhF?=
+ =?utf-8?B?NFA1M285UUtLejdmSk9ZdG14d1ZxU2xMU3VZamVwL05SNlB5TkdhdGpRZzFS?=
+ =?utf-8?B?Uzd2cnJJUUdLeVI3UENDYUIvbTc1NkdUOUNEOVgwa0FCTDY0L0x2dTVFZWNh?=
+ =?utf-8?B?MmZwckpFK0JDNjZJbmNRSTFTenRJMVBCdUxLNmVCL1YwZWxQM2RUbGg2bVhq?=
+ =?utf-8?B?SFM4UndnTE5MTlZwajQxd2ppM2tjV1NENG03aW9vZTBWbVdZbFZscUpsN0JP?=
+ =?utf-8?B?TElUZW5RV2NKRTFBSUJuSW9HaDZVc0pSOGZMVE5LWldMN3lmNnFGZExLMmZs?=
+ =?utf-8?B?RWlpZTZMNVhHd1BqdStUZXlMUnZZeHRjZitHM1ZKbzNJV01HRHc2WmVtcTIy?=
+ =?utf-8?B?YmIxdFl0WTNJVXpOL1YvZlVSM25lYSswZTF0MldxMnlnODZHWWRVQjVub3NY?=
+ =?utf-8?B?eW1DNWU1MnpOajV1ZWJ6M2NmcklSZUxNSVBRSDE5LytMa3NvSGhGOEJhby9E?=
+ =?utf-8?Q?UMCw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7573.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OVF5Ri9LM2Y1bTZtRnV3SFE4UkZPd3VnY1kyTXJqZUVZdWM4VUR2eG4xWGZP?=
+ =?utf-8?B?VCtsMERsdnZXTWF6REs5ZnhOSG00WEtKb29SNHV2N3JXcFdFVit2WnkycHRB?=
+ =?utf-8?B?RkV6OUFnYitGTkROM1NzeFBOeW5OcnlBUmxDN3FXaS90QlhVSk9KRWhrcmdN?=
+ =?utf-8?B?Z29kbXlycU5oTkY0RG9wWnBGUFVXa0VzTDhWa21NWEkwRzEyMi9GSHlVaDBs?=
+ =?utf-8?B?T3hyS01ob2hveC93ODRiSUNJSkVvNmRMUmVUSGM4a1lWcFl2b3RTdUVnS2hY?=
+ =?utf-8?B?Q3lqMmVoNXFrb2kwRk5tcGNTLzFibUVhUlRHWnlZRG5mand2Q1NSbGcrU3RX?=
+ =?utf-8?B?SHVhZUZOOFgzbzNFM1J1UmZjanIwejB2d2xSMisrRjdXL1MvWTZGWU4vOUJ2?=
+ =?utf-8?B?TUJ1NS9nY3A0MHRwaTNqOXpRQzcycWdDd2xoSGlQL1BkRUo3NWZ3Y0dLMjgz?=
+ =?utf-8?B?dHpLUklURFJpd1hGL3l1Sm5NWEM4TEI2b2xjdXlLWWxpNUpjUkhabFhTeUVU?=
+ =?utf-8?B?MDhKbFpxTzRiVThJL0FneWtwYW4raEU4MzVnZjVwQ1FxVXJMdVE5c3dnLzd0?=
+ =?utf-8?B?NTVLRXpXR3NlbVRSMDFRYTdXOFJ2SUt3WTR5T3pYMXp4YTMzdDhLL2Nsdlkr?=
+ =?utf-8?B?TjZlajliSWZZRE5rV3BYYXVWR2hVTGNGbGVWVTB0Y3ZFRGd1d3RramFkTjYx?=
+ =?utf-8?B?Ym9KcW90T2lYQS9raE9GWHZXOEI0WTlFcFo5eUU5TDR0UjY0MVArLzBkbEkw?=
+ =?utf-8?B?Q2U2Vm12ZTFoL3ZPaVcxWWZWSlpkTjE3aHJFcDBLYzdmNGk1OUltUzgyU0p3?=
+ =?utf-8?B?YytlN3g3cUovSHlOQmEzci9wZkpjSmVCcE1JMS85ZlVsR1E0c0h2cG05d0Nk?=
+ =?utf-8?B?QllKUjh0VFkwRXZNV3NObEdYdlNIVTVTd1ZLK2FvSWlHalE0SWEvY0pBUExo?=
+ =?utf-8?B?dFBZTWYzb0owR092ck5paS8xdWdHc053N2tnSnBuejJEK3U4cWFpVk02Tm5E?=
+ =?utf-8?B?THNROXQyQkk4R2xNeEhleE5ZMWdEcXVuT3pab0xYYzNmSStoK1dIelRuTzFw?=
+ =?utf-8?B?TnJDNmt5aEUrdlRKWW5obUgrYUFQYmJhQ3RzRUhiNHVBYS84WGRiL3A0UGVx?=
+ =?utf-8?B?eWQ4TmRWaW4yNjZhUFpMZVhwbG1yWUh3WE94SzJRS1VUWlRkSjNCSWhNczdF?=
+ =?utf-8?B?VGFDdnRjSFNjbEdQUnlXMUZMQzFuTzN0NDM3bzJrOWtkWHV6Qjl1K3JLbm9Y?=
+ =?utf-8?B?dkUzNDBwSzBidGg2dWx0c0U2WjNCck5MQ1Q3Mjk4MG9GUzJ4ZFc4RHVta0hh?=
+ =?utf-8?B?QitlY2Z6bDA0MWxycWt6SVR0RGZnQU9nMXN3eXBWYnIwRnhTS1NvMXhWTXVu?=
+ =?utf-8?B?WUt1TDNNaWJJL1c0UlNycjdDUGpuc1dKYXpkdkRBU3FObHhHY3VoN2VDalB4?=
+ =?utf-8?B?SFZ1UjA5YkpGSy95VUlUQzh4L3ZKYTRsNkorNXJ4ZVlrWU90b2lRK1REOXVD?=
+ =?utf-8?B?NEFiZ0lraDdEclJUQXVCV3NYaGRDcnZhVEx5WDJIMzgwdTVDV0padWIreWNV?=
+ =?utf-8?B?Sm1LWTIxbVduTkdzemZNWnVDSVJRSVJVVnpBdzQ3YzROTnhzSGlvb2tWU0RK?=
+ =?utf-8?B?Q05VT3lXbTBMR1dBTUNHbnYwR0xtd0p4Q2J3Z2NPY1RNbHZRUzhkRVY1OW9m?=
+ =?utf-8?B?WnlMdmNwc2VxWHhVT055L3NqOGQzSk9QV1ptMmNaZlN3dWNZR0l3MlB5ekp3?=
+ =?utf-8?B?YVJ6OGxJaThSOTU4Q3MzdUFaSXdpa0M4N1BhVFJ2S0FFMUZwTnZKbWNNMFpJ?=
+ =?utf-8?B?bGVlQnpRQ3oxTllqTXVOQUZFMEczbG9JSVd4RWJGdGMvbmRhMC9Hc3JwTEV1?=
+ =?utf-8?B?czhsZ0IzVGRHWXlUZHkrTkQ2QnFUbzRGU1o2UU4wVURKL2kvc1JJdEZxb2hS?=
+ =?utf-8?B?dEQ3OGZ4Y044WCtTUVI1d2pQbU84c1p4U2lvaDVMdlJXVVR0NzNrazcyMU5E?=
+ =?utf-8?B?YUpieitFQ0lLT3piOHhZdjJQc3piaVQ0QlNiaUpQS0ZFL25HeUhhQlAxZHIy?=
+ =?utf-8?B?ei93MWpTTGVjRkE0cmJmWGpEV0NSZ2NDRDBJcWVDQUZlamdPcTdGclAvOE51?=
+ =?utf-8?B?cHQ4aU1pMzJkemFwSjIxVldiNkQ4MGdlSGlOOS8vUkxRTWZUQUdoZWl6d2F5?=
+ =?utf-8?B?YjJMNHJpeVpGVmMySXg4eVpJS2NOaEhWTkhQeWgxYVYrSHk2SFg5a3NNazZO?=
+ =?utf-8?B?NjFaSlRDWGdDeStWSkVsSC9Na0k2VURGOHdlUStScSt1cFN5QkcwSWt1SXp6?=
+ =?utf-8?B?dWYxUnR3MjVwZDRiaWx2ckYvYkZqVmpmRmh5TmErV2gvZ1lnWm4yT0d5cVpP?=
+ =?utf-8?Q?ODZLSVijk9l9X9GA=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14139cb5-5c2a-4fd6-9f8e-08de6e4d027a
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7573.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2026 17:50:16.7968
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FD17NHD5/OYoG/qGSgB5sE1C/kCmywJjGOzsZgi0U8E1g8O0EIl6XKSUXB2VBrmubK02uc9/ZbLs6XjFPRdwer86GK6R39XX0FmwkpNLW2Q=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB5779
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_094754_978537_C2B13A0B 
-X-CRM114-Status: GOOD (  47.24  )
+X-CRM114-CacheID: sfid-20260217_095023_596255_DD829427 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,120 +218,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 02:27:02PM +0000, Steven Price wrote:
-> On 16/02/2026 12:33, Steven Price wrote:
-> > On 12/02/2026 17:48, Mathieu Poirier wrote:
-> >> Hi Steven,
-> >>
-> >> On Wed, Dec 17, 2025 at 10:10:37AM +0000, Steven Price wrote:
-> >>> This series adds support for running protected VMs using KVM under the
-> >>> Arm Confidential Compute Architecture (CCA). I've changed the uAPI
-> >>> following feedback from Marc.
-> >>>
-> >>> The main change is that rather than providing a multiplex CAP and
-> >>> expecting the VMM to drive the different stages of realm construction,
-> >>> there's now just a minimal interface and KVM performs the necessary
-> >>> operations when needed.
-> >>>
-> >>> This series is lightly tested and is meant as a demonstration of the new
-> >>> uAPI. There are a number of (known) rough corners in the implementation
-> >>> that I haven't dealt with properly.
-> >>>
-> >>> In particular please note that this series is still targetting RMM v1.0.
-> >>> There is an alpha quality version of RMM v2.0 available[1]. Feedback was
-> >>> that there are a number of blockers for merging with RMM v1.0 and so I
-> >>> expect to rework this series to support RMM v2.0 before it is merged.
-> >>> That will necessarily involve reworking the implementation.
-> >>>
-> >>> Specifically I'm expecting improvements in:
-> >>>
-> >>>  * GIC handling - passing state in registers, and allowing the host to
-> >>>    fully emulate the GIC by allowing trap bits to be set.
-> >>>
-> >>>  * PMU handling - again providing flexibility to the host's emulation.
-> >>>
-> >>>  * Page size/granule size mismatch. RMM v1.0 defines the granule as 4k,
-> >>>    RMM v2.0 provide the option for the host to change the granule size.
-> >>>    The intention is that Linux would simply set the granule size equal
-> >>>    to its page size which will significantly simplify the management of
-> >>>    granules.
-> >>>
-> >>>  * Some performance improvement from the use of range-based map/unmap
-> >>>    RMI calls.
-> >>>
-> >>> This series is based on v6.19-rc1. It is also available as a git
-> >>> repository:
-> >>>
-> >>> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v12
-> >>>
-> >>> Work in progress changes for kvmtool are available from the git
-> >>> repository below:
-> >>>
-> >>> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v10
-> >>
-> >> The first thing to note is that branch cca/v10 does not compile due to function
-> >> realm_configure_parameters() not being called anywhere.  Marking the function as
-> >> [[maybe_unused]] solved the problem on my side.
-> > 
-> > This is in the kvmtool code - and yes I agree "work in progress" is a
-> > bit generous for the current state of that code, "horrid ugly hacks to
-> > get things working" is probably more accurate ;)
-> > 
-> > The issue here is that the two things that realm_configure_parameters()
-> > set up (hash algorithm and RPV) are currently unsupported with the Linux
-> > changes, but will need to be reintroduced in the future. So the contents
-> > of the functions which set this up (using the old uAPI) are just #if 0'd
-> > out.
-> > 
-> > Depending on the compile flags the code will compile with a warning, but
-> > using __attribute__((unused)) would at least make this clear. I'd want
-> > to avoid the "[[maybe_unused]]" as it's not used elsewhere in the code
-> > base and limits compatibility.
-> > 
-> >> Using the FVP emulator, booting a Realm that includes EDK2 in its boot stack
-> >> worked.  If EDK2 is not part of the boot stack and a kernel is booted directly
-> >> from lkvm, mounting the initrd fails.  Looking into this issue further, I see
-> >> that from a Realm kernel's perspective, the content of the initrd is either
-> >> encrypted or has been trampled on.  
-> > 
-> > I can reproduce that, a quick fix is to change INITRD_ALIGN:
-> > 
-> > #define INITRD_ALIGN	SZ_64K
-> > 
-> > But the code was meant to be able to deal with an unaligned initrd -
-> > I'll see if I can figure out what's going wrong.
-> 
-> Looks like a simple bug in kvm_arm_realm_populate_ram() - it wasn't
-> updating the source address when it had to align the start of the
-> region. Simple fix below:
-> 
-> ---8<---
-> diff --git a/arm/aarch64/realm.c b/arm/aarch64/realm.c
-> --- a/arm/aarch64/realm.c
-> +++ b/arm/aarch64/realm.c
-> @@ -104,7 +104,7 @@ void kvm_arm_realm_populate_ram(struct kvm *kvm,
-> unsigned long start,
-> 
->         new_region->start = ALIGN_DOWN(start, SZ_64K);
->         new_region->file_end = ALIGN(start + size, SZ_64K);
-> -       new_region->source = source;
-> +       new_region->source = source - (start - new_region->start);
+Hi Shaopeng,
 
-That also worked on my side.
-
+On 1/22/26 8:40 PM, Shaopeng Tan wrote:
+> The resctrl test is not enabled for MPAM (ARM Memory System Resource
+> Partitioning and Monitoring)
+> Add processing to detect the ARM architecture.
 > 
->         list_add_tail(&new_region->list, &realm_ram_regions);
->  }
-> ---8<---
+> Signed-off-by: Shaopeng Tan <tan.shaopeng@fujitsu.com>
+> ---
+>  tools/testing/selftests/resctrl/resctrl.h       | 1 +
+>  tools/testing/selftests/resctrl/resctrl_tests.c | 7 +++++++
+>  2 files changed, 8 insertions(+)
 > 
-> Thanks for the pointer, and I'll try to remember to include initrd
-> testing in future.
-> 
+> diff --git a/tools/testing/selftests/resctrl/resctrl.h b/tools/testing/selftests/resctrl/resctrl.h
+> index 3c51bdac2dfa..492d2a1c4033 100644
+> --- a/tools/testing/selftests/resctrl/resctrl.h
+> +++ b/tools/testing/selftests/resctrl/resctrl.h
+> @@ -38,6 +38,7 @@
+>   */
+>  #define ARCH_INTEL     1
+>  #define ARCH_AMD       2
+> +#define ARCH_ARM       3
 
-Very well.
+Please see recent enhancement in this area:
+4f4f01cc333e ("selftests/resctrl: Define CPU vendor IDs as bits to match usage")
 
-Thanks for looking into this.
-
-> Steve
-> 
+Reinette
 
