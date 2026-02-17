@@ -4,105 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38291E909AE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 14:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61671E909AF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 14:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Eu+fC1NvwDc2c+7+RBywzqoe1LU54TndFGYyJ2KsHU=; b=RS1CKiSZGJPk+UIf+h0I8Hx8Q/
-	QXrmSKo4B1JyOG0A1mj052l51JYONu64G7dta/f6MkBVvAhtuWzHUf3UjqaVLarikcjeZsTK3FbyJ
-	iALDzgSIXsIc+W4CVIlTozAuFUlKMdM+0gMxYL8tBErtPxUtHfF0y7MqwceHf16wu9ipFG1K1lWQZ
-	SLo+QYLDrD+MxXq02ZZ34JoJzjJbYMQjCa+LM+QHDW6Nvye0YVqnXusj9rIHuEddg4XcUghFY2Akx
-	FG/bAPE6hn/1jnxs38rbEYD+A1kP/gK2xopyYVdHglORdxDbtxh31NrkPENrkcyXGvoE+tbClE/mm
-	z5VHWueA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fTZKyBXhecWYkSVZASYPq/Jp9aqiNsqKvaKKrRMFrgI=; b=Snrq18L+/xG8cWThciXy0avt1I
+	yifB/paFtSREZYRm+f8rqa3A0EvSCIzz/0Q9ulvpM+GMDyObmGE96rTlFXeZK88LxLmjzSar4sptu
+	BJVkqbClfM4fTGaozqUxkRwh9d/6P7rd+NRgPgA7PY1fWb+qTtXWomxe1QjVzXfj/cTnq2Cwb3W0K
+	qFrXoh7E7CrnEsGXuaMJto33oLlZVPnMpicWT24E0/4SPBlSNN411L9Oqga+5Dezw3N2Fqo4KnDa7
+	NYBu2/zEX0m73BTLeEOg2eG4/i3V7urCAAPCuvC46GYyMnMZKfQmRACgSCLfu5B5HjrL5lN+j+lSf
+	WQvEv5Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsM1g-00000008Qhk-0buJ;
-	Tue, 17 Feb 2026 14:26:08 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1vsM1r-00000008QnH-00FA;
+	Tue, 17 Feb 2026 14:26:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsM1V-00000008Qfw-3WqU
+	id 1vsM1o-00000008QmF-2L9Z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 14:26:07 +0000
-Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-48068127f00so45651355e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 06:25:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771338341; x=1771943141; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7Eu+fC1NvwDc2c+7+RBywzqoe1LU54TndFGYyJ2KsHU=;
-        b=dC8d1NLZe7iElzNaXkLIHFR21tdAgKS5pmUr7xklyKfvRXHNl2smQ9Vn+f0ZgWHuur
-         UTfXcd8wsoD4L9Dyzyt5gRRNEdo9FsRtFdhh/QlPJbFFqh98T+xV2Yi1Ldy4s57DYfOW
-         P/l6fzLuaDicxoPyGY9LGbiOjdhjTFfgKTpig1GpbOZFclgtkT4/Gv6xgFDzpTMRfnD/
-         Kn8yWRc+Ouuf+buNYDq3Ohyb77jTwKAVUs0yTuJsbRwNLJTyDpq/siPDDXLfJSLBGCJV
-         k5mOx8N8q7MTFC7M1CN9oO1MTLOB2GKYRBlyVzeepdZMIwRfdkEieuHWczreK0nEat+y
-         gUog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771338341; x=1771943141;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7Eu+fC1NvwDc2c+7+RBywzqoe1LU54TndFGYyJ2KsHU=;
-        b=lqLv6uiVogoK4n0Dr4UM3HKKLtCqBo+675GInP9ybjXW2uw/7AV2hbiBidL+muMcs0
-         7t+0kA9EAH5y+lCApptiHr132PdPob3WDve05Fol8m7da714fovxuAJ2+1d766VICqu1
-         7Q9iYte1AubrvTT9i8tP3C7q8Nr6NEdV3CrWOjdABbtLVRpBro7QaAZgwrUsV9hIlGpH
-         Gy2qZTAf6T2d6q5Q+SDn0x5qcb/jdE6j9c6OSNI2NLiVpGpgH8PQa1q0YaDC+1xyJtlM
-         tP8RBIgMS8MoNuK0MpmOmVns88DWV2sr7bwWBjLgbIeFZsU6HnX2wrPlr6oggRPdSpKS
-         T/ag==
-X-Forwarded-Encrypted: i=1; AJvYcCX+F7Z1aqu2Z3Gaere9JGJ/e8Y1JWLaRpSRCZgcRBW8A5GQ6tslAOPOBkQevQOoITui2OfuheMdkhTChbJ4irOs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6g3CQLaTR7Mvk1LW+rsvlf9YgZNlcpTZf6eZcp/x9hkDto3+S
-	OrkFmTfAPEMYiX3hunWcHOUEIl8Iqqi3fzqg6IcU0KwvNFt+qqKEwiqv
-X-Gm-Gg: AZuq6aLdNvFoUDZB85Q7XF31ynfCxlkC/Fszyq/vjcKN17kWC2NpbYOnTB5U8UG1rgJ
-	DIV74VGj+/X/xWWSaQlw6hLqA/7ZJEfGt8SDmEkXYUM4VvDB94n7elx3vhUHn1+6JSYRSzdXLrF
-	w2crtf34dk2SWElYcdg0iSbXi/GQkiRVYJDdtUL/dzmVD0cgQNHwdI8J3mnmg1OTkImY3EkzFVg
-	5QWLygG69tdcNIwkAdHQk910CZLZjeRDAib8gMT+4HK3ESZLDR5ZJ0rVKc7VyyrBawaP8ap5Khc
-	O9LpOVnXm7PI9DiCihpLEcpl8+WoKHrSdUcWIl9y2Y/wxl+IqloZqeDGCdyKGpvm3xHuKJLL6Z3
-	u/kBQFN29XL1YncUPsVV94OUb8nDuQvyIHSWttd2IgP5fM7YHEix3CjPzV2Jd0yslSQufs+nkKd
-	oNnTPikAE4w6GXyMK2Mvj8DwDY4T+7097eqZAJ/++3yp4BTxmUrfsjnKlXuUtyoBp1
-X-Received: by 2002:a05:600c:6206:b0:477:b642:9dc1 with SMTP id 5b1f17b1804b1-48373a5ba9cmr225553315e9.20.1771338340859;
-        Tue, 17 Feb 2026 06:25:40 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4834d5d77b3sm570714265e9.2.2026.02.17.06.25.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 06:25:40 -0800 (PST)
-Date: Tue, 17 Feb 2026 14:25:38 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Marco Elver
- <elver@google.com>, Will Deacon <will@kernel.org>, Ingo Molnar
- <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Boqun Feng
- <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>, Bart Van Assche
- <bvanassche@acm.org>, llvm@lists.linux.dev, Catalin Marinas
- <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel
- test robot <lkp@intel.com>, Boqun Feng <boqun@kernel.org>, Al Viro
- <viro@zeniv.linux.org.uk>
-Subject: Re: [PATCH v3 3/3] arm64, compiler-context-analysis: Permit alias
- analysis through __READ_ONCE() with CONFIG_LTO=y
-Message-ID: <20260217142538.0a2c0892@pumpkin>
-In-Reply-To: <20260217121619.GA1395266@noisy.programming.kicks-ass.net>
-References: <aYNUmEfDzq7lTFFr@willie-the-truck>
-	<CANpmjNPHnt6eY-OfkTr5TksHaOon2GyLUokvagcMRa23B6i6_Q@mail.gmail.com>
-	<20260206182650.6c21b0ff@pumpkin>
-	<CANpmjNNFXdMM6cL+HBsiXr2WUA=mttR1jDRMqNYD7+YZs6vRKg@mail.gmail.com>
-	<20260215221656.68b2fc1d@pumpkin>
-	<CANpmjNOnOqq2k41=iNsgZLXAzspVQhcTZ88Nvms_c_0M+7b7YQ@mail.gmail.com>
-	<CAHk-=wioS+vB8aBxWBgdEfXqDq5Ynr9gyY=GhU7gxO9G_C+_6g@mail.gmail.com>
-	<20260216110915.4f0d5490@pumpkin>
-	<CAHk-=wjJQQfWpAxigafuyrgxg8CdQWSimVYMk16_j0vWwEkjag@mail.gmail.com>
-	<20260216174324.75d47e37@pumpkin>
-	<20260217121619.GA1395266@noisy.programming.kicks-ass.net>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Tue, 17 Feb 2026 14:26:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C66A040140;
+	Tue, 17 Feb 2026 14:26:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49FC7C4CEF7;
+	Tue, 17 Feb 2026 14:26:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1771338375;
+	bh=VehWWkmgu07iCydxagS32dNxJbtfdPA16Ye7cVaDBKI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Uw4lkXZdkllu/Jx7rdQ4TjmCxsefwBeoysvMRmAN/sKwTZ/l8GtrvPZWe4Ct+u0Sk
+	 6JG2UtED1mEXuRRw/VmTNIYOLqHQK75G9CiwpTIVsuoR6lHgwTq4WMQeDGdpPXfU9e
+	 r9LA+9AWRQPjr5nruVXggcz5msiMTQI5kK63BQI0=
+Date: Tue, 17 Feb 2026 15:26:12 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: stable@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jack Aboutboul <jaboutboul@microsoft.com>,
+	Sharath George John <sgeorgejohn@microsoft.com>,
+	Noah Meyerhans <nmeyerhans@microsoft.com>,
+	Jim Perrin <Jim.Perrin@microsoft.com>
+Subject: Re: [PATCH 6.6 0/3] arm64: Speed up boot with faster linear map
+ creation
+Message-ID: <2026021758-subsidy-tinfoil-ee2c@gregkh>
+References: <20260217133411.2881311-1-ryan.roberts@arm.com>
+ <2026021700-chafe-jurist-cb24@gregkh>
+ <17c9efaf-6c33-4485-bde2-345cc15ac000@arm.com>
+ <2026021718-citrus-parakeet-dc60@gregkh>
+ <7f30a8e4-49c3-421d-be05-08afb544aa41@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7f30a8e4-49c3-421d-be05-08afb544aa41@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_062559_812451_32FF1F68 
-X-CRM114-Status: GOOD (  22.29  )
+X-CRM114-CacheID: sfid-20260217_062616_635465_16731C73 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,39 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Feb 2026 13:16:19 +0100
-Peter Zijlstra <peterz@infradead.org> wrote:
-
-> On Mon, Feb 16, 2026 at 05:43:24PM +0000, David Laight wrote:
-> > On Mon, 16 Feb 2026 07:32:53 -0800
-> > Linus Torvalds <torvalds@linux-foundation.org> wrote:
-> >   
-> > > On Mon, 16 Feb 2026 at 03:09, David Laight <david.laight.linux@gmail.com> wrote:  
-> > > >
-> > > > volatile structure members are almost free    
-> > > 
-> > > No, gcc does absolutely horrible things with volatiles. It disables a
-> > > lot of very basic stuff.
-> > > 
-> > > Try doing something as simple as a "var++" on a volatile, and cry.  
+On Tue, Feb 17, 2026 at 02:21:30PM +0000, Ryan Roberts wrote:
+> On 17/02/2026 14:10, Greg KH wrote:
+> > On Tue, Feb 17, 2026 at 01:58:36PM +0000, Ryan Roberts wrote:
+> >> On 17/02/2026 13:50, Greg KH wrote:
+> >>> On Tue, Feb 17, 2026 at 01:34:05PM +0000, Ryan Roberts wrote:
+> >>>> Hi All,
+> >>>>
+> >>>> This series is a backport that applies to stable kernel 6.6 (base v6.6.126), for
+> >>>> some speed ups to enable significantly faster booting on systems with a lot of
+> >>>> memory. The patches were originally posted at:
+> >>>>
+> >>>>   https://lore.kernel.org/linux-arm-kernel/20240412131908.433043-1-ryan.roberts@arm.com/
+> >>>>
+> >>>> ... and were originally merged upstream in v6.10-rc1.
+> >>>>
+> >>>> I'm requesting this be merged to stable on behalf of a partner who wants to get
+> >>>> the benefit of this series in Debian 12.
+> >>>
+> >>> Why can't they just use a newer kernel version (i.e. 6.12)?  Surely they
+> >>> would be able to justify moving to a newer kernel for performance
+> >>> reasons, why enable them to stay on an older one, just delaying the
+> >>> inevitable upgrade they will have to do anyway in a year or so?
+> >>
+> >> I can't answer this presicely, but I did ask and push for that approach. As I
+> >> understand it, they are stuck with Debian 12, which is stuck with kernel 6.1.
+> >> The Debian maintainer apparently requested that these go through stable in order
+> >> to get them into Debian 12.
 > > 
-> > On x86 I just see a load, inc, store - not that surprising really.
-> > (clang did do 'inc memory'.)
-> > 
-> > It's not as though 'inc memory' is atomic (without a lock prefix).
-> > 
-> > Also var++ will be 3 u-ops the same as the read, inc, write so the
-> > underlying execution is much the same (ok you might save on the
-> > address generation and the compiler doesn't have to find a register name,
-> > but I don't remember anything modern being limited by instruction retirement).
-> > You might save a bit of I-cache.  
+> > I understand the position of Debian not wanting to take patches for new
+> > features that are not already upstream, but really, Debian offers a
+> > newer kernel for hardware that wants to use it for things like this,
+> > right?  Why not just use that instead?
 > 
-> Interrupts can tell the difference, and that matters.
+> Let me go push a bit harder. But I expect we are in the grey zone between bug
+> and feature here; this is a performance bug fix, not a new feature. By
+> selectively backporting I'm guessing they are avoiding the risk of new features
+> that a new kernel brings introducing new bugs? I'm guessing there is a higher
+> qualification bar for that.
 
-Just makes it the same as every other architecture.
+That's a broken "qualification system" if that is the case, given that
+the patches that flow back into stable kernel releases should be
+triggering "full qualification" if anyone actually paid attention to
+what goes into there :)
 
-The only way to guarantee an 'add to memory' instruction is to use an
-asm statement.
+Anyway, good luck!  And same for 6.1.y, if they are ok with 6.6.y, why
+would they even care about 6.1.y?
 
-	David
+thanks,
+
+greg k-h
 
