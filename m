@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C9FE68149
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85959E68149
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 09:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OlcXTAXHsnl/WtrFqR8o0BlGKwsZMnh0pz3tx1Nme4Q=; b=itv5R7Y06amNS+amv1xe+7rC2M
-	W3V8/uXwcUo35XNRvQoKeCt4oZzJsKZHGv8KLUml0CcQ8Srzy41YLZTj1Dq9P9lkllUqmOhFetM5Q
-	FNWqE9lklYWGnmgyrWq2kHiB+9AAT9fzTu5lGiim9zAZt6Y9104LzZUmEDn1gTon/9dc2UXdH9UIG
-	rJAfuXAOOh+zr+KdJQrk79yQ3ajlcn/ekm008sZ6Bfx4AOt4aoMvs1Q+zHO2+Uc1IOXIiS3yI1HZS
-	fyEr5pFtTU9/l/J6SiHu2Y8f+Aa/3JJiE91KUhfTw3gdiScgTvaE+4dKes6VMojJsfKzBwj+W2rz3
-	640Dwagw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KP22+PfNvIQ4JRJHKrRSAiSbBKzIbTD7/fuUITNUSEc=; b=qnylLAO5Qdud3gCWGgIM+ok8nU
+	PXv/EPllhFrC0oZZ3G8f86j/9ahV+MnjW0dv7ijnxMMlk10a/4Gmy6EKh+vCKTkrG/QMclebTHEwu
+	3jI3IrOuZQ0quC+hyUNQziMZGPh8N3IJvI5N62QWyC/YoxHyHJ2SoKap6cnnplVoV530RQeqV4q9M
+	pDg3REvDbu/vTj54td6qI/7j7Zd+T+NUQOVohbJ9Hno9scLSVFg31dGnso+J2NvmzsbOamOPjyh9e
+	iPwkDI1Fbknmu8joNVDYXGrLcBDkdDON4Ib4q7iuyKw0X0Joh5P5vjqbEbFHnGhW3naHWFJkxsU3t
+	IMl7pJQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsHDd-00000007vfu-0L2n;
-	Tue, 17 Feb 2026 09:18:09 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vsHIH-00000007wIV-2SJG;
+	Tue, 17 Feb 2026 09:22:57 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsHDa-00000007vfS-3XwG
+	id 1vsHIF-00000007wEr-0Bzz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 09:18:08 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48372efa020so28171345e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 01:18:06 -0800 (PST)
+	Tue, 17 Feb 2026 09:22:56 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-59e64657f0cso3901458e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 01:22:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771319885; x=1771924685; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=OlcXTAXHsnl/WtrFqR8o0BlGKwsZMnh0pz3tx1Nme4Q=;
-        b=uEDhlPTOSEwLvv++Nwi3OM5Y6h8MqLFfFcIAcLMeKguA4Aa5jWru31j3VByXPfDkiq
-         m4gA2DFRZCtTwb58S3zq0EFe8F6ZMxDG3H8VUgUd9CSDlUtSkOXylmJgV1nCmYBq2vIo
-         mgm0YpSBJAuKItKRto7g87nod74wYKFIacy7rFCb5bZNnblgld0lJLkFQv850bjqaywU
-         X8oZvx4QzDsZMHcn5FN1tkiJTbLFEqz9D3c0rHld0ArSC5lbXVPKdP8QgxJeyUoBSSGa
-         tI7T83oU/K64Rqa5Tv+F+EQuKH4Y1L/MNfO/SZV+iUZ7Z8fbVJb2j3650Su+bzFFK3vO
-         99rA==
+        d=gmail.com; s=20230601; t=1771320172; x=1771924972; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KP22+PfNvIQ4JRJHKrRSAiSbBKzIbTD7/fuUITNUSEc=;
+        b=ApxwqoKEYaU+xBl0CzhTkLcnqMYY8SSP0SG6dSzycrZJU29NCQxoDd0f5aE1/rHkho
+         L9RoAk6ZyfuMI060dbw7bWrw2KsdB8xFeI9OqA8cWP7SBoEudvJBfec0Si9Lnu0qVxk7
+         wKQVtZ8T4SP+16vW/YeMoamInspSem7QpmON2uPPrY2rSq7/NPbZ+IBa3jrQfjRtgZAw
+         LMdfn50XrSfExX8gBjzn5YYySC2/yjymMHPueAoEeMGWP3mVzSwk3Sr2dRoH+VGh2lBq
+         yLXFmQ95S7HIJM9SpTE0ouU14Q7FDjV+MR1EpiB5EARE6CgN3GCEbBvJ+361oqIKMpbo
+         HN0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771319885; x=1771924685;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OlcXTAXHsnl/WtrFqR8o0BlGKwsZMnh0pz3tx1Nme4Q=;
-        b=WfaJLdUmxs7K+MiwDjHeM5b5mHcF++z3nildYtU4mum4pcZ8B8uLbAm1j/Li2DJ3gb
-         8oOWtXsM7Ojsch4NtZ0jn31tNtWbQ0V+knzX5m+CT992kHchWU8M+T1vQZunDN7L/r+P
-         8CTRNA9cBMg8s8yR1hM1GQpAdnTauuRQAbgNGbcC+Hdoz31wql9Ky9Z/FK5xVrmtAC1E
-         v7jN+lD1jjHCDl+h0FaZHAEWPnnsnX0W1Rwhq0m3I5n5wPjJ6PtSdM6Pne2S1bS6wwXA
-         Q7oP/TEmIbPWUj4GEjpzRDAVZD53rfI9BjD53rn9q9uKVyiLNCLpvIV2C1N6vmTXt4pT
-         eDUw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwqrRT+/s4n/6dNFA02GEfG2YjEOSbyQ/wjJu+bLA9Hy572YZYRSFAohQPqW42rS/Sn87Oytc1GyaD6QvbYwDu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPPvJfB32XGufThxKhcB+R6mcXxaPTgtPAVsHZsI24pNjf0mu0
-	EbQu3gQy45lCXsrmlD8xg3hvstguEZ+fO66Wl4h82+4OhrhyiPZirH5qU+hSKMHwMcg=
-X-Gm-Gg: AZuq6aJjIlZo6BiH0NXeZoTcl8mQjmsoNX5cdXpqN53rSkdJdhMz791SQQh5xeOUgDr
-	4z68PD2HH5Zz32An55zfe5LLOYLKmNRrk2RMIynymDiCUOLSLMvi8XhFYwcneCCP3lFOK5fV3QC
-	dMmgNclH7xVrxaFj5YrDKWfpfI88zB2usPc/8REMpnuCUM7wHMW3fdYYKIFmcaCNGc2oJnodgWg
-	UzRbJsblLLny+cFBOXWr9HT46lkyLZyzDTbXrYlo+VMzJ79I9rgiKGlU3w4c4eol8JBkKRrqwOM
-	V6TNR5jUoFH8gIMOUF3RND+k26T5WjJsklK6VSGw0HZXH0GkhciTIZycG3ZByBoSxog618bH0+W
-	RVesUysXaoY+3grVq9iYlnSVTBtAwNQqQLJmKVGXrsKj5bdm1uK+WbXnWPX8a1eWgQVyh8rDafl
-	dXkpHsF1hL0m3OzkW4I8RFiVMufjIT
-X-Received: by 2002:a05:600c:46c9:b0:46e:4a13:e6c6 with SMTP id 5b1f17b1804b1-48379bfd71cmr160954025e9.19.1771319884602;
-        Tue, 17 Feb 2026 01:18:04 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4836aa0847asm543941725e9.3.2026.02.17.01.18.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Feb 2026 01:18:04 -0800 (PST)
-Message-ID: <e36150c7-9098-495a-b0f1-626b38c0c3d0@linaro.org>
-Date: Tue, 17 Feb 2026 09:18:03 +0000
+        d=1e100.net; s=20230601; t=1771320172; x=1771924972;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KP22+PfNvIQ4JRJHKrRSAiSbBKzIbTD7/fuUITNUSEc=;
+        b=wRWtokxzO+BiDBTJ+J4dfomE9pS5OY/Wn2D01a9Tpm8Z45q2xQ4W2kXE87wHpAWCFL
+         hJLkOlR094kNiZYxA8+Spj4HPIgwyEfFSULv8IR4n6E+naEmWwHfsE3gdX1JhjZY06K1
+         vank0LSNvyZIt/8rlJ22iPknpG3bm7Yz6jmg1kDXZ+OOldmLfgYuCMOGCWJ44I5Cv3fk
+         b6RmUeJ3BDf0gIqIP/w4YvMBuvBDMLyPZ4YisBxHPimZo6BBJa7CaY9Vh3pN6MWMc92R
+         c4aNX7Co8Blgk8y9rRqXKn38rGJuBtJFKGUtL7Ru64K90A0JGROVMSIeY6qZuSlTJnXN
+         AmkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX7aO2CfqtY0Av3Fi0h9pQ+ewJqmmE+tm8FL4S2WGYGxD6nKCGT5+aDSsUHXwkeuIuCqjR61cflVZn2b4yRRrtw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqQxn4lX4I2Gb0Hmy/GT+7U7BeccyVj1gVhYa0ABTPu9sUQTPW
+	0PXXA4F9IYYNSynrmR9GliSgLQmYPC0WMFxHvN3wdk8ukz4+y1FTy3pg
+X-Gm-Gg: AZuq6aJcBDaVT52AX/qLsZxIUtAfm0B8L+x+3/s0ayRxigNU6av92rLm4tuWWxy5M9p
+	YRokpDZVPl1+mxHmVZ1NQ7nz4GP2nw/5qSXccmoetpyZtTnubMz27ZEtDiiepuE2rF3IJOF+HDv
+	8zbjkl8j25JXVfD/y5nWUovb0I9au2D6JZFz6iNRsXZylnuOAFn0hHJFWydhZYTP9aZhfBKTf59
+	3kE/7o5Y5YrUfzvcq2PkwamqaMX218QPaKPhaXitkJe5DilTR3/hFFnSxeXki3K9qmbQvZ2wCWy
+	k4hOZuHFi6BuSQw6pdLjZTMxGtsGOhHnLn+5wY7ph2n5fKiY390TPUNGx3dZEA6iQ5lDOpACknM
+	ZJSOYt7H+QTjGW4eLAfKPDbKO75iVIPsJqyZKQYwGS4QXfsMMBQjMJInAzUoT+ZL1MnCdkaVFa9
+	x/zCgSv8V8NTzZFtVLK61JUjYFcGt+NMCftAzulC7+aS/mIRkw8TVLamq0eO2Y
+X-Received: by 2002:a05:6512:ac7:b0:59e:465d:e346 with SMTP id 2adb3069b0e04-59f6d35849dmr3079335e87.20.1771320172217;
+        Tue, 17 Feb 2026 01:22:52 -0800 (PST)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e5f56369dsm3753854e87.2.2026.02.17.01.22.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Feb 2026 01:22:50 -0800 (PST)
+Date: Tue, 17 Feb 2026 10:22:47 +0100
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 3/5] i2c: davinci: calculate bus freq from Hz instead
+ of kHz
+Message-ID: <aZQzZ4iQPDswwp-t@gmail.com>
+References: <20260216-i2c-mux-v6-0-9be28ecfd7e3@gmail.com>
+ <20260216-i2c-mux-v6-3-9be28ecfd7e3@gmail.com>
+ <aZQvuh1KEAWFSdRU@smile.fi.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
- in guest context
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, mark.rutland@arm.com,
- linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>, Leo Yan <leo.yan@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Fuad Tabba <tabba@google.com>
-References: <20260216130959.19317-1-will@kernel.org>
- <878e304e-4162-4981-8125-bd4f67ba9dd5@linaro.org>
- <aZNOcv2XxTrrrEnU@willie-the-truck>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <aZNOcv2XxTrrrEnU@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LvYrtrax5P9jJvAj"
+Content-Disposition: inline
+In-Reply-To: <aZQvuh1KEAWFSdRU@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_011806_920831_0FEC3E5F 
-X-CRM114-Status: GOOD (  27.51  )
+X-CRM114-CacheID: sfid-20260217_012255_106131_8FCEA645 
+X-CRM114-Status: GOOD (  23.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,133 +107,88 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--LvYrtrax5P9jJvAj
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 16/02/2026 5:05 pm, Will Deacon wrote:
-> On Mon, Feb 16, 2026 at 03:13:54PM +0000, James Clark wrote:
->>
->>
->> On 16/02/2026 1:09 pm, Will Deacon wrote:
->>> The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
->>> generation in guest context when self-hosted TRBE is in use by the host.
->>>
->>> Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
->>> TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
->>> per R_YCHKJ the Trace Buffer Unit will still be enabled if
->>> TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
->>> Trace Buffer Unit can perform address translation for the "owning
->>> exception level" even when it is out of context.
->>>
->>> Consequently, we can end up in a state where TRBE performs speculative
->>> page-table walks for a host VA/IPA in guest/hypervisor context depending
->>> on the value of MDCR_EL2.E2TB, which changes over world-switch. The
->>> result appears to be a heady mixture of data corruption and hardware
->>> lockups.
->>>
->>> Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
->>> draining the buffer, restoring the register on return to the host.
->>>
->>> Cc: Marc Zyngier <maz@kernel.org>
->>> Cc: Oliver Upton <oupton@kernel.org>
->>> Cc: James Clark <james.clark@linaro.org>
->>> Cc: Leo Yan <leo.yan@arm.com>
->>> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
->>> Cc: Fuad Tabba <tabba@google.com>
->>> Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
->>> Signed-off-by: Will Deacon <will@kernel.org>
->>> ---
->>>
->>> NOTE: This is *untested* as I don't have a TRBE-capable device that can
->>> run upstream but I noticed this by inspection when triaging occasional
->>> hardware lockups on systems using a 6.12-based kernel with TRBE running
->>> at the same time as a vCPU is loaded. This code has changed quite a bit
->>> over time, so stable backports are not entirely straightforward.
->>> Hopefully James/Leo/Suzuki can help us test if folks agree with the
->>> general approach taken here.
->>>
->>>    arch/arm64/include/asm/kvm_host.h  |  1 +
->>>    arch/arm64/kvm/hyp/nvhe/debug-sr.c | 36 ++++++++++++++++++++++--------
->>>    2 files changed, 28 insertions(+), 9 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->>> index ac7f970c7883..a932cf043b83 100644
->>> --- a/arch/arm64/include/asm/kvm_host.h
->>> +++ b/arch/arm64/include/asm/kvm_host.h
->>> @@ -746,6 +746,7 @@ struct kvm_host_data {
->>>    		u64 pmscr_el1;
->>>    		/* Self-hosted trace */
->>>    		u64 trfcr_el1;
->>> +		u64 trblimitr_el1;
->>>    		/* Values of trap registers for the host before guest entry. */
->>>    		u64 mdcr_el2;
->>>    		u64 brbcr_el1;
->>> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
->>> index 2a1c0f49792b..fd389a26bc59 100644
->>> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
->>> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
->>> @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
->>>    	write_sysreg_el1(new_trfcr, SYS_TRFCR);
->>>    }
->>> -static bool __trace_needs_drain(void)
->>> +static void __trace_drain_and_disable(void)
->>>    {
->>> -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
->>> -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
->>> +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
->>> -	return host_data_test_flag(TRBE_ENABLED);
->>> +	*trblimitr_el1 = 0;
->>> +
->>> +	if (is_protected_kvm_enabled()) {
->>> +		if (!host_data_test_flag(HAS_TRBE))
->>> +			return;
->>> +	} else {
->>> +		if (!host_data_test_flag(TRBE_ENABLED))
->>> +			return;
->>> +	}
->>> +
->>> +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
->>> +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
->>> +		isb();
->>> +		tsb_csync();
->>> +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
->>> +		isb();
->>> +	}
->>>    }
->>>    static bool __trace_needs_switch(void)
->>> @@ -79,15 +94,18 @@ static void __trace_switch_to_guest(void)
->>>    	__trace_do_switch(host_data_ptr(host_debug_state.trfcr_el1),
->>>    			  *host_data_ptr(trfcr_while_in_guest));
->>> -
->>> -	if (__trace_needs_drain()) {
->>> -		isb();
->>> -		tsb_csync();
->>> -	}
->>> +	__trace_drain_and_disable();
->>>    }
->>>    static void __trace_switch_to_host(void)
->>>    {
->>> +	u64 trblimitr_el1 = *host_data_ptr(host_debug_state.trblimitr_el1);
->>> +
->>> +	if (trblimitr_el1 & TRBLIMITR_EL1_E) {
->>> +		write_sysreg_s(trblimitr_el1, SYS_TRBLIMITR_EL1);
->>
->> Will this restore a stale value if you do kvm_enable_trbe() then later
->> kvm_disable_trbe()? Looks like the read and save will be skipped unless
->> host_data_test_flag(TRBE_ENABLED) is true, so it will never save a disabled
->> value.
-> 
-> __trace_drain_and_disable() sets the saved limit to 0 if TRBE_ENABLE is
-> not set, so this shouldn't do anything in that case. Or did I
-> misunderstand your scenario?
-> 
+Hi Andy,
 
-No you're right. I saw the early return for !TRBE_ENABLED and thought 
-things only happened after that. But the zeroing is before, so it's ok.
+On Tue, Feb 17, 2026 at 11:07:06AM +0200, Andy Shevchenko wrote:
+> On Mon, Feb 16, 2026 at 01:38:15PM +0100, Marcus Folkesson wrote:
+> > The bus frequency is unnecessarily converted between Hz and kHz in
+> > several places.
+> > This is probably an old legacy from the old times (pre-devicetrees)
+> > when the davinci_i2c_platform_data took the bus_freq in kHz.
+> >=20
+> > Stick to Hz.
+>=20
+> ...
+>=20
+> >  	/*
+> >  	 * According to I2C-BUS Spec 2.1, in FAST-MODE LOW period should be at
+> >  	 * least 1.3uS, which is not the case with 50% duty cycle. Driving HI=
+GH
+> >  	 * to LOW ratio as 1 to 2 is more safe.
+> >  	 */
+> > -	if (dev->bus_freq > 100)
+> > +	if (dev->bus_freq_hz > 100000)
+>=20
+> The 100000 has a definition in i2c.h....
 
->> kvm_disable_trbe() might need to clear host_debug_state.trblimitr_el1.
-> 
-> pKVM can't rely on that thing being called, so the context switch still
-> needs to be self-contained there.
-> 
-> Will
+Good point, thanks.
+>=20
+> >  		clkl =3D (clk << 1) / 3;
+> >  	else
+> >  		clkl =3D (clk >> 1);
+>=20
+> ...
+>=20
+> >  	r =3D device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
+>=20
+> (Why not using i2c timings? The I=B2C core has an API to parse firmware p=
+roperties.)
 
+Actually, I found i2c_parse_fw_timings() just a day ago and have on my
+TODO-list to convert all bus drivers to use it right after the work with th=
+is
+series is done.
+
+>=20
+> >  	if (r)
+> > -		prop =3D DAVINCI_I2C_DEFAULT_BUS_FREQ;
+> > +		prop =3D I2C_MAX_STANDARD_MODE_FREQ;
+>=20
+> ...like this one.
+>=20
+> --=20
+> With Best Regards,
+> Andy Shevchenko
+>=20
+>=20
+
+Best regards,
+Marcus Folkesson
+
+--LvYrtrax5P9jJvAj
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmmUM2IACgkQiIBOb1ld
+UjKzBw//YXfk8Pa5HmqhP/jWcZBbuAw56cYB1n7qv6qX3dozdeWpBzZM6Ylffeno
+p3eMMqgOCleCKhGWLoZETzV8OjNIlSa84S1lrLoaQ6+ke8opse93yyvK2yG7fIJC
+/l5Kt+bqayWMMg4um2cm3asau8Z+BVQUYfx23aB3ZbHZCmT+DqWZgx5ahiin8ebf
+5OFKIDlJfYs3YtZY+GWDlbRbs1a+yVUbvH8BAY68GEmvS3zasbZOI6y0CCgVvo69
+R+1St8eekXOkcgPs/2f83fP7PbjX2zD2x0+51MkI7ioDSJ6t0LWTi2oG48h4SE5z
+9gWHXhx527t6FYhk4FAxIGjZGDYSoRHHE2aTXU9aqsBG6h2XCscNfqD2InKj1FVG
+zO+fiKzNg+WESGzXey0FyktC8dj09fSCB5TznhQLl8a+rhNNzglOKfkt1l2ZjCLr
+69cCwOKrZu94Zzljc1jZJEOep1/CmFIiBP98ENESRaTFA55jtsDrFhPBwXv6p7E5
+uJrdwIIpDqMcW5NDdiu3BW7qNH/XrlC9fY3zUVNHErOn+7sIy5FFCkTXkbFzsihq
+7bsRwURzunwp1+OQsvGNpfS4ivju93R/NjBbpliGNn6bU7gVemFqPflk4OPFc1z3
+6KIj3sWwuUGh9VjoQ+ar/sjU/VYu4ujT9fWz8c6cTIoOjkizpzQ=
+=rz0G
+-----END PGP SIGNATURE-----
+
+--LvYrtrax5P9jJvAj--
 
