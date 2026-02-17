@@ -4,107 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C780CE909D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 16:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42300E909D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 16:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8VVVA27vXMecotvakD3mWfyoVh5TXj3m2nUAse+m5/Y=; b=2+ASbvSRftFGyqBiluCKfsqt41
-	YhPbXQ62pbgUftGYtYVVYcHYhYu2v5LmS1rAZF2nSQDQcPZxV8mSSnPZcRAEFHTXE3YOFV8rHSJng
-	dDt8bx+8vsaJ3JdzOEC2qUs/H1L/yUL/Aw9BgOinuQHni6NTcqepr2kNeXra3GG41dCgD+yBtfauj
-	LhBYxJ2UVynvmp6hV3RPQof8rCEsqCf1caUr9UbZgNvbIfNCKy8LBWm5VMKIpt49V/4bU4wq0D5+q
-	Dpt4q4QPv02+oOGHp+ZiMWOSkB5ighsGRKF40kkyoAfrjK2MfGE2QPB3Uo7S9B/M3R2bGyG8YPKkF
-	STtCNl2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ElvIAvGrW0jtYKqF5SgRWgdzNi9aqDXovCNIFUpMkSU=; b=oV7ZawStu8dyg+jDsqZdMTCuXH
+	5SNmhtugC1HZe3o6WhwtOrZm+pfAL1NC0Avr8G4hdvPTS5spB7R/bWtl7fRvwzy2rrRp3puG6UmEq
+	k6Rn2DTIdXilEPx82Z0wCChHcFvE97SUXlxjvehpl32hWVVDfF01aMlJ39Kq0OW9uS/5Vp/KqbJ7B
+	Ces4SC1aS1bi/8z/LurquTETxkXFQ7HdFOKxRbTged0uZpN6xOAMw/mn2VQyywClCA1IZLHV4jzlr
+	ofQO0xwMtoIENFNs039th6nvTFSmGiu5QeMP1Jf29UOwHHClcS7XpSl8reGwU1WYdJcLQiZ7mZcdn
+	Ah4C3rTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsNrn-00000008Z9c-31b8;
-	Tue, 17 Feb 2026 16:24:03 +0000
-Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsNrg-00000008Z8g-1Inh
+	id 1vsO03-00000008ZWc-2xti;
+	Tue, 17 Feb 2026 16:32:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vsNzi-00000008ZV8-38BC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 16:23:59 +0000
-Received: by mail-ed1-x541.google.com with SMTP id 4fb4d7f45d1cf-65c4152313fso1441173a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 08:23:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1771345433; x=1771950233; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=8VVVA27vXMecotvakD3mWfyoVh5TXj3m2nUAse+m5/Y=;
-        b=beZtuieUjJfoE4iOHat6JzdEHd2oyJ+5utt5hzTIHJGwZErZstzipx9r0wbdH6tJ76
-         J6L8Skol8CKOtR+cO1lgvamquwDeSC3Guo2DU/72G2z9P2tF6PRZjWpien6y9gkbmhkP
-         cYvl6VmrwVOy3DTEgqmlA//QtIOLQZ52Q/zQ4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771345433; x=1771950233;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8VVVA27vXMecotvakD3mWfyoVh5TXj3m2nUAse+m5/Y=;
-        b=VVumdgaQxZvmULX6plfNIrhXiQrmcZHdD+Qx2qHWSW2pOX/RlMEPL5a+zpAYUPKaq7
-         Jj+9VFRUsDAHa2z8FR5Qg1F4fSzwj4qrkojzxwzbJems+ChzRCv2Y+E73OWrjB+/Pgt+
-         hG/c2+dvfKNb3+2IUQWzQcpyD5c9OaPlb3/p/dopipQGA+b6k7uqwLfRoLanmArhhM8S
-         eQMPXRTiM1gieXFAmjMgFB7Wo9M0Ktux2Mao6WnGAPoZI+C3FyGgRMhnO/D8h6mH9vvv
-         IqzYMHDIKQh254Z/Fn65UfU7JvpjzjX7cGn3frVy6k3FLiCNtpLLFNWC3nBxo5kqvxCJ
-         vMZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXGeqQRGAj2yuneFEkf+VjX88lnM92VE3PfZjvYAP8LWiXmp2ZkCMv3fIk0UHUoRSnrEaE0W8abEJ/ARe2O6hrb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnYz8kX+/oeLPoeCH66Ee0uuFJVzu5l4eSvHXHBGMwGnLMcfym
-	s+Ccn9311OHUfJI+87FUzNgu3RtaGKYOxjvx4EF78bALNGuqVX4awPY7o0QKo42DUZRA6CrFErf
-	rHMwLFjyCdQ==
-X-Gm-Gg: AZuq6aL4l9M1VLoQVdSwA5pKKaI/2raBKCLn5IEExzJ+XzGb6USwoMEZHb49EGEsEKw
-	kCyNES3TuBTtwL3VO/I3HN4bXNQ+z/zbd4rQeEsQmpBninUccNgbccU8ikI75V5VADRbDZXfrOB
-	jdJL39OvZ5y8sig9d1VKqJLR0eCs4p1+O3aA7VpJwpKdOB5oGvJC/9gK6bxug+cry5/IGVm2WGC
-	KbLKqAytMKb5sRCw7pP2UTxBs3e+4yW4LWJak897mZFNN8Ff8ESHuGHzp2StT4MhmZ8Y8pCpXZj
-	QIg7CqjsP+qjT3lKDroR+XA9gzP+htE6WKbaDx+RqD/0ohETusxNQD+eECMGhHeUJ4Oa14BCcWG
-	PEPei/I8yYRJXfrOA8SCdMjpkyLL4mjMYYL24rvq1ubPeMduHYrxnGI403wm5+cyZek0D/qmdUh
-	rhajOpXdtmjF2zUZPiuiddv/J76rsuaOrlEjyy/dcMyXziYD8d5oWCzXdeIU2RIHIh8xlTIdv5f
-	C4cUwaPK8U=
-X-Received: by 2002:a05:6402:5110:b0:64b:5562:c8f4 with SMTP id 4fb4d7f45d1cf-65bb1130008mr7606863a12.7.1771345433232;
-        Tue, 17 Feb 2026 08:23:53 -0800 (PST)
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com. [209.85.208.51])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-65bad29d4afsm2411850a12.10.2026.02.17.08.23.51
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Feb 2026 08:23:51 -0800 (PST)
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-65a380b554bso7000425a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 08:23:51 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXW5guCA9I0emLEswdUuwsP0AdaubxJTOy39jzwHaoaYIdQb65JJLS2xwBvF7VfkeEJURi7Mon6n4F24Op158Mz@lists.infradead.org
-X-Received: by 2002:a17:907:988:b0:b8e:d04e:e4fb with SMTP id
- a640c23a62f3a-b8fb44dce24mr825863766b.48.1771345431078; Tue, 17 Feb 2026
- 08:23:51 -0800 (PST)
+	Tue, 17 Feb 2026 16:32:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C255D1477;
+	Tue, 17 Feb 2026 08:32:06 -0800 (PST)
+Received: from orionap.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 585743F62B;
+	Tue, 17 Feb 2026 08:32:11 -0800 (PST)
+Date: Tue, 17 Feb 2026 16:32:08 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Jernej Skrabec <jernej@kernel.org>, Samuel Holland
+ <samuel@sholland.org>, Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij
+ <linusw@kernel.org>, James Hilliard <james.hilliard1@gmail.com>,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pinctrl: sunxi: Implement gpiochip::get_direction()
+Message-ID: <20260217163208.5db4cd1e@orionap.fritz.box>
+In-Reply-To: <20260216160946.2977985-1-wens@kernel.org>
+References: <20260216160946.2977985-1-wens@kernel.org>
+Organization: ARM
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-References: <20260130132951.2714396-1-elver@google.com> <20260130132951.2714396-4-elver@google.com>
- <aYDFOIskB20CbztD@willie-the-truck> <20260202192923.0707e463@pumpkin>
- <aYHgNSF5a3F7UGU_@willie-the-truck> <CANpmjNNzx-zc_-ZPgwe5DoWLmexw5irT2n+XMUqxTrfwxTxTmg@mail.gmail.com>
- <20260204131400.GI2995752@noisy.programming.kicks-ass.net>
- <aYNUmEfDzq7lTFFr@willie-the-truck> <CANpmjNPHnt6eY-OfkTr5TksHaOon2GyLUokvagcMRa23B6i6_Q@mail.gmail.com>
- <20260206182650.6c21b0ff@pumpkin> <CANpmjNNFXdMM6cL+HBsiXr2WUA=mttR1jDRMqNYD7+YZs6vRKg@mail.gmail.com>
- <20260215221656.68b2fc1d@pumpkin> <CANpmjNOnOqq2k41=iNsgZLXAzspVQhcTZ88Nvms_c_0M+7b7YQ@mail.gmail.com>
- <CAHk-=wioS+vB8aBxWBgdEfXqDq5Ynr9gyY=GhU7gxO9G_C+_6g@mail.gmail.com>
- <20260216110915.4f0d5490@pumpkin> <CAHk-=wjJQQfWpAxigafuyrgxg8CdQWSimVYMk16_j0vWwEkjag@mail.gmail.com>
- <20260216174324.75d47e37@pumpkin>
-In-Reply-To: <20260216174324.75d47e37@pumpkin>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Tue, 17 Feb 2026 08:23:34 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wgQ8DOxaNY5cBWg+sUkM5Kk6rKYGRHXsZQLtknO_UX+QA@mail.gmail.com>
-X-Gm-Features: AaiRm53uZCbuFwEyfKCGb0ntN5PpXfYQtY2WkHebZ_fqBMtvDsyJbw5Zc4B6Gvw
-Message-ID: <CAHk-=wgQ8DOxaNY5cBWg+sUkM5Kk6rKYGRHXsZQLtknO_UX+QA@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] arm64, compiler-context-analysis: Permit alias
- analysis through __READ_ONCE() with CONFIG_LTO=y
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Marco Elver <elver@google.com>, Will Deacon <will@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Boqun Feng <boqun.feng@gmail.com>, 
-	Waiman Long <longman@redhat.com>, Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel test robot <lkp@intel.com>, Boqun Feng <boqun@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_082357_960082_A2B31AE6 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260217_083221_102283_73CF43BB 
+X-CRM114-Status: GOOD (  27.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,48 +67,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Feb 2026 at 09:43, David Laight <david.laight.linux@gmail.com> wrote:
->
-> >
-> > Try doing something as simple as a "var++" on a volatile, and cry.
->
-> On x86 I just see a load, inc, store - not that surprising really.
-> (clang did do 'inc memory'.)
->
-> It's not as though 'inc memory' is atomic (without a lock prefix).
+On Tue, 17 Feb 2026 00:09:45 +0800
+Chen-Yu Tsai <wens@kernel.org> wrote:
 
-That's not my point. My point is that it makes for absolutely
-disgusting - and pointless - code generation.
+> After commit e623c4303ed1 ("gpiolib: sanitize the return value of
+> gpio_chip::get_direction()"), a warning will be printed if the
+> gpio driver does not implement this callback.
 
-That load + inc + store is a sign of the compiler missing truly basic
-optimizations because "volatile" is so badly designed.
+I am curious how this could slip through? Did the get_direction()
+callback become mandatory at one point, but no one noticed that it was
+missing for sunxi? It looks like the situation was even worse before that
+patch, as it was dereferencing the function pointer without any check?
 
-The thing is, we typically even *want* a single load. We actually want
-not only to have basic optimizations that don't even change the
-semantics - we typically even want CSE.
+> Implement it for the sunxi driver. This is simply a matter of reading
+> out the mux value from the registers, then checking if it is one of
+> the GPIO functions and which direction it is.
 
-So we want basic optimizations and combining loads. The main reason to
-use READ_ONCE() is actually a worry about compilers doing even worse
-things, namely rematerialization or memory accesses - something that
-compilers don't even do, because it's a bad idea, but people still
-worry because they are _allowed_ to do it and who knows when something
-silly happens.
+Mmh, it feels a bit backwards to resort to the function name *string* for
+comparison, when it's always 0 for in and 1 for out (which we actually set
+in pinctrl-sunxi-dt.c now). But the mux value for IRQ is different between
+SoC generations, and I guess for historic reasons function strings are a
+thing in pinctrl, so this is probably the best solution after all:
 
-So I want that READ_ONCE(), not "volatile" on data structures, because
-*some* day we can rely on more modern things and compilers will
-actually get it right if we do it as
+> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 
- #define READ_ONCE(ptr) __atomic_load_n(ptr, __ATOMIC_RELAXED)
+FWIW:
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 
-or similar.
+Cheers,
+Andre
 
-But last time I looked at it - which was admittedly a few years ago -
-the compilers we supported didn't actually do anything reasonable here
-(ie the built-in atomics were fundamentally worse than the ones we do
-by hand, and even basic things like __atomic_load_n() weren't
-actually; better than just using 'volatile'.
+P.S. Should we have some CC: stable tag here?
 
-Maybe that has changed. We've upgraded minimum compilers since.
+> ---
+> This is an alternative to James's version. My version does one lookup
+> instead of three.
+> 
+>  drivers/pinctrl/sunxi/pinctrl-sunxi.c | 51 +++++++++++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+> 
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> index 0fb057a07dcc..27b2a3e9d78d 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> @@ -204,6 +204,32 @@ sunxi_pinctrl_desc_find_function_by_pin(struct sunxi_pinctrl *pctl,
+>  	return NULL;
+>  }
+>  
+> +static struct sunxi_desc_function *
+> +sunxi_pinctrl_desc_find_function_by_pin_and_mux(struct sunxi_pinctrl *pctl,
+> +						const u16 pin_num,
+> +						const u8 muxval)
+> +{
+> +	for (unsigned int i = 0; i < pctl->desc->npins; i++) {
+> +		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
+> +		struct sunxi_desc_function *func = pin->functions;
+> +
+> +		if (pin->pin.number != pin_num)
+> +			continue;
+> +
+> +		if (pin->variant && !(pctl->variant & pin->variant))
+> +			continue;
+> +
+> +		while (func->name) {
+> +			if (func->muxval == muxval)
+> +				return func;
+> +
+> +			func++;
+> +		}
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+>  static int sunxi_pctrl_get_groups_count(struct pinctrl_dev *pctldev)
+>  {
+>  	struct sunxi_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
+> @@ -930,6 +956,30 @@ static const struct pinmux_ops sunxi_pmx_ops = {
+>  	.strict			= true,
+>  };
+>  
+> +static int sunxi_pinctrl_gpio_get_direction(struct gpio_chip *chip,
+> +					    unsigned int offset)
+> +{
+> +	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
+> +	const struct sunxi_desc_function *func;
+> +	u32 pin = offset + chip->base;
+> +	u32 reg, shift, mask;
+> +	u8 muxval;
+> +
+> +	sunxi_mux_reg(pctl, offset, &reg, &shift, &mask);
+> +
+> +	muxval = (readl(pctl->membase + reg) & mask) >> shift;
+> +
+> +	func = sunxi_pinctrl_desc_find_function_by_pin_and_mux(pctl, pin, muxval);
+> +	if (!func)
+> +		return -ENODEV;
+> +
+> +	if (!strcmp(func->name, "gpio_out"))
+> +		return GPIO_LINE_DIRECTION_OUT;
+> +	if (!strcmp(func->name, "gpio_in") || !strcmp(func->name, "irq"))
+> +		return GPIO_LINE_DIRECTION_IN;
+> +	return -EINVAL;
+> +}
+> +
+>  static int sunxi_pinctrl_gpio_direction_input(struct gpio_chip *chip,
+>  					unsigned offset)
+>  {
+> @@ -1601,6 +1651,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>  	pctl->chip->request = gpiochip_generic_request;
+>  	pctl->chip->free = gpiochip_generic_free;
+>  	pctl->chip->set_config = gpiochip_generic_config;
+> +	pctl->chip->get_direction = sunxi_pinctrl_gpio_get_direction;
+>  	pctl->chip->direction_input = sunxi_pinctrl_gpio_direction_input;
+>  	pctl->chip->direction_output = sunxi_pinctrl_gpio_direction_output;
+>  	pctl->chip->get = sunxi_pinctrl_gpio_get;
 
-             Linus
 
