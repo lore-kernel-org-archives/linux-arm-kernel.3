@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1D4E81A32
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B01EF99F9
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 13:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,27 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qjmy5DrACQirpvT2uUxU7ZRHen5BgWcmAVZi4RfX4bY=; b=yW5vGTDZYnPnc4W88UfQ5KWMaK
-	224gN3SysQn56DB03rOdxfXr3boT3P0dxGj0KOL2IRGfb7cdV5AIXauDXZzAKW2AvxFMW+Mmu4AZM
-	HJQsbYvDGA20QyXBtx1w9PR6V76QzFfKPiHSL7OHFm/YVjCAiy/lHC/jpggVtFvY6A6Ur4ISJp6C1
-	UwJKPoT11c06yFft0HRxajdIelVJbC9EKckhi7Nl66Pq43GivqbWQO0wlHHZ/y2/9u6FrP1PRwQql
-	zciWg8phEOm9JN/8xelP+K2H2YoMfAKuk277FyXweoZneHrp5ZQ8SKYtH85ZLUUEs5Ra12KtZk4Tw
-	TW3KyvgQ==;
+	bh=mPLoCEcGGx8jcV18gWflCZoqkwA1p5Zz3iE0WBWNV5s=; b=ENgzgyvDi5h1MMLdV8TZ68qiHz
+	bImH8UCVT3NAKTc1ALOGy/drxz7Yn1ExvEZtk5zYAEzJpHUA8LJHd3P4DkskUtzyJEdxX+K9vnW+b
+	WmWVHoJWdlycUC84H+vnoVwF6bwnvIrcmlxedacHYjBuM4cgo3zBGAWDdqzmHtgeGT0rc+8wy9Z73
+	HqVjz9A+ymVWb8qjaK+jmSJWdaevvRoy3ChczHIbvnq42S/JREEgN11YLUR/RrH0euougtjJveBZJ
+	LLiqdV0dU/MlOuJqgL4Knf2WEBBjFGt5FJCemA52jcUU621GKqdOUSgGYJ404if6hVCmwRlCWDoZz
+	mtDxOn+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsLDl-00000008KDG-1ukb;
+	id 1vsLDn-00000008KDm-3xIY;
 	Tue, 17 Feb 2026 13:34:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsLDf-00000008KBY-2KAX
+	id 1vsLDf-00000008KBK-4584
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 13:34:28 +0000
+	Tue, 17 Feb 2026 13:34:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F54E1596;
-	Tue, 17 Feb 2026 05:34:20 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8F3EF14BF;
+	Tue, 17 Feb 2026 05:34:18 -0800 (PST)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E5393F632;
-	Tue, 17 Feb 2026 05:34:25 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BE5E3F632;
+	Tue, 17 Feb 2026 05:34:23 -0800 (PST)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: stable@vger.kernel.org
 Cc: Ryan Roberts <ryan.roberts@arm.com>,
@@ -48,17 +48,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	Eric Chanudet <echanude@redhat.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH 6.6 2/3] arm64: mm: Batch dsb and isb when populating pgtables
-Date: Tue, 17 Feb 2026 13:34:07 +0000
-Message-ID: <20260217133411.2881311-3-ryan.roberts@arm.com>
+Subject: [PATCH 6.6 1/3] arm64: mm: Don't remap pgtables per-cont(pte|pmd) block
+Date: Tue, 17 Feb 2026 13:34:06 +0000
+Message-ID: <20260217133411.2881311-2-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260217133411.2881311-1-ryan.roberts@arm.com>
 References: <20260217133411.2881311-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_053427_707132_D52FBBE8 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20260217_053428_117155_5F6EA8E0 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,13 +73,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[ Upstream commit 1fcb7cea8a5f7747e02230f816c2c80b060d9517 ]
+[ Upstream commit 5c63db59c5f89925add57642be4f789d0d671ccd ]
 
-After removing uneccessary TLBIs, the next bottleneck when creating the
-page tables for the linear map is DSB and ISB, which were previously
-issued per-pte in __set_pte(). Since we are writing multiple ptes in a
-given pte table, we can elide these barriers and insert them once we
-have finished writing to the table.
+A large part of the kernel boot time is creating the kernel linear map
+page tables. When rodata=full, all memory is mapped by pte. And when
+there is lots of physical ram, there are lots of pte tables to populate.
+The primary cost associated with this is mapping and unmapping the pte
+table memory in the fixmap; at unmap time, the TLB entry must be
+invalidated and this is expensive.
+
+Previously, each pmd and pte table was fixmapped/fixunmapped for each
+cont(pte|pmd) block of mappings (16 entries with 4K granule). This means
+we ended up issuing 32 TLBIs per (pmd|pte) table during the population
+phase.
+
+Let's fix that, and fixmap/fixunmap each page once per population, for a
+saving of 31 TLBIs per (pmd|pte) table. This gives a significant boot
+speedup.
 
 Execution time of map_mem(), which creates the kernel linear map page
 tables, was measured on different machines with different RAM configs:
@@ -89,72 +99,131 @@ tables, was measured on different machines with different RAM configs:
 ---------------|-------------|-------------|-------------|-------------
                |   ms    (%) |   ms    (%) |   ms    (%) |    ms    (%)
 ---------------|-------------|-------------|-------------|-------------
-before         |   78   (0%) |  435   (0%) | 1723   (0%) |  3779   (0%)
-after          |   11 (-86%) |  161 (-63%) |  656 (-62%) |  1654 (-56%)
+before         |  168   (0%) | 2198   (0%) | 8644   (0%) | 17447   (0%)
+after          |   78 (-53%) |  435 (-80%) | 1723 (-80%) |  3779 (-78%)
 
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
 Tested-by: Eric Chanudet <echanude@redhat.com>
 Reviewed-by: Mark Rutland <mark.rutland@arm.com>
 Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Link: https://lore.kernel.org/r/20240412131908.433043-3-ryan.roberts@arm.com
+Link: https://lore.kernel.org/r/20240412131908.433043-2-ryan.roberts@arm.com
 Signed-off-by: Will Deacon <will@kernel.org>
 [ Ryan: Trivial backport ]
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm64/include/asm/pgtable.h |  7 ++++++-
- arch/arm64/mm/mmu.c              | 11 ++++++++++-
- 2 files changed, 16 insertions(+), 2 deletions(-)
+ arch/arm64/mm/mmu.c | 27 ++++++++++++++-------------
+ 1 file changed, 14 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 92e43b3a10df9..7350243a6a28d 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -262,9 +262,14 @@ static inline pte_t pte_mkdevmap(pte_t pte)
- 	return set_pte_bit(pte, __pgprot(PTE_DEVMAP | PTE_SPECIAL));
- }
-
--static inline void set_pte(pte_t *ptep, pte_t pte)
-+static inline void set_pte_nosync(pte_t *ptep, pte_t pte)
- {
- 	WRITE_ONCE(*ptep, pte);
-+}
-+
-+static inline void set_pte(pte_t *ptep, pte_t pte)
-+{
-+	set_pte_nosync(ptep, pte);
-
- 	/*
- 	 * Only if the new pte is valid and kernel, otherwise TLB maintenance
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 130e915a3845e..c1dedd0b59f1b 100644
+index c8e83fe1cd5a7..130e915a3845e 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -175,7 +175,11 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+@@ -169,12 +169,9 @@ bool pgattr_change_is_safe(u64 old, u64 new)
+ 	return ((old ^ new) & ~mask) == 0;
+ }
+
+-static void init_pte(pmd_t *pmdp, unsigned long addr, unsigned long end,
++static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+ 		     phys_addr_t phys, pgprot_t prot)
+ {
+-	pte_t *ptep;
+-
+-	ptep = pte_set_fixmap_offset(pmdp, addr);
  	do {
  		pte_t old_pte = READ_ONCE(*ptep);
 
--		set_pte(ptep, pfn_pte(__phys_to_pfn(phys), prot));
-+		/*
-+		 * Required barriers to make this visible to the table walker
-+		 * are deferred to the end of alloc_init_cont_pte().
-+		 */
-+		set_pte_nosync(ptep, pfn_pte(__phys_to_pfn(phys), prot));
+@@ -189,8 +186,6 @@ static void init_pte(pmd_t *pmdp, unsigned long addr, unsigned long end,
 
- 		/*
- 		 * After the PTE entry has been populated once, we
-@@ -229,6 +233,11 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 		phys += next - addr;
- 	} while (addr = next, addr != end);
-
-+	/*
-+	 * Note: barriers and maintenance necessary to clear the fixmap slot
-+	 * ensure that all previous pgtable writes are visible to the table
-+	 * walker.
-+	 */
- 	pte_clear_fixmap();
+ 		phys += PAGE_SIZE;
+ 	} while (ptep++, addr += PAGE_SIZE, addr != end);
+-
+-	pte_clear_fixmap();
  }
 
+ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+@@ -201,6 +196,7 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ {
+ 	unsigned long next;
+ 	pmd_t pmd = READ_ONCE(*pmdp);
++	pte_t *ptep;
+
+ 	BUG_ON(pmd_sect(pmd));
+ 	if (pmd_none(pmd)) {
+@@ -216,6 +212,7 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 	}
+ 	BUG_ON(pmd_bad(pmd));
+
++	ptep = pte_set_fixmap_offset(pmdp, addr);
+ 	do {
+ 		pgprot_t __prot = prot;
+
+@@ -226,20 +223,21 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 		    (flags & NO_CONT_MAPPINGS) == 0)
+ 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+
+-		init_pte(pmdp, addr, next, phys, __prot);
++		init_pte(ptep, addr, next, phys, __prot);
+
++		ptep += pte_index(next) - pte_index(addr);
+ 		phys += next - addr;
+ 	} while (addr = next, addr != end);
++
++	pte_clear_fixmap();
+ }
+
+-static void init_pmd(pud_t *pudp, unsigned long addr, unsigned long end,
++static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 		     phys_addr_t phys, pgprot_t prot,
+ 		     phys_addr_t (*pgtable_alloc)(int), int flags)
+ {
+ 	unsigned long next;
+-	pmd_t *pmdp;
+
+-	pmdp = pmd_set_fixmap_offset(pudp, addr);
+ 	do {
+ 		pmd_t old_pmd = READ_ONCE(*pmdp);
+
+@@ -265,8 +263,6 @@ static void init_pmd(pud_t *pudp, unsigned long addr, unsigned long end,
+ 		}
+ 		phys += next - addr;
+ 	} while (pmdp++, addr = next, addr != end);
+-
+-	pmd_clear_fixmap();
+ }
+
+ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+@@ -276,6 +272,7 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ {
+ 	unsigned long next;
+ 	pud_t pud = READ_ONCE(*pudp);
++	pmd_t *pmdp;
+
+ 	/*
+ 	 * Check for initial section mappings in the pgd/pud.
+@@ -294,6 +291,7 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 	}
+ 	BUG_ON(pud_bad(pud));
+
++	pmdp = pmd_set_fixmap_offset(pudp, addr);
+ 	do {
+ 		pgprot_t __prot = prot;
+
+@@ -304,10 +302,13 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 		    (flags & NO_CONT_MAPPINGS) == 0)
+ 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+
+-		init_pmd(pudp, addr, next, phys, __prot, pgtable_alloc, flags);
++		init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
+
++		pmdp += pmd_index(next) - pmd_index(addr);
+ 		phys += next - addr;
+ 	} while (addr = next, addr != end);
++
++	pmd_clear_fixmap();
+ }
+
+ static void alloc_init_pud(pgd_t *pgdp, unsigned long addr, unsigned long end,
 --
 2.43.0
 
