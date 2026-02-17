@@ -4,92 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7546AE9A020
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 17:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D286FE9A026
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Feb 2026 17:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oIf2W/UVc68aR6lzv7jLUHhKkekhiH4laPerHLqaDAk=; b=QJmLBbdaiS6rC1cT9rBIzSbCOX
-	YnG+fDJgwHb8DjiyX1YyXDRvYrn+Au7Nroln/5yumZak7LhCHttyqLdukn18hUmc5VR9HmNtxxVCN
-	cBjCk8TSKFRzO876Vgiuwr/YmQwXw7S+OyzwJGgmRe/kC9B+5jDvoXLjU0+PdggXyVwo/OD0Q0xYS
-	hJFgE8xLk7LiBzZrvDeP6lfuoRv5hO4yuRFFiS6s7JktNEgUhma9bgQ7x1XmlL+zByApHYtb2spfX
-	esPjVFgZYA4+HihsCqW1Mbuo9i16Ss3PE8HjSVPlwB6N6Wbk1MJ1sdTBn1cfHwlNWyYHkZvAJ0nBi
-	bwYENmcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NzMITkEXZs34lceKZ1bkvJdV8jpP8i6Cd6H1ke9i4qg=; b=1l3AIivbuFwDeRVeWCVEiOAbL7
+	FrgLYgGmMtxLImWnAi3GzphAmA7VDet2lgehkPEHeNThY8S0fPsDrDPHgLIAqlgk9yVYtGrlbCOkX
+	dMt9oLL6inTkLKi0ozz5Lll7gKewELbyN7gEF9CYrhBqs1sPpV2RXeyRXdt4uv4G0qb7NI3LqueMS
+	o6laBzLiMOPPE5xjqVcK8zCN3PU6lrEebfuUSXXWOqwGZA9LrfRqevgCwdL4qagg3tCjiM0DeUqL9
+	7AzddWCQow4+AA8iJUigjs5cvOWovAby+QbDsvOQh4S3ypr9h0aeiVbQz9/hYt2+i9CwrIRWjmzf1
+	hMlHkPOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsOoh-00000008eYy-1eLd;
-	Tue, 17 Feb 2026 17:24:55 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vsPAz-00000008fhY-2YSO;
+	Tue, 17 Feb 2026 17:47:57 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsOoe-00000008eXK-0zX3
+	id 1vsPAv-00000008fgd-2gKV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Feb 2026 17:24:54 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2aae4816912so30977655ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 09:24:52 -0800 (PST)
+	Tue, 17 Feb 2026 17:47:56 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-8217f2ad01eso446043b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 09:47:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771349091; x=1771953891; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oIf2W/UVc68aR6lzv7jLUHhKkekhiH4laPerHLqaDAk=;
-        b=ctiGkeHql3Da/dOFpKUeRgElRMKsNJG8WnMjMK1FlXp6OIqGMLmzgBGqQfoC1L3pgS
-         eUZ18cP2GkXaoCmCf4taRqW4f7K31xMeTcDxcP2EbxoLTEZtv8Ch7zUt8mEafzSxjC+d
-         DANF/T4z6Y8OeZxPxhlX/qUXl/qqOtliXYKsZATto9+txnfTAwxL/fJw4mSf/jQ65u62
-         diDcceEbol7Mc4ZpvKi2WutLQXghqwYCkTLUEaIqSzR0Yut16x2rLACbT0+KeIyAdfwz
-         5Oo8HBaj5tmvOh0lnS9akOg0n8J010vU+Ns3Hf12uQ7F0wsgDH90gkKQSTK0ivnx0k0A
-         QENA==
+        d=linaro.org; s=google; t=1771350471; x=1771955271; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NzMITkEXZs34lceKZ1bkvJdV8jpP8i6Cd6H1ke9i4qg=;
+        b=xWsf4VgWclrjIWlkz/8y6esYI+UssVaP7O/EbKxxJYYzv5egAby/K4TcU018HdYpel
+         BH4EgR6nHt2ngZ85Gb1cChrMSkthUksOusUqVmlw9p+4d8nnVjmORvO3LJTMafsJrg87
+         J02EdB6hMa/Ki9DUbrD1n25ws/0Jj8csas49BP3omNb4hiJXGDyAzzwpPufCc0coOnzE
+         KOAJyxTpdfXowZwDA1CPghv2yzSvVrlSlWyDTfmFTQB1UtHtsDVFpc06pNfgzAxecBYl
+         z1cq/L/R+aw6FPMB98kyZz0A7bB+WVbCKLJtkYftk4nizR5SBPuStlSR8osPnNgZPDgO
+         8n/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771349091; x=1771953891;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=oIf2W/UVc68aR6lzv7jLUHhKkekhiH4laPerHLqaDAk=;
-        b=vtIRRf5e9QpuF8svFrTg1vpNRfCPg3hTTPFgxI4+qGJi0hW9aSwJ5JYdnhvUwjXVa8
-         df6Vz58uQgNC7y9HGsah0E/sZXMWyzM7HhW5rMa5hqV+UrftynUKAI4Sm4//lxQ41jjY
-         wwY8tWTNyUZbXHs6LNg57y1AvV5aK3KjdkY08CPyCh2N5T7mmUARC17aYl5LDYW2ltsQ
-         AXS//2ki+jOgv16Pf79t0xy7xFK9kglZ1IHKsaI0J3vqqzyCCaMmojdRtL12DkOVqMZF
-         89otPCP2nsStaMVoaXAj1/S+GZzJ5fs0jR6fbEEaJCrQEDcgjuKGEqI62etPJec5Hqqt
-         /4YA==
-X-Forwarded-Encrypted: i=1; AJvYcCUi+uhvfmK5cvBDp1Rler7g4/HlcU3RZjR1LzlRztJmU12CIl5TOH5L7mXgG1RVNlMRwl/kbpvc79eBKY8NHnsM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5A8az8OjAz9gSdGUjO/f5+UgysSmRZ8pWCTeIgFDZUaUAHxY+
-	Nt8gmLYnMQauUwAl7inbwaaGzVcFIWfTCT0JmcBwVw7SoqTNEIQAXJGI
-X-Gm-Gg: AZuq6aLUMLQl2+19TqPI7nIY+WHE8DvMk8PFYHV4vtovbjatusx42cEueNjUm7l6jSX
-	AoftuUdcRjTWw5GaBpLVh+wXOhtI+e8YNZkrAopj9BgzICG+rT7BvCtuH6Ma6/InrMInZLqcvGR
-	cpZPxC7fwc98IxH87jtLPu7XcZDUd5u1G2jPJsdgcOqe/KJAWRqRFvoCpGLDtfptN1uE9hcV8fl
-	dYTqrG/atEl/sMV6WgIgEihoqrWQT1CXguTRiMrpwHk2IzWmUTz3FhIg8cc4CPCUgmcmVhdojdN
-	xnXjfaKZxYZ4SuyJNAuF0tMDmpByIpsiHTjFOSNVmQer6/bxhnIhg3jNey0HJNQ9lnk9rIbh22R
-	clOUjYkGGPsSsbTQSdB+SmJ9qv5SRIpEmmZhmrtW4SsN7AvfDZEr7JVxRpPjlRdBvMvx5ZyvSFp
-	v0ju/+A45R8rYb1hnYgAe+XMmWSVD8cXJMCWN21Cx7/CofKP7M
-X-Received: by 2002:a17:902:db0d:b0:2aa:e21e:bfc0 with SMTP id d9443c01a7336-2ad1754fcf7mr120165095ad.47.1771349091328;
-        Tue, 17 Feb 2026 09:24:51 -0800 (PST)
-Received: from LAPTOP-872M7T80.localdomain ([223.181.109.65])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2ad1a7145cbsm146880305ad.30.2026.02.17.09.24.47
+        d=1e100.net; s=20230601; t=1771350471; x=1771955271;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NzMITkEXZs34lceKZ1bkvJdV8jpP8i6Cd6H1ke9i4qg=;
+        b=D7zXwX2JvqD6VLc0oqwJ+KwoGW3AGQtex+zJTAPXIZnF744zvNeqtrKsgiDxrDYOca
+         U4yVAr2ZfdU4lnMZtglwYKFwatJLOFE81XNH3Vr7neA2fS3CFuDdcRH+3VGJqyGKK3GC
+         VSNMbTzOjUd/LVqtq7T70sKi5PYadqt5jKN0I/Z46xCh6mtaSpl8fzsWcIGIpoSEGJwv
+         KbcbYYWsKne7X4USqcvmny1D+0GI2m+mGXbzq2SLMFOJSLYQjhqsm9MUXcsTgy8BeanC
+         wSYTNk3PQ+L5K+ybYHyYiYkzcF15wuMsw1s/WJCB76n1fDBCXEoQ+kB2oFlGFWWkivCh
+         Oy4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUDtjbiRhByeUnSB34nVLuAXz+KUA5tDBJiPtvPvocyUgG+kq4RBgjYOILuXN/7p7PiJmHWHTWYRM0xi/1w3hNe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yww+LY7IHPxiMuQE2GdwxiFJ+qtv0QITIkt73syctl2NctExa40
+	Idwpvy4x/REm1ZBQPoVW/FlLmG0NQ3NBTM+M3Qv78nBbZ3zA9FVM+yKsmd4t6XBPinc=
+X-Gm-Gg: AZuq6aIEGQGT2LGneH3NwyBOI56P5l7cM8OtpBsSWVXlh9DTAMUG5AfyO/xWpPQbdn5
+	BYn+5uQi6Q/f0VNhi5dsfhdR6fpxIgKGDqCcOv5JFlzcMh2/xac8D9r94HMBHskm+eEJe8HC8Jj
+	gofDzSEc/cA3NMXl7pnEvUmurCDpT2sY+hcSILcxTCVOkE9NSMNOBc27bOPB7beEzfv06KeWCw6
+	9oBjdMtR+r3ejp66Tes/bZ4kwLfzp5UraxrXgJBSmoqZFN9kCgK9QLll/WrnBgPkiySKc5F6ZGl
+	DaSsqJtviqLv3rQxEX5/5MVUVDyVaNyfY+GFMSemgkuL7tesym5fD/cLn+tONDBYhUyeNxedE/a
+	udtFVmklsmVLR5zFh1tP9rhsC8DSKZCfrjw2b3ARKzR+F+N8pHYAC8HlSWzNLxqYl49nc0s+BaO
+	TOaxucVqPO7Fm9LBvSn1GOqAOumQ==
+X-Received: by 2002:a05:6a21:4916:b0:38b:ebdd:919f with SMTP id adf61e73a8af0-394671145b5mr13583057637.1.1771350471095;
+        Tue, 17 Feb 2026 09:47:51 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:970a:754:4a36:44d0])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c6e5331ba14sm10310210a12.29.2026.02.17.09.47.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 09:24:50 -0800 (PST)
-From: Akhila YS <akhilayalmati@gmail.com>
-Date: Tue, 17 Feb 2026 17:24:23 +0000
-Subject: [PATCH 5/5] dt-bindings: arm: atmel,at91rm9200-sdramc: convert to
- DT schema
+        Tue, 17 Feb 2026 09:47:50 -0800 (PST)
+Date: Tue, 17 Feb 2026 10:47:46 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v12 00/46] arm64: Support for Arm CCA in KVM
+Message-ID: <aZSpwlZmpjdh3Oxr@p14s>
+References: <20251217101125.91098-1-steven.price@arm.com>
+ <aY4Sf4lMlWd9LyTo@p14s>
+ <55fc4877-666c-4d5f-a167-5692f7cfbd0b@arm.com>
+ <9140efaa-dc54-4a1b-8936-3ef876ca9121@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260217-arm-microchip-v1-5-ae5d907e10e3@gmail.com>
-References: <20260217-arm-microchip-v1-0-ae5d907e10e3@gmail.com>
-In-Reply-To: <20260217-arm-microchip-v1-0-ae5d907e10e3@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Akhila YS <akhilayalmati@gmail.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9140efaa-dc54-4a1b-8936-3ef876ca9121@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_092453_584491_3952EF4D 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20260217_094754_978537_C2B13A0B 
+X-CRM114-Status: GOOD (  47.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,143 +117,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert RAMC SDRAM/DDR controller binding to YAML format.
+On Mon, Feb 16, 2026 at 02:27:02PM +0000, Steven Price wrote:
+> On 16/02/2026 12:33, Steven Price wrote:
+> > On 12/02/2026 17:48, Mathieu Poirier wrote:
+> >> Hi Steven,
+> >>
+> >> On Wed, Dec 17, 2025 at 10:10:37AM +0000, Steven Price wrote:
+> >>> This series adds support for running protected VMs using KVM under the
+> >>> Arm Confidential Compute Architecture (CCA). I've changed the uAPI
+> >>> following feedback from Marc.
+> >>>
+> >>> The main change is that rather than providing a multiplex CAP and
+> >>> expecting the VMM to drive the different stages of realm construction,
+> >>> there's now just a minimal interface and KVM performs the necessary
+> >>> operations when needed.
+> >>>
+> >>> This series is lightly tested and is meant as a demonstration of the new
+> >>> uAPI. There are a number of (known) rough corners in the implementation
+> >>> that I haven't dealt with properly.
+> >>>
+> >>> In particular please note that this series is still targetting RMM v1.0.
+> >>> There is an alpha quality version of RMM v2.0 available[1]. Feedback was
+> >>> that there are a number of blockers for merging with RMM v1.0 and so I
+> >>> expect to rework this series to support RMM v2.0 before it is merged.
+> >>> That will necessarily involve reworking the implementation.
+> >>>
+> >>> Specifically I'm expecting improvements in:
+> >>>
+> >>>  * GIC handling - passing state in registers, and allowing the host to
+> >>>    fully emulate the GIC by allowing trap bits to be set.
+> >>>
+> >>>  * PMU handling - again providing flexibility to the host's emulation.
+> >>>
+> >>>  * Page size/granule size mismatch. RMM v1.0 defines the granule as 4k,
+> >>>    RMM v2.0 provide the option for the host to change the granule size.
+> >>>    The intention is that Linux would simply set the granule size equal
+> >>>    to its page size which will significantly simplify the management of
+> >>>    granules.
+> >>>
+> >>>  * Some performance improvement from the use of range-based map/unmap
+> >>>    RMI calls.
+> >>>
+> >>> This series is based on v6.19-rc1. It is also available as a git
+> >>> repository:
+> >>>
+> >>> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v12
+> >>>
+> >>> Work in progress changes for kvmtool are available from the git
+> >>> repository below:
+> >>>
+> >>> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v10
+> >>
+> >> The first thing to note is that branch cca/v10 does not compile due to function
+> >> realm_configure_parameters() not being called anywhere.  Marking the function as
+> >> [[maybe_unused]] solved the problem on my side.
+> > 
+> > This is in the kvmtool code - and yes I agree "work in progress" is a
+> > bit generous for the current state of that code, "horrid ugly hacks to
+> > get things working" is probably more accurate ;)
+> > 
+> > The issue here is that the two things that realm_configure_parameters()
+> > set up (hash algorithm and RPV) are currently unsupported with the Linux
+> > changes, but will need to be reintroduced in the future. So the contents
+> > of the functions which set this up (using the old uAPI) are just #if 0'd
+> > out.
+> > 
+> > Depending on the compile flags the code will compile with a warning, but
+> > using __attribute__((unused)) would at least make this clear. I'd want
+> > to avoid the "[[maybe_unused]]" as it's not used elsewhere in the code
+> > base and limits compatibility.
+> > 
+> >> Using the FVP emulator, booting a Realm that includes EDK2 in its boot stack
+> >> worked.  If EDK2 is not part of the boot stack and a kernel is booted directly
+> >> from lkvm, mounting the initrd fails.  Looking into this issue further, I see
+> >> that from a Realm kernel's perspective, the content of the initrd is either
+> >> encrypted or has been trampled on.  
+> > 
+> > I can reproduce that, a quick fix is to change INITRD_ALIGN:
+> > 
+> > #define INITRD_ALIGN	SZ_64K
+> > 
+> > But the code was meant to be able to deal with an unaligned initrd -
+> > I'll see if I can figure out what's going wrong.
+> 
+> Looks like a simple bug in kvm_arm_realm_populate_ram() - it wasn't
+> updating the source address when it had to align the start of the
+> region. Simple fix below:
+> 
+> ---8<---
+> diff --git a/arm/aarch64/realm.c b/arm/aarch64/realm.c
+> --- a/arm/aarch64/realm.c
+> +++ b/arm/aarch64/realm.c
+> @@ -104,7 +104,7 @@ void kvm_arm_realm_populate_ram(struct kvm *kvm,
+> unsigned long start,
+> 
+>         new_region->start = ALIGN_DOWN(start, SZ_64K);
+>         new_region->file_end = ALIGN(start + size, SZ_64K);
+> -       new_region->source = source;
+> +       new_region->source = source - (start - new_region->start);
 
-Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
----
- .../bindings/arm/atmel,at91rm9200-sdramc.yaml      | 67 ++++++++++++++++++++++
- .../devicetree/bindings/arm/atmel-sysregs.txt      | 48 ----------------
- 2 files changed, 67 insertions(+), 48 deletions(-)
+That also worked on my side.
 
-diff --git a/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
-new file mode 100644
-index 000000000000..76cd8f73331c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
-@@ -0,0 +1,67 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/atmel,at91rm9200-sdramc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Microchip (Atmel) SDRAM / DDR Controller (RAMC / DDRAMC / UDDRC)
-+
-+maintainers:
-+  - Nicolas Ferre <nicolas.ferre@microchip.com>
-+  - Claudiu Beznea <claudiu.beznea@microchip.com>
-+
-+description:
-+  The SDRAM/DDR Controller (often called RAMC or DDRAMC) in various
-+  Atmel/Microchip ARM9 and Cortex-A5/A7 SoCs  manages external
-+  SDRAM / DDR memory. It is typically exposed as a syscon node for
-+  register access from other drivers (e.g. for initialization or mode
-+  configuration). No interrupts or clocks are usually required in the
-+  binding.
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - const: atmel,at91rm9200-sdramc
-+          - const: syscon
-+      - items:
-+          - const: microchip,sama7d65-uddrc
-+          - const: microchip,sama7g5-uddrc
-+      - items:
-+          enum:
-+            - atmel,at91sam9260-sdramc
-+            - atmel,at91sam9g45-ddramc
-+            - atmel,sama5d3-ddramc
-+            - microchip,sam9x60-ddramc
-+            - microchip,sam9x7-ddramc
-+            - microchip,sama7g5-uddrc
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    minItems: 1
-+    maxItems: 2
-+
-+  clock-names:
-+    minItems: 1
-+    items:
-+      - const: ddrck
-+      - const: mpddr
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/at91.h>
-+    ramc@ffffe400 {
-+        compatible = "atmel,at91sam9g45-ddramc";
-+        reg = <0xffffe400 0x200>;
-+        clocks = <&pmc PMC_TYPE_SYSTEM 2>;
-+        clock-names = "ddrck";
-+    };
-+...
-diff --git a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-deleted file mode 100644
-index 5ce54f9befe6..000000000000
---- a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-+++ /dev/null
-@@ -1,48 +0,0 @@
--Atmel system registers
--
--Chipid required properties:
--- compatible: Should be "atmel,sama5d2-chipid" or "microchip,sama7g5-chipid"
--			"microchip,sama7d65-chipid"
--- reg : Should contain registers location and length
--
--PIT Timer required properties:
--- compatible: Should be "atmel,at91sam9260-pit"
--- reg: Should contain registers location and length
--- interrupts: Should contain interrupt for the PIT which is the IRQ line
--  shared across all System Controller members.
--
--PIT64B Timer required properties:
--- compatible: Should be "microchip,sam9x60-pit64b" or
--			"microchip,sam9x7-pit64b", "microchip,sam9x60-pit64b"
--			"microchip,sama7d65-pit64b", "microchip,sam9x60-pit64b"
--- reg: Should contain registers location and length
--- interrupts: Should contain interrupt for PIT64B timer
--- clocks: Should contain the available clock sources for PIT64B timer.
--
--System Timer (ST) required properties:
--- compatible: Should be "atmel,at91rm9200-st", "syscon", "simple-mfd"
--- reg: Should contain registers location and length
--- interrupts: Should contain interrupt for the ST which is the IRQ line
--  shared across all System Controller members.
--- clocks: phandle to input clock.
--Its subnodes can be:
--- watchdog: compatible should be "atmel,at91rm9200-wdt"
--
--RAMC SDRAM/DDR Controller required properties:
--- compatible: Should be "atmel,at91rm9200-sdramc", "syscon" or
--			"atmel,at91sam9260-sdramc" or
--			"atmel,at91sam9g45-ddramc" or
--			"atmel,sama5d3-ddramc" or
--			"microchip,sam9x60-ddramc" or
--			"microchip,sama7g5-uddrc" or
--			"microchip,sama7d65-uddrc", "microchip,sama7g5-uddrc" or
--			"microchip,sam9x7-ddramc", "atmel,sama5d3-ddramc".
--- reg: Should contain registers location and length
--
--Examples:
--
--	ramc0: ramc@ffffe800 {
--		compatible = "atmel,at91sam9g45-ddramc";
--		reg = <0xffffe800 0x200>;
--	};
--
+> 
+>         list_add_tail(&new_region->list, &realm_ram_regions);
+>  }
+> ---8<---
+> 
+> Thanks for the pointer, and I'll try to remember to include initrd
+> testing in future.
+> 
 
--- 
-2.43.0
+Very well.
 
+Thanks for looking into this.
+
+> Steve
+> 
 
