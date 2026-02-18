@@ -4,61 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B1DE9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 10:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6A7E9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 10:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RzBCBT+BBch20+9ZdWz9ApEm8yAExPHjA+GZ3/8W7E0=; b=BC32CkujkOIjLmX16u+pAiezm8
-	PM+urjnshNmowLvyp4Nij0KIxsFZl+8QRTEFQ7U+G2Zc4/RULzlIsWuv5jL6wF2d9KwtoaF/4rg/d
-	BLH8W+LsMwOy2vaGpM2YK80ImCI5nyMcSxeK+Zk2O+6urxZz3vx/9PJ8tizJTzfepY21KIPg9uxAI
-	koFTPvcVOqG//WG+FcLmmt26NyGQDef4b8QTTweiNAKU/FUp0OAh+EXi8g0nKVidMvhplSAGs02Bx
-	BVFd+G9cChjZ+sZVmmtnVEeQ+k1hEAVAQo7gzU6Cqu85WlpPPZMNvFUVtqgV8IZ5IvDZDOUG3lrW5
-	12a8Y/CQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j9ZCnAJx9rnYLKLps/jlwnhrTfF2HC1f8Q8Dzzf+OvA=; b=FOH4o0w6RmPkzoyQZgSdaW5Vty
+	tb1E22cJmHI7tp4cUz7Mqo2bGsV9/l7DwzD5kMMeUgIIiDEFWDIFuVOgSlWKELAABtRJRaDGUGIE6
+	2QKKKlkVw2LVAl0ChNZ+PFJordgD0TS6IKx35cTjd3NX38E++gsmGpIkaXq3bg+aIEJzFjDE4CwNw
+	TZFTXmuCX1vmdnXh+TOKrCKp/sLAb6kR7OLtvwnc4/yHQuyofEH7vrb+KsRhz7JG2UFk7q5XyFqDV
+	QgLLhniAWg79EHDyrmVc5mqMoBlfw/ajrt8GQl9/TO7oe1ipskyq3uQeLTRWBtQHwUBjsZyEC/6RU
+	bemix+7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsegs-00000009deu-0lgd;
-	Wed, 18 Feb 2026 10:21:54 +0000
-Received: from pouet.aliel.fr ([65.21.61.41] helo=courrier.aliel.fr)
+	id 1vsei6-00000009dtK-46sx;
+	Wed, 18 Feb 2026 10:23:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsegp-00000009dct-2P4R;
-	Wed, 18 Feb 2026 10:21:52 +0000
-Received: from localhost.localdomain (2a02-842b-8136-0001-b865-661D-5641-e7C6.rev.sfr.net [IPv6:2a02:842b:8136:1:b865:661d:5641:e7c6])
-	by courrier.aliel.fr (Postfix) with ESMTPSA id CC8B24CB4C;
-	Wed, 18 Feb 2026 10:21:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1771410108;
-	bh=SN9ME6m2+GqvYXiK6+XH80iCtYwqSTRmIwev20M6/PE=;
-	h=From:To:Cc:Subject:Date;
-	b=IQQus37S4zLniFCNUT2mE/4TTWQ7NC5uMt3gnh34DunJki8S6XB1YNXta90q8KvWS
-	 VFm5TjfVi6lbhWaojPDHaKt9VKR8ecgMw0dYJLe6Nw2E9DvZdH+cj7sX1LbSdXyHbv
-	 1we0do6+0F0awkOJUwNq/Z3XP/JNfhD/42yOexZU=
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-To: linux-amlogic@lists.infradead.org
-Cc: Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 7/7] arm64: dts: amlogic: Add EMMC for T7 khadas VIM4
-Date: Wed, 18 Feb 2026 11:21:22 +0100
-Message-ID: <20260218102124.35669-1-linux-kernel-dev@aliel.fr>
-X-Mailer: git-send-email 2.49.0
+	id 1vsei4-00000009dsm-1DEv;
+	Wed, 18 Feb 2026 10:23:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D1BD40702;
+	Wed, 18 Feb 2026 10:23:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D47C19421;
+	Wed, 18 Feb 2026 10:23:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771410187;
+	bh=OMH8I4GfLouXaU8CGBdjforQ+oU7Fm8tEraEK3OuDq4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ST3StB2bNsX68fHKdvI3+41+InH0qmZUG/I4E3Sl9W0jHlNcUf08eMUxp5jplJHsU
+	 Q7HRqvq+oAgTwpeE5sSoqhCjNMjxrattNJpeToCKWzWUTXelxbs3CajIqx+20k70N1
+	 lP3PUyjjJXW/WXl6AweW7+RlOgKSaoIejR+bgiRuQwu3UwroF1FGm5EraCVsxdq17v
+	 iZbCouQqW8Aoq5G6NLMmXJ3z6JIKTbOTmhzkhPBokMky9ldk6MxzB4mgS9fiTYEmnn
+	 xRc+txJoc3m9wxsbJaIlTHZ6ZnzyWUxg5xcP590FfRiw9EHkUPdrD6ZktZ5cQxgHC0
+	 z8EFTKuml2XWg==
+Message-ID: <6d86917f-5326-4ce2-91e3-c57534e5e8a2@kernel.org>
+Date: Wed, 18 Feb 2026 11:23:02 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/7] arm64: dts: amlogic: Add clock and EMMC for T7
+To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
+ linux-amlogic@lists.infradead.org
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260218102045.35633-1-linux-kernel-dev@aliel.fr>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260218102045.35633-1-linux-kernel-dev@aliel.fr>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_022151_764238_780BD50A 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260218_022308_376869_277BDEB3 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,98 +120,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add EMMC support for Amlogic T7 Khadas VIM4 device dts.
+On 18/02/2026 11:20, Ronald Claveau wrote:
+> Add fixed clock and EMMC support for Amlogic T7 SoC family dtsi.
+> 
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> ---
+>  arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 137 +++++++++++++++++++-
+>  1 file changed, 134 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> index 6510068bcff9..e5932eb3db2b 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> @@ -3,6 +3,8 @@
+>   * Copyright (c) 2019 Amlogic, Inc. All rights reserved.
+>   */
+>  
+> +#include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
+> +#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/power/amlogic,t7-pwrc.h>
+>  #include "amlogic-t7-reset.h"
+> @@ -208,12 +210,14 @@ soc {
+>  		ranges;
+>  
+>  		gic: interrupt-controller@fff01000 {
+> -			compatible = "arm,gic-400";
+> +			compatible = "arm,cortex-a15-gic", "arm,cortex-a9-gic";
 
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- .../amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 62 +++++++++++++++++++
- 1 file changed, 62 insertions(+)
+I don't get how this is related to "Add fixed clock".
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-index fffdab96b12e..fbc43a307015 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-@@ -15,6 +15,10 @@ aliases {
- 		serial0 = &uart_a;
- 	};
- 
-+	chosen {
-+		stdout-path = "serial0:921600n8";
-+	};
-+
- 	memory@0 {
- 		device_type = "memory";
- 		reg = <0x0 0x0 0x2 0x0>; /* 8 GB */
-@@ -45,6 +49,42 @@ xtal: xtal-clk {
- 		#clock-cells = <0>;
- 	};
- 
-+	dc_in: regulator-dc-in {
-+		compatible = "regulator-fixed";
-+		regulator-name = "DC_IN";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	vsys_3v3: regulator-vsys-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VSYS_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&dc_in>;
-+		regulator-always-on;
-+	};
-+
-+	vcc_3v3: regulator-vcc-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vsys_3v3>;
-+		regulator-always-on;
-+		/* FIXME: actually controlled by VDDCPU_B_EN */
-+	};
-+
-+	emmc_1v8: regulator-emmc-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "EMMC_AO1V8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3>;
-+		regulator-always-on;
-+	};
-+
- };
- 
- &uart_a {
-@@ -52,3 +92,25 @@ &uart_a {
- 	clocks = <&xtal>, <&xtal>, <&xtal>;
- 	clock-names = "xtal", "pclk", "baud";
- };
-+
-+/* eMMC */
-+&sd_emmc_c {
-+	status = "okay";
-+	pinctrl-0 = <&emmc_ctrl_pins>, <&emmc_data_8b_pins>, <&emmc_ds_pins>;
-+	pinctrl-1 = <&emmc_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	mmc-hs400-1_8v;
-+	max-frequency = <200000000>;
-+	disable-wp;
-+	non-removable;
-+
-+	power-domains = <&pwrc PWRC_T7_EMMC_ID>;
-+
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&emmc_1v8>;
-+};
--- 
-2.49.0
+>  			#interrupt-cells = <3>;
+>  			#address-cells = <0>;
+>  			interrupt-controller;
+>  			reg = <0x0 0xfff01000 0 0x1000>,
+> -			      <0x0 0xfff02000 0 0x0100>;
+> +				  <0x0 0xfff02000 0 0x2000>,
+> +				  <0x0 0xfff04000 0 0x2000>,
+> +				  <0x0 0xfff06000 0 0x2000>;
 
+Neither this really.
+
+...
+
+> +
+> +			sd_emmc_c: mmc@8c000{
+> +				compatible = "amlogic,meson-axg-mmc";
+
+Compatible says axg, DTS says T7, so something does not feel right.
+
+
+
+Best regards,
+Krzysztof
 
