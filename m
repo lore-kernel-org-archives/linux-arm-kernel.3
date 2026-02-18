@@ -4,90 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E7AE9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 20:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C780BE9A04C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 20:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hLWHawfUnZuiQ3TDhSdC1bL32uOxcaH5z4XCL/rXWbU=; b=E4ZdyXOv0UUY/q2hBIbyOgG2Hh
-	a6bqVtuJx3UkY6fMgItLjpDUXCaOEUQEdx1PRTB4T2cPGl1Vc3/VLSqypLuqbDLRwAAHCCiXCmCLR
-	oEWw+LHRcaqRBvoEc18isguIgXd22MOtuXjALDy/Si5/DE8Yknca/ENRpchw9Yk97k5j+N4FZ2guu
-	rkYK5DqrVuwDan48Z73N9Rhk0Qr590kNyIIVQucJS6eXmwXl+c5ZM4j3ixz4iTquCuE+ZLruWmxQ+
-	/Azlth8wXTF70bG97+4Nm8ieFVq0HZxtTYmlmlVfNjRsMBakPDElmn3f3PNe0bocnqbONeIKryNtH
-	LFNhRYag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1afskavYau0tl+Bj5qe1Nzh8LAXyKnFoV2P5EHw4w5c=; b=MXuFqVHLrp8e2QqmCKhgs2UZtC
+	bSsDW3i1QlC4dp7Kb98qPPc9MF+jCsgICS4La1uCOsMOyRrWwkljF5+g+JwejyUJVZClGO5GW0BZS
+	TwgL6m0JhlGw/B3+ryEQz0SoPetbsPxebUYbX8z1M0+I622DIUbuIO4RLoX71LzQuW8cgV2XprPzH
+	Q5p0sfBhVzFtX4SluAkl3O6VLEwVy1wBvHorimIkTL8K3AlSpiq/Is+sLcxO/LiVbagRaWP096qQ5
+	ZJnXuDvFcs9yVwr3kyFiZtmnsd33J/+crdmE1STrLDI5+1id3zcsLJO6PgB7nyoWm2MokQdq5FaCb
+	jZQ6igxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsoKp-0000000AO9O-0XzB;
-	Wed, 18 Feb 2026 20:39:47 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vsoOq-0000000AOMH-30Up;
+	Wed, 18 Feb 2026 20:43:56 +0000
+Received: from mout.kundenserver.de ([217.72.192.74])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsoKl-0000000AO92-0fHM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 20:39:45 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-481188b7760so2314665e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 12:39:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smile.fr; s=google; t=1771447179; x=1772051979; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hLWHawfUnZuiQ3TDhSdC1bL32uOxcaH5z4XCL/rXWbU=;
-        b=s2WlwqD1tGFW693a+TkQCnLlUB5/sfUqgsG9U2ZPIcfitgEOZ+MmuvGdZuNradiokz
-         yUEvIkiUhKnvIA3iXvpT1r2q7s5Zyk12xDGl/OpezooAwkVI74tzW0GfKzU3qwA43v4S
-         jr1RTDyvfsLA9o4yOEPSxiRnYFz5RilCXnrjM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771447179; x=1772051979;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hLWHawfUnZuiQ3TDhSdC1bL32uOxcaH5z4XCL/rXWbU=;
-        b=R4kH2g25IVp/7rPnu4SnVtt/sCATFl5ZABiKzDzHAufImd+TH/0Rd0aTcEhZo+7+xu
-         6MjeXDCKx0IPau92sSteu9sDYZCZpZxmB1LlX978uSe6TlLmKTXuUTwOzsM18zFCj9qe
-         OWJTNK4b9EOmz1Wz3dSRopB+IcGBfUJeeYcj/RI/g1uFfRbHwe6twCERoIydcjQsWmGy
-         7GiiGDtXLeeiFMbep0SBXnLpzDGjQDeRMIjSsBupkqy9qVyu23JTU5nbuOUetqYiDqod
-         oRg+o/nJ/io6g8UP5XRcXdPjh7IWT/iAU4QDX5XiLkCEDPuRxfZT8Bw2g3p/AU3uGUAG
-         JH1A==
-X-Forwarded-Encrypted: i=1; AJvYcCWC/vvdsrtuwkX7gZfq6DQnCR9d6CK8m5A5n6FAALQZv+EYqUR8LrRtgB5xJLI0Byd/jndnV2XtdJcLq+5Dp29b@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+0A1GKxZxoqbOEdWd2ygAgvrmL9mNdA0Yyxk4+xRrqarGY6Bw
-	1DMd1nMbLGHxNNUYJ2l7kX6eI8L2qq/AJVBRzSPPMppXzRkifVK3Oop3CXI3Ho4T9x8=
-X-Gm-Gg: AZuq6aJbx/P4gehdtCHjNmBUj44wVqgj2NjrY9dEe8SzeY/lBOdHVJROM2LFTCs/yfQ
-	E2CXbnKmdyKxbzZ1AusT2Mq+GBfS3aQ8DCuQLtUn8WLRrwr/Wy7jcoo8R9K4YjOfTg+jzsSLJ7v
-	s+CCEt2WDqx9p8i0h5L2vn9jsldBu/3LQGgfZXs0jOfEsKyv2QBnGFPkwddxCGpDDrLNs/WWcey
-	K1XrLQinHPBOrb7B/gdWnJx0Cy1S33MNAoFgXVwOo9Mlo1HnDw1uNevNiQannGOrw/Sr8f8CKF7
-	PU2h1TYZBw5USarvIdrBXDHIQInSeMti+YSXLCqRUY6OkmC9BuHmrfUpCBxYzh0JjUSKfvW8uP7
-	2x5akAA3YZ3gzxZzAMFXD0dSWhNlv8Z2tmgzPbPG0lxejfUbycQysodhQPYopiCPf46fHgc7vWH
-	Xnt6jaOYBiLmjtn1CrchoKdMoagaoPAtXwjqlLmMVAQQV4mguO/oHjchKgT51Lo6EPll0QC1yHJ
-	XSqJIMVu52CaIy2cry7fbdu0KvHUyBMmBRi
-X-Received: by 2002:a05:600c:6091:b0:477:df7:b020 with SMTP id 5b1f17b1804b1-4839e661d1bmr6597615e9.18.1771447179348;
-        Wed, 18 Feb 2026 12:39:39 -0800 (PST)
-Received: from P-NTS-Evian.home (2a01cb0594a2a2002ad9827a59cb148a.ipv6.abo.wanadoo.fr. [2a01:cb05:94a2:a200:2ad9:827a:59cb:148a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4835dd0e327sm620432895e9.14.2026.02.18.12.39.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Feb 2026 12:39:38 -0800 (PST)
-From: Romain Naour <romain.naour@smile.fr>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org
-Cc: conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	kristo@kernel.org,
-	vigneshr@ti.com,
-	nm@ti.com,
-	Romain Naour <romain.naour@smile.fr>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm64: dts: ti: k3-j721e-main: Update delay select values for MMC1/2 subsystems
-Date: Wed, 18 Feb 2026 21:38:23 +0100
-Message-ID: <20260218203823.1825554-1-romain.naour@smile.fr>
-X-Mailer: git-send-email 2.52.0
+	id 1vsoOn-0000000AOLl-32kQ;
+	Wed, 18 Feb 2026 20:43:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=online.de;
+	s=s42582890; t=1771447403; x=1772052203; i=dubito@online.de;
+	bh=1afskavYau0tl+Bj5qe1Nzh8LAXyKnFoV2P5EHw4w5c=;
+	h=X-UI-Sender-Class:Message-ID:Subject:From:Reply-To:To:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version:cc:content-transfer-encoding:content-type:date:from:
+	 message-id:mime-version:reply-to:subject:to;
+	b=dsFiMleFXeEXQFg0w6XZfHpl38d8y3hl/NW0U/MH4rM0E4H9NVzSbG1rKo+FP9Ed
+	 XcdqB1rhwvg6umAFKaNEgLaUNtiV/T5v7mgsAVVVkYzaN1pnGwHB3u+9hMO48PdoG
+	 br+2asBQwkEq+etty3lu0XL4juNq+zSdYiJmeJq1Dpl/krqxqEmE4fuVZedvyH5J6
+	 xND01F1EQo6KowY+4uPR8f8HiznXKv2iq9Jpi+usA5zCMglshr5CvUfc4ArTlvYdJ
+	 8vpamKSryLhAm3nmABGM08OC7XXtyysXh9w8QtKV58vdbVjmXUlUsBFAMDuRoQbVW
+	 WOvuAj8CpVY09M3MPg==
+X-UI-Sender-Class: 6003b46c-3fee-4677-9b8b-2b628d989298
+Received: from [192.168.0.208] ([91.66.193.45]) by mrelayeu.kundenserver.de
+ (mreue108 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1MKbXu-1wBaEB0VS8-00KRXO; Wed, 18 Feb 2026 21:43:23 +0100
+Message-ID: <a3c3964e9e13c82d944fa1ee0acbb1a7806dd382.camel@online.de>
+Subject: Re: [REGRESSION] HDMI monitor not working on Radxa Rock 5B after
+ phy rockchip samsung hdptx HDMI 2.1 FRL patchset
+From: 1und1 <dubito@online.de>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Vinod Koul	
+ <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Heiko
+ Stuebner	 <heiko@sntech.de>, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, regressions@lists.linux.dev
+Date: Wed, 18 Feb 2026 21:43:18 +0100
+In-Reply-To: <03b5f3d1-6db4-4835-b2a5-c22c1aa63825@collabora.com>
+References: <b32164001947ba922aefb6ca86a8dc59e9323d2b.camel@online.de>
+	 <8e410a11-bd7b-4a12-a711-0514a59409c0@collabora.com>
+	 <1859c940219a4dbfdf0497afbf333e627ab0ba25.camel@online.de>
+	 <98e46dbb-c8e2-451f-accb-ea48f63f9408@collabora.com>
+	 <4544ec4ccfa49cbdffee098878df7806223935a0.camel@online.de>
+	 <08369c90-fbab-477d-9ac6-388deddfd3b1@collabora.com>
+	 <26e31b3b-484f-433b-833f-c639ee437f63@collabora.com>
+	 <03b5f3d1-6db4-4835-b2a5-c22c1aa63825@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-Provags-ID: V03:K1:JMj2ed6H9IIYLIPXvd8SrffsvicDqBIhjEAHIteAk7Dz2GW8xam
+ MHD2A8GOYDQtPVrUmFk7balTR4AdJsrIprV0SdPAfAqb86kqagLOcE4YEyGf63xJzfjENSN
+ WM7iG2kgah0GtfhLMOffxdkA0/6hIzVWt0HjUYCKLc9iuX5AItt58A/yk/j/i6b1ekL/VHZ
+ knELWnr9Bs36cWMQEgDkQ==
+UI-OutboundReport: notjunk:1;M01:P0:ZIft8d4dnN8=;LoNduLw4rESE8Sqte/WndwUtxC1
+ e+x6oQDHiwn85JeF9Qi/pDvviEg4nZWVouiVZ0oDYIXX9Ze2E9RHDulJf4+xWApogA13z0BL3
+ FGjRuB05rZpZThu4bzFYlWl1eznAVX/FdiA2AHYosRZzkJZCSKJ+xgDAlpJ6HAx1jF0iVzN+t
+ oXhii1jolnqROUJcvvrNWeZX6KQgGYsp/Lf4+o2Wwh2eXa+T4CzY+vwDTIG9U4Rx0jAUbPWlQ
+ A8aSt8FG46yZIOjQg8wIJYtpYdF/uAPO/9u4gA2kSAZ/n7s37xxjQ8BSI8U6tKQzhQB3aGdLw
+ 9V5i3lT9PO2F4BgRKbAha9O0H8e+31BXIz/oDAzSPTNofC77SaIb0CkrQFa43FWTtcp9Fo03G
+ mxLpjI4eA+PgmNHRhZhCXimZQEVRhFlEUxkWanUAbtE2d7+HrHntDMCz4kmGxRBT5vA4hs6lO
+ jvliKangOLTSQl2/igvvpPG1cdCWty80P+Y7x0mt9767oYWKGvtzJ6VttkXaik8Tr5uncyF73
+ T7wEv6mU5AHIRBRDn/hR0/J8E/uUrN6a1UltyN6rd+CcMYPsZMI7vSt0tAj8+HU0d5pUq3+El
+ lyRdMDZiFR9k+aTJ/2BDGTXrhX4ZgEBEaMYrY1W+3Z0LLJGCPXfewN2mM4V6jvXA0UsvcG6SD
+ tSY/NI/rvxAC4IEVpVcgReJjHoWkK96oxQw769tQGdEW0JFPoeNtgHwtG5W5QMSV04hNdK/Y6
+ 99KLnEa4TZBaIGFUkLfP60iWHrMTWkkfkk7FIuq9lDlWdlaWgHOojkS+KU3MtTCGpVuaCpmJ4
+ pHGjediehHO0bhcbGKPUCB9iVJaq4wgzeK6lvg1TzSRLSCH8GgpoSQOZZkka+JjX6d+n5W/11
+ YagakHkWnypgSGOqXjD4MSJlrGrXWeZq8CyRQ/ckqsp8ozuOhcFT+D0eZ4t6PTaijIg2vzsUt
+ HzqJMIQvCxbilzsK5Zft8+5QiiXtsdriu8+/tAOScZUQPpkF/WFeYJUVSnGEQ7KxPlgSM8d7B
+ 1rTJvqVZYhFe2e29MpfC1u9nNXZ3etA/3HOoUskfnoWlxey3El1ANyinv31egxvUA8CrKHAeu
+ U1kpMtzmrXLFBA+kA65TBzot6pfkg6cy/eallzbEJzATh7ko2hTLJbHjLMpQtGSMeTehRhiUz
+ NOibW97dWZq/b4XdrrO1mcksmQuIByrA3rYJKXtMlDmzE2IZ0EzU+oa6cgQVDDCvENbRrxZ6q
+ uIWUxn5a2VmRKJcljZ3uYOg6msGtkpLgXkOiRq6dniPX0Ntqx+yb+HCsln2+qH4bR+onjmwQy
+ WnIcjVEn6Or0lUogHgsLTEFMGSvGqLcJBTRteJq58NkRQSqf4P+MrzPBmmCTNPQB+zCzbp+FF
+ 5fIknEkuAM7/k/KjM1gKegVzaVHEyqecxwyok5acNKQdVrOnC+i7h5jWKX7iN7NGLbwYpEMQn
+ 3qDG+qKBWgkf/rcPdg+C04imV0KkpijphU+fvobNZRffI/XK0QYn+R0ddqCAIM6gqqr5TEBVw
+ IpmONM25REfkWX5jSNDFKOYC/9peCvKosmQ+md44Ex6npxUsFVLhwAt6oeqBWnHmfS0S/tOjk
+ oH7ak3tlQnjZZRaqCKoGkrP75r6RKdFFV/4Ds6BnizGjvjQuw5Yxc+EV+d53NsXn7Fnts7Utv
+ qXU1/BXeEt5qra2Lsef8WLfZKpb7OcRfYkAHqM7ajQpjVagin9xMJZO69IkRWCvLmjFTSb1oD
+ BHFasaRvAf+cbQsJlySOovyYjEyNsyjdwTdffFsjnAQHK5bbnUpfDJIo21lN3KL+MAMSBWRwm
+ BUBF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_123943_593673_B4B53414 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20260218_124354_145164_8779312E 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,66 +111,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: dubito@online.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous SPRSP36J datasheet recommends to set ti,otap-del-sel-sd-hs
-value to 0 for MMC1 and MMC2 interfaces. These values were updated in
-kernel 6.5. As a result we have some occasional regression with ultra
-high speed DDR50 SDXC cards while mounting the rootfs:
+Hi Cristian,
 
-  mmc1: error -110 whilst initialising SD card
 
-A similar issue may occur with u-boot after a reboot while
-initialising the SD card:
+Am Mittwoch, dem 18.02.2026 um 22:15 +0200 schrieb Cristian Ciocaltea:
+> On 2/18/26 3:22 AM, Cristian Ciocaltea wrote:
+> > On 2/18/26 2:52 AM, Cristian Ciocaltea wrote:
+> > > Hi Thomas,
+> > [...]
+> >=20
+> > >=20
+> > > Sorry, I somehow missed the following warning message, though it has =
+been
+> > > already present in all the logs you've sent to me so far:
+> > >=20
+> > > =C2=A0 rockchip-hdptx-phy fed60000.phy: PLL locked by unknown consume=
+r!
+> > >=20
+> > > That indicates the PHY has been preconfigured by an external componen=
+t
+> > > (e.g. the
+> > > bootloader), which is actually a scenario that I didn't verify.
+> > >=20
+> > > However, this just another way to expose a limitation of the current
+> > > approach
+> > > for managing the TMDS character rate: done via the Common Clock Frame=
+work
+> > > API
+> > > instead of the HDMI PHY configuration API.
+> > >=20
+> > > As a matter of fact, it was actually an item on my TODOs list for qui=
+te a
+> > > while,
+> > > but blocked until recently due to several dependencies waiting to be
+> > > merged
+> > > upstream.
+> > >=20
+> > > Hence I took the opportunity to finalize this task - please give the
+> > > following
+> > > commits in my rk3588-hdmi-debug branch [2] a try:
+> >=20
+> > I've just realized I introduced a regression while doing some cleanup w=
+ork,
+> > hence
+> > please ignore this until further notice.
+>=20
+> I think I got this working properly now, at least it passes all the tests=
+ I
+> could run.=C2=A0 The updated commits in [2] are:
+>=20
+> =C2=A0 fa7cd1e75aaa ("phy: rockchip: samsung-hdptx: Fix rate recalculatio=
+n for high
+> bpc")
+> =C2=A0 8048db5544da ("phy: rockchip: samsung-hdptx: Exclusively use PHY c=
+onfig API
+> for PLL changes")
+> =C2=A0 0085a382dfd0 ("[DEBUG] drm/rockchip: Add HDMI verbose logging")
+>=20
 
-  mmc_init: -110, time 67
+applying these commits solves my problems. I tested 1920x1080@60, 1920x1080=
+@50
+and 1920x1080@30. All work now. Thanks for the quick fix! And the positive =
+side
+effect seems to be that you can now take one of your old todos from your li=
+st.
 
-Update the delay values for legacy and high speed modes, based on
-the latest revised datasheet SPRSP36K released in April 2024 [1].
+Best regards,
 
-  (MMC1/2 - SD/SDIO Interface): Updated/Changed the
-  "OTAPDLYENA, DELAY ENABLE" and "OTAPDLYSEL, DELAY VALUE" for the
-  Default Speed and High Speed modes from "0x0" to "0x1"
-
-[1] Table 6-86. MMC1/2 DLL Delay Mapping for All Timing Modes, in
-https://www.ti.com/lit/ds/symlink/tda4vm.pdf,
-(SPRSP36K – SEPTEMBER 2021 – REVISED APRIL 2024)
-
-Cc: stable@vger.kernel.org # 6.5+
-Fixes: af398252d68e ("arm64: dts: ti: k3-j721e-main: Update delay select values for MMC subsystems")
-Signed-off-by: Romain Naour <romain.naour@smile.fr>
----
- arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-index d5fd30a01032..418e6010ef1f 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-@@ -1643,8 +1643,8 @@ main_sdhci1: mmc@4fb0000 {
- 		clocks = <&k3_clks 92 5>, <&k3_clks 92 0>;
- 		assigned-clocks = <&k3_clks 92 0>;
- 		assigned-clock-parents = <&k3_clks 92 1>;
--		ti,otap-del-sel-legacy = <0x0>;
--		ti,otap-del-sel-sd-hs = <0x0>;
-+		ti,otap-del-sel-legacy = <0x1>;
-+		ti,otap-del-sel-sd-hs = <0x1>;
- 		ti,otap-del-sel-sdr12 = <0xf>;
- 		ti,otap-del-sel-sdr25 = <0xf>;
- 		ti,otap-del-sel-sdr50 = <0xc>;
-@@ -1671,8 +1671,8 @@ main_sdhci2: mmc@4f98000 {
- 		clocks = <&k3_clks 93 5>, <&k3_clks 93 0>;
- 		assigned-clocks = <&k3_clks 93 0>;
- 		assigned-clock-parents = <&k3_clks 93 1>;
--		ti,otap-del-sel-legacy = <0x0>;
--		ti,otap-del-sel-sd-hs = <0x0>;
-+		ti,otap-del-sel-legacy = <0x1>;
-+		ti,otap-del-sel-sd-hs = <0x1>;
- 		ti,otap-del-sel-sdr12 = <0xf>;
- 		ti,otap-del-sel-sdr25 = <0xf>;
- 		ti,otap-del-sel-sdr50 = <0xc>;
--- 
-2.52.0
-
+Thomas
 
