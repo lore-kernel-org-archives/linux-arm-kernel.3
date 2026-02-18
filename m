@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239ADE9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C9EE9A047
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MoTbc/oD0OyhhEGqv2giwAcUy2p9JS4wITvmke3ZLCc=; b=B/0YDVLqO8DFsPGdXrgNsuJsvx
-	D3MMhox+3abEE5DnjCTJT94zBKlkqIIpfSz/omFZzG8X63SBFzBlthTwd8oix4HleC0IFIBGUjOhq
-	wnTe8/2zz2aO7BptS7FDqXY7fi8EjTnl+yL7qVpnfQQ22Jbj/CqKDO/AMDpUvgCDJGF4JNEICX9cX
-	EIyo5U/jvU7Y3sk3+M+obiHesQRuXtcR5FkRkIELW8G/10j85OqLTb7WXZzpu9vP1k6noVTLViA7P
-	RLbDuHVIYsOT1k+GLvuhKaLxTCNnrOewfgDMAik61IynJauDKFwhXfEKEUSgosbz6M8RJqBQriHVy
-	0D+Glktg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Vct5iZGd/imATYwEFgUO2YyJOrdt2X4AFQLzoSzucfM=; b=DhPrTCku7J/nuUUz2uarlZ/nmI
+	8VZM80Tz6/lkFv1aId1Js286n71y9gaJmml3s+lYK5fqCodpxj0ylFwXenXnNzSnGCzHuElygKDO6
+	hTZM8riAPWgIrC6S1LlADT1lhPAKITfXKrIqQgFCcbNl5knKTt9H60TB8hjeVKq1l+/tnTeW2KvCr
+	445H2nX3gt4MYnQm24PjZ41fIn1m+i5O1DiH4PZono0MVSZAnA+PXA9cXRvQkEdJmT1U0sh6LNprz
+	n2taG5a0JIcmE79OPBrHGhRuOUhttCdVoFwvGHC8jV57Nh0z7iXSnWXbdglFxLcwqJPBW4ofMSOv/
+	GOCpkv1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshXR-00000009rNk-2IxL;
-	Wed, 18 Feb 2026 13:24:21 +0000
-Received: from mx-relay99-hz2.antispameurope.com ([94.100.136.199])
+	id 1vshY3-00000009rpl-2A1M;
+	Wed, 18 Feb 2026 13:24:59 +0000
+Received: from mx-relay123-hz1.antispameurope.com ([94.100.132.115])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshXI-00000009rE7-3GLg
+	id 1vshXw-00000009rkq-0Nvm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 13:24:15 +0000
-ARC-Authentication-Results: i=1; mx-gate99-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+	Wed, 18 Feb 2026 13:24:58 +0000
+ARC-Authentication-Results: i=1; mx-gate123-hz1.hornetsecurity.com 1;
+ spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
  smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
  header.from=ew.tq-group.com orig.disposition=pass
 ARC-Message-Signature: a=rsa-sha256;
- bh=MoTbc/oD0OyhhEGqv2giwAcUy2p9JS4wITvmke3ZLCc=; c=relaxed/relaxed;
+ bh=Vct5iZGd/imATYwEFgUO2YyJOrdt2X4AFQLzoSzucfM=; c=relaxed/relaxed;
  d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1771421042;
- b=bB0R3aSOudSkPu3YnGPyIBvPeACbiVBzRxPstWlwYWQGG/ys2ABRh8PLEIDwQaPvPYPq0li7
- zdpnB88cX94RmkDRNW796g/Sx6rJadPaA2QL+cdzA1RRqQzqWbc4H8ovrPYfvgYnf/CqUPd13Mo
- kpRslQlRHidwyCD7AO12Rn7ZPjhEthmKSi53JXmlec0EX5EhariftKDN9PugXk1MSSDQFLsuYkU
- 3YbsRsOTpVp0uiGhKfK/xfD018oFBEfgIdGx3LrqjDEa7ehLHB7w7XuurCtCs9/AelVggBfGTQt
- Inb866N0VnIboMCa/qAuBrdj+Qe/nzleKBGOl81WhPiYw==
+ t=1771421081;
+ b=eRzLut9/W5i845M4IrKxBkioQj0KjOMWasHjJ5V/iVDqwoMrOIm+C7k3j5p8CL9QpcYAZdVD
+ HTahhq6PNdxSEbuazj2okCNo8ruprVdZBhpWoM9F2TURddp7//J8UbDKJEJvwJWI4fXwXA1d3ll
+ GjWEDGom1OBOX7B5iprfNltqSN31yr36GFmGs5uzM5jl6uB7zC+JRfuTkcrdCia4LSnaR2kZlRs
+ UxcQzUNvywG3tuSS3wGkL0lb6umEKtgG6d+vpPkOfRAWUD7are9FnbhT1zMqz62at3qqj3x2qy0
+ D8EoOAIA3DLqtcUO6qL1pn6Y3/i0cAS1jwTt12g+fMxCQ==
 ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1771421042;
- b=DYniTLjmj1BTPY3J2AJdgtBzxYbB1+yuopShopNS7wdoqBU3M4nX0mHLV/UTfxuh/nSaInkP
- xO8somBBiRbe4wy6AQ1F3rm0HnUIMDdlU9jgeYabPEnt9o9a/WFY0Parbrw/bBhsjG2cEOr0/x3
- aTav3Msx2Wdo3ae0/oYOV8YvxavZAjDA22rWc9M9NAMVUBVUfj7ZdznzJYEmG11MlqpP/lTDC99
- HlanlZ0HPy0bYcz5j8++YvyVn8POhBPycJpSyro+01LHxmTSuG7j3k1Wn1XRif+b6jbS38maxVJ
- LPSZOaW6nfi/q4dotfnqVp1wVZIqlPvIbgZRzQQlXD+vA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay99-hz2.antispameurope.com;
- Wed, 18 Feb 2026 14:24:02 +0100
+ t=1771421081;
+ b=B6WufFhoqLGZRlxL34jjeRcd8hoITCuIB2Diq0p3rGu38rzMAansQdSsAHLFNcNHZ9xSLR8j
+ HOMLOct3PEFleMqaE+gWiItl8n7VtqXC0NLKQpPVaEBoqFlVSeHxnPY2FdnviPsIRGPnHy48w3G
+ fFWKzSaf3PUdRTHfdJEv1ncQ06ynq0kbQ7YV92RYxHwmLPM+yLgbcu7bmSecoaK+FDP203/zZD/
+ OqUKnQKnFQzTsy8s1uITFfdjwZhY9cK7fzJ+gIDbSIaMzZLsuCXyKUh2veKGgqAjb6OGZNhn4VA
+ CVQGuN7D5RaLGFP/Uz0uAyAW4ugcnNLoUSt/YD83ssR5A==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay123-hz1.antispameurope.com;
+ Wed, 18 Feb 2026 14:24:41 +0100
 Received: from merchelm-W2.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
 	(Authenticated sender: max.merchel@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id D5AFB220714;
-	Wed, 18 Feb 2026 14:23:44 +0100 (CET)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 30899CC0956;
+	Wed, 18 Feb 2026 14:24:28 +0100 (CET)
 From: Max Merchel <Max.Merchel@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
+To: Frank Li <Frank.Li@nxp.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>
 Cc: Max Merchel <Max.Merchel@ew.tq-group.com>,
 	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/4] ARM: dts: mba6ulx: add boot phase properties
-Date: Wed, 18 Feb 2026 14:23:36 +0100
-Message-ID: <20260218132339.32157-4-Max.Merchel@ew.tq-group.com>
+Subject: [PATCH] arm64: dts: tqmlx2160a: correct spelling of TQ-Systems
+Date: Wed, 18 Feb 2026 14:24:25 +0100
+Message-ID: <20260218132426.32293-1-Max.Merchel@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260218132339.32157-1-Max.Merchel@ew.tq-group.com>
-References: <20260218132339.32157-1-Max.Merchel@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-cloud-security-sender: max.merchel@ew.tq-group.com
@@ -82,23 +76,23 @@ X-cloud-security-crypt: load encryption module
 X-cloud-security-Mailarchiv: E-Mail archived for: max.merchel@ew.tq-group.com
 X-cloud-security-Mailarchivtype: outbound
 X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay99-hz2.antispameurope.com with 4fGHJx4N4Fz28mW9
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay123-hz1.antispameurope.com with 4fGHKm5Mmpz2mZGl
 X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: bfaa624291ef2e7c54e646dbcffdbd37
-X-cloud-security: scantime:2.078
+X-cloud-security-Digest: fafd118ef6036930a1a51b8f197bd6b9
+X-cloud-security: scantime:2.384
 DKIM-Signature: a=rsa-sha256;
- bh=MoTbc/oD0OyhhEGqv2giwAcUy2p9JS4wITvmke3ZLCc=; c=relaxed/relaxed;
+ bh=Vct5iZGd/imATYwEFgUO2YyJOrdt2X4AFQLzoSzucfM=; c=relaxed/relaxed;
  d=ew.tq-group.com;
  h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1771421041; v=1;
- b=fRq4RY+gChcZsaJcaSSbiu2JKTKMA2s/IUAR0JoNJPj84z8NUsN7e3jif0fTiw3DPG/cG3PO
- gcF/M4j3bKU+iBEpyzXFLWfnCEdm86ZOvj9DTpY6gG7pIkSRn8A1NCuAv7barGZhG20jeeKpnCf
- 6TDXD4ZDHvRhrPIHQCqGNYZ3ZsEbMEodM4BiJ/CdZC3vPJq2cIgATOXdQ1Id0+jP4+e6LlDV1fB
- L7WNWjFgqwlEWxm/pEcQ7AHikl36EJTODYKM0DOcnA0g482M0gGLMWFzqyMe0J4YRUK0P2oQMfX
- 81M0fm5GwS1yuampUHAmfNnSTnhj/AWXEfUGXRIVdPKbA==
+ t=1771421080; v=1;
+ b=IzKOhWWd5aH42F2tWUAvAX4cIv4J/rYoZmRQvDR2LSAcz0guNuhyjU7BzQjWUGorS37AXaZT
+ bRBxQm9lY7AkohSjIxhKkPUN7CXIgIW9SaSyxp88r2l2MwMvHRClGYMFB4YJY6LCXT9VmwGl1t5
+ yxRO1G407ilVEHO9NVtrJLhc/oCSizo2xptzs1wR3iWB44zgT8wMW+vtux7BMSjX/zRqnNshkkc
+ NUu9tXkV/oNa6qmefmY69CA561ZPt8mRznQDYXAwjrWiTYx1rJWKmBiT9kla7qYdWmGnrLz8bm6
+ BftkEOUfTIOSAfFQWF9o83RHMyoctI1sOo6JR63cTeFQg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_052413_532351_FB6B2408 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260218_052452_297745_0CBCA20D 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,65 +107,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add boot phase properties to MBa6ULx device tree.
+TQ-Systems is written with a hyphen. Correct the spelling.
+While at it, remove "GmbH", as the legal form of the company omitted
+in the model name of other TQ-Systems hardware as well.
 
 Signed-off-by: Max Merchel <Max.Merchel@ew.tq-group.com>
 ---
- arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts     | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi b/arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi
-index 65fde4f52587..1fda60d62ffe 100644
---- a/arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi
-@@ -95,6 +95,7 @@ reg_mba6ul_3v3: regulator-mba6ul-3v3 {
- 		regulator-min-microvolt = <3300000>;
- 		regulator-max-microvolt = <3300000>;
- 		regulator-always-on;
-+		bootph-pre-ram;
- 	};
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
+index f6a4f8d54301..48b23f474fbf 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
+@@ -14,7 +14,7 @@
+ #include "fsl-lx2160a-tqmlx2160a.dtsi"
  
- 	reg_mba6ul_5v0: regulator-mba6ul-5v0 {
-@@ -336,6 +337,7 @@ &sai1 {
- &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
-+	bootph-pre-ram;
- 	status = "okay";
- };
+ / {
+-	model = "TQ Systems GmbH MBLX2160A Starterkit";
++	model = "TQ-Systems MBLX2160A Starterkit";
+ 	compatible = "tq,lx2160a-tqmlx2160a-mblx2160a", "tq,lx2160a-tqmlx2160a",
+ 		     "fsl,lx2160a";
  
-@@ -392,6 +394,7 @@ &usdhc1 {
- 	no-1-8-v;
- 	no-mmc;
- 	no-sdio;
-+	bootph-all;
- 	status = "okay";
- };
- 
-@@ -399,6 +402,7 @@ &wdog1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_wdog1>;
- 	fsl,ext-reset-output;
-+	bootph-pre-ram;
- 	status = "okay";
- };
- 
-@@ -494,6 +498,7 @@ pinctrl_uart1: uart1grp {
- 			MX6UL_PAD_UART1_TX_DATA__UART1_DCE_TX	0x1b0b1
- 			MX6UL_PAD_UART1_RX_DATA__UART1_DCE_RX	0x1b0b1
- 		>;
-+		bootph-pre-ram;
- 	};
- 
- 	pinctrl_uart3: uart3grp {
-@@ -542,6 +547,7 @@ MX6UL_PAD_UART1_CTS_B__GPIO1_IO18	0x0001b099
- 			/* CD */
- 			MX6UL_PAD_UART1_RTS_B__GPIO1_IO19	0x0001b099
- 		>;
-+		bootph-all;
- 	};
- 
- 	pinctrl_usdhc1_100mhz: usdhc1-100mhz-grp {
 -- 
 2.43.0
 
