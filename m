@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A917E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 12:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3959E9A047
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 12:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H1SEXdCn6Ivy44E3s/UlBooYRFgSXnmehGPBAK+5r7w=; b=S1BZYYmSLNg83pwlcP6Mak22mF
-	M7v9EFxT0aB6Y3pMD+mD1TDy7S4tWhO9rHsQYIk2+x2DNtsGupyR6m+LqeMvRjn33Gczy/pQDgsJc
-	do+T7hgPg5i9cIL0hoI70tiewSPhNZnBhQacpnohksTlK63VeUM9jIByJiTCT7r00wYrceSIXlSKm
-	04uAXwD1ZHt7t4mSCeHI0noZdU8SD+qd6KtDH3YFStW9nC9VI7hB9ovhzjjasQ6z+3E0PZPKaFTHL
-	RqHkFABQWaYUh2Zxjkzrrf1O2YdwDZrTxT81PomgVOVCStShTjTYCKIkmD6zkRdSKIDfXSbTL0Wcg
-	IU1T5wlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CMfoICr25vJULHXEU9DptywfEfHQ/EWd11ZFFXA3TZ4=; b=XAggOnX5CCTfaVWBFysv2DiCtr
+	XKSgBsablrDVchcTsI07BkK34m4ui4DvhFuaO/2CxAu2uJtvcSDq/KIhd57pXhu7YM4aP3BjzSEwr
+	O9Aua0eTjlDQl2h8T9GmVkKkhdoBUdCQUTsHWmrAhry+6C+RQxstA9AWW4r5ghbe6Kz6qg2dptJN6
+	ORuunKgo8H76UGZojqgsm5PFWZNhIi4Jl/jLy24Pq17HUUdSCgRxUIS3GapJZfAM3G3LG8iCQ8iAk
+	Kd4jlQKtDds/4ZUFGdmLoGeEp0Wn8t5GMZmRWzftdbGXN8YG+oyu/q33laRGgPF+KkYGywb43USrv
+	Ah5D4I5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsgS5-00000009lA1-1NTx;
-	Wed, 18 Feb 2026 12:14:45 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vsgT7-00000009lV6-2pRj;
+	Wed, 18 Feb 2026 12:15:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsgS2-00000009l8D-3BSi
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 12:14:44 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id B79A61A1101;
-	Wed, 18 Feb 2026 12:14:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8B45F60738;
-	Wed, 18 Feb 2026 12:14:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BB03810368B5D;
-	Wed, 18 Feb 2026 13:14:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1771416878; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=H1SEXdCn6Ivy44E3s/UlBooYRFgSXnmehGPBAK+5r7w=;
-	b=HYTBvtLMo0ZI1vTmR3shXPdXnQSaLhlps7FOcyorYrgRXMTUk3zc08EhkeCDdsPXDollAH
-	wUscZMnh7Z2pdfMI0cNNN3NGXBn0pRc6R4BIwenYaV7G62cZOFca+FqCGHGf6foul7WObY
-	GgJtZWzZim0ZGTnRsJYoQlMW2q06dXb9ee3f1CwSYfehu0pnlJEa5VKn7/W7t4wX0ByweI
-	kiB/LFKr8WFqi8AKUaDvl5Az/3bxmfZTrRKkMiTwhjc9R4x1Vp0aKL0olbGxn2zAa+E3It
-	z1Y9JKzH8DUP5ybferD/yQqjdn00yhKc4qx9g4UBWcUcQkkYhP0ifv5Zwh7Tvg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Feb 2026 13:14:36 +0100
-Message-Id: <DGI2VIKQYD6Y.2R4TM6UD58OSU@bootlin.com>
-Subject: Re: [REGRESSION] Re: [PATCH v1] ASoC: rockchip: i2s_tdm: Re-add the
- set_sysclk callback
-Cc: "Detlev Casanova" <detlev.casanova@collabora.com>,
- <linux-kernel@vger.kernel.org>, "Nicolas Frattaroli"
- <frattaroli.nicolas@gmail.com>, "Liam Girdwood" <lgirdwood@gmail.com>,
- "Jaroslav Kysela" <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>, "Heiko
- Stuebner" <heiko@sntech.de>, <linux-rockchip@lists.infradead.org>,
- <linux-sound@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <kernel@collabora.com>, <alexandre.belloni@bootlin.com>,
- <thomas.petazzoni@bootlin.com>
-To: "Mark Brown" <broonie@kernel.org>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20250117163102.65807-1-detlev.casanova@collabora.com>
- <DGB6VK7LC8N7.322SYGWZXPL5W@bootlin.com>
- <49e43733-1366-4a4a-a787-f7221b9612d2@sirena.org.uk>
-In-Reply-To: <49e43733-1366-4a4a-a787-f7221b9612d2@sirena.org.uk>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1vsgT4-00000009lUQ-42w9;
+	Wed, 18 Feb 2026 12:15:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BF13C407E7;
+	Wed, 18 Feb 2026 12:15:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31118C19421;
+	Wed, 18 Feb 2026 12:15:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771416945;
+	bh=CMfoICr25vJULHXEU9DptywfEfHQ/EWd11ZFFXA3TZ4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CS2hMCuaN/8Ioi7cWg7F/BI7xAIrCVt7pqw22ip7EXsHh2HkOngNgTItqKBdBKSZN
+	 PuvEUOGJhMDa7zf4Szyar2n3kXf+EDRiK8cLNWFEln3rI5tN11fW/5VxvYJoUQzU6K
+	 ULN1P75IFUJw1hpYwA3c0+v8mhYWR6iZ5/h/GEWoWkHLkDx07oXM6YVmOH9DyX4/EC
+	 pPaX3vwMTxii9k1A5s0KXFEB0pD8G9ZmG0nW3FC1VHuhujA/PHXqC/qtxJ8EfVm4ip
+	 lSM7LyG7bEUuuhPmjSh+ucBzjSSncoLAwMDchIVoNtjzUnRJ4yxSGHCwEZpY4CZTuv
+	 8xiRO/BnZ5Acg==
+Date: Wed, 18 Feb 2026 12:15:40 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] Revert "ASoC: rockchip: i2s_tdm: Re-add the set_sysclk
+ callback"
+Message-ID: <6ffc8939-147f-4b2f-a8cb-63a388d3dad4@sirena.org.uk>
+References: <20260218-snd-rk3308-i2s-revert-set_sysclk-v1-1-79ab787f88ac@bootlin.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tN0IzqP3xmtYQ7S/"
+Content-Disposition: inline
+In-Reply-To: <20260218-snd-rk3308-i2s-revert-set_sysclk-v1-1-79ab787f88ac@bootlin.com>
+X-Cookie: They just buzzed and buzzed...buzzed.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_041443_129789_1D418F79 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260218_041547_022073_7386AAC1 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,24 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mark,
 
-On Tue Feb 17, 2026 at 8:22 PM CET, Mark Brown wrote:
-> On Tue, Feb 10, 2026 at 10:54:04AM +0100, Luca Ceresoli wrote:
->
->> I'm afraid I just found this commit breaks audio capture on the RK3308.
->
-> Can you please send a revert explaining the issue so we can drop the
-> patch (unless a fix is forthcoming which doesn't seem likely right now,
-> we can always re-add the support later)?
+--tN0IzqP3xmtYQ7S/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Thanks for the feedback! Revert patch sent.
+On Wed, Feb 18, 2026 at 01:11:24PM +0100, Luca Ceresoli wrote:
 
-Best regards,
-Luca
+> This reverts commit 5323186e2e8d33c073fad51e24f18e2d6dbae2da.
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Please include human readable descriptions of things like commits and
+issues being discussed in e-mail in your mails, this makes them much
+easier for humans to read especially when they have no internet access.
+I do frequently catch up on my mail on flights or while otherwise
+travelling so this is even more pressing for me than just being about
+making things a bit easier to read.
+
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
+
+--tN0IzqP3xmtYQ7S/
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmVrWsACgkQJNaLcl1U
+h9CiRwf/b/PyM6sh+/IY6KcTy577bNhqdqaZ3r+FuOqbpZngqzuc09sJKu284k1Q
+vuU3JJ3he28hEUSwkazGVpEiLAWvGxNP3MPFuCgDGqtKb5fYCXORj8EX4ilVBiTE
+dYC9oAab3VILGDf3lHQlPG3B/ZunIYQGdITIdmgHHsJ2Uet9TLEGEm7uhUZQybCp
+jXzXTlRRh4Vx5oArEOWKIZdUw4IxtGQD7iLwG+N6Pt3L13d/8WG+XVgIdTzpMU78
+SqviGJyfrH05JA4w3vlg1IXf/K9UYQ361nHhkCI2YQVlI6IokGh7eqr3LAzwQx/3
+bkKavE7823h5HkFxYwH0lviYWdSTUA==
+=y9au
+-----END PGP SIGNATURE-----
+
+--tN0IzqP3xmtYQ7S/--
 
