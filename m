@@ -4,106 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE60E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 19:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AADE9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 19:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vyMxpvvTJYq9xnXGmUEXG5NaixRw7pvYbxgtdIOwTqM=; b=Oi332jYDO5DxIfKqWC65TGcBnH
-	G7Xxp0vuL2x8UrrdzgQZ+17PQSN3NtHrdU/8ITQH+veB6TumXTeDM7gtk0ggKuOZiWoEdzdrnTPIj
-	xnmZwVFiFaAZ6OGgO0dmmfRIEHQvMCKlCq/uX2StOXDiwd1dTlguin8UJzWsAiOAS8ILXYmYwjjpk
-	nauPpy0neshhgbJYC2QZd1arnHIknPuEe2jVU9nqsUVgJHivY8UXNUq01dqCLdB5wzEUHKKxPPi3N
-	e5lbQvMDQBMDNpQjdepuOIFD1WvUH0MWh4KvNexhBpf/4X9TI2eCx+GrywQmdiG/ziEWxPEd5GWSv
-	S8xojrsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=svL/MVE45yAa4Rv2gnGYNsODdRTyArya6vwrj4Wieu8=; b=M1x+nc908EcIao7DN0FJO6O+86
+	RUrxPAVdeOxXZ0pnRZ0O6X8LGgR6AgrTtAyWdV86u+JHvNhDA8gIbwTPtdFHFJ1aVxRxsI+XJWzhX
+	pUO9O1VySQCqwXhqv+dduSDCZ/SydkUP0PsZ1QTZY97gB6hLpl8JsyR+tyAgri6AKoGb12kT+yQ1L
+	FfdGXhXZ+CawUfwpp9AozsJc7au0T05XUtsFpYwo3BrcheV8Q65ixG+vxckAKfne4dEXfoRmx5qUC
+	gta2Qo3XsPNpn1CTCxWZUicfEGz4WZ4y6iXKV6WFT300f0xlqn9OujdFBqZ0sb0tLoPC6ETReQi9x
+	bKfKsoQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsn4l-0000000AIUs-18mR;
-	Wed, 18 Feb 2026 19:19:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vsnJy-0000000AJeU-0Wu7;
+	Wed, 18 Feb 2026 19:34:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsn4i-0000000AIUT-2voV;
-	Wed, 18 Feb 2026 19:19:04 +0000
+	id 1vsnJv-0000000AJe2-1pbY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Feb 2026 19:34:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A4E06132F;
-	Wed, 18 Feb 2026 19:19:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 366E1C116D0;
-	Wed, 18 Feb 2026 19:19:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 44EEF4453E;
+	Wed, 18 Feb 2026 19:34:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44E97C19423;
+	Wed, 18 Feb 2026 19:34:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771442343;
-	bh=+O6JjtDT2lKOPEsvplsOJA6a/T/tMwaknNIpRkTFfC8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DPACFmAc91rsHy+ztFdlKU0wmmKMzpZgGwtTb3EuaXHNq2VaVDJE+9v8tdnd1wYg7
-	 p0oe9LlHeJsxZdHx9yxOZhQseyX5EawOC7PBVbKZ3/RX2nzunVPxa9xor1B+jwzVLx
-	 leis0ZdlgqdOZ7xFl2gtNoQIxycmcaxYzm86rz4g2lwgbbx0dK5DQEDWDwvD59BSiq
-	 GSc7ZzgyfkorxkuZM7jxiO9l5VpJzfkCw4fF8VUCmsWQc04VkhTPhG2BtsF5YYLoQk
-	 Iq8B4xnoLBFPVsldytSnz5gGSzPXeKT6RyrbspbBMxYKtsBjMBeO39GFA7YiZYIqas
-	 ICUGJ34dgXOdw==
-Message-ID: <e4c1d900-2eac-4d8f-814d-5a06dea472fe@kernel.org>
-Date: Wed, 18 Feb 2026 20:18:59 +0100
+	s=k20201202; t=1771443286;
+	bh=IG31AiFfOJUmSLuowWqXZKSA/8W07j+Lq5NnL99uB8A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E7wyd/ey2rAalvxmE041e3AXOiw62JALEwyCCO0BepP0YD5mpKXPR91FZqPzRUiao
+	 Gx41laxTi8PtkPX9L8YgaBbBiuHy0djgADSP2ywQ4X4QbEQGUPlDSbHErzX+b1JE08
+	 BgeuiFk9JiXLavG0ORKGNsiNtreM0p/2oHq+nhh+2uKt+wr+OBMTdnisqMH6MO5rlX
+	 D6OQrvObM+/fAGvqwjzlO6ql4yQw999A7bCwFbhhGv4uoBQpqxTJ+GkUEbJGxyOnl/
+	 CLVDxBWJTHpdH1WabqvMoPtCdODdyaxpG2JmO2vsOCyw9XUz87sYawOIXYBjLBK3X/
+	 KUwhw8WcMbeUw==
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 3A2FDF4006C;
+	Wed, 18 Feb 2026 14:34:44 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-03.internal (MEProxy); Wed, 18 Feb 2026 14:34:44 -0500
+X-ME-Sender: <xms:VBSWabUJHK8dHyAhIXPwg5eDXaaguua-NScAB2_pxgEDGjVQtzZVyg>
+    <xme:VBSWaR-q9_uMavDPPvIdzhPjUUWsuCTBY5aQuAsqxLRdeKAVq41UD91YmAeYiJZns
+    KSIdCCl-Q2-hiV2aLhgAQxFDSJcBQjW081gIP7mhX999RUqHvTVNA>
+X-ME-Received: <xmr:VBSWaTYCS_03rd-x1HoflHhVCJtI14EZ2BwZYl5--115uM6_FUdvWiLivrOpU8oRWUhgZMMtuZKzD-1Ui1KpwqgxPDVUxU_S>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvvdefgeelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtrodttddtvdenucfhrhhomhepuehoqhhunhcu
+    hfgvnhhguceosghoqhhunheskhgvrhhnvghlrdhorhhgqeenucggtffrrghtthgvrhhnpe
+    efhefgffelkefhheeifeeggefhgeeuieevueegfeeugfeuffeludeuhefhleeggeenucev
+    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegsohhquhhnod
+    hmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdelkeegjeduqddujeej
+    keehheehvddqsghoqhhunheppehkvghrnhgvlhdrohhrghesfhhigihmvgdrnhgrmhgvpd
+    hnsggprhgtphhtthhopedvtddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepthho
+    rhhvrghlughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgtphhtthhope
+    gurghvihgurdhlrghighhhthdrlhhinhhugiesghhmrghilhdrtghomhdprhgtphhtthho
+    pegvlhhvvghrsehgohhoghhlvgdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvg
+    hlrdhorhhgpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgruggvrggurdhorhhgpdhr
+    tghpthhtohepmhhinhhgoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhglhigse
+    hlihhnuhhtrhhonhhigidruggvpdhrtghpthhtohepsghoqhhunhdrfhgvnhhgsehgmhgr
+    ihhlrdgtohhmpdhrtghpthhtoheplhhonhhgmhgrnhesrhgvughhrghtrdgtohhm
+X-ME-Proxy: <xmx:VBSWaZcLENvDLqm_2hJn0V7OUA0gz_Z-1GPA_eqQLgXP3whZniAB4g>
+    <xmx:VBSWadq6PFsAAe0StSnSlkSlpTB743dcysE__bTBhfRH2p9XIFD9fg>
+    <xmx:VBSWaQAfwn9YlJgs0mk80JzdcG-78IN4xS307UiWo7pKC-wzul8b5A>
+    <xmx:VBSWabVAO-Ci5MxtBxXEhjh5vqLZeHqots1U2mxMjnnA_Opbd5HRKA>
+    <xmx:VBSWaU7cCvACd46tKHb25Ea1JYK7u1ScdLO_jYXbNQipBrcfU1E0uxLk>
+Feedback-ID: i8dbe485b:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 18 Feb 2026 14:34:43 -0500 (EST)
+Date: Wed, 18 Feb 2026 11:34:42 -0800
+From: Boqun Feng <boqun@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: David Laight <david.laight.linux@gmail.com>,
+	Marco Elver <elver@google.com>, Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>,
+	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Alice Ryhl <aliceryhl@google.com>, Gary Guo <gary@garyguo.net>
+Subject: Re: [PATCH v3 3/3] arm64, compiler-context-analysis: Permit alias
+ analysis through __READ_ONCE() with CONFIG_LTO=y
+Message-ID: <aZYUUsROBSpoPtav@tardis.local>
+References: <20260206182650.6c21b0ff@pumpkin>
+ <CANpmjNNFXdMM6cL+HBsiXr2WUA=mttR1jDRMqNYD7+YZs6vRKg@mail.gmail.com>
+ <20260215221656.68b2fc1d@pumpkin>
+ <CANpmjNOnOqq2k41=iNsgZLXAzspVQhcTZ88Nvms_c_0M+7b7YQ@mail.gmail.com>
+ <CAHk-=wioS+vB8aBxWBgdEfXqDq5Ynr9gyY=GhU7gxO9G_C+_6g@mail.gmail.com>
+ <20260216110915.4f0d5490@pumpkin>
+ <CAHk-=wjJQQfWpAxigafuyrgxg8CdQWSimVYMk16_j0vWwEkjag@mail.gmail.com>
+ <20260216174324.75d47e37@pumpkin>
+ <CAHk-=wgQ8DOxaNY5cBWg+sUkM5Kk6rKYGRHXsZQLtknO_UX+QA@mail.gmail.com>
+ <CAHk-=whFGxN0nUffzCsR_NZnQ5TTu+8QFGSfca1j42kDK1a1tw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] arm64: dts: amlogic: Add clock and EMMC for T7
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
- linux-amlogic@lists.infradead.org
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260218101709.35450-1-linux-kernel-dev@aliel.fr>
- <20260218112036.36905-1-linux-kernel-dev@aliel.fr>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260218112036.36905-1-linux-kernel-dev@aliel.fr>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAHk-=whFGxN0nUffzCsR_NZnQ5TTu+8QFGSfca1j42kDK1a1tw@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260218_113447_522090_9BBF6903 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,21 +125,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2026 12:20, Ronald Claveau wrote:
-> +
->  			uart_a: serial@78000 {
->  				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
->  				reg = <0x0 0x78000 0x0 0x18>;
-> @@ -276,6 +390,21 @@ sec_ao: ao-secure@10220 {
->  				reg = <0x0 0x10220 0x0 0x140>;
->  				amlogic,has-chip-id;
->  			};
-> +
-> +			sd_emmc_c: mmc@8c000{
-> +				compatible = "amlogic,meson-axg-mmc";
+On Tue, Feb 17, 2026 at 08:32:32AM -0800, Linus Torvalds wrote:
+> On Tue, 17 Feb 2026 at 08:23, Linus Torvalds
+> <torvalds@linux-foundation.org> wrote:
+> >
+> > But last time I looked at it - which was admittedly a few years ago -
+> > the compilers we supported didn't actually do anything reasonable here
+> > (ie the built-in atomics were fundamentally worse than the ones we do
+> > by hand, and even basic things like __atomic_load_n() weren't
+> > actually; better than just using 'volatile'.
+> >
+> > Maybe that has changed. We've upgraded minimum compilers since.
+> 
+> I  just checked a few test-cases, and I don't think anything has changed.
+> 
+> All the trivial things where __atomic_load_n(__ATOMIC_RELAXED) *could*
+> do better than just our old code using "cast pointer to volatile"
+> resulted in no better code generation.
+> 
 
-This was already sent and I already commented here.
+By any chance, could you share the test cases? It'll be really helpful
+to represent what semantics we really want to compiler/language folks.
 
-Best regards,
-Krzysztof
+[Cc Alice and Gary]
+
+Regards,
+Boqun
+
+> So we're sticking to that "cast to volatile" not because it's great,
+> but because it continues to be reliable and no worse than the fancy
+> modern versions.
+> 
+> But at least it's explicit in the code, not hidden away in code that
+> *looks* like it just dereferences another field in a structure.
+> 
+>                Linus
 
