@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0333EE9A047
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE55E9A049
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OkuqcMPgMhOvktAdO4R0HEr+0KhxRtMn3MM65yMphGE=; b=X6h5WfFT7v0Tquhxr0p+vXabDf
-	xqVbjT9iLSZpE/dK7jvd1HQ9YDwH9iqS6UTA95+3skwdSbZuK+Z3qmp5qRjSvNVaYNmfTS2eZnokk
-	0p3aKsy4a4fGkNBsmU2fkw/Z1XO4FTFqfIqrYGt9KGEdiucMpz6fUdD9LrhXfnr0gSaoMOA+uLcPC
-	9j2mRZu44YNjATt7Uo0gaunycmlA7vdMGB4R5LqzP9hNTzulrWy14bQi1rO6taQyA4oL90tsX+KN5
-	+FbDpbbGxyp+bxFtu6bHgqTpbB0sQkYa7mCVyOYrlx9Ej92WBYaOdkwAqq8mu9Gw7s3UdPO17rKvO
-	n/usUiXQ==;
+	bh=mGeo8dYdvtlQJ0tSEweLlRpTjA9CiDK23fAEfe4GJ3I=; b=NICkLbQ8dK88l0WGPD+DVxTNPU
+	m4aLsMCnap48BR3v3t0k8pexiB3u8kq9pOj04qFMCFFe8WRvnwYXq2IOTCmjWBRli0f+FW3KWxgaH
+	mtsjDwDMWDTbGKbFDymB1VYptUBeQxNGeEH7U0S7pX5CYXVpMp2KJ+e6MqvNRTY8y6k7TfHK7Kn8S
+	8TCnghigWOyGBP5sC3qMhFcRlr7AAYUYvSdjRsCf/wmNUrAzKuN0FaYpnAu0fqdjJQRVU1irYTOT9
+	/paRYt2R2CWc0Nin/mrLgr8xJ3h/IfDIO5mlv2CcE7h/yFKbuhi8G+Bia+g9V/oPSoxMZ2bakBj6X
+	HWAfkJdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshYe-00000009sCV-0cTS;
+	id 1vshYe-00000009sDp-3CLY;
 	Wed, 18 Feb 2026 13:25:36 +0000
 Received: from mail.fris.de ([116.203.77.234] helo=mail2.fris.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshYW-00000009s6U-3MfK
+	id 1vshYY-00000009s83-161X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 13:25:30 +0000
+	Wed, 18 Feb 2026 13:25:31 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1771421125;
+	t=1771421128;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=OkuqcMPgMhOvktAdO4R0HEr+0KhxRtMn3MM65yMphGE=;
-	b=A9BtxREd6FMLfp7RNjEc2V3SW2Q/lX2PmWk1ZcrmL5SS9WRR/JrmkZ1Ni+as3fUyufn6lZ
-	YLpJ3UgJhTvRACai4t//8PGHf3iJ0+QnQ7eqI9aCpSD2s/Vwcies8SfjZ5hyv6tVWKO+jw
-	XdD777G9VAm+BSZOMaIIAebvMHQDieprpwFyreAdJcYdTbuXrcNnGK8D8S6Z6+TkZ+ulbG
-	W2hxdUa1Za+LRFIt3XjOrE9Gh/WT1gXsc2vUsy35KpGO+N0/62uhUhRqLTlz6siFHfRfrt
-	fcyN22mecKB7AhPv3wsE8Mj9T81K28+BHKYzUv/Kcm5XLOvXn4bYYMuSlV5+Ag==
+	bh=mGeo8dYdvtlQJ0tSEweLlRpTjA9CiDK23fAEfe4GJ3I=;
+	b=NIYooHC9JWGN5V42jrdND52uDeFM87SsrJYbw+1Up4KNbOXMh4fn4USAjofro0Of1pO1DX
+	c8HkXG5rjMNWf1dVOBBE0TRjaxirYpW0v7YSYMx3QnGu4nF+JgZuMo1o2uDt8o9/nFE7sJ
+	BDISRBuIQpgFg6W1YdN+j+7EA1zaR60EyPs6Bl6dEJ54UKkYNH4vQm/8Jf0qjR+jTbXRzt
+	bc66/ZROYbtfCScYGpqqzPK/WN/GSxX4TD6yZ5wb9CaU8nDAH3vrQyRxDOTqVqsbI4XU2W
+	TVQ+m/kDM9kEDqKf+gQhaS4ttKHhaC9mXhwWdkLzd9GWjtOjFnNaXX0R1UfQLw==
 To: Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	Frank Li <Frank.Li@nxp.com>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
 	imx@lists.linux.dev,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Fabio Estevam <festevam@gmail.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH 2/4] arm64: dts: imx8mp-kontron: Fix SD card supply on SMARC eval carrier
-Date: Wed, 18 Feb 2026 14:25:06 +0100
-Message-ID: <20260218132519.74570-3-frieder@fris.de>
+Subject: [PATCH 4/4] arm64: dts: imx8mp-kontron: Use GPIO/IRQ defines in DL devicetree
+Date: Wed, 18 Feb 2026 14:25:08 +0100
+Message-ID: <20260218132519.74570-5-frieder@fris.de>
 In-Reply-To: <20260218132519.74570-1-frieder@fris.de>
 References: <20260218132519.74570-1-frieder@fris.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_052528_996684_3E964BB4 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260218_052530_472082_B8383AA9 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +79,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-The SMARC eval carrier has a power switch for the SD card compliant
-to the OSM standard definition. To use this as already specified in
-the OSM base devicetree, stop overriding it in the board tree.
+To make the code more readable, use the macros for the GPIO and IRQ
+settings.
 
-This fixes the power-supply for the SC card.
-
-Fixes: 6fe1ced5ccab7 ("arm64: dts: Add support for Kontron i.MX8MP SMARC module and eval carrier")
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- .../boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts     | 1 -
- 1 file changed, 1 deletion(-)
+ arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts b/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
-index 2173a36ff6917..74d620dd06b7b 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
-@@ -249,6 +249,5 @@ &usb3_phy1 {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso b/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
+index 7131e9a499ae1..41a2bb74f1565 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
++++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
+@@ -7,6 +7,7 @@
+ /plugin/;
+ 
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
+ #include "imx8mp-pinfunc.h"
+ 
+ &{/} {
+@@ -80,11 +81,11 @@ touchscreen@5d {
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_touch>;
+ 		interrupt-parent = <&gpio1>;
+-		interrupts = <6 8>;
+-		irq-gpios = <&gpio1 6 0>;
++		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
++		irq-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+ 		AVDD28-supply = <&reg_vcc_panel>;
+ 		VDDIO-supply = <&reg_vcc_panel>;
+-		reset-gpios = <&gpio1 7 0>;
++		reset-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
+ 	};
  };
  
- &usdhc2 {
--	vmmc-supply = <&reg_vdd_3v3>;
- 	status = "okay";
- };
 -- 
 2.52.0
 
