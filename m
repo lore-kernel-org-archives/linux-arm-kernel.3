@@ -4,53 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB96E9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04370E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XfZi0zjHTQG/jvYux/2/tRjkg8n0Q6RVN3rQcA1wr78=; b=yxzyM9mk8h3lCfHTeYSgyC1N2I
-	Lhdm316uFNzZVK3B2tebscld8Y1VH0yR5fb9CZr3/2OJh17IcQYK0MnYUFUau175ykYCtjxU5ehT3
-	5mbLGmEZj+RGxjhRz3pTtgM1yZ6zt/wYoh4u5Bj9oeQDM38y0sdUVpmWD8lOJ81yrayCArgz3v7cU
-	tESXniy6yOjwQaGXf70Ayj12X78viFJYiEswUhVecsWAlO41MkweReJTmG+yHCvrmo6H0NKn+giES
-	CobOCSQIDuhMpn5h+F1SPHqXhE2jA7ec6LjGpLAEE7+NQmlx8oOG9c4Endsvvc5HfMZFsSE69y409
-	7itrru4A==;
+	bh=F/2E0qvAj5d1ErRFXUB+oHriapqINYsaJcbHAoBpwpk=; b=j/4MIrk58cPw4Km+gUmmQclFco
+	qaguQG0+r6h4UWpFFgsc+F1VTHc+lTPtIIIkxqdT7JxZgJjDnOxcKusLwtbVyA7NXQNLDHqhEK1/0
+	PWWkqh5HzlXQdIyWqVYwDMgVYAq6hCge5RYxcoUE7acWMWdv0q2aWXepsWykFZihuIm/IO23I/1U1
+	XUZ+paMLTjZlPrYRNwLWKHkD+yPC6B8MqtECVWtn30fNsJd7K6N2pH2dmArWqNyqgD/sYMtWGgbCl
+	3ICp+eUn3y3PFFjfOF1DCHJqhI+K9kMKAFmhYekHZa/+gYdIoQHDx40DgocHfope80QwuaIlWMHzy
+	gv1tblVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskKe-0000000A4fU-0Yto;
-	Wed, 18 Feb 2026 16:23:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskKb-0000000A4dt-0qpY
+	id 1vskOH-0000000A52G-04bo;
+	Wed, 18 Feb 2026 16:27:05 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vskOE-0000000A51v-1wYU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:23:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6ADB8497;
-	Wed, 18 Feb 2026 08:23:07 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D6753F62B;
-	Wed, 18 Feb 2026 08:23:12 -0800 (PST)
-Date: Wed, 18 Feb 2026 16:23:08 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>, Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: MAINTAINERS: Include resctrl MPAM driver
-Message-ID: <aZXnbDZvzDnUKVoB@arm.com>
-References: <20260216110240.159691-3-krzysztof.kozlowski@oss.qualcomm.com>
- <20260216110240.159691-4-krzysztof.kozlowski@oss.qualcomm.com>
-MIME-Version: 1.0
+	Wed, 18 Feb 2026 16:27:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ptDJ3o3a4MI2pmPfsB/6Hm1WtjJ2J9G9hPO+zLk63bFU4ZtH+m/3K+6Wqpnzu+KEGlhwXSO6OMNrsrwQdcbnFoXbtnAo2PIOipL40WNUu+tHKuqYp9gRmaoTuGxzdA4H0iw6r/Sf11l6BE8E09msbDoh8gFOl4R9a2S8ctSEleC/rneTKuBN+Jh2Z/U4FblEO23DY9o/Uin0obvbKDwi0eCIYCmvURYoZdXJoNAIfUO2V/jHa8B9Xkto9fSXoLUiFgDqXQGSPLQ2U+DcI013h/qOffXFftVGdhIJOam4+S1kD5Vs3pjL7f7vVfJx83qYuiQryV4VvQga7mMqIPMMYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F/2E0qvAj5d1ErRFXUB+oHriapqINYsaJcbHAoBpwpk=;
+ b=Kt49ZzOFUlGbOW7EQS19q+KKEW7hK3R1wzN1CoFOGBXJgQIIvw2zTdLGLtT4fUNgYMxDwG04QVRLi2YjZ0DyKriHRr7Esp20QjYh02fimp/k3n3gSGr7lCwAOGKvgLaMbRzdwpNMPTTAkKb3IRjYa+8OdEeOPvHhXlDtfUv7Qu+yLcXls5Ylp2sVOTbu58o4tUimPXRLwyo/VTw+XHMQVj7FF7ftQhhoNiCzKBjjWOhKfancqguWtWNFod/je++f4uwqWue+VeqyaKhe5Pa3zKaLSkHoocclJpqbkmu+EmK6I2v5rlsdR2nudwLQME8eio4xR/TzqxSynoxZUkiiaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F/2E0qvAj5d1ErRFXUB+oHriapqINYsaJcbHAoBpwpk=;
+ b=EudqczG59XbJbvLQlmcnZI1XyUH40oKSgZG967HOTiyTLMSeunO2Fh6B/luIxWh38pvQoOnLt9AsH4humQDuTysBGzJbd4Ij24BZLEULpcGgU4XvJjbrWmj0uT2PzhjTfGAH27osFPLgPqEHEqOU33Rnmz2Qsu4X8Ug1ywfmPzAey6kWLdelU/DMesVhKNJ5aABeHEyRWIRGpnG9FeTALpwg81PDPPbSdy+r5WkdHz+eOgGH7OqYQttC7xDZkfiB4XckOJBjwmE9hYpPu0X5G8Uhw855JsyJ17bgJwZqh14oQii2Dr9hMxRpORcGx7KbUYU2mC5lM7R33mXDGjrePA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA4PR04MB9367.eurprd04.prod.outlook.com (2603:10a6:102:2aa::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.14; Wed, 18 Feb
+ 2026 16:26:58 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.010; Wed, 18 Feb 2026
+ 16:26:58 +0000
+Date: Wed, 18 Feb 2026 11:26:52 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Stefan Eichenberger <eichest@gmail.com>
+Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, andi.shyti@kernel.org,
+	s.hauer@pengutronix.de, festevam@gmail.com,
+	stefan.eichenberger@toradex.com, francesco.dolcini@toradex.com,
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1 2/2] i2c: imx: ensure no clock is generated after last
+ read
+Message-ID: <aZXoTGK_v3L4pc-E@lizhi-Precision-Tower-5810>
+References: <20260218150940.131354-1-eichest@gmail.com>
+ <20260218150940.131354-3-eichest@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260216110240.159691-4-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260218150940.131354-3-eichest@gmail.com>
+X-ClientProxiedBy: SA9PR13CA0127.namprd13.prod.outlook.com
+ (2603:10b6:806:27::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB9367:EE_
+X-MS-Office365-Filtering-Correlation-Id: d75c048c-7c93-4a25-ad61-08de6f0a8983
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?41xWytWZSmyGMEf9gKXuHrPaYPxzYw8dL6aAN/aE23Uyu7DmY/a6NqWyoz64?=
+ =?us-ascii?Q?56C3WJBNkoU2b5wUNxfyA8eZ9WTAbZ7qoZdolwIuzcmQkTpehW9pr1d73F+4?=
+ =?us-ascii?Q?d7cb3SdNhX6kTu1NmrZACW0PoPvwSrFzKQ3G2kMz7fVPfUl6xK4oUYp5vA2k?=
+ =?us-ascii?Q?uIa0Ns7LscJF+klOZL5TmLJ8Ipv2eSx8XhVwTI9So/5wYywnPMcE5Q6dlnZr?=
+ =?us-ascii?Q?b8LN6wHJ+FGWLiqwWPxq6jYxCyNumlvBUozPpwzTayFCS0LbFor9D2VTQOJT?=
+ =?us-ascii?Q?uxjK+ChdvTeGuibaEmlm32IlUmgF+SIEeYXRcp7yia/4XpYYkMRtLCjB9EZB?=
+ =?us-ascii?Q?ZdIIni0JYmNvzZ0zpsHQAMwDNH33RQD7PG6MGYIibd0vA57rLIogwgJSdeBv?=
+ =?us-ascii?Q?8tcOtZ9LRlq4Pr6Bbld6ebxUa/OPvHpuSW71BAj2FWzGtNi0UjRfCA38Cgfl?=
+ =?us-ascii?Q?9IoMd+J1e6J/BXCKIyfw6Nf2k4NgI+pWsi2wUFeTLW6zanJBiKha1nOGO4QK?=
+ =?us-ascii?Q?sWA6/s2fel0I1CRDnyLeDwgKdvf+Yva4ZQIGHdg39yfaF3md3HyYYURSuCkD?=
+ =?us-ascii?Q?4234WYLZpXA/yHF3zR/Bi9VBph3OgP+Umm5fcesTmAvW9atEUBN9Rt7K5xYV?=
+ =?us-ascii?Q?iDyzTIrselMhmDcT5UN61C5Of7nTnD8SjTDJbGqO0PX+kl5aS+EvMxCB+ZD0?=
+ =?us-ascii?Q?u9zm86h+fsqVuqskj8zponANrqjtuG0vkXyY0GzDEHAvUJGcU7t/ARRNlS+c?=
+ =?us-ascii?Q?vGraPBTIDERjTAT/V3VdW+Q6BggFmx3PKQxE/6mCVpQvDiurAgEY8BwM2ucO?=
+ =?us-ascii?Q?1GMXBWsnR88gzi2Sr/HFQ2aaWSIDy9NHMTfhJ3qbBDt8iFDYysNFxlurnq6C?=
+ =?us-ascii?Q?UTm75188LqFUK18AblWZxPnpFCrXOmlVNDN8APCTWYhQNCsEbgfvRDCGetpI?=
+ =?us-ascii?Q?0D5JlQ2wyDuirMhe/RAIU16AXtdCiMXLEdzvvh8vpd+Krp4LenSHC2aEXn/u?=
+ =?us-ascii?Q?jdkLICrYNNK8uRLT7uXawrWkXMoSv2NJ4XhuqTsSjl/OUCcb416hJmgXl9Id?=
+ =?us-ascii?Q?zPORAYbPwsgy9y91VYHKt1R8SVeKAQ1JbGeD3TwKiVY3T0vMLPBq2dw5oKwI?=
+ =?us-ascii?Q?o9V49ye9t8+YBaxo/wxK7JY/mlcGma3XFVuL+nrbrRnjZJSkR+1vwVPR3dtV?=
+ =?us-ascii?Q?sc0tYpUzPvkhxdZZ+aQAnQjZRtxRnmFg4nHkWqBeZMKQafcSKvViR2QdkR60?=
+ =?us-ascii?Q?qpZdfLz13H7UQ+apvU+Rvv+jAISBwubMFxmFKVhML3gwhN5reEm8xpmCvesO?=
+ =?us-ascii?Q?vd8XdRLXZm8HTcGooRujO9KgF2WLlnuTvbo1AyozbYE21FJ56QUV+quwjVF+?=
+ =?us-ascii?Q?dbTGp68GEiDLExcMBx9AJgL6Ma6Mr6MKKRmbSjW2HDPr9I8+GzgR7kvoBEX+?=
+ =?us-ascii?Q?9f6UTtnZ7ZlzJnEPH8K0epLVYVJjTx2f15y1PBlgXRBZ2Fz9ESOV75626abF?=
+ =?us-ascii?Q?hndcBmzrNnhhItxNDqkzhRCVTkSeybdA97tN74SLUet7bxikbOvUn14ikW9T?=
+ =?us-ascii?Q?Oy5+Ih7cW+NGuJtDZCcFP+tskgRwvLH6Lz+F5IxIza5+xJdphArWt9SB88nI?=
+ =?us-ascii?Q?EUJxM9ReEqY19GywnGGK/+s=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DPPPUeJsyxk/0jf6L6Kf9qr+zCDm6NU8ARJDV8JSjPSGSL9eBWmc9z4fzR8A?=
+ =?us-ascii?Q?DyjtIM8IxWvuFnF73u70DL4DruTCjwo2847WIeKYXcb5RonuQ9tjwsR89sIp?=
+ =?us-ascii?Q?NDg8COWXMjom3xOvDNhZa6pCfWa+nNJxUcQxzs0wqsyDxi7L7NcoR9hc0Nvi?=
+ =?us-ascii?Q?/JPNBobZPa4rYhdjw7ARM0ua3Gs3KfJpF9Qkb819yBstFxlSMT/ZuTUbbzJq?=
+ =?us-ascii?Q?RnP7cz9FTV0hFhZuweB34UmWUhwBMeW4S296oywmiPDps2lf5txNaOLVaW9B?=
+ =?us-ascii?Q?CIzinfDQTLVcAaJWoe4hoAr9djfyNEbuzJvXag2fAsMr9JmHYDxt2syNyzx5?=
+ =?us-ascii?Q?vmUdhK7FRHSdq1SUnUWX0cK8SCgMCCdGfU4buvQyFu0mrdXDSx9GKUitb2IJ?=
+ =?us-ascii?Q?b4kOipw93UqYvXOnZ4nG1at7+8zx2RCOjww7NGCQ0k4RhIVXwHGNKXZr5CQb?=
+ =?us-ascii?Q?w3rl+anaFebuHezpKdRuXSeNqFUSx+8fpnvnF7pscHg4riCdkU5Zxmvr7LNT?=
+ =?us-ascii?Q?L4pYUBPlzijH56TulB1w8R3KUCiqpbcH4/ukLeGTRwndodT3mjYmVvmhi819?=
+ =?us-ascii?Q?SupTF5AYpQkaz/3p5k3F0lpk9En5+lCx6hATaBvp+itvWIfIewHpj8g+cFyM?=
+ =?us-ascii?Q?IiBIRZQIldIqH/kPAYuXHwwP2/ClKqDQ4Tzhy9G/6oPCg8y3XKyd+YTLA94R?=
+ =?us-ascii?Q?AZ0gYCYwopH9hvB4ohHZddZeTl2Unyg1dYRLt6WVRDrhus9BuJxtJ6qgOfAM?=
+ =?us-ascii?Q?oqogdfbQIEek2uIqj0ft2/pZ1zoY2DI5/ScyvG5ra3NL1Cx1jtdlc8zdnX27?=
+ =?us-ascii?Q?Oq33opQUn8+noeks2dipYebPiqQvRqMPDoLHCBmGybkIuy/J4PwDJiUrriBx?=
+ =?us-ascii?Q?thYNHTBPx/4bRdaoLxEjxFqYCUX6SISm8nPfomUK8+jM+XOdcXWkJFBToHKK?=
+ =?us-ascii?Q?ojnqm0ydPqkqCAU185nj3uoSXLVB+e643NTRzV3+W1kPr1DGIR2cFF4apwmv?=
+ =?us-ascii?Q?GOTjyw/AimdTBfD9VWhRpXC38g8p2dGbZi4MOLhxotEMfMT5i48c3GbjFG2H?=
+ =?us-ascii?Q?nUZ2oV1wNCZIgzfLjURHYSzCaSbffGMWfZ7nQmmjRPmmfJ3DHnYDKX+vlaSU?=
+ =?us-ascii?Q?ICAAS6KkAg5r+FdtWBHcTdUn8aba5K/z2RpjljsvuG+jr7NyAAKS8HB/gcvn?=
+ =?us-ascii?Q?Hzu6799cljlX8GpNZZWgaOLVSygxRlgjgAXiFeoKlP39rYafq19c6XcmaZ2q?=
+ =?us-ascii?Q?ET2I3oBHlLLFjRdKgPQb5kFpCsVI7bcH8uVRWbsBWH3ax8Eq1OeKEtdgyLJu?=
+ =?us-ascii?Q?myU5CzOzMw5Ab/xI+02GnA5FSJiIcM2a5ki7DCNZr1jb/H30yDaV/7q53HI8?=
+ =?us-ascii?Q?YHHoRYsBwBHkdDeuTIAhssYQ4f01xEHPQhRgx58xBuErIc8TuqL+lMOo1lhW?=
+ =?us-ascii?Q?2sU56NMbN0Y2O0DU19GMODm7CKA5QREYsfqcKLiYJKhQP/9g+P7148WMYrNI?=
+ =?us-ascii?Q?SkK0Qrpdk7OUBA7N8FeVIzRjtQG/jFrIqvMgkXpP18sarodfHTcxTEQVbp1S?=
+ =?us-ascii?Q?05jpN8BUwDUH33NDONQ933+JgHgXfbEMW9kLN3CxAkY5AkuzBF2WmY/Q55Di?=
+ =?us-ascii?Q?1O8DDTl3LqvO37w4sYrKbfXDLKMBPTaGxRC8oEoLb2wqyd4M8R4KVupr9IjY?=
+ =?us-ascii?Q?fcSA4bDmPgm79UXmDtp5a/aGkBv+rALA5VIW6jdNaihC+xlV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d75c048c-7c93-4a25-ad61-08de6f0a8983
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 16:26:58.2235
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tUJSqUIzOV47gFOxzb1ijEq1HMGLD+gHqBjOv3K1G6KX/p7jow8UEoJ6VHHJ4TMSjxUpQvTscOPNEsnEJzMHQw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9367
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_082317_290244_9BF7FD6A 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260218_082702_542786_15E140DC 
+X-CRM114-Status: GOOD (  28.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,41 +167,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 12:02:42PM +0100, Krzysztof Kozlowski wrote:
-> No maintainers handling the code (so subsystem maintainers) are shown with
-> scripts/get_maintainers.pl on MPAM drivers in drivers/resctrl/.  It
-> seems that there is no dedicated subsystem for resctrl and existing
-> drivers went through ARM64 port maintainers, so make that explicit to
-> avoid patches being lost/ignored.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Wed, Feb 18, 2026 at 04:08:50PM +0100, Stefan Eichenberger wrote:
+> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+>
+> When reading from the I2DR register, right after releasing the bus by
+> clearing MSTA and MTX, the I2C controller might still generate an
+> additional clock cycle which can cause devices to misbehave. Ensure to
+
+Do you means SCL have additional toggle? You capture waveform?
+
+Frank
+> only read from I2DR after the bus is not busy anymore. Because this
+> requires polling, the read of the last byte is moved outside of the
+> interrupt handler.
+>
+> An example for such a failing transfer is this:
+> i2ctransfer -y -a 0 w1@0x00 0x02 r1
+> Error: Sending messages failed: Connection timed out
+> It does not happen with every device because not all devices react to
+> the additional clock cycle.
+>
+> Fixes: 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma mode")
+> Cc: <stable@vger.kernel.org> # v6.13+
+> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 > ---
->  MAINTAINERS | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index faa914a5f34d..199058abc152 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -3822,6 +3822,8 @@ S:	Maintained
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
->  F:	Documentation/arch/arm64/
->  F:	arch/arm64/
-> +F:	drivers/resctrl/*mpam_*
-> +F:	include/linux/arm_mpam.h
->  F:	drivers/virt/coco/arm-cca-guest/
->  F:	drivers/virt/coco/pkvm-guest/
->  F:	tools/testing/selftests/arm64/
-
-What's wrong with the current entry?
-
-$ ./scripts/get_maintainer.pl -f drivers/resctrl/mpam_*
-James Morse <james.morse@arm.com> (maintainer:MPAM DRIVER)
-Ben Horgan <ben.horgan@arm.com> (maintainer:MPAM DRIVER)
-Reinette Chatre <reinette.chatre@intel.com> (reviewer:MPAM DRIVER)
-Fenghua Yu <fenghuay@nvidia.com> (reviewer:MPAM DRIVER)
-linux-kernel@vger.kernel.org (open list)
-
--- 
-Catalin
+>  drivers/i2c/busses/i2c-imx.c | 51 ++++++++++++++++++++++--------------
+>  1 file changed, 32 insertions(+), 19 deletions(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 56e2a14495a9a..452d120a210b1 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -1018,8 +1018,9 @@ static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
+>  	return 0;
+>  }
+>
+> -static inline void i2c_imx_isr_read_continue(struct imx_i2c_struct *i2c_imx)
+> +static inline enum imx_i2c_state i2c_imx_isr_read_continue(struct imx_i2c_struct *i2c_imx)
+>  {
+> +	enum imx_i2c_state next_state = IMX_I2C_STATE_READ_CONTINUE;
+>  	unsigned int temp;
+>
+>  	if ((i2c_imx->msg->len - 1) == i2c_imx->msg_buf_idx) {
+> @@ -1033,18 +1034,20 @@ static inline void i2c_imx_isr_read_continue(struct imx_i2c_struct *i2c_imx)
+>  				i2c_imx->stopped =  1;
+>  			temp &= ~(I2CR_MSTA | I2CR_MTX);
+>  			imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
+> -		} else {
+> -			/*
+> -			 * For i2c master receiver repeat restart operation like:
+> -			 * read -> repeat MSTA -> read/write
+> -			 * The controller must set MTX before read the last byte in
+> -			 * the first read operation, otherwise the first read cost
+> -			 * one extra clock cycle.
+> -			 */
+> -			temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
+> -			temp |= I2CR_MTX;
+> -			imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
+> +
+> +			return IMX_I2C_STATE_DONE;
+>  		}
+> +		/*
+> +		 * For i2c master receiver repeat restart operation like:
+> +		 * read -> repeat MSTA -> read/write
+> +		 * The controller must set MTX before read the last byte in
+> +		 * the first read operation, otherwise the first read cost
+> +		 * one extra clock cycle.
+> +		 */
+> +		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
+> +		temp |= I2CR_MTX;
+> +		imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
+> +		next_state = IMX_I2C_STATE_DONE;
+>  	} else if (i2c_imx->msg_buf_idx == (i2c_imx->msg->len - 2)) {
+>  		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
+>  		temp |= I2CR_TXAK;
+> @@ -1052,6 +1055,7 @@ static inline void i2c_imx_isr_read_continue(struct imx_i2c_struct *i2c_imx)
+>  	}
+>
+>  	i2c_imx->msg->buf[i2c_imx->msg_buf_idx++] = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
+> +	return next_state;
+>  }
+>
+>  static inline void i2c_imx_isr_read_block_data_len(struct imx_i2c_struct *i2c_imx)
+> @@ -1088,11 +1092,9 @@ static irqreturn_t i2c_imx_master_isr(struct imx_i2c_struct *i2c_imx, unsigned i
+>  		break;
+>
+>  	case IMX_I2C_STATE_READ_CONTINUE:
+> -		i2c_imx_isr_read_continue(i2c_imx);
+> -		if (i2c_imx->msg_buf_idx == i2c_imx->msg->len) {
+> -			i2c_imx->state = IMX_I2C_STATE_DONE;
+> +		i2c_imx->state = i2c_imx_isr_read_continue(i2c_imx);
+> +		if (i2c_imx->state == IMX_I2C_STATE_DONE)
+>  			wake_up(&i2c_imx->queue);
+> -		}
+>  		break;
+>
+>  	case IMX_I2C_STATE_READ_BLOCK_DATA:
+> @@ -1490,6 +1492,7 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
+>  			bool is_lastmsg)
+>  {
+>  	int block_data = msgs->flags & I2C_M_RECV_LEN;
+> +	int ret = 0;
+>
+>  	dev_dbg(&i2c_imx->adapter.dev,
+>  		"<%s> write slave address: addr=0x%x\n",
+> @@ -1522,10 +1525,20 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
+>  		dev_err(&i2c_imx->adapter.dev, "<%s> read timedout\n", __func__);
+>  		return -ETIMEDOUT;
+>  	}
+> -	if (i2c_imx->is_lastmsg && !i2c_imx->stopped)
+> -		return i2c_imx_bus_busy(i2c_imx, 0, false);
+> +	if (i2c_imx->is_lastmsg) {
+> +		if (!i2c_imx->stopped)
+> +			ret = i2c_imx_bus_busy(i2c_imx, 0, false);
+> +		/*
+> +		 * Only read the last byte of the last message after the bus is
+> +		 * not busy. Else the controller generates another clock which
+> +		 * might confuse devices.
+> +		 */
+> +		if (!ret)
+> +			i2c_imx->msg->buf[i2c_imx->msg_buf_idx++] = imx_i2c_read_reg(i2c_imx,
+> +										     IMX_I2C_I2DR);
+> +	}
+>
+> -	return 0;
+> +	return ret;
+>  }
+>
+>  static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
+> --
+> 2.51.0
+>
 
