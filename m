@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11264E9A04D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F00AE9A04B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v8CXpgDglZfw7CyIvgoVDiQfjvenuAwx7/PEhA7fEsc=; b=ao7nmVecu4N532PaohcmOwUxDJ
-	fQjlSw1hOmvKQh6y0QSrYSaVNPTkp8MjtNPJ2GxtJxo5QJBWqFVEY8+lf/bYnmXUY63mPbhoMpwp/
-	uZlKFDNKjtgjwCE68ulbJTcBxOFmEZLabp8x+RjbQVtT06OD6tYJOKn33vjS/XP7whpd9Ak3BZShg
-	XHHTmqH4CC7kbmlVNpD7nw/2ydEJv/lk/x9SLq+h3df3VAI7FacEXkFzMxxoDro4+NWNSdEmStLuC
-	VCB9t7EeYc1yCPmNK1u6kksYzWCDbyr/H8DmrHYUPK81aFAXtRJonMKxkEnQgtClO7nIByg5Oin+g
-	T31YU8xw==;
+	bh=bLglirWP12/t4epQxtXtkDDmN5GAbDv18Du1JUzQQA8=; b=zmAvAQ20LIHN9KH3TP2YYbeTVK
+	lxzcwrDBWeawz7WK2RlqC3I4nMbEQcqCsPRNvD00cOORbav/lxypl+PWlvH7HofyZZYf6juDkGi7q
+	D+l+hrY/Ru0vom4fB9bEnFw2iUF1gfIlXEw2Hvtq0evbLlNhKphoYm86dzn5rxBuTA4pq+9zt1EZ9
+	qcxTdPUpRIEmO4Uz6RtguEt4MYFsM2xjG0GUnCfXNXicjjPzIeaAaQYZnRWUwgRnbFdmevAlcCCTB
+	mC+sNnKnfK/OUFnTh6KBkJe8fS59tuLbjlq8iq/fdcXBY2iohy/66zptMsgMME0h9dZVaTDoivrdP
+	JZQoo8mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspEG-0000000ASWN-2IAK;
-	Wed, 18 Feb 2026 21:37:04 +0000
+	id 1vspEF-0000000ASV0-2RZh;
+	Wed, 18 Feb 2026 21:37:03 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspE6-0000000ASPB-3Zyh
+	id 1vspE5-0000000ASPB-1BJX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 21:36:56 +0000
+	Wed, 18 Feb 2026 21:36:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA8274376C;
-	Wed, 18 Feb 2026 21:36:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34D2CC2BCB2;
-	Wed, 18 Feb 2026 21:36:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F397A43DE2;
+	Wed, 18 Feb 2026 21:36:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D0F2C19425;
+	Wed, 18 Feb 2026 21:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771450614;
-	bh=RfXKwO9L3mlz5kqOurMbNRJCV4vYWaJHp6x9x+hkRPc=;
+	s=k20201202; t=1771450612;
+	bh=0LeGm98KqVExci2vvu6SjzoBtiGH1qcdbzcO5wJ5lqM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Su8jtnhsciBt1sckGun8RAAdjFMXTLnvoRdF+ZZ7Tf+YPetiXSfdMtWA+QCrq/xuZ
-	 LC+tZUeX5QgxkAU1DH9WFTtxMlERcAAtnUJwHX8FpeXH9lx/jmbjWTbjl3ooJ98GFd
-	 NkvmtcEfxgccMdgMGT4QwVMtCQvvxh3sHqP41VWdfhD6g+QpIzYSyGbKRvfPuX+AFs
-	 i+ny6LvBf9MroUEPF8hCY5B1qpRdzypyCee0GTJ2phCjowvtvZaBl/Ox1dd991a22j
-	 YabktEmIWGaQVTKjgRCGGUqVbTdhWXQ1IPRxinbAfHwrnFlg4FVLKiLYhgy3wSlbID
-	 oeGNcXA04Nsww==
+	b=MbJq6E7dirP6hem2BPoJf7hEAikTjbr3hVlsE85ume5etX0r62FaVHsSVLkjOmejW
+	 ePbJxSQYQzLHqpMTY3wp2DNbv2cuwgGCFEbvTT+i5OAfd6zfTcnTRZIBthd++Hxg4f
+	 v118WKqVPhyvA3RuXsBfd70pUtebHZTiHBS+7n8yQzaViumKZ0AtyN5WYOLJreV+p8
+	 SRiVGLkS48KvrIiocik5O6ADvhtnqLVAvUqhc/gsSn7+5km9lnxDE9YBnnfV0fSW4J
+	 ktxlyRbeEbtF7EwfFFFspdwYGJLJgYeLXKIpQT/F2aMwZV3byLAKL1LChfMaHbuxd0
+	 ghbVX/hL6hFfQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,17 +52,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-cifs@vger.kernel.org,
 	linux-wireless@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 08/15] smb: client: Use AES-CMAC library for SMB3 signature calculation
-Date: Wed, 18 Feb 2026 13:34:54 -0800
-Message-ID: <20260218213501.136844-9-ebiggers@kernel.org>
+Subject: [PATCH 05/15] lib/crypto: arm64/aes: Migrate optimized CBC-based MACs into library
+Date: Wed, 18 Feb 2026 13:34:51 -0800
+Message-ID: <20260218213501.136844-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260218213501.136844-1-ebiggers@kernel.org>
 References: <20260218213501.136844-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_133654_936032_62AFF803 
-X-CRM114-Status: GOOD (  23.41  )
+X-CRM114-CacheID: sfid-20260218_133653_368187_F6F720FC 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,269 +77,537 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert smb3_calc_signature() to use the AES-CMAC library instead of a
-"cmac(aes)" crypto_shash.
+Instead of exposing the arm64-optimized CMAC, XCBC-MAC, and CBC-MAC code
+via arm64-specific crypto_shash algorithms, instead just implement the
+aes_cbcmac_blocks_arch() library function.  This is much simpler, it
+makes the corresponding library functions be arm64-optimized, and it
+fixes the longstanding issue where this optimized code was disabled by
+default.  The corresponding algorithms still remain available through
+crypto_shash, but individual architectures no longer need to handle it.
 
-The result is simpler and faster code.  With the library there's no need
-to allocate memory, no need to handle errors except for key preparation,
-and the AES-CMAC code is accessed directly without inefficient indirect
-calls and other unnecessary API overhead.
-
-For now a "cmac(aes)" crypto_shash is still being allocated in
-'struct cifs_secmech'.  Later commits will remove that, simplifying the
-code even further.
+Note that to be compatible with the library using 'size_t' lengths, the
+type of the return value and 'blocks' parameter to the assembly
+functions had to be changed to 'size_t', and the assembly code had to be
+updated accordingly to use the corresponding 64-bit registers.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- fs/smb/client/Kconfig         |  1 +
- fs/smb/client/cifsencrypt.c   | 60 ++++++++++++-----------------------
- fs/smb/client/cifsglob.h      |  2 +-
- fs/smb/client/smb2transport.c | 41 +++++-------------------
- 4 files changed, 30 insertions(+), 74 deletions(-)
+ arch/arm64/crypto/Kconfig    |   2 +-
+ arch/arm64/crypto/aes-glue.c | 213 +----------------------------------
+ include/crypto/aes.h         |   9 +-
+ lib/crypto/arm64/aes-modes.S |  19 ++--
+ lib/crypto/arm64/aes.h       |  48 +++++++-
+ 5 files changed, 61 insertions(+), 230 deletions(-)
 
-diff --git a/fs/smb/client/Kconfig b/fs/smb/client/Kconfig
-index 17bd368574e9..64afd302202f 100644
---- a/fs/smb/client/Kconfig
-+++ b/fs/smb/client/Kconfig
-@@ -9,10 +9,11 @@ config CIFS
- 	select CRYPTO_AEAD2
- 	select CRYPTO_CCM
- 	select CRYPTO_GCM
- 	select CRYPTO_ECB
- 	select CRYPTO_AES
+diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
+index 81ed892b3b72..82794afaffc9 100644
+--- a/arch/arm64/crypto/Kconfig
++++ b/arch/arm64/crypto/Kconfig
+@@ -142,11 +142,11 @@ config CRYPTO_AES_ARM64_CE_CCM
+ 	tristate "AEAD cipher: AES in CCM mode (ARMv8 Crypto Extensions)"
+ 	depends on KERNEL_MODE_NEON
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_AES_ARM64_CE_BLK
+ 	select CRYPTO_AEAD
+-	select CRYPTO_LIB_AES
 +	select CRYPTO_LIB_AES_CBC_MACS
- 	select CRYPTO_LIB_ARC4
- 	select CRYPTO_LIB_MD5
- 	select CRYPTO_LIB_SHA256
- 	select CRYPTO_LIB_SHA512
- 	select KEYS
-diff --git a/fs/smb/client/cifsencrypt.c b/fs/smb/client/cifsencrypt.c
-index 50b7ec39053c..f39894113821 100644
---- a/fs/smb/client/cifsencrypt.c
-+++ b/fs/smb/client/cifsencrypt.c
-@@ -20,66 +20,49 @@
- #include <linux/random.h>
- #include <linux/highmem.h>
- #include <linux/fips.h>
- #include <linux/iov_iter.h>
- #include <crypto/aead.h>
-+#include <crypto/aes-cbc-macs.h>
- #include <crypto/arc4.h>
- #include <crypto/md5.h>
- #include <crypto/sha2.h>
+ 	help
+ 	  AEAD cipher: AES cipher algorithms (FIPS-197) with
+ 	  CCM (Counter with Cipher Block Chaining-Message Authentication Code)
+ 	  authenticated encryption mode (NIST SP800-38C)
  
--static int cifs_sig_update(struct cifs_calc_sig_ctx *ctx,
--			   const u8 *data, size_t len)
-+static size_t cifs_sig_step(void *iter_base, size_t progress, size_t len,
-+			    void *priv, void *priv2)
- {
--	if (ctx->md5) {
--		md5_update(ctx->md5, data, len);
--		return 0;
--	}
--	if (ctx->hmac) {
--		hmac_sha256_update(ctx->hmac, data, len);
--		return 0;
--	}
--	return crypto_shash_update(ctx->shash, data, len);
-+	struct cifs_calc_sig_ctx *ctx = priv;
-+
-+	if (ctx->md5)
-+		md5_update(ctx->md5, iter_base, len);
-+	else if (ctx->hmac)
-+		hmac_sha256_update(ctx->hmac, iter_base, len);
-+	else
-+		aes_cmac_update(ctx->cmac, iter_base, len);
-+	return 0; /* Return value is length *not* processed, i.e. 0. */
- }
+diff --git a/arch/arm64/crypto/aes-glue.c b/arch/arm64/crypto/aes-glue.c
+index fd7c3a560a71..e1b88f7e2d39 100644
+--- a/arch/arm64/crypto/aes-glue.c
++++ b/arch/arm64/crypto/aes-glue.c
+@@ -35,11 +35,10 @@
+ #define aes_essiv_cbc_decrypt	ce_aes_essiv_cbc_decrypt
+ #define aes_ctr_encrypt		ce_aes_ctr_encrypt
+ #define aes_xctr_encrypt	ce_aes_xctr_encrypt
+ #define aes_xts_encrypt		ce_aes_xts_encrypt
+ #define aes_xts_decrypt		ce_aes_xts_decrypt
+-#define aes_mac_update		ce_aes_mac_update
+ MODULE_DESCRIPTION("AES-ECB/CBC/CTR/XTS/XCTR using ARMv8 Crypto Extensions");
+ #else
+ #define MODE			"neon"
+ #define PRIO			200
+ #define aes_ecb_encrypt		neon_aes_ecb_encrypt
+@@ -52,11 +51,10 @@ MODULE_DESCRIPTION("AES-ECB/CBC/CTR/XTS/XCTR using ARMv8 Crypto Extensions");
+ #define aes_essiv_cbc_decrypt	neon_aes_essiv_cbc_decrypt
+ #define aes_ctr_encrypt		neon_aes_ctr_encrypt
+ #define aes_xctr_encrypt	neon_aes_xctr_encrypt
+ #define aes_xts_encrypt		neon_aes_xts_encrypt
+ #define aes_xts_decrypt		neon_aes_xts_decrypt
+-#define aes_mac_update		neon_aes_mac_update
+ MODULE_DESCRIPTION("AES-ECB/CBC/CTR/XTS/XCTR using ARMv8 NEON");
+ #endif
+ #if defined(USE_V8_CRYPTO_EXTENSIONS) || !IS_ENABLED(CONFIG_CRYPTO_AES_ARM64_BS)
+ MODULE_ALIAS_CRYPTO("ecb(aes)");
+ MODULE_ALIAS_CRYPTO("cbc(aes)");
+@@ -64,13 +62,10 @@ MODULE_ALIAS_CRYPTO("ctr(aes)");
+ MODULE_ALIAS_CRYPTO("xts(aes)");
+ MODULE_ALIAS_CRYPTO("xctr(aes)");
+ #endif
+ MODULE_ALIAS_CRYPTO("cts(cbc(aes))");
+ MODULE_ALIAS_CRYPTO("essiv(cbc(aes),sha256)");
+-MODULE_ALIAS_CRYPTO("cmac(aes)");
+-MODULE_ALIAS_CRYPTO("xcbc(aes)");
+-MODULE_ALIAS_CRYPTO("cbcmac(aes)");
  
--static int cifs_sig_final(struct cifs_calc_sig_ctx *ctx, u8 *out)
-+static void cifs_sig_final(struct cifs_calc_sig_ctx *ctx, u8 *out)
- {
--	if (ctx->md5) {
-+	if (ctx->md5)
- 		md5_final(ctx->md5, out);
--		return 0;
--	}
--	if (ctx->hmac) {
-+	else if (ctx->hmac)
- 		hmac_sha256_final(ctx->hmac, out);
--		return 0;
--	}
--	return crypto_shash_final(ctx->shash, out);
--}
--
--static size_t cifs_sig_step(void *iter_base, size_t progress, size_t len,
--			    void *priv, void *priv2)
--{
--	struct cifs_calc_sig_ctx *ctx = priv;
--	int ret, *pret = priv2;
--
--	ret = cifs_sig_update(ctx, iter_base, len);
--	if (ret < 0) {
--		*pret = ret;
--		return len;
--	}
--	return 0;
-+	else
-+		aes_cmac_final(ctx->cmac, out);
- }
+ MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+ MODULE_IMPORT_NS("CRYPTO_INTERNAL");
+ MODULE_LICENSE("GPL v2");
  
- /*
-  * Pass the data from an iterator into a hash.
-  */
- static int cifs_sig_iter(const struct iov_iter *iter, size_t maxsize,
- 			 struct cifs_calc_sig_ctx *ctx)
- {
- 	struct iov_iter tmp_iter = *iter;
- 	size_t did;
--	int err;
- 
--	did = iterate_and_advance_kernel(&tmp_iter, maxsize, ctx, &err,
-+	did = iterate_and_advance_kernel(&tmp_iter, maxsize, ctx, NULL,
- 					 cifs_sig_step);
- 	if (did != maxsize)
- 		return smb_EIO2(smb_eio_trace_sig_iter, did, maxsize);
- 	return 0;
- }
-@@ -106,15 +89,12 @@ int __cifs_calc_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server,
- 
- 	rc = cifs_sig_iter(&rqst->rq_iter, iov_iter_count(&rqst->rq_iter), ctx);
- 	if (rc < 0)
- 		return rc;
- 
--	rc = cifs_sig_final(ctx, signature);
--	if (rc)
--		cifs_dbg(VFS, "%s: Could not generate hash\n", __func__);
--
--	return rc;
-+	cifs_sig_final(ctx, signature);
-+	return 0;
- }
- 
- /* Build a proper attribute value/target info pairs blob.
-  * Fill in netbios and dns domain name and workstation name
-  * and client time (total five av pairs and + one end of fields indicator.
-diff --git a/fs/smb/client/cifsglob.h b/fs/smb/client/cifsglob.h
-index 080ea601c209..2ff43bd35c5f 100644
---- a/fs/smb/client/cifsglob.h
-+++ b/fs/smb/client/cifsglob.h
-@@ -2285,11 +2285,11 @@ static inline void mid_execute_callback(struct TCP_Server_Info *server,
- 	  FILE_SUPPORTS_REPARSE_POINTS))
- 
- struct cifs_calc_sig_ctx {
- 	struct md5_ctx *md5;
- 	struct hmac_sha256_ctx *hmac;
--	struct shash_desc *shash;
-+	struct aes_cmac_ctx *cmac;
+@@ -82,19 +77,10 @@ struct crypto_aes_xts_ctx {
+ struct crypto_aes_essiv_cbc_ctx {
+ 	struct crypto_aes_ctx key1;
+ 	struct crypto_aes_ctx __aligned(8) key2;
  };
  
- #define CIFS_RECONN_DELAY_SECS	30
- #define CIFS_MAX_RECONN_DELAY	(4 * CIFS_RECONN_DELAY_SECS)
- 
-diff --git a/fs/smb/client/smb2transport.c b/fs/smb/client/smb2transport.c
-index 81be2b226e26..b233e0cd9152 100644
---- a/fs/smb/client/smb2transport.c
-+++ b/fs/smb/client/smb2transport.c
-@@ -17,10 +17,11 @@
- #include <linux/uaccess.h>
- #include <asm/processor.h>
- #include <linux/mempool.h>
- #include <linux/highmem.h>
- #include <crypto/aead.h>
-+#include <crypto/aes-cbc-macs.h>
- #include <crypto/sha2.h>
- #include <crypto/utils.h>
- #include "cifsglob.h"
- #include "cifsproto.h"
- #include "smb2proto.h"
-@@ -472,11 +473,12 @@ smb3_calc_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server,
+-struct mac_tfm_ctx {
+-	struct crypto_aes_ctx key;
+-	u8 __aligned(8) consts[];
+-};
+-
+-struct mac_desc_ctx {
+-	u8 dg[AES_BLOCK_SIZE];
+-};
+-
+ static int skcipher_aes_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
+ 			       unsigned int key_len)
  {
- 	int rc;
- 	unsigned char smb3_signature[SMB2_CMACAES_SIZE];
- 	struct kvec *iov = rqst->rq_iov;
- 	struct smb2_hdr *shdr = (struct smb2_hdr *)iov[0].iov_base;
--	struct shash_desc *shash = NULL;
-+	struct aes_cmac_key cmac_key;
-+	struct aes_cmac_ctx cmac_ctx;
- 	struct smb_rqst drqst;
- 	u8 key[SMB3_SIGN_KEY_SIZE];
+ 	struct crypto_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
  
- 	if (server->vals->protocol_id <= SMB21_PROT_ID)
- 		return smb2_calc_signature(rqst, server, allocate_crypto);
-@@ -485,67 +487,40 @@ smb3_calc_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server,
- 	if (unlikely(rc)) {
- 		cifs_server_dbg(FYI, "%s: Could not get signing key\n", __func__);
- 		return rc;
- 	}
+@@ -721,215 +707,18 @@ static struct skcipher_alg aes_algs[] = { {
+ 	.setkey		= essiv_cbc_set_key,
+ 	.encrypt	= essiv_cbc_encrypt,
+ 	.decrypt	= essiv_cbc_decrypt,
+ } };
  
--	if (allocate_crypto) {
--		rc = cifs_alloc_hash("cmac(aes)", &shash);
--		if (rc)
--			return rc;
--	} else {
--		shash = server->secmech.aes_cmac;
+-static int cbcmac_setkey(struct crypto_shash *tfm, const u8 *in_key,
+-			 unsigned int key_len)
+-{
+-	struct mac_tfm_ctx *ctx = crypto_shash_ctx(tfm);
+-
+-	return aes_expandkey(&ctx->key, in_key, key_len);
+-}
+-
+-static void cmac_gf128_mul_by_x(be128 *y, const be128 *x)
+-{
+-	u64 a = be64_to_cpu(x->a);
+-	u64 b = be64_to_cpu(x->b);
+-
+-	y->a = cpu_to_be64((a << 1) | (b >> 63));
+-	y->b = cpu_to_be64((b << 1) ^ ((a >> 63) ? 0x87 : 0));
+-}
+-
+-static int cmac_setkey(struct crypto_shash *tfm, const u8 *in_key,
+-		       unsigned int key_len)
+-{
+-	struct mac_tfm_ctx *ctx = crypto_shash_ctx(tfm);
+-	be128 *consts = (be128 *)ctx->consts;
+-	int rounds = 6 + key_len / 4;
+-	int err;
+-
+-	err = cbcmac_setkey(tfm, in_key, key_len);
+-	if (err)
+-		return err;
+-
+-	/* encrypt the zero vector */
+-	scoped_ksimd()
+-		aes_ecb_encrypt(ctx->consts, (u8[AES_BLOCK_SIZE]){},
+-				ctx->key.key_enc, rounds, 1);
+-
+-	cmac_gf128_mul_by_x(consts, consts);
+-	cmac_gf128_mul_by_x(consts + 1, consts);
+-
+-	return 0;
+-}
+-
+-static int xcbc_setkey(struct crypto_shash *tfm, const u8 *in_key,
+-		       unsigned int key_len)
+-{
+-	static u8 const ks[3][AES_BLOCK_SIZE] = {
+-		{ [0 ... AES_BLOCK_SIZE - 1] = 0x1 },
+-		{ [0 ... AES_BLOCK_SIZE - 1] = 0x2 },
+-		{ [0 ... AES_BLOCK_SIZE - 1] = 0x3 },
+-	};
+-
+-	struct mac_tfm_ctx *ctx = crypto_shash_ctx(tfm);
+-	int rounds = 6 + key_len / 4;
+-	u8 key[AES_BLOCK_SIZE];
+-	int err;
+-
+-	err = cbcmac_setkey(tfm, in_key, key_len);
+-	if (err)
+-		return err;
+-
+-	scoped_ksimd() {
+-		aes_ecb_encrypt(key, ks[0], ctx->key.key_enc, rounds, 1);
+-		aes_ecb_encrypt(ctx->consts, ks[1], ctx->key.key_enc, rounds, 2);
 -	}
 -
- 	memset(smb3_signature, 0x0, SMB2_CMACAES_SIZE);
- 	memset(shdr->Signature, 0x0, SMB2_SIGNATURE_SIZE);
- 
--	rc = crypto_shash_setkey(shash->tfm, key, SMB2_CMACAES_SIZE);
-+	rc = aes_cmac_preparekey(&cmac_key, key, SMB2_CMACAES_SIZE);
- 	if (rc) {
- 		cifs_server_dbg(VFS, "%s: Could not set key for cmac aes\n", __func__);
--		goto out;
-+		return rc;
- 	}
- 
--	/*
--	 * we already allocate aes_cmac when we init smb3 signing key,
--	 * so unlike smb2 case we do not have to check here if secmech are
--	 * initialized
--	 */
--	rc = crypto_shash_init(shash);
--	if (rc) {
--		cifs_server_dbg(VFS, "%s: Could not init cmac aes\n", __func__);
--		goto out;
--	}
-+	aes_cmac_init(&cmac_ctx, &cmac_key);
- 
- 	/*
- 	 * For SMB2+, __cifs_calc_signature() expects to sign only the actual
- 	 * data, that is, iov[0] should not contain a rfc1002 length.
- 	 *
- 	 * Sign the rfc1002 length prior to passing the data (iov[1-N]) down to
- 	 * __cifs_calc_signature().
- 	 */
- 	drqst = *rqst;
- 	if (drqst.rq_nvec >= 2 && iov[0].iov_len == 4) {
--		rc = crypto_shash_update(shash, iov[0].iov_base,
--					 iov[0].iov_len);
--		if (rc) {
--			cifs_server_dbg(VFS, "%s: Could not update with payload\n",
--				 __func__);
--			goto out;
--		}
-+		aes_cmac_update(&cmac_ctx, iov[0].iov_base, iov[0].iov_len);
- 		drqst.rq_iov++;
- 		drqst.rq_nvec--;
- 	}
- 
- 	rc = __cifs_calc_signature(
- 		&drqst, server, smb3_signature,
--		&(struct cifs_calc_sig_ctx){ .shash = shash });
-+		&(struct cifs_calc_sig_ctx){ .cmac = &cmac_ctx });
- 	if (!rc)
- 		memcpy(shdr->Signature, smb3_signature, SMB2_SIGNATURE_SIZE);
+-	return cbcmac_setkey(tfm, key, sizeof(key));
+-}
 -
--out:
--	if (allocate_crypto)
--		cifs_free_hash(&shash);
- 	return rc;
+-static int mac_init(struct shash_desc *desc)
+-{
+-	struct mac_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	memset(ctx->dg, 0, AES_BLOCK_SIZE);
+-	return 0;
+-}
+-
+-static void mac_do_update(struct crypto_aes_ctx *ctx, u8 const in[], int blocks,
+-			  u8 dg[], int enc_before)
+-{
+-	int rounds = 6 + ctx->key_length / 4;
+-	int rem;
+-
+-	do {
+-		scoped_ksimd()
+-			rem = aes_mac_update(in, ctx->key_enc, rounds, blocks,
+-					     dg, enc_before, !enc_before);
+-		in += (blocks - rem) * AES_BLOCK_SIZE;
+-		blocks = rem;
+-	} while (blocks);
+-}
+-
+-static int mac_update(struct shash_desc *desc, const u8 *p, unsigned int len)
+-{
+-	struct mac_tfm_ctx *tctx = crypto_shash_ctx(desc->tfm);
+-	struct mac_desc_ctx *ctx = shash_desc_ctx(desc);
+-	int blocks = len / AES_BLOCK_SIZE;
+-
+-	len %= AES_BLOCK_SIZE;
+-	mac_do_update(&tctx->key, p, blocks, ctx->dg, 0);
+-	return len;
+-}
+-
+-static int cbcmac_finup(struct shash_desc *desc, const u8 *src,
+-			unsigned int len, u8 *out)
+-{
+-	struct mac_tfm_ctx *tctx = crypto_shash_ctx(desc->tfm);
+-	struct mac_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	if (len) {
+-		crypto_xor(ctx->dg, src, len);
+-		mac_do_update(&tctx->key, NULL, 0, ctx->dg, 1);
+-	}
+-	memcpy(out, ctx->dg, AES_BLOCK_SIZE);
+-	return 0;
+-}
+-
+-static int cmac_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
+-		      u8 *out)
+-{
+-	struct mac_tfm_ctx *tctx = crypto_shash_ctx(desc->tfm);
+-	struct mac_desc_ctx *ctx = shash_desc_ctx(desc);
+-	u8 *consts = tctx->consts;
+-
+-	crypto_xor(ctx->dg, src, len);
+-	if (len != AES_BLOCK_SIZE) {
+-		ctx->dg[len] ^= 0x80;
+-		consts += AES_BLOCK_SIZE;
+-	}
+-	mac_do_update(&tctx->key, consts, 1, ctx->dg, 0);
+-	memcpy(out, ctx->dg, AES_BLOCK_SIZE);
+-	return 0;
+-}
+-
+-static struct shash_alg mac_algs[] = { {
+-	.base.cra_name		= "cmac(aes)",
+-	.base.cra_driver_name	= "cmac-aes-" MODE,
+-	.base.cra_priority	= PRIO,
+-	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-				  CRYPTO_AHASH_ALG_FINAL_NONZERO,
+-	.base.cra_blocksize	= AES_BLOCK_SIZE,
+-	.base.cra_ctxsize	= sizeof(struct mac_tfm_ctx) +
+-				  2 * AES_BLOCK_SIZE,
+-	.base.cra_module	= THIS_MODULE,
+-
+-	.digestsize		= AES_BLOCK_SIZE,
+-	.init			= mac_init,
+-	.update			= mac_update,
+-	.finup			= cmac_finup,
+-	.setkey			= cmac_setkey,
+-	.descsize		= sizeof(struct mac_desc_ctx),
+-}, {
+-	.base.cra_name		= "xcbc(aes)",
+-	.base.cra_driver_name	= "xcbc-aes-" MODE,
+-	.base.cra_priority	= PRIO,
+-	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-				  CRYPTO_AHASH_ALG_FINAL_NONZERO,
+-	.base.cra_blocksize	= AES_BLOCK_SIZE,
+-	.base.cra_ctxsize	= sizeof(struct mac_tfm_ctx) +
+-				  2 * AES_BLOCK_SIZE,
+-	.base.cra_module	= THIS_MODULE,
+-
+-	.digestsize		= AES_BLOCK_SIZE,
+-	.init			= mac_init,
+-	.update			= mac_update,
+-	.finup			= cmac_finup,
+-	.setkey			= xcbc_setkey,
+-	.descsize		= sizeof(struct mac_desc_ctx),
+-}, {
+-	.base.cra_name		= "cbcmac(aes)",
+-	.base.cra_driver_name	= "cbcmac-aes-" MODE,
+-	.base.cra_priority	= PRIO,
+-	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
+-	.base.cra_blocksize	= AES_BLOCK_SIZE,
+-	.base.cra_ctxsize	= sizeof(struct mac_tfm_ctx),
+-	.base.cra_module	= THIS_MODULE,
+-
+-	.digestsize		= AES_BLOCK_SIZE,
+-	.init			= mac_init,
+-	.update			= mac_update,
+-	.finup			= cbcmac_finup,
+-	.setkey			= cbcmac_setkey,
+-	.descsize		= sizeof(struct mac_desc_ctx),
+-} };
+-
+ static void aes_exit(void)
+ {
+-	crypto_unregister_shashes(mac_algs, ARRAY_SIZE(mac_algs));
+ 	crypto_unregister_skciphers(aes_algs, ARRAY_SIZE(aes_algs));
  }
  
- /* must be called with server->srv_mutex held */
- static int
+ static int __init aes_init(void)
+ {
+-	int err;
+-
+-	err = crypto_register_skciphers(aes_algs, ARRAY_SIZE(aes_algs));
+-	if (err)
+-		return err;
+-
+-	err = crypto_register_shashes(mac_algs, ARRAY_SIZE(mac_algs));
+-	if (err)
+-		goto unregister_ciphers;
+-
+-	return 0;
+-
+-unregister_ciphers:
+-	crypto_unregister_skciphers(aes_algs, ARRAY_SIZE(aes_algs));
+-	return err;
++	return crypto_register_skciphers(aes_algs, ARRAY_SIZE(aes_algs));
+ }
+ 
+ #ifdef USE_V8_CRYPTO_EXTENSIONS
+ module_cpu_feature_match(AES, aes_init);
+ #else
+diff --git a/include/crypto/aes.h b/include/crypto/aes.h
+index 91bf4667d3e9..3feb4105c2a2 100644
+--- a/include/crypto/aes.h
++++ b/include/crypto/aes.h
+@@ -198,13 +198,10 @@ asmlinkage void neon_aes_essiv_cbc_encrypt(u8 out[], u8 const in[],
+ 					   u32 const rk2[]);
+ asmlinkage void neon_aes_essiv_cbc_decrypt(u8 out[], u8 const in[],
+ 					   u32 const rk1[], int rounds,
+ 					   int blocks, u8 iv[],
+ 					   u32 const rk2[]);
+-asmlinkage int neon_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
+-				   int blocks, u8 dg[], int enc_before,
+-				   int enc_after);
+ 
+ asmlinkage void ce_aes_ecb_encrypt(u8 out[], u8 const in[], u32 const rk[],
+ 				   int rounds, int blocks);
+ asmlinkage void ce_aes_ecb_decrypt(u8 out[], u8 const in[], u32 const rk[],
+ 				   int rounds, int blocks);
+@@ -231,13 +228,13 @@ asmlinkage void ce_aes_essiv_cbc_encrypt(u8 out[], u8 const in[],
+ 					 u32 const rk1[], int rounds,
+ 					 int blocks, u8 iv[], u32 const rk2[]);
+ asmlinkage void ce_aes_essiv_cbc_decrypt(u8 out[], u8 const in[],
+ 					 u32 const rk1[], int rounds,
+ 					 int blocks, u8 iv[], u32 const rk2[]);
+-asmlinkage int ce_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
+-				 int blocks, u8 dg[], int enc_before,
+-				 int enc_after);
++asmlinkage size_t ce_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
++				    size_t blocks, u8 dg[], int enc_before,
++				    int enc_after);
+ #elif defined(CONFIG_PPC)
+ void ppc_expand_key_128(u32 *key_enc, const u8 *key);
+ void ppc_expand_key_192(u32 *key_enc, const u8 *key);
+ void ppc_expand_key_256(u32 *key_enc, const u8 *key);
+ void ppc_generate_decrypt_key(u32 *key_dec, u32 *key_enc, unsigned int key_len);
+diff --git a/lib/crypto/arm64/aes-modes.S b/lib/crypto/arm64/aes-modes.S
+index e793478f37c1..fb1332108986 100644
+--- a/lib/crypto/arm64/aes-modes.S
++++ b/lib/crypto/arm64/aes-modes.S
+@@ -813,54 +813,57 @@ AES_FUNC_START(aes_xts_decrypt)
+ 	st1		{v2.16b}, [x4]			/* overlapping stores */
+ 	mov		w4, wzr
+ 	b		.Lxtsdecctsout
+ AES_FUNC_END(aes_xts_decrypt)
+ 
++#if IS_ENABLED(CONFIG_CRYPTO_LIB_AES_CBC_MACS)
+ 	/*
+-	 * aes_mac_update(u8 const in[], u32 const rk[], int rounds,
+-	 *		  int blocks, u8 dg[], int enc_before, int enc_after)
++	 * size_t aes_mac_update(u8 const in[], u32 const rk[], int rounds,
++	 *			 size_t blocks, u8 dg[], int enc_before,
++	 *			 int enc_after);
+ 	 */
+ AES_FUNC_START(aes_mac_update)
+ 	ld1		{v0.16b}, [x4]			/* get dg */
+ 	enc_prepare	w2, x1, x7
+ 	cbz		w5, .Lmacloop4x
+ 
+ 	encrypt_block	v0, w2, x1, x7, w8
+ 
+ .Lmacloop4x:
+-	subs		w3, w3, #4
++	subs		x3, x3, #4
+ 	bmi		.Lmac1x
+ 	ld1		{v1.16b-v4.16b}, [x0], #64	/* get next pt block */
+ 	eor		v0.16b, v0.16b, v1.16b		/* ..and xor with dg */
+ 	encrypt_block	v0, w2, x1, x7, w8
+ 	eor		v0.16b, v0.16b, v2.16b
+ 	encrypt_block	v0, w2, x1, x7, w8
+ 	eor		v0.16b, v0.16b, v3.16b
+ 	encrypt_block	v0, w2, x1, x7, w8
+ 	eor		v0.16b, v0.16b, v4.16b
+-	cmp		w3, wzr
++	cmp		x3, xzr
+ 	csinv		w5, w6, wzr, eq
+ 	cbz		w5, .Lmacout
+ 	encrypt_block	v0, w2, x1, x7, w8
+ 	st1		{v0.16b}, [x4]			/* return dg */
+ 	cond_yield	.Lmacout, x7, x8
+ 	b		.Lmacloop4x
+ .Lmac1x:
+-	add		w3, w3, #4
++	add		x3, x3, #4
+ .Lmacloop:
+-	cbz		w3, .Lmacout
++	cbz		x3, .Lmacout
+ 	ld1		{v1.16b}, [x0], #16		/* get next pt block */
+ 	eor		v0.16b, v0.16b, v1.16b		/* ..and xor with dg */
+ 
+-	subs		w3, w3, #1
++	subs		x3, x3, #1
+ 	csinv		w5, w6, wzr, eq
+ 	cbz		w5, .Lmacout
+ 
+ .Lmacenc:
+ 	encrypt_block	v0, w2, x1, x7, w8
+ 	b		.Lmacloop
+ 
+ .Lmacout:
+ 	st1		{v0.16b}, [x4]			/* return dg */
+-	mov		w0, w3
++	mov		x0, x3
+ 	ret
+ AES_FUNC_END(aes_mac_update)
++#endif /* CONFIG_CRYPTO_LIB_AES_CBC_MACS */
+diff --git a/lib/crypto/arm64/aes.h b/lib/crypto/arm64/aes.h
+index 69f465c668f0..78e7b4e5f120 100644
+--- a/lib/crypto/arm64/aes.h
++++ b/lib/crypto/arm64/aes.h
+@@ -9,10 +9,11 @@
+ #include <asm/neon.h>
+ #include <asm/simd.h>
+ #include <linux/unaligned.h>
+ #include <linux/cpufeature.h>
+ 
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_aes);
+ 
+ struct aes_block {
+ 	u8 b[AES_BLOCK_SIZE];
+ };
+@@ -26,10 +27,13 @@ asmlinkage void __aes_ce_encrypt(const u32 rk[], u8 out[AES_BLOCK_SIZE],
+ asmlinkage void __aes_ce_decrypt(const u32 inv_rk[], u8 out[AES_BLOCK_SIZE],
+ 				 const u8 in[AES_BLOCK_SIZE], int rounds);
+ asmlinkage u32 __aes_ce_sub(u32 l);
+ asmlinkage void __aes_ce_invert(struct aes_block *out,
+ 				const struct aes_block *in);
++asmlinkage size_t neon_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
++				      size_t blocks, u8 dg[], int enc_before,
++				      int enc_after);
+ 
+ /*
+  * Expand an AES key using the crypto extensions if supported and usable or
+  * generic code otherwise.  The expanded key format is compatible between the
+  * two cases.  The outputs are @rndkeys (required) and @inv_rndkeys (optional).
+@@ -137,11 +141,10 @@ EXPORT_SYMBOL_NS_GPL(neon_aes_ctr_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(neon_aes_xctr_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(neon_aes_xts_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(neon_aes_xts_decrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(neon_aes_essiv_cbc_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(neon_aes_essiv_cbc_decrypt, "CRYPTO_INTERNAL");
+-EXPORT_SYMBOL_NS_GPL(neon_aes_mac_update, "CRYPTO_INTERNAL");
+ 
+ EXPORT_SYMBOL_NS_GPL(ce_aes_ecb_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(ce_aes_ecb_decrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(ce_aes_cbc_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(ce_aes_cbc_decrypt, "CRYPTO_INTERNAL");
+@@ -151,10 +154,12 @@ EXPORT_SYMBOL_NS_GPL(ce_aes_ctr_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(ce_aes_xctr_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(ce_aes_xts_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(ce_aes_xts_decrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(ce_aes_essiv_cbc_encrypt, "CRYPTO_INTERNAL");
+ EXPORT_SYMBOL_NS_GPL(ce_aes_essiv_cbc_decrypt, "CRYPTO_INTERNAL");
++#endif
++#if IS_MODULE(CONFIG_CRYPTO_AES_ARM64_CE_CCM)
+ EXPORT_SYMBOL_NS_GPL(ce_aes_mac_update, "CRYPTO_INTERNAL");
+ #endif
+ 
+ static void aes_encrypt_arch(const struct aes_enckey *key,
+ 			     u8 out[AES_BLOCK_SIZE],
+@@ -182,13 +187,50 @@ static void aes_decrypt_arch(const struct aes_key *key,
+ 		__aes_arm64_decrypt(key->inv_k.inv_rndkeys, out, in,
+ 				    key->nrounds);
+ 	}
+ }
+ 
++#if IS_ENABLED(CONFIG_CRYPTO_LIB_AES_CBC_MACS)
++#define aes_cbcmac_blocks_arch aes_cbcmac_blocks_arch
++static bool aes_cbcmac_blocks_arch(u8 h[AES_BLOCK_SIZE],
++				   const struct aes_enckey *key, const u8 *data,
++				   size_t nblocks, bool enc_before,
++				   bool enc_after)
++{
++	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
++	    static_branch_likely(&have_neon) && likely(may_use_simd())) {
++		do {
++			size_t rem;
++
++			scoped_ksimd() {
++				if (static_branch_likely(&have_aes))
++					rem = ce_aes_mac_update(
++						data, key->k.rndkeys,
++						key->nrounds, nblocks, h,
++						enc_before, enc_after);
++				else
++					rem = neon_aes_mac_update(
++						data, key->k.rndkeys,
++						key->nrounds, nblocks, h,
++						enc_before, enc_after);
++			}
++			data += (nblocks - rem) * AES_BLOCK_SIZE;
++			nblocks = rem;
++			enc_before = false;
++		} while (nblocks);
++		return true;
++	}
++	return false;
++}
++#endif /* CONFIG_CRYPTO_LIB_AES_CBC_MACS */
++
+ #ifdef CONFIG_KERNEL_MODE_NEON
+ #define aes_mod_init_arch aes_mod_init_arch
+ static void aes_mod_init_arch(void)
+ {
+-	if (cpu_have_named_feature(AES))
+-		static_branch_enable(&have_aes);
++	if (cpu_have_named_feature(ASIMD)) {
++		static_branch_enable(&have_neon);
++		if (cpu_have_named_feature(AES))
++			static_branch_enable(&have_aes);
++	}
+ }
+ #endif /* CONFIG_KERNEL_MODE_NEON */
 -- 
 2.53.0
 
