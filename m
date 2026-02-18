@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D2BE9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 18:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F04EE9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 18:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0uK3LnBVqJtacrpaTeNsmEDEPVfCDtIQ6jE7L3gZNMs=; b=LeDBsn+H8cyn7ehN55MgENNyJu
-	JQjWeT73yhG153c7b17tZb5dTKRBI3D997atwRSH+Duu/Xl+4bN3P51T54s3nBOODyEZDCcZZye+G
-	EdrgWvZ/vIkJu0ZZiGrVELTKC/+7aIF4j6jQ6cEgYzBlHNvUF6TZuMTr7+EaE+jMCYD4BRj0GPgco
-	cCLio8IbnE84r/GDmBLOffW5pMKfHUnFhINgV7KmBqR8n1JI0L31oIl3NixhTcHV8YGdgjiFihh5d
-	7M8Dzm2VkfXRzJ2S3KhlDwqudPJmfH0meC6HtjvGn4r0U0Z83GkfGDZx8LIYJ6fCB93z2VFTuW1nW
-	dzfc82sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T/ko4EJCB3Dl2W2lTPRk6NN6wMJNY6EWwpWLgSk+D1c=; b=S1z9Pq3fGpZVA3g1ZnmPK8/JxT
+	DIjP/pzN0U8Mb2BNZgZhr2MgkxrOTA+dM/EIcDS9jweOAnMUJ5hyg04PuOW3Q02IBTtGH7jnUWjS9
+	Jw2527eWc7oV8aM3dsRGnGMGX8vSrHplQNfc6hWHRByPWaolOqyWZe9qUqfqV4W0wKc+5/9Mtgei1
+	zSFIHvpPHhW2Ith9UvqR0YTl7bANHQ/TcIg2NI1l5Zc0rB7a9gEjWyKt+Ecm6g7xvv+Lyk45D5Bz6
+	gbUvCzlrb6rlOZlm0Kz5Tww3pGM9qUesXEqtjcWlyRRswtVrjRKysqWUKq4bkxX47J8yA9fnaFdYq
+	m/06RziA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsmOA-0000000AFwx-3Z2N;
-	Wed, 18 Feb 2026 18:35:06 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vsmS4-0000000AGDh-22th;
+	Wed, 18 Feb 2026 18:39:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsmO8-0000000AFw2-1gWN
+	id 1vsmS3-0000000AGDY-241f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 18:35:05 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4836d4c26d3so1266175e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 10:35:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771439702; x=1772044502; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0uK3LnBVqJtacrpaTeNsmEDEPVfCDtIQ6jE7L3gZNMs=;
-        b=ku6EwteLd0H7bqP9mNXf4RkTMxnmQfI8rOmbOk3mLKFujAPiy5XTknI1l3FFXFHF87
-         Sy8ZC9qo4RipwggPsH0To7tml0AX+h27d5tbOO1dX3Jnwtc5+Kygl/ZFt92y5BNgEg7v
-         IcQ9mzn3tGjQHZc0Sl3qd32ylHU6gq217/6EAuuyDF03Kdq6UZ9HXihz9PW1Ml5FbXpS
-         hnfpi1/rmq+xLjVHPcI1S0vkb58Qbp5i/5cO6pg8nZ3G8QmdV5POO/g6GRiCZMzPi6HE
-         C6osH9wFTTeArLX6jtIWIgi4IZ5WCw+SGX0Q+isx7wkLYm0B3UE8VVJ7m71r088RAVqD
-         O0EA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771439702; x=1772044502;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0uK3LnBVqJtacrpaTeNsmEDEPVfCDtIQ6jE7L3gZNMs=;
-        b=OmnyvKUtfc9GNhxDlXergkCc8p/Y94VboOYNL5LBjbeANfxndiyYugeAyNQ8fMSjHN
-         aIKFknxnijupU3pu7TOsVSyQoUl3vUL9eHMwACpTNGYzGr/dfc8mTC/vh9xkHljjFLFK
-         Toczv027tJ2Rdnoq7OyZ/J2rT1KWmvlY9NtoD+zhHykr6zQl7yp62uTfIqOA276cpBXi
-         4Jh+44VcE8pKjfN/m4VqNemne/Tpya3C0PomhoS4ezQO2KhSDWe4XQWU70HEFKXneDem
-         J7kihnd1ysdFDfPGeYtNKGzmaPYr8qHpe8Og1WiRNCcueZEtnk8kJxijLU5MGGDyr5ZD
-         HeuA==
-X-Forwarded-Encrypted: i=1; AJvYcCV7RykGHB+esaw9cujSP1bQ3qxqBNSc17tCTSGVL+rhhDRWDAzQkbM8r5UbfrEG4Rorm4DRJtk7DTF5fC7srPHl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMl/mavEw9Iz5Q64HsFeBJBGpFfSzNm2se2fKmoCytTzBHEdy/
-	uZcAGbrjreyfdr2Z2tpWyKsniLYa4fg3zG9iqrr74rpmff5AoxryYAOT
-X-Gm-Gg: AZuq6aJJjN4+2jAGokk1Fr+nL5TMmkvWqYjddYptcHMNSzVfRIArLoTiSJft+2d7oEK
-	D8TOi2Dp9hY2L3O9DK4re6bgx5i8rZTuTgDbVCp+3mwcM+lMAma6hRu4JUqMfkXp4uT2jNjeSEF
-	t9t4f2skFh2Zc+rMkYbCD34sPNb0GtRs4oUp8GU8fj/8GyTRNqIh80EEEswUBX5DAvQPgzipwve
-	n1QTVCV1qJPITVSjqLnCZMk8s/6gVpPXJGcSxfhrT1lSqB5DPGlXeuh6uuyYfnECwLsNG6H1y+6
-	mabZt6jzQZtig4/3DZEPIWxa9BEzp9gdhzzfbmYsz6d8ORdge1yj8M/EyYCqAjxyrAiLjFo1vbb
-	wz2YZoEvOJfJsf+q/mMffVWcnE8jEYaJBEUIkVTdJ3MUyAcwIAaqtzejdJIpSXZQtr97avznWNh
-	A4vDeQ6RiDwm/vAqmlcQzkdLgqEc8WvmMDrmYnM1gBg7pMM+oO6BHHR/m2iCcxQ+gZ7HmX/d5yN
-	dIogzn8YKDk6Mek
-X-Received: by 2002:a05:600c:458a:b0:483:6f37:1b33 with SMTP id 5b1f17b1804b1-48373a58babmr277783835e9.30.1771439702159;
-        Wed, 18 Feb 2026 10:35:02 -0800 (PST)
-Received: from jernej-laptop (86-58-126-118.dynamic.telemach.net. [86.58.126.118])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4834d482480sm640635785e9.0.2026.02.18.10.35.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Feb 2026 10:35:01 -0800 (PST)
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: wens@kernel.org
-Cc: maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	samuel@sholland.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH] drm/sun4i: mixer: Fix layer init code
-Date: Wed, 18 Feb 2026 19:34:54 +0100
-Message-ID: <20260218183454.7881-1-jernej.skrabec@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Wed, 18 Feb 2026 18:39:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 01A646132F;
+	Wed, 18 Feb 2026 18:39:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EA1FC116D0;
+	Wed, 18 Feb 2026 18:39:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771439945;
+	bh=MU38ojQtO5E1uk6qyEB+YcDaosdVNcaLAaFz0GYcRdo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N9P4A5Z7UsNKxy2bGtUdJv8kjCwMCMQXCyCFpNgjeEcaH1MF2VZmFL4z/pUSDv0QV
+	 8pD2EmpA83r7rRDYgUHYLZTs1bs22Yyf3WxDT6YqMwEkNnfW0OIsapycYKk0cAWJ5i
+	 qXgsUIG1Vh0r4IVhLd0jOv38RWFCrTspgLmLVsPYynKl1ds8KpYILcdiPafSDDQqPc
+	 qhpnV1JDUNRl7xlf0m236fzMPEJKfCwFaVXi8s2qNbr4+1gLo1l7/Iu7UGnXK0La/d
+	 MPPSK0okTzUTX6sDpPLMvh/SfXRocmuGqzopPR/pmWM/x5nJYCZNca7bbkjn8bw8Fg
+	 fwqkwfdWhdvaQ==
+Date: Wed, 18 Feb 2026 12:39:03 -0600
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: pinctrl: convert fsl,imx27-pinctrl.txt
+ to YAML
+Message-ID: <20260218183903.GA472024-robh@kernel.org>
+References: <20260211-imx2_iomux_warning-v1-0-1c5233771b32@nxp.com>
+ <20260211-imx2_iomux_warning-v1-1-1c5233771b32@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_103504_449589_AA4F2C08 
-X-CRM114-Status: GOOD (  11.49  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260211-imx2_iomux_warning-v1-1-1c5233771b32@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +77,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Code refactoring dropped extra NULL sentinel entry at the end of the drm
-planes array.
+On Wed, Feb 11, 2026 at 04:00:00PM -0500, Frank Li wrote:
+> Convert fsl,imx27-pinctrl.txt to YAML format.
+> 
+> Additional changes:
+> - Add the compatible string "fsl,imx1-iomuxc".
+> - Add gpio@... child nodes.
+> - Add ranges property.
+> - Remove the redundant intermediate node between pinmux and group nodes.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  .../bindings/pinctrl/fsl,imx27-iomuxc.yaml         | 126 +++++++++++++++++++++
+>  .../bindings/pinctrl/fsl,imx27-pinctrl.txt         | 121 --------------------
+>  2 files changed, 126 insertions(+), 121 deletions(-)
 
-Add it back.
-
-Reported-by: Chen-Yu Tsai <wens@kernel.org>
-Closes: https://lore.kernel.org/linux-sunxi/CAGb2v65wY2pF6sR+0JgnpLa4ysvjght5hAKDa1RUyo=zEKXreg@mail.gmail.com/
-Fixes: 5fd711adc0ba ("drm/sun4i: layer: move num of planes calc out of layer code")
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
----
- drivers/gpu/drm/sun4i/sun8i_mixer.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-index ce9c155bfad7..02acc7cbdb97 100644
---- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-@@ -321,7 +321,7 @@ static struct drm_plane **sun8i_layers_init(struct drm_device *drm,
- 	unsigned int phy_index;
- 	int i;
- 
--	planes = devm_kcalloc(drm->dev, plane_cnt, sizeof(*planes), GFP_KERNEL);
-+	planes = devm_kcalloc(drm->dev, plane_cnt + 1, sizeof(*planes), GFP_KERNEL);
- 	if (!planes)
- 		return ERR_PTR(-ENOMEM);
- 
--- 
-2.53.0
-
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
