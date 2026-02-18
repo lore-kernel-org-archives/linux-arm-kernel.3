@@ -4,101 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C059E9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D0B8E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wSzHe6m0TOKXzMcTEo72KwMsIc/pKIUgWL2l1xsjlBI=; b=jnlU7SJf8cVIMe
-	c/sMpUwNPr7n7RKtStUg3sJpV3D7QUIwGbWa0T9cDeSYv8zI+82RjToPyUktNN5nmBoitTPCKTuOS
-	qojJF1MXxbNJnH3pQYa5Ie176x8c+t9YCVMZ6CG5MbK032/0mKzmvt5n7UatHHOc+AVQszrSHQKDw
-	hnGbztRR3c37F5un4iVPSHNQZOL/JFOXypabMxy4X74q4eCl5fLaYlJB7czgWiGG/998HGYkvM9Am
-	rU0yeuc6JYorlT+DCgyjNxONWp0lYDmnPuzUGhkxQk/5QST7C92jOw7SkSmmK0E4siWJ8K9nIhG/2
-	Oy1YiVX1ewaoKSBLiq4w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mXlUOmiW1N7BTlHkd6PT+qkEpSdGkOxQCnEbz+c+ZfY=; b=iATV45GCLyRdAXEikzSN4jm3HR
+	GBObGp0vu064g+04L7kim5Ojc/uJtHYhQyjjF3F3KGa6KTb6/12xJZb5ZH5eA4UVPBu6ZW6gmlIdd
+	/PyXV3+adBMfVfHjRajI892UM/s8NkSHohyp1JqBc9yiZ4EtNTr3NeyrFtqB5XAnTlq5e1u8GQQL7
+	r5hyxjLG3yOfNCU9O1f1flyen6ko29gGRTjh7RdkDWwf4+a5uMvPRoRiU4wZuUN/oyCnSXp1n0cdB
+	MeIX6jl93NrhgsBYQ2dyh1TbyGtjnb95Pp+T5ntJdrKOk1cPAULE7pkNSygR/o7gXytEjHf7RFrAl
+	mANzYbWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskDO-0000000A3bQ-3RzA;
-	Wed, 18 Feb 2026 16:15:50 +0000
-Received: from fra-out-004.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([3.74.81.189])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskDL-0000000A3ap-2jRU
+	id 1vskJi-0000000A4RY-2Y3e;
+	Wed, 18 Feb 2026 16:22:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vskJf-0000000A4R9-46Yg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:15:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1771431347; x=1802967347;
-  h=message-id:date:mime-version:reply-to:subject:to:cc:
-   references:from:in-reply-to:content-transfer-encoding;
-  bh=wSzHe6m0TOKXzMcTEo72KwMsIc/pKIUgWL2l1xsjlBI=;
-  b=C2kaBWD8CeNcfOFeqe3ZDcUay4aiOIZzlB2DzSn8PgnyvsSmVXU18Q9P
-   sNz1A+SOKtfZnUM/xMpKcK3FEbdLErxo0/Irao+rXW7piMGvXOh+cfGcx
-   +X71m99N5AkBspALetbXw5RaHy4W1lMjm9TwAlky2HLsstSG1Ou2bXpzO
-   1tvieUmXmVZZ7DQKc/6r67kgDlOfH6rud74hgF9bNg5t6OP9lxmkXPAnj
-   QXQ2iJs1B/LCIGfJaSLkfqYCb+pPTiEwGYu6bOUNrteXQMb4PdtQiwN8c
-   sJv3CNOvfFn0iMqcDHwHt7+XuYyt1RRPLLIc0/4k5Dygsgb4mRKnMNhvg
-   w==;
-X-CSE-ConnectionGUID: kSJRjUKgTJ6O17EjyUvVPw==
-X-CSE-MsgGUID: F+HHANxySqqhHr/JNDCajw==
-X-IronPort-AV: E=Sophos;i="6.21,298,1763424000"; 
-   d="scan'208";a="9637505"
-Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
-  by internal-fra-out-004.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2026 16:15:43 +0000
-Received: from EX19MTAEUC001.ant.amazon.com [54.240.197.225:31180]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.34.104:2525] with esmtp (Farcaster)
- id 20f0e6fd-71e0-41cf-97a3-e2e57bea3536; Wed, 18 Feb 2026 16:15:43 +0000 (UTC)
-X-Farcaster-Flow-ID: 20f0e6fd-71e0-41cf-97a3-e2e57bea3536
-Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUC001.ant.amazon.com (10.252.51.155) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Wed, 18 Feb 2026 16:15:35 +0000
-Received: from [192.168.2.195] (10.106.83.9) by EX19D005EUB003.ant.amazon.com
- (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35; Wed, 18 Feb 2026
- 16:15:34 +0000
-Message-ID: <7e46af52-b6f3-43cf-a970-8c179a964729@amazon.com>
-Date: Wed, 18 Feb 2026 16:15:33 +0000
+	Wed, 18 Feb 2026 16:22:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CEB6339;
+	Wed, 18 Feb 2026 08:22:09 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F5A23F62B;
+	Wed, 18 Feb 2026 08:22:10 -0800 (PST)
+Message-ID: <1acf06d1-08af-4b05-82e7-655c8ef7cf0e@arm.com>
+Date: Wed, 18 Feb 2026 16:22:08 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] KVM: Avoid synchronize_srcu() in
- kvm_io_bus_register_dev()
-To: Keir Fraser <keirf@google.com>
-CC: Sean Christopherson <seanjc@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<kvm@vger.kernel.org>, Eric Auger <eric.auger@redhat.com>, Oliver Upton
-	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon
-	<will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Li RongQing
-	<lirongqing@baidu.com>
-References: <20250909100007.3136249-1-keirf@google.com>
- <20250909100007.3136249-5-keirf@google.com>
- <a84ddba8-12da-489a-9dd1-ccdf7451a1ba@amazon.com>
- <aY-x0OlJQEqInyNF@google.com>
- <dcbd7a58-c961-4510-ae48-ef7fd4f4d75c@amazon.com>
- <aZS8XXOW7vhMkNWQ@google.com>
- <162cedc3-cd6c-494c-b39e-daadfbd6d8db@amazon.com>
- <aZXifSagpbj4CjBn@google.com>
+Subject: Re: [PATCH v4 26/41] arm_mpam: resctrl: Add support for 'MB' resource
+From: Ben Horgan <ben.horgan@arm.com>
+To: Zeng Heng <zengheng4@huawei.com>, james.morse@arm.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, kobak@nvidia.com,
+ lcherian@marvell.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, peternewman@google.com,
+ punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
+ reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ linux-doc@vger.kernel.org, Kefeng Wang <wangkefeng.wang@huawei.com>
+References: <20260203214342.584712-1-ben.horgan@arm.com>
+ <20260203214342.584712-27-ben.horgan@arm.com>
+ <20260205165018.0000089c@huawei.com>
+ <f6f865bc-319c-8944-9989-4fd83a59d4b8@huawei.com>
+ <61684bd8-8156-4fe1-8033-eaa12c6d3437@arm.com>
 Content-Language: en-US
-From: Nikita Kalyazin <kalyazin@amazon.com>
-Autocrypt: addr=kalyazin@amazon.com; keydata=
- xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
- JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
- BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
- IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
- CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
- ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
- ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
- i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
-In-Reply-To: <aZXifSagpbj4CjBn@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+In-Reply-To: <61684bd8-8156-4fe1-8033-eaa12c6d3437@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.106.83.9]
-X-ClientProxiedBy: EX19D003EUB003.ant.amazon.com (10.252.51.36) To
- EX19D005EUB003.ant.amazon.com (10.252.51.31)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_081547_982857_566AC68A 
-X-CRM114-Status: GOOD (  31.48  )
+X-CRM114-CacheID: sfid-20260218_082220_147435_257A9F8D 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,176 +77,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kalyazin@amazon.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Fenghua, Zeng,
 
-
-On 18/02/2026 16:02, Keir Fraser wrote:
-> On Wed, Feb 18, 2026 at 12:55:11PM +0000, Nikita Kalyazin wrote:
->>
->>
->> On 17/02/2026 19:07, Sean Christopherson wrote:
->>> On Mon, Feb 16, 2026, Nikita Kalyazin wrote:
->>>> On 13/02/2026 23:20, Sean Christopherson wrote:
->>>>> On Fri, Feb 13, 2026, Nikita Kalyazin wrote:
->>>>>> I am not aware of way to make it fast for both use cases and would be more
->>>>>> than happy to hear about possible solutions.
->>>>>
->>>>> What if we key off of vCPUS being created?  The motivation for Keir's change was
->>>>> to avoid stalling during VM boot, i.e. *after* initial VM creation.
->>>>
->>>> It doesn't work as is on x86 because the delay we're seeing occurs after the
->>>> created_cpus gets incremented
->>>
->>> I don't follow, the suggestion was to key off created_vcpus in
->>> kvm_io_bus_register_dev(), not in kvm_swap_active_memslots().  I can totally
->>> imagine the patch not working, but the ordering in kvm_vm_ioctl_create_vcpu()
->>> should be largely irrelevant.
->>
->> Yes, you're right, it's irrelevant.  I had made the change in
->> kvm_io_bus_register_dev() like proposed, but have no idea how I couldn't see
->> the effect.  I retested it now and it's obvious that it works on x86.  Sorry
->> for the confusion.
->>
->>>
->>> Probably a moot point though.
->>
->> Yes, this will not solve the problem on ARM.
+On 2/16/26 13:54, Ben Horgan wrote:
+> Hi Zeng,
 > 
-> Sorry for being late to this thread. I'm a bit confused now. Did
-> Sean's original patch (reintroducing the old logic, based on whether
-> any vcpus have been created) work for both/either/neither arch? I
-> would have expected it to work for both ARM and X86, despite the
-> offending synchronize_srcu() not being in the vcpu-creation ioctl on
-> ARM, and I think that is finally what your testing seems to show? If
-> so then that seems the pragmatic if somewhat ugly way forward.
+> On 2/13/26 07:38, Zeng Heng wrote:
+>> Hi Ben,
+>>
+>> On 2026/2/6 0:50, Jonathan Cameron wrote:
+>>> On Tue, 3 Feb 2026 21:43:27 +0000
+>>> Ben Horgan <ben.horgan@arm.com> wrote:
+>>>
+>>>> From: James Morse <james.morse@arm.com>
+>>>>
+>>>> resctrl supports 'MB', as a percentage throttling of traffic from the
+>>>> L3. This is the control that mba_sc uses, so ideally the class chosen
+>>>> should be as close as possible to the counters used for mbm_total. If
+>>>> there is a single L3 and the topology of the memory matches then the
+>>>> traffic at the memory controller will be equivalent to that at egress of
+>>>> the L3. If these conditions are met allow the memory class to back MB.
+>>>>
+>>>> MB's percentage control should be backed either with the fixed point
+>>>> fraction MBW_MAX or bandwidth portion bitmaps. The bandwidth portion
+>>>> bitmaps is not used as its tricky to pick which bits to use to avoid
+>>>> contention, and may be possible to expose this as something other than a
+>>>> percentage in the future.
+>>>
+>>> I'm very curious to know whether this heuristic is actually useful on
+>>> many
+>>> systems or whether many / most of them fail this 'shape' heuristic.
+>>>
+>>
+>> The current MPAM driver has restrictions that limit MB control support.
+>> For example, on some systems, the MPAM memory class MSCs are not located
+>> at the L3 cache but rather at the memory controller (e.g., Mata). In
+>> such cases, MB control and mbm_total bandwidth monitoring cannot be
+>> enabled.
+>>> I'm unsure whether the community would welcome and be willing to review
+>> a patch series supporting such systems. Of course, the changes would
+>> involve minor refactoring in the resctrl common layer.
+> 
+> Having MSC at the memory controllers is quite common and it would be
+> good for the mpam driver and resctrl to support this. My current
+> priority is the initial MPAM support and look at this and other extra
+> features later but I'd be happy to help progress support in this area
+> through review and discussion. There is some discussion about adding new
+> schema at [1] and we should make sure  this is consistent with monitors
+> too. James has some out of tree patches from before that disccussion at [2].
+> 
+> [1] https://lore.kernel.org/lkml/aPtfMFfLV1l%2FRB0L@e133380.arm.com/
+> [2] git://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git
+>  mpam/snapshot+extras/v6.18-rc1
 
-The original patch from Sean works for x86.  I didn't test it on ARM as 
-it's harder for me to do, but I don't expect it to work because it only 
-affects the pre-vcpu-creation phase.
-
-We discussed the second patch at the KVM sync earlier today, then I 
-retested it and it appears to solve the issue for both, but I'm going to 
-have more complete results tomorrow.
-
-Are you by chance able to have a look whether KVM_SET_USER_MEMORY_REGION 
-execution elongates on ARM in your environment (with the 4/4 patch)? 
-I'd be curious to know why not if it doesn't.
+Fenghua gave a talk at LPC on supporting cpu-less numa nodes in resctrl
+so is likely to have some patches/ideas around measuring bandwidth at
+memory controllers.
 
 > 
->   Cheers,
->    Keir
+>>
+>> Any feedback would be greatly appreciated.
+>>
+>>
+>> Best Regards,
+>> Zeng Heng
+> 
+> Thanks,
+> 
+> Ben
 > 
 > 
->>>
->>>> so it doesn't allow to differentiate the two
->>>> cases (below is kvm_vm_ioctl_create_vcpu):
->>>>
->>>>         kvm->created_vcpus++; // <===== incremented here
->>>>         mutex_unlock(&kvm->lock);
->>>>
->>>>         vcpu = kmem_cache_zalloc(kvm_vcpu_cache, GFP_KERNEL_ACCOUNT);
->>>>         if (!vcpu) {
->>>>                 r = -ENOMEM;
->>>>                 goto vcpu_decrement;
->>>>         }
->>>>
->>>>         BUILD_BUG_ON(sizeof(struct kvm_run) > PAGE_SIZE);
->>>>         page = alloc_page(GFP_KERNEL_ACCOUNT | __GFP_ZERO);
->>>>         if (!page) {
->>>>                 r = -ENOMEM;
->>>>                 goto vcpu_free;
->>>>         }
->>>>         vcpu->run = page_address(page);
->>>>
->>>>         kvm_vcpu_init(vcpu, kvm, id);
->>>>
->>>>         r = kvm_arch_vcpu_create(vcpu); // <===== the delay is here
->>>>
->>>>
->>>> firecracker   583 [001]   151.297145: probe:synchronize_srcu_expedited:
->>>> (ffffffff813e5cf0)
->>>>       ffffffff813e5cf1 synchronize_srcu_expedited+0x1 ([kernel.kallsyms])
->>>>       ffffffff81234986 kvm_swap_active_memslots+0x136 ([kernel.kallsyms])
->>>>       ffffffff81236cdd kvm_set_memslot+0x1cd ([kernel.kallsyms])
->>>>       ffffffff81237518 kvm_set_memory_region.part.0+0x478 ([kernel.kallsyms])
->>>>       ffffffff81264dbc __x86_set_memory_region+0xec ([kernel.kallsyms])
->>>>       ffffffff8127e2dc kvm_alloc_apic_access_page+0x5c ([kernel.kallsyms])
->>>>       ffffffff812b9ed3 vmx_vcpu_create+0x193 ([kernel.kallsyms])
->>>>       ffffffff8126788a kvm_arch_vcpu_create+0x1da ([kernel.kallsyms])
->>>>       ffffffff8123c54c kvm_vm_ioctl+0x5fc ([kernel.kallsyms])
->>>>       ffffffff8167b331 __x64_sys_ioctl+0x91 ([kernel.kallsyms])
->>>>       ffffffff8251a89c do_syscall_64+0x4c ([kernel.kallsyms])
->>>>       ffffffff8100012b entry_SYSCALL_64_after_hwframe+0x76 ([kernel.kallsyms])
->>>>                 6512de ioctl+0x32 (/mnt/host/firecracker)
->>>>                  d99a7 std::rt::lang_start+0x37 (/mnt/host/firecracker)
->>>>
->>>> Also, given that it stumbles after the KVM_CREATE_VCPU on ARM (in
->>>> KVM_SET_USER_MEMORY_REGION), it doesn't look like a universal solution.
->>>
->>> Hmm.  Under the hood, __synchronize_srcu() itself uses __call_srcu, so I _think_
->>> the only practical difference (aside from waiting, obviously) between call_srcu()
->>> and synchronize_srcu_expedited() with respect to "transferring" grace period
->>> latency is that using call_srcu() could start a normal, non-expedited grace period.
->>>
->>> IIUC, SRCU has best-effort logic to shift in-flight non-expedited grace periods
->>> to expedited mode, but if the normal grace period has already started the timer
->>> for the delayed invocation of process_srcu(), then SRCU will still wait for one
->>> jiffie, i.e. won't immediately queue the work.
->>>
->>> I have no idea if this is sane and/or acceptable, but before looping in Paul and
->>> others, can you try this to see if it helps?
->>
->> That's exactly what I tried myself before and it didn't help, probably for
->> the reason you mentioned above (a normal GP being already started).
->>
->>>
->>> diff --git a/include/linux/srcu.h b/include/linux/srcu.h
->>> index 344ad51c8f6c..30437dc8d818 100644
->>> --- a/include/linux/srcu.h
->>> +++ b/include/linux/srcu.h
->>> @@ -89,6 +89,8 @@ void __srcu_read_unlock(struct srcu_struct *ssp, int idx) __releases(ssp);
->>>
->>>    void call_srcu(struct srcu_struct *ssp, struct rcu_head *head,
->>>                   void (*func)(struct rcu_head *head));
->>> +void call_srcu_expedited(struct srcu_struct *ssp, struct rcu_head *rhp,
->>> +                        rcu_callback_t func);
->>>    void cleanup_srcu_struct(struct srcu_struct *ssp);
->>>    void synchronize_srcu(struct srcu_struct *ssp);
->>>
->>> diff --git a/kernel/rcu/srcutree.c b/kernel/rcu/srcutree.c
->>> index ea3f128de06f..03333b079092 100644
->>> --- a/kernel/rcu/srcutree.c
->>> +++ b/kernel/rcu/srcutree.c
->>> @@ -1493,6 +1493,13 @@ void call_srcu(struct srcu_struct *ssp, struct rcu_head *rhp,
->>>    }
->>>    EXPORT_SYMBOL_GPL(call_srcu);
->>>
->>> +void call_srcu_expedited(struct srcu_struct *ssp, struct rcu_head *rhp,
->>> +                        rcu_callback_t func)
->>> +{
->>> +       __call_srcu(ssp, rhp, func, rcu_gp_is_normal());
->>> +}
->>> +EXPORT_SYMBOL_GPL(call_srcu_expedited);
->>> +
->>>    /*
->>>     * Helper function for synchronize_srcu() and synchronize_srcu_expedited().
->>>     */
->>> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
->>> index 737b74b15bb5..26215f98c98f 100644
->>> --- a/virt/kvm/kvm_main.c
->>> +++ b/virt/kvm/kvm_main.c
->>> @@ -6036,7 +6036,7 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
->>>           memcpy(new_bus->range + i + 1, bus->range + i,
->>>                   (bus->dev_count - i) * sizeof(struct kvm_io_range));
->>>           rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
->>> -       call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
->>> +       call_srcu_expedited(&kvm->srcu, &bus->rcu, __free_bus);
->>>
->>>           return 0;
->>>    }
->>
+
+Thanks,
+
+Ben
 
 
