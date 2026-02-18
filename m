@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23094E9A04B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 19:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA15FE9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 19:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6EXR7CnctWgAhaEQQY9rwHergJ8wPPKWrPygc4TLEe0=; b=wl4z/tuNQfzSZ7kg60pXjZCgXf
-	fzq1UWokcuZac+GOBFvJHHz9VKi3x/y95wxGNhPhDJTNuxbYM9+QbvxL6z3zgev/65Td0MrpE1ZXT
-	E6InvotoSnLqjpj00ayse19D8A3A4H5G8noiGPfJNlC3wG884mSJ1wKQ6NWZDSm6OP5nuNsqPqkmF
-	BfAwtb4+4Pun3JrfSiMy5g/OVbOOERv2OHIsLLKTL3KV0UWbSHVvFHBgvelPXSavcevRmMVs3Epa9
-	G68ABBROhSo8I+vJF190nXAtAo0khaepb2t2gvRCoGswrqBU19dx9o7Z4aEMA5jFk0eYsuumAxPS0
-	V0SYQ41w==;
+	bh=Nxc51OZFvWQ7CJax0Y4YjDs1seO2jYaYlzojY84ULhA=; b=j+k2aExJZ9DyNUUe4AE000vQZm
+	7Y2QC2X51kE2Mj6dtP67QLE7Cbdb3ivqUugLKFSWKeMh7a3PzVkTedl/8sEnDb4rmzYbQmAC5KLU7
+	is4/X0VEuP0rMTvT/uz+DR/5ji00/MJylcXv9MEVG7odo1mFhrieHbcshYPwoWMXU9S1bY01YTsJK
+	DNcukAPV4iO6DQZG2+oTNpsiQwYXOeI8itRZdoeFxySMX4Nz1i19MISq1GAemk9nwNGdY0wRTfzSz
+	mmZ4yL+HXN/WHkNtaTVM5j7GrcTUKlCerLh5GSHa09jbMrAW7tipkqcKUWKo7NAwM3Wob0sjsXa4d
+	MgnWWXHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsnRj-0000000AK9X-2YuS;
-	Wed, 18 Feb 2026 19:42:51 +0000
+	id 1vsnTD-0000000AKLc-2EI2;
+	Wed, 18 Feb 2026 19:44:23 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsnRh-0000000AK9P-3MNc
+	id 1vsnTC-0000000AKLQ-37nZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 19:42:49 +0000
+	Wed, 18 Feb 2026 19:44:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C809F600AE;
-	Wed, 18 Feb 2026 19:42:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A26A0C116D0;
-	Wed, 18 Feb 2026 19:42:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 34C4C600AE;
+	Wed, 18 Feb 2026 19:44:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00A52C116D0;
+	Wed, 18 Feb 2026 19:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771443768;
-	bh=6EXR7CnctWgAhaEQQY9rwHergJ8wPPKWrPygc4TLEe0=;
+	s=k20201202; t=1771443861;
+	bh=Nxc51OZFvWQ7CJax0Y4YjDs1seO2jYaYlzojY84ULhA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HB3DS3IXZIBSM7czFyCFsqUYxeHIUK3mSkLSGDK1mbuh9y4vfzkajRtzfA8fqhJcx
-	 3D1VFRWEC3gHdZkZccVZfDggPraK2RKivyA6U3jqItlxfznUZPRTs1dcHQYjHE78XU
-	 vyWJkIfASMxnCPyBtsF26Cc4JssGLMmVX9IPThBPj+iWlPGAhzX3gxIiuATp5hwR0L
-	 9nR2KQYoNpvaUEKeO1N5AvXAJmoKYQAgnCYGERO35XgQ9HSFJv7InjonYNyJllH4Wu
-	 qJPLUq7UOaJPZsjjhcDvok4B1VeLxHrTXL2PlU8Z+zFMQ02cKkN0nNrm5wfDSEX3f2
-	 wdjFP+Ghp2nSg==
-Message-ID: <0d6e728f-4677-4267-9dff-8d089d2dc187@kernel.org>
-Date: Wed, 18 Feb 2026 20:42:43 +0100
+	b=SwGdG5ATkMTZ8yEB5LkURONG5rkpF2XO+ansffQI49leAQLTFNHA42G5doEeNDxYi
+	 /eKWr1RoVOqfAx1y/jt0ptaK+YDyZIAEyNHg/XU+MZwmrypNmF+v5w1cQWVmvcC2Ho
+	 SQyRfkQVudR46fBMg7g7JJfxJ+WV72+M4IboF7QR/Ss4APRh+k5CX2FtTM1rRwkVrN
+	 tcvHJWgYr/9HheM4Gk2cQvd551cxna/9B6EbNwSS3+xYrS5vut/vgn9lWopN1Adyr9
+	 sFfGOtZMa7snHI1LCNdrG7y9G8aJZX7SdibOGhiFcnq6FCRXi01mzT1LI73pHc7Y9f
+	 7dos+tdwiY8rg==
+Message-ID: <6c001865-c8e3-4133-bf10-46384fdaf511@kernel.org>
+Date: Wed, 18 Feb 2026 20:44:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] ARM: dts: imx6qdl-tqma6: add missing labels
-To: Max Merchel <Max.Merchel@ew.tq-group.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
+Subject: Re: [PATCH 0/4] ARM: dts: TQMa6UL: modify for use in bootloaders
+To: Frank Li <Frank.li@nxp.com>, Max Merchel <Max.Merchel@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: linux@ew.tq-group.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ Fabio Estevam <festevam@gmail.com>, linux@ew.tq-group.com,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260218132228.32056-1-Max.Merchel@ew.tq-group.com>
- <20260218132228.32056-2-Max.Merchel@ew.tq-group.com>
+References: <20260218132339.32157-1-Max.Merchel@ew.tq-group.com>
+ <aZXw76CuH9u8csFk@lizhi-Precision-Tower-5810>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,7 +101,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260218132228.32056-2-Max.Merchel@ew.tq-group.com>
+In-Reply-To: <aZXw76CuH9u8csFk@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,19 +118,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2026 14:22, Max Merchel wrote:
-> Add the missing labels for the temperature sensor and the EEPROM.
-> In SoM variants A and B, the components are connected to different
-> I2C buses. These labels are needed to reference them in subsequent
-> device trees.
+On 18/02/2026 18:03, Frank Li wrote:
+> On Wed, Feb 18, 2026 at 02:23:33PM +0100, Max Merchel wrote:
+>> This series contains modifications for using Linux device trees
+>> in bootloaders. Changes from U-Boot bootloader are incorporated
+>> directly into the Linux device trees.
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-That's not a change on its own. It makes no impact, no effect and is
-confusing because unused labels shall be removed.
+Hi Frank,
 
-So you apply this patch and immediately revert it because these labels
-are unused.
-
-No, squash it instead with the USER of the label.
+Why are you giving review tags instead of applying the patches? Aren't
+you the maintainer which handles the patches for IMX?
 
 Best regards,
 Krzysztof
