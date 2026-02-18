@@ -4,63 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13090E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 09:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C8CE9A03E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 09:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9g16VAzdXjk7el24eci4KwOplqZTjTQcO4xOI6aGpkE=; b=NlZ+CdZEFiOj5tqvwoWT2OXQOX
-	nyIkOfErc8/XgX2OYZ98ahc/yGB6sn2gsCeIe1DnQCuATZgMG7eUE47ANG/Ltcrt0h6Eu7OitW58/
-	1ENyqSz/KMSDFKxJvTMJBt2ujl9SKwsQQoycHa8Z6nioVe7slVfR2Er11xR1gv9f0OTkeqxMRt6rW
-	Kxrr8U9CKeMD57ym6tDZIgrorUFwqjWICMpsulpTI4xkzY6bEBcQUQzskLVQus7RbZaLG7nxQEYEo
-	TtIkJhXCX9ADaQZcQ329UHM1sblTPo9CDni4Cl2tOF5wPOi73UmNHvEFW0YnxuSMEJHuAsskjQqRa
-	FFPxDo3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P3smY0u3Vv38WBh2Nxv1gP0VERNgHlRwfDyD3g6EmN4=; b=WDhoayti3OZGW9td1C/OP1Oouk
+	oel4qbp96MySu/4m1eS9Te6pluRfzUPE/jLvi9NjbsDu7by1TMn3xSqZhOhA1Pmfum7217oCJouu2
+	DND2KAPt+GZu8tZq56JHLYGoPQ/m3jTKAxA6mLqJ9Ur30dDhgzszwYOa9CK5wdlSsRJ6pKgmdn4+j
+	UreWxEyJAhF16jBpHDfYAmZhhEgPi+xt3f1nsrwLb4DJEhWREwsEMICAMINkOSJB2Cqz/pbAYbpKb
+	VnmHM9hvG213iqaJmBMO8tfiBRGV6CnS8CFFWW5UlXDNiFAxPTXNLJZ5xFoK7ejd+ZuoJ1aMt637F
+	9NM7gNpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdvt-00000009Ys0-43pQ;
-	Wed, 18 Feb 2026 09:33:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdvq-00000009Yrc-3V02
+	id 1vseF0-00000009ZgU-0Vo3;
+	Wed, 18 Feb 2026 09:53:06 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vseEx-00000009Zg1-2oPH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 09:33:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AF2021477;
-	Wed, 18 Feb 2026 01:33:11 -0800 (PST)
-Received: from [10.57.81.199] (unknown [10.57.81.199])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 281A43F7F5;
-	Wed, 18 Feb 2026 01:33:15 -0800 (PST)
-Message-ID: <b56d5ba7-46ba-4a4c-9266-70d7e63530cc@arm.com>
-Date: Wed, 18 Feb 2026 09:33:14 +0000
+	Wed, 18 Feb 2026 09:53:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kin3ib/nc3BkfzdXynJMFcaE1O2eeioRJy3YYILbSzFE7RDAB4PF3rKyiQwwkbxiji6BVlpm2pcWwjylNVfJMB2aClFxbYhyKFo82aGiqyBxxES1KnTpV1Xc+eW2OBbMQAdO1Mxn1ecCZvJ8fzEvH5o6FxEpiL8uTJv6aEFejJk/qSMkCw63LxkYvgbd+nDr6KG4sj/HtIaEF1gY3SyVbsflPsweTvE/HNbgtNdp/c8gu/JwBGO26Ga6zf0DSNhQxs8NacPdjXnq9cci55qyInREw6Nb25fXRB4ib0U+iKFFRYDqUxK+eNyHGmCh8IYa8DQYgkIjhtbXBHnm3FX6Nw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P3smY0u3Vv38WBh2Nxv1gP0VERNgHlRwfDyD3g6EmN4=;
+ b=sTMS6izKMHlkE5v5yKcbJ/BRgc8uU6jwhAKOKa1LTI3+LuyPPwAc17jy7XLV1LO7Be5s1eMEZZWARbTtp0A53K9Qrf7XEBEqT8qwnmCUjRP2w75N5tEMJOTaNtaCdzdrsb3fpE2NH72ahJFlte3A8mBRWT22+JQo4NngD6Mvn3LC9mpAG1w3iGJ25fSAmVL73Si2qdmxg4sJC72EBcr/Kv2nk6bSRnMN34oJJWzoh9F6jfWRqEH3wt+YUsGs70M7ZL2KVuT9Ki3FDBVBJE7okMRZhorOx/hNxJBaoJwMTlUYQckpv7zklbpE/teCE8ryEqMRcyqXYYbaPqXPq8TImA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P3smY0u3Vv38WBh2Nxv1gP0VERNgHlRwfDyD3g6EmN4=;
+ b=JqaskT/HxnyhVk7EQNcTSCrHN9CsCYGL/pJ++OPc6CKGJs1o4g84+xI8atH4GHGWcZqZJwzDJbbHNv+jb/Gy/bo5MPbO0L8C8Icw/XKq3BBzV75V3kV7/jS3j1mPLGn3/K4ikG3ZdghpqdZeicDDci43gaEy8MGMc2I3yWbyqmA=
+Received: from CH2PR18CA0008.namprd18.prod.outlook.com (2603:10b6:610:4f::18)
+ by IA3PR10MB8298.namprd10.prod.outlook.com (2603:10b6:208:570::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Wed, 18 Feb
+ 2026 09:52:57 +0000
+Received: from CH3PEPF00000017.namprd21.prod.outlook.com
+ (2603:10b6:610:4f:cafe::1f) by CH2PR18CA0008.outlook.office365.com
+ (2603:10b6:610:4f::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.14 via Frontend Transport; Wed,
+ 18 Feb 2026 09:52:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CH3PEPF00000017.mail.protection.outlook.com (10.167.244.122) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.0 via Frontend Transport; Wed, 18 Feb 2026 09:52:57 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Feb
+ 2026 03:52:56 -0600
+Received: from DLEE212.ent.ti.com (157.170.170.114) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Feb
+ 2026 03:52:56 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 18 Feb 2026 03:52:56 -0600
+Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [172.24.233.239])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61I9qpI7200561;
+	Wed, 18 Feb 2026 03:52:52 -0600
+From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
+	<ssantosh@kernel.org>, <dmaengine@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
+	<Frank.li@nxp.com>, <s-adivi@ti.com>
+CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
+Subject: [PATCH v5 00/18] dmaengine: ti: Add support for BCDMA v2 and PKTDMA v2
+Date: Wed, 18 Feb 2026 15:22:25 +0530
+Message-ID: <20260218095243.2832115-1-s-adivi@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.6 0/3] arm64: Speed up boot with faster linear map
- creation
-Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jack Aboutboul <jaboutboul@microsoft.com>,
- Sharath George John <sgeorgejohn@microsoft.com>,
- Noah Meyerhans <nmeyerhans@microsoft.com>,
- Jim Perrin <Jim.Perrin@microsoft.com>
-References: <20260217133411.2881311-1-ryan.roberts@arm.com>
- <2026021700-chafe-jurist-cb24@gregkh>
- <17c9efaf-6c33-4485-bde2-345cc15ac000@arm.com>
- <2026021718-citrus-parakeet-dc60@gregkh>
- <7f30a8e4-49c3-421d-be05-08afb544aa41@arm.com>
- <2026021758-subsidy-tinfoil-ee2c@gregkh>
- <20e320d2-749a-4379-a236-5dbe3d52b07f@arm.com>
-In-Reply-To: <20e320d2-749a-4379-a236-5dbe3d52b07f@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000017:EE_|IA3PR10MB8298:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9cd8209c-19db-4a0d-7195-08de6ed37eae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700013|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?My99P8/PIf4z6L+3Zwr01FJtoSb8Y1Y9caOE3VQKO3lkHBuO4r8kkwgf5Adx?=
+ =?us-ascii?Q?7QAPU2agjbcPK8qF50FnFgXEdf+WrBqZvZNLDJ4yjNqc7TQCHwFNmqq26fF6?=
+ =?us-ascii?Q?LLEYo+UcNTkFk7jXh66n4zRbH6gjHgm42jwYJQNxNPd7w6EW3YescPLSjSpX?=
+ =?us-ascii?Q?DIdhN9lTNFtDfsD9TKj7RMK37U5HCi+t6gDGWddn+bp5m6r/mqc7Ww4EDwTD?=
+ =?us-ascii?Q?sBGkD0wat1WpleT6yN1A3v7fxZvvFyYyLxki45dUvUFWUN+6FkngWCxkygPK?=
+ =?us-ascii?Q?QhjJp6uCmFdRFQQzY1TO3NTUTEmr/a6v1v7hM1IZaXRWm59Eh0AX++nZ7NoU?=
+ =?us-ascii?Q?dsPjXAem+Ovwk3bPp20AkbEjMgcIokcENVHxirQBeK3Z+EpuycYjIVJQWulr?=
+ =?us-ascii?Q?bRvmYcgKwEuCYowmLQipunswB9IaioK+U6KE81RwrRp1gFrYd6jxcdTLvJxO?=
+ =?us-ascii?Q?lKravpK48d01sbzTQahYr6bPaLz1iaawrgZj07j0yLjNjmXv5wC3WaNbuGo3?=
+ =?us-ascii?Q?7HoMdIurksZAv/lTMzGfqPyUrXaOUODLGPxMpcB/f3A6i7qjgG8unEF0/e6s?=
+ =?us-ascii?Q?OY+qtj54XcWIMx7m3bhgLNGJdSwjq6JAGGxjdZy7aoQevvGlHNFmA+ZL9W23?=
+ =?us-ascii?Q?5wO1zMKMrUC2kcBbBuATVeUmLATMcnMhJypmsXOphM6/q+MChUeHjUokwfne?=
+ =?us-ascii?Q?lr9XQy75fVII8q/H/M2y2lsGt0cFvCq1KF5IqdN/U+u1eVBHt5XXCXwTxjSn?=
+ =?us-ascii?Q?nK5tCOR/LXERD0swrEPH6B3RARXu7C22FmzNcGLIkdzt19BuSBrm0GJ69yoQ?=
+ =?us-ascii?Q?FoSI9Nw2yx+nUuTjkYxIqRk6qSKNayjesTJSMWOVSASZuGSBTf1tcN1o5T04?=
+ =?us-ascii?Q?+qWSR+GZiIrmWRH4O5CSmowyOC39PbBN9B06BZnwEg3QA1kvxFSo4W8MDQol?=
+ =?us-ascii?Q?Wn0/JoMVJzHvNllWDvnZyISrfM37HZnbBlaz3guoGcS6mkf8VKMN62QzCxMZ?=
+ =?us-ascii?Q?H4CWbv6A4a/k6jWIJWA18Z/FqEijKCWA4iGK4LWc/JHkhhxe56bUPqHP22kg?=
+ =?us-ascii?Q?a/zZ/oVQDoqsU7rINLtqaIa3jPhsiGbrkVvsbUsfk+JIrutpYMTjLglJPUPU?=
+ =?us-ascii?Q?BpszhxXQES7Ypp4tiA/FOVFpnFCdEuHOh8b5i9YX1PG3e+Ay02Naw1bECFvO?=
+ =?us-ascii?Q?G2StHlRZup+KNbKPZdzzIsrXUAEI/H0/CUVRGCT3Nzq8KSeSAurKCcgYjdYR?=
+ =?us-ascii?Q?KvN+iarJ8a80/PqnHFX1Scc5KsIP8cuDuSjIupnQQrhgCzTKUocUuCjXvBSL?=
+ =?us-ascii?Q?MtDz0bcIdvMRRGqiPeZOpGGGq2OiTNwjCyhIqEQHbdQrvUf4m15JvJkbwckw?=
+ =?us-ascii?Q?TqObgIFtnsihkKb6s95EdzltwSbUmg6HAjbxI+RXYAR9otKxQ0S0YKSkoCtH?=
+ =?us-ascii?Q?s+qjWBwzeUAmEQM98YiG8enP9Z2PISzQfP6PNWN4gOiSWHh5keAufjr54nmG?=
+ =?us-ascii?Q?TMZmYw1o3W2pa6bo8UWaf0RS3cOno72oSGlrueOBPoYWWRZpGmN9mjTT6cgc?=
+ =?us-ascii?Q?yTnJi8B0LhAZWCP8IrtcACMZIcNjpQRE0MZM+h1CgVKDXDMBEWeun5KNGMaJ?=
+ =?us-ascii?Q?qHNWAHnj9k+j2ySrpmWSK615XPM/5L5BugpIpQLmz2w2jH7WKuSsxGIi/bwR?=
+ =?us-ascii?Q?YSmVfL0080Ux5ivrt6iMJeH57lQ=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700013)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: u1CVooduFyHbfQwPkIh4nuEW94lmo9W/8Kj9bem4N5vAOHQvl7qpVJqd4zyv0p+n4LEke9h39kHxzUt2O954LQmSZvO+Nhj7puwfr4FKI3XcpANJnvTdvnsgnYbK2zA1Z6CUVjwSAE8CSjp/7HF1gSnrTTamEtU5z8vqMnPO6WMjaS3PPwlWyPGJ+uGEPZ+DYoqBwYDcVHhxYVvckTe7LKxdWIdYpIMOBKAeOQGmmGtu8bEWJanFx12Ot5KwP0x7X3PHQWMoU70U14nMLy4UBt79vGNTHeiritz1W/MOgOyNWbH1yvTeb+rKqnvqJVAU5GuhR7xyRQzh4WT9wmiIzvFirMVZsgaaxJjIptFHG9yxk/ue5tOKDNA/wNDt6vsZSYFEpmegq3Ao9+2vO3ZCSZddE6WSNzqn+3DYhuOks6T/2YF9w+CxkCLbzSJQGy1c
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 09:52:57.4654
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9cd8209c-19db-4a0d-7195-08de6ed37eae
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000017.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8298
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_013318_998489_9694ACA9 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20260218_015303_776516_17C21DB8 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,84 +159,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/02/2026 14:43, Ryan Roberts wrote:
-> On 17/02/2026 14:26, Greg KH wrote:
->> On Tue, Feb 17, 2026 at 02:21:30PM +0000, Ryan Roberts wrote:
->>> On 17/02/2026 14:10, Greg KH wrote:
->>>> On Tue, Feb 17, 2026 at 01:58:36PM +0000, Ryan Roberts wrote:
->>>>> On 17/02/2026 13:50, Greg KH wrote:
->>>>>> On Tue, Feb 17, 2026 at 01:34:05PM +0000, Ryan Roberts wrote:
->>>>>>> Hi All,
->>>>>>>
->>>>>>> This series is a backport that applies to stable kernel 6.6 (base v6.6.126), for
->>>>>>> some speed ups to enable significantly faster booting on systems with a lot of
->>>>>>> memory. The patches were originally posted at:
->>>>>>>
->>>>>>>   https://lore.kernel.org/linux-arm-kernel/20240412131908.433043-1-ryan.roberts@arm.com/
->>>>>>>
->>>>>>> ... and were originally merged upstream in v6.10-rc1.
->>>>>>>
->>>>>>> I'm requesting this be merged to stable on behalf of a partner who wants to get
->>>>>>> the benefit of this series in Debian 12.
->>>>>>
->>>>>> Why can't they just use a newer kernel version (i.e. 6.12)?  Surely they
->>>>>> would be able to justify moving to a newer kernel for performance
->>>>>> reasons, why enable them to stay on an older one, just delaying the
->>>>>> inevitable upgrade they will have to do anyway in a year or so?
->>>>>
->>>>> I can't answer this presicely, but I did ask and push for that approach. As I
->>>>> understand it, they are stuck with Debian 12, which is stuck with kernel 6.1.
->>>>> The Debian maintainer apparently requested that these go through stable in order
->>>>> to get them into Debian 12.
->>>>
->>>> I understand the position of Debian not wanting to take patches for new
->>>> features that are not already upstream, but really, Debian offers a
->>>> newer kernel for hardware that wants to use it for things like this,
->>>> right?  Why not just use that instead?
->>>
->>> Let me go push a bit harder. But I expect we are in the grey zone between bug
->>> and feature here; this is a performance bug fix, not a new feature. By
->>> selectively backporting I'm guessing they are avoiding the risk of new features
->>> that a new kernel brings introducing new bugs? I'm guessing there is a higher
->>> qualification bar for that.
->>
->> That's a broken "qualification system" if that is the case, given that
->> the patches that flow back into stable kernel releases should be
->> triggering "full qualification" if anyone actually paid attention to
->> what goes into there :)
->>
->> Anyway, good luck!  And same for 6.1.y, if they are ok with 6.6.y, why
->> would they even care about 6.1.y?
-> 
-> The request was only for 6.1. I did 6.6 as well for continuity; I didn't want it
-> to get slow again if they moved from 6.1 to 6.6. It's already fixed in 6.12.
+This series adds support for the BCDMA_V2 and PKTDMA_V2 which is
+introduced in AM62L.
 
-Hi Greg,
+The key differences between the existing DMA and DMA V2 are:
+- Absence of TISCI: Instead of configuring via TISCI calls, direct
+  register writes are required.
+- Autopair: There is no longer a need for PSIL pair and instead AUTOPAIR
+  bit needs to set in the RT_CTL register.
+- Static channel mapping: Each channel is mapped to a single peripheral.
+- Direct IRQs: There is no INT-A and interrupt lines from DMA are
+  directly connected to GIC.
+- Remote side configuration handled by DMA. So no need to write to PEER
+  registers to START / STOP / PAUSE / TEARDOWN.
+- Unified Channel Space: Tx and Rx channels share a single register
+  space. Each channel index is specifically fixed in hardware as either
+  Tx or Rx in an interleaved manner.
 
-I thought a bit more about this overnight, and decided I wanted to have one more
-go at convincing you...
+Changes from v4 to v5:
+- Introduce a new version variable in udma_match_data to differentiate
+  between K3 UDMA V1 and K3 UDMA V2. This simplifies the approach for
+  adding any future possible variants avoiding complex if conditions.
+- Fix both K3 BCDMA V2 and PKTDMA V2 dt bindings as per the comments
+  from previous versions.
+- Fix minor nitpicks like following the reverse christmas tree order for
+  variable declarations.
+- Remove the patch [v4 19/19] that switches to synchronous descriptor
+  freeing. With this patch, dma_free_coherent gets called in irq
+  context and hence a WARN().
+link to v4:
+https://lore.kernel.org/all/20260130110159.359501-1-s-adivi@ti.com/
 
-In case you didn't read the commit logs, this series fixes a pretty nasty
-performace bug; for a machine with 512G of RAM, it previously took 17.5 seconds
-to create the linear map, and with the changes, it's down to 1.2 seconds. That's
-quite a big quality-of-life improvement if you are booting VMs regularly.
-(personally I hit this quite a bit).
+Changes from v3 to v4:
+- Rename the dt-binding files to add "ti," prefix.
+- Update cell description in dt-bindings and add client examples.
+- Update k3_ring_intr_regs reg names
+- Rename soc specific data to bcdma_v2_data and pktdma_v2_data to
+  bcdma_v2_am62l_data and pktdma_v2_am62l_data.
+- Add a new patch [18/19] to fix a null pointer dereference issue when
+  trying to reserve a channel id that is out of bounds in
+  udma_reserve_##res macro. Also fix logging issues in this macro.
+- Add a new patch [19/19] to switch to synchronous descriptor freeing to
+  avoid running out of memory during stress tests.
+- Fix checkpatch warnings.
+link to v3:
+https://lore.kernel.org/linux-arm-kernel/20250623053716.1493974-1-s-adivi@ti.com
 
-It's a low risk change - it's been in since v6.10 and is part of arm64's core
-boot path - and no issues have ever been raised.
+Changes from v2 to v3:
+- Fix checkpatch errors & spellings.
+link to v2:
+https://lore.kernel.org/linux-arm-kernel/20250612071521.3116831-1-s-adivi@ti.com
 
-Are you sure this isn't the sort of change that should be considered for stable?
+Changes from v1 to v2:
+- Split refactoring of k3-udma driver into multiple commits
+- Fix bcdma v2 and pktdma v2 dt-binding examples
+- Fix compatibles in k3-udma-v2.c
+- move udma_is_desc_really_done to k3-udma-common.c as the difference
+  between k3-udma and k3-udma-v2 implementation is minor.
+- remove udma_ prefix to function pointers in udma_dev
+- reorder the commits to first refactor the existing code completely and
+  then introduce k3-udma-v2 related commits.
+- remove redundant includes in k3-udma-common.c
+- remove ti_sci_ dependency for k3_ringacc in Kconfig
+- refactor setup_resources functions to remove ti_sci_ code from common
+  logic.
+link to v1:
+https://lore.kernel.org/linux-arm-kernel/20250428072032.946008-1-s-adivi@ti.com
 
-Thanks,
-Ryan
+Sai Sree Kartheek Adivi (18):
+  dmaengine: ti: k3-udma: move macros to header file
+  dmaengine: ti: k3-udma: move structs and enums to header file
+  dmaengine: ti: k3-udma: move static inline helper functions to header
+    file
+  dmaengine: ti: k3-udma: move descriptor management to k3-udma-common.c
+  dmaengine: ti: k3-udma: move ring management functions to
+    k3-udma-common.c
+  dmaengine: ti: k3-udma: Add variant-specific function pointers to
+    udma_dev
+  dmaengine: ti: k3-udma: move udma utility functions to
+    k3-udma-common.c
+  dmaengine: ti: k3-udma: move resource management functions to
+    k3-udma-common.c
+  dmaengine: ti: k3-udma: refactor resource setup functions
+  dmaengine: ti: k3-udma: move inclusion of k3-udma-private.c to
+    k3-udma-common.c
+  drivers: soc: ti: k3-ringacc: handle absence of tisci
+  dt-bindings: dma: ti: Add K3 BCDMA V2
+  dt-bindings: dma: ti: Add K3 PKTDMA V2
+  dmaengine: ti: k3-psil-am62l: Add AM62Lx PSIL and PDMA data
+  dmaengine: ti: k3-udma-v2: New driver for K3 BCDMA_V2
+  dmaengine: ti: k3-udma-v2: Add support for PKTDMA V2
+  dmaengine: ti: k3-udma-v2: Update glue layer to support PKTDMA V2
+  dmaengine: ti: k3-udma: Validate resource ID and fix logging in
+    reservation
+
+ .../bindings/dma/ti/ti,am62l-dmss-bcdma.yaml  |  120 +
+ .../bindings/dma/ti/ti,am62l-dmss-pktdma.yaml |  100 +
+ drivers/dma/ti/Kconfig                        |   21 +-
+ drivers/dma/ti/Makefile                       |    5 +-
+ drivers/dma/ti/k3-psil-am62l.c                |  132 +
+ drivers/dma/ti/k3-psil-priv.h                 |    1 +
+ drivers/dma/ti/k3-psil.c                      |    1 +
+ drivers/dma/ti/k3-udma-common.c               | 2610 ++++++++++++++
+ drivers/dma/ti/k3-udma-glue.c                 |   91 +-
+ drivers/dma/ti/k3-udma-private.c              |   45 +-
+ drivers/dma/ti/k3-udma-v2.c                   | 1475 ++++++++
+ drivers/dma/ti/k3-udma.c                      | 3102 +----------------
+ drivers/dma/ti/k3-udma.h                      |  590 ++++
+ drivers/soc/ti/k3-ringacc.c                   |  188 +-
+ include/linux/soc/ti/k3-ringacc.h             |   20 +
+ 15 files changed, 5466 insertions(+), 3035 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
+ create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml
+ create mode 100644 drivers/dma/ti/k3-psil-am62l.c
+ create mode 100644 drivers/dma/ti/k3-udma-common.c
+ create mode 100644 drivers/dma/ti/k3-udma-v2.c
 
 
-> 
-> 
->>
->> thanks,
->>
->> greg k-h
-> 
+base-commit: 635c467cc14ebdffab3f77610217c1dacaf88e8c
+-- 
+2.34.1
 
 
