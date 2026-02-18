@@ -4,63 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37991E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 11:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6642BE9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 11:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RagyzuVa5Vl7iHkwZfGwyJBO6t6o4TbwKeVDfHaH+Xw=; b=xKRW+bnat3MsEVusKnmtLXHaJY
-	Ead5vr90IruIO0TeFA7kWZNfqkvx3eZ6/0wsU5XanBUiwqFppx1jjVrJiocgNXQZHdg3ZTvmyOXRQ
-	SdbChYbVvky9vm9Y8HTIw8mTHnYwaFMJkLKhZX7mw4YJM7gLInUQQF0tuq9Fts23LT2E18aXOdnE7
-	dTkvBtWuBmSaHJV+TLx/+IYg7fx+eP/VU2ERNyt1lKEza4uvX1QcCzpe5GippEf4fBUFAE9Si2SYf
-	v4q36LISonfm2qR6tfGPCjg9pGTihivy3b3mwnN2NEgAbMLpJWCtCOOICF0iXlJ5nuwl6VBAhbsxT
-	0Ep/7rZw==;
+	bh=3ngTuzqYre1wsq+Z2yjygGXPlyhwCpAkm7HI4hYO5K4=; b=MMxjz6cMginG8f1tvoZDex8Hyi
+	pfW5PUlKD2iReUFcgndLlJt2Kg1uSzio8cnm3k9l1jd/B2RJAszVlIgIIpf1EFjqWuZ00/+3tXeoh
+	Qk4uA/C6bkSYQUQ97ggi70VXEJUmq8oRFljZxbYAuM91hjBbd3o/tsWAA9+V7891tOJC2tMlXeNPU
+	PxB1ecSusU49bwsgPe3E6oa8eIeUymyhIsLadsoh0HQXRud8WCsorgErwE5k+KjIIRHpi4+bINJZn
+	o4LAFMm5y/STIz1/xvW8TP6pD78MpOTwtA0tAf5Yf5xqi3bj6HJEP9kXUZJuCYLP0AXROi0vxG4XU
+	5PTfmeSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsfcC-00000009hvN-1pjp;
-	Wed, 18 Feb 2026 11:21:08 +0000
-Received: from pouet.aliel.fr ([65.21.61.41] helo=courrier.aliel.fr)
+	id 1vsfck-00000009i2c-1AWx;
+	Wed, 18 Feb 2026 11:21:42 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsfc9-00000009huO-0z9u;
-	Wed, 18 Feb 2026 11:21:07 +0000
-Received: from localhost.localdomain (2a02-842b-8136-0001-b865-661D-5641-e7C6.rev.sfr.net [IPv6:2a02:842b:8136:1:b865:661d:5641:e7c6])
-	by courrier.aliel.fr (Postfix) with ESMTPSA id F3064426E9;
-	Wed, 18 Feb 2026 11:20:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1771413659;
-	bh=0wJJibka0/8mDDFVXqfczE5X4qxrHNZ8Hjp5LOpquQQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YeX37P5Zu7vg/xDH4vHqSQ2lu96VG5wIN74Ghp/i36YkzRxK43eZ3+f3SCWgM3oSp
-	 5lNmsQXdDEfSt4VTfWeakMp5edk+ZduR7mRoCXN1L2wpLWuO0SDOKoQLZO5HVAE/K2
-	 xKExIwJgG0Moo13AtvAj00QjTe+rHyH0mUo6Sr5k=
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-To: linux-amlogic@lists.infradead.org
-Cc: Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 6/7] arm64: dts: amlogic: Add clock and EMMC for T7
-Date: Wed, 18 Feb 2026 12:20:33 +0100
-Message-ID: <20260218112036.36905-1-linux-kernel-dev@aliel.fr>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260218101709.35450-1-linux-kernel-dev@aliel.fr>
-References: <20260218101709.35450-1-linux-kernel-dev@aliel.fr>
+	id 1vsfch-00000009i1b-0x6U
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Feb 2026 11:21:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wE3z7vGxDlCSxS4tjCF81wNN1UeU72Z68Vmr0WIzb2kPRQpgd3hBh3Fk3jOAbaoHj2MwMpH3G66i9yOkZM3h/R6u0PE94HHm8bsKxsojYOD0ANcyi2YERcz/GDomqrGrS9C8Gz9bwVzR+4xCfaTusiOsp+Mo7Y8iCCtPhLVj3hM0Jn+AxVRKidOV/gXp/o+3tOzcfzHaMyuHo8vPILXQ46uU1JjZwsAX1SlLtelOoynOWazQax5yJMV1yN1Sxx3SXCChRkcbrKKSN0m4MHAYrNB/o0txcV5pAs8FDP51gLxmKXjEgaQ68HBloQvkBHB4X4SIO8aqJL67LvkT3YFGUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3ngTuzqYre1wsq+Z2yjygGXPlyhwCpAkm7HI4hYO5K4=;
+ b=CCWybyYngTHoveUaw+BQcUi/zWEFNMapHx3P1rkMg+A67VMxtcqf5iHoippx7OvMaYmdhjnS+T5oy7mLtqSuy67FDsFaCe3zhdybAB8dia24lAz4oLj8U+TrtMNyYJz4L2eTvFJrJzSO1fJtarwjYiGfcVCaT51PKMFeCHB/xyEOsanu2NZASEtzGRQAUmeL4VmD4Z2LF+F8IoJyzHswnpEO28SduoLwG7oc0VOwqr/uAmsISV3pDVNgg//kfSh8kR40GL4KMeaH7Pgtlk7B88CtDSxRpX/+bqKzdZDQg8gmBVWDXkIRVHR5LrtTlG5sCepb9RanQnDx8oRyZMi9bQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3ngTuzqYre1wsq+Z2yjygGXPlyhwCpAkm7HI4hYO5K4=;
+ b=Rc7cBaZO02Jl9tiNNQ2Bb9PWf0W2gUpJKtUyA8cVmyoL70qIForASeZzGYKl3ZM3dpE/Nphjg1svFIuyNya0ulYBJvBpb6EVNix1dTO5dU8wuWzOFQqPzgj/lSPruYSK40AXAvpperpAVBRM+D5oaxW6H0+ekNTGHOUtxQeM76g=
+Received: from BN9PR03CA0532.namprd03.prod.outlook.com (2603:10b6:408:131::27)
+ by PH3PPFCCF14A5A1.namprd10.prod.outlook.com (2603:10b6:518:1::7c7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Wed, 18 Feb
+ 2026 11:21:35 +0000
+Received: from BN3PEPF0000B371.namprd21.prod.outlook.com
+ (2603:10b6:408:131:cafe::4b) by BN9PR03CA0532.outlook.office365.com
+ (2603:10b6:408:131::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.14 via Frontend Transport; Wed,
+ 18 Feb 2026 11:21:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN3PEPF0000B371.mail.protection.outlook.com (10.167.243.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.0 via Frontend Transport; Wed, 18 Feb 2026 11:21:34 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Feb
+ 2026 05:21:33 -0600
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Feb
+ 2026 05:21:33 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 18 Feb 2026 05:21:33 -0600
+Received: from [172.24.231.225] (a0507033-hp.dhcp.ti.com [172.24.231.225])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61IBLULa303083;
+	Wed, 18 Feb 2026 05:21:30 -0600
+Message-ID: <498fb6c1-36b4-4e10-a4ff-de734563cae4@ti.com>
+Date: Wed, 18 Feb 2026 16:51:29 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/4] PCI: Add documentation for DOE endpoint support
+To: Niklas Cassel <cassel@kernel.org>
+CC: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<bhelgaas@google.com>, <corbet@lwn.net>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <s-vadapalli@ti.com>,
+	<danishanwar@ti.com>, <srk@ti.com>
+References: <20260213123603.420941-1-a-garg7@ti.com>
+ <20260213123603.420941-2-a-garg7@ti.com> <aY-KkFE9Ya2ZF8ED@fedora>
+Content-Language: en-US
+From: Aksh Garg <a-garg7@ti.com>
+In-Reply-To: <aY-KkFE9Ya2ZF8ED@fedora>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B371:EE_|PH3PPFCCF14A5A1:EE_
+X-MS-Office365-Filtering-Correlation-Id: aad0bf6c-a702-4d1c-de92-08de6edfdfce
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZW1Qd2xUdmgwWkl1R09Oekx1bG40bGNjbFlEamZzNnRmTCt3Sk1HdHU3Vitx?=
+ =?utf-8?B?a2xwWDdTdkczVlVRSjMvL0dVRmZPMFMwSmZhVmtmbStxOGV4aU9NczR0b25F?=
+ =?utf-8?B?SlJOL0llYUpMcUN4dFd1NHhrYjliWDBhVDU4eHczeU1iajE2MGxyZGcwSkMz?=
+ =?utf-8?B?WDlLc0c1a21ESWJBemgyR3kyWXBMQ3VTZmpVU3hkZTFqZTJmUm80NEFoaTRt?=
+ =?utf-8?B?VW4rNEdMalE5Z1E2N1VmaVRPcTVmUVVUUXRyb0EyNGY4K3ZIcG1jWUU3Tjhp?=
+ =?utf-8?B?Ukk0YkpteWFFZ1RqT2hqbWQzSFZGek15SVEvQWJjUThPVnZJVE1mcDQ0bGpN?=
+ =?utf-8?B?YzRCY3d3OHhtMjVoekZkanlXdVJOTmEvSFNwL2JKdDcyelFmVWpTTEQ3dkdQ?=
+ =?utf-8?B?U0ZIdFNmWDd5VG9qVmVMZzd0VlkvZnhCMEI3R25zaWtIbGM2RDlrbGtyUDk3?=
+ =?utf-8?B?NU9EaEhCbHl4NHd3SDhVTm54WFRNSEhYOXhiM3BnRjFuSTRTYmxvR1c5VVli?=
+ =?utf-8?B?RCtmOVZMYnN4OTQ2YmE3ZUg4RHNWc0VQODNwVE9HOFA1enI4VGlhWGJ1Sktp?=
+ =?utf-8?B?YkFRakhSTW1FRkdUQ0N3UUJ2UFBiclp0ZktMRHNWVC8wRkdyRlpXWkxnK05U?=
+ =?utf-8?B?UDd5U3ZiK2xPSDRvaXlDMTZneld4Q3pzTHd6Z0VLbUY1ekZPSnZQUmFJSXVh?=
+ =?utf-8?B?clFuQVFXc2RHZWplTWtYSC9ETHROV21pVGZOclhoaU1RTEw2WUlSdFRJN29W?=
+ =?utf-8?B?WndzbmFqWlBUMGExRjBWMHdHR2RBSjArZFZNdFRoc2lIUUUvb01tN0R1NXd1?=
+ =?utf-8?B?eGU3TXRGMUJyYnRUaFo3aEh2VUR3Y3MvM2QzaitpRERibGdadkQ1NU9nNFA1?=
+ =?utf-8?B?SHdIQjNHUHpJbFZ2a2FOOEJrQ1dUSGVvRlM5RjV2TGFTeHhreThJNW9Eem1s?=
+ =?utf-8?B?eGszY3FNQVZQSTE4WmJYSnRuOFFBcm5OMUtuSzZGVWt0T1pVSU5xYlppdXpj?=
+ =?utf-8?B?a1N5UnNKMHlCL2F1ZndMMVVRWGdHbjhrczNDS05oNklWMW16NDBsblVHKzRG?=
+ =?utf-8?B?M0dqM3JINENBTVB6aDZSMWMvSUc4clg2YXRiMkduMFVJYzJGbUphbm10QWUw?=
+ =?utf-8?B?TTIzS2NYTGFhVVRpcmRML3RwbFZXNHppaGpOejVsUzJlOC9QOERYM3p4NFN6?=
+ =?utf-8?B?VWdUZUtWMURtYTRYVHBlVENZUWozWlZVZjBubXpaZ1dwUHN0bHBoWGJVeTNS?=
+ =?utf-8?B?NE1qYXExcmkyMVIxeFRSZ3VBQmpKcWs1KzJKVmNFM1hVdFFnNHhMTytmaTkr?=
+ =?utf-8?B?QnFSem1QS05td0tsRmhjS3BwYUVxaUNKK3oyS1NQbDlyUllZTVJoSTBDazR4?=
+ =?utf-8?B?NlIycWlUKzEyUGVrNTZBR1pzUytBblNGcFFSYlk1dHBRUVA5Nk5SbGtmTFpU?=
+ =?utf-8?B?Z0gwSjV1SkpjbHdjT2I0cVh4cVlmZlhBMzRPRVhVanVxTFRkdFltdmFncCsw?=
+ =?utf-8?B?UnczTmhFMDA5cU1TcmtDQVMzbllNenZBN1l5Y2p3ZVZFV1FRSHVUVWpIcXN5?=
+ =?utf-8?B?SzBNQlNuamh2eHdXNlR6UG5WRS9pM0o5SU5RSjlncmJTZ3IrU1VGTDlnNktU?=
+ =?utf-8?B?SWZXN2Y3Sm1XQ3ZYait6V2tzZFZXK0RNc2R4OFFUTGlzT3hrYmtPeFRudk1v?=
+ =?utf-8?B?U28xWjgrT0ZOTG9vamk1emNJZzZnOFNMY3dDeENmRW5McFI4Ymx2WEtXZ0Y1?=
+ =?utf-8?B?eWR3bEs2Q2JHVS9hWmUvTWNYMFdXSGFrZC8vUlBoYk5Wa2dkRlUxdE5peW9h?=
+ =?utf-8?B?dURKWXptcEpEMDJ4Zk00VkZyMEh3cXRLWjN3VUpBVzBoR3lUcHpaR2F0bkpY?=
+ =?utf-8?B?ZnpOTFpPOUJMVElYOWtndHZNSWJQYWVDZE5QbkdJSWFwdGY0QjdZSmRicVZM?=
+ =?utf-8?B?R3ZWUTdZNmlZUnYxTTMzUSs2SWdpUFVMaFFFd1pPa2hXdHozcFlPQndjeVlp?=
+ =?utf-8?B?NXIwNEtHemRTWk1tTFAzeWQ2eWtscE1lc3JIQWt1N3hJWjVVcjQya1RTR0dC?=
+ =?utf-8?B?Q014V2l3d090SzlLelBYWStqK0Rnckphb2N5Y3lQeTVFZFNna0F4bmd1ZHMr?=
+ =?utf-8?B?MEhKYjBUeWVKbTJDMk1YSmlMUFlFdWhKVUU3bHlCQzhyNytienkxSjAybUJS?=
+ =?utf-8?B?NGRZb0lpVG0xU3lwMEhqaHNUOUFDdTV0eXdnSFE2Q1k3aUVJMzh5OXpMSVNR?=
+ =?utf-8?B?WVZGNGlCUGtReHJhamxPeTNxeUNnPT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ADNgFZJf509IgYaSL9QrLfrLc/RJcr+wK/Dx7W8RV+mbTBjJYEEUt0/5Cf9MvcJsf3eTwm1Qyux83bEjhUVB97E4J0bQkEqZZWTIKCSVCg+hiPHDIJWr1ZvQuglEF/HDWc/9Lr/WaasDEINXhiTycQEF4nNcaLCu3aQiJoR1y3Ky6LAv2wiOzOypRdwKFsWPRUqTGLbjubPs3dlwz/PvlIGbVxzQ6wSCTrHSdceaaLWvF6C/RwbWYibL/+ynLBj4uOICWK0AtCUNpHY6cpzud5T6aB69QnWyprueiMs4KMNDDcz8lys+oV+j7CIcKA2JrAS6sVU0+1Pj9vVIrseS1hPKvfeoOEOQeqAWEz5Zfd+sSTQmMODWNDfKYoWmNLf1hQJABkbZOrmrEaeOTIRRVBfU19U7gAZPztM8O1fN45GbjvxGbg52liPe0rjhUZOE
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 11:21:34.3578
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: aad0bf6c-a702-4d1c-de92-08de6edfdfce
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B371.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPFCCF14A5A1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_032105_873199_ECD55F55 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260218_032139_373911_E5B64105 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,182 +170,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add fixed clock and EMMC support for Amlogic T7 SoC family dtsi.
+Hi Niklas,
 
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 129 ++++++++++++++++++++
- 1 file changed, 129 insertions(+)
+On 14/02/26 02:03, Niklas Cassel wrote:
+> On Fri, Feb 13, 2026 at 06:06:00PM +0530, Aksh Garg wrote:
+>> From: Aksh Garg <a-garg7@ti.com>
+>>
+>> Document the architecture and implementation details for the Data Object
+>> Exchange (DOE) framework for PCIe Endpoint devices.
+>>
+>> Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+>> Signed-off-by: Aksh Garg <a-garg7@ti.com>
+>> ---
+> 
+> Usually documentation is added as the final patch in a series.
+> 
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 6510068bcff9..b84281e5cdd8 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -3,6 +3,8 @@
-  * Copyright (c) 2019 Amlogic, Inc. All rights reserved.
-  */
- 
-+#include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
-+#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/power/amlogic,t7-pwrc.h>
- #include "amlogic-t7-reset.h"
-@@ -224,6 +226,24 @@ apb4: bus@fe000000 {
- 			#size-cells = <2>;
- 			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
- 
-+			clkc: clock-controller@0 {
-+				compatible = "amlogic,t7-peripherals-clkc";
-+				reg = <0x0 0x0 0x0 0x49c>;
-+				#clock-cells = <1>;
-+				clocks = <&xtal>,
-+						 <&fpll CLKID_FDIV2>,
-+						 <&fpll CLKID_FDIV2P5>,
-+						 <&fpll CLKID_FDIV3>,
-+						 <&fpll CLKID_FDIV4>,
-+						 <&fpll CLKID_FDIV5>,
-+						 <&hifi_pll CLKID_HIFI_PLL>,
-+						 <&mpll CLKID_MPLL2>,
-+						 <&mpll CLKID_MPLL3>,
-+						 <&gp0_pll CLKID_GP0_PLL>;
-+				clock-names = "xtal", "fdiv2", "fdiv2p5", "fdiv3", "fdiv4",
-+							  "fdiv5", "hifi", "mpll2", "mpll3", "gp0";
-+			};
-+
- 			reset: reset-controller@2000 {
- 				compatible = "amlogic,t7-reset";
- 				reg = <0x0 0x2000 0x0 0x98>;
-@@ -250,6 +270,68 @@ gpio: bank@4000 {
- 					#gpio-cells = <2>;
- 					gpio-ranges = <&periphs_pinctrl 0 0 157>;
- 				};
-+
-+				emmc_ctrl_pins: emmc-ctrl {
-+					mux-0 {
-+						groups = "emmc_cmd";
-+						function = "emmc";
-+						bias-pull-up;
-+						drive-strength-microamp = <4000>;
-+					};
-+
-+					mux-1 {
-+						groups = "emmc_clk";
-+						function = "emmc";
-+						bias-disable;
-+						drive-strength-microamp = <4000>;
-+					};
-+				};
-+
-+				emmc_data_4b_pins: emmc-data-4b {
-+					mux-0 {
-+						groups = "emmc_nand_d0",
-+								 "emmc_nand_d1",
-+								 "emmc_nand_d2",
-+								 "emmc_nand_d3";
-+						function = "emmc";
-+						bias-pull-up;
-+						drive-strength-microamp = <4000>;
-+					};
-+				};
-+
-+				emmc_data_8b_pins: emmc-data-8b {
-+					mux-0 {
-+						groups = "emmc_nand_d0",
-+								 "emmc_nand_d1",
-+								 "emmc_nand_d2",
-+								 "emmc_nand_d3",
-+								 "emmc_nand_d4",
-+								 "emmc_nand_d5",
-+								 "emmc_nand_d6",
-+								 "emmc_nand_d7";
-+						function = "emmc";
-+						bias-pull-up;
-+						drive-strength-microamp = <4000>;
-+					};
-+				};
-+
-+				emmc_ds_pins: emmc-ds {
-+					mux {
-+						groups = "emmc_nand_ds";
-+						function = "emmc";
-+						bias-pull-down;
-+						drive-strength-microamp = <4000>;
-+					};
-+				};
-+
-+				emmc_clk_gate_pins: emmc_clk_gate {
-+					mux {
-+						groups = "GPIOB_8";
-+						function = "gpio_periphs";
-+						bias-pull-down;
-+						drive-strength-microamp = <4000>;
-+					};
-+				};
- 			};
- 
- 			gpio_intc: interrupt-controller@4080 {
-@@ -262,6 +344,38 @@ gpio_intc: interrupt-controller@4080 {
- 					<10 11 12 13 14 15 16 17 18 19 20 21>;
- 			};
- 
-+			fpll: clock-controller@8040 {
-+				compatible = "amlogic,t7-fpll";
-+				reg = <0x0 0x8040 0x0 0x20>;
-+				#clock-cells = <1>;
-+				clocks = <&xtal>;
-+				clock-names = "xtal";
-+			};
-+
-+			gp0_pll: clock-controller@8080 {
-+				compatible = "amlogic,t7-gp0-pll";
-+				reg = <0x0 0x8080 0x0 0x20>;
-+				#clock-cells = <1>;
-+				clocks = <&xtal>;
-+				clock-names = "in0";
-+			};
-+
-+			hifi_pll: clock-controller@8100 {
-+				compatible = "amlogic,t7-hifi-pll";
-+				reg = <0x0 0x8100 0x0 0x20>;
-+				#clock-cells = <1>;
-+				clocks = <&xtal>;
-+				clock-names = "in0";
-+			};
-+
-+			mpll: clock-controller@8180 {
-+				compatible = "amlogic,t7-mpll";
-+				reg = <0x0 0x8180 0x0 0x20>;
-+				#clock-cells = <1>;
-+				clocks = <&fpll CLKID_FPLL_DCO>;
-+				clock-names = "in0";
-+			};
-+
- 			uart_a: serial@78000 {
- 				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
- 				reg = <0x0 0x78000 0x0 0x18>;
-@@ -276,6 +390,21 @@ sec_ao: ao-secure@10220 {
- 				reg = <0x0 0x10220 0x0 0x140>;
- 				amlogic,has-chip-id;
- 			};
-+
-+			sd_emmc_c: mmc@8c000{
-+				compatible = "amlogic,meson-axg-mmc";
-+				reg = <0x0 0x8c000 0x0 0x800>;
-+				interrupts = <GIC_SPI 178 IRQ_TYPE_EDGE_RISING>;
-+				status = "disabled";
-+				clocks = <&clkc CLKID_SYS_SD_EMMC_C>,
-+						 <&clkc CLKID_SD_EMMC_C>,
-+						 <&gp0_pll CLKID_GP0_PLL>;
-+				clock-names = "core", "clkin0", "clkin1";
-+				assigned-clocks = <&clkc CLKID_SD_EMMC_C_SEL>;
-+				assigned-clock-parents = <&xtal>;
-+				no-sdio;
-+				no-sd;
-+			};
- 		};
- 
- 	};
--- 
-2.49.0
+I had placed this documentation patch before the code implementation in
+this RFC to allow reviewers to have a look at the architectural design
+first, enabling them to provide meaningful feedback on the overall
+approach before examining the specific code details.
+
+> I think this patch should just be squashed with patch 4/4, and the
+> squashed patch then being the final patch in the series - patch 3/3.
+> 
+
+I will keep this mind while posting the normal patch series.
+
+Thanks!
+
+> 
+> Kind regards,
+> Niklas
 
 
