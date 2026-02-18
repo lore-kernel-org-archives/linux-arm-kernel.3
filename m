@@ -4,156 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E20E9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB96E9A047
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iih5KUiM5tM+QCOGXlFAiLqlRRD8LmUO0lR/3Gk18k0=; b=cgm0KS4T6kkUDR8VkoaO6XuTvX
-	EGxtLhNhMaM0YAJeLPkGEHbtA16mqY+JInR1s/o5SofB80sYaxXgdzN9tBb7CU6VHaxu4SI3wDpOh
-	/iTDOB2AuuTSu6NPxF57dhJgTdHWTXbpn7zjvqd6H+VTAEWUA54RAn09Y727Au+reFy8F6yzhLFDc
-	CsGBkX+shLMz+2EIS1ojk9uq3iZu4J297t9d1lFYaH1fsmuFUA1+B8JMNduGySWEQ2DnTrKXO1MBp
-	gmhD/TgB/i4c+LDvsOsWQcdXDlzr2sLioXUfVf7fldwfy7LItiD1lmTzVZWHOjAlqYAR1ekptPGLI
-	WLi40TgQ==;
+	bh=XfZi0zjHTQG/jvYux/2/tRjkg8n0Q6RVN3rQcA1wr78=; b=yxzyM9mk8h3lCfHTeYSgyC1N2I
+	Lhdm316uFNzZVK3B2tebscld8Y1VH0yR5fb9CZr3/2OJh17IcQYK0MnYUFUau175ykYCtjxU5ehT3
+	5mbLGmEZj+RGxjhRz3pTtgM1yZ6zt/wYoh4u5Bj9oeQDM38y0sdUVpmWD8lOJ81yrayCArgz3v7cU
+	tESXniy6yOjwQaGXf70Ayj12X78viFJYiEswUhVecsWAlO41MkweReJTmG+yHCvrmo6H0NKn+giES
+	CobOCSQIDuhMpn5h+F1SPHqXhE2jA7ec6LjGpLAEE7+NQmlx8oOG9c4Endsvvc5HfMZFsSE69y409
+	7itrru4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskKN-0000000A4ZA-0xoa;
-	Wed, 18 Feb 2026 16:23:03 +0000
-Received: from mail-francecentralazon11013001.outbound.protection.outlook.com ([40.107.162.1] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskKK-0000000A4YF-3fyJ
+	id 1vskKe-0000000A4fU-0Yto;
+	Wed, 18 Feb 2026 16:23:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vskKb-0000000A4dt-0qpY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:23:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yXJykL4CZ0zsmnQOmBbET0zWK/SEW/G/2QErcCWwnOauc6cJ+JCiqiIEQQHUo9atLcAjhQ06hgobCq7FThkAJXQ+aq+6C/0lWDLVqi7mNUqzFKrucXKx4X0Za8jxY0o+TUwhUf30ZIq+JIjAh7yOgTv2tqWf9h91CwxzB7eGEur+XpMtVwp7J6sDDAmoR7dg2tf6yK9JigllnYyzEfDYpP7dUJ8oM+rCnwMGJw8BgbWGWi7+1XP9VBjaDM/0HQDgCL49NrpK5Wg3gPZuWNonuuw89ewYZ6E9PdkvNPVTu12tyQ2mzZeN3y77bHVn6uAmY7JT0t/0zMc6Gn8f17gARQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iih5KUiM5tM+QCOGXlFAiLqlRRD8LmUO0lR/3Gk18k0=;
- b=pykhhjjYHPNCdxmiBHUGnqilZCSEZh/pwNNWQu9VQBA6VU2Um4xFwk6BCaBex9aPt1FBcSnptKTZm4Fg9FSgx9Ht1mMueGlHj6aigXwwT6+6SWElAMjAItNFxRgSuxLL5rOxhucjGt6Q3H6BqrE3KDE0yJv5eI1egl5rWUEcLCox3RlGkX8b7jM3MQeSwj/MM8NURds16OsIbh258vx2eVIbC0iFc9n7kmkQeyB7O4atOh2zgoTXomKYgI6orFBu9R0CdaUwVnRmhkVyvfJldFM21mZsgOJqpT4c+sNL2xsV7wlIQRVL0oglSMzsF220ykuFbVRxQ65UnKp8LOoFUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iih5KUiM5tM+QCOGXlFAiLqlRRD8LmUO0lR/3Gk18k0=;
- b=aaEEowf68GFbgqDDKAGLtlzTNSDkSCxTIW58afd9GRd8iYihQOIuULo1kRXAcVbO9yaAfuZV2937zexdz92SVmwgrLdumbA7FLySczznQOcGdDiCd9BEEw+22HN/o92j4X/mGm67+9FWt1qiwUrwGB2Eo1PuMYchEsADQY8mg7FUuyre7dg9S0FlX1FIxuqgUdVQOosu5DSyVManXabq1rTgjmvOZDpt6rVXBfGt4T/ic7cSMXoHIzW+vBAmRoWzDPy87wUFH/tioZBsDHEPE1MI08WyIxzqAnh2SgTQBEbOLqSA1RM9ylM3nmhJFkbtxRorYQLDNicsIacrrREj5g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA4PR04MB9367.eurprd04.prod.outlook.com (2603:10a6:102:2aa::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.14; Wed, 18 Feb
- 2026 16:22:53 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.010; Wed, 18 Feb 2026
- 16:22:53 +0000
-Date: Wed, 18 Feb 2026 11:22:44 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Stefan Eichenberger <eichest@gmail.com>
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, andi.shyti@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com,
-	stefan.eichenberger@toradex.com, francesco.dolcini@toradex.com,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] i2c: imx: fix i2c issue when reading multiple
- messages
-Message-ID: <aZXnVHOuNt-2JnhE@lizhi-Precision-Tower-5810>
-References: <20260218150940.131354-1-eichest@gmail.com>
- <20260218150940.131354-2-eichest@gmail.com>
+	Wed, 18 Feb 2026 16:23:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6ADB8497;
+	Wed, 18 Feb 2026 08:23:07 -0800 (PST)
+Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D6753F62B;
+	Wed, 18 Feb 2026 08:23:12 -0800 (PST)
+Date: Wed, 18 Feb 2026 16:23:08 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>, Will Deacon <will@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm64: MAINTAINERS: Include resctrl MPAM driver
+Message-ID: <aZXnbDZvzDnUKVoB@arm.com>
+References: <20260216110240.159691-3-krzysztof.kozlowski@oss.qualcomm.com>
+ <20260216110240.159691-4-krzysztof.kozlowski@oss.qualcomm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260218150940.131354-2-eichest@gmail.com>
-X-ClientProxiedBy: BYAPR07CA0082.namprd07.prod.outlook.com
- (2603:10b6:a03:12b::23) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB9367:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab354887-2260-4294-a598-08de6f09f7ac
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Ogzbuzysiitn2LrbKJFXlViOY3Z3viJ2nZmzqszcvf0zU3NEB893aMwJUbbK?=
- =?us-ascii?Q?1KZ/GiHYoVhiKvy5zz84JZ0rZP5entjZNmZdFF4sUWYhxhkK0glblMaGDzOm?=
- =?us-ascii?Q?N1JyDQVuDkiDy88F3F8hyTyY3P7ll9efRlOuNol0qD4UNpBjEkP0Y09hgz36?=
- =?us-ascii?Q?uhFyGyOYsWqnE5/NVNulg2QK9dL/rroXRmNyw3sLL+A38hnJzjMi2MBW/gXm?=
- =?us-ascii?Q?JFUncsu6GTk3XSJx6o8ZPooZouW2QCjuqK9M5ax8XkQppzd4EBJq/9zmadBm?=
- =?us-ascii?Q?AfLWWzUJQqw8w1z+VSvyqT9XGfC/fd679t1mNQyy0VUIzBwtb9SroLgq9Rt+?=
- =?us-ascii?Q?sj9tJRr0IULfuoswaaOJWCkmeNruNB0GtQIo728qTaEN5M+v1knf5S1sOpN6?=
- =?us-ascii?Q?e9XLH5mEsIntbQQGwdQetq0Zkqwj1dFsZHfuUC20vnSH/Chu9T4g6PTYcNHK?=
- =?us-ascii?Q?b8Jha6l7/D7EIlDEsGOdJAQRKZROrquSrN2y5F2Y8CJhBThkCsaOHWIZeVGl?=
- =?us-ascii?Q?+3KT03Fo/Qzm5c7ZWRZLJdX+bzZSTXmrkT/5XnJyBWKq4rmfEDT/wYv6GzsW?=
- =?us-ascii?Q?TH5rmqVHbm0+fPm1AEwaaIT04k2tVOSRnhS5/eM2Xn3gNzk1n30eLeRYBdX1?=
- =?us-ascii?Q?/+QwhqjFkLcWsJlwLxE2y1L8jocsQXiV5ftJ983vy4JcLxnMnwDeKmjjUmc3?=
- =?us-ascii?Q?TwCJ8YAa/7xULpSSaj7MkQI+LDcVXE8Ndp+ZPW2prg1ymb6fLTe0jymTXUmP?=
- =?us-ascii?Q?WDVMyA9i/d/zSfi3i/wXGHVYvadcdTwK+oNnIzVAUiZq5XT4yCRQprhFvpw+?=
- =?us-ascii?Q?l9GwT/1oqD1mOFratB1MbjhurPWYM0+mhmjmrkPWBgJo1cfBg0Nl7Ur8JOMp?=
- =?us-ascii?Q?/gUeiuJGbWUi13bn6AJKr5U6bXSBwILaRYdFBOkuD7D3AO1+PQ06+IpGPoEA?=
- =?us-ascii?Q?lx6smVC9UXfc9I+ADEg8PjRkx5QKJdy6as/I5qdgoLmRvqNNoxRmCYEIhEio?=
- =?us-ascii?Q?BZ9hP0Jfw0PTlP94F1Fkda88ujeUhNjsoQ5JkRSSxxxQGOAA73cPNT849dsa?=
- =?us-ascii?Q?crH6SJIOPHD6t+v2gXd6pKdQcbXAje4ns9dCOXL1/otq0+3ErJbAKtX05vZX?=
- =?us-ascii?Q?hjHzgJstLiKQanqIXqQ4WZMpuKdkWey/reYQ33lYqdu/x5Sf/rxwh0pW5rec?=
- =?us-ascii?Q?4CO/Yh8j2IfgM3bfKr6GI3V66OWa9FC8LLdex2TReGTnekBg+T38nLWKrFrf?=
- =?us-ascii?Q?pPur4ggVOuGqkDe1W1ahXV+RhWKZlxDtfq+sD7foEqksVzBiv8nJ3NXPp6Gf?=
- =?us-ascii?Q?ysK7iO+wWdm+75qC6PaYAoiefq+bAPbKcL4jc67/XPCMnhYP4CES+Nhav9+G?=
- =?us-ascii?Q?D5BagVf6XHOyvMLeC2tTbL0zHbT4tq12Zu2xyMo7XFDAHvTwz1TcxcAs/Uh+?=
- =?us-ascii?Q?Ll1m5xPrcv02W23uty1oxSP6BR0QZG6fo97hNOq5iktomKo+aTewhxFpAVmC?=
- =?us-ascii?Q?fa6Hi0AHrqkOA77MppJ8KMYN/8dJTXqqK97C9fRyB/OxT1R9GcdDmpWFxIZX?=
- =?us-ascii?Q?xVVU7cSpZoBzIZRKpbZ42Z6NsOSQwPzHNuwKlAOoD7ve5aAR2NjeIqsdJupx?=
- =?us-ascii?Q?ZiK1sCcTcWbNfgm8+1Opbu0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hlWp/nRSsD/bDpP8pzWn8PvHExwPXsMh/gTT5sxmB/cy4NCNMmszAfDgm50c?=
- =?us-ascii?Q?aAytMj5CEK9aovpqJuyz9NEJpuw64SHxteC95Jb7i1L6RVzFS5SraE3C/H5K?=
- =?us-ascii?Q?Jh9S1TEAd4wbfXXDGDXhf8Gb33UVF8YKqlOMsUwhEqIeBYBGVRP8o5clSvQA?=
- =?us-ascii?Q?EgXtypBtGtdc1JCJcZsQotPVQPgm57ModdpRAhEBUAGtL5TZFaeJUkjwWlmY?=
- =?us-ascii?Q?eLRLK3BhZCRLhwCqTVmhNd49IMhsPkr3+RxnPT7msgn+ZrmFhLv38ZK83EXf?=
- =?us-ascii?Q?yiG0tgTBbWGgwj+ruSKg9kbPcCO40oaGEK7GKj6+DdE7qskZx/g8XlQx3Zni?=
- =?us-ascii?Q?FT9svFNm1UiUm3dvJVaoJAYDtejbY/+B8nRbS/kmV7wdN34sxqWIdl9M326o?=
- =?us-ascii?Q?JleueSfp9Rg0XI1f7PNKD9bkZ9pgSP5UA+tmEV9/ELBLq5+ATOoJvN7hsNT1?=
- =?us-ascii?Q?cT2BH+cKt1VA/sHHEi55oDxvPo8ewGLnH+YyCru7mAb31Ru2edwzt350woMX?=
- =?us-ascii?Q?te30tz5p2hjXb634GLwKnfq42GTVW8nbzCy8rNjAPp2ARKJ8NZfLkJC+pboZ?=
- =?us-ascii?Q?8DujrbVETu+yz2wBTZmosk0TEpQIQgbWZsEXh2NEi1IWdnn/KMrFundpKmru?=
- =?us-ascii?Q?d/26+mFd4cPTwFAxUiihnM2q0D2GQNkb9cQu8Ug+JgRW5xoCSTiEjQnm96gK?=
- =?us-ascii?Q?8gU1ERI/fYPLnEjm8hVpcyauQzMb47+NL9UB9FQIjUWWLeJY7VVHM+dPFufQ?=
- =?us-ascii?Q?8T19wJSoaqJWNFUr59OCnHiIfsjc3SRm3KR4lEtwHwoT+gN0Wd40MVcfhaq3?=
- =?us-ascii?Q?HoMbDmC+SKlgyGEjYyrWYKsOSnX/Pu31J65xba831sdiw3bugYF6UqzV/nbP?=
- =?us-ascii?Q?npKNV03b6x2CrdP5RderzHyL8weULNMxNhTeleSyvhhdCHTsG1UiRTvWHbDh?=
- =?us-ascii?Q?QD/tWrxp6vKBI0k18oQGv/nphhu0FScvZ65n392PTQ6sMZIgpm1jE5izhgLf?=
- =?us-ascii?Q?d4nDJEr5LfXuQE0B90h1hKOxnoNtkRUbvnEeflquDyUzoFVy7Cf5ik/9mrV/?=
- =?us-ascii?Q?5G+yNfTS83ErclT2oAbffYUSyi53Ho5HyLhNDEr7pF5YS8pmzCeVBC8rwQ2G?=
- =?us-ascii?Q?7z4SZYl6vyP1EIbb7VDF7v+k5C0xo0ZB8XX9fqR67jAC/KHHmkKk25joYUNP?=
- =?us-ascii?Q?tQytXuE2urf8Out+9WPGxtDIbB32Y5cd7j9kyAYZRk3DpK3oTGaL5IhNz0b+?=
- =?us-ascii?Q?Fa/90msGejBbEn76/WEQELiWp3PxyqupZ3tRaKvkiQcGBGq+p3URaPZ3l60J?=
- =?us-ascii?Q?TsOyo4xEH9zV1YtGht+htSpcFpHBF1vqwgyq0MfQM7Ek8Q246zCLLJaXt+oj?=
- =?us-ascii?Q?WR4zbHmV9V9HdUrWXrjFc60e1bJCiEQuKGQQMdd/eYclgE4azNghlNBzVCfh?=
- =?us-ascii?Q?ky4PcLuTRx1UOku4juxkw0zTc1+2Aa+zk8AzY4RoPu/Y1gzT0nK5R8VeDMGz?=
- =?us-ascii?Q?ZuWEuZ7LEHzErQLyJaV2MtQbwjo6CHg95i3OkS6aZmCQGTkluUz8FHcuf2xX?=
- =?us-ascii?Q?OGlLb35HrgrPiJsNUlBDPy2fWngrGhMuaSpHd3oo+YNVHhftPafnLqWnvr0T?=
- =?us-ascii?Q?UWJjiXNYgKma1N+y/9d85LKJ+M425YkagZkk4237WXVCsLyYngxqBO/Srh2m?=
- =?us-ascii?Q?bkFY7hr5YnYbDe5Ki8TcoU7OR+PwhIzUV71oAMozWZMdLQbh9q5wmc0NlHuD?=
- =?us-ascii?Q?mxIBouRr+A=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab354887-2260-4294-a598-08de6f09f7ac
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 16:22:53.5467
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2ReDEYDU+b2gvlvuCdM8sMuz1Spx2LJlmtqE1Yl/O80NgBYay8nIRJUrQeaQnXFMFGduaAowSNIA16QSPwbclw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9367
+In-Reply-To: <20260216110240.159691-4-krzysztof.kozlowski@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_082300_919722_5D2D64AB 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20260218_082317_290244_9BF7FD6A 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,39 +65,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 18, 2026 at 04:08:49PM +0100, Stefan Eichenberger wrote:
-> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
->
-> When reading multiple messages, meaning a repeated start is required,
-> polling the bus busy bit must be avoided. This must only be done for
-> the last message. Otherwise, the driver will timeout.
->
-> Here an example of such a sequence that fails with an error:
-> i2ctransfer -y -a 0 w1@0x00 0x02 r1 w1@0x00 0x02 r1
-> Error: Sending messages failed: Connection timed out
->
-> Fixes: 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma mode")
-> Cc: <stable@vger.kernel.org> # v6.13+
-> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+On Mon, Feb 16, 2026 at 12:02:42PM +0100, Krzysztof Kozlowski wrote:
+> No maintainers handling the code (so subsystem maintainers) are shown with
+> scripts/get_maintainers.pl on MPAM drivers in drivers/resctrl/.  It
+> seems that there is no dedicated subsystem for resctrl and existing
+> drivers went through ARM64 port maintainers, so make that explicit to
+> avoid patches being lost/ignored.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > ---
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
->  drivers/i2c/busses/i2c-imx.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index 85f554044cf1e..56e2a14495a9a 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -1522,7 +1522,7 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
->  		dev_err(&i2c_imx->adapter.dev, "<%s> read timedout\n", __func__);
->  		return -ETIMEDOUT;
->  	}
-> -	if (!i2c_imx->stopped)
-> +	if (i2c_imx->is_lastmsg && !i2c_imx->stopped)
->  		return i2c_imx_bus_busy(i2c_imx, 0, false);
->
->  	return 0;
-> --
-> 2.51.0
->
+>  MAINTAINERS | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index faa914a5f34d..199058abc152 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -3822,6 +3822,8 @@ S:	Maintained
+>  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+>  F:	Documentation/arch/arm64/
+>  F:	arch/arm64/
+> +F:	drivers/resctrl/*mpam_*
+> +F:	include/linux/arm_mpam.h
+>  F:	drivers/virt/coco/arm-cca-guest/
+>  F:	drivers/virt/coco/pkvm-guest/
+>  F:	tools/testing/selftests/arm64/
+
+What's wrong with the current entry?
+
+$ ./scripts/get_maintainer.pl -f drivers/resctrl/mpam_*
+James Morse <james.morse@arm.com> (maintainer:MPAM DRIVER)
+Ben Horgan <ben.horgan@arm.com> (maintainer:MPAM DRIVER)
+Reinette Chatre <reinette.chatre@intel.com> (reviewer:MPAM DRIVER)
+Fenghua Yu <fenghuay@nvidia.com> (reviewer:MPAM DRIVER)
+linux-kernel@vger.kernel.org (open list)
+
+-- 
+Catalin
 
