@@ -4,81 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CEEE9A03E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 10:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 370E6E9A03E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 10:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4AJOCc1tqS2KOpGJoMUhJUHmX+8bhLxgt5/BiMFG5k=; b=ar29XMn9j1ngS6sNAUIz4blEdM
-	HPewig80m4+qs0JMQzwjcN6P9ZzSLE+ECvI7g8WFFGRUN5cCNGrr9AE3shurfRg1SRJHEvc7mcIsk
-	eQtnYVcHhdW9ZgKC3hqP2SCQDtYGXRPHyx6WYNJyiSSDApE3T4Uuoc7yaPPwKI1yfMXIbORCtinIY
-	944CMpgjd/pFImFODbu1steYV4IHLdUiKZ3RuEs/3lKZibqE+UnbZnJiTFRsdGugHH3LRgBTnQITU
-	CYW/laC3BrM5jN4aEVAs/jIPVdTDKvQmUsdIUYOIcCHocfj9u784U5c3PS6veZQu7YqcTPZtEz/+j
-	lSGoxNkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=otfSzaXvnIq7QTqrsNoasNb4rJI4pxnVhZ7OaOWtATY=; b=IBzdO/Jb+qA74a2Kwv/0APqgit
+	GuuGot3kKxo/hoek/v9FFYD+kLlVpAKMZSB6684n4IUdlpo68aOLQiyXmIRRCGcrAKNS6oIXBCZRc
+	X6+Vtf5OgzYPW4ezTZCAfrS5+yIguCclA3xFjqdlx04WwveuIFBescz7gYdyBn5fTrELEgJa+lj5v
+	qZgTTQx8Vo3vkHvqxErMfDmktLytdhgtQEVENi/CUJ9OscbyahVSktlOa4kqTJB7Ya4FbSN7RXKPs
+	8Z7aPx7P6BYeuO5f7L1QaZOjk2mp4R2wpCz+vBosp1ar2AYyO5mKBCdATuakHHXxNy4KvbwCz2sQb
+	Gby06TdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsefJ-00000009d5N-3ibg;
-	Wed, 18 Feb 2026 10:20:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vsefW-00000009dDO-1wR4;
+	Wed, 18 Feb 2026 10:20:30 +0000
+Received: from [2a01:4f9:c011:1c83::1] (helo=courrier.aliel.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsefH-00000009d4t-19fy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 10:20:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C7244404F
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 10:20:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C9C5C2BCB4
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 10:20:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771410014;
-	bh=KMRhh6W9t1S/zQ6NhQbrvFLYqyEEu7IaIcL7BGCP9Fc=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=piRPMPq1JdjrH5xmr6Qs/V+e9vEf3hRMW+F2zhIxb+JEaCgt21TeynmqDUItYAqvj
-	 zYyoLeS+gb7ygloju8kp4NxNqF5TQ3NMLMRk/t0fqkqldGDQ7m0vqHWi+6IFfcWiAv
-	 X86dUvgMK4t/Zsqb6VwdbgZXtPuDAZDoAvup3XmWtdD/3lSXBQkzPwWr0Z6xjV7Ssu
-	 oj23Io1n0JHIuuduhHCevY/zSElk6DjImynbCNHYHZocQSD61gxjy3CyGv0NgADguI
-	 N6sUEZ2A9/5ktY7u5fr9UPqBlOYH0sB2xuhgr0y2Wp+ZrcbJ6CdfdOJfFndlq/Csu1
-	 WnOreDr8/ltUQ==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-59e4a04f059so5928588e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 02:20:14 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUAJDdLgRzu7GMRJHuL1ulEQxBM/2qwuPilzA3k2T8exbKh66eMAIS5nIfnSKgAXJ3WSiNMnzPwCsxVAdOXuDAW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmriHPAKMJrMNVSjwZpVlVAxc9N4e7rQ2def0DQoHKS9wdNS2G
-	JvvUnTt/rF0mFRFlUdNDqGkMJv1EtkrFYuOx55yc6Sq6L7mKLpqi1+bJUodnU9AUo6O/h/tiK05
-	GWuxOx0ba3KhlYamLvEVoIXKCnhr4r63Em/wLlw7Csw==
-X-Received: by 2002:a05:6512:685:b0:59e:38e2:7b60 with SMTP id
- 2adb3069b0e04-59f6d485901mr4374992e87.53.1771410012913; Wed, 18 Feb 2026
- 02:20:12 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 18 Feb 2026 04:20:11 -0600
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 18 Feb 2026 04:20:11 -0600
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260212213656.662437-4-shenwei.wang@nxp.com>
+	id 1vsefR-00000009d6o-3a4J;
+	Wed, 18 Feb 2026 10:20:29 +0000
+Received: from localhost.localdomain (2a02-842b-8136-0001-b865-661D-5641-e7C6.rev.sfr.net [IPv6:2a02:842b:8136:1:b865:661d:5641:e7c6])
+	by courrier.aliel.fr (Postfix) with ESMTPSA id 02E8C4CB4C;
+	Wed, 18 Feb 2026 10:20:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1771410022;
+	bh=VXFQL5BZy+HqvbUJeFd3eVHhL1DG76izxX4eyjkPros=;
+	h=From:To:Cc:Subject:Date;
+	b=pkrwJ5YLJgOna5o8/k1tLJRj8ciyMOcPB6xAB9qH1EF5zTsbGN4+Xu7quwo+VLq7A
+	 YX/xDCWVkt7zjRGdKF9vc63p6NEdoeuGFWvX7d9PDwH8BSB8CTI0hRBLleQg2kpbyH
+	 tpjtrhpk6DLaX891uKeteR8HB5Fm4zABFjNJ3O9w=
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+To: linux-amlogic@lists.infradead.org
+Cc: Ronald Claveau <linux-kernel-dev@aliel.fr>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 4/7] drivers: clk: meson: Add Amlogic T7 sys pll support
+Date: Wed, 18 Feb 2026 11:19:51 +0100
+Message-ID: <20260218101954.35573-1-linux-kernel-dev@aliel.fr>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-References: <20260212213656.662437-1-shenwei.wang@nxp.com> <20260212213656.662437-4-shenwei.wang@nxp.com>
-Date: Wed, 18 Feb 2026 04:20:11 -0600
-X-Gmail-Original-Message-ID: <CAMRc=MfM7Wc6ae+thPnqBdJUKhLVkrgZYYD_9EjAzxbE5mtSgg@mail.gmail.com>
-X-Gm-Features: AaiRm50s4fsP3Hfe2L_u48xMA8NYIISGBNrR-9MdGdJEdOmmMFh9mEr9DdPOsIQ
-Message-ID: <CAMRc=MfM7Wc6ae+thPnqBdJUKhLVkrgZYYD_9EjAzxbE5mtSgg@mail.gmail.com>
-Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-imx@nxp.com, 
-	arnaud.pouliquen@foss.st.com, Bartosz Golaszewski <brgl@bgdev.pl>, Andrew Lunn <andrew@lunn.ch>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_022015_354686_BC0C22FC 
-X-CRM114-Status: GOOD (  33.12  )
+X-CRM114-CacheID: sfid-20260218_022027_951031_26593B1E 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,237 +71,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Feb 2026 22:36:55 +0100, Shenwei Wang <shenwei.wang@nxp.com> said:
-> On an AMP platform, the system may include two processors:
-> 	- An MCU running an RTOS
-> 	- An MPU running Linux
->
-> These processors communicate via the RPMSG protocol.
-> The driver implements the standard GPIO interface, allowing
-> the Linux side to control GPIO controllers which reside in
-> the remote processor via RPMSG protocol.
->
-> Cc: Bartosz Golaszewski <brgl@bgdev.pl>
-> Cc: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> ---
->  drivers/gpio/Kconfig      |  17 ++
->  drivers/gpio/Makefile     |   1 +
->  drivers/gpio/gpio-rpmsg.c | 588 ++++++++++++++++++++++++++++++++++++++
->  3 files changed, 606 insertions(+)
->  create mode 100644 drivers/gpio/gpio-rpmsg.c
->
-> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-> index b45fb799e36c..3179a54f0634 100644
-> --- a/drivers/gpio/Kconfig
-> +++ b/drivers/gpio/Kconfig
-> @@ -1892,6 +1892,23 @@ config GPIO_SODAVILLE
->
->  endmenu
->
-> +menu "RPMSG GPIO drivers"
-> +	depends on RPMSG
-> +
-> +config GPIO_RPMSG
-> +	tristate "Generic RPMSG GPIO support"
-> +	depends on REMOTEPROC
-> +	select GPIOLIB_IRQCHIP
-> +	default REMOTEPROC
+Add SYS PLL for the clock controller of the Amlogic T7 SoC family.
 
-You're using a lot of OF-centric APIs here, don't you need to depend on OF?
-Alternatively, it seems that only rpmsg_get_channel_ofnode() really requires
-OF-nodes and everything else could just use firmware node API.
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ drivers/clk/meson/t7-peripherals.c | 134 ++++++++++++++++++++++++++++-
+ 1 file changed, 131 insertions(+), 3 deletions(-)
 
-> +	help
-> +	  Say yes here to support the generic GPIO functions over the RPMSG
-> +	  bus. Currently supported devices: i.MX7ULP, i.MX8ULP, i.MX8x, and
-> +	  i.MX9x.
-> +
-> +	  If unsure, say N.
-> +
-> +endmenu
-> +
->  menu "SPI GPIO expanders"
->  	depends on SPI_MASTER
->
-> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-> index c05f7d795c43..501aba56ad68 100644
-> --- a/drivers/gpio/Makefile
-> +++ b/drivers/gpio/Makefile
-> @@ -158,6 +158,7 @@ obj-$(CONFIG_GPIO_RDC321X)		+= gpio-rdc321x.o
->  obj-$(CONFIG_GPIO_REALTEK_OTTO)		+= gpio-realtek-otto.o
->  obj-$(CONFIG_GPIO_REG)			+= gpio-reg.o
->  obj-$(CONFIG_GPIO_ROCKCHIP)	+= gpio-rockchip.o
-> +obj-$(CONFIG_GPIO_RPMSG)		+= gpio-rpmsg.o
->  obj-$(CONFIG_GPIO_RTD)			+= gpio-rtd.o
->  obj-$(CONFIG_ARCH_SA1100)		+= gpio-sa1100.o
->  obj-$(CONFIG_GPIO_SAMA5D2_PIOBU)	+= gpio-sama5d2-piobu.o
-> diff --git a/drivers/gpio/gpio-rpmsg.c b/drivers/gpio/gpio-rpmsg.c
-> new file mode 100644
-> index 000000000000..163f51fd45b5
-> --- /dev/null
-> +++ b/drivers/gpio/gpio-rpmsg.c
-> @@ -0,0 +1,588 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright 2026 NXP
-> + *
-> + * The driver exports a standard gpiochip interface to control
-> + * the GPIO controllers via RPMSG on a remote processor.
-> + */
+diff --git a/drivers/clk/meson/t7-peripherals.c b/drivers/clk/meson/t7-peripherals.c
+index 214db7850d86..de206473f3a7 100644
+--- a/drivers/clk/meson/t7-peripherals.c
++++ b/drivers/clk/meson/t7-peripherals.c
+@@ -176,6 +176,127 @@ static struct clk_regmap t7_rtc = {
+ 	},
+ };
+ 
++static u32 t7_sys_parents_val_table[] = { 0, 1, 2, 3, 4, 5, 7 };
++static const struct clk_parent_data t7_sys_parents[] = {
++	{ .fw_name = "xtal", },
++	{ .fw_name = "fdiv2", },
++	{ .fw_name = "fdiv3", },
++	{ .fw_name = "fdiv4", },
++	{ .fw_name = "fdiv5", },
++	{ .fw_name = "axi_clk_frcpu", },
++	{ .hw = &t7_rtc.hw },
++};
++
++static struct clk_regmap t7_sys_a_sel = {
++	.data = &(struct clk_regmap_mux_data){
++		.offset = SYS_CLK_CTRL0,
++		.mask = 0x7,
++		.shift = 10,
++		.table = t7_sys_parents_val_table,
++	},
++	.hw.init = &(struct clk_init_data){
++		.name = "sys_a_sel",
++		.ops = &clk_regmap_mux_ops,
++		.parent_data = t7_sys_parents,
++		.num_parents = ARRAY_SIZE(t7_sys_parents),
++	},
++};
++
++static struct clk_regmap t7_sys_a_div = {
++	.data = &(struct clk_regmap_div_data){
++	.offset = SYS_CLK_CTRL0,
++		.shift = 0,
++		.width = 10,
++	},
++	.hw.init = &(struct clk_init_data){
++		.name = "sys_a_div",
++		.ops = &clk_regmap_divider_ops,
++		.parent_hws = (const struct clk_hw *[]) {
++			&t7_sys_a_sel.hw
++		},
++		.num_parents = 1,
++		.flags = CLK_SET_RATE_PARENT,
++	},
++};
++
++static struct clk_regmap t7_sys_a = {
++	.data = &(struct clk_regmap_gate_data){
++		.offset = SYS_CLK_CTRL0,
++		.bit_idx = 13,
++	},
++	.hw.init = &(struct clk_init_data){
++		.name = "sys_a",
++		.ops = &clk_regmap_gate_ops,
++		.parent_hws = (const struct clk_hw *[]) {
++			&t7_sys_a_div.hw
++		},
++		.num_parents = 1,
++	},
++};
++
++static struct clk_regmap t7_sys_b_sel = {
++	.data = &(struct clk_regmap_mux_data){
++		.offset = SYS_CLK_CTRL0,
++		.mask = 0x7,
++		.shift = 26,
++		.table = t7_sys_parents_val_table,
++	},
++	.hw.init = &(struct clk_init_data){
++		.name = "sys_b_sel",
++		.ops = &clk_regmap_mux_ops,
++		.parent_data = t7_sys_parents,
++		.num_parents = ARRAY_SIZE(t7_sys_parents),
++	},
++};
++
++static struct clk_regmap t7_sys_b_div = {
++	.data = &(struct clk_regmap_div_data){
++		.offset = SYS_CLK_CTRL0,
++		.shift = 16,
++		.width = 10,
++	},
++	.hw.init = &(struct clk_init_data){
++		.name = "sys_b_div",
++		.ops = &clk_regmap_divider_ops,
++		.parent_hws = (const struct clk_hw *[]) {
++			&t7_sys_b_sel.hw
++		},
++		.num_parents = 1,
++	},
++};
++
++static struct clk_regmap t7_sys_b = {
++	.data = &(struct clk_regmap_gate_data){
++		.offset = SYS_CLK_CTRL0,
++		.bit_idx = 29,
++	},
++	.hw.init = &(struct clk_init_data){
++		.name = "sys_b",
++		.ops = &clk_regmap_gate_ops,
++		.parent_hws = (const struct clk_hw *[]) {
++			&t7_sys_b_div.hw
++		},
++		.num_parents = 1,
++	},
++};
++
++static struct clk_regmap t7_sys = {
++	.data = &(struct clk_regmap_mux_data){
++		.offset = SYS_CLK_CTRL0,
++		.mask = 0x1,
++		.shift = 15,
++	},
++	.hw.init = &(struct clk_init_data){
++		.name = "sys_clk",
++		.ops = &clk_regmap_mux_ops,
++		.parent_hws = (const struct clk_hw *[]) {
++			&t7_sys_a.hw,
++			&t7_sys_b.hw,
++		},
++		.num_parents = 2,
++	},
++};
++
+ static struct clk_regmap t7_ceca_dualdiv_in = {
+ 	.data = &(struct clk_regmap_gate_data){
+ 		.offset = CECA_CTRL0,
+@@ -824,7 +945,7 @@ static T7_COMP_GATE(sd_emmc_c, NAND_CLK_CTRL, 7, 0);
+ 
+ static const struct clk_parent_data t7_spicc_parents[] = {
+ 	{ .fw_name = "xtal", },
+-	{ .fw_name = "sys", },
++	{ .hw = &t7_sys.hw },
+ 	{ .fw_name = "fdiv4", },
+ 	{ .fw_name = "fdiv3", },
+ 	{ .fw_name = "fdiv2", },
+@@ -859,7 +980,7 @@ static T7_COMP_GATE(spicc5, SPICC_CLK_CTRL2, 22, 0);
+ 
+ static const struct clk_parent_data t7_saradc_parents[] = {
+ 	{ .fw_name = "xtal" },
+-	{ .fw_name = "sys" },
++	{ .hw = &t7_sys.hw },
+ };
+ 
+ static T7_COMP_SEL(saradc, SAR_CLK_CTRL0, 9, 0x1, t7_saradc_parents);
+@@ -929,7 +1050,7 @@ static T7_COMP_SEL(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 25, 0x3, t7_pwm_parents);
+ static T7_COMP_DIV(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 16, 8);
+ static T7_COMP_GATE(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 24, 0);
+ 
+-static const struct clk_parent_data t7_sys_pclk_parents = { .fw_name = "sys" };
++static const struct clk_parent_data t7_sys_pclk_parents = { .hw = &t7_sys.hw };
+ 
+ #define T7_SYS_PCLK(_name, _reg, _bit, _flags) \
+ 	MESON_PCLK(t7_##_name, _reg, _bit, &t7_sys_pclk_parents, _flags)
+@@ -1161,6 +1282,13 @@ static struct clk_hw *t7_peripherals_hw_clks[] = {
+ 	[CLKID_PWM_AO_H_SEL]		= &t7_pwm_ao_h_sel.hw,
+ 	[CLKID_PWM_AO_H_DIV]		= &t7_pwm_ao_h_div.hw,
+ 	[CLKID_PWM_AO_H]		= &t7_pwm_ao_h.hw,
++	[CLKID_SYS_A_SEL]		= &t7_sys_a_sel.hw,
++	[CLKID_SYS_A_DIV]		= &t7_sys_a_div.hw,
++	[CLKID_SYS_A]			= &t7_sys_a.hw,
++	[CLKID_SYS_B_SEL]		= &t7_sys_b_sel.hw,
++	[CLKID_SYS_B_DIV]		= &t7_sys_b_div.hw,
++	[CLKID_SYS_B]			= &t7_sys_b.hw,
++	[CLKID_SYS]				= &t7_sys.hw,
+ 	[CLKID_SYS_DDR]			= &t7_sys_ddr.hw,
+ 	[CLKID_SYS_DOS]			= &t7_sys_dos.hw,
+ 	[CLKID_SYS_MIPI_DSI_A]		= &t7_sys_mipi_dsi_a.hw,
+-- 
+2.49.0
 
-Add newline here.
-
-[snip]
-
-> +
-> +static struct device_node *
-> +rpmsg_get_channel_ofnode(struct rpmsg_device *rpdev, char *chan_name)
-> +{
-> +	struct device_node *np_chan = NULL, *np;
-> +	struct rproc *rproc;
-> +
-> +	rproc = rproc_get_by_child(&rpdev->dev);
-> +	if (!rproc)
-> +		return NULL;
-> +
-> +	np = of_node_get(rproc->dev.of_node);
-> +	if (!np && rproc->dev.parent)
-> +		np = of_node_get(rproc->dev.parent->of_node);
-> +
-> +	if (np) {
-> +		/* Balance the of_node_put() performed by of_find_node_by_name(). */
-> +		of_node_get(np);
-> +		np_chan = of_find_node_by_name(np, chan_name);
-> +		of_node_put(np);
-
-If you put np here, why even bother with "balancing". If you don't do
-of_node_get() before calling of_find_node_by_name(), you'll be in the
-same place, no?
-
-> +	}
-> +
-> +	return np_chan;
-> +}
-> +
-> +static int
-> +rpmsg_gpio_channel_callback(struct rpmsg_device *rpdev, void *data,
-> +			    int len, void *priv, u32 src)
-> +{
-> +	struct gpio_rpmsg_packet *msg = data;
-> +	struct rpmsg_gpio_port *port = NULL;
-> +	struct rpdev_drvdata *drvdata;
-> +
-> +	drvdata = dev_get_drvdata(&rpdev->dev);
-> +	if (drvdata && msg && msg->port_idx < MAX_PORT_PER_CHANNEL)
-> +		port = drvdata->channel_devices[msg->port_idx];
-> +
-> +	if (!port)
-> +		return -ENODEV;
-> +
-> +	if (msg->header.type == GPIO_RPMSG_REPLY) {
-> +		*port->info.reply_msg = *msg;
-> +		complete(&port->info.cmd_complete);
-> +	} else if (msg->header.type == GPIO_RPMSG_NOTIFY) {
-> +		generic_handle_domain_irq_safe(port->gc.irq.domain, msg->pin_idx);
-> +	} else
-> +		dev_err(&rpdev->dev, "wrong command type!\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static int rpmsg_gpio_channel_probe(struct rpmsg_device *rpdev)
-> +{
-> +	struct device *dev = &rpdev->dev;
-> +	struct rpdev_drvdata *drvdata;
-> +	struct device_node *np;
-> +	int ret;
-> +
-> +	if (!dev->of_node) {
-> +		np = rpmsg_get_channel_ofnode(rpdev, rpdev->id.name);
-> +		if (np) {
-> +			dev->of_node = np;
-> +			set_primary_fwnode(dev, of_fwnode_handle(np));
-> +		}
-> +		return -EPROBE_DEFER;
-> +	}
-> +
-> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +	if (!drvdata)
-> +		return -ENOMEM;
-> +
-> +	drvdata->rproc_name = rpmsg_get_rproc_node_name(rpdev);
-> +	dev_set_drvdata(dev, drvdata);
-> +
-> +	for_each_child_of_node_scoped(dev->of_node, child) {
-
-Like mentioned above: this could be:
-
-device_for_each_child_node() {
-	fwnode_device_is_available();
-	...
-}
-
-> +		if (!of_device_is_available(child))
-> +			continue;
-> +
-> +		if (!of_match_node(dev->driver->of_match_table, child))
-> +			continue;
-> +
-> +		ret = rpmsg_gpiochip_register(rpdev, child);
-> +		if (ret < 0)
-> +			dev_err(dev, "Failed to register: %pOF\n", child);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void rpmsg_gpio_channel_remove(struct rpmsg_device *rpdev)
-> +{
-> +	dev_info(&rpdev->dev, "rpmsg gpio channel driver is removed\n");
-> +}
-
-Please drop this, no need to log it,
-
-> +
-> +static const struct of_device_id rpmsg_gpio_dt_ids[] = {
-> +	{ .compatible = "rpmsg-gpio" },
-> +	{ /* sentinel */ }
-> +};
-> +
-> +static struct rpmsg_device_id rpmsg_gpio_channel_id_table[] = {
-> +	{ .name	= "rpmsg-io-channel" },
-> +	{ },
-> +};
-> +MODULE_DEVICE_TABLE(rpmsg, rpmsg_gpio_channel_id_table);
-> +
-> +static struct rpmsg_driver rpmsg_gpio_channel_client = {
-> +	.drv.name	= KBUILD_MODNAME,
-> +	.drv.of_match_table = rpmsg_gpio_dt_ids,
-
-Can you please do:
-
-	.drv = {
-		.name = "open-coded-name",
-		.of_match_table = ...
-	};
-
-?
-
-Bartosz
-
-> +	.id_table	= rpmsg_gpio_channel_id_table,
-> +	.probe		= rpmsg_gpio_channel_probe,
-> +	.callback	= rpmsg_gpio_channel_callback,
-> +	.remove		= rpmsg_gpio_channel_remove,
-> +};
-> +module_rpmsg_driver(rpmsg_gpio_channel_client);
-> +
-> +MODULE_AUTHOR("Shenwei Wang <shenwei.wang@nxp.com>");
-> +MODULE_DESCRIPTION("generic rpmsg gpio driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.43.0
->
->
 
