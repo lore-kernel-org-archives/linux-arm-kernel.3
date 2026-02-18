@@ -4,101 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89402E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 395BFE9A047
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uxHzVkbJVuUf9PPiRw/JbF+frY9YqFQFTwH6XtexsFQ=; b=icsD+Dc2663V3Is4I/XL6vSrI9
-	s/HhOcWIxRxZ9w+oYoorZ60ZuyVogZbU04V/9qDgINVxjEPGhc6K4+DzaLMWd3xSlK+Bu3NfHYry9
-	YmkTP+qqmd96DH7siAcJ8e5VFDU1QkZMv3viPEkap9BKrFJrzK04x2E90LLLsC8Qy9ST0CNwp5DtS
-	xcuMmhI9UADt3B9fXZ4MaTOA4xN8rnr11TxdtLV29SUIae2UTTaO18q4GUKZ3C/bPdKLCmV49wCI6
-	W7HEUXTLiZCEwiUyb0u4fig+mDwuTZ8WWnDJleXB1GdtcUk2U9qDiqliln8L1P42LcKTkBA4/Qj53
-	kjWEZumA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q3kKvAtMKyYPFeQYbrwGbLVSY2eZXFval087qSi5JsQ=; b=Cfo8oYbJM2A5ZTLh9nltjEB2nB
+	+6nlZgK4TI52WOfHy4gfxv2O64a1czw4S4l+XfhJ8q0KNXwBFeYJCYi8o1p9dBLr/b6ucxx8KY6zg
+	1lIjwwYXi0e43GyyzYilnP1tts7FVzekmW+w99v3xXsUaO/5TXTpaZNkFonxWR1qvIKe44nGqPdaL
+	VNc52CVIK8U2SLeYieKCkSp3aFFwWC7pWpj26XtyTisLak7upulapUry63Ofci+9MoF0PZARoyX25
+	TR/dPgfLHBcAutWI2fU55hy1RrowgQ6Z5ReviJcWecOF6Z/jSbhHnq48GXGKINj/pkQ9SHcGVkAny
+	fnvJ9L1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsklw-0000000A7J1-32au;
-	Wed, 18 Feb 2026 16:51:32 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1vskmS-0000000A7P1-2RpD;
+	Wed, 18 Feb 2026 16:52:04 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsklu-0000000A7IL-1a04
+	id 1vskmO-0000000A7O0-3q5G
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:51:31 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2aaf43014d0so39793605ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 08:51:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771433489; x=1772038289; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=uxHzVkbJVuUf9PPiRw/JbF+frY9YqFQFTwH6XtexsFQ=;
-        b=IUD202WpZE9h8n1CPvGr4KxoHrrOtPrhhUE3TiLTiEuxQ6vw0/s2DFuYmxTlhzjqRJ
-         YnYaxm/IZAE72BAIbCQSO3wCmRqkGBWilPDOR5Z+pRR1dL5yzBadOUnxFYvhmib91vDz
-         RHvEnhvclrJXLfftrAKovuoS8m2rfFdxhLD00SSWxYHp99Z3kM2rWCIyrT27+PgSaS/N
-         mjrctHQQlMilEzNNb1xdhsBu8UlIEcN1CbIVGAtJFq3AN9aDqcRCFDJWT7K0xJAUBXLH
-         S+VHNwlpVbp+fN7O17Fkpcyng2AlPlWdZu/ENzx6xeGZrTqY5UiPUK7UDYMY8Upr1R3P
-         jnfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771433489; x=1772038289;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uxHzVkbJVuUf9PPiRw/JbF+frY9YqFQFTwH6XtexsFQ=;
-        b=X6pIaY2z8dH6qyHKxZfNWkW+gjvliXL974UL27ePDSjuAGM2Tv1q2pLJcQKBQ4TO3u
-         IqW12nhKis1P/DA210R3hUqirqWsnsVGiTUWcN8lj2WtrsKicvLr+T8VLkNohAB/dv3A
-         bXlyemEeD/nyfKn6RipTG06eNDkpk76069bzi6TDVgisz5UAsy+nc/uKW6RcyiCsBR89
-         ugC47U209MgvTgZ4l1m3cmdjx0NB2oIfwFVRQA6r0WvoXJ8CFYs/28SmpcnoUkzB/lZd
-         wRMJkNMd5Q5ob0H1mtoO36jU4A02uGvNcDyLD3yWsUbtxUCML9oAzQxNLFD1UmS/ntyX
-         XhJA==
-X-Forwarded-Encrypted: i=1; AJvYcCXc3jjYVeJm3QFWn9dtapv4a6Gp06m77EZdeMGCUW6dNJQxYnpfGV8GKUxUxRtW7YPynZnZG6612Ngr7X0hZ7af@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfVseTK0bBh1K17J2kFBJb2iShEiD32EROzNL6/aNl9l1aZVoB
-	VOif6toDxQY0y5SzSnLKkVuuijcep88v88y9x2STn/eShQeKdSwCVaFt
-X-Gm-Gg: AZuq6aIY6vbvWtX1KsKxICQ6jv624yfHuZbm5fs7DIUeKZNVw3gVozUlCgq/+Zg3OvL
-	h6IKj1A1e84E6PsbTx8QKtBhMV0XPwr9JuaPHEwyOvUvQbIlmfq53uDPB+AMh5xjoRa55znG+oC
-	PhVLJjkgqf+4iJQ0XaqVANBR+2i/qOmFP/ZiFbLxT9lsHk3MSB/FaI5PV5ilvhVOL1ThBv2oPy3
-	pIkLaRIIQOB6lQKVWnrfI/FjdEJ6IRO+5HHirCjAzYvKqneEQ9xZc1RfvFrE1+fCh2GHesbHrJT
-	2GQm3s1szhlzm/E2EUTw3+cUfH+ItrGOMbyAtJAKgJsNMEkA+betmhMLrBmi04D1dKvAIgBDHso
-	IXuSbtS2fdrSfLo0OrbHgjr0wV9zk6NCgI8UXIDQzUhMQFF4H/A+2faJF7CJdc5DCoNH2gukUSn
-	AAOu4DCiJD7fW1IlIB/ok712ygN6LKM/q/3/w3
-X-Received: by 2002:a17:903:244a:b0:2ab:3cba:42fa with SMTP id d9443c01a7336-2ab4d06157dmr192384245ad.46.1771433489047;
-        Wed, 18 Feb 2026 08:51:29 -0800 (PST)
-Received: from junjungu-PC.localdomain ([2408:820c:9008:ba52:403:e988:3f54:236b])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a6fa5cbsm176996885ad.9.2026.02.18.08.51.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Feb 2026 08:51:28 -0800 (PST)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Thu, 19 Feb 2026 00:51:22 +0800
-Subject: [PATCH] pinctrl: meson: amlogic-a4: Fix device node reference leak
- in aml_dt_node_to_map_pinmux()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260219-a4-v1-1-9666d6edbe2f@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAnulWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDI0ML3UQTXWNzC6MUsyQDS5NkUyWgwoKi1LTMCrAh0bG1tQBDzA8VVAA
- AAA==
-X-Change-ID: 20260218-a4-3782d6b094c5
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Linus Walleij <linusw@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771433485; l=1449;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=T+ddj9uth8B1FutWkYbruKcbeWNS950unthpcpOU8Mc=;
- b=j/cNO7oUv8KJAFH9hBKE9Q7aZLY1Mc9Wed+OTyOZmsNOTm2f+C274WzqExLijzSUROkMgdDav
- o4mMxRI63ByAnFOh6LcG2J0gZRy7RUaJv0GeXAc9vcUSRSY7hbUR4BM
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+	Wed, 18 Feb 2026 16:52:03 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A06B14E4025C;
+	Wed, 18 Feb 2026 16:51:57 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5A7155FA23;
+	Wed, 18 Feb 2026 16:51:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9052110368B3F;
+	Wed, 18 Feb 2026 17:51:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1771433516; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=q3kKvAtMKyYPFeQYbrwGbLVSY2eZXFval087qSi5JsQ=;
+	b=DzZ+cb7swCI8SLIPEuwHkNsoozJZU54YAOTo3h5yFmhWMepNkAu/9bs48NBM727ltQSzbm
+	SxrVMRCPFZ0ZHymllEQ+w+ffCTtXXzQrML3jbEtYr5bRqBbNvTbakAq0Uc3lF3tVlII5Bx
+	MdUStzhv5BSRnw7KVrQ8kJk0Ptf93J4mHf3nhTwMOioZYtKrMVZS9ByooyIvdYhtMevJHo
+	aal+svhAcY9ADm7jhKroJVxm8wTbSr691w6n6PfS8+OuFGuM6yfiaL33Sv4w28ZRgzu1L9
+	sce7auUd+y2hX83PzR8gC9NSWUOnoAkN1yd+qKkn1CDymjnSROfn0n4EwdCasQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Feb 2026 17:51:51 +0100
+Message-Id: <DGI8RSUWQ7W8.MDY7YGXPA5LX@bootlin.com>
+Cc: "Nicolas Frattaroli" <frattaroli.nicolas@gmail.com>, "Liam Girdwood"
+ <lgirdwood@gmail.com>, "Mark Brown" <broonie@kernel.org>, "Jaroslav Kysela"
+ <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>, "Heiko Stuebner"
+ <heiko@sntech.de>, <linux-rockchip@lists.infradead.org>,
+ <linux-sound@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <kernel@collabora.com>, <alexandre.belloni@bootlin.com>,
+ <thomas.petazzoni@bootlin.com>
+To: "Detlev Casanova" <detlev.casanova@collabora.com>,
+ <linux-kernel@vger.kernel.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [REGRESSION] Re: [PATCH v1] ASoC: rockchip: i2s_tdm: Re-add the
+ set_sysclk callback
+X-Mailer: aerc 0.20.1
+References: <20250117163102.65807-1-detlev.casanova@collabora.com>
+ <DGB6VK7LC8N7.322SYGWZXPL5W@bootlin.com>
+ <DGI2YVYBECUM.3O0UN9VMKF7FJ@bootlin.com>
+ <34f61d25-607c-4967-bc67-3c7517c7fe14@collabora.com>
+In-Reply-To: <34f61d25-607c-4967-bc67-3c7517c7fe14@collabora.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_085130_433778_944A3772 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260218_085201_108353_0DA6AE83 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,47 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The of_get_parent() function returns a device_node with an incremented
-reference count.
+Hello Detlev,
 
-Use the __free(device_node) cleanup attribute to ensure of_node_put()
-is automatically called when pnode goes out of scope, fixing a
-reference leak.
+On Wed Feb 18, 2026 at 5:01 PM CET, Detlev Casanova wrote:
+> Hi Lucas, sorry for breaking support on your board.
+> I'm also surprised that you were not added in CC of the original patch.
+>
+> Can you try to keep the patch and apply the attached one instead ?
 
-Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Thanks for the quick feedback.
 
-diff --git a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-index dfa32b11555c..e2293a872dcb 100644
---- a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-+++ b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-@@ -679,7 +679,6 @@ static int aml_dt_node_to_map_pinmux(struct pinctrl_dev *pctldev,
- 				     unsigned int *num_maps)
- {
- 	struct device *dev = pctldev->dev;
--	struct device_node *pnode;
- 	unsigned long *configs = NULL;
- 	unsigned int num_configs = 0;
- 	struct property *prop;
-@@ -693,7 +692,7 @@ static int aml_dt_node_to_map_pinmux(struct pinctrl_dev *pctldev,
- 		return -ENOENT;
- 	}
- 
--	pnode = of_get_parent(np);
-+	struct device_node *pnode __free(device_node) = of_get_parent(np);
- 	if (!pnode) {
- 		dev_info(dev, "Missing function node\n");
- 		return -EINVAL;
+About your patch:
 
----
-base-commit: fe9e3edb6a215515d1148d32a5c445c5bdd7916f
-change-id: 20260218-a4-3782d6b094c5
+--- a/sound/soc/rockchip/rockchip_i2s_tdm.c
++++ b/sound/soc/rockchip/rockchip_i2s_tdm.c
+@@ -665,6 +665,12 @@ static int rockchip_i2s_tdm_hw_params(struct snd_pcm_s=
+ubstream *substream,
+ 			mclk_rate =3D i2s_tdm->mclk_rx_freq;
+ 		}
 
-Best regards,
--- 
-Felix Gu <ustc.gu@gmail.com>
++		/* If the dai/component driver didn't call set_sysclk(), simply
++		 * use the freq from the params.
++		 */
 
+The comment is slightly incorrect: set_sysclk() was called in my case, but
+only for playback, not for capture. You can reword accordingly.
+
++		if (!mclk_rate)
++			mclk_rate =3D DEFAULT_MCLK_FS * params_rate(params);
+
+With this, and DEFAULT_MCLK_FS defined to 256, arecord is working again.
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
