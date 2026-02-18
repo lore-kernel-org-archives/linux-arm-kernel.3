@@ -4,54 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E68DE9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D1BE9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xVlwX2XPgrYoCbglLl8Xd5AMLUP4zwLEShp35utsxho=; b=kWmqb/ZTXSO8r22wRXIcdXp4pe
-	VF0rJBv7mLAI7VbFXrAbZlkmHb98Ub6iQTY3H+sShHTwPiWESyMIn39gCezkoVa5p7uumU+UQYscT
-	TUXf9QT/90deM9+GCGOEJACQChEStrrAz6+QVzQe0ZZ+72RJZC864DIAFo9ng1TK3tWfFAtrAo6HE
-	zg+TfWrHwrLAFICSvklgZrPkF5hGeYwDQz80Z4ngSTloqcDi1rAS0TBhbHvbXEsoJFVKBhTbGZia6
-	wlOmT/ZI1dzxCFbQxQkmb5ThM7q8+FsuzhMeUQNCSdJYrr9n2iWXRxPKbAfTCjSUtWFrkd/lXF5os
-	rhVZ6i4Q==;
+	bh=Wa9GX10RqICwHPztX1CkkMQoNAp0yb6VcbWDWpqUr4U=; b=F1NyRkTXO7uPvxUnXied5tUusH
+	l0kIN66NjG8RRFXWIG2RDS3UbXQLRk7mfxMMHorj5X1D/Bme495ug+wnS3mdBHd6EKaooVjLR0BJY
+	lhopK6o//VyL/XrpKiWCwHdVJZxHBlB/hgLDOBZSjMrH4nl0S1th31d8gv0FUUFOYYPcBygMYOYDl
+	l+SRYbrKYI+XsNEQnMVU2Wk9bAaiHWaUsUKF0TioIflRvQW8gMZlRMJ+GuNtejha3E5cd3xIO7OJ6
+	QcnkdyFCMHSxow146ev448zN87HsdbcpduTnatyyQ5VKQ+5vwOyz0HBf8zcQSQYNi6++UxsZnIuwu
+	7muR1JiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskfA-0000000A6o4-419D;
-	Wed, 18 Feb 2026 16:44:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskf8-0000000A6nK-3gmY
+	id 1vskhN-0000000A72R-1kTd;
+	Wed, 18 Feb 2026 16:46:49 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vskhK-0000000A71a-3gDQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:44:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28AB1339;
-	Wed, 18 Feb 2026 08:44:23 -0800 (PST)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 523CB3F62B;
-	Wed, 18 Feb 2026 08:44:28 -0800 (PST)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	oupton@kernel.org,
-	ryan.roberts@arm.com,
-	will@kernel.org
-Subject: [PATCH 2/2] arm64: tlb: Optimize ARM64_WORKAROUND_REPEAT_TLBI
-Date: Wed, 18 Feb 2026 16:43:48 +0000
-Message-Id: <20260218164348.2022831-3-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260218164348.2022831-1-mark.rutland@arm.com>
-References: <20260218164348.2022831-1-mark.rutland@arm.com>
+	Wed, 18 Feb 2026 16:46:48 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61I8X53u3694192
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 16:46:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Wa9GX10RqICwHPztX1CkkMQoNAp0yb6VcbWDWpqUr4U=; b=ALJ7b+JbCMeaM63G
+	rzeiUWyjlWMpOUAyLjwoiKwzdmv/sQmNj2Dk1HMlLluLfhih5Stn1+j/GxIUAyDf
+	ELBR9PEzvaeo4yTPPmO8eFDBzwGBPSYAjlAQTIqPkcqpGWQphRcRRnQhFb1wi180
+	cQKdmrZboqT+/WY4GIx0DVRbiA3PWw5n/j6eF0xW+zGWWhmbzyTfXd7lVBl9ZCR0
+	ZB+a5xT2mytwrai8P9fb+oIAWmrtX8oFfsI6R9ZVtBxaX7VvBzzRU6O2wOJQNW04
+	MlcuqpiTMSMjJQejRatER7PvTFWgoRI0vVp7npnEk4Ks/NUDxqhVgr9YIOfj558W
+	OtNa1g==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ccyfb2y4v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 16:46:44 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8ca3ef536ddso8948385a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 08:46:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1771433204; x=1772038004; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wa9GX10RqICwHPztX1CkkMQoNAp0yb6VcbWDWpqUr4U=;
+        b=kFyIvo70196twKGyn9UiEV7sWsvWLKhro+SFLXvNOxsqiGKqQPkoZumlWvulNhgP1F
+         AJ1juriFI/yW4mBmSIZmy+JiO4ktrnEORTDPDn5CtA5STrQUMHosx67uvJd2OSLzzU18
+         dtYMCL3mHdflfoESFn0XdLKOATrpfci4PkChbKfy6XCbU6DbLYxe8eKzyIDlYCIqY0Gn
+         aaD0ito4GW8htwiPyyHtXMr8K2I+zd84CQvj3iv82LXGRIMCaNRSO7/D3CFCaWqCAFNE
+         5QqirYVvqgxB5kdPCfeDFs5YpJ5KirDL70Kc6cwMQTHybOTdgHmb/79bect8QuffAveL
+         4/Ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771433204; x=1772038004;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Wa9GX10RqICwHPztX1CkkMQoNAp0yb6VcbWDWpqUr4U=;
+        b=Q47vbvlw0hjxoZc6Rwi4Bo0GnT2/GyNwO93BuNT1O0IK51M9YSuLjUwWAe2ns1UcK3
+         mThC/wk58B6pevXWnjhUSYbIGRPFOWE6FL3iNfCd8fXCCvNaEcB5B07N0E078nuy08RK
+         YoGDP6MzkFYtU5LakaLdGCZLWQOXkR+ZqDKIz+Ln+29IlPQxBXP3zSoaa/sXF01nPhRT
+         XjndQ2OJ/rsRZxP5cGwMKEu/Eurd+t2JxE3F7cevLj6xBtpyYOPUrpiCWnIu9epqOT4F
+         Y02uONP27iPQ68z1kRYk1ffNcz28I7y4t2LoxSnmPE9Xsk6x/ohxHjhIzoetssQ6Tuff
+         1Qfw==
+X-Forwarded-Encrypted: i=1; AJvYcCU8NnLnc2zBua+TDc9AhhzZAcdAlC5lmotC33FXkLmE9vCQbPYVl87HSPilpZcIq0Yxpzlou0s+9qX5i2GpSIzQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHCGwIVdneeISTJPT0SJm2wXmnlhafhisdH1cCKeunjO9Igc4k
+	Jos8Gj7pkLxlyJ8t2o//2aL8jWHyXOf67Xf73Hw38IOOukXaJEFm6skVZyv/e9QJZQ4qt9jspgd
+	xCbcPglz5OpTGjxcY8jvVIU3OXAfVXPKeIuqB8AZ7eGdz0vc130ij3/2E4pcSSKO+BbqtJjUyya
+	otxg==
+X-Gm-Gg: AZuq6aLJIjc8tMTxlFp6mI/iHH5BXWEkoSkDZ2HTycb0F+rUIUhN1psePez2lfekykN
+	q4ZKKG/kVvY3/FtpZxHZRCAPLsVCrYK5yu5wYUChdGJ7cdrKnfWDNtYSH0vbucVBTLGCnNCTMS1
+	v0OTWw0HNT5D3UAHy5XRZFUHhuTWMJweLM6mf4vRnt9cWAXZp128fdyli+ewJ5qIilKeY84LIY3
+	ENH3uHupjOih+004Qo8UdJ0So+0znVapZ+vP2nnMxMjx2xFw0LASGABTSbuTeL39mdK3yrwCBs0
+	o64KU7F9W+aE2MENrg17hBpZcB5AMiWbLemjWBop8nFPCDvhj79I3wGthfXhALbg21/u+D48tAt
+	HJIATP26d6w3HLZKxja92pWnvBZskqw396Vne9y6HWvTJ0M7JOg==
+X-Received: by 2002:a05:620a:458f:b0:8ca:3c67:891a with SMTP id af79cd13be357-8cb42428bd7mr2255280185a.52.1771433203823;
+        Wed, 18 Feb 2026 08:46:43 -0800 (PST)
+X-Received: by 2002:a05:620a:458f:b0:8ca:3c67:891a with SMTP id af79cd13be357-8cb42428bd7mr2255274785a.52.1771433203170;
+        Wed, 18 Feb 2026 08:46:43 -0800 (PST)
+Received: from [192.168.1.29] ([178.197.223.140])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483983fdcc1sm20661695e9.31.2026.02.18.08.46.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Feb 2026 08:46:42 -0800 (PST)
+Message-ID: <5e2f98c5-993b-417b-b27c-a683283d1587@oss.qualcomm.com>
+Date: Wed, 18 Feb 2026 17:46:40 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: MAINTAINERS: Include resctrl MPAM driver
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+        Reinette Chatre <reinette.chatre@intel.com>,
+        Fenghua Yu
+ <fenghuay@nvidia.com>, Will Deacon <will@kernel.org>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260216110240.159691-3-krzysztof.kozlowski@oss.qualcomm.com>
+ <20260216110240.159691-4-krzysztof.kozlowski@oss.qualcomm.com>
+ <aZXnbDZvzDnUKVoB@arm.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
+ 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
+ cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <aZXnbDZvzDnUKVoB@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: R_yHuWKrvKdOZkBgt4NSeMu6PpEvPaIn
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE4MDE0MyBTYWx0ZWRfX5NWyOIONMOWm
+ Q64pspq//V0pCzaavp2d7oYtfGSbgLevz2MvU+cmKprRqmhw0rb2jh890lwArYjWqa3v9mhTyDL
+ TvZG8Tykag/XGhVaAZZizjZHShzoT0VZXODKF4urqlINg5TAZ8iQHyo4oljnCkYVwp7E/Acl1CI
+ qI9/JEBlFTktuv5aGJANIGR5EvcLzrsgY8WAux6vpEOc596K+cgNMelhWcrShYwwle75ukaDT7x
+ TIB5YoAaVfnkR7sQhu4su+746gcWA3UDZfLzx7GHyjKS4n1epQbyz9z9KfgAgC8edDchVuYZQj6
+ iSp2Tk+tDdBodrQJZMGVXoMOs2vdoUF8A3dbbcFOCcyPSR5xsKijSn2VA0DPlxtIWh05uKZijyE
+ t1mJCrGxZi4eXvtr+cOJPmnXmDtDlqaH1inklWOuJeffmi+UChw53tfcy64+37eAppHSa9PQtxG
+ kBBD5bCUQCd2C2mNRjw==
+X-Authority-Analysis: v=2.4 cv=JNo2csKb c=1 sm=1 tr=0 ts=6995ecf4 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=QyXUC8HyAAAA:8
+ a=Ikd4Dj_1AAAA:8 a=o2L9dTJEZln2RXGxqE0A:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: R_yHuWKrvKdOZkBgt4NSeMu6PpEvPaIn
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-18_03,2026-02-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 malwarescore=0 priorityscore=1501 impostorscore=0 suspectscore=0
+ spamscore=0 clxscore=1015 bulkscore=0 phishscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602180143
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_084431_004673_296BECCB 
-X-CRM114-Status: GOOD (  24.09  )
+X-CRM114-CacheID: sfid-20260218_084647_072452_DEF49FE6 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,445 +195,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM64_WORKAROUND_REPEAT_TLBI workaround is used to mitigate several
-errata where broadcast TLBI;DSB sequences don't provide all the
-architecturally required synchronization. The workaround performs more
-work than necessary, and can have significant overhead. This patch
-optimizes the workaround, as explained below.
+On 18/02/2026 17:23, Catalin Marinas wrote:
+> On Mon, Feb 16, 2026 at 12:02:42PM +0100, Krzysztof Kozlowski wrote:
+>> No maintainers handling the code (so subsystem maintainers) are shown with
+>> scripts/get_maintainers.pl on MPAM drivers in drivers/resctrl/.  It
+>> seems that there is no dedicated subsystem for resctrl and existing
+>> drivers went through ARM64 port maintainers, so make that explicit to
+>> avoid patches being lost/ignored.
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>> ---
+>>  MAINTAINERS | 2 ++
+>>  1 file changed, 2 insertions(+)
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index faa914a5f34d..199058abc152 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -3822,6 +3822,8 @@ S:	Maintained
+>>  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+>>  F:	Documentation/arch/arm64/
+>>  F:	arch/arm64/
+>> +F:	drivers/resctrl/*mpam_*
+>> +F:	include/linux/arm_mpam.h
+>>  F:	drivers/virt/coco/arm-cca-guest/
+>>  F:	drivers/virt/coco/pkvm-guest/
+>>  F:	tools/testing/selftests/arm64/
+> 
+> What's wrong with the current entry?
 
-The workaround was originally added for Qualcomm Falkor erratum 1009 in
-commit:
+I explained in the commit msg:
+"No maintainers handling the code (so subsystem maintainers)"
 
-  d9ff80f83ecb ("arm64: Work around Falkor erratum 1009")
+It does not list the maintainers picking up patches, so if you use
+standard tools (like b4, patman or scripted get_maintainers), you will
+never appear on To/Cc list (relying on git-fallback is wrong).
 
-As noted in the message for that commit, the workaround is applied even
-in cases where it is not strictly necessary.
+Of course maybe you will still get the patches with lei/korgalore, so up
+to you.
 
-The workaround was later reused without changes for:
 
-* Arm Cortex-A76 erratum #1286807
-  SDEN v33: https://developer.arm.com/documentation/SDEN-885749/33-0/
+> 
+> $ ./scripts/get_maintainer.pl -f drivers/resctrl/mpam_*
+> James Morse <james.morse@arm.com> (maintainer:MPAM DRIVER)
+> Ben Horgan <ben.horgan@arm.com> (maintainer:MPAM DRIVER)
+> Reinette Chatre <reinette.chatre@intel.com> (reviewer:MPAM DRIVER)
+> Fenghua Yu <fenghuay@nvidia.com> (reviewer:MPAM DRIVER)
+> linux-kernel@vger.kernel.org (open list)
+> 
 
-* Arm Cortex-A55 erratum #2441007
-  SDEN v16: https://developer.arm.com/documentation/SDEN-859338/1600/
 
-* Arm Cortex-A510 erratum #2441009
-  SDEN v19: https://developer.arm.com/documentation/SDEN-1873351/1900/
-
-The important details to note are as follows:
-
-1. All relevant errata only affect the ordering and/or completion of
-   memory accesses which have been translated by an invalidated TLB
-   entry. The actual invalidation of TLB entries is unaffected.
-
-2. The existing workaround is applied to both broadcast and local TLB
-   invalidation, whereas for all relevant errata it is only necessary to
-   apply a workaround for broadcast invalidation.
-
-3. The existing workaround replaces every TLBI with a TLBI;DSB;TLBI
-   sequence, whereas for all relevant errata it is only necessary to
-   execute a single additional TLBI;DSB sequence after any number of
-   TLBIs are completed by a DSB.
-
-   For example, for a sequence of batched TLBIs:
-
-       TLBI <op1>[, <arg1>]
-       TLBI <op2>[, <arg2>]
-       TLBI <op3>[, <arg3>]
-       DSB ISH
-
-   ... the existing workaround will expand this to:
-
-       TLBI <op1>[, <arg1>]
-       DSB ISH                  // additional
-       TLBI <op1>[, <arg1>]     // additional
-       TLBI <op2>[, <arg2>]
-       DSB ISH                  // additional
-       TLBI <op2>[, <arg2>]     // additional
-       TLBI <op3>[, <arg3>]
-       DSB ISH                  // additional
-       TLBI <op3>[, <arg3>]     // additional
-       DSB ISH
-
-   ... whereas it is sufficient to have:
-
-       TLBI <op1>[, <arg1>]
-       TLBI <op2>[, <arg2>]
-       TLBI <op3>[, <arg3>]
-       DSB ISH
-       TLBI <opX>[, <argX>]     // additional
-       DSB ISH                  // additional
-
-   Using a single additional TBLI and DSB at the end of the sequence can
-   have significantly lower overhead as each DSB which completes a TLBI
-   must synchronize with other PEs in the system, with potential
-   performance effects both locally and system-wide.
-
-4. The existing workaround repeats each specific TLBI operation, whereas
-   for all relevant errata it is sufficient for the additional TLBI to
-   use *any* operation which will be broadcast, regardless of which
-   translation regime or stage of translation the operation applies to.
-
-   For example, for a single TLBI:
-
-       TLBI ALLE2IS
-       DSB ISH
-
-   ... the existing workaround will expand this to:
-
-       TLBI ALLE2IS
-       DSB ISH
-       TLBI ALLE2IS             // additional
-       DSB ISH                  // additional
-
-   ... whereas it is sufficient to have:
-
-       TLBI ALLE2IS
-       DSB ISH
-       TLBI VALE1IS, XZR        // additional
-       DSB ISH                  // additional
-
-   As the additional TLBI doesn't have to match a specific earlier TLBI,
-   the additional TLBI can be implemented in separate code, with no
-   memory of the earlier TLBIs. The additional TLBI can also use a
-   cheaper TLBI operation.
-
-5. The existing workaround is applied to both Stage-1 and Stage-2 TLB
-   invalidation, whereas for all relevant errata it is only necessary to
-   apply a workaround for Stage-1 invalidation.
-
-   Architecturally, TLBI operations which invalidate only Stage-2
-   information (e.g. IPAS2E1IS) are not required to invalidate TLB
-   entries which combine information from Stage-1 and Stage-2
-   translation table entries, and consequently may not complete memory
-   accesses translated by those combined entries. In these cases,
-   completion of memory accesses is only guaranteed after subsequent
-   invalidation of Stage-1 information (e.g. VMALLE1IS).
-
-Taking the above points into account, this patch reworks the workaround
-logic to reduce overhead:
-
-* New __tlbi_sync_s1ish() and __tlbi_sync_s1ish_hyp() functions are
-  added and used in place of any dsb(ish) which is used to complete
-  broadcast Stage-1 TLB maintenance. When the
-  ARM64_WORKAROUND_REPEAT_TLBI workaround is enabled, these helpers will
-  execute an additional TLBI;DSB sequence.
-
-  For consistency, it might make sense to add __tlbi_sync_*() helpers
-  for local and stage 2 maintenance. For now I've left those with
-  open-coded dsb() to keep the diff small.
-
-* The duplication of TLBIs in __TLBI_0() and __TLBI_1() is removed. This
-  is no longer needed as the necessary synchronization will happen in
-  __tlbi_sync_s1ish() or __tlbi_sync_s1ish_hyp().
-
-* The additional TLBI operation is chosen to have minimal impact:
-
-  - __tlbi_sync_s1ish() uses "TLBI VALE1IS, XZR". This is only used at
-    EL1 or at EL2 with {E2H,TGE}=={1,1}, where it will target an unused
-    entry for the reserved ASID in the kernel's own translation regime,
-    and have no adverse affect.
-
-  - __tlbi_sync_s1ish_hyp() uses "TLBI VALE2IS, XZR". This is only used
-    in hyp code, where it will target an unused entry in the hyp code's
-    TTBR0 mapping, and should have no adverse effect.
-
-* As __TLBI_0() and __TLBI_1() no longer replace each TLBI with a
-  TLBI;DSB;TLBI sequence, batching TLBIs is worthwhile, and there's no
-  need for arch_tlbbatch_should_defer() to consider
-  ARM64_WORKAROUND_REPEAT_TLBI.
-
-When building defconfig with GCC 15.1.0, compared to v6.19-rc1, this
-patch saves ~1KiB of text, makes the vmlinux ~42KiB smaller, and makes
-the resulting Image 64KiB smaller:
-
-| [mark@lakrids:~/src/linux]% size vmlinux-*
-|    text    data     bss     dec     hex filename
-| 21179831        19660919         708216 41548966        279fca6 vmlinux-after
-| 21181075        19660903         708216 41550194        27a0172 vmlinux-before
-| [mark@lakrids:~/src/linux]% ls -l vmlinux-*
-| -rwxr-xr-x 1 mark mark 157771472 Feb  4 12:05 vmlinux-after
-| -rwxr-xr-x 1 mark mark 157815432 Feb  4 12:05 vmlinux-before
-| [mark@lakrids:~/src/linux]% ls -l Image-*
-| -rw-r--r-- 1 mark mark 41007616 Feb  4 12:05 Image-after
-| -rw-r--r-- 1 mark mark 41073152 Feb  4 12:05 Image-before
-
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/tlbflush.h | 59 ++++++++++++++++++-------------
- arch/arm64/kernel/sys_compat.c    |  2 +-
- arch/arm64/kvm/hyp/nvhe/mm.c      |  2 +-
- arch/arm64/kvm/hyp/nvhe/tlb.c     |  8 ++---
- arch/arm64/kvm/hyp/pgtable.c      |  2 +-
- arch/arm64/kvm/hyp/vhe/tlb.c      | 10 +++---
- 6 files changed, 47 insertions(+), 36 deletions(-)
-
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index bf1cc9949dc87..1416e652612b7 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -31,18 +31,10 @@
-  */
- #define __TLBI_0(op, arg) asm (ARM64_ASM_PREAMBLE			       \
- 			       "tlbi " #op "\n"				       \
--		   ALTERNATIVE("nop\n			nop",		       \
--			       "dsb ish\n		tlbi " #op,	       \
--			       ARM64_WORKAROUND_REPEAT_TLBI,		       \
--			       CONFIG_ARM64_WORKAROUND_REPEAT_TLBI)	       \
- 			    : : )
- 
- #define __TLBI_1(op, arg) asm (ARM64_ASM_PREAMBLE			       \
- 			       "tlbi " #op ", %x0\n"			       \
--		   ALTERNATIVE("nop\n			nop",		       \
--			       "dsb ish\n		tlbi " #op ", %x0",    \
--			       ARM64_WORKAROUND_REPEAT_TLBI,		       \
--			       CONFIG_ARM64_WORKAROUND_REPEAT_TLBI)	       \
- 			    : : "rZ" (arg))
- 
- #define __TLBI_N(op, arg, n, ...) __TLBI_##n(op, arg)
-@@ -181,6 +173,34 @@ static inline unsigned long get_trans_granule(void)
- 		(__pages >> (5 * (scale) + 1)) - 1;			\
- 	})
- 
-+#define __repeat_tlbi_sync(op, arg...)						\
-+do {										\
-+	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_REPEAT_TLBI))	\
-+		break;								\
-+	__tlbi(op, ##arg);							\
-+	dsb(ish);								\
-+} while (0)
-+
-+/*
-+ * Complete broadcast TLB maintenance issued by the host which invalidates
-+ * stage 1 information in the host's own translation regime.
-+ */
-+static inline void __tlbi_sync_s1ish(void)
-+{
-+	dsb(ish);
-+	__repeat_tlbi_sync(vale1is, 0);
-+}
-+
-+/*
-+ * Complete broadcast TLB maintenance issued by hyp code which invalidates
-+ * stage 1 translation information in any translation regime.
-+ */
-+static inline void __tlbi_sync_s1ish_hyp(void)
-+{
-+	dsb(ish);
-+	__repeat_tlbi_sync(vale2is, 0);
-+}
-+
- /*
-  *	TLB Invalidation
-  *	================
-@@ -279,7 +299,7 @@ static inline void flush_tlb_all(void)
- {
- 	dsb(ishst);
- 	__tlbi(vmalle1is);
--	dsb(ish);
-+	__tlbi_sync_s1ish();
- 	isb();
- }
- 
-@@ -291,7 +311,7 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
- 	asid = __TLBI_VADDR(0, ASID(mm));
- 	__tlbi(aside1is, asid);
- 	__tlbi_user(aside1is, asid);
--	dsb(ish);
-+	__tlbi_sync_s1ish();
- 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
- }
- 
-@@ -345,20 +365,11 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
- 				  unsigned long uaddr)
- {
- 	flush_tlb_page_nosync(vma, uaddr);
--	dsb(ish);
-+	__tlbi_sync_s1ish();
- }
- 
- static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
- {
--	/*
--	 * TLB flush deferral is not required on systems which are affected by
--	 * ARM64_WORKAROUND_REPEAT_TLBI, as __tlbi()/__tlbi_user() implementation
--	 * will have two consecutive TLBI instructions with a dsb(ish) in between
--	 * defeating the purpose (i.e save overall 'dsb ish' cost).
--	 */
--	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_REPEAT_TLBI))
--		return false;
--
- 	return true;
- }
- 
-@@ -374,7 +385,7 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-  */
- static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
- {
--	dsb(ish);
-+	__tlbi_sync_s1ish();
- }
- 
- /*
-@@ -509,7 +520,7 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
- {
- 	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
- 				 last_level, tlb_level);
--	dsb(ish);
-+	__tlbi_sync_s1ish();
- }
- 
- static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
-@@ -557,7 +568,7 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
- 	dsb(ishst);
- 	__flush_tlb_range_op(vaale1is, start, pages, stride, 0,
- 			     TLBI_TTL_UNKNOWN, false, lpa2_is_enabled());
--	dsb(ish);
-+	__tlbi_sync_s1ish();
- 	isb();
- }
- 
-@@ -571,7 +582,7 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
- 
- 	dsb(ishst);
- 	__tlbi(vaae1is, addr);
--	dsb(ish);
-+	__tlbi_sync_s1ish();
- 	isb();
- }
- 
-diff --git a/arch/arm64/kernel/sys_compat.c b/arch/arm64/kernel/sys_compat.c
-index 4a609e9b65de0..b9d4998c97efa 100644
---- a/arch/arm64/kernel/sys_compat.c
-+++ b/arch/arm64/kernel/sys_compat.c
-@@ -37,7 +37,7 @@ __do_compat_cache_op(unsigned long start, unsigned long end)
- 			 * We pick the reserved-ASID to minimise the impact.
- 			 */
- 			__tlbi(aside1is, __TLBI_VADDR(0, 0));
--			dsb(ish);
-+			__tlbi_sync_s1ish();
- 		}
- 
- 		ret = caches_clean_inval_user_pou(start, start + chunk);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-index ae8391baebc30..218976287d3fe 100644
---- a/arch/arm64/kvm/hyp/nvhe/mm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-@@ -271,7 +271,7 @@ static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
- 	 */
- 	dsb(ishst);
- 	__tlbi_level(vale2is, __TLBI_VADDR(addr, 0), level);
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- 	isb();
- }
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/tlb.c b/arch/arm64/kvm/hyp/nvhe/tlb.c
-index 48da9ca9763f6..3dc1ce0d27fe6 100644
---- a/arch/arm64/kvm/hyp/nvhe/tlb.c
-+++ b/arch/arm64/kvm/hyp/nvhe/tlb.c
-@@ -169,7 +169,7 @@ void __kvm_tlb_flush_vmid_ipa(struct kvm_s2_mmu *mmu,
- 	 */
- 	dsb(ish);
- 	__tlbi(vmalle1is);
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- 	isb();
- 
- 	exit_vmid_context(&cxt);
-@@ -226,7 +226,7 @@ void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
- 
- 	dsb(ish);
- 	__tlbi(vmalle1is);
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- 	isb();
- 
- 	exit_vmid_context(&cxt);
-@@ -240,7 +240,7 @@ void __kvm_tlb_flush_vmid(struct kvm_s2_mmu *mmu)
- 	enter_vmid_context(mmu, &cxt, false);
- 
- 	__tlbi(vmalls12e1is);
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- 	isb();
- 
- 	exit_vmid_context(&cxt);
-@@ -266,5 +266,5 @@ void __kvm_flush_vm_context(void)
- 	/* Same remark as in enter_vmid_context() */
- 	dsb(ish);
- 	__tlbi(alle1is);
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- }
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 947ac1a951a5b..da8f8d4c4d5da 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -483,7 +483,7 @@ static int hyp_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 		*unmapped += granule;
- 	}
- 
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- 	isb();
- 	mm_ops->put_page(ctx->ptep);
- 
-diff --git a/arch/arm64/kvm/hyp/vhe/tlb.c b/arch/arm64/kvm/hyp/vhe/tlb.c
-index ec25698186297..35855dadfb1b3 100644
---- a/arch/arm64/kvm/hyp/vhe/tlb.c
-+++ b/arch/arm64/kvm/hyp/vhe/tlb.c
-@@ -115,7 +115,7 @@ void __kvm_tlb_flush_vmid_ipa(struct kvm_s2_mmu *mmu,
- 	 */
- 	dsb(ish);
- 	__tlbi(vmalle1is);
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- 	isb();
- 
- 	exit_vmid_context(&cxt);
-@@ -176,7 +176,7 @@ void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
- 
- 	dsb(ish);
- 	__tlbi(vmalle1is);
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- 	isb();
- 
- 	exit_vmid_context(&cxt);
-@@ -192,7 +192,7 @@ void __kvm_tlb_flush_vmid(struct kvm_s2_mmu *mmu)
- 	enter_vmid_context(mmu, &cxt);
- 
- 	__tlbi(vmalls12e1is);
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- 	isb();
- 
- 	exit_vmid_context(&cxt);
-@@ -217,7 +217,7 @@ void __kvm_flush_vm_context(void)
- {
- 	dsb(ishst);
- 	__tlbi(alle1is);
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- }
- 
- /*
-@@ -358,7 +358,7 @@ int __kvm_tlbi_s1e2(struct kvm_s2_mmu *mmu, u64 va, u64 sys_encoding)
- 	default:
- 		ret = -EINVAL;
- 	}
--	dsb(ish);
-+	__tlbi_sync_s1ish_hyp();
- 	isb();
- 
- 	if (mmu)
--- 
-2.30.2
-
+Best regards,
+Krzysztof
 
