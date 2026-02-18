@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2CFE9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 09:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D403E9A047
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 09:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=M8gl++zx6Wi9qor04MjPeYXm2g4GfwnMFuYqKaekPy8=; b=Rewf/KKsTfY9UG
-	xiScPhaEYrDyUHgRM9rTEQXbB1t4beD7OCfv99xJ49wO+u+IDiuQCQfExGA70W8Vjti5wqLJYS3Jh
-	L6aGOner5xilltRj7S6Xw6Y+1E6GtkT3fNGYu8tUic+Wzblbz4+17Osj/nrhpHZOVIlSTl7FuK2W/
-	thSkxfSdXmgNLfbyBB389chuCO/lZo/d3TB8LeWQjVi8/ths35oi4jtv1TZXedkXy1vpJSU1xd2ZP
-	yK8JBeYd5jGYsc95O6sdddu7IRMP69xc9sXIH6fPf9vRZbidVdcLasxcDm8RGRdo2nm6h8dsrTZE5
-	ZE6Zb0gsWcLwE2db/C6Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nwbYGCCd+bxGXa7zYVP/dJAP8SrwzALdFw8YTIVAygg=; b=HJY4GhDgcwyyNckzC0zd4lIkBE
+	iZ2ap/Ec0IiDXqt4xjLpVJICYEa4eUjihR+1+ZQKKpv/CbRf0nQbQl/0ZR8o7+kei9Yxt2F7R8Pw9
+	pqXagQ+ofDcubHXhZGc/RBE+vb52oxxV4t7HBQ9PCsqZ4/CiHZC1Sz5Sv+aueXXpBYw3RPmM0IFJW
+	WM0ylacov456n+sykJkavngf2aPco38j2XZi9wK9AYNQqNV4PuFDoZ0Wh9pOEouvbySRyMQB844sc
+	vfwdFSLqEbsusB74vRbSteo1r0Hv4fa1moDJx2Y5FSlGR3CucpvVDx8VozvXPi7gCLoUXfHKVvQyh
+	DMiKqJwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdtX-00000009Y5o-0IuH;
-	Wed, 18 Feb 2026 09:30:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vsdta-00000009Y6c-1ZeB;
+	Wed, 18 Feb 2026 09:30:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdtV-00000009Y5Y-3D7y
+	id 1vsdtZ-00000009Y6G-2Oyl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 09:30:53 +0000
+	Wed, 18 Feb 2026 09:30:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CDA5F600AE;
-	Wed, 18 Feb 2026 09:30:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D747C19421;
-	Wed, 18 Feb 2026 09:30:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 988B660018;
+	Wed, 18 Feb 2026 09:30:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF56BC19425;
+	Wed, 18 Feb 2026 09:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771407052;
-	bh=A9agT+60+h6KfnzOp2ZPypY0ktI8OqbBQWL+XMaqyHw=;
-	h=From:Subject:Date:To:Cc:From;
-	b=l9B13pkpJzuasmA/M4GhY7w1SHfNRcTtjV8fhzntvQ/NkiXoawnNMYu/6kcQ9PePk
-	 ePF6ATyFwBVOCkSGp8T8dUfxBU3P2nFWEUeLCCAsiycd8kj7ogXMAIF9CIMnLDLn6+
-	 N7YjN0Y2mjYUk5+ClB6njuvC734SsJ2b9JaL9QGV2jFOf5aXfPCcf/BrI/8uXrYe/c
-	 W0hUhS8VZ532Awt5n+vQdUmuCGR+HyFx+7fdoEGgU7Pg+7wE/IW/6OCxpOu7vs30qQ
-	 xObhBpBqV2AvhZuImcpmBleoNIUSamdrYzzt5/M/AIWgHnUWRMHyGyc3JElIDHXz4y
-	 YI43QNFXUPU/A==
+	s=k20201202; t=1771407056;
+	bh=dkIJ6OAxESM1yng0K03FEndz5r4APXbZ/k+XRDm0D4I=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=iHASCSvXQj6t8Jpwx7qKKIQSXUK+xnrYxttTPrh9WUdaijuYufWYd+H1tdSqvlFEm
+	 B81g37stkSXFzoYLsFS3XvCqql+DNABR59YtyftEv4D0PXe3cv+zCI7YTW27ujEiS4
+	 qk2KZoST3qrpDa4JqixfAc+aNzFi6jegsDDIf/Fmt4jxOqEdMDcES7XWmwmbOIwHE/
+	 zc6makkYOWDHQs0voVKz+W3HIwaLho3LsmYl6WUH5vAExwpmHRZmc3YPfHgdmOlH4i
+	 +JRIDmx2jmA9UKBNXFQSl2IqAL9Ldyge6Kr9AQG7RGBIN5lS6ub36Jo5cv6jJ+riiv
+	 rcU8T8RETUlkw==
 From: Linus Walleij <linusw@kernel.org>
-Subject: [PATCH v2 0/7] ARM: dts: broadcom-bcmbca: Fixes amd I2C buses
-Date: Wed, 18 Feb 2026 10:30:47 +0100
-Message-Id: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
+Date: Wed, 18 Feb 2026 10:30:49 +0100
+Subject: [PATCH v2 2/7] ARM: dts: bcm63138: Fix DMA IRQ
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XMywrCMBCF4Vcps3Ykk2q8rHwP6SLNpR3QRJISl
- JJ3N3bv8j9wvhWyS+wyXLsVkiucOYYWcteBmXWYHLJtDVLIo7gIwtE8R6ORpUG7ZCTrVW+dNz0
- JaKdXcp7fG3gfWs+cl5g+m1/ot/6lCqFAbc/klbAHeVK3Bwed4j6mCYZa6xf5P1gtrQAAAA==
-X-Change-ID: 20250901-bcmbca-i2c-dts-1df63defc310
+Message-Id: <20260218-bcmbca-i2c-dts-v2-2-5373ef82c50c@kernel.org>
+References: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
+In-Reply-To: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
 To: William Zhang <william.zhang@broadcom.com>, 
  Anand Gore <anand.gore@broadcom.com>, 
  Kursad Oney <kursad.oney@broadcom.com>, 
@@ -75,48 +73,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This fixes some of my own errors in assigning IRQs to the
-32bit ARM BCMBCA peripherals, and adds the I2C bus to the
-32bit BCMBCA machines.
-
-Maybe the first fix patches should be applied separately,
-I don't think there are many users so I think these can
-just be applied as regular patches for -next.
+INTERRUPT_ID_PL081 is (ISR_TABLE_3_OFFSET + 23)
+which is 96+3 = 119, convert back to SPI interrupt
+119-32 = 87.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
-Changes in v2:
-- Went over the bogus IRQ assignments, tried to understand
-  properly what IRQ number should be used in each case.
-- Removed a patch that fixed things broken.
-- Fixed the IRQ numbers everywhere, also tried to explain
-  in some commit messages how they are deduced.
-- Use the brcm,brcmper compatible for these I2C blocks instead
-  of brcm,brcmstb, as they likely have byte-sized FIFOs.
-- Link to v1: https://lore.kernel.org/r/20250901-bcmbca-i2c-dts-v1-0-ad81f60d4276@linaro.org
+ arch/arm/boot/dts/broadcom/bcm63138.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
----
-Linus Walleij (7):
-      ARM: dts: bcm6878: Fix PL081 DMA block IRQ
-      ARM: dts: bcm63138: Fix DMA IRQ
-      ARM: dts: bcm6846: Add I2C bus block
-      ARM: dts: bcm6855: Add I2C bus blocks
-      ARM: dts: bcm6878: Add I2C bus block
-      ARM: dts: bcm63138: Add I2C block
-      ARM: dts: bcm63148: Add I2C block
+diff --git a/arch/arm/boot/dts/broadcom/bcm63138.dtsi b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
+index 4ec568586b14..8e41c7130406 100644
+--- a/arch/arm/boot/dts/broadcom/bcm63138.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
+@@ -317,7 +317,7 @@ pl081_dma: dma-controller@d000 {
+ 			// The magic B105F00D info is missing
+ 			arm,primecell-periphid = <0x00041081>;
+ 			reg = <0xd000 0x1000>;
+-			interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>;
+ 			memcpy-burst-size = <256>;
+ 			memcpy-bus-width = <32>;
+ 			clocks = <&periph_clk>;
 
- arch/arm/boot/dts/broadcom/bcm63138.dtsi | 11 ++++++++++-
- arch/arm/boot/dts/broadcom/bcm63148.dtsi | 11 ++++++++++-
- arch/arm/boot/dts/broadcom/bcm6846.dtsi  |  9 +++++++++
- arch/arm/boot/dts/broadcom/bcm6855.dtsi  | 18 ++++++++++++++++++
- arch/arm/boot/dts/broadcom/bcm6878.dtsi  | 11 ++++++++++-
- 5 files changed, 57 insertions(+), 3 deletions(-)
----
-base-commit: 05f7e89ab9731565d8a62e3b5d1ec206485eeb0b
-change-id: 20250901-bcmbca-i2c-dts-1df63defc310
-
-Best regards,
 -- 
-Linus Walleij <linusw@kernel.org>
+2.53.0
 
 
