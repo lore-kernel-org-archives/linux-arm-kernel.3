@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E0EE9A04D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 22:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2175FE9A04E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 22:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PkQZRG8kkv/0JZ4QGiciA4Q1sGZEe0QvxA9mlMq1dYQ=; b=z0Sn/Fopq1lOdnq8lWHxE4jat2
-	XYY/SQTELOINRUTXABrVJnYGM7VX/J7wiARpufiS4saSB3G658vDE+BB4qyhs3H7Y0us2oDyvzTmU
-	ENKmQJl579ikyWzF6k7NE7HEBujnuXDHV6263dUaMrIG7uiuFavkKtmOSlCp9QLh9DT7ysbP6tDXH
-	J+5Z8dNeHqbxOSnvvKbRx3phtxoosutSJn0mjsS5YDmsgPAXyzLq1Mqru6C+eJdBVTwsyTdPXoPpU
-	qjHwqKKAihvTakqKnbTlcV9mi6/TNJSAPmLSJQ35QB21DtjjJb98UT0CJFjAJRX82vY316f4g/5pp
-	qTlZCmPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CKsYIBP1nS9baNuNPf0y7xcvIP54RWOTm98i27xusoI=; b=Qg1oS7f8kPM89LE4Hs3ooo9RF5
+	vPNNFnnWhOM2LfNO+xE3Y+c+gKKYjehz4pHrBLrZ1Kupr/uNQPLHVLWfXveykyU+kAImC/wSG2stS
+	Ah19cIMAMP09UdWh+JdaW4dpFraQb0Tu0Oo23rszSBKqnv73eHo9XIpe9OYRozO7Ezg2A4nJRdH7L
+	glKq9kjRLiwVi0wbdPoDk4iApGnKQ8sm0TmCFME3oJqoNgW3IcPfJE6Or3XWR7nFsUGSafQ/q1/Wi
+	ryM0eiSsMp6SOoXyIN/5xq5oGa2UoaN7toQhXlolRNsrO3ZJ0g/kMsVkXUEtAJNNEYPh6Mjl7L9kw
+	pqhrTFQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspiS-0000000AW2t-2UTR;
-	Wed, 18 Feb 2026 22:08:16 +0000
-Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
+	id 1vsqP3-0000000AYHc-3FNs;
+	Wed, 18 Feb 2026 22:52:17 +0000
+Received: from forward502a.mail.yandex.net ([178.154.239.82])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspiP-0000000AW2P-0Gs4
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 22:08:14 +0000
-Date: Wed, 18 Feb 2026 14:07:57 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771452485;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PkQZRG8kkv/0JZ4QGiciA4Q1sGZEe0QvxA9mlMq1dYQ=;
-	b=TDCGGAmUvkAuX/mo0nag675svbXFq3hMs4EG1iduTdhKTQitfUntudSYxKpkvpLYMdrxE4
-	I3BOIw7EFJqvAV16juvmCflQXUz5SOO8BYCfSSLKDwgQ6u+0dwRbWEsd5DXWxFxsfoDJiK
-	UovwLqkE9q/FmQSixb8/OVlkrgEtedI=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Shakeel Butt <shakeel.butt@linux.dev>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, 
-	Christoph Lameter <cl@gentwo.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH] arm64: remove HAVE_CMPXCHG_LOCAL
-Message-ID: <aZY30X9bpsV-nPsm@linux.dev>
-References: <20260215033944.16374-1-jszhang@kernel.org>
+	id 1vsqP0-0000000AYGU-0cDF;
+	Wed, 18 Feb 2026 22:52:17 +0000
+Received: from mail-nwsmtp-smtp-production-main-94.vla.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-94.vla.yp-c.yandex.net [IPv6:2a02:6b8:c15:290e:0:640:f317:0])
+	by forward502a.mail.yandex.net (Yandex) with ESMTPS id 8729889CF4;
+	Thu, 19 Feb 2026 01:52:05 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-94.vla.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id 1qjcVXSGC4Y0-8pHEunKh;
+	Thu, 19 Feb 2026 01:52:04 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.com; s=mail;
+	t=1771455124; bh=CKsYIBP1nS9baNuNPf0y7xcvIP54RWOTm98i27xusoI=;
+	h=From:In-Reply-To:Cc:Date:References:To:Subject:Message-ID;
+	b=O66KIAXFmfXw8rz4pI+7zzue0DPxJrPIy0aeyjkO+U5tkkEkgxOltbJc9noMwz41e
+	 3f9Up+VtsxkvBYrT3f+TEddoOWmDlbun1b1OcoveKDg3YfFMn5/gAYkLLgE9rUkEba
+	 fu98ukhOnyvr9PBN86WEp1TJGPNRinIP2W3AmBaw=
+Authentication-Results: mail-nwsmtp-smtp-production-main-94.vla.yp-c.yandex.net; dkim=pass header.i=@yandex.com
+Message-ID: <bd10ba64-2e56-4f1b-ba82-73ef59c87e2a@yandex.com>
+Date: Wed, 18 Feb 2026 23:52:01 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260215033944.16374-1-jszhang@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] arm64: dts: rockchip: Add USB2.0 PHY for RK3368
+To: Vladimir Oltean <olteanv@gmail.com>, WeiHao Li <cn.liweihao@gmail.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250909132958.26423-1-cn.liweihao@gmail.com>
+ <20250909132958.26423-3-cn.liweihao@gmail.com>
+ <20260212165550.mju3377fvphdsqoe@skbuf>
+Content-Language: en-US, ar-EG
+From: Johan Jonker <jbx6244@yandex.com>
+In-Reply-To: <20260212165550.mju3377fvphdsqoe@skbuf>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_140813_320049_69C93095 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260218_145214_738081_93112A09 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,25 +74,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 15, 2026 at 11:39:44AM +0800, Jisheng Zhang wrote:
-> It turns out the generic disable/enable irq this_cpu_cmpxchg
-> implementation is faster than LL/SC or lse implementation. Remove
-> HAVE_CMPXCHG_LOCAL for better performance on arm64.
-> 
-> Tested on Quad 1.9GHZ CA55 platform:
-> average mod_node_page_state() cost decreases from 167ns to 103ns
-> the spawn (30 duration) benchmark in unixbench is improved
-> from 147494 lps to 150561 lps, improved by 2.1%
-> 
-> Tested on Quad 2.1GHZ CA73 platform:
-> average mod_node_page_state() cost decreases from 113ns to 85ns
-> the spawn (30 duration) benchmark in unixbench is improved
-> from 209844 lps to 212581 lps, improved by 1.3%
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
-Please note that mod_node_page_state() can be called in NMI context and
-generic disable/enable irq are not safe against NMIs (newer arm arch supports
-NMI).
+
+On 2/12/26 17:55, Vladimir Oltean wrote:
+> On Tue, Sep 09, 2025 at 09:29:56PM +0800, WeiHao Li wrote:
+>> RK3368 has one USB2.0 PHY with two ports, This adds device tree node for
+>> it.
+>>
+>> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
+>> ---
+>>  arch/arm64/boot/dts/rockchip/rk3368.dtsi | 29 ++++++++++++++++++++++++
+>>  1 file changed, 29 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3368.dtsi b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
+>> index 1b21787269..b09e431a64 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3368.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
+>> @@ -766,11 +766,40 @@ cru: clock-controller@ff760000 {
+>>  	grf: syscon@ff770000 {
+>>  		compatible = "rockchip,rk3368-grf", "syscon", "simple-mfd";
+>>  		reg = <0x0 0xff770000 0x0 0x1000>;
+>> +		#address-cells = <1>;
+>> +		#size-cells = <1>;
+> 
+
+> This introduces a device tree warning. You cannot mix nodes with no unit
+> address (io-domains) with nodes with a unit address (usb2-phy@700) on
+> the same hierarchical level. You have to pick a format and stick to it.
+
+nope
+
+Please add rockchip,rk3368-usb2phy to the list in grf.yaml in the same patch that you change rockchip,inno-usb2phy.yaml
+Requires a bit of SOC and PHY maintainers coordination.
+
+Place dt-binding compatible change patches before the patch that uses it. (patch 3 before patch 1)
+due to: ./scripts/checkpatch.pl --strict 
+
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/soc/rockchip/grf.yaml#n244
+
+> 
+>>  
+>>  		io_domains: io-domains {
+>>  			compatible = "rockchip,rk3368-io-voltage-domain";
+>>  			status = "disabled";
+>>  		};
+>> +
+>> +		u2phy: usb2-phy@700 {
+>> +			compatible = "rockchip,rk3368-usb2phy";
+>> +			reg = <0x700 0x2c>;
+>> +			clocks = <&cru SCLK_OTGPHY0>;
+>> +			clock-names = "phyclk";
+>> +			clock-output-names = "usb480m_phy";
+>> +			#clock-cells = <0>;
+>> +			status = "disabled";
+>> +
+>> +			u2phy_otg: otg-port {
+>> +				interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>,
+>> +					     <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>,
+>> +					     <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
+>> +				interrupt-names = "otg-bvalid", "otg-id",
+>> +						  "linestate";
+>> +				#phy-cells = <0>;
+>> +				status = "disabled";
+>> +			};
+>> +
+>> +			u2phy_host: host-port {
+>> +				interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
+>> +				interrupt-names = "linestate";
+>> +				#phy-cells = <0>;
+>> +				status = "disabled";
+>> +			};
+>> +		};
+>>  	};
+>>  
+>>  	wdt: watchdog@ff800000 {
+>> -- 
+>> 2.47.2
+>>
+>>
+> 
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+> 
 
 
