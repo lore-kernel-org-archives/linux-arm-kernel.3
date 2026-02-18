@@ -4,106 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA15FE9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 19:44:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27484E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 19:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nxc51OZFvWQ7CJax0Y4YjDs1seO2jYaYlzojY84ULhA=; b=j+k2aExJZ9DyNUUe4AE000vQZm
-	7Y2QC2X51kE2Mj6dtP67QLE7Cbdb3ivqUugLKFSWKeMh7a3PzVkTedl/8sEnDb4rmzYbQmAC5KLU7
-	is4/X0VEuP0rMTvT/uz+DR/5ji00/MJylcXv9MEVG7odo1mFhrieHbcshYPwoWMXU9S1bY01YTsJK
-	DNcukAPV4iO6DQZG2+oTNpsiQwYXOeI8itRZdoeFxySMX4Nz1i19MISq1GAemk9nwNGdY0wRTfzSz
-	mmZ4yL+HXN/WHkNtaTVM5j7GrcTUKlCerLh5GSHa09jbMrAW7tipkqcKUWKo7NAwM3Wob0sjsXa4d
-	MgnWWXHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yCczxXvs8QVrwjiAXfOUtxxkudkas2eVt5KXtsgLhPw=; b=vwIpIddPx/ZqfQRx/VE8D7w6uq
+	1mB59dP/JbKni7CO31B+VufoN4Dzrcjnw5Na6WYdVlvneXBLGv7j44B2xRyt1UORjzF6kB5a5tdk0
+	43oPDvA8lM+GpSfsll95DEOT5rLdXCzamtatQZZSwdUVqIdwLRcbYHTQsnvedSON3McZmx2mJPLpJ
+	0G3qA+QeCVZ7Wt8CcVhh5zwkzvQ29QsPPHOnD3mnj9HnkAjTuLYf5ahLz4kmQmyxoWzv5KXvmsuG+
+	xUV5E8X+jiw3Yg14qDonRI4dJuSW6trGf0zCF6PPRyZXEkifP60jzFohkgwdkjZny7uJgy9fArCe4
+	OcgJh1RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsnTD-0000000AKLc-2EI2;
-	Wed, 18 Feb 2026 19:44:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsnTC-0000000AKLQ-37nZ
+	id 1vsnY0-0000000AKcB-1OGE;
+	Wed, 18 Feb 2026 19:49:20 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vsnXx-0000000AKbo-3gaG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 19:44:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34C4C600AE;
-	Wed, 18 Feb 2026 19:44:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00A52C116D0;
-	Wed, 18 Feb 2026 19:44:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771443861;
-	bh=Nxc51OZFvWQ7CJax0Y4YjDs1seO2jYaYlzojY84ULhA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SwGdG5ATkMTZ8yEB5LkURONG5rkpF2XO+ansffQI49leAQLTFNHA42G5doEeNDxYi
-	 /eKWr1RoVOqfAx1y/jt0ptaK+YDyZIAEyNHg/XU+MZwmrypNmF+v5w1cQWVmvcC2Ho
-	 SQyRfkQVudR46fBMg7g7JJfxJ+WV72+M4IboF7QR/Ss4APRh+k5CX2FtTM1rRwkVrN
-	 tcvHJWgYr/9HheM4Gk2cQvd551cxna/9B6EbNwSS3+xYrS5vut/vgn9lWopN1Adyr9
-	 sFfGOtZMa7snHI1LCNdrG7y9G8aJZX7SdibOGhiFcnq6FCRXi01mzT1LI73pHc7Y9f
-	 7dos+tdwiY8rg==
-Message-ID: <6c001865-c8e3-4133-bf10-46384fdaf511@kernel.org>
-Date: Wed, 18 Feb 2026 20:44:17 +0100
+	Wed, 18 Feb 2026 19:49:19 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1224)
+	id 8ACE220B6F00; Wed, 18 Feb 2026 11:49:16 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8ACE220B6F00
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1771444156;
+	bh=yCczxXvs8QVrwjiAXfOUtxxkudkas2eVt5KXtsgLhPw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lLY65xXznW8Ri//2YhbS/0767eIWD4MA9PzgkubCtYa59cPkg3KIl1OFgLLgge4Qs
+	 JWqyvdYedAZDBSaeJlvpozsz6zkzkwPsup/iqW9+Dhz8lt97pZyBbJH/w+7KLJPanV
+	 a12bOr4TWqiGvPJ8ZGAvq0i/Pf1jX8aL5EJFo2m0=
+Date: Wed, 18 Feb 2026 11:49:16 -0800
+From: Noah Meyerhans <nmeyerhans@linux.microsoft.com>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>, stable@vger.kernel.org,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jack Aboutboul <jaboutboul@microsoft.com>,
+	Sharath George John <sgeorgejohn@microsoft.com>,
+	Noah Meyerhans <nmeyerhans@microsoft.com>,
+	Jim Perrin <Jim.Perrin@microsoft.com>
+Subject: Re: [PATCH 6.6 0/3] arm64: Speed up boot with faster linear map
+ creation
+Message-ID: <aZYXvMvGZfk0muht@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20260217133411.2881311-1-ryan.roberts@arm.com>
+ <2026021700-chafe-jurist-cb24@gregkh>
+ <17c9efaf-6c33-4485-bde2-345cc15ac000@arm.com>
+ <2026021718-citrus-parakeet-dc60@gregkh>
+ <7f30a8e4-49c3-421d-be05-08afb544aa41@arm.com>
+ <CAGb2v67_UQ9rAFPQ5mqTFdNdPxyAJj0WZ6PwOLbHxU_0XQM6CA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] ARM: dts: TQMa6UL: modify for use in bootloaders
-To: Frank Li <Frank.li@nxp.com>, Max Merchel <Max.Merchel@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux@ew.tq-group.com,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260218132339.32157-1-Max.Merchel@ew.tq-group.com>
- <aZXw76CuH9u8csFk@lizhi-Precision-Tower-5810>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aZXw76CuH9u8csFk@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGb2v67_UQ9rAFPQ5mqTFdNdPxyAJj0WZ6PwOLbHxU_0XQM6CA@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260218_114917_950944_5F543879 
+X-CRM114-Status: GOOD (  29.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,18 +79,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2026 18:03, Frank Li wrote:
-> On Wed, Feb 18, 2026 at 02:23:33PM +0100, Max Merchel wrote:
->> This series contains modifications for using Linux device trees
->> in bootloaders. Changes from U-Boot bootloader are incorporated
->> directly into the Linux device trees.
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On Tue, Feb 17, 2026 at 10:27:53PM +0800, Chen-Yu Tsai wrote:
+> 
+> On Tue, Feb 17, 2026 at 10:21 PM Ryan Roberts <ryan.roberts@arm.com> wrote:
+> >
+> > On 17/02/2026 14:10, Greg KH wrote:
+> > > On Tue, Feb 17, 2026 at 01:58:36PM +0000, Ryan Roberts wrote:
+> > >> On 17/02/2026 13:50, Greg KH wrote:
+> > >>> On Tue, Feb 17, 2026 at 01:34:05PM +0000, Ryan Roberts wrote:
+> > >>>> Hi All,
+> > >>>>
+> > >>>> This series is a backport that applies to stable kernel 6.6 (base v6.6.126), for
+> > >>>> some speed ups to enable significantly faster booting on systems with a lot of
+> > >>>> memory. The patches were originally posted at:
+> > >>>>
+> > >>>>   https://lore.kernel.org/linux-arm-kernel/20240412131908.433043-1-ryan.roberts@arm.com/
+> > >>>>
+> > >>>> ... and were originally merged upstream in v6.10-rc1.
+> > >>>>
+> > >>>> I'm requesting this be merged to stable on behalf of a partner who wants to get
+> > >>>> the benefit of this series in Debian 12.
+> > >>>
+> > >>> Why can't they just use a newer kernel version (i.e. 6.12)?  Surely they
+> > >>> would be able to justify moving to a newer kernel for performance
+> > >>> reasons, why enable them to stay on an older one, just delaying the
+> > >>> inevitable upgrade they will have to do anyway in a year or so?
+> > >>
+> > >> I can't answer this presicely, but I did ask and push for that approach. As I
+> > >> understand it, they are stuck with Debian 12, which is stuck with kernel 6.1.
+> > >> The Debian maintainer apparently requested that these go through stable in order
+> > >> to get them into Debian 12.
+> > >
+> > > I understand the position of Debian not wanting to take patches for new
+> > > features that are not already upstream, but really, Debian offers a
+> > > newer kernel for hardware that wants to use it for things like this,
+> > > right?  Why not just use that instead?
+> >
+> > Let me go push a bit harder. But I expect we are in the grey zone between bug
+> > and feature here; this is a performance bug fix, not a new feature. By
+> > selectively backporting I'm guessing they are avoiding the risk of new features
+> > that a new kernel brings introducing new bugs? I'm guessing there is a higher
+> > qualification bar for that.
+> 
+> Why can't they use the kernel from bookworm-backports, which is 6.12?
 
-Hi Frank,
+Bookworm-backports will likely be our recommendation should this
+patchset ultimately be rejected.  Debian 12 uses 6.1.y by default.
+While 6.12.y is available for that release via the bookworm-backports
+repository, bookworm-backports content is not generally recommended for
+production usage. It's not necessarily updated on the same cadence as
+the 6.1.y packages, and Debian does not publish security advisories for
+it.
 
-Why are you giving review tags instead of applying the patches? Aren't
-you the maintainer which handles the patches for IMX?
+Debian does not want to maintain this change as a downstream patch, 
+which is fair.  Microsoft would like to make this boot optimization
+available by default to Debian 12 users (of which there are still many)
+which is why we're pursuing this path.  Naturally, we'll manage if we
+can't get the change applied to 6.1.y, but hopefully this explains where
+we're coming from.
 
-Best regards,
-Krzysztof
+noah
+
 
