@@ -4,59 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1930AE9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 20:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1AEE9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 20:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NtkTSLsMeDMUzSmio8cM/0emsdrha4/FBsUUqAjAzEI=; b=FfkZhEnOKST+QkkczYF8PclxyH
-	5Kon3sPIHtlzkY9ZMcRYSMkAq2MbJ3DYkG/PBWYUg/QpT5h4QdopvZcQrMARGJcoyEsNU+EqKYQRD
-	GCwCv+WNImX2RA+U9fQyjhFSJ2DS+RCqV3ofIg5J0+D2sRVE+HoNSwUll0bLOlKm2lUH85aXIpXnK
-	p2H5yW1c6nP/STv32DNkQlCmG8s4+Xc0gCQYfGsixzcbnDZisrWS8RTzuYEM7daMTYYBjD8FeENr8
-	GJ0+VuBbTGFA6ej6V/GcJBgIf26Cw+LtMjJ6gmOfIzHBuhE+J8NP/8CRsUjBYpTj4EE97f8RZhNfu
-	JZW1FvFg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HiSDR9iYz4Eudl/oY2B3ZdX2CjZAkxzZ8RDrJcdCjhI=; b=w1KgKP5FZi/D+AkrRYxhwwcXWQ
+	IJXgFXzJ9yZjP5qEbFXtjASdoPl99rOvgYV4ZsX3NzKvhXh3KdkRqdI3TVJUikbb1Kq7uDrJOK3ui
+	4kybTarH9WfZTeT3Xww9GSqDB6aFHXdbl9NubSdzdbrQVqQ10vyQELoCEEbxesZoCactgbON+tJiu
+	PpyImqEym6TayBEBm4Np9u+yw92m57hBmN0kF+EDsjfrxuwh6cMqSO0wjthGs9zksv/fA/QqJo2wc
+	Fr73lzpesd0CRftnXvi951NijeQ+5xXtq+jTnzBjvTWe6F92Ic5KzXPlRyVMoStHpndew44JmH1Yi
+	L48HgzqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsoTr-0000000APMV-12EC;
-	Wed, 18 Feb 2026 20:49:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vsobU-0000000APjB-0xZg;
+	Wed, 18 Feb 2026 20:57:00 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsoTq-0000000APMO-0xbU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 20:49:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4F75161864;
-	Wed, 18 Feb 2026 20:49:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B84EAC116D0;
-	Wed, 18 Feb 2026 20:49:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771447745;
-	bh=uEIUP48H6i5tdLweIUzqSW0oNEcNt0eix6JopRKzdN4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=p8SjLhz82zX9gCLxCbVBRkCW2LP3MYwxeAbUECnSXl3VGAGY9/7yus0RkDxBo+6Bv
-	 jWlTlv7Js4amnBHAD/d5XPAT2SWG3OwabonyINiy+/0TKyI4roTMV8/Lvw3Bg4uWkr
-	 xpAvwMn15IY+9Q+ylYrb9QyIFqGkXl9KLi0+pZ6lBWFKSyUlygZ4gKOexQVWKLblcp
-	 2zTPJrVp9J5CIQ3wuq9iI7TILHCJvIB3B0+A4ovZFfoaxAQuWEJHdiO2SAjfUUAxvG
-	 sWnj6j5Gr2ELyYRiRIOknzS5Dgm6KwA73xdDKXfLjeEHKbI4sQruDZ9ShITNNG+xU8
-	 mDE0UktLdbXQg==
-From: Nathan Chancellor <nathan@kernel.org>
-To: Simon Glass <sjg@chromium.org>, Nathan Chancellor <nathan@kernel.org>, 
- Chen-Yu Tsai <wenst@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20260212074308.2189032-1-wenst@chromium.org>
-References: <20260212074308.2189032-1-wenst@chromium.org>
-Subject: Re: [PATCH] scripts/make_fit.py: Drop explicit LZMA parallel
- compression
-Message-Id: <177144774347.1769768.2247672107598042973.b4-ty@kernel.org>
-Date: Wed, 18 Feb 2026 13:49:03 -0700
+	id 1vsobR-0000000APia-2sqQ;
+	Wed, 18 Feb 2026 20:56:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771448212;
+	bh=OwmdDIcpJBYXHzGN/OiX+qYUOpoVkCDEW7IiyCqnSpc=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=S5J56E93P9UTrZ/REL9COO9XVO1m6FzavDwdBnI7cuJx9qGxJ40XAwCrYBoAjPcfd
+	 ADWCaNMxXYkfZC54N1hUHXEzkRqADui5iLVUZV6wD/b2E8f8+fC5POkv+NkniUp9rk
+	 Vxgaph+ucn/vgPJK/XHE0XezfmulXRqL/JB0NqVaY4pZBxiJfrdc9hLR194YhqQUOJ
+	 Jdjz+iTnEe0YYEaqf10jNa7PCI3dWJLOPeCmCFddQG4ws79JF+q0PRhB+12PfWo/G1
+	 pcN4bryzGotxtNiu8pwHNGBXqOBsq7yEO4vVrech0z5WeD4wIXcGJRkO98OortxdQN
+	 y7nGzuBOHT03Q==
+Received: from [192.168.1.90] (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8622417E131B;
+	Wed, 18 Feb 2026 21:56:52 +0100 (CET)
+Message-ID: <a662745a-1b2a-47b3-a66d-7c1c5c8af525@collabora.com>
+Date: Wed, 18 Feb 2026 22:56:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] HDMI monitor not working on Radxa Rock 5B after phy
+ rockchip samsung hdptx HDMI 2.1 FRL patchset
+To: dubito@online.de, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
+ <heiko@sntech.de>, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, regressions@lists.linux.dev
+References: <b32164001947ba922aefb6ca86a8dc59e9323d2b.camel@online.de>
+ <8e410a11-bd7b-4a12-a711-0514a59409c0@collabora.com>
+ <1859c940219a4dbfdf0497afbf333e627ab0ba25.camel@online.de>
+ <98e46dbb-c8e2-451f-accb-ea48f63f9408@collabora.com>
+ <4544ec4ccfa49cbdffee098878df7806223935a0.camel@online.de>
+ <08369c90-fbab-477d-9ac6-388deddfd3b1@collabora.com>
+ <26e31b3b-484f-433b-833f-c639ee437f63@collabora.com>
+ <03b5f3d1-6db4-4835-b2a5-c22c1aa63825@collabora.com>
+ <a3c3964e9e13c82d944fa1ee0acbb1a7806dd382.camel@online.de>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <a3c3964e9e13c82d944fa1ee0acbb1a7806dd382.camel@online.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260218_125657_922320_65E651D2 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,35 +85,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Feb 2026 15:43:07 +0800, Chen-Yu Tsai wrote:
-> Parallel compression for LZMA was added using the plzip tool. However
-> plzip produces lzip format output, which is different from the raw LZMA
-> format that the lzma tool produces. This causes depthcharge (the second
-> stage bootloader on Chromebooks) to fail to load the payload.
+Hi Thomas,
+
+On 2/18/26 10:43 PM, 1und1 wrote:
+> Hi Cristian,
 > 
-> Drop the explicit LZMA parallel compression toolchain. If the lzma tool
-> on the build machine is from xz-utils, then there's a chance parallel
-> compression is already enabled.
 > 
-> [...]
+> Am Mittwoch, dem 18.02.2026 um 22:15 +0200 schrieb Cristian Ciocaltea:
+>> On 2/18/26 3:22 AM, Cristian Ciocaltea wrote:
+>>> On 2/18/26 2:52 AM, Cristian Ciocaltea wrote:
+>>>> Hi Thomas,
+>>> [...]
+>>>
+>>>>
+>>>> Sorry, I somehow missed the following warning message, though it has been
+>>>> already present in all the logs you've sent to me so far:
+>>>>
+>>>>   rockchip-hdptx-phy fed60000.phy: PLL locked by unknown consumer!
+>>>>
+>>>> That indicates the PHY has been preconfigured by an external component
+>>>> (e.g. the
+>>>> bootloader), which is actually a scenario that I didn't verify.
+>>>>
+>>>> However, this just another way to expose a limitation of the current
+>>>> approach
+>>>> for managing the TMDS character rate: done via the Common Clock Framework
+>>>> API
+>>>> instead of the HDMI PHY configuration API.
+>>>>
+>>>> As a matter of fact, it was actually an item on my TODOs list for quite a
+>>>> while,
+>>>> but blocked until recently due to several dependencies waiting to be
+>>>> merged
+>>>> upstream.
+>>>>
+>>>> Hence I took the opportunity to finalize this task - please give the
+>>>> following
+>>>> commits in my rk3588-hdmi-debug branch [2] a try:
+>>>
+>>> I've just realized I introduced a regression while doing some cleanup work,
+>>> hence
+>>> please ignore this until further notice.
+>>
+>> I think I got this working properly now, at least it passes all the tests I
+>> could run.  The updated commits in [2] are:
+>>
+>>   fa7cd1e75aaa ("phy: rockchip: samsung-hdptx: Fix rate recalculation for high
+>> bpc")
+>>   8048db5544da ("phy: rockchip: samsung-hdptx: Exclusively use PHY config API
+>> for PLL changes")
+>>   0085a382dfd0 ("[DEBUG] drm/rockchip: Add HDMI verbose logging")
+>>
+> 
+> applying these commits solves my problems. I tested 1920x1080@60, 1920x1080@50
+> and 1920x1080@30. All work now. Thanks for the quick fix! 
 
-Applied to
+Thanks for the quick test!
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git kbuild-fixes
+I can add you to cc: when I submit the series, so that you may provide your
+Tested-by tag if you'd like to.
 
-Thanks!
+> And the positive side> effect seems to be that you can now take one of your
+> old todos from your list.
 
-[1/1] scripts/make_fit.py: Drop explicit LZMA parallel compression
-      https://git.kernel.org/kbuild/c/59f18d88d96e8
+Indeed. :-)
 
-Please look out for regression or issue reports or other follow up
-comments, as they may result in the patch/series getting dropped or
-reverted. Patches applied to an "unstable" branch are accepted pending
-wider testing in -next and any post-commit review; they will generally
-be moved to the main branch in a week if no issues are found.
-
-Best regards,
--- 
-Nathan Chancellor <nathan@kernel.org>
-
+Regards,
+Cristian
 
