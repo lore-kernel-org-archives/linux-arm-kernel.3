@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93EEE9A03B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94CEE9A03E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 09:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OotIMiMrBZ/nv4lxL8V9WRPmjTez0Dvs0DUFfxQ6/r8=; b=xJtDyBkif4XVETatfjYDjv/njb
-	J8VuZFw3UXuyEy+ISQa4blRY4Ng5UYGE3KYIUeplSgqxU9fXZn2aS1fkx8DFzpPRhML3M1tiR3m0T
-	D2/UbpUHrdC7CTY+uFm2X7mhT1dy1Sadi5qOzZFvF3ccLTP9KV2VOjH9jG860W9c3hsKAgySr8c4T
-	DzCPNzgMui1/1zA1EuoQV3skLWyGYZMdULaEUwCLsRegwZInbk0Dsq4nlCdEPi9EN++oRrhjL1YrF
-	XoCM9VhwTSc1ZlfOZDHpoypNJ6+YsI5drZiay9S0oTIJ6KFmsRSW9mZWMTZ5qGs0qOH/aVBOrZX3P
-	Gx7q5uTQ==;
+	bh=30zvnd36xqMdEjSZRfnbwRxyKlkio/WNS24HY6r8vm0=; b=lYhLzVYUUNht6NAEaGeADvHwWK
+	gNfPYa8Jmnn9KK0V/Y/hiflaJejHzpooDusNBc+XqpCsy8jdtwUb5nBKxmogYJe66ipcD+yINgKUc
+	mmZ7k0hsMk7llYH10H5d5GisPZwJ/s3UQPc+FTnxhaSIeyLI4SZcl+YEmCqKpKXY4Jm8uMLyuXBXu
+	LFIriYqYElzElxf8G+NKuP393bJiSV0mZUqWQp7wTpuoSoMLoV+2M7nAWdmwFIej5jdFsQwMDzwIs
+	OxlsPi/m+xQs2tscdywE31yKU7OBQhQ/tc37uj/+z3c0pWb1lEjI6mJagdkBo+x6xvQXs2CmlWhf+
+	a4iYf73w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdtk-00000009YDG-2UsD;
+	id 1vsdtk-00000009YE4-3l0j;
 	Wed, 18 Feb 2026 09:31:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdth-00000009YAr-0XgA
+	id 1vsdti-00000009YBt-2wGl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 09:31:05 +0000
+	Wed, 18 Feb 2026 09:31:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E50B600AE;
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E7D961336;
+	Wed, 18 Feb 2026 09:31:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51D7BC19422;
 	Wed, 18 Feb 2026 09:31:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A3D9C19421;
-	Wed, 18 Feb 2026 09:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771407063;
-	bh=IDP5Wn0Kme2KzU3xPb1Ng5ASKJPZ1EYLsGjH3tK0uNg=;
+	s=k20201202; t=1771407065;
+	bh=Atvq4+dGTxYCFauncK4FXroGGSadofZUIEtXzQ2LcDw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lgoTlYXuyRLfBMjqq/sPrsmpoFsmfgsLmrl8EYUP8TwwU5qz6TaPc8hEsFw/NyREL
-	 nFUbh6+oiDPjLQCiVHfXI9rRYL+Ln7xqwQJJ55LqhfyC0PIQX/GnZNXbIY2yXU9Dyw
-	 gQAI8om8SsTA4Ly+C4BSF+C2+y6Thu6b7f8Tk9Z/wizv3bk/AyI8f11pbPT6ij0jGd
-	 YqNLSR8rxcHDrhAeYMvlmUmkNMaUqdcsULLWqAqo11xZKB+B5TwxgbJ7zXpyLzzoS4
-	 fIDNKMRcY8VYWP0Ezn5Pv8fVk/p63nin3f6QxPeOUbfTCh7H9wdT+abTH0vq5FibyR
-	 ovvHLnxtojs9A==
+	b=HUfyi0sAxCFffBPpkKCHQhxs7iS6xgHu9NkG2xMV8/CxaG504c5sYoC3UHTIAJDTg
+	 JF+NpPS3fBT/QZKUphS60dXyeFC0sH5cTjUfNRjGdXHZz3HOZNjFgShzKtvtXj/qDw
+	 VkLKDsbodRSCVwPnH5GURRQpweRPfcz/eJYJNzZF3GsiBL+tED/HGkjfMMxWWKifqa
+	 IKk4tbFU+XmpSaMpep0LWCz+7BobcqFjS8owQJvyLX0rsoOEFy0+CGsg/jxS8gA90h
+	 urecMkPAOO/rS3jIeIiz3TBsNpj1eKb/vGgyAgiUxjLkLZNF/m0eXkC4cgetxS6P63
+	 ek4908W2ozoZw==
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 18 Feb 2026 10:30:53 +0100
-Subject: [PATCH v2 6/7] ARM: dts: bcm63138: Add I2C block
+Date: Wed, 18 Feb 2026 10:30:54 +0100
+Subject: [PATCH v2 7/7] ARM: dts: bcm63148: Add I2C block
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260218-bcmbca-i2c-dts-v2-6-5373ef82c50c@kernel.org>
+Message-Id: <20260218-bcmbca-i2c-dts-v2-7-5373ef82c50c@kernel.org>
 References: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
 In-Reply-To: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
 To: William Zhang <william.zhang@broadcom.com>, 
@@ -73,25 +73,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The BCM63138 has a brcmper I2C block.
+The BCM63148 has a brcmper I2C block.
 
-The interrupt is at INTERRUPT_ID_I2C whic is
-(ISR_TABLE3_OFFSET + 19) = 96+115, convert back
-to SPI interrupt 115-32 = 83.
+The peripheral range needs to be extended to accommodate
+it. The Boot LUT is at offset + 0x10000 so extend it to
+cover at least that too, 128 KB.
+
+INTERRUPT_ID_I2C is at (ISR_TABLE3_OFFSET + 19) = 96+19 = 115,
+convert back to SPI IRQ 115-32 = 83.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/boot/dts/broadcom/bcm63138.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm/boot/dts/broadcom/bcm63148.dtsi | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm63138.dtsi b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
-index 8e41c7130406..4ca4ec2ffed6 100644
---- a/arch/arm/boot/dts/broadcom/bcm63138.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
-@@ -312,6 +312,15 @@ bootlut: bootlut@8000 {
- 			reg = <0x8000 0x50>;
- 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm63148.dtsi b/arch/arm/boot/dts/broadcom/bcm63148.dtsi
+index e071cddb28fc..52aea853095c 100644
+--- a/arch/arm/boot/dts/broadcom/bcm63148.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm63148.dtsi
+@@ -97,7 +97,7 @@ bus@ff800000 {
+ 		compatible = "simple-bus";
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+-		ranges = <0 0xfffe8000 0x8000>;
++		ranges = <0 0xfffe8000 0x20000>;
  
+ 		/* GPIOs 0 .. 31 */
+ 		gpio0: gpio@100 {
+@@ -197,5 +197,14 @@ nandcs: nand@0 {
+ 				reg = <0>;
+ 			};
+ 		};
++
 +		i2c0: i2c@be00 {
 +			compatible = "brcm,brcmper-i2c";
 +			reg = <0xbe00 0x60>;
@@ -100,10 +113,8 @@ index 8e41c7130406..4ca4ec2ffed6 100644
 +			#size-cells = <0>;
 +			status = "disabled";
 +		};
-+
- 		pl081_dma: dma-controller@d000 {
- 			compatible = "arm,pl081", "arm,primecell";
- 			// The magic B105F00D info is missing
+ 	};
+ };
 
 -- 
 2.53.0
