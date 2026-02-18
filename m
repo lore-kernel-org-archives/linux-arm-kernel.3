@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A070AE9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 09:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13090E9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 09:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4lkO5yMEm0Wr9HgnHCT+xP0LavZhXIC+u9hu6Ibos1g=; b=FIwAaoHeeXZTs0U25u7D2BTq2P
-	ZkcvMglxCp5+nJGSOnWpJU2wyr8DWNnXhFI5CeQTTfM8G6XHTsJY9TWnrqeCM5Icqz24j97179tcl
-	FePnkbYdcF2Z6HkQYJDFlB/EIww4UA0Ey+Hv5rgixyUeJjy2CWXK4/BOSwO8gxZTfA1Dtgs8dmLld
-	xOEEa7AchaIAe0Az60MtZ/cNA9/zK/xC7tTcDS4T7nDKT6OUDeVBm3Bmj619bQlrO/D4nQmOk3/ke
-	naWHY2OwwdT0cB10fAPp0LzsLGdQQeHOQRgUJYYKguFcPc1IRuhKiHhAn1Ntqgl+C7aWL+MoNM+dt
-	N/GAFA7g==;
+	bh=9g16VAzdXjk7el24eci4KwOplqZTjTQcO4xOI6aGpkE=; b=NlZ+CdZEFiOj5tqvwoWT2OXQOX
+	nyIkOfErc8/XgX2OYZ98ahc/yGB6sn2gsCeIe1DnQCuATZgMG7eUE47ANG/Ltcrt0h6Eu7OitW58/
+	1ENyqSz/KMSDFKxJvTMJBt2ujl9SKwsQQoycHa8Z6nioVe7slVfR2Er11xR1gv9f0OTkeqxMRt6rW
+	Kxrr8U9CKeMD57ym6tDZIgrorUFwqjWICMpsulpTI4xkzY6bEBcQUQzskLVQus7RbZaLG7nxQEYEo
+	TtIkJhXCX9ADaQZcQ329UHM1sblTPo9CDni4Cl2tOF5wPOi73UmNHvEFW0YnxuSMEJHuAsskjQqRa
+	FFPxDo3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdu2-00000009YPv-1wHs;
-	Wed, 18 Feb 2026 09:31:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdu1-00000009YOi-1INy
+	id 1vsdvt-00000009Ys0-43pQ;
+	Wed, 18 Feb 2026 09:33:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vsdvq-00000009Yrc-3V02
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 09:31:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B23736132F;
-	Wed, 18 Feb 2026 09:30:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8C28C19421;
-	Wed, 18 Feb 2026 09:30:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771407054;
-	bh=fW7DvfGweCHdA5mDWSKwIZ4AomxWRVitUg4zv46c/qw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tkA1xaJDfxH4fQjqwHxfAQIca92VRC/hYLm4IZkNGqXQBEpvo9zVqFEbYcpxOnL2y
-	 9ToJ0ZFZOoBP5xRwcSOQXo1vard8etcEe+MaF0/3Lna648Gg+ta+KbdRDl0LU92MHE
-	 EoLRjrlVzigxXdnSy+uLTiuzQUyTnSbsqR5I5Gj06dgHaRRxefT/fdQiZOZIjzdKoy
-	 C5MkSx9E1lbXSxFgvQVe5YdZOOQE+ahuUHffCmwHWFodKyLkerTXSY7QlHuhRHuNlQ
-	 vJrSIvqxk7fRNSKsL53ZDDyJ24alJ944wiFJMb+lkiIB4H4Lqh0NFuaaBj+0xvPNfd
-	 lUB3unEOFCjGA==
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 18 Feb 2026 10:30:48 +0100
-Subject: [PATCH v2 1/7] ARM: dts: bcm6878: Fix PL081 DMA block IRQ
+	Wed, 18 Feb 2026 09:33:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AF2021477;
+	Wed, 18 Feb 2026 01:33:11 -0800 (PST)
+Received: from [10.57.81.199] (unknown [10.57.81.199])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 281A43F7F5;
+	Wed, 18 Feb 2026 01:33:15 -0800 (PST)
+Message-ID: <b56d5ba7-46ba-4a4c-9266-70d7e63530cc@arm.com>
+Date: Wed, 18 Feb 2026 09:33:14 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.6 0/3] arm64: Speed up boot with faster linear map
+ creation
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jack Aboutboul <jaboutboul@microsoft.com>,
+ Sharath George John <sgeorgejohn@microsoft.com>,
+ Noah Meyerhans <nmeyerhans@microsoft.com>,
+ Jim Perrin <Jim.Perrin@microsoft.com>
+References: <20260217133411.2881311-1-ryan.roberts@arm.com>
+ <2026021700-chafe-jurist-cb24@gregkh>
+ <17c9efaf-6c33-4485-bde2-345cc15ac000@arm.com>
+ <2026021718-citrus-parakeet-dc60@gregkh>
+ <7f30a8e4-49c3-421d-be05-08afb544aa41@arm.com>
+ <2026021758-subsidy-tinfoil-ee2c@gregkh>
+ <20e320d2-749a-4379-a236-5dbe3d52b07f@arm.com>
+In-Reply-To: <20e320d2-749a-4379-a236-5dbe3d52b07f@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260218-bcmbca-i2c-dts-v2-1-5373ef82c50c@kernel.org>
-References: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
-In-Reply-To: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
-To: William Zhang <william.zhang@broadcom.com>, 
- Anand Gore <anand.gore@broadcom.com>, 
- Kursad Oney <kursad.oney@broadcom.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260218_013318_998489_9694ACA9 
+X-CRM114-Status: GOOD (  21.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,30 +75,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SPI_TABLE_OFFSET_2 is 96 in 6878.  96+30 = 126.
-Convert back dtsi SPI interrupt 126 - 32 = 94
+On 17/02/2026 14:43, Ryan Roberts wrote:
+> On 17/02/2026 14:26, Greg KH wrote:
+>> On Tue, Feb 17, 2026 at 02:21:30PM +0000, Ryan Roberts wrote:
+>>> On 17/02/2026 14:10, Greg KH wrote:
+>>>> On Tue, Feb 17, 2026 at 01:58:36PM +0000, Ryan Roberts wrote:
+>>>>> On 17/02/2026 13:50, Greg KH wrote:
+>>>>>> On Tue, Feb 17, 2026 at 01:34:05PM +0000, Ryan Roberts wrote:
+>>>>>>> Hi All,
+>>>>>>>
+>>>>>>> This series is a backport that applies to stable kernel 6.6 (base v6.6.126), for
+>>>>>>> some speed ups to enable significantly faster booting on systems with a lot of
+>>>>>>> memory. The patches were originally posted at:
+>>>>>>>
+>>>>>>>   https://lore.kernel.org/linux-arm-kernel/20240412131908.433043-1-ryan.roberts@arm.com/
+>>>>>>>
+>>>>>>> ... and were originally merged upstream in v6.10-rc1.
+>>>>>>>
+>>>>>>> I'm requesting this be merged to stable on behalf of a partner who wants to get
+>>>>>>> the benefit of this series in Debian 12.
+>>>>>>
+>>>>>> Why can't they just use a newer kernel version (i.e. 6.12)?  Surely they
+>>>>>> would be able to justify moving to a newer kernel for performance
+>>>>>> reasons, why enable them to stay on an older one, just delaying the
+>>>>>> inevitable upgrade they will have to do anyway in a year or so?
+>>>>>
+>>>>> I can't answer this presicely, but I did ask and push for that approach. As I
+>>>>> understand it, they are stuck with Debian 12, which is stuck with kernel 6.1.
+>>>>> The Debian maintainer apparently requested that these go through stable in order
+>>>>> to get them into Debian 12.
+>>>>
+>>>> I understand the position of Debian not wanting to take patches for new
+>>>> features that are not already upstream, but really, Debian offers a
+>>>> newer kernel for hardware that wants to use it for things like this,
+>>>> right?  Why not just use that instead?
+>>>
+>>> Let me go push a bit harder. But I expect we are in the grey zone between bug
+>>> and feature here; this is a performance bug fix, not a new feature. By
+>>> selectively backporting I'm guessing they are avoiding the risk of new features
+>>> that a new kernel brings introducing new bugs? I'm guessing there is a higher
+>>> qualification bar for that.
+>>
+>> That's a broken "qualification system" if that is the case, given that
+>> the patches that flow back into stable kernel releases should be
+>> triggering "full qualification" if anyone actually paid attention to
+>> what goes into there :)
+>>
+>> Anyway, good luck!  And same for 6.1.y, if they are ok with 6.6.y, why
+>> would they even care about 6.1.y?
+> 
+> The request was only for 6.1. I did 6.6 as well for continuity; I didn't want it
+> to get slow again if they moved from 6.1 to 6.6. It's already fixed in 6.12.
 
-Reviewed-by: William Zhang <william.zhang@broadcom.com>
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
- arch/arm/boot/dts/broadcom/bcm6878.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi Greg,
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm6878.dtsi b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-index dd837bf69390..5a37bfd7f53f 100644
---- a/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-@@ -244,7 +244,7 @@ pl081_dma: dma-controller@11000 {
- 			// The magic B105F00D info is missing
- 			arm,primecell-periphid = <0x00041081>;
- 			reg = <0x11000 0x1000>;
--			interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
- 			memcpy-burst-size = <256>;
- 			memcpy-bus-width = <32>;
- 			clocks = <&periph_clk>;
+I thought a bit more about this overnight, and decided I wanted to have one more
+go at convincing you...
 
--- 
-2.53.0
+In case you didn't read the commit logs, this series fixes a pretty nasty
+performace bug; for a machine with 512G of RAM, it previously took 17.5 seconds
+to create the linear map, and with the changes, it's down to 1.2 seconds. That's
+quite a big quality-of-life improvement if you are booting VMs regularly.
+(personally I hit this quite a bit).
+
+It's a low risk change - it's been in since v6.10 and is part of arm64's core
+boot path - and no issues have ever been raised.
+
+Are you sure this isn't the sort of change that should be considered for stable?
+
+Thanks,
+Ryan
+
+
+> 
+> 
+>>
+>> thanks,
+>>
+>> greg k-h
+> 
 
 
