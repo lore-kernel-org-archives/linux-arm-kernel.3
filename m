@@ -4,96 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4406E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 07:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D37EE9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 07:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hXXoBmrj44IUOz5Es2ozBzd5fhqRhhv5SZZDcT1xe2c=; b=H4qEOvVz3GI+yoGvYS9WK8WZB3
-	FAfWUrK2JGTmMijKY0K08uHIKCToG4UXltz7Gs7qwVc+8x4IRAHWqEMgV8U1FOiFdNAdS9dT3At5S
-	gX0yf4d3ks0XBUJwBM7ii/ejOGel0FKiG0VCPYMRB9sOHU0gXU+BeojZl+jNwRblSUwWJTeCZtfTe
-	4ckAG/tRy4dvwnpgqvu64oDJDQsLM/MS284fEHfQDJV021oOR2vwmbwkJo96lofxN/VTa86ZHUeye
-	0cVoaiAfgTLJ6yZRrlslaOgvuFnOxtRwTgFGajFcQJLX9Isq08hKUzAjnjkyD7iFFsDSaI7CZGvbX
-	PcHcSyzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u86cw3tjl8hdVmS71Xuy45XeU5ZCNXcT6zOzax89Suw=; b=aJf6JaioeVeO7aHwngaOU6rhei
+	Jn9k5yPjcFxDOZfwyN5V7EEqpYRG8am4RBcLmf6X/stwJQURmWChRCXrcFeY/LBYNOKrpYrkGgrDs
+	7WmAYzOFWLwrn+GfpxxiudO9NgC43Y9aykqU5xnPHhmM9BHH37V6HoXqgxwKBOJ5OrEFgmffnXpPD
+	kQqgHXbXK2sgWmtbZdNETxFs4ML+evEt15CbEErMR0NBgJ+JdEmJAqdkMvIkbqdhdGDpvP1SDMM6W
+	rsyy6+Xn1TdudCJ8F1RHv6ZzGh/uo8CAVSsex2BQrMdMMZwqJJdn2EHi5Au35sEu0BhYT+7WQh4+Y
+	UH+dpPsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsbaR-00000009Nwc-27eH;
-	Wed, 18 Feb 2026 07:03:03 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1vsbzD-00000009PPs-0PDK;
+	Wed, 18 Feb 2026 07:28:39 +0000
+Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsbaP-00000009NwG-1bVS
+	id 1vsbzA-00000009PPT-1009
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 07:03:02 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-59e6253b16bso5363137e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Feb 2026 23:03:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771398179; x=1772002979; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hXXoBmrj44IUOz5Es2ozBzd5fhqRhhv5SZZDcT1xe2c=;
-        b=j81Au0SXXH94Eet3fh+7VTDOiqhQ1NKBQKoYtNPgYoSFuur9iQTj+YxGCelwbw3RCE
-         SD0Mvk3Dn5fKUqBfigkcDbjxjU3PvfSwBENU5sAaV1QcsJftxT7Up/0So9EAnh3FFZJa
-         wQ4EOu5t0h67D8fFcQ4VQ4HpM/CQ00sax2rPYxz8x/QCfXHX1pW3CuQaJIqCD/cCKh+d
-         obRLu1P8g8Rryk5UGwoNIWqv7B0b6hUJq8S8laM7P7t77jCOEkiH/p5VLYAg4XHWLddR
-         /bIIN2IvST0CIv5YNxNkePYvXUgNGwqHp9c253i9CI10AWvWVjhgf0YLsZCJFmboweS9
-         KcEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771398179; x=1772002979;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hXXoBmrj44IUOz5Es2ozBzd5fhqRhhv5SZZDcT1xe2c=;
-        b=fBQJReBpbQ1zlJzYQaB4c9h4SnGNuP7PLjR1ehqfS65HA75ev8OY6NYtn3LDubQLOc
-         wJT3pr2m2d7JdP7F1ySBM2C3alkIssv9/YvGiuIGLvERLxzYmXXjgtf7xQnd7PV+9xKD
-         Vw04XpmOtGYRiXYobSRhNfCcQNBDJzAeRyW4VQhX7bqO9jp2+7fmoW3rOme1W0tmBFf8
-         wlhfJ4lHY8+GCckxvjZ0pkCbp+l7DTXPpva+3qXQSy8EQgfHaMA+vpdPQXXuNhIQ+9MD
-         5uCu5BNHPx6GJ6dRChpBwsuu7hmEKww96UWY3FTwYNgHgsK0FA1cQoo/ikDZ+KSn99DY
-         fVDA==
-X-Forwarded-Encrypted: i=1; AJvYcCWbTasFEX2ZDQkB7UUJwN64B7JC28ZvsGaple0wpzMhPTZ6lWI4q8HJwvoiLYpHhwoZIwwsJ0RXSdjJo2qY+V+4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnmUUi30s+pAV2PqGr2ptW2rg7udVlWtd5BRg7yJR44b+1wiMu
-	+dxwdpGr0R/p/dblPLHD1o9m/FScrqI8HI3l+v7bQ8LmzyTYv14GFY2V
-X-Gm-Gg: AZuq6aJY6Zv2bHTYhE3gO302xszGWvpT9itS7bWbAK4fmQ4t3fJiq8IBY35F7YBhZZ0
-	ov1ycurA25xqPUQKzS4Tv1doSAuawuFv6B3RklXuRvY4bBbt3O4jON/ILU/1tL9sTHlFQ/zN2Bm
-	u/H1WAZVNVZLkGxZntp9Qk40o9NtpywYp5ZLvDiZ52BOnJ1NzuC1WCt6q48u2K9Xtq+Z6OU0vxV
-	6FvSNlgiIB7WNq+GgTxv82HqEznP/2mphTtqPZT2OY6vuRx4yTt+XyS9uWSC2b90gtIYlQOqImV
-	ql+33Q7ciPe9huSt6xaSOqwXMiYAoqWUdjf9HdsKwK1/+M+nEije4q7GdHfc0YXMAQAwW96vMO7
-	NWSakighnodWtlQ0DmethUvVtM6dH9RSmuydTjd+Mxt88ub3VxGRe9w6enMiQsFYMB/ou34DKc/
-	F70KrWx4vV8C2q5MJBBznXj5q1TYM89moucgkGEQNOqZ9RXtOBgmCDM0UQbBAYXyjg0000yEA=
-X-Received: by 2002:a05:6512:686:b0:59d:f71b:3608 with SMTP id 2adb3069b0e04-59f02632deamr5652870e87.31.1771398178667;
-        Tue, 17 Feb 2026 23:02:58 -0800 (PST)
-Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e5f5acb0esm4280001e87.67.2026.02.17.23.02.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Feb 2026 23:02:57 -0800 (PST)
-Date: Wed, 18 Feb 2026 08:02:54 +0100
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-To: Peter Rosin <peda@axentia.se>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 2/5] i2c: mux: add support for per channel bus
- frequency
-Message-ID: <aZVkHoDsJc6CPszz@gmail.com>
-References: <20260216-i2c-mux-v6-0-9be28ecfd7e3@gmail.com>
- <20260216-i2c-mux-v6-2-9be28ecfd7e3@gmail.com>
- <ab7090f3-4c03-098b-b118-4cd7a68af8f0@axentia.se>
- <aZNm6LSK9C8DHC8U@gmail.com>
- <e21781e7-0ba2-19ce-3c0c-bd198e73c03c@axentia.se>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="BkvM8BP+41dGuZa7"
-Content-Disposition: inline
-In-Reply-To: <e21781e7-0ba2-19ce-3c0c-bd198e73c03c@axentia.se>
+	Wed, 18 Feb 2026 07:28:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771399700; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=qlQTB35yqRaleZiARsUXNGgfLr7+6uDXK627aisjzVBk65OfF/HxSYKGa/Wd/7PJwT
+    ib0nsaIeENa4U+SGqw249cJXec8IWHzPSSThrcdJfmJfXRs6Q+lGkxpM/Cytx4h2Mkcn
+    BW2jWSHvq55tupo2t6dis8xVONLXQ9D3xidvoUebDImyN3S+6pw/pvztK9eI1URCAFIk
+    73XMbpZHXYGAU4oL9eAYe8ynvRkfM2KXDWdlGpKFsGJoSSKczKLdejP1sd05kwi5zQn2
+    BVNv0jGcKg4h8ksN+CityhpEwCDMkiPW1XG7ux8xJW9h8OZl/7eLhqqMkCKBbvQuc8qH
+    XErA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1771399700;
+    s=strato-dkim-0002; d=strato.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=u86cw3tjl8hdVmS71Xuy45XeU5ZCNXcT6zOzax89Suw=;
+    b=DCZKBR2FOOyS0qYuvpebUxS35GpI1uXZ8fAsmCY6FKUIltMb1YKwH3RwnNa0vh/egA
+    oZmZJ8XIRXOVsZh9PrDR1mZHUscb1Jtshe4Up7jDYGyRLTVLGt/0ySv5FtpNGUX3k/Lb
+    W75PWf7qHlkX7LDw+wefO1GDyNxXI/0XO22Gv4yUVlB7DtaUxD0s9LbbqYtG5er+6n17
+    6vt+m7LsvK5iKblK7G1hHOGwV6P6pl/rPNMjeRHTBOxAfs8g2HDkDAcNThnT7RyO/2WF
+    EUKP4vRz3C0JIm+Nkc3ojZ4yTnQpMO173sdX3wY7IblVyUrijE2R+Bs6VsPkMF1ntp0E
+    QZ7A==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo02
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1771399700;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=u86cw3tjl8hdVmS71Xuy45XeU5ZCNXcT6zOzax89Suw=;
+    b=dPiOy1kD3OJQLdZeDi/510rxp3uOjpwjlhbgAP4+BRwPGHumfotxrJ8P2W5AdNUgJd
+    9Xua+Loxfvp7/XbVPMF3DzbR0iNRT7y+RQ+q22kD5FLLzr1AuW++UPQSYuVv2nMbeMwX
+    tijWmkFKDlswd0ABYEfuN4W9uzgtapfCyJcP77pBVovvUhgSFhzmaXpJPu2vPJWRISSX
+    TLn0vmlxGPXtJgRDlhOl/g3Kj7sv/P4eJs6fJj4/6NeTXu+xJ6tf/T7kSR4sGus99J5J
+    WoJQRYXKRmudbzlmursTwTCsEe5Ek2aEWLFxJznDpTX9VyNI/w8czSqTuKqmvRRSf0LI
+    ZjRg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1771399700;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=u86cw3tjl8hdVmS71Xuy45XeU5ZCNXcT6zOzax89Suw=;
+    b=8Y33m6qLBiNtqtrUtnJK+4LKyYvRmzP/2O5N0XA5jzP5BRRcwbAvs0E220qraSoWH9
+    398tRVTxaXqSWk4DQSBQ==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9o12DNOsPj0lFzL1yeDAZ"
+Received: from smtpclient.apple
+    by smtp.strato.de (RZmta 55.0.1 DYNA|AUTH)
+    with ESMTPSA id Q3a36b21I7SHJkR
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
+	(Client did not present a certificate);
+    Wed, 18 Feb 2026 08:28:17 +0100 (CET)
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.4\))
+Subject: Re: [PATCH 1/5] ARM: dts: ti: Enable overlays for all DTB files
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <20260217103638.30149f16@kmaincent-XPS-13-7390>
+Date: Wed, 18 Feb 2026 08:28:06 +0100
+Cc: Robert Nelson <robertcnelson@gmail.com>,
+ Andreas Kemnade <andreas@kemnade.info>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>,
+ Tony Lindgren <tony@atomide.com>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-omap@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Bajjuri Praneeth <praneeth@ti.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Louis Chauvet <louis.chauvet@bootlin.com>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <FDFC6C9E-710B-4723-A453-5CAE25CBBC1B@goldelico.com>
+References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
+ <20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
+ <B3366A17-641F-4E02-A5D4-978F525E0A96@goldelico.com>
+ <20260212174718.7daccb70@kemnade.info>
+ <719BF710-26DF-49AB-A016-D2306F0389E2@goldelico.com>
+ <20260212231907.6120a2e2@kemnade.info>
+ <CAOCHtYicmeSzH5Q2_qTwAZw3s+__JRwUrXvz01+KCsJJHAznUw@mail.gmail.com>
+ <20260216161155.09fae580@kmaincent-XPS-13-7390>
+ <0EE0658D-56A7-480C-BF71-6B2EB81DC41C@goldelico.com>
+ <20260217103638.30149f16@kmaincent-XPS-13-7390>
+To: Kory Maincent <kory.maincent@bootlin.com>
+X-Mailer: Apple Mail (2.3826.700.81.1.4)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_230301_477156_2C84E6F2 
-X-CRM114-Status: GOOD (  28.78  )
+X-CRM114-CacheID: sfid-20260217_232836_533851_513EA67C 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,106 +135,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Kory,
 
---BkvM8BP+41dGuZa7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi Peter!
-
-On Tue, Feb 17, 2026 at 10:37:39AM +0100, Peter Rosin wrote:
-> Hi!
+> Am 17.02.2026 um 10:36 schrieb Kory Maincent =
+<kory.maincent@bootlin.com>:
 >=20
-> 2026-02-16 at 19:50, Marcus Folkesson wrote:
-> > Hi Peter!
-> >=20
-> > On Mon, Feb 16, 2026 at 05:40:37PM +0100, Peter Rosin wrote:
-> >> Hi!
-> >>
-> >>> +static struct i2c_mux_core *i2c_mux_first_mux_locked(struct i2c_adap=
-ter *adap)
-> >>> +{
-> >>> +	struct i2c_adapter *parent;
-> >>> +
-> >>> +	while ((parent =3D i2c_parent_is_i2c_adapter(adap)) !=3D NULL) {
-> >>> +		struct i2c_mux_priv *priv =3D adap->algo_data;
-> >>
-> >> This assumption does not hold, making the cast pretty wild indeed. The=
-re
-> >> are other i2c_adapters with a parent besides muxes. See e.g. i2c_atr.c
-> >=20
-> > I see. Hrm, not sure how to decide if it is a mux or not. The best I
-> > could come up with is to look at the i2c_adapter.lock_ops. E.g.
-> >=20
-> >=20
-> > 	while ((parent =3D i2c_parent_is_i2c_adapter(adap)) !=3D NULL) {
-> > 		/*
-> > 		 * Check if this adapter is a mux channel by verifying its
-> > 		 * lock_ops. Only mux channels use these specific lock operations.
-> > 		 */
-> > 		if (adap->lock_ops =3D=3D &i2c_mux_lock_ops ||
-> > 		    adap->lock_ops =3D=3D &i2c_parent_lock_ops) {
-> > 			struct i2c_mux_priv *priv =3D adap->algo_data;
-> >=20
-> > 			if (priv->muxc->mux_locked)
-> > 				return priv->muxc;
-> > 		}
-> > 		adap =3D parent;
-> > 	}
-> >=20
-> > Or do you have a better idea?
+> On Tue, 17 Feb 2026 09:58:04 +0100
+> H. Nikolaus Schaller <hns@goldelico.com> wrote:
 >=20
-> That looks fragile. My recommendation would be to avoid trying to
-> guess how a potentially diverse adapter tree should be handled
-> locally in the mux code. To me, it would feel better to introduce
-> locking/recursion in i2c_adapter_set_clk_freq() for muxes (and
-> address translators), i.e. take inspiration from i2c_transfer()
-> and i2c_smbus_xfer().
-
-That would be a more robust solution indeed.
-
+>> Hi Kory,
+>>=20
+>>> Am 16.02.2026 um 16:11 schrieb Kory Maincent =
+<kory.maincent@bootlin.com>:
+>>>=20
+>>>>>>>=20
+>>>>>>>>> Am 12.02.2026 um 16:26 schrieb Kory Maincent (TI)
+>>>>>>>>> <kory.maincent@bootlin.com>:
+>>>>>>>>>=20
+>>>>>>>>> Allow overlays to be applied to any DTB. This adds around ~40% =
+to the
+>>>>>>>>> total size of the DTB files on average.   =20
+>>>=20
+>>> Yes, I will move on to this solution for now to avoid too many =
+complaints
+>>> about the devicetree size increases. =20
+>>=20
+>> I have done some experimentation with this patch (on top of v6.19 and =
+our
+>> private defconfig) but could not find any DTB size increase.
+>>=20
+>> Does it require another patch or CONFIG change?
 >=20
-> I guess an unlocked __i2c_adapter_set_clk_freq() is needed.
->=20
+> No, but maybe you had already the "DTC_FLAGS=3D-@" option enabled =
+while building
+> you image.
+> This options add the "__symbols__" node listing the symbols to the =
+built
+> devicetree:
+> $ fdtdump arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb =
+2>/dev/null | grep symbols
 
-Rethinking the whole locking approach;
-If I follow the same locking logic as in i2c_transfer/__i2c_transfer, do I
-really need do take any more locks than the root adapter with
-I2C_LOCK_ROOT_ADAPTER?
-As the frequency can only be lowered, an intermediate i2c message will
-not mess anything up?
+Yes, indeed there is a __symbols__ node in all .dtb I have checked.
 
-If so, do you think  i2c_root_adapter() should be moved to i2c-core-base.c?
-Then i2c_adapter_set(_root?)_clk_freq() could lookup the root adapter
-and take the lock there.
+With make V=3D1 (on v6.19.0 + some local extensions) I see
+
+./scripts/dtc/dtc -o arch/arm/boot/dts/ti/omap/am335x-bonegreen.dtb -b 0 =
+-iarch/arm/boot/dts/ti/omap/ -i./scripts/dtc/include-prefixes =
+-Wno-interrupt_provider --symbol -Wno-unique_unit_address =
+-Wno-unit_address_vs_reg -Wno-avoid_unnecessary_addr_size =
+-Wno-alias_paths -Wno-graph_child_address -Wno-simple_bus_reg   =
+-Wno-unique_unit_address -Wno-unit_address_vs_reg =
+-Wno-avoid_unnecessary_addr_size -Wno-alias_paths =
+-Wno-graph_child_address -Wno-interrupt_map -Wno-simple_bus_reg   -d =
+arch/arm/boot/dts/ti/omap/.am335x-bonegreen.dtb.d.dtc.tmp =
+arch/arm/boot/dts/ti/omap/.am335x-bonegreen.dtb.dts.tmp
+
+So --symbol is already included, even without your patch.
+
+With your patch I see:
+
+./scripts/dtc/dtc -o arch/arm/boot/dts/ti/omap/am335x-bonegreen.dtb -b 0 =
+-iarch/arm/boot/dts/ti/omap/ -i./scripts/dtc/include-prefixes -@ =
+-Wno-interrupt_provider --symbol -Wno-unique_unit_address =
+-Wno-unit_address_vs_reg -Wno-avoid_unnecessary_addr_size =
+-Wno-alias_paths -Wno-graph_child_address -Wno-simple_bus_reg   =
+-Wno-unique_unit_address -Wno-unit_address_vs_reg =
+-Wno-avoid_unnecessary_addr_size -Wno-alias_paths =
+-Wno-graph_child_address -Wno-interrupt_map -Wno-simple_bus_reg   -d =
+arch/arm/boot/dts/ti/omap/.am335x-bonegreen.dtb.d.dtc.tmp =
+arch/arm/boot/dts/ti/omap/.am335x-bonegreen.dtb.dts.tmp
+
+Here we have -@ and --symbol (synonyms for dtc).
+
+Well, I finally could trace it down to a malicious infection of our =
+LetuxOS tree
+by some ODROID kernel patch to scripts/Makefile.lib (0ac84640f12c). That =
+patch
+globally modifies the DTC_FLAGS mechanism and permanently adds --symbol =
+instead of adding
+-@ in the arch/board specific Makefile like you propose here.
+
+So now I know why I didn't see any increase in size (because it was =
+never reduced).
+
+With removing this I now get 67179 bytes as default for =
+am335x-bonegreen.dtb.
+And with your patch I get (back) to 94260 bytes so I can confirm a 40.3% =
+increase.
+
+Please proceed as planned (I don't think it necessarily has to be =
+limited to
+motherboards with an expansion card system, although that would be a =
+good
+indication of its usefulness), and thank you for bringing our local =
+issue
+to my attention.
+
+BR and thanks,
+Nikolaus
 
 
-> Cheers,
-> Peter
-
-Best regards,
-Marcus Folkesson
-
---BkvM8BP+41dGuZa7
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmmVZA4ACgkQiIBOb1ld
-UjL5kQ/9FZG4RjJZzJAb9lOuafAbwZSG92RdAK7UgHrvI6dlRPsPquhlCA1ql78G
-leKeilwgMiRZ4/eof6B+M89fvRgGzb+NKaJHb8epXz3BVDwdK0L3ovdj0xZntOfM
-RrZVy1pfKosINPCZ3+VYX3x/8hy7FiK8zuoRCdRkQSZOsIiQA+swNHjtEUL16FTa
-w4o5U+2zY0zBHuY0IBDPoFjzVgZa5bQHR4EtlBxV9rhj3rB9DgkLkO9olLt9LbUW
-D/WVAaFxt05rK2GCneAde86ABxjZ8EVBujs5U/HTBMK9CtlOM2Q45Q7yMBztVqZ6
-hRyU6eEbEZztPHbJlMMuLoHDM/FqgVWKvHuDMJ5zJf2VKGncewfBBNMKbgCFG2DQ
-e8U8QiFyEikGoSOs7POF2V+Sg0PplbomLA7oIegxPcIrWXZVHWSUBI9tPTHNH7PO
-zfASvV/LHYXIUzfIXtPvPRREkh5vrMu5eIfihIdAfgrgNY8p0SMwiOeYt2v//Bq2
-5n9lc1O5xVGJEa6bTo/+2Yu8wY/HTI/WAFAY/gV1oZ2Zgn0kqYcEp57F5LgNafsj
-Xc10LHEkl4tfuCz8FgxWUV3rMMwZhib7GEgvQaFl7fiMsnv0RJjyWcK74e/G6Z2S
-s0+s3v8GHBqR/g4lsEJEIfbggh6GJTrdJ9MvEwOkTiymXF/1iXM=
-=6mY5
------END PGP SIGNATURE-----
-
---BkvM8BP+41dGuZa7--
 
