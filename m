@@ -4,101 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B63BE9A02C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ECABE9A047
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FYz6GN2uF4bktyMBn1WEegYkUKLB98RX0JlCoopJ2zo=; b=MdQDmjxX39OcHUCsfw62KclpF9
-	Hy/WIkSnHHlJBoMoZGRScRWntu3FcI80nILhV/v51kMZeayovlvXy3EY8dpYpeJQW0jwfLe6jfZ0P
-	D9PjbST4D46QFIDVbACI6uSn6TSqIeVq75t9VY+U2Vv2bgBvB1q5eTch4E5RBVoxDz0Zf3/p+YX6w
-	zV92BxBU+nXHCfp1IejOYGfjQrdzLTLc4h7KBVqV0v+2qCqHebRiyYlGJdgsHcpAQuYfFmZ3zr4wD
-	czhmHbHukiFLxctiTiqlYMvd2en/acQeFaEEeOKx6cn3KDls8vNFgumzvmLPzbEgFxcEfBTZUfIXs
-	ysnYQLYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PFGPRkG4VcbDKDvXGKUzHfZ9PpqTaFLyu3liaC1qBZY=; b=DZLPQZYWvKr3WsvLivuZGAvQ/3
+	ytPFNdJDOHEo5lGzNCYBU7NFwUbQzZULX+5pqNQLiixEdAXPZb1NTbgXtJsSMZUiSh0ScC8rT0avQ
+	2djsgAK+O7y7htGqdPbPZc3PNTXVyjB9mz2LR2PNsdyLDfyc9wvmoL0dJ2AbE2VFV1QWfB6o0GC4l
+	m8cHuJt62GoyD3HI68Imx3WAOl2ood2cimLcOSBBEWWOSuw6rQOyBcMafxx37//2KTusvjLm3q86C
+	aHNH93e3ZIKJzmnTeSrQ8vySSqkoUcjvZPB/2nY1fQa/qFEfmxUMCK6f8Od8Vjm+4+WWNtNDnq1QU
+	ZAT4KdnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshWq-00000009r1V-3t06;
-	Wed, 18 Feb 2026 13:23:44 +0000
-Received: from mx-relay18-hz2.antispameurope.com ([83.246.65.160])
+	id 1vshWw-00000009r3i-3PSx;
+	Wed, 18 Feb 2026 13:23:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshWm-00000009qzo-2ueR
+	id 1vshWr-00000009r0z-3CG3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 13:23:43 +0000
-ARC-Authentication-Results: i=1; mx-gate18-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=FYz6GN2uF4bktyMBn1WEegYkUKLB98RX0JlCoopJ2zo=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1771421008;
- b=bCJUxJ3RhuyOeYrVWMTaZZb3ldhd2Yn4HyAVpN7zYkhgbpaQATU7v62x7aKLV/OU98gvuLnk
- LgIpUDyiM2u2GQPTfwSGtL6YEzvrxHtaPh8N68haqDjgiVtYh5HW1Kun81TUU5uC0UGZyxoWtlf
- wT2HjFBxbqHxrsvTZD9cEGNKY6/ZlaVyvvy2NEhcOmVEHzBdFdeV++xOH8/CHI0rcXnuRPEhXiF
- HuSrRFDh82utZ6oZ1vOJ0Q126/b5j7/MFizsWb21wE18oLFPcWWyU+qPvrSvUEpivxuCHgQe/J7
- qfx1JlzX6p0TWHVQu/2Gdf0kZZEzj+74uVTaNRqZXesYA==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1771421008;
- b=g+P8f7HzmJ18YVOpmeGRZhAV1RGH69Iyqy/zz/T0lLG8OBtGivilghWVB6qGlpT5nOp1kEjV
- Tbr6Qfyf4ZfGLVqk2UFb8MMz/cO6Yb9xNxhJu4Udo/GaiVqY5r/V14k9fLNwwgrF+B8tEJqLm88
- sQg5aJWZfD94eNCnsPG23xNyymTgCp4vqnzROFlXX13oTkyiSjGQtU6kkSx8A5/1uHS3xhqZ58z
- LEbkEYe7Y4hbA8c5WTXi4d8p6y7P4QelJ9iby43IV8QHJonC4yfVgYnV91stdzmo94750W20IZ8
- tMav2ltRSFLRv84fu2m8GA5C1v8SlBMLqNJCIuPmpuzNA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay18-hz2.antispameurope.com;
- Wed, 18 Feb 2026 14:23:28 +0100
-Received: from merchelm-W2.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: max.merchel@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id C9921CC0956;
-	Wed, 18 Feb 2026 14:23:11 +0100 (CET)
-From: Max Merchel <Max.Merchel@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
+	Wed, 18 Feb 2026 13:23:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=PFGPRkG4VcbDKDvXGKUzHfZ9PpqTaFLyu3liaC1qBZY=; b=gTCdbtvB6+VwaNvMqP46rxqiYX
+	TiabGi7zYya2TODM6vj8ZSojkHIEGuR2ln9VTIB5CVdRfLp/GYbrQVbYBIY27Duri8LOsY/hXva+p
+	OgatiOAVcH2CepxXCkddkLvHWmSilzxZXIhvk1kRuH/3kIf4wYTBOlcrGso7yLOO7eAQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vshWm-007let-VX; Wed, 18 Feb 2026 14:23:40 +0100
+Date: Wed, 18 Feb 2026 14:23:40 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Cc: Max Merchel <Max.Merchel@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/4] ARM: dts: imx6qdl-tqma6: add missing labels
-Date: Wed, 18 Feb 2026 14:22:22 +0100
-Message-ID: <20260218132228.32056-2-Max.Merchel@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260218132228.32056-1-Max.Merchel@ew.tq-group.com>
-References: <20260218132228.32056-1-Max.Merchel@ew.tq-group.com>
+Subject: Re: [PATCH v1 03/11] arm64: dts: freescale: imx8mm-var-som: Update
+ FEC support with MaxLinear PHY
+Message-ID: <fac81a12-92c9-4e29-96ca-473c18fca675@lunn.ch>
+References: <cover.1771353301.git.stefano.r@variscite.com>
+ <3b984b93a43a07bc9c4f6414a08a3a0f45daaaa8.1771353301.git.stefano.r@variscite.com>
+ <31f30651-7c99-42cb-9e27-e4806529d137@lunn.ch>
+ <aZTCGH1rKWdvYg5-@Lord-Beerus.station>
+ <fceeda41-66cc-4bb2-ab53-d4b1ec25348a@lunn.ch>
+ <aZV_c0lmBwjOI_Ep@Lord-Beerus.station>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: max.merchel@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: max.merchel@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay18-hz2.antispameurope.com with 4fGHJJ4KsQz2lHGg
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 2005588d5e16dbcb100f8c3a37af506b
-X-cloud-security: scantime:1.984
-DKIM-Signature: a=rsa-sha256;
- bh=FYz6GN2uF4bktyMBn1WEegYkUKLB98RX0JlCoopJ2zo=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1771421007; v=1;
- b=FUz07ry9z/2sPCazbXPsPv/RTFKTG3/GaZ5K7Fok9Z4P0C085rs28heYSyMUhsWMOZNoBmRf
- xI8kzwJktYC+OmWAy/dqEMiwtC7UCaQZRkkhq90KimEac69uU6xyxijAmFJSyzn+gHXvg2Jmjae
- 52qP5hS/aMWheL08Tg03iOYrB0IwaE7N02gPmZHlajA4Yi3E5RynqCTjyn5qIeCHtmR5lmHBiyq
- Kk2o+ZMqDFonhoj19G9eE+n25nts50udCRk4rkB0xgFbkyZzIciFqkP8/60Eqw+RbGxkGNOAszt
- sZtaFlI/eYr66ihtehHeltLZAB29b1VYnhXIT3p2cFpZw==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZV_c0lmBwjOI_Ep@Lord-Beerus.station>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_052340_876265_97F9AC40 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260218_052345_823142_607049FE 
+X-CRM114-Status: GOOD (  26.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,58 +80,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the missing labels for the temperature sensor and the EEPROM.
-In SoM variants A and B, the components are connected to different
-I2C buses. These labels are needed to reference them in subsequent
-device trees.
+On Wed, Feb 18, 2026 at 09:59:31AM +0100, Stefano Radaelli wrote:
+> Hi Andrew,
+> 
+> On Tue, Feb 17, 2026 at 09:43:16PM +0100, Andrew Lunn wrote:
+> > 
+> > And here you loose me. RGMII is between the MAC and the PHY. The PHY
+> > is on the SOM, so there is no need for RGMII to leave the SOM.
+> > 
+> > MDIO is can understand going to the carrier, because there can be
+> > other devices on the bus, such as an Ethernet switch.
+> > 
+> > You say the LEDs are not on the SOM. So they should not be listed in
+> > the .dtsi file for the SOM. It could be the RJ45 is a cheap one,
+> > without LEDs. The colours will depend on the RJ45 socket. It could be
+> > a single LED is connected to the front panel, which is typical of STB
+> > etc. So the LEDs are a board property, not a SOM property.
+> > 
+> > > > >   Two LEDs are defined to match the VAR-SOM carrier design:
+> > > > >     * LED@0: Yellow, netdev trigger.
+> > > > >     * LED@1: Green, netdev trigger.
+> > > > 
+> > > > Where are the LEDs? You say "carrier design", so are they on the
+> > > > carrier? The DT properties should then be in the .dts file for the
+> > > > carrier.
+> > > >
+> > > 
+> > > The LED signals are driven directly by the PHY and originate on the SOM.
+> > > They are exposed on the SOM connector and are typically routed straight
+> > > to the RJ45 integrated LEDs on the carrier.
+> > 
+> > The problem here is 'typically', not absolutely required, otherwise
+> > the magic smoke will escape making the box useless.
+> > 
+> 
+> You are right sorry for the confusion: RGMII is internal between the MAC
+> and the PHY and does not leave the SOM. What is exposed on the SOM
+> connector are the MDI pairs towards the magnetics/RJ45 and the PHY LED
+> output signals.
 
-Signed-off-by: Max Merchel <Max.Merchel@ew.tq-group.com>
----
- arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
+O.K, that is what i expected.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi
-index e8fd37dd8835..1251749a8dd0 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi
-@@ -27,13 +27,13 @@ pmic: pmic@8 {
- 		reg = <0x08>;
- 	};
- 
--	temperature-sensor@48 {
-+	lm75_48: temperature-sensor@48 {
- 		compatible = "national,lm75a";
- 		reg = <0x48>;
- 		vs-supply = <&sw4_reg>;
- 	};
- 
--	eeprom@50 {
-+	m24c64_50: eeprom@50 {
- 		compatible = "st,24c64", "atmel,24c64";
- 		reg = <0x50>;
- 		pagesize = <32>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi
-index 0e404c1f62f2..7f526f39e0f2 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi
-@@ -20,13 +20,13 @@ pmic: pmic@8 {
- 		reg = <0x08>;
- 	};
- 
--	temperature-sensor@48 {
-+	lm75_48: temperature-sensor@48 {
- 		compatible = "national,lm75a";
- 		reg = <0x48>;
- 		vs-supply = <&sw4_reg>;
- 	};
- 
--	eeprom@50 {
-+	m24c64_50: eeprom@50 {
- 		compatible = "st,24c64", "atmel,24c64";
- 		reg = <0x50>;
- 		pagesize = <32>;
--- 
-2.43.0
+> Given that the actual LEDs are implemented on the carrier side (RJ45
+> with integrated LEDs, pull-ups and LED supply), would you prefer that
+> the LED description is moved out of the SOM .dtsi and into the carrier
+> .dts?
 
+Yes please.
+
+> My idea would be to keep the Ethernet controller/PHY node fully
+> described in the SOM .dtsi (since the PHY is on-module), and add only
+> the LED subnode/definition in the carrier .dts where the LEDs are
+> actually present.
+
+Yes. That is good.
+
+Thanks
+     Andrew
 
