@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F182E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 15:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E969E9A047
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sIm+IEOgNc9VlpqTE5y+/ppPLqEHeblG2I6SKqX1NTo=; b=tX9Ke48E/pMqeHOU1Af2qcoUUm
-	vEBxKyFazIm6dZIXb528tr/qSBs8+Gk2DBz1Urrn8TJnUZ3crx9kCjuagIB8AflT/gP3iNkgUEphO
-	ChC+OdWjcOtPySD90pLSLf++pfweG/7v9IgKfGta7dGMWQ7AaG52Ajc1/oCtPtmgJNXGl0aWXw04t
-	woYfiFRRGR3TuGZMsWZ1LpiZR/iqy8VF37IJk1wK+9OVF70ASckXqsRpIxCnkflBat21rgboLZ/Fx
-	GrNx+EKYI/CzN1G1Y1v+9VFBj2AeHgQjBXrDjlVoBm2KADSaD0A3xnDys3y9r4aGH9DACMgimHsFT
-	YZQTLTSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
+	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qrN1DqLTdQHmKSmkzyv6qmv41jOxmqT0TGHhkOY3204=; b=Oqit+VsZJGpa//iD8tEjbCekhp
+	TvBggG/QN/hnlqNXxo78jnrYFZ9RbILsVIEdlBirxHvNtr9Tum1AquKOZkKdiv+MkiydNUWoaDvDd
+	wrPiJ9IlO6JFKdv+Um42BnlXmNemSbScuIts8Ow3gtn6sDwEi4sMeFcVKRMTiGFUdyTVIh7vdWOWs
+	X0AR2BxDBmYn+li+mP3eDhCAZdoJ2jzZD1AYGF3CPmNPTc1eTbbujZ8ipKVNXW1+OrlyIFp6kXIFU
+	CKxBIZg10u1OJ0VINxLkzPeLOM9hGfFXKngFiiuLEwQ8wc5PrQ2/e+gz8a7rCYpPWKrjGNGKpmqR2
+	OdC2ILeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsjM7-0000000A0xZ-0PWd;
-	Wed, 18 Feb 2026 15:20:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsjM4-0000000A0x2-2qkz;
-	Wed, 18 Feb 2026 15:20:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9997339;
-	Wed, 18 Feb 2026 07:20:33 -0800 (PST)
-Received: from [10.57.81.199] (unknown [10.57.81.199])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 990193F7F5;
-	Wed, 18 Feb 2026 07:20:34 -0800 (PST)
-Message-ID: <8531da33-a4dc-48ac-abf3-c831d4493afb@arm.com>
-Date: Wed, 18 Feb 2026 15:20:32 +0000
+	id 1vsk0D-0000000A2js-3GDA;
+	Wed, 18 Feb 2026 16:02:13 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vsk0A-0000000A2j7-1NV9;
+	Wed, 18 Feb 2026 16:02:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771430507; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=OkYC7Kjk4iFQ7Wj235FoHabtSPR0Z/t7HDc0woy83kSa58IypS9xb59LRv/NEiPnSCL+4XZNyhETAbIj6w3i8KrgmkPcREC7ArW91BQD3IHNh06xl1646yFJTtC7QyojTsSae7neh8MQelulltKHdQk7jriMuejmp8aNhm13TRg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1771430507; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=qrN1DqLTdQHmKSmkzyv6qmv41jOxmqT0TGHhkOY3204=; 
+	b=bNI5rT1LyyIJFi3NKPZ8yxW4pAmteI5PeQ394AOAR3OI+gnvuum6gSsOWM3CSAsG+38wrD3NJyfO2Tb3Xgo9W9RNxGsOYclcTja2wl1wY0soJAi1pWM7RsFKTPjOElPGlqR8l/ts72uTdkbmautyeRNoWTZBj8Wutz74DrONtTs=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771430507;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=Content-Type:Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Message-Id:Reply-To;
+	bh=qrN1DqLTdQHmKSmkzyv6qmv41jOxmqT0TGHhkOY3204=;
+	b=O7UoA6NDRSrlj8Y4L67/svoF77IiW4VKDao9Ns9MOWCWwocJd9dQLMoXP+Y/F7rm
+	fFRpnZyZS0cKAQTzjv2BKamwVl9yGx5wMGquJLRoIpWptlZGbvx0m3jkwSFiEQ5J8/V
+	wYXxO5/C7XZPwLpnW2+AwJ168ogmDbB3c1Wo53Mc=
+Received: by mx.zohomail.com with SMTPS id 1771430504557384.40031491399884;
+	Wed, 18 Feb 2026 08:01:44 -0800 (PST)
+Content-Type: multipart/mixed; boundary="------------NsrepD4PzYz0aHUDNLQur39l"
+Message-ID: <34f61d25-607c-4967-bc67-3c7517c7fe14@collabora.com>
+Date: Wed, 18 Feb 2026 11:01:42 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] randomize_kstack: Unify random source across
- arches
-Content-Language: en-GB
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: kernel test robot <lkp@intel.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- David Laight <david.laight.linux@gmail.com>, llvm@lists.linux.dev,
- oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org
-References: <20260119130122.1283821-4-ryan.roberts@arm.com>
- <202601210752.6Nsv9et9-lkp@intel.com>
- <46c7d109-b076-4bb3-9e6e-36c34c546c20@arm.com> <aXDHSIn3hIvESjXg@J2N7QTR9R3>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aXDHSIn3hIvESjXg@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [REGRESSION] Re: [PATCH v1] ASoC: rockchip: i2s_tdm: Re-add the
+ set_sysclk callback
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, linux-kernel@vger.kernel.org
+Cc: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org,
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com, alexandre.belloni@bootlin.com,
+ thomas.petazzoni@bootlin.com
+References: <20250117163102.65807-1-detlev.casanova@collabora.com>
+ <DGB6VK7LC8N7.322SYGWZXPL5W@bootlin.com>
+ <DGI2YVYBECUM.3O0UN9VMKF7FJ@bootlin.com>
+Content-Language: en-US
+From: Detlev Casanova <detlev.casanova@collabora.com>
+In-Reply-To: <DGI2YVYBECUM.3O0UN9VMKF7FJ@bootlin.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.1.1.4.3/271.423.95
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_072044_818256_85F66006 
-X-CRM114-Status: GOOD (  24.40  )
+X-CRM114-CacheID: sfid-20260218_080210_437345_60A3F7C3 
+X-CRM114-Status: GOOD (  32.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,83 +87,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2026 12:32, Mark Rutland wrote:
-> On Wed, Jan 21, 2026 at 10:52:21AM +0000, Ryan Roberts wrote:
->> On 20/01/2026 23:50, kernel test robot wrote:
->>> Hi Ryan,
->>>
->>> kernel test robot noticed the following build warnings:
->>>
->>> [auto build test WARNING on akpm-mm/mm-everything]
->>> [also build test WARNING on linus/master v6.19-rc6 next-20260119]
->>> [cannot apply to tip/sched/core kees/for-next/hardening kees/for-next/execve]
->>> [If your patch is applied to the wrong git tree, kindly drop us a note.
->>> And when submitting patch, we suggest to use '--base' as documented in
->>> https://git-scm.com/docs/git-format-patch#_base_tree_information]
->>>
->>> url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Roberts/randomize_kstack-Maintain-kstack_offset-per-task/20260119-210329
->>> base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
->>> patch link:    https://lore.kernel.org/r/20260119130122.1283821-4-ryan.roberts%40arm.com
->>> patch subject: [PATCH v4 3/3] randomize_kstack: Unify random source across arches
->>> config: x86_64-allmodconfig (https://download.01.org/0day-ci/archive/20260121/202601210752.6Nsv9et9-lkp@intel.com/config)
->>> compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
->>> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260121/202601210752.6Nsv9et9-lkp@intel.com/reproduce)
->>>
->>> If you fix the issue in a separate patch/commit (i.e. not just a new version of
->>> the same patch/commit), kindly add following tags
->>> | Reported-by: kernel test robot <lkp@intel.com>
->>> | Closes: https://lore.kernel.org/oe-kbuild-all/202601210752.6Nsv9et9-lkp@intel.com/
->>>
->>> All warnings (new ones prefixed by >>):
->>>
->>>>> vmlinux.o: warning: objtool: do_syscall_64+0x2c: call to preempt_count_add() leaves .noinstr.text section
->>>>> vmlinux.o: warning: objtool: __do_fast_syscall_32+0x3d: call to preempt_count_add() leaves .noinstr.text section
+This is a multi-part message in MIME format.
+--------------NsrepD4PzYz0aHUDNLQur39l
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Hi Lucas, sorry for breaking support on your board.
+I'm also surprised that you were not added in CC of the original patch.
+
+Can you try to keep the patch and apply the attached one instead ?
+
+Detlev.
+
+On 2/18/26 07:19, Luca Ceresoli wrote:
+> Hello Detlev,
+>
+> On Tue Feb 10, 2026 at 10:54 AM CET, Luca Ceresoli wrote:
+>> Hello Detlev,
 >>
->> Hmm, clearly Dave was correct not to rush this through... yuck. I'll take a
->> look, but I guess there is no rush if this won't go into -next until shortly
->> after -rc1.
-> 
-> Sorry, I should have checked the entry sequencing more thoroughly when I
-> reviewed this,.
-> 
-> From a quick look, I suspect the right thing to do is to pull the call
-> to add_random_kstack_offset() a bit later in a few cases; after the
-> entry logic has run, and after instrumentation_begin() (if the arch code
-> uses that), such that it doesn't matter if this gets instrumented.
-> 
-> Considering the callers of add_random_kstack_offset(), if we did that:
-> 
-> * arm64 is fine as-is.
-> 
-> * loongarch is fine as-is.
-> 
-> * powerpc's system_call_exception() would need this moved after the
->   user_exit_irqoff(). Given that function is notrace rather than
->   noinstr, it looks like there are bigger extant issues here.
-> 
-> * riscv is fine as-is.
-> 
-> * s390's __do_syscall() would need this moved after
->   enter_from_user_mode().
-> 
-> * On x86:
->   - do_int80_emulation() is fine as-is.
->   - int80_emulation() is fine as-is.
->   - do_int80_syscall_32() would need this moved after
->     instrumentation_begin().
->   - __do_fast_syscall_32() would need this moved after
->     instrumentation_begin().
->   - do_syscall_64() would need this moved after instrumentation_begin().
+>> On Fri Jan 17, 2025 at 5:31 PM CET, Detlev Casanova wrote:
+>>> In commit
+>>> 9e2ab4b18ebd ("ASoC: rockchip: i2s-tdm: Fix inaccurate sampling rates"),
+>>> the set_sysclk callback was removed as considered unused as the mclk rate
+>>> can be set in the hw_params callback.
+>>> The difference between hw_params and set_sysclk is that the former is
+>>> called with the audio sampling rate set in the params (e.g.: 48000 Hz)
+>>> while the latter is called with a clock rate already computed with
+>>>    sampling_rate * mclk-fs (e.g.: 48000 * 256)
+>>>
+>>> For HDMI audio using the Rockchip I2S TDM driver, the mclk-fs value must
+>>> be set to 128 instead of the default 256, and that value is set in the
+>>> device tree at the machine driver level (like a simple-audio-card
+>>> compatible node).
+>>> Therefore, the i2s_tdm driver has no idea that another mclk-fs value can
+>>> be configured and simply computes the mclk rate in the hw_params callback
+>>> with DEFAULT_MCLK_FS * params_rate(params), which is wrong for HDMI
+>>> audio.
+>>>
+>>> Re-add the set_sysclk callback so that the mclk rate is computed by the
+>>> machine driver which has the correct mclk-fs value set in its device tree
+>>> node.
+>> I'm afraid I just found this commit breaks audio capture on the RK3308.
+>>
+>> Using 'arecord -Vmono -d 2 -c 8 -f S16_LE -r 96000 /dev/null' I get:
+>>
+>>    rockchip-i2s-tdm ff320000.i2s: ASoC error (-22): at snd_soc_dai_hw_params() on ff320000.i2s
+>>     ff320000.i2s-rk3308-hifi: ASoC error (-22): at __soc_pcm_hw_params() on ff320000.i2s-rk3308-hifi
+>>
+>> Tested on:
+>>
+>>   * Radxa Rock Pi S
+>>   * Upstream kernel
+>>   * arm64 defconfig
+>>
+>> Tested kernel versions:
+>>
+>>   * v6.12 works
+>>   * 5323186e2e8d (this commit) fails
+>>   * 5323186e2e8d^ works
+>>   * 21cfbeae7d7c (same patch on stable/linux-6.12.y) fails
+>>   * 21cfbeae7d7c^ works
+>>   * v6.19 fails
+>>   * v6.19 + 'git revert 5323186e2e8d' works
+>>
+>> I don't have more information at the moment.
+> Let me add some more info to my previous report.
+>
+> The function failing is clk_set_rate() in rockchip_i2s_tdm_hw_params().
+>
+> I added some logging to rockchip_i2s_tdm_hw_params() and here's the output:
+>
+>    On v6.19-11566-g254edc893f3a (current Linux master)
+>
+>    At boot:
+>      [    3.324622] rockchip-i2s-tdm ff320000.i2s: The target mclk_tx freq is: 50176000
+>      [    3.324720] rockchip-i2s-tdm ff320000.i2s: using zero-initialized flat cache, this may cause unexpected behavior
+>    When launching arecord:
+>      [   18.429389] rockchip_i2s_tdm_hw_params:653 i2s_tdm->is_master_mode = 1
+>      [   18.430154] rockchip_i2s_tdm_hw_params:654 i2s_tdm->mclk_tx clk_i2s2_8ch_tx
+>      [   18.430815] rockchip_i2s_tdm_hw_params:655 i2s_tdm->mclk_rx clk_i2s2_8ch_rx
+>      [   18.431465] rockchip_i2s_tdm_hw_params:656 i2s_tdm->mclk_tx_freq 50176000
+>      [   18.432097] rockchip_i2s_tdm_hw_params:657 i2s_tdm->mclk_rx_freq 0
+>      [   18.432677] rockchip_i2s_tdm_hw_params:658 i2s_tdm->clk_trcm 0
+>      [   18.433230] rockchip_i2s_tdm_hw_params:659 substream->stream 1
+>      [   18.433858] rockchip_i2s_tdm_hw_params:678 mclk clk_i2s2_8ch_rx
+>      [   18.434423] rockchip_i2s_tdm_hw_params:679 mclk_rate 0
+>      [   18.434977] rockchip_i2s_tdm_hw_params:682 clk_set_rate(clk_i2s2_8ch_rx, 0) returned -22
+>      [   18.435743] rockchip-i2s-tdm ff320000.i2s: ASoC error (-22): at snd_soc_dai_hw_params() on ff320000.i2s
+>      [   18.436699]  ff320000.i2s-rk3308-hifi: ASoC error (-22): at __soc_pcm_hw_params() on ff320000.i2s-rk3308-hifi
+>
+>    On v6.19-11566-g254edc893f3a + 'git revert 5323186e2e8d'
+>
+>    At boot:
+>      [    3.283853] rockchip-i2s-tdm ff320000.i2s: using zero-initialized flat cache, this may cause unexpected behavior
+>    When launching arecord:
+>      [   11.952290] rockchip_i2s_tdm_hw_params:631 i2s_tdm->is_master_mode = 1
+>      [   11.952955] rockchip_i2s_tdm_hw_params:632 i2s_tdm->mclk_tx clk_i2s2_8ch_tx
+>      [   11.953615] rockchip_i2s_tdm_hw_params:633 i2s_tdm->mclk_rx clk_i2s2_8ch_rx
+>      [   11.954355] rockchip_i2s_tdm_hw_params:636 i2s_tdm->clk_trcm 0
+>      [   11.954917] rockchip_i2s_tdm_hw_params:637 substream->stream 1
+>      [   11.955477] rockchip_i2s_tdm_hw_params:652 mclk clk_i2s2_8ch_rx
+>      [   11.956048] rockchip_i2s_tdm_hw_params:653 params_rate(params) 96000
+>      [   11.956769] rockchip_i2s_tdm_hw_params:656 clk_set_rate(clk_i2s2_8ch_rx, 24576000) returned 0
+>
+> I cannot point to the right fix but the value 0 in i2s_tdm->mclk_rx_freq
+> appears as a good clue, perhaps it has never been set.
+>
+> I hope this helps.
+>
+> Luca
+>
+> --
+> Luca Ceresoli, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
+>
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+--------------NsrepD4PzYz0aHUDNLQur39l
+Content-Type: text/x-patch; charset=UTF-8;
+ name="0001-sound-rockchip-Use-param-freq-if-not-provided-by-set.patch"
+Content-Disposition: attachment;
+ filename*0="0001-sound-rockchip-Use-param-freq-if-not-provided-by-set.pa";
+ filename*1="tch"
+Content-Transfer-Encoding: base64
 
-Thanks for the detailed suggestions, Mark. I've taken this approach, and
-assuming perf testing doesn't throw up any issue, I'm going to revert back to
-using the out-of-line version of prandom_u32_state() and will drop patch 2.
+RnJvbSBmMjQ0MTg1OWMzNjhmZTI1NTEyYTcxZTgyMTYwYjBhMzA3ZWQ0NDI5IE1vbiBTZXAg
+MTcgMDA6MDA6MDAgMjAwMQpGcm9tOiBEZXRsZXYgQ2FzYW5vdmEgPGRldGxldi5jYXNhbm92
+YUBjb2xsYWJvcmEuY29tPgpEYXRlOiBXZWQsIDE4IEZlYiAyMDI2IDEwOjQ2OjUwIC0wNTAw
+ClN1YmplY3Q6IFtQQVRDSF0gc291bmQ6IHJvY2tjaGlwOiBVc2UgcGFyYW0gZnJlcSBpZiBu
+b3QgcHJvdmlkZWQgYnkgc2V0X3N5c2NsawoKSGkgTHVjYXMsIHNvcnJ5IGZvciBicmVha2lu
+ZyBzdXBwb3J0IG9uIHlvdXIgYm9hcmQuCkknbSBhbHNvIHN1cnByaXNlZCB0aGF0IHlvdSB3
+ZXJlIG5vdCBhZGRlZCBpbiBDQyBvZiB0aGUgb3JpZ2luYWwgcGF0Y2guCgpDYW4geW91IHRy
+eSB0byBrZWVwIHRoZSBwYXRjaCBhbmQgYXBwbHkgdGhpcyBpbnN0ZWFkID8KCkRyaXZlcnMg
+d2lsbCBub3QgYWx3YXlzIHNldCB0aGUgc3lzY2xrLgpJZiB0aGF0IGlzIHRoZSBjYXNlLCB1
+c2UgdGhlIGNsb2NrIHNldCBpbiB0aGUgcGFyYW1zIG11bHRpcGxpZWQgYnkgdGhlCmRlZmF1
+bHQgbWNsay1mcy4KCi0tLQogc291bmQvc29jL3JvY2tjaGlwL3JvY2tjaGlwX2kyc190ZG0u
+YyB8IDYgKysrKysrCiAxIGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspCgpkaWZmIC0t
+Z2l0IGEvc291bmQvc29jL3JvY2tjaGlwL3JvY2tjaGlwX2kyc190ZG0uYyBiL3NvdW5kL3Nv
+Yy9yb2NrY2hpcC9yb2NrY2hpcF9pMnNfdGRtLmMKaW5kZXggNzcwYjliZmJiMzg0Li5mMmNk
+YTdlNjRiNzQgMTAwNjQ0Ci0tLSBhL3NvdW5kL3NvYy9yb2NrY2hpcC9yb2NrY2hpcF9pMnNf
+dGRtLmMKKysrIGIvc291bmQvc29jL3JvY2tjaGlwL3JvY2tjaGlwX2kyc190ZG0uYwpAQCAt
+NjY1LDYgKzY2NSwxMiBAQCBzdGF0aWMgaW50IHJvY2tjaGlwX2kyc190ZG1faHdfcGFyYW1z
+KHN0cnVjdCBzbmRfcGNtX3N1YnN0cmVhbSAqc3Vic3RyZWFtLAogCQkJbWNsa19yYXRlID0g
+aTJzX3RkbS0+bWNsa19yeF9mcmVxOwogCQl9CiAKKwkJLyogSWYgdGhlIGRhaS9jb21wb25l
+bnQgZHJpdmVyIGRpZG4ndCBjYWxsIHNldF9zeXNjbGsoKSwgc2ltcGx5CisJCSAqIHVzZSB0
+aGUgZnJlcSBmcm9tIHRoZSBwYXJhbXMuCisJCSAqLworCQlpZiAoIW1jbGtfcmF0ZSkKKwkJ
+CW1jbGtfcmF0ZSA9IERFRkFVTFRfTUNMS19GUyAqIHBhcmFtc19yYXRlKHBhcmFtcyk7CisK
+IAkJZXJyID0gY2xrX3NldF9yYXRlKG1jbGssIG1jbGtfcmF0ZSk7CiAJCWlmIChlcnIpCiAJ
+CQlyZXR1cm4gZXJyOwotLSAKMi41My4wCgo=
 
-Thanks,
-Ryan
-
-
-> 
-> Mark.
-
+--------------NsrepD4PzYz0aHUDNLQur39l--
 
