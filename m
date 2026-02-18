@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60481E9A04D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E680BE9A04B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=htsSD+LMDU2t4Z1iKdiP8cz7dGYB87T3HgzCybits84=; b=jLcN/le8NDc/Jz7t2MeNMjCwOq
-	7pBV5Sffc0jHseJVaU+r/SPyqkbpTSzJ9ApB43szWGhWz3zYiqC0jIhVPab2EgtNPwOtuy9aCmDJ2
-	6gqaP7GvGsf7Ko09u/1zFQfmf65iANYJlch14dvlZbmxIDLvhgayE/gfTY2CivW+WqYBAnX2nomUI
-	j7u42r97eVSGdczKWl6Q49cnId/2O1fE8WIHBJtqXgM+9cEDXLystKbvMm/pmbFjVY3+JPLLJi5w/
-	kVIKsMb6UyZo2RJPIOXE2jTftLFGv/ajqtKVasOLQ117sKdx78PSdSMI+Raz5bEC7gA9IOGM8Tpa+
-	Tzja/qRQ==;
+	bh=oCODnga3g1WiHHo24SNf/CSO//tjAHqMJJfXtMt3LHY=; b=qHeQKTizvE12c2VmfXIzZF9lej
+	Ppo98J7W/wURVJWvDkupUc6SqQpqiM4e5ZxlBPe4HafCpKV7KFcHSnMjE1LpFYBbu/oumhxOrrEqv
+	Az9uiWzy0TflgkA3fRM3aoRdIn1qYiR+0DzkckuAHJ2SZ6Yn1y9C0mbnsuAI/Z/ZobPubPUsovJcD
+	WBNe7ApB3L65k6CfgVBdar4zJnc7QuMFOfjizAlFNoHJ4ssoHdUQ17WEhRZWX91Gv8Hhl4xULmXn9
+	CbA755l2QXtmVRab5DAoBz9MG5CamvsVUgKE0uMO7Lyh7iLLWe5vhZD5QhjfK57cpfWoGt3bDfyQG
+	X5ArFKnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspEI-0000000ASaD-3NEl;
+	id 1vspEI-0000000ASZE-0c0F;
 	Wed, 18 Feb 2026 21:37:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspED-0000000ASUA-0t9v
+	id 1vspEC-0000000ASTs-0v7a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 21:37:02 +0000
+	Wed, 18 Feb 2026 21:37:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DE7414396D;
-	Wed, 18 Feb 2026 21:37:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2924C2BCB4;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7042F6185E;
 	Wed, 18 Feb 2026 21:36:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 882ABC2BCB8;
+	Wed, 18 Feb 2026 21:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771450620;
-	bh=MukATPOpIzjauahsnyw5/LgkOoeHj4ze2Fz2UAEw0rw=;
+	s=k20201202; t=1771450619;
+	bh=FzLAFnsSHFvGoAfqcNAmnj11tq4ngHpZmu//ht8ZFP8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=S7cvUUs2MbPHShNzMReODOXXx0055P+B5i6wUSiG6e9WEN6m6eioCUpXWfIz4SPHd
-	 o2Jp/TgF7O6k4rs3A3NJzK32Pj7x0O9bWs75sgyw05p+8QPHl6J3iXMMcY2J/BSv03
-	 pBovcGwo2XyB8w7WI+rZziQRib7Q7PXdefsaQDZORQah7mhr+W2KC+iVMfIJnwzjTn
-	 Wv2DoQtvp6FRV+kUAeWFOybO9Ojm9HEgHVDla4zh2fQOJnhZTDqYNKySvsx6PNr4D4
-	 lDUbu1wGNmXaGuU4e3y2JDb25S/GbeOLp7/b1VANEkR53N572/mF3aKaK96nxZXrDo
-	 gYvDPt8fT+elQ==
+	b=YcuPq7zseL7qa2f5JntY6yXCOgdmRPyVUGvZfB0hrUON8qybXL9pmipnu0l5X8Me9
+	 k50dE0j/zduMMaMjQ3xHZtc7r31YImu4Eljw8cwSdC+Og7b5dRKCvnGGDY0HyHHZZk
+	 jC2VkmiNO+hGlCr7Nbvv4AuhWvouKlWuyC/uidmsu26Pq+DxLJgWFJU/u6FkMKR8nq
+	 NbX/GFWcA7BJWLPxhMfaCvz25HDK5X+UvkjpCIjGLQetvbmexiS63VUMIIub7GgfZ0
+	 M0boI+WZvNSFMWB0Kza6nGKggQRjp5MoHSuLdog2IJTuaRSFfjHjVtmbM49Dby5+AU
+	 Sh5jwxrhDVntw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,17 +52,14 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-cifs@vger.kernel.org,
 	linux-wireless@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 15/15] wifi: mac80211: Use AES-CMAC library in aes_s2v()
-Date: Wed, 18 Feb 2026 13:35:01 -0800
-Message-ID: <20260218213501.136844-16-ebiggers@kernel.org>
+Subject: [PATCH 13/15] Bluetooth: SMP: Use AES-CMAC library API
+Date: Wed, 18 Feb 2026 13:34:59 -0800
+Message-ID: <20260218213501.136844-14-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260218213501.136844-1-ebiggers@kernel.org>
 References: <20260218213501.136844-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_133701_289153_9F8F1E61 
-X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,194 +74,833 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that AES-CMAC has a library API, convert aes_s2v() to use it instead
-of a "cmac(aes)" crypto_shash.  The result is faster and simpler code.
+Now that AES-CMAC has a library API, convert net/bluetooth/smp.c to use
+it instead of the "cmac(aes)" crypto_shash.  Since the library API
+doesn't require dynamic memory allocation, we no longer need to pass a
+crypto_shash object down the call stack and can simply allocate the
+aes_cmac_key on the stack in smp_aes_cmac() (renamed from aes_cmac()).
 
-It's also more reliable, since with the library the only step that can
-fail is preparing the key.  In contrast, crypto_shash_digest(),
-crypto_shash_init(), crypto_shash_update(), and crypto_shash_final()
-could all fail and return an errno value.  aes_s2v() ignored these
-errors, which was a bug.  So that bug is fixed as well.
+The result is simpler and faster code that no longer relies on the
+error-prone loading of algorithms by name.
 
-As part of this, change the prototype of aes_s2v() to take the raw key
-directly instead of a prepared key.  Its only two callers prepare a key
-for each call, so it might as well be done directly in aes_s2v().
+Note that the maximum stack usage actually decreases slightly, despite
+the expanded AES key being moved to the stack.  This is because the old
+code called crypto_shash_tfm_digest(), which allocates 384 bytes on the
+stack for a maximally-sized hash descriptor for any algorithm.  The new
+code instead declares a 288-byte aes_cmac_key, then calls aes_cmac()
+which declares a 32-byte aes_cmac_ctx.  Since 288 + 32 < 384, the
+maximum stack usage decreases.  I.e. the entire expanded AES key easily
+fits in the space that the generic crypto API was wasting before.
 
-Since this removes the last dependency on the "cmac(aes)" crypto_shash
-from mac80211, also remove the 'select CRYPTO_CMAC'.
+I didn't add zeroization of the aes_cmac_key, since smp_aes_cmac()
+already copies the raw key to the stack without zeroizing it.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- net/mac80211/Kconfig     |  1 -
- net/mac80211/fils_aead.c | 48 ++++++++++++++--------------------------
- 2 files changed, 17 insertions(+), 32 deletions(-)
+ net/bluetooth/Kconfig |   3 +-
+ net/bluetooth/smp.c   | 180 +++++++++++++++---------------------------
+ 2 files changed, 65 insertions(+), 118 deletions(-)
 
-diff --git a/net/mac80211/Kconfig b/net/mac80211/Kconfig
-index 0afbe4f4f976..d6bc295e23a1 100644
---- a/net/mac80211/Kconfig
-+++ b/net/mac80211/Kconfig
-@@ -6,11 +6,10 @@ config MAC80211
- 	select CRYPTO_LIB_AES_CBC_MACS
- 	select CRYPTO_LIB_ARC4
- 	select CRYPTO_AES
- 	select CRYPTO_CCM
- 	select CRYPTO_GCM
+diff --git a/net/bluetooth/Kconfig b/net/bluetooth/Kconfig
+index 6b2b65a66700..48972f7790ec 100644
+--- a/net/bluetooth/Kconfig
++++ b/net/bluetooth/Kconfig
+@@ -9,12 +9,11 @@ menuconfig BT
+ 	depends on RFKILL || !RFKILL
+ 	select CRC16
+ 	select CRYPTO
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_LIB_AES
+-	imply CRYPTO_AES
 -	select CRYPTO_CMAC
- 	select CRC32
++	select CRYPTO_LIB_AES_CBC_MACS
+ 	select CRYPTO_ECB
+ 	select CRYPTO_SHA256
+ 	select CRYPTO_ECDH
  	help
- 	  This option enables the hardware independent IEEE 802.11
- 	  networking stack.
+ 	  Bluetooth is low-cost, low-power, short-range wireless technology.
+diff --git a/net/bluetooth/smp.c b/net/bluetooth/smp.c
+index bf61e8841535..fd2cd7f1b12a 100644
+--- a/net/bluetooth/smp.c
++++ b/net/bluetooth/smp.c
+@@ -20,12 +20,12 @@
+    SOFTWARE IS DISCLAIMED.
+ */
  
-diff --git a/net/mac80211/fils_aead.c b/net/mac80211/fils_aead.c
-index 912c46f74d24..d2f4a17eab99 100644
---- a/net/mac80211/fils_aead.c
-+++ b/net/mac80211/fils_aead.c
-@@ -2,17 +2,15 @@
- /*
-  * FILS AEAD for (Re)Association Request/Response frames
-  * Copyright 2016, Qualcomm Atheros, Inc.
-  */
- 
--#include <crypto/aes.h>
--#include <crypto/hash.h>
+ #include <linux/debugfs.h>
+ #include <linux/scatterlist.h>
 +#include <crypto/aes-cbc-macs.h>
- #include <crypto/skcipher.h>
+ #include <crypto/aes.h>
+-#include <crypto/hash.h>
+ #include <crypto/kpp.h>
  #include <crypto/utils.h>
  
- #include "ieee80211_i.h"
--#include "aes_cmac.h"
- #include "fils_aead.h"
+ #include <net/bluetooth/bluetooth.h>
+ #include <net/bluetooth/hci_core.h>
+@@ -61,11 +61,11 @@
  
- static void gf_mulx(u8 *pad)
+ #define AUTH_REQ_MASK(dev)	(hci_dev_test_flag(dev, HCI_SC_ENABLED) ? \
+ 				 0x3f : 0x07)
+ #define KEY_DIST_MASK		0x07
+ 
+-/* Maximum message length that can be passed to aes_cmac */
++/* Maximum message length that can be passed to smp_aes_cmac */
+ #define CMAC_MSG_MAX	80
+ 
+ enum {
+ 	SMP_FLAG_TK_VALID,
+ 	SMP_FLAG_CFM_PENDING,
+@@ -87,11 +87,10 @@ struct smp_dev {
+ 	bool			local_oob;
+ 	u8			local_pk[64];
+ 	u8			local_rand[16];
+ 	bool			debug_key;
+ 
+-	struct crypto_shash	*tfm_cmac;
+ 	struct crypto_kpp	*tfm_ecdh;
+ };
+ 
+ struct smp_chan {
+ 	struct l2cap_conn	*conn;
+@@ -125,11 +124,10 @@ struct smp_chan {
+ 	u8			local_pk[64];
+ 	u8			remote_pk[64];
+ 	u8			dhkey[32];
+ 	u8			mackey[16];
+ 
+-	struct crypto_shash	*tfm_cmac;
+ 	struct crypto_kpp	*tfm_ecdh;
+ };
+ 
+ /* These debug key values are defined in the SMP section of the core
+  * specification. debug_pk is the public debug key and debug_sk the
+@@ -164,52 +162,40 @@ static inline void swap_buf(const u8 *src, u8 *dst, size_t len)
+ 
+ /* The following functions map to the LE SC SMP crypto functions
+  * AES-CMAC, f4, f5, f6, g2 and h6.
+  */
+ 
+-static int aes_cmac(struct crypto_shash *tfm, const u8 k[16], const u8 *m,
+-		    size_t len, u8 mac[16])
++static int smp_aes_cmac(const u8 k[16], const u8 *m, size_t len, u8 mac[16])
  {
- 	u64 a = get_unaligned_be64(pad);
-@@ -20,58 +18,63 @@ static void gf_mulx(u8 *pad)
- 
- 	put_unaligned_be64((a << 1) | (b >> 63), pad);
- 	put_unaligned_be64((b << 1) ^ ((a >> 63) ? 0x87 : 0), pad + 8);
- }
- 
--static int aes_s2v(struct crypto_shash *tfm,
-+static int aes_s2v(const u8 *in_key, size_t key_len,
- 		   size_t num_elem, const u8 *addr[], size_t len[], u8 *v)
- {
- 	u8 d[AES_BLOCK_SIZE], tmp[AES_BLOCK_SIZE] = {};
--	SHASH_DESC_ON_STACK(desc, tfm);
+ 	uint8_t tmp[16], mac_msb[16], msg_msb[CMAC_MSG_MAX];
 +	struct aes_cmac_key key;
-+	struct aes_cmac_ctx ctx;
- 	size_t i;
-+	int res;
+ 	int err;
  
--	desc->tfm = tfm;
-+	res = aes_cmac_preparekey(&key, in_key, key_len);
-+	if (res)
-+		return res;
+ 	if (len > CMAC_MSG_MAX)
+ 		return -EFBIG;
  
- 	/* D = AES-CMAC(K, <zero>) */
--	crypto_shash_digest(desc, tmp, AES_BLOCK_SIZE, d);
-+	aes_cmac(&key, tmp, AES_BLOCK_SIZE, d);
+-	if (!tfm) {
+-		BT_ERR("tfm %p", tfm);
+-		return -EINVAL;
+-	}
+-
+ 	/* Swap key and message from LSB to MSB */
+ 	swap_buf(k, tmp, 16);
+ 	swap_buf(m, msg_msb, len);
  
- 	for (i = 0; i < num_elem - 1; i++) {
- 		/* D = dbl(D) xor AES_CMAC(K, Si) */
- 		gf_mulx(d); /* dbl */
--		crypto_shash_digest(desc, addr[i], len[i], tmp);
-+		aes_cmac(&key, addr[i], len[i], tmp);
- 		crypto_xor(d, tmp, AES_BLOCK_SIZE);
- 	}
+ 	SMP_DBG("msg (len %zu) %*phN", len, (int) len, m);
+ 	SMP_DBG("key %16phN", k);
  
--	crypto_shash_init(desc);
-+	aes_cmac_init(&ctx, &key);
+-	err = crypto_shash_setkey(tfm, tmp, 16);
+-	if (err) {
+-		BT_ERR("cipher setkey failed: %d", err);
++	err = aes_cmac_preparekey(&key, tmp, 16);
++	if (WARN_ON_ONCE(err)) /* Should never happen, as 16 is valid keylen */
+ 		return err;
+-	}
+-
+-	err = crypto_shash_tfm_digest(tfm, msg_msb, len, mac_msb);
+-	if (err) {
+-		BT_ERR("Hash computation error %d", err);
+-		return err;
+-	}
++	aes_cmac(&key, msg_msb, len, mac_msb);
  
- 	if (len[i] >= AES_BLOCK_SIZE) {
- 		/* len(Sn) >= 128 */
- 		/* T = Sn xorend D */
--		crypto_shash_update(desc, addr[i], len[i] - AES_BLOCK_SIZE);
-+		aes_cmac_update(&ctx, addr[i], len[i] - AES_BLOCK_SIZE);
- 		crypto_xor(d, addr[i] + len[i] - AES_BLOCK_SIZE,
- 			   AES_BLOCK_SIZE);
- 	} else {
- 		/* len(Sn) < 128 */
- 		/* T = dbl(D) xor pad(Sn) */
- 		gf_mulx(d); /* dbl */
- 		crypto_xor(d, addr[i], len[i]);
- 		d[len[i]] ^= 0x80;
- 	}
- 	/* V = AES-CMAC(K, T) */
--	crypto_shash_finup(desc, d, AES_BLOCK_SIZE, v);
-+	aes_cmac_update(&ctx, d, AES_BLOCK_SIZE);
-+	aes_cmac_final(&ctx, v);
+ 	swap_buf(mac_msb, mac, 16);
  
-+	memzero_explicit(&key, sizeof(key));
+ 	SMP_DBG("mac %16phN", mac);
+ 
  	return 0;
  }
  
- /* Note: addr[] and len[] needs to have one extra slot at the end. */
- static int aes_siv_encrypt(const u8 *key, size_t key_len,
- 			   const u8 *plain, size_t plain_len,
- 			   size_t num_elem, const u8 *addr[],
- 			   size_t len[], u8 *out)
+-static int smp_f4(struct crypto_shash *tfm_cmac, const u8 u[32],
+-		  const u8 v[32], const u8 x[16], u8 z, u8 res[16])
++static int smp_f4(const u8 u[32], const u8 v[32], const u8 x[16], u8 z,
++		  u8 res[16])
  {
- 	u8 v[AES_BLOCK_SIZE];
--	struct crypto_shash *tfm;
- 	struct crypto_skcipher *tfm2;
- 	struct skcipher_request *req;
- 	int res;
- 	struct scatterlist src[1], dst[1];
- 	u8 *tmp;
-@@ -81,19 +84,11 @@ static int aes_siv_encrypt(const u8 *key, size_t key_len,
- 	addr[num_elem] = plain;
- 	len[num_elem] = plain_len;
- 	num_elem++;
+ 	u8 m[65];
+ 	int err;
  
- 	/* S2V */
--
--	tfm = crypto_alloc_shash("cmac(aes)", 0, 0);
--	if (IS_ERR(tfm))
--		return PTR_ERR(tfm);
--	/* K1 for S2V */
--	res = crypto_shash_setkey(tfm, key, key_len);
--	if (!res)
--		res = aes_s2v(tfm, num_elem, addr, len, v);
--	crypto_free_shash(tfm);
-+	res = aes_s2v(key /* K1 */, key_len, num_elem, addr, len, v);
- 	if (res)
- 		return res;
+ 	SMP_DBG("u %32phN", u);
+@@ -218,22 +204,21 @@ static int smp_f4(struct crypto_shash *tfm_cmac, const u8 u[32],
  
- 	/* Use a temporary buffer of the plaintext to handle need for
- 	 * overwriting this during AES-CTR.
-@@ -144,11 +139,10 @@ static int aes_siv_encrypt(const u8 *key, size_t key_len,
- static int aes_siv_decrypt(const u8 *key, size_t key_len,
- 			   const u8 *iv_crypt, size_t iv_c_len,
- 			   size_t num_elem, const u8 *addr[], size_t len[],
- 			   u8 *out)
+ 	m[0] = z;
+ 	memcpy(m + 1, v, 32);
+ 	memcpy(m + 33, u, 32);
+ 
+-	err = aes_cmac(tfm_cmac, x, m, sizeof(m), res);
++	err = smp_aes_cmac(x, m, sizeof(m), res);
+ 	if (err)
+ 		return err;
+ 
+ 	SMP_DBG("res %16phN", res);
+ 
+ 	return err;
+ }
+ 
+-static int smp_f5(struct crypto_shash *tfm_cmac, const u8 w[32],
+-		  const u8 n1[16], const u8 n2[16], const u8 a1[7],
+-		  const u8 a2[7], u8 mackey[16], u8 ltk[16])
++static int smp_f5(const u8 w[32], const u8 n1[16], const u8 n2[16],
++		  const u8 a1[7], const u8 a2[7], u8 mackey[16], u8 ltk[16])
  {
--	struct crypto_shash *tfm;
- 	struct crypto_skcipher *tfm2;
- 	struct skcipher_request *req;
- 	struct scatterlist src[1], dst[1];
- 	size_t crypt_len;
- 	int res;
-@@ -196,19 +190,11 @@ static int aes_siv_decrypt(const u8 *key, size_t key_len,
- 	crypto_free_skcipher(tfm2);
- 	if (res)
- 		return res;
+ 	/* The btle, salt and length "magic" values are as defined in
+ 	 * the SMP section of the Bluetooth core specification. In ASCII
+ 	 * the btle value ends up being 'btle'. The salt is just a
+ 	 * random number whereas length is the value 256 in little
+@@ -248,11 +233,11 @@ static int smp_f5(struct crypto_shash *tfm_cmac, const u8 w[32],
  
- 	/* S2V */
--
--	tfm = crypto_alloc_shash("cmac(aes)", 0, 0);
--	if (IS_ERR(tfm))
--		return PTR_ERR(tfm);
--	/* K1 for S2V */
--	res = crypto_shash_setkey(tfm, key, key_len);
--	if (!res)
--		res = aes_s2v(tfm, num_elem, addr, len, check);
--	crypto_free_shash(tfm);
-+	res = aes_s2v(key /* K1 */, key_len, num_elem, addr, len, check);
- 	if (res)
- 		return res;
- 	if (memcmp(check, frame_iv, AES_BLOCK_SIZE) != 0)
- 		return -EINVAL;
+ 	SMP_DBG("w %32phN", w);
+ 	SMP_DBG("n1 %16phN n2 %16phN", n1, n2);
+ 	SMP_DBG("a1 %7phN a2 %7phN", a1, a2);
+ 
+-	err = aes_cmac(tfm_cmac, salt, w, 32, t);
++	err = smp_aes_cmac(salt, w, 32, t);
+ 	if (err)
+ 		return err;
+ 
+ 	SMP_DBG("t %16phN", t);
+ 
+@@ -263,31 +248,30 @@ static int smp_f5(struct crypto_shash *tfm_cmac, const u8 w[32],
+ 	memcpy(m + 32, n1, 16);
+ 	memcpy(m + 48, btle, 4);
+ 
+ 	m[52] = 0; /* Counter */
+ 
+-	err = aes_cmac(tfm_cmac, t, m, sizeof(m), mackey);
++	err = smp_aes_cmac(t, m, sizeof(m), mackey);
+ 	if (err)
+ 		return err;
+ 
+ 	SMP_DBG("mackey %16phN", mackey);
+ 
+ 	m[52] = 1; /* Counter */
+ 
+-	err = aes_cmac(tfm_cmac, t, m, sizeof(m), ltk);
++	err = smp_aes_cmac(t, m, sizeof(m), ltk);
+ 	if (err)
+ 		return err;
+ 
+ 	SMP_DBG("ltk %16phN", ltk);
+ 
  	return 0;
+ }
+ 
+-static int smp_f6(struct crypto_shash *tfm_cmac, const u8 w[16],
+-		  const u8 n1[16], const u8 n2[16], const u8 r[16],
+-		  const u8 io_cap[3], const u8 a1[7], const u8 a2[7],
+-		  u8 res[16])
++static int smp_f6(const u8 w[16], const u8 n1[16], const u8 n2[16],
++		  const u8 r[16], const u8 io_cap[3], const u8 a1[7],
++		  const u8 a2[7], u8 res[16])
+ {
+ 	u8 m[65];
+ 	int err;
+ 
+ 	SMP_DBG("w %16phN", w);
+@@ -299,21 +283,21 @@ static int smp_f6(struct crypto_shash *tfm_cmac, const u8 w[16],
+ 	memcpy(m + 14, io_cap, 3);
+ 	memcpy(m + 17, r, 16);
+ 	memcpy(m + 33, n2, 16);
+ 	memcpy(m + 49, n1, 16);
+ 
+-	err = aes_cmac(tfm_cmac, w, m, sizeof(m), res);
++	err = smp_aes_cmac(w, m, sizeof(m), res);
+ 	if (err)
+ 		return err;
+ 
+ 	SMP_DBG("res %16phN", res);
+ 
+ 	return err;
+ }
+ 
+-static int smp_g2(struct crypto_shash *tfm_cmac, const u8 u[32], const u8 v[32],
+-		  const u8 x[16], const u8 y[16], u32 *val)
++static int smp_g2(const u8 u[32], const u8 v[32], const u8 x[16],
++		  const u8 y[16], u32 *val)
+ {
+ 	u8 m[80], tmp[16];
+ 	int err;
+ 
+ 	SMP_DBG("u %32phN", u);
+@@ -322,11 +306,11 @@ static int smp_g2(struct crypto_shash *tfm_cmac, const u8 u[32], const u8 v[32],
+ 
+ 	memcpy(m, y, 16);
+ 	memcpy(m + 16, v, 32);
+ 	memcpy(m + 48, u, 32);
+ 
+-	err = aes_cmac(tfm_cmac, x, m, sizeof(m), tmp);
++	err = smp_aes_cmac(x, m, sizeof(m), tmp);
+ 	if (err)
+ 		return err;
+ 
+ 	*val = get_unaligned_le32(tmp);
+ 	*val %= 1000000;
+@@ -334,34 +318,32 @@ static int smp_g2(struct crypto_shash *tfm_cmac, const u8 u[32], const u8 v[32],
+ 	SMP_DBG("val %06u", *val);
+ 
+ 	return 0;
+ }
+ 
+-static int smp_h6(struct crypto_shash *tfm_cmac, const u8 w[16],
+-		  const u8 key_id[4], u8 res[16])
++static int smp_h6(const u8 w[16], const u8 key_id[4], u8 res[16])
+ {
+ 	int err;
+ 
+ 	SMP_DBG("w %16phN key_id %4phN", w, key_id);
+ 
+-	err = aes_cmac(tfm_cmac, w, key_id, 4, res);
++	err = smp_aes_cmac(w, key_id, 4, res);
+ 	if (err)
+ 		return err;
+ 
+ 	SMP_DBG("res %16phN", res);
+ 
+ 	return err;
+ }
+ 
+-static int smp_h7(struct crypto_shash *tfm_cmac, const u8 w[16],
+-		  const u8 salt[16], u8 res[16])
++static int smp_h7(const u8 w[16], const u8 salt[16], u8 res[16])
+ {
+ 	int err;
+ 
+ 	SMP_DBG("w %16phN salt %16phN", w, salt);
+ 
+-	err = aes_cmac(tfm_cmac, salt, w, 16, res);
++	err = smp_aes_cmac(salt, w, 16, res);
+ 	if (err)
+ 		return err;
+ 
+ 	SMP_DBG("res %16phN", res);
+ 
+@@ -572,12 +554,11 @@ int smp_generate_oob(struct hci_dev *hdev, u8 hash[16], u8 rand[16])
+ 	SMP_DBG("OOB Public Key X: %32phN", smp->local_pk);
+ 	SMP_DBG("OOB Public Key Y: %32phN", smp->local_pk + 32);
+ 
+ 	get_random_bytes(smp->local_rand, 16);
+ 
+-	err = smp_f4(smp->tfm_cmac, smp->local_pk, smp->local_pk,
+-		     smp->local_rand, 0, hash);
++	err = smp_f4(smp->local_pk, smp->local_pk, smp->local_rand, 0, hash);
+ 	if (err < 0)
+ 		return err;
+ 
+ 	memcpy(rand, smp->local_rand, 16);
+ 
+@@ -755,11 +736,10 @@ static void smp_chan_destroy(struct l2cap_conn *conn)
+ 
+ 	kfree_sensitive(smp->csrk);
+ 	kfree_sensitive(smp->responder_csrk);
+ 	kfree_sensitive(smp->link_key);
+ 
+-	crypto_free_shash(smp->tfm_cmac);
+ 	crypto_free_kpp(smp->tfm_ecdh);
+ 
+ 	/* Ensure that we don't leave any debug key around if debug key
+ 	 * support hasn't been explicitly enabled.
+ 	 */
+@@ -1161,27 +1141,27 @@ static void sc_generate_link_key(struct smp_chan *smp)
+ 
+ 	if (test_bit(SMP_FLAG_CT2, &smp->flags)) {
+ 		/* SALT = 0x000000000000000000000000746D7031 */
+ 		const u8 salt[16] = { 0x31, 0x70, 0x6d, 0x74 };
+ 
+-		if (smp_h7(smp->tfm_cmac, smp->tk, salt, smp->link_key)) {
++		if (smp_h7(smp->tk, salt, smp->link_key)) {
+ 			kfree_sensitive(smp->link_key);
+ 			smp->link_key = NULL;
+ 			return;
+ 		}
+ 	} else {
+ 		/* From core spec. Spells out in ASCII as 'tmp1'. */
+ 		const u8 tmp1[4] = { 0x31, 0x70, 0x6d, 0x74 };
+ 
+-		if (smp_h6(smp->tfm_cmac, smp->tk, tmp1, smp->link_key)) {
++		if (smp_h6(smp->tk, tmp1, smp->link_key)) {
+ 			kfree_sensitive(smp->link_key);
+ 			smp->link_key = NULL;
+ 			return;
+ 		}
+ 	}
+ 
+-	if (smp_h6(smp->tfm_cmac, smp->link_key, lebr, smp->link_key)) {
++	if (smp_h6(smp->link_key, lebr, smp->link_key)) {
+ 		kfree_sensitive(smp->link_key);
+ 		smp->link_key = NULL;
+ 		return;
+ 	}
+ }
+@@ -1219,21 +1199,21 @@ static void sc_generate_ltk(struct smp_chan *smp)
+ 
+ 	if (test_bit(SMP_FLAG_CT2, &smp->flags)) {
+ 		/* SALT = 0x000000000000000000000000746D7032 */
+ 		const u8 salt[16] = { 0x32, 0x70, 0x6d, 0x74 };
+ 
+-		if (smp_h7(smp->tfm_cmac, key->val, salt, smp->tk))
++		if (smp_h7(key->val, salt, smp->tk))
+ 			return;
+ 	} else {
+ 		/* From core spec. Spells out in ASCII as 'tmp2'. */
+ 		const u8 tmp2[4] = { 0x32, 0x70, 0x6d, 0x74 };
+ 
+-		if (smp_h6(smp->tfm_cmac, key->val, tmp2, smp->tk))
++		if (smp_h6(key->val, tmp2, smp->tk))
+ 			return;
+ 	}
+ 
+-	if (smp_h6(smp->tfm_cmac, smp->tk, brle, smp->tk))
++	if (smp_h6(smp->tk, brle, smp->tk))
+ 		return;
+ 
+ 	sc_add_ltk(smp);
+ }
+ 
+@@ -1390,20 +1370,14 @@ static struct smp_chan *smp_chan_create(struct l2cap_conn *conn)
+ 
+ 	smp = kzalloc(sizeof(*smp), GFP_ATOMIC);
+ 	if (!smp)
+ 		return NULL;
+ 
+-	smp->tfm_cmac = crypto_alloc_shash("cmac(aes)", 0, 0);
+-	if (IS_ERR(smp->tfm_cmac)) {
+-		bt_dev_err(hcon->hdev, "Unable to create CMAC crypto context");
+-		goto zfree_smp;
+-	}
+-
+ 	smp->tfm_ecdh = crypto_alloc_kpp("ecdh-nist-p256", 0, 0);
+ 	if (IS_ERR(smp->tfm_ecdh)) {
+ 		bt_dev_err(hcon->hdev, "Unable to create ECDH crypto context");
+-		goto free_shash;
++		goto zfree_smp;
+ 	}
+ 
+ 	smp->conn = conn;
+ 	chan->data = smp;
+ 
+@@ -1413,12 +1387,10 @@ static struct smp_chan *smp_chan_create(struct l2cap_conn *conn)
+ 
+ 	hci_conn_hold(hcon);
+ 
+ 	return smp;
+ 
+-free_shash:
+-	crypto_free_shash(smp->tfm_cmac);
+ zfree_smp:
+ 	kfree_sensitive(smp);
+ 	return NULL;
+ }
+ 
+@@ -1438,11 +1410,11 @@ static int sc_mackey_and_ltk(struct smp_chan *smp, u8 mackey[16], u8 ltk[16])
+ 	memcpy(a, &hcon->init_addr, 6);
+ 	memcpy(b, &hcon->resp_addr, 6);
+ 	a[6] = hcon->init_addr_type;
+ 	b[6] = hcon->resp_addr_type;
+ 
+-	return smp_f5(smp->tfm_cmac, smp->dhkey, na, nb, a, b, mackey, ltk);
++	return smp_f5(smp->dhkey, na, nb, a, b, mackey, ltk);
+ }
+ 
+ static void sc_dhkey_check(struct smp_chan *smp)
+ {
+ 	struct hci_conn *hcon = smp->conn->hcon;
+@@ -1471,12 +1443,12 @@ static void sc_dhkey_check(struct smp_chan *smp)
+ 		put_unaligned_le32(hcon->passkey_notify, r);
+ 
+ 	if (smp->method == REQ_OOB)
+ 		memcpy(r, smp->rr, 16);
+ 
+-	smp_f6(smp->tfm_cmac, smp->mackey, smp->prnd, smp->rrnd, r, io_cap,
+-	       local_addr, remote_addr, check.e);
++	smp_f6(smp->mackey, smp->prnd, smp->rrnd, r, io_cap, local_addr,
++	       remote_addr, check.e);
+ 
+ 	smp_send_cmd(smp->conn, SMP_CMD_DHKEY_CHECK, sizeof(check), &check);
+ }
+ 
+ static u8 sc_passkey_send_confirm(struct smp_chan *smp)
+@@ -1489,11 +1461,11 @@ static u8 sc_passkey_send_confirm(struct smp_chan *smp)
+ 	r = ((hcon->passkey_notify >> smp->passkey_round) & 0x01);
+ 	r |= 0x80;
+ 
+ 	get_random_bytes(smp->prnd, sizeof(smp->prnd));
+ 
+-	if (smp_f4(smp->tfm_cmac, smp->local_pk, smp->remote_pk, smp->prnd, r,
++	if (smp_f4(smp->local_pk, smp->remote_pk, smp->prnd, r,
+ 		   cfm.confirm_val))
+ 		return SMP_UNSPECIFIED;
+ 
+ 	smp_send_cmd(conn, SMP_CMD_PAIRING_CONFIRM, sizeof(cfm), &cfm);
+ 
+@@ -1514,12 +1486,11 @@ static u8 sc_passkey_round(struct smp_chan *smp, u8 smp_op)
+ 	switch (smp_op) {
+ 	case SMP_CMD_PAIRING_RANDOM:
+ 		r = ((hcon->passkey_notify >> smp->passkey_round) & 0x01);
+ 		r |= 0x80;
+ 
+-		if (smp_f4(smp->tfm_cmac, smp->remote_pk, smp->local_pk,
+-			   smp->rrnd, r, cfm))
++		if (smp_f4(smp->remote_pk, smp->local_pk, smp->rrnd, r, cfm))
+ 			return SMP_UNSPECIFIED;
+ 
+ 		if (crypto_memneq(smp->pcnf, cfm, 16))
+ 			return SMP_CONFIRM_FAILED;
+ 
+@@ -2175,12 +2146,11 @@ static u8 smp_cmd_pairing_random(struct l2cap_conn *conn, struct sk_buff *skb)
+ 		return sc_passkey_round(smp, SMP_CMD_PAIRING_RANDOM);
+ 
+ 	if (test_bit(SMP_FLAG_INITIATOR, &smp->flags)) {
+ 		u8 cfm[16];
+ 
+-		err = smp_f4(smp->tfm_cmac, smp->remote_pk, smp->local_pk,
+-			     smp->rrnd, 0, cfm);
++		err = smp_f4(smp->remote_pk, smp->local_pk, smp->rrnd, 0, cfm);
+ 		if (err)
+ 			return SMP_UNSPECIFIED;
+ 
+ 		if (crypto_memneq(smp->pcnf, cfm, 16))
+ 			return SMP_CONFIRM_FAILED;
+@@ -2202,11 +2172,11 @@ static u8 smp_cmd_pairing_random(struct l2cap_conn *conn, struct sk_buff *skb)
+ 			SMP_ALLOW_CMD(smp, SMP_CMD_DHKEY_CHECK);
+ 		}
+ 		return 0;
+ 	}
+ 
+-	err = smp_g2(smp->tfm_cmac, pkax, pkbx, na, nb, &passkey);
++	err = smp_g2(pkax, pkbx, na, nb, &passkey);
+ 	if (err)
+ 		return SMP_UNSPECIFIED;
+ 
+ 	/* Always require user confirmation for Just-Works pairing to prevent
+ 	 * impersonation attacks, or in case of a legitimate device that is
+@@ -2747,12 +2717,12 @@ static int smp_cmd_public_key(struct l2cap_conn *conn, struct sk_buff *skb)
+ 	}
+ 
+ 	memcpy(smp->remote_pk, key, 64);
+ 
+ 	if (test_bit(SMP_FLAG_REMOTE_OOB, &smp->flags)) {
+-		err = smp_f4(smp->tfm_cmac, smp->remote_pk, smp->remote_pk,
+-			     smp->rr, 0, cfm.confirm_val);
++		err = smp_f4(smp->remote_pk, smp->remote_pk, smp->rr, 0,
++			     cfm.confirm_val);
+ 		if (err)
+ 			return SMP_UNSPECIFIED;
+ 
+ 		if (crypto_memneq(cfm.confirm_val, smp->pcnf, 16))
+ 			return SMP_CONFIRM_FAILED;
+@@ -2848,12 +2818,12 @@ static int smp_cmd_public_key(struct l2cap_conn *conn, struct sk_buff *skb)
+ 	 * send the confirm value.
+ 	 */
+ 	if (test_bit(SMP_FLAG_INITIATOR, &smp->flags))
+ 		return 0;
+ 
+-	err = smp_f4(smp->tfm_cmac, smp->local_pk, smp->remote_pk, smp->prnd,
+-		     0, cfm.confirm_val);
++	err = smp_f4(smp->local_pk, smp->remote_pk, smp->prnd, 0,
++		     cfm.confirm_val);
+ 	if (err)
+ 		return SMP_UNSPECIFIED;
+ 
+ 	smp_send_cmd(conn, SMP_CMD_PAIRING_CONFIRM, sizeof(cfm), &cfm);
+ 	SMP_ALLOW_CMD(smp, SMP_CMD_PAIRING_RANDOM);
+@@ -2896,12 +2866,12 @@ static int smp_cmd_dhkey_check(struct l2cap_conn *conn, struct sk_buff *skb)
+ 	if (smp->method == REQ_PASSKEY || smp->method == DSP_PASSKEY)
+ 		put_unaligned_le32(hcon->passkey_notify, r);
+ 	else if (smp->method == REQ_OOB)
+ 		memcpy(r, smp->lr, 16);
+ 
+-	err = smp_f6(smp->tfm_cmac, smp->mackey, smp->rrnd, smp->prnd, r,
+-		     io_cap, remote_addr, local_addr, e);
++	err = smp_f6(smp->mackey, smp->rrnd, smp->prnd, r, io_cap, remote_addr,
++		     local_addr, e);
+ 	if (err)
+ 		return SMP_UNSPECIFIED;
+ 
+ 	if (crypto_memneq(check->e, e, 16))
+ 		return SMP_DHKEY_CHECK_FAILED;
+@@ -3283,11 +3253,10 @@ static const struct l2cap_ops smp_root_chan_ops = {
+ 
+ static struct l2cap_chan *smp_add_cid(struct hci_dev *hdev, u16 cid)
+ {
+ 	struct l2cap_chan *chan;
+ 	struct smp_dev *smp;
+-	struct crypto_shash *tfm_cmac;
+ 	struct crypto_kpp *tfm_ecdh;
+ 
+ 	if (cid == L2CAP_CID_SMP_BREDR) {
+ 		smp = NULL;
+ 		goto create_chan;
+@@ -3295,34 +3264,24 @@ static struct l2cap_chan *smp_add_cid(struct hci_dev *hdev, u16 cid)
+ 
+ 	smp = kzalloc(sizeof(*smp), GFP_KERNEL);
+ 	if (!smp)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	tfm_cmac = crypto_alloc_shash("cmac(aes)", 0, 0);
+-	if (IS_ERR(tfm_cmac)) {
+-		bt_dev_err(hdev, "Unable to create CMAC crypto context");
+-		kfree_sensitive(smp);
+-		return ERR_CAST(tfm_cmac);
+-	}
+-
+ 	tfm_ecdh = crypto_alloc_kpp("ecdh-nist-p256", 0, 0);
+ 	if (IS_ERR(tfm_ecdh)) {
+ 		bt_dev_err(hdev, "Unable to create ECDH crypto context");
+-		crypto_free_shash(tfm_cmac);
+ 		kfree_sensitive(smp);
+ 		return ERR_CAST(tfm_ecdh);
+ 	}
+ 
+ 	smp->local_oob = false;
+-	smp->tfm_cmac = tfm_cmac;
+ 	smp->tfm_ecdh = tfm_ecdh;
+ 
+ create_chan:
+ 	chan = l2cap_chan_create();
+ 	if (!chan) {
+ 		if (smp) {
+-			crypto_free_shash(smp->tfm_cmac);
+ 			crypto_free_kpp(smp->tfm_ecdh);
+ 			kfree_sensitive(smp);
+ 		}
+ 		return ERR_PTR(-ENOMEM);
+ 	}
+@@ -3365,11 +3324,10 @@ static void smp_del_chan(struct l2cap_chan *chan)
+ 	BT_DBG("chan %p", chan);
+ 
+ 	smp = chan->data;
+ 	if (smp) {
+ 		chan->data = NULL;
+-		crypto_free_shash(smp->tfm_cmac);
+ 		crypto_free_kpp(smp->tfm_ecdh);
+ 		kfree_sensitive(smp);
+ 	}
+ 
+ 	l2cap_chan_put(chan);
+@@ -3562,11 +3520,11 @@ static int __init test_s1(void)
+ 		return -EINVAL;
+ 
+ 	return 0;
+ }
+ 
+-static int __init test_f4(struct crypto_shash *tfm_cmac)
++static int __init test_f4(void)
+ {
+ 	const u8 u[32] = {
+ 			0xe6, 0x9d, 0x35, 0x0e, 0x48, 0x01, 0x03, 0xcc,
+ 			0xdb, 0xfd, 0xf4, 0xac, 0x11, 0x91, 0xf4, 0xef,
+ 			0xb9, 0xa5, 0xf9, 0xe9, 0xa7, 0x83, 0x2c, 0x5e,
+@@ -3584,21 +3542,21 @@ static int __init test_f4(struct crypto_shash *tfm_cmac)
+ 			0x2d, 0x87, 0x74, 0xa9, 0xbe, 0xa1, 0xed, 0xf1,
+ 			0x1c, 0xbd, 0xa9, 0x07, 0xf1, 0x16, 0xc9, 0xf2 };
+ 	u8 res[16];
+ 	int err;
+ 
+-	err = smp_f4(tfm_cmac, u, v, x, z, res);
++	err = smp_f4(u, v, x, z, res);
+ 	if (err)
+ 		return err;
+ 
+ 	if (crypto_memneq(res, exp, 16))
+ 		return -EINVAL;
+ 
+ 	return 0;
+ }
+ 
+-static int __init test_f5(struct crypto_shash *tfm_cmac)
++static int __init test_f5(void)
+ {
+ 	const u8 w[32] = {
+ 			0x98, 0xa6, 0xbf, 0x73, 0xf3, 0x34, 0x8d, 0x86,
+ 			0xf1, 0x66, 0xf8, 0xb4, 0x13, 0x6b, 0x79, 0x99,
+ 			0x9b, 0x7d, 0x39, 0x0a, 0xa6, 0x10, 0x10, 0x34,
+@@ -3618,11 +3576,11 @@ static int __init test_f5(struct crypto_shash *tfm_cmac)
+ 			0x20, 0x6e, 0x63, 0xce, 0x20, 0x6a, 0x3f, 0xfd,
+ 			0x02, 0x4a, 0x08, 0xa1, 0x76, 0xf1, 0x65, 0x29 };
+ 	u8 mackey[16], ltk[16];
+ 	int err;
+ 
+-	err = smp_f5(tfm_cmac, w, n1, n2, a1, a2, mackey, ltk);
++	err = smp_f5(w, n1, n2, a1, a2, mackey, ltk);
+ 	if (err)
+ 		return err;
+ 
+ 	if (crypto_memneq(mackey, exp_mackey, 16))
+ 		return -EINVAL;
+@@ -3631,11 +3589,11 @@ static int __init test_f5(struct crypto_shash *tfm_cmac)
+ 		return -EINVAL;
+ 
+ 	return 0;
+ }
+ 
+-static int __init test_f6(struct crypto_shash *tfm_cmac)
++static int __init test_f6(void)
+ {
+ 	const u8 w[16] = {
+ 			0x20, 0x6e, 0x63, 0xce, 0x20, 0x6a, 0x3f, 0xfd,
+ 			0x02, 0x4a, 0x08, 0xa1, 0x76, 0xf1, 0x65, 0x29 };
+ 	const u8 n1[16] = {
+@@ -3654,21 +3612,21 @@ static int __init test_f6(struct crypto_shash *tfm_cmac)
+ 			0x61, 0x8f, 0x95, 0xda, 0x09, 0x0b, 0x6c, 0xd2,
+ 			0xc5, 0xe8, 0xd0, 0x9c, 0x98, 0x73, 0xc4, 0xe3 };
+ 	u8 res[16];
+ 	int err;
+ 
+-	err = smp_f6(tfm_cmac, w, n1, n2, r, io_cap, a1, a2, res);
++	err = smp_f6(w, n1, n2, r, io_cap, a1, a2, res);
+ 	if (err)
+ 		return err;
+ 
+ 	if (crypto_memneq(res, exp, 16))
+ 		return -EINVAL;
+ 
+ 	return 0;
+ }
+ 
+-static int __init test_g2(struct crypto_shash *tfm_cmac)
++static int __init test_g2(void)
+ {
+ 	const u8 u[32] = {
+ 			0xe6, 0x9d, 0x35, 0x0e, 0x48, 0x01, 0x03, 0xcc,
+ 			0xdb, 0xfd, 0xf4, 0xac, 0x11, 0x91, 0xf4, 0xef,
+ 			0xb9, 0xa5, 0xf9, 0xe9, 0xa7, 0x83, 0x2c, 0x5e,
+@@ -3686,21 +3644,21 @@ static int __init test_g2(struct crypto_shash *tfm_cmac)
+ 			0x6e, 0x5f, 0xa7, 0x25, 0xcc, 0xe7, 0xe8, 0xa6 };
+ 	const u32 exp_val = 0x2f9ed5ba % 1000000;
+ 	u32 val;
+ 	int err;
+ 
+-	err = smp_g2(tfm_cmac, u, v, x, y, &val);
++	err = smp_g2(u, v, x, y, &val);
+ 	if (err)
+ 		return err;
+ 
+ 	if (val != exp_val)
+ 		return -EINVAL;
+ 
+ 	return 0;
+ }
+ 
+-static int __init test_h6(struct crypto_shash *tfm_cmac)
++static int __init test_h6(void)
+ {
+ 	const u8 w[16] = {
+ 			0x9b, 0x7d, 0x39, 0x0a, 0xa6, 0x10, 0x10, 0x34,
+ 			0x05, 0xad, 0xc8, 0x57, 0xa3, 0x34, 0x02, 0xec };
+ 	const u8 key_id[4] = { 0x72, 0x62, 0x65, 0x6c };
+@@ -3708,11 +3666,11 @@ static int __init test_h6(struct crypto_shash *tfm_cmac)
+ 			0x99, 0x63, 0xb1, 0x80, 0xe2, 0xa9, 0xd3, 0xe8,
+ 			0x1c, 0xc9, 0x6d, 0xe7, 0x02, 0xe1, 0x9a, 0x2d };
+ 	u8 res[16];
+ 	int err;
+ 
+-	err = smp_h6(tfm_cmac, w, key_id, res);
++	err = smp_h6(w, key_id, res);
+ 	if (err)
+ 		return err;
+ 
+ 	if (crypto_memneq(res, exp, 16))
+ 		return -EINVAL;
+@@ -3733,12 +3691,11 @@ static const struct file_operations test_smp_fops = {
+ 	.open		= simple_open,
+ 	.read		= test_smp_read,
+ 	.llseek		= default_llseek,
+ };
+ 
+-static int __init run_selftests(struct crypto_shash *tfm_cmac,
+-				struct crypto_kpp *tfm_ecdh)
++static int __init run_selftests(struct crypto_kpp *tfm_ecdh)
+ {
+ 	ktime_t calltime, delta, rettime;
+ 	unsigned long long duration;
+ 	int err;
+ 
+@@ -3766,35 +3723,35 @@ static int __init run_selftests(struct crypto_shash *tfm_cmac,
+ 	if (err) {
+ 		BT_ERR("smp_s1 test failed");
+ 		goto done;
+ 	}
+ 
+-	err = test_f4(tfm_cmac);
++	err = test_f4();
+ 	if (err) {
+ 		BT_ERR("smp_f4 test failed");
+ 		goto done;
+ 	}
+ 
+-	err = test_f5(tfm_cmac);
++	err = test_f5();
+ 	if (err) {
+ 		BT_ERR("smp_f5 test failed");
+ 		goto done;
+ 	}
+ 
+-	err = test_f6(tfm_cmac);
++	err = test_f6();
+ 	if (err) {
+ 		BT_ERR("smp_f6 test failed");
+ 		goto done;
+ 	}
+ 
+-	err = test_g2(tfm_cmac);
++	err = test_g2();
+ 	if (err) {
+ 		BT_ERR("smp_g2 test failed");
+ 		goto done;
+ 	}
+ 
+-	err = test_h6(tfm_cmac);
++	err = test_h6();
+ 	if (err) {
+ 		BT_ERR("smp_h6 test failed");
+ 		goto done;
+ 	}
+ 
+@@ -3817,30 +3774,21 @@ static int __init run_selftests(struct crypto_shash *tfm_cmac,
+ 	return err;
+ }
+ 
+ int __init bt_selftest_smp(void)
+ {
+-	struct crypto_shash *tfm_cmac;
+ 	struct crypto_kpp *tfm_ecdh;
+ 	int err;
+ 
+-	tfm_cmac = crypto_alloc_shash("cmac(aes)", 0, 0);
+-	if (IS_ERR(tfm_cmac)) {
+-		BT_ERR("Unable to create CMAC crypto context");
+-		return PTR_ERR(tfm_cmac);
+-	}
+-
+ 	tfm_ecdh = crypto_alloc_kpp("ecdh-nist-p256", 0, 0);
+ 	if (IS_ERR(tfm_ecdh)) {
+ 		BT_ERR("Unable to create ECDH crypto context");
+-		crypto_free_shash(tfm_cmac);
+ 		return PTR_ERR(tfm_ecdh);
+ 	}
+ 
+-	err = run_selftests(tfm_cmac, tfm_ecdh);
++	err = run_selftests(tfm_ecdh);
+ 
+-	crypto_free_shash(tfm_cmac);
+ 	crypto_free_kpp(tfm_ecdh);
+ 
+ 	return err;
+ }
+ 
 -- 
 2.53.0
 
