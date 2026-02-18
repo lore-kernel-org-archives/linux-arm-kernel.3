@@ -4,101 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27248E9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEC2E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 14:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TvFkedKwU7Tki1WJjhUdJTuzQZqOqROBb2WWlOoeJHc=; b=uA8EGOrgjIKeE0o7rRDNPIy85O
-	d9Vt+IYyQLnaJ7L8y0aF10t+yPb71W0xOAlxPntFS6I1aYPQ86nMzrbr0bCnsxxW2eYarYSKZpG20
-	DrrbU1KBN0uqh+8PadUveu+WHGtpejmA/TGBkA6G0dmgoHVWbjkbzwtqii1O3XEvtESE2zwjvQurs
-	7KSToNRe9Bj7at14Kewt1f0Tte8DipGNC+jJWZ3TBP0Evxe/Jb7iuGCFsu5xJhRO19NRJbLhR/odO
-	6OkVodOKKqok9agb91227d+supFwjCnX5GB4Jetb8LpEXbC15iMO1zKeTZ0KP1rOGTiPm3vb0uMzy
-	n6iXn2xA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VULWRMqDwrQSkS2axa/l45VBaPx1mG1mXAyFjpAo658=; b=tIc+72UOvzjhgSKP4n6WoHKoCQ
+	BoUE1sO0rm1VvPsfFNpShzkznMAlALq6u+okHNHBCVWgtUpvZ+XbR26/q8L1IhE9/4A3QChAE81X+
+	ZZByonnNZVY2EqOuzdjnyXK9tF5n5PgUGHCnXmYnKpi+3nHTVD/Kj7YRS19fIr5vfu0bCJ7U/H4G3
+	rUlN1MN/52xQ7e0pfPgcPM6hv0JOmXDdrE535zhBpMyC2hPX4RTguLNpspoeRQzs9u4HVGWT2FVgE
+	zDW4+sJP4b7oGcxGxqi032w8CeBZ/emkS9pZ63UhMzZZ9XPKj3S4g8nJalFUVc995P1TbMihIk6GL
+	DIVfkaKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsi1A-00000009v0g-17ur;
-	Wed, 18 Feb 2026 13:55:04 +0000
-Received: from mx-relay97-hz2.antispameurope.com ([94.100.136.197])
+	id 1vsj0r-00000009yTZ-3Ps8;
+	Wed, 18 Feb 2026 14:58:50 +0000
+Received: from mail-westus2azon11012012.outbound.protection.outlook.com ([52.101.48.12] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsi13-00000009uxM-2qrI
+	id 1vsj0p-00000009yTG-0VHl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 13:54:59 +0000
-ARC-Authentication-Results: i=1; mx-gate97-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=TvFkedKwU7Tki1WJjhUdJTuzQZqOqROBb2WWlOoeJHc=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1771422887;
- b=d+pTuGSXR030cO9xu4KjBbYYVPavD8NVkRCUvdBOeODFHNGlQ3lGscKp+xzXTyxZBTAIQaYg
- w657hZVA1CeEXNLZJ5nClBSI9I4gwTSuCi1rDJPFg2K0Ao+Yds0m6SNtj8jhBeVx2PgZWOF7mUK
- 6M1ET1/6vgrmIouCNYBCduGPXWQbQOZBX8k9M22TJWNSNFSgrNzcDCrUkWvsUmNgH+ZKuBVadjG
- P/WqxBU64IgDo3qP5C9vuOYL2YQHZ1bRAp+WkfoVxe5A8bxLXi/j9iYTxSUfsU62sBWg0tcTgxw
- 8vBy2YN5DevmCZcKVtxq9Y2Is3m2rhzgJqsdNujTqgiMA==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1771422887;
- b=S1rHsX8XQaXyzHfcYWtWJ8FY931pZASiUKE9Zt73/CoM8Wv8ZoPbDOI6dTpUdi+XIPt3/8xd
- Pd23DfT1y02zWQvJVHOOrxGygtPGhFkidKVhq1a6oSGM4Aj1A9cYwjZWbJkE4QfzNaTB8QnnsqP
- qq49TXalG9RMGS/AI7tPnN2oQ20iHMeO/NQPyclsZozAuMwbThm2pxT9af3BFscNYnLlK03tKcG
- Rs5R+WRSVO6BtPTXwMPGNlozMRGacv59f5G0hgaJq83mNJSuXK1EMSnk1L3bSzLvTf5TsQSZdzN
- jmkue3yKt/TVBIjly9oXQZ8A7HfpRFh8Sk4OzccuOCRjw==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay97-hz2.antispameurope.com;
- Wed, 18 Feb 2026 14:54:47 +0100
-Received: from FEILKEA-LNX-W.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.feilke@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 8B61D220714;
-	Wed, 18 Feb 2026 14:54:27 +0100 (CET)
-From: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: linux@ew.tq-group.com,
-	Alexander Feilke <Alexander.Feilke@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] ARM: dts: tqma7: add boot phase properties
-Date: Wed, 18 Feb 2026 14:54:13 +0100
-Message-ID: <20260218135415.204974-3-Alexander.Feilke@ew.tq-group.com>
+	Wed, 18 Feb 2026 14:58:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ngSXoxxTM4NbWtkEQiPO6Wy4PabpK1kJ/n97L6lvO12vFFfiFwhQ3azMVvtRebhWT4cw4kulBecczJzgsvIYUxm7nYmERMQ+IP+BHZpG0ANz1BHodPfu54E63rvV4CfdRPHFRX2BBQZS7wOXw8ectkn7Bmo5eFVLA7KlMcw6TVjJXNAUB2R+egktF6LCHkQgJ7zyNE5W9xVYPIQF4oTn3qsM+Bpu9bIpNzwLQxKOtcz2FNxiAlICKFrID1ihscrU4IC1WuqjotIgsIsvx0/SfhzLbXGyAVI+h5AINE/FDgtcFjvpzxdcY8scxNd8wiPovWdxK/Nrt35bf1EKif9oYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VULWRMqDwrQSkS2axa/l45VBaPx1mG1mXAyFjpAo658=;
+ b=Vqd9tCloGWitkcol89zMU2C/jOGPHasKtTSf7GJaNcpKSH7LxLMl4j9Wd2dkgKfa8pxtsZLNtuO/po1r8QpGhvzfammR0CcJDtsPl8YMTGUGf1T+4Lk269CYsDGeVsibmgXYY4olV9jRCNUmtC+cWEgIJcCcMZAWJiyoRWCWL2jBj1mRx153cP4xhLndhVX+iV3OzWhNw0L1tokaEfZHgsTtUrL4qTH1to0mqNoYOjav77IK2O+Q/emYu3jhyvsW2Ntz0gN8zB298jw0FH1PcjO79mTRa9wWsUNIGfzmM+4oqYViNNJgOUtnqYtrE6L5rwB34xVqdI2tThk8HHMNXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VULWRMqDwrQSkS2axa/l45VBaPx1mG1mXAyFjpAo658=;
+ b=rOq7ExJK+LqPhc70yJRykoe1xoR0AQSL0q/BkPD1hssQveYXnpDSOq4nZH9Wl4hJuj2QcMaqkBbbz9D6PGnUFuhfn0nMVtfCdDmgQEH8fnxpXszlqJ5qSCVs033J40yl1/pIdyCjkLP9qWMzZDOPow/ER7MPcrF7VHZMVw4BX8/dncApdF/ZQmg9y6480FEORvkE68KiqLuS4a1bln+oc8TtFW1lkSRUJINOl7l4BE6tBb9FmsX4UgqYI7rwJtijY4ozaf+1wBf5w2XSDJUuMWXZhhltmNXe3a6IYlY+eDAdlPRCmMfEUOYXPUIgzfxnd9smVW1PgPWmntRSt4+pBw==
+Received: from BL1P221CA0002.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:2c5::32)
+ by DS0PR12MB8042.namprd12.prod.outlook.com (2603:10b6:8:141::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.13; Wed, 18 Feb
+ 2026 14:58:38 +0000
+Received: from BL02EPF0001A101.namprd05.prod.outlook.com
+ (2603:10b6:208:2c5:cafe::cb) by BL1P221CA0002.outlook.office365.com
+ (2603:10b6:208:2c5::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.14 via Frontend Transport; Wed,
+ 18 Feb 2026 14:58:38 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BL02EPF0001A101.mail.protection.outlook.com (10.167.241.132) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9632.12 via Frontend Transport; Wed, 18 Feb 2026 14:58:38 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Feb
+ 2026 06:58:17 -0800
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Feb
+ 2026 06:58:16 -0800
+Received: from build-bwicaksono-noble-20251018.internal (10.127.8.11) by
+ mail.nvidia.com (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via
+ Frontend Transport; Wed, 18 Feb 2026 06:58:15 -0800
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: <will@kernel.org>, <suzuki.poulose@arm.com>, <robin.murphy@arm.com>,
+	<ilkka@os.amperecomputing.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, <mark.rutland@arm.com>, <treding@nvidia.com>,
+	<jonathanh@nvidia.com>, <vsethi@nvidia.com>, <rwiley@nvidia.com>,
+	<sdonthineni@nvidia.com>, <skelley@nvidia.com>, <ywan@nvidia.com>,
+	<mochs@nvidia.com>, <nirmoyd@nvidia.com>, Besar Wicaksono
+	<bwicaksono@nvidia.com>
+Subject: [PATCH v2 0/8] perf: add NVIDIA Tegra410 Uncore PMU support
+Date: Wed, 18 Feb 2026 14:58:01 +0000
+Message-ID: <20260218145809.1622856-1-bwicaksono@nvidia.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260218135415.204974-1-Alexander.Feilke@ew.tq-group.com>
-References: <20260218135415.204974-1-Alexander.Feilke@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.feilke@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.feilke@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay97-hz2.antispameurope.com with 4fGJ0N5DXnz1yKnb
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 3ffff1d6d88180f557de01e140f7d817
-X-cloud-security: scantime:2.271
-DKIM-Signature: a=rsa-sha256;
- bh=TvFkedKwU7Tki1WJjhUdJTuzQZqOqROBb2WWlOoeJHc=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1771422886; v=1;
- b=eDAPTgcxaIPH2aSUPhdKD4WFG2Gc6cdlzrlNDB50QdVqIz9l42L3hjYPDki6ji6YMM12ZIZy
- QJwRgEvUVI8EKfec4eb47DipHVU6zjJHqtoBsTa9xNvsR2XtoM/Xu4Iyp0HhVrLuqftC6Xv9uSx
- sjtKNs8G7rHHN2eFMoVYCDjTAsDFxvMobgTRmySlGApXQQsZ0oBnagMMOB7ST3hyQ7PGdhB+Cij
- C4rmna4C9NUXWrsXb+vZNS43bIptu/KjmeJNFZM+/9vW0Mjp9MtAI8f8rudcgNr+bjhm2bELoRY
- Xka1FzYY68YQaXLYDbgzMh0kFJ/lzdPTRf9dE6Lt4BHtg==
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A101:EE_|DS0PR12MB8042:EE_
+X-MS-Office365-Filtering-Correlation-Id: 35b2c2fb-d320-4c1a-7b9a-08de6efe329a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NBuZCcKbwiBFcEaZ1AtHNK0w8rre5LkMW7XIktTj3zur8wASnEgcm65XJ+Ud?=
+ =?us-ascii?Q?XaM3wI3ElMvfUwbRFT7iguk5iOKnzzK4CmaP0LyXh0Szltz5V2EvXF7bk2Ec?=
+ =?us-ascii?Q?5wqL824Kdh5AuD0TvOqtPuuvuTC/8qESJwdcKyKn50SBo6av4MCWz/Qb2DVp?=
+ =?us-ascii?Q?kq4KTWlNEAkAU476Cl6FdX87J3CC0sbj/lSGvbMdJdtdkJHekLvZaJRsbali?=
+ =?us-ascii?Q?spEtZPnRuYTqEQ1Hv68QyDyJiqKDFdzkRNtIEe6XiC/XY66N7aREENN0/eO1?=
+ =?us-ascii?Q?Y7Q9mC87S8mGHUd8TkjArzujBbIF5gv/U38A9dt9TugcEY4Xn5iUdxvm8kM+?=
+ =?us-ascii?Q?ZQDURMq8WksM2l3+XIbiHENluXgfeL79/kOGcqUKsbDxQ1OBEgLxSGiIv9Zf?=
+ =?us-ascii?Q?2iDwhmBHGWp5oN+pQZ/3ZmWkhkFXG0HGf9oYSamg3wBWWM9T3x65fCaNP9Wu?=
+ =?us-ascii?Q?sKGfgelgzoQCiQJq4r2ab9+3mQH/QaxlkYls6Frlc+sFH5iea/ZT0GgoHYuG?=
+ =?us-ascii?Q?aLAFg2XvzDaaF2iHnwuYLY/xJPm4rRVAWXLwN/m2/x/iE51rtb9Fh5mt+58T?=
+ =?us-ascii?Q?2psIonsRp0/pA3XoQ47hkJgJDMONhmBz+KQqVDBkcMA/E0Ld6X788jXFZm76?=
+ =?us-ascii?Q?iWaGHntmTFhIKC9FD2Cqd/jE2RAk/pvilBvqT0VkTHosi6fv5R9i+ETwVlSR?=
+ =?us-ascii?Q?kxJasYqhFIDQ/vM4NhX9itcW57/tXl/vt9gOXXl8uYe0uH+XdGefDMxt3P+x?=
+ =?us-ascii?Q?LMBqTPH6BevZ/OFktBW2+2Uh+GNdQO2MuKo8tCP30ECvR5aQIjPmgprhYpVl?=
+ =?us-ascii?Q?8LVxNVlRdl3+Xd3wTNrK/Z5RL2aoUnxgiQ7/feZxLYhW4lo36fyR4lsQaGkY?=
+ =?us-ascii?Q?oID6Tt/hAc/xLHVeG7i+j2WRGvELvzOQHlYYP5Wg176lI2yPvbv2XNsnX+LX?=
+ =?us-ascii?Q?XmwkN0UwZxR+7dxJNugoWUWsb9CudUbq5eYfrg9hnE0fSNGBiqxVf1UoAkwg?=
+ =?us-ascii?Q?tRiZgn4W6M0dspAheoFy00pZjMvpHF5in7u++b9ZyYiY0ffjJYo28ebN2AF/?=
+ =?us-ascii?Q?zyjIh4AzJVk9NoPDmbUnDRIks3r1eZztOKrSZqakUvRQFBlnFUbsd8VBYeWZ?=
+ =?us-ascii?Q?5db/kNqiuAWzbuHzHcb6A1CYPcokggB8ap8WARbqgx/m64EJfJlCXmg3iGEi?=
+ =?us-ascii?Q?aS9TBrfYResgAjRDJju9psQvK/3+Au1mDSyzAeAZzWtKD2wVFj9Br/pNFzvy?=
+ =?us-ascii?Q?xSzbO7XxxfAZmUE/VMxMR65c/9YyRrMvVi+5MXCq+UiUpMNoaUwBeCV2I0zB?=
+ =?us-ascii?Q?tD4PMfin/EtT29DYj4SgC3eb5gYqkCXNWm9J78Nww3jMIM9IDLJ85205sxiM?=
+ =?us-ascii?Q?iECBzn87afAsm7FEff5vYzijXiEG7bmJ3ME3IM/ZScTSVoYsDEDLKDPsPOSp?=
+ =?us-ascii?Q?2TLLXqvFWhvkS2tnLO/a6Jqis81cM3NJW1fkdx6Uc42C0dWgIxAraQgabFXm?=
+ =?us-ascii?Q?2dLuZyhZ/Ob1mZW3cdSo+hop5GobzAF3tbRF5+PUlROeeYJhM90FqoIa6iG6?=
+ =?us-ascii?Q?HAmVOgj1YfJUkkjJw4vLS4OxnBNPo/33ntRGWtdn0ZIv6HVNFBqZiRXkTa3n?=
+ =?us-ascii?Q?bxwFlTQu9KXaSgDb8eA+LdXhz0VhfKNw0Slfmw3VRe0NEwDtz2VwBUic07j+?=
+ =?us-ascii?Q?QnrKrw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: cc7sIq+/cfFinpI6rE/BQWFuBPhmLqgg0ZFn068X1zm/d8FaHRH39PrSnGIKCJWGhK9fR3OrXmgLiN0IaJxMJbramJeLGnFumBomxY/r2/7sgNKq04kNMO7OPfAnSAyF9NRb+J7d12V2dWUtoH+mXA1gH0u3iK/IHEz0AQHAQfk34F1bnBNpu4lA6soISOfZQ+LFn5Vy05SDeLAeyDmTvpp7R0XEmix9qumlShNE/nDb9C95ZfuAWXSWarXQBrVDEGtDbTqjIMQpn2twf/PJCkcinPRJ7AihLcFVU/EEMtNsYSJsEZf2j+RVYHHa4gMMkLIC/340D6cUeePxnD/6scLnQd3yuXzBmcWlMoyXGbQiQr4HBUIGriPZE303zTR0tunZrxJs6kAVs1DTPFJZHjJBuUR23B+/wWEFv+QYrpstp8hEFwlcCXB0l8YvVmXt
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 14:58:38.0934
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 35b2c2fb-d320-4c1a-7b9a-08de6efe329a
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A101.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8042
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_055457_861474_82F41AB7 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260218_065847_189391_31E2F30E 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,71 +158,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds boot phase properties to essential resources in
-tqma7 device trees.
+This series adds driver support for the following Uncore PMUs in
+NVIDIA Tegra410 SoC:
+  - Unified Coherence Fabric (UCF)
+  - PCIE
+  - PCIE-TGT
+  - CPU Memory (CMEM) Latency
+  - NVLink-C2C
+  - NV-CLink
+  - NV-DLink
 
-Signed-off-by: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
----
- arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi  | 4 ++++
- arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi | 2 ++
- 2 files changed, 6 insertions(+)
+Changes from v1:
+  * Add more clarity on the commit message.
+  * Fix build error reported by kernel test robot on PATCH 6/8.
+    * It was missing ACPI dependency on Kconfig for the CPU Memory
+      Latency PMU.
+  * Apply code formatting suggestions from Ilkka.
+  * Added Reviewed-by from Ilkka.
+Thanks to Ilkka, Krzysztof, and Jon for the comments.
+v1: https://lore.kernel.org/all/20260126181155.2776097-1-bwicaksono@nvidia.com/T/#t
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
-index 4d948a9757f9..03f2f2cbdfbc 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
-@@ -477,6 +477,7 @@ pinctrl_uart5: uart5grp {
- 	};
- 
- 	pinctrl_uart6: uart6grp {
-+		bootph-pre-ram;
- 		fsl,pins =
- 			<MX7D_PAD_EPDC_DATA08__UART6_DCE_RX	0x7d>,
- 			<MX7D_PAD_EPDC_DATA09__UART6_DCE_TX	0x75>,
-@@ -511,6 +512,7 @@ pinctrl_usdhc1: usdhc1grp {
- 			<MX7D_PAD_SD1_DATA1__SD1_DATA1		0x5e>,
- 			<MX7D_PAD_SD1_DATA2__SD1_DATA2		0x5e>,
- 			<MX7D_PAD_SD1_DATA3__SD1_DATA3		0x5e>;
-+		bootph-pre-ram;
- 	};
- 
- 	pinctrl_usdhc1_100mhz: usdhc1_100mhzgrp {
-@@ -602,6 +604,7 @@ &uart6 {
- 	pinctrl-0 = <&pinctrl_uart6>;
- 	assigned-clocks = <&clks IMX7D_UART6_ROOT_SRC>;
- 	assigned-clock-parents = <&clks IMX7D_OSC_24M_CLK>;
-+	bootph-pre-ram;
- 	status = "okay";
- };
- 
-@@ -646,6 +649,7 @@ &usdhc1 {
- 	no-1-8-v;
- 	no-sdio;
- 	no-mmc;
-+	bootph-pre-ram;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
-index 2966a33bc528..3a01b1cfb5fa 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
-@@ -214,6 +214,7 @@ pinctrl_usdhc3: usdhc3grp {
- 			<MX7D_PAD_SD3_DATA6__SD3_DATA6		0x59>,
- 			<MX7D_PAD_SD3_DATA7__SD3_DATA7		0x59>,
- 			<MX7D_PAD_SD3_STROBE__SD3_STROBE	0x19>;
-+		bootph-pre-ram;
- 	};
- 
- 	pinctrl_usdhc3_100mhz: usdhc3_100mhzgrp {
-@@ -288,6 +289,7 @@ &usdhc3 {
- 	no-sdio;
- 	vmmc-supply = <&vgen4_reg>;
- 	vqmmc-supply = <&sw2_reg>;
-+	bootph-pre-ram;
- 	status = "okay";
- };
- 
+Thanks,
+Besar
+
+Besar Wicaksono (8):
+  perf/arm_cspmu: nvidia: Rename doc to Tegra241
+  perf/arm_cspmu: nvidia: Add Tegra410 UCF PMU
+  perf/arm_cspmu: Add arm_cspmu_acpi_dev_get
+  perf/arm_cspmu: nvidia: Add Tegra410 PCIE PMU
+  perf/arm_cspmu: nvidia: Add Tegra410 PCIE-TGT PMU
+  perf: add NVIDIA Tegra410 CPU Memory Latency PMU
+  perf: add NVIDIA Tegra410 C2C PMU
+  arm64: defconfig: Enable NVIDIA TEGRA410 PMU
+
+ Documentation/admin-guide/perf/index.rst      |    3 +-
+ ...nvidia-pmu.rst => nvidia-tegra241-pmu.rst} |    8 +-
+ .../admin-guide/perf/nvidia-tegra410-pmu.rst  |  520 ++++++++
+ arch/arm64/configs/defconfig                  |    2 +
+ drivers/perf/Kconfig                          |   14 +
+ drivers/perf/Makefile                         |    2 +
+ drivers/perf/arm_cspmu/arm_cspmu.c            |   22 +-
+ drivers/perf/arm_cspmu/arm_cspmu.h            |   17 +-
+ drivers/perf/arm_cspmu/nvidia_cspmu.c         |  624 +++++++++-
+ drivers/perf/nvidia_t410_c2c_pmu.c            | 1062 +++++++++++++++++
+ drivers/perf/nvidia_t410_cmem_latency_pmu.c   |  727 +++++++++++
+ 11 files changed, 2988 insertions(+), 13 deletions(-)
+ rename Documentation/admin-guide/perf/{nvidia-pmu.rst => nvidia-tegra241-pmu.rst} (98%)
+ create mode 100644 Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+ create mode 100644 drivers/perf/nvidia_t410_c2c_pmu.c
+ create mode 100644 drivers/perf/nvidia_t410_cmem_latency_pmu.c
+
 -- 
 2.43.0
 
