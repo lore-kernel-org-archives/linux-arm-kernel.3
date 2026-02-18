@@ -4,53 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C82E9A049
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 03:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 536CDE9A04B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 03:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJxYiClBW0yaU0UstjevB3SvAEeRfDkA/ZHkI+qZCGk=; b=mct/f+EkbQz1CKeiRC8+2UJahf
-	/WX/gMT51PvUzsVWFB035YJLdgXMJFRnUi9XIo7m0gaYKBxwHxow6TrFC27y0ak7FNt8RWmiRzTxZ
-	hZWb94cnjw1liOc0pZLpvFZKrpGoa14Mtzz0rHx6C2f5BJ9RTf7751brWKGPXgrbaPjaeACGDkDP+
-	GeIl6os2Ml0fqq6MnXK/M9feZ8xlKbtkFLw/3OCvdauMbg2/1p5pPgPiDPCxq37eqXKjx8tpFA5XP
-	DfkGPnLba9IylUYcqhxkQKHg5NnZmSWlhpJey0oLphN+x9NgflgJZn/34MFyYAC4yqYoGxTpm/NXX
-	d+9Ix+2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x3RB78lb3cDHZMh7uj5Q6B/P6EIdf58QMhIkJ8FPYO0=; b=4lezAQXal7aQYgkFL/ImvrWPmR
+	LVAxnKSjj47ZcIP+fc4Dsy9QHJQdbMq1bVECrQk0UpeQxjh8sxdD895taTMnK/npWZvl7gCpBM8sc
+	nDKitS4WauiT0ekoz4U0viMThZG9HfG7C0RUzkRpgMN1/7b1QBvsII1x3ErnkOp9uYdXpfnh2PjzV
+	T8i8vxAcGtCVAAWykjHFCVW8xOM76RH1QbmRZhD5mInkeTGGUR9hblbGv6FD7AoGeELQrXfz++xZ8
+	ZgP483Wmg1MBVh7AZUMhwBZBiNZBc4X53vymQmgwBr6fsH60y3Uau4kzfU5PwZg9Qpqe/evCJOOCk
+	4nJKWgDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsYAR-00000009ENp-2NWt;
-	Wed, 18 Feb 2026 03:23:59 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vsYL6-00000009EpZ-1y0m;
+	Wed, 18 Feb 2026 03:35:00 +0000
+Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsYAO-00000009ENM-3sd3;
-	Wed, 18 Feb 2026 03:23:58 +0000
-Received: from neptunite.rasen.tech (unknown [IPv6:2404:7a81:160:2100:e39a:e0d4:739a:978])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 425A166B;
-	Wed, 18 Feb 2026 04:23:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1771384982;
-	bh=XATtTewez/t8FFgr/Q7a3oAK/bpwADOb4HhHCmUxTR4=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=qjQgakFimSjo+7hVS83lyznzRBzJ0wGgos8/mczeTo4OWWaGziEKi8WmzdwLOj6l3
-	 zaaSV+S2q447z69uWL2HwUQH82Y4TNYgD9LxMajb9ODdF4Z4aGS1CHRwWrbh7l7stu
-	 O92zjCg78vyhneBHkYq/+kv7XlZ0mejUHnISLgSw=
-Content-Type: text/plain; charset="utf-8"
+	id 1vsYL3-00000009Ep4-1D6j;
+	Wed, 18 Feb 2026 03:34:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wOff00VnuAb6vwgAJ7ERwBHkKt+tILbW7xZ5RjBFRgeqLKhdIxjFHQD2w5YuiquNUF+E4JI7goqDIDlNfymVCcczuZUPq/FznaZW2uXkPr3ts92Jscu6mn7+K4FkI/jQ0ddoDRz5/wWmmZRyxM1RMQMDo9xLACNoyCqI6JnAvTe9JreixJJsa6rEwub1E/IburRs4s+WMdVwFbSw5lpj25+8AboNNrKpPYqVhCn68/SBpMLRCaU8Gl+CRNH1rQ0Q+FHGTgcbgZHQvMpn1QCwy+YizT0fCeYxG0Tb3v4xpI1uadeU3n4SJMkJiQn3mo+PFdBjTGCngAxo9pd8Poyh9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x3RB78lb3cDHZMh7uj5Q6B/P6EIdf58QMhIkJ8FPYO0=;
+ b=uyNnomjP8Gy6qx6Zlg/SrWcLH7O/xZNfrTj3bJbNbrqmZdnvIFARWingx12y78PqyyhhzXCnldYXM8rZfHLGiu4S1Mj5vrdcX98bXxlT1Z6H3b1DA7NJKgXYQka0cjIthlF26t4xQQaozNoMbVnmqJAYOANEFOFe0jYxnRxSv8gl2t9M1E9tM59Mdo8YRqVNX4BqBr0NV6ojtMiA6xuwfwlsSItIMCJ+p4rweUhV7JwpPrGhs1n+D42GyuWyVZEyFULRaGCk32wbOSBRMqztmFfTG5kwG3KtEItmYV/Gs/8G/maUD9QcnJep8wNPYQPlxykpBk3wKDnwEYcx55TsyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
+ header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x3RB78lb3cDHZMh7uj5Q6B/P6EIdf58QMhIkJ8FPYO0=;
+ b=q+K3BEc0fxRJu7Db5NMMGBq8z6+PJ7an92GTHESM+5gJVK/Xid8lA1ceRo3GCT2VF0kzpHP5hgVp830hSGnAqn0DKMJUlPz1bQgz1c/rMNb2eWCTDIDGq+yp6Qd0MZscTYYHi4rpxtWWW3VMiShDard8Y8/MxWs3yOgDANjmTJU=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=valinux.co.jp;
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:38f::10)
+ by TYYP286MB4906.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:143::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.13; Wed, 18 Feb
+ 2026 03:34:49 +0000
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32]) by TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32%5]) with mapi id 15.20.9632.010; Wed, 18 Feb 2026
+ 03:34:49 +0000
+Date: Wed, 18 Feb 2026 12:34:47 +0900
+From: Koichiro Den <den@valinux.co.jp>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, heiko@sntech.de, 
+	kishon@kernel.org, jdmason@kudzu.us, dave.jiang@intel.com, allenbh@gmail.com, 
+	shawn.lin@rock-chips.com, Frank.Li@nxp.com, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, ntb@lists.linux.dev
+Subject: Re: [PATCH v8 8/9] PCI: endpoint: pci-epf-test: Reuse pre-exposed
+ doorbell targets
+Message-ID: <2ltjmhbw5s6t3emem5jron6v6frmfi46k6mmooukqaviyi3ktk@wpsuu5h6fqag>
+References: <20260217080601.3808847-1-den@valinux.co.jp>
+ <20260217080601.3808847-9-den@valinux.co.jp>
+ <aZQ_rEkzWnDeJrMe@ryzen>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZQ_rEkzWnDeJrMe@ryzen>
+X-ClientProxiedBy: TY4P301CA0062.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:36a::13) To TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:38f::10)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <23791918-8fed-404d-ad51-d97966ff58c1@collabora.com>
-References: <20260216-rkcif-fixes-v1-0-b16db20b6d68@collabora.com> <20260216-rkcif-fixes-v1-2-b16db20b6d68@collabora.com> <23791918-8fed-404d-ad51-d97966ff58c1@collabora.com>
-Subject: Re: [PATCH 2/2] media: rockchip: rkcif: comply with minimum number of buffers requirement
-From: Paul Elder <paul.elder@ideasonboard.com>
-Cc: Collabora Kernel Team <kernel@collabora.com>, stable@kernel.org, linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, Dan Carpenter <dan.carpenter@linaro.org>, Hans Verkuil <hverkuil+cisco@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Mehdi Djait <mehdi.djait@linux.intel.com>, Michael Riesch <michael.riesch@collabora.com>, Sakari Ailus <sakari.ailus@linux.intel.com>
-Date: Wed, 18 Feb 2026 12:23:48 +0900
-Message-ID: <177138502835.607498.8225991057811144969@neptunite.rasen.tech>
-User-Agent: alot/0.0.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY7P286MB7722:EE_|TYYP286MB4906:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b316100-f38b-4137-65e1-08de6e9eab41
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|10070799003|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Im8pcRmYHX2Cs7qY6Mcs3OZ9UyGqOHVy6eUEUIB7RcXMQCFFFd2Jeg1dY4Sx?=
+ =?us-ascii?Q?aUf7yC939KCM3DdwO27SQo2WY+1mAUuBsSJUOldtqMnRrp77AQ2zxBEhtM+H?=
+ =?us-ascii?Q?1oTLK6Iv/fwy8L014DMzAFq6F5iMl98xweF1cIdE5S3V6bAQUvRGpZSCQoed?=
+ =?us-ascii?Q?8IgN8X3ItkB6FyCjiVAWGqd+6zVHVzAjtFAs/Ak1WD1O+TAzpUlZFCUJ7a/F?=
+ =?us-ascii?Q?KHCmI2gZAeEUQ4KLegm2HV+Ik+ByFzxmjG5Yb4qsSiTOArmq0bEPUhSUCfws?=
+ =?us-ascii?Q?uv48APRgYqahsvf/TVDSZx58iRSBAaO8PYha3Sqf989gtCv9+fPl1cNRaFYC?=
+ =?us-ascii?Q?ThFzax1NyShtV0BCUF0xM8jurBxGhntG8PwTBgm1qRxtqRdotpZ3Q9g9FPEQ?=
+ =?us-ascii?Q?RBR+9NkmquCcDrgq3FmxxflChEyoBOScE9he93IYE8lolNgHcitCYIIT+2ZP?=
+ =?us-ascii?Q?LLN0aZoR+x7JXj+eiB5TVKaPv2qL/ZQZTEr3L6cn3xpGMCGc2lyP04j/mvHR?=
+ =?us-ascii?Q?bbZGW22F6cIXoWzyAuoRsafs4e5IsC1fS8U3SCBM7NZGh8ra6Ru3Ll1bD8ZO?=
+ =?us-ascii?Q?3dJjvA4EIcjqZ6j3mXDhUYeBQqrVGac5sVOU4TQTvMTTjFn/kc+48uZzdYwT?=
+ =?us-ascii?Q?1C2Ka3Z7xRwhgdH2JhfAOSaOvg5EfydRGI0lg8X4VhuJWnSuxnqiCcC8i/3v?=
+ =?us-ascii?Q?iTtn7c19FC4u0TgWamORjzfDmOOZSqmsJe1Gx4OlI7ybdxej0gS8GO1TTKSI?=
+ =?us-ascii?Q?wKm2+Cx6v0BUvum7OMAKpewlVQ8lc7yqR5C8hmiYU1BR3boSwWAIUkgq9XQE?=
+ =?us-ascii?Q?avRM4sXSG4Ym+wNgI3yh4oxkbKPR7e1tO9aPJPJ877lW5awbhuQoa4XLoHwZ?=
+ =?us-ascii?Q?546CyKhEuAXsAPbP9zqv9bWZuN5yoaXefRWri9M+UfyGeNWAlrdO8WtHRwGS?=
+ =?us-ascii?Q?9ndu+eC5F6YK7GOWY7OspxjtqOaUuxQCz342Ouqc2t5H0bUHkhR2zllqPObC?=
+ =?us-ascii?Q?aECSLoMbeuxcwH7FY6ITWgPXNtT3nAeNI51mQpRvjFWiS5xAFCwyJQZ1Ek5s?=
+ =?us-ascii?Q?yTKdxMS8+0VBYwjkKV4a3lzcW0/CLbi304vJm406Ur/gYgBg607ALZc43hhx?=
+ =?us-ascii?Q?/d6pw+vaANl6Jub61U0dMtb+NqFgoyPDaFJ2IRhjiqJWamo8L/jN4bP7zR4C?=
+ =?us-ascii?Q?zHtPps4MCKnTq6RD3XYIHn48FZ6CLPHMSDxB0fysoOY6tSDexWiMooK5Tmkg?=
+ =?us-ascii?Q?XvkdtWi//axsLuShXT1gzejlawvGJvIQ29V4Vl8WsAAuS7watPBo9thqVmSZ?=
+ =?us-ascii?Q?dxCVE/1hWiOd44f3V7RQpk62UUwowkrJsq8zAMa0AoFR59fo6TUY8dcPnvgF?=
+ =?us-ascii?Q?jzjB8HoguxBdOsetmIJsSq8iCeFQEy8mJYixzdqLoPUHqfXdouDm/lsYWqg8?=
+ =?us-ascii?Q?sa9M0jxbCwcpsP8ZwmGGnRrZY0rMHf9/shtZyqkYJZ8grn9mH1yRsDLQztHo?=
+ =?us-ascii?Q?Qv9rUYfRb0VrU0mRN/W1YsklwVl40vk76tkwAu4UuejGixQijHyIa0m2IoEz?=
+ =?us-ascii?Q?BqmdeCYJJ9JozgMVbcQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(10070799003)(7416014)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?c/TuMutvLwGNjampz+VSeS868M6WujkKlNMabeYLiiCHsyZet2ChteCaAY9E?=
+ =?us-ascii?Q?b0V7rHp+NcXQesO+8GlV5fcn66hP2+C5oya5CNY1JdL3sjTqaK76BlyokFRm?=
+ =?us-ascii?Q?L2G13oV+Fc0B5HpI8BtQOnfD/HAkfU4faOEZoa6pGuFiCukNKa5b5Kbigz3v?=
+ =?us-ascii?Q?rRwvrpDIyzGYfim6EbEbYTYDpMdnGNzKiexkwc8//G9VokmaVStifqCnHGBD?=
+ =?us-ascii?Q?ydmoL1erx3fh+iuL1oHYEAqsGGuA9njjeJWXFk8WDEop6tuhFUcbP5l5AKWh?=
+ =?us-ascii?Q?csGFpzhDCu/eh/etsKOpwj0XI7RTY93fpjZt4sO41n+Ufg4zZ6N+mMYXNTdL?=
+ =?us-ascii?Q?viKYtWPZ7zvz3RSY/h46AnQjrZwo+mKpR/6zexCbJ2pzebDYWfEL0oemBEVq?=
+ =?us-ascii?Q?2TKnkekKJWznDxr4GumMRqwMrePPqqm/FQrEkEFqB0tTwIaYMmkE4zbuCF1k?=
+ =?us-ascii?Q?uf9PY5fLJl+j7m2Z8pc23UWXc5DeJiLDdMEQHnCSgwriEvN9qdxAY8q+3AE0?=
+ =?us-ascii?Q?OI+vZchiFQ9dmoVPFsnI0l3uMwJreT9MH+SdVjfOqAh1s/ZzBJJGVuLXuTzZ?=
+ =?us-ascii?Q?k3A/T7CPAR0Ei8W1o/WCoP6pJpebu/25zyzDg+2t8sEHZQmWiGcLjMwlnZU0?=
+ =?us-ascii?Q?ykrLPKwBqbm0Vy/0w1f7bhkD+Al4yEOqqwpI5Cu2MemwVBZtq7x1+9UfyzBJ?=
+ =?us-ascii?Q?lcXKQ8l+qvkoXuMqKuO2IfZ3dTgBrPvIGJf30culqXK8B4NGI1vz8XmamHLE?=
+ =?us-ascii?Q?WepmBBbT22ljIFqgPuP9BLmvWTrsUSZibPj3qxdBMwdQmSd/2Zm8fEeniwBP?=
+ =?us-ascii?Q?MfzygMMAec8yxXFPe/PiX4OgnKB+JxPkgzQy/lh8xJ6q6tZNIy5UgS1BxTJU?=
+ =?us-ascii?Q?bAwpzuoTyYnpEhZIoSrv6zsoqneFFgfYn9h3aUlBcOI9YDsvQye7XiyP7kxx?=
+ =?us-ascii?Q?wqImqufWXSpZdsiQF9cVByFTLQSjUBnxqlB7KF2JfnYRacPsBCRXDYIbv2Nw?=
+ =?us-ascii?Q?HCmQvxH1oEzOp2v/KnAGs75wDgQD13ibkYlsbaqygNUMJic/ZHfhoJWXcwho?=
+ =?us-ascii?Q?dKYpnw2ENwfgi6bOKA/sreObpj6t89Up6ld9IqviwVz2xDeTWYibbXrYpXwj?=
+ =?us-ascii?Q?nKcEeRzg4MJDvhIMt2hqjcJGZxzbjxiarrq3ZtA7P3lDRhymNFunmIo//qiP?=
+ =?us-ascii?Q?EbcO7LgfcUYG5pQKQyGqaROWeA+PkoM5KU78qRVLHzEQQwtCKCyvrP17UBRc?=
+ =?us-ascii?Q?HAgMYyrJ5ogL/PbsQ/5FDMhecL0svdnGDBlAo3H6Hb5KRTArFZtrrimYm+Pk?=
+ =?us-ascii?Q?92EpE42VJvnOUb/Lac0yxyz4RJPWN4UILExkXS8r2DJVTMAMvDovxhcqxYHS?=
+ =?us-ascii?Q?umm83TvDLNtGzuOAfPfozjqSMYO2WelLQ6jcAmmXMQLvXZ8lsL2jd4DT37r3?=
+ =?us-ascii?Q?w9PPjsZU/FCiUMzGMchmCoSjLLNtI5XRanyH3RlbTlylCIfaHLe1oaF2NoCc?=
+ =?us-ascii?Q?zxQtcKn1T/JlJGIEafEHCZDhoeQfVKi+gs7LwQyTkyY538wNIoUJizt1S/GA?=
+ =?us-ascii?Q?o4k8DDklSnpYtEKV7GQ+OVe6aOhAu9VMmmrqmTg5+JBID9WgkWj79XwcqgPb?=
+ =?us-ascii?Q?Fo6N3Ut8tTQq9nU2Oja8iGb4PYdzpShbq/uphaWqWqEp8TdzH2fwbFZlB30s?=
+ =?us-ascii?Q?HD88tlpp/5TeZ4wPTv7X/pOoFvoQ0j4wKYmb1pLx+afZ5OlaPgSG9ZZoqouj?=
+ =?us-ascii?Q?hvbDjBWhdGLw7iwBNRNEP6wyAni1r5r2TRHIrRX+XHub8F6wI009?=
+X-OriginatorOrg: valinux.co.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b316100-f38b-4137-65e1-08de6e9eab41
+X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 03:34:49.1117
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fZS8p5+2TstjNhGT0VimyrZK4XUVEFyot1Q8wmJszAhr69qS5f7JreCDBQLvGhOuqcnkvpyIIRetoTXvlum1rg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYP286MB4906
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_192357_128890_77D98DB8 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20260217_193457_370241_6E126913 
+X-CRM114-Status: GOOD (  27.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,114 +167,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
-
-Thanks for the patch.
-
-Quoting Michael Riesch (2026-02-17 21:25:10)
-> Hi all,
->=20
-> On 2/16/26 14:49, Michael Riesch via B4 Relay wrote:
-> > From: Michael Riesch <michael.riesch@collabora.com>
-> >=20
-> > Each stream requires CIF_REQ_BUFS_MIN=3D1 buffers to enable streaming.
-> > However, it failed with only one buffer provided.
-> >=20
-> > Comply with the minimum number of buffers requirement and accept
-> > exactly one buffer.
-> >=20
-> > Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma b=
-locks")
-> > Cc: stable@kernel.org
-> > Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+On Tue, Feb 17, 2026 at 11:15:08AM +0100, Niklas Cassel wrote:
+> Hello Koichiro,
+> 
+> On Tue, Feb 17, 2026 at 05:06:00PM +0900, Koichiro Den wrote:
+> > pci-epf-test advertises the doorbell target to the RC as a BAR number
+> > and an offset, and the RC rings the doorbell with a single DWORD MMIO
+> > write.
+> > 
+> > Some doorbell backends may report that the doorbell target is already
+> > exposed via a platform-owned fixed BAR (db_msg[0].bar/offset). In that
+> > case, reuse the pre-exposed window and do not reprogram the BAR with
+> > pci_epc_set_bar().
+> > 
+> > Also honor db_msg[0].irq_flags when requesting the doorbell IRQ, and
+> > only restore the original BAR mapping on disable if pci-epf-test
+> > programmed it.
+> > 
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > Signed-off-by: Koichiro Den <den@valinux.co.jp>
 > > ---
-> >  .../media/platform/rockchip/rkcif/rkcif-stream.c   | 41 +++++++++++---=
---------
-> >  1 file changed, 21 insertions(+), 20 deletions(-)
-> >=20
-> > diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/dri=
-vers/media/platform/rockchip/rkcif/rkcif-stream.c
-> > index e00010a91e8b..5a5ab9e7e86e 100644
-> > --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> > +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> > @@ -106,19 +106,6 @@ static int rkcif_stream_init_buffers(struct rkcif_=
-stream *stream)
-> >  {
-> >       struct v4l2_pix_format_mplane *pix =3D &stream->pix;
-> > =20
-> > -     stream->buffers[0] =3D rkcif_stream_pop_buffer(stream);
-> > -     if (!stream->buffers[0])
-> > -             goto err_buff_0;
-> > -
-> > -     stream->buffers[1] =3D rkcif_stream_pop_buffer(stream);
-> > -     if (!stream->buffers[1])
-> > -             goto err_buff_1;
-> > -
-> > -     if (stream->queue_buffer) {
-> > -             stream->queue_buffer(stream, 0);
-> > -             stream->queue_buffer(stream, 1);
-> > -     }
-> > -
-> >       stream->dummy.size =3D pix->num_planes * pix->plane_fmt[0].sizeim=
-age;
-> >       stream->dummy.vaddr =3D
-> >               dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
-> > @@ -132,16 +119,30 @@ static int rkcif_stream_init_buffers(struct rkcif=
-_stream *stream)
-> >                       stream->dummy.buffer.buff_addr[i - 1] +
-> >                       pix->plane_fmt[i - 1].bytesperline * pix->height;
-> > =20
-> > -     return 0;
-> > +     stream->buffers[0] =3D rkcif_stream_pop_buffer(stream);
-> > +     if (!stream->buffers[0])
-> > +             goto err_buff_0;
-> > =20
-> > -err_dummy:
-> > -     rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEU=
-ED);
-> > -     stream->buffers[1] =3D NULL;
-> > +     stream->buffers[1] =3D rkcif_stream_pop_buffer(stream);
-> > +     if (!stream->buffers[1]) {
-> > +             stream->buffers[stream->frame_phase] =3D &stream->dummy.b=
-uffer;
-> > +             stream->buffers[stream->frame_phase]->is_dummy =3D true;
->=20
-> Apparently I was too quick on the trigger here. This should read
-> "stream->buffers[1]" in both lines *facepalm*. Will wait for other
-> responses and send a v2.
+> 
+> (snip)
+> 
+> > @@ -753,22 +771,33 @@ static void pci_epf_test_enable_doorbell(struct pci_epf_test *epf_test,
+> >  	reg->doorbell_data = cpu_to_le32(msg->data);
+> >  	reg->doorbell_bar = cpu_to_le32(bar);
+> >  
+> > -	msg = &epf->db_msg[0].msg;
+> > -	ret = pci_epf_align_inbound_addr(epf, bar, ((u64)msg->address_hi << 32) | msg->address_lo,
+> > -					 &epf_test->db_bar.phys_addr, &offset);
+> > +	if (db->bar == NO_BAR) {
+> > +		ret = pci_epf_align_inbound_addr(epf, bar,
+> > +						 ((u64)msg->address_hi << 32) |
+> > +						 msg->address_lo,
+> > +						 &epf_test->db_bar.phys_addr,
+> > +						 &offset);
+> >  
+> > -	if (ret)
+> > -		goto err_free_irq;
+> > +		if (ret)
+> > +			goto err_free_irq;
+> > +	}
+> 
+> I tried this series on Rock5b (RK3588), and was surprised to see the doorbell
+> test case still failing.
 
-With this fix I've tested that it works, and it looks good to me :)
+Thank you very much for testing, and apologies for not being able to test on
+RK3588 on my side right now.
 
-
-Paul
-
->=20
-> Best regards,
-> Michael
->=20
-> > +     }
+> 
+> 
 > > +
-> > +     if (stream->queue_buffer) {
-> > +             stream->queue_buffer(stream, 0);
-> > +             stream->queue_buffer(stream, 1);
-> > +     }
-> > +
-> > +     return 0;
-> > =20
-> > -err_buff_1:
-> > -     rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEU=
-ED);
-> > -     stream->buffers[0] =3D NULL;
-> >  err_buff_0:
-> > +     dma_free_attrs(stream->rkcif->dev, stream->dummy.size,
-> > +                    stream->dummy.vaddr,
-> > +                    stream->dummy.buffer.buff_addr[0],
-> > +                    DMA_ATTR_NO_KERNEL_MAPPING);
-> > +     stream->dummy.vaddr =3D NULL;
-> > +err_dummy:
-> >       return -EINVAL;
-> >  }
-> > =20
-> >=20
->
+> > +	if (size_add(offset, sizeof(u32)) > epf->bar[bar].size)
+> > +		goto err_doorbell_cleanup;
+> 
+> It turns out that this check is the reason for it still failing.
+> 
+> You see, for a BAR that is marked as BAR_RESERVED, pci-epf-test will not
+> allocate backing memory, so epf->bar[bar].size will be 0.
+> 
+> If I removed this check, I could get the test case to pass.
+> 
+> As I suggested in my previous email, perhaps this check is better suited
+> in pci_epf_alloc_doorbell(). (As a DWORD alignment check inside
+> pci_epf_alloc_doorbell(). pci_epf_alloc_doorbell() could itself return
+> error if the doorbell is not DWORD aligned.)
+
+Yes, and I mentioned there I would reconsider this when respinning this feature
+series. For reference:
+https://lore.kernel.org/linux-pci/jcjson6zedvhkpctwzfao2wfaaujtdfqsnnm3k25e2vpz2evf4@hbsegnyevisu/
+I hadn't noticed the bar.size==0 possibility at that time.
+
+I agree that this check is better placed in pci_epf_alloc_doorbell().
+I'll respin accordingly.
+
+Thanks again for the testing and review,
+Koichiro
+
+> 
+> That way, you could remove this check from pci_epf_test_enable_doorbell(),
+> and we don't need to care about epf->bar[bar].size.
+> 
+> 
+> Kind regards,
+> Niklas
 
