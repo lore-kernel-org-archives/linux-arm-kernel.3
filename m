@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE5CE9A04E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74237E9A04D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4GNfjIqePzVbMJw/HirL6fycsw4lkjI9fvewq916fFA=; b=hsDrDxAMK1WetTE3BMnvP34Upy
-	yIqbR28YqDuHwHXATzPgUjinMDXp1u0xQ/PpPGPVnCY0JMAj+UZDrT39eeEGvvRli6cJHALsnpL/+
-	g2CFWsbx0pG2V2196pLn1JauN67m2qR8X37iVeu6po5QoznIGZ1xKeQ1rPnyCa+rlkS7ikLJSxVdA
-	3hd17BXU9Btx/DSJv8HCLOgmcEC5nghbN0nolvNNwXKaQf1HFHNw9siD+BmvG+fGDrT6hWDqKN82M
-	eCrHORvy80ZBOB7Uoo9113+IaY5n8NW+ULz7bcbGpDNIkSETRm1yi4uX1lIMBWG0owBUzSxFthn4S
-	yacUU54A==;
+	bh=7wT3kF+tP7ReqteA2hoAQULpzEvnjPTYLyhlXEtPzL4=; b=h1ysh52Byl578CAb//vBOJgmLf
+	0ep2xm2m+OvWeByRkIMTkYRZ0wDY7UDOBo1X25VXDpDECTZSEzyInU8sMZpR5FSlJXBG3d1rbnnNV
+	ddXsXHFgm0GN4xFZuxpvkcb2EIzzgwGc2fbLXQkmv0iQMUJEITbH0DZZawyQYKWhXDKkOv7BhOlWp
+	C8PqU0FT4S8bwOXYWWZkaaUiBJx4CkyGL16/fHjt+sMhq30TRRsNpwNxCLZFSqVohtHpN7hTJhmGN
+	ra1SClufE4I6V0dhf1/xqvta3mo0spxXKEd/kV97fRkvKr8YqGHPS3/MAWKiQR3nRf8NowJf2pxg5
+	7JWZcK8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspE8-0000000ASS3-16Kd;
-	Wed, 18 Feb 2026 21:36:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vspE7-0000000ASRd-3hw3;
+	Wed, 18 Feb 2026 21:36:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspE5-0000000ASOr-0Yqw
+	id 1vspE3-0000000ASOI-1vWu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 21:36:54 +0000
+	Wed, 18 Feb 2026 21:36:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C10844477;
-	Wed, 18 Feb 2026 21:36:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D194EC2BC87;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D86C43E33;
 	Wed, 18 Feb 2026 21:36:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B66DC2BC87;
+	Wed, 18 Feb 2026 21:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771450612;
-	bh=phuk8jYQce0F4jNXOX5zObjH9GAYqfm6mN8RyTfqKxI=;
+	s=k20201202; t=1771450611;
+	bh=S4zQmtBxe0E3DIi0hm6e0ss7TJDmWjR02e2kDFr1lzc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YDk5vBecbvLAatyHy+8rPljkUDUjwovG/5lkR86yOs+aba04Sw8ScWMjzZHM5nsP8
-	 TYE1PW3d0A8+E2LJNr6h+18HQzhjPszUeXD5MhP7JZniMxF6auAInqxEzYB7eSczZI
-	 2nushArwUNjn1uy1Imf7sPrjgUXBPjn70s1vJV/mLqClKipQ6F3hA38dLFoIUd9tc4
-	 H6F4K0xUkPXDYa60HRZNx3CVa/9rrarlW4ne1mBraYE60RoXWL1OyhsouQQbnR38ti
-	 WkBoUP7XrG7B1xH5zO3pGZyNlJkUfRKGV2w3Xnx7+3/HkMcyNoaNPWLP4KLBh0kWrm
-	 Sv7Y7ERBgPDmw==
+	b=UYQ3AI9Bo8dGg0hMwROuintnVLzOqhK2vZI4c2yOwLofe1PQg6B/pItjzSqDpqS3I
+	 ZV2871TKNFtzdqmW8TE5YM9EXZ7HRE8OWvdgawxtqpdQ5m7f/s8uS2vg+U8FEf7ikf
+	 qcmc5aiVI4hhVHYMpjUEpv+HqJ13ZDr59hPhSR3Wla5Hw2htKzwRoxkQboT/b2SCBu
+	 fbuQn8dLFKNA49erokFxe3JaiwdRd64x25iZMsgTojSyxvkU7xbJJ6PXS5XwPszmVQ
+	 L1aCSsZQEX7m/YEgdFEU52qfbxDgSVR72hlpsVcMKI6DxiU2GhhwjD1XfT4D+YKp4s
+	 B2vB+9dxg1Hmg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,17 +52,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-cifs@vger.kernel.org,
 	linux-wireless@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 04/15] lib/crypto: arm64/aes: Move assembly code for AES modes into libaes
-Date: Wed, 18 Feb 2026 13:34:50 -0800
-Message-ID: <20260218213501.136844-5-ebiggers@kernel.org>
+Subject: [PATCH 02/15] crypto: aes - Add cmac, xcbc, and cbcmac algorithms using library
+Date: Wed, 18 Feb 2026 13:34:48 -0800
+Message-ID: <20260218213501.136844-3-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260218213501.136844-1-ebiggers@kernel.org>
 References: <20260218213501.136844-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_133653_212540_A7CB3DF5 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20260218_133651_538785_2A4A1D34 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,354 +77,370 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To migrate the support for CBC-based MACs into libaes, the corresponding
-arm64 assembly code needs to be moved there.  However, the arm64 AES
-assembly code groups many AES modes together; individual modes aren't
-easily separable.  (This isn't unique to arm64; other architectures
-organize their AES modes similarly.)
+Update the "aes" module to implement "cmac(aes)", "xcbc(aes)", and
+"cbcmac(aes)" algorithms using the corresponding library functions, and
+register these with the crypto_shash API.  Each algorithm is included
+only if the corresponding existing kconfig option is enabled.
 
-Since the other AES modes will be migrated into the library eventually
-too, just move the full assembly files for the AES modes into the
-library.  (This is similar to what I already did for PowerPC and SPARC.)
+This allows the architecture-optimized implementations of these
+algorithms to continue to be accessible via the crypto_shash API once
+they are migrated into the library.
 
-Specifically: move the assembly files aes-ce.S, aes-modes.S, and
-aes-neon.S and their build rules; declare the assembly functions in
-<crypto/aes.h>; and export the assembly functions from libaes.
+For "xcbc(aes)", I also fixed the bug where AES key lengths other than
+128 bits were allowed, so that this bug didn't have to be implemented in
+the library.  The AES-XCBC-MAC specification (RFC 3566) is clear that
+key lengths other than 128 bits MUST NOT be supported.  AES-XCBC-MAC
+derives a 128-bit subkey internally, so the nonstandard support for
+longer AES keys didn't really work: AES-128 was still used internally.
 
-Note that the exports and public declarations of the assembly functions
-are temporary.  They exist only to keep arch/arm64/crypto/ working until
-the AES modes are fully moved into the library.
+In the unlikely event that someone is actually relying on the broken and
+nonstandard support for longer AES-XCBC-MAC keys, we can fairly easily
+reintroduce it.  But it seems unnecessary: the only user of "xcbc(aes)"
+seems to be IPsec, which uses 128-bit keys with it.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm64/crypto/Makefile                    |  4 +-
- arch/arm64/crypto/aes-ce-ccm-glue.c           |  4 --
- arch/arm64/crypto/aes-glue.c                  | 47 +------------
- arch/arm64/crypto/aes-neonbs-glue.c           | 15 +---
- include/crypto/aes.h                          | 69 +++++++++++++++++++
- lib/crypto/Makefile                           |  4 +-
- .../crypto => lib/crypto/arm64}/aes-ce.S      |  0
- .../crypto => lib/crypto/arm64}/aes-modes.S   |  0
- .../crypto => lib/crypto/arm64}/aes-neon.S    |  0
- lib/crypto/arm64/aes.h                        | 30 ++++++++
- 10 files changed, 106 insertions(+), 67 deletions(-)
- rename {arch/arm64/crypto => lib/crypto/arm64}/aes-ce.S (100%)
- rename {arch/arm64/crypto => lib/crypto/arm64}/aes-modes.S (100%)
- rename {arch/arm64/crypto => lib/crypto/arm64}/aes-neon.S (100%)
+ crypto/Kconfig                       |   2 +
+ crypto/aes.c                         | 183 ++++++++++++++++++++++++++-
+ crypto/testmgr.c                     |  10 +-
+ drivers/crypto/starfive/jh7110-aes.c |   2 +-
+ 4 files changed, 190 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/crypto/Makefile b/arch/arm64/crypto/Makefile
-index 3574e917bc37..8a8e3e551ed3 100644
---- a/arch/arm64/crypto/Makefile
-+++ b/arch/arm64/crypto/Makefile
-@@ -31,12 +31,12 @@ ghash-ce-y := ghash-ce-glue.o ghash-ce-core.o
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index e2b4106ac961..256ce4729c8d 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -359,10 +359,12 @@ menu "Block ciphers"
  
- obj-$(CONFIG_CRYPTO_AES_ARM64_CE_CCM) += aes-ce-ccm.o
- aes-ce-ccm-y := aes-ce-ccm-glue.o aes-ce-ccm-core.o
+ config CRYPTO_AES
+ 	tristate "AES (Advanced Encryption Standard)"
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_LIB_AES
++	select CRYPTO_LIB_AES_CBC_MACS if CRYPTO_CMAC || CRYPTO_XCBC || CRYPTO_CCM
++	select CRYPTO_HASH if CRYPTO_CMAC || CRYPTO_XCBC || CRYPTO_CCM
+ 	help
+ 	  AES cipher algorithms (Rijndael)(FIPS-197, ISO/IEC 18033-3)
  
- obj-$(CONFIG_CRYPTO_AES_ARM64_CE_BLK) += aes-ce-blk.o
--aes-ce-blk-y := aes-glue-ce.o aes-ce.o
-+aes-ce-blk-y := aes-glue-ce.o
+ 	  Rijndael appears to be consistently a very good performer in
+ 	  both hardware and software across a wide range of computing
+diff --git a/crypto/aes.c b/crypto/aes.c
+index ae8385df0ce5..6bf23eb0503f 100644
+--- a/crypto/aes.c
++++ b/crypto/aes.c
+@@ -3,12 +3,14 @@
+  * Crypto API support for AES block cipher
+  *
+  * Copyright 2026 Google LLC
+  */
  
- obj-$(CONFIG_CRYPTO_AES_ARM64_NEON_BLK) += aes-neon-blk.o
--aes-neon-blk-y := aes-glue-neon.o aes-neon.o
-+aes-neon-blk-y := aes-glue-neon.o
- 
- obj-$(CONFIG_CRYPTO_AES_ARM64_BS) += aes-neon-bs.o
- aes-neon-bs-y := aes-neonbs-core.o aes-neonbs-glue.o
-diff --git a/arch/arm64/crypto/aes-ce-ccm-glue.c b/arch/arm64/crypto/aes-ce-ccm-glue.c
-index db371ac051fc..45aed0073283 100644
---- a/arch/arm64/crypto/aes-ce-ccm-glue.c
-+++ b/arch/arm64/crypto/aes-ce-ccm-glue.c
-@@ -29,14 +29,10 @@ static int num_rounds(struct crypto_aes_ctx *ctx)
- 	 * => n byte key	=> 6 + (n/4) rounds
- 	 */
- 	return 6 + ctx->key_length / 4;
- }
- 
--asmlinkage u32 ce_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
--				 int blocks, u8 dg[], int enc_before,
--				 int enc_after);
--
- asmlinkage void ce_aes_ccm_encrypt(u8 out[], u8 const in[], u32 cbytes,
- 				   u32 const rk[], u32 rounds, u8 mac[],
- 				   u8 ctr[], u8 const final_iv[]);
- 
- asmlinkage void ce_aes_ccm_decrypt(u8 out[], u8 const in[], u32 cbytes,
-diff --git a/arch/arm64/crypto/aes-glue.c b/arch/arm64/crypto/aes-glue.c
-index 92f43e1cd097..fd7c3a560a71 100644
---- a/arch/arm64/crypto/aes-glue.c
-+++ b/arch/arm64/crypto/aes-glue.c
-@@ -69,52 +69,13 @@ MODULE_ALIAS_CRYPTO("essiv(cbc(aes),sha256)");
- MODULE_ALIAS_CRYPTO("cmac(aes)");
- MODULE_ALIAS_CRYPTO("xcbc(aes)");
- MODULE_ALIAS_CRYPTO("cbcmac(aes)");
- 
- MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
-+MODULE_IMPORT_NS("CRYPTO_INTERNAL");
- MODULE_LICENSE("GPL v2");
- 
--/* defined in aes-modes.S */
--asmlinkage void aes_ecb_encrypt(u8 out[], u8 const in[], u32 const rk[],
--				int rounds, int blocks);
--asmlinkage void aes_ecb_decrypt(u8 out[], u8 const in[], u32 const rk[],
--				int rounds, int blocks);
--
--asmlinkage void aes_cbc_encrypt(u8 out[], u8 const in[], u32 const rk[],
--				int rounds, int blocks, u8 iv[]);
--asmlinkage void aes_cbc_decrypt(u8 out[], u8 const in[], u32 const rk[],
--				int rounds, int blocks, u8 iv[]);
--
--asmlinkage void aes_cbc_cts_encrypt(u8 out[], u8 const in[], u32 const rk[],
--				int rounds, int bytes, u8 const iv[]);
--asmlinkage void aes_cbc_cts_decrypt(u8 out[], u8 const in[], u32 const rk[],
--				int rounds, int bytes, u8 const iv[]);
--
--asmlinkage void aes_ctr_encrypt(u8 out[], u8 const in[], u32 const rk[],
--				int rounds, int bytes, u8 ctr[]);
--
--asmlinkage void aes_xctr_encrypt(u8 out[], u8 const in[], u32 const rk[],
--				 int rounds, int bytes, u8 ctr[], int byte_ctr);
--
--asmlinkage void aes_xts_encrypt(u8 out[], u8 const in[], u32 const rk1[],
--				int rounds, int bytes, u32 const rk2[], u8 iv[],
--				int first);
--asmlinkage void aes_xts_decrypt(u8 out[], u8 const in[], u32 const rk1[],
--				int rounds, int bytes, u32 const rk2[], u8 iv[],
--				int first);
--
--asmlinkage void aes_essiv_cbc_encrypt(u8 out[], u8 const in[], u32 const rk1[],
--				      int rounds, int blocks, u8 iv[],
--				      u32 const rk2[]);
--asmlinkage void aes_essiv_cbc_decrypt(u8 out[], u8 const in[], u32 const rk1[],
--				      int rounds, int blocks, u8 iv[],
--				      u32 const rk2[]);
--
--asmlinkage int aes_mac_update(u8 const in[], u32 const rk[], int rounds,
--			      int blocks, u8 dg[], int enc_before,
--			      int enc_after);
--
- struct crypto_aes_xts_ctx {
- 	struct crypto_aes_ctx key1;
- 	struct crypto_aes_ctx __aligned(8) key2;
- };
- 
-@@ -969,15 +930,9 @@ static int __init aes_init(void)
- 	return err;
- }
- 
- #ifdef USE_V8_CRYPTO_EXTENSIONS
- module_cpu_feature_match(AES, aes_init);
--EXPORT_SYMBOL_NS(ce_aes_mac_update, "CRYPTO_INTERNAL");
- #else
- module_init(aes_init);
--EXPORT_SYMBOL(neon_aes_ecb_encrypt);
--EXPORT_SYMBOL(neon_aes_cbc_encrypt);
--EXPORT_SYMBOL(neon_aes_ctr_encrypt);
--EXPORT_SYMBOL(neon_aes_xts_encrypt);
--EXPORT_SYMBOL(neon_aes_xts_decrypt);
- #endif
- module_exit(aes_exit);
-diff --git a/arch/arm64/crypto/aes-neonbs-glue.c b/arch/arm64/crypto/aes-neonbs-glue.c
-index cb87c8fc66b3..7630a7bf5da9 100644
---- a/arch/arm64/crypto/aes-neonbs-glue.c
-+++ b/arch/arm64/crypto/aes-neonbs-glue.c
-@@ -15,10 +15,11 @@
- #include <crypto/xts.h>
++#include <crypto/aes-cbc-macs.h>
+ #include <crypto/aes.h>
+ #include <crypto/algapi.h>
++#include <crypto/internal/hash.h>
  #include <linux/module.h>
  
- MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
- MODULE_DESCRIPTION("Bit sliced AES using NEON instructions");
-+MODULE_IMPORT_NS("CRYPTO_INTERNAL");
- MODULE_LICENSE("GPL v2");
+ static_assert(__alignof__(struct aes_key) <= CRYPTO_MINALIGN);
  
- MODULE_ALIAS_CRYPTO("ecb(aes)");
- MODULE_ALIAS_CRYPTO("cbc(aes)");
- MODULE_ALIAS_CRYPTO("ctr(aes)");
-@@ -40,24 +41,10 @@ asmlinkage void aesbs_ctr_encrypt(u8 out[], u8 const in[], u8 const rk[],
- asmlinkage void aesbs_xts_encrypt(u8 out[], u8 const in[], u8 const rk[],
- 				  int rounds, int blocks, u8 iv[]);
- asmlinkage void aesbs_xts_decrypt(u8 out[], u8 const in[], u8 const rk[],
- 				  int rounds, int blocks, u8 iv[]);
+ static int crypto_aes_setkey(struct crypto_tfm *tfm, const u8 *in_key,
+@@ -31,10 +33,102 @@ static void crypto_aes_decrypt(struct crypto_tfm *tfm, u8 *out, const u8 *in)
+ 	const struct aes_key *key = crypto_tfm_ctx(tfm);
  
--/* borrowed from aes-neon-blk.ko */
--asmlinkage void neon_aes_ecb_encrypt(u8 out[], u8 const in[], u32 const rk[],
--				     int rounds, int blocks);
--asmlinkage void neon_aes_cbc_encrypt(u8 out[], u8 const in[], u32 const rk[],
--				     int rounds, int blocks, u8 iv[]);
--asmlinkage void neon_aes_ctr_encrypt(u8 out[], u8 const in[], u32 const rk[],
--				     int rounds, int bytes, u8 ctr[]);
--asmlinkage void neon_aes_xts_encrypt(u8 out[], u8 const in[],
--				     u32 const rk1[], int rounds, int bytes,
--				     u32 const rk2[], u8 iv[], int first);
--asmlinkage void neon_aes_xts_decrypt(u8 out[], u8 const in[],
--				     u32 const rk1[], int rounds, int bytes,
--				     u32 const rk2[], u8 iv[], int first);
--
- struct aesbs_ctx {
- 	u8	rk[13 * (8 * AES_BLOCK_SIZE) + 32];
- 	int	rounds;
- } __aligned(AES_BLOCK_SIZE);
- 
-diff --git a/include/crypto/aes.h b/include/crypto/aes.h
-index cbf1cc96db52..91bf4667d3e9 100644
---- a/include/crypto/aes.h
-+++ b/include/crypto/aes.h
-@@ -165,10 +165,79 @@ int aes_expandkey(struct crypto_aes_ctx *ctx, const u8 *in_key,
-  * that code is migrated into lib/crypto/.
-  */
- #ifdef CONFIG_ARM64
- int ce_aes_expandkey(struct crypto_aes_ctx *ctx, const u8 *in_key,
- 		     unsigned int key_len);
-+asmlinkage void neon_aes_ecb_encrypt(u8 out[], u8 const in[], u32 const rk[],
-+				     int rounds, int blocks);
-+asmlinkage void neon_aes_ecb_decrypt(u8 out[], u8 const in[], u32 const rk[],
-+				     int rounds, int blocks);
-+asmlinkage void neon_aes_cbc_encrypt(u8 out[], u8 const in[], u32 const rk[],
-+				     int rounds, int blocks, u8 iv[]);
-+asmlinkage void neon_aes_cbc_decrypt(u8 out[], u8 const in[], u32 const rk[],
-+				     int rounds, int blocks, u8 iv[]);
-+asmlinkage void neon_aes_cbc_cts_encrypt(u8 out[], u8 const in[],
-+					 u32 const rk[], int rounds, int bytes,
-+					 u8 const iv[]);
-+asmlinkage void neon_aes_cbc_cts_decrypt(u8 out[], u8 const in[],
-+					 u32 const rk[], int rounds, int bytes,
-+					 u8 const iv[]);
-+asmlinkage void neon_aes_ctr_encrypt(u8 out[], u8 const in[], u32 const rk[],
-+				     int rounds, int bytes, u8 ctr[]);
-+asmlinkage void neon_aes_xctr_encrypt(u8 out[], u8 const in[], u32 const rk[],
-+				      int rounds, int bytes, u8 ctr[],
-+				      int byte_ctr);
-+asmlinkage void neon_aes_xts_encrypt(u8 out[], u8 const in[], u32 const rk1[],
-+				     int rounds, int bytes, u32 const rk2[],
-+				     u8 iv[], int first);
-+asmlinkage void neon_aes_xts_decrypt(u8 out[], u8 const in[], u32 const rk1[],
-+				     int rounds, int bytes, u32 const rk2[],
-+				     u8 iv[], int first);
-+asmlinkage void neon_aes_essiv_cbc_encrypt(u8 out[], u8 const in[],
-+					   u32 const rk1[], int rounds,
-+					   int blocks, u8 iv[],
-+					   u32 const rk2[]);
-+asmlinkage void neon_aes_essiv_cbc_decrypt(u8 out[], u8 const in[],
-+					   u32 const rk1[], int rounds,
-+					   int blocks, u8 iv[],
-+					   u32 const rk2[]);
-+asmlinkage int neon_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
-+				   int blocks, u8 dg[], int enc_before,
-+				   int enc_after);
-+
-+asmlinkage void ce_aes_ecb_encrypt(u8 out[], u8 const in[], u32 const rk[],
-+				   int rounds, int blocks);
-+asmlinkage void ce_aes_ecb_decrypt(u8 out[], u8 const in[], u32 const rk[],
-+				   int rounds, int blocks);
-+asmlinkage void ce_aes_cbc_encrypt(u8 out[], u8 const in[], u32 const rk[],
-+				   int rounds, int blocks, u8 iv[]);
-+asmlinkage void ce_aes_cbc_decrypt(u8 out[], u8 const in[], u32 const rk[],
-+				   int rounds, int blocks, u8 iv[]);
-+asmlinkage void ce_aes_cbc_cts_encrypt(u8 out[], u8 const in[], u32 const rk[],
-+				       int rounds, int bytes, u8 const iv[]);
-+asmlinkage void ce_aes_cbc_cts_decrypt(u8 out[], u8 const in[], u32 const rk[],
-+				       int rounds, int bytes, u8 const iv[]);
-+asmlinkage void ce_aes_ctr_encrypt(u8 out[], u8 const in[], u32 const rk[],
-+				   int rounds, int bytes, u8 ctr[]);
-+asmlinkage void ce_aes_xctr_encrypt(u8 out[], u8 const in[], u32 const rk[],
-+				    int rounds, int bytes, u8 ctr[],
-+				    int byte_ctr);
-+asmlinkage void ce_aes_xts_encrypt(u8 out[], u8 const in[], u32 const rk1[],
-+				   int rounds, int bytes, u32 const rk2[],
-+				   u8 iv[], int first);
-+asmlinkage void ce_aes_xts_decrypt(u8 out[], u8 const in[], u32 const rk1[],
-+				   int rounds, int bytes, u32 const rk2[],
-+				   u8 iv[], int first);
-+asmlinkage void ce_aes_essiv_cbc_encrypt(u8 out[], u8 const in[],
-+					 u32 const rk1[], int rounds,
-+					 int blocks, u8 iv[], u32 const rk2[]);
-+asmlinkage void ce_aes_essiv_cbc_decrypt(u8 out[], u8 const in[],
-+					 u32 const rk1[], int rounds,
-+					 int blocks, u8 iv[], u32 const rk2[]);
-+asmlinkage int ce_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
-+				 int blocks, u8 dg[], int enc_before,
-+				 int enc_after);
- #elif defined(CONFIG_PPC)
- void ppc_expand_key_128(u32 *key_enc, const u8 *key);
- void ppc_expand_key_192(u32 *key_enc, const u8 *key);
- void ppc_expand_key_256(u32 *key_enc, const u8 *key);
- void ppc_generate_decrypt_key(u32 *key_dec, u32 *key_enc, unsigned int key_len);
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 725eef05b758..c05d4b4e8e82 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -24,11 +24,13 @@ CFLAGS_aes.o += -I$(src)/$(SRCARCH)
- 
- libaes-$(CONFIG_ARM) += arm/aes-cipher-core.o
- 
- ifeq ($(CONFIG_ARM64),y)
- libaes-y += arm64/aes-cipher-core.o
--libaes-$(CONFIG_KERNEL_MODE_NEON) += arm64/aes-ce-core.o
-+libaes-$(CONFIG_KERNEL_MODE_NEON) += arm64/aes-ce-core.o \
-+				     arm64/aes-ce.o \
-+				     arm64/aes-neon.o
- endif
- 
- ifeq ($(CONFIG_PPC),y)
- ifeq ($(CONFIG_SPE),y)
- libaes-y += powerpc/aes-spe-core.o \
-diff --git a/arch/arm64/crypto/aes-ce.S b/lib/crypto/arm64/aes-ce.S
-similarity index 100%
-rename from arch/arm64/crypto/aes-ce.S
-rename to lib/crypto/arm64/aes-ce.S
-diff --git a/arch/arm64/crypto/aes-modes.S b/lib/crypto/arm64/aes-modes.S
-similarity index 100%
-rename from arch/arm64/crypto/aes-modes.S
-rename to lib/crypto/arm64/aes-modes.S
-diff --git a/arch/arm64/crypto/aes-neon.S b/lib/crypto/arm64/aes-neon.S
-similarity index 100%
-rename from arch/arm64/crypto/aes-neon.S
-rename to lib/crypto/arm64/aes-neon.S
-diff --git a/lib/crypto/arm64/aes.h b/lib/crypto/arm64/aes.h
-index 63eea6271ef9..69f465c668f0 100644
---- a/lib/crypto/arm64/aes.h
-+++ b/lib/crypto/arm64/aes.h
-@@ -124,10 +124,40 @@ int ce_aes_expandkey(struct crypto_aes_ctx *ctx, const u8 *in_key,
- 			    6 + key_len / 4);
- 	return 0;
+ 	aes_decrypt(key, out, in);
  }
- EXPORT_SYMBOL(ce_aes_expandkey);
  
-+#if IS_ENABLED(CONFIG_KERNEL_MODE_NEON)
-+EXPORT_SYMBOL_NS_GPL(neon_aes_ecb_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_ecb_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_cbc_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_cbc_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_cbc_cts_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_cbc_cts_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_ctr_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_xctr_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_xts_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_xts_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_essiv_cbc_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_essiv_cbc_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(neon_aes_mac_update, "CRYPTO_INTERNAL");
++static_assert(__alignof__(struct aes_cmac_key) <= CRYPTO_MINALIGN);
++#define AES_CMAC_KEY(tfm) ((struct aes_cmac_key *)crypto_shash_ctx(tfm))
++#define AES_CMAC_CTX(desc) ((struct aes_cmac_ctx *)shash_desc_ctx(desc))
 +
-+EXPORT_SYMBOL_NS_GPL(ce_aes_ecb_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_ecb_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_cbc_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_cbc_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_cbc_cts_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_cbc_cts_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_ctr_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_xctr_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_xts_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_xts_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_essiv_cbc_encrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_essiv_cbc_decrypt, "CRYPTO_INTERNAL");
-+EXPORT_SYMBOL_NS_GPL(ce_aes_mac_update, "CRYPTO_INTERNAL");
++static int __maybe_unused crypto_aes_cmac_setkey(struct crypto_shash *tfm,
++						 const u8 *in_key,
++						 unsigned int key_len)
++{
++	return aes_cmac_preparekey(AES_CMAC_KEY(tfm), in_key, key_len);
++}
++
++static int __maybe_unused crypto_aes_xcbc_setkey(struct crypto_shash *tfm,
++						 const u8 *in_key,
++						 unsigned int key_len)
++{
++	if (key_len != AES_KEYSIZE_128)
++		return -EINVAL;
++	aes_xcbcmac_preparekey(AES_CMAC_KEY(tfm), in_key);
++	return 0;
++}
++
++static int __maybe_unused crypto_aes_cmac_init(struct shash_desc *desc)
++{
++	aes_cmac_init(AES_CMAC_CTX(desc), AES_CMAC_KEY(desc->tfm));
++	return 0;
++}
++
++static int __maybe_unused crypto_aes_cmac_update(struct shash_desc *desc,
++						 const u8 *data,
++						 unsigned int len)
++{
++	aes_cmac_update(AES_CMAC_CTX(desc), data, len);
++	return 0;
++}
++
++static int __maybe_unused crypto_aes_cmac_final(struct shash_desc *desc,
++						u8 *out)
++{
++	aes_cmac_final(AES_CMAC_CTX(desc), out);
++	return 0;
++}
++
++static int __maybe_unused crypto_aes_cmac_digest(struct shash_desc *desc,
++						 const u8 *data,
++						 unsigned int len, u8 *out)
++{
++	aes_cmac(AES_CMAC_KEY(desc->tfm), data, len, out);
++	return 0;
++}
++
++static_assert(__alignof__(struct aes_enckey) <= CRYPTO_MINALIGN);
++#define AES_CBCMAC_KEY(tfm) ((struct aes_enckey *)crypto_shash_ctx(tfm))
++#define AES_CBCMAC_CTX(desc) ((struct aes_cbcmac_ctx *)shash_desc_ctx(desc))
++
++static int __maybe_unused crypto_aes_cbcmac_setkey(struct crypto_shash *tfm,
++						   const u8 *in_key,
++						   unsigned int key_len)
++{
++	return aes_prepareenckey(AES_CBCMAC_KEY(tfm), in_key, key_len);
++}
++
++static int __maybe_unused crypto_aes_cbcmac_init(struct shash_desc *desc)
++{
++	aes_cbcmac_init(AES_CBCMAC_CTX(desc), AES_CBCMAC_KEY(desc->tfm));
++	return 0;
++}
++
++static int __maybe_unused crypto_aes_cbcmac_update(struct shash_desc *desc,
++						   const u8 *data,
++						   unsigned int len)
++{
++	aes_cbcmac_update(AES_CBCMAC_CTX(desc), data, len);
++	return 0;
++}
++
++static int __maybe_unused crypto_aes_cbcmac_final(struct shash_desc *desc,
++						  u8 *out)
++{
++	aes_cbcmac_final(AES_CBCMAC_CTX(desc), out);
++	return 0;
++}
++
++static int __maybe_unused crypto_aes_cbcmac_digest(struct shash_desc *desc,
++						   const u8 *data,
++						   unsigned int len, u8 *out)
++{
++	aes_cbcmac_init(AES_CBCMAC_CTX(desc), AES_CBCMAC_KEY(desc->tfm));
++	aes_cbcmac_update(AES_CBCMAC_CTX(desc), data, len);
++	aes_cbcmac_final(AES_CBCMAC_CTX(desc), out);
++	return 0;
++}
++
+ static struct crypto_alg alg = {
+ 	.cra_name = "aes",
+ 	.cra_driver_name = "aes-lib",
+ 	.cra_priority = 100,
+ 	.cra_flags = CRYPTO_ALG_TYPE_CIPHER,
+@@ -46,21 +140,108 @@ static struct crypto_alg alg = {
+ 			       .cia_setkey = crypto_aes_setkey,
+ 			       .cia_encrypt = crypto_aes_encrypt,
+ 			       .cia_decrypt = crypto_aes_decrypt } }
+ };
+ 
++static struct shash_alg mac_algs[] = {
++#if IS_ENABLED(CONFIG_CRYPTO_CMAC)
++	{
++		.base.cra_name = "cmac(aes)",
++		.base.cra_driver_name = "cmac-aes-lib",
++		.base.cra_priority = 300,
++		.base.cra_blocksize = AES_BLOCK_SIZE,
++		.base.cra_ctxsize = sizeof(struct aes_cmac_key),
++		.base.cra_module = THIS_MODULE,
++		.digestsize = AES_BLOCK_SIZE,
++		.setkey = crypto_aes_cmac_setkey,
++		.init = crypto_aes_cmac_init,
++		.update = crypto_aes_cmac_update,
++		.final = crypto_aes_cmac_final,
++		.digest = crypto_aes_cmac_digest,
++		.descsize = sizeof(struct aes_cmac_ctx),
++	},
 +#endif
++#if IS_ENABLED(CONFIG_CRYPTO_XCBC)
++	{
++		/*
++		 * Note that the only difference between xcbc(aes) and cmac(aes)
++		 * is the preparekey function.
++		 */
++		.base.cra_name = "xcbc(aes)",
++		.base.cra_driver_name = "xcbc-aes-lib",
++		.base.cra_priority = 300,
++		.base.cra_blocksize = AES_BLOCK_SIZE,
++		.base.cra_ctxsize = sizeof(struct aes_cmac_key),
++		.base.cra_module = THIS_MODULE,
++		.digestsize = AES_BLOCK_SIZE,
++		.setkey = crypto_aes_xcbc_setkey,
++		.init = crypto_aes_cmac_init,
++		.update = crypto_aes_cmac_update,
++		.final = crypto_aes_cmac_final,
++		.digest = crypto_aes_cmac_digest,
++		.descsize = sizeof(struct aes_cmac_ctx),
++	},
++#endif
++#if IS_ENABLED(CONFIG_CRYPTO_CCM)
++	{
++		.base.cra_name = "cbcmac(aes)",
++		.base.cra_driver_name = "cbcmac-aes-lib",
++		.base.cra_priority = 300,
++		.base.cra_blocksize = AES_BLOCK_SIZE,
++		.base.cra_ctxsize = sizeof(struct aes_enckey),
++		.base.cra_module = THIS_MODULE,
++		.digestsize = AES_BLOCK_SIZE,
++		.setkey = crypto_aes_cbcmac_setkey,
++		.init = crypto_aes_cbcmac_init,
++		.update = crypto_aes_cbcmac_update,
++		.final = crypto_aes_cbcmac_final,
++		.digest = crypto_aes_cbcmac_digest,
++		.descsize = sizeof(struct aes_cbcmac_ctx),
++	},
++#endif
++};
 +
- static void aes_encrypt_arch(const struct aes_enckey *key,
- 			     u8 out[AES_BLOCK_SIZE],
- 			     const u8 in[AES_BLOCK_SIZE])
+ static int __init crypto_aes_mod_init(void)
  {
- 	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
+-	return crypto_register_alg(&alg);
++	int err = crypto_register_alg(&alg);
++
++	if (err)
++		return err;
++
++	if (ARRAY_SIZE(mac_algs) > 0) {
++		err = crypto_register_shashes(mac_algs, ARRAY_SIZE(mac_algs));
++		if (err)
++			goto err_unregister_alg;
++	} /* Else, CONFIG_CRYPTO_HASH might not be enabled. */
++	return 0;
++
++err_unregister_alg:
++	crypto_unregister_alg(&alg);
++	return err;
+ }
+ module_init(crypto_aes_mod_init);
+ 
+ static void __exit crypto_aes_mod_exit(void)
+ {
++	if (ARRAY_SIZE(mac_algs) > 0)
++		crypto_unregister_shashes(mac_algs, ARRAY_SIZE(mac_algs));
+ 	crypto_unregister_alg(&alg);
+ }
+ module_exit(crypto_aes_mod_exit);
+ 
+ MODULE_DESCRIPTION("Crypto API support for AES block cipher");
++MODULE_IMPORT_NS("CRYPTO_INTERNAL");
+ MODULE_LICENSE("GPL");
+ MODULE_ALIAS_CRYPTO("aes");
+ MODULE_ALIAS_CRYPTO("aes-lib");
++#if IS_ENABLED(CONFIG_CRYPTO_CMAC)
++MODULE_ALIAS_CRYPTO("cmac(aes)");
++MODULE_ALIAS_CRYPTO("cmac-aes-lib");
++#endif
++#if IS_ENABLED(CONFIG_CRYPTO_XCBC)
++MODULE_ALIAS_CRYPTO("xcbc(aes)");
++MODULE_ALIAS_CRYPTO("xcbc-aes-lib");
++#endif
++#if IS_ENABLED(CONFIG_CRYPTO_CCM)
++MODULE_ALIAS_CRYPTO("cbcmac(aes)");
++MODULE_ALIAS_CRYPTO("cbcmac-aes-lib");
++#endif
+diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+index b940721447fa..fa7217029f44 100644
+--- a/crypto/testmgr.c
++++ b/crypto/testmgr.c
+@@ -4386,11 +4386,11 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 			.cipher = __VECS(aes_cbc_tv_template)
+ 		}
+ 	}, {
+ #endif
+ 		.alg = "cbcmac(aes)",
+-		.generic_driver = "cbcmac(aes-lib)",
++		.generic_driver = "cbcmac-aes-lib",
+ 		.test = alg_test_hash,
+ 		.suite = {
+ 			.hash = __VECS(aes_cbcmac_tv_template)
+ 		}
+ 	}, {
+@@ -4399,11 +4399,11 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 		.suite = {
+ 			.hash = __VECS(sm4_cbcmac_tv_template)
+ 		}
+ 	}, {
+ 		.alg = "ccm(aes)",
+-		.generic_driver = "ccm_base(ctr(aes-lib),cbcmac(aes-lib))",
++		.generic_driver = "ccm_base(ctr(aes-lib),cbcmac-aes-lib)",
+ 		.test = alg_test_aead,
+ 		.fips_allowed = 1,
+ 		.suite = {
+ 			.aead = {
+ 				____VECS(aes_ccm_tv_template),
+@@ -4427,11 +4427,11 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 		.suite = {
+ 			.cipher = __VECS(chacha20_tv_template)
+ 		},
+ 	}, {
+ 		.alg = "cmac(aes)",
+-		.generic_driver = "cmac(aes-lib)",
++		.generic_driver = "cmac-aes-lib",
+ 		.fips_allowed = 1,
+ 		.test = alg_test_hash,
+ 		.suite = {
+ 			.hash = __VECS(aes_cmac128_tv_template)
+ 		}
+@@ -5324,11 +5324,11 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 				.aad_iv = 1,
+ 			}
+ 		}
+ 	}, {
+ 		.alg = "rfc4309(ccm(aes))",
+-		.generic_driver = "rfc4309(ccm_base(ctr(aes-lib),cbcmac(aes-lib)))",
++		.generic_driver = "rfc4309(ccm_base(ctr(aes-lib),cbcmac-aes-lib))",
+ 		.test = alg_test_aead,
+ 		.fips_allowed = 1,
+ 		.suite = {
+ 			.aead = {
+ 				____VECS(aes_ccm_rfc4309_tv_template),
+@@ -5513,11 +5513,11 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 		.suite = {
+ 			.sig = __VECS(x962_ecdsa_nist_p521_tv_template)
+ 		}
+ 	}, {
+ 		.alg = "xcbc(aes)",
+-		.generic_driver = "xcbc(aes-lib)",
++		.generic_driver = "xcbc-aes-lib",
+ 		.test = alg_test_hash,
+ 		.suite = {
+ 			.hash = __VECS(aes_xcbc128_tv_template)
+ 		}
+ 	}, {
+diff --git a/drivers/crypto/starfive/jh7110-aes.c b/drivers/crypto/starfive/jh7110-aes.c
+index c1dc1e43e117..2e2d97d17e6c 100644
+--- a/drivers/crypto/starfive/jh7110-aes.c
++++ b/drivers/crypto/starfive/jh7110-aes.c
+@@ -1001,11 +1001,11 @@ static int starfive_aes_ctr_init_tfm(struct crypto_skcipher *tfm)
+ 	return starfive_aes_init_tfm(tfm, "ctr(aes-lib)");
+ }
+ 
+ static int starfive_aes_ccm_init_tfm(struct crypto_aead *tfm)
+ {
+-	return starfive_aes_aead_init_tfm(tfm, "ccm_base(ctr(aes-lib),cbcmac(aes-lib))");
++	return starfive_aes_aead_init_tfm(tfm, "ccm_base(ctr(aes-lib),cbcmac-aes-lib)");
+ }
+ 
+ static int starfive_aes_gcm_init_tfm(struct crypto_aead *tfm)
+ {
+ 	return starfive_aes_aead_init_tfm(tfm, "gcm_base(ctr(aes-lib),ghash-generic)");
 -- 
 2.53.0
 
