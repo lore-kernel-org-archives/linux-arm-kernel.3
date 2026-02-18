@@ -4,155 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4A0E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6480E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0BY3kZChyKKqhHu7RaS+5ggEOJh1rKnsuUXVXGFed4M=; b=10AA+cDtkbDRyV093agbfCNatA
-	Xl553IQLMehmXeuWdo3JFq9BHFa9HS5BbGxBqSLHhdcRRN0K3RLdptdvPBV0yDzMi86je8sz4u/No
-	tyMJ5lnfvAqw2hex+ik3tpPNtuQt0tYdr1Jsn59sE2RM4IRQT7g9w7l0swlsRL6WGgSOIG1a7vWqb
-	OCou5ByEAoV9lCJm6qOBufvk3rhVfJ9OdGeR8NDPpG//2KIKjsX3HSUD9E2Hksju3RyYBR8ZbgTHH
-	Dm8nqDnPrSIy30OeE22fV2rwQsWnk4q4sHFIlT2Vc0hkT5h8h4hRS30KuRL4DhatuckazKYn5veZc
-	uI0yKiyQ==;
+	bh=S8BwOUIcuxrQDwy17MZmiTFqpJbWlxBIZ87tepnzxIQ=; b=3OfMyB9P9I243A7enTnhVsd3CV
+	s/Brf+1UG1B5Vv3JcgTNh5anr+H+o/AW1X2xFaehaooFzq6V6oVMY6L6xWre8138ECQKPtrMR4rzc
+	lzsNtXA2UwsXRyG3BhfcNteigAhZ81CaYjKihUojhO6VO4ueJgF/BE+boQXxCnpvGP/DuSNun/V5a
+	R4wdTlyANbcvQT6S6LSoaiSU8ObeC04itr3DmmpvO3D00o4vPq1GBtdEVQKVIn4aeWqvPrKtpUSE2
+	s7QGCLC9WcPCq8JzpfsgU73kjJIpcZoPsRqwZIlkzXvWMplD63ezcXDYMs9RxTOImwDRbgO7CrxSE
+	UPxhT+vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskda-0000000A6Ox-1HqO;
-	Wed, 18 Feb 2026 16:42:54 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vskdq-0000000A6TO-2u9I;
+	Wed, 18 Feb 2026 16:43:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskdX-0000000A6Ng-3HIB
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:42:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WqYt3dCCs1TCbodbXYe9uoSzJmE9l48vPJ65rddP31Sgwa1OPIZdlB2hgnOc7TiX93X+H+78izbL3vYKqhlVO0ecdAgK3cZrnluPFvT7/Nk1OnEUr6bydaOplmTAwDfXtf32Tu1YyqR0tnZVpaz4FV/LfpmnMvljL/U1EAsVjvyYBvfyUUmXY0w0UfxGlNhnmrz500fREDRIB8EyZusMzfDV7q9AAudFfarutH5AB2S7QbacAzydSH2rlVEawQfJhZP8eJS4O2AjQsxiMpNcpnM7CFUuiaFuXPpYjDBUBBdztoIyQMLVU13WrrukqVfST0hv3D9LednvjpfnjY7zCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0BY3kZChyKKqhHu7RaS+5ggEOJh1rKnsuUXVXGFed4M=;
- b=UhD3k/kGxj9oxZKt7Ox1itjjZ39VqEaf1x66FPXc8dT5AqVQvPUr9lU72lmtgZNJWNg/GLPOPNqn6+SxJcJaiguV8t0RHKTNyLDKZ7t25rEgftnmGV3pUKg3H5b5scftFzLBkKidNjRfReOcadNJjzsNY6d6GAnc4xsvWTIpQNOZDIGGBzEwBQaVxvpCYvdv+J47yMU3Be3p7+YbMW0Yb4XJVzQAdsh8/0i7cBfAcH9MtyrXq0dPXJBwJw/Iuz6cbDPT2WVXRaJnvSsJXECGqU2NQMv8HERNKRbyCOiX7jHIE5FzkufqRR1nRR0qtWJYGMrwcKKCqLCCVDo0ZRUqTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0BY3kZChyKKqhHu7RaS+5ggEOJh1rKnsuUXVXGFed4M=;
- b=cw3v2/BbHvs87q9wOQ2DETL2G6jGIgcgtec82ZL1CTd0M4nN3hD/yQA00E8UMn81sA4uGoI3W++jLe3ltNycbmO0dPsBmRDiX8/jBBpDvdJnnRdiyoX7WaxYm/QicXDZf8rs3p5yE+mcBgI/qNzIk8BdRb3dpHeIN3KH5Q1OT3IY93B6f+ZGkVzeY0ErsAhCc+5WBMN9nIlaRNERrRpsz//Ou47eAaBWPuFGRcPZPlw4dz2+sENbMqWm+fWr2KYZah8MWNNjaM52zA7Nl5YbO2ZLzPQcvFOyg++euTqUlLyUpf14z71hfCw59ppDxh6MKgKnin6JYfiIzjuIY6fzyQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB8962.eurprd04.prod.outlook.com (2603:10a6:20b:42d::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Wed, 18 Feb
- 2026 16:42:46 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.010; Wed, 18 Feb 2026
- 16:42:45 +0000
-Date: Wed, 18 Feb 2026 11:42:38 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux@ew.tq-group.com,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] ARM: dts: imx7-mba7: disable boot_cfg pins after boot
-Message-ID: <aZXr_r1VEx5kcl7g@lizhi-Precision-Tower-5810>
-References: <20260218135415.204974-1-Alexander.Feilke@ew.tq-group.com>
- <20260218135415.204974-4-Alexander.Feilke@ew.tq-group.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260218135415.204974-4-Alexander.Feilke@ew.tq-group.com>
-X-ClientProxiedBy: PH8P220CA0032.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:348::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1vskdp-0000000A6Sr-3oK8;
+	Wed, 18 Feb 2026 16:43:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1AC8D6132F;
+	Wed, 18 Feb 2026 16:43:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EA9DC116D0;
+	Wed, 18 Feb 2026 16:43:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771432988;
+	bh=dj3eQKTqmGH29R7zQS8gpeEsE6QcOmVz4CshF/Dp7is=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cwih0YWGPYmqx/PmT9sZ3jnS9/xW6YwMNTsC5P5U0KGQAMzovasEdfdPDvr1BzUU9
+	 2J+F7HoYScit3dce5srGgeRjDCf8vU9EvuOAuheqmmXmwPT7MqdwjZ+U84/NDRkd+p
+	 nuLQw+YvQdqj3OKVcWhC40p4EjHSb8LzKbwUHdDQXss3wutU2Wa2Y7v1Bnehko6bzA
+	 MQpcRw8BQSDupVUm6ZaLCTatKfRW14+gdP1TvZEZgBdosK2xC/VeS6TJm6mpRgSJZN
+	 si2IHtEAjxRSC7/l9qESmuXi9ZAU2YwmUtCf77XEBV0QW8nLNIJV3qNxKX/HQVVDKC
+	 g+lNRAD8naQUw==
+Date: Wed, 18 Feb 2026 22:12:52 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sean Anderson <sean.anderson@linux.dev>, 
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Michal Simek <michal.simek@amd.com>, 
+	Thippeswamy Havalige <thippeswamy.havalige@amd.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Vinod Koul <vkoul@kernel.org>, linux-phy@lists.infradead.org, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH 7/8] PCI: xilinx-nwl: Reset the core during probe
+Message-ID: <6ugot5mmhaepx5u7b5xatq7d3rwv3nlpl5sfd6hn3whqnojw3o@rc2lietsxpdm>
+References: <20260203002128.935842-1-sean.anderson@linux.dev>
+ <20260203002128.935842-8-sean.anderson@linux.dev>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8962:EE_
-X-MS-Office365-Filtering-Correlation-Id: f29b27c4-bbd3-4e2c-a3ec-08de6f0cbe4c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|19092799006|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Jq8Zyig7LoYgZCnGi5juohBys9uaN+GVh7h8TStC6pmQSpaiEduc3xOW/ntu?=
- =?us-ascii?Q?BnsUqTg3r/cMy+rmVvRf+VyyGdnRdGCiTuec2EIL8n7lmcDSo45bAlLtR55a?=
- =?us-ascii?Q?zRKX2TEdQCrhyrCOZ2BjWynJTJkEopQj+7G4IbPpt7LjVBOV1eV6w0IEHjKn?=
- =?us-ascii?Q?vVdPBsAKXFWWqE1zZXcthigTidFEzlmlbxm1lfdSBpeB9Cj9GH4wnBXr9w4a?=
- =?us-ascii?Q?2q9vRCzwJFIoD03ctNuoT+pHpc03T3Aq8PJuQfDMtotMaiXco4ll0/NJqItP?=
- =?us-ascii?Q?ZRKatFkzCMpNlz1rwRKb47eKuGejUawYlzkWroOxRJrJBizSNWr3WnS9XS+Y?=
- =?us-ascii?Q?rCQI/4hGiYPmi1+ArO8iGRmt9pA9+tcpheShPAUwTYdUEZOjSKqGjzY8KnxN?=
- =?us-ascii?Q?2Ljlegrc8nmbk7843Ut9ooLis64nFQJkWU/c8aNRovedmDGKwXvYdsFn/Wiu?=
- =?us-ascii?Q?sadshD9UBx5ae0AIn1s7LMpvJMxxfPriPQLIls8f/rugaJ4fuLY8fhE8Zd0W?=
- =?us-ascii?Q?awkFO1r/kv+Q6aX1Ac4ctTECy0I9c/gGte+JEk7lFSfqsZJ1QxW9beS2P2MQ?=
- =?us-ascii?Q?ljiM8ZUAms6NkD4mmzGECc1WMg+k4z3Xb0Uz3bZuc0zAPrl1GNueQk1CIMCC?=
- =?us-ascii?Q?DKKqRi1ILhNWhZpp0Fw554MSv7utsi2RSDRm4/3f7annoCODttcqGWyFAjAa?=
- =?us-ascii?Q?HGo/VjFsN4D3zuBdG+0Dagcp7sffwX4Y5bqc4+Ns8H4Ih5+0fNkOaXr5NSGG?=
- =?us-ascii?Q?fOrMc52+ftD4lJWnDZlafau7Ux8sAAUYmkEXa3rT5hdLEwdw957k9E0gI6Kp?=
- =?us-ascii?Q?TWS9+LEaDB7EGRF64HeFBqDSwHF88uSSltFGhI159vm/B9r7wMmChYh+JUsr?=
- =?us-ascii?Q?jY4ALz1H0JXjfuNrRo7d2p+uAqaSdduf2ReI3ec8zIC5AIjFa+EUDum6abn7?=
- =?us-ascii?Q?S877NiRjSjD/60sTB1Gjb9UQna7/f/IwPOG79Ddg5KCW6kolX/4KrpbBBn2+?=
- =?us-ascii?Q?MNdijX6BbDLRcv0HfctsthdDEuvurxQmGPG8OfSZm5D6zPex0a97xyADKPG9?=
- =?us-ascii?Q?ZssVfCAgVzNrzgKJXMqu16qZDg4aDAPrY7RpvSlhCuOqtRECfPh4CKze7g6o?=
- =?us-ascii?Q?OvG/leLfpJcA5S/+F5HtjX8uUUdCBZ2+69tsE+j5o81VVIcK4BpzHsit9mUS?=
- =?us-ascii?Q?3v9ojZbRafhJM2fETh47XuQOAupL1qDOnQknrRtnPKpeFZ3UD4NhBMS2LUP0?=
- =?us-ascii?Q?Y95mpQzy8WUzq6GXfkvvG42cKB3I7z9C8YOw3PkueaTblXUylJ1E4B9d5axC?=
- =?us-ascii?Q?uQMmcaaz5EjwnXgn9o0kr4THVuVDywwHNX7M94Exbghkc8PtW2XxsHQm9mtt?=
- =?us-ascii?Q?rnZ7eCj9BdFGKp4qRWLM+25m4vniUed7fXGOlzigeq4X773+UPOVKM2T7iRY?=
- =?us-ascii?Q?cz6LMj1DpqVuXopnS9jg77qOVFU4RPq+u0A5ailJ0XdwFkD0RpcRccE1P/7a?=
- =?us-ascii?Q?DaNPPoqAUUPnDQTxnccc6FhdvvEQHpzJhqYhmizgF4104/e5Dv86hhHhjjXe?=
- =?us-ascii?Q?yPdlOnkuHFei77VJDPPyS9cZZyoXeuARGVkVe5yfDOT7mtIiqVys9v07UBJs?=
- =?us-ascii?Q?CGigxqPPZWwnv3Ms4XHhLnY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(19092799006)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Wul8PQtbr+zKWozv1UHYRHqhwqV6n6OIdjFss4srT/er255dY2n7r0anYDuX?=
- =?us-ascii?Q?G5YVZFjZU1bECoFuCUZUIi79YfFaDNUytRh8ShauAkaGWoQvrXXHGEIIzhML?=
- =?us-ascii?Q?PTBfY9oARUil6ZjlJ8mn7O9Oki135KA2Qw80u0+Mdoj5KdHAGj6n05BA4HJ1?=
- =?us-ascii?Q?679RZmDJpb3MfJRnnEceRLPZ89lp6XRnPSCa1IYwEE1QmQ8kElt30JmBLlW0?=
- =?us-ascii?Q?1+dx8gPBepEky9cr2+V+dbLCZfdFmBtojZNu34eYUSIYmY2Kir4I0H3mV+8g?=
- =?us-ascii?Q?WAsOcoGsDnKDlP9pqCJcsjAYiEOPyeTjOGGggfB/Lv7TaAC1JZDcAcyCQs/8?=
- =?us-ascii?Q?zyK4eNudwb04KJ4gbfMWWcVnZjHOXD0qF4yOpxCF5mGnSrWlbd9rS7imEdaG?=
- =?us-ascii?Q?DRbPsRlZYlwOT9MNrssLroS0uZa9N2Giv5Vu6BFiPUhRB1UAdHZzgNaClsYW?=
- =?us-ascii?Q?fcVe4DcfBGBXqEM4pIGfOaeE6YbiR6Jb7dvNismLBfwN+0euMw0810h+9aWT?=
- =?us-ascii?Q?sgM5Mxh8ELK+OLey7zlrqr7ATBS4tiSlURI6LcMFnu3LSuU5xhuh/4z1YLBR?=
- =?us-ascii?Q?RWLGf3bRBqPw7eqgUTgPE3JtBI7am6I6Fz3T4udUggH7a0SboGKb98NWL6SM?=
- =?us-ascii?Q?2NEITQFJcqpua2/vlu02d0QXsQiRrGxfMUlxVOqodAFQofHW9uR13fHIcdCz?=
- =?us-ascii?Q?Q8colOSZrQL5UDQouBsVz9Ojicz10496F0LjhxForjTpS0QtanaJ7HBC7e/O?=
- =?us-ascii?Q?syqnb/Y+LeaW+lMpRx0lAdYbcqnGFYmn1pT6uimbLyEBAo6oz/8iQVvw/MQy?=
- =?us-ascii?Q?ys2igjjrjcoZoPLWe6H1hhGS5H5j2BqQ2T0aRihATt56R9pOWTspc1lw7o5N?=
- =?us-ascii?Q?qX6ObIxOIWi7gHd/3OM26IXhQgH5qtt6iV45d4jeHspe37SoqtUy+KYeD7qZ?=
- =?us-ascii?Q?ZlvER3kSgK3I7hpvnZtQ3xQVoPENvAzsHF9sYEtOeOizUmISUI9cPv/kugeF?=
- =?us-ascii?Q?wVMaPRNXrM/w9ZiobGTfIzg8R0Qi4iEqn63xRCukviGNN0XQ9Hd+lTTD4jba?=
- =?us-ascii?Q?abdEQbOEH+QhT3aoCpZxuEcoQXgpIEbnGm+qLKDXmPysZgrJFPIZm21NcdYu?=
- =?us-ascii?Q?ss0dKX+rd3sTWTB269a113DM/pzCrzLJKCu+zZCzp5zmeAz1knE6oQxaJXwI?=
- =?us-ascii?Q?SqaEcjI0ayRInyJJ/fBhNRC4z7PtvrUtNaEViZFa/Uul/lBW+/B5fq0Ajnn4?=
- =?us-ascii?Q?66sNPoYsnAkwy5xOClwjn+yk82qKF2Iw/ISIKc7sCypXHQqkzmdFPUchvIC9?=
- =?us-ascii?Q?SYbZ2hvenVpbdTkIBCV48mXTgXDmJd0OYE25Hv6NF0XnxUSGsljUshEZRwub?=
- =?us-ascii?Q?8gc+VFm+7EIR3bsb8Gz8jHaPPqR/O1GrMtxb9ePPbhzew+c71nvAPDXgyZJO?=
- =?us-ascii?Q?vP1cRNxHIPPmZmZvU6Rw3DofTnKWC9g5bTdUQSCo6/Q+nahbuWQ7kATfsb69?=
- =?us-ascii?Q?CrsFokbew5LJpkOsOw7RrbTlmB4jrq6upgr0zdoKHvlY0xKhQD1OefgMXYKu?=
- =?us-ascii?Q?x/xUTqDS8HG1NQ5G31cawUdx1qkYNmKj+QElgmKFeP8Z7DTQtJ/hteJYhABr?=
- =?us-ascii?Q?jzNyfUkUuqGlBTQiIioKYfIGYxvhSt5Mk+YpwdKJWq93DDdpmAS0Dz5ZBMVf?=
- =?us-ascii?Q?8RW8HVIfYZzeiMBny5CSzkK59ZbVR9/3G/FfDWyOknkat+ykylaH/5KbJ9dj?=
- =?us-ascii?Q?tWPWo+KqhA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f29b27c4-bbd3-4e2c-a3ec-08de6f0cbe4c
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 16:42:45.8884
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: D9knLOI/JR3TsJhmXyTD56T+TWK6Bx9NU0tWRBD5rIHL9UXgq+QmfKNTavaU1Ax2vHt1CgYkspwVnufUluapkA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8962
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_084251_830586_4F208659 
-X-CRM114-Status: GOOD (  15.74  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260203002128.935842-8-sean.anderson@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,44 +75,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 18, 2026 at 02:54:14PM +0100, Alexander Feilke wrote:
-> The BOOT_CFG pins are located on the LCD bus on our starterkit.
-> Disable them after boot to separate those signals.
+On Mon, Feb 02, 2026 at 07:21:27PM -0500, Sean Anderson wrote:
+> The PCIe core must be held in reset when initializing phys.
+> Assert/deassert the appropriate resets.
+> 
+> Resetting the core also resets the PCIe attributes to their default
+> values, so initialize those too. For the most part the defaults are
+> fine, but there are many attributes that default to an endpoint
+> configuration and must be reprogrammed to function as a root device.
+> We generally follow the controller programming sequence from UG1085.
+> 
+> Xilinx was extremely imaginative and named all the registers ATTR_1,
+> ATTR_2 etc. (with the fields organized in alphabetical order) so we
+> follow the same convention. Only the fields are named, but sometimes a
+> field is split across multiple registers. All the BARs are unused but
+> some are repurposed as bridge registers when used as a root port.
+> 
 
-Your comments is more clear.  Is below commit massage better?
+Can someone from AMD/Xilinx review this patch?
 
-ARM: dts: imx7-mba7: Deassert BOOT_EN to separate BOOT_CFG circuits after boot
+- Mani
 
-Deassert BOOT_EN after boot to separate BOOT_CFG circuits from LCD signals.
-
-Frank
->
-> Signed-off-by: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
+> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
 > ---
->  arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi | 9 +++++++++
->  1 file changed, 9 insertions(+)
->
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
-> index 03f2f2cbdfbc..4192adb27223 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
-> @@ -287,6 +287,15 @@ &flexcan2 {
->  	status = "okay";
->  };
->
-> +&gpio4 {
-> +	/* Deassert BOOT_EN after boot to separate BOOT_CFG circuits from LCD signals */
-> +	boot-en-hog {
-> +		gpio-hog;
-> +		gpios = <3 GPIO_ACTIVE_LOW>;
-> +		output-low;
-> +	};
-> +};
+> 
+>  drivers/pci/controller/pcie-xilinx-nwl.c | 177 +++++++++++++++++++++++
+>  1 file changed, 177 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pcie-xilinx-nwl.c b/drivers/pci/controller/pcie-xilinx-nwl.c
+> index 7cfdc21e6f40..b78fbad1efa5 100644
+> --- a/drivers/pci/controller/pcie-xilinx-nwl.c
+> +++ b/drivers/pci/controller/pcie-xilinx-nwl.c
+> @@ -22,6 +22,7 @@
+>  #include <linux/pci-ecam.h>
+>  #include <linux/phy/phy.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/reset.h>
+>  #include <linux/irqchip/chained_irq.h>
+>  
+>  #include "../pci.h"
+> @@ -133,6 +134,54 @@
+>  #define CFG_DMA_REG_BAR			GENMASK(2, 0)
+>  #define CFG_PCIE_CACHE			GENMASK(7, 0)
+>  
+> +#define PCIE_ATTR2_AER_CAP_PERMIT_ROOTERR_UPDATE	BIT(0)
 > +
->  &i2c1 {
->  	lm75: temperature-sensor@49 {
->  		compatible = "national,lm75a";
-> --
-> 2.43.0
->
+> +#define PCIE_ATTR25_CPL_TIMEOUT_DISABLE_SUPPORTED	BIT(9)
+> +#define PCIE_ATTR25_INTX_IMPLEMENTED			BIT(8)
+> +#define PCIE_ATTR25_CLASS_CODE				GENMASK(7, 0)
+> +
+> +#define PCIE_ATTR27_DEV_CAP_ENDPOINT_L1_LATENCY		GENMASK(5, 3)
+> +
+> +#define PCIE_ATTR34_HEADER_TYPE				GENMASK(7, 0)
+> +
+> +#define PCIE_ATTR35_LINK_CAP_DLL_ACTIVE_REPORTING	BIT(15)
+> +
+> +#define PCIE_ATTR37_LINK_CAP_MAX_LINK_SPEED		GENMASK(13, 10)
+> +#define PCIE_ATTR37_LINK_CAP_MAX_LINK_SPEED_2_5		1
+> +#define PCIE_ATTR37_LINK_CAP_MAX_LINK_SPEED_5_0		2
+> +#define PCIE_ATTR37_LINK_CAP_BANDWIDTH_NOTIFICATION	BIT(9)
+> +
+> +#define PCIE_ATTR50_CAP_DEVICE_PORT_TYPE		GENMASK(7, 4)
+> +#define PCIE_ATTR50_CAP_NEXTPTR				GENMASK(15, 8)
+> +
+> +#define PCIE_ATTR53_CAP_NEXTPTR				GENMASK(7, 0)
+> +
+> +#define PCIE_ATTR93_LL_REPLAY_TIMEOUT_EN		BIT(15)
+> +
+> +#define PCIE_ATTR97_LTSSM_MAX_LINK_WIDTH		GENMASK(11, 6)
+> +#define PCIE_ATTR97_LINK_CAP_MAX_LINK_WIDTH		GENMASK(5, 0)
+> +
+> +#define PCIE_ATTR100_UPSTREAM_FACING			BIT(6)
+> +
+> +#define PCIE_ATTR101_EN_MSG_ROUTE			GENMASK(15, 5)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_PME_TURN_OFF		BIT(15)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_UNLOCK		BIT(14)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_PME_TO_ACK		BIT(13)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_PM_PME		BIT(12)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_INTD			BIT(11)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_INTC			BIT(10)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_INTB			BIT(9)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_INTA			BIT(8)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_ERR_FATAL		BIT(7)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_ERR_NONFATAL		BIT(6)
+> +#define PCIE_ATTR101_EN_MSG_ROUTE_ERR_COR		BIT(5)
+> +#define PCIE_ATTR101_DISABLE_BAR_FILTERING		BIT(1)
+> +
+> +#define PCIE_ATTR106_VC0_TOTAL_CREDITS_NPH		GENMASK(13, 7)
+> +#define PCIE_ATTR106_VC0_TOTAL_CREDITS_CH		GENMASK(6, 0)
+> +
+> +#define PCIE_ATTR109_VC0_TOTAL_CREDITS_PH		GENMASK(6, 0)
+> +
+>  #define INT_PCI_MSI_NR			(2 * 32)
+>  
+>  /* Readin the PS_LINKUP */
+> @@ -159,6 +208,7 @@ struct nwl_pcie {
+>  	void __iomem *pcireg_base;
+>  	void __iomem *ecam_base;
+>  	struct phy *phy[4];
+> +	struct reset_control *ctrl_reset;
+>  	phys_addr_t phys_breg_base;	/* Physical Bridge Register Base */
+>  	phys_addr_t phys_pcie_reg_base;	/* Physical PCIe Controller Base */
+>  	phys_addr_t phys_ecam_base;	/* Physical Configuration Base */
+> @@ -173,6 +223,115 @@ struct nwl_pcie {
+>  	raw_spinlock_t leg_mask_lock;
+>  };
+>  
+> +static void nwl_pcie_write_attr(struct nwl_pcie *pcie, u32 attr, u16 val)
+> +{
+> +	writel(val, pcie->pcireg_base + attr * 4);
+> +}
+> +
+> +static void nwl_pcie_modify_attr(struct nwl_pcie *pcie, u32 attr, u16 clear,
+> +				u16 set)
+> +{
+> +	u32 val = readl(pcie->pcireg_base + attr * 4);
+> +
+> +	nwl_pcie_write_attr(pcie, attr, (val & ~clear) | set);
+> +}
+> +
+> +static void nwl_pcie_attr_init(struct nwl_pcie *pcie)
+> +{
+> +	unsigned int width;
+> +
+> +	for (width = ARRAY_SIZE(pcie->phy); width; width--)
+> +		if (pcie->phy[width - 1])
+> +			break;
+> +
+> +	/* Set TLP header to type-1 */
+> +	nwl_pcie_modify_attr(pcie, 34, PCIE_ATTR34_HEADER_TYPE, PCI_HEADER_TYPE_BRIDGE);
+> +	nwl_pcie_modify_attr(pcie, 100, PCIE_ATTR100_UPSTREAM_FACING, 0);
+> +
+> +	/* Disable BAR0/1 */
+> +	nwl_pcie_write_attr(pcie, 7, 0);
+> +	nwl_pcie_write_attr(pcie, 8, 0);
+> +	nwl_pcie_write_attr(pcie, 9, 0);
+> +	nwl_pcie_write_attr(pcie, 10, 0);
+> +	/* Enable primary/secondary/subordinate busses, disable latency timer */
+> +	nwl_pcie_write_attr(pcie, 11, 0xffff);
+> +	nwl_pcie_write_attr(pcie, 12, 0x00ff);
+> +	nwl_pcie_write_attr(pcie, 13, 0x0000); /* Disable I/O window */
+> +	nwl_pcie_write_attr(pcie, 14, 0x0000); /* Enable secondary status */
+> +	/* Enable memory window */
+> +	nwl_pcie_write_attr(pcie, 15, (u16)PCI_MEMORY_RANGE_MASK);
+> +	nwl_pcie_write_attr(pcie, 16, (u16)PCI_MEMORY_RANGE_MASK);
+> +	/* Enable 64-bit prefetchable window */
+> +	nwl_pcie_write_attr(pcie, 17,
+> +			    (u16)PCI_PREF_RANGE_MASK | PCI_PREF_RANGE_TYPE_64);
+> +	nwl_pcie_write_attr(pcie, 18,
+> +			    (u16)PCI_PREF_RANGE_MASK | PCI_PREF_RANGE_TYPE_64);
+> +	nwl_pcie_modify_attr(pcie, 101, 0, PCIE_ATTR101_DISABLE_BAR_FILTERING);
+> +
+> +	/* Set class code to PCI_CLASS_BRIDGE_PCI_NORMAL */
+> +	nwl_pcie_write_attr(pcie, 24, PCI_CLASS_BRIDGE_PCI_NORMAL & 0xffff);
+> +	nwl_pcie_modify_attr(pcie, 25, PCIE_ATTR25_CLASS_CODE,
+> +			     PCIE_ATTR25_CPL_TIMEOUT_DISABLE_SUPPORTED |
+> +			     PCI_BASE_CLASS_BRIDGE);
+> +
+> +	/* Enable PCIe capability */
+> +	nwl_pcie_modify_attr(pcie, 53, PCIE_ATTR53_CAP_NEXTPTR, 0x60);
+> +	nwl_pcie_modify_attr(pcie, 50,
+> +			     PCIE_ATTR50_CAP_NEXTPTR |
+> +			     PCIE_ATTR50_CAP_DEVICE_PORT_TYPE,
+> +			     FIELD_PREP(PCIE_ATTR50_CAP_DEVICE_PORT_TYPE,
+> +					PCI_EXP_TYPE_ROOT_PORT));
+> +
+> +	/* Disable MSI(-X) capability */
+> +	nwl_pcie_write_attr(pcie, 41, 0);
+> +	nwl_pcie_write_attr(pcie, 43, 0);
+> +	nwl_pcie_write_attr(pcie, 44, 0);
+> +	nwl_pcie_write_attr(pcie, 45, 0);
+> +	nwl_pcie_write_attr(pcie, 46, 0);
+> +	nwl_pcie_write_attr(pcie, 48, 0);
+> +
+> +	/* Disable DSN capability */
+> +	nwl_pcie_write_attr(pcie, 31, 0);
+> +	nwl_pcie_write_attr(pcie, 82, PCI_CFG_SPACE_SIZE);
+> +
+> +	/* Enable AER */
+> +	nwl_pcie_modify_attr(pcie, 2, 0,
+> +			     PCIE_ATTR2_AER_CAP_PERMIT_ROOTERR_UPDATE);
+> +
+> +	/* Disable L1 latency for root port */
+> +	nwl_pcie_modify_attr(pcie, 27,
+> +			     PCIE_ATTR27_DEV_CAP_ENDPOINT_L1_LATENCY, 0);
+> +
+> +	/* Enable bandwidth notification */
+> +	nwl_pcie_modify_attr(pcie, 37, 0,
+> +			     PCIE_ATTR37_LINK_CAP_BANDWIDTH_NOTIFICATION);
+> +
+> +	/* Set max link width */
+> +	nwl_pcie_write_attr(pcie, 97,
+> +			    FIELD_PREP(PCIE_ATTR97_LTSSM_MAX_LINK_WIDTH, width) |
+> +			    FIELD_PREP(PCIE_ATTR97_LINK_CAP_MAX_LINK_WIDTH, width));
+> +
+> +	/* Route misc. TLPs to controller */
+> +	nwl_pcie_modify_attr(pcie, 101, PCIE_ATTR101_EN_MSG_ROUTE,
+> +			     PCIE_ATTR101_EN_MSG_ROUTE_INTA |
+> +			     PCIE_ATTR101_EN_MSG_ROUTE_INTB |
+> +			     PCIE_ATTR101_EN_MSG_ROUTE_INTC |
+> +			     PCIE_ATTR101_EN_MSG_ROUTE_INTD |
+> +			     PCIE_ATTR101_EN_MSG_ROUTE_PM_PME |
+> +			     PCIE_ATTR101_EN_MSG_ROUTE_PME_TO_ACK |
+> +			     PCIE_ATTR101_EN_MSG_ROUTE_UNLOCK |
+> +			     PCIE_ATTR101_EN_MSG_ROUTE_PME_TURN_OFF);
+> +
+> +	/* Initialize completion credits */
+> +	nwl_pcie_write_attr(pcie, 105, 205); /* CD */
+> +	nwl_pcie_write_attr(pcie, 106,
+> +			    FIELD_PREP(PCIE_ATTR106_VC0_TOTAL_CREDITS_NPH, 12) |
+> +			    FIELD_PREP(PCIE_ATTR106_VC0_TOTAL_CREDITS_CH, 36));
+> +	nwl_pcie_write_attr(pcie, 107, 24); /* NPD */
+> +	nwl_pcie_write_attr(pcie, 108, 181); /* PD */
+> +	nwl_pcie_modify_attr(pcie, 109, PCIE_ATTR109_VC0_TOTAL_CREDITS_PH, 32);
+> +}
+> +
+>  static inline u32 nwl_bridge_readl(struct nwl_pcie *pcie, u32 off)
+>  {
+>  	return readl(pcie->breg_base + off);
+> @@ -806,6 +965,9 @@ static int nwl_pcie_parse_dt(struct nwl_pcie *pcie,
+>  	irq_set_chained_handler_and_data(pcie->irq_intx,
+>  					 nwl_pcie_leg_handler, pcie);
+>  
+> +	pcie->ctrl_reset = devm_reset_control_get_optional(dev, "ctrl");
+> +	if (IS_ERR(pcie->ctrl_reset))
+> +		return PTR_ERR(pcie->ctrl_reset);
+>  
+>  	for (i = 0; i < ARRAY_SIZE(pcie->phy); i++) {
+>  		pcie->phy[i] = devm_of_phy_get_by_index(dev, dev->of_node, i);
+> @@ -852,6 +1014,12 @@ static int nwl_pcie_probe(struct platform_device *pdev)
+>  	if (IS_ERR(pcie->clk))
+>  		return PTR_ERR(pcie->clk);
+>  
+> +	err = reset_control_assert(pcie->ctrl_reset);
+> +	if (err) {
+> +		dev_err(dev, "could not enter reset\n");
+> +		return err;
+> +	}
+> +
+>  	err = clk_prepare_enable(pcie->clk);
+>  	if (err) {
+>  		dev_err(dev, "can't enable PCIe ref clock\n");
+> @@ -864,6 +1032,15 @@ static int nwl_pcie_probe(struct platform_device *pdev)
+>  		goto err_clk;
+>  	}
+>  
+> +	if (pcie->ctrl_reset)
+> +		nwl_pcie_attr_init(pcie);
+> +
+> +	err = reset_control_deassert(pcie->ctrl_reset);
+> +	if (err) {
+> +		dev_err(dev, "could not release from reset\n");
+> +		goto err_phy_init;
+> +	}
+> +
+>  	err = nwl_pcie_phy_power_on(pcie);
+>  	if (err) {
+>  		dev_err(dev, "could not power on PHYs\n");
+> -- 
+> 2.35.1.1320.gc452695387.dirty
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
