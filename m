@@ -4,65 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69EBE9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 17:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C527CE9A047
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 17:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxqJA6gLDd6wDNqRz6eHKedqD34HTN5ZngdrvN1RISw=; b=qp+JioE+jKPGTGc0XJ6iM6WF+y
-	h2KmBCCscj1N+jyqIx+KPXjkWh4Zt64MVeG5Za0Bi0GMZPhxlZq8BYlc1wTRqppVMgtOH99jZSVFa
-	k7a0d1CRB6/b+U5COuzKeUVZ/DuBo3efWZgstbSlzXFXl4u5qt7lp080U9t+OoTClyR2Oop4u9x1Q
-	27Y6LLVjVgQa36l4F6zMYbPvqQBu5Uhj/ZKy0O4W1j7i3J7xppFEZwIy1K/JmTAeMUe3y84jTgJXA
-	ha/CM/bQBKd7I4gXCPY6o1diHKKGDoWuTWrEeXsvCDQ3Legi7nJh4jXwzCFPVjTE6lDV2T7Gg1Bnw
-	Bn6F6/ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2hFyLMJzY7Zt4YgKFkKy2w5qx5OfXLweQAQFGEcQkvM=; b=QRJcGB5V9Jw94jZlCfmQj9SQrP
+	ZRXoOgrtKrU5jUnrxS2XgaVe9bj/uRZnCbswG1/bKqKWW7WCRNqAhARAV8l2cf1c0xWsjcRLzmxyw
+	2Ek7XzGD9GvjbbV9yIq+vtkT9oX9cNtFgwwOaIyT/ktTGVfLFjarAxTRsBvkHOF7kFSUZBL7xVRcS
+	kiQYG2xZlm9qu3kO/FiePMXILkMANab89jQN25PfOXoqmjYPXutTvcrfQq9iLv7np6SnyjAviMbwY
+	GEzJ5w744TIuDCRMyS2HpCnc1giZ/qesNGmrjqGsPFV0sykwGJA0SQIFubNJZEvQjK4apf/f+pd98
+	C56yp1UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskwO-0000000A8Rm-0S9l;
-	Wed, 18 Feb 2026 17:02:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskwL-0000000A8Qt-1uIv
+	id 1vskww-0000000A8Ye-1vID;
+	Wed, 18 Feb 2026 17:02:54 +0000
+Received: from mail-francesouthazon11011013.outbound.protection.outlook.com ([40.107.130.13] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vskwu-0000000A8Y1-3JFo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 17:02:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97A0E339;
-	Wed, 18 Feb 2026 09:02:09 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF5843F62B;
-	Wed, 18 Feb 2026 09:02:10 -0800 (PST)
-Message-ID: <9d0cc06b-f8cb-43bb-94da-98d106cb5798@arm.com>
-Date: Wed, 18 Feb 2026 17:02:09 +0000
+	Wed, 18 Feb 2026 17:02:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EQR2O9DD57EY+c74TkrKRacpnvDZ9iGLqOwhGnhUkM6k/15iuOqgeoVEqpd7GKLHlVxx/qiVz/lCZQU+BLbkBjDmkrmlo440DV8PV9qNRWRkcnMfFAc8qdBe5aila0G6HrsMIwhtBHN368qJVOqiDg6NyWl3mll1EeiXywHDUrWxIlhvXJBfO7YIxGBOa5ZYlgx8gESnQjJYwD92J7XWgFVJN0rlSe8Di+y1ndVSLVOEhI7l2qmsgzWnOZwJ/N+YbA7Ec5U/oV/ubJzdEWopePrW6zj8xUCW9vOCVrFRzZaAicGT7pOhfsWBc9LRgVfYpW52bjRMvgqEgUY6mtlH6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2hFyLMJzY7Zt4YgKFkKy2w5qx5OfXLweQAQFGEcQkvM=;
+ b=sguL3phec5hgJgpVPZK++EaI/Nl4FIN1q9dNbC5zdOSs27/10KwBfr6l6qQkGbI9KIMRam+NqFI8JJbOjxgFcyUtq2waEkTQSiHZvXVQMI0CuK1HcSXGqo32wN3n+slDp/5kb4pHkpf8GmrxeFcDcZMkPiwhLff6s2Zenf2+teUFRBuZZV154LIUjJDj/30hJhueC48S650UAwA2WDT3mqM+ibwaUdOg99Ozi1iwg1buc2s+x7Az5c1f8jvCtOEPw8rivVVo0Mz4CHtTluNsXwFb+S4zn3qTIS6gBA1DpaSxF09avYSWN/OJkNPH1Hbla9ofGQacfQUXSjp9CBEo3Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2hFyLMJzY7Zt4YgKFkKy2w5qx5OfXLweQAQFGEcQkvM=;
+ b=RU+0bNfEjU588RADGsr+GtcVYAsgiOGBRScon+1+PiyLqkz8lSWePNd6w41k2a0Q/olsjX+E1rot8u7E5cpQ9ArcAnd6PIh61Y3iBsAuFsrqO5oNT1CjZpEpAmr8O0uF+QGDdNNJ2S2o4plNm1ZqEJfOUhHGA9ytm8ka1qPXGPpFUlSmWvql1FXhI4wMosvpTCzen+TmfvW3v56gAU4VK7m9vv1c9GYHbmMXiv/rSx0zRg/PHaveZel/iPc8bOxbPHpGT+s9lxK6ICLGh1GSXdwoVkCgfMpzqh2FrMWvEdLPtazZAcvTKRHJt7fISmlElJcgFdGFXdJ6kfTm6f00/A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AM8PR04MB7969.eurprd04.prod.outlook.com (2603:10a6:20b:24c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.13; Wed, 18 Feb
+ 2026 17:02:48 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.010; Wed, 18 Feb 2026
+ 17:02:48 +0000
+Date: Wed, 18 Feb 2026 12:02:39 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Frieder Schrempf <frieder@fris.de>
+Cc: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH 4/4] arm64: dts: imx8mp-kontron: Use GPIO/IRQ defines in
+ DL devicetree
+Message-ID: <aZXwr3a7E9CnQrAs@lizhi-Precision-Tower-5810>
+References: <20260218132519.74570-1-frieder@fris.de>
+ <20260218132519.74570-5-frieder@fris.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260218132519.74570-5-frieder@fris.de>
+X-ClientProxiedBy: BYAPR03CA0028.namprd03.prod.outlook.com
+ (2603:10b6:a02:a8::41) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 41/41] arm64: mpam: Add initial MPAM documentation
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org
-References: <20260203214342.584712-1-ben.horgan@arm.com>
- <20260203214342.584712-42-ben.horgan@arm.com>
- <20260205170557.00000d4d@huawei.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20260205170557.00000d4d@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM8PR04MB7969:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1e53baa2-72a5-4f24-ea45-08de6f0f8ae8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|19092799006|1800799024|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0qR1FHpgnjA6AMZDBsXUCAFUNm4oVEKnP+fcHxgdxx8JVEJ6v0O9Y8hRsf+f?=
+ =?us-ascii?Q?JBfiAbKFXbH379wo+kBkCiR8UvU634vVVP2apS2MmlRgtGiVmLKv9kf51vB0?=
+ =?us-ascii?Q?QJ2MM0/TJmqxqILFPiCGgsBPzqaoE9k0r/S/E6bG0GcVCPgivBKjzkJSSipx?=
+ =?us-ascii?Q?QjX7effZb/U1yi+N4PFJYPFHAGyL3piOwII2WPwefykAwCFHTlcxH5+JhvJC?=
+ =?us-ascii?Q?sDXHEIbxA2vEUTAW11OA6nbcwGn6mpJ0Fb3mBQwfdDrvpjCNRL8krXKjqGiw?=
+ =?us-ascii?Q?Y2/eo/BrkjWQiaDzTkjngh7knHJ8EYnVhOtEc/Vvok1LTbf4zUKUuiWa9c1C?=
+ =?us-ascii?Q?c0pB9dAJH+MzcupgeryCS20Y6DgIq8LT6/pIwqthNehZ/Y+QYMfV3xp07Eon?=
+ =?us-ascii?Q?Xt4XKIj4mliY0u+g6e7sKev2UCqR7noRzRyXQQirPPvdG88Qxr7WsnB1LcOP?=
+ =?us-ascii?Q?+5f1hi7qzWf3/huq9MiImsRyZrBeLsdhtxxn/w7q4Zfu9hB6I0PNiMXgNqzD?=
+ =?us-ascii?Q?jn13XDVJeH0rHM3HQpQHs6jUI/sjAuxMXqdEDmISVEOWLzkWXW16tX66vw/G?=
+ =?us-ascii?Q?VAPt1flsD7DiW/Ztgm+kk4TDnRWV3ujkp+0K2Vv81mBA3hc+1zs6Qwt0feHF?=
+ =?us-ascii?Q?zWHxA+En8U6GwNm6wjSu9WuJj3CFULHKpAJ+1uPHGjjHIA68elZcqglcydks?=
+ =?us-ascii?Q?JTEVFfsPe00fNlKzSS/qoNhFYpulJs4EONFsgt/HJPb6cZirICDa0190fsC1?=
+ =?us-ascii?Q?Vuas90800gG4DVrIHDcKYalfVUQ7gZtaZP2Xo1CUXkZJ7PryeWMU/iAW36gy?=
+ =?us-ascii?Q?9TCWehpsOIh01XsCQC0Zwg6BKukFuc0wydbYSEdHOeVMeJyT8nwuQK+vOMrw?=
+ =?us-ascii?Q?NsU0PnIgTg5DKlrqONdZvd6DjRfdE3RqKqlkVzpKXcgHBjVivxPVwocCIlbK?=
+ =?us-ascii?Q?cdT4cm15nBMyH7mxS17xHdr4mq92P+CQnJesANu6O67S5cml6jckZ50oVnvh?=
+ =?us-ascii?Q?67iCMSFeWqmGfqFPK0CTHNZRFRKqrsMyORyeasCSMwvgae7NVqUZtVAMLAxZ?=
+ =?us-ascii?Q?l2ALJSfhBCBRhQjIANbNR0qI6OoeAdrtqkgV0GGDxGYx2+xqcxgjz5fRfiEx?=
+ =?us-ascii?Q?UhHwOfaBdaLhTIGLKjZ42SpaGD7G49D2KgxIGX5GnRZhhsnoeu0mXn4j5EmL?=
+ =?us-ascii?Q?C4IvX3U9C2HSdKiS2TbBOT2dcEjTfdP4ZvGtQuwcJnA3jsF6Vpe9RdCxewpn?=
+ =?us-ascii?Q?2Pyu5Xnns2ZF5GK1mrzpVSEUVB1SXTaEpe+xXlMn5L5/WAiTug6Z/y1NhbeF?=
+ =?us-ascii?Q?SAlySPWoOFFcN9fEbhibwF22aP26uYwysR1BQEYJWwumXIvUzWfXVxvXvhp1?=
+ =?us-ascii?Q?SdiWZ8SXUNBxYsjRW/MW6l27h03aT8bKW1QDZbd1a2HvGMamQ4sMiArbVP5e?=
+ =?us-ascii?Q?AP4clvTeqYik0RllBZ+VkhfAdmNsENAzl5M2QNlNJ1YL/I3RiO9TfDFuh/+8?=
+ =?us-ascii?Q?4lgX1HQDblnld/GElQuRG8cW+uOJ9KimuWu1iBmuA3ptteCbQi33yOuvBa1C?=
+ =?us-ascii?Q?N4l9wNyTMwzgNLKId6Bu57l0CH5P8f8C9G7BZrXdgoRor4O7+tANPM3b614L?=
+ =?us-ascii?Q?3L9deHkl7zaDmqAYcNd9k6E=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(19092799006)(1800799024)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9KtmjP6013Uc1iKVNFyV1OZciEHSRtNM/TmcFi4IgnII1Qg/l3PSh/XV+SC6?=
+ =?us-ascii?Q?j4qTsIIxSof19V1fDRU4i69FBbQhkAJ9tU3uvfKgZ8ls2cRH9SnwpqM0phfL?=
+ =?us-ascii?Q?dSDQ410hYzbswRvaXxeakoYWAryTdeKTSAM3K10e3vfd2NIrO7ACXyoJZCoA?=
+ =?us-ascii?Q?iQ5AV4JcV1zhW+LpTD2U83Bv6l241mvCLoIrsDPik9MGXsKI5ZMkZ90MHdkh?=
+ =?us-ascii?Q?FnQyfNA1k6iClVaUi+qXc6+xrc0ziGozxkv2yywi9Fk2v8/z9Ps/czVzpXSl?=
+ =?us-ascii?Q?zdCzvfkJ/v10MEQw/q9Su176S50hO2Lre7xq0C8lLlpBtFTO1TJrcHd1PM4W?=
+ =?us-ascii?Q?gaeEyT7N2oQIi6sJxrOCfeqvaUdtJvIfXwlaYvRYNB1ncJw8+at0GA6YuLoQ?=
+ =?us-ascii?Q?hc3squPb3FawbXZdJQkTwWhDmRQSpERF+XBBYwGUMbRiDrV/yUqGhYZWbqiy?=
+ =?us-ascii?Q?Jjlh0pEpdPONXkpQ+/WU94Xj+5muoeqXynddKLPTZE8fFrDejyxA7nsSC6OD?=
+ =?us-ascii?Q?7AGWsDTVOMS3iZashcGLAW9lUZX/IqO9vhxMqtzYO0gZYE+WyBgTKxyen77O?=
+ =?us-ascii?Q?aqV0bjxNMxrrHIGmHrZ8qAMfUBXOsxt96lOkntzMBhZQNsmOMcpS+qI8PiBW?=
+ =?us-ascii?Q?PojZXhiCmsVu3dlztxHsmmI1AVn+eXYvRNSvSor/XeMaHtzQ/ExyKNe4jTyB?=
+ =?us-ascii?Q?N4VTTzMiE5v9l9TGDMd2K+olLev6m23CKWC1Bz2T2Ck++iC6oJYh52BTSVel?=
+ =?us-ascii?Q?zbm9SqjZR7FKKLgOJ7PMR+zfd5FZxCi8kEFM7h+zb/eBri+NcZp+PiUTxMtu?=
+ =?us-ascii?Q?0cCbtC0EEwqIr9+IPq3pJBNS1StBb903FymJNxfi1ypvIeFiMUaUD1rsZbKL?=
+ =?us-ascii?Q?FKs/SjO/xminsULE5cVGGgqnA1RhKG5RU2ldJPmdwyZRjGSUIBkBMBD2YgK/?=
+ =?us-ascii?Q?pA1831hDL+hKcN47x5bD9UwteHFV0iv0l9SNPE1Ii87nMj/ibH1w549frjdi?=
+ =?us-ascii?Q?6M1unO3xlrPvBonQnkGTq8HvVhlOfPASszuIQDWjuHjq9tFfJ1/boRkHVwOl?=
+ =?us-ascii?Q?423AN8k5t7xrGGFGWjIS7197f0u4v2sCLc3WWkvVlBoPvkDyJffnsLzETAd5?=
+ =?us-ascii?Q?pX/dK99dIQpZpb5Us0q2JPc/hSnmGVJGoWtWXcHzu+efE7k+373M+/XlwR6o?=
+ =?us-ascii?Q?HCDLrGZeVwXQntdonIWj5fCjNGjDF8jo1gtnj3Qa01b9xRL7oRZL3++kHjMi?=
+ =?us-ascii?Q?8mEJ3xV1aus7k2xvq36XBIa+SQlda800AGV62kWypi9x0hV3yaVL2auYF+o3?=
+ =?us-ascii?Q?CcKby6pUi+0RK/eO+bw/p0bLDLajzzMwiJzn3oD+RoiBOZ6GA3VOPsvOm1g/?=
+ =?us-ascii?Q?+cB7FlGwi5aWqM/ooBg282nfPL9NmV6MnTPH7uN+I4DEB2TUxLremqYnmTP7?=
+ =?us-ascii?Q?1zsbXW4z2X5SI3ybPGntjmeCDwp5Xx8MMLylTdiKs4xrKanvnMPdwpa1twdY?=
+ =?us-ascii?Q?fqX8XWRo6jHSNd9Jyy2Rs/BFtv2FxBv4o1ectLjVBt64n6BqGOEpO08c5DyV?=
+ =?us-ascii?Q?bt2RwBaB9qrOoteS6e2eQJL3ZVjeJmYKqZFq6C45F6mYheUtRRdpqCdwxEXj?=
+ =?us-ascii?Q?bVy+LVlAfviY0iJx+DG0p0dWwSpHtRrKq8a5/98z63LJ8Ynz97iwu2lGDrHw?=
+ =?us-ascii?Q?8tLk+b5MlNk75vzB+S9HNhF57XqAD8McIQlpj4KdfzcXDmOBRVjAETEsf6dK?=
+ =?us-ascii?Q?rtXzq1tZEg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1e53baa2-72a5-4f24-ea45-08de6f0f8ae8
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 17:02:48.0516
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sB1bkbPUwZtbTI2MgwvW0ZSLqcczZUdef/37e43wxaQvMGWh67TEBC8mi9zrux4P6MwikgeWfWc8QLKGmtdpEQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7969
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_090217_549133_C1B69497 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20260218_090252_834459_0679630B 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,71 +169,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+On Wed, Feb 18, 2026 at 02:25:08PM +0100, Frieder Schrempf wrote:
+> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+>
+> To make the code more readable, use the macros for the GPIO and IRQ
+> settings.
+>
+> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+> ---
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-On 2/5/26 17:05, Jonathan Cameron wrote:
-> On Tue, 3 Feb 2026 21:43:42 +0000
-> Ben Horgan <ben.horgan@arm.com> wrote:
-> 
->> MPAM (Memory Partitioning and Monitoring) is now exposed to user-space via
->> resctrl. Add some documentation so the user knows what features to expect.
->>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes by Ben:
->> Some tidying, update for current heuristics
->> ---
->>  Documentation/arch/arm64/index.rst |  1 +
->>  Documentation/arch/arm64/mpam.rst  | 93 ++++++++++++++++++++++++++++++
->>  2 files changed, 94 insertions(+)
->>  create mode 100644 Documentation/arch/arm64/mpam.rst
->>
->> diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
->> index 6a012c98bdcd..189fa760dade 100644
->> --- a/Documentation/arch/arm64/index.rst
->> +++ b/Documentation/arch/arm64/index.rst
->> @@ -23,6 +23,7 @@ ARM64 Architecture
->>      memory
->>      memory-tagging-extension
->>      mops
->> +    mpam
->>      perf
->>      pointer-authentication
->>      ptdump
->> diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
->> new file mode 100644
->> index 000000000000..0769bccff25e
->> --- /dev/null
->> +++ b/Documentation/arch/arm64/mpam.rst
->> @@ -0,0 +1,93 @@
->> +.. SPDX-License-Identifier: GPL-2.0
->> +
->> +====
->> +MPAM
->> +====
->> +
->> +What is MPAM
->> +============
-> 
-> 
->> +  MPAM (Memory Partitioning and Monitoring) is a feature in the CPUs and memory
-> 
-> I've not seen this style of indenting much in rst.  I checked a few
-> files in this directory and it's not used in the ones I randomly picked.
-> + it's not what the kernel-documentation.rst file suggests is standard
-> formatting.
-
-I seem to have needlessly invented a new style. I've not removed lots of
-white space. It should match the rest now.
-
-> 
-> Other than that the content looks fine to me.
-> 
-> Jonathan
-
-Thanks,
-
-Ben
-
+>  arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso b/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
+> index 7131e9a499ae1..41a2bb74f1565 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
+> @@ -7,6 +7,7 @@
+>  /plugin/;
+>
+>  #include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+>  #include "imx8mp-pinfunc.h"
+>
+>  &{/} {
+> @@ -80,11 +81,11 @@ touchscreen@5d {
+>  		pinctrl-names = "default";
+>  		pinctrl-0 = <&pinctrl_touch>;
+>  		interrupt-parent = <&gpio1>;
+> -		interrupts = <6 8>;
+> -		irq-gpios = <&gpio1 6 0>;
+> +		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
+> +		irq-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+>  		AVDD28-supply = <&reg_vcc_panel>;
+>  		VDDIO-supply = <&reg_vcc_panel>;
+> -		reset-gpios = <&gpio1 7 0>;
+> +		reset-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
+>  	};
+>  };
+>
+> --
+> 2.52.0
+>
 
