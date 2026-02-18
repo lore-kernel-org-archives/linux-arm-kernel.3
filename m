@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ECABE9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1864AE9A04B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PFGPRkG4VcbDKDvXGKUzHfZ9PpqTaFLyu3liaC1qBZY=; b=DZLPQZYWvKr3WsvLivuZGAvQ/3
-	ytPFNdJDOHEo5lGzNCYBU7NFwUbQzZULX+5pqNQLiixEdAXPZb1NTbgXtJsSMZUiSh0ScC8rT0avQ
-	2djsgAK+O7y7htGqdPbPZc3PNTXVyjB9mz2LR2PNsdyLDfyc9wvmoL0dJ2AbE2VFV1QWfB6o0GC4l
-	m8cHuJt62GoyD3HI68Imx3WAOl2ood2cimLcOSBBEWWOSuw6rQOyBcMafxx37//2KTusvjLm3q86C
-	aHNH93e3ZIKJzmnTeSrQ8vySSqkoUcjvZPB/2nY1fQa/qFEfmxUMCK6f8Od8Vjm+4+WWNtNDnq1QU
-	ZAT4KdnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UiUApqg4zpJm71bJ2yvGeNBnzVM6fE7lB1v/XBjmBkI=; b=Em/Le9kkphQuugPfwuLvLiHbE+
+	Um0yGb2HgZHbAt3Qw2OKZHw1o2/xBsA7KPBgt7iIVpBC5nrHkkYtjoS7ZRDFv9/rHyXcGeK1HvXm7
+	hoisZPJ8D/BbA7woLWZC6BokorEU+a1c3VHaPGvExx2gi/5b7XThEuczyvIhlU2T/uAod1Ei9u/fd
+	ZhGrpCteSZfpNh5eesvLlBnmvud1AooZMJ5QaWwBiSfkokBg9dpKNCZ4bWaskUJKirNFSHMIjxEjX
+	TjuYnQbyQ/FWP/bDDY71p7e8JYxjd5KMFe2gEZjDw3S0tHVQSsMHQJF53EtH/DeoB4KsDDGk58SJ5
+	VFzH4WjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshWw-00000009r3i-3PSx;
-	Wed, 18 Feb 2026 13:23:50 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vshWx-00000009r4Z-1vWp;
+	Wed, 18 Feb 2026 13:23:51 +0000
+Received: from mx-relay20-hz2.antispameurope.com ([83.246.65.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshWr-00000009r0z-3CG3
+	id 1vshWs-00000009r1a-0s7H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 13:23:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=PFGPRkG4VcbDKDvXGKUzHfZ9PpqTaFLyu3liaC1qBZY=; b=gTCdbtvB6+VwaNvMqP46rxqiYX
-	TiabGi7zYya2TODM6vj8ZSojkHIEGuR2ln9VTIB5CVdRfLp/GYbrQVbYBIY27Duri8LOsY/hXva+p
-	OgatiOAVcH2CepxXCkddkLvHWmSilzxZXIhvk1kRuH/3kIf4wYTBOlcrGso7yLOO7eAQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vshWm-007let-VX; Wed, 18 Feb 2026 14:23:40 +0100
-Date: Wed, 18 Feb 2026 14:23:40 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
+	Wed, 18 Feb 2026 13:23:48 +0000
+ARC-Authentication-Results: i=1; mx-gate20-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=UiUApqg4zpJm71bJ2yvGeNBnzVM6fE7lB1v/XBjmBkI=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1771421015;
+ b=o4S0Jxpng4FeAnSg7+GV5NgNzh1tDbh31IeFDhfyQmRtdUn97A7D9bDkZTwODJ1hf1NvA7Al
+ 8ImV0EliRaPMCptFlMRnBmF1Qj1SrTI9kXD6yzG6xNcJA69kFtChY6czyrFXVGkoVMO3TVweFVS
+ tUfdMbcudLogEAM6ZioBWc4UuG5yxggy6fQaaw7Y0O9Z06ikYwCSDS3bjfpa4acbXZkU4OCxT/W
+ I8Ig0oeshjwMK/SCVpy57yzjQ4wUVnUdWgP5DX0F0YX728OzYpn0Jz3syBUPU+QVpaho0LIBjdm
+ F4qXOuhxwMTLJrStraaOJtfvGxcbUznPN6lo160NUvfjg==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1771421015;
+ b=CGwXYfWAPl8JAbh4sxlOrJiHhUL1yR3VKw1qmSohKITDxNoNsyV6P/yazB+C13eeJ8MmY7f3
+ c+3Xa7PKM8meboNSu6dLbyBgVet8za3UjI8GTV5BPJm+KQZ6HrYA9jvFTxsTclHw26lZjOTIYL7
+ W5PhhxUCqvBGD3Bxkpoa5Kxac8DBo0w3P1EiSJUplPgKku3Y5c642jQGMU6XHGE43sUCadEQEC6
+ Wn9bCLBdn2hluDMua23CUTcnodWGlu4vASmfV+R73slJeVW7XO5CQC/7EmJ5Wa0Ld2Aaxq7sFXF
+ gDGWOoD0FVdrhLUVn1eYzZ6syXKd1wko6Rpoj5qh6jKnQ==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay20-hz2.antispameurope.com;
+ Wed, 18 Feb 2026 14:23:35 +0100
+Received: from merchelm-W2.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: max.merchel@ew.tq-group.com)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id DB5C8CC0CC6;
+	Wed, 18 Feb 2026 14:23:13 +0100 (CET)
+From: Max Merchel <Max.Merchel@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v1 03/11] arm64: dts: freescale: imx8mm-var-som: Update
- FEC support with MaxLinear PHY
-Message-ID: <fac81a12-92c9-4e29-96ca-473c18fca675@lunn.ch>
-References: <cover.1771353301.git.stefano.r@variscite.com>
- <3b984b93a43a07bc9c4f6414a08a3a0f45daaaa8.1771353301.git.stefano.r@variscite.com>
- <31f30651-7c99-42cb-9e27-e4806529d137@lunn.ch>
- <aZTCGH1rKWdvYg5-@Lord-Beerus.station>
- <fceeda41-66cc-4bb2-ab53-d4b1ec25348a@lunn.ch>
- <aZV_c0lmBwjOI_Ep@Lord-Beerus.station>
+Cc: Max Merchel <Max.Merchel@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 4/4] ARM: dts: imx6qdl-mba6: add boot phase properties
+Date: Wed, 18 Feb 2026 14:22:25 +0100
+Message-ID: <20260218132228.32056-5-Max.Merchel@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260218132228.32056-1-Max.Merchel@ew.tq-group.com>
+References: <20260218132228.32056-1-Max.Merchel@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aZV_c0lmBwjOI_Ep@Lord-Beerus.station>
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: max.merchel@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: max.merchel@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay20-hz2.antispameurope.com with 4fGHJR1X1VzwTfF
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: cfeeac45ac8ac4b72b7eb30bc089e8fc
+X-cloud-security: scantime:2.013
+DKIM-Signature: a=rsa-sha256;
+ bh=UiUApqg4zpJm71bJ2yvGeNBnzVM6fE7lB1v/XBjmBkI=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1771421014; v=1;
+ b=Ng5pbXhqQvz4/C7b20xM+9m7eMs/eDwYXthelXvgANu3g83mLFhQ7TXslL7rCWmBKoYEwq+N
+ SFPvd/yuGm2Vpv1b/EzzpN/RP+MR96TiF/N3MmV+J5qtcZmmQ3kawii8MmCbWnPmKzNGJ6TB9Sc
+ 56QILXmERk/baqsO/vb+zKnPR8mJhCytpUq2pN9K3GT70z7ViauE2hvac34O9IwahwphqQJx9RU
+ H5vBT5J0a9LALmG32WlbWJmv1RKDco+E27iRV7v8+2qA7njwoj7G+zWanAEVg3vGAnCqBaMqkFo
+ HAUuZBwSihITv5LwJHDa4KeK/VQ6ezNLGP24GvoW9q4fA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_052345_823142_607049FE 
-X-CRM114-Status: GOOD (  26.11  )
+X-CRM114-CacheID: sfid-20260218_052346_397314_F3454E3B 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,61 +113,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 18, 2026 at 09:59:31AM +0100, Stefano Radaelli wrote:
-> Hi Andrew,
-> 
-> On Tue, Feb 17, 2026 at 09:43:16PM +0100, Andrew Lunn wrote:
-> > 
-> > And here you loose me. RGMII is between the MAC and the PHY. The PHY
-> > is on the SOM, so there is no need for RGMII to leave the SOM.
-> > 
-> > MDIO is can understand going to the carrier, because there can be
-> > other devices on the bus, such as an Ethernet switch.
-> > 
-> > You say the LEDs are not on the SOM. So they should not be listed in
-> > the .dtsi file for the SOM. It could be the RJ45 is a cheap one,
-> > without LEDs. The colours will depend on the RJ45 socket. It could be
-> > a single LED is connected to the front panel, which is typical of STB
-> > etc. So the LEDs are a board property, not a SOM property.
-> > 
-> > > > >   Two LEDs are defined to match the VAR-SOM carrier design:
-> > > > >     * LED@0: Yellow, netdev trigger.
-> > > > >     * LED@1: Green, netdev trigger.
-> > > > 
-> > > > Where are the LEDs? You say "carrier design", so are they on the
-> > > > carrier? The DT properties should then be in the .dts file for the
-> > > > carrier.
-> > > >
-> > > 
-> > > The LED signals are driven directly by the PHY and originate on the SOM.
-> > > They are exposed on the SOM connector and are typically routed straight
-> > > to the RJ45 integrated LEDs on the carrier.
-> > 
-> > The problem here is 'typically', not absolutely required, otherwise
-> > the magic smoke will escape making the box useless.
-> > 
-> 
-> You are right sorry for the confusion: RGMII is internal between the MAC
-> and the PHY and does not leave the SOM. What is exposed on the SOM
-> connector are the MDI pairs towards the magnetics/RJ45 and the PHY LED
-> output signals.
+Add boot phase properties to MBa6 device tree.
 
-O.K, that is what i expected.
+Signed-off-by: Max Merchel <Max.Merchel@ew.tq-group.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx6qdl-mba6.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-> Given that the actual LEDs are implemented on the carrier side (RJ45
-> with integrated LEDs, pull-ups and LED supply), would you prefer that
-> the LED description is moved out of the SOM .dtsi and into the carrier
-> .dts?
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-mba6.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-mba6.dtsi
+index ee2c6bec92e8..74ccfe56828f 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-mba6.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-mba6.dtsi
+@@ -206,6 +206,10 @@ ethphy: ethernet-phy@3 {
+ 	};
+ };
+ 
++&gpio1 {
++	bootph-pre-ram;
++};
++
+ &hdmi {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_hdmi>;
+@@ -214,6 +218,8 @@ &hdmi {
+ };
+ 
+ &i2c1 {
++	bootph-pre-ram;
++
+ 	tlv320aic32x4: audio-codec@18 {
+ 		compatible = "ti,tlv320aic32x4";
+ 		reg = <0x18>;
+@@ -274,6 +280,7 @@ &ssi1 {
+ &uart2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_uart2>;
++	bootph-pre-ram;
+ 	status = "okay";
+ };
+ 
+@@ -346,6 +353,7 @@ &usdhc2 {
+ 	no-sdio;
+ 	cd-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
+ 	wp-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
++	bootph-all;
+ 	status = "okay";
+ };
+ 
+@@ -354,6 +362,7 @@ &wdog1 {
+ 	pinctrl-0 = <&pinctrl_wdog1>;
+ 	/* does not work on unmodified starter kit */
+ 	/* fsl,ext-reset-output; */
++	bootph-pre-ram;
+ 	status = "okay";
+ };
+ 
+@@ -544,6 +553,7 @@ pinctrl_uart2: uart2grp {
+ 			MX6QDL_PAD_SD4_DAT4__UART2_RX_DATA 0x1b099
+ 			MX6QDL_PAD_SD4_DAT7__UART2_TX_DATA 0x1b099
+ 		>;
++		bootph-pre-ram;
+ 	};
+ 
+ 	pinctrl_uart3: uart3grp {
+@@ -587,6 +597,7 @@ MX6QDL_PAD_SD2_DAT3__SD2_DATA3 0x00017059
+ 			MX6QDL_PAD_GPIO_4__GPIO1_IO04  0x0001b099 /* usdhc2 CD */
+ 			MX6QDL_PAD_GPIO_2__GPIO1_IO02  0x0001b099 /* usdhc2 WP */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	pinctrl_usbotg: usbotggrp {
+@@ -602,5 +613,6 @@ pinctrl_wdog1: wdog1grp {
+ 			 /* Watchdog out */
+ 			MX6QDL_PAD_SD1_DAT2__WDOG1_B 0x0000b099
+ 		>;
++		bootph-pre-ram;
+ 	};
+ };
+-- 
+2.43.0
 
-Yes please.
-
-> My idea would be to keep the Ethernet controller/PHY node fully
-> described in the SOM .dtsi (since the PHY is on-module), and add only
-> the LED subnode/definition in the carrier .dts where the LEDs are
-> actually present.
-
-Yes. That is good.
-
-Thanks
-     Andrew
 
