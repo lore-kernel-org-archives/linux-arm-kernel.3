@@ -4,61 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186D4E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 11:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5286E9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 11:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=otfSzaXvnIq7QTqrsNoasNb4rJI4pxnVhZ7OaOWtATY=; b=FzVfhUs8SEoQuYughry0p7fyjl
-	Ap8XxYXYhG56yqoXQfCWc0Ec8j2dQvxyGKyYDUMCYVY6zF8S5C6/T7cJi5Q8mwf9Q5oY7/58MZb1b
-	SghhixY7kLXvAKwuzx5iEjHBTNMU0c34NA6fAs4I3kMtKIqCcTXYUBPbnX4XGVZLJn16eUZ/ZmZwG
-	L3MLiFF8irMMYUOqyYGjqWIARyshNqA26j4tswcEngoq9QO9nY95Nd58dVvVMJv96uWDCl3e1UxCV
-	Biyv0u8mNoJS2bVWFhsEXeTzGK60sv4dtVE5UKf0yNuOFps9DUUWFe+NKwu7xiW9IpbbAejOEFKQN
-	M87LBRyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2G2U1r6MNxqXWHe+KrJPIT7PkZtApRJqJedGKd+iJpc=; b=fLivQjcPWRnJej/+vuClfwiZdy
+	42YCEI8ynJZReZaWHoYTDkiAIrsZV8SEaAXsZ0F/bOgTqyxLxAAzxOd7wPpCP456aIHIl+t44leGP
+	ZlWnaAmdz2YEv/9jN8LZ92D7DC+86YvL1U7Rdne1iq6hGuzRhuFJQVUYOCy0lAtJmBS58gu7jb0X1
+	KZSiTFgfRFaxr8bRzM7dO1JvCCXtZutCaLgo2eb+A087SH/9s6qad60LR2HZtkHfEWfB8su7FVPlo
+	2HPsg4pilzMdBb8gE3003mTibwpHWY/kTko4GzckJLZ6mvsw35ApIhuOC91VsfCDZyRBfghCX7PLz
+	6jJ5QzoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsfIK-00000009gc5-36Z6;
-	Wed, 18 Feb 2026 11:00:36 +0000
-Received: from pouet.aliel.fr ([65.21.61.41] helo=courrier.aliel.fr)
+	id 1vsfVs-00000009hBk-1N1B;
+	Wed, 18 Feb 2026 11:14:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsfIG-00000009gba-4B7Q;
-	Wed, 18 Feb 2026 11:00:34 +0000
-Received: from localhost.localdomain (2A02-842b-8136-0001-B865-661d-5641-E7C6.rev.sfr.net [IPv6:2a02:842b:8136:1:b865:661d:5641:e7c6])
-	by courrier.aliel.fr (Postfix) with ESMTPSA id D2CF2426E9;
-	Wed, 18 Feb 2026 11:00:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1771412428;
-	bh=VXFQL5BZy+HqvbUJeFd3eVHhL1DG76izxX4eyjkPros=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=btc1kSqAwlxWhtmsSbCiVV9OReQd9H2FZD6bLBmBJUGIbelLqDBweMEHFUQX6shyV
-	 XOezvNF579a1U5DmUmQzUYZ+XgA2ZW9YKv46utTEIC1zAqXzYVSn4rS62N2XGhph8M
-	 QArKE7i+cnEiuoTZ3Ba88IJyErn/t8uHpZE20mB8=
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-To: linux-amlogic@lists.infradead.org
-Cc: Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
+	id 1vsfVp-00000009hBC-2yRx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Feb 2026 11:14:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1771413271;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2G2U1r6MNxqXWHe+KrJPIT7PkZtApRJqJedGKd+iJpc=;
+	b=KUH+t7OV30HOSW1ruP/9h0J6ZNmhwQNOBcB38cwxwuG5AWWvsjvB/RSsqCL8RGbWEuKMyb
+	IeFL4lR4T2YPNzQQt0/JaD+63SJG9RO/Hqb1K535BjV2A55pg3A1dyhUnwo6iKaenrLfss
+	YCE59aahICRYmiTNioLuaROphAq3B4A=
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
+ [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-361-Apgj0eNUNmGXCJwfanwaCg-1; Wed, 18 Feb 2026 06:14:28 -0500
+X-MC-Unique: Apgj0eNUNmGXCJwfanwaCg-1
+X-Mimecast-MFC-AGG-ID: Apgj0eNUNmGXCJwfanwaCg_1771413268
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50335bd75bdso462791721cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 03:14:28 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771413268; x=1772018068;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=2G2U1r6MNxqXWHe+KrJPIT7PkZtApRJqJedGKd+iJpc=;
+        b=JWnPE+IoObOnhnkdAo5YZJ39yb89u1BF7j4vkJAyIxjF2UCHhrhkfVVJ0tqoc6pawC
+         fWk+ipsu/8OytpGFIW/75pcp+HvJJIEvusMx+wtW3I+h1ce8lQP6O5K9Ze92J+5my5dM
+         MidSbNb1PRMZckVbB5LZIfCI6qSBlZlRNsFSaGHPB6A92YJ/Ac+O5pJ+o47WITTBrE6y
+         3dztXefz7VIu9YAEBprvWVIJPiOBhZxal3kO8v0iUeQv0ydFu6+7ODteUKvM0rOMpGDn
+         YacLV0cqjPVznmKn29qLKoClrElxwW/xxi2kEHqcjCDs4uUgc9IDkVipLlQYACxJdVO7
+         6vPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX5T6ztUuESP81XcILZMGQTk8Av7U29brS0BSAIWAvWFgp/ZUf7PcN2TJpTDebpJBFQGXcOH4TH3OKJ1l7ffjuA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzT9hIPNFFzVs7lsbUvC2oJ3zRo2ZQf7ZWfOHkEMSroFyEc1C1e
+	M/8ogc+NWMMGmPPdFGv9zzwS9jJCzH7S+WdPBBJqYuQUZaSASnAFgd3SwcPXZk/ejEnGoqZf9mQ
+	PI4o2nYOOCGN+x7ZIdVGMlQBpSxG/mNUj8FxhT1gnekSFlxeZm6Aqa2PxHUWVLS+07ShEX9jLzU
+	hj
+X-Gm-Gg: AZuq6aILaPH00lXwbFSeWQE4JOsUKE0AkFBCz73ZMylo6zEMGfYWqOzHnhJAODcJ4jr
+	J0ADi2JvadpBs7cvq/eQ8pHAde2VqKuAHCyLqlFy3AwmgiLyhUP35pN69NzyE98Hw0hug9O7MTp
+	pz/sLFvMU0QAa0BylJBgg4okQZJA0bFX6HLNLOrqlDhn6grSG3s0fuvMOf+cUDkmMeWx9ZxIeqA
+	Qx0dd4EjNPTMW7tvaWYdzxUjl769NvMQYkx+gwgo1YxDejBBJb6PRvZbTgVni5NNaIGbgetISQU
+	DzQt6DUAL3nc6Pg78tCppHx1MeP8oCU6tcVktskeg+gId6Covk6s0K+qlgg20f3WqKlS9a/oXAl
+	ltxChMgjw+L7lILtp2x83ogd3fcYg7+lGU5SIOwR2EnbNswY1lYmtwvc5
+X-Received: by 2002:a05:620a:1723:b0:8cb:4289:6c3a with SMTP id af79cd13be357-8cb4c01f4e9mr1744950585a.74.1771413267753;
+        Wed, 18 Feb 2026 03:14:27 -0800 (PST)
+X-Received: by 2002:a05:620a:1723:b0:8cb:4289:6c3a with SMTP id af79cd13be357-8cb4c01f4e9mr1744947785a.74.1771413267191;
+        Wed, 18 Feb 2026 03:14:27 -0800 (PST)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cb2b0e1bdbsm1749411685a.17.2026.02.18.03.14.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Feb 2026 03:14:26 -0800 (PST)
+Date: Wed, 18 Feb 2026 06:14:25 -0500
+From: Brian Masney <bmasney@redhat.com>
+To: Felix Gu <ustc.gu@gmail.com>
+Cc: Ryan Chen <ryan_chen@aspeedtech.com>, Joel Stanley <joel@jms.id.au>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/7] drivers: clk: meson: Add Amlogic T7 sys pll support
-Date: Wed, 18 Feb 2026 12:00:15 +0100
-Message-ID: <20260218110018.36348-1-linux-kernel-dev@aliel.fr>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260218101709.35450-1-linux-kernel-dev@aliel.fr>
-References: <20260218101709.35450-1-linux-kernel-dev@aliel.fr>
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	linux-clk@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: aspeed: ast2700: Add missing NULL pointer check for
+ devm_kasprintf()
+Message-ID: <aZWfESmMIw-e81W-@redhat.com>
+References: <20260218-ast2700-v1-1-2388e0fe3597@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260218-ast2700-v1-1-2388e0fe3597@gmail.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: r8zk3_Bx-jrEKHCxfpCgfrCRYZfVNfNudILNI_0Kor0_1771413268
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_030033_636691_DD24BA23 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260218_031433_825567_C5A7671A 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,187 +113,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SYS PLL for the clock controller of the Amlogic T7 SoC family.
+On Wed, Feb 18, 2026 at 04:16:37PM +0800, Felix Gu wrote:
+> devm_kasprintf() can return NULL on memory allocation failure.
+> 
+> Check the return value and return -ENOMEM if allocation fails in
+> ast2700_soc_clk_probe().
+> 
+> Fixes: fdc1eb624ddc ("clk: aspeed: add AST2700 clock driver")
+> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- drivers/clk/meson/t7-peripherals.c | 134 ++++++++++++++++++++++++++++-
- 1 file changed, 131 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/clk/meson/t7-peripherals.c b/drivers/clk/meson/t7-peripherals.c
-index 214db7850d86..de206473f3a7 100644
---- a/drivers/clk/meson/t7-peripherals.c
-+++ b/drivers/clk/meson/t7-peripherals.c
-@@ -176,6 +176,127 @@ static struct clk_regmap t7_rtc = {
- 	},
- };
- 
-+static u32 t7_sys_parents_val_table[] = { 0, 1, 2, 3, 4, 5, 7 };
-+static const struct clk_parent_data t7_sys_parents[] = {
-+	{ .fw_name = "xtal", },
-+	{ .fw_name = "fdiv2", },
-+	{ .fw_name = "fdiv3", },
-+	{ .fw_name = "fdiv4", },
-+	{ .fw_name = "fdiv5", },
-+	{ .fw_name = "axi_clk_frcpu", },
-+	{ .hw = &t7_rtc.hw },
-+};
-+
-+static struct clk_regmap t7_sys_a_sel = {
-+	.data = &(struct clk_regmap_mux_data){
-+		.offset = SYS_CLK_CTRL0,
-+		.mask = 0x7,
-+		.shift = 10,
-+		.table = t7_sys_parents_val_table,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "sys_a_sel",
-+		.ops = &clk_regmap_mux_ops,
-+		.parent_data = t7_sys_parents,
-+		.num_parents = ARRAY_SIZE(t7_sys_parents),
-+	},
-+};
-+
-+static struct clk_regmap t7_sys_a_div = {
-+	.data = &(struct clk_regmap_div_data){
-+	.offset = SYS_CLK_CTRL0,
-+		.shift = 0,
-+		.width = 10,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "sys_a_div",
-+		.ops = &clk_regmap_divider_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&t7_sys_a_sel.hw
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+	},
-+};
-+
-+static struct clk_regmap t7_sys_a = {
-+	.data = &(struct clk_regmap_gate_data){
-+		.offset = SYS_CLK_CTRL0,
-+		.bit_idx = 13,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "sys_a",
-+		.ops = &clk_regmap_gate_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&t7_sys_a_div.hw
-+		},
-+		.num_parents = 1,
-+	},
-+};
-+
-+static struct clk_regmap t7_sys_b_sel = {
-+	.data = &(struct clk_regmap_mux_data){
-+		.offset = SYS_CLK_CTRL0,
-+		.mask = 0x7,
-+		.shift = 26,
-+		.table = t7_sys_parents_val_table,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "sys_b_sel",
-+		.ops = &clk_regmap_mux_ops,
-+		.parent_data = t7_sys_parents,
-+		.num_parents = ARRAY_SIZE(t7_sys_parents),
-+	},
-+};
-+
-+static struct clk_regmap t7_sys_b_div = {
-+	.data = &(struct clk_regmap_div_data){
-+		.offset = SYS_CLK_CTRL0,
-+		.shift = 16,
-+		.width = 10,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "sys_b_div",
-+		.ops = &clk_regmap_divider_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&t7_sys_b_sel.hw
-+		},
-+		.num_parents = 1,
-+	},
-+};
-+
-+static struct clk_regmap t7_sys_b = {
-+	.data = &(struct clk_regmap_gate_data){
-+		.offset = SYS_CLK_CTRL0,
-+		.bit_idx = 29,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "sys_b",
-+		.ops = &clk_regmap_gate_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&t7_sys_b_div.hw
-+		},
-+		.num_parents = 1,
-+	},
-+};
-+
-+static struct clk_regmap t7_sys = {
-+	.data = &(struct clk_regmap_mux_data){
-+		.offset = SYS_CLK_CTRL0,
-+		.mask = 0x1,
-+		.shift = 15,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "sys_clk",
-+		.ops = &clk_regmap_mux_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&t7_sys_a.hw,
-+			&t7_sys_b.hw,
-+		},
-+		.num_parents = 2,
-+	},
-+};
-+
- static struct clk_regmap t7_ceca_dualdiv_in = {
- 	.data = &(struct clk_regmap_gate_data){
- 		.offset = CECA_CTRL0,
-@@ -824,7 +945,7 @@ static T7_COMP_GATE(sd_emmc_c, NAND_CLK_CTRL, 7, 0);
- 
- static const struct clk_parent_data t7_spicc_parents[] = {
- 	{ .fw_name = "xtal", },
--	{ .fw_name = "sys", },
-+	{ .hw = &t7_sys.hw },
- 	{ .fw_name = "fdiv4", },
- 	{ .fw_name = "fdiv3", },
- 	{ .fw_name = "fdiv2", },
-@@ -859,7 +980,7 @@ static T7_COMP_GATE(spicc5, SPICC_CLK_CTRL2, 22, 0);
- 
- static const struct clk_parent_data t7_saradc_parents[] = {
- 	{ .fw_name = "xtal" },
--	{ .fw_name = "sys" },
-+	{ .hw = &t7_sys.hw },
- };
- 
- static T7_COMP_SEL(saradc, SAR_CLK_CTRL0, 9, 0x1, t7_saradc_parents);
-@@ -929,7 +1050,7 @@ static T7_COMP_SEL(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 25, 0x3, t7_pwm_parents);
- static T7_COMP_DIV(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 16, 8);
- static T7_COMP_GATE(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 24, 0);
- 
--static const struct clk_parent_data t7_sys_pclk_parents = { .fw_name = "sys" };
-+static const struct clk_parent_data t7_sys_pclk_parents = { .hw = &t7_sys.hw };
- 
- #define T7_SYS_PCLK(_name, _reg, _bit, _flags) \
- 	MESON_PCLK(t7_##_name, _reg, _bit, &t7_sys_pclk_parents, _flags)
-@@ -1161,6 +1282,13 @@ static struct clk_hw *t7_peripherals_hw_clks[] = {
- 	[CLKID_PWM_AO_H_SEL]		= &t7_pwm_ao_h_sel.hw,
- 	[CLKID_PWM_AO_H_DIV]		= &t7_pwm_ao_h_div.hw,
- 	[CLKID_PWM_AO_H]		= &t7_pwm_ao_h.hw,
-+	[CLKID_SYS_A_SEL]		= &t7_sys_a_sel.hw,
-+	[CLKID_SYS_A_DIV]		= &t7_sys_a_div.hw,
-+	[CLKID_SYS_A]			= &t7_sys_a.hw,
-+	[CLKID_SYS_B_SEL]		= &t7_sys_b_sel.hw,
-+	[CLKID_SYS_B_DIV]		= &t7_sys_b_div.hw,
-+	[CLKID_SYS_B]			= &t7_sys_b.hw,
-+	[CLKID_SYS]				= &t7_sys.hw,
- 	[CLKID_SYS_DDR]			= &t7_sys_ddr.hw,
- 	[CLKID_SYS_DOS]			= &t7_sys_dos.hw,
- 	[CLKID_SYS_MIPI_DSI_A]		= &t7_sys_mipi_dsi_a.hw,
--- 
-2.49.0
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
 
