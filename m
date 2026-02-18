@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74237E9A04D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FA3E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7wT3kF+tP7ReqteA2hoAQULpzEvnjPTYLyhlXEtPzL4=; b=h1ysh52Byl578CAb//vBOJgmLf
-	0ep2xm2m+OvWeByRkIMTkYRZ0wDY7UDOBo1X25VXDpDECTZSEzyInU8sMZpR5FSlJXBG3d1rbnnNV
-	ddXsXHFgm0GN4xFZuxpvkcb2EIzzgwGc2fbLXQkmv0iQMUJEITbH0DZZawyQYKWhXDKkOv7BhOlWp
-	C8PqU0FT4S8bwOXYWWZkaaUiBJx4CkyGL16/fHjt+sMhq30TRRsNpwNxCLZFSqVohtHpN7hTJhmGN
-	ra1SClufE4I6V0dhf1/xqvta3mo0spxXKEd/kV97fRkvKr8YqGHPS3/MAWKiQR3nRf8NowJf2pxg5
-	7JWZcK8g==;
+	bh=Vplc+E9xxyBBHDPTbBG8FWhVR40FGpUWPQCz5RKvbic=; b=OAPhub7Oxsi9OM901zGmqt5g2W
+	2lHD0jrXugtvIXhblNy4JIGNcKZ4k3vJnr4hJm24fMwEtyP3I4Af36+3WOwnSPQeSHntzGfGpU7zE
+	XuXHnkh0AUqCUkZsPBn54/5F68J+6szScLKbbMZdSM50R6Ie+OD7V1PFYZC5Wxjuvi6MxnkRzIKBi
+	XTba3KQgPWdiIzzsxwbhzHnD4IQpCvLI/b5dkoc5yWVrQ9i1VQCkhdLxzgBqUVXVlPSdo+kxstsGO
+	nrhOC3/v2sRsSu9ssmh15nrBdn0nXKt6IsRDBP9mjg575G9zGZ6EvOb6Wr+8zUaiGs/zIrJSaLR+J
+	g4emSfXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspE7-0000000ASRd-3hw3;
-	Wed, 18 Feb 2026 21:36:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vspEF-0000000ASVI-3cmM;
+	Wed, 18 Feb 2026 21:37:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspE3-0000000ASOI-1vWu
+	id 1vspE6-0000000ASQC-3Tjt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 21:36:52 +0000
+	Wed, 18 Feb 2026 21:36:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2D86C43E33;
-	Wed, 18 Feb 2026 21:36:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B66DC2BC87;
-	Wed, 18 Feb 2026 21:36:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F1C66185F;
+	Wed, 18 Feb 2026 21:36:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BBBCC2BC86;
+	Wed, 18 Feb 2026 21:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771450611;
-	bh=S4zQmtBxe0E3DIi0hm6e0ss7TJDmWjR02e2kDFr1lzc=;
+	s=k20201202; t=1771450614;
+	bh=rAp5p3HDmh8Bp7UNW6r+uRPuPyK59EaigYeIc+rCLB8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UYQ3AI9Bo8dGg0hMwROuintnVLzOqhK2vZI4c2yOwLofe1PQg6B/pItjzSqDpqS3I
-	 ZV2871TKNFtzdqmW8TE5YM9EXZ7HRE8OWvdgawxtqpdQ5m7f/s8uS2vg+U8FEf7ikf
-	 qcmc5aiVI4hhVHYMpjUEpv+HqJ13ZDr59hPhSR3Wla5Hw2htKzwRoxkQboT/b2SCBu
-	 fbuQn8dLFKNA49erokFxe3JaiwdRd64x25iZMsgTojSyxvkU7xbJJ6PXS5XwPszmVQ
-	 L1aCSsZQEX7m/YEgdFEU52qfbxDgSVR72hlpsVcMKI6DxiU2GhhwjD1XfT4D+YKp4s
-	 B2vB+9dxg1Hmg==
+	b=bS8mXGBZIZm7D0xIRb2dfANtTBm2nMQJn6ZJn7qSQafN8cLWnn0Tj4h0VgxNQmDFf
+	 2zlPR/kUlg3EUQfA87QF3iw4xHUotS7vyUwK4Jzwua2Rzc/Stfkx6codz/EwHcw338
+	 xoq5em8nIQnw9Nw0mHlnIE+SUx4U5hbuGRJxM7+k/tLlnsTVuBGBtE74MfMJqGqeTb
+	 4d6ch0xmQPfPHj6odH2o+0FK/dZs4Yb75iBZOL2Q8WfXY++UMA/7GVcKP9XhWJG7zN
+	 SauD09ZbBVfcBZCmwC8nyVrjJQ0MegCrEzksJtgY0Fz8tXfPq9BLYaLStNBWJVwLBl
+	 RhYga15fgJqXA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,17 +52,14 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-cifs@vger.kernel.org,
 	linux-wireless@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 02/15] crypto: aes - Add cmac, xcbc, and cbcmac algorithms using library
-Date: Wed, 18 Feb 2026 13:34:48 -0800
-Message-ID: <20260218213501.136844-3-ebiggers@kernel.org>
+Subject: [PATCH 07/15] lib/crypto: aes: Add FIPS self-test for CMAC
+Date: Wed, 18 Feb 2026 13:34:53 -0800
+Message-ID: <20260218213501.136844-8-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260218213501.136844-1-ebiggers@kernel.org>
 References: <20260218213501.136844-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_133651_538785_2A4A1D34 
-X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,370 +74,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the "aes" module to implement "cmac(aes)", "xcbc(aes)", and
-"cbcmac(aes)" algorithms using the corresponding library functions, and
-register these with the crypto_shash API.  Each algorithm is included
-only if the corresponding existing kconfig option is enabled.
-
-This allows the architecture-optimized implementations of these
-algorithms to continue to be accessible via the crypto_shash API once
-they are migrated into the library.
-
-For "xcbc(aes)", I also fixed the bug where AES key lengths other than
-128 bits were allowed, so that this bug didn't have to be implemented in
-the library.  The AES-XCBC-MAC specification (RFC 3566) is clear that
-key lengths other than 128 bits MUST NOT be supported.  AES-XCBC-MAC
-derives a 128-bit subkey internally, so the nonstandard support for
-longer AES keys didn't really work: AES-128 was still used internally.
-
-In the unlikely event that someone is actually relying on the broken and
-nonstandard support for longer AES-XCBC-MAC keys, we can fairly easily
-reintroduce it.  But it seems unnecessary: the only user of "xcbc(aes)"
-seems to be IPsec, which uses 128-bit keys with it.
+Add a FIPS cryptographic algorithm self-test for AES-CMAC to fulfill the
+self-test requirement when this code is built into a FIPS 140
+cryptographic module.  This provides parity with the traditional crypto
+API, which uses crypto/testmgr.c to meet the FIPS self-test requirement.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- crypto/Kconfig                       |   2 +
- crypto/aes.c                         | 183 ++++++++++++++++++++++++++-
- crypto/testmgr.c                     |  10 +-
- drivers/crypto/starfive/jh7110-aes.c |   2 +-
- 4 files changed, 190 insertions(+), 7 deletions(-)
+ lib/crypto/aes.c                    | 35 ++++++++++++++++++++++++++---
+ lib/crypto/fips.h                   |  5 +++++
+ scripts/crypto/gen-fips-testvecs.py | 10 +++++++++
+ 3 files changed, 47 insertions(+), 3 deletions(-)
 
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index e2b4106ac961..256ce4729c8d 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -359,10 +359,12 @@ menu "Block ciphers"
- 
- config CRYPTO_AES
- 	tristate "AES (Advanced Encryption Standard)"
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_LIB_AES
-+	select CRYPTO_LIB_AES_CBC_MACS if CRYPTO_CMAC || CRYPTO_XCBC || CRYPTO_CCM
-+	select CRYPTO_HASH if CRYPTO_CMAC || CRYPTO_XCBC || CRYPTO_CCM
- 	help
- 	  AES cipher algorithms (Rijndael)(FIPS-197, ISO/IEC 18033-3)
- 
- 	  Rijndael appears to be consistently a very good performer in
- 	  both hardware and software across a wide range of computing
-diff --git a/crypto/aes.c b/crypto/aes.c
-index ae8385df0ce5..6bf23eb0503f 100644
---- a/crypto/aes.c
-+++ b/crypto/aes.c
-@@ -3,12 +3,14 @@
-  * Crypto API support for AES block cipher
-  *
-  * Copyright 2026 Google LLC
-  */
- 
-+#include <crypto/aes-cbc-macs.h>
- #include <crypto/aes.h>
- #include <crypto/algapi.h>
-+#include <crypto/internal/hash.h>
+diff --git a/lib/crypto/aes.c b/lib/crypto/aes.c
+index 39deae6105c0..ca733f15b2a8 100644
+--- a/lib/crypto/aes.c
++++ b/lib/crypto/aes.c
+@@ -10,10 +10,11 @@
+ #include <linux/cache.h>
+ #include <linux/crypto.h>
+ #include <linux/export.h>
  #include <linux/module.h>
+ #include <linux/unaligned.h>
++#include "fips.h"
  
- static_assert(__alignof__(struct aes_key) <= CRYPTO_MINALIGN);
- 
- static int crypto_aes_setkey(struct crypto_tfm *tfm, const u8 *in_key,
-@@ -31,10 +33,102 @@ static void crypto_aes_decrypt(struct crypto_tfm *tfm, u8 *out, const u8 *in)
- 	const struct aes_key *key = crypto_tfm_ctx(tfm);
- 
- 	aes_decrypt(key, out, in);
+ static const u8 ____cacheline_aligned aes_sbox[] = {
+ 	0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5,
+ 	0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
+ 	0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0,
+@@ -706,25 +707,53 @@ void aes_cbcmac_final(struct aes_cbcmac_ctx *ctx, u8 out[AES_BLOCK_SIZE])
+ 	else
+ 		memcpy(out, ctx->h, AES_BLOCK_SIZE);
+ 	memzero_explicit(ctx, sizeof(*ctx));
  }
+ EXPORT_SYMBOL_NS_GPL(aes_cbcmac_final, "CRYPTO_INTERNAL");
+-#endif /* CONFIG_CRYPTO_LIB_AES_CBC_MACS */
  
-+static_assert(__alignof__(struct aes_cmac_key) <= CRYPTO_MINALIGN);
-+#define AES_CMAC_KEY(tfm) ((struct aes_cmac_key *)crypto_shash_ctx(tfm))
-+#define AES_CMAC_CTX(desc) ((struct aes_cmac_ctx *)shash_desc_ctx(desc))
-+
-+static int __maybe_unused crypto_aes_cmac_setkey(struct crypto_shash *tfm,
-+						 const u8 *in_key,
-+						 unsigned int key_len)
+-#ifdef aes_mod_init_arch
++/*
++ * FIPS cryptographic algorithm self-test for AES-CMAC.  As per the FIPS 140-3
++ * Implementation Guidance, a cryptographic algorithm self-test for at least one
++ * of AES-GCM, AES-CCM, AES-CMAC, or AES-GMAC is required if any of those modes
++ * is implemented.  This fulfills that requirement via AES-CMAC.
++ *
++ * This is just for FIPS.  The full tests are in the KUnit test suite.
++ */
++static void __init aes_cmac_fips_test(void)
 +{
-+	return aes_cmac_preparekey(AES_CMAC_KEY(tfm), in_key, key_len);
-+}
++	struct aes_cmac_key key;
++	u8 mac[AES_BLOCK_SIZE];
 +
-+static int __maybe_unused crypto_aes_xcbc_setkey(struct crypto_shash *tfm,
-+						 const u8 *in_key,
-+						 unsigned int key_len)
++	if (aes_cmac_preparekey(&key, fips_test_key, sizeof(fips_test_key)) !=
++	    0)
++		panic("aes: CMAC FIPS self-test failed (preparekey)\n");
++	aes_cmac(&key, fips_test_data, sizeof(fips_test_data), mac);
++	if (memcmp(fips_test_aes_cmac_value, mac, sizeof(mac)) != 0)
++		panic("aes: CMAC FIPS self-test failed (wrong MAC)\n");
++	memzero_explicit(&key, sizeof(key));
++}
++#else /* CONFIG_CRYPTO_LIB_AES_CBC_MACS */
++static inline void aes_cmac_fips_test(void)
 +{
-+	if (key_len != AES_KEYSIZE_128)
-+		return -EINVAL;
-+	aes_xcbcmac_preparekey(AES_CMAC_KEY(tfm), in_key);
-+	return 0;
 +}
++#endif /* !CONFIG_CRYPTO_LIB_AES_CBC_MACS */
 +
-+static int __maybe_unused crypto_aes_cmac_init(struct shash_desc *desc)
-+{
-+	aes_cmac_init(AES_CMAC_CTX(desc), AES_CMAC_KEY(desc->tfm));
-+	return 0;
-+}
-+
-+static int __maybe_unused crypto_aes_cmac_update(struct shash_desc *desc,
-+						 const u8 *data,
-+						 unsigned int len)
-+{
-+	aes_cmac_update(AES_CMAC_CTX(desc), data, len);
-+	return 0;
-+}
-+
-+static int __maybe_unused crypto_aes_cmac_final(struct shash_desc *desc,
-+						u8 *out)
-+{
-+	aes_cmac_final(AES_CMAC_CTX(desc), out);
-+	return 0;
-+}
-+
-+static int __maybe_unused crypto_aes_cmac_digest(struct shash_desc *desc,
-+						 const u8 *data,
-+						 unsigned int len, u8 *out)
-+{
-+	aes_cmac(AES_CMAC_KEY(desc->tfm), data, len, out);
-+	return 0;
-+}
-+
-+static_assert(__alignof__(struct aes_enckey) <= CRYPTO_MINALIGN);
-+#define AES_CBCMAC_KEY(tfm) ((struct aes_enckey *)crypto_shash_ctx(tfm))
-+#define AES_CBCMAC_CTX(desc) ((struct aes_cbcmac_ctx *)shash_desc_ctx(desc))
-+
-+static int __maybe_unused crypto_aes_cbcmac_setkey(struct crypto_shash *tfm,
-+						   const u8 *in_key,
-+						   unsigned int key_len)
-+{
-+	return aes_prepareenckey(AES_CBCMAC_KEY(tfm), in_key, key_len);
-+}
-+
-+static int __maybe_unused crypto_aes_cbcmac_init(struct shash_desc *desc)
-+{
-+	aes_cbcmac_init(AES_CBCMAC_CTX(desc), AES_CBCMAC_KEY(desc->tfm));
-+	return 0;
-+}
-+
-+static int __maybe_unused crypto_aes_cbcmac_update(struct shash_desc *desc,
-+						   const u8 *data,
-+						   unsigned int len)
-+{
-+	aes_cbcmac_update(AES_CBCMAC_CTX(desc), data, len);
-+	return 0;
-+}
-+
-+static int __maybe_unused crypto_aes_cbcmac_final(struct shash_desc *desc,
-+						  u8 *out)
-+{
-+	aes_cbcmac_final(AES_CBCMAC_CTX(desc), out);
-+	return 0;
-+}
-+
-+static int __maybe_unused crypto_aes_cbcmac_digest(struct shash_desc *desc,
-+						   const u8 *data,
-+						   unsigned int len, u8 *out)
-+{
-+	aes_cbcmac_init(AES_CBCMAC_CTX(desc), AES_CBCMAC_KEY(desc->tfm));
-+	aes_cbcmac_update(AES_CBCMAC_CTX(desc), data, len);
-+	aes_cbcmac_final(AES_CBCMAC_CTX(desc), out);
-+	return 0;
-+}
-+
- static struct crypto_alg alg = {
- 	.cra_name = "aes",
- 	.cra_driver_name = "aes-lib",
- 	.cra_priority = 100,
- 	.cra_flags = CRYPTO_ALG_TYPE_CIPHER,
-@@ -46,21 +140,108 @@ static struct crypto_alg alg = {
- 			       .cia_setkey = crypto_aes_setkey,
- 			       .cia_encrypt = crypto_aes_encrypt,
- 			       .cia_decrypt = crypto_aes_decrypt } }
+ static int __init aes_mod_init(void)
+ {
++#ifdef aes_mod_init_arch
+ 	aes_mod_init_arch();
++#endif
++	if (fips_enabled)
++		aes_cmac_fips_test();
+ 	return 0;
+ }
+ subsys_initcall(aes_mod_init);
+ 
+ static void __exit aes_mod_exit(void)
+ {
+ }
+ module_exit(aes_mod_exit);
+-#endif
+ 
+ MODULE_DESCRIPTION("AES block cipher");
+ MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+ MODULE_AUTHOR("Eric Biggers <ebiggers@kernel.org>");
+ MODULE_LICENSE("GPL v2");
+diff --git a/lib/crypto/fips.h b/lib/crypto/fips.h
+index 023410c2e0db..9fc49747db64 100644
+--- a/lib/crypto/fips.h
++++ b/lib/crypto/fips.h
+@@ -41,5 +41,10 @@ static const u8 fips_test_sha3_256_value[] __initconst __maybe_unused = {
+ 	0x77, 0xc4, 0x8b, 0x69, 0x70, 0x5f, 0x0a, 0xb1,
+ 	0xb1, 0xa5, 0x82, 0x0a, 0x22, 0x2b, 0x49, 0x31,
+ 	0xba, 0x9b, 0xb6, 0xaa, 0x32, 0xa7, 0x97, 0x00,
+ 	0x98, 0xdb, 0xff, 0xe7, 0xc6, 0xde, 0xb5, 0x82,
  };
- 
-+static struct shash_alg mac_algs[] = {
-+#if IS_ENABLED(CONFIG_CRYPTO_CMAC)
-+	{
-+		.base.cra_name = "cmac(aes)",
-+		.base.cra_driver_name = "cmac-aes-lib",
-+		.base.cra_priority = 300,
-+		.base.cra_blocksize = AES_BLOCK_SIZE,
-+		.base.cra_ctxsize = sizeof(struct aes_cmac_key),
-+		.base.cra_module = THIS_MODULE,
-+		.digestsize = AES_BLOCK_SIZE,
-+		.setkey = crypto_aes_cmac_setkey,
-+		.init = crypto_aes_cmac_init,
-+		.update = crypto_aes_cmac_update,
-+		.final = crypto_aes_cmac_final,
-+		.digest = crypto_aes_cmac_digest,
-+		.descsize = sizeof(struct aes_cmac_ctx),
-+	},
-+#endif
-+#if IS_ENABLED(CONFIG_CRYPTO_XCBC)
-+	{
-+		/*
-+		 * Note that the only difference between xcbc(aes) and cmac(aes)
-+		 * is the preparekey function.
-+		 */
-+		.base.cra_name = "xcbc(aes)",
-+		.base.cra_driver_name = "xcbc-aes-lib",
-+		.base.cra_priority = 300,
-+		.base.cra_blocksize = AES_BLOCK_SIZE,
-+		.base.cra_ctxsize = sizeof(struct aes_cmac_key),
-+		.base.cra_module = THIS_MODULE,
-+		.digestsize = AES_BLOCK_SIZE,
-+		.setkey = crypto_aes_xcbc_setkey,
-+		.init = crypto_aes_cmac_init,
-+		.update = crypto_aes_cmac_update,
-+		.final = crypto_aes_cmac_final,
-+		.digest = crypto_aes_cmac_digest,
-+		.descsize = sizeof(struct aes_cmac_ctx),
-+	},
-+#endif
-+#if IS_ENABLED(CONFIG_CRYPTO_CCM)
-+	{
-+		.base.cra_name = "cbcmac(aes)",
-+		.base.cra_driver_name = "cbcmac-aes-lib",
-+		.base.cra_priority = 300,
-+		.base.cra_blocksize = AES_BLOCK_SIZE,
-+		.base.cra_ctxsize = sizeof(struct aes_enckey),
-+		.base.cra_module = THIS_MODULE,
-+		.digestsize = AES_BLOCK_SIZE,
-+		.setkey = crypto_aes_cbcmac_setkey,
-+		.init = crypto_aes_cbcmac_init,
-+		.update = crypto_aes_cbcmac_update,
-+		.final = crypto_aes_cbcmac_final,
-+		.digest = crypto_aes_cbcmac_digest,
-+		.descsize = sizeof(struct aes_cbcmac_ctx),
-+	},
-+#endif
++
++static const u8 fips_test_aes_cmac_value[] __initconst __maybe_unused = {
++	0xc5, 0x88, 0x28, 0x55, 0xd7, 0x2c, 0x00, 0xb6,
++	0x6a, 0xa7, 0xfc, 0x82, 0x90, 0x81, 0xcf, 0x18,
 +};
-+
- static int __init crypto_aes_mod_init(void)
- {
--	return crypto_register_alg(&alg);
-+	int err = crypto_register_alg(&alg);
-+
-+	if (err)
-+		return err;
-+
-+	if (ARRAY_SIZE(mac_algs) > 0) {
-+		err = crypto_register_shashes(mac_algs, ARRAY_SIZE(mac_algs));
-+		if (err)
-+			goto err_unregister_alg;
-+	} /* Else, CONFIG_CRYPTO_HASH might not be enabled. */
-+	return 0;
-+
-+err_unregister_alg:
-+	crypto_unregister_alg(&alg);
-+	return err;
- }
- module_init(crypto_aes_mod_init);
+diff --git a/scripts/crypto/gen-fips-testvecs.py b/scripts/crypto/gen-fips-testvecs.py
+index db873f88619a..9f18bcb97412 100755
+--- a/scripts/crypto/gen-fips-testvecs.py
++++ b/scripts/crypto/gen-fips-testvecs.py
+@@ -1,12 +1,16 @@
+ #!/usr/bin/env python3
+ # SPDX-License-Identifier: GPL-2.0-or-later
+ #
+ # Script that generates lib/crypto/fips.h
+ #
++# Requires that python-cryptography be installed.
++#
+ # Copyright 2025 Google LLC
  
- static void __exit crypto_aes_mod_exit(void)
- {
-+	if (ARRAY_SIZE(mac_algs) > 0)
-+		crypto_unregister_shashes(mac_algs, ARRAY_SIZE(mac_algs));
- 	crypto_unregister_alg(&alg);
- }
- module_exit(crypto_aes_mod_exit);
++import cryptography.hazmat.primitives.ciphers
++import cryptography.hazmat.primitives.cmac
+ import hashlib
+ import hmac
  
- MODULE_DESCRIPTION("Crypto API support for AES block cipher");
-+MODULE_IMPORT_NS("CRYPTO_INTERNAL");
- MODULE_LICENSE("GPL");
- MODULE_ALIAS_CRYPTO("aes");
- MODULE_ALIAS_CRYPTO("aes-lib");
-+#if IS_ENABLED(CONFIG_CRYPTO_CMAC)
-+MODULE_ALIAS_CRYPTO("cmac(aes)");
-+MODULE_ALIAS_CRYPTO("cmac-aes-lib");
-+#endif
-+#if IS_ENABLED(CONFIG_CRYPTO_XCBC)
-+MODULE_ALIAS_CRYPTO("xcbc(aes)");
-+MODULE_ALIAS_CRYPTO("xcbc-aes-lib");
-+#endif
-+#if IS_ENABLED(CONFIG_CRYPTO_CCM)
-+MODULE_ALIAS_CRYPTO("cbcmac(aes)");
-+MODULE_ALIAS_CRYPTO("cbcmac-aes-lib");
-+#endif
-diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index b940721447fa..fa7217029f44 100644
---- a/crypto/testmgr.c
-+++ b/crypto/testmgr.c
-@@ -4386,11 +4386,11 @@ static const struct alg_test_desc alg_test_descs[] = {
- 			.cipher = __VECS(aes_cbc_tv_template)
- 		}
- 	}, {
- #endif
- 		.alg = "cbcmac(aes)",
--		.generic_driver = "cbcmac(aes-lib)",
-+		.generic_driver = "cbcmac-aes-lib",
- 		.test = alg_test_hash,
- 		.suite = {
- 			.hash = __VECS(aes_cbcmac_tv_template)
- 		}
- 	}, {
-@@ -4399,11 +4399,11 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.hash = __VECS(sm4_cbcmac_tv_template)
- 		}
- 	}, {
- 		.alg = "ccm(aes)",
--		.generic_driver = "ccm_base(ctr(aes-lib),cbcmac(aes-lib))",
-+		.generic_driver = "ccm_base(ctr(aes-lib),cbcmac-aes-lib)",
- 		.test = alg_test_aead,
- 		.fips_allowed = 1,
- 		.suite = {
- 			.aead = {
- 				____VECS(aes_ccm_tv_template),
-@@ -4427,11 +4427,11 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.cipher = __VECS(chacha20_tv_template)
- 		},
- 	}, {
- 		.alg = "cmac(aes)",
--		.generic_driver = "cmac(aes-lib)",
-+		.generic_driver = "cmac-aes-lib",
- 		.fips_allowed = 1,
- 		.test = alg_test_hash,
- 		.suite = {
- 			.hash = __VECS(aes_cmac128_tv_template)
- 		}
-@@ -5324,11 +5324,11 @@ static const struct alg_test_desc alg_test_descs[] = {
- 				.aad_iv = 1,
- 			}
- 		}
- 	}, {
- 		.alg = "rfc4309(ccm(aes))",
--		.generic_driver = "rfc4309(ccm_base(ctr(aes-lib),cbcmac(aes-lib)))",
-+		.generic_driver = "rfc4309(ccm_base(ctr(aes-lib),cbcmac-aes-lib))",
- 		.test = alg_test_aead,
- 		.fips_allowed = 1,
- 		.suite = {
- 			.aead = {
- 				____VECS(aes_ccm_rfc4309_tv_template),
-@@ -5513,11 +5513,11 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.sig = __VECS(x962_ecdsa_nist_p521_tv_template)
- 		}
- 	}, {
- 		.alg = "xcbc(aes)",
--		.generic_driver = "xcbc(aes-lib)",
-+		.generic_driver = "xcbc-aes-lib",
- 		.test = alg_test_hash,
- 		.suite = {
- 			.hash = __VECS(aes_xcbc128_tv_template)
- 		}
- 	}, {
-diff --git a/drivers/crypto/starfive/jh7110-aes.c b/drivers/crypto/starfive/jh7110-aes.c
-index c1dc1e43e117..2e2d97d17e6c 100644
---- a/drivers/crypto/starfive/jh7110-aes.c
-+++ b/drivers/crypto/starfive/jh7110-aes.c
-@@ -1001,11 +1001,11 @@ static int starfive_aes_ctr_init_tfm(struct crypto_skcipher *tfm)
- 	return starfive_aes_init_tfm(tfm, "ctr(aes-lib)");
- }
+ fips_test_data = b"fips test data\0\0"
+ fips_test_key = b"fips test key\0\0\0"
+@@ -32,5 +36,11 @@ for alg in 'sha1', 'sha256', 'sha512':
+     ctx.update(fips_test_data)
+     print_static_u8_array_definition(f'fips_test_hmac_{alg}_value', ctx.digest())
  
- static int starfive_aes_ccm_init_tfm(struct crypto_aead *tfm)
- {
--	return starfive_aes_aead_init_tfm(tfm, "ccm_base(ctr(aes-lib),cbcmac(aes-lib))");
-+	return starfive_aes_aead_init_tfm(tfm, "ccm_base(ctr(aes-lib),cbcmac-aes-lib)");
- }
- 
- static int starfive_aes_gcm_init_tfm(struct crypto_aead *tfm)
- {
- 	return starfive_aes_aead_init_tfm(tfm, "gcm_base(ctr(aes-lib),ghash-generic)");
+ print_static_u8_array_definition(f'fips_test_sha3_256_value',
+                                  hashlib.sha3_256(fips_test_data).digest())
++
++aes = cryptography.hazmat.primitives.ciphers.algorithms.AES(fips_test_key)
++aes_cmac = cryptography.hazmat.primitives.cmac.CMAC(aes)
++aes_cmac.update(fips_test_data)
++print_static_u8_array_definition('fips_test_aes_cmac_value',
++                                 aes_cmac.finalize())
 -- 
 2.53.0
 
