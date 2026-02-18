@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E47E9A03E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 09:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93EEE9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 09:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQ/O09RyaG0MbKktDQOE6RN40NhlMtMVFP215SnREkE=; b=pDHaSx9pQUfsJMZmr8CK3n7RXZ
-	xqd6Aci//76+5wJ9X/GUDI7vwaM80E+g1o8efXdnw1ZrtpkZL9fDJZFJUwTqc1xTAmpksfkWUgypN
-	5hoyIgD0n/fKMco5u0xXUAZdDdFOHh/d2mdjhS8/8Ctuxzs2tG8vIxK4T34BSa0AtsYeCPZy6oN0u
-	UYC2G2l0JOVfCynlZmbpoTm4HuOJIDsg4bDKNdALf3QnfmUobdmT43UKM5ixaJpV+FtqB600rnDjq
-	bT/nVmS4NclqzQ7Q/CfQeGbfREp1iP3E/lEqzYv4eSNmqJkJ1bMgRbc5tEGt6TTBid44Wo7sT+jln
-	SjytMOZg==;
+	bh=OotIMiMrBZ/nv4lxL8V9WRPmjTez0Dvs0DUFfxQ6/r8=; b=xJtDyBkif4XVETatfjYDjv/njb
+	J8VuZFw3UXuyEy+ISQa4blRY4Ng5UYGE3KYIUeplSgqxU9fXZn2aS1fkx8DFzpPRhML3M1tiR3m0T
+	D2/UbpUHrdC7CTY+uFm2X7mhT1dy1Sadi5qOzZFvF3ccLTP9KV2VOjH9jG860W9c3hsKAgySr8c4T
+	DzCPNzgMui1/1zA1EuoQV3skLWyGYZMdULaEUwCLsRegwZInbk0Dsq4nlCdEPi9EN++oRrhjL1YrF
+	XoCM9VhwTSc1ZlfOZDHpoypNJ6+YsI5drZiay9S0oTIJ6KFmsRSW9mZWMTZ5qGs0qOH/aVBOrZX3P
+	Gx7q5uTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdtf-00000009Y9s-44mV;
-	Wed, 18 Feb 2026 09:31:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vsdtk-00000009YDG-2UsD;
+	Wed, 18 Feb 2026 09:31:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsdtc-00000009Y7e-2DYA
+	id 1vsdth-00000009YAr-0XgA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 09:31:01 +0000
+	Wed, 18 Feb 2026 09:31:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3BE9F40A8D;
-	Wed, 18 Feb 2026 09:31:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B80CC19422;
-	Wed, 18 Feb 2026 09:30:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E50B600AE;
+	Wed, 18 Feb 2026 09:31:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A3D9C19421;
+	Wed, 18 Feb 2026 09:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771407060;
-	bh=dT9HuQriYYVmB2DGLDdDK7r/1nUzQ5yjDBppIExCeio=;
+	s=k20201202; t=1771407063;
+	bh=IDP5Wn0Kme2KzU3xPb1Ng5ASKJPZ1EYLsGjH3tK0uNg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uL/LIVstKgpprinH5oGmJqYqcULnY13YSPfQNoAIHhz6+XM0xN/UCpG2D0Imt8JT7
-	 wa7OaEfkYG/lT9Wr3jYy5UARwQidL6mhrGrulspHRlBwwvCRlBeX5i2UCVbXOSgVRR
-	 92eow5+EFNW/G3vJyvK6Wv2kt8fyk3fOgvTjwLRjhyzJtCfO2DKMIHoKeZ5oVr+IkR
-	 /DuMmUNLIzI0FGqr61NDf3IWoclZkKr8/V2pRx5zREqYyU4tioGhHyOGXTLNaTA5fv
-	 ANAMcC8cZJ6TSWodEuTfKOryYtrPCJS2DfWpEAW0D/S/AeYCfew4wv/x3EGcnGeX7q
-	 vvqN2mTs/Apyg==
+	b=lgoTlYXuyRLfBMjqq/sPrsmpoFsmfgsLmrl8EYUP8TwwU5qz6TaPc8hEsFw/NyREL
+	 nFUbh6+oiDPjLQCiVHfXI9rRYL+Ln7xqwQJJ55LqhfyC0PIQX/GnZNXbIY2yXU9Dyw
+	 gQAI8om8SsTA4Ly+C4BSF+C2+y6Thu6b7f8Tk9Z/wizv3bk/AyI8f11pbPT6ij0jGd
+	 YqNLSR8rxcHDrhAeYMvlmUmkNMaUqdcsULLWqAqo11xZKB+B5TwxgbJ7zXpyLzzoS4
+	 fIDNKMRcY8VYWP0Ezn5Pv8fVk/p63nin3f6QxPeOUbfTCh7H9wdT+abTH0vq5FibyR
+	 ovvHLnxtojs9A==
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 18 Feb 2026 10:30:51 +0100
-Subject: [PATCH v2 4/7] ARM: dts: bcm6855: Add I2C bus blocks
+Date: Wed, 18 Feb 2026 10:30:53 +0100
+Subject: [PATCH v2 6/7] ARM: dts: bcm63138: Add I2C block
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260218-bcmbca-i2c-dts-v2-4-5373ef82c50c@kernel.org>
+Message-Id: <20260218-bcmbca-i2c-dts-v2-6-5373ef82c50c@kernel.org>
 References: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
 In-Reply-To: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
 To: William Zhang <william.zhang@broadcom.com>, 
@@ -59,9 +59,6 @@ To: William Zhang <william.zhang@broadcom.com>,
  Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
 Cc: linux-arm-kernel@lists.infradead.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_013100_612362_30CDCD87 
-X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +73,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The BCM6855 has two brcmper I2C blocks, the second one in
-the PERF1 area at 0xff85a800, this is covered by the
-current bus range.
+The BCM63138 has a brcmper I2C block.
+
+The interrupt is at INTERRUPT_ID_I2C whic is
+(ISR_TABLE3_OFFSET + 19) = 96+115, convert back
+to SPI interrupt 115-32 = 83.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/boot/dts/broadcom/bcm6855.dtsi | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ arch/arm/boot/dts/broadcom/bcm63138.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm6855.dtsi b/arch/arm/boot/dts/broadcom/bcm6855.dtsi
-index a88c3f0fbcb0..b3c4cd24ce53 100644
---- a/arch/arm/boot/dts/broadcom/bcm6855.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm6855.dtsi
-@@ -240,6 +240,15 @@ nandcs: nand@0 {
- 			};
+diff --git a/arch/arm/boot/dts/broadcom/bcm63138.dtsi b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
+index 8e41c7130406..4ca4ec2ffed6 100644
+--- a/arch/arm/boot/dts/broadcom/bcm63138.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
+@@ -312,6 +312,15 @@ bootlut: bootlut@8000 {
+ 			reg = <0x8000 0x50>;
  		};
  
-+		i2c0: i2c@2100 {
++		i2c0: i2c@be00 {
 +			compatible = "brcm,brcmper-i2c";
-+			reg = <0x2100 0x60>;
-+			interrupts = <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>;
++			reg = <0xbe00 0x60>;
++			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
 +			#address-cells = <1>;
 +			#size-cells = <0>;
 +			status = "disabled";
 +		};
 +
- 		leds: led-controller@3000 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -278,5 +287,14 @@ uart1: serial@13000 {
- 			clock-names = "uartclk", "apb_pclk";
- 			status = "disabled";
- 		};
-+
-+		i2c1: i2c@5a800 {
-+			compatible = "brcm,brcmper-i2c";
-+			reg = <0x5a800 0x60>;
-+			interrupts = <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
- 	};
- };
+ 		pl081_dma: dma-controller@d000 {
+ 			compatible = "arm,pl081", "arm,primecell";
+ 			// The magic B105F00D info is missing
 
 -- 
 2.53.0
