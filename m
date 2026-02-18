@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7FAE9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CC9E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JoWIl3J0AYKhjKgSgLSsD1jKc2lLqZ2lM8zO5ZZYuMk=; b=uXTyGykutdpLPHwqZlYbN67oGk
-	dzdk8sOEuuzRNA+m5zifAjbp2lXXkowpP8OtWf0aJhLnL3GrZK4oQQGme2AeFuGTxLz2bjgzTG1uI
-	Rvat7YZnEfWtet0uP3QqZ/7NFlH1O80SL9qBK1pP25UY5rFbqHpwvaWVvylIhLhrA7Wy9cEAcLF2d
-	30gRRRS8563sQOVUzQ8Z74tnHKKTQkZ96ao9Fr2KcSxWP4hwrPN0Vl6tsg5AIL1xlPWzD3pVmQysq
-	FndZ2U9Jc7G/Em32Mq+qVoALZF2l5I84tbo52SNJw3I0b67gnb6+3WdkLOtDmKk8JQw2VI+f6muP0
-	qAUmzIvw==;
+	bh=2kUOO1cB2iiIOsCKFzJeB33+4QQDVUIsfJRskzqwhaw=; b=TfEznsNwFl01WeJCoLOXoBLcF2
+	72YhhCVIJdd9UpEBXDUyLxKvdJXod6PFbV+AB2N4afCku1d2FfTmYMVTJu2ElIS5KFtp7gLepKtjw
+	EiSksd/UFuGRkaKEmRxIVNRo1f7tTmrsNi5Yfzr3HeeiUEe0lUls4ANLwBiUdt40PR2N5Dcvh1tB1
+	VsvygPmQmxENxa6fUNcjfpBJ/susaDU9x3RljUJGlkeOvXTvpcEmi4wQY6xxpYkfe6lv9EFLwtxzH
+	tUkFJ18zzOX8H4GWRsVsUeDBxi7rHkLvTjYjNBUnF7AmsrVyau1MTldykBJeBeZ/i7NOeixwecdDA
+	m3b3l+GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskb9-0000000A69X-3o4N;
-	Wed, 18 Feb 2026 16:40:23 +0000
+	id 1vskdC-0000000A6KC-23YK;
+	Wed, 18 Feb 2026 16:42:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskb7-0000000A68t-3r0R
+	id 1vskd9-0000000A6Jg-1JSM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:40:23 +0000
+	Wed, 18 Feb 2026 16:42:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B312C339;
-	Wed, 18 Feb 2026 08:40:13 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 961A3339;
+	Wed, 18 Feb 2026 08:42:19 -0800 (PST)
 Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBC983F62B;
-	Wed, 18 Feb 2026 08:40:14 -0800 (PST)
-Message-ID: <35f1f327-a464-4299-b91b-ec036059a675@arm.com>
-Date: Wed, 18 Feb 2026 16:40:13 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C15FF3F62B;
+	Wed, 18 Feb 2026 08:42:20 -0800 (PST)
+Message-ID: <b761ec67-5ba8-480e-965e-b163f9056da2@arm.com>
+Date: Wed, 18 Feb 2026 16:42:19 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 26/41] arm_mpam: resctrl: Add support for 'MB' resource
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
+ "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
+ "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
+ "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+ "dave.martin@arm.com" <dave.martin@arm.com>,
+ "david@kernel.org" <david@kernel.org>,
+ "dfustini@baylibre.com" <dfustini@baylibre.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+ "gshan@redhat.com" <gshan@redhat.com>,
+ "james.morse@arm.com" <james.morse@arm.com>,
+ "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+ "kobak@nvidia.com" <kobak@nvidia.com>,
+ "lcherian@marvell.com" <lcherian@marvell.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "peternewman@google.com" <peternewman@google.com>,
+ "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
+ "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
+ "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
+ "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
+ "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
+ "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
+ "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>,
+ "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>,
+ "joey.gouly@arm.com" <joey.gouly@arm.com>,
+ "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+ "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+ "zengheng4@huawei.com" <zengheng4@huawei.com>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
 References: <20260203214342.584712-1-ben.horgan@arm.com>
  <20260203214342.584712-27-ben.horgan@arm.com>
- <20260205165018.0000089c@huawei.com>
+ <OSZPR01MB8798A3301B1E802173FF551E8B62A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
 From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-In-Reply-To: <20260205165018.0000089c@huawei.com>
+In-Reply-To: <OSZPR01MB8798A3301B1E802173FF551E8B62A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_084022_042417_9BA8085D 
-X-CRM114-Status: GOOD (  27.62  )
+X-CRM114-CacheID: sfid-20260218_084227_491243_CB8EC965 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,11 +96,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hi Shaopeng,
 
-On 2/5/26 16:50, Jonathan Cameron wrote:
-> On Tue, 3 Feb 2026 21:43:27 +0000
-> Ben Horgan <ben.horgan@arm.com> wrote:
+On 2/10/26 06:20, Shaopeng Tan (Fujitsu) wrote:
+> Hello Ben,
 > 
 >> From: James Morse <james.morse@arm.com>
 >>
@@ -97,17 +115,6 @@ On 2/5/26 16:50, Jonathan Cameron wrote:
 >> bitmaps is not used as its tricky to pick which bits to use to avoid
 >> contention, and may be possible to expose this as something other than a
 >> percentage in the future.
-> 
-> I'm very curious to know whether this heuristic is actually useful on many
-> systems or whether many / most of them fail this 'shape' heuristic.
-> 
-> Otherwise, just comments on the placement of __free related declarations.
-> See the guidance in cleanup.h for that.
-> 
-> With those moved, 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> 
-> 
 >>
 >> CC: Zeng Heng <zengheng4@huawei.com>
 >> Co-developed-by: Dave Martin <Dave.Martin@arm.com>
@@ -126,47 +133,27 @@ On 2/5/26 16:50, Jonathan Cameron wrote:
 >> update comment on candidate_class update, only mbm_total
 >> drop tags due to rework
 >> ---
->>  drivers/resctrl/mpam_resctrl.c | 275 ++++++++++++++++++++++++++++++++-
->>  1 file changed, 274 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> index 25950e667077..4cca3694978d 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
-> 
+
 >> +/*
->> + * topology_matches_l3() - Is the provided class the same shape as L3
->> + * @victim:		The class we'd like to pretend is L3.
->> + *
->> + * resctrl expects all the world's a Xeon, and all counters are on the
->> + * L3. We allow some mapping counters on other classes. This requires
->> + * that the CPU->domain mapping is the same kind of shape.
->> + *
->> + * Using cacheinfo directly would make this work even if resctrl can't
->> + * use the L3 - but cacheinfo can't tell us anything about offline CPUs.
->> + * Using the L3 resctrl domain list also depends on CPUs being online.
->> + * Using the mpam_class we picked for L3 so we can use its domain list
->> + * assumes that there are MPAM controls on the L3.
->> + * Instead, this path eventually uses the mpam_get_cpumask_from_cache_id()
->> + * helper which can tell us about offline CPUs ... but getting the cache_id
->> + * to start with relies on at least one CPU per L3 cache being online at
->> + * boot.
->> + *
->> + * Walk the victim component list and compare the affinity mask with the
->> + * corresponding L3. The topology matches if each victim:component's affinity
->> + * mask is the same as the CPU's corresponding L3's. These lists/masks are
->> + * computed from firmware tables so don't change at runtime.
+>> + * Test if the traffic for a class matches that at egress from the L3. For
+>> + * MSC at memory controllers this is only possible if there is a single L3
+>> + * as otherwise the counters at the memory can include bandwidth from the
+>> + * non-local L3.
 >> + */
->> +static bool topology_matches_l3(struct mpam_class *victim)
->> +{
->> +	int cpu, err;
->> +	struct mpam_component *victim_iter;
->> +	cpumask_var_t __free(free_cpumask_var) tmp_cpumask = CPUMASK_VAR_NULL;
+>> +static bool traffic_matches_l3(struct mpam_class *class) {
 > 
-> Same as below.  Move it down right next to the alloc.
+> An error reported by checkpatch.pl is as follows.
+> 
+> ERROR: open brace '{' following function definitions go on the next line
+> #826: FILE: drivers/resctrl/mpam_resctrl.c:826:
+> +static bool traffic_matches_l3(struct mpam_class *class) {
 
-I've moved both.
+Not sure how I let that slip through. Fixed now.
 
+> 
+> 
+> Best regards,
+> Shaopeng TAN
 Thanks,
 
 Ben
