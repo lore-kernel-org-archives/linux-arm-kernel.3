@@ -4,107 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E2CE9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 08:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A91FDE9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 08:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5r0xdr1WGpCeGTUqLANRfTri1dCqx5zok5lpbzySRko=; b=OwLfEhAWACW7gzXzgtT7imCxda
-	1X381prmMx1Rm5UESQYlZhQQxnNQukS2/LQpr0I5bzRQcwAs9I7ojtOBxPnb1rY33ftEWijrv99pW
-	C5JCttwE3WT6s1iV3a7xVLq7nQNwIvXWLwW+pG/eXa/mc2FRryQeJqAFthmhk1SZWe1HhGm9PIOmm
-	Y5mJsiK4kxZnkPsW/8pU5OUW/ex77jY7LWuMK4BAnXibaIuKJzSLdrwTIpj33iBoDafDFs/0WyyVO
-	AkrjdS8vNKDStWX6ZlYHim2n8F+3GclutX8jfDtOdnaj1cDdvd8QAbwGP0Tcmke/aDjfi8A0m4kNm
-	OuZis47g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aFml97od/WAOLQCUZ3m8RECZA6fG672YeSsD5ZCEDvQ=; b=V0KH1ohuOzmj4v8iRyE1MwBYeR
+	PjJlV7/vNReZ2eDmqwnJ7Kzcah3K0E1MsMYOpOSIXeG+HFhg1+ZrjLiPI4+kFppsv5n+M9pw5OQTI
+	qBi8nd+Lf1Hk6tVin7LDMhgr2T5cCGkLOdehowBzI0UXhK68VmGbcy1a4swol391jORJ15K40+a8H
+	DMbiWfeBc3cQqOh+F4IM3EQBy3UCRmtaatE7Ns59Ed1Gcc9FiG2NosRL0iARtFPvYFkIecoptb5OY
+	gyuZOh7NV6X2cg4KvW4+DAykKheEQG12n5YF+sCrG7kFdN5AcD/dtcsUjZ5mq2074v/7ORTOLX9r5
+	fINbtATQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsckC-00000009Rrq-3N9O;
-	Wed, 18 Feb 2026 08:17:12 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1vsd2v-00000009Ta6-2kTD;
+	Wed, 18 Feb 2026 08:36:33 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsckB-00000009RrE-0hX7
+	id 1vsd2t-00000009TYv-0Glt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 08:17:12 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-59e4993e00aso4624250e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 00:17:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771402629; x=1772007429; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=5r0xdr1WGpCeGTUqLANRfTri1dCqx5zok5lpbzySRko=;
-        b=UnODEF6GzwTw9oViUozsd3g6lBjW9V1ovp7CKU/3pJjStWbjcpRx8uOnvIRjEVildU
-         s25BuxLZb2QkUGsRvYEyR88OBkEgsulz2GHAuD3xUc/EHZsoSv4g3P6oQxJatVM35YP/
-         DzBxZBU/Me5txldBjvJVCuJO13hqxeKru6W9PWUgokyYUZGYyKgDKxHMGWrpSXiSVuZT
-         y1DYjqBQrMu8bY0vL8a13eSfnmMF3vWSBfHngzkUoVHNUb4RO7mUeOrUicjPnN7V5DwA
-         LbYjUH7Q+PSbScs5mYJVTPQnmuK1EVP6BvpSYqO2fp2W/YzBjgkIRwwPuWwCTdVhNj1J
-         8Q7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771402629; x=1772007429;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5r0xdr1WGpCeGTUqLANRfTri1dCqx5zok5lpbzySRko=;
-        b=l3R/UMuPkuiziRX8imOBYxSE9PUo0jSaKEGK1wyV7o4f9BTIfDuPus1Lk4kDnC5Rkz
-         SabMyj2bdLB+0+5L37yAeV5qyTS/sU8owk/lEVLq5wVtaKIFBJfJgGNFsM7sVXQ5R7Pm
-         YdVtHVJcrhQLaNplmVJoXjxzcr6ga9RkPFdPOdFUDfi1w2J+xXbFg4ykV2TehVmV8L6a
-         q+vGzCZ+Iql1WjxDhHNVXY3slM7UPk7qbi/eFqW1s8aUdwpcc+xunrUgBmxpa0AStZc/
-         0szo+DNu4Vbb1vkZNQA0eKMEdTI+TcPp+kZ0QelFP9brc8XxXYLRmTiHqGWIKfL4SriD
-         87jg==
-X-Forwarded-Encrypted: i=1; AJvYcCUkoRkPNh/PaGxYXoktuLnWX7XQK9EtcVIE4B2YaxcME+OIo+wMypqsO9mdSGF/GuRHDll9nmW1iDD8m+cYAV2n@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxz7PG9GhYnU18LD/5O7XTHuwG6qI5q8n0oRUCQdJABeBZz0go8
-	sKh5GL9qYpv9V1KoCTnRw7/uje2LWyI7GMAuXSUevJqfzia9c+k9oUp0
-X-Gm-Gg: AZuq6aK253SQo83s6qGPMLcIAHLaENRyEIah5MIWCCnfW4yaSsyyHDwWGObf6K+Qdv2
-	w9/CdMaWJjCs6b80poJjejcoMZcxg8eKKGeZEhVu4EkQeYnYRjf/JrsLJC6jUO4Do4lRvv+7pe3
-	YKTqJ3AzaePqL2b6QGZgj+x4kIvq7ImosiWTr4J2TBtYsSTtIYGjCiL6GswGd899ovWUlzSExbW
-	KocYum0KgEjyJ756MxhPl43FDBmgDBZIi3/TV/2miuROxefclj0Su8oNvO/jwnlfW0Hx+xkVTYA
-	4BrlOmhhmuL12aSFzfsqYFJirQqmVy/6FOmhcWaxaHfpTqvL+yhFuxab6EequbHkc/u3LJlQ1yz
-	wsUpax1T5LmVyFpszgJLSVsgPNwB9b2UZt56rr+CuBN5B5fnr6I94oHgToXMrreV8/fBuoJtMAE
-	E3I5lPJEe9LXHcUf8XZRy2aJhp0Evup+rHa53lf4abqk1w2NBr07ssp2v5ZqSU7RkwL09YfnF+e
-	FJzUEtifzQi+rALWYQ=
-X-Received: by 2002:a05:6512:1150:b0:59e:6c24:3f91 with SMTP id 2adb3069b0e04-59f83bbcd19mr369556e87.34.1771402628519;
-        Wed, 18 Feb 2026 00:17:08 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e5f56867fsm4391846e87.24.2026.02.18.00.17.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Feb 2026 00:17:07 -0800 (PST)
-Message-ID: <66dab64b-ca3e-4ae0-81d6-0500899757e5@gmail.com>
-Date: Wed, 18 Feb 2026 10:17:06 +0200
+	Wed, 18 Feb 2026 08:36:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NPTrQuik0zVfTj3fWkhAnA2Ye/QippAZFxxErRVL6VWggjuAiPDzcNjrZfLWM/IdUVSDxyOFZhykTONyFUNBjSN9m+r/RSFH74c4ljAoz25Z4LiYvEqZaysUsYb/lYH6Bs8wj/BLWIsFogOFq9IMfbXdKKUhDinik2iRJB369yOS31ayn86JEwUChMe5QqBEAh6q/TLpAWnMSOa1nrymTIc+sud4GqeXZBGH7S+dENbccsRoMNpRjuWfjlJc/y4o/AGvKLG0gv5geTtoEmIjtW73D9Rim3kn3J9Ov/YT8itUjGoR6Z/aEc0iO4rnQFNskTa0r63DzW/+LHt8TJI2kA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aFml97od/WAOLQCUZ3m8RECZA6fG672YeSsD5ZCEDvQ=;
+ b=w2pGv88WKK9jmnyZ9MChR91DDPJRpTpA4Kk9bS1WBJrnT0ZmGBqeLfLs2jMZdle/4wcn/f/r0fjFf4LsP3atiWltryC3JBLgTuU5DV2Kgwf6VH53i0St9IqAGB0TRgbAV8fJNAPm/arqyDAR7hLHNRlGTmG45Ond5uAnCtqfgueVV2j1yHkE0t38B+wDTuTrvwFHBmYwcnrcTjZAOHLj4UimQD1X3hakRk3GKpeQIyc8Sm+YcnasxDGlqgX/wB0CKzlPW4z+W/koiiX11Yy0BAve3ce1MOxStLlVfzK6US5B+FcbS0OOlmTY16e+8CI7F94vtO7Kq7rMml8VgdSIlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=lunn.ch smtp.mailfrom=foss.st.com; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aFml97od/WAOLQCUZ3m8RECZA6fG672YeSsD5ZCEDvQ=;
+ b=dK147n1Oc7unpaM0pOzcNPoB1kKjIffTDWPIQhXFYV1U+6qgqfRu3atnYCEOy/Ai4ratYdMbMNna31r+xSmgL2oJaFf0UcwspjMZOzkwFIDXc6sR9ld6b0bv/tuKSAXGcUNlCX/5vjLd47Qvsn0GfDNqOKpzb/I1h6AhBC2SW4y6hZqCr2tucCEEb28+uRlNtRgXuWUR9O/7OlUOXk0EJvnGHoHtYzcNV7LDWqeAvrJnbtTGcUubfwVdNW5CJp3U1x9YWYWw1pK+o8OZ8Mk2r4zieDBdqVRrmU/WPWlwDyhS4BlEOgnnj5xuQ5QdP/b31oUfLQPJlDLKK5dujoJMXw==
+Received: from DUZPR01CA0242.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b5::14) by PAVPR10MB6913.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:102:30e::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.14; Wed, 18 Feb
+ 2026 08:36:24 +0000
+Received: from DU2PEPF00028D0D.eurprd03.prod.outlook.com
+ (2603:10a6:10:4b5:cafe::1d) by DUZPR01CA0242.outlook.office365.com
+ (2603:10a6:10:4b5::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.13 via Frontend Transport; Wed,
+ 18 Feb 2026 08:36:24 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU2PEPF00028D0D.mail.protection.outlook.com (10.167.242.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9611.8 via Frontend Transport; Wed, 18 Feb 2026 08:36:22 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 18 Feb
+ 2026 09:38:17 +0100
+Received: from localhost (10.252.6.190) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 18 Feb
+ 2026 09:36:21 +0100
+From: Christophe Roullier <christophe.roullier@foss.st.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>, Maxime Chevallier
+	<maxime.chevallier@bootlin.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Christophe Roullier <christophe.roullier@foss.st.com>
+CC: <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 0/3] Fixes for stmmac driver
+Date: Wed, 18 Feb 2026 09:36:15 +0100
+Message-ID: <20260218083618.67805-1-christophe.roullier@foss.st.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] lib/linear_ranges: Add
- linear_range_get_selector_high_array
-To: Amit Sunil Dhamne <amitsd@google.com>, Sebastian Reichel
- <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Mark Brown <broonie@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20260214-max77759-charger-v6-0-28c09bda74b4@google.com>
- <20260214-max77759-charger-v6-4-28c09bda74b4@google.com>
- <5d889f66-7697-4a39-beed-33ace693a1ef@gmail.com>
- <b1df24fd-bbb6-4991-be52-dc1ef694db25@google.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <b1df24fd-bbb6-4991-be52-dc1ef694db25@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.252.6.190]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0D:EE_|PAVPR10MB6913:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3a87ee6f-c99d-4d80-d07a-08de6ec8cbbc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|7416014|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yJEGFylffjb6nqk2VAk12CUsNHdvY91bd9jQ73g5KTSI7Oahl135ph1/4ilh?=
+ =?us-ascii?Q?pOB6fsM67BL3tTxZIzYWUynlfZOfWcY2QtLTlegxy4TiFA/FMMNoh98wNqDk?=
+ =?us-ascii?Q?4gMI0EJ6AO3MBL8G/1x5xE98MQBow9lniPLeFzKTpCzZfxW8q8IFeK26+dfg?=
+ =?us-ascii?Q?uNoVbdkN13HzONWEInVpOx2nQG/Ov/kcd3sios1b8PjOBqEJO/VAaVzOo44/?=
+ =?us-ascii?Q?GqK37uf1aFg2oomRLxTGhkzT37Ej3yo/oPbba6wwaF2juDlPayGdR+uFwOz5?=
+ =?us-ascii?Q?dZMqKELU06PTxRFAsVZ3YxCfDbBzRICWe0EAG0CivuF3GpsxBoUEeCVNbcO2?=
+ =?us-ascii?Q?KLQDgpzjMJFMp+9EzfDWrH4edQhlWuwVRhp+F5YuvOsBJT+8J6dIPVOM8dM8?=
+ =?us-ascii?Q?63FxEvuxZyAzJ3Z0zgAoy8VmIwpJ43xoGgA4aHXIWWJ3NKh0ELmHNfnxrN7g?=
+ =?us-ascii?Q?L6eKltAgmmTTthUFNBVOBdftS3JZ+hnHP8Z1zSbcQWW5lKv3LCEccrlqwlvJ?=
+ =?us-ascii?Q?q5SbcTgM/ICAaYPm5/kjaZV51h6pBTATL+0Trvsos4AFexZgBKYsliA8LY7J?=
+ =?us-ascii?Q?lsDbjoYU8XZ3DQTuJEWOwTRN+bsXKk/mkmF85anY9zJ//hb0sXR3eC2oULAs?=
+ =?us-ascii?Q?Tji2F3a/uLkEsIJWoP7pWgg2A3ZUUiCS/hlVQTig0YArLOcZw8mP8Ujmg9Qy?=
+ =?us-ascii?Q?swBNq5dsb43AzZfVAv7e/xuhQjGh3sZm/Iep7gthJ4LFSLr15EPuO1TO5JcX?=
+ =?us-ascii?Q?+vZCesE16uaUsb37a1ps0baCNr4dEYH+HJU/JgAb8/GRgSoVMo97d2HyfpNV?=
+ =?us-ascii?Q?0WYYImjU0qXCTOC0bFHxNAVRZLDHj2rF7unn62aL5go2dOwkJDKfiPV9gOAf?=
+ =?us-ascii?Q?DnkftasYU4gkSRBfP+ca5jNCAiIHRhmdGXS/pqUm3G0BbJg8ljsnOWpabBUQ?=
+ =?us-ascii?Q?/Fs+0LzXXH2u+hmCAg6AuHUBBMmS7nG3Y64d7pGYVWvyU98MUH6MgbCxL1Tf?=
+ =?us-ascii?Q?+vogW3MaijqEQpEQHCupgtJntFGN5zwVhhyjJqHZXk0BGOjMu5LGfReqWSmU?=
+ =?us-ascii?Q?toZDic1/u2REt7PvvoO3rt+9bvim8y24tmGTojmg7iLh/dVv6UokiyO7xXDV?=
+ =?us-ascii?Q?xc31oSfWtwTAZpmWT9iGi+2BcAe5m6+KZAqTpKWTKpBs+Ulxr67TbEvEL35o?=
+ =?us-ascii?Q?xpYDV4ghz5q/n7Cb9jv5x6X10RAaV7iV9Iu0X3sja37AM3KJ8dosMy3zuKmF?=
+ =?us-ascii?Q?p1AZ9oRsRUWhV9FV84MYkEYTx4CFdtZyNqIfHrrkjD0BqUyHRWlGjW0la5NS?=
+ =?us-ascii?Q?16RuE9V7TbIABJrBKce3Xh0AXdVfKr5Imkm2+4AuZDpCwtdkyUpoqDhvlUof?=
+ =?us-ascii?Q?zxY+z6OWU40vUGJhTb5W62yis99YcroOSc2xiLSVOZ6/N80cLjX6ix8ioqTa?=
+ =?us-ascii?Q?vLS268fEtTR2T3q5TcyMDIRi58aNCJSC+jXZUjpCj05ewVHfAtE4hrEoIu65?=
+ =?us-ascii?Q?JEJEBgAjn/AYZ+Np09ylB5+N/+0Ff9K4YdSzbfzciKzKq2WKB5Jd/KcB0+LB?=
+ =?us-ascii?Q?3fGh//++K/FO1i2LHLGpCAhEfkVOTKoQIa9t+WCDXH/oGUnD6o2Ehb6V4j9v?=
+ =?us-ascii?Q?jbVnmIUvsP2W/4rqxsvYrxXzAYlSMWaXc+bmDZdP0vkYI2auRqN4lYbPUWam?=
+ =?us-ascii?Q?Cu4Nyw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(7416014)(376014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: yuvMJcPDJpegkIkfssyEYL6lCTzZ4bukeA0gXRKH1M+a2j6N4Zjh//17RIiBjPmOMRWFWiWc6h3z6O6N9Nj2ul66V5BA5up3Drd2DbzmhCKwyd2hsJK0Q/cX+ShT6r8jDZry1gjmlL9vKsXSZPsvA0156Fha7wLgzrMZ5zdSWZnKMuUU11E7+hY+fUfUlPTDjJSSz47SLJ95HWVwXvT/NKTiLfPs9Wsdct14F0MFi0CUNKGpSD5ipFKi0C0F7CphJP+JZnv8rQBxVBRy52SbVNaoGN8ehbd1w14q9t9AdAGXeSxvjnYC43zgR2R2shASx3Di7hp/8pHrG96LfoK8EUv4W87DgJ2FKgy5ZlsJ+Lsd+x4Rikzl+ss/ZPeKQH1ufnw8BHbZq+m6eJJp4qHIenpXTrFM3TZCTjz0OE1JHeqzlLJNYncYPKxQwbjmCF2c
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 08:36:22.2712
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3a87ee6f-c99d-4d80-d07a-08de6ec8cbbc
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0D.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR10MB6913
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_001711_234528_31663E49 
-X-CRM114-Status: GOOD (  27.18  )
+X-CRM114-CacheID: sfid-20260218_003631_484106_DDD6494C 
+X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,87 +158,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2026 03:45, Amit Sunil Dhamne wrote:
-> 
-> On 2/16/26 5:58 AM, Matti Vaittinen wrote:
->> On 14/02/2026 05:12, Amit Sunil Dhamne via B4 Relay wrote:
->>> From: Amit Sunil Dhamne <amitsd@google.com>
+First commit fix error when :
+1 - Deactivated eth0 (ip link set eth0 down)
+2 - Perform low power procedure
+3 - Reactivate eth0 (ip link set eth0 up)
+=> eth0: stmmac_hw_setup: DMA engine initialization failed
+         stm32-dwmac 5800a000.ethernet eth0: stmmac_open: Hw setup failed
 
-// snip
+Second commit fix error when ethernet driver is unbind,
+ethernet pinouts always set.
 
->>> --- a/lib/linear_ranges.c
->>> +++ b/lib/linear_ranges.c
->>> @@ -241,6 +241,42 @@ int linear_range_get_selector_high(const struct 
->>> linear_range *r,
->>>   }
->>>   EXPORT_SYMBOL_GPL(linear_range_get_selector_high);
->>>   +/**
->>> + * linear_range_get_selector_high_array - return linear range 
->>> selector for value
->>> + * @r:        pointer to array of linear ranges where selector is 
->>> looked from
->>> + * @ranges:    amount of ranges to scan from array
->>> + * @val:    value for which the selector is searched
->>> + * @selector:    address where found selector value is updated
->>> + * @found:    flag to indicate that given value was in the range
->>> + *
->>> + * Scan array of ranges for selector for which range value matches 
->>> given
->>> + * input value. Value is matching if it is equal or higher than 
->>> given value
->>> + * If given value is found to be in a range scanning is stopped and 
->>> @found is
->>> + * set true. If a range with values greater than given value is found
->>> + * but the range min is being greater than given value, then the 
->>> range's
->>> + * lowest selector is updated to @selector and scanning is stopped.
->>
->> Is there a reason why the scanning is stopped here? What ensures that 
->> the rest of the ranges wouldn't contain a better match?
->>
->> The logic is now different from the 
->> linear_range_get_selector_low_array(), and I would like to understand 
->> why? It'd be nice if these APIs were 'symmetric' to avoid confusion. 
->> Hence, I would like to know rationale behind making them different.
-> 
-> 
-> The rationale for this being asymmetric is to find the tightest upper 
-> bound for `value` < minimum value across the linear range array.
-> 
-> To better illustrate this with an example. I have 2 entries in the 
-> linear range array [ [4, 8], [11, 15] ]. Let's assume I pass a value of 
-> "2".
-> 
-> Based on my current approach, the call to get_selector_high() would 
-> successfully return with `found`=false and a selector value 
-> corresponding to "4".
-> 
-> However, if I continued to search, I would end up the selector 
-> corresponding to "11". A selector corresponding to "4" is much closer/ 
-> tighter than "2".
-> 
-> For values higher than the highest value in any range, this would keep 
-> iterating and end up returning an -EINVAL.
-> 
-> For in range values this would work as expected.
-> 
-> This implementation assumes that the linear ranges are provided in 
-> sorted order, an assumption that I believe already underlies the 
-> existing *_low_array() logic.
+Third commit fix bad cleaning when error during stmmac_mdio_register.
 
-Ah. I think ... I didn't think. :)
+Christophe Roullier (3):
+  net: stmmac: fix pinctrl management during suspend/resume
+  net: stmmac: restore pinctrl when driver remove.
+  net: stmmac: manage error case during stmmac_dvr_probe
 
-It definitely makes sense to stop scanning if the range_min already was 
-greater than the given target value. Thanks for the patience and for 
-adding this missing piece :)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
+-- 
+2.43.0
 
-
----
-Matti Vaittinen
-Linux kernel developer at ROHM Semiconductors
-Oulu Finland
-
-~~ When things go utterly wrong vim users can always type :help! ~~
 
