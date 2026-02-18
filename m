@@ -4,100 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26285E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 15:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B638E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 15:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BM49FiMQXgN+7Fdf3v/nHey34rwS+KTTASqzDHMee7U=; b=Z3ALN/hYEcP42Q/znhqOhA6I0M
-	yabq4nYLKCZTtVRkoeD5S0Ju8+BmYCNvZK+ZCIqz1YDOpIBbFF2GANH3ckUjbfVRa2rpSafoYMEv0
-	n/hbbVtWZTgwLtl7/Wif0wZoFGwjF8rTy//OKCCeLvfwD5ZaZgNKjwgEL1dj7kIotasiEP3dzuRzn
-	NK3fIpwwbd8VWleQWPoRWwfeNyPKtF9rbOtwZUa7dxztZAXmToR3zaHy9qqGuWCWOnkb3EJaa/UEu
-	Ue8vrHFpmLtxWnRHyGIc6QsM9/VNl6Cdb6k8Tn+FxWi442h4Cxwqhb/2YZWILxNR+D38qy2hw12nR
-	sCQ2cGOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=37iDQjIpWJV9G//cF72AU0D/7XMD1Sk3hL7SaalPYgs=; b=P6oNYZju8o5eIe0lVF0RMa6+bS
+	9VjkgmdcCSYWKTMZKMJZD+ZTkPD4M3SEexe2TUIK0Ec5O/NHBr+AFl3JobNjPVdLY+kg18j/ikBhE
+	9+dMU05PQorSnSLkJDF0gaFONmb50vJzbEjHDq20vxg1nQ4Z2tLgcvIenL/Sb7YfsiMlbI9LYfTqA
+	kYIlpvPwf4h1EVYUGy3S9/zcuEzYmvP+jce733tEVF9lMQc+tP1uebikn7hkMo6xrUjuuM5fDtBxT
+	UIC1yC72WGDRzrHKlgMFQ6PwUWyNVAbop4BbKLPlb4kIRModWmhCL92TVsMw3sH+9F2OmTpm9HWOy
+	0Tj7b+Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsj22-00000009zDT-2cxs;
-	Wed, 18 Feb 2026 15:00:02 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vsjBS-00000009zpt-48XH;
+	Wed, 18 Feb 2026 15:09:46 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsj1x-00000009zAM-1D3K
+	id 1vsjBQ-00000009zpM-2EA2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 15:00:00 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4807068eacbso42334185e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 06:59:56 -0800 (PST)
+	Wed, 18 Feb 2026 15:09:45 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-436e87589e8so6462373f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 07:09:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771426795; x=1772031595; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BM49FiMQXgN+7Fdf3v/nHey34rwS+KTTASqzDHMee7U=;
-        b=QTAWAci3qvYT/4yPVezZK+PKk5zha1uQweoG4x1Y3xdPvGHj0XOOuX27xIG4aa4Ha1
-         iCG+0/KpgUksX45gHL4xvVKaBFlXG64jkRdZrq9tipofpYd3r4ueqgGPL8jg06flEx1X
-         5WLgdTwHfBeeZ8ufPQTgGTWpPeCzSbiI7chIjTZtxb8ybrJgYdG+ZIUT5RxGqmasU7nn
-         mwe5stTzN4T8wE7bjkDrkJZCMpuBvuncVuHcJ3Nvq60PrLbdLWVCwmWeJQB/r2mzXisw
-         7vHy9SVEZ9sAVtsFPElmcjt2rhxnxvLwBUbs8WSxJAY3qbYtvp9Acafjbl8lfmN0DExz
-         G4fw==
+        d=gmail.com; s=20230601; t=1771427382; x=1772032182; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=37iDQjIpWJV9G//cF72AU0D/7XMD1Sk3hL7SaalPYgs=;
+        b=cVjAkY7hWD6Lx3ANjIYQM0eaHcdwJxCyboul8JuNHpWqNHX0fIjjzituU5gbpzdKvy
+         KM26nhDyE7T7BiRlrOGHG30IYEP7saJICX23zXM0ovt4JadfxYxTPgZrnzWHo0WeLoVj
+         G8wQ8qXvyNVxLjIUCHFXZC6XTys3wORDPuvF1XHJ+qfyZEG7lnjcj9dd6sCsbMJD8h88
+         f5SY7RtQ0uKxnsXtpFPdtyAwhFzsrIuasZ+QPI5Qz5HmV225D32rbGisG0FIg5WGQIBB
+         Mw20oNdBvERVWy2R7ssWVKMYL5UktjObCIZ9M09OFWI+/qz7ZiweGkx060SnRtdBUeKo
+         FcYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771426795; x=1772031595;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BM49FiMQXgN+7Fdf3v/nHey34rwS+KTTASqzDHMee7U=;
-        b=svgPwAs5F+41OdMMXID2i92nUhZfMdSqD6lyL1mO0mG0S6ZKjIeq0jE4wn7KjD5mPJ
-         LNRu8zMeAvZayEAwMy4yIwfbRqxs5lQC8itAuaHi2Pg5orW9hwXRHjXKrjwIsnTePvgg
-         ho0nbZKFtnt8cf5cySMfkwJaMYLx96PvE9SfdQjI6TvkxRCV7L4H2Cz3/OZJDP0BphnX
-         YnpHAKuVc+yFgm1EXvKMxXAbI9yQB2ipL5JteByvL+drv3DoAhh5QFN70dqbph9QkNV6
-         72b/EwZTnWcstdkeyfyKDwXFhVjfGqjtmXrkUzqon43Nl7kblvkYJ7Egy6zW06BlItHd
-         oLDg==
-X-Forwarded-Encrypted: i=1; AJvYcCUAAAo5wXB4LarXwEmKGSSO3jwCVx9fmRFZSZNm7EcdfiuHrxcr9OH0AGlc/qv/sIp16ZotsWpVl693ldZ60KjU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwXh30Rv88OaWhDeU5D9ZAjG8t3VMMrFGzu/JaairERSQlDwd9
-	OU7yF44n5ZMoEr6VUjiqtu0p77EQiocdMxt8apAt8EncOC9unw6sX7+L
-X-Gm-Gg: AZuq6aJYaJDKNCGbbL+RqoCpA7HRhdpCv8rTOU6/dPCZdgf0fUhR8R5Mlg3s0Dc2BIf
-	x2GQ/+cQaKLrXuofQTEEwMbi0ooYyUTUlRUDUGqNIcCw38CE0LBKdTpFeGWuw2YC5r7gyb8A6FK
-	Hu1qhX9E2NPPUdkhgtOiUfMoZRKxJ9O/VPXaB1rSqs+VZHVVkSpM9b8jEifMymyqq+MrBa1CrbA
-	aw40TvKC5EgKcJONv0xIclVXLPA+7eFfH+iNjZ1g9JOePOlqTqfuQ6uG/ij7jCyVB38x20zLaqQ
-	gBNSrJpp721hAme/aZPl57dCNa1kgRJNYFXuYw+6GdeY/q2MsHPtOinXlspb6/xu2PuMXJbjig4
-	fQp6Cfazyh8qtuMVL3ZIsRO46Ho8WkVV/IpJar6RjwCW4N+tKpVsfas+fASR1DN9m37QVxh4CTp
-	Q2DoOdndrNyNqk8L1Mi9W7o2VWnfDZ1FNDzO4d9rzbkoX8kEbCrvX7HfrCgfZGowTkJk096ELS0
-	3bdmWL6Fk5Rq8k10yAZWOdSx1Dc7MOPaAoLhtk2m1JuPmQ=
-X-Received: by 2002:a05:600c:348a:b0:46f:d682:3c3d with SMTP id 5b1f17b1804b1-48398a52fe5mr34213645e9.13.1771426795105;
-        Wed, 18 Feb 2026 06:59:55 -0800 (PST)
-Received: from Lord-Beerus.station (net-188-152-100-94.cust.vodafonedsl.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483970ce7d2sm48744945e9.0.2026.02.18.06.59.54
+        d=1e100.net; s=20230601; t=1771427382; x=1772032182;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=37iDQjIpWJV9G//cF72AU0D/7XMD1Sk3hL7SaalPYgs=;
+        b=rdvwFo0dKxSfi0rpUOazHziJz3KsYJMLsYM98CByNkq2Pmyt23rb3Jar8EbLeEoq1/
+         LLR0jlOE7peqx3SDYb1iiIMje6ahfW5vz/tSRrjoBqYS1rwfHPUpSlN/IB8od0WYvbTQ
+         xBmreNdBwPLV7ujxWRoUv4td7YPTW/HgF4whkJy+el0fbBq7DKhADW6wkGakfl3Dh6i3
+         eaDlLrbA8WIP/UUjgmDKJ6F/9pdtC1BjosDeJccFGOfg8fRMhATBU0vWMNdUYvLKNCOE
+         x3zkZjGSuTF8USIIidYWCbbNIqIa9xSW0T8DumSZpwmJHxM80qqtRyrs6FUeXR0dNwzC
+         JCrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWWrSsR29MpuByQs8iPOSx2EfiMEFOoet/wCFSrWMpebONMAWvZL3Z68+GAzf0p9VRFyu5W2yah3Bunzmpa3a8h@lists.infradead.org
+X-Gm-Message-State: AOJu0YzP4RPAEmpJ376kJws0XEawXOpavJMPS8ySuw2FS5VkBpopjlmd
+	jlkOiOf6LmqF+ixjib9b4mkjwoA/xfw8Q3RZbo2h5cCJVp+RoSWF9hIi
+X-Gm-Gg: AZuq6aIV7iO5J01ZejtFPKXAVPUgkZx4MRbDlOdRKVdVtLPaZiX8i4KWjjSffTMFdOe
+	2YG1/qT3F7yvCdzfrC82I1xUFrq2XtizqHUJQ9ZT2sut/s5kdsIeRYhhQU7awVVRzfQn6GvnoEr
+	CINQFKndfH+YuskXSdJbtzO1shF/zbLZYWrSN13FylccQU4kBzlOe4O3ppSVsshIfu5lhPcQyMO
+	BMzRyeqwPWtayYC21mWb0hd99FitoAnQRXMokXAep44Uuakb5/uwVbO95QoDXoVXnSxiOp6qsl2
+	tRtbEePcMfrU2b3wn+vtfeNtOjR2bDCdstYjVQQUtrXfBfoS4YP3tEAECFz7ou8KwYQf35QHMY7
+	sE3kwMfLgV46vpCGcrKAmsBmAdWQX5yLOygRvdVPaiXqdpjFO6nMVWvt+zfd4t4Qa9+/3RBMfXa
+	g8L7nMSLjfQzUALhw3FN7E5O6iWqeMBUnOPwW/ajb+OX3suKgAx02wuFg7y73v5FzWdfOx8nyMY
+	a+qh01Ca9ixDbIm9wLP+6elNITTFPPyHr77
+X-Received: by 2002:a05:6000:22c1:b0:436:18d3:25 with SMTP id ffacd0b85a97d-437978c99d8mr31041272f8f.10.1771427381872;
+        Wed, 18 Feb 2026 07:09:41 -0800 (PST)
+Received: from eichest-laptop.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796ac7d91sm44333116f8f.26.2026.02.18.07.09.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Feb 2026 06:59:54 -0800 (PST)
-Date: Wed, 18 Feb 2026 15:59:51 +0100
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v1 03/11] arm64: dts: freescale: imx8mm-var-som: Update
- FEC support with MaxLinear PHY
-Message-ID: <aZXT5wMGQgMKHCXQ@Lord-Beerus.station>
-References: <cover.1771353301.git.stefano.r@variscite.com>
- <3b984b93a43a07bc9c4f6414a08a3a0f45daaaa8.1771353301.git.stefano.r@variscite.com>
- <31f30651-7c99-42cb-9e27-e4806529d137@lunn.ch>
- <aZTCGH1rKWdvYg5-@Lord-Beerus.station>
- <fceeda41-66cc-4bb2-ab53-d4b1ec25348a@lunn.ch>
- <aZV_c0lmBwjOI_Ep@Lord-Beerus.station>
- <fac81a12-92c9-4e29-96ca-473c18fca675@lunn.ch>
+        Wed, 18 Feb 2026 07:09:41 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: o.rempel@pengutronix.de,
+	kernel@pengutronix.de,
+	andi.shyti@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	stefan.eichenberger@toradex.com,
+	francesco.dolcini@toradex.com
+Cc: linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] i2c: imx: fix i2c issues when reading messages
+Date: Wed, 18 Feb 2026 16:08:48 +0100
+Message-ID: <20260218150940.131354-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fac81a12-92c9-4e29-96ca-473c18fca675@lunn.ch>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_065957_373105_50686B95 
-X-CRM114-Status: GOOD (  30.97  )
+X-CRM114-CacheID: sfid-20260218_070944_945831_E33F9AE1 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,73 +105,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+This patch series fixes two issues with the imx i2c driver when reading
+messages. 
 
-On Wed, Feb 18, 2026 at 02:23:40PM +0100, Andrew Lunn wrote:
-> On Wed, Feb 18, 2026 at 09:59:31AM +0100, Stefano Radaelli wrote:
-> > Hi Andrew,
-> > 
-> > On Tue, Feb 17, 2026 at 09:43:16PM +0100, Andrew Lunn wrote:
-> > > 
-> > > And here you loose me. RGMII is between the MAC and the PHY. The PHY
-> > > is on the SOM, so there is no need for RGMII to leave the SOM.
-> > > 
-> > > MDIO is can understand going to the carrier, because there can be
-> > > other devices on the bus, such as an Ethernet switch.
-> > > 
-> > > You say the LEDs are not on the SOM. So they should not be listed in
-> > > the .dtsi file for the SOM. It could be the RJ45 is a cheap one,
-> > > without LEDs. The colours will depend on the RJ45 socket. It could be
-> > > a single LED is connected to the front panel, which is typical of STB
-> > > etc. So the LEDs are a board property, not a SOM property.
-> > > 
-> > > > > >   Two LEDs are defined to match the VAR-SOM carrier design:
-> > > > > >     * LED@0: Yellow, netdev trigger.
-> > > > > >     * LED@1: Green, netdev trigger.
-> > > > > 
-> > > > > Where are the LEDs? You say "carrier design", so are they on the
-> > > > > carrier? The DT properties should then be in the .dts file for the
-> > > > > carrier.
-> > > > >
-> > > > 
-> > > > The LED signals are driven directly by the PHY and originate on the SOM.
-> > > > They are exposed on the SOM connector and are typically routed straight
-> > > > to the RJ45 integrated LEDs on the carrier.
-> > > 
-> > > The problem here is 'typically', not absolutely required, otherwise
-> > > the magic smoke will escape making the box useless.
-> > > 
-> > 
-> > You are right sorry for the confusion: RGMII is internal between the MAC
-> > and the PHY and does not leave the SOM. What is exposed on the SOM
-> > connector are the MDI pairs towards the magnetics/RJ45 and the PHY LED
-> > output signals.
-> 
-> O.K, that is what i expected.
-> 
-> > Given that the actual LEDs are implemented on the carrier side (RJ45
-> > with integrated LEDs, pull-ups and LED supply), would you prefer that
-> > the LED description is moved out of the SOM .dtsi and into the carrier
-> > .dts?
-> 
-> Yes please.
-> 
-> > My idea would be to keep the Ethernet controller/PHY node fully
-> > described in the SOM .dtsi (since the PHY is on-module), and add only
-> > the LED subnode/definition in the carrier .dts where the LEDs are
-> > actually present.
-> 
-> Yes. That is good.
-> 
-> Thanks
->      Andrew
+The first issue is that after a repeated start the bus is still busy. If
+the driver polls for that bus busy bit, the driver will timeout and fail
+to read.
 
+The second issue is that after the last message the driver should not
+immediately read the data from the data register or an additional clock
+will be generated. This can cause devices that react to that clock to
+misbehave which will also lead to a timeout.
 
-I will send the v2 with led descriptions in Symphony dts instead of SOM
-dtsi.
+Stefan Eichenberger (2):
+  i2c: imx: fix i2c issue when reading multiple messages
+  i2c: imx: ensure no clock is generated after last read
 
-Thank you again,
+ drivers/i2c/busses/i2c-imx.c | 51 ++++++++++++++++++++++--------------
+ 1 file changed, 32 insertions(+), 19 deletions(-)
 
-Best Regards,
-Stefano
+-- 
+2.51.0
+
 
