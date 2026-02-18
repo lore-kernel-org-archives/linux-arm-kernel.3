@@ -4,98 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9AFE9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 18:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148B8E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 18:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P2HG7dMgFbjsQ2a9OaL1N2Qu53e+VsL6dqqrCn2unbo=; b=nsHMAKGLtXnk8LibyvPGBzvlX3
-	qOlTascLDbfztZ8mfzqYWs/N2nvh9N+aEcxAohBMNKoeLagsAci+p7d8Pgz9mv1TmR/1QR3NL6Kka
-	qQfZhain/1/8Zb0POIqmgq7tP16OUYG5tnpxDGpK/FxwxQ5v8eVOKwd6JGFnMbxxNOxg/rWu/2ksi
-	XH/rrh5N399MunAdTWtJWa55ixaUqLOIn1yqHx2bfuhsHRGKGA20IZhh43rOtvyPcKZ7f1ecNiq4S
-	1C7Xzv8e+c4BSRRq68ufI2WaxMiRAfgYJXjb50X5dIxz8Ki8iUBoKfAr87nIZoIVdxwT/mnfTvZAs
-	C2stMIoA==;
+	bh=ljQ1E1/F1vX5ElaoR98ZDeHZ74Gy13PXjEW6i38QL6o=; b=Ktq1rhx+5E1Iye4yANZngpkrXb
+	zL+1x/K+KibgGA8xdfp81mf2q5PuzRAQqcJXnoIwRbVu01n08cg97KbrP9KcNPXNmCkWab3rruZt3
+	mVg3e//AneO7ylBmnryCfvoKfTo3H5AciaEFc2GlfSJGFwoe79d9wpgajr65BHkXVmvwxTOsHAIsy
+	uHhma7lkGf9lsKW+Nm1HLl7qNzC/dgfiztm4V86iDGQmopmEhJ8Yw4qKmTi/BQQRfn0rvInUaLg5N
+	WrUXGUjlJ6nY5+FVsXSHdaUj5c9ZkMwDsRv7ZSC273J+IPInBZGqnDc3oEiCK1V2/HtLrzm86lLlc
+	2MZ9K99A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsmIn-0000000AFUg-1Xur;
-	Wed, 18 Feb 2026 18:29:33 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vsmJe-0000000AFaQ-04wO;
+	Wed, 18 Feb 2026 18:30:26 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsmIk-0000000AFU4-1qpR
+	id 1vsmJZ-0000000AFYv-0alG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 18:29:31 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48372efa020so1080805e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 10:29:29 -0800 (PST)
+	Wed, 18 Feb 2026 18:30:22 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4362507f0bcso136557f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 10:30:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771439368; x=1772044168; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1771439419; x=1772044219; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=P2HG7dMgFbjsQ2a9OaL1N2Qu53e+VsL6dqqrCn2unbo=;
-        b=yl0GjSML2EHa10+55wjqFPSgUtC+kK2mvRtsDtIiCH9p0DMvBAXeC9WEz/lwEojn+g
-         awv9YrhRy0WfCooPT7KgPbuQWEzNr3uOqp4HWTmE9UhCpEKtgWKSGPhjz+FCTQVvP+kl
-         xjNMZsEGYLyCFRb7qI7uU4pU8A/+QEx9dP0qCFiWFwZQbVzBvSvbNM2k/bcFovPgNMVV
-         T0Q4fWoTU+q7mkbHNVFGTWldHu8LFbZlIFApQvLbh9ZzAjIcmwAdexzy4V7wkJdubugY
-         0X6zusf1GIv1f/vPFG6/84qOwKvZo6RNerUn2rgcr/+R1lYqp0xncz6cz7uZhU3sdShC
-         8D5A==
+        bh=ljQ1E1/F1vX5ElaoR98ZDeHZ74Gy13PXjEW6i38QL6o=;
+        b=rwsGQfNsxckNPxXed9bbDNvoeb5pn+v5+Q7r71jt0ORvY94FFRZlKc8vPESmG3/QxO
+         v3+3SeYMX3bLeOxT2DuJfZP4kgcAHWL1on03TDcZY5QFxahtFjE7COnnWRLq16PtYPnG
+         tAgqW/TWo95Zm1QZWBwRg7AaFEtS43rDGq9dBNKcqk4yQOHQ7uMi9AcmURPvxIP02+G1
+         VVLPs7jKV8MoYt0yXeYy85KMvfxsVtV8ll0EPvhbWYV9h0EKu534K324v5ExLS+8Vu79
+         fPTBRWGIpzKbESn8zYBlsPPRBIos1mwn0bJIyvLSAsqhBJPUOXSB0+AAuElZZ+xgb1Zp
+         D4gA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771439368; x=1772044168;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=P2HG7dMgFbjsQ2a9OaL1N2Qu53e+VsL6dqqrCn2unbo=;
-        b=XvNEgZ8MFIcD8hZFdmpgFKuTxIUuCeOpD/ilH9LCDMg87OIfpTsKIUH9bRlwjdBB6+
-         cM4+agZhzVD5ng+PVMtN1vZz4Z/Ve/HIkwYcMYoYThqLy+USC8B1jSIxsQvpY7uwXskF
-         iOCVQDRHiFeQ/o1cx+ZlHxqU2eJFkGcQc63n9B7f4+X5rOAnTpZL4X38r28ookCLTyQg
-         MqFH/7V/WK2SoSpAB41LxGQy5ZSQ+clL6iCrI3g9MQRpAI7gK9pEPN+Uav38/azVsRQ9
-         UoWcTsjefJ+zm/vSl6rI/eGPnb2jsBvDIECtqCQBY3msxnjyt1rcHaN50cPH0Fcy32wW
-         px2g==
-X-Forwarded-Encrypted: i=1; AJvYcCVS8YEtFwPivH21w0ubVHyGl0yCTNej4/zWp6Mk3ABFLja6Sp7E/TKlhlISvEsWPHO8d48QRB9wqieRCqtIF420@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLn4yqWh28o9Zak1/mymvhjcITUCDQtbhQZ+OGDXpjq75KhWy6
-	Prmsv5VrPiztFLsWmQ2thfnKkpZQ4II6S3rwu9wWXMPSeQkKZ04zleZjCTepsa5LSqQ=
-X-Gm-Gg: AZuq6aKfronRnp7nkaWpZ4j8Yw80odXxICCD/GCaVPRaFcdJjdM2rPbGieOUOwfH4fn
-	kqXS+fbcsZVliKNN5nuc9xPeoIW8oq7JDkoNHW+bH1v1peKPieT6B65jZ/sNf1xg6rxiynZn84Y
-	8yfNYWDGyeMPDA1tnraNHeuLFGjFIUBqPHNMoSmpYzrKaWo6LElm9/biF+aXWRjAxnJrpc2k00u
-	SKl17lhLwuR2tpe1DeILO8LNAH7v4HNfH7mukHUOhKgJIGWq9GaimI+Y381kdmhFWvn7EwF9H2k
-	I9HLm4Qip69OsRe6VGCrCGhB/YAFsGPFOSdYKGIsdSKo7iTq2/FZ54CJVbnHx3lzIRRx7oI9NTn
-	x2cGKeoQvWPeX7B3zXQwt0McGyGez+0DukD97iG22C3PQo3eJ6l25JSch6BgbEQeO80wvXDIyDr
-	SHJ6YC9uNyztb5XNLdFoBA8nRSg/T9v9ZVWGXuEqYgCIRJFkTFLL9/hZq19VD3MVdK8DmrZ4kb3
-	2TPy+kCuWJlGN27xw==
-X-Received: by 2002:a05:600c:46c9:b0:46e:4a13:e6c6 with SMTP id 5b1f17b1804b1-48379bfd71cmr230436375e9.19.1771439367849;
-        Wed, 18 Feb 2026 10:29:27 -0800 (PST)
-Received: from localhost ([2a02:c7c:5e34:8000:17bf:52bc:6ef0:a984])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4837e565f5esm439288555e9.10.2026.02.18.10.29.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Feb 2026 10:29:27 -0800 (PST)
-Mime-Version: 1.0
+        d=1e100.net; s=20230601; t=1771439419; x=1772044219;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ljQ1E1/F1vX5ElaoR98ZDeHZ74Gy13PXjEW6i38QL6o=;
+        b=S1Xg3ViPzzgZLD+HGs9XPzQnsmkBCBTSl9T27doXYGiVqk0doknZ8O0Og2C+GBv0JQ
+         l0OQoyk9b6tVvC5O0TbI4PMecU+y6gRvFqqIx2wa/1ru3jjBVSr/HT/SzlNDAksKrdud
+         KWtdVSRh1GLecUsJjHy8nymXqDWw8JWQMnj7Sl0s7m1I+U/rzMcyEgMBN8bPZf0sg7Oy
+         1owFiX6LNcTqdx79pogShdlYErTCPNMIwm3C3pv3j8pMxVtzTptfLuoyIU6WBfKlXWz8
+         Qz/HbMdgvm7SXimL2bNxshvmkR10ZrTQT1MoCFNqdDfpdkoOQchQ85ihAtW7ioGYc+Jl
+         U0fg==
+X-Forwarded-Encrypted: i=1; AJvYcCVFosZjtpCO26qRVepkPycyQlcUnU4mYMEHSYNo2jXYO82rNP7Z/FT4pKbJxEImuV+EyAFm+U0hcfHU/wf5EAWR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUzcUnWdWqbZuNUvskSEu18RJsP7+mtE6gpbdvmzP4in5AwvJH
+	S2zu2yumGc0KNsKLwFnpElmWGJztRpAMZMg3dG5Cn6Hlic59HymAInXvL5pxgQ6hQ00=
+X-Gm-Gg: AZuq6aKozyDjnnUhaUBeRW/Sn3Sz0/Ak06LeQfv1CwV/4kHvzsKricrZ5bvPhWTFDcL
+	myxVRoxvqM33YaazVmsKqaZzuEPihSVod1xhR/F55EO2CYQnbk3jGV9DzNL8LH539Ct4n/a31uo
+	+Cq/FQrL8/gQJjkkVCpi9sYT8EfFE7X+IU2qiJA5WXEysA8XV8a21gnRORl19OC3goW8xJiNL3T
+	qu1g8uUfxlZYNvdqWan/uXntyYtiwvKSuFWHEocsVPy9KHXZvukW8rj0f3Zvanifih7etp/Tz2N
+	cj9o2KqFTdLvXf82vJV/suXg7K2Je8ogQLhYRqW7wJyKnHK2s/lmTZP1v/l6npiioI07gSTh8TY
+	wL2XvAUTGFlSyYWUtQZ0kknfYBNAd7hq4QC4yLl1MKfM0FUJgt50Mob4wa4FVI++S1zN9uhOpQG
+	H5vWnC+LA90WuSYHVFt2PXcg==
+X-Received: by 2002:a05:6000:400d:b0:436:e875:7911 with SMTP id ffacd0b85a97d-43958be4a76mr5368651f8f.4.1771439419072;
+        Wed, 18 Feb 2026 10:30:19 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:cf71:8cf8:56bb:5790])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-43796a6b563sm43048552f8f.12.2026.02.18.10.30.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Feb 2026 10:30:18 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: linux-amlogic@lists.infradead.org,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Michael Turquette <mturquette@baylibre.com>,
+  Stephen Boyd <sboyd@kernel.org>,  Kevin Hilman <khilman@baylibre.com>,
+  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-clk@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/7] drivers: clk: meson: Add Amlogic T7 sys pll support
+In-Reply-To: <20260218110018.36348-1-linux-kernel-dev@aliel.fr> (Ronald
+	Claveau's message of "Wed, 18 Feb 2026 12:00:15 +0100")
+References: <20260218101709.35450-1-linux-kernel-dev@aliel.fr>
+	<20260218110018.36348-1-linux-kernel-dev@aliel.fr>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Wed, 18 Feb 2026 19:30:17 +0100
+Message-ID: <1jjyw96h1i.fsf@starbuckisacylon.baylibre.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Feb 2026 18:29:26 +0000
-Message-Id: <DGIAUIFPUHN8.35B5MNEUK1JW5@linaro.org>
-Cc: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Bartlomiej Zolnierkiewicz" <bzolnier@gmail.com>, "Krzysztof Kozlowski"
- <krzk@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, "Daniel
- Lezcano" <daniel.lezcano@linaro.org>, "Zhang Rui" <rui.zhang@intel.com>,
- "Lukasz Luba" <lukasz.luba@arm.com>, "Rob Herring" <robh@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>, "Sam Protsenko" <semen.protsenko@linaro.org>,
- "Anand Moon" <linux.amoon@gmail.com>, "Marek Szyprowski"
- <m.szyprowski@samsung.com>
-Subject: Re: [PATCH v4 0/7] Add initial Exynos850 support to the thermal
- driver
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Mateusz Majewski" <m.majewski2@samsung.com>,
- <linux-samsung-soc@vger.kernel.org>
-X-Mailer: aerc 0.20.0
-References: <CGME20240911121149eucas1p29b9ccf99a545cfaa924b122cd8dd3183@eucas1p2.samsung.com> <20240911121136.1120026-1-m.majewski2@samsung.com>
-In-Reply-To: <20240911121136.1120026-1-m.majewski2@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_102930_505941_7AD739B2 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20260218_103021_223413_B7EE4896 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,69 +105,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mateusz,
+On mer. 18 f=C3=A9vr. 2026 at 12:00, Ronald Claveau <linux-kernel-dev@aliel=
+.fr> wrote:
 
-On Wed Sep 11, 2024 at 1:11 PM BST, Mateusz Majewski wrote:
-> This series adds initial Exynos850 support to the thermal driver
-> together with its requirements (sanitize_temp_error fix, adding the new
-> string to dt-bindings), while also cleaning up a bit (improving power
-> management support and removing some outdated information from
-> dt-bindings).
+> Add SYS PLL for the clock controller of the Amlogic T7 SoC family.
+
+Like the FDIVs, I think this is provided by SCMI.
+
+Check include/dt-bindings/clock/amlogic,t7-scmi.h
+
 >
-> Changelog:
->  v4:
->    - Cleaned up sanitize_temp_error a bit more
->    - Modified exynos_tmu_update_temp to match sanitize_temp_error
->  v3:
->    - Reworded the commit message of the dt-binding information removal
->      change
->  v2:
->    - Reimplemented to use the Exynos850 TMU clock: removed the patch to
->      make the clock optional and changed dt-bindings change accordingly
->    - Improved the Exynos850 implementation itself (style and one correct
->      register offset)
->    - Removed conditional compilation in favor of pm_sleep_ptr
->    - Shortened dt-bindings description
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> ---
+>  drivers/clk/meson/t7-peripherals.c | 134 ++++++++++++++++++++++++++++-
+>  1 file changed, 131 insertions(+), 3 deletions(-)
 >
->
-> Mateusz Majewski (7):
->   drivers/thermal/exynos: use DEFINE_SIMPLE_DEV_PM_OPS
->   drivers/thermal/exynos: use pm_sleep_ptr instead of conditional
->     compilation
->   drivers/thermal/exynos: improve sanitize_temp_error
->   drivers/thermal/exynos: reuse data->temp_mask in
->     exynos_tmu_update_temp
->   dt-bindings: thermal: samsung,exynos: add exynos850-tmu string
->   drivers/thermal/exynos: add initial Exynos850 support
->   dt-bindings: thermal: samsung,exynos: remove driver-specific
->     information
->
->  .../thermal/samsung,exynos-thermal.yaml       |   8 +-
->  drivers/thermal/samsung/exynos_tmu.c          | 237 +++++++++++++++---
+> diff --git a/drivers/clk/meson/t7-peripherals.c b/drivers/clk/meson/t7-pe=
+ripherals.c
+> index 214db7850d86..de206473f3a7 100644
+> --- a/drivers/clk/meson/t7-peripherals.c
+> +++ b/drivers/clk/meson/t7-peripherals.c
+> @@ -176,6 +176,127 @@ static struct clk_regmap t7_rtc =3D {
+>  	},
+>  };
+>=20=20
+> +static u32 t7_sys_parents_val_table[] =3D { 0, 1, 2, 3, 4, 5, 7 };
+> +static const struct clk_parent_data t7_sys_parents[] =3D {
+> +	{ .fw_name =3D "xtal", },
+> +	{ .fw_name =3D "fdiv2", },
+> +	{ .fw_name =3D "fdiv3", },
+> +	{ .fw_name =3D "fdiv4", },
+> +	{ .fw_name =3D "fdiv5", },
+> +	{ .fw_name =3D "axi_clk_frcpu", },
+> +	{ .hw =3D &t7_rtc.hw },
+> +};
+> +
+> +static struct clk_regmap t7_sys_a_sel =3D {
+> +	.data =3D &(struct clk_regmap_mux_data){
+> +		.offset =3D SYS_CLK_CTRL0,
+> +		.mask =3D 0x7,
+> +		.shift =3D 10,
+> +		.table =3D t7_sys_parents_val_table,
+> +	},
+> +	.hw.init =3D &(struct clk_init_data){
+> +		.name =3D "sys_a_sel",
+> +		.ops =3D &clk_regmap_mux_ops,
+> +		.parent_data =3D t7_sys_parents,
+> +		.num_parents =3D ARRAY_SIZE(t7_sys_parents),
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_sys_a_div =3D {
+> +	.data =3D &(struct clk_regmap_div_data){
+> +	.offset =3D SYS_CLK_CTRL0,
+> +		.shift =3D 0,
+> +		.width =3D 10,
+> +	},
+> +	.hw.init =3D &(struct clk_init_data){
+> +		.name =3D "sys_a_div",
+> +		.ops =3D &clk_regmap_divider_ops,
+> +		.parent_hws =3D (const struct clk_hw *[]) {
+> +			&t7_sys_a_sel.hw
+> +		},
+> +		.num_parents =3D 1,
+> +		.flags =3D CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_sys_a =3D {
+> +	.data =3D &(struct clk_regmap_gate_data){
+> +		.offset =3D SYS_CLK_CTRL0,
+> +		.bit_idx =3D 13,
+> +	},
+> +	.hw.init =3D &(struct clk_init_data){
+> +		.name =3D "sys_a",
+> +		.ops =3D &clk_regmap_gate_ops,
+> +		.parent_hws =3D (const struct clk_hw *[]) {
+> +			&t7_sys_a_div.hw
+> +		},
+> +		.num_parents =3D 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_sys_b_sel =3D {
+> +	.data =3D &(struct clk_regmap_mux_data){
+> +		.offset =3D SYS_CLK_CTRL0,
+> +		.mask =3D 0x7,
+> +		.shift =3D 26,
+> +		.table =3D t7_sys_parents_val_table,
+> +	},
+> +	.hw.init =3D &(struct clk_init_data){
+> +		.name =3D "sys_b_sel",
+> +		.ops =3D &clk_regmap_mux_ops,
+> +		.parent_data =3D t7_sys_parents,
+> +		.num_parents =3D ARRAY_SIZE(t7_sys_parents),
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_sys_b_div =3D {
+> +	.data =3D &(struct clk_regmap_div_data){
+> +		.offset =3D SYS_CLK_CTRL0,
+> +		.shift =3D 16,
+> +		.width =3D 10,
+> +	},
+> +	.hw.init =3D &(struct clk_init_data){
+> +		.name =3D "sys_b_div",
+> +		.ops =3D &clk_regmap_divider_ops,
+> +		.parent_hws =3D (const struct clk_hw *[]) {
+> +			&t7_sys_b_sel.hw
+> +		},
+> +		.num_parents =3D 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_sys_b =3D {
+> +	.data =3D &(struct clk_regmap_gate_data){
+> +		.offset =3D SYS_CLK_CTRL0,
+> +		.bit_idx =3D 29,
+> +	},
+> +	.hw.init =3D &(struct clk_init_data){
+> +		.name =3D "sys_b",
+> +		.ops =3D &clk_regmap_gate_ops,
+> +		.parent_hws =3D (const struct clk_hw *[]) {
+> +			&t7_sys_b_div.hw
+> +		},
+> +		.num_parents =3D 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_sys =3D {
+> +	.data =3D &(struct clk_regmap_mux_data){
+> +		.offset =3D SYS_CLK_CTRL0,
+> +		.mask =3D 0x1,
+> +		.shift =3D 15,
+> +	},
+> +	.hw.init =3D &(struct clk_init_data){
+> +		.name =3D "sys_clk",
+> +		.ops =3D &clk_regmap_mux_ops,
+> +		.parent_hws =3D (const struct clk_hw *[]) {
+> +			&t7_sys_a.hw,
+> +			&t7_sys_b.hw,
+> +		},
+> +		.num_parents =3D 2,
+> +	},
+> +};
+> +
+>  static struct clk_regmap t7_ceca_dualdiv_in =3D {
+>  	.data =3D &(struct clk_regmap_gate_data){
+>  		.offset =3D CECA_CTRL0,
+> @@ -824,7 +945,7 @@ static T7_COMP_GATE(sd_emmc_c, NAND_CLK_CTRL, 7, 0);
+>=20=20
+>  static const struct clk_parent_data t7_spicc_parents[] =3D {
+>  	{ .fw_name =3D "xtal", },
+> -	{ .fw_name =3D "sys", },
+> +	{ .hw =3D &t7_sys.hw },
+>  	{ .fw_name =3D "fdiv4", },
+>  	{ .fw_name =3D "fdiv3", },
+>  	{ .fw_name =3D "fdiv2", },
+> @@ -859,7 +980,7 @@ static T7_COMP_GATE(spicc5, SPICC_CLK_CTRL2, 22, 0);
+>=20=20
+>  static const struct clk_parent_data t7_saradc_parents[] =3D {
+>  	{ .fw_name =3D "xtal" },
+> -	{ .fw_name =3D "sys" },
+> +	{ .hw =3D &t7_sys.hw },
+>  };
+>=20=20
+>  static T7_COMP_SEL(saradc, SAR_CLK_CTRL0, 9, 0x1, t7_saradc_parents);
+> @@ -929,7 +1050,7 @@ static T7_COMP_SEL(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 25,=
+ 0x3, t7_pwm_parents);
+>  static T7_COMP_DIV(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 16, 8);
+>  static T7_COMP_GATE(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 24, 0);
+>=20=20
+> -static const struct clk_parent_data t7_sys_pclk_parents =3D { .fw_name =
+=3D "sys" };
+> +static const struct clk_parent_data t7_sys_pclk_parents =3D { .hw =3D &t=
+7_sys.hw };
+>=20=20
+>  #define T7_SYS_PCLK(_name, _reg, _bit, _flags) \
+>  	MESON_PCLK(t7_##_name, _reg, _bit, &t7_sys_pclk_parents, _flags)
+> @@ -1161,6 +1282,13 @@ static struct clk_hw *t7_peripherals_hw_clks[] =3D=
+ {
+>  	[CLKID_PWM_AO_H_SEL]		=3D &t7_pwm_ao_h_sel.hw,
+>  	[CLKID_PWM_AO_H_DIV]		=3D &t7_pwm_ao_h_div.hw,
+>  	[CLKID_PWM_AO_H]		=3D &t7_pwm_ao_h.hw,
+> +	[CLKID_SYS_A_SEL]		=3D &t7_sys_a_sel.hw,
+> +	[CLKID_SYS_A_DIV]		=3D &t7_sys_a_div.hw,
+> +	[CLKID_SYS_A]			=3D &t7_sys_a.hw,
+> +	[CLKID_SYS_B_SEL]		=3D &t7_sys_b_sel.hw,
+> +	[CLKID_SYS_B_DIV]		=3D &t7_sys_b_div.hw,
+> +	[CLKID_SYS_B]			=3D &t7_sys_b.hw,
+> +	[CLKID_SYS]				=3D &t7_sys.hw,
+>  	[CLKID_SYS_DDR]			=3D &t7_sys_ddr.hw,
+>  	[CLKID_SYS_DOS]			=3D &t7_sys_dos.hw,
+>  	[CLKID_SYS_MIPI_DSI_A]		=3D &t7_sys_mipi_dsi_a.hw,
 
-I applied the whole series locally, it applies fine on 6.19 but I didn't
-check linux-next; and tested it on Exynos850 E850-96 board with the
-following DT node:
-
-tmuctrl_0: tmu@10070000 {
-	compatible =3D "samsung,exynos850-tmu";
-	reg =3D <0x10070000 0x800>;
-	interrupts =3D <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH>;
-	clocks =3D <&cmu_peri CLK_GOUT_BUSIF_TMU_PCLK>;
-	clock-names =3D "tmu_apbif";
-	#thermal-sensor-cells =3D <0>;
-};
-
-and thermal zones as you mentioned way back. It works just fine.
-Temp goes up to 48 C with a loaded CPUs and settles at 36-37C when idle.
-
-So for the whole series:
-Tested-by: Alexey Klimov <alexey.klimov@linaro.org>
-
-However, do you have plans to update it or re-submit?
-Or any other plans working on it?
-
-Thank you!
-Best regards,
-Alexey
+--=20
+Jerome
 
