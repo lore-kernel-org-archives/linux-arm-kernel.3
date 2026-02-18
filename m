@@ -4,84 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CC9E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4A0E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2kUOO1cB2iiIOsCKFzJeB33+4QQDVUIsfJRskzqwhaw=; b=TfEznsNwFl01WeJCoLOXoBLcF2
-	72YhhCVIJdd9UpEBXDUyLxKvdJXod6PFbV+AB2N4afCku1d2FfTmYMVTJu2ElIS5KFtp7gLepKtjw
-	EiSksd/UFuGRkaKEmRxIVNRo1f7tTmrsNi5Yfzr3HeeiUEe0lUls4ANLwBiUdt40PR2N5Dcvh1tB1
-	VsvygPmQmxENxa6fUNcjfpBJ/susaDU9x3RljUJGlkeOvXTvpcEmi4wQY6xxpYkfe6lv9EFLwtxzH
-	tUkFJ18zzOX8H4GWRsVsUeDBxi7rHkLvTjYjNBUnF7AmsrVyau1MTldykBJeBeZ/i7NOeixwecdDA
-	m3b3l+GA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0BY3kZChyKKqhHu7RaS+5ggEOJh1rKnsuUXVXGFed4M=; b=10AA+cDtkbDRyV093agbfCNatA
+	Xl553IQLMehmXeuWdo3JFq9BHFa9HS5BbGxBqSLHhdcRRN0K3RLdptdvPBV0yDzMi86je8sz4u/No
+	tyMJ5lnfvAqw2hex+ik3tpPNtuQt0tYdr1Jsn59sE2RM4IRQT7g9w7l0swlsRL6WGgSOIG1a7vWqb
+	OCou5ByEAoV9lCJm6qOBufvk3rhVfJ9OdGeR8NDPpG//2KIKjsX3HSUD9E2Hksju3RyYBR8ZbgTHH
+	Dm8nqDnPrSIy30OeE22fV2rwQsWnk4q4sHFIlT2Vc0hkT5h8h4hRS30KuRL4DhatuckazKYn5veZc
+	uI0yKiyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskdC-0000000A6KC-23YK;
-	Wed, 18 Feb 2026 16:42:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskd9-0000000A6Jg-1JSM
+	id 1vskda-0000000A6Ox-1HqO;
+	Wed, 18 Feb 2026 16:42:54 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vskdX-0000000A6Ng-3HIB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:42:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 961A3339;
-	Wed, 18 Feb 2026 08:42:19 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C15FF3F62B;
-	Wed, 18 Feb 2026 08:42:20 -0800 (PST)
-Message-ID: <b761ec67-5ba8-480e-965e-b163f9056da2@arm.com>
-Date: Wed, 18 Feb 2026 16:42:19 +0000
+	Wed, 18 Feb 2026 16:42:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WqYt3dCCs1TCbodbXYe9uoSzJmE9l48vPJ65rddP31Sgwa1OPIZdlB2hgnOc7TiX93X+H+78izbL3vYKqhlVO0ecdAgK3cZrnluPFvT7/Nk1OnEUr6bydaOplmTAwDfXtf32Tu1YyqR0tnZVpaz4FV/LfpmnMvljL/U1EAsVjvyYBvfyUUmXY0w0UfxGlNhnmrz500fREDRIB8EyZusMzfDV7q9AAudFfarutH5AB2S7QbacAzydSH2rlVEawQfJhZP8eJS4O2AjQsxiMpNcpnM7CFUuiaFuXPpYjDBUBBdztoIyQMLVU13WrrukqVfST0hv3D9LednvjpfnjY7zCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0BY3kZChyKKqhHu7RaS+5ggEOJh1rKnsuUXVXGFed4M=;
+ b=UhD3k/kGxj9oxZKt7Ox1itjjZ39VqEaf1x66FPXc8dT5AqVQvPUr9lU72lmtgZNJWNg/GLPOPNqn6+SxJcJaiguV8t0RHKTNyLDKZ7t25rEgftnmGV3pUKg3H5b5scftFzLBkKidNjRfReOcadNJjzsNY6d6GAnc4xsvWTIpQNOZDIGGBzEwBQaVxvpCYvdv+J47yMU3Be3p7+YbMW0Yb4XJVzQAdsh8/0i7cBfAcH9MtyrXq0dPXJBwJw/Iuz6cbDPT2WVXRaJnvSsJXECGqU2NQMv8HERNKRbyCOiX7jHIE5FzkufqRR1nRR0qtWJYGMrwcKKCqLCCVDo0ZRUqTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0BY3kZChyKKqhHu7RaS+5ggEOJh1rKnsuUXVXGFed4M=;
+ b=cw3v2/BbHvs87q9wOQ2DETL2G6jGIgcgtec82ZL1CTd0M4nN3hD/yQA00E8UMn81sA4uGoI3W++jLe3ltNycbmO0dPsBmRDiX8/jBBpDvdJnnRdiyoX7WaxYm/QicXDZf8rs3p5yE+mcBgI/qNzIk8BdRb3dpHeIN3KH5Q1OT3IY93B6f+ZGkVzeY0ErsAhCc+5WBMN9nIlaRNERrRpsz//Ou47eAaBWPuFGRcPZPlw4dz2+sENbMqWm+fWr2KYZah8MWNNjaM52zA7Nl5YbO2ZLzPQcvFOyg++euTqUlLyUpf14z71hfCw59ppDxh6MKgKnin6JYfiIzjuIY6fzyQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS8PR04MB8962.eurprd04.prod.outlook.com (2603:10a6:20b:42d::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Wed, 18 Feb
+ 2026 16:42:46 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.010; Wed, 18 Feb 2026
+ 16:42:45 +0000
+Date: Wed, 18 Feb 2026 11:42:38 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux@ew.tq-group.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] ARM: dts: imx7-mba7: disable boot_cfg pins after boot
+Message-ID: <aZXr_r1VEx5kcl7g@lizhi-Precision-Tower-5810>
+References: <20260218135415.204974-1-Alexander.Feilke@ew.tq-group.com>
+ <20260218135415.204974-4-Alexander.Feilke@ew.tq-group.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260218135415.204974-4-Alexander.Feilke@ew.tq-group.com>
+X-ClientProxiedBy: PH8P220CA0032.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:348::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 26/41] arm_mpam: resctrl: Add support for 'MB' resource
-To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
- "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
- "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
- "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
- "dave.martin@arm.com" <dave.martin@arm.com>,
- "david@kernel.org" <david@kernel.org>,
- "dfustini@baylibre.com" <dfustini@baylibre.com>,
- "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
- "gshan@redhat.com" <gshan@redhat.com>,
- "james.morse@arm.com" <james.morse@arm.com>,
- "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
- "kobak@nvidia.com" <kobak@nvidia.com>,
- "lcherian@marvell.com" <lcherian@marvell.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "peternewman@google.com" <peternewman@google.com>,
- "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
- "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
- "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
- "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
- "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
- "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
- "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>,
- "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>,
- "joey.gouly@arm.com" <joey.gouly@arm.com>,
- "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "zengheng4@huawei.com" <zengheng4@huawei.com>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
-References: <20260203214342.584712-1-ben.horgan@arm.com>
- <20260203214342.584712-27-ben.horgan@arm.com>
- <OSZPR01MB8798A3301B1E802173FF551E8B62A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <OSZPR01MB8798A3301B1E802173FF551E8B62A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8962:EE_
+X-MS-Office365-Filtering-Correlation-Id: f29b27c4-bbd3-4e2c-a3ec-08de6f0cbe4c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|19092799006|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Jq8Zyig7LoYgZCnGi5juohBys9uaN+GVh7h8TStC6pmQSpaiEduc3xOW/ntu?=
+ =?us-ascii?Q?BnsUqTg3r/cMy+rmVvRf+VyyGdnRdGCiTuec2EIL8n7lmcDSo45bAlLtR55a?=
+ =?us-ascii?Q?zRKX2TEdQCrhyrCOZ2BjWynJTJkEopQj+7G4IbPpt7LjVBOV1eV6w0IEHjKn?=
+ =?us-ascii?Q?vVdPBsAKXFWWqE1zZXcthigTidFEzlmlbxm1lfdSBpeB9Cj9GH4wnBXr9w4a?=
+ =?us-ascii?Q?2q9vRCzwJFIoD03ctNuoT+pHpc03T3Aq8PJuQfDMtotMaiXco4ll0/NJqItP?=
+ =?us-ascii?Q?ZRKatFkzCMpNlz1rwRKb47eKuGejUawYlzkWroOxRJrJBizSNWr3WnS9XS+Y?=
+ =?us-ascii?Q?rCQI/4hGiYPmi1+ArO8iGRmt9pA9+tcpheShPAUwTYdUEZOjSKqGjzY8KnxN?=
+ =?us-ascii?Q?2Ljlegrc8nmbk7843Ut9ooLis64nFQJkWU/c8aNRovedmDGKwXvYdsFn/Wiu?=
+ =?us-ascii?Q?sadshD9UBx5ae0AIn1s7LMpvJMxxfPriPQLIls8f/rugaJ4fuLY8fhE8Zd0W?=
+ =?us-ascii?Q?awkFO1r/kv+Q6aX1Ac4ctTECy0I9c/gGte+JEk7lFSfqsZJ1QxW9beS2P2MQ?=
+ =?us-ascii?Q?ljiM8ZUAms6NkD4mmzGECc1WMg+k4z3Xb0Uz3bZuc0zAPrl1GNueQk1CIMCC?=
+ =?us-ascii?Q?DKKqRi1ILhNWhZpp0Fw554MSv7utsi2RSDRm4/3f7annoCODttcqGWyFAjAa?=
+ =?us-ascii?Q?HGo/VjFsN4D3zuBdG+0Dagcp7sffwX4Y5bqc4+Ns8H4Ih5+0fNkOaXr5NSGG?=
+ =?us-ascii?Q?fOrMc52+ftD4lJWnDZlafau7Ux8sAAUYmkEXa3rT5hdLEwdw957k9E0gI6Kp?=
+ =?us-ascii?Q?TWS9+LEaDB7EGRF64HeFBqDSwHF88uSSltFGhI159vm/B9r7wMmChYh+JUsr?=
+ =?us-ascii?Q?jY4ALz1H0JXjfuNrRo7d2p+uAqaSdduf2ReI3ec8zIC5AIjFa+EUDum6abn7?=
+ =?us-ascii?Q?S877NiRjSjD/60sTB1Gjb9UQna7/f/IwPOG79Ddg5KCW6kolX/4KrpbBBn2+?=
+ =?us-ascii?Q?MNdijX6BbDLRcv0HfctsthdDEuvurxQmGPG8OfSZm5D6zPex0a97xyADKPG9?=
+ =?us-ascii?Q?ZssVfCAgVzNrzgKJXMqu16qZDg4aDAPrY7RpvSlhCuOqtRECfPh4CKze7g6o?=
+ =?us-ascii?Q?OvG/leLfpJcA5S/+F5HtjX8uUUdCBZ2+69tsE+j5o81VVIcK4BpzHsit9mUS?=
+ =?us-ascii?Q?3v9ojZbRafhJM2fETh47XuQOAupL1qDOnQknrRtnPKpeFZ3UD4NhBMS2LUP0?=
+ =?us-ascii?Q?Y95mpQzy8WUzq6GXfkvvG42cKB3I7z9C8YOw3PkueaTblXUylJ1E4B9d5axC?=
+ =?us-ascii?Q?uQMmcaaz5EjwnXgn9o0kr4THVuVDywwHNX7M94Exbghkc8PtW2XxsHQm9mtt?=
+ =?us-ascii?Q?rnZ7eCj9BdFGKp4qRWLM+25m4vniUed7fXGOlzigeq4X773+UPOVKM2T7iRY?=
+ =?us-ascii?Q?cz6LMj1DpqVuXopnS9jg77qOVFU4RPq+u0A5ailJ0XdwFkD0RpcRccE1P/7a?=
+ =?us-ascii?Q?DaNPPoqAUUPnDQTxnccc6FhdvvEQHpzJhqYhmizgF4104/e5Dv86hhHhjjXe?=
+ =?us-ascii?Q?yPdlOnkuHFei77VJDPPyS9cZZyoXeuARGVkVe5yfDOT7mtIiqVys9v07UBJs?=
+ =?us-ascii?Q?CGigxqPPZWwnv3Ms4XHhLnY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(19092799006)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Wul8PQtbr+zKWozv1UHYRHqhwqV6n6OIdjFss4srT/er255dY2n7r0anYDuX?=
+ =?us-ascii?Q?G5YVZFjZU1bECoFuCUZUIi79YfFaDNUytRh8ShauAkaGWoQvrXXHGEIIzhML?=
+ =?us-ascii?Q?PTBfY9oARUil6ZjlJ8mn7O9Oki135KA2Qw80u0+Mdoj5KdHAGj6n05BA4HJ1?=
+ =?us-ascii?Q?679RZmDJpb3MfJRnnEceRLPZ89lp6XRnPSCa1IYwEE1QmQ8kElt30JmBLlW0?=
+ =?us-ascii?Q?1+dx8gPBepEky9cr2+V+dbLCZfdFmBtojZNu34eYUSIYmY2Kir4I0H3mV+8g?=
+ =?us-ascii?Q?WAsOcoGsDnKDlP9pqCJcsjAYiEOPyeTjOGGggfB/Lv7TaAC1JZDcAcyCQs/8?=
+ =?us-ascii?Q?zyK4eNudwb04KJ4gbfMWWcVnZjHOXD0qF4yOpxCF5mGnSrWlbd9rS7imEdaG?=
+ =?us-ascii?Q?DRbPsRlZYlwOT9MNrssLroS0uZa9N2Giv5Vu6BFiPUhRB1UAdHZzgNaClsYW?=
+ =?us-ascii?Q?fcVe4DcfBGBXqEM4pIGfOaeE6YbiR6Jb7dvNismLBfwN+0euMw0810h+9aWT?=
+ =?us-ascii?Q?sgM5Mxh8ELK+OLey7zlrqr7ATBS4tiSlURI6LcMFnu3LSuU5xhuh/4z1YLBR?=
+ =?us-ascii?Q?RWLGf3bRBqPw7eqgUTgPE3JtBI7am6I6Fz3T4udUggH7a0SboGKb98NWL6SM?=
+ =?us-ascii?Q?2NEITQFJcqpua2/vlu02d0QXsQiRrGxfMUlxVOqodAFQofHW9uR13fHIcdCz?=
+ =?us-ascii?Q?Q8colOSZrQL5UDQouBsVz9Ojicz10496F0LjhxForjTpS0QtanaJ7HBC7e/O?=
+ =?us-ascii?Q?syqnb/Y+LeaW+lMpRx0lAdYbcqnGFYmn1pT6uimbLyEBAo6oz/8iQVvw/MQy?=
+ =?us-ascii?Q?ys2igjjrjcoZoPLWe6H1hhGS5H5j2BqQ2T0aRihATt56R9pOWTspc1lw7o5N?=
+ =?us-ascii?Q?qX6ObIxOIWi7gHd/3OM26IXhQgH5qtt6iV45d4jeHspe37SoqtUy+KYeD7qZ?=
+ =?us-ascii?Q?ZlvER3kSgK3I7hpvnZtQ3xQVoPENvAzsHF9sYEtOeOizUmISUI9cPv/kugeF?=
+ =?us-ascii?Q?wVMaPRNXrM/w9ZiobGTfIzg8R0Qi4iEqn63xRCukviGNN0XQ9Hd+lTTD4jba?=
+ =?us-ascii?Q?abdEQbOEH+QhT3aoCpZxuEcoQXgpIEbnGm+qLKDXmPysZgrJFPIZm21NcdYu?=
+ =?us-ascii?Q?ss0dKX+rd3sTWTB269a113DM/pzCrzLJKCu+zZCzp5zmeAz1knE6oQxaJXwI?=
+ =?us-ascii?Q?SqaEcjI0ayRInyJJ/fBhNRC4z7PtvrUtNaEViZFa/Uul/lBW+/B5fq0Ajnn4?=
+ =?us-ascii?Q?66sNPoYsnAkwy5xOClwjn+yk82qKF2Iw/ISIKc7sCypXHQqkzmdFPUchvIC9?=
+ =?us-ascii?Q?SYbZ2hvenVpbdTkIBCV48mXTgXDmJd0OYE25Hv6NF0XnxUSGsljUshEZRwub?=
+ =?us-ascii?Q?8gc+VFm+7EIR3bsb8Gz8jHaPPqR/O1GrMtxb9ePPbhzew+c71nvAPDXgyZJO?=
+ =?us-ascii?Q?vP1cRNxHIPPmZmZvU6Rw3DofTnKWC9g5bTdUQSCo6/Q+nahbuWQ7kATfsb69?=
+ =?us-ascii?Q?CrsFokbew5LJpkOsOw7RrbTlmB4jrq6upgr0zdoKHvlY0xKhQD1OefgMXYKu?=
+ =?us-ascii?Q?x/xUTqDS8HG1NQ5G31cawUdx1qkYNmKj+QElgmKFeP8Z7DTQtJ/hteJYhABr?=
+ =?us-ascii?Q?jzNyfUkUuqGlBTQiIioKYfIGYxvhSt5Mk+YpwdKJWq93DDdpmAS0Dz5ZBMVf?=
+ =?us-ascii?Q?8RW8HVIfYZzeiMBny5CSzkK59ZbVR9/3G/FfDWyOknkat+ykylaH/5KbJ9dj?=
+ =?us-ascii?Q?tWPWo+KqhA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f29b27c4-bbd3-4e2c-a3ec-08de6f0cbe4c
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2026 16:42:45.8884
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: D9knLOI/JR3TsJhmXyTD56T+TWK6Bx9NU0tWRBD5rIHL9UXgq+QmfKNTavaU1Ax2vHt1CgYkspwVnufUluapkA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8962
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_084227_491243_CB8EC965 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20260218_084251_830586_4F208659 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,66 +167,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shaopeng,
+On Wed, Feb 18, 2026 at 02:54:14PM +0100, Alexander Feilke wrote:
+> The BOOT_CFG pins are located on the LCD bus on our starterkit.
+> Disable them after boot to separate those signals.
 
-On 2/10/26 06:20, Shaopeng Tan (Fujitsu) wrote:
-> Hello Ben,
-> 
->> From: James Morse <james.morse@arm.com>
->>
->> resctrl supports 'MB', as a percentage throttling of traffic from the
->> L3. This is the control that mba_sc uses, so ideally the class chosen
->> should be as close as possible to the counters used for mbm_total. If
->> there is a single L3 and the topology of the memory matches then the
->> traffic at the memory controller will be equivalent to that at egress of
->> the L3. If these conditions are met allow the memory class to back MB.
->>
->> MB's percentage control should be backed either with the fixed point
->> fraction MBW_MAX or bandwidth portion bitmaps. The bandwidth portion
->> bitmaps is not used as its tricky to pick which bits to use to avoid
->> contention, and may be possible to expose this as something other than a
->> percentage in the future.
->>
->> CC: Zeng Heng <zengheng4@huawei.com>
->> Co-developed-by: Dave Martin <Dave.Martin@arm.com>
->> Signed-off-by: Dave Martin <Dave.Martin@arm.com>
->> Signed-off-by: James Morse <james.morse@arm.com>>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since v2:
->> Code flow change
->> Commit message 'or'
->>
->> Changes since v3:
->> initialise tmp_cpumask
->> update commit message
->> check the traffic matches l3
->> update comment on candidate_class update, only mbm_total
->> drop tags due to rework
->> ---
+Your comments is more clear.  Is below commit massage better?
 
->> +/*
->> + * Test if the traffic for a class matches that at egress from the L3. For
->> + * MSC at memory controllers this is only possible if there is a single L3
->> + * as otherwise the counters at the memory can include bandwidth from the
->> + * non-local L3.
->> + */
->> +static bool traffic_matches_l3(struct mpam_class *class) {
-> 
-> An error reported by checkpatch.pl is as follows.
-> 
-> ERROR: open brace '{' following function definitions go on the next line
-> #826: FILE: drivers/resctrl/mpam_resctrl.c:826:
-> +static bool traffic_matches_l3(struct mpam_class *class) {
+ARM: dts: imx7-mba7: Deassert BOOT_EN to separate BOOT_CFG circuits after boot
 
-Not sure how I let that slip through. Fixed now.
+Deassert BOOT_EN after boot to separate BOOT_CFG circuits from LCD signals.
 
-> 
-> 
-> Best regards,
-> Shaopeng TAN
-Thanks,
-
-Ben
-
+Frank
+>
+> Signed-off-by: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
+> ---
+>  arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+>
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
+> index 03f2f2cbdfbc..4192adb27223 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
+> +++ b/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
+> @@ -287,6 +287,15 @@ &flexcan2 {
+>  	status = "okay";
+>  };
+>
+> +&gpio4 {
+> +	/* Deassert BOOT_EN after boot to separate BOOT_CFG circuits from LCD signals */
+> +	boot-en-hog {
+> +		gpio-hog;
+> +		gpios = <3 GPIO_ACTIVE_LOW>;
+> +		output-low;
+> +	};
+> +};
+> +
+>  &i2c1 {
+>  	lm75: temperature-sensor@49 {
+>  		compatible = "national,lm75a";
+> --
+> 2.43.0
+>
 
