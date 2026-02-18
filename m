@@ -4,113 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BE4E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 20:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53AB1E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 20:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tyXOSbjArZ/0PPFl5ZWtCIjllWQrn2W6fM0hDvQayxc=; b=o+8ehOyA4Gj96oDVu7qC1oNsAU
-	saXw/ODlHpdXluPGJKE6UeY/eJYs5VVWwVHHXApK+p/khCTHKGROcFm2l8LUKsCi1gU2VqnyqMqaB
-	UVLaJTAhgiL1z8f8pJ7Ri5NQ42eu50o8BzfQUdHr//g/c1veVOd7xsOhvUrwtTiS0NnF99eV+txfw
-	UiBOAQy7qgcnPNnED7X7sLwHs10RQgIoovm718K6qDJDb6SJy7o2IjwBvaiBLqJPORa5nFbFkOD8B
-	SS2JVJiUDFmOsjrc+dvQBgMb21oEOmeMow9weKqcl/XIvmf4DIMp8un9XqRAsWIGRJFFiUOO6/cvp
-	7t/XtKow==;
+	bh=ruwMDgtbpwkbLzJMSDs2l3vNnZLc2ZiEeFBqv+MGVhg=; b=oMZtJlSbpHcWNBz5y8KdZC3T5T
+	0im4NPRInQl+Qovd8fBRycFeLUp4Guk9YxnabLWeM3FncINMQpqcJiQTZv2VVtcjlyVthASyOGi4j
+	MUjPkEh+lxiS251jSPGl8UuLS7kQFlXi304tYbOSDZ6yW4Fb1L4dv1HA46z2GDXk9N0rcDIM8wxPE
+	8fEFqv44gPWczapC4mePwWipTCzDgtqI7ehwvOGAzhabZ8yTOwOOvyrV3O9a9VTqC0P+b5vq6dnBf
+	6A3RMjzL/qBo2GfCnpGXrRh8aiv7ZG8RNKLUy5pWUP2rrq8TcItN3+rbDaBDvMneqstlssd/hEy1A
+	G+J4moIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsnlM-0000000ALnh-34BZ;
-	Wed, 18 Feb 2026 20:03:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vsnnn-0000000AM0L-2Azt;
+	Wed, 18 Feb 2026 20:05:39 +0000
+Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsnlL-0000000ALnY-2QF8
+	id 1vsnnk-0000000ALzz-2fo0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 20:03:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 985EB61857;
-	Wed, 18 Feb 2026 20:03:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 106CDC116D0;
-	Wed, 18 Feb 2026 20:03:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771444986;
-	bh=x74pCM8g+AY+IDvVyRtaHl/FTxvqT89D/tM1i9imlbg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AOfw8yPkYUVfE0XzMMnTFWb8x0XKa2txAwWs2tZFiN24w2OoQevCM7rmbFLGAw8bu
-	 6rqHJ1sxhHf16gOspxOAWXfVj+Oz+SVlfifIm2NpWmixM1abunvsdBkKm9TGSMrUMx
-	 /ZDder/ip+O5T8lBZuG1ui29GSyEoYJSRd+6/ifO5FIpfMBcbT+8uQQ2zPHIKm67fM
-	 BQRPHOTT5pJxfk+MvYlomFLd/CYl8FWAj2eC7dcHCv42FDXwyv3QTkn9WyMsEBEyIy
-	 druZOh8uev8KLqSO71szxxaPrVqpcwvesoNu4v9/29M6T+/Mom9euEbm/r9VZcQufH
-	 B2/OlQJNysewQ==
-Message-ID: <c588720a-6a7d-4179-afb5-bb7e89e0e7e1@kernel.org>
-Date: Wed, 18 Feb 2026 21:03:02 +0100
+	Wed, 18 Feb 2026 20:05:37 +0000
+Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-2b86671f87eso356361eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 12:05:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1771445136; x=1772049936; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ruwMDgtbpwkbLzJMSDs2l3vNnZLc2ZiEeFBqv+MGVhg=;
+        b=AL9kUfdTCAsTD3BesTZjG1zNXdI0rIsk6TqBEFvs9T6J4o0vsrA2hrAXrQSsaTpel9
+         W93cD7Sbf+epUe/BclFm5ya7COShhaB5firzaL9cmwq5do5YfYByacz+JXahyk9IgN+f
+         qQmxL2xpm1y8M7hyB0Ct2jnkp50UnQuI/UziqZxiD3fcMpsTU3+kxRN7LRiYtf42/PYq
+         6sRkzM3yHd4jsVxgk5bQZjxOMdvqMk1tzfnRBtLSMlry5u3iuevcm96OlcIdW0xPkIAI
+         w+oTqhOGp3iFbMfP+pZum5Tg6fj4/drWBEEVsVMNafw+lEye970iwTlNJOf0fwfFfhSJ
+         hF/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771445136; x=1772049936;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ruwMDgtbpwkbLzJMSDs2l3vNnZLc2ZiEeFBqv+MGVhg=;
+        b=EIM8deBJnoKDmk68qCBCv8hnMq1Xu7+8PPsnHnuyjlrrRWVwDcB1+HOvAG7D81dAWD
+         aDsxcvXQ5sonoVGZr7R/ams1+69W+Hse2RdQX+5EIrCtxLEtICGyYeMvO1Jj17qQkAYK
+         G9lQ2ipSRGh+ADNYFdLaWgNBvcB6rwQT2OTGiajgS/8CsPAFPmgpl7SHkJA33pLA8AC+
+         UeEmX+64qXg+F15E6TKfyiDUGzrcIu9PU4zgBXtYgcEZiM4ajxMpUz2e81WeNLVEA9Zw
+         S4Zmis1nzo0wlTTgwSIIF+RlWRv1F4st0nzw5AqQ0mzak5AwY/s+zbyxleFHP42efCII
+         awWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVQQTkYBVA6ef3nuMdg5w3bqLVeTORzWdgAsVa+GN+0ixJXhy0r9MTMe1dMcG72gsSjW3+vk3qyPhHsWEsiw2t5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDcXa00q9pQUdD4kL98kbs1x4q3TvuKhKVMD9DJdCV0QjETM15
+	TIXXseJnHMiDF5tNPLaRHcF/j65xtMWo49owWIra/XTufe3Y8d3dLiDaoy5CbsRwFQ==
+X-Gm-Gg: AZuq6aJq5zX9PNHPE0wcbkuPSsq/CT9tZafgTH+8OEAxAy3MzB5YpR7OPfl8cMje3Vj
+	66hW0hrS0oPNAXCEmF0vTIAOcZUB3hcQCt8XqRqiXnU75yLwi9TQwed+MMQ2ojT/Kla7suMd07Q
+	oafH6WzpmLG+YMRoEWq0ikmYux2s6xCe2AnMmIjY/9QTZEyH/FCkC6TZVKqIxMJeXuGGincuMNc
+	CGCr2iRIgtkx0goiCHV4l9NPGrfMt4wD2RkdyADPWrA2M5EWWq7Ok/vuiEE0IfheZxlTxRHQmmv
+	5wM0zw1bgAYHuCSh2rHgmQ6tIDLycUrZ8oj42rPfxHY1wRY8Br89rfQPAJq/PICJ9EigwAXzL/X
+	5q8L7yXq1E39imua6D2b3TZITvc5ItfyoaIrJiKsfVVrXKzC2RZW8W4gLAat7ukrm2LsMTRC4Mm
+	sqnvUWEyl1bxubcYgxHbKUm6ODfvlrfMG4jwiEMeNtvObtPwOVOjWQUcpMVez9myTN7cDlLAxb0
+	PEgOYolajy7h1SY87Gsdw5NmA==
+X-Received: by 2002:a05:7301:100e:b0:2ba:a04a:8353 with SMTP id 5a478bee46e88-2babc44eb66mr9413193eec.27.1771445135121;
+        Wed, 18 Feb 2026 12:05:35 -0800 (PST)
+Received: from ?IPV6:2a00:79e0:2e7c:8:c8f1:53bf:725c:563b? ([2a00:79e0:2e7c:8:c8f1:53bf:725c:563b])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bacb543e8dsm19410069eec.5.2026.02.18.12.05.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Feb 2026 12:05:34 -0800 (PST)
+Message-ID: <e9a353aa-1194-4c87-b902-c533e52c264e@google.com>
+Date: Wed, 18 Feb 2026 12:05:32 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dt-bindings: soc: st: document the RISAB firewall
- peripheral
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260209-stm32_risab-v1-0-ef0b2b6a7e0a@foss.st.com>
- <20260209-stm32_risab-v1-1-ef0b2b6a7e0a@foss.st.com>
- <ee9759a6-1779-4891-8716-24c36134198a@kernel.org>
- <516036b6-b825-4a29-a48a-5d3af3234968@foss.st.com>
- <ac793499-bebb-477b-b27e-089529f3ee4b@kernel.org>
- <66ecf6a5-cc1f-4872-971d-6bc32894dbac@foss.st.com>
- <fd73947a-289a-43f9-9506-573fee935d12@kernel.org>
- <ed0ab69f-7aff-423f-8b93-980e79705b6d@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v6 4/6] lib/linear_ranges: Add
+ linear_range_get_selector_high_array
+To: Matti Vaittinen <mazziesaccount@gmail.com>,
+ Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Badhri Jagan Sridharan <badhri@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Mark Brown <broonie@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+References: <20260214-max77759-charger-v6-0-28c09bda74b4@google.com>
+ <20260214-max77759-charger-v6-4-28c09bda74b4@google.com>
+ <5d889f66-7697-4a39-beed-33ace693a1ef@gmail.com>
+ <b1df24fd-bbb6-4991-be52-dc1ef694db25@google.com>
+ <66dab64b-ca3e-4ae0-81d6-0500899757e5@gmail.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <ed0ab69f-7aff-423f-8b93-980e79705b6d@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Amit Sunil Dhamne <amitsd@google.com>
+In-Reply-To: <66dab64b-ca3e-4ae0-81d6-0500899757e5@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260218_120536_686778_C9BF06A6 
+X-CRM114-Status: GOOD (  25.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,171 +120,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2026 11:38, Gatien CHEVALLIER wrote:
-> 
-> 
-> On 2/17/26 21:06, Krzysztof Kozlowski wrote:
->> On 17/02/2026 14:12, Gatien CHEVALLIER wrote:
+
+On 2/18/26 12:17 AM, Matti Vaittinen wrote:
+> On 18/02/2026 03:45, Amit Sunil Dhamne wrote:
+>>
+>> On 2/16/26 5:58 AM, Matti Vaittinen wrote:
+>>> On 14/02/2026 05:12, Amit Sunil Dhamne via B4 Relay wrote:
+>>>> From: Amit Sunil Dhamne <amitsd@google.com>
+>
+> // snip
+>
+>>>> --- a/lib/linear_ranges.c
+>>>> +++ b/lib/linear_ranges.c
+>>>> @@ -241,6 +241,42 @@ int linear_range_get_selector_high(const 
+>>>> struct linear_range *r,
+>>>>   }
+>>>>   EXPORT_SYMBOL_GPL(linear_range_get_selector_high);
+>>>>   +/**
+>>>> + * linear_range_get_selector_high_array - return linear range 
+>>>> selector for value
+>>>> + * @r:        pointer to array of linear ranges where selector is 
+>>>> looked from
+>>>> + * @ranges:    amount of ranges to scan from array
+>>>> + * @val:    value for which the selector is searched
+>>>> + * @selector:    address where found selector value is updated
+>>>> + * @found:    flag to indicate that given value was in the range
+>>>> + *
+>>>> + * Scan array of ranges for selector for which range value matches 
+>>>> given
+>>>> + * input value. Value is matching if it is equal or higher than 
+>>>> given value
+>>>> + * If given value is found to be in a range scanning is stopped 
+>>>> and @found is
+>>>> + * set true. If a range with values greater than given value is found
+>>>> + * but the range min is being greater than given value, then the 
+>>>> range's
+>>>> + * lowest selector is updated to @selector and scanning is stopped.
 >>>
+>>> Is there a reason why the scanning is stopped here? What ensures 
+>>> that the rest of the ranges wouldn't contain a better match?
 >>>
->>> On 2/13/26 16:06, Krzysztof Kozlowski wrote:
->>>> On 10/02/2026 10:55, Gatien CHEVALLIER wrote:
->>>>>>> +  memory-region:
->>>>>>> +    minItems: 1
->>>>>>> +    maxItems: 32
->>>>>>> +    description:
->>>>>>> +      Phandle to nodes describing memory regions to be configured in the RISAB
->>>>>>> +      by the trusted domain of at least a RISAB page size.
->>>>>>> +      These regions cannot overlap. A zone must be within st,mem-map range and
->>>>>>> +      can be represented by one or more pages.
->>>>>>> +
->>>>>>> +  st,mem-map:
->>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
->>>>>>> +    description: Memory address range covered by the RISAB.
->>>>>>> +    items:
->>>>>>> +      - description: Memory range base address
->>>>>>> +      - description: Memory range size
->>>>>>
->>>>>> Why do you need this property if you have memory-region already? This
->>>>>> also should be part of <reg>, although this mixing with memory-region is
->>>>>> anyway confusing.
->>>>>>
->>>>>
->>>>> The RISAB is a memory firewall peripheral covering internal RAMs. It is
->>>>> possible to configure multiple memory regions within these RAMs (done by
->>>>> the Trusted Domain) with security, privilege and compartment isolation.
->>>>> This peripheral allow 4kBytes page granularity. Each page can hold
->>>>> different access rights, with 32 pages at most (hence the maxItems: 32).
->>>>> That is some information that can be added to the documentation.
->>>>>
->>>>> Moreover, when a region is delegated to a non-secure privileged
->>>>> component, this component can configure the privilege level necessary to
->>>>> access the region.
->>>>>
->>>>> This property gives me the opportunity to get the memory range covered
->>>>> by the RISAB. "reg" here is used to access the actual RISAB registers
->>>>> holding the configuration.
->>>>
->>>> Looks awfully like memory regions still :/
->>>>
->>>
->>> IIUC the memory-region property references memory regions within
->>> a reserved memory. Which is not really what I want to describe
->>> here as I want to get the boundaries of the whole range. The
->>> memory-region property would be used by the Trusted Domain / kernel
->>> to get each regions (or only one that represents the whole range) of the
->>> internal RAM to apply desired access rights to them / use them.
->>>
->>> Describing the memory range using a reserved memory would make the
->>> kernel exclude this memory range from the normal usage, no?
+>>> The logic is now different from the 
+>>> linear_range_get_selector_low_array(), and I would like to 
+>>> understand why? It'd be nice if these APIs were 'symmetric' to avoid 
+>>> confusion. Hence, I would like to know rationale behind making them 
+>>> different.
 >>
->> In general yes, but also depends on the use case/drivers/purpose. I do
->> not understand why would you mark some memory for generic use by kernel
->> (so not reserved for specific purpose) and still configure it somehow
->> for trusted firmware to allow secure read/write access.
 >>
->> If you mark some part of memory as a meaning for TF for secure access,
->> you already claim it is not a generic memory. Otherwise TF just writes
->> all over malloced() pages?
+>> The rationale for this being asymmetric is to find the tightest upper 
+>> bound for `value` < minimum value across the linear range array.
 >>
-> 
-> While the Trusted Domain applies the configuration, it is entirely
-> possible for the Trusted domain to give himself access to, let's say,
-> the first RISAB page to store whatever data, and give the rest to the
-> kernel. Actually, this is what we do to store OTP data mirrors
-
-And what happens with the rest of that memory? Why the first page cannot
-be the reserved region?
-
-> or DDR context and give the rest to the kernel or the co-processor.
-> 
-> Now, using internal RAM for generic use by the kernel is unlikely but
-> I have in mind the last firewall controller of the stm32mp2x platforms,
-> which is the RISAF. It has the same purpose as the RISAB but for
-> external memories. One protects the DDR so I do want DDR regions as
-> accessible for general use (memory node).
-> 
-> This property allows me to describe the boundaries of what is protected
-> without having to imply anything from frameworks about the regions as I
-> have no way of knowing what is accessible and what is not.
-
-Frameworks do not matter here - we don't even talk about them yet.
-
-You want to describe boundaries of some dedicated memory region and you
-should not have a custom property for that.
-
-> 
->>>
->>> I think declaring a "boundaries" memory region with no usage for the
->>> kernel wouldn't make sense. The kernel may not be able to access the
->>> whole memory range.
+>> To better illustrate this with an example. I have 2 entries in the 
+>> linear range array [ [4, 8], [11, 15] ]. Let's assume I pass a value 
+>> of "2".
 >>
->> I don't understand that. reserved-memory is for cases with "no usage for
->> the kernel", so it would perfectly make sense.
-> 
+>> Based on my current approach, the call to get_selector_high() would 
+>> successfully return with `found`=false and a selector value 
+>> corresponding to "4".
 >>
->> Look what your description said:
+>> However, if I continued to search, I would end up the selector 
+>> corresponding to "11". A selector corresponding to "4" is much 
+>> closer/ tighter than "2".
 >>
->> "used to protect internal RAMs by applying access"
-> 
-> Yes, access rights are applied by the Trusted Domain. These firewalls
-> are very flexible because access rights on secure and privilege levels
-> along with Compartment ID (SoC is divided into multiple compartments
-> holding a compartment ID) can be configured. Some bits of the
-> firewall configuration can also be delegated. e.g: When a memory
-> region is configured for privileged, non-secure access for the
-> cortex running Linux; then the kernel could reconfigure the
-> privilege level (unlikely but feasible).
-> 
-> It would be quite complex to explain the whole mechanism without
-> pointing to some documentation [1].
-> 
-> Anyway, access rights are applied, but access may very well be given to
-> the privileged non-secure compartment running the kernel. Meaning that
-> only the kernel can access such memory. Not the Trusted Domain, not the
-> user-space, not the co-processor.
-
-This implies that if you do not reserve such memory that way, then
-Trusted Domain or user-space could just poke and use it...
-
-If kernel explicitly has to tell TD to do something with specific region
-of memory, this is somehow a reserved memory. It is distinctive,
-special, selected, chosen.
-> 
-> So you could give some bits of internal RAM to the kernel for whatever
-> purpose you'd like (Storing particular data you want to keep in some
-> low-power mode, etc...).
-
-All RAM is for that purpose...
-
-> 
-> 
-> [1]: https://wiki.st.com/stm32mpu/wiki/Resource_Isolation_Framework_overview
-> 
+>> For values higher than the highest value in any range, this would 
+>> keep iterating and end up returning an -EINVAL.
 >>
->> and
+>> For in range values this would work as expected.
 >>
->> " a trusted domain, or the domain to whom the page configuration has
->> been delegated,"
->>
->> so how it is not a dedicated, special memory delegated to specific
->> devices and/or TF?
->>
-> 
-> The memory is delegated to some contexts. These can be the processor
-> running Linux, a co-processor, some initiator ports of peripherals
-> having DMAs, etc...
-> 
+>> This implementation assumes that the linear ranges are provided in 
+>> sorted order, an assumption that I believe already underlies the 
+>> existing *_low_array() logic.
+>
+> Ah. I think ... I didn't think. :)
+>
+> It definitely makes sense to stop scanning if the range_min already 
+> was greater than the given target value. Thanks for the patience and 
+> for adding this missing piece :)
+>
+> Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
 
-So pretty close to what the purpose of reserved-memory is...
 
-Well, we keep discussing and I am really not convinced. You can try to
-catch @Rob tomorrow on IRC and maybe get his approval, but for me this
-is clearly some sort of reserved memory thus you cannot go with own
-bindings. Another way would be to prove me wrong by using the reserved
-memory binding and showing how it could not possible work, ever (such
-counter examples sometimes help to look at the problem from a new angle).
+Thanks for the review! :)
 
-Best regards,
-Krzysztof
+
+Regards,
+
+Amit
+
+>
+>
+> ---
+> Matti Vaittinen
+> Linux kernel developer at ROHM Semiconductors
+> Oulu Finland
+>
+> ~~ When things go utterly wrong vim users can always type :help! ~~
 
