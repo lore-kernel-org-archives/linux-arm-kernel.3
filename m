@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4265E9A04B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E9CE9A04E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q2yv6gsrcUobvLTrIrMEXKyqODCq1uTmT4BdR4d+dzo=; b=L+5h3ZcNCVcAPhM5nvHeKu08K8
-	am0SkSeuPmPCIMftOlRqzyo29EpfGdVn6+Tqqzyz10knmsDiHrsa5etRBuQma7gtwpxU7SbotJU0J
-	LhxTyfFuG9USmChFpumyOpmdOBp0KHCXVNUyXoo4HuUTKEMjohFQMiuJ4XiqUze+lKmgAAgNT0EOX
-	QaVYfT+2PDs51PXSDMr2I+OdeUFnFW5Mg+DsKGbmcqXW9CDiGXLs2CLO9wYnFMfNXTPvCegNf80Di
-	uQzYQVR1AhxrCf4glmLRaxO0nm/gJBGolv7cTVYdauhBRQr6dTqKLGULkcvip5ChR64MPHqQebWqG
-	JNAKS/kw==;
+	bh=lbWuolc8F8aJdcUrouDaXcvVJpp2C+6tLNlC+DSLQwE=; b=0cg3hmQBXqRISd9nRSjiC/XlP3
+	ie3UlW1mEt6LhgzkX02euVkbbiV5DcmzvxtsjM1IBg7Y2rpsmavmy6IqnPPdr35PoUeKN09ZeI6Ij
+	rPiO6d1QC6UScMHewAsfxk8xdgxnr4W12uaueDqBd0FPVeWCTatLIwPmgKiOeP0y9ylaEQXzILR1+
+	LiKw6XPEqlzvPi9Kf+VJZUsU5sRbovhnpmDwdvZ3n9UmiQ5bK29e1jimWREK8hT9qC0f6pnf0hSs2
+	QOyhkzurS4mLccINW4yFNPlrn4sJeQ7r7qYMMq0vo4VnjhjizQW03b4DRuEzt+PDWsV4A57QVoItl
+	WSXKNbNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspEH-0000000ASYT-3Ufv;
-	Wed, 18 Feb 2026 21:37:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vspEI-0000000ASZl-1zzZ;
+	Wed, 18 Feb 2026 21:37:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspEA-0000000ASTS-3Je8
+	id 1vspED-0000000ASU1-003J
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 21:36:59 +0000
+	Wed, 18 Feb 2026 21:37:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7BD5741B19;
-	Wed, 18 Feb 2026 21:36:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9A2C2BCB6;
-	Wed, 18 Feb 2026 21:36:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2389F6185F;
+	Wed, 18 Feb 2026 21:37:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C6DFC2BCB6;
+	Wed, 18 Feb 2026 21:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771450618;
-	bh=ZYqIlQtwnbFetuVQNGe0mxtg3leOUfnKsQb3/hSGeAY=;
+	s=k20201202; t=1771450619;
+	bh=DnjzfD8UUtPv4slYL2pB1p87UHI2Kx6DNAW3W2bIPLI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=g5y8ewUh5ElMc0r4CQ+/6110CWS7emGEDkYxi9P4CD+n9254VvFfIV7kNufM30hwW
-	 DYWnPg/aakMF7QE5EbTc764kRKkbqoNWnTXXhvxFBTzDQc3r/S3/LSCEzWj8zxx/cP
-	 42DvyGaBxVtDmkIXQ8Hj4n5zS/mq9DIMeiuDdnbFBo42tE2S3POe8vSu0TsUIz+Ygl
-	 aJtEbzrsmsPaEEI6l+BNklX7CFr0/D4CDGtYixL5J/TZmXnTwGe8K3r9fdMXjHuDrg
-	 q8gyv0iQVwjgObGvyPC4FVQjRPiLMJFyRBxL4ST0gX37y3v1WI80zhrdWMn4bcfQ7+
-	 lL2Nhl8W9eMzg==
+	b=d9nC0y+8/G9755xCvbvHN7DAKjWuIifVrEaCp0dH8JCWSY/8/37cCz4/JnQuj7feq
+	 7Y7XXMYb8fsKXNrT6/WTFWzZj2+yxF5NkANQMz+oVnWsBRlGJaurnowsom4L2nZ+Nm
+	 Ym4oX9qP9/zITYlEI9YfMoGTwcAAe8GLr92c44TfjXeZspAAtgr7UpZoviaX5VXx+l
+	 hTHXNg25Lu3VkKGAkTYbR2QA0UKgwMjm6/st6FQbn6gjOr0pWObiKLPnAoyjbmKBce
+	 PfD5qahcQ+51pdMH8lVmK6F/lPHgr1QIKjnd4hk3XKjR8ng+EBDqxyIH6+mRCOeBrG
+	 8eVL99dt8et3Q==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,17 +52,14 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-cifs@vger.kernel.org,
 	linux-wireless@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 12/15] ksmbd: Use AES-CMAC library for SMB3 signature calculation
-Date: Wed, 18 Feb 2026 13:34:58 -0800
-Message-ID: <20260218213501.136844-13-ebiggers@kernel.org>
+Subject: [PATCH 14/15] wifi: mac80211: Use AES-CMAC library in ieee80211_aes_cmac()
+Date: Wed, 18 Feb 2026 13:35:00 -0800
+Message-ID: <20260218213501.136844-15-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260218213501.136844-1-ebiggers@kernel.org>
 References: <20260218213501.136844-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_133658_868796_F6534313 
-X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,344 +74,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that AES-CMAC has a library API, convert ksmbd_sign_smb3_pdu() to
-use it instead of a "cmac(aes)" crypto_shash.
+Now that AES-CMAC has a library API, convert the mac80211 AES-CMAC
+packet authentication code to use it instead of a "cmac(aes)"
+crypto_shash.  This has multiple benefits, such as:
 
-The result is simpler and faster code.  With the library there's no need
-to dynamically allocate memory, no need to handle errors, and the
-AES-CMAC code is accessed directly without inefficient indirect calls
-and other unnecessary API overhead.
+- It's faster.  The AES-CMAC code is now called directly, without
+  unnecessary overhead such as indirect calls.
+
+- MAC calculation can no longer fail.
+
+- The AES-CMAC key struct is now a fixed size, allowing it to be
+  embedded directly into 'struct ieee80211_key' rather than using a
+  separate allocation.  Note that although this increases the size of
+  the 'u.cmac' field of 'struct ieee80211_key', it doesn't cause it to
+  exceed the size of the largest variant of the union 'u'.  Therefore,
+  the size of 'struct ieee80211_key' itself is unchanged.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- fs/smb/server/Kconfig      |  2 +-
- fs/smb/server/auth.c       | 51 +++++++++------------------------
- fs/smb/server/auth.h       |  4 +--
- fs/smb/server/crypto_ctx.c | 58 --------------------------------------
- fs/smb/server/crypto_ctx.h | 12 --------
- fs/smb/server/server.c     |  1 -
- fs/smb/server/smb2pdu.c    |  8 ++----
- 7 files changed, 19 insertions(+), 117 deletions(-)
+ net/mac80211/Kconfig    |  1 +
+ net/mac80211/aes_cmac.c | 65 ++++++++---------------------------------
+ net/mac80211/aes_cmac.h | 12 +++-----
+ net/mac80211/key.c      | 11 ++-----
+ net/mac80211/key.h      |  3 +-
+ net/mac80211/wpa.c      | 13 +++------
+ 6 files changed, 26 insertions(+), 79 deletions(-)
 
-diff --git a/fs/smb/server/Kconfig b/fs/smb/server/Kconfig
-index 12594879cb64..eae3728cff54 100644
---- a/fs/smb/server/Kconfig
-+++ b/fs/smb/server/Kconfig
-@@ -6,17 +6,17 @@ config SMB_SERVER
- 	select NLS
- 	select NLS_UTF8
- 	select NLS_UCS2_UTILS
+diff --git a/net/mac80211/Kconfig b/net/mac80211/Kconfig
+index cf0f7780fb10..0afbe4f4f976 100644
+--- a/net/mac80211/Kconfig
++++ b/net/mac80211/Kconfig
+@@ -1,10 +1,11 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ config MAC80211
+ 	tristate "Generic IEEE 802.11 Networking Stack (mac80211)"
+ 	depends on CFG80211
  	select CRYPTO
- 	select CRYPTO_ECB
 +	select CRYPTO_LIB_AES_CBC_MACS
  	select CRYPTO_LIB_ARC4
- 	select CRYPTO_LIB_DES
- 	select CRYPTO_LIB_MD5
- 	select CRYPTO_LIB_SHA256
- 	select CRYPTO_LIB_SHA512
- 	select CRYPTO_LIB_UTILS
--	select CRYPTO_CMAC
- 	select CRYPTO_AEAD2
+ 	select CRYPTO_AES
  	select CRYPTO_CCM
  	select CRYPTO_GCM
- 	select ASN1
- 	select OID_REGISTRY
-diff --git a/fs/smb/server/auth.c b/fs/smb/server/auth.c
-index a69e8694605a..05234e5bd16e 100644
---- a/fs/smb/server/auth.c
-+++ b/fs/smb/server/auth.c
-@@ -9,12 +9,12 @@
- #include <linux/uaccess.h>
- #include <linux/backing-dev.h>
- #include <linux/writeback.h>
- #include <linux/uio.h>
- #include <linux/xattr.h>
--#include <crypto/hash.h>
- #include <crypto/aead.h>
-+#include <crypto/aes-cbc-macs.h>
- #include <crypto/md5.h>
- #include <crypto/sha2.h>
- #include <crypto/utils.h>
- #include <linux/random.h>
- #include <linux/scatterlist.h>
-@@ -488,50 +488,25 @@ void ksmbd_sign_smb2_pdu(struct ksmbd_conn *conn, char *key, struct kvec *iov,
-  * @iov:        buffer iov array
-  * @n_vec:	number of iovecs
-  * @sig:	signature value generated for client request packet
-  *
+ 	select CRYPTO_CMAC
+diff --git a/net/mac80211/aes_cmac.c b/net/mac80211/aes_cmac.c
+index 0827965455dc..55b674ad7d7a 100644
+--- a/net/mac80211/aes_cmac.c
++++ b/net/mac80211/aes_cmac.c
+@@ -5,80 +5,39 @@
+  * Copyright (C) 2020 Intel Corporation
   */
--int ksmbd_sign_smb3_pdu(struct ksmbd_conn *conn, char *key, struct kvec *iov,
--			int n_vec, char *sig)
-+void ksmbd_sign_smb3_pdu(struct ksmbd_conn *conn, char *key, struct kvec *iov,
-+			 int n_vec, char *sig)
- {
--	struct ksmbd_crypto_ctx *ctx;
--	int rc, i;
--
--	ctx = ksmbd_crypto_ctx_find_cmacaes();
--	if (!ctx) {
--		ksmbd_debug(AUTH, "could not crypto alloc cmac\n");
--		return -ENOMEM;
--	}
--
--	rc = crypto_shash_setkey(CRYPTO_CMACAES_TFM(ctx),
--				 key,
--				 SMB2_CMACAES_SIZE);
--	if (rc)
--		goto out;
--
--	rc = crypto_shash_init(CRYPTO_CMACAES(ctx));
--	if (rc) {
--		ksmbd_debug(AUTH, "cmaces init error %d\n", rc);
--		goto out;
--	}
-+	struct aes_cmac_key cmac_key;
-+	struct aes_cmac_ctx cmac_ctx;
-+	int i;
  
--	for (i = 0; i < n_vec; i++) {
--		rc = crypto_shash_update(CRYPTO_CMACAES(ctx),
--					 iov[i].iov_base,
--					 iov[i].iov_len);
--		if (rc) {
--			ksmbd_debug(AUTH, "cmaces update error %d\n", rc);
--			goto out;
+ #include <linux/kernel.h>
+ #include <linux/types.h>
+-#include <linux/crypto.h>
+ #include <linux/export.h>
+ #include <linux/err.h>
+-#include <crypto/aes.h>
++#include <crypto/aes-cbc-macs.h>
+ 
+ #include <net/mac80211.h>
+ #include "key.h"
+ #include "aes_cmac.h"
+ 
+ #define AAD_LEN 20
+ 
+ static const u8 zero[IEEE80211_CMAC_256_MIC_LEN];
+ 
+-int ieee80211_aes_cmac(struct crypto_shash *tfm, const u8 *aad,
+-		       const u8 *data, size_t data_len, u8 *mic,
+-		       unsigned int mic_len)
++void ieee80211_aes_cmac(const struct aes_cmac_key *key, const u8 *aad,
++			const u8 *data, size_t data_len, u8 *mic,
++			unsigned int mic_len)
+ {
+-	int err;
+-	SHASH_DESC_ON_STACK(desc, tfm);
++	struct aes_cmac_ctx ctx;
+ 	u8 out[AES_BLOCK_SIZE];
+ 	const __le16 *fc;
+ 
+-	desc->tfm = tfm;
+-
+-	err = crypto_shash_init(desc);
+-	if (err)
+-		return err;
+-	err = crypto_shash_update(desc, aad, AAD_LEN);
+-	if (err)
+-		return err;
++	aes_cmac_init(&ctx, key);
++	aes_cmac_update(&ctx, aad, AAD_LEN);
+ 	fc = (const __le16 *)aad;
+ 	if (ieee80211_is_beacon(*fc)) {
+ 		/* mask Timestamp field to zero */
+-		err = crypto_shash_update(desc, zero, 8);
+-		if (err)
+-			return err;
+-		err = crypto_shash_update(desc, data + 8,
+-					  data_len - 8 - mic_len);
+-		if (err)
+-			return err;
++		aes_cmac_update(&ctx, zero, 8);
++		aes_cmac_update(&ctx, data + 8, data_len - 8 - mic_len);
+ 	} else {
+-		err = crypto_shash_update(desc, data, data_len - mic_len);
+-		if (err)
+-			return err;
++		aes_cmac_update(&ctx, data, data_len - mic_len);
+ 	}
+-	err = crypto_shash_finup(desc, zero, mic_len, out);
+-	if (err)
+-		return err;
++	aes_cmac_update(&ctx, zero, mic_len);
++	aes_cmac_final(&ctx, out);
+ 	memcpy(mic, out, mic_len);
+-
+-	return 0;
+-}
+-
+-struct crypto_shash *ieee80211_aes_cmac_key_setup(const u8 key[],
+-						  size_t key_len)
+-{
+-	struct crypto_shash *tfm;
+-
+-	tfm = crypto_alloc_shash("cmac(aes)", 0, 0);
+-	if (!IS_ERR(tfm)) {
+-		int err = crypto_shash_setkey(tfm, key, key_len);
+-
+-		if (err) {
+-			crypto_free_shash(tfm);
+-			return ERR_PTR(err);
 -		}
 -	}
-+	/* This cannot fail, since we always pass a valid key length. */
-+	static_assert(SMB2_CMACAES_SIZE == AES_KEYSIZE_128);
-+	aes_cmac_preparekey(&cmac_key, key, SMB2_CMACAES_SIZE);
- 
--	rc = crypto_shash_final(CRYPTO_CMACAES(ctx), sig);
--	if (rc)
--		ksmbd_debug(AUTH, "cmaces generation error %d\n", rc);
--out:
--	ksmbd_release_crypto_ctx(ctx);
--	return rc;
-+	aes_cmac_init(&cmac_ctx, &cmac_key);
-+	for (i = 0; i < n_vec; i++)
-+		aes_cmac_update(&cmac_ctx, iov[i].iov_base, iov[i].iov_len);
-+	aes_cmac_final(&cmac_ctx, sig);
- }
- 
- struct derivation {
- 	struct kvec label;
- 	struct kvec context;
-diff --git a/fs/smb/server/auth.h b/fs/smb/server/auth.h
-index 6d351d61b0e5..5767aabc63c9 100644
---- a/fs/smb/server/auth.h
-+++ b/fs/smb/server/auth.h
-@@ -52,12 +52,12 @@ ksmbd_build_ntlmssp_challenge_blob(struct challenge_message *chgblob,
- 				   struct ksmbd_conn *conn);
- int ksmbd_krb5_authenticate(struct ksmbd_session *sess, char *in_blob,
- 			    int in_len,	char *out_blob, int *out_len);
- void ksmbd_sign_smb2_pdu(struct ksmbd_conn *conn, char *key, struct kvec *iov,
- 			 int n_vec, char *sig);
--int ksmbd_sign_smb3_pdu(struct ksmbd_conn *conn, char *key, struct kvec *iov,
--			int n_vec, char *sig);
-+void ksmbd_sign_smb3_pdu(struct ksmbd_conn *conn, char *key, struct kvec *iov,
-+			 int n_vec, char *sig);
- int ksmbd_gen_smb30_signingkey(struct ksmbd_session *sess,
- 			       struct ksmbd_conn *conn);
- int ksmbd_gen_smb311_signingkey(struct ksmbd_session *sess,
- 				struct ksmbd_conn *conn);
- void ksmbd_gen_smb30_encryptionkey(struct ksmbd_conn *conn,
-diff --git a/fs/smb/server/crypto_ctx.c b/fs/smb/server/crypto_ctx.c
-index fe29d186baf6..1cb0ea2042b5 100644
---- a/fs/smb/server/crypto_ctx.c
-+++ b/fs/smb/server/crypto_ctx.c
-@@ -26,18 +26,10 @@ static inline void free_aead(struct crypto_aead *aead)
- {
- 	if (aead)
- 		crypto_free_aead(aead);
- }
- 
--static void free_shash(struct shash_desc *shash)
--{
--	if (shash) {
--		crypto_free_shash(shash->tfm);
--		kfree(shash);
--	}
+-
+-	return tfm;
 -}
 -
- static struct crypto_aead *alloc_aead(int id)
- {
- 	struct crypto_aead *tfm = NULL;
- 
- 	switch (id) {
-@@ -58,41 +50,14 @@ static struct crypto_aead *alloc_aead(int id)
- 	}
- 
- 	return tfm;
- }
- 
--static struct shash_desc *alloc_shash_desc(int id)
+-void ieee80211_aes_cmac_key_free(struct crypto_shash *tfm)
 -{
--	struct crypto_shash *tfm = NULL;
--	struct shash_desc *shash;
--
--	switch (id) {
--	case CRYPTO_SHASH_CMACAES:
--		tfm = crypto_alloc_shash("cmac(aes)", 0, 0);
--		break;
--	default:
--		return NULL;
--	}
--
--	if (IS_ERR(tfm))
--		return NULL;
--
--	shash = kzalloc(sizeof(*shash) + crypto_shash_descsize(tfm),
--			KSMBD_DEFAULT_GFP);
--	if (!shash)
--		crypto_free_shash(tfm);
--	else
--		shash->tfm = tfm;
--	return shash;
--}
--
- static void ctx_free(struct ksmbd_crypto_ctx *ctx)
- {
- 	int i;
- 
--	for (i = 0; i < CRYPTO_SHASH_MAX; i++)
--		free_shash(ctx->desc[i]);
- 	for (i = 0; i < CRYPTO_AEAD_MAX; i++)
- 		free_aead(ctx->ccmaes[i]);
- 	kfree(ctx);
+-	crypto_free_shash(tfm);
  }
- 
-@@ -151,33 +116,10 @@ void ksmbd_release_crypto_ctx(struct ksmbd_crypto_ctx *ctx)
- 	ctx_list.avail_ctx--;
- 	spin_unlock(&ctx_list.ctx_lock);
- 	ctx_free(ctx);
- }
- 
--static struct ksmbd_crypto_ctx *____crypto_shash_ctx_find(int id)
--{
--	struct ksmbd_crypto_ctx *ctx;
--
--	if (id >= CRYPTO_SHASH_MAX)
--		return NULL;
--
--	ctx = ksmbd_find_crypto_ctx();
--	if (ctx->desc[id])
--		return ctx;
--
--	ctx->desc[id] = alloc_shash_desc(id);
--	if (ctx->desc[id])
--		return ctx;
--	ksmbd_release_crypto_ctx(ctx);
--	return NULL;
--}
--
--struct ksmbd_crypto_ctx *ksmbd_crypto_ctx_find_cmacaes(void)
--{
--	return ____crypto_shash_ctx_find(CRYPTO_SHASH_CMACAES);
--}
--
- static struct ksmbd_crypto_ctx *____crypto_aead_ctx_find(int id)
- {
- 	struct ksmbd_crypto_ctx *ctx;
- 
- 	if (id >= CRYPTO_AEAD_MAX)
-diff --git a/fs/smb/server/crypto_ctx.h b/fs/smb/server/crypto_ctx.h
-index b9476ed520ae..02d2893665a4 100644
---- a/fs/smb/server/crypto_ctx.h
-+++ b/fs/smb/server/crypto_ctx.h
-@@ -4,18 +4,12 @@
+diff --git a/net/mac80211/aes_cmac.h b/net/mac80211/aes_cmac.h
+index 5f971a8298cb..c7a6df47b327 100644
+--- a/net/mac80211/aes_cmac.h
++++ b/net/mac80211/aes_cmac.h
+@@ -4,16 +4,12 @@
   */
  
- #ifndef __CRYPTO_CTX_H__
- #define __CRYPTO_CTX_H__
+ #ifndef AES_CMAC_H
+ #define AES_CMAC_H
  
+-#include <linux/crypto.h>
 -#include <crypto/hash.h>
- #include <crypto/aead.h>
++#include <crypto/aes-cbc-macs.h>
  
--enum {
--	CRYPTO_SHASH_CMACAES	= 0,
--	CRYPTO_SHASH_MAX,
--};
+-struct crypto_shash *ieee80211_aes_cmac_key_setup(const u8 key[],
+-						  size_t key_len);
+-int ieee80211_aes_cmac(struct crypto_shash *tfm, const u8 *aad,
+-		       const u8 *data, size_t data_len, u8 *mic,
+-		       unsigned int mic_len);
+-void ieee80211_aes_cmac_key_free(struct crypto_shash *tfm);
++void ieee80211_aes_cmac(const struct aes_cmac_key *key, const u8 *aad,
++			const u8 *data, size_t data_len, u8 *mic,
++			unsigned int mic_len);
+ 
+ #endif /* AES_CMAC_H */
+diff --git a/net/mac80211/key.c b/net/mac80211/key.c
+index 04c8809173d7..4b8965633df3 100644
+--- a/net/mac80211/key.c
++++ b/net/mac80211/key.c
+@@ -688,14 +688,13 @@ ieee80211_key_alloc(u32 cipher, int idx, size_t key_len,
+ 					seq[IEEE80211_CMAC_PN_LEN - j - 1];
+ 		/*
+ 		 * Initialize AES key state here as an optimization so that
+ 		 * it does not need to be initialized for every packet.
+ 		 */
+-		key->u.aes_cmac.tfm =
+-			ieee80211_aes_cmac_key_setup(key_data, key_len);
+-		if (IS_ERR(key->u.aes_cmac.tfm)) {
+-			err = PTR_ERR(key->u.aes_cmac.tfm);
++		err = aes_cmac_preparekey(&key->u.aes_cmac.key, key_data,
++					  key_len);
++		if (err) {
+ 			kfree(key);
+ 			return ERR_PTR(err);
+ 		}
+ 		break;
+ 	case WLAN_CIPHER_SUITE_BIP_GMAC_128:
+@@ -748,14 +747,10 @@ static void ieee80211_key_free_common(struct ieee80211_key *key)
+ 	switch (key->conf.cipher) {
+ 	case WLAN_CIPHER_SUITE_CCMP:
+ 	case WLAN_CIPHER_SUITE_CCMP_256:
+ 		ieee80211_aes_key_free(key->u.ccmp.tfm);
+ 		break;
+-	case WLAN_CIPHER_SUITE_AES_CMAC:
+-	case WLAN_CIPHER_SUITE_BIP_CMAC_256:
+-		ieee80211_aes_cmac_key_free(key->u.aes_cmac.tfm);
+-		break;
+ 	case WLAN_CIPHER_SUITE_BIP_GMAC_128:
+ 	case WLAN_CIPHER_SUITE_BIP_GMAC_256:
+ 		ieee80211_aes_gmac_key_free(key->u.aes_gmac.tfm);
+ 		break;
+ 	case WLAN_CIPHER_SUITE_GCMP:
+diff --git a/net/mac80211/key.h b/net/mac80211/key.h
+index 1fa0f4f78962..826e4e9387c5 100644
+--- a/net/mac80211/key.h
++++ b/net/mac80211/key.h
+@@ -10,10 +10,11 @@
+ 
+ #include <linux/types.h>
+ #include <linux/list.h>
+ #include <linux/crypto.h>
+ #include <linux/rcupdate.h>
++#include <crypto/aes-cbc-macs.h>
+ #include <crypto/arc4.h>
+ #include <net/mac80211.h>
+ 
+ #define NUM_DEFAULT_KEYS 4
+ #define NUM_DEFAULT_MGMT_KEYS 2
+@@ -91,11 +92,11 @@ struct ieee80211_key {
+ 			struct crypto_aead *tfm;
+ 			u32 replays; /* dot11RSNAStatsCCMPReplays */
+ 		} ccmp;
+ 		struct {
+ 			u8 rx_pn[IEEE80211_CMAC_PN_LEN];
+-			struct crypto_shash *tfm;
++			struct aes_cmac_key key;
+ 			u32 replays; /* dot11RSNAStatsCMACReplays */
+ 			u32 icverrors; /* dot11RSNAStatsCMACICVErrors */
+ 		} aes_cmac;
+ 		struct {
+ 			u8 rx_pn[IEEE80211_GMAC_PN_LEN];
+diff --git a/net/mac80211/wpa.c b/net/mac80211/wpa.c
+index fdf98c21d32c..59324b367bdd 100644
+--- a/net/mac80211/wpa.c
++++ b/net/mac80211/wpa.c
+@@ -870,15 +870,12 @@ ieee80211_crypto_aes_cmac_encrypt(struct ieee80211_tx_data *tx,
+ 	if (info->control.hw_key)
+ 		return TX_CONTINUE;
+ 
+ 	bip_aad(skb, aad);
+ 
+-	if (ieee80211_aes_cmac(key->u.aes_cmac.tfm, aad,
+-			       skb->data + 24, skb->len - 24,
+-			       mmie->mic, mic_len))
+-		return TX_DROP;
 -
- enum {
- 	CRYPTO_AEAD_AES_GCM = 16,
- 	CRYPTO_AEAD_AES_CCM,
- 	CRYPTO_AEAD_MAX,
- };
-@@ -26,23 +20,17 @@ enum {
- };
- 
- struct ksmbd_crypto_ctx {
- 	struct list_head		list;
- 
--	struct shash_desc		*desc[CRYPTO_SHASH_MAX];
- 	struct crypto_aead		*ccmaes[CRYPTO_AEAD_MAX];
- };
- 
--#define CRYPTO_CMACAES(c)	((c)->desc[CRYPTO_SHASH_CMACAES])
--
--#define CRYPTO_CMACAES_TFM(c)	((c)->desc[CRYPTO_SHASH_CMACAES]->tfm)
--
- #define CRYPTO_GCM(c)		((c)->ccmaes[CRYPTO_AEAD_AES_GCM])
- #define CRYPTO_CCM(c)		((c)->ccmaes[CRYPTO_AEAD_AES_CCM])
- 
- void ksmbd_release_crypto_ctx(struct ksmbd_crypto_ctx *ctx);
--struct ksmbd_crypto_ctx *ksmbd_crypto_ctx_find_cmacaes(void);
- struct ksmbd_crypto_ctx *ksmbd_crypto_ctx_find_gcm(void);
- struct ksmbd_crypto_ctx *ksmbd_crypto_ctx_find_ccm(void);
- void ksmbd_crypto_destroy(void);
- int ksmbd_crypto_create(void);
- 
-diff --git a/fs/smb/server/server.c b/fs/smb/server/server.c
-index c2c074346da1..cc15d9d8468f 100644
---- a/fs/smb/server/server.c
-+++ b/fs/smb/server/server.c
-@@ -631,11 +631,10 @@ MODULE_AUTHOR("Namjae Jeon <linkinjeon@kernel.org>");
- MODULE_DESCRIPTION("Linux kernel CIFS/SMB SERVER");
- MODULE_LICENSE("GPL");
- MODULE_SOFTDEP("pre: ecb");
- MODULE_SOFTDEP("pre: nls");
- MODULE_SOFTDEP("pre: aes");
--MODULE_SOFTDEP("pre: cmac");
- MODULE_SOFTDEP("pre: aead2");
- MODULE_SOFTDEP("pre: ccm");
- MODULE_SOFTDEP("pre: gcm");
- module_init(ksmbd_server_init)
- module_exit(ksmbd_server_exit)
-diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
-index 7a88cf3bd29e..02bfe15edcab 100644
---- a/fs/smb/server/smb2pdu.c
-+++ b/fs/smb/server/smb2pdu.c
-@@ -8964,12 +8964,11 @@ int smb3_check_sign_req(struct ksmbd_work *work)
- 	memcpy(signature_req, hdr->Signature, SMB2_SIGNATURE_SIZE);
- 	memset(hdr->Signature, 0, SMB2_SIGNATURE_SIZE);
- 	iov[0].iov_base = (char *)&hdr->ProtocolId;
- 	iov[0].iov_len = len;
- 
--	if (ksmbd_sign_smb3_pdu(conn, signing_key, iov, 1, signature))
--		return 0;
-+	ksmbd_sign_smb3_pdu(conn, signing_key, iov, 1, signature);
- 
- 	if (crypto_memneq(signature, signature_req, SMB2_SIGNATURE_SIZE)) {
- 		pr_err("bad smb2 signature\n");
- 		return 0;
- 	}
-@@ -9016,13 +9015,12 @@ void smb3_set_sign_rsp(struct ksmbd_work *work)
- 		n_vec++;
- 	} else {
- 		iov = &work->iov[work->iov_idx];
- 	}
- 
--	if (!ksmbd_sign_smb3_pdu(conn, signing_key, iov, n_vec,
--				 signature))
--		memcpy(hdr->Signature, signature, SMB2_SIGNATURE_SIZE);
-+	ksmbd_sign_smb3_pdu(conn, signing_key, iov, n_vec, signature);
-+	memcpy(hdr->Signature, signature, SMB2_SIGNATURE_SIZE);
++	ieee80211_aes_cmac(&key->u.aes_cmac.key, aad, skb->data + 24,
++			   skb->len - 24, mmie->mic, mic_len);
+ 	return TX_CONTINUE;
  }
  
- /**
-  * smb3_preauth_hash_rsp() - handler for computing preauth hash on response
-  * @work:   smb work containing response buffer
+ ieee80211_rx_result
+ ieee80211_crypto_aes_cmac_decrypt(struct ieee80211_rx_data *rx,
+@@ -916,14 +913,12 @@ ieee80211_crypto_aes_cmac_decrypt(struct ieee80211_rx_data *rx,
+ 	}
+ 
+ 	if (!(status->flag & RX_FLAG_DECRYPTED)) {
+ 		/* hardware didn't decrypt/verify MIC */
+ 		bip_aad(skb, aad);
+-		if (ieee80211_aes_cmac(key->u.aes_cmac.tfm, aad,
+-				       skb->data + 24, skb->len - 24,
+-				       mic, mic_len))
+-			return RX_DROP_U_DECRYPT_FAIL;
++		ieee80211_aes_cmac(&key->u.aes_cmac.key, aad, skb->data + 24,
++				   skb->len - 24, mic, mic_len);
+ 		if (crypto_memneq(mic, mmie->mic, mic_len)) {
+ 			key->u.aes_cmac.icverrors++;
+ 			return RX_DROP_U_MIC_FAIL;
+ 		}
+ 	}
 -- 
 2.53.0
 
