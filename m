@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E689E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 20:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E7AE9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 20:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oDHIq/4/2fWtBJtLjLZdJuptPLqeJLsh7xhlYQ0jUvg=; b=aeIJZZvDdI5A9RR3PHfRFDR/I8
-	16irObmRRAbgtu/+cgm3GIFFSYVGgt6VIPXebj8g5LhJIhLPvgpH7MohfH78DaGkOLb6dSAA/rrrS
-	rPVWPkIE4oi1VJb5rEIyIQGV1MwEYF0qxxsBpDa1OzRTmw+rzI4eICv9DSVGLNMqRKyY7Sljj91cp
-	Ij/gzpHc+7swZSfpRlzfDRBhGYllBkq43Z3Awqx/jiJYoqod5VEYL19CY8XAo/yxS4hOClRi/VwEI
-	GnTQAMrj+lga4tT1L4tX3lxTbhLGPDZoelA/Wqhb9ZjLUMpkZNqqD3c8KYA7v+8mregqZeMfSlu0x
-	0E4h31Yg==;
+	bh=hLWHawfUnZuiQ3TDhSdC1bL32uOxcaH5z4XCL/rXWbU=; b=E4ZdyXOv0UUY/q2hBIbyOgG2Hh
+	a6bqVtuJx3UkY6fMgItLjpDUXCaOEUQEdx1PRTB4T2cPGl1Vc3/VLSqypLuqbDLRwAAHCCiXCmCLR
+	oEWw+LHRcaqRBvoEc18isguIgXd22MOtuXjALDy/Si5/DE8Yknca/ENRpchw9Yk97k5j+N4FZ2guu
+	rkYK5DqrVuwDan48Z73N9Rhk0Qr590kNyIIVQucJS6eXmwXl+c5ZM4j3ixz4iTquCuE+ZLruWmxQ+
+	/Azlth8wXTF70bG97+4Nm8ieFVq0HZxtTYmlmlVfNjRsMBakPDElmn3f3PNe0bocnqbONeIKryNtH
+	LFNhRYag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vso0v-0000000AMis-1700;
-	Wed, 18 Feb 2026 20:19:13 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vsoKp-0000000AO9O-0XzB;
+	Wed, 18 Feb 2026 20:39:47 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vso0s-0000000AMho-1Q6d;
-	Wed, 18 Feb 2026 20:19:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771445948;
-	bh=zo8tEBh7OtlzfrABsEVBwAQNqGYbVlNeoFlcaDNUlmI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=SE7JODQlSJ/CpmNHMCle+8gp0kCVoL5KK8M7ppvM7tgbqZlyskEPxrZBMrhjEZ1gT
-	 LAenXfkEKYf3NXZIeZ/VbcUoY+9kWG6KoCj5c6GvJO248hp7042yX3sVw7Emmg2zHX
-	 d88TTjqskLqPGZ4vr3hWtMNIJ+OO0zObpRTPF2Dx2XQudgPudlMFE0kXjr6BO8Ol+7
-	 FeYxA0otQU2QK6JFGigyKLLj2/RWsJwqTdU1uBln8RR29GBlJ6OBsP7SWb5DPQT5/P
-	 tMj77wo25Ah3UoxE2QkXsHGmsLEVRciI7GwIfWwYTsnTqnjg4wUoSJ0DSjlRQDMOvJ
-	 1Bt8ufM8WMcVA==
-Received: from trenzalore (modemcable014.2-22-96.mc.videotron.ca [96.22.2.14])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 14C6117E131B;
-	Wed, 18 Feb 2026 21:19:05 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	linux-sound@vger.kernel.org,
+	id 1vsoKl-0000000AO92-0fHM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Feb 2026 20:39:45 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-481188b7760so2314665e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 12:39:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=smile.fr; s=google; t=1771447179; x=1772051979; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hLWHawfUnZuiQ3TDhSdC1bL32uOxcaH5z4XCL/rXWbU=;
+        b=s2WlwqD1tGFW693a+TkQCnLlUB5/sfUqgsG9U2ZPIcfitgEOZ+MmuvGdZuNradiokz
+         yUEvIkiUhKnvIA3iXvpT1r2q7s5Zyk12xDGl/OpezooAwkVI74tzW0GfKzU3qwA43v4S
+         jr1RTDyvfsLA9o4yOEPSxiRnYFz5RilCXnrjM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771447179; x=1772051979;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hLWHawfUnZuiQ3TDhSdC1bL32uOxcaH5z4XCL/rXWbU=;
+        b=R4kH2g25IVp/7rPnu4SnVtt/sCATFl5ZABiKzDzHAufImd+TH/0Rd0aTcEhZo+7+xu
+         6MjeXDCKx0IPau92sSteu9sDYZCZpZxmB1LlX978uSe6TlLmKTXuUTwOzsM18zFCj9qe
+         OWJTNK4b9EOmz1Wz3dSRopB+IcGBfUJeeYcj/RI/g1uFfRbHwe6twCERoIydcjQsWmGy
+         7GiiGDtXLeeiFMbep0SBXnLpzDGjQDeRMIjSsBupkqy9qVyu23JTU5nbuOUetqYiDqod
+         oRg+o/nJ/io6g8UP5XRcXdPjh7IWT/iAU4QDX5XiLkCEDPuRxfZT8Bw2g3p/AU3uGUAG
+         JH1A==
+X-Forwarded-Encrypted: i=1; AJvYcCWC/vvdsrtuwkX7gZfq6DQnCR9d6CK8m5A5n6FAALQZv+EYqUR8LrRtgB5xJLI0Byd/jndnV2XtdJcLq+5Dp29b@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+0A1GKxZxoqbOEdWd2ygAgvrmL9mNdA0Yyxk4+xRrqarGY6Bw
+	1DMd1nMbLGHxNNUYJ2l7kX6eI8L2qq/AJVBRzSPPMppXzRkifVK3Oop3CXI3Ho4T9x8=
+X-Gm-Gg: AZuq6aJbx/P4gehdtCHjNmBUj44wVqgj2NjrY9dEe8SzeY/lBOdHVJROM2LFTCs/yfQ
+	E2CXbnKmdyKxbzZ1AusT2Mq+GBfS3aQ8DCuQLtUn8WLRrwr/Wy7jcoo8R9K4YjOfTg+jzsSLJ7v
+	s+CCEt2WDqx9p8i0h5L2vn9jsldBu/3LQGgfZXs0jOfEsKyv2QBnGFPkwddxCGpDDrLNs/WWcey
+	K1XrLQinHPBOrb7B/gdWnJx0Cy1S33MNAoFgXVwOo9Mlo1HnDw1uNevNiQannGOrw/Sr8f8CKF7
+	PU2h1TYZBw5USarvIdrBXDHIQInSeMti+YSXLCqRUY6OkmC9BuHmrfUpCBxYzh0JjUSKfvW8uP7
+	2x5akAA3YZ3gzxZzAMFXD0dSWhNlv8Z2tmgzPbPG0lxejfUbycQysodhQPYopiCPf46fHgc7vWH
+	Xnt6jaOYBiLmjtn1CrchoKdMoagaoPAtXwjqlLmMVAQQV4mguO/oHjchKgT51Lo6EPll0QC1yHJ
+	XSqJIMVu52CaIy2cry7fbdu0KvHUyBMmBRi
+X-Received: by 2002:a05:600c:6091:b0:477:df7:b020 with SMTP id 5b1f17b1804b1-4839e661d1bmr6597615e9.18.1771447179348;
+        Wed, 18 Feb 2026 12:39:39 -0800 (PST)
+Received: from P-NTS-Evian.home (2a01cb0594a2a2002ad9827a59cb148a.ipv6.abo.wanadoo.fr. [2a01:cb05:94a2:a200:2ad9:827a:59cb:148a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4835dd0e327sm620432895e9.14.2026.02.18.12.39.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Feb 2026 12:39:38 -0800 (PST)
+From: Romain Naour <romain.naour@smile.fr>
+To: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: [PATCH] ASoC: rockchip: i2s-tdm: Use param rate if not provided by set_sysclk
-Date: Wed, 18 Feb 2026 15:18:34 -0500
-Message-ID: <20260218201834.924358-1-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.53.0
+	linux-omap@vger.kernel.org
+Cc: conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	kristo@kernel.org,
+	vigneshr@ti.com,
+	nm@ti.com,
+	Romain Naour <romain.naour@smile.fr>,
+	stable@vger.kernel.org
+Subject: [PATCH] arm64: dts: ti: k3-j721e-main: Update delay select values for MMC1/2 subsystems
+Date: Wed, 18 Feb 2026 21:38:23 +0100
+Message-ID: <20260218203823.1825554-1-romain.naour@smile.fr>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_121910_526110_FC2A1CFA 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260218_123943_593673_B4B53414 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,46 +102,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drivers will not always call set_sysclk() for all clocks, especially when
-default mclk-fs can be used.
-When that is the case, use the clock rate set in the params multiplied by the
-default mclk-fs.
+The previous SPRSP36J datasheet recommends to set ti,otap-del-sel-sd-hs
+value to 0 for MMC1 and MMC2 interfaces. These values were updated in
+kernel 6.5. As a result we have some occasional regression with ultra
+high speed DDR50 SDXC cards while mounting the rootfs:
 
-Fixes: 5323186e2e8d ("ASoC: rockchip: i2s_tdm: Re-add the set_sysclk callback")
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+  mmc1: error -110 whilst initialising SD card
+
+A similar issue may occur with u-boot after a reboot while
+initialising the SD card:
+
+  mmc_init: -110, time 67
+
+Update the delay values for legacy and high speed modes, based on
+the latest revised datasheet SPRSP36K released in April 2024 [1].
+
+  (MMC1/2 - SD/SDIO Interface): Updated/Changed the
+  "OTAPDLYENA, DELAY ENABLE" and "OTAPDLYSEL, DELAY VALUE" for the
+  Default Speed and High Speed modes from "0x0" to "0x1"
+
+[1] Table 6-86. MMC1/2 DLL Delay Mapping for All Timing Modes, in
+https://www.ti.com/lit/ds/symlink/tda4vm.pdf,
+(SPRSP36K – SEPTEMBER 2021 – REVISED APRIL 2024)
+
+Cc: stable@vger.kernel.org # 6.5+
+Fixes: af398252d68e ("arm64: dts: ti: k3-j721e-main: Update delay select values for MMC subsystems")
+Signed-off-by: Romain Naour <romain.naour@smile.fr>
 ---
- sound/soc/rockchip/rockchip_i2s_tdm.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.c b/sound/soc/rockchip/rockchip_i2s_tdm.c
-index 770b9bfbb384..fc52149ed6ae 100644
---- a/sound/soc/rockchip/rockchip_i2s_tdm.c
-+++ b/sound/soc/rockchip/rockchip_i2s_tdm.c
-@@ -22,6 +22,7 @@
- 
- #define DRV_NAME "rockchip-i2s-tdm"
- 
-+#define DEFAULT_MCLK_FS				256
- #define CH_GRP_MAX				4  /* The max channel 8 / 2 */
- #define MULTIPLEX_CH_MAX			10
- 
-@@ -665,6 +666,15 @@ static int rockchip_i2s_tdm_hw_params(struct snd_pcm_substream *substream,
- 			mclk_rate = i2s_tdm->mclk_rx_freq;
- 		}
- 
-+		/*
-+		 * When the dai/component driver doesn't need to set mclk-fs for a specific
-+		 * clock, it can skip the call to set_sysclk() for that clock.
-+		 * In that case, simply use the clock rate from the params and multiply it by
-+		 * the default mclk-fs value.
-+		 */
-+		if (!mclk_rate)
-+			mclk_rate = DEFAULT_MCLK_FS * params_rate(params);
-+
- 		err = clk_set_rate(mclk, mclk_rate);
- 		if (err)
- 			return err;
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+index d5fd30a01032..418e6010ef1f 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+@@ -1643,8 +1643,8 @@ main_sdhci1: mmc@4fb0000 {
+ 		clocks = <&k3_clks 92 5>, <&k3_clks 92 0>;
+ 		assigned-clocks = <&k3_clks 92 0>;
+ 		assigned-clock-parents = <&k3_clks 92 1>;
+-		ti,otap-del-sel-legacy = <0x0>;
+-		ti,otap-del-sel-sd-hs = <0x0>;
++		ti,otap-del-sel-legacy = <0x1>;
++		ti,otap-del-sel-sd-hs = <0x1>;
+ 		ti,otap-del-sel-sdr12 = <0xf>;
+ 		ti,otap-del-sel-sdr25 = <0xf>;
+ 		ti,otap-del-sel-sdr50 = <0xc>;
+@@ -1671,8 +1671,8 @@ main_sdhci2: mmc@4f98000 {
+ 		clocks = <&k3_clks 93 5>, <&k3_clks 93 0>;
+ 		assigned-clocks = <&k3_clks 93 0>;
+ 		assigned-clock-parents = <&k3_clks 93 1>;
+-		ti,otap-del-sel-legacy = <0x0>;
+-		ti,otap-del-sel-sd-hs = <0x0>;
++		ti,otap-del-sel-legacy = <0x1>;
++		ti,otap-del-sel-sd-hs = <0x1>;
+ 		ti,otap-del-sel-sdr12 = <0xf>;
+ 		ti,otap-del-sel-sdr25 = <0xf>;
+ 		ti,otap-del-sel-sdr50 = <0xc>;
 -- 
-2.53.0
+2.52.0
 
 
