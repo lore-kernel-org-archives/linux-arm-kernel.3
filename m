@@ -4,93 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71EAAE9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 18:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D98E9A047
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 18:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZXX5Ad6lE4eM3SpWZXXZtn5YXTRNU+kz7ZHFBHa7LgY=; b=dv8QfobJK2UrwnJfk8dPuRUnx0
-	Ug++1ITwETJJ/echA95iR6b4Dr5MDdYaKqP+7j3ER33GCKy+fwEkZLkC2pXliNSoWlQWbLUo2t6/H
-	pyWp2f732McTKr3FAYn9VtLcUSfZUc1mHIBQDb9M9AzCHPGUmrC61NkOmk4Y7l8hJipyQkVynHhPf
-	Habk6HLoVxI4AKGZ7XeLKXyAyqjKiRx25N6jr48u/Io/ueIQmgc0tzAqCPW7xgsDPAQ1qUaBZf+pm
-	/MxBe94Tk0Fw9S+ltdx1Q72Ixp872KIft+E496TJZ/E5PUGsCdYiGcfz1wdbSpm+r/heZO6JI4+WM
-	uhJmV2CQ==;
+	bh=YviV1LJUtPqR1ffjnWUweO4RqwvYdHYZDmBnJ4iJYEk=; b=RBjvL4A7rpJfz/yO6xnmH8qf8w
+	5K3EMxe9VCUVq4L5jQNeuMLjg6dG0wx979EetGdlWa24iy7Ltv2ovrYH1/tyimXlrIAWiyBiGvQRv
+	HxQoYJEiU+1IXCwlNa4Ofrh8zdLrXFZb8/Uh0Nmyoim1j+vi+A9KWUyI61CXBszgzpq/CMWPGHPLv
+	o7/uPrQljcHZ3ug7WjVhrBa1YkIrk/6GIOqRpQWvQcIMlQnC6YIGme3leWHPT5iQiaWwFOHbqC2+e
+	aCorUPBGvAiW9ecvCKzm3VjG6CZewRNQn55eAGA6W3M/3xjRzDKe6cftREW2TIxcIPQ2/J87X9NSc
+	grgwnjvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vslvz-0000000ACr2-05pG;
-	Wed, 18 Feb 2026 18:05:59 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1vsm4h-0000000ADWi-3IVa;
+	Wed, 18 Feb 2026 18:14:59 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vslvu-0000000ACqA-11LK
+	id 1vsm4e-0000000ADWP-2La4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 18:05:57 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4806bf39419so8524245e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 10:05:53 -0800 (PST)
+	Wed, 18 Feb 2026 18:14:57 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-385d9fb297dso1788801fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 10:14:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771438494; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S7E4UOhcjSUD2RkL7eFnZxt1uVwrf3bjBzPoX8HZMiHbYCTLA7djxewBwiKl3myd4E
+         sNhl8RaFQCqP80Yq8Hq2p5WsIi3oVwp4r5X1ODXIE/ZqpSvCfcjJ6+/Qu2xhTEZV6ZVf
+         6+/9w/z94mNvFyPCqkFO4pbsFB3bLKIAUd3mpZddCokLScK7mesd+U1kcRrRRhUrFpIS
+         OVjh8shJauztR+/uS/w0UZM8A8tm5LHoVDMY4lwllnDYryWI0ga+Fk8C+TKlLNRc//VY
+         Om+j0H6jLHqiaPAZbN3KIblw+0Q4BL7lcvUBT/OChkvtBALRboyna63eV0Z1JYtk/WZe
+         zGTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YviV1LJUtPqR1ffjnWUweO4RqwvYdHYZDmBnJ4iJYEk=;
+        fh=kkNKsMWYv8wjcEfTsjDtvnkC9wDvQEJWCuOtbWEYGp0=;
+        b=Hmnv63Om0zpbQSKsNh/XDqnR+88E+6iSop3WYeorWOooCJZIP7sDqjOBR7FWZkN/QX
+         7DC3PGiwIVneFMVig1JmI+mtq+jBay7/u+lYImRDYRgcW9jZ6Q2xWPQTUbYX+J1uZfco
+         K6jiMzbQmGqsiFGg3tYu5SVySMwysvbMTZcEGCmpZOuFs+ucDdOD2ikUTHGJ53TMdACn
+         5RXDE6F50I0LSsvwPCCkLGlvCp7t0985vpacndwbV5DWFdgrRQxZYrTAAAk1guwC6nSH
+         eAgcqYPfTWodWKZs9q1nIcH7DM/KiHrePWLtmperqpzWfCIDrKdiT8fS7hk3BVgdmjuU
+         XT8A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1771437952; x=1772042752; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1771438494; x=1772043294; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZXX5Ad6lE4eM3SpWZXXZtn5YXTRNU+kz7ZHFBHa7LgY=;
-        b=NFHY2JmlEhXKIeb2xH5EIJY3mfVmMFs9XnUMALVUi/WbAGIiQVBTK+0ZutGTYvernB
-         baP3qHFJT6Kb7uQxwz4/iHh6kdclLl0OpWX+HcSLQhifX0ftZ9MI3R84zf/NWiZvOlw9
-         Ldvv+v3d9G1PeShNvAt3T9W+zb0XKlzLWSx5PTS6wFjyI3JrRobX4CEvAu/GqmKxEWa8
-         OXclenEtjjhhfELZDwTVriGOpikKYivzENXP9srwEd+CFS2G+xIgH/BjgCBfv8NARhnl
-         TCgvdN7JbJU/00FDznUJZw7uX7jlIuDTBoEO3f+8yht4a/l+mcB7Px+X/nsg5pB0LpIw
-         Ry0Q==
+        bh=YviV1LJUtPqR1ffjnWUweO4RqwvYdHYZDmBnJ4iJYEk=;
+        b=CwB7TyZ+tVYR0bFnMFwx+8qnyOo6JFZ1IBogtBddPlkKQfdn1w/xBstcu+bjfsrkPp
+         5eL7DLmyZiJp6WgIfA5pPRZIxHx1OCRqXQaDGGxyeUGHT2oVnvNz6WumW8t8382nLOvi
+         CodHWUTSbWFc9o2npFZb2qYlj+uwCznQ38Jjn0UXCWaGLKYlZPxRh5to7MPlID2Vab+u
+         Deko5ahY0QjjMuYuQopyeRaBDtLuGjf0K32eMqTquzOqbsXlmO2Qkc/WmhxErsbL0eoI
+         pMDP4IrvEZgXNfPDYNNo0Km0dNogKJeNshHQ1Rhl5keqMsEX9FodiEhn/kFJ/fX6UOBc
+         RMMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771437952; x=1772042752;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZXX5Ad6lE4eM3SpWZXXZtn5YXTRNU+kz7ZHFBHa7LgY=;
-        b=bqtWTANIQW1b30qiQI86Hwf3DhSI4gl6k9gKBHjOxXnLH8YtfF7pAAF4GHW/HZG41B
-         gQ32sfdES+wBBLWotwdEBT+i9wYLBgvwB1m6DpiKgcPpkqNmKoIelp5bflxlsoQZTu7e
-         s9+NrkDee8Ga5KnUNsZxe6o5nfyZswnjU6tro33H6pcmTsjaaTo23a/mQqx8nLoXZ9KE
-         kWV31oUhrQdgcL70aOCSafBLwwSxyvncKKMC7nQ6Oea6YokgE50tHnCIgHX3i/OpowT2
-         etTXJoIwElTOiKxp48l46fK1BcpNaDagicSxifFyNxMXbrtr/ePQdNmhuuwD76S1nMdj
-         yPew==
-X-Forwarded-Encrypted: i=1; AJvYcCVIyVmWBNjzIzx8yVlUFn0eQbsicY99d4JGbc/H5/5Y+6hKYNZenlErJyKUHmIF3oqIhxcmhLuTBKyKdDv0XRnN@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywrz05VOsjjZiILP7CVgimgc/0Kk1CNPoeK4AXjAL6j62KNAEfG
-	fLT5lg3YyF9idzzOGwo+ROFqjRohDhFLNpQkOTnESlcRQXNq67k8SqoX2rgqmkgljLvULrw91g2
-	w0GRR
-X-Gm-Gg: AZuq6aJSLOONrWFo0VkVyGbMVwLc+Wz/a1ywFGGjohjzmp7Oe0y0iNQKHpIgaiZKert
-	/fQwEkQeSsslObzwuov8iE0CNDGlb6by+cQckP9BAjTQNoy7eoz2b9Z3HIqlBZ32M5i2tlEbWHF
-	H86Nj+IWc1m0rSGuhnKpAousXqhLJji6vod0XJyUNsw2GvIG7EIzqOa87bix1ni7X5kj6oC1z33
-	1zeJfd1q11XfcECizXqvTvzWh4HMITv/5tE9SZeGxQUsrpL8iBMarojmWT/UG3O1C0HW5hTAdqn
-	rM/Wt4bf5dVCLuJi8X5Mp94/08C3DR0vS2AwYjcBVBCUrqCT8xT7OTMxGKZFunMz3c9iyd+Tael
-	fPP8jUAby+UYwVYgJMm+2yNepAaOFDN9W9Xr8gAeh4/oLGtYh0vI4kPDgJ/G8Bla5OPdM82413E
-	ZfFXnvVpQEMjSBGVqbz0Cm+w==
-X-Received: by 2002:a05:600c:3b15:b0:47d:333d:99c with SMTP id 5b1f17b1804b1-48398cc6196mr51541025e9.18.1771437951849;
-        Wed, 18 Feb 2026 10:05:51 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:cf71:8cf8:56bb:5790])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-483801ff9b3sm317029295e9.13.2026.02.18.10.05.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Feb 2026 10:05:51 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Cc: linux-amlogic@lists.infradead.org,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Michael Turquette <mturquette@baylibre.com>,
-  Stephen Boyd <sboyd@kernel.org>,  Kevin Hilman <khilman@baylibre.com>,
-  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-  linux-clk@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/7] drivers: clk: meson: Add Amlogic T7 fix pll support
-In-Reply-To: <20260218101709.35450-1-linux-kernel-dev@aliel.fr> (Ronald
-	Claveau's message of "Wed, 18 Feb 2026 11:17:06 +0100")
-References: <20260218101709.35450-1-linux-kernel-dev@aliel.fr>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Wed, 18 Feb 2026 19:05:49 +0100
-Message-ID: <1j4ine6i6a.fsf@starbuckisacylon.baylibre.com>
+        d=1e100.net; s=20230601; t=1771438494; x=1772043294;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=YviV1LJUtPqR1ffjnWUweO4RqwvYdHYZDmBnJ4iJYEk=;
+        b=IT0+06J82hUVZ7E4jIEkfdtI7en03qa7/A8qVt8b5IvQDcdKADN/91B28yBvFyXPx5
+         vq0RDKBihvutB3O/vtN9CRcDTTahBQEWjmPm/tUsrANMUMaS938zMGAEoNKkJ7H7Unct
+         7AhEzLAy9/jyeANPDKnFgzRX3ePB+gsBI6n4SW3CcysXCYLRrpxZ8fuCkxzk9jHKuxqU
+         5MYZ4l7qf1R+Y1DMDDE1Rg78zkWFC6UtdPCVOzwr3Uv79kGmZxTVHF8BXZthU9/qdNCh
+         IQ+Z7RoQuJAbzLNXd/QKGM0+QmGqL+vMw1y0v2a4ROJ57BLqhXO8eO6FrWe20kbAJxwX
+         pWKg==
+X-Forwarded-Encrypted: i=1; AJvYcCV1s7BMClcMlEfhWAbs7kXwSVGeFzdR5/T3eb+UEh1Faj2hT6dn9sjO9OhxFb0HnRjz4EdVmaCzhwmdpuF5HC2N@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVa34cSG/he8Zt071l63uFjOTTRezv5UrmkJKZZUC+glurdR0B
+	86T0/2tpOecHDBktsbu/MdbqkBdKQ8u1uN82sa6Z+x+0wRUxVYfMJbVFtI9h3kg9We2nKNe2U4B
+	FQqdCNm7a7S+tWrNy+u77jOLKjz+XBFI=
+X-Gm-Gg: AZuq6aJQYb7WBbXbijRufZ/azgiIsujPYYDG5Wgwy8O4BCsgZ4FVRUryH69BVHu82Ep
+	IFBY6B3yi9rGjsjbxBCFlwyuP54R0HDlRP/fhX/g8OKR7U4O83XOssIvcC8rzgBlUhwe5rkp/8j
+	kQPtv0q8jnRODkmcnLl6mSVN7wLDMO06C/3SnQjP1RyzDJC7ITIkgrFujBXhF0x66/s/uu8UsXa
+	ZNga5dbrpAZ1p4N5Awegh00LOgDUbUvp42pUtabaQzDqZ0yDSikzDO7laylybxFZipszD8QFXhR
+	CAaRJny5J/UEMR53EuGF40E2spVu7S6DrOhmtJMzOCY/MyD43mPYQFR8gm5M9lNlArcIMi0=
+X-Received: by 2002:a05:651c:1505:b0:37a:34e2:88e7 with SMTP id
+ 38308e7fff4ca-38846ded488mr8325581fa.22.1771438494066; Wed, 18 Feb 2026
+ 10:14:54 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+References: <20260218132339.32157-1-Max.Merchel@ew.tq-group.com> <20260218132339.32157-2-Max.Merchel@ew.tq-group.com>
+In-Reply-To: <20260218132339.32157-2-Max.Merchel@ew.tq-group.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Wed, 18 Feb 2026 15:14:42 -0300
+X-Gm-Features: AaiRm53RLXHEYghXfgNRCuxfYIbnDQ70cmKmTheE3k1c4d-bmc6cBGsAlV-rhj8
+Message-ID: <CAOMZO5B5k_i_q4cd7SMNAkicF4WfEYNVUSrg8AamQHNpGys5mA@mail.gmail.com>
+Subject: Re: [PATCH 1/4] ARM: dts: imx6ul/imx6ull: add boot phase properties
+To: Max Merchel <Max.Merchel@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, linux@ew.tq-group.com, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_100554_505042_F4F909AB 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20260218_101456_623386_2E324E4D 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,320 +120,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On mer. 18 f=C3=A9vr. 2026 at 11:17, Ronald Claveau <linux-kernel-dev@aliel=
-.fr> wrote:
+Hi Max,
 
-> Add PLL for the clock controller of the Amlogic T7 SoC family.
+On Wed, Feb 18, 2026 at 10:24=E2=80=AFAM Max Merchel
+<Max.Merchel@ew.tq-group.com> wrote:
 >
+> Add boot phase properties from U-Boot device tree.
 
-As Krzysztof pointed out, a series like this needs a cover letter to explain
-what you are trying to acheive overall, and proper threading.
+The commit logs of this series could be improved. Please take a look
+at these examples:
 
-The description above is too vague.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?=
+h=3Dv6.19&id=3D256feb5be482315a91c1bd1a1808276f57ef76dd
 
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> ---
->  drivers/clk/meson/t7-pll.c | 257 +++++++++++++++++++++++++++++++++++++
->  1 file changed, 257 insertions(+)
->
-> diff --git a/drivers/clk/meson/t7-pll.c b/drivers/clk/meson/t7-pll.c
-> index 0a622f45fa36..3dd3aca50b7c 100644
-> --- a/drivers/clk/meson/t7-pll.c
-> +++ b/drivers/clk/meson/t7-pll.c
-> @@ -71,6 +71,15 @@
->  #define MCLK_PLL_CNTL4		0x10
->  #define MCLK_PLL_STS		0x14
->=20=20
-> +#define FPLL_CTRL0		0x00
-> +#define FPLL_CTRL1		0x04
-> +#define FPLL_CTRL2		0x08
-> +#define FPLL_CTRL3		0x0c
-> +#define FPLL_CTRL4		0x10
-> +#define FPLL_CTRL5		0x14
-> +#define FPLL_CTRL6		0x18
-> +#define FPLL_STS		0x1c
-
-The PLL you are adding is described in the datasheet as the MPLL. FPLL
-is nowhere to be found. Prefer using names that relate to the
-documentation.
-
-If you must make a name up, you need to have a very good reason and to
-explain it.
-
-Still from the public documentation, this PLL belong in the same device as
-MPLL0, MPLL1, etc ... BUT, I remember correctly the T7 initial
-submission, the fixed PLL and fdivs are supposed to be provided through
-SCMI clocks. Have you checked that ?
-
-> +
->  static const struct pll_mult_range t7_media_pll_mult_range =3D {
->  	.min =3D 125,
->  	.max =3D 250,
-> @@ -1047,6 +1056,253 @@ static const struct meson_clkc_data t7_mclk_data =
-=3D {
->  	},
->  };
->=20=20
-> +static struct clk_regmap t7_fpll_dco =3D {
-> +	.data =3D &(struct meson_clk_pll_data){
-> +		.en =3D {
-> +			.reg_off =3D FPLL_CTRL0,
-> +			.shift   =3D 28,
-> +			.width   =3D 1,
-> +		},
-> +		.m =3D {
-> +			.reg_off =3D FPLL_CTRL0,
-> +			.shift   =3D 0,
-> +			.width   =3D 8,
-> +		},
-> +		.n =3D {
-> +			.reg_off =3D FPLL_CTRL0,
-> +			.shift   =3D 10,
-> +			.width   =3D 5,
-> +		},
-> +		.frac =3D {
-> +			.reg_off =3D FPLL_CTRL1,
-> +			.shift   =3D 0,
-> +			.width   =3D 17,
-> +		},
-> +		.l =3D {
-> +			.reg_off =3D FPLL_CTRL0,
-> +			.shift   =3D 31,
-> +			.width   =3D 1,
-> +		},
-> +		.rst =3D {
-> +			.reg_off =3D FPLL_CTRL0,
-> +			.shift   =3D 29,
-> +			.width   =3D 1,
-> +		},
-> +	},
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fpll_dco",
-> +		.ops =3D &meson_clk_pll_ro_ops,
-> +		.parent_data =3D &(const struct clk_parent_data) {
-> +			.fw_name =3D "xtal",
-> +		},
-> +		.num_parents =3D 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap t7_fpll =3D {
-> +	.data =3D &(struct clk_regmap_div_data){
-> +		.offset =3D FPLL_CTRL0,
-> +		.shift =3D 16,
-> +		.width =3D 2,
-> +		.flags =3D CLK_DIVIDER_POWER_OF_TWO,
-> +	},
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fpll",
-> +		.ops =3D &clk_regmap_divider_ro_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) {
-> +			&t7_fpll_dco.hw
-> +		},
-> +		.num_parents =3D 1,
-> +	},
-> +};
-> +
-> +static struct clk_fixed_factor t7_fdiv2_div =3D {
-> +	.mult =3D 1,
-> +	.div =3D 2,
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv2_div",
-> +		.ops =3D &clk_fixed_factor_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) { &t7_fpll.hw },
-> +		.num_parents =3D 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap t7_fdiv2 =3D {
-> +	.data =3D &(struct clk_regmap_gate_data){
-> +		.offset =3D FPLL_CTRL1,
-> +		.bit_idx =3D 24,
-> +	},
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv2",
-> +		.ops =3D &clk_regmap_gate_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) {
-> +			&t7_fdiv2_div.hw
-> +		},
-> +		.num_parents =3D 1,
-> +		.flags =3D CLK_IS_CRITICAL,
-> +	},
-> +};
-> +
-> +static struct clk_fixed_factor t7_fdiv2p5_div =3D {
-> +	.mult =3D 2,
-> +	.div =3D 5,
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv2p5_div",
-> +		.ops =3D &clk_fixed_factor_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) {
-> +			&t7_fpll.hw
-> +		},
-> +		.num_parents =3D 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap t7_fdiv2p5 =3D {
-> +	.data =3D &(struct clk_regmap_gate_data){
-> +		.offset =3D FPLL_CTRL1,
-> +		.bit_idx =3D 25,
-> +	},
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv2p5",
-> +		.ops =3D &clk_regmap_gate_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) {
-> +			&t7_fdiv2p5_div.hw
-> +		},
-> +		.num_parents =3D 1,
-> +	},
-> +};
-> +
-> +static struct clk_fixed_factor t7_fdiv3_div =3D {
-> +	.mult =3D 1,
-> +	.div =3D 3,
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv3_div",
-> +		.ops =3D &clk_fixed_factor_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) { &t7_fpll.hw },
-> +		.num_parents =3D 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap t7_fdiv3 =3D {
-> +	.data =3D &(struct clk_regmap_gate_data){
-> +		.offset =3D FPLL_CTRL1,
-> +		.bit_idx =3D 20,
-> +	},
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv3",
-> +		.ops =3D &clk_regmap_gate_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) {
-> +			&t7_fdiv3_div.hw
-> +		},
-> +		.num_parents =3D 1,
-> +		.flags =3D CLK_IS_CRITICAL,
-> +	},
-> +};
-> +
-> +static struct clk_fixed_factor t7_fdiv4_div =3D {
-> +	.mult =3D 1,
-> +	.div =3D 4,
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv4_div",
-> +		.ops =3D &clk_fixed_factor_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) { &t7_fpll.hw },
-> +		.num_parents =3D 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap t7_fdiv4 =3D {
-> +	.data =3D &(struct clk_regmap_gate_data){
-> +		.offset =3D FPLL_CTRL1,
-> +		.bit_idx =3D 21,
-> +	},
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv4",
-> +		.ops =3D &clk_regmap_gate_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) {
-> +			&t7_fdiv4_div.hw
-> +		},
-> +		.num_parents =3D 1,
-> +		.flags =3D CLK_IS_CRITICAL,
-> +	},
-> +};
-> +
-> +static struct clk_fixed_factor t7_fdiv5_div =3D {
-> +	.mult =3D 1,
-> +	.div =3D 5,
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv5_div",
-> +		.ops =3D &clk_fixed_factor_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) { &t7_fpll.hw },
-> +		.num_parents =3D 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap t7_fdiv5 =3D {
-> +	.data =3D &(struct clk_regmap_gate_data){
-> +		.offset =3D FPLL_CTRL1,
-> +		.bit_idx =3D 22,
-> +	},
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv5",
-> +		.ops =3D &clk_regmap_gate_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) {
-> +			&t7_fdiv5_div.hw
-> +		},
-> +		.num_parents =3D 1,
-> +		.flags =3D CLK_IS_CRITICAL,
-> +	},
-> +};
-> +
-> +static struct clk_fixed_factor t7_fdiv7_div =3D {
-> +	.mult =3D 1,
-> +	.div =3D 7,
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv7_div",
-> +		.ops =3D &clk_fixed_factor_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) { &t7_fpll.hw },
-> +		.num_parents =3D 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap t7_fdiv7 =3D {
-> +	.data =3D &(struct clk_regmap_gate_data){
-> +		.offset =3D FPLL_CTRL1,
-> +		.bit_idx =3D 23,
-> +	},
-> +	.hw.init =3D &(struct clk_init_data){
-> +		.name =3D "fdiv7",
-> +		.ops =3D &clk_regmap_gate_ops,
-> +		.parent_hws =3D (const struct clk_hw *[]) {
-> +			&t7_fdiv7_div.hw
-> +		},
-> +		.num_parents =3D 1,
-> +		.flags =3D CLK_IS_CRITICAL,
-> +	},
-> +};
-> +
-> +static struct clk_hw *t7_fpll_hw_clks[] =3D {
-> +	[CLKID_FPLL_DCO]	=3D &t7_fpll_dco.hw,
-> +	[CLKID_FPLL]		=3D &t7_fpll.hw,
-> +	[CLKID_FDIV2_DIV]	=3D &t7_fdiv2_div.hw,
-> +	[CLKID_FDIV2]		=3D &t7_fdiv2.hw,
-> +	[CLKID_FDIV2P5_DIV]	=3D &t7_fdiv2p5_div.hw,
-> +	[CLKID_FDIV2P5]		=3D &t7_fdiv2p5.hw,
-> +	[CLKID_FDIV3_DIV]	=3D &t7_fdiv3_div.hw,
-> +	[CLKID_FDIV3]		=3D &t7_fdiv3.hw,
-> +	[CLKID_FDIV4_DIV]	=3D &t7_fdiv4_div.hw,
-> +	[CLKID_FDIV4]		=3D &t7_fdiv4.hw,
-> +	[CLKID_FDIV5_DIV]	=3D &t7_fdiv5_div.hw,
-> +	[CLKID_FDIV5]		=3D &t7_fdiv5.hw,
-> +	[CLKID_FDIV7_DIV]	=3D &t7_fdiv7_div.hw,
-> +	[CLKID_FDIV7]		=3D &t7_fdiv7.hw,
-> +};
-> +
-> +static const struct meson_clkc_data t7_fpll_data =3D {
-> +	.hw_clks =3D {
-> +		.hws =3D t7_fpll_hw_clks,
-> +		.num =3D ARRAY_SIZE(t7_fpll_hw_clks),
-> +	},
-> +};
-> +
->  static const struct of_device_id t7_pll_clkc_match_table[] =3D {
->  	{ .compatible =3D "amlogic,t7-gp0-pll",	.data =3D &t7_gp0_data, },
->  	{ .compatible =3D "amlogic,t7-gp1-pll",	.data =3D &t7_gp1_data, },
-> @@ -1055,6 +1311,7 @@ static const struct of_device_id t7_pll_clkc_match_=
-table[] =3D {
->  	{ .compatible =3D "amlogic,t7-mpll",	.data =3D &t7_mpll_data, },
->  	{ .compatible =3D "amlogic,t7-hdmi-pll",	.data =3D &t7_hdmi_data, },
->  	{ .compatible =3D "amlogic,t7-mclk-pll",	.data =3D &t7_mclk_data, },
-> +	{ .compatible =3D "amlogic,t7-fpll",	.data =3D &t7_fpll_data, },
->  	{}
->  };
->  MODULE_DEVICE_TABLE(of, t7_pll_clkc_match_table);
-
---=20
-Jerome
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?=
+h=3Dv6.19&id=3D2285ea3f8065f47a6a1b62e6fcfa85105c8c261b
 
