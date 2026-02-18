@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2047DE9A047
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A794DE9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zM9Zo47+NRAgLWz5wQrX/J8d2M8u0d6t3FJfloErUUo=; b=LQDXme6ckOxCzZSxCEsE+ewtjW
-	VAb8AmK5o9dIFtylYe6AKqgdiEpJ+hA9H3gu0xTnX/7+dTuTfsEXEYs2ZWS/yVj5Blp2exAiqtuie
-	ng+B8r6DYVTwdaw4lh2NnW0kN4rDlzzNcxKxcPxmOYVlmQnXabSqW4eb4agA6hDBmNhEx/ky9xjas
-	4ypge4675+xZLoGLtt6psdm1cbEvaIpRtBz4Y/PFABJY/PQNrs6LDozzUGeNF3r8+6/6QgAX+MBQi
-	y3+vtQnjmQN78nGrq36vM+Rgnlaip+x2lSqs5bicTjvkvQAHTyylhKzzStLVFM+qk7e/iTFBvlwCv
-	Sbc4+FUw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2XzzYHYnONUTdNYkXwk/uHAeNp73yFkJUMyMPHOQlho=; b=NF5OxVSjuxTsEZ2Qvvjf2MD5y9
+	ivH0QCRGtVpluFQtExJ/ox6U/q+QBs0fgfgavPvlVgZy3NW4kpd2C4CfPWaSqfGC4gBvDWkxjRJLr
+	gX35G49nvtbIqnJhgP/OlLvzX9dmmjbBeDkz4dqjDUdxBbzJ70pxV/mFZI7s/Q4PU99e481oW/pQA
+	OTAG097NuwkNMYK27i8XYbut+Qg8TRg6HsSdl6f85KnxlxBZfGN5I4u04V8mwi9puiOvPUVQsSTZK
+	v+HTU5IXbFSxEa3w4JJSo1y1/ReLiulxio3uNMSQu5TKzjvctUvOme9CZVH1SffcPgdvEs303wXhZ
+	g9I1OSmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsked-0000000A6eY-3FGn;
-	Wed, 18 Feb 2026 16:43:59 +0000
+	id 1vskev-0000000A6kA-2lKf;
+	Wed, 18 Feb 2026 16:44:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskea-0000000A6dp-3u22
+	id 1vskes-0000000A6j4-3Joe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:43:58 +0000
+	Wed, 18 Feb 2026 16:44:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79383339;
-	Wed, 18 Feb 2026 08:43:49 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F4D8339;
+	Wed, 18 Feb 2026 08:44:07 -0800 (PST)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A2D8F3F62B;
-	Wed, 18 Feb 2026 08:43:54 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 58D3E3F62B;
+	Wed, 18 Feb 2026 08:44:12 -0800 (PST)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com,
@@ -41,15 +41,18 @@ Cc: catalin.marinas@arm.com,
 	oupton@kernel.org,
 	ryan.roberts@arm.com,
 	will@kernel.org
-Subject: [PATCH 0/2] arm64: tlb: Optimize ARM64_WORKAROUND_REPEAT_TLBI
-Date: Wed, 18 Feb 2026 16:43:46 +0000
-Message-Id: <20260218164348.2022831-1-mark.rutland@arm.com>
+Subject: [PATCH 1/2] arm64: tlb: Allow XZR argument to TLBI ops
+Date: Wed, 18 Feb 2026 16:43:47 +0000
+Message-Id: <20260218164348.2022831-2-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260218164348.2022831-1-mark.rutland@arm.com>
+References: <20260218164348.2022831-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_084357_017273_C9BB5250 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260218_084414_872911_E23ED2FE 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,55 +67,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+The TLBI instruction accepts XZR as a register argument, and for TLBI
+operations with a register argument, there is no functional difference
+between using XZR or another GPR which contains zeroes. Operations
+without a register argument are encoded as if XZR were used.
 
-Some Arm partners have complained that the overhead of
-ARM64_WORKAROUND_REPEAT_TLBI is too large, and despite the relevant
-errata being categorized as "rare", they still want to use the
-workaround in some deployments.
+Allow the __TLBI_1() macro to use XZR when a register argument is all
+zeroes.
 
-For historical reasons, the current workaround is far stronger (and
-consequently far more expensive) than necessary. In part, the SDENs had
-somewhat misleading descriptions, which have recently been clarified:
+Today this only results in a trivial code saving in
+__do_compat_cache_op()'s workaround for Neoverse-N1 erratum #1542419. In
+subsequent patches this pattern will be used more generally.
 
-* Arm Cortex-A76 erratum #1286807
-  SDEN v33: https://developer.arm.com/documentation/SDEN-885749/33-0/
+There should be no functional change as a result of this patch.
 
-* Arm Cortex-A55 erratum #2441007
-  SDEN v16: https://developer.arm.com/documentation/SDEN-859338/1600/
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/tlbflush.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-* Arm Cortex-A510 erratum #2441009
-  SDEN v19: https://developer.arm.com/documentation/SDEN-1873351/1900/
-
-Patch 1 allows the __TLBI*() helpers to generate XZR as an argument.
-I've split this out as its own patch to make bisection easier in case we
-see any problems due to incorrect trap+emulation handling of XZR.
-Otherwise this shouldn't have any functional change.
-
-Patch 2 is the actual optimization, spelled out in detail in the commit
-message. The gist is that it's not necessary to duplicate every
-individual TLBI, and it's sufficient to have a single arbitrary TLBI;DSB
-after any number of batched TLBIs;DSB.
-
-As mentioned in the commit message for patch 2, this results in fewer
-alternatives and better code generation whenever
-ARM64_WORKAROUND_REPEAT_TLBI is built into the kernel, so it's a
-(trivial) win on hardware that isn't affected by the relevant errata.
-
-Mark.
-
-Mark Rutland (2):
-  arm64: tlb: Allow XZR argument to TLBI ops
-  arm64: tlb: Optimize ARM64_WORKAROUND_REPEAT_TLBI
-
- arch/arm64/include/asm/tlbflush.h | 63 ++++++++++++++++++-------------
- arch/arm64/kernel/sys_compat.c    |  2 +-
- arch/arm64/kvm/hyp/nvhe/mm.c      |  2 +-
- arch/arm64/kvm/hyp/nvhe/tlb.c     |  8 ++--
- arch/arm64/kvm/hyp/pgtable.c      |  2 +-
- arch/arm64/kvm/hyp/vhe/tlb.c      | 10 ++---
- 6 files changed, 49 insertions(+), 38 deletions(-)
-
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index a2d65d7d6aaeb..bf1cc9949dc87 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -38,12 +38,12 @@
+ 			    : : )
+ 
+ #define __TLBI_1(op, arg) asm (ARM64_ASM_PREAMBLE			       \
+-			       "tlbi " #op ", %0\n"			       \
++			       "tlbi " #op ", %x0\n"			       \
+ 		   ALTERNATIVE("nop\n			nop",		       \
+-			       "dsb ish\n		tlbi " #op ", %0",     \
++			       "dsb ish\n		tlbi " #op ", %x0",    \
+ 			       ARM64_WORKAROUND_REPEAT_TLBI,		       \
+ 			       CONFIG_ARM64_WORKAROUND_REPEAT_TLBI)	       \
+-			    : : "r" (arg))
++			    : : "rZ" (arg))
+ 
+ #define __TLBI_N(op, arg, n, ...) __TLBI_##n(op, arg)
+ 
 -- 
 2.30.2
 
