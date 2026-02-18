@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AFAE9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF836E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 16:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BB8J3JMtEPj5H0CRRPlNePbZc8U65x2uvJAooEjNMl8=; b=qHUh3f4DQiRTjkY/eFQ0KXZffQ
-	2kRtBPraVWlvxVkbsnW3xLCl5pu1TeBzlYNjf3n1Fm9UtF+1QquWH1J8oibO1yzs/Jii/aMMr2qMC
-	/8pb1vJbK9BGK3PpmJhCd/mkOh/svC0t8XDVxegTlZhxKDS5xY1ZEWkLm6nFcj9N25sSNyO1ERdtc
-	ST005+jXXM8tfTZ8X1xT87m07rUEmvnfjAvpsyf+ZKow/0rfdVM3o51YwL2HQxrsT3E0FcXVmYwLl
-	uUfCavSxz+uQ7v3jmv3/AZGgIv6dWwDGdTANcWumL6yWF6W460qM1NSH3xIUz/egiXCr4nPXGqfsN
-	1CB5Ijpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=syJvSBYWmoc2bQ+suPVmqNX1ElaxT5/1N2KtMvR5unw=; b=rmWM58x3fhxLEh9wdmfdlTI9Wd
+	GqMMD811z4BB2sbeLng1ntDuL8FrgwC/QsK8LneLwG/ivh0bB7hT7MBJjjq7r+ejrXvn0QlqOYEED
+	Crscsge7EZBiGHSQV8MB3iYUhORTMmAGfY3MGMpZJJyrFWtxnU7QVAAUleWIU/ZD4ZMXuxqBnA33g
+	kBbGuLG/L6Y+zamwma3W8n54uIAdzBfZnakSCNRJxtAsNw+tWeS95zWxC+1Wc1Hb/GVjOsmmMMTky
+	N/gH64MEoZnLCxsk3ym4K6GvdXwVt2GYEMRd2tbdny6s+Nb3aprvSa29wzeGhPIIvj8yR1eKeQsaA
+	5VHXiVaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskXz-0000000A5fr-3y56;
-	Wed, 18 Feb 2026 16:37:07 +0000
-Received: from 6.mo619.mail-out.ovh.net ([46.105.41.88])
+	id 1vskYs-0000000A5sA-0C4g;
+	Wed, 18 Feb 2026 16:38:02 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vskXv-0000000A5eL-1xqg
+	id 1vskYp-0000000A5rE-0qCt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 16:37:06 +0000
-Received: from ex.mail.ovh.net (unknown [10.108.54.138])
-	by mo619.mail-out.ovh.net (Postfix) with SMTP id 4fGMbs3P0Mz9xLs;
-	Wed, 18 Feb 2026 16:36:57 +0000 (UTC)
-Message-ID: <0af0667d-c140-4f6d-86cc-6be0460bf81a@aliel.fr>
-Date: Wed, 18 Feb 2026 17:36:54 +0100
+	Wed, 18 Feb 2026 16:38:00 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-4359108fd24so11305f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 08:37:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771432677; x=1772037477; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=syJvSBYWmoc2bQ+suPVmqNX1ElaxT5/1N2KtMvR5unw=;
+        b=LtUuCVnn+Gw3SvBUKxeOdtn45pvpWRRgvlh6nSfNAvrMtbfgtv7/mDinrotf+qZzHq
+         QJCt8/ywZEJmk1yPHjOaQXgnKWeT978yZPT8zKWjLN8kygjNA20joSc+gxi8Vxe5/njz
+         60YrmoxoaL54whdnFGtv84a4i38LG6n5wnuhqYHUp6ILqbbxFBKQKaXCSfmRbcZ5Dbfp
+         2Yt5Kv3NdlEBxPanLHH0kWy037Isossrj8nZqqKfn4nDvLRSOmXEreTsm9nJGi7bnliz
+         z1F6/Xme3A41l+HZDY+ys+ltjs9joPbXVp40GXUDsFN/bjm28SVj1COY7IlDl/c4cj9K
+         dJbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771432677; x=1772037477;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=syJvSBYWmoc2bQ+suPVmqNX1ElaxT5/1N2KtMvR5unw=;
+        b=gX9XCw9idj/ieXGkHJZTaS+2AJzP/Y1YANp9fGv+/wU/Ab0/owRH0QYDMj0dJLm8vI
+         WphIf+uJ5cC6gSkjhv19BwEmVEw47lJKS2mMpRsGhSkL54ywwrQMSY2n8uMEFsmgbrqk
+         YU575RVmLJ1nZenG7eVX6MvUyeMhQAOIlrh0Ll0Q4eTvkPi4WN2ZeKCX3HtEeieRnBn3
+         GhzYQ4uHeF8abGI7G9gc8e0W3yZfX0DtRa8zEsYv2LTsQj+cxJ+OeMAfrDbO4GXPdhGo
+         1hnRrrknPPOr8OHnfhgR1raga2CIPjdSVH0KZ215A3G3Y9X0QXXp7Se97hYB8+C3ma/q
+         Qr3w==
+X-Forwarded-Encrypted: i=1; AJvYcCXAOF/ISHsPuOshL4Taw34CXLJhDS7K1m2Kae73agXuybj9SM2nwXg8h/2AFqzXYAOIbqLC1/ybtRJXINEryqqN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3AC3zwy+edbqhclB4SnKiUjzDc6qzan1eCrDmOPQxVYkZkSAk
+	wYA8+FYp+yWLNtSwHAHVs0GZlluqLdkEKedgJVf6kkCUKD0wVWVR9p5j
+X-Gm-Gg: AZuq6aLC4j6l2eZbZj2LLqeblsjGQCxjRf6QP9S07F6yZjtjcC+Si3sXCcH/qEoS5ug
+	SUsUqbTy8bkmD1J3y0TqfiG+RZy3p70akLBygJet0K6RITJxrPcwKDjX2ONmDPWseNg2RrzNhk0
+	zrI3L05pI7VTH9UKRKE0V3l4HTHFscqAmyp8SviyHVcEbo430T7NXzIRdjrN6ZvFsgEIIK0V4Ll
+	jcDEgjh12Q4Ve2THua/P+Na4C+76e/3dXCcD+Bq7c24Mv11vRYHJjrijLO8DHTHlOwTB8gHZy4P
+	lL36VnK32N/T2+j5rpooBe7zUCAFD8HokmWh00m5RQLyiBOhiMYlrW2RA41vN4mq1or6vOi5aJ4
+	ZhuPMui/2PoA0JNevRGKZq+rA3MWhvQsTt9Q+MCnn8atfcGpXYxQgfQ9ESDRj3sJVxjlWwrMjS4
+	4s50URdFO/cY3Wy2TouSpzqfexrMltwGyuze5V
+X-Received: by 2002:a05:6000:26cf:b0:435:95dc:b8ca with SMTP id ffacd0b85a97d-43958e4c9a0mr4169076f8f.40.1771432676926;
+        Wed, 18 Feb 2026 08:37:56 -0800 (PST)
+Received: from eichest-laptop ([178.197.206.239])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796ac8d46sm43928122f8f.32.2026.02.18.08.37.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Feb 2026 08:37:56 -0800 (PST)
+Date: Wed, 18 Feb 2026 17:37:54 +0100
+From: Stefan Eichenberger <eichest@gmail.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, andi.shyti@kernel.org,
+	s.hauer@pengutronix.de, festevam@gmail.com,
+	stefan.eichenberger@toradex.com, francesco.dolcini@toradex.com,
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1 2/2] i2c: imx: ensure no clock is generated after last
+ read
+Message-ID: <aZXq4gn4xhInQQlq@eichest-laptop>
+References: <20260218150940.131354-1-eichest@gmail.com>
+ <20260218150940.131354-3-eichest@gmail.com>
+ <aZXoTGK_v3L4pc-E@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH 6/7] arm64: dts: amlogic: Add clock and EMMC for T7
-To: Krzysztof Kozlowski <krzk@kernel.org>, Ronald Claveau
-	<linux-kernel-dev@aliel.fr>, <linux-amlogic@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
-	<khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20260218102045.35633-1-linux-kernel-dev@aliel.fr>
- <6d86917f-5326-4ce2-91e3-c57534e5e8a2@kernel.org>
-Content-Language: en-US
-From: Ronald Claveau <ronald.claveau@aliel.fr>
-In-Reply-To: <6d86917f-5326-4ce2-91e3-c57534e5e8a2@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [92.184.116.81]
-X-ClientProxiedBy: CAS11.indiv.local (172.16.1.11) To DAG11EX2.indiv.local
- (172.16.2.112)
-DKIM-Signature: v=1; a=rsa-sha256; d=aliel.fr; s=ovhex24454-selector1;
- c=relaxed/relaxed; t=1771432617; h=from:to:subject:date;
- bh=BB8J3JMtEPj5H0CRRPlNePbZc8U65x2uvJAooEjNMl8=;
- b=OrCxkhqmoZcDSL60qrYCnV9E5BfShFmPAzDQ+upkCRt6kTyrqAkN+C6ShoMTTHOAv+1ItcC5vasHn9virT/BWgwlikhkpzPFLhyZmZkWq23c4kCVK58RK5IRLA+4lXcUZEmDQHnkhI8SDr5lnYDykEJFBvvWmxq4nnUM11i5mSMXIcsBaBnRqSARFQc6Fa67MpHYOaBzhsxwZePCP6HZuZf7v2C+w/AXtDyd/wS8n6T6Tixit3cj7kJEu4iwugZl56c6NtAW4x/drvncPSU8qeX29Yg6oS1X5X9LlN8T4fcSopPIjylXAPG/tpJar8MnVjUP8trWr26pIk1C+EbYVQ==
-x-ovh-tracer-id: 16909327752792051004
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTEvs4p4vQ7GXQ5O2JhWd9mTFTO0zoeJJDbrIokzMsxjA81NEwHUl2L95GjJ6SQ/tY45Ymi2tltV9rjNU4nFqVmUS3Yugb85209eNJjlP8FHv0teMyES8ilkogrcEY2cPzKrNC2De0B3Ccs07MCf+rkVElaryVzaXsMzcqOFq/9agWD63VqdWe9dvZGKsUjpqoxYFek7hNIZ4iCgdRkC687G2vFPP67qg6xEDdBZUIuhFlN7ERLL2iBH5w2YNQyReHIlZZ9sSBYaAQeTBSMx0uFXzYB2+RZ06S+cHERcxh6Z2TNSdAqlETtp5jnH3wOeuFAdQuv1dqzN8pm+Sm+zUsDmO8Jylx5nqK4ijLYVgBmWs8pcjAItMf3aXLysxNUKNO0+2hFGypLyPRYkTrOy2JpGuPyVf7TkYpN4/irGh0ISdtuUVUPx0S+6VsBnebSXGRKoi9uDDJyZL0JUkMvz2x3GAfEOh4WKUJ32ehXry4b51j04hB/vi47I3ux85rXP8+is+HLFPgeE6RoBmTaI/EbgAF/wuGpqM/YZX5pCKS95jCCASBNiRtKgyvJlo8BIWlscvJa+vydt5hD96KFVPKi4KAJpD4TGBSB5hHUScwqPxIBFQqbcgDhFVfHbRh+DzSySfX42n9fqzFXt02+nbrehn8BMKHuOb8FiPAG07swEmQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZXoTGK_v3L4pc-E@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_083704_523535_BAAD2F38 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20260218_083759_280990_94F5E15F 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,66 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/18/26 11:23 AM, Krzysztof Kozlowski wrote:
-> On 18/02/2026 11:20, Ronald Claveau wrote:
->> Add fixed clock and EMMC support for Amlogic T7 SoC family dtsi.
->>
->> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
->> ---
->>  arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 137 +++++++++++++++++++-
->>  1 file changed, 134 insertions(+), 3 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->> index 6510068bcff9..e5932eb3db2b 100644
->> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->> @@ -3,6 +3,8 @@
->>   * Copyright (c) 2019 Amlogic, Inc. All rights reserved.
->>   */
->>  
->> +#include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
->> +#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
->>  #include <dt-bindings/interrupt-controller/arm-gic.h>
->>  #include <dt-bindings/power/amlogic,t7-pwrc.h>
->>  #include "amlogic-t7-reset.h"
->> @@ -208,12 +210,14 @@ soc {
->>  		ranges;
->>  
->>  		gic: interrupt-controller@fff01000 {
->> -			compatible = "arm,gic-400";
->> +			compatible = "arm,cortex-a15-gic", "arm,cortex-a9-gic";
+Hi Frank,
+
+On Wed, Feb 18, 2026 at 11:26:52AM -0500, Frank Li wrote:
+> On Wed, Feb 18, 2026 at 04:08:50PM +0100, Stefan Eichenberger wrote:
+> > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> >
+> > When reading from the I2DR register, right after releasing the bus by
+> > clearing MSTA and MTX, the I2C controller might still generate an
+> > additional clock cycle which can cause devices to misbehave. Ensure to
 > 
-> I don't get how this is related to "Add fixed clock".
-> 
->>  			#interrupt-cells = <3>;
->>  			#address-cells = <0>;
->>  			interrupt-controller;
->>  			reg = <0x0 0xfff01000 0 0x1000>,
->> -			      <0x0 0xfff02000 0 0x0100>;
->> +				  <0x0 0xfff02000 0 0x2000>,
->> +				  <0x0 0xfff04000 0 0x2000>,
->> +				  <0x0 0xfff06000 0 0x2000>;
-> 
-> Neither this really.
-> 
-> ...
+> Do you means SCL have additional toggle? You capture waveform?
 > 
 
-You right, I will send a different patch to address that specific issue,
-and I will remove it here for v2.
+Yes exactly. We were able to capture the waveform when the issue
+happens. It doesn't always happen though, it depends on how much time
+passes between clearing MSTA and MTX and reading from I2DR.
 
->> +
->> +			sd_emmc_c: mmc@8c000{
->> +				compatible = "amlogic,meson-axg-mmc";
-> 
-> Compatible says axg, DTS says T7, so something does not feel right.
-> 
+If you want to see the waveform, I uploaded it to our server:
+https://share.toradex.com/dwnhcrl6b9toib6
+You can see the additional clock at the right end, after "0x17 + NAK".
 
-The SOC family is T7, but the emmc is fully compatible with this same
-axg code.
-I did the same as used in meson-g12-common.dtsi or meson-s4.dtsi, which
-use the same compatible.
-
-Best Regards,
-Ronald
+Regards,
+Stefan
 
