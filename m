@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56937E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4C0E9A049
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T9SH7wamcwVLDL0yzNqtHzIgC32rpc3V7NQFnp2ofOw=; b=kmH0k8VhK3t5ktT3zXEWYXc5pB
-	okDfKzto+VF2NRO4Sxr+G7Kc7ykwH8wFmbz8Jw00kaiHni9G2NIkxQP/mUSA8zA2mMTIMRthrVd6W
-	MXRhNnagNRaMg+C95uYeO+qe8laMEWoYbccCtCSQh0vONuSmmQTXi7dKhBYadoRi6kq4SNl8btx+o
-	lKMNHXvRPRlLzJbgdd+qArUu76iBF5TBCZHl67GF/DevMSq+V9LmQCQf8q7kVvqj+2QlJ68+xVn8G
-	NuEOJn57JL+NHMOgylLZsYPoL7MjoC4Kl2EL5K4NHZsJLCKeRJPse4Q96zoP/8klsyE3DJTBXb2rJ
-	Vu3nfi+A==;
+	bh=+zMTq+x/qKbQoHspvgGkABuqqDGbC62ncSL0L2tIX/g=; b=eDqtkUUQB+INbqfJNlYDdL7dNy
+	AdGp99fEvT42TeedHBJ93cIP22QxofOOSRAEf/5bLI7PfpGHMBJclLOiXvD65+mV6gUlP7CDWkNHY
+	rEXtAO7nuju/1jaLse72vyEwL8EaUdKRjwVvev+Rxsj+57AnoQVqhHyKmk69/qHwrsS7esSbrnyuB
+	n4w6Oi/N5IQhQL5v4FIr12hShXh3PDrmjV7v7vpY4gSPPNJIGBlI5cYx3kaAo70Oc3EqP3hAlo9Mt
+	nx/IQyabx9S/d3pfbCe3t7zhvTgw2P2Dn9nNdhtCI0aNguxs9ALOESC1oveJaLkGGqwcWlZ/OaQ5H
+	yJmBxk2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshyY-00000009uG8-2SQu;
+	id 1vshyY-00000009uFW-1CWJ;
 	Wed, 18 Feb 2026 13:52:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshyP-00000009u9K-0bID
+	id 1vshyO-00000009u9L-17i8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 13:52:14 +0000
+	Wed, 18 Feb 2026 13:52:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF47E42A14;
-	Wed, 18 Feb 2026 13:52:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C91B7C19421;
-	Wed, 18 Feb 2026 13:52:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C456644521;
+	Wed, 18 Feb 2026 13:52:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D0D9C2BC9E;
+	Wed, 18 Feb 2026 13:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771422728;
-	bh=wW1CjkVGdPCI5nAplOtLFmAfLiASoIoaGCuv9cOD/xw=;
+	s=k20201202; t=1771422729;
+	bh=leEqpgzIkg6AHd8EgBExKzmuGWwNfSbrAEVhsD8qeCA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TJ01R0Mq4pmoyi/IvFpH/J9+/Z2cR40nBu3E8CfOlHDfE1aARDuwdW/16Jwtz5tk7
-	 SIt+tUaTa2x9YN/FcsSRUSlHQBf2F2Q3okf5fEkHHMEpLUwbbqmRz4q9qSXUxYtMdt
-	 4IPRHj9mt7k1St7HAsIca6q0kfAEOT6B/yfImeyfq7hOKX3zII7bxAz8TGRmJCO6QK
-	 oSic7PZAIjH11i3bhdZr3+5kM+qeayZ8PBQ6k/+BmCO5+vBU6N/Mc38ggZ+66aGmnS
-	 anCC196uEzKht5JCjQB9YfpvCDXID9ILoiQe4b3+9rweQB0KPHzAcUL6eqiINqH8Wh
-	 cm1/+q2Hg5A7g==
+	b=nS8/T+sar/AiVYi4woyXFj+JU8Ix01ANRUPENrP4DgQDLXBBHOv9ZxkWV2wpBWFvM
+	 ukF+YUnqBBwwDBjCvRI5LU6yiRTYXm1uYWw4FeGhoM39WWRx5W6ysDqn0n5LiYoaqC
+	 1qay7FxQxJPUhLnSZ1QHe0udEQmRYLMrZkyBnzG7t1enKjd2sOXvnV5DVIIEYg0guD
+	 F7eMqcR5wdNYZkzuF+LEUx6S2alr9zeO7/vek1/OQSZk2JlRLo8w720ILPhRBvvldn
+	 R1CwPqcWE7PzvsSi1PXVTsYaWrvlXjybnMAnV0Q7gYEDb8hen1XidtlGQoXchYb8hA
+	 oRl7onUhnEyFQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vshyI-0000000Bu02-3spy;
-	Wed, 18 Feb 2026 13:52:06 +0000
+	id 1vshyJ-0000000Bu02-2dVD;
+	Wed, 18 Feb 2026 13:52:07 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: Ioana Ciornei <ioana.ciornei@nxp.com>,
 	Thomas Gleixner <tglx@kernel.org>,
@@ -55,9 +55,9 @@ To: Ioana Ciornei <ioana.ciornei@nxp.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org
-Subject: [PATCH 1/6] fsl-mc: Remove MSI domain propagation to sub-devices
-Date: Wed, 18 Feb 2026 13:51:58 +0000
-Message-ID: <20260218135203.2267907-2-maz@kernel.org>
+Subject: [PATCH 5/6] fsl_mc: Remove legacy MSI implementation
+Date: Wed, 18 Feb 2026 13:52:02 +0000
+Message-ID: <20260218135203.2267907-6-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260218135203.2267907-1-maz@kernel.org>
 References: <20260218135203.2267907-1-maz@kernel.org>
@@ -68,8 +68,8 @@ X-SA-Exim-Rcpt-To: ioana.ciornei@nxp.com, tglx@kernel.org, chleroy@kernel.org, l
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_055213_204272_B3C77C66 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20260218_055212_353011_B7094467 
+X-CRM114-Status: GOOD (  25.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,34 +84,418 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only the root device generates MSIs (it is the only one talking to
-the ITS), so propagating the domain is pretty pointless. Remove it.
+Get rid of the most of the fsl_mc MSI infrastructure, which is
+now totally unused.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/bus/fsl-mc/fsl-mc-bus.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/bus/fsl-mc/fsl-mc-msi.c             | 140 +---------------
+ drivers/bus/fsl-mc/fsl-mc-private.h         |   1 -
+ drivers/irqchip/Kconfig                     |   6 -
+ drivers/irqchip/Makefile                    |   1 -
+ drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c | 168 --------------------
+ include/linux/fsl/mc.h                      |   4 -
+ 6 files changed, 1 insertion(+), 319 deletions(-)
+ delete mode 100644 drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
 
-diff --git a/drivers/bus/fsl-mc/fsl-mc-bus.c b/drivers/bus/fsl-mc/fsl-mc-bus.c
-index 25845c04e5620..b4a47e6956bf2 100644
---- a/drivers/bus/fsl-mc/fsl-mc-bus.c
-+++ b/drivers/bus/fsl-mc/fsl-mc-bus.c
-@@ -865,14 +865,12 @@ int fsl_mc_device_add(struct fsl_mc_obj_desc *obj_desc,
- 	} else {
- 		/*
- 		 * A non-DPRC object has to be a child of a DPRC, use the
--		 * parent's ICID and interrupt domain.
-+		 * parent's ICID.
- 		 */
- 		mc_dev->icid = parent_mc_dev->icid;
- 		mc_dev->dma_mask = FSL_MC_DEFAULT_DMA_MASK;
- 		mc_dev->dev.dma_mask = &mc_dev->dma_mask;
- 		mc_dev->dev.coherent_dma_mask = mc_dev->dma_mask;
--		dev_set_msi_domain(&mc_dev->dev,
--				   dev_get_msi_domain(&parent_mc_dev->dev));
- 	}
+diff --git a/drivers/bus/fsl-mc/fsl-mc-msi.c b/drivers/bus/fsl-mc/fsl-mc-msi.c
+index c9f50969e88ce..8ee4796040a8d 100644
+--- a/drivers/bus/fsl-mc/fsl-mc-msi.c
++++ b/drivers/bus/fsl-mc/fsl-mc-msi.c
+@@ -15,46 +15,6 @@
  
- 	/*
+ #include "fsl-mc-private.h"
+ 
+-#ifdef GENERIC_MSI_DOMAIN_OPS
+-/*
+- * Generate a unique ID identifying the interrupt (only used within the MSI
+- * irqdomain.  Combine the icid with the interrupt index.
+- */
+-static irq_hw_number_t fsl_mc_domain_calc_hwirq(struct fsl_mc_device *dev,
+-						struct msi_desc *desc)
+-{
+-	/*
+-	 * Make the base hwirq value for ICID*10000 so it is readable
+-	 * as a decimal value in /proc/interrupts.
+-	 */
+-	return (irq_hw_number_t)(desc->msi_index + (dev->icid * 10000));
+-}
+-
+-static void fsl_mc_msi_set_desc(msi_alloc_info_t *arg,
+-				struct msi_desc *desc)
+-{
+-	arg->desc = desc;
+-	arg->hwirq = fsl_mc_domain_calc_hwirq(to_fsl_mc_device(desc->dev),
+-					      desc);
+-}
+-#else
+-#define fsl_mc_msi_set_desc NULL
+-#endif
+-
+-static void fsl_mc_msi_update_dom_ops(struct msi_domain_info *info)
+-{
+-	struct msi_domain_ops *ops = info->ops;
+-
+-	if (!ops)
+-		return;
+-
+-	/*
+-	 * set_desc should not be set by the caller
+-	 */
+-	if (!ops->set_desc)
+-		ops->set_desc = fsl_mc_msi_set_desc;
+-}
+-
+ static void __fsl_mc_msi_write_msg(struct fsl_mc_device *mc_bus_dev,
+ 				   struct fsl_mc_device_irq *mc_dev_irq,
+ 				   struct msi_desc *msi_desc)
+@@ -125,96 +85,6 @@ static void fsl_mc_write_msi_msg(struct msi_desc *msi_desc, struct msi_msg *msg)
+ 	__fsl_mc_msi_write_msg(mc_bus_dev, mc_dev_irq, msi_desc);
+ }
+ 
+-/*
+- * NOTE: This function is invoked with interrupts disabled
+- */
+-static void fsl_mc_msi_write_msg(struct irq_data *irq_data,
+-				 struct msi_msg *msg)
+-{
+-	struct msi_desc *msi_desc = irq_data_get_msi_desc(irq_data);
+-
+-	fsl_mc_write_msi_msg(msi_desc, msg);
+-}
+-
+-static void fsl_mc_msi_update_chip_ops(struct msi_domain_info *info)
+-{
+-	struct irq_chip *chip = info->chip;
+-
+-	if (!chip)
+-		return;
+-
+-	/*
+-	 * irq_write_msi_msg should not be set by the caller
+-	 */
+-	if (!chip->irq_write_msi_msg)
+-		chip->irq_write_msi_msg = fsl_mc_msi_write_msg;
+-}
+-
+-/**
+- * fsl_mc_msi_create_irq_domain - Create a fsl-mc MSI interrupt domain
+- * @fwnode:	Optional firmware node of the interrupt controller
+- * @info:	MSI domain info
+- * @parent:	Parent irq domain
+- *
+- * Updates the domain and chip ops and creates a fsl-mc MSI
+- * interrupt domain.
+- *
+- * Returns:
+- * A domain pointer or NULL in case of failure.
+- */
+-struct irq_domain *fsl_mc_msi_create_irq_domain(struct fwnode_handle *fwnode,
+-						struct msi_domain_info *info,
+-						struct irq_domain *parent)
+-{
+-	struct irq_domain *domain;
+-
+-	if (WARN_ON((info->flags & MSI_FLAG_LEVEL_CAPABLE)))
+-		info->flags &= ~MSI_FLAG_LEVEL_CAPABLE;
+-	if (info->flags & MSI_FLAG_USE_DEF_DOM_OPS)
+-		fsl_mc_msi_update_dom_ops(info);
+-	if (info->flags & MSI_FLAG_USE_DEF_CHIP_OPS)
+-		fsl_mc_msi_update_chip_ops(info);
+-	info->flags |= MSI_FLAG_ALLOC_SIMPLE_MSI_DESCS | MSI_FLAG_FREE_MSI_DESCS;
+-
+-	domain = msi_create_irq_domain(fwnode, info, parent);
+-	if (domain)
+-		irq_domain_update_bus_token(domain, DOMAIN_BUS_FSL_MC_MSI);
+-
+-	return domain;
+-}
+-
+-struct irq_domain *fsl_mc_find_msi_domain(struct device *dev)
+-{
+-	struct device *root_dprc_dev;
+-	struct device *bus_dev;
+-	struct irq_domain *msi_domain;
+-	struct fsl_mc_device *mc_dev = to_fsl_mc_device(dev);
+-
+-	fsl_mc_get_root_dprc(dev, &root_dprc_dev);
+-	bus_dev = root_dprc_dev->parent;
+-
+-	if (bus_dev->of_node) {
+-		msi_domain = of_msi_map_get_device_domain(dev,
+-						  mc_dev->icid,
+-						  DOMAIN_BUS_FSL_MC_MSI);
+-
+-		/*
+-		 * if the msi-map property is missing assume that all the
+-		 * child containers inherit the domain from the parent
+-		 */
+-		if (!msi_domain)
+-
+-			msi_domain = of_msi_get_domain(bus_dev,
+-						bus_dev->of_node,
+-						DOMAIN_BUS_FSL_MC_MSI);
+-	} else {
+-		msi_domain = iort_get_device_domain(dev, mc_dev->icid,
+-						    DOMAIN_BUS_FSL_MC_MSI);
+-	}
+-
+-	return msi_domain;
+-}
+-
+ struct irq_domain *fsl_mc_get_msi_parent(struct device *dev)
+ {
+ 	struct fsl_mc_device *mc_dev = to_fsl_mc_device(dev);
+@@ -232,18 +102,10 @@ struct irq_domain *fsl_mc_get_msi_parent(struct device *dev)
+ int fsl_mc_msi_domain_alloc_irqs(struct device *dev,  unsigned int irq_count)
+ {
+ 	int error = msi_setup_device_data(dev);
+-
+ 	if (error)
+ 		return error;
+ 
+-	/*
+-	 * NOTE: Calling this function will trigger the invocation of the
+-	 * its_fsl_mc_msi_prepare() callback
+-	 */
+-	if (!irq_domain_is_msi_parent(dev_get_msi_domain(dev)))
+-		error = msi_domain_alloc_irqs_range(dev, MSI_DEFAULT_DOMAIN, 0, irq_count - 1);
+-	else
+-		error = platform_device_msi_init_and_alloc_irqs(dev, irq_count, fsl_mc_write_msi_msg);
++	error = platform_device_msi_init_and_alloc_irqs(dev, irq_count, fsl_mc_write_msi_msg);
+ 	if (error)
+ 		dev_err(dev, "Failed to allocate IRQs\n");
+ 	return error;
+diff --git a/drivers/bus/fsl-mc/fsl-mc-private.h b/drivers/bus/fsl-mc/fsl-mc-private.h
+index 44868f874fd66..197edcc8cde46 100644
+--- a/drivers/bus/fsl-mc/fsl-mc-private.h
++++ b/drivers/bus/fsl-mc/fsl-mc-private.h
+@@ -641,7 +641,6 @@ int fsl_mc_msi_domain_alloc_irqs(struct device *dev,
+ 
+ void fsl_mc_msi_domain_free_irqs(struct device *dev);
+ 
+-struct irq_domain *fsl_mc_find_msi_domain(struct device *dev);
+ struct irq_domain *fsl_mc_get_msi_parent(struct device *dev);
+ 
+ int __must_check fsl_create_mc_io(struct device *dev,
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index f334f49c9791f..c1f2095400c74 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -51,12 +51,6 @@ config ARM_GIC_V3_ITS
+ 	default ARM_GIC_V3
+ 	select IRQ_MSI_IOMMU
+ 
+-config ARM_GIC_V3_ITS_FSL_MC
+-	bool
+-	depends on ARM_GIC_V3_ITS
+-	depends on FSL_MC_BUS
+-	default ARM_GIC_V3_ITS
+-
+ config ARM_GIC_V5
+ 	bool
+ 	select IRQ_DOMAIN_HIERARCHY
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index 6a229443efe08..900f03299d9a5 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -35,7 +35,6 @@ obj-$(CONFIG_ARM_GIC_V2M)		+= irq-gic-v2m.o
+ obj-$(CONFIG_ARM_GIC_V3)		+= irq-gic-v3.o irq-gic-v3-mbi.o irq-gic-common.o
+ obj-$(CONFIG_ARM_GIC_ITS_PARENT)	+= irq-gic-its-msi-parent.o
+ obj-$(CONFIG_ARM_GIC_V3_ITS)		+= irq-gic-v3-its.o irq-gic-v4.o
+-obj-$(CONFIG_ARM_GIC_V3_ITS_FSL_MC)	+= irq-gic-v3-its-fsl-mc-msi.o
+ obj-$(CONFIG_ARM_GIC_V5)		+= irq-gic-v5.o irq-gic-v5-irs.o irq-gic-v5-its.o \
+ 					   irq-gic-v5-iwb.o
+ obj-$(CONFIG_HISILICON_IRQ_MBIGEN)	+= irq-mbigen.o
+diff --git a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c b/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
+deleted file mode 100644
+index b5785472765a3..0000000000000
+--- a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
++++ /dev/null
+@@ -1,168 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-/*
+- * Freescale Management Complex (MC) bus driver MSI support
+- *
+- * Copyright (C) 2015-2016 Freescale Semiconductor, Inc.
+- * Author: German Rivera <German.Rivera@freescale.com>
+- *
+- */
+-
+-#include <linux/acpi.h>
+-#include <linux/acpi_iort.h>
+-#include <linux/irq.h>
+-#include <linux/msi.h>
+-#include <linux/of.h>
+-#include <linux/of_irq.h>
+-#include <linux/fsl/mc.h>
+-
+-static struct irq_chip its_msi_irq_chip = {
+-	.name = "ITS-fMSI",
+-	.irq_mask = irq_chip_mask_parent,
+-	.irq_unmask = irq_chip_unmask_parent,
+-	.irq_eoi = irq_chip_eoi_parent,
+-	.irq_set_affinity = msi_domain_set_affinity
+-};
+-
+-static u32 fsl_mc_msi_domain_get_msi_id(struct irq_domain *domain,
+-					struct fsl_mc_device *mc_dev)
+-{
+-	struct device_node *of_node;
+-	u32 out_id;
+-
+-	of_node = irq_domain_get_of_node(domain);
+-	out_id = of_node ? of_msi_xlate(&mc_dev->dev, &of_node, mc_dev->icid) :
+-			iort_msi_map_id(&mc_dev->dev, mc_dev->icid);
+-
+-	return out_id;
+-}
+-
+-static int its_fsl_mc_msi_prepare(struct irq_domain *msi_domain,
+-				  struct device *dev,
+-				  int nvec, msi_alloc_info_t *info)
+-{
+-	struct fsl_mc_device *mc_bus_dev;
+-	struct msi_domain_info *msi_info;
+-
+-	if (!dev_is_fsl_mc(dev))
+-		return -EINVAL;
+-
+-	mc_bus_dev = to_fsl_mc_device(dev);
+-	if (!(mc_bus_dev->flags & FSL_MC_IS_DPRC))
+-		return -EINVAL;
+-
+-	/*
+-	 * Set the device Id to be passed to the GIC-ITS:
+-	 *
+-	 * NOTE: This device id corresponds to the IOMMU stream ID
+-	 * associated with the DPRC object (ICID).
+-	 */
+-	info->scratchpad[0].ul = fsl_mc_msi_domain_get_msi_id(msi_domain,
+-							      mc_bus_dev);
+-	msi_info = msi_get_domain_info(msi_domain->parent);
+-
+-	/* Allocate at least 32 MSIs, and always as a power of 2 */
+-	nvec = max_t(int, 32, roundup_pow_of_two(nvec));
+-	return msi_info->ops->msi_prepare(msi_domain->parent, dev, nvec, info);
+-}
+-
+-static struct msi_domain_ops its_fsl_mc_msi_ops __ro_after_init = {
+-	.msi_prepare = its_fsl_mc_msi_prepare,
+-};
+-
+-static struct msi_domain_info its_fsl_mc_msi_domain_info = {
+-	.flags	= (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS),
+-	.ops	= &its_fsl_mc_msi_ops,
+-	.chip	= &its_msi_irq_chip,
+-};
+-
+-static const struct of_device_id its_device_id[] = {
+-	{	.compatible	= "arm,gic-v3-its",	},
+-	{},
+-};
+-
+-static void __init its_fsl_mc_msi_init_one(struct fwnode_handle *handle,
+-					  const char *name)
+-{
+-	struct irq_domain *parent;
+-	struct irq_domain *mc_msi_domain;
+-
+-	parent = irq_find_matching_fwnode(handle, DOMAIN_BUS_NEXUS);
+-	if (!parent || !msi_get_domain_info(parent)) {
+-		pr_err("%s: unable to locate ITS domain\n", name);
+-		return;
+-	}
+-
+-	mc_msi_domain = fsl_mc_msi_create_irq_domain(handle,
+-						&its_fsl_mc_msi_domain_info,
+-						parent);
+-	if (!mc_msi_domain) {
+-		pr_err("%s: unable to create fsl-mc domain\n", name);
+-		return;
+-	}
+-
+-	pr_info("fsl-mc MSI: %s domain created\n", name);
+-}
+-
+-#ifdef CONFIG_ACPI
+-static int __init
+-its_fsl_mc_msi_parse_madt(union acpi_subtable_headers *header,
+-			  const unsigned long end)
+-{
+-	struct acpi_madt_generic_translator *its_entry;
+-	struct fwnode_handle *dom_handle;
+-	const char *node_name;
+-	int err = 0;
+-
+-	its_entry = (struct acpi_madt_generic_translator *)header;
+-	node_name = kasprintf(GFP_KERNEL, "ITS@0x%lx",
+-			      (long)its_entry->base_address);
+-
+-	dom_handle = iort_find_domain_token(its_entry->translation_id);
+-	if (!dom_handle) {
+-		pr_err("%s: Unable to locate ITS domain handle\n", node_name);
+-		err = -ENXIO;
+-		goto out;
+-	}
+-
+-	its_fsl_mc_msi_init_one(dom_handle, node_name);
+-
+-out:
+-	kfree(node_name);
+-	return err;
+-}
+-
+-
+-static void __init its_fsl_mc_acpi_msi_init(void)
+-{
+-	acpi_table_parse_madt(ACPI_MADT_TYPE_GENERIC_TRANSLATOR,
+-			      its_fsl_mc_msi_parse_madt, 0);
+-}
+-#else
+-static inline void its_fsl_mc_acpi_msi_init(void) { }
+-#endif
+-
+-static void __init its_fsl_mc_of_msi_init(void)
+-{
+-	struct device_node *np;
+-
+-	for (np = of_find_matching_node(NULL, its_device_id); np;
+-	     np = of_find_matching_node(np, its_device_id)) {
+-		if (!of_device_is_available(np))
+-			continue;
+-		if (!of_property_read_bool(np, "msi-controller"))
+-			continue;
+-
+-		its_fsl_mc_msi_init_one(of_fwnode_handle(np),
+-					np->full_name);
+-	}
+-}
+-
+-static int __init its_fsl_mc_msi_init(void)
+-{
+-	its_fsl_mc_of_msi_init();
+-	its_fsl_mc_acpi_msi_init();
+-
+-	return 0;
+-}
+-
+-early_initcall(its_fsl_mc_msi_init);
+diff --git a/include/linux/fsl/mc.h b/include/linux/fsl/mc.h
+index bcc38c0fc230a..e9522233f9b57 100644
+--- a/include/linux/fsl/mc.h
++++ b/include/linux/fsl/mc.h
+@@ -425,10 +425,6 @@ int __must_check fsl_mc_object_allocate(struct fsl_mc_device *mc_dev,
+ 
+ void fsl_mc_object_free(struct fsl_mc_device *mc_adev);
+ 
+-struct irq_domain *fsl_mc_msi_create_irq_domain(struct fwnode_handle *fwnode,
+-						struct msi_domain_info *info,
+-						struct irq_domain *parent);
+-
+ int __must_check fsl_mc_allocate_irqs(struct fsl_mc_device *mc_dev);
+ 
+ void fsl_mc_free_irqs(struct fsl_mc_device *mc_dev);
 -- 
 2.47.3
 
