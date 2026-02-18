@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC5D6E9A04E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE9BE9A04F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 21:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1u0mqz+3GnKKaRXout24Ytd7cvzcGqEIwASnFEFZWTo=; b=BwOOOMVG1VLzqrO4f6cNqOekBR
-	WvgxwkMKJapUHtfgZl2dOVEraj4wzhigm4rNU7imnmPfcaMTnFYSdYtoTR3oqxeQJfPlCrh78mJMQ
-	RXd47WvMa+0WD/W34gD9rbdylezZY2LDbiT6BOV2I5Qi6IdTMgRJQ3PZaQS6TIyyswVr7ecWDFbC/
-	datP963v7+3hsouw1sadsf6EzCglzqvADTsjNUtwXjZ16v4ZSiRWNq6KriDjwS5yDJrwCqoKncQK2
-	12OfBE6HzSk9sdM0MWeGYtHna4aQRMWTplzlLF16ZVdVtAF0V2aosVGQXwUUrsiWnSoo03BMXeMPJ
-	6f3hIQ+g==;
+	bh=b6/7U2W+SLBH7vb3mBdRkvcgN42WcvefOi5t5IhqBbg=; b=Ux3If+a6U5Clt6QNy5LZKnUtha
+	P5uHhpsibxCr9MHuCZ55tA+cWLbwo4myeF7FjUg6YFe4W9iYQwgTlJOmrlSWYoXqa+rgMmGsf/v59
+	WZ8UTbmi2Xtjg08EiOu0Hodwia7OWsOr8C40gnP8zr+qEGGeQHsPlEjxjRd8BjiTS68WMBcqyDBdm
+	uRHIUWjsNyconCVwAJ9JW9BkkLM+S8Kihzhw2vAHh0jV1/SnOUG/L3Yy2yBzHJ2dcbmU43o+K4RmF
+	xMMah90Zk2ONgqbtCAqvVkZsu4I4cVMpCeW4s4j4xVDTS1kW+hGA0UnGIXIGHEyOvjyMkm0FM0WWv
+	68qFt6sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspEH-0000000ASY7-27cu;
+	id 1vspEH-0000000ASXX-0kTA;
 	Wed, 18 Feb 2026 21:37:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspEA-0000000AST7-07Oe
+	id 1vspE8-0000000ASPe-265y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Feb 2026 21:36:59 +0000
+	Wed, 18 Feb 2026 21:36:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA9454376C;
-	Wed, 18 Feb 2026 21:36:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE83AC2BCAF;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6501B41B19;
 	Wed, 18 Feb 2026 21:36:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54F24C19421;
+	Wed, 18 Feb 2026 21:36:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771450617;
-	bh=yUsqjSnPbDX/S+rnsu/6yIO+0mII4wRuFeRbW6zNwMQ=;
+	s=k20201202; t=1771450616;
+	bh=LoZhuuxzNWOyrPmwe9ku8/14QhyJ8CKzIMFUQopSDgQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kmNioAndIDtJqj5zX9UyQqC8ga+DPfMLGWcDMmKgmWKPeQ6Q/tAv1kutYsfIc/rdO
-	 LQc6vHbw6C4wUcfk79joquORCE6pT+BwnMNBpRz35c1b2dIWQU+mUHBoeUUpHHchyi
-	 vCFdheo5Gr2gOFWWh91VetqLe8BHP3ojSeB/m9Pa9pCjP7cYfZiv2M9q0O7EXkoV98
-	 wmhrjyLDJijMQwri+QwicxPTllfq3HVOV4byCCYumyD6TD5KbOUoeNAzTmRzBOEBsw
-	 fsl7PXcZvEXEnGPr1/zMWgIe9cTmfaW5UkU/BVNVmge+NzCT6vQT5nTuvpKkpoQSZs
-	 J1hK43sD4g2ZQ==
+	b=c0vKBFRDl5TZsypRiZLNxLu+gyGyL/z7hDpq+OPPeKBKVI4VkdjUN6evSVA+WExM4
+	 M5wEqlOBLmYXFkedkv22ojxpcmNWsKHhqYotwkXWhivyLdyWuXh6DpmlslLgzNfSFt
+	 aV8XJw8qfD0RbGBKHO9BKzaNODK7LY0h6V+UNcn9Tj2d5U6gSQ5CAdSDgN7fKUG1yA
+	 trftxnltQKqv2rFNPbkRjJNBq7qw4hrLp4KfWkfkachUqZ+60bmF1+6jsHlBZNnen9
+	 DSHxYzddUtracdqj55ayRleE2P3sNmGU0zojugQw/semrjOQZHbAjbmF9g8ZNX4pwt
+	 GpjaoIQ5XEixA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,17 +52,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-cifs@vger.kernel.org,
 	linux-wireless@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 11/15] smb: client: Drop 'allocate_crypto' arg from smb*_calc_signature()
-Date: Wed, 18 Feb 2026 13:34:57 -0800
-Message-ID: <20260218213501.136844-12-ebiggers@kernel.org>
+Subject: [PATCH 10/15] smb: client: Make generate_key() return void
+Date: Wed, 18 Feb 2026 13:34:56 -0800
+Message-ID: <20260218213501.136844-11-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260218213501.136844-1-ebiggers@kernel.org>
 References: <20260218213501.136844-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_133658_105378_41C941E6 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20260218_133656_579887_E67E3A85 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,88 +78,126 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Since the crypto library API is now being used instead of crypto_shash,
-all structs for MAC computation are now just fixed-size structs
-allocated on the stack; no dynamic allocations are ever required.
-Besides being much more efficient, this also means that the
-'allocate_crypto' argument to smb2_calc_signature() and
-smb3_calc_signature() is no longer used.  Remove this unused argument.
+generate_key() can no longer fail.  Make it return void and simplify the
+callers accordingly.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- fs/smb/client/smb2transport.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
+ fs/smb/client/smb2transport.c | 45 +++++++++++++----------------------
+ 1 file changed, 16 insertions(+), 29 deletions(-)
 
 diff --git a/fs/smb/client/smb2transport.c b/fs/smb/client/smb2transport.c
-index 0176185a1efc..41009039b4cb 100644
+index 716e58d1b1c9..0176185a1efc 100644
 --- a/fs/smb/client/smb2transport.c
 +++ b/fs/smb/client/smb2transport.c
-@@ -202,12 +202,11 @@ smb2_find_smb_tcon(struct TCP_Server_Info *server, __u64 ses_id, __u32  tid)
+@@ -249,12 +249,12 @@ smb2_calc_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server,
+ 		memcpy(shdr->Signature, smb2_signature, SMB2_SIGNATURE_SIZE);
  
- 	return tcon;
+ 	return rc;
  }
  
- static int
--smb2_calc_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server,
--		    bool allocate_crypto)
-+smb2_calc_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server)
+-static int generate_key(struct cifs_ses *ses, struct kvec label,
+-			struct kvec context, __u8 *key, unsigned int key_size)
++static void generate_key(struct cifs_ses *ses, struct kvec label,
++			 struct kvec context, __u8 *key, unsigned int key_size)
  {
- 	int rc;
- 	unsigned char smb2_signature[SMB2_HMACSHA256_SIZE];
- 	struct kvec *iov = rqst->rq_iov;
- 	struct smb2_hdr *shdr = (struct smb2_hdr *)iov[0].iov_base;
-@@ -438,12 +437,11 @@ generate_smb311signingkey(struct cifs_ses *ses,
+ 	unsigned char zero = 0x0;
+ 	__u8 i[4] = {0, 0, 0, 1};
+ 	__u8 L128[4] = {0, 0, 0, 128};
+ 	__u8 L256[4] = {0, 0, 1, 0};
+@@ -279,11 +279,10 @@ static int generate_key(struct cifs_ses *ses, struct kvec label,
+ 		hmac_sha256_update(&hmac_ctx, L128, 4);
+ 	}
+ 	hmac_sha256_final(&hmac_ctx, prfhash);
  
- 	return generate_smb3signingkey(ses, server, &triplet);
+ 	memcpy(key, prfhash, key_size);
+-	return 0;
  }
  
+ struct derivation {
+ 	struct kvec label;
+ 	struct kvec context;
+@@ -298,11 +297,10 @@ struct derivation_triplet {
  static int
--smb3_calc_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server,
--		    bool allocate_crypto)
-+smb3_calc_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server)
+ generate_smb3signingkey(struct cifs_ses *ses,
+ 			struct TCP_Server_Info *server,
+ 			const struct derivation_triplet *ptriplet)
  {
- 	int rc;
- 	unsigned char smb3_signature[SMB2_CMACAES_SIZE];
- 	struct kvec *iov = rqst->rq_iov;
- 	struct smb2_hdr *shdr = (struct smb2_hdr *)iov[0].iov_base;
-@@ -451,11 +449,11 @@ smb3_calc_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server,
- 	struct aes_cmac_ctx cmac_ctx;
- 	struct smb_rqst drqst;
- 	u8 key[SMB3_SIGN_KEY_SIZE];
+-	int rc;
+ 	bool is_binding = false;
+ 	int chan_index = 0;
  
- 	if (server->vals->protocol_id <= SMB21_PROT_ID)
--		return smb2_calc_signature(rqst, server, allocate_crypto);
-+		return smb2_calc_signature(rqst, server);
+ 	spin_lock(&ses->ses_lock);
+ 	spin_lock(&ses->chan_lock);
+@@ -329,42 +327,31 @@ generate_smb3signingkey(struct cifs_ses *ses,
+ 	 * key and store it in the channel as to not overwrite the
+ 	 * master connection signing key stored in the session
+ 	 */
  
- 	rc = smb3_get_sign_key(le64_to_cpu(shdr->SessionId), server, key);
- 	if (unlikely(rc)) {
- 		cifs_server_dbg(FYI, "%s: Could not get signing key\n", __func__);
- 		return rc;
-@@ -522,11 +520,11 @@ smb2_sign_rqst(struct smb_rqst *rqst, struct TCP_Server_Info *server)
- 	if (!is_binding && !server->session_estab) {
- 		strscpy(shdr->Signature, "BSRSPYL");
- 		return 0;
+ 	if (is_binding) {
+-		rc = generate_key(ses, ptriplet->signing.label,
+-				  ptriplet->signing.context,
+-				  ses->chans[chan_index].signkey,
+-				  SMB3_SIGN_KEY_SIZE);
+-		if (rc)
+-			return rc;
++		generate_key(ses, ptriplet->signing.label,
++			     ptriplet->signing.context,
++			     ses->chans[chan_index].signkey,
++			     SMB3_SIGN_KEY_SIZE);
+ 	} else {
+-		rc = generate_key(ses, ptriplet->signing.label,
+-				  ptriplet->signing.context,
+-				  ses->smb3signingkey,
+-				  SMB3_SIGN_KEY_SIZE);
+-		if (rc)
+-			return rc;
++		generate_key(ses, ptriplet->signing.label,
++			     ptriplet->signing.context,
++			     ses->smb3signingkey, SMB3_SIGN_KEY_SIZE);
+ 
+ 		/* safe to access primary channel, since it will never go away */
+ 		spin_lock(&ses->chan_lock);
+ 		memcpy(ses->chans[chan_index].signkey, ses->smb3signingkey,
+ 		       SMB3_SIGN_KEY_SIZE);
+ 		spin_unlock(&ses->chan_lock);
+ 
+-		rc = generate_key(ses, ptriplet->encryption.label,
+-				  ptriplet->encryption.context,
+-				  ses->smb3encryptionkey,
+-				  SMB3_ENC_DEC_KEY_SIZE);
+-		if (rc)
+-			return rc;
+-		rc = generate_key(ses, ptriplet->decryption.label,
+-				  ptriplet->decryption.context,
+-				  ses->smb3decryptionkey,
+-				  SMB3_ENC_DEC_KEY_SIZE);
+-		if (rc)
+-			return rc;
++		generate_key(ses, ptriplet->encryption.label,
++			     ptriplet->encryption.context,
++			     ses->smb3encryptionkey, SMB3_ENC_DEC_KEY_SIZE);
++		generate_key(ses, ptriplet->decryption.label,
++			     ptriplet->decryption.context,
++			     ses->smb3decryptionkey, SMB3_ENC_DEC_KEY_SIZE);
  	}
  
--	return smb3_calc_signature(rqst, server, false);
-+	return smb3_calc_signature(rqst, server);
+ #ifdef CONFIG_CIFS_DEBUG_DUMP_KEYS
+ 	cifs_dbg(VFS, "%s: dumping generated AES session keys\n", __func__);
+ 	/*
+@@ -389,11 +376,11 @@ generate_smb3signingkey(struct cifs_ses *ses,
+ 				SMB3_GCM128_CRYPTKEY_SIZE, ses->smb3encryptionkey);
+ 		cifs_dbg(VFS, "ServerOut Key %*ph\n",
+ 				SMB3_GCM128_CRYPTKEY_SIZE, ses->smb3decryptionkey);
+ 	}
+ #endif
+-	return rc;
++	return 0;
  }
  
  int
- smb2_verify_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server)
- {
-@@ -558,11 +556,11 @@ smb2_verify_signature(struct smb_rqst *rqst, struct TCP_Server_Info *server)
- 	 */
- 	memcpy(server_response_sig, shdr->Signature, SMB2_SIGNATURE_SIZE);
- 
- 	memset(shdr->Signature, 0, SMB2_SIGNATURE_SIZE);
- 
--	rc = smb3_calc_signature(rqst, server, true);
-+	rc = smb3_calc_signature(rqst, server);
- 
- 	if (rc)
- 		return rc;
- 
- 	if (crypto_memneq(server_response_sig, shdr->Signature,
+ generate_smb30signingkey(struct cifs_ses *ses,
+ 			 struct TCP_Server_Info *server)
 -- 
 2.53.0
 
