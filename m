@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB6DFE9A050
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 937DAE9A04F
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Feb 2026 13:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwHvV3fUxmyryw/PpEJ1NHzmL5L4khyPBe01k0wMyW0=; b=t9rDjxo/t0nM9qJO81YNFch0qq
-	YaWJN684inUdb0OTz3zNi4mRaXZuj/nbPtz3bNsPq4c/K3deneQQNuCLO+3LCfRRR3JnDysq/Ee2m
-	oLt1cV0sdNPmXD0BEb6QeTNChIJxBqEupPy6SJ6ivEX5zx3VGEKE+EAWb5CJPdaTGFhMscZRlIo08
-	2xMs4BcDCo+p+xQDQjQAr7HeaUKsB02y/fV38uopmBUIvR7Id9sHcTw+PDD44wL1vRr2cb+RCoBZe
-	CyBwSHvuzt8pUYxBZ3LizssZwXMh6SQEmawjgdO8gLN35+1sUbuciGrMyl1gL8ccaOZfGnxUOoQo0
-	XyKILkEA==;
+	bh=ZW93bZ55Q9noPPJwsWjiJPwE2eVOkwSBRs3GyIo3O5s=; b=t714wVra6xUcwJu+Xha2mbr1p7
+	+R0BHw7Yd5agSEZXqcv/E8u3kTwbzAiP93oZBNyJN6UO+4BeclxSA9PRCQliTS0CT0CLlRjwC4hYJ
+	z8vD/1clkjxCeoK9qKxEcy5UuyEZ/xPjePe4xL5l/3NqTCrarxx0esmyiVyTcl4XHQzVIFhTNFd2y
+	EmMhGiHIjptHegpEpeIXIyMAIoqQgxOQoMs02wuxhiYr08Us4rqfLjE75Hhc7DPgLOKfCxAIxlSq7
+	6Mn8bjSkba7gesWzbjPZ1GFXYQomHPLmm211kOh7AfeBRV+Namus652jC3ZdFuWwuOZHak0rD+wVM
+	CQf1P8Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshyO-00000009u9n-0rYP;
-	Wed, 18 Feb 2026 13:52:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vshyP-00000009uBW-1i7G;
+	Wed, 18 Feb 2026 13:52:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vshyM-00000009u9G-0kO7
+	id 1vshyM-00000009u9H-25PC
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 18 Feb 2026 13:52:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E75F6185D;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A15E6185E;
 	Wed, 18 Feb 2026 13:52:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D15CC19425;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A584C19424;
 	Wed, 18 Feb 2026 13:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1771422729;
-	bh=jNsv6Mzm6JnU1v2Z2XpH/L+IpXDhwResrBm3y8osrzA=;
+	bh=OzMg1Hi4/8VmDJXStqfMwWgmBNW4HuWjLq4C/QxlQD4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sVJIlpnICiU7Ad7qofR6f5XPQE+PpaTiEs0XIw8Jn2T9r2arLJ2J/UeN5PyTiouJj
-	 AQbpDgzS9YxXUP8zK8r7Yb/YXy6Ee2BeXiSReNWfI9NJgpkjzBXKxCBLAnI66Jby+W
-	 6ehM8P7L2Q0tav/l0x4XZ4wIfdLswIiMgLKKZK0ti0BAdEESxl2CHzXm0ZAYb7VI15
-	 J4xbIgxyGwEGbiFurdq+eOgRK8p/xOJmz7V5r3+uBVqL6a1lXN06eWB6zTAVO5/CWM
-	 UmbCXRsD1o3lNdXfip80bs086uNcdUe+FWjxpIlmpnm78xOT6NPeuC273RK76w0875
-	 g0LvWTvuRQQXw==
+	b=QszJY6id0HLRpEvQvHeK74fP0Wape38lmqGan0XqggOUTLKhaVGNpNTk52i1H+92O
+	 3J7mpXmG5Di4NLx+UyTXaD6Lpmgo+qUd1RRmykK9mvBTD8GXLROwSoeM3p79UOqQli
+	 YT2IO/q0nc2ocVoDzIGr9b008v3D39I+rRWHciP2sH03rBnN3MJIr3l4IcGz4nGrhH
+	 1TWLRhxQBbJIKULPX6GYy1nyD9d+f3fwalSOSh2Ub7sjmpnh/RRUu/TPoFyU6gDr4K
+	 XNJXrFw92FGpL33R3naGrhfYTURQ7t412s/AmeF8L8ThwbfnL3VIuFz4OoDD6tmTO+
+	 Tpug0WeC5V4YQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vshyJ-0000000Bu02-189b;
+	id 1vshyJ-0000000Bu02-1u1c;
 	Wed, 18 Feb 2026 13:52:07 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: Ioana Ciornei <ioana.ciornei@nxp.com>,
@@ -55,9 +55,9 @@ To: Ioana Ciornei <ioana.ciornei@nxp.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org
-Subject: [PATCH 3/6] irqchip/gic-v3-its: Add fsl_mc device plumbing to the msi-parent handling
-Date: Wed, 18 Feb 2026 13:52:00 +0000
-Message-ID: <20260218135203.2267907-4-maz@kernel.org>
+Subject: [PATCH 4/6] fsl_mc: Switch over to per-device platform MSI
+Date: Wed, 18 Feb 2026 13:52:01 +0000
+Message-ID: <20260218135203.2267907-5-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260218135203.2267907-1-maz@kernel.org>
 References: <20260218135203.2267907-1-maz@kernel.org>
@@ -81,40 +81,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make the ITS code aware of fsl_mc devices by plumbing the devid
-retrieval primitive.
+Obtain the msi-parent irqdomain instead of the fsl_mc domain,
+which magically engages the per-device infrastructure.
+
+Additionally, simplify the overly complicated error handling.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-gic-its-msi-parent.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ drivers/bus/fsl-mc/dprc-driver.c | 14 +++++---------
+ 1 file changed, 5 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
-index 12f45228c8674..532c0d626ca04 100644
---- a/drivers/irqchip/irq-gic-its-msi-parent.c
-+++ b/drivers/irqchip/irq-gic-its-msi-parent.c
-@@ -7,6 +7,7 @@
- #include <linux/acpi_iort.h>
- #include <linux/of_address.h>
- #include <linux/pci.h>
-+#include <linux/fsl/mc.h>
- 
- #include "irq-gic-its-msi-parent.h"
- #include <linux/irqchip/irq-msi-lib.h>
-@@ -186,9 +187,11 @@ static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
+diff --git a/drivers/bus/fsl-mc/dprc-driver.c b/drivers/bus/fsl-mc/dprc-driver.c
+index c63a7e688db6a..8ee5fb3c2d416 100644
+--- a/drivers/bus/fsl-mc/dprc-driver.c
++++ b/drivers/bus/fsl-mc/dprc-driver.c
+@@ -620,9 +620,8 @@ int dprc_setup(struct fsl_mc_device *mc_dev)
  {
- 	struct msi_domain_info *msi_info;
- 	u32 dev_id;
--	int ret;
-+	int ret = 0;
+ 	struct device *parent_dev = mc_dev->dev.parent;
+ 	struct fsl_mc_bus *mc_bus = to_fsl_mc_bus(mc_dev);
+-	struct irq_domain *mc_msi_domain;
++	struct irq_domain *mc_msi_domain = NULL;
+ 	bool mc_io_created = false;
+-	bool msi_domain_set = false;
+ 	bool uapi_created = false;
+ 	u16 major_ver, minor_ver;
+ 	size_t region_size;
+@@ -663,14 +662,12 @@ int dprc_setup(struct fsl_mc_device *mc_dev)
+ 		uapi_created = true;
+ 	}
  
--	if (dev->of_node)
-+	if (dev_is_fsl_mc(dev))
-+		dev_id = fsl_mc_get_msi_id(dev);
-+	else if (dev->of_node)
- 		ret = of_pmsi_get_msi_info(domain->parent, dev, &dev_id, NULL);
- 	else
- 		ret = iort_pmsi_get_dev_id(dev, &dev_id);
+-	mc_msi_domain = fsl_mc_find_msi_domain(&mc_dev->dev);
+-	if (!mc_msi_domain) {
++	mc_msi_domain = fsl_mc_get_msi_parent(&mc_dev->dev);
++	if (!mc_msi_domain)
+ 		dev_warn(&mc_dev->dev,
+ 			 "WARNING: MC bus without interrupt support\n");
+-	} else {
++	else
+ 		dev_set_msi_domain(&mc_dev->dev, mc_msi_domain);
+-		msi_domain_set = true;
+-	}
+ 
+ 	error = dprc_open(mc_dev->mc_io, 0, mc_dev->obj_desc.id,
+ 			  &mc_dev->mc_handle);
+@@ -710,8 +707,7 @@ int dprc_setup(struct fsl_mc_device *mc_dev)
+ 	(void)dprc_close(mc_dev->mc_io, 0, mc_dev->mc_handle);
+ 
+ error_cleanup_msi_domain:
+-	if (msi_domain_set)
+-		dev_set_msi_domain(&mc_dev->dev, NULL);
++	dev_set_msi_domain(&mc_dev->dev, NULL);
+ 
+ 	if (mc_io_created) {
+ 		fsl_destroy_mc_io(mc_dev->mc_io);
 -- 
 2.47.3
 
