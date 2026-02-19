@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1BCE9A04A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 16:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8A3E9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 16:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oZ9AAJhKiTCDJkiaGuNfYveAkDd60QpVuIV5QBffXFA=; b=xgNI3vjP0OXAsfXq8YDsG2mR/T
-	h59xD7IuiuTCTDAZmezNfOF9iERgX+fCqU2rMnaesyiU7YxPq9yOZAhb7bpZ58uD3f/eP4ij31fbD
-	oCJrNh9rF5eDxU5hGlI7aAAYX2qktOwT6UpJ95aaipbyaOMxXBDpIZn8wMCD6CDsN+CjoLDBa3B7G
-	/6Dg89gDBxD6Op3qlgRyR9xTljppVc+D2NTNmmw2FugCMdAJZiXOZUEH7M9kKgR1UZvUu+/Bg9DUe
-	k+8JzXTxbWofa1XvBOoopKUvNbe5jMwcI91/NliBkDesNGUF9qklkfIRjZAFx3U1WtO6SQs98g8s5
-	75PhySkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LgBwNLmrIki/SK8WVAvQt3v0t3CnW+2Cc51W3lptYuE=; b=i+Xv8Y2jqcse2W0xPDmP8KQxIc
+	t0Zv8I4AldAppE+fkgEwFeyrXA3tPDOkoSyy84nRFKt250B6BiKQKM80+U7J9UNgzfJfmbOY5rS3T
+	ae6ClSa+hBxIv5ENLG7mov6sXneDC7qPRJMnqi5FmTtbfLqR9B80oCVsrMIlak9QRuX5vDfEd0aVF
+	yt0dnmO4cr/5V4vXfW6/Uh1jYGA5UEdBoFuseUJifH6WowIk1/KbChlk2YVEbVv7Um44hp/Xj8ZEn
+	uGbE72IAfSjFMRDfRpAq49SfJiHmIUMl0IHw3/JrwktHljsXfnCxvFaErBplXk9Wh7nVX78+gephc
+	uSnpZE2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt6kt-0000000Bck0-3P04;
-	Thu, 19 Feb 2026 16:19:55 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vt6vj-0000000BdXm-0E4T;
+	Thu, 19 Feb 2026 16:31:07 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt6kq-0000000BcjN-1eoW;
-	Thu, 19 Feb 2026 16:19:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771517988;
-	bh=kzoF1Sqejd9zm0QrGdiWY9BZ2fRayBCXMiqLyljXYf8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ivdDN6lXI5+8KO+M99OJHAg3uoRp42TeaXM0Zk/FQWS88eFNOkikiBAkikq0C7fu/
-	 EhJei0NVFdpLlxEyUueq43Ya/n8QHz70Dzbq02Dmc9UNWhlq9E9G8BF5lxyVYJK4yS
-	 EDeqGrFhTtql2XqTYIxh/AL6Zl3RRH4KnBNsmdw0nAoX/z/g3xRR5ZzYcKxmYZEP9n
-	 FAjzWhkAaeWYEPWkQ15uISMinbQ5qEgpCLLIhP9/UXD8aHaOH8gi3TJEhvous/GwbE
-	 u/9Kxqang4wdDydjvm0rZn/19ADOzr5owlxoqKBM580xevXv++N31EvQX6JPLNCHqY
-	 jize3nbd2kOtQ==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B1D9017E01B1;
-	Thu, 19 Feb 2026 17:19:47 +0100 (CET)
-Message-ID: <d701a97d-6051-4a32-ada6-bf014e385c68@collabora.com>
-Date: Thu, 19 Feb 2026 17:19:46 +0100
+	id 1vt6vc-0000000BdX3-4Bcv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Feb 2026 16:31:06 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id DC3DD1FC8B;
+	Thu, 19 Feb 2026 17:30:53 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1771518654;
+	bh=LgBwNLmrIki/SK8WVAvQt3v0t3CnW+2Cc51W3lptYuE=; h=From:To:Subject;
+	b=X23sGSAWt2EKgPi26CvX/nfnR5KTeIuJZ2ZPzg30iqU0ZwE2qV0PFo1WVYGM/JVJu
+	 +Rc46kzbtvHjhgd99Bb+VTxvQ6GFozf0Q/9BP3qYV9aTx3CYPXwyswK40fo7wfrwRk
+	 cIaSFgVamNmv+gzsv1BViRmA9kwuk+q+4HfOkhmFRYirqSHTd/YqcRwsL3tuWsvm6N
+	 CD2qI6rZSODERTNHBYM4lemEzlRJBWpyZTJkrcUp+BenuIrX5Z/SOdDL7RyZzSnsIA
+	 uhqfWl09O02rXsjo7alV4P2qOM7n4BfiU0Zt2QNW+l/BrmOV/auex275ifwolr3zTa
+	 a2h3at6TJox0A==
+Date: Thu, 19 Feb 2026 17:30:50 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Frank Li <Frank.li@nxp.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: max.oss.09@gmail.com, Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Max Krummenacher <max.krummenacher@toradex.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Revert "ARM: dts: imx: move nand related property under
+ nand@0"
+Message-ID: <20260219163050.GA194254@francesco-nb>
+References: <20260219151157.2549198-1-max.oss.09@gmail.com>
+ <aZcz1vRg4KtAKUd_@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] media: rockchip: rkcif: comply with minimum number of
- buffers requirement
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
- Paul Elder <paul.elder@ideasonboard.com>,
- Mehdi Djait <mehdi.djait@linux.intel.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sakari Ailus <sakari.ailus@linux.intel.com>,
- Hans Verkuil <hverkuil+cisco@kernel.org>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Collabora Kernel Team <kernel@collabora.com>, stable@kernel.org,
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260216-rkcif-fixes-v1-0-b16db20b6d68@collabora.com>
- <20260216-rkcif-fixes-v1-2-b16db20b6d68@collabora.com>
- <20260219091301.GF520738@killaraus.ideasonboard.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260219091301.GF520738@killaraus.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZcz1vRg4KtAKUd_@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_081952_620063_0F020F2D 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20260219_083101_922251_58409158 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,107 +78,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
-
-On 2/19/26 10:13, Laurent Pinchart wrote:
-> On Mon, Feb 16, 2026 at 02:49:57PM +0100, Michael Riesch via B4 Relay wrote:
->> From: Michael Riesch <michael.riesch@collabora.com>
->>
->> Each stream requires CIF_REQ_BUFS_MIN=1 buffers to enable streaming.
->> However, it failed with only one buffer provided.
->>
->> Comply with the minimum number of buffers requirement and accept
->> exactly one buffer.
->>
->> Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma blocks")
->> Cc: stable@kernel.org
->> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
->> ---
->>  .../media/platform/rockchip/rkcif/rkcif-stream.c   | 41 +++++++++++-----------
->>  1 file changed, 21 insertions(+), 20 deletions(-)
->>
->> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
->> index e00010a91e8b..5a5ab9e7e86e 100644
->> --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
->> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
->> @@ -106,19 +106,6 @@ static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
->>  {
->>  	struct v4l2_pix_format_mplane *pix = &stream->pix;
->>  
->> -	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
->> -	if (!stream->buffers[0])
->> -		goto err_buff_0;
->> -
->> -	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
->> -	if (!stream->buffers[1])
->> -		goto err_buff_1;
->> -
->> -	if (stream->queue_buffer) {
->> -		stream->queue_buffer(stream, 0);
->> -		stream->queue_buffer(stream, 1);
->> -	}
->> -
->>  	stream->dummy.size = pix->num_planes * pix->plane_fmt[0].sizeimage;
->>  	stream->dummy.vaddr =
->>  		dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
->> @@ -132,16 +119,30 @@ static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
->>  			stream->dummy.buffer.buff_addr[i - 1] +
->>  			pix->plane_fmt[i - 1].bytesperline * pix->height;
->>  
->> -	return 0;
->> +	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
->> +	if (!stream->buffers[0])
->> +		goto err_buff_0;
+On Thu, Feb 19, 2026 at 11:01:26AM -0500, Frank Li wrote:
+> On Thu, Feb 19, 2026 at 04:11:49PM +0100, max.oss.09@gmail.com wrote:
+> > From: Max Krummenacher <max.krummenacher@toradex.com>
+> >
+> > This reverts commit 8124b4a4a96b57d6cc3705a9df9623c52baa047b.
+> >
+> > The change introduced a regression: at least Colibri iMX6ULL and
+> > Colibri iMX7 no longer boot with that commit applied, while they boot
+> > again after reverting it.
+> >
+> > Although this has only been verified on these two modules, the issue
+> > is expected to affect all device trees using the gpmi-nand driver.
+> >
+> > [    0.876938] Creating 5 MTD partitions on "gpmi-nand":
+> > [    0.876974] 0x000000000000-0x000000080000 : "mx7-bcb"
+> > [    0.879860] 0x000000080000-0x000000200000 : "u-boot1"
+> > [    0.884761] 0x000000200000-0x000000380000 : "u-boot2"
+> > [    0.886993] 0x000000380000-0x000000400000 : "u-boot-env"
+> > [    0.894686] 0x000000400000-0x000020000000 : "ubi"
+> > [    0.899054] gpmi-nand 33002000.nand-controller: driver registered.
+> > ...
+> > [    0.960443] ubi0: default fastmap pool size: 200
+> > [    0.960476] ubi0: default fastmap WL pool size: 100
+> > [    0.960500] ubi0: attaching mtd4
+> > [    1.636355] ubi0 error: scan_peb: bad image sequence number 1588722158 in PEB 4060, expected 1574791632
+> > ...
+> > [    1.649889] ubi0 error: ubi_attach_mtd_dev: failed to attach mtd4, error -22
+> > [    1.650029] UBI error: cannot attach mtd4
+> > ...
+> > [    1.670262] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,253)
 > 
-> Why do you move this after allocation of the dummy buffer, to then add
-> dma_free_attrs() in the err_buff_0 error path ?
+> Can you help found the real reason why not boot?
+> nand@0 is preferred format for MTD raw nand.
 
-To keep the two rkcif_stream_pop_buffer calls together. We need to
-allocate the dummy in any case, but in case the second pop fails we use
-it -- this was not the case before.
+I already raised the issue when you sent this patch series, we need to
+consider the other users of this DT blob, for example U-Boot.
 
-> 
->>  
->> -err_dummy:
->> -	rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEUED);
->> -	stream->buffers[1] = NULL;
->> +	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
->> +	if (!stream->buffers[1]) {
->> +		stream->buffers[stream->frame_phase] = &stream->dummy.buffer;
->> +		stream->buffers[stream->frame_phase]->is_dummy = true;
->> +	}
->> +
->> +	if (stream->queue_buffer) {
->> +		stream->queue_buffer(stream, 0);
->> +		stream->queue_buffer(stream, 1);
->> +	}
->> +
->> +	return 0;
->>  
->> -err_buff_1:
->> -	rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEUED);
->> -	stream->buffers[0] = NULL;
->>  err_buff_0:
->> +	dma_free_attrs(stream->rkcif->dev, stream->dummy.size,
->> +		       stream->dummy.vaddr,
->> +		       stream->dummy.buffer.buff_addr[0],
->> +		       DMA_ATTR_NO_KERNEL_MAPPING);
->> +	stream->dummy.vaddr = NULL;
->> +err_dummy:
->>  	return -EINVAL;
-> 
-> You can drop the err_dummy label and return -EINVAL directly. Except you
-> should probably return -ENOMEM as the failure comes from
-> dma_alloc_attrs().
+Please see my comments and Krzysztof one here [1]
 
-Makes sense, will fix.
+I agree on investigating this, but I see no other option than reverting
+for now.
 
-Best regards,
-Michael
+[1] https://lore.kernel.org/all/20251105115538.GA17091@francesco-nb/
 
-> 
->>  }
->>  
-> 
+Francesco
 
 
