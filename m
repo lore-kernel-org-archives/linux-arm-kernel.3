@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91779E9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 09:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E069E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 09:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XJvGq2FKRsfVFdj7qjosfzrOox57x5mEBNoyUl3+KbM=; b=YOqUGSjr0xz/AItYvheysAf/Sz
-	miZjJLQupxqlfYIw4bi0cmu4A4tKPdTEpABZKPvWJsA0dRNQaSXTYCKwuZS2YpAWr0BD2twoaWm92
-	8Ofqjp/GJlSLblL4gfC3+VEa8dP17rNzpCYHvS+d3BlFgqs7gYYo803BASLJBiKcjXsoo9ULOXJuN
-	nxu1s5e3XLoX53VzcMtde7AdUbwmBgcdhSDdsSHOgCL/ullSAOxkDmjPSVdT3/fJNE3arOHI2imZN
-	nJpSJVl870epHtCFLT24OfjGqmbJyzITg0iV91PJVk5k5Mx4v3+1lPf/MiQucKauZNoOexj1Wnirt
-	ThgBQtNQ==;
+	bh=33mP6oJT/c38nYsTgy6M6vUs24liTAxmVX4cUV2MI8Y=; b=bmzXvn2jUokuu/VFFIJ/r8Y4jL
+	RpeZQwCyavqLcfttv9zT7tYLr+yfjAQi5cw0QnwWQ18ECEl+5tQdyUP4tlcgTAkQDxKtK91D8dxiW
+	zIND98ZgIkRsAEk0gzjmVtrbiQc5QnTY36jUtnViefQgVnBIqv+cKc+/8a9Qt668aqJBHIqioeiy8
+	NqXD381dXrIJDiZFRP6q8WrMyZbihKtu4X9u4Syc3wTGWmdZ2vqEPCxAIcHbaAihkdb1OSnj1jkby
+	bwrq4fWBARqp8OftU4PDUP3f8GKZi/x7cIhVCG0L9utAf3W7fV6LvQxo4XP0J11uwQEzQNX3Y4iJU
+	irJc2BiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt0WT-0000000BBUk-3W4P;
-	Thu, 19 Feb 2026 09:40:37 +0000
+	id 1vt0ZB-0000000BBhd-3tnJ;
+	Thu, 19 Feb 2026 09:43:25 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt0WQ-0000000BBTr-0OTQ
+	id 1vt0Z9-0000000BBgj-1c81
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 09:40:36 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fGpJV5YvHzJ46Zg;
-	Thu, 19 Feb 2026 17:40:10 +0800 (CST)
+	Thu, 19 Feb 2026 09:43:24 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fGpMw1FBLzJ46XM;
+	Thu, 19 Feb 2026 17:43:08 +0800 (CST)
 Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id E984340569;
-	Thu, 19 Feb 2026 17:40:23 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 577F540565;
+	Thu, 19 Feb 2026 17:43:21 +0800 (CST)
 Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
  (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 19 Feb
- 2026 09:40:23 +0000
-Date: Thu, 19 Feb 2026 09:40:21 +0000
+ 2026 09:43:20 +0000
+Date: Thu, 19 Feb 2026 09:43:18 +0000
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Besar Wicaksono <bwicaksono@nvidia.com>
 CC: <will@kernel.org>, <suzuki.poulose@arm.com>, <robin.murphy@arm.com>,
@@ -47,11 +47,11 @@ CC: <will@kernel.org>, <suzuki.poulose@arm.com>, <robin.murphy@arm.com>,
 	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>,
 	<skelley@nvidia.com>, <ywan@nvidia.com>, <mochs@nvidia.com>,
 	<nirmoyd@nvidia.com>
-Subject: Re: [PATCH v2 3/8] perf/arm_cspmu: Add arm_cspmu_acpi_dev_get
-Message-ID: <20260219094021.0000465d@huawei.com>
-In-Reply-To: <20260218145809.1622856-4-bwicaksono@nvidia.com>
+Subject: Re: [PATCH v2 2/8] perf/arm_cspmu: nvidia: Add Tegra410 UCF PMU
+Message-ID: <20260219094318.0000283a@huawei.com>
+In-Reply-To: <20260218145809.1622856-3-bwicaksono@nvidia.com>
 References: <20260218145809.1622856-1-bwicaksono@nvidia.com>
-	<20260218145809.1622856-4-bwicaksono@nvidia.com>
+	<20260218145809.1622856-3-bwicaksono@nvidia.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -60,8 +60,8 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
  dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_014034_466867_27384BF0 
-X-CRM114-Status: GOOD (  23.68  )
+X-CRM114-CacheID: sfid-20260219_014323_739246_E1B0D9CE 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,120 +76,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Feb 2026 14:58:04 +0000
+On Wed, 18 Feb 2026 14:58:03 +0000
 Besar Wicaksono <bwicaksono@nvidia.com> wrote:
 
-> Add interface to get ACPI device associated with the
-> PMU. This ACPI device may contain additional properties
-> not covered by the standard properties.
+> The Unified Coherence Fabric (UCF) contains last level cache
+> and cache coherent interconnect in Tegra410 SOC. The PMU in
+> this device can be used to capture events related to access
+> to the last level cache and memory from different sources.
 > 
 > Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
 > Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
-Hi Besar,
+Trivial stuff inline...
 
-A drive by review as I was curious.
 
-A few comments inline.
-> ---
->  drivers/perf/arm_cspmu/arm_cspmu.c | 22 +++++++++++++++++++++-
->  drivers/perf/arm_cspmu/arm_cspmu.h | 17 ++++++++++++++++-
->  2 files changed, 37 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-> index 34430b68f602..ab2479c048bb 100644
-> --- a/drivers/perf/arm_cspmu/arm_cspmu.c
-> +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-> @@ -16,7 +16,7 @@
->   * The user should refer to the vendor technical documentation to get details
->   * about the supported events.
->   *
+> diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c b/drivers/perf/arm_cspmu/nvidia_cspmu.c
+> index e06a06d3407b..c67667097a3c 100644
+> --- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
+> +++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  /*
 > - * Copyright (c) 2022-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 > + * Copyright (c) 2022-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 >   *
 >   */
 >  
-> @@ -1132,6 +1132,26 @@ static int arm_cspmu_acpi_get_cpus(struct arm_cspmu *cspmu)
+> @@ -21,6 +21,13 @@
+>  #define NV_CNVL_PORT_COUNT           4ULL
+>  #define NV_CNVL_FILTER_ID_MASK       GENMASK_ULL(NV_CNVL_PORT_COUNT - 1, 0)
 >  
->  	return 0;
->  }
+> +#define NV_UCF_SRC_COUNT             3ULL
+> +#define NV_UCF_DST_COUNT             4ULL
+> +#define NV_UCF_FILTER_ID_MASK        GENMASK_ULL(11, 0)
+> +#define NV_UCF_FILTER_SRC            GENMASK_ULL(2, 0)
+> +#define NV_UCF_FILTER_DST            GENMASK_ULL(11, 8)
+> +#define NV_UCF_FILTER_DEFAULT        (NV_UCF_FILTER_SRC | NV_UCF_FILTER_DST)
 > +
-> +struct acpi_device *arm_cspmu_acpi_dev_get(const struct arm_cspmu *cspmu)
-> +{
-> +	char hid[16];
-> +	char uid[16];
-
-Might as well do
-	char hid[16] = { };
-	char uid[16] = { };
-
-and drop the memsets below.
-
-> +	const struct acpi_apmt_node *apmt_node;
-> +
-> +	apmt_node = arm_cspmu_apmt_node(cspmu->dev);
-> +	if (!apmt_node || apmt_node->type != ACPI_APMT_NODE_TYPE_ACPI)
-> +		return NULL;
-> +
-> +	memset(hid, 0, sizeof(hid));
-> +	memset(uid, 0, sizeof(uid));
-> +
-> +	memcpy(hid, &apmt_node->inst_primary, sizeof(apmt_node->inst_primary));
-> +	snprintf(uid, sizeof(uid), "%u", apmt_node->inst_secondary);
-> +
-> +	return acpi_dev_get_first_match_dev(hid, uid, -1);
-> +}
-> +EXPORT_SYMBOL_GPL(arm_cspmu_acpi_dev_get);
->  #else
->  static int arm_cspmu_acpi_get_cpus(struct arm_cspmu *cspmu)
->  {
-> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
-> index cd65a58dbd88..320096673200 100644
-> --- a/drivers/perf/arm_cspmu/arm_cspmu.h
-> +++ b/drivers/perf/arm_cspmu/arm_cspmu.h
-> @@ -1,13 +1,14 @@
->  /* SPDX-License-Identifier: GPL-2.0
->   *
->   * ARM CoreSight Architecture PMU driver.
-> - * Copyright (c) 2022-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-> + * Copyright (c) 2022-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
->   *
->   */
+>  #define NV_GENERIC_FILTER_ID_MASK    GENMASK_ULL(31, 0)
 >  
->  #ifndef __ARM_CSPMU_H__
->  #define __ARM_CSPMU_H__
+>  #define NV_PRODID_MASK	(PMIIDR_PRODUCTID | PMIIDR_VARIANT | PMIIDR_REVISION)
+> @@ -124,6 +131,37 @@ static struct attribute *mcf_pmu_event_attrs[] = {
+>  	NULL,
+>  };
 >  
-> +#include <linux/acpi.h>
->  #include <linux/bitfield.h>
->  #include <linux/cpumask.h>
->  #include <linux/device.h>
-> @@ -255,4 +256,18 @@ int arm_cspmu_impl_register(const struct arm_cspmu_impl_match *impl_match);
->  /* Unregister vendor backend. */
->  void arm_cspmu_impl_unregister(const struct arm_cspmu_impl_match *impl_match);
->  
-> +#if defined(CONFIG_ACPI)
-This isn't the same gate as used for whether the function is built. I think that's 
-#if defined(CONFIG_ACPI) && defined(CONFIG_ARM64)
-
-Whilst it might work to have them different today I think this is a little more
-fragile than would be ideal.
-
-The ARM64 bit seems to be there to allow COMPILE_TEST for
-ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU  and to me that smells like a stub or Kconfig
-dependency missing.
-
-> +/**
-> + * Get ACPI device associated with the PMU.
-> + * The caller is responsible for calling acpi_dev_put() on the returned device.
-> + */
-> +struct acpi_device *arm_cspmu_acpi_dev_get(const struct arm_cspmu *cspmu);
-> +#else
-> +static inline struct acpi_device *
-> +arm_cspmu_acpi_dev_get(const struct arm_cspmu *cspmu)
-> +{
-> +	return NULL;
-> +}
-> +#endif
+> +static struct attribute *ucf_pmu_event_attrs[] = {
+> +	ARM_CSPMU_EVENT_ATTR(bus_cycles,            0x1D),
 > +
->  #endif /* __ARM_CSPMU_H__ */
+> +	ARM_CSPMU_EVENT_ATTR(slc_allocate,          0xF0),
+> +	ARM_CSPMU_EVENT_ATTR(slc_wb,                0xF3),
+> +	ARM_CSPMU_EVENT_ATTR(slc_refill_rd,         0x109),
+> +	ARM_CSPMU_EVENT_ATTR(slc_refill_wr,         0x10A),
+> +	ARM_CSPMU_EVENT_ATTR(slc_hit_rd,            0x119),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(slc_access_dataless,   0x183),
+> +	ARM_CSPMU_EVENT_ATTR(slc_access_atomic,     0x184),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(slc_access,            0xF2),
+> +	ARM_CSPMU_EVENT_ATTR(slc_access_rd,         0x111),
+> +	ARM_CSPMU_EVENT_ATTR(slc_access_wr,         0x112),
+> +	ARM_CSPMU_EVENT_ATTR(slc_bytes_rd,          0x113),
+> +	ARM_CSPMU_EVENT_ATTR(slc_bytes_wr,          0x114),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(mem_access_rd,         0x121),
+> +	ARM_CSPMU_EVENT_ATTR(mem_access_wr,         0x122),
+> +	ARM_CSPMU_EVENT_ATTR(mem_bytes_rd,          0x123),
+> +	ARM_CSPMU_EVENT_ATTR(mem_bytes_wr,          0x124),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(local_snoop,           0x180),
+> +	ARM_CSPMU_EVENT_ATTR(ext_snp_access,        0x181),
+> +	ARM_CSPMU_EVENT_ATTR(ext_snp_evict,         0x182),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(cycles, ARM_CSPMU_EVT_CYCLES_DEFAULT),
+> +	NULL,
+Whilst it's locally consistent.  In general commas after NULL terminators
+are something that makes little sense.  The whole point of that terminator
+is nothing will ever come after it...
+
+I wouldn't have commented but...
+> +};
+
+>  enum nv_cspmu_name_fmt {
+>  	NAME_FMT_GENERIC,
+> @@ -342,6 +413,23 @@ static const struct nv_cspmu_match nv_cspmu_match[] = {
+>  		.init_data = NULL
+>  	  },
+>  	},
+> +	{
+> +	  .prodid = 0x2CF20000,
+> +	  .prodid_mask = NV_PRODID_MASK,
+> +	  .name_pattern = "nvidia_ucf_pmu_%u",
+> +	  .name_fmt = NAME_FMT_SOCKET,
+> +	  .template_ctx = {
+> +		.event_attr = ucf_pmu_event_attrs,
+> +		.format_attr = ucf_pmu_format_attrs,
+> +		.filter_mask = NV_UCF_FILTER_ID_MASK,
+> +		.filter_default_val = NV_UCF_FILTER_DEFAULT,
+> +		.filter2_mask = 0x0,
+> +		.filter2_default_val = 0x0,
+> +		.get_filter = ucf_pmu_event_filter,
+> +		.get_filter2 = NULL,
+> +		.init_data = NULL
+Also locally consistent but generally considered a bad thing to do.
+It is certainly possible that in future the template_ctx will gain another field
+so the lack of a trailing comma here will then create unnecessary noise.
+
+For this reason trailing commas are normally used in structure initialization.
+
+Jonathan
+
+> +	  },
+> +	},
+>  	{
+>  	  .prodid = 0,
+>  	  .prodid_mask = 0,
 
 
