@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3470E9A050
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7D1E9A051
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:04:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQnpLilO0aV7WO3HSwcQrAojYlDH2g+u5UVGrmlG8EY=; b=TtJBbwVgMYYw7N7/LwJfnDtBDL
-	t8s3KDtTu6ZVzBjo6jj/CgKFEOGEMihFiGd4QBSLfJQsSf7zPFShwbpdT72WTvlVQATQzkgfAL29U
-	BGrTXogURDIhr1n0aVN84MXv3p0Cmt1ZEHxQJSTntP0Ed9wq4r1ryQp6HXOum0fixcDxErTC39isy
-	ezPWI2n0dRN+kn/RJi9h4GBbEC5ZlHEzoT60dZYdYi52QU9Zh6/SD1vz2jh5mWOe9QTgxpJVgS8Ul
-	z6y8A4UkqvNHDzICNAfi0X1cQOWa44LeEuQkJIUCZUZmGxXVtAPvIDmF0BpZ0QtlTxnMoTMrbofHa
-	1YQqNNfQ==;
+	bh=KSuD2C5NFQEJ1s/f2WW4h61WSWzcVtPeKoDn90FI5XM=; b=wQ2k5jQuUdVUVSeIMVZCpCNdrk
+	jAbfWP/frnl+CgbcToMZEmrrxTAqV0z+1ANZV6l2Q8w0zuLR6+vgO0RuzcQDEwHtWxywxThN5+HP0
+	0PsotKA3+Gt/e2SO6OuhUNOKhshrtmFfuzdSKP9Os+rU+VPFVJzvDite73eno335XJiGVX//uAW/d
+	tnUkRV3rCd9xyouSVx8DwBIVbgD1ucDcn/CcX9LdHMgDvaP+M0ztepF/awwk69OjA/NbNG1bwrTsP
+	JHTOyFQv1sFGnBIDIOPSsjWXokGgyN/l+PK5b/JF7RtFTitmHKgRL7QeUSiffdMiTipWbBHwRe+cx
+	5MJbgVJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5Zf-0000000BVaH-3L3g;
-	Thu, 19 Feb 2026 15:04:15 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vt5Zk-0000000BVgI-45Nd;
+	Thu, 19 Feb 2026 15:04:21 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5ZG-0000000BV4E-3tDj
+	id 1vt5ZK-0000000BV9G-2A3b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 15:03:58 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48372facfedso15299015e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 07:03:49 -0800 (PST)
+	Thu, 19 Feb 2026 15:04:01 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b8f9292d84bso301375966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 07:03:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771513428; x=1772118228; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1771513432; x=1772118232; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=oQnpLilO0aV7WO3HSwcQrAojYlDH2g+u5UVGrmlG8EY=;
-        b=meMXtk6wGd4PC+z8FveHBZ96WA3qC5iGbqYV4A5YtFjT8vlG+sS5pasNXKSwSIIgur
-         RlpN2I45wzvaEU+Nugra+zp72wV6mzZXTG3ZUx15ixQzr6PVuJ3afOp6GmIJC7IvkanG
-         yryd4pxeWXGDvfSyGIupl49UwM9LWVTCzODXJnpRsLIRUMAR3lp878DcYSiYi1VetRq0
-         pIqHw2aPHwJW1F3IPoNTfIeJtoaGscXeOl2xv+t/JQmtZQo9yvQlnCXtH4xHJJFkeimY
-         4iqMRIGJJQGD5xrHlnSDV0iHk3sFru2fpM0rCNY79D5bVL3f7zZaef8m5HJ1S8/e29zM
-         IIWA==
+        bh=KSuD2C5NFQEJ1s/f2WW4h61WSWzcVtPeKoDn90FI5XM=;
+        b=sa7XuxETDkUafG0lr7Bt57IBmHcSWyLvASET3pgkkf8f3fLDYw+qGyquTMioL3z9xG
+         r9Rx3IsayJse5jw/EHOCC/BlaHcEYLD6kVRYbFu2WnV9PRCkvqohpQ3fd/hc8V26EjvM
+         b3pZw7rEHUu6TCdGCfiVcniRbUug0XaTLAO7VvdiszG1IKJa4rtQgrA1XtUvgeORsI9Q
+         lK4eix0UX9OVq/2bgBuSu2E994mY5wSF/pbfRIMN5JBT2nWhrUfymSTbGFgM1bE5HK6m
+         baAxnIbylhFOhG7FRFpIARTIni1zfmAZqT7lT52xzx98tI0ILmMuBbLvx3hqmQGIHq69
+         l7+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771513428; x=1772118228;
+        d=1e100.net; s=20230601; t=1771513432; x=1772118232;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oQnpLilO0aV7WO3HSwcQrAojYlDH2g+u5UVGrmlG8EY=;
-        b=S++Q68tpLQ9WmrFEUcZHkEGvmZBS0ykbpLqemYsGEOFkg3UqcZ1LDx1iygF41Y8fGE
-         eBENw3FyRJRqQaS5aiguxyWrma4Z4S21ORC6JOo48gpDhazhQDfhDpmfM7yYOqQ9FobZ
-         yFhMbmip2pQDnTle7QmPpNpeurEpiqTdbtSS/tKwQS02zMLfYcnpaeYPISwROL3NDxgL
-         ZWS/skzWfoMs72xLFFTyqMqIeRXQ1uDbXxhb08JG9dpn2nsm2ijaOQ3heJ8NbHHu3yD4
-         CtMzKxS7Vx70A13gk6Yw2ui/uu1J0m/f3yx1qmn+QMR+vN8KOpsFfZOfgpCzTAuwqpw2
-         39Tg==
-X-Forwarded-Encrypted: i=1; AJvYcCVH+8U03j6PCXi7qzidKY3JRlB67wGrGyveJFYbO7dEI8d2pi2qkJNMOAaclyOl/aP2JVLmu5AOgsrYNXT3G9fX@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrrVg5tle2/+DcEKM0LC+/717dHkg09SuyiEVwVqKnagojF8hg
-	qPXQY/PDiklpLTizeVkJGeyXYHmVuMjf1wnbodSZwqLhev0LDtR9yOAqcqBorSjZfoYBYWvHPlf
-	Akv/ShYf9EVSUyWWxtbdaFQ==
-X-Received: from wmga7.prod.google.com ([2002:a05:600c:2d47:b0:480:69a4:844d])
+        bh=KSuD2C5NFQEJ1s/f2WW4h61WSWzcVtPeKoDn90FI5XM=;
+        b=j0XjrYQF1q00Ff1WRoLpYLjk9hbBK/g8y9APLpsPppY7GgMliBfzAgiURvVYHV2GsM
+         Uid5SK6Cr4RDA+K/ygYdgPPsJceVv90MoADc02xIW73h1Lie9/YUD4kkaFIP8rqVzhyN
+         k0N1ZxttziKVLqEsKd7TtVpI8qIGLRcky73uks9LBqK7VSajVGAbn6HxsBKRBlsvto4x
+         Y7miIHd9iXh6QVZLKEYCMSkojMiqpJ0+/C/LSP4bi9p8LWkKt4XP74h01/1/hLXqKGv1
+         ULKXE9TEkA9PgIrAORXdaEvirg+kVnE8jMBYhFwjmGhm/M22oMj47bbqUGt4pwqm9T5t
+         36eg==
+X-Forwarded-Encrypted: i=1; AJvYcCXLgXZBENRbrV5It2TFBYX7+dhHr/hFuIQebcXGu70lBod0qwg8KMYuG3Y/YsCTrGzSNlrN/CoBK7425X7GkzOP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxj0pED4ht/2GVsCpCNrVkT7b2zcb1lal1a7NBtFbbv0CUZcL6I
+	25wrR5E7KrFY68tH6VNrZLuZUTkBguKo+BzVJUq4OqlZmRJ+LmKOxgllA+FV1PsPttW/7YGGPzl
+	ced7xPaT1jphoEIkcOI0Rig==
+X-Received: from edra19.prod.google.com ([2002:aa7:d913:0:b0:64b:8031:e69a])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:c114:b0:47e:e97e:11aa with SMTP id 5b1f17b1804b1-4839fe8e843mr32525065e9.4.1771513427675;
- Thu, 19 Feb 2026 07:03:47 -0800 (PST)
-Date: Thu, 19 Feb 2026 15:02:58 +0000
+ 2002:a17:907:c27:b0:b87:15a7:8603 with SMTP id a640c23a62f3a-b8face4c826mr1457845666b.43.1771513431287;
+ Thu, 19 Feb 2026 07:03:51 -0800 (PST)
+Date: Thu, 19 Feb 2026 15:03:01 +0000
 In-Reply-To: <20260219150307.14538-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260219150307.14538-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.53.0.335.g19a08e0c02-goog
-Message-ID: <20260219150307.14538-22-vdonnefort@google.com>
-Subject: [PATCH v12 21/30] KVM: arm64: Initialise hyp_nr_cpus for nVHE hyp
+Message-ID: <20260219150307.14538-25-vdonnefort@google.com>
+Subject: [PATCH v12 24/30] KVM: arm64: Add trace remote for the nVHE/pKVM hyp
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -76,8 +76,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_070351_168326_C634986C 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260219_070354_755678_40A14C0A 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,127 +92,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Knowing the number of CPUs is necessary for determining the boundaries
-of per-cpu variables, which will be used for upcoming hypervisor
-tracing. hyp_nr_cpus which stores this value, is only initialised for
-the pKVM hypervisor. Make it accessible for the nVHE hypervisor as well.
+In both protected and nVHE mode, the hypervisor is capable of writing
+events into tracefs compatible ring-buffers. Create a trace remote so
+the kernel can read those buffers.
 
-With the kernel now responsible for initialising hyp_nr_cpus, the
-nr_cpus parameter is no longer needed in __pkvm_init.
+This currently doesn't provide any event support which will come later.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
-index 76ce2b94bd97..4bf63025061e 100644
---- a/arch/arm64/include/asm/kvm_hyp.h
-+++ b/arch/arm64/include/asm/kvm_hyp.h
-@@ -129,8 +129,7 @@ void __noreturn __hyp_do_panic(struct kvm_cpu_context *host_ctxt, u64 spsr,
- #ifdef __KVM_NVHE_HYPERVISOR__
- void __pkvm_init_switch_pgd(phys_addr_t pgd, unsigned long sp,
- 		void (*fn)(void));
--int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long nr_cpus,
--		unsigned long *per_cpu_base, u32 hyp_va_bits);
-+int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long *per_cpu_base, u32 hyp_va_bits);
- void __noreturn __host_enter(struct kvm_cpu_context *host_ctxt);
- #endif
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index c7f50492f2cf..aad0228f24db 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -76,6 +76,7 @@ if NVHE_EL2_DEBUG
+ config NVHE_EL2_TRACING
+ 	bool
+ 	depends on TRACING
++	select TRACE_REMOTE
+ 	default y
  
-@@ -147,5 +146,6 @@ extern u64 kvm_nvhe_sym(id_aa64smfr0_el1_sys_val);
- extern unsigned long kvm_nvhe_sym(__icache_flags);
- extern unsigned int kvm_nvhe_sym(kvm_arm_vmid_bits);
- extern unsigned int kvm_nvhe_sym(kvm_host_sve_max_vl);
-+extern unsigned long kvm_nvhe_sym(hyp_nr_cpus);
+ config PKVM_DISABLE_STAGE2_ON_PANIC
+diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+index 3ebc0570345c..59612d2f277c 100644
+--- a/arch/arm64/kvm/Makefile
++++ b/arch/arm64/kvm/Makefile
+@@ -30,6 +30,8 @@ kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+ kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+ kvm-$(CONFIG_PTDUMP_STAGE2_DEBUGFS) += ptdump.o
  
- #endif /* __ARM64_KVM_HYP_H__ */
++kvm-$(CONFIG_NVHE_EL2_TRACING) += hyp_trace.o
++
+ always-y := hyp_constants.h hyp-constants.s
+ 
+ define rule_gen_hyp_constants
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 94d5b0b99fd1..6f9f3e8356b6 100644
+index 6f9f3e8356b6..c71bbb571dc9 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -35,6 +35,7 @@
- #include <asm/kvm_arm.h>
- #include <asm/kvm_asm.h>
- #include <asm/kvm_emulate.h>
-+#include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_nested.h>
- #include <asm/kvm_pkvm.h>
-@@ -2466,7 +2467,7 @@ static int __init do_pkvm_init(u32 hyp_va_bits)
- 	preempt_disable();
- 	cpu_hyp_init_context();
- 	ret = kvm_call_hyp_nvhe(__pkvm_init, hyp_mem_base, hyp_mem_size,
--				num_possible_cpus(), kern_hyp_va(per_cpu_base),
-+				kern_hyp_va(per_cpu_base),
- 				hyp_va_bits);
- 	cpu_hyp_init_features();
+@@ -24,6 +24,7 @@
  
-@@ -2675,6 +2676,8 @@ static int __init init_hyp_mode(void)
- 		kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu] = (unsigned long)page_addr;
- 	}
+ #define CREATE_TRACE_POINTS
+ #include "trace_arm.h"
++#include "hyp_trace.h"
  
-+	kvm_nvhe_sym(hyp_nr_cpus) = num_possible_cpus();
+ #include <linux/uaccess.h>
+ #include <asm/ptrace.h>
+@@ -2416,6 +2417,10 @@ static int __init init_subsystems(void)
+ 
+ 	kvm_register_perf_callbacks();
+ 
++	err = kvm_hyp_trace_init();
++	if (err)
++		kvm_err("Failed to initialize Hyp tracing\n");
 +
- 	/*
- 	 * Map the Hyp-code called directly from the host
- 	 */
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index 5f9d56754e39..f8a7b8c04c49 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -30,8 +30,6 @@ enum pkvm_component_id {
- 	PKVM_ID_FFA,
- };
- 
--extern unsigned long hyp_nr_cpus;
--
- int __pkvm_prot_finalize(void);
- int __pkvm_host_share_hyp(u64 pfn);
- int __pkvm_host_unshare_hyp(u64 pfn);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index e7790097db93..8ae3c348ed81 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -486,17 +486,15 @@ static void handle___pkvm_init(struct kvm_cpu_context *host_ctxt)
- {
- 	DECLARE_REG(phys_addr_t, phys, host_ctxt, 1);
- 	DECLARE_REG(unsigned long, size, host_ctxt, 2);
--	DECLARE_REG(unsigned long, nr_cpus, host_ctxt, 3);
--	DECLARE_REG(unsigned long *, per_cpu_base, host_ctxt, 4);
--	DECLARE_REG(u32, hyp_va_bits, host_ctxt, 5);
-+	DECLARE_REG(unsigned long *, per_cpu_base, host_ctxt, 3);
-+	DECLARE_REG(u32, hyp_va_bits, host_ctxt, 4);
- 
- 	/*
- 	 * __pkvm_init() will return only if an error occurred, otherwise it
- 	 * will tail-call in __pkvm_init_finalise() which will have to deal
- 	 * with the host context directly.
- 	 */
--	cpu_reg(host_ctxt, 1) = __pkvm_init(phys, size, nr_cpus, per_cpu_base,
--					    hyp_va_bits);
-+	cpu_reg(host_ctxt, 1) = __pkvm_init(phys, size, per_cpu_base, hyp_va_bits);
- }
- 
- static void handle___pkvm_cpu_set_vector(struct kvm_cpu_context *host_ctxt)
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index 90bd014e952f..d8e5b563fd3d 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -341,8 +341,7 @@ void __noreturn __pkvm_init_finalise(void)
- 	__host_enter(host_ctxt);
- }
- 
--int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long nr_cpus,
--		unsigned long *per_cpu_base, u32 hyp_va_bits)
-+int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long *per_cpu_base, u32 hyp_va_bits)
- {
- 	struct kvm_nvhe_init_params *params;
- 	void *virt = hyp_phys_to_virt(phys);
-@@ -355,7 +354,6 @@ int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long nr_cpus,
- 		return -EINVAL;
- 
- 	hyp_spin_lock_init(&pkvm_pgd_lock);
--	hyp_nr_cpus = nr_cpus;
- 
- 	ret = divide_memory_pool(virt, size);
- 	if (ret)
+ out:
+ 	if (err)
+ 		hyp_cpu_pm_exit();
+diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+new file mode 100644
+index 000000000000..2866effe28ec
+--- /dev/null
++++ b/arch/arm64/kvm/hyp_trace.c
+@@ -0,0 +1,219 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2025 Google LLC
++ * Author: Vincent Donnefort <vdonnefort@google.com>
++ */
++
++#include <linux/trace_remote.h>
++#include <linux/simple_ring_buffer.h>
++
++#include <asm/kvm_host.h>
++#include <asm/kvm_hyptrace.h>
++#include <asm/kvm_mmu.h>
++
++#include "hyp_trace.h"
++
++/* Access to this struct within the trace_remote_callbacks are protected by the trace_remote lock */
++static struct hyp_trace_buffer {
++	struct hyp_trace_desc	*desc;
++	size_t			desc_size;
++} trace_buffer;
++
++static int __map_hyp(void *start, size_t size)
++{
++	if (is_protected_kvm_enabled())
++		return 0;
++
++	return create_hyp_mappings(start, start + size, PAGE_HYP);
++}
++
++static int __share_page(unsigned long va)
++{
++	return kvm_share_hyp((void *)va, (void *)va + 1);
++}
++
++static void __unshare_page(unsigned long va)
++{
++	kvm_unshare_hyp((void *)va, (void *)va + 1);
++}
++
++static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_buffer, size_t size)
++{
++	int nr_bpages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
++	size_t backing_size;
++	void *start;
++
++	backing_size = PAGE_ALIGN(sizeof(struct simple_buffer_page) * nr_bpages *
++				  num_possible_cpus());
++
++	start = alloc_pages_exact(backing_size, GFP_KERNEL_ACCOUNT);
++	if (!start)
++		return -ENOMEM;
++
++	trace_buffer->desc->bpages_backing_start = (unsigned long)start;
++	trace_buffer->desc->bpages_backing_size = backing_size;
++
++	return __map_hyp(start, backing_size);
++}
++
++static void hyp_trace_buffer_free_bpages_backing(struct hyp_trace_buffer *trace_buffer)
++{
++	free_pages_exact((void *)trace_buffer->desc->bpages_backing_start,
++			 trace_buffer->desc->bpages_backing_size);
++}
++
++static void hyp_trace_buffer_unshare_hyp(struct hyp_trace_buffer *trace_buffer, int last_cpu)
++{
++	struct ring_buffer_desc *rb_desc;
++	int cpu, p;
++
++	for_each_ring_buffer_desc(rb_desc, cpu, &trace_buffer->desc->trace_buffer_desc) {
++		if (cpu > last_cpu)
++			break;
++
++		__share_page(rb_desc->meta_va);
++		for (p = 0; p < rb_desc->nr_page_va; p++)
++			__unshare_page(rb_desc->page_va[p]);
++	}
++}
++
++static int hyp_trace_buffer_share_hyp(struct hyp_trace_buffer *trace_buffer)
++{
++	struct ring_buffer_desc *rb_desc;
++	int cpu, p, ret = 0;
++
++	for_each_ring_buffer_desc(rb_desc, cpu, &trace_buffer->desc->trace_buffer_desc) {
++		ret = __share_page(rb_desc->meta_va);
++		if (ret)
++			break;
++
++		for (p = 0; p < rb_desc->nr_page_va; p++) {
++			ret = __share_page(rb_desc->page_va[p]);
++			if (ret)
++				break;
++		}
++
++		if (ret) {
++			for (p--; p >= 0; p--)
++				__unshare_page(rb_desc->page_va[p]);
++			break;
++		}
++	}
++
++	if (ret)
++		hyp_trace_buffer_unshare_hyp(trace_buffer, cpu--);
++
++	return ret;
++}
++
++static struct trace_buffer_desc *hyp_trace_load(unsigned long size, void *priv)
++{
++	struct hyp_trace_buffer *trace_buffer = priv;
++	struct hyp_trace_desc *desc;
++	size_t desc_size;
++	int ret;
++
++	if (WARN_ON(trace_buffer->desc))
++		return ERR_PTR(-EINVAL);
++
++	desc_size = trace_buffer_desc_size(size, num_possible_cpus());
++	if (desc_size == SIZE_MAX)
++		return ERR_PTR(-E2BIG);
++
++	desc_size = PAGE_ALIGN(desc_size);
++	desc = (struct hyp_trace_desc *)alloc_pages_exact(desc_size, GFP_KERNEL);
++	if (!desc)
++		return ERR_PTR(-ENOMEM);
++
++	ret = __map_hyp(desc, desc_size);
++	if (ret)
++		goto err_free_desc;
++
++	trace_buffer->desc = desc;
++
++	ret = hyp_trace_buffer_alloc_bpages_backing(trace_buffer, size);
++	if (ret)
++		goto err_free_desc;
++
++	ret = trace_remote_alloc_buffer(&desc->trace_buffer_desc, desc_size, size,
++					cpu_possible_mask);
++	if (ret)
++		goto err_free_backing;
++
++	ret = hyp_trace_buffer_share_hyp(trace_buffer);
++	if (ret)
++		goto err_free_buffer;
++
++	ret = kvm_call_hyp_nvhe(__tracing_load, (unsigned long)desc, desc_size);
++	if (ret)
++		goto err_unload_pages;
++
++	return &desc->trace_buffer_desc;
++
++err_unload_pages:
++	hyp_trace_buffer_unshare_hyp(trace_buffer, INT_MAX);
++
++err_free_buffer:
++	trace_remote_free_buffer(&desc->trace_buffer_desc);
++
++err_free_backing:
++	hyp_trace_buffer_free_bpages_backing(trace_buffer);
++
++err_free_desc:
++	free_pages_exact(desc, desc_size);
++	trace_buffer->desc = NULL;
++
++	return ERR_PTR(ret);
++}
++
++static void hyp_trace_unload(struct trace_buffer_desc *desc, void *priv)
++{
++	struct hyp_trace_buffer *trace_buffer = priv;
++
++	if (WARN_ON(desc != &trace_buffer->desc->trace_buffer_desc))
++		return;
++
++	kvm_call_hyp_nvhe(__tracing_unload);
++	hyp_trace_buffer_unshare_hyp(trace_buffer, INT_MAX);
++	trace_remote_free_buffer(desc);
++	hyp_trace_buffer_free_bpages_backing(trace_buffer);
++	free_pages_exact(trace_buffer->desc, trace_buffer->desc_size);
++	trace_buffer->desc = NULL;
++}
++
++static int hyp_trace_enable_tracing(bool enable, void *priv)
++{
++	return kvm_call_hyp_nvhe(__tracing_enable, enable);
++}
++
++static int hyp_trace_swap_reader_page(unsigned int cpu, void *priv)
++{
++	return kvm_call_hyp_nvhe(__tracing_swap_reader, cpu);
++}
++
++static int hyp_trace_reset(unsigned int cpu, void *priv)
++{
++	return 0;
++}
++
++static int hyp_trace_enable_event(unsigned short id, bool enable, void *priv)
++{
++	return 0;
++}
++
++static struct trace_remote_callbacks trace_remote_callbacks = {
++	.load_trace_buffer	= hyp_trace_load,
++	.unload_trace_buffer	= hyp_trace_unload,
++	.enable_tracing		= hyp_trace_enable_tracing,
++	.swap_reader_page	= hyp_trace_swap_reader_page,
++	.reset			= hyp_trace_reset,
++	.enable_event		= hyp_trace_enable_event,
++};
++
++int __init kvm_hyp_trace_init(void)
++{
++	if (is_kernel_in_hyp_mode())
++		return 0;
++
++	return trace_remote_register("hypervisor", &trace_remote_callbacks, &trace_buffer, NULL, 0);
++}
+diff --git a/arch/arm64/kvm/hyp_trace.h b/arch/arm64/kvm/hyp_trace.h
+new file mode 100644
+index 000000000000..c991b1ec65f1
+--- /dev/null
++++ b/arch/arm64/kvm/hyp_trace.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __ARM64_KVM_HYP_TRACE_H__
++#define __ARM64_KVM_HYP_TRACE_H__
++
++#ifdef CONFIG_NVHE_EL2_TRACING
++int kvm_hyp_trace_init(void);
++#else
++static inline int kvm_hyp_trace_init(void) { return 0; }
++#endif
++#endif
 -- 
 2.53.0.335.g19a08e0c02-goog
 
