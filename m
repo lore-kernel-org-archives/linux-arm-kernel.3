@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4E9E9A04E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 07:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA50EE9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 07:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wdNplektg1LD5iTp1RLogYnsFLJYhGuNfh0wOuAkwH8=; b=WtRkmNSc7bOieas4JwkmfOE/IJ
-	Wfx0LYvIqH6JgUk0P5aAqSYuqJCNQxuk2xkhdwlDpxXyKIg7Q0KrQknHHaseRT4mBkW8hSu6l0kPH
-	E3SY0eT/xIjNO50QCMtSa6CNhsGG/AwLFOyEolM5N8jRY3ezPr3v9U0Q40P893YSWu5a5tzoybjO2
-	hSXTSpJ40fuYp7QT1UimQoSilx1sPB+8SvUluWC4O5H8hKLQp8huZgwMtA/x7oo95Jygy/xiprH0c
-	wrR4HUXPxwbHs7B+SHDH6vMqhSNjS5QhtMgcxH+EXF3W01Ov8pSEd49hN/6uVFVvqVeGjRGnq4VGz
-	xnejglPw==;
+	bh=GvIcoh07tc60DPaNoNLzKGUZUhDBHat8vP8aSxZ6764=; b=2Kac29ulX+1Iz9UJlj9IfvfM5a
+	8//OLmgGFIDVwA+xLQEAdZzh+MDiyP/KBKn+ma2DAaEhP4WZFSCT8jySt0kKJSHuTf/ujYFUxXwbD
+	sQy1M5RloTeT5evHgZSSv9Kzwg/pE47rX8TQjJ43N5ucYS0t0Xgi+jDg8Mi2gzU4u/wkv9yhm6ZMu
+	MpzknjpsIv5dyk4/XlpOsf6mlgVaOGnoj8KJ9UKPQLTI4o+PE27fF2gCze3+XIUE9WuI+X4fpN7J3
+	hwm9mIsfdYGDzpjSU8qS2OA1JwXWab+ECLqkqdbsFv9un7DOc0/489EKzMhuNUHjk/xrwEADNC5KD
+	HHArWHaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsyWX-0000000B30h-0R9W;
-	Thu, 19 Feb 2026 07:32:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vsyYS-0000000B3D3-00OD;
+	Thu, 19 Feb 2026 07:34:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsyWW-0000000B30Y-0GU1
+	id 1vsyYR-0000000B3Cv-1Thx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 07:32:32 +0000
+	Thu, 19 Feb 2026 07:34:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA08A6014C;
-	Thu, 19 Feb 2026 07:32:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2C00C2BC86;
-	Thu, 19 Feb 2026 07:32:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7261C60128;
+	Thu, 19 Feb 2026 07:34:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA39FC4CEF7;
+	Thu, 19 Feb 2026 07:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771486350;
-	bh=QHuicrIuW/GCTffBscyXXztNNcQhJHgarQPZ4uFz4lQ=;
+	s=k20201202; t=1771486470;
+	bh=rxRcVZkzzsMGbFRzvS4sm3nxnl4x0nU2Se0akM7+t2Y=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=a7ZHmPpY0avBywa7SVxhFJOXK6WWJEi4L7yqFnFbQdc/MYSbt/DDRZho5Betq+jDP
-	 ObAionamUqtj03n+ItpVQbS1U8cP5GT2EFbo8P5FFAynzXG7KeOdYA4OSMX7GlYTxc
-	 +J1mBSTwCSOtJDakhhPGknIWcmG1SnXxX0tIoTznS6xQiwsgaktlpd9UMyE4SiaHu6
-	 eDS3iCFmz0TrT9vaQ9vnQCQ6JIR7aQdwMdaew+v7TmE3rtINHDzb2DqSJOR218f7Cx
-	 Z98aprsBS7uqfxsXNhcWBYPA1LwBbIcvSZgAcko/aRHfNPAn1cJh8DuUmmUwlcH0We
-	 +uryggRaB9atw==
-Message-ID: <8dde3889-e51d-4e20-926b-7cdbdef3ddf7@kernel.org>
-Date: Thu, 19 Feb 2026 08:32:25 +0100
+	b=KgVPd1dXOU4800vmOnjqkh64XLKJU3Scm6ymkX3ldlMy5btNYr66FT/GCJFXcLLv/
+	 LvnJztLC1Xi2RqqP3ELWV7aJcsik5h5DuxT4Lev8kyyf6hYf6fPM4RZt86jTl5rzgH
+	 HdBccsM5RCbQ7RuGQrJBszXDZPkN9C0zEafVFzK2QYrVHhNqQ6zql/MU8shjHrLuoG
+	 NlgxvV5P9W6IMBhm/pPB1Jzf3uxoR7CraKtN9kByvIjjN1HCUgElpZMlIN14lHpZ30
+	 3XgEppLU3f9LPbLuByGIorvMgFQHHBXo8vgxPdaYUoh1CgB+S45PfIIGl3FsGNrE4f
+	 ZxcEa7GWbG/bA==
+Message-ID: <35e337a9-6f3f-4a89-8e27-311b7a1c2ff9@kernel.org>
+Date: Thu, 19 Feb 2026 08:34:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 2/8] net: xilinx: tsn: Introduce TSN core driver
- skeleton
+Subject: Re: [RFC PATCH 0/8] xilinx: tsn: Add TSN Endpoint Ethernet MAC driver
+ support
 To: Srinivas Neeli <srinivas.neeli@amd.com>, andrew+netdev@lunn.ch,
  davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
  pabeni@redhat.com, michal.simek@amd.com, robh@kernel.org,
@@ -55,7 +55,6 @@ To: Srinivas Neeli <srinivas.neeli@amd.com>, andrew+netdev@lunn.ch,
 Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, git@amd.com
 References: <20260219054911.2017362-1-srinivas.neeli@amd.com>
- <20260219054911.2017362-3-srinivas.neeli@amd.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,7 +100,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260219054911.2017362-3-srinivas.neeli@amd.com>
+In-Reply-To: <20260219054911.2017362-1-srinivas.neeli@amd.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,284 +118,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 19/02/2026 06:49, Srinivas Neeli wrote:
-> Introduce the initial skeleton for the AMD/Xilinx Time Sensitive
-> Networking (TSN) Ethernet IP driver. Adds the Kconfig entry
-> (CONFIG_XILINX_TSN), updates the Xilinx Ethernet Makefile,
-> and provides the base source file focused on device tree
-> parsing and clock acquisition.
+> https://lore.kernel.org/all/DDB5J5V1IM0E.34WP32K550WIU@folker-schwesinger.de/
+> https://lore.kernel.org/all/DDB5IRSNB09F.3HRTZZOZQ7J6@folker-schwesinger.de/
+> https://lore.kernel.org/all/DDB5IDDEOVBT.NHJF03FYW2BN@folker-schwesinger.de/
 > 
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> ---
->  drivers/net/ethernet/xilinx/Kconfig           |   1 +
->  drivers/net/ethernet/xilinx/Makefile          |   1 +
->  drivers/net/ethernet/xilinx/tsn/Kconfig       |  14 ++
->  drivers/net/ethernet/xilinx/tsn/Makefile      |   2 +
->  drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h  |  60 +++++
->  .../net/ethernet/xilinx/tsn/xilinx_tsn_main.c | 218 ++++++++++++++++++
->  6 files changed, 296 insertions(+)
->  create mode 100644 drivers/net/ethernet/xilinx/tsn/Kconfig
->  create mode 100644 drivers/net/ethernet/xilinx/tsn/Makefile
->  create mode 100644 drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h
->  create mode 100644 drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
 > 
-> diff --git a/drivers/net/ethernet/xilinx/Kconfig b/drivers/net/ethernet/xilinx/Kconfig
-> index 7502214cc7d5..c6d704c8d3d4 100644
-> --- a/drivers/net/ethernet/xilinx/Kconfig
-> +++ b/drivers/net/ethernet/xilinx/Kconfig
-> @@ -41,4 +41,5 @@ config XILINX_LL_TEMAC
->  	  This driver supports the Xilinx 10/100/1000 LocalLink TEMAC
->  	  core used in Xilinx Spartan and Virtex FPGAs
->  
-> +source "drivers/net/ethernet/xilinx/tsn/Kconfig"
->  endif # NET_VENDOR_XILINX
-> diff --git a/drivers/net/ethernet/xilinx/Makefile b/drivers/net/ethernet/xilinx/Makefile
-> index 7d7dc1771423..66dab012650b 100644
-> --- a/drivers/net/ethernet/xilinx/Makefile
-> +++ b/drivers/net/ethernet/xilinx/Makefile
-> @@ -8,3 +8,4 @@ obj-$(CONFIG_XILINX_LL_TEMAC) += ll_temac.o
->  obj-$(CONFIG_XILINX_EMACLITE) += xilinx_emaclite.o
->  xilinx_emac-objs := xilinx_axienet_main.o xilinx_axienet_mdio.o
->  obj-$(CONFIG_XILINX_AXI_EMAC) += xilinx_emac.o
-> +obj-$(CONFIG_XILINX_TSN) += tsn/
-> diff --git a/drivers/net/ethernet/xilinx/tsn/Kconfig b/drivers/net/ethernet/xilinx/tsn/Kconfig
-> new file mode 100644
-> index 000000000000..53734842700b
-> --- /dev/null
-> +++ b/drivers/net/ethernet/xilinx/tsn/Kconfig
-> @@ -0,0 +1,14 @@
-> +config XILINX_TSN
-> +	tristate "Xilinx TSN Ethernet driver"
-> +	depends on OF && HAS_IOMEM
+> This RFC is the initial submission of the driver and aims to gather
+> feedback on design, structure, and subsystem integration before
+> further upstreamization work.
 
-No ARCH_XILINX?
+Isn't every patch initial submission aiming to gather feedback on
+design, structure and integration before further work?
 
-> +	select PHYLIB
-> +	select NET_DEVLINK
-> +	select NET_DEV_STATS
-> +	help
-> +	  This driver supports the Xilinx Time-Sensitive Networking (TSN)
-> +	  Ethernet IP, which includes multiple Ethernet MACs, a TSN switch,
-> +	  and an endpoint block. It provides support for scheduling,
-> +	  traffic shaping, and time synchronization to meet real-time
-> +	  requirements of industrial Ethernet applications.
-> +
+I'll drop it from DT patchwork.
 
-
-...
-
-
-> +
-> +/*
-> + * Helper to parse TX queue config subnode referenced by
-> + * xlnx,tsn-tx-config. This version enumerates child nodes in order and
-> + * assigns DMA channels sequentially (queue0 == first child, etc.)
-> + */
-> +static int tsn_parse_tx_queue_config(struct device *dev, struct tsn_priv *common,
-> +				     struct device_node *txcfg_np)
-> +{
-> +	struct device_node *qnode;
-> +	unsigned int queue = 0;
-> +	int ret = 0;
-> +
-> +	for_each_available_child_of_node(txcfg_np, qnode) {
-> +		u32 chan;
-> +
-> +		if (queue >= common->num_tx_queues) {
-> +			dev_err(dev, "tx-config: extra child nodes beyond %u ignored\n",
-> +				common->num_tx_queues);
-> +			of_node_put(qnode);
-
-Use scoped loop.
-
-> +			return -EINVAL;
-> +		}
-> +
-> +		ret = of_property_read_u32(qnode, "xlnx,dma-channel-num", &chan);
-> +		if (ret) {
-> +			dev_err(dev, "tx-config: Q%u missing xlnx,dma-channel-num\n", queue);
-> +			of_node_put(qnode);
-> +			return ret;
-> +		}
-> +
-> +		if (chan > TSN_DMA_MAX_TX_CH) {
-> +			dev_err(dev, "tx-config: Q%u channel %u exceeds max %lu\n",
-> +				queue, chan, TSN_DMA_MAX_TX_CH);
-> +			of_node_put(qnode);
-> +			return -EINVAL;
-> +		}
-> +		common->tx_dma_chan_map[queue++] = chan;
-> +	}
-> +
-> +	if (queue != common->num_tx_queues) {
-> +		dev_err(dev, "tx-config: described %u queues but expected %u\n",
-> +			queue, common->num_tx_queues);
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/**
-> + * tsn_parse_device_tree - Parse device tree configuration for TSN device
-> + * @pdev: Platform device pointer
-> + *
-> + * Return: 0 on success, negative error code on failure
-> + */
-> +static int tsn_parse_device_tree(struct platform_device *pdev)
-> +{
-> +	struct tsn_priv *common = platform_get_drvdata(pdev);
-> +	struct device_node *txcfg_np = NULL;
-> +	struct device *dev = &pdev->dev;
-> +	int i, ret;
-> +
-> +	/* Read number of priorities */
-> +	ret = of_property_read_u32(dev->of_node, "xlnx,num-priorities", &common->num_priorities);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to get xlnx,num-priorities\n");
-> +
-> +	if (common->num_priorities < TSN_MIN_PRIORITIES ||
-> +	    common->num_priorities > TSN_MAX_PRIORITIES)
-> +		return dev_err_probe(dev, -EINVAL, "Invalid xlnx,num-priorities (%u)\n",
-> +				     common->num_priorities);
-> +
-> +	/* Count TX and RX queues from dma-names property */
-> +	ret = of_property_count_strings(dev->of_node, "dma-names");
-> +	if (ret < 0)
-> +		return dev_err_probe(dev, ret, "Failed to get dma-names\n");
-> +
-> +	common->num_tx_queues = 0;
-> +	common->num_rx_queues = 0;
-> +
-> +	for (i = 0; i < ret; i++) {
-> +		const char *dma_name;
-> +
-> +		if (of_property_read_string_index(dev->of_node, "dma-names", i, &dma_name))
-> +			continue;
-> +
-> +		if (strncmp(dma_name, "tx_chan", 7) == 0)
-> +			common->num_tx_queues++;
-> +		else if (strncmp(dma_name, "rx_chan", 7) == 0)
-> +			common->num_rx_queues++;
-> +	}
-> +
-> +	if (!common->num_tx_queues || common->num_tx_queues > TSN_MAX_TX_QUEUE)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "Invalid TX queue count (%u, max %u)\n",
-> +				     common->num_tx_queues, TSN_MAX_TX_QUEUE);
-> +
-> +	if (!common->num_rx_queues)
-> +		return dev_err_probe(dev, -EINVAL, "No RX DMA channels found\n");
-> +
-> +	/* Setup clock IDs */
-> +	for (i = 0; i < TSN_NUM_CLOCKS; i++)
-> +		common->clks[i].id = tsn_clk_names[i];
-> +
-> +	/* Get all clocks */
-> +	ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, common->clks);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to get clocks\n");
-> +
-> +	/* Enable clocks */
-> +	ret = clk_bulk_prepare_enable(TSN_NUM_CLOCKS, common->clks);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to enable clocks\n");
-> +
-> +	for (i = 0; i < TSN_MAX_TX_QUEUE; i++)
-> +		common->tx_dma_chan_map[i] = TSN_DMA_CH_INVALID;
-> +
-> +	txcfg_np = of_parse_phandle(dev->of_node, "xlnx,tsn-tx-config", 0);
-> +	if (txcfg_np) {
-> +		ret = tsn_parse_tx_queue_config(dev, common, txcfg_np);
-> +		of_node_put(txcfg_np);
-> +		if (ret)
-> +			goto err_disable_clks;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_disable_clks:
-> +	clk_bulk_disable_unprepare(TSN_NUM_CLOCKS, common->clks);
-> +	return ret;
-> +}
-> +
-> +/**
-> + * tsn_ip_probe - Probe TSN IP core device
-
-Nooo...
-
-
-> + * @pdev: Platform device pointer
-> + *
-> + * Return: 0 on success, negative error code on failure
-> + */
-> +static int tsn_ip_probe(struct platform_device *pdev)
-> +{
-> +	struct tsn_priv *common;
-> +	int ret;
-> +
-> +	common = devm_kzalloc(&pdev->dev, sizeof(*common), GFP_KERNEL);
-> +	if (!common)
-> +		return -ENOMEM;
-> +
-> +	platform_set_drvdata(pdev, common);
-> +	common->pdev = pdev;
-> +	common->dev = &pdev->dev;
-> +
-> +	/* Initialize synchronization primitives */
-> +	spin_lock_init(&common->tx_lock);
-> +	spin_lock_init(&common->rx_lock);
-> +	mutex_init(&common->mdio_lock);
-> +
-> +	common->res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	if (!common->res)
-> +		return -ENODEV;
-> +	common->regs_start = common->res->start;
-> +	common->regs = devm_ioremap_resource(&pdev->dev, common->res);
-> +	if (IS_ERR(common->regs))
-> +		return PTR_ERR(common->regs);
-> +
-> +	ret = tsn_parse_device_tree(pdev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> +
-> +/**
-> + * tsn_ip_remove - Remove TSN IP core device
-> + * @pdev: Platform device pointer
-
-Pointless comment. Can it be anything else than what you wrote? Why are
-you adding comments to standard boilerplate calls?
-
-> + */
-> +static void tsn_ip_remove(struct platform_device *pdev)
-> +{
-> +	struct tsn_priv *common = platform_get_drvdata(pdev);
-> +
-> +	clk_bulk_disable_unprepare(TSN_NUM_CLOCKS, common->clks);
-> +}
-> +
-> +static const struct of_device_id tsn_of_match[] = {
-> +	{ .compatible = "xlnx,tsn-endpoint-ethernet-mac-3.0", },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, tsn_of_match);
-> +
-> +static struct platform_driver tsn_driver = {
-> +	.probe = tsn_ip_probe,
-> +	.remove = tsn_ip_remove,
-> +	.driver = {
-> +		.name = "xilinx-tsn",
-> +		.of_match_table = tsn_of_match,
-> +	},
-> +};
-> +module_platform_driver(tsn_driver);
-> +
-> +MODULE_AUTHOR("Neeli Srinivas <srinivas.neeli@amd.com>");
-> +MODULE_DESCRIPTION("Time Sensitive Networking (TSN) Ethernet MAC driver");
-> +MODULE_LICENSE("GPL");
-
+Anyway, remember about proper versioning so b4 diff work correctly.
+Usually people doing RFC get it wrong making the RFC completely
+pointless and counter productive :(
 
 Best regards,
 Krzysztof
