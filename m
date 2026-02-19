@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53BF9E9A05A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 18:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA1EE9A05A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 18:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XMZYMKCfRO1P00AFy8aKMQ+jjXDkHAdCnmx8W4egAKY=; b=FOANuwQrf+b6gigwds+GZBBzLq
-	+D73k0Jz0jvRbd7qmyEkwDWUBHUQJwk+utPVrIXG2WiCln8aDv8vQxY1znfJOKllze7UcWoNrWmbv
-	dgEw1jDdvY/L+e31CQKwVji+9SFuKPAq4fv4mMu3UXsa/x9C6Xs690BqmVOMfDhn+yx3Q2DY0HNaF
-	zxw7zhCyAZf+7vweEukMN2MUOVBeb4PY2Ip/LD0n9TikRQkufiwiOgslvXmL8G1HbxaE5TA5bNALg
-	QM+O8lEdwrTIQAu6fVu1fH5xrd6uBxkArBz6oDFZY6Q74ZPeHITW04TP60E+mZqMVDDg9SfW5kMX5
-	cFFWbxmw==;
+	bh=VaRyG72WPgoZfQvmt7tzAvNRmns05ThydFykOtS0r84=; b=gHBPld3r+FTtyuEHGjbeygR0E1
+	e4Xjp/QtH7dBe6X8HTMLiZQ63OMF5L3+Ql1Xq9CwaVUrsq4OVBrmbsvlqi5GsKDpcBLURyzd2W496
+	msqnzjMvXqeowJcFP389TgnhFECrXluF48XWajfZpht4DRctePcSj/4vqnqBG+VcWKOJHFwStgj62
+	rzlwgofARi7soKDAU9skk/JGGANffixF8YWZd4sgbOpD9A84+43hAvsuuvS9VJFWhhsfiG/8Px090
+	W/BOtIG3dUsN6Idz76GRbu4beIIeBJpwHX38N1Vo9yUdsgfNGqcWp1E/ufj+XIPK9oa6pVGXuaIPw
+	IWuu1bRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt8yY-0000000BnYk-3yNg;
-	Thu, 19 Feb 2026 18:42:10 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt8yW-0000000BnY3-2EJY
+	id 1vt9E2-0000000BoKl-1bN0;
+	Thu, 19 Feb 2026 18:58:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vt9Dy-0000000BoKQ-2rHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 18:42:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1771526522;
-	bh=6/iezbvx6MIXp+pbGoZW7PKtUMMWOusSDApm2rJKtYQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rR28TUEv4Jls8PLGjd1MVfZpFs8m0ZVg+yghXO1Rb+SpBWCLpUKYvE6iUmsZPZmMr
-	 RU4I4s1JnrZpD6F/GMsuVkSkQz+gB+4bLd02mur96IEHpmd2AG0aJsOIbygBFi4dFU
-	 h98LqnIXxT6lINGuoHzN59SzLiZJlRy69D2g17cM=
-Date: Thu, 19 Feb 2026 19:42:01 +0100
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
-To: Yury Norov <ynorov@nvidia.com>
-Cc: linux-kernel@vger.kernel.org, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	Andrew Morton <akpm@linux-foundation.org>, Antoine Tenart <atenart@kernel.org>, 
-	Christian Brauner <brauner@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Eric Dumazet <edumazet@google.com>, Geetha sowjanya <gakula@marvell.com>, 
-	Ingo Molnar <mingo@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Jerin Jacob <jerinj@marvell.com>, 
-	Linu Cherian <lcherian@marvell.com>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>, 
-	Nicholas Piggin <npiggin@gmail.com>, Paolo Abeni <pabeni@redhat.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Simon Horman <horms@kernel.org>, 
-	Stanislav Fomichev <sdf@fomichev.me>, Subbaraya Sundeep <sbhatta@marvell.com>, 
-	Sunil Goutham <sgoutham@marvell.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Tom Rix <trix@redhat.com>, Xu Yilun <yilun.xu@intel.com>, Yajun Deng <yajun.deng@linux.dev>, 
-	Yury Norov <yury.norov@gmail.com>, Zhang Rui <rui.zhang@intel.com>, hariprasad <hkelam@marvell.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 08/12] coresight: don't use bitmap_print_to_pagebuf()
-Message-ID: <68f8d4b0-6df2-4743-bb71-f44671219931@t-8ch.de>
-References: <20260219181407.290201-1-ynorov@nvidia.com>
- <20260219181407.290201-9-ynorov@nvidia.com>
+	Thu, 19 Feb 2026 18:58:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF8C0339;
+	Thu, 19 Feb 2026 10:57:56 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82FAF3F62B;
+	Thu, 19 Feb 2026 10:58:02 -0800 (PST)
+Date: Thu, 19 Feb 2026 18:58:00 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: James Clark <james.clark@linaro.org>, Marc Zyngier <maz@kernel.org>,
+	kvmarm@lists.linux.dev, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
+ in guest context
+Message-ID: <20260219185800.GD136967@e132581.arm.com>
+References: <20260216130959.19317-1-will@kernel.org>
+ <86a4x8bw38.wl-maz@kernel.org>
+ <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
+ <aZNec3B0Iou9PYGw@willie-the-truck>
+ <20260217141917.GA136967@e132581.arm.com>
+ <aZSAsC1YI5_lK3e0@willie-the-truck>
+ <20260217190121.GB136967@e132581.arm.com>
+ <aZcWC25GE2iUKsNt@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260219181407.290201-9-ynorov@nvidia.com>
+In-Reply-To: <aZcWC25GE2iUKsNt@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_104208_793741_4511D3EC 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20260219_105806_822705_5DA7431C 
+X-CRM114-Status: GOOD (  30.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +74,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yury,
+On Thu, Feb 19, 2026 at 01:54:19PM +0000, Will Deacon wrote:
 
-On 2026-02-19 13:14:00-0500, Yury Norov wrote:
-> Switch to a more common scnprintf("%*pbl") where appropriate.
+[...]
+
+> > > > > In which case, the host->guest something hideous like:
+> > > > > 
+> > > > > 	isb();
+> > > > > 	tsb_csync();	// Executes twice if ARM64_WORKAROUND_TSB_FLUSH_FAILURE!
+> > > > > 	dsb(nsh);	// I missed this in my patch
+> > > > > 	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+> > > > > 	if (2064142) {
+> > > > > 		tsb_csync();
+> > > > > 		dsb(nsh);
+> > > > > 	}
+> > > > > 	isb();
+> > > > 
+> > > > As I_QXJZX suggests, the section K10.5.10 "Context switching" gives
+> > > > the flow.  I'd suggest the VM context switch is also aligned to the
+> > > > description in S_VKHHY.
+> > > 
+> > > I honestly have a hard time believing the sequence in S_VKHHY as the DSB
+> > > seems to be in the wrong place which means the TSB CSYNC can float. It
+> > > also isn't aligned with what the EL1 driver does...
+> > 
+> > Sorry for confusion.  I am checking internally for the flow suggested
+> > in S_VKHHY.
+
+After internal review, we conclude that S_VKHHY is valid.  The intent of
+S_VKHHY is to use the minimal number of barriers during a context switch.
+
+Given the mentioned "DSB seems to be in the wrong place which means the
+TSB CSYNC can float", this would be fine due to the two considerations:
+
+1) As described in B2.6.8:
+
+ | The following situations are synchronized using a TSB operation:
+ |
+ | * A direct write B to a System register is ordered after an indirect
+ |   read or indirect write of the same register by atrace operation of
+ |   a traced instruction A, if all of the following are true:
+ |   - A is executed in program order before a Context synchronization event C.
+ |   - C appears in program order before a TSB operation T.
+ |   - B is executed in program order after T.
+
+If trace operations indirectly read or write system registers, the TSB
+ensures that these indirect accesses are complete before any direct
+writes to the same register are performed in program order after the TSB.
+
+So in S_VKHHY, we don't expect clearing TRCPRGCTLR.EN (step 4) and
+clearing TRBLIMITR_EL1.E (step 5) to take effect prior to the TSB.
+
+2) A DSB executed after the TSB ensures the data writes are complete,
+then it is safe to read trace data from memory.  However, in the context
+switch case, we don't need to read trace data, so a DSB for "publishing"
+data is not required.
+
+Based on these conclusions, let me summarize the flow:
+
+  // Prohibit trace
+  TRFCR_EL1 = 0;
+
+  // No new program-flow trace
+  isb();
+
+  // Trace operation and trace unit are flushed
+  tsb_csync();   // Executes twice if ARM64_WORKAROUND_TSB_FLUSH_FAILURE!
+
+  // Disable trace unit
+  TRCPRGCTLR.EN = 0b0
+
+  // Disable trace buffer unit
+  TRBLIMITR_EL1.E = 0b0
+
+  if (2064142) {
+    tsb_csync();
+    dsb(nsh);
+  }
+
+  // Ensure trace disable takes effect and indirect writes are visible;
+  // Ensure 2064142 is done before affected sysreg write.
+  isb();
+
+> > > > When switching from host to guest, we need to clear TRCPRGCTLR.EN to
+> > > > zero.  As the doc states "ETE trace compression logic is stateful,
+> > > > and disabling the ETE resets this compression state".
+> > > > 
+> > > > > and then the guest->host part is:
+> > > > > 
+> > > > > 	write_sysreg_s(trblimitr_el1, SYS_TRBLIMITR_EL1);
+> > > > > 	isb();
+> > > > > 	if (2038923)
+> > > > > 		isb();
+> > > > > 
+> > > > > Does that look right to you?
+> > > > 
+> > > > S_PKLXF gives the flow for switching in.
+> > > 
+> > > Well, modulo errata, sure. I don't have access to the errata document so
+> > > I was more interested in whether I got that right...
+> > 
+> > Please see the doc:
+> > https://developer.arm.com/documentation/SDEN-1873351/1900/?lang=en
 > 
-> Signed-off-by: Yury Norov <ynorov@nvidia.com>
-> ---
->  .../hwtracing/coresight/coresight-cti-sysfs.c | 33 +++++++++----------
->  1 file changed, 15 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> index 572b80ee96fb..182c8db52a04 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> @@ -606,14 +606,11 @@ static ssize_t chan_gate_enable_show(struct device *dev,
->  	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->  	struct cti_config *cfg = &drvdata->config;
->  	unsigned long ctigate_bitmask = cfg->ctigate;
-> -	int size = 0;
->  
->  	if (cfg->ctigate == 0)
-> -		size = sprintf(buf, "\n");
-> -	else
-> -		size = bitmap_print_to_pagebuf(true, buf, &ctigate_bitmask,
-> -					       cfg->nr_ctm_channels);
-> -	return size;
-> +		return sprintf(buf, "\n");
-> +
-> +	return scnprintf(buf, rest_of_page(buf), "%*pbl\n", cfg->nr_ctm_channels, &ctigate_bitmask);
+> Aha, thank you, Leo!
 
-For sysfs show handlers the correct formatting function is sysfs_emit()
-rather than raw scnprintf(). It validates that buf is page-aligned
-(which is always true for sysfs show handlers) and that the output does
-not exceed PAGE_SIZE.
+You are welcome!
 
-(...)
+> I swear you used to be able to google the erratum number and get the doc,
+> but that doesn't seem to be the case any more. In fact, if you type the
+> erratum number into the search box on developer.arm.com it doesn't even
+> work, so cheers for pointing me to the right place.
 
+I also cannot search the doc via google, seems this is a known issue for
+developer.arm.com when I checked this internally.  Thanks a lot for
+reporting it.
 
-Thomas
+The flow for guest->host might be easy one, anyway, I try to summary for
+review:
+
+  Restore TRFCR_EL1;
+
+  // Ensure restored sysreg is visible
+  isb();
+
+  // Enable trace buffer
+  TRBLIMITR_EL1.E = 0b1
+
+  // Enable trace unit
+  TRCPRGCTLR.EN = 0b1
+
+  if (2038923)
+     isb();
+
+  // eret works as an extra context synchronization
+
+Thanks,
+Leo
 
