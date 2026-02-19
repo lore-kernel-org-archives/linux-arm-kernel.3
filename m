@@ -4,93 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B351E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 06:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4E9E9A04E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 07:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=3EBP5eZrSw5SNu4AKLCAw7ge8STkhI5WlLpg3XWzOaM=; b=zI+IjA8S8WFXBn
-	CELpuwFw1GRpHhW20oGt62sJwh6m22RSzNEzV6jqZnmnbhYdtAv7I2NdZ3/q2EE6Lxy9mDmzxjou6
-	h/d9Xyajl+QFrmqi36ormBRYUrDXsjcic6UmJ6mH25lvjpjeaNwGNteOCQ1JZPIj17Pv0r+qruPN9
-	vRGhqGE6rb/H8GXiMb45I2BWVsdekKYBFjYi8vwiG8e1uH/ZRS6LzVNSzhvvTpUlW7LnpCafT6f7m
-	VPH2YqGMvAf9geJ6KZdolctgu1EfDspX3KaPtUU7kPcEWjoq2NYbRWW4MbuP7JKOi7ElXx+s5hmQE
-	umGIMQhktaRi/GRaFPIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wdNplektg1LD5iTp1RLogYnsFLJYhGuNfh0wOuAkwH8=; b=WtRkmNSc7bOieas4JwkmfOE/IJ
+	Wfx0LYvIqH6JgUk0P5aAqSYuqJCNQxuk2xkhdwlDpxXyKIg7Q0KrQknHHaseRT4mBkW8hSu6l0kPH
+	E3SY0eT/xIjNO50QCMtSa6CNhsGG/AwLFOyEolM5N8jRY3ezPr3v9U0Q40P893YSWu5a5tzoybjO2
+	hSXTSpJ40fuYp7QT1UimQoSilx1sPB+8SvUluWC4O5H8hKLQp8huZgwMtA/x7oo95Jygy/xiprH0c
+	wrR4HUXPxwbHs7B+SHDH6vMqhSNjS5QhtMgcxH+EXF3W01Ov8pSEd49hN/6uVFVvqVeGjRGnq4VGz
+	xnejglPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsxtg-0000000AzPv-0Gir;
-	Thu, 19 Feb 2026 06:52:24 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1vsyWX-0000000B30h-0R9W;
+	Thu, 19 Feb 2026 07:32:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsxtc-0000000AzPJ-0fxv
+	id 1vsyWW-0000000B30Y-0GU1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 06:52:21 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-4362c635319so556747f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 22:52:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771483937; x=1772088737; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3EBP5eZrSw5SNu4AKLCAw7ge8STkhI5WlLpg3XWzOaM=;
-        b=yiRH+hLd71Qo4RsES4HolSUgYWz5daogpAL4UPy0Fcw3J4g5TMFwMhs/zHOwHwvNNv
-         9BZ51l6tCpVXjTYxZ5Vm46cKwdhl4Vs6pUbsPliSAoEb8bE3gDJTKozqUjajWUK4I5jd
-         LB6daKu3aEnqvHcO3kZPvlXEBHYJcEYAFVGZZsVE2QTMUZvdBsgeCtRtYpjqN1Z7rUxD
-         hC54igtHz+vhY6uIE7UsEdsErXHgMjIEevYUNiEGOZaCReNdogly79Q8UpnHt3oza/iN
-         Mcd2UrJYGVzCZwPhwvm7qf9nC/T4sH1DwRbV0QbidAUjtk0XKkgnNuVXis6qRifFb9Zb
-         GA9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771483937; x=1772088737;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3EBP5eZrSw5SNu4AKLCAw7ge8STkhI5WlLpg3XWzOaM=;
-        b=WZH3P0w5NOv74jixHQKlpm4jmHY5TarZDmor5Lq6LN2D5ND6AO1n+EaWMy94BOH2WG
-         cr/I194Mo19GLntyWWSmLBpJri7aTAapdEkmQkbMSRGuYMoSpaComX13exSxXcdoTEiY
-         XivZuMnQNd2j6aVibNOB38NFKVHQF1fUjDJ6IcHmB0ia3Ub/7wjQr/+koLa3atGIliIm
-         L7sxqRH0mbzfc1kFcCtp74yltONUsyn+1VTgUaow64HGizga452WZMw5NlOT1ri2A6sj
-         iTupZsPwJYgPX2GPAZSjH6/ktdtz8D7NPwOOE4Js6AkuMGZWgOCX4aR+50/q+FGajbG/
-         ZObQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUbFs46Dp73/PoFdSQJD8bjopgCqfgF4T1wdPqrld9ppxBUC3bAreweHipkcFKCdQOx7J+/7BjofLCiUkqXlbis@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLUPdhBr4zrC7fZq1+hd9St+cgnuvMd0i0+94pWbWqQ3OcQVcT
-	tSr1FCcMTZvQjKp8H8tBKJVNgSEnIWmrwtrLxr4ywfP4TmStmS5ELKdjk0yLq67To4M=
-X-Gm-Gg: AZuq6aLbbmNU9oBXG3CXdcwnMzofqZoD5z1EPgBrWyHV7F9I5NogtTYwlh/RoApVMV8
-	yUYMSR50rs4jUJBf4TngF/R5jqfeNOgEVlN54sHcH/5MYRnu8BnC5NYq4+LHGzot/tZJFJkiJrB
-	S4A3oE7e2iPBu/KPkHVESY63WSIJbMX9bxJH4BH9cgZx1W2xpIDMwrwjJMMuZRB2FpaAz+Ir5AB
-	jCNjcbCXk4Q48eL1BVl97n6aVoSzyZdZZGdmFF/Q5EKHpnyN9a3oUpyM5r5KZ5v1wxQTeLpPAmU
-	IuY5jV6mhn5BdXqBrd/+ZB/lpXfZ97WZnTD3EV870Fq8eEmSr62q/giJPiC/1hSHlTLfwnE/S9S
-	BFUkLV34IxLEUvGAfwMCdtoRPbxVKLu+vi7jBJWzDx/RUqGipe6eOD2sYkP/qWVPKIBORGTbcqz
-	o8p4QRZ/PYkJPBAIHEDY29dHWPSPeWSqhAJ3s7sxE=
-X-Received: by 2002:a05:6000:401f:b0:430:f5dc:d34a with SMTP id ffacd0b85a97d-43958e4a636mr7655865f8f.29.1771483937384;
-        Wed, 18 Feb 2026 22:52:17 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796acf5b9sm45905510f8f.34.2026.02.18.22.52.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Feb 2026 22:52:17 -0800 (PST)
-Date: Thu, 19 Feb 2026 09:52:14 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev, Harry Austen <hpausten@protonmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Michal Simek <monstr@monstr.eu>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Harry Austen <hpausten@protonmail.com>
-Subject: Re: [PATCH v4 2/2] clk: clocking-wizard: add user clock monitor
- support
-Message-ID: <202602151704.qepyfVlc-lkp@intel.com>
+	Thu, 19 Feb 2026 07:32:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA08A6014C;
+	Thu, 19 Feb 2026 07:32:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2C00C2BC86;
+	Thu, 19 Feb 2026 07:32:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771486350;
+	bh=QHuicrIuW/GCTffBscyXXztNNcQhJHgarQPZ4uFz4lQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=a7ZHmPpY0avBywa7SVxhFJOXK6WWJEi4L7yqFnFbQdc/MYSbt/DDRZho5Betq+jDP
+	 ObAionamUqtj03n+ItpVQbS1U8cP5GT2EFbo8P5FFAynzXG7KeOdYA4OSMX7GlYTxc
+	 +J1mBSTwCSOtJDakhhPGknIWcmG1SnXxX0tIoTznS6xQiwsgaktlpd9UMyE4SiaHu6
+	 eDS3iCFmz0TrT9vaQ9vnQCQ6JIR7aQdwMdaew+v7TmE3rtINHDzb2DqSJOR218f7Cx
+	 Z98aprsBS7uqfxsXNhcWBYPA1LwBbIcvSZgAcko/aRHfNPAn1cJh8DuUmmUwlcH0We
+	 +uryggRaB9atw==
+Message-ID: <8dde3889-e51d-4e20-926b-7cdbdef3ddf7@kernel.org>
+Date: Thu, 19 Feb 2026 08:32:25 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260214180933.42143-3-hpausten@protonmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_225220_232436_F50A7F58 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 2/8] net: xilinx: tsn: Introduce TSN core driver
+ skeleton
+To: Srinivas Neeli <srinivas.neeli@amd.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, michal.simek@amd.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, git@amd.com
+References: <20260219054911.2017362-1-srinivas.neeli@amd.com>
+ <20260219054911.2017362-3-srinivas.neeli@amd.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260219054911.2017362-3-srinivas.neeli@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +118,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Harry,
+On 19/02/2026 06:49, Srinivas Neeli wrote:
+> Introduce the initial skeleton for the AMD/Xilinx Time Sensitive
+> Networking (TSN) Ethernet IP driver. Adds the Kconfig entry
+> (CONFIG_XILINX_TSN), updates the Xilinx Ethernet Makefile,
+> and provides the base source file focused on device tree
+> parsing and clock acquisition.
+> 
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> ---
+>  drivers/net/ethernet/xilinx/Kconfig           |   1 +
+>  drivers/net/ethernet/xilinx/Makefile          |   1 +
+>  drivers/net/ethernet/xilinx/tsn/Kconfig       |  14 ++
+>  drivers/net/ethernet/xilinx/tsn/Makefile      |   2 +
+>  drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h  |  60 +++++
+>  .../net/ethernet/xilinx/tsn/xilinx_tsn_main.c | 218 ++++++++++++++++++
+>  6 files changed, 296 insertions(+)
+>  create mode 100644 drivers/net/ethernet/xilinx/tsn/Kconfig
+>  create mode 100644 drivers/net/ethernet/xilinx/tsn/Makefile
+>  create mode 100644 drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h
+>  create mode 100644 drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
+> 
+> diff --git a/drivers/net/ethernet/xilinx/Kconfig b/drivers/net/ethernet/xilinx/Kconfig
+> index 7502214cc7d5..c6d704c8d3d4 100644
+> --- a/drivers/net/ethernet/xilinx/Kconfig
+> +++ b/drivers/net/ethernet/xilinx/Kconfig
+> @@ -41,4 +41,5 @@ config XILINX_LL_TEMAC
+>  	  This driver supports the Xilinx 10/100/1000 LocalLink TEMAC
+>  	  core used in Xilinx Spartan and Virtex FPGAs
+>  
+> +source "drivers/net/ethernet/xilinx/tsn/Kconfig"
+>  endif # NET_VENDOR_XILINX
+> diff --git a/drivers/net/ethernet/xilinx/Makefile b/drivers/net/ethernet/xilinx/Makefile
+> index 7d7dc1771423..66dab012650b 100644
+> --- a/drivers/net/ethernet/xilinx/Makefile
+> +++ b/drivers/net/ethernet/xilinx/Makefile
+> @@ -8,3 +8,4 @@ obj-$(CONFIG_XILINX_LL_TEMAC) += ll_temac.o
+>  obj-$(CONFIG_XILINX_EMACLITE) += xilinx_emaclite.o
+>  xilinx_emac-objs := xilinx_axienet_main.o xilinx_axienet_mdio.o
+>  obj-$(CONFIG_XILINX_AXI_EMAC) += xilinx_emac.o
+> +obj-$(CONFIG_XILINX_TSN) += tsn/
+> diff --git a/drivers/net/ethernet/xilinx/tsn/Kconfig b/drivers/net/ethernet/xilinx/tsn/Kconfig
+> new file mode 100644
+> index 000000000000..53734842700b
+> --- /dev/null
+> +++ b/drivers/net/ethernet/xilinx/tsn/Kconfig
+> @@ -0,0 +1,14 @@
+> +config XILINX_TSN
+> +	tristate "Xilinx TSN Ethernet driver"
+> +	depends on OF && HAS_IOMEM
 
-kernel test robot noticed the following build warnings:
+No ARCH_XILINX?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Harry-Austen/dt-bindings-clock-xilinx-add-description-of-user-monitor-interrupt/20260215-021554
-base:   ea7282e99ead6d2a294cef40acd2a29ada3ab71d
-patch link:    https://lore.kernel.org/r/20260214180933.42143-3-hpausten%40protonmail.com
-patch subject: [PATCH v4 2/2] clk: clocking-wizard: add user clock monitor support
-config: microblaze-randconfig-r072-20260215 (https://download.01.org/0day-ci/archive/20260215/202602151704.qepyfVlc-lkp@intel.com/config)
-compiler: microblaze-linux-gcc (GCC) 14.3.0
-smatch version: v0.5.0-8994-gd50c5a4c
+> +	select PHYLIB
+> +	select NET_DEVLINK
+> +	select NET_DEV_STATS
+> +	help
+> +	  This driver supports the Xilinx Time-Sensitive Networking (TSN)
+> +	  Ethernet IP, which includes multiple Ethernet MACs, a TSN switch,
+> +	  and an endpoint block. It provides support for scheduling,
+> +	  traffic shaping, and time synchronization to meet real-time
+> +	  requirements of industrial Ethernet applications.
+> +
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202602151704.qepyfVlc-lkp@intel.com/
 
-smatch warnings:
-drivers/clk/xilinx/clk-xlnx-clock-wizard.c:1183 clk_wzrd_user_mon_work() error: dereferencing freed memory 'dump' (line 1182)
+...
 
-vim +/dump +1183 drivers/clk/xilinx/clk-xlnx-clock-wizard.c
 
-68614f228e6cbe Harry Austen 2026-02-14  1176  static void clk_wzrd_user_mon_work(struct work_struct *work)
-68614f228e6cbe Harry Austen 2026-02-14  1177  {
-68614f228e6cbe Harry Austen 2026-02-14  1178  	struct clk_wzrd *clk_wzrd = container_of(work, struct clk_wzrd, work.work);
-68614f228e6cbe Harry Austen 2026-02-14  1179  	u32 *dump = vmalloc(WZRD_NUM_DUMP_REGS * sizeof(*dump));
-68614f228e6cbe Harry Austen 2026-02-14  1180  
-68614f228e6cbe Harry Austen 2026-02-14  1181  	ioread32_rep(clk_wzrd->base, dump, WZRD_NUM_DUMP_REGS);
-68614f228e6cbe Harry Austen 2026-02-14 @1182  	dev_coredumpv(&clk_wzrd->pdev->dev, dump, WZRD_NUM_DUMP_REGS * sizeof(*dump), GFP_KERNEL);
-68614f228e6cbe Harry Austen 2026-02-14 @1183  	iowrite32(dump[WZRD_INTR_STATUS / sizeof(*dump)], clk_wzrd->base + WZRD_INTR_STATUS);
-                                                          ^^^^
-dev_coredumpv() can free dump.
+> +
+> +/*
+> + * Helper to parse TX queue config subnode referenced by
+> + * xlnx,tsn-tx-config. This version enumerates child nodes in order and
+> + * assigns DMA channels sequentially (queue0 == first child, etc.)
+> + */
+> +static int tsn_parse_tx_queue_config(struct device *dev, struct tsn_priv *common,
+> +				     struct device_node *txcfg_np)
+> +{
+> +	struct device_node *qnode;
+> +	unsigned int queue = 0;
+> +	int ret = 0;
+> +
+> +	for_each_available_child_of_node(txcfg_np, qnode) {
+> +		u32 chan;
+> +
+> +		if (queue >= common->num_tx_queues) {
+> +			dev_err(dev, "tx-config: extra child nodes beyond %u ignored\n",
+> +				common->num_tx_queues);
+> +			of_node_put(qnode);
 
-68614f228e6cbe Harry Austen 2026-02-14  1184  }
-68614f228e6cbe Harry Austen 2026-02-14  1185  
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Use scoped loop.
 
+> +			return -EINVAL;
+> +		}
+> +
+> +		ret = of_property_read_u32(qnode, "xlnx,dma-channel-num", &chan);
+> +		if (ret) {
+> +			dev_err(dev, "tx-config: Q%u missing xlnx,dma-channel-num\n", queue);
+> +			of_node_put(qnode);
+> +			return ret;
+> +		}
+> +
+> +		if (chan > TSN_DMA_MAX_TX_CH) {
+> +			dev_err(dev, "tx-config: Q%u channel %u exceeds max %lu\n",
+> +				queue, chan, TSN_DMA_MAX_TX_CH);
+> +			of_node_put(qnode);
+> +			return -EINVAL;
+> +		}
+> +		common->tx_dma_chan_map[queue++] = chan;
+> +	}
+> +
+> +	if (queue != common->num_tx_queues) {
+> +		dev_err(dev, "tx-config: described %u queues but expected %u\n",
+> +			queue, common->num_tx_queues);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * tsn_parse_device_tree - Parse device tree configuration for TSN device
+> + * @pdev: Platform device pointer
+> + *
+> + * Return: 0 on success, negative error code on failure
+> + */
+> +static int tsn_parse_device_tree(struct platform_device *pdev)
+> +{
+> +	struct tsn_priv *common = platform_get_drvdata(pdev);
+> +	struct device_node *txcfg_np = NULL;
+> +	struct device *dev = &pdev->dev;
+> +	int i, ret;
+> +
+> +	/* Read number of priorities */
+> +	ret = of_property_read_u32(dev->of_node, "xlnx,num-priorities", &common->num_priorities);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to get xlnx,num-priorities\n");
+> +
+> +	if (common->num_priorities < TSN_MIN_PRIORITIES ||
+> +	    common->num_priorities > TSN_MAX_PRIORITIES)
+> +		return dev_err_probe(dev, -EINVAL, "Invalid xlnx,num-priorities (%u)\n",
+> +				     common->num_priorities);
+> +
+> +	/* Count TX and RX queues from dma-names property */
+> +	ret = of_property_count_strings(dev->of_node, "dma-names");
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Failed to get dma-names\n");
+> +
+> +	common->num_tx_queues = 0;
+> +	common->num_rx_queues = 0;
+> +
+> +	for (i = 0; i < ret; i++) {
+> +		const char *dma_name;
+> +
+> +		if (of_property_read_string_index(dev->of_node, "dma-names", i, &dma_name))
+> +			continue;
+> +
+> +		if (strncmp(dma_name, "tx_chan", 7) == 0)
+> +			common->num_tx_queues++;
+> +		else if (strncmp(dma_name, "rx_chan", 7) == 0)
+> +			common->num_rx_queues++;
+> +	}
+> +
+> +	if (!common->num_tx_queues || common->num_tx_queues > TSN_MAX_TX_QUEUE)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "Invalid TX queue count (%u, max %u)\n",
+> +				     common->num_tx_queues, TSN_MAX_TX_QUEUE);
+> +
+> +	if (!common->num_rx_queues)
+> +		return dev_err_probe(dev, -EINVAL, "No RX DMA channels found\n");
+> +
+> +	/* Setup clock IDs */
+> +	for (i = 0; i < TSN_NUM_CLOCKS; i++)
+> +		common->clks[i].id = tsn_clk_names[i];
+> +
+> +	/* Get all clocks */
+> +	ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, common->clks);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to get clocks\n");
+> +
+> +	/* Enable clocks */
+> +	ret = clk_bulk_prepare_enable(TSN_NUM_CLOCKS, common->clks);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to enable clocks\n");
+> +
+> +	for (i = 0; i < TSN_MAX_TX_QUEUE; i++)
+> +		common->tx_dma_chan_map[i] = TSN_DMA_CH_INVALID;
+> +
+> +	txcfg_np = of_parse_phandle(dev->of_node, "xlnx,tsn-tx-config", 0);
+> +	if (txcfg_np) {
+> +		ret = tsn_parse_tx_queue_config(dev, common, txcfg_np);
+> +		of_node_put(txcfg_np);
+> +		if (ret)
+> +			goto err_disable_clks;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_disable_clks:
+> +	clk_bulk_disable_unprepare(TSN_NUM_CLOCKS, common->clks);
+> +	return ret;
+> +}
+> +
+> +/**
+> + * tsn_ip_probe - Probe TSN IP core device
+
+Nooo...
+
+
+> + * @pdev: Platform device pointer
+> + *
+> + * Return: 0 on success, negative error code on failure
+> + */
+> +static int tsn_ip_probe(struct platform_device *pdev)
+> +{
+> +	struct tsn_priv *common;
+> +	int ret;
+> +
+> +	common = devm_kzalloc(&pdev->dev, sizeof(*common), GFP_KERNEL);
+> +	if (!common)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, common);
+> +	common->pdev = pdev;
+> +	common->dev = &pdev->dev;
+> +
+> +	/* Initialize synchronization primitives */
+> +	spin_lock_init(&common->tx_lock);
+> +	spin_lock_init(&common->rx_lock);
+> +	mutex_init(&common->mdio_lock);
+> +
+> +	common->res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	if (!common->res)
+> +		return -ENODEV;
+> +	common->regs_start = common->res->start;
+> +	common->regs = devm_ioremap_resource(&pdev->dev, common->res);
+> +	if (IS_ERR(common->regs))
+> +		return PTR_ERR(common->regs);
+> +
+> +	ret = tsn_parse_device_tree(pdev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * tsn_ip_remove - Remove TSN IP core device
+> + * @pdev: Platform device pointer
+
+Pointless comment. Can it be anything else than what you wrote? Why are
+you adding comments to standard boilerplate calls?
+
+> + */
+> +static void tsn_ip_remove(struct platform_device *pdev)
+> +{
+> +	struct tsn_priv *common = platform_get_drvdata(pdev);
+> +
+> +	clk_bulk_disable_unprepare(TSN_NUM_CLOCKS, common->clks);
+> +}
+> +
+> +static const struct of_device_id tsn_of_match[] = {
+> +	{ .compatible = "xlnx,tsn-endpoint-ethernet-mac-3.0", },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, tsn_of_match);
+> +
+> +static struct platform_driver tsn_driver = {
+> +	.probe = tsn_ip_probe,
+> +	.remove = tsn_ip_remove,
+> +	.driver = {
+> +		.name = "xilinx-tsn",
+> +		.of_match_table = tsn_of_match,
+> +	},
+> +};
+> +module_platform_driver(tsn_driver);
+> +
+> +MODULE_AUTHOR("Neeli Srinivas <srinivas.neeli@amd.com>");
+> +MODULE_DESCRIPTION("Time Sensitive Networking (TSN) Ethernet MAC driver");
+> +MODULE_LICENSE("GPL");
+
+
+Best regards,
+Krzysztof
 
