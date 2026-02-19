@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52BDE9A050
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 17:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 615B6E9A052
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 17:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JwRsYZvOzH3HfX1u9fY19r7fFuIvsB23NUu35nMXKKc=; b=WxsC4xkAQcwWhSNvEc0rVGNqmS
-	RDHFgYUda3VtfCCychD/VuHFAjwEFnxwoJwi74rub9twLfnXJGnrltdncNwFWSltVj6X6SxL1RRg3
-	TVwlM7vTuQlM3f8EVa3sxnc5uCi2Tw93lf/LMan430jvAi8zXUNvcy7MeXC9YHkuve2s6e+VJxjS5
-	y7QmVHMT1O4OajPeNIdbWHDQj3Ixnf91ACU3kvbqMmciImhNiHbcB8lcqTueKP0Bs5wiqESlKc9PW
-	V+BRSowScbJlqmC7hRadL2LO2axfT9N0ZBTP+l8LxgfA7EV4DeX0mh11IVNEWFZ5m2VssnTHFCfDj
-	1Aq125xw==;
+	bh=KaK0sntCMoSLZMQ6Q8ttvFUYVC/oQ1rIAiyZUvLuAWw=; b=ObMzM485i5V3VzilW4eWbDRLTK
+	CGaDtQ/HP3bAHnJpGXGtNGpVDVpQJVWPT4VSvJftwEFa0ySN0DWnq2QJFKbk6HYOqSIQ9FhbaFins
+	fORduLsbS0M9/4GaZO7nfxsrbdcUgSy2VP9ZNauuaDni/h48ZwiT1aBRzuGAU2t51xVBhslR/+DMA
+	EUzj0MNGrBoQ0Ver6svx8Y/EsJRM5/8Z2JooLJB2eiQa+k2ICngPrODy+xE+E1FPrzzfmzlSuHFYW
+	2FRy1oyQHfop4N1RLgVzEu/v6cxmv1ZokEzKeiGzEwv84taGljFqCo3b/dLQid89vglzbayUKSmGb
+	zBq2QN+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt7OZ-0000000BfQl-1qoL;
-	Thu, 19 Feb 2026 17:00:55 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vt7TU-0000000Bfvv-1GFI;
+	Thu, 19 Feb 2026 17:06:00 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt7OW-0000000BfPz-46ft;
-	Thu, 19 Feb 2026 17:00:54 +0000
-Received: from killaraus.ideasonboard.com (unknown [83.245.237.175])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 2D10755C;
-	Thu, 19 Feb 2026 17:59:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1771520396;
-	bh=+bJb8RAUEGHe8xLGRMHWSourYuWFNASIziuTwS8aCok=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p25jL6qPmnFmkBcyC8A8dXf8xXvrzOWBzsJn4Ux841mXCS0ZyncZ3QnzdQC+gJE8W
-	 QLRGk9gON41wwd4iIFLQMWFilucJbxZa86JpDMbIq5NtgkYJAw+SFVIYjR746In9bP
-	 0VMMLw97wf0sABn7MygMiSSh5RxYmPTtgQnVWuWQ=
-Date: Thu, 19 Feb 2026 18:00:46 +0100
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
-	Paul Elder <paul.elder@ideasonboard.com>,
-	Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Collabora Kernel Team <kernel@collabora.com>, stable@kernel.org,
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] media: rockchip: rkcif: comply with minimum number
- of buffers requirement
-Message-ID: <20260219170046.GA626936@killaraus.ideasonboard.com>
-References: <20260216-rkcif-fixes-v1-0-b16db20b6d68@collabora.com>
- <20260216-rkcif-fixes-v1-2-b16db20b6d68@collabora.com>
- <20260219091301.GF520738@killaraus.ideasonboard.com>
- <d701a97d-6051-4a32-ada6-bf014e385c68@collabora.com>
+	id 1vt7TQ-0000000BfvZ-0qC5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Feb 2026 17:05:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=KaK0sntCMoSLZMQ6Q8ttvFUYVC/oQ1rIAiyZUvLuAWw=; b=ohJ69X4zchPR/hJgdat23qs4x9
+	je1AI0NgCjI2+3lu3xdGlfDMgX23MfUDaOLEv5YKpOKWkQ/ANoMWJMjKGdSXzN6UeHdIqbzhTqKo+
+	QkRPiygkNlBJSn9WcMtsgMHUdvXkTlN7BXWQCmTB7GHUtdJGFct+gYUJ4SJqYwUaqhJY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vt7TI-007wb9-0N; Thu, 19 Feb 2026 18:05:48 +0100
+Date: Thu, 19 Feb 2026 18:05:47 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Srinivas Neeli <srinivas.neeli@amd.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	richardcochran@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, git@amd.com
+Subject: Re: [RFC PATCH 4/8] xilinx: tsn: Add Ethernet MAC (EMAC) and MDIO
+ support to the TSN driver
+Message-ID: <b408cad2-90de-44df-85a6-64a028216290@lunn.ch>
+References: <20260219054911.2017362-1-srinivas.neeli@amd.com>
+ <20260219054911.2017362-5-srinivas.neeli@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d701a97d-6051-4a32-ada6-bf014e385c68@collabora.com>
+In-Reply-To: <20260219054911.2017362-5-srinivas.neeli@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_090053_159180_B5BC9E85 
-X-CRM114-Status: GOOD (  26.03  )
+X-CRM114-CacheID: sfid-20260219_090557_923396_CAE5DFAE 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +73,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 05:19:46PM +0100, Michael Riesch wrote:
-> On 2/19/26 10:13, Laurent Pinchart wrote:
-> > On Mon, Feb 16, 2026 at 02:49:57PM +0100, Michael Riesch via B4 Relay wrote:
-> >> From: Michael Riesch <michael.riesch@collabora.com>
-> >>
-> >> Each stream requires CIF_REQ_BUFS_MIN=1 buffers to enable streaming.
-> >> However, it failed with only one buffer provided.
-> >>
-> >> Comply with the minimum number of buffers requirement and accept
-> >> exactly one buffer.
-> >>
-> >> Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma blocks")
-> >> Cc: stable@kernel.org
-> >> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> >> ---
-> >>  .../media/platform/rockchip/rkcif/rkcif-stream.c   | 41 +++++++++++-----------
-> >>  1 file changed, 21 insertions(+), 20 deletions(-)
-> >>
-> >> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> >> index e00010a91e8b..5a5ab9e7e86e 100644
-> >> --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> >> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> >> @@ -106,19 +106,6 @@ static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
-> >>  {
-> >>  	struct v4l2_pix_format_mplane *pix = &stream->pix;
-> >>  
-> >> -	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
-> >> -	if (!stream->buffers[0])
-> >> -		goto err_buff_0;
-> >> -
-> >> -	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
-> >> -	if (!stream->buffers[1])
-> >> -		goto err_buff_1;
-> >> -
-> >> -	if (stream->queue_buffer) {
-> >> -		stream->queue_buffer(stream, 0);
-> >> -		stream->queue_buffer(stream, 1);
-> >> -	}
-> >> -
-> >>  	stream->dummy.size = pix->num_planes * pix->plane_fmt[0].sizeimage;
-> >>  	stream->dummy.vaddr =
-> >>  		dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
-> >> @@ -132,16 +119,30 @@ static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
-> >>  			stream->dummy.buffer.buff_addr[i - 1] +
-> >>  			pix->plane_fmt[i - 1].bytesperline * pix->height;
-> >>  
-> >> -	return 0;
-> >> +	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
-> >> +	if (!stream->buffers[0])
-> >> +		goto err_buff_0;
-> > 
-> > Why do you move this after allocation of the dummy buffer, to then add
-> > dma_free_attrs() in the err_buff_0 error path ?
-> 
-> To keep the two rkcif_stream_pop_buffer calls together. We need to
-> allocate the dummy in any case, but in case the second pop fails we use
-> it -- this was not the case before.
+> +static int tsn_mdio_read(struct mii_bus *bus, int phy_id, int reg)
+> +{
+> +	u32 rc;
+> +	int ret;
+> +	struct tsn_emac *emac = bus->priv;
+> +	struct tsn_priv *common = emac->common;
+> +
+> +	scoped_guard(mutex, &common->mdio_lock) {
 
-I suppose it's easier than returning buffers[0] in the dummy buffer
-allocate error path. Works for me.
+What is this mutex protecting?
 
-> >> -err_dummy:
-> >> -	rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEUED);
-> >> -	stream->buffers[1] = NULL;
-> >> +	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
-> >> +	if (!stream->buffers[1]) {
-> >> +		stream->buffers[stream->frame_phase] = &stream->dummy.buffer;
-> >> +		stream->buffers[stream->frame_phase]->is_dummy = true;
-> >> +	}
-> >> +
-> >> +	if (stream->queue_buffer) {
-> >> +		stream->queue_buffer(stream, 0);
-> >> +		stream->queue_buffer(stream, 1);
-> >> +	}
-> >> +
-> >> +	return 0;
-> >>  
-> >> -err_buff_1:
-> >> -	rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEUED);
-> >> -	stream->buffers[0] = NULL;
-> >>  err_buff_0:
-> >> +	dma_free_attrs(stream->rkcif->dev, stream->dummy.size,
-> >> +		       stream->dummy.vaddr,
-> >> +		       stream->dummy.buffer.buff_addr[0],
-> >> +		       DMA_ATTR_NO_KERNEL_MAPPING);
-> >> +	stream->dummy.vaddr = NULL;
-> >> +err_dummy:
-> >>  	return -EINVAL;
-> > 
-> > You can drop the err_dummy label and return -EINVAL directly. Except you
-> > should probably return -ENOMEM as the failure comes from
-> > dma_alloc_attrs().
-> 
-> Makes sense, will fix.
-> 
-> >>  }
-> >>  
+> +		tsn_mdio_mdc_enable(emac);
 
--- 
-Regards,
+It is unusual to stop MDC. I suspect some PHYs will not like this.
+What is your reason for doing this.
 
-Laurent Pinchart
+> +/**
+> + * tsn_mdio_setup - Setup MDIO bus for TSN EMAC
+> + * @emac: Pointer to TSN EMAC structure
+> + * @mac_np: Device tree node for MAC
+> + *
+> + * This function initializes the MDIO bus for the TSN EMAC interface.
+> + * It allocates an MII bus structure, configures MDIO timing, finds
+> + * the MDIO device tree node, and registers the MDIO bus with the kernel.
+> + *
+> + * Return: 0 on success, negative error code on failure
+> + */
+> +int tsn_mdio_setup(struct tsn_emac *emac, struct device_node *mac_np)
+> +{
+> +	struct tsn_priv *common = emac->common;
+> +	struct device_node *mdio_node;
+> +	struct mii_bus *bus;
+> +	int ret;
+> +
+> +	bus = mdiobus_alloc();
+> +	if (!bus)
+> +		return -ENOMEM;
+> +
+> +	snprintf(bus->id, MII_BUS_ID_SIZE, "tsn-mac-%.8llx",
+> +		 (unsigned long long)emac->regs_start);
+> +
+> +	bus->priv = emac;
+> +	bus->name = "Xilinx TSN Ethernet MDIO";
+> +	bus->read = tsn_mdio_read;
+> +	bus->write = tsn_mdio_write;
+> +	bus->parent = common->dev;
+> +	emac->mii_bus = bus;
+> +
+> +	mdio_node = of_get_child_by_name(mac_np, "mdio");
+> +	if (!mdio_node) {
+> +		dev_err(common->dev, "MAC%d: missing 'mdio' child node\n",
+> +			emac->emac_num);
+> +		ret = -ENODEV;
+> +		goto unregister;
+> +	}
+
+I forget, does the binding have a required: for the MDIO node?
+
+> +	ret = tsn_mdio_enable(emac);
+> +	if (ret < 0)
+> +		goto unregister;
+> +	ret = of_mdiobus_register(bus, mdio_node);
+
+Having a node in DT is generally optional. You can pass NULL to
+of_mdiobus_register() and it will do the right thing.
+
+	Andrew
 
