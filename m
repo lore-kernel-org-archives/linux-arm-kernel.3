@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C89AE9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 10:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26EDCE9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 10:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Onijhz1nxeefzfvPMTn2z2q1tzvlyJ5tRUg+LtQAqg=; b=Ld9fJlIp5NLrqofS32QalxqPBJ
-	BnfK2Wzk6LvSzfwklyYAU+9KAcEH2QDme8U/pXssWqc6JZ6nMv5/0RX+q5f5k8Si43UUfHVCYRzoA
-	woRI1ua4tAZnS5WdarWEV1WHfosiA0tnHs2vRX2TVRB7N9tDCZM3lHTYD4daGpQx8xVrCBSRW7zHO
-	QLSaSmkXc/6H7dSPTv/HDr1jPSidFsvpPH04/vdo0XcqhB3Mym9dwnhsSM28ZWP8lv8TYj5zqsw3n
-	vLu0+I/i4f55MXII9/TALoav+znqpPfASDIukTdKl1fZvNPXY7g9bcA+efU+o9iL1A7c6QIamzCCy
-	8nN/Kv+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F/iP8fek36cTZj7uGuQwlk+a5PJBqWvYn07ZjqPzOHk=; b=zNWiFmjL5gI5JShhXio86ipNyw
+	QPMR5vSS+AufyroJy7PG30TsjplZSqt7gVAKp/hHNfJbNIErTzOhMMSzceeS0pIbQ1ph1ICLiUK61
+	NT8PHQ/+Wg+gLXLlLzNZs9/H0uKuLUT4e7RMjnc9QomuROpnS23Jo4XN4rLBf26tuTUx5vTRK27Ry
+	b5kQlx3UgPC2s68vrXljEXBw9c0fuy9QXKiN+rKkICxhfC9KQgRm+dXALsb5fQ7sVfo+lpZdAHVZT
+	aJYYYamFuq0HhSXFywCDIawPznNW5pA5CRfnhrguqImsfS59VccsA2LLpG2COMga9wJ+vzemXeEof
+	hzS4Igrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt1H5-0000000BDtB-1Fyc;
-	Thu, 19 Feb 2026 10:28:47 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vt1Hx-0000000BDzt-2ooU;
+	Thu, 19 Feb 2026 10:29:41 +0000
+Received: from mail-ua1-f48.google.com ([209.85.222.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt1H1-0000000BDsQ-2Orc
+	id 1vt1Hv-0000000BDzM-2Zuf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 10:28:45 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fGqN75vSQzJ46Bs;
-	Thu, 19 Feb 2026 18:28:23 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0CAE940569;
-	Thu, 19 Feb 2026 18:28:37 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 19 Feb
- 2026 10:28:36 +0000
-Date: Thu, 19 Feb 2026 10:28:34 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Besar Wicaksono <bwicaksono@nvidia.com>
-CC: <will@kernel.org>, <suzuki.poulose@arm.com>, <robin.murphy@arm.com>,
-	<ilkka@os.amperecomputing.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
-	<mark.rutland@arm.com>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
-	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>,
-	<skelley@nvidia.com>, <ywan@nvidia.com>, <mochs@nvidia.com>,
-	<nirmoyd@nvidia.com>
-Subject: Re: [PATCH v2 6/8] perf: add NVIDIA Tegra410 CPU Memory Latency PMU
-Message-ID: <20260219102834.0000777c@huawei.com>
-In-Reply-To: <20260218145809.1622856-7-bwicaksono@nvidia.com>
-References: <20260218145809.1622856-1-bwicaksono@nvidia.com>
-	<20260218145809.1622856-7-bwicaksono@nvidia.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 19 Feb 2026 10:29:41 +0000
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-948d0d5d4d0so535816241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 02:29:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771496978; x=1772101778;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F/iP8fek36cTZj7uGuQwlk+a5PJBqWvYn07ZjqPzOHk=;
+        b=fF2p0mY10JWo997dmvPGlaHIlxHhY2GDMw0IIwZz/VqNDNrZSj+UU25fHx/4vl+QmQ
+         SpgdAcA2ytFZEszF2m8DTaiHvscVUdVev3i/TyZC2/X8VwAwBW2oGBCspE/zs5M1sLg1
+         FrG2QSNK8Qlg6U+KQ+pfmap9MvuJtOzNSC7JG51Rehd4OqwEUKxxKmuNhF+zATYSqaZF
+         +VGBTS+2lWC3fqcehb4MMZk6qxeRF5CS4FnUEG1qI42554a/Y2qYIS/yCz+t0c29ZvwO
+         cHT/3Zi02uMI5TM07J8kqTxhzhgI55Tcu52hHP5wZVh0Kwl1BnbVj5QkLfmwwLZ6r9CQ
+         tpMA==
+X-Forwarded-Encrypted: i=1; AJvYcCWVJRORUvGJ6Ubpvc2tJt8cuRW3s5fElqPcpcnh97xtwyq9CSJo2QcWd9OCsry4Zmud3Gl2GiwuwqDFadIPa5Kd@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvQZ5sp0gRFlS5Z+VZr32U8F5Lap9X7Im9RqUOLwF6oXdYIEBy
+	tNN7N0/LqyidQ48RaXL2qif6ZdjP9s9Fl7XQE4UMG2PdKrEqpePpHJ98lKeP+xtP
+X-Gm-Gg: AZuq6aLyMaCKAMZts906qSVl00CkJoPOkl/xWmUFTiFIh/xFjbn71wBLbl7ELU8eu2b
+	GKwQva6E8/Gx6MUTYI6mSHkAYzgSPh2buogzj7IrSIcG/bC2Mf+F5SEWT0BZ8E/xaZ8bZjePAPF
+	V6tSkMo+GqfvyRCBjyyvTa2GcAwBxq824ym4DEJfKoMldkVQrup/HDtK5BShcm6LzAWl5CWzWNt
+	lXOSth1/+Dzst7dw0TIruefSm6rSVe861QMZabUQ1zOHuJ1FedDn5TE/nfDpx89AJIg3b/8G2Kk
+	Aft2MDUQAu2O39EHWikC180eIM3GtBaWwVa6RKQU9vpYm6Mx4sGmCqaTRPYRM7GNkZfJaKt6hK9
+	5We5uzlCr1RgvcNJHpS/O+aD+X+S1liBZIZy/3EvnpCBt2Ixdn1pa2Vx5o1xd8M3FoOrejnxokz
+	GMVci0mN4I+DZ7EUTIGqPxH8lPYDCcSFkrHQrFwx7xGyhOhkbswoteyneonE0boDLM
+X-Received: by 2002:a05:6102:390e:b0:5f7:307e:80d9 with SMTP id ada2fe7eead31-5fe7fd7c889mr2274177137.28.1771496977613;
+        Thu, 19 Feb 2026 02:29:37 -0800 (PST)
+Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com. [209.85.221.176])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94afd1ab720sm12626371241.4.2026.02.19.02.29.36
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Feb 2026 02:29:37 -0800 (PST)
+Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-56750cb34c8so671936e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 02:29:36 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU9DOIcztqjCCwiR9dUkdrRmbIr4fR70wBL7cMxZmwYIIcglKqKepdaxsLynYh8y8cEgmZITAdoQkVCjvfE92A2@lists.infradead.org
+X-Received: by 2002:a05:6122:2494:b0:567:2b94:2e6c with SMTP id
+ 71dfb90a1353d-568bf59a621mr2370313e0c.11.1771496976112; Thu, 19 Feb 2026
+ 02:29:36 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+References: <20260122-pmdomain-hierarchy-onecell-v5-0-76855ec856bd@baylibre.com>
+ <20260122-pmdomain-hierarchy-onecell-v5-1-76855ec856bd@baylibre.com>
+ <20260127151735.GA1699112-robh@kernel.org> <7hjywtzaiy.fsf@baylibre.com>
+In-Reply-To: <7hjywtzaiy.fsf@baylibre.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 19 Feb 2026 11:29:25 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdURxN=kBQHJKnsTVEQPeuB41r5kZy4sgFNqg=U2ynuZMw@mail.gmail.com>
+X-Gm-Features: AaiRm519SaRshXGNVfvg14cRnmfkYROkGvJOkhQFEH8pcasVxqZP2kH1_tN-rv8
+Message-ID: <CAMuHMdURxN=kBQHJKnsTVEQPeuB41r5kZy4sgFNqg=U2ynuZMw@mail.gmail.com>
+Subject: Re: [PATCH RFC v5 1/2] pmdomain: core: support domain hierarchy via power-domain-map
+To: Kevin Hilman <khilman@baylibre.com>
+Cc: Rob Herring <robh@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Cristian Marussi <cristian.marussi@arm.com>, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, arm-scmi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_022843_919303_950720C0 
-X-CRM114-Status: GOOD (  36.42  )
+X-CRM114-CacheID: sfid-20260219_022939_661103_7B22188B 
+X-CRM114-Status: GOOD (  35.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,342 +99,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Feb 2026 14:58:07 +0000
-Besar Wicaksono <bwicaksono@nvidia.com> wrote:
+Hi Kevin,
 
-> Adds CPU Memory (CMEM) Latency PMU support in Tegra410 SOC.
-> The PMU is used to measure latency between the edge of the
-> Unified Coherence Fabric to the local system DRAM.
-> 
-> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+Thanks for your series! I became aware of it only recently, and read
+it and its history with great interest...
 
-Hi Besar
+On Wed, 4 Feb 2026 at 00:13, Kevin Hilman <khilman@baylibre.com> wrote:
+> Rob Herring <robh@kernel.org> writes:
+> > On Thu, Jan 22, 2026 at 05:14:00PM -0800, Kevin Hilman (TI) wrote:
+> >> Add of_genpd_[add|remove]_subdomain_map() helper functions to support
+> >> hierarchical PM domains defined by using power-domains-map
+> >
+> > power-domain-map. No 's'.
+> >
+> >> property (c.f. nexus node maps in DT spec, section 2.5.1).
+> >>
+> >> This enables PM domain providers with #power-domain-cells > 0 to
+> >> establish subdomain relationships via the power-domain-map property,
+> >> which was not previously possible.
+> >>
+> >> These new helper functions:
+> >> - uses an OF helper to iterate to over entries in power-domain-map
+> >> - For each mapped entry: extracts child specifier, resolves parent phandle,
+> >>   extracts parent specifier args, and establishes subdomain relationship
+> >> - Calls genpd_[add|remove]_subdomain() with proper gpd_list_lock mutex protection
+> >>
+> >> Example from k3-am62l.dtsi:
+> >>
+> >>   scmi_pds: protocol@11 {
+> >>       #power-domain-cells = <1>;
+> >>       power-domain-map = <15 &MAIN_PD>,  /* TIMER0 */
+> >>                          <19 &WKUP_PD>;  /* WKUP_TIMER0 */
+> >>   };
+> >>
+> >>   MAIN_PD: power-controller-main {
+> >>       #power-domain-cells = <0>;
+> >>   };
+> >>
+> >>   WKUP_PD: power-controller-main {
+> >>       #power-domain-cells = <0>;
+> >>   };
+> >>
+> >> This allows SCMI power domain 15 to become a subdomain of MAIN_PD, and
+> >> domain 19 to become a subdomain of WKUP_PD.
+> >
+> > One concern I have here is generally *-map is transparent meaning when
+> > you lookup <&scmi_pds 15>, &MAIN_PD is returned as the provider. It's
+> > also possible to have a map point to another map until you get to the
+> > final provider. The only way we have to support both behaviors is the
+> > consumer has to specify (i.e. with of_parse_phandle_with_args_map() vs.
+> > of_parse_phandle_with_args()), but the consumer shouldn't really know
+> > this detail.
 
-Various fairly superficial things inline.  Problem with reviewing
-uncore drivers is that I've always forgotten the details of the interactions
-with the perf core.  There aren't enough of them coming through to keep it in my head.
-Sadly I don't have time today to page all that info back in :(
+This is also the first thing I was worried about, when I noticed you are
+not doing transparent mapping, but add an explicit hierarchy instead,
+based on the map.
 
-Jonathan
+> > Maybe a transparent map of power-domains would never make sense. IDK. If
+> > so, then there's not really any issue since the pmdomain core handles
+> > everyone the same way.
 
-> diff --git a/drivers/perf/nvidia_t410_cmem_latency_pmu.c b/drivers/perf/nvidia_t410_cmem_latency_pmu.c
-> new file mode 100644
-> index 000000000000..9b466581c8fc
-> --- /dev/null
-> +++ b/drivers/perf/nvidia_t410_cmem_latency_pmu.c
-> @@ -0,0 +1,727 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * NVIDIA Tegra410 CPU Memory (CMEM) Latency PMU driver.
-> + *
-> + * Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-> + */
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/bitops.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/device.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/perf_event.h>
-> +#include <linux/platform_device.h>
+AFAIUI, SCMI is not limited to the SoC, but may be used for the whole
+hardware platform, so it could control power to external devices, too.
+Once we need to map a power domain through a connector, we need
+support for transparent mapping through a nexus node.
 
-> +#define NUM_INSTANCES    14
-> +#define BCAST(pmu) pmu->base[NUM_INSTANCES]
+> I don't really know enough about potential usage of maps to know if
+> there's ever a usecase for transparent maps.  However, the problem I'm
+> trying to solve is less about transparent maps, and more about
+> describing hierarchy in a situation where "leaf" domains of the same
+> type (e.g. SCMI) can have different parent domains.
 
-As below.  This is a weird macro.  I'd just split the
-base addresses up into a broad_cast_base and array of
-the individual bases.
+Hierarchy is indeed something that cannot be described with the current
+SCMI power domain management protocol.  This includes external hierarchy
+(your use case), and internal hierarchy: AFAIK, Linux cannot be made
+aware of the hierarchical relationship among the different power
+domains controlled through SCMI either.
 
-> +
-> +/* Register offsets. */
-> +#define CG_CTRL         0x800
-> +#define CTRL            0x808
-> +#define STATUS          0x810
-> +#define CYCLE_CNTR      0x818
-> +#define MC0_REQ_CNTR    0x820
-> +#define MC0_AOR_CNTR    0x830
-> +#define MC1_REQ_CNTR    0x838
-> +#define MC1_AOR_CNTR    0x848
-> +#define MC2_REQ_CNTR    0x850
-> +#define MC2_AOR_CNTR    0x860
-> +
-> +/* CTRL values. */
-> +#define CTRL_DISABLE    0x0ULL
-> +#define CTRL_ENABLE     0x1ULL
-> +#define CTRL_CLR        0x2ULL
-> +
-> +/* CG_CTRL values. */
-> +#define CG_CTRL_DISABLE    0x0ULL
-> +#define CG_CTRL_ENABLE     0x1ULL
-> +
-> +/* STATUS register field. */
-> +#define STATUS_CYCLE_OVF      BIT(0)
-> +#define STATUS_MC0_AOR_OVF    BIT(1)
-> +#define STATUS_MC0_REQ_OVF    BIT(3)
-> +#define STATUS_MC1_AOR_OVF    BIT(4)
-> +#define STATUS_MC1_REQ_OVF    BIT(6)
-> +#define STATUS_MC2_AOR_OVF    BIT(7)
-> +#define STATUS_MC2_REQ_OVF    BIT(9)
-> +
-> +/* Events. */
-> +#define EVENT_CYCLES    0x0
-> +#define EVENT_REQ       0x1
-> +#define EVENT_AOR       0x2
-> +
-> +#define NUM_EVENTS           0x3
-> +#define MASK_EVENT           0x3
-> +#define MAX_ACTIVE_EVENTS    32
-> +
-> +#define ACTIVE_CPU_MASK        0x0
+Gr{oetje,eeting}s,
 
-Some of these are very generic names.  To avoid a future clash with something in a
-header, I'd prefix them with something related to this driver.
+                        Geert
 
-> +#define ASSOCIATED_CPU_MASK    0x1
-> +
-> +static unsigned long cmem_lat_pmu_cpuhp_state;
-> +
-> +struct cmem_lat_pmu_hw_events {
-> +	struct perf_event *events[MAX_ACTIVE_EVENTS];
-> +	DECLARE_BITMAP(used_ctrs, MAX_ACTIVE_EVENTS);
-> +};
-> +
-> +struct cmem_lat_pmu {
-> +	struct pmu pmu;
-> +	struct device *dev;
-> +	const char *name;
-> +	const char *identifier;
-> +	void __iomem *base[NUM_INSTANCES + 1];
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-As below. There are two types of things in this array (hence the +1)
-I'd just split it into an array of NUMSTANCES and a seperate
-pointer for the last one.
-
-> +	cpumask_t associated_cpus;
-> +	cpumask_t active_cpu;
-> +	struct hlist_node node;
-> +	struct cmem_lat_pmu_hw_events hw_events;
-> +};
-
-> +static bool cmem_lat_pmu_validate_event(struct pmu *pmu,
-> +				 struct cmem_lat_pmu_hw_events *hw_events,
-> +				 struct perf_event *event)
-> +{
-> +	if (is_software_event(event))
-> +		return true;
-> +
-> +	/* Reject groups spanning multiple HW PMUs. */
-> +	if (event->pmu != pmu)
-> +		return false;
-> +
-> +	return (cmem_lat_pmu_get_event_idx(hw_events, event) >= 0);
-I'd be tempted to use
-	int ret;
-	...
-
-	ret = cmem_lat_pmu_get_event_idx(hw_events, event);
-	if (ret < 0)
-		return false;
-
-	return true;
-
-As that make it more obvious the final check is on the validity of the idx.
-
-
-> +}
-> +
-> +/*
-> + * Make sure the group of events can be scheduled at once
-> + * on the PMU.
-
-Wrap to 80 chars.
-
-> + */
-> +static bool cmem_lat_pmu_validate_group(struct perf_event *event)
-
-> +
-> +static int cmem_lat_pmu_event_init(struct perf_event *event)
-> +{
-> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(event->pmu);
-> +	struct hw_perf_event *hwc = &event->hw;
-> +	u32 event_type = get_event_type(event);
-> +
-> +	if (event->attr.type != event->pmu->type ||
-> +	    event_type >= NUM_EVENTS)
-> +		return -ENOENT;
-> +
-> +	/*
-> +	 * Following other "uncore" PMUs, we do not support sampling mode or
-> +	 * attach to a task (per-process mode).
-Perhaps nicer to say why all uncore PMUs do this rather than this is
-doing the same as others...
-
-Basically it's that they are system wide and so not clear what either sampling
-or task attachment would actually mean.
-
-> +	 */
-> +	if (is_sampling_event(event)) {
-> +		dev_dbg(cmem_lat_pmu->pmu.dev,
-> +			"Can't support sampling events\n");
-> +		return -EOPNOTSUPP;
-> +	}
-
-
-
-> +
-> +static void cmem_lat_pmu_read(struct perf_event *event)
-> +{
-> +	cmem_lat_pmu_event_update(event);
-> +}
-> +
-> +static inline void cmem_lat_pmu_cg_ctrl(struct cmem_lat_pmu *cmem_lat_pmu, u64 val)
-> +{
-> +	writeq(val, BCAST(cmem_lat_pmu) + CG_CTRL);
-
-The BCAST macro is odd enough I'd just put what it does in inline here so it's
-clear it's just the last element.  I'm not entirely sure why you put it at the
-end of that array though.  Why not just have a separate element in the struct?
-
-> +}
-> +
-> +static inline void cmem_lat_pmu_ctrl(struct cmem_lat_pmu *cmem_lat_pmu, u64 val)
-> +{
-> +	writeq(val, BCAST(cmem_lat_pmu) + CTRL);
-> +}
-> +
-> +static void cmem_lat_pmu_enable(struct pmu *pmu)
-> +{
-> +	bool disabled;
-> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(pmu);
-> +
-> +	disabled = bitmap_empty(
-> +		cmem_lat_pmu->hw_events.used_ctrs, MAX_ACTIVE_EVENTS);
-
-This is unusual formatting. Much better to have the parameters up a line
-and if you go to a second line, then start under the first character after (
-
-> +
-> +	if (disabled)
-> +		return;
-> +
-> +	/* Enable all the counters. */
-> +	cmem_lat_pmu_cg_ctrl(cmem_lat_pmu, CG_CTRL_ENABLE);
-> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_ENABLE);
-> +}
-> +
-> +static void cmem_lat_pmu_disable(struct pmu *pmu)
-> +{
-> +	int idx;
-> +	struct perf_event *event;
-> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(pmu);
-> +
-> +	/* Disable all the counters. */
-> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_DISABLE);
-> +
-> +	/*
-> +	 * The counters will start from 0 again on restart.
-> +	 * Update the events immediately to avoid losing the counts.
-> +	 */
-> +	for_each_set_bit(
-> +		idx, cmem_lat_pmu->hw_events.used_ctrs, MAX_ACTIVE_EVENTS) {
-
-Very unusual formatting for a for loop.  Move at least some / maybe all of the
-parameters up a line.  The last thing we want is them to be indented
-the same as the stuff in the loop.
-
-Probably drag declaration of event in here to make it clearer what scope that
-local variable has.
-
-> +		event = cmem_lat_pmu->hw_events.events[idx];
-> +
-> +		if (!event)
-> +			continue;
-> +
-> +		cmem_lat_pmu_event_update(event);
-> +
-> +		local64_set(&event->hw.prev_count, 0ULL);
-> +	}
-> +
-> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_CLR);
-> +	cmem_lat_pmu_cg_ctrl(cmem_lat_pmu, CG_CTRL_DISABLE);
-> +}
-
-> +static struct attribute *cmem_lat_pmu_formats[] = {
-> +	NV_PMU_EXT_ATTR(event, device_show_string, "config:0-1"),
-> +	NULL,
-As below.
-
-> +};
-
-> +
-> +#define NV_PMU_CPUMASK_ATTR(_name, _config)			\
-> +	NV_PMU_EXT_ATTR(_name, cmem_lat_pmu_cpumask_show,	\
-> +				(unsigned long)_config)
-> +
-> +static struct attribute *cmem_lat_pmu_cpumask_attrs[] = {
-> +	NV_PMU_CPUMASK_ATTR(cpumask, ACTIVE_CPU_MASK),
-> +	NV_PMU_CPUMASK_ATTR(associated_cpus, ASSOCIATED_CPU_MASK),
-> +	NULL,
-
-As below.
-
-> +};
-> +
-> +static const struct attribute_group cmem_lat_pmu_cpumask_attr_group = {
-> +	.attrs = cmem_lat_pmu_cpumask_attrs,
-> +};
-> +
-> +/* Per PMU device attribute groups. */
-> +
-> +static const struct attribute_group *cmem_lat_pmu_attr_groups[] = {
-> +	&cmem_lat_pmu_identifier_attr_group,
-> +	&cmem_lat_pmu_format_group,
-> +	&cmem_lat_pmu_events_group,
-> +	&cmem_lat_pmu_cpumask_attr_group,
-> +	NULL,
-
-New code, so no need to copy any local style. Hence drop that trailing comma :)
-
-> +};
-> +
-
-> +static int cmem_lat_pmu_get_cpus(struct cmem_lat_pmu *cmem_lat_pmu,
-> +				unsigned int socket)
-> +{
-> +	int ret = 0, cpu;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		if (cpu_to_node(cpu) == socket)
-> +			cpumask_set_cpu(cpu, &cmem_lat_pmu->associated_cpus);
-> +	}
-> +
-> +	if (cpumask_empty(&cmem_lat_pmu->associated_cpus)) {
-> +		dev_dbg(cmem_lat_pmu->dev,
-> +			"No cpu associated with PMU socket-%u\n", socket);
-> +		ret = -ENODEV;
-		return -ENODEV;
-
-Saves reviewer reading on and...
-> +	}
-> +
-> +	return ret;
-	return 0;
-
-so the know that getting here always indicates success.
-
-> +}
-
-> +
-> +static const struct acpi_device_id cmem_lat_pmu_acpi_match[] = {
-> +	{ "NVDA2021", },
-
-The trailing comma after the string doesn't add anything, so I'd drop it.
-
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(acpi, cmem_lat_pmu_acpi_match);
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
