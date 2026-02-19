@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6AABE9A04C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 11:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8650E9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 11:33:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQf3nhh93/EySaBGGW4N0a7UfMAqWcdUUejnlkL8z1E=; b=xS3CudH71TT2iMl3aO3pGOF1K+
-	WLhlexzFc5YXj3zehG3vy/g6/VAYA44PmPd0NrvuCr61i1/J6yovm7lFNtOjdtLKGlw/orsPoBsg8
-	e7DWSmt6dVvcLKUcGE+2GL67TwwuicH8SV1urXSQm/4ykuGAw7af+kS/nGuwnkAzXfsU8b5bkh1jL
-	mAl5hH0YcurVDQM0YVXXbfJBop7norvubNXHKGvE69YS8Aeqh+dMEOg7jLFfsG2HQxy4lbZayNFGQ
-	7gN88sFJoCE2ZthOj5KopB3KuzpNHanJbN3I6nC09tyFrZvalmbGPcX4RQ1Wej5Zj7CryBt2MVOan
-	MPpp+Kyw==;
+	bh=/pNIi4I5TUEv9OrUFO8TgfWm/JLXvdDGc4m/8H/tykc=; b=xsD/JsdJzpLQxAWw1lCziiTjjD
+	tM2+/uJzNnYZWnJsm+xVyz/ufjv+lvRnnq8ZVSccsAWSy8W1M1m+dZtcXk7btlzeovm8TE+69CVy4
+	HRajoUTP3MJCm68O1Dt8DZKpVLN2QqZSPY0GdDGcaeadKtIsWtjkbdi+QfQK9Fsht/kzCtLUueEz+
+	ZuSesMcMQBZvF6z4nZOPARdCqwlsbBSStWJruJqjr2MjgyVzsAuO0YkjdTCQVUmc2NjEZ2d8ptSla
+	jR+yShitHzLTfxGwWvBb6sfmBovpGTJ3HUHjhYS6qrzZORQLeS0FuU2+pzzS9PAmlXW6EftSgZC2v
+	a2BD2T6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt2HL-0000000BHqi-46MB;
-	Thu, 19 Feb 2026 11:33:07 +0000
+	id 1vt2HO-0000000BHrR-2L1a;
+	Thu, 19 Feb 2026 11:33:10 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt2HJ-0000000BHpI-2j44
+	id 1vt2HJ-0000000BHpM-2j2f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 11:33:06 +0000
+	Thu, 19 Feb 2026 11:33:07 +0000
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.tretter@pengutronix.de>)
-	id 1vt2HH-0003qW-FA; Thu, 19 Feb 2026 12:33:03 +0100
+	id 1vt2HH-0003qW-HA; Thu, 19 Feb 2026 12:33:03 +0100
 From: Michael Tretter <m.tretter@pengutronix.de>
-Date: Thu, 19 Feb 2026 12:32:57 +0100
-Subject: [PATCH v2 1/2] drm/imx: ipuv3-plane: decouple zpos from plane type
+Date: Thu, 19 Feb 2026 12:32:58 +0100
+Subject: [PATCH v2 2/2] drm/imx: ipuv3-plane: support underlay plane
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260219-drm-imx-underlay-plane-v2-1-26ef829c5483@pengutronix.de>
+Message-Id: <20260219-drm-imx-underlay-plane-v2-2-26ef829c5483@pengutronix.de>
 References: <20260219-drm-imx-underlay-plane-v2-0-26ef829c5483@pengutronix.de>
 In-Reply-To: <20260219-drm-imx-underlay-plane-v2-0-26ef829c5483@pengutronix.de>
 To: Philipp Zabel <p.zabel@pengutronix.de>, 
@@ -56,8 +56,8 @@ X-SA-Exim-Mail-From: m.tretter@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_033305_714605_CC42F5C5 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20260219_033305_714717_82C7FFBE 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +72,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The overlay plane may be placed over or under the primary plane. Using
-zpos to determine, if the plane is the primary or overlay plane is not
-valid anymore.
+The IPUv3 overlay plane may be placed over or under the primary plane.
 
-Use the plane type for determining the name of the plane in the error
-message.
+Set the zpos of the primary to an immutable position of 1 to have the
+possibility to place the other plane underneath it.
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Set the zpos of other planes (the overlay plane) to a mutable value
+between 0 (the lowest possible value of a zpos) and directly above the
+primary plane with the latter being the default.
+
 Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
 ---
 Changes in v2:
-- none
+- Simplify and remove duplicate check for primary plane
+- Rephrase commit message
 ---
- drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c b/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c
-index db50eccea0ca..dfd036f3195e 100644
+index dfd036f3195e..f078235ed07b 100644
 --- a/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c
 +++ b/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c
-@@ -915,7 +915,7 @@ struct ipu_plane *ipu_plane_init(struct drm_device *dev, struct ipu_soc *ipu,
- 					       type, NULL);
- 	if (IS_ERR(ipu_plane)) {
- 		DRM_ERROR("failed to allocate and initialize %s plane\n",
--			  zpos ? "overlay" : "primary");
-+			  (type == DRM_PLANE_TYPE_PRIMARY) ? "primary" : "overlay");
- 		return ipu_plane;
- 	}
+@@ -890,7 +890,7 @@ struct ipu_plane *ipu_plane_init(struct drm_device *dev, struct ipu_soc *ipu,
+ {
+ 	struct ipu_plane *ipu_plane;
+ 	const uint64_t *modifiers = ipu_format_modifiers;
+-	unsigned int zpos = (type == DRM_PLANE_TYPE_PRIMARY) ? 0 : 1;
++	unsigned int primary_zpos = 1;
+ 	unsigned int format_count;
+ 	const uint32_t *formats;
+ 	int ret;
+@@ -923,17 +923,16 @@ struct ipu_plane *ipu_plane_init(struct drm_device *dev, struct ipu_soc *ipu,
+ 	ipu_plane->dma = dma;
+ 	ipu_plane->dp_flow = dp;
  
-@@ -949,7 +949,7 @@ struct ipu_plane *ipu_plane_init(struct drm_device *dev, struct ipu_soc *ipu,
- 	ret = ipu_plane_get_resources(dev, ipu_plane);
- 	if (ret) {
- 		DRM_ERROR("failed to get %s plane resources: %pe\n",
--			  zpos ? "overlay" : "primary", &ret);
-+			  (type == DRM_PLANE_TYPE_PRIMARY) ? "primary" : "overlay", &ret);
+-	if (type == DRM_PLANE_TYPE_PRIMARY)
++	if (type == DRM_PLANE_TYPE_PRIMARY) {
+ 		drm_plane_helper_add(&ipu_plane->base, &ipu_primary_plane_helper_funcs);
+-	else
+-		drm_plane_helper_add(&ipu_plane->base, &ipu_plane_helper_funcs);
+-
+-	if (dp == IPU_DP_FLOW_SYNC_BG || dp == IPU_DP_FLOW_SYNC_FG)
+-		ret = drm_plane_create_zpos_property(&ipu_plane->base, zpos, 0,
+-						     1);
+-	else
+ 		ret = drm_plane_create_zpos_immutable_property(&ipu_plane->base,
+-							       0);
++							       primary_zpos);
++	} else {
++		drm_plane_helper_add(&ipu_plane->base, &ipu_plane_helper_funcs);
++		ret = drm_plane_create_zpos_property(&ipu_plane->base,
++						     primary_zpos + 1, 0,
++						     primary_zpos + 1);
++	}
+ 	if (ret)
  		return ERR_PTR(ret);
- 	}
  
 
 -- 
