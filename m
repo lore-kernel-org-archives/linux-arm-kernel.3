@@ -4,110 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7ECC531E1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 21:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48CBDE9A04C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 22:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yEEHWNvLAhr/ZF6L79UPjbW5kaI9Zew8uBravIkb5jI=; b=UmwLxOHix1pbTeL+PWyLoSZ5kJ
-	JUpK7tSrrfNnsDvzmKQbOx1NMRUpYAsz1u5wLajGue44/1Zh5t5aSGjyjk8wuI8Ua4Wo7HT7Iz7Pw
-	Ylm/qMIKiYucBSz84EkidfcUNJhqzdq+TDK/DKW9xlODTAsRG70y+tU1o/RNQPKTFLTTWlK2FmaDG
-	TLaWWxX1BMdCqnBl7//8cFY1Q2w3koGbfTnzM6iB5Q0d49722R41PZTLGZ+3dFauleMNTe0QfOmWH
-	SMkxKL54QsmOOcgfeQJbmqr7xMyhQNl+EJoUFvc+XrZbSIACrIkUW78/wquJxKRpbawWplpIm991z
-	VPbGzihw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hVztZvH1pvWHSVib9BToglFjSYjgzw3jR0ZRl+Y3fro=; b=RwSENSYcJCs3ZZUIANj0gnnauS
+	lDC8Pz4t68TIjojR60TlnQR5UAVp/etxvqCFvVbXxOX5X2p+495lhqoNfbCwkTtRsbhGV3G+XEYLI
+	IoXcjA7Cf2unOmBF3iJLK3Q5CbkG9dsHQRX/VI9zhGXicSi90/1AfOCXIHheQkl+HV5nabq7+y5hi
+	lmwvmcWeluZ3PXAXHATYri4O3ANcLUjKQBILe/VKj1BxJJFaoFRMQu/3Stl5tICRR8ZW4Jvasre8T
+	lTlfVL8Svr1isuL/rJX5lAVzIFX/5uykAiPAF/LhK4DIgMgtBP9NVIdcoivePzRCCko77gbxpOs4P
+	8jGXE58w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtC1a-0000000C7Q4-0EJM;
-	Thu, 19 Feb 2026 21:57:30 +0000
-Received: from mail-pg1-x564.google.com ([2607:f8b0:4864:20::564])
+	id 1vtC6F-0000000C7rz-2GTz;
+	Thu, 19 Feb 2026 22:02:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtC1S-0000000C7N8-2Gw2
+	id 1vtC6C-0000000C7rc-3EhD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 21:57:27 +0000
-Received: by mail-pg1-x564.google.com with SMTP id 41be03b00d2f7-c6e248aa446so600059a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 13:57:22 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771538241; x=1772143041;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yEEHWNvLAhr/ZF6L79UPjbW5kaI9Zew8uBravIkb5jI=;
-        b=Cnqfb+ZmolM/v0K/3Q0V/a2U54ga8P1QtYxWQJHL2xUnjT9JMZnjwBKzXIbrxVj2UO
-         uwMyODkHZGXNrORYzXaNPm0ZPZwtCvpH9c7ig4ILa0KTgWYKqwMeH/hXiE9Qbb2zCg/T
-         V7cmdfoPzD2Monv1eiz8wIs/QzBCPqAc3zAmR17L+ZnlIgWhEoaUpE3ZJj9v6YxyUUdQ
-         Gx8RKny/wrcw9A0c6lBAha9Lu58MFWbJzOmuAnTBEJNxrQPJzy/AXhvEXf0jmKfSP7py
-         uNJ5+Hw0NpbyP4vnOkY4Thp5kq/pylj4T5zZmILn2KWhMzLvxjeIVonnjx63O9mdhQ1w
-         d5pg==
-X-Forwarded-Encrypted: i=1; AJvYcCXCpuTiYng11Ujs7i1ecEqjtm33CUgSFJilp+dxdPdBv3NPKL8sROFtClAFRvEFE/Kud17GWOkSwtLGWrisgqU6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1k560DcmmzL5tr+PcRMffeE7GqnsQVSojacH4Gak5hS7owISF
-	JM1FSmaMbmu5Y5MJnyg+a3Cm54vXmktnv7EBoUZhdA9q/TiWaown8EeQuZxHESqLh/I7gTWCW5q
-	kfUqud3gvqXAAe0AQk4y4ZHpwuAbsKfwZsVcmxL4QZzCuTJcGAFZ4nhKIQ0De8MZhUbSg6sxE3S
-	93HNlkQh02NQDkNwjIn5i4LKVWiHCsVl3WM/cbDaoifeB0mrUgsXW1DngkDvpXTSnydY2pblML3
-	13abe5YdcDY25viNhDNhAFSj8k=
-X-Gm-Gg: AZuq6aI2V2dxrgTiQx4i0b5bA/QiK7APcjR2o59VziTbv0q50lMfWqeIDwXfwwJXqzw
-	8WexqoDkW4DpniHJMvM2N0qRgvd13cXCDoT8icJKw1MVtQXWSCYPcG0JDqOCDY+U5AcokyEONNl
-	2AbDowFnW1VraeXkT6dUSbbikJnjyWeuGPURcqt5lzeKCC8BRjoetafnjx2sfX4LJQzu9TWD7ge
-	yQ3XGCbFJWB++vgU0JjkD0MKVz6JKoufVx5VGWXVftwOczVzaWPz1OhQfAoDKTCdGz6inX2zUVK
-	kyvLCwnvE9RSEe/fYocK+UsdfW+TNbuWwrRnSfH6CjxtH1SsawIGuXikzyuKVbQCf8YTljh/lbE
-	B5vk3v33juEPOn369eWveE8w78SmQUHcb4kaLBSLVl7fpf8Oi+d2d/1GLBemOwln1v1m4wjxDi4
-	aIQRfr0kkCFyumor1vouW8KlHGDbakq48QWcQQwJ0fUCqB/g8EBYzkdYmX
-X-Received: by 2002:a17:90b:3d50:b0:353:5c16:aa7 with SMTP id 98e67ed59e1d1-356aad7ec17mr15340000a91.25.1771538241469;
-        Thu, 19 Feb 2026 13:57:21 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-103.dlp.protect.broadcom.com. [144.49.247.103])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3589d84db80sm197649a91.8.2026.02.19.13.57.21
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Feb 2026 13:57:21 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2aaf0dbd073so16811145ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 13:57:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1771538240; x=1772143040; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yEEHWNvLAhr/ZF6L79UPjbW5kaI9Zew8uBravIkb5jI=;
-        b=UW4TCrz7GRn/6cNb5hGLLSBny9S4fj27urQ82/OtJ5hC5GmI11n+4ItSIp8xWHKpfC
-         dnpb0cOBB/qXezFygEwwxnmmmnppWwZeve/iuSeao7V2pBPkZNYbZ6fQ8iSwn0cWvYTY
-         YaUChbxf3zB3nPFjn2edhjGotJ5iNa+MZUi0U=
-X-Forwarded-Encrypted: i=1; AJvYcCUj7G6l/dMViELqTIG3wxm+CgCaBd+kHAb1jcf1LhQCotyxKYDA0YWiOQQxYLgpiaA59poOHE09iGpprnujuz0I@lists.infradead.org
-X-Received: by 2002:a17:903:1b0c:b0:2aa:f9d7:68aa with SMTP id d9443c01a7336-2ab505628afmr204534305ad.21.1771538239727;
-        Thu, 19 Feb 2026 13:57:19 -0800 (PST)
-X-Received: by 2002:a17:903:1b0c:b0:2aa:f9d7:68aa with SMTP id d9443c01a7336-2ab505628afmr204534065ad.21.1771538239253;
-        Thu, 19 Feb 2026 13:57:19 -0800 (PST)
-Received: from mail.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1aae9d73sm156416065ad.77.2026.02.19.13.57.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Feb 2026 13:57:19 -0800 (PST)
-From: Kamal Dasu <kamal.dasu@broadcom.com>
-To: andersson@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: baolin.wang@linux.alibaba.com,
-	florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kamal Dasu <kamal.dasu@broadcom.com>
-Subject: [PATCH v4 3/3] MAINTAINERS: adding entry for BRCMSTB HWSPINLOCK driver
-Date: Thu, 19 Feb 2026 16:57:02 -0500
-Message-Id: <20260219215702.63321-4-kamal.dasu@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260219215702.63321-1-kamal.dasu@broadcom.com>
-References: <20260219215702.63321-1-kamal.dasu@broadcom.com>
+	Thu, 19 Feb 2026 22:02:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0AAD244822;
+	Thu, 19 Feb 2026 22:02:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90DB1C4CEF7;
+	Thu, 19 Feb 2026 22:02:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771538533;
+	bh=i4s5I7+0DySZg05blGIiMhp5ILHD+X+eP+E1bMlRf28=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kIrCqCYNBgDL27CfO2GlC4purKVTbFYTe2fvm08v5SA9/v0q/5aR8e5X/1PZh5BnS
+	 ih+F6QsNAXcd+7+6J6NUY86hWqm0nez6C5U1uBXS4ZU3F8UjNRkb+hFB9/zypXRCm1
+	 6RqDFJTEBxQpZfPHQ9FCMVZI/IcYxkaXxW4vEI9814YayfPkCuLFHWXoX638WMNQIQ
+	 1ADrzHQs/lJOY96JCnLdxNNQY1+bg5rfMzalpXPiTluzrHCP/r8FuWfBJ6x/yGyTKM
+	 DE7rDAKw5wHAB1aMvfEtdGU16jq4BH9OjXKNoz1XnFq+iTQKAI+O5RGVG7RgIDv3r3
+	 nxAuPH+Z1mgTQ==
+Date: Thu, 19 Feb 2026 14:02:11 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Johannes Berg <johannes@sipsolutions.net>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, linux-cifs@vger.kernel.org,
+	linux-wireless@vger.kernel.org
+Subject: Re: [PATCH 14/15] wifi: mac80211: Use AES-CMAC library in
+ ieee80211_aes_cmac()
+Message-ID: <20260219220211.GB32578@quark>
+References: <20260218213501.136844-1-ebiggers@kernel.org>
+ <20260218213501.136844-15-ebiggers@kernel.org>
+ <c3b53ea083fa26c863c6a954d13bbd2ef91e1732.camel@sipsolutions.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c3b53ea083fa26c863c6a954d13bbd2ef91e1732.camel@sipsolutions.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_135725_844307_C5C892F0 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20260219_140217_060626_D45C4F35 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,34 +78,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adding myself to the maintainers list for the hwspinlock
-driver on broadcom settop platforms.
+On Thu, Feb 19, 2026 at 12:00:03PM +0100, Johannes Berg wrote:
+> On Wed, 2026-02-18 at 13:35 -0800, Eric Biggers wrote:
+> > Now that AES-CMAC has a library API, convert the mac80211 AES-CMAC
+> > packet authentication code to use it instead of a "cmac(aes)"
+> > crypto_shash.  This has multiple benefits, such as:
+> > 
+> > - It's faster.  The AES-CMAC code is now called directly, without
+> >   unnecessary overhead such as indirect calls.
+> > 
+> > - MAC calculation can no longer fail.
+> > 
+> > - The AES-CMAC key struct is now a fixed size, allowing it to be
+> >   embedded directly into 'struct ieee80211_key' rather than using a
+> >   separate allocation.  Note that although this increases the size of
+> >   the 'u.cmac' field of 'struct ieee80211_key', it doesn't cause it to
+> >   exceed the size of the largest variant of the union 'u'.  Therefore,
+> >   the size of 'struct ieee80211_key' itself is unchanged.
+> > 
+> 
+> Looks good to me in principle, I suppose we should test it? :)
 
-Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Yes, I don't expect any issues, but testing of this patch would be
+appreciated.  I don't know how to test every kernel subsystem.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b8d8a5c41597..c5971cbcf087 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -5249,6 +5249,14 @@ S:	Supported
- F:	Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
- F:	drivers/gpio/gpio-brcmstb.c
- 
-+BROADCOM BRCMSTB HWSPINLOCK DRIVER
-+M:	Kamal Dasu <kamal.dasu@broadcom.com>
-+R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-+L:	linux-remoteproc@vger.kernel.org
-+S:	Supported
-+F:	Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
-+F:	drivers/hwspinlock/brcmstb_hwspinlock.c
-+
- BROADCOM BRCMSTB I2C DRIVER
- M:	Kamal Dasu <kamal.dasu@broadcom.com>
- R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
--- 
-2.34.1
+> > +		err = aes_cmac_preparekey(&key->u.aes_cmac.key, key_data,
+> > +					  key_len);
+> > +		if (err) {
+> >  			kfree(key);
+> >  			return ERR_PTR(err);
+> >  		}
+> 
+> Pretty sure that can't fail, per the documentation for
+> aes_prepareenckey() and then aes_cmac_preparekey(), but it doesn't
+> really matter. We can only get here with a key with size checked by
+> cfg80211_validate_key_settings() already.
 
+aes_cmac_preparekey() indeed always succeeds when passed a valid key
+length, as documented in its kerneldoc.  But in this case I recommend
+just checking the error code anyway, since ieee80211_key_alloc() can
+already fail for other reasons (i.e., it needs the ability to report
+errors anyway) and the key length isn't a compile-time constant here.
+
+> Since you're probably going to send it through the crypto tree:
+> 
+> Acked-by: Johannes Berg <johannes@sipsolutions.net>
+
+For library conversions like this I've usually been taking the library
+itself through libcrypto-next, then sending the subsystem conversions
+afterwards for subsystem maintainers to take in the next release.  But
+I'd also be glad to just take this alongside the library itself.
+
+- Eric
 
