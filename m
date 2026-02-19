@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9DDE9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 10:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C89AE9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 10:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNZVSXjVxH1eQkOT7lQSAOIyjM/HYvFDSZC+egPazHI=; b=lRmsbuH+8eJdb5BgNrXPaEzByP
-	tH6ajhrdh/kck6IUi/t9tjUEry4gmyl73NiqzPY/tsLRAJXYjbqlTcjHkD6QOeyc0TTzZ/Zh814jv
-	/WVXnjk1YuC0fIkUVw0UTUE/HWYHXYXzB6khTi5vJECCTg1PkPOZndPbklAzvANFIQNCEgYeoklSP
-	LalmstMTWFtiTK7usbS2bQSgjhG0lcGiObkl/16Cxh12GS/YgbRZQKIklCi0Pbn762UVOH70b44ZF
-	QfWUUc1gObA82XWUxZai8swRFlo59Z4n/FDiYPqBLry35YMQY34efPvxpckdpyXwRQBlxoagra9Gf
-	WLTBH7gA==;
+	bh=/Onijhz1nxeefzfvPMTn2z2q1tzvlyJ5tRUg+LtQAqg=; b=Ld9fJlIp5NLrqofS32QalxqPBJ
+	BnfK2Wzk6LvSzfwklyYAU+9KAcEH2QDme8U/pXssWqc6JZ6nMv5/0RX+q5f5k8Si43UUfHVCYRzoA
+	woRI1ua4tAZnS5WdarWEV1WHfosiA0tnHs2vRX2TVRB7N9tDCZM3lHTYD4daGpQx8xVrCBSRW7zHO
+	QLSaSmkXc/6H7dSPTv/HDr1jPSidFsvpPH04/vdo0XcqhB3Mym9dwnhsSM28ZWP8lv8TYj5zqsw3n
+	vLu0+I/i4f55MXII9/TALoav+znqpPfASDIukTdKl1fZvNPXY7g9bcA+efU+o9iL1A7c6QIamzCCy
+	8nN/Kv+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt1G6-0000000BDkh-1bd9;
-	Thu, 19 Feb 2026 10:27:46 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vt1H5-0000000BDtB-1Fyc;
+	Thu, 19 Feb 2026 10:28:47 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt1G3-0000000BDkM-0Riv
+	id 1vt1H1-0000000BDsQ-2Orc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 10:27:44 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-4359a16a400so701437f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 02:27:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771496861; x=1772101661; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HNZVSXjVxH1eQkOT7lQSAOIyjM/HYvFDSZC+egPazHI=;
-        b=Mng3NJU3YZDeTgk6MFlL43y/35eyk1Y5wvCUDlv/FUp0uK8DNlWUGXglgMUy+xWOxf
-         rPqk4rYl6lU3drygyJwnxlPUKbkEHt7rvORNkhUSh1qq3zIIWwLenA8dG3ajTax68Wxy
-         KHFDZBa6lLPLDkHQPkAkFTj88iUefuL8pOAzmVQv1CRCynsjDtxB/Zw1OKwEcPR2uR3u
-         tVaSoPzK7R8PHUPNvyAnTtxYnkLeQrSSCB0VnUPCLVUkKMxgHQj+kLQF4OXgmxlEymHX
-         o6Xbbv+ZxDu23GkXmUMpD70DU5YkmyMkcZvViopoTzQ82oTFyns7BClmXJAiRjynUiPc
-         p5jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771496861; x=1772101661;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HNZVSXjVxH1eQkOT7lQSAOIyjM/HYvFDSZC+egPazHI=;
-        b=wWGe+z4OVCiHgWHaKUbPdZy7l/9lEJUul80iCJnVc1gVEWZXxKeGegkPnkHcFZzEr1
-         loCceNlqpTW/ajG/qhH1JQfSm/KnU0GaBJ69BeWcOc9nmk0qOgrnSRXfMsr/Pon7f38h
-         xZztkbUeQLr8UjMCneY5kKSJhcBpcDqlUifMCoeyTtu2HB1OsIaH8GbzQT8LM8nXILq0
-         O6hEDkeXxyQuaKlq11utuE1dcKUuKYnoTn4RqJnU+ybZRAjUq2PDU7WRtIoV7ohxarju
-         UqxQWkLDPXoTaL4FImrv3wWMlO09pydAS879nKmT0S+gUVaKJ5/6GsNJKnAJx5keei2r
-         7LkA==
-X-Forwarded-Encrypted: i=1; AJvYcCVMknjk2zB6AraRqalZHbj7RIF5SLMXe1OeUzlajVsIo6QRZL3/QQ9QjI/T6dN8A1/eE8WDWEGPmxtnjy8ZXdQW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbgFXTMHEEm+mQy+G3Hg3YpPzUK0FgodxjLvXsXDblOEFW+1/Q
-	Aqj+IjzMfNd1IvE0WIzSTItQINY96dyJ51CodzVRfIA9GbOX8C4l/NDjLOyVC2LFiXU=
-X-Gm-Gg: AZuq6aLhx/Ptm05Dtghm+Ulfn7TWGqi1RbFQLMzDJYXmEIdkGo01vXMc6voloTHVlqX
-	ryd+KBvN7nENef3QWTUVDND1LDbZMHQg6bJxcwxMOn8lT26dCQwn2+qLyFjdowNhUkUIrlbzb/t
-	2lPaOK1TBysVrcEsFMH6mw7hEcQVudpcf+//+rm4hDXxoGfu/osSImGbxhhYfvPmHG93XJA0kj7
-	ojm5Zi4DL8zRI791QQJhrDMxid0G303QrkQR/Wp5NeMDzf/RfyQfmQi0iOdHWObysyNsRGRS6om
-	QDL/xhmDwslzhguioiDLmRsrielnVbGqZqYYo0vWcjhr+Pl4QvqtGd/NhFK/lM+ZYqtL5gKRDtG
-	b6kxT5jesJ4AershKfj1XXyDeCUwPBEzabVROXmsrHSvSdaO97Kav7XJp9cfA3Wp2g+eAaFWaeL
-	AUIR8yfTHvI8SHwslhAUHg56EBGNGpyl7G
-X-Received: by 2002:a5d:5d82:0:b0:436:da9:4371 with SMTP id ffacd0b85a97d-43958df1144mr9512620f8f.5.1771496860699;
-        Thu, 19 Feb 2026 02:27:40 -0800 (PST)
-Received: from [10.11.12.108] ([79.115.63.134])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796abc8b1sm50341008f8f.23.2026.02.19.02.27.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Feb 2026 02:27:40 -0800 (PST)
-Message-ID: <c9d056fb-b2ae-4631-a2b5-f55f214adecb@linaro.org>
-Date: Thu, 19 Feb 2026 12:27:39 +0200
+	Thu, 19 Feb 2026 10:28:45 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fGqN75vSQzJ46Bs;
+	Thu, 19 Feb 2026 18:28:23 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0CAE940569;
+	Thu, 19 Feb 2026 18:28:37 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 19 Feb
+ 2026 10:28:36 +0000
+Date: Thu, 19 Feb 2026 10:28:34 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Besar Wicaksono <bwicaksono@nvidia.com>
+CC: <will@kernel.org>, <suzuki.poulose@arm.com>, <robin.murphy@arm.com>,
+	<ilkka@os.amperecomputing.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
+	<mark.rutland@arm.com>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
+	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>,
+	<skelley@nvidia.com>, <ywan@nvidia.com>, <mochs@nvidia.com>,
+	<nirmoyd@nvidia.com>
+Subject: Re: [PATCH v2 6/8] perf: add NVIDIA Tegra410 CPU Memory Latency PMU
+Message-ID: <20260219102834.0000777c@huawei.com>
+In-Reply-To: <20260218145809.1622856-7-bwicaksono@nvidia.com>
+References: <20260218145809.1622856-1-bwicaksono@nvidia.com>
+	<20260218145809.1622856-7-bwicaksono@nvidia.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFT 2/3] firmware: exynos-acpm: Count number of commands
- in acpm_xfer
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- llvm@lists.linux.dev
-References: <20260214-firmare-acpm-counted-v1-0-32af5735470e@oss.qualcomm.com>
- <20260214-firmare-acpm-counted-v1-2-32af5735470e@oss.qualcomm.com>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20260214-firmare-acpm-counted-v1-2-32af5735470e@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_022743_218031_5C722C24 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20260219_022843_919303_950720C0 
+X-CRM114-Status: GOOD (  36.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,200 +76,342 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 18 Feb 2026 14:58:07 +0000
+Besar Wicaksono <bwicaksono@nvidia.com> wrote:
 
-
-On 2/14/26 2:39 PM, Krzysztof Kozlowski wrote:
-> Struct acpm_xfer holds two buffers with u32 commands - rxd and txd - and
-> counts their size by rxlen and txlen.  "len" suffix is here ambiguous,
-> so could mean length of the buffer or length of commands, and these are
-> not the same since each command is u32.  Rename these to rxcnt and
-> txcnt, and change their usage to count the number of commands in each
-> buffer.
+> Adds CPU Memory (CMEM) Latency PMU support in Tegra410 SOC.
+> The PMU is used to measure latency between the edge of the
+> Unified Coherence Fabric to the local system DRAM.
 > 
-> This will have a benafit of allowing to use __counted_by_ptr later.
+> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
 
-                    ^typo, benefit.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  drivers/firmware/samsung/exynos-acpm-dvfs.c |  8 ++++----
->  drivers/firmware/samsung/exynos-acpm-pmic.c | 14 +++++++-------
->  drivers/firmware/samsung/exynos-acpm.c      | 12 +++++++-----
->  drivers/firmware/samsung/exynos-acpm.h      |  4 ++--
->  4 files changed, 20 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/firmware/samsung/exynos-acpm-dvfs.c b/drivers/firmware/samsung/exynos-acpm-dvfs.c
-> index 1c5b2b143bcc..55ec6ad9d87e 100644
-> --- a/drivers/firmware/samsung/exynos-acpm-dvfs.c
-> +++ b/drivers/firmware/samsung/exynos-acpm-dvfs.c
-> @@ -25,11 +25,11 @@ static void acpm_dvfs_set_xfer(struct acpm_xfer *xfer, u32 *cmd, size_t cmdlen,
->  {
->  	xfer->acpm_chan_id = acpm_chan_id;
->  	xfer->txd = cmd;
-> -	xfer->txlen = cmdlen;
-> +	xfer->txcnt = cmdlen;
->  
->  	if (response) {
->  		xfer->rxd = cmd;
-> -		xfer->rxlen = cmdlen;
-> +		xfer->rxcnt = cmdlen;
->  	}
->  }
->  
-> @@ -50,7 +50,7 @@ int acpm_dvfs_set_rate(const struct acpm_handle *handle,
->  	u32 cmd[4];
->  
->  	acpm_dvfs_init_set_rate_cmd(cmd, clk_id, rate);
-> -	acpm_dvfs_set_xfer(&xfer, cmd, sizeof(cmd), acpm_chan_id, false);
-> +	acpm_dvfs_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id, false);
->  
->  	return acpm_do_xfer(handle, &xfer);
->  }
-> @@ -70,7 +70,7 @@ unsigned long acpm_dvfs_get_rate(const struct acpm_handle *handle,
->  	int ret;
->  
->  	acpm_dvfs_init_get_rate_cmd(cmd, clk_id);
-> -	acpm_dvfs_set_xfer(&xfer, cmd, sizeof(cmd), acpm_chan_id, true);
-> +	acpm_dvfs_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id, true);
->  
->  	ret = acpm_do_xfer(handle, &xfer);
->  	if (ret)
-> diff --git a/drivers/firmware/samsung/exynos-acpm-pmic.c b/drivers/firmware/samsung/exynos-acpm-pmic.c
-> index 44265db34ae6..26a9024d8ed8 100644
-> --- a/drivers/firmware/samsung/exynos-acpm-pmic.c
-> +++ b/drivers/firmware/samsung/exynos-acpm-pmic.c
-> @@ -63,8 +63,8 @@ static void acpm_pmic_set_xfer(struct acpm_xfer *xfer, u32 *cmd, size_t cmdlen,
->  {
->  	xfer->txd = cmd;
->  	xfer->rxd = cmd;
-> -	xfer->txlen = cmdlen;
-> -	xfer->rxlen = cmdlen;
-> +	xfer->txcnt = cmdlen;
-> +	xfer->rxcnt = cmdlen;
->  	xfer->acpm_chan_id = acpm_chan_id;
->  }
->  
-> @@ -86,7 +86,7 @@ int acpm_pmic_read_reg(const struct acpm_handle *handle,
->  	int ret;
->  
->  	acpm_pmic_init_read_cmd(cmd, type, reg, chan);
-> -	acpm_pmic_set_xfer(&xfer, cmd, sizeof(cmd), acpm_chan_id);
-> +	acpm_pmic_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id);
->  
->  	ret = acpm_do_xfer(handle, &xfer);
->  	if (ret)
-> @@ -119,7 +119,7 @@ int acpm_pmic_bulk_read(const struct acpm_handle *handle,
->  		return -EINVAL;
->  
->  	acpm_pmic_init_bulk_read_cmd(cmd, type, reg, chan, count);
-> -	acpm_pmic_set_xfer(&xfer, cmd, sizeof(cmd), acpm_chan_id);
-> +	acpm_pmic_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id);
->  
->  	ret = acpm_do_xfer(handle, &xfer);
->  	if (ret)
-> @@ -159,7 +159,7 @@ int acpm_pmic_write_reg(const struct acpm_handle *handle,
->  	int ret;
->  
->  	acpm_pmic_init_write_cmd(cmd, type, reg, chan, value);
-> -	acpm_pmic_set_xfer(&xfer, cmd, sizeof(cmd), acpm_chan_id);
-> +	acpm_pmic_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id);
->  
->  	ret = acpm_do_xfer(handle, &xfer);
->  	if (ret)
-> @@ -199,7 +199,7 @@ int acpm_pmic_bulk_write(const struct acpm_handle *handle,
->  		return -EINVAL;
->  
->  	acpm_pmic_init_bulk_write_cmd(cmd, type, reg, chan, count, buf);
-> -	acpm_pmic_set_xfer(&xfer, cmd, sizeof(cmd), acpm_chan_id);
-> +	acpm_pmic_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id);
->  
->  	ret = acpm_do_xfer(handle, &xfer);
->  	if (ret)
-> @@ -229,7 +229,7 @@ int acpm_pmic_update_reg(const struct acpm_handle *handle,
->  	int ret;
->  
->  	acpm_pmic_init_update_cmd(cmd, type, reg, chan, value, mask);
-> -	acpm_pmic_set_xfer(&xfer, cmd, sizeof(cmd), acpm_chan_id);
-> +	acpm_pmic_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id);
->  
->  	ret = acpm_do_xfer(handle, &xfer);
->  	if (ret)
-> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-> index 0cb269c70460..242745e8394c 100644
-> --- a/drivers/firmware/samsung/exynos-acpm.c
-> +++ b/drivers/firmware/samsung/exynos-acpm.c
-> @@ -205,7 +205,7 @@ static void acpm_get_saved_rx(struct acpm_chan *achan,
->  	rx_seqnum = FIELD_GET(ACPM_PROTOCOL_SEQNUM, rx_data->cmd[0]);
->  
->  	if (rx_seqnum == tx_seqnum) {
-> -		memcpy(xfer->rxd, rx_data->cmd, xfer->rxlen);
-> +		memcpy(xfer->rxd, rx_data->cmd, xfer->rxcnt * sizeof(*xfer->rxd));
->  		clear_bit(rx_seqnum - 1, achan->bitmap_seqnum);
->  	}
->  }
-> @@ -259,7 +259,7 @@ static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
->  		if (rx_data->response) {
->  			if (rx_seqnum == tx_seqnum) {
->  				__ioread32_copy(xfer->rxd, addr,
-> -						xfer->rxlen / 4);
-> +						xfer->rxcnt);
+Hi Besar
 
-now __ioread32_copy fits on a single line, without bypassing 80 chars
+Various fairly superficial things inline.  Problem with reviewing
+uncore drivers is that I've always forgotten the details of the interactions
+with the perf core.  There aren't enough of them coming through to keep it in my head.
+Sadly I don't have time today to page all that info back in :(
 
->  				rx_set = true;
->  				clear_bit(seqnum, achan->bitmap_seqnum);
->  			} else {
-> @@ -270,7 +270,7 @@ static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
->  				 * after the response is copied to the request.
->  				 */
->  				__ioread32_copy(rx_data->cmd, addr,
-> -						xfer->rxlen / 4);
-> +						xfer->rxcnt);
->  			}
->  		} else {
->  			clear_bit(seqnum, achan->bitmap_seqnum);
-> @@ -425,7 +425,9 @@ int acpm_do_xfer(const struct acpm_handle *handle, const struct acpm_xfer *xfer)
->  
->  	achan = &acpm->chans[xfer->acpm_chan_id];
->  
-> -	if (!xfer->txd || xfer->txlen > achan->mlen || xfer->rxlen > achan->mlen)
-> +	if (!xfer->txd || (xfer->txcnt * sizeof(*xfer->txd) > achan->mlen))
-> +		return -EINVAL;
-> +	if (xfer->rxcnt * sizeof(*xfer->rxd) > achan->mlen)
->  		return -EINVAL;
+Jonathan
 
-how about:
-        if (!xfer->txd ||
-            (xfer->txcnt * sizeof(*xfer->txd) > achan->mlen) ||
-            (xfer->rxcnt * sizeof(*xfer->rxd) > achan->mlen))
-                return -EINVAL;
+> diff --git a/drivers/perf/nvidia_t410_cmem_latency_pmu.c b/drivers/perf/nvidia_t410_cmem_latency_pmu.c
+> new file mode 100644
+> index 000000000000..9b466581c8fc
+> --- /dev/null
+> +++ b/drivers/perf/nvidia_t410_cmem_latency_pmu.c
+> @@ -0,0 +1,727 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * NVIDIA Tegra410 CPU Memory (CMEM) Latency PMU driver.
+> + *
+> + * Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+> + */
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/bitops.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/device.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/perf_event.h>
+> +#include <linux/platform_device.h>
 
->  
->  	if (!achan->poll_completion) {
-> @@ -448,7 +450,7 @@ int acpm_do_xfer(const struct acpm_handle *handle, const struct acpm_xfer *xfer)
->  
->  		/* Write TX command. */
->  		__iowrite32_copy(achan->tx.base + achan->mlen * tx_front,
-> -				 xfer->txd, xfer->txlen / 4);
-> +				 xfer->txd, xfer->txcnt);
->  
->  		/* Advance TX front. */
->  		writel(idx, achan->tx.front);
-> diff --git a/drivers/firmware/samsung/exynos-acpm.h b/drivers/firmware/samsung/exynos-acpm.h
-> index 2d14cb58f98c..422fbcac7284 100644
-> --- a/drivers/firmware/samsung/exynos-acpm.h
-> +++ b/drivers/firmware/samsung/exynos-acpm.h
-> @@ -10,8 +10,8 @@
->  struct acpm_xfer {
->  	const u32 *txd;
->  	u32 *rxd;
-> -	size_t txlen;
-> -	size_t rxlen;
-> +	size_t txcnt;
-> +	size_t rxcnt;
->  	unsigned int acpm_chan_id;
->  };
->  
-> 
+> +#define NUM_INSTANCES    14
+> +#define BCAST(pmu) pmu->base[NUM_INSTANCES]
+
+As below.  This is a weird macro.  I'd just split the
+base addresses up into a broad_cast_base and array of
+the individual bases.
+
+> +
+> +/* Register offsets. */
+> +#define CG_CTRL         0x800
+> +#define CTRL            0x808
+> +#define STATUS          0x810
+> +#define CYCLE_CNTR      0x818
+> +#define MC0_REQ_CNTR    0x820
+> +#define MC0_AOR_CNTR    0x830
+> +#define MC1_REQ_CNTR    0x838
+> +#define MC1_AOR_CNTR    0x848
+> +#define MC2_REQ_CNTR    0x850
+> +#define MC2_AOR_CNTR    0x860
+> +
+> +/* CTRL values. */
+> +#define CTRL_DISABLE    0x0ULL
+> +#define CTRL_ENABLE     0x1ULL
+> +#define CTRL_CLR        0x2ULL
+> +
+> +/* CG_CTRL values. */
+> +#define CG_CTRL_DISABLE    0x0ULL
+> +#define CG_CTRL_ENABLE     0x1ULL
+> +
+> +/* STATUS register field. */
+> +#define STATUS_CYCLE_OVF      BIT(0)
+> +#define STATUS_MC0_AOR_OVF    BIT(1)
+> +#define STATUS_MC0_REQ_OVF    BIT(3)
+> +#define STATUS_MC1_AOR_OVF    BIT(4)
+> +#define STATUS_MC1_REQ_OVF    BIT(6)
+> +#define STATUS_MC2_AOR_OVF    BIT(7)
+> +#define STATUS_MC2_REQ_OVF    BIT(9)
+> +
+> +/* Events. */
+> +#define EVENT_CYCLES    0x0
+> +#define EVENT_REQ       0x1
+> +#define EVENT_AOR       0x2
+> +
+> +#define NUM_EVENTS           0x3
+> +#define MASK_EVENT           0x3
+> +#define MAX_ACTIVE_EVENTS    32
+> +
+> +#define ACTIVE_CPU_MASK        0x0
+
+Some of these are very generic names.  To avoid a future clash with something in a
+header, I'd prefix them with something related to this driver.
+
+> +#define ASSOCIATED_CPU_MASK    0x1
+> +
+> +static unsigned long cmem_lat_pmu_cpuhp_state;
+> +
+> +struct cmem_lat_pmu_hw_events {
+> +	struct perf_event *events[MAX_ACTIVE_EVENTS];
+> +	DECLARE_BITMAP(used_ctrs, MAX_ACTIVE_EVENTS);
+> +};
+> +
+> +struct cmem_lat_pmu {
+> +	struct pmu pmu;
+> +	struct device *dev;
+> +	const char *name;
+> +	const char *identifier;
+> +	void __iomem *base[NUM_INSTANCES + 1];
+
+As below. There are two types of things in this array (hence the +1)
+I'd just split it into an array of NUMSTANCES and a seperate
+pointer for the last one.
+
+> +	cpumask_t associated_cpus;
+> +	cpumask_t active_cpu;
+> +	struct hlist_node node;
+> +	struct cmem_lat_pmu_hw_events hw_events;
+> +};
+
+> +static bool cmem_lat_pmu_validate_event(struct pmu *pmu,
+> +				 struct cmem_lat_pmu_hw_events *hw_events,
+> +				 struct perf_event *event)
+> +{
+> +	if (is_software_event(event))
+> +		return true;
+> +
+> +	/* Reject groups spanning multiple HW PMUs. */
+> +	if (event->pmu != pmu)
+> +		return false;
+> +
+> +	return (cmem_lat_pmu_get_event_idx(hw_events, event) >= 0);
+I'd be tempted to use
+	int ret;
+	...
+
+	ret = cmem_lat_pmu_get_event_idx(hw_events, event);
+	if (ret < 0)
+		return false;
+
+	return true;
+
+As that make it more obvious the final check is on the validity of the idx.
+
+
+> +}
+> +
+> +/*
+> + * Make sure the group of events can be scheduled at once
+> + * on the PMU.
+
+Wrap to 80 chars.
+
+> + */
+> +static bool cmem_lat_pmu_validate_group(struct perf_event *event)
+
+> +
+> +static int cmem_lat_pmu_event_init(struct perf_event *event)
+> +{
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(event->pmu);
+> +	struct hw_perf_event *hwc = &event->hw;
+> +	u32 event_type = get_event_type(event);
+> +
+> +	if (event->attr.type != event->pmu->type ||
+> +	    event_type >= NUM_EVENTS)
+> +		return -ENOENT;
+> +
+> +	/*
+> +	 * Following other "uncore" PMUs, we do not support sampling mode or
+> +	 * attach to a task (per-process mode).
+Perhaps nicer to say why all uncore PMUs do this rather than this is
+doing the same as others...
+
+Basically it's that they are system wide and so not clear what either sampling
+or task attachment would actually mean.
+
+> +	 */
+> +	if (is_sampling_event(event)) {
+> +		dev_dbg(cmem_lat_pmu->pmu.dev,
+> +			"Can't support sampling events\n");
+> +		return -EOPNOTSUPP;
+> +	}
+
+
+
+> +
+> +static void cmem_lat_pmu_read(struct perf_event *event)
+> +{
+> +	cmem_lat_pmu_event_update(event);
+> +}
+> +
+> +static inline void cmem_lat_pmu_cg_ctrl(struct cmem_lat_pmu *cmem_lat_pmu, u64 val)
+> +{
+> +	writeq(val, BCAST(cmem_lat_pmu) + CG_CTRL);
+
+The BCAST macro is odd enough I'd just put what it does in inline here so it's
+clear it's just the last element.  I'm not entirely sure why you put it at the
+end of that array though.  Why not just have a separate element in the struct?
+
+> +}
+> +
+> +static inline void cmem_lat_pmu_ctrl(struct cmem_lat_pmu *cmem_lat_pmu, u64 val)
+> +{
+> +	writeq(val, BCAST(cmem_lat_pmu) + CTRL);
+> +}
+> +
+> +static void cmem_lat_pmu_enable(struct pmu *pmu)
+> +{
+> +	bool disabled;
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(pmu);
+> +
+> +	disabled = bitmap_empty(
+> +		cmem_lat_pmu->hw_events.used_ctrs, MAX_ACTIVE_EVENTS);
+
+This is unusual formatting. Much better to have the parameters up a line
+and if you go to a second line, then start under the first character after (
+
+> +
+> +	if (disabled)
+> +		return;
+> +
+> +	/* Enable all the counters. */
+> +	cmem_lat_pmu_cg_ctrl(cmem_lat_pmu, CG_CTRL_ENABLE);
+> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_ENABLE);
+> +}
+> +
+> +static void cmem_lat_pmu_disable(struct pmu *pmu)
+> +{
+> +	int idx;
+> +	struct perf_event *event;
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(pmu);
+> +
+> +	/* Disable all the counters. */
+> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_DISABLE);
+> +
+> +	/*
+> +	 * The counters will start from 0 again on restart.
+> +	 * Update the events immediately to avoid losing the counts.
+> +	 */
+> +	for_each_set_bit(
+> +		idx, cmem_lat_pmu->hw_events.used_ctrs, MAX_ACTIVE_EVENTS) {
+
+Very unusual formatting for a for loop.  Move at least some / maybe all of the
+parameters up a line.  The last thing we want is them to be indented
+the same as the stuff in the loop.
+
+Probably drag declaration of event in here to make it clearer what scope that
+local variable has.
+
+> +		event = cmem_lat_pmu->hw_events.events[idx];
+> +
+> +		if (!event)
+> +			continue;
+> +
+> +		cmem_lat_pmu_event_update(event);
+> +
+> +		local64_set(&event->hw.prev_count, 0ULL);
+> +	}
+> +
+> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_CLR);
+> +	cmem_lat_pmu_cg_ctrl(cmem_lat_pmu, CG_CTRL_DISABLE);
+> +}
+
+> +static struct attribute *cmem_lat_pmu_formats[] = {
+> +	NV_PMU_EXT_ATTR(event, device_show_string, "config:0-1"),
+> +	NULL,
+As below.
+
+> +};
+
+> +
+> +#define NV_PMU_CPUMASK_ATTR(_name, _config)			\
+> +	NV_PMU_EXT_ATTR(_name, cmem_lat_pmu_cpumask_show,	\
+> +				(unsigned long)_config)
+> +
+> +static struct attribute *cmem_lat_pmu_cpumask_attrs[] = {
+> +	NV_PMU_CPUMASK_ATTR(cpumask, ACTIVE_CPU_MASK),
+> +	NV_PMU_CPUMASK_ATTR(associated_cpus, ASSOCIATED_CPU_MASK),
+> +	NULL,
+
+As below.
+
+> +};
+> +
+> +static const struct attribute_group cmem_lat_pmu_cpumask_attr_group = {
+> +	.attrs = cmem_lat_pmu_cpumask_attrs,
+> +};
+> +
+> +/* Per PMU device attribute groups. */
+> +
+> +static const struct attribute_group *cmem_lat_pmu_attr_groups[] = {
+> +	&cmem_lat_pmu_identifier_attr_group,
+> +	&cmem_lat_pmu_format_group,
+> +	&cmem_lat_pmu_events_group,
+> +	&cmem_lat_pmu_cpumask_attr_group,
+> +	NULL,
+
+New code, so no need to copy any local style. Hence drop that trailing comma :)
+
+> +};
+> +
+
+> +static int cmem_lat_pmu_get_cpus(struct cmem_lat_pmu *cmem_lat_pmu,
+> +				unsigned int socket)
+> +{
+> +	int ret = 0, cpu;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		if (cpu_to_node(cpu) == socket)
+> +			cpumask_set_cpu(cpu, &cmem_lat_pmu->associated_cpus);
+> +	}
+> +
+> +	if (cpumask_empty(&cmem_lat_pmu->associated_cpus)) {
+> +		dev_dbg(cmem_lat_pmu->dev,
+> +			"No cpu associated with PMU socket-%u\n", socket);
+> +		ret = -ENODEV;
+		return -ENODEV;
+
+Saves reviewer reading on and...
+> +	}
+> +
+> +	return ret;
+	return 0;
+
+so the know that getting here always indicates success.
+
+> +}
+
+> +
+> +static const struct acpi_device_id cmem_lat_pmu_acpi_match[] = {
+> +	{ "NVDA2021", },
+
+The trailing comma after the string doesn't add anything, so I'd drop it.
+
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(acpi, cmem_lat_pmu_acpi_match);
 
 
