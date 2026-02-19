@@ -4,164 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8476FE9A04C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 07:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F321E9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 07:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ky8Ca+nZaqHt/yBIku833g6W9mruJMgIWKcDQ8slxPY=; b=q5PQdWA5mRgERt3FUBYn3UtlV9
-	qfYMVi8wF7QaIfFchSibJD/eCvLHphIs4Po7eDsYzEnpezUkuIGsn3vYwft1HIArktnurNP99Mkd4
-	dK5THP5eKykVlT6BVcu672ipzQ3RawQkUkJlLCw1fWJUsOfubM4wPbLlVaQMvbeE5ngm/OzONrnWc
-	ajosWJu46K76ZM+f3Wnef9ID3dMgzhw2ZvZt5Rxm4DNNkWZKpWtVVET/Ny53vK06sD03BbZuPlGj8
-	2WNYtYcxSVzI0anS7UtRSiCyVw3Y/35kIxDXeIRndq3+63ttZynF5wnpNOwasCw/fLYPLmBVNpTRI
-	wZbE5o2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YpvGpNloVhpY5v2/imUpk40mTvd2MoonDwQO1g9FPPQ=; b=AUBokMkQAEYrT6kkCvQYN+SYrk
+	f+XRDvQbefU3tyNyve8jl6YUvXaWi0/0adeFOsm6lInKafusqI9pf/4r0yUJXkBH97fKeK/Ou3Whn
+	fm/n+wGVH6r5PEeY0WIINquDaFR0z5LMCgTcuBTUO7jv91RXO9NaxuQ3hnVSfx46ILdvDi/pa3/hq
+	rC0z+N7f1xOll9E+w8mbWmGOSjw18lRcc+nx6hSC9jUoBYC14NZ2JOlIUr7r3H18dGBgYdpMHdqLt
+	3M4uHmedxERo9Gtk0O8rAKuZrxcKGHKjP4uROCQbhpalxbgi0UQ1YP8ExJiPjvLB6nD+XNWX4YeQt
+	evpHejDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsypB-0000000B4Ys-1iS9;
-	Thu, 19 Feb 2026 07:51:49 +0000
-Received: from mail-westeuropeazon11010000.outbound.protection.outlook.com ([52.101.69.0] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vsypq-0000000B4iL-2Dti;
+	Thu, 19 Feb 2026 07:52:30 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsyp8-0000000B4Xf-41tN
+	id 1vsypn-0000000B4gw-3GEa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 07:51:48 +0000
+	Thu, 19 Feb 2026 07:52:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OQ+1qh5YjlGjd8mOz7ULC45zCihj7emQppybuyl1dv9j7+tHEN6xYCw4P5le2iAcVUHyIDOT+ZQDZNEg/T4GHb0U/YSgVok4jY5/1NVpPpZB8kjN+Xv4gbrl0M0LxEFiBdWVnc2ceJkvSK2Coa2S7RzMnc2iCqDtY/DEFeXelTsgYbKwEv9rnrj4VggaYqe8nvimgvHCAXHSMs1bePtZ7bAskYkXS0xxy6sFpXs5Nq74gLzpVAgs+Mk4lIBRrsUUPWrcU5KgP+30e/tOtgjB4TknemCcVMww8o3hPoGwAaI2ybo2TztU0VBnnEP9AORtpNlJ7aiepmVbDwqTuo7x6w==
+ b=Mfsc0HtCzO0qPxCkj0/GmHjYP+xLg3awxhrQ1L0gOBF2Eze0yEQ55i8+pJsh4JqxotA9VHwNFpqz/zLjjE58s/nkbhm2XipVDYp1MZ0ZCXVwDbsz5/5LB1cnJ3dS+jumdu+8czSWA7V8loh+FfKFAEalqYwyrXbnyCV5nhhkhbJp8bu8wvC2WqQW/cQNUEiqXJJ79V7ITz72ewrXV+/EqwGcd1KrFNMmU0BOzuj60ntOiZFentKbkt/XubbhOaVbFEyb8R0krNAnAAz19nBHUzmun2V8AiGQhissE2jVDN4yZ8fUtgigna7U6+wz6H4uiUEM/m9Kmht49l4N3Sm9aw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ky8Ca+nZaqHt/yBIku833g6W9mruJMgIWKcDQ8slxPY=;
- b=ZQndicser67LTuH6Wrt16Cuh7SddItTzJr0H6DFYDrDE3t0djpJVesxOS559/17IXDVUGS0ssMXJ7Ctds8x4eoNzX08Ndi6gvN3iOHvPrkY55lWvLZ+wQOATxL3ncgq8KZjY76T8rimSwBAi/acGEuKu+uGakaip5HjykWTaF2SrOdXSOHmxjtq0jEd1nwZWvyVULzHVEY7iYnqlUANxHaNVsIi1/8+rFMWwUlqs/q4tTGCAC1XlvcmMRhEoUqnwYoe9EILhugs/VCphip3nVLA3QUM8umgtnsH2I1s64fFQNbzbrReeEcOCQTP6vt8MafBrfv14K9GUbzN/MpbY0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
+ bh=YpvGpNloVhpY5v2/imUpk40mTvd2MoonDwQO1g9FPPQ=;
+ b=KQz9K/GSUJFkCA0msn8KwpfCE4EdeSLiOA6PiyRYULWIsd7B+vKqn7o6NVKQ/rF6qWiZ8bKxMjMDF1Qjjc9OkiJ8kEuHEH8AZ/rgoANZVegovBnJRcGe6LQqbvywR+1Bgm4jI66teBmQWNvBv1sJUcDmAwi0D7cS0gNQVAK1YZCxOqZbagg1n3JJO5rwnQjWyOjI6nZAOMxHqUpLjX7Ewcaa0EcD1YsArQJCPSR3ojaVg77PhrXYPJ2ttd9oKNMAmJN62bT59WKkuVAG8yTjLsVfsUuIQpa2HhCCEDBuAkvCGR4TjrdYWOUYpuFXWLh0XVBwiiygeiOlTZfrPzY02Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ky8Ca+nZaqHt/yBIku833g6W9mruJMgIWKcDQ8slxPY=;
- b=hKZfpUMlJKpuZanFuZNTZ4cmBwjBymDxQnzFZff36Yd2e0FEWgauV7btAqPq6AXwYIgoob7G1Ps9HuTa4GX8wRdGMWUWSDT8C/xGb+UPMLFI1GbFuC+EBDt8mBWnGyK47mCqVitogAWJI/S2eqvAxp8h7WZsRZTJ/gM8BW3/pWlbJ0u0WlLNlGw0A31R4Cep+E/wS1g93F/1vgUIeDNkt4EGVg9H+xWbrFLDFqbE3NGWJIclBugin17hxshu/h6Dzfcw7nCd7LenNqIQnjRjNUv3XuDomHboZtF/KHgoRiqXuWSHc8bju5tbKn3XBP/zLAnQJxzDy0+gie3sgq7Jxg==
-Received: from DU7P195CA0018.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:54d::18)
- by PA1PR10MB9179.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:441::12) with
+ bh=YpvGpNloVhpY5v2/imUpk40mTvd2MoonDwQO1g9FPPQ=;
+ b=MRzGmZpcrQX/fmBTdU67SanGIHdlJ/+6AIFVKlW2k0xlVIpGZTLkROMHMcPtk7yyBm+IBAWaXZbUto3Ph9W3n+Z9OZJEyrnA9D40IqW5nKJRcPtFkzA/IYoKfDEv3xdHEeqZhOuOSyD6tHH7WdsE+jUMe2W6T3TO8C8xCZhluIL/t6ErsuPNCCsJnByIIcNLkctGgmN9ezj2nXbKIutyO6S+tJpbiC+6qrngVLr0eE3XfEpgMY10sxqqbCKzUP0YZs4QfZGNCvaDHdqKT7E3phRnbcL84lrpf1Qa+vbHnUJ1VtekbaqnKw54Efhwa/amROtddMjX1mXl/gu6zOATbQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
+ by DU4PR10MB8712.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:568::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.15; Thu, 19 Feb
- 2026 07:51:38 +0000
-Received: from DU6PEPF00009527.eurprd02.prod.outlook.com
- (2603:10a6:10:54d:cafe::1b) by DU7P195CA0018.outlook.office365.com
- (2603:10a6:10:54d::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.14 via Frontend Transport; Thu,
- 19 Feb 2026 07:51:38 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU6PEPF00009527.mail.protection.outlook.com (10.167.8.8) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Thu, 19 Feb 2026 07:51:38 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Feb
- 2026 08:53:34 +0100
-Received: from [10.48.87.127] (10.48.87.127) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Feb
- 2026 08:51:36 +0100
-Message-ID: <7639bae5-045f-4d56-8bcb-cddcb4e3d87f@foss.st.com>
-Date: Thu, 19 Feb 2026 08:51:35 +0100
-MIME-Version: 1.0
+ 2026 07:52:07 +0000
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22%5]) with mapi id 15.20.9611.012; Thu, 19 Feb 2026
+ 07:52:07 +0000
+Message-ID: <1c86a997-4781-4816-9e90-35b15e2b0146@kontron.de>
+Date: Thu, 19 Feb 2026 08:51:32 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH v20 1/6] dt-bindings: firmware: Add TEE
- remoteproc service binding
-To: Rob Herring <robh@kernel.org>
-CC: <devicetree@vger.kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Mathieu
- Poirier" <mathieu.poirier@linaro.org>, Bjorn Andersson
-	<andersson@kernel.org>, <linux-remoteproc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	Sumit Garg <sumit.garg@kernel.org>, <op-tee@lists.trustedfirmware.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, Jens Wiklander
-	<jens.wiklander@linaro.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20251217153917.3998544-1-arnaud.pouliquen@foss.st.com>
- <20251217153917.3998544-2-arnaud.pouliquen@foss.st.com>
- <20251229232530.GA2753472-robh@kernel.org> <aVOzHWmlJ-eneS-2@sumit-xelite>
- <CAL_Jsq+_S8UY7s7WQg9jXuBXCYMBWVCy=kVDMdkKTx6RctqQJA@mail.gmail.com>
- <aVtqITUxy--E8HJt@sumit-xelite>
- <49f1808d-1e08-4f47-ac3a-5f2274086060@foss.st.com>
- <a17c017a-15f5-4ebc-9dd0-baab718dbe0a@foss.st.com>
- <aYrMp9wqk91-tQXn@sumit-xelite>
-Content-Language: en-US
-From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-In-Reply-To: <aYrMp9wqk91-tQXn@sumit-xelite>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.127]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
+Subject: Re: [PATCH 2/4] arm64: dts: imx8mp-kontron: Fix SD card supply on
+ SMARC eval carrier
+To: Frank Li <Frank.li@nxp.com>, Frieder Schrempf <frieder@fris.de>
+Cc: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20260218132519.74570-1-frieder@fris.de>
+ <20260218132519.74570-3-frieder@fris.de>
+ <aZXv6QSq-ydOX5Wt@lizhi-Precision-Tower-5810>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <aZXv6QSq-ydOX5Wt@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR0P281CA0173.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b4::20) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:1fb::23)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF00009527:EE_|PA1PR10MB9179:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1b3e4717-495e-40c7-954f-08de6f8bb634
+X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|DU4PR10MB8712:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95eb09d5-06a5-4a57-9eed-08de6f8bc764
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|7416014|376014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V0wza1JaVEdTQlJFejlqK3hmN1RlS1VzTS9Fb2JudnNaQVBaem0wSWkvdy91?=
- =?utf-8?B?K0pTejV0OVY1RTJXYVpVQ3RxVUdkTU90S0JtcVMrWnFaeXY1NWlWRVNZUTVv?=
- =?utf-8?B?M1RVZXNZZUJlODJ4WDRCeEVlYXpXbktTU3JVSVBrTVd4MWd0TlJPdFZ0Q2xJ?=
- =?utf-8?B?TmdWejc5djFIeVpGdm9nQ3ZlN2xpWVdzaDY4UVdjRVgwQ0FZc0pOMmRWb0d1?=
- =?utf-8?B?Q2hIZW5oSitxblJrSmIwSnJibGllcWpDbUxBU01UWDZTSTBKVHJXTEZSWmVk?=
- =?utf-8?B?T2lTSnllZVlxVUJoMlYwZEE5OFNaM0xBMFFDZDBPZ0syb21wd1crTlh6RXBw?=
- =?utf-8?B?Z3F6NWxjQnNqWWgrME1OTW52ajkxd2NYeW85MWIranJCSjVOamR2S2E3d0hO?=
- =?utf-8?B?dkExRjVsREIra28zYzlDcy9hZWNJb2pqWldnUDY3cXlWOWsvWDVqRW1rdmJG?=
- =?utf-8?B?cjRFa1BTL0Z2Z2U2NVZwT1pBQzR2TzY4cG0yRWpZN0J4cWpUWDZpaVRuY1JT?=
- =?utf-8?B?MVV6Z0Y1WXdwdUFkbmRVYmd5TWtIazJpdmc4WkxhaWwxbC9TMGVzbnhnMktO?=
- =?utf-8?B?c2ppczk0bTczVklXK0dCU3dYbkRoTXhaTlhWV1RDUlZzT0RhS3BLbHZpYk93?=
- =?utf-8?B?ZDNuS0pBM0FTRjBvcFVWSGdqVXY3MnE4M2pSNnJkSWtuNkRlV0UzMGJyRnA4?=
- =?utf-8?B?ajJZRW9SVUxxdXZBdkEvWS9wWXdjOEtYZzhsd0V3eGJ2emxnb1dqTEo5ckE2?=
- =?utf-8?B?MHpNaDV3RkxwL0ZORUVKbkQ4TG9nbDN2ZFR3eXdyQnVqQ2hCOFdNL2RBUWJU?=
- =?utf-8?B?SVp0Q3lLNE9qc1ZpdXRLZFZNSUdsWUpUQ2hYaFFIOE85dEVLbU5qU3JLU3VJ?=
- =?utf-8?B?dmdQV2xKbGlxcE5WZ25FMWNmZ0F1TlNpb1JhL09JOENaaWI5Sm42TWxKZ0lS?=
- =?utf-8?B?WTVYOC8vRXlLa2JreGwzdHpsWkJ5U3JXK2Z4MlNVR0F1aUtVMG1Gclc0Zk5y?=
- =?utf-8?B?NW95ZDBWTkZ1R3J5K3NJaW9URFh2VllsaHp0ditId2JrWGw1YXZiRmh6bTBx?=
- =?utf-8?B?cENJZW1zN25XTDVIbC9LZ3AraGN0NmRGVFZrVVQ5blBaOUJIQ3BIWnl2c0NW?=
- =?utf-8?B?dFc0RFBaSnI0emVGYUROK0FrcVNkc3ord1VqZ0YzcnBmK1o3QVY5R1diY1pn?=
- =?utf-8?B?M0IwQlE1WmhzOHF4L2VOSDBSWGFzMmhWcFREb3Zsb1VpVHlFRmZOUEkvbm02?=
- =?utf-8?B?dGI2eEhHME1xS2VCUmZUVjZzMXN4MFNxeW5IczJ5bVR0MHp5TkZvbmNROE9U?=
- =?utf-8?B?eXE3ajl0Q2ZUOEl3c2drcFpkT2krMW44MG0zQU05WHo4UkQrUkFMWWNuS21z?=
- =?utf-8?B?N0t6R2JIMHpPdmdUcHIvdVFTd2xvc3M0K2JpUCtObTRnSlRabGxBdXJ2cWVz?=
- =?utf-8?B?Z1djUzVaRk9CVHd5aVZRNERuOTQ0QkxmN2dMNE83RUZIOG1vTXE3V0V3dElM?=
- =?utf-8?B?dTB6QjFIcTQ1NkVuczQ2QjlGMHZNaFUxMTVBMjFsT0VhVWEwdFlJM3JBTktj?=
- =?utf-8?B?c3FNYjFNRU9HdXZMRXNFU3J1cjF1QjJVUElVSEU4bTl3U25hcUs5cmFHZzFF?=
- =?utf-8?B?MmwzY0thWm5iSDVuTms2SEdBWlhYdkdGakpTSHRsYi8rQUtuMVMxalpZTVRR?=
- =?utf-8?B?TEk5OHNpdlliaHBxMFl6USs0a3JrQkpsU3ZWSExyRnYvMDdETFFTNHVGOUZ6?=
- =?utf-8?B?MUdiSklWcFZaN3JrdWxhWkV0anlqV3ZBWk9aL0d0VGRIMVBxZUhXSXdmUGlJ?=
- =?utf-8?B?ZkluV1dreDBiK29ZNzNKdzJCbVFrSTNuUFpHRjJPdWM2anpvRXkvVXR5Uzd6?=
- =?utf-8?B?cytuWmhQTzJNc2puSy8rdFR1YWY0SXJ1bzZxREpuNnNJZG11YzVLNUVhOVg1?=
- =?utf-8?B?dGtCU3kwbHFzUGxNY3BoeEYyS2JJYnJuYU1NTlFhRzBSNXFhYktXWnV6Yndy?=
- =?utf-8?B?VDVmVmtkU2RmRmw5RlV6aVFqS1NkWHhsUFV6clFmZVpPcGRUcEtBaVN2YUU0?=
- =?utf-8?B?MmN4RHFEdGE5NWxRUU8zY1g5Q3ZHZ3lOYXlSdjNPUGlaMHhtb3RvUUtNTlRC?=
- =?utf-8?B?RW1xQXZGOEJUNGUrSEEvTzBDVFErL1VDT2QyeEE1VkhnR3BSRFNMNk9xYXpr?=
- =?utf-8?B?NFE2RHVHc0JtRmtndERrMGpKNTBqR3lKR1BuT0hGRGhuSUIyUFVucmlFQTl2?=
- =?utf-8?B?R216dU1sWm5wZ2h1Rzg0amtqcm1BPT0=?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(7416014)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SUYzVWd5QjRHN2xpbmtJSXArQXkyeElRUEpSclY4blRYNm93MDNBSG5EZmlj?=
+ =?utf-8?B?eGRsUE9oK2o4NWxyUHdKNHJQS3l5a0tWNlJJWEdOVVRkd0k1M3NkQkhnZjdM?=
+ =?utf-8?B?ZWdsVHRSRkJsa0RBcmFLTlBOeFBsOGlSdzhlYmZIS3Z6SXhYU1ZUNnB3STNn?=
+ =?utf-8?B?Sk13K2JrWkJCMlVtbDFIYjdLVnNuMU1vTStib0NaTnYraVJtL2MrRk5JdFZs?=
+ =?utf-8?B?RDc2ek0xUjFyUVd3WVVKczFZRWlLK2ZOdHFVRTRiNU5nMFhnWUs0VWwwRG5Q?=
+ =?utf-8?B?em1DdVJvNXcwWitBazdtT1lrTlgvL1BnUG4rdlVkTVoxd2xBdllsZXUwam02?=
+ =?utf-8?B?WnRNclhkMlluWjduck5ma3QzY1FGNkh0REtKaWNYc08ycG8vc3VDSklLbDk4?=
+ =?utf-8?B?UG10akFEd0RERWF3bElhQy9WMVFzYlFWR0lsOVAyc0ZnVmZqZGxucXdZbzhw?=
+ =?utf-8?B?YndOa2kwNXM4UCt5UFd1M0h1S3VNR1FtQjB1OWs5aURGai85UGZRaWZ3amRv?=
+ =?utf-8?B?eGpmTjFmeEhEcGlVdFhhRk0rU1pGM2N6S0lGOUQ0VkZTMjJRNGVkcEYzR2M3?=
+ =?utf-8?B?c3R1U1hWRmU0Q2doTUkzY2dDWExScElPWEZOczRzNGtrdDkyYmI0ZE4yNGlP?=
+ =?utf-8?B?REhCZFE1MXZaK0V2NnREREhJckVQNTkyZ2dCZGtCdHptMVlEbFhYQXZwUXA2?=
+ =?utf-8?B?eTg4SDJJbWUyZzJlMlJQY0xhQ2dubkpNczliWDRHUnAwcm9zYktKQUg0eXk3?=
+ =?utf-8?B?dWVtaEljbCs5SkV1NzJETytnMkRSMkRqMWxDTE1UQTRUMnVEZTYwSDZDL25k?=
+ =?utf-8?B?TUFYTHdNcGVQMjVOMDBRdTdhMDdEc1ZGSlpCRjlDRXdZVG1GZHNtYXVVYW5K?=
+ =?utf-8?B?cUd3dFRpeE5Kdit3Vmc1TCtvTDBSd0RtdVpQS1hOQXUzbWoxRG90cFNla2hX?=
+ =?utf-8?B?OUpRWGNvN1J6b0Q1M0NYSlJiYkZKeW5wS2hML21WOXdGNllQbmlkZVZyU3Va?=
+ =?utf-8?B?QVhTQnFDbmYzekR5Ly8zK3VIWnAxS016dUtJUGNZNWxUN2hFbjlyRHVKZWZ6?=
+ =?utf-8?B?VUZEUGowdksxb092YmRVWm5FVlBoSXBsbGF1RUlDcEN6U1NIam1sVjRaMEZo?=
+ =?utf-8?B?QmtpNHN0a3puQVQyQ1lXWXVvRWxwNlVoSVM4Q1lld3ptVk1RWExTa2J3NXJS?=
+ =?utf-8?B?d09VWWhkcUNYb0dNWlhpaE5CY1JINW5PMU5VYzhVNmhaM1ZzakFEam9sTEhV?=
+ =?utf-8?B?OUVPbjg4aHFzRFhBRXFTcVFDMDhHRnJENU1qb1NNRDVTblNaUWgyMnFoTS9H?=
+ =?utf-8?B?VkRqVWVUMWlJeGlCajdtQWhrT2xRZ3g2aW1NNDdHUXd6MmlXaEtvRzh3dStp?=
+ =?utf-8?B?NWNPYkVKS1dVa0JPK1Q0UWc1b1A2bTE1RXVzZWtKbFduS0tKeGRHVFJNeWg5?=
+ =?utf-8?B?SThtczQzemkzSnBJb0VZSjdycGxFMjkyMVdtQXBDRmVzdlFCMlE4R3VPMlIy?=
+ =?utf-8?B?VUg3ZnFXdFBjaVcrQ1ZwbDJkUS9sT1c3ZURudm9QRnN3ajY4ZzVBemVwak1o?=
+ =?utf-8?B?eFhrM2NvZlp5bm83ZVFadkZ1ZFl4ZWZxWEc5dG9JbE5RMkRoeHduY1cycEhL?=
+ =?utf-8?B?Y3EzRG9Pd0tJZnhmUE5oRC9BelN3R2RZTVJJNmZkRTR2eTF5WlcxR1dxelJK?=
+ =?utf-8?B?RmxlNHhITC9aRHAxNlVUL0dYbVlYdFBQTDFlYi91SGVSbDN0UXFjSVVTNkJ2?=
+ =?utf-8?B?WEVmV2dJRHdoRHZDOXdVUEk0dlZ0YnZld0Y3Y2JkUnI2MEwySVEwY1lWWWc1?=
+ =?utf-8?B?UmRVSzNFYUZvQXFCYVRiRWZ6VkNZVm5CbHlSMWcremVBL1dCWUdVd1lqbVcz?=
+ =?utf-8?B?VUY3ditEcDBXVFF5SkpEVTlLekRPWUtSVmVMQTdEMmE0bUcvZzVhbFZabTF5?=
+ =?utf-8?B?N2dodFdsQ1ZCYXVqcTJWUmdqL1ZhU0c3a0J4RzVVTXIxeW9SQ2I2cndEb2tN?=
+ =?utf-8?B?R2NmczlRK21EY3o5TGRKWVhPUUc0YjRZNk5FclRUUHdLMi9MeW5NZUtpcVRm?=
+ =?utf-8?B?UE5jK0diYVVkTjZBRkFSWWxSclpaYzhWcGRMWXdWNTdkSjY5bWUrWFk1eEJs?=
+ =?utf-8?Q?zCkI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: /qHmgWioz0gPklVYeoUlobyvOV4KTKN9jl68PoyGuuX0r7m3SUDhkwagoNGPUEqEIwjyQnZi3rI6UkLVIT2dODrREof+5cxee0qvXuX+CGU8mD4oeq+oBpwH3fU4w0KEoaOJqctCT3n2oHzP3xkci+jjSsWO7reBfCWmNCsQqHmdgOCfi7lJAKPTRDbYiFCzPBz1qirRTWYCd3IT43P+eLFn6ZHdKuMNVp29HmO/wrqSKl0mUPPC3SycAbS0QmCwAG8wEPyxoRG1Pn5CaImUgs+V+mcmpmD02HcOMjzUUSlB4t/CINpmYGe+ItLeSjLAGoIKzIiY+or808W11xFxT2kj0j1ydW6dU5n1l4j+HhDeQFve+yL1XW+iAwvjVRCHh8j/g0GRNmKspBixXfbBvchy6C5bUax2ymJ9/s0RTnnkETWr2QRXOBNWUgcKZmON
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 07:51:38.0087
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Nk5FSWQ2eUJ5azdBL0N3TEFIVnRIc1VwLy9kVkIyYmFScmppd3dQUXB0SEQ2?=
+ =?utf-8?B?VDVZeGRobDJaYXZad1dJOTRIV0h5N2lTd0Z3NDVKQ2tzU0lEZDg5SS9pVVNB?=
+ =?utf-8?B?SXErOGZHdGtMYWhwUUhHYkgxMWdjblRWVXZ5MzkyRG12UWF5aFMwenNtZmU2?=
+ =?utf-8?B?VjRoa2dpSmJuODRnMXJVWDZhdndVNlI5MlMvUHh1a2xjOVc5aGtHajlWenVF?=
+ =?utf-8?B?NHREWjNuREVTbFVObExrdkJreGpFMklxc0w0aDBQVFNYZ3ZkQU5xeGl4MmRk?=
+ =?utf-8?B?YmFKd1FQREI0WERYSURuSmJtdDcxTFlqUDd5ajNpcmtadThWU2RBQ3pFT3lI?=
+ =?utf-8?B?S0JHMy8zTTZ2dnhIazM4VWd6S1hocHByQTVkc1dicDF0dThVYjlyNGsrRS9o?=
+ =?utf-8?B?dTY1cEVFSmNmVTMrMGtDVHlJV21hVFhzakRwd1pneHRhOGE1SEE4Zkx6Y1Nk?=
+ =?utf-8?B?RnpXQlozSys3VjBnSmRlTkx1SjRqRzFhTDFsYzhJV3hleWRraXVhelNZZnBh?=
+ =?utf-8?B?Z3Rwd3V3cUxVbDl6alA1eHRhdGs3Ymlna25oYW5FNWhLMTZ6L3prL3NtZkxC?=
+ =?utf-8?B?ZDhTSmJKZXlORm0yNVVTc0V5a0ZKbU9UelZ2bStJMEs0UUswMlhNVUpPTmYx?=
+ =?utf-8?B?YjBveld2dzEzWi8vR1N1S2Z5SUZSMW91UUFUbmo2KytTYTZvTmN2Q1hNN0Qx?=
+ =?utf-8?B?aSt0SEFLZXF1dVRCNE94cXFvamxDWjc5UFRhQ01teWhJcjVyQ3hEZU52T1R4?=
+ =?utf-8?B?ek1xSWNjRzVWWkU0Q21mSHc5M2U4N2t3T1hSR1I1WGIrQlp3QktDdUVTVUFn?=
+ =?utf-8?B?ZFZ5MEtUWTRGbTZ2TGUrVGNvOWp0eGVWUENob3lrNXBLWE5razJLbzlQOWg1?=
+ =?utf-8?B?OC96RUt6cXJ5eHM3SzRqTXpBV1VkdFdLUWp0b1l1L0IyM1J3MFBieDFpeGd2?=
+ =?utf-8?B?NjczM3hDR25iQkprdWw0YzE2Snh3TkxmN01FK2hna1pXU1JZcGxYSzdPVVFz?=
+ =?utf-8?B?OFFSYTNQV3NRZzJOVmt2V0IyTnVxT2J5aEJ4eEdmei84MFlCWXJuWWV4aHdN?=
+ =?utf-8?B?aGpBaWYwZHJIYWZvNUwyenB3VDQvd2EvdjF0MzZLOE83NTlpVXByWm9BbWYv?=
+ =?utf-8?B?R1FsL00rS2M2MmV2ZE04WE1pcUNkbTRhSWFTNUlzcFFEWDEvenRwUVdHYUY2?=
+ =?utf-8?B?dzFaNTUzYkdTdVVmcWpEOWFSazNsR0dhbHZmdFdMVmZrajNRRjVTdzMvRmIx?=
+ =?utf-8?B?dWZDa2Z3VEZzZVpJVVZWMlRGRHBlOVd3NUlqYWc3YnF2SmZDUnNKak9KbmI3?=
+ =?utf-8?B?RkFkQ0hiVmNaMEM5MTdZYk0yT3ZuOUlWcWQ0cXZMaSthdjc4QmlwdjNyV2Rp?=
+ =?utf-8?B?QlZNZW9HZ3lrdUtuTDJWNlZhSUlRMU5KSit3dXhNUGlGT0c0dGlzcGNUWEVJ?=
+ =?utf-8?B?azhwZzREMm4vcGRSSWhxdDNaRFcwaXcxcU1KOGxhZDRGOVBUV0xVbnQ3Y0tl?=
+ =?utf-8?B?Z3dTdkh1VlZrV1dsV20wd09EdWY1amdtWUZxT2RQVFl4eWxJR0lUbkZBdFZn?=
+ =?utf-8?B?T0p1b1o1eXlJeDlnMUpuQkJBUG9WeUFSWG4xa0loZVAvY2NsUUd1VENubVdp?=
+ =?utf-8?B?WE53WXpHbkMyanJheXpYVHQ4OEhkUWdHbTAzNUVTcmxOUG94aGVzaHRJOGox?=
+ =?utf-8?B?a0lEcTRjL0dJUmNkMjUrVTZnMGM5UVhvVVV3azk4cy94eG0ySUQxUTQ3QTJW?=
+ =?utf-8?B?TDFyZGlHOU0rZzhnbzgxU05GbDgvWDRqekxLQzdvaW9aYmxRSUlVUEJNRm56?=
+ =?utf-8?B?UDJQeTlnekxlY1lPVWg2NG1aOUhWS3Q2SkcwbWdYSDBWRFpZenZwb01pUVRF?=
+ =?utf-8?B?eUl3RFZhdHlZd3cyVmpTRDNVTEliaGVNY0pZS1FiNDdHWXV4dlJEQzlmZllp?=
+ =?utf-8?B?ZlVsTVZ1RWxlSUZYT1NVeklkWmNxWi9ia0VhNXpoeE5VMHo3T2o5OVpnMDhE?=
+ =?utf-8?B?VDkzZWhwYjhJQnlDdjd0Smd5RTZJRUptamxnK0ZodVNJcjkyTjV3REhwQXVY?=
+ =?utf-8?B?bjlrSDlhQ2h1VHhGVjFiL0t6YUpRNHZRMTluSEdaRXl6UUJyOXFCdjN4NmYz?=
+ =?utf-8?B?SHlNVWxQSE1XTXpWNjFRTmprTWZWZ0RxN0VLSUt2VVVwMk1SZ1lQYm5mNFRu?=
+ =?utf-8?B?SE1NYlE1Z1VvNUpVdVlnaFpuNzlvNFZqcUd3eUN2WEJONm5YRHE0eGlMNUR0?=
+ =?utf-8?B?NEVUNWtBc0t1RFNLRHZxSngvNGU0OEJDc1BtY3hDQ0gvNzE5RG1Fc09hUlV4?=
+ =?utf-8?B?M05TTHp3U0hOZjdjMWpoeWVjaW5oTWhTc2hvSVJNajVIMVlJOWllZ0xiVnRa?=
+ =?utf-8?Q?aVtkazO5/MwRGWKo=3D?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95eb09d5-06a5-4a57-9eed-08de6f8bc764
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 07:52:07.1013
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1b3e4717-495e-40c7-954f-08de6f8bb634
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009527.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR10MB9179
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 49C+sX6n3Ad+JBK4J66+xxMCkWjyXehIkstXdQMLcmyN7bri4CPpG3xbQQQXRsa06nAWhgcSObur7HzqJWCRecditnxxY75S4tfxIfExsxM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR10MB8712
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_235147_403036_5405B4BB 
-X-CRM114-Status: GOOD (  26.24  )
+X-CRM114-CacheID: sfid-20260218_235228_161076_D6EDDEC3 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,182 +189,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Rob,
+Hi Frank,
 
-Could you provide your feedback on my device tree (DT) proposal below 
-before I begin implementation? Your input would be greatly appreciated.
+On 18.02.26 17:59, Frank Li wrote:
+> On Wed, Feb 18, 2026 at 02:25:06PM +0100, Frieder Schrempf wrote:
+>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+>>
+>> The SMARC eval carrier has a power switch for the SD card compliant
+>> to the OSM standard definition. To use this as already specified in
+>> the OSM base devicetree, stop overriding it in the board tree.
+>>
+>> This fixes the power-supply for the SC card.
+> 
+> Is below commit better?
 
-Thanks and Regards,
-Arnaud
+Do you mean "commit message"?
 
-On 2/10/26 07:13, Sumit Garg wrote:
-> Hi Arnaud,
+Did you run my message through a LLM to enhance it and now feed it back
+to me?
+
+If yes, it is a very strange way to waste GPU cycles and developer time.
+
 > 
-> On Tue, Feb 03, 2026 at 08:42:34AM +0100, Arnaud POULIQUEN wrote:
->>
->> Hello Rob, Sumit,
->>
->> Just a gentle reminder. Could you please provide your advice or a conclusion
->> on the direction we should take for the DT declaration? I need your input to
->> be able to move forward.
->>
->> Thanks and regards,
->> Arnaud
->>
->> On 1/13/26 10:20, Arnaud POULIQUEN wrote:
->>> Hello,
->>>
->>> On 1/5/26 08:37, Sumit Garg wrote:
->>>> On Fri, Jan 02, 2026 at 04:17:27PM -0600, Rob Herring wrote:
->>>>> On Tue, Dec 30, 2025 at 5:10 AM Sumit Garg
->>>>> <sumit.garg@kernel.org> wrote:
->>>>>>
->>>>>> On Mon, Dec 29, 2025 at 05:25:30PM -0600, Rob Herring wrote:
->>>>>>> On Wed, Dec 17, 2025 at 04:39:12PM +0100, Arnaud Pouliquen wrote:
->>>>>>>> Add a device tree binding for the TEE-based remote processor control
->>>>>>>> service implemented as an OP-TEE Trusted Application identified by
->>>>>>>> UUID 80a4c275-0a47-4905-8285-1486a9771a08.
->>>>>>>>
->>>>>>>> The TEE service node is a child of the
->>>>>>>> "linaro,optee-tz" firmware node and
->>>>>>>> acts as a container for remoteproc devices that are
->>>>>>>> controlled via TEE.
->>>>>>>
->>>>>>> Is this generic for any remoteproc device or just ST's
->>>>>>> remoteproc. Looks
->>>>>>> like the latter to me.
->>>>>>
->>>>>> That's true, the DT description of the remoteproc subnode is very
->>>>>> specific to the vendor which in this case is ST.
->>>>>>
->>>>>>>
->>>>>>>> In addition, the "linaro,optee-tz" binding is updated to specify the
->>>>>>>> '#address-cells' and '#size-cells' values used for child TEE service
->>>>>>>> nodes.
->>>>>>>
->>>>>>> I'm pretty sure I already rejected per service/app child nodes for
->>>>>>> OP-TEE when its binding was submitted.
->>>>>>
->>>>>> That was the reason to have discoverable TEE bus in first place and I
->>>>>> have been motivating people to dynamically discover firmware properties
->>>>>> rather than hardcoding in the DT.
->>>>>>
->>>>>>> If we do need something in DT
->>>>>>> to define some resources, then can't we have some sort of
->>>>>>> standard/common communications channel? I don't care to
->>>>>>> see some sort of
->>>>>>> free-for-all where we have every vendor doing their own thing. OP-TEE
->>>>>>> needs to standarize this.
->>>>>>
->>>>>> I suppose this requires a wider scope work as you can see
->>>>>> the DT resource
->>>>>> dependence from here [1]. By standardize communication channel, do you
->>>>>> mean to say if adding an alternative backend to fwnode for TEE in
->>>>>> parallel to DT, ACPI or swnode is the way to go for discovering fw
->>>>>> properties?
->>>>>
->>>>> No, not at all.
->>>>>
->>>>>> Or do you have any other suggestion here?
->>>>>
->>>>> What I mean is why doesn't the TEE define the communication channel
->>>>> (mailbox+shmem and notification interrupt) rather than each TEE app?
->>>>
->>>> The synchronous communication channel is already there for each TEE app
->>>> based on (invoke commands + TEE shared memory). OP-TEE does support
->>>> notification interrupts too but those haven't been exposed to TEE client
->>>> drivers yet. I suppose this remoteproc use-case can be a good example to
->>>> expose that as a generic TEE notification interface too.
->>>
->>> In the STM32MP series, the mailboxes and shared RAM are used for RPMsg
->>> communication between Linux and the remote processor. My concern is that
->>> using notification in OP-TEE could impact performance by introducing
->>> latency. Additionally, this might require a DMA allocator in OP-TEE to
->>> manage the shared memory. One RPMsg virtio requires the declaration of
->>> at least three carveouts. Managing these as memory regions in OP-TEE
->>> would be complex (due to limited number of memory area declaration on
->>> STM32MP2).
->>>>
->>>>>
->>>>> More generally, is having TEE apps depending on random DT resources
->>>>> really a box we want to open? Is the next thing going to be a TEE
->>>>> clock/reset/gpio/power provider? Where do we draw the line?
->>>>
->>>> This is really a hard line to draw since silicon/OEM vendors based
->>>> on their
->>>> hardware security architecture partition various resources among TEE and
->>>> the Linux world. And one general principle we try to follow for the TEE
->>>> is to keep it's Trusted Computing Base (TCB) to a minimal too.
->>>>
->>>> IMHO, if the threat model is well understood then we should allow for
->>>> this hetrogenous partitioning of system resources.
->>>
->>> Here are some additional resources we need to manage the remote
->>> processor, which seem complex to handle without Device Tree (DT):
->>>
->>> - Clocks: On STM32MP, we manage clocks through the OP-TEE SCMI service
->>>     [1]. The SCMI OP-TEE clock/reset service already exists and should be
->>>     reused.
->>> - Power domains
->>> - Remoteproc Watchdog interrupt: Cannot be caught by OP-TEE on
->>>     stm32mp15.
->>> - Graceful shutdown of the remote processor: This involves sending a
->>>     mailbox notification to request shutdown and waiting up to 500 ms for
->>>     the remoteproc to deinitialize its resources. Waiting this long in the
->>>     secure context seems inefficient.
->>> - compatibility with some coming IPC mechanisms: Such as rpmsg_I2C or
->>>     virtio-msg might require remoteproc subnode descriptions in the
->>>     future.
->>>
->>> If the proposed topology does not gain consensus, what about an
->>> alternative approach that manages the remoteproc TEE similarly to SCMI,
->>> by introducing a remoteproc-backend with the proc ID as a parameter?
->>>
->>>
->>> &firmware {
->>>       optee: optee {
->>>           compatible = "linaro,optee-tz";
->>>           method = "smc";
->>>           sproc: sproc {
->>>               compatible = "80a4c275-0a47-4905-8285-1486a9771a08";
->>>               #address-cells = <1>;
->>>           #size-cells = <0>;
->>>           };
->>>       };
->>> };
->>>
->>> rproc1: m33@0 {
->>>     [...]
->>>
->>>     remoteproc-backend = < &sproc 0>
->>> };
->>>
->>>
->>> rproc2: m0@0 {
->>>     [...]
->>>
->>>     remoteproc-backend = < &sproc 1>
->>> };
+> ARM: dts: imx8mp-sm2s-imx8mp: Drop SD power-supply override
+
+The subject line is completely wrong.
+
 > 
-> Using a phandle like this makes it a bit more cleaner but I would defer
-> to Rob since he has the final say here.
+> The SMARC evaluation carrier provides an SD card power switch that complies
+> with the OSM standard definition. The OSM base device tree already
+> describes this correctly.
 > 
-> -Sumit
+> Stop overriding the SD power-supply in the board device tree and rely on
+> the definition from the OSM base DTS instead to fix the power-supply
+> configuration for the SD card.
+
+Ok, maybe this rephrasing is slightly better to read, but again: is this
+really worth the efforts? And it doesn't even correct my mistake of
+using either 'vmmc-supply' to refer to the property or "power supply"
+without a dash.
+
+Thanks
+Frieder
+
 > 
->>>
->>>
->>> [1]https://elixir.bootlin.com/linux/v6.18.4/source/drivers/clk/clk-scmi.c
->>>
->>> Thanks,
->>> Arnaud
->>>
->>>>
->>>> -Sumit
->>>
->>> _______________________________________________
->>> Linux-stm32 mailing list
->>> Linux-stm32@st-md-mailman.stormreply.com
->>> https://st-md-mailman.stormreply.com/mailman/listinfo/linux-stm32
+>>
+>> Fixes: 6fe1ced5ccab7 ("arm64: dts: Add support for Kontron i.MX8MP SMARC module and eval carrier")
+>> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+>> ---
+>>  .../boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts     | 1 -
+>>  1 file changed, 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts b/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
+>> index 2173a36ff6917..74d620dd06b7b 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
+>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
+>> @@ -249,6 +249,5 @@ &usb3_phy1 {
+>>  };
+>>
+>>  &usdhc2 {
+>> -	vmmc-supply = <&reg_vdd_3v3>;
+>>  	status = "okay";
+>>  };
+>> --
+>> 2.52.0
 >>
 
 
