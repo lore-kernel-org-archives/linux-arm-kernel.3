@@ -4,77 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66C0E9A05D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 19:11:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA34CE9A05E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 19:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FNCnFknmYjiiUwoazUchdjz3K87AvPcXqCBVto3yPno=; b=IKA3dUMXTU2KZHSbI+BKaK1Qrn
-	1paPml4ha8rA4edj1IZoxb/A2W6YfGbN5LJqq2P6EKLKykkfMmMOwG1odCO+mrcOagsYKTBtck7z9
-	YotkYytBiTpYg1gZmI8n2QUT1DBFRfQR9z2n7inGM12QgSqsRGgaXgv0ectv8CzNo4xMMoXK7eptk
-	CW67p6CBygaMrAz/yvCGXYyoC242AuYRBJrzySMpA6kEjYBkPIRaywxz+w1GxS87mb41yugwJDmO+
-	zTj00zOKPDFp9es/HQc6q50/iRuMqS4UAKSbh0hTMe/PnYUc9TCJF0FTjghtOd1yvoIVgeF9jPrHG
-	i2XbwG+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4vZ9yFcEbgSxgUyhwYiL34t8WUh5eBUakcOdLHSoQ7Y=; b=zGd7TlBlY9OnEgp6TVlLe8Z2eN
+	SleBfQTqLb48oC1uz9F5BS8M0sGdj2llgSxOSsLBcu3DeIDD/Zvb4E1awjeRVKwUkjuEuH1PmzI7Y
+	z0ty8g/+Zqf+b+d9fiiebPn1lenk9YdUzmBNe5zxl1Bg0BPFLA9BeMW2MDQRk+bBURSZ7h/gDGHPB
+	K+8U+ithzRCwZy4vXHfTGhAjLpkF0DjQLCiqOXJiZCn7JHAxMrecGI4c/f+RM2OT4u9qmSB8djp3h
+	U6wQek2bvx4Da77Prm3z8D8nb4CCywzU9r8TP/S+esWRzdNV4sAXPS5pWX2nmf0+DOjiKPnm8of5O
+	4qocE7uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt9Qu-0000000BotK-3iXY;
-	Thu, 19 Feb 2026 19:11:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vt9Qv-0000000Bota-0hDd;
+	Thu, 19 Feb 2026 19:11:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt9Qs-0000000BosZ-3aJu
+	id 1vt9Qt-0000000BosY-0dFe
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 19 Feb 2026 19:11:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 331D344518
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 19:11:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAE49C2BCAF
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 19:11:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D9BF44395F;
+	Thu, 19 Feb 2026 19:11:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A29BFC4CEF7;
+	Thu, 19 Feb 2026 19:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771528286;
-	bh=Rb0+DBfdVleoRslWweeISPOle2jWWZ3LQCLlNVSSpQ8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=M2Zh9tp2BvoGWIdJjmFDvecrf8pKPZCqMsw3++rmfdWVCo1tlChq5LvqX3L/ZHsNA
-	 VsDjA6pKM7mYUvD7iYnp2GO8Xw9OVG/8mpe0Gv9CuoLD/KypGeUGYA/lb4n10ny1pU
-	 CqcSkUNm3JEQD372x4GQi939dFBqs8m4uRRQ5rpRb9nYjb72ofZe+YlT8uvnW0wovM
-	 CrVWZWZdNeS62BWkCPSzBE79jqerH3Cyyd1/WiXX5OK27OmjeVYCqCeqY1zl327Btd
-	 UljS6NGpyZehGnT8dQAazFNbhZ+0NmrjeNJXMeaFJ6B2Fg1VnlytX6vJblot6s866I
-	 z0D5kaYo7/7iA==
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-79088484065so12106237b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 11:11:25 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXWINRVyVwDN6UnHe+hg5ZgEklAxEFRqo24MKvn2yZMzhYYZi5ksso2mC56YMiXxF2izrPOetVA2kncZMFeWE6d@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMWl4N0+m2KZuFPp5PJ0AXN8sdX1G60LOSxgbZafFViPkiQgmp
-	rJu5hfzGe+qS4w9u2IeMSakGiY69otvN/POxvjgVufqVUNfK46gvwYMQ4L3o5EGjl1QRZUjp9v7
-	haNXkC6Kj/tZQpjUCjtC7uOYA9lpXObo=
-X-Received: by 2002:a05:690c:ed5:b0:797:f635:c896 with SMTP id
- 00721157ae682-797f717b02cmr50185397b3.9.1771528285140; Thu, 19 Feb 2026
- 11:11:25 -0800 (PST)
-MIME-Version: 1.0
-References: <20260218083618.67805-1-christophe.roullier@foss.st.com>
- <20260218083618.67805-3-christophe.roullier@foss.st.com> <aZV-b6TdLMdI8dm4@shell.armlinux.org.uk>
-In-Reply-To: <aZV-b6TdLMdI8dm4@shell.armlinux.org.uk>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 19 Feb 2026 20:11:13 +0100
-X-Gmail-Original-Message-ID: <CAD++jLnF=8MvW4CbXmPZR=w8tAUZiL9M3N73WB++DaYYwhToDQ@mail.gmail.com>
-X-Gm-Features: AaiRm50ZmYrtHjO9YzusnFCmg5M5z6i9LzHE-qxCdbPPiIH94xxykSK7yFLYpYI
-Message-ID: <CAD++jLnF=8MvW4CbXmPZR=w8tAUZiL9M3N73WB++DaYYwhToDQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] net: stmmac: restore pinctrl when driver remove.
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Christophe Roullier <christophe.roullier@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
-	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1771528284;
+	bh=9p0DfwiEGsHS8N8lLhDzityaVkttEOvhog9ekktjRc0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=iLZa/tdXSjtY+IhPqpxbOkvU6uy46FeFU74mPUys5QXzxKsoXkOBfNqr48ShSG0w5
+	 /+Ofhedr1cNJ3oFPoDQUmLpoBxP000NdDP6CrN2xt66ZkExL19bY+933OZayflXn+Y
+	 XS2zN8HFCLAqCH/GlmDwm8hS68m5rmsneq+/jlvbwZkuqI1R3uYxjkQF622aaYZr57
+	 YGhylOf1FRe2j3Ehl82WXL6jd4zKN0cDpIwTmlBUWLXoA64zYwfSnRMPpegBICFnHJ
+	 aiJBmIoG3ISn88YHnQLEitUwHJLQ075DETetkxXmN+FUellgKGfKY2ze2NxKsvgyLx
+	 iXaTWxw7wKdYA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vt9Qo-0000000CFY6-0SoG;
+	Thu, 19 Feb 2026 19:11:22 +0000
+Date: Thu, 19 Feb 2026 19:11:21 +0000
+Message-ID: <87cy20eeg6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Vincent Donnefort <vdonnefort@google.com>,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v12 00/30] Tracefs support for pKVM
+In-Reply-To: <20260219130220.063c8db3@gandalf.local.home>
+References: <20260219150307.14538-1-vdonnefort@google.com>
+	<20260219130220.063c8db3@gandalf.local.home>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: rostedt@goodmis.org, vdonnefort@google.com, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_111126_956976_D1BAB8B0 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20260219_111127_235729_60E23715 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +98,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 18, 2026 at 9:55=E2=80=AFAM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
-> On Wed, Feb 18, 2026 at 09:36:17AM +0100, Christophe Roullier wrote:
-> > when system suspend or unbind, need to set pins
-> > to low power state to save IO power consumption.
-> >
-> > Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> >
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
-s/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 067b17f03cd09..3d4f0e4cb53fb 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -8071,6 +8071,9 @@ void stmmac_dvr_remove(struct device *dev)
-> >       mutex_destroy(&priv->lock);
-> >       bitmap_free(priv->af_xdp_zc_qps);
-> >
-> > +     /* Select sleep pin state */
-> > +     pinctrl_pm_select_sleep_state(dev);
-> > +
->
-> I'm not convinced this is correct, there's nothing to match it in the
-> probe function, except what the driver model core does. However, the
-> driver model core also doesn't clean up the state if probe fails.
+On Thu, 19 Feb 2026 18:02:20 +0000,
+Steven Rostedt <rostedt@goodmis.org> wrote:
+> 
+> On Thu, 19 Feb 2026 15:02:37 +0000
+> Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> > The growing set of features supported by the hypervisor in protected
+> > mode necessitates debugging and profiling tools. Tracefs is the
+> > ideal candidate for this task:
+> > 
+> >   * It is simple to use and to script.
+> > 
+> >   * It is supported by various tools, from the trace-cmd CLI to the
+> >     Android web-based perfetto.
+> > 
+> >   * The ring-buffer, where are stored trace events consists of linked
+> >     pages, making it an ideal structure for sharing between kernel and
+> >     hypervisor.
+> > 
+> > This series first introduces a new generic way of creating remote events and
+> > remote buffers. Then it adds support to the pKVM hypervisor.
+> > 
+> 
+> So I finished my review of all the tracing patches, but I just realized
+> that there's likely going to be some major conflicts with changes in the
+> tracing tree that's going to happen against this series.
+> 
+> To solve that, after -rc2 comes out, I'll apply the tracing portion of this
+> series to a branch in my tree directly on top of -rc2 and I will then use
+> that to base my changes for the next merge window.
+> 
+> Then the arm/kvm folks could start with that branch and add the arm/KVM
+> portion of this series on top of it. This will prevent major merge
+> conflicts in linux-next.
+> 
+> Does that sound OK?
 
-I think it looks right, if this state is indeed for the sleep state of the
-device pins, and this is what you want to happen at remove().
+That works. Just send us a link to the branch after -rc2 and we'll get
+that sorted.
 
-The non-cleanup of the pin states is a (maybe ugly) feature: there
-is an "init" and a "default" state. If the "init" state does not exist the
-"default" state is selected in the dd.c call.
+Thanks,
 
-These states are just some values in dev->pins, allocated with
-devm_kzalloc(), and devm_pinctrl_get() for e.g. dev->pins->p,
-so IIUC this will befree:ed on driver detach,
-also if the probe() fails, at least that is what the original devres
-design document says
-Documentation/driver-api/driver-model/devres.rst
+	M.
 
-There is really no other cleanup that can happen: there is no
-before-default-or-init state we can revert to (that would be the
-power-on values), so there are just these states in some pointers
-that could be accessed by e.g. pinctrl_pm_select_sleep_state()
-that get free:ed up, and muxing and pin config that happened
-in the pin control hardware just stays around.
-
-Yours,
-Linus Walleij
+-- 
+Jazz isn't dead. It just smells funny.
 
