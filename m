@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8C32E9A048
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91469E9A04A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 14:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LbyH7r/+43Qi6pmkbYmF9oCsizXUoRzTF9X7Dq2Fsj8=; b=YGlA67nXT3UmGf3QQSx3kRqi38
-	PVSoTfXhUkzRNnEc5AMdcdMCvrtHSDjz7+jgSzpJCNG+MGYubM9eLkscXiuEDZhsjkgbKbLN2e0Yn
-	mSWLY9LrT7HarKegTlX7848J5EGvL4yHIDcpJlxKP73t//Dt2MbTJlvMpboiq6kx0NsLwvZ9pA/h4
-	epUEISAblBS13rrMY96VzYJF7vT5WqRyFYa83MVmSx2K9bHxt4q2anh4I8uUY90bvlcwilfnJi8tI
-	69YAd0uYgMQLtRj/zMV9QXEE9H4BeHUWBETzUTe2rhxcUH2ES+tsVz2QGVWE29cR4ImhK5XoVVN7N
-	gL8MPlQA==;
+	bh=9+sGQUoFknPrYwnhrHGJoAgCpCs1zVsEElKhl0yi99I=; b=tkEe6okaiQi4f7o1HOV0EQalXV
+	RJcw0Rz6Gx+yCDw9X1v5y7MhuZnRJqwj3hrmj3GBC8PP18oCcdYio9pHj/U4ajmlWq6F7auAhDXQh
+	+YzSBdlLYS0TEYoEiz1lFUZCbUmYbUpZ3XX2ar0Y8yaA4f+MoECujJvUUxSVPh9L1HrhfUwmmxCXS
+	D4g9GEqtWu6gtaQL5LI/lynE++VE/B9NaP1eg+OUuocH6tQcZKBK9wgfCl5zICSXQzFg23BzoJpod
+	PamsUA5NhTC1PRuwk2YHqeAPrTmw9sYtruWwN0PZt+MYTJnr3iEqQvt9HLigaN1MNAl1nXRAdtHhq
+	zVBoOIzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt53F-0000000BRzl-3FXp;
-	Thu, 19 Feb 2026 14:30:45 +0000
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
+	id 1vt536-0000000BRwu-2kLp;
+	Thu, 19 Feb 2026 14:30:36 +0000
+Received: from out-179.mta1.migadu.com ([95.215.58.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt53D-0000000BRyY-162a
+	id 1vt531-0000000BRw3-3bvs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 14:30:44 +0000
+	Thu, 19 Feb 2026 14:30:34 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771511440;
+	t=1771511428;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LbyH7r/+43Qi6pmkbYmF9oCsizXUoRzTF9X7Dq2Fsj8=;
-	b=WATtM/3QzNXG5tUxfI9ZvXAHFtiYkE/toigRhrNoHvE1xC4pC3wH0zs+iR3XZEr9AyDElM
-	sRqdRfkYLJJPNVpFvSttasDvnKplXkgPHcqyGcpy5M70F7J13M/is1d3qRiI9issMtdkeM
-	xqMk/r3eiR5vHe5oCQOYbIj8/SO8e7E=
+	bh=9+sGQUoFknPrYwnhrHGJoAgCpCs1zVsEElKhl0yi99I=;
+	b=LdLGVj3JZVjoaC4PviPKhiaOGm4q8cPa83+pWAmoAjKnYhX5qUqu+FxPsdRrQXpeF0GQLE
+	Zwqhen5nJJovrxh5oVLCDsPl+TM+8VTaL8zh3tlcVVGXorFEutTkIBqXrR4uvHnjdmooml
+	pogdAz+4IAVZMGWa44hnUB7tulcT+UM=
 From: Leon Hwang <leon.hwang@linux.dev>
 To: bpf@vger.kernel.org
 Cc: Alexei Starovoitov <ast@kernel.org>,
@@ -72,18 +72,17 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	kernel-patches-bot@fb.com
-Subject: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs support for x86_64
-Date: Thu, 19 Feb 2026 22:29:24 +0800
-Message-ID: <20260219142933.13904-3-leon.hwang@linux.dev>
+Subject: [PATCH bpf-next v2 1/6] bpf: Introduce 64-bit bitops kfuncs
+Date: Thu, 19 Feb 2026 22:29:23 +0800
+Message-ID: <20260219142933.13904-2-leon.hwang@linux.dev>
 In-Reply-To: <20260219142933.13904-1-leon.hwang@linux.dev>
 References: <20260219142933.13904-1-leon.hwang@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_063043_455288_42C1B81B 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20260219_063032_726831_C35240DD 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,196 +97,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement JIT inlining of the 64-bit bitops kfuncs on x86_64.
+Add the following generic 64-bit bitops kfuncs:
 
-bpf_rol64() and bpf_ror64() are always supported via ROL/ROR.
+* bpf_clz64(): Count leading zeros.
+* bpf_ctz64(): Count trailing zeros.
+* bpf_ffs64(): Find first set bit, 1-based index, returns 0 when input
+  is 0.
+* bpf_fls64(): Find last set bit, 1-based index.
+* bpf_bitrev64(): Reverse bits.
+* bpf_popcnt64(): Population count.
+* bpf_rol64(): Rotate left.
+* bpf_ror64(): Rotate right.
 
-bpf_ctz64() and bpf_ffs64() are supported when the CPU has
-X86_FEATURE_BMI1 (TZCNT).
+Defined zero-input behavior:
 
-bpf_clz64() and bpf_fls64() are supported when the CPU has
-X86_FEATURE_ABM (LZCNT).
+* bpf_clz64(0) = 64
+* bpf_ctz64(0) = 64
+* bpf_ffs64(0) = 0
+* bpf_fls64(0) = 0
 
-bpf_popcnt64() is supported when the CPU has X86_FEATURE_POPCNT.
-
-bpf_bitrev64() is not inlined as x86_64 has no native bit-reverse
-instruction, so it falls back to a regular function call.
+These kfuncs are inlined by JIT backends when the required CPU features are
+available. Otherwise, they fall back to regular function calls.
 
 Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
 ---
- arch/x86/net/bpf_jit_comp.c | 141 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 141 insertions(+)
+ include/linux/filter.h | 10 ++++++++
+ kernel/bpf/core.c      |  6 +++++
+ kernel/bpf/helpers.c   | 50 +++++++++++++++++++++++++++++++++++++++
+ kernel/bpf/verifier.c  | 53 +++++++++++++++++++++++++++++++++++++++++-
+ 4 files changed, 118 insertions(+), 1 deletion(-)
 
-diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-index 070ba80e39d7..193e1e2d7aa8 100644
---- a/arch/x86/net/bpf_jit_comp.c
-+++ b/arch/x86/net/bpf_jit_comp.c
-@@ -19,6 +19,7 @@
- #include <asm/text-patching.h>
- #include <asm/unwind.h>
- #include <asm/cfi.h>
-+#include <asm/cpufeatures.h>
+diff --git a/include/linux/filter.h b/include/linux/filter.h
+index 44d7ae95ddbc..b8a538bec5c6 100644
+--- a/include/linux/filter.h
++++ b/include/linux/filter.h
+@@ -1157,6 +1157,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog);
+ void bpf_jit_compile(struct bpf_prog *prog);
+ bool bpf_jit_needs_zext(void);
+ bool bpf_jit_inlines_helper_call(s32 imm);
++bool bpf_jit_inlines_kfunc_call(void *func_addr);
+ bool bpf_jit_supports_subprog_tailcalls(void);
+ bool bpf_jit_supports_percpu_insn(void);
+ bool bpf_jit_supports_kfunc_call(void);
+@@ -1837,4 +1838,13 @@ static inline void *bpf_skb_meta_pointer(struct sk_buff *skb, u32 offset)
+ }
+ #endif /* CONFIG_NET */
  
- static bool all_callee_regs_used[4] = {true, true, true, true};
- 
-@@ -1604,6 +1605,127 @@ static void emit_priv_frame_ptr(u8 **pprog, void __percpu *priv_frame_ptr)
- 	*pprog = prog;
++u64 bpf_clz64(u64 x);
++u64 bpf_ctz64(u64 x);
++u64 bpf_ffs64(u64 x);
++u64 bpf_fls64(u64 x);
++u64 bpf_popcnt64(u64 x);
++u64 bpf_bitrev64(u64 x);
++u64 bpf_rol64(u64 x, u64 s);
++u64 bpf_ror64(u64 x, u64 s);
++
+ #endif /* __LINUX_FILTER_H__ */
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index 5ab6bace7d0d..5f37309d83fc 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -3114,6 +3114,12 @@ bool __weak bpf_jit_inlines_helper_call(s32 imm)
+ 	return false;
  }
  
-+static bool bpf_inlines_func_call(u8 **pprog, void *func)
++/* Return TRUE if the JIT backend inlines the kfunc. */
++bool __weak bpf_jit_inlines_kfunc_call(void *func_addr)
 +{
-+	bool has_popcnt = boot_cpu_has(X86_FEATURE_POPCNT);
-+	bool has_bmi1 = boot_cpu_has(X86_FEATURE_BMI1);
-+	bool has_abm = boot_cpu_has(X86_FEATURE_ABM);
-+	bool inlined = true;
-+	u8 *prog = *pprog;
-+
-+	/*
-+	 * x86 Bit manipulation instruction set
-+	 * https://en.wikipedia.org/wiki/X86_Bit_manipulation_instruction_set
-+	 */
-+
-+	if (func == bpf_clz64 && has_abm) {
-+		/*
-+		 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
-+		 *
-+		 *   LZCNT - Count the Number of Leading Zero Bits
-+		 *
-+		 *     Opcode/Instruction
-+		 *     F3 REX.W 0F BD /r
-+		 *     LZCNT r64, r/m64
-+		 *
-+		 *     Op/En
-+		 *     RVM
-+		 *
-+		 *     64/32-bit Mode
-+		 *     V/N.E.
-+		 *
-+		 *     CPUID Feature Flag
-+		 *     LZCNT
-+		 *
-+		 *     Description
-+		 *     Count the number of leading zero bits in r/m64, return
-+		 *     result in r64.
-+		 */
-+		/* emit: x ? 64 - fls64(x) : 64 */
-+		/* lzcnt rax, rdi */
-+		EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
-+	} else if (func == bpf_ctz64 && has_bmi1) {
-+		/*
-+		 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
-+		 *
-+		 *   TZCNT - Count the Number of Trailing Zero Bits
-+		 *
-+		 *     Opcode/Instruction
-+		 *     F3 REX.W 0F BC /r
-+		 *     TZCNT r64, r/m64
-+		 *
-+		 *     Op/En
-+		 *     RVM
-+		 *
-+		 *     64/32-bit Mode
-+		 *     V/N.E.
-+		 *
-+		 *     CPUID Feature Flag
-+		 *     BMI1
-+		 *
-+		 *     Description
-+		 *     Count the number of trailing zero bits in r/m64, return
-+		 *     result in r64.
-+		 */
-+		/* emit: x ? __ffs64(x) : 64 */
-+		/* tzcnt rax, rdi */
-+		EMIT5(0xF3, 0x48, 0x0F, 0xBC, 0xC7);
-+	} else if (func == bpf_ffs64 && has_bmi1) {
-+		/* emit: __ffs64(x); x == 0 has been handled in verifier */
-+		/* tzcnt rax, rdi */
-+		EMIT5(0xF3, 0x48, 0x0F, 0xBC, 0xC7);
-+	} else if (func == bpf_fls64 && has_abm) {
-+		/* emit: fls64(x) */
-+		/* lzcnt rax, rdi */
-+		EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
-+		EMIT3(0x48, 0xF7, 0xD8);       /* neg rax */
-+		EMIT4(0x48, 0x83, 0xC0, 0x40); /* add rax, 64 */
-+	} else if (func == bpf_popcnt64 && has_popcnt) {
-+		/*
-+		 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
-+		 *
-+		 *   POPCNT - Return the Count of Number of Bits Set to 1
-+		 *
-+		 *     Opcode/Instruction
-+		 *     F3 REX.W 0F B8 /r
-+		 *     POPCNT r64, r/m64
-+		 *
-+		 *     Op/En
-+		 *     RM
-+		 *
-+		 *     64 Mode
-+		 *     Valid
-+		 *
-+		 *     Compat/Leg Mode
-+		 *     N.E.
-+		 *
-+		 *     Description
-+		 *     POPCNT on r/m64
-+		 */
-+		/* popcnt rax, rdi */
-+		EMIT5(0xF3, 0x48, 0x0F, 0xB8, 0xC7);
-+	} else if (func == bpf_rol64) {
-+		EMIT1(0x51);             /* push rcx */
-+		/* emit: rol64(x, s) */
-+		EMIT3(0x48, 0x89, 0xF1); /* mov rcx, rsi */
-+		EMIT3(0x48, 0x89, 0xF8); /* mov rax, rdi */
-+		EMIT3(0x48, 0xD3, 0xC0); /* rol rax, cl */
-+		EMIT1(0x59);             /* pop rcx */
-+	} else if (func == bpf_ror64) {
-+		EMIT1(0x51);             /* push rcx */
-+		/* emit: ror64(x, s) */
-+		EMIT3(0x48, 0x89, 0xF1); /* mov rcx, rsi */
-+		EMIT3(0x48, 0x89, 0xF8); /* mov rax, rdi */
-+		EMIT3(0x48, 0xD3, 0xC8); /* ror rax, cl */
-+		EMIT1(0x59);             /* pop rcx */
-+	} else {
-+		inlined = false;
-+	}
-+
-+	*pprog = prog;
-+	return inlined;
-+}
-+
- #define INSN_SZ_DIFF (((addrs[i] - addrs[i - 1]) - (prog - temp)))
- 
- #define __LOAD_TCC_PTR(off)			\
-@@ -2452,6 +2574,8 @@ st:			if (is_imm8(insn->off))
- 			u8 *ip = image + addrs[i - 1];
- 
- 			func = (u8 *) __bpf_call_base + imm32;
-+			if (bpf_inlines_func_call(&prog, func))
-+				break;
- 			if (src_reg == BPF_PSEUDO_CALL && tail_call_reachable) {
- 				LOAD_TAIL_CALL_CNT_PTR(stack_depth);
- 				ip += 7;
-@@ -4117,3 +4241,20 @@ bool bpf_jit_supports_fsession(void)
- {
- 	return true;
- }
-+
-+bool bpf_jit_inlines_kfunc_call(void *func_addr)
-+{
-+	if (func_addr == bpf_ctz64 || func_addr == bpf_ffs64)
-+		return boot_cpu_has(X86_FEATURE_BMI1);
-+
-+	if (func_addr == bpf_clz64 || func_addr == bpf_fls64)
-+		return boot_cpu_has(X86_FEATURE_ABM);
-+
-+	if (func_addr == bpf_popcnt64)
-+		return boot_cpu_has(X86_FEATURE_POPCNT);
-+
-+	if (func_addr == bpf_rol64 || func_addr == bpf_ror64)
-+		return true;
-+
 +	return false;
 +}
++
+ /* Return TRUE if the JIT backend supports mixing bpf2bpf and tailcalls. */
+ bool __weak bpf_jit_supports_subprog_tailcalls(void)
+ {
+diff --git a/kernel/bpf/helpers.c b/kernel/bpf/helpers.c
+index 7ac32798eb04..6bf73c46af72 100644
+--- a/kernel/bpf/helpers.c
++++ b/kernel/bpf/helpers.c
+@@ -29,6 +29,8 @@
+ #include <linux/task_work.h>
+ #include <linux/irq_work.h>
+ #include <linux/buildid.h>
++#include <linux/bitops.h>
++#include <linux/bitrev.h>
+ 
+ #include "../../lib/kstrtox.h"
+ 
+@@ -4501,6 +4503,46 @@ __bpf_kfunc int bpf_timer_cancel_async(struct bpf_timer *timer)
+ 	}
+ }
+ 
++__bpf_kfunc u64 bpf_clz64(u64 x)
++{
++	return x ? 64 - fls64(x) : 64;
++}
++
++__bpf_kfunc u64 bpf_ctz64(u64 x)
++{
++	return x ? __ffs64(x) : 64;
++}
++
++__bpf_kfunc u64 bpf_ffs64(u64 x)
++{
++	return x ? __ffs64(x) + 1 : 0;
++}
++
++__bpf_kfunc u64 bpf_fls64(u64 x)
++{
++	return fls64(x);
++}
++
++__bpf_kfunc u64 bpf_popcnt64(u64 x)
++{
++	return hweight64(x);
++}
++
++__bpf_kfunc u64 bpf_bitrev64(u64 x)
++{
++	return ((u64)bitrev32(x & 0xFFFFFFFF) << 32) | bitrev32(x >> 32);
++}
++
++__bpf_kfunc u64 bpf_rol64(u64 x, u64 s)
++{
++	return rol64(x, s);
++}
++
++__bpf_kfunc u64 bpf_ror64(u64 x, u64 s)
++{
++	return ror64(x, s);
++}
++
+ __bpf_kfunc_end_defs();
+ 
+ static void bpf_task_work_cancel_scheduled(struct irq_work *irq_work)
+@@ -4578,6 +4620,14 @@ BTF_ID_FLAGS(func, bpf_key_put, KF_RELEASE)
+ BTF_ID_FLAGS(func, bpf_verify_pkcs7_signature, KF_SLEEPABLE)
+ #endif
+ #endif
++BTF_ID_FLAGS(func, bpf_clz64, KF_FASTCALL)
++BTF_ID_FLAGS(func, bpf_ctz64, KF_FASTCALL)
++BTF_ID_FLAGS(func, bpf_ffs64, KF_FASTCALL)
++BTF_ID_FLAGS(func, bpf_fls64, KF_FASTCALL)
++BTF_ID_FLAGS(func, bpf_popcnt64, KF_FASTCALL)
++BTF_ID_FLAGS(func, bpf_bitrev64, KF_FASTCALL)
++BTF_ID_FLAGS(func, bpf_rol64, KF_FASTCALL)
++BTF_ID_FLAGS(func, bpf_ror64, KF_FASTCALL)
+ BTF_KFUNCS_END(generic_btf_ids)
+ 
+ static const struct btf_kfunc_id_set generic_kfunc_set = {
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index 0162f946032f..2cb29bc1b3c3 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -12461,6 +12461,14 @@ enum special_kfunc_type {
+ 	KF_bpf_session_is_return,
+ 	KF_bpf_stream_vprintk,
+ 	KF_bpf_stream_print_stack,
++	KF_bpf_clz64,
++	KF_bpf_ctz64,
++	KF_bpf_ffs64,
++	KF_bpf_fls64,
++	KF_bpf_bitrev64,
++	KF_bpf_popcnt64,
++	KF_bpf_rol64,
++	KF_bpf_ror64,
+ };
+ 
+ BTF_ID_LIST(special_kfunc_list)
+@@ -12541,6 +12549,14 @@ BTF_ID(func, bpf_arena_reserve_pages)
+ BTF_ID(func, bpf_session_is_return)
+ BTF_ID(func, bpf_stream_vprintk)
+ BTF_ID(func, bpf_stream_print_stack)
++BTF_ID(func, bpf_clz64)
++BTF_ID(func, bpf_ctz64)
++BTF_ID(func, bpf_ffs64)
++BTF_ID(func, bpf_fls64)
++BTF_ID(func, bpf_bitrev64)
++BTF_ID(func, bpf_popcnt64)
++BTF_ID(func, bpf_rol64)
++BTF_ID(func, bpf_ror64)
+ 
+ static bool is_task_work_add_kfunc(u32 func_id)
+ {
+@@ -18204,6 +18220,34 @@ static bool verifier_inlines_helper_call(struct bpf_verifier_env *env, s32 imm)
+ 	}
+ }
+ 
++static bool bpf_kfunc_is_fastcall(struct bpf_verifier_env *env, u32 func_id, u32 flags)
++{
++	if (!(flags & KF_FASTCALL))
++		return false;
++
++	if (!env->prog->jit_requested)
++		return true;
++
++	if (func_id == special_kfunc_list[KF_bpf_clz64])
++		return bpf_jit_inlines_kfunc_call(bpf_clz64);
++	if (func_id == special_kfunc_list[KF_bpf_ctz64])
++		return bpf_jit_inlines_kfunc_call(bpf_ctz64);
++	if (func_id == special_kfunc_list[KF_bpf_ffs64])
++		return bpf_jit_inlines_kfunc_call(bpf_ffs64);
++	if (func_id == special_kfunc_list[KF_bpf_fls64])
++		return bpf_jit_inlines_kfunc_call(bpf_fls64);
++	if (func_id == special_kfunc_list[KF_bpf_bitrev64])
++		return bpf_jit_inlines_kfunc_call(bpf_bitrev64);
++	if (func_id == special_kfunc_list[KF_bpf_popcnt64])
++		return bpf_jit_inlines_kfunc_call(bpf_popcnt64);
++	if (func_id == special_kfunc_list[KF_bpf_rol64])
++		return bpf_jit_inlines_kfunc_call(bpf_rol64);
++	if (func_id == special_kfunc_list[KF_bpf_ror64])
++		return bpf_jit_inlines_kfunc_call(bpf_ror64);
++
++	return true;
++}
++
+ struct call_summary {
+ 	u8 num_params;
+ 	bool is_void;
+@@ -18246,7 +18290,7 @@ static bool get_call_summary(struct bpf_verifier_env *env, struct bpf_insn *call
+ 			/* error would be reported later */
+ 			return false;
+ 		cs->num_params = btf_type_vlen(meta.func_proto);
+-		cs->fastcall = meta.kfunc_flags & KF_FASTCALL;
++		cs->fastcall = bpf_kfunc_is_fastcall(env, meta.func_id, meta.kfunc_flags);
+ 		cs->is_void = btf_type_is_void(btf_type_by_id(meta.btf, meta.func_proto->type));
+ 		return true;
+ 	}
+@@ -23186,6 +23230,13 @@ static int fixup_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
+ 		insn_buf[4] = BPF_ALU64_REG(BPF_SUB, BPF_REG_0, BPF_REG_1);
+ 		insn_buf[5] = BPF_ALU64_IMM(BPF_NEG, BPF_REG_0, 0);
+ 		*cnt = 6;
++	} else if (desc->func_id == special_kfunc_list[KF_bpf_ffs64] &&
++		   bpf_jit_inlines_kfunc_call(bpf_ffs64)) {
++		insn_buf[0] = BPF_MOV64_IMM(BPF_REG_0, 0);
++		insn_buf[1] = BPF_JMP_IMM(BPF_JEQ, BPF_REG_1, 0, 2);
++		insn_buf[2] = *insn;
++		insn_buf[3] = BPF_ALU64_IMM(BPF_ADD, BPF_REG_0, 1);
++		*cnt = 4;
+ 	}
+ 
+ 	if (env->insn_aux_data[insn_idx].arg_prog) {
 -- 
 2.52.0
 
