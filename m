@@ -4,142 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA3AE9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 14:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E94E9A04A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JPdt3ssqUrAckvrOjBHl4EKI9j9U5QMyvfUXZCscTm4=; b=2PT4Ys9mQrfhJpj5WbLBJ6Zr/j
-	d/ccrHXH4aHv45T2n6sCMbumsfly6lMcYt+i40P0Hhbv3pnIresyNcq4c/EZS67JX+BZpTxqOzux3
-	dbvtF+iA67Z6E27oj0ehJIgqrEZoX5mIDqCYMC3YYLlYiRAMJ5UWmrK8ux0jQenVbJvHXmQTSgt1d
-	pBZry97ogb8h7ygSPn2fEOHus5NB/yfc9YBI4m3SN4Ti96DyiVKA6uDnA+MTiHF+i46iK6PTYJw56
-	qzP8vALecU+fNK1pgIQLMpvBR91UiP6kp/t+4jByuzU0MxXe9oBCZ7x/aRn83qKUFJiF3GDcN7Mj2
-	93bQZNYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T9ZYrkp01SZudmPJIGgaD1hH5p56foVqTFoUkti6vZ0=; b=yh7YcB1iDT3W16umWt6ViUeM4N
+	VSRmHFUoGcpktj3Ox+jOQwujPAPjmNMZ5mwYtUIrGzir0SGeFCjfikyRS1a9Y412C8hOy5V/fI8XM
+	PuoH2jMIK7KT+ps8Be1gmuWGlF9xiC/Uns+Xk8uf6XRcKAE23Uah/SMz2sAwnCwZVv5NfnP1ULIfh
+	3bPLr3NWS8ipdaUXIzfZRjJ5a3LCP9qwLbXO714+UYwD6934xaOBBaM1v9ZQYJDy+v7MsMSr19oaA
+	aB/SBcFNN+iYYz08ygueRDPDyqeM2I8cL8FC2dT9QO3eicZ5C8fYxf2/LPn5RpO7UVwji2+cpj69C
+	ltugmMcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5JU-0000000BTi3-3QnH;
-	Thu, 19 Feb 2026 14:47:32 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vt5Yq-0000000BUfG-1lRD;
+	Thu, 19 Feb 2026 15:03:24 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5JS-0000000BThi-0K5i
+	id 1vt5Yn-0000000BUdl-143N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 14:47:31 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61JBkqcn2883781
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 14:47:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=JPdt3ssqUrAckvrOjBHl4E
-	KI9j9U5QMyvfUXZCscTm4=; b=BxN3xIMUe0IWMFkPEiCb1gwTf+xmAsDNzwHKMs
-	PZWxGXrYuoHf0PqOm13ux2zoSSjGOOkqLVD73XP+QDW5t9yd7YMkoCFAZ2kIwOt6
-	cTZPynhn5LDMrpKICX5LUW3j+d07EhQmuFFKRqOUjirfwDzmh5Aonw0Tv8MwuP1j
-	TXhNEDGbAcI6i+C34qfo/cRWi1f4cBfZf7vQtPaLuVV6Bq+lcL+R6SBTPqftgsPS
-	3Nhf+o2LDkJII1h7OIvwfsGHau9HrrueB/ZHhdBM3JosmmMtJQX7dDwobR6PqDjS
-	Dc/Z+4l5h1++h6lAtVBYp/HrusiuwuVH4VkP5OQ2lpIhq6Rw==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cdqfg9xdm-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 14:47:28 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-354c72d23dfso5712741a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 06:47:27 -0800 (PST)
+	Thu, 19 Feb 2026 15:03:22 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4836cd6dfe6so9385085e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 07:03:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771512447; x=1772117247; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JPdt3ssqUrAckvrOjBHl4EKI9j9U5QMyvfUXZCscTm4=;
-        b=ZqkI2cpJzycqhYBUm9EBdbUCVLw3yEL/CixWULhetGmnb8iLyRrfTkrJqby8+ey40S
-         Tb7rnW6h1qESHvsXruNE5yTBMn5WZ0/VM9cozJ9dgzucD7LsVPqOXQWHRaY0tB5IFqAe
-         KO3v60TPH03A+m7rxMw8rX45om8lE5k//Tdmz34K47y+ysNaQEPEbQxbkjRZxVV3R8M0
-         2FpUgLvkCWRhraQjkI9X7hFKQsd0AGbD9wJxpH/Vf4MxdiCGqGkpEgnIk/166F30S+bK
-         uxcSnbv8Ovl/qWAXW+4lh4n5k76gKTJx+KC8vMuQvEvLuurSb8moYO/qHkjabY0VgfEC
-         RisQ==
+        d=google.com; s=20230601; t=1771513399; x=1772118199; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=T9ZYrkp01SZudmPJIGgaD1hH5p56foVqTFoUkti6vZ0=;
+        b=VV1MH0hbcH01rNVdU3ybH60b7SAygHP4ylqnW+pjKC4wtCRP+tIgTkHEvw+xYZZBXf
+         UStDA9djwkaJG4u65ns9fVThajNQ5rvCy7GFrXGkB6VHz+IhMAPWgRWPssXgno4ksjAS
+         v/P7bE7KfjNKaCppmSuNRKTmZJziwONYe23TACkmKXSmzI8WMQg/ct7bgP71s9dopWb9
+         crbqGxomM08JxJysEaOBBibVbafbwAvat6cjYZVgK1P3Y3iXuEyPxjPnoHoJnf1WBiZ4
+         WCc1jWpdJQ1Me6z9xQqKogtw1fyIJw8pQTrqSaU69bQs934697RBryEffa8SDVXUVlRU
+         HUQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771512447; x=1772117247;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JPdt3ssqUrAckvrOjBHl4EKI9j9U5QMyvfUXZCscTm4=;
-        b=UqcrwRhYUuc9wQ1YL6EN6oEb006gug3vPgt3/CBy3+Bi5tztBhz8N+wCrtXhlxGzFc
-         VAvJmsVlopGlPvMkmKasXTZso3XqFpatHzcEromZy92fesGn0X8p4rHHPxj0IS+VA/9h
-         svt+2X90zt05dtQHafl+WVcq+XNJRzTlPKnyuqUTQbUex2pjODjiwS2n9WN09hyayyvU
-         o4xMpoQKp+rtTU2cXB9iBN/gOwW/XZlFHcIRnmvLkL4I1Xd/YOfN7FRQhQEourUb+QsF
-         DkgwavsU8YgMhCDDXL3K8o6JoqrIBiqhvp1F4nsUiblAhPiI4f/+l8TTcYCdP1minI1w
-         BomQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU1+JY1Bxbbrv9wYUqzWWiYYcMbpUAw1mCf5JRDe5XPlVkzlKkPVHeTinc99pxKihni/mVyGYrcZrTO8ZUYHL9i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBnNxzzqAumoU1Am4swbvJCq19+qdRDhlD04ZaTvQ2YyIc6EAy
-	JN64jXKJvqeViBXf20DtdyyJ5Zfnmspjr0ouxHpVxqbWa8tFOae+DoDyqqlLMFcLVqdWYhw3C21
-	eu9r3lEyiwLgfCcMyMitw7KPOHPJJkzVZN2xbg4MnJ9q0+draWnygBsRR/ZiWZh1JqSU0RgJUzI
-	bJ6A==
-X-Gm-Gg: AZuq6aJwaicHSB/dXPWN7F4VspEjGEt0pI1ZR6TWdOvjqR6bXW44BZ/Zs3pC20CakwE
-	dGgaz7iFwVDcNPKy6zuWfwRTH9u01tEWAYZTLIPTgIIhOJSTZ+MBfIxcXS2oB1g9NAClvQDsHYi
-	on4TkkkUtLzNtrpCB1mJHN4hCTAHP0NMlVSWCtNRWcb5nkrvxnLWLAR5Dice+tpHgkBMe+lVHRm
-	SVv1JoJPbWIAvIHMZs9sE+QOvLJ9iV4b9CtmiPLD1BYH0QN2WSGEyLRWdOXXJgXAEwmhKlpJb4o
-	oF3ZkTu//eNTsZl1yGG3oGcMe97ABH11BqWYHMY6kCyb2wYPax92WM4O34NcsAy7QRFKWwhwWtA
-	F8NXq+Bedaf7ynSnymWrPXfD5/2/9LfqdArzqhwW7TjM3iX+3K9qj2zy+sJmNYEs/FhfT+gmSh7
-	sxdokmmGja
-X-Received: by 2002:a05:6300:194:b0:35d:5d40:6d7b with SMTP id adf61e73a8af0-394fc335a6cmr5161510637.37.1771512447235;
-        Thu, 19 Feb 2026 06:47:27 -0800 (PST)
-X-Received: by 2002:a05:6300:194:b0:35d:5d40:6d7b with SMTP id adf61e73a8af0-394fc335a6cmr5161490637.37.1771512446838;
-        Thu, 19 Feb 2026 06:47:26 -0800 (PST)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c6e52fe2300sm16443727a12.8.2026.02.19.06.47.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Feb 2026 06:47:26 -0800 (PST)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Thu, 19 Feb 2026 22:46:57 +0800
-Subject: [PATCH] coresight: ctcu: fix the spin_bug
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260219-fix-spin-lock-issue-v1-1-557f7d513d7e@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAGEil2kC/x2MQQqAMAzAviI9W3DTDfQr4kFq1aJMWVEE2d8dH
- gNJXlCOwgpd8ULkW1SOkMGUBdA6hoVRpsxgK+sra1qc5UE9JeB+0IaiejGS8zXVllzTGMjlGTl
- r/7UfUvoAEAtwRGUAAAA=
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771512443; l=1058;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=vp7ztd5ugXK3f+ehx8+I+Z5C9u6jw/jlVcFshDNqzfE=;
- b=96BTf/P6HXSz/x4/SU9pQmtVCttcTSxU8MMSNPFeTJe2JerTldczF6kme2HJBcySfhJmGYm38
- oN6jZQZrIF5DBLBSMqQ8KP3nX2guxw+kUE2vpdYKf1cOvDQRXcPm3x/
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-GUID: UpC_CpLzHIAk9cignM8J28GGEjBJk9_r
-X-Proofpoint-ORIG-GUID: UpC_CpLzHIAk9cignM8J28GGEjBJk9_r
-X-Authority-Analysis: v=2.4 cv=A6hh/qWG c=1 sm=1 tr=0 ts=69972280 cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
- a=EUspDBNiAAAA:8 a=cPoFrDRUHWFOfVYxljkA:9 a=QEXdDO2ut3YA:10
- a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE5MDEzNSBTYWx0ZWRfX9VRLGpNQ/i2R
- yOk2N/qABaxtfKijR+EPQ1ehq2NQaJNV0t8bkjPdnzdr2XtRyr9cTGk8xofMjReEAOA3VIdO7+Z
- ieVZb4KR2CTbcdfS2JElAP7j0MvWEGaRkWsfm/CsQ+/3fQTi/3hK9nxHdUqg1pJqh+70D3Sm4rI
- ORC+5O/ccXpCObYDJsijhEjTLNugd48Nt4Pygy6GmaHD//8DX2nLTQKcgNQEB/ot4FvjpeLIXKJ
- EqyKsc0L9UoYAHGmiNxksXPJrbsslSAPRpWlJLom3d2/VogBWdxGXX8UER1BGJXQogMm8r7jWzR
- 9BMoswy5np1L/kYXQ9SNXSkK172r1mIh8Hnk+twdnSziOhmeuCxcZV0J13jMURct4oj9CM/EFvH
- F/nRYjUa45c/JcuqB/2fKjyQe6owSQ2bbApXMKWpPjmmJMtEwqAGzWZL0cyi6m+RKdBi0cn33Jc
- QtYVOUH8q2yD7lomrbA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-19_04,2026-02-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 adultscore=0 impostorscore=0 suspectscore=0
- spamscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602190135
+        d=1e100.net; s=20230601; t=1771513399; x=1772118199;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T9ZYrkp01SZudmPJIGgaD1hH5p56foVqTFoUkti6vZ0=;
+        b=ekghlVDRNbiWj8mOteS6z0pZI1QIOMe2drkm/jFlpsUi9HFrCFVmezwsfTwMDaQOiv
+         KN9zJze8NcsiFlyg1M/4FlIZ8ZCirjcqOzKNGN1tknHfQjG345cYZakRhF/hCAzT7H+B
+         HxFrfT5DPDZhcRsxZ2U9gwAWK0roDryQg1ztqBYFDi2imGXwsm2hXa5pqC7VaXJi/Rew
+         Cul9xjKWziFlPfHrixTX0s3YeIazfJH22/tJhurM8QjAJMe7NiiTc+dtSBHuMnMOgOib
+         0MofvXisJ2FP6q5uhyN1cL7Uc8y5LO05dEQeRGZFRf6o/FGXktZaG80z2ap1AG4ugnb7
+         xMdw==
+X-Forwarded-Encrypted: i=1; AJvYcCU+QzXygb0DKaF1pb2+Nxh/F4IBk94OMz+FPNt7UAzvsC7DHL4opfbwifxKEI43b6eqtB65ITR4q2mC7Ah0H28u@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+CA6y56VwhlooEUYF58n8zFNQHuP0XU9vIe700d7xg99yEx2a
+	AnBE+05SBggiTBJjNEPLOlv+F+HtilWPgSeypGC4ckT10Ung4dlDeuOCSe8127AczDW1KvpgDnH
+	3fc6YWOnWoF4xurUwKHoCcQ==
+X-Received: from wmbib4.prod.google.com ([2002:a05:600c:a144:b0:480:6c91:3efb])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:34d4:b0:45d:f81d:eae7 with SMTP id 5b1f17b1804b1-48379c1fab5mr301474605e9.28.1771513398866;
+ Thu, 19 Feb 2026 07:03:18 -0800 (PST)
+Date: Thu, 19 Feb 2026 15:02:38 +0000
+In-Reply-To: <20260219150307.14538-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20260219150307.14538-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.53.0.335.g19a08e0c02-goog
+Message-ID: <20260219150307.14538-2-vdonnefort@google.com>
+Subject: [PATCH v12 01/30] ring-buffer: Add page statistics to the meta-page
+From: Vincent Donnefort <vdonnefort@google.com>
+To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	jstultz@google.com, qperret@google.com, will@kernel.org, 
+	aneesh.kumar@kernel.org, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_064730_275279_E348D723 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260219_070321_299863_C138357E 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,34 +93,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Acquiring an uninitialized raw_spin_lock is invalid and may trigger
-unexpected behavior or spin_bug.
+Add two fields pages_touched and pages_lost to the ring-buffer
+meta-page. Those fields are useful to get the number of used pages in
+the ring-buffer.
 
-Fixes: f78d206f3d73 ("Coresight: Add Coresight TMC Control Unit driver")
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- drivers/hwtracing/coresight/coresight-ctcu-core.c | 1 +
- 1 file changed, 1 insertion(+)
+Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-index abed15eb72b4..a505b90c09e3 100644
---- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-+++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-@@ -228,6 +228,7 @@ static int ctcu_probe(struct platform_device *pdev)
- 	desc.dev = dev;
- 	desc.ops = &ctcu_ops;
- 	desc.access = CSDEV_ACCESS_IOMEM(base);
-+	raw_spin_lock_init(&drvdata->spin_lock);
+diff --git a/include/uapi/linux/trace_mmap.h b/include/uapi/linux/trace_mmap.h
+index c102ef35d11e..e8185889a1c8 100644
+--- a/include/uapi/linux/trace_mmap.h
++++ b/include/uapi/linux/trace_mmap.h
+@@ -17,8 +17,8 @@
+  * @entries:		Number of entries in the ring-buffer.
+  * @overrun:		Number of entries lost in the ring-buffer.
+  * @read:		Number of entries that have been read.
+- * @Reserved1:		Internal use only.
+- * @Reserved2:		Internal use only.
++ * @pages_lost:		Number of pages overwritten by the writer.
++ * @pages_touched:	Number of pages written by the writer.
+  */
+ struct trace_buffer_meta {
+ 	__u32		meta_page_size;
+@@ -39,8 +39,8 @@ struct trace_buffer_meta {
+ 	__u64	overrun;
+ 	__u64	read;
  
- 	drvdata->csdev = coresight_register(&desc);
- 	if (IS_ERR(drvdata->csdev))
-
----
-base-commit: 44982d352c33767cd8d19f8044e7e1161a587ff7
-change-id: 20260219-fix-spin-lock-issue-c563c32c5441
-
-Best regards,
+-	__u64	Reserved1;
+-	__u64	Reserved2;
++	__u64	pages_lost;
++	__u64	pages_touched;
+ };
+ 
+ #define TRACE_MMAP_IOCTL_GET_READER		_IO('R', 0x20)
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index d33103408955..210c3811ba48 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -6149,6 +6149,8 @@ static void rb_update_meta_page(struct ring_buffer_per_cpu *cpu_buffer)
+ 	meta->entries = local_read(&cpu_buffer->entries);
+ 	meta->overrun = local_read(&cpu_buffer->overrun);
+ 	meta->read = cpu_buffer->read;
++	meta->pages_lost = local_read(&cpu_buffer->pages_lost);
++	meta->pages_touched = local_read(&cpu_buffer->pages_touched);
+ 
+ 	/* Some archs do not have data cache coherency between kernel and user-space */
+ 	flush_kernel_vmap_range(cpu_buffer->meta_page, PAGE_SIZE);
 -- 
-Jie Gan <jie.gan@oss.qualcomm.com>
+2.53.0.335.g19a08e0c02-goog
 
 
