@@ -4,105 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74DCE9A05F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 20:39:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C69E9A05F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 20:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SI/A7iNXCicM0eX7PESju9pA0T4gNBVRW7g2h/AnymA=; b=nzByhWYBeD3qf92XJHPYCqiTUh
-	d+53ie1KPxS9VMqpqIQgEg9flX+dzv+dmYmPMRfbM8rkhS1FEF4n2qSPQiwZIWDOjcVBG/qMWrSjJ
-	OWWlUn6g8ByFnOzZ6RNXz/1zm4c1PK4Cj4aCa9kMNuQZ8i0cqLSz6H1cVMRMAwcLlmTZQUFqTUzFS
-	2GvMwPFUBx2Rl2LdOikb8X6kQ4gHkxHPLfrWyhAA0pRqpf+FYtmGILBwyTQqrQH2X/Lgumvj4L1pt
-	vWcLsDx5DTA9OSguJ5p83kZXVdzU6kczO+sv2s9rb6IGIBH4BZ5izAKd00Z3Ze3pGyYt11GL6RWmJ
-	pgqhOhEA==;
+	bh=/LyC61of6qckCsyQJsiuLEDquQGrveTAmSo0V/pVP+s=; b=JexxVvPOLT0tr8U0jW43vF9sG/
+	ESAYeWzU8zjZUreqSLRBwLU6WSly8iA6sT6+sq12JPcpk9ZKDwN7gT6HY0hSV2GJnHWnEC/5xxvMh
+	4TAxKazaeuTxFC4yWkpbp6iFwtNo4xM+vy8tsbFf7a6rdR0lLCwVXYT+IwFq2kuMf9/wsuNddL0X2
+	4zYP0D2EGPDh2Br9e6rDko7DHBmanlcyGuHYNVdHUhFrR1C4TM36mvx83+nDj0puptJnHmW5UiO0l
+	+gYrumVIkt6QTjHO/J+lJ4KoiMbov93Rg9OI1o3ueAOFb01mBFQ6gGM5Bi+ibxzOoa+muIaLhLQjk
+	oPG2dXtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtAni-0000000C3bs-1cVT;
-	Thu, 19 Feb 2026 20:39:06 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
+	id 1vtAtQ-0000000C3qX-0c8Z;
+	Thu, 19 Feb 2026 20:45:00 +0000
+Received: from galaxy.gendns.com ([66.235.175.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtAng-0000000C3bU-06Z9
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 20:39:05 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-2baa098ffc6so1285105eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 12:39:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771533542; x=1772138342; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SI/A7iNXCicM0eX7PESju9pA0T4gNBVRW7g2h/AnymA=;
-        b=zclHk6F9d2ZVGalyQwoW0EiS7WMQ6wVatas12XzIXbMTRceOh00uLSueCnhvRTShU1
-         i+aE7TGpr40mUyNZjqdpEiUy9RoOUMR1W+83r8g4P3po5UAnllYMFumkWqKxR/wYwQJT
-         AtmR9GpcGP6L92Ivi2hQ3CQEL3lqXOGelvPd4obtQD3CXDO7rrzcewp9rIp7jTPtGs1X
-         Lg8E/LcT3bNCmRWUVOOFwDBfXScWhWy2r+/RnIj/mGf1LQ9jUYKpyOP0EGtE/0qDy15e
-         6HP7V4F1QdPj83Z6jzKZ4A4QIzTw4tVzrQ+5rvWAGfF50x+4m2jIFPJHAIep+RaZrLh+
-         FvgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771533542; x=1772138342;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SI/A7iNXCicM0eX7PESju9pA0T4gNBVRW7g2h/AnymA=;
-        b=kXQ7iWCfb0G3tJox0OoXjgYfo76sAvsfeGKSXADtCM8Wms025EfVOgFDMT8aL7qE7U
-         rEFxMCztN8+4HlhDxvUt52ZqKoaJPxkINBfkhdCwQBYCXcUNbULaYO7rZYVSM7RLaY8A
-         fydvOv1laaBUvbvuSVpyp+GINWON74gdGtrGLWR702rPG7wlLyb/UycuOWWGxAccwr/B
-         IKc39g1jHVtEnjUy+DnvA0jkYPVhiJQ+XJOIpJvjUZxmhcL46KNjhD2zSJhlqOzhrpY3
-         VZx4T72E5OcK/WcfgO/Q5lhpZi/ajuw1GUreGiHWzGRoX+eASLfbkuyZ/BywA7R5jiJl
-         t9Cg==
-X-Forwarded-Encrypted: i=1; AJvYcCV38x+4IZsAUjTIXOQFTh7gI1ZmfNmY7rqnry844tKj3XCUohaPpUpxZWAmWp7lqTYueJyY0kwTfkJEK6+cAGg2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6bxWIbT0JutuvUWKlmCJMCEZwkuSsejLohFOkEmiRswM49ye7
-	9GJaObbJAwoEH3cWRaVcHGFZJWWfBMa7mhg+wI4xZ27kGn3nIcd8lwU0Z5GNCjqc7Q==
-X-Gm-Gg: AZuq6aJH38GZu/ZtsMwReAy851SgBVBi/1oa9yZN8NJTMwUj+PH+0xUiT1L8t3WNgf7
-	EAI9uJFvVWIWlM4buUzv24deV8ehYBISG2bsiZE0DGviz1Wty6dVbdLFHlf+cCZ394NAyB04Pqu
-	/oPwH4lM/k34O3FN0BmTTbGRFONl94Nqs251M+xlLIU17Pkwn0Fx4+h5zhRibdvKU7oJkY0+rXS
-	JOH1cLeDHQWTytU+013qoBHrFSqyC1X9lbDOI9TrR8OE3bVz0jjGCflZdywpkiPplmEAH6POfhI
-	Ii4905hEQhS+6ACNUIhfN1xotlCNQn3EposWlLjAafsz81iuu/4rGiTLxEXo2sbCinh+MN379cN
-	dUkKgdQaTp6h3laNDtC/edIgLFew59hP5xVOBKg2ObjiaiN833g98e3AQqssPRi/z6pY0ApE2tJ
-	cPZhQxFI1D7XgFQvaq0OM5FHYzFH8rrani5Zbb0Gep7u4KA8Pi9K6C9lnxc6XW9Tz52/fFICADs
-	3GSveyjziki0rk0nHicgCHzpA==
-X-Received: by 2002:a05:7300:cb15:b0:2b0:48f7:837d with SMTP id 5a478bee46e88-2baba03cffcmr6411860eec.11.1771533541615;
-        Thu, 19 Feb 2026 12:39:01 -0800 (PST)
-Received: from ?IPV6:2a00:79e0:2e7c:8:748f:1ebc:e491:46c0? ([2a00:79e0:2e7c:8:748f:1ebc:e491:46c0])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bacb658544sm24546429eec.17.2026.02.19.12.39.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Feb 2026 12:39:01 -0800 (PST)
-Message-ID: <5bcc02b3-2785-4fc4-ab58-2dd94ea7b00a@google.com>
-Date: Thu, 19 Feb 2026 12:38:59 -0800
+	id 1vtAtM-0000000C3om-2gnL;
+	Thu, 19 Feb 2026 20:44:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=lechnology.com; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/LyC61of6qckCsyQJsiuLEDquQGrveTAmSo0V/pVP+s=; b=SKz70/rynMev/DmK8LHInKHhWO
+	9SOI9HHBtAh0eYk0aCwvQzynIszttziiAStQ4gO2hm3A+alzksSi9hvLcCo6FZsZ0FyzFTBHFTCY7
+	xfpRhyFFZaUIYhPpj9eNZkFWttlsMi6S5cguHMe1wid0iGJr6eKAiHNUNMOrH1+gQ1niCMBkTCYYH
+	ULWOXtOkrN1ke1O9AUqfEx5P0YQMEBeXZSXS1W6HSpjS+3lTBX+9NeCD0yd0Jb7RGxtRMgYVGqJFi
+	ey8VkiXZNU+sE+sD3lmm6zzBg0NL/YZJXVRn75AIuX1GhLTlCMox++Mp7mAvWauHn0n1eldek/wSA
+	eD75s5Dw==;
+Received: from ip98-183-112-25.ok.ok.cox.net ([98.183.112.25]:33812 helo=[192.168.1.142])
+	by galaxy.gendns.com with essmtpa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.99.1)
+	(envelope-from <david@lechnology.com>)
+	id 1vtAsc-0000000AopM-39os;
+	Thu, 19 Feb 2026 15:44:10 -0500
+Message-ID: <b7fd3dfe-c141-4164-80c2-ddc1f79374f8@lechnology.com>
+Date: Thu, 19 Feb 2026 14:44:05 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 5/6] power: supply: max77759: add charger driver
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v5 05/18] clk: mediatek: Add MT8189 vlpckgen clock support
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Mark Brown <broonie@kernel.org>,
- Matti Vaittinen <mazziesaccount@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20260218-max77759-charger-v7-0-e8d907ce69c5@google.com>
- <20260218-max77759-charger-v7-5-e8d907ce69c5@google.com>
- <f46fa180198ec103aeb1e1c06286c6a2a0fb8b7f.camel@linaro.org>
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Bartosz Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>,
+ Miles Chen <miles.chen@mediatek.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com,
+ vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
+References: <20260202062840.342707-1-irving-ch.lin@mediatek.com>
+ <20260202062840.342707-6-irving-ch.lin@mediatek.com>
 Content-Language: en-US
-From: Amit Sunil Dhamne <amitsd@google.com>
-In-Reply-To: <f46fa180198ec103aeb1e1c06286c6a2a0fb8b7f.camel@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: David Lechner <david@lechnology.com>
+Autocrypt: addr=david@lechnology.com; keydata=
+ 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
+In-Reply-To: <20260202062840.342707-6-irving-ch.lin@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - galaxy.gendns.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - lechnology.com
+X-Get-Message-Sender-Via: galaxy.gendns.com: authenticated_id: davidmain+lechnology.com/only user confirmed/virtual account not confirmed
+X-Authenticated-Sender: galaxy.gendns.com: davidmain@lechnology.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_123904_072061_09648F44 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20260219_124456_811135_2731670A 
+X-CRM114-Status: UNSURE (   6.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,85 +143,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre',
-
-On 2/19/26 7:52 AM, André Draszik wrote:
-> Hi Amit,
->
-> I was trying out your series and noticed a few things that I didn't before:
->
-> On Wed, 2026-02-18 at 21:59 +0000, Amit Sunil Dhamne via B4 Relay wrote:
->
-> [...]
->
->> diff --git a/drivers/power/supply/max77759_charger.c b/drivers/power/supply/max77759_charger.c
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..035f16822d85de94c7707ce11c49345c714cd559
->> --- /dev/null
->> +++ b/drivers/power/supply/max77759_charger.c
-> [...]
->
->> +		dev_err(chg->dev, "Invalid mode transition from %d to %d",
->> +			chg->mode, mode);
-> All your format strings are missing the final \n throughout this patch.
-
-Sorry will fix. I think this is because of my muscle memory from writing 
-`tcpm_log` (which doesn't require an escape character).
+On 2/2/26 12:28 AM, irving.ch.lin wrote:
+> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> 
+> Add support for the MT8189 vlpckgen clock controller, which provides
+> muxes and dividers for clock selection in vlp domain for other IP blocks.
+> 
+> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> ---
 
 
->
-> [...]
->
->> +static int max77759_charger_probe(struct platform_device *pdev)
->> +{
->> +	struct regulator_config chgin_otg_reg_cfg;
->> +	struct power_supply_config psy_cfg;
->> +	struct device *dev = &pdev->dev;
->> +	struct max77759_charger *chg;
->> +	int ret;
->> +
->> +	device_set_of_node_from_dev(dev, dev->parent);
->> +	chg = devm_kzalloc(dev, sizeof(*chg), GFP_KERNEL);
->> +	if (!chg)
->> +		return -ENOMEM;
->> +
->> +	platform_set_drvdata(pdev, chg);
->> +	chg->dev = dev;
->> +	chg->regmap = dev_get_regmap(dev->parent, "charger");
->> +	if (!chg->regmap)
->> +		return dev_err_probe(dev, -ENODEV, "Missing regmap");
->> +
->> +	ret = devm_mutex_init(dev, &chg->lock);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Failed to initialize lock");
->> +
->> +	ret = devm_mutex_init(dev, &chg->retry_lock);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret,
->> +				     "Failed to initialize retry_lock");
->> +
->> +	psy_cfg.fwnode = dev_fwnode(dev);
->> +	psy_cfg.drv_data = chg;
->> +	chg->psy = devm_power_supply_register(dev, &max77759_charger_desc,
->> +					      &psy_cfg);
->> +	if (IS_ERR(chg->psy))
->> +		return dev_err_probe(dev, -EPROBE_DEFER,
->> +				     "Failed to register psy, ret=%ld",
->> +				     PTR_ERR(chg->psy));
-> Why are you returning -EPROBE_DEFER here instead of the original error? This
-> is quite unusual.
+> +static const char * const vlp_aud_adc_parents[] = {
+> +	"clk26m",
+> +	"vowpll",
+> +	"aud_adc_ext",
 
-Will fix. The original thought was that the 
-power_supply_check_supplies() (run as part of power_supply_register()) 
-wasn't deferring probe if it didn't find its provider device but I was 
-mistaken.
+I could not find a matching clock name for "aud_adc_ext" in any
+of the other clock drivers. Which clock is this (i.e. what is the
+macro name in mediatek,mt8189-clk.h)?
 
-
-Regards,
-
-Amit
-
->
-> Cheers,
-> Andre'
+> +	"osc_d10"
+> +};
+> +
 
