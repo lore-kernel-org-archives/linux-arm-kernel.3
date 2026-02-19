@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C06E9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 12:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF552E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 12:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A38pWY1RZMuoMAUnXA7bYRaxUuEoHlRtdEk4zIu3MNw=; b=nlKNUY1nvIii50yIYYt/F7DgTO
-	jLpRMcX1C89Ugqu8C65J0GT5z31Ze4eMgjOGz3H/aZEj14uy8asykd2OjAZYNnqxL4WLZml3Cddyj
-	eZ/IYb3PK90Bcqd6+NqCRf4vWrFTovr8QflWE6/0HKgXNj/auXQDkx5LORnq8xbeKmXY3hofie7Z0
-	wevlKJvN0FDNSt611nPUarJYK0haC/shQ6nUtrTN6e7goObQpz+W5dIxXyfnTqRd1jOURzKNBiwlf
-	RilY4+mSj+ANQrmoQ5GTGNtHcBcOSSOgPMOts0jr+ohPKhK3nANQCabgtqpz19Tl7PEAUGvhH0nPZ
-	LgD2yyuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QASDHXqa+whnp1wMSUdBpc7bY+IX8UXTrJ1WX3q6X7s=; b=gJaU8bnu+V6AA9JMwPv7A5SJcz
+	oaYSrywl0Cm1igmWlXUVVbAgvS3WH8+6j1btxk3Yj+DLS+83XssoOcOPbZuy9jyhUSGpUTZBsnnJi
+	3zzligSJvwtYvEYv9FzE+2qh2xLFjNkiEbVIxiZQZ6zafRl2Id0z9aiLzcCvtjU8ptzvnRgLCGTdJ
+	VvYPrrzA0fyHz7xaj5/hfcySjCjNUisYGcZxohq2CCWa1jhCLjfW6/xKQTEGrmX3UhddJl5s7Vccv
+	zVeZWWJ2xQ4zDf1JaYLE3VG/dH3YqK0JNMlMUaG3BeKy1zg6zpqJXnS2uGrx2w0NtUW+yQq+DeyUd
+	uTOM7Usw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt3BW-0000000BKz6-3Qdt;
-	Thu, 19 Feb 2026 12:31:10 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1vt3F7-0000000BLBe-1uBH;
+	Thu, 19 Feb 2026 12:34:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt3BU-0000000BKyK-1wGc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 12:31:09 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4362197d174so595787f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 04:31:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771504266; x=1772109066; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=A38pWY1RZMuoMAUnXA7bYRaxUuEoHlRtdEk4zIu3MNw=;
-        b=B5zDOC42Le9Nq2nFuHw4kQ8YIhcyRFVQv+CueRuISXVWNQCeYijUDRU9fHj78m8Kox
-         bbaH7IyVmt11nveSzKrwT0wAKz6w3FJs7wGRwBklViCQmTEKSHWahu0jV6uceEQ9W+md
-         0yYpofDfTSwcyx2vJNIaWeXPkF3pSjbUoN6Eu1ymNeM/b0HZgUQ3y5/D9FGTyHWmxaP8
-         6D+xgOMCLJ/ma8srxEPqs8HjxkAeBVmLfFvoh8esbohMim3ncgZQ0piiPQoLh7xThV+y
-         oqOTU2DJUonsNq3VZmwOooTcVm1hz/7UEWtoaBR5UF2yc8CYGSMsLW0w8raG9nwzr79E
-         xFxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771504266; x=1772109066;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A38pWY1RZMuoMAUnXA7bYRaxUuEoHlRtdEk4zIu3MNw=;
-        b=gNDyUtMgnf06rS+VdKTsiiam1ZXJoqAJBOe/MPa+dUISVFP9s3hthyDlT/4JUQKybF
-         mwM7Xt4chtf1ZcGQZ3ZJYpp3ylpz311nYe4kjXvM0ws2BIjKTOF4WZ/qdxSi4omNMUUe
-         IJOCSdXjhyqw130FWlDb+uQn+jrx0jYVI9olE/yjlNeNLhZawNB2yw4ZcUmdrKLTL3pn
-         REerYOvAoeVL/ngz/Tsgmn5KNDfH5QqDTD2IgMjNxrmrs639hR9sXCr+FdhYpp6Yj1Yn
-         alClCfurmJeKMaZFht3rIsFPzonW0jYppQviTeEewItrGiavP18hGG3JTE/fnvXRW0B9
-         KPnQ==
-X-Gm-Message-State: AOJu0YwZyLf/3UgetLZ5bjIXxNzkDc7z9eM+fNi27nSMavYneINKIK5y
-	2jGL3A+ntEaKBegKQbQgNHXFPWda097gv9Ly1hhL8vYh2dWmIVfbuxbtReoDcLaaPQc=
-X-Gm-Gg: AZuq6aKQOuT2VSATQHVXUKm3axkpF8DJcpdbLri6hyqJhNOd4jQnQ0Wd23D3VjXg1cS
-	0S4TXN2qRiPmZij6xGde7c4JreDdb+tXsqPe95DUAZ2xjoeExyA4xupkBdCgzbRbbEgwj+VUCUK
-	JIPzRZ2IkWN9nJlcRjc7nWfnCcmxAruIA6s16htsTislshpluC+akXc24sOgcSS0EBKK9YxmfsV
-	sF7B2Z6755optK0wrH9DuQFRBT/bQy5MQh+dsUXlA/kBM4Eh482+chf6P/1rDLQ05tvJQT5HiR6
-	DzGFFnq0669CbXd/4I51Bw4ALA03RtpNC/IcfrlX8UC+CDoITy/TbpX88NQQXRaLfa3vs5HgDDY
-	ZXzyEV+u31yCQhwWursUprpTQztiAQhikL8jh8opcIN+ivq/skFeVJoTk/4hMwSQU9UeMevBTx1
-	3JsUYqpDhvLEMSc+zvnHFpyudwWrF/M1cjxSkI3mv4Hh64XjPQs3y8eI/t6Tud4t/In3XtFMnHj
-	/u6nA==
-X-Received: by 2002:a05:6000:1a8d:b0:436:8061:7f91 with SMTP id ffacd0b85a97d-43958e3b989mr9948997f8f.41.1771504265971;
-        Thu, 19 Feb 2026 04:31:05 -0800 (PST)
-Received: from localhost.localdomain ([196.119.106.230])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a6ba57sm40206990f8f.15.2026.02.19.04.31.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Feb 2026 04:31:05 -0800 (PST)
-From: Reda CHERKAOUI <redacherkaoui67@gmail.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
+	id 1vt3F5-0000000BLBE-3CGZ;
+	Thu, 19 Feb 2026 12:34:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 296774182D;
+	Thu, 19 Feb 2026 12:34:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 536FBC4CEF7;
+	Thu, 19 Feb 2026 12:34:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771504490;
+	bh=YAnTtW57ZsdLmBjDX/bZxNdgmLb1OfT40saBIA53b+8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AFv89y4HUrTsz55/lVePGduxlo1QW2hsrJMrQYPcKfU7w79IurjiiFvXeJqJXfWO+
+	 y2HHpNtgrWFDe+peo9jOgmUFwQ9Y8F/0zXj/DIec3H1jPvEWVxJ2SYGJY/Ox+u+KQp
+	 V9POIMxoMXbQO8LxFQ3R+2aj47t6Q6ljv3U6o/1Eu8hccju8vy+xKCZ8WhTCldBQf/
+	 r6wd/FImfaPo3x82tZ0KOdbA5s+cZlsaV4DvRVs/sBiQ6ZRD3Yy1nBYlaYeq1z40I3
+	 X1EkGwClGvrrzDuppebolhSMbvX4hqxsQA8pFJKjYd9Ytxvebavm+XuKH6CZN08gPA
+	 l+aWwuaqnr1RA==
+Date: Thu, 19 Feb 2026 12:34:44 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Detlev Casanova <detlev.casanova@collabora.com>,
 	linux-kernel@vger.kernel.org,
-	Reda CHERKAOUI <redacherkaoui67@gmail.com>
-Subject: [PATCH 2/2] arm64/mm: avoid max_pinned_asids underflow
-Date: Thu, 19 Feb 2026 12:30:07 +0000
-Message-ID: <20260219123007.9101-1-redacherkaoui67@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH] ASoC: rockchip: i2s-tdm: Use param rate if not provided
+ by set_sysclk
+Message-ID: <00698644-63dd-45b0-b43b-a7bc0fa459b1@sirena.org.uk>
+References: <20260218201834.924358-1-detlev.casanova@collabora.com>
+ <20260219093718b7d29076@mail.local>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="55fmptbvw0r6A80C"
+Content-Disposition: inline
+In-Reply-To: <20260219093718b7d29076@mail.local>
+X-Cookie: glibido:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_043108_529605_D0CB035F 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20260219_043451_824092_B8FA82D4 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,42 +82,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Reda CHERKAOUI <redacherkaoui67@gmail.com>
----
- arch/arm64/mm/context.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index 74c1ece7db78..fdcee1127954 100644
---- a/arch/arm64/mm/context.c
-+++ b/arch/arm64/mm/context.c
-@@ -386,11 +386,7 @@ static int asids_update_limit(void)
- 		if (pinned_asid_map)
- 			set_kpti_asid_bits(pinned_asid_map);
- 	}
--	/*
--	 * Expect allocation after rollover to fail if we don't have at least
--	 * one more ASID than CPUs. ASID #0 is reserved for init_mm.
--	 */
--	WARN_ON(num_available_asids - 1 <= num_possible_cpus());
-+
- 	pr_info("ASID allocator initialised with %lu entries\n",
- 		num_available_asids);
- 
-@@ -399,7 +395,11 @@ static int asids_update_limit(void)
- 	 * even if all CPUs have a reserved ASID and the maximum number of ASIDs
- 	 * are pinned, there still is at least one empty slot in the ASID map.
- 	 */
--	max_pinned_asids = num_available_asids - num_possible_cpus() - 2;
-+	if (WARN_ON(num_available_asids <= num_possible_cpus() + 2))
-+		max_pinned_asids = 0;
-+	else
-+		max_pinned_asids = num_available_asids - num_possible_cpus() - 2;
-+
- 	return 0;
- }
- arch_initcall(asids_update_limit);
--- 
-2.43.0
+--55fmptbvw0r6A80C
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Thu, Feb 19, 2026 at 10:37:18AM +0100, Alexandre Belloni wrote:
+> On 18/02/2026 15:18:34-0500, Detlev Casanova wrote:
+
+> > +		if (!mclk_rate)
+> > +			mclk_rate = DEFAULT_MCLK_FS * params_rate(params);
+> > +
+
+> Maybe this could be set as the default value of i2s_tdm->mclk_rx_freq
+> and i2s_tdm->mclk_tx_freq in rockchip_i2s_tdm_probe instead of relying
+> on it being 0 and testing later on?
+
+That makes sense but since this is fixing a regression and I'd like to
+get the fix in I'll apply, we can improve things incrementally.
+
+--55fmptbvw0r6A80C
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmXA2MACgkQJNaLcl1U
+h9Ctsgf8CssLHe47N22ZRkgHcLkjAj5HSKx85p5fThpOXttkqWXR39rMZqpMpus3
+kemlx0F0ycZFJ0QfizRsfw9P4irvqgIL9YEGSztV7NONyp7O4rMhU0jUubpjIX+V
+bIa7BC22qD1h/3vIgarZAwnfnAzgqVpEjoHECp7/6aHASRzGFiH6CR3i/gUo2MRU
+nJMlmqyx0U9xeWeg4VJuUWd4T2W3TbjFdzo9aslqS7pKJvk9pytKVlJBLKIiSeN+
+hQf3XJJhEYBzsclLTBbF84cVeiUtaPatdZMLuNYx6m861iI2Ut4bIY2ccfMfPUnH
+628Y2IrK8Uy1KwpQfzpMaVOJsXS2Ng==
+=IFYo
+-----END PGP SIGNATURE-----
+
+--55fmptbvw0r6A80C--
 
