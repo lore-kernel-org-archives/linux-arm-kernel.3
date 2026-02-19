@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B795BE9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 14:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74282E9A04A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 14:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jNWdJdK58m69LHIGW7l7DEM1Iok2ekKHAFCQkjcDuSU=; b=LuLFVCZwjPcnepaOUqknja5jlt
-	Z4xR262aVYkiJvrvUxdeIPs8GHAGJaCGcK73AuVuPlpe8med9mvqX5atspPzj4vZW21wGCwzCF6UU
-	BtY5gCftRLKh2FyqWtCYfK6UFTyBib0/YqxuXRYHVhkwTgZfKhQqHWuF8SSUISn5CF915t9mtcdqJ
-	X9v30x3LEXK5SrygO+aBYXO9ebUH78u9hxdByE0yoVa/E+VHii7KHV/w1Pkdnegp12dhR3Kni4638
-	vII5VGQ1VfyFvCqBtmWgSSo/9vm2v3fEv+qhPkWb16tJAN1HDGtRp/G+gn3MvI+9apYsGzDKCgH4t
-	q3ngjAgw==;
+	bh=TDysQwXc7CzQOBmT/kFdKL3V02JclHexDCmLhDyq0UI=; b=pGKrUvRnASfyMfXZxuYvJI8p3S
+	o+gdi1qp/ZcYQEtVuuG5elGsnXQK7M42CKtTh3AZaPtJ7w66uYnwfTuvBjNoOlk2GfQyUC8zA8HTz
+	gu4yp6qT+QfdqdRX7Fl9sEPudJWpy3A8eFrSz29FHlaMdg0NuoxHrUkatxtTHpEuEk6LnIugxTLlN
+	XuUr9bNIarhi9LgJNYs0qG3Bty4YsqKYOQwMQSBhzzJQDOMbSl5YpC5HJII+lzEgitte2jZrT8ovu
+	gSblMiu3W41n5akcI1a8UAnQUNp45Nm491kaa6u1ykHr7Ocl57gkrWI6/en9XHvmrp2L+0bFkm3XF
+	jRu9yb9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt54G-0000000BSKq-3a3h;
-	Thu, 19 Feb 2026 14:31:48 +0000
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	id 1vt54U-0000000BSRj-32uo;
+	Thu, 19 Feb 2026 14:32:02 +0000
+Received: from out-187.mta1.migadu.com ([95.215.58.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt54D-0000000BSJJ-3ZmL
+	id 1vt54R-0000000BSOU-34gq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 14:31:47 +0000
+	Thu, 19 Feb 2026 14:32:01 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771511502;
+	t=1771511516;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=jNWdJdK58m69LHIGW7l7DEM1Iok2ekKHAFCQkjcDuSU=;
-	b=pmq3iPTU63sGP1ZRWI1plSYlIte7DRbyd44PXvjrbFkYECiRO2VgIlPGgGYL84uz3EB28a
-	l66sqiSOUYeMXIAIyJkZkrwGIRzeuQWlmkkdDPEuthjbgQ+eODaXueBFgt4EY9LOVQREtV
-	jYWNkODtdCcUubHfy1Q5R3NBRGfFRHA=
+	bh=TDysQwXc7CzQOBmT/kFdKL3V02JclHexDCmLhDyq0UI=;
+	b=eSagwIndy6NTov4HnTmGveVQ7Qn3mncFyVvmyz6/94sXxh9PvILdu/4ZsjM/jt0WTU9S2a
+	BLdhXtWb30gxjHiVKtHZ/zt/WN0NAILwChi84PC8tvqHMBEEPCQsRcj3+ZmZh4gq04SNWw
+	ALGgmG0EwvspQPRPbgdPHikpTLSCxls=
 From: Leon Hwang <leon.hwang@linux.dev>
 To: bpf@vger.kernel.org
 Cc: Alexei Starovoitov <ast@kernel.org>,
@@ -72,17 +72,17 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	kernel-patches-bot@fb.com
-Subject: [PATCH bpf-next v2 4/6] selftests/bpf: Add tests for 64-bit bitops kfuncs
-Date: Thu, 19 Feb 2026 22:29:26 +0800
-Message-ID: <20260219142933.13904-5-leon.hwang@linux.dev>
+Subject: [PATCH bpf-next v2 5/6] selftests/bpf: Add __cpu_feature annotation for CPU-feature-gated tests
+Date: Thu, 19 Feb 2026 22:29:27 +0800
+Message-ID: <20260219142933.13904-6-leon.hwang@linux.dev>
 In-Reply-To: <20260219142933.13904-1-leon.hwang@linux.dev>
 References: <20260219142933.13904-1-leon.hwang@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_063146_106800_6E345140 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20260219_063159_930208_C1904B9E 
+X-CRM114-Status: GOOD (  22.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,303 +97,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add selftests for bpf_clz64(), bpf_ctz64(), bpf_ffs64(), bpf_fls64(),
-bpf_bitrev64(), bpf_popcnt64(), bpf_rol64(), and bpf_ror64().
+Add a new __cpu_feature("...") test annotation and parse it in
+selftests/bpf test_loader.
 
-Each subtest compares kfunc results against a userspace reference
-implementation over a set of test vectors.
+Behavior:
+- Annotation value is matched against CPU feature tokens from
+  /proc/cpuinfo (case-insensitive).
+- Multiple __cpu_feature annotations can be specified for one test; all
+  required features must be present.
+- If any required feature is missing, the test is skipped.
+
+Limitation:
+- __cpu_feature is evaluated per test function and is not scoped per
+  __arch_* block. A single test that combines multiple architectures
+  cannot express different per-arch feature requirements.
+
+This lets JIT/disassembly-sensitive tests declare explicit CPU feature
+requirements and avoid false failures on unsupported systems.
 
 Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
 ---
- .../testing/selftests/bpf/bpf_experimental.h  |   9 +
- .../testing/selftests/bpf/prog_tests/bitops.c | 182 ++++++++++++++++++
- tools/testing/selftests/bpf/progs/bitops.c    |  68 +++++++
- 3 files changed, 259 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/bitops.c
- create mode 100644 tools/testing/selftests/bpf/progs/bitops.c
+ tools/testing/selftests/bpf/progs/bpf_misc.h |   7 +
+ tools/testing/selftests/bpf/test_loader.c    | 150 +++++++++++++++++++
+ 2 files changed, 157 insertions(+)
 
-diff --git a/tools/testing/selftests/bpf/bpf_experimental.h b/tools/testing/selftests/bpf/bpf_experimental.h
-index 9df77e59d4f5..02a985ef71cc 100644
---- a/tools/testing/selftests/bpf/bpf_experimental.h
-+++ b/tools/testing/selftests/bpf/bpf_experimental.h
-@@ -594,6 +594,15 @@ extern void bpf_iter_dmabuf_destroy(struct bpf_iter_dmabuf *it) __weak __ksym;
- extern int bpf_cgroup_read_xattr(struct cgroup *cgroup, const char *name__str,
- 				 struct bpf_dynptr *value_p) __weak __ksym;
+diff --git a/tools/testing/selftests/bpf/progs/bpf_misc.h b/tools/testing/selftests/bpf/progs/bpf_misc.h
+index c9bfbe1bafc1..75e66373a64d 100644
+--- a/tools/testing/selftests/bpf/progs/bpf_misc.h
++++ b/tools/testing/selftests/bpf/progs/bpf_misc.h
+@@ -126,6 +126,12 @@
+  *                   Several __arch_* annotations could be specified at once.
+  *                   When test case is not run on current arch it is marked as skipped.
+  * __caps_unpriv     Specify the capabilities that should be set when running the test.
++ * __cpu_feature     Specify required CPU feature for test execution.
++ *                   Multiple __cpu_feature annotations could be specified.
++ *                   Value must match a CPU feature token exposed by
++ *                   /proc/cpuinfo (case-insensitive).
++ *                   Can't be used together with multiple __arch_* tags.
++ *                   If any required feature is not present, test case is skipped.
+  *
+  * __linear_size     Specify the size of the linear area of non-linear skbs, or
+  *                   0 for linear skbs.
+@@ -156,6 +162,7 @@
+ #define __arch_riscv64		__arch("RISCV64")
+ #define __arch_s390x		__arch("s390x")
+ #define __caps_unpriv(caps)	__attribute__((btf_decl_tag("comment:test_caps_unpriv=" EXPAND_QUOTE(caps))))
++#define __cpu_feature(feat)	__attribute__((btf_decl_tag("comment:test_cpu_feature=" feat)))
+ #define __load_if_JITed()	__attribute__((btf_decl_tag("comment:load_mode=jited")))
+ #define __load_if_no_JITed()	__attribute__((btf_decl_tag("comment:load_mode=no_jited")))
+ #define __stderr(msg)		__attribute__((btf_decl_tag("comment:test_expect_stderr=" XSTR(__COUNTER__) "=" msg)))
+diff --git a/tools/testing/selftests/bpf/test_loader.c b/tools/testing/selftests/bpf/test_loader.c
+index 338c035c3688..3729d1572589 100644
+--- a/tools/testing/selftests/bpf/test_loader.c
++++ b/tools/testing/selftests/bpf/test_loader.c
+@@ -4,6 +4,7 @@
+ #include <stdlib.h>
+ #include <test_progs.h>
+ #include <bpf/btf.h>
++#include <ctype.h>
  
-+extern __u64 bpf_clz64(__u64 x) __weak __ksym;
-+extern __u64 bpf_ctz64(__u64 x) __weak __ksym;
-+extern __u64 bpf_ffs64(__u64 x) __weak __ksym;
-+extern __u64 bpf_fls64(__u64 x) __weak __ksym;
-+extern __u64 bpf_bitrev64(__u64 x) __weak __ksym;
-+extern __u64 bpf_popcnt64(__u64 x) __weak __ksym;
-+extern __u64 bpf_rol64(__u64 x, __u64 s) __weak __ksym;
-+extern __u64 bpf_ror64(__u64 x, __u64 s) __weak __ksym;
-+
- #define PREEMPT_BITS	8
- #define SOFTIRQ_BITS	8
- #define HARDIRQ_BITS	4
-diff --git a/tools/testing/selftests/bpf/prog_tests/bitops.c b/tools/testing/selftests/bpf/prog_tests/bitops.c
-new file mode 100644
-index 000000000000..9acc3cb1908c
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/bitops.c
-@@ -0,0 +1,182 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <test_progs.h>
-+#include "bitops.skel.h"
-+
-+struct bitops_case {
-+	__u64 x;
-+	__u64 s;
-+	__u64 exp;
+ #include "autoconf_helper.h"
+ #include "disasm_helpers.h"
+@@ -44,6 +45,7 @@
+ #define TEST_TAG_EXPECT_STDOUT_PFX "comment:test_expect_stdout="
+ #define TEST_TAG_EXPECT_STDOUT_PFX_UNPRIV "comment:test_expect_stdout_unpriv="
+ #define TEST_TAG_LINEAR_SIZE "comment:test_linear_size="
++#define TEST_TAG_CPU_FEATURE_PFX "comment:test_cpu_feature="
+ 
+ /* Warning: duplicated in bpf_misc.h */
+ #define POINTER_VALUE	0xbadcafe
+@@ -67,6 +69,11 @@ enum load_mode {
+ 	NO_JITED	= 1 << 1,
+ };
+ 
++struct cpu_feature_set {
++	char **names;
++	size_t cnt;
 +};
 +
-+static struct bitops_case cases[] = {
-+	{ 0x0ULL, 0, 0 },
-+	{ 0x1ULL, 1, 0 },
-+	{ 0x8000000000000000ULL, 63, 0 },
-+	{ 0xffffffffffffffffULL, 64, 0 },
-+	{ 0x0123456789abcdefULL, 65, 0 },
-+	{ 0x0000000100000000ULL, 127, 0 },
-+};
+ struct test_subspec {
+ 	char *name;
+ 	bool expect_failure;
+@@ -93,6 +100,7 @@ struct test_spec {
+ 	int linear_sz;
+ 	bool auxiliary;
+ 	bool valid;
++	struct cpu_feature_set cpu_features;
+ };
+ 
+ static int tester_init(struct test_loader *tester)
+@@ -145,6 +153,16 @@ static void free_test_spec(struct test_spec *spec)
+ 	free(spec->unpriv.name);
+ 	spec->priv.name = NULL;
+ 	spec->unpriv.name = NULL;
 +
-+static __u64 clz64(__u64 x, __u64 s)
-+{
-+	(void)s;
-+	return x ? __builtin_clzll(x) : 64;
-+}
++	if (spec->cpu_features.names) {
++		size_t i;
 +
-+static __u64 ctz64(__u64 x, __u64 s)
-+{
-+	(void)s;
-+	return x ? __builtin_ctzll(x) : 64;
-+}
-+
-+static __u64 ffs64(__u64 x, __u64 s)
-+{
-+	(void)s;
-+	return x ? (__u64)__builtin_ctzll(x) + 1 : 0;
-+}
-+
-+static __u64 fls64(__u64 x, __u64 s)
-+{
-+	(void)s;
-+	return x ? 64 - __builtin_clzll(x) : 0;
-+}
-+
-+static __u64 popcnt64(__u64 x, __u64 s)
-+{
-+	(void)s;
-+	return __builtin_popcountll(x);
-+}
-+
-+static __u64 bitrev64(__u64 x, __u64 s)
-+{
-+	__u64 y = 0;
-+	int i;
-+
-+	(void)s;
-+
-+	for (i = 0; i < 64; i++) {
-+		y <<= 1;
-+		y |= x & 1;
-+		x >>= 1;
++		for (i = 0; i < spec->cpu_features.cnt; i++)
++			free(spec->cpu_features.names[i]);
++		free(spec->cpu_features.names);
++		spec->cpu_features.names = NULL;
++		spec->cpu_features.cnt = 0;
 +	}
-+	return y;
+ }
+ 
+ /* Compiles regular expression matching pattern.
+@@ -394,6 +412,122 @@ static int get_current_arch(void)
+ 	return ARCH_UNKNOWN;
+ }
+ 
++static int cpu_feature_set_add(struct cpu_feature_set *set, const char *name)
++{
++	char **tmp, *norm;
++	size_t i, len;
++
++	if (!name || !name[0]) {
++		PRINT_FAIL("bad cpu feature spec: empty string");
++		return -EINVAL;
++	}
++
++	len = strlen(name);
++	norm = malloc(len + 1);
++	if (!norm)
++		return -ENOMEM;
++
++	for (i = 0; i < len; i++) {
++		if (isspace(name[i])) {
++			free(norm);
++			PRINT_FAIL("bad cpu feature spec: whitespace is not allowed in '%s'", name);
++			return -EINVAL;
++		}
++		norm[i] = tolower((unsigned char)name[i]);
++	}
++	norm[len] = '\0';
++
++	for (i = 0; i < set->cnt; i++) {
++		if (strcmp(set->names[i], norm) == 0) {
++			free(norm);
++			return 0;
++		}
++	}
++
++	tmp = realloc(set->names, (set->cnt + 1) * sizeof(*set->names));
++	if (!tmp) {
++		free(norm);
++		return -ENOMEM;
++	}
++	set->names = tmp;
++	set->names[set->cnt++] = norm;
++	return 0;
 +}
 +
-+static __u64 rol64(__u64 x, __u64 s)
++static bool cpu_feature_set_has(const struct cpu_feature_set *set, const char *name)
 +{
-+	s &= 63;
-+	return (x << s) | (x >> ((-s) & 63));
-+}
-+
-+static __u64 ror64(__u64 x, __u64 s)
-+{
-+	s &= 63;
-+	return (x >> s) | (x << ((-s) & 63));
-+}
-+
-+static void test_bitops_case(const char *prog_name)
-+{
-+	struct bpf_program *prog;
-+	struct bitops *skel;
 +	size_t i;
++
++	for (i = 0; i < set->cnt; i++) {
++		if (strcmp(set->names[i], name) == 0)
++			return true;
++	}
++	return false;
++}
++
++static bool cpu_feature_set_includes(const struct cpu_feature_set *have,
++				     const struct cpu_feature_set *need)
++{
++	size_t i;
++
++	for (i = 0; i < need->cnt; i++) {
++		if (!cpu_feature_set_has(have, need->names[i]))
++			return false;
++	}
++	return true;
++}
++
++static const struct cpu_feature_set *get_current_cpu_features(void)
++{
++	static struct cpu_feature_set set;
++	static bool initialized;
++	char *line = NULL;
++	size_t len = 0;
++	FILE *fp;
 +	int err;
-+	LIBBPF_OPTS(bpf_test_run_opts, topts);
 +
-+	skel = bitops__open();
-+	if (!ASSERT_OK_PTR(skel, "bitops__open"))
-+		return;
++	if (initialized)
++		return &set;
 +
-+	prog = bpf_object__find_program_by_name(skel->obj, prog_name);
-+	if (!ASSERT_OK_PTR(prog, "bpf_object__find_program_by_name"))
-+		goto cleanup;
++	initialized = true;
++	fp = fopen("/proc/cpuinfo", "r");
++	if (!fp)
++		return &set;
 +
-+	bpf_program__set_autoload(prog, true);
++	while (getline(&line, &len, fp) != -1) {
++		char *p = line, *colon, *tok;
 +
-+	err = bitops__load(skel);
-+	if (!ASSERT_OK(err, "bitops__load"))
-+		goto cleanup;
++		while (*p && isspace(*p))
++			p++;
++		if (!str_has_pfx(p, "flags") &&
++		    !str_has_pfx(p, "Features") &&
++		    !str_has_pfx(p, "features"))
++			continue;
 +
-+	for (i = 0; i < ARRAY_SIZE(cases); i++) {
-+		skel->bss->in_x = cases[i].x;
-+		skel->bss->in_s = cases[i].s;
-+		err = bpf_prog_test_run_opts(bpf_program__fd(prog), &topts);
-+		if (!ASSERT_OK(err, "bpf_prog_test_run_opts"))
-+			goto cleanup;
++		colon = strchr(p, ':');
++		if (!colon)
++			continue;
 +
-+		if (!ASSERT_OK(topts.retval, "retval"))
-+			goto cleanup;
-+
-+		ASSERT_EQ(skel->bss->out, cases[i].exp, "out");
++		for (tok = strtok(colon + 1, " \t\n"); tok; tok = strtok(NULL, " \t\n")) {
++			err = cpu_feature_set_add(&set, tok);
++			if (err) {
++				PRINT_FAIL("failed to parse cpu feature from '/proc/cpuinfo': '%s'",
++					   tok);
++				break;
++			}
++		}
 +	}
 +
-+cleanup:
-+	bitops__destroy(skel);
++	free(line);
++	fclose(fp);
++	return &set;
 +}
 +
-+#define RUN_BITOPS_CASE(_bitops, _prog)					\
-+	do {								\
-+		for (size_t i = 0; i < ARRAY_SIZE(cases); i++)		\
-+			cases[i].exp = _bitops(cases[i].x, cases[i].s);	\
-+		test_bitops_case(_prog);				\
-+	} while (0)
-+
-+static void test_clz64(void)
++static int parse_cpu_feature(const char *name, struct cpu_feature_set *set)
 +{
-+	RUN_BITOPS_CASE(clz64, "bitops_clz64");
++	return cpu_feature_set_add(set, name);
 +}
 +
-+static void test_ctz64(void)
-+{
-+	RUN_BITOPS_CASE(ctz64, "bitops_ctz64");
-+}
+ /* Uses btf_decl_tag attributes to describe the expected test
+  * behavior, see bpf_misc.h for detailed description of each attribute
+  * and attribute combinations.
+@@ -650,9 +784,20 @@ static int parse_test_spec(struct test_loader *tester,
+ 				err = -EINVAL;
+ 				goto cleanup;
+ 			}
++		} else if (str_has_pfx(s, TEST_TAG_CPU_FEATURE_PFX)) {
++			val = s + sizeof(TEST_TAG_CPU_FEATURE_PFX) - 1;
++			err = parse_cpu_feature(val, &spec->cpu_features);
++			if (err)
++				goto cleanup;
+ 		}
+ 	}
+ 
++	if (spec->cpu_features.cnt && __builtin_popcount(arch_mask) != 1) {
++		PRINT_FAIL("__cpu_feature requires exactly one __arch_* tag");
++		err = -EINVAL;
++		goto cleanup;
++	}
 +
-+static void test_ffs64(void)
-+{
-+	RUN_BITOPS_CASE(ffs64, "bitops_ffs64");
-+}
+ 	spec->arch_mask = arch_mask ?: -1;
+ 	spec->load_mask = load_mask ?: (JITED | NO_JITED);
+ 
+@@ -1161,6 +1306,11 @@ void run_subtest(struct test_loader *tester,
+ 		return;
+ 	}
+ 
++	if (!cpu_feature_set_includes(get_current_cpu_features(), &spec->cpu_features)) {
++		test__skip();
++		return;
++	}
 +
-+static void test_fls64(void)
-+{
-+	RUN_BITOPS_CASE(fls64, "bitops_fls64");
-+}
-+
-+static void test_bitrev64(void)
-+{
-+	RUN_BITOPS_CASE(bitrev64, "bitops_bitrev");
-+}
-+
-+static void test_popcnt64(void)
-+{
-+	RUN_BITOPS_CASE(popcnt64, "bitops_popcnt");
-+}
-+
-+static void test_rol64(void)
-+{
-+	RUN_BITOPS_CASE(rol64, "bitops_rol64");
-+}
-+
-+static void test_ror64(void)
-+{
-+	RUN_BITOPS_CASE(ror64, "bitops_ror64");
-+}
-+
-+void test_bitops(void)
-+{
-+	if (test__start_subtest("clz64"))
-+		test_clz64();
-+	if (test__start_subtest("ctz64"))
-+		test_ctz64();
-+	if (test__start_subtest("ffs64"))
-+		test_ffs64();
-+	if (test__start_subtest("fls64"))
-+		test_fls64();
-+	if (test__start_subtest("bitrev64"))
-+		test_bitrev64();
-+	if (test__start_subtest("popcnt64"))
-+		test_popcnt64();
-+	if (test__start_subtest("rol64"))
-+		test_rol64();
-+	if (test__start_subtest("ror64"))
-+		test_ror64();
-+}
-diff --git a/tools/testing/selftests/bpf/progs/bitops.c b/tools/testing/selftests/bpf/progs/bitops.c
-new file mode 100644
-index 000000000000..deac09bc8683
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/bitops.c
-@@ -0,0 +1,68 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include "vmlinux.h"
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_experimental.h"
-+
-+__u64 in_x;
-+__u64 in_s;
-+
-+__u64 out;
-+
-+SEC("?syscall")
-+int bitops_clz64(void *ctx)
-+{
-+	out = bpf_clz64(in_x);
-+	return 0;
-+}
-+
-+SEC("?syscall")
-+int bitops_ctz64(void *ctx)
-+{
-+	out = bpf_ctz64(in_x);
-+	return 0;
-+}
-+
-+SEC("?syscall")
-+int bitops_ffs64(void *ctx)
-+{
-+	out = bpf_ffs64(in_x);
-+	return 0;
-+}
-+
-+SEC("?syscall")
-+int bitops_fls64(void *ctx)
-+{
-+	out = bpf_fls64(in_x);
-+	return 0;
-+}
-+
-+SEC("?syscall")
-+int bitops_bitrev(void *ctx)
-+{
-+	out = bpf_bitrev64(in_x);
-+	return 0;
-+}
-+
-+SEC("?syscall")
-+int bitops_popcnt(void *ctx)
-+{
-+	out = bpf_popcnt64(in_x);
-+	return 0;
-+}
-+
-+SEC("?syscall")
-+int bitops_rol64(void *ctx)
-+{
-+	out = bpf_rol64(in_x, in_s);
-+	return 0;
-+}
-+
-+SEC("?syscall")
-+int bitops_ror64(void *ctx)
-+{
-+	out = bpf_ror64(in_x, in_s);
-+	return 0;
-+}
-+
-+char _license[] SEC("license") = "GPL";
+ 	if (unpriv) {
+ 		if (!can_execute_unpriv(tester, spec)) {
+ 			test__skip();
 -- 
 2.52.0
 
