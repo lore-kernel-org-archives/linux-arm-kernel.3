@@ -4,60 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77C07E9A050
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 16:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19773E9A050
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 16:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Rpi5B9mieofuRvn4aUQgU1WELLotMUCncPEC7vcJmQ=; b=A78mbrdYWYL3B6DD7/wAAxucX5
-	AP4bH3wEoYgeNTTEmgkar5JYCc/xITJ+bsGoTiFVmVIyZ1x/yevw8cG61oRdjq2Fic7RrQd8RNHiE
-	oFVx8tZN+iicweTcyBbLeqCgDy25I4C/VvfdpL45gpJ4GGnnHciEZwOv6E1080YnoKd+84AE5MbRb
-	h6ZICmhxg7poB5Qbehq8Txfd2HrD8b7dj7Y4poxiPbLhzfMuPD16UOiAgA2/5azGGurAuVtKZ98yn
-	BvUJFURJ8jGH764nTcLW4ookfnAY5qQS9p1zN96HpJXeL7u+r0aHc89OkpoIOJC+Yr6YwfuF6Ws92
-	8rwJMILg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IW3jBurWWiSVBgp9ow/AJfZsWMAiwx6/MeVyFpniDvo=; b=FlJNUmZPrzfkuutdFryUq+RNDV
+	72ufseYQuWvsF57yiiVHzK4SmNFyUZIpoisACsJLlTyG7mkGsfPgGyHzQjt/gQn8rlMTUdWmkoaV+
+	dgvdCXzCC1bRH1fAvx2kIJb7IwZHXO8HYK4aUYkzHV1dgfPLQWhFNwc8bA6mGHQTyfNL9P6i4qlEE
+	6bsv+zsfjqYYFT61S260IcOV5h/8zRcgx6uBy+WxBVfLUtYdv0V/zmaqBtXsqpt8ALRoQcHoqkK72
+	fk1xIsdH/wiw24gwbuPNAXFBH8NnsiAXXu5it8pgGWbvKrReh/dJXVvsDCrlSSMTx9Irgpafhgiwg
+	1CbTwLRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt77N-0000000Be5N-3JCp;
-	Thu, 19 Feb 2026 16:43:09 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vt77h-0000000BeAq-2Xt0;
+	Thu, 19 Feb 2026 16:43:29 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt77L-0000000Be4k-1XWr
+	id 1vt77f-0000000BeA6-1O28
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 16:43:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=+Rpi5B9mieofuRvn4aUQgU1WELLotMUCncPEC7vcJmQ=; b=HeL4Yi7uHthOqg7HIMXDPjEeSs
-	T8KR2XIToBHFMuoU1k9u7uWKxwLThW5JgSs+1gH7h/vtYsGVC1yFdTxesf6qZovamS4vb4qhhKmqV
-	pA2fGflVHNoBhm2+7xHWfEg2N9rXdEb7BthfX8ZVQT6JfzDelsenC6++UWU43B7JfDaY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vt77A-007wRj-FZ; Thu, 19 Feb 2026 17:42:56 +0100
-Date: Thu, 19 Feb 2026 17:42:56 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Srinivas Neeli <srinivas.neeli@amd.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	richardcochran@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, git@amd.com
-Subject: Re: [RFC PATCH 0/8] xilinx: tsn: Add TSN Endpoint Ethernet MAC
- driver support
-Message-ID: <5f884e29-151a-4ee7-9e1a-d7e1f84d9f6c@lunn.ch>
-References: <20260219054911.2017362-1-srinivas.neeli@amd.com>
+	Thu, 19 Feb 2026 16:43:28 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-48336a6e932so8048005e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 08:43:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1771519405; x=1772124205; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IW3jBurWWiSVBgp9ow/AJfZsWMAiwx6/MeVyFpniDvo=;
+        b=ptMlrfjcQOtb9iQq4PdMVI652ARJ6wu/yedTzUtUHp+Di3vMXukbb8EImXOdE/1rPH
+         NG5E79F+tDNCG1p43ExoSKiqrb5Yg7inB7Q2oWy+gRwELbWhA/0Rnsi9OERiCi0Ln9uL
+         hrxdoB3h/d9ruG63FFoCK/d1RZFUCyK95AyDbeShps2gQ4GUgowac265mpjm1WAnbYzL
+         7N7YbGLhefD/z/hbyzbuxqrvhO+pJq8V7SDWX49FEdXYa8jKDA/+AWKAIxpBcs3AI4CS
+         2tatdybEu6nmZKqcs3jAHC6Arj7RpsDHhOD6qcWNaZopcbIKwS51gbB/606hn6kNchCJ
+         5d+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771519405; x=1772124205;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IW3jBurWWiSVBgp9ow/AJfZsWMAiwx6/MeVyFpniDvo=;
+        b=eJD9LQmqvfDOZjZ69jbowR7mbPBlpJmyS3KAgpNP6ehDp4zLXuBeBUwelEFfSvjLOq
+         lXAxamU76901NZQNsVfIh4V7v8OvbYBsPDIXdkvMcg2AWhGia8YroxWobhbpREJcIW3a
+         XmWlhO7KiTaAca6XHDXuGfJLJyHmK/A6c5DD4GIUqta1UMigG3aNp7ErMECbe8stvm4I
+         OsaWCw5W+TQDAf3EolqRw8SCPjKSGNzgTYr/ejEylrF9FADJVm6DDG8uv5IbrYD9lHiZ
+         oI0U8O3vQo759xD/MYlhZxOTcYZ+GAvUEV9gpNdmOIlfPVIjrMrVcZa60xseZgAORa0z
+         Hp+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXElBUMaqNkG/68Nr9ILlOHd9I92n/vmBlSNRomwgIoyiZsHfDD3cwAY3WYFgke86kmrg3EjCd5AfIMHGVieM1I@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx83L3MExHGn4C1rYU/HBJk1n+vDigJ8GRMt4VQ4FALMNzhw40r
+	tRBLhx01cU4s1+U9iLaE42h2qEr1slLgFMS7FsNqOBJb9nfuZbpN1C6xcpwPtcw9rCr2ngvBnHp
+	q3NUALcQ=
+X-Gm-Gg: AZuq6aLKZuSA++NmV7EupX9+zsIZm8PXDJTAh5MAOSSBnQI62Wmbg9S7u5UlpzfjeCz
+	JwnbKxFWTvKxVcggPvCSr3V0nmT3nhFeUPJlSpMQTHKwpgpRxk18Q5IQQNEx20YxhJHoqvksAKn
+	LX5Knd2LWOjGGkKC1RLOl8yqUxem/U27ZDjkVnevTYz8zEcEqhuk904sPqAtuRiQLzTTYpVelBq
+	it169LteoHjGpsASw2uGhfnIqls0Km4Gu6YtiwKRM6jxVjfMvsp5f8DV6pu6y2vk58KYrgPk86W
+	jA+zHsilcy4H3DR8mOhH0LFKrcfHaRwrb8as7ukQe4jkPo7QiuFhbr/lPEaGEU70UeBYotWR8in
+	95kxKf5ZfOXjybRA+6l15no5lHSIcaecV7FL4L/F4PLCIyl4ctEBEW8mVUbNezVsuj2QSSRCnGL
+	sxg9wjlMychzLdM6o9eq1I2xtdj/JNzJhgG2yDZ+w=
+X-Received: by 2002:a05:600c:468b:b0:47e:e20e:bbb2 with SMTP id 5b1f17b1804b1-48379b93583mr304822705e9.7.1771519404895;
+        Thu, 19 Feb 2026 08:43:24 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4839ea1e7e1sm22080125e9.2.2026.02.19.08.43.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Feb 2026 08:43:24 -0800 (PST)
+Message-ID: <ca4e55e0-d0cb-4079-9f88-36d64624049a@linaro.org>
+Date: Thu, 19 Feb 2026 16:43:23 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260219054911.2017362-1-srinivas.neeli@amd.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: ctcu: fix the spin_bug
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+References: <20260219-fix-spin-lock-issue-v1-1-557f7d513d7e@oss.qualcomm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260219-fix-spin-lock-issue-v1-1-557f7d513d7e@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_084307_411753_0CBB6CF6 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20260219_084327_392956_30420CF0 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,102 +105,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 11:19:03AM +0530, Srinivas Neeli wrote:
-> Introduce a new network driver for the AMD LogiCORE 100M/1G TSN
-> Subsystem IP, also known as the TSN Endpoint Ethernet MAC, which
-> implements IEEE 802.1 Time-Sensitive Networking (TSN) features for
-> deterministic and low-latency Ethernet communication in real-time and
-> industrial automation use cases.
+
+
+On 19/02/2026 2:46 pm, Jie Gan wrote:
+> Acquiring an uninitialized raw_spin_lock is invalid and may trigger
+> unexpected behavior or spin_bug.
 > 
-> IP Core Overview:
-> The AMD LogiCORE 100M/1G TSN Subsystem IP solution (named as TSN Endpoint
-> Ethernet MAC IP in the IP catalog) implements IEEE 802.1 Time Sensitive
-> Networking (TSN) Standards and provides a low latency Bridged Endpoint or
-> Endpoint only solutions.
-
-So an Endpoint only solution is not connected to the switch? It
-outputs RGMII, can have a PHY connected to it, and so is a single
-netdev interface? You would typically use this in a client?
-
-But you can also instantiate the same MAC multiple times, connected to
-an Ethernet switch? That would be the bridged endpoint?
-
-> The bridged endpoint solution consists of a 3-port
-> switch that connects to an endpoint including Linux software drivers. For
-> Bridged Endpoint (Switch Endpoint), two ports connects to the network and
-> one port connects to an internal Endpoint.
-
-To the host, does the internal endpoint just look like a standard
-netdev?
-
-What i'm trying to do is get an answer to: Is this a DSA switch, or a
-pure switchdev switch. If the host sees a netdev which is connected to
-a port of the switch, it is probably a DSA switch. If the host only
-sees the user ports, it is probably a pure switchdev switch.
-
-> It supports the use of
-> GMII/RGMII interfaces connecting to a physical-side interface (PHY) chip
-> with full duplex 100 Mb/s and 1 Gb/s operations.
-
-No 10Mbps support?
-
-> - Provides feature rich Ethernet Switch that caters to various network
->   needs
-> 	* 3-port Switch (2-external, 1-internal)
-> 	* Programmable cut-through and store-forward operations
-> 	* 4-port Switch (2-external, 2-internal) extension through
->           'Endpoint Extension' and 'Endpoint Packet Switching' features
-
-Why not N-ports? Is it really set to 3 or 4? It cannot be synthesised
-for 5, 8?
-
-> Sample hardware architecture diagram for Bidge End Point like below:
+> Fixes: f78d206f3d73 ("Coresight: Add Coresight TMC Control Unit driver")
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-ctcu-core.c | 1 +
+>   1 file changed, 1 insertion(+)
 > 
->              +------------------+
->              |      MCDMA       |
->              +---------+--------+
->                     Q0---Q7
->                        |
->           +------------------------------------------------------------ +
->           |            |	 TSN sub system(Bridge End Point)	|
->           |            |                                                |
->           |     +------+----+  Port 0   +-----------------------+       |
->           |     |  EndPoint |<--------->|       TSN Switch      |       |
->           |     |    (EP)   |           +----+-------------+----+       |
->           |     +-----------+                |             |            |
->           |                                  |             |            |
->           |                              Port 1         Port 2          |
->           |                                  |             |            |
->           |                            +-----------+  +-----------+     |
->           |                            |  MAC-1    |  |  MAC-2    |     |
->           |                            |  (ETH1)   |  |  (ETH2)   |     |
->           |                            +-----+-----+  +-----+-----+     |
-> 	  |			             |		    |           |
->           |				     |              |           |
->           +-------------------------------------------------------------+
->                                              |              |           
->                                           RGMII           RGMII
->                                              |              |
->                                       +-----------+  +-----------+
->                                       |  PHY1     |  |  PHY2     |
->                                       | (Port 0)  |  | (Port 2)  |
->                                       +-----------+  +-----------+
-> 									  
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> index abed15eb72b4..a505b90c09e3 100644
+> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> @@ -228,6 +228,7 @@ static int ctcu_probe(struct platform_device *pdev)
+>   	desc.dev = dev;
+>   	desc.ops = &ctcu_ops;
+>   	desc.access = CSDEV_ACCESS_IOMEM(base);
+> +	raw_spin_lock_init(&drvdata->spin_lock);
+>   
+>   	drvdata->csdev = coresight_register(&desc);
+>   	if (IS_ERR(drvdata->csdev))
+> 
+> ---
+> base-commit: 44982d352c33767cd8d19f8044e7e1161a587ff7
+> change-id: 20260219-fix-spin-lock-issue-c563c32c5441
+> 
+> Best regards,
 
-So how does the host send a frame out Port 2? Is there an extra header
-on the frame sent by EndPoint, which the switch interprets?
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-FYI: Seems like PHY1 (port 0) is a typO.
+I checked the other ones and they're all initialized, this was the only 
+missing one.
 
-> - During driver initialization, all switch ports (Endpoint, MAC1, MAC2)
->   are configured into the Forwarding state to enable data flow across the
->   fabric.
-
-Which is wrong. The Linux model is that switch ports are just
-netdevs. You configure them just like every other netdev in the
-system. Newly created netdevs are standalone. They only allow frames
-to pass between the wire and the host. If you want them to L2 forwards
-frames between ports you need to add them to a bridge.
-
-	Andrew
 
