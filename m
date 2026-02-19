@@ -4,62 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E191E9A053
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 18:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEA5E9A053
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 18:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nrmuFJtx/xFV37s1HrUTVNNYNqMAOEdHaltFHcO5V3g=; b=2nlzIfU7m1NuVeSMv9Vx4dObQF
-	gXw/5AuyFDbzQMnOVmqCkTVY6c+8gd7e9WiCF1MCAHI3z1f6LH6Zt5+LWoT6xTvRHPKfC4VqveDsz
-	Bpor32B0vYgp5HVc6SGqPwqe1pGAQZBnRBQ6JsuvQVwioDIeMK9/gK0qhWcYCROUBuOvnKOfJ+OdE
-	CSkqm2l2NaJcsBgSV6ayXfKTFQLRT/h8ce9HYMljKbg9HSrZr/H89X2dXD89UrCghd8SOhK41Waj3
-	YdiRpjcd6TDgNP/JRcmSH8X3DMBMrgtlqFwIcrAboIr0UY9u62VOK28xtAZOI3ZCPpELVpzv2G9FY
-	Akw/h1Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4xbAOul5b8jY2HHKd0/CR/Nj4YU7dqrPThGNTl0SCqM=; b=nZcaMv/UVXaxADd3yyB7d3naDP
+	DHCmB70MhZrejarIy56c8osQ3SmeCNmm1ZijiKJrlzlLZj26RwMA2Jtyzq5Bq2MkXoVtNwn6okNfE
+	D0xXE5Kf+ujGQ5yW5gpHhfXBz+Wofy9BQdVTSDtayiujaWL0MfHN04BzwCrq23kV9RS0/J/x2+58c
+	1ppv+DPnwOJJa6h1roCnf6KHLF0UrqSy1mloA7asRtfYcbTj7CGnWUCMJ4/iBSNg/BfQbXLINabtr
+	w5DfTXrftVGf7CoBX4qaaV6L6ZgPFKXYvdUIVHdwCFZljcq+lLB1PBmhripgMnzlTvb/sWOgtIe/j
+	QHIfrF7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt8M3-0000000BkKc-42O0;
-	Thu, 19 Feb 2026 18:02:23 +0000
-Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
+	id 1vt8Xd-0000000BknH-1aHZ;
+	Thu, 19 Feb 2026 18:14:22 +0000
+Received: from mail-westus3azon11011004.outbound.protection.outlook.com ([40.107.208.4] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt8M1-0000000BkKH-17Wd
+	id 1vt8Xb-0000000BkmT-0uX4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 18:02:22 +0000
-Received: from omf06.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay04.hostedemail.com (Postfix) with ESMTP id B2B8A1A05C3;
-	Thu, 19 Feb 2026 18:02:17 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf06.hostedemail.com (Postfix) with ESMTPA id 56CE52000E;
-	Thu, 19 Feb 2026 18:02:14 +0000 (UTC)
-Date: Thu, 19 Feb 2026 13:02:20 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- jstultz@google.com, qperret@google.com, will@kernel.org,
- aneesh.kumar@kernel.org, kernel-team@android.com,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v12 00/30] Tracefs support for pKVM
-Message-ID: <20260219130220.063c8db3@gandalf.local.home>
-In-Reply-To: <20260219150307.14538-1-vdonnefort@google.com>
-References: <20260219150307.14538-1-vdonnefort@google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Thu, 19 Feb 2026 18:14:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sLhW2xKOdSv0R2FsliYyKRWdqMqnKjAKfdYHdXi4nNkJXxug2peploDyMiSDRkSCiubBOLS0wda2yDs3WbwTpmAuEOEBi26/wwPLlxHCw6Y4yqmZO++omjIUwqLC7dCK3HOYUbCgDhuCsIyUsitylVIvv1fkNGgpruBemqv9JR+3z0xjXmNvGecTNwTDa7pjkMLxZqGv/2/1zWfXU12CN79Ha4REoEx8IPOjv+vu1IsTbx2CFCpenFB0Ik/50S6hC52dSIpOg9T6nN3lIErxjsQ996ubmK7jK8KcD5AL6WMEVZgDPeH3rsvUVd92rcXpBhaVH5P0+sN7/RZ66K89Mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4xbAOul5b8jY2HHKd0/CR/Nj4YU7dqrPThGNTl0SCqM=;
+ b=yHnI/hYC+Wld7tSEULkC9AbUPV2d7L5ik3G1euRedORbk0OIavYqkqROpgeylK/y79cODkh8aILiYsFJ7aroL7Hei9oZclMu7iQ+pdXoY7a6dMuvPcamO79VBPui4tQiHYAuh9SKYJVmfzZuhSouXJwpGWkxiCv/ipiZotr0MRLtGwHp5JIPGU37TaUgK6EW+DNKMuHXDHSdDY0/MpqgwrzgZFUVV/mKu6iZxjKhcyTK+2jEl5IdgV1oMU2wUeHOpkzFIl0XgUo1G0CQ9J8ZdZwUyOA8cTTE7OqXOU9ijKA7KA8CCuqDRqvAiPF2KDUDBYuxYmsbYul4cKYR3Ji7tg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4xbAOul5b8jY2HHKd0/CR/Nj4YU7dqrPThGNTl0SCqM=;
+ b=QVAkWKD2wW5d99kDS8SJUiOIf8sR9me6kIqMMvIeCQ1UM1bNvqmBKn3K4/S3xGxoOJ5b/yzxwG0LqSElNBby+lR5mGSuDoIGZ3oz8WSd2nIPfQzPSIkOmWm7roHsH20+iLPxjBs2JtpDoNP2njA9fpeokYHzlerpC4fivwrj/vujuSysfGSRKYRHJhgZ8NhT2WCDm/Y6WAQ9nDAZddc1HgDJJVkdnEkukg64rUltrjRbyEeI3VQbe3WKhpN/g5QyMwnWeCJ0wJF7noj8FSuaEHRDqDDDlgwsp05y92eLkAyRXeqt9GPOGco1DnG4fQ395mqRNm4iX+2OCOzhMTLMVw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from PH0PR12MB8800.namprd12.prod.outlook.com (2603:10b6:510:26f::12)
+ by IA0PR12MB7674.namprd12.prod.outlook.com (2603:10b6:208:434::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.16; Thu, 19 Feb
+ 2026 18:14:11 +0000
+Received: from PH0PR12MB8800.namprd12.prod.outlook.com
+ ([fe80::f79d:ddc5:2ad7:762d]) by PH0PR12MB8800.namprd12.prod.outlook.com
+ ([fe80::f79d:ddc5:2ad7:762d%4]) with mapi id 15.20.9632.010; Thu, 19 Feb 2026
+ 18:14:10 +0000
+From: Yury Norov <ynorov@nvidia.com>
+To: linux-kernel@vger.kernel.org,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Antoine Tenart <atenart@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Geetha sowjanya <gakula@marvell.com>,
+	Ingo Molnar <mingo@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Jerin Jacob <jerinj@marvell.com>,
+	Linu Cherian <lcherian@marvell.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Leach <mike.leach@linaro.org>,
+	Moritz Fischer <mdf@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Simon Horman <horms@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Subbaraya Sundeep <sbhatta@marvell.com>,
+	Sunil Goutham <sgoutham@marvell.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Tom Rix <trix@redhat.com>,
+	Xu Yilun <yilun.xu@intel.com>,
+	Yajun Deng <yajun.deng@linux.dev>,
+	Yury Norov <yury.norov@gmail.com>,
+	Zhang Rui <rui.zhang@intel.com>,
+	hariprasad <hkelam@marvell.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fpga@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	netdev@vger.kernel.org
+Cc: Yury Norov <ynorov@nvidia.com>
+Subject: [PATCH 00/12] cleanup bitmaps printing in sysfs
+Date: Thu, 19 Feb 2026 13:13:52 -0500
+Message-ID: <20260219181407.290201-1-ynorov@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BN0PR04CA0146.namprd04.prod.outlook.com
+ (2603:10b6:408:ed::31) To PH0PR12MB8800.namprd12.prod.outlook.com
+ (2603:10b6:510:26f::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: 3in7iq53re3wcp4bjfb45ehj6p83i6w8
-X-Rspamd-Server: rspamout03
-X-Rspamd-Queue-Id: 56CE52000E
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX189EHO2cj0/ER1Y3s2xm8l7FxzngbV/18k=
-X-HE-Tag: 1771524134-16267
-X-HE-Meta: U2FsdGVkX18KsOW634c556Ay13vHARR3KG4iY9bpKgjeimF0kt32KKjae7aXrRnSMJvjA24rkCK1I2KRg6sbjxJ4TuWrR61mVJD2cJ0Md77TIqpMR46+fiK1TW7LwmkXwHbJgeYwTaQLsvKdGP64eU9XY5K6aTGQuiytjdf7LgNTVVhPHrEszyGEi+0EsoLYqoydPvHsWxetb78EJZV+8+Fb8NZAqef5y3BfvnJW4bxA/sBaUm5auwcuTGYwiowNUjGGHA40xyhyOyNL8X/ne61begI9OBko2AupzQZjhIq7xw99cqZ4nRkajdMKJWGMsz7fTOODChuVshdY889FxsOPUcjSK03I
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR12MB8800:EE_|IA0PR12MB7674:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95594654-ab1f-4b64-1d7c-08de6fe2adc2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|10070799003|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ylwAa26eKvDTRWjoxYTQl53W2tWXlgE3Oc83pTdGzFEZ6j3wf3xx8CUtn17Q?=
+ =?us-ascii?Q?EgKgmb8//5+U4qoXpbtl9nmf3/kYAr94lXBNmWXRVzNMgDa38xSPObUC7Ff7?=
+ =?us-ascii?Q?uzLtmcsRn7m1CqMUJxiScRYp1VJbGHFQw/v4zuHd4hOHkhutjctqtg9vd/xN?=
+ =?us-ascii?Q?P29izKVtK1dAa2VgphWzmq6W6Syqmiwj6rh9ebRTVVU/7rzrakTceFAYw2GC?=
+ =?us-ascii?Q?wzJHvVj2wZtyzKExq5R+8hDREUXlJJhcE9RDygwpcUmMjXgo+gXD6OToIbCq?=
+ =?us-ascii?Q?SmozqtyN/SaCUhM5F13doxyX/pw3k3YJ9yY/hkyyQybqLk8ZNkKMcoA9m1Mk?=
+ =?us-ascii?Q?vtTGzuuLot+nzBMry19nTuZDMeQO0cKiwlnOB8mamBlESOj3uKIXHdBS3h+N?=
+ =?us-ascii?Q?6+Eh3C51N/Fc+xPSlV1gYuwB222LMl+wH6/5NUCfnaxqGhZ12dgylOUaPstm?=
+ =?us-ascii?Q?lewQiLuvbtcKn+TdtIJwv3OqP6qjiX1tix1jYNlboE1ej5220BRd+8YDo1me?=
+ =?us-ascii?Q?78GMnJZE08KuKUuWb2wrO470lvJ1R2KaeXHjeE9gyCi0QsSuazMC/lmrBRSx?=
+ =?us-ascii?Q?tRbIgxkU03pO8J8C9gEOlR8dXcOVTOX/URIkBQ9JWh0Pqlh8KRCAqTC/Rq0t?=
+ =?us-ascii?Q?xj2jO13Kl2Ds2y5hqrgZpv4TabdN8c+jq3Ncg6QuWJoGGhinGQVmmJIslhSX?=
+ =?us-ascii?Q?Ma+7P/A2OWeGmo5Hj76uP87rMhgEurh7VrDp3LJZCm/w0tbwjzTxXuw6X+B6?=
+ =?us-ascii?Q?y9LvX8d1N4OO+Z9/KT2clfnzIX4SQslQpzdjeKyzNzGecrWHYCazPx90T+K/?=
+ =?us-ascii?Q?5DBdOd7TtI0cbBVwdJjvw2Trwu6eWFQVl4SwqTZ5j2DbJlPfSrt46YYTz9rQ?=
+ =?us-ascii?Q?sqn4NlkZfxYAZCnAgXOWD4ginfNLHYxl4N8rkLsbfuYY2Gh43YAmg3WY5zJ0?=
+ =?us-ascii?Q?kZy5BdAXMiBlUGbvgomF8SN99Imb9OqqUcBIuP4tIa23d24v3zoa4nehy0sL?=
+ =?us-ascii?Q?Cpp7Vdn4hJIwRhupKOUqi197RJk5aCxeuNcCgAnPdT4qVfFL8PXGqC+ruBnb?=
+ =?us-ascii?Q?ge7PvX3u7fY1gpJsGeOPUfdH0jeefRbydtjfLuPjB2xvVR2Zgw6Vr059q78m?=
+ =?us-ascii?Q?f118O7AL/5QQn0kk4gxvY6uZWEc3aDoE/b6n1XX0wd8b4RqjQ+GTak3zqrFz?=
+ =?us-ascii?Q?kZgKRz769zGNZN9Kljoti0Cmyw7bweoYY2kcwiBBrM8VJ6cfnqo2eHa2hTDB?=
+ =?us-ascii?Q?lH5WIeVaMyBgaYk3On1+ZvU9Wtjr6JDKpGpaKqJHP+JwF3bur5HVsgoJOVnr?=
+ =?us-ascii?Q?TMlADmZk73V7odMQmOCjccUoStOxArmi6NfvnrdlOvnLxTDEdrmI13GpOvq8?=
+ =?us-ascii?Q?oP5NPs9yc11nZVkFFrRUYwZACvv7xfAfrzVnJIpoJFtqkHoidvmvURDo/ZHV?=
+ =?us-ascii?Q?okyu790rVoExEjxsGES+9goT/L3TqNGciHfNbYBDeF36SHW9jPG3fq101Uqe?=
+ =?us-ascii?Q?1OhZGVyogk8Plj0WDRmoy6d5OwIuA06rQF5IKCuZj8OSRs5U+HJXVgi57bzN?=
+ =?us-ascii?Q?b7vmA6yCNHHIcb3GrL30fxFbLH9ktnLqkEv/VU3J3qf5x6EYpsZAF4V+VSwJ?=
+ =?us-ascii?Q?wA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR12MB8800.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(10070799003)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GY+dhMEsv6f9haOebPfabM/pikAhTM3FIYck+ggOILMzp9mGAlKnbNt4nUbc?=
+ =?us-ascii?Q?Npfwl4whsC1IzWpQwJt7271H9ECFzKtS56xXtN650/r1+K2BYIRColJTtVER?=
+ =?us-ascii?Q?q0VSp8wFXw+cHqsPxrsuujrGovWU0pWL/qzaW3HRjQJilyNyc26dfnTTUJ+Z?=
+ =?us-ascii?Q?kHcBPRVSZIx6BN2Z/mkbDHX9Je+SN7yWski8ajL6YFmM/RSKEE9Bw8ZLTAp9?=
+ =?us-ascii?Q?R78flduFJ+7PCyKOnMPY8N1yIAdf7F3YliVNKu9gslupN1lH6vL5nAQGjVE4?=
+ =?us-ascii?Q?m45FC0ImEQ7E7zZpnisisILh9ajTVAhPCGwx1gy4ca/bVAqVQD2z9Yi8/HNS?=
+ =?us-ascii?Q?ZkqOhxxwOktsGQlHNNLA8R7iDVUY2CXJ+yyWWDFxZFweo3XjWm0bZ/BrVqM+?=
+ =?us-ascii?Q?ORtoG69EVjekRaKQn/Yhrw/p4rxgJRLthlyH+RpAZL1HrSH3VYqsGZxMO+yq?=
+ =?us-ascii?Q?941JhqQsBEaIM3wVUCYHIbhPcfeLjn8N4bIfHii8c6VpaPOlbA4w4LC3N+21?=
+ =?us-ascii?Q?8njGeI3t8m++MN3/0YKWJFOn8zsbT00sTCk25EagnS0Ma3DyNN8wKNeLOuXV?=
+ =?us-ascii?Q?yyA0NndOMny6YuxVZPFcfrj1rpsZy2DN3/oE1uFWFunypB//VOgzLVWnpGtM?=
+ =?us-ascii?Q?tmD47joCUHT1O+UQKJRX3iwv9sZFHJKvNyKwesc6SteNAA+/Qx3qLZeRBV2I?=
+ =?us-ascii?Q?Cmp7LGMq5md3mU6r+bG7a7vgu3STlCf2gmhTjUPRuX8LdB8Ajq8qkx4u29HZ?=
+ =?us-ascii?Q?1Dt/YEmWMGDtftVktOuRjBNBugtjy4YsBU0+gFv1btMVIAuzCcI2dR6MlMVF?=
+ =?us-ascii?Q?qNqac7kHr21688PsmcRXMOHBtpGSz7Tc24p//H3Rt7pDjEOarbFh1aQ2CZIH?=
+ =?us-ascii?Q?UhxwH7q0prPMc42Q+grHwZF6lB1Iy7jMFA8bBe6XUObj2ckMUKbXhbCTmSBS?=
+ =?us-ascii?Q?FRJub2Rhmm3oIOks+/IpSCCQ/2ueYH/X9KMqUOdCnJHGXzXZ3m+n0yfqqX49?=
+ =?us-ascii?Q?Ft6GToe8dVZ7PIEw51AIB9T2dyPQqQXQMDLpu4MX6AYd8bPO5QbUSXv4lriD?=
+ =?us-ascii?Q?DQ63T4D4LN/gx1v6V0hfGNECjFpsF9DyV1tu0no8O/z9ZkyxLKfxeE20PeI+?=
+ =?us-ascii?Q?XMm4LiW29a6kj2X5eB8aeilLtpf7jEFQvt3ruBYFv0V7PICSsDN0eUMjcCf3?=
+ =?us-ascii?Q?8TOtcAQxX8jJapuq9MdUn5N2iM+d5scdHviSQMuTJLA3H6VlPszZZIwidfer?=
+ =?us-ascii?Q?u8EQG0v3K7LPDV3ciKvRnJBlBJsfbksMFJa7I2GNdd6wrPrMKwPZLCsxYfR9?=
+ =?us-ascii?Q?8GE9Sn9gHTkeFMWkgf5nJh6G9CkXcZZl3AGJMtvLbQKw+3fnn9AWgAzxYSkG?=
+ =?us-ascii?Q?LSp50JtR3Mz+vJcv8D5b+cQIHSIoIps8bY0OGZpoU1MvXEwBjoyyRyJ/dbEW?=
+ =?us-ascii?Q?UMNvgA6vS7z6ummyFOK0SGutO6aBn4aVkbwksenAut8FtcsYKFPrub/hWZ+u?=
+ =?us-ascii?Q?UknDSi/EAfW3rFj6G25iwUSOZ4YAOEwGuhG6bB8F2aHvFCoLimvv/Ijg45Vc?=
+ =?us-ascii?Q?I/s5LvXNU/i/Sjkz9AUQA6TSdlCtzbCrAyiDrayNCSBrwUjvRL4XJ/CN0Ljy?=
+ =?us-ascii?Q?aZGg6v4dfn79im5BHoqCbR4t9hUz8d0goOG3viHGrkmjceo//oFAm2HjwdTV?=
+ =?us-ascii?Q?eM4rVlRBojw7IoyTbupPKOzW8iyhlKIvlrOsyI6eSmDr1UVLGrddfbm7dDER?=
+ =?us-ascii?Q?ryJEWGGom4wlZb11rpiJfxuN6s9ITB0x5a24nicyKtQ/nHl+Psvq?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95594654-ab1f-4b64-1d7c-08de6fe2adc2
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR12MB8800.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 18:14:10.6782
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aKc3KNBJ6MrnqtD3WphYpe2e8lr7vxluyOmHHH+4fP1y/doKOxDRm/DKRQ6IMRHAO0GPGz4muo+WsCHrYCFGPg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7674
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_100221_369479_2412C76A 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20260219_101419_263870_3573F61B 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +202,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Feb 2026 15:02:37 +0000
-Vincent Donnefort <vdonnefort@google.com> wrote:
+Bitmap API has a bitmap_print_to_pagebuf() function that is intended to
+print bitmap into a human readable format, making sure that the output
+string will not get big enough to cross the current page limit.
 
-> The growing set of features supported by the hypervisor in protected
-> mode necessitates debugging and profiling tools. Tracefs is the
-> ideal candidate for this task:
-> 
->   * It is simple to use and to script.
-> 
->   * It is supported by various tools, from the trace-cmd CLI to the
->     Android web-based perfetto.
-> 
->   * The ring-buffer, where are stored trace events consists of linked
->     pages, making it an ideal structure for sharing between kernel and
->     hypervisor.
-> 
-> This series first introduces a new generic way of creating remote events and
-> remote buffers. Then it adds support to the pKVM hypervisor.
-> 
+Some drivers use this function immediately before passing the result to
+seq_printf() with no modification. This is useless because seq_pritf()
+takes care of not overflowing the buffer by itself, and perfectly prints
+bitmaps with "%*pb[l]".
 
-So I finished my review of all the tracing patches, but I just realized
-that there's likely going to be some major conflicts with changes in the
-tracing tree that's going to happen against this series.
+The first 6 patches of the series convert such bitmap_print_to_pagebuf()
+users to just print the bitmap with seq_printf().
 
-To solve that, after -rc2 comes out, I'll apply the tracing portion of this
-series to a branch in my tree directly on top of -rc2 and I will then use
-that to base my changes for the next merge window.
+Patch #7 adds (actually moves from net/p9 driver) a handy macro
+rest_of_page() and applies it globally.
 
-Then the arm/kvm folks could start with that branch and add the arm/KVM
-portion of this series on top of it. This will prevent major merge
-conflicts in linux-next.
+The rest of the series switches all other users to scnprintf("%*pb[l]"),
+so that users wont abuse kmalloc() + bitmap_print_to_pagebuf().
 
-Does that sound OK?
+Patches 1-6 may be applied individually, or together with the rest of
+the series, at maintainers' discretion.
 
--- Steve
+Yury Norov (12):
+  powerpc/xive: simplify xive_spapr_debug_show()
+  octeontx2-af: siplify rvu_debugfs
+  thermal: intel: switch cpumask_get() to using
+    cpumask_print_to_pagebuf()
+  lib/prime_numbers: drop temporary buffer in dump_primes()
+  bitmap: switch test to scnprintf("%*pbl")
+  bitmap: align test_bitmap output
+  mm: add rest_of_page() macro
+  coresight: don't use bitmap_print_to_pagebuf()
+  fpga: m10bmc-sec: switch show_canceled_csk() to using scnprintf()
+  net-sysfs: switch xps_queue_show() to using scnprintf()
+  cpumask: switch cpumap_print_to_pagebuf() to using scnprintf()
+  bitmap: drop bitmap_print_to_pagebuf()
+
+ arch/arm64/kernel/patching.c                  |  4 +-
+ arch/powerpc/lib/code-patching.c              |  6 +--
+ arch/powerpc/sysdev/xive/spapr.c              | 12 +-----
+ arch/riscv/kernel/sbi.c                       |  4 +-
+ arch/s390/kvm/gaccess.c                       |  6 +--
+ arch/x86/kvm/emulate.c                        |  4 +-
+ drivers/block/null_blk/main.c                 |  6 +--
+ drivers/fpga/intel-m10-bmc-sec-update.c       |  3 +-
+ drivers/gpu/drm/i915/gt/shmem_utils.c         |  5 +--
+ .../hwtracing/coresight/coresight-cti-sysfs.c | 33 +++++++--------
+ drivers/md/dm-pcache/backing_dev.h            |  2 +-
+ .../marvell/octeontx2/af/rvu_debugfs.c        | 28 +++----------
+ drivers/net/ethernet/meta/fbnic/fbnic_tlv.c   |  6 +--
+ drivers/s390/net/qeth_core_main.c             |  6 +--
+ drivers/spi/spi-pl022.c                       |  3 +-
+ drivers/spi/spi.c                             |  4 +-
+ drivers/thermal/intel/intel_powerclamp.c      |  3 +-
+ fs/ext4/verity.c                              |  3 +-
+ fs/f2fs/verity.c                              |  6 +--
+ fs/fuse/dev.c                                 |  4 +-
+ fs/iomap/buffered-io.c                        |  2 +-
+ fs/nfs/pagelist.c                             |  2 +-
+ fs/remap_range.c                              |  3 +-
+ fs/xfs/scrub/xfile.c                          |  3 +-
+ include/crypto/scatterwalk.h                  |  2 +-
+ include/linux/bitmap-str.h                    |  1 -
+ include/linux/cpumask.h                       | 17 +-------
+ include/linux/highmem.h                       | 24 +++++------
+ include/linux/iomap.h                         |  2 +-
+ include/linux/iov_iter.h                      |  3 +-
+ include/linux/mm.h                            |  2 +
+ kernel/events/ring_buffer.c                   |  2 +-
+ lib/bitmap-str.c                              | 42 +++----------------
+ lib/cpumask.c                                 | 17 ++++++++
+ lib/iov_iter.c                                |  5 +--
+ lib/math/tests/prime_numbers_kunit.c          |  6 +--
+ lib/test_bitmap.c                             | 17 ++++----
+ net/9p/trans_virtio.c                         |  6 ---
+ net/core/net-sysfs.c                          |  2 +-
+ sound/virtio/virtio_pcm_msg.c                 |  4 +-
+ 40 files changed, 111 insertions(+), 199 deletions(-)
+
+-- 
+2.43.0
+
 
