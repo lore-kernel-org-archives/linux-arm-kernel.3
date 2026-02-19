@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C468E9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 11:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60868E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 11:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eow1P/X0RGiy5mEidwiSagvFpE7USJgElSxN5XrktG4=; b=V9jJCbLZGYne5Z
-	zs1PH1DGgQB3pepYJx2pnPVZcVVld555Nsf7A6FJBPE0mkj1kW4DAj6SKmXV2gOP46XNYtHpHfTUM
-	04g0mGaduXaaABUsN8s9Dqgw5fejuwlKk/NDUfHzsFLNWUd4U0NNilfLe0NRz7TQxiyYHBPftmXxc
-	MhSLarHZiOqx7Jv21iiYalIvfoDRfSJry3LXRcWC/326/byaHfKUYPmFWOxPESsEjitTt8+/7vzs8
-	lZfQxUyR//pVwPLHQQ/GS5iJrkPiflW4zpEt4xi9V5596P3dmkDkhCujqHrkx/gtL1NpBoOuURmJJ
-	bRqxUIiOnmPI/3cgFb6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GLgvoTeSEv0KYzv0TTCGY2/NZDXX2UaswB3eS6L3s2s=; b=M9g6gBIYwaxNZ6BhdEwMSFB/FO
+	CaFLZuCBdX0u3UpeqbLIRJuNK22t29I3MHAUaIJP4SBVrC7paE5VGfcf0qgmjEsvBw7h596sTJz60
+	ShSqDNkjz28kX/IC5YC2SIHnaP9yCk8+OYT3LYNIOZ9AHOssTcsEmNZf0LJ0uhGwjwbwjry0llQeM
+	evCHTW4Psa3f1wJsP94GmNE32hhavwRMQ1rGREO/ma3FI0xcKpjx6s3FU01BQcRbc7D6FWLPkr2IE
+	LC4ySpaR9jkTQ+SZY0Y+cp76E3XgI14H86Y7+SMezJeky560pemDoL0USjgOvfM9AJZTd4I/xWJPF
+	A1YNXBaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt1nj-0000000BFrO-1FcU;
-	Thu, 19 Feb 2026 11:02:31 +0000
-Received: from fra-out-009.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([3.64.237.68])
+	id 1vt1r4-0000000BG4j-3eZV;
+	Thu, 19 Feb 2026 11:05:58 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt1nf-0000000BFqb-3tBi
+	id 1vt1r3-0000000BG4M-0B6j
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 11:02:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1771498947; x=1803034947;
-  h=message-id:date:mime-version:reply-to:subject:to:cc:
-   references:from:in-reply-to:content-transfer-encoding;
-  bh=eow1P/X0RGiy5mEidwiSagvFpE7USJgElSxN5XrktG4=;
-  b=JXr2dy5VM5pUCrtitKNYv3qRJDegck3lNtlT+jh7K25yhHiNDdDELwBK
-   ZKXlQ/OEV0k1vydvyE3E8G2Wa6H5BfmEHBZWBixEwhL1eq1jbfnS1zF2Q
-   wMW27TOcA01FzT77IUVhaAKH2j/07N6mPQvXzO22Sd7Ygy4zojuT0ArQN
-   Sfz82ecrT9z+sIgQdkmsO8Di0b+TQxjjeIGN4PFDDg1tW8qiIPa9pz0hg
-   CYcfGQe6bzgMpv9UxehiePFTA3OVlqLPoIfa8oiZg7Yhlk7HyO/Io4cS/
-   +Tq9TdM5tp93e8qE+8tOIio78US0DJpw6pfnjaCjBD7OdCFyrPVNlxvI3
-   w==;
-X-CSE-ConnectionGUID: 1JvXgHKPTiSwUPOx9CCbYg==
-X-CSE-MsgGUID: +J1U6hKtTcyvFQM12wO3Bw==
-X-IronPort-AV: E=Sophos;i="6.21,299,1763424000"; 
-   d="scan'208";a="9572951"
-Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
-  by internal-fra-out-009.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2026 11:02:21 +0000
-Received: from EX19MTAEUA001.ant.amazon.com [54.240.197.233:29903]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.46.179:2525] with esmtp (Farcaster)
- id 49685664-8d44-4dc2-aed2-746cca25b8a9; Thu, 19 Feb 2026 11:02:21 +0000 (UTC)
-X-Farcaster-Flow-ID: 49685664-8d44-4dc2-aed2-746cca25b8a9
-Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUA001.ant.amazon.com (10.252.50.192) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 19 Feb 2026 11:02:20 +0000
-Received: from [192.168.192.247] (10.106.82.39) by
- EX19D005EUB003.ant.amazon.com (10.252.51.31) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Thu, 19 Feb 2026 11:02:19 +0000
-Message-ID: <c1241c0b-5930-4b0e-a924-9d9cccee7ebd@amazon.com>
-Date: Thu, 19 Feb 2026 11:02:18 +0000
+	Thu, 19 Feb 2026 11:05:58 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1vt1qm-0002ZD-RQ; Thu, 19 Feb 2026 12:05:40 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1vt1qk-001Z64-1w;
+	Thu, 19 Feb 2026 12:05:39 +0100
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1vt1ql-0000000BNhf-3WRj;
+	Thu, 19 Feb 2026 12:05:39 +0100
+Date: Thu, 19 Feb 2026 12:05:39 +0100
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] drm/imx: ipuv3-plane: support underlay plane
+Message-ID: <aZbug8wq4NKOAhIe@pengutronix.de>
+References: <20260216-drm-imx-underlay-plane-v1-0-2dcbd1fd4ef5@pengutronix.de>
+ <20260216-drm-imx-underlay-plane-v1-2-2dcbd1fd4ef5@pengutronix.de>
+ <0b980d087bfe54262cef61821cbd70f5b71fc592.camel@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] KVM: Avoid synchronize_srcu() in
- kvm_io_bus_register_dev()
-To: Keir Fraser <keirf@google.com>, Sean Christopherson <seanjc@google.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<kvm@vger.kernel.org>, Eric Auger <eric.auger@redhat.com>, Oliver Upton
-	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon
-	<will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Li RongQing
-	<lirongqing@baidu.com>
-References: <20250909100007.3136249-1-keirf@google.com>
- <20250909100007.3136249-5-keirf@google.com>
- <a84ddba8-12da-489a-9dd1-ccdf7451a1ba@amazon.com>
- <aY-x0OlJQEqInyNF@google.com>
- <dcbd7a58-c961-4510-ae48-ef7fd4f4d75c@amazon.com>
- <aZS8XXOW7vhMkNWQ@google.com>
- <162cedc3-cd6c-494c-b39e-daadfbd6d8db@amazon.com>
- <aZXifSagpbj4CjBn@google.com>
- <7e46af52-b6f3-43cf-a970-8c179a964729@amazon.com>
- <aZbA0IZE1i0w1BTH@google.com>
-Content-Language: en-US
-From: Nikita Kalyazin <kalyazin@amazon.com>
-In-Reply-To: <aZbA0IZE1i0w1BTH@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.106.82.39]
-X-ClientProxiedBy: EX19D005EUA002.ant.amazon.com (10.252.50.11) To
- EX19D005EUB003.ant.amazon.com (10.252.51.31)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <0b980d087bfe54262cef61821cbd70f5b71fc592.camel@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_030228_298839_7C1908C4 
-X-CRM114-Status: GOOD (  33.51  )
+X-CRM114-CacheID: sfid-20260219_030557_091089_664DF00F 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,209 +85,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kalyazin@amazon.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 19/02/2026 07:50, Keir Fraser wrote:
-> On Wed, Feb 18, 2026 at 04:15:33PM +0000, Nikita Kalyazin wrote:
->>
->>
->> On 18/02/2026 16:02, Keir Fraser wrote:
->>> On Wed, Feb 18, 2026 at 12:55:11PM +0000, Nikita Kalyazin wrote:
->>>>
->>>>
->>>> On 17/02/2026 19:07, Sean Christopherson wrote:
->>>>> On Mon, Feb 16, 2026, Nikita Kalyazin wrote:
->>>>>> On 13/02/2026 23:20, Sean Christopherson wrote:
->>>>>>> On Fri, Feb 13, 2026, Nikita Kalyazin wrote:
->>>>>>>> I am not aware of way to make it fast for both use cases and would be more
->>>>>>>> than happy to hear about possible solutions.
->>>>>>>
->>>>>>> What if we key off of vCPUS being created?  The motivation for Keir's change was
->>>>>>> to avoid stalling during VM boot, i.e. *after* initial VM creation.
->>>>>>
->>>>>> It doesn't work as is on x86 because the delay we're seeing occurs after the
->>>>>> created_cpus gets incremented
->>>>>
->>>>> I don't follow, the suggestion was to key off created_vcpus in
->>>>> kvm_io_bus_register_dev(), not in kvm_swap_active_memslots().  I can totally
->>>>> imagine the patch not working, but the ordering in kvm_vm_ioctl_create_vcpu()
->>>>> should be largely irrelevant.
->>>>
->>>> Yes, you're right, it's irrelevant.  I had made the change in
->>>> kvm_io_bus_register_dev() like proposed, but have no idea how I couldn't see
->>>> the effect.  I retested it now and it's obvious that it works on x86.  Sorry
->>>> for the confusion.
->>>>
->>>>>
->>>>> Probably a moot point though.
->>>>
->>>> Yes, this will not solve the problem on ARM.
->>>
->>> Sorry for being late to this thread. I'm a bit confused now. Did
->>> Sean's original patch (reintroducing the old logic, based on whether
->>> any vcpus have been created) work for both/either/neither arch? I
->>> would have expected it to work for both ARM and X86, despite the
->>> offending synchronize_srcu() not being in the vcpu-creation ioctl on
->>> ARM, and I think that is finally what your testing seems to show? If
->>> so then that seems the pragmatic if somewhat ugly way forward.
->>
->> The original patch from Sean works for x86.  I didn't test it on ARM as it's
->> harder for me to do, but I don't expect it to work because it only affects
->> the pre-vcpu-creation phase.
+On Mon, 16 Feb 2026 14:18:41 +0100, Philipp Zabel wrote:
+> On Mo, 2026-02-16 at 13:44 +0100, Michael Tretter wrote:
+> > The IPUv3 overlay plane may be placed over or under the primary plane.
+> > Use an immutable position of 1 for the primary plane and a mutable
+> > position including 0 and 2 for the overlay plane, to allow placing the
+> > overlay plane over and under the primary plane.
+> > 
+> > Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
+> > ---
+> >  drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c | 12 +++++++-----
+> >  1 file changed, 7 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c b/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c
+> > index dfd036f3195e..ddad5ea92aad 100644
+> > --- a/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c
+> > +++ b/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c
+> > @@ -890,7 +890,7 @@ struct ipu_plane *ipu_plane_init(struct drm_device *dev, struct ipu_soc *ipu,
+> >  {
+> >  	struct ipu_plane *ipu_plane;
+> >  	const uint64_t *modifiers = ipu_format_modifiers;
+> > -	unsigned int zpos = (type == DRM_PLANE_TYPE_PRIMARY) ? 0 : 1;
+> > +	unsigned int primary_zpos = 1;
+> >  	unsigned int format_count;
+> >  	const uint32_t *formats;
+> >  	int ret;
+> > @@ -928,12 +928,14 @@ struct ipu_plane *ipu_plane_init(struct drm_device *dev, struct ipu_soc *ipu,
+> >  	else
+> >  		drm_plane_helper_add(&ipu_plane->base, &ipu_plane_helper_funcs);
+> >  
+> > -	if (dp == IPU_DP_FLOW_SYNC_BG || dp == IPU_DP_FLOW_SYNC_FG)
+> > -		ret = drm_plane_create_zpos_property(&ipu_plane->base, zpos, 0,
+> > -						     1);
+> > +	if ((dp == IPU_DP_FLOW_SYNC_BG || dp == IPU_DP_FLOW_SYNC_FG) &&
 > 
-> Ok, looking closer at one of your previous replies, the first fix
-> doesn't work for you on ARM because there your vcpu creations occur
-> earlier than on X86? Fair enough.
+> These checks is not necessary anymore. The only overlay plane is (dp ==
+> IPU_DP_FLOW_SYNC_FG).
 
-Yes, that's correct.
+Thanks! That's even better. I'll simplify the check in v2.
 
-> 
->> We discussed the second patch at the KVM sync earlier today, then I retested
->> it and it appears to solve the issue for both, but I'm going to have more
->> complete results tomorrow.
-
-Sean,
-
-I looked at the tests we ran overnight and your 2nd patch 
-(call_srcu_expedited) brings the latencies back to the original 
-baselines on both x86 and ARM.  What would be the next steps?  Looping 
-Paul in to make sure the proposal is sensible?
-
->>
->> Are you by chance able to have a look whether KVM_SET_USER_MEMORY_REGION
->> execution elongates on ARM in your environment (with the 4/4 patch)? I'd be
->> curious to know why not if it doesn't.
-> 
-> On our VMM (crosvm) the kvm_io_bus_register_dev happen much later,
-> during actual VM boot (device probe phase), so the results would not
-> be comparable. In our scenario we generally save milliseconds on every
-> single kvm_io_bus_register_dev invocation.
-
-Ok, thanks.
-
-> 
->>>
->>>    Cheers,
->>>     Keir
->>>
->>>
->>>>>
->>>>>> so it doesn't allow to differentiate the two
->>>>>> cases (below is kvm_vm_ioctl_create_vcpu):
->>>>>>
->>>>>>          kvm->created_vcpus++; // <===== incremented here
->>>>>>          mutex_unlock(&kvm->lock);
->>>>>>
->>>>>>          vcpu = kmem_cache_zalloc(kvm_vcpu_cache, GFP_KERNEL_ACCOUNT);
->>>>>>          if (!vcpu) {
->>>>>>                  r = -ENOMEM;
->>>>>>                  goto vcpu_decrement;
->>>>>>          }
->>>>>>
->>>>>>          BUILD_BUG_ON(sizeof(struct kvm_run) > PAGE_SIZE);
->>>>>>          page = alloc_page(GFP_KERNEL_ACCOUNT | __GFP_ZERO);
->>>>>>          if (!page) {
->>>>>>                  r = -ENOMEM;
->>>>>>                  goto vcpu_free;
->>>>>>          }
->>>>>>          vcpu->run = page_address(page);
->>>>>>
->>>>>>          kvm_vcpu_init(vcpu, kvm, id);
->>>>>>
->>>>>>          r = kvm_arch_vcpu_create(vcpu); // <===== the delay is here
->>>>>>
->>>>>>
->>>>>> firecracker   583 [001]   151.297145: probe:synchronize_srcu_expedited:
->>>>>> (ffffffff813e5cf0)
->>>>>>        ffffffff813e5cf1 synchronize_srcu_expedited+0x1 ([kernel.kallsyms])
->>>>>>        ffffffff81234986 kvm_swap_active_memslots+0x136 ([kernel.kallsyms])
->>>>>>        ffffffff81236cdd kvm_set_memslot+0x1cd ([kernel.kallsyms])
->>>>>>        ffffffff81237518 kvm_set_memory_region.part.0+0x478 ([kernel.kallsyms])
->>>>>>        ffffffff81264dbc __x86_set_memory_region+0xec ([kernel.kallsyms])
->>>>>>        ffffffff8127e2dc kvm_alloc_apic_access_page+0x5c ([kernel.kallsyms])
->>>>>>        ffffffff812b9ed3 vmx_vcpu_create+0x193 ([kernel.kallsyms])
->>>>>>        ffffffff8126788a kvm_arch_vcpu_create+0x1da ([kernel.kallsyms])
->>>>>>        ffffffff8123c54c kvm_vm_ioctl+0x5fc ([kernel.kallsyms])
->>>>>>        ffffffff8167b331 __x64_sys_ioctl+0x91 ([kernel.kallsyms])
->>>>>>        ffffffff8251a89c do_syscall_64+0x4c ([kernel.kallsyms])
->>>>>>        ffffffff8100012b entry_SYSCALL_64_after_hwframe+0x76 ([kernel.kallsyms])
->>>>>>                  6512de ioctl+0x32 (/mnt/host/firecracker)
->>>>>>                   d99a7 std::rt::lang_start+0x37 (/mnt/host/firecracker)
->>>>>>
->>>>>> Also, given that it stumbles after the KVM_CREATE_VCPU on ARM (in
->>>>>> KVM_SET_USER_MEMORY_REGION), it doesn't look like a universal solution.
->>>>>
->>>>> Hmm.  Under the hood, __synchronize_srcu() itself uses __call_srcu, so I _think_
->>>>> the only practical difference (aside from waiting, obviously) between call_srcu()
->>>>> and synchronize_srcu_expedited() with respect to "transferring" grace period
->>>>> latency is that using call_srcu() could start a normal, non-expedited grace period.
->>>>>
->>>>> IIUC, SRCU has best-effort logic to shift in-flight non-expedited grace periods
->>>>> to expedited mode, but if the normal grace period has already started the timer
->>>>> for the delayed invocation of process_srcu(), then SRCU will still wait for one
->>>>> jiffie, i.e. won't immediately queue the work.
->>>>>
->>>>> I have no idea if this is sane and/or acceptable, but before looping in Paul and
->>>>> others, can you try this to see if it helps?
->>>>
->>>> That's exactly what I tried myself before and it didn't help, probably for
->>>> the reason you mentioned above (a normal GP being already started).
-
-I also realised why the same change didn't work for me earlier. 
-Apparently other changes in my tree I made for debugging skewed the 
-results.  Sorry again for confusion.
-
->>>>
->>>>>
->>>>> diff --git a/include/linux/srcu.h b/include/linux/srcu.h
->>>>> index 344ad51c8f6c..30437dc8d818 100644
->>>>> --- a/include/linux/srcu.h
->>>>> +++ b/include/linux/srcu.h
->>>>> @@ -89,6 +89,8 @@ void __srcu_read_unlock(struct srcu_struct *ssp, int idx) __releases(ssp);
->>>>>
->>>>>     void call_srcu(struct srcu_struct *ssp, struct rcu_head *head,
->>>>>                    void (*func)(struct rcu_head *head));
->>>>> +void call_srcu_expedited(struct srcu_struct *ssp, struct rcu_head *rhp,
->>>>> +                        rcu_callback_t func);
->>>>>     void cleanup_srcu_struct(struct srcu_struct *ssp);
->>>>>     void synchronize_srcu(struct srcu_struct *ssp);
->>>>>
->>>>> diff --git a/kernel/rcu/srcutree.c b/kernel/rcu/srcutree.c
->>>>> index ea3f128de06f..03333b079092 100644
->>>>> --- a/kernel/rcu/srcutree.c
->>>>> +++ b/kernel/rcu/srcutree.c
->>>>> @@ -1493,6 +1493,13 @@ void call_srcu(struct srcu_struct *ssp, struct rcu_head *rhp,
->>>>>     }
->>>>>     EXPORT_SYMBOL_GPL(call_srcu);
->>>>>
->>>>> +void call_srcu_expedited(struct srcu_struct *ssp, struct rcu_head *rhp,
->>>>> +                        rcu_callback_t func)
->>>>> +{
->>>>> +       __call_srcu(ssp, rhp, func, rcu_gp_is_normal());
->>>>> +}
->>>>> +EXPORT_SYMBOL_GPL(call_srcu_expedited);
->>>>> +
->>>>>     /*
->>>>>      * Helper function for synchronize_srcu() and synchronize_srcu_expedited().
->>>>>      */
->>>>> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
->>>>> index 737b74b15bb5..26215f98c98f 100644
->>>>> --- a/virt/kvm/kvm_main.c
->>>>> +++ b/virt/kvm/kvm_main.c
->>>>> @@ -6036,7 +6036,7 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
->>>>>            memcpy(new_bus->range + i + 1, bus->range + i,
->>>>>                    (bus->dev_count - i) * sizeof(struct kvm_io_range));
->>>>>            rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
->>>>> -       call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
->>>>> +       call_srcu_expedited(&kvm->srcu, &bus->rcu, __free_bus);
->>>>>
->>>>>            return 0;
->>>>>     }
->>>>
->>
-
+Michael
 
