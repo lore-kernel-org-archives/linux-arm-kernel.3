@@ -4,98 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6BEE9A055
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 17:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5F1E9A055
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 17:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbNsSPMZwv1/3WEUw4zg9sK7Xs2yLlNrYKE6jqFxkMY=; b=A8Z9QActNzMb+/evoHyxVfJOX5
-	2FlfL5tvkhWuq7UwCt1Kljy9oTIyzW7sh0oEN1eKibtMrLnz7fM5DcLe5ipK/qOhlvVcayHvnEyNb
-	zAwbnmEy4e/j5RMQ7v/CbEXF35YIxcvyI3zHQencAO5Xr4Qq65fYh6xbno42fI7HCFBAcKdATuia1
-	wP6fuKBPG1/rxt0Yp1K0ZGudUAEi48wsLhQJMIM2IwdI794e0QF2henzrLqYZ7xnkvawL5x20fvFw
-	LRZPyMeWpCYpclGEKu8Dkb5PHaEHqAcSDENtmGKEU6vMtTc8G94Y7LyWYRc+sfGE45r/vj6w9bd3a
-	EbY76ktQ==;
+	bh=J7HYm9xMVGBBywh4oao6tB7DD0AcczRTLXxlLGbI01c=; b=ihlNLUARjriXt6/WHWXMY9x9Jb
+	T7yDeZJWfTfDEZTAgcu2KWrug42rbCgRKJmu9H1lS9QBOAZXssqwTeASaxB+zCsDuq95u+XTHf4Xa
+	zcQaeVIXb2ZEk//7KhMQ9854xFyKm5DCtMTV2OBUsLUa1ndV5Fy+/Bqao+U9DbSeIDGgY6+aqU3Ay
+	ZysjaZO30w14JyYkBUa0qeaUJS7owBXS7CFPd3W3zgf0ljQFPn1pKnsoK1X0VRPZBuaIWE4EUWqH1
+	x7jXHSkp6U+wr7GL5E8oRdnoyGadfgDceqtLwKTP3M6riG+fclTwHZm2/opoH9SZlXjceP59xk+5+
+	N3laGG4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt88K-0000000BjNg-48dq;
-	Thu, 19 Feb 2026 17:48:12 +0000
+	id 1vt8AO-0000000Bja2-1vfm;
+	Thu, 19 Feb 2026 17:50:20 +0000
 Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt88J-0000000BjMt-0EnS
+	id 1vt8AM-0000000BjZG-1W2S
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 17:48:12 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4362507f0feso801904f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 09:48:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771523289; cv=none;
+	Thu, 19 Feb 2026 17:50:19 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4376acce52eso791497f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 09:50:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771523417; cv=none;
         d=google.com; s=arc-20240605;
-        b=TYjMMc6lGc5e0nh4WrMXX9mdJKnwNsxJh99N+r+fm3FV7dFLULEUVsQPDlPrIm5Wpm
-         /DaqIVtKlljzWs+IUe3lirZpVjWGLQjk02TuySu8gWJ7u8UCm15bHij+tNHJG3vUGuvN
-         lJKI1gYuU9pR1/2YLZ+FFu0HNbMyTI/uLj9ix1y3wQyEICI1+Y8jUtwhUENVyRA+1BlP
-         LLdfKFef1mEcqKReitcDUXALHtL6sOG4tyhcL4f3shorrt+6JSxW47WYRX+n4DHtQTSX
-         HTU8i24EPlf98wICdoYboGHEYGUP3Vrau8pkoIQ3uhWHKEA6lNZtRy//dx5OXpTjqeE1
-         +Jow==
+        b=DgBy3iq2nfJ5I/UtQT9Xy3Py98K4v/41nRNzpiwF0dEGjZ8qZUmBtvZTg7ckQtGpW+
+         Vbh348R48Z2sikDRI64Pie4Sr3d1AzTNxeXBPQf9tpVumUjpxSeNnL/zN/lQpKPPKxqG
+         Gj1MKDb76qPe1HwMCGTqwwd4g8/jTMyovVpgeD7rI8zo43Ef8qFKRPnAKoJGqgknnJkN
+         tA8UpHjtf+fUBLckJDliq2yGUj4WWAJPx7SLuKuXTd9i1ifw3qFLhhDQ4QLXy829lhq7
+         eHir8w2wOXpKMUTOFStM6DgDG4VVOIZxgqO86RBp3ypLZaktfq3E11LBdtoYqoKdUQoT
+         i37w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=qbNsSPMZwv1/3WEUw4zg9sK7Xs2yLlNrYKE6jqFxkMY=;
-        fh=UaYka8a4a/xKY05lm8ZpIdtfo8gBZn27XF5iDHar+6s=;
-        b=axjamyt1Hiez54DwUQDUpstI0ig4ePWnec0NMxK8jMaiil8dWf5phy2pKmfMD/mA4p
-         i1asoCexE1ae+CUduyjJsEf7KBSnyqCMANH2Gx3PhvxU2pMPF9538+SSO0wewmKKBXS9
-         B2qhoeCb6MDP9YCYFu3kkMt4nTLYwzWmmH1Ny0AsJaP1DN54TOBqkhEM0Q6a28wxmGww
-         Ub8wL2SuWigUu6VsirSrD6d3RXFdKiixFx2M5SN3bQz/TZQoS7utvoXR8NVechXOOP88
-         TXjJjtwoLueg5t7Czoar5UR8wVrvMzu3AaXxIIg1m8cvADXdgN9YjKxMN4ZhxxZ/tPyO
-         qLwg==;
+        bh=J7HYm9xMVGBBywh4oao6tB7DD0AcczRTLXxlLGbI01c=;
+        fh=SMCagLOMK0ch+1TOUWWuLbPr42roScGAEyHNzbUZX94=;
+        b=a25TtuwNB1b9oN8Etxwylf7wv8FxR3rfnwnT2cBkDzv30gU90d4nDgJGJB2yovXG6b
+         188mesrzZfXoAFg6mJyFIMmgBSH7RkdSSb88lxy97y6dTkeHR2I617cDfDUwl1uWeOBW
+         bXIU2LYjw8AbBuZnFf8bkDbhdS3u5wKrC0noUpYH8NnMrmlxpASR63ySggxlmC9oKKe+
+         sH4egOH8pu1zNBLbD+cTcrqc47mKkg988aQETU82CPRs8D1Wmb1tUmletYPprHL95bE4
+         o0KLwoVY0SvQOnLxdWTvNYhg8okC6wYNWFcpOYl8b4ZFPKf5AGjlvQrjn2r4MUqiZB8y
+         3ujQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771523289; x=1772128089; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1771523417; x=1772128217; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qbNsSPMZwv1/3WEUw4zg9sK7Xs2yLlNrYKE6jqFxkMY=;
-        b=kZ/ntpgp1JWiRdfiyK8GYoNU+3Mwifn3p5BfOnjSwPOw0SbIeDZ1e7ISwwItB6s5RE
-         NqrI3YJ3eebYk1XuS6aP8NsD+ZpvoeFi9XWx92TjRBA4WpLyaj6DW66q4irNAmnbxqyH
-         hex6aPujYdvTwKLFaBXAgrsIxtnkVwjZ5Ffay54nXSUQLBudrWuDdskYz5PBgE7pyvF9
-         L/wjx5c9pcWeZMJnMDN4ioqk8/o3JqHsHOxTg6pj24tUSuPzrjEwOl5YR0s0JN10rB5+
-         3Zjqi0BLF/E8+AIAdg2CwBVVnIfePu26J6BC3LO4zt/UcA/VMiLoW3uJ/i1tWrl/D6kf
-         K2Gw==
+        bh=J7HYm9xMVGBBywh4oao6tB7DD0AcczRTLXxlLGbI01c=;
+        b=EGoPoG6E+L6sM0H4fCTtNVqh8+OqGowz4Rcystg1ZasVSSAvtcvLrIeJ+5VwV+Bxiw
+         dmmKl3NnYIRlR/q2KzD9eWhFHHyw2kj/Tpss/njPfZK9NiAd0egWeTuuzIVIhjVQqyAg
+         CJnqGS7bXDmUsOTkOA28/o14Egyw1DH5q3ZZ2VazGAEOHa3JFNr1vwbbXkvEvdXdSWLN
+         +MMPyo8RqGCNiLBxC5+74m+hJxmwX5mIL1IymqGVTjxt8YwzJmfDclDxyb66WydtD1aB
+         cvki7pKtZtL28lt4nidOcIWxbVmdEDsK2oSyxtywp4g7fNVQw0FOV6yZ/yzGzDMkzTLL
+         szEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771523289; x=1772128089;
+        d=1e100.net; s=20230601; t=1771523417; x=1772128217;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=qbNsSPMZwv1/3WEUw4zg9sK7Xs2yLlNrYKE6jqFxkMY=;
-        b=fmgcNmVNAD9i/lKMQdviRKYCHiUoegZ2mhiQmxbyeI+muIiv3VNVQQKZtwHHXE1/pS
-         8JfYSJJcktsestYj53AwtVxzlQCWdUlyyuEdbi/iSasdd3r4sVcxUHjpYxwR6HKYzeYx
-         TV2i/BOx2TJzNYdU02d82zmdXMQqvqTLqYfHK77+XB5ndUdKDujXZ7V9+k8lVjxWVV3k
-         2uYE2R9k6U2+F3XxnoDEAJdQj2xuH14k0APtu3rtg2wokikWswXIAazL1IcOO0gae5tu
-         WqtnhgdhDsydZ01RoPsNhcAbQ7PAVm8uhtfHLkZDEB1sGy+Y0suP57tKjSVpr+qc08Q0
-         36sQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXH1ttTDfu2yCvEWeGiUYHtnaE23HesY75XudMsu+5IOKC9Z69PIBZ5Eix0U+28B7/7rVDxJIECXLumE+7FjbRp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVArUxNO32CoB3NxA+1GTGe8JNO02z7NvDEpTU1D49i786IbC/
-	3J+5xERzabYJ1Uipt/CQtaO+wY74HralwBZKWDsyUCdWxJ85GTWKSQsPesw+cZ8fimlCRo4jrYY
-	C+exOlf2t/IfAPiGfQnSHlF5ePT9G8MQ=
-X-Gm-Gg: AZuq6aJ8GZXylTRZv0Cz6pxArPVCKV+/3dBwEAdcxfgUvwQWBq2bCILV0kc4mmmoj0q
-	CBipVnyqhdPGjlThECtkrcPS8menWxe6rHHedU7wGHeKVUWmuhlWkTA/WKKUwh2CDUmkrwQc/2X
-	wI653phWBrH0D5g/dtkH1Lzt5NEr3imnwKOVxcIZ+Ho5SXQcZdYh2jVC2dEoSmSd4z12IVFamv1
-	cssvDVqYeyj3Vt3Zd++h7tJ6Z/8ceF4fznr+XzR7XKNz6+xaTggI5X+Uywy8dEEUNAOTxsUjcJD
-	JF4Tk9pbC/AEXk3wQ3OXpjTAV63Xcm2i6fudRKMFXXaPJ2EmCar/6lHWF3ElFapO2m+rUbkQfUS
-	bCaDRaD2Ur1r4J/LF5wQ=
-X-Received: by 2002:a5d:588d:0:b0:436:369f:39fa with SMTP id
- ffacd0b85a97d-43796af9ed9mr39572765f8f.44.1771523288626; Thu, 19 Feb 2026
- 09:48:08 -0800 (PST)
+        bh=J7HYm9xMVGBBywh4oao6tB7DD0AcczRTLXxlLGbI01c=;
+        b=Sa+EnJR7qIb5J617ELTVeqsfgFWWLx8JsP97hWg9EztpIRmzaxAct9POYRYWa2r9/E
+         Ai4zTXNBex72ygw20KGPnlq+hzXlVXZm39j1X4AKP0zMkOPxy4TWdz7u1OMwkJObj0aB
+         bY4g6hJ056HUzj52GnWQ5qe0K5Or+CGh0qtbW9LV96zBTyIcdW3kQ9vSBE2rLbOVJAMy
+         VlcV/opfel/dWAUAE+gPmLDbyJitwFC4daS3Zah0RCmsQETemqM/FYJQSWPfly49So9T
+         4GV023zql/bXxk1w4SI9q59h38+BJQuimWZsz7OGR5YQAwZNNmtjrLF06sZolYm1rkJC
+         i0iA==
+X-Forwarded-Encrypted: i=1; AJvYcCV0m4n5GJfK2OMY2HaDh2VpM/FXI44Ck/IG05vijWigYlL6un0KwVnvD/GrdcB0EA1vGh0i1oyMWyXLs66kcQb1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5KJ3bYcEuketXCQVdYMiux7hahFCSkPTqrq011dCuWPaxJsqc
+	7gIIyIWs1Sx88qLsGqWnZBqwt/gN9O7NvS54dLUm2BSpwkz9SISsBZoz5tZ99co14dJVMXCoOoZ
+	jhp5gs9LRHI0Q/t4VsSTsWQIHGZRIeJ0=
+X-Gm-Gg: AZuq6aL+iZVBj+CCmtjLCXaD7AyizuRsAB1m+6hxh5XJLYt6hJ1zLnHSi9uaVst0/03
+	I/cr9yKGCDDnCUMZU0wdca2E9wzD53VRI7RiXTkm2C7KMLY/PcYemLbvQrQNkIPgzfKuX/sfe0j
+	9gx+pCWReqr6JaMBMzx8rlenugBmTN0rmD562fgHssWukgnu8tX7ApjubSeevsOZUJ2BUypVQWL
+	736rU9ZfuKuIbiv0rTVb4YaqWcjL1FFfl5PyY6n+lvHBjbNIGsSkeb46/hStyxiT1Od4dTROT9B
+	N2ggoedEImwkXEB9KWSuIX6ZmsGBkApmyWHsXgmpGp+/UoZ6cgeneQu8z8q+L9cXJehymWg5D1c
+	IJ9H8P5wp
+X-Received: by 2002:a05:6000:40db:b0:436:cea:6165 with SMTP id
+ ffacd0b85a97d-43958df4415mr9935730f8f.6.1771523416533; Thu, 19 Feb 2026
+ 09:50:16 -0800 (PST)
 MIME-Version: 1.0
-References: <20260219142933.13904-1-leon.hwang@linux.dev> <20260219142933.13904-3-leon.hwang@linux.dev>
-In-Reply-To: <20260219142933.13904-3-leon.hwang@linux.dev>
+References: <20260219142933.13904-1-leon.hwang@linux.dev> <20260219142933.13904-2-leon.hwang@linux.dev>
+In-Reply-To: <20260219142933.13904-2-leon.hwang@linux.dev>
 From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Thu, 19 Feb 2026 09:47:55 -0800
-X-Gm-Features: AaiRm51ncUqJvIXG5s9TUaGOjPI7tmxDZZwdTCvAAoEMmGM4win76dnirbBawFI
-Message-ID: <CAADnVQLNmQGKf5S5ZNwHYzScYBhnWFmnzLg=5Xxy4SgYKE3EfQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs
- support for x86_64
+Date: Thu, 19 Feb 2026 09:50:05 -0800
+X-Gm-Features: AaiRm52i-YIC0PVoZrigOcdI1PlDGl9FQnJThWLdjntzeSoTM5oZkoYI1MwTO7Q
+Message-ID: <CAADnVQK=5Gb3w_QG4Vq32EfvpqAK_DPwCHtzzt7DzRkJ5_h6JQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 1/6] bpf: Introduce 64-bit bitops kfuncs
 To: Leon Hwang <leon.hwang@linux.dev>
 Cc: bpf <bpf@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
 	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
@@ -114,8 +113,9 @@ Cc: bpf <bpf@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_094811_120370_B5F9E8AA 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20260219_095018_421461_27B09E6A 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,92 +133,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, Feb 19, 2026 at 6:30=E2=80=AFAM Leon Hwang <leon.hwang@linux.dev> w=
 rote:
 >
-> Implement JIT inlining of the 64-bit bitops kfuncs on x86_64.
 >
-> bpf_rol64() and bpf_ror64() are always supported via ROL/ROR.
->
-> bpf_ctz64() and bpf_ffs64() are supported when the CPU has
-> X86_FEATURE_BMI1 (TZCNT).
->
-> bpf_clz64() and bpf_fls64() are supported when the CPU has
-> X86_FEATURE_ABM (LZCNT).
->
-> bpf_popcnt64() is supported when the CPU has X86_FEATURE_POPCNT.
->
-> bpf_bitrev64() is not inlined as x86_64 has no native bit-reverse
-> instruction, so it falls back to a regular function call.
->
-> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
-> ---
->  arch/x86/net/bpf_jit_comp.c | 141 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 141 insertions(+)
->
-> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-> index 070ba80e39d7..193e1e2d7aa8 100644
-> --- a/arch/x86/net/bpf_jit_comp.c
-> +++ b/arch/x86/net/bpf_jit_comp.c
-> @@ -19,6 +19,7 @@
->  #include <asm/text-patching.h>
->  #include <asm/unwind.h>
->  #include <asm/cfi.h>
-> +#include <asm/cpufeatures.h>
->
->  static bool all_callee_regs_used[4] =3D {true, true, true, true};
->
-> @@ -1604,6 +1605,127 @@ static void emit_priv_frame_ptr(u8 **pprog, void =
-__percpu *priv_frame_ptr)
->         *pprog =3D prog;
->  }
->
-> +static bool bpf_inlines_func_call(u8 **pprog, void *func)
+> +static bool bpf_kfunc_is_fastcall(struct bpf_verifier_env *env, u32 func=
+_id, u32 flags)
 > +{
-> +       bool has_popcnt =3D boot_cpu_has(X86_FEATURE_POPCNT);
-> +       bool has_bmi1 =3D boot_cpu_has(X86_FEATURE_BMI1);
-> +       bool has_abm =3D boot_cpu_has(X86_FEATURE_ABM);
-> +       bool inlined =3D true;
-> +       u8 *prog =3D *pprog;
+> +       if (!(flags & KF_FASTCALL))
+> +               return false;
 > +
-> +       /*
-> +        * x86 Bit manipulation instruction set
-> +        * https://en.wikipedia.org/wiki/X86_Bit_manipulation_instruction=
-_set
-> +        */
+> +       if (!env->prog->jit_requested)
+> +               return true;
 > +
-> +       if (func =3D=3D bpf_clz64 && has_abm) {
-> +               /*
-> +                * Intel=C2=AE 64 and IA-32 Architectures Software Develo=
-per's Manual (June 2023)
-> +                *
-> +                *   LZCNT - Count the Number of Leading Zero Bits
-> +                *
-> +                *     Opcode/Instruction
-> +                *     F3 REX.W 0F BD /r
-> +                *     LZCNT r64, r/m64
-> +                *
-> +                *     Op/En
-> +                *     RVM
-> +                *
-> +                *     64/32-bit Mode
-> +                *     V/N.E.
-> +                *
-> +                *     CPUID Feature Flag
-> +                *     LZCNT
-> +                *
-> +                *     Description
-> +                *     Count the number of leading zero bits in r/m64, re=
-turn
-> +                *     result in r64.
-> +                */
-> +               /* emit: x ? 64 - fls64(x) : 64 */
-> +               /* lzcnt rax, rdi */
-> +               EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
+> +       if (func_id =3D=3D special_kfunc_list[KF_bpf_clz64])
+> +               return bpf_jit_inlines_kfunc_call(bpf_clz64);
+> +       if (func_id =3D=3D special_kfunc_list[KF_bpf_ctz64])
+> +               return bpf_jit_inlines_kfunc_call(bpf_ctz64);
+> +       if (func_id =3D=3D special_kfunc_list[KF_bpf_ffs64])
+> +               return bpf_jit_inlines_kfunc_call(bpf_ffs64);
+> +       if (func_id =3D=3D special_kfunc_list[KF_bpf_fls64])
+> +               return bpf_jit_inlines_kfunc_call(bpf_fls64);
+> +       if (func_id =3D=3D special_kfunc_list[KF_bpf_bitrev64])
+> +               return bpf_jit_inlines_kfunc_call(bpf_bitrev64);
+> +       if (func_id =3D=3D special_kfunc_list[KF_bpf_popcnt64])
+> +               return bpf_jit_inlines_kfunc_call(bpf_popcnt64);
+> +       if (func_id =3D=3D special_kfunc_list[KF_bpf_rol64])
+> +               return bpf_jit_inlines_kfunc_call(bpf_rol64);
+> +       if (func_id =3D=3D special_kfunc_list[KF_bpf_ror64])
+> +               return bpf_jit_inlines_kfunc_call(bpf_ror64);
 
-Instead of emitting binary in x86 and arm JITs,
-let's use in kernel disasm to check that all these kfuncs
-conform to kf_fastcall (don't use unnecessary registers,
-don't have calls to other functions) and then copy the binary
-from code and skip the last 'ret' insn.
-This way we can inline all kinds of kfuncs.
-
-pw-bot: cr
+This is too ugly. Find a way to do it differently.
 
