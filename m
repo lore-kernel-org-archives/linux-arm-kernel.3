@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C22DE9A049
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 13:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C652E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 13:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OTx5xYUSGsOyZu92DsCx1SvBwbu3nc6Z9peJKy6aG94=; b=GHDfemonIMngp5vq0/hJyQY0ph
-	MuR08AJ56w5wNBIBLt+nq4BslHivl2E5/jNe19Nu5tWTQTmds/67jwADKx6qoHAUHVyU+i8g0ewv6
-	OILT6Varvt7T60kGr3XwIZlzhaSKdI0x3fLHJfGouJ8P3BQPgkxjlzDYt4R0jl0IZxigoMqYi5Mzo
-	MRZ7O+xrA6lCbnAY4VKDPnlkndWVuilEeDmllHb+JsxXpUAiUh7nLcjgsZiLpOIdTtcR43zzHuadT
-	CRQQB2qvFkk42uDxhADFt/Z8JXE291wL5UB/mabtxcudjfkvfCmzVZbDV9fldE/WZoT+AHXfvkIfF
-	uRSm62HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jeOxfhE58M7g8Cq9p8xf0pHP+foo3Tes4aziK8/uikk=; b=cuHTLr7jT1UOjlhcMAuVgaqTt8
+	sWA5wOxcOnQjRtD+MtzTuUJRIhl3ekh+knKeht0fxZyREPDtHzqCT0kxSFzTbXihxbxMjagp77l0P
+	k029o0H0iiJ4QwL86de/0/+qb6gQ2WZBcZKOli7PgfawxeWBD5XPBdebb6HMVQDWPHX3vNJRJkyP2
+	romsWM6IdtUWEkdS5fT4E9dddH8n9Ja8TJ8jkLhtckVOo7tVQWv/NaTnDK+BX1swTdgC42ijHVezu
+	yUvAeiVn9oS7GfPeqj9O9qsOm7vxSJeQQP0nyApqJparPCGk0eC6ZQe8Hd7h0MfuLnlCrymH/+JLt
+	PbogJTbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt43o-0000000BOTR-0z3F;
-	Thu, 19 Feb 2026 13:27:16 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vt43y-0000000BOV2-2CSI;
+	Thu, 19 Feb 2026 13:27:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt43l-0000000BOT6-30aH
+	id 1vt43v-0000000BOUH-1BEa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 13:27:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=OTx5xYUSGsOyZu92DsCx1SvBwbu3nc6Z9peJKy6aG94=; b=klslBckAQ9ua5SE2P5JljVjvSQ
-	ZD6yujfTr8QwvZqsbYgjbIsmmFx0ZZtWMBtuGoRKA1BpMNh5P+uzGinNCZG3EolLk1Hn+auQTOD/W
-	kmgjnUO3B2S70xdA4KFlmZaPFjs27Ls79w0i19HUi0OK6VdUrP7LZFlx4vrsFPG8K2eI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vt43S-007uuW-8t; Thu, 19 Feb 2026 14:26:54 +0100
-Date: Thu, 19 Feb 2026 14:26:54 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Cc: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-imx@nxp.com, Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Message-ID: <44804825-5e61-4c3c-96bf-e5a3f3eacec1@lunn.ch>
-References: <20260212213656.662437-1-shenwei.wang@nxp.com>
- <20260212213656.662437-4-shenwei.wang@nxp.com>
- <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
+	Thu, 19 Feb 2026 13:27:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A96F43760;
+	Thu, 19 Feb 2026 13:27:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A3E9C4CEF7;
+	Thu, 19 Feb 2026 13:27:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771507642;
+	bh=UOmv4/E5nYy5BuX3+7GRvfIqjiGW59WAq5mvH6o1Cs8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=uNOQaBTL7KMcBfgk1wXGWh+KUFICzxB6eyujlrmU/fF72X+OYUHyNEMo6hw8681ic
+	 OApECaWkaXvQ4LcywazEtUD2FA5QnfcegHAPX56OO3xUe9JxZhpThbZMvSWvtXBjrP
+	 R33bpr0AJcFrhkC9GYZDlKnB58RNiu6bxeydvrxJgGuXJAupJxa88SWtUYO+MpdaBn
+	 uvM0ajf9GqW+DHOTV7G25FmOBzW3/pRlNleAECTAMJHJGdYUlutP+CICLYZGgrxBOl
+	 aSYzRKHX1YL/+xTassE615sYOoqHCXDnGYgOtAsPwIOMRSetzrlgCKzm1wEIf34PEx
+	 WHilAr9VQYjEA==
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Arnd Bergmann <arnd@kernel.org>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Rohan McLure <rmclure@linux.ibm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	Andrew Donnellan <ajd@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] [v3] arm64: hugetlbpage: avoid unused-but-set-parameter warning (gcc-16)
+Date: Thu, 19 Feb 2026 13:27:12 +0000
+Message-ID: <177150443271.2427273.4066606307827400858.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260216105432.2381873-1-arnd@kernel.org>
+References: <20260216105432.2381873-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_052714_136954_4DC7D1A6 
-X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-CacheID: sfid-20260219_052723_726579_21764FC0 
+X-CRM114-Status: UNSURE (   9.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,25 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +	if (sync) {
-> > +		err = wait_for_completion_timeout(&info->cmd_complete,
-> > +						  msecs_to_jiffies(RPMSG_TIMEOUT));
-> > +		if (err == 0) {
-> > +			dev_err(&info->rpdev->dev, "rpmsg_send timeout!\n");
-> > +			return -ETIMEDOUT;
+On Mon, 16 Feb 2026 11:54:21 +0100, Arnd Bergmann wrote:
+> gcc-16 warns about an instance that older compilers did not:
 > 
-> strange condition you return an error if err == 0, for redability use 'ret'
-> variable or simply:
+> arch/arm64/mm/hugetlbpage.c: In function 'huge_pte_clear':
+> arch/arm64/mm/hugetlbpage.c:369:57: error: parameter 'addr' set but not used [-Werror=unused-but-set-parameter=]
 > 
-> 		if(!wait_for_completion_timeout(&info->cmd_complete,
-> 				  msecs_to_jiffies(RPMSG_TIMEOUT)) {
-> 			dev_err(&info->rpdev->dev, "rpmsg_send timeout!\n");
-> 			return -ETIMEDOUT;
-> 		}
+> The issue here is that __pte_clear() does not actually use its second
+> argument, but when CONFIG_ARM64_CONTPTE is enabled it still gets
+> updated.
+> 
+> [...]
 
-This will be from a comment i made. It appears that
-do_wait_for_common() can return -ERESTARTSYS. I assume that should be
-returned to user space?
+Applied to arm64 (for-next/core), thanks!
 
-	Andrew
+[1/1] arm64: hugetlbpage: avoid unused-but-set-parameter warning (gcc-16)
+      https://git.kernel.org/arm64/c/729a2e8e9ac4
+
+Cheers,
+-- 
+Will
+
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
