@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2DD7E9A04A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 14:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8C32E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 14:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LRtR7BaGNupDWJtUJ58LFj4w6zAqDSzxcIixhPEboME=; b=heigCfx4koEi3137a4QEA/3iMt
-	9mjRgKaE3qbmj1vwiBsGAuhSZYUJ3uE/Qu5Aq1szLfrN6z02Y+PFnj2lmBXZgDO2pYtR40bXR+q6B
-	sRWADieonh2y3kCUKO0PU4fLj2aa3ANFez8yIK+oTd+r3ezOovALKoNBpWEcEkq8spoe4KGdkwFjN
-	ZonJmlzgFWXPgfeOTf/tIhIQ9vr/EMa5aUNA2Gmw0I6lwm1okNzcOu3wryZ1mGiRNGZ9Il9sH21DM
-	ftZb/9MAxLJBXEbraj4Va8RIFM3jWIxeGBKGyropGllm3SuDXmcXriM808WTSd/4OzOfOvEeqTuXJ
-	OCzgE7YQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LbyH7r/+43Qi6pmkbYmF9oCsizXUoRzTF9X7Dq2Fsj8=; b=YGlA67nXT3UmGf3QQSx3kRqi38
+	PVSoTfXhUkzRNnEc5AMdcdMCvrtHSDjz7+jgSzpJCNG+MGYubM9eLkscXiuEDZhsjkgbKbLN2e0Yn
+	mSWLY9LrT7HarKegTlX7848J5EGvL4yHIDcpJlxKP73t//Dt2MbTJlvMpboiq6kx0NsLwvZ9pA/h4
+	epUEISAblBS13rrMY96VzYJF7vT5WqRyFYa83MVmSx2K9bHxt4q2anh4I8uUY90bvlcwilfnJi8tI
+	69YAd0uYgMQLtRj/zMV9QXEE9H4BeHUWBETzUTe2rhxcUH2ES+tsVz2QGVWE29cR4ImhK5XoVVN7N
+	gL8MPlQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt536-0000000BRwy-3zNe;
-	Thu, 19 Feb 2026 14:30:36 +0000
-Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
+	id 1vt53F-0000000BRzl-3FXp;
+	Thu, 19 Feb 2026 14:30:45 +0000
+Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt533-0000000BRvq-0h7E
+	id 1vt53D-0000000BRyY-162a
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 14:30:34 +0000
+	Thu, 19 Feb 2026 14:30:44 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771511415;
+	t=1771511440;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=LRtR7BaGNupDWJtUJ58LFj4w6zAqDSzxcIixhPEboME=;
-	b=lR2culyrTuf+k/z/wvJ7a4TUVJtUKioslDuE04IeFiNfDyawkkQoEMJkVNpSWGmNExEPFF
-	Zzz9Cu/xfdoAwYIVGaS/KJNhqdaV5GF/Ud+dTmgeV5uAC/UIabDJL1FUIHTlOxvi0sV8O9
-	J8IYCsIie3aBLLg+bK95zRLvhIVzVaM=
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LbyH7r/+43Qi6pmkbYmF9oCsizXUoRzTF9X7Dq2Fsj8=;
+	b=WATtM/3QzNXG5tUxfI9ZvXAHFtiYkE/toigRhrNoHvE1xC4pC3wH0zs+iR3XZEr9AyDElM
+	sRqdRfkYLJJPNVpFvSttasDvnKplXkgPHcqyGcpy5M70F7J13M/is1d3qRiI9issMtdkeM
+	xqMk/r3eiR5vHe5oCQOYbIj8/SO8e7E=
 From: Leon Hwang <leon.hwang@linux.dev>
 To: bpf@vger.kernel.org
 Cc: Alexei Starovoitov <ast@kernel.org>,
@@ -71,16 +72,18 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	kernel-patches-bot@fb.com
-Subject: [PATCH bpf-next v2 0/6] bpf: Introduce 64-bit bitops kfuncs
-Date: Thu, 19 Feb 2026 22:29:22 +0800
-Message-ID: <20260219142933.13904-1-leon.hwang@linux.dev>
+Subject: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs support for x86_64
+Date: Thu, 19 Feb 2026 22:29:24 +0800
+Message-ID: <20260219142933.13904-3-leon.hwang@linux.dev>
+In-Reply-To: <20260219142933.13904-1-leon.hwang@linux.dev>
+References: <20260219142933.13904-1-leon.hwang@linux.dev>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_063033_361368_E2637CFE 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260219_063043_455288_42C1B81B 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,78 +98,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds generic 64-bit bitops kfuncs and JIT inlining support
-on x86_64 and arm64.
+Implement JIT inlining of the 64-bit bitops kfuncs on x86_64.
 
-The new kfuncs are:
+bpf_rol64() and bpf_ror64() are always supported via ROL/ROR.
 
-* bpf_clz64(): Count leading zeros.
-* bpf_ctz64(): Count trailing zeros.
-* bpf_ffs64(): Find first set bit, 1-based index, returns 0 when input is 0.
-* bpf_fls64(): Find last set bit, 1-based index.
-* bpf_bitrev64(): Reverse bits.
-* bpf_popcnt64(): Population count.
-* bpf_rol64(): Rotate left.
-* bpf_ror64(): Rotate right.
+bpf_ctz64() and bpf_ffs64() are supported when the CPU has
+X86_FEATURE_BMI1 (TZCNT).
 
-Defined zero-input behavior:
+bpf_clz64() and bpf_fls64() are supported when the CPU has
+X86_FEATURE_ABM (LZCNT).
 
-* bpf_clz64(0) = 64
-* bpf_ctz64(0) = 64
-* bpf_ffs64(0) = 0
-* bpf_fls64(0) = 0
+bpf_popcnt64() is supported when the CPU has X86_FEATURE_POPCNT.
 
-bpf_ffs64() was previously discussed in
-"bpf: Add generic kfunc bpf_ffs64()" [1].
+bpf_bitrev64() is not inlined as x86_64 has no native bit-reverse
+instruction, so it falls back to a regular function call.
 
-The main concern in that discussion was ABI overhead: a regular kfunc call
-follows the BPF calling convention and can introduce extra spill/fill compared
-to dedicated instructions.
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ arch/x86/net/bpf_jit_comp.c | 141 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 141 insertions(+)
 
-This series keeps the user-facing API as kfuncs while avoiding that overhead
-on hot paths. When the JIT/backend and CPU support it, calls are inlined into
-native instructions; otherwise they fall back to regular function calls.
-
-Links:
-[1] https://lore.kernel.org/bpf/20240131155607.51157-1-hffilwlqm@gmail.com/
-
-Changes:
-v1 -> v2:
-* Drop RFC.
-* Add __cpu_feature annotation for CPU-feature-gated tests.
-* Add JIT disassembly tests for 64-bit bitops kfuncs
-* Address comments from Alexei:
-  * Drop KF_MUST_INLINE.
-  * Drop internal BPF_ALU64 opcode BPF_BITOPS.
-  * Mark all of the kfuncs as fastcall and do push/pop in JIT when necessary.
-* v1: https://lore.kernel.org/bpf/20260209155919.19015-1-leon.hwang@linux.dev/
-
-Leon Hwang (6):
-  bpf: Introduce 64-bit bitops kfuncs
-  bpf, x86: Add 64-bit bitops kfuncs support for x86_64
-  bpf, arm64: Add 64-bit bitops kfuncs support
-  selftests/bpf: Add tests for 64-bit bitops kfuncs
-  selftests/bpf: Add __cpu_feature annotation for CPU-feature-gated
-    tests
-  selftests/bpf: Add JIT disassembly tests for 64-bit bitops kfuncs
-
- arch/arm64/net/bpf_jit_comp.c                 | 123 ++++++++++++
- arch/x86/net/bpf_jit_comp.c                   | 141 +++++++++++++
- include/linux/filter.h                        |  10 +
- kernel/bpf/core.c                             |   6 +
- kernel/bpf/helpers.c                          |  50 +++++
- kernel/bpf/verifier.c                         |  53 ++++-
- .../testing/selftests/bpf/bpf_experimental.h  |   9 +
- .../testing/selftests/bpf/prog_tests/bitops.c | 188 ++++++++++++++++++
- tools/testing/selftests/bpf/progs/bitops.c    |  68 +++++++
- .../testing/selftests/bpf/progs/bitops_jit.c  | 153 ++++++++++++++
- tools/testing/selftests/bpf/progs/bpf_misc.h  |   7 +
- tools/testing/selftests/bpf/test_loader.c     | 150 ++++++++++++++
- 12 files changed, 957 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/bitops.c
- create mode 100644 tools/testing/selftests/bpf/progs/bitops.c
- create mode 100644 tools/testing/selftests/bpf/progs/bitops_jit.c
-
+diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+index 070ba80e39d7..193e1e2d7aa8 100644
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -19,6 +19,7 @@
+ #include <asm/text-patching.h>
+ #include <asm/unwind.h>
+ #include <asm/cfi.h>
++#include <asm/cpufeatures.h>
+ 
+ static bool all_callee_regs_used[4] = {true, true, true, true};
+ 
+@@ -1604,6 +1605,127 @@ static void emit_priv_frame_ptr(u8 **pprog, void __percpu *priv_frame_ptr)
+ 	*pprog = prog;
+ }
+ 
++static bool bpf_inlines_func_call(u8 **pprog, void *func)
++{
++	bool has_popcnt = boot_cpu_has(X86_FEATURE_POPCNT);
++	bool has_bmi1 = boot_cpu_has(X86_FEATURE_BMI1);
++	bool has_abm = boot_cpu_has(X86_FEATURE_ABM);
++	bool inlined = true;
++	u8 *prog = *pprog;
++
++	/*
++	 * x86 Bit manipulation instruction set
++	 * https://en.wikipedia.org/wiki/X86_Bit_manipulation_instruction_set
++	 */
++
++	if (func == bpf_clz64 && has_abm) {
++		/*
++		 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
++		 *
++		 *   LZCNT - Count the Number of Leading Zero Bits
++		 *
++		 *     Opcode/Instruction
++		 *     F3 REX.W 0F BD /r
++		 *     LZCNT r64, r/m64
++		 *
++		 *     Op/En
++		 *     RVM
++		 *
++		 *     64/32-bit Mode
++		 *     V/N.E.
++		 *
++		 *     CPUID Feature Flag
++		 *     LZCNT
++		 *
++		 *     Description
++		 *     Count the number of leading zero bits in r/m64, return
++		 *     result in r64.
++		 */
++		/* emit: x ? 64 - fls64(x) : 64 */
++		/* lzcnt rax, rdi */
++		EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
++	} else if (func == bpf_ctz64 && has_bmi1) {
++		/*
++		 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
++		 *
++		 *   TZCNT - Count the Number of Trailing Zero Bits
++		 *
++		 *     Opcode/Instruction
++		 *     F3 REX.W 0F BC /r
++		 *     TZCNT r64, r/m64
++		 *
++		 *     Op/En
++		 *     RVM
++		 *
++		 *     64/32-bit Mode
++		 *     V/N.E.
++		 *
++		 *     CPUID Feature Flag
++		 *     BMI1
++		 *
++		 *     Description
++		 *     Count the number of trailing zero bits in r/m64, return
++		 *     result in r64.
++		 */
++		/* emit: x ? __ffs64(x) : 64 */
++		/* tzcnt rax, rdi */
++		EMIT5(0xF3, 0x48, 0x0F, 0xBC, 0xC7);
++	} else if (func == bpf_ffs64 && has_bmi1) {
++		/* emit: __ffs64(x); x == 0 has been handled in verifier */
++		/* tzcnt rax, rdi */
++		EMIT5(0xF3, 0x48, 0x0F, 0xBC, 0xC7);
++	} else if (func == bpf_fls64 && has_abm) {
++		/* emit: fls64(x) */
++		/* lzcnt rax, rdi */
++		EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
++		EMIT3(0x48, 0xF7, 0xD8);       /* neg rax */
++		EMIT4(0x48, 0x83, 0xC0, 0x40); /* add rax, 64 */
++	} else if (func == bpf_popcnt64 && has_popcnt) {
++		/*
++		 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
++		 *
++		 *   POPCNT - Return the Count of Number of Bits Set to 1
++		 *
++		 *     Opcode/Instruction
++		 *     F3 REX.W 0F B8 /r
++		 *     POPCNT r64, r/m64
++		 *
++		 *     Op/En
++		 *     RM
++		 *
++		 *     64 Mode
++		 *     Valid
++		 *
++		 *     Compat/Leg Mode
++		 *     N.E.
++		 *
++		 *     Description
++		 *     POPCNT on r/m64
++		 */
++		/* popcnt rax, rdi */
++		EMIT5(0xF3, 0x48, 0x0F, 0xB8, 0xC7);
++	} else if (func == bpf_rol64) {
++		EMIT1(0x51);             /* push rcx */
++		/* emit: rol64(x, s) */
++		EMIT3(0x48, 0x89, 0xF1); /* mov rcx, rsi */
++		EMIT3(0x48, 0x89, 0xF8); /* mov rax, rdi */
++		EMIT3(0x48, 0xD3, 0xC0); /* rol rax, cl */
++		EMIT1(0x59);             /* pop rcx */
++	} else if (func == bpf_ror64) {
++		EMIT1(0x51);             /* push rcx */
++		/* emit: ror64(x, s) */
++		EMIT3(0x48, 0x89, 0xF1); /* mov rcx, rsi */
++		EMIT3(0x48, 0x89, 0xF8); /* mov rax, rdi */
++		EMIT3(0x48, 0xD3, 0xC8); /* ror rax, cl */
++		EMIT1(0x59);             /* pop rcx */
++	} else {
++		inlined = false;
++	}
++
++	*pprog = prog;
++	return inlined;
++}
++
+ #define INSN_SZ_DIFF (((addrs[i] - addrs[i - 1]) - (prog - temp)))
+ 
+ #define __LOAD_TCC_PTR(off)			\
+@@ -2452,6 +2574,8 @@ st:			if (is_imm8(insn->off))
+ 			u8 *ip = image + addrs[i - 1];
+ 
+ 			func = (u8 *) __bpf_call_base + imm32;
++			if (bpf_inlines_func_call(&prog, func))
++				break;
+ 			if (src_reg == BPF_PSEUDO_CALL && tail_call_reachable) {
+ 				LOAD_TAIL_CALL_CNT_PTR(stack_depth);
+ 				ip += 7;
+@@ -4117,3 +4241,20 @@ bool bpf_jit_supports_fsession(void)
+ {
+ 	return true;
+ }
++
++bool bpf_jit_inlines_kfunc_call(void *func_addr)
++{
++	if (func_addr == bpf_ctz64 || func_addr == bpf_ffs64)
++		return boot_cpu_has(X86_FEATURE_BMI1);
++
++	if (func_addr == bpf_clz64 || func_addr == bpf_fls64)
++		return boot_cpu_has(X86_FEATURE_ABM);
++
++	if (func_addr == bpf_popcnt64)
++		return boot_cpu_has(X86_FEATURE_POPCNT);
++
++	if (func_addr == bpf_rol64 || func_addr == bpf_ror64)
++		return true;
++
++	return false;
++}
 -- 
 2.52.0
 
