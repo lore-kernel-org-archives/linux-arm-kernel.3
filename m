@@ -4,145 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57E8E9A05E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 19:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CF5E9A05F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 19:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cw6oegE7BJrIH7ye5GHNWs5b/IUa25g+uNiuS7o/4uw=; b=MPYE1GZNZBIRLv91LgPFxyERhM
-	N+WlpuFjcr4lB3ij4cXk/VcL1CPnViv1Hxo6g0ONfYCTuRE1ibJlB/69H49gCFo3Zhh5qS7hIBUqk
-	JFA2kHr21Epct/pIv64wD6qn6mJm5sLqdBEzH057zweUs/ZuabcbE/3iYfbto7ycg7vQ/GZyY+L61
-	O3pUWwWvoipZCOtqi4466Hz9dnICS39OOyWkRXduKG2LdZlMPBkuiTOTTGNCzFyPcBO9USJ553cdB
-	7hDLPrWXUoOIMyVXVzjkQxq14qEx2U2d39rpXKNCQ5Z6ynt79xQPBJ7SR5XUO0HiHi/sMc1uE5W+B
-	WpJHMriQ==;
+	bh=7+YFiy039GVSEQl6c0jvroYaNzpmaQb+Qolwc5ns+8s=; b=ZuaUS3ZykSHmZf6iIwQQDs1R0+
+	sXTvHxQDiDjoR0FvIDVESaOa3wLL7di3rKozQ07fShbV2gQSrw7GEjZ0uNqdEjhBtUbprho1BY1cV
+	AosrkxW/LpnYSelnR/poKMgElRvH91YItT77dBAMIMl0LBLM6WES9L6i5a0UBUiOAwylKt74WKO4X
+	APrg8gNQ2GhffxIF+A29ClLP5gwsvCi+UvysQn0v+y9doP3vChRVkRawxYnMAMnuwdiYVSLaoZEsD
+	19ORXHZEl9EFDlKLltWquyBpvXSMLmZAcPc2MXwA+g3mOiOm04ZCloB6inmQHdNxC0k8M8CzT4dNy
+	oYNMEcEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt9vX-0000000Brji-3Xa2;
-	Thu, 19 Feb 2026 19:43:07 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vt9w1-0000000Bs9y-3crX;
+	Thu, 19 Feb 2026 19:43:37 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt9vU-0000000Breh-1CRX
+	id 1vt9vs-0000000Bs3b-21tM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 19:43:05 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61JCphpR160557
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 19:43:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cw6oegE7BJrIH7ye5GHNWs5b/IUa25g+uNiuS7o/4uw=; b=P49TaiinQnf3Zapr
-	kl0aQrMx7MQCzXDWhzNBGjFa4GzzO/I4lQvuwv3gn7t/7dpgnEnkeel3bzzDzUg4
-	pLJSxmJrd4JCG/HxHovQxHBl3sphHqMcvXyngw+pFxISyHvk5VEqmmRJewTGRgHc
-	VLqDrcUcqo68tT0NYr26VQc1dR/U0X0HKfIbTO6hXpj/Ikr/Os1OuMpojd8N6Yr9
-	0AkfS0F3ztsEz43MAlkJ0hwqQXloESXfWNiiOe8YFnGejoSCV4D+6I0b+oNlTebv
-	igMzu5rkmODUW1b+cOLY66Yw7bCZje5NqJfSsxF+iS0O0fvo8v68jFu4m/ADArv1
-	Qnn0tw==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cdrpgarjn-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 19:43:03 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2ab0b2e804cso15446735ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 11:43:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771530182; x=1772134982; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cw6oegE7BJrIH7ye5GHNWs5b/IUa25g+uNiuS7o/4uw=;
-        b=a7AQtAknyzkzENFn/A81UdjTP6y3BaMlJePmve1HlGO7u9BJk5iS0+l2IztbhYyVHw
-         MO0ACMHlJoYIbJWgeZIdwrjGb3gsNh/2yGCDmC++t5U5bpQj6zh4mtOe9DSPfn3KtjqP
-         fQ+eRBLzdfTKQ9CA4qPX56H4rvE3f5dI2CH1F5KL+7SlK0X4684ubBEuw/S8cBJqykbL
-         x82soj7WGv4SeA7l4ZPJ/Js4rthBPG5DlzUen6fwXJNeYDZRFVSr/41qNBxj7fkq3pv4
-         9dWhSp/37S9hM5eQHQMeyCQVCNKQKqFkrc1Tm3l/v7y/gvICbfplUhWaq8qeHvPiiZyT
-         GhyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771530182; x=1772134982;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=cw6oegE7BJrIH7ye5GHNWs5b/IUa25g+uNiuS7o/4uw=;
-        b=KJQ7klCMA0kUomLIfMP5+Vkt0fgqJwkFivAaoo37NbiUZQUgi4f+J6NxdIlYEJ1wVG
-         I7Ws8LGKt6tcFJ93q+RfAlxlWT59P3yp6Tsm7n3FjgD7nuIbAHp4aCbDE6A8RdGkJQ8E
-         02TCYlnxn4oTUdCs2m6eds5H9pdU7qRniXHsopHNEswQMkHo5zA4I6Zfp1sUFlXn7nSZ
-         YR4ADcQY0Ij0lz0XvpuZjC8aIsoIljGLpRm7mCBgeMtX0EYyERpEwBXCZy+llW82BGxw
-         GgZc/d8vrdgK3Flbqz1WjbHBlwf7XGznRS9ra2qzlitcKa7oizwV3q3ygjds5FsMwgeH
-         GFhw==
-X-Forwarded-Encrypted: i=1; AJvYcCWmqIa08SnCyKhWtiNQDrnzhRFGozTOClBpp0/KXZrO6hLvClhAt/FjXVniClmHvGc2oQQk07yPjorFOVZnQYTO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhgqZymBxKvmdO5efKjbBAwr1lgyTXy2ulaalaNZy2le3MZLii
-	PtzSvz/1Ot1bSKht999M74/q+MdNquZYOnO83xnHg+PJqzk8lVHVbishXdkduhxQpyvA9liX3P0
-	DGz9clECKBrQ/lvzxW/VKQY6S/lo9MlHEWIvp56dFzTH//EoFT31soavKMRvSdd1GxnMzZOYlpa
-	VLeg==
-X-Gm-Gg: AZuq6aI+pq2/06OG3qqGUvji3Z8XeSyQ/WFZq0xQ6LsrI+rYEZ6AJUzZd/syBQ82hbt
-	0krA4Lu4qROGcq93DQ1qEGKVR84riZLyGkrDp75mTEXcz2cyRuQzH/jntcKsTVZGkI+UP4HLRGM
-	f3pzmMaDflC1R8OIDCuyMeXUhV9Zto+lVhm+InZZL+enKSRP6H2KAKbOXK7X+LCq1rVQJlOf6Ld
-	Pi/smOE5nAkZyMNiabd2zmuJKeGu7BImbhKg+cXioqWFjFmrFTy9DChsWq4G5O+vcvb/7bvS762
-	nieWPeWK/n3XbueBcXXRF/ZxdFUbG2XeOWGq3xQKtAxAa3wivjlTsgOQx5ihny7DY7wPW7/xNiB
-	9KNBHmbV5PfwrqsgrJS+F261YUeg9YmXx4khWW8LL1OGlx+mvirgyTntkEkhCV3X73clBIfX/kP
-	HGbSH1HjLxVWi1tQa5oOgu2Dd/Pb9MgmvibCsvxN8=
-X-Received: by 2002:a17:903:2ec3:b0:2aa:d630:cd5d with SMTP id d9443c01a7336-2ad5b144c92mr33071685ad.44.1771530182053;
-        Thu, 19 Feb 2026 11:43:02 -0800 (PST)
-X-Received: by 2002:a17:903:2ec3:b0:2aa:d630:cd5d with SMTP id d9443c01a7336-2ad5b144c92mr33071375ad.44.1771530181608;
-        Thu, 19 Feb 2026 11:43:01 -0800 (PST)
-Received: from hu-rajkbhag-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a712ed9sm264404225ad.20.2026.02.19.11.42.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Feb 2026 11:43:01 -0800 (PST)
-From: Raj Kumar Bhagat <raj.bhagat@oss.qualcomm.com>
-Date: Fri, 20 Feb 2026 01:12:42 +0530
-Subject: [PATCH wireless-next 2/2] wifi: mac80211: fetch unsolicited probe
- response template by link ID
+	Thu, 19 Feb 2026 19:43:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VoPGkJDuoviwbRs/TKAHy3ZWVfP5xs8eRyI5ri7jsjaAI758WCV1cI9AILV6f1T251j3AEUieSvC+MpTETyZP36Lhf+aGx4jL28wH1A0qsDRFGv7crgohxFQC2hOK6U/NGUp2kp/gfK781HFR0ZMFSIcIH+yKMYWs2V6PO9/vjycDX555EFfPgqeb4nlc0m6cV6bLSNYY9Qm4+GhOYfnNvqXvTLNGsXyWEpAJwBWuixU95UtHUNDYr3bMjDCC+9G+oVy2LqX8ZkfaS9qwZGKqY6pJwtJO4mMqyhWi2copn1jo6RT09NKlMnxYKMPViQkxaQL87IyTJhYtwLJf7Mi2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7+YFiy039GVSEQl6c0jvroYaNzpmaQb+Qolwc5ns+8s=;
+ b=Jsa7gbLus1RnO9FFUmD4LBV0ohugbX7rrg91aKGj9va5E4CZu2rFKH3PXP7xqnHOMo4/vqj2BC7IENED5R9vaKSj14ovMRtaTmV5WSmmO4UxpHdtLPf8lIyvOtcaqB2IL6iFdEVvtPkUXVCGanAHROFwIIit1hWOIcmqd/hNeEmYrCe4ublcd/gkJZp4VUEYZbFjL/pv21C5dK8EQfQ8JBQmg1tL4diL2eOQs051dtYxHfBqkqId97v2rbdD/skrvVazcpZ5I9iOVWsZ1XYTJmSuFpMIOvOwGknBtS3TO4oiSiCeIlCwHhhlz+Ktqmg3/5xxi7c1pZ8c4M+/VUPb7Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7+YFiy039GVSEQl6c0jvroYaNzpmaQb+Qolwc5ns+8s=;
+ b=MkIGl+Eh8SY1X4lzwKxSy2fkgDh5wDz6KY7YwvPpqtUE9nODKF7jTbMjKf3FdrF/yEk1zwC0m2jLQnEIqPVdDVvAK7G3yNLR4pjIgcfToBoWinx1yNYOG4XBvvbvwncpVhZMnr9fOuXOVDSJcAJQVq2So713npbNQlz2NS0sQCU=
+Received: from PH7P221CA0042.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:33c::10)
+ by SA1PR10MB997714.namprd10.prod.outlook.com (2603:10b6:806:4be::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.15; Thu, 19 Feb
+ 2026 19:43:24 +0000
+Received: from CY4PEPF0000EE30.namprd05.prod.outlook.com
+ (2603:10b6:510:33c:cafe::60) by PH7P221CA0042.outlook.office365.com
+ (2603:10b6:510:33c::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.15 via Frontend Transport; Thu,
+ 19 Feb 2026 19:43:24 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CY4PEPF0000EE30.mail.protection.outlook.com (10.167.242.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9632.12 via Frontend Transport; Thu, 19 Feb 2026 19:43:24 +0000
+Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Feb
+ 2026 13:43:21 -0600
+Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Feb
+ 2026 13:43:21 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 19 Feb 2026 13:43:21 -0600
+Received: from [127.0.1.1] (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61JJhLBc2638942;
+	Thu, 19 Feb 2026 13:43:21 -0600
+From: Kendall Willis <k-willis@ti.com>
+Date: Thu, 19 Feb 2026 13:43:19 -0600
+Subject: [PATCH v4 4/4] arm64: boot: dts: ti: k3-am62l3-evm: enable
+ wkup_uart0_target node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260220-fils-prob-by-link-v1-2-a2746a853f75@oss.qualcomm.com>
-References: <20260220-fils-prob-by-link-v1-0-a2746a853f75@oss.qualcomm.com>
-In-Reply-To: <20260220-fils-prob-by-link-v1-0-a2746a853f75@oss.qualcomm.com>
-To: Jeff Johnson <jjohnson@kernel.org>, Felix Fietkau <nbd@nbd.name>,
-        Lorenzo Bianconi <lorenzo@kernel.org>,
-        Ryder Lee <ryder.lee@mediatek.com>,
-        Shayne Chen <shayne.chen@mediatek.com>,
-        Sean Wang <sean.wang@mediatek.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Johannes Berg <johannes@sipsolutions.net>
-Cc: linux-wireless@vger.kernel.org, ath11k@lists.infradead.org,
-        linux-kernel@vger.kernel.org, ath12k@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org,
-        Sriram R <quic_srirrama@quicinc.com>,
-        Raj Kumar Bhagat <raj.bhagat@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-GUID: IkF_mJ2s4vCby3qMxG6G2RgQVufc-jFL
-X-Authority-Analysis: v=2.4 cv=JrL8bc4C c=1 sm=1 tr=0 ts=699767c7 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22
- a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=tVayKBx9Dmlhv4CN5F0A:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE5MDE3OSBTYWx0ZWRfX5GwHaq+UmySX
- 3da8CIED8uS4vb68E3uRDJC3wTcCP19ItUxaH7TYiXV/ooqKY5AL8HbsnK0JkAyFcOn2yFCTuvD
- +b7k1JpSRFuTdH/DZx0MdA3vZR5AexBr+vvbI37709l5DVPQyNA5KiWvIEh9VXrHqqfnqtbj00k
- FJelvkTLqvtDv2O9XIx+q9iLgtZ7ud0vloZGm0ptIuMxvs4QWrIiWdk18AzpnCgyXRLSx5hkiWv
- kwU26vOfjzAxij5Y4AEloOFhWN/KHxu4NSEpJ48yJz14q4BEYryX407+/v8aGneJfl6ojBi18sj
- 1WbSOtlmT0GlE4djIbMXBt7Hjp0eFKZrllx9XVi+Am6/zRxvhJtK1P0dR4rMQtN9nOjgIgHtZDF
- 5qK98QO27EhlSbmBOEZ1IZNXO0krcwL2gZbFiMEnCnP8YEW1J7saULVMaenidOps8M7KvAC+/6t
- LViYydHYkoPqD/jmWAw==
-X-Proofpoint-ORIG-GUID: IkF_mJ2s4vCby3qMxG6G2RgQVufc-jFL
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-19_04,2026-02-19_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 lowpriorityscore=0 impostorscore=0
- phishscore=0 bulkscore=0 clxscore=1015 spamscore=0 adultscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2602190179
+Message-ID: <20260219-v6-19-wkup-uart-wakeup-v4-4-eda09dce5623@ti.com>
+References: <20260219-v6-19-wkup-uart-wakeup-v4-0-eda09dce5623@ti.com>
+In-Reply-To: <20260219-v6-19-wkup-uart-wakeup-v4-0-eda09dce5623@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Dhruva
+ Gole" <d-gole@ti.com>, Bryan Brattlof <bb@ti.com>
+CC: <vishalm@ti.com>, <sebin.francis@ti.com>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Kendall Willis <k-willis@ti.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1771530201; l=816;
+ i=k-willis@ti.com; s=20251230; h=from:subject:message-id;
+ bh=cJB3MoLS01w43KZb5W7tupR/txJMqk/0orNJFFUQxsA=;
+ b=2b3BLu9M7ADUjR+apEiLyxvR+hXRCxIVIUeb7Olt6vwxj6vYvqn72JG8jzLzUF5U7Gn5QEcWx
+ tOQXSiAPn4CCd5rmro0dVLFPhio9l6WO5dIt8ftmXyi0vDdNHukee7G
+X-Developer-Key: i=k-willis@ti.com; a=ed25519;
+ pk=fQiPVFwmogfDAKdaAKq163RWSfgHZVE/MrsDzp0Xo1k=
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE30:EE_|SA1PR10MB997714:EE_
+X-MS-Office365-Filtering-Correlation-Id: 20b3103f-6241-40ee-364a-08de6fef24f9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?U3VmRHArUGMxeUdJRjQ0OEpmTk5aVFN6QmU3NHFjSmRsRlIzZmFWaG8rY083?=
+ =?utf-8?B?YjJHazAzazR2WDdoeTM1R3N4M2U1SVhJSTlCbFZ0b2pHSE1OM0o0VmdwN2tF?=
+ =?utf-8?B?cUpHUFZvUWNBRVdadzZqQytycGEyQXdNRlFnTHhPbDdQdDBsS01sd0lUMkRN?=
+ =?utf-8?B?U0lwa09aNmErdHZVbzk1Rzk0L1F0elRpT3dwRWR1Rk9iaThFajhLMWxxNVpl?=
+ =?utf-8?B?SjhRS2Fwc2cwTHFWNit4dk5JNERGM0dxU1dpSnpKd0Jmd3Y3Z1JWUlBFQVNx?=
+ =?utf-8?B?RXY4Z3Q5dzFIbGZpbzR1dTdaem9zWjg4TytZOGw0bEN0SzVLWFRudnY3S3BV?=
+ =?utf-8?B?bHpqeVFEWS9VaFV3eTVmbzJ4QmZnczNXMnNEcjVwaUdDT2RNK3Z4bkVxd2hL?=
+ =?utf-8?B?WHR4SUNUS3BnbjF6M2swN3FRMlpMdEcxeWR3Um14aitNQm0rM3MrQ2xwVkRE?=
+ =?utf-8?B?MVd6OVUyd0xmYkJzN2ZrNkY0dEN3ZllraEJHS1V6WklyVzBDdTBEM3g4Q0pm?=
+ =?utf-8?B?RGhmaG5ZTE1nM2ZCVVlqN2FrRzViQUNoN1Raa1Bic2xMZTh0ZlllLzlrN3dN?=
+ =?utf-8?B?dGhNUzhDQ3JMV05yQkdub1VVMkprZUl4djJsZEZ3TlFHWXhJa0RYQWFDS3FU?=
+ =?utf-8?B?UmpIajM4QWFsaTZCVTdYVEt3clpONVZlUFI0cm9Qb0ZBTkVCM3Z5MmdFU3N2?=
+ =?utf-8?B?eVNlS3NvUWZENHdsSlNlSENjdVlmWHZ4Vy80SWExUW4wblNrbWJxeHhsZHJX?=
+ =?utf-8?B?dnhtV1hPaVc5SktoZkZ4TG85Qms2MCtpcVhRZEtYUksxenJwU2tPeVJpc2dB?=
+ =?utf-8?B?RnBKTkFzS3JyKzVkRCtDdE9rMWFKdWRoYkRuNGNWdkxocDJQR3dKWlhvcWNG?=
+ =?utf-8?B?LzRQeVh2SUhJUzRtbno4V01lTUNKSXRncFVVT0M4UEdBVXhZUTJ2S2JoUmIw?=
+ =?utf-8?B?N1gydTdHbjZIRFpkNlJvakM4Q0xoZGNLdlk1VjN2ajN2Z3JzNGJTUkZ2dEZx?=
+ =?utf-8?B?Y1BGalZwN3ZvZDdBYmxIbjUwYnpHaDdLb2c2cVMyWFhzU2xqR1pvY2t0N3VI?=
+ =?utf-8?B?d3BFUHdZSzFPZHp5VmdONDlpbTVtYkJCc2pLSktzNXBZRTNTU1Fxb0FjNkNQ?=
+ =?utf-8?B?UzYwWWNmTDFIR1NZcnV3MUJxT1hFcXgya2tHY0FrQVM0bElGa1hoL2NzQU5D?=
+ =?utf-8?B?OGtJTUt2cWpRVlBHMHdWQ09MQ3VKQ2pJemdKTnBSYWpaWHdpUlJsZ0xwRlRJ?=
+ =?utf-8?B?ak1aWFdtdXE2elYwYTBFSi9DVDZ5VXIwU2QySC9uei9IQmJ1RjQ2c3phcjBV?=
+ =?utf-8?B?WGZCV2dwbTVaR2NXU1ZDdkJ6T21tR0Y0VkxsRUhYaU5CeGNsdGI5b2FrYWVz?=
+ =?utf-8?B?UVBLclA3YWdLTk9JbDhhWlR5aTFKV29aZEFBV29BNmZSWUhReFUybXFOdkR3?=
+ =?utf-8?B?Z3BkbVNSUnVySUZLVXFDcWJMbytqWnE5SGpSTkhSOU1GZlRncjVZTG55YnQ1?=
+ =?utf-8?B?NGRPVE94YVJxa0JTMnl2YWg0SUc2ekdZK04zamZLNFlaRjEwOGxBbUgydEJQ?=
+ =?utf-8?B?Ulc2TzEvem9ZRndLblNGaWd3a0hKU3JjOUJmOTlCTlBPL1g4NzB1V215K1hq?=
+ =?utf-8?B?Y3NmdEV0czNLMjh5c3pEY2lUTmdvS25hMGxFVWJzZ2o2eUkrems1NCt5VlBS?=
+ =?utf-8?B?d0xyWHYwZGU5UXltSm53TW42VU1FWEloV2hXVkxjbUtVeCt4MlVKTWtMWCsx?=
+ =?utf-8?B?NCtpdTV3VjFLUmpqSW50b0xPUTkwekVRYlJKT25VU2RueEZFTHh6djhQZVFq?=
+ =?utf-8?B?ZjNKdnI0NWt3cVcySUhudmpxQ1d2V3RBblo2VCtMaUV5QTY2UWh2REpibkNK?=
+ =?utf-8?B?RVVMeXBwL0xvQ0NmekR6YU9aL1ZaV3ZhTnlVVDdUblFZdks3blhWM3RKMkZH?=
+ =?utf-8?B?a2o2KzVXNk8vdFYyQ2dRYlJEekl2UGVyL0E0TVhIcm8yNHZEdlVXRHNPZ0hF?=
+ =?utf-8?B?YjIrdEVzcC9TbGtDcUIvUTNBSzNYYWoxZDYzNTY2WkFMYUtyTE5mcHdaY0FY?=
+ =?utf-8?B?SjlQcVNJWWtSTVZ2QWhPblk0MmUxcUhhZDA1eWhtcnVSMWIxTmlHT29YTllY?=
+ =?utf-8?B?QXhLM3FHalliWnoxKzNnblgraTk1OS9pY0ppdUlEZGJHbmdSWFFTQzkwNC9F?=
+ =?utf-8?B?d3RiUG1yU1lFVkl5dUtncmhPMGVBWWlvbVpzdXQyUTJvL053TW12Y3FtNFZz?=
+ =?utf-8?B?a0JXUkZVS3RKSTgwL1BRWVJtUGhnPT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: TTxZTqCu/BZkYP3xaFfU8bv9HvfUyswYgqOCk1ch2u5V3g6wb86VWrGI9x90QEEePoFKpTRTlCzO7suVrk2ylcyipEstIQbOqr4EwdYubf+lXtiksMn+9bNXIRxRHRYEey38So5nhf0eJZCqEB6woIrurY7v0V1dqm7ZGiNv0qp44SrRvJA6u6zijjDxgjf0bdNMRouiRNu1z7WiEyKlpsEfknEQeNPNWlUF7cwha1zvrL/rwqu0LeX+A7DDDFpUzbo+R0IsqoM5YbnqjOQyKMXnyCcNp8OVktJOAgyViumclf1uEnrAd7TXwzIVHwX7dv9rE+Zt+hXO0AN6KykKTFvtu7De5CmH3bDaSRWQVbYbw57hNjTHd1sToJusIVAO2sgVPPG2x1lESGoSKQlLWeWgnx9z/ai1JBRbTujoDZRpRSu3Vd/sDNcfs2soc6zF
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 19:43:24.0581
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 20b3103f-6241-40ee-364a-08de6fef24f9
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE30.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB997714
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_114304_842332_6ED58BF1 
-X-CRM114-Status: GOOD (  21.89  )
+X-CRM114-CacheID: sfid-20260219_114328_553137_0F0F5C28 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,152 +179,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sriram R <quic_srirrama@quicinc.com>
+Change the status of the wkup_uart0_target node to enabled. The node sets
+the UART SYSS register to allow wakeup from WKUP UART in DeepSleep low
+power mode.
 
-Currently, the unsolicited probe response template is always fetched from
-the default link of a virtual interface in both Multi-Link Operation (MLO)
-and non-MLO cases. However, in the MLO case there is a need to fetch the
-unsolicited probe response template from a specific link instead of the
-default link.
-
-Hence, add support for fetching the unsolicited probe response template
-based on the link ID from the corresponding link data.
-
-Signed-off-by: Sriram R <quic_srirrama@quicinc.com>
-Co-developed-by: Raj Kumar Bhagat <raj.bhagat@oss.qualcomm.com>
-Signed-off-by: Raj Kumar Bhagat <raj.bhagat@oss.qualcomm.com>
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
+Signed-off-by: Kendall Willis <k-willis@ti.com>
 ---
- drivers/net/wireless/ath/ath11k/mac.c           |  2 +-
- drivers/net/wireless/ath/ath12k/mac.c           |  3 ++-
- drivers/net/wireless/mediatek/mt76/mt7915/mcu.c |  2 +-
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c |  3 ++-
- include/net/mac80211.h                          |  4 +++-
- net/mac80211/tx.c                               | 20 +++++++++++++-------
- 6 files changed, 22 insertions(+), 12 deletions(-)
+ arch/arm64/boot/dts/ti/k3-am62l3-evm.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/net/wireless/ath/ath11k/mac.c b/drivers/net/wireless/ath/ath11k/mac.c
-index 4776bb6fc889..d9b5eac6c7bb 100644
---- a/drivers/net/wireless/ath/ath11k/mac.c
-+++ b/drivers/net/wireless/ath/ath11k/mac.c
-@@ -3314,7 +3314,7 @@ static int ath11k_mac_fils_discovery(struct ath11k_vif *arvif,
- 		interval = info->unsol_bcast_probe_resp_interval;
- 
- 		tmpl = ieee80211_get_unsol_bcast_probe_resp_tmpl(ar->hw,
--								 arvif->vif);
-+								 arvif->vif, 0);
- 		if (tmpl)
- 			ret = ath11k_wmi_probe_resp_tmpl(ar, arvif->vdev_id,
- 							 tmpl);
-diff --git a/drivers/net/wireless/ath/ath12k/mac.c b/drivers/net/wireless/ath/ath12k/mac.c
-index 34f82cda4197..b281f81039fb 100644
---- a/drivers/net/wireless/ath/ath12k/mac.c
-+++ b/drivers/net/wireless/ath/ath12k/mac.c
-@@ -4320,7 +4320,8 @@ static int ath12k_mac_fils_discovery(struct ath12k_link_vif *arvif,
- 		unsol_bcast_probe_resp_enabled = 1;
- 		interval = info->unsol_bcast_probe_resp_interval;
- 
--		tmpl = ieee80211_get_unsol_bcast_probe_resp_tmpl(hw, vif);
-+		tmpl = ieee80211_get_unsol_bcast_probe_resp_tmpl(hw, vif,
-+								 info->link_id);
- 		if (tmpl)
- 			ret = ath12k_wmi_probe_resp_tmpl(ar, arvif->vdev_id,
- 							 tmpl);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-index 83ce06857a1e..2d2f34aa465d 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-@@ -1981,7 +1981,7 @@ mt7915_mcu_add_inband_discov(struct mt7915_dev *dev, struct ieee80211_vif *vif,
- 	} else if (changed & BSS_CHANGED_UNSOL_BCAST_PROBE_RESP &&
- 		   vif->bss_conf.unsol_bcast_probe_resp_interval) {
- 		interval = vif->bss_conf.unsol_bcast_probe_resp_interval;
--		skb = ieee80211_get_unsol_bcast_probe_resp_tmpl(hw, vif);
-+		skb = ieee80211_get_unsol_bcast_probe_resp_tmpl(hw, vif, 0);
- 	}
- 
- 	if (!skb) {
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-index 795a294fa904..c3cb4a33cb3d 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-@@ -2868,7 +2868,8 @@ int mt7996_mcu_beacon_inband_discov(struct mt7996_dev *dev,
- 	} else if (changed & BSS_CHANGED_UNSOL_BCAST_PROBE_RESP &&
- 		   link_conf->unsol_bcast_probe_resp_interval) {
- 		interval = link_conf->unsol_bcast_probe_resp_interval;
--		skb = ieee80211_get_unsol_bcast_probe_resp_tmpl(hw, vif);
-+		skb = ieee80211_get_unsol_bcast_probe_resp_tmpl(hw, vif,
-+								link_conf->link_id);
- 	}
- 
- 	if (!skb) {
-diff --git a/include/net/mac80211.h b/include/net/mac80211.h
-index d36c14a86c8a..89027e94ba5c 100644
---- a/include/net/mac80211.h
-+++ b/include/net/mac80211.h
-@@ -7781,6 +7781,7 @@ struct sk_buff *ieee80211_get_fils_discovery_tmpl(struct ieee80211_hw *hw,
-  *	probe response template.
-  * @hw: pointer obtained from ieee80211_alloc_hw().
-  * @vif: &struct ieee80211_vif pointer from the add_interface callback.
-+ * @link_id: valid link_id during MLO or 0 for non-MLO.
-  *
-  * The driver is responsible for freeing the returned skb.
-  *
-@@ -7788,7 +7789,8 @@ struct sk_buff *ieee80211_get_fils_discovery_tmpl(struct ieee80211_hw *hw,
-  */
- struct sk_buff *
- ieee80211_get_unsol_bcast_probe_resp_tmpl(struct ieee80211_hw *hw,
--					  struct ieee80211_vif *vif);
-+					  struct ieee80211_vif *vif,
-+					  unsigned int link_id);
- 
- /**
-  * ieee80211_obss_color_collision_notify - notify userland about a BSS color
-diff --git a/net/mac80211/tx.c b/net/mac80211/tx.c
-index f547cfb27666..9f2363a34511 100644
---- a/net/mac80211/tx.c
-+++ b/net/mac80211/tx.c
-@@ -5874,21 +5874,28 @@ EXPORT_SYMBOL(ieee80211_get_fils_discovery_tmpl);
- 
- struct sk_buff *
- ieee80211_get_unsol_bcast_probe_resp_tmpl(struct ieee80211_hw *hw,
--					  struct ieee80211_vif *vif)
-+					  struct ieee80211_vif *vif,
-+					  unsigned int link_id)
- {
- 	struct sk_buff *skb = NULL;
- 	struct unsol_bcast_probe_resp_data *tmpl = NULL;
- 	struct ieee80211_sub_if_data *sdata = vif_to_sdata(vif);
-+	struct ieee80211_link_data *link;
- 
- 	if (sdata->vif.type != NL80211_IFTYPE_AP)
- 		return NULL;
- 
--	rcu_read_lock();
--	tmpl = rcu_dereference(sdata->deflink.u.ap.unsol_bcast_probe_resp);
--	if (!tmpl) {
--		rcu_read_unlock();
-+	if (link_id >= IEEE80211_MLD_MAX_NUM_LINKS)
-+		return NULL;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts b/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
+index 3ac9a2d0d9cb78d87479c4a8aed5c0b1f1cb3faa..8ac7ad2cd1b9695482ede804c77dc382820fbe8b 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
+@@ -370,3 +370,7 @@ &wkup_uart0 {
+ 	pinctrl-0 = <&wkup_uart0_pins_default>;
+ 	pinctrl-names = "default";
+ };
 +
-+	guard(rcu)();
-+	link = rcu_dereference(sdata->link[link_id]);
-+	if (!link)
-+		return NULL;
-+
-+	tmpl = rcu_dereference(link->u.ap.unsol_bcast_probe_resp);
-+	if (!tmpl)
- 		return NULL;
--	}
- 
- 	skb = dev_alloc_skb(sdata->local->hw.extra_tx_headroom + tmpl->len);
- 	if (skb) {
-@@ -5896,7 +5903,6 @@ ieee80211_get_unsol_bcast_probe_resp_tmpl(struct ieee80211_hw *hw,
- 		skb_put_data(skb, tmpl->data, tmpl->len);
- 	}
- 
--	rcu_read_unlock();
- 	return skb;
- }
- EXPORT_SYMBOL(ieee80211_get_unsol_bcast_probe_resp_tmpl);
++&wkup_uart0_target {
++	status = "okay";
++};
 
 -- 
 2.34.1
