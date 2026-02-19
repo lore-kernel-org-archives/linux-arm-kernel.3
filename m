@@ -4,136 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B809AE9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA3AE9A04C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ftdG1Va4DnIDiZFbMwHXOxsAsoZc5TEVG5NJZA6wRWw=; b=2qhfHYchdCd550q0IEzZdwE/fa
-	6u7HhIa3ZzTqiIProxYH+56/8IRmfhfwfMOJ6uuY5NKuVsSEbvW3oxgdjmCDViv8Hl8WqnN/zYp0L
-	g85QlS+MtCeCyA1uhqfgAj0YXh1sH/qG+oPmPPxtrUD/iKCumzy36q56kz3WuRwzqyuj/4e+xB+sA
-	agT3Qu/VSfIumnCDBTPHszCsaDbcyhPRoDfgY1drqzk4EUc1scgV6zgIohVommZe0a3Gjr0jcZKCS
-	h0s8BJgv0FnijjY62Xhgp7fqeJcwa9vgzLqGGpA1XKTOawk6iYlf320JDxuXc+NhCwUJ6VLMmIo9k
-	OTeaF0RQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T1A+dNBxguBbn5VJh68NDqx86KEby+IrtcR9pMN3bxI=; b=dqK7i1CtenwVol59DuLLKxNK3z
+	zwz9WnaLQsptNwiN9WTW+Ke3Aq5rg8TzdLcvLD/23vnJZXEcd4MpW8431Ut8rz03qgTMNG1HjfO+r
+	762uBOxSV5uecbZMxYXseEJQJlJcO/WQLw+NvRzwCHb03Z0bQSsr4lqmROhyUZinqYK2VxDhzAs7n
+	9QKFJ//3tzEojMEcbjbnzuilwhmTnSm0si1d4VLZRqh9IN2zhs5n1J39alKgC2WFDSK/KyzKvgyGC
+	bBLfZMPiBicuHJ/KcVt95Vdmr6X4+ipv+G6QM/gUPQ51RuTFy8I1hNeSNY4XdS7lm/lnTAEpRttbv
+	EiUBW/+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5vZ-0000000BYvt-48WZ;
-	Thu, 19 Feb 2026 15:26:53 +0000
-Received: from mail-centralusazon11010004.outbound.protection.outlook.com ([52.101.61.4] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vt64v-0000000BZKf-2aOW;
+	Thu, 19 Feb 2026 15:36:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5vX-0000000BYvZ-0iMa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 15:26:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZKisvCfXX5XMIIwmIloPnF9ZK/SGzF4JioSGS0S4BtKCsuXZIOG/Zpx96ocvPd5uGWNidfc0n/jv5sGeCeJhys11bDE3q8uFGuid2CuXOvObTMAebuJHFxBr52VA17Ne7d2YAUZQqAo+cOoRPGYRg+fqP0Fx7ERv22sR3r/6L/+Jb15bUGF0G2eW72MNTETZg8it4bLm3wJo4G56jqMVd5EdoMseJdp96x8LxKsKyNbbUwmZTYe5lcsIsQWI47Da3aXsnzzS4yRvN+kekIeokN1AIQqWqpoZyJftf4Ip7oSWYZHgpMIfk4/w0Wp4oK8rqN2pbX3N42dysHaybUATCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ftdG1Va4DnIDiZFbMwHXOxsAsoZc5TEVG5NJZA6wRWw=;
- b=RacXE/bwchG4O+4W5Xn/eblTqVvEOF0esn3Y6fNnLNCQc3x1xeCrhEw6wWcYk+fbaZY29oJxVqK25fj2P3fOiQmnEOKCWsoGK3x6h9PpFobsxCozdiVAspjfMp6OrJP9cGfLfyW7zNxI1kFKPsnroYY1CLSRfQLkU1oa5xeirDPfsJNiZi7pzP3Pz93yw9ov0AOOErKkM2auKuTFWg3LBZstI8qmqIVhRN5DIoUG6FcQsVaoOWeAWG0X3eLFvpgKC4tLcm4AnWzh2sJBD+ZqtSzXTdxpwMJOeQz6H37+7xbqyR4ii1v4VtfGvQXuTDLAnGTr0FP1YLTrHe+6BhkDBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ftdG1Va4DnIDiZFbMwHXOxsAsoZc5TEVG5NJZA6wRWw=;
- b=GkQgi2rjRI67A0OJyQmoon/0ad7aKah7B0TV7b10hv5PxRi8vuhf023eOFuSt94Pcm8P+ka2m7MH2wcRJHvvDeHnoSJscZXCVa4MIxjlgyUUD6gcUWf9m//Ee1hCx7QmDkWmPcZP+RISGHK0ZkhUt+J1RJ5exMc1jY698ztwJME=
-Received: from SN7P220CA0030.NAMP220.PROD.OUTLOOK.COM (2603:10b6:806:123::35)
- by CY8PR12MB7585.namprd12.prod.outlook.com (2603:10b6:930:98::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.15; Thu, 19 Feb
- 2026 15:26:41 +0000
-Received: from SA2PEPF00001505.namprd04.prod.outlook.com
- (2603:10b6:806:123:cafe::1e) by SN7P220CA0030.outlook.office365.com
- (2603:10b6:806:123::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.16 via Frontend Transport; Thu,
- 19 Feb 2026 15:26:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SA2PEPF00001505.mail.protection.outlook.com (10.167.242.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Thu, 19 Feb 2026 15:26:33 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 19 Feb
- 2026 09:26:25 -0600
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 19 Feb 2026 09:26:22 -0600
-From: Abin Joseph <abin.joseph@amd.com>
-To: <vkoul@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <michal.simek@amd.com>, <radhey.shyam.pandey@amd.com>
-CC: <git@amd.com>, <abin.joseph@amd.com>, <dmaengine@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH] dt-bindings: dmaengine: xlnx,axi-dma: Convert bindings into yaml
-Date: Thu, 19 Feb 2026 20:56:21 +0530
-Message-ID: <20260219152621.2375256-1-abin.joseph@amd.com>
-X-Mailer: git-send-email 2.25.1
+	id 1vt64u-0000000BZKT-20J9;
+	Thu, 19 Feb 2026 15:36:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 56DBB60054;
+	Thu, 19 Feb 2026 15:36:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A3F1C4CEF7;
+	Thu, 19 Feb 2026 15:36:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771515390;
+	bh=dnerQRAkWguoqhDbE6xYkx4ycJCWKMZ2dF+v2bxWQ8o=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=kSSRDVrx1HY5u5gxDKR1bty/30CCkC3qhwWpzo+55b9o1gmyqq4DNJFvqGBLxJ+cP
+	 l9ah4CAIA4eQ7bLMap8fzdfdFqDfCXB5VzVu13nJWiE6sYvvGn/bKy3lV1KFgn0K3P
+	 3H/6VNr0av9PHl+GokoPwX/mCBWPcMQSKkl6LOCRkH/4ZX9bpICXH+cd8GsUyVxndX
+	 1Sw5NNX+o4PkaDq25lnTSh3g9OdsPFDiBipolic/gHGsxYBic7AU6jJhdDjUQ8oeNX
+	 QHE7RoD/uhIfAY0iTvJP62xa2yCJVr/41JnOIsG5azjQhky2z4WXJURGGZousPXRAa
+	 M87wcMnBoC3Mw==
+From: Mark Brown <broonie@kernel.org>
+To: linux-kernel@vger.kernel.org, 
+ Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+ linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+In-Reply-To: <20260218201834.924358-1-detlev.casanova@collabora.com>
+References: <20260218201834.924358-1-detlev.casanova@collabora.com>
+Subject: Re: [PATCH] ASoC: rockchip: i2s-tdm: Use param rate if not
+ provided by set_sysclk
+Message-Id: <177151538730.130550.12673698490748954577.b4-ty@kernel.org>
+Date: Thu, 19 Feb 2026 15:36:27 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00001505:EE_|CY8PR12MB7585:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3bcf921b-79d8-43a2-b5b3-08de6fcb43b9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xix+SsrYA9Ogb9R8miQxyElLhPkS9EvfqJrFjzwR5ok3mEGq9U5/lqSE0FA/?=
- =?us-ascii?Q?iazzmW6z4pEY9WFfCifjLSgwhWKKu13Vzznl/XDhTZ02zNZM5+Wtm0+c6wKC?=
- =?us-ascii?Q?6O/pDulb1URjeOH9cltswuWgfGhDkL7sCMC3Red+NUJDMuoOKfLsOtoHHfcQ?=
- =?us-ascii?Q?SHZSfk4dPerntlfGNj9MAdiRdu9ZmvE6bEvndiBYWr0ajXwz/InQA+3EKskW?=
- =?us-ascii?Q?J64+F0poVFpR63u/T5G+9I8Kd1LxX4IlP0dbOwn4jd5MHEHAtuCYAgmNXN10?=
- =?us-ascii?Q?dLVbKBmYKrv3r3Nh5r5/W2kGRi8O0niOaFYEhms1/KHyPLy92yPRnfg7+Tmh?=
- =?us-ascii?Q?6U23Yi0M1xR/27oCcV5mda83TjvIzyblU5FMAg/EcciDAyWPAGN8q6IczJDv?=
- =?us-ascii?Q?RKaW8BcP24a3yFU+5hfFx5ayfuEjgMcVSFTJsnwQub8lGZPhLeea7fPq2DhK?=
- =?us-ascii?Q?szoBR+tUzVsjOgemvBu68ZSE3VLxDWCr1b7ToYGp6UE4njpsivlQ+MCp4HRf?=
- =?us-ascii?Q?JzBzZQPH+Zx7AEwPnS7UL5RpPcgL1vyXaVbwwiT+pZwDrqOONDqOwcORAAzh?=
- =?us-ascii?Q?gIksd6oYMkwHXFdJgHYNTpfnMmBMsfmgLMDSy6b2lyLJ7MkVLD+ai3QEvL+9?=
- =?us-ascii?Q?5mWTO+q6elxKq8IwoEpSxn0YBOgZyNz9sdBrxLMoOmiMKz5LDIre/6ZS1S8u?=
- =?us-ascii?Q?33KtXcaL5+ufqibZ9P8lzu+kgzyeXdGjizZoAeLRJfDsR2ic9YcuapaRaCDP?=
- =?us-ascii?Q?9oABXTEYmyq9d6qZ5CyLGA8xJe7kqW4Y6wFmUdtEUMs/lk9I5gcxZXuIfrwQ?=
- =?us-ascii?Q?s3z5FPpBuD/8VzIBnvSxzpmLPPERaq2TUD9XPTv0MB+NOeqQ8kTJZRXFmKSf?=
- =?us-ascii?Q?uhZeUL8YK+AGgkBct57f4HvV9EqxSzjgP0VfMs3jyFKs4NinTqq5jkM6p3Vy?=
- =?us-ascii?Q?E1e9pnQNSfAExdDUOCkYNvYryAU7yHhS0H7y+WbXBiJDWOuVsw7YeU7+BR6b?=
- =?us-ascii?Q?4jnZK2zJm3DWn+GtCxyUJfz4Zeqzff9BGUg+m8KwQbk4xIDB7pr4tWc1ohJ0?=
- =?us-ascii?Q?brwQJLHtvuhL99HTtW5azxxonEJIw+0nJMSnxcbPcN79xQUeOdQdRj3LaiwS?=
- =?us-ascii?Q?NgNEBGuI9JybOMjKgft6WAxyKw3W6Pk8ZGZLV98lJJ/7uUvhzYgXlyTF0vLJ?=
- =?us-ascii?Q?39gkCyuhoF7uge25mS5vsSdflsIilRMDv8fjI7ltmeeD/6IwkRowKW38eQd/?=
- =?us-ascii?Q?LidvSszfa9jjeayJ24fOdzoeKSaGpE/uX9us3jv46H7PfzE0MZ+eQPEek8Lo?=
- =?us-ascii?Q?V6f/jL4RnYUtKc/iTy/B++WjfzvehVFoZRsEStNuIJebecf8CxO3jRz8SHAE?=
- =?us-ascii?Q?Qy29ntpArMzvA7JqZSWqmGLDOnaKj3Ewzwz5buB9XlCQLUshQZbkuGDHc9Ed?=
- =?us-ascii?Q?fIpwoZXyD6o9i4ZDUrfZsyYeKlxG+YoJpXV7IaYW3MgHx0lThod0S9ktLrUx?=
- =?us-ascii?Q?9ojHv/qZBdwiM+SzbrZzyBJVu4fVPeu6jwQ7d1W5ovJioaDHtV3betRTBeL7?=
- =?us-ascii?Q?TqvPxiS1BMaFJPqlo7sxQOxNoJiS9FIrqJFc6mVUnVfC7qTTc/iBhqMcqLI1?=
- =?us-ascii?Q?jHFtEfCY/Z17Skb15mzEDIw+7XyTMaeJfwydAJw+WPHTOhdzNbwHmAKXEG37?=
- =?us-ascii?Q?0BtTxw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: MTJpTNLY1xb4z21v0Si2E/kbCO5PR7tYM5kp+UUvBXynVQcF7779h86L/Q/zo87kCrwafEezDfEcOmEkrcYRp5vuvlspJy5rV5fR4BtnyY0JG85omO8hmuYOMmAGM0LV4B+lEkH0AmdDh1H8jAyESyBf5R85LFER3uhkIO+LlV26RWEYHSExi7WWvdyPsqeGpyDveEnntzrjeBaY29fWT6zO+4wOX/f0H/rSdz3Uq8AWWmx0GrcfO9+5zXIlx8NOwV2W+9raFuvJVt5sIyzNz0dhi+7R1XTwd+kuHs+kZqht0qxLnuqTubAz2ia32ZZRJDVQik0zw03WmWuXSTp2CLbEvwwGiQaDRovOI3MDjOC+ZSukHFIwqh/jeWwsmWijaobWbIr1azvzvWcCh1qENw4h4AwOfP4c+PFkuLqogAtVSx4Nua8wq5s0IFSLUXhz
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 15:26:33.7828
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3bcf921b-79d8-43a2-b5b3-08de6fcb43b9
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001505.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7585
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_072651_271722_F3D0C1D2 
-X-CRM114-Status: GOOD (  22.34  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,431 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the bindings document for Xilinx DMA from txt to yaml.
-No changes to existing binding description.
+On Wed, 18 Feb 2026 15:18:34 -0500, Detlev Casanova wrote:
+> Drivers will not always call set_sysclk() for all clocks, especially when
+> default mclk-fs can be used.
+> When that is the case, use the clock rate set in the params multiplied by the
+> default mclk-fs.
+> 
+> 
 
-Signed-off-by: Abin Joseph <abin.joseph@amd.com>
----
- .../bindings/dma/xilinx/xilinx_dma.txt        | 111 -------
- .../bindings/dma/xilinx/xlnx,axi-dma.yaml     | 290 ++++++++++++++++++
- 2 files changed, 290 insertions(+), 111 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
- create mode 100644 Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+Applied to
 
-diff --git a/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt b/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
-deleted file mode 100644
-index b567107270cb..000000000000
---- a/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
-+++ /dev/null
-@@ -1,111 +0,0 @@
--Xilinx AXI VDMA engine, it does transfers between memory and video devices.
--It can be configured to have one channel or two channels. If configured
--as two channels, one is to transmit to the video device and another is
--to receive from the video device.
--
--Xilinx AXI DMA engine, it does transfers between memory and AXI4 stream
--target devices. It can be configured to have one channel or two channels.
--If configured as two channels, one is to transmit to the device and another
--is to receive from the device.
--
--Xilinx AXI CDMA engine, it does transfers between memory-mapped source
--address and a memory-mapped destination address.
--
--Xilinx AXI MCDMA engine, it does transfer between memory and AXI4 stream
--target devices. It can be configured to have up to 16 independent transmit
--and receive channels.
--
--Required properties:
--- compatible: Should be one of-
--		"xlnx,axi-vdma-1.00.a"
--		"xlnx,axi-dma-1.00.a"
--		"xlnx,axi-cdma-1.00.a"
--		"xlnx,axi-mcdma-1.00.a"
--- #dma-cells: Should be <1>, see "dmas" property below
--- reg: Should contain VDMA registers location and length.
--- xlnx,addrwidth: Should be the vdma addressing size in bits(ex: 32 bits).
--- dma-ranges: Should be as the following <dma_addr cpu_addr max_len>.
--- dma-channel child node: Should have at least one channel and can have up to
--	two channels per device. This node specifies the properties of each
--	DMA channel (see child node properties below).
--- clocks: Input clock specifier. Refer to common clock bindings.
--- clock-names: List of input clocks
--	For VDMA:
--	Required elements: "s_axi_lite_aclk"
--	Optional elements: "m_axi_mm2s_aclk" "m_axi_s2mm_aclk",
--			   "m_axis_mm2s_aclk", "s_axis_s2mm_aclk"
--	For CDMA:
--	Required elements: "s_axi_lite_aclk", "m_axi_aclk"
--	For AXIDMA and MCDMA:
--	Required elements: "s_axi_lite_aclk"
--	Optional elements: "m_axi_mm2s_aclk", "m_axi_s2mm_aclk",
--			   "m_axi_sg_aclk"
--
--Required properties for VDMA:
--- xlnx,num-fstores: Should be the number of framebuffers as configured in h/w.
--
--Optional properties for AXI DMA and MCDMA:
--- xlnx,sg-length-width: Should be set to the width in bits of the length
--	register as configured in h/w. Takes values {8...26}. If the property
--	is missing or invalid then the default value 23 is used. This is the
--	maximum value that is supported by all IP versions.
--
--Optional properties for AXI DMA:
--- xlnx,axistream-connected: Tells whether DMA is connected to AXI stream IP.
--- xlnx,irq-delay: Tells the interrupt delay timeout value. Valid range is from
--	0-255. Setting this value to zero disables the delay timer interrupt.
--	1 timeout interval = 125 * clock period of SG clock.
--Optional properties for VDMA:
--- xlnx,flush-fsync: Tells which channel to Flush on Frame sync.
--	It takes following values:
--	{1}, flush both channels
--	{2}, flush mm2s channel
--	{3}, flush s2mm channel
--
--Required child node properties:
--- compatible:
--	For VDMA: It should be either "xlnx,axi-vdma-mm2s-channel" or
--	"xlnx,axi-vdma-s2mm-channel".
--	For CDMA: It should be "xlnx,axi-cdma-channel".
--	For AXIDMA and MCDMA: It should be either "xlnx,axi-dma-mm2s-channel"
--	or "xlnx,axi-dma-s2mm-channel".
--- interrupts: Should contain per channel VDMA interrupts.
--- xlnx,datawidth: Should contain the stream data width, take values
--	{32,64...1024}.
--
--Optional child node properties:
--- xlnx,include-dre: Tells hardware is configured for Data
--	Realignment Engine.
--Optional child node properties for VDMA:
--- xlnx,genlock-mode: Tells Genlock synchronization is
--	enabled/disabled in hardware.
--- xlnx,enable-vert-flip: Tells vertical flip is
--	enabled/disabled in hardware(S2MM path).
--Optional child node properties for MCDMA:
--- dma-channels: Number of dma channels in child node.
--
--Example:
--++++++++
--
--axi_vdma_0: axivdma@40030000 {
--	compatible = "xlnx,axi-vdma-1.00.a";
--	#dma_cells = <1>;
--	reg = < 0x40030000 0x10000 >;
--	dma-ranges = <0x00000000 0x00000000 0x40000000>;
--	xlnx,num-fstores = <0x8>;
--	xlnx,flush-fsync = <0x1>;
--	xlnx,addrwidth = <0x20>;
--	clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>, <&clk 4>;
--	clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk", "m_axi_s2mm_aclk",
--		      "m_axis_mm2s_aclk", "s_axis_s2mm_aclk";
--	dma-channel@40030000 {
--		compatible = "xlnx,axi-vdma-mm2s-channel";
--		interrupts = < 0 54 4 >;
--		xlnx,datawidth = <0x40>;
--	} ;
--	dma-channel@40030030 {
--		compatible = "xlnx,axi-vdma-s2mm-channel";
--		interrupts = < 0 53 4 >;
--		xlnx,datawidth = <0x40>;
--	} ;
--} ;
-diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
-new file mode 100644
-index 000000000000..6a260f9292d7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
-@@ -0,0 +1,290 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/dma/xilinx/xlnx,axi-dma.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Xilinx AXI VDMA, DMA, CDMA and MCDMA IP
-+
-+maintainers:
-+  - Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-+  - Abin Joseph <abin.joseph@amd.com>
-+
-+description:
-+  Xilinx AXI VDMA engine, it does transfers between memory and video devices.
-+  It can be configured to have one channel or two channels. If configured
-+  as two channels, one is to transmit to the video device and another is
-+  to receive from the video device.
-+
-+  Xilinx AXI DMA engine, it does transfers between memory and AXI4 stream
-+  target devices. It can be configured to have one channel or two channels.
-+  If configured as two channels, one is to transmit to the device and another
-+  is to receive from the device.
-+
-+  Xilinx AXI CDMA engine, it does transfers between memory-mapped source
-+  address and a memory-mapped destination address.
-+
-+  Xilinx AXI MCDMA engine, it does transfer between memory and AXI4 stream
-+  target devices. It can be configured to have up to 16 independent transmit
-+  and receive channels.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - xlnx,axi-cdma-1.00.a
-+      - xlnx,axi-dma-1.00.a
-+      - xlnx,axi-mcdma-1.00.a
-+      - xlnx,axi-vdma-1.00.a
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#dma-cells":
-+    const: 1
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 1
-+
-+  interrupts:
-+    minItems: 1
-+    maxItems: 2
-+    description:
-+      Interrupt lines for the DMA controller. Only used when xlnx,axistream-connected
-+      is present (DMA connected to AXI Stream IP). One interrupt for single channel
-+      (MM2S or S2MM), two interrupts for dual channel configuration.
-+      When child dma-channel nodes are present, interrupts are specified in the
-+      child nodes instead.
-+
-+  clocks:
-+    minItems: 1
-+    maxItems: 5
-+
-+  clock-names:
-+    minItems: 1
-+    maxItems: 5
-+
-+  dma-ranges: true
-+
-+  xlnx,addrwidth:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    enum: [32, 64]
-+    description: The DMA addressing size in bits.
-+
-+  xlnx,num-fstores:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 1
-+    maximum: 32
-+    description: Should be the number of framebuffers as configured in h/w.
-+
-+  xlnx,flush-fsync:
-+    type: boolean
-+    description: Tells which channel to Flush on Frame sync.
-+
-+  xlnx,sg-length-width:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 8
-+    maximum: 26
-+    default: 23
-+    description:
-+      Should be set to the width in bits of the length register as configured
-+      in h/w. Takes values {8...26}. If the property is missing or invalid then
-+      the default value 23 is used. This is the maximum value that is supported
-+      by all IP versions.
-+
-+  xlnx,irq-delay:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 0
-+    maximum: 255
-+    description:
-+      Tells the interrupt delay timeout value. Valid range is from 0-255.
-+      Setting this value to zero disables the delay timer interrupt.
-+      1 timeout interval = 125 * clock period of SG clock.
-+
-+  xlnx,axistream-connected:
-+    type: boolean
-+    description: Tells whether DMA is connected to AXI stream IP.
-+
-+# Note: This schema combines all DMA types in one file. Parent-child channel
-+# compatibility is enforced via allOf conditionals below. Alternatively, this
-+# could be split into separate schemas per DMA type to simplify validation rules.
-+patternProperties:
-+  "^dma-channel(-mm2s|-s2mm)?$":
-+    type: object
-+    description:
-+      Should have at least one channel and can have up to two channels per
-+      device. This node specifies the properties of each DMA channel.
-+
-+    properties:
-+      compatible:
-+        enum:
-+          - xlnx,axi-vdma-mm2s-channel
-+          - xlnx,axi-vdma-s2mm-channel
-+          - xlnx,axi-cdma-channel
-+          - xlnx,axi-dma-mm2s-channel
-+          - xlnx,axi-dma-s2mm-channel
-+
-+      interrupts:
-+        maxItems: 1
-+
-+      xlnx,datawidth:
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        enum: [32, 64, 128, 256, 512, 1024]
-+        description: Should contain the stream data width, take values {32,64...1024}.
-+
-+      xlnx,include-dre:
-+        type: boolean
-+        description: Tells hardware is configured for Data Realignment Engine.
-+
-+      xlnx,genlock-mode:
-+        type: boolean
-+        description: Tells Genlock synchronization is enabled/disabled in hardware.
-+
-+      xlnx,enable-vert-flip:
-+        type: boolean
-+        description:
-+          Tells vertical flip is enabled/disabled in hardware(S2MM path).
-+
-+      dma-channels:
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        description: Number of dma channels in child node.
-+
-+    required:
-+      - compatible
-+      - interrupts
-+      - xlnx,datawidth
-+
-+    additionalProperties: false
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: xlnx,axi-vdma-1.00.a
-+    then:
-+      properties:
-+        clock-names:
-+          contains:
-+            const: s_axi_lite_aclk
-+          items:
-+            enum:
-+              - s_axi_lite_aclk
-+              - m_axi_mm2s_aclk
-+              - m_axi_s2mm_aclk
-+              - m_axis_mm2s_aclk
-+              - s_axis_s2mm_aclk
-+          minItems: 1
-+          maxItems: 5
-+      patternProperties:
-+        "^dma-channel(-mm2s|-s2mm)?$":
-+          properties:
-+            compatible:
-+              enum:
-+                - xlnx,axi-vdma-mm2s-channel
-+                - xlnx,axi-vdma-s2mm-channel
-+      required:
-+        - xlnx,num-fstores
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: xlnx,axi-cdma-1.00.a
-+    then:
-+      properties:
-+        clock-names:
-+          items:
-+            - const: s_axi_lite_aclk
-+            - const: m_axi_aclk
-+      patternProperties:
-+        "^dma-channel(-mm2s|-s2mm)?$":
-+          properties:
-+            compatible:
-+              enum:
-+                - xlnx,axi-cdma-channel
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            anyOf:
-+              - const: xlnx,axi-dma-1.00.a
-+              - const: xlnx,axi-mcdma-1.00.a
-+    then:
-+      properties:
-+        clock-names:
-+          contains:
-+            const: s_axi_lite_aclk
-+          items:
-+            enum:
-+              - s_axi_lite_aclk
-+              - m_axi_mm2s_aclk
-+              - m_axi_s2mm_aclk
-+              - m_axi_sg_aclk
-+          minItems: 1
-+          maxItems: 4
-+      patternProperties:
-+        "^dma-channel(-mm2s|-s2mm)?(@[0-9a-f]+)?$":
-+          properties:
-+            compatible:
-+              enum:
-+                - xlnx,axi-dma-mm2s-channel
-+                - xlnx,axi-dma-s2mm-channel
-+
-+  - if:
-+      anyOf:
-+        - properties:
-+            compatible:
-+              contains:
-+                anyOf:
-+                  - const: xlnx,axi-cdma-1.00.a
-+                  - const: xlnx,axi-mcdma-1.00.a
-+                  - const: xlnx,axi-dma-1.00.a
-+    then:
-+      properties:
-+        interrupts: false
-+
-+required:
-+  - "#dma-cells"
-+  - reg
-+  - xlnx,addrwidth
-+  - dma-ranges
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    axi_vdma_0: dma@40030000 {
-+        compatible = "xlnx,axi-vdma-1.00.a";
-+        #dma-cells = <1>;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        reg = <0x40030000 0x10000>;
-+        dma-ranges = <0x0 0x0 0x40000000>;
-+        xlnx,num-fstores = <8>;
-+        xlnx,flush-fsync;
-+        xlnx,addrwidth = <32>;
-+        clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>, <&clk 4>;
-+        clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk",
-+                      "m_axi_s2mm_aclk", "m_axis_mm2s_aclk",
-+                      "s_axis_s2mm_aclk";
-+
-+        dma-channel-mm2s {
-+            compatible = "xlnx,axi-vdma-mm2s-channel";
-+            interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
-+            xlnx,datawidth = <64>;
-+        };
-+
-+        dma-channel-s2mm {
-+            compatible = "xlnx,axi-vdma-s2mm-channel";
-+            interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>;
-+            xlnx,datawidth = <64>;
-+        };
-+    };
--- 
-2.25.1
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+
+Thanks!
+
+[1/1] ASoC: rockchip: i2s-tdm: Use param rate if not provided by set_sysclk
+      commit: 0783052534f547f8f201dd4554b1df9f1f8615b5
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
