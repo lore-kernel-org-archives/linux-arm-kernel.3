@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD7FE9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 269F8E9A04A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fidi+2ln7umxrDQrxUrSCVpfHVT2QnpMsuI3rE07J/w=; b=kAfdnP0JA0MO0t9fuVUKJK+3gv
-	NLI74hBMrPM04IgdEKnxY4MscC18QLMV1yfDhHuc2WrA+0iHGTz/CKlkCJ6XS6kiKHzNoS3RIWQ6V
-	JWIQNMlvC681UJ83ElRukfnC9uhzNMfwAHUdPfF0igK9JYEaI/6qP5NnE++O4/FyRZ1Bhs0Bq7wkn
-	xDBFujjH1wNBvThDUiq3D2Qb+0KCaxbV/h0jSPeBxwcO1EXeVPBDsaEU1Bd+SEz5h56N5oxsQXv5p
-	4osxF2iTtsDou8+77nt685jhMrEjSSjJStoBrZmwyKmAgpOMQyKO6tTgYtXus2oa6X9HUgRnoLE75
-	oWhQjKSQ==;
+	bh=mLviQS+J86wIJuNbaQ47MfCn59S2ya5k8OFpHPpA0t4=; b=0EWyXatStTCuj+M/so9NhVn0eD
+	es/rZyLbCoravioQbXID6pKpOCdfNndBwGIhgPyDxmST5xyxBdlU23eTcku6akSWigFDFbqHFuxFD
+	+fJJFFKYu1y8ouQo9Xj0K6jreLfYuxvKNSeBKTOHwZVeyidIWQCcMY0OZOT4Zg5YjbfvsA+sSCEy2
+	m2YS+eGWic2qlgyT7XvTfxDGJLaYhEYYrKCOHmTMBMGUK/nC+/E+vJTKL3qPdeRyVcgFXbva+Meel
+	sQkmfxlvwcvz1mc/BxFF5/WMjXcDe4WG4oLz8np+x1to6k8siX6ug6QHueMB9v7V0ahWw6eniKYGu
+	n4WjUPgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5u4-0000000BYh7-45kt;
+	id 1vt5u4-0000000BYh1-2oQr;
 	Thu, 19 Feb 2026 15:25:20 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5u1-0000000BYfx-2Wd7
+	id 1vt5u2-0000000BYfy-0bun
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 15:25:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Fidi+2ln7umxrDQrxUrSCVpfHVT2QnpMsuI3rE07J/w=; b=iIEEhClbtSqJowi0yjw0/pFAb7
-	R/9wjkxlPiTsX1rNPko4Azu4BG4gERyauQmLJFpDyX0BItUmhIbdcMjj+rGH8i350WZ46AOMirRtj
-	uF81P4gGItjk4fbR574O15VhXOCkClBoh7HVleQB0O550D3Z5ANdl6ABcHpxdRgqrXTg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vt5to-007vz6-SH; Thu, 19 Feb 2026 16:25:04 +0100
-Date: Thu, 19 Feb 2026 16:25:04 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Message-ID: <5e227857-7e33-43ad-8330-5304fa3616d5@lunn.ch>
-References: <20260212213656.662437-1-shenwei.wang@nxp.com>
- <20260212213656.662437-4-shenwei.wang@nxp.com>
- <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
- <44804825-5e61-4c3c-96bf-e5a3f3eacec1@lunn.ch>
- <PAXPR04MB9185EFFB8C73462E215EF486896BA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+	Thu, 19 Feb 2026 15:25:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6716943568;
+	Thu, 19 Feb 2026 15:25:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2AD7C4CEF7;
+	Thu, 19 Feb 2026 15:25:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771514717;
+	bh=c3Y9GTRH+k4/VYLEFnoafUvNK9Y+FEq4L75YnvIin04=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=eoF3SEnnmnE4LvTHgf2XBEk4NJpMWL0G1zuRq+C1T7/esz8mTa1Mi5K4N3rnZGa1A
+	 zgcl4uxRUC4Ff7mUl+IvHrge303amM+Qk/hXTkrOS3WyUIY82LBhDcxoSaciQPnv0f
+	 xQwKxOZEq3cJ6T4AlqTV6CbDNY/5Ez1b+ifHUxUkClxKWAHSkMWLwzBDf2137j/Iea
+	 3xhJptlZi0dfC3N0he7Spv5njSBdvrBJUvXqNJAarA0nrWDio3FmONmbxx4LjSaQuG
+	 tNAfBNLEFtWwgdRpF3Qnhgho5eMYkHAhC18xhP8YCFQHQHeZnMPx4vlOgA4qeskqU6
+	 casIjI3PL1rEQ==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: Leon Hwang <leon.hwang@linux.dev>, bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
+ Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu
+ <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John Fastabend
+ <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav
+ Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa
+ <jolsa@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>, Shuah Khan <shuah@kernel.org>, Leon
+ Hwang <leon.hwang@linux.dev>, Peilin Ye <yepeilin@google.com>, Luis
+ Gerhorst <luis.gerhorst@fau.de>, Viktor Malik <vmalik@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ kernel-patches-bot@fb.com
+Subject: Re: [PATCH bpf-next v2 3/6] bpf, arm64: Add 64-bit bitops kfuncs
+ support
+In-Reply-To: <20260219142933.13904-4-leon.hwang@linux.dev>
+References: <20260219142933.13904-1-leon.hwang@linux.dev>
+ <20260219142933.13904-4-leon.hwang@linux.dev>
+Date: Thu, 19 Feb 2026 15:25:10 +0000
+Message-ID: <m2342woiw9.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB9185EFFB8C73462E215EF486896BA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_072517_654571_95464D2C 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20260219_072518_234829_0B3FA6DB 
+X-CRM114-Status: GOOD (  21.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,109 +86,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 02:17:26PM +0000, Shenwei Wang wrote:
-> 
-> 
-> > -----Original Message-----
-> > From: Andrew Lunn <andrew@lunn.ch>
-> > Sent: Thursday, February 19, 2026 7:27 AM
-> > To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-> > Cc: Shenwei Wang <shenwei.wang@nxp.com>; Linus Walleij
-> > <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corbet
-> > <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> > <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
-> > <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Frank Li
-> > <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Shuah Khan
-> > <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
-> > doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix Kernel Team
-> > <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
-> > <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
-> > remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
-> > kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Bartosz
-> > Golaszewski <brgl@bgdev.pl>
-> > Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-> > 
-> > > > +   if (sync) {
-> > > > +           err = wait_for_completion_timeout(&info->cmd_complete,
-> > > > +                                             msecs_to_jiffies(RPMSG_TIMEOUT));
-> > > > +           if (err == 0) {
-> > > > +                   dev_err(&info->rpdev->dev, "rpmsg_send timeout!\n");
-> > > > +                   return -ETIMEDOUT;
-> > >
-> > > strange condition you return an error if err == 0, for redability use 'ret'
-> > > variable or simply:
-> > >
-> > >               if(!wait_for_completion_timeout(&info->cmd_complete,
-> > >                                 msecs_to_jiffies(RPMSG_TIMEOUT)) {
-> > >                       dev_err(&info->rpdev->dev, "rpmsg_send timeout!\n");
-> > >                       return -ETIMEDOUT;
-> > >               }
-> > 
-> > This will be from a comment i made. It appears that
-> > do_wait_for_common() can return -ERESTARTSYS. I assume that should be
-> > returned to user space?
-> > 
-> 
-> It looks like there might be a bit of confusion around what wait_for_completion_timeout() 
-> actually returns. That function never returns -ERESTARTSYS. Instead, its behavior is pretty 
-> simple:
-> 
-> - 0 means the wait timed out
-> - A positive value means the completion happened (the value is just the remaining jiffies)
-> 
-> So the driver returns the timeout error, and the upper application can decide how it wants
-> to handle that situation, for example restart or ignore.
+Leon Hwang <leon.hwang@linux.dev> writes:
 
-wait_for_completion_timeout():
-	return wait_for_common(x, timeout, TASK_UNINTERRUPTIBLE);
+> Implement JIT inlining of the 64-bit bitops kfuncs on arm64.
+>
+> bpf_clz64(), bpf_ffs64(), bpf_fls64(), and bpf_bitrev64() are always
+> inlined using mandatory ARMv8 CLZ/RBIT instructions. bpf_ctz64() is
+> inlined via RBIT + CLZ, or via the native CTZ instruction when
+> FEAT_CSSC is available. bpf_rol64() and bpf_ror64() are always inlined
+> via RORV.
+>
+> bpf_popcnt64() is not inlined as the native population count instruction
+> requires NEON/SIMD registers, which should not be touched from BPF
+> programs. It therefore falls back to a regular function call.
+>
+> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+> ---
+>  arch/arm64/net/bpf_jit_comp.c | 123 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 123 insertions(+)
+>
+> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+> index 7a530ea4f5ae..f03f732063d9 100644
+> --- a/arch/arm64/net/bpf_jit_comp.c
+> +++ b/arch/arm64/net/bpf_jit_comp.c
+> @@ -1192,6 +1192,127 @@ static int add_exception_handler(const struct bpf_insn *insn,
+>  	return 0;
+>  }
+>  
+> +static inline u32 a64_clz64(u8 rd, u8 rn)
+> +{
+> +	/*
+> +	 * Arm Architecture Reference Manual for A-profile architecture
+> +	 * (Document number: ARM DDI 0487)
+> +	 *
+> +	 *   A64 Base Instruction Descriptions
+> +	 *   C6.2 Alphabetical list of A64 base instructions
+> +	 *
+> +	 *   C6.2.91 CLZ
+> +	 *
+> +	 *     Count leading zeros
+> +	 *
+> +	 *     This instruction counts the number of consecutive binary zero bits,
+> +	 *     starting from the most significant bit in the source register,
+> +	 *     and places the count in the destination register.
+> +	 */
+> +	/* CLZ Xd, Xn */
+> +	return 0xdac01000 | (rn << 5) | rd;
+> +}
+> +
+> +static inline u32 a64_ctz64(u8 rd, u8 rn)
+> +{
+> +	/*
+> +	 * Arm Architecture Reference Manual for A-profile architecture
+> +	 * (Document number: ARM DDI 0487)
+> +	 *
+> +	 *   A64 Base Instruction Descriptions
+> +	 *   C6.2 Alphabetical list of A64 base instructions
+> +	 *
+> +	 *   C6.2.144 CTZ
+> +	 *
+> +	 *     Count trailing zeros
+> +	 *
+> +	 *     This instruction counts the number of consecutive binary zero bits,
+> +	 *     starting from the least significant bit in the source register,
+> +	 *     and places the count in the destination register.
+> +	 *
+> +	 *     This instruction requires FEAT_CSSC.
+> +	 */
+> +	/* CTZ Xd, Xn */
+> +	return 0xdac01800 | (rn << 5) | rd;
+> +}
+> +
+> +static inline u32 a64_rbit64(u8 rd, u8 rn)
+> +{
+> +	/*
+> +	 * Arm Architecture Reference Manual for A-profile architecture
+> +	 * (Document number: ARM DDI 0487)
+> +	 *
+> +	 *   A64 Base Instruction Descriptions
+> +	 *   C6.2 Alphabetical list of A64 base instructions
+> +	 *
+> +	 *   C6.2.320 RBIT
+> +	 *
+> +	 *     Reverse bits
+> +	 *
+> +	 *     This instruction reverses the bit order in a register.
+> +	 */
+> +	/* RBIT Xd, Xn */
+> +	return 0xdac00000 | (rn << 5) | rd;
+> +}
 
-wait_for_common():
-	return __wait_for_common(x, io_schedule_timeout, timeout, state);
+I don't think adding the above three functions is the best to JIT these
+intructions, do it like the other data1 and data2 instructions and add
+them to the generic framework like the following patch(untested) does:
 
-__wait_for_common():
-	timeout = do_wait_for_common(x, action, timeout, state);
-	...
-	return timeout;
+-- >8 --
 
-do_wait_for_common():
+diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+index 18c7811774d3..b2696af0b817 100644
+--- a/arch/arm64/include/asm/insn.h
++++ b/arch/arm64/include/asm/insn.h
+@@ -221,6 +221,9 @@ enum aarch64_insn_data1_type {
+ 	AARCH64_INSN_DATA1_REVERSE_16,
+ 	AARCH64_INSN_DATA1_REVERSE_32,
+ 	AARCH64_INSN_DATA1_REVERSE_64,
++	AARCH64_INSN_DATA1_RBIT,
++	AARCH64_INSN_DATA1_CLZ,
++	AARCH64_INSN_DATA1_CTZ,
+ };
 
-		do {
-			if (signal_pending_state(state, current)) {
-				timeout = -ERESTARTSYS;
-				break;
-			}
-...		
-		} while (!x->done && timeout);
-...
-		if (!x->done)
-			return timeout;
-...
-	return timeout ?: 1;
+ enum aarch64_insn_data2_type {
+@@ -389,6 +392,9 @@ __AARCH64_INSN_FUNCS(rorv,	0x7FE0FC00, 0x1AC02C00)
+ __AARCH64_INSN_FUNCS(rev16,	0x7FFFFC00, 0x5AC00400)
+ __AARCH64_INSN_FUNCS(rev32,	0x7FFFFC00, 0x5AC00800)
+ __AARCH64_INSN_FUNCS(rev64,	0x7FFFFC00, 0x5AC00C00)
++__AARCH64_INSN_FUNCS(rbit,	0x7FFFFC00, 0x5AC00000)
++__AARCH64_INSN_FUNCS(clz,	0x7FFFFC00, 0x5AC01000)
++__AARCH64_INSN_FUNCS(ctz,	0x7FFFFC00, 0x5AC01800)
+ __AARCH64_INSN_FUNCS(and,	0x7F200000, 0x0A000000)
+ __AARCH64_INSN_FUNCS(bic,	0x7F200000, 0x0A200000)
+ __AARCH64_INSN_FUNCS(orr,	0x7F200000, 0x2A000000)
+diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+index 4e298baddc2e..2229ab596cda 100644
+--- a/arch/arm64/lib/insn.c
++++ b/arch/arm64/lib/insn.c
+@@ -1008,6 +1008,15 @@ u32 aarch64_insn_gen_data1(enum aarch64_insn_register dst,
+ 		}
+ 		insn = aarch64_insn_get_rev64_value();
+ 		break;
++	case AARCH64_INSN_DATA1_CLZ:
++		insn = aarch64_insn_get_clz_value();
++		break;
++	case AARCH64_INSN_DATA1_RBIT:
++		insn = aarch64_insn_get_rbit_value();
++		break;
++	case AARCH64_INSN_DATA1_CTZ:
++		insn = aarch64_insn_get_ctz_value();
++		break;
+ 	default:
+ 		pr_err("%s: unknown data1 encoding %d\n", __func__, type);
+ 		return AARCH64_BREAK_FAULT;
+diff --git a/arch/arm64/net/bpf_jit.h b/arch/arm64/net/bpf_jit.h
+index bbea4f36f9f2..af806c39dadb 100644
+--- a/arch/arm64/net/bpf_jit.h
++++ b/arch/arm64/net/bpf_jit.h
+@@ -248,6 +248,12 @@
+ #define A64_REV16(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, REVERSE_16)
+ #define A64_REV32(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, REVERSE_32)
+ #define A64_REV64(Rd, Rn)     A64_DATA1(1, Rd, Rn, REVERSE_64)
++/* Rd = RBIT(Rn) */
++#define A64_RBIT(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, RBIT)
++/* Rd = CLZ(Rn) */
++#define A64_CLZ(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, CLZ)
++/* Rd = CTZ(Rn) */
++#define A64_CTZ(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, CTZ)
 
-This last line is interesting, and i had to go look at the
-documentation:
+ /* Data-processing (2 source) */
+ /* Rd = Rn OP Rm */
 
-https://gcc.gnu.org/onlinedocs/gcc/Conditionals.html
+-- 8< --
 
-So this is equivalent to
-
-        return timeout ? timeout : 1;
-
-Hence, it does appear wait_for_completion_timeout() can return
--ERESTARTSYS
-
-There is however a comment in include/linux/errno.h
-
-/*
- * These should never be seen by user programs.  To return one of ERESTART*
- * codes, signal_pending() MUST be set.  Note that ptrace can observe these
- * at syscall exit tracing, but they will never be left for the debugged user
- * process to see.
- */
-#define ERESTARTSYS	512
-
-So we do seem to be talking about a corner case, allowing gdb(1) to
-know about it, but not user space.
-
-	Andrew
+Thanks,
+Puranjay
 
