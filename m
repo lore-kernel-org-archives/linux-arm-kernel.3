@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA3AE9A04C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19554E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T1A+dNBxguBbn5VJh68NDqx86KEby+IrtcR9pMN3bxI=; b=dqK7i1CtenwVol59DuLLKxNK3z
-	zwz9WnaLQsptNwiN9WTW+Ke3Aq5rg8TzdLcvLD/23vnJZXEcd4MpW8431Ut8rz03qgTMNG1HjfO+r
-	762uBOxSV5uecbZMxYXseEJQJlJcO/WQLw+NvRzwCHb03Z0bQSsr4lqmROhyUZinqYK2VxDhzAs7n
-	9QKFJ//3tzEojMEcbjbnzuilwhmTnSm0si1d4VLZRqh9IN2zhs5n1J39alKgC2WFDSK/KyzKvgyGC
-	bBLfZMPiBicuHJ/KcVt95Vdmr6X4+ipv+G6QM/gUPQ51RuTFy8I1hNeSNY4XdS7lm/lnTAEpRttbv
-	EiUBW/+w==;
+	bh=dar0RQt4M278UggC4OmngN9+vjxlsvXau8VM1wIA7Uc=; b=cuaTNHSwEQcHY+FNjzhPqqZmSE
+	Ezbmnmi5+kR5aGcWREiUGpnmHINbC6HBCLKYcHaFLVutpu4SRmqN4w46BgdF5ueDYjLEgt7op62JD
+	327yrOpPkWt0qntyw+bE6l5FRggaK9CMY2fV/ByMmZYz0LkDO7k9djbUx234tP0gMdEad0skzVYtV
+	Dg6W6KZr2iYdsanqfZtWKL/nM4rXElV1c991lQszWG+ihQKvREefVpOJ6dL/szyggxtpVQMrtbALW
+	K2NTCUJ5dVzs1ljHkkXG3ntuDBf/0tIPEYyUqRd5ZyRkE/rOdrzj/HsJKkDUkYwlFi8X8wfDeyXLz
+	XQm8p8Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt64v-0000000BZKf-2aOW;
-	Thu, 19 Feb 2026 15:36:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vt65h-0000000BZSI-0q9X;
+	Thu, 19 Feb 2026 15:37:21 +0000
+Received: from out-170.mta1.migadu.com ([95.215.58.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt64u-0000000BZKT-20J9;
-	Thu, 19 Feb 2026 15:36:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56DBB60054;
-	Thu, 19 Feb 2026 15:36:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A3F1C4CEF7;
-	Thu, 19 Feb 2026 15:36:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771515390;
-	bh=dnerQRAkWguoqhDbE6xYkx4ycJCWKMZ2dF+v2bxWQ8o=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=kSSRDVrx1HY5u5gxDKR1bty/30CCkC3qhwWpzo+55b9o1gmyqq4DNJFvqGBLxJ+cP
-	 l9ah4CAIA4eQ7bLMap8fzdfdFqDfCXB5VzVu13nJWiE6sYvvGn/bKy3lV1KFgn0K3P
-	 3H/6VNr0av9PHl+GokoPwX/mCBWPcMQSKkl6LOCRkH/4ZX9bpICXH+cd8GsUyVxndX
-	 1Sw5NNX+o4PkaDq25lnTSh3g9OdsPFDiBipolic/gHGsxYBic7AU6jJhdDjUQ8oeNX
-	 QHE7RoD/uhIfAY0iTvJP62xa2yCJVr/41JnOIsG5azjQhky2z4WXJURGGZousPXRAa
-	 M87wcMnBoC3Mw==
-From: Mark Brown <broonie@kernel.org>
-To: linux-kernel@vger.kernel.org, 
- Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
- linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-In-Reply-To: <20260218201834.924358-1-detlev.casanova@collabora.com>
-References: <20260218201834.924358-1-detlev.casanova@collabora.com>
-Subject: Re: [PATCH] ASoC: rockchip: i2s-tdm: Use param rate if not
- provided by set_sysclk
-Message-Id: <177151538730.130550.12673698490748954577.b4-ty@kernel.org>
-Date: Thu, 19 Feb 2026 15:36:27 +0000
+	id 1vt65d-0000000BZRh-0yyl
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Feb 2026 15:37:19 +0000
+Message-ID: <10911cdf-d951-41a6-82c1-1c0ecd47c5f5@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1771515433;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dar0RQt4M278UggC4OmngN9+vjxlsvXau8VM1wIA7Uc=;
+	b=dbRrhdJj1yu9EW96WbowLTZvrGwoJeZ7bRWKOGHU/itw/cjdE7WOq4Ghc+D/CbDuq+msoC
+	c83WPqh3xLBfArsVfWotrWTNWoRHXy/uOQoj6nTQRkxVU2JEhLwB4JYXtwA4p7lW3W2PKx
+	HWJM5Y+mUQOy0MQlOl7geSIZqE/ws/U=
+Date: Thu, 19 Feb 2026 23:36:51 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH bpf-next v2 3/6] bpf, arm64: Add 64-bit bitops kfuncs
+ support
+To: Puranjay Mohan <puranjay@kernel.org>, bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
+ Shuah Khan <shuah@kernel.org>, Peilin Ye <yepeilin@google.com>,
+ Luis Gerhorst <luis.gerhorst@fau.de>, Viktor Malik <vmalik@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ kernel-patches-bot@fb.com
+References: <20260219142933.13904-1-leon.hwang@linux.dev>
+ <20260219142933.13904-4-leon.hwang@linux.dev> <m2342woiw9.fsf@kernel.org>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Leon Hwang <leon.hwang@linux.dev>
+In-Reply-To: <m2342woiw9.fsf@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-47773
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260219_073717_855418_F6D9AAFA 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +86,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Feb 2026 15:18:34 -0500, Detlev Casanova wrote:
-> Drivers will not always call set_sysclk() for all clocks, especially when
-> default mclk-fs can be used.
-> When that is the case, use the clock rate set in the params multiplied by the
-> default mclk-fs.
+
+
+On 2026/2/19 23:25, Puranjay Mohan wrote:
+> Leon Hwang <leon.hwang@linux.dev> writes:
 > 
+>> Implement JIT inlining of the 64-bit bitops kfuncs on arm64.
+>>
+>> bpf_clz64(), bpf_ffs64(), bpf_fls64(), and bpf_bitrev64() are always
+>> inlined using mandatory ARMv8 CLZ/RBIT instructions. bpf_ctz64() is
+>> inlined via RBIT + CLZ, or via the native CTZ instruction when
+>> FEAT_CSSC is available. bpf_rol64() and bpf_ror64() are always inlined
+>> via RORV.
+>>
+>> bpf_popcnt64() is not inlined as the native population count instruction
+>> requires NEON/SIMD registers, which should not be touched from BPF
+>> programs. It therefore falls back to a regular function call.
+>>
+>> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+>> ---
+>>  arch/arm64/net/bpf_jit_comp.c | 123 ++++++++++++++++++++++++++++++++++
+>>  1 file changed, 123 insertions(+)
+>>
+>> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+>> index 7a530ea4f5ae..f03f732063d9 100644
+>> --- a/arch/arm64/net/bpf_jit_comp.c
+>> +++ b/arch/arm64/net/bpf_jit_comp.c
+>> @@ -1192,6 +1192,127 @@ static int add_exception_handler(const struct bpf_insn *insn,
+>>  	return 0;
+>>  }
+>>  
+>> +static inline u32 a64_clz64(u8 rd, u8 rn)
+>> +{
+>> +	/*
+>> +	 * Arm Architecture Reference Manual for A-profile architecture
+>> +	 * (Document number: ARM DDI 0487)
+>> +	 *
+>> +	 *   A64 Base Instruction Descriptions
+>> +	 *   C6.2 Alphabetical list of A64 base instructions
+>> +	 *
+>> +	 *   C6.2.91 CLZ
+>> +	 *
+>> +	 *     Count leading zeros
+>> +	 *
+>> +	 *     This instruction counts the number of consecutive binary zero bits,
+>> +	 *     starting from the most significant bit in the source register,
+>> +	 *     and places the count in the destination register.
+>> +	 */
+>> +	/* CLZ Xd, Xn */
+>> +	return 0xdac01000 | (rn << 5) | rd;
+>> +}
+>> +
+>> +static inline u32 a64_ctz64(u8 rd, u8 rn)
+>> +{
+>> +	/*
+>> +	 * Arm Architecture Reference Manual for A-profile architecture
+>> +	 * (Document number: ARM DDI 0487)
+>> +	 *
+>> +	 *   A64 Base Instruction Descriptions
+>> +	 *   C6.2 Alphabetical list of A64 base instructions
+>> +	 *
+>> +	 *   C6.2.144 CTZ
+>> +	 *
+>> +	 *     Count trailing zeros
+>> +	 *
+>> +	 *     This instruction counts the number of consecutive binary zero bits,
+>> +	 *     starting from the least significant bit in the source register,
+>> +	 *     and places the count in the destination register.
+>> +	 *
+>> +	 *     This instruction requires FEAT_CSSC.
+>> +	 */
+>> +	/* CTZ Xd, Xn */
+>> +	return 0xdac01800 | (rn << 5) | rd;
+>> +}
+>> +
+>> +static inline u32 a64_rbit64(u8 rd, u8 rn)
+>> +{
+>> +	/*
+>> +	 * Arm Architecture Reference Manual for A-profile architecture
+>> +	 * (Document number: ARM DDI 0487)
+>> +	 *
+>> +	 *   A64 Base Instruction Descriptions
+>> +	 *   C6.2 Alphabetical list of A64 base instructions
+>> +	 *
+>> +	 *   C6.2.320 RBIT
+>> +	 *
+>> +	 *     Reverse bits
+>> +	 *
+>> +	 *     This instruction reverses the bit order in a register.
+>> +	 */
+>> +	/* RBIT Xd, Xn */
+>> +	return 0xdac00000 | (rn << 5) | rd;
+>> +}
 > 
+> I don't think adding the above three functions is the best to JIT these
+> intructions, do it like the other data1 and data2 instructions and add
+> them to the generic framework like the following patch(untested) does:
+> > -- >8 --
+> 
+> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+> index 18c7811774d3..b2696af0b817 100644
+> --- a/arch/arm64/include/asm/insn.h
+> +++ b/arch/arm64/include/asm/insn.h
+> @@ -221,6 +221,9 @@ enum aarch64_insn_data1_type {
+>  	AARCH64_INSN_DATA1_REVERSE_16,
+>  	AARCH64_INSN_DATA1_REVERSE_32,
+>  	AARCH64_INSN_DATA1_REVERSE_64,
+> +	AARCH64_INSN_DATA1_RBIT,
+> +	AARCH64_INSN_DATA1_CLZ,
+> +	AARCH64_INSN_DATA1_CTZ,
+>  };
+> 
+>  enum aarch64_insn_data2_type {
+> @@ -389,6 +392,9 @@ __AARCH64_INSN_FUNCS(rorv,	0x7FE0FC00, 0x1AC02C00)
+>  __AARCH64_INSN_FUNCS(rev16,	0x7FFFFC00, 0x5AC00400)
+>  __AARCH64_INSN_FUNCS(rev32,	0x7FFFFC00, 0x5AC00800)
+>  __AARCH64_INSN_FUNCS(rev64,	0x7FFFFC00, 0x5AC00C00)
+> +__AARCH64_INSN_FUNCS(rbit,	0x7FFFFC00, 0x5AC00000)
+> +__AARCH64_INSN_FUNCS(clz,	0x7FFFFC00, 0x5AC01000)
+> +__AARCH64_INSN_FUNCS(ctz,	0x7FFFFC00, 0x5AC01800)
+>  __AARCH64_INSN_FUNCS(and,	0x7F200000, 0x0A000000)
+>  __AARCH64_INSN_FUNCS(bic,	0x7F200000, 0x0A200000)
+>  __AARCH64_INSN_FUNCS(orr,	0x7F200000, 0x2A000000)
+> diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+> index 4e298baddc2e..2229ab596cda 100644
+> --- a/arch/arm64/lib/insn.c
+> +++ b/arch/arm64/lib/insn.c
+> @@ -1008,6 +1008,15 @@ u32 aarch64_insn_gen_data1(enum aarch64_insn_register dst,
+>  		}
+>  		insn = aarch64_insn_get_rev64_value();
+>  		break;
+> +	case AARCH64_INSN_DATA1_CLZ:
+> +		insn = aarch64_insn_get_clz_value();
+> +		break;
+> +	case AARCH64_INSN_DATA1_RBIT:
+> +		insn = aarch64_insn_get_rbit_value();
+> +		break;
+> +	case AARCH64_INSN_DATA1_CTZ:
+> +		insn = aarch64_insn_get_ctz_value();
+> +		break;
+>  	default:
+>  		pr_err("%s: unknown data1 encoding %d\n", __func__, type);
+>  		return AARCH64_BREAK_FAULT;
+> diff --git a/arch/arm64/net/bpf_jit.h b/arch/arm64/net/bpf_jit.h
+> index bbea4f36f9f2..af806c39dadb 100644
+> --- a/arch/arm64/net/bpf_jit.h
+> +++ b/arch/arm64/net/bpf_jit.h
+> @@ -248,6 +248,12 @@
+>  #define A64_REV16(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, REVERSE_16)
+>  #define A64_REV32(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, REVERSE_32)
+>  #define A64_REV64(Rd, Rn)     A64_DATA1(1, Rd, Rn, REVERSE_64)
+> +/* Rd = RBIT(Rn) */
+> +#define A64_RBIT(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, RBIT)
+> +/* Rd = CLZ(Rn) */
+> +#define A64_CLZ(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, CLZ)
+> +/* Rd = CTZ(Rn) */
+> +#define A64_CTZ(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, CTZ)
+> 
+>  /* Data-processing (2 source) */
+>  /* Rd = Rn OP Rm */
+> 
+> -- 8< --
+> 
+> Thanks,
+> Puranjay
 
-Applied to
+Ack.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-
-Thanks!
-
-[1/1] ASoC: rockchip: i2s-tdm: Use param rate if not provided by set_sysclk
-      commit: 0783052534f547f8f201dd4554b1df9f1f8615b5
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+I'll do it in the next revision.
 
 Thanks,
-Mark
+Leon
 
 
