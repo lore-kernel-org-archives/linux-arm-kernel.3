@@ -4,62 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3339C531D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 21:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8AEC531D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 21:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=noiWKa/1v8Q6bqZCF2OXtlNzBTobKJN1KyuavxRqTY0=; b=qfSnZgP1EkTmIRq6B7Fg5O3nbA
-	hr32YQ2p7XNv1P+OifUEXO1DoUVtVJ/dOn2ko9EUiChzKSamSsAsWPAc0bqcun4T+Smj9KNF0jlAU
-	e8DegFaDwJ2vA3fqmb/guTgo9mOUgYS0amtwryXRqnkxRhKL9OJGNg/7IM5jZtzlCyELm/wXxmfZP
-	VaOD+2O7++hKnpyYj9UDs2s3O3lVtp5tfAO/WaJ2B08tY/FmhEmy8Jq2OgrUiY3TFfKl8mhDp+cii
-	oQX0igqutWP8krpdT8gdX4cUIBfVTFAFGeanoPClXY3wzZ57PFDqzZJhhiL/OgOkDK5LUDwtwS2nc
-	7YwbOE4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UA1VERvz5151jt2KdPat2DgK+V02UUk6l4sZ04x/A1s=; b=fFsgHL2JfhH750LZs6J7/Tf+Av
+	r24HNCJSVOnR3XUhOo6Dw4IyQR6fx4k/+MP4EQHEsnRIoPRMweCsXPBdOR52c3adyi1RtV859qNLS
+	FxnuhJULe2uhT0NG3Px47A6gxj1Krr0qnRCW70njWC5yZFhfm3eAHmWRgQHUi3GHKpa0uDsflco8k
+	3FECpGJO6OciH5/qeiQM0awpcgYRMk3R36WL4HyjNEFUhmti2KDmWhMWvu2ywv+EspfDg3AmfWpGq
+	2tk49uUuM77/kGegUkGrn3IhL6Pu3az0uxO1LWDGVIoLPgU+TkwMlZW/RJgshfyZyiXaCe7OdqT0X
+	CeyL+nBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtBXL-0000000C5om-3BHn;
-	Thu, 19 Feb 2026 21:26:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtBYZ-0000000C62Z-1gl3;
+	Thu, 19 Feb 2026 21:27:31 +0000
+Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtBXK-0000000C5o9-1To4
+	id 1vtBYV-0000000C61V-2d7c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 21:26:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5E65F60131;
-	Thu, 19 Feb 2026 21:26:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5FF7C4CEF7;
-	Thu, 19 Feb 2026 21:26:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771536373;
-	bh=k3eIOjmh31KGZ2V8juxtChJ2D5hufhrXBQDrTquxias=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s8KM43XhU0arShApnLbNpQww9PEWG6/97TNtfrZH0HjUr+Z4brlGSTbbhezLDlMsp
-	 7jRtxA5Rb4YgrJdXftmRS7RSuHwZjfCEaShZ5FtoJ0qqtroxhhFs1/HQflZDllFqPo
-	 9nRUFgJP23iqKE7nTRZZ5tPo4o8sh6y7sVtPMyMLMxtHrHMDKpsI2kyWe1NJFem/hT
-	 XNDR9844+LCMGcGqyKi6tFGesrq2mhy6kfLQrVZLi0Y3wUY7qGNdWilcEnfwkN2cwy
-	 f2kW9UBgKQYQ+i4F9p5tDpmxIH8q86oGB2a2jQraPI0fjzf1YZxBUH6oNNqyKXrYL6
-	 ROaXgwKdprhpA==
-Date: Thu, 19 Feb 2026 13:26:11 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, linux-cifs@vger.kernel.org,
-	linux-wireless@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 03/15] crypto: arm64/aes - Fix 32-bit aes_mac_update()
- arg treated as 64-bit
-Message-ID: <20260219212611.GA32578@quark>
-References: <20260218213501.136844-1-ebiggers@kernel.org>
- <20260218213501.136844-4-ebiggers@kernel.org>
- <21d30582-9cb2-4e7a-9aa8-36e16aa45ff9@app.fastmail.com>
+	Thu, 19 Feb 2026 21:27:30 +0000
+Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-404254ffe8aso908929fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 13:27:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1771536446; x=1772141246; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=UA1VERvz5151jt2KdPat2DgK+V02UUk6l4sZ04x/A1s=;
+        b=jLzRW19v4O2EUqqsx/8X1VZ3MRHkwkHzprQDiU9Stj4PexeZk4X+YOJMio6CRyu2sq
+         tQewpy5XetELLipKaOwXP28JxS6oFnfjvcvkzRNXA3B5fHYpCICRmLHU0kYg5gDscuZr
+         +gWuXubEwrQF3fIAJHRl55NqJuqbwHRu1tHlq3LCplrcYqSlb1fXcN4DSoKRSU8eI+na
+         r6aG0pwuev/RwJnTqzhtZ3AMHZBVjq8YJ3aEm9nUd4LuqimUfG2sF5zPC91puhkzaHNG
+         LMAb5M9DSkVUWElo4NSaLwuypssanu3uoi6HcM/ax4q+NLRQbDiVVdTTC5iOrSx+hp2y
+         bVGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771536446; x=1772141246;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UA1VERvz5151jt2KdPat2DgK+V02UUk6l4sZ04x/A1s=;
+        b=keka2D5KHvzzn3LwUizadbg/ceiCVe+lm8lwO1LDgunBpTcMvlO2CeEb1VKhZA/7FA
+         fRIWK/WmAKU7Tfe3pQNxMqz2Rv5OZUSgsMcUws92LfD4o3FnkNVqiMsFMR8JftPRXqTk
+         QlM6nXI735/Qd39ZufKIF8ZcxSAAyVQ7dLBbatKfkj31mtgh/WRMG5IkC4Z09xIuf9k7
+         9CSesgfZvZtJl8bwwLSET2lugVmtFi3PYK+307DkAf7aHitIw/317n9L/a2zobAulMom
+         N0aR3B3sUqR+WZDIxGrkimtnzhAa4mGSJ4YN0bFxa2UyO/+03tGtL693rOFdptYkCBFz
+         bTsA==
+X-Forwarded-Encrypted: i=1; AJvYcCUpM5rawryEjLRpo38SWFZwaalHEe+ZowZr60aItrJRKK+dQrehNcrfS8gIg4gI1tfJDPhvXS2FcXhv5ByrfqMi@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHREqFY6msWPc2B0DReN0AHGndRiYuJyKME4jHjeKL9fgvENbx
+	4z3ZW+269rQPSBmRvqLYLfZo8j7KqDS7yQuZSJYSgWLnfiVLCPabHJRNXV4DCQvQSgI=
+X-Gm-Gg: AZuq6aI5OGE4LMMnzwZjHXw6OLWDi7zp/qH9+QkO7/hto3OptnmxYmcYl0rJfVrlr+l
+	MGJNPlqA2/oOMEtoG0nXNluI7hm0kr77FvIPWsSxcJknh+rNjodH59eOuKz03GlJcd7rLGcjixl
+	W6MoMfWirO5tMDjzcwjS35lP9rO1p7qWtPzIib3FPzfFg4cJFZc2bSAxe1I/NeINKeRbJ4IxS1p
+	PsZoHOmpT8C9LuS8IGGOcN7gj2ycVdAzkx9NgddmUzbNhj6mIY73qVm8rXfOvOcgR+M6UH7B6BA
+	M/UXAdaKSGGt6EWAvaguI19tFMBUykvddJ64OSkLVdF0mo67+rCe5WSBdF1cNiRay+YRdsoVlOR
+	kXTNL6ESskC3ZISIvu2vnGkmXjhnr56hD9SSOX4//dlQJzokF9X/v6DjO2K2wIO3vnopq2RG1Kk
+	1IZJug9pdEel0EFuZULCm7ddne+loMzyxDlBpjifjIg6MlommJh2UjK1UFw7gM4oyS9Z+uqA==
+X-Received: by 2002:a05:6870:326e:b0:404:1ec2:562c with SMTP id 586e51a60fabf-4154539ed1emr1793941fac.6.1771536446376;
+        Thu, 19 Feb 2026 13:27:26 -0800 (PST)
+Received: from ?IPV6:2600:8803:e7e4:500:d4c1:bce:26a1:c903? ([2600:8803:e7e4:500:d4c1:bce:26a1:c903])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-40f062ee328sm18930333fac.4.2026.02.19.13.27.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Feb 2026 13:27:25 -0800 (PST)
+Message-ID: <5e6fbdcc-6a19-4d99-af5f-50ba8fa529bb@baylibre.com>
+Date: Thu, 19 Feb 2026 15:27:24 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <21d30582-9cb2-4e7a-9aa8-36e16aa45ff9@app.fastmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 05/18] clk: mediatek: Add MT8189 vlpckgen clock support
+From: David Lechner <dlechner@baylibre.com>
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Bartosz Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>,
+ Miles Chen <miles.chen@mediatek.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com,
+ vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
+References: <20260202062840.342707-1-irving-ch.lin@mediatek.com>
+ <20260202062840.342707-6-irving-ch.lin@mediatek.com>
+ <b7fd3dfe-c141-4164-80c2-ddc1f79374f8@lechnology.com>
+Content-Language: en-US
+In-Reply-To: <b7fd3dfe-c141-4164-80c2-ddc1f79374f8@lechnology.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260219_132727_665764_0ABD209D 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +114,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 10:23:39AM +0100, Ard Biesheuvel wrote:
-> On Wed, 18 Feb 2026, at 22:34, Eric Biggers wrote:
-> > Since the 'enc_after' argument to neon_aes_mac_update() and
-> > ce_aes_mac_update() has type 'int', it needs to be accessed using the
-> > corresponding 32-bit register, not the 64-bit register.  The upper half
-> > of the corresponding 64-bit register may contain garbage.
+On 2/19/26 2:44 PM, David Lechner wrote:
+> On 2/2/26 12:28 AM, irving.ch.lin wrote:
+>> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
+>>
+>> Add support for the MT8189 vlpckgen clock controller, which provides
+>> muxes and dividers for clock selection in vlp domain for other IP blocks.
+>>
+>> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+>> ---
 > 
-> How could that happen? Setting the 32-bit alias of a GPR clears the upper half.
+> 
+>> +static const char * const vlp_aud_adc_parents[] = {
+>> +	"clk26m",
+>> +	"vowpll",
+>> +	"aud_adc_ext",
+> 
+> I could not find a matching clock name for "aud_adc_ext" in any
+> of the other clock drivers. Which clock is this (i.e. what is the
+> macro name in mediatek,mt8189-clk.h)?
 
-The ABI doesn't guarantee that the upper 32 bits are cleared.  Try the
-following:
+I was able to solve this one. It is a fixed clock. It seems to be
+missing from the devicetree, so I will comment there instead.
 
-void g(unsigned int a);
+> 
+>> +	"osc_d10"
+>> +};
+>> +
 
-void f(unsigned long long a)
-{
-	g((unsigned int)a);
-}
-
-Both gcc and clang generate code that simply tail-calls g(), leaving the
-upper 32 bits unchanged rather than zeroing them as per the cast:
-
-0000000000000000 <f>:
-       0: 14000000     	b	0x0 <f>
-
-So it's possible.  Now, it's certainly unlikely to happen in practice,
-as the real code doesn't use truncating casts like that, and the
-instructions that write to the 32-bit registers clear the upper 64 bits
--- as you noted and as I've noted before in similar fixes (e.g.
-https://lore.kernel.org/r/20251102234209.62133-2-ebiggers@kernel.org/).
-
-So does it really matter?  Probably not.  However, given that the
-correct behavior wasn't *guaranteed*, I think that to be safe we should
-continue to consider patches like this to be bugfixes.
-
-- Eric
 
