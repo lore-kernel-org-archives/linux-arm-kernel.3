@@ -4,105 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA50EE9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 07:34:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F99E9A04C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 07:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GvIcoh07tc60DPaNoNLzKGUZUhDBHat8vP8aSxZ6764=; b=2Kac29ulX+1Iz9UJlj9IfvfM5a
-	8//OLmgGFIDVwA+xLQEAdZzh+MDiyP/KBKn+ma2DAaEhP4WZFSCT8jySt0kKJSHuTf/ujYFUxXwbD
-	sQy1M5RloTeT5evHgZSSv9Kzwg/pE47rX8TQjJ43N5ucYS0t0Xgi+jDg8Mi2gzU4u/wkv9yhm6ZMu
-	MpzknjpsIv5dyk4/XlpOsf6mlgVaOGnoj8KJ9UKPQLTI4o+PE27fF2gCze3+XIUE9WuI+X4fpN7J3
-	hwm9mIsfdYGDzpjSU8qS2OA1JwXWab+ECLqkqdbsFv9un7DOc0/489EKzMhuNUHjk/xrwEADNC5KD
-	HHArWHaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sEQ20lZn5aC4pcK3zOmNpKgpHuHEHZwdosUQDLkxVds=; b=Yoc5AJnc8tuHwG4FcQTSTmH+UG
+	jO6YAf/jeq0OwRvp6dR+cLzOCR7bNl7zrjva471jisE+UVdnEg8okZ5VwL5lOENiwBex9bflB/oFJ
+	iZk2L9mactiZtmv0jNdFW7OVZb/nFnsPWFMwT71mWo8pmn0IEysAMbLEVdxxZwULWXaAb0LWxBmkC
+	BMI7EPV3Z6i+67hPg8q3WbdstWB/nqVf1HGWcAdOJ2qAAgDSKqyXu+4+ExoAKZqAGg1eEMsZemHPN
+	oIacas6TBAzTyRKrNyQIjmFQbB/Igy0H37/3SZAgEx9I33fn5jR5goERZeClkfWxWswCKmF1Cfx3/
+	h4j1RiOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsyYS-0000000B3D3-00OD;
-	Thu, 19 Feb 2026 07:34:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vsygr-0000000B3uQ-0rhc;
+	Thu, 19 Feb 2026 07:43:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsyYR-0000000B3Cv-1Thx
+	id 1vsygp-0000000B3uI-3LkG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 07:34:31 +0000
+	Thu, 19 Feb 2026 07:43:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7261C60128;
-	Thu, 19 Feb 2026 07:34:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA39FC4CEF7;
-	Thu, 19 Feb 2026 07:34:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E1C8260128;
+	Thu, 19 Feb 2026 07:43:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08798C4CEF7;
+	Thu, 19 Feb 2026 07:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771486470;
-	bh=rxRcVZkzzsMGbFRzvS4sm3nxnl4x0nU2Se0akM7+t2Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KgVPd1dXOU4800vmOnjqkh64XLKJU3Scm6ymkX3ldlMy5btNYr66FT/GCJFXcLLv/
-	 LvnJztLC1Xi2RqqP3ELWV7aJcsik5h5DuxT4Lev8kyyf6hYf6fPM4RZt86jTl5rzgH
-	 HdBccsM5RCbQ7RuGQrJBszXDZPkN9C0zEafVFzK2QYrVHhNqQ6zql/MU8shjHrLuoG
-	 NlgxvV5P9W6IMBhm/pPB1Jzf3uxoR7CraKtN9kByvIjjN1HCUgElpZMlIN14lHpZ30
-	 3XgEppLU3f9LPbLuByGIorvMgFQHHBXo8vgxPdaYUoh1CgB+S45PfIIGl3FsGNrE4f
-	 ZxcEa7GWbG/bA==
-Message-ID: <35e337a9-6f3f-4a89-8e27-311b7a1c2ff9@kernel.org>
-Date: Thu, 19 Feb 2026 08:34:24 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/8] xilinx: tsn: Add TSN Endpoint Ethernet MAC driver
- support
-To: Srinivas Neeli <srinivas.neeli@amd.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, michal.simek@amd.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, git@amd.com
-References: <20260219054911.2017362-1-srinivas.neeli@amd.com>
+	s=k20201202; t=1771486990;
+	bh=EZbnBXFpdDmY3HCD/8ilJbQIHY5K83u0h3fNzYw/pC4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jdbKhf8zttPjUjMASJ2uyl50RJ9RS1Y/5DCJ/mUg0/uB2fGsF3JONLgEXfVR9hKpm
+	 YkUxak9x0GC7hs/ENIts6NSA5uCkpZrz8GmOYrx38wJO7i0JFu3++bsK9vmqyXg+3K
+	 hei0MmYhikf6xPuct2JxXDXeJZ/4y3xpxe+X7NVBb4gV5agdpLeDq936KUGa7JJgN5
+	 /l+MR2N7y+5TSyqIJtPiSxJFvM7HnxVB+DSnTKXEAPj0hi8fJD55ezVZT0FE+jEuvE
+	 FKrAa8OhkVagkfFVdDH7MxuQevsVr6cN9Pb8c0H7NPanfTLnLbRisFn1oyz85nZtYo
+	 pYcBcNNNULnuw==
+Date: Thu, 19 Feb 2026 08:43:08 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260219054911.2017362-1-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+Cc: peter.ujfalusi@gmail.com, vkoul@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org, 
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, vigneshr@ti.com, Frank.li@nxp.com, r-sharma3@ti.com, 
+	gehariprasath@ti.com
+Subject: Re: [PATCH v5 12/18] dt-bindings: dma: ti: Add K3 BCDMA V2
+Message-ID: <20260219-hopeful-intrepid-cuckoo-32967d@quoll>
+References: <20260218095243.2832115-1-s-adivi@ti.com>
+ <20260218095243.2832115-13-s-adivi@ti.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260218095243.2832115-13-s-adivi@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,25 +72,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/02/2026 06:49, Srinivas Neeli wrote:
-> https://lore.kernel.org/all/DDB5J5V1IM0E.34WP32K550WIU@folker-schwesinger.de/
-> https://lore.kernel.org/all/DDB5IRSNB09F.3HRTZZOZQ7J6@folker-schwesinger.de/
-> https://lore.kernel.org/all/DDB5IDDEOVBT.NHJF03FYW2BN@folker-schwesinger.de/
+On Wed, Feb 18, 2026 at 03:22:37PM +0530, Sai Sree Kartheek Adivi wrote:
+> New binding document for
+
+Fix wrapping - it's wrapped too early.
+
+> Texas Instruments K3 Block Copy DMA (BCDMA) V2.
 > 
+> BCDMA V2 is introduced as part of AM62L.
 > 
-> This RFC is the initial submission of the driver and aims to gather
-> feedback on design, structure, and subsystem integration before
-> further upstreamization work.
+> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> ---
+>  .../bindings/dma/ti/ti,am62l-dmss-bcdma.yaml  | 120 ++++++++++++++++++
+>  1 file changed, 120 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
+> new file mode 100644
+> index 0000000000000..6fa08f22df375
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
+> @@ -0,0 +1,120 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright (C) 2024-25 Texas Instruments Incorporated
+> +# Author: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/dma/ti/ti,am62l-dmss-bcdma.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Texas Instruments K3 DMSS BCDMA V2
+> +
+> +maintainers:
+> +  - Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> +
+> +description:
+> +  The BCDMA V2 is intended to perform similar functions as the TR
+> +  mode channels of K3 UDMA-P.
+> +  BCDMA V2 includes block copy channels and Split channels.
+> +
+> +  Block copy channels mainly used for memory to memory transfers, but with
+> +  optional triggers a block copy channel can service peripherals by accessing
+> +  directly to memory mapped registers or area.
+> +
+> +  Split channels can be used to service PSI-L based peripherals.
+> +  The peripherals can be PSI-L native or legacy, non PSI-L native peripherals
+> +  with PDMAs. PDMA is tasked to act as a bridge between the PSI-L fabric and the
+> +  legacy peripheral.
+> +
+> +allOf:
+> +  - $ref: /schemas/dma/dma-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: ti,am62l-dmss-bcdma
+> +
+> +  reg:
+> +    items:
+> +      - description: BCDMA Control & Status Registers region
+> +      - description: Block Copy Channel Realtime Registers region
+> +      - description: Channel Realtime Registers region
+> +      - description: Ring Realtime Registers region
+> +
+> +  reg-names:
+> +    items:
+> +      - const: gcfg
+> +      - const: bchanrt
+> +      - const: chanrt
+> +      - const: ringrt
+> +
+> +  "#address-cells":
+> +    const: 0
+> +
+> +  "#interrupt-cells":
+> +    const: 1
 
-Isn't every patch initial submission aiming to gather feedback on
-design, structure and integration before further work?
+I don't get why this is nexus but not a interrupt-controller.
 
-I'll drop it from DT patchwork.
+Can you point me to DTS with complete picture using this?
 
-Anyway, remember about proper versioning so b4 diff work correctly.
-Usually people doing RFC get it wrong making the RFC completely
-pointless and counter productive :(
+> +
+> +  "#dma-cells":
+> +    const: 4
+> +    description: |
+> +      cell 1: Trigger type for the channel
+> +        0 - disable / no trigger
+> +        1 - internal channel event
+> +        2 - external signal
+> +        3 - timer manager event
+> +
+> +      cell 2: parameter for the trigger:
+> +        if cell 1 is 0 (disable / no trigger):
+> +          Unused, ignored
+> +        if cell 1 is 1 (internal channel event):
+> +          channel number whose TR event should trigger the current channel.
+> +        if cell 1 is 2 or 3 (external signal or timer manager event):
+> +          index of global interfaces that come into the DMA.
+> +
+> +          Please refer to the device documentation for global interface indexes.
+> +
+> +      cell 3: Channel number for the peripheral
+> +
+> +        Please refer to the device documentation for the channel map.
+> +
+> +      cell 4: ASEL value for the channel
+> +
+> +  interrupt-map-mask:
+> +    items:
+> +      - const: 0x7ff
+> +
+> +  interrupt-map:
+> +    description: |
+> +      Maps internal BCDMA channel IDs to the parent GIC IRQ lines.
+
+Isn't this mapping fixed in given device? IOW, not really part of DTS
+description but deducible from the compatible.
+
+You only need to provide interrupts for your device.
+
 
 Best regards,
 Krzysztof
+
 
