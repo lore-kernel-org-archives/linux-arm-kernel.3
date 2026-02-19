@@ -4,56 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D63FCE9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 00:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C085EE9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 01:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GTjAa0tCRYiFexMM+I6PIlkZMfxa4jr/sH3DeHWqxJA=; b=SH8Tb7xIvlk4tsi3kQfMBJdzcY
-	iST76Yn14fJePviUCWY+OVNbGbWsiP/qaqq1IJWFocmq4VGTp1DHTf0m+WE9z8X1MVCQnInjJ7bza
-	Epdaqe/Eg5VIGNyv3g1mKuZEzC7qCYI/yVWcEVkPsbyitfYvJeQ5tix4yXlrO4mAuESCjpB3BKfs8
-	FQpWSyjwV4y4nyaadcAXki4UX/MLNXljS0y5OFZ3a3SgnK3oG/gPEHZWFpVXHR2wf6a6XbLvii8JR
-	+HATTp9BYsfFfZxrYf8KhlOjPkrLrmmB+putaSJNZ+VAfHxeYGDKRvbaxiVdwB8M5ucSO6BMKaK/z
-	7svOWKiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nKu24tYsRQh4lFoxnVM6yOe8TKZzgTUDIjcBbH/0LPw=; b=a94889XJZVr+XvKuHTGbvyn0dU
+	J+mNU9Jv4eqwSU6pS4aGy9f7OihMMrpXbX8dyy7m8Uw4ePhU9C5kL7ln00bLZ8qi1Fs+ukg8qUuWI
+	7YArNbT5leErzN0w+YoKP+r25MTaNUUq1Pn0kBK+l58y4ktrCqd4BvG8ZgDkkcQzY9DdOZbSHQoe6
+	tgcBCyO+UdIEOtxXO6f1uf69eoyw0lIL2VtHtGSXwJi6tHGDL3RrQ0pxsLCAkjTBM7R/V5qSQNZgQ
+	s0zFZzU/ErtP/SR5LeIrpdvP+ZS/zfTPR+3JKHD0cgdKHFO0Xk8onN96uJXR2MtWhudHZZlD971mP
+	NsGPkCyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsrof-0000000AdhA-0JcU;
-	Thu, 19 Feb 2026 00:22:49 +0000
-Received: from angie.orcam.me.uk ([2001:4190:8020::34])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsroc-0000000Adgl-0A8X
+	id 1vstB4-0000000AiOo-0fra;
+	Thu, 19 Feb 2026 01:50:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vstB1-0000000AiNm-2H5t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 00:22:47 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id 7D14C92009C; Thu, 19 Feb 2026 01:22:40 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id 7A74192009B;
-	Thu, 19 Feb 2026 00:22:40 +0000 (GMT)
-Date: Thu, 19 Feb 2026 00:22:40 +0000 (GMT)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Nick Huang <sef1548@gmail.com>
-cc: Russell King <linux@armlinux.org.uk>, yot4106@gmail.com, 
-    dory85109@gmail.com, Eric Biggers <ebiggers@kernel.org>, 
-    Rob Herring <robh@kernel.org>, Dongsheng Yang <dongsheng.yang@linux.dev>, 
-    John Garry <john.g.garry@oracle.com>, Jeff Layton <jlayton@kernel.org>, 
-    Chaohai Chen <wdhh6@aliyun.com>, David Gow <davidgow@google.com>, 
-    Qu Wenruo <wqu@suse.com>, Namhyung Kim <namhyung@kernel.org>, 
-    Ilya Dryomov <idryomov@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm: Replace ASSEMBLY with ASSEMBLER in uapi headers
-In-Reply-To: <20260218133952.5356-1-sef1548@gmail.com>
-Message-ID: <alpine.DEB.2.21.2602190008470.57399@angie.orcam.me.uk>
-References: <20260218133952.5356-1-sef1548@gmail.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	Thu, 19 Feb 2026 01:50:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B9F8A443D8
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 01:49:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 966A5C19425
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 01:49:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771465797;
+	bh=gprzKwyelAnbTbil6irDP/l70Ksm+SSNMddfdQb9Y4U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=CTPd/F9QCBL2pXWHEWRBD2xpt13a3jkq5JqEJ0eZBXBZbCMy+H39GZ1l7RXkZXabp
+	 KmPjcjZ5y+VVTZL3CptTyXurTzm9xeIn4q3Ek6S/Z80nz4Zh+HyWhrW/aTrnAfavce
+	 kY2xaO1O0Dr67XxhNYNFz17FF41KipWvdM+XYTtr+LEopCkmk04HdNri5zCqkCQ1Sd
+	 3Ge38m50C7h3/MNQIaSWIzd/UGNBTDedTN442ZDp5UtQRH88d/znZxjkpxim4Ehgmx
+	 aNHkoguGhibStCtxCFyuGZm+BhLMYaKehLtkFv1gVwXZDhuJ/rirK/cefzYvIcrebB
+	 ZV+LBWRMfkHnQ==
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-b885a18f620so79961466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 17:49:57 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXvtYJ3SXAt90yZxdY7R3itbNHC9DI5IqYeT29iuBq0aqpbHihZABqfPo4+VlVVn/YmSSMbLyV+1KWnKo3EKwdI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTO0DDmptbvm4tMXfrPb0Wx5FLE4lLBESqCvU2t9gYmhg/LdCC
+	boQUeJ0CgqdDQT8qYnMWnVw0JUL3K0pb66jGw6upPLt/85Ac+h6Zw49rOBO9R0+Cv1Liwwwac26
+	QQw6VmjHvmafp5aonVzbOrlgqyMEksrs=
+X-Received: by 2002:a17:907:f509:b0:b8f:9d12:2386 with SMTP id
+ a640c23a62f3a-b8face62ee1mr1051037566b.51.1771465796016; Wed, 18 Feb 2026
+ 17:49:56 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+References: <20260218213501.136844-1-ebiggers@kernel.org> <20260218213501.136844-13-ebiggers@kernel.org>
+In-Reply-To: <20260218213501.136844-13-ebiggers@kernel.org>
+From: Namjae Jeon <linkinjeon@kernel.org>
+Date: Thu, 19 Feb 2026 10:49:44 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd9rQ+pqZrbsBAc+poE5TW7RUBXwFZ-w+zmZ73P_DBxWvw@mail.gmail.com>
+X-Gm-Features: AaiRm52LC0cRCytNvmZP31u5klrDIWh3l86YDetcbx0CAz2pxLOClyB6yHn1x6Y
+Message-ID: <CAKYAXd9rQ+pqZrbsBAc+poE5TW7RUBXwFZ-w+zmZ73P_DBxWvw@mail.gmail.com>
+Subject: Re: [PATCH 12/15] ksmbd: Use AES-CMAC library for SMB3 signature calculation
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-kernel@lists.infradead.org, 
+	linux-cifs@vger.kernel.org, linux-wireless@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_162246_243623_9AA98993 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260218_174959_604341_FEBF39D3 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,22 +84,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Feb 2026, Nick Huang wrote:
-
->   ASSEMBLY is defined only by the kernel Makefile and thus not suitable for uapi headers
->   unless userspace Makefiles also define it. Switch to ASSEMBLER, which the compiler sets
->   automatically when compiling assembly. Reference: commit
->   639f08fc20c92c2cc373b2b4d065185daa9633e3
-
- While not a regression, as this used not to work anyway with ASSEMBLY, 
-the use of ASSEMBLER requires sufficiently new a compiler and in principle 
-the userland may have old tools installed for whatever reason.  So perhaps 
-#error is in order if the compiler is not recent enough, for a complete 
-fix?
-
- FWIW GCC 2.95.x didn't yet have it, it landed ultimately with GCC 3.0.  
-Do we care?  For instance the GNU C library still does for its installed 
-headers.
-
-  Maciej
+On Thu, Feb 19, 2026 at 6:42=E2=80=AFAM Eric Biggers <ebiggers@kernel.org> =
+wrote:
+>
+> Now that AES-CMAC has a library API, convert ksmbd_sign_smb3_pdu() to
+> use it instead of a "cmac(aes)" crypto_shash.
+>
+> The result is simpler and faster code.  With the library there's no need
+> to dynamically allocate memory, no need to handle errors, and the
+> AES-CMAC code is accessed directly without inefficient indirect calls
+> and other unnecessary API overhead.
+>
+> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+Acked-by: Namjae Jeon <linkinjeon@kernel.org>
+Thanks!
 
