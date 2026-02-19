@@ -4,192 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BAFE9A057
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 18:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE362E9A057
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 18:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ULdBrUgJJf3AqL7P5yzGnoRBrsfbngQm05zIK5QlUds=; b=l8sVlbydYTYTvrbmPG0+mYFLeZ
-	O/B74NRd/D3Tvrc73zOFqArcKu9DEvjsxjha2w+Agp4U2tQNXFrg5GKr3Ly8Qxm9D7Zd5xAt72f9u
-	OJ/hbLpnu40m6Mb9Jh6VoVqQqTyeI1Gb7ZrvtoiuOK/q1VHskhLOpzYWEJcy1+zUBGaFXVZ4GJD4E
-	9T2i3H68k2Ml1xwRaGAo5Wuyzpk4IjQBLiEsuo4b/BQfnEF6R2zW0arh05lp42z9P4PCIIrlWyeRQ
-	/HfeXrG+M2BpbbHv0BlyEBdqlkFT+u3ySQmlG2v4v/Xpg/wBousCyQz1riPHABTMgiAD9QdG1ETDW
-	euGANcKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zjUhhFauofzYmNbZnlEXsUtHBqYmdv6tMCx1c2Q0Afs=; b=CLNV1kGsAm8Ycmw4iUoATwYdxg
+	IgdKBqqMR8A6JxA/rxkgAvXgV8Y/3+18CzZYXfuI9IPfgKqbmZyra0n+WxhPOVeJ05Q3gL+DGCj1U
+	8rVSXz2EQHpv2G9Iwo5/8REyu0wqgLJ2BsVycNlJqBMut4s4FmCAcRLdpavjc9OcAJb1boTCYKeQh
+	kGmr1La//pMtA+7U137x+C4umJ+t4iCUNF7SNEbalfaBqEACkisnoYYsZMK7l662RmfS3G3Bkrcrz
+	n+D7+P5FVDVl9FsjL9gtsWvrpQ/lub8TbCMmoT7rrzEGg+t4h3vVfxkv+KYTXC5qvuykB+XvtHulF
+	fRCzibiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt8YM-0000000BlPZ-3EzP;
-	Thu, 19 Feb 2026 18:15:06 +0000
-Received: from mail-centralusazon11010049.outbound.protection.outlook.com ([52.101.61.49] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vt8mJ-0000000BmcM-1Gho;
+	Thu, 19 Feb 2026 18:29:31 +0000
+Received: from mail-qk1-x762.google.com ([2607:f8b0:4864:20::762])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt8YD-0000000BkvK-0r5N
+	id 1vt8mG-0000000Bmbx-1uFf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 18:14:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PIsBlLTE2etv3qWbFxAnQ8KbnkJfArG+Cv8TuwtBVnXr6B6hT4RzQkyHXPav/dssGfCWr60cdqXP3XNK8BWpbRP4+Wy0DIUwDiltmUJrGXz/Lr0LopXFWOHn/a/mIs573of/apXYdNh3OqEEdkyTXN273CFpE1oger7mgAC0r1OiawN8tuzgkI5v7NnLF8PUbbqulxJa2DiMi53BzHBjy52pX3DZEfqZJnseE2tQdX57wTZwkFRXpMdtkBO1wW8d8JL0N10zY3LBzhdlL0w/f4sY5d6DJS4wymjm6QlL9ytCoEmAmFpVVy541OdZ3Lkgr51GUsV98Puo4KVORhVdVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ULdBrUgJJf3AqL7P5yzGnoRBrsfbngQm05zIK5QlUds=;
- b=GTEZraW6xVSMJMmlSaaglPqdkFZzsATeX1cZWVm4EP6CEgqWk6ZrI7Rr5WCMkxTDq+OQgQUhW/D95ehaoDG0lMY+XAO4tIcmN5yWzXl1sisjp9uybzCkwBJ2jjd5hRNrnV6JQEaCUlx2nW+x1D8DRPasaxangTZdqW18pB6W3HCZkoHz/OTJKc0ogoJapXVDwvhwA1HEzH4YnIkBTiUH/29yP/C8Axm8GNnrx6DOsRPQ1lNDzkRMZHK8WM90SCcUKgb89RdqDsYePyZyHn39K+ZXkcsL85IHl1kFRaxlkfGuQOBHYYMvZEKyaIZfskLS4bA5rg8+jSN9EPfuZ+7cEQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ULdBrUgJJf3AqL7P5yzGnoRBrsfbngQm05zIK5QlUds=;
- b=bV61MuHwBph0L5YvLwmD5052v6EA5Krq4sR28ITciCK1VCIE+RtM8KQPHXGiyAeSl14+wLNni5LvHicn+TkG+e+7FldFKtsJYYyfp/SW3zDZ4U/hPiPfff+3auPxvdCbjhvzByUsDkTZbmuCsdhmrAv+DBD32Y8zrQKlLJF8ZtZSj/67r2K5KgNh3zKzVYyzgneCj4bNmVoegv5c/ESqKyPa1Ar6CRf8J4VJjR6QE/D9qBroZ6JEmuw/sqV/HwnRhsfoAx8n1ATUo5/PwQVMkfmulR2VtsOIkOeV4G8ywPzD3soxOgZNbCsq2niiZI1uxoyKOMouq6MKwghN7CESWQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH0PR12MB8800.namprd12.prod.outlook.com (2603:10b6:510:26f::12)
- by CH3PR12MB8877.namprd12.prod.outlook.com (2603:10b6:610:170::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.16; Thu, 19 Feb
- 2026 18:14:39 +0000
-Received: from PH0PR12MB8800.namprd12.prod.outlook.com
- ([fe80::f79d:ddc5:2ad7:762d]) by PH0PR12MB8800.namprd12.prod.outlook.com
- ([fe80::f79d:ddc5:2ad7:762d%4]) with mapi id 15.20.9632.010; Thu, 19 Feb 2026
- 18:14:39 +0000
-From: Yury Norov <ynorov@nvidia.com>
-To: linux-kernel@vger.kernel.org,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Antoine Tenart <atenart@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Geetha sowjanya <gakula@marvell.com>,
-	Ingo Molnar <mingo@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Jerin Jacob <jerinj@marvell.com>,
-	Linu Cherian <lcherian@marvell.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Mike Leach <mike.leach@linaro.org>,
-	Moritz Fischer <mdf@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Simon Horman <horms@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Subbaraya Sundeep <sbhatta@marvell.com>,
-	Sunil Goutham <sgoutham@marvell.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Tom Rix <trix@redhat.com>,
-	Xu Yilun <yilun.xu@intel.com>,
-	Yajun Deng <yajun.deng@linux.dev>,
-	Yury Norov <yury.norov@gmail.com>,
-	Zhang Rui <rui.zhang@intel.com>,
-	hariprasad <hkelam@marvell.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fpga@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	netdev@vger.kernel.org
-Cc: Yury Norov <ynorov@nvidia.com>
-Subject: [PATCH 12/12] bitmap: drop bitmap_print_to_pagebuf()
-Date: Thu, 19 Feb 2026 13:14:04 -0500
-Message-ID: <20260219181407.290201-13-ynorov@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260219181407.290201-1-ynorov@nvidia.com>
-References: <20260219181407.290201-1-ynorov@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BN0PR04CA0115.namprd04.prod.outlook.com
- (2603:10b6:408:ec::30) To PH0PR12MB8800.namprd12.prod.outlook.com
- (2603:10b6:510:26f::12)
+	Thu, 19 Feb 2026 18:29:30 +0000
+Received: by mail-qk1-x762.google.com with SMTP id af79cd13be357-8cb4081e82aso152352485a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 10:29:27 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771525766; x=1772130566;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zjUhhFauofzYmNbZnlEXsUtHBqYmdv6tMCx1c2Q0Afs=;
+        b=OQDZYHJGXvjgSkvCq7BAg5azk5Z4Qaw2ysvCXD957sBslt2zlltymwJA0ef1lPr9v5
+         y4j3/Ie4CJjxyxh3L35cvQonr0sESIl2XHmrJ0y+/plDNyCx+W7l+yBjpAHe4Oi/PWJA
+         3riJl3cA5UwUmD9xHmAixyYpKcmtygKvbvKN2/NCVKdXRo5FlWqeGrC+4Z4JCL1nZHGR
+         lb5Ae4BwOqr9/d/h+sZtaEEwSSgjKkEE91Rj0KYwTyTe97akVc7/1kbrs3FcSnc7naa4
+         8mf64pd4q+6ksl3e0LydIBEM8in1gTlD/RP4bPJ48Gv3uILrruKqfWik3mmaRGWZ2mje
+         XAiQ==
+X-Forwarded-Encrypted: i=2; AJvYcCUcfBn7OPdoekgTmBzsd/+rOOI8InOboJRteQm5kIX3yi9xXcp9MizMpEe3CrIgoFlas/GStH6qTFkXyGD21GUd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZ4SfNfCKdpxrhYr5xsN/rAJsAz0f/N6Gj0Fp2iKyJXjbPuRZW
+	SX/k2wYCG0XRRu6sY2hG9QmpXqbg9pUD8vRDAe/shBhJHuVS+dxqqLgEhTz44jNBE8EupRnfHLE
+	7lMAhSetU9ASnwS9QlfdlvpCmYb2pJ+0OZ/homQoUPodDRgDAGe5FUrb++bfe9XQtaEO6jd0um4
+	RIC3tyiuxt7+oExnXcz97aowWh6cFvNqqqNtLMg6nYY96lAuPgEWXaEiPVfRjHMgrkT4iQQCrwX
+	s4s5BZnh2BM7FdL+MQolwAdSw/PpAE=
+X-Gm-Gg: AZuq6aKGx5roOFgQUl8/G0PW1upPBJDhC3Z/z66U/QE+vEmoTAQqY64dblWGmCHFOQh
+	HPjV+u4gEiJMlmRJA/eyAi4wOpcux1sJjwpQi+6Ci0vJjuufDDeHeOVnDAsVJxcvhfcU5UV7ShS
+	oHiWmz0cgmXoI4YDzE8UdGjgAbKzvArmUgMcPFqdkbzffCWn+Dxwn7xGGg8Ay8YCDQ8wETpLwVw
+	FP5Etfh22LiCJC6krkN/DnVAF0tSKS0gd74oLG9ZqXx+OnC7MRpK5o1WQh0bexTxpC7+uBkcXT4
+	xD5oI3Z3KyC1Vgh1tzFf67JDy9XydLOehK5LIz2XuT+DaH0/qsgP+1jScgESVaYzd5HWXapYBbe
+	DBPu9WV3nmo+bXqaxEHDYWEca6cfkUZU/c41eIQpd+ZS3HdJlsiqe/YQiCTU5Qx3wacanVBvTou
+	ULVo99CkNYDu2Cu2mBgAB4r7Ua5a4Ko6lHv1QZt0OBQmoSFaXKsRfKjGNzyA==
+X-Received: by 2002:a05:620a:19a3:b0:8bb:ac44:bd3c with SMTP id af79cd13be357-8cb4bff29camr2468632785a.52.1771525765830;
+        Thu, 19 Feb 2026 10:29:25 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-94.dlp.protect.broadcom.com. [144.49.247.94])
+        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-8971cc7aa5dsm31853396d6.1.2026.02.19.10.29.25
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 19 Feb 2026 10:29:25 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-yx1-f71.google.com with SMTP id 956f58d0204a3-649c8c5e11aso2004447d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 10:29:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771525765; cv=none;
+        d=google.com; s=arc-20240605;
+        b=WCm9kGS4K2wWx0pBe/fwu3Tc889CJYmz82TV+MPknf0bThFRDUaxHl26LHzWZ2b2G1
+         Up5u+P/P55p42wi2U1o0Fa1+YIlrCiuFLkkbt2XcFfSsO05S+IjvhUPEQzwGxLqa9R7z
+         kA27CYcCSbuilj984an3ZmHZ1pTgbGaXJhrd7s08CDNVKBQmOepVyKsDfSlqzJt3pViW
+         IMJ4OdlT5MrdeKa0f3C6IQAZL+WQV6hCxaOj1ThgzQVa/C2w0M+Ofa5dR4CMkVFqkXu+
+         qqPiHqkLC2pTViOO2CQyDxIO+1pEFIDPR/KHUaBLw2ADZOSCO04haUd2H+ZUnW4nfpFD
+         D33Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=zjUhhFauofzYmNbZnlEXsUtHBqYmdv6tMCx1c2Q0Afs=;
+        fh=BRpT2dNGTTdyoLVdhv0kdWeI45JF+0J/+yb6oXRfew4=;
+        b=Jc8xbC50ORjHd+Sh5QaIvJXfZ4gxCg5AoS66ZaQWQsf9Jjk662vqjttND7Nb21FgtP
+         7lxOX6rp2EugRyuC48h5c9A2RE6Ix4C/94HMtJzj6NEQfYT9iSf+i4PHbvmUzF3q1SbI
+         7nqgUJCZtneDasd2/X/YAZldeiE7IVbQS0lsWmXmrBPEAr/YW1WkUNJMrXNMrHlEiINR
+         QS+eUuvWMqiP84oUslMrwrP233zmyUXL3jZaW99FSinTtjSvkLadG9ZLh5UxIXks2a1v
+         e7I+Eiz0e9QY3OYtk998W6K/hpuefBTZi5m/iNzUnTzMTISVNHt3MD/xfXq6EOC0WI/P
+         87xg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1771525765; x=1772130565; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=zjUhhFauofzYmNbZnlEXsUtHBqYmdv6tMCx1c2Q0Afs=;
+        b=SZxUZfj/LbxrPEW4OMbew4YIZNBWrVgwpqcq1+QptkLAjvpXsnkNkREZsgAyInNdXd
+         VWXGyQGQ+rOjTmrToNzwrxkbcN8fNHsNxyB4y9L+xjDkTA9co2WyMfWPMDQ0enqJ3szO
+         U3Oi7BNwGWzDiWv0xuZ4ximrC7BcMVg/ht9is=
+X-Forwarded-Encrypted: i=1; AJvYcCUeeKKPV1v6VgIbFRC5fjdMn12mU8fLCKUBcamWJDwVOvC7TH1LbB3r26Rjo9bO/VAV5d1jIdlRsyvosMtHY8KF@lists.infradead.org
+X-Received: by 2002:a05:690e:bcf:b0:649:e9a1:c6b6 with SMTP id 956f58d0204a3-64c21a999c5mr14581364d50.30.1771525765133;
+        Thu, 19 Feb 2026 10:29:25 -0800 (PST)
+X-Received: by 2002:a05:690e:bcf:b0:649:e9a1:c6b6 with SMTP id
+ 956f58d0204a3-64c21a999c5mr14581346d50.30.1771525764710; Thu, 19 Feb 2026
+ 10:29:24 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR12MB8800:EE_|CH3PR12MB8877:EE_
-X-MS-Office365-Filtering-Correlation-Id: 807c0036-96bc-4c52-fc04-08de6fe2bedf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|10070799003|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SbWiriWEbcf51nIJ35nrCbq0VoQZCNtKmr/rMfuuwiqcA1iOMFssd73PdpkD?=
- =?us-ascii?Q?bmw80kaqnbyGns176EKMDqTNZwEZUO6TTvlGZHH1NZjmWOEfX4+d7tC6YA04?=
- =?us-ascii?Q?mfFBH+gR6l79N0jkFh7TyVi8KBD4NTym0cwKLn8Qo8e7EeLgqj4GmU1J273p?=
- =?us-ascii?Q?vRRqpsYePfU5uL+TLDmccnDZwR9ra/RrR5Y4ywBs4XBS5u42sIR4wtYG8TpK?=
- =?us-ascii?Q?YOvNG1RIQzAChPdb3udwPjbbb2SlIp6PfZ8umOoCIEfSGHPTfnjPr7Pr8NQG?=
- =?us-ascii?Q?kNxlfMXP0A8iTihInYb/lQL4DNz7Kh/oW3S7lcVRADWerAmRHO5hMjbvPf68?=
- =?us-ascii?Q?AaAOxB/GkcF+PTW59ptPSAyVgrjby+hCMmx1vAZ48EvQvuGgGF/J33LyDyKz?=
- =?us-ascii?Q?EanMoOebjV/7BNSo4bgvR3sB+y9m6nHS1yPzON6heFOMTHfCiJjZrtSiCZoY?=
- =?us-ascii?Q?ZBqPkjMQHhEvLMukgi6FZoy4lxxup9WfwaHsRG9InArk7P7k8eDFSLCRxpSV?=
- =?us-ascii?Q?P3AhgEoBZveB1U2sYgvXpY5EujP1yUuMclBfBibOqMyKJDL4rUNA3Hl1YLF4?=
- =?us-ascii?Q?hBik9kYakpABDEOdMAJTU/6CmQdbOx0HN8dXhJx/qwU0otjbh9zV+MytscLi?=
- =?us-ascii?Q?MRmSDQn3u2t+WVfdfaKooz/TeTVIYGHn4UNEXv3YQ0N/2jRf+NXfQL25PKfc?=
- =?us-ascii?Q?/723+8u1B+4JTqGspgyQ/+jMInBPihW8TSiDnaDqT4Usu1lojeDqZM+F3MG0?=
- =?us-ascii?Q?4MhBLwmkmBES1bqkcUxW8+g1pkXU9S/d6bRTC+lflzYJg0KbjbfuWZQYBT8J?=
- =?us-ascii?Q?8ipONOVQB7ORzmR0TcIUI66oqlqhZJYuQTEV4UobQYGRCGeJHY+w/ji43SWa?=
- =?us-ascii?Q?E1IzIMtaLrGlbdnNGp8MANkpiMSxhm7OHibJmsxHK53DG+Ibgg7lwjeFHcu2?=
- =?us-ascii?Q?Qll4EG3c03TloYomzUz3qmTvi5R1dqrnXQ8og11uffn2JW7cePi521dvTYTv?=
- =?us-ascii?Q?W7zHXlxDaFi/V/WkE5yz5UnfF275zDPcKG9oc/EhpYjY5YPTrZPpPjykoue9?=
- =?us-ascii?Q?6c9YN0/Zv4vrP6zvOvMTRKuRLMZxEeW9b7B9mD9rWwk5M+7syh8FBAW2pe0o?=
- =?us-ascii?Q?tHivp2g2eNwqXZ64BKZlRKU7wtF/f9DcSGxrRgjUF4EeoBDUyv3ahF5lf41M?=
- =?us-ascii?Q?QE29toa+NZhgLsf44c/q5DHAh7xhBM49Zwwq5mKcfUcq/mTAJmpuAuAo6K4k?=
- =?us-ascii?Q?QzxchpGOuAe1uCMGz4Tg7OXPfxA5nw6lnhov0acUahqmxpXan4NJAj3xJ+wO?=
- =?us-ascii?Q?KNyfdlm246mlJ4+BlKvESzTjg0ig0vIOH5MmeE7E/AVqQpvyHa0BZWFnaE6x?=
- =?us-ascii?Q?wSRMUz+3c1likYb7/M1G2gmHpExIVxdqQtCYGI4YLrjgQ77FspjYZ4MrtZ1A?=
- =?us-ascii?Q?Tos9BLwnyMZMg0yEQw54JmlOCtwetMwPsI5ThWGtF9aUlWugrLAYg7TJGKzQ?=
- =?us-ascii?Q?YnEZpR77uPRywv6SojV6W1DLUq7/5rqBonpoV/IRA2Znk/guEAgzWg5EDsks?=
- =?us-ascii?Q?IPgsg64VtGdWAK4FSavNUPpkHFEGMMeFVko05xY7ayppfD+8BH73hOYk0Pv4?=
- =?us-ascii?Q?PA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR12MB8800.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(10070799003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xwnbcz0jEsAJwo2uYPcn8BvdIcszVwkGtt1iznF/U/GJax48C3h56yyCciJx?=
- =?us-ascii?Q?n4yW9d28C6COwy2D9++nm0ikZf3wgJFBbgKxk/XWV3Vn/VGmMNAOL5jitR6O?=
- =?us-ascii?Q?Xz0F0hEj5vjPfYKbP9BV7NW7hvMorO77NiL0m8e5hPBNISntimMS394YuSBj?=
- =?us-ascii?Q?qbld95i2v5Lk3ncXSuPONJI6g229Y8UMxXBctfBNhLG9R9ieq+vB78CnZB6X?=
- =?us-ascii?Q?CKQ6nv+bQqiIyJ2FXJEbRJZ/6Djmse9f3Qt+/lY3ft3Tlz0J09Gg4WZUWe5h?=
- =?us-ascii?Q?81NxP8ThxTwHjBYGE1KowGzQ8nCujs++9uFYMJvxSnfeGsbcUJEBfcKFNvlq?=
- =?us-ascii?Q?j/PC8F6feY3KxuZZ2txrJsJ4yJnCkLYG4JN/bFJmUgUY/gvUCfrpeqhzD6i/?=
- =?us-ascii?Q?zXNupSKFVgKj/9NZvNwMhVT9iZJf+BwpKVze/X+1C95ZLH1KomvejrIucK+O?=
- =?us-ascii?Q?i7zq6pGZIR9VCiSmvsDnMK+3XJzfibyxnQl53tenpzju4mtgfanG2BxrR498?=
- =?us-ascii?Q?mFSIjXp4llubeoqtQZStP5R4OOFRJmOmE3072sL6OoU8fzl4cEewXrs2KMvf?=
- =?us-ascii?Q?KG/+9wMZLhcvdD3p/SkWRPa170MhOO+1aiv8yKJXzGuGQL9+bt+t8QIeJcnx?=
- =?us-ascii?Q?0t8S0O1n0eJSfEMqE3yJ1USLOZXX4eeEibfsrtH+2S16UoUH9hDRVcW06d/a?=
- =?us-ascii?Q?YqoYc0lVSizIazNA82cSh+CVwdPitVIGqW7kSF/xdOc9Lz1dO4OztRbH4p5f?=
- =?us-ascii?Q?zJSZzTGqdLPt55T3hU6Ak7jU0RfzzXv2GV1BQWPLy4AzU5uxTHMU8efR2FvW?=
- =?us-ascii?Q?Exi75x6ffv5S2z9TSFdSFV8aJ97ApBuYSsZobUJz2YG5AJX7t/t3Hxnu5LQS?=
- =?us-ascii?Q?QSYxYZOZGaSTvn5ktpm/TuZ14ldv+Eaf72jQZ6pd6HSWqGR133a3tNoT1y/B?=
- =?us-ascii?Q?R/8xGOB0Oz955fZ7hWrDSRWgQszhftK4Egw4cKKzAWrh82XubRsu7vBbIvdG?=
- =?us-ascii?Q?+dzKdFV05fAeYEBeNv28t2goiR7nXvrCKET218ejgeFpC9JZWx0xrtQdnTlo?=
- =?us-ascii?Q?s/cUv5FIUbniCDDUrInlXtvQzs64400i48J20zw9SSjnMI562Gj8dYf9BDAQ?=
- =?us-ascii?Q?4Kt+VcjM4QoJB+kpE7fEH+BXik6s+rAEjn9lCrRnimsB6fMuXGbW+wZnuL1K?=
- =?us-ascii?Q?Zx/YpVszYPr9dkcqqatdrkDUy+jnDCnm0Y+NeepO4uLAJ/y3KAJYOyH0NPWw?=
- =?us-ascii?Q?CzhxgoIyl8vbCwj0pHNgTx3cJnyxf0EdFzWyvfEpwKyobw3+NpwZrz+HvuOX?=
- =?us-ascii?Q?zRPbqXo0o3bMB+4CoYZqbSaiKqJHWjm48OGUcn/bebR9kFGpboF6rTa5+MBw?=
- =?us-ascii?Q?QvE5K9313S+NQ1jwn38sBumqwzD96184PoYs5LzrVQ/CbCr1NtdawOZ+1ocf?=
- =?us-ascii?Q?9PnJ3PUovsabWwDLCAqPU/IbuB44iD7HbbtymvBc3DCPhYuBuNWpheYNs5IP?=
- =?us-ascii?Q?qx7jMwQvHFg342xTmRZgfCk8+rf8MKPxQGr5GaNUfB/rTD4pGFjAq0XWgHZI?=
- =?us-ascii?Q?g5cu4x3Zk+820JIu3GeMdzLLzwZQ+wdKmq4vWQwdWI0tTJpeX12DZPmteuuj?=
- =?us-ascii?Q?upAEuhXqkJVS/TnV7cTtsbo4HpBjK1kbsdrh9TbFC5b+u4ySj3wl2EmesYpv?=
- =?us-ascii?Q?BOboCaWLzJR+Lwp2AwVyztoosjpt1vqLWC7Gek1qdcJ+jPsBELBXWJ3oHWhS?=
- =?us-ascii?Q?5zrYqEe7RdNB70j6WgYZMqxQbU8LT59Sk3f1yyT0K/akX0LGBjGl?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 807c0036-96bc-4c52-fc04-08de6fe2bedf
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR12MB8800.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 18:14:39.0329
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3bioaco1tNd3mW+rjo4wtJOR0itiVHJzaVDXbBo/aduMRpT4rdc1gV+OjjE/MH2iknGzN8Nhyc1tcFRZ9ejywA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8877
+References: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org> <20260218-bcmbca-i2c-dts-v2-6-5373ef82c50c@kernel.org>
+In-Reply-To: <20260218-bcmbca-i2c-dts-v2-6-5373ef82c50c@kernel.org>
+From: William Zhang <william.zhang@broadcom.com>
+Date: Thu, 19 Feb 2026 10:29:12 -0800
+X-Gm-Features: AZwV_Qg1nPSzCFuirhF1W8U_FMVgFFeuNfKdVjR0j4K_bujf6Bpj2e9WuLvH5yI
+Message-ID: <CAHi4H7EeeotJEi_k+khUOP8Bgc7XG0uc6y9_MrUvSCNaK_Rj1w@mail.gmail.com>
+Subject: Re: [PATCH v2 6/7] ARM: dts: bcm63138: Add I2C block
+To: Linus Walleij <linusw@kernel.org>
+Cc: Anand Gore <anand.gore@broadcom.com>, Kursad Oney <kursad.oney@broadcom.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	linux-arm-kernel@lists.infradead.org
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="000000000000f62a2b064b317b57"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_101457_292284_B487551B 
-X-CRM114-Status: GOOD (  23.08  )
+X-CRM114-CacheID: sfid-20260219_102928_565017_9B8665E6 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -204,113 +133,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that all users of the function are switched to the alternatives,
-drop the function.
+--000000000000f62a2b064b317b57
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Yury Norov <ynorov@nvidia.com>
----
- include/linux/bitmap-str.h |  1 -
- lib/bitmap-str.c           | 42 +++++---------------------------------
- 2 files changed, 5 insertions(+), 38 deletions(-)
+On Wed, Feb 18, 2026 at 1:31=E2=80=AFAM Linus Walleij <linusw@kernel.org> w=
+rote:
+>
+> The BCM63138 has a brcmper I2C block.
+I remember there was some discussion on whether this driver really
+works on DSL chips.
+Did you have any way to test it?
 
-diff --git a/include/linux/bitmap-str.h b/include/linux/bitmap-str.h
-index 53d3e1b32d3d..abe7a69a846f 100644
---- a/include/linux/bitmap-str.h
-+++ b/include/linux/bitmap-str.h
-@@ -5,7 +5,6 @@
- #include <linux/types.h>
- 
- int bitmap_parse_user(const char __user *ubuf, unsigned int ulen, unsigned long *dst, int nbits);
--int bitmap_print_to_pagebuf(bool list, char *buf, const unsigned long *maskp, int nmaskbits);
- int bitmap_print_bitmask_to_buf(char *buf, const unsigned long *maskp, int nmaskbits,
- 				loff_t off, size_t count);
- int bitmap_print_list_to_buf(char *buf, const unsigned long *maskp, int nmaskbits,
-diff --git a/lib/bitmap-str.c b/lib/bitmap-str.c
-index a357342d5d6c..49f4118c5cd3 100644
---- a/lib/bitmap-str.c
-+++ b/lib/bitmap-str.c
-@@ -39,32 +39,6 @@ int bitmap_parse_user(const char __user *ubuf,
- }
- EXPORT_SYMBOL(bitmap_parse_user);
- 
--/**
-- * bitmap_print_to_pagebuf - convert bitmap to list or hex format ASCII string
-- * @list: indicates whether the bitmap must be list
-- * @buf: page aligned buffer into which string is placed
-- * @maskp: pointer to bitmap to convert
-- * @nmaskbits: size of bitmap, in bits
-- *
-- * Output format is a comma-separated list of decimal numbers and
-- * ranges if list is specified or hex digits grouped into comma-separated
-- * sets of 8 digits/set. Returns the number of characters written to buf.
-- *
-- * It is assumed that @buf is a pointer into a PAGE_SIZE, page-aligned
-- * area and that sufficient storage remains at @buf to accommodate the
-- * bitmap_print_to_pagebuf() output. Returns the number of characters
-- * actually printed to @buf, excluding terminating '\0'.
-- */
--int bitmap_print_to_pagebuf(bool list, char *buf, const unsigned long *maskp,
--			    int nmaskbits)
--{
--	ptrdiff_t len = rest_of_page(buf);
--
--	return list ? scnprintf(buf, len, "%*pbl\n", nmaskbits, maskp) :
--		      scnprintf(buf, len, "%*pb\n", nmaskbits, maskp);
--}
--EXPORT_SYMBOL(bitmap_print_to_pagebuf);
--
- /**
-  * bitmap_print_to_buf  - convert bitmap to list or hex format ASCII string
-  * @list: indicates whether the bitmap must be list
-@@ -101,7 +75,7 @@ static int bitmap_print_to_buf(bool list, char *buf, const unsigned long *maskp,
-  * @off: in the string from which we are copying, We copy to @buf
-  * @count: the maximum number of bytes to print
-  *
-- * The bitmap_print_to_pagebuf() is used indirectly via its cpumap wrapper
-+ * The sprintf("%*pbl") is used indirectly via its cpumap wrapper
-  * cpumap_print_to_pagebuf() or directly by drivers to export hexadecimal
-  * bitmask and decimal list to userspace by sysfs ABI.
-  * Drivers might be using a normal attribute for this kind of ABIs. A
-@@ -111,18 +85,11 @@ static int bitmap_print_to_buf(bool list, char *buf, const unsigned long *maskp,
-  *		struct device_attribute *attr, char *buf)
-  *   {
-  *	...
-- *	return bitmap_print_to_pagebuf(true, buf, &mask, nr_trig_max);
-+ *	return scnprintf(buf, rest_of_page(buf), nr_trig_max, &mask);
-  *   }
-  *
-  * show entry of attribute has no offset and count parameters and this
-  * means the file is limited to one page only.
-- * bitmap_print_to_pagebuf() API works terribly well for this kind of
-- * normal attribute with buf parameter and without offset, count::
-- *
-- *   bitmap_print_to_pagebuf(bool list, char *buf, const unsigned long *maskp,
-- *			   int nmaskbits)
-- *   {
-- *   }
-  *
-  * The problem is once we have a large bitmap, we have a chance to get a
-  * bitmask or list more than one page. Especially for list, it could be
-@@ -149,7 +116,7 @@ static int bitmap_print_to_buf(bool list, char *buf, const unsigned long *maskp,
-  *
-  * The role of cpumap_print_bitmask_to_buf() and cpumap_print_list_to_buf()
-  * is similar with cpumap_print_to_pagebuf(),  the difference is that
-- * bitmap_print_to_pagebuf() mainly serves sysfs attribute with the assumption
-+ * scnprintf("%*pb[l]") mainly serves sysfs attribute with the assumption
-  * the destination buffer is exactly one page and won't be more than one page.
-  * cpumap_print_bitmask_to_buf() and cpumap_print_list_to_buf(), on the other
-  * hand, mainly serves bin_attribute which doesn't work with exact one page,
-@@ -158,7 +125,8 @@ static int bitmap_print_to_buf(bool list, char *buf, const unsigned long *maskp,
-  *
-  * WARNING!
-  *
-- * This function is not a replacement for sprintf() or bitmap_print_to_pagebuf().
-+ * This function is not a replacement for sprintf().
-+ *
-  * It is intended to workaround sysfs limitations discussed above and should be
-  * used carefully in general case for the following reasons:
-  *
--- 
-2.43.0
+>
+> The interrupt is at INTERRUPT_ID_I2C whic is
+> (ISR_TABLE3_OFFSET + 19) =3D 96+115, convert back
+> to SPI interrupt 115-32 =3D 83.
+>
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+> ---
+>  arch/arm/boot/dts/broadcom/bcm63138.dtsi | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+>
+> diff --git a/arch/arm/boot/dts/broadcom/bcm63138.dtsi b/arch/arm/boot/dts=
+/broadcom/bcm63138.dtsi
+> index 8e41c7130406..4ca4ec2ffed6 100644
+> --- a/arch/arm/boot/dts/broadcom/bcm63138.dtsi
+> +++ b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
+> @@ -312,6 +312,15 @@ bootlut: bootlut@8000 {
+>                         reg =3D <0x8000 0x50>;
+>                 };
+>
+> +               i2c0: i2c@be00 {
+> +                       compatible =3D "brcm,brcmper-i2c";
+> +                       reg =3D <0xbe00 0x60>;
+reg offset 0x3e00 as  the translation window starts from 0xfffe8000.
+Patch for 63148 has the same issue.
 
+> +                       interrupts =3D <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
+> +                       #address-cells =3D <1>;
+> +                       #size-cells =3D <0>;
+> +                       status =3D "disabled";
+> +               };
+> +
+>                 pl081_dma: dma-controller@d000 {
+>                         compatible =3D "arm,pl081", "arm,primecell";
+>                         // The magic B105F00D info is missing
+>
+> --
+> 2.53.0
+>
+
+--000000000000f62a2b064b317b57
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+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
+PRi27wH/XHTDMdyL0Org+kxniXue6MSNJvcQwaLO/UQrmgTygBlVGa+Qg9ZFfS00xvuqeYH7tImO
+48WiXeu9rgn5KTH0IWP1+R74KIgxJQ+65la+caZvxwC9V3ik5p/LOGA2qS4GEjGuaYF8QKhRTR4h
+/QBSktqZLbzVxpjJXrqFTA2BLlYRp9hPhqNxbn46WuLufpMWhFtjUoQi/8fRRWRsMAY0o1J0f+kB
+6EI8FoxPTOpvuLRonqHIWMHk5YRnDdqJ3G5Oc8zmV+UCAwEAAaOCAd4wggHaMA4GA1UdDwEB/wQE
+AwIFoDAMBgNVHRMBAf8EAjAAMIGTBggrBgEFBQcBAQSBhjCBgzBGBggrBgEFBQcwAoY6aHR0cDov
+L3NlY3VyZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyNnNtaW1lY2EyMDIzLmNydDA5Bggr
+BgEFBQcwAYYtaHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyNnNtaW1lY2EyMDIzMGUG
+A1UdIAReMFwwCQYHZ4EMAQUDAzALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgoDAjA0MDIGCCsGAQUF
+BwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzBBBgNVHR8EOjA4MDag
+NKAyhjBodHRwOi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWltZWNhMjAyMy5jcmwwJQYD
+VR0RBB4wHIEad2lsbGlhbS56aGFuZ0Bicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQw
+HwYDVR0jBBgwFoAUACk2nlx6ug+vLVAt26AjhRiwoJIwHQYDVR0OBBYEFHjI7pbQZurVKsSRE/a9
+7gUEyVCkMA0GCSqGSIb3DQEBCwUAA4ICAQCFA4fU1GnG8sY7kyUXp5tle+VeWveoWb272jPauU5R
+w+udkhVXmnR0Kg7RgkCD00PLTKHNRyegXXDMArs3N9NhO3s9eSp9KjDh+h3WuQWCJH3QBHLGW0qE
+fyV87wUtBIy/QsHwO4S8OlOZiXECR7V1EGIF6t3s0W+3UzgYeHL+Ttuhda+2wIVY0EbS0eNH9Vob
+4YG17VTBBe7hyobXFpd9d1JGENFzIWncPUshOE0Wv7KlkrRc6aBOpL4p5xO1pHi9h9w8utyHkMoV
+nefXixkn5YVHnuV/jbSF/IM4Mlqt0E+n/TRp2c0eR+1AauZKENV2syNBo4aMa0BkmikBjLSnDjt/
+TYQdwHNWdV495n71idvueWwTFUhUsnudYcnh42eZENopBOYjVu2WhsffyrNz0hsuR85LriqSuBbf
+drd9DMo3DgtfJ7hh4sEAhSw/x/Br86rfLBftZMU02htlnkOI9Tp1QuDsr9+MsqY6AjKeXAy67m7H
+TVAZ9uyO9N20yU0p7igESOWKR1ccL1TPA1jrSHK18Y75ot5199FNWeE/UKoDKSML39iPZho9XPh/
+/RlsfRFiVOPrI5Gwi4YfIfi0jjEWf310/CYEmA5jrp5gUQSdo/+FgfXLKDFiEHCf5b3B1l70r6bR
+WkDCNNacYJWZtSp87i6jmw+l5xx7OkEJ9DGCAlcwggJTAgEBMGIwUjELMAkGA1UEBhMCQkUxGTAX
+BgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gR0NDIFI2IFNNSU1F
+IENBIDIwMjMCDD2ooFIye/WiO3KgZTANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQg
+02OtDVkTptLKNY04jyVYoTJ7WTGa3Y9dFKRJZ4Zg5lAwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEH
+ATAcBgkqhkiG9w0BCQUxDxcNMjYwMjE5MTgyOTI1WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFl
+AwQBKjALBglghkgBZQMEARYwCwYJYIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzAL
+BglghkgBZQMEAgEwDQYJKoZIhvcNAQEBBQAEggEAWhGxEj0WDUb7OrFroww2V/uBMDI1GE5tjA1O
+kjE/fJudiL4IMIc/DfkzMzaEG5T/cWJN/EhvA7a8LeTJc3iHbs8b3RAjABaPMFGLuW7al7OpLsoL
+Mh8Bh8NqWUe17nM8k66kXvGOEfAB4leQMzsIKqaQes/oxeswuvl0F1W62YidfyqItPUus7o9G79I
+ZYQKkaN9X235brZl3sCJRr+B0f9HIctbJ3LptE0CTW0U2bnMv3/CQnK+GWiNpjyAXpwQuG2gyaOu
+vSmcgAVJfCWuyg/hIjivBF/owMVe9DFAO5xso4vp0NTGmYOJKv6Cp06KkMclS4DHt9XI4Lyxkg6k
+lA==
+--000000000000f62a2b064b317b57--
 
