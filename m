@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439F2E9A04D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 02:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9F0E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 02:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fWIkZsYXiegVBb1NPWO9Ab0us+EA8y5OqTz9gKtK3k=; b=TgjltcxkW8rjlhbC/gWJ0wP4f4
-	+4naBMEBo9oDe5mtaBag6TRGYa8R+0ftKdteBvSZ6U6zpUtz6/H4SENIR7eXiIEfBou/0paRzITvw
-	Ilvmf44iQVJl0BI98tN3DNVYAFJxp3cyXGAZ6Fmh+2HaAHAZtcTj8hz8wYrSm3whBksmhUeNocrK2
-	kMZ0zP8/2+LaNgQEWA7zzGXYQuXzevIMP6x8ilIkEyG77lyBWgVgntqfxCyShIM/KQXYH1BDUtGYs
-	m87omyM6C1PrdPJxIT2GMDIyihwgrBwuCD1erXCuwEz2lxoe0T4u83AB+PJ4PGoljsfSjlDgFccAS
-	CgOjBc5w==;
+	bh=t6Lo/vpKRMZd3qm8frSn/6kA7hUJE9bG7kBiaNh14a4=; b=KykL4hNrE+pNBRTe9WrteYi//C
+	B/mgwb8rELZ/CDtITGSSuj4MD56TEUZJiqrhA1krocgqxLdOLDlm5RdfGcgS2dSYZhayVADwFC1t9
+	q7n2LKNO5/tU2w41xCPDLAwFLn78ly0k3+NlLWpQ8sKIGzNutzfBL1HzjK/7rMlyhkO6WJVizipEP
+	7udpE77FJzL0ZDeCOTL29qKcWSomXWiqUVl0kXMvjvQbHJOvhcFghMIF6dEtORSqn+9q1QGweUp7G
+	xAtsjWA+JhP/9/GsOudtSWSvMvm7GZ9nj4cS/DLmnab5t/6pwoAUuorBIsP9BQ9qF5q0nPOoxQoMG
+	0XsduAsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vstPP-0000000Aj6H-414G;
-	Thu, 19 Feb 2026 02:04:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vstPx-0000000AjK5-0RZW;
+	Thu, 19 Feb 2026 02:05:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vstPO-0000000Aj5j-2o6g;
-	Thu, 19 Feb 2026 02:04:50 +0000
+	id 1vstPc-0000000AjBL-0Irn;
+	Thu, 19 Feb 2026 02:05:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B8E5A61850;
-	Thu, 19 Feb 2026 02:04:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28D82C116D0;
-	Thu, 19 Feb 2026 02:04:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A67944328A;
+	Thu, 19 Feb 2026 02:05:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8320DC19422;
+	Thu, 19 Feb 2026 02:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771466689;
-	bh=gHtcNRF3wMm1yv55zf4VRgDNe+lRp+wHBTVMtvKLo/M=;
+	s=k20201202; t=1771466703;
+	bh=lOZidEmx5vk20ZO0QrhgAGaGcoFEhk4bJAlW3AJLUOQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=S3+Q8RSkcfOzGQcxkTtIhRD1twFLCYdW3OKzEp0IU9D8X4DrqUMGTMiSrd1xtW2tt
-	 8tpFXxxDrOEEBZ6ilcLFV5bCrSwnpVBr5RUImJa7hw7/NyhcOim5l63Tu34QkCojer
-	 Ldj5ut/t/1kOdgt5kV6BXDmM8IFT1FfMk5VnmvCs06CTykY13cTTZHFEYFGW/hCZyd
-	 Yt2/D6h/B7/5lW/AlunfziGzP3mOKM0iD2hqzzA5ak052vPJcSc5K0/sFqYTi9/BJ8
-	 HHTz5EKlTPys/iG3pX6YQCQ66anAAu6jdXbd7SzlUAnr/eM5ruzcudhsKX3yDPdBvZ
-	 xrxPpyQeGc7rw==
+	b=bDrkdjbvtDnkfPHNkqW2l+/iLzj7A9E2KZ5LDUUqsThA71UtRLrKT8/GtBrU0hKtX
+	 0QnBkfBkl2+pfGFAMeyaCytwZPKIy1l4WRJ+egUX/UK6y9D5/kk40EwITuUJ1d/RfH
+	 oTBBs+eo0JJm+X8QnjVGeFCgbY1ZyVxKCeDDc+076WdGwRDJ/7NjaXUNq3j0fsedaQ
+	 k9JqfvSP3k4QMvEidLcgJlvVkF2bKn/IwM8JKuJzjMJSy4pL4OhCBgZ3H3uACFXgiN
+	 U8uqCKfAnKj72b8ab2N2uBMg2aT4Z4/p/WnPtA4iNZqPlRbjL5LUl7EgfUznrLL6YM
+	 hO2vOUtxbCp5g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Liang Jie <liangjie@lixiang.com>,
-	fanggeng <fanggeng@lixiang.com>,
-	Linus Walleij <linusw@kernel.org>,
+Cc: Xu Yang <xu.yang_2@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	sean.wang@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.19-6.18] pinctrl: mediatek: make devm allocations safer and clearer in mtk_eint_do_init()
-Date: Wed, 18 Feb 2026 21:03:56 -0500
-Message-ID: <20260219020422.1539798-20-sashal@kernel.org>
+	linux-phy@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.19-5.10] phy: fsl-imx8mq-usb: disable bind/unbind platform driver feature
+Date: Wed, 18 Feb 2026 21:04:07 -0500
+Message-ID: <20260219020422.1539798-31-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260219020422.1539798-1-sashal@kernel.org>
 References: <20260219020422.1539798-1-sashal@kernel.org>
@@ -65,8 +62,10 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.19.2
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260218_180520_350209_A2A601DD 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,150 +80,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Liang Jie <liangjie@lixiang.com>
+From: Xu Yang <xu.yang_2@nxp.com>
 
-[ Upstream commit 255b721c96046d4c57fa2268e4c72607868ce91f ]
+[ Upstream commit 27ee0869d77b2cb404770ac49bdceae3aedf658b ]
 
-mtk_eint_do_init() allocates several pointer arrays which are then
-populated in a per-instance loop and freed on error. The arrays are
-currently allocated with devm_kmalloc(), so their entries are left
-uninitialised until the per-instance allocations succeed.
+Disabling PHYs in runtime usually causes the client with external abort
+exception or similar issue due to lack of API to notify clients about PHY
+removal. This patch removes the possibility to unbind i.MX PHY drivers in
+runtime.
 
-On a failure in the middle of the loop, the error path iterates over
-the full nbase range and calls devm_kfree() on each element. For
-indices which were never initialised, the corresponding array entries
-contain stack garbage. If any of those happen to be non-zero,
-devm_kfree() will pass them to devres_destroy(), which will WARN
-because there is no matching devm_kmalloc() resource for such bogus
-pointers.
-
-Improve the robustness and readability by:
-
-  - Using devm_kcalloc() for the pointer arrays so that all entries
-    start as NULL, ensuring that only genuinely initialised elements
-    may be freed and preventing spurious WARN_ON()s in the error path.
-  - Switching the allocations to sizeof(*ptr) / sizeof(**ptr) forms,
-    avoiding hard-coded element types and making the code more resilient
-    to future type changes.
-  - Dropping the redundant NULL checks before devm_kfree(), as
-    devm_kfree() safely handles NULL pointers.
-
-The functional behaviour in the successful initialisation path remains
-unchanged, while the error handling becomes simpler and less
-error-prone.
-
-Reviewed-by: fanggeng <fanggeng@lixiang.com>
-Signed-off-by: Liang Jie <liangjie@lixiang.com>
-Signed-off-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Link: https://patch.msgid.link/20260120111712.3159782-1-xu.yang_2@nxp.com
+Signed-off-by: Vinod Koul <vkoul@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-So the buggy code is NOT in 6.12 or older LTS trees (as expected, since
-it was added in 6.15). This fix is only relevant for 6.15+ stable trees.
+## Analysis Summary
 
-### 7. Verification Summary
+### What the commit does
+This commit adds `.suppress_bind_attrs = true` to the i.MX8MQ USB PHY
+platform driver. This single line prevents the kernel from creating
+`/sys/bus/platform/drivers/imx8mq-usb-phy/bind` and
+`/sys/bus/platform/drivers/imx8mq-usb-phy/unbind` sysfs files, thereby
+preventing runtime unbinding of the PHY driver.
 
-**Verification:**
-- Read the current file (`mtk-eint.c` lines 520-622) — confirmed the
-  buggy `devm_kmalloc()` calls at lines 547, 551, 555 and the error path
-  at lines 598-606 that iterates over uninitialized entries.
-- `git log` confirmed `3ef9f710efcb5` ("Add EINT support for multiple
-  addresses") introduced the multi-base code with `nbase`, the loop, and
-  the error path — landed in v6.15.
-- `git tag --contains 3ef9f710efcb5` confirmed it's in `p-6.15`,
-  `p-6.16`, `p-6.17`.
-- `git log --oneline v6.18.12` confirmed the buggy commit is present in
-  the 6.18.y stable tree.
-- `git log --oneline v6.12` confirmed the buggy code is NOT in 6.12 or
-  older LTS trees (not applicable for those).
-- Verified the error path: loop at line 599 iterates `0..nbase-1`, but
-  if allocation fails at index `k`, indices `k+1..nbase-1` have
-  uninitialized pointer entries — confirmed in pre-patch code.
-- `devm_kfree(NULL)` is safe (no-op) — confirmed by kernel API
-  convention.
-- The patch is self-contained; no other patches are needed as
-  dependencies.
+### Problem being fixed
+The commit message states that unbinding PHYs at runtime causes
+"external abort exception or similar issue" because there is no API to
+notify PHY clients about PHY removal. An external abort is a serious ARM
+exception that typically results in a kernel crash/oops. If a user or
+management tool writes to the `unbind` sysfs file for this PHY driver,
+the USB controller client would try to access the now-missing PHY
+resources, resulting in a crash.
 
-### 8. Conclusion
+### Stable kernel rules assessment
+1. **Obviously correct and tested**: Yes - this is a well-established
+   one-line pattern used in 385+ files in the kernel. It's reviewed by
+   the PHY maintainer (Vinod Koul) and reviewed by Frank Li.
+2. **Fixes a real bug**: Yes - runtime unbinding causes a crash
+   (external abort exception). This is a real, triggerable issue.
+3. **Important issue**: Moderate - it prevents a crash, but only
+   triggered by explicit sysfs manipulation (not normal operation).
+   However, system management tools or user error could trigger this.
+4. **Small and contained**: Yes - single one-line addition to a driver
+   struct.
+5. **No new features**: Correct - this removes functionality (ability to
+   unbind), it doesn't add any.
 
-This commit fixes a real bug: **use of uninitialized memory in the error
-path** of `mtk_eint_do_init()`. When memory allocation fails partway
-through a loop, the cleanup code passes uninitialized (garbage) pointer
-values to `devm_kfree()`, which can trigger `WARN_ON()` in
-`devres_destroy()` and potentially cause memory corruption.
+### Risk assessment
+- **Risk**: Extremely low. This is literally a single boolean field
+  being set in the driver struct. It only affects sysfs attributes. The
+  same pattern exists in 385+ other drivers.
+- **Benefit**: Prevents a crash scenario when the PHY is unbound at
+  runtime.
+- **Dependencies**: None - this is entirely self-contained.
 
-The fix is small, surgical (3 `devm_kmalloc` → `devm_kcalloc` changes +
-removal of now-redundant NULL checks), well-understood, reviewed by a
-maintainer, and carries minimal risk. It only affects the error path —
-the successful path is functionally unchanged. The buggy code exists in
-stable trees 6.15+.
+### Concerns
+- The bug is only triggerable by explicit sysfs manipulation (writing to
+  `/sys/bus/platform/drivers/imx8mq-usb-phy/unbind`), not by normal
+  system operation.
+- The fix is a defensive measure rather than fixing a root cause in the
+  PHY framework. However, this is the standard kernel approach - the PHY
+  framework doesn't have removal notification, so drivers that can't
+  handle unbinding should suppress it.
+- The change is straightforward and would apply cleanly to any stable
+  tree that has this driver.
+
+### Classification
+This falls into the **hardware quirk/workaround** category. It's a
+defensive fix that prevents a crash scenario. While the trigger requires
+explicit user action (sysfs unbind), this is a well-established pattern
+in the kernel for exactly this purpose.
+
+## Verification
+- Verified `suppress_bind_attrs = true` is used in 385+ files across the
+  drivers/ directory via Grep search
+- Verified 7 other PHY drivers (Samsung, HiSilicon) already use this
+  pattern
+- Verified no other Freescale PHY drivers currently have this attribute
+  (this is the first)
+- Verified via git log that similar commits exist for other subsystems
+  (gpio, perf)
+- Verified via lore.kernel.org that the patch was reviewed by Frank Li
+  and accepted by PHY maintainer Vinod Koul
+- Verified the commit message describes a real crash scenario (external
+  abort exception)
+- Could NOT verify the specific crash reproduction steps (unverified,
+  but the mechanism is well-understood in the kernel community)
+
+The fix is minimal (one line), extremely low risk, prevents a crash
+scenario, uses a well-established kernel pattern, and was properly
+reviewed. It meets all stable kernel criteria.
 
 **YES**
 
- drivers/pinctrl/mediatek/mtk-eint.c | 29 +++++++++++++++++------------
- 1 file changed, 17 insertions(+), 12 deletions(-)
+ drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pinctrl/mediatek/mtk-eint.c b/drivers/pinctrl/mediatek/mtk-eint.c
-index c8c5097c11c4d..2a3c04eedc5f3 100644
---- a/drivers/pinctrl/mediatek/mtk-eint.c
-+++ b/drivers/pinctrl/mediatek/mtk-eint.c
-@@ -544,24 +544,32 @@ int mtk_eint_do_init(struct mtk_eint *eint, struct mtk_eint_pin *eint_pin)
- 		}
+diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+index 91b3e62743d3a..b30d01f345d20 100644
+--- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
++++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+@@ -730,6 +730,7 @@ static struct platform_driver imx8mq_usb_phy_driver = {
+ 	.driver = {
+ 		.name	= "imx8mq-usb-phy",
+ 		.of_match_table	= imx8mq_usb_phy_of_match,
++		.suppress_bind_attrs = true,
  	}
- 
--	eint->pin_list = devm_kmalloc(eint->dev, eint->nbase * sizeof(u16 *), GFP_KERNEL);
-+	eint->pin_list = devm_kcalloc(eint->dev, eint->nbase,
-+				      sizeof(*eint->pin_list), GFP_KERNEL);
- 	if (!eint->pin_list)
- 		goto err_pin_list;
- 
--	eint->wake_mask = devm_kmalloc(eint->dev, eint->nbase * sizeof(u32 *), GFP_KERNEL);
-+	eint->wake_mask = devm_kcalloc(eint->dev, eint->nbase,
-+				       sizeof(*eint->wake_mask), GFP_KERNEL);
- 	if (!eint->wake_mask)
- 		goto err_wake_mask;
- 
--	eint->cur_mask = devm_kmalloc(eint->dev, eint->nbase * sizeof(u32 *), GFP_KERNEL);
-+	eint->cur_mask = devm_kcalloc(eint->dev, eint->nbase,
-+				      sizeof(*eint->cur_mask), GFP_KERNEL);
- 	if (!eint->cur_mask)
- 		goto err_cur_mask;
- 
- 	for (i = 0; i < eint->nbase; i++) {
--		eint->pin_list[i] = devm_kzalloc(eint->dev, eint->base_pin_num[i] * sizeof(u16),
-+		eint->pin_list[i] = devm_kzalloc(eint->dev,
-+						 eint->base_pin_num[i] * sizeof(**eint->pin_list),
- 						 GFP_KERNEL);
- 		port = DIV_ROUND_UP(eint->base_pin_num[i], 32);
--		eint->wake_mask[i] = devm_kzalloc(eint->dev, port * sizeof(u32), GFP_KERNEL);
--		eint->cur_mask[i] = devm_kzalloc(eint->dev, port * sizeof(u32), GFP_KERNEL);
-+		eint->wake_mask[i] = devm_kzalloc(eint->dev,
-+						  port * sizeof(**eint->wake_mask),
-+						  GFP_KERNEL);
-+		eint->cur_mask[i] = devm_kzalloc(eint->dev,
-+						 port * sizeof(**eint->cur_mask),
-+						 GFP_KERNEL);
- 		if (!eint->pin_list[i] || !eint->wake_mask[i] || !eint->cur_mask[i])
- 			goto err_eint;
- 	}
-@@ -597,12 +605,9 @@ int mtk_eint_do_init(struct mtk_eint *eint, struct mtk_eint_pin *eint_pin)
- 
- err_eint:
- 	for (i = 0; i < eint->nbase; i++) {
--		if (eint->cur_mask[i])
--			devm_kfree(eint->dev, eint->cur_mask[i]);
--		if (eint->wake_mask[i])
--			devm_kfree(eint->dev, eint->wake_mask[i]);
--		if (eint->pin_list[i])
--			devm_kfree(eint->dev, eint->pin_list[i]);
-+		devm_kfree(eint->dev, eint->cur_mask[i]);
-+		devm_kfree(eint->dev, eint->wake_mask[i]);
-+		devm_kfree(eint->dev, eint->pin_list[i]);
- 	}
- 	devm_kfree(eint->dev, eint->cur_mask);
- err_cur_mask:
+ };
+ module_platform_driver(imx8mq_usb_phy_driver);
 -- 
 2.51.0
 
