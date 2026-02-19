@@ -4,160 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A7BBE9A04A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 16:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1BCE9A04A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 16:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WgVD8KDAxo1EFVJtxA7Xi6pFqBIs+5IXBvS5NtgRzp0=; b=SmKRMmDlycr7s8ZjvzE7D1H5cO
-	L4cNs65dfrvYRbKYaPLHA1tAQPBr5Va7jnTEz2AWHRHlhRN51jsvwYubRrSoakabs+YXZsO8WQjwL
-	HuwL5ZdJ/vk2BmbVRT5BBSOZVSWuOgW+16p/R8WKIfc3iusdc5x3Kr3/bNu1IacxvayN7RVsWC6Dd
-	RpLXdcAyXJJHU35+UZ7rA7574BqOCnufWAg+AH4cshU29SEOtvLy52EwMV0lzsPqFSxuOblqXckCr
-	4EywqYKI6w21z4aJuLtdJSkFqfJ4HzAPvfVLeRPSeJaZ1DEsFxqwXOGxHPXCgZHyLdHkQZUjypaqT
-	sP6BBh+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oZ9AAJhKiTCDJkiaGuNfYveAkDd60QpVuIV5QBffXFA=; b=xgNI3vjP0OXAsfXq8YDsG2mR/T
+	h59xD7IuiuTCTDAZmezNfOF9iERgX+fCqU2rMnaesyiU7YxPq9yOZAhb7bpZ58uD3f/eP4ij31fbD
+	oCJrNh9rF5eDxU5hGlI7aAAYX2qktOwT6UpJ95aaipbyaOMxXBDpIZn8wMCD6CDsN+CjoLDBa3B7G
+	/6Dg89gDBxD6Op3qlgRyR9xTljppVc+D2NTNmmw2FugCMdAJZiXOZUEH7M9kKgR1UZvUu+/Bg9DUe
+	k+8JzXTxbWofa1XvBOoopKUvNbe5jMwcI91/NliBkDesNGUF9qklkfIRjZAFx3U1WtO6SQs98g8s5
+	75PhySkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt6TN-0000000BbuN-0mEy;
-	Thu, 19 Feb 2026 16:01:49 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vt6kt-0000000Bck0-3P04;
+	Thu, 19 Feb 2026 16:19:55 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt6TH-0000000Bbtu-3eo1
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 16:01:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rR8CT2kN/PopFyslVGMRRmfHRHQh0pB7MFelZGwM4stGMrHVX1vOrR2iVoe1ty7DTwvip04SYC3rvhA0cMysM8+TCsKoFmPvkkENZwpvYGEDp/FL+1NHiA0urRHCZEY/aKABExwgfi25AfQGdnI90tPc7/cLs8PBtrIeQbeBhX08wutmzyGVgCVEW9bf9qiJlcrX62g+QcqjHqiUk1YDjbFZZJ8ZnvzWrqdNQOG4mp4CkSUzr3pCbTDZhqeXMV1TZBqZLDaHMIcm5mYQONUXctZTfBt5OqKC0HS/vbMiSvoOwLEJr+Z37OWPSPzpSffgQnL7xeWl8cAZg9vJFBkOFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WgVD8KDAxo1EFVJtxA7Xi6pFqBIs+5IXBvS5NtgRzp0=;
- b=cjRSfopw15mFJ3MRFqbD0Tsc9PR2zHE6sMAYKyByZMIOx04DY13wU3g+AJZSA+kh6Z3N9QwO2JEtMetlkvVVpG+HQDsDMD3i6XX0pLQOYlfGwbyB4ehbTdxn/v7NadNpuRxTlvqhVoszETC3LGkOUyesDW5q4YKhehb6MPw9IqYShmfU/AL8rZDrS/FjJ1p/T10BmcJ/trIynEmnhPWMz5tryHF3fSs81JVpXXFMgxVzZpHKyYZgcD1aboKc6woHS0LPHDzW1tOX8HRKddh86+7JAf4Dv0UsU6c3BwUWm1IUcT/c56IXOT0ge1FYP11SHZ5BIPdVf7eqkc6vtA5+HQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WgVD8KDAxo1EFVJtxA7Xi6pFqBIs+5IXBvS5NtgRzp0=;
- b=HO0I3nz9X9t7set0kv3W9x8WLSxesUcu9np4DvGZk9dYSTMbU04EEoxvKyVlumqpgMzZ099Eup+aMITB6H2AEtZNp0go1u/OCwyCxKRAAZW9u4kkOmE10MfvAUVqjFPx3T5OOXiZGO1Wz5+wwavRKf46mosrZ8dVgc4P6rsPzSq1CMdH4tMhPHtcG9DCfvRGRjSMYVghebOyykuNF1ebF/L+vPuBbyY2gZHlwtQKFKzzI3BZj9TO3CRI1840ST0u//oDjX9c5drE47tEsNhCxet1cgy8D06d15SCEnQ4Ep9zxEDR9KPDUlIL0jQzQlSejhAWRhq0ycrXCXODuW7krg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI1PR04MB7102.eurprd04.prod.outlook.com (2603:10a6:800:124::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.13; Thu, 19 Feb
- 2026 16:01:37 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.010; Thu, 19 Feb 2026
- 16:01:37 +0000
-Date: Thu, 19 Feb 2026 11:01:26 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: max.oss.09@gmail.com
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Max Krummenacher <max.krummenacher@toradex.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Revert "ARM: dts: imx: move nand related property under
- nand@0"
-Message-ID: <aZcz1vRg4KtAKUd_@lizhi-Precision-Tower-5810>
-References: <20260219151157.2549198-1-max.oss.09@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260219151157.2549198-1-max.oss.09@gmail.com>
-X-ClientProxiedBy: BY1P220CA0016.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:5c3::13) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1vt6kq-0000000BcjN-1eoW;
+	Thu, 19 Feb 2026 16:19:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771517988;
+	bh=kzoF1Sqejd9zm0QrGdiWY9BZ2fRayBCXMiqLyljXYf8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ivdDN6lXI5+8KO+M99OJHAg3uoRp42TeaXM0Zk/FQWS88eFNOkikiBAkikq0C7fu/
+	 EhJei0NVFdpLlxEyUueq43Ya/n8QHz70Dzbq02Dmc9UNWhlq9E9G8BF5lxyVYJK4yS
+	 EDeqGrFhTtql2XqTYIxh/AL6Zl3RRH4KnBNsmdw0nAoX/z/g3xRR5ZzYcKxmYZEP9n
+	 FAjzWhkAaeWYEPWkQ15uISMinbQ5qEgpCLLIhP9/UXD8aHaOH8gi3TJEhvous/GwbE
+	 u/9Kxqang4wdDydjvm0rZn/19ADOzr5owlxoqKBM580xevXv++N31EvQX6JPLNCHqY
+	 jize3nbd2kOtQ==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B1D9017E01B1;
+	Thu, 19 Feb 2026 17:19:47 +0100 (CET)
+Message-ID: <d701a97d-6051-4a32-ada6-bf014e385c68@collabora.com>
+Date: Thu, 19 Feb 2026 17:19:46 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI1PR04MB7102:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b042c9d-a3fd-4f51-0f98-08de6fd02954
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|19092799006|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?geuTlWZ5I1Jq/+m+anWcwII6d/YR4gHpON1VuTEg7EmMtnX9NvZhgL6UCbUS?=
- =?us-ascii?Q?YFqMSgUrkJaSA6srYL1UABkU5LJGvc7+Bd8jXG/pjZIp+3kszD2MP+foHwDx?=
- =?us-ascii?Q?X7CZDcmyyBj81tpAdh+yfq2CfFfxgqBPhp99Zj69i2VzKZzWxQTV/Ssbg9Cv?=
- =?us-ascii?Q?iBkIILlL3uFcbS3Z3brdG3PSB9tDmdNDxTcmq0+X2tE/ZXOLFrG4KkmeW72R?=
- =?us-ascii?Q?ehrfaPTIRyd1BFI+bSw5ijmGWCoqzdy9Kaf7op1q09ppJEmvAqZbW781gYXQ?=
- =?us-ascii?Q?K6114sY4CF6T/XT9i+SsPqaoKYJFJI3G2UTPhsF0cBuZfpzgz6V8Z63Js1VB?=
- =?us-ascii?Q?Nan//ngG6uQ08wZB1Y7f86bM8M0bjIRo7eE7DRUPtquABwJGATazM3kmEgks?=
- =?us-ascii?Q?9TlERRGEG1pMwjrRr3lwv85hb980mkrqSc5AA0sqv5nyBgSYEZGO4GYC/rzf?=
- =?us-ascii?Q?WWQKHBMOmhnbRY8iM02XXyb4qfHPn3ahc2WCt+SUpIAGdnxo4Oo4rxdv0jYt?=
- =?us-ascii?Q?dYEOmOGG4Rm8WtIRyrCReGnvO9o+9EfhM2drgFDouqt+fIcuRsJvoRFHyC75?=
- =?us-ascii?Q?ZG6FonXKB1ZY83j5Q1i3dEZ439D+J7yJhjwn8NVAV+NtXwesuJgcM2QGIij6?=
- =?us-ascii?Q?XoYfBaS+6sP4+0byrpCbmaVHrNWFYKf8b09KlSg7QWYqpWanelQBDU8xCqsi?=
- =?us-ascii?Q?cx/41df6v7lEKC41AIYYWFXwmEfpKYKUlNRR4p8QKs/4odvi25lNuY7J1Gm4?=
- =?us-ascii?Q?sdcBLd5qnw8VmOBsPi3saAI2EtFmFyGyfP5+/hs/SXEif9nxo0h7bcX1jCPs?=
- =?us-ascii?Q?DGzjDfkrGJ758razl6aG+31INWB5iXSTjGBWXTW2Zno5ajjpxuQJtAJXSN8y?=
- =?us-ascii?Q?ZAbKQXWDTzOkivh6og5KRBfsh+uHdksueod53P5Z+WLGYn/o5JHjpldXadP/?=
- =?us-ascii?Q?b9K4opCn1kdceV+O9rF2Hnfs/Q/viVToEQo7BVVBXpXT/NGOrYg+EeyjpeGV?=
- =?us-ascii?Q?VQ0YVz2HzgDnV5IWbvwEQx72KTwvUdfScp8ffs1UOBJGAWh/1sEdLTdAgUmT?=
- =?us-ascii?Q?5+g/LoGviWKyLuQSjTULVvQzDABTtSd0E+YKo9wqO105f3e8+xH75kbnWkmU?=
- =?us-ascii?Q?asNYwcX3iVjF4/LmiI2+ePSr51WxVGxgCI9NsKQbtbgkXahdXtGT5/nOsvQw?=
- =?us-ascii?Q?RgfNrPfjhkziZSoqejGbhrCEsKRgJ8Kc3jgYQuT7x5Jd9rajzXO6nKDol+KK?=
- =?us-ascii?Q?wHfTW+tSVGQ0rjsRjnz2nGZsovtFTNWWA+718wvDrvGmPKXGFs+k/1Byapmq?=
- =?us-ascii?Q?S6dbXdQN4jRWfsbFk2wZtuL1rWheTlWwRMvC8C0uolfAfgRSUL9S7KFxq+nn?=
- =?us-ascii?Q?ZDFt1E8OgleRziFH7nkWruk/vNcc8tjFCvQRR42G1Dp7NNXDvqiGfTXjY+e6?=
- =?us-ascii?Q?dSaqERRCMZUrlfVNCFaCBxexGyns5UuGvqcSd8avqOZDlfNGOSGVKgbprHAH?=
- =?us-ascii?Q?P2xmR50uJ2JVl533R86QEyW86FCq2Vw24sOU0KYwXPCcEUBK4pN2jaaQbAeG?=
- =?us-ascii?Q?pf+7qv/eTMe0s+nGxQO96o/iSE2D036Aif+f8ZCMaci7TcKmV5To5pduqx2u?=
- =?us-ascii?Q?4B+S/qBLoaF6cHbDvXAPJB0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(19092799006)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7+6CMsjuMHXBTsMcJBa8kVp11pJ72B1T0ymiv/ddQOByA9d06HHxIKp0u8Lp?=
- =?us-ascii?Q?yiwOGZCFWQMtk0MPXQiSJYID5zYo/ocpx5jKU/tHenrCXd/Ok2QW5ql96+G4?=
- =?us-ascii?Q?EQRVDkZNUe2PWK/j0kzYGy51xx60gZ42U5NT78mldvlXNvvYZQUiz2bUAbTl?=
- =?us-ascii?Q?dK3zYqhZlAP71qD2FrW5h1tqhuo/eQ1Bw6Z2DzH5OwbJMuhl4q2ejhGBUGPr?=
- =?us-ascii?Q?im7x1v9gEwBaPWL45N2alNBwTxiBEn9JkgT20XER6yO+K3eZ+ozkLDgQPyDU?=
- =?us-ascii?Q?O/wud3YXTLESSVivpLErv4cT3fW3ugwOt5s2gRKwfiv2LQ9mP449JZbBwIFe?=
- =?us-ascii?Q?R2DINLYXczXtZ1bpyeozNUv2y0USmUFZ3SAhVgbr6BjWA/V2GSa0/qo/KFBG?=
- =?us-ascii?Q?vH46r5dHwCT9+C04KOUgJOV2yVjfZD5PIPGgkautglgkncAQNtr3pEP94b3T?=
- =?us-ascii?Q?SRhcDUJ+7zJftVrM59+YqKLw/T1W+xn7f2z/N5XqYoTmfukRF+80kfhTShw8?=
- =?us-ascii?Q?MFRmVJBcwsejxIUE9tlAJ7rpsbmpkqistsP/QU4euRhgNHMKBU+/wXveZEq0?=
- =?us-ascii?Q?eGRNHaD7/jMQeSdN/7cFzgvyZUnh2kvwX8zezs5RyrsUUcmjzPrSrpLijrHq?=
- =?us-ascii?Q?yqHnq+H+9BvLK4F4pf8Z+w8QbqPXD7c4MVZuOPAF2FX1MQQ6wTmIek7HKTLu?=
- =?us-ascii?Q?XZsCQVFK38IP/+8qWScQN7CXb+nE+7zIuw5YN6e0IxFAn1fPfFSq5hueU1hW?=
- =?us-ascii?Q?850UGHN3TqIVjOgiOAK+tIkdKzvBqTz3/0qbraK4Vqi4ejZcBFjPGH6TjC1i?=
- =?us-ascii?Q?rVXCZUik+GgFU9jE7loOak8gdEme3fbK4KCPqEw4f8ZCH2SMFjW3UlDRMivu?=
- =?us-ascii?Q?lPd6O0pR02X5JJQOESqcl8rXibuYZSnhKXW0Z37oa82bZR4A37tuVrzlLJr2?=
- =?us-ascii?Q?277n/luwski2E/FSC/tn+sJi625SICgHoun9I0lirBetfBZKEOKRj5aMvpgT?=
- =?us-ascii?Q?oQqo6gOsLf8XD1h6sBoo42CCsVsOumXOQ8E6y1FCwxKFqDoSGm4VU+af6csA?=
- =?us-ascii?Q?acejF+gUlLUjrk6C1Uk5pn8ugcndaeMHzSdohYTHfq5ucJ1xy+Q/OaFtX3+/?=
- =?us-ascii?Q?t/Rv+zyGRe5m6cvkoqoerq0vPlYtHJz15cSX6F3+POj01bPo83c9r6Q37EUa?=
- =?us-ascii?Q?mFTdCAHvKro6nECl5FsfNANKIsN83ATffLyVAxbK5fr1+8qhKeCZ9BurZOHd?=
- =?us-ascii?Q?Sy86EMYuWnlgvHc1pi1P20hYSaMoNwM/Wjcx1IrEq4Hw3jNLRVjiFHzthEIm?=
- =?us-ascii?Q?DaBlviqz4RV4//Qfz3WroBzfJDs0k6x0Cj2kFuPA8TCQsajxk+IxaWTRGmaT?=
- =?us-ascii?Q?CMQoKkdVLMiMhw56VitgijyxqmR2pJzgQyFCT8Fr/vUZ06E195EmwuP5HMg/?=
- =?us-ascii?Q?cp0NjNEokBooziaIahoQte0gtJGH3NVuon2gXbhqGmVUJb8on3VLveTheVnH?=
- =?us-ascii?Q?xxWoe1az9eGx7lbwMjL20AKiFQs4jhl0QvM2RTyb0nkCtHLqBODQcCt4vMSw?=
- =?us-ascii?Q?AIzX0re+vxm83FV9c3uGtaqmNNVyFmh2Ydzbo+ODZ01DwXcn7wwElDKdUbs/?=
- =?us-ascii?Q?CsRe8HQPBWFl/EKwSgtF1/g9l9m9o+FAQJxjqy9MCI9i9mf9I6RcfXAKrHgA?=
- =?us-ascii?Q?XS/kF2TpL9UqYlx6KFAvfnffy+UsjnVdsPIvjrbd8wWzBotE?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b042c9d-a3fd-4f51-0f98-08de6fd02954
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 16:01:37.3801
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JScrR1WroT2fJQK7tSDz98v2XUX/X+Ke8FJhJKfK2EtO0cNP53ecbhKirlk9bwFOFQUgrP7F6Sqv2owX6oAbvw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7102
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] media: rockchip: rkcif: comply with minimum number of
+ buffers requirement
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+ Paul Elder <paul.elder@ideasonboard.com>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Hans Verkuil <hverkuil+cisco@kernel.org>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Collabora Kernel Team <kernel@collabora.com>, stable@kernel.org,
+ linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260216-rkcif-fixes-v1-0-b16db20b6d68@collabora.com>
+ <20260216-rkcif-fixes-v1-2-b16db20b6d68@collabora.com>
+ <20260219091301.GF520738@killaraus.ideasonboard.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260219091301.GF520738@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_080144_126980_42FD395A 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20260219_081952_620063_0F020F2D 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,353 +85,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 04:11:49PM +0100, max.oss.09@gmail.com wrote:
-> From: Max Krummenacher <max.krummenacher@toradex.com>
->
-> This reverts commit 8124b4a4a96b57d6cc3705a9df9623c52baa047b.
->
-> The change introduced a regression: at least Colibri iMX6ULL and
-> Colibri iMX7 no longer boot with that commit applied, while they boot
-> again after reverting it.
->
-> Although this has only been verified on these two modules, the issue
-> is expected to affect all device trees using the gpmi-nand driver.
->
-> [    0.876938] Creating 5 MTD partitions on "gpmi-nand":
-> [    0.876974] 0x000000000000-0x000000080000 : "mx7-bcb"
-> [    0.879860] 0x000000080000-0x000000200000 : "u-boot1"
-> [    0.884761] 0x000000200000-0x000000380000 : "u-boot2"
-> [    0.886993] 0x000000380000-0x000000400000 : "u-boot-env"
-> [    0.894686] 0x000000400000-0x000020000000 : "ubi"
-> [    0.899054] gpmi-nand 33002000.nand-controller: driver registered.
-> ...
-> [    0.960443] ubi0: default fastmap pool size: 200
-> [    0.960476] ubi0: default fastmap WL pool size: 100
-> [    0.960500] ubi0: attaching mtd4
-> [    1.636355] ubi0 error: scan_peb: bad image sequence number 1588722158 in PEB 4060, expected 1574791632
-> ...
-> [    1.649889] ubi0 error: ubi_attach_mtd_dev: failed to attach mtd4, error -22
-> [    1.650029] UBI error: cannot attach mtd4
-> ...
-> [    1.670262] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,253)
+Hi Laurent,
 
-Can you help found the real reason why not boot?
-nand@0 is preferred format for MTD raw nand.
+On 2/19/26 10:13, Laurent Pinchart wrote:
+> On Mon, Feb 16, 2026 at 02:49:57PM +0100, Michael Riesch via B4 Relay wrote:
+>> From: Michael Riesch <michael.riesch@collabora.com>
+>>
+>> Each stream requires CIF_REQ_BUFS_MIN=1 buffers to enable streaming.
+>> However, it failed with only one buffer provided.
+>>
+>> Comply with the minimum number of buffers requirement and accept
+>> exactly one buffer.
+>>
+>> Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma blocks")
+>> Cc: stable@kernel.org
+>> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+>> ---
+>>  .../media/platform/rockchip/rkcif/rkcif-stream.c   | 41 +++++++++++-----------
+>>  1 file changed, 21 insertions(+), 20 deletions(-)
+>>
+>> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+>> index e00010a91e8b..5a5ab9e7e86e 100644
+>> --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+>> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+>> @@ -106,19 +106,6 @@ static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
+>>  {
+>>  	struct v4l2_pix_format_mplane *pix = &stream->pix;
+>>  
+>> -	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
+>> -	if (!stream->buffers[0])
+>> -		goto err_buff_0;
+>> -
+>> -	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
+>> -	if (!stream->buffers[1])
+>> -		goto err_buff_1;
+>> -
+>> -	if (stream->queue_buffer) {
+>> -		stream->queue_buffer(stream, 0);
+>> -		stream->queue_buffer(stream, 1);
+>> -	}
+>> -
+>>  	stream->dummy.size = pix->num_planes * pix->plane_fmt[0].sizeimage;
+>>  	stream->dummy.vaddr =
+>>  		dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
+>> @@ -132,16 +119,30 @@ static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
+>>  			stream->dummy.buffer.buff_addr[i - 1] +
+>>  			pix->plane_fmt[i - 1].bytesperline * pix->height;
+>>  
+>> -	return 0;
+>> +	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
+>> +	if (!stream->buffers[0])
+>> +		goto err_buff_0;
+> 
+> Why do you move this after allocation of the dummy buffer, to then add
+> dma_free_attrs() in the err_buff_0 error path ?
 
-Frank
->
-> Fixes: 8124b4a4a96b ("ARM: dts: imx: move nand related property under nand@0")
-> Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
->
-> ---
->
->  arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi      |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi         |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi |  6 +-----
->  .../boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi      |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi           |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts            |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi          |  6 +-----
->  .../boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi  |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi          |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi       | 12 ++++--------
->  .../boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi   | 12 ++++--------
->  arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts     |  6 +-----
->  arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi          |  8 ++------
->  15 files changed, 22 insertions(+), 82 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi
-> index f452764fae00..547fb141ec0c 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi
-> @@ -36,12 +36,8 @@ &clks {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c3 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi
-> index 58ecdb87c6d4..9975b6ee433d 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi
-> @@ -172,12 +172,8 @@ eth_phy: ethernet-phy@0 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c1 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi
-> index 6f3becd33a5b..aa9a442852f4 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi
-> @@ -102,12 +102,8 @@ ethphy: ethernet-phy@0 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c1 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-> index f2140dd8525f..85e278eb2016 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-> @@ -73,12 +73,8 @@ ethphy: ethernet-phy@3 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	status = "disabled";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c3 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-> index 131a3428ddb8..c93dbc595ef6 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-> @@ -260,14 +260,10 @@ fixed-link {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	#address-cells = <1>;
->  	#size-cells = <0>;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c3 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
-> index d29adfef5fdb..57297d6521cf 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
-> @@ -252,13 +252,9 @@ etnphy: ethernet-phy@0 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	fsl,no-blockmark-swap;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c1 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts
-> index 40d530c1dc29..2a6bb5ff808a 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts
-> @@ -133,12 +133,8 @@ ethphy1: ethernet-phy@1 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c1 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi
-> index 776f6f78ee46..e34c8cbe36ae 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi
-> @@ -101,12 +101,8 @@ ethphy0: ethernet-phy@0 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	status = "disabled";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c1 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi
-> index 27e4d2aec137..a3ea1b208462 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi
-> @@ -63,12 +63,8 @@ ethphy1: ethernet-phy@1 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	status = "disabled";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c1 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> index dc53f9286ffe..1992dfb53b45 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> @@ -296,13 +296,9 @@ &fec2 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	fsl,no-blockmark-swap;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &i2c2 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-> index eaed2cbf0c82..ec3c1e7301f4 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-> @@ -160,15 +160,11 @@ &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
->  	fsl,use-minimum-ecc;
-> +	nand-on-flash-bbt;
-> +	nand-ecc-mode = "hw";
-> +	nand-ecc-strength = <8>;
-> +	nand-ecc-step-size = <512>;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -		nand-ecc-mode = "hw";
-> -		nand-ecc-strength = <8>;
-> -		nand-ecc-step-size = <512>;
-> -	};
->  };
->
->  /* I2C3_SDA/SCL on SODIMM 194/196 (e.g. RTC on carrier board) */
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
-> index 3dfd43b32055..43518bf07602 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
-> @@ -43,15 +43,11 @@ ethphy0: ethernet-phy@0 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-ecc-mode = "hw";
-> +	nand-ecc-strength = <0>;
-> +	nand-ecc-step-size = <0>;
-> +	nand-on-flash-bbt;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-ecc-mode = "hw";
-> -		nand-ecc-strength = <0>;
-> -		nand-ecc-step-size = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &iomuxc {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi
-> index fc298f57bfff..83b9de17cee2 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi
-> @@ -60,12 +60,8 @@ ethphy0: ethernet-phy@0 {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	status = "disabled";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &uart1 {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
-> index 8ec18eae98a4..2d9f495660c9 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
-> @@ -25,12 +25,8 @@ usdhc2_pwrseq: usdhc2-pwrseq {
->  &gpmi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->  	status = "okay";
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  &snvs_poweroff {
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-> index a41dc4edfc0d..8666dcd7fe97 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-> @@ -375,14 +375,10 @@ &gpio7 {
->  /* NAND on such SKUs */
->  &gpmi {
->  	fsl,use-minimum-ecc;
-> +	nand-ecc-mode = "hw";
-> +	nand-on-flash-bbt;
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> -
-> -	nand@0 {
-> -		reg = <0>;
-> -		nand-ecc-mode = "hw";
-> -		nand-on-flash-bbt;
-> -	};
->  };
->
->  /* On-module Power I2C */
-> --
-> 2.42.0
->
+To keep the two rkcif_stream_pop_buffer calls together. We need to
+allocate the dummy in any case, but in case the second pop fails we use
+it -- this was not the case before.
+
+> 
+>>  
+>> -err_dummy:
+>> -	rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEUED);
+>> -	stream->buffers[1] = NULL;
+>> +	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
+>> +	if (!stream->buffers[1]) {
+>> +		stream->buffers[stream->frame_phase] = &stream->dummy.buffer;
+>> +		stream->buffers[stream->frame_phase]->is_dummy = true;
+>> +	}
+>> +
+>> +	if (stream->queue_buffer) {
+>> +		stream->queue_buffer(stream, 0);
+>> +		stream->queue_buffer(stream, 1);
+>> +	}
+>> +
+>> +	return 0;
+>>  
+>> -err_buff_1:
+>> -	rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEUED);
+>> -	stream->buffers[0] = NULL;
+>>  err_buff_0:
+>> +	dma_free_attrs(stream->rkcif->dev, stream->dummy.size,
+>> +		       stream->dummy.vaddr,
+>> +		       stream->dummy.buffer.buff_addr[0],
+>> +		       DMA_ATTR_NO_KERNEL_MAPPING);
+>> +	stream->dummy.vaddr = NULL;
+>> +err_dummy:
+>>  	return -EINVAL;
+> 
+> You can drop the err_dummy label and return -EINVAL directly. Except you
+> should probably return -ENOMEM as the failure comes from
+> dma_alloc_attrs().
+
+Makes sense, will fix.
+
+Best regards,
+Michael
+
+> 
+>>  }
+>>  
+> 
+
 
