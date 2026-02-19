@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1852DE9A055
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 17:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 420FDE9A055
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 17:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2nwEc0amxmvspErybeoJMi8CjW2qJvF4iBm0royAQ8=; b=L1zfAYsr332GauCN5u+f9w0irM
-	faVkG1HTBhesyGaVBQGux1MpYCdDn3ud8hx2mEzbRSkDASv8zK2oa/e7faXbTkujNdil2iP7CZFlF
-	nlWgnj+EQHGoQ9Ii6Wrvs/+U3ek+ckv8wcfWUw8i8sU7pr3jSomT6g1cPuZjpeHOxmD34vfiV+wh9
-	EkB4rqVVpQim1z+NTBrgy3QCHz2s9Oq5fviHkA4ps2QsiXaxzoEVbn3BOUrwXs/bEZGs/55850DzF
-	2jd20n60CdxQlHJBu+Qu9Psl1CZaJYB5vGY3MDmnGOE0qbCjvQsbiNiI9xfsXIz3DIOdpCRcx6ek9
-	xv2/vk7A==;
+	bh=ZygTY2ica/LpTgBS/Be1mzzleUCxK7jXpmRL8krY1u4=; b=bMv50YkW7J9pWZq9VDItJd62iO
+	eDJHkmKHIKMuVKs+rmryzXyunbN8i/zdezBPXjt3lapF3/GYgSdraUFSdHlfLWloV8x4LrHFNetr4
+	DfnF2gHUgx+SsuXP6jPmcJ7188DRrDzcysmdWRyDbCmQDtFDvAaL5hFSXIGgo+Uq1QslCkyjrgKl6
+	sBsNZpKyKbPaq8Lnj1J0gr9brw0uKtovK7cCm0F3owrce3/j0uiSc7jsfDuIw6fhUaFxphaMNHQWg
+	P2ouYSBZwRr11rYLuz0Vp96PoB1EbtD+HtLB4NETM4rCgktTLxtCzJbSO6Cwc1VRu+Kxz7F+8R9Dy
+	oMcnJ4cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt8FO-0000000Bjqb-37Ib;
-	Thu, 19 Feb 2026 17:55:30 +0000
+	id 1vt8Fq-0000000Bjuu-0Gol;
+	Thu, 19 Feb 2026 17:55:58 +0000
 Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt8FL-0000000BjqG-1x19
+	id 1vt8Fo-0000000BjuI-0ZgB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 17:55:29 +0000
-Received: from omf18.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay07.hostedemail.com (Postfix) with ESMTP id D4C8A160672;
-	Thu, 19 Feb 2026 17:55:22 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf18.hostedemail.com (Postfix) with ESMTPA id 70B362E;
-	Thu, 19 Feb 2026 17:55:19 +0000 (UTC)
-Date: Thu, 19 Feb 2026 12:55:25 -0500
+	Thu, 19 Feb 2026 17:55:57 +0000
+Received: from omf13.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay02.hostedemail.com (Postfix) with ESMTP id 193D413B6A9;
+	Thu, 19 Feb 2026 17:55:53 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf13.hostedemail.com (Postfix) with ESMTPA id 9F43F20012;
+	Thu, 19 Feb 2026 17:55:49 +0000 (UTC)
+Date: Thu, 19 Feb 2026 12:55:55 -0500
 From: Steven Rostedt <rostedt@goodmis.org>
 To: Vincent Donnefort <vdonnefort@google.com>
 Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
@@ -42,25 +42,26 @@ Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
  jstultz@google.com, qperret@google.com, will@kernel.org,
  aneesh.kumar@kernel.org, kernel-team@android.com,
  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v12 05/30] tracing: Introduce trace remotes
-Message-ID: <20260219125525.12afbcfb@gandalf.local.home>
-In-Reply-To: <20260219150307.14538-6-vdonnefort@google.com>
+Subject: Re: [PATCH v12 07/30] tracing: Add non-consuming read to trace
+ remotes
+Message-ID: <20260219125555.4952101e@gandalf.local.home>
+In-Reply-To: <20260219150307.14538-8-vdonnefort@google.com>
 References: <20260219150307.14538-1-vdonnefort@google.com>
-	<20260219150307.14538-6-vdonnefort@google.com>
+	<20260219150307.14538-8-vdonnefort@google.com>
 X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout06
-X-Rspamd-Queue-Id: 70B362E
-X-Stat-Signature: u1he8b9g4za14gbwiygmi6hbhxy3z4a6
+X-Stat-Signature: xcebk93g9cxu4r4g13r94iuz5okyo7tu
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: 9F43F20012
 X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1+WMo3F+bs2zk/Y4yoqF8XVhVwxseeWyj8=
-X-HE-Tag: 1771523719-921131
-X-HE-Meta: U2FsdGVkX1/LrJvJg4Wy78/u4/54AVEg1GJ5/mPuHr184EDrrqbRAapQiOKf1wx/fZLKN9iKRYe7XUwEmWB99Jo1BUX+JwLqRCR1mB6OKIhrZRTp2AdWwply1KIgOUEvvCSe35AwcfN+ktt5BlnYkneOlwAgds9O2H04tY3J+Mie/F5gCQrBAoukRUvzZ70v9jSsVY9wD8fUJ4ocO/oL9m40P91q8gNGt66xvjt1fKhnc5zqXNVQk6EIsmNbU1aqj8l8N1+t0ebr46WcAN/brlqaQOlxxl6SzgzAnRO8fpgORzlMhzyHmqEuZJgStuNN6+Z1t6u97wytW8IM5mDrMxGi22eUnN1nkSkkN/WaTfLRbQME+WLTRFEmgbEIYi5U1sLw0qQ7yJG1eMFmvq5Pvw==
+X-Session-ID: U2FsdGVkX1+ElNfWeNU4/cCv8EiXEbaqGNcsinTzoe8=
+X-HE-Tag: 1771523749-420940
+X-HE-Meta: U2FsdGVkX1+jCOpHILfzxNo/oKCU19ickooQWBWqnFc9VpEacNX9ws5ABGTHrB3qZu/8KfQaOB3Rub/jzcpRTSn3Z6Djz+x/LPCDTZpHF5MWB7ulHqWwGhdeU+RG7iM2oGprWeOwvjVK02xwrAbXjVP4NLDNad0zk/JqeYFkubXVJGrdIlIeCMJ6rQeLV5SiNb/+Te1m8FA+bxSd29HuamjZxnDONCFq4DlUGuUdaLgTWbFfDg8IFX9vrgfiDVcI0uZDymjXwOwWDM8dnKcOhrMlYfJVzulnMuu4HoTZOm6Z4LEQ5q3er4jTpUZK8YevPQozxeNM3kbu9PK52LNtwtbSKSfgGrabxKdKZmXpfHnRpO/tQcSKH9iKv4Y5RCBS2CZOg+bCqisqQFbLVhpEIA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_095527_570305_24485596 
-X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-CacheID: sfid-20260219_095556_239914_2402CF28 
+X-CRM114-Status: UNSURE (   7.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,19 +77,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Feb 2026 15:02:42 +0000
+On Thu, 19 Feb 2026 15:02:44 +0000
 Vincent Donnefort <vdonnefort@google.com> wrote:
 
-> A trace remote relies on ring-buffer remotes to read and control
-> compatible tracing buffers, written by entity such as firmware or
-> hypervisor.
-> 
-> Add a Tracefs directory remotes/ that contains all instances of trace
-> remotes. Each instance follows the same hierarchy as any other to ease
-> the support by existing user-space tools.
-> 
-> This currently does not provide any event support, which will come
-> later.
+> Allow reading the trace file for trace remotes. This performs a
+> non-consuming read of the trace buffer.
 > 
 > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
