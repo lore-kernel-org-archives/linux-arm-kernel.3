@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0319E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 10:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C9CE9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 11:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3y8sVD9U2O0RmxsL6VD3zxNzbJeBXG86hZ9lYjqFpLM=; b=vTivC5veEF1k508absDf1hY6PU
-	k9kq2AkLmxD9gLbr7M3hS+v48VMMbEGo1lSc0MyfqBtX+sYdgYn0LqDyETF5ZF65yJ5de6QGj0Whi
-	UErj0i6JkTu+q17g9yQm7OwWs1iVzSq9VoJYVTf/RuJjhAG3XBgXOu60wHKChLIvzLc5gy+OV5ADP
-	xk3iTRR6OpWJ1VqPZkGq+Aca0zqT99PI9tVEyaH3o7ndn/ybpiFBbhe5kekw6sxS0NbYYapV4epfh
-	1mxH6ldVu7pNEp1ea/QcjHnHfFVxQLtzInWb31/FGoJBzH3zwS+/lj3FsGDQESdymUflTLyCdVSKK
-	pJejj5KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xGEXhCb/JrKgOHDO/XlMyvu/gxAXdGksPJCwEvSJR/Y=; b=a8Ay0h5l4KO2SWq/wF8SuA4a1c
+	np06LSQ3YfxA1lDW93Xltr9mOyKIs9Av9IvrjOzfrU6kGPWrq/sNkE/WZgdmY3gYD/znyP34p6XYn
+	Zg22YNMtKICA88heGv+vbvBSFNgwqWA6r3YvGcO8+M9bJeZc1iVQrgYtBZAvMrZYsVaULnSV3k9dR
+	PS3poDHZC7ivBNc+lf0TbexQnsvAR72kYhchgNqMlfjFWibJNhqEmzstkeUKsF7Ny7nNo4scXv2qy
+	4LYZIbl1fenPcrNW0SDWLgia8zN3sKw9M4gQNaQXIkqqTvUA7N0iQn2MIMDYpAoFq/4T6BlSL12oD
+	hxLzaGOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt1hL-0000000BFKI-2aWs;
-	Thu, 19 Feb 2026 10:55:55 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vt1la-0000000BFaQ-0Zso;
+	Thu, 19 Feb 2026 11:00:18 +0000
+Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt1hH-0000000BFJV-3JdB
+	id 1vt1lX-0000000BFZv-1kD9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 10:55:53 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fGqz82kzWzHnGjB;
-	Thu, 19 Feb 2026 18:55:16 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4BDA040539;
-	Thu, 19 Feb 2026 18:55:46 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 19 Feb
- 2026 10:55:45 +0000
-Date: Thu, 19 Feb 2026 10:55:43 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Besar Wicaksono <bwicaksono@nvidia.com>
-CC: <will@kernel.org>, <suzuki.poulose@arm.com>, <robin.murphy@arm.com>,
-	<ilkka@os.amperecomputing.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
-	<mark.rutland@arm.com>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
-	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>,
-	<skelley@nvidia.com>, <ywan@nvidia.com>, <mochs@nvidia.com>,
-	<nirmoyd@nvidia.com>
-Subject: Re: [PATCH v2 7/8] perf: add NVIDIA Tegra410 C2C PMU
-Message-ID: <20260219105543.00007b0b@huawei.com>
-In-Reply-To: <20260218145809.1622856-8-bwicaksono@nvidia.com>
-References: <20260218145809.1622856-1-bwicaksono@nvidia.com>
-	<20260218145809.1622856-8-bwicaksono@nvidia.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 19 Feb 2026 11:00:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
+	Resent-Cc:Resent-Message-ID; bh=xGEXhCb/JrKgOHDO/XlMyvu/gxAXdGksPJCwEvSJR/Y=;
+	t=1771498815; x=1772708415; b=ASjxEB8go1g+9vlCnpAgAgshThhpouSNUcDA2faNUhD25dI
+	3nwTDfsCvutbPVIhi39G3o457nlozV6DAGvNcgF+qqhBizGNp8TI1Emtb3QtloNEO8see8VY/pD7e
+	MWw+3LIbu+baaKGb5s2JEe6KwU8E6CWEh1jnIHJNQMufIBifpOpPom6/KllQxpqFv7G/frI/V5oWn
+	RQs9Tqhw8lEq51CPNlr0cTxmlgUpvyEyPFgz0+CAIASIn1ZkYXE7U2V+12YTFCn5icu3WGVX3dlMl
+	NhsCCaIbiG53CpWJucP2yGvx2i9TLgBZnHXHa08I8e16NSTFn7cV+8pGPMCu7cUg==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.98.2)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1vt1lM-0000000D9d0-0Tcr;
+	Thu, 19 Feb 2026 12:00:04 +0100
+Message-ID: <c3b53ea083fa26c863c6a954d13bbd2ef91e1732.camel@sipsolutions.net>
+Subject: Re: [PATCH 14/15] wifi: mac80211: Use AES-CMAC library in
+ ieee80211_aes_cmac()
+From: Johannes Berg <johannes@sipsolutions.net>
+To: Eric Biggers <ebiggers@kernel.org>, linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A
+ . Donenfeld" <Jason@zx2c4.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	linux-arm-kernel@lists.infradead.org, linux-cifs@vger.kernel.org, 
+	linux-wireless@vger.kernel.org
+Date: Thu, 19 Feb 2026 12:00:03 +0100
+In-Reply-To: <20260218213501.136844-15-ebiggers@kernel.org>
+References: <20260218213501.136844-1-ebiggers@kernel.org>
+	 <20260218213501.136844-15-ebiggers@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+X-malware-bazaar: not-scanned
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_025552_147238_B3E32F20 
-X-CRM114-Status: GOOD (  47.35  )
+X-CRM114-CacheID: sfid-20260219_030015_521294_3422322C 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,482 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Feb 2026 14:58:08 +0000
-Besar Wicaksono <bwicaksono@nvidia.com> wrote:
+On Wed, 2026-02-18 at 13:35 -0800, Eric Biggers wrote:
+> Now that AES-CMAC has a library API, convert the mac80211 AES-CMAC
+> packet authentication code to use it instead of a "cmac(aes)"
+> crypto_shash.  This has multiple benefits, such as:
+>=20
+> - It's faster.  The AES-CMAC code is now called directly, without
+>   unnecessary overhead such as indirect calls.
+>=20
+> - MAC calculation can no longer fail.
+>=20
+> - The AES-CMAC key struct is now a fixed size, allowing it to be
+>   embedded directly into 'struct ieee80211_key' rather than using a
+>   separate allocation.  Note that although this increases the size of
+>   the 'u.cmac' field of 'struct ieee80211_key', it doesn't cause it to
+>   exceed the size of the largest variant of the union 'u'.  Therefore,
+>   the size of 'struct ieee80211_key' itself is unchanged.
+>=20
 
-> Adds NVIDIA C2C PMU support in Tegra410 SOC. This PMU is
-> used to measure memory latency between the SOC and device
-> memory, e.g GPU Memory (GMEM), CXL Memory, or memory on
-> remote Tegra410 SOC.
-> 
-> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+Looks good to me in principle, I suppose we should test it? :)
 
-Hi Besar.
+> +		err =3D aes_cmac_preparekey(&key->u.aes_cmac.key, key_data,
+> +					  key_len);
+> +		if (err) {
+>  			kfree(key);
+>  			return ERR_PTR(err);
+>  		}
 
-Another nice looking driver.
-
-My main comment here is around attribute management. In general I'd avoid doing
-dynamic assignment of attribute arrays when there are only a couple of options.
-Much cleaner and easier to read in those cases if you just have multiple
-static const arrays to pick between.
-
-That's made easier if you move to a struct for each of the supported types
-(and get rid of the enum currently used as that makes it too easy to end up
-with a mix of data in the struct vs code using the enum).
-
-Jonathan
-
-> diff --git a/drivers/perf/nvidia_t410_c2c_pmu.c b/drivers/perf/nvidia_t410_c2c_pmu.c
-> new file mode 100644
-> index 000000000000..a3891c94dcde
-> --- /dev/null
-> +++ b/drivers/perf/nvidia_t410_c2c_pmu.c
-> @@ -0,0 +1,1062 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * NVIDIA Tegra410 C2C PMU driver.
-> + *
-> + * Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-> + */
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/bitops.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/device.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/perf_event.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-
-> +
-> +struct nv_c2c_pmu {
-> +	struct pmu pmu;
-> +	struct device *dev;
-> +	struct acpi_device *acpi_dev;
-> +
-> +	const char *name;
-> +	const char *identifier;
-> +
-> +	unsigned int c2c_type;
-> +	unsigned int peer_type;
-> +	unsigned int socket;
-> +	unsigned int nr_inst;
-> +	unsigned int nr_peer;
-> +	unsigned long peer_insts[C2C_NR_PEER_MAX][BITS_TO_LONGS(C2C_NR_INST_MAX)];
-Pity there isn't a DECLARE_BITMAP_ARRAY()
-macro.  I guess this isn't that common.
-> +	u32 filter_default;
-> +
-> +	struct nv_c2c_pmu_hw_events hw_events;
-> +
-> +	cpumask_t associated_cpus;
-> +	cpumask_t active_cpu;
-> +
-> +	struct hlist_node cpuhp_node;
-> +
-> +	struct attribute **formats;
-> +	const struct attribute_group *attr_groups[6];
-
-As below. I'd push this into a type specific structure to remove all the dynamic
-code to fill it in.
-
-> +
-> +	void __iomem *base_broadcast;
-Ah. Good. This matches what I suggested for previous.
-> +	void __iomem *base[C2C_NR_INST_MAX];
-> +};
-
-> +/*
-> + * Read 64-bit register as a pair of 32-bit registers using hi-lo-hi sequence.
-> + */
-> +static u64 read_reg64_hilohi(const void __iomem *addr, u32 max_poll_count)
-> +{
-> +	u32 val_lo, val_hi;
-> +	u64 val;
-> +
-> +	/* Use high-low-high sequence to avoid tearing */
-> +	do {
-> +		if (max_poll_count-- == 0) {
-> +			pr_err("NV C2C PMU: timeout hi-low-high sequence\n");
-> +			return 0;
-> +		}
-> +
-> +		val_hi = readl(addr + 4);
-> +		val_lo = readl(addr);
-> +	} while (val_hi != readl(addr + 4));
-
-I wonder if it's worth adding a non tearing variant include/linux/io-64-nonatomic-hi-lo.h
-
-Feels like I see this open coded often enough that it might be nice to replace it
-once and for all with a generic version.
-
-Implementation would be pretty much what you have here.
-
-> +
-> +	val = (((u64)val_hi << 32) | val_lo);
-> +
-> +	return val;
-> +}
+Pretty sure that can't fail, per the documentation for
+aes_prepareenckey() and then aes_cmac_preparekey(), but it doesn't
+really matter. We can only get here with a key with size checked by
+cfg80211_validate_key_settings() already.
 
 
-> +
-> +static umode_t
-> +nv_c2c_pmu_event_attr_is_visible(struct kobject *kobj, struct attribute *attr,
-> +				 int unused)
-> +{
-> +	struct device *dev = kobj_to_dev(kobj);
-> +	struct nv_c2c_pmu *c2c_pmu = to_c2c_pmu(dev_get_drvdata(dev));
-> +	struct perf_pmu_events_attr *eattr;
-> +
-> +	eattr = container_of(attr, typeof(*eattr), attr.attr);
-> +
-> +	if (c2c_pmu->c2c_type == C2C_TYPE_NVDLINK) {
-> +		/* Only incoming reads are available. */
-> +		switch (eattr->id) {
-> +		case C2C_EVENT_IN_WR_CUM_OUTS:
-> +		case C2C_EVENT_IN_WR_REQ:
-> +		case C2C_EVENT_OUT_RD_CUM_OUTS:
-> +		case C2C_EVENT_OUT_RD_REQ:
-> +		case C2C_EVENT_OUT_WR_CUM_OUTS:
-> +		case C2C_EVENT_OUT_WR_REQ:
-> +			return 0;
-> +		default:
-> +			return attr->mode;
-Given suggestion below to use separate attribute_groups[] for each
-of the 3 types, I'd do separate event attribute groups for each as well.
-That will cover this case as const data.
-> +		}
-> +	} else {
-> +		/* Hide the write events if C2C connected to another SoC. */
-> +		if (c2c_pmu->peer_type == C2C_PEER_TYPE_CPU) {
+Since you're probably going to send it through the crypto tree:
 
-And only the two types where this is relevant will use the is_visible.
+Acked-by: Johannes Berg <johannes@sipsolutions.net>
 
-> +			switch (eattr->id) {
-> +			case C2C_EVENT_IN_WR_CUM_OUTS:
-> +			case C2C_EVENT_IN_WR_REQ:
-> +			case C2C_EVENT_OUT_WR_CUM_OUTS:
-> +			case C2C_EVENT_OUT_WR_REQ:
-> +				return 0;
-> +			default:
-> +				return attr->mode;
-> +			}
-> +		}
-> +	}
-> +
-> +	return attr->mode;
-> +}
-> +
-> +static const struct attribute_group nv_c2c_pmu_events_group = {
-> +	.name = "events",
-> +	.attrs = nv_c2c_pmu_events,
-> +	.is_visible = nv_c2c_pmu_event_attr_is_visible,
-> +};
-
-> +
-> +/* Per PMU device attribute groups. */
-> +
-> +static int nv_c2c_pmu_alloc_attr_groups(struct nv_c2c_pmu *c2c_pmu)
-> +{
-> +	const struct attribute_group **attr_groups = c2c_pmu->attr_groups;
-> +
-> +	attr_groups[0] = nv_c2c_pmu_alloc_format_attr_group(c2c_pmu);
-> +	attr_groups[1] = &nv_c2c_pmu_events_group;
-> +	attr_groups[2] = &nv_c2c_pmu_cpumask_attr_group;
-> +	attr_groups[3] = &nv_c2c_pmu_identifier_attr_group;
-> +	attr_groups[4] = &nv_c2c_pmu_peer_attr_group;
-> +
-> +	if (!attr_groups[0])
-> +		return -ENOMEM;
-
-This seems unnecessary code complexity to avoid having a couple of structures
-that duplicate some elements.  If you have a choice between picking between
-sets of static const data vs more code. Go the data route (as long as it
-isn't a huge amount more data!)
-
-So have a 
-const struct attribute_groups *xxxx[] = {
-};
-For each of the 3 types.
-
-Alternative is put all the format group attributes in one group and then use
-is_visible() to select what is relevant to each type, but I think that will
-be more complex than just replicating the array 3 times.
-
-
-
-> +
-> +	return 0;
-> +}
-
-> +static int nv_c2c_pmu_get_cpus(struct nv_c2c_pmu *c2c_pmu)
-> +{
-> +	int ret = 0, socket = c2c_pmu->socket, cpu;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		if (cpu_to_node(cpu) == socket)
-> +			cpumask_set_cpu(cpu, &c2c_pmu->associated_cpus);
-> +	}
-> +
-> +	if (cpumask_empty(&c2c_pmu->associated_cpus)) {
-> +		dev_dbg(c2c_pmu->dev,
-> +			"No cpu associated with C2C PMU socket-%u\n", socket);
-> +		ret = -ENODEV;
-> +	}
-> +
-> +	return ret;
-Direct returns are often more readable. I think that applies here
-as we can then make ti clear where the good exit paths are with return 0.
-
-> +}
-> +
-> +static int nv_c2c_pmu_init_socket(struct nv_c2c_pmu *c2c_pmu)
-> +{
-> +	const char *uid_str;
-> +	int ret, socket;
-> +
-> +	uid_str = acpi_device_uid(c2c_pmu->acpi_dev);
-> +	if (!uid_str) {
-> +		ret = -ENODEV;
-> +		goto fail;
-> +	}
-> +
-> +	ret = kstrtou32(uid_str, 0, &socket);
-> +	if (ret)
-> +		goto fail;
-> +
-> +	c2c_pmu->socket = socket;
-> +	return 0;
-> +
-> +fail:
-> +	dev_err(c2c_pmu->dev, "Failed to initialize socket\n");
-
-I'd return above, with a more specific error message given there are two
-different things that can go wrong.
-
-> +	return ret;
-> +}
-> +
-> +static int nv_c2c_pmu_init_id(struct nv_c2c_pmu *c2c_pmu)
-> +{
-> +	const char *name_fmt[C2C_TYPE_COUNT] = {
-> +		[C2C_TYPE_NVLINK] = "nvidia_nvlink_c2c_pmu_%u",
-> +		[C2C_TYPE_NVCLINK] = "nvidia_nvclink_pmu_%u",
-> +		[C2C_TYPE_NVDLINK] = "nvidia_nvdlink_pmu_%u",
-> +	};
-> +
-> +	char *name;
-> +	int ret;
-> +
-> +	name = devm_kasprintf(c2c_pmu->dev, GFP_KERNEL,
-> +		name_fmt[c2c_pmu->c2c_type], c2c_pmu->socket);
-> +	if (!name) {
-> +		ret = -ENOMEM;
-> +		goto fail;
-> +	}
-> +
-> +	c2c_pmu->name = name;
-> +
-> +	c2c_pmu->identifier = acpi_device_hid(c2c_pmu->acpi_dev);
-> +
-> +	return 0;
-> +
-> +fail:
-> +	dev_err(c2c_pmu->dev, "Failed to initialize name\n");
-
-Why the goto?  Just error out above.
-For any calls like this that are only made from probe() use
-	return dev_err_probe(c2c_pmu->dev, ret, "...\n");
-However general view is that allocation failures make enough noise
-anyway that we never print additional error messages on them.  So
-just drop the print here.
-
-There are a few people cleaning the kernel tree up to remove exactly
-this case.  Not sure anyone got to perf yet though.
-
-
-> +	return ret;
-> +}
-> +
-> +static int nv_c2c_pmu_init_filter(struct nv_c2c_pmu *c2c_pmu)
-> +{
-> +	u32 cpu_en = 0;
-> +	struct device *dev = c2c_pmu->dev;
-> +
-> +	if (c2c_pmu->c2c_type == C2C_TYPE_NVDLINK) {
-> +		c2c_pmu->peer_type = C2C_PEER_TYPE_CXLMEM;
-> +
-> +		c2c_pmu->nr_inst = C2C_NR_INST_NVDLINK;
-> +		c2c_pmu->peer_insts[0][0] = (1UL << c2c_pmu->nr_inst) - 1;
-> +
-> +		c2c_pmu->nr_peer = C2C_NR_PEER_CXLMEM;
-> +		c2c_pmu->filter_default = (1 << c2c_pmu->nr_peer) - 1;
-> +
-> +		c2c_pmu->formats = nv_c2c_pmu_formats;
-> +
-> +		return 0;
-> +	}
-> +
-> +	c2c_pmu->nr_inst = (c2c_pmu->c2c_type == C2C_TYPE_NVLINK) ?
-> +		C2C_NR_INST_NVLINK : C2C_NR_INST_NVCLINK;
-> +
-> +	if (device_property_read_u32(dev, "cpu_en_mask", &cpu_en))
-> +		dev_dbg(dev, "no cpu_en_mask property\n");
-> +
-> +	if (cpu_en) {
-> +		c2c_pmu->peer_type = C2C_PEER_TYPE_CPU;
-> +
-> +		/* Fill peer_insts bitmap with instances connected to peer CPU. */
-> +		bitmap_from_arr32(c2c_pmu->peer_insts[0], &cpu_en,
-> +				c2c_pmu->nr_inst);
-> +
-> +		c2c_pmu->nr_peer = 1;
-> +		c2c_pmu->formats = nv_c2c_pmu_formats;
-> +	} else {
-> +		u32 i;
-> +		const char *props[C2C_NR_PEER_MAX] = {
-> +			"gpu0_en_mask", "gpu1_en_mask"
-> +		};
-> +
-> +		for (i = 0; i < C2C_NR_PEER_MAX; i++) {
-> +			u32 gpu_en = 0;
-> +
-> +			if (device_property_read_u32(dev, props[i], &gpu_en))
-> +				dev_dbg(dev, "no %s property\n", props[i]);
-> +
-> +			if (gpu_en) {
-> +				/* Fill peer_insts bitmap with instances connected to peer GPU. */
-> +				bitmap_from_arr32(c2c_pmu->peer_insts[i], &gpu_en,
-> +						c2c_pmu->nr_inst);
-> +
-> +				c2c_pmu->nr_peer++;
-> +			}
-> +		}
-> +
-> +		if (c2c_pmu->nr_peer == 0) {
-> +			dev_err(dev, "No GPU is enabled\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		c2c_pmu->peer_type = C2C_PEER_TYPE_GPU;
-> +		c2c_pmu->formats = nv_c2c_nvlink_pmu_formats;
-> +	}
-> +
-> +	c2c_pmu->filter_default = (1 << c2c_pmu->nr_peer) - 1;
-> +
-> +	return 0;
-> +}
-> +
-> +static void *nv_c2c_pmu_init_pmu(struct platform_device *pdev)
-> +{
-> +	int ret;
-> +	struct nv_c2c_pmu *c2c_pmu;
-> +	struct acpi_device *acpi_dev;
-> +	struct device *dev = &pdev->dev;
-> +
-> +	acpi_dev = ACPI_COMPANION(dev);
-> +	if (!acpi_dev)
-> +		return ERR_PTR(-ENODEV);
-> +
-> +	c2c_pmu = devm_kzalloc(dev, sizeof(*c2c_pmu), GFP_KERNEL);
-> +	if (!c2c_pmu)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	c2c_pmu->dev = dev;
-> +	c2c_pmu->acpi_dev = acpi_dev;
-> +	c2c_pmu->c2c_type = (unsigned int)(unsigned long)device_get_match_data(dev);
-
-As below, I'd make this a pointer to a struct with all the type specific
-info in the struct.
-
-> +	platform_set_drvdata(pdev, c2c_pmu);
-> +
-> +	ret = nv_c2c_pmu_init_socket(c2c_pmu);
-> +	if (ret)
-> +		goto done;
-> +
-> +	ret = nv_c2c_pmu_init_id(c2c_pmu);
-> +	if (ret)
-> +		goto done;
-> +
-> +	ret = nv_c2c_pmu_init_filter(c2c_pmu);
-> +	if (ret)
-> +		goto done;
-> +
-> +done:
-Why not just return ERR_PTR() above and drop this goto?
-That will be easier to read as clear that on any error you just return.
-With the label here it looks like there might be good paths that use
-it.  That briefly confused me :)
-
-> +	if (ret)
-> +		return ERR_PTR(ret);
-> +
-> +	return c2c_pmu;
-> +}
-
-
-> +
-> +static const struct acpi_device_id nv_c2c_pmu_acpi_match[] = {
-> +	{ "NVDA2023", (kernel_ulong_t)C2C_TYPE_NVLINK },
-
-Speaking from long experience of maintaining stuff that uses this pattern,
-it's much cleaner to have a per device type struct and put a pointer
-to that here.  The enum approach tends to lead to lots of switch statements
-of scattered data about the uniqueness of each type. 
-
-Up to you though, but I'd suggest this will bite you.
-
-> +	{ "NVDA2022", (kernel_ulong_t)C2C_TYPE_NVCLINK },
-> +	{ "NVDA2020", (kernel_ulong_t)C2C_TYPE_NVDLINK },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(acpi, nv_c2c_pmu_acpi_match);
-> +
-> +static struct platform_driver nv_c2c_pmu_driver = {
-> +	.driver = {
-> +		.name = "nvidia-t410-c2c-pmu",
-> +		.acpi_match_table = ACPI_PTR(nv_c2c_pmu_acpi_match),
-
-ACPI_PTR() mostly causes annoying issues with __maybe_unused
-being used to save a trivial amount of data for !CONFIG_ACPI.
-My advice would be to not use it.  It's not necessary at all.
-
-> +		.suppress_bind_attrs = true,
-> +	},
-> +	.probe = nv_c2c_pmu_probe,
-> +	.remove = nv_c2c_pmu_device_remove,
-> +};
-> +
-> +static int __init nv_c2c_pmu_init(void)
-> +{
-> +	int ret;
-> +
-> +	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
-> +				      "perf/nvidia/c2c:online",
-> +				      nv_c2c_pmu_online_cpu,
-> +				      nv_c2c_pmu_cpu_teardown);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	nv_c2c_pmu_cpuhp_state = ret;
-> +	return platform_driver_register(&nv_c2c_pmu_driver);
-> +}
-> +
-> +static void __exit nv_c2c_pmu_exit(void)
-> +{
-> +	platform_driver_unregister(&nv_c2c_pmu_driver);
-> +	cpuhp_remove_multi_state(nv_c2c_pmu_cpuhp_state);
-> +}
-> +
-> +module_init(nv_c2c_pmu_init);
-> +module_exit(nv_c2c_pmu_exit);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("NVIDIA Tegra410 C2C PMU driver");
-> +MODULE_AUTHOR("Besar Wicaksono <bwicaksono@nvidia.com>");
-
+johannes
 
