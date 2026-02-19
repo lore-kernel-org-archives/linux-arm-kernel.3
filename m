@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53EE9E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 02:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1079FE9A04C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 03:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CIikpPtHt/ZZ/kIbtNDThVM6mn2njpm15YiIrdURroA=; b=0pGGx0xxyA7Zx4RGKwreUNRfxp
-	KQ5JUZZsZrqSFzgPqXfw4lWvy4+Z2o1fv7K4TshvRAp78/td7ysE1DQEWvQa3J70myPyVBhqO7G73
-	BhMAlKsFE3gTu3MTx4jSaB2IMEskqhjfVHzkuGq6Z9YmECZvnZFQ0Cotl2USiQfxBpvp3sSLcJpXu
-	5iSvnKf2e2oUboHTDPbp2nuCRlOx8eJAIxbfEXG+J4RUTPebX1F8akebToFc9bNPAHnLp5ZccSaLa
-	aAeGM7DSLAz8jpAfrp4+Bk3cPsEa2hJos3FpxyMMnM05/Yx++bCuDTZPVPRoV//KpmICuATWsHjMD
-	ZMk/E7VA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X46UpLW2j+eyZ6ykAjkS0HlxNYklVA+kQjtmNdaEaUs=; b=hpiW119V/a213g
+	KRjB4tV+f8hdDWmGo6mUfuZx1SyTroiHUn5keceWmfRmPYHTx+C6D49S7YOhuFHuNPJrFMX761D89
+	iJGsVUafLouPNVHVIf2oKMcrsvL6d2iariC5s41t3chjz8f9Wb02C4vHd07kzOZs3OrZvICux8eCM
+	1j0ARJ2ZdhMKyysX4+tsfW8K3wfgGicJWu+lzDNG/RsSX+9L3lzUar92M1JEzKwn3sJPgERTgC2Bd
+	xckteEnbS6PLyGwrYocK8kTwemak//Yocs8vf+NqvMytqN8WuyeTMYdLakk/GswHGHzH+7FOFWRjB
+	sSOXQ4fMja0UA9HKVlXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vstQJ-0000000AjVU-0ibi;
-	Thu, 19 Feb 2026 02:05:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vsv54-0000000Aox6-2HcA;
+	Thu, 19 Feb 2026 03:51:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vstQI-0000000AjV3-133r
+	id 1vsv52-0000000Aowr-33OR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 02:05:46 +0000
+	Thu, 19 Feb 2026 03:51:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9076D61855;
-	Thu, 19 Feb 2026 02:05:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00B13C19425;
-	Thu, 19 Feb 2026 02:05:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C9C936132F
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 03:51:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64916C2BC87
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 03:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771466715;
-	bh=CJhzGH3sAa0J4fOkP0CpNIISd/xcJc3TRjy4YycFwTY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=n74SW63m3g2vdXmFe3PM5znz6KRPmNRYMfgHOkvKjEl98qnQTDDxvmylU6XbUbAXg
-	 lUdFncUSLM1ksgLt6Odpy0PbmiQaHrtGuGmuh89xzmS9EORRxSz2MMKLf7ZmbxGGuc
-	 NloIThis473MS7v/DH5MkWbffUHpZNHXIJt4gVg6neLGGxKIhmPpYEBAdmfX9cb5Tv
-	 /mAD+Hx9iaJvTjlGHOtnbrHRxbiXJj+RU54z2Ih3MwFJ7QRGq0NXCN1YBN7XV6jA72
-	 kDGj6YPpYX5EfuWm7cHJDIahKfDHgHIeZkhjKffXO/9aa9wa5aozGF0UEn16vFabmX
-	 QfO3OysVSxRRg==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: =?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <legoffic.clement@gmail.com>,
-	Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	dmaengine@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.19-6.1] dmaengine: stm32-mdma: initialize m2m_hw_period and ccr to fix warnings
-Date: Wed, 18 Feb 2026 21:04:16 -0500
-Message-ID: <20260219020422.1539798-40-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260219020422.1539798-1-sashal@kernel.org>
-References: <20260219020422.1539798-1-sashal@kernel.org>
+	s=k20201202; t=1771473115;
+	bh=X46UpLW2j+eyZ6ykAjkS0HlxNYklVA+kQjtmNdaEaUs=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=La4X65W6UQ6ne9cUU6H55pRNgKhI5jBhi55Zj0Ym0G63aaG+rrIMo/D211v1/gLha
+	 H1GXM+6YGhdTVtrs8FjDryYB/hPmC3HSasw/WgjAlLxjduM+XY2FBOyA8nWrYEwmoT
+	 2ljArH4oOzoRAexxb2BYaijdTPgf0FWEhq1z9z4XXTMC0d8LT92P5/CJeEuQld9kit
+	 7Go88e/N5TRnEQveqS6MN+1MUl2EXFGXs/aGgjxSrQg66MBh7EhtuJBBFi9YfkEETc
+	 1Lca7nwdZ7ObS3+3uGPzD2SpnPG1wn5ncXtSs/byesyvzCbooNxyQQayxh0T49Mh7t
+	 tatYqoBVncgcA==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-387032e855eso3964051fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 19:51:55 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVo8sLVBeK/5BdXYZLyxWw6kq/cBPtY2U+gDsnFTSsJlM/18Knn0/srwhgpOkx4EFn/P7/iCHqvVEApMoJifHdx@lists.infradead.org
+X-Gm-Message-State: AOJu0YygaPw0KPWYVcXhqJWoqqtvg/sBXVvPoPm3GE9wKPqvUw3bxhav
+	FnzFPhmdn0WccfDGhRfYM03Raa60DM2Jv+/Alu/daV7MjfeymSDVXkfkQTCqS8HezBcKwVm0yGT
+	eOQaCkmHbUfaBZwYhCm7nwDZN6C1xo60=
+X-Received: by 2002:a05:651c:e17:b0:386:4776:2a04 with SMTP id
+ 38308e7fff4ca-3881b8da106mr46506631fa.16.1771473113628; Wed, 18 Feb 2026
+ 19:51:53 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.19.2
-Content-Transfer-Encoding: 8bit
+References: <20260218183454.7881-1-jernej.skrabec@gmail.com>
+In-Reply-To: <20260218183454.7881-1-jernej.skrabec@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Thu, 19 Feb 2026 11:51:41 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64Y0G1UFRJCue+x107WDj_9Nk0cXuMp3AV4yTKW7QbFsA@mail.gmail.com>
+X-Gm-Features: AaiRm531971J2FLwKv3FM0ppn6z4yZUtNAfD_zMfFtAHtrup-P3e9dbLMfVsCt8
+Message-ID: <CAGb2v64Y0G1UFRJCue+x107WDj_9Nk0cXuMp3AV4yTKW7QbFsA@mail.gmail.com>
+Subject: Re: [PATCH] drm/sun4i: mixer: Fix layer init code
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,92 +78,25 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Clément Le Goffic <clement.legoffic@foss.st.com>
+On Thu, Feb 19, 2026 at 2:35=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
+l.com> wrote:
+>
+> Code refactoring dropped extra NULL sentinel entry at the end of the drm
+> planes array.
+>
+> Add it back.
+>
+> Reported-by: Chen-Yu Tsai <wens@kernel.org>
+> Closes: https://lore.kernel.org/linux-sunxi/CAGb2v65wY2pF6sR+0JgnpLa4ysvj=
+ght5hAKDa1RUyo=3DzEKXreg@mail.gmail.com/
+> Fixes: 5fd711adc0ba ("drm/sun4i: layer: move num of planes calc out of la=
+yer code")
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> ---
 
-[ Upstream commit aaf3bc0265744adbc2d364964ef409cf118d193d ]
-
-m2m_hw_period is initialized only when chan_config->m2m_hw is true. This
-triggers a warning:
-‘m2m_hw_period’ may be used uninitialized [-Wmaybe-uninitialized]
-Although m2m_hw_period is only used when chan_config->m2m_hw is true and
-ignored otherwise, initialize it unconditionally to 0.
-
-ccr is initialized by stm32_mdma_set_xfer_param() when the sg list is not
-empty. This triggers a warning:
-‘ccr’ may be used uninitialized [-Wmaybe-uninitialized]
-Indeed, it could be used uninitialized if the sg list is empty. Initialize
-it to 0.
-
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Reviewed-by: Clément Le Goffic <legoffic.clement@gmail.com>
-Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Link: https://patch.msgid.link/20251217-mdma_warnings_fix-v2-1-340200e0bb55@foss.st.com
-Signed-off-by: Vinod Koul <vkoul@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-I can see `sg_len` is passed from the DMA framework's `prep_slave_sg`
-callback. While the DMA framework generally doesn't call this with
-`sg_len == 0`, there's no explicit guard against it in this function.
-The `stm32_mdma_alloc_desc` with `sg_len == 0` might succeed (allocating
-a descriptor with 0 nodes), allowing execution to reach
-`stm32_mdma_setup_xfer` with an empty list.
-
-### Verification
-
-- **Read the actual code**: Confirmed `ccr` is used at lines 777-779
-  after the for_each_sg loop, and if `sg_len == 0`, `ccr` is never
-  initialized by `stm32_mdma_set_xfer_param()`.
-- **Caller analysis**: `stm32_mdma_setup_xfer` is called from
-  `stm32_mdma_prep_slave_sg` at line 809 with `sg_len` from the DMA
-  framework - no explicit guard for `sg_len == 0`.
-- **m2m_hw_period**: Confirmed at lines 737-738 and 749-750/758-759 that
-  it's only used when `chan_config->m2m_hw` is true (false positive
-  warning).
-- **Risk assessment**: The change is a trivial initialization, zero
-  regression risk.
-- **Could NOT verify**: Whether any real-world code path actually passes
-  `sg_len == 0` to `prep_slave_sg` (unverified, but defensive
-  initialization is correct practice).
-
-### Conclusion
-
-This is a very low-risk fix that:
-1. Silences compiler warnings (useful for clean builds)
-2. Fixes a real (if potentially rare) uninitialized variable bug for
-   `ccr`
-
-The fix is trivially correct, one line, zero regression risk, and fixes
-a genuine code correctness issue. While it's borderline because the
-primary framing is "fix warnings" and the affected driver is
-STM32-specific, the `ccr` uninitialized variable is a real bug that
-could cause DMA hardware misconfiguration, and the fix has absolutely no
-downside.
-
-**YES**
-
- drivers/dma/stm32/stm32-mdma.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/dma/stm32/stm32-mdma.c b/drivers/dma/stm32/stm32-mdma.c
-index 080c1c725216c..b87d41b234df1 100644
---- a/drivers/dma/stm32/stm32-mdma.c
-+++ b/drivers/dma/stm32/stm32-mdma.c
-@@ -731,7 +731,7 @@ static int stm32_mdma_setup_xfer(struct stm32_mdma_chan *chan,
- 	struct stm32_mdma_chan_config *chan_config = &chan->chan_config;
- 	struct scatterlist *sg;
- 	dma_addr_t src_addr, dst_addr;
--	u32 m2m_hw_period, ccr, ctcr, ctbr;
-+	u32 m2m_hw_period = 0, ccr = 0, ctcr, ctbr;
- 	int i, ret = 0;
- 
- 	if (chan_config->m2m_hw)
--- 
-2.51.0
-
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 
