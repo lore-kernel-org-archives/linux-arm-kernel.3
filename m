@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53AE6C531E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 22:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC75C531E5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 22:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=81pERVSJFWcDlhN7H8BeVfNSMbWsEHVgYzIfoBCtGlk=; b=FdePc62SlMZZ1zWNBODF9Lb8Se
-	gEPnoLZomluQ3tYPdZr298/9vPzUvfn5uZ/AVJCFsYZYgFr55v5J7fTwL/jbGQVPaAS7GTVRPdMO0
-	bkguIjSt4T4iaSJA/ME2EX+SzbHc6F3pz6LvupTqe4NnbUh4vXzaoF56cVi/u4WPgQ9YOweyp7sDH
-	gnUPPUdgFocyWY1dEkpOWBUnYhw5t4XL1qQva63Ttq/mipFL+SG9g0vD0KSeTm3tdg7I4ulFwK23N
-	ofzsd6B0ErfvDyqP9Quz5nDFHNht0BKqlKwAIK3k73Pqv+wQkLfNTQfd+qguRIsahv1Y0eKPC6kNC
-	qZtlf8Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7rG7l1d8wcnIU2PDqonrIOzyrgRE6wVd+m8ziks3L0Y=; b=V6HJ6wX8Uw534MixrzYthmftIG
+	lZKZpXcHBE1C+DXGcJ1uPQxewQp9jjEx3Te5SoH2ZHVzEM8D8sYfe8TJyNY3Hoi6IJSLA+opEj79p
+	8uWs17ciJr59HgTPF7ncbU9NHggIrGLJ04OgLUyMJNs0h0pvBMcGp7bs6SNPpLITlDB2zbdfh0zHE
+	8tLRUqyksJIljP5apnfpNOIIlh7Z9Ax59NRKno3jDpv5bX5s90chCNbgNCz8NKv2rhJBOriPYY6sB
+	+5zOs21fsl8eVoEDKc2zMCNRYMk/4XF94gXh320Cq/Yo/JmW5Vx3Pts4shzx7Yjr2ZRYAPRhZZuHv
+	VUlLXsxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtCJ2-0000000C8Oi-1ztR;
-	Thu, 19 Feb 2026 22:15:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtCOQ-0000000C8ka-2aiE;
+	Thu, 19 Feb 2026 22:21:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtCJ0-0000000C8OS-3q4P
+	id 1vtCOJ-0000000C8jg-1Zvc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 22:15:31 +0000
+	Thu, 19 Feb 2026 22:21:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1EE560054;
-	Thu, 19 Feb 2026 22:15:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25630C4CEF7;
-	Thu, 19 Feb 2026 22:15:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CA5C34487A
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 22:20:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3ACFC2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 22:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771539329;
-	bh=eD3uqcKS6urVjsBvU1YIr7SWeYT2YskOxTQEK12NAqQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cmVqCS2yIsWtdVpijjEW6bI5Is/3qWKsiDhBA3IUKbSX+J3JVTVSim+ub4xvj1DZ0
-	 nXGSAqVuJTjpUVRNiXuBHwihkyKiKLJsan0vgdg+GGhQK1XOzvkHLHN9n2SihjA3AZ
-	 nlozFVy5cF6QDOCosPXITEEAmidlFg6JCWj2C7M+LnHMHTJ5tsSDy99srR4wS4ifdl
-	 mgpZUuwBdU2/y0JZam9YBERXaDID0G3U2VO8/dcfBdpxyMiEB/8j2440EKA5WgV4ZP
-	 qLjX/y1F5lSuFQNczWLWLzXCfZCEUlUFtAmrnRwci9/W414mczTYusgS0OEK5TCOMt
-	 fY13VGQLkIjkQ==
-Date: Thu, 19 Feb 2026 14:15:27 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Johannes Berg <johannes@sipsolutions.net>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, linux-cifs@vger.kernel.org,
-	linux-wireless@vger.kernel.org
-Subject: Re: [PATCH 15/15] wifi: mac80211: Use AES-CMAC library in aes_s2v()
-Message-ID: <20260219221527.GC32578@quark>
-References: <20260218213501.136844-1-ebiggers@kernel.org>
- <20260218213501.136844-16-ebiggers@kernel.org>
- <c62915b1956ee4c5d4bad9315f2bc44aeddbb9bc.camel@sipsolutions.net>
+	s=k20201202; t=1771539649;
+	bh=7rG7l1d8wcnIU2PDqonrIOzyrgRE6wVd+m8ziks3L0Y=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=p0OytsKo9aM3h0I2mAzXD0d9QBuPUjESQz2hN5IxlVe0oyTYccDGkSw89sv2wisHV
+	 LtGXf/QYGh4XSeU8rPaMVFxD30tEN9H0y4JNf5E0PvIZRrT6UaUDXVj1nKKEkjcJXu
+	 eoG+W8TE5QTZYptGQGOebU4xNLBAkc3YRvSEM4D+nnyk5RzwO+ehrVkeo57n9OiZhg
+	 py+cd87+XtH+nbefwlGzpKL9fu2CcMbfHbzlPRqaRaBjs+4fLC1aimeQ9LpNOxkimh
+	 wANgYekA1SvSogHc29vGGf/TYzkBcZ2ePCYTj9sQe0/OHqGjNNXhRHaZBvkhgK57eK
+	 qFAln6ISZU1Vw==
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-797d857e3f4so14861267b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 14:20:48 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWRMa5CKG7DjEtAUBRfdd1cKCruRvYadX36fDOcmNgC6FlllrmnapcnGwjMOo1j+ke8OjH+crsxzWVSC6FPTEH3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLm4Q2BwC/aUaiGv747oiDlXKMyVz59XddEP3v6EiQUXt/+4c+
+	bEP7cnPBNskH3jDsc8I4ZYWzT8ti/wVga7aGkwql3AgORnF+0MHNptQLCJ0FXoCWkAfvV8mSZqj
+	XBDQzIGgtWkBqgzNX266Rx+7pJ9BE7ug=
+X-Received: by 2002:a05:690c:4913:b0:797:a162:f7d7 with SMTP id
+ 00721157ae682-797ac668393mr155417627b3.62.1771539648217; Thu, 19 Feb 2026
+ 14:20:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c62915b1956ee4c5d4bad9315f2bc44aeddbb9bc.camel@sipsolutions.net>
+References: <20260218083618.67805-1-christophe.roullier@foss.st.com>
+ <20260218083618.67805-3-christophe.roullier@foss.st.com> <aZV-b6TdLMdI8dm4@shell.armlinux.org.uk>
+ <CAD++jLnF=8MvW4CbXmPZR=w8tAUZiL9M3N73WB++DaYYwhToDQ@mail.gmail.com> <aZdjke4eOwF-wTZO@shell.armlinux.org.uk>
+In-Reply-To: <aZdjke4eOwF-wTZO@shell.armlinux.org.uk>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 19 Feb 2026 23:20:37 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmkGtsr9jdzSeyRbHeh_abgz1osn2czEcBOzJ1n1JSh_A@mail.gmail.com>
+X-Gm-Features: AaiRm510EWGZUrBhAzIL44W1hn8wAZ_A5KLa10hcXdNoXBhGJk2lSRSIAxMNPUY
+Message-ID: <CAD++jLmkGtsr9jdzSeyRbHeh_abgz1osn2czEcBOzJ1n1JSh_A@mail.gmail.com>
+Subject: Re: [PATCH 2/3] net: stmmac: restore pinctrl when driver remove.
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Christophe Roullier <christophe.roullier@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
+	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260219_142101_937029_892C71B8 
+X-CRM114-Status: GOOD (  25.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,60 +90,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 12:01:14PM +0100, Johannes Berg wrote:
-> On Wed, 2026-02-18 at 13:35 -0800, Eric Biggers wrote:
-> > Now that AES-CMAC has a library API, convert aes_s2v() to use it instead
-> > of a "cmac(aes)" crypto_shash.  The result is faster and simpler code.
-> > 
-> > It's also more reliable, since with the library the only step that can
-> > fail is preparing the key.  In contrast, crypto_shash_digest(),
-> > crypto_shash_init(), crypto_shash_update(), and crypto_shash_final()
-> > could all fail and return an errno value.  aes_s2v() ignored these
-> > errors, which was a bug.  So that bug is fixed as well.
-> > 
-> > As part of this, change the prototype of aes_s2v() to take the raw key
-> > directly instead of a prepared key.  Its only two callers prepare a key
-> > for each call, so it might as well be done directly in aes_s2v().
-> > 
-> > Since this removes the last dependency on the "cmac(aes)" crypto_shash
-> > from mac80211, also remove the 'select CRYPTO_CMAC'.
-> > 
-> 
-> > -static int aes_s2v(struct crypto_shash *tfm,
-> > +static int aes_s2v(const u8 *in_key, size_t key_len,
-> >  		   size_t num_elem, const u8 *addr[], size_t len[], u8 *v)
-> >  {
-> >  	u8 d[AES_BLOCK_SIZE], tmp[AES_BLOCK_SIZE] = {};
-> > -	SHASH_DESC_ON_STACK(desc, tfm);
-> > +	struct aes_cmac_key key;
-> > +	struct aes_cmac_ctx ctx;
-> >  	size_t i;
-> > +	int res;
-> >  
-> > -	desc->tfm = tfm;
-> > +	res = aes_cmac_preparekey(&key, in_key, key_len);
-> > +	if (res)
-> > +		return res;
-> 
-> Same here, maybe, technically, but also doesn't matter.
-> 
-> Acked-by: Johannes Berg <johannes@sipsolutions.net>
-> 
-> johannes
+On Thu, Feb 19, 2026 at 8:25=E2=80=AFPM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+> On Thu, Feb 19, 2026 at 08:11:13PM +0100, Linus Walleij wrote:
 
-In this case aes_s2v() wouldn't otherwise be able to fail, so ignoring
-the aes_cmac_preparekey() return value would indeed be a simplification.
+> > There is really no other cleanup that can happen: there is no
+> > before-default-or-init state we can revert to (that would be the
+> > power-on values), so there are just these states in some pointers
+> > that could be accessed by e.g. pinctrl_pm_select_sleep_state()
+> > that get free:ed up, and muxing and pin config that happened
+> > in the pin control hardware just stays around.
+>
+> What we seem to end up with is that on probe failure, we set the pins
+> to init or default state.
 
-However, since the key length isn't a compile-time constant here, we'd
-have to rely on non-local validation, which isn't ideal.
+Indeed.
 
-To ignore the return value entirely I'd prefer a static_assert that the
-length is equal to one of AES_KEYSIZE_*, which isn't possible here.
+> However, on remove, it's up to the driver to
+> decide whether to put the pins into sleep state or not.
+>
+> Shouldn't a driver be consistent, and place the pins into the same
+> state in both these scenarios?
 
-It's actually not clear to me where the length validation happens before
-here.  nl80211_associate() for example just copies the length from
-userspace without validating it.  ieee80211_mgd_assoc() only checks that
-the length is at most FILS_MAX_KEK_LEN (64).
+I think you're right. Just very few device trees define the "sleep"
+state (the infamous "so far so good...") so it has not been adressed.
 
-- Eric
+> Conversely, I'm slightly worried that putting pins into sleep state
+> when we're not powering down may be bad if they're allowed to then
+> float, which could cause the PHY to interfere on the network.
+
+That's a good point.
+
+It's perfectly legal to define any random state for the driver, such
+as "relaxed" or "unused". It had the only downside that the device
+driver core will not help out in looking up the state by default.
+
+I'd be happy to take a patch that e.g. looks for an "unused"
+state and put the pins into that state if probe fails, or when
+remove() is called, so we get something everyone can use for
+this.
+
+Yours,
+Linus Walleij
 
