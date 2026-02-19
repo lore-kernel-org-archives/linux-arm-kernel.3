@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F60E9A04A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 14:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C261DE9A04A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 14:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WUvV7WRMkBOQwPfKTSrk+JMWI7wklCFII++7Y72/pjU=; b=kM8mKM3KFoJi+Zr93v3Plub6pF
-	h2mga02hDUVxrHXbd5fc9ax+p9tunYlC4loAHiXnyIT2pHrJkotbY5uhWStKQ+5V8zSiOqLmuY9J6
-	rBhxFq9+EAZkvctmd4I3ApMcgYm59tj5glCmhXgaiyItOX1UGE4eysf2+vv4JVygo3nrZ4vHIKS3e
-	H18/1ppsbHv8y3DssC7e5tTcB9TvUdcBk+E5huQx4SIxMAE6coVsuiCDZ/VtlDXng59Z2DfBab0pp
-	PTBW0TKV80vtDfRd156d/M0TYvJyrG/qhV8NECu0ju+Q/qg4XA1mPpDyEZhwrPki8DSWbkbzSbC5k
-	r6Y0gy7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W9I9TydWVo15yKzkAGFLtCWQjvdOPQocpTW8F8p/JRI=; b=e+ursJaeK7X08FQGZSKyHTvu1t
+	X0yLtkB6vuFMqALDlpoicxdy6G64KdSg3D4sWuQCByFLJ3npelnObsTa9+r71FzDujq89JJNsxKkg
+	Hmq18O9wRKxZ0Ask7EBW/YopRx2j9tgFIwu9D5ZEbbZfmXUvauEg8w/EG6wBPOvSaLQE+wYbuwSOq
+	bBnt1mg/ayawLcs6S1YP8eHXeX+X8/96umyi09PHUKGNBzHbKJIWEcTn2odAa48fry8OTjpfMOQtj
+	ogliPDf72Y+oztc/rSsWf3QY7+ctTZgX5zZRyr2YN11qj6lOkh1NWyFeFTFtbygT334k0od+gp8vF
+	duk20lAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt53N-0000000BS2F-0Lfv;
-	Thu, 19 Feb 2026 14:30:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt53K-0000000BS0Z-1WMB
+	id 1vt545-0000000BSGn-1y83;
+	Thu, 19 Feb 2026 14:31:37 +0000
+Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vt53z-0000000BSDq-36mL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 14:30:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53503339;
-	Thu, 19 Feb 2026 06:30:39 -0800 (PST)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 928143F62B;
-	Thu, 19 Feb 2026 06:30:43 -0800 (PST)
-Date: Thu, 19 Feb 2026 14:30:41 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Will Deacon <will@kernel.org>,
+	Thu, 19 Feb 2026 14:31:35 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1771511487;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W9I9TydWVo15yKzkAGFLtCWQjvdOPQocpTW8F8p/JRI=;
+	b=XDu1ztxsOwv2MmylQD0qb4UCW5fqcEoF4pFpbhXOIVlzj8Js4KnUzKViS3VL1nbB5t0aI6
+	C0VmxmzJKZmbudyuazDQ2XpWcujZ2AsRVwShzv0kR39Hbv8mwH8uz8qS4aJawcAPwkLhxh
+	vTPPAFLMR1eemfo9bIwXvWuSpLfUEVs=
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <Anshuman.Khandual@arm.com>,
-	Rob Herring <Rob.Herring@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	Robin Murphy <Robin.Murphy@arm.com>, Leo Yan <leo.yan@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	Peilin Ye <yepeilin@google.com>,
+	Luis Gerhorst <luis.gerhorst@fau.de>,
+	Viktor Malik <vmalik@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Michael Williams <Michael.Williams@arm.com>,
-	Alexandru Elisei <Alexandru.Elisei@arm.com>
-Subject: Re: [PATCH] perf: arm_spe: Add barrier before enabling profiling
- buffer
-Message-ID: <aZcekSK5fGEkw_1P@J2N7QTR9R3.cambridge.arm.com>
-References: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
- <aYD08d42SewAAQCB@willie-the-truck>
- <aebe99ad-1189-4372-83e3-385f33829bd2@linaro.org>
- <aYHXCkFZcVm1L_25@willie-the-truck>
- <e7d53952-59f6-4990-83fb-1182641af29f@linaro.org>
- <705acb39-2eef-4e61-aec1-b9503e788299@linaro.org>
- <aZcIy1Or4c5-i7Tm@willie-the-truck>
- <7b692e5c-d376-4023-80e0-76c9d9c0604f@linaro.org>
- <aZcYLZ9wETnRDJ7P@willie-the-truck>
- <2d5f6207-afa2-4880-b34d-f03b5ebf3b5f@linaro.org>
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	kernel-patches-bot@fb.com
+Subject: [PATCH bpf-next v2 3/6] bpf, arm64: Add 64-bit bitops kfuncs support
+Date: Thu, 19 Feb 2026 22:29:25 +0800
+Message-ID: <20260219142933.13904-4-leon.hwang@linux.dev>
+In-Reply-To: <20260219142933.13904-1-leon.hwang@linux.dev>
+References: <20260219142933.13904-1-leon.hwang@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2d5f6207-afa2-4880-b34d-f03b5ebf3b5f@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_063050_484124_D48F7B35 
-X-CRM114-Status: GOOD (  40.52  )
+X-CRM114-CacheID: sfid-20260219_063132_330987_86C752D8 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,101 +97,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 02:15:22PM +0000, James Clark wrote:
-> On 19/02/2026 2:03 pm, Will Deacon wrote:
-> > On Thu, Feb 19, 2026 at 01:51:26PM +0000, James Clark wrote:
-> > > On 19/02/2026 12:57 pm, Will Deacon wrote:
-> > > > On Thu, Feb 19, 2026 at 12:08:27PM +0000, James Clark wrote:
-> > > > > I'm back to drag this up again. So I think all of the above discussion
-> > > > > relies on the ordering given by the indirect read needed for the "might
-> > > > > ignore a direct write..." part. But it's _might_ ignore a direct write, it's
-> > > > > possible for an implementation to not do that, so there are two possible
-> > > > > implementations:
-> > > > > 
-> > > > > #1 Where there is an indirect read to give the write ignore outcome
-> > > > > #2 Where there is no write ignore outcome so it doesn't require an
-> > > > >      indirect read
-> > > > > 
-> > > > > For #2 there's nothing to force the ordering. We're writing to two different
-> > > > > registers (PMBPTR_EL1 and PMBLIMITR_EL1) and we have to have the
-> > > > > PMBLIMITR_EL1 write come second for the buffer to be considered configured
-> > > > > correctly. For example if the old value of PMBPTR_EL1 is higher than the new
-> > > > > PMBLIMITR_EL1 and the write to PMBLIMITR_EL1 happens first then it's
-> > > > > misconfigured. That's why we think we need the isb() here.
-> > > > 
-> > > > I thought profiling was disabled in these cases, so why is it
-> > > > misconfigured?
-> > > > 
-> > > > If it is misconfigured, what can go wrong given that we're either stopped
-> > > > or pmscr is clear?
-> > > > 
-> > > > Will
-> > > 
-> > > It is stopped in the interrupt handler because PMBSR_EL1.S = 1. But in
-> > > arm_spe_pmu_start(), PMBSR_EL1.S = 0 so it's not stopped. And with
-> > > PMBPTR_EL1 still being set to the value from the last session it could be
-> > > higher than PMBLIMITR_EL1.
-> > > 
-> > > PMSCR_EL1 doesn't affect SPEProfilingStopped(), it's only:
-> > > 
-> > >    boolean stopped = (PMBSR_EL1.S == '1');
-> > > 
-> > > The conditions for when the buffer needs to be configured correctly from
-> > > R24557 are:
-> > > 
-> > >    ProfilingBufferEnabled() && !SPEProfilingStopped() &&
-> > >      PMBLIMITR_EL1.FM != DISCARD
-> > > 
-> > > I think even if PMSCR_EL1 is clear you can still get a buffer management
-> > > error, even if no samples were going to be written into the buffer. It just
-> > > says:
-> > > 
-> > >    While the Profiling Buffer is enabled, profiling is not stopped, and
-> > >    Discard mode is not enabled, all of the following must be true:
-> > > 
-> > >    * The current write pointer must be at least one sample record below
-> > >      the write limit pointer.
-> > 
-> > ... but doesn't that mean that R24557 is a breaking change to the
-> > architecture? The current Arm ARM doesn't appear to require this,
-> > existing software doesn't honour it so why should we hack extra barriers
-> > into Linux?
-> > 
-> > Will
-> 
-> Yes I suppose it is. The current Arm ARM doesn't require it, but R24577 is
-> in the "known issues" document for the Arm ARM, so it's saying the ARM is
-> incorrect here and you shouldn't trust what it says.
-> 
->   Arm Architecture Reference Manual for A-profile architecture: Known
->   issues
-> 
->   This document includes the Known Issues for the following documents:
-> 
->     Arm Architecture Reference Manual for A-profile architecture
->     (DDI0487)
-> 
-> Presumably the fix will make it into the Arm ARM eventually. 
+Implement JIT inlining of the 64-bit bitops kfuncs on arm64.
 
-While that document is called "Known issues" it really means "Key
-changes since the last ARM ARM". The items in that are not all bug
-fixes.
+bpf_clz64(), bpf_ffs64(), bpf_fls64(), and bpf_bitrev64() are always
+inlined using mandatory ARMv8 CLZ/RBIT instructions. bpf_ctz64() is
+inlined via RBIT + CLZ, or via the native CTZ instruction when
+FEAT_CSSC is available. bpf_rol64() and bpf_ror64() are always inlined
+via RORV.
 
-In this case, R24577 is intended to be a relaxation (that's what the "R"
-stands for), which breaks existing widely-deployed SW. It fails to meet
-the usual acceptability requirements for a relaxation.
+bpf_popcnt64() is not inlined as the native population count instruction
+requires NEON/SIMD registers, which should not be touched from BPF
+programs. It therefore falls back to a regular function call.
 
-IMO this should not have made it into the architecture as-is.
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ arch/arm64/net/bpf_jit_comp.c | 123 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 123 insertions(+)
 
-> I suppose there is a chance that this could be deleted from the known issues
-> and not make it into a future Arm ARM. TBH I have no experience or feeling
-> to say how likely that would be.
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 7a530ea4f5ae..f03f732063d9 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -1192,6 +1192,127 @@ static int add_exception_handler(const struct bpf_insn *insn,
+ 	return 0;
+ }
+ 
++static inline u32 a64_clz64(u8 rd, u8 rn)
++{
++	/*
++	 * Arm Architecture Reference Manual for A-profile architecture
++	 * (Document number: ARM DDI 0487)
++	 *
++	 *   A64 Base Instruction Descriptions
++	 *   C6.2 Alphabetical list of A64 base instructions
++	 *
++	 *   C6.2.91 CLZ
++	 *
++	 *     Count leading zeros
++	 *
++	 *     This instruction counts the number of consecutive binary zero bits,
++	 *     starting from the most significant bit in the source register,
++	 *     and places the count in the destination register.
++	 */
++	/* CLZ Xd, Xn */
++	return 0xdac01000 | (rn << 5) | rd;
++}
++
++static inline u32 a64_ctz64(u8 rd, u8 rn)
++{
++	/*
++	 * Arm Architecture Reference Manual for A-profile architecture
++	 * (Document number: ARM DDI 0487)
++	 *
++	 *   A64 Base Instruction Descriptions
++	 *   C6.2 Alphabetical list of A64 base instructions
++	 *
++	 *   C6.2.144 CTZ
++	 *
++	 *     Count trailing zeros
++	 *
++	 *     This instruction counts the number of consecutive binary zero bits,
++	 *     starting from the least significant bit in the source register,
++	 *     and places the count in the destination register.
++	 *
++	 *     This instruction requires FEAT_CSSC.
++	 */
++	/* CTZ Xd, Xn */
++	return 0xdac01800 | (rn << 5) | rd;
++}
++
++static inline u32 a64_rbit64(u8 rd, u8 rn)
++{
++	/*
++	 * Arm Architecture Reference Manual for A-profile architecture
++	 * (Document number: ARM DDI 0487)
++	 *
++	 *   A64 Base Instruction Descriptions
++	 *   C6.2 Alphabetical list of A64 base instructions
++	 *
++	 *   C6.2.320 RBIT
++	 *
++	 *     Reverse bits
++	 *
++	 *     This instruction reverses the bit order in a register.
++	 */
++	/* RBIT Xd, Xn */
++	return 0xdac00000 | (rn << 5) | rd;
++}
++
++static inline bool boot_cpu_supports_cssc(void)
++{
++	/*
++	 * Documentation/arch/arm64/cpu-feature-registers.rst
++	 *
++	 *   ID_AA64ISAR2_EL1 - Instruction set attribute register 2
++	 *
++	 *     CSSC
++	 */
++	return cpuid_feature_extract_unsigned_field(read_sanitised_ftr_reg(SYS_ID_AA64ISAR2_EL1),
++						    ID_AA64ISAR2_EL1_CSSC_SHIFT);
++}
++
++static bool bpf_inlines_func_call(struct jit_ctx *ctx, void *func_addr)
++{
++	const u8 tmp = bpf2a64[TMP_REG_1];
++	const u8 r0 = bpf2a64[BPF_REG_0];
++	const u8 r1 = bpf2a64[BPF_REG_1];
++	const u8 r2 = bpf2a64[BPF_REG_2];
++	bool inlined = true;
++
++	if (func_addr == bpf_clz64) {
++		emit(a64_clz64(r0, r1), ctx);
++	} else if (func_addr == bpf_ctz64 || func_addr == bpf_ffs64) {
++		if (boot_cpu_supports_cssc()) {
++			emit(a64_ctz64(r0, r1), ctx);
++		} else {
++			emit(a64_rbit64(tmp, r1), ctx);
++			emit(a64_clz64(r0, tmp), ctx);
++		}
++	} else if (func_addr == bpf_fls64) {
++		emit(a64_clz64(tmp, r1), ctx);
++		emit(A64_NEG(1, tmp, tmp), ctx);
++		emit(A64_ADD_I(1, r0, tmp, 64), ctx);
++	} else if (func_addr == bpf_bitrev64) {
++		emit(a64_rbit64(r0, r1), ctx);
++	} else if (func_addr == bpf_rol64) {
++		emit(A64_NEG(1, tmp, r2), ctx);
++		emit(A64_DATA2(1, r0, r1, tmp, RORV), ctx);
++	} else if (func_addr == bpf_ror64) {
++		emit(A64_DATA2(1, r0, r1, r2, RORV), ctx);
++	} else {
++		inlined = false;
++	}
++
++	return inlined;
++}
++
++bool bpf_jit_inlines_kfunc_call(void *func_addr)
++{
++	if (func_addr == bpf_clz64 || func_addr == bpf_ctz64 ||
++	    func_addr == bpf_ffs64 || func_addr == bpf_fls64 ||
++	    func_addr == bpf_rol64 || func_addr == bpf_ror64 ||
++	    func_addr == bpf_bitrev64)
++		return true;
++	return false;
++}
++
+ /* JITs an eBPF instruction.
+  * Returns:
+  * 0  - successfully JITed an 8-byte eBPF instruction.
+@@ -1598,6 +1719,8 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+ 					    &func_addr, &func_addr_fixed);
+ 		if (ret < 0)
+ 			return ret;
++		if (bpf_inlines_func_call(ctx, (void *) func_addr))
++			break;
+ 		emit_call(func_addr, ctx);
+ 		/*
+ 		 * Call to arch_bpf_timed_may_goto() is emitted by the
+-- 
+2.52.0
 
-Broken changes have made it into the architecture before, and have been
-subsequently reverted. In general, we try to avoid that in the first
-place.
-
-I will raise this internally within Arm.
-
-Mark.
 
