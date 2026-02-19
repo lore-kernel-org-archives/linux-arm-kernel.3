@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98C9E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 02:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53EE9E9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 02:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X+lne6EWy3P8J8NPvLligXst7b172UykUmNeXAnGoEk=; b=Sp3wtlq8dGXUw5Vy7N0cv1Ms51
-	8xCKzthv6wyWhUad5Gv3arG8PoRaz9jsvTEnkNpwWNzuAt41vDdC3LvauEFMzltXLk8HhaXqLb9qI
-	QR0O77+2CvHgV25ylCxxCVn1nIUIk0au8CrI5eCBHnbMzjgJLmF0a9liUAXChuEG4vVxh2BKFLzua
-	o+fEwm5hWoJMjvXHjjZnYTI48qXYODafXmM/bpq2KapScdb3Yva3XQGHZX5HGF56F/85RL07504AS
-	zQ7RICLxbxaQq2rYigsbNVGGcQC/VCcNIAZ9PlI2zkD0Xzv+Xr3X+tQPd1t7HVKVKXyQ6bzJGtYrk
-	5mSEdoZQ==;
+	bh=CIikpPtHt/ZZ/kIbtNDThVM6mn2njpm15YiIrdURroA=; b=0pGGx0xxyA7Zx4RGKwreUNRfxp
+	KQ5JUZZsZrqSFzgPqXfw4lWvy4+Z2o1fv7K4TshvRAp78/td7ysE1DQEWvQa3J70myPyVBhqO7G73
+	BhMAlKsFE3gTu3MTx4jSaB2IMEskqhjfVHzkuGq6Z9YmECZvnZFQ0Cotl2USiQfxBpvp3sSLcJpXu
+	5iSvnKf2e2oUboHTDPbp2nuCRlOx8eJAIxbfEXG+J4RUTPebX1F8akebToFc9bNPAHnLp5ZccSaLa
+	aAeGM7DSLAz8jpAfrp4+Bk3cPsEa2hJos3FpxyMMnM05/Yx++bCuDTZPVPRoV//KpmICuATWsHjMD
+	ZMk/E7VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vstQ0-0000000AjMZ-2eGm;
-	Thu, 19 Feb 2026 02:05:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vstQJ-0000000AjVU-0ibi;
+	Thu, 19 Feb 2026 02:05:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vstPh-0000000AjGq-22rg
+	id 1vstQI-0000000AjV3-133r
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 02:05:24 +0000
+	Thu, 19 Feb 2026 02:05:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 078C844164;
-	Thu, 19 Feb 2026 02:05:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E80C19425;
-	Thu, 19 Feb 2026 02:05:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9076D61855;
+	Thu, 19 Feb 2026 02:05:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00B13C19425;
+	Thu, 19 Feb 2026 02:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771466708;
-	bh=frX33pev+XR4l6oz6+xiDXC5X50uJZtofsvGkHEY7RA=;
+	s=k20201202; t=1771466715;
+	bh=CJhzGH3sAa0J4fOkP0CpNIISd/xcJc3TRjy4YycFwTY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Wil0D8ZPPDa/S/GwFA0Vt8A7F+18QXRUJX7g1qSxJ8KtCPtQnuacBrPrFwKlrGyHu
-	 JgVpr2O1y77ZO47EzS29aj4W38oN2jH+LqivTGB+V1QW6LnJbMcg4cpYPpCLK8b0Qe
-	 QUuGrLtVyW8ddNVjP4YWaCEz4jI+6kdKiDb6q6oHqWbEMSQywfwantQ4JP0fVJWEZH
-	 +tAlhiet9F/1S5iA0V5yO3wyQFOz3PutsJ8hoBLcNF0s0pM32Juu7vBJYZzh4tx1Ni
-	 x+JXQeLhdbCbdjVheDdGiYc87WyL20aa84aIxKCDefJhnpS2Cp58vQRTHIjbTg3Pgl
-	 sxH+9dvSEM9hw==
+	b=n74SW63m3g2vdXmFe3PM5znz6KRPmNRYMfgHOkvKjEl98qnQTDDxvmylU6XbUbAXg
+	 lUdFncUSLM1ksgLt6Odpy0PbmiQaHrtGuGmuh89xzmS9EORRxSz2MMKLf7ZmbxGGuc
+	 NloIThis473MS7v/DH5MkWbffUHpZNHXIJt4gVg6neLGGxKIhmPpYEBAdmfX9cb5Tv
+	 /mAD+Hx9iaJvTjlGHOtnbrHRxbiXJj+RU54z2Ih3MwFJ7QRGq0NXCN1YBN7XV6jA72
+	 kDGj6YPpYX5EfuWm7cHJDIahKfDHgHIeZkhjKffXO/9aa9wa5aozGF0UEn16vFabmX
+	 QfO3OysVSxRRg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
+Cc: =?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <legoffic.clement@gmail.com>,
+	Amelie Delaunay <amelie.delaunay@foss.st.com>,
 	Vinod Koul <vkoul@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
 	mcoquelin.stm32@gmail.com,
@@ -55,21 +56,18 @@ Cc: Amelie Delaunay <amelie.delaunay@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.19-6.12] dmaengine: stm32-dma3: use module_platform_driver
-Date: Wed, 18 Feb 2026 21:04:11 -0500
-Message-ID: <20260219020422.1539798-35-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.19-6.1] dmaengine: stm32-mdma: initialize m2m_hw_period and ccr to fix warnings
+Date: Wed, 18 Feb 2026 21:04:16 -0500
+Message-ID: <20260219020422.1539798-40-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260219020422.1539798-1-sashal@kernel.org>
 References: <20260219020422.1539798-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.19.2
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_180522_143914_964B800C 
-X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,132 +82,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+From: Clément Le Goffic <clement.legoffic@foss.st.com>
 
-[ Upstream commit 0d41ed4ea496fabbb4dc21171e32d9a924c2a661 ]
+[ Upstream commit aaf3bc0265744adbc2d364964ef409cf118d193d ]
 
-Without module_platform_driver(), stm32-dma3 doesn't have a
-module_exit procedure. Once stm32-dma3 module is inserted, it
-can't be removed, marked busy.
-Use module_platform_driver() instead of subsys_initcall() to register
-(insmod) and unregister (rmmod) stm32-dma3 driver.
+m2m_hw_period is initialized only when chan_config->m2m_hw is true. This
+triggers a warning:
+‘m2m_hw_period’ may be used uninitialized [-Wmaybe-uninitialized]
+Although m2m_hw_period is only used when chan_config->m2m_hw is true and
+ignored otherwise, initialize it unconditionally to 0.
 
-Reviewed-by: Eugen Hristev <eugen.hristev@linaro.org>
+ccr is initialized by stm32_mdma_set_xfer_param() when the sg list is not
+empty. This triggers a warning:
+‘ccr’ may be used uninitialized [-Wmaybe-uninitialized]
+Indeed, it could be used uninitialized if the sg list is empty. Initialize
+it to 0.
+
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+Reviewed-by: Clément Le Goffic <legoffic.clement@gmail.com>
 Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Link: https://patch.msgid.link/20251121-dma3_improv-v2-1-76a207b13ea6@foss.st.com
+Link: https://patch.msgid.link/20251217-mdma_warnings_fix-v2-1-340200e0bb55@foss.st.com
 Signed-off-by: Vinod Koul <vkoul@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Interesting - all three STM32 DMA drivers use `subsys_initcall()`. The
-other two (stm32-dma and stm32-mdma) also lack module_exit. This commit
-only changes stm32-dma3.
+I can see `sg_len` is passed from the DMA framework's `prep_slave_sg`
+callback. While the DMA framework generally doesn't call this with
+`sg_len == 0`, there's no explicit guard against it in this function.
+The `stm32_mdma_alloc_desc` with `sg_len == 0` might succeed (allocating
+a descriptor with 0 nodes), allowing execution to reach
+`stm32_mdma_setup_xfer` with an empty list.
 
-## Analysis Summary
+### Verification
 
-### What the commit fixes
-The stm32-dma3 driver registers using `subsys_initcall()` but has no
-`module_exit()` function. This means the module can be loaded (`insmod`)
-but never unloaded (`rmmod`), as the kernel marks it as busy due to
-having no exit/cleanup path.
+- **Read the actual code**: Confirmed `ccr` is used at lines 777-779
+  after the for_each_sg loop, and if `sg_len == 0`, `ccr` is never
+  initialized by `stm32_mdma_set_xfer_param()`.
+- **Caller analysis**: `stm32_mdma_setup_xfer` is called from
+  `stm32_mdma_prep_slave_sg` at line 809 with `sg_len` from the DMA
+  framework - no explicit guard for `sg_len == 0`.
+- **m2m_hw_period**: Confirmed at lines 737-738 and 749-750/758-759 that
+  it's only used when `chan_config->m2m_hw` is true (false positive
+  warning).
+- **Risk assessment**: The change is a trivial initialization, zero
+  regression risk.
+- **Could NOT verify**: Whether any real-world code path actually passes
+  `sg_len == 0` to `prep_slave_sg` (unverified, but defensive
+  initialization is correct practice).
 
-### Change implications
-The fix replaces `subsys_initcall()` (priority level 4) with
-`module_platform_driver()` which uses `module_init()` /
-`device_initcall()` (priority level 6). This is a **behavioral change**
-- the driver will now:
-1. Initialize later in the boot sequence (device_initcall instead of
-   subsys_initcall)
-2. Be unloadable via rmmod
+### Conclusion
 
-### Risk Assessment
-- **Positive**: Fixes inability to unload the module - this is a genuine
-  bug fix
-- **Risk**: The init level change from `subsys_initcall` (level 4) to
-  `device_initcall` (level 6) could cause probe ordering issues. DMA
-  controllers are often needed early by other subsystems. However, with
-  device tree and deferred probing in modern kernels, this should be
-  handled. The fact that 54 other DMA drivers use
-  `module_platform_driver()` successfully supports this.
-- **Scope**: Very small change - removes 6 lines, adds 1 line. Single
-  file, single driver.
-- **Affected stable trees**: Only 6.11+ (driver introduced in
-  v6.11-rc1), so this would apply to v6.12.y and v6.13.y stable trees.
+This is a very low-risk fix that:
+1. Silences compiler warnings (useful for clean builds)
+2. Fixes a real (if potentially rare) uninitialized variable bug for
+   `ccr`
 
-### Stable criteria assessment
-- **Fixes a real bug**: Yes - module cannot be unloaded
-- **Obviously correct**: Mostly. The `module_platform_driver()` macro is
-  the standard pattern used by the majority of DMA drivers. However, the
-  init level change adds a small risk.
-- **Small and contained**: Yes - 7 lines changed in one file
-- **No new features**: The ability to unload a module is restoring
-  expected behavior, not a new feature
-- **Tested**: Has a Reviewed-by tag from Eugen Hristev
-
-### Concerns
-1. The initialization order change (`subsys_initcall` →
-   `device_initcall`) is the main concern. DMA engines are
-   infrastructure that other drivers depend on. If anything probes
-   before the DMA controller is ready and doesn't handle deferred
-   probing correctly, this could cause regressions.
-2. However, this is mitigated by the fact that modern device tree
-   platforms and probe deferral should handle this gracefully.
-3. The bug (inability to rmmod) primarily affects development/debugging
-   workflows and modular kernel configurations, not production embedded
-   systems that typically build DMA drivers in.
-
-## Verification
-
-- **git log** confirmed stm32-dma3.c was introduced by commit
-  f561ec8b2b33d, which is in v6.11-rc1
-- **Read of current source** (line 1917-1922) confirmed the
-  `subsys_initcall` without `module_exit` pattern matches the pre-patch
-  state
-- **Grep of drivers/dma/stm32/** confirmed all three STM32 DMA drivers
-  use subsys_initcall - this commit only changes stm32-dma3
-- **Grep of drivers/dma/** found 21 DMA drivers using subsys_initcall
-  and 54 using module_platform_driver, confirming module_platform_driver
-  is the dominant pattern
-- **git tag** confirmed the driver exists only in 6.11+ stable trees
-- The `.remove` callback (`stm32_dma3_remove`) is already defined in the
-  platform_driver struct (line 1909), confirming the removal path was
-  intended to work
-
-## Conclusion
-
-This fixes a real bug (module cannot be unloaded) with a minimal, well-
-understood change using a standard kernel macro. The risk is the init
-level change, but this follows the pattern of the majority of DMA
-drivers. The fix is small, reviewed, and appropriate for stable. The
-driver only exists in 6.11+, limiting the scope of backport. For
-embedded/STM32 developers who load the DMA3 driver as a module, this is
-a meaningful fix.
+The fix is trivially correct, one line, zero regression risk, and fixes
+a genuine code correctness issue. While it's borderline because the
+primary framing is "fix warnings" and the affected driver is
+STM32-specific, the `ccr` uninitialized variable is a real bug that
+could cause DMA hardware misconfiguration, and the fix has absolutely no
+downside.
 
 **YES**
 
- drivers/dma/stm32/stm32-dma3.c | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
+ drivers/dma/stm32/stm32-mdma.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
-index 50e7106c5cb73..9500164c8f688 100644
---- a/drivers/dma/stm32/stm32-dma3.c
-+++ b/drivers/dma/stm32/stm32-dma3.c
-@@ -1914,12 +1914,7 @@ static struct platform_driver stm32_dma3_driver = {
- 	},
- };
+diff --git a/drivers/dma/stm32/stm32-mdma.c b/drivers/dma/stm32/stm32-mdma.c
+index 080c1c725216c..b87d41b234df1 100644
+--- a/drivers/dma/stm32/stm32-mdma.c
++++ b/drivers/dma/stm32/stm32-mdma.c
+@@ -731,7 +731,7 @@ static int stm32_mdma_setup_xfer(struct stm32_mdma_chan *chan,
+ 	struct stm32_mdma_chan_config *chan_config = &chan->chan_config;
+ 	struct scatterlist *sg;
+ 	dma_addr_t src_addr, dst_addr;
+-	u32 m2m_hw_period, ccr, ctcr, ctbr;
++	u32 m2m_hw_period = 0, ccr = 0, ctcr, ctbr;
+ 	int i, ret = 0;
  
--static int __init stm32_dma3_init(void)
--{
--	return platform_driver_register(&stm32_dma3_driver);
--}
--
--subsys_initcall(stm32_dma3_init);
-+module_platform_driver(stm32_dma3_driver);
- 
- MODULE_DESCRIPTION("STM32 DMA3 controller driver");
- MODULE_AUTHOR("Amelie Delaunay <amelie.delaunay@foss.st.com>");
+ 	if (chan_config->m2m_hw)
 -- 
 2.51.0
 
