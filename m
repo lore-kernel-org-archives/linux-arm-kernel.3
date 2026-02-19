@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12156E9A054
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 19:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FD2E9A054
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 19:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dPP/cIarqO1P9h9eWlYa372Rs/GIxWfK5Giq5Q6Jtr8=; b=Ml1kFWQCSgpmXOltMa5NKXyGdy
-	NyIQG1b57WwLs0eIILV3lNSLg+AUDGpvG3/CSvOYrxt5cWs4zvqvcBJSxJ+Vt8a3ekFgwcek5Em7b
-	zgBItorwTrYOYue5SV2js7HXS1JoMyV4hOq3vEWqGNHTNAJ7Y35HJ4Rq7kMhtQY8BA1ElWs6S3RlD
-	rQ750rQx+KAi2gxaaoY4VK0QOl8nZL7CtYYucvwP1Ufpuzli/K/kZdpEaP1G0Yo27JfFr7h8k4a5K
-	jur2ub2LgPCwjO1ZNw/EiGf9kcWnvxiCV7xI5RAvebJKVUbtyLckA99JEZ7M0PSQQJ8R90C55E3xB
-	DazNpGKQ==;
+	bh=C/rEO0Z2jm9W6wx2j6ODhCF8xkyH7LtHepPEB+5JWS8=; b=HKlXdsrcdi8TYlpLog+99xiws2
+	BTzO/b50F5YpH2zRTLUwnN50hdj+I2xykj7paiUtYe61Nj5Dqs+eiD2CQHPZR0T25uX7FzLcfSXUK
+	bmXahEHq3F+Vaz5mnaFE1y5K5xq9dHNmH4WBMXSLq1DOTcLJrGWpi5oaR3zqgKCdLNd8VGQL308Df
+	P3pAmn1s7ct34o7e+Igt4ZtABFUQAR62foHdP4v/rhXxljfeungpRA+/1ILc18TmfQM50GKqIONlC
+	M0YVwpVxiLolXSMyRSgk+wMJK3vJvN5zMuUiDXZP4kjD23GpHLI1HmXLq0u23G1MOGHvyrjSZsoEq
+	q+dhRCYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt9eO-0000000Bq7C-3QVr;
-	Thu, 19 Feb 2026 19:25:24 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vt9kC-0000000Bqb4-0uOS;
+	Thu, 19 Feb 2026 19:31:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt9eM-0000000Bq6h-1zIM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 19:25:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=dPP/cIarqO1P9h9eWlYa372Rs/GIxWfK5Giq5Q6Jtr8=; b=o14AFEFWgr4pXheJHwdZbvcLVX
-	H7IWEeMLSvtYiqinwiXG68B+CxFS5PshaScxPl5Kc/wg4ZXrMcK+OZsRvuW/O2pNbPNPZLTEZvTe5
-	YL2XTPxup0UUF0P34vmXe3UZkj/ZChdsE+KslfVEM7eS/hb1UNw//4S/P0dpenrlFIvPfR/DZDZBo
-	ceRP++HlA46ZXqXNlGFBfDAq4MMA/Mo5LV3WHNSBPe9n3DE0QRAUAxTTsTx5vFd4r8xAtKEiTHHqv
-	yI1ViidDr/qHM031HgJ4BqBvEUVNNd7LAtsMkce2iVxNSkQMoXFXjWMMtpq8vrEeC10MX+W9ikSKm
-	wisGstpA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46806)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vt9e9-000000001EC-0CuB;
-	Thu, 19 Feb 2026 19:25:09 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vt9e5-000000003ZS-1kp1;
-	Thu, 19 Feb 2026 19:25:05 +0000
-Date: Thu, 19 Feb 2026 19:25:05 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Christophe Roullier <christophe.roullier@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] net: stmmac: restore pinctrl when driver remove.
-Message-ID: <aZdjke4eOwF-wTZO@shell.armlinux.org.uk>
-References: <20260218083618.67805-1-christophe.roullier@foss.st.com>
- <20260218083618.67805-3-christophe.roullier@foss.st.com>
- <aZV-b6TdLMdI8dm4@shell.armlinux.org.uk>
- <CAD++jLnF=8MvW4CbXmPZR=w8tAUZiL9M3N73WB++DaYYwhToDQ@mail.gmail.com>
+	id 1vt9kA-0000000Bqaj-2UtM;
+	Thu, 19 Feb 2026 19:31:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9FE7560054;
+	Thu, 19 Feb 2026 19:31:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0939BC4CEF7;
+	Thu, 19 Feb 2026 19:31:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771529481;
+	bh=eEbIoo2q1/IW9azGPa53pZmcMQrNecjqCKNKnaoLUAY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eFaGOqs/Ut2CksfJcyyCXPz/G+49WQAqARVkkt7s0uuz77lzNCcFABEsPoxLrM/+/
+	 stFVezcwfKsdB5T+uHpWZIfYS+Xkw+9tMLF2j9W7gXqlB2NK2jloyauUQ5R1KtMQ+C
+	 pEy8TliEZzi8KHpeXkl39ilFhF+tz5Z7pFd+wMpggDxJcQxP7N1LWGJ+O+4gytrAnf
+	 FHPVhqTzXarIfMAIh88xDSwQ9dAJ8j2Tyg6iW+wqHVBG+M2S/f7rDdHSvEn10qzOF7
+	 Nt+ju4WrkNa+cagWpaRY3uoJtyitTIw3KEO2S0qTJbt9irBD5+Lm3zpUm4L0Icp1F8
+	 QvqvcyrboX9nA==
+Date: Thu, 19 Feb 2026 11:31:18 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	Mingwei Zhang <mizhang@google.com>,
+	Xudong Hao <xudong.hao@intel.com>,
+	Sandipan Das <sandipan.das@amd.com>,
+	Dapeng Mi <dapeng1.mi@linux.intel.com>,
+	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+	Manali Shukla <manali.shukla@amd.com>,
+	Jim Mattson <jmattson@google.com>
+Subject: Re: [PATCH v6 42/44] KVM: VMX: Dedup code for adding MSR to VMCS's
+ auto list
+Message-ID: <aZdlBkLEQyv9q5ll@google.com>
+References: <20251206001720.468579-1-seanjc@google.com>
+ <20251206001720.468579-43-seanjc@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jLnF=8MvW4CbXmPZR=w8tAUZiL9M3N73WB++DaYYwhToDQ@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_112522_520510_54BF4EE2 
-X-CRM114-Status: GOOD (  33.62  )
+In-Reply-To: <20251206001720.468579-43-seanjc@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,67 +89,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 08:11:13PM +0100, Linus Walleij wrote:
-> On Wed, Feb 18, 2026 at 9:55 AM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> > On Wed, Feb 18, 2026 at 09:36:17AM +0100, Christophe Roullier wrote:
-> > > when system suspend or unbind, need to set pins
-> > > to low power state to save IO power consumption.
-> > >
-> > > Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
-> > > ---
-> > >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
-> > >  1 file changed, 3 insertions(+)
-> > >
-> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > > index 067b17f03cd09..3d4f0e4cb53fb 100644
-> > > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > > @@ -8071,6 +8071,9 @@ void stmmac_dvr_remove(struct device *dev)
-> > >       mutex_destroy(&priv->lock);
-> > >       bitmap_free(priv->af_xdp_zc_qps);
-> > >
-> > > +     /* Select sleep pin state */
-> > > +     pinctrl_pm_select_sleep_state(dev);
-> > > +
-> >
-> > I'm not convinced this is correct, there's nothing to match it in the
-> > probe function, except what the driver model core does. However, the
-> > driver model core also doesn't clean up the state if probe fails.
-> 
-> I think it looks right, if this state is indeed for the sleep state of the
-> device pins, and this is what you want to happen at remove().
-> 
-> The non-cleanup of the pin states is a (maybe ugly) feature: there
-> is an "init" and a "default" state. If the "init" state does not exist the
-> "default" state is selected in the dd.c call.
-> 
-> These states are just some values in dev->pins, allocated with
-> devm_kzalloc(), and devm_pinctrl_get() for e.g. dev->pins->p,
-> so IIUC this will befree:ed on driver detach,
-> also if the probe() fails, at least that is what the original devres
-> design document says
-> Documentation/driver-api/driver-model/devres.rst
-> 
-> There is really no other cleanup that can happen: there is no
-> before-default-or-init state we can revert to (that would be the
-> power-on values), so there are just these states in some pointers
-> that could be accessed by e.g. pinctrl_pm_select_sleep_state()
-> that get free:ed up, and muxing and pin config that happened
-> in the pin control hardware just stays around.
+Hello,
 
-What we seem to end up with is that on probe failure, we set the pins
-to init or default state. However, on remove, it's up to the driver to
-decide whether to put the pins into sleep state or not.
+On Fri, Dec 05, 2025 at 04:17:18PM -0800, Sean Christopherson wrote:
+> Add a helper to add an MSR to a VMCS's "auto" list to deduplicate the code
+> in add_atomic_switch_msr(), and so that the functionality can be used in
+> the future for managing the MSR auto-store list.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/vmx/vmx.c | 41 +++++++++++++++++++----------------------
+>  1 file changed, 19 insertions(+), 22 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+> index 018e01daab68..3f64d4b1b19c 100644
+> --- a/arch/x86/kvm/vmx/vmx.c
+> +++ b/arch/x86/kvm/vmx/vmx.c
+> @@ -1093,12 +1093,28 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
+>  	vm_exit_controls_setbit(vmx, exit);
+>  }
+>  
+> +static void vmx_add_auto_msr(struct vmx_msrs *m, u32 msr, u64 value,
+> +			     unsigned long vmcs_count_field, struct kvm *kvm)
+> +{
+> +	int i;
+> +
+> +	i = vmx_find_loadstore_msr_slot(m, msr);
+> +	if (i < 0) {
+> +		if (KVM_BUG_ON(m->nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> +			return;
+> +
+> +		i = m->nr++;
+> +		m->val[i].index = msr;
+> +		vmcs_write32(vmcs_count_field, m->nr);
+> +	}
+> +	m->val[i].value = value;
+> +}
+> +
+>  static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+>  				  u64 guest_val, u64 host_val)
+>  {
+>  	struct msr_autoload *m = &vmx->msr_autoload;
+>  	struct kvm *kvm = vmx->vcpu.kvm;
+> -	int i;
+>  
+>  	switch (msr) {
+>  	case MSR_EFER:
+> @@ -1132,27 +1148,8 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+>  		wrmsrq(MSR_IA32_PEBS_ENABLE, 0);
+>  	}
+>  
+> -	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
+> -	if (i < 0) {
+> -		if (KVM_BUG_ON(m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> -			return;
+> -
+> -		i = m->guest.nr++;
+> -		m->guest.val[i].index = msr;
+> -		vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
+> -	}
+> -	m->guest.val[i].value = guest_val;
+> -
+> -	i = vmx_find_loadstore_msr_slot(&m->host, msr);
+> -	if (i < 0) {
+> -		if (KVM_BUG_ON(m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> -			return;
+> -
+> -		i = m->host.nr++;
+> -		m->host.val[i].index = msr;
+> -		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
+> -	}
+> -	m->host.val[i].value = host_val;
+> +	vmx_add_auto_msr(&m->guest, msr, guest_val, VM_ENTRY_MSR_LOAD_COUNT, kvm);
+> +	vmx_add_auto_msr(&m->guest, msr, host_val, VM_EXIT_MSR_LOAD_COUNT, kvm);
 
-Shouldn't a driver be consistent, and place the pins into the same
-state in both these scenarios?
+Shouldn't it be &m->host for the host_val?
 
-Conversely, I'm slightly worried that putting pins into sleep state
-when we're not powering down may be bad if they're allowed to then
-float, which could cause the PHY to interfere on the network.
+Thanks,
+Namhyung
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>  }
+>  
+>  static bool update_transition_efer(struct vcpu_vmx *vmx)
+> -- 
+> 2.52.0.223.gf5cc29aaa4-goog
+> 
 
