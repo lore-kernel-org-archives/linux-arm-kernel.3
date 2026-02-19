@@ -4,191 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F576E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 11:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA75E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 11:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kVRSK5d9ERx8Eel2oE2pD8E+VnADDlSA2pMCvvSensU=; b=tsycgKYGtJ0VDyTFfnZlLWS3ot
-	R2VQbXLe+cmX2ifQOlsi0XO0TF6DneaSYqD13FPNdEJinUVP97St1dgyylyGbAwIBQigy/SdTXrgx
-	xvhmzoOww4wt+14oFaYnGwofjwvtjJgEgbsGap5IQwaeY8nHJl/vu3cIzdbJOil7FmJEtG86y0ctI
-	9jm2tSAZIxFytudR9Kvuqbiq+81LCUjKvH2FY5S+m9oh94Yvj3nvSxch/vmzs+yohGEPYIXsCP3T6
-	2px1/S077dgQCepblnh5lKM9JRe5NqgDmNBM20vCBETW8gDv/+PSiPvqDaTldlDMlhahmQN7kSFz0
-	6tBphepA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QpMhItSqWDmZWN3CyWehgL8eDC1MQIfcD9XdymF+1A8=; b=aLTOdWP2754IdviUcZBfvboTHX
+	KF/SO3jGPJAtbA0H7H3Y7f933bhtz7oEp6qHfyTkWA91K2J6aLpPkjxmGyHOv+tswBPEP1+fTh63l
+	mfrNek8bi8peEzKH7gbHYMvkFOsRMPqu6qh5vPhZOgw0t7mV/OOE3q6H+oVcu5LS3Q6GJzZ4+aTv6
+	z6pv6IGL6hRUrmaFbTFbOmNCnxdRTs2c6OQcSMaO/JNQaX+KarhGb1erreBox+VgnyWfDtm6jT4AQ
+	aeM6ts0RC+MP7TUk9hMGB0t5MxI6kHqpjoEn0cxrJ0K9j56/h6ikFvLxWfUV9xks6o8YJia1kOLkZ
+	GYknhRbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt2Kz-0000000BIB9-0mcP;
-	Thu, 19 Feb 2026 11:36:53 +0000
-Received: from mail-westeuropeazon11011024.outbound.protection.outlook.com ([52.101.70.24] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vt2LX-0000000BIH0-0KdM;
+	Thu, 19 Feb 2026 11:37:27 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt2Kw-0000000BIAH-1D6t
+	id 1vt2LT-0000000BIFT-3j1e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 11:36:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FbcEh2VGRJqA5X3l15PfQN6t/7jz2zpoaxJ6DBnpw70NoPzYnnP8H5FI7iQe0MfSPdGbbn3QiwA14SCt/sY4l1UjmZqLHLcAJCGZcdgvs7pWZYAU23DvoqZlkTsJA1vlT1aUAIQvOq7pcxM5gYFe4mWcVm9HfxoPQIuppMdDATXcmPai/02MBJ+1pKn4m5ErONskqSl3w2FaSNUvqggjqiTs0HyZx/cAJ+1h6pFhqXUHxrIENMHNtOwn5gIBYjzIhqH8QeH71JhfwQSHu5ifBq3CB/BofTxMKhpeYtE/LdaVVdXV5izHF6qdZ/kjQ5V4LjxHAMZlRj5PvWOqaIWdxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kVRSK5d9ERx8Eel2oE2pD8E+VnADDlSA2pMCvvSensU=;
- b=Kuic/g1+J6s89oSUASrW7/8+4LUi9+z6XmgL/C6bCKP+7p41hfqx2hzw4d33gt8V0LPijGkKAn8QM72zcfWJS654KT6OdIYNmN5GRZT0sl4KK3zVLVPvvQsqHARHNIRvbO+0nBEjXuZltWrRe+/+O8E0LfUO4R69isJT2NaLrpgsund1g/vzvw5l4sd48Gp+loryWb/VvOa8YCCGcRFBhzbdgc1H8Bg8GgtgWIkBaZ0De0XOGYzrwhL17758mUTUWA/WD6yA8mp6teyWivYGXQHI80x8B9iJ6VYuwNlUYPeHawVirK1Yi4Drpwkoari65Tsrmbcc2qGFtQq1E8q+fQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kVRSK5d9ERx8Eel2oE2pD8E+VnADDlSA2pMCvvSensU=;
- b=HE9EXOX6HIfwT57RmybvC0Zk0kyAvSV0ik2XrvewPn8AlFZXFtcLegL+tPn6xU8QTCgG0EiXdiBvBWx+j+E6lWdWkf6QjQgFrTjb3sGuV6taOS+cgFFdDy+UPpabpmPHbj+PugIj9Xg69H39rZCK8HSDfhxO+up7vvCQUIcDODRoSsIt9H4pmRDmvQnRlWYfnK56BEpHDjUcjkjnm8MxNAzcFqeHq8LKPwEMz9q7rsXsLNCIX8bZ8cRbt3OvbwempaPU25t+clwoRD+PL/Xna6VWBy30JljylTTk+/xrQjXnTQeexTCPlNcR+bm2xSRltfcnIhDzTfmHf9fMRdI7Xw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by PAXPR04MB9376.eurprd04.prod.outlook.com (2603:10a6:102:2b2::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.14; Thu, 19 Feb
- 2026 11:36:41 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%4]) with mapi id 15.20.9632.010; Thu, 19 Feb 2026
- 11:36:41 +0000
-Message-ID: <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
-Date: Thu, 19 Feb 2026 13:36:31 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
- module
-To: Rob Herring <robh@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
- devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
- Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- "Vincent Guittot devicetree @ vger . kernel . org"
- <vincent.guittot@linaro.org>
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
- <20260121021913.GA1704619-robh@kernel.org>
-Content-Language: en-US
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <20260121021913.GA1704619-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM9P192CA0012.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:21d::17) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	Thu, 19 Feb 2026 11:37:25 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-48371bb515eso11303965e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 03:37:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771501041; x=1772105841; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QpMhItSqWDmZWN3CyWehgL8eDC1MQIfcD9XdymF+1A8=;
+        b=TrLZpkZ4msrhUqymvT4tb68G3iKFhTNg5Fpe8UteawsTZ7KqPHwo+M8RXkZDgY04j2
+         cm7dJraBBbG+qmHTwpZ72DHgxaCcnEuxbi5ohk9iP6+TINoHMK5XjtdIzr6b/HNz71Yh
+         3BmHPg1r6vTfrQVIhe9t7qOpGiG01y5fhcSCBgN62P69Nvgb4W9RK5h1gLrAQEePW6gQ
+         ZxwuPKsadZ2aO+HFxalmHFoWbSAIfOiDUCDKNuY9lAuZQ7dSp4VJpDwiwQxfSroRPPnT
+         guCVWNRhIlLkoe7Z58FxpV1YHFpeF9ZaphKspze5GkQ1B6aSG1wRr0Lf8KsuTxScIsCe
+         7GWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771501041; x=1772105841;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QpMhItSqWDmZWN3CyWehgL8eDC1MQIfcD9XdymF+1A8=;
+        b=YBAxQ/F2aA2exbPF0wpdHQU7ha804j0bMZkx1PKPSWX06lMD/ogMwmv8HpJTbmp9Lr
+         OJR8FqUVzzHBVdc41tOlIO/0KDKZUwbSRoeN5hNPHzYyUtwsWgpc7uoIU0/tdNQ+ojGw
+         aZ66BZc67ZxO8eZnXBMwYByJEK45lykzd8MuK9FK//2SW9S3EhZI3q68nDiC5wnJZHMx
+         JguDF3g1EjCTn8xcR+ILvD5WRTZX9pluWyw6Uy9lGDe4cTyw9cV9ptctbl59ySo2J79/
+         HtPjW3rnJ+beOrSPzDYO+ZjBfTEz6D+4Q55ItnesI02PClNE52Txv3kPPQeb6r4kVhes
+         OKuQ==
+X-Gm-Message-State: AOJu0YyzF/fvYXNuSielmD6Sqo8IfJlaD+YiHqDj44T8IBGywk2EK/BY
+	68PHavyI+DyV7WoBK1otSQ+LD3krbGXeoO5md/HNU3DlkxlpN6EPa/FG
+X-Gm-Gg: AZuq6aI3fmmLGbwiRP34ziA55Ye183KNf6bwH/PHlRbotrYk4h4t8BMOow0670oGRAY
+	phsW0VdlxKStEk1H9u28j3z8ZIe20++J+kq6aEKHg7ud77Bv1+TZJ3vWuJj3iNa2EcJPVOgxTiM
+	ZFTUNU/LUi80U4dgVEh01h07M1j3wrx7koOC97CxsMHmNtgFvStV6JOnsHFsBkEuwVTX5WnoGGa
+	tfJPJL+t8by+cQLNSTUYx+KHayf8U49ek2bAJiOolUp+yJPa8sZ/mv+NICeSpRJyO+sAmDqF/f3
+	ZAWAN6RWO9F0fqCZ+qO45+67pMCjRyZ7dL4GIVhHMTu5pZBel97Xt8o8vylciZG9tu3RTlkpx5R
+	qi5MGzTsxVzzxSofR6Cx0TVVRsPGWl1Wj/udpj8N0OmvtaDcpvHAzsJZVmf7fBBNf1pDIZrCTut
+	NVRbgEqUB/KrOufMp2S/8vz1OAsMXfoIuGey+E/lBQqVWo+TQTc3BsWApSZTPshM5osQeKMk7Kc
+	AC2Qw==
+X-Received: by 2002:a05:600c:4e54:b0:480:4a90:1af2 with SMTP id 5b1f17b1804b1-4839c002d65mr73263895e9.35.1771501041214;
+        Thu, 19 Feb 2026 03:37:21 -0800 (PST)
+Received: from localhost.localdomain ([196.119.106.230])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4835d994670sm529327955e9.4.2026.02.19.03.37.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Feb 2026 03:37:20 -0800 (PST)
+From: Reda CHERKAOUI <redacherkaoui67@gmail.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Reda CHERKAOUI <redacherkaoui67@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] arm64/mm: harden ASID allocator against empty bitmap after rollover
+Date: Thu, 19 Feb 2026 11:37:14 +0000
+Message-ID: <20260219113715.8001-1-redacherkaoui67@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|PAXPR04MB9376:EE_
-X-MS-Office365-Filtering-Correlation-Id: c66938dd-9b63-411e-94d9-08de6fab26b0
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|19092799006|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?N0g1bHMvQ3ZIZTZlN2Z0cytlNERlS3lQUFh6RURVVkRXcWxnV2dxdWtCMGQy?=
- =?utf-8?B?eklqSHpkc2RqNjVvbmltVnFXQUE4eDF1bHhRSnVDNUJrejFIVTRRMS9iUUZm?=
- =?utf-8?B?VHV5alg2MFZNUmI4eWVaNVZFbk5ZVEFzVnI1M3dyQm81Ym5CZlhzRndKWGsw?=
- =?utf-8?B?M0tvZ2NZOFluK1FNcnlNa2QzVVJJVWt2RVJseXMxaTFuUFVNY3ZZUjZrdk9o?=
- =?utf-8?B?UFFmRGVodk1ZTVpVbTF6WTMzNnZZTEJKbnBCOFFCSFZOd2hGbk12Z1ZkNVZP?=
- =?utf-8?B?dlk3a3FNU0lscWYxYmZJOUFtd0NGM005T2ZIaTZSWG5RaW5ndDVva3g1RXhr?=
- =?utf-8?B?SjYyUXpFbHhiSWdBM3VjbkFPNktyUFRLSUNoUEg3VGh3U1NCRG8zYTJSejBR?=
- =?utf-8?B?L3BUdkdIQStXazBudkxnZHJXbEZxMXFTbk5PbjdYTHRnMFBOZ3ZORWFWNHVG?=
- =?utf-8?B?M2pKckV2Nk4zLzhoejRibHEzNTBhK1NpYVUyNnIvbEZML3phY2RJOHNoYnkr?=
- =?utf-8?B?ckdoc3Zjdm9BdWYzRXYrTGtuTm9zeG4zMVJITVhuODBSdGU0VEJOaHo4Titk?=
- =?utf-8?B?QUxPNnN0MXYvSXdLYnZCalN1ZmZRSThkcmwySnhVU1lWMmRFdnNXeHRYVERK?=
- =?utf-8?B?OGxWUCt0cWdRcTdtajdVeDFEOHk5bFhQRU9YckdBemdZeC9sQ3VIL216TU5O?=
- =?utf-8?B?Q2JlMGZaSUM0b3hpQ2hYaGcwMHk0empCNkRtVnY0eDJoVlZ1RHAwQkowLzdm?=
- =?utf-8?B?T3dKVnMrbTJYc3lFVU4vLzlzUXdLTmEvR0svV0tNYkVUZmhPd0hnaFR6d2pF?=
- =?utf-8?B?aXRCb3hsajVhZlErWDZLeVJ0SmRvenphNXhRQU9VcDIzN2M2bC9PY09HU1Yz?=
- =?utf-8?B?cklucG1UOWRVc1dqTm1JQjRCaDZENTBucC80WHpPRGNhaXZiaDk1c3VuNEpk?=
- =?utf-8?B?QzdQbGZvTk5GY0FtdmhqVHo1VkVwMk5LL3JjUjkvRDRMRDltaklGc3ZQZXZJ?=
- =?utf-8?B?WFc2aDVmTkdWQU1WclFqQ2RrWGVIbTlSTmN5aGRJN1g0VEdxWVEvV3ppdVBC?=
- =?utf-8?B?RVZYbCt3b0xJLzlDbmxNM0NVaytyVnhUMWdVcFFhVU50eFdHWUZrWXA1Rldr?=
- =?utf-8?B?UmR6UVdHTDg4UTB1d2FZTWg2dkxxQ0VzeWhKVkFFcWtmZzNHckpOOTNLU2Ju?=
- =?utf-8?B?QVJRWXlMd29lM3A5ZEhhQ2VkS0Zud1NRM1FrMlVKd2JDOUdMOFFlbE1kZWIy?=
- =?utf-8?B?TC9KRWxRZWFDQ0RENElUaklBdjVpeWxycENCWk92UEVUZGIzSHpmcUtjVk4x?=
- =?utf-8?B?VEs2bFo1WXVEODYzVVQrRFN3L3lTbXBWeXRrL1hDdzBsK0hEQjdNSVNSRXN5?=
- =?utf-8?B?VmRsaHk4QkZ3OEZHQVV4MWRkMzdVWVVKVWFBVXRFN2xONk1qWWl3NWlXY1du?=
- =?utf-8?B?ZjZpZkJVM1d1TmtIdzNkeFdibkVxZytGWWdheFZjY1hIWW54ZURpbEg5aER1?=
- =?utf-8?B?T2lpTXVuTXR3Rk1BOG5ZWjk2eko3MjViWGd5R3E2c0N4bGVVM2RJL3V3cGZ5?=
- =?utf-8?B?Y1cyNTZidiszemREaWk2QTBENEl5ZjhmeWRWbDRrTGdLa1luTGhSc1VCeFNa?=
- =?utf-8?B?MXB4Z1o5VGNSU0FqSmJRUGRoTVdCQUFGN09RWm5SSWVhNVUvMjZlckRJcVQz?=
- =?utf-8?B?N3hubGVLeU95RWhnZzN3MzBZdmdmYjZuQmxBQ0RscEZRbmYxak5pWWk4RFUx?=
- =?utf-8?B?NnZ2RnNHZzJGbUIzZlQydG1yOXQzbUpQSzRhNnFXR0doc2djQitrbUg2VU9U?=
- =?utf-8?B?M0pFWEFHQVdBaGdoR3NNeWFtZUY1OURlUGFJUVZjdERWUnBBYUUrNXNPbjR5?=
- =?utf-8?B?Qk1GWTVvSHBja0dZQlhSdllwVWc2dXV3VUpnOUF3UXlML25wcmoxYzNab29x?=
- =?utf-8?B?YXlmaktQS21SWTk0YW45dkpLcUZ1NnUzODZZMmJXV1A0dUJOQzhUT0g3YkZj?=
- =?utf-8?B?UzhIZjU1RmdwUUJQQ01JcEFnWkFFaTQ4ZE43eXZkQllNWXZpYWJyMVVTRmVO?=
- =?utf-8?B?akFFamtvdDYzN2FDOEw5U3ZxNUJEaVBpdGlWaGhsc3FMSGlQNWdkS0V6ZWlq?=
- =?utf-8?Q?3XAC9HHdGOFN5DQHLbXxvywtu?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(19092799006)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YXh4SlBBV3hIRkRwRFg4OXBSb0Z4QVZXQ2lhdDBxb2ZhRXQrbm15enAzeWh6?=
- =?utf-8?B?YzdMMVVGbndSenA1TWZjQXpjZXowUkltRDNwV3ByMEFIYUphNXh5YUpnY2FZ?=
- =?utf-8?B?cUFJZ1FCc2hxNWFUbDk3QmgzTGpDOVA4YUxyeDF1U3crcXYra3dvVXFGbTFR?=
- =?utf-8?B?WmxjOGk5VjA2ZHNlS1h6dVBLU1ZqQ2NEZzVSd3E2VnByM2QzOElQNGZNbEtD?=
- =?utf-8?B?bDlEbWJ3cGdWRVl5UlJGeW9OUnhPNFNjays0UXFsckRnVHUyY2pNOVB4NkJi?=
- =?utf-8?B?NXN6VXhiMGxJZzJ4Sm04N3l1QmM2ZXMrQXM0aHFVTnBCZDl0ZUNtYi9tdTEv?=
- =?utf-8?B?bFNCdm5yOG5wc052VFc4N2tTN04xTnlTMkVlMElqZmtESHdnMUVmVkM5RWVS?=
- =?utf-8?B?aXZOMFZaMmRhU3NPenhHbmRFMlNQV2VkOEw5ZE9UN01SbldFRVdUQ0dMUW0v?=
- =?utf-8?B?bTdtZnlibVN0TStuWk1EUUdSNTVucUZ6VjVtQnNDdWtBQmk3Z3VXcmYyVzdJ?=
- =?utf-8?B?eTkvajd1OHJjaEhrSVlIclIvdlVCNE5LS2IvbjhNZ21EeVkwdWNxcWxKOWpQ?=
- =?utf-8?B?Smg3ajVxV05JNTNLOUdnVzFwTmZ3NGpIL1hLYXVwNytZa0ZKZzk4amhvQmdZ?=
- =?utf-8?B?emhRNnd6eGlyRk5wM1pVUmpYRytPelVHYjdwQ0V2UzZRT0R0a0RtaktXZU14?=
- =?utf-8?B?TVZzR3pXMFZDVzZocDUrdXdKbW1uTHlTd3lkMlpvcE5IYmU2Zm9udFl3cVUw?=
- =?utf-8?B?NHQrWGJ4UEswWFlGZTVISTk0VDRvYThBT1o0c0VRdklKQjQxZlJDaE16b2dt?=
- =?utf-8?B?enIvb2NkaE1NeTdGcHJmd1NsZnhoYk01bVZRN0ZHZ1d0cGtFVzhidEtwZkhP?=
- =?utf-8?B?MGNyVEpJaDU0amVuWTUyWG12UG9UNWVYQlN1YzA3bGpYWGZ5d3JJVFB6WWhj?=
- =?utf-8?B?TFZ0Y3d1U3dkM0VFSDRjYTFzWmk4YWg5NUk0RGgwcUFpRVF6Y2pqdmhxMnVs?=
- =?utf-8?B?S2lMWEphWmFKcUkrSzRrMjFXVE9nTkRQNE1hN2pMSERMbm1nMjNIWWRrWGp3?=
- =?utf-8?B?d1pISkw0R2xRbTlGMUZISXJTdkJRbG15aGd4aXNxNjdxUVJTeE1ocWhXQUlD?=
- =?utf-8?B?cGNadkFpTGpDdGErUUp0NlB1akFWRExzdkhBYkUvYjluZjEvNWppdDY3NUNG?=
- =?utf-8?B?NVEwTHBqL3BqYnBnRUx3YzlTVGFJWFF1ZUZBQ0xDVnZqak1iZ3NSZkFoR1lP?=
- =?utf-8?B?WHJsSk5wQVpYeHhJWWxpOTFwMHFnN3hXRGZIYUQwdkZLL1lsd01JbTEwVmhx?=
- =?utf-8?B?U1dWY2UvVi9SYzVxSkd4SEt2RXBOQklzVGpkdmJwMjFFS205T1R6L2ZFUzBv?=
- =?utf-8?B?akdNZS9PbDJ1cDZTZHVVN0ZpNVd3V1A0K1N2dG5saytORUJvdlVyUk1HWjdm?=
- =?utf-8?B?WG5WUis4UzlTd0d4dHdIcGNuQVgweHhkY2ozK3FibXdLUDM3UnFrWHpaQ1Bw?=
- =?utf-8?B?NWZPNTlZeEt1L1FiSndMaWpvOStrUzhtSU5wMUI5U0FTWE1qTDZkM3lYbERG?=
- =?utf-8?B?UkszcUwyVUZKL040aUZMQU9MbVRMcU9id0lZYW51cFBjNHNVVDJFS05sK1Z2?=
- =?utf-8?B?K1lkbVBHVWIwS08zcWJCQ0tyL0ZmT01uc3lPZDByRm9UUWczWEY4MnhwOU16?=
- =?utf-8?B?UTM3Rlp6dzNNQmRzaHBDaVlDUGthcFNHZjlWL3psaDZJN0xpZ2dKS28xZjEx?=
- =?utf-8?B?eGNuSTRPNlhNbHdyRFBZQ3RZMzVwZFMwTG9KcGFRVDRscmJzZ2gzaERoMGVa?=
- =?utf-8?B?aXFsM2VJWW1QVU9YTmp4bUpTVEFtM3YwSkpROVp1ekJTVk14SUM0RDE5aHNU?=
- =?utf-8?B?RWJGRndjUk92aTM1eUsxdmRqR1diZTc3Qk5NTVU0RzdRajVFR2lPVmNUV2l0?=
- =?utf-8?B?RWV0QjVxQi9qVDM5WWpzdm9JRDVYQ1dyb3R4UTdKSkc4SG8xNStNOFVVOXFX?=
- =?utf-8?B?SGk1MXJ6ZjJGaGRMa1BaMVAxUDJjdDJZOTJZS2pqb0ZieVNWd3FGQ2swbXZS?=
- =?utf-8?B?SkN6WVh2MG81UTNwcytvWks4NVZhOWdKNUo3T2d3ZG01aWhzajFIaXRYUDU0?=
- =?utf-8?B?QjZQUFZqUHNVUHJhMkpLUXZrZnBnVGJ1bHBnaDBqUFBQMVBheTZFQm9Cb0gx?=
- =?utf-8?B?NEsvNkF5N01RSmRPWDF0UzZELzIrak1IUVNONnFhamhIdGt3S3NtOWZaZlJa?=
- =?utf-8?B?WHNVd20vQTNWWkF3OFNHTHE5SjZEdHNzNzlCamxQbjY5cFJlZmg2dWpTZklX?=
- =?utf-8?B?NFJTaUx0bkZFcjYvSDNlVGphSFFkS1g2VnUraXFiNVBOTm03Q25MN1NKT3FS?=
- =?utf-8?Q?r/p9e/2G/mxZqG4eHTZ+zOR/L9pLPmzY5vwha?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c66938dd-9b63-411e-94d9-08de6fab26b0
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 11:36:41.4666
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hDGb6B+Xcz/sOIlXOolk++BLDU/dsvDwPne7+mV7AmkLf5z1X3JPpVScdXtYWWd5YRZYfj2tbPJ5/VsSP+GBeoTh/7l5Hcjr3rMNZmJXhkDnzpeUV81gXI+q3owSMMQz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9376
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_033650_515865_E94A0E3A 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20260219_033723_986330_3F0DCD66 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,254 +98,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Rob,
+new_context() assumes that after incrementing asid_generation and calling
+flush_context(), find_next_zero_bit() will always find a free ASID.
 
-On 1/21/2026 4:19 AM, Rob Herring wrote:
-> On Tue, Jan 20, 2026 at 01:59:13PM +0200, Khristine Andreea Barbulescu wrote:
->> From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
->>
->> Add the new dt-bindings for the NXP SIUL2 module which is a multi
->> function device. It can export information about the SoC, configure
->> the pinmux&pinconf for pins and it is also a GPIO controller with
->> interrupt capability.
->>
->> The existing SIUL2 pinctrl bindings becomes deprecated because it
->> do not correctly describe the hardware. The SIUL2 module also
->> offers GPIO control and exposes some registers which contain
->> information about the SoC. Adding drivers for these functionalities
->> would result in incorrect bindings with a lot of carved out regions
->> for registers.
->>
->> SIUL2 is a complex module that spans multiple register regions
->> and provides several functions: pinmux and pin configuration
->> through MSCR and IMCR registers, GPIO control through PGPDO
->> and PGPDI registers, interrupt configuration registers,
->> and SoC identification registers (MIDR).
->> These registers are grouped under two instances, SIUL2_0 and
->> SIUL2_1, and share the same functional context. The legacy
->> binding models SIUL2 as a standalone pinctrl node, which only
->> covers MSCR and IMCR.
->>
->> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
->> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
->> ---
->>  .../bindings/mfd/nxp,s32g2-siul2.yaml         | 165 ++++++++++++++++++
->>  .../pinctrl/nxp,s32g2-siul2-pinctrl.yaml      |   2 +
->>  2 files changed, 167 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
-> 
-> Doesn't look like this was tested...
-> 
->>
->> diff --git a/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
->> new file mode 100644
->> index 000000000000..ec743cf5f73e
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
->> @@ -0,0 +1,165 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +# Copyright 2024 NXP
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: NXP S32 System Integration Unit Lite2 (SIUL2)
->> +
->> +maintainers:
->> +  - Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
->> +
->> +description: |
->> +  SIUL2 is a hardware block which implements pinmuxing,
->> +  pinconf, GPIOs (some with interrupt capability) and
->> +  registers which contain information about the SoC.
->> +  There are generally two SIUL2 modules whose functionality
->> +  is grouped together. For example interrupt configuration
->> +  registers are part of SIUL2_1 even though interrupts are
->> +  also available for SIUL2_0 pins.
->> +
->> +  The following register types are exported by SIUL2:
->> +    - MIDR (MCU ID Register) - information related to the SoC
->> +    - interrupt configuration registers
->> +    - MSCR (Multiplexed Signal Configuration Register) - pinmuxing and pinconf
->> +    - IMCR (Input Multiplexed Signal Configuration Register)- pinmuxing
->> +    - PGPDO (Parallel GPIO Pad Data Out Register) - GPIO output value
->> +    - PGPDI (Parallel GPIO Pad Data In Register) - GPIO input value
->> +
->> +  Most registers are 32bit wide with the exception of PGPDO/PGPDI which are
->> +  16bit wide.
->> +
->> +properties:
->> +  compatible:
->> +    oneOf:
->> +      - const: nxp,s32g2-siul2
->> +      - items:
->> +          - enum:
->> +              - nxp,s32g3-siul2
->> +          - const: nxp,s32g2-siul2
->> +
->> +  gpio-controller: true
->> +
->> +  "#gpio-cells":
->> +    const: 2
->> +
->> +  gpio-ranges:
->> +    maxItems: 2
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  interrupt-controller: true
->> +
->> +  "#interrupt-cells":
->> +    const: 2
->> +
->> +  "#address-cells":
->> +    const: 1
->> +
->> +  "#size-cells":
->> +    const: 1
->> +
->> +  ranges:
->> +    description: Address translation ranges for child nodes.
->> +
->> +
->> +patternProperties:
->> +  "^siul2_[0-1]$":
-> 
-> Don't use '_'.
-Will be fixed.
-> 
->> +    type: object
->> +    description: SIUL2 hardware instances represented as syscon.
->> +    properties:
->> +      compatible:
->> +        const: syscon
-> 
-> 'syscon' alone is not allowed.
+If that invariant is ever violated, __set_bit(NUM_USER_ASIDS, asid_map)
+would write past the end of the bitmap. Add a defensive check so the
+kernel fails loudly instead of silently corrupting memory.
+Cc: stable@vger.kernel.org
 
-Will add a SoC specific compatible too.
+Signed-off-by: Reda CHERKAOUI <redacherkaoui67@gmail.com>
+---
+ arch/arm64/mm/context.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-> 
->> +      reg:
->> +        maxItems: 1
-> 
-> You have 'reg' so the node name should have unit-address.
-> 
-> However, there's not any real DT resources in this child node, so you 
-> should just drop it.
-> 
+diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+index b2ac06246327..74c1ece7db78 100644
+--- a/arch/arm64/mm/context.c
++++ b/arch/arm64/mm/context.c
+@@ -160,6 +160,7 @@ static u64 new_context(struct mm_struct *mm)
+ 	static u32 cur_idx = 1;
+ 	u64 asid = atomic64_read(&mm->context.id);
+ 	u64 generation = atomic64_read(&asid_generation);
++	unsigned long idx;
+ 
+ 	if (asid != 0) {
+ 		u64 newasid = asid2ctxid(ctxid2asid(asid), generation);
+@@ -194,9 +195,11 @@ static u64 new_context(struct mm_struct *mm)
+ 	 * a reserved TTBR0 for the init_mm and we allocate ASIDs in even/odd
+ 	 * pairs.
+ 	 */
+-	asid = find_next_zero_bit(asid_map, NUM_USER_ASIDS, cur_idx);
+-	if (asid != NUM_USER_ASIDS)
++	idx = find_next_zero_bit(asid_map, NUM_USER_ASIDS, cur_idx);
++	if (idx != NUM_USER_ASIDS) {
++		asid = idx;
+ 		goto set_asid;
++	}
+ 
+ 	/* We're out of ASIDs, so increment the global generation count */
+ 	generation = atomic64_add_return_relaxed(ASID_FIRST_VERSION,
+@@ -204,7 +207,10 @@ static u64 new_context(struct mm_struct *mm)
+ 	flush_context();
+ 
+ 	/* We have more ASIDs than CPUs, so this will always succeed */
+-	asid = find_next_zero_bit(asid_map, NUM_USER_ASIDS, 1);
++	idx = find_next_zero_bit(asid_map, NUM_USER_ASIDS, 1);
++	if (unlikely(idx == NUM_USER_ASIDS))
++		panic("ASID allocator: no free ASIDs after rollover\n");
++	asid = idx;
+ 
+ set_asid:
+ 	__set_bit(asid, asid_map);
 
-For context, SIUL2 exposes a set of platform‑capability and SoC identification registers that are split across the two discontiguous ranges: SIUL2-0 and SIUL2-1. These registers are the source of SoC information (e.g. identification and capability flags) that other subsystems are expected to consume (e.g. PCI Express). Because those fields are physically divided between the two SIUL2 ranges, consumers need reliable access to both ranges to correctly discover and configure the platform.
-
-Hence, my proposal is to keep the two 'syscon' child nodes.
-
->> +    required:
->> +      - compatible
->> +      - reg
->> +
->> +  "-hog(-[0-9]+)?$":
->> +    required:
->> +      - gpio-hog
->> +
->> +  "-pins$":
->> +    type: object
->> +    additionalProperties: false
->> +
->> +    patternProperties:
->> +      "-grp[0-9]$":
->> +        type: object
->> +        allOf:
->> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
->> +          - $ref: /schemas/pinctrl/pincfg-node.yaml#
->> +        description:
->> +          Pinctrl node's client devices specify pin muxes using subnodes,
->> +          which in turn use the standard properties below.
->> +
->> +        properties:
->> +          pinmux:
->> +            description: |
->> +              An integer array for representing pinmux configurations of
->> +              a device. Each integer consists of a PIN_ID and a 4-bit
->> +              selected signal source(SSS) as IOMUX setting, which is
->> +              calculated as: pinmux = (PIN_ID << 4 | SSS)
->> +
->> +          slew-rate:
->> +            description: Supported slew rate based on Fmax values (MHz)
->> +            enum: [83, 133, 150, 166, 208]
->> +        required:
->> +          - pinmux
->> +
->> +        unevaluatedProperties: false
->> +
->> +required:
->> +  - compatible
->> +  - gpio-controller
->> +  - "#gpio-cells"
->> +  - gpio-ranges
->> +  - interrupts
->> +  - interrupt-controller
->> +  - "#interrupt-cells"
->> +  - "#address-cells"
->> +  - "#size-cells"
->> +  - ranges
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +    #include <dt-bindings/interrupt-controller/irq.h>
->> +
->> +    pinctrl@4009c000 {
->> +      compatible = "nxp,s32g2-siul2";
->> +      gpio-controller;
->> +      #gpio-cells = <2>;
->> +      gpio-ranges = <&siul2 0 0 102>, <&siul2 112 112 79>;
->> +      interrupt-controller;
->> +      #interrupt-cells = <2>;
->> +      interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
->> +      #address-cells = <1>;
->> +      #size-cells = <1>;
->> +      ranges;
->> +
->> +      siul2_0: siul2_0@4009c000 {
->> +        compatible = "syscon";
->> +        reg = <0x0 0x4009c000 0x0 0x179c>;
->> +      };
->> +
->> +      siul2_1: siul2_1@44010000 {
->> +        compatible = "syscon";
->> +        reg = <0x0 0x44010000 0x0 0x17b0>;
->> +      };
->> +
->> +      jtag-pins {
->> +        jtag-grp0 {
->> +          pinmux = <0x0>;
->> +          input-enable;
->> +          bias-pull-up;
->> +          slew-rate = <166>;
->> +        };
->> +      };
->> +    };
->> +...
->> diff --git a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
->> index a24286e4def6..332397a21394 100644
->> --- a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
->> +++ b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
->> @@ -11,6 +11,8 @@ maintainers:
->>    - Ghennadi Procopciuc <Ghennadi.Procopciuc@oss.nxp.com>
->>    - Chester Lin <chester62515@gmail.com>
->>  
->> +deprecated: true
->> +
-> 
-> I don't really see why you can't just extend this binding with GPIO and 
-> interrupt provider properties.
-
-The existing SIUL2 pinctrl binding only describes the MSCR/IMCR registers and treats SIUL2 as a standalone pinctrl block. This is incomplete and does not correctly represent the SIUL2 hardware, which also provides GPIO control, interrupt configuration, and MIDR identification registers across two register windows. Extending the old binding would require incompatible ABI changes and would result in carved-out subregions, which is discouraged.
-
-> 
-> Rob
+base-commit: e81dd54f62c753dd423d1a9b62481a1c599fb975
+prerequisite-patch-id: 22f87920fde15a41bcd8a3bd8fe539b302e7cdf6
+prerequisite-patch-id: ec2431c51c9f770252b0fce915a005a1ba17893a
+prerequisite-patch-id: 2c19186c084c72a802b57b9878d71130fe48394f
+prerequisite-patch-id: adc51aec081387d09a3b281e4e5748fdd6ee14a5
+prerequisite-patch-id: 6ac6e6c6098767416a9300e39b92c7384a9a186e
+prerequisite-patch-id: a90dc0f63084ceb49de3abc95edd5dafc113e1c4
+prerequisite-patch-id: 439c78d86a96600b1c6248c455c1900c72c9a741
+prerequisite-patch-id: e58a7400854738c6c42651ff38eb98418b55e6d5
+prerequisite-patch-id: b3ca97b18c710b641be2050e79a408640a68ab2c
+prerequisite-patch-id: c05a84db123b3a19d69478c605493fec9e4ca27f
+prerequisite-patch-id: edfd57c532173e7da3d42726c954bae4104b6ab1
+prerequisite-patch-id: f1811d2c1b87de41c65b99f6cf4ff8e341212b8a
+prerequisite-patch-id: ef830b5bbeaf21bf89975f6f16b02de92624820f
+prerequisite-patch-id: e52bc8e14b5707ed21bd8fba79ee7c2f8a26d993
+prerequisite-patch-id: f89a8a0338316f2f20eec6d5ad1952539500dc58
+prerequisite-patch-id: 452fdc87d9cb78fb80b88069a3d9fde55b0efaad
+prerequisite-patch-id: 7996193466732bf62baa12f03c862b13c97d9c7f
+prerequisite-patch-id: 4c194ac3256c03b4c1033a98b089fa593f73033e
+prerequisite-patch-id: 65093dae7d971062c5e5f884c653bcdc70b84828
+prerequisite-patch-id: 53044bc5fa50e112d32a6e680abe0d7c8fa96670
+prerequisite-patch-id: 95cdbf02b71ba41758f4b8f4853b52f3c54044ca
+prerequisite-patch-id: 85105bbc627eacaefdd7295851be19df47f49845
+prerequisite-patch-id: 40960ccc2359a6344d10b9a22f06dcfb6e43dec3
+prerequisite-patch-id: 1e63baa39ba967beed4d766fd50bc2f43f2a5a3d
+prerequisite-patch-id: 3a289c850360d0bc5c982958799dc4ef523754cf
+prerequisite-patch-id: ae7a5a516a4811f5d273d88a499f6767a9604639
+prerequisite-patch-id: f5b60395d5bc8dfa8194ad0428f7ec0d4d047436
+prerequisite-patch-id: 782f2b53e4213b82e42f7a565ea5a16dbc809b30
+prerequisite-patch-id: 46a46c573447de205107a41a5c51d4575324a497
+prerequisite-patch-id: feacc3d487c33928331b3c93f9073b81458b1124
+prerequisite-patch-id: 5fe4f215cad7cdaf8b2b22fcb5821890c1dfdb4b
+prerequisite-patch-id: b9ac6707b3e65b48750649c228c7f93c28b6ad21
+prerequisite-patch-id: cd05fd80f846f03626dc76825f5128bb7b1be7a2
+prerequisite-patch-id: e3d46ca07a835aa234cc92a28ff7c07adfca311f
+prerequisite-patch-id: 7a2ab9b79242aa8c1e0762b335569b81697838ee
+prerequisite-patch-id: 8e39c21980c438a22291d7111c4bf000dbf1ab35
+prerequisite-patch-id: ba11d83f3dd7dcc5b4cfa059d902007864018db7
+prerequisite-patch-id: 94f8dab0c133fbb8521040c0d1915f974d70e954
+prerequisite-patch-id: b09663997259354ce9b464dca2240d5d0d55bd6d
+prerequisite-patch-id: 21bc085415d1536e524c982f47a060abf674a3bf
+prerequisite-patch-id: ef3327d316f1d260f903c0328956b1406b9f3cc1
+prerequisite-patch-id: efeb53ae433a819e26bf1df452f454d1f36ac996
+prerequisite-patch-id: e72fa1b01b60178684de82cb5b25cda9fe535762
+prerequisite-patch-id: 3605a9a71bfbcef7c5d34ba568616e66d6ac5eeb
+prerequisite-patch-id: 0ed47968f624e1389286e010ee83410e2b4879af
+prerequisite-patch-id: 13c97ae55bfbf5ef50aab069c56e06c496a66387
+prerequisite-patch-id: a641e1678b62a7dfc074b39dce50063044a6910a
+prerequisite-patch-id: 81c80edf831fd18df182dd55a95e19a7788b8d67
+prerequisite-patch-id: 5f9cc3715a92f381cc72bf15390c786bf84da582
+prerequisite-patch-id: 85e33941bccd1953f006343ba130f71853bc44a1
+prerequisite-patch-id: 7e495ce521122a252337cbab8388b1ec1ca89116
+prerequisite-patch-id: 3a72f14c14ce47eda8a484d31b7f4ead09cfe820
+prerequisite-patch-id: 01785969efe30458b0ecbccdf106b5fe4321c402
+prerequisite-patch-id: 85dacccaf125cd446530bfeb4ab9bd510379dce4
+prerequisite-patch-id: 749c36dbf8cfd0dfdf2a54a20e480e472ac5782b
+prerequisite-patch-id: 74ada3b892f6d0517afe15d30af42a01e41c96ff
+prerequisite-patch-id: d15b8179925f2a45fcf593d6a3ab98fb3fdfecba
+prerequisite-patch-id: 7db4315ff91800c9519fa58ea509789a07e49d04
+prerequisite-patch-id: 054286621f172b63bcf5b4a9d9876ac583bcee9c
+prerequisite-patch-id: 9adb9dec437dfe262e043bb69af91da001c6fbb2
+prerequisite-patch-id: 0fc7fbf11dd9538b613f35234c74329728909b4a
+prerequisite-patch-id: e4b29be53745b43edb478cb8e774138f6fbcfad8
+prerequisite-patch-id: f2c52d2b6a7a0714b02c3a6f3b1ac3619727277d
+prerequisite-patch-id: f402ae3ddc4c4f2ff323f000240dda39fea17ce5
+prerequisite-patch-id: 1d08697e4cbde276bd4cf54c17ec8d53ebf2dd2e
+prerequisite-patch-id: 90e5f09d454e2964379d7809985c739a5fad555f
+prerequisite-patch-id: 605d53b7b189d4811ca2bba6a5bfe0f1d454bbfd
+prerequisite-patch-id: dad47c70bb2236a93d14dd119ad4da82e27faaca
+prerequisite-patch-id: c278c5ddfdf522a71b7f56116e628a2195e2370b
+prerequisite-patch-id: 13c30164643c6209774a63a85386f39bb61b2867
+prerequisite-patch-id: fac3d8e60c357873791c5d0560ecb9063c0d6257
+prerequisite-patch-id: 092325494774dd9d6a4c9ea46857bb04da7eb298
+prerequisite-patch-id: 279aa6760f0b48bfd486e8d54dfc11265000cd3b
+prerequisite-patch-id: f55d22fa56af8d4036a17dd97dc26abba1b8272b
+prerequisite-patch-id: 95796e58849b922e821afe7c6705fa2ae011651c
+prerequisite-patch-id: e3bbc765c8b475200e39a978bbceef5d35f1d080
+prerequisite-patch-id: ec89759415b7ebfc622021b157336340a318098d
+prerequisite-patch-id: 506e6a70dca5ee39b50ccfa60e2ced1a0af087bc
+prerequisite-patch-id: 5ac7925b303ef62e4db34c14c3356bcae42a80ff
+prerequisite-patch-id: af57671d8c884445987aa4c090b281f29eb3ec3e
+prerequisite-patch-id: a388f524b9815c9c0e03d386ff32111a4e3687ea
+prerequisite-patch-id: 0bc291b25b061c058113f2f3e1c72ddcc036e622
+prerequisite-patch-id: 9411713490d13ea4600ae82c0eba30919706d046
+prerequisite-patch-id: b6816b3109e4fea592b4458ff5a79c291261c116
+prerequisite-patch-id: b6e78bd768d4ef716cef075e1384b9b639c3ab56
+prerequisite-patch-id: b36a655d1c5dcdbb0f713a5e4409f078b8828ed7
+prerequisite-patch-id: 8c9fbc12d263e637647692150ff4d154bb65849e
+prerequisite-patch-id: 43e8e509554153335a8e8807920b2cb2e2b637bc
+prerequisite-patch-id: 77c2d92765f56c384b9d2fb94d83116747617333
+prerequisite-patch-id: fcd85237a13b559a63710d99be8f16146921a22f
+prerequisite-patch-id: fed309bf09ef1e0857bf638aafffda9ffbbcd754
+prerequisite-patch-id: 246360d5bf7a08c200b1de6796eaf8c83bf7f288
+prerequisite-patch-id: 29a2581a1ef414ded63330a9af99e3130448bb49
+prerequisite-patch-id: 830b443dc9b00e4c9e2b1471c6e06a834e90d2f5
+prerequisite-patch-id: 23787887aa333c584ba4af375023ec66a9fc1c96
+prerequisite-patch-id: f9ca5c279b0d407580b4de075528aceba00f42d4
+prerequisite-patch-id: 44513f2ff9f411e4fd7f881ff2981b25ca4dfce4
+prerequisite-patch-id: 4f9d9f5a72db045a63ebe727844f7be4e360bbde
+prerequisite-patch-id: f88b6498444b037b3bfdb50a270053566b7890e8
+prerequisite-patch-id: 95eb27f77931fa25c26fdbedf0b78184b9eff5dd
+prerequisite-patch-id: f41f9a637f8643204a1c5426209a83f5330d549b
+prerequisite-patch-id: 3d37dca84c27966a7aeb24abf31c233a2b4afb75
+prerequisite-patch-id: 58f594ed838d31e4f4efe12c379f8e15eca37f3f
+prerequisite-patch-id: 23808787ea1ce216f9386072150fa3f24ea51a2c
+prerequisite-patch-id: 99b7bcb3f743423c096dadfc429240abffc328c4
+prerequisite-patch-id: 4d4fe578158c1235c5c958349e690f2bed1bd6eb
+prerequisite-patch-id: 5cac307307e66d4e0412f5c4f3ec2268fa7d3b61
+prerequisite-patch-id: 2488e190fffab8b6d10d4f2a3c49aab3d52f4011
+prerequisite-patch-id: 4b01f79b9a629ab30aa488e0058190354c39fbb0
+prerequisite-patch-id: e0fd445e24c811b2bd11be0bb55660737918b2fd
+prerequisite-patch-id: 1a34cdc176dc1c24660a70abccfe63352130399c
+prerequisite-patch-id: bf22b3c018d7e8c1f5351a0e0510efa91cd79a07
+prerequisite-patch-id: 180c9aea0079a2376014a9e0f7dcebaeeffe009b
+prerequisite-patch-id: f7613927f20680b112b04ce936712f089987e5b6
+prerequisite-patch-id: c0217832113843dd92e16895cc162fdd42e08f13
+prerequisite-patch-id: b0562e98ab43289a132b5d53e67abec999e1c961
+prerequisite-patch-id: 6037166621577b3ba8d17ef6efc11c07d4c61247
+prerequisite-patch-id: 0ccbed6842d04dce6745503711c5087abf466444
+prerequisite-patch-id: bfa30045c92a627bf67316ab309f0ac3fe63ace6
+prerequisite-patch-id: 7ae723dc9e034057df3245599af0d982808ae04f
+prerequisite-patch-id: fa43328b102fcb0e994606698dd452b564d26e60
+prerequisite-patch-id: 3cf9432225d88f82ad3bb777fd65e094168ef697
+prerequisite-patch-id: 0be61bcea8890fababaa0fd57448e060c0d5f499
+prerequisite-patch-id: 388d328c1e48fc451f7cf82bb2f2b5490d2b8da4
+prerequisite-patch-id: ca0490363f2862fdd336866f1f5045c83a92c948
+prerequisite-patch-id: 57f171dee52f8016c3044479fd9b28ce85a546e2
+prerequisite-patch-id: f6034685fbba3c42aec0923e38223d6b1e2e1a04
+prerequisite-patch-id: 634ea90f6f76e47ed52eecff5153cebe438fef2e
+prerequisite-patch-id: 79ada3fb541eb23deef521af8f4d1cd14c69df38
+prerequisite-patch-id: 871262a0c242ef17c675b76b00464079a167de50
+prerequisite-patch-id: 5ee86e677a2c1509630ad1a9a440ea4eeb06ae7b
+prerequisite-patch-id: 316fbe97c5f6f71a705f831c8b762b450e53a50c
+prerequisite-patch-id: e739f9f9db57147a64c43b109ff3336779715ef2
+prerequisite-patch-id: f11e1d7f97f6125addf3c6c224d75c33200f5eaa
+prerequisite-patch-id: da1cff794d0064529cba960cfdb56c41f0018bd7
+prerequisite-patch-id: 766b442e1850b06a61416d2b2ca9fb156398440d
+prerequisite-patch-id: 574c712350e60b9591ae8f65eff2550f6d7bb732
+prerequisite-patch-id: e530e171bf5fb68dcdf28f76ed96fd5e64218148
+prerequisite-patch-id: 4c32c981ed4b37a65142da87f33bb64a3dc175ba
+prerequisite-patch-id: f5b5c5f996b9399a22d13d3fe75d2002256d5601
+prerequisite-patch-id: d24d3f2fd11f725e372054fa5aadd78558fae864
+prerequisite-patch-id: 16bbb2d4b38dde92695f351d8cb999e260fa4e2f
+prerequisite-patch-id: 75de875ae3fd93b5f4db3ec565476e75a4b3462f
+prerequisite-patch-id: d301590c25d1cd76cc3a03808006064d4e8795f7
+prerequisite-patch-id: e957d1823bc986ce80f140d6ddc3cfbc4bd4523d
+prerequisite-patch-id: 8ea6d4503c9bfcd3067bd0f63c41a3bbff40cfec
+prerequisite-patch-id: 8ebc109a0f7ccf15ae90d38b115494868ac3ce36
+prerequisite-patch-id: 4cd7f642ce4dd9411c39fa74959ceab3c4586f49
+prerequisite-patch-id: 67aa6c34b4e9f3d9b529036204b9dbda1a5fa61c
+prerequisite-patch-id: e60ccf5f93289a7d293d7294882f1e8abda2f704
+prerequisite-patch-id: 873432903506b7d31a68d5befcca54deaeac135b
+prerequisite-patch-id: 014d1c866f0bd7049251b3b9ecba9ed6c934954b
+prerequisite-patch-id: 6402441f355032d0518f7f93cbc536151fb5b498
+prerequisite-patch-id: c6ff016d3ebe80bcce70a0da7516c03c1ec40110
+prerequisite-patch-id: 03739af11937bd73b9f4103422556dfd16ffdbc5
+prerequisite-patch-id: 7ea7b8084505621b3152239961546991b2f9c42c
+prerequisite-patch-id: 8c6e7bae3b1974f33f9def7e4c91b8e97a766ff5
+-- 
+2.43.0
 
 
