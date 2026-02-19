@@ -4,99 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EACE9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 07:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8476FE9A04C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 07:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v67gFqLTRAEXaksruasTXbf+/wqfcmhb5T0lX43fE4k=; b=ZDmED4ciBAS8TBrQwTmFH5gkow
-	nk6w9uB50F5VpPnsn85XMSr34SfFr+SraRoNARe7SCN64JxswVILOOrdmm1wG9AeglvLob0VOmMDj
-	jtv2yHjan2f8+h4IgRMoZJ7crPsTyKFAthRmom8epyqF5BUc9VZHn3NUopWW8QqNtpYD9xvL7qrhV
-	A19DzbNt9m40NeqdpFdRFO+ON72HS5AhcAawlvKxPUGN0qPsIi4FhleLOJAE9XqWDspC/c5xr+jdP
-	deSb+CTXOmQzIoKxsianB/LfCruyhO9FxomqvItAUMCYjyUMvGMgymIctm29ONjZJYuJIpLS4olQR
-	yVRjyJ6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ky8Ca+nZaqHt/yBIku833g6W9mruJMgIWKcDQ8slxPY=; b=q5PQdWA5mRgERt3FUBYn3UtlV9
+	qfYMVi8wF7QaIfFchSibJD/eCvLHphIs4Po7eDsYzEnpezUkuIGsn3vYwft1HIArktnurNP99Mkd4
+	dK5THP5eKykVlT6BVcu672ipzQ3RawQkUkJlLCw1fWJUsOfubM4wPbLlVaQMvbeE5ngm/OzONrnWc
+	ajosWJu46K76ZM+f3Wnef9ID3dMgzhw2ZvZt5Rxm4DNNkWZKpWtVVET/Ny53vK06sD03BbZuPlGj8
+	2WNYtYcxSVzI0anS7UtRSiCyVw3Y/35kIxDXeIRndq3+63ttZynF5wnpNOwasCw/fLYPLmBVNpTRI
+	wZbE5o2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsyoE-0000000B4Rh-0Eb3;
-	Thu, 19 Feb 2026 07:50:50 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vsypB-0000000B4Ys-1iS9;
+	Thu, 19 Feb 2026 07:51:49 +0000
+Received: from mail-westeuropeazon11010000.outbound.protection.outlook.com ([52.101.69.0] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsyoB-0000000B4RN-0cp4
+	id 1vsyp8-0000000B4Xf-41tN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 07:50:48 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4837907f535so5359875e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Feb 2026 23:50:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771487445; x=1772092245; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=v67gFqLTRAEXaksruasTXbf+/wqfcmhb5T0lX43fE4k=;
-        b=mRQ+fQip+zLCMit9SpRoZI6AiK9hvs45uM+ph7x9GHN5jngdtFWoo4emnALRL9ibtH
-         CjEWPZb9T9rUOsB52zt3OsspHe6V5dvdeIbeqqtzkbltt1HlGcCVmh6Wyen+QkMRgFhA
-         HTt3BsH4ZtdEsHZtIL2CNJHGXS8UaGa9H1UZ7UjlP339KQNQY7IPCbuBbFgAhPRbsMHK
-         rQ85iC4ildF1XJeGq5XMdGdx05rQd9EMIKd0ZbQSys0ekQme2EpBFGxZmtz45M7+v3PU
-         ZVUaOlRmvret2THQ4tijuhMQ/hF9HchyT6G98Au3vhTvIFjSwUcSiGeXvsJQ00h3mmg9
-         8o1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771487445; x=1772092245;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=v67gFqLTRAEXaksruasTXbf+/wqfcmhb5T0lX43fE4k=;
-        b=l70hnYuw8rdme+kqWfsXiGnHMizhiJUgrxws2nT7lGo4PWO4rZ5WZ/7BucYlyMJS9S
-         Vn8RqCpK9juSkZZzarKEBkZWNZ/Wme1u4tHjLRhjhWOXKZgpQ9FEGKdRhCpzGJgPRgxx
-         as4wEImZeq5NQkkxmooXMvdJxQt5P9gK4p7GETCV/T6RqTo2u2loiVjECyN2BDlm3vuJ
-         3ktMqCxncgOGUTpXTvt9UgUQhB57bYstJGNKBkfM2HfrZUjOoeTJ/OK/K9osNiwpynuu
-         nOZf40O5+fXUZjqyfginWkjozUtzntGl/fPLAA9Lz8QgWFQxrQNrlQoUBmdWpv7G3FU2
-         TfZA==
-X-Forwarded-Encrypted: i=1; AJvYcCW3CqnyLME1Tfkq0126U2s6T4HmQ3n13QJlA8hhfyry5pBrZ6AYK1F70BlFvWiDFXvUDLAWqFQ6ZnNLjrYi91Pm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxu/rBpu/Tx5Xwm58yYcPLkRqHoZgkVrnOwbCc6nnftcCxQ9oOg
-	Q2tLx+k+cD0+70HGye4qe6V3dgvCcH6OSgnN8WnU5jlFHIVRTk588+Olgs/PPKeOBw==
-X-Gm-Gg: AZuq6aJn4ownKruUnI4lJbUFCrsWew7WDEdWUDISHtw/qitKYFEEFHa/YELxbRKCCIw
-	tpj8N6u7UCBM31ya7gISL+N/VAk7WlE52UA1+21QnRNUBvMzVcS00TNlpwQdBhmjNjYxiENAcOs
-	q42FJb+MWrztQa5yLAPDE0esu8EW4hW+CyOD6yP2CTrChTN+H1k1DMYK4nKeYwNZPtef+T6VbD1
-	OhoWC43YBqtGz5DcY5bjImqOZPQPE6WEamEjq1LwBfNwvxSqx2bAZO/gkn/+eu+HYgM8epWK/YL
-	pPAegV+SJ27uBK5xL8Yh5Jrsb4b32dg3JDewGXaMXKYLdtZbejSq3t73RjNOh8k+9ZNW65zxVGH
-	1LrSGNvMFoJ6jDA+7dS1VOIM9ifCrbRyK2XB/FCquFeI4XccmPwnjJC2JgiUbrZmPjwsY/DUCRr
-	zDvZQC1/R6agATs1yVnob/UqsdfD2nEyAxLO71ZA6ttFCnEuzPUtV4w4F4WOqu
-X-Received: by 2002:a05:600c:8709:b0:480:1c53:2085 with SMTP id 5b1f17b1804b1-48379bd731emr278862615e9.19.1771487444605;
-        Wed, 18 Feb 2026 23:50:44 -0800 (PST)
-Received: from google.com (164.102.240.35.bc.googleusercontent.com. [35.240.102.164])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4839f94fee1sm15399125e9.4.2026.02.18.23.50.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Feb 2026 23:50:44 -0800 (PST)
-Date: Thu, 19 Feb 2026 07:50:40 +0000
-From: Keir Fraser <keirf@google.com>
-To: Nikita Kalyazin <kalyazin@amazon.com>
-Cc: Sean Christopherson <seanjc@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Li RongQing <lirongqing@baidu.com>
-Subject: Re: [PATCH v4 4/4] KVM: Avoid synchronize_srcu() in
- kvm_io_bus_register_dev()
-Message-ID: <aZbA0IZE1i0w1BTH@google.com>
-References: <20250909100007.3136249-1-keirf@google.com>
- <20250909100007.3136249-5-keirf@google.com>
- <a84ddba8-12da-489a-9dd1-ccdf7451a1ba@amazon.com>
- <aY-x0OlJQEqInyNF@google.com>
- <dcbd7a58-c961-4510-ae48-ef7fd4f4d75c@amazon.com>
- <aZS8XXOW7vhMkNWQ@google.com>
- <162cedc3-cd6c-494c-b39e-daadfbd6d8db@amazon.com>
- <aZXifSagpbj4CjBn@google.com>
- <7e46af52-b6f3-43cf-a970-8c179a964729@amazon.com>
+	Thu, 19 Feb 2026 07:51:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OQ+1qh5YjlGjd8mOz7ULC45zCihj7emQppybuyl1dv9j7+tHEN6xYCw4P5le2iAcVUHyIDOT+ZQDZNEg/T4GHb0U/YSgVok4jY5/1NVpPpZB8kjN+Xv4gbrl0M0LxEFiBdWVnc2ceJkvSK2Coa2S7RzMnc2iCqDtY/DEFeXelTsgYbKwEv9rnrj4VggaYqe8nvimgvHCAXHSMs1bePtZ7bAskYkXS0xxy6sFpXs5Nq74gLzpVAgs+Mk4lIBRrsUUPWrcU5KgP+30e/tOtgjB4TknemCcVMww8o3hPoGwAaI2ybo2TztU0VBnnEP9AORtpNlJ7aiepmVbDwqTuo7x6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ky8Ca+nZaqHt/yBIku833g6W9mruJMgIWKcDQ8slxPY=;
+ b=ZQndicser67LTuH6Wrt16Cuh7SddItTzJr0H6DFYDrDE3t0djpJVesxOS559/17IXDVUGS0ssMXJ7Ctds8x4eoNzX08Ndi6gvN3iOHvPrkY55lWvLZ+wQOATxL3ncgq8KZjY76T8rimSwBAi/acGEuKu+uGakaip5HjykWTaF2SrOdXSOHmxjtq0jEd1nwZWvyVULzHVEY7iYnqlUANxHaNVsIi1/8+rFMWwUlqs/q4tTGCAC1XlvcmMRhEoUqnwYoe9EILhugs/VCphip3nVLA3QUM8umgtnsH2I1s64fFQNbzbrReeEcOCQTP6vt8MafBrfv14K9GUbzN/MpbY0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ky8Ca+nZaqHt/yBIku833g6W9mruJMgIWKcDQ8slxPY=;
+ b=hKZfpUMlJKpuZanFuZNTZ4cmBwjBymDxQnzFZff36Yd2e0FEWgauV7btAqPq6AXwYIgoob7G1Ps9HuTa4GX8wRdGMWUWSDT8C/xGb+UPMLFI1GbFuC+EBDt8mBWnGyK47mCqVitogAWJI/S2eqvAxp8h7WZsRZTJ/gM8BW3/pWlbJ0u0WlLNlGw0A31R4Cep+E/wS1g93F/1vgUIeDNkt4EGVg9H+xWbrFLDFqbE3NGWJIclBugin17hxshu/h6Dzfcw7nCd7LenNqIQnjRjNUv3XuDomHboZtF/KHgoRiqXuWSHc8bju5tbKn3XBP/zLAnQJxzDy0+gie3sgq7Jxg==
+Received: from DU7P195CA0018.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:54d::18)
+ by PA1PR10MB9179.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:441::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.15; Thu, 19 Feb
+ 2026 07:51:38 +0000
+Received: from DU6PEPF00009527.eurprd02.prod.outlook.com
+ (2603:10a6:10:54d:cafe::1b) by DU7P195CA0018.outlook.office365.com
+ (2603:10a6:10:54d::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.14 via Frontend Transport; Thu,
+ 19 Feb 2026 07:51:38 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU6PEPF00009527.mail.protection.outlook.com (10.167.8.8) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9632.12 via Frontend Transport; Thu, 19 Feb 2026 07:51:38 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Feb
+ 2026 08:53:34 +0100
+Received: from [10.48.87.127] (10.48.87.127) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Feb
+ 2026 08:51:36 +0100
+Message-ID: <7639bae5-045f-4d56-8bcb-cddcb4e3d87f@foss.st.com>
+Date: Thu, 19 Feb 2026 08:51:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7e46af52-b6f3-43cf-a970-8c179a964729@amazon.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Linux-stm32] [PATCH v20 1/6] dt-bindings: firmware: Add TEE
+ remoteproc service binding
+To: Rob Herring <robh@kernel.org>
+CC: <devicetree@vger.kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Mathieu
+ Poirier" <mathieu.poirier@linaro.org>, Bjorn Andersson
+	<andersson@kernel.org>, <linux-remoteproc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	Sumit Garg <sumit.garg@kernel.org>, <op-tee@lists.trustedfirmware.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, Jens Wiklander
+	<jens.wiklander@linaro.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20251217153917.3998544-1-arnaud.pouliquen@foss.st.com>
+ <20251217153917.3998544-2-arnaud.pouliquen@foss.st.com>
+ <20251229232530.GA2753472-robh@kernel.org> <aVOzHWmlJ-eneS-2@sumit-xelite>
+ <CAL_Jsq+_S8UY7s7WQg9jXuBXCYMBWVCy=kVDMdkKTx6RctqQJA@mail.gmail.com>
+ <aVtqITUxy--E8HJt@sumit-xelite>
+ <49f1808d-1e08-4f47-ac3a-5f2274086060@foss.st.com>
+ <a17c017a-15f5-4ebc-9dd0-baab718dbe0a@foss.st.com>
+ <aYrMp9wqk91-tQXn@sumit-xelite>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+In-Reply-To: <aYrMp9wqk91-tQXn@sumit-xelite>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.127]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU6PEPF00009527:EE_|PA1PR10MB9179:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b3e4717-495e-40c7-954f-08de6f8bb634
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|7416014|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?V0wza1JaVEdTQlJFejlqK3hmN1RlS1VzTS9Fb2JudnNaQVBaem0wSWkvdy91?=
+ =?utf-8?B?K0pTejV0OVY1RTJXYVpVQ3RxVUdkTU90S0JtcVMrWnFaeXY1NWlWRVNZUTVv?=
+ =?utf-8?B?M1RVZXNZZUJlODJ4WDRCeEVlYXpXbktTU3JVSVBrTVd4MWd0TlJPdFZ0Q2xJ?=
+ =?utf-8?B?TmdWejc5djFIeVpGdm9nQ3ZlN2xpWVdzaDY4UVdjRVgwQ0FZc0pOMmRWb0d1?=
+ =?utf-8?B?Q2hIZW5oSitxblJrSmIwSnJibGllcWpDbUxBU01UWDZTSTBKVHJXTEZSWmVk?=
+ =?utf-8?B?T2lTSnllZVlxVUJoMlYwZEE5OFNaM0xBMFFDZDBPZ0syb21wd1crTlh6RXBw?=
+ =?utf-8?B?Z3F6NWxjQnNqWWgrME1OTW52ajkxd2NYeW85MWIranJCSjVOamR2S2E3d0hO?=
+ =?utf-8?B?dkExRjVsREIra28zYzlDcy9hZWNJb2pqWldnUDY3cXlWOWsvWDVqRW1rdmJG?=
+ =?utf-8?B?cjRFa1BTL0Z2Z2U2NVZwT1pBQzR2TzY4cG0yRWpZN0J4cWpUWDZpaVRuY1JT?=
+ =?utf-8?B?MVV6Z0Y1WXdwdUFkbmRVYmd5TWtIazJpdmc4WkxhaWwxbC9TMGVzbnhnMktO?=
+ =?utf-8?B?c2ppczk0bTczVklXK0dCU3dYbkRoTXhaTlhWV1RDUlZzT0RhS3BLbHZpYk93?=
+ =?utf-8?B?ZDNuS0pBM0FTRjBvcFVWSGdqVXY3MnE4M2pSNnJkSWtuNkRlV0UzMGJyRnA4?=
+ =?utf-8?B?ajJZRW9SVUxxdXZBdkEvWS9wWXdjOEtYZzhsd0V3eGJ2emxnb1dqTEo5ckE2?=
+ =?utf-8?B?MHpNaDV3RkxwL0ZORUVKbkQ4TG9nbDN2ZFR3eXdyQnVqQ2hCOFdNL2RBUWJU?=
+ =?utf-8?B?SVp0Q3lLNE9qc1ZpdXRLZFZNSUdsWUpUQ2hYaFFIOE85dEVLbU5qU3JLU3VJ?=
+ =?utf-8?B?dmdQV2xKbGlxcE5WZ25FMWNmZ0F1TlNpb1JhL09JOENaaWI5Sm42TWxKZ0lS?=
+ =?utf-8?B?WTVYOC8vRXlLa2JreGwzdHpsWkJ5U3JXK2Z4MlNVR0F1aUtVMG1Gclc0Zk5y?=
+ =?utf-8?B?NW95ZDBWTkZ1R3J5K3NJaW9URFh2VllsaHp0ditId2JrWGw1YXZiRmh6bTBx?=
+ =?utf-8?B?cENJZW1zN25XTDVIbC9LZ3AraGN0NmRGVFZrVVQ5blBaOUJIQ3BIWnl2c0NW?=
+ =?utf-8?B?dFc0RFBaSnI0emVGYUROK0FrcVNkc3ord1VqZ0YzcnBmK1o3QVY5R1diY1pn?=
+ =?utf-8?B?M0IwQlE1WmhzOHF4L2VOSDBSWGFzMmhWcFREb3Zsb1VpVHlFRmZOUEkvbm02?=
+ =?utf-8?B?dGI2eEhHME1xS2VCUmZUVjZzMXN4MFNxeW5IczJ5bVR0MHp5TkZvbmNROE9U?=
+ =?utf-8?B?eXE3ajl0Q2ZUOEl3c2drcFpkT2krMW44MG0zQU05WHo4UkQrUkFMWWNuS21z?=
+ =?utf-8?B?N0t6R2JIMHpPdmdUcHIvdVFTd2xvc3M0K2JpUCtObTRnSlRabGxBdXJ2cWVz?=
+ =?utf-8?B?Z1djUzVaRk9CVHd5aVZRNERuOTQ0QkxmN2dMNE83RUZIOG1vTXE3V0V3dElM?=
+ =?utf-8?B?dTB6QjFIcTQ1NkVuczQ2QjlGMHZNaFUxMTVBMjFsT0VhVWEwdFlJM3JBTktj?=
+ =?utf-8?B?c3FNYjFNRU9HdXZMRXNFU3J1cjF1QjJVUElVSEU4bTl3U25hcUs5cmFHZzFF?=
+ =?utf-8?B?MmwzY0thWm5iSDVuTms2SEdBWlhYdkdGakpTSHRsYi8rQUtuMVMxalpZTVRR?=
+ =?utf-8?B?TEk5OHNpdlliaHBxMFl6USs0a3JrQkpsU3ZWSExyRnYvMDdETFFTNHVGOUZ6?=
+ =?utf-8?B?MUdiSklWcFZaN3JrdWxhWkV0anlqV3ZBWk9aL0d0VGRIMVBxZUhXSXdmUGlJ?=
+ =?utf-8?B?ZkluV1dreDBiK29ZNzNKdzJCbVFrSTNuUFpHRjJPdWM2anpvRXkvVXR5Uzd6?=
+ =?utf-8?B?cytuWmhQTzJNc2puSy8rdFR1YWY0SXJ1bzZxREpuNnNJZG11YzVLNUVhOVg1?=
+ =?utf-8?B?dGtCU3kwbHFzUGxNY3BoeEYyS2JJYnJuYU1NTlFhRzBSNXFhYktXWnV6Yndy?=
+ =?utf-8?B?VDVmVmtkU2RmRmw5RlV6aVFqS1NkWHhsUFV6clFmZVpPcGRUcEtBaVN2YUU0?=
+ =?utf-8?B?MmN4RHFEdGE5NWxRUU8zY1g5Q3ZHZ3lOYXlSdjNPUGlaMHhtb3RvUUtNTlRC?=
+ =?utf-8?B?RW1xQXZGOEJUNGUrSEEvTzBDVFErL1VDT2QyeEE1VkhnR3BSRFNMNk9xYXpr?=
+ =?utf-8?B?NFE2RHVHc0JtRmtndERrMGpKNTBqR3lKR1BuT0hGRGhuSUIyUFVucmlFQTl2?=
+ =?utf-8?B?R216dU1sWm5wZ2h1Rzg0amtqcm1BPT0=?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(7416014)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: /qHmgWioz0gPklVYeoUlobyvOV4KTKN9jl68PoyGuuX0r7m3SUDhkwagoNGPUEqEIwjyQnZi3rI6UkLVIT2dODrREof+5cxee0qvXuX+CGU8mD4oeq+oBpwH3fU4w0KEoaOJqctCT3n2oHzP3xkci+jjSsWO7reBfCWmNCsQqHmdgOCfi7lJAKPTRDbYiFCzPBz1qirRTWYCd3IT43P+eLFn6ZHdKuMNVp29HmO/wrqSKl0mUPPC3SycAbS0QmCwAG8wEPyxoRG1Pn5CaImUgs+V+mcmpmD02HcOMjzUUSlB4t/CINpmYGe+ItLeSjLAGoIKzIiY+or808W11xFxT2kj0j1ydW6dU5n1l4j+HhDeQFve+yL1XW+iAwvjVRCHh8j/g0GRNmKspBixXfbBvchy6C5bUax2ymJ9/s0RTnnkETWr2QRXOBNWUgcKZmON
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 07:51:38.0087
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b3e4717-495e-40c7-954f-08de6f8bb634
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009527.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR10MB9179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_235047_509902_42F62810 
-X-CRM114-Status: GOOD (  53.31  )
+X-CRM114-CacheID: sfid-20260218_235147_403036_5405B4BB 
+X-CRM114-Status: GOOD (  26.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,182 +176,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 18, 2026 at 04:15:33PM +0000, Nikita Kalyazin wrote:
-> 
-> 
-> On 18/02/2026 16:02, Keir Fraser wrote:
-> > On Wed, Feb 18, 2026 at 12:55:11PM +0000, Nikita Kalyazin wrote:
-> > > 
-> > > 
-> > > On 17/02/2026 19:07, Sean Christopherson wrote:
-> > > > On Mon, Feb 16, 2026, Nikita Kalyazin wrote:
-> > > > > On 13/02/2026 23:20, Sean Christopherson wrote:
-> > > > > > On Fri, Feb 13, 2026, Nikita Kalyazin wrote:
-> > > > > > > I am not aware of way to make it fast for both use cases and would be more
-> > > > > > > than happy to hear about possible solutions.
-> > > > > > 
-> > > > > > What if we key off of vCPUS being created?  The motivation for Keir's change was
-> > > > > > to avoid stalling during VM boot, i.e. *after* initial VM creation.
-> > > > > 
-> > > > > It doesn't work as is on x86 because the delay we're seeing occurs after the
-> > > > > created_cpus gets incremented
-> > > > 
-> > > > I don't follow, the suggestion was to key off created_vcpus in
-> > > > kvm_io_bus_register_dev(), not in kvm_swap_active_memslots().  I can totally
-> > > > imagine the patch not working, but the ordering in kvm_vm_ioctl_create_vcpu()
-> > > > should be largely irrelevant.
-> > > 
-> > > Yes, you're right, it's irrelevant.  I had made the change in
-> > > kvm_io_bus_register_dev() like proposed, but have no idea how I couldn't see
-> > > the effect.  I retested it now and it's obvious that it works on x86.  Sorry
-> > > for the confusion.
-> > > 
-> > > > 
-> > > > Probably a moot point though.
-> > > 
-> > > Yes, this will not solve the problem on ARM.
-> > 
-> > Sorry for being late to this thread. I'm a bit confused now. Did
-> > Sean's original patch (reintroducing the old logic, based on whether
-> > any vcpus have been created) work for both/either/neither arch? I
-> > would have expected it to work for both ARM and X86, despite the
-> > offending synchronize_srcu() not being in the vcpu-creation ioctl on
-> > ARM, and I think that is finally what your testing seems to show? If
-> > so then that seems the pragmatic if somewhat ugly way forward.
-> 
-> The original patch from Sean works for x86.  I didn't test it on ARM as it's
-> harder for me to do, but I don't expect it to work because it only affects
-> the pre-vcpu-creation phase.
+Hello Rob,
 
-Ok, looking closer at one of your previous replies, the first fix
-doesn't work for you on ARM because there your vcpu creations occur
-earlier than on X86? Fair enough.
+Could you provide your feedback on my device tree (DT) proposal below 
+before I begin implementation? Your input would be greatly appreciated.
 
-> We discussed the second patch at the KVM sync earlier today, then I retested
-> it and it appears to solve the issue for both, but I'm going to have more
-> complete results tomorrow.
+Thanks and Regards,
+Arnaud
+
+On 2/10/26 07:13, Sumit Garg wrote:
+> Hi Arnaud,
 > 
-> Are you by chance able to have a look whether KVM_SET_USER_MEMORY_REGION
-> execution elongates on ARM in your environment (with the 4/4 patch)? I'd be
-> curious to know why not if it doesn't.
-
-On our VMM (crosvm) the kvm_io_bus_register_dev happen much later,
-during actual VM boot (device probe phase), so the results would not
-be comparable. In our scenario we generally save milliseconds on every
-single kvm_io_bus_register_dev invocation.
-
-> > 
-> >   Cheers,
-> >    Keir
-> > 
-> > 
-> > > > 
-> > > > > so it doesn't allow to differentiate the two
-> > > > > cases (below is kvm_vm_ioctl_create_vcpu):
-> > > > > 
-> > > > >         kvm->created_vcpus++; // <===== incremented here
-> > > > >         mutex_unlock(&kvm->lock);
-> > > > > 
-> > > > >         vcpu = kmem_cache_zalloc(kvm_vcpu_cache, GFP_KERNEL_ACCOUNT);
-> > > > >         if (!vcpu) {
-> > > > >                 r = -ENOMEM;
-> > > > >                 goto vcpu_decrement;
-> > > > >         }
-> > > > > 
-> > > > >         BUILD_BUG_ON(sizeof(struct kvm_run) > PAGE_SIZE);
-> > > > >         page = alloc_page(GFP_KERNEL_ACCOUNT | __GFP_ZERO);
-> > > > >         if (!page) {
-> > > > >                 r = -ENOMEM;
-> > > > >                 goto vcpu_free;
-> > > > >         }
-> > > > >         vcpu->run = page_address(page);
-> > > > > 
-> > > > >         kvm_vcpu_init(vcpu, kvm, id);
-> > > > > 
-> > > > >         r = kvm_arch_vcpu_create(vcpu); // <===== the delay is here
-> > > > > 
-> > > > > 
-> > > > > firecracker   583 [001]   151.297145: probe:synchronize_srcu_expedited:
-> > > > > (ffffffff813e5cf0)
-> > > > >       ffffffff813e5cf1 synchronize_srcu_expedited+0x1 ([kernel.kallsyms])
-> > > > >       ffffffff81234986 kvm_swap_active_memslots+0x136 ([kernel.kallsyms])
-> > > > >       ffffffff81236cdd kvm_set_memslot+0x1cd ([kernel.kallsyms])
-> > > > >       ffffffff81237518 kvm_set_memory_region.part.0+0x478 ([kernel.kallsyms])
-> > > > >       ffffffff81264dbc __x86_set_memory_region+0xec ([kernel.kallsyms])
-> > > > >       ffffffff8127e2dc kvm_alloc_apic_access_page+0x5c ([kernel.kallsyms])
-> > > > >       ffffffff812b9ed3 vmx_vcpu_create+0x193 ([kernel.kallsyms])
-> > > > >       ffffffff8126788a kvm_arch_vcpu_create+0x1da ([kernel.kallsyms])
-> > > > >       ffffffff8123c54c kvm_vm_ioctl+0x5fc ([kernel.kallsyms])
-> > > > >       ffffffff8167b331 __x64_sys_ioctl+0x91 ([kernel.kallsyms])
-> > > > >       ffffffff8251a89c do_syscall_64+0x4c ([kernel.kallsyms])
-> > > > >       ffffffff8100012b entry_SYSCALL_64_after_hwframe+0x76 ([kernel.kallsyms])
-> > > > >                 6512de ioctl+0x32 (/mnt/host/firecracker)
-> > > > >                  d99a7 std::rt::lang_start+0x37 (/mnt/host/firecracker)
-> > > > > 
-> > > > > Also, given that it stumbles after the KVM_CREATE_VCPU on ARM (in
-> > > > > KVM_SET_USER_MEMORY_REGION), it doesn't look like a universal solution.
-> > > > 
-> > > > Hmm.  Under the hood, __synchronize_srcu() itself uses __call_srcu, so I _think_
-> > > > the only practical difference (aside from waiting, obviously) between call_srcu()
-> > > > and synchronize_srcu_expedited() with respect to "transferring" grace period
-> > > > latency is that using call_srcu() could start a normal, non-expedited grace period.
-> > > > 
-> > > > IIUC, SRCU has best-effort logic to shift in-flight non-expedited grace periods
-> > > > to expedited mode, but if the normal grace period has already started the timer
-> > > > for the delayed invocation of process_srcu(), then SRCU will still wait for one
-> > > > jiffie, i.e. won't immediately queue the work.
-> > > > 
-> > > > I have no idea if this is sane and/or acceptable, but before looping in Paul and
-> > > > others, can you try this to see if it helps?
-> > > 
-> > > That's exactly what I tried myself before and it didn't help, probably for
-> > > the reason you mentioned above (a normal GP being already started).
-> > > 
-> > > > 
-> > > > diff --git a/include/linux/srcu.h b/include/linux/srcu.h
-> > > > index 344ad51c8f6c..30437dc8d818 100644
-> > > > --- a/include/linux/srcu.h
-> > > > +++ b/include/linux/srcu.h
-> > > > @@ -89,6 +89,8 @@ void __srcu_read_unlock(struct srcu_struct *ssp, int idx) __releases(ssp);
-> > > > 
-> > > >    void call_srcu(struct srcu_struct *ssp, struct rcu_head *head,
-> > > >                   void (*func)(struct rcu_head *head));
-> > > > +void call_srcu_expedited(struct srcu_struct *ssp, struct rcu_head *rhp,
-> > > > +                        rcu_callback_t func);
-> > > >    void cleanup_srcu_struct(struct srcu_struct *ssp);
-> > > >    void synchronize_srcu(struct srcu_struct *ssp);
-> > > > 
-> > > > diff --git a/kernel/rcu/srcutree.c b/kernel/rcu/srcutree.c
-> > > > index ea3f128de06f..03333b079092 100644
-> > > > --- a/kernel/rcu/srcutree.c
-> > > > +++ b/kernel/rcu/srcutree.c
-> > > > @@ -1493,6 +1493,13 @@ void call_srcu(struct srcu_struct *ssp, struct rcu_head *rhp,
-> > > >    }
-> > > >    EXPORT_SYMBOL_GPL(call_srcu);
-> > > > 
-> > > > +void call_srcu_expedited(struct srcu_struct *ssp, struct rcu_head *rhp,
-> > > > +                        rcu_callback_t func)
-> > > > +{
-> > > > +       __call_srcu(ssp, rhp, func, rcu_gp_is_normal());
-> > > > +}
-> > > > +EXPORT_SYMBOL_GPL(call_srcu_expedited);
-> > > > +
-> > > >    /*
-> > > >     * Helper function for synchronize_srcu() and synchronize_srcu_expedited().
-> > > >     */
-> > > > diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> > > > index 737b74b15bb5..26215f98c98f 100644
-> > > > --- a/virt/kvm/kvm_main.c
-> > > > +++ b/virt/kvm/kvm_main.c
-> > > > @@ -6036,7 +6036,7 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
-> > > >           memcpy(new_bus->range + i + 1, bus->range + i,
-> > > >                   (bus->dev_count - i) * sizeof(struct kvm_io_range));
-> > > >           rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
-> > > > -       call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
-> > > > +       call_srcu_expedited(&kvm->srcu, &bus->rcu, __free_bus);
-> > > > 
-> > > >           return 0;
-> > > >    }
-> > > 
+> On Tue, Feb 03, 2026 at 08:42:34AM +0100, Arnaud POULIQUEN wrote:
+>>
+>> Hello Rob, Sumit,
+>>
+>> Just a gentle reminder. Could you please provide your advice or a conclusion
+>> on the direction we should take for the DT declaration? I need your input to
+>> be able to move forward.
+>>
+>> Thanks and regards,
+>> Arnaud
+>>
+>> On 1/13/26 10:20, Arnaud POULIQUEN wrote:
+>>> Hello,
+>>>
+>>> On 1/5/26 08:37, Sumit Garg wrote:
+>>>> On Fri, Jan 02, 2026 at 04:17:27PM -0600, Rob Herring wrote:
+>>>>> On Tue, Dec 30, 2025 at 5:10 AM Sumit Garg
+>>>>> <sumit.garg@kernel.org> wrote:
+>>>>>>
+>>>>>> On Mon, Dec 29, 2025 at 05:25:30PM -0600, Rob Herring wrote:
+>>>>>>> On Wed, Dec 17, 2025 at 04:39:12PM +0100, Arnaud Pouliquen wrote:
+>>>>>>>> Add a device tree binding for the TEE-based remote processor control
+>>>>>>>> service implemented as an OP-TEE Trusted Application identified by
+>>>>>>>> UUID 80a4c275-0a47-4905-8285-1486a9771a08.
+>>>>>>>>
+>>>>>>>> The TEE service node is a child of the
+>>>>>>>> "linaro,optee-tz" firmware node and
+>>>>>>>> acts as a container for remoteproc devices that are
+>>>>>>>> controlled via TEE.
+>>>>>>>
+>>>>>>> Is this generic for any remoteproc device or just ST's
+>>>>>>> remoteproc. Looks
+>>>>>>> like the latter to me.
+>>>>>>
+>>>>>> That's true, the DT description of the remoteproc subnode is very
+>>>>>> specific to the vendor which in this case is ST.
+>>>>>>
+>>>>>>>
+>>>>>>>> In addition, the "linaro,optee-tz" binding is updated to specify the
+>>>>>>>> '#address-cells' and '#size-cells' values used for child TEE service
+>>>>>>>> nodes.
+>>>>>>>
+>>>>>>> I'm pretty sure I already rejected per service/app child nodes for
+>>>>>>> OP-TEE when its binding was submitted.
+>>>>>>
+>>>>>> That was the reason to have discoverable TEE bus in first place and I
+>>>>>> have been motivating people to dynamically discover firmware properties
+>>>>>> rather than hardcoding in the DT.
+>>>>>>
+>>>>>>> If we do need something in DT
+>>>>>>> to define some resources, then can't we have some sort of
+>>>>>>> standard/common communications channel? I don't care to
+>>>>>>> see some sort of
+>>>>>>> free-for-all where we have every vendor doing their own thing. OP-TEE
+>>>>>>> needs to standarize this.
+>>>>>>
+>>>>>> I suppose this requires a wider scope work as you can see
+>>>>>> the DT resource
+>>>>>> dependence from here [1]. By standardize communication channel, do you
+>>>>>> mean to say if adding an alternative backend to fwnode for TEE in
+>>>>>> parallel to DT, ACPI or swnode is the way to go for discovering fw
+>>>>>> properties?
+>>>>>
+>>>>> No, not at all.
+>>>>>
+>>>>>> Or do you have any other suggestion here?
+>>>>>
+>>>>> What I mean is why doesn't the TEE define the communication channel
+>>>>> (mailbox+shmem and notification interrupt) rather than each TEE app?
+>>>>
+>>>> The synchronous communication channel is already there for each TEE app
+>>>> based on (invoke commands + TEE shared memory). OP-TEE does support
+>>>> notification interrupts too but those haven't been exposed to TEE client
+>>>> drivers yet. I suppose this remoteproc use-case can be a good example to
+>>>> expose that as a generic TEE notification interface too.
+>>>
+>>> In the STM32MP series, the mailboxes and shared RAM are used for RPMsg
+>>> communication between Linux and the remote processor. My concern is that
+>>> using notification in OP-TEE could impact performance by introducing
+>>> latency. Additionally, this might require a DMA allocator in OP-TEE to
+>>> manage the shared memory. One RPMsg virtio requires the declaration of
+>>> at least three carveouts. Managing these as memory regions in OP-TEE
+>>> would be complex (due to limited number of memory area declaration on
+>>> STM32MP2).
+>>>>
+>>>>>
+>>>>> More generally, is having TEE apps depending on random DT resources
+>>>>> really a box we want to open? Is the next thing going to be a TEE
+>>>>> clock/reset/gpio/power provider? Where do we draw the line?
+>>>>
+>>>> This is really a hard line to draw since silicon/OEM vendors based
+>>>> on their
+>>>> hardware security architecture partition various resources among TEE and
+>>>> the Linux world. And one general principle we try to follow for the TEE
+>>>> is to keep it's Trusted Computing Base (TCB) to a minimal too.
+>>>>
+>>>> IMHO, if the threat model is well understood then we should allow for
+>>>> this hetrogenous partitioning of system resources.
+>>>
+>>> Here are some additional resources we need to manage the remote
+>>> processor, which seem complex to handle without Device Tree (DT):
+>>>
+>>> - Clocks: On STM32MP, we manage clocks through the OP-TEE SCMI service
+>>>     [1]. The SCMI OP-TEE clock/reset service already exists and should be
+>>>     reused.
+>>> - Power domains
+>>> - Remoteproc Watchdog interrupt: Cannot be caught by OP-TEE on
+>>>     stm32mp15.
+>>> - Graceful shutdown of the remote processor: This involves sending a
+>>>     mailbox notification to request shutdown and waiting up to 500 ms for
+>>>     the remoteproc to deinitialize its resources. Waiting this long in the
+>>>     secure context seems inefficient.
+>>> - compatibility with some coming IPC mechanisms: Such as rpmsg_I2C or
+>>>     virtio-msg might require remoteproc subnode descriptions in the
+>>>     future.
+>>>
+>>> If the proposed topology does not gain consensus, what about an
+>>> alternative approach that manages the remoteproc TEE similarly to SCMI,
+>>> by introducing a remoteproc-backend with the proc ID as a parameter?
+>>>
+>>>
+>>> &firmware {
+>>>       optee: optee {
+>>>           compatible = "linaro,optee-tz";
+>>>           method = "smc";
+>>>           sproc: sproc {
+>>>               compatible = "80a4c275-0a47-4905-8285-1486a9771a08";
+>>>               #address-cells = <1>;
+>>>           #size-cells = <0>;
+>>>           };
+>>>       };
+>>> };
+>>>
+>>> rproc1: m33@0 {
+>>>     [...]
+>>>
+>>>     remoteproc-backend = < &sproc 0>
+>>> };
+>>>
+>>>
+>>> rproc2: m0@0 {
+>>>     [...]
+>>>
+>>>     remoteproc-backend = < &sproc 1>
+>>> };
 > 
+> Using a phandle like this makes it a bit more cleaner but I would defer
+> to Rob since he has the final say here.
+> 
+> -Sumit
+> 
+>>>
+>>>
+>>> [1]https://elixir.bootlin.com/linux/v6.18.4/source/drivers/clk/clk-scmi.c
+>>>
+>>> Thanks,
+>>> Arnaud
+>>>
+>>>>
+>>>> -Sumit
+>>>
+>>> _______________________________________________
+>>> Linux-stm32 mailing list
+>>> Linux-stm32@st-md-mailman.stormreply.com
+>>> https://st-md-mailman.stormreply.com/mailman/listinfo/linux-stm32
+>>
+
 
