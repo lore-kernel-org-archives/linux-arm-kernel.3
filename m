@@ -4,70 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EA4E9A04C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 13:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF360E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 13:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m71zW88H7K19uDqB/mJVa6SLvXopmaXhdyjRMA5F7Ug=; b=TQXBxxc0fb9jEFbRR9ph7HvEdR
-	pT5iEhMfqB1XGbGQ+lwhPXSfI08rVtmkpGXIulAgS0xY466CgYtJKuHCctGBL+VfkvpI0fFhlT0Y6
-	Z3xd9avUIWiEsmEy6hK1+8ndD9YISPcgkZkTDA9dxp6r6v90mLzk+XsXUx+ZT3LMnPSVYBhW7jSmj
-	kPH6YQFzeCJA12BidgsiYYmOYJKkUl1T6qRRA27yxNKcTQMcu9zwatEyKdC+fbgCYyySrueHOs+KU
-	MzgjD2TFcMp8YbOXiHAZusC3sAztHF+Ey0RpZfIIkAYMok1Vi4Xy3wOUz7wB1HodYbyha6CtCwmch
-	9fbPpQzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VMeYVXWn4rNsdtLa5RrkjJUCcdAtFa2v3GVS4ivXFT0=; b=DsY6AvttN1SGQ9s8st06LAnLXn
+	ZJxacKAtD/LVBJcUiqR6ExnMIs0U/Oga2gMN8XTn8jPOrAgeRTmokrDOeh1xsKKBQNWKJ7pZNQtqd
+	+657WUaudWRdyMKG11rtl/E02jiw7C0Tc64SkRRdhGqtcZJrkRCeYAnLwkTdhOGbXnIAF4rh+faA5
+	Yv6ueGFftQ0dNHPmBhTkWs17imLb+cLvqzNhAejAHnE2Ax8DVBWcq6uONke09cwjMRUpa/1ALJP+0
+	34OsKRWOnU8YssXFTkrWltB/0+lDKmzY7Wt3yObBxIgthhSyKqomGsssMPns8okwad69VHH8jWja2
+	HjMshkEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt4Ic-0000000BPfa-27Uw;
-	Thu, 19 Feb 2026 13:42:34 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vt4RJ-0000000BQ0W-28uN;
+	Thu, 19 Feb 2026 13:51:33 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt4Ia-0000000BPeh-3Ga8
+	id 1vt4RG-0000000BPzm-3Jib
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 13:42:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=m71zW88H7K19uDqB/mJVa6SLvXopmaXhdyjRMA5F7Ug=; b=ZQ+CO1CuHmS7qG0gJgND/e2zBA
-	/ubCjr4WIUdnz0YjIla8GiDmOEPHMbPXJFH2bv/HTmr4xfkGKBqUFqcA4c3jySyxFZM4s03A0s2GQ
-	9g8b2lZ2UOhZudKslVqwCiLVlV81XNuoZ5oZ6RPNggjSHFkeqIASVLsOy26sY9Zax3Ec=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vt4IR-007v3K-BB; Thu, 19 Feb 2026 14:42:23 +0100
-Date: Thu, 19 Feb 2026 14:42:23 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Cc: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-imx@nxp.com, Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Message-ID: <13f9d767-61d6-4e29-b36e-6dcc860ccb11@lunn.ch>
-References: <20260212213656.662437-1-shenwei.wang@nxp.com>
- <20260212213656.662437-4-shenwei.wang@nxp.com>
- <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
+	Thu, 19 Feb 2026 13:51:32 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4807068eacbso8587985e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 05:51:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1771509088; x=1772113888; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VMeYVXWn4rNsdtLa5RrkjJUCcdAtFa2v3GVS4ivXFT0=;
+        b=o7iPCsAoguahHg2MY16YrFUwdkzXaz2xjC1iP9sFHe1CpYs/5oOjgYplAo4EQsWcPV
+         aEQRHzqxNwzrueXPWTPG12X8HkOlvyoY3sP8Xf08kbTusglDz87vcrDronSokKIHRNSb
+         r2aHhsH8eJCwKVaX3sIKZ1SW9fKfYPVHMWO3mluWDhPImOMmZMaDDHSOP96lMORrzfu3
+         ZkmL0+ZGFoy9GUNecux3woZFq69ux4YkBKdw6JgRZCgKzt8yfG1EmncN6Nw06COTX+rz
+         9/13M5vsmKYzxtET/ClHr/BV9bzqw3k+Li+xITLadylHWxLTmvUEvJ2Zo95vYeO+gwoY
+         gXMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771509088; x=1772113888;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VMeYVXWn4rNsdtLa5RrkjJUCcdAtFa2v3GVS4ivXFT0=;
+        b=nmjLXinyrsoPHjuJEDUIXQjZJU42wvJGKrF0/AUMLcbWwu7qdERanHezE2BFi84/nc
+         yUoKmhrsWokMLdVuQhpusAtVB52DzHyZn3gFl3h8KAy3bpDx+spv4NAKc7Lba6STTBRu
+         TqJVnlmeK+q8Mq02Rg3uNFif1Dx28fVWme/4u+24vGnYhT2dIltMtnEgJKvqZ6+ga4VA
+         fG1Ob8ZBdplfD+2A8dYDcOWgBVkwAAiB504ZTvVZ65Ubm6cX0GErC96w3A6PBCO0X01q
+         L05zltWJWUVY97GygDrIdswLhNVtads91MQeUNb+leLJCxCdMd7snXeUnjeVDmiv1aIN
+         d/pQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWUjjcP1emIXVmLINUVSLZ2EYik0FYvpKC5544EM2oo8VU1rIK2TUASWftjO7+AiKizBzYHMU45uDapV78MJNAC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxziHWVnFo97beNqAGHHeAQ7ctgTjmOMaPpBkurwKbMDubYV767
+	p9FWeSkLFhClr4uK9ISBdoVTwnI2J8zkr8DE5wEsWPD/RE9CfTH5c7x06I4WVxiZnag=
+X-Gm-Gg: AZuq6aJGTV9zaERxZObR15AgBpXagG5m/bt3Q3Lrs4FUvyoG/IIEpiwip/L6QDk0VbQ
+	Kvnr1jCy88xRzpmjGeJi9w4Qxb5F/yQhPgg14hjc7B/UCYBpTZpBxp7aSEJWXNUvU/L15nHnV/k
+	7Aw0V/sFv1IdPba8AC5DsTBdsqaNgKppTZcwi4wKzUMw7iTqCz/94cyfCZsn3WNoZgkG21K/T0Y
+	5Ybbo0lG7RXhGsV3P/U0UAJ1smmCgtvm1tCR9nkjcDlPFd3MAc5tHeLDKRIBqTC3+uRaI5a+ceB
+	a8mkx+suI92o4eo0xKnTEtX74L0xCLkzn8z1Rxw5oIBP29AMcMXOHrXWXCI9QHSUeTWv7vTVhpe
+	Y/6kDbDs5nOZlDvy81+ysrXlRe4IFyvTV5LSDNcvmJhbaJJOEyaouK2mm7swJaDJ6TWCNp5b4gf
+	TVZ9Z54X1iYJ161Fw1GNL04ZcLj/A/
+X-Received: by 2002:a05:600c:35cd:b0:479:3a86:dc1c with SMTP id 5b1f17b1804b1-48398aefd55mr85918085e9.36.1771509088528;
+        Thu, 19 Feb 2026 05:51:28 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483a31d82a8sm5742475e9.15.2026.02.19.05.51.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Feb 2026 05:51:27 -0800 (PST)
+Message-ID: <7b692e5c-d376-4023-80e0-76c9d9c0604f@linaro.org>
+Date: Thu, 19 Feb 2026 13:51:26 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf: arm_spe: Add barrier before enabling profiling
+ buffer
+To: Will Deacon <will@kernel.org>
+Cc: Michael Williams <Michael.Williams@arm.com>,
+ Alexandru Elisei <Alexandru.Elisei@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Anshuman Khandual <Anshuman.Khandual@arm.com>,
+ Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+ Robin Murphy <Robin.Murphy@arm.com>, Leo Yan <leo.yan@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
+ <aYD08d42SewAAQCB@willie-the-truck>
+ <aebe99ad-1189-4372-83e3-385f33829bd2@linaro.org>
+ <aYHXCkFZcVm1L_25@willie-the-truck>
+ <e7d53952-59f6-4990-83fb-1182641af29f@linaro.org>
+ <705acb39-2eef-4e61-aec1-b9503e788299@linaro.org>
+ <aZcIy1Or4c5-i7Tm@willie-the-truck>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <aZcIy1Or4c5-i7Tm@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_054232_819165_0B8563EE 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260219_055130_885186_32AADB91 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +115,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +	u8 id;		/* Message ID Code */
-> > +	u8 vendor;	/* Vendor ID number */
-> 
-> Does this fields above are mandatory, seems that it is just some constant
-> values that are useless.
-> 
-> > +	u8 version;	/* Vendor-specific version number */
-> 
-> Why it is vendor specific? the version should represent the rpmsg-tty
-> protocol version.
-> 
-> > +	u8 type;	/* Message type */
-> > +	u8 cmd;		/* Command code */
-> > +	u8 reserved[5];
-> 
-> What is the purpose of this reserved field?
 
-They have an implementation of the other end running on there systems,
-and it sounds like it is widely deployed, and they are trying to keep
-backwards compatibility. The protocol also implements more than
-GPIO. There is also I2C, maybe watchdog, i don't remember, but early
-versions of this patchset had a list. Some of these fields are used
-for some of these other devices.
 
-I've been arguing it should be a clean design, with the protocol
-focusing on GPIO. And that the rpmsg channel makes it clear this is a
-GPIO device, the protocol itself does not need to include fields to
-differentiate between GPIO, I2C etc.
+On 19/02/2026 12:57 pm, Will Deacon wrote:
+> On Thu, Feb 19, 2026 at 12:08:27PM +0000, James Clark wrote:
+>> I'm back to drag this up again. So I think all of the above discussion
+>> relies on the ordering given by the indirect read needed for the "might
+>> ignore a direct write..." part. But it's _might_ ignore a direct write, it's
+>> possible for an implementation to not do that, so there are two possible
+>> implementations:
+>>
+>> #1 Where there is an indirect read to give the write ignore outcome
+>> #2 Where there is no write ignore outcome so it doesn't require an
+>>     indirect read
+>>
+>> For #2 there's nothing to force the ordering. We're writing to two different
+>> registers (PMBPTR_EL1 and PMBLIMITR_EL1) and we have to have the
+>> PMBLIMITR_EL1 write come second for the buffer to be considered configured
+>> correctly. For example if the old value of PMBPTR_EL1 is higher than the new
+>> PMBLIMITR_EL1 and the write to PMBLIMITR_EL1 happens first then it's
+>> misconfigured. That's why we think we need the isb() here.
+> 
+> I thought profiling was disabled in these cases, so why is it
+> misconfigured?
+> 
+> If it is misconfigured, what can go wrong given that we're either stopped
+> or pmscr is clear?
+> 
+> Will
 
-When they start submitting I2C over rpmsg, i expect the same sort of
-discussion will start again, so the likelihood of keeping backwards
-compatible with there firmware seems low to me.
+It is stopped in the interrupt handler because PMBSR_EL1.S = 1. But in 
+arm_spe_pmu_start(), PMBSR_EL1.S = 0 so it's not stopped. And with 
+PMBPTR_EL1 still being set to the value from the last session it could 
+be higher than PMBLIMITR_EL1.
 
-	   Andrew
+PMSCR_EL1 doesn't affect SPEProfilingStopped(), it's only:
+
+   boolean stopped = (PMBSR_EL1.S == '1');
+
+The conditions for when the buffer needs to be configured correctly from 
+R24557 are:
+
+   ProfilingBufferEnabled() && !SPEProfilingStopped() &&
+     PMBLIMITR_EL1.FM != DISCARD
+
+I think even if PMSCR_EL1 is clear you can still get a buffer management 
+error, even if no samples were going to be written into the buffer. It 
+just says:
+
+   While the Profiling Buffer is enabled, profiling is not stopped, and
+   Discard mode is not enabled, all of the following must be true:
+
+   * The current write pointer must be at least one sample record below
+     the write limit pointer.
+
+
+
+
 
