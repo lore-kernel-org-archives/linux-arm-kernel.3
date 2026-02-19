@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF451E9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 09:33:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664B8E9A03B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 09:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7r0dI/NDhO5KOimLguNOEmUEH07RDuzdphKOPAKb7+w=; b=1ZP2zX5GKZw2FCGmz1H80D4dHr
-	68+fOu8OK9RaW5FD87fn76i62GdOkHWko6c91qogdcMhgcrgRztR8zSJgFj4fiv3RyTy4iwep2+oY
-	4f4EPa+u/ZMs7r/TaGZ9JXUUHiatIMsWK7RgUu4hcht9bHeHDdoH0OrYTXUVweEPW5H3K76kwXwQT
-	CnGtNJrDTUckx6VTYEutZxAtL9j63QF650mszbff23OViHrHsydC/z6y7APdXK24EYXj31jxGhycH
-	XUg520WAsHAAaBWhI3Ln71AOF9qL+prdVBK2JeD0vpzfIQeS4TFeU9QLy85d/Da1usdLalCZTTJMO
-	zQ622ixg==;
+	bh=7lDuxuhfvhyYj9DmohVZkkBnQY63QlxYeSYRoTS+Ns0=; b=pnzoShzucQgh699Bbm0H4ukwaa
+	o7uXnctxP/ZAQ4V6rz+kr5begWr9UACMUrUgg9iOBs41gMYs3RLyeKf62NBZpw3JA0yCWgO+RkH2w
+	x6Du+2MrvOHZCX1aOFxfn6tMabUB0Po67SsU1eoqid3xPO0/z3XK1q6Sw2jhu3KB8Hssjqa7+pS5w
+	PDqBMBzK/cqvcgnucLqUVFdJAeBdQfNyOwJbuLHD4nghUJX3KM8A8oGP2SPTP/g4bokX954cQxWT8
+	D72rGugF6rXPWnLT+c9yrZTVxUsTKtD3YrFhxiJ6hcM7jQkAdBYpJJbds+zpGc4DUpL7arw/E+0W5
+	7Ov2XsQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt0Po-0000000BB3u-11Ul;
-	Thu, 19 Feb 2026 09:33:44 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vt0TT-0000000BBGg-18JR;
+	Thu, 19 Feb 2026 09:37:31 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt0Pk-0000000BB2l-1nwV
+	id 1vt0TP-0000000BBFR-2RlI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 09:33:42 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vt0PX-0005vL-Tk; Thu, 19 Feb 2026 10:33:27 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vt0PT-001YRg-2L;
-	Thu, 19 Feb 2026 10:33:25 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vt0PU-0000000050U-47c1;
-	Thu, 19 Feb 2026 10:33:24 +0100
-Message-ID: <d8bbb0a2c3619fcc3734d3840834b59e442f8d80.camel@pengutronix.de>
-Subject: Re: [PATCH v6 4/6] drm/v3d: Use
- devm_reset_control_get_optional_exclusive()
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: =?ISO-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>, Michael Turquette	
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz
- Julienne <nsaenz@kernel.org>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Stefan Wahren	 <wahrenst@gmx.net>, Maxime
- Ripard <mripard@kernel.org>, Melissa Wen	 <mwen@igalia.com>, Iago Toral
- Quiroga <itoral@igalia.com>, Chema Casanova	 <jmcasanova@igalia.com>, Dave
- Stevenson <dave.stevenson@raspberrypi.com>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- Broadcom internal kernel review list
-	 <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-Date: Thu, 19 Feb 2026 10:33:24 +0100
-In-Reply-To: <20260218-v3d-power-management-v6-4-40683fd39865@igalia.com>
-References: <20260218-v3d-power-management-v6-0-40683fd39865@igalia.com>
-	 <20260218-v3d-power-management-v6-4-40683fd39865@igalia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 19 Feb 2026 09:37:30 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 248D34E40544;
+	Thu, 19 Feb 2026 09:37:23 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E33805FB45;
+	Thu, 19 Feb 2026 09:37:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A23EF103687B9;
+	Thu, 19 Feb 2026 10:37:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1771493842; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=7lDuxuhfvhyYj9DmohVZkkBnQY63QlxYeSYRoTS+Ns0=;
+	b=Qs7xBkjojWvKSegG56N80vX1+QzwYAIXimUmRsF/s0TS99jdUnoogsbA5NP//I1GCAQqp3
+	VSoHLgSRu2M6OIOMffopO5HwVljvbBgD8R5Ja+U5gzdvbe/rIGIGOGXZcduJVf3WUe1CbA
+	AFZ82ON8jDPV18CAzchq8isc2CMcAndYTcLUBvlsVkc0ltDhNpuPLZZ9C7F91YWQWuplwH
+	ttScovBRCuqDRb3yUz//S5eiqkDq61n/5PIe2L99QulQQ58VHS8a3Bik4ciBL7VxczIR8M
+	0SrwDH9E80uCB0Aw6GMiiNqhe3FK3GuW9wy8FogHz1IUqCqUSuO0knB73KeKsQ==
+Date: Thu, 19 Feb 2026 10:37:18 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
+	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH] ASoC: rockchip: i2s-tdm: Use param rate if not provided
+ by set_sysclk
+Message-ID: <20260219093718b7d29076@mail.local>
+References: <20260218201834.924358-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260218201834.924358-1-detlev.casanova@collabora.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_013340_459121_2B7A768F 
-X-CRM114-Status: UNSURE (   6.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260219_013728_119756_1487536B 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,15 +81,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2026-02-18 at 17:45 -0300, Ma=C3=ADra Canal wrote:
-> Simplify optional reset handling by using the function
-> devm_reset_control_get_optional_exclusive().
->=20
-> Reviewed-by: Melissa Wen <mwen@igalia.com>
-> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+Hello,
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+On 18/02/2026 15:18:34-0500, Detlev Casanova wrote:
+> Drivers will not always call set_sysclk() for all clocks, especially when
+> default mclk-fs can be used.
+> When that is the case, use the clock rate set in the params multiplied by the
+> default mclk-fs.
+> 
+> Fixes: 5323186e2e8d ("ASoC: rockchip: i2s_tdm: Re-add the set_sysclk callback")
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+>  sound/soc/rockchip/rockchip_i2s_tdm.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.c b/sound/soc/rockchip/rockchip_i2s_tdm.c
+> index 770b9bfbb384..fc52149ed6ae 100644
+> --- a/sound/soc/rockchip/rockchip_i2s_tdm.c
+> +++ b/sound/soc/rockchip/rockchip_i2s_tdm.c
+> @@ -22,6 +22,7 @@
+>  
+>  #define DRV_NAME "rockchip-i2s-tdm"
+>  
+> +#define DEFAULT_MCLK_FS				256
+>  #define CH_GRP_MAX				4  /* The max channel 8 / 2 */
+>  #define MULTIPLEX_CH_MAX			10
+>  
+> @@ -665,6 +666,15 @@ static int rockchip_i2s_tdm_hw_params(struct snd_pcm_substream *substream,
+>  			mclk_rate = i2s_tdm->mclk_rx_freq;
+>  		}
+>  
+> +		/*
+> +		 * When the dai/component driver doesn't need to set mclk-fs for a specific
+> +		 * clock, it can skip the call to set_sysclk() for that clock.
+> +		 * In that case, simply use the clock rate from the params and multiply it by
+> +		 * the default mclk-fs value.
+> +		 */
+> +		if (!mclk_rate)
+> +			mclk_rate = DEFAULT_MCLK_FS * params_rate(params);
+> +
 
-regards
-Philipp
+Maybe this could be set as the default value of i2s_tdm->mclk_rx_freq
+and i2s_tdm->mclk_tx_freq in rockchip_i2s_tdm_probe instead of relying
+on it being 0 and testing later on?
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
