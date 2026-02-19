@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC864E9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 13:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EA4E9A04C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 13:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=npuTIspAvOrD19FQ0TqG9QOxkV6FhzrkSXimIpMnL4g=; b=uv2GXzMn9fPJfIeOIEIS+GOSdu
-	w0vmzDVFCkWZvtFfmVecR8ijgYfnmWXVcXfgnOgSKaOXS8KjI/NHyZF/dRQCAA+00yG1Mbl4pdV4k
-	/vJSm5ogsUWanQgi/oRCtaNazHcR6uTbVFNWt8UfBzxysLBCAJFQRn5WTkMdmsLHq5XPIdxfP6Qfm
-	cJEv9qe1XskNmkdMO+/+1XO8CXp7uqGQmzxy1dq0PSCpGqXgTuAL/db+Ejv/iMF1Ylt3jMOd3zQCS
-	yazWOn8Hc3lfZI/oE/WRohFBM4I9rGVpwtqLPTabT0mQLgCtxKxmYnFLAJnpbswXiQ2SAb+VTBptY
-	bbNebDAg==;
+	bh=m71zW88H7K19uDqB/mJVa6SLvXopmaXhdyjRMA5F7Ug=; b=TQXBxxc0fb9jEFbRR9ph7HvEdR
+	pT5iEhMfqB1XGbGQ+lwhPXSfI08rVtmkpGXIulAgS0xY466CgYtJKuHCctGBL+VfkvpI0fFhlT0Y6
+	Z3xd9avUIWiEsmEy6hK1+8ndD9YISPcgkZkTDA9dxp6r6v90mLzk+XsXUx+ZT3LMnPSVYBhW7jSmj
+	kPH6YQFzeCJA12BidgsiYYmOYJKkUl1T6qRRA27yxNKcTQMcu9zwatEyKdC+fbgCYyySrueHOs+KU
+	MzgjD2TFcMp8YbOXiHAZusC3sAztHF+Ey0RpZfIIkAYMok1Vi4Xy3wOUz7wB1HodYbyha6CtCwmch
+	9fbPpQzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt47N-0000000BOvr-2sIQ;
-	Thu, 19 Feb 2026 13:30:57 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vt4Ic-0000000BPfa-27Uw;
+	Thu, 19 Feb 2026 13:42:34 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt47K-0000000BOud-1fgs;
-	Thu, 19 Feb 2026 13:30:57 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 5545C4E4023E;
-	Thu, 19 Feb 2026 13:30:50 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1D91E5FB45;
-	Thu, 19 Feb 2026 13:30:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B8C6A102F18FC;
-	Thu, 19 Feb 2026 14:30:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1771507849; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=npuTIspAvOrD19FQ0TqG9QOxkV6FhzrkSXimIpMnL4g=;
-	b=MY9ZvABT+1aokTgV8+munKqpZOV0lg0d8+sqwvXPIHpzY+M2QHeItcwQkdXD9EZYcq7Aaq
-	G6jAEx4Wd3w0VyOcSZinyqbAUGTYfX8NTbQ654p5iGnZ+5D1KpMR5oxLfOn0604lqxzI0F
-	LHE4HSscCnqAiYA2vRDJ6ZKOcbN6Z2VlPCnxB2FFcNKlnrr2k0CpTl/iWy2x0F5XHzJ6Xq
-	DtYRAqOEMzywC19YJ8emLHKFgIQ8b2qnGjWJ0QIWGZbkEiJvMXOgdK8YpKNSGiDHw+9TRf
-	rjA/464qfqnN6nuFjorilwul9iApJFrCNCIDzW7RNHLaU5PFmsrO6TowbxnIZw==
-Date: Thu, 19 Feb 2026 14:30:44 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
-	linux-kernel@vger.kernel.org,
-	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH] ASoC: rockchip: i2s-tdm: Use param rate if not provided
- by set_sysclk
-Message-ID: <20260219133044fa1ac2a4@mail.local>
-References: <20260218201834.924358-1-detlev.casanova@collabora.com>
- <20260219093718b7d29076@mail.local>
- <00698644-63dd-45b0-b43b-a7bc0fa459b1@sirena.org.uk>
+	id 1vt4Ia-0000000BPeh-3Ga8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Feb 2026 13:42:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=m71zW88H7K19uDqB/mJVa6SLvXopmaXhdyjRMA5F7Ug=; b=ZQ+CO1CuHmS7qG0gJgND/e2zBA
+	/ubCjr4WIUdnz0YjIla8GiDmOEPHMbPXJFH2bv/HTmr4xfkGKBqUFqcA4c3jySyxFZM4s03A0s2GQ
+	9g8b2lZ2UOhZudKslVqwCiLVlV81XNuoZ5oZ6RPNggjSHFkeqIASVLsOy26sY9Zax3Ec=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vt4IR-007v3K-BB; Thu, 19 Feb 2026 14:42:23 +0100
+Date: Thu, 19 Feb 2026 14:42:23 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Cc: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-imx@nxp.com, Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+Message-ID: <13f9d767-61d6-4e29-b36e-6dcc860ccb11@lunn.ch>
+References: <20260212213656.662437-1-shenwei.wang@nxp.com>
+ <20260212213656.662437-4-shenwei.wang@nxp.com>
+ <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <00698644-63dd-45b0-b43b-a7bc0fa459b1@sirena.org.uk>
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_053054_918577_0ABABC7A 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20260219_054232_819165_0B8563EE 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/02/2026 12:34:44+0000, Mark Brown wrote:
-> On Thu, Feb 19, 2026 at 10:37:18AM +0100, Alexandre Belloni wrote:
-> > On 18/02/2026 15:18:34-0500, Detlev Casanova wrote:
+> > +	u8 id;		/* Message ID Code */
+> > +	u8 vendor;	/* Vendor ID number */
 > 
-> > > +		if (!mclk_rate)
-> > > +			mclk_rate = DEFAULT_MCLK_FS * params_rate(params);
-> > > +
+> Does this fields above are mandatory, seems that it is just some constant
+> values that are useless.
 > 
-> > Maybe this could be set as the default value of i2s_tdm->mclk_rx_freq
-> > and i2s_tdm->mclk_tx_freq in rockchip_i2s_tdm_probe instead of relying
-> > on it being 0 and testing later on?
+> > +	u8 version;	/* Vendor-specific version number */
 > 
-> That makes sense but since this is fixing a regression and I'd like to
-> get the fix in I'll apply, we can improve things incrementally.
+> Why it is vendor specific? the version should represent the rpmsg-tty
+> protocol version.
+> 
+> > +	u8 type;	/* Message type */
+> > +	u8 cmd;		/* Command code */
+> > +	u8 reserved[5];
+> 
+> What is the purpose of this reserved field?
 
-Yeah, actually, Luca pointed that it is actually not a good suggestion
-because we need the rate of the stream to be able to set mclk_rate and
-we obviously don't have it in probe. So you can definitely apply the
-patch as-is.
+They have an implementation of the other end running on there systems,
+and it sounds like it is widely deployed, and they are trying to keep
+backwards compatibility. The protocol also implements more than
+GPIO. There is also I2C, maybe watchdog, i don't remember, but early
+versions of this patchset had a list. Some of these fields are used
+for some of these other devices.
 
+I've been arguing it should be a clean design, with the protocol
+focusing on GPIO. And that the rpmsg channel makes it clear this is a
+GPIO device, the protocol itself does not need to include fields to
+differentiate between GPIO, I2C etc.
 
+When they start submitting I2C over rpmsg, i expect the same sort of
+discussion will start again, so the likelihood of keeping backwards
+compatible with there firmware seems low to me.
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+	   Andrew
 
