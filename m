@@ -4,171 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81174E9A050
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 16:42:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77C07E9A050
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 16:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKW0VqsH2wm0dcny9PHVG1LSeilTMtjn972X3rDVgUw=; b=D/AXOg+a+CakRJnV/lyqYXrt/F
-	y23joovBpapbI4SKnzZ7MDLPFhcF4ZK+4gw1vCj0oEMLMeWRCvS9ihK2CfQnjKycZb61csqzUvtHm
-	c8l+M9sXwopGbPZ8QjzKvuMOIujDFlGxwCta5BvsuynIi/aBGakjRt+C5EqTtKEby8P/36F5D6Rgd
-	RQE89FIZr3df6j152PMb3HskPvB5OrTViV2pv38oeNY6KYQGp5ts/jC9Oqffy5eDhhUqSwl4vXd+n
-	3v8tfcjUPVuZCF5n3X4WXU+f5QXjTyQiin7Dzhtss618k1kE3jZbBbv77e6RfcVFKv0L6ci8BjOAA
-	00pItcXA==;
+	bh=+Rpi5B9mieofuRvn4aUQgU1WELLotMUCncPEC7vcJmQ=; b=A78mbrdYWYL3B6DD7/wAAxucX5
+	AP4bH3wEoYgeNTTEmgkar5JYCc/xITJ+bsGoTiFVmVIyZ1x/yevw8cG61oRdjq2Fic7RrQd8RNHiE
+	oFVx8tZN+iicweTcyBbLeqCgDy25I4C/VvfdpL45gpJ4GGnnHciEZwOv6E1080YnoKd+84AE5MbRb
+	h6ZICmhxg7poB5Qbehq8Txfd2HrD8b7dj7Y4poxiPbLhzfMuPD16UOiAgA2/5azGGurAuVtKZ98yn
+	BvUJFURJ8jGH764nTcLW4ookfnAY5qQS9p1zN96HpJXeL7u+r0aHc89OkpoIOJC+Yr6YwfuF6Ws92
+	8rwJMILg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt76q-0000000Be1X-1shX;
-	Thu, 19 Feb 2026 16:42:36 +0000
-Received: from mail-westeuropeazon11010052.outbound.protection.outlook.com ([52.101.69.52] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vt77N-0000000Be5N-3JCp;
+	Thu, 19 Feb 2026 16:43:09 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt76o-0000000Be0G-0iMO
+	id 1vt77L-0000000Be4k-1XWr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 16:42:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YYKI5Nb3wOUyUZlUb1rU3NAoH1+vvAf0c+XR7MQC7pI9XCX46bWaDhK81CVLwDMpEOGgMLoEMUvSMhFI5Gm0cftD/ViLzNBE5Muq9ZNIiTVB344grxTcj6m/IoQ8xeBQelx36o8JuRoFjrVTukNmwK79XGm3D5FXD6QxSF1I35rM0cIf6iuP8UYBQA6L5kPB2aUbniVBIsEfr1vpnVRRvFMYEjNx5DKEm9HQmRBU4J1v83CJwjR33IEpw4l5+Cw2xPF8wDtcbxsM4tGm4nf9RWInecpLL5Ppwg0Ke99V/VTG3dWjp+hIJhYZ2hN7LlFYBOBxULzluxbyLbL1vLLdug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DKW0VqsH2wm0dcny9PHVG1LSeilTMtjn972X3rDVgUw=;
- b=RTPFxdis98zkhOqYG9KT6mhxCFTUoh+n+VQ9efaf4d/uOnrQc/NIzF6wmzn6cc3CZ3TQ3SfL763xtZCta6qtzI389V2Hv6+DX+6sn0V3vy/f3XbZRC1JL1RHbBHdL48vZRgd/qH9LE4pVfMgi7jEplZDmbW15yQu0S4YTdD8cZVSpYxn4zt2DBSM1ydJon3X3ZeC6qqOfcWpUFymY8tuVYrBcKcFottWsCG2/t+eMsfjdIynYHN5/2mm33NFdlfLUUoudyrEwwPYkFSPHU+3baXAGq/KYaX9cHpG8SYcknlSf3+p1MhdaUrORwjXCM5ThLMleCtSS95entK+6+NK2A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DKW0VqsH2wm0dcny9PHVG1LSeilTMtjn972X3rDVgUw=;
- b=ENlzxWhw6QQXGH/Qryb4omksYdt27n/FuHRHOc5FPcvyk/Zo9FvdBJ6JeSvj7vz3EsHHJXUrvFhle4FNtuMhH4E5egA7knHF2FbJxGcireYUlQ50ltUxu0NgVMeyjXGgTNFdof+3VEt/was+VvnzVxemn7cZKyXBlIe5rXNnOuBK5fz5D05+mXeXr+hhOPr5R1BXzbf1BUj+TfTiizuNCHSl4qFWWMhw9U0NpMHMSDDYIe/iv82yqFd8nzh2Fm2YHRhYDMoHRpnZB7e2Qr3GtNeVt4/ceXH7OwA1KEBmxmqLy0rOWrwxDe7qF6IUxCHUp9lMFgRlqTeMDGsXu1YF1w==
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by VE1PR04MB7454.eurprd04.prod.outlook.com (2603:10a6:800:1a8::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.15; Thu, 19 Feb
- 2026 16:42:26 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9632.010; Thu, 19 Feb 2026
- 16:42:25 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, Linus Walleij
-	<linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson
-	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Frank
- Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan
-	<skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
-	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Thread-Topic: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Thread-Index: AQHcob66sNtOQFpEMUGdW+FM+DdI+A==
-Date: Thu, 19 Feb 2026 16:42:25 +0000
-Message-ID: <PAXPR04MB91857DDADAC9D5864DC11FFB896BA@PAXPR04MB9185.eurprd04.prod.outlook.com>
-References: <20260212213656.662437-1-shenwei.wang@nxp.com>
- <20260212213656.662437-4-shenwei.wang@nxp.com>
- <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
- <44804825-5e61-4c3c-96bf-e5a3f3eacec1@lunn.ch>
- <PAXPR04MB9185EFFB8C73462E215EF486896BA@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <5e227857-7e33-43ad-8330-5304fa3616d5@lunn.ch>
-In-Reply-To: <5e227857-7e33-43ad-8330-5304fa3616d5@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|VE1PR04MB7454:EE_
-x-ms-office365-filtering-correlation-id: a2a52dff-c3b8-4e54-257e-08de6fd5dcad
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?CiVRUhU5Q5nOJ6H3mTfXFt6K7SrX+Y/qofnkta2w87KB80+rzCGgTO8AQzM8?=
- =?us-ascii?Q?H2A4IsTmQMSljQEtsFc4+4NCfanQBTig02Rl4nQLXyiSrf4XK12udL5nZBaB?=
- =?us-ascii?Q?nP969tcn7vFgRptNVjZHVI7vLUrh0uj7tJxR6tdb2qUFKo1jZcnJoOpItvaL?=
- =?us-ascii?Q?oduPQiPJjl/scePvIueGlzx6stk+ogMs1gvq0dBUNTG7/uUCY2+kB+NFxsw6?=
- =?us-ascii?Q?kPo8NxaHT5OTQuOQ0jC7HjwLNXT5H1g6QCyLs3lXJ/cJzVU86VCc5Goi5FDW?=
- =?us-ascii?Q?89tBTJgmvIiJBUtdOwRSY02kMh3fvVdIMNFEnn2P3rgvWkfMS7WBA2tGOG38?=
- =?us-ascii?Q?d5s5S+4ocWpbD2gsFYkyhQ9v3mJIW2a7yQzuBCPEAXZIF5h2punEnyIgNZLL?=
- =?us-ascii?Q?AXVRIHz8J3xFi/djqqCwoKITtIdLh3AU4vHHRMum+I3wh79M/22CZnmc5WuK?=
- =?us-ascii?Q?gYwrnRDRPv+r1WWf8fEZCYjKtXkVwmNiG3iR4DrS3EQ1Xb3ykbUzJq3R47Nh?=
- =?us-ascii?Q?EMoEKmKeKwS2i5C+kE/p8yddbIZmWmYa3m8Z/lRfS2YB8FtnzQeonziVEEEy?=
- =?us-ascii?Q?oSEVtRrDfHFAljadnaSarjBT5IvN95nb+Ryi8RblUF2oWAeElwQLQkgpp4qk?=
- =?us-ascii?Q?1y50l27Egg/ZiwEztNZyEs/rUYhrK5/GsICpx/d5Qvm7okEmkeRuaphz8Yy4?=
- =?us-ascii?Q?tCfwbgQGo91Z/ovpf1vxZhi0tqTMyTayj9gsqyb47MRU842Kgw3mWadMkSn1?=
- =?us-ascii?Q?KQx//5VrLwZK2fecAu9DTMtbFubRLRCzz4eh371Qil87civ85ujd/xsaAkVd?=
- =?us-ascii?Q?APbCOz6wRfeUO5tTYOihFjwd+J1uCNlADKAMhV8XIiCabHGZRw1Pz0WS/G7g?=
- =?us-ascii?Q?jibqMHd9uh10dpvdD2+7XpYspyebvVW/KQC9N31+4VGsNsMxWrZb7/O4X1lo?=
- =?us-ascii?Q?FKF94wlUazmyHNlw1WbA9H2zn3uJRswK4486GlLsW3e3UPUGzCuZXTYqpld8?=
- =?us-ascii?Q?s5nQbSCZaXe0N5QZm08Crp45jZ6Clb1vGrta1MQafyS18hqdeIJdwE80AEQc?=
- =?us-ascii?Q?AItFsvB5OFebnhaXcwYnlPqFpBVMHh6sHsMnPIvKGt/GMYtBOEl8FHVAyBnR?=
- =?us-ascii?Q?aQ/ECjsAkM7k1eT08b6AQ5EIQ1TW7+dd+AhiJCtYctKBLbMLWoXA3+1wXmzm?=
- =?us-ascii?Q?esYFXrA0IiqyBtWWNm0D08pZiAZSUd47CR6pKNFvZDXiyaa+eo1Xxdwo8fZh?=
- =?us-ascii?Q?9XrYNe2KiVYm+h5M7upyQ7/o9a3RQ6gSbnZb/a6GCdeWyi7lDTkybQ2qMJ2v?=
- =?us-ascii?Q?WX/CGT1SlPMOGv9iiSCucihBG3zE/yznBOx/3MFZoYxuVwA/3P6zHquBsyND?=
- =?us-ascii?Q?fseuk8/nZs9Ji+/3VHbhHstFed/YQpR8+kcEPzlCW3KToSndkcyc7TVNY3xb?=
- =?us-ascii?Q?q1ebMwfE4bYE+SPMX4XPdrnZVv961aW0tm/Y1VD6UXWvnJFpTa93TFlF7CKk?=
- =?us-ascii?Q?EcwctY1X346G67Y8d9zWM5GUj7mjLE5NF/jRxzKqgEb7vrYUSn6ZRO2/GFIE?=
- =?us-ascii?Q?7rjJJ7hLuOZXUtcgu4bXmderZApX+3U4M1IFAv8pfQ4f4vUJP67Wq6FGbesA?=
- =?us-ascii?Q?IRI0tziTv4v8L4S0RIpbe4c=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?EBygjEBYI5kXROSwJu15F5eSJJk6Z8uSKKr0C1NnYIUlMCFXlN2rsi91/AGA?=
- =?us-ascii?Q?Nqxanr/30fEDHKO6IMo5NCpld748mqbrIxywhkbCkLOU2uy0Hu3tfpVL9sLv?=
- =?us-ascii?Q?IgVJz9mg24JM0GkiaNq7YCeSrgvbEuM3rEfSamLDL8CKDWBbVi40N4ST/Trg?=
- =?us-ascii?Q?cYUCeDNfJXCakg91b8hniHsahGxSJVsFFQb88nrFTwjQsl3S4jsXn7U6aFSp?=
- =?us-ascii?Q?O+dMWCd1N/Me8tisBwQabwzR/m7qTsmchBCYhsKqAorFz7pzlDX+MMeenIJI?=
- =?us-ascii?Q?EQ6ThLtXGe6B8w8o4k4TeHWboKgP4Nd1hZbN8h2vlpGSTWTLDNZA4APmFMAc?=
- =?us-ascii?Q?2xD6WiUPEV0rmBC+xOPp0e7UzmquTkM2vZUUe9GXHUMF7zwlKArK5R0HLYwC?=
- =?us-ascii?Q?974Ow+V77SrdOTmi61gfqmwaC1a3B3ROONX3sroEFKe9np0us5HfdxJZdTeJ?=
- =?us-ascii?Q?tUcXQBu4fVXTx5WNwYFHl8CcJf6mjgFb498dEOofXQHSAPsv6vs951rExlWz?=
- =?us-ascii?Q?RfhyFtIf65YDcp9+snnJSbQeSdTzMoBN1qlLRRtmoj2A2t71zSt99byNGMvq?=
- =?us-ascii?Q?xsoZ4svun5KNqX6AyPdEMELcUkNCO9I+Z4zEoLK/F7CmTVVqC0slGYRk8Zt1?=
- =?us-ascii?Q?co2TIW1nsvBUnYXhvU6s4yB38Fjw6Oll1zkxWAay24dPkso3IoCeflarUsq9?=
- =?us-ascii?Q?IkZmPk08+XzDX5iVPCOpkSevNhGcDrUU+lJMI1ycQBYNcKX3+t0vpgTzG3G+?=
- =?us-ascii?Q?QXGNzRATUnPu57bMELaLranhkynoyw4MOLidhHeZ8Dt6P7WuNzXaKjJFGmGI?=
- =?us-ascii?Q?S5lbHGjxE/LsNSn0TSQdBN2tphfpWZZ2NiYFxos7bn4xlQr3+1YLQJm2w+QW?=
- =?us-ascii?Q?ekkM0VZ5gPr5hL17mDGEXBsRtnEK4/wcyBbLJVbBglK5tUdlYYYlwh0uPoHG?=
- =?us-ascii?Q?GQU5lCImCWVbLdFGVWf80I02FP45jmWnFvLiqlGZMsGVrGYo7MhBGPPCbACT?=
- =?us-ascii?Q?JatsHOFYNToq/ywNY1ccLmGHaflJFTz25QXNiHJAEEaKjBBmnO7epBuoynl0?=
- =?us-ascii?Q?zfqJrchmg8WRFzWPXTcY0pTRLOYGCCUZhP7eG/OQDwkqwBlek4yRXfer/ug3?=
- =?us-ascii?Q?p+X39cTXv+G0/HdUqJ0tFoRd8OpHU/jWtpyv7+b1T+2/2jAbkIpayy2+uvm8?=
- =?us-ascii?Q?mFeoxphWy9r2UGYXt9Dz79VZhwnvGFDeNFnVFHvIcHtlprUZh+gx4TGhASaT?=
- =?us-ascii?Q?3HbBnh4Vg9F3ErCyxAmYWVGrSt7C6lQH2qZ+wsBtLU8K/gPnjvWmXHN/9Cnk?=
- =?us-ascii?Q?W6geUSut+pkld12udHpqn5i8xCKFPpkchadAcxc1mi9eWvpkh1JAiNJnVKle?=
- =?us-ascii?Q?va7G3zPr3sSHmoc2pzDt+WcqSlRUraq9GR1XPM77ekRcoFs1A2jcMEqSgpGT?=
- =?us-ascii?Q?zhwlf/Esyuqu1mGjylWQN5QRlBM3MxseTCDbqM1HjqRZ2rCcffztb3x+nIVX?=
- =?us-ascii?Q?dcMHRvbahQ4xfs1OA+SKveX0gGmBfg5Hg1NVdRIsVKgFdhA3Iem39QRnhrC0?=
- =?us-ascii?Q?OllTYcc1efm44C/oNwmeMo3woQ3lDLWuLFxvaaqTvfgZzJvBgHudHwARYhF3?=
- =?us-ascii?Q?KiMPTKspG9InbBylb2xEtkhxE41Pkk2rzsGCATLVIHA/Q8Df/FMw7H0M0qn0?=
- =?us-ascii?Q?MyQFa+TkD9a8bN0kmjC4FAKZFhwZjy6x7W0aGTzwM+1Riv1+?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 19 Feb 2026 16:43:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=+Rpi5B9mieofuRvn4aUQgU1WELLotMUCncPEC7vcJmQ=; b=HeL4Yi7uHthOqg7HIMXDPjEeSs
+	T8KR2XIToBHFMuoU1k9u7uWKxwLThW5JgSs+1gH7h/vtYsGVC1yFdTxesf6qZovamS4vb4qhhKmqV
+	pA2fGflVHNoBhm2+7xHWfEg2N9rXdEb7BthfX8ZVQT6JfzDelsenC6++UWU43B7JfDaY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vt77A-007wRj-FZ; Thu, 19 Feb 2026 17:42:56 +0100
+Date: Thu, 19 Feb 2026 17:42:56 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Srinivas Neeli <srinivas.neeli@amd.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	richardcochran@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, git@amd.com
+Subject: Re: [RFC PATCH 0/8] xilinx: tsn: Add TSN Endpoint Ethernet MAC
+ driver support
+Message-ID: <5f884e29-151a-4ee7-9e1a-d7e1f84d9f6c@lunn.ch>
+References: <20260219054911.2017362-1-srinivas.neeli@amd.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a2a52dff-c3b8-4e54-257e-08de6fd5dcad
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Feb 2026 16:42:25.3680
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: nm1cREPn8VSBvMpEMGGWNChTCZzzombxDIp1EsRhrHBzEzNnHE6f7QgYOamR6QcLmLmeX0afpBq3x9JEQxoDnA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7454
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260219054911.2017362-1-srinivas.neeli@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_084234_360968_C2AFC62D 
-X-CRM114-Status: GOOD (  25.96  )
+X-CRM114-CacheID: sfid-20260219_084307_411753_0CBB6CF6 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,126 +72,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Feb 19, 2026 at 11:19:03AM +0530, Srinivas Neeli wrote:
+> Introduce a new network driver for the AMD LogiCORE 100M/1G TSN
+> Subsystem IP, also known as the TSN Endpoint Ethernet MAC, which
+> implements IEEE 802.1 Time-Sensitive Networking (TSN) features for
+> deterministic and low-latency Ethernet communication in real-time and
+> industrial automation use cases.
+> 
+> IP Core Overview:
+> The AMD LogiCORE 100M/1G TSN Subsystem IP solution (named as TSN Endpoint
+> Ethernet MAC IP in the IP catalog) implements IEEE 802.1 Time Sensitive
+> Networking (TSN) Standards and provides a low latency Bridged Endpoint or
+> Endpoint only solutions.
 
+So an Endpoint only solution is not connected to the switch? It
+outputs RGMII, can have a PHY connected to it, and so is a single
+netdev interface? You would typically use this in a client?
 
-> -----Original Message-----
-> From: Andrew Lunn <andrew@lunn.ch>
-> Sent: Thursday, February 19, 2026 9:25 AM
-> To: Shenwei Wang <shenwei.wang@nxp.com>
-> Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>; Linus Walleij
-> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corb=
-et
-> <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
-> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Fra=
-nk Li
-> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Shuah Khan
-> <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
-> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix Kernel Tea=
-m
-> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
-> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
-> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
-> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Bartosz
-> Golaszewski <brgl@bgdev.pl>
-> Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO dri=
-ver
-> On Thu, Feb 19, 2026 at 02:17:26PM +0000, Shenwei Wang wrote:
-> >
-> >
-> > > -----Original Message-----
-> > > From: Andrew Lunn <andrew@lunn.ch>
-> > > Sent: Thursday, February 19, 2026 7:27 AM
-> > > To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-> > > Cc: Shenwei Wang <shenwei.wang@nxp.com>; Linus Walleij
-> > > <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
-> > > Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof
-> > > Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
-> > > Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
-> > > <mathieu.poirier@linaro.org>; Frank Li <frank.li@nxp.com>; Sascha
-> > > Hauer <s.hauer@pengutronix.de>; Shuah Khan
-> > > <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
-> > > doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix
-> > > Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
-> > > devicetree@vger.kernel.org; linux- remoteproc@vger.kernel.org;
-> > > imx@lists.linux.dev; linux-arm- kernel@lists.infradead.org;
-> > > dl-linux-imx <linux-imx@nxp.com>; Bartosz Golaszewski
-> > > <brgl@bgdev.pl>
-> > > Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg
-> > > GPIO driver
-> > >
-> > > > > +   if (sync) {
-> > > > > +           err =3D wait_for_completion_timeout(&info->cmd_comple=
-te,
-> > > > > +                                             msecs_to_jiffies(RP=
-MSG_TIMEOUT));
-> > > > > +           if (err =3D=3D 0) {
-> > > > > +                   dev_err(&info->rpdev->dev, "rpmsg_send timeou=
-t!\n");
-> > > > > +                   return -ETIMEDOUT;
-> > > >
-> > > > strange condition you return an error if err =3D=3D 0, for redabili=
-ty use 'ret'
-> > > > variable or simply:
-> > > >
-> > > >               if(!wait_for_completion_timeout(&info->cmd_complete,
-> > > >                                 msecs_to_jiffies(RPMSG_TIMEOUT)) {
-> > > >                       dev_err(&info->rpdev->dev, "rpmsg_send timeou=
-t!\n");
-> > > >                       return -ETIMEDOUT;
-> > > >               }
-> > >
-> > > This will be from a comment i made. It appears that
-> > > do_wait_for_common() can return -ERESTARTSYS. I assume that should
-> > > be returned to user space?
-> > >
-> >
-> > It looks like there might be a bit of confusion around what
-> > wait_for_completion_timeout() actually returns. That function never
-> > returns -ERESTARTSYS. Instead, its behavior is pretty
-> > simple:
-> >
-> > - 0 means the wait timed out
-> > - A positive value means the completion happened (the value is just
-> > the remaining jiffies)
-> >
-> > So the driver returns the timeout error, and the upper application can
-> > decide how it wants to handle that situation, for example restart or ig=
-nore.
->=20
-> wait_for_completion_timeout():
->         return wait_for_common(x, timeout, TASK_UNINTERRUPTIBLE);
->=20
-> wait_for_common():
->         return __wait_for_common(x, io_schedule_timeout, timeout, state);
->=20
-> __wait_for_common():
->         timeout =3D do_wait_for_common(x, action, timeout, state);
->         ...
->         return timeout;
->=20
-> do_wait_for_common():
->=20
->                 do {
->                         if (signal_pending_state(state, current)) {
->                                 timeout =3D -ERESTARTSYS;
+But you can also instantiate the same MAC multiple times, connected to
+an Ethernet switch? That would be the bridged endpoint?
 
-Once wait_for_common() is called with state =3D TASK_UNINTERRUPTIBLE, signa=
-l_pending_state() will=20
-always return false. As a result, -ERESTARTSYS is not a possible return val=
-ue in this scenario.
+> The bridged endpoint solution consists of a 3-port
+> switch that connects to an endpoint including Linux software drivers. For
+> Bridged Endpoint (Switch Endpoint), two ports connects to the network and
+> one port connects to an internal Endpoint.
 
-Thanks,
-Shenwei=20
+To the host, does the internal endpoint just look like a standard
+netdev?
 
->                                 break;
->                         }
-> ...
->                 } while (!x->done && timeout); ...
->                 if (!x->done)
->                         return timeout;
-> ...
->         return timeout ?: 1;
->         Andrew
+What i'm trying to do is get an answer to: Is this a DSA switch, or a
+pure switchdev switch. If the host sees a netdev which is connected to
+a port of the switch, it is probably a DSA switch. If the host only
+sees the user ports, it is probably a pure switchdev switch.
+
+> It supports the use of
+> GMII/RGMII interfaces connecting to a physical-side interface (PHY) chip
+> with full duplex 100 Mb/s and 1 Gb/s operations.
+
+No 10Mbps support?
+
+> - Provides feature rich Ethernet Switch that caters to various network
+>   needs
+> 	* 3-port Switch (2-external, 1-internal)
+> 	* Programmable cut-through and store-forward operations
+> 	* 4-port Switch (2-external, 2-internal) extension through
+>           'Endpoint Extension' and 'Endpoint Packet Switching' features
+
+Why not N-ports? Is it really set to 3 or 4? It cannot be synthesised
+for 5, 8?
+
+> Sample hardware architecture diagram for Bidge End Point like below:
+> 
+>              +------------------+
+>              |      MCDMA       |
+>              +---------+--------+
+>                     Q0---Q7
+>                        |
+>           +------------------------------------------------------------ +
+>           |            |	 TSN sub system(Bridge End Point)	|
+>           |            |                                                |
+>           |     +------+----+  Port 0   +-----------------------+       |
+>           |     |  EndPoint |<--------->|       TSN Switch      |       |
+>           |     |    (EP)   |           +----+-------------+----+       |
+>           |     +-----------+                |             |            |
+>           |                                  |             |            |
+>           |                              Port 1         Port 2          |
+>           |                                  |             |            |
+>           |                            +-----------+  +-----------+     |
+>           |                            |  MAC-1    |  |  MAC-2    |     |
+>           |                            |  (ETH1)   |  |  (ETH2)   |     |
+>           |                            +-----+-----+  +-----+-----+     |
+> 	  |			             |		    |           |
+>           |				     |              |           |
+>           +-------------------------------------------------------------+
+>                                              |              |           
+>                                           RGMII           RGMII
+>                                              |              |
+>                                       +-----------+  +-----------+
+>                                       |  PHY1     |  |  PHY2     |
+>                                       | (Port 0)  |  | (Port 2)  |
+>                                       +-----------+  +-----------+
+> 									  
+
+So how does the host send a frame out Port 2? Is there an extra header
+on the frame sent by EndPoint, which the switch interprets?
+
+FYI: Seems like PHY1 (port 0) is a typO.
+
+> - During driver initialization, all switch ports (Endpoint, MAC1, MAC2)
+>   are configured into the Forwarding state to enable data flow across the
+>   fabric.
+
+Which is wrong. The Linux model is that switch ports are just
+netdevs. You configure them just like every other netdev in the
+system. Newly created netdevs are standalone. They only allow frames
+to pass between the wire and the host. If you want them to L2 forwards
+frames between ports you need to add them to a bridge.
+
+	Andrew
 
