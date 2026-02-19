@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73EF8C531E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 23:12:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1395FC531EA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 23:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUUuOo6ZxopLvjIIEdBmRg87D1jjyje4PdZz0bjrgJU=; b=sWNEEM6yR62gemGM0kqam/bk/4
-	FNmoe1KSS7kqoiYM3+z5OuwsRpOhfE6r5dZM+C+ZA9HUY42/fJNm1Dw8Hyqq6dnbzJ6zPgZjybz8n
-	YwJqRMOEQE3L1CrK+SGg0JaQ6r1VT5uEyGCBCHO/wauHE4D8t7J/Sec7h5pemRtHqPP97Qvp+M+c6
-	PCEQtEw/extvTLofI1lV/KuMRCg7yoGex9exux4fu9dFk25u384AtTVDZEBwbc58x94S9ukRnGnB8
-	fz3epbylt4DGm8VbxWvSt9/7UY1guCLxbNg4gjoffoprx0jBB3Q3prteJAnoqKqZm1BkN0IDK7F0q
-	y7DQ937Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CRO5rWml1QK70tgKl06x/aVYyKWj/aRzqe+fxQOhkKU=; b=vsubPTyd1c/i5Gxeh4aasVTPAp
+	37VPOGNvqhOdFf0QoLkIpULfZWt1S4zHWORgLfYEcnegBZcT3DwiBlrHusyeTMF+k/R4MVaXUESo8
+	TYO/mtFiweq+hc2UP9ryEDh8bqnDWSPIv0NzqVi2pMUE2cbXQoG3qrUpaj+QaaXSRdQXa3Zg7rmBk
+	ov1oorLVKa9Rq9/o05nsMYLSiS6CByTC7USGfq3IG1AX3If5rM0mRyYIg26dQQfcy3AC3Bzoi6rrr
+	380hPUV8DeCGbwCdnIvopDil7AwRT+cGr9LaRsNzgi5rRkerSaVsy1s4Ix2FnDEVgY7Zc715LSlar
+	KaZeyH3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtDCK-0000000CQ90-41z7;
-	Thu, 19 Feb 2026 23:12:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vtDh6-0000000CbFc-14pD;
+	Thu, 19 Feb 2026 23:44:28 +0000
+Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtDCI-0000000CQ7q-3iQC
+	id 1vtDh2-0000000CbAU-00vT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 23:12:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4FCC8440AB
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 23:12:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25D1EC2BCAF
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 23:12:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771542758;
-	bh=nUUuOo6ZxopLvjIIEdBmRg87D1jjyje4PdZz0bjrgJU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ABolqf4aUjZpne4hZV8TotXvrfrZdQbUypdnQOST6bcfHgh/1R/LS76yw2RZdd8C+
-	 aBSa+QhZy64NjjGNpyVSIAkheruiA0L5rboDgy85J8DHiedpaVX1+pYYIUhM9DRIp0
-	 cEWAlmVkGVRIzWfoFEhqApE20fmSU6e3cDwwnNkuEQ1HUX+p11oltQeUbRuPCdk2CU
-	 Tv4RZJBCLR3uGjR5dhCU2/jl8+V6brxKoWGafnwVcsz8pm6lSoBs59//EcyqPaPepE
-	 O4nglqhIlPhGFN8s79vwd9MpyFZCVnRjrbz9BpSXOZYknACUw9nWQHrgf5XuKNj/F7
-	 GTbB4O8TJ4UPA==
-Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-7946a1f2430so14276317b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 15:12:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV+lSJtbRYzshtunVmSp+UVUsOpofwNnZv44A8hCQWde0ZfMmaDiBTzqW/1zngXrqie6Id+ugLfTmOwjJzUlf5y@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzHoHMm1LdRStuQeBhqlEacdXVoTSG3ovggHYUnLR5RhQTFxT+
-	WsBLuiBBaYnOveqLpeFl6T3C9SYrKrnxV0J+Npl//BT1a60fxA+iEpVLYjuSc3jbPL9cfgFoxVV
-	gvST8ygg/Hwrj020RxhaPRMqsN8M44bw=
-X-Received: by 2002:a05:690c:498e:b0:796:2dfb:4af0 with SMTP id
- 00721157ae682-797ac4e1933mr158898597b3.10.1771542757367; Thu, 19 Feb 2026
- 15:12:37 -0800 (PST)
+	Thu, 19 Feb 2026 23:44:26 +0000
+Date: Thu, 19 Feb 2026 16:43:48 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1771544647;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CRO5rWml1QK70tgKl06x/aVYyKWj/aRzqe+fxQOhkKU=;
+	b=fhQrXZgHJkvalaKby2C9z8kNEAxoIH1m4n89qWYP4oV4FrEttt7O/TFwSqck5NetZ+5GDD
+	r85/jEND3KIXN+QZQViJ5D6/7XLpG0063G/hobulPpZrlBoCjyKRIHgQ8/tmHR3cbJhttp
+	PROJqJgnuOXtp4Pi0UJPkEoNJ3l8aaM=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Russ Weight <russ.weight@linux.dev>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: linux-kernel@vger.kernel.org, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	Andrew Morton <akpm@linux-foundation.org>, Antoine Tenart <atenart@kernel.org>, 
+	Christian Brauner <brauner@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Eric Dumazet <edumazet@google.com>, Geetha sowjanya <gakula@marvell.com>, 
+	Ingo Molnar <mingo@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	James Clark <james.clark@linaro.org>, Jerin Jacob <jerinj@marvell.com>, 
+	Linu Cherian <lcherian@marvell.com>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>, 
+	Nicholas Piggin <npiggin@gmail.com>, Paolo Abeni <pabeni@redhat.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Simon Horman <horms@kernel.org>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Subbaraya Sundeep <sbhatta@marvell.com>, 
+	Sunil Goutham <sgoutham@marvell.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Tom Rix <trix@redhat.com>, Xu Yilun <yilun.xu@intel.com>, Yajun Deng <yajun.deng@linux.dev>, 
+	Yury Norov <yury.norov@gmail.com>, Zhang Rui <rui.zhang@intel.com>, hariprasad <hkelam@marvell.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 09/12] fpga: m10bmc-sec: switch show_canceled_csk() to
+ using scnprintf()
+Message-ID: <nsymcnuakoxcuq55csc5dsyevuftlp4vahz7yljziwnbbe7vhr@6n3kddtcuwh7>
+References: <20260219181407.290201-1-ynorov@nvidia.com>
+ <20260219181407.290201-10-ynorov@nvidia.com>
 MIME-Version: 1.0
-References: <20260219-pinctrl-mux-v1-0-678d21637788@nxp.com>
-In-Reply-To: <20260219-pinctrl-mux-v1-0-678d21637788@nxp.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 20 Feb 2026 00:12:26 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmc43G9Ny9pseFw=HqmkaRPJdqMTXyLSa5eQUdoXNCu_Q@mail.gmail.com>
-X-Gm-Features: AaiRm51dIVUnrSx9uukc7pK72Gq6A4VMruWXR8EfofV5QNuTsk2vfzGXdc8DdSY
-Message-ID: <CAD++jLmc43G9Ny9pseFw=HqmkaRPJdqMTXyLSa5eQUdoXNCu_Q@mail.gmail.com>
-Subject: Re: [PATCH 0/5] pinctrl: Add generic pinctrl for board-level mux chips
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260219181407.290201-10-ynorov@nvidia.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_151238_967622_599AB582 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20260219_154424_185334_C130AC86 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +87,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgRnJhbmssDQoNCk9uIFRodSwgRmViIDE5LCAyMDI2IGF0IDExOjI04oCvUE0gRnJhbmsgTGkg
-PEZyYW5rLkxpQG54cC5jb20+IHdyb3RlOg0KDQo+IEFkZCBhIGdlbmVyaWMgcGluY3RybCBiaW5k
-aW5nIGZvciBib2FyZC1sZXZlbCBwaW5tdXggY2hpcHMgdGhhdCBhcmUNCj4gY29udHJvbGxlZCB0
-aHJvdWdoIHRoZSBtdWx0aXBsZXhlciBzdWJzeXN0ZW0uDQo+DQo+IE9uIHNvbWUgYm9hcmRzLCBl
-c3BlY2lhbGx5IGRldmVsb3BtZW50IGJvYXJkcywgZXh0ZXJuYWwgbXV4IGNoaXBzIGFyZSB1c2Vk
-DQo+IHRvIHN3aXRjaCBTb0Mgc2lnbmFscyBiZXR3ZWVuIGRpZmZlcmVudCBwZXJpcGhlcmFscyAo
-ZS5nLiBNTUMgYW5kIFVBUlQpLg0KPiBUaGUgbXV4IHNlbGVjdCBsaW5lcyBhcmUgb2Z0ZW4gZHJp
-dmVuIGJ5IGEgR1BJTyBleHBhbmRlciBvdmVyIEkyQywNCj4gYXMgaWxsdXN0cmF0ZWQgYmVsb3c6
-DQo+DQo+ICAgICAgICAg4pSM4pSA4pSA4pSA4pSA4pSA4pSA4pSQICAgICAg4pSM4pSA4pSA4pSA
-4pSA4pSA4pSQDQo+ICAgICAgICAg4pSCIFNPQyAg4pSCICAgICAg4pSCICAgICDilIIgICAg4pSM
-4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSQDQo+ICAgICAgICAg4pSCICAgICAg4pSCICAgICAg4pSC
-ICAgICDilILilIDilIDilIDilrrilIIgTU1DICAg4pSCDQo+ICAgICAgICAg4pSCICAgICAg4pSC
-ICAgICAg4pSCIE1VWCDilIIgICAg4pSU4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSYDQo+ICAgICAg
-ICAg4pSCICAgICAg4pSc4pSA4pSA4pSA4pSA4pSA4pa64pSCICAgICDilIIgICAg4pSM4pSA4pSA
-4pSA4pSA4pSA4pSA4pSA4pSQDQo+ICAgICAgICAg4pSCICAgICAg4pSCICAgICAg4pSCICAgICDi
-lILilIDilIDilIDilrrilIIgVUFSVCAg4pSCDQo+ICAgICAgICAg4pSCICAgICAg4pSCICAgICAg
-4pSU4pSA4pSA4pSA4pSA4pSA4pSYICAgIOKUlOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUmA0KPiAg
-ICAgICAgIOKUgiAgICAgIOKUgiAgICAgICAgIOKWsg0KPiAgICAgICAgIOKUgiAgICAgIOKUgiAg
-ICDilIzilIDilIDilIDilIDilLTilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDi
-lIDilIDilJANCj4gICAgICAgICDilIIgSTJDICDilJzilIDilIDilIDilrrilIIgR1BJTyBFeHBh
-bmRlciAgICAg4pSCDQo+ICAgICAgICAg4pSU4pSA4pSA4pSA4pSA4pSA4pSA4pSYICAgIOKUlOKU
-gOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKU
-mA0KPg0KPiBUcmFkaXRpb25hbGx5LCBncGlvLWhvZyBpcyB1c2VkIHRvIGNvbmZpZ3VyZSB0aGUg
-b25ib2FyZCBtdXggYXQgYm9vdC4NCj4gSG93ZXZlciwgdGhlIEdQSU8gZXhwYW5kZXIgbWF5IHBy
-b2JlIGxhdGVyIHRoYW4gY29uc3VtZXIgZGV2aWNlcyBzdWNoIGFzDQo+IE1NQy4gQXMgYSByZXN1
-bHQsIHRoZSBNVVggbWlnaHQgbm90IGJlIGNvbmZpZ3VyZWQgd2hlbiB0aGUgcGVyaXBoZXJhbA0K
-PiBkcml2ZXIgcHJvYmVzLCBsZWFkaW5nIHRvIGluaXRpYWxpemF0aW9uIGZhaWx1cmVzIG9yIGRh
-dGEgdHJhbnNmZXIgZXJyb3JzLg0KPg0KPiBJbnRyb2R1Y2UgYSBnZW5lcmljIHBpbmN0cmwgYmlu
-ZGluZyB0aGF0IG1vZGVscyB0aGUgYm9hcmQtbGV2ZWwgTVVYIGFzIGENCj4gcGluIGNvbnRyb2wg
-cHJvdmlkZXIgYW5kIGJ1aWxkcyBwcm9wZXIgZGV2aWNlIGxpbmtzIGJldHdlZW4gdGhlIE1VWCwg
-aXRzDQo+IEdQSU8gY29udHJvbGxlciwgYW5kIHBlcmlwaGVyYWwgZGV2aWNlcy4gVGhpcyBlbnN1
-cmVzIGNvcnJlY3QgcHJvYmUNCj4gb3JkZXJpbmcgYW5kIHJlbGlhYmxlIG11eCBjb25maWd1cmF0
-aW9uLg0KPg0KPiBUaGUgaW1wbGVtZW50YXRpb24gbGV2ZXJhZ2VzIHRoZSBzdGFuZGFyZCBtdWx0
-aXBsZXhlciBzdWJzeXN0ZW0sIHdoaWNoDQo+IHByb3ZpZGVzIGJyb2FkIHN1cHBvcnQgZm9yIG9u
-Ym9hcmQgbXV4IGNvbnRyb2xsZXJzIGFuZCBhdm9pZHMgdGhlIG5lZWQgZm9yDQo+IHBlci1kcml2
-ZXIgY3VzdG9tIE1VWCBoYW5kbGluZw0KPg0KPiBTaWduZWQtb2ZmLWJ5OiBGcmFuayBMaSA8RnJh
-bmsuTGlAbnhwLmNvbT4NCg0KSSBraW5kIG9mIGxpa2Ugd2hhdCBJIHNlZSBoZXJlLiA6KQ0KDQpU
-aGlzIG1ha2VzIGEgbG90IG9mIHNlbnNlOiBpdCB1c2VzIG11eGVzLCBhbmQgaXQgbXV4ZXMgcGlu
-cy4NClNvIHRoYXQgaXMgdGhlIGFwcHJvcHJpYXRlIGRlc2NyaXB0aW9uLCBwaW5tdXhlcyB1c2lu
-Zw0KbXV4ZXMgKGluIHR1cm4gY29udHJvbGxlZCBieSBHUElPcykuDQoNCkkganVzdCBuZWVkIHRv
-IGhhdmUgYnV5LWluIGZyb20gRFQgYmluZGluZw0KbWFpbnRhaW5lcnMgYW5kIHRoZSBhdXRob3Jz
-IG9mIHRoZSBtdXggY29yZSB0aGF0IHRoaXMgaXMgYSBnb29kDQppZGVhLg0KDQpZb3VycywNCkxp
-bnVzIFdhbGxlaWoNCg==
+On Thu, Feb 19, 2026 at 01:14:01PM -0500, Yury Norov wrote:
+> Switch show_canceled_csk() to use a more common scnprintf("%*pbl").
+> 
+> Signed-off-by: Yury Norov <ynorov@nvidia.com>
+
+Reviewed-by: Russ Weight <russ.weight@linux.dev>
+
+> ---
+>  drivers/fpga/intel-m10-bmc-sec-update.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/fpga/intel-m10-bmc-sec-update.c b/drivers/fpga/intel-m10-bmc-sec-update.c
+> index 10f678b9ed36..5ae76b8ece18 100644
+> --- a/drivers/fpga/intel-m10-bmc-sec-update.c
+> +++ b/drivers/fpga/intel-m10-bmc-sec-update.c
+> @@ -10,6 +10,7 @@
+>  #include <linux/firmware.h>
+>  #include <linux/mfd/intel-m10-bmc.h>
+>  #include <linux/mod_devicetable.h>
+> +#include <linux/mm.h>
+>  #include <linux/module.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/slab.h>
+> @@ -183,7 +184,7 @@ show_canceled_csk(struct device *dev, u32 addr, char *buf)
+>  
+>  	bitmap_from_arr32(csk_map, csk32, CSK_BIT_LEN);
+>  	bitmap_complement(csk_map, csk_map, CSK_BIT_LEN);
+> -	return bitmap_print_to_pagebuf(1, buf, csk_map, CSK_BIT_LEN);
+> +	return scnprintf(buf, rest_of_page(buf), "%*pbl\n", CSK_BIT_LEN, csk_map);
+>  }
+>  
+>  #define DEVICE_ATTR_SEC_CSK_RO(_name)						\
+> -- 
+> 2.43.0
+> 
 
