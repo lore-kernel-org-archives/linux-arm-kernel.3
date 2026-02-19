@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9F0E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 02:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98C9E9A02C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 02:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t6Lo/vpKRMZd3qm8frSn/6kA7hUJE9bG7kBiaNh14a4=; b=KykL4hNrE+pNBRTe9WrteYi//C
-	B/mgwb8rELZ/CDtITGSSuj4MD56TEUZJiqrhA1krocgqxLdOLDlm5RdfGcgS2dSYZhayVADwFC1t9
-	q7n2LKNO5/tU2w41xCPDLAwFLn78ly0k3+NlLWpQ8sKIGzNutzfBL1HzjK/7rMlyhkO6WJVizipEP
-	7udpE77FJzL0ZDeCOTL29qKcWSomXWiqUVl0kXMvjvQbHJOvhcFghMIF6dEtORSqn+9q1QGweUp7G
-	xAtsjWA+JhP/9/GsOudtSWSvMvm7GZ9nj4cS/DLmnab5t/6pwoAUuorBIsP9BQ9qF5q0nPOoxQoMG
-	0XsduAsg==;
+	bh=X+lne6EWy3P8J8NPvLligXst7b172UykUmNeXAnGoEk=; b=Sp3wtlq8dGXUw5Vy7N0cv1Ms51
+	8xCKzthv6wyWhUad5Gv3arG8PoRaz9jsvTEnkNpwWNzuAt41vDdC3LvauEFMzltXLk8HhaXqLb9qI
+	QR0O77+2CvHgV25ylCxxCVn1nIUIk0au8CrI5eCBHnbMzjgJLmF0a9liUAXChuEG4vVxh2BKFLzua
+	o+fEwm5hWoJMjvXHjjZnYTI48qXYODafXmM/bpq2KapScdb3Yva3XQGHZX5HGF56F/85RL07504AS
+	zQ7RICLxbxaQq2rYigsbNVGGcQC/VCcNIAZ9PlI2zkD0Xzv+Xr3X+tQPd1t7HVKVKXyQ6bzJGtYrk
+	5mSEdoZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vstPx-0000000AjK5-0RZW;
-	Thu, 19 Feb 2026 02:05:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vstQ0-0000000AjMZ-2eGm;
+	Thu, 19 Feb 2026 02:05:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vstPc-0000000AjBL-0Irn;
-	Thu, 19 Feb 2026 02:05:22 +0000
+	id 1vstPh-0000000AjGq-22rg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Feb 2026 02:05:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A67944328A;
-	Thu, 19 Feb 2026 02:05:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8320DC19422;
-	Thu, 19 Feb 2026 02:05:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 078C844164;
+	Thu, 19 Feb 2026 02:05:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E80C19425;
+	Thu, 19 Feb 2026 02:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771466703;
-	bh=lOZidEmx5vk20ZO0QrhgAGaGcoFEhk4bJAlW3AJLUOQ=;
+	s=k20201202; t=1771466708;
+	bh=frX33pev+XR4l6oz6+xiDXC5X50uJZtofsvGkHEY7RA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bDrkdjbvtDnkfPHNkqW2l+/iLzj7A9E2KZ5LDUUqsThA71UtRLrKT8/GtBrU0hKtX
-	 0QnBkfBkl2+pfGFAMeyaCytwZPKIy1l4WRJ+egUX/UK6y9D5/kk40EwITuUJ1d/RfH
-	 oTBBs+eo0JJm+X8QnjVGeFCgbY1ZyVxKCeDDc+076WdGwRDJ/7NjaXUNq3j0fsedaQ
-	 k9JqfvSP3k4QMvEidLcgJlvVkF2bKn/IwM8JKuJzjMJSy4pL4OhCBgZ3H3uACFXgiN
-	 U8uqCKfAnKj72b8ab2N2uBMg2aT4Z4/p/WnPtA4iNZqPlRbjL5LUl7EgfUznrLL6YM
-	 hO2vOUtxbCp5g==
+	b=Wil0D8ZPPDa/S/GwFA0Vt8A7F+18QXRUJX7g1qSxJ8KtCPtQnuacBrPrFwKlrGyHu
+	 JgVpr2O1y77ZO47EzS29aj4W38oN2jH+LqivTGB+V1QW6LnJbMcg4cpYPpCLK8b0Qe
+	 QUuGrLtVyW8ddNVjP4YWaCEz4jI+6kdKiDb6q6oHqWbEMSQywfwantQ4JP0fVJWEZH
+	 +tAlhiet9F/1S5iA0V5yO3wyQFOz3PutsJ8hoBLcNF0s0pM32Juu7vBJYZzh4tx1Ni
+	 x+JXQeLhdbCbdjVheDdGiYc87WyL20aa84aIxKCDefJhnpS2Cp58vQRTHIjbTg3Pgl
+	 sxH+9dvSEM9hw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Xu Yang <xu.yang_2@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
+Cc: Amelie Delaunay <amelie.delaunay@foss.st.com>,
+	Eugen Hristev <eugen.hristev@linaro.org>,
 	Vinod Koul <vkoul@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-phy@lists.infradead.org,
-	imx@lists.linux.dev,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	dmaengine@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.19-5.10] phy: fsl-imx8mq-usb: disable bind/unbind platform driver feature
-Date: Wed, 18 Feb 2026 21:04:07 -0500
-Message-ID: <20260219020422.1539798-31-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.19-6.12] dmaengine: stm32-dma3: use module_platform_driver
+Date: Wed, 18 Feb 2026 21:04:11 -0500
+Message-ID: <20260219020422.1539798-35-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260219020422.1539798-1-sashal@kernel.org>
 References: <20260219020422.1539798-1-sashal@kernel.org>
@@ -62,10 +65,11 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.19.2
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_180520_350209_A2A601DD 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20260218_180522_143914_964B800C 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,118 +84,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xu Yang <xu.yang_2@nxp.com>
+From: Amelie Delaunay <amelie.delaunay@foss.st.com>
 
-[ Upstream commit 27ee0869d77b2cb404770ac49bdceae3aedf658b ]
+[ Upstream commit 0d41ed4ea496fabbb4dc21171e32d9a924c2a661 ]
 
-Disabling PHYs in runtime usually causes the client with external abort
-exception or similar issue due to lack of API to notify clients about PHY
-removal. This patch removes the possibility to unbind i.MX PHY drivers in
-runtime.
+Without module_platform_driver(), stm32-dma3 doesn't have a
+module_exit procedure. Once stm32-dma3 module is inserted, it
+can't be removed, marked busy.
+Use module_platform_driver() instead of subsys_initcall() to register
+(insmod) and unregister (rmmod) stm32-dma3 driver.
 
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Link: https://patch.msgid.link/20260120111712.3159782-1-xu.yang_2@nxp.com
+Reviewed-by: Eugen Hristev <eugen.hristev@linaro.org>
+Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Link: https://patch.msgid.link/20251121-dma3_improv-v2-1-76a207b13ea6@foss.st.com
 Signed-off-by: Vinod Koul <vkoul@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
+Interesting - all three STM32 DMA drivers use `subsys_initcall()`. The
+other two (stm32-dma and stm32-mdma) also lack module_exit. This commit
+only changes stm32-dma3.
+
 ## Analysis Summary
 
-### What the commit does
-This commit adds `.suppress_bind_attrs = true` to the i.MX8MQ USB PHY
-platform driver. This single line prevents the kernel from creating
-`/sys/bus/platform/drivers/imx8mq-usb-phy/bind` and
-`/sys/bus/platform/drivers/imx8mq-usb-phy/unbind` sysfs files, thereby
-preventing runtime unbinding of the PHY driver.
+### What the commit fixes
+The stm32-dma3 driver registers using `subsys_initcall()` but has no
+`module_exit()` function. This means the module can be loaded (`insmod`)
+but never unloaded (`rmmod`), as the kernel marks it as busy due to
+having no exit/cleanup path.
 
-### Problem being fixed
-The commit message states that unbinding PHYs at runtime causes
-"external abort exception or similar issue" because there is no API to
-notify PHY clients about PHY removal. An external abort is a serious ARM
-exception that typically results in a kernel crash/oops. If a user or
-management tool writes to the `unbind` sysfs file for this PHY driver,
-the USB controller client would try to access the now-missing PHY
-resources, resulting in a crash.
+### Change implications
+The fix replaces `subsys_initcall()` (priority level 4) with
+`module_platform_driver()` which uses `module_init()` /
+`device_initcall()` (priority level 6). This is a **behavioral change**
+- the driver will now:
+1. Initialize later in the boot sequence (device_initcall instead of
+   subsys_initcall)
+2. Be unloadable via rmmod
 
-### Stable kernel rules assessment
-1. **Obviously correct and tested**: Yes - this is a well-established
-   one-line pattern used in 385+ files in the kernel. It's reviewed by
-   the PHY maintainer (Vinod Koul) and reviewed by Frank Li.
-2. **Fixes a real bug**: Yes - runtime unbinding causes a crash
-   (external abort exception). This is a real, triggerable issue.
-3. **Important issue**: Moderate - it prevents a crash, but only
-   triggered by explicit sysfs manipulation (not normal operation).
-   However, system management tools or user error could trigger this.
-4. **Small and contained**: Yes - single one-line addition to a driver
-   struct.
-5. **No new features**: Correct - this removes functionality (ability to
-   unbind), it doesn't add any.
+### Risk Assessment
+- **Positive**: Fixes inability to unload the module - this is a genuine
+  bug fix
+- **Risk**: The init level change from `subsys_initcall` (level 4) to
+  `device_initcall` (level 6) could cause probe ordering issues. DMA
+  controllers are often needed early by other subsystems. However, with
+  device tree and deferred probing in modern kernels, this should be
+  handled. The fact that 54 other DMA drivers use
+  `module_platform_driver()` successfully supports this.
+- **Scope**: Very small change - removes 6 lines, adds 1 line. Single
+  file, single driver.
+- **Affected stable trees**: Only 6.11+ (driver introduced in
+  v6.11-rc1), so this would apply to v6.12.y and v6.13.y stable trees.
 
-### Risk assessment
-- **Risk**: Extremely low. This is literally a single boolean field
-  being set in the driver struct. It only affects sysfs attributes. The
-  same pattern exists in 385+ other drivers.
-- **Benefit**: Prevents a crash scenario when the PHY is unbound at
-  runtime.
-- **Dependencies**: None - this is entirely self-contained.
+### Stable criteria assessment
+- **Fixes a real bug**: Yes - module cannot be unloaded
+- **Obviously correct**: Mostly. The `module_platform_driver()` macro is
+  the standard pattern used by the majority of DMA drivers. However, the
+  init level change adds a small risk.
+- **Small and contained**: Yes - 7 lines changed in one file
+- **No new features**: The ability to unload a module is restoring
+  expected behavior, not a new feature
+- **Tested**: Has a Reviewed-by tag from Eugen Hristev
 
 ### Concerns
-- The bug is only triggerable by explicit sysfs manipulation (writing to
-  `/sys/bus/platform/drivers/imx8mq-usb-phy/unbind`), not by normal
-  system operation.
-- The fix is a defensive measure rather than fixing a root cause in the
-  PHY framework. However, this is the standard kernel approach - the PHY
-  framework doesn't have removal notification, so drivers that can't
-  handle unbinding should suppress it.
-- The change is straightforward and would apply cleanly to any stable
-  tree that has this driver.
-
-### Classification
-This falls into the **hardware quirk/workaround** category. It's a
-defensive fix that prevents a crash scenario. While the trigger requires
-explicit user action (sysfs unbind), this is a well-established pattern
-in the kernel for exactly this purpose.
+1. The initialization order change (`subsys_initcall` →
+   `device_initcall`) is the main concern. DMA engines are
+   infrastructure that other drivers depend on. If anything probes
+   before the DMA controller is ready and doesn't handle deferred
+   probing correctly, this could cause regressions.
+2. However, this is mitigated by the fact that modern device tree
+   platforms and probe deferral should handle this gracefully.
+3. The bug (inability to rmmod) primarily affects development/debugging
+   workflows and modular kernel configurations, not production embedded
+   systems that typically build DMA drivers in.
 
 ## Verification
-- Verified `suppress_bind_attrs = true` is used in 385+ files across the
-  drivers/ directory via Grep search
-- Verified 7 other PHY drivers (Samsung, HiSilicon) already use this
-  pattern
-- Verified no other Freescale PHY drivers currently have this attribute
-  (this is the first)
-- Verified via git log that similar commits exist for other subsystems
-  (gpio, perf)
-- Verified via lore.kernel.org that the patch was reviewed by Frank Li
-  and accepted by PHY maintainer Vinod Koul
-- Verified the commit message describes a real crash scenario (external
-  abort exception)
-- Could NOT verify the specific crash reproduction steps (unverified,
-  but the mechanism is well-understood in the kernel community)
 
-The fix is minimal (one line), extremely low risk, prevents a crash
-scenario, uses a well-established kernel pattern, and was properly
-reviewed. It meets all stable kernel criteria.
+- **git log** confirmed stm32-dma3.c was introduced by commit
+  f561ec8b2b33d, which is in v6.11-rc1
+- **Read of current source** (line 1917-1922) confirmed the
+  `subsys_initcall` without `module_exit` pattern matches the pre-patch
+  state
+- **Grep of drivers/dma/stm32/** confirmed all three STM32 DMA drivers
+  use subsys_initcall - this commit only changes stm32-dma3
+- **Grep of drivers/dma/** found 21 DMA drivers using subsys_initcall
+  and 54 using module_platform_driver, confirming module_platform_driver
+  is the dominant pattern
+- **git tag** confirmed the driver exists only in 6.11+ stable trees
+- The `.remove` callback (`stm32_dma3_remove`) is already defined in the
+  platform_driver struct (line 1909), confirming the removal path was
+  intended to work
+
+## Conclusion
+
+This fixes a real bug (module cannot be unloaded) with a minimal, well-
+understood change using a standard kernel macro. The risk is the init
+level change, but this follows the pattern of the majority of DMA
+drivers. The fix is small, reviewed, and appropriate for stable. The
+driver only exists in 6.11+, limiting the scope of backport. For
+embedded/STM32 developers who load the DMA3 driver as a module, this is
+a meaningful fix.
 
 **YES**
 
- drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/dma/stm32/stm32-dma3.c | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
 
-diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-index 91b3e62743d3a..b30d01f345d20 100644
---- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-+++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-@@ -730,6 +730,7 @@ static struct platform_driver imx8mq_usb_phy_driver = {
- 	.driver = {
- 		.name	= "imx8mq-usb-phy",
- 		.of_match_table	= imx8mq_usb_phy_of_match,
-+		.suppress_bind_attrs = true,
- 	}
+diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
+index 50e7106c5cb73..9500164c8f688 100644
+--- a/drivers/dma/stm32/stm32-dma3.c
++++ b/drivers/dma/stm32/stm32-dma3.c
+@@ -1914,12 +1914,7 @@ static struct platform_driver stm32_dma3_driver = {
+ 	},
  };
- module_platform_driver(imx8mq_usb_phy_driver);
+ 
+-static int __init stm32_dma3_init(void)
+-{
+-	return platform_driver_register(&stm32_dma3_driver);
+-}
+-
+-subsys_initcall(stm32_dma3_init);
++module_platform_driver(stm32_dma3_driver);
+ 
+ MODULE_DESCRIPTION("STM32 DMA3 controller driver");
+ MODULE_AUTHOR("Amelie Delaunay <amelie.delaunay@foss.st.com>");
 -- 
 2.51.0
 
