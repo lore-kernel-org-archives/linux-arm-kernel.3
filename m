@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664B8E9A03B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 09:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91779E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 09:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7lDuxuhfvhyYj9DmohVZkkBnQY63QlxYeSYRoTS+Ns0=; b=pnzoShzucQgh699Bbm0H4ukwaa
-	o7uXnctxP/ZAQ4V6rz+kr5begWr9UACMUrUgg9iOBs41gMYs3RLyeKf62NBZpw3JA0yCWgO+RkH2w
-	x6Du+2MrvOHZCX1aOFxfn6tMabUB0Po67SsU1eoqid3xPO0/z3XK1q6Sw2jhu3KB8Hssjqa7+pS5w
-	PDqBMBzK/cqvcgnucLqUVFdJAeBdQfNyOwJbuLHD4nghUJX3KM8A8oGP2SPTP/g4bokX954cQxWT8
-	D72rGugF6rXPWnLT+c9yrZTVxUsTKtD3YrFhxiJ6hcM7jQkAdBYpJJbds+zpGc4DUpL7arw/E+0W5
-	7Ov2XsQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XJvGq2FKRsfVFdj7qjosfzrOox57x5mEBNoyUl3+KbM=; b=YOqUGSjr0xz/AItYvheysAf/Sz
+	miZjJLQupxqlfYIw4bi0cmu4A4tKPdTEpABZKPvWJsA0dRNQaSXTYCKwuZS2YpAWr0BD2twoaWm92
+	8Ofqjp/GJlSLblL4gfC3+VEa8dP17rNzpCYHvS+d3BlFgqs7gYYo803BASLJBiKcjXsoo9ULOXJuN
+	nxu1s5e3XLoX53VzcMtde7AdUbwmBgcdhSDdsSHOgCL/ullSAOxkDmjPSVdT3/fJNE3arOHI2imZN
+	nJpSJVl870epHtCFLT24OfjGqmbJyzITg0iV91PJVk5k5Mx4v3+1lPf/MiQucKauZNoOexj1Wnirt
+	ThgBQtNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt0TT-0000000BBGg-18JR;
-	Thu, 19 Feb 2026 09:37:31 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vt0WT-0000000BBUk-3W4P;
+	Thu, 19 Feb 2026 09:40:37 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt0TP-0000000BBFR-2RlI
+	id 1vt0WQ-0000000BBTr-0OTQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 09:37:30 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 248D34E40544;
-	Thu, 19 Feb 2026 09:37:23 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E33805FB45;
-	Thu, 19 Feb 2026 09:37:22 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A23EF103687B9;
-	Thu, 19 Feb 2026 10:37:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1771493842; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=7lDuxuhfvhyYj9DmohVZkkBnQY63QlxYeSYRoTS+Ns0=;
-	b=Qs7xBkjojWvKSegG56N80vX1+QzwYAIXimUmRsF/s0TS99jdUnoogsbA5NP//I1GCAQqp3
-	VSoHLgSRu2M6OIOMffopO5HwVljvbBgD8R5Ja+U5gzdvbe/rIGIGOGXZcduJVf3WUe1CbA
-	AFZ82ON8jDPV18CAzchq8isc2CMcAndYTcLUBvlsVkc0ltDhNpuPLZZ9C7F91YWQWuplwH
-	ttScovBRCuqDRb3yUz//S5eiqkDq61n/5PIe2L99QulQQ58VHS8a3Bik4ciBL7VxczIR8M
-	0SrwDH9E80uCB0Aw6GMiiNqhe3FK3GuW9wy8FogHz1IUqCqUSuO0knB73KeKsQ==
-Date: Thu, 19 Feb 2026 10:37:18 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: linux-kernel@vger.kernel.org,
-	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH] ASoC: rockchip: i2s-tdm: Use param rate if not provided
- by set_sysclk
-Message-ID: <20260219093718b7d29076@mail.local>
-References: <20260218201834.924358-1-detlev.casanova@collabora.com>
+	Thu, 19 Feb 2026 09:40:36 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fGpJV5YvHzJ46Zg;
+	Thu, 19 Feb 2026 17:40:10 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id E984340569;
+	Thu, 19 Feb 2026 17:40:23 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 19 Feb
+ 2026 09:40:23 +0000
+Date: Thu, 19 Feb 2026 09:40:21 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Besar Wicaksono <bwicaksono@nvidia.com>
+CC: <will@kernel.org>, <suzuki.poulose@arm.com>, <robin.murphy@arm.com>,
+	<ilkka@os.amperecomputing.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
+	<mark.rutland@arm.com>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
+	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>,
+	<skelley@nvidia.com>, <ywan@nvidia.com>, <mochs@nvidia.com>,
+	<nirmoyd@nvidia.com>
+Subject: Re: [PATCH v2 3/8] perf/arm_cspmu: Add arm_cspmu_acpi_dev_get
+Message-ID: <20260219094021.0000465d@huawei.com>
+In-Reply-To: <20260218145809.1622856-4-bwicaksono@nvidia.com>
+References: <20260218145809.1622856-1-bwicaksono@nvidia.com>
+	<20260218145809.1622856-4-bwicaksono@nvidia.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260218201834.924358-1-detlev.casanova@collabora.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_013728_119756_1487536B 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20260219_014034_466867_27384BF0 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +76,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Wed, 18 Feb 2026 14:58:04 +0000
+Besar Wicaksono <bwicaksono@nvidia.com> wrote:
 
-On 18/02/2026 15:18:34-0500, Detlev Casanova wrote:
-> Drivers will not always call set_sysclk() for all clocks, especially when
-> default mclk-fs can be used.
-> When that is the case, use the clock rate set in the params multiplied by the
-> default mclk-fs.
+> Add interface to get ACPI device associated with the
+> PMU. This ACPI device may contain additional properties
+> not covered by the standard properties.
 > 
-> Fixes: 5323186e2e8d ("ASoC: rockchip: i2s_tdm: Re-add the set_sysclk callback")
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+Hi Besar,
+
+A drive by review as I was curious.
+
+A few comments inline.
 > ---
->  sound/soc/rockchip/rockchip_i2s_tdm.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+>  drivers/perf/arm_cspmu/arm_cspmu.c | 22 +++++++++++++++++++++-
+>  drivers/perf/arm_cspmu/arm_cspmu.h | 17 ++++++++++++++++-
+>  2 files changed, 37 insertions(+), 2 deletions(-)
 > 
-> diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.c b/sound/soc/rockchip/rockchip_i2s_tdm.c
-> index 770b9bfbb384..fc52149ed6ae 100644
-> --- a/sound/soc/rockchip/rockchip_i2s_tdm.c
-> +++ b/sound/soc/rockchip/rockchip_i2s_tdm.c
-> @@ -22,6 +22,7 @@
+> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+> index 34430b68f602..ab2479c048bb 100644
+> --- a/drivers/perf/arm_cspmu/arm_cspmu.c
+> +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+> @@ -16,7 +16,7 @@
+>   * The user should refer to the vendor technical documentation to get details
+>   * about the supported events.
+>   *
+> - * Copyright (c) 2022-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+> + * Copyright (c) 2022-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+>   *
+>   */
 >  
->  #define DRV_NAME "rockchip-i2s-tdm"
+> @@ -1132,6 +1132,26 @@ static int arm_cspmu_acpi_get_cpus(struct arm_cspmu *cspmu)
 >  
-> +#define DEFAULT_MCLK_FS				256
->  #define CH_GRP_MAX				4  /* The max channel 8 / 2 */
->  #define MULTIPLEX_CH_MAX			10
->  
-> @@ -665,6 +666,15 @@ static int rockchip_i2s_tdm_hw_params(struct snd_pcm_substream *substream,
->  			mclk_rate = i2s_tdm->mclk_rx_freq;
->  		}
->  
-> +		/*
-> +		 * When the dai/component driver doesn't need to set mclk-fs for a specific
-> +		 * clock, it can skip the call to set_sysclk() for that clock.
-> +		 * In that case, simply use the clock rate from the params and multiply it by
-> +		 * the default mclk-fs value.
-> +		 */
-> +		if (!mclk_rate)
-> +			mclk_rate = DEFAULT_MCLK_FS * params_rate(params);
+>  	return 0;
+>  }
 > +
+> +struct acpi_device *arm_cspmu_acpi_dev_get(const struct arm_cspmu *cspmu)
+> +{
+> +	char hid[16];
+> +	char uid[16];
 
-Maybe this could be set as the default value of i2s_tdm->mclk_rx_freq
-and i2s_tdm->mclk_tx_freq in rockchip_i2s_tdm_probe instead of relying
-on it being 0 and testing later on?
+Might as well do
+	char hid[16] = { };
+	char uid[16] = { };
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+and drop the memsets below.
+
+> +	const struct acpi_apmt_node *apmt_node;
+> +
+> +	apmt_node = arm_cspmu_apmt_node(cspmu->dev);
+> +	if (!apmt_node || apmt_node->type != ACPI_APMT_NODE_TYPE_ACPI)
+> +		return NULL;
+> +
+> +	memset(hid, 0, sizeof(hid));
+> +	memset(uid, 0, sizeof(uid));
+> +
+> +	memcpy(hid, &apmt_node->inst_primary, sizeof(apmt_node->inst_primary));
+> +	snprintf(uid, sizeof(uid), "%u", apmt_node->inst_secondary);
+> +
+> +	return acpi_dev_get_first_match_dev(hid, uid, -1);
+> +}
+> +EXPORT_SYMBOL_GPL(arm_cspmu_acpi_dev_get);
+>  #else
+>  static int arm_cspmu_acpi_get_cpus(struct arm_cspmu *cspmu)
+>  {
+> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
+> index cd65a58dbd88..320096673200 100644
+> --- a/drivers/perf/arm_cspmu/arm_cspmu.h
+> +++ b/drivers/perf/arm_cspmu/arm_cspmu.h
+> @@ -1,13 +1,14 @@
+>  /* SPDX-License-Identifier: GPL-2.0
+>   *
+>   * ARM CoreSight Architecture PMU driver.
+> - * Copyright (c) 2022-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+> + * Copyright (c) 2022-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+>   *
+>   */
+>  
+>  #ifndef __ARM_CSPMU_H__
+>  #define __ARM_CSPMU_H__
+>  
+> +#include <linux/acpi.h>
+>  #include <linux/bitfield.h>
+>  #include <linux/cpumask.h>
+>  #include <linux/device.h>
+> @@ -255,4 +256,18 @@ int arm_cspmu_impl_register(const struct arm_cspmu_impl_match *impl_match);
+>  /* Unregister vendor backend. */
+>  void arm_cspmu_impl_unregister(const struct arm_cspmu_impl_match *impl_match);
+>  
+> +#if defined(CONFIG_ACPI)
+This isn't the same gate as used for whether the function is built. I think that's 
+#if defined(CONFIG_ACPI) && defined(CONFIG_ARM64)
+
+Whilst it might work to have them different today I think this is a little more
+fragile than would be ideal.
+
+The ARM64 bit seems to be there to allow COMPILE_TEST for
+ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU  and to me that smells like a stub or Kconfig
+dependency missing.
+
+> +/**
+> + * Get ACPI device associated with the PMU.
+> + * The caller is responsible for calling acpi_dev_put() on the returned device.
+> + */
+> +struct acpi_device *arm_cspmu_acpi_dev_get(const struct arm_cspmu *cspmu);
+> +#else
+> +static inline struct acpi_device *
+> +arm_cspmu_acpi_dev_get(const struct arm_cspmu *cspmu)
+> +{
+> +	return NULL;
+> +}
+> +#endif
+> +
+>  #endif /* __ARM_CSPMU_H__ */
+
 
