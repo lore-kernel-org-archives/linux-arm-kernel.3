@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFAAE9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 12:58:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6017E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 13:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XFwlQkeBuVVKF7aoJ1D/RHyGTpxwdFnPqmTgswCXsyw=; b=Zeg6qO5vD64opY8wQ/e5srGvX7
-	+VRdeGTZ3JqMZG5aEUNstDEZGRaKloh6ByIdKbio3Z2BjMpSLrgOcaN7noODqBcX/f/WRWv5cvKob
-	jqN+pdCcHcbRKlLCoxKQKnRZ1IZLwxGvl1bx5nXD0JUuRNEHEnvjUuErlHRnSkvEAE8f0EU5V3z58
-	ML3dfDY338mJruTA0GvGIgrFGHMPpymsbinIkb2fDbDbWrslTYIuk87DngpSLFYN6vqhiF/dxwnxK
-	lNsjrJnYjwIpf8/BkPXN6wNuz9/yI/9oCIcWBrc3vmTQUNoNANnUAGxTKxEJPQFQH94uvwWcbedFx
-	yqPH1Y7g==;
+	bh=79yWENIeJiOI8eu1NM831bIc+LOdWu9bx+B4L/t5N4I=; b=Nudjao1wdXx/gO1WM1/WaOMx5Y
+	Ay3NzEwvHD5J+hcg16Q1g+WevSq0th0Lz1HRN0FQIIyYxpd4WjDN1g+ichBnNpbHl9W+XEdM6+hJF
+	XnUesWB4SPbqZBQkVKjGSvQ85KEIhWuCmnQqdK15YxvVifxBq35iEsw06p1xlQjRSPU6369vYHZYn
+	kXbbd7YoDeAtZCwTYyHfnAtWMd6Do4UERSL1Mht8JxDRf0+BcR/0m0nj35kdB7BJguU+55iF77zEd
+	fpnWXR+bhGOaYNjY1rdBG9Sk8Xtfz2/7f2+6muy5Q9rEiu9rjfPx5azjertJY8QEY1JlBhVb8KEl0
+	CwwuBqKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt3bR-0000000BNDh-1y4B;
-	Thu, 19 Feb 2026 12:57:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vt3my-0000000BNgm-2iZB;
+	Thu, 19 Feb 2026 13:09:52 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt3bO-0000000BNCu-461z
+	id 1vt3mv-0000000BNgN-1YAq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 12:57:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9EDA40D6D;
-	Thu, 19 Feb 2026 12:57:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E68F8C4CEF7;
-	Thu, 19 Feb 2026 12:57:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771505873;
-	bh=jpZTDBxRqP3+2aDtWWPQ+jOqOlSnzz+w78qLLpTsI6I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S2aEOl0FOR23XvFymiX0dandFEhCqzlrQyKXXOL9dWHJZiyWklKlI1R6nT3P1Q7AR
-	 5c/ctxxOad7CgaYuB2Zh/4kGDtLnF5ufXabj7+tX61sqMlIEYMJFkOFMUbOlvlabWh
-	 sxuh2wekeblkYTlRqKlkK0sIXB1qO98+sjFwkrT+a37SpHRiIhIOJsImPL/ILJ1+Zz
-	 ncB2GM6h9atW+4sMo0OSbpqf3aYu3VE0t+S8hu0p4C7JbAz2U+deumrdCTkw5fqVBh
-	 CzSDob5JTmZttbVTjvER4zxuOOc0kxadyztgHpAV45OR/cvduZX529IE2pam+RnjnG
-	 SB6ytYoZWfRng==
-Date: Thu, 19 Feb 2026 12:57:47 +0000
-From: Will Deacon <will@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Michael Williams <Michael.Williams@arm.com>,
-	Alexandru Elisei <Alexandru.Elisei@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <Anshuman.Khandual@arm.com>,
-	Rob Herring <Rob.Herring@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	Robin Murphy <Robin.Murphy@arm.com>, Leo Yan <leo.yan@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf: arm_spe: Add barrier before enabling profiling
- buffer
-Message-ID: <aZcIy1Or4c5-i7Tm@willie-the-truck>
-References: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
- <aYD08d42SewAAQCB@willie-the-truck>
- <aebe99ad-1189-4372-83e3-385f33829bd2@linaro.org>
- <aYHXCkFZcVm1L_25@willie-the-truck>
- <e7d53952-59f6-4990-83fb-1182641af29f@linaro.org>
- <705acb39-2eef-4e61-aec1-b9503e788299@linaro.org>
+	Thu, 19 Feb 2026 13:09:50 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-35621da1a7dso602857a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 05:09:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771506588; x=1772111388; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=79yWENIeJiOI8eu1NM831bIc+LOdWu9bx+B4L/t5N4I=;
+        b=bjFOwMnFlFZj6ivcbda4YYpH2ifKc9IiCNni0M8plbld1zHzIK1O2U0rweGVyPAe4k
+         +aH8b5WJUV+/4jayfK9MwTUhmz/svbaFTVEn2FFKrnYIwucU3fuJGfXfjcRSR/ectBLm
+         aS8EQxQcoIVjhOoiLuqdbCu+YU1SSZqtIdOCAKE78yqbY49ZdJIkDDjQcjvB5/H+h0Oi
+         rINonYtsmJqKABnwCvaZhFbrrj+h+U29Lnioxla6PBqbBUvfmXz/1UQ4DhlafNaYkwcs
+         U3M1kQdDB3yD/Q1N+RFbO9qExFq6n+9euFQb97U4VCUzf0UybgeqfLbDd/R4HTXND8gn
+         uCXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771506588; x=1772111388;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=79yWENIeJiOI8eu1NM831bIc+LOdWu9bx+B4L/t5N4I=;
+        b=c2gf7tV9zuz4ImvouKd+vmlWetPSw/omfAAzplUuEa/NpIJDz+pEAXp7rf0ksaspTO
+         Yq6yRqmv5nYusn5Rd2ErR/xvtJEGNFiLKUQtAohcsHM4lYfDRO9iw7c2zpxXwVY+Imzo
+         ZqSGdc9zJuMs32Jx8b43GVu+rJFKmkIUJ+3nXd4KfJPZSX0BkXN+DjenPfRpVZZxcpJ0
+         fqE0ReMam4ieK70UFmrqo4/WVy9TRqmOYN3gghbp1xrNvMkVGMlljk84BhZope5BXiBz
+         kubHtI//9iR2c+R1B26SsEk3gQFxaDKsCmw5rZpEAR1aJR6kP3aJ+NOrp37IbbYniPx+
+         9JMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVb+v4ILfBd1bObNfjVXSO7juf6lQx9+Zw3bxmC7zlSLePQWi6YQk1eRy5EIXP00LDo4P+r7mcas3Sgvv45v4Dm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3Fa2DbbSsgh4As6nekvQvrEtuyDSgKFMxurSZTxr3zvv4ggZP
+	zVyPoYqPpQvzBQV+QCeBfVNPhbTrCHxQYRFio87MTCHhZZ2e0jvBZy/P
+X-Gm-Gg: AZuq6aLp6QuRuCEFFVAJ1IRKJ5YEmm9uM7wkxsj/PPdKxLZCAR1i1nIsAhsIvyczuQ7
+	P30nP78nOmN0rWdaAMAihk16dFrg8b1BkeB7eWG6SWoveMQn11SAu5rxf0GskONBgaoBnjD/pgS
+	4bcXgnHkFvA8XKZFIZlI9qoPWBnGAj8SBveuPk6dpClJ7XtPCd9eeQLXCR7AEb0dC7hmv5qu/1b
+	cfjTHjSENyIDD5WR6bEzyWgHYmLa98x5UgzxD0eqV6dQa2w90FlGSi6OIVXZAC90HjeJ5vmZgGi
+	HxdjYWGxlOr+FxtF+KshhPNjsAG7/1Abv4gkNK7cfW1cq95UaXhNclEvLCAgwSg4D/BLDq/pt1D
+	1fMjbwAtH09xNPQP3OnSqqkHc+Ek4wQUC8MUAsKHjJnQgQBnDfpwsSo8FgXb7rl2fk/gu6CuAxQ
+	GNJYLf9bCQJy/odv8+4tXzIla2CypH1UTfuusXmVLfy/G1cmCAt9b67pD+x/zW5Kq0d1wjtWS9w
+	vInX2YTf8izWluI0aSvjB/1J7LvPv/tjBHsGiBsCbTgUxay+hhV/dPsjZv6aLBG4Br7jw/I1FZy
+	rY8FwmAgGuPS5w==
+X-Received: by 2002:a17:90b:5704:b0:356:4c1f:98d4 with SMTP id 98e67ed59e1d1-358890dda32mr4625746a91.13.1771506587903;
+        Thu, 19 Feb 2026 05:09:47 -0800 (PST)
+Received: from minako.localnet ([2403:581e:d87e:0:739f:50a5:e171:f133])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35896ee223dsm1319001a91.2.2026.02.19.05.09.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Feb 2026 05:09:47 -0800 (PST)
+From: James Calligeros <jcalligeros99@gmail.com>
+To: Tejun Heo <tj@kernel.org>, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Vinod Koul <vkoul@kernel.org>,
+ Pat Somaru <patso@likewhatevs.io>
+Cc: Neal Gompa <neal@gompa.dev>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Pat Somaru <patso@likewhatevs.io>,
+ Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v2] dma: apple-admac: Convert from tasklet to BH workqueue
+Date: Thu, 19 Feb 2026 23:09:41 +1000
+Message-ID: <6224644.DvuYhMxLoT@minako>
+In-Reply-To: <20260206221143.1261191-1-patso@likewhatevs.io>
+References: <20260206221143.1261191-1-patso@likewhatevs.io>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <705acb39-2eef-4e61-aec1-b9503e788299@linaro.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_045755_060283_2D440FFB 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20260219_050949_443648_066F4C5F 
+X-CRM114-Status: UNSURE (   6.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +105,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 12:08:27PM +0000, James Clark wrote:
-> I'm back to drag this up again. So I think all of the above discussion
-> relies on the ordering given by the indirect read needed for the "might
-> ignore a direct write..." part. But it's _might_ ignore a direct write, it's
-> possible for an implementation to not do that, so there are two possible
-> implementations:
-> 
-> #1 Where there is an indirect read to give the write ignore outcome
-> #2 Where there is no write ignore outcome so it doesn't require an
->    indirect read
-> 
-> For #2 there's nothing to force the ordering. We're writing to two different
-> registers (PMBPTR_EL1 and PMBLIMITR_EL1) and we have to have the
-> PMBLIMITR_EL1 write come second for the buffer to be considered configured
-> correctly. For example if the old value of PMBPTR_EL1 is higher than the new
-> PMBLIMITR_EL1 and the write to PMBLIMITR_EL1 happens first then it's
-> misconfigured. That's why we think we need the isb() here.
+Hi all,
 
-I thought profiling was disabled in these cases, so why is it
-misconfigured?
+On Saturday, 7 February 2026 8:11:43=E2=80=AFam Australian Eastern Standard=
+ Time Pat=20
+Somaru wrote:
+> Convert apple-admac.c from tasklet to BH workqueue
 
-If it is misconfigured, what can go wrong given that we're either stopped
-or pmscr is clear?
+Tested-by: James Calligeros <jcalligeros99@gmail.com>
 
-Will
+Regards,
+James
+
+
 
