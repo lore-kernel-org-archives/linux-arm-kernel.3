@@ -4,71 +4,194 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F83AE9A04C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209B9E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 15:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLviQS+J86wIJuNbaQ47MfCn59S2ya5k8OFpHPpA0t4=; b=gDPSPgGBNHbclTA9/SIW2vzf79
-	SIdV/DbaTlGRVj+/DMgIQYnHm97DKn9XAN1bx4Lu79wSQjItBxtknWnkwwTLBBFbwt/iSkWxbQH+q
-	r5BK6iWTuuO1B/fKXQ/nSfkCuMytenmuJWS1bfXc6XStBxOL/49Jv/3rFpGtkUKct3u19kokLNrFr
-	U8KFnaAzkPGD+SaAQJUZP9MaR90MxS3B8yD/G8rLi4LvD6duvf85Zcc/p+bdUaalRgdONpeGtubn3
-	J3WVi7Oz4+ADgYw/uPNSFQ/bEHE26iTss9oC90edhkmGWvu79Ne8m5rRP2oZHd6KQ8gbLroTAhgHB
-	oFHOJ0wA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:Cc:To:From:Subject:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lEEtwjOwF5/I2vgQ8rwrZ/fmlmrenJ1wQQQMa/9A5Ys=; b=bo71m89ezv4d4hyW0u5cc7Da7c
+	mXoI/47Wsn3mjRruLF6yugcx3L6bseIbeHewt86lp6MiJltxAdbCR91FIhhWWOhVp78JUwpbiUEYj
+	q4QsfpruXz/4UzDTbhS0jphSxn3h3CZICPmMDdSdy4TGH7uOsZ/uqq1wbRytI00cHIbs6oNmCcVW5
+	jJ6NTpu8cD7c+a8CwaR+ueGB4begxcB8b97iMs6mOo5VU4mMm9+CD68Au20kaWm42xIcJ8NqmqiuB
+	jBIHbryVmvGsD4Xq/YGR8BQnPv2ywyj/6N2vRF1BsWZiLwExCUFp/TUb4zbFzUx30jMrtk5iZBaGp
+	DyKyjlXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5pK-0000000BYLs-30uW;
-	Thu, 19 Feb 2026 15:20:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vt5qR-0000000BYTR-0RTo;
+	Thu, 19 Feb 2026 15:21:35 +0000
+Received: from mail-uksouthazon11020136.outbound.protection.outlook.com ([52.101.196.136] helo=LO3P265CU004.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt5pI-0000000BYLm-3QIB
+	id 1vt5qN-0000000BYRk-3cI9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Feb 2026 15:20:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A5E696014C;
-	Thu, 19 Feb 2026 15:20:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5127C4CEF7;
-	Thu, 19 Feb 2026 15:20:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771514423;
-	bh=c3Y9GTRH+k4/VYLEFnoafUvNK9Y+FEq4L75YnvIin04=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=u2y/ZZvGGyCA0ZMal4I6Yh2MPUePHSoIbhn7GRgZqpPuSEQN1+eJSk3v+91Nr6EtH
-	 piuBM6wQrpNhrHD7XWGBDmo3HHe2Jc+7pBA5ngEwD7MnECFOUVigIi4jIFC+hg0ns5
-	 i6p3lFvWVVmlfGe8cW9dmCv13GsW/3wQeS6uqWZ0bb67qYvkPcc25XTcc3WUc/DZ7k
-	 drP0I8MfcWjLUb0mPszi6xVpWDE6mNnJ7u3dS4gQqLoDFX8VkyDhEpcEKzfaYJks5R
-	 tZ+itm1KlS+3NU5tgYTMfOYB2x+bXQ0kK3DWfFUcJGDPksXqPjwvS9CgX5ZdA4XG9H
-	 GKpyLqDoSlZkA==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: Leon Hwang <leon.hwang@linux.dev>, bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
- Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu
- <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John Fastabend
- <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav
- Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa
- <jolsa@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>, Shuah Khan <shuah@kernel.org>, Leon
- Hwang <leon.hwang@linux.dev>, Peilin Ye <yepeilin@google.com>, Luis
- Gerhorst <luis.gerhorst@fau.de>, Viktor Malik <vmalik@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- kernel-patches-bot@fb.com
-Subject: Re: [PATCH bpf-next v2 3/6] bpf, arm64: Add 64-bit bitops kfuncs
- support
-In-Reply-To: <20260219142933.13904-4-leon.hwang@linux.dev>
-References: <20260219142933.13904-1-leon.hwang@linux.dev>
- <20260219142933.13904-4-leon.hwang@linux.dev>
-Date: Thu, 19 Feb 2026 15:20:09 +0000
-Message-ID: <m24incoj4m.fsf@kernel.org>
+	Thu, 19 Feb 2026 15:21:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xXNT+5zbHT3lw0LhHtd1wDclEet4JPoP3qNOTzskBwsK5/zXlrROVtj2rWeFO9PVXMhxumyIBRinFP+VwrKEpbw5wXXMNX4C9FX9PfurcsgkICJRuAaBa74SIr1plyn0eV1obks7z3SO6I2P87svQuGBs7nIE0rMtU7MsG71yCzoQ3ot7VwSGLmVmitF3zKuj7mlfXk6CZcY6+VE1PGW6gy7GXabvz3D2mMiPxruSDmIOx46/uKxap7R0s2c1SEQ11nbzmhh+iAKmXNX3VpEGZ8P9vQC/NkM8BnPBklhtQzlFcV3tc1PtpaCauvSemgHphxvyO+MEw6TLsJ/thXOIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lEEtwjOwF5/I2vgQ8rwrZ/fmlmrenJ1wQQQMa/9A5Ys=;
+ b=IiwpU7fT3KBCmIi9fg+cWAYHPj860kBuQlg2m/P5viKfKjEPwcv01IbL/nO5h+V1rsuxODSThRUwDVHMzxEH2eeunjfAQs0DG+aMOTs/dXF+sxVJzfsewYz5YanAGIaunU4ALkiZpGuwl7/A3DOfGyh288nsY7QftOfQIvQrGB2UgElaF8qzuBHqyM07VsNVMtjGUV8ZQo03THpnh1ziZOP9R4N9q5AtTF2mQ3yjYdaJb1uG9XFoewtivpXxCfo7HFlv0jhFITrjn7BtfFnt3Y784x6KhH0RfHcIaqjuB0uavgtekNz54v1CmexD0nF7i6q879D9E3RGZ5l/kbHI3Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lEEtwjOwF5/I2vgQ8rwrZ/fmlmrenJ1wQQQMa/9A5Ys=;
+ b=Itpty5Bpp+6FQBZTaXQuylTA0oUJvLlxA0pKKuEbh2lebFU2jv7iX5SDI3hls4ydB2E250e1vanPNq0tBxIoWzQvX9lIof4PLNzvhqTGdmX0LxAXLOhJ9sCHlh9fcQO2Cx+0x7uaD/bWVwaZ+xPaSNfpzFcH25KXDq5J2WGuGVM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by LO9P265MB7527.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:3a0::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.15; Thu, 19 Feb
+ 2026 15:21:22 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%5]) with mapi id 15.20.9632.010; Thu, 19 Feb 2026
+ 15:21:22 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Feb 2026 15:21:21 +0000
+Message-Id: <DGJ1H1TJVYBF.PA8G6HMJ0V6W@garyguo.net>
+Subject: Re: [PATCH v3 3/3] arm64, compiler-context-analysis: Permit alias
+ analysis through __READ_ONCE() with CONFIG_LTO=y
+From: "Gary Guo" <gary@garyguo.net>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>, "David Laight"
+ <david.laight.linux@gmail.com>
+Cc: "Marco Elver" <elver@google.com>, "Will Deacon" <will@kernel.org>,
+ "Peter Zijlstra" <peterz@infradead.org>, "Ingo Molnar" <mingo@kernel.org>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Boqun Feng"
+ <boqun.feng@gmail.com>, "Waiman Long" <longman@redhat.com>, "Bart Van
+ Assche" <bvanassche@acm.org>, <llvm@lists.linux.dev>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Arnd Bergmann" <arnd@arndb.de>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "kernel test robot" <lkp@intel.com>, "Boqun Feng" <boqun@kernel.org>, "Al
+ Viro" <viro@zeniv.linux.org.uk>
+X-Mailer: aerc 0.21.0
+References: <20260130132951.2714396-1-elver@google.com>
+ <20260130132951.2714396-4-elver@google.com>
+ <aYDFOIskB20CbztD@willie-the-truck> <20260202192923.0707e463@pumpkin>
+ <aYHgNSF5a3F7UGU_@willie-the-truck>
+ <CANpmjNNzx-zc_-ZPgwe5DoWLmexw5irT2n+XMUqxTrfwxTxTmg@mail.gmail.com>
+ <20260204131400.GI2995752@noisy.programming.kicks-ass.net>
+ <aYNUmEfDzq7lTFFr@willie-the-truck>
+ <CANpmjNPHnt6eY-OfkTr5TksHaOon2GyLUokvagcMRa23B6i6_Q@mail.gmail.com>
+ <20260206182650.6c21b0ff@pumpkin>
+ <CANpmjNNFXdMM6cL+HBsiXr2WUA=mttR1jDRMqNYD7+YZs6vRKg@mail.gmail.com>
+ <20260215221656.68b2fc1d@pumpkin>
+ <CANpmjNOnOqq2k41=iNsgZLXAzspVQhcTZ88Nvms_c_0M+7b7YQ@mail.gmail.com>
+ <CAHk-=wioS+vB8aBxWBgdEfXqDq5Ynr9gyY=GhU7gxO9G_C+_6g@mail.gmail.com>
+ <20260216110915.4f0d5490@pumpkin>
+ <CAHk-=wjJQQfWpAxigafuyrgxg8CdQWSimVYMk16_j0vWwEkjag@mail.gmail.com>
+ <20260216174324.75d47e37@pumpkin>
+ <CAHk-=wgQ8DOxaNY5cBWg+sUkM5Kk6rKYGRHXsZQLtknO_UX+QA@mail.gmail.com>
+ <CAHk-=whFGxN0nUffzCsR_NZnQ5TTu+8QFGSfca1j42kDK1a1tw@mail.gmail.com>
+In-Reply-To: <CAHk-=whFGxN0nUffzCsR_NZnQ5TTu+8QFGSfca1j42kDK1a1tw@mail.gmail.com>
+X-ClientProxiedBy: LO4P265CA0324.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:390::8) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO9P265MB7527:EE_
+X-MS-Office365-Filtering-Correlation-Id: 007347f6-9cf7-42a1-a446-08de6fca89d4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|376014|366016|7416014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?emFyL2J5VlRKNGh1OVJHWERMZU9zT29hMzNaSXBwVWRveUhxWHhUNldYc1RM?=
+ =?utf-8?B?NHVnOUg5Y3lpeHd4dXIwZGMxNnlyWTdyRWV1K2J5SVY1RVFvaEdLbFBaMHZY?=
+ =?utf-8?B?alVEZGt4WkpzUWdudUx3RG1kNE9jcGZVVW91WndJSnNqZ0FJcDluSGRUYURm?=
+ =?utf-8?B?N1hYQnNzWk5CdHRiekN0TzhqdllqT0RjWHFUYzVOTVp0RlRGQlhETjNkOG91?=
+ =?utf-8?B?c0s2VFJWL1ozK01NSHRBVXpybjZIQ1RidHhLVS8wTTcrRnlWUituUkNQdks4?=
+ =?utf-8?B?TUZyZ004L0UrKzEyQ0d1dDJrSkVMYU5GOU9ySkdRa0lCVVZIZnh0Tmp1MnFa?=
+ =?utf-8?B?Q1RPNS9oRG9HL2JLbTdJNVU4STBlK1FEZXdYbDVrNUJmSlZ4cjNLOUxqWTdt?=
+ =?utf-8?B?L092cExBNWM4ZC81RWkraGpYdytkSW4xOHlla2dqNE9MajEyNXI1a2p4UDht?=
+ =?utf-8?B?UTRZU2hmdUlpQ0ZiRVRGM0l6M0tkVXpnenZnUjJFd3VvTzFxbElqYVhYZE04?=
+ =?utf-8?B?OG5CdGJVQ01yNnp3NTBGOXFlTGRTZ1Z3L3dtcUo4MzhlMVFjNDRjczNsbVhI?=
+ =?utf-8?B?aHRSNjFjS241MEFibUhYaUEvaG9Gc2hXcXNNRUVwNmRqQzRTeDJOMkRtUm1Y?=
+ =?utf-8?B?LzVUTWR4VS9TSkd2WmZFQThUbWFxRUd0OVllMXV4K3pOclV0eXRSSHZLYVBj?=
+ =?utf-8?B?MTFqOXhpM1ZCcGpMUmFvSVI1aUxYbWdnTUFSTDJ2cFIzQkd0Ym4yWTNqT0ds?=
+ =?utf-8?B?TXVxNTBRQjZLdlBCMUdLMGFRODM4SzJsc3MvV0ZoV0RCR1I3Q3NiOUw0K3o4?=
+ =?utf-8?B?anRndXkzNW5Kd3ljK0hCcVlKbjlnaW1HYy85NGxjR1huMHRFMWxjcDdFY3ZC?=
+ =?utf-8?B?MTZiVGtnL0dwVlJPSS90c3pobXc4OE9oSUNiUUxsbkU5K3R3UEROb2hUSGdt?=
+ =?utf-8?B?YlNRNnVtTlpXSTlTdDgxTE9DYUFHNlB3ZE1rTHpwQzJFaHNuVjI2c2gycDFD?=
+ =?utf-8?B?d0Qrd2F6a2lnaGU3alpHQzg1Vyt5eDJQSWt6TVU4bndXV1JtdXNKMURDY09B?=
+ =?utf-8?B?ZFpiUlBEd2xVVi9wd1E3QmUwc3FqNjl3YWN2Q1lJZ1U1cUtnUHhpSDNabGpH?=
+ =?utf-8?B?WmN4WGlxbHcwNzlieUUvK1JBQjdOdXpqSGdEc0E4Qmo1Nko3ZTFLazhwNWNm?=
+ =?utf-8?B?dGdBSGNWdUtJc3ljdjN1MWJPNy9hN1FpL0M3ZncyMlM2TFVJeWh3VHlxcmNx?=
+ =?utf-8?B?SUNDTXg5eENGRnd3YmdSRkRVcFhlU0lxaW0vK3o2cEswVlZnc2JIUmc0cWpP?=
+ =?utf-8?B?VFdLZTZOTzZTZEl4V01JWUZ0cjJTbmVRZmM0YURHUVlya01kejdSRGZZYkE5?=
+ =?utf-8?B?amROSmNFN3N5S3VOditvbE1TTmcwQ0FuVmNtUjZlQ0w1SDBxeXBOeHN6OXlD?=
+ =?utf-8?B?YUMybWxkVVkvNXBDWGNOR1ZaV2JMYUdrOTMzOE1MRGZxMXNELzVUdXhkTHhs?=
+ =?utf-8?B?bmNYS0ZHdGdVT1FSQkE4cEZ5NzJ0dVROL3E1bWNkMHBoYUVkYkpBUjYxSkJq?=
+ =?utf-8?B?QWVpazllOWovcHJCQytEbGJscTVqU05RbGJ2QnpuTmdmekg5enB2TnB2Q0RV?=
+ =?utf-8?B?N0Z2cjBHNHE2cllackFPUG9vK0h2dEJYRmZrZUd6Z3MrNkNUSjZrMzlzSDJO?=
+ =?utf-8?B?dG42SFhFaVpFRkF6ekZCcDBuRXc0TVZNMExPK2xhb0YvRUJoZjlMc29aS01O?=
+ =?utf-8?B?VURDRDBNQklZbmZjU1grZTVGTitiMXpYdnlBd3F6MWUvTTA1QUgvc0JWU1I3?=
+ =?utf-8?B?U1BPZnJscHBnTndIVlY5MjA5U0tjRmx5NUVnTElqcGdEWTBraXI4cVpNYndn?=
+ =?utf-8?B?Nm5KVmhtejlVTVlLSnpadnIzVkErZW5QZGJpdk01V1lvM0N4K29mNWZFbDJX?=
+ =?utf-8?B?WE5vQXlxZHp2N2RQNGZ2R2NPVTNibUNjK25zTVZmQnZHcHJ6UFBXb0FLRWhJ?=
+ =?utf-8?B?cTRpNEQvMkVYNmNiVzBXZG0raTl6dm9rQUJCUnJxdXFkaVMxeHU5UHZoZUpQ?=
+ =?utf-8?B?YUszTjFLRVdHUVhpeUliOEFXV0NNWFhlb3ZPREhsMjRLekgyMmVNRFVIeXVC?=
+ =?utf-8?Q?Fxwk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(376014)(366016)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Vk9Ccm8wMkQ3QmNSVlNvMW1ybjBIbmtCQjZIYXk1cE5TL3lzeU1qaWdYRTFa?=
+ =?utf-8?B?cGpTbXd6YkpYZm44dDl6WnVGY040Qm14WmFXSTVKZWJoMkgyQnJpL044K3l4?=
+ =?utf-8?B?ZnBFdmtmZVlWTU9jTjhWSlVTM2lFNnlXTWFEMi9GZENENnhadFg4cndUT05L?=
+ =?utf-8?B?K3AzN1JJQVFGYmhSOXdqd2g4QjVUejBHSnhqK2pIei8yWkRXbHU2bSs3TVBo?=
+ =?utf-8?B?Lzl5d0NaS21CWWJlYzcybER4bW1ybVFFRXZMV2twR2VSMGd0M1ZucW5OSHVM?=
+ =?utf-8?B?TW5HUzlDbm03K1dZdGhqY2ZjUExGSGhqbjFhbW1aMUpIL1Arb3JEdTRJa3pn?=
+ =?utf-8?B?OCszUExtdDZ5bE04YkhYbjVUQm4vOEhDTVo5UTYyVE5rajRKR29SOHNQZUJY?=
+ =?utf-8?B?UEpGSldpdlJzQkFXWEdFMFFzUGU5NTlXNm14SEc0c1hYNUtGaTE4a1ExcVFV?=
+ =?utf-8?B?cjVxQ0lDcVhaeEZtZWZWNVQxZG1mbGZBZW40Z2x2a3pGR2x4Y1FFT1p2cUth?=
+ =?utf-8?B?L0g3MDNkOWNVU3h5S2NwbUl5Ky9JRkhoOXRJRVFLNDlSaEM2dUVyQ25MWHhk?=
+ =?utf-8?B?ZGs3ZmkyUG1neUZZMzQrcHBrV29RSzc5R1hoRFZjVFpSVXBVVlRLY1VTT1lj?=
+ =?utf-8?B?SEZTdVNPakoreTdKZ3pBNVNoMGYrNWUwd2RmaFlrdXVpTUFyZFZLM1EvcWFw?=
+ =?utf-8?B?akF0cjRRaXdWZVVXT3JxUW8wM1lMdERSTExjbFRKd1V5Kzl1dUQ3djdYVmFJ?=
+ =?utf-8?B?ZmpWcWZ1K2JkRk1NN0NPeGFmK2wrSHlweEJvd1dZbE9IVHNhTHpFL3hzWkly?=
+ =?utf-8?B?WjNTdUpJeEo3TllEa2ZCb3I1NVlhMS9xb1ZGV3hiajlhNjJPaGFBaGdQUkE0?=
+ =?utf-8?B?cTU3RThaQXBwRG5IWk1ZbkQvekI4Qk9FTm5Ya2tLSW5ObkJHaER1VDZXdlRh?=
+ =?utf-8?B?Y1BEaTZEK3QxRkFRN1NBbHpTZWhMWWxLL1NGYVk4YzVSUnlVQUZOK3N0a2Ni?=
+ =?utf-8?B?enRGSUovVHlwWTJPRzRDblRjT0lvM1R0RlJEZkY0RXd6VXc2RUE2MnY0bDVH?=
+ =?utf-8?B?SkdkRXlZZWlQUDF5RzNLUXhmSm5kQTNTOGh6VEJjUk9TdUZDd215cFBNN3dk?=
+ =?utf-8?B?d0REMVV5bVBwbnBnaS9obEVsNDBQMFRBbWhPc2x0MGxvTUNHV0lCeVU3S2hM?=
+ =?utf-8?B?RG9IY25iOVBSMThLVVVaYTZpRHQxYzJ0UjU1NlZIWEZ4WFUvNU1pbXhHWTF6?=
+ =?utf-8?B?R29VV0k0QWR2T05iYWNWa2RmdHZHVWdRdE0vbWJnVUdJUEVSVnhJbWR4aEk4?=
+ =?utf-8?B?bVNPcGhHQzdEd1hjV1dFZFBtOXdGM0t5YUI3Qy9adUt4T0Rpa3A0WGl3OFJQ?=
+ =?utf-8?B?dEZlVHBiaEhrMTg0LzhGVC83d3ROdVluaWxHT0gzMHM4QlY2QmdOS0s1bTVE?=
+ =?utf-8?B?WUxxczZEaDE0aHBmb3pFdmhneTZla3ZCSzBNWXpxV1UySktZak93N2xveWZK?=
+ =?utf-8?B?MjRBMzVPL3BZbWdpazFucnpHTmVwVEJYVmNzUzZ3eE1WdmJBN29EL2pNYW9W?=
+ =?utf-8?B?YlIyMStWQWprajI2MnBKcHNPanBRd2tpK2FTYlMwK3hrTVlwcXN2dzRrRE5m?=
+ =?utf-8?B?VmhrNDhWcFVHdTVPbXFIREtMSVZPWmtxNHY0dVh1aDAvYWFNQ05MK0dwQ0xp?=
+ =?utf-8?B?Yy9Rd1NmQVNZUXh6WlFEcEpBUDNQRmxIVS95clFDMS9MZFl4Q0RjZ2xpczAx?=
+ =?utf-8?B?TlQ2Ym5QeVB2VndGYzhpMFdvTzVzV3U2blM5UkN3eE1RQkxQMHhxOXBOb2c4?=
+ =?utf-8?B?QnYwd01DNHBNcWlzT0ZuWXVhYy9pQTF5TlpNSXhmTVJ2ZU9DQ0NmTDBQT0RS?=
+ =?utf-8?B?MUViSlkvdnZpSzZybzFvNWJwbEMySXhaaVZPcThFQ3BsT2pSenB0cFhMcTRL?=
+ =?utf-8?B?Z2pDUFB5SXNMV2xFYWIya1NVeXZGdTFPQ21tVzdMd3BxcTJ6Y25LbGtHK3px?=
+ =?utf-8?B?WDlSSkVTV1BWNUZkUzNoL2VENzRhbnkxdGM0bzVkcExyeUZsaXFKcVB4QVVS?=
+ =?utf-8?B?VzJRVFh0K3dJcDFob3JlY09TWkpIdmJpQjJPYWYrVGpGckxPdEZMSGJMQnpN?=
+ =?utf-8?B?aWFwbE9vUzgvTjQ1N3V4V3B2NFJCVC9PUUhJNEl0MlNnZExoaUtMZ1hsR3Uv?=
+ =?utf-8?B?K0xEUVVmSzRQbnRrNCtRT1pSTlRFdFpBVmk0WjdJT2FlSHBaM21WU0FrM3Ns?=
+ =?utf-8?B?Q1BCclVnell6emM4d3pESnFFTGZQSjZEODdhM282LzFib21wSVhHczQ5Qk1I?=
+ =?utf-8?B?ZkVIOFF2bTh2QXlpQ1RteU9GOWFHbXBCbTdyQ2dYVE1XUUlmLzdUQT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 007347f6-9cf7-42a1-a446-08de6fca89d4
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2026 15:21:22.0506
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: buvHkfVXjy0f7szkjaj6IMu81c+ep5VA9JKgBrWgfpt5GG5OtucRypMPZ6wV/+St5ROBmvuPfW/2IGRgDkGI3A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO9P265MB7527
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260219_072131_911291_952555C4 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,166 +206,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Leon Hwang <leon.hwang@linux.dev> writes:
-
-> Implement JIT inlining of the 64-bit bitops kfuncs on arm64.
+On Tue Feb 17, 2026 at 4:32 PM GMT, Linus Torvalds wrote:
+> On Tue, 17 Feb 2026 at 08:23, Linus Torvalds
+> <torvalds@linux-foundation.org> wrote:
+>>
+>> But last time I looked at it - which was admittedly a few years ago -
+>> the compilers we supported didn't actually do anything reasonable here
+>> (ie the built-in atomics were fundamentally worse than the ones we do
+>> by hand, and even basic things like __atomic_load_n() weren't
+>> actually; better than just using 'volatile'.
+>>
+>> Maybe that has changed. We've upgraded minimum compilers since.
 >
-> bpf_clz64(), bpf_ffs64(), bpf_fls64(), and bpf_bitrev64() are always
-> inlined using mandatory ARMv8 CLZ/RBIT instructions. bpf_ctz64() is
-> inlined via RBIT + CLZ, or via the native CTZ instruction when
-> FEAT_CSSC is available. bpf_rol64() and bpf_ror64() are always inlined
-> via RORV.
+> I  just checked a few test-cases, and I don't think anything has changed.
 >
-> bpf_popcnt64() is not inlined as the native population count instruction
-> requires NEON/SIMD registers, which should not be touched from BPF
-> programs. It therefore falls back to a regular function call.
+> All the trivial things where __atomic_load_n(__ATOMIC_RELAXED) *could*
+> do better than just our old code using "cast pointer to volatile"
+> resulted in no better code generation.
+
+I think compilers are *very* conservative in implementing any optimization
+related to atomics, to the extent that normal atomics load/stores are
+effectively volatile atomic load/stores and thus the optimization you are
+referring to here does not get performed.
+
+However there is some limited optimizations being done to fences, at least =
+I
+know in LLVM multiple fences do get merged.
+
+E.g. if you have=20
+
+    atomic_thread_fence(memory_order_acquire);
+    atomic_thread_fence(memory_order_acq_rel);
+
+the first fence is abosrbed into the second.
+
 >
-> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
-> ---
->  arch/arm64/net/bpf_jit_comp.c | 123 ++++++++++++++++++++++++++++++++++
->  1 file changed, 123 insertions(+)
+> So we're sticking to that "cast to volatile" not because it's great,
+> but because it continues to be reliable and no worse than the fancy
+> modern versions.
 >
-> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-> index 7a530ea4f5ae..f03f732063d9 100644
-> --- a/arch/arm64/net/bpf_jit_comp.c
-> +++ b/arch/arm64/net/bpf_jit_comp.c
-> @@ -1192,6 +1192,127 @@ static int add_exception_handler(const struct bpf_insn *insn,
->  	return 0;
->  }
->  
-> +static inline u32 a64_clz64(u8 rd, u8 rn)
-> +{
-> +	/*
-> +	 * Arm Architecture Reference Manual for A-profile architecture
-> +	 * (Document number: ARM DDI 0487)
-> +	 *
-> +	 *   A64 Base Instruction Descriptions
-> +	 *   C6.2 Alphabetical list of A64 base instructions
-> +	 *
-> +	 *   C6.2.91 CLZ
-> +	 *
-> +	 *     Count leading zeros
-> +	 *
-> +	 *     This instruction counts the number of consecutive binary zero bits,
-> +	 *     starting from the most significant bit in the source register,
-> +	 *     and places the count in the destination register.
-> +	 */
-> +	/* CLZ Xd, Xn */
-> +	return 0xdac01000 | (rn << 5) | rd;
-> +}
-> +
-> +static inline u32 a64_ctz64(u8 rd, u8 rn)
-> +{
-> +	/*
-> +	 * Arm Architecture Reference Manual for A-profile architecture
-> +	 * (Document number: ARM DDI 0487)
-> +	 *
-> +	 *   A64 Base Instruction Descriptions
-> +	 *   C6.2 Alphabetical list of A64 base instructions
-> +	 *
-> +	 *   C6.2.144 CTZ
-> +	 *
-> +	 *     Count trailing zeros
-> +	 *
-> +	 *     This instruction counts the number of consecutive binary zero bits,
-> +	 *     starting from the least significant bit in the source register,
-> +	 *     and places the count in the destination register.
-> +	 *
-> +	 *     This instruction requires FEAT_CSSC.
-> +	 */
-> +	/* CTZ Xd, Xn */
-> +	return 0xdac01800 | (rn << 5) | rd;
-> +}
-> +
-> +static inline u32 a64_rbit64(u8 rd, u8 rn)
-> +{
-> +	/*
-> +	 * Arm Architecture Reference Manual for A-profile architecture
-> +	 * (Document number: ARM DDI 0487)
-> +	 *
-> +	 *   A64 Base Instruction Descriptions
-> +	 *   C6.2 Alphabetical list of A64 base instructions
-> +	 *
-> +	 *   C6.2.320 RBIT
-> +	 *
-> +	 *     Reverse bits
-> +	 *
-> +	 *     This instruction reverses the bit order in a register.
-> +	 */
-> +	/* RBIT Xd, Xn */
-> +	return 0xdac00000 | (rn << 5) | rd;
-> +}
+> But at least it's explicit in the code, not hidden away in code that
+> *looks* like it just dereferences another field in a structure.
 
-I don't think adding the above three functions is the best to JIT these
-intructions, do it like the other data1 and data2 instructions and add
-them to the generic framework like the following patch(untested) does:
+The implicit load/store is arguably the biggest design failure of C11 atomi=
+cs.
+However we can still typedef like atomic_t or use "cast to _Atomic". But as=
+ you
+said, currently this does not really yield any benefits over "cast to volat=
+ile".
 
--- >8 --
+Best,
+Gary
 
-diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index 18c7811774d3..b2696af0b817 100644
---- a/arch/arm64/include/asm/insn.h
-+++ b/arch/arm64/include/asm/insn.h
-@@ -221,6 +221,9 @@ enum aarch64_insn_data1_type {
- 	AARCH64_INSN_DATA1_REVERSE_16,
- 	AARCH64_INSN_DATA1_REVERSE_32,
- 	AARCH64_INSN_DATA1_REVERSE_64,
-+	AARCH64_INSN_DATA1_RBIT,
-+	AARCH64_INSN_DATA1_CLZ,
-+	AARCH64_INSN_DATA1_CTZ,
- };
-
- enum aarch64_insn_data2_type {
-@@ -389,6 +392,9 @@ __AARCH64_INSN_FUNCS(rorv,	0x7FE0FC00, 0x1AC02C00)
- __AARCH64_INSN_FUNCS(rev16,	0x7FFFFC00, 0x5AC00400)
- __AARCH64_INSN_FUNCS(rev32,	0x7FFFFC00, 0x5AC00800)
- __AARCH64_INSN_FUNCS(rev64,	0x7FFFFC00, 0x5AC00C00)
-+__AARCH64_INSN_FUNCS(rbit,	0x7FFFFC00, 0x5AC00000)
-+__AARCH64_INSN_FUNCS(clz,	0x7FFFFC00, 0x5AC01000)
-+__AARCH64_INSN_FUNCS(ctz,	0x7FFFFC00, 0x5AC01800)
- __AARCH64_INSN_FUNCS(and,	0x7F200000, 0x0A000000)
- __AARCH64_INSN_FUNCS(bic,	0x7F200000, 0x0A200000)
- __AARCH64_INSN_FUNCS(orr,	0x7F200000, 0x2A000000)
-diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
-index 4e298baddc2e..2229ab596cda 100644
---- a/arch/arm64/lib/insn.c
-+++ b/arch/arm64/lib/insn.c
-@@ -1008,6 +1008,15 @@ u32 aarch64_insn_gen_data1(enum aarch64_insn_register dst,
- 		}
- 		insn = aarch64_insn_get_rev64_value();
- 		break;
-+	case AARCH64_INSN_DATA1_CLZ:
-+		insn = aarch64_insn_get_clz_value();
-+		break;
-+	case AARCH64_INSN_DATA1_RBIT:
-+		insn = aarch64_insn_get_rbit_value();
-+		break;
-+	case AARCH64_INSN_DATA1_CTZ:
-+		insn = aarch64_insn_get_ctz_value();
-+		break;
- 	default:
- 		pr_err("%s: unknown data1 encoding %d\n", __func__, type);
- 		return AARCH64_BREAK_FAULT;
-diff --git a/arch/arm64/net/bpf_jit.h b/arch/arm64/net/bpf_jit.h
-index bbea4f36f9f2..af806c39dadb 100644
---- a/arch/arm64/net/bpf_jit.h
-+++ b/arch/arm64/net/bpf_jit.h
-@@ -248,6 +248,12 @@
- #define A64_REV16(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, REVERSE_16)
- #define A64_REV32(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, REVERSE_32)
- #define A64_REV64(Rd, Rn)     A64_DATA1(1, Rd, Rn, REVERSE_64)
-+/* Rd = RBIT(Rn) */
-+#define A64_RBIT(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, RBIT)
-+/* Rd = CLZ(Rn) */
-+#define A64_CLZ(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, CLZ)
-+/* Rd = CTZ(Rn) */
-+#define A64_CTZ(sf, Rd, Rn) A64_DATA1(sf, Rd, Rn, CTZ)
-
- /* Data-processing (2 source) */
- /* Rd = Rn OP Rm */
-
--- 8< --
-
-Thanks,
-Puranjay
 
