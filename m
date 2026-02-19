@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE55EE9A048
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 12:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80991E9A048
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Feb 2026 12:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hXy+qZEOQnVZ1TQ7eVHl4KeCMH2Hq+n4vm2MJCw5RdM=; b=EWF4KKOLDFvLxVvdfhVo0qnY0t
-	XVcyAllBs1jmge1Tf/pzarvfhgjuSjbtENmpAASECQk0vjgbpzhN2iQLvV3KCyQagZufPy2XOY2gb
-	V04qpu1tJv0U6BsBk6dKAYOlAs/TAi1sYhxFB6A3wXgDkZ9mfMLPwWd+DzdTmPJ8rrjtvrkFSiCoM
-	Kzv+rKkz7QXIruKxHkPtuPeLfgkD7zjkH8NFSMvfkO/fOHWNqiq501Nntzd6Don1f407OKNOH59e1
-	ZYq/zPyqizPmUIEdRTr2g99zWY14zf3uucvkgpRNVjgRPT9ZLJ7iGNb3h/+5aUWVpIIVVPsnVvozE
-	rahXRNHQ==;
+	bh=RB2N5YBeKWLxz5FkrVnsyiEuGQy3JJP6HUJk3toQkcs=; b=D79a6FGcXIVUVcX4CyoTWhsaHo
+	GjTK24qfMrgAEemxfdZvjwVntSwxKl+FOaHpRbh0SSveXlaEJIHlsNcis+/NXqKlRYqEKANlQ091W
+	PauwQQYwnwLNnJvWkVnAbFDoIS9A2zRs80JdL8peYeil+pzDBYrWJN8WphwMI3uWcc/CU0OUE8P+W
+	VSQakw0gCQt532lgVj0PolWSBjzISTPVjuO8wwsJEghfcwwlvmI0wZ8bH4eTH4B7YfmjrgLh2JScr
+	rJkPUxWQozBHtwWkMtSNlNU26Rapp6mHKe1rSZqbvypmkkddMcmTGERMJaRiH1/cfrWOFxJsT2Vad
+	p2MQBJPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt3UP-0000000BM0e-3Bgt;
-	Thu, 19 Feb 2026 12:50:41 +0000
+	id 1vt3UY-0000000BM4k-1JXi;
+	Thu, 19 Feb 2026 12:50:50 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt3UN-0000000BLzI-3KJX;
-	Thu, 19 Feb 2026 12:50:40 +0000
+	id 1vt3UV-0000000BM2m-44pE;
+	Thu, 19 Feb 2026 12:50:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=hXy+qZEOQnVZ1TQ7eVHl4KeCMH2Hq+n4vm2MJCw5RdM=; b=tZEqxZucuX/1jcU8pRmHuLZ+6d
-	/9ccakLp0L3pRQL1fWOMLx1SA3A9iSe9vYiNi3fK7X6xHyHRCThgq/DKNBAkb+PKA8CefMmPnRhBK
-	F8ocpLJY+bjuehH2eAqgrum8wd1jdABw8d3tSuNBqU3kAcIP1cOz9mHrIIKd8uRT5eRo8VXS8UW7c
-	IAfAOFX9s1H4P8zLc3G6tCNRixWd+aLbPARNrH8JuTveBpKHO634g3dm6bnw0HopjgKldP6Lmn1bW
-	hgylN8D4OmaZIYJcpW3Qc6Q/pU89P3s4fz3DX/BCZ8sxWZreQU8VvmW2fwVYd6JladAx/EdXH1Ba/
-	JhZgLgkg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:48508 helo=rmk-PC.armlinux.org.uk)
+	bh=RB2N5YBeKWLxz5FkrVnsyiEuGQy3JJP6HUJk3toQkcs=; b=ESKzY/SxuyfEPreelZNo3IbevQ
+	7vfTJVptrdbJtQff86uZPzQoMkiRVFVhtFzFcfD4sKqdMVzTD0dyAnTqJIzHiOPJ6zDWZnZyjUj0w
+	heLUqyFrE0CVK18CTmV/6U3IhqNDm2z7JYy/HymVuTxW568uwdIlAjPByMrRVGHxPstSm9BlSGKoF
+	lPpKsRFXREyBDIl9KEzOoUYoudHJASDhu4fNCju0Sjo3xxcXCzR7QIeH3nQOel6KcRiua28b4zm/q
+	4B+2haBEYv2PQsSrLgNNWb6LcTcgtqHItD8GPa76djmwNiJhqWpIIRO5PCLxtlwMozUqWOxd/qnkz
+	YrIB3tpA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58256 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vt3UI-000000000rO-45uj;
-	Thu, 19 Feb 2026 12:50:35 +0000
+	id 1vt3UO-000000000rh-0i7r;
+	Thu, 19 Feb 2026 12:50:40 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vt3UI-0000000A5e2-0Im5;
-	Thu, 19 Feb 2026 12:50:34 +0000
+	id 1vt3UN-0000000A5e8-0sYf;
+	Thu, 19 Feb 2026 12:50:39 +0000
 In-Reply-To: <aZcGxDBwfMXHbo_O@shell.armlinux.org.uk>
 References: <aZcGxDBwfMXHbo_O@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -66,17 +66,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Vinod Koul <vkoul@kernel.org>
-Subject: [PATCH RFC net-next+ 2/9] net: stmmac: qcom-ethqos: move
- ethqos_set_serdes_speed()
+Subject: [PATCH RFC net-next+ 3/9] phy: qcom-sgmii-eth: add .set_mode() and
+ .validate() methods
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vt3UI-0000000A5e2-0Im5@rmk-PC.armlinux.org.uk>
-Date: Thu, 19 Feb 2026 12:50:34 +0000
+Message-Id: <E1vt3UN-0000000A5e8-0sYf@rmk-PC.armlinux.org.uk>
+Date: Thu, 19 Feb 2026 12:50:39 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_045039_831322_BC9F2982 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260219_045048_013678_20A6135C 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +91,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Combine ethqos_set_serdes_speed() with ethqos_mac_finish_serdes() to
-simplify the code.
+qcom-sgmii-eth is an Ethernet SerDes supporting only Ethernet mode
+using SGMII, 1000BASE-X and 2500BASE-X.
 
+Add an implementation of the .set_mode() method, which can be used
+instead of or as well as the .set_speed() method. The Ethernet
+interface modes mentioned above all have a fixed data rate, so
+setting the mode is sufficient to fully specify the operating
+parameters.
+
+Add an implementation of the .validate() method, which will be
+necessary to allow discovery of the SerDes capabilities for platform
+independent SerDes support in the stmmac network driver.
+
+Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Acked-by: Vinod Koul <vkoul@kernel.org>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 22 +++++++++----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+ drivers/phy/qualcomm/phy-qcom-sgmii-eth.c | 43 +++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index ad5b5d950fff..57cbe800f652 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -591,14 +591,6 @@ static void ethqos_configure_rgmii(struct qcom_ethqos *ethqos,
- 	ethqos_rgmii_macro_init(ethqos, speed);
+diff --git a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
+index 5b1c82459c12..4ea3dce7719f 100644
+--- a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
++++ b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
+@@ -7,6 +7,7 @@
+ #include <linux/ethtool.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/phy.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+@@ -286,6 +287,37 @@ static int qcom_dwmac_sgmii_phy_power_off(struct phy *phy)
+ 	return 0;
  }
  
--static void ethqos_set_serdes_speed(struct qcom_ethqos *ethqos, int speed)
--{
--	if (ethqos->serdes_speed != speed) {
--		phy_set_speed(ethqos->serdes_phy, speed);
--		ethqos->serdes_speed = speed;
--	}
--}
--
- static void ethqos_pcs_set_inband(struct stmmac_priv *priv, bool enable)
- {
- 	stmmac_pcs_ctrl_ane(priv, enable, 0);
-@@ -683,15 +675,23 @@ static int ethqos_mac_finish_serdes(struct net_device *ndev, void *priv,
- 				    phy_interface_t interface)
- {
- 	struct qcom_ethqos *ethqos = priv;
-+	int speed, ret = 0;
- 
- 	qcom_ethqos_set_sgmii_loopback(ethqos, false);
- 
-+	speed = SPEED_UNKNOWN;
- 	if (interface == PHY_INTERFACE_MODE_SGMII)
--		ethqos_set_serdes_speed(ethqos, SPEED_1000);
-+		speed = SPEED_1000;
- 	else if (interface == PHY_INTERFACE_MODE_2500BASEX)
--		ethqos_set_serdes_speed(ethqos, SPEED_2500);
-+		speed = SPEED_2500;
- 
--	return 0;
-+	if (speed != SPEED_UNKNOWN && speed != ethqos->serdes_speed) {
-+		ret = phy_set_speed(ethqos->serdes_phy, speed);
-+		if (ret == 0)
-+			ethqos->serdes_speed = speed;
-+	}
++static int qcom_dwmac_sgmii_phy_speed(enum phy_mode mode, int submode)
++{
++	if (mode != PHY_MODE_ETHERNET)
++		return -EINVAL;
 +
-+	return ret;
++	if (submode == PHY_INTERFACE_MODE_SGMII ||
++	    submode == PHY_INTERFACE_MODE_1000BASEX)
++		return SPEED_1000;
++
++	if (submode == PHY_INTERFACE_MODE_2500BASEX)
++		return SPEED_2500;
++
++	return -EINVAL;
++}
++
++static int qcom_dwmac_sgmii_phy_set_mode(struct phy *phy, enum phy_mode mode,
++					 int submode)
++{
++	struct qcom_dwmac_sgmii_phy_data *data = phy_get_drvdata(phy);
++	int speed;
++
++	speed = qcom_dwmac_sgmii_phy_speed(mode, submode);
++	if (speed < 0)
++		return speed;
++
++	if (speed != data->speed)
++		data->speed = speed;
++
++	return qcom_dwmac_sgmii_phy_calibrate(phy);
++}
++
+ static int qcom_dwmac_sgmii_phy_set_speed(struct phy *phy, int speed)
+ {
+ 	struct qcom_dwmac_sgmii_phy_data *data = phy_get_drvdata(phy);
+@@ -296,10 +328,21 @@ static int qcom_dwmac_sgmii_phy_set_speed(struct phy *phy, int speed)
+ 	return qcom_dwmac_sgmii_phy_calibrate(phy);
  }
  
- static int ethqos_clks_config(void *priv, bool enabled)
++static int qcom_dwmac_sgmii_phy_validate(struct phy *phy, enum phy_mode mode,
++					 int submode,
++					 union phy_configure_opts *opts)
++{
++	int ret = qcom_dwmac_sgmii_phy_speed(mode, submode);
++
++	return ret < 0 ? ret : 0;
++}
++
+ static const struct phy_ops qcom_dwmac_sgmii_phy_ops = {
+ 	.power_on	= qcom_dwmac_sgmii_phy_power_on,
+ 	.power_off	= qcom_dwmac_sgmii_phy_power_off,
++	.set_mode	= qcom_dwmac_sgmii_phy_set_mode,
+ 	.set_speed	= qcom_dwmac_sgmii_phy_set_speed,
++	.validate	= qcom_dwmac_sgmii_phy_validate,
+ 	.calibrate	= qcom_dwmac_sgmii_phy_calibrate,
+ 	.owner		= THIS_MODULE,
+ };
 -- 
 2.47.3
 
