@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49DA2C5AD69
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 19:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B66C561E6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 19:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fkxRy1ThcTRLWk8+gjT6KJiNOFoa7HuzAZINSGE3vg=; b=xWQrsn56TlS/LKKXlx6mxiQMu+
-	N6AiKhcP6Q6gQsDK3iiLsTO2q5F3U4dE1Wi6bB59LLf9ZkJLK+Ezlxy/ju5Tev2hYb7ZwPdH1EL1s
-	h0spDUCKa/Y0go6gFMQkhkSmYrcJ27PK6bAFZz+tUXFkrIEMMm9GcM2+HVph4Dcpp8bgk43CH97Ju
-	6BkfjPZ0ZTUs10bylc4l3JsLcfV0DRyjGF1xkXL4W3q6jOsn0PTgL2xIfcwHpyxWBb3ZtgFg8OmI7
-	AwG6Lw2Yym2h9fqKGNkhLw0to4C41QmVmnm7WeWkRZJ9f14LHvPlPd1ngRIvenT2wwdibrfPJg5Cc
-	GO/E8TDg==;
+	bh=U/aov7YKfRqZa2Z0xrVK+spARqNXRf/dTECGhg3dCr8=; b=PniZdN8PmPyjR0nfgM5LIANFYr
+	muQNY//KYU8AZARddY24c06QJh9cJ4AQP+LDIUSQIlXOPRCpR67d+7P/faWy3Jt/cedhN/i6tw9mV
+	qnsVEptpymdmB+sCiPeGIbA9fKf6vqct8tVKaBe5eEK+u1TAN5WO90moD+ruM82XY2QVtdQKiXVxM
+	Q9EtXRb3LqzKloY4FsFMioYPZOd7uET2DvK5ZwQxL17U6ioYIhBS95+67+Ss2CU/zuCNfTOhvAgve
+	9dOOmQcczmv1R6To0ub3flP+X0UjxwOKosjS5j8k4fV5VV6eT2dZmCUvLUhevNyb5TRMZCE1fOha6
+	vOhYK3xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtVxo-0000000FUoJ-2gih;
-	Fri, 20 Feb 2026 19:14:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vtW2I-0000000FVBI-0dWK;
+	Fri, 20 Feb 2026 19:19:34 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtVxm-0000000FUnG-0EIu;
-	Fri, 20 Feb 2026 19:14:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 56FE8418D8;
-	Fri, 20 Feb 2026 19:14:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA755C116C6;
-	Fri, 20 Feb 2026 19:14:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771614892;
-	bh=N/dul5YjHzDXPfrduHVCi4Yg6lOyDfk2HzDDWaV+YQQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dl4K9twKTKk+64XuV3tx697p+tSKE4KpQAY+Nm3YF1p4RQ05z2krCL7vET+svQbq5
-	 VG8ENPLrxvLm/+whZxz7wR4sSkpTeUfkYv0ng1u1YVUiDdnp8o8K/ltQpAb0sRhhOy
-	 rXgnEi1fxdVV7wKy6o/+ac2dBU905VE6WwRTURFE2/UJPkevi35wRQJ3wcx8pxvJL3
-	 qH7yoJBL8zTJatIySTsfhPDUB1BBxBRzyo1NKjJzbcnEssXaEJKTQi0Oye1uhAaXPh
-	 P3BILrh7CooTpzS9Xd2cs8bvXzY3zgzfP1rVyzHWfNebJK+Q3V4jNuZh9AQyF9VNxU
-	 mNL8AGmVqa1wA==
-Date: Fri, 20 Feb 2026 11:14:49 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	Mingwei Zhang <mizhang@google.com>,
-	Xudong Hao <xudong.hao@intel.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
-	Manali Shukla <manali.shukla@amd.com>,
-	Jim Mattson <jmattson@google.com>
-Subject: Re: [PATCH v6 42/44] KVM: VMX: Dedup code for adding MSR to VMCS's
- auto list
-Message-ID: <aZiyqcd2V6Ncm6wY@google.com>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251206001720.468579-43-seanjc@google.com>
- <aZdlBkLEQyv9q5ll@google.com>
- <aZe6UR1EGg0RcB69@google.com>
+	id 1vtW2F-0000000FVAf-1W79
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Feb 2026 19:19:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1771615171; x=1803151171;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Er+hsh1gG5ejQ2qPbFqaijfyXtfPJmp/EnPNlRqDWck=;
+  b=jUQ5LJ9OInbRFScsEHWzwn0oAV0FFo+guHgYFGapp+itFBo07YUQp1WC
+   rz/UMQso7wOPMXUoFTAc8c0/MTGuTANtSMFKTePlwLamXYvK4CtuPeh2v
+   gLGSMkgwc00Zwwry7UNdRzn5Jt4jNvqTfMXdzZeu110aOIJy3eeCkgkIb
+   NCUDmV3fM7vpOuaFa4jyHL+sPOfz9JmQerTKCBf0DiG6nH+RPLalig/py
+   PGYSqolzLLJA8rZ5Z7exrivYxrHkTjlVpGRq+pgxVMmtq6a0KdPjj+1h0
+   7bK1/b0B/y5n/Ef+EGqniLLGVszOt2py1cLCnEiJdtBu4W+zHKhID/wpi
+   Q==;
+X-CSE-ConnectionGUID: so1MJAXKT5SRMEZyLQ+gNQ==
+X-CSE-MsgGUID: zw0BDz3sSc24ZqNYPl9WQg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11707"; a="83031463"
+X-IronPort-AV: E=Sophos;i="6.21,302,1763452800"; 
+   d="scan'208";a="83031463"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2026 11:19:31 -0800
+X-CSE-ConnectionGUID: caaxDMaPSwuglvvX91K68w==
+X-CSE-MsgGUID: CNlHRdPdT3isOUcrHIwipw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,302,1763452800"; 
+   d="scan'208";a="213021977"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 20 Feb 2026 11:19:27 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vtW28-000000014QK-3xTk;
+	Fri, 20 Feb 2026 19:19:24 +0000
+Date: Sat, 21 Feb 2026 03:19:19 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ahmed Tiba <ahmed.tiba@arm.com>, devicetree@vger.kernel.org,
+	linux-acpi@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Ahmed Tiba <ahmed.tiba@arm.com>,
+	Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
+	robh@kernel.org, rafael@kernel.org, will@kernel.org,
+	conor@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, krzk+dt@kernel.org,
+	Michael.Zhao2@arm.com, tony.luck@intel.com
+Subject: Re: [PATCH v2 09/11] ACPI: APEI: share GHES CPER helpers
+Message-ID: <202602210334.nHzuTUCB-lkp@intel.com>
+References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-9-347fa2d7351b@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aZe6UR1EGg0RcB69@google.com>
+In-Reply-To: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-9-347fa2d7351b@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_111454_134905_5CED456F 
-X-CRM114-Status: GOOD (  26.16  )
+X-CRM114-CacheID: sfid-20260220_111931_497187_B44E3085 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,102 +92,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 08:46:07AM -0800, Sean Christopherson wrote:
-> On Thu, Feb 19, 2026, Namhyung Kim wrote:
-> > Hello,
-> > 
-> > On Fri, Dec 05, 2025 at 04:17:18PM -0800, Sean Christopherson wrote:
-> > > Add a helper to add an MSR to a VMCS's "auto" list to deduplicate the code
-> > > in add_atomic_switch_msr(), and so that the functionality can be used in
-> > > the future for managing the MSR auto-store list.
-> > > 
-> > > No functional change intended.
-> > > 
-> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > > ---
-> > >  arch/x86/kvm/vmx/vmx.c | 41 +++++++++++++++++++----------------------
-> > >  1 file changed, 19 insertions(+), 22 deletions(-)
-> > > 
-> > > diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> > > index 018e01daab68..3f64d4b1b19c 100644
-> > > --- a/arch/x86/kvm/vmx/vmx.c
-> > > +++ b/arch/x86/kvm/vmx/vmx.c
-> > > @@ -1093,12 +1093,28 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
-> > >  	vm_exit_controls_setbit(vmx, exit);
-> > >  }
-> > >  
-> > > +static void vmx_add_auto_msr(struct vmx_msrs *m, u32 msr, u64 value,
-> > > +			     unsigned long vmcs_count_field, struct kvm *kvm)
-> > > +{
-> > > +	int i;
-> > > +
-> > > +	i = vmx_find_loadstore_msr_slot(m, msr);
-> > > +	if (i < 0) {
-> > > +		if (KVM_BUG_ON(m->nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> > > +			return;
-> > > +
-> > > +		i = m->nr++;
-> > > +		m->val[i].index = msr;
-> > > +		vmcs_write32(vmcs_count_field, m->nr);
-> > > +	}
-> > > +	m->val[i].value = value;
-> > > +}
-> > > +
-> > >  static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
-> > >  				  u64 guest_val, u64 host_val)
-> > >  {
-> > >  	struct msr_autoload *m = &vmx->msr_autoload;
-> > >  	struct kvm *kvm = vmx->vcpu.kvm;
-> > > -	int i;
-> > >  
-> > >  	switch (msr) {
-> > >  	case MSR_EFER:
-> > > @@ -1132,27 +1148,8 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
-> > >  		wrmsrq(MSR_IA32_PEBS_ENABLE, 0);
-> > >  	}
-> > >  
-> > > -	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
-> > > -	if (i < 0) {
-> > > -		if (KVM_BUG_ON(m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> > > -			return;
-> > > -
-> > > -		i = m->guest.nr++;
-> > > -		m->guest.val[i].index = msr;
-> > > -		vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
-> > > -	}
-> > > -	m->guest.val[i].value = guest_val;
-> > > -
-> > > -	i = vmx_find_loadstore_msr_slot(&m->host, msr);
-> > > -	if (i < 0) {
-> > > -		if (KVM_BUG_ON(m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> > > -			return;
-> > > -
-> > > -		i = m->host.nr++;
-> > > -		m->host.val[i].index = msr;
-> > > -		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
-> > > -	}
-> > > -	m->host.val[i].value = host_val;
-> > > +	vmx_add_auto_msr(&m->guest, msr, guest_val, VM_ENTRY_MSR_LOAD_COUNT, kvm);
-> > > +	vmx_add_auto_msr(&m->guest, msr, host_val, VM_EXIT_MSR_LOAD_COUNT, kvm);
-> > 
-> > Shouldn't it be &m->host for the host_val?
-> 
-> Ouch.  Yes.  How on earth did this escape testing...  Ah, because in practice
-> only MSR_IA32_PEBS_ENABLE goes through the load lists, and the VM-Entry load list
-> will use the guest's value due to VM_ENTRY_MSR_LOAD_COUNT not covering the bad
-> host value.
-> 
-> Did you happen to run into problems when using PEBS events in the host?
+Hi Ahmed,
 
-No, I just found it by reading the patch.
+kernel test robot noticed the following build errors:
 
-> 
-> Regardless, do you want to send a patch?  Either way, I'll figure out a way to
-> verify the bug and the fix.
+[auto build test ERROR on 8bf22c33e7a172fbc72464f4cc484d23a6b412ba]
 
-Sure, will do.
+url:    https://github.com/intel-lab-lkp/linux/commits/Ahmed-Tiba/ACPI-APEI-GHES-share-macros-via-a-private-header/20260220-214812
+base:   8bf22c33e7a172fbc72464f4cc484d23a6b412ba
+patch link:    https://lore.kernel.org/r/20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-9-347fa2d7351b%40arm.com
+patch subject: [PATCH v2 09/11] ACPI: APEI: share GHES CPER helpers
+config: i386-randconfig-012-20260220 (https://download.01.org/0day-ci/archive/20260221/202602210334.nHzuTUCB-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260221/202602210334.nHzuTUCB-lkp@intel.com/reproduce)
 
-Thanks,
-Namhyung
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202602210334.nHzuTUCB-lkp@intel.com/
 
+All errors (new ones prefixed by >>):
+
+   drivers/acpi/apei/ghes_cper.c: In function 'ghes_handle_arm_hw_error':
+>> drivers/acpi/apei/ghes_cper.c:261:34: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
+     261 |                                  FIELD_GET(CPER_ARM_ERR_TYPE_MASK, err_info->type),
+         |                                  ^~~~~~~~~
+
+
+vim +/FIELD_GET +261 drivers/acpi/apei/ghes_cper.c
+
+   202	
+   203	bool ghes_handle_arm_hw_error(struct acpi_hest_generic_data *gdata,
+   204					     int sev, bool sync)
+   205	{
+   206		struct cper_sec_proc_arm *err = acpi_hest_get_payload(gdata);
+   207		int flags = sync ? MF_ACTION_REQUIRED : 0;
+   208		int length = gdata->error_data_length;
+   209		char error_type[120];
+   210		bool queued = false;
+   211		int sec_sev, i;
+   212		char *p;
+   213	
+   214		sec_sev = ghes_severity(gdata->error_severity);
+   215		if (length >= sizeof(*err)) {
+   216			log_arm_hw_error(err, sec_sev);
+   217		} else {
+   218			pr_warn(FW_BUG "arm error length: %d\n", length);
+   219			pr_warn(FW_BUG "length is too small\n");
+   220			pr_warn(FW_BUG "firmware-generated error record is incorrect\n");
+   221			return false;
+   222		}
+   223	
+   224		if (sev != GHES_SEV_RECOVERABLE || sec_sev != GHES_SEV_RECOVERABLE)
+   225			return false;
+   226	
+   227		p = (char *)(err + 1);
+   228		length -= sizeof(err);
+   229	
+   230		for (i = 0; i < err->err_info_num; i++) {
+   231			struct cper_arm_err_info *err_info;
+   232			bool is_cache, has_pa;
+   233	
+   234			/* Ensure we have enough data for the error info header */
+   235			if (length < sizeof(*err_info))
+   236				break;
+   237	
+   238			err_info = (struct cper_arm_err_info *)p;
+   239	
+   240			/* Validate the claimed length before using it */
+   241			length -= err_info->length;
+   242			if (length < 0)
+   243				break;
+   244	
+   245			is_cache = err_info->type & CPER_ARM_CACHE_ERROR;
+   246			has_pa = (err_info->validation_bits & CPER_ARM_INFO_VALID_PHYSICAL_ADDR);
+   247	
+   248			/*
+   249			 * The field (err_info->error_info & BIT(26)) is fixed to set to
+   250			 * 1 in some old firmware of HiSilicon Kunpeng920. We assume that
+   251			 * firmware won't mix corrected errors in an uncorrected section,
+   252			 * and don't filter out 'corrected' error here.
+   253			 */
+   254			if (is_cache && has_pa) {
+   255				queued = ghes_do_memory_failure(err_info->physical_fault_addr, flags);
+   256				p += err_info->length;
+   257				continue;
+   258			}
+   259	
+   260			cper_bits_to_str(error_type, sizeof(error_type),
+ > 261					 FIELD_GET(CPER_ARM_ERR_TYPE_MASK, err_info->type),
+   262					 cper_proc_error_type_strs,
+   263					 ARRAY_SIZE(cper_proc_error_type_strs));
+   264	
+   265			pr_warn_ratelimited(FW_WARN GHES_PFX
+   266					    "Unhandled processor error type 0x%02x: %s%s\n",
+   267					    err_info->type, error_type,
+   268					    (err_info->type & ~CPER_ARM_ERR_TYPE_MASK) ? " with reserved bit(s)" : "");
+   269			p += err_info->length;
+   270		}
+   271	
+   272		return queued;
+   273	}
+   274	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
