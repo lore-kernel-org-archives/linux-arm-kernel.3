@@ -4,80 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD479C5B568
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 21:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55465C5B568
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 21:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ode+45XGc2usQIOj/dPWeWsWHpFujLzkFlN5+yUhwY=; b=ROStQVTHsStOiE8RmRVloCk+1T
-	OkmM1/fIzdYL0xrWOzAIp/ZDYC/XyBVDnSIqNCxcE8rLZhdGQDs25ht3/Dic/OkXt2G86zigOYHPu
-	uAcIdAxDVnkXcNIuDpAKQh30POHisLMgWYiKBW0i6f0qC0Dq/umD0rtm34VZoc1KqtRk5TJBXcpu0
-	NRt3jXIRh/dYTHx6o/hUzr+IKmpsHACrRXgDdFrAkISo2G4jHg6RQRJoelXlNT2Dw403U0gzj1uOD
-	AVp1hphi8wUchH/Pc/XHL1IbdVkifCVcFzedWFRglwFvDofHqRWaboY6+eQovrgHoMM8sR2LPGvxP
-	nsZ5U9Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=00UMNsZMIuwa4W4w9yZAhooOBNIlUqJFmFbp1iknh74=; b=Mchf7t6cCDgg4GZl1mMzA30BPM
+	eE5+I7VgqWf0yZSkuJZnvJZbpewis8T9Fxeg7Sa9YweDmpHOa6lNwQzln+VZl+SvxiapYlfZ2djg7
+	IfC7RWLATRDngHsUS5M4VMeltmzlYXKhf5FtTVD9omOXhpIz6eT2zlqB5J9c1hhrXwyNk+xYI34dU
+	SZ5IPGP9HQQ+kxQd632aCnC12+QfMxd6JVnOVtf9tmr+w96iD6+o6M2T30M/hOvmOCsKEt2kkARKu
+	quvZjzSfZG2wVjfggxtprCQxuGq4bGOAzRmcR6o32hiNk08AF3GSftOPLnqk/ry37AfvtXOn0MojA
+	DN8YOQ4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtXra-0000000Fc9L-1qKC;
-	Fri, 20 Feb 2026 21:16:38 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vtXtd-0000000FcRb-1TTt;
+	Fri, 20 Feb 2026 21:18:45 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtXrY-0000000Fc8z-0Nrk
+	id 1vtXta-0000000FcRG-1Rdf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 21:16:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771622196; x=1803158196;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/A8VHbK1+BXizuqbisUIPEpsfmgGvZL7TH/qol9/xoM=;
-  b=gbGgw0G3A2ARrRnRClfFYkaLv3zx7+IlGBI1whS3ITEqeh8gmyOWPjBa
-   D3q+Mje/wm+270Cknb7SbNjeRIMjHelkPbmazymMgg7KuZXQ0PBM37Zd9
-   moirrIMLdmP9D6w1cEW2+57nALNtB9v+7P7YyldCF2Yg4T/DlraVcrtIh
-   1OsKNUfXJw5p4fpfr6dIF8MaC2ANh0vBfU2ZokJB+dvUCvygcDHDdb42y
-   yi+azchuf4cnge/4zHAYCFX7++c1NzRhcrrudtNH2NdyfOFbEc5IOhWhN
-   Tycj8a78IIdZsYt6pKJ+IAJhQ6FeJnlBnvuu4lrtEIXBiR+wLY7Yby/K9
-   g==;
-X-CSE-ConnectionGUID: 09Y0LwGHR4m26QiEhLknUA==
-X-CSE-MsgGUID: z4la+OwHQp29465W/VWkRA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11707"; a="90127568"
-X-IronPort-AV: E=Sophos;i="6.21,302,1763452800"; 
-   d="scan'208";a="90127568"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2026 13:16:35 -0800
-X-CSE-ConnectionGUID: jrP7HSslSDuM1x7mg4dhKQ==
-X-CSE-MsgGUID: 9CmteDAqQwyS+15UzI/jaQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,302,1763452800"; 
-   d="scan'208";a="213976415"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 20 Feb 2026 13:16:30 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vtXrQ-000000014U0-2XCC;
-	Fri, 20 Feb 2026 21:16:28 +0000
-Date: Sat, 21 Feb 2026 05:16:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ahmed Tiba <ahmed.tiba@arm.com>, devicetree@vger.kernel.org,
-	linux-acpi@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Ahmed Tiba <ahmed.tiba@arm.com>, Dmitry.Lamerov@arm.com,
-	catalin.marinas@arm.com, bp@alien8.de, robh@kernel.org,
-	rafael@kernel.org, will@kernel.org, conor@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com
-Subject: Re: [PATCH v2 09/11] ACPI: APEI: share GHES CPER helpers
-Message-ID: <202602210530.ukbF5fjB-lkp@intel.com>
-References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-9-347fa2d7351b@arm.com>
+	Fri, 20 Feb 2026 21:18:43 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-65b9d8d6b7dso3586478a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 13:18:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771622320; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NYuUCpQC8IXK1kCSkxWdgXDyhwat/D/MyUqhMNdgkOagMcgWR1rx3gJ0ofyx6Nux4q
+         9vlFMh3tbCgMZJvwJb/ktjeFJOn7AmjWeVW26rVA9Pk1PxaYIn/FE0GgIN8NUnMklRrI
+         2DOyO0+m1URhXomCpm1AEZ5X/5NMyEEHw+vnXIzwAlBI1TVdgIYK8x0EL6B6D1Z3Xkba
+         aNza3rBzKN2Lsvp25Xxi+beDbwlHi8wdfrihVpDFzqlM4ghAQzosH7TyyxkA46yCAfJE
+         WUQ8FA/9km67HMIAehnAFkmz0pgEj3z9eOm0dJ155bMwhOyCZJZ7hI1At7O3YYMCUruM
+         wPmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=00UMNsZMIuwa4W4w9yZAhooOBNIlUqJFmFbp1iknh74=;
+        fh=ghSlh07yCpfpLBiHICtAQ9Q5/jQi1DPF0U+V/1I9QeU=;
+        b=dx++Ee5NMyLXoLjzmRV8hGPQI8iTQYDKuxAPrE2YQpbqkIAcH8z5YXUmv5CaAh/Rut
+         kfk5vN6O1mZ2FtABqLyejMFRkbSUoDIzur4Fya6plNj4ebIWJuLz6/8bHs/mgbMPi3XO
+         CIXnrtYokUrr3Ezm15lsVrJniNoqQZxjlkbIrrta9Zvct4s89pFFzXsdjUsb3/sh4qkh
+         kb9oy3cEG/Zcf0w3vWTihLEeQWMLRZgNfOA7sNSpCutDzkrR+HFzMeNWeWVpVpWVtN4a
+         Ph0ChneGxZZE+olCo5Z9YIg1eXrRRk1sw8WLhB0kruNBQj0N64cMYZ6MNRVfI9fFyY/L
+         medQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771622320; x=1772227120; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=00UMNsZMIuwa4W4w9yZAhooOBNIlUqJFmFbp1iknh74=;
+        b=VlORYmnTDHVTufXKADkqcbKe52CB/Kjul+4lj8SXaID3YwglULIBdnOzS5Rrud/JF5
+         XWzYMJGdOifDy1dRhuNKfRrTDzrcypy9XwmzVLZayIeU/mK01iMv852sdsquiuGOCsU+
+         cCqxMppEZuzl8KUqVe487PkVA6HuDR844lNwg+nV0v1DoDyJbigzopbzWKcUM8wv2hFE
+         4TB9Jlx3TTQ/vEYm+J7tCc4IgsZYc8sr8Z1jD8qYKUsJd6vNrLB1JzhS2D7NcA/lTDK0
+         xPc2vpOVeZq5gmvwMO4Rq6LtxuKFMKJQiSM7n5furIlDayBaTLiyPpJugoQrc2QYOmyd
+         eSBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771622320; x=1772227120;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=00UMNsZMIuwa4W4w9yZAhooOBNIlUqJFmFbp1iknh74=;
+        b=WJA67BSEiPovXWWV13DC0oOVhW86pQYO2RoG2QEp/ocnKsaTx0RSVJWdNr+nPW+EYY
+         qho3IHwzYWP3oHvhfjkTolPo32wyhQKsYluHEoqE08Udw3xXVVwm0uCK0TVtQii76F9K
+         BCNYDv5J2nOMDqif6SqLVEImeey5PyMxrWEYaI/ZUoc3UBD9A8p/AAEX2RpqNNyJ9uIL
+         Eyh8fvWILaDBS4AGx/UU6eI2hHeol/E/z2cyJzLivLXjqy9o3K2Q5bKTpkUa5/X4vO6M
+         f5yD+bTTCk/vNu0vA48a9okfLweIxw9pwturvBRFuLdKaLUKO6j1xWlvtj08u4I2ttfz
+         xHPA==
+X-Forwarded-Encrypted: i=1; AJvYcCUeK+Qs0IGc5Yb8CbMFNvhQ9IKuYS/+7hIEwJn9z/0qPQLPZT08+1SLeUwygaGzeztmGqLIQptbKsB1DCdinvQR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxui0oEdF2GEgsqP7A6khA0iHjjC8L6Gke2X3KN+lh10NJRpveB
+	P1RAwoqGEQBG2O06keCnGzTNmuurawO6as79k4mknJPScWKTa8PbR4zheghdotfbufIPSHMHdaD
+	PjRMJZ+ROLMb19IB58lyfGHddt/3JFTQ=
+X-Gm-Gg: AZuq6aJQMhgrUlqQ0lw9euSTrRHDZ8cxnJ/44Npt0J41ag6VsWyRlKjxVBGvuCEyxX+
+	tvrWQ/F3w1RKpNGTBDsTv20Z3U/iSKgfSYWc50gWL4DWBNAIepHAUifz/f4urlRI6Vs9I1d8sEk
+	brYx8pqgUTtEXFvFtdo5stOhtvPEg3nUpe5iYzuFYFaqtGUprkLXXO72+c6eUVyy9/w04CkSS2F
+	97jr3ZX5LTdyw5qsHzTaaSF8fcZdTWMnZPwgSaHlwn/e3hqL1iu9xEVzU/WO8eJKgRyEv06levp
+	ZOpDOgUHYdoE77sZuFrh
+X-Received: by 2002:a17:906:2485:b0:b8e:7208:ffe0 with SMTP id
+ a640c23a62f3a-b9081bd50a9mr42926666b.58.1771622320189; Fri, 20 Feb 2026
+ 13:18:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-9-347fa2d7351b@arm.com>
+References: <20260220021353.40554-1-rosenp@gmail.com> <20260220021353.40554-4-rosenp@gmail.com>
+ <CACna6ry+K6q_JY84j7OjRWALsUDU87mpAiikF7cpUGDUUYhZJQ@mail.gmail.com>
+In-Reply-To: <CACna6ry+K6q_JY84j7OjRWALsUDU87mpAiikF7cpUGDUUYhZJQ@mail.gmail.com>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Fri, 20 Feb 2026 13:18:28 -0800
+X-Gm-Features: AaiRm52dBh1cJLACjwstU2ZyGWFeLePJIQVxzxC7WdYWCADMe8LsfJaH7Q_6fMY
+Message-ID: <CAKxU2N_V=VWXtpj3qYcPQ-SOYDyA+wrg9Mb4AZvWMQUDnARVFA@mail.gmail.com>
+Subject: Re: [PATCH 3/5] ARM: dts: bcm4709-asus-rt-ac87u: specify switch
+To: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>
+Cc: devicetree@vger.kernel.org, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Hauke Mehrtens <hauke@hauke-m.de>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"moderated list:BROADCOM BCM5301X ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_131636_181843_21CCBC41 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260220_131842_397474_CA9D361D 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,110 +121,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ahmed,
+On Fri, Feb 20, 2026 at 3:18=E2=80=AFAM Rafa=C5=82 Mi=C5=82ecki <zajec5@gma=
+il.com> wrote:
+>
+> pt., 20 lut 2026 o 03:14 Rosen Penev <rosenp@gmail.com> napisa=C5=82(a):
+> > bcm-ns.dtsi specifies a default layout that is not correct for the
+> > RT-AC87U. Also allows setting the WAN MAC address properly.
+>
+> How the basic ports info from bcm-ns.dtsi is not correct for RT-AC87U?
+> I don't see you doing any overwriting or /delete-node/. It seems like
+> a standard NS device with BCM53011 and 8 ports (0, 1, 2, 3, 4, 5, 7,
+> 8), three of them connected to no-SoC Ethernet interfaces.
+This comes from a local OpenWrt patch. I just added the nvmem
+definition for WAN.
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 8bf22c33e7a172fbc72464f4cc484d23a6b412ba]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Ahmed-Tiba/ACPI-APEI-GHES-share-macros-via-a-private-header/20260220-214812
-base:   8bf22c33e7a172fbc72464f4cc484d23a6b412ba
-patch link:    https://lore.kernel.org/r/20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-9-347fa2d7351b%40arm.com
-patch subject: [PATCH v2 09/11] ACPI: APEI: share GHES CPER helpers
-config: x86_64-randconfig-004-20260220 (https://download.01.org/0day-ci/archive/20260221/202602210530.ukbF5fjB-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260221/202602210530.ukbF5fjB-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602210530.ukbF5fjB-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/acpi/apei/ghes_cper.c:261:6: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     261 |                                  FIELD_GET(CPER_ARM_ERR_TYPE_MASK, err_info->type),
-         |                                  ^
-   1 error generated.
-
-
-vim +/FIELD_GET +261 drivers/acpi/apei/ghes_cper.c
-
-   202	
-   203	bool ghes_handle_arm_hw_error(struct acpi_hest_generic_data *gdata,
-   204					     int sev, bool sync)
-   205	{
-   206		struct cper_sec_proc_arm *err = acpi_hest_get_payload(gdata);
-   207		int flags = sync ? MF_ACTION_REQUIRED : 0;
-   208		int length = gdata->error_data_length;
-   209		char error_type[120];
-   210		bool queued = false;
-   211		int sec_sev, i;
-   212		char *p;
-   213	
-   214		sec_sev = ghes_severity(gdata->error_severity);
-   215		if (length >= sizeof(*err)) {
-   216			log_arm_hw_error(err, sec_sev);
-   217		} else {
-   218			pr_warn(FW_BUG "arm error length: %d\n", length);
-   219			pr_warn(FW_BUG "length is too small\n");
-   220			pr_warn(FW_BUG "firmware-generated error record is incorrect\n");
-   221			return false;
-   222		}
-   223	
-   224		if (sev != GHES_SEV_RECOVERABLE || sec_sev != GHES_SEV_RECOVERABLE)
-   225			return false;
-   226	
-   227		p = (char *)(err + 1);
-   228		length -= sizeof(err);
-   229	
-   230		for (i = 0; i < err->err_info_num; i++) {
-   231			struct cper_arm_err_info *err_info;
-   232			bool is_cache, has_pa;
-   233	
-   234			/* Ensure we have enough data for the error info header */
-   235			if (length < sizeof(*err_info))
-   236				break;
-   237	
-   238			err_info = (struct cper_arm_err_info *)p;
-   239	
-   240			/* Validate the claimed length before using it */
-   241			length -= err_info->length;
-   242			if (length < 0)
-   243				break;
-   244	
-   245			is_cache = err_info->type & CPER_ARM_CACHE_ERROR;
-   246			has_pa = (err_info->validation_bits & CPER_ARM_INFO_VALID_PHYSICAL_ADDR);
-   247	
-   248			/*
-   249			 * The field (err_info->error_info & BIT(26)) is fixed to set to
-   250			 * 1 in some old firmware of HiSilicon Kunpeng920. We assume that
-   251			 * firmware won't mix corrected errors in an uncorrected section,
-   252			 * and don't filter out 'corrected' error here.
-   253			 */
-   254			if (is_cache && has_pa) {
-   255				queued = ghes_do_memory_failure(err_info->physical_fault_addr, flags);
-   256				p += err_info->length;
-   257				continue;
-   258			}
-   259	
-   260			cper_bits_to_str(error_type, sizeof(error_type),
- > 261					 FIELD_GET(CPER_ARM_ERR_TYPE_MASK, err_info->type),
-   262					 cper_proc_error_type_strs,
-   263					 ARRAY_SIZE(cper_proc_error_type_strs));
-   264	
-   265			pr_warn_ratelimited(FW_WARN GHES_PFX
-   266					    "Unhandled processor error type 0x%02x: %s%s\n",
-   267					    err_info->type, error_type,
-   268					    (err_info->type & ~CPER_ARM_ERR_TYPE_MASK) ? " with reserved bit(s)" : "");
-   269			p += err_info->length;
-   270		}
-   271	
-   272		return queued;
-   273	}
-   274	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+There's also the addition of labels.
+>
+> Except for this unclear commit description, your changes look good, thank=
+s!
+>
+> --
+> Rafa=C5=82
 
