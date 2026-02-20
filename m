@@ -4,96 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227A3C55ABC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 12:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12796C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 12:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n2nPNPQGXGCw7I5Hq9vPEc1mLprdU0Rtb0NgOnKCL4E=; b=iBIkOWM9O4TVo1QFDQMD85v1aA
-	Uv7TO9qGHXkmZVUAbcHS3tK3wQ/rAQNXKuWGy9KSkqX0zVsvF3gBWuzYUAeGCvOTiQIXB+ocS00qN
-	hzbko+QphR066DJitciceS8S02rJ15av72gwQaBl1B2YZ18knjTsD/PkA65IW9cnT3qUecrGg3lsk
-	rGattBz4AISgU2WjoHGilHI9RSuTOInDk4MoZ0Jg9hBrfJ6AlE3AQhOjVTydNe8i+TSCBcoBAI53L
-	bUrBbU5LMatJX4jp0qWNrfY9Wbw4ExaRdk5qXtgVnueektz1wVC0uDfQAF/rDoxZgh02/NhUWIIgi
-	O+7mayLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y8euMMd7ovn1uCyxnqZ+G2FrrL0KvzYCdQUy11Pfe3E=; b=39r8sbyQ9T/H34qjCRM8V5yelf
+	2+/7HbhvTL/Qd6RMp5QCLKvbuKsCQlfub7/pxwIeWy+2RpVET0j5qvVdXX42HN0vFw4TyjJxk7u28
+	OqKXror8dIJHiDD/JE7Xs8SKYrWGsiwXZK8sVv1WhVcozieXMT/aEAfrQc2A5VooN0+MyiKAYWHS4
+	sUAke8pZZwk3v81D/ClpkgudDkqj7Do4AhMpRCiigtEDsQqtDpVlerjUfe7Ux1PVbZJ2ZyTSL09dP
+	wRuQsPfv6ABl/as6DeZFGSI4Uqb5aW7SLr7vffEJiEu2szVRw47xiZ2FBPLjROSsTT/SzBlZcPwiW
+	RbxTLtvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtPBG-0000000ET2u-3ekp;
-	Fri, 20 Feb 2026 12:00:22 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vtPLj-0000000ETRh-30zF;
+	Fri, 20 Feb 2026 12:11:11 +0000
+Received: from mx-relay10-hz2.antispameurope.com ([83.246.65.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtPBD-0000000ET2W-1Cvi
+	id 1vtPLe-0000000ETRI-1DYR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 12:00:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771588819; x=1803124819;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BJwn3q+eqyH6klWhmr3v9YPJaWcEJddp5EliWQLosW4=;
-  b=fDEdiIr7ULPW9S9xnEyoGdRAMcliwA0gLHs9wG5uT8+Qjj0voyv5Moyo
-   kSmx2rICjSWMd8WZv0wQV0B65NoPngBWVnBv575ZufUwndpnE97kSGXlS
-   iOccac1YMgi7DXsu48B6lb2NkoEMiBcsKo9K3tCzZSpBnonnI8PfXC2eE
-   gDlPaxzlg7RpWJqiaHUK2Ls3ZPUf7jccvJsLCizaWrQW2rF5xRKUvxP6q
-   WSCaCzxeR1vClmXDiP7aPfRBRDsTBz3bWT+HtuCS2zilaFXeO93N24gct
-   4u8+ZsG0U6htsW5DxH5DMhhXWhvlfxCuhp6P6OlrenAp802rTLZYZ7MKH
-   w==;
-X-CSE-ConnectionGUID: Ru9GT8tgQGmGVTvxUD+Nnw==
-X-CSE-MsgGUID: XL25mFElSUW2sGqg/e1hOA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11706"; a="72579537"
-X-IronPort-AV: E=Sophos;i="6.21,301,1763452800"; 
-   d="scan'208";a="72579537"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2026 04:00:18 -0800
-X-CSE-ConnectionGUID: fxCgkGONQi+IaN4+f3YPjQ==
-X-CSE-MsgGUID: JjXTyrWBSxStWLPFlyzSCg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,301,1763452800"; 
-   d="scan'208";a="213402075"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 20 Feb 2026 04:00:11 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vtPB3-0000000144S-0Nu8;
-	Fri, 20 Feb 2026 12:00:09 +0000
-Date: Fri, 20 Feb 2026 19:59:16 +0800
-From: kernel test robot <lkp@intel.com>
-To: Leon Hwang <leon.hwang@linux.dev>, bpf@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Leon Hwang <leon.hwang@linux.dev>, Peilin Ye <yepeilin@google.com>,
-	Luis Gerhorst <luis.gerhorst@fau.de>,
-	Viktor Malik <vmalik@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs
- support for x86_64
-Message-ID: <202602201931.LBZGbpvs-lkp@intel.com>
-References: <20260219142933.13904-3-leon.hwang@linux.dev>
+	Fri, 20 Feb 2026 12:11:09 +0000
+ARC-Authentication-Results: i=1; mx-gate10-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=Y8euMMd7ovn1uCyxnqZ+G2FrrL0KvzYCdQUy11Pfe3E=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1771589449;
+ b=GEc7lMyovXqBEL7sewWkF30gkXjVLZMMXm/u9zs1qSdh7xe1GEhhVq+Y++ag9tUY/+R/tfoT
+ urnaQaK5bxW7JV0+RcbQ8GxE8YnXK6QV2v+XA9L39W5DVhwTHrQmqLikIwiFelKi8oNDz0XPRXR
+ Hi+96KPB+0iZiw0kDmmnTELGgqrjyzzF+yyLb1eu446nJV6Mdpv5tt6VItuHyQh65x27Jvd0HOb
+ wwvhCpkfapkJXC1TDxJJcfUzD1WFfnY1aravFkFz1ROj00ohb/4nDBx7fEVrdLcT7Zr5wX0M/N2
+ kIywXlULxeLz5FQ9Xzbm8lIJjP0UOfWU0TXOausZMSVUw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1771589449;
+ b=aX7RcqWvOkFim9NtD0R05nya7VW3JKQPcCSNzTemW/u/tZc+q+XjGntubd+cER+COwxsUJ2g
+ ibuusDks70hLPK1UsVImrVa15E/itxA7Rl5oogeCcintKxtHV/B3qXhjN9UvHzVO0qL/bvEN2Vq
+ +jZphCnaPTHkN81SRERNxDuyWIAgbX4mQlfO62qDHyqttnQx8gMRLw/ymgrgu/8jXhkPSLFH5Rn
+ 2AEIWZ2U/la8YUpseAShFOTPCTmBGKJhij+j++imq1l94/YBSDAVyePPBG7PEk3OMg0Ln9cEj85
+ K7F8R4pR9MP6QrozXQOD3aKWxm7mZrH1GzKKgvax1NFdg==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay10-hz2.antispameurope.com;
+ Fri, 20 Feb 2026 13:10:48 +0100
+Received: from [10.123.75.134] (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: max.merchel@ew.tq-group.com)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id ADD93CC0CB6;
+	Fri, 20 Feb 2026 13:10:23 +0100 (CET)
+Message-ID: <be39b302-a29b-4dcd-a3f1-1f3781476951@ew.tq-group.com>
+Date: Fri, 20 Feb 2026 13:10:22 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260219142933.13904-3-leon.hwang@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] ARM: dts: imx6ul/imx6ull: add boot phase properties
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, linux@ew.tq-group.com,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260218132339.32157-1-Max.Merchel@ew.tq-group.com>
+ <20260218132339.32157-2-Max.Merchel@ew.tq-group.com>
+ <CAOMZO5B5k_i_q4cd7SMNAkicF4WfEYNVUSrg8AamQHNpGys5mA@mail.gmail.com>
+Content-Language: en-US
+From: Max Merchel <max.merchel@ew.tq-group.com>
+In-Reply-To: <CAOMZO5B5k_i_q4cd7SMNAkicF4WfEYNVUSrg8AamQHNpGys5mA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: max.merchel@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: max.merchel@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay10-hz2.antispameurope.com with 4fHTbN2hRzz4FJRR
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: ecebb1631c20b4aa5b2d1e856db1193a
+X-cloud-security: scantime:5.080
+DKIM-Signature: a=rsa-sha256;
+ bh=Y8euMMd7ovn1uCyxnqZ+G2FrrL0KvzYCdQUy11Pfe3E=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1771589448; v=1;
+ b=o3jxS/aqas1SLTgPk5280q81Oxaw0OCPtNpwuSZkovlRkBgxFRXi0EQ+k7MLyY5IV/81wIhc
+ B7fQzXWcA2xqhWbMNGjsyniIuILLq1IN/mMWv2gMKbCKWz/s/VIH7ydT3IpjcxEHD8ZQxf37Xem
+ dkUUUG3qWMOLcXy6G/3JX9hWxK9tqa+wNrng7/cRSg+ANp+M1WUCuTYtFqeouxRSQ7/hH6LlxlI
+ 4WqOgEVbob5pG8fM0p9UrDHHOD5MO2A3nogxRTf14xqjO0KTNpxb9eMZ02vOGfNj49cx8UdZXNB
+ NmWe1xjND9fyPEjcEoQT5OOeFgNvEPHzVHkbJ1xMA0NNQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_040019_374984_BFD50164 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20260220_041106_615372_306E6D5C 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,71 +111,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leon,
 
-kernel test robot noticed the following build errors:
 
-[auto build test ERROR on bpf-next/master]
+Am 18.02.26 um 19:14 schrieb Fabio Estevam:
+> Hi Max,
+> 
+> On Wed, Feb 18, 2026 at 10:24 AM Max Merchel
+> <Max.Merchel@ew.tq-group.com> wrote:
+>>
+>> Add boot phase properties from U-Boot device tree.
+> 
+> The commit logs of this series could be improved. Please take a look
+> at these examples:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?h=v6.19&id=256feb5be482315a91c1bd1a1808276f57ef76dd
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?h=v6.19&id=2285ea3f8065f47a6a1b62e6fcfa85105c8c261b
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Leon-Hwang/bpf-Introduce-64-bit-bitops-kfuncs/20260219-223550
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
-patch link:    https://lore.kernel.org/r/20260219142933.13904-3-leon.hwang%40linux.dev
-patch subject: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs support for x86_64
-config: x86_64-randconfig-012-20260220 (https://download.01.org/0day-ci/archive/20260220/202602201931.LBZGbpvs-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-rustc: rustc 1.88.0 (6b00bc388 2025-06-23)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260220/202602201931.LBZGbpvs-lkp@intel.com/reproduce)
+Hi Fabio,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602201931.LBZGbpvs-lkp@intel.com/
+I can add sentences to the commits, including the properties, for example:
 
-All errors (new ones prefixed by >>):
+dtschema/schemas/bootph.yaml describe various node usage during
+boot phases with DT.
 
->> ld.lld: error: undefined symbol: bpf_clz64
-   >>> referenced by bpf_jit_comp.c:1621 (arch/x86/net/bpf_jit_comp.c:1621)
-   >>>               arch/x86/net/bpf_jit_comp.o:(do_jit) in archive vmlinux.a
-   >>> referenced by bpf_jit_comp.c:4250 (arch/x86/net/bpf_jit_comp.c:4250)
-   >>>               arch/x86/net/bpf_jit_comp.o:(bpf_jit_inlines_kfunc_call) in archive vmlinux.a
---
->> ld.lld: error: undefined symbol: bpf_ctz64
-   >>> referenced by bpf_jit_comp.c:1647 (arch/x86/net/bpf_jit_comp.c:1647)
-   >>>               arch/x86/net/bpf_jit_comp.o:(do_jit) in archive vmlinux.a
-   >>> referenced by bpf_jit_comp.c:4247 (arch/x86/net/bpf_jit_comp.c:4247)
-   >>>               arch/x86/net/bpf_jit_comp.o:(bpf_jit_inlines_kfunc_call) in archive vmlinux.a
---
->> ld.lld: error: undefined symbol: bpf_ffs64
-   >>> referenced by bpf_jit_comp.c:1673 (arch/x86/net/bpf_jit_comp.c:1673)
-   >>>               arch/x86/net/bpf_jit_comp.o:(do_jit) in archive vmlinux.a
-   >>> referenced by bpf_jit_comp.c:4247 (arch/x86/net/bpf_jit_comp.c:4247)
-   >>>               arch/x86/net/bpf_jit_comp.o:(bpf_jit_inlines_kfunc_call) in archive vmlinux.a
---
->> ld.lld: error: undefined symbol: bpf_fls64
-   >>> referenced by bpf_jit_comp.c:1677 (arch/x86/net/bpf_jit_comp.c:1677)
-   >>>               arch/x86/net/bpf_jit_comp.o:(do_jit) in archive vmlinux.a
-   >>> referenced by bpf_jit_comp.c:4250 (arch/x86/net/bpf_jit_comp.c:4250)
-   >>>               arch/x86/net/bpf_jit_comp.o:(bpf_jit_inlines_kfunc_call) in archive vmlinux.a
---
->> ld.lld: error: undefined symbol: bpf_popcnt64
-   >>> referenced by bpf_jit_comp.c:1683 (arch/x86/net/bpf_jit_comp.c:1683)
-   >>>               arch/x86/net/bpf_jit_comp.o:(do_jit) in archive vmlinux.a
-   >>> referenced by bpf_jit_comp.c:4253 (arch/x86/net/bpf_jit_comp.c:4253)
-   >>>               arch/x86/net/bpf_jit_comp.o:(bpf_jit_inlines_kfunc_call) in archive vmlinux.a
---
->> ld.lld: error: undefined symbol: bpf_rol64
-   >>> referenced by bpf_jit_comp.c:1707 (arch/x86/net/bpf_jit_comp.c:1707)
-   >>>               arch/x86/net/bpf_jit_comp.o:(do_jit) in archive vmlinux.a
-   >>> referenced by bpf_jit_comp.c:4256 (arch/x86/net/bpf_jit_comp.c:4256)
-   >>>               arch/x86/net/bpf_jit_comp.o:(bpf_jit_inlines_kfunc_call) in archive vmlinux.a
---
->> ld.lld: error: undefined symbol: bpf_ror64
-   >>> referenced by bpf_jit_comp.c:1714 (arch/x86/net/bpf_jit_comp.c:1714)
-   >>>               arch/x86/net/bpf_jit_comp.o:(do_jit) in archive vmlinux.a
-   >>> referenced by bpf_jit_comp.c:4256 (arch/x86/net/bpf_jit_comp.c:4256)
-   >>>               arch/x86/net/bpf_jit_comp.o:(bpf_jit_inlines_kfunc_call) in archive vmlinux.a
+All SoCs require buses (aips and spba), clock, iomuxc and SOC access 
+during boot process.
+
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Max
+
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
