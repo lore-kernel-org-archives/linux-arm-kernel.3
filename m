@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8BAC531FB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40142C55ABE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X/Bzn0MKqMj/2FTtRSKPLpRolUFvSyK4iBPHz7z4Qfc=; b=KLzquhbfragBk6A74IWmueKmih
-	8A/r7QGF5J14wsKvXkogyyrgADY/N++g3UK/spvphCcVdR/HH7ditvlkGA7tpKt9t6U+lcLr5mRzi
-	kdcF59c/5WMOz6P4JRDodeNeR9utzbAn4NIY4JIagtfCPuyteyCkjimw9WxWHX/HewU0riNF6Uzgx
-	U4qdHnAy/JlyjJz4rcKVCIi3v3fyhPnz8vavipzPPzlI1YBHodm/lPF7oVxPQfrLm64HeqXQN9yAI
-	Nz9rzoW/lkTJh7MdLQUDYLQJsaZjqUTGCPXGVUXnVEgXMLQ507/tcH+gvZoW83mp7LVK23Dy5/go3
-	bcmBNuQw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=084TblpdN2KUOwJ3LunzqOQwaf+CoVtAlj7nsbQNgoI=; b=wfAWyTbsXY1ASk6UaTsjPSIktB
+	lbHcgc/gkeLbOsXtB6Fd9AlIaSvoDqRmzZlnHPKQgDHkqiAyNoZRo7+hvhpvecn0DsSznbPAfJJWd
+	wszLcrjA5FlqX5mqr9dvMvELQ+AJdnp0+6efObFf6PwS952GARxl6mrT/av9PQub9rgAOUxDLOlZC
+	lDSBl1Gcldb29Cc2qXwfQeY0x8zhlgPp2nrxBE6SvEJzQaZ0wcax7bldhXNUJsX/0RzeuAaCbdRgS
+	7Vz79PAKbaGZ1wq3D+Jn7dbyjQGOfpqotjVXubYQ++m7SOTOjUSgRTTUegYSKk+E7LdhBZdPTgnFq
+	Ofd5Yopw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtR8Y-0000000EhHB-2qB9;
-	Fri, 20 Feb 2026 14:05:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtR8b-0000000EhIU-11z1;
+	Fri, 20 Feb 2026 14:05:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtR8U-0000000EhEy-3IEl
+	id 1vtR8X-0000000EhF4-1ZfH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 14:05:38 +0000
+	Fri, 20 Feb 2026 14:05:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9E7BD6185C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3CBAE41988;
+	Fri, 20 Feb 2026 14:05:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A975CC19421;
 	Fri, 20 Feb 2026 14:05:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C40EFC116D0;
-	Fri, 20 Feb 2026 14:05:35 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Mark Brown <broonie@kernel.org>,
@@ -39,12 +39,17 @@ Cc: Mark Brown <broonie@kernel.org>,
 	David Hildenbrand <david@kernel.org>,
 	Emanuele Rocca <emanuele.rocca@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH 0/3] arm64: Assorted GCS fixes
-Date: Fri, 20 Feb 2026 14:05:28 +0000
-Message-ID: <20260220140532.285011-1-catalin.marinas@arm.com>
+Subject: [PATCH 1/3] arm64: gcs: Do not set PTE_SHARED on GCS mappings if FEAT_LPA2 is enabled
+Date: Fri, 20 Feb 2026 14:05:29 +0000
+Message-ID: <20260220140532.285011-2-catalin.marinas@arm.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260220140532.285011-1-catalin.marinas@arm.com>
+References: <20260220140532.285011-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260220_060541_456484_3F9400C5 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,29 +64,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first patch fixes a kernel panic when LPA2 is enabled together with
-GCS because of the PTE_SHARED bits in _PAGE_GCS{,RO} overlapping with
-OA[9:8].
+When FEAT_LPA2 is enabled, bits 8-9 of the PTE replace the
+shareability attribute with bits 50-51 of the output address. The
+_PAGE_GCS{,_RO} definitions include the PTE_SHARED bits as 0b11 and they
+match the other user _PAGE_* prot macros. However, the difference is
+that all the classic prot values are accessed via protection_map[] and
+have the PTE_SHARED bits removed when LPA2 is enabled.
 
-The second patch allows PROT_NONE mappings even with GCS, useful for
-NUMA balancing.
+Ensure that PAGE_GCS{,RO} use the dynamic PTE_MAYBE_SHARED instead of
+the static PTE_SHARED.
 
-The third patch is an optimisation that was added to the normal stacks
-as well (when mapped with MAP_STACK) as it doesn't make sense to use a
-THP for a small GCS mapping. This patch also updates the do_mmap() call
-in alloc_gcs() to use PROT_WRITE instead of VM_WRITE for consistency.
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Fixes: 6497b66ba694 ("arm64/mm: Map pages for guarded control stack")
+Reported-by: Emanuele Rocca <emanuele.rocca@arm.com>
+Cc: <stable@vger.kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/pgtable-prot.h | 4 ++--
+ arch/arm64/mm/mmap.c                  | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-Thanks.
-
-Catalin Marinas (3):
-  arm64: gcs: Do not set PTE_SHARED on GCS mappings if FEAT_LPA2 is
-    enabled
-  arm64: gcs: Allow PAGE_NONE mappings for NUMA balancing
-  arm64: gcs: Do not map the guarded control stack as THP
-
- arch/arm64/include/asm/pgtable-prot.h |  4 ++--
- arch/arm64/mm/gcs.c                   |  8 ++++++--
- arch/arm64/mm/mmap.c                  | 10 +++++++++-
- 3 files changed, 17 insertions(+), 5 deletions(-)
-
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 161e8660eddd..a65f2c50e9ca 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -164,8 +164,8 @@ static inline bool __pure lpa2_is_enabled(void)
+ #define _PAGE_GCS	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_WRITE | PTE_USER)
+ #define _PAGE_GCS_RO	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_USER)
+ 
+-#define PAGE_GCS	__pgprot(_PAGE_GCS)
+-#define PAGE_GCS_RO	__pgprot(_PAGE_GCS_RO)
++#define PAGE_GCS	__pgprot((_PAGE_GCS & ~PTE_SHARED) | PTE_MAYBE_SHARED)
++#define PAGE_GCS_RO	__pgprot((_PAGE_GCS_RO & ~PTE_SHARED) | PTE_MAYBE_SHARED)
+ 
+ #define PIE_E0	( \
+ 	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_GCS)  | \
+diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+index 08ee177432c2..2e404441063b 100644
+--- a/arch/arm64/mm/mmap.c
++++ b/arch/arm64/mm/mmap.c
+@@ -87,7 +87,7 @@ pgprot_t vm_get_page_prot(vm_flags_t vm_flags)
+ 
+ 	/* Short circuit GCS to avoid bloating the table. */
+ 	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+-		prot = _PAGE_GCS_RO;
++		prot = pgprot_val(PAGE_GCS_RO);
+ 	} else {
+ 		prot = pgprot_val(protection_map[vm_flags &
+ 				   (VM_READ|VM_WRITE|VM_EXEC|VM_SHARED)]);
 
