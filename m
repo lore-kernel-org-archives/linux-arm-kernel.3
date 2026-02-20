@@ -4,108 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0540C56201
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 15:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 471F8C56201
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 15:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1/6eSd9O2TiB54fazCUnv3/4wHam8gBubDcUImrnEg=; b=DB9WXsnDxEPFY7KIQYuM8s5DZO
-	GdijlXkZ8JNdrwV0a2cWqHuO7U0v2mwX7JX4MgUfnFEiuAD/enH36+2NzpnAJFlaoP2oI1kW7GRtL
-	w91prlngHXyRrhe3t3N0SYmcQn5chq8IGnl1Xk62WHSa4Bna577DfJDP12yIeBHFd5vto0d0kP0QR
-	pVb0MWAnFR97KfDFP6+eR/aZiXaivfrUAJydjVa842vCo81+nlqnvTEUqo7iyN81sEKhWaQ05Ffvx
-	kVwSKQ+pkefj8dTlx9vki3FO/Axfm+9DGR/uXJdnYyETdDFXN14m70FKybqshlLtMj5RiP/amOKSv
-	kFi9LJqw==;
+	bh=XgHoiXo9RRAPQvWaNjjo696Gb/HT+XpeG3h6Dv8Oq3I=; b=dOyi+e4OCEJI98huymxMtocPVy
+	Hz7yBVXgAinUizSC7Ipw17vgKawuGrCqPLSd+3nA6af8nuVpr8KWeyc/0aWhdBaKKOJYQSG+TG2xR
+	YlPkCDVZKvABGPprv6NJ3M8l42HsJtZ1A1p8OE2gG9R4TATta34RORFFt1FIt1/Ip/VSrYVd1BZCB
+	1PnJlVcHBvghZ3emmqkmy/KV8R1g9U2LrPDAWdSdxScz+wQQMmoXAlH+08Q3sEjgJ74GQRaqyNdMG
+	YFtUZiO5L7yc7mwu//GHSSAPlnjSnrKP1RUk6eRG89M+3YF+XWsmkkrhDP2/7Rbk/Kxeidrj90A0g
+	ed+W2HEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtSZC-0000000F3Tb-3EKF;
-	Fri, 20 Feb 2026 15:37:18 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1vtSd3-0000000F4Tr-1fBa;
+	Fri, 20 Feb 2026 15:41:17 +0000
+Received: from mail-westeuropeazon11010034.outbound.protection.outlook.com ([52.101.69.34] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtSZ9-0000000F3Sh-42PY
+	id 1vtSd0-0000000F4SA-10wK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 15:37:17 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-5069a785ed2so499491cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 07:37:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771601835; cv=none;
-        d=google.com; s=arc-20240605;
-        b=KLC3RpMO9FSNzlkayhDujx0U+XVTace4yoHg2EPE25kT3sZbe1FvOSNhxE+xWlbU0p
-         meZPy2Gk/HGhrs2ak+4kaov+qyY5gmJoT0ozbqmRgIViZOAcKrNDweB72tQBTnV2Msy+
-         PWmB4KoPPl6B4IUSaAfE4oLrBBtFkr9O8mAkwuSxYU3AJT30P+/7L1bpEEc4R5u/vk7P
-         tk/8ITD4QKUWChhvlpOeUn4VZheTsaKGDlUa2QUa/IP5c1GusJSWBT0OWCdCfVvQrUjc
-         Qux2jZ8dAMA8EM34QbdJslg3iL0rfGF6qWbeIKFhEdCydoxEfJJ4uU+EJ/YmsNeZlFcl
-         XSjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=J1/6eSd9O2TiB54fazCUnv3/4wHam8gBubDcUImrnEg=;
-        fh=VFXcUrr3kGurp0SuF0YJGl5pPwUAd9HYetUbgSB3cYw=;
-        b=GccEN7wgrWDYj2dSckzSJPuJWOQZBvaDE9yTatCgDGhiSXrc3mHV4bi0GCS7M1l99k
-         W316lzd3xctfFod5muw4226bfIMCbYXWT0tV+nt6PUF2I2MTckwDb+fAXkRpOcjGp/3k
-         B19qOvlYuj6mFpy2gX4hnoqknbJv2NraxVOg5DQqLCQyoOdXI9T7rGjD8Mgpy0lg/Ebz
-         cHCwGRPLdNGG4w2sgUFFiqeEgyWODpiMMPbima3X9o/zKQ7OiGRFnVuTZPO8kT56Zswt
-         xgznwYu5xPqQdziFZXsB8dQCcmXJWofdNYKOksCRk7t6zH/wZT1Y4w8pzkgtOuB5da8E
-         8xfQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771601835; x=1772206635; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=J1/6eSd9O2TiB54fazCUnv3/4wHam8gBubDcUImrnEg=;
-        b=eojtT0QWc1k9J39P1xSDJqf7pu6EzEtOeEk2k3kaVkmF6H+0EDSa6jmDPs4cIvsn1S
-         vSDqCPVpB+yyAW6bhK7MAAjSoTrRR+yEWnlVRnOmZwzsRyvdfYebdsULrTizKqSkezHP
-         igTG2j6W+P3qlhAmZl8tICDX9iZUzmOJogdT0HSb12yDp3SRMhvv4GyDdHOamXPAUx9j
-         8wbHXdb1O9jz6+xx57NRAm1ZEX8l0+hqNfQ+1e2ngxqL2dFx9NrozNsu6wNmH0RPKrOM
-         otitb3Fp6DVB9Ycy9tKsq7vX2XMSVqgxuwDzsExInfxMqzZNuJGhEzveB7Rz4/88zX1q
-         m3OQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771601835; x=1772206635;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J1/6eSd9O2TiB54fazCUnv3/4wHam8gBubDcUImrnEg=;
-        b=SrnN16fInK2bjayx+6UB4c+pIL3GBrxrwHxyZKj/7M4pOV95dWdSUadpZr2V5ohgku
-         0kr203gCMbmRsHvAgDhomnk7mxFJoGXG3Cq/86NkFaCUVL4ETcG6/d/7fXWkrIuVTaU8
-         2qjfPWCQXFJM0wpyerGpIq22Y1nGNVsOc4l7Iyv3gVHJmKQCKYqRR2lR+4IjBC+H+PbO
-         VKWX6LUzR24YGRK2zrq0IladUZ7wsHeMKSmVi9i/YeS1F5jF2Yr7r1xNxK6OpmRNq2uG
-         rJP5P8eJwd8Agm9p/5bL0I725JIeZE2bx2kkVzShNtRx5bkW0xvGjlbgem6rBjjqyChk
-         J3xg==
-X-Gm-Message-State: AOJu0Yywk0KU46jeVHmXNb38gL8JILgOmwbHPbLmsEqfKFNfCmCeipb0
-	DZk0IovrV3TGh+cWRRzz7R6DurrwudW62GlYNvE9RZovZJN3Nf3eIP9OaqJYX4odNhPY5LI0CYU
-	kntVl58JsJGJV+hdJbUDn7JAY5bCRb+8w0ltAKe4m
-X-Gm-Gg: AZuq6aK3wNhXtU0UTn/OJnwBOYmfOc94jjTXtXs5bqYgqjQrSTIGPYLRfNVjWYa+lud
-	u5hD1V+XVaASDcxwM+p495TvV/5v9ULCgijGnTvH/YyCxkTAIBpz4vwoEepSPsWEul50zF2sXcN
-	XSmdOBgCLtmxnY48NFfoWvPjqnaCOJvwGcEch+/U+h1dPRF9RZdWk1qLA7R1K+2bv34MQ0cX8ty
-	Q3OLiCXXpJHhkEuxG142S3ZZmkVP1zJoPEjQOy9bHdQpP6XMT5q3RScMFox7rj+fYScpFhyKhpU
-	p5g9GEHO
-X-Received: by 2002:ac8:7dc9:0:b0:4ff:cb25:998b with SMTP id
- d75a77b69052e-506fb460d90mr12763151cf.12.1771601834241; Fri, 20 Feb 2026
- 07:37:14 -0800 (PST)
-MIME-Version: 1.0
-References: <20260219195533.2455736-1-maz@kernel.org> <20260219195533.2455736-2-maz@kernel.org>
- <CA+EHjTzVRq3r-7UR-MJYvv-Aw4kHQDHEmwtqY9is-fRDm-J06A@mail.gmail.com>
- <86v7frafpx.wl-maz@kernel.org> <CA+EHjTzj9wEm7oBKBXF8sYpK60FYeLOJwEapxDiO1HxK5e6Y6g@mail.gmail.com>
- <86tsvba2nc.wl-maz@kernel.org>
-In-Reply-To: <86tsvba2nc.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Fri, 20 Feb 2026 15:36:37 +0000
-X-Gm-Features: AaiRm51t-AEADLr9nyHpAp9_H4zOdIaeHbP0gvJbqYqGMNKiq_N-HiLcrQzzmes
-Message-ID: <CA+EHjTyiHALTEgA7tuqQZ2ZLW3_vFdTU=vUb7+vn1T4OoMjgsw@mail.gmail.com>
-Subject: Re: [PATCH 1/9] arm64: Add logic to fully remove features from
- sanitised id registers
+	Fri, 20 Feb 2026 15:41:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bmabv7uJBAg+RDOPPYy6kNkTzY/zYhzpR7sdDd1GfqxFwYfRfPfs+zUj+zst/IAECLyJyPhNYjC8gQKmsqRIye+J26I95cWo9lzHoGpR2mv9sqfLENLa25baJmCyc47F/yHMhxLbzwBhCgeGUl/RDPoUCiVnpGU0qXpkSSgLL9bbAy1GIZNDFAS/ioo3ouWp15pOS4Yhz8petQDOoeVg14mTuRL6FhgNRYyArJpxPDEtH3K/mFoysQFPpWb71ovxzgqUpEuS/91G1gdxKHkaOnUOmyBZOBZa+UpqaehwiLdmKeTL1kdxMI/W0YXBKROgAFUjMvkxL/0N77/ECpI/Sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XgHoiXo9RRAPQvWaNjjo696Gb/HT+XpeG3h6Dv8Oq3I=;
+ b=kieM64MBom9oItT2pa+sAJgad1qqMiBxr6TZusNIgUMpoo+kHW8LMwQjx0ddHUmVTLmUDtsmyanBUIvhT58cQW4aSGjr7ssI3GlEGVki3IBzg38ELr/iB3CX4K9q3ZhacmYF8ZLIU7SdW5sFVTASWI5ddYDspytBWs7PhftfMqG0bbR3H2KJGwwlwoW0PdGVS0jet27yKbWCZwVpFVVcyt99KMPqutJd7Qakw8/N6RP5EuQwanQy5uEVReiaFGViYh/52+rhFRA4wCymser+DtXEo7iPBtL+6R/MCa4t+CWFw6iAJvHAYFkZ96G+UHBzab60XAxC1illqQysx0Ca7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XgHoiXo9RRAPQvWaNjjo696Gb/HT+XpeG3h6Dv8Oq3I=;
+ b=LitFbx3LtLagovgJj+TjqhAVuwLqhqPf6d49G4Q1gn63FGC1whUNfS/wu8cx8PewJI2Qm1MIvpTyC3eAc49y1+zGb1X+ohmQbmP2rYiXuZccvSICZsneo0NfQ/QYcEdhHfGyrgf3pZ+mJpz2wB5R/W1ep+N/TzFhCcw9OIYWwSSJMpij1veBKOn0hTi/Y2/SGRqqCjs1zdDRj6oQF89dP4eqVytlDc7i6VlUZJ6iNrfp9WNfaqwIybIf2iphrhCz5D+NdU0wq86HrVyD7fgehhERGH2sRLgV/gb6n9zl1LnHy1ZE1EtlKv+0gVTF+O5WwDX9GRDrn3xxyAON2vXCsQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8253.eurprd04.prod.outlook.com (2603:10a6:102:1bf::7)
+ by PA4PR04MB8048.eurprd04.prod.outlook.com (2603:10a6:102:c4::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.15; Fri, 20 Feb
+ 2026 15:41:07 +0000
+Received: from PAXPR04MB8253.eurprd04.prod.outlook.com
+ ([fe80::2b4e:8130:4419:d633]) by PAXPR04MB8253.eurprd04.prod.outlook.com
+ ([fe80::2b4e:8130:4419:d633%3]) with mapi id 15.20.9632.015; Fri, 20 Feb 2026
+ 15:41:07 +0000
+Date: Fri, 20 Feb 2026 17:41:03 +0200
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
 To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
+Cc: Thomas Gleixner <tglx@kernel.org>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 0/6] fsl-mc: Move fsl_over to device MSI
+Message-ID: <kukzdg7cym2cwytx3zgbu5ik2cw7c2zq7irwp6q6o4jzupjzla@qgkrv7emus6f>
+References: <20260218135203.2267907-1-maz@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260218135203.2267907-1-maz@kernel.org>
+X-ClientProxiedBy: AM8P191CA0029.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21a::34) To PAXPR04MB8253.eurprd04.prod.outlook.com
+ (2603:10a6:102:1bf::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8253:EE_|PA4PR04MB8048:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75c1168e-9ca4-4670-031c-08de7096767a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BZJ6+AbDehUAOzROlkjcEV3ca4cx3+Wxc+TJp6Wu6KhqY6KHZQsss6ZJoYbe?=
+ =?us-ascii?Q?9LRu5z416Dc+mJSvnpPXAwHdyLSJxoWNln1JpSSnXf5wf4e3ZVn2566mtRff?=
+ =?us-ascii?Q?tUW1y9x1+EWvyavQxUAWbgiXVmPsm54i1V1tBTVvF3+JWTzOhEND2qBEMR3y?=
+ =?us-ascii?Q?87h7GJr2FbSFNH+fXmvxveLRCU8fcLZrHEMCZusbQc2haQEbh1DRM3CWgbQy?=
+ =?us-ascii?Q?ej20xe/cl+ndyMi4ISCTkPReTzQ0fKSE1LwIToIuQ8pZjU8cIaUh0OXnTIQz?=
+ =?us-ascii?Q?Z2hotyb+XZNGwueHbgK+S4TZqXEEeiOk/c2gz7Xj0JM6MwPckls13TJ62RhL?=
+ =?us-ascii?Q?GDXNY+WXYfehjYYEkJLOvXZ37XJ5QXuNgWnCv4tzeoUDEYmAQmhCvq2ZE4Jk?=
+ =?us-ascii?Q?YBKLqBdsyKwviAUocOZu/UI6MIxv3bbkwyGhX5PST9tmKCHCAZA/xy8X58FC?=
+ =?us-ascii?Q?05grRJonPtVBEDAj2VZAQAsvwWePyjwnd3liUWH5ejdKJOS2gE11QYcPMcJ1?=
+ =?us-ascii?Q?8BXnCAlShgCzCUfznlntoIJWJgX5DVSMCTBHXQr5sSkplltxArI/ina2xbTY?=
+ =?us-ascii?Q?bRR245K8rHmAqBVC1Tpbqiy5COWqttOp+YQEO2G5CRTk9tgyW9J9r7RQZtAv?=
+ =?us-ascii?Q?0625x4j7SMzvvWRm/U/EbSBWXMLMnxqZzisUtM+TLezid/HrfLiZJyg21LqK?=
+ =?us-ascii?Q?BnKcAdSRx1F3Bq1AJoaoD4I2kIU3RFiu2fhkDV5PJ2byjOopXm0XRghJaZQa?=
+ =?us-ascii?Q?PsI8kKr/r5q/ILoGSWOXRVxPtvlcKlp8WlYRnKD70XuCyE5pHgzCUl/ITzMD?=
+ =?us-ascii?Q?Src3A6ayakZMm2whQjP+K2jP1/0xBu44aA4t8P8DbQGZIA2YLsPVsfue8LhY?=
+ =?us-ascii?Q?ggeZzfS491Wb7Q+8mPgGBgKzHa86GyiYBg138nxYU5mE0/MhEH8aMXpTon9o?=
+ =?us-ascii?Q?GtFmcv8EVmhMQDCRZFqEO3HSQE8g3UMRqv3ZQMVUmdHNGF8r5RD9koPr4irm?=
+ =?us-ascii?Q?0lFTNKhMJQHo+qHS1PupSVkSKubRIPt4XnI3hX2zvJjlZSubyIPunS0vn8RR?=
+ =?us-ascii?Q?0i42aEA+I/N12pIurGnNEUwzAZo6G01a8qlYPAMWoq64zIEui9Il2eBxk4c5?=
+ =?us-ascii?Q?/QFTveaduCSOZvwbtmzDhavRGB0XrD71RwHQNE+Aqz1Hhjw4aihzrHKlrHB/?=
+ =?us-ascii?Q?D8ptLEvC3+Jl+2Fq7vvSbA0zNF7ivRFFB7AuvYVb4xbWdw4iL92JlUhQZAJg?=
+ =?us-ascii?Q?G2FE7DzWJw61anSN1Kg3HEMDYTKnUE4TkqQm2DRzX54rXoFM+cVvtKFeBert?=
+ =?us-ascii?Q?qPO9vgmVl3/jJ8Tx6TRkyHSwF+tjZO/AsRoisC9iGMWtVUtaAO57jx+qPxiR?=
+ =?us-ascii?Q?C0u92NYPX9WeE1IBm2KfozmO+pQ4ikvXn1EXY75OPXNTixGHz8Mm3JYLcwHs?=
+ =?us-ascii?Q?wWpnBIMgpdshYOJQvjmiuOUU2zDuVnBJF9cqrftVmf/AKJm5UK/kNytLp0M+?=
+ =?us-ascii?Q?VhdHQiVIBFvDVQs4KHr2cKvjBNpFQDygan1UaT6HrK7poJoGj+XrjcTKzLQl?=
+ =?us-ascii?Q?mkwMAxE2OQ1SiW08GiA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8253.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5Nm9pI3KcLBtuQIX46+oUwl9VkKGjKU7CbR/7AwUU/cIxYxI6luz/WlP3//q?=
+ =?us-ascii?Q?NAkX0DnfaD5dU/pQUyCS0k3qOqQ29OYxEDPX7MgnoGb+xXGWCpcy5Hvq4mS+?=
+ =?us-ascii?Q?lT8rhz4roM/MKlAA69VVKbE/91qkY4SSXFZMRs/LxWoZFXzpMUdWR+99vZIK?=
+ =?us-ascii?Q?qAOl0lBc0QW/P2ULlXHJ4WhsEyR9jtC3FFuT2bJBsjZMLrYkdDrrDTSV3sGo?=
+ =?us-ascii?Q?ONgEasxqSQoh55LzF8bD0/wp/EC4LxA9xoEd+xu68PaaiPDbDaOsmQONlJRV?=
+ =?us-ascii?Q?2ad8YWxbUJIMdoY7MxHk27YxzWntDcS6ELwwDwE2/os1H1MlQfNGjfVrtG0/?=
+ =?us-ascii?Q?fS5gZHtmSA1E8tvr0HxtObmpdpYVxIAfIWGfAxCie3gcfaBRHR4L/sqAinmQ?=
+ =?us-ascii?Q?XXzPRgUU9gQLZKWW7kPRhqWVqD7iR5JAvU00oyDCGcVmEEGIWQrrW2V2+4r/?=
+ =?us-ascii?Q?HinR9++DmSQSX5OGfaMx/e4y7m5YfscNFbai7SXXTK2LAxMmLVx/aM31B9kH?=
+ =?us-ascii?Q?jM6EOMAMw0s2yTdsyFAp9VKEN3mFYcMeYVnSh0oe02dez7EcVY42RSynPt1Z?=
+ =?us-ascii?Q?7L6Grf8xOBiFJWzpiB0a217yHiL50y/SOWCVDle2D33M76GNBSBIeutuQIc6?=
+ =?us-ascii?Q?UBcyyHRKtcFseo5QBeYQH78Xt1QvUb3WMJYwu9uMeooTrCT8oGwIjUrYlXip?=
+ =?us-ascii?Q?NyXBNhqHBpoHu9RExFbMC7mmSUpdwwd0Fhvr0UedUVvkotaly6UX26vew7xS?=
+ =?us-ascii?Q?1g4/niZS7kgD2aRR2Xpzn5t4UVEHncPP0djThy4/BOjF46YmQyGlnqXuoEgk?=
+ =?us-ascii?Q?vJ+wSNIhIwp4o8s2X50IfNQlp+2mZQCDfxG7dnYlNI4kS0qsnconxj/q0z9L?=
+ =?us-ascii?Q?ImrZiIxTUzWvCYGLH0wM1lKgR9ucPf4ZU/C2Bb5DwFSS3Vqz2UMADarXltTD?=
+ =?us-ascii?Q?OunZqDt4q6CVqbD5t7f7npYAwPmGPRdV3NuDPecBp9KW2/r1RiEPKsezs+f+?=
+ =?us-ascii?Q?NZ0h6CRYFCnDHUgln1rmHBSTCJjOOnQXwtdkN8rxLa+48pPF+QJ8BQBxEEoe?=
+ =?us-ascii?Q?nXinUzJQq8GRRI0jurgK7hndJO+/14LuY+MezSNZxvst+18PBhoJP8MfFXF8?=
+ =?us-ascii?Q?cp1BPIEwJbarp606ozp8ypcdkrHV2jwddq0MRABoQTgVOKF4kTLSpVJ5zXIE?=
+ =?us-ascii?Q?BG/CH/Qu/MHgNKFftUEPjpWqGRXgCWpu4zLq2w2U7KoPmZrFf8V4VWlhYarC?=
+ =?us-ascii?Q?rRHRlEPM4SJMUyIrMgr4sScwZPyqFKblsygIUAEBwSwb0ObFBFF6BMsZMeRR?=
+ =?us-ascii?Q?CvwskseQR67EWvUGqew7fzmZFAKEPqmk6GSfyTmpx40Ir+7+A/tnxh4sZUyF?=
+ =?us-ascii?Q?nQyv2xHNvMBHE6tcAqUyNhgHcUqP2NvRv1f2ERvj+YIWVrzEg+ac51aksrr2?=
+ =?us-ascii?Q?JG0xbk72QDbarys8a6RStXFv6Qx1ZcXK27Khyp5m02C4M8QpkHrt4y7zmW38?=
+ =?us-ascii?Q?+FaXBHm33JllrrjQtzOJLqMybbP8GFqGDiKn6ms4FZl0Rw0e2xorVGy4vjyu?=
+ =?us-ascii?Q?m4iIU32KEYPt/1wbRpt1mjEvgtbiSj/wV6pPSErBsDo9hbrK0F6nPDhlxXDg?=
+ =?us-ascii?Q?EAz2zHBQXdXCrw1q8YIkoa50DEb8PpuUyQYY8HrLi9tq9PP3Mex7+SGul/yg?=
+ =?us-ascii?Q?gr5Y+UksiaTAtNYF36Khe+i20f9vhUefs0TbBqGpys6Qqi3wSmPdnlD1nm4g?=
+ =?us-ascii?Q?5x45R0QEjA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75c1168e-9ca4-4670-031c-08de7096767a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8253.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 15:41:07.0669
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /IeBjJODlT9M/vbTHwrl/nwSEcaeX/F2rNNYkHzSIDR7+UqpiepC4eI+JRWzlGHOcWh+oU2Brhd/UnVb0nzqMg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB8048
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_073716_018228_70DA8AB4 
-X-CRM114-Status: GOOD (  39.00  )
+X-CRM114-CacheID: sfid-20260220_074114_284440_A068271B 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,128 +161,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Wed, Feb 18, 2026 at 01:51:57PM +0000, Marc Zyngier wrote:
+> Over the past few years, I have become increasingly annoyed by this
+> sort of messages in my boot log:
+> 
+> [    0.067861] fsl-mc MSI: ITS@0x100100040000 domain created
+> [    0.073352] fsl-mc MSI: ITS@0x100100060000 domain created
+> [    0.078841] fsl-mc MSI: ITS@0x100100080000 domain created
+> [    0.084328] fsl-mc MSI: ITS@0x1001000a0000 domain created
+> [    0.089815] fsl-mc MSI: ITS@0x1001000c0000 domain created
+> [    0.095303] fsl-mc MSI: ITS@0x1001000e0000 domain created
+> [    0.100792] fsl-mc MSI: ITS@0x100100100000 domain created
+> [    0.106281] fsl-mc MSI: ITS@0x100100120000 domain created
+> 
+> While this is useful on fsl-mc systems, this is completely irrelevant
+> on 99.99999% of the arm64 machines, which know nothing about the
+> Freescale stuff. Including all of my machine -- bar *one*.
+> 
+> Global MSI domains such as the above have been obsoleted for the past
+> two years, but nobody at NXP seems to have got the message.
 
-On Fri, 20 Feb 2026 at 14:52, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Fri, 20 Feb 2026 11:06:03 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > > > > +               switch (ftrp->visibility) {
-> > > > > +               case FTR_VISIBLE:
-> > > > > +                       val = arm64_ftr_set_value(ftrp, val, ftr_new);
-> > > > >                         user_mask |= ftr_mask;
-> > > > > -               else
-> > > > > +                       break;
-> > > > > +               case FTR_ALL_HIDDEN:
-> > > > > +                       val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
-> > > > > +                       reg->user_val = arm64_ftr_set_value(ftrp,
-> > > > > +                                                           reg->user_val,
-> > > > > +                                                           ftrp->safe_val);
-> > > >
-> > > > Should we also take the safe value in update_cpu_ftr_reg() for FTR_ALL_HIDDEN?
-> > >
-> > > I would expect arm64_ftr_safe_value() to do the right thing at that
-> > > stage, given that we have primed the boot CPU with the safe value, and
-> > > that we rely on that bootstrap to make the registers converge towards
-> > > something safe. This is also what happens for the command-line override.
-> > >
-> > > Or have you spotted a case where this go wrong?
-> >
-> > I think so... What if a future FTR_ALL_HIDDEN feature is defined as
-> > FTR_HIGHER_SAFE? Wouldn't that cause problems on secondary CPUs?
-> > init_cpu_ftr_reg() primes sys_val with safe_val on the boot CPU,
-> > update_cpu_ftr_reg() on secondary CPUs compares the hardware value
-> > (ftr_new) against safe_val (ftr_cur). For FTR_HIGHER_SAFE,
-> > arm64_ftr_safe_value() returns max(ftr_new, safe_val). Since the
-> > hardware value is higher, update_cpu_ftr_reg() overwrites sys_val with
-> > the hardware value, resurrecting the hidden feature globally.
->
-> Huh, that's an interesting observation.
->
-> SpecSEI is the only case we currently deal with that is
-> HIGHER_SAFE. But look at what this feature describes: bloody
-> speculative SErrors! Not taking this into account could be really
-> deadly, and the kernel really ought to know about it.
+I do admit that I wasn't aware that this neeeded work. In the future,
+please let me know of this kind of things and I will do the work.
 
-I didn't think that much about it, but I guess features designated as
-FTR_HIGHER_SAFE (like SpecSEI) usually represent hardware errata or
-critical mitigations. So we should not be hiding them at all.
+> 
+> The obvious solution is to delete some code! While my first port of
+> call would be to just 'git rm -r drivers/bus/fsl-mc' (only kidding!),
+> a less invasive solution is to drag that code into the present times.
+> Which is what this series is doing by converting the whole thing to
+> device MSI, reusing the platform MSI infrastructure instead of
+> duplicating it.
+> 
+> This results in the expected cleanup, and kills the last user of the
+> non-device-MSI stuff on arm64. You're welcome.
 
-> >
-> > The features in this patch are FTR_LOWER_SAFE or FTR_EXACT (which
-> > happen to sink to safe_val), which is why it's not a problem with
-> > these current features.
->
-> My conclusion is that it is simply not safe to make such feature
-> conditional in any way. Note that's also the case of for an override:
-> look at how we will refuse to downgrade a value in init_cpu_ftr_reg():
->
->                 if ((ftr_mask & reg->override->mask) == ftr_mask) {
->                         s64 tmp = arm64_ftr_safe_value(ftrp, ftr_ovr, ftr_new);
->                         char *str = NULL;
->
->                         if (ftr_ovr != tmp) {
->                                 /* Unsafe, remove the override */
->                                 reg->override->mask &= ~ftr_mask;
->                                 reg->override->val &= ~ftr_mask;
->                                 tmp = ftr_ovr;
->                                 str = "ignoring override";
->                 [...]
->
-> I think we must prevent this downgrade the same way, meaning that
-> ALL_HIDDEN and FTR_HIGHER are mutually exclusive.
->
-> How about that:
->
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index d58931e63a0b6..2cae00b4b0c5f 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -1067,7 +1067,14 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
->                         user_mask |= ftr_mask;
->                         break;
->                 case FTR_ALL_HIDDEN:
-> -                       val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
-> +                       /*
-> +                        * ALL_HIDDEN and HIGHER_SAFE are incompatible.
-> +                        * Only hide from userspace, and log the oddity.
-> +                        */
-> +                       if (WARN_ON(ftrp->type == FTR_HIGHER_SAFE))
-> +                               val = arm64_ftr_set_value(ftrp, val, ftr_new);
-> +                       else
-> +                               val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
->                         reg->user_val = arm64_ftr_set_value(ftrp,
->                                                             reg->user_val,
->                                                             ftrp->safe_val);
->
+Thanks!
 
-Yes, I think WARN_ON() here is the right call.
-
-That said, I still think you should explicitly short-circuit
-update_cpu_ftr_reg() for FTR_ALL_HIDDEN features, in addition to the
-WARN_ON(). Relying on arm64_ftr_safe_value() to naturally preserve the
-safe_val during secondary CPU boot seems mathematically fragile.
-
-Take MTE_frac as an example. It uses S_ARM64_FTR_BITS and
-FTR_LOWER_SAFE with a safe_val of 0. If it were marked FTR_ALL_HIDDEN,
-init_cpu_ftr_reg() would prime sys_val with 0. But if a secondary CPU
-boots and reports -1 (NI), arm64_ftr_safe_value() will execute min(-1,
-0) and return -1. update_cpu_ftr_reg() will then overwrite the primed
-safe_val (0) with -1. The "hidden" state established by the boot CPU
-is gone, and the feature's hardware state is now exposed globally.
-
-Note that MTE is currently ALL_HIDDEN when configured out, so it's not
-totally inconceivable that someone decides to make MTE_frac ALL_HIDDEN
-as well. Explicitly short-circuiting for FTR_ALL_HIDDEN features in
-update_cpu_ftr_reg() seems to be the safer bet here.
-
-Cheers,
-/fuad
-
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Tested-by: Ioana Ciornei <ioana.ciornei@nxp.com> # LX2160ARDB, LS2088ARDB
+Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
 
