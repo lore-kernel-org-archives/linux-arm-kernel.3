@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB1E2C531F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 03:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9735DC531F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 03:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nt6vgi/ugK6ilulMXdoJ0iyfQKJZUeMQJfjUYZUE7BU=; b=Nqk+rCbIztrCmFTlBCsC9KaA31
-	mL9x9mRqZqtshIm8eiRAVICg7O/EhW0/yrJSPe06hByUDoT+0PSP7XN1xNwXkExLXJmxh46/U3ZoM
-	bO+CTJpfl/ZZa2tA3zhMJ5WKiu5bX+E31g9Pxp/If49wYFEfsx38MBUwWRl3SsHah00lqONsBn7FO
-	ypZQCsMg0jhxxuUBsEC3bg2ZekeYxZKb+o+2MDRwisUmHcPaWF25pQnPn+cb/yscxcoeGECEJGKj6
-	V2dAUgIjuqx/ovO4C97QPh93189p6W3eRYfMNAkkTaAK8cng16Abw7y9A0BnQRhu1/lvXq5Y0k/gx
-	BELk9QsQ==;
+	bh=3SNYtFmJqSV95moRlaJ0QYmUhL+TICukmgmBhi3zA4c=; b=wi4QHA3JszRotAAXJips+3dYzO
+	cMzrF30L0ae64G+2uJdHcBsPORt9u8lZF4mQyJ5kgZ9absWLSduIit+hePIHekbpYNxI+BqDRDW4X
+	KKDm+dvT7eo0/ENe322AR9ceN0VUJVbROD7y/gE2oB86ovFC17U/35rTW5Hu9s5TcaJUE1oPl/H+2
+	td5YAgvq6kYM3jSa97IsqyZrGddsnsqDsdWfb/lix/WRr9aiJKznopb2UEp1fFmLDC8kqBt+S+hAH
+	0jUOv9iI2h/jNN5NFJpUWrZ5m8XrGjurlNbt1Ab4nTxk7q9INMh/YEE0mK2W/DQ10AqPYdZW6NUVq
+	PvXONhPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHJB-0000000DBGR-2qKa;
-	Fri, 20 Feb 2026 03:36:01 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1vtHJE-0000000DBI0-44Yi;
+	Fri, 20 Feb 2026 03:36:04 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHJ9-0000000DBFd-3N8C
+	id 1vtHJC-0000000DBGm-1iiK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 03:36:00 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2ad4d639db3so7996365ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 19:35:59 -0800 (PST)
+	Fri, 20 Feb 2026 03:36:03 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-bde0f62464cso657850a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 19:36:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771558559; x=1772163359; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1771558561; x=1772163361; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Nt6vgi/ugK6ilulMXdoJ0iyfQKJZUeMQJfjUYZUE7BU=;
-        b=c7n1gd3uOkqR/8lnTgdZiIGJnH5JaIJ9sKl7BbqNxJs7z4FcLhYtUQPtF3RHcefa9Y
-         gTbrxjMb9G+Kh0AphT2N5VpkwIdE+Xxgp16pmJjxbbYQg72fhS5jr9/6IyJ2CbWrgIB/
-         hSnbeMRsaGkaIwEKZYrYZk+RiNTbNfT0ZmGA0r/ZgiELPR7yxD4NY2/WMbRxySpyWco0
-         2WktCmayH+rZEvPT8bmr5sEXOSvpGgpYQ8Fwtg8MGAnwjwa3zZ2HrJ13N2wPzGKyopHe
-         4cw7i9kJugz1M3lly4WK5KEooIBgAwy8peuvewDsltQ5j/1WZBBaZPrwMYT2AYgISi64
-         DZOg==
+        bh=3SNYtFmJqSV95moRlaJ0QYmUhL+TICukmgmBhi3zA4c=;
+        b=j3M25dJmR6D+9nofGPWewK0wwV40KX8HYVNne+lAqixyafZTv4A68y78W/3g5jb19p
+         vK28UxC4QbvLswR5ZGTVU/4WNN79HXyhudKj8+BTBYVIZGgxk3Zd6Tak82FBd5hs1Pog
+         dVsf9m7aPBVCR+bHg5QRpUzI2VNbh8WK1/8lTzmV3XOD5EyUn8w2AH3Qoj9m5NAauOR/
+         u1TwIE87KLukqoAECQuzu/HaoeF3BlaS8vs+tSsGMmC+r3N1zO9jvaseMzVNLU/fNttE
+         +oc/T4HF8neejDBf1cQxhbFv8oske8vtru35yLIAfLUiwAHgwhUhQ5r3BhmjudYbgDHZ
+         FyRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771558559; x=1772163359;
+        d=1e100.net; s=20230601; t=1771558561; x=1772163361;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Nt6vgi/ugK6ilulMXdoJ0iyfQKJZUeMQJfjUYZUE7BU=;
-        b=g8ktZ8hc1nyUrFp96JUAcWzCEVEfZbsoR6G59r4okg0n/VF2/5OrKX/Sa3J806NHqY
-         AH3W4WKWxzxYhWNNH0E6WGNrQYrk4s+TZPAm06oYcSlE0CisEyAXbCtdEFJPC/v9FQTP
-         g2sopUJNHWHVQjKUPZFAMIIZOgTMsPAUs6/8Nmx3AtWredjVdU7miu5m1WfSi1juflQY
-         shyvZ5HfFq5rjox+0PCYEdFBDw7uUmCEEQfXpB5ItlHyfI0WemPLS8OzylmELlViDoOO
-         WWmGC0njuJRAwegHEGusCTgzFfpb/DUP1rAFvyHTnRyLT4NsAqo4gzEVgxiexy2i0b2K
-         k1Ug==
-X-Forwarded-Encrypted: i=1; AJvYcCWpGpfd0VdAFnvL1cQ4rCnohAC5WsEBMJDogwGpTl90Gbfklem7jG6qwf4iH8CRUk51PjbepxhmaS2JIoB4rv/5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJpduRQFnS7b4jf0Nyrvg8VBRIALANK8zW9PmbTztEqbFdFlxV
-	QVaDmKbBOEMRDrx8o05+/goBYgZ6+hat253qLGn1u/DwL6HPeafVwaf0
-X-Gm-Gg: AZuq6aLGRvCSvV9qC1Xk4ZfyMiMw++qd6EMIZ6KbAqoYGpgUWr3VrkIGRcnY2V1FwcP
-	qW4RCLHisk4LAV3M+POWwSKA5W3ERtx4uzFRmmXZQkqpXSkM3fkec0/OTwbINjnDVUFZ7kYZH4m
-	aL8tx4sAdEX/YtLXm+unJi3uBum/lAA8wMyqlxfnTIRCMePgOQJYxeN6V4u52mI1vb/klY5l97i
-	psc+ZL7M5SmyuPRgDslTXOyQFfW/1iBHBRs4qBsrVY1bXJysWc/UYnAsF14d5DtGucvMJyTgWQa
-	ekR5w/RhvYHt5lME1G+X/Z1OFnqWfXDK3VEYpj0coOJxYJX3Xw2uiP8wYMJr5gq0SgsuM/n8JtM
-	xDX36YBNugpaPZtFuzRqmoK3GAUHnuizu2Gp4sFxdGvEhllYqQOkY4Niahdh6ZK0PZ2WRA31D4X
-	Zgf9SCFDUEMAVQJddOmeCV/RlvI87Oiutn/JPq96LH/z21dtIKUw==
-X-Received: by 2002:a17:903:1aa7:b0:2aa:e23c:2697 with SMTP id d9443c01a7336-2ad175b1491mr182585685ad.57.1771558558897;
-        Thu, 19 Feb 2026 19:35:58 -0800 (PST)
+        bh=3SNYtFmJqSV95moRlaJ0QYmUhL+TICukmgmBhi3zA4c=;
+        b=lS0WwT4o2Qrz4bhmjazYG1XSVa6i8R9+TZdJACVlayMJ06N0LRsRkdp0ixY5tHxfjx
+         JMe8cnzEVawE8FHvnWPhem7mkICe3yxax1ZuorsLFpL9GM5f6KW145Fb1Le1AOSNc1xY
+         7fxHi0LD8Kud2fOfMAYQl62MvZUag56G9f4vqvR+zrAmkgTifrF+yO2v7G1y8kmUy6OR
+         j9PWzErgv+hTa6ekHVsgy4QS5BGYOst4rkEJnB8qG7Y60jekxEsFifgFNAYeilqB+gBC
+         H6q5aEKri8/cNTieypqcuEYEa/EHJURz/qz+fHTL4d+nH3qJNDzct9G/Fhk8SXBxYFwZ
+         H9YQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXydTghVpHT+KlYMTuEohIi7VhbWOZH/wwWmfjCMxM9pcchciOy/vjM7wAduAt+XBaLZqc32pjuOnsZYZKpjPmu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzzt9Wl5nTGOZ3hXew5pQxbMVALbLlQpxGKWcjC0PTWpyzAt8yD
+	hzDueezo3+d53Ykra+iA7nwQatWEz9p499V8DPQ/iBldotWeyJf6yySx
+X-Gm-Gg: AZuq6aK2t/xdeBRBoxUJY6lwp3DWEKBEE+OCK82TA1AjY3XllMgQHY38+vunEHIV0Yq
+	HOgGR0PS00Sr4xwSpUzrUpbu0gDmOrZIxMC/U+/2mU76LfT9uZ4UBZUDsjOf6kI3S4H8WQ/KR2i
+	XJ8bSyOqSwtqYgRp0ywzDeRtMdGCsAaK+OniU/xNKtdA1EweZHc1Djq4htlsNN8OyEGj4JuirAp
+	usZ2TDbXN9SMe47aX4ZWEYmZyNZVFLrH5ZLurCgN2X9v+U9Ei0swF5vjGoDcAN2R2xe3+KZtjii
+	sVQR1q18oclPbCVP7D4vpFKcL3h2LaOvtR43Dr63l2Xw0qTIrJ8rrT4Ap6B4EhEaEsxK9fJKnEQ
+	6M7gb1eHvHHvknvT2emMhpdogBd2byLhusVsyklbiSNJxEYtlFRgCw4nDiHcEDoEh7Z/dLR0o5r
+	Qu4Amr08tJvj680oPAJkWAutq90mc8WhZLJ16Jq/JxHDygDop3eIYla2pyDiO6
+X-Received: by 2002:a17:902:da8d:b0:2a7:80ac:85b0 with SMTP id d9443c01a7336-2ad17431c2bmr182977825ad.2.1771558561498;
+        Thu, 19 Feb 2026 19:36:01 -0800 (PST)
 Received: from name2965-Precision-7820-Tower.. ([121.185.236.165])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a9d5cf8sm177143675ad.52.2026.02.19.19.35.56
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad1a9d5cf8sm177143675ad.52.2026.02.19.19.35.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Feb 2026 19:35:58 -0800 (PST)
+        Thu, 19 Feb 2026 19:36:01 -0800 (PST)
 From: Jeongjun Park <aha310510@gmail.com>
 To: stable@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -84,17 +84,17 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Jeongjun Park <aha310510@gmail.com>
-Subject: [PATCH 6.19.y 6.18.y 1/2] drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()
-Date: Fri, 20 Feb 2026 12:35:49 +0900
-Message-Id: <20260220033550.124346-2-aha310510@gmail.com>
+Subject: [PATCH 6.19.y 6.18.y 2/2] drm/exynos: vidi: fix to avoid directly dereferencing user pointer
+Date: Fri, 20 Feb 2026 12:35:50 +0900
+Message-Id: <20260220033550.124346-3-aha310510@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260220033550.124346-1-aha310510@gmail.com>
 References: <20260220033550.124346-1-aha310510@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_193559_843751_103D710C 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20260219_193602_480022_0D8F06C9 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,91 +109,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[ Upstream commit d3968a0d85b211e197f2f4f06268a7031079e0d0 ]
+[ Upstream commit d4c98c077c7fb2dfdece7d605e694b5ea2665085 ]
 
-vidi_connection_ioctl() retrieves the driver_data from drm_dev->dev to
-obtain a struct vidi_context pointer. However, drm_dev->dev is the
-exynos-drm master device, and the driver_data contained therein is not
-the vidi component device, but a completely different device.
+In vidi_connection_ioctl(), vidi->edid(user pointer) is directly
+dereferenced in the kernel.
 
-This can lead to various bugs, ranging from null pointer dereferences and
-garbage value accesses to, in unlucky cases, out-of-bounds errors,
-use-after-free errors, and more.
-
-To resolve this issue, we need to store/delete the vidi device pointer in
-exynos_drm_private->vidi_dev during bind/unbind, and then read this
-exynos_drm_private->vidi_dev within ioctl() to obtain the correct
-struct vidi_context pointer.
+This allows arbitrary kernel memory access from the user space, so instead
+of directly accessing the user pointer in the kernel, we should modify it
+to copy edid to kernel memory using copy_from_user() and use it.
 
 Cc: <stable@vger.kernel.org>
 Signed-off-by: Jeongjun Park <aha310510@gmail.com>
 Signed-off-by: Inki Dae <inki.dae@samsung.com>
 ---
- drivers/gpu/drm/exynos/exynos_drm_drv.h  |  1 +
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 14 +++++++++++++-
- 2 files changed, 14 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/exynos/exynos_drm_vidi.c | 22 ++++++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-index 23646e55f142..06c29ff2aac0 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-@@ -199,6 +199,7 @@ struct drm_exynos_file_private {
- struct exynos_drm_private {
- 	struct device *g2d_dev;
- 	struct device *dma_dev;
-+	struct device *vidi_dev;
- 	void *mapping;
- 
- 	/* for atomic commit */
 diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-index e094b8bbc0f1..1fe297d512e7 100644
+index 1fe297d512e7..601406b640c7 100644
 --- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
 +++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -223,9 +223,14 @@ ATTRIBUTE_GROUPS(vidi);
- int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
- 				struct drm_file *file_priv)
- {
--	struct vidi_context *ctx = dev_get_drvdata(drm_dev->dev);
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
-+	struct device *dev = priv ? priv->vidi_dev : NULL;
-+	struct vidi_context *ctx = dev ? dev_get_drvdata(dev) : NULL;
- 	struct drm_exynos_vidi_connection *vidi = data;
+@@ -251,13 +251,27 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
  
-+	if (!ctx)
-+		return -ENODEV;
+ 	if (vidi->connection) {
+ 		const struct drm_edid *drm_edid;
+-		const struct edid *raw_edid;
++		const void __user *edid_userptr = u64_to_user_ptr(vidi->edid);
++		void *edid_buf;
++		struct edid hdr;
+ 		size_t size;
+ 
+-		raw_edid = (const struct edid *)(unsigned long)vidi->edid;
+-		size = (raw_edid->extensions + 1) * EDID_LENGTH;
++		if (copy_from_user(&hdr, edid_userptr, sizeof(hdr)))
++			return -EFAULT;
+ 
+-		drm_edid = drm_edid_alloc(raw_edid, size);
++		size = (hdr.extensions + 1) * EDID_LENGTH;
 +
- 	if (!vidi) {
- 		DRM_DEV_DEBUG_KMS(ctx->dev,
- 				  "user data for vidi is null.\n");
-@@ -371,6 +376,7 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
- 	struct drm_device *drm_dev = data;
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
- 	struct drm_encoder *encoder = &ctx->encoder;
- 	struct exynos_drm_plane *exynos_plane;
- 	struct exynos_drm_plane_config plane_config = { 0 };
-@@ -378,6 +384,8 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- 	int ret;
++		edid_buf = kmalloc(size, GFP_KERNEL);
++		if (!edid_buf)
++			return -ENOMEM;
++
++		if (copy_from_user(edid_buf, edid_userptr, size)) {
++			kfree(edid_buf);
++			return -EFAULT;
++		}
++
++		drm_edid = drm_edid_alloc(edid_buf, size);
++		kfree(edid_buf);
+ 		if (!drm_edid)
+ 			return -ENOMEM;
  
- 	ctx->drm_dev = drm_dev;
-+	if (priv)
-+		priv->vidi_dev = dev;
- 
- 	plane_config.pixel_formats = formats;
- 	plane_config.num_pixel_formats = ARRAY_SIZE(formats);
-@@ -423,8 +431,12 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- static void vidi_unbind(struct device *dev, struct device *master, void *data)
- {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
-+	struct drm_device *drm_dev = data;
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
- 
- 	timer_delete_sync(&ctx->timer);
-+	if (priv)
-+		priv->vidi_dev = NULL;
- }
- 
- static const struct component_ops vidi_component_ops = {
 --
 
