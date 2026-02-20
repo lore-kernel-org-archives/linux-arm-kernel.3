@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29761C56204
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90926C56203
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qlD/PNnYcqmWY7VC/XbBl5Mb7IvYgw6IfOHsy2m/ZS8=; b=y5XSpL/89hicJswSenfdyWiA+g
-	k8skEikaSjJa+zQnMTmJIFXdAat+Xf2dbuvyqTgoXmotVnTRsyyzGhIlqUkZCOlIH6ivI5fzrMmT9
-	ysMCyjQ65YzJaS2dI9+iS5iPSVAsYw0XryV2YmrtKE39hVmHso5+oxzu3h92yhDfndp1PJH/VuaLO
-	tbqLkLvdIWM1QfpjwgK8KnOmwtfTMRyUZnxFkg1vhTojnoL+ze60RbQotf37Sgld07sXdApXnWsVC
-	UxoP9F1SHdLUt4nuL5zTVQjGhV6NzIvoggGFPuvsQSYdZTgNwksqwBYsTIuYll7FxRJFoSYWRuFw/
-	/dfH12qA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DrAD/l2W3pDFDdNotuFQKMEYng5kWHMdz+63uk2gtSI=; b=zHXfdH/28NPVRWA8ULBiIS0ZxN
+	eeUyS3gXD1jxqMrYP50Q2EaYcG5iURYqA5nggJdWHkY/kGGU9jzxmjT6TDo1w9NI1qkKNbfUbInx+
+	8ydyEPb0vRD7xqPatACZR6r33FT+v8pYu7sVtOFHUB9zbpTDFPbkvDnnRBnVmqbf8GgS3D4mfP/Mf
+	fPuFWfmrOB6B8q/X6I1T6xppPLufGXKVX2AC+da6m/xRyk/OQaHNjw6VRjgrVVZJL5/lDWAEjrr5y
+	u7kS8/3qDKj926WVhmDLAraOyfDsmkZOBC+Y0ON+XI5QkDLS/0bv++iwcpEmNYHtXz2jsvXH7SnyR
+	qnpUyc1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRZG-0000000Eq0T-0tWE;
-	Fri, 20 Feb 2026 14:33:18 +0000
-Received: from mail-10631.protonmail.ch ([79.135.106.31])
+	id 1vtRaC-0000000EqMx-2iW2;
+	Fri, 20 Feb 2026 14:34:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRZB-0000000EpyQ-22ga
+	id 1vtRa9-0000000EqLf-3fYE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 14:33:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1771597987; x=1771857187;
-	bh=qlD/PNnYcqmWY7VC/XbBl5Mb7IvYgw6IfOHsy2m/ZS8=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=NIKOiXNxYonLwfO4TAlXq4EB63vyM7/6bACW7FQTM7bkdXmHrz3sQWJqmbCXYc03l
-	 vkf4UlJQ87xHUfiigBjjjyuBTqG0wn4IAE70I/Y6HoT7rW59eEMgZMNVOdgJyzYX+w
-	 VBSWuYgy2OoAIvuuHcWYeWLFQQeYvTQ9XMGJiYhZrD2A3cVobzY/redLaChLZmcGV3
-	 /7g+N3bfKy5mLVkxrSS/uUhYBEDcI3YV/iq2yWVAalvylDSHVDYMn3Tc4ChuCbW5s+
-	 hIdtUr6Ya1BJm8KM8hqxUA4euBLiYlyd5S087cNIEPFjHvkU26oJyJc7uFc1Z11oVp
-	 +UwP/nH92sP2g==
-Date: Fri, 20 Feb 2026 14:33:04 +0000
-To: Dan Carpenter <dan.carpenter@linaro.org>, oe-kbuild@lists.linux.dev, Harry Austen <hpausten@protonmail.com>, Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Michal Simek <monstr@monstr.eu>
-From: Harry Austen <hpausten@protonmail.com>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 2/2] clk: clocking-wizard: add user clock monitor support
-Message-ID: <DGJV2ICCB72N.39T6HN62PUHPE@protonmail.com>
-In-Reply-To: <202602151704.qepyfVlc-lkp@intel.com>
-References: <202602151704.qepyfVlc-lkp@intel.com>
-Feedback-ID: 53116287:user:proton
-X-Pm-Message-ID: 5b0edd8755628df423df7963b1dc7428928e5e67
+	Fri, 20 Feb 2026 14:34:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AA9B843D2F;
+	Fri, 20 Feb 2026 14:34:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 359EAC116C6;
+	Fri, 20 Feb 2026 14:34:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771598052;
+	bh=H2glgXGi8ew0rS095E/wPam+wCVqVDqHYxDUo/pLibY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YIkIxbaCExZRwhMTdU1+xIWwENavPq8JUigvddzjD0v4qDohg34NCh0OXEvkIk92L
+	 Wic+51+wHJQbUBycjF8VNBJ898QyoXhVFeNXTnJKihM5rM/aBEnF8bG3hqLy76ZOTB
+	 /S67buIP6307GuC/jmhjUuJ/3KxgjJ9rYhxB3+Aqqmy5r9WVUU6Gi0Y2YkUUlaolzt
+	 SkizSBWdp3ddDKsAR88BFWn1l64Z+rDjDlRRL5BGjNSvAc60hqlBpjuQUaUh7R1UXZ
+	 C+Q0ld4ZUKLeUU3n6sp70V6ENKZLUKeUtb2KW6djpckaCDxxSrw4Lap+YTJ1Qcij+r
+	 JEVqWfh6wRMhA==
+Date: Fri, 20 Feb 2026 14:34:08 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Emanuele Rocca <emanuele.rocca@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 3/3] arm64: gcs: Do not map the guarded control stack as
+ THP
+Message-ID: <18352353-8760-404b-a981-b0a5ac067b6c@sirena.org.uk>
+References: <20260220140532.285011-1-catalin.marinas@arm.com>
+ <20260220140532.285011-4-catalin.marinas@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="X0wWBB44M07ApJer"
+Content-Disposition: inline
+In-Reply-To: <20260220140532.285011-4-catalin.marinas@arm.com>
+X-Cookie: Booths for two or more.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_063313_684728_6809D460 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20260220_063413_929212_16ECF26E 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,66 +77,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Feb 19, 2026 at 6:52 AM GMT, Dan Carpenter wrote:
-> Hi Harry,
->
-> kernel test robot noticed the following build warnings:
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Harry-Austen/dt-bi=
-ndings-clock-xilinx-add-description-of-user-monitor-interrupt/20260215-0215=
-54
-> base:   ea7282e99ead6d2a294cef40acd2a29ada3ab71d
-> patch link:    https://lore.kernel.org/r/20260214180933.42143-3-hpausten%=
-40protonmail.com
-> patch subject: [PATCH v4 2/2] clk: clocking-wizard: add user clock monito=
-r support
-> config: microblaze-randconfig-r072-20260215 (https://download.01.org/0day=
--ci/archive/20260215/202602151704.qepyfVlc-lkp@intel.com/config)
-> compiler: microblaze-linux-gcc (GCC) 14.3.0
-> smatch version: v0.5.0-8994-gd50c5a4c
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
-ion of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> | Closes: https://lore.kernel.org/r/202602151704.qepyfVlc-lkp@intel.com/
->
-> smatch warnings:
-> drivers/clk/xilinx/clk-xlnx-clock-wizard.c:1183 clk_wzrd_user_mon_work() =
-error: dereferencing freed memory 'dump' (line 1182)
->
-> vim +/dump +1183 drivers/clk/xilinx/clk-xlnx-clock-wizard.c
->
-> 68614f228e6cbe Harry Austen 2026-02-14  1176  static void clk_wzrd_user_m=
-on_work(struct work_struct *work)
-> 68614f228e6cbe Harry Austen 2026-02-14  1177  {
-> 68614f228e6cbe Harry Austen 2026-02-14  1178  =09struct clk_wzrd *clk_wzr=
-d =3D container_of(work, struct clk_wzrd, work.work);
-> 68614f228e6cbe Harry Austen 2026-02-14  1179  =09u32 *dump =3D vmalloc(WZ=
-RD_NUM_DUMP_REGS * sizeof(*dump));
-> 68614f228e6cbe Harry Austen 2026-02-14  1180
-> 68614f228e6cbe Harry Austen 2026-02-14  1181  =09ioread32_rep(clk_wzrd->b=
-ase, dump, WZRD_NUM_DUMP_REGS);
-> 68614f228e6cbe Harry Austen 2026-02-14 @1182  =09dev_coredumpv(&clk_wzrd-=
->pdev->dev, dump, WZRD_NUM_DUMP_REGS * sizeof(*dump), GFP_KERNEL);
-> 68614f228e6cbe Harry Austen 2026-02-14 @1183  =09iowrite32(dump[WZRD_INTR=
-_STATUS / sizeof(*dump)], clk_wzrd->base + WZRD_INTR_STATUS);
->                                                           ^^^^
-> dev_coredumpv() can free dump.
 
-Whoops. That makes total sense. Pretty sure this can be easily resolved by =
-moving the
-dev_coredumpv call after iowrite32. Will do in next patch version.
+--X0wWBB44M07ApJer
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
-> 68614f228e6cbe Harry Austen 2026-02-14  1184  }
-> 68614f228e6cbe Harry Austen 2026-02-14  1185
-> --
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
+On Fri, Feb 20, 2026 at 02:05:31PM +0000, Catalin Marinas wrote:
+> The default GCS size allocated on first prctl() for the main thread or
+> subsequently on clone() is either half of RLIMIT_STACK or half of a
+> thread's stack size. Both of these are likely to be suitable for a THP
+> allocation and the kernel is more aggressive in creating such mappings.
+> However, it does not make much sense to use a huge page as it didn't
+> make sense for the normal stacks either. See commit c4608d1bf7c6 ("mm:
+> mmap: map MAP_STACK to VM_NOHUGEPAGE").
 
-Thanks for the report!
-Harry
+> Force VM_NOHUGEPAGE when allocating/mapping the GCS. As per commit
+> 7190b3c8bd2b ("mm: mmap: map MAP_STACK to VM_NOHUGEPAGE only if THP is
+> enabled"), only pass this flag if TRANSPARENT_HUGEPAGE is enabled as not
+> to confuse CRIU tools.
 
+I agree that this is sensible however I'm fairly sure this will also
+apply to the other shadow stack implementations so I think it would be
+better to either do it cross architecture (ideally factoring this out of
+the arch code entirely) or put a note in the commit log that it's likely=20
+going to apply to other architectures.  There's a bunch of stuff that we
+should start factoring out into common code now that RISC-V landed and
+it looks like the clone3() stuff ran it's course, we should make it as
+easy as possible to understand why any divergences we're adding.
+
+--X0wWBB44M07ApJer
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmYcN8ACgkQJNaLcl1U
+h9Bnugf/TbUwTzk0U7Rhn2LZsamhL6ANKsJx0b4VhUfl9cS4KcFcOp+0/blkOQgT
+/u0UcMxm3qGeVmoEY1uX3f1pzyiYQND3zZNMim8fSRlPz4J6JgFNWBYNX+eHl9HH
+KTDcAL2gr/zIsfrHql5xpvCS8m8QJAqZ7lxq8/moCKHNIQp5nXRdhj21pIU1NjZm
+9UZYjdITZ0SLr85I2GOmsKdRMXp/tLE6oTVriRVjUBH2yZp+leEV4xhI/QrvFjRh
+wc+vBPiKTSwneLqV+gg8i1mQObru38s5Tot/PatI6J2vDhLtsi6xwHFb1BuHbmCs
+8ZWfpOqniOsoldS5fesf2nbAtHQWsw==
+=MKC/
+-----END PGP SIGNATURE-----
+
+--X0wWBB44M07ApJer--
 
