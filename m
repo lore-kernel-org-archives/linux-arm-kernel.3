@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55465C5B568
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 21:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DAFAC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 21:20:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=00UMNsZMIuwa4W4w9yZAhooOBNIlUqJFmFbp1iknh74=; b=Mchf7t6cCDgg4GZl1mMzA30BPM
-	eE5+I7VgqWf0yZSkuJZnvJZbpewis8T9Fxeg7Sa9YweDmpHOa6lNwQzln+VZl+SvxiapYlfZ2djg7
-	IfC7RWLATRDngHsUS5M4VMeltmzlYXKhf5FtTVD9omOXhpIz6eT2zlqB5J9c1hhrXwyNk+xYI34dU
-	SZ5IPGP9HQQ+kxQd632aCnC12+QfMxd6JVnOVtf9tmr+w96iD6+o6M2T30M/hOvmOCsKEt2kkARKu
-	quvZjzSfZG2wVjfggxtprCQxuGq4bGOAzRmcR6o32hiNk08AF3GSftOPLnqk/ry37AfvtXOn0MojA
-	DN8YOQ4Q==;
+	bh=s/ehpuDLYCSiZo06p7zgUPmNgRW3JzvJYGyW7ub5l/w=; b=uL7srwQyfl/O05F2rZWLY5O0k6
+	xf6Ln9Avp1f1u7jo15pQZ9xqF6rSoymRXPsRDdezSWr1ddNmXuCwVRaBy1psZtiuPZJmQYXaFCaza
+	R++NgE/sC9NVYEbWeY1enqRoavLCIYEwBkkJeH1iIBhZ+e2YmuRG8R5SnlJi+XJ4XUhYvMungbLIa
+	T0RgLGwJj0HlRunoG1zNnkS+22FJIH+ui/Z4mr7MXiFywtTbeTdgC0YmcO5pAJIl1gfupxqs1cjNi
+	caahETlIyg0IgFDWiEOm2eoOEy+uVBvLv/PyCV6trQx9tlbfOYUyEO44IyZUuyouczpYdJn4HMxKx
+	/8p93j9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtXtd-0000000FcRb-1TTt;
-	Fri, 20 Feb 2026 21:18:45 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1vtXvG-0000000FcZE-3tX7;
+	Fri, 20 Feb 2026 21:20:26 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtXta-0000000FcRG-1Rdf
+	id 1vtXvE-0000000FcYs-3aDe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 21:18:43 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-65b9d8d6b7dso3586478a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 13:18:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771622320; cv=none;
+	Fri, 20 Feb 2026 21:20:25 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b8fa449e618so403209566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 13:20:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771622423; cv=none;
         d=google.com; s=arc-20240605;
-        b=NYuUCpQC8IXK1kCSkxWdgXDyhwat/D/MyUqhMNdgkOagMcgWR1rx3gJ0ofyx6Nux4q
-         9vlFMh3tbCgMZJvwJb/ktjeFJOn7AmjWeVW26rVA9Pk1PxaYIn/FE0GgIN8NUnMklRrI
-         2DOyO0+m1URhXomCpm1AEZ5X/5NMyEEHw+vnXIzwAlBI1TVdgIYK8x0EL6B6D1Z3Xkba
-         aNza3rBzKN2Lsvp25Xxi+beDbwlHi8wdfrihVpDFzqlM4ghAQzosH7TyyxkA46yCAfJE
-         WUQ8FA/9km67HMIAehnAFkmz0pgEj3z9eOm0dJ155bMwhOyCZJZ7hI1At7O3YYMCUruM
-         wPmg==
+        b=ZnPflZGJP6VjIxZc5rddtwpn7yUFseCiRoPcAk+bZEbcmPRaemSaVufYtIFa1BB5n9
+         1NzPuL1c4oBMsOTryI16qw6HaTqI0dkh2+/uJWGkCGSKUfagRJwg0hg5KCgBhjVscntw
+         WgXviuw4cfNV3qo5uJiuR2fwUL+4O3l0clcG9ehs01kTZiNJwyesteN6uCYOhjsGZsfS
+         3Jarx20fuFZs0hWSE3KApDvlbEtOfInnt4O0Whg+OebwDOWFaDZzEnNMeav+ehh2srIr
+         L5JgtPHlWouq5gp05ZI2oGXq+JTH/9ztQzhS3QkNtlJWEt1+GK4YfklqBKfAg6IRNJws
+         748g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=00UMNsZMIuwa4W4w9yZAhooOBNIlUqJFmFbp1iknh74=;
-        fh=ghSlh07yCpfpLBiHICtAQ9Q5/jQi1DPF0U+V/1I9QeU=;
-        b=dx++Ee5NMyLXoLjzmRV8hGPQI8iTQYDKuxAPrE2YQpbqkIAcH8z5YXUmv5CaAh/Rut
-         kfk5vN6O1mZ2FtABqLyejMFRkbSUoDIzur4Fya6plNj4ebIWJuLz6/8bHs/mgbMPi3XO
-         CIXnrtYokUrr3Ezm15lsVrJniNoqQZxjlkbIrrta9Zvct4s89pFFzXsdjUsb3/sh4qkh
-         kb9oy3cEG/Zcf0w3vWTihLEeQWMLRZgNfOA7sNSpCutDzkrR+HFzMeNWeWVpVpWVtN4a
-         Ph0ChneGxZZE+olCo5Z9YIg1eXrRRk1sw8WLhB0kruNBQj0N64cMYZ6MNRVfI9fFyY/L
-         medQ==;
+        bh=s/ehpuDLYCSiZo06p7zgUPmNgRW3JzvJYGyW7ub5l/w=;
+        fh=8eflA6RcpnHNt3sjc1oK11/v0FRmNEZivOSVdHdIJqs=;
+        b=hOFcOSlBtpkh9thWdHPMQub/5Ro9u9f5AgpPGDxJ4LCsp+kIGchp3sTNzwBFXhHvqZ
+         DMBYuEhBD/zxNYVNVNggPhpZwNnj/VgTUxzyipeFyWSE5k9tZyoPFeYZlr3bis+GbT+S
+         L8NvFJ+G6lhbSLHQI1lBnhs+ejLikiSALRRN5C2nJagJ2TZZvopvMyo6K9UoXtng7mwI
+         X7NVpcjg78R84x42mADBEA77OSEiPXZfmgxhVoqHG+DbWpZO8d7j4krBHsOrWsrs1hDc
+         70bwF8w3c6DZXO7FYSnAFDy/qHKG+CcaoWzw00YJ5KIGEh55ZYBYMF/M9SLQArXb+uV6
+         +YNg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771622320; x=1772227120; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1771622423; x=1772227223; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=00UMNsZMIuwa4W4w9yZAhooOBNIlUqJFmFbp1iknh74=;
-        b=VlORYmnTDHVTufXKADkqcbKe52CB/Kjul+4lj8SXaID3YwglULIBdnOzS5Rrud/JF5
-         XWzYMJGdOifDy1dRhuNKfRrTDzrcypy9XwmzVLZayIeU/mK01iMv852sdsquiuGOCsU+
-         cCqxMppEZuzl8KUqVe487PkVA6HuDR844lNwg+nV0v1DoDyJbigzopbzWKcUM8wv2hFE
-         4TB9Jlx3TTQ/vEYm+J7tCc4IgsZYc8sr8Z1jD8qYKUsJd6vNrLB1JzhS2D7NcA/lTDK0
-         xPc2vpOVeZq5gmvwMO4Rq6LtxuKFMKJQiSM7n5furIlDayBaTLiyPpJugoQrc2QYOmyd
-         eSBg==
+        bh=s/ehpuDLYCSiZo06p7zgUPmNgRW3JzvJYGyW7ub5l/w=;
+        b=HeTh5blGWFArO4M34BNPC983VWWbo0OVtXwKw0m2zT+nCqxB1Cjj4ZkjstVFLFL9dR
+         vM3Dz/Hw+jB5NSQjWvaNTTDJ4JYpXURN0KVUV+8gXRa4aYgBwSQkE/MyBrDG7X1kmYBh
+         HCO2pUTL5rSm132Emq+cvYuXrXeasEcveQCQI0urnn9NlJ1kZesFmHwCXy2Gtb0KglgH
+         PL/hQ8QQ+9MmOdVV3W1g9ZPBU9Vo1s2iLzhOFGYxKUx3YNurVHVyBpV4SQotvuXxVHhl
+         HlpLqvkSM0cjS8KyqSqwuyHDfP+kB50mgBRrThbDbDzrz4VQu0YOK72yl6Wmftm4wTjp
+         Z44g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771622320; x=1772227120;
+        d=1e100.net; s=20230601; t=1771622423; x=1772227223;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=00UMNsZMIuwa4W4w9yZAhooOBNIlUqJFmFbp1iknh74=;
-        b=WJA67BSEiPovXWWV13DC0oOVhW86pQYO2RoG2QEp/ocnKsaTx0RSVJWdNr+nPW+EYY
-         qho3IHwzYWP3oHvhfjkTolPo32wyhQKsYluHEoqE08Udw3xXVVwm0uCK0TVtQii76F9K
-         BCNYDv5J2nOMDqif6SqLVEImeey5PyMxrWEYaI/ZUoc3UBD9A8p/AAEX2RpqNNyJ9uIL
-         Eyh8fvWILaDBS4AGx/UU6eI2hHeol/E/z2cyJzLivLXjqy9o3K2Q5bKTpkUa5/X4vO6M
-         f5yD+bTTCk/vNu0vA48a9okfLweIxw9pwturvBRFuLdKaLUKO6j1xWlvtj08u4I2ttfz
-         xHPA==
-X-Forwarded-Encrypted: i=1; AJvYcCUeK+Qs0IGc5Yb8CbMFNvhQ9IKuYS/+7hIEwJn9z/0qPQLPZT08+1SLeUwygaGzeztmGqLIQptbKsB1DCdinvQR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxui0oEdF2GEgsqP7A6khA0iHjjC8L6Gke2X3KN+lh10NJRpveB
-	P1RAwoqGEQBG2O06keCnGzTNmuurawO6as79k4mknJPScWKTa8PbR4zheghdotfbufIPSHMHdaD
-	PjRMJZ+ROLMb19IB58lyfGHddt/3JFTQ=
-X-Gm-Gg: AZuq6aJQMhgrUlqQ0lw9euSTrRHDZ8cxnJ/44Npt0J41ag6VsWyRlKjxVBGvuCEyxX+
-	tvrWQ/F3w1RKpNGTBDsTv20Z3U/iSKgfSYWc50gWL4DWBNAIepHAUifz/f4urlRI6Vs9I1d8sEk
-	brYx8pqgUTtEXFvFtdo5stOhtvPEg3nUpe5iYzuFYFaqtGUprkLXXO72+c6eUVyy9/w04CkSS2F
-	97jr3ZX5LTdyw5qsHzTaaSF8fcZdTWMnZPwgSaHlwn/e3hqL1iu9xEVzU/WO8eJKgRyEv06levp
-	ZOpDOgUHYdoE77sZuFrh
-X-Received: by 2002:a17:906:2485:b0:b8e:7208:ffe0 with SMTP id
- a640c23a62f3a-b9081bd50a9mr42926666b.58.1771622320189; Fri, 20 Feb 2026
- 13:18:40 -0800 (PST)
+        bh=s/ehpuDLYCSiZo06p7zgUPmNgRW3JzvJYGyW7ub5l/w=;
+        b=piXXeh2Oey5TQkKsERDmxhu+EDM8tMZWd0WvzrdZYwHYLR9cqASvkj4hzMqUmHZnuW
+         ImOAKWXa2zSNmCFoDWFOnz2LrW7G+KNVmNh6LVSGCgPTVA7ZO/2gnOGoPH1JYG2+kOMJ
+         R5w7VJoOipbqejOUp2ueOp5beMrNoGyDsqoOiqB61FbHfa6dCFVeDZZt6nhL4LucOBdG
+         r5fzXpdNVxiLQsBAo0l02KS61HsgNvLSMcVPTUAc2+atqBMP4JPV5xGrBu4EGHTOEQW7
+         h/FAe/pCdw1RTIRWIA5HU0v+yojjB/u6WViyfHSv8jCtXrknJJVffpAAawXHSRWO+8Pg
+         Vv7w==
+X-Forwarded-Encrypted: i=1; AJvYcCU+z7Xy2F9CVBZespUBFygdEAFy1URxKpSZEElLmvT+NXhnR4W9W7rI0GsNgOnDIJWo+Wz58m/tLi7IpORcSZu9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAE7bkFELSf0vDkr3A7qG4hmvIzrYflILY9A3PfQERnwcwDY0d
+	VgXqPKzPYAaIxYgpimY19A3xt0efO0hcrpW/XRGWgCfi4vCaqlMiYGmNwP0+dq2DoJq2rWZEgtX
+	XMej5pkzI9urbhUrceiPmRbxYSdX6C6g=
+X-Gm-Gg: AZuq6aLX72pTy6thMp3B44DP5fW6S1rcdbKOZir/tX+p+iVUYrF1j95llTHRd7pbMz+
+	n+H7FU8pnFn1JWIrrIYAHQgDerBQApmL3w3Fq4s1fXTyE7VGPfMNP3gumhGfYU1sIKSHDbQtLoa
+	1SUjDCXsKYTDQFqvP3Gc3HEreLAysQzyEOWju/Rp4Vo1+1TbhmJZwpXrEaeU+sWhUBPG1GeiWwo
+	ooZ512fYMQ1Iqp3kG/Os4CBOTfUCtVCe4sjUhWoBHKX2Pv5N0UrlcpZvUGH5yWSMb90H9ZTTP4o
+	uW6bd7abp/dFUvuhnD+JZb9o2FD3ga4=
+X-Received: by 2002:a17:907:26c3:b0:b8d:ce06:8a25 with SMTP id
+ a640c23a62f3a-b9081b3b147mr45307966b.35.1771622422727; Fri, 20 Feb 2026
+ 13:20:22 -0800 (PST)
 MIME-Version: 1.0
-References: <20260220021353.40554-1-rosenp@gmail.com> <20260220021353.40554-4-rosenp@gmail.com>
- <CACna6ry+K6q_JY84j7OjRWALsUDU87mpAiikF7cpUGDUUYhZJQ@mail.gmail.com>
-In-Reply-To: <CACna6ry+K6q_JY84j7OjRWALsUDU87mpAiikF7cpUGDUUYhZJQ@mail.gmail.com>
+References: <20260220021353.40554-1-rosenp@gmail.com> <CACna6ryBW-6b0UYaMq12Xf6bdgQV9AxYajb9use7g4o=VK59+A@mail.gmail.com>
+In-Reply-To: <CACna6ryBW-6b0UYaMq12Xf6bdgQV9AxYajb9use7g4o=VK59+A@mail.gmail.com>
 From: Rosen Penev <rosenp@gmail.com>
-Date: Fri, 20 Feb 2026 13:18:28 -0800
-X-Gm-Features: AaiRm52dBh1cJLACjwstU2ZyGWFeLePJIQVxzxC7WdYWCADMe8LsfJaH7Q_6fMY
-Message-ID: <CAKxU2N_V=VWXtpj3qYcPQ-SOYDyA+wrg9Mb4AZvWMQUDnARVFA@mail.gmail.com>
-Subject: Re: [PATCH 3/5] ARM: dts: bcm4709-asus-rt-ac87u: specify switch
+Date: Fri, 20 Feb 2026 13:20:11 -0800
+X-Gm-Features: AaiRm524Y8fJXV13-zTi5iMufwXiCDxpkNYZpVDl-ejo11ObH5bRZxuW451l-VM
+Message-ID: <CAKxU2N-UYZyUdc70H-=Em7ydBve5HP35agu7=pqozFTQo0A_Tw@mail.gmail.com>
+Subject: Re: [PATCH 0/5] ARM: dts: bcm470x: set MACs where missing
 To: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>
 Cc: devicetree@vger.kernel.org, 
 	Florian Fainelli <florian.fainelli@broadcom.com>, Hauke Mehrtens <hauke@hauke-m.de>, 
@@ -105,8 +104,8 @@ Cc: devicetree@vger.kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_131842_397474_CA9D361D 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260220_132024_912124_1AF61689 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,24 +120,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 3:18=E2=80=AFAM Rafa=C5=82 Mi=C5=82ecki <zajec5@gma=
+On Fri, Feb 20, 2026 at 3:21=E2=80=AFAM Rafa=C5=82 Mi=C5=82ecki <zajec5@gma=
 il.com> wrote:
 >
 > pt., 20 lut 2026 o 03:14 Rosen Penev <rosenp@gmail.com> napisa=C5=82(a):
-> > bcm-ns.dtsi specifies a default layout that is not correct for the
-> > RT-AC87U. Also allows setting the WAN MAC address properly.
+> > I believe these predate the bcm,nvram driver, which makes this
+> > possible. Downstream OpenWrt currently assigns these in userspace.
 >
-> How the basic ports info from bcm-ns.dtsi is not correct for RT-AC87U?
-> I don't see you doing any overwriting or /delete-node/. It seems like
-> a standard NS device with BCM53011 and 8 ports (0, 1, 2, 3, 4, 5, 7,
-> 8), three of them connected to no-SoC Ethernet interfaces.
-This comes from a local OpenWrt patch. I just added the nvmem
-definition for WAN.
+> Changes look good, I just posted one comment about commit description.
+> Thanks for submitting this!
+>
+> If you check
+> git log --oneline arch/arm/boot/dts/broadcom/bcm470*dts
+> git log --oneline -- arch/arm/boot/dts/bcm470*dts
+> the prefix always used for NS patches was:
+> "ARM: dts: BCM5301X: "
+>
+> I guess it may be preferred / required to follow that.
+I didn't want to make the subject line huge.
 
-There's also the addition of labels.
->
-> Except for this unclear commit description, your changes look good, thank=
-s!
+Actually in such a case, would it make sense to fold into one commit?
 >
 > --
 > Rafa=C5=82
