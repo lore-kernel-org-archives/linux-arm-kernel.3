@@ -4,161 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B129EC55175
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD92C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:04:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8NYypAElBKiD2K1QyDN3v+VzeoXB/cDdnPRyYZgIgvk=; b=1NSmw5AvtPgzF1bGlTMqzA83TE
-	yH8wYLAYeeCq3rCJON5OimW7n7HUWQb0hQEk+xfhfWwpG3hixXvlyXBCZJNrBAMEi+ulQvAexxDmM
-	UQL81Q0Ekg3ubEWYkQcFEpq2c+7XviR8XMOqs0NQXYcCLUCrdsS6/1R7l5lIzSQKN4VzgQ0L2IY0B
-	N6b4VtgsSKq7HQRPiA/E2DA3L3MWrOeH4XQMgL8r3Hn54YLYQmJGVV73pWSGPcHwFdKGnEw6YWmRr
-	cbwaVifECvwqL69aIFT5BYOseHq+ypMBkqVAK7yk/Ty1OR6TXweL1l7RIGGAhvD8/mohCD3n8mEiW
-	mr6TCJZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CGoxHfyZdvHZdaOxZRPHjFZrmxUcjr01IQroUI8SPoo=; b=BnJuUyi9pxIhwBYE+jxgm3qrfS
+	np0dlsUOAKiRiXx2TF7eA7qGvKp03D2vSkmAzuUpsPUHBgR2k62YbCCBOymoRF18quj6ALRLPrv16
+	tbEu8SmVcqWmzmv36FS2wYutM0ykdc9EOzif9KMY/mV+NItxliMdjEq5GwlkKFUVa+UmZMp9d575/
+	lgtDmJd7/9qaGAsXURUZGGR8b9ygzWrmHDTPicf6xDuVbpL0BUjYfcUK7R6u69WsZDZ2kEfDPPEp4
+	CqR20NM9QuxMqSmTU3+tBWpWeAI8EG2bCwVUTJWYo423jmQf8onw3fyH4Gyab2UYN5b3tIA4aJ6Od
+	eD9uPSmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNJj-0000000DlKk-1Bby;
-	Fri, 20 Feb 2026 10:00:59 +0000
-Received: from mail-westcentralusazon11010024.outbound.protection.outlook.com ([40.93.198.24] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vtNMe-0000000Dnfx-1rP9;
+	Fri, 20 Feb 2026 10:04:00 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNJf-0000000DlFa-1paR
+	id 1vtNMb-0000000Dncm-2jXd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 10:00:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WeNNGNFig6uKQPv5+wyIvydRuoPcMt7KUy2J9zv8V30VIoAtQfOcmWDk2O57dA1QSV6dA0FfPSo7wsNIP2hB1ak9L3MBAbk2Sm7ogTb55jm0hAcyR55mwvEO3BZuCfhgX0ZjMaYdJNAIgmTvUVNLqLREgMYygQ8pr5DJds1WERLIB+Jh0E3ytMcR6P9PK4Os0/g0VobppB+IQLiEXDKuCjfXAbs8rhlVIlOaSeebeKugGG2Syc00q14wbnxPl6qPXH4pRDoPJtvG4NR5kjkFB2khO03N20x8CAXH4OQPJJGMlEkfRxHYVO1hDTcTCfSEhr97BSNIvHUlo2fW0Go2fw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8NYypAElBKiD2K1QyDN3v+VzeoXB/cDdnPRyYZgIgvk=;
- b=V4dpd0kwXrXkHbFYZ2nqgIvLYCPvL4cSJm0QaRU5bGU9XU33SoKjNtge4emgHb10doiYsZbdbMiD3guM4DBqxzlZOwS4xyFLaOdQVBxaz6+y8jx4x0CVknknMi4kmxZs564yqdDL+KB2nfh7tusD7sGN4BVX5dNptXKp+E2DugRL5DbvOhmM3E2hX62N4tmHs9XLd8sPZusow/Q7GgKDNPt67anrrsl8eyPpyaJeZ/QkDU0qQKdoVjkcuwlIvLioyQA7+1HeZyzrGj61W2JZpsgGv+K9PAXzRitsUxEOFsc5nYSj2FtPPsUYYABpzDCrBnae0CIHgrhyD4t9PerBZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8NYypAElBKiD2K1QyDN3v+VzeoXB/cDdnPRyYZgIgvk=;
- b=utIL8817RKKeOLIcXu7qUDQT4I2mgkbFlWz9zfqpe7WJ78j8PcVaDo7PJ4j7d6XHLriOqJ3D9AjoWMNKtDpJu3WujzhYGPX2vszkTmnYSC9sRDTH78BGntzBqGSr8UFXwcM/+XvC18tNfZsS+9yMC0c2zYcpnqQTPeX4Ts4kvxo=
-Received: from MN0P222CA0007.NAMP222.PROD.OUTLOOK.COM (2603:10b6:208:531::15)
- by IA1PR10MB7285.namprd10.prod.outlook.com (2603:10b6:208:3fe::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.17; Fri, 20 Feb
- 2026 10:00:49 +0000
-Received: from BN3PEPF0000B374.namprd21.prod.outlook.com
- (2603:10b6:208:531:cafe::23) by MN0P222CA0007.outlook.office365.com
- (2603:10b6:208:531::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.17 via Frontend Transport; Fri,
- 20 Feb 2026 10:00:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BN3PEPF0000B374.mail.protection.outlook.com (10.167.243.171) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.0 via Frontend Transport; Fri, 20 Feb 2026 10:00:48 +0000
-Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 20 Feb
- 2026 04:00:41 -0600
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 20 Feb
- 2026 04:00:40 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 20 Feb 2026 04:00:40 -0600
-Received: from [10.249.132.38] ([10.249.132.38])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61KA0YF53678030;
-	Fri, 20 Feb 2026 04:00:35 -0600
-Message-ID: <074a89cf-fb28-4f05-9203-f530aba582c9@ti.com>
-Date: Fri, 20 Feb 2026 15:30:34 +0530
+	Fri, 20 Feb 2026 10:03:58 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-435f177a8f7so1792141f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 02:03:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771581835; x=1772186635; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CGoxHfyZdvHZdaOxZRPHjFZrmxUcjr01IQroUI8SPoo=;
+        b=LwLxzD3xOFiP1XE8s1N6Ybm9X0vQUBA619O/E+NdgNC/Rs8QyxfEh3AZ/VHnlSrsDU
+         OUgXjFaSmdyA2ub6+xHFzP4rAwo3BTSHOXWDxArb9FaUykmqfOxQmoSokXKChMp4+cDH
+         SW6Bz2Qs3k6Allj3+wdC5sMFddBNjM4T7WPFG1qiRUTlCb0E6SX7Ntac+6eZT8TNP49A
+         /z+cf4xhkKg7B8MHTYRSddcWvB/fTQxWW5CIQZ0hKQm6thf+VJXK5bsb3hfxAeGu9irQ
+         HHPPXV9mRndli35270ViqKtacgnou0MwJoCF9K0bmzLpW3mLWQ3aZjNJU0y2lueZ1SZk
+         v+eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771581835; x=1772186635;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CGoxHfyZdvHZdaOxZRPHjFZrmxUcjr01IQroUI8SPoo=;
+        b=P30TqXbjtRgQqxZHRlb8FKvUJ1UZSS82FrwnFXRCjYlODeFkVtzZ/yNx5boukYlmZw
+         cm69UwxMuiWN0fFy6Hc9P/Aoh1v4ObfPjJWn4UI+OW1yKll4lxLjndH9Gwzw15a5BNh2
+         FAio1tulzepfHsaBIhsEVjiHwG5BzyviFFhtN8ukYrPzRoO71nuvK/++/t2bSerRr8XV
+         Bb8ummk7S9ZRIweXEnWoBZIZjFdmDZqlapm4gV5Jl0jLiiKF6hQ1ToHKF4LHmbLBiUzG
+         PXUHbMVQ43PetUxb2vf8PCZOQXFZT7XRO+mMgBe6DAS8hvUArrqoE07FIzd6W8C24htC
+         vtxw==
+X-Gm-Message-State: AOJu0YzjpOqS6XG2GFboytTzOoZwoChHDeuMDLrxk8GYAhHUC04gKa+M
+	fSn1+o+5XNTkP/MLyOCnTsrTNDJWBJXsuUdB0NWcQSTo5tqIOB893sYG
+X-Gm-Gg: AZuq6aJlCIvE3uzRVRSKFsPl+3ejy83e0PGvUTWrSXf+WYMmkVNtZUm/y1yxaxLU79J
+	4du4EfmnTxughDZ6GGLxDVTi02x4iKfNE6dS64N8pinzcOzoI3Wpr3ie0wNVR2e5GdYXXbDvVxE
+	Yf20gT1Bg5sWmoHsZS5bPXcr09IojOJB7lOCzv1Espq6sYqUzi8CYPxTHWXzNMnSO7X4zkBu0W7
+	5BxsECpF742GaJloOlBpMZuhOGbRq8rigtwYexnQDJBQqiIeqFZG1+48XbLD6dy3gEx6X4eMs6I
+	1URMWroouc/KzeqtMpdj4zAbNr8mcf7lTVAEpTznHHatghDeR25+MVL7xsnK5E5GYirlfveYIGU
+	X37SQtvzYWlMssHh62xxKumpBZaOEbLIa1iiR7RFcM+sg/8WKHgskaSdOVDcA1ljUmqGOyRedj/
+	lsXp660pEgD6qlQraMbLpVnJxeYSflOWrSl6IMJ8aB+q7+tIwXi4x+
+X-Received: by 2002:a05:6000:186f:b0:436:1b1:6cbb with SMTP id ffacd0b85a97d-4379db30f9bmr32510635f8f.7.1771581835115;
+        Fri, 20 Feb 2026 02:03:55 -0800 (PST)
+Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-43796ad0166sm55642699f8f.35.2026.02.20.02.03.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Feb 2026 02:03:54 -0800 (PST)
+From: Gabor Juhos <j4g8y7@gmail.com>
+Date: Fri, 20 Feb 2026 11:03:49 +0100
+Subject: [PATCH] arm64: dts: marvell: armada-37xx: align 'phy-names' of
+ EHCI node with DT schema
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 0/3] Fix Unbalanced IRQ Enable for CPSW and ICSSG
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <danishanwar@ti.com>, <rogerq@kernel.org>,
-	<horms@kernel.org>, <mwalle@kernel.org>, <nm@ti.com>, <v-singh1@ti.com>,
-	<vadim.fedorenko@linux.dev>, <matthias.schiffer@ew.tq-group.com>,
-	<vigneshr@ti.com>, <jacob.e.keller@intel.com>
-CC: <stable@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<srk@ti.com>
-References: <20260220041431.372610-1-s-vadapalli@ti.com>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <20260220041431.372610-1-s-vadapalli@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B374:EE_|IA1PR10MB7285:EE_
-X-MS-Office365-Filtering-Correlation-Id: 60a343b7-517c-4c4a-9b2d-08de7066ec15
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TzlTYjdUbUp1VDhZRHd2Qi95R2h0N2t3eVlWWHd2bkpsc2dTd2F4MDZLRDNG?=
- =?utf-8?B?WmkyekhGQXRYVStnT3VneFhvdml1MnRTZytXdUtTTDYwMko5OXdNNWVVRHpT?=
- =?utf-8?B?K0lnRGdDWEJlYUZRVVQyWUlwVTRCR0ZaMFFSM1BPZXFlQlo3OGhxYmpBK21F?=
- =?utf-8?B?L0RkVHNoSEdYQjhEQklUU2NVUVJEUGtoOFRjZ3FPNFR1YlNmR1FsZUgydFV2?=
- =?utf-8?B?Z2I5WTBIK1RMdFZwc2NSc0JtK2F3NTRDWjRCbjhTclRtbEc4RU5BZlByalRu?=
- =?utf-8?B?aUV4aFNPZkE1MGZsbGZhczU5TUFsK0tHNjBQdWRBelBocGNjWmExeDNjM2JE?=
- =?utf-8?B?NXVpNkRycmNhNzhZMTloOFp4aUVUczl0ZC9MWFVsczRVUC9sOU93ZDdXQnNj?=
- =?utf-8?B?ODZJMmhtWGlIeGU0NjBIMThJYWtHZ3hXRFplbEdCTFFEaDFGaHJ6dFAydGdO?=
- =?utf-8?B?NkFFaWhTMzh3cW5jTGpOUCtVemUvQkpxZEtVTjBWZjZUNkFFRFJFb1FFdDlS?=
- =?utf-8?B?eGQ1TUxBVDlodXprRmFqUTJpWmgzY3hUZHVRZThWWnArUTVqV2x3NmtwWUZ2?=
- =?utf-8?B?VmI1bEo1RmVrclgxMTBnaU9ocXlvWG9vNllFY3hVbkZDMHRhWXRFTS9XRWR0?=
- =?utf-8?B?bkpFWXQ3NHUybXhISXRka2VXNjFvTWpxOFVjeEJYQkl5di9XSDhFRmEvVVV2?=
- =?utf-8?B?NTNmWUlleXE0cnFNMU5INDAvUXd1UmNmU2QwMGZZVWFKaGlvSFAvZVNOeFRH?=
- =?utf-8?B?QXRvRjdnS1ptWHVaZ2ZzTlY4M2VuWXFKWUlsdzVnbEtyK1l0MUlGUWZtZW0y?=
- =?utf-8?B?L3hYR1hxOGYyVlpiMlR4Z3BLaHV6bmFSZVI5ZUV1QUtuVnB0VTdMaTZiWERJ?=
- =?utf-8?B?Rnp2LzN4WHp6OUtJVGo5M2RuanRsTm9vRlpKVk84aUM0azE3a3ZMbVNZZkJB?=
- =?utf-8?B?WWIyMDFHaXI1d2ZOb21BUVF2UDNaY2NqdUhvMnNjQ1ovMnduVVlHVUZ5Mklz?=
- =?utf-8?B?SFV1cE5VdzRCWXgveldwRWthSjZBa2F5ZFVWc2o0R0tjUjcyVmxHSi9IN0Q5?=
- =?utf-8?B?SlMxQk0xNW5Vd3k5RGxNajRQSThlY1l2c2oxdDFreFcwWElVbDZEWjFXaEpu?=
- =?utf-8?B?NUJyQ3RnaS8yZHEzOSs3c3JYUm1NTlVpb29qYmdieXRpQkVzdTJmZUZCNjVl?=
- =?utf-8?B?OVJpeWUvMU9uN1dQaXZJT1d1My90Ym9xS3lRVko0RHpLRU9raEhOWWdjM0JK?=
- =?utf-8?B?SS94c0FOWU84UEd1SnpZUFNLMEVVSVlvRzRIUHVTbmZaV2JZeXBhYVpubFIr?=
- =?utf-8?B?YWljWSsyTGdXUkZybEp1R3F0L20wMGgrZGtLeTRXWXNxTVBQUmFlRWJvbDRu?=
- =?utf-8?B?TDRzRE94cU9SQ1N1Z3E0aTBLOWo5NFZXQUlrc3BLS2VwN3RURjlaUGxCWHFX?=
- =?utf-8?B?b252RFVpZ2pSUEFlRXMyMFpTOWZDN2JxT29JdGJpVDVXNTVXN3RGVFFvSWlZ?=
- =?utf-8?B?M0JidkZldVlTNzdEckI1SXVtRHFTcDlLN20wa1dyOThwOUNyUUwrYzNSMFYv?=
- =?utf-8?B?MkVvdHB6bEhYbkxWQlJKZ200RFQ0eDQzZzJ1UXI5aGQxejdyTnFrci81eEsw?=
- =?utf-8?B?TzNqeVVqVjUzV1JudTQ2TFQwMEFPUDA1WlY5YXlqTDRKOUVZYnpoRjlKdUxM?=
- =?utf-8?B?d3JTaGJKYW1FL1p3VDdBWHVMUGpaUlFKcE1ETjJsZ0o0RG1rODc3TkhIeGIy?=
- =?utf-8?B?cjB2SlZ4QTdqOThSNTMzdFZnc1JwRnZNUSs1N1RNbFFiQUdOckRsYy93MzFh?=
- =?utf-8?B?RlRENmwrQVVFV1hoZzdzMlkzbnZodXd0dENBMFBkMU5aQlp4YWNMZzNIai9K?=
- =?utf-8?B?SW9KaGZNOUtMU2FwSHZaTkdHNTdJZ2RHdWNVbERMZExtTkRKQzd4Sk9NejhG?=
- =?utf-8?B?blBUeVhnc09WN1ljMmhkMURSQXNyVldEZkhZaUtlNjlkQWpCcW9MSVRkeEY2?=
- =?utf-8?B?N0l1QWNCL3NnOXd6S0NBTTF4MGlmWGNKNWpJc1plemU2aWVQWWlHKy9rZ0RQ?=
- =?utf-8?B?S3N2bkFhbDdXUldhU0FKZEdybHAyNzdYdlpWdGFHbUs2dm1ZL2RxelYvQ3lW?=
- =?utf-8?B?djBDZEZ2MXVxSm95bnpuUVdvU0h5WE1CN2NwZ3VLQTV0WkFQcy9ZM3FHY1JT?=
- =?utf-8?B?WjFodGR6WllSL3VHZHg5c3pNSzZkcjIzVitsUEFsYk9VMGY2QWxVcjRCTUJW?=
- =?utf-8?Q?TBgcNnj2JDaMfQFjXRQ/NSQVmodlmWTnkhQvjD4EQY=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ejo4CSxmmXz78UTP/tKZWYf7EerG7NE/JhHI/yrp+R6Q+YYzMY9VYWjQNXz+BPldnBW/pAZoxxT5QCbyU2RSN/SgcL9bGqzLpyKUOoeiJPcwtVIIo6muqY+GLT75t5eJwP4SWFZolVa6XDDer/nDqPSFOS7oo3NYPUgVUi1M8cxvru4UZcXE5Of+GRZO7Vp/oPifWOxjJ9RBX+UfHx8acmYNnKlOO3hWHsG2wrE8hXKejMXchZVRGTTLBMuIboK1WmWOfprNepeUniIevqNNOadvEvp9nAhnszjKxwlULY/w0bHjng7TqeWAzm9tnrh8GU4O4BT+D79Cwwo8Im9e9EWb1KHB9YcwTYL79+rECFPL3k/HPjtEg7zKcvm5pnKYqdOKNFXk8JBzLhzPQDGmXdxEe2xeLv6AwGAIIHBfE8WbX/TmLqDlWUGPWy54BMdl
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 10:00:48.1822
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 60a343b7-517c-4c4a-9b2d-08de7066ec15
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B374.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB7285
+Message-Id: <20260220-armada-37xx-fix-ehci-phy-name-v1-1-27c9907aab8e@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAIQxmGkC/x3MTQqEMAxA4atI1hPoj1iZq8gsYhttFnakBamId
+ 7e4/ODxLiichQt8uwsyH1Lknxr0pwMfKa2MEprBKDMoox1S3igQWlcrLlKRoxfc44mJNkYfFq/
+ VOJveWWiPPXOL3v/0u+8Huyga6W8AAAA=
+X-Change-ID: 20260217-armada-37xx-fix-ehci-phy-name-cdfc108b2473
+To: Andrew Lunn <andrew@lunn.ch>, 
+ Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Gabor Juhos <j4g8y7@gmail.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_020055_586238_7F28A6B5 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260220_020357_713450_EC7EA512 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,53 +104,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+According to the 'generic-ehci.yaml' schema, the name of the first phy
+in an EHCI node must be "usb", however the 'usb@5e000' node in the
+'armada-37xx.dtsi' uses "usb2-utmi-host-phy" instead.
 
+This causes dtbs_check warnings like the following ones:
 
-On 2/20/2026 9:41 AM, Siddharth Vadapalli wrote:
-> Hello,
-> 
-> This series fixes the warning:
->      Unbalanced enable for IRQ ...
-> for the CPSW and ICSSG drivers.
-> 
-> Under heavy traffic and in an SMP environment the warning shows up after
-> a relatively long time. The issue occurs due to the order in which the
-> variable 'irq_disabled' is set and the function disable_irq_nosync() is
-> invoked.
-> 
-> I have examined other drivers and they follow the right order which is
-> to invoke disable_irq_nosync() before setting 'irq_disabled' (or its
-> equivalent variable).
-> 
-> The first patch is for the CPSW driver and it has two Fixes tags since
-> the code change associated with the fix is for a recent commit while
-> the incorrect order was first introduced by a much older commit.
-> 
-> The second and third patches are for the ICSSG driver. Although they
-> are both for the same driver and could be squashed, I chose to split
-> them since they fix different commits and need to be backported as
-> Fixes for the respective commits.
-> 
-> Regards,
-> Siddharth.
-> 
-> Siddharth Vadapalli (3):
->    net: ethernet: ti: am65-cpsw-nuss: set irq_disabled after disabling RX
->      IRQ
->    net: ethernet: ti: icssg_common: set irq_disabled after disabling TX
->      IRQ
->    net: ethernet: ti: icssg_common: set irq_disabled after disabling RX
->      IRQ
-> 
->   drivers/net/ethernet/ti/am65-cpsw-nuss.c     | 2 +-
->   drivers/net/ethernet/ti/icssg/icssg_common.c | 4 ++--
->   2 files changed, 3 insertions(+), 3 deletions(-)
-> 
+  arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dtb: usb@5e000 (marvell,armada-3700-ehci): phy-names:0: 'usb' was expected
+      from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
+  arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,armada-3700-ehci): phy-names:0: 'usb' was expected
+      from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
+  arch/arm64/boot/dts/marvell/armada-3720-eDPU.dtb: usb@5e000 (marvell,armada-3700-ehci): phy-names:0: 'usb' was expected
+      from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
+  ...
 
-Reviewed-by: Meghana Malladi <m-malladi@ti.com>
+Use "usb" as a name for the phy to avoid the warnings.
 
+No functional change, the USB interface works after the change:
+
+    [    1.472393] orion-ehci d005e000.usb: EHCI Host Controller
+    [    1.477847] orion-ehci d005e000.usb: new USB bus registered, assigned bus number 1
+    [    1.487127] orion-ehci d005e000.usb: irq 40, io mem 0xd005e000
+    [    1.505759] orion-ehci d005e000.usb: USB 2.0 started, EHCI 1.00
+    [    1.512493] hub 1-0:1.0: USB hub found
+    [    1.516434] hub 1-0:1.0: 1 port detected
+    ...
+    [    4.175746] usb 1-1: new high-speed USB device number 2 using orion-ehci
+    [    4.347643] usb-storage 1-1:1.0: USB Mass Storage device detected
+    [    4.359972] scsi host0: usb-storage 1-1:1.0
+    [    5.367100] scsi 0:0:0:0: Direct-Access     ADATA    USB Flash Drive  1.00 PQ: 0 ANSI: 6
+    [    5.387091] sd 0:0:0:0: [sda] 30869504 512-byte logical blocks: (15.8 GB/14.7 GiB)
+    [    5.398420] sd 0:0:0:0: [sda] Write Protect is off
+    [    5.408108] sd 0:0:0:0: [sda] Write cache: disabled, read cache: disabled, doesn't support DPO or FUA
+    [    5.477359]  sda: sda1
+    [    5.480037] sd 0:0:0:0: [sda] Attached SCSI removable disk
+
+Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+---
+ arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+index 87f9367aec1227c2c6de52f358d51bcff758c147..a8d10e4de81619c44ccbe0f08e69707dc28005a3 100644
+--- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
++++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+@@ -396,7 +396,7 @@ usb2: usb@5e000 {
+ 				marvell,usb-misc-reg = <&usb2_syscon>;
+ 				interrupts = <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+ 				phys = <&usb2_utmi_host_phy>;
+-				phy-names = "usb2-utmi-host-phy";
++				phy-names = "usb";
+ 				status = "disabled";
+ 			};
+ 
+
+---
+base-commit: fcaf733ca526b69595ed1d227e2cc59ddd24eff7
+change-id: 20260217-armada-37xx-fix-ehci-phy-name-cdfc108b2473
+
+Best regards,
 -- 
-Thanks,
-Meghana Malladi
+Gabor Juhos <j4g8y7@gmail.com>
 
 
