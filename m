@@ -4,73 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69E0C55ABE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BCEC54FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISt+ZhBmiTcwgwZuK2HN5EncESz0NE0wpGRN8/6gb34=; b=ZyGW1X58bQlWX1a9C5i5iWw1ap
-	qZGgKuJb2UnaPKI6stJxIKrKT+ex2JrtQJi2THsS8TiSsmWGpCOktDpgAWAumBopazq9Q6DCzMbUU
-	0XiJqBequg1D2knnCUP+oikkvCh3xVxy8ICVeWptNfSd6NxBfjsUH4AkUr8Yj2QsSRIqiGtk5qb5a
-	o5wBr9fkGKt2LFbry3ilyfRgytSEl5yDNeglhT6G26RtTeDiYRMDc/eF7z8flQ/NM0HEkWq6P0vbj
-	8kNjBVUWBrPavsnp26qifqGxo2PXwOUjptwxNruX0ndj705QPWaEDbpr27qZzDb5x6Z/ZBIEtDizK
-	w0nbVBvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1GXawhFPuCG3s33AeYwWDg3N7Ml1VJJxyeLiD/vivZY=; b=JWJwET3T1KGZxYVdWgqbK8PzVN
+	MmWghtyEkDl8aqJJY209hDNHJLvDEA2nVJ30hk4uLMIlKOMD6da921B/7GZfk/CPlMuaWVZEpqW6A
+	tdkO6ZgljG38Tfb9yKz92yVfThB95Dutj0HTNR0mYDzM8yFKwrTg0K5maB4B5X/C+RuJ26IAMx3Xq
+	IcdTDEjsgQzmGPMUBMAA0QM8WBq26HvL6Z9ANEjqM9gQf+gX36E8EFo4ibky2GKsdVJr93uG+ELMf
+	bkw4df4V9NJ+jLMJBLt/hJ24nU0mHbTWoIGjs0vbXjEuDytPwVkE2IWxhvesIxpC+5NBphDq2nVBv
+	v2i8B+XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRFj-0000000EkCm-3Gs2;
-	Fri, 20 Feb 2026 14:13:07 +0000
-Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
+	id 1vtRHj-0000000Ekqb-2y45;
+	Fri, 20 Feb 2026 14:15:11 +0000
+Received: from mail-francesouthazon11011050.outbound.protection.outlook.com ([40.107.130.50] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRFf-0000000EkB7-3MeS
+	id 1vtRHh-0000000Ekou-1kpl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 14:13:06 +0000
-Message-ID: <ab290f15-77f9-4680-942e-17d910c03b4c@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771596779;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ISt+ZhBmiTcwgwZuK2HN5EncESz0NE0wpGRN8/6gb34=;
-	b=rH6qOMICWP5n7zm7TDqIpUKD8SnrEN8pCfZRWkFE0d4gPjOeKKBXg4uqMvRaf3Z5r0VcjQ
-	wLK5sM4+aC1rxYeJBmi8e5bqJLUZJkS/ZTtn7JI9VIQSCQ9/OaSntdHtw1EpzFpkxdTelL
-	vIjyItH04Ise7pFzqEtqIQUxlHjJv4k=
-Date: Fri, 20 Feb 2026 22:12:42 +0800
-MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs
- support for x86_64
-To: kernel test robot <lkp@intel.com>, bpf@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
- Xu Kuohai <xukuohai@huaweicloud.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
- Shuah Khan <skhan@linuxfoundation.org>, Peilin Ye <yepeilin@google.com>,
- Luis Gerhorst <luis.gerhorst@fau.de>, Viktor Malik <vmalik@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260219142933.13904-3-leon.hwang@linux.dev>
- <202602200536.JWzGHAc6-lkp@intel.com>
+	Fri, 20 Feb 2026 14:15:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YyFWXDs6D1gMB/PW4BOhmmtM2/pnLZRfpmRlUwdeFcEZoqOFnW9pCgfd+RIygfvGO9OU3AAGvnDFR9B/DwKaFWDEpwrq7wxBnQOa/Ijtoj5Os+7nhdKtRbKavaS6DkbkDi1UJ/Px/grQLcRoKmYtQr1CVgsmQURd3LoonNZVmfd+Lje9+lYWHPWM/dJvAhmWPAMjm69cm0mDqs1sJcR/FmDd3Vqx8DqzC3dPxo1TarXXusCUgqWExMwGix2//LQvHVPz0EBwdnzVnb0LNMSE/xuTdknRAE4JYjZcGONj5t/yAj2RdddyTc3J9TBXp1Df1swburvlo5Av9dBTuGicNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1GXawhFPuCG3s33AeYwWDg3N7Ml1VJJxyeLiD/vivZY=;
+ b=b0hhtcCW6k2Qm6qgwPvqvgfbJAQ6doD8OajWN6KNJ5GdQGU5gLrC6/XqrsKaFaZS+frEk386g5t6nO0icUikKWa6b41pEpqUaHHf2wUOa8Wob7uDiZV41tObfszY02LP1/nmFOPPO+ZpzDRl2QHfT3dPQ2ayXmanWbPl+e9+guERLkN2/jMZJW4jp8pOXBfIJ3IzVtY3vhvUiiPG/uqSyv3I3Gh79iOwPRjC5KY6sbX1yALfbrtgKDaJfMn5w6xKSOVk10uk6LwypMUheAXHBXEnxDyUuVJzuPYpQ6LJuA8KFCCmu1OFUtn6Fv9R0qXIrtGz2szsPFOvkzeb/tyg1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1GXawhFPuCG3s33AeYwWDg3N7Ml1VJJxyeLiD/vivZY=;
+ b=gFnKD5yB47GaG1bVcPEEdYbk9TiGGt6qd4nMuUCDwTRSmsq3cTo/nXLeQwV6hBBWAkKoA/uTCdAygRhOYdzwnBf/DeOQBBVJjil3tvgH9flfIEe5APfEQVua2HEmdJ6qDoA5bIQaQDs5+pSG+1xQgqW2nZPlfyo5Yqmhbw8IQx9lzA8ITgZDJsFxiPdhqG1TgwCGZJV8XOXxsdNu+xlu4q22nkWIgiqcumihxf3/vVKa7BjeMx4zy+TRNWi5xn+lgsSktXHsA5ZI/im3TFXdCEaF2yRAa27YsxE/eG1MObT1R+gUHpO0uJXSw5rJQiWZ3QRVzfcD99GEVdcn1b4Grw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8190.eurprd04.prod.outlook.com (2603:10a6:102:1bf::23)
+ by DUZPR04MB9918.eurprd04.prod.outlook.com (2603:10a6:10:4db::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.15; Fri, 20 Feb
+ 2026 14:15:01 +0000
+Received: from PAXPR04MB8190.eurprd04.prod.outlook.com
+ ([fe80::4608:7dcb:899b:e4a1]) by PAXPR04MB8190.eurprd04.prod.outlook.com
+ ([fe80::4608:7dcb:899b:e4a1%4]) with mapi id 15.20.9632.015; Fri, 20 Feb 2026
+ 14:15:01 +0000
+Message-ID: <8a8ea87a-19d7-455b-882e-dac5a17756a0@oss.nxp.com>
+Date: Fri, 20 Feb 2026 16:14:55 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
+ devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
+ Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ "Vincent Guittot devicetree @ vger . kernel . org"
+ <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
+References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
+ <20260121021913.GA1704619-robh@kernel.org>
+ <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
+ <9949202e-7eaf-4072-a24c-6119e0eed493@kernel.org>
 Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <202602200536.JWzGHAc6-lkp@intel.com>
+From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <9949202e-7eaf-4072-a24c-6119e0eed493@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-ClientProxiedBy: AM0PR02CA0130.eurprd02.prod.outlook.com
+ (2603:10a6:20b:28c::27) To PAXPR04MB8190.eurprd04.prod.outlook.com
+ (2603:10a6:102:1bf::23)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8190:EE_|DUZPR04MB9918:EE_
+X-MS-Office365-Filtering-Correlation-Id: 43f8ceaa-cafd-4adb-63ba-08de708a6f3c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|19092799006|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZlZaUTMwNnBTZlFaNUVCY240akZkVFJ2Z2tJaEdhdTBZWi9FL1lCUS9NeE1P?=
+ =?utf-8?B?WjRsdXEyODlVSzFuN2RvbHNBVlg5VEdvOXlQOE5qaGtpUW1xNFlzUFNaeWoy?=
+ =?utf-8?B?SGg3b0tRMXQ5dVdyT0Z5S09lcFc0YUZYVUEwbVFjZUdzMEZHdFJmTVBHK2lq?=
+ =?utf-8?B?dEFxeHZRZkwxMjlqS1A1MDMrVTE1QlNHelNsTzU5V3B0NjE5K0Z4YUVLRzJh?=
+ =?utf-8?B?c2JqUDZYczhzQ3NIZVJEUzJveHd6Nm1KekYxelZ0RHhkMXZieGJ4V0lEOVUv?=
+ =?utf-8?B?cHA5M2hpYTNEZ0srQWhkTDI1azFMMVowb05tQ1VQbDdBQVplakJtR0FPWGky?=
+ =?utf-8?B?WmxPRWdyaW94bksvNElCUjZTMDAvbUg0REwveEYxY2hLZGRsQkdvTVQxa2E3?=
+ =?utf-8?B?L3FOai92c2tPcHhNdisrTDUzcVk1RnNEbU5pZlVIbmszdlZqdGRVWnlLVnNp?=
+ =?utf-8?B?bUpIOTZVemxlbDFSZVUybk5PY0hrV1JLT1BxMmhBSElDVnFCMzhiYXB5RkZE?=
+ =?utf-8?B?OU1OZWdGek9td2lpRFpCTGs5K0xyRTRlQXdrWjF5UE5wN1BudUFZK3ZCclR3?=
+ =?utf-8?B?SjNzbFdDZHVCY1lRd2o0Q1l2QlByV0R5eE9KZzNNNFpaUDVabk1oQ2o0YWM0?=
+ =?utf-8?B?aWJOUHhPcXBMdXJLQ3dSaGNUcC9xNmk0Ym9KTU96bDlCeU15NEI5RHNubUdB?=
+ =?utf-8?B?dVl5SXpSL3RGYTFVOHk5QmhnN3YvbzM0ZG1zdTFRMGRza3RBV3NSbjFaekFN?=
+ =?utf-8?B?TkVBY1o2bDNEVmpFckdMUWFBVlpMMTVpS210VExVZGo3bjZaUjJaNHhqeUVT?=
+ =?utf-8?B?MVgvdStRcUpYOFdpMUhxVjJnbW91M0hxamRaWnVhZ0d1MzdUZXMxNk9GclpU?=
+ =?utf-8?B?Zk5XcGJ6OVBweG4yQzhjWjI1d2hwQytHZTRhN0hkeDBxMU5iOUZWUFlWeW1r?=
+ =?utf-8?B?NTNWNnJYck1qdDVIRHJCakxZWnhQMlJOdEJIR1ZSNnVuQVR3ZUdYS2pjNWpY?=
+ =?utf-8?B?UVFDTVNWS3ZqK3I2bVlUYlRYWm9EZ2tpWWVHNG9ua0JFZjZhUzdMZWlhQW5z?=
+ =?utf-8?B?T1pmMUxZaFZ0dElzOC9naGhyTnYzOHRPNXJsLzZNNi83blhpVlREdWoxeFQ5?=
+ =?utf-8?B?ZnJlU1FZY3hOcUkzNU90eHQrNnVlTk8xYnlOUUdTOHdRRXV0WXlwTFlERngy?=
+ =?utf-8?B?cUxBZDFGZzlNeEpCb1lYRG4rdlhBeUNWUFp3L3JJM281SUhSdDFTcTI1Rktu?=
+ =?utf-8?B?TXViRW4vcmlUWnVKbkNtVUpuazNVRmRwQ1VYaTIwQkRhV05tcU14ZG45YXdO?=
+ =?utf-8?B?UWtpUFJRb3RHblozZ0pCb2hpZjJGaXhFMXhIN0pGaEdoRlpRZmpaZW9PdXVJ?=
+ =?utf-8?B?M0JVOVJTVzdORXZYNXhJQWRMa1lydW1KMlI2VUhKUjFLcXhBdlRneFEzN1d6?=
+ =?utf-8?B?clpTSWtTSnVwdWhVS1NqNjBzS2dtbnp5OFlsRDNpNHUzbWdtU2o1dnRJUGh2?=
+ =?utf-8?B?ZXNUSVBFSVgyeXhiQmtkZ3lmTHNpcVVKR1ZDdTB5cUh5ckNGcjNvREhScEdq?=
+ =?utf-8?B?NW9GbzZNRHJmWWJUbG9PajZxbnlBbXVoenc0aFlacXJtcFYvckJUVm1LQVZW?=
+ =?utf-8?B?MW13Ym1vMXA1bWRkOXZacmdzTm1uMEx2ZTQ0bVArNGx0b2RyWCtkcUY4OExK?=
+ =?utf-8?B?aElnVDQvd0k1QmNiS2liQUlNNk5XVU1qRmFpN0s5d0I5N3dKc1JSS0JlTEZH?=
+ =?utf-8?B?QlJ2akN3S0dtMytoTkt6ZnF5WXZSOHl0NTlDZkl6WTVJNUxPREo5dGtIdVcy?=
+ =?utf-8?B?MTU5cW9JQWFYdnFHcm1yMS8wL01qeWg2cVJYMmE4WDFLV0pYT0p3bDJpajli?=
+ =?utf-8?B?N0ZRZUMrVmk5OGdoeXlwMmxxTGdmY3VnVFM2ME5CSjYxbnBpNEZrNytUd2Rt?=
+ =?utf-8?B?UDU2SmtiY0FPR0RrL2JkU0xReEQ2MHpPbVl0TDJsa0V4RU1UY3hrZ1BtK3c5?=
+ =?utf-8?B?cEpOd1I3MFFLZEJ4UEYrSVRGcE12SnVIdU41d0ozcnVPTDhwUDNMamlmcG8x?=
+ =?utf-8?B?T2J6MEYrSmJ0bDRhd201U0lTdCtYWW5zaWFIWTJUZFBGSDZmRVRmUDhWRDg3?=
+ =?utf-8?Q?EPHs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8190.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(19092799006)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ejNCb2lNZWJ4K1czK0s5OVo5K0tCNEhqc29rcEkzY0I2WWJJSTN0VnNLbTBM?=
+ =?utf-8?B?S1BUL3c5UURnUjgzZWFTQmJmUG5hL2NtV0VFam82TGZ3Zk53WERUSktYWXhm?=
+ =?utf-8?B?bDRDSUttZ21TY3Z2RHBtRHpIKysvMjUrdjRaMUVtYjF1NGUvSTJNQkp0blhE?=
+ =?utf-8?B?M2VzTzJCM2ExRUhtRjEySnB6dUpDdjhHZjJtRm1GSHJjcENQUXZ2US9TQ0dO?=
+ =?utf-8?B?dEVIUE1mYnphRVB5bXliVTFvQkc4YS9kVUZPME90Wi9qRElWSXNTcVlDSXYx?=
+ =?utf-8?B?ZFRaaVVaVnJlTTRMQ1MxbTNRamovemNnY0lZa2srTnJyKzJWS2YwZkVuL1RB?=
+ =?utf-8?B?ZkU1TXhYMFZPMTVraXJqdHMwK29WYlVJdTNnRlVITTRrWUFNUlc2TVBEY0p5?=
+ =?utf-8?B?UndNVjM1MTBSQUUyYW45RFVlS1laN0hrcXQzaWN3a2NDM0JmbUk5b2pyZFYz?=
+ =?utf-8?B?VkpCUS9sVkN6R1h1anplWVdzMGZFTEQxWFhVeFp4K2p6L2xPT1ZKS0xHcTJz?=
+ =?utf-8?B?bHo1OTBoUzc1WUpMK3Z4V1pZQUVuSU5aaE10OEZ4Q3NCZHo0Z1V2VXhseXM2?=
+ =?utf-8?B?bUNoS1VhWE9sNDBWTVlIcGt0ZXRzY3VjWWlwSENBeHZoU1R2bXczeGNJVHEr?=
+ =?utf-8?B?TDJKcVZ1YzVQdUphVWpvVzluTmI3TkptZDhoOEt5SEowZWYyZWM2QWwyU29a?=
+ =?utf-8?B?eGFwaG9mVzBJcStGYkozdGIyK2dLVENhTVEzWm1PeG9QY3BkYzltbkMyT05t?=
+ =?utf-8?B?SjA4aFpXRTk3elVFZjM2dVhvOUwxKzdZWXdGUklMbWR1aUlPQlJQNUo4V2Rw?=
+ =?utf-8?B?aEFVL0xyeFBQbUVHNkhqZ1B3YVRaU0RYUEQ3a05uU3k1cFVvdUdqaEttaDhn?=
+ =?utf-8?B?anJ3UXNZeWRKYWZzZVJ5SXh3RWVTQXJ3bFJ5NnRRb25ZSjhRYzNRNG8xcFZa?=
+ =?utf-8?B?cENrY2U3N3JKS1UzY01RYXV1STlidUc4ZFpoTzg1dmU0eXAxN0RwcE1SbUIy?=
+ =?utf-8?B?TTU0UVJEUDFlUW5xMmFPZ3JEMk1JZTBycmJqd0hZbTVudVMvVGVJK0dVdm1n?=
+ =?utf-8?B?V2I4Yi80KzRGR1VlNW9rVkp2V2tqQ0toRHZIWUlFL2s4NVRmSFA3Z1ZMRlFX?=
+ =?utf-8?B?NjQ3cjROWXY5QlgwaC8ra0ZodDIyTTR4NDdhSTFPb1hFVnZlRnR0OFBTMVZ1?=
+ =?utf-8?B?eFlrdi9RbzQ2eFp4Tzhla1dFSmM3WTVLQmR4THJWYkhtRWhiZlpibmVGRnpH?=
+ =?utf-8?B?QVZMbzI4aXRuNWhLU2VQWG0xZmREcGVBQVNyWktGZWdablpSa2hSem5jbk9V?=
+ =?utf-8?B?cjVXeDNEdFhQZkxWK2xHUUFCY1lkNEVLNmhmU0RGamcycDNzR2kzdVBNYlV5?=
+ =?utf-8?B?YUlrOTg1elVLYktVRGZPdjNWRmRwUThuTmR6Rzg1QjYrU1NGWkhPamNaQ05S?=
+ =?utf-8?B?ZU8rc3hWWHAvTFVTaWZDOFhSYkkxMDZ4VWJEM1cyUzJWaDV0bzZTTXh2QlQ4?=
+ =?utf-8?B?QXdueVpWNVFQV0NZSGtKMmNHN1FUNmtaV0ZwRVBBQ3UxUVR1Ly9YMC8zaVV2?=
+ =?utf-8?B?VU5zQWE0aEo2L2dYQ1VvYTdtbDdZd0t5S1hxQU1WNWFJZDBpamwxWTFOSHFm?=
+ =?utf-8?B?cmVrQlBTWG9ldEVXWW1xeUNuY1NjTTRkcld2UUtQdHNxR3ljNjFrVHI5NjNR?=
+ =?utf-8?B?R1psODE4VTlqaUxNRGg2cnJyQmxkWTFkOWFUeHNoMnJpS1dSVzU1eFpodmFJ?=
+ =?utf-8?B?ZFA0RUhFei8vcHhPd3Y0TjRYUE5xWStNUWVWV25xY2U3cjAxTEVhaDJsL0pP?=
+ =?utf-8?B?dStqb3NhdkxXRndTYmtjaWVvcHZpenMySVlQbDcxNkQwMS9DWW5FeXdLZHhm?=
+ =?utf-8?B?dWRvbUZBL3ZyWENvaXAxSUR1b3h1QTdob0hEaWZDOG8wVTFNNENsWXRBMXpk?=
+ =?utf-8?B?UFZFdmp3YnZoUEczNDFCV3VsSUYzdWIzVmlWYWFvY054bUNEUUxwSlEzTG1n?=
+ =?utf-8?B?MW8xT2pSNlNtRW9mWHMwMWJwY29oK0hwSDBYNnk5c2cwVGR1NENVTlNkQU5P?=
+ =?utf-8?B?UE1URnpqR2Y3d3pkUjdlT0p6a3VzZEJoNUpKSnQ4eklhSmpWZWtyd2tJQnlk?=
+ =?utf-8?B?L0ZyQnlRdVV2ZHBJbGRxb2tMbGFnVG1UYlVRaytFZE1mWVhsNzA2Wk9EZnNV?=
+ =?utf-8?B?UVgyOTJYVkFYa3hVMDU2TTgwVG8xaVVtMUx5UTRqdWZjdFhrK2dRdS9CTXhU?=
+ =?utf-8?B?d0F1NWV4TmI2NVhiQ0VtRkJPOFBKMDVOWmlVTWxnbDRJUy84eUFpSWFLbVkv?=
+ =?utf-8?B?bmxRNFQxQmowTlJqQmZpeGZQbjZvbDlYM3lySHVtbWJQMW5vTmpEbUMySko4?=
+ =?utf-8?Q?A1n4Ur7pfH1jklfOfqO5VffqAyjYMwGvLbAJr?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 43f8ceaa-cafd-4adb-63ba-08de708a6f3c
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8190.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 14:15:00.9597
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: y3O1rYGig7IS2suWBwvZ1EctA1scXTS6gYm64vLVEAWNnUPbvsD3iux/kWYKhdvG21yUoA4OaBRIwYAns5p9ZlUwZO7kvTahuQiQMmxkHGHKRf+P7Dj7NVkNIr6pQv99
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9918
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_061303_987013_ACD559A0 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20260220_061509_486308_2F09D2D8 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,193 +205,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Krzysztof,
 
+On 2/20/2026 12:18 PM, Krzysztof Kozlowski wrote:
+> [You don't often get email from krzk@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> On 19/02/2026 12:36, Khristine Andreea Barbulescu wrote:
+>> Hello Rob,
+>>
+>> On 1/21/2026 4:19 AM, Rob Herring wrote:
+>>> On Tue, Jan 20, 2026 at 01:59:13PM +0200, Khristine Andreea Barbulescu wrote:
+>>>> From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+>>>>
+> 
+> 
+> BTW, one more thing, replying one month after the review, which was
+> given to you within one day, means entire context is gone, so actually
+> we assume that you will agree with the review, not discuss it.
+> 
+> Otherwise, please wait one more month for our response to your response,
+> before you post next version. :/
+> 
+> Best regards,
+> KrzysztofThanks for the review. I’ve recently taken over this patch set
+which has a long history and I delayed replies to avoid sending
+incomplete or misleading information while I was catching up.
+I understand your point about timing and will prioritize replying
+if there is anything unclear going forward. Apologies for my delay.
 
-On 2026/2/20 06:05, kernel test robot wrote:
-> Hi Leon,
-> 
-> kernel test robot noticed the following build errors:
-> 
-> [auto build test ERROR on bpf-next/master]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Leon-Hwang/bpf-Introduce-64-bit-bitops-kfuncs/20260219-223550
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
-> patch link:    https://lore.kernel.org/r/20260219142933.13904-3-leon.hwang%40linux.dev
-> patch subject: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs support for x86_64
-> config: x86_64-randconfig-073-20260220 (https://download.01.org/0day-ci/archive/20260220/202602200536.JWzGHAc6-lkp@intel.com/config)
-
-Ack.
-
-It was caused by the missing CONFIG_BPF_SYSCALL.
-
-$ rg _BPF .config
-118:CONFIG_BPF=y
-120:CONFIG_ARCH_WANT_DEFAULT_BPF_JIT=y
-125:# CONFIG_BPF_SYSCALL is not set
-126:CONFIG_BPF_JIT=y
-127:CONFIG_BPF_JIT_DEFAULT_ON=y
-1339:CONFIG_LWTUNNEL_BPF=y
-7449:CONFIG_IO_URING_BPF=y
-
-I'll make those symbols relied on CONFIG_BPF_SYSCALL in the next revision.
-
-Thanks,
-Leon
-
-> compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260220/202602200536.JWzGHAc6-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202602200536.JWzGHAc6-lkp@intel.com/
-> 
-> All errors (new ones prefixed by >>):
-> 
->    ld: arch/x86/net/bpf_jit_comp.o: in function `bpf_inlines_func_call':
->>> arch/x86/net/bpf_jit_comp.c:1621:(.text+0xe70b): undefined reference to `bpf_clz64'
->>> ld: arch/x86/net/bpf_jit_comp.c:1647:(.text+0xe718): undefined reference to `bpf_ctz64'
->>> ld: arch/x86/net/bpf_jit_comp.c:1673:(.text+0xe725): undefined reference to `bpf_ffs64'
->>> ld: arch/x86/net/bpf_jit_comp.c:1677:(.text+0xe732): undefined reference to `bpf_fls64'
->>> ld: arch/x86/net/bpf_jit_comp.c:1683:(.text+0xe743): undefined reference to `bpf_popcnt64'
->>> ld: arch/x86/net/bpf_jit_comp.c:1707:(.text+0xe758): undefined reference to `bpf_rol64'
->>> ld: arch/x86/net/bpf_jit_comp.c:1714:(.text+0xe765): undefined reference to `bpf_ror64'
->    ld: arch/x86/net/bpf_jit_comp.c:1647:(.text+0x10e85): undefined reference to `bpf_ctz64'
->    ld: arch/x86/net/bpf_jit_comp.c:1673:(.text+0x10e92): undefined reference to `bpf_ffs64'
->    ld: arch/x86/net/bpf_jit_comp.o: in function `bpf_jit_inlines_kfunc_call':
->>> arch/x86/net/bpf_jit_comp.c:4247:(.text+0x177c8): undefined reference to `bpf_ffs64'
->    ld: arch/x86/net/bpf_jit_comp.c:4247:(.text+0x177d1): undefined reference to `bpf_ctz64'
->    ld: arch/x86/net/bpf_jit_comp.c:4250:(.text+0x177da): undefined reference to `bpf_fls64'
->>> ld: arch/x86/net/bpf_jit_comp.c:4250:(.text+0x177e3): undefined reference to `bpf_clz64'
->    ld: arch/x86/net/bpf_jit_comp.c:4253:(.text+0x177ec): undefined reference to `bpf_popcnt64'
->    ld: arch/x86/net/bpf_jit_comp.c:4256:(.text+0x177f5): undefined reference to `bpf_ror64'
->    ld: arch/x86/net/bpf_jit_comp.c:4256:(.text+0x177ff): undefined reference to `bpf_rol64'
-> 
-> 
-> vim +1621 arch/x86/net/bpf_jit_comp.c
-> 
->   1607	
->   1608	static bool bpf_inlines_func_call(u8 **pprog, void *func)
->   1609	{
->   1610		bool has_popcnt = boot_cpu_has(X86_FEATURE_POPCNT);
->   1611		bool has_bmi1 = boot_cpu_has(X86_FEATURE_BMI1);
->   1612		bool has_abm = boot_cpu_has(X86_FEATURE_ABM);
->   1613		bool inlined = true;
->   1614		u8 *prog = *pprog;
->   1615	
->   1616		/*
->   1617		 * x86 Bit manipulation instruction set
->   1618		 * https://en.wikipedia.org/wiki/X86_Bit_manipulation_instruction_set
->   1619		 */
->   1620	
->> 1621		if (func == bpf_clz64 && has_abm) {
->   1622			/*
->   1623			 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
->   1624			 *
->   1625			 *   LZCNT - Count the Number of Leading Zero Bits
->   1626			 *
->   1627			 *     Opcode/Instruction
->   1628			 *     F3 REX.W 0F BD /r
->   1629			 *     LZCNT r64, r/m64
->   1630			 *
->   1631			 *     Op/En
->   1632			 *     RVM
->   1633			 *
->   1634			 *     64/32-bit Mode
->   1635			 *     V/N.E.
->   1636			 *
->   1637			 *     CPUID Feature Flag
->   1638			 *     LZCNT
->   1639			 *
->   1640			 *     Description
->   1641			 *     Count the number of leading zero bits in r/m64, return
->   1642			 *     result in r64.
->   1643			 */
->   1644			/* emit: x ? 64 - fls64(x) : 64 */
->   1645			/* lzcnt rax, rdi */
->   1646			EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
->> 1647		} else if (func == bpf_ctz64 && has_bmi1) {
->   1648			/*
->   1649			 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
->   1650			 *
->   1651			 *   TZCNT - Count the Number of Trailing Zero Bits
->   1652			 *
->   1653			 *     Opcode/Instruction
->   1654			 *     F3 REX.W 0F BC /r
->   1655			 *     TZCNT r64, r/m64
->   1656			 *
->   1657			 *     Op/En
->   1658			 *     RVM
->   1659			 *
->   1660			 *     64/32-bit Mode
->   1661			 *     V/N.E.
->   1662			 *
->   1663			 *     CPUID Feature Flag
->   1664			 *     BMI1
->   1665			 *
->   1666			 *     Description
->   1667			 *     Count the number of trailing zero bits in r/m64, return
->   1668			 *     result in r64.
->   1669			 */
->   1670			/* emit: x ? __ffs64(x) : 64 */
->   1671			/* tzcnt rax, rdi */
->   1672			EMIT5(0xF3, 0x48, 0x0F, 0xBC, 0xC7);
->> 1673		} else if (func == bpf_ffs64 && has_bmi1) {
->   1674			/* emit: __ffs64(x); x == 0 has been handled in verifier */
->   1675			/* tzcnt rax, rdi */
->   1676			EMIT5(0xF3, 0x48, 0x0F, 0xBC, 0xC7);
->> 1677		} else if (func == bpf_fls64 && has_abm) {
->   1678			/* emit: fls64(x) */
->   1679			/* lzcnt rax, rdi */
->   1680			EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
->   1681			EMIT3(0x48, 0xF7, 0xD8);       /* neg rax */
->   1682			EMIT4(0x48, 0x83, 0xC0, 0x40); /* add rax, 64 */
->> 1683		} else if (func == bpf_popcnt64 && has_popcnt) {
->   1684			/*
->   1685			 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
->   1686			 *
->   1687			 *   POPCNT - Return the Count of Number of Bits Set to 1
->   1688			 *
->   1689			 *     Opcode/Instruction
->   1690			 *     F3 REX.W 0F B8 /r
->   1691			 *     POPCNT r64, r/m64
->   1692			 *
->   1693			 *     Op/En
->   1694			 *     RM
->   1695			 *
->   1696			 *     64 Mode
->   1697			 *     Valid
->   1698			 *
->   1699			 *     Compat/Leg Mode
->   1700			 *     N.E.
->   1701			 *
->   1702			 *     Description
->   1703			 *     POPCNT on r/m64
->   1704			 */
->   1705			/* popcnt rax, rdi */
->   1706			EMIT5(0xF3, 0x48, 0x0F, 0xB8, 0xC7);
->> 1707		} else if (func == bpf_rol64) {
->   1708			EMIT1(0x51);             /* push rcx */
->   1709			/* emit: rol64(x, s) */
->   1710			EMIT3(0x48, 0x89, 0xF1); /* mov rcx, rsi */
->   1711			EMIT3(0x48, 0x89, 0xF8); /* mov rax, rdi */
->   1712			EMIT3(0x48, 0xD3, 0xC0); /* rol rax, cl */
->   1713			EMIT1(0x59);             /* pop rcx */
->> 1714		} else if (func == bpf_ror64) {
->   1715			EMIT1(0x51);             /* push rcx */
->   1716			/* emit: ror64(x, s) */
->   1717			EMIT3(0x48, 0x89, 0xF1); /* mov rcx, rsi */
->   1718			EMIT3(0x48, 0x89, 0xF8); /* mov rax, rdi */
->   1719			EMIT3(0x48, 0xD3, 0xC8); /* ror rax, cl */
->   1720			EMIT1(0x59);             /* pop rcx */
->   1721		} else {
->   1722			inlined = false;
->   1723		}
->   1724	
->   1725		*pprog = prog;
->   1726		return inlined;
->   1727	}
->   1728	
-> 
-
+Best regards,
+Khristine
 
