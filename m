@@ -4,164 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB32EC531F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 00:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB67BC531F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 00:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p+0djC6fzUubWx/nf9DDHfmqxKY1E4u0GjepDjFPGWk=; b=4J+7rZ2LrfLZv9r8IBvPntbUcP
-	e9ifqokM65y8/S0EepBQsoRi40WmsurHwvquHBkLeUOBUvkTQD5L7Mh5Fxaw0c3tWn3lDPmR0TIJt
-	ec2qa70Qq7Z9V8HN4kEFOKo0NXnoHN4vIMVLV+r2QXBhOchDTJdv4aWzpfrZ+sDnRGdxJg+s11cW+
-	yzt9FLlbSw3mWxEe2QbKk4yWbgTG0FNaNYDXFBhE1D8Rf8MLelzE9OGhQkwEdfXfB6Tz6DKS65pXy
-	kUekgs8pmpwbLO+O0Yub3PvktS4BLHlaueIPdV0z6mglYqX9S+U2V5GnFfxij98rpHsNNuFfWHP9u
-	8mfpc5Zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dg8JwpDSolSLBMhrmXm5uOOceqMFfere5VVKNjBSeNo=; b=mVP50qg4BPkFC02Jl9BiyfNcFm
+	jYBaEmhW4ZhDS6+ZNqyoDt5HC+DW8hH9UoPKwl7qKMq3xwhIIT+9bCeuD0fsBDS3ZssOiT5Qhv05q
+	8eaPZH1fAcMmMhlbhtYKYontYF7mNPbj6wz9uw18BRopFq72CWPxnd45cKt+TRdxurlsh0bdZDwlq
+	8PIMaN91S0SnI0yZQaIZ3eqZdltDa5nvpOZl7vEoyba6PN0RR956MOTNmfxF0nrcTdDArvRJWYo87
+	F4B0l3dQJGmwSFKQT5YOBdj44g+wskdhZCYuXBrjhCDtk08IrDgtuu3Wc3PvHUjmQ1z9f+e/wI+sG
+	UBb2v5bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtE6Q-0000000Cgm6-089a;
-	Fri, 20 Feb 2026 00:10:38 +0000
-Received: from mail-westusazon11010056.outbound.protection.outlook.com ([52.101.85.56] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vtEbP-0000000Clpt-1tq7;
+	Fri, 20 Feb 2026 00:42:39 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtE6J-0000000CglW-2L46
+	id 1vtEbM-0000000ClmR-1C1f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 00:10:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ataiTu9Be29O1u5iedo2K4Y2JiRSlIGOiTMDiOi2eqvhCpP8gR32W0dC/c4xgnh/13oHu6CEMk8O+WvoVzjRws5gEGCkdGtZG1QGqqH8q0jKq6qkrr11Whq7j3Qvetes+2Mdwz+uNEZ5T9jJq0b+1E8RsqNxqGaJHLLMFKD9z1kSI5vSnV5Vix9lxlhoDw2tBydPCRQGbyTqR1hQk6xCkodAfDZGerK/9rvhG3aNy+c1YYk6jpjj1R0YaF6Vjxz2zIycXTglACgF4TirM68JWHgvPHlczHW42KeeNjS2RSisvwGPChMKpPRJwRP4qPWOg4zcNHUKonIZpCrrCQ3LCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p+0djC6fzUubWx/nf9DDHfmqxKY1E4u0GjepDjFPGWk=;
- b=ZoHv2DNqYm7Uco9pr3pjKybzIe3BsCgH38hdpDW6Na3FqBet6HfljqYWPsY/melUm2UUf3pnt7aZwbXTbd0d/7mYE9MRdsEFLj6RWn8UEQuhN92zNaZMacS+rnBcyC7ewcQQ7v8m2Pmv/VLVYJx9oPTSzmNkLHB/wsDMWi54KsE1DGTOTuuQ32Iy8s2GQ6LO6nn/+cU9YDWIXZnbVO6Jzg8qcAR2ydlvKxJRXNNVOBHWGXYqjY7AJ5Az2oM8AEk/sAtbyDQcXIDYGpDRJKR4nCuaKa2nbR3qaQQKWR5488PX80fsvDbgYG3rPeyEwmSq3tHTaG3S3Wrbef2Q+4QdEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p+0djC6fzUubWx/nf9DDHfmqxKY1E4u0GjepDjFPGWk=;
- b=ABT4kv/MfYwLjbFoEPUBL57xvy2AgXDDlK6dlADHIY7mmTxebyAB3pM6gJtm8lzkKzYDqLvI5aZGvTnXaANmnrojyD2zE/4/FmS3zy3KD2fF1hQqnxY12EWjNtTxqgzUVJhJY6MeU0v610VpLXVNrdSoFkt9QqgRiMD8XbFfPCQ=
-Received: from SJ0PR03CA0145.namprd03.prod.outlook.com (2603:10b6:a03:33c::30)
- by SJ0PR10MB5858.namprd10.prod.outlook.com (2603:10b6:a03:421::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.13; Fri, 20 Feb
- 2026 00:10:26 +0000
-Received: from SJ5PEPF00000207.namprd05.prod.outlook.com
- (2603:10b6:a03:33c:cafe::b) by SJ0PR03CA0145.outlook.office365.com
- (2603:10b6:a03:33c::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.15 via Frontend Transport; Fri,
- 20 Feb 2026 00:10:26 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SJ5PEPF00000207.mail.protection.outlook.com (10.167.244.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Fri, 20 Feb 2026 00:10:26 +0000
-Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Feb
- 2026 18:10:25 -0600
-Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Feb
- 2026 18:10:25 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 19 Feb 2026 18:10:25 -0600
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61K0APc72943455;
-	Thu, 19 Feb 2026 18:10:25 -0600
-Message-ID: <7ad9d8bf-a962-40f0-bc8a-92228aeb0b4e@ti.com>
-Date: Thu, 19 Feb 2026 18:10:25 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Disable mmc Schmitt Trigger
-To: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>, "msp@baylibre.com"
-	<msp@baylibre.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-References: <20260106-topic-am62a-mmc-pinctrl-v6-19-next-v1-1-1190ac29aadb@baylibre.com>
- <c47697b4-6ebb-4af9-be96-c964d990835d@ti.com>
- <DFO764ES0FNP.1SUQK9R0EUUDQ@baylibre.com>
- <1a91fd40-e814-4b4c-8914-d8f0c4768e07@ti.com>
- <DG59D7WGM35A.1WNIIMNCQ8U3C@baylibre.com>
- <7ae7f6a1-0ee1-4d56-b1d0-f038a7d22b4c@ti.com>
- <b649669afe4e2c829389a6bedabe47446d2f3d2b.camel@siemens.com>
- <615c56c4564b38fe82585e9873949b538f24ae7b.camel@siemens.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <615c56c4564b38fe82585e9873949b538f24ae7b.camel@siemens.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000207:EE_|SJ0PR10MB5858:EE_
-X-MS-Office365-Filtering-Correlation-Id: 69747ab3-3e3c-4427-1df2-08de7014733b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TWtXQ0lIRjRpT2NiS25IRStyU3BSakFQR1MrNnlUZ2x5dFlPeUtCTUdvSjR6?=
- =?utf-8?B?cytMTkRVb2VOTGptQTFMV2pzV2E2Zy8yMmxDbkhnWGRWSHFnVFd1d0dKSHh4?=
- =?utf-8?B?SEtxYWZFZmthclBLa3JJTmRoTWRkU01zTVdBUXZ3Mnh6VzBEa0kxTGtZN3pW?=
- =?utf-8?B?cTVab1U5eFlLWGZnNHlkWmlnUnpQaDBnMGZqeUJWczFnYStVdEcyUGN1amhx?=
- =?utf-8?B?TEhEbDhyeFhOY0sydkppVGhjWE9HSkRadDBHajdzSnVESUlHVVJTVmpzdzlH?=
- =?utf-8?B?ZForVkpaTm5Sak1KazlxVlBrczZjcUxoV0RVUXdZSjBIcjhSRVFIdXBiM1dJ?=
- =?utf-8?B?ZklIcHlDclh6UWtUWFZ0ZjhQK1FrUDdYNXNMOTk3U0syOE1zVVdaWHVlcnE0?=
- =?utf-8?B?VVZPTVZBQTZwS25Sc01lbUh4VEc2WmFhbGJOUklySGU5ZzhtT29pdGh1aEdG?=
- =?utf-8?B?MGV1amh0S3U3RHc4M2FIdUdwNEJSSTZIdlpwNEl4ZDh4SUwyeFhTQjVzWHg2?=
- =?utf-8?B?Rnc4MnFBUHF6eEhLZFBQcG5hVlpXQnBDWGh3SzYvalVZU3piTU4rKzVrV3E2?=
- =?utf-8?B?d0FwMXBsN3cyR0o2NXN0ckd4Z0RUb01VSE5zRVMxSitFejE5VVZ1cnlSblp0?=
- =?utf-8?B?blVPQzFzUHdLVFEydWQrVzYvb09MRmZleHh4MWt1S3lHTFB2Ulc2bnVLeHo5?=
- =?utf-8?B?R0lZcFU1MzBTVE1rZHNxbVhUOVYzTEVHL1lRaVo2UFdQMFZFNnJuMSs0b0Iw?=
- =?utf-8?B?eGIzTTIvZVNxQ3ZIY1JuQjZ1TUsrT295Z1JRbmFXWURXdzFCcktFMGFidzFq?=
- =?utf-8?B?dndmbmwyOWpXcko2aUw5L2szbEhySzg5Tlo5WUdmTU1hUnZ2OGpTaFlaMEIw?=
- =?utf-8?B?a1RQZmIzVzJaVDlTdzV4V3JSeXg5UTRKcjU4a2VLVTZidVhkVzR6UlQwQTZy?=
- =?utf-8?B?UHA0Ymc1MHBlRHRkUDc3M3NRRDRVb1dWYS8yZFFaTk1KVnpKY3p5N0h2cER6?=
- =?utf-8?B?eFhFck53dUhxVVJyM3pDMStFSjAydXFyUzRDblBDWjZGYXFGVkVLTXQwdFI5?=
- =?utf-8?B?Z0FNQ2cyako0dVVsSmVscXdrVm1tUUl1d25CbmJoa2hxQmtqbmkvdCs2ZnQ0?=
- =?utf-8?B?UG9aSm5yQmxOL3ZyNVlPdWhmZS92ZmlHS0xzNzB3MnFxK1p1U3BVL2hobTR1?=
- =?utf-8?B?Q2hNOTN5WmFGRWRlT0RGRWxqNUxDTXB4R0Nra1hObVBhS3RDK3dwdENaeFo0?=
- =?utf-8?B?c3JoWi9iSDFhMFR0UDRsQ3dFSzN6QnFnb3krdUlqbTk1alk2RWtXU2Y5SDgy?=
- =?utf-8?B?dUdKYm1QQStKalpKdUtkQ21XdzBDeHBDRHFHLzFKN3FnbTNHVkU1bm1mV0FC?=
- =?utf-8?B?Z3F0SmNCcXlIQ3RwUS9HQU1odUVHcjZGUUdaVlRMN1o1bTdESU53SFR5Y2tj?=
- =?utf-8?B?VUNROG5hQ2RvY2dZQmZzcFY0amJUc1RyakQ1NXJPSTN2TzE0bURtOFVBbXUv?=
- =?utf-8?B?TGRiaWtKZHdacEhWTUd4OWFaVnJzZ3pObTZYakdlc1dGSnd4dU1oVjRtdHlp?=
- =?utf-8?B?WVVjdVZVYTdSQjVDWWpKeXBpT0J2ZGxFc0VPc0xPQXF1VUhnN2phbDhZcndr?=
- =?utf-8?B?d1VaeGhwUDEveC9aUXlzaHE5Y1lxRWR5MkR6M0xBYmVlTkJMRjFDdjJBeHdx?=
- =?utf-8?B?NDZoMlQ0bHpRTDFBV3VjTmlUMm42VmJ2Vkk1RTkzVEhYNTdJbFVWSW1qZkN0?=
- =?utf-8?B?NmRaL1l3WUlpQlpkNEpoMUZsT200L0kwcG1ZcXJ1VG04MG9kazV2UmVNai80?=
- =?utf-8?B?enAwN3NrUGRsSHh5SzlVUk9lR0NxZFVITFh5NzA0OFhwRjNZdVlHSTRhYmFw?=
- =?utf-8?B?bHc2SDFua0Z2dHROc3JnNGF5b1dkelF3RWJpbndCTWdXWGlnbTkyTm9UUlhS?=
- =?utf-8?B?MGNsdDFuTkZKMWR1UzdTKzFCY3F1YlZzVmZGcDRreVA3a2pkMGgzMmZzVy96?=
- =?utf-8?B?ZHNGK0dGbjhFVkl1UW04L3h0eVRtMFd6NGZ4c3l1RngyeXVXRS94UFhpaDZQ?=
- =?utf-8?B?K21Bd0NIVHkreFVCazdrNzNCTzhTTkMxZStVa25uOGFXSkpxbkNENkwzQmVp?=
- =?utf-8?B?anBQeGplcHA2TUVJMEg3Q0NjM0ErMXlvREJCR2pvc2ZRODZuai91WFl4M25p?=
- =?utf-8?Q?4zikY7quKJ7ypfW4PCPNL1Y=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: +6dtfliIMqVL/igl/9c0KkqQYeEmSLHOJcqCeYWR51pBQPe/KijjFlcK46ij3EV71F6T4x+7XOKJzjUZV/Z/CU2/t9vGQCf2HHXSnkCNGYGNKIGYWJlpW/9l8JSUTnsC3GOoDl6reXCEpAolP8uCxSVDO8iTp/WMoIEJvlk3reTHmh6RaRBmHL3b45h1p366SGqjkCvKZiPTUEvx6amRZxpnr0W7V5JLUBVqODAAqmytDFtUz9WUKTjP6uw/DnG0dU1VtdiElp5XJ6OEGvs7a+9tHOy5qbCbutco5KXARztzUpSNm95aztTCPfQ+bKR1D9AA0IV2rHQNTM/2P6eMWk5uSYXHwwLpn9KbEJ8/p4w/LPwnMUdyBZRvDMQJGXGrdynNzhmDAGpwcX8nPrzmCpiGDXZJ7h9Q6KY7a5ZBCFfryEB2Twl3oOs0m9xdQqPc
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 00:10:26.6724
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 69747ab3-3e3c-4427-1df2-08de7014733b
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000207.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5858
+	Fri, 20 Feb 2026 00:42:38 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2aae3810558so18604565ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 16:42:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1771548154; x=1772152954; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=dg8JwpDSolSLBMhrmXm5uOOceqMFfere5VVKNjBSeNo=;
+        b=cMXpH5Wd2yR7uu2UJ+d/RZXeV9EFkB5/ODkrsKWBkS8oJA/g7gjkXtg+GxT5Lly7i1
+         ritSo/8VMFBA/j8W/6VPnz3n9btw50XjUpxV0xTqqYSDoqP3W7nbVpa9V9oJWP3kD816
+         OU84qS3W6XE4mBaO6GMsVmlPsfJCCk9RRAcjs2adR8ki2s9rgbczaDQ1TonEc2JhHPct
+         ve20bA2uy/bo/63GFGURm57yNVuAubJFhG1XKMVuQTHpHsVosMnlI8328sJQIlkwZZHn
+         vTSbtax+xbq2pKuPOglYpSfu3UUZcESGnWgH7tsp6NdxX6Q5G+/Pc0KDu+WG0xnxspqg
+         lCSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771548154; x=1772152954;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dg8JwpDSolSLBMhrmXm5uOOceqMFfere5VVKNjBSeNo=;
+        b=OFBljhAvffUvAelDg5NFVQW8Dg/FeFhA69whnV1mZIKrlzy6OYKMVih8AkBmZiG+Y+
+         yi445KRCefL1/WZ5y/TgCkWHJvlHQmOgqquVZwceLfnbzJNekPI6dekHPCgSwbUy6XgW
+         BoJetZ9vuNxz90ebAcJRedKyCu/qXVCsJUEaNRZSssbnmzQSfFyoX1blIlyuZxocTuTv
+         aiud3CKKT6WdVbOTMOgE3FtbN2xCHMQP4sYbWiq9CmBlTqNF1jG9v0ZjQNRW2dlaytHg
+         /Vh/E5XhZEaMnAoc+5sVoP7LCcPCC0c3ZfLKB5x72Jmk75bDDHP4oz1kC4esM15ii/gH
+         pAUA==
+X-Forwarded-Encrypted: i=1; AJvYcCXI1W3/l3tPJl4L1QANnGN2lV1Qtl59RD5GePJTNjX1reEKVM32iwuSZIhdmd0alTO7RxaMcVi0q751/bucvWZo@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywhf0sp/Kj/B5B3YK5oM4sAPxS7if8mdpnV4TIDJsl+Fm9lySVh
+	r98Hf2oj4nocBNHKu/2Mpn5IZEgjgh2MdAMN92R5jHyajonf3QiggaI3ez6LaVNSo5UP6k/tkuK
+	TToAOTQltgQkKrg==
+X-Received: from pjbsz4.prod.google.com ([2002:a17:90b:2d44:b0:354:aa76:8270])
+ (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:190d:b0:29e:c2de:4ad with SMTP id d9443c01a7336-2ad5b03d9eamr38042765ad.24.1771548154020;
+ Thu, 19 Feb 2026 16:42:34 -0800 (PST)
+Date: Fri, 20 Feb 2026 00:42:13 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.414.gf7e9f6c205-goog
+Message-ID: <20260220004223.4168331-1-dmatlack@google.com>
+Subject: [PATCH v2 00/10] KVM: selftests: Use kernel-style integer and
+ g[vp]a_t types
+From: David Matlack <dmatlack@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Ackerley Tng <ackerleytng@google.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Bibo Mao <maobibo@loongson.cn>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Colin Ian King <colin.i.king@gmail.com>, 
+	David Hildenbrand <david@kernel.org>, David Matlack <dmatlack@google.com>, Fuad Tabba <tabba@google.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, James Houghton <jthoughton@google.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Lisa Wang <wyihan@google.com>, loongarch@lists.linux.dev, 
+	Marc Zyngier <maz@kernel.org>, Maxim Levitsky <mlevitsk@redhat.com>, Nutty Liu <nutty.liu@hotmail.com>, 
+	Oliver Upton <oupton@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	"Pratik R. Sampat" <prsampat@amd.com>, Rahul Kumar <rk0006818@gmail.com>, 
+	Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Wu Fei <wu.fei9@sanechips.com.cn>, Yosry Ahmed <yosry.ahmed@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_161031_801561_1AD74B38 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260219_164236_327303_A5B73E39 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,41 +104,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexander,
+This series renames types across all KVM selftests to more align with
+types used in the kernel:
 
-On 2/17/26 7:23 AM, Sverdlin, Alexander wrote:
-> On Tue, 2026-02-17 at 13:57 +0100, Alexander Sverdlin wrote:
->>>>>>> Can you please run a quick tap sweep on MMC1 and MMC0 interfaces like
->>>>>>> so? https://gist.github.com/jmenti/f4a73a8323e44bf717c6d2c528c499ca
->>>>>>>
->>>>>>> This will give me an idea if whether we should be talking about
->>>>>>> revisiting characterization with ST_ENA=1.
->>
->> I wanted to apply your patch and test on our HW, but I have some doubts, if
->> the patch maybe missing something:
->>
->> - am654_sdhci_write_otapdly() turns out to be unused in any upstream U-Boot version
->> - new "omap" variable in am654_sdhci_execute_tuning() is in fact unused as well
-> 
-> and
-> 
-> | /home/sverdlin/u-boot/drivers/mmc/am654_sdhci.c: In function 'j721e_4bit_sdhci_set_ios_post':
-> | /home/sverdlin/u-boot/drivers/mmc/am654_sdhci.c:598:9: error: 'itap_del_sel' is used uninitialized [-Werror=uninitialized]
-> |   598 |         printf("j721e_4bit_sdhci_set_ios_post, mode=%d, otap=%d, itap=%d\n", mode, otap_del_sel, itap_del_sel);
-> |       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> | /home/sverdlin/u-boot/drivers/mmc/am654_sdhci.c:594:13: note: 'itap_del_sel' was declared here
-> |   594 |         u32 itap_del_sel;
-> |       |             ^~~~~~~~~~~~
-> 
-> 
-> so I'm not sure regarding the previous test results at all any longer..
+  vm_vaddr_t -> gva_t
+  vm_paddr_t -> gpa_t
 
-Sorry for the late reply, somehow I missed this email.
+  uint64_t -> u64
+  uint32_t -> u32
+  uint16_t -> u16
+  uint8_t  -> u8
 
-Oh my, I am not sure what happend but seems like I did not copy the
-whole patch correctly. Were you able to bypass or do you need me
-to rebase the patch and copy correctly?
+  int64_t -> s64
+  int32_t -> s32
+  int16_t -> s16
+  int8_t  -> s8
 
-~ Judith
+The goal of this series is to make the KVM selftests code more concise
+(the new type names are shorter) and more similar to the kernel, since
+selftests are developed by kernel developers.
+
+v2:
+ - Reapply the series on top of kvm/queue
+
+v1: https://lore.kernel.org/kvm/20250501183304.2433192-1-dmatlack@google.com/
+
+David Matlack (10):
+  KVM: selftests: Use gva_t instead of vm_vaddr_t
+  KVM: selftests: Use gpa_t instead of vm_paddr_t
+  KVM: selftests: Use gpa_t for GPAs in Hyper-V selftests
+  KVM: selftests: Use u64 instead of uint64_t
+  KVM: selftests: Use s64 instead of int64_t
+  KVM: selftests: Use u32 instead of uint32_t
+  KVM: selftests: Use s32 instead of int32_t
+  KVM: selftests: Use u16 instead of uint16_t
+  KVM: selftests: Use s16 instead of int16_t
+  KVM: selftests: Use u8 instead of uint8_t
+
+ .../selftests/kvm/access_tracking_perf_test.c |  42 +--
+ tools/testing/selftests/kvm/arch_timer.c      |   6 +-
+ .../selftests/kvm/arm64/aarch32_id_regs.c     |  14 +-
+ .../testing/selftests/kvm/arm64/arch_timer.c  |   8 +-
+ .../kvm/arm64/arch_timer_edge_cases.c         | 161 +++++----
+ .../selftests/kvm/arm64/debug-exceptions.c    |  72 ++--
+ .../testing/selftests/kvm/arm64/hypercalls.c  |  24 +-
+ .../testing/selftests/kvm/arm64/idreg-idst.c  |   4 +-
+ .../testing/selftests/kvm/arm64/no-vgic-v3.c  |   6 +-
+ .../selftests/kvm/arm64/page_fault_test.c     |  82 ++---
+ tools/testing/selftests/kvm/arm64/psci_test.c |  26 +-
+ .../testing/selftests/kvm/arm64/sea_to_user.c |  32 +-
+ .../testing/selftests/kvm/arm64/set_id_regs.c |  66 ++--
+ .../selftests/kvm/arm64/smccc_filter.c        |  10 +-
+ tools/testing/selftests/kvm/arm64/vgic_init.c |  56 +--
+ tools/testing/selftests/kvm/arm64/vgic_irq.c  | 137 ++++----
+ .../selftests/kvm/arm64/vgic_lpi_stress.c     |  20 +-
+ .../selftests/kvm/arm64/vpmu_counter_access.c |  56 +--
+ .../testing/selftests/kvm/coalesced_io_test.c |  38 +-
+ .../selftests/kvm/demand_paging_test.c        |  10 +-
+ .../selftests/kvm/dirty_log_perf_test.c       |  14 +-
+ tools/testing/selftests/kvm/dirty_log_test.c  |  82 ++---
+ tools/testing/selftests/kvm/get-reg-list.c    |   2 +-
+ .../testing/selftests/kvm/guest_memfd_test.c  |  16 +-
+ .../testing/selftests/kvm/guest_print_test.c  |  22 +-
+ .../selftests/kvm/hardware_disable_test.c     |   6 +-
+ .../selftests/kvm/include/arm64/arch_timer.h  |  30 +-
+ .../selftests/kvm/include/arm64/delay.h       |   4 +-
+ .../testing/selftests/kvm/include/arm64/gic.h |   8 +-
+ .../selftests/kvm/include/arm64/gic_v3_its.h  |   8 +-
+ .../selftests/kvm/include/arm64/processor.h   |  22 +-
+ .../selftests/kvm/include/arm64/ucall.h       |   4 +-
+ .../selftests/kvm/include/arm64/vgic.h        |  22 +-
+ .../testing/selftests/kvm/include/kvm_util.h  | 328 +++++++++---------
+ .../selftests/kvm/include/kvm_util_types.h    |   4 +-
+ .../kvm/include/loongarch/arch_timer.h        |   4 +-
+ .../selftests/kvm/include/loongarch/ucall.h   |   4 +-
+ .../testing/selftests/kvm/include/memstress.h |  30 +-
+ .../selftests/kvm/include/riscv/arch_timer.h  |  22 +-
+ .../selftests/kvm/include/riscv/processor.h   |   9 +-
+ .../selftests/kvm/include/riscv/ucall.h       |   4 +-
+ .../kvm/include/s390/diag318_test_handler.h   |   2 +-
+ .../selftests/kvm/include/s390/facility.h     |   4 +-
+ .../selftests/kvm/include/s390/ucall.h        |   4 +-
+ .../testing/selftests/kvm/include/sparsebit.h |   6 +-
+ .../testing/selftests/kvm/include/test_util.h |  40 ++-
+ .../selftests/kvm/include/timer_test.h        |  18 +-
+ .../selftests/kvm/include/ucall_common.h      |  22 +-
+ .../selftests/kvm/include/userfaultfd_util.h  |   6 +-
+ .../testing/selftests/kvm/include/x86/apic.h  |  22 +-
+ .../testing/selftests/kvm/include/x86/evmcs.h |  22 +-
+ .../selftests/kvm/include/x86/hyperv.h        |  28 +-
+ .../selftests/kvm/include/x86/kvm_util_arch.h |  36 +-
+ tools/testing/selftests/kvm/include/x86/pmu.h |   9 +-
+ .../selftests/kvm/include/x86/processor.h     | 282 ++++++++-------
+ tools/testing/selftests/kvm/include/x86/sev.h |  20 +-
+ .../selftests/kvm/include/x86/svm_util.h      |  12 +-
+ .../testing/selftests/kvm/include/x86/ucall.h |   2 +-
+ tools/testing/selftests/kvm/include/x86/vmx.h |  70 ++--
+ .../selftests/kvm/kvm_page_table_test.c       |  54 +--
+ tools/testing/selftests/kvm/lib/arm64/gic.c   |   6 +-
+ .../selftests/kvm/lib/arm64/gic_private.h     |  26 +-
+ .../testing/selftests/kvm/lib/arm64/gic_v3.c  |  90 ++---
+ .../selftests/kvm/lib/arm64/gic_v3_its.c      |  12 +-
+ .../selftests/kvm/lib/arm64/processor.c       | 126 +++----
+ tools/testing/selftests/kvm/lib/arm64/ucall.c |  12 +-
+ tools/testing/selftests/kvm/lib/arm64/vgic.c  |  40 +--
+ tools/testing/selftests/kvm/lib/elf.c         |   8 +-
+ tools/testing/selftests/kvm/lib/guest_modes.c |   2 +-
+ .../testing/selftests/kvm/lib/guest_sprintf.c |  18 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 220 ++++++------
+ .../selftests/kvm/lib/loongarch/processor.c   |  79 +++--
+ .../selftests/kvm/lib/loongarch/ucall.c       |  12 +-
+ tools/testing/selftests/kvm/lib/memstress.c   |  38 +-
+ .../selftests/kvm/lib/riscv/processor.c       |  58 ++--
+ .../kvm/lib/s390/diag318_test_handler.c       |  12 +-
+ .../testing/selftests/kvm/lib/s390/facility.c |   2 +-
+ .../selftests/kvm/lib/s390/processor.c        |  42 +--
+ tools/testing/selftests/kvm/lib/sparsebit.c   |  18 +-
+ tools/testing/selftests/kvm/lib/test_util.c   |  30 +-
+ .../testing/selftests/kvm/lib/ucall_common.c  |  30 +-
+ .../selftests/kvm/lib/userfaultfd_util.c      |  14 +-
+ tools/testing/selftests/kvm/lib/x86/apic.c    |   2 +-
+ tools/testing/selftests/kvm/lib/x86/hyperv.c  |  14 +-
+ .../testing/selftests/kvm/lib/x86/memstress.c |  14 +-
+ tools/testing/selftests/kvm/lib/x86/pmu.c     |   8 +-
+ .../testing/selftests/kvm/lib/x86/processor.c | 199 ++++++-----
+ tools/testing/selftests/kvm/lib/x86/sev.c     |  20 +-
+ tools/testing/selftests/kvm/lib/x86/svm.c     |  16 +-
+ tools/testing/selftests/kvm/lib/x86/ucall.c   |   4 +-
+ tools/testing/selftests/kvm/lib/x86/vmx.c     |  44 +--
+ .../selftests/kvm/loongarch/arch_timer.c      |  28 +-
+ .../kvm/memslot_modification_stress_test.c    |  10 +-
+ .../testing/selftests/kvm/memslot_perf_test.c | 164 ++++-----
+ tools/testing/selftests/kvm/mmu_stress_test.c |  28 +-
+ .../selftests/kvm/pre_fault_memory_test.c     |  10 +-
+ .../testing/selftests/kvm/riscv/arch_timer.c  |   8 +-
+ .../testing/selftests/kvm/riscv/ebreak_test.c |   6 +-
+ .../selftests/kvm/riscv/get-reg-list.c        |   4 +-
+ .../selftests/kvm/riscv/sbi_pmu_test.c        |   8 +-
+ tools/testing/selftests/kvm/s390/debug_test.c |   8 +-
+ tools/testing/selftests/kvm/s390/memop.c      |  94 ++---
+ tools/testing/selftests/kvm/s390/resets.c     |   6 +-
+ .../selftests/kvm/s390/shared_zeropage_test.c |   2 +-
+ tools/testing/selftests/kvm/s390/tprot.c      |  24 +-
+ .../selftests/kvm/s390/ucontrol_test.c        |   2 +-
+ .../selftests/kvm/set_memory_region_test.c    |  40 +--
+ tools/testing/selftests/kvm/steal_time.c      |  66 ++--
+ .../kvm/system_counter_offset_test.c          |  12 +-
+ tools/testing/selftests/kvm/x86/amx_test.c    |  14 +-
+ .../selftests/kvm/x86/aperfmperf_test.c       |  16 +-
+ .../selftests/kvm/x86/apic_bus_clock_test.c   |  24 +-
+ tools/testing/selftests/kvm/x86/cpuid_test.c  |   6 +-
+ tools/testing/selftests/kvm/x86/debug_regs.c  |   4 +-
+ .../kvm/x86/dirty_log_page_splitting_test.c   |  16 +-
+ .../testing/selftests/kvm/x86/fastops_test.c  |  52 +--
+ .../selftests/kvm/x86/feature_msrs_test.c     |  12 +-
+ .../selftests/kvm/x86/fix_hypercall_test.c    |  20 +-
+ .../selftests/kvm/x86/flds_emulation.h        |   6 +-
+ .../testing/selftests/kvm/x86/hwcr_msr_test.c |  10 +-
+ .../testing/selftests/kvm/x86/hyperv_clock.c  |   6 +-
+ .../testing/selftests/kvm/x86/hyperv_evmcs.c  |  10 +-
+ .../kvm/x86/hyperv_extended_hypercalls.c      |  20 +-
+ .../selftests/kvm/x86/hyperv_features.c       |  26 +-
+ tools/testing/selftests/kvm/x86/hyperv_ipi.c  |  12 +-
+ .../selftests/kvm/x86/hyperv_svm_test.c       |  10 +-
+ .../selftests/kvm/x86/hyperv_tlb_flush.c      |  36 +-
+ .../selftests/kvm/x86/kvm_buslock_test.c      |   2 +-
+ .../selftests/kvm/x86/kvm_clock_test.c        |  14 +-
+ tools/testing/selftests/kvm/x86/kvm_pv_test.c |  10 +-
+ .../selftests/kvm/x86/monitor_mwait_test.c    |   2 +-
+ .../selftests/kvm/x86/nested_close_kvm_test.c |   2 +-
+ .../selftests/kvm/x86/nested_dirty_log_test.c |  10 +-
+ .../selftests/kvm/x86/nested_emulation_test.c |  20 +-
+ .../kvm/x86/nested_exceptions_test.c          |   6 +-
+ .../kvm/x86/nested_invalid_cr3_test.c         |   2 +-
+ .../selftests/kvm/x86/nested_set_state_test.c |   4 +-
+ .../kvm/x86/nested_tsc_adjust_test.c          |  12 +-
+ .../kvm/x86/nested_tsc_scaling_test.c         |  26 +-
+ .../kvm/x86/nested_vmsave_vmload_test.c       |   2 +-
+ .../selftests/kvm/x86/nx_huge_pages_test.c    |  18 +-
+ .../selftests/kvm/x86/platform_info_test.c    |   6 +-
+ .../selftests/kvm/x86/pmu_counters_test.c     | 110 +++---
+ .../selftests/kvm/x86/pmu_event_filter_test.c | 102 +++---
+ .../kvm/x86/private_mem_conversions_test.c    |  78 ++---
+ .../kvm/x86/private_mem_kvm_exits_test.c      |  14 +-
+ .../selftests/kvm/x86/set_boot_cpu_id.c       |   6 +-
+ .../selftests/kvm/x86/set_sregs_test.c        |   6 +-
+ .../selftests/kvm/x86/sev_init2_tests.c       |   6 +-
+ .../selftests/kvm/x86/sev_smoke_test.c        |  16 +-
+ .../x86/smaller_maxphyaddr_emulation_test.c   |   8 +-
+ tools/testing/selftests/kvm/x86/smm_test.c    |   8 +-
+ tools/testing/selftests/kvm/x86/state_test.c  |  14 +-
+ .../selftests/kvm/x86/svm_int_ctl_test.c      |   2 +-
+ .../kvm/x86/svm_nested_shutdown_test.c        |   2 +-
+ .../kvm/x86/svm_nested_soft_inject_test.c     |  10 +-
+ .../selftests/kvm/x86/svm_vmcall_test.c       |   2 +-
+ .../selftests/kvm/x86/sync_regs_test.c        |   2 +-
+ .../kvm/x86/triple_fault_event_test.c         |   4 +-
+ .../testing/selftests/kvm/x86/tsc_msrs_test.c |   2 +-
+ .../selftests/kvm/x86/tsc_scaling_sync.c      |   4 +-
+ .../selftests/kvm/x86/ucna_injection_test.c   |  45 +--
+ .../selftests/kvm/x86/userspace_io_test.c     |   4 +-
+ .../kvm/x86/userspace_msr_exit_test.c         |  58 ++--
+ .../selftests/kvm/x86/vmx_apic_access_test.c  |   4 +-
+ .../kvm/x86/vmx_apicv_updates_test.c          |   4 +-
+ .../kvm/x86/vmx_invalid_nested_guest_state.c  |   2 +-
+ .../testing/selftests/kvm/x86/vmx_msrs_test.c |  22 +-
+ .../kvm/x86/vmx_nested_la57_state_test.c      |   4 +-
+ .../selftests/kvm/x86/vmx_pmu_caps_test.c     |  12 +-
+ .../kvm/x86/vmx_preemption_timer_test.c       |   2 +-
+ .../selftests/kvm/x86/xapic_ipi_test.c        |  58 ++--
+ .../selftests/kvm/x86/xapic_state_test.c      |  20 +-
+ .../selftests/kvm/x86/xapic_tpr_test.c        |  24 +-
+ .../selftests/kvm/x86/xcr0_cpuid_test.c       |   8 +-
+ .../selftests/kvm/x86/xen_shinfo_test.c       |  22 +-
+ .../testing/selftests/kvm/x86/xss_msr_test.c  |   2 +-
+ 177 files changed, 2514 insertions(+), 2519 deletions(-)
+
+
+base-commit: b1195183ed42f1522fae3fe44ebee3af437aa000
+-- 
+2.53.0.414.gf7e9f6c205-goog
 
 
