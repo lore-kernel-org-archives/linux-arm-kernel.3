@@ -4,80 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D2CEC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEF8C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kc6/Eir/gKPSVkbLPrICPq9c00va2Ku7SFS7v5CxSDE=; b=y2VdwVZTewyKCG0Bh1MquAJXLL
-	M+VxA4KnxPYxoyzlsG7L1wr+3pZhCQCMlJUpIbAYhfdt+0q7Po0ByHYUm4v0/lBFwnltnAhnkcuw6
-	dRk00QpQgvJVPo3tHsWkjaE3uE76Lr20nRGQblEGC0cxFrFZl7/XZklG58Mx6nKd8oYnY6XykZVq7
-	/zCNDtTBd2H4bcfvf9II/tlUZ6LD5Dg3/ZMpUP/Z5odb/0GK14vUU8k4EpqhUJh0sxTYcpv4CagBO
-	bn3GHbJwgLohjboeB7j4JwTEub4CkSLz5E2CNZMNdGyRufYndNnGxTUnEp17RqlHuCspg73HvPjPX
-	/xoD6uBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WRgJPJHqRfLb+WHLjKlFBsjmiJ+JdZ//535g1VN0uz4=; b=FaaTRyew6L+6j64bZM9Ei+2PvF
+	KYkl9iahYtCBkukHF0u7HME7tiu8vrKubpzkWYgzj2IRH6sIUU5LOPGFXdhDKqLOgIh6XzLKWT2gL
+	ZIWmzAdIfULk8usSgMc3Dqz73Nxh61H1+yktFTdin+afkW/26ZmDigu74xHHzTUUwIn1HKzZjFiBl
+	CuFJiHMZzXukWz0fuikuLrq5NIpyKg7yxk5S/ThZ/tM54YOkT6o5PSgbdv+sMW49TN9tD8X0Shcfs
+	OFB4zX5NyC3iigUoEc6ZBfZQFVdxhWSzBYDwWVsKyAJrc41U3daTFb6T0yeYmyn3xM7rwKUkP/Aqs
+	NH3gKIng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNSL-0000000DrdS-3Ilr;
-	Fri, 20 Feb 2026 10:09:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vtNZO-0000000DvqQ-2WJ2;
+	Fri, 20 Feb 2026 10:17:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNSI-0000000DraT-1WOf
+	id 1vtNZL-0000000DvoD-3wzV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 10:09:52 +0000
+	Fri, 20 Feb 2026 10:17:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC9414436A;
-	Fri, 20 Feb 2026 10:09:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7959BC2BC87;
-	Fri, 20 Feb 2026 10:09:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BC35F61859;
+	Fri, 20 Feb 2026 10:17:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67917C116D0;
+	Fri, 20 Feb 2026 10:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771582189;
-	bh=cn4TTDudr7pyoUuW5ws/Qgyj6NNj2ywFq9qEjCdNWOQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Js4XPV0vpJZqOW6TsfAgkmrnaDspmvCj+19swe9MRf2GbJNXSdl3DXSwcQAvHnkff
-	 lfczSiVLp7RZJthFs7OAQuhE/ADglIxJAWwoFyBVSaTFE7pKUJFj9mZcWQzms3Kt0k
-	 F8xiVTqBaxLcu29TcQOvEJWOu/Bca32EiFwoBmp7dbaLOni7teB9cTe1uuy2IJ3fGa
-	 VssfyA9Yrg7vUUiCy03mR797BwNIXCG0i5Ikq9AeUjNyvVdRvzgW8icgzu9YTQjNU6
-	 g9R2iswJ5qagdRRgxmXUMjD2TpsEsjQhlm7ZobEcz3N8iA1k435TjER9oodWqQmo2I
-	 wvu5tBId+L7cg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vtNSF-0000000CP7W-07ar;
-	Fri, 20 Feb 2026 10:09:47 +0000
-Date: Fri, 20 Feb 2026 10:09:46 +0000
-Message-ID: <86v7frafpx.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 1/9] arm64: Add logic to fully remove features from sanitised id registers
-In-Reply-To: <CA+EHjTzVRq3r-7UR-MJYvv-Aw4kHQDHEmwtqY9is-fRDm-J06A@mail.gmail.com>
-References: <20260219195533.2455736-1-maz@kernel.org>
-	<20260219195533.2455736-2-maz@kernel.org>
-	<CA+EHjTzVRq3r-7UR-MJYvv-Aw4kHQDHEmwtqY9is-fRDm-J06A@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_020950_447050_58DD7503 
-X-CRM114-Status: GOOD (  45.31  )
+	s=k20201202; t=1771582626;
+	bh=DwJRqwTIxPH4O6waaaWkmQc1GediIB0SchBhEhcUMf0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uqJwOIzWN+T6wPgd8AKTu2b9HuLG1WazY+eZbbLoQF4YGr9jtksWgUNv84WxT8uws
+	 2aL2TV6mrWsFt5LUdwnxL19wEz5mltZHnYAGgIVPP0GuorDih2fY1z2EzW2LCVPLhc
+	 Ntvs7TCFBE+VPdGvxq1GsRGNP13X+BP2IzT21I2+UbHzgfMoSHyp1hTOnH4xTjb4mL
+	 Qhw1hge6i0CxrqkQzqDfesNW6evho36iLwI8x7OoLPymOPdY3m1CSS/VwYqs5+uVs9
+	 /oPlMJLScpPxxjddiAq0XHhQlXW+HAscwFm+QzABg2SCnTu5K41aZIv7Npzhm9jYdJ
+	 GQXSsD/uWNnow==
+Message-ID: <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
+Date: Fri, 20 Feb 2026 11:16:58 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>,
+ Rob Herring <robh@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
+ devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
+ Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ "Vincent Guittot devicetree @ vger . kernel . org"
+ <vincent.guittot@linaro.org>
+References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
+ <20260121021913.GA1704619-robh@kernel.org>
+ <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,225 +134,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Fuad,
-
-Thanks for taking a look.
-
-On Fri, 20 Feb 2026 08:36:04 +0000,
-Fuad Tabba <tabba@google.com> wrote:
+On 19/02/2026 12:36, Khristine Andreea Barbulescu wrote:
+>>
+>>> +      reg:
+>>> +        maxItems: 1
+>>
+>> You have 'reg' so the node name should have unit-address.
+>>
+>> However, there's not any real DT resources in this child node, so you 
+>> should just drop it.
+>>
 > 
-> Hi Marc,
+> For context, SIUL2 exposes a set of platform‑capability and SoC identification registers that are split across the two discontiguous ranges: SIUL2-0 and SIUL2-1. These registers are the source of SoC information (e.g. identification and capability flags) that other subsystems are expected to consume (e.g. PCI Express). Because those fields are physically divided between the two SIUL2 ranges, consumers need reliable access to both ranges to correctly discover and configure the platform.
 > 
-> On Thu, 19 Feb 2026 at 19:55, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > We currently make support for some features such as Pointer Auth,
-> > SVE or S1POE a compile time decision.
-> >
-> > However, while we hide that feature from userspace when such support
-> > is disabled, we still leave the value provided by the HW visible to
-> > the rest of the kernel, including KVM.
-> >
-> > This has the potential to result in ugly state leakage, as half of
-> > the kernel knows about the feature, and the other doesn't.
-> >
-> > Short of completely banning such compilation options and restore
-> > universal knowledge, introduce the possibility to fully remove such
-> > knowledge from the sanitised id registers.
-> >
-> > This has more or less the same effect as the idreg override that
-> > a user can pass on the command-line, only defined at build-time.
-> >
-> > For that purpose, we provide a new macro (FTR_CONFIG()) that defines
-> > the behaviour of a feature, both when enabled and disabled.
-> >
-> > At this stage, nothing is making use of this anti-feature.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/include/asm/cpufeature.h | 15 ++++++++++-----
-> >  arch/arm64/kernel/cpufeature.c      | 21 ++++++++++++++++-----
-> >  2 files changed, 26 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> > index 4de51f8d92cba..2731ea13c2c86 100644
-> > --- a/arch/arm64/include/asm/cpufeature.h
-> > +++ b/arch/arm64/include/asm/cpufeature.h
-> > @@ -53,15 +53,20 @@ enum ftr_type {
-> >  #define FTR_SIGNED     true    /* Value should be treated as signed */
-> >  #define FTR_UNSIGNED   false   /* Value should be treated as unsigned */
-> >
-> > -#define FTR_VISIBLE    true    /* Feature visible to the user space */
-> > -#define FTR_HIDDEN     false   /* Feature is hidden from the user */
-> > +enum ftr_visibility {
-> > +       FTR_HIDDEN,             /* Feature hidden from the user */
-> > +       FTR_ALL_HIDDEN,         /* Feature hidden from kernel, user and KVM */
-> > +       FTR_VISIBLE,            /* Feature visible to all observers */
-> > +};
-> > +
-> > +#define FTR_CONFIG(c, e, d)                            \
-> > +       (IS_ENABLED(c) ? FTR_ ## e : FTR_ ## d)
-> >
-> > -#define FTR_VISIBLE_IF_IS_ENABLED(config)              \
-> > -       (IS_ENABLED(config) ? FTR_VISIBLE : FTR_HIDDEN)
-> > +#define FTR_VISIBLE_IF_IS_ENABLED(c)   FTR_CONFIG(c, VISIBLE, HIDDEN)
-> >
-> >  struct arm64_ftr_bits {
-> >         bool            sign;   /* Value is signed ? */
-> > -       bool            visible;
-> > +       enum ftr_visibility visibility;
-> >         bool            strict; /* CPU Sanity check: strict matching required ? */
-> >         enum ftr_type   type;
-> >         u8              shift;
-> 
-> This introduces bloat. Should you group the bools together and the
-> enums together?
+> Hence, my proposal is to keep the two 'syscon' child nodes.
 
-That should be possible as long as everybody ends up using the
-__ARM64_FTR_BITS macro. On the other hand, I could reduce the width of
-the enum to something more appropriate and keep the current layout.
+Please wrap your replies correctly, so this will be easily parseable.
 
-With the current changes, this looks like this:
-
-struct arm64_ftr_bits {
-	bool                       sign;                 /*     0     1 */
-
-	/* XXX 3 bytes hole, try to pack */
-
-	enum ftr_visibility        visibility;           /*     4     4 */
-	bool                       strict;               /*     8     1 */
-
-	/* XXX 3 bytes hole, try to pack */
-
-	enum ftr_type              type;                 /*    12     4 */
-	u8                         shift;                /*    16     1 */
-	u8                         width;                /*    17     1 */
-
-	/* XXX 6 bytes hole, try to pack */
-
-	s64                        safe_val;             /*    24     8 */
-
-	/* size: 32, cachelines: 1, members: 7 */
-	/* sum members: 20, holes: 3, sum holes: 12 */
-	/* last cacheline: 32 bytes */
-};
-
-which is 8 bytes larger than the upstream version. But if I do this:
-
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index adaae3060851c..d8accc9c94fab 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -64,9 +64,9 @@ enum ftr_visibility {
- 
- struct arm64_ftr_bits {
- 	bool		sign;	/* Value is signed ? */
--	enum ftr_visibility visibility;
-+	enum ftr_visibility visibility:8;
- 	bool		strict;	/* CPU Sanity check: strict matching required ? */
--	enum ftr_type	type;
-+	enum ftr_type	type:8;
- 	u8		shift;
- 	u8		width;
- 	s64		safe_val; /* safe value for FTR_EXACT features */
-
-I end up with the following layout:
-
-struct arm64_ftr_bits {
-	bool                       sign;                 /*     0     1 */
-
-	/* Bitfield combined with previous fields */
-
-	enum ftr_visibility        visibility:8;         /*     0: 8  4 */
-
-	/* Bitfield combined with next fields */
-
-	bool                       strict;               /*     2     1 */
-
-	/* Bitfield combined with previous fields */
-
-	enum ftr_type              type:8;               /*     0:24  4 */
-	u8                         shift;                /*     4     1 */
-	u8                         width;                /*     5     1 */
-
-	/* XXX 2 bytes hole, try to pack */
-
-	s64                        safe_val;             /*     8     8 */
-
-	/* size: 16, cachelines: 1, members: 7 */
-	/* sum members: 12, holes: 1, sum holes: 2 */
-	/* sum bitfield members: 16 bits (2 bytes) */
-	/* last cacheline: 16 bytes */
-};
-
-which is 8 bytes *smaller* than the upstream version, without
-reordering. WDYT?
+I do not understand the reasoning. If you have two register ranges, you
+have two <reg> entries and having a child node has nothing to do with it.
 
 > 
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index c840a93b9ef95..b34a39967d111 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -192,7 +192,7 @@ void dump_cpu_features(void)
-> >  #define __ARM64_FTR_BITS(SIGNED, VISIBLE, STRICT, TYPE, SHIFT, WIDTH, SAFE_VAL) \
-> >         {                                               \
-> >                 .sign = SIGNED,                         \
-> > -               .visible = VISIBLE,                     \
-> > +               .visibility = VISIBLE,                  \
-> >                 .strict = STRICT,                       \
-> >                 .type = TYPE,                           \
-> >                 .shift = SHIFT,                         \
-> > @@ -1057,17 +1057,28 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
-> >                                 ftrp->shift);
-> >                 }
-> >
-> > -               val = arm64_ftr_set_value(ftrp, val, ftr_new);
-> > -
-> >                 valid_mask |= ftr_mask;
-> >                 if (!ftrp->strict)
+>>> +    required:
+>>> +      - compatible
+>>> +      - reg
+>>> +
+>>> +  "-hog(-[0-9]+)?$":
+>>> +    required:
+>>> +      - gpio-hog
+>>> +
+>>> +  "-pins$":
+>>> +    type: object
+>>> +    additionalProperties: false
+>>> +
+>>> +    patternProperties:
+>>> +      "-grp[0-9]$":
+>>> +        type: object
+>>> +        allOf:
+>>> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
+>>> +          - $ref: /schemas/pinctrl/pincfg-node.yaml#
+>>> +        description:
+>>> +          Pinctrl node's client devices specify pin muxes using subnodes,
+>>> +          which in turn use the standard properties below.
+>>> +
+>>> +        properties:
+>>> +          pinmux:
+>>> +            description: |
+>>> +              An integer array for representing pinmux configurations of
+>>> +              a device. Each integer consists of a PIN_ID and a 4-bit
+>>> +              selected signal source(SSS) as IOMUX setting, which is
+>>> +              calculated as: pinmux = (PIN_ID << 4 | SSS)
+>>> +
+>>> +          slew-rate:
+>>> +            description: Supported slew rate based on Fmax values (MHz)
+>>> +            enum: [83, 133, 150, 166, 208]
+>>> +        required:
+>>> +          - pinmux
+>>> +
+>>> +        unevaluatedProperties: false
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - gpio-controller
+>>> +  - "#gpio-cells"
+>>> +  - gpio-ranges
+>>> +  - interrupts
+>>> +  - interrupt-controller
+>>> +  - "#interrupt-cells"
+>>> +  - "#address-cells"
+>>> +  - "#size-cells"
+>>> +  - ranges
+>>> +
+>>> +additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>>> +
+>>> +    pinctrl@4009c000 {
+>>> +      compatible = "nxp,s32g2-siul2";
+>>> +      gpio-controller;
+>>> +      #gpio-cells = <2>;
+>>> +      gpio-ranges = <&siul2 0 0 102>, <&siul2 112 112 79>;
+>>> +      interrupt-controller;
+>>> +      #interrupt-cells = <2>;
+>>> +      interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
+>>> +      #address-cells = <1>;
+>>> +      #size-cells = <1>;
+>>> +      ranges;
+>>> +
+>>> +      siul2_0: siul2_0@4009c000 {
+>>> +        compatible = "syscon";
+>>> +        reg = <0x0 0x4009c000 0x0 0x179c>;
+>>> +      };
+>>> +
+>>> +      siul2_1: siul2_1@44010000 {
+>>> +        compatible = "syscon";
+>>> +        reg = <0x0 0x44010000 0x0 0x17b0>;
+>>> +      };
+>>> +
+>>> +      jtag-pins {
+>>> +        jtag-grp0 {
+>>> +          pinmux = <0x0>;
+>>> +          input-enable;
+>>> +          bias-pull-up;
+>>> +          slew-rate = <166>;
+>>> +        };
+>>> +      };
+>>> +    };
+>>> +...
+>>> diff --git a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
+>>> index a24286e4def6..332397a21394 100644
+>>> --- a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
+>>> +++ b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
+>>> @@ -11,6 +11,8 @@ maintainers:
+>>>    - Ghennadi Procopciuc <Ghennadi.Procopciuc@oss.nxp.com>
+>>>    - Chester Lin <chester62515@gmail.com>
+>>>  
+>>> +deprecated: true
+>>> +
+>>
+>> I don't really see why you can't just extend this binding with GPIO and 
+>> interrupt provider properties.
 > 
-> Should FTR_ALL_HIDDEN also be removed from strict_mask? i.e.
-> 
-> -                 if (!ftrp->strict)
-> +                 if (!ftrp->strict || || ftrp->visibility == FTR_ALL_HIDDEN)
-> 
-> (or under the ALL_HIDDEN case below).
+> The existing SIUL2 pinctrl binding only describes the MSCR/IMCR registers and treats SIUL2 as a standalone pinctrl block. This is incomplete and does not correctly represent the SIUL2 hardware, which also provides GPIO control, interrupt configuration, and MIDR identification registers across two register windows. Extending the old binding would require incompatible ABI changes and would result in carved-out subregions, which is discouraged.
 
-If we run on a system that has diverging features, we probably want to
-know irrespective of the feature being enabled. After all, the
-integration is out of spec, and conveying that information is
-important, just in case the diverging feature affects behaviour in
-funny ways...
+Can you just add missing register ranges to existing device? I really do
+not see how this is incompatible ABI or how does it result in carved-out
+regions.
 
-> 
-> 
-> >                         strict_mask &= ~ftr_mask;
-> > -               if (ftrp->visible)
-> > +
-> > +               switch (ftrp->visibility) {
-> > +               case FTR_VISIBLE:
-> > +                       val = arm64_ftr_set_value(ftrp, val, ftr_new);
-> >                         user_mask |= ftr_mask;
-> > -               else
-> > +                       break;
-> > +               case FTR_ALL_HIDDEN:
-> > +                       val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
-> > +                       reg->user_val = arm64_ftr_set_value(ftrp,
-> > +                                                           reg->user_val,
-> > +                                                           ftrp->safe_val);
-> 
-> Should we also take the safe value in update_cpu_ftr_reg() for FTR_ALL_HIDDEN?
 
-I would expect arm64_ftr_safe_value() to do the right thing at that
-stage, given that we have primed the boot CPU with the safe value, and
-that we rely on that bootstrap to make the registers converge towards
-something safe. This is also what happens for the command-line override.
-
-Or have you spotted a case where this go wrong?
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Best regards,
+Krzysztof
 
