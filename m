@@ -4,78 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA039C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 09:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B129EC55175
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sAJ079v3EuGaMgXIGsa8tTVoFFB51aEPHIUaV4fqzFE=; b=dmimuPayhfIb3lcyoeEWsg/CQ2
-	DS9Fr4ZBp+j2Z1AuPcu/AzOx9foNscwzQ+xzTrtxBW7IPMqDjA/9RgWavGwlDq7XlwRGQ2KOcJEub
-	f/lL5fGZGlprnI8M53rjLJh0Qk0r30un9mHIxxX3Lj//ib3/RGjCEgLTCIJ6EDxC69fTtlQ9H7thL
-	EoeDc9CxUl+V7PcrjNCXiyVQ8yN/ayazOMUYATOwli9jCUhXfHKxwcjxJNsDiqrHR0BINKvnlMcfS
-	vLup87aO4/lwWOAeEESK9g1ysyo6Ox3FXXezV8AVyo4JnE+ZVm9ETfJMSBMSLnIAzgPPR26lanBPv
-	o0enrRRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8NYypAElBKiD2K1QyDN3v+VzeoXB/cDdnPRyYZgIgvk=; b=1NSmw5AvtPgzF1bGlTMqzA83TE
+	yH8wYLAYeeCq3rCJON5OimW7n7HUWQb0hQEk+xfhfWwpG3hixXvlyXBCZJNrBAMEi+ulQvAexxDmM
+	UQL81Q0Ekg3ubEWYkQcFEpq2c+7XviR8XMOqs0NQXYcCLUCrdsS6/1R7l5lIzSQKN4VzgQ0L2IY0B
+	N6b4VtgsSKq7HQRPiA/E2DA3L3MWrOeH4XQMgL8r3Hn54YLYQmJGVV73pWSGPcHwFdKGnEw6YWmRr
+	cbwaVifECvwqL69aIFT5BYOseHq+ypMBkqVAK7yk/Ty1OR6TXweL1l7RIGGAhvD8/mohCD3n8mEiW
+	mr6TCJZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNHW-0000000Djjp-3Ucq;
-	Fri, 20 Feb 2026 09:58:42 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1vtNJj-0000000DlKk-1Bby;
+	Fri, 20 Feb 2026 10:00:59 +0000
+Received: from mail-westcentralusazon11010024.outbound.protection.outlook.com ([40.93.198.24] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNHT-0000000Djf0-1vjD
+	id 1vtNJf-0000000DlFa-1paR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 09:58:41 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F2A481483628;
-	Fri, 20 Feb 2026 10:58:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1771581512; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=sAJ079v3EuGaMgXIGsa8tTVoFFB51aEPHIUaV4fqzFE=;
-	b=TQZtoTDwMs37I4I8gIeJassjf9/U8KxmeaNXN06BKIdkR1LarQVTeOACFa6dVuv7HyImUU
-	jpC1NWJ+7rWEnR4VtuWsnean0F3+u1oy/xgO9XdGgCd5FiRTV/2yJM5xVUnBBm06iChh23
-	QKW4OTYaKL4lGYB5yCM+jPLMS3H1RwPgyygxZAP7Wlc0r+xKvl+n05v0CHdJIXO+hhcA0/
-	HSNnMXv2VpPGcZNpQRdxKSkwp04wkWuey9qIf1mgZKSO2OyGFBvFPxzDm/pTCWnG0Ozun3
-	BUKETuB47iUekQhoQEX97zQflz2lnUiWDfBxqm5hySPsG2ZC4buBAIzQAkpzCw==
-Date: Fri, 20 Feb 2026 10:58:25 +0100
-From: Alexander Dahl <ada@thorsis.com>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Alexander Dahl <ada@thorsis.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v3 09/19] dt-bindings: nvmem: microchip-otpc: Add
- required clocks
-Message-ID: <20260220-bloomers-runny-e69ab1966b9c@thorsis.com>
-Mail-Followup-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-References: <20260120143759.904013-1-ada@thorsis.com>
- <20260120154502.1280938-1-ada@thorsis.com>
- <20260120154502.1280938-3-ada@thorsis.com>
- <f406abde-c7d1-4ed6-b7dd-5336956bc795@tuxon.dev>
+	Fri, 20 Feb 2026 10:00:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WeNNGNFig6uKQPv5+wyIvydRuoPcMt7KUy2J9zv8V30VIoAtQfOcmWDk2O57dA1QSV6dA0FfPSo7wsNIP2hB1ak9L3MBAbk2Sm7ogTb55jm0hAcyR55mwvEO3BZuCfhgX0ZjMaYdJNAIgmTvUVNLqLREgMYygQ8pr5DJds1WERLIB+Jh0E3ytMcR6P9PK4Os0/g0VobppB+IQLiEXDKuCjfXAbs8rhlVIlOaSeebeKugGG2Syc00q14wbnxPl6qPXH4pRDoPJtvG4NR5kjkFB2khO03N20x8CAXH4OQPJJGMlEkfRxHYVO1hDTcTCfSEhr97BSNIvHUlo2fW0Go2fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8NYypAElBKiD2K1QyDN3v+VzeoXB/cDdnPRyYZgIgvk=;
+ b=V4dpd0kwXrXkHbFYZ2nqgIvLYCPvL4cSJm0QaRU5bGU9XU33SoKjNtge4emgHb10doiYsZbdbMiD3guM4DBqxzlZOwS4xyFLaOdQVBxaz6+y8jx4x0CVknknMi4kmxZs564yqdDL+KB2nfh7tusD7sGN4BVX5dNptXKp+E2DugRL5DbvOhmM3E2hX62N4tmHs9XLd8sPZusow/Q7GgKDNPt67anrrsl8eyPpyaJeZ/QkDU0qQKdoVjkcuwlIvLioyQA7+1HeZyzrGj61W2JZpsgGv+K9PAXzRitsUxEOFsc5nYSj2FtPPsUYYABpzDCrBnae0CIHgrhyD4t9PerBZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8NYypAElBKiD2K1QyDN3v+VzeoXB/cDdnPRyYZgIgvk=;
+ b=utIL8817RKKeOLIcXu7qUDQT4I2mgkbFlWz9zfqpe7WJ78j8PcVaDo7PJ4j7d6XHLriOqJ3D9AjoWMNKtDpJu3WujzhYGPX2vszkTmnYSC9sRDTH78BGntzBqGSr8UFXwcM/+XvC18tNfZsS+9yMC0c2zYcpnqQTPeX4Ts4kvxo=
+Received: from MN0P222CA0007.NAMP222.PROD.OUTLOOK.COM (2603:10b6:208:531::15)
+ by IA1PR10MB7285.namprd10.prod.outlook.com (2603:10b6:208:3fe::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.17; Fri, 20 Feb
+ 2026 10:00:49 +0000
+Received: from BN3PEPF0000B374.namprd21.prod.outlook.com
+ (2603:10b6:208:531:cafe::23) by MN0P222CA0007.outlook.office365.com
+ (2603:10b6:208:531::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.17 via Frontend Transport; Fri,
+ 20 Feb 2026 10:00:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BN3PEPF0000B374.mail.protection.outlook.com (10.167.243.171) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.0 via Frontend Transport; Fri, 20 Feb 2026 10:00:48 +0000
+Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 20 Feb
+ 2026 04:00:41 -0600
+Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 20 Feb
+ 2026 04:00:40 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 20 Feb 2026 04:00:40 -0600
+Received: from [10.249.132.38] ([10.249.132.38])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61KA0YF53678030;
+	Fri, 20 Feb 2026 04:00:35 -0600
+Message-ID: <074a89cf-fb28-4f05-9203-f530aba582c9@ti.com>
+Date: Fri, 20 Feb 2026 15:30:34 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f406abde-c7d1-4ed6-b7dd-5336956bc795@tuxon.dev>
-User-Agent: Mutt/2.2.13 (2024-03-09)
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 0/3] Fix Unbalanced IRQ Enable for CPSW and ICSSG
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <danishanwar@ti.com>, <rogerq@kernel.org>,
+	<horms@kernel.org>, <mwalle@kernel.org>, <nm@ti.com>, <v-singh1@ti.com>,
+	<vadim.fedorenko@linux.dev>, <matthias.schiffer@ew.tq-group.com>,
+	<vigneshr@ti.com>, <jacob.e.keller@intel.com>
+CC: <stable@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>
+References: <20260220041431.372610-1-s-vadapalli@ti.com>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <20260220041431.372610-1-s-vadapalli@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B374:EE_|IA1PR10MB7285:EE_
+X-MS-Office365-Filtering-Correlation-Id: 60a343b7-517c-4c4a-9b2d-08de7066ec15
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TzlTYjdUbUp1VDhZRHd2Qi95R2h0N2t3eVlWWHd2bkpsc2dTd2F4MDZLRDNG?=
+ =?utf-8?B?WmkyekhGQXRYVStnT3VneFhvdml1MnRTZytXdUtTTDYwMko5OXdNNWVVRHpT?=
+ =?utf-8?B?K0lnRGdDWEJlYUZRVVQyWUlwVTRCR0ZaMFFSM1BPZXFlQlo3OGhxYmpBK21F?=
+ =?utf-8?B?L0RkVHNoSEdYQjhEQklUU2NVUVJEUGtoOFRjZ3FPNFR1YlNmR1FsZUgydFV2?=
+ =?utf-8?B?Z2I5WTBIK1RMdFZwc2NSc0JtK2F3NTRDWjRCbjhTclRtbEc4RU5BZlByalRu?=
+ =?utf-8?B?aUV4aFNPZkE1MGZsbGZhczU5TUFsK0tHNjBQdWRBelBocGNjWmExeDNjM2JE?=
+ =?utf-8?B?NXVpNkRycmNhNzhZMTloOFp4aUVUczl0ZC9MWFVsczRVUC9sOU93ZDdXQnNj?=
+ =?utf-8?B?ODZJMmhtWGlIeGU0NjBIMThJYWtHZ3hXRFplbEdCTFFEaDFGaHJ6dFAydGdO?=
+ =?utf-8?B?NkFFaWhTMzh3cW5jTGpOUCtVemUvQkpxZEtVTjBWZjZUNkFFRFJFb1FFdDlS?=
+ =?utf-8?B?eGQ1TUxBVDlodXprRmFqUTJpWmgzY3hUZHVRZThWWnArUTVqV2x3NmtwWUZ2?=
+ =?utf-8?B?VmI1bEo1RmVrclgxMTBnaU9ocXlvWG9vNllFY3hVbkZDMHRhWXRFTS9XRWR0?=
+ =?utf-8?B?bkpFWXQ3NHUybXhISXRka2VXNjFvTWpxOFVjeEJYQkl5di9XSDhFRmEvVVV2?=
+ =?utf-8?B?NTNmWUlleXE0cnFNMU5INDAvUXd1UmNmU2QwMGZZVWFKaGlvSFAvZVNOeFRH?=
+ =?utf-8?B?QXRvRjdnS1ptWHVaZ2ZzTlY4M2VuWXFKWUlsdzVnbEtyK1l0MUlGUWZtZW0y?=
+ =?utf-8?B?L3hYR1hxOGYyVlpiMlR4Z3BLaHV6bmFSZVI5ZUV1QUtuVnB0VTdMaTZiWERJ?=
+ =?utf-8?B?Rnp2LzN4WHp6OUtJVGo5M2RuanRsTm9vRlpKVk84aUM0azE3a3ZMbVNZZkJB?=
+ =?utf-8?B?WWIyMDFHaXI1d2ZOb21BUVF2UDNaY2NqdUhvMnNjQ1ovMnduVVlHVUZ5Mklz?=
+ =?utf-8?B?SFV1cE5VdzRCWXgveldwRWthSjZBa2F5ZFVWc2o0R0tjUjcyVmxHSi9IN0Q5?=
+ =?utf-8?B?SlMxQk0xNW5Vd3k5RGxNajRQSThlY1l2c2oxdDFreFcwWElVbDZEWjFXaEpu?=
+ =?utf-8?B?NUJyQ3RnaS8yZHEzOSs3c3JYUm1NTlVpb29qYmdieXRpQkVzdTJmZUZCNjVl?=
+ =?utf-8?B?OVJpeWUvMU9uN1dQaXZJT1d1My90Ym9xS3lRVko0RHpLRU9raEhOWWdjM0JK?=
+ =?utf-8?B?SS94c0FOWU84UEd1SnpZUFNLMEVVSVlvRzRIUHVTbmZaV2JZeXBhYVpubFIr?=
+ =?utf-8?B?YWljWSsyTGdXUkZybEp1R3F0L20wMGgrZGtLeTRXWXNxTVBQUmFlRWJvbDRu?=
+ =?utf-8?B?TDRzRE94cU9SQ1N1Z3E0aTBLOWo5NFZXQUlrc3BLS2VwN3RURjlaUGxCWHFX?=
+ =?utf-8?B?b252RFVpZ2pSUEFlRXMyMFpTOWZDN2JxT29JdGJpVDVXNTVXN3RGVFFvSWlZ?=
+ =?utf-8?B?M0JidkZldVlTNzdEckI1SXVtRHFTcDlLN20wa1dyOThwOUNyUUwrYzNSMFYv?=
+ =?utf-8?B?MkVvdHB6bEhYbkxWQlJKZ200RFQ0eDQzZzJ1UXI5aGQxejdyTnFrci81eEsw?=
+ =?utf-8?B?TzNqeVVqVjUzV1JudTQ2TFQwMEFPUDA1WlY5YXlqTDRKOUVZYnpoRjlKdUxM?=
+ =?utf-8?B?d3JTaGJKYW1FL1p3VDdBWHVMUGpaUlFKcE1ETjJsZ0o0RG1rODc3TkhIeGIy?=
+ =?utf-8?B?cjB2SlZ4QTdqOThSNTMzdFZnc1JwRnZNUSs1N1RNbFFiQUdOckRsYy93MzFh?=
+ =?utf-8?B?RlRENmwrQVVFV1hoZzdzMlkzbnZodXd0dENBMFBkMU5aQlp4YWNMZzNIai9K?=
+ =?utf-8?B?SW9KaGZNOUtMU2FwSHZaTkdHNTdJZ2RHdWNVbERMZExtTkRKQzd4Sk9NejhG?=
+ =?utf-8?B?blBUeVhnc09WN1ljMmhkMURSQXNyVldEZkhZaUtlNjlkQWpCcW9MSVRkeEY2?=
+ =?utf-8?B?N0l1QWNCL3NnOXd6S0NBTTF4MGlmWGNKNWpJc1plemU2aWVQWWlHKy9rZ0RQ?=
+ =?utf-8?B?S3N2bkFhbDdXUldhU0FKZEdybHAyNzdYdlpWdGFHbUs2dm1ZL2RxelYvQ3lW?=
+ =?utf-8?B?djBDZEZ2MXVxSm95bnpuUVdvU0h5WE1CN2NwZ3VLQTV0WkFQcy9ZM3FHY1JT?=
+ =?utf-8?B?WjFodGR6WllSL3VHZHg5c3pNSzZkcjIzVitsUEFsYk9VMGY2QWxVcjRCTUJW?=
+ =?utf-8?Q?TBgcNnj2JDaMfQFjXRQ/NSQVmodlmWTnkhQvjD4EQY=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ejo4CSxmmXz78UTP/tKZWYf7EerG7NE/JhHI/yrp+R6Q+YYzMY9VYWjQNXz+BPldnBW/pAZoxxT5QCbyU2RSN/SgcL9bGqzLpyKUOoeiJPcwtVIIo6muqY+GLT75t5eJwP4SWFZolVa6XDDer/nDqPSFOS7oo3NYPUgVUi1M8cxvru4UZcXE5Of+GRZO7Vp/oPifWOxjJ9RBX+UfHx8acmYNnKlOO3hWHsG2wrE8hXKejMXchZVRGTTLBMuIboK1WmWOfprNepeUniIevqNNOadvEvp9nAhnszjKxwlULY/w0bHjng7TqeWAzm9tnrh8GU4O4BT+D79Cwwo8Im9e9EWb1KHB9YcwTYL79+rECFPL3k/HPjtEg7zKcvm5pnKYqdOKNFXk8JBzLhzPQDGmXdxEe2xeLv6AwGAIIHBfE8WbX/TmLqDlWUGPWy54BMdl
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 10:00:48.1822
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 60a343b7-517c-4c4a-9b2d-08de7066ec15
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B374.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB7285
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_015840_180523_BE15DE32 
-X-CRM114-Status: GOOD (  27.42  )
+X-CRM114-CacheID: sfid-20260220_020055_586238_7F28A6B5 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,91 +173,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Claudiu,
 
-Am Sat, Jan 31, 2026 at 05:47:05PM +0200 schrieb Claudiu Beznea:
-> 
-> 
-> On 1/20/26 17:44, Alexander Dahl wrote:
-> > The OTPC requires both the peripheral clock through PMC and the main RC
-> > oscillator.  Seemed to work without explicitly enabling those clocks on
-> > sama7g5 before, but did not on sam9x60.
-> > 
-> > Older datasheets were not clear and explicit about this, but recent are,
-> > e.g. SAMA7G5 series datasheet (DS60001765B),
-> > section 30.4.1 Power Management:
-> > 
-> > > The OTPC is clocked through the Power Management Controller (PMC).
-> > > The user must power on the main RC oscillator and enable the
-> > > peripheral clock of the OTPC prior to reading or writing the OTP
-> > > memory.
-> 
-> As this was not mentioned in the previous datasheet versions, the current
-> driver don't handle those clocks, and it probably worked as the clocks were
-> enabled by bootloaders, I think the clocks should be marked as required and
-> this patch to be propagated as a fix along with fixes on driver and device
-> trees.
 
-What do you mean by "clocks should be marked as required"?  Where?
-How?  Is something more necessary, than already done here?
-
-> I'll let DT binding maintainers for the final decision on this.
+On 2/20/2026 9:41 AM, Siddharth Vadapalli wrote:
+> Hello,
 > 
-> > 
-> > Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
+> This series fixes the warning:
+>      Unbalanced enable for IRQ ...
+> for the CPSW and ICSSG drivers.
 > 
-> Why this link here?
-
-That was the original discussion and at the time the sama7g5 datasheet
-mentioned a thing missing in the sam9x60 datasheet.  So that
-discussion was the only reference for why this change is needed for
-sam9x60.  Will drop the line in v4 then.
-
-Greets
-Alex
-
+> Under heavy traffic and in an SMP environment the warning shows up after
+> a relatively long time. The issue occurs due to the order in which the
+> variable 'irq_disabled' is set and the function disable_irq_nosync() is
+> invoked.
 > 
-> > Signed-off-by: Alexander Dahl <ada@thorsis.com>
-> > ---
-> > 
-> > Notes:
-> >      v3:
-> >      - Removed clock-names (led to confusion, and not used by the driver anyways)
-> >      - Removed redundant example
-> >      v2:
-> >      - new patch, not present in v1
-> > 
-> >   .../devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml | 8 ++++++++
-> >   1 file changed, 8 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
-> > index 9a7aaf64eef32..847dfb67c6b72 100644
-> > --- a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
-> > +++ b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
-> > @@ -29,6 +29,11 @@ properties:
-> >     reg:
-> >       maxItems: 1
-> > +  clocks:
-> > +    items:
-> > +      - description: main rc oscillator
-> > +      - description: otpc peripheral clock
-> > +
-> >   required:
-> >     - compatible
-> >     - reg
-> > @@ -37,6 +42,8 @@ unevaluatedProperties: false
-> >   examples:
-> >     - |
-> > +    #include <dt-bindings/clock/at91.h>
-> > +    #include <dt-bindings/clock/microchip,sama7g5-pmc.h>
-> >       #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
-> >       otpc: efuse@e8c00000 {
-> > @@ -44,6 +51,7 @@ examples:
-> >           reg = <0xe8c00000 0xec>;
-> >           #address-cells = <1>;
-> >           #size-cells = <1>;
-> > +        clocks = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 67>;
-> >           temperature_calib: calib@1 {
-> >               reg = <OTP_PKT(1) 76>;
+> I have examined other drivers and they follow the right order which is
+> to invoke disable_irq_nosync() before setting 'irq_disabled' (or its
+> equivalent variable).
 > 
+> The first patch is for the CPSW driver and it has two Fixes tags since
+> the code change associated with the fix is for a recent commit while
+> the incorrect order was first introduced by a much older commit.
+> 
+> The second and third patches are for the ICSSG driver. Although they
+> are both for the same driver and could be squashed, I chose to split
+> them since they fix different commits and need to be backported as
+> Fixes for the respective commits.
+> 
+> Regards,
+> Siddharth.
+> 
+> Siddharth Vadapalli (3):
+>    net: ethernet: ti: am65-cpsw-nuss: set irq_disabled after disabling RX
+>      IRQ
+>    net: ethernet: ti: icssg_common: set irq_disabled after disabling TX
+>      IRQ
+>    net: ethernet: ti: icssg_common: set irq_disabled after disabling RX
+>      IRQ
+> 
+>   drivers/net/ethernet/ti/am65-cpsw-nuss.c     | 2 +-
+>   drivers/net/ethernet/ti/icssg/icssg_common.c | 4 ++--
+>   2 files changed, 3 insertions(+), 3 deletions(-)
+> 
+
+Reviewed-by: Meghana Malladi <m-malladi@ti.com>
+
+-- 
+Thanks,
+Meghana Malladi
+
 
