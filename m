@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEF8C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF45DC5518E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WRgJPJHqRfLb+WHLjKlFBsjmiJ+JdZ//535g1VN0uz4=; b=FaaTRyew6L+6j64bZM9Ei+2PvF
-	KYkl9iahYtCBkukHF0u7HME7tiu8vrKubpzkWYgzj2IRH6sIUU5LOPGFXdhDKqLOgIh6XzLKWT2gL
-	ZIWmzAdIfULk8usSgMc3Dqz73Nxh61H1+yktFTdin+afkW/26ZmDigu74xHHzTUUwIn1HKzZjFiBl
-	CuFJiHMZzXukWz0fuikuLrq5NIpyKg7yxk5S/ThZ/tM54YOkT6o5PSgbdv+sMW49TN9tD8X0Shcfs
-	OFB4zX5NyC3iigUoEc6ZBfZQFVdxhWSzBYDwWVsKyAJrc41U3daTFb6T0yeYmyn3xM7rwKUkP/Aqs
-	NH3gKIng==;
+	bh=izZTzM7mj67pNSJxGom19QoudxRMh02+Dy9S4ICIOCI=; b=uMS0YWpGHdGTV2CV9QBTRCaCO5
+	HSNmOZQ9oLUWuWIKPJARZDg3Rx3VPu3q8jBHWEutO+XdDO3j3aOyaoZcKDwvZAIC2kDq/32kymIyU
+	8YgwvCu5MmvzxF/5QJIEmTBGgp5k0ixk3HO36RBIlFJJ5frfXgxKTBmLhHwHc0JvxhenhxMAAuCaP
+	lqbCkvF43lUrGUDVH9SDiQ94298GrpzFSphXYWEZQq6tbqpNaYs6KBnRXj9qjgIGTR0C56MQwxk1M
+	dWc2s3WmvdjJcSjeeLfMZf2R9TY2b8Xu5wSEs36Dojrb36IjvHSDzX6aHcGsJhmmIZRXxMqeYP4s+
+	7rpm2z+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNZO-0000000DvqQ-2WJ2;
-	Fri, 20 Feb 2026 10:17:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vtNau-0000000Dwny-26QT;
+	Fri, 20 Feb 2026 10:18:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNZL-0000000DvoD-3wzV
+	id 1vtNas-0000000Dwli-0M5L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 10:17:09 +0000
+	Fri, 20 Feb 2026 10:18:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC35F61859;
-	Fri, 20 Feb 2026 10:17:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67917C116D0;
-	Fri, 20 Feb 2026 10:17:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 373FD429EE;
+	Fri, 20 Feb 2026 10:18:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E4CAC116C6;
+	Fri, 20 Feb 2026 10:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771582626;
-	bh=DwJRqwTIxPH4O6waaaWkmQc1GediIB0SchBhEhcUMf0=;
+	s=k20201202; t=1771582721;
+	bh=SiYOkd9Fdv3qiGtvX4sk+tU1WzcPDYY5T7RrkmzlBhU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uqJwOIzWN+T6wPgd8AKTu2b9HuLG1WazY+eZbbLoQF4YGr9jtksWgUNv84WxT8uws
-	 2aL2TV6mrWsFt5LUdwnxL19wEz5mltZHnYAGgIVPP0GuorDih2fY1z2EzW2LCVPLhc
-	 Ntvs7TCFBE+VPdGvxq1GsRGNP13X+BP2IzT21I2+UbHzgfMoSHyp1hTOnH4xTjb4mL
-	 Qhw1hge6i0CxrqkQzqDfesNW6evho36iLwI8x7OoLPymOPdY3m1CSS/VwYqs5+uVs9
-	 /oPlMJLScpPxxjddiAq0XHhQlXW+HAscwFm+QzABg2SCnTu5K41aZIv7Npzhm9jYdJ
-	 GQXSsD/uWNnow==
-Message-ID: <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
-Date: Fri, 20 Feb 2026 11:16:58 +0100
+	b=BI8ck/NcdJKkCYx8J35dNnZdu1P3WcD2Rz8VxkA7KzVagSqtnFXpih7wZcJutMp8T
+	 3escshFqHSeE9m6TCr2LgLt+eKs55eSWPTs/7n9WZ39FBom8lV9KyE19P4/30A+/Iw
+	 DMHRYJL/gqmlOu2/vnCIpvON+IRtDs5Mj4sADdmG32pFUruQN6XyMV6atz1CZrXuqq
+	 MtN5aU6rVHbegW12w7Inwx9MGIpvu02CQaLwnO5rjjq+TJtlRvCV1chuEWBvqqQfgH
+	 3D3FZR2oa3QEYP35ls8djF6/C2wKONVoYei88KL/+Q765+kP85MzgoaSq4q3NOUypC
+	 mgOI/nt+t0oZA==
+Message-ID: <9949202e-7eaf-4072-a24c-6119e0eed493@kernel.org>
+Date: Fri, 20 Feb 2026 11:18:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
@@ -119,7 +119,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
 In-Reply-To: <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260220_021842_170875_181A6B4E 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,135 +139,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 19/02/2026 12:36, Khristine Andreea Barbulescu wrote:
->>
->>> +      reg:
->>> +        maxItems: 1
->>
->> You have 'reg' so the node name should have unit-address.
->>
->> However, there's not any real DT resources in this child node, so you 
->> should just drop it.
->>
+> Hello Rob,
 > 
-> For context, SIUL2 exposes a set of platform‑capability and SoC identification registers that are split across the two discontiguous ranges: SIUL2-0 and SIUL2-1. These registers are the source of SoC information (e.g. identification and capability flags) that other subsystems are expected to consume (e.g. PCI Express). Because those fields are physically divided between the two SIUL2 ranges, consumers need reliable access to both ranges to correctly discover and configure the platform.
-> 
-> Hence, my proposal is to keep the two 'syscon' child nodes.
+> On 1/21/2026 4:19 AM, Rob Herring wrote:
+>> On Tue, Jan 20, 2026 at 01:59:13PM +0200, Khristine Andreea Barbulescu wrote:
+>>> From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+>>>
 
-Please wrap your replies correctly, so this will be easily parseable.
 
-I do not understand the reasoning. If you have two register ranges, you
-have two <reg> entries and having a child node has nothing to do with it.
+BTW, one more thing, replying one month after the review, which was
+given to you within one day, means entire context is gone, so actually
+we assume that you will agree with the review, not discuss it.
 
-> 
->>> +    required:
->>> +      - compatible
->>> +      - reg
->>> +
->>> +  "-hog(-[0-9]+)?$":
->>> +    required:
->>> +      - gpio-hog
->>> +
->>> +  "-pins$":
->>> +    type: object
->>> +    additionalProperties: false
->>> +
->>> +    patternProperties:
->>> +      "-grp[0-9]$":
->>> +        type: object
->>> +        allOf:
->>> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
->>> +          - $ref: /schemas/pinctrl/pincfg-node.yaml#
->>> +        description:
->>> +          Pinctrl node's client devices specify pin muxes using subnodes,
->>> +          which in turn use the standard properties below.
->>> +
->>> +        properties:
->>> +          pinmux:
->>> +            description: |
->>> +              An integer array for representing pinmux configurations of
->>> +              a device. Each integer consists of a PIN_ID and a 4-bit
->>> +              selected signal source(SSS) as IOMUX setting, which is
->>> +              calculated as: pinmux = (PIN_ID << 4 | SSS)
->>> +
->>> +          slew-rate:
->>> +            description: Supported slew rate based on Fmax values (MHz)
->>> +            enum: [83, 133, 150, 166, 208]
->>> +        required:
->>> +          - pinmux
->>> +
->>> +        unevaluatedProperties: false
->>> +
->>> +required:
->>> +  - compatible
->>> +  - gpio-controller
->>> +  - "#gpio-cells"
->>> +  - gpio-ranges
->>> +  - interrupts
->>> +  - interrupt-controller
->>> +  - "#interrupt-cells"
->>> +  - "#address-cells"
->>> +  - "#size-cells"
->>> +  - ranges
->>> +
->>> +additionalProperties: false
->>> +
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->>> +    #include <dt-bindings/interrupt-controller/irq.h>
->>> +
->>> +    pinctrl@4009c000 {
->>> +      compatible = "nxp,s32g2-siul2";
->>> +      gpio-controller;
->>> +      #gpio-cells = <2>;
->>> +      gpio-ranges = <&siul2 0 0 102>, <&siul2 112 112 79>;
->>> +      interrupt-controller;
->>> +      #interrupt-cells = <2>;
->>> +      interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
->>> +      #address-cells = <1>;
->>> +      #size-cells = <1>;
->>> +      ranges;
->>> +
->>> +      siul2_0: siul2_0@4009c000 {
->>> +        compatible = "syscon";
->>> +        reg = <0x0 0x4009c000 0x0 0x179c>;
->>> +      };
->>> +
->>> +      siul2_1: siul2_1@44010000 {
->>> +        compatible = "syscon";
->>> +        reg = <0x0 0x44010000 0x0 0x17b0>;
->>> +      };
->>> +
->>> +      jtag-pins {
->>> +        jtag-grp0 {
->>> +          pinmux = <0x0>;
->>> +          input-enable;
->>> +          bias-pull-up;
->>> +          slew-rate = <166>;
->>> +        };
->>> +      };
->>> +    };
->>> +...
->>> diff --git a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
->>> index a24286e4def6..332397a21394 100644
->>> --- a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
->>> +++ b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
->>> @@ -11,6 +11,8 @@ maintainers:
->>>    - Ghennadi Procopciuc <Ghennadi.Procopciuc@oss.nxp.com>
->>>    - Chester Lin <chester62515@gmail.com>
->>>  
->>> +deprecated: true
->>> +
->>
->> I don't really see why you can't just extend this binding with GPIO and 
->> interrupt provider properties.
-> 
-> The existing SIUL2 pinctrl binding only describes the MSCR/IMCR registers and treats SIUL2 as a standalone pinctrl block. This is incomplete and does not correctly represent the SIUL2 hardware, which also provides GPIO control, interrupt configuration, and MIDR identification registers across two register windows. Extending the old binding would require incompatible ABI changes and would result in carved-out subregions, which is discouraged.
-
-Can you just add missing register ranges to existing device? I really do
-not see how this is incompatible ABI or how does it result in carved-out
-regions.
-
+Otherwise, please wait one more month for our response to your response,
+before you post next version. :/
 
 Best regards,
 Krzysztof
