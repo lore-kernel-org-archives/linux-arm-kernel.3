@@ -4,110 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45FD2C54FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 08:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A46AFC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 08:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zr9Km/0gfMTYC5fYtSiAMtsIDcg958EOfyInWfQiu3o=; b=AH7M6ExWG29MOTw9pJMeYfvr8F
-	nImB/XF8n56CKwWJCDxaueJ3WJSvgDCrUD08rPA+suGkIton/BOsdydwyvO/eauYtvd6rE9EBcPcS
-	Vb2i+eI1EVKQXB3WWWPyV236f5iL37K+fMP+xBizRvJJRDEcY5VABcW7zgHtddq5ZdrqTgjwxl2ai
-	oJzoIGuTLD3DfT9GaxccfLPHivMCQQxVYsrNLPzt27EB9NdRJc0fFFlmaZZacvj3nRYsEqSFm5lgR
-	yYEQTswkt9rnQhVXXCze8n40/vrB+zQDYE1ELo49D24/UZiJjl1nP25ZUo7EDlg+vcQB2draQKfme
-	ibrp4xDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wDlaVVbBLdDal3YcpgZLDSMExLMyfMpma/ezoyrjcJA=; b=pgOUaKsLU7AZ8j5tyFP99go6VD
+	V3LD2YI1JvJyOND/ZpXa+1FL03emBR+ppL5m+ERvbMJCYu9AS8N0KAzg9KhR3svFC9SwPL7wRmolb
+	wJqY0DgD1SSHXbCpzVUyJFJkGaXL9QBDInN4TLAg2JYM1wBi8U2dgzixW29B9f6+TqvPsl75WieZL
+	YI+ftU0qdAEOPUvRg3KSB40bG/zMS69dacNl0fsoujOOpkY55I+DM4pVPO720Y1FzFiRsi3c5rWrE
+	ngIAMzm0qybj6Bw2YHJAmCY0Zr2vwXp8uIdBJMChFiLoe/OToCw7nq4ceVeDnnBLGp2QlLFHFl6la
+	/H9w+9sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtLm5-0000000DPML-1UCH;
-	Fri, 20 Feb 2026 08:22:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vtM0D-0000000DQdA-34dv;
+	Fri, 20 Feb 2026 08:36:45 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtLm1-0000000DPLn-28ko
+	id 1vtM0B-0000000DQco-2UDm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 08:22:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E68540ADD;
-	Fri, 20 Feb 2026 08:22:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F31EC116C6;
-	Fri, 20 Feb 2026 08:22:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771575724;
-	bh=/tVxFYUaV9QgUw8KxtW2+QYEPZm7milE80n6LUzxnpA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k91OqmPKeLdP1mFUrZtE8eLFbfLbnuRc5M+Hc7irZ9NqjqfTCThcZPISC+d0IORbb
-	 23RIk70UDvHcg6q6BvJ+AKqhnXg//IgL+SSCBrFlxTtKV9VLMX7E4UPh9gu25s2J/L
-	 6dyiIKy5Sobzz5r8xaqG6N5G/sO/BtSAVJ41sRHm9y51rtzdK0EoZ9gx4VV6d22RSg
-	 OyrpMMrhB768mDbTf4QHYuguatt7YrqFPW0UdlTQpD+HGSRn2NV8LA+1QtAdHZkfkh
-	 slLC9/UjWF4gZ4+f27dBCPWPA5gpkj+RNCSsBIVno+q7ViTVPTPbV0jB0/AytnFdhm
-	 I5pJwEyV6kj4Q==
-Message-ID: <74f16cb6-35e9-45ba-a66c-691f3f23f892@kernel.org>
-Date: Fri, 20 Feb 2026 09:21:59 +0100
+	Fri, 20 Feb 2026 08:36:44 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-505d3baf1a7so284901cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 00:36:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771576601; cv=none;
+        d=google.com; s=arc-20240605;
+        b=j4IV6SAQIYsd+eRgYZyQZ2akWxcDtQjM2TK5TlZ4roAzZBZgi/864GNX2JTe3n/9w6
+         zgsKbXoZmi92DeObZc2khmWVQxJRBRhh07yOOz1qItv35mCUkPp3qlYtfyTmfXRRTNNr
+         uMruVFYi04b0xGwx83paR7LxVIsdcTlKGRV3/peaeyYWmQdnAfRt1BZpid+dlFgtmyPE
+         ozKsUqS86PwZuD3YFnfSJDtgE+93c4RGDQdlwEI+dw1L8blvJmlXAURQAmBD2SPSah02
+         lFFvE0BtKJDUdSvXZRnMc7j7ostjCf7LuBZ1wrGlxetZqKMADKcsHj98il2kkMzA8eD/
+         tLMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=wDlaVVbBLdDal3YcpgZLDSMExLMyfMpma/ezoyrjcJA=;
+        fh=VFXcUrr3kGurp0SuF0YJGl5pPwUAd9HYetUbgSB3cYw=;
+        b=PfrUkEqD40azV14PxstI5aJf5aMwi3w/3i0yA/a2kaM58XoyULcD0nGlAV2ZDMe7Nc
+         Arp4f0OEsJk0E7Cn6eX5PEPTGhYMvkZzqCnvz8M4xcJTZQTECtuwOY5t8A1AXyk6uKH4
+         Wxik6xmj7Ul6VeUhe7sNEvqHNpN4afh+Ed+QiZO75t1o+Q42l1kwsRlp2BDADLN0dApn
+         4bnUImHhde4FV30JWsmfBg3w8W6BFtCFepkbjue+eyCJ9f2FL+ijmNQowtRnCRbotRFU
+         ov/YfSdDnWQlSycZejb5lKderWX7BZPOITU+iw3fdQ0C4xu9TXKKL9JWuyqyn7af74Iw
+         jqOw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1771576601; x=1772181401; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=wDlaVVbBLdDal3YcpgZLDSMExLMyfMpma/ezoyrjcJA=;
+        b=MGMvya2XLJOXy54rWEh/y0PuVr+5uimvPlGbePrkbGvOVdOvQ9ryUf3MstIZ3ombAm
+         RSsI3s3fbEBBZ9KPwpuA+EUILOXDVf3FMpmB31CklHLVsufmUCVJVRXwDnyoM9+miMoH
+         nNWDv8fCb2t32UwV6OKCuuIGe4sHTqfv/IJPIyKF3ULs/DHJ5cWUThKMBnSvh8csMUjS
+         BfRL7qAYRiTAeIaKH7XCTeGhWqc3ZXNeNtnBxgW3hd9RMQVh0w70xxNbzOY+qNQGdGvO
+         EtNrnIf1jo68Axu4Ynyh8rnnUNtTTanLOw5wZHa105NFIKd+LLV0g6fjAmUZl9CWloZa
+         cS/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771576601; x=1772181401;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wDlaVVbBLdDal3YcpgZLDSMExLMyfMpma/ezoyrjcJA=;
+        b=ngptJM1ooHnGwWLLYwbZDJc2rf8CSRhRHH3gfKCAh+rs02vm5uPWO5SzpryhbtAh+q
+         fMvautSZ7KEblhiMXh1FvNCn6GNxjNhEw9A0Cb8vl6N0kxok+IGqK16trcJODx79iKZQ
+         f5exG/bxgmof+SD9RjFDuNHmPNErtSwCHLep0ykHPLOTIG0Wq6OrIUJ5IADDkINZ6nwI
+         LLIxOsIAUcg2bMzo43qq9RKJr3ZI+pYBS4a9vWbx2m8FJgUF2xsBo/eejs8iXcqtlwJR
+         LFxOwnoZJQgG52rR/HXyGPNI7tWfVO+NScAMSxdlqQym0dUBvj3YxDZy4YTfW6Us91XR
+         pnnQ==
+X-Gm-Message-State: AOJu0Yyqn/g6syZwbIU6Ql2dtlyB6xGGCJ7r05BZZ6B/bBhhmVVc0qan
+	J42sncaGvBfDUsKRsbysMBARKozzzHz/cmhElyGT7n35ZP8qoIQr2e4jGMyrXfLkliRN8+k1ouO
+	WjfrdyeMIesRslAHomEbvWaMLtyLzcz1Kx+b45K3S
+X-Gm-Gg: AZuq6aJqYs/n3EyAOQjc98LjsoHLx5OzymnXVYKZT+wbM0PgEjnj3JJQuzxtkW0G/jT
+	RgxeLi5E1J1G7qurbyyDgPFiObdisxL3kJT/1ozztwrgCIDJjDXt7l+KRpH/6G+cbQ2PtaOPyQv
+	cL/8UNZqRIYfWmsXgvTX1xzpiI/Zbbrb6eYvXuMGOM0W72lM6KRUlXArclwghqwITX+7LgPFilZ
+	juZF+IYfLnYxwu8oWjauj4/mWG6GL1S7wsqSqnkFdbXedJ7bqLMNVx3BsYbB64ca4aPxX4Fjd4p
+	qGDWeLkibmGFTcnCmeE=
+X-Received: by 2002:a05:622a:14e:b0:4f3:5475:6b10 with SMTP id
+ d75a77b69052e-506fb4615e4mr8894251cf.8.1771576600947; Fri, 20 Feb 2026
+ 00:36:40 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 12/18] dt-bindings: dma: ti: Add K3 BCDMA V2
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-Cc: peter.ujfalusi@gmail.com, vkoul@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org,
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- vigneshr@ti.com, Frank.li@nxp.com, r-sharma3@ti.com, gehariprasath@ti.com
-References: <20260218095243.2832115-1-s-adivi@ti.com>
- <20260218095243.2832115-13-s-adivi@ti.com>
- <20260219-hopeful-intrepid-cuckoo-32967d@quoll>
- <bab85365-063a-4d46-a1bf-48a25228d109@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <bab85365-063a-4d46-a1bf-48a25228d109@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260219195533.2455736-1-maz@kernel.org> <20260219195533.2455736-2-maz@kernel.org>
+In-Reply-To: <20260219195533.2455736-2-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 20 Feb 2026 08:36:04 +0000
+X-Gm-Features: AaiRm52jbJ9IZ7bNbbd9RDlERU8GTrUEk3PolIVa0wSoSiHCgwMBCb3XXwqiTBk
+Message-ID: <CA+EHjTzVRq3r-7UR-MJYvv-Aw4kHQDHEmwtqY9is-fRDm-J06A@mail.gmail.com>
+Subject: Re: [PATCH 1/9] arm64: Add logic to fully remove features from
+ sanitised id registers
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_002205_593057_69390442 
-X-CRM114-Status: GOOD (  31.50  )
+X-CRM114-CacheID: sfid-20260220_003643_653052_93ECCBBF 
+X-CRM114-Status: GOOD (  31.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,192 +117,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/02/2026 13:15, Sai Sree Kartheek Adivi wrote:
-> 
-> On 19/02/26 13:13, Krzysztof Kozlowski wrote:
-> 
-> Hi Krzysztof,
-> 
-> Thanks for the review.
->> On Wed, Feb 18, 2026 at 03:22:37PM +0530, Sai Sree Kartheek Adivi wrote:
->>> New binding document for
->> Fix wrapping - it's wrapped too early.
-> Ack. will fix it in v6.
->>
->>> Texas Instruments K3 Block Copy DMA (BCDMA) V2.
->>>
->>> BCDMA V2 is introduced as part of AM62L.
->>>
->>> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
->>> ---
->>>   .../bindings/dma/ti/ti,am62l-dmss-bcdma.yaml  | 120 ++++++++++++++++++
->>>   1 file changed, 120 insertions(+)
->>>   create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
->>> new file mode 100644
->>> index 0000000000000..6fa08f22df375
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
->>> @@ -0,0 +1,120 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +# Copyright (C) 2024-25 Texas Instruments Incorporated
->>> +# Author: Sai Sree Kartheek Adivi <s-adivi@ti.com>
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/dma/ti/ti,am62l-dmss-bcdma.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Texas Instruments K3 DMSS BCDMA V2
->>> +
->>> +maintainers:
->>> +  - Sai Sree Kartheek Adivi <s-adivi@ti.com>
->>> +
->>> +description:
->>> +  The BCDMA V2 is intended to perform similar functions as the TR
->>> +  mode channels of K3 UDMA-P.
->>> +  BCDMA V2 includes block copy channels and Split channels.
->>> +
->>> +  Block copy channels mainly used for memory to memory transfers, but with
->>> +  optional triggers a block copy channel can service peripherals by accessing
->>> +  directly to memory mapped registers or area.
->>> +
->>> +  Split channels can be used to service PSI-L based peripherals.
->>> +  The peripherals can be PSI-L native or legacy, non PSI-L native peripherals
->>> +  with PDMAs. PDMA is tasked to act as a bridge between the PSI-L fabric and the
->>> +  legacy peripheral.
->>> +
->>> +allOf:
->>> +  - $ref: /schemas/dma/dma-controller.yaml#
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: ti,am62l-dmss-bcdma
->>> +
->>> +  reg:
->>> +    items:
->>> +      - description: BCDMA Control & Status Registers region
->>> +      - description: Block Copy Channel Realtime Registers region
->>> +      - description: Channel Realtime Registers region
->>> +      - description: Ring Realtime Registers region
->>> +
->>> +  reg-names:
->>> +    items:
->>> +      - const: gcfg
->>> +      - const: bchanrt
->>> +      - const: chanrt
->>> +      - const: ringrt
->>> +
->>> +  "#address-cells":
->>> +    const: 0
->>> +
->>> +  "#interrupt-cells":
->>> +    const: 1
->> I don't get why this is nexus but not a interrupt-controller.
->>
->> Can you point me to DTS with complete picture using this?
-> 
-> Please refer 
-> https://github.com/sskartheekadivi/linux/commit/4a7078a6892bfbc4c620b9668e3421b4c7405ca4
-> 
-> for the dt nodes of AM62L BCDMA and PKTDMA.
-> 
-> Refer to the below tree for full set of driver, dt-binding and dts changes
-> 
-> https://github.com/sskartheekadivi/linux/commits/dma-upstream-v5/
+Hi Marc,
 
-That's not complete. There are no consumers, so this does not really
-answer my problem of lack of controller.
+On Thu, 19 Feb 2026 at 19:55, Marc Zyngier <maz@kernel.org> wrote:
+>
+> We currently make support for some features such as Pointer Auth,
+> SVE or S1POE a compile time decision.
+>
+> However, while we hide that feature from userspace when such support
+> is disabled, we still leave the value provided by the HW visible to
+> the rest of the kernel, including KVM.
+>
+> This has the potential to result in ugly state leakage, as half of
+> the kernel knows about the feature, and the other doesn't.
+>
+> Short of completely banning such compilation options and restore
+> universal knowledge, introduce the possibility to fully remove such
+> knowledge from the sanitised id registers.
+>
+> This has more or less the same effect as the idreg override that
+> a user can pass on the command-line, only defined at build-time.
+>
+> For that purpose, we provide a new macro (FTR_CONFIG()) that defines
+> the behaviour of a feature, both when enabled and disabled.
+>
+> At this stage, nothing is making use of this anti-feature.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/cpufeature.h | 15 ++++++++++-----
+>  arch/arm64/kernel/cpufeature.c      | 21 ++++++++++++++++-----
+>  2 files changed, 26 insertions(+), 10 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index 4de51f8d92cba..2731ea13c2c86 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -53,15 +53,20 @@ enum ftr_type {
+>  #define FTR_SIGNED     true    /* Value should be treated as signed */
+>  #define FTR_UNSIGNED   false   /* Value should be treated as unsigned */
+>
+> -#define FTR_VISIBLE    true    /* Feature visible to the user space */
+> -#define FTR_HIDDEN     false   /* Feature is hidden from the user */
+> +enum ftr_visibility {
+> +       FTR_HIDDEN,             /* Feature hidden from the user */
+> +       FTR_ALL_HIDDEN,         /* Feature hidden from kernel, user and KVM */
+> +       FTR_VISIBLE,            /* Feature visible to all observers */
+> +};
+> +
+> +#define FTR_CONFIG(c, e, d)                            \
+> +       (IS_ENABLED(c) ? FTR_ ## e : FTR_ ## d)
+>
+> -#define FTR_VISIBLE_IF_IS_ENABLED(config)              \
+> -       (IS_ENABLED(config) ? FTR_VISIBLE : FTR_HIDDEN)
+> +#define FTR_VISIBLE_IF_IS_ENABLED(c)   FTR_CONFIG(c, VISIBLE, HIDDEN)
+>
+>  struct arm64_ftr_bits {
+>         bool            sign;   /* Value is signed ? */
+> -       bool            visible;
+> +       enum ftr_visibility visibility;
+>         bool            strict; /* CPU Sanity check: strict matching required ? */
+>         enum ftr_type   type;
+>         u8              shift;
 
-> 
->>
->>> +
->>> +  "#dma-cells":
->>> +    const: 4
->>> +    description: |
->>> +      cell 1: Trigger type for the channel
->>> +        0 - disable / no trigger
->>> +        1 - internal channel event
->>> +        2 - external signal
->>> +        3 - timer manager event
->>> +
->>> +      cell 2: parameter for the trigger:
->>> +        if cell 1 is 0 (disable / no trigger):
->>> +          Unused, ignored
->>> +        if cell 1 is 1 (internal channel event):
->>> +          channel number whose TR event should trigger the current channel.
->>> +        if cell 1 is 2 or 3 (external signal or timer manager event):
->>> +          index of global interfaces that come into the DMA.
->>> +
->>> +          Please refer to the device documentation for global interface indexes.
->>> +
->>> +      cell 3: Channel number for the peripheral
->>> +
->>> +        Please refer to the device documentation for the channel map.
->>> +
->>> +      cell 4: ASEL value for the channel
->>> +
->>> +  interrupt-map-mask:
->>> +    items:
->>> +      - const: 0x7ff
->>> +
->>> +  interrupt-map:
->>> +    description: |
->>> +      Maps internal BCDMA channel IDs to the parent GIC IRQ lines.
->> Isn't this mapping fixed in given device? IOW, not really part of DTS
->> description but deducible from the compatible.
->>
->> You only need to provide interrupts for your device.
-> 
-> I initially considered handling the mapping in the driver based on the
-> 
-> compatible string, but discussing the hardware architecture internally,
-> 
-> that approach becomes highly problematic for this IP block.
-> 
-> 
-> While the mapping is fixed for the AM62L specifically, this same BCDMA V2
-> 
-> IP block is reused across different K3 SoCs, and the internal
-> 
-> channel-to-IRQ wiring changes entirely from SoC to SoC. Furthermore, the
-> 
-> mapping of internal channels to the parent GIC interrupts is discontiguous
-> 
-> (and the hardware IP itself supports mapping multiple DMA channels to a
-> 
-> single shared IRQ line, depending on the SoC integration).
-> 
-> 
-> If we rely on the driver to deduce this via the compatible string, we will
-> 
-> have to maintain large, discontiguous mapping tables inside the driver
-> 
-> code for every new SoC that integrates this IP.
+This introduces bloat. Should you group the bools together and the
+enums together?
 
-And why maintaining exactly same mapping in DTS is okay? What's entirely
-deducible from the compatible does not belong to the DTS.
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index c840a93b9ef95..b34a39967d111 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -192,7 +192,7 @@ void dump_cpu_features(void)
+>  #define __ARM64_FTR_BITS(SIGNED, VISIBLE, STRICT, TYPE, SHIFT, WIDTH, SAFE_VAL) \
+>         {                                               \
+>                 .sign = SIGNED,                         \
+> -               .visible = VISIBLE,                     \
+> +               .visibility = VISIBLE,                  \
+>                 .strict = STRICT,                       \
+>                 .type = TYPE,                           \
+>                 .shift = SHIFT,                         \
+> @@ -1057,17 +1057,28 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
+>                                 ftrp->shift);
+>                 }
+>
+> -               val = arm64_ftr_set_value(ftrp, val, ftr_new);
+> -
+>                 valid_mask |= ftr_mask;
+>                 if (!ftrp->strict)
 
-> 
-> 
-> Because the IP is essentially routing its internal channel events to a
-> 
-> different set of parent IRQs (which varies per SoC integration), using
-> 
-> interrupt-map allows us to accurately describe the specific SoC's wiring
-> 
-> purely in the DT. This keeps the driver clean and easily reusable for
-> 
-> future K3 SoCs without creeping hardware routing tables into the driver
-> 
-> code.
+Should FTR_ALL_HIDDEN also be removed from strict_mask? i.e.
+
+-                 if (!ftrp->strict)
++                 if (!ftrp->strict || || ftrp->visibility == FTR_ALL_HIDDEN)
+
+(or under the ALL_HIDDEN case below).
 
 
-All of this is difficult to read. Fix your email client please. I just
-skimmed through it, not going to force my brain to work with broken
-formatting. Make it easy for reviewers to discuss your patches... if
-not, then silence and no ack.
+>                         strict_mask &= ~ftr_mask;
+> -               if (ftrp->visible)
+> +
+> +               switch (ftrp->visibility) {
+> +               case FTR_VISIBLE:
+> +                       val = arm64_ftr_set_value(ftrp, val, ftr_new);
+>                         user_mask |= ftr_mask;
+> -               else
+> +                       break;
+> +               case FTR_ALL_HIDDEN:
+> +                       val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
+> +                       reg->user_val = arm64_ftr_set_value(ftrp,
+> +                                                           reg->user_val,
+> +                                                           ftrp->safe_val);
 
-Best regards,
-Krzysztof
+Should we also take the safe value in update_cpu_ftr_reg() for FTR_ALL_HIDDEN?
+
+Cheers,
+/fuad
+
+> +                       break;
+> +               case FTR_HIDDEN:
+> +                       val = arm64_ftr_set_value(ftrp, val, ftr_new);
+>                         reg->user_val = arm64_ftr_set_value(ftrp,
+>                                                             reg->user_val,
+>                                                             ftrp->safe_val);
+> +                       break;
+> +               }
+>         }
+>
+>         val &= valid_mask;
+> --
+> 2.47.3
+>
 
