@@ -4,46 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288B0C55180
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 09:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA039C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 09:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bgahogIcNWSgjNNHpObkMr58Hhr7nMd1nKoIviohIkw=; b=JCE3NYhkKOtrD7lgQlob6u9sGt
-	OamogFXQ+TbEyuClxKdxAjOuZGju5vA6gctbw9tsLX65HgUg03Sxg+4fu8Ctaq3+RA6ZzGYDoRkLT
-	Tbmhm4zMAeA8N6DHebQE7gmaPx80/6N61WHz5AQFQBF2bnRac+MpfSGIGOtI4s0HGM8o0w+vLx946
-	q8YEEwtzV4nQqy6wPpy93YTpV31sgf9JFt3Yaico69x4xRJShbIKt5nS3dWLUpv74tcU1mWJfyY9W
-	QQzWgILeGYlNVrwAcVYuc3XIWgoY+CKxiulRDBnAkPDdwfXBXWKcJFwPJ9IPiBs1De9Jogy+tsa6J
-	tYotELfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sAJ079v3EuGaMgXIGsa8tTVoFFB51aEPHIUaV4fqzFE=; b=dmimuPayhfIb3lcyoeEWsg/CQ2
+	DS9Fr4ZBp+j2Z1AuPcu/AzOx9foNscwzQ+xzTrtxBW7IPMqDjA/9RgWavGwlDq7XlwRGQ2KOcJEub
+	f/lL5fGZGlprnI8M53rjLJh0Qk0r30un9mHIxxX3Lj//ib3/RGjCEgLTCIJ6EDxC69fTtlQ9H7thL
+	EoeDc9CxUl+V7PcrjNCXiyVQ8yN/ayazOMUYATOwli9jCUhXfHKxwcjxJNsDiqrHR0BINKvnlMcfS
+	vLup87aO4/lwWOAeEESK9g1ysyo6Ox3FXXezV8AVyo4JnE+ZVm9ETfJMSBMSLnIAzgPPR26lanBPv
+	o0enrRRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNEL-0000000DhsY-3t0W;
-	Fri, 20 Feb 2026 09:55:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vtNHW-0000000Djjp-3Ucq;
+	Fri, 20 Feb 2026 09:58:42 +0000
+Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNEK-0000000Dhqq-1GF5
+	id 1vtNHT-0000000Djf0-1vjD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 09:55:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7929D60054;
-	Fri, 20 Feb 2026 09:55:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E202FC116C6;
-	Fri, 20 Feb 2026 09:55:21 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] firmware: arm_scmi: Spelling s/mulit/multi/, s/currenly/currently/
-Date: Fri, 20 Feb 2026 10:55:15 +0100
-Message-ID: <6735401861e0c2f3e5e680533cd6f71c4d6fd5eb.1771581270.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	Fri, 20 Feb 2026 09:58:41 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F2A481483628;
+	Fri, 20 Feb 2026 10:58:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1771581512; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=sAJ079v3EuGaMgXIGsa8tTVoFFB51aEPHIUaV4fqzFE=;
+	b=TQZtoTDwMs37I4I8gIeJassjf9/U8KxmeaNXN06BKIdkR1LarQVTeOACFa6dVuv7HyImUU
+	jpC1NWJ+7rWEnR4VtuWsnean0F3+u1oy/xgO9XdGgCd5FiRTV/2yJM5xVUnBBm06iChh23
+	QKW4OTYaKL4lGYB5yCM+jPLMS3H1RwPgyygxZAP7Wlc0r+xKvl+n05v0CHdJIXO+hhcA0/
+	HSNnMXv2VpPGcZNpQRdxKSkwp04wkWuey9qIf1mgZKSO2OyGFBvFPxzDm/pTCWnG0Ozun3
+	BUKETuB47iUekQhoQEX97zQflz2lnUiWDfBxqm5hySPsG2ZC4buBAIzQAkpzCw==
+Date: Fri, 20 Feb 2026 10:58:25 +0100
+From: Alexander Dahl <ada@thorsis.com>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Alexander Dahl <ada@thorsis.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v3 09/19] dt-bindings: nvmem: microchip-otpc: Add
+ required clocks
+Message-ID: <20260220-bloomers-runny-e69ab1966b9c@thorsis.com>
+Mail-Followup-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+References: <20260120143759.904013-1-ada@thorsis.com>
+ <20260120154502.1280938-1-ada@thorsis.com>
+ <20260120154502.1280938-3-ada@thorsis.com>
+ <f406abde-c7d1-4ed6-b7dd-5336956bc795@tuxon.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f406abde-c7d1-4ed6-b7dd-5336956bc795@tuxon.dev>
+User-Agent: Mutt/2.2.13 (2024-03-09)
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260220_015840_180523_BE15DE32 
+X-CRM114-Status: GOOD (  27.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,34 +90,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix misspellings of "multi" and "currently".
+Hello Claudiu,
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
- drivers/firmware/arm_scmi/protocols.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Am Sat, Jan 31, 2026 at 05:47:05PM +0200 schrieb Claudiu Beznea:
+> 
+> 
+> On 1/20/26 17:44, Alexander Dahl wrote:
+> > The OTPC requires both the peripheral clock through PMC and the main RC
+> > oscillator.  Seemed to work without explicitly enabling those clocks on
+> > sama7g5 before, but did not on sam9x60.
+> > 
+> > Older datasheets were not clear and explicit about this, but recent are,
+> > e.g. SAMA7G5 series datasheet (DS60001765B),
+> > section 30.4.1 Power Management:
+> > 
+> > > The OTPC is clocked through the Power Management Controller (PMC).
+> > > The user must power on the main RC oscillator and enable the
+> > > peripheral clock of the OTPC prior to reading or writing the OTP
+> > > memory.
+> 
+> As this was not mentioned in the previous datasheet versions, the current
+> driver don't handle those clocks, and it probably worked as the clocks were
+> enabled by bootloaders, I think the clocks should be marked as required and
+> this patch to be propagated as a fix along with fixes on driver and device
+> trees.
 
-diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
-index 4c75970326e655de..f51245aca2594c75 100644
---- a/drivers/firmware/arm_scmi/protocols.h
-+++ b/drivers/firmware/arm_scmi/protocols.h
-@@ -189,13 +189,13 @@ struct scmi_protocol_handle {
- 
- /**
-  * struct scmi_iterator_state  - Iterator current state descriptor
-- * @desc_index: Starting index for the current mulit-part request.
-+ * @desc_index: Starting index for the current multi-part request.
-  * @num_returned: Number of returned items in the last multi-part reply.
-  * @num_remaining: Number of remaining items in the multi-part message.
-  * @max_resources: Maximum acceptable number of items, configured by the caller
-  *		   depending on the underlying resources that it is querying.
-  * @loop_idx: The iterator loop index in the current multi-part reply.
-- * @rx_len: Size in bytes of the currenly processed message; it can be used by
-+ * @rx_len: Size in bytes of the currently processed message; it can be used by
-  *	    the user of the iterator to verify a reply size.
-  * @priv: Optional pointer to some additional state-related private data setup
-  *	  by the caller during the iterations.
--- 
-2.43.0
+What do you mean by "clocks should be marked as required"?  Where?
+How?  Is something more necessary, than already done here?
 
+> I'll let DT binding maintainers for the final decision on this.
+> 
+> > 
+> > Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
+> 
+> Why this link here?
+
+That was the original discussion and at the time the sama7g5 datasheet
+mentioned a thing missing in the sam9x60 datasheet.  So that
+discussion was the only reference for why this change is needed for
+sam9x60.  Will drop the line in v4 then.
+
+Greets
+Alex
+
+> 
+> > Signed-off-by: Alexander Dahl <ada@thorsis.com>
+> > ---
+> > 
+> > Notes:
+> >      v3:
+> >      - Removed clock-names (led to confusion, and not used by the driver anyways)
+> >      - Removed redundant example
+> >      v2:
+> >      - new patch, not present in v1
+> > 
+> >   .../devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml | 8 ++++++++
+> >   1 file changed, 8 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> > index 9a7aaf64eef32..847dfb67c6b72 100644
+> > --- a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> > +++ b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> > @@ -29,6 +29,11 @@ properties:
+> >     reg:
+> >       maxItems: 1
+> > +  clocks:
+> > +    items:
+> > +      - description: main rc oscillator
+> > +      - description: otpc peripheral clock
+> > +
+> >   required:
+> >     - compatible
+> >     - reg
+> > @@ -37,6 +42,8 @@ unevaluatedProperties: false
+> >   examples:
+> >     - |
+> > +    #include <dt-bindings/clock/at91.h>
+> > +    #include <dt-bindings/clock/microchip,sama7g5-pmc.h>
+> >       #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
+> >       otpc: efuse@e8c00000 {
+> > @@ -44,6 +51,7 @@ examples:
+> >           reg = <0xe8c00000 0xec>;
+> >           #address-cells = <1>;
+> >           #size-cells = <1>;
+> > +        clocks = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 67>;
+> >           temperature_calib: calib@1 {
+> >               reg = <OTP_PKT(1) 76>;
+> 
 
