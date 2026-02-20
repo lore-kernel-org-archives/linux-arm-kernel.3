@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0803C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 08:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DE7C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 08:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BLIYLFDlEnyln5PlrUQk3fhcMCoEDtDzg6AIUsfjXvQ=; b=omohXQd80x5rJs0MZx6Tr/HdEz
-	oFWidI02G3QE8cCfcyIQ2NIfock4fxTQdZpsrLZmiPmaf0++dcG67pnkzj27p92Yh/Lcy684ntmLB
-	TUvaSPETWkSZMnBLx6O7Qr+0S35wTFIa719ZmwSQ/IvCbTTDEp6jwWyuy5Wdkscq4S1C/xhiPL1Hr
-	kbmAj1tjzRWuvrKdxGQbQ0sGfPxJgn6QY+Qmwgw8fmr1BkNFSGL6XvlpfyKvqcMytqAcMFMg9KPs2
-	fLnhbmcnXPu3jGUt47fwlPanp7MpnQhTXRrbWSOU9vEoFNQ3xm6rOMm3Whxhbw5DzJ/RxfoFMLg75
-	UKxOCX3w==;
+	bh=svbSNpd/Xf+KiMskpRl4dlmNmcl9Z/ML5zk5uLWuV20=; b=C4ZQgmsTnMPqWVWFyeCpty+3Sr
+	p8KKlcUKNJq2xwcJZ7tffWk9jTElpEQCafdNOwW3fp0ZoWjdkaOMMaPVEDGLXt1qmBn8bwl9XvnnO
+	nvW5/GsBAqxx/I0taWBaLntSeBoEvexG9bNu9z0/h4hVXLPUNuIcprJ/hMIWZAoDrCo1jDLdsOYro
+	FPWYDIBnXtifXSRig3cVoj6azX/Gae+32ffxw/S+aH1VkmfUqvsaaOP6203G2x5kvvIRrDe3YRA47
+	EY7nQdFO4RwCYzs6R6KxpD6yHPt/DEJZVLLFTjGEs6o0YL4Xyot/3MHUTXwK0kec/yZvHlMTyygPU
+	aNPvTvMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtLfN-0000000DOaQ-0ipZ;
-	Fri, 20 Feb 2026 08:15:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vtLfT-0000000DOd9-307Y;
+	Fri, 20 Feb 2026 08:15:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtLfL-0000000DOZK-05Tr;
-	Fri, 20 Feb 2026 08:15:11 +0000
+	id 1vtLfL-0000000DOZJ-1z1b;
+	Fri, 20 Feb 2026 08:15:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DDACE6184E;
-	Fri, 20 Feb 2026 08:15:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 71332C19424;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0457F43C85;
+	Fri, 20 Feb 2026 08:15:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7A797C116D0;
 	Fri, 20 Feb 2026 08:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1771575309;
-	bh=g/dKe7ealZ2Roz+w0mia01uKOCP+aV0TUZ6SoON1WvU=;
+	bh=jtkgWkJjHoviWzC1L3qi3r1Sfz0YtO2chH+woXl6s5E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=m7WmexyXFUpR564zdYVzl0jpUfbGWki2B868oYV9SvP2w1U978QnEU+GW/KUkUFYZ
-	 prX5H9PAGydDhOh4KN1gPMr2PqzkZkVAQMj9UI4X8bfBc7aeMWIoiwdgEa04Wrc0l/
-	 yNuH6GewHmQviG/dBWIgjvPYDLXtRft6D50lWpw715FYHiSYeVE9mmd1SBVUGMqfKT
-	 H7aZ6biFyUAkgLcPMwP1rpQNTOiFxSZvMeLgshLqOB/UbQOVLT2Zjd58HatB8FNYfJ
-	 XilNxGFXx446icJCucRLLpWX8LPiFVX8d37QjNTDi/k023SdGPplo65P9bgf0DJaQa
-	 vCcQMYv6sIb6Q==
+	b=jPkTRKBIdV8vbcuEUJHyULqSjI8oaWmDKLMP/Ibfi37LtwN9ix5QkJGbSiSHiOLxc
+	 o0xj8L19NMDC5J3fRMHAwbwRsGstSCqWOoJClb/wgzmwq+tm3GvnpfBKdNZPVw7gWq
+	 XYduAEtQQXNi48HMACHIqiGncGjGGXzFsjQnN/Y2j00maerUQ6ES49iSTlX/d8w+xc
+	 uAr3lvJaUp05PJip7hNFCOdd1Q7Oh+G2Q584Wxm49i690pRRAysmumcrA0a4n8qklc
+	 t5uvb4omELk9evaUCk7slGWm9LyGMKn/9AyChweLkOP+NZJzxGkDNzRPo6jhYxdY9W
+	 mQ58Lb/w6fCSw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CE4EC54FD4;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6DCB8C55162;
 	Fri, 20 Feb 2026 08:15:09 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Fri, 20 Feb 2026 09:15:07 +0100
-Subject: [PATCH v2 1/2] media: rockchip: rkcif: fix off by one bugs
+Date: Fri, 20 Feb 2026 09:15:08 +0100
+Subject: [PATCH v2 2/2] media: rockchip: rkcif: comply with minimum number
+ of buffers requirement
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260216-rkcif-fixes-v2-1-ee40931fe0ff@collabora.com>
+Message-Id: <20260216-rkcif-fixes-v2-2-ee40931fe0ff@collabora.com>
 References: <20260216-rkcif-fixes-v2-0-ee40931fe0ff@collabora.com>
 In-Reply-To: <20260216-rkcif-fixes-v2-0-ee40931fe0ff@collabora.com>
 To: Dan Carpenter <dan.carpenter@linaro.org>, 
@@ -68,16 +69,19 @@ Cc: Collabora Kernel Team <kernel@collabora.com>, stable@kernel.org,
  Michael Riesch <michael.riesch@collabora.com>, 
  Chen-Yu Tsai <wens@kernel.org>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771575308; l=2303;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1771575308; l=2843;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=+CTMmqq/FBf0OUNoxM2h1AJhLJnTaBpUVbDN8g6FJXc=;
- b=jkqMSDUDANKBRHHyuTdC4NY7nDzfs9Wzk6LdU8E0ORJ+OVHx360FP8JRfy5VTJk4vVrWWJ7MQ
- HVgUvXIym14CwVEQA2gWZ/Cq0XPnkiR8U22M7NCl4m2YbgLdCjOcg6X
+ bh=QlnSURdd8Dclxdp8UA+BrdFUZIn2tw+OGzLWQP2V3Uw=;
+ b=aUmJLnmSesafA20KayfGrJ/nBjA/G1S1v3FbSvXyYUCwd5vve4+NrwlAD+vjZ2DpAv+UGoK7N
+ yAS0hKGcYuJDspP8YEFpbSn/FGQKkYY5q0FtMoVclqlMwAbF0CmqgM/
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
  with auth_id=371
 X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260220_001511_561604_CFFC2DCD 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +97,92 @@ Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dan Carpenter <dan.carpenter@linaro.org>
+From: Michael Riesch <michael.riesch@collabora.com>
 
-Change these comparisons from > vs >= to avoid accessing one element
-beyond the end of the arrays.
-While at it, use ARRAY_SIZE instead of the _MAX enum values.
+Each stream requires CIF_REQ_BUFS_MIN=1 buffers to enable streaming.
+However, it failed with only one buffer provided.
 
-Fixes: 1f2353f5a1af ("media: rockchip: rkcif: add support for rk3568 vicap mipi capture")
+Comply with the minimum number of buffers requirement and accept
+exactly one buffer.
+
+Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma blocks")
 Cc: stable@kernel.org
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
-Reviewed-by: Paul Elder <paul.elder@ideasonboard.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Tested-by: Paul Elder <paul.elder@ideasonboard.com>
 Tested-by: Chen-Yu Tsai <wens@kernel.org>
-[fix cosmetic issues]
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 ---
- drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ .../media/platform/rockchip/rkcif/rkcif-stream.c   | 44 +++++++++++-----------
+ 1 file changed, 22 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-index 1b81bcc067ef..9e67160a16e4 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-@@ -489,8 +489,8 @@ static inline unsigned int rkcif_mipi_get_reg(struct rkcif_interface *interface,
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+index e00010a91e8b..f15bee4f7cd7 100644
+--- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+@@ -106,42 +106,42 @@ static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
+ {
+ 	struct v4l2_pix_format_mplane *pix = &stream->pix;
  
- 	block = interface->index - RKCIF_MIPI_BASE;
+-	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
+-	if (!stream->buffers[0])
+-		goto err_buff_0;
+-
+-	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
+-	if (!stream->buffers[1])
+-		goto err_buff_1;
+-
+-	if (stream->queue_buffer) {
+-		stream->queue_buffer(stream, 0);
+-		stream->queue_buffer(stream, 1);
+-	}
+-
+ 	stream->dummy.size = pix->num_planes * pix->plane_fmt[0].sizeimage;
+ 	stream->dummy.vaddr =
+ 		dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
+ 				&stream->dummy.buffer.buff_addr[0], GFP_KERNEL,
+ 				DMA_ATTR_NO_KERNEL_MAPPING);
+ 	if (!stream->dummy.vaddr)
+-		goto err_dummy;
++		return -ENOMEM;
  
--	if (WARN_ON_ONCE(block > RKCIF_MIPI_MAX - RKCIF_MIPI_BASE) ||
--	    WARN_ON_ONCE(index > RKCIF_MIPI_REGISTER_MAX))
-+	if (WARN_ON_ONCE(block >= ARRAY_SIZE(rkcif->match_data->mipi->blocks)) ||
-+	    WARN_ON_ONCE(index >= ARRAY_SIZE(rkcif->match_data->mipi->regs)))
- 		return RKCIF_REGISTER_NOTSUPPORTED;
+ 	for (unsigned int i = 1; i < pix->num_planes; i++)
+ 		stream->dummy.buffer.buff_addr[i] =
+ 			stream->dummy.buffer.buff_addr[i - 1] +
+ 			pix->plane_fmt[i - 1].bytesperline * pix->height;
  
- 	offset = rkcif->match_data->mipi->blocks[block].offset;
-@@ -510,9 +510,9 @@ static inline unsigned int rkcif_mipi_id_get_reg(struct rkcif_stream *stream,
- 	block = stream->interface->index - RKCIF_MIPI_BASE;
- 	id = stream->id;
+-	return 0;
++	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
++	if (!stream->buffers[0])
++		goto err_dummy_free;
++
++	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
++	if (!stream->buffers[1]) {
++		stream->buffers[1] = &stream->dummy.buffer;
++		stream->buffers[1]->is_dummy = true;
++	}
  
--	if (WARN_ON_ONCE(block > RKCIF_MIPI_MAX - RKCIF_MIPI_BASE) ||
--	    WARN_ON_ONCE(id > RKCIF_ID_MAX) ||
--	    WARN_ON_ONCE(index > RKCIF_MIPI_ID_REGISTER_MAX))
-+	if (WARN_ON_ONCE(block >= ARRAY_SIZE(rkcif->match_data->mipi->blocks)) ||
-+	    WARN_ON_ONCE(id >= ARRAY_SIZE(rkcif->match_data->mipi->regs_id)) ||
-+	    WARN_ON_ONCE(index >= ARRAY_SIZE(rkcif->match_data->mipi->regs_id[id])))
- 		return RKCIF_REGISTER_NOTSUPPORTED;
+-err_dummy:
+-	rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEUED);
+-	stream->buffers[1] = NULL;
++	if (stream->queue_buffer) {
++		stream->queue_buffer(stream, 0);
++		stream->queue_buffer(stream, 1);
++	}
++
++	return 0;
  
- 	offset = rkcif->match_data->mipi->blocks[block].offset;
+-err_buff_1:
+-	rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEUED);
+-	stream->buffers[0] = NULL;
+-err_buff_0:
++err_dummy_free:
++	dma_free_attrs(stream->rkcif->dev, stream->dummy.size,
++		       stream->dummy.vaddr,
++		       stream->dummy.buffer.buff_addr[0],
++		       DMA_ATTR_NO_KERNEL_MAPPING);
++	stream->dummy.vaddr = NULL;
+ 	return -EINVAL;
+ }
+ 
 
 -- 
 2.39.5
