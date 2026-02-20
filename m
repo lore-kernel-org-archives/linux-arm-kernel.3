@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75DC3C531FF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CBCBC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WOmq4oIh50CVOlYgICncz5bv3GLxzZaAhwh07HpubHg=; b=gC0RoZ7eB7Nons6RinWWJ6qi1O
-	fY34R6uoAta5QgvlWi/MYLcq3JmfKCeS9MFmUCJYa/VkrVkygYqQ91DaCBnAHuvEfs4A8PZEcSAiC
-	dmhFG4HKgfeZLLRaE00QG5RP7S7Spv1Q8Ik2qTPwdRqhmryjsiayVZ7tAnN0ZGsFSulQVNn0bkuvx
-	AhVch1jEtieUQy4NZS+dAQYBY1WpNrAxG+rluVX+2BNzZsghuUlIb5UtoQt29mwEjNAwCaRf+w3Yl
-	kO8vSnYo5UhizuhL5I5UoHC8pJnEWkZuddT/D3kb8lKawILZRRTghxqzyHK8gtN2LtbDKy+t+h3au
-	qjo4Nqqg==;
+	bh=ncaVl8FmjKo1MU54nAIJ5qmIEEBB3+ip6lPVKRFzkRI=; b=CLwiGCF3ro5jmI/XTkQFNB/KhL
+	o2ilA9y46bO3jCTNU6SlYPZZTnDuCQonOJAkylsKgf8/55ur6wWWYV+RcNK5IJog1hFlt4RCXpX7h
+	3l+PzWjGDyvClXZGGFFB9kiPDxLJBdUy0Qw048LFwzhIDck36TpMIsGAZAw4qa91nEudyB+oF/ieW
+	w5Wm/d6vjZtJTPGWpwgOne1vWAYgnD8R6r11Y8j3RNicI3IbEm67D/Ap6tTqGZLVdlMnQcf5Mg09R
+	9mk9ICj7Tyhx/8vMv7b/gOJtrIOU3HtTSEP7YRtUx+08hZgVT6dZ+8uSyWgWTSuEzJLAS5QuFvfDz
+	GidelCog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNsV-0000000E5mf-46iR;
+	id 1vtNsV-0000000E5mE-2vCS;
 	Fri, 20 Feb 2026 10:36:55 +0000
 Received: from mail.fris.de ([116.203.77.234] helo=mail2.fris.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNsQ-0000000E5g6-03gh
+	id 1vtNsN-0000000E5e6-3MZ5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 10:36:51 +0000
+	Fri, 20 Feb 2026 10:36:50 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1771583808;
+	t=1771583806;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WOmq4oIh50CVOlYgICncz5bv3GLxzZaAhwh07HpubHg=;
-	b=SKA3P/Ur0pz9ThsYK6y9UIZI8d+qxCeqKJWmzeR1K0WecCE2PbpaX0Mehf3s1SlAd8+k4f
-	b3x2IMQ+e3BRRi1HUaOACw3+sfmoSwZkUXKAlWHe3SHKhauD/7kLf+ZlEDtqVcTu+LqnvS
-	3f5Y+jcTxJ2nUPMIR6+d6eFYV+tLq1TJ9qvAjR0qxJBP2aLSFRV2Ru2X8U5HE8oaDa4Jpq
-	MlKPqTwMza3J0jj/NG2f14boQsXTcNy0fRLbw3jvUQ55Mbl6t7HbQyru2hxK4/6NQphqbT
-	c7Imtq4cCBUKjcArvXn2Kf/jVgCqaCKtGV3Z76eoImpGfjQ4maQE9HlKF3U2Iw==
+	bh=ncaVl8FmjKo1MU54nAIJ5qmIEEBB3+ip6lPVKRFzkRI=;
+	b=0PGmqiJHpNVwmVI44CQvWvovGJZ+7qLLsqK8dGW50OqtjYILi5uhxHVIXe1PTtikO0ddRT
+	zCb7uxXqYLv+DHmP1HCzr4i2GImt/p8nkKsmsP1CV0mYOqpg5g2z1kgo4a7vX8EXvLdjQj
+	DkYbFeLKf8i7lR/n+S/xWJK+e3Fng8NWA9DWWmfT+3Nb1IkJ9gHDvAEfY+IPyr+KD2GMlO
+	pCLKlZq98gZTO25TqAN40rzhNd47AbZlNmP5jzq3fp1ugcG12qnHLQAzVppb28NMn39THK
+	HxYsSroQo80OyxNmoKNhXfKiO6YwQYncs5pJKkG7UXsw8NHiAROYLqiC84FeUg==
 To: Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	Frank Li <Frank.Li@nxp.com>,
@@ -51,20 +51,19 @@ To: Conor Dooley <conor+dt@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>
-Cc: Annette Kobou <annette.kobou@kontron.de>,
-	Fabio Estevam <festevam@gmail.com>,
+Cc: Fabio Estevam <festevam@gmail.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v2 3/4] arm64: dts: imx8mp-kontron: Fix boot order for PMIC and RTC
-Date: Fri, 20 Feb 2026 11:36:18 +0100
-Message-ID: <20260220103636.9697-4-frieder@fris.de>
+Subject: [PATCH v2 2/4] arm64: dts: imx8mp-kontron: Drop vmmc-supply to fix SD card on SMARC eval carrier
+Date: Fri, 20 Feb 2026 11:36:17 +0100
+Message-ID: <20260220103636.9697-3-frieder@fris.de>
 In-Reply-To: <20260220103636.9697-1-frieder@fris.de>
 References: <20260220103636.9697-1-frieder@fris.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Spam: Yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_023650_851601_762B39C0 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260220_023648_775489_698275C9 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,44 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Annette Kobou <annette.kobou@kontron.de>
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-The PMIC provides a level-shifter for the I2C lines to the RTC.
-As the level shifter needs to be enabled before the RTC can be
-accessed, we need to make sure that the PMIC driver is probed
-first.
+The SMARC evaluation carrier provides an SD card power switch that
+complies with the OSM standard definition. The OSM base devicetree
+already describes this correctly.
 
-As the PMIC also provides the supply voltage for the RTC through
-the 3.3V regulator, we can simply express this in the DT to
-create the required dependency.
+Stop overriding the vmmc-supply in the board devicetree and rely on
+the definition from the OSM base DTS instead to fix the power supply
+configuration for the SD card.
 
-This fixes sporadic boot hangs that occurred when the RTC was
-accessed before the level-shifter was enabled.
-
-Fixes: 946ab10e3f40f ("arm64: dts: Add support for Kontron OSM-S i.MX8MP SoM and BL carrier board")
-Signed-off-by: Annette Kobou <annette.kobou@kontron.de>
+Fixes: 6fe1ced5ccab7 ("arm64: dts: Add support for Kontron i.MX8MP SMARC module and eval carrier")
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts     | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
-index b97bfeb1c30f8..bc1a261bb000e 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
-@@ -330,6 +330,12 @@ rv3028: rtc@52 {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_rtc>;
- 		interrupts-extended = <&gpio3 24 IRQ_TYPE_LEVEL_LOW>;
-+		/*
-+		 * While specifying the vdd-supply is normally not strictly necessary,
-+		 * here it also makes sure that the PMIC driver enables the level-
-+		 * shifter for the RTC before the RTC is probed.
-+		 */
-+		vdd-supply = <&reg_vdd_3v3>;
- 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts b/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
+index 2173a36ff6917..74d620dd06b7b 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
+@@ -249,6 +249,5 @@ &usb3_phy1 {
  };
  
+ &usdhc2 {
+-	vmmc-supply = <&reg_vdd_3v3>;
+ 	status = "okay";
+ };
 -- 
 2.52.0
 
