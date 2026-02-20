@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7BAC54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 13:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140FCC55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 13:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Qv9W0wQRDmkr+3Q7aTuBQudRy6movyrphWCLG7hTrqc=; b=Q7IpwZEUYZGvlrEq8kNuzA7Axg
-	NaZg0Ri3lWbMLrmrL3j9NgUt3qM5+8m2jYEb51CKJQpKuHwQy/Y3vrEl+mXCboNuo4Q46gJCQCvKh
-	YNPqD8UXC4Tw/GyoWumCQWQI26jsH48cXSdb9eSpt5eEFqqiqzEw+TjzmiFtiC9M0KanDBE6kKKmR
-	Ik37bcljiOAIbssVctG4xsTBLAX09dIZX0dHCKc4gS8dLW/xivqC5CzDdrn0J50kGIGmovAj5wxYg
-	JLhB1BZsZmpFMXmBqqv+2au9Hqp+sSt1ifQf9A85dwpUVXoITLH73aIKc4nnWDHsdA1AP+bLaXMe5
-	N7VrEPYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yBN70PA6rOciWaEImV7dZuvT7qH0TkdgmY5kbph1HaM=; b=Ax8Nd0pdl0RcM9Usw2oQxXyojT
+	+YdInUkHOEcLdAoUOJ0nJSnY87PWaEBwJzkdEDn9N/8COBrp8a9VNQFpi+gkpwRyE8Zxi3h6R9Rvw
+	uBc2/Mobjkxlk9rTH0Q8fuSrjNzg5l/fvNj/mzZyRXNcGTohOQqOWDCTk7fBPEebOWbLwepCxP9XA
+	DaWM+A0UCp2+PrOdRdzzSgjfK2ca5WRgJ/AgrrST8ReNqV6CQjhdtx0w6C3vOrE4XPtehLNEKKCk2
+	AYqlSaGG7JX0iPVsgRDjV1k4uEJ65OmdWopqWy9qNEiwq16I4BQXYczyp1wDFL4FW7vBCHOJW3c0W
+	EG3CBCrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtQcg-0000000EY32-0NXV;
-	Fri, 20 Feb 2026 13:32:46 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	id 1vtQer-0000000EYBh-2XiK;
+	Fri, 20 Feb 2026 13:35:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtQcd-0000000EY2g-0zDR
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 13:32:45 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771594359;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Qv9W0wQRDmkr+3Q7aTuBQudRy6movyrphWCLG7hTrqc=;
-	b=NQgoFklQEOjaZj22rTHsNvV11JTkMU/g01rNteMF9rdRZ0STWk0GB9Zj2SjLfHk4/4CCTl
-	B1pc3y3OaEhO8yWZAwUVQC9nS6fxPnW1YzhI58J65EghaRK6P708PDME1ZJRgTxEQCfeWX
-	9EgEQ6TgcDu/wG0anpb5hM8ze91MNwE=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Lothar Rubusch <l.rubusch@gmail.com>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	stable@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: atmel-sha204a - Fix uninitialized data access on OTP read error
-Date: Fri, 20 Feb 2026 14:31:36 +0100
-Message-ID: <20260220133135.1122081-2-thorsten.blum@linux.dev>
+	id 1vtQeq-0000000EYB8-25xS;
+	Fri, 20 Feb 2026 13:35:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F09936185C;
+	Fri, 20 Feb 2026 13:34:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B66FEC116D0;
+	Fri, 20 Feb 2026 13:34:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771594497;
+	bh=AcCgdl1ixmtQCKW0/E72Mc6cyQFcgDdc8WvDb3uwuew=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P75Q2c6r3045iw1qXNVWll6dfE9z92DkfnF7/GQdhlsAvUcHHRby/XOWiKlOpA70k
+	 nMAGbpAi73Nw4WIw9EuAG0w081KlV5yO/GZoiBCSkzjEbzOqw5Vr4y8bR7H9oW7BI9
+	 1Ph4VkkNc7Ph6BYRG7e8K0+7wTdpLR7T4/kv4tfPDnftd2nI+Yu+vXKk7XoIWNq7Ge
+	 Un3qnFIHfFohYIAhryx9s+VIvkVNFTnSZ2PQIgZV+M/DqD7yL7R0E/Np52C3/fZlI7
+	 uuuJgGfu0/swResjGHugnhC9kqi/fM8Nh7BXXefNHsWcou8POYr1KYcmWfSTj9NOVF
+	 2fvSTA1lVoOSg==
+Date: Fri, 20 Feb 2026 21:16:24 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: use runtime constant to optimize
+ handle_arch_irq access
+Message-ID: <aZheqINXslxlrmTt@xhacker>
+References: <20260220090922.1506-1-jszhang@kernel.org>
+ <20260220090922.1506-4-jszhang@kernel.org>
+ <20260220123414.GF136967@e132581.arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_053244_136958_B424A817 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260220123414.GF136967@e132581.arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +76,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Return early if atmel_i2c_send_receive() fails to avoid checking
-potentially uninitialized data in 'cmd.data'.
+On Fri, Feb 20, 2026 at 12:34:14PM +0000, Leo Yan wrote:
+> Hi Jisheng,
 
-Cc: stable@vger.kernel.org
-Fixes: e05ce444e9e5 ("crypto: atmel-sha204a - add reading from otp zone")
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/crypto/atmel-sha204a.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Hi Leo,
 
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index 0fcf4a39de27..f4a04b297257 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -103,6 +103,10 @@ static int atmel_sha204a_otp_read(struct i2c_client *client, u16 addr, u8 *otp)
- 	}
- 
- 	ret = atmel_i2c_send_receive(client, &cmd);
-+	if (ret < 0) {
-+		dev_err(&client->dev, "failed to read otp at %04X\n", addr);
-+		return ret;
-+	}
- 
- 	if (cmd.data[0] == 0xff) {
- 		dev_err(&client->dev, "failed, device not ready\n");
--- 
-Thorsten Blum <thorsten.blum@linux.dev>
-GPG: 1D60 735E 8AEF 3BE4 73B6  9D84 7336 78FD 8DFE EAD4
+> 
+> On Fri, Feb 20, 2026 at 05:09:22PM +0800, Jisheng Zhang wrote:
+> > Currently, on arm64 platforms, the handle_arch_irq is a pointer which
+> > is set during booting, and every irq processing needs to access it,
+> > so it sits in hot code path. We can use the runtime constant mechanism
+> > which was introduced by Linus to speed up its accessing.
+> > 
+> > Tested on Quad CA55 platform, the perf sched benchmark is improved
+> > by ~6.5%
+> 
+> 6.5% is a quite high margin, especially for only one pointer's change.
+> Maybe it is good to share more info for which compiler you are using,
+> how you tested and the detailed results.
 
+Sure. 
+aarch64-linux-gnu-gcc version 15.2.0
+
+my kernel defconfig is a minimal arm64 version which disables most
+drivers, only keep timer, gic, pll/clk, uart, regulator and i2c controller
+The reason is to avoid OS noise as much as possible.
+It's also put at the end of the email for reference.
+
+testing cmd:
+perf bench sched pipe
+
+testing steps:
+booting into a buildroot minimal initramfs
+force cpufreq governor as performance
+run above cmd
+
+testing resuls:
+before the patch:
+9.471988 usecs/op
+  105574 ops/sec
+
+after the patch:
+8.896280 usecs/op
+  112406 ops/sec
+
+(112406 - 105574) * 100 / 105574 = ~6.5 %
+
+Let me know if you need more details
+
+
+> 
+> I played a bit on my juno board on CA73 cores with the command:
+
+IIRC, Juno is powered by a big.little SoC, then we need to ensure
+the benchmark is always running on big or little cores when testing, to
+ensure apple to apple comparison.
+
+I also have a CA73 platform, but can't access it now. I'll test the
+patch next week.
+> 
+>   perf bench sched all
+> 
+> Run 3 iterations, and measures three metrics (messaging/pipe/seccomp)
+> and results in seconds. Less is better.
+> 
+>   +---------------------+--------+--------+--------+--------+
+>   |Without change       |   run1 |   run2 |   run3 |    avg |
+>   +---------------------+--------+--------+--------+--------+
+>   |messaging (sec)      |  4.546 |  4.508 |  4.591 |  4.548 |
+>   |pipe (sec)           | 24.258 | 24.224 | 24.017 | 24.166 |
+>   |seccomp-notify (sec) | 48.393 | 48.457 | 48.232 | 48.361 |
+>   +---------------------+--------+--------+--------+--------+
+> 
+>   +---------------------+--------+--------+--------+--------+--------+
+>   |With change          |   run1 |   run2 |   run3 |    avg |   diff |
+>   +---------------------+--------+--------+--------+--------+--------+
+>   |messaging (sec)      |  4.493 |  4.523 |  4.556 |  4.524 | +0.52% |
+>   |pipe (sec)           | 23.159 | 23.702 | 28.649 | 25.170 | -4.15% |
+
+If you check the result, this result variance is abnormal, it means
+your OS is noiser.
+
+>   |seccomp-notify (sec) | 46.848 | 46.938 | 46.973 | 46.920 | +2.98% |
+>   +---------------------+--------+--------+--------+--------+--------+
+> 
+> With this patch, the messaging test shows a minor improvement (0.52%).
+> 
+> The pipe test performs worse (-4.15%) after applying the patch. However,
+> one positive signal is that the minimum latency is 23.159, which is
+> lower than without the change (24.017).
+
+The perf bench is sensitive to OS noise, so I disable most devices, only
+uart, timer, irq chip, i2c and regulator is kept,  and stop all daemons
+only keep a usespace process bash shell.
+
+defconfig for reference:
+
+# CONFIG_LOCALVERSION_AUTO is not set
+CONFIG_SYSVIPC=y
+CONFIG_NO_HZ_IDLE=y
+CONFIG_HIGH_RES_TIMERS=y
+CONFIG_PREEMPT=y
+# CONFIG_CPU_ISOLATION is not set
+CONFIG_BLK_DEV_INITRD=y
+# CONFIG_RD_GZIP is not set
+# CONFIG_RD_BZIP2 is not set
+# CONFIG_RD_LZMA is not set
+# CONFIG_RD_XZ is not set
+# CONFIG_RD_LZO is not set
+# CONFIG_RD_LZ4 is not set
+# CONFIG_INITRAMFS_PRESERVE_MTIME is not set
+CONFIG_EXPERT=y
+# CONFIG_UID16 is not set
+# CONFIG_SYSFS_SYSCALL is not set
+CONFIG_PROFILING=y
+CONFIG_ARCH_BERLIN=y
+# CONFIG_ARM64_ERRATUM_826319 is not set
+# CONFIG_ARM64_ERRATUM_827319 is not set
+# CONFIG_ARM64_ERRATUM_824069 is not set
+# CONFIG_ARM64_ERRATUM_819472 is not set
+# CONFIG_ARM64_ERRATUM_832075 is not set
+# CONFIG_ARM64_ERRATUM_845719 is not set
+# CONFIG_ARM64_ERRATUM_843419 is not set
+# CONFIG_ARM64_ERRATUM_1418040 is not set
+# CONFIG_ARM64_ERRATUM_1165522 is not set
+# CONFIG_ARM64_ERRATUM_1463225 is not set
+# CONFIG_CAVIUM_ERRATUM_22375 is not set
+# CONFIG_CAVIUM_ERRATUM_23154 is not set
+# CONFIG_CAVIUM_ERRATUM_27456 is not set
+# CONFIG_CAVIUM_ERRATUM_30115 is not set
+# CONFIG_CAVIUM_TX2_ERRATUM_219 is not set
+# CONFIG_FUJITSU_ERRATUM_010001 is not set
+# CONFIG_HISILICON_ERRATUM_161600802 is not set
+# CONFIG_QCOM_FALKOR_ERRATUM_1003 is not set
+# CONFIG_QCOM_FALKOR_ERRATUM_1009 is not set
+# CONFIG_QCOM_QDF2400_ERRATUM_0065 is not set
+# CONFIG_QCOM_FALKOR_ERRATUM_E1041 is not set
+# CONFIG_SOCIONEXT_SYNQUACER_PREITS is not set
+CONFIG_NR_CPUS=4
+CONFIG_HOTPLUG_CPU=y
+CONFIG_HZ_100=y
+# CONFIG_UNMAP_KERNEL_AT_EL0 is not set
+CONFIG_COMPAT=y
+CONFIG_ARMV8_DEPRECATED=y
+CONFIG_SWP_EMULATION=y
+CONFIG_CP15_BARRIER_EMULATION=y
+CONFIG_SETEND_EMULATION=y
+# CONFIG_ARM64_HW_AFDBM is not set
+# CONFIG_ARM64_PTR_AUTH is not set
+# CONFIG_ARM64_AMU_EXTN is not set
+# CONFIG_ARM64_SVE is not set
+# CONFIG_EFI is not set
+# CONFIG_SUSPEND is not set
+CONFIG_CPU_IDLE=y
+CONFIG_CPU_IDLE_GOV_TEO=y
+CONFIG_ARM_PSCI_CPUIDLE=y
+CONFIG_CPU_FREQ=y
+CONFIG_CPU_FREQ_GOV_USERSPACE=y
+CONFIG_CPUFREQ_DT=y
+CONFIG_JUMP_LABEL=y
+# CONFIG_VMAP_STACK is not set
+# CONFIG_BLOCK is not set
+# CONFIG_COMPAT_BRK is not set
+# CONFIG_COMPACTION is not set
+CONFIG_CMA=y
+# CONFIG_ZONE_DMA32 is not set
+# CONFIG_VM_EVENT_COUNTERS is not set
+CONFIG_SYNA_DOLPHIN_PLL=y
+CONFIG_SYNA_CLK_BASE=y
+CONFIG_SYNA_MYNA2_CLK=y
+CONFIG_PINCTRL_MYNA2=y
+CONFIG_USB_DWC3_SYNA=y
+# CONFIG_SYNAPTICS_PCIE is not set
+CONFIG_REGULATOR_HL7593=y
+CONFIG_PHY_SYNA_USB=y
+# CONFIG_SYNAPTICS_I2C is not set
+CONFIG_BERLIN_CHIPID=y
+CONFIG_BERLIN_AXI_METER=y
+# CONFIG_SYNAPTICS_NET is not set
+# CONFIG_SYNAPTICS_VIDEO is not set
+# CONFIG_SYNAPTICS_SOUND is not set
+# CONFIG_SYNAPTICS_DEVFREQ is not set
+# CONFIG_SYNAPTICS_DMABUF is not set
+# CONFIG_SYNAPTICS_IRQCHIP is not set
+# CONFIG_SYNAPTICS_INPUT is not set
+# CONFIG_SYNAPTICS_BLUETOOTH is not set
+# CONFIG_SYNAPTICS_CLOCKSOURCE is not set
+# CONFIG_SYNAPTICS_DMA is not set
+# CONFIG_SYNAPTICS_TTY is not set
+# CONFIG_SYNAPTICS_LEDS is not set
+# CONFIG_SYNAPTICS_MFD is not set
+# CONFIG_SYNAPTICS_MISC is not set
+# CONFIG_SYNAPTICS_MTD is not set
+# CONFIG_SYNAPTICS_PWM is not set
+# CONFIG_SYNAPTICS_RTC is not set
+# CONFIG_SYNAPTICS_SPI is not set
+# CONFIG_SYNAPTICS_STAGING is not set
+# CONFIG_SYNAPTICS_WATCHDOG is not set
+# CONFIG_SYNAPTICS_MAILBOX is not set
+# CONFIG_SYNAPTICS_RPMSG is not set
+# CONFIG_SYNAPTICS_CRYPTO is not set
+CONFIG_UEVENT_HELPER=y
+CONFIG_DEVTMPFS=y
+CONFIG_DEVTMPFS_MOUNT=y
+# CONFIG_ALLOW_DEV_COREDUMP is not set
+CONFIG_INPUT_EVDEV=y
+# CONFIG_INPUT_KEYBOARD is not set
+# CONFIG_INPUT_MOUSE is not set
+# CONFIG_SERIO is not set
+# CONFIG_VT is not set
+# CONFIG_LEGACY_PTYS is not set
+# CONFIG_LEGACY_TIOCSTI is not set
+CONFIG_SERIAL_8250=y
+# CONFIG_SERIAL_8250_DEPRECATED_OPTIONS is not set
+CONFIG_SERIAL_8250_CONSOLE=y
+CONFIG_SERIAL_8250_NR_UARTS=2
+CONFIG_SERIAL_8250_RUNTIME_UARTS=2
+CONFIG_SERIAL_8250_DW=y
+# CONFIG_HW_RANDOM is not set
+# CONFIG_DEVPORT is not set
+CONFIG_I2C=y
+CONFIG_I2C_CHARDEV=y
+CONFIG_I2C_DESIGNWARE_CORE=y
+CONFIG_GPIO_SYSFS=y
+CONFIG_GPIO_DWAPB=y
+CONFIG_GPIO_FXL6408=y
+# CONFIG_HWMON is not set
+CONFIG_MFD_SYSCON=y
+CONFIG_REGULATOR=y
+CONFIG_REGULATOR_FIXED_VOLTAGE=y
+CONFIG_REGULATOR_GPIO=y
+CONFIG_REGULATOR_TPS6286X=y
+# CONFIG_HID_SUPPORT is not set
+# CONFIG_USB_SUPPORT is not set
+CONFIG_DMABUF_HEAPS=y
+CONFIG_DMABUF_SYSFS_STATS=y
+CONFIG_DMABUF_HEAPS_CMA=y
+# CONFIG_VIRTIO_MENU is not set
+# CONFIG_VHOST_MENU is not set
+# CONFIG_SURFACE_PLATFORMS is not set
+# CONFIG_ARM64_PLATFORM_DEVICES is not set
+# CONFIG_ARM_ARCH_TIMER_EVTSTREAM is not set
+# CONFIG_FSL_ERRATUM_A008585 is not set
+# CONFIG_HISILICON_ERRATUM_161010101 is not set
+# CONFIG_ARM64_ERRATUM_858921 is not set
+# CONFIG_IOMMU_SUPPORT is not set
+CONFIG_RESET_CONTROLLER=y
+# CONFIG_DNOTIFY is not set
+# CONFIG_PROC_PAGE_MONITOR is not set
+CONFIG_TMPFS=y
+CONFIG_CONFIGFS_FS=y
+# CONFIG_MISC_FILESYSTEMS is not set
+CONFIG_DMA_CMA=y
+CONFIG_PRINTK_TIME=y
+# CONFIG_SECTION_MISMATCH_WARN_ONLY is not set
+CONFIG_DEBUG_FS=y
+# CONFIG_SLUB_DEBUG is not set
+CONFIG_SOFTLOCKUP_DETECTOR=y
+CONFIG_DEBUG_ATOMIC_SLEEP=y
+CONFIG_STACKTRACE=y
+# CONFIG_RCU_TRACE is not set
+# CONFIG_FTRACE is not set
+# CONFIG_STRICT_DEVMEM is not set
+# CONFIG_RUNTIME_TESTING_MENU is not set
+> 
+> For seccomp, the results indicate a benefit (2.98%) from the change.
+> 
+> Hope this is helpful for maintainers to judge the change.
+> 
+> I'd leave maintainers to review the code.
+> 
+> Thanks,
+> Leo
 
