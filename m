@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C24C5AD05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 16:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8060BC5AD05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 16:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Q9sXkyTULRlV/f5Z9X6brMtiW0sBJ93vcPjisGnwpA=; b=XKkUgPESMNX4gXmdQGycgSNwSe
-	Gyv49n6QpD3QWFyYWWMpJjpoR9ord/bEs2CWe+71SkgmY7jmXdfzLU9t2tWwWYM25osraFIbOtBS5
-	JtxpNPalJNG1qjxlaySAWqQR08lGbyGnvk1JekhmSREmX4iSTQLy6lMDiV8tQ/6p3ZlDZMdX8M/Cy
-	mRFwXZkXxzBaDI9/qOk8JhUOl547nQwyF1qG4rrp02WEXxyJsxcnNbl/E0bdSZlovbqSXTm31rXVz
-	0KfvogXIMy6bPPbL57zEgJRL54URLLtrunevWZCB4wb0lYF9RzXdBZMbHbgx5sTa5xhSE6grUiu+i
-	SDXwrhXw==;
+	bh=yCKLUffrKN3zqTYKQg18NpvFPAVlo0HC8C1vSut59t0=; b=yLWJitKpCPCrIMwe/EoATohOwy
+	fGebZ2L33L1CYJFrRzYY4OzyhhKFW7kSNHB47tXS4BS/xSNpmmwYhKwKdfIbqg3QlgB6LGGvvTUSf
+	kXgyPbgE4H6qwNf9I+7vglz4vAiLabV7NgXtFD76TdWHkLAgXUjz8XeYJHJdL30PqDEbJ2RAL/2Q9
+	Pu8iCR+ORgMRkgU1uDnDFdrEal/x2KnCqGO+GkqGLVeDwqsTMuDjJzB392ZFPdWvzDgDhypCaPvH3
+	oNYnQ8ykJoTYYrv1W/+DPBbBF8BQvkGh+JIcN6YtNczDR2IlGwqzDUPjadIVhE8ORTVRGmndaaYHW
+	1EEhi8Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtTfM-0000000FJuW-0EcA;
-	Fri, 20 Feb 2026 16:47:44 +0000
+	id 1vtTfY-0000000FJyC-2jRF;
+	Fri, 20 Feb 2026 16:47:56 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtTfJ-0000000FJtw-3qml;
-	Fri, 20 Feb 2026 16:47:43 +0000
+	id 1vtTfW-0000000FJxL-0HOW
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Feb 2026 16:47:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 542A4339;
-	Fri, 20 Feb 2026 08:47:34 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2DEE53F62B;
-	Fri, 20 Feb 2026 08:47:40 -0800 (PST)
-Date: Fri, 20 Feb 2026 16:47:38 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
-Subject: Re: [PATCH 3/3] arm64: use runtime constant to optimize
- handle_arch_irq access
-Message-ID: <20260220164738.GH136967@e132581.arm.com>
-References: <20260220090922.1506-1-jszhang@kernel.org>
- <20260220090922.1506-4-jszhang@kernel.org>
- <20260220123414.GF136967@e132581.arm.com>
- <aZheqINXslxlrmTt@xhacker>
- <aZhi1p0NJH5ug8CA@xhacker>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5D85339;
+	Fri, 20 Feb 2026 08:47:46 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 357F23F62B;
+	Fri, 20 Feb 2026 08:47:52 -0800 (PST)
+Date: Fri, 20 Feb 2026 16:47:49 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Mark Brown <broonie@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Emanuele Rocca <emanuele.rocca@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 1/3] arm64: gcs: Do not set PTE_SHARED on GCS mappings if
+ FEAT_LPA2 is enabled
+Message-ID: <aZiQNaJVFz2DWY0Y@arm.com>
+References: <20260220140532.285011-1-catalin.marinas@arm.com>
+ <20260220140532.285011-2-catalin.marinas@arm.com>
+ <42e1608b-5a01-4f9c-992f-a1d3a3e54f99@kernel.org>
+ <aZiPl4fQUuU00uJl@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aZhi1p0NJH5ug8CA@xhacker>
+In-Reply-To: <aZiPl4fQUuU00uJl@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_084742_000289_AFF56D1A 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20260220_084754_146151_094A7662 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +68,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 09:34:14PM +0800, Jisheng Zhang wrote:
-
-[...]
-
-> > > Run 3 iterations, and measures three metrics (messaging/pipe/seccomp)
-> > > and results in seconds. Less is better.
-> > > 
-> > >   +---------------------+--------+--------+--------+--------+
-> > >   |Without change       |   run1 |   run2 |   run3 |    avg |
-> > >   +---------------------+--------+--------+--------+--------+
-> > >   |messaging (sec)      |  4.546 |  4.508 |  4.591 |  4.548 |
-> > >   |pipe (sec)           | 24.258 | 24.224 | 24.017 | 24.166 |
-> > >   |seccomp-notify (sec) | 48.393 | 48.457 | 48.232 | 48.361 |
-> > >   +---------------------+--------+--------+--------+--------+
-> > > 
-> > >   +---------------------+--------+--------+--------+--------+--------+
-> > >   |With change          |   run1 |   run2 |   run3 |    avg |   diff |
-> > >   +---------------------+--------+--------+--------+--------+--------+
-> > >   |messaging (sec)      |  4.493 |  4.523 |  4.556 |  4.524 | +0.52% |
-> > >   |pipe (sec)           | 23.159 | 23.702 | 28.649 | 25.170 | -4.15% |
+On Fri, Feb 20, 2026 at 04:45:11PM +0000, Catalin Marinas wrote:
+> On Fri, Feb 20, 2026 at 04:56:26PM +0100, David Hildenbrand wrote:
+> > On 2/20/26 15:05, Catalin Marinas wrote:
+> > > diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+> > > index 161e8660eddd..a65f2c50e9ca 100644
+> > > --- a/arch/arm64/include/asm/pgtable-prot.h
+> > > +++ b/arch/arm64/include/asm/pgtable-prot.h
+> > > @@ -164,8 +164,8 @@ static inline bool __pure lpa2_is_enabled(void)
+> > >   #define _PAGE_GCS	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_WRITE | PTE_USER)
+> > >   #define _PAGE_GCS_RO	(_PAGE_DEFAULT | PTE_NG | PTE_UXN | PTE_USER)
+> > > -#define PAGE_GCS	__pgprot(_PAGE_GCS)
+> > > -#define PAGE_GCS_RO	__pgprot(_PAGE_GCS_RO)
+> > > +#define PAGE_GCS	__pgprot((_PAGE_GCS & ~PTE_SHARED) | PTE_MAYBE_SHARED)
+> > > +#define PAGE_GCS_RO	__pgprot((_PAGE_GCS_RO & ~PTE_SHARED) | PTE_MAYBE_SHARED)
+> > >   #define PIE_E0	( \
+> > >   	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_GCS)  | \
+> > > diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+> > > index 08ee177432c2..2e404441063b 100644
+> > > --- a/arch/arm64/mm/mmap.c
+> > > +++ b/arch/arm64/mm/mmap.c
+> > > @@ -87,7 +87,7 @@ pgprot_t vm_get_page_prot(vm_flags_t vm_flags)
+> > >   	/* Short circuit GCS to avoid bloating the table. */
+> > >   	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+> > > -		prot = _PAGE_GCS_RO;
+> > > +		prot = pgprot_val(PAGE_GCS_RO);
+> > >   	} else {
+> > >   		prot = pgprot_val(protection_map[vm_flags &
+> > >   				   (VM_READ|VM_WRITE|VM_EXEC|VM_SHARED)]);
 > > 
-> > If you check the result, this result variance is abnormal, it means
-> > your OS is noiser.
+> > The only confusion I have is why we don't update _PAGE_GCS/_PAGE_GCS_RO,
+> > consequently leaving PTE_SHARED set for the other users of
+> > _PAGE_GCS/_PAGE_GCS_RO in arch/arm64/include/asm/pgtable-prot.h.
+> > 
+> > Staring at pte_pi_index() (and the definitions of PTE_PI_IDX_0), I assume it
+> > doesn't matter.
+> > 
+> > Just curious why we don't fixup _PAGE_GCS / _PAGE_GCS_RO instead.
 > 
-> BTW: if you remove the abnormal run3 result, you'll find that the
-> benchmark is improved by ~3.5% on CA73:
-> (23.159 + 23.702) / 2 = 23.43
-> (24.258 + 24.224) / 2 = 24.24
-> (24.24 - 23.43)*100 / 23.43 = ~3.5
+> _PAGE_GCS needs to be constant as it ends up in asm, so we can't add
+> the dynamic PTE_MAYBE_SHARED. There are other ways to solve this but it
+> is somewhat more consistent with the other _PAGE_* definitions which all
+> have PTE_SHARED.
 
-TBH, I don't think we should subjectively select data.  But I agree a
-clean test env is important to avoid noise, and I also agree that the
-current results already show positive signals.
+Hmm, it's only in asm-offsets and it looks like the compiler didn't
+complain. I'll check the generated code.
 
-Thanks,
-Leo
+-- 
+Catalin
 
