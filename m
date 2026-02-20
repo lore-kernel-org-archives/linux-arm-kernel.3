@@ -4,52 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6795CC561F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69E0C55ABE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:13:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7BQiMm9EDljXVK89YLTTv3lxnVMYvGYEui+NSrdtdOU=; b=SD/ACu/ggpDQ9x/bN51ATLDzMe
-	my2/ZkMu2PMSG1kVQfbd35lMktqRSANfuS7+CYJQU3G9AqjPWD7hj6RRGMa/9QAUOTB4vK0Vikn9Q
-	BycdhvM7vwH8D91AyRAm/jDbbrgnow/aM4J//Rw2E1K19KM68hRbgB4jw2U4A8KiZtpqOYv5LKtzb
-	xv/6esVM4A/tShmmtUCoCVQ1hDHiUHkR7WZWhbVb3D7H4voV7RWRFigU1/IJ2mjzDjeGgwJx7O4/S
-	JfZ0/qLSVObEzpZkHuB11OiVlXTvCiv2TCH8lTS2OsYZc22wLsJq3tRF1G8rdQI5tKyB7VzJoOKak
-	GDlPdmwQ==;
+	bh=ISt+ZhBmiTcwgwZuK2HN5EncESz0NE0wpGRN8/6gb34=; b=ZyGW1X58bQlWX1a9C5i5iWw1ap
+	qZGgKuJb2UnaPKI6stJxIKrKT+ex2JrtQJi2THsS8TiSsmWGpCOktDpgAWAumBopazq9Q6DCzMbUU
+	0XiJqBequg1D2knnCUP+oikkvCh3xVxy8ICVeWptNfSd6NxBfjsUH4AkUr8Yj2QsSRIqiGtk5qb5a
+	o5wBr9fkGKt2LFbry3ilyfRgytSEl5yDNeglhT6G26RtTeDiYRMDc/eF7z8flQ/NM0HEkWq6P0vbj
+	8kNjBVUWBrPavsnp26qifqGxo2PXwOUjptwxNruX0ndj705QPWaEDbpr27qZzDb5x6Z/ZBIEtDizK
+	w0nbVBvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtR8b-0000000EhIy-2KuP;
-	Fri, 20 Feb 2026 14:05:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vtRFj-0000000EkCm-3Gs2;
+	Fri, 20 Feb 2026 14:13:07 +0000
+Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtR8Z-0000000EhHU-0qrI
+	id 1vtRFf-0000000EkB7-3MeS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 14:05:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E5F6E41988;
-	Fri, 20 Feb 2026 14:05:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DB72C116D0;
-	Fri, 20 Feb 2026 14:05:41 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Mark Brown <broonie@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Emanuele Rocca <emanuele.rocca@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH 3/3] arm64: gcs: Do not map the guarded control stack as THP
-Date: Fri, 20 Feb 2026 14:05:31 +0000
-Message-ID: <20260220140532.285011-4-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260220140532.285011-1-catalin.marinas@arm.com>
-References: <20260220140532.285011-1-catalin.marinas@arm.com>
+	Fri, 20 Feb 2026 14:13:06 +0000
+Message-ID: <ab290f15-77f9-4680-942e-17d910c03b4c@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1771596779;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ISt+ZhBmiTcwgwZuK2HN5EncESz0NE0wpGRN8/6gb34=;
+	b=rH6qOMICWP5n7zm7TDqIpUKD8SnrEN8pCfZRWkFE0d4gPjOeKKBXg4uqMvRaf3Z5r0VcjQ
+	wLK5sM4+aC1rxYeJBmi8e5bqJLUZJkS/ZTtn7JI9VIQSCQ9/OaSntdHtw1EpzFpkxdTelL
+	vIjyItH04Ise7pFzqEtqIQUxlHjJv4k=
+Date: Fri, 20 Feb 2026 22:12:42 +0800
 MIME-Version: 1.0
+Subject: Re: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs
+ support for x86_64
+To: kernel test robot <lkp@intel.com>, bpf@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+ Xu Kuohai <xukuohai@huaweicloud.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
+ Shuah Khan <skhan@linuxfoundation.org>, Peilin Ye <yepeilin@google.com>,
+ Luis Gerhorst <luis.gerhorst@fau.de>, Viktor Malik <vmalik@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260219142933.13904-3-leon.hwang@linux.dev>
+ <202602200536.JWzGHAc6-lkp@intel.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Leon Hwang <leon.hwang@linux.dev>
+In-Reply-To: <202602200536.JWzGHAc6-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_060543_279431_3C2BA51B 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260220_061303_987013_ACD559A0 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,54 +85,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The default GCS size allocated on first prctl() for the main thread or
-subsequently on clone() is either half of RLIMIT_STACK or half of a
-thread's stack size. Both of these are likely to be suitable for a THP
-allocation and the kernel is more aggressive in creating such mappings.
-However, it does not make much sense to use a huge page as it didn't
-make sense for the normal stacks either. See commit c4608d1bf7c6 ("mm:
-mmap: map MAP_STACK to VM_NOHUGEPAGE").
 
-Force VM_NOHUGEPAGE when allocating/mapping the GCS. As per commit
-7190b3c8bd2b ("mm: mmap: map MAP_STACK to VM_NOHUGEPAGE only if THP is
-enabled"), only pass this flag if TRANSPARENT_HUGEPAGE is enabled as not
-to confuse CRIU tools.
 
-While at it, use the PROT_WRITE prot argument rather than the VM_WRITE
-flag when calling do_mmap().
+On 2026/2/20 06:05, kernel test robot wrote:
+> Hi Leon,
+> 
+> kernel test robot noticed the following build errors:
+> 
+> [auto build test ERROR on bpf-next/master]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Leon-Hwang/bpf-Introduce-64-bit-bitops-kfuncs/20260219-223550
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+> patch link:    https://lore.kernel.org/r/20260219142933.13904-3-leon.hwang%40linux.dev
+> patch subject: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs support for x86_64
+> config: x86_64-randconfig-073-20260220 (https://download.01.org/0day-ci/archive/20260220/202602200536.JWzGHAc6-lkp@intel.com/config)
 
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: David Hildenbrand <david@kernel.org>
----
- arch/arm64/mm/gcs.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+Ack.
 
-diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-index 6e93f78de79b..bbdb62ae47cd 100644
---- a/arch/arm64/mm/gcs.c
-+++ b/arch/arm64/mm/gcs.c
-@@ -13,15 +13,19 @@
- static unsigned long alloc_gcs(unsigned long addr, unsigned long size)
- {
- 	int flags = MAP_ANONYMOUS | MAP_PRIVATE;
-+	vm_flags_t vm_flags = VM_SHADOW_STACK;
- 	struct mm_struct *mm = current->mm;
- 	unsigned long mapped_addr, unused;
- 
- 	if (addr)
- 		flags |= MAP_FIXED_NOREPLACE;
- 
-+	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE))
-+		vm_flags |= VM_NOHUGEPAGE;
-+
- 	mmap_write_lock(mm);
--	mapped_addr = do_mmap(NULL, addr, size, PROT_READ, flags,
--			      VM_SHADOW_STACK | VM_WRITE, 0, &unused, NULL);
-+	mapped_addr = do_mmap(NULL, addr, size, PROT_READ | PROT_WRITE,
-+			      flags, vm_flags, 0, &unused, NULL);
- 	mmap_write_unlock(mm);
- 
- 	return mapped_addr;
+It was caused by the missing CONFIG_BPF_SYSCALL.
+
+$ rg _BPF .config
+118:CONFIG_BPF=y
+120:CONFIG_ARCH_WANT_DEFAULT_BPF_JIT=y
+125:# CONFIG_BPF_SYSCALL is not set
+126:CONFIG_BPF_JIT=y
+127:CONFIG_BPF_JIT_DEFAULT_ON=y
+1339:CONFIG_LWTUNNEL_BPF=y
+7449:CONFIG_IO_URING_BPF=y
+
+I'll make those symbols relied on CONFIG_BPF_SYSCALL in the next revision.
+
+Thanks,
+Leon
+
+> compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260220/202602200536.JWzGHAc6-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202602200536.JWzGHAc6-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+>    ld: arch/x86/net/bpf_jit_comp.o: in function `bpf_inlines_func_call':
+>>> arch/x86/net/bpf_jit_comp.c:1621:(.text+0xe70b): undefined reference to `bpf_clz64'
+>>> ld: arch/x86/net/bpf_jit_comp.c:1647:(.text+0xe718): undefined reference to `bpf_ctz64'
+>>> ld: arch/x86/net/bpf_jit_comp.c:1673:(.text+0xe725): undefined reference to `bpf_ffs64'
+>>> ld: arch/x86/net/bpf_jit_comp.c:1677:(.text+0xe732): undefined reference to `bpf_fls64'
+>>> ld: arch/x86/net/bpf_jit_comp.c:1683:(.text+0xe743): undefined reference to `bpf_popcnt64'
+>>> ld: arch/x86/net/bpf_jit_comp.c:1707:(.text+0xe758): undefined reference to `bpf_rol64'
+>>> ld: arch/x86/net/bpf_jit_comp.c:1714:(.text+0xe765): undefined reference to `bpf_ror64'
+>    ld: arch/x86/net/bpf_jit_comp.c:1647:(.text+0x10e85): undefined reference to `bpf_ctz64'
+>    ld: arch/x86/net/bpf_jit_comp.c:1673:(.text+0x10e92): undefined reference to `bpf_ffs64'
+>    ld: arch/x86/net/bpf_jit_comp.o: in function `bpf_jit_inlines_kfunc_call':
+>>> arch/x86/net/bpf_jit_comp.c:4247:(.text+0x177c8): undefined reference to `bpf_ffs64'
+>    ld: arch/x86/net/bpf_jit_comp.c:4247:(.text+0x177d1): undefined reference to `bpf_ctz64'
+>    ld: arch/x86/net/bpf_jit_comp.c:4250:(.text+0x177da): undefined reference to `bpf_fls64'
+>>> ld: arch/x86/net/bpf_jit_comp.c:4250:(.text+0x177e3): undefined reference to `bpf_clz64'
+>    ld: arch/x86/net/bpf_jit_comp.c:4253:(.text+0x177ec): undefined reference to `bpf_popcnt64'
+>    ld: arch/x86/net/bpf_jit_comp.c:4256:(.text+0x177f5): undefined reference to `bpf_ror64'
+>    ld: arch/x86/net/bpf_jit_comp.c:4256:(.text+0x177ff): undefined reference to `bpf_rol64'
+> 
+> 
+> vim +1621 arch/x86/net/bpf_jit_comp.c
+> 
+>   1607	
+>   1608	static bool bpf_inlines_func_call(u8 **pprog, void *func)
+>   1609	{
+>   1610		bool has_popcnt = boot_cpu_has(X86_FEATURE_POPCNT);
+>   1611		bool has_bmi1 = boot_cpu_has(X86_FEATURE_BMI1);
+>   1612		bool has_abm = boot_cpu_has(X86_FEATURE_ABM);
+>   1613		bool inlined = true;
+>   1614		u8 *prog = *pprog;
+>   1615	
+>   1616		/*
+>   1617		 * x86 Bit manipulation instruction set
+>   1618		 * https://en.wikipedia.org/wiki/X86_Bit_manipulation_instruction_set
+>   1619		 */
+>   1620	
+>> 1621		if (func == bpf_clz64 && has_abm) {
+>   1622			/*
+>   1623			 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
+>   1624			 *
+>   1625			 *   LZCNT - Count the Number of Leading Zero Bits
+>   1626			 *
+>   1627			 *     Opcode/Instruction
+>   1628			 *     F3 REX.W 0F BD /r
+>   1629			 *     LZCNT r64, r/m64
+>   1630			 *
+>   1631			 *     Op/En
+>   1632			 *     RVM
+>   1633			 *
+>   1634			 *     64/32-bit Mode
+>   1635			 *     V/N.E.
+>   1636			 *
+>   1637			 *     CPUID Feature Flag
+>   1638			 *     LZCNT
+>   1639			 *
+>   1640			 *     Description
+>   1641			 *     Count the number of leading zero bits in r/m64, return
+>   1642			 *     result in r64.
+>   1643			 */
+>   1644			/* emit: x ? 64 - fls64(x) : 64 */
+>   1645			/* lzcnt rax, rdi */
+>   1646			EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
+>> 1647		} else if (func == bpf_ctz64 && has_bmi1) {
+>   1648			/*
+>   1649			 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
+>   1650			 *
+>   1651			 *   TZCNT - Count the Number of Trailing Zero Bits
+>   1652			 *
+>   1653			 *     Opcode/Instruction
+>   1654			 *     F3 REX.W 0F BC /r
+>   1655			 *     TZCNT r64, r/m64
+>   1656			 *
+>   1657			 *     Op/En
+>   1658			 *     RVM
+>   1659			 *
+>   1660			 *     64/32-bit Mode
+>   1661			 *     V/N.E.
+>   1662			 *
+>   1663			 *     CPUID Feature Flag
+>   1664			 *     BMI1
+>   1665			 *
+>   1666			 *     Description
+>   1667			 *     Count the number of trailing zero bits in r/m64, return
+>   1668			 *     result in r64.
+>   1669			 */
+>   1670			/* emit: x ? __ffs64(x) : 64 */
+>   1671			/* tzcnt rax, rdi */
+>   1672			EMIT5(0xF3, 0x48, 0x0F, 0xBC, 0xC7);
+>> 1673		} else if (func == bpf_ffs64 && has_bmi1) {
+>   1674			/* emit: __ffs64(x); x == 0 has been handled in verifier */
+>   1675			/* tzcnt rax, rdi */
+>   1676			EMIT5(0xF3, 0x48, 0x0F, 0xBC, 0xC7);
+>> 1677		} else if (func == bpf_fls64 && has_abm) {
+>   1678			/* emit: fls64(x) */
+>   1679			/* lzcnt rax, rdi */
+>   1680			EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
+>   1681			EMIT3(0x48, 0xF7, 0xD8);       /* neg rax */
+>   1682			EMIT4(0x48, 0x83, 0xC0, 0x40); /* add rax, 64 */
+>> 1683		} else if (func == bpf_popcnt64 && has_popcnt) {
+>   1684			/*
+>   1685			 * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
+>   1686			 *
+>   1687			 *   POPCNT - Return the Count of Number of Bits Set to 1
+>   1688			 *
+>   1689			 *     Opcode/Instruction
+>   1690			 *     F3 REX.W 0F B8 /r
+>   1691			 *     POPCNT r64, r/m64
+>   1692			 *
+>   1693			 *     Op/En
+>   1694			 *     RM
+>   1695			 *
+>   1696			 *     64 Mode
+>   1697			 *     Valid
+>   1698			 *
+>   1699			 *     Compat/Leg Mode
+>   1700			 *     N.E.
+>   1701			 *
+>   1702			 *     Description
+>   1703			 *     POPCNT on r/m64
+>   1704			 */
+>   1705			/* popcnt rax, rdi */
+>   1706			EMIT5(0xF3, 0x48, 0x0F, 0xB8, 0xC7);
+>> 1707		} else if (func == bpf_rol64) {
+>   1708			EMIT1(0x51);             /* push rcx */
+>   1709			/* emit: rol64(x, s) */
+>   1710			EMIT3(0x48, 0x89, 0xF1); /* mov rcx, rsi */
+>   1711			EMIT3(0x48, 0x89, 0xF8); /* mov rax, rdi */
+>   1712			EMIT3(0x48, 0xD3, 0xC0); /* rol rax, cl */
+>   1713			EMIT1(0x59);             /* pop rcx */
+>> 1714		} else if (func == bpf_ror64) {
+>   1715			EMIT1(0x51);             /* push rcx */
+>   1716			/* emit: ror64(x, s) */
+>   1717			EMIT3(0x48, 0x89, 0xF1); /* mov rcx, rsi */
+>   1718			EMIT3(0x48, 0x89, 0xF8); /* mov rax, rdi */
+>   1719			EMIT3(0x48, 0xD3, 0xC8); /* ror rax, cl */
+>   1720			EMIT1(0x59);             /* pop rcx */
+>   1721		} else {
+>   1722			inlined = false;
+>   1723		}
+>   1724	
+>   1725		*pprog = prog;
+>   1726		return inlined;
+>   1727	}
+>   1728	
+> 
+
 
