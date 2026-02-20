@@ -4,165 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C8AC531F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 00:43:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E104CC531EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 00:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6bg0rpR753Rq38WNEga+kGEU5lWqLs6wq3nmC5S8ek=; b=YizXaCrhjs0dS2me7r+F9g+UiN
-	DiNfj7DHd9Sa/ug5KBsd/NWcK6I7NjBWudFN5thBiIvu5MwiqlUmo6Tdfb+TNL2X4mBdNlQctEpMy
-	TPvPoSVgBEuT5zDJsjHNk/00EefbuTEL6XVqGVN+s6XUDhlw7aFJADFE5XBLRLVmBDrkCGGMcAupH
-	TMg3p4XVsvl1laRRQKLafX5vLFuW6T4mkKUdnSTj5HvU5UZQMeoVLn6RMQn2jlWlS+TQ1O8friJrk
-	oeNpir0H/p6aneDdF9OKrXalaRse5TDfkP9JsP0Cjdnv6kUj/Wts767ZkgEe6cNFU3LzDWtHZV+Tk
-	bMfIlrSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CF2RTlbmNq4Owf7ZHfECBb44vd1V9sy9uH51YmRnrYk=; b=mv9+vXqqLP7SDKGzOxUvOAfCtA
+	rQTO6JzZRF6udXSIGlxhIFnsFtF/ZwgeK0hSESbwUFNb57iHled+NhjDM9U1qCdWWdmtifRPCqStQ
+	PkHYyK6GamWTtcBoDmCSiqSTAEqpa9g2dzNg1Z04yzaCB2tj2GuDJB48/jsiseJEJwoKknVXUBREK
+	wRb/9+g21WznXOTt7x30084nVFCbzimXnPwL9bpr2XUrwzFHB3SS/5/r1O1YNXav6izNSKaP4+cI/
+	hF0m/1PlIno+D++hDTjK787uiqFwbft90ZuQHY6CV01QFMLwZaw1l7Q/2NdaMSRvAY5Xkh26Sf5QQ
+	B5PC6I4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtEbl-0000000CmFf-3Vmq;
-	Fri, 20 Feb 2026 00:43:01 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vtEbp-0000000CmKI-2Yv4;
+	Fri, 20 Feb 2026 00:43:05 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtEbU-0000000Cltg-2Znm
+	id 1vtEbY-0000000ClzC-3ESE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 00:42:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=isvQlzq5mqtqD5HxCGe2/IUJa747sUC2FGbORAGopw3+XFCS6mSpkd70iCWRH0JmyE3wCZeDsShZs7Rn5qfxIG2D39pMkrfSlPGa8inAh4OaTwtWg4+A1DkLYyRZX/SLI0tfG1A82NZxZQUg7MyKRq12EjwP4SGvhjWkZIGJ28bHC3knOKVeeOsozGBRLAbmzbDzNT/sE9lBlldiwGaDGQUp+IkUWXuEBUcQxUY5a6N5T+l0BU2dHPf6QceAi4R5A13wdNQaAs85Q57W12ZMBQn6RByMDXPrkocaNLYGpiDVlhwZGkK0nU5qD3Sts/sM4UEp1vSsYCuZYtjy7BISeA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d6bg0rpR753Rq38WNEga+kGEU5lWqLs6wq3nmC5S8ek=;
- b=hmzcc5FX3rgjqi/B4aEHRAyp3K/YsPjwUaS5dGicQUYNZf04xyoth0LzrFuaK4SsrTXP5kx5IGtYeHcRDDje3tW22Cp/piU7efYunR+ZVWuaZy9mTBMdCC5ojZywsTX0FSEIeK/TlHJZJQGWVkDpBrHzkyjMLXUq3ORm1KzQ2/MCmgDbrspZ3QgEplCyFxkcCSyAvxFnRIwTYeq6eI+wYKgSmRODoc3M4vdBgVU3IZC4Q2ZSOYEdlqJVRjxumKGbUEZVIANAFxlNWqH/uAcjxa4GMXXD4VvVCo852vrYMhQDZCt4IyRCgXjSC1ctYPEOPkW+WBKJLV+D83H9yoqQ7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d6bg0rpR753Rq38WNEga+kGEU5lWqLs6wq3nmC5S8ek=;
- b=SELyhEIDgpO7P51Y2COqrIOhGhes1JjUUHWG77+0RuVm/k0axjxKnOUzCQ+2DB+JIa+Ns+JMO1rqOXYTozUhzukk6NOMGZKaYcR/6FGEKzdz3SOfpPBCwNxaX8JMO6TtVnRXVdxRTdqZvGP1IZzH9YKK3GdjdCAIIx/UIzYeSZQ=
-Received: from BYAPR05CA0097.namprd05.prod.outlook.com (2603:10b6:a03:e0::38)
- by SA1PR10MB997739.namprd10.prod.outlook.com (2603:10b6:806:4bd::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.16; Fri, 20 Feb
- 2026 00:42:39 +0000
-Received: from SJ1PEPF000023CC.namprd02.prod.outlook.com
- (2603:10b6:a03:e0:cafe::85) by BYAPR05CA0097.outlook.office365.com
- (2603:10b6:a03:e0::38) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.15 via Frontend Transport; Fri,
- 20 Feb 2026 00:42:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SJ1PEPF000023CC.mail.protection.outlook.com (10.167.244.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Fri, 20 Feb 2026 00:42:38 +0000
-Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Feb
- 2026 18:42:38 -0600
-Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Feb
- 2026 18:42:37 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 19 Feb 2026 18:42:37 -0600
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61K0gbe73456406;
-	Thu, 19 Feb 2026 18:42:37 -0600
-Message-ID: <b22958ce-fb67-44d3-841a-d02a185942e5@ti.com>
-Date: Thu, 19 Feb 2026 18:42:37 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Disable mmc Schmitt Trigger
-From: Judith Mendez <jm@ti.com>
-To: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>, "msp@baylibre.com"
-	<msp@baylibre.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-References: <20260106-topic-am62a-mmc-pinctrl-v6-19-next-v1-1-1190ac29aadb@baylibre.com>
- <c47697b4-6ebb-4af9-be96-c964d990835d@ti.com>
- <DFO764ES0FNP.1SUQK9R0EUUDQ@baylibre.com>
- <1a91fd40-e814-4b4c-8914-d8f0c4768e07@ti.com>
- <DG59D7WGM35A.1WNIIMNCQ8U3C@baylibre.com>
- <7ae7f6a1-0ee1-4d56-b1d0-f038a7d22b4c@ti.com>
- <b649669afe4e2c829389a6bedabe47446d2f3d2b.camel@siemens.com>
- <615c56c4564b38fe82585e9873949b538f24ae7b.camel@siemens.com>
- <7ad9d8bf-a962-40f0-bc8a-92228aeb0b4e@ti.com>
-Content-Language: en-US
-In-Reply-To: <7ad9d8bf-a962-40f0-bc8a-92228aeb0b4e@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CC:EE_|SA1PR10MB997739:EE_
-X-MS-Office365-Filtering-Correlation-Id: c3ff57cb-5270-4cac-0f86-08de7018f2c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MVdhUjloVTdTazZUR1NLQ3luLzZDbWlLaUpVYVVaTHFaRFVYYnl1TmxFdzk0?=
- =?utf-8?B?U09WOCt3OUZZODg0ak9NcHdXajhVTStrUnIzRnN2OFUybTd2VzRIWlZDbC9T?=
- =?utf-8?B?S1puR2F6ZldIUlAwY1JVYzRvM3RQZENyQWRnaHVvbVkyWjZvNkxnelhRTHBj?=
- =?utf-8?B?eEUvVXhwMXdTbmxVWmFDYkxhOFBEUUUyTmJxT1RzZnJta1VWQ1piM1JqOWRH?=
- =?utf-8?B?a2c0VHlQUXoreHdyVEFwUVpMUkxXTGFMbE54Q0dsZFNUQ3I2ZDVObE1vNHo5?=
- =?utf-8?B?djE2QlhrSTI1blowRkxQdndsUjZMWmJWWjJTR2JsSnczYnZDWlZlMnlycXFC?=
- =?utf-8?B?UkNJSjRtZlJNU25yNzl5TStZZEwzVWZzSTR1NER6ZVFwdGlsVUE1VVhFV3Qw?=
- =?utf-8?B?VzVSRUhydXhkUTI2UWx3SVd2VWRPeXhCTStnWGFEU1NBdmt4VVA1d2VpOFhs?=
- =?utf-8?B?VXQ2SUtqTWc4YTRuakRSaVBjeUJjOUF5Z2xOVjlKcUQ5UmdJdzdPeTY5VGMr?=
- =?utf-8?B?YjVJVzJ3VmNvNlNtZTRGWExZb1Y5WjBZcThqNG9XcVFWTmxJVmVHamIrSHEv?=
- =?utf-8?B?QVZrV09sVDFPVHRNOXBuMGl6MGdqbW82aUN4R1dZVkFmYnNZNlRVdjRNTnRY?=
- =?utf-8?B?d005Q1JqKy91MXh4eGk5dEhMWEpQb3E2clRaK1JNcytoT1A5eDU0cksyREZ1?=
- =?utf-8?B?RzBneEVqQUNqeG9vRnV4T0JlMVlYZmdPVlFNbmJGbVljY04ySkxyZlQzU2gz?=
- =?utf-8?B?SUw2bEd3YzFidmZnYW9YdFFXdHM2SExIYk1oNjV1Q3kxcmh2VzRvZUdZUk43?=
- =?utf-8?B?TDVFelk2UUNuaDVqRi9ITndsUWJLUWhTVUl1ZHZ6SlBmdENia1F2cm44c3d1?=
- =?utf-8?B?N1A4RTAzRUhueXNCTVF1NE1UcjF0MTMvWURLS2g4cTZqalQwblI1TTJJOHVT?=
- =?utf-8?B?NUZhT3B6Q055N1ljeWVyeUJsaTJTS1F0Ri96Mjk1U3JRSEtYNTlSYy9zb005?=
- =?utf-8?B?NUNCTDJrc2NiV0FMSXV5K3RuL1lhTEhMYmt5dzJUYTMwcXZNNDc0MFdJazBw?=
- =?utf-8?B?dVlyQmlUNjI2ZklCT056NmIrWU42SGM1ems3RldqRWtuRjNVRjhMQTVCb2FB?=
- =?utf-8?B?ZkxFcjAxUS9jckhkUmg0N1cvQjlLbkIwTC91UVQyQk8vcVFab0lXUml3TTY0?=
- =?utf-8?B?anN6VjFlWG11U051OFZxSU1EeVZiOWxlUlN4M1cyMXRKajdTVWErczJSVUJI?=
- =?utf-8?B?YTRXa2VTVnE0b0JZaWlveS85czhKQ3UyS0s0cmZLbXRhMmJNS2JJcThQNGUx?=
- =?utf-8?B?T3F4Q1hZV2FvVHVVYzB0Zi9PTE5teFhKb1hIOFhpT3NoMjVGZ2pZTTdhWTA0?=
- =?utf-8?B?TnpQcmtPaUwvWXNUU09TNTdvTllWNDhIWGxZZENuMnlGQWdTS1NaR3p6NW9H?=
- =?utf-8?B?T0Yvcjg3R0RPTVBWUVVhaDBvYk5yeUoyYVNMbkJMTEVjTnBGajRnRVE0MGVE?=
- =?utf-8?B?QU5veGlVT043eFE3TlhDRmVReWR3a1ZqS2hCWmlLMzI5RWcvay9COTY0Vmt4?=
- =?utf-8?B?NGhTSy9Jb254NVJkTzNVMEZiQ0FkT1NLS29rZGdWOXBpRUpGOWZNd1JkamQz?=
- =?utf-8?B?TmtDYVQwUU1HYTM5aEFCUEdFbk1uaEhVUWV1eGhJZnpiZ2dlQ3hpUjVGMFMz?=
- =?utf-8?B?TTJraStDUkF5d0ZFRzdVQ1d4ajg2T3F6ZDFEdGtib01rbjdkdEt6dzZUaGN3?=
- =?utf-8?B?cUR6Z3JoV2xjRERNSUN5dndnRU1aVjNqVGo0Z0JLUEZjLzlXRDl1cVl5Y1hO?=
- =?utf-8?B?dDdFV3RSb1FEWlY4Qk5mTGg3RDJZVFBDVUZwUnZiODNXZzluaEI0V0pEOWt5?=
- =?utf-8?B?MFI5ZkF6VUpYRUlQUDRDQnJaTXpOcGZ4aXJoWW1LaTVhQUpueUxsNk1oQStl?=
- =?utf-8?B?OTZFRklRY0V5Ky9VSms0UjJFNGRMRjNVeVh5dWYrdE5GblAraUNtYWlGcHBW?=
- =?utf-8?B?c1VJMm5KRWlHVmRIb2c1SWZWNkNWQzlDd0NNVzhhSXRtL3ZrdWlHOVdWY0Z2?=
- =?utf-8?B?NFhHUHgwdXgyWHhhbUNjLzJaWC9OOTJkRE9PU2hVRlFhS1VvOVd4bmYvdEhZ?=
- =?utf-8?B?WVhkTm5pU3g1WnhnQmpSR2w5U0ZnSmVPTk1iM1FWK3dzUkxJMTNGNXlBbjBl?=
- =?utf-8?Q?78mT3q7o/H2+nLHozP4umZQ=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: V1sFYXSioYgYBcRJhhHwiRlpBdLXFsPssa1E761PaJCYyFs4SvK7a569Pj1IuOzaweR+qGdSsFrGbTQjBFMfyajVRlaFQBXSqKOzRJ3SEyY+S4zlB29v0adJgqgoJUnFZpf026S/WPYCg7suE8uxWej1jIEEGQLMAnUc2og7xtsKlFyd5W3Nwt03VFPUGqc/1b6+5iogRCZdidb0JaH2Ke82P6XvGONFe7PCMloIjM9mS6Rj5NkCrbd34kuk35ccM+5butRc71DqxhxsyvvqE3D0+R2wmhFTmWvwQRulm/h8NMzY8v8jygJjdI3+buwcWjwNHBeJSWeLSuWChahQjh3+ujBEO9S+OJr4EIrGayCBhy1vkj9PpHwPIT1uRGoJm6v0G9iZUj0mB0WI0TgKFcTh+jwoXGnKEPBhs8jDZYVgoSkHkGtFqyo+p23ptUit
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 00:42:38.6586
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c3ff57cb-5270-4cac-0f86-08de7018f2c7
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CC.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB997739
+	Fri, 20 Feb 2026 00:42:52 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2a8c273332cso120227895ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 16:42:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1771548168; x=1772152968; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CF2RTlbmNq4Owf7ZHfECBb44vd1V9sy9uH51YmRnrYk=;
+        b=l5+myyzVqTK0AJW5y0IUNAKLHzi9cZ6zd8qchWb0mTZrVJdiBd7waPy3WS7nYzKNGB
+         5RTp3KpvDrpRcWpxMj2lSX+ZeOvC3zTc5DYjdWNC7qYApvTf30QapvKBk6Nrvm0owjvi
+         YhNaABSpuKrVayyzZs3abN//oWix9FZUa743QrqQRH7Gvswfjh+ccm5j4caerj+VqfMN
+         OCUqLH/RRxivVpSOoaqC/io9I0M8PuN4+XmptSE7yoS1Y9CmDNww+38hCUqRzVMb62Xe
+         HXE60o9eXmM0f63+rsG54xkJDXy2nqLLiw0CHI8vEQJKqaHnc88dioshjQJBptAQadHs
+         QIGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771548168; x=1772152968;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CF2RTlbmNq4Owf7ZHfECBb44vd1V9sy9uH51YmRnrYk=;
+        b=DbuG/w2M2Yahu0bNDKTPg6zNwliH1vwwY4AAYjH0LGS0L7sH5wYfnDnfWQ4Eio4RX2
+         hHzMIy0czr28dWXRLA65O+3gISgoSPObhBuNsbnuG9pl1c88uKnr42669cN3nIFdGpJj
+         rInsPwGZuk8xrwUIL+ypWbwNC4wdl1uaIFSBPHBtlSdWkpeRA9urFE1XZ/SQp3y9B3JB
+         6Dr7CsW6kLrxQ6FrkuZwrGL4dtizhAgYcvoIWP0iKRFImOQfXZGUGhtWxmg+VOeeIGR8
+         PoLWQPtuJoz5epyq5rtajYnMP6rWHEwATUZm7AtoLmU+HPdm7pUdffzNOcvbpKdjK0JV
+         Lp3g==
+X-Forwarded-Encrypted: i=1; AJvYcCUGiPYa0tyN0nbP4piql2l2UcCjUncHSTRczof9XfgOzsLQ++FGXT6ByXh55Nsv8l03NxbrOaC8/fumJE1B2nvF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3vWXX0oo6AGFz6Pg+trIfE6cZskvSKJkopcRNA/7n+be21Uuw
+	NN9Hz0gqUJu/VWsf2SeY6OeDWpE1D6QP+3NcduPw6Jaayqz9ktIn0XY0Yz+iH5YvMtpteX849GZ
+	S7Idd/FeS8z0Tag==
+X-Received: from plbjf22.prod.google.com ([2002:a17:903:2696:b0:2ab:8fb:be81])
+ (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:d50a:b0:2a9:4c2:e47 with SMTP id d9443c01a7336-2ad1759d351mr217116655ad.56.1771548167497;
+ Thu, 19 Feb 2026 16:42:47 -0800 (PST)
+Date: Fri, 20 Feb 2026 00:42:21 +0000
+In-Reply-To: <20260220004223.4168331-1-dmatlack@google.com>
+Mime-Version: 1.0
+References: <20260220004223.4168331-1-dmatlack@google.com>
+X-Mailer: git-send-email 2.53.0.414.gf7e9f6c205-goog
+Message-ID: <20260220004223.4168331-9-dmatlack@google.com>
+Subject: [PATCH v2 08/10] KVM: selftests: Use u16 instead of uint16_t
+From: David Matlack <dmatlack@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Ackerley Tng <ackerleytng@google.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Bibo Mao <maobibo@loongson.cn>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Colin Ian King <colin.i.king@gmail.com>, 
+	David Hildenbrand <david@kernel.org>, David Matlack <dmatlack@google.com>, Fuad Tabba <tabba@google.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, James Houghton <jthoughton@google.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Lisa Wang <wyihan@google.com>, loongarch@lists.linux.dev, 
+	Marc Zyngier <maz@kernel.org>, Maxim Levitsky <mlevitsk@redhat.com>, Nutty Liu <nutty.liu@hotmail.com>, 
+	Oliver Upton <oupton@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	"Pratik R. Sampat" <prsampat@amd.com>, Rahul Kumar <rk0006818@gmail.com>, 
+	Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Wu Fei <wu.fei9@sanechips.com.cn>, Yosry Ahmed <yosry.ahmed@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_164244_668981_632E98E1 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20260219_164248_894386_074FE516 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,57 +105,339 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/19/26 6:10 PM, Judith Mendez wrote:
-> Hi Alexander,
-> 
-> On 2/17/26 7:23 AM, Sverdlin, Alexander wrote:
->> On Tue, 2026-02-17 at 13:57 +0100, Alexander Sverdlin wrote:
->>>>>>>> Can you please run a quick tap sweep on MMC1 and MMC0 interfaces 
->>>>>>>> like
->>>>>>>> so? https://gist.github.com/jmenti/f4a73a8323e44bf717c6d2c528c499ca
->>>>>>>>
->>>>>>>> This will give me an idea if whether we should be talking about
->>>>>>>> revisiting characterization with ST_ENA=1.
->>>
->>> I wanted to apply your patch and test on our HW, but I have some 
->>> doubts, if
->>> the patch maybe missing something:
->>>
->>> - am654_sdhci_write_otapdly() turns out to be unused in any upstream 
->>> U-Boot version
->>> - new "omap" variable in am654_sdhci_execute_tuning() is in fact 
->>> unused as well
->>
->> and
->>
->> | /home/sverdlin/u-boot/drivers/mmc/am654_sdhci.c: In function 
->> 'j721e_4bit_sdhci_set_ios_post':
->> | /home/sverdlin/u-boot/drivers/mmc/am654_sdhci.c:598:9: error: 
->> 'itap_del_sel' is used uninitialized [-Werror=uninitialized]
->> |   598 |         printf("j721e_4bit_sdhci_set_ios_post, mode=%d, 
->> otap=%d, itap=%d\n", mode, otap_del_sel, itap_del_sel);
->> |       |         
->> ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> | /home/sverdlin/u-boot/drivers/mmc/am654_sdhci.c:594:13: note: 
->> 'itap_del_sel' was declared here
->> |   594 |         u32 itap_del_sel;
->> |       |             ^~~~~~~~~~~~
->>
->>
->> so I'm not sure regarding the previous test results at all any longer..
-> 
-> Sorry for the late reply, somehow I missed this email.
-> 
-> Oh my, I am not sure what happend but seems like I did not copy the
-> whole patch correctly. Were you able to bypass or do you need me
-> to rebase the patch and copy correctly?
-> 
+Use u16 instead of uint16_t to make the KVM selftests code more concise
+and more similar to the kernel (since selftests are primarily developed
+by kernel developers).
 
-Your response actually explains why Marcus's log did not make
-sense at all, thanks. Here is the updated patch in case you need
-it: https://gist.github.com/f4a73a8323e44bf717c6d2c528c499ca.git
+This commit was generated with the following command:
 
-Markus, can you try with this patch instead?
+  git ls-files tools/testing/selftests/kvm | xargs sed -i 's/uint16_t/u16/g'
 
-~ Judith
+Then by manually adjusting whitespace to make checkpatch.pl happy.
+
+No functional change intended.
+
+Signed-off-by: David Matlack <dmatlack@google.com>
+---
+ .../selftests/kvm/arm64/page_fault_test.c     |  2 +-
+ .../testing/selftests/kvm/include/kvm_util.h  |  2 +-
+ .../testing/selftests/kvm/include/x86/evmcs.h |  2 +-
+ .../selftests/kvm/include/x86/processor.h     | 58 +++++++++----------
+ .../testing/selftests/kvm/lib/guest_sprintf.c |  2 +-
+ .../testing/selftests/kvm/lib/x86/processor.c |  8 +--
+ tools/testing/selftests/kvm/lib/x86/ucall.c   |  2 +-
+ tools/testing/selftests/kvm/lib/x86/vmx.c     |  2 +-
+ tools/testing/selftests/kvm/s390/memop.c      |  2 +-
+ .../testing/selftests/kvm/x86/fastops_test.c  |  2 +-
+ .../selftests/kvm/x86/sync_regs_test.c        |  2 +-
+ 11 files changed, 42 insertions(+), 42 deletions(-)
+
+diff --git a/tools/testing/selftests/kvm/arm64/page_fault_test.c b/tools/testing/selftests/kvm/arm64/page_fault_test.c
+index cb52ac8aa0a5..b92a9614d7d2 100644
+--- a/tools/testing/selftests/kvm/arm64/page_fault_test.c
++++ b/tools/testing/selftests/kvm/arm64/page_fault_test.c
+@@ -148,7 +148,7 @@ static void guest_at(void)
+  */
+ static void guest_dc_zva(void)
+ {
+-	uint16_t val;
++	u16 val;
+ 
+ 	asm volatile("dc zva, %0" :: "r" (guest_test_memory));
+ 	dsb(ish);
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+index e928673dafd2..fef4373313bd 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -216,7 +216,7 @@ struct vm_shape {
+ 	u32 type;
+ 	uint8_t  mode;
+ 	uint8_t  pad0;
+-	uint16_t pad1;
++	u16 pad1;
+ };
+ 
+ kvm_static_assert(sizeof(struct vm_shape) == sizeof(u64));
+diff --git a/tools/testing/selftests/kvm/include/x86/evmcs.h b/tools/testing/selftests/kvm/include/x86/evmcs.h
+index 3b0f96b881f9..be79bda024bf 100644
+--- a/tools/testing/selftests/kvm/include/x86/evmcs.h
++++ b/tools/testing/selftests/kvm/include/x86/evmcs.h
+@@ -10,7 +10,7 @@
+ #include "hyperv.h"
+ #include "vmx.h"
+ 
+-#define u16 uint16_t
++#define u16 u16
+ #define u32 u32
+ #define u64 u64
+ 
+diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
+index 71c43a66be78..716398e487a2 100644
+--- a/tools/testing/selftests/kvm/include/x86/processor.h
++++ b/tools/testing/selftests/kvm/include/x86/processor.h
+@@ -397,8 +397,8 @@ struct gpr64_regs {
+ };
+ 
+ struct desc64 {
+-	uint16_t limit0;
+-	uint16_t base0;
++	u16 limit0;
++	u16 base0;
+ 	unsigned base1:8, type:4, s:1, dpl:2, p:1;
+ 	unsigned limit1:4, avl:1, l:1, db:1, g:1, base2:8;
+ 	u32 base3;
+@@ -406,7 +406,7 @@ struct desc64 {
+ } __attribute__((packed));
+ 
+ struct desc_ptr {
+-	uint16_t size;
++	u16 size;
+ 	u64 address;
+ } __attribute__((packed));
+ 
+@@ -474,9 +474,9 @@ static inline void wrmsr(u32 msr, u64 value)
+ }
+ 
+ 
+-static inline uint16_t inw(uint16_t port)
++static inline u16 inw(u16 port)
+ {
+-	uint16_t tmp;
++	u16 tmp;
+ 
+ 	__asm__ __volatile__("in %%dx, %%ax"
+ 		: /* output */ "=a" (tmp)
+@@ -485,63 +485,63 @@ static inline uint16_t inw(uint16_t port)
+ 	return tmp;
+ }
+ 
+-static inline uint16_t get_es(void)
++static inline u16 get_es(void)
+ {
+-	uint16_t es;
++	u16 es;
+ 
+ 	__asm__ __volatile__("mov %%es, %[es]"
+ 			     : /* output */ [es]"=rm"(es));
+ 	return es;
+ }
+ 
+-static inline uint16_t get_cs(void)
++static inline u16 get_cs(void)
+ {
+-	uint16_t cs;
++	u16 cs;
+ 
+ 	__asm__ __volatile__("mov %%cs, %[cs]"
+ 			     : /* output */ [cs]"=rm"(cs));
+ 	return cs;
+ }
+ 
+-static inline uint16_t get_ss(void)
++static inline u16 get_ss(void)
+ {
+-	uint16_t ss;
++	u16 ss;
+ 
+ 	__asm__ __volatile__("mov %%ss, %[ss]"
+ 			     : /* output */ [ss]"=rm"(ss));
+ 	return ss;
+ }
+ 
+-static inline uint16_t get_ds(void)
++static inline u16 get_ds(void)
+ {
+-	uint16_t ds;
++	u16 ds;
+ 
+ 	__asm__ __volatile__("mov %%ds, %[ds]"
+ 			     : /* output */ [ds]"=rm"(ds));
+ 	return ds;
+ }
+ 
+-static inline uint16_t get_fs(void)
++static inline u16 get_fs(void)
+ {
+-	uint16_t fs;
++	u16 fs;
+ 
+ 	__asm__ __volatile__("mov %%fs, %[fs]"
+ 			     : /* output */ [fs]"=rm"(fs));
+ 	return fs;
+ }
+ 
+-static inline uint16_t get_gs(void)
++static inline u16 get_gs(void)
+ {
+-	uint16_t gs;
++	u16 gs;
+ 
+ 	__asm__ __volatile__("mov %%gs, %[gs]"
+ 			     : /* output */ [gs]"=rm"(gs));
+ 	return gs;
+ }
+ 
+-static inline uint16_t get_tr(void)
++static inline u16 get_tr(void)
+ {
+-	uint16_t tr;
++	u16 tr;
+ 
+ 	__asm__ __volatile__("str %[tr]"
+ 			     : /* output */ [tr]"=rm"(tr));
+@@ -626,7 +626,7 @@ static inline struct desc_ptr get_idt(void)
+ 	return idt;
+ }
+ 
+-static inline void outl(uint16_t port, u32 value)
++static inline void outl(u16 port, u32 value)
+ {
+ 	__asm__ __volatile__("outl %%eax, %%dx" : : "d"(port), "a"(value));
+ }
+@@ -1164,15 +1164,15 @@ struct ex_regs {
+ };
+ 
+ struct idt_entry {
+-	uint16_t offset0;
+-	uint16_t selector;
+-	uint16_t ist : 3;
+-	uint16_t : 5;
+-	uint16_t type : 4;
+-	uint16_t : 1;
+-	uint16_t dpl : 2;
+-	uint16_t p : 1;
+-	uint16_t offset1;
++	u16 offset0;
++	u16 selector;
++	u16 ist : 3;
++	u16 : 5;
++	u16 type : 4;
++	u16 : 1;
++	u16 dpl : 2;
++	u16 p : 1;
++	u16 offset1;
+ 	u32 offset2; u32 reserved;
+ };
+ 
+diff --git a/tools/testing/selftests/kvm/lib/guest_sprintf.c b/tools/testing/selftests/kvm/lib/guest_sprintf.c
+index 551ad6c658aa..8d60aa81e27e 100644
+--- a/tools/testing/selftests/kvm/lib/guest_sprintf.c
++++ b/tools/testing/selftests/kvm/lib/guest_sprintf.c
+@@ -286,7 +286,7 @@ int guest_vsnprintf(char *buf, int n, const char *fmt, va_list args)
+ 		if (qualifier == 'l')
+ 			num = va_arg(args, u64);
+ 		else if (qualifier == 'h') {
+-			num = (uint16_t)va_arg(args, int);
++			num = (u16)va_arg(args, int);
+ 			if (flags & SIGN)
+ 				num = (int16_t)num;
+ 		} else if (flags & SIGN)
+diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
+index 65523a2740b7..0d9dc255d857 100644
+--- a/tools/testing/selftests/kvm/lib/x86/processor.c
++++ b/tools/testing/selftests/kvm/lib/x86/processor.c
+@@ -421,7 +421,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+ 		"addr         w exec dirty\n",
+ 		indent, "");
+ 	pml4e_start = (u64 *)addr_gpa2hva(vm, mmu->pgd);
+-	for (uint16_t n1 = 0; n1 <= 0x1ffu; n1++) {
++	for (u16 n1 = 0; n1 <= 0x1ffu; n1++) {
+ 		pml4e = &pml4e_start[n1];
+ 		if (!is_present_pte(mmu, pml4e))
+ 			continue;
+@@ -433,7 +433,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+ 			is_writable_pte(mmu, pml4e), is_nx_pte(mmu, pml4e));
+ 
+ 		pdpe_start = addr_gpa2hva(vm, *pml4e & PHYSICAL_PAGE_MASK);
+-		for (uint16_t n2 = 0; n2 <= 0x1ffu; n2++) {
++		for (u16 n2 = 0; n2 <= 0x1ffu; n2++) {
+ 			pdpe = &pdpe_start[n2];
+ 			if (!is_present_pte(mmu, pdpe))
+ 				continue;
+@@ -446,7 +446,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+ 				is_nx_pte(mmu, pdpe));
+ 
+ 			pde_start = addr_gpa2hva(vm, *pdpe & PHYSICAL_PAGE_MASK);
+-			for (uint16_t n3 = 0; n3 <= 0x1ffu; n3++) {
++			for (u16 n3 = 0; n3 <= 0x1ffu; n3++) {
+ 				pde = &pde_start[n3];
+ 				if (!is_present_pte(mmu, pde))
+ 					continue;
+@@ -458,7 +458,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+ 					is_nx_pte(mmu, pde));
+ 
+ 				pte_start = addr_gpa2hva(vm, *pde & PHYSICAL_PAGE_MASK);
+-				for (uint16_t n4 = 0; n4 <= 0x1ffu; n4++) {
++				for (u16 n4 = 0; n4 <= 0x1ffu; n4++) {
+ 					pte = &pte_start[n4];
+ 					if (!is_present_pte(mmu, pte))
+ 						continue;
+diff --git a/tools/testing/selftests/kvm/lib/x86/ucall.c b/tools/testing/selftests/kvm/lib/x86/ucall.c
+index 1af2a6880cdf..e7dd5791959b 100644
+--- a/tools/testing/selftests/kvm/lib/x86/ucall.c
++++ b/tools/testing/selftests/kvm/lib/x86/ucall.c
+@@ -6,7 +6,7 @@
+  */
+ #include "kvm_util.h"
+ 
+-#define UCALL_PIO_PORT ((uint16_t)0x1000)
++#define UCALL_PIO_PORT ((u16)0x1000)
+ 
+ void ucall_arch_do_ucall(gva_t uc)
+ {
+diff --git a/tools/testing/selftests/kvm/lib/x86/vmx.c b/tools/testing/selftests/kvm/lib/x86/vmx.c
+index 068937005417..516aa8c37f01 100644
+--- a/tools/testing/selftests/kvm/lib/x86/vmx.c
++++ b/tools/testing/selftests/kvm/lib/x86/vmx.c
+@@ -27,7 +27,7 @@ struct hv_vp_assist_page *current_vp_assist;
+ 
+ int vcpu_enable_evmcs(struct kvm_vcpu *vcpu)
+ {
+-	uint16_t evmcs_ver;
++	u16 evmcs_ver;
+ 
+ 	vcpu_enable_cap(vcpu, KVM_CAP_HYPERV_ENLIGHTENED_VMCS,
+ 			(unsigned long)&evmcs_ver);
+diff --git a/tools/testing/selftests/kvm/s390/memop.c b/tools/testing/selftests/kvm/s390/memop.c
+index fc640f3c5176..2283ad346746 100644
+--- a/tools/testing/selftests/kvm/s390/memop.c
++++ b/tools/testing/selftests/kvm/s390/memop.c
+@@ -485,7 +485,7 @@ static __uint128_t cut_to_size(int size, __uint128_t val)
+ 	case 1:
+ 		return (uint8_t)val;
+ 	case 2:
+-		return (uint16_t)val;
++		return (u16)val;
+ 	case 4:
+ 		return (u32)val;
+ 	case 8:
+diff --git a/tools/testing/selftests/kvm/x86/fastops_test.c b/tools/testing/selftests/kvm/x86/fastops_test.c
+index a634bc281546..721f56d38f49 100644
+--- a/tools/testing/selftests/kvm/x86/fastops_test.c
++++ b/tools/testing/selftests/kvm/x86/fastops_test.c
+@@ -186,7 +186,7 @@ if (sizeof(type_t) != 1) {							\
+ static void guest_code(void)
+ {
+ 	guest_test_fastops(uint8_t, "b");
+-	guest_test_fastops(uint16_t, "w");
++	guest_test_fastops(u16, "w");
+ 	guest_test_fastops(u32, "l");
+ 	guest_test_fastops(u64, "q");
+ 
+diff --git a/tools/testing/selftests/kvm/x86/sync_regs_test.c b/tools/testing/selftests/kvm/x86/sync_regs_test.c
+index 8fa3948b0170..e0c52321f87c 100644
+--- a/tools/testing/selftests/kvm/x86/sync_regs_test.c
++++ b/tools/testing/selftests/kvm/x86/sync_regs_test.c
+@@ -20,7 +20,7 @@
+ #include "kvm_util.h"
+ #include "processor.h"
+ 
+-#define UCALL_PIO_PORT ((uint16_t)0x1000)
++#define UCALL_PIO_PORT ((u16)0x1000)
+ 
+ struct ucall uc_none = {
+ 	.cmd = UCALL_NONE,
+-- 
+2.53.0.414.gf7e9f6c205-goog
+
 
