@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9EB8C54F5C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 06:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C054AC54F5F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 06:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A1A3lpYSGax/n4+5eeSy2exXTa0jNnmXhF3xXfLCX3Q=; b=TiaYCcg8XiBMruvggqlXNYl2/7
-	oysdHwfH7Y5/LONBupa+kN/GaTUlC4qn+6JftivTuY3ZJ+JBATQA8hqYulSs+jl8W9jct/Sgmm+TH
-	ebHNNbWXcArvdpKgttTww+FzdFmwqc4WggPdc+iptTCbWhEELQr4CKnhz+Ly9DjaWb71AkBPkdyAL
-	L5nZkM4UH7IMVXANOEiR2P6z8klE4gvwoIl5cGrnzwK+3QQiF43ZjPGqRui4dgaEdwsg29Ita/DxW
-	Y6Jc3ag9xmxOAfzxHWYYMOd8OzhWsn4+8B9zjc+UQXNORhP1HmhdV7gEtI7EDpG4SAGlbm/dpBWPs
-	HulwSdog==;
+	bh=G3RaLcbBsYZpw/Kku2JzT3wLKyDfDI2vlTE11UqWozw=; b=jhQGmXimztHp+rrZX9qwK8hrux
+	TbOPqPUGfbCnwMTTbHN3atsEDp9VAlsxD5aqrk1n0VqmOpKroPiV8sge7+NjDFdX38xO3xKZKhQqJ
+	xPKveWbVAggxG2mUZmiTuDqayeJolo8f6nvIMQSNNdYgsTijuxHTi+NGs45cW8f3PetKvDwfKsV4v
+	GFla+H4NoCw1PfETNIvOJQ5ij4Id1lzCPIZP3uLwfNI25MDG3QDpw3n2+q2zHXA3p1mTuqVTYq8Ss
+	rG1YfGUfZ0PKJ/9+pBtATwRSq2RfHuuPp03l/dDGhuFuNsq/kU9/79PxRGw/GyLC2tULHm0KC0ujg
+	oWm7qz/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtK4Z-0000000DJtA-2sxq;
-	Fri, 20 Feb 2026 06:33:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vtKAm-0000000DK8B-23lX;
+	Fri, 20 Feb 2026 06:39:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtK4Y-0000000DJt4-2dLR
+	id 1vtKAj-0000000DK7n-0rmc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 06:33:06 +0000
+	Fri, 20 Feb 2026 06:39:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C0A660054;
-	Fri, 20 Feb 2026 06:33:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F377C116D0;
-	Fri, 20 Feb 2026 06:33:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B9D0244161;
+	Fri, 20 Feb 2026 06:39:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FAD4C116D0;
+	Fri, 20 Feb 2026 06:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771569185;
-	bh=Fq+HYBDt87eoP9eXSUrmnldyYQ/rSkSpbFxYlUHf1BA=;
+	s=k20201202; t=1771569565;
+	bh=K03+flrCCAh9UJxfPcPWOWXMwX3CXYJoX3R9jdwQGFw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MSQ82ZE30LmJrrKD9PVuqMqIuJvDK2CtgGY9C3wBZmy4pRdK/jNaqXvgw0euL+3uh
-	 TWiBisItCbT2PAjp8NXubp7LyHSMhZc91THpIb8TkiRcCLDucjDn5u7r7E//A0xZjg
-	 z2GDqgTGQVldYvJiVPtoWJVvZUOTLQ2gU7batWFj5sr4Lh5C3W7/4tYsi4+wu3mg8h
-	 FS7fGncoct/YrnchxqXEts7B03Y5RLbskDK8zxaMcNNZI6tTnGmQDj5eEwY2VwvJBX
-	 T7fGP1WxXLpgcU9LbimHWcmzf9nc3jcOl90PzPAjlS2VXpSyhqQCddFgapKvE87sBf
-	 UeXn97y9HivjA==
-Date: Fri, 20 Feb 2026 14:14:23 +0800
+	b=qcs0dJCf/unZIOC7XlsbZbpv/C3tIqkn4RXaO2yct+95urWJ3BZpYnTjBV7E7LPvb
+	 /oiLU02RTjq2nXKnfZcRsXEE8L2v9ByxldwTPXWHYu4XwlShjAvnpZDiEdG9eGgwNu
+	 ekibDgwO8HH27G+w09+tWvmgeweaU4eTSHdlGE72nLsP2xIOiD29cze2T/Z1IhIU6d
+	 dtva5h9AzPheTIcVbftt63L/q4DQJYT9tNNFTeIMjztulncLuySUkyiX3agryZimoj
+	 UPO9uKXSzcD6A3RDODXBUHmJ6GgMeXEVvssmwJ1SkuD1LTIIw4WZikNP7yP9/Rrpjp
+	 LWMrvN41V+UWw==
+Date: Fri, 20 Feb 2026 14:20:54 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@gentwo.org>,
+To: Shakeel Butt <shakeel.butt@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Dennis Zhou <dennis@kernel.org>,
+	Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, maz@kernel.org
+	linux-mm@kvack.org
 Subject: Re: [PATCH] arm64: remove HAVE_CMPXCHG_LOCAL
-Message-ID: <aZf7v4Ix1ZWCXxPu@xhacker>
+Message-ID: <aZf9RsIUh8ARg_RP@xhacker>
 References: <20260215033944.16374-1-jszhang@kernel.org>
- <aZL46z1UZkQlF3Dd@willie-the-truck>
- <89606308-3c03-4dcf-a89d-479258b710e4@arm.com>
+ <aZY30X9bpsV-nPsm@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <89606308-3c03-4dcf-a89d-479258b710e4@arm.com>
+In-Reply-To: <aZY30X9bpsV-nPsm@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260219_223929_268305_E3325589 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,117 +75,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 08:59:17PM +0530, Dev Jain wrote:
+On Wed, Feb 18, 2026 at 02:07:57PM -0800, Shakeel Butt wrote:
+> On Sun, Feb 15, 2026 at 11:39:44AM +0800, Jisheng Zhang wrote:
+> > It turns out the generic disable/enable irq this_cpu_cmpxchg
+> > implementation is faster than LL/SC or lse implementation. Remove
+> > HAVE_CMPXCHG_LOCAL for better performance on arm64.
+> > 
+> > Tested on Quad 1.9GHZ CA55 platform:
+> > average mod_node_page_state() cost decreases from 167ns to 103ns
+> > the spawn (30 duration) benchmark in unixbench is improved
+> > from 147494 lps to 150561 lps, improved by 2.1%
+> > 
+> > Tested on Quad 2.1GHZ CA73 platform:
+> > average mod_node_page_state() cost decreases from 113ns to 85ns
+> > the spawn (30 duration) benchmark in unixbench is improved
+> > from 209844 lps to 212581 lps, improved by 1.3%
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > 
-> On 16/02/26 4:30 pm, Will Deacon wrote:
-> > On Sun, Feb 15, 2026 at 11:39:44AM +0800, Jisheng Zhang wrote:
-> >> It turns out the generic disable/enable irq this_cpu_cmpxchg
-> >> implementation is faster than LL/SC or lse implementation. Remove
-> >> HAVE_CMPXCHG_LOCAL for better performance on arm64.
-> >>
-> >> Tested on Quad 1.9GHZ CA55 platform:
-> >> average mod_node_page_state() cost decreases from 167ns to 103ns
-> >> the spawn (30 duration) benchmark in unixbench is improved
-> >> from 147494 lps to 150561 lps, improved by 2.1%
-> >>
-> >> Tested on Quad 2.1GHZ CA73 platform:
-> >> average mod_node_page_state() cost decreases from 113ns to 85ns
-> >> the spawn (30 duration) benchmark in unixbench is improved
-> >> from 209844 lps to 212581 lps, improved by 1.3%
-> >>
-> >> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> >> ---
-> >>  arch/arm64/Kconfig              |  1 -
-> >>  arch/arm64/include/asm/percpu.h | 24 ------------------------
-> >>  2 files changed, 25 deletions(-)
-> > That is _entirely_ dependent on the system, so this isn't the right
-> > approach. I also don't think it's something we particularly want to
-> > micro-optimise to accomodate systems that suck at atomics.
+> Please note that mod_node_page_state() can be called in NMI context and
+> generic disable/enable irq are not safe against NMIs (newer arm arch supports
+> NMI).
 
-Hi Will,
+hmm, interesting...
 
-I read this as an implication that the cmpxchg_local version is better
-than generic disable/enable irq version on the newer arm64 systems. Is my
-understanding correct?
+fgrep HAVE_NMI arch/*/Kconfig
+then
+fgrep HAVE_CMPXCHG_LOCAL arch/*/Kconfig
 
-> 
-> Hi Will,
-> 
-> As I mention in the other email, the suspect is not the atomics, but
-> preempt_disable(). On Apple M3, the regression reported in [1] resolves
-> by removing preempt_disable/enable in _pcp_protect_return. To prove
-> this another way, I disabled CONFIG_ARM64_HAS_LSE_ATOMICS and the
-> regression worsened, indicating that at least on Apple M3 the
-> atomics are faster.
-> 
-> It may help to confirm this hypothesis on other hardware - perhaps
-> Jisheng can test with this change on his hardware and confirm
-> whether he gets the same performance improvement.
-
-Hi Dev,
-
-Thanks for the hints. I tried to remove the preempt_disable/enable from
-_pcp_protect_return, it improves, but the HAVE_CMPXCHG_LOCAL version is
-still worse than generic disable/enable irq version on CA55 and CA73.
-
-> 
-> By coincidence, Yang Shi has been discussing the this_cpu_* overhead
-> at [2].
-> 
-> [1] https://lore.kernel.org/all/1052a452-9ba3-4da7-be47-7d27d27b3d1d@arm.com/
-> [2] https://lore.kernel.org/all/CAHbLzkpcN-T8MH6=W3jCxcFj1gVZp8fRqe231yzZT-rV_E_org@mail.gmail.com/
-> 
-> >
-> > Will
-> >
-> >> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> >> index 38dba5f7e4d2..5e7e2e65d5a5 100644
-> >> --- a/arch/arm64/Kconfig
-> >> +++ b/arch/arm64/Kconfig
-> >> @@ -205,7 +205,6 @@ config ARM64
-> >>  	select HAVE_EBPF_JIT
-> >>  	select HAVE_C_RECORDMCOUNT
-> >>  	select HAVE_CMPXCHG_DOUBLE
-> >> -	select HAVE_CMPXCHG_LOCAL
-> >>  	select HAVE_CONTEXT_TRACKING_USER
-> >>  	select HAVE_DEBUG_KMEMLEAK
-> >>  	select HAVE_DMA_CONTIGUOUS
-> >> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-> >> index b57b2bb00967..70ffe566cb4b 100644
-> >> --- a/arch/arm64/include/asm/percpu.h
-> >> +++ b/arch/arm64/include/asm/percpu.h
-> >> @@ -232,30 +232,6 @@ PERCPU_RET_OP(add, add, ldadd)
-> >>  #define this_cpu_xchg_8(pcp, val)	\
-> >>  	_pcp_protect_return(xchg_relaxed, pcp, val)
-> >>  
-> >> -#define this_cpu_cmpxchg_1(pcp, o, n)	\
-> >> -	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-> >> -#define this_cpu_cmpxchg_2(pcp, o, n)	\
-> >> -	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-> >> -#define this_cpu_cmpxchg_4(pcp, o, n)	\
-> >> -	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-> >> -#define this_cpu_cmpxchg_8(pcp, o, n)	\
-> >> -	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-> >> -
-> >> -#define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
-> >> -
-> >> -#define this_cpu_cmpxchg128(pcp, o, n)					\
-> >> -({									\
-> >> -	typedef typeof(pcp) pcp_op_T__;					\
-> >> -	u128 old__, new__, ret__;					\
-> >> -	pcp_op_T__ *ptr__;						\
-> >> -	old__ = o;							\
-> >> -	new__ = n;							\
-> >> -	preempt_disable_notrace();					\
-> >> -	ptr__ = raw_cpu_ptr(&(pcp));					\
-> >> -	ret__ = cmpxchg128_local((void *)ptr__, old__, new__);		\
-> >> -	preempt_enable_notrace();					\
-> >> -	ret__;								\
-> >> -})
-> >>  
-> >>  #ifdef __KVM_NVHE_HYPERVISOR__
-> >>  extern unsigned long __hyp_per_cpu_offset(unsigned int cpu);
-> >> -- 
-> >> 2.51.0
-> >>
+shows that only x86, arm64, s390 and loongarch are safe, while arm,
+powerpc and mips enable HAVE_NMI but missing HAVE_CMPXCHG_LOCAL, so
+they rely on generic generic disable/enable irq version, so you imply
+that these three arch are not safe considering mod_node_page_state()
+in NMI context.
 
