@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF92C5ACD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 16:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75592C5ACD1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 16:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sc1ud4NvoSk2r2XkR507CAgHdz72HRaNe5gFe/sJK8E=; b=uy+AgyT7EXF3B7Ky7JqGv1Djyf
-	1n+s8rmzS4GgxLPuK8ogxw+UyFQ7Gzf0T1WwF3Uv7CFYP5PdEg0f2TMqiO9PyiZC6tFTAddIjP3cq
-	1ytOa2DT1sYXkkwiWoPWPrdOwHuj7WHzP3/1GsY0fDoO4dHbzW2pLuN/Gq8Xqt+rOp9l9M+FNGEVv
-	sbeeqnlcHUkerlfwZIYQhPoXIJDVAdh8ijN4iG5/jon2zUEfLWQ1EJP7SKwvFIjkoFcFhOs4DG8bi
-	3gVWB35pMRc2GC5EHNMM9r/py5JCJKjvHNdqs0Cp55JKks2YvfwEHDzjAfYLDANtrtK3QPkt+YQUc
-	dkSAdjWw==;
+	bh=5Kma/dQTmZIgX72gFxn/OuuMgzz0tSVOS/9inwwwNmo=; b=gbyouscA+AsMuxqU5Rh6plY2k3
+	lLavOiHdF0u/hczAgA6CfwqqjDk4Xf181KKZT+p7o0ZZAzqAWi0/x3aUf6L7b7IXxrNNlizNtJ3bF
+	zvOkvhe8VU8ibds905PrZ3GvzvUpmAPCtFwtlP2g5kdgTC+gt1oavzZQ+2DwpmcTNnlbft16+pnBb
+	CKXULHtDWnYmJjXWSUWYpAVKw6iYcsOpOKsro1W9vOePPymZ1NOEDdjle+OdmFYv+hF5yPBaLwuKh
+	+Qm8ujTHxzQaqZPHc4T+ZJOxLrhGhVsiDQLD8wlHUywITIH495HGSq7uxkywE9wTnOjA+oErY//SL
+	p8KSTGEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtT5V-0000000FBX9-2i0Z;
-	Fri, 20 Feb 2026 16:10:41 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vtT5X-0000000FBZb-0uHq;
+	Fri, 20 Feb 2026 16:10:43 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtT5Q-0000000FBRN-0Z8x;
-	Fri, 20 Feb 2026 16:10:37 +0000
+	id 1vtT5S-0000000FBTA-0scT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Feb 2026 16:10:39 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id A2ED84E40945;
-	Fri, 20 Feb 2026 16:10:33 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id CAEE31A0B13;
+	Fri, 20 Feb 2026 16:10:36 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 795395FA8F;
-	Fri, 20 Feb 2026 16:10:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7882910368D1C;
-	Fri, 20 Feb 2026 17:10:31 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A26835FA8F;
+	Fri, 20 Feb 2026 16:10:36 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9149C10368D47;
+	Fri, 20 Feb 2026 17:10:34 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1771603832; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1771603835; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=sc1ud4NvoSk2r2XkR507CAgHdz72HRaNe5gFe/sJK8E=;
-	b=a6i2RJyL2lZNjW2hv3kXp3DpYkrzMP6CA6mYlLELH1wOzZVx5Ruuh0ikaKvklhk+jzm0aL
-	enWEmtR5phIczunvjo4Z5LVL5aisAdukPwHJiil4v9lza1fiNHJP9PJa/K5NWl6DBktl4l
-	YGksdqN/u2vlgxvEwGBv9OJQb/Wc3KYVx/VBAiTtA5WRIpju7vlbgwgEv9f7JBZz32zt/z
-	sIfpn/4MaE1gPj6JXtmMyWCo58FaY4azt7vapiW30EHX/+TIto0tXaPW9ebANNa4SYBFtB
-	jnoYN1RMgS38Qi75XgMp+pmfQPCCjnR7bndOLgZxo/eouTa1n0O+AKrgWABZnw==
+	bh=5Kma/dQTmZIgX72gFxn/OuuMgzz0tSVOS/9inwwwNmo=;
+	b=sHDQeCgn5sygMr4vwv4OD7wil38NEv5yfweX8rCtUpz8/kUeTJ4GAalBkzAk0Gg386lbVI
+	xURYIDJLOgTo/cTYkiPhW2PJsSmhNi3ZVWPdeZDzUrDLazd7LN0Ljy9OE1WdKHZ1aY8faK
+	/ORDFlZM7CiIdswgtCAMdtEl9mSi6KXFvZ7zzUi/FwMrXgWC9iYiOVjzc733bwA3tdXqem
+	V1Xn1rr+TdqDY+wxE86qlpR51qay8ZDMio2lRCZjP//3d3wI00xKemifZ7aLCRE/k0dgKR
+	SfpPGjrjrTFf95ihDcAqxZICe2m+jzles+Cz0D7iGM9rtUYP6UHMdrTx2LyONw==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Richard Weinberger <richard@nod.at>,
@@ -58,9 +59,9 @@ Cc: Wentao Liang <vulab@iscas.ac.cn>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH 1/6] mtd: rawnand: sunxi: fix sunxi_nand_ooblayout_free
-Date: Fri, 20 Feb 2026 17:10:06 +0100
-Message-ID: <20260220161011.999642-2-richard.genoud@bootlin.com>
+Subject: [PATCH 3/6] mtd: rawnand: sunxi: do not count BBM bytes twice
+Date: Fri, 20 Feb 2026 17:10:08 +0100
+Message-ID: <20260220161011.999642-4-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260220161011.999642-1-richard.genoud@bootlin.com>
 References: <20260220161011.999642-1-richard.genoud@bootlin.com>
@@ -68,8 +69,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_081036_303600_AB3293C7 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20260220_081038_381844_4CDDD2ED 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +85,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The available length is really USER_DATA_LEN - 2 instead of just 2 (the
-user data length minus the BBM length)
-That doesn't change anything now, but if USER_DATA_LEN changes, it will.
+BBM is part of USER_DATA section, so we should remove it twice
+
+This was working ok because we are on the safe size, advertising that
+there was 2 bytes less available than reality.
+
+But we can't change old platforms, since it may lead to a different ECC
+strength, so, introduce a legacy flag for old platforms, and switch the
+new platforms to the correct count.
 
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/mtd/nand/raw/sunxi_nand.c | 23 ++++++++++++++++++++---
+ 1 file changed, 20 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 9dcdc93734cb..c420909b944b 100644
+index 9c6e0625e34f..99d305bbda53 100644
 --- a/drivers/mtd/nand/raw/sunxi_nand.c
 +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -1761,12 +1761,12 @@ static int sunxi_nand_ooblayout_free(struct mtd_info *mtd, int section,
+@@ -281,6 +281,8 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
+  * @has_ecc_block_512:	If the ECC can handle 512B or only 1024B chuncks
+  * @has_ecc_clk:	If the controller needs an ECC clock.
+  * @has_mbus_clk:	If the controller needs a mbus clock.
++ * @legacy_max_strength:If the maximize strength function was off by 2 bytes
++ *			NB: this should not be used in new controllers
+  * @reg_io_data:	I/O data register
+  * @reg_ecc_err_cnt:	ECC error counter register
+  * @reg_user_data:	User data register
+@@ -310,6 +312,7 @@ struct sunxi_nfc_caps {
+ 	bool has_ecc_block_512;
+ 	bool has_ecc_clk;
+ 	bool has_mbus_clk;
++	bool legacy_max_strength;
+ 	unsigned int reg_io_data;
+ 	unsigned int reg_ecc_err_cnt;
+ 	unsigned int reg_user_data;
+@@ -1811,10 +1814,22 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
+ 		ecc->size = 1024;
+ 		nsectors = mtd->writesize / ecc->size;
  
- 	/*
- 	 * The first 2 bytes are used for BB markers, hence we
--	 * only have 2 bytes available in the first user data
-+	 * only have USER_DATA_SZ - 2 bytes available in the first user data
- 	 * section.
- 	 */
- 	if (!section && ecc->engine_type == NAND_ECC_ENGINE_TYPE_ON_HOST) {
- 		oobregion->offset = 2;
--		oobregion->length = 2;
-+		oobregion->length = USER_DATA_SZ - 2;
+-		/* Reserve 2 bytes for the BBM */
+-		bytes = (mtd->oobsize - 2) / nsectors;
++		/*
++		 * The 2 BBM bytes should not be removed from the grand total,
++		 * because they are part of the USER_DATA_SZ.
++		 * But we can't modify that for older platform since it may
++		 * result in a stronger ECC at the end, and break the
++		 * compatibility.
++		 */
++		if (nfc->caps->legacy_max_strength)
++			bytes = (mtd->oobsize - 2) / nsectors;
++		else
++			bytes = mtd->oobsize / nsectors;
  
- 		return 0;
- 	}
+-		/* 4 non-ECC bytes are added before each ECC bytes section */
++		/*
++		 * USER_DATA_SZ non-ECC bytes are added before each ECC bytes
++		 * section, they contain the 2 BBM bytes
++		 */
+ 		bytes -= USER_DATA_SZ;
+ 
+ 		/* and bytes has to be even. */
+@@ -2379,6 +2394,7 @@ static const u8 sunxi_user_data_len_h6[] = {
+ 
+ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
+ 	.has_ecc_block_512 = true,
++	.legacy_max_strength = true,
+ 	.reg_io_data = NFC_REG_A10_IO_DATA,
+ 	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
+ 	.reg_user_data = NFC_REG_A10_USER_DATA,
+@@ -2400,6 +2416,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
+ static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
+ 	.has_mdma = true,
+ 	.has_ecc_block_512 = true,
++	.legacy_max_strength = true,
+ 	.reg_io_data = NFC_REG_A23_IO_DATA,
+ 	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
+ 	.reg_user_data = NFC_REG_A10_USER_DATA,
 
