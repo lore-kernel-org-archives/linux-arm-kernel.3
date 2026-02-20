@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31400C54FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 07:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DD8C54FD0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 07:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDZx31Yzb+3KQ9sF3N/ebw8Imf3fgRe0XFGJM7tnvhM=; b=u11ieIgRM4cEnQ0VZfzQ1ISn4w
-	uNX0QgRPhQ5fNjjycUkj/DKCaBuxni/gNEPdEvkB3RIPFajJLmZY+AMi1OS9IynchY16Xsms3g/vz
-	rv0Dj23izBZUSpRvVVW8kyF0eBOyveRNqghtWw6f/PUt3sVQS6WyTJRM77hrsIsofV2knWfWnyypu
-	11AJ6YLRxg6G0KJIyh33JelStm5YE7yZoRw3n6VGZV9uFsA4vpf3OmMLJxhBVxTudC0kCDKgMjtVo
-	RRnWCo4wpNXOlouCSf0nd2i7WFv3a7Sjh92rsuxxT8wHcyfyx/aGdXPh8P+NbuVFL8mCwb1kkIIef
-	K+HkVSAQ==;
+	bh=KFJyDDj/nwb/WXyu2y8739tsNobmfJkVtRDp1FApWZU=; b=PHEUirv+gs2AC+WGDUmZqQg1oF
+	ydQyfjg6Y+IC1QgZpeW0NLxSTg9firE53EBSINhUln3gmn15667/i6629O81eEfwyb8p2M/X9EiiK
+	41iqGxXIAL55UFgiOVipMKaRsJS3gr9fzaj4FKDytMM8nx5Jcn2fNmi5lqXKkhTVfImfCPbMv8l8o
+	hS/6/NM3rL5JmX7OCVtWthnxC9VCct9OJG/G6gRcOK6G5WfeUfnuy45S/LCx2J2Dq0EQHGw+Ql5PX
+	Z52HLNQqaa+y0P1h7CX6vCgedvdrbgqN/Tad9qUh/mDaAwWAIFFCFceSKt9VA2ydlbeHWAbO/mzpr
+	pN5UFUHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtLIY-0000000DMwO-2jR9;
-	Fri, 20 Feb 2026 07:51:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtLJK-0000000DN2a-18ts;
+	Fri, 20 Feb 2026 07:52:26 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtLIX-0000000DMwC-29AH;
-	Fri, 20 Feb 2026 07:51:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78D3E6184C;
-	Fri, 20 Feb 2026 07:51:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72DCDC116C6;
-	Fri, 20 Feb 2026 07:51:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771573896;
-	bh=8BzeL6OtW1xxqVp2So7EwtUL67QY4V4CLXtCVdlFdxc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iVA3/mirqgpBxJmHFHRCJfTR3WchRt6JDx56pu/c0fhaRRaQHhLv1cs91yoCh7SLT
-	 iQxgk+fihDthjWCJVWHPZcfXMBFdZk1SYRLxG3JgbonusxmJttgelxUbJvnqbrC3o7
-	 fTNarmpKj6OfBwst6A4NcbFmoqDtz5jf7ZIj7Va4cGJrTzLKZLur5qtBMGGymEljxw
-	 Jt4q3IuYFT8sCNgw2p+TGrjNoy3KCrkuNTyqTlRaAR5zJQJLXn1sAd31ScHU8Is8K+
-	 qvRY9cc2Tb8iNCgmhi7XW7gnnEfrcM+ea4oCx8hnE/L/Ip96ICEQ0aBB5ovq1k/fZu
-	 m8yah7z2u4khQ==
-Date: Fri, 20 Feb 2026 08:51:33 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/2] dt-bindings: regulator: mt6359: make regulator names
- unique
-Message-ID: <20260220-bizarre-tricky-stingray-94db2b@quoll>
-References: <20260219-mtk-mt6359-fix-regulator-names-v1-0-ee0fcebfe1d9@baylibre.com>
- <20260219-mtk-mt6359-fix-regulator-names-v1-2-ee0fcebfe1d9@baylibre.com>
+	id 1vtLJI-0000000DN1h-0qfY
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Feb 2026 07:52:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1771573945; x=1803109945;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=CTACKERyrLFo7FWUXuOxaDSKmh3CY0L4vT8iY/OmwbI=;
+  b=N7LXoRVT8gHiCwNoxhB/g+Er0BcwbF3XvJTOsvFrzLCggY/QJF+Kznfw
+   G4JRaK2ppBIfEVB144IpOgRQmd8Ks6CYrLjAzWrIzgRNaJpuK8TFrFmOT
+   SW9oWJbWUvrpkHXJZL7/6ZCnEKuyNUOBOqEXzcBo4aldxRtcib2XLKElj
+   O5L5GfJulVkanALOjmE2/tyoo7Gu9QuDH55Qm7WUP4/dyssfeysG0AlQ0
+   TqN7t27TFgc5hBp/PY6on05+/1iGHopxLrk3SdZPlBAprVvgwLZUNsQZM
+   iK0w4z8p8erLdy1nNV2EYK6I24BfjRN86P0GaMy5cIfvwItCkckTfBRr+
+   w==;
+X-CSE-ConnectionGUID: OIcdZCXiT0em5WIR65oKJw==
+X-CSE-MsgGUID: sunxr2SrRHqwHI85yNdz6Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11706"; a="76504184"
+X-IronPort-AV: E=Sophos;i="6.21,301,1763452800"; 
+   d="scan'208";a="76504184"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2026 23:52:24 -0800
+X-CSE-ConnectionGUID: EbRr2662QLGVe9sRhX654g==
+X-CSE-MsgGUID: CGTUPyrOR9SIfNit8Y6E6w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,301,1763452800"; 
+   d="scan'208";a="212930068"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.25])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2026 23:52:20 -0800
+Date: Fri, 20 Feb 2026 09:52:17 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, saikrishna12468@gmail.com,
+	git@amd.com
+Subject: Re: [PATCH 2/5] iio: adc: xilinx-xadc: Add setup_channels function
+ pointer to ops structure
+Message-ID: <aZgSseBpdOgoWgsG@smile.fi.intel.com>
+References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
+ <20260220053941.611415-3-sai.krishna.potthuri@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260219-mtk-mt6359-fix-regulator-names-v1-2-ee0fcebfe1d9@baylibre.com>
+In-Reply-To: <20260220053941.611415-3-sai.krishna.potthuri@amd.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260219_235224_283997_39ACB357 
+X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +95,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 04:55:30PM -0600, David Lechner wrote:
-> Update the example devicetree with unique regulator names for all
-> regulators. This reflects the same change made to the actual .dtsi file.
-> 
-> Signed-off-by: David Lechner <dlechner@baylibre.com>
-> ---
+On Fri, Feb 20, 2026 at 11:09:38AM +0530, Sai Krishna Potthuri wrote:
+> Add setup_channels function pointer to xadc_ops structure to enable
 
-Subject: regulator
+Add .setup_channels()...
 
->  Documentation/devicetree/bindings/regulator/mt6359-regulator.yaml | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+...to struct xadc_ops to enable...
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> different interfaces to have custom channel setup logic.
 
-Best regards,
-Krzysztof
+...
+
+> +static int xadc_parse_dt(struct iio_dev *indio_dev, unsigned int *conf, int irq);
+
+This is a red flag. Why do we need a forward declaration? Bad architecture /
+design of the function calls?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
