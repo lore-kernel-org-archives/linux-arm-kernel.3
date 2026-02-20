@@ -4,79 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0ADC56204
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E19C56201
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sTdG8btimHKwmZNKKennypN5GyP/pfImU2mZiCz0IvA=; b=z31pS3KXqn4lKhmwQ649z7TQSV
-	mSkEjcbAj5Lca4YS8qQ5WCltD0jzWh4uuvF3O0BtqgsdgJpHbry0ijR8kHVqNGJbgfyuOo3kLKFak
-	4JMatc1kXqvMtgZkQuods9DBlSQCv9Y/S9jfN7vqqn2bErEIxP0PZDTVK4cUZbW6nQwLL6Whf3SO/
-	gfHWY8Bhe3lmBV5KP6yXYIL/T/f7xfMgVqpZlvGFupBm33aOBOFVZUg1Y0mCzIjlqdl1hXSjOaMN1
-	IsAmD7nIezHcA2LaqebBChBdQpVkV/UeEFhWzGi9PI2GzXS0lT0JfKSm7WrI5y07UTBBkSwgrKBsp
-	In4puG/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=977B/ic6AJDBhQi658+RVyXZJ76tjyvN895prl/vc1g=; b=OTTsNjsJTJRc8+je1ihBTKMrvh
+	Fe1WdyZAoCaxvlSfALJWtCPZGlTzDhnhdjWdG8rjktc7aZnfcd20UeofVVZTiMiHwiD2saWdorOPv
+	gbwRSvFWsVGo8gHA2iQaaJ+EaJBj4KCCQlM4F4liaRJ/08Fm2DMCcNAuqh0ebDF6EDt/VL+M6yNRm
+	38YUWm39PEnN+cfON0xAvdFiWVP605AOZYVAlXzfs9RuOEKKG4O+jNYVdcitTpCXy+lHFXnUbIo81
+	csoETyr9+e+O/AH2pvJ2nk1huN1EHtgYb7zoDza3BBFLLrAqu1S1JJfeyImsGIJPi2M5lr/S3jti/
+	evmfoALA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRra-0000000EtrY-0HrU;
-	Fri, 20 Feb 2026 14:52:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtRyw-0000000Ev7v-3vOE;
+	Fri, 20 Feb 2026 14:59:50 +0000
+Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRrY-0000000EtrJ-15kc
+	id 1vtRyu-0000000Ev6l-30M7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 14:52:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C79DD6185F;
-	Fri, 20 Feb 2026 14:52:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77C0DC116D0;
-	Fri, 20 Feb 2026 14:52:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771599130;
-	bh=cKD/AWPnjjeWq0pI84Atiws6ljOTReoU+0PYJxYItcs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=TV+Vj8GDWrGz2HdGQNgaKRORsnNRsJ4TtkD1IWFOG1VBtyPjCxEutL4SqXgJTYtT8
-	 425NFcgTEigPlV4wtZ5jugVbc64BHY+fEk7kNG5FbPJjN5NDIHXh4OWm6VJI7LeROn
-	 dyBWBaNYljwszaSMy2pR4kw9WjdTj7iHUS4Y8FoSoCHM0hS9TduFUD8YdxXweJDySq
-	 TIAdq5rlyH7DJReZefkFWpqzCCz89zj8z9lr9g0499nqSS5ld8tdVCYqZPCTz4J7c4
-	 sxRm9LOWJ756ZZjI/PJYWbBDtBsFFEJSOdZDe/2T8Zi+dcHc4Fpt+r1C4yJDcZhUqQ
-	 QGnSqGj56XncA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vtRrU-0000000CSW5-1neS;
-	Fri, 20 Feb 2026 14:52:08 +0000
-Date: Fri, 20 Feb 2026 14:52:07 +0000
-Message-ID: <86tsvba2nc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 1/9] arm64: Add logic to fully remove features from sanitised id registers
-In-Reply-To: <CA+EHjTzj9wEm7oBKBXF8sYpK60FYeLOJwEapxDiO1HxK5e6Y6g@mail.gmail.com>
-References: <20260219195533.2455736-1-maz@kernel.org>
-	<20260219195533.2455736-2-maz@kernel.org>
-	<CA+EHjTzVRq3r-7UR-MJYvv-Aw4kHQDHEmwtqY9is-fRDm-J06A@mail.gmail.com>
-	<86v7frafpx.wl-maz@kernel.org>
-	<CA+EHjTzj9wEm7oBKBXF8sYpK60FYeLOJwEapxDiO1HxK5e6Y6g@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 20 Feb 2026 14:59:50 +0000
+ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=977B/ic6AJDBhQi658+RVyXZJ76tjyvN895prl/vc1g=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1771599579;
+ b=aStxX1LXtC+QH0mJ+eSri0UPYmFqAzbQZ6lw+kgKesPsCF8dD1/tvqDxj83c/W8bO/cgf+mC
+ 9qvEeSQkUnLgvD+CsM2dsx6ahWDvTEU7YwRYj5QsfugBtqr5SsiSGyVY4HUY9d26d82ELPsBEXA
+ daPWRaec3k2uPW1+TrU59BRqN645M8pxlTYgeHzTF+ZjoIIbM4Xl2MMPdgsAUiC/ZEaB4wMnDt4
+ PliQAkA8RmQ6jO9TPNWZNGyxTZ2WmbZQI3fq3SMj8KXkYhIkXKdm3nuldUo5NbLSi/1YB40ePKn
+ UcnNP09SgQUZOqVBb69kmqNGaCn4N843NsqNQSY9N8N/g==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1771599579;
+ b=MU9+THZ0S8cNY11mV/uYnIo8ijiMWtLyDSGUnQPnC/F5WBJO+vfhpDff9wDQCMBFQjNr+A/s
+ Mj+7YYIOb3eegWiTZ8+1R9Y2kMbwQjHP5ts7l6GQbHZjrNbXkGCpKReu6HYfe/nOYss3MKeawo/
+ EKD5aSPrXbG2Jnof+RB5r2tqfpB2prMYBdCXijXiWosbNgZ0otpxhwhMihhoXVfM78fVtMRZoHo
+ EuwB7nktVrpT9AO6IMbvfdPxgh4X4wqpU/Va9OvM1zKxtbBIr4zh0obeaaxWeA/fxI+/keTNPUW
+ ZwdBRdFQrlBJEKh0qsgJAOy8+JYKOlvgkvXKSJcZKwegg==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
+ Fri, 20 Feb 2026 15:59:39 +0100
+Received: from FEILKEA-LNX-W.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.feilke@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id CCF6B22071C;
+	Fri, 20 Feb 2026 15:59:20 +0100 (CET)
+From: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Subject: [PATCH v2 0/3] ARM: dts: TQMa7: modify for use in bootloaders
+Date: Fri, 20 Feb 2026 15:59:06 +0100
+Message-ID: <20260220145917.1797286-1-Alexander.Feilke@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: alexander.feilke@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.feilke@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4fHYLK3dnmz3yZ1l
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 534bcfafd7dddc9c5c6fd6b8117fa64a
+X-cloud-security: scantime:2.046
+DKIM-Signature: a=rsa-sha256;
+ bh=977B/ic6AJDBhQi658+RVyXZJ76tjyvN895prl/vc1g=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1771599579; v=1;
+ b=FtGgyp56NO/ZK2sERlNQmpBnK0/krG825J8r+aukkbwf0vOQ7WXCh443+ReiuQTX0qukMk95
+ J8C3lAEHv7X6iXr0dRcKNhsx+3Rdn2gjtW7MdwkQ5ATKXOs23P7TcRdSdOnwfdI2L6BEGREiyKJ
+ mcOyWTQ4WESDiGmptLDWjmmQAu04MOahCfdV2EIzMSalcMsGrHAEUU6v1lMHWcssUkg957kirYk
+ 1TOGi/2cW6yLxjBeGWC2VcojU6+ugBnbk8r/HhRjLL5dj2ne4Za5Qqh3Lmx3t3Df9T920CjTeCI
+ C9zfne2kr4xFXxSM5H5WGXRcKwEY2xHElsUduByGme/eQ==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260220_065948_892892_AF1F9616 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,97 +111,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Feb 2026 11:06:03 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> > > > +               switch (ftrp->visibility) {
-> > > > +               case FTR_VISIBLE:
-> > > > +                       val = arm64_ftr_set_value(ftrp, val, ftr_new);
-> > > >                         user_mask |= ftr_mask;
-> > > > -               else
-> > > > +                       break;
-> > > > +               case FTR_ALL_HIDDEN:
-> > > > +                       val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
-> > > > +                       reg->user_val = arm64_ftr_set_value(ftrp,
-> > > > +                                                           reg->user_val,
-> > > > +                                                           ftrp->safe_val);
-> > >
-> > > Should we also take the safe value in update_cpu_ftr_reg() for FTR_ALL_HIDDEN?
-> >
-> > I would expect arm64_ftr_safe_value() to do the right thing at that
-> > stage, given that we have primed the boot CPU with the safe value, and
-> > that we rely on that bootstrap to make the registers converge towards
-> > something safe. This is also what happens for the command-line override.
-> >
-> > Or have you spotted a case where this go wrong?
-> 
-> I think so... What if a future FTR_ALL_HIDDEN feature is defined as
-> FTR_HIGHER_SAFE? Wouldn't that cause problems on secondary CPUs?
-> init_cpu_ftr_reg() primes sys_val with safe_val on the boot CPU,
-> update_cpu_ftr_reg() on secondary CPUs compares the hardware value
-> (ftr_new) against safe_val (ftr_cur). For FTR_HIGHER_SAFE,
-> arm64_ftr_safe_value() returns max(ftr_new, safe_val). Since the
-> hardware value is higher, update_cpu_ftr_reg() overwrites sys_val with
-> the hardware value, resurrecting the hidden feature globally.
+This series contains modifications for using Linux device trees
+in bootloaders. Changes from U-Boot bootloader are incorporated
+directly into the Linux device trees.
 
-Huh, that's an interesting observation.
+V2:
+- Updated commit messages
+- Added missing QSPI bootph properties to imx7-tqma7.dtsi
 
-SpecSEI is the only case we currently deal with that is
-HIGHER_SAFE. But look at what this feature describes: bloody
-speculative SErrors! Not taking this into account could be really
-deadly, and the kernel really ought to know about it.
+Alexander Feilke (3):
+  ARM: dts: imx7s: add boot phase properties
+  ARM: dts: tqma7: add boot phase properties
+  ARM: dts: imx7-mba7: separate BOOT_CFG circuits after boot
 
->
-> The features in this patch are FTR_LOWER_SAFE or FTR_EXACT (which
-> happen to sink to safe_val), which is why it's not a problem with
-> these current features.
-
-My conclusion is that it is simply not safe to make such feature
-conditional in any way. Note that's also the case of for an override:
-look at how we will refuse to downgrade a value in init_cpu_ftr_reg():
-
-		if ((ftr_mask & reg->override->mask) == ftr_mask) {
-			s64 tmp = arm64_ftr_safe_value(ftrp, ftr_ovr, ftr_new);
-			char *str = NULL;
-
-			if (ftr_ovr != tmp) {
-				/* Unsafe, remove the override */
-				reg->override->mask &= ~ftr_mask;
-				reg->override->val &= ~ftr_mask;
-				tmp = ftr_ovr;
-				str = "ignoring override";
-		[...]
-
-I think we must prevent this downgrade the same way, meaning that
-ALL_HIDDEN and FTR_HIGHER are mutually exclusive.
-
-How about that:
-
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index d58931e63a0b6..2cae00b4b0c5f 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1067,7 +1067,14 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
- 			user_mask |= ftr_mask;
- 			break;
- 		case FTR_ALL_HIDDEN:
--			val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
-+			/*
-+			 * ALL_HIDDEN and HIGHER_SAFE are incompatible.
-+			 * Only hide from userspace, and log the oddity.
-+			 */
-+			if (WARN_ON(ftrp->type == FTR_HIGHER_SAFE))
-+				val = arm64_ftr_set_value(ftrp, val, ftr_new);
-+			else
-+				val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
- 			reg->user_val = arm64_ftr_set_value(ftrp,
- 							    reg->user_val,
- 							    ftrp->safe_val);
-
-Thanks,
-
-	M.
+ arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi  | 13 +++++++++++++
+ arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi |  5 +++++
+ arch/arm/boot/dts/nxp/imx/imx7s.dtsi      |  5 +++++
+ 3 files changed, 23 insertions(+)
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
