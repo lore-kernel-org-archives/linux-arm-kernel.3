@@ -4,107 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE80C53216
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 07:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D49DC54FD0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 07:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=//H+4Sc44PUyvYELP9QoAEns6b8aaRVY8tc64ElKFH8=; b=iM/Iqf9hZJ7URBPWIf+t36X7VT
-	kqHUr44hfwNaXz0gt2aOaRomWWzesPN8Nf5gnT4tTnaAPtUQfoQIcv/T+TQPGJje3cshX9+qYPQn8
-	9EBU46CtKGYlqrLHN5tYHpOLSIkqQTzbusYUZgtAeuNspcaZde41S7qQh9CCumXjVelen7MZOtAjb
-	aw+2HJNjBSa3yLzGjPBERXe7i0hlz6F421eEOR1P69sbK80FHaF37PBYMJ8JwlWVfZs5xbYkbhVTm
-	kMupn2IO6oic6iBi1fkL92cZ80qWomwYkXPYcln5L9QBvVMizDafwRt6EZe+GijadCHWxKbAXip7x
-	oHozzrKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6xtXdCtvlT29zy4+yTo7wp/NBjeAECye+r07j4ZJzOs=; b=40NRK8vQILsWUcgqq8QPItgahE
+	Pvwqh1j1ny6bex2nMfKuYF4GQL2bKqkOcBUkp3DlIYBCjVAi7PXXhiISKROeRXgBaG2Atku2c9W5O
+	YK2tNLW/waylFjMq+Vh1oYss3RrRUZ8Esd/D+mE2Mypj9KsDls2uiXfTtGG8sxPE/Scx6fRU349YX
+	APMzt+MS4yehmPzBynleeOWHp2tTkDnGiLjjOsm+qz/lLrbl5ZOcSRexExrZqCQtCAVT4BqB1uUb2
+	in8L46bxcWR7n6FpiWBRmbdRGv1D00vRubbdvzoqgnDWLH5nTcsDxuBR5eoVUjHlL+WKcXGXoKawX
+	1no16csA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtKzN-0000000DLzD-2z3D;
-	Fri, 20 Feb 2026 07:31:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vtLH9-0000000DMpb-18tn;
+	Fri, 20 Feb 2026 07:50:11 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtKzL-0000000DLz7-3jU9
+	id 1vtLH6-0000000DMo5-41Cj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 07:31:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE1B861843;
-	Fri, 20 Feb 2026 07:31:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B09E4C116C6;
-	Fri, 20 Feb 2026 07:31:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771572706;
-	bh=Qjkvomx168k1wKX9MFOYIdt4mg0CAhFo+S8f29FAHPs=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=lYXTOQCm2V6ZtAv3PLT/KhfxUTGKAWss4NZGs2GDyEKWxeUe1OK9JXNXD3rzzWA3b
-	 scs/kEArTbB7KXS/l7zgrX5HWTGc/1sTHiNzUV+GjRN+TLMNMvAlUd3oIesleeack8
-	 tDCzQaW4WrZhx6qwjQVqg4Xe2/6teieO5zMYyU4t+TCHT1GWugLn1roAJmeDihLCgy
-	 qDyUkpWNwLDDsuAIKD8749e++aZ6D/rtz9Ww5xHnLThCearGhsQItwEEh2iAYDnrnX
-	 omlsEDz2tkxlG8YUzZZFTikXXZACoGgvSIkjF1BzN1aI/l27Y2tnFWR9v2RY73CLsv
-	 +5Sx9APtFpqEg==
-Message-ID: <3e4a18c4-7d31-4fba-80a9-5eddda7aee68@kernel.org>
-Date: Fri, 20 Feb 2026 08:31:41 +0100
+	Fri, 20 Feb 2026 07:50:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1771573809; x=1803109809;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3+AoRFtzUL4Di9TqIr6oRG/bKUTY7As8hvY/CM5Ll5Q=;
+  b=DonsXwmmX3Gqy2NX4cBoFNfu52y1gqdsQ0pL5T+Gf9W8nDPcjwdEkghd
+   R8+EH/H14W1twvws5ogMs/Hp6XtGoE6iev7SqQd13s4ZoFnNZ53gYmhmx
+   IzgJlfvKJKkuQU6H9jwdiGEQM8kElMWo4o1zimqCuP9HXUkiGMyLtytLD
+   DR6pz3Lzp8DjG4BEK1z6xGCt/vvOJjwu8Gi6OJwl9gbwG9laAegu2e/cf
+   J8Ru8Xclj71E8RhscdsOfQFHXCwgGBXN5q5xrUS+uAU6WK6Vn7g5iE1ah
+   1Z3gEzsiVHTX9k11myhRBYFu0brbBA2ShafJRLg6S9zSrs5rBMxICleu6
+   Q==;
+X-CSE-ConnectionGUID: QAksga1hTVKBI8OfhijSRQ==
+X-CSE-MsgGUID: lXIkE8lwR8qs+0secAFbhg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11706"; a="72368105"
+X-IronPort-AV: E=Sophos;i="6.21,301,1763452800"; 
+   d="scan'208";a="72368105"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2026 23:50:06 -0800
+X-CSE-ConnectionGUID: dVA7vvsSTwy3CnrSSKBAjw==
+X-CSE-MsgGUID: FbwUmViSRP6JIypUstUI5A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,301,1763452800"; 
+   d="scan'208";a="218920013"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.25])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2026 23:50:02 -0800
+Date: Fri, 20 Feb 2026 09:50:00 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, saikrishna12468@gmail.com,
+	git@amd.com
+Subject: Re: [PATCH 1/5] iio: adc: xilinx-xadc: Add helper functions for the
+ device setup
+Message-ID: <aZgSKB300JRB4yvl@smile.fi.intel.com>
+References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
+ <20260220053941.611415-2-sai.krishna.potthuri@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: hwlock: Adding brcmstb-hwspinlock
- support
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Kamal Dasu <kamal.dasu@broadcom.com>
-Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, baolin.wang@linux.alibaba.com,
- florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
- linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260219215702.63321-1-kamal.dasu@broadcom.com>
- <20260219215702.63321-2-kamal.dasu@broadcom.com>
- <20260220-agate-okapi-of-recreation-3cb930@quoll>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260220-agate-okapi-of-recreation-3cb930@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260220053941.611415-2-sai.krishna.potthuri@amd.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260219_235009_036175_9C5E826E 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +94,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/02/2026 08:30, Krzysztof Kozlowski wrote:
->> +title: Broadcom Settop Sundry Block Hardware Semaphore
->> +
->> +description:
->> +  Broadcom settop SoCs contain 16 hardware semaphore registers
->> +  (SEMAPHORE_0 through SEMAPHORE_15) that provide hardware-arbitrated
->> +  mutual exclusion between drivers running on the SoC.
->> +
->> +  The semaphore registers belong to the sundry hardware block. The
->> +  node describes the semaphore register range carved out of the larger
->> +  sundry block address space.
->> +
->> +maintainers:
->> +  - Kamal Dasu <kamal.dasu@broadcom.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: brcm,brcmstb-sun-top-ctrl-semaphore
-> 
-> That's still not SoC specific.
+On Fri, Feb 20, 2026 at 11:09:37AM +0530, Sai Krishna Potthuri wrote:
+> Refactor the platform driver probe function by extracting device
+> setup and configuration logic into reusable helper functions:
+> xadc_device_setup(): handles IIO device allocation and basic setup
+> xadc_device_configure(): handles device tree parsing and bipolar mask
+> configuration
 
-Heh, and I already asked for this at v2!
+Reformat text like:
 
-That's wasting my time, read again v2 feedback.
+- xadc_device_setup():
+  handles IIO device allocation and basic setup
 
-NAK
+- xadc_device_configure():
+  handles device tree parsing and bipolar mask configuration
+
+> This refactoring reduces code duplication and prepares for sharing the
+> common setup logic between platform and I2C drivers.
+
+TBH without seeing the rest, this patch looks like an unneeded churn.
+
+...
+
+> +static struct iio_dev *xadc_device_setup(struct device *dev, int size,
+> +					 const struct xadc_ops **ops)
+> +{
+> +	struct iio_dev *indio_dev;
+> +
+> +	*ops = device_get_match_data(dev);
+
+> +	if (!*ops)
+> +		return ERR_PTR(-ENODEV);
+
+This is a dead code as it seems that ops is mandatory. So in case if it's
+missed it will mean that the contribution was never ever being tested.
+If it's tested, the check above is a dead code and hence no need to put
+it here.
+
+> +	indio_dev = devm_iio_device_alloc(dev, size);
+> +	if (!indio_dev)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	indio_dev->name = xadc_type_names[(*ops)->type];
+> +	indio_dev->info = &xadc_info;
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +
+> +	return indio_dev;
+> +}
+> +
+> +static int xadc_device_configure(struct device *dev, struct iio_dev *indio_dev,
+> +				 int irq, unsigned int *conf0, unsigned int *bipolar_mask)
+> +{
+> +	int ret, i;
+
+Why is 'i' signed? Also see below.
+
+> +
+> +	ret = xadc_parse_dt(indio_dev, conf0, irq);
+> +	if (ret)
+> +		return ret;
+> +
+> +	*bipolar_mask = 0;
+> +	for (i = 0; i < indio_dev->num_channels; i++) {
+
+The iterator is not used outside the loop, hence
+
+	for (unsigned int i = 0; i < indio_dev->num_channels; i++) {
+
+will be good choice.
+
+> +		if (indio_dev->channels[i].scan_type.sign == 's')
+> +			*bipolar_mask |= BIT(indio_dev->channels[i].scan_index);
+> +	}
+> +
+> +	return 0;
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-Best regards,
-Krzysztof
 
