@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E8A4C531F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 00:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C9AC531F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 00:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQ2slfqXqEtWCx20U8reQyZN3PZwYuE3292l0oaA+/E=; b=U6/RgVVBJe5zFs9zMBF+uUDNtz
-	QffXclgEB5tV5MYYjanaF6hBdNfAPjp5CMShTy8JUwWymPzlT11VbRpDM070V70zEVOlhVL/k1THY
-	B15Xwz1pWhmCl0oGFMI3VofOoeHj2em9hXyisMGv++WzuO9/Mr1R/3vZgmi8I+mAt2FAeIf6Whgh3
-	g0YSv0mgdVepGjgRErzhoSgYuDa9c2pdmdHWqrceLhtt7TP3pXfqrKwUlor0UhbnT7KWK3xmoSv4N
-	ExW5Y8t4moRZPcNkGW0H/ouKIKYxIi9IoQwi8D3+mCpNIHtqBNflr0ZDNS3BeMLwkqKcuoYTpdV5b
-	hTnkIquA==;
+	bh=MEeICHjtMij91JM5H//TSYr8sTPe1JzhDMQCFWqYwXE=; b=k4n8QMz8hrheeQMXp7LIJnaHRa
+	RUF4HLSUi6aIb/NjPoDWWRXWch9LTg+qJZagrnMhrAU9gpp72dFZhvDUNgV/7ySFRI0ScFJh/c7ML
+	Ksb40/F2FlnN64TVeJ/zZioIukkIqQvaN0QtRs7avyPsv1g7w+ZZ5oVEtQxEv5jQKxHH+f4z84Ot1
+	bcDfgKQdBPcqPuAMdrzakSD7Ffd1IptSoiGv1LDoNzS71BFCGnXeKXAeIA94DV8qeBTrcIlXY7cSo
+	a8HtfuUIvfllIEXVUQNEoKTICCnHMLNzqQAaGg75b1nCeB3/nFBKfCYlM5ANsD4uuLzb/AL991ohR
+	cCLhtJ4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtEbo-0000000CmIC-1WoQ;
-	Fri, 20 Feb 2026 00:43:04 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vtEbu-0000000CmR8-27A9;
+	Fri, 20 Feb 2026 00:43:10 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtEbX-0000000ClwY-1sKk
+	id 1vtEbb-0000000Cm24-0AUh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 00:42:49 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-35678f99c6eso975752a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 16:42:46 -0800 (PST)
+	Fri, 20 Feb 2026 00:42:54 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c629a3276e9so6690752a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Feb 2026 16:42:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771548166; x=1772152966; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1771548170; x=1772152970; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GQ2slfqXqEtWCx20U8reQyZN3PZwYuE3292l0oaA+/E=;
-        b=PFXZgTUEsrpmfe+EztJu2RRqwkJhYS/zIE1OPVu9lJxwfsRpfEeS+GpL6yFnY1L5T0
-         SDeQL8eTkpSejlUJVSOFPPfparlvqI+OKYwFEm4995CE16p/X7/H06RYKpe5RK0xi2Ya
-         jxWtPWslQ5i7Vr2Ufj2XKA4EsVGkSyaVVauk48O4DnLvqWVxXkB2o/rqjMuYrMvHpbNI
-         aSFVN5SCmRGPBysgWj1MuliiW1ijXHRE+/S6eAh1XXGmWQUsAKHYgzVE2PlbgtnHRb9O
-         TH5eXzTV8h/wtZlE/RV+ciT3Qz16/FO2c2kuW/MVlo+azATdt6FL3SmC0rEbz4nWhp6e
-         ia+A==
+        bh=MEeICHjtMij91JM5H//TSYr8sTPe1JzhDMQCFWqYwXE=;
+        b=Cq680MGXpSy2EtfcUdjXF3hTfvS0Ca/knDAJ+gDN3nIEaPWwm0VEY+C1quZ0mBpaSg
+         KDrNCaNGCS84QzwPmfsUHfNIdRfy1Xck56QeNarhrql9nEsBesAj8JEFbntwKl0LBfyQ
+         dFAagZzH35GuN/hlwkPcpThJazkORaOkg61yYyu/X+9JybkK44P1+w4xvDrpyW+reKen
+         QkGEHPRNTxE7zRb/G5ljgv/QXJWMXt5fcTZ7TAzExReEpzIe8bvqqPt6Ak1YgchPcsy7
+         CKm3Knjn8flKm9QrM7uez2B6VIKTX+pc5A0iKEaFtEEZIBWu3jqMRh4xBlfo3+JDTuAt
+         FZjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771548166; x=1772152966;
+        d=1e100.net; s=20230601; t=1771548170; x=1772152970;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GQ2slfqXqEtWCx20U8reQyZN3PZwYuE3292l0oaA+/E=;
-        b=E6nFK8puIZlODhrQMGa0yXE2rRlInxftYkb0KmrAx0genSOMhErvy6dX2zSq9IG7aD
-         zuYEJoVFtir2iAq9QZB8f/Z9b//pGnic8BoP7TsqyN14ve8Ycj+erTpohaX/jOLKCgNv
-         h3iQFeM4yoZgdEg7sZajjGwdoG7Zp9lQXwmsdaiexvOyRoxMR9P1VsR7MRvPTQ/xrt6R
-         v1mQypbkPn8RzLgHM2PsOpeWPaKhLC10M0jTHJXX0lcFXXM0AjJm9nwUvDFRmNu8IEcC
-         5zuvYAJVKw4BnS8qtMVsjuy7nITzBf5xIRcP7JjWNys0UlGFs2froKNqOR9y7ccf6D03
-         1Mow==
-X-Forwarded-Encrypted: i=1; AJvYcCUGw79BY9j9MWdW8XMJ1uA+iIvccPJzmOPcFHwyfRSQWiCXlWf1e1GLQyjNdns3EhjwKaPvzoSZBjqP5kLdrhBH@lists.infradead.org
-X-Gm-Message-State: AOJu0YysiC+sNJDQeo7Yewb2tWhFWy9xziRtJ5B/zb0NMreEpKDebo10
-	twVpTNL7fxxY/ymFzghGaN+Q7izgC+5YhLT3dSzWUvUnWYy6pLHM1Z27I2rBbwP1kDXCw0yjaVp
-	CkdBTgaQ5vn6wEg==
-X-Received: from pjbso13.prod.google.com ([2002:a17:90b:1f8d:b0:34a:c039:1428])
+        bh=MEeICHjtMij91JM5H//TSYr8sTPe1JzhDMQCFWqYwXE=;
+        b=P2y/d3LxmBBggbQJWTlE05SxzNDsPY/jilaOckmkHlKcaPZ7aTSsjv7WpztPiWJVGN
+         gj2nB15IGQBRN1QcKbwhpm7pwv/a0aPEkPbuKlGXshuB+w6OW+55J1lFohJXOyi2qo+0
+         mYdN51AoYIVHd8HIpeTEu6IHnBMkR98dKepwu4gAM8qQ+yQ3ndp0oygHUKlxVm0D3Xg9
+         81O87iEKy3FPK6XPK7bcitIloGBnpLDqeHPLuvPdpXSmHss3A6HSNEAku2FyoS5T8Gyp
+         hRpzn/3jrGVCefO/5DBWOugeQJKcVkbcbLzj7mvqnIuIXjHIHwVzfJIOoq5cG02qBZmM
+         DQ4A==
+X-Forwarded-Encrypted: i=1; AJvYcCVEBrPHQxGtfaJt1jsKejM9H9ZDXKLri/eld7mDAVeuJ2NAzwpFXq74+J4ktE+xXT+S/XcQ3ZgpK72Y83eJWnHM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1aKkeK9PkPPp6OOPNyqmnxd9ZX+9RzgxXrZoj0lwqMfWZERWP
+	wZH19P0Me16QcG21OyQF8v5FAfrvOjnGpSo0PdeHbStk6W4MzmMj8N8c4m3znXPnqo+hbk7jQZU
+	TYlht3SLB1e1Zow==
+X-Received: from pgja7.prod.google.com ([2002:a63:cd47:0:b0:c6e:28c3:dd4c])
  (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:5282:b0:34c:635f:f855 with SMTP id 98e67ed59e1d1-3584481e367mr17810869a91.7.1771548166016;
- Thu, 19 Feb 2026 16:42:46 -0800 (PST)
-Date: Fri, 20 Feb 2026 00:42:20 +0000
+ 2002:a05:6a21:493:b0:394:6208:6626 with SMTP id adf61e73a8af0-394fc2555e0mr6371053637.20.1771548169297;
+ Thu, 19 Feb 2026 16:42:49 -0800 (PST)
+Date: Fri, 20 Feb 2026 00:42:22 +0000
 In-Reply-To: <20260220004223.4168331-1-dmatlack@google.com>
 Mime-Version: 1.0
 References: <20260220004223.4168331-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.53.0.414.gf7e9f6c205-goog
-Message-ID: <20260220004223.4168331-8-dmatlack@google.com>
-Subject: [PATCH v2 07/10] KVM: selftests: Use s32 instead of int32_t
+Message-ID: <20260220004223.4168331-10-dmatlack@google.com>
+Subject: [PATCH v2 09/10] KVM: selftests: Use s16 instead of int16_t
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Ackerley Tng <ackerleytng@google.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -89,8 +89,8 @@ Cc: Ackerley Tng <ackerleytng@google.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	Zenghui Yu <yuzenghui@huawei.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_164247_540660_D2A50040 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20260219_164251_112669_7E33CAB0 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,13 +105,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use s32 instead of int32_t to make the KVM selftests code more concise
+Use s16 instead of int16_t to make the KVM selftests code more concise
 and more similar to the kernel (since selftests are primarily developed
 by kernel developers).
 
 This commit was generated with the following command:
 
-  git ls-files tools/testing/selftests/kvm | xargs sed -i 's/int32_t/s32/g'
+  git ls-files tools/testing/selftests/kvm | xargs sed -i 's/int16_t/s16/g'
 
 Then by manually adjusting whitespace to make checkpatch.pl happy.
 
@@ -119,132 +119,22 @@ No functional change intended.
 
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- .../kvm/arm64/arch_timer_edge_cases.c         | 24 +++++++++----------
- .../selftests/kvm/include/arm64/arch_timer.h  |  4 ++--
- 2 files changed, 14 insertions(+), 14 deletions(-)
+ tools/testing/selftests/kvm/lib/guest_sprintf.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
-index f8b183f13864..f7625eb711d6 100644
---- a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
-+++ b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
-@@ -25,8 +25,8 @@
- /* Depends on counter width. */
- static u64 CVAL_MAX;
- /* tval is a signed 32-bit int. */
--static const int32_t TVAL_MAX = INT32_MAX;
--static const int32_t TVAL_MIN = INT32_MIN;
-+static const s32 TVAL_MAX = INT32_MAX;
-+static const s32 TVAL_MIN = INT32_MIN;
- 
- /* After how much time we say there is no IRQ. */
- static const u32 TIMEOUT_NO_IRQ_US = 50000;
-@@ -355,7 +355,7 @@ static void test_timer_cval(enum arch_timer timer, u64 cval,
- 	test_timer_xval(timer, cval, TIMER_CVAL, wm, reset_state, reset_cnt);
- }
- 
--static void test_timer_tval(enum arch_timer timer, int32_t tval,
-+static void test_timer_tval(enum arch_timer timer, s32 tval,
- 			    irq_wait_method_t wm, bool reset_state,
- 			    u64 reset_cnt)
- {
-@@ -385,10 +385,10 @@ static void test_cval_no_irq(enum arch_timer timer, u64 cval,
- 	test_xval_check_no_irq(timer, cval, usec, TIMER_CVAL, wm);
- }
- 
--static void test_tval_no_irq(enum arch_timer timer, int32_t tval, u64 usec,
-+static void test_tval_no_irq(enum arch_timer timer, s32 tval, u64 usec,
- 			     sleep_method_t wm)
- {
--	/* tval will be cast to an int32_t in test_xval_check_no_irq */
-+	/* tval will be cast to an s32 in test_xval_check_no_irq */
- 	test_xval_check_no_irq(timer, (u64)tval, usec, TIMER_TVAL, wm);
- }
- 
-@@ -463,7 +463,7 @@ static void test_timers_fired_multiple_times(enum arch_timer timer)
-  * timeout for the wait: we use the wfi instruction.
-  */
- static void test_reprogramming_timer(enum arch_timer timer, irq_wait_method_t wm,
--				     int32_t delta_1_ms, int32_t delta_2_ms)
-+				     s32 delta_1_ms, s32 delta_2_ms)
- {
- 	local_irq_disable();
- 	reset_timer_state(timer, DEF_CNT);
-@@ -504,7 +504,7 @@ static void test_reprogram_timers(enum arch_timer timer)
- 
- static void test_basic_functionality(enum arch_timer timer)
- {
--	int32_t tval = (int32_t) msec_to_cycles(test_args.wait_ms);
-+	s32 tval = (s32)msec_to_cycles(test_args.wait_ms);
- 	u64 cval = DEF_CNT + msec_to_cycles(test_args.wait_ms);
- 	int i;
- 
-@@ -685,7 +685,7 @@ static void test_set_cnt_after_xval_no_irq(enum arch_timer timer,
- }
- 
- static void test_set_cnt_after_tval(enum arch_timer timer, u64 cnt_1,
--				    int32_t tval, u64 cnt_2,
-+				    s32 tval, u64 cnt_2,
- 				    irq_wait_method_t wm)
- {
- 	test_set_cnt_after_xval(timer, cnt_1, tval, cnt_2, wm, TIMER_TVAL);
-@@ -699,7 +699,7 @@ static void test_set_cnt_after_cval(enum arch_timer timer, u64 cnt_1,
- }
- 
- static void test_set_cnt_after_tval_no_irq(enum arch_timer timer,
--					   u64 cnt_1, int32_t tval,
-+					   u64 cnt_1, s32 tval,
- 					   u64 cnt_2, sleep_method_t wm)
- {
- 	test_set_cnt_after_xval_no_irq(timer, cnt_1, tval, cnt_2, wm,
-@@ -718,7 +718,7 @@ static void test_set_cnt_after_cval_no_irq(enum arch_timer timer,
- static void test_move_counters_ahead_of_timers(enum arch_timer timer)
- {
- 	int i;
--	int32_t tval;
-+	s32 tval;
- 
- 	for (i = 0; i < ARRAY_SIZE(irq_wait_method); i++) {
- 		irq_wait_method_t wm = irq_wait_method[i];
-@@ -753,7 +753,7 @@ static void test_move_counters_behind_timers(enum arch_timer timer)
- 
- static void test_timers_in_the_past(enum arch_timer timer)
- {
--	int32_t tval = -1 * (int32_t) msec_to_cycles(test_args.wait_ms);
-+	s32 tval = -1 * (s32)msec_to_cycles(test_args.wait_ms);
- 	u64 cval;
- 	int i;
- 
-@@ -789,7 +789,7 @@ static void test_timers_in_the_past(enum arch_timer timer)
- 
- static void test_long_timer_delays(enum arch_timer timer)
- {
--	int32_t tval = (int32_t) msec_to_cycles(test_args.long_wait_ms);
-+	s32 tval = (s32)msec_to_cycles(test_args.long_wait_ms);
- 	u64 cval = DEF_CNT + msec_to_cycles(test_args.long_wait_ms);
- 	int i;
- 
-diff --git a/tools/testing/selftests/kvm/include/arm64/arch_timer.h b/tools/testing/selftests/kvm/include/arm64/arch_timer.h
-index 4fe0e0d07584..a5836d4ab7ee 100644
---- a/tools/testing/selftests/kvm/include/arm64/arch_timer.h
-+++ b/tools/testing/selftests/kvm/include/arm64/arch_timer.h
-@@ -79,7 +79,7 @@ static inline u64 timer_get_cval(enum arch_timer timer)
- 	return 0;
- }
- 
--static inline void timer_set_tval(enum arch_timer timer, int32_t tval)
-+static inline void timer_set_tval(enum arch_timer timer, s32 tval)
- {
- 	switch (timer) {
- 	case VIRTUAL:
-@@ -95,7 +95,7 @@ static inline void timer_set_tval(enum arch_timer timer, int32_t tval)
- 	isb();
- }
- 
--static inline int32_t timer_get_tval(enum arch_timer timer)
-+static inline s32 timer_get_tval(enum arch_timer timer)
- {
- 	isb();
- 	switch (timer) {
+diff --git a/tools/testing/selftests/kvm/lib/guest_sprintf.c b/tools/testing/selftests/kvm/lib/guest_sprintf.c
+index 8d60aa81e27e..2a3ab9c168f0 100644
+--- a/tools/testing/selftests/kvm/lib/guest_sprintf.c
++++ b/tools/testing/selftests/kvm/lib/guest_sprintf.c
+@@ -288,7 +288,7 @@ int guest_vsnprintf(char *buf, int n, const char *fmt, va_list args)
+ 		else if (qualifier == 'h') {
+ 			num = (u16)va_arg(args, int);
+ 			if (flags & SIGN)
+-				num = (int16_t)num;
++				num = (s16)num;
+ 		} else if (flags & SIGN)
+ 			num = va_arg(args, int);
+ 		else
 -- 
 2.53.0.414.gf7e9f6c205-goog
 
