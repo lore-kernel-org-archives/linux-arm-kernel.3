@@ -4,97 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2C4C55AB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 11:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB178C55AB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 11:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d++cm3zDVsP1AhhvUlfKtz1rPN4rkrCy4TnbVllN/NA=; b=h8H2CLiNdm86qanReb8gwRDsdA
-	66oWwfzkOOS7ACwKh8GNL/6NQ6GIbAhtfDEL7MWvSc6aSeBhY+3B6XEFb9FevgDbr5BYkm6D73x4G
-	tlUOyYA2Gqpudq9fH7l8eytdrwYsZtiJzO+Ng/O0ia73jZmvyr4aVK8jTGw6ZUa6ksj54UsvBmIPB
-	6h5aGZ3saFzusje50bqUXMArN6WQbwiqeVofp3KMHuAOmP7/BKAraLzZb2fcvGrGk27NVT3ldCLaE
-	9GVDoIz6dz0HBe9qDvJAmdvGvGRxcgkRSm82frez3i6Hz1tsoYNCIB0jX1zLz9/70+W6YAuFKynY5
-	HNnhRaXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wBX6cnPwCpCSH4iNWjZA4c3kEfk5E/AuDIwwlVfhzyo=; b=05BCs+x9o/dRNY1Z3m5PCJMmST
+	yv/4nm6gVu5xX52QzTW1nRxRFvw4Q/AkhEKqI8JuaI/wg6L7ubs6IcpANWVKJSRC/ATWcVHz84r+G
+	XfmV8tkw0U78H0vrtkQ4vL4XAfvpCgXTlxrXyXnbpXB4RqELa6BeAvB9A1V1gClSIsnKwNAMVR4FW
+	jJrJkbNpUmStma3s6ijRCCd6cxvrI3PbWYWD1GKlMZc6wuud75fcLrxnbNyfZqI8O9ipn4VvHOo0B
+	3dlz+/vn2rMOQouU2HNTyYyF625aNtANGQJDfTxPkujcyT7ZCXVTYgbwiyL+CVtNEmkrcg6gmyVFj
+	R+RzWXeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtOtm-0000000ESFb-3asZ;
-	Fri, 20 Feb 2026 11:42:18 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vtOvQ-0000000ESPZ-35T3;
+	Fri, 20 Feb 2026 11:44:00 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtOtj-0000000ESFG-2y2Q
+	id 1vtOvN-0000000ESOm-3uR6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 11:42:17 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-4362507f396so2000908f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 03:42:15 -0800 (PST)
+	Fri, 20 Feb 2026 11:43:59 +0000
+Received: by mail-wr1-x441.google.com with SMTP id ffacd0b85a97d-43591b55727so1952705f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 03:43:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771587734; x=1772192534; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=d++cm3zDVsP1AhhvUlfKtz1rPN4rkrCy4TnbVllN/NA=;
-        b=b4jkr+pukEcdfHQkFA0vmyN03pKu1UMVZkVUsAuc4ctLyY3F3HDkeEbf0xJggCkuAG
-         aQWhcDr6hTREVRnlpES6t9cBkZCWIwZAY2nClZEmcXRboyFeoAlNZvpSCjfK4gQ8bTRy
-         AIeCH9CbDJ/H75XM0xqP9N1hQTL7n0FVsM25MlAGawU2ufJXOR+ClpeIWaUo81cTu0cn
-         DgI6U8CevIgAkEmiVEILuDVsJqjJh++x97x4Q5JDBD8e6TThPmzX/KX8F2YD8IR/iUGn
-         n9R3S4psE54AyWbtGZq+BvxMWF9aDno+xJwVephYbzb2nZKfs5QEokFy/ucBYFXodNF0
-         GDCQ==
+        d=suse.com; s=google; t=1771587835; x=1772192635; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:autocrypt
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=wBX6cnPwCpCSH4iNWjZA4c3kEfk5E/AuDIwwlVfhzyo=;
+        b=ehrXV56ew/kAEVCkDbSHShPJSkZiqz42YlejgCYATkYSfW8b4bQTiOscWumGQPyXbp
+         p/c+hzNHe4OFmOGFae3j8MSC7qv2qKJn1DjJnGng7cmBeApq3ZMfglz7t2pHQdgcb2aT
+         o5QoHcop2ocsNh5b1YuligUWfdQJ4entswhehIBZxWQhyum3qAgLbMVzHaOX1+hge0Hu
+         4LcjfTYjorGMuUiEMr2DQ+0vg51mjpS93atcO9sc5oIP7EjK7Blc6nZ+4BTLCgGTOSTF
+         y3AN/cRbaEHRpV8SMVCYB5lU+Kx5majoqZoeOWfKwo8ijlL1VyQ2ZoO/56CJBhStaq0o
+         TsLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771587734; x=1772192534;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=d++cm3zDVsP1AhhvUlfKtz1rPN4rkrCy4TnbVllN/NA=;
-        b=qxqZ0RWXO2sCqg0pH09yOhU2FCstJ/OVTIMFtmgcqeIlhXm7fGDcxQleXrK6BjnopD
-         OYPs157mbIL/mJiSnOPuv+cd0D+01HVvBDFHPsIIGhFFPonatSlmJiRZsoKNKUkVEkSP
-         ySW/igzWeJQJjmj4aaKwETY+xyejRnnaxlVAWk9dbxOZPDyVPwn+w/VnJ2sH8xcG/xqe
-         yIlJ5ki7G/KDRqNRGoi3JsHgafhDhJKZM441V39mgJg3hpcGU10kU6cajTsshHKh10tB
-         ZpXyQwIC+QQFsMliDID34EnHv/dJhKnWmwEjhNg/zD54oYQfeR4yihr30Lzyeid1YT4E
-         Vr0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUiQansbXKGJYNa7e5RnW1EShL39BJ1V9phSVGoMx5o9WdgQZtp+xvb+zC1XIXGVCViZ/DFq7qPM36QjaTUWUu0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2cKXg9ceOxlXp+dATrmzEQnVAWDBrmOPZkcZV6NlQ2cZ97fU0
-	NSmXTm/mp1/vZJkaugWSY/WCX6bt0REnSsU92ev1XyBFXG6Oij0e8FPP3mmAeW+Q3rM=
-X-Gm-Gg: AZuq6aI9OeZ++uRItNa9EJgaOT50u8ELGRwEd19MmvitMyQ3eWz7BsVnfSho3qogr0R
-	MObelZHvL+5C94wDVYa8prKCOcL4rPQFKYuJLNWKzarC4RbFGrpyUHi+5OYxS2h+hNiVFYDK9CH
-	QKTeGqlBBOCoSTY8vBEX1jDl0i/lWkU9rjfojg9FZUp5mXipnenJ7yqoGz9SsOCiLGZEE0D6+F9
-	ik8ClVPhc4lRr6z2RSMlIEIg9UWhbiYVsIU6KWUi0aCNirUsoo80MSbyycdQcHni3PvOQ0MLCk6
-	0cqkBNsvvUor014SPbEE3GQ4VMCFMrt7+kMXTsa/cRjWjczgl/D3YA9YmkGIvUsNauTVDrU1+D+
-	ndDtvvygQ9xrNuoYl4CSGrONFUjpmXTzk2U85N2E2AhxmzV2Sq/0/d+GFrf/EQN2SmNxRrgWJHW
-	yOdwgdDO3S4f/KFKfGmK0NUlGVkp9G
-X-Received: by 2002:a5d:64e9:0:b0:432:5b81:483 with SMTP id ffacd0b85a97d-43958e0a920mr15216873f8f.24.1771587733424;
-        Fri, 20 Feb 2026 03:42:13 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796abe3b3sm62999985f8f.18.2026.02.20.03.42.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Feb 2026 03:42:13 -0800 (PST)
-Message-ID: <22de3d44-b266-4ba3-af3a-67159c9742d1@linaro.org>
-Date: Fri, 20 Feb 2026 11:42:11 +0000
+        d=1e100.net; s=20230601; t=1771587835; x=1772192635;
+        h=mime-version:user-agent:content-transfer-encoding:autocrypt
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wBX6cnPwCpCSH4iNWjZA4c3kEfk5E/AuDIwwlVfhzyo=;
+        b=mUekc+Lu7tLgpFPwvxa6xNWhIIeAH2ki0Ru+x91CH7VxZqHzkUEGmQE9ozWeR5POUW
+         QkM9+9MFACobA0rK+oWZvy8ezOv5xRqotEkUaYdsc7sL09ywHw3pz/lpQ2txmezOCJx6
+         ebocdZuEdns8zQxJloYgHSITVkOrpDp2e/xqK9y4wWPPo8GGdMjxmr7UyA6wGQKPKyvL
+         ClPo4NpEGcUj/e3nigQy21vX4QtpnXcSWRQlGvjW9nwb/X2FltROJ0qEEYxmLaDmBflF
+         OyhnyzeZKZBAqcL7nkxdfSCGrZP5ziKcv43rvi2OrAYMyxurWRzjPpn4++JqI5+N8Ds4
+         Lwqg==
+X-Forwarded-Encrypted: i=1; AJvYcCV3c4FCdfEqND+xSQubI5OblxO/zIz0VZTy/JJ/9f1J8ktz4v7YogYgpudkvO4P7BAFd/WhMdVMAWA84jdmKiGE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyo0MFU5oIUHmw74VeX2O5OsLAxa4Ix5yKuyqpRIyj+PXOULPR8
+	vtSdeNzcTn7hAYXi/tz06AuM1OJCZeG1l2+SeFYknAZ4GGvTtOxgc8eoXvaibaY7FjY=
+X-Gm-Gg: AZuq6aLwbTsOmluVAZtL0GlgKc9Z2KvHSEwLKnBLR8WPiQ+yMHfqm01lQTSSxE1dhln
+	BjlLqO3Nv1ZHCqYsDgKS+MkJepn44MAS7+V+eoLGf51hq3pOB2gEb/NYMAcThRE9qJTCpcLcS4J
+	7ezrjcybKPL53uNq+rlqaRY9K1saNhLTqdeT38GnwnAP89x3MN3+7xN6YkbwRgXZeQ+GVCAOHA+
+	ABH7f/ic0B0HrW6eXvrguNDuqmpavVVyMtnTfQdVvjdkI99ZPsXK51eBTC6kTeILEdZXQobRUhK
+	iZG/xuw5h1ionj5plnqKcoLsDbwshIFS17w7rOvhQ9eS0WKcJ4G8kDum3wRoLIRV0w3r80QlluH
+	vMLDuxlBlsi8AkaEcGu9x926YIyGjIQXK5odlTpYhGrLXEl9OubjMnF3S4owCvzeIyN8jRnDq9/
+	WUaltIIE1JOKklfCOJiEZVKi82HJywux5BmZ8Y8o/pByrErt/nt1XL7jbH1ugUWA==
+X-Received: by 2002:a5d:5f93:0:b0:435:e060:8071 with SMTP id ffacd0b85a97d-4379db61767mr35206496f8f.16.1771587835206;
+        Fri, 20 Feb 2026 03:43:55 -0800 (PST)
+Received: from ?IPv6:2804:5078:822:3100:58f2:fc97:371f:2? ([2804:5078:822:3100:58f2:fc97:371f:2])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a5d156sm60289350f8f.5.2026.02.20.03.43.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Feb 2026 03:43:54 -0800 (PST)
+Message-ID: <f074138f16e49e9966512cce2c07724ae9a77975.camel@suse.com>
+Subject: Re: [PATCH 00/19] printk cleanup - part 3
+From: Marcos Paulo de Souza <mpdesouza@suse.com>
+To: Richard Weinberger <richard@nod.at>, Anton Ivanov	
+ <anton.ivanov@cambridgegreys.com>, Johannes Berg
+ <johannes@sipsolutions.net>,  Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jason Wessel <jason.wessel@windriver.com>,
+ Daniel Thompson	 <danielt@kernel.org>, Douglas Anderson
+ <dianders@chromium.org>, Petr Mladek	 <pmladek@suse.com>, Steven Rostedt
+ <rostedt@goodmis.org>, John Ogness	 <john.ogness@linutronix.de>, Sergey
+ Senozhatsky <senozhatsky@chromium.org>,  Jiri Slaby <jirislaby@kernel.org>,
+ Breno Leitao <leitao@debian.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>, Kees Cook	
+ <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"	
+ <gpiccoli@igalia.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
+ Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy	 <christophe.leroy@csgroup.eu>, Andreas Larsson
+ <andreas@gaisler.com>,  Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue	
+ <alexandre.torgue@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>, 
+ Shan-Chun Hung <schung@nuvoton.com>, Laurentiu Tudor
+ <laurentiu.tudor@nxp.com>
+Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	sparclinux@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Date: Fri, 20 Feb 2026 08:43:42 -0300
+In-Reply-To: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+Autocrypt: addr=mpdesouza@suse.com; prefer-encrypt=mutual;
+ keydata=mDMEZ/0YqhYJKwYBBAHaRw8BAQdA4JZz0FED+JD5eKlhkNyjDrp6lAGmgR3LPTduPYGPT
+ Km0Kk1hcmNvcyBQYXVsbyBkZSBTb3V6YSA8bXBkZXNvdXphQHN1c2UuY29tPoiTBBMWCgA7FiEE2g
+ gC66iLbhUsCBoBemssEuRpLLUFAmf9GKoCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
+ QemssEuRpLLWGxwD/S1I0bjp462FlKb81DikrOfWbeJ0FOJP44eRzmn20HmEBALBZIMrfIH2dJ5eM
+ GO8seNG8sYiP6JfRjl7Hyqca6YsE
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.58.3 (by Flathub.org) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
- in guest context
-To: Marc Zyngier <maz@kernel.org>
-Cc: Will Deacon <will@kernel.org>, kvmarm@lists.linux.dev,
- mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
- Oliver Upton <oupton@kernel.org>, Leo Yan <leo.yan@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Fuad Tabba <tabba@google.com>
-References: <20260216130959.19317-1-will@kernel.org>
- <86a4x8bw38.wl-maz@kernel.org>
- <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
- <868qcsbsbd.wl-maz@kernel.org>
- <076e013a-b66d-4985-9709-734d7184ad72@linaro.org>
- <867bscbpmp.wl-maz@kernel.org>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <867bscbpmp.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_034215_819756_C275B800 
-X-CRM114-Status: GOOD (  50.77  )
+X-CRM114-CacheID: sfid-20260220_034358_024622_16FBE155 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,224 +130,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 16/02/2026 4:49 pm, Marc Zyngier wrote:
-> On Mon, 16 Feb 2026 16:10:14 +0000,
-> James Clark <james.clark@linaro.org> wrote:
->>
->>
->>
->> On 16/02/2026 3:51 pm, Marc Zyngier wrote:
->>> On Mon, 16 Feb 2026 15:05:10 +0000,
->>> James Clark <james.clark@linaro.org> wrote:
->>>>
->>>>
->>>>
->>>> On 16/02/2026 2:29 pm, Marc Zyngier wrote:
->>>>> On Mon, 16 Feb 2026 13:09:59 +0000,
->>>>> Will Deacon <will@kernel.org> wrote:
->>>>>>
->>>>>> The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
->>>>>> generation in guest context when self-hosted TRBE is in use by the host.
->>>>>>
->>>>>> Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
->>>>>> TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
->>>>>> per R_YCHKJ the Trace Buffer Unit will still be enabled if
->>>>>> TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
->>>>>> Trace Buffer Unit can perform address translation for the "owning
->>>>>> exception level" even when it is out of context.
->>>>>
->>>>> Great. So TRBE violates all the principles that we hold true in the
->>>>> architecture. Does SPE suffer from the same level of brokenness?
->>>>>
->>>>>> Consequently, we can end up in a state where TRBE performs speculative
->>>>>> page-table walks for a host VA/IPA in guest/hypervisor context depending
->>>>>> on the value of MDCR_EL2.E2TB, which changes over world-switch. The
->>>>>> result appears to be a heady mixture of data corruption and hardware
->>>>>> lockups.
->>>>>>
->>>>>> Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
->>>>>> draining the buffer, restoring the register on return to the host.
->>>>>>
->>>>>> Cc: Marc Zyngier <maz@kernel.org>
->>>>>> Cc: Oliver Upton <oupton@kernel.org>
->>>>>> Cc: James Clark <james.clark@linaro.org>
->>>>>> Cc: Leo Yan <leo.yan@arm.com>
->>>>>> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
->>>>>> Cc: Fuad Tabba <tabba@google.com>
->>>>>> Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
->>>>>> Signed-off-by: Will Deacon <will@kernel.org>
->>>>>> ---
->>>>>>
->>>>>> NOTE: This is *untested* as I don't have a TRBE-capable device that can
->>>>>> run upstream but I noticed this by inspection when triaging occasional
->>>>>> hardware lockups on systems using a 6.12-based kernel with TRBE running
->>>>>> at the same time as a vCPU is loaded. This code has changed quite a bit
->>>>>> over time, so stable backports are not entirely straightforward.
->>>>>> Hopefully James/Leo/Suzuki can help us test if folks agree with the
->>>>>> general approach taken here.
->>>>>>
->>>>>>     arch/arm64/include/asm/kvm_host.h  |  1 +
->>>>>>     arch/arm64/kvm/hyp/nvhe/debug-sr.c | 36 ++++++++++++++++++++++--------
->>>>>>     2 files changed, 28 insertions(+), 9 deletions(-)
->>>>>>
->>>>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->>>>>> index ac7f970c7883..a932cf043b83 100644
->>>>>> --- a/arch/arm64/include/asm/kvm_host.h
->>>>>> +++ b/arch/arm64/include/asm/kvm_host.h
->>>>>> @@ -746,6 +746,7 @@ struct kvm_host_data {
->>>>>>     		u64 pmscr_el1;
->>>>>>     		/* Self-hosted trace */
->>>>>>     		u64 trfcr_el1;
->>>>>> +		u64 trblimitr_el1;
->>>>>>     		/* Values of trap registers for the host before guest entry. */
->>>>>>     		u64 mdcr_el2;
->>>>>>     		u64 brbcr_el1;
->>>>>> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
->>>>>> index 2a1c0f49792b..fd389a26bc59 100644
->>>>>> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
->>>>>> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
->>>>>> @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
->>>>>>     	write_sysreg_el1(new_trfcr, SYS_TRFCR);
->>>>>>     }
->>>>>>     -static bool __trace_needs_drain(void)
->>>>>> +static void __trace_drain_and_disable(void)
->>>>>>     {
->>>>>> -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
->>>>>> -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
->>>>>> +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
->>>>>>     -	return host_data_test_flag(TRBE_ENABLED);
->>>>>> +	*trblimitr_el1 = 0;
->>>>>> +
->>>>>> +	if (is_protected_kvm_enabled()) {
->>>>>> +		if (!host_data_test_flag(HAS_TRBE))
->>>>>> +			return;
->>>>>> +	} else {
->>>>>> +		if (!host_data_test_flag(TRBE_ENABLED))
->>>>>> +			return;
->>>>>> +	}
->>>>>> +
->>>>>> +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
->>>>>> +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
->>>>>> +		isb();
->>>>>> +		tsb_csync();
->>>>>> +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
->>>>>> +		isb();
->>>>
->>>> The TRBE driver might do an extra drain here as a workaround. Hard to
->>>> tell if it's actually required in this case (seems like probably not)
->>>> but it might be worth doing it anyway to avoid hitting the
->>>> issue. Especially if we add guest support later where some of the
->>>> affected registers might start being used.
->>>
->>> Just to set the expectations: guest TRBE support is not happening
->>> until the architecture is fixed. It cannot reliably give a trace that
->>> includes emulated exceptions, and until then, no TRBE for you.
->>>
->>>> See:
->>>>
->>>>       if (trbe_needs_drain_after_disable(cpudata))
->>>>           trbe_drain_buffer();
->>>>
->>>>
->>>>>> +	}
->>>>>
->>>>> Doesn't this mean we should be able to get rid of most of the TRFCR
->>>>> messing about that litters the entry/exit code and leave that to VHE
->>>>
->>>> Technically you could have ETMs that and are connected to sinks other
->>>> than TRBE. Unless you somehow switch off those sinks you still need to
->>>> do the TRFCR switching stuff.
->>>>
->>>>> only? And even then, I'm tempted to simply get rid of any sort of
->>>>> guest-only tracing, given that TRBE is not capable of representing
->>>>> exceptions that are synthesised by the host, making it the resulting
->>>>> traces useless.
->>>>
->>>> I haven't heard of anyone tracing a guest from the host, but until we
->>>> add support for guests to be able to trace themselves it's the only
->>>> way of doing it, so it could be useful.
->>>
->>> But that's *not* working. If you trace EL1 only, even with a VHE host,
->>> the result is not usable.
->>>
->>
->> Do you mean not working because of the missing exceptions? I did a bit
->> of testing before and the trace did seem somewhat usable to me. It had
->> EL1 and EL0 atoms in there.
-> 
-> Sure. Now try to look at what that means for NV, where all the
-> EL1->EL2 exceptions are emulated, where all the EL2->EL1 exception
-> returns are emulated.
-> 
-> What does it give you? A bag of nonsense.
-> 
-> Same thing for EL2->EL0, by the way, so you can't even correctly
-> profile an EL0 program that performs a syscall, or that gets
-> interrupted. And while without NV, these exceptions are rare, having a
-> trace that is unreliable has the potential of being worse than no
-> trace at all.
-
-If there are issues with NV perhaps we can skip it for the initial trace 
-virtualisation implementation? I'm not familiar with it but isn't NV 
-still an experimental feature anyway? I can't imagine actual users who 
-want to do tracing in guests would accept that they can't do tracing on 
-a non-NV guest because there is something that doesn't work in NV.
-
-Also do you have an example of these exceptions that you mean without NV 
-so I can have a look? I have a hack that allows basic use of ETE/TRBE in 
-VHE mode and did some recordings of syscalls and they end up looking ok 
-in the decoded trace:
-
-  $ perf record -e cs_etm/timestamp=0/u -C 0 perf bench syscall basic
-  $ perf script
-
-Results in:
-
-bench_syscall_common+0xb4 => aaaaaffcafe0 getppid@plt+0x0
-getppid@plt+0xc           => ffffa78980c0 getppid+0x0 (libc.so.6)
-getppid+0x8 (libc.so.6)   =>           0 [unknown] ([unknown])
-[unknown] ([unknown])     => ffffa78980cc getppid+0xc (libc.so.6)
-getppid+0xc (libc.so.6)   => aaaab0076564 bench_syscall_common+0xb8
-bench_syscall_common+0xb8 => aaaab00765d8 bench_syscall_common+0x12c
-
-Which shows jumping from the bench function to getppid(), then doing the 
-syscall into the kernel which is "0 [unknown]" because I recorded with 
-/u. Then back to the bench loop again.
-
-> 
-> Until the architecture grows a way for KVM to inject the missing
-> information into the trace, TRBE support for guest will stay out.
-> 
->> All you need is the mmap records from the
->> guest which you can get by running Perf in the guest and it's possible
->> to decode it. Maybe it's not complete but I don't think all use cases
->> require complete trace. AutoFDO for example just needs lots of small
->> snippets of execution history.
-> 
-> I don't think it is OK to feed an FDO with traces that are known to be
-> incomplete. Maybe that goes under the radar today, but my crystal ball
-> is telling me things could be very different in the future, and I'm
-> not going to take any bet.
-
-The preset we added for AutoFDO 
-(drivers/hwtracing/coresight/coresight-cfg-afdo.c) specifically turns 
-tracing on and off to give small incomplete snippets distributed across 
-the whole process but while reducing the total amount of trace. I think 
-that is one way to do AutoFDO and the compiler can handle it. Anyway, 
-AutoFDO is just one use case for trace, and an example that incomplete 
-is better than nothing.
-
-In addition to that, the way the ETR and TRBE buffers are currently used 
-they're pretty bad at actually recording everything without gaps. 
-Although in theory with TRBE it's possible record everything without 
-dropping anything, it's still something Leo is working on.
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
+T24gU2F0LCAyMDI1LTEyLTI3IGF0IDA5OjE2IC0wMzAwLCBNYXJjb3MgUGF1bG8gZGUgU291emEg
+d3JvdGU6Cj4gVGhlIHBhcnRzIDEgYW5kIDIgY2FuIGJlIGZvdW5kIGhlcmUgWzFdIGFuZCBoZXJl
+WzJdLgo+IAo+IFRoZSBjaGFuZ2VzIHByb3Bvc2VkIGluIHRoaXMgcGFydCAzIGFyZSBtb3N0bHkg
+dG8gY2xhcmlmeSB0aGUgdXNhZ2UKPiBvZgo+IHRoZSBpbnRlcmZhY2VzIGZvciBOQkNPTiwgYW5k
+IHVzZSB0aGUgcHJpbnRrIGhlbHBlcnMgbW9yZSBicm9hZGx5Lgo+IEJlc2lkZXMgaXQsIGl0IGFs
+c28gaW50cm9kdWNlcyBhIG5ldyB3YXkgdG8gcmVnaXN0ZXIgY29uc29sZXMKPiBhbmQgZHJvcCB0
+aGVzIHRoZSBDT05fRU5BQkxFRCBmbGFnLiBJdCBzZWVtcyB0b28gbXVjaCwgYnV0IGluIHJlYWxp
+dHkKPiB0aGUgY2hhbmdlcyBhcmUgbm90IGNvbXBsZXgsIGFuZCBhcyB0aGUgdGl0bGUgc2F5cywg
+aXQncyBiYXNpY2FsbHkgYQo+IGNsZWFudXAgd2l0aG91dCBjaGFuZ2luZyB0aGUgZnVuY3Rpb25h
+bCBjaGFuZ2VzLgo+IAo+IFRoaXMgcGF0Y2hzZXQgaW5jbHVkZXMgYSBwYXRjaCBmcm9tIHBhcnQg
+MiB0aGF0IG5lZWRlZCBtb3JlIHdvcmsgWzNdLAo+IGFzCj4gc3VnZ2VzdGVkIGJ5IFBldHIgTWxh
+ZGVrLgo+IAo+IFRoZXNlIGNoYW5nZXMgd2VyZSB0ZXN0ZWQgYnkgcmV2ZXJ0aW5nIGY3OWIxNjNj
+NDIzMQo+ICgiUmV2ZXJ0ICJzZXJpYWw6IDgyNTA6IFN3aXRjaCB0byBuYmNvbiBjb25zb2xlIiIp
+LCBhbmQgdXNlZCBxZW11IHRvCj4gdGVzdAo+IHN1c3BlbmQvcmVzdW1lIGN5Y2xlcywgYW5kIGV2
+ZXJ5dGhpbmcgd29ya2VkIGFzIGV4cGVjdGVkLgo+IAo+IFBTOiBiNCAtLWF1dG8tdG8tY2MgYWRk
+ZWQgYSBidW5jaCBvZiBwZW9wbGUgYXMgQ0MsIHNvIEknbSBub3Qgc3VyZSBpZgo+IEkgc2hvdWxk
+IHJlbW92ZSBzb21lIG9yIG5vdCwgc28gSSdtIGxlYXZpbmcgdGhlIGxpc3QgYXMgaXQgaXMuIElm
+IHRoZQo+IHBhdGNoc2V0IG5lZWRzIGEgdjIsIGFuZCB5b3UgZmVlbCB0aGF0IHlvdSBkb24ndCBu
+ZWVkIHRvIGNvcGllZCwganVzdAo+IGxldCBtZSBrbm93Lgo+IAo+IFRoYW5rcyBmb3IgY2hlY2tp
+bmcgdGhlIHBhdGNoZXMsIGFuZCBoYXBweSBob2xpZGF5cyEKPiAKPiBbMV06Cj4gaHR0cHM6Ly9s
+b3JlLmtlcm5lbC5vcmcvbGttbC8yMDI1MDIyNi1wcmludGstcmVuYW1pbmctdjEtMC0wYjg3ODU3
+N2YyZTZAc3VzZS5jb20vI3QKPiBbMl06Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgt
+c2VyaWFsLzIwMjUxMTIxLXByaW50ay1jbGVhbnVwLXBhcnQyLXYyLTAtNTdiOGI3ODY0N2Y0QHN1
+c2UuY29tLwo+IFszXToKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1zZXJpYWwvYVNn
+ZXFNM0RXdlI4LWNNWUBwYXRod2F5LnN1c2UuY3ovCj4gCj4gU2lnbmVkLW9mZi1ieTogTWFyY29z
+IFBhdWxvIGRlIFNvdXphIDxtcGRlc291emFAc3VzZS5jb20+Cj4gLS0tCj4gTWFyY29zIFBhdWxv
+IGRlIFNvdXphICgxOSk6Cj4gwqDCoMKgwqDCoCBwcmludGsvbmJjb246IFVzZSBhbiBlbnVtIHRv
+IHNwZWNpZnkgdGhlIHJlcXVpcmVkIGNhbGxiYWNrIGluCj4gY29uc29sZV9pc191c2FibGUoKQo+
+IMKgwqDCoMKgwqAgcHJpbnRrOiBJbnRyb2R1Y2UgY29uc29sZV9pc19uYmNvbgo+IMKgwqDCoMKg
+wqAgcHJpbnRrOiBEcm9wIGZsYWdzIGFyZ3VtZW50IGZyb20gY29uc29sZV9pc191c2FibGUKPiDC
+oMKgwqDCoMKgIHByaW50azogUmVpbnRyb2R1Y2UgY29uc29sZXNfc3VzcGVuZGVkIGdsb2JhbCBz
+dGF0ZQo+IMKgwqDCoMKgwqAgcHJpbnRrOiBBZGQgbW9yZSBjb250ZXh0IHRvIHN1c3BlbmQvcmVz
+dW1lIGZ1bmN0aW9ucwo+IMKgwqDCoMKgwqAgcHJpbnRrOiBJbnRyb2R1Y2UgcmVnaXN0ZXJfY29u
+c29sZV9mb3JjZQo+IMKgwqDCoMKgwqAgZHJpdmVyczogbmV0Y29uc29sZTogTWlncmF0ZSB0byBy
+ZWdpc3Rlcl9jb25zb2xlX2ZvcmNlIGhlbHBlcgo+IMKgwqDCoMKgwqAgZGVidWc6IGRlYnVnX2Nv
+cmU6IE1pZ3JhdGUgdG8gcmVnaXN0ZXJfY29uc29sZV9mb3JjZSBoZWxwZXIKPiDCoMKgwqDCoMKg
+IG02OGs6IGVtdTogbmZjb24uYzogTWlncmF0ZSB0byByZWdpc3Rlcl9jb25zb2xlX2ZvcmNlIGhl
+bHBlcgo+IMKgwqDCoMKgwqAgZnM6IHBzdG9yZTogcGxhdGZvcm06IE1pZ3JhdGUgdG8gcmVnaXN0
+ZXJfY29uc29sZV9mb3JjZSBoZWxwZXIKPiDCoMKgwqDCoMKgIHBvd2VycGM6IGtlcm5lbDogdWRi
+ZzogTWlncmF0ZSB0byByZWdpc3Rlcl9jb25zb2xlX2ZvcmNlIGhlbHBlcgo+IMKgwqDCoMKgwqAg
+c3BhcmM6IGtlcm5lbDogYnRleHQ6IE1pZ3JhdGUgdG8gcmVnaXN0ZXJfY29uc29sZV9mb3JjZSBo
+ZWxwZXIKPiDCoMKgwqDCoMKgIHVtOiBkcml2ZXJzOiBtY29uc29sZV9rZXJuLmM6IE1pZ3JhdGUg
+dG8gcmVnaXN0ZXJfY29uc29sZV9mb3JjZQo+IGhlbHBlcgo+IMKgwqDCoMKgwqAgZHJpdmVyczog
+aHd0cmFjaW5nOiBzdG06IGNvbnNvbGUuYzogTWlncmF0ZSB0bwo+IHJlZ2lzdGVyX2NvbnNvbGVf
+Zm9yY2UgaGVscGVyCj4gwqDCoMKgwqDCoCBkcml2ZXJzOiB0dHk6IHNlcmlhbDogbXV4LmM6IE1p
+Z3JhdGUgdG8gcmVnaXN0ZXJfY29uc29sZV9mb3JjZQo+IGhlbHBlcgo+IMKgwqDCoMKgwqAgZHJp
+dmVyczogdHR5OiBzZXJpYWw6IG1hMzVkMV9zZXJpYWw6IE1pZ3JhdGUgdG8KPiByZWdpc3Rlcl9j
+b25zb2xlX2ZvcmNlIGhlbHBlcgo+IMKgwqDCoMKgwqAgZHJpdmVyczogdHR5OiBlaHZfYnl0ZWNo
+YW46IE1pZ3JhdGUgdG8gcmVnaXN0ZXJfY29uc29sZV9mb3JjZQo+IGhlbHBlcgo+IMKgwqDCoMKg
+wqAgZHJpdmVyczogYnJhaWxsZTogY29uc29sZTogRHJvcCBDT05fRU5BQkxFRCBjb25zb2xlIGZs
+YWcKPiDCoMKgwqDCoMKgIHByaW50azogUmVtb3ZlIENPTl9FTkFCTEVEIGZsYWcKPiAKPiDCoGFy
+Y2gvbTY4ay9lbXUvbmZjb24uY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgfMKgwqAgNSArLQo+IMKgYXJjaC9wb3dlcnBjL2tlcm5lbC91ZGJnLmPC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgNCArLQo+IMKg
+YXJjaC9zcGFyYy9rZXJuZWwvYnRleHQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIHzCoMKgIDQgKy0KPiDCoGFyY2gvdW0vZHJpdmVycy9tY29uc29sZV9rZXJu
+LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoCAzICstCj4gwqBhcmNoL3Vt
+L2tlcm5lbC9rbXNnX2R1bXAuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCB8wqDCoCAyICstCj4gwqBkcml2ZXJzL2FjY2Vzc2liaWxpdHkvYnJhaWxsZS9icmFpbGxl
+X2NvbnNvbGUuYyB8wqDCoCAxIC0KPiDCoGRyaXZlcnMvaHd0cmFjaW5nL3N0bS9jb25zb2xlLmPC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoCA0ICstCj4gwqBkcml2ZXJzL25l
+dC9uZXRjb25zb2xlLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIHzCoCAxMyArLS0KPiDCoGRyaXZlcnMvdHR5L2Vodl9ieXRlY2hhbi5jwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDQgKy0KPiDCoGRyaXZlcnMvdHR5
+L3NlcmlhbC9tYTM1ZDFfc2VyaWFsLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoCA0
+ICstCj4gwqBkcml2ZXJzL3R0eS9zZXJpYWwvbXV4LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDQgKy0KPiDCoGRyaXZlcnMvdHR5L3R0eV9pby5j
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzC
+oMKgIDYgKy0KPiDCoGZzL3Byb2MvY29uc29sZXMuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgMSAtCj4gwqBmcy9wc3RvcmUv
+cGxhdGZvcm0uY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCB8wqDCoCA2ICstCj4gwqBpbmNsdWRlL2xpbnV4L2NvbnNvbGUuaMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDE0Mwo+ICsrKysrKysrKysr
+KysrKysrKystLS0tLQo+IMKga2VybmVsL2RlYnVnL2RlYnVnX2NvcmUuY8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDYgKy0KPiDCoGtlcm5lbC9kZWJ1
+Zy9rZGIva2RiX2lvLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCB8wqDCoCA2ICstCj4gwqBrZXJuZWwvcHJpbnRrL25iY29uLmPCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxNyArLS0KPiDCoGtlcm5lbC9w
+cmludGsvcHJpbnRrLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCB8IDE0MCArKysrKysrKysrKystLQo+IC0tLS0tLS0tLQo+IMKgMTkgZmlsZXMgY2hh
+bmdlZCwgMjMwIGluc2VydGlvbnMoKyksIDE0MyBkZWxldGlvbnMoLSkKClRoaXMgcGF0Y2hzZXQs
+IHdpdGhvdXQgdGhlIHJlY2VudCBjbGVhbnVwIGZyb20gUGV0ciBNbGFkZWsgWzFdLCBoYXMgYQpy
+ZWdyZXNzaW9uLiBJJ2xsIHdhaXQgZm9yIGl0IHRvIGJlIG1lcmdlZCBmaXJzdCBiZWZvcmUgc2Vu
+ZGluZyBhIG5ldwp2ZXJzaW9uIG9mIHRoaXMgcGF0Y2hzZXQuIFRoYW5rcyBmb3IgYWxsIHRoZSBy
+ZXZpZXdzIQoKWzFdOgpodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjYwMjA2MTY1MDAy
+LjQ5NjcyNC0xLXBtbGFkZWtAc3VzZS5jb20vCgo+IC0tLQo+IGJhc2UtY29tbWl0OiA5M2Q2NTU4
+NzQ3OWNmYzk3YzBkN2U0MWI1ZThjNjM3OGNhNjgxNjMyCj4gY2hhbmdlLWlkOiAyMDI1MTIwMi1w
+cmludGstY2xlYW51cC1wYXJ0My1lYTExNmIxMWIzYTYKPiAKPiBCZXN0IHJlZ2FyZHMsCj4gLS3C
+oCAKPiBNYXJjb3MgUGF1bG8gZGUgU291emEgPG1wZGVzb3V6YUBzdXNlLmNvbT4K
 
 
