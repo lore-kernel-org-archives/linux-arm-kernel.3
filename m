@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E88A8C56202
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E443C56203
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Wg8hhuphaDA1KXI4FRar5JXbbzUBqxPKxV6zXxqMdA=; b=bR2msU0fARuep8BD0/R08yiEA+
-	dIYBEBI58DBxUH+G8C11zT0gA16REUkORbNyR8em0xDMUk/xAv36nBgczNS/UuigdL7iLioW0J8am
-	TiBx7TC2iGD+RciGg0C4+j+JG8a3JyaWrfryXd3DzrQ0Ua/va542b5TyCjt9KCvu0Dlk6/F+ZlaoW
-	AHZGEJyoQB1vh7YFMfefay7A41oEK2RtkUQmdgQpHwxXahK4lGXqHteln9swVR0SHojkm2y7WrQq9
-	Cpn4RIvelEr1UHODX4PbYAtW8FAdNXyHFnPWYsEpoSGUCdaxsB+QLlUOXxCa2T+lpldCBO3vqsJ44
-	bKVEdoFg==;
+	bh=603U3ROzybwhiSlbS4OAQhgc3+1jl0bt89ybh3NF/Nc=; b=Kevl5Anao1IBEO6pNxVYLtAVPD
+	TztH6cvMw24TonkAbvx0z8Es51AMkvg7yLCq3ropsAO4Uej7xTzPvA47sGcOqMdvCtPswnzl0a6ft
+	2rlcPFJ8nkyR4ERv+cMHpH4E7o1LOaJulQKF6zdTlaWixprZoOmRcKJweXauS6NqfhtO+d3e6Q36o
+	dMYAYxQZnhuVl+6O+iv7XZ4rKav8SrNKmH8p1n5ZAy9avLHj/26H2N+ijDtDlXu70HgWyAA5Pq4ir
+	KZBpmdQnR4qRlI0XpYXV3mZ2ALAINLDbvuRjtgvQgCaLYJrw9ORJkutKz5K27G6c+QaZBOpW+1Svb
+	MBh04h+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRXf-0000000Ep2r-3Exb;
-	Fri, 20 Feb 2026 14:31:39 +0000
-Received: from mx-relay48-hz3.antispameurope.com ([94.100.134.237])
+	id 1vtRXg-0000000Ep3D-0UNZ;
+	Fri, 20 Feb 2026 14:31:40 +0000
+Received: from mx-relay68-hz1.antispameurope.com ([94.100.133.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRXd-0000000Eozh-01vn
+	id 1vtRXd-0000000Eozy-1D7F
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 20 Feb 2026 14:31:38 +0000
-ARC-Authentication-Results: i=1; mx-gate48-hz3.hornetsecurity.com 1; spf=pass
+ARC-Authentication-Results: i=1; mx-gate68-hz1.hornetsecurity.com 1; spf=pass
  reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
  smtp.mailfrom=ew.tq-group.com
  smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
  header.from=ew.tq-group.com orig.disposition=pass
 ARC-Message-Signature: a=rsa-sha256;
- bh=8Wg8hhuphaDA1KXI4FRar5JXbbzUBqxPKxV6zXxqMdA=; c=relaxed/relaxed;
+ bh=603U3ROzybwhiSlbS4OAQhgc3+1jl0bt89ybh3NF/Nc=; c=relaxed/relaxed;
  d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1771597886;
- b=Lu00iP1oymSaADW7obaHaNinWJhBLRyo+GBLuuO1WiUFdTcjweBcGOyD7sKGWxdABY8uHzag
- 0+BJJf0PeJpj8Hl64ALNS663CZXzaOodV131rtx2ayjI7OIhVNWdY49PbFCDPICe0RxBB3jnvvM
- HMaOdxroSo54QUbY1/13z+8JRorzhpRze7HKCjN5M1h3ht3L2Aa3+tAj8VhR1vm1owvXZ5DwoXk
- KuknEatmHBTkeqfbM6nnlMci8/8gkTCJi3Yjo6XWXZXzF6i5P2EUJcHU6x9o2pHCZ5N2+4L2pVw
- XBTyZtgzrWCPi3KbVIu1LTYfRAwTaVcZO1/u0j8sQZRHg==
+ t=1771597887;
+ b=S91kJJwkcbLDSGBSZt+Sg6TAO9AApcsGQyjDBpobglhmv5HE4r3mo5OQmmztOodHAaUlTmzB
+ ordPfm0KT8FZo6js1j39U55SvRVSJyaAymkATars3otGFDc6MF6lm3kpN2DgorihTfLsoQ7quC2
+ qvyRSovTnwe3KaeaLQKh10usjuurhhZ0sSlQZY1TCV4xZS2a2SI6oDtVaRBOixeqSi7nGAC9Rx3
+ i6r1OZzLn96ZAxZ/jvZgi0lv7rhiG3n394HgPGwUZvjMnk/EdS0RwlBhtAlLXpHQ+dOS1AMegzU
+ 9UzVDHmWQWfv9uKuP6BeUtVdw5chlePg3gaDhtSgypgRw==
 ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1771597886;
- b=PF17XpyUhfdd1s74W+UHcSNDKhDxGAA2+w+8cQ4LQIG8PisK6YZ+I/Mgpch+C6bgfp2f2qM7
- B0Je+FH3HS1R4TuYlejSK4QwfOHx+nDbdsY7U8gK1a9UYISzjbd9FgcCUCxF0Z7cFHEx2zkgHUO
- ZfFgAQHL5Ztu6DpFlR3o7OBdOfdTTWQFT2Ky4nBGtnwAhqC4i9qOYl5D/dXmgxa5Ka4utPnwTmz
- 1DfnKuWEsR3MNLndbmoHWm4b0oZEl8raF/UCMTqkaA9ail9zodkPkTsldmD3fKSARtnlYSKDf/P
- 6QKCqUgJHS0nxxyhRX8sBFftSKF6Yv8/8wlHoCTBp+lYQ==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay48-hz3.antispameurope.com;
- Fri, 20 Feb 2026 15:31:26 +0100
+ t=1771597887;
+ b=ip97yBfM4rzHPJWC4wLTkRi59UBcpNgw2xHGWZVnrfg2kfnjF0B3YripqNsCixhUi+8aKb3D
+ E17WOHF+V46/siIQxD2Oy29fwRnn0z60PuG39s6zxN911a2gvUz6G1loGlVGvF7bI4XY3KmOGwR
+ ZT7mQ3iZ4qLezYe5YNLK/5jqw2FlV7F9kO4HCtnruRfP9EV3iN9cNK0R7n172HuGLVY1eHgAPye
+ 294NvepQgb1c77pjeiGJcMVmDBt9Hc4sKdOA94qpvRGCdDWsjDBIae7WV7rpqEZBaXKDj7+cQiW
+ eT9b31HzqQ1No/q3QOhDLDDWjlBCcLZjp2uSza3Kjk8XA==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay68-hz1.antispameurope.com;
+ Fri, 20 Feb 2026 15:31:27 +0100
 Received: from merchelm-W2.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
 	(Authenticated sender: max.merchel@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 6C8982205DE;
-	Fri, 20 Feb 2026 15:31:10 +0100 (CET)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 18AB4220CB6;
+	Fri, 20 Feb 2026 15:31:11 +0100 (CET)
 From: Max Merchel <Max.Merchel@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -68,9 +68,9 @@ Cc: Max Merchel <Max.Merchel@ew.tq-group.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/4] ARM: dts: imx6ul/imx6ull: add boot phase properties
-Date: Fri, 20 Feb 2026 15:31:02 +0100
-Message-ID: <20260220143107.186956-2-Max.Merchel@ew.tq-group.com>
+Subject: [PATCH v2 2/4] ARM: dts: imx6ul[l]-tqma6ul[l]: add boot phase properties
+Date: Fri, 20 Feb 2026 15:31:03 +0100
+Message-ID: <20260220143107.186956-3-Max.Merchel@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260220143107.186956-1-Max.Merchel@ew.tq-group.com>
 References: <20260220143107.186956-1-Max.Merchel@ew.tq-group.com>
@@ -82,23 +82,23 @@ X-cloud-security-crypt: load encryption module
 X-cloud-security-Mailarchiv: E-Mail archived for: max.merchel@ew.tq-group.com
 X-cloud-security-Mailarchivtype: outbound
 X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay48-hz3.antispameurope.com with 4fHXjq10Y0z1kNt3l
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay68-hz1.antispameurope.com with 4fHXjq5LdBz2QYhL
 X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: b31b8f68e1352bc9e8374fc850558ebc
-X-cloud-security: scantime:1.849
+X-cloud-security-Digest: 39bf467f7897a36c62318cbf4ba7f61d
+X-cloud-security: scantime:2.185
 DKIM-Signature: a=rsa-sha256;
- bh=8Wg8hhuphaDA1KXI4FRar5JXbbzUBqxPKxV6zXxqMdA=; c=relaxed/relaxed;
+ bh=603U3ROzybwhiSlbS4OAQhgc3+1jl0bt89ybh3NF/Nc=; c=relaxed/relaxed;
  d=ew.tq-group.com;
  h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1771597885; v=1;
- b=iaST2mjN2YXl1MkzLqPUauwfpWg/ulP7T3q+LrXDqtye1gLjanWksdj5Q2OHJOv/SrKLOFjK
- rfLKKR8uO9RwCRO2ZtAISE4jlaZrLhq13xHKfB7Jt2L7tRSeDQ6DSsAJkUSIL3IICLnQoWgS/Gl
- i2bhcHTfdPB0x/s3OGTsMH+d1baqsjjUAcY06UQ+HQ38Sw3g/T/R5JaoHJstzNJ9g3nceBcj5Gx
- umHTsBAI4CMZdiFRFSNJeMxhpykUhFm5l1elJNCEa8Zl77ZIW/7pSi70fHSzierahiKlkKHsz1o
- nu/giTyOJX0O8XwCIjMQF8PFywpwfes3qnIGt9bpgcgxQ==
+ t=1771597886; v=1;
+ b=rfkBmZXmsgXkIhkIGi472OkBhaWrurtiqo9Il3bmaxEcqQHxu2gKzQFyT9n/aIoEiH7G3qrN
+ pmoGt6nVNxQLo2aFOuUYqwcD1pJnQaL3BOnIMus/IaiKY1apT25EIl+J6V7LDiokuwkJEggbxLr
+ J0QasPJqQNzz9gotw727ukAvozJblbt5y/AIyHYbDksyEOyxXDgWf2uyF8P1o2eMh8xKuAnoa/T
+ mvXglo0w0A8LygtzXzQCZ8TUZD9MGVlJH4QvHZK88FQP50QjCALk9nm7A2WNukcXSkSO0W0j7m3
+ JnusB42hFZb7lYYMTs6TN4Hj39zU5S9UOEI5QjHniAUrg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_063137_185555_4E2445F3 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20260220_063137_466997_97FCD03F 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,87 +116,147 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 dtschema/schemas/bootph.yaml describe various node usage during
 boot phases with DT.
 
-All SoCs require buses (aips and spba), clock, iomuxc and SOC access
-during boot process.
+TQMa6UL need eMMC, I2C, GPIO and QSPI access during boot process.
 
 Signed-off-by: Max Merchel <Max.Merchel@ew.tq-group.com>
 ---
- arch/arm/boot/dts/nxp/imx/imx6ul.dtsi  | 7 +++++++
- arch/arm/boot/dts/nxp/imx/imx6ull.dtsi | 1 +
- 2 files changed, 8 insertions(+)
+ arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi   | 10 ++++++++++
+ arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2.dtsi         |  1 +
+ arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2l.dtsi        |  1 +
+ arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulx-common.dtsi  |  1 +
+ arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulxl-common.dtsi |  1 +
+ arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2.dtsi       |  1 +
+ arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2l.dtsi      |  1 +
+ 7 files changed, 16 insertions(+)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi
-index 6eb80f867f50..24541fdf49ce 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi
-@@ -115,6 +115,7 @@ osc: clock-osc {
- 		#clock-cells = <0>;
- 		clock-frequency = <24000000>;
- 		clock-output-names = "osc";
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi
+index 2dd635a615cb..4fa98e6a66d7 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi
+@@ -26,6 +26,7 @@ &i2c4 {
+ 	pinctrl-1 = <&pinctrl_i2c4_recovery>;
+ 	scl-gpios = <&gpio1 20 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 	sda-gpios = <&gpio1 21 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	bootph-pre-ram;
+ 	status = "okay";
+ 
+ 	pfuze3000: pmic@8 {
+@@ -140,9 +141,14 @@ rtc0: rtc@68 {
+ 	};
+ };
+ 
++&gpio1 {
++	bootph-pre-ram;
++};
++
+ &gpio4 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_pmic>;
++	bootph-pre-ram;
+ 
+ 	/*
+ 	 * PMIC & temperature sensor IRQ
+@@ -159,6 +165,7 @@ pmic-int-hog {
+ &qspi {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_qspi>;
++	bootph-pre-ram;
+ 	status = "okay";
+ 
+ 	flash0: flash@0 {
+@@ -168,6 +175,7 @@ flash0: flash@0 {
+ 		spi-rx-bus-width = <4>;
+ 		spi-tx-bus-width = <1>;
+ 		vcc-supply = <&reg_vldo4>;
++		bootph-pre-ram;
+ 
+ 		partitions {
+ 			compatible = "fixed-partitions";
+@@ -189,6 +197,7 @@ &usdhc2 {
+ 	non-removable;
+ 	no-sdio;
+ 	no-sd;
++	bootph-all;
+ 	status = "okay";
+ };
+ 
+@@ -212,5 +221,6 @@ pinctrl_pmic: pmicgrp {
+ 			/* PMIC irq */
+ 			MX6UL_PAD_CSI_DATA03__GPIO4_IO24	0x1b099
+ 		>;
 +		bootph-pre-ram;
  	};
+ };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2.dtsi
+index e2e95dd92263..f81cd09fe0c7 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2.dtsi
+@@ -33,6 +33,7 @@ MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x00017051
+ 			/* rst */
+ 			MX6UL_PAD_NAND_ALE__GPIO4_IO10		0x0001b051
+ 		>;
++		bootph-all;
+ 	};
  
- 	ipp_di0: clock-di0 {
-@@ -143,6 +144,7 @@ soc: soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&gpc>;
- 		ranges;
+ 	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2l.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2l.dtsi
+index 4b87e2dc70dc..11c8f1af4173 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2l.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2l.dtsi
+@@ -33,6 +33,7 @@ MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x00017051
+ 			/* rst */
+ 			MX6UL_PAD_NAND_ALE__GPIO4_IO10		0x0001b051
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulx-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulx-common.dtsi
+index 5afb9046c202..5c90d0a3ee2e 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulx-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulx-common.dtsi
+@@ -39,5 +39,6 @@ MX6UL_PAD_NAND_CE1_B__QSPI_A_DATA02   0x70b9
+ 			MX6UL_PAD_NAND_CLE__QSPI_A_DATA03     0x70b9
+ 			MX6UL_PAD_NAND_DQS__QSPI_A_SS0_B      0x70a1
+ 		>;
 +		bootph-pre-ram;
+ 	};
+ };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulxl-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulxl-common.dtsi
+index ba84a4f70ebd..133961ee7283 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulxl-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ulxl-common.dtsi
+@@ -44,5 +44,6 @@ MX6UL_PAD_NAND_CE1_B__QSPI_A_DATA02   0x70a9
+ 			MX6UL_PAD_NAND_CLE__QSPI_A_DATA03     0x70a9
+ 			MX6UL_PAD_NAND_DQS__QSPI_A_SS0_B      0x70a1
+ 		>;
++		bootph-pre-ram;
+ 	};
+ };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2.dtsi
+index 8541cb3f3b3e..1224ef132439 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2.dtsi
+@@ -38,6 +38,7 @@ MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x00017039
+ 			/* rst */
+ 			MX6UL_PAD_NAND_ALE__GPIO4_IO10		0x0001b051
+ 		>;
++		bootph-all;
+ 	};
  
- 		ocram: sram@900000 {
- 			compatible = "mmio-sram";
-@@ -202,6 +204,7 @@ aips1: bus@2000000 {
- 			#size-cells = <1>;
- 			reg = <0x02000000 0x100000>;
- 			ranges;
-+			bootph-pre-ram;
+ 	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2l.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2l.dtsi
+index be593d47e3b1..6dd1b359e086 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2l.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2l.dtsi
+@@ -38,6 +38,7 @@ MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x00017039
+ 			/* rst */
+ 			MX6UL_PAD_NAND_ALE__GPIO4_IO10		0x0001b051
+ 		>;
++		bootph-all;
+ 	};
  
- 			spba-bus@2000000 {
- 				compatible = "fsl,spba-bus", "simple-bus";
-@@ -209,6 +212,7 @@ spba-bus@2000000 {
- 				#size-cells = <1>;
- 				reg = <0x02000000 0x40000>;
- 				ranges;
-+				bootph-pre-ram;
- 
- 				ecspi1: spi@2008000 {
- 					#address-cells = <1>;
-@@ -580,6 +584,7 @@ clks: clock-controller@20c4000 {
- 				#clock-cells = <1>;
- 				clocks = <&ckil>, <&osc>, <&ipp_di0>, <&ipp_di1>;
- 				clock-names = "ckil", "osc", "ipp_di0", "ipp_di1";
-+				bootph-pre-ram;
- 			};
- 
- 			anatop: anatop@20c8000 {
-@@ -745,6 +750,7 @@ power-domain@0 {
- 			iomuxc: pinctrl@20e0000 {
- 				compatible = "fsl,imx6ul-iomuxc";
- 				reg = <0x020e0000 0x4000>;
-+				bootph-pre-ram;
- 			};
- 
- 			gpr: iomuxc-gpr@20e4000 {
-@@ -826,6 +832,7 @@ aips2: bus@2100000 {
- 			#size-cells = <1>;
- 			reg = <0x02100000 0x100000>;
- 			ranges;
-+			bootph-pre-ram;
- 
- 			crypto: crypto@2140000 {
- 				compatible = "fsl,imx6ul-caam", "fsl,sec-v4.0";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull.dtsi
-index db0c339022ac..ba0ea10c7b74 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull.dtsi
-@@ -57,6 +57,7 @@ aips3: bus@2200000 {
- 			#size-cells = <1>;
- 			reg = <0x02200000 0x100000>;
- 			ranges;
-+			bootph-pre-ram;
- 
- 			dcp: crypto@2280000 {
- 				compatible = "fsl,imx6ull-dcp", "fsl,imx28-dcp";
+ 	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
 -- 
 2.43.0
 
