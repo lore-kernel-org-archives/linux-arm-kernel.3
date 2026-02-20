@@ -4,79 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2232C5AC9F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 15:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFBABC5AC80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 15:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rr/zI4j/LxpMfSmhNq9RSHA4JWY8TSeiEY4AKzPzxV8=; b=E2ydI5v6vHQT3G2yuRfPfwR79s
-	2lzdSCd2j6gmK7voWp2MBaW/eUDaNza81mDHcQdzF8Xd1q2BCpOq5Utsw/wMctQlg3ryaQuuciRRo
-	xsYBsc7cgTr73lPT12KWcBQ+aWPZtxTScmUPq1q1XJDo1PsuwEmB1589oEdQNzlGQlphOjYnkb5n6
-	knAZMR5/Lih9NE4nChBnVbJwP7mMrQZ91bvQT00OjLEJL6RDwkbjm3Erd5XPcibi/W1M0ZJmSzI4M
-	FLEXNA74aC6I6H3NjrvaZOEohIzahQDB29czR+Xrm6vA/nHWub8TiMcAMquAVY21HG+Yeq6opJHhS
-	FC3yGNTw==;
+	bh=RpZuY7zA7QOEbexZHFTDBRkGnY+Vh7FZuULeLa7GifQ=; b=sbvGasdpZpGDrsZ/LlJp8Nht/R
+	eunARBdAnlI5kciOKawZToHQVfUkHepVUdYWRI5CORYV7nyWwQ9pwRDgkhdimyJkTI2Ika3IDBVir
+	4/X47oOsOZ7bXv/e9qoQ125U7T5NipzOK3FLEVl/t8VJv+67IkcmqEsh8jPGUb+6QJh4iKHFDTZTF
+	1aZIZlvWePaWpiM6gmvDDo4UREgHBM2jhPxQ95VWaMl7xvLyT1FCwMTxqfr3hTsip9IbA9n0PR9Zm
+	m17Cjf04Qb3nhXPbSa2RSRzNrvidh7C8UPcpf6Mi8AjGuDJ2MlYIEoBkj7D87vrgfUAtT7yi1eNGJ
+	N5yjje1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtSq3-0000000F7MG-0rTU;
+	id 1vtSq3-0000000F7MM-21nh;
 	Fri, 20 Feb 2026 15:54:43 +0000
-Received: from out-188.mta1.migadu.com ([95.215.58.188])
+Received: from mail-northeuropeazon11011039.outbound.protection.outlook.com ([52.101.65.39] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtSpz-0000000F7KI-0zAx
+	id 1vtSq0-0000000F7Kw-3GgS
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 20 Feb 2026 15:54:41 +0000
-Message-ID: <c6c2ffcf-acdf-4bda-ad82-dc4cc1a9260e@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771602875;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Rr/zI4j/LxpMfSmhNq9RSHA4JWY8TSeiEY4AKzPzxV8=;
-	b=cvWtOHadlIWEz8qFJdCVgzwmKFkahat2gkR/cnqjQJrvCvoXflU8MofpH8wVajEruKSh2w
-	+Bb4Q3/BC2OcXnPR0BXMZqq8faW4/4BvQBVCoSjhkHsUdCZpDC6K4H0/beaNrdx/wc5d54
-	4s5GVkjeLVoLrbhqeie+1H1zN7yLF04=
-Date: Fri, 20 Feb 2026 23:54:16 +0800
-MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v2 2/6] bpf, x86: Add 64-bit bitops kfuncs
- support for x86_64
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
- Ilya Leoshkevich <iii@linux.ibm.com>
-Cc: bpf <bpf@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
- Xu Kuohai <xukuohai@huaweicloud.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- X86 ML <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
- Shuah Khan <shuah@kernel.org>, Peilin Ye <yepeilin@google.com>,
- Luis Gerhorst <luis.gerhorst@fau.de>, Viktor Malik <vmalik@redhat.com>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- LKML <linux-kernel@vger.kernel.org>,
- Network Development <netdev@vger.kernel.org>,
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- kernel-patches-bot@fb.com
-References: <20260219142933.13904-1-leon.hwang@linux.dev>
- <20260219142933.13904-3-leon.hwang@linux.dev>
- <CAADnVQLNmQGKf5S5ZNwHYzScYBhnWFmnzLg=5Xxy4SgYKE3EfQ@mail.gmail.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <CAADnVQLNmQGKf5S5ZNwHYzScYBhnWFmnzLg=5Xxy4SgYKE3EfQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=S5bElyd8oL8Cu1zNJXDnPqTn1iGUnZAnOMB2+FEbzety0T4w46Nfw95g5veidozFpEMp7tpn6yn5BxyrJCTWEcNcwkyM3RS5lS3H+sjP+DIu+DP0X16zH+scpO7giWS8dVlxW/YqAIkHmcLQV8chySWkX5pqds3VzpkF/MLtYh1dS52Cmh4L24ZOlcheFVGMHeIX69fseftPBBDIcJkq61oDlaXd4DvNy3bHh05h2Av0OBEGmT3e7jigYrwD6ByUPTe5ZeruY218xrdxAIZObHBwfdAN3rH6QmQGpDVEbLSqefDNacR4cMC1r3oQzooQg5s3oYFDK/300pG6if7MYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UbGo0ASf2VVYgrdRZ5OwtrIt6nJOSSBxZITgbKVigRc=;
+ b=AcrQbNOrM68BxBIRlZM4glBSSqjtXYJlyyNCTGhoEvs6KbyDLDqFal9l2XRo/KpRbDOLK9lQOnd2QnwX79zCLXoIUXuZh71EVl3TQtEm7+yRsZ3MYDgvaQOaZQvfRQ9tr4969oBj91xLma38jyZnDRv9m3sdEL0XJ3pSQSFY8xKXCfU3kqBOg1Omzpx209I2R1AWLCb3oomaivVTYDeaexC0oVypq/Z41fNDF+ebj1wZEPc/BDI2qaoaUwAt88PCZd460Qv7AIkRLdgjq3Y7pLSM5wqASsO8/tRqXTmPRN0Rz0+Fbrt3yIUE5xNsSsNB6EFaE1nIi3yWCT+2ao7zLQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UbGo0ASf2VVYgrdRZ5OwtrIt6nJOSSBxZITgbKVigRc=;
+ b=EzHD8abr+GHpEyGVrfumx9wQZRdgdkWDkd7h/2A+k3GiOJDqcBjGGHUs+rmyQIS6eGJuPNeHzpGyuPskBj/6fGpXWbo95fdzXavs8Wty+uaa4ybLyAFXBQ44nvknMdkEixTwkKjhmKwLdbnGQ1f3wmzppr0Wax5s/LV+GS2ySVW41b9n7hlUXFNU6KoWQCupcyUErCLnpU0bVUpcUsi90Oktxl8ncQEBPDrp+ys7MdWsduQkvi5Grmz/TDQXOO7MLfjzhVV0kOqdPIVrfql0PmEBSFSNxqBj2PCfHOhDzKMs3b2Wo/D9YatjzbA4KwGAA50dfGV4r06x1WousH1ZdQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS4PR04MB9690.eurprd04.prod.outlook.com (2603:10a6:20b:4fd::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.16; Fri, 20 Feb
+ 2026 15:54:36 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.010; Fri, 20 Feb 2026
+ 15:54:35 +0000
+Date: Fri, 20 Feb 2026 10:54:26 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Daniel Baluta <daniel.baluta@oss.nxp.com>
+Cc: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/5] pinctrl: add generic board-level pinctrl driver
+ using mux framework
+Message-ID: <aZiDsmgAKPQPwYD9@lizhi-Precision-Tower-5810>
+References: <20260219-pinctrl-mux-v1-0-678d21637788@nxp.com>
+ <20260219-pinctrl-mux-v1-3-678d21637788@nxp.com>
+ <4d41eb9f-037e-4751-b878-202f7d613001@oss.nxp.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <4d41eb9f-037e-4751-b878-202f7d613001@oss.nxp.com>
+X-ClientProxiedBy: PH1PEPF00013303.namprd07.prod.outlook.com
+ (2603:10b6:518:1::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS4PR04MB9690:EE_
+X-MS-Office365-Filtering-Correlation-Id: bef8b31a-036d-401d-0248-08de70985811
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?8Vke0XEHLoHrwg8iQZSaQffKcFxcf8Hp+ZwpKsE7mpMl9Suh25FoCNQoXL?=
+ =?iso-8859-1?Q?LS9Gr+h0zn/XT2h/E+8VRNMFHjlD4MCdjuYIr28vae+sbC2fXn416EwdtV?=
+ =?iso-8859-1?Q?D15EFQksvL7KXG+LknTjO5TbDiFdFAn6H+drh/qqAfmWAQjSWlD6Xf7cvF?=
+ =?iso-8859-1?Q?9y7xIymMV4lsKm2XwVflGuyv4Pk+plzGd3FaRUlBLGs0ufdWWVLh8ukoIW?=
+ =?iso-8859-1?Q?1DJR7Kvf5CF0NxgCzyhL3puIqIiTNEiNjPQBmCQLCsV3BY/Z6a0NNNRZho?=
+ =?iso-8859-1?Q?kRbRljj8JHB4zF131gt2eMnl/SGTKpLgl1s38fce5LBNCSlF/zDCzQOnNl?=
+ =?iso-8859-1?Q?FsMfw9prZKdwgb4OWQ90mo6mcb4co7VYxU4KlXn/wB3KuzJ7MH7CJVAcxa?=
+ =?iso-8859-1?Q?TaUm68jA5hg0lVsqA6xztWYamH6yrKjifcPygIrATYFOTVSbXvBE/4yhwk?=
+ =?iso-8859-1?Q?bxP7X+2AU6RdTlzs9zuEt0NKyS/Vp5FMWQ0sRECQmlQsKgmEGja/M5V14V?=
+ =?iso-8859-1?Q?0TEmzFuhpRi4yHedL7TqYEs+m1MWEcUQvqyggWT8kf9tjU3/LQBfB3K2Do?=
+ =?iso-8859-1?Q?lqWpnNzTXsdytDIHtj3LSQVBI8nEGcdaQgafjn1ouO156q7DpcA8PS6pCA?=
+ =?iso-8859-1?Q?Einf7Ung/Cv2rjidqTdBSrNMBruDUWn7J6ev1iI6yDJXMFlrXH7p33VM+B?=
+ =?iso-8859-1?Q?ZkZesEf2AokXK/5cfsJ0HmcBezUBRHb2Klq7Ko/LhmfO+Oi7ybGi/SOxKK?=
+ =?iso-8859-1?Q?vmu4WUta3r7Y7IW5aHsDPcapMiJ+qIhSVNAMh8a6s1Gg5EPweQq2JIg8qn?=
+ =?iso-8859-1?Q?UTwcRP9F0MsIFkFVZq4ixhqSkxmDOrkr9CMcOqZWWCJQclgdT+/kgpggqA?=
+ =?iso-8859-1?Q?/jZX/42Fof8qDoIRLpuxZ2V8XleYh4gOCBqHNj55URUx0YbabwlpsTEMhY?=
+ =?iso-8859-1?Q?hVbKM+Jjo1ByxNsGewlC2zJC1tQuXCHfp7j5GLQ0CuDCH9paVwtPyeLh6y?=
+ =?iso-8859-1?Q?L18pIs4XMIKWYU5gLZzWeDK/xYd6hWbtsKes+6l5en4JS17JLL/7JWml/B?=
+ =?iso-8859-1?Q?p8IJhbS5ttYfGWAEXCStya9AoU/n9DyHD4T60eo06ij2YMM/wwGAbJJ4id?=
+ =?iso-8859-1?Q?K7pY5L4iGDN5LO+yPHMzSrYofPnwPRkCbCc8phNhUciph/P1St0EwvhCHO?=
+ =?iso-8859-1?Q?aFfKJ50y+raohOZhyPqg78frLjg7tq0T7xQXJgRFsduKR7jPh/uW/i1BtU?=
+ =?iso-8859-1?Q?VfMIe2hWUM3z68zmVCwtJLhiUF0JBciXZT8w7zP8kMt+RwQuSej8KZ4Y18?=
+ =?iso-8859-1?Q?wScIbgPgkspVqAqanhF7xZA2WAeqalKyF1NbTQ8dH6a8z3+q2uqRY7KEnA?=
+ =?iso-8859-1?Q?w8YNXvCPckbK8/Eh6EFwdMXTGPmS/aBwrSpupycHJvyOgFmIPdYgJ8WpNo?=
+ =?iso-8859-1?Q?mgZaUqIo4XzSu1L14uRlbj21bM+YgVt2bDjhV1kC23hekMaUP9XgiZJ0p2?=
+ =?iso-8859-1?Q?vsbgIdrak8A4enQd3mGoIPoJKFfUbDW/AKMxe8/X17QJotQ0Qe43RTI9TX?=
+ =?iso-8859-1?Q?erUY40+gUbqG1Ha0Ghel5bDGhqVSpNGUDWmfalzI8OBkAE/UeOJ4uO+M0o?=
+ =?iso-8859-1?Q?Gm3rcGqzvR5YiX8hzMEsIvANh7lclcgLJ4Jt/7nvqiQOiQhAV1kHE6Duj+?=
+ =?iso-8859-1?Q?ylPLtCZUxS4KoTvzyMA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?mOPDVAb87T5mKE2JlLZCvarKtGHYBzC6PTiQYA7OGWMEbKQSJv7pN5pD+U?=
+ =?iso-8859-1?Q?nMufxWGdkP/QiwQ2dMvfI3zp2cuilE1xY/cghCyIGbtkrnaW/ZcxowdsvZ?=
+ =?iso-8859-1?Q?AYshzGEpQMTsKoHRd1x0TFMMH3RSIpnK14gOF8k/ZJJQKAsxc/9I9xw30v?=
+ =?iso-8859-1?Q?zrWh/oXjmKwjGO5ldh0s+3pLILdkIXqimx+so6xFAi6R/cx38jC2OYwKTG?=
+ =?iso-8859-1?Q?D6zJwH0l41khuH2rGXO8//W7Sg7AXpa+m6zd31ONv6UxNuxhdTK7LThDEf?=
+ =?iso-8859-1?Q?Eqynk8oHgTHoVSOKmM5STFYlZ1RTz/sFo/Gu6u1/PA0ZLVDRegU888zQi+?=
+ =?iso-8859-1?Q?1k3LH4wUCCSJ3kbCEsHIeZQ4tQ7kppNTMAgdjNXLIhJyolqmMQK1G9ntbg?=
+ =?iso-8859-1?Q?iaTT8o1j/Q8gs03s7Tl34gW9pYLMbZn2WF+KWsuBfnQYzoVz2ucUGtQ+XO?=
+ =?iso-8859-1?Q?qWR6afIfDlc4ab5mZH8hv7MqSalZdoEYlOETAIrNvgkmXHs+aZIUfeIlX+?=
+ =?iso-8859-1?Q?2kd75QuER3Ug05LC5KgoO494Fe0yBunyporZxZjLc/SSIlV39GBTz1pQt/?=
+ =?iso-8859-1?Q?zb9oS6ugyb5wA6nSD0zwuAWy8M9Prk6Dv7RHsQv2xpAyaoY6MRTmu+y0Et?=
+ =?iso-8859-1?Q?QuZ2zX8l8RLhD7W28D7UzRIMcqv+Hl8EpVWq96oT+EgdQUFWvN0kMds3Ps?=
+ =?iso-8859-1?Q?FWO1+OcokFe81+8SbHfTjYXeGI9J4cHGenofY1FirzPXAgayie1viVA4YG?=
+ =?iso-8859-1?Q?ewD2vuMXIaNuFkhmCtcgCzNmcKQZdBaabQYe/5zOfiqQxVvaXOakQ1daV9?=
+ =?iso-8859-1?Q?+J50nxZUko8sxV2mPo5/R1FAaN/GOHJ2cJbqh16Wzq9yVjj9ef1Ccp4Lk8?=
+ =?iso-8859-1?Q?VbnllZxRDf+MF9qGc8REswpBlY6Z8OFEAb/Nu3kLU70YxmuJqqx+D9T/Qy?=
+ =?iso-8859-1?Q?TXRg95FnD+qYJ2Cfbl0dsGPb/q+nwZTlFY7T9GxGXphC7UvfzA/2/Hjl//?=
+ =?iso-8859-1?Q?t4zdmAc+d2bgMbOcL4jR+H5yE3N7738+yAmQU+RKUjQzR0JhCC4hEYxtxy?=
+ =?iso-8859-1?Q?XGwNpoitpDix5A1O8xWngVV5FDD+D9H39vUSmkkcErcSh3Ssh9JEZhlvbh?=
+ =?iso-8859-1?Q?9yMFERpWpPDNkBTzegrS76ghin1p2EzvzlqxShtz5AWxsth/TFr12ygynZ?=
+ =?iso-8859-1?Q?wEJYRVbnX76s6joGH2dW8ntbsaYdBZigXUCcrMu9CjZ2w0DkWa8GbBhcjm?=
+ =?iso-8859-1?Q?hzm+0ttnlrZC6dlWH0gdNUQmn7ucjeJiZ3ashq3NqHzdUyF1DGIarSJv0L?=
+ =?iso-8859-1?Q?xOulnn3pSWUP1Hhh5rrzFFHiqrty+2kaumJzjOMX9yqQLiUAL1cYjI2Eh8?=
+ =?iso-8859-1?Q?94zkKm+YJiR51X3egXErH9OY8ONHDRyl+s+0G7Aia74tI1POm91/wPbG10?=
+ =?iso-8859-1?Q?lrPSteDegPGoKOn92xKdFYren6gT1htagkC3ryxkR/YCUOCuboX8KTyssg?=
+ =?iso-8859-1?Q?qXO9dWdhpi26HCNO3yNVUzB7kOFVbhEo4j7/77EER9Q6niDDRrd5DULuyH?=
+ =?iso-8859-1?Q?ys5bIZDs2Zb+qnCcrdPAqjU/NQpzu5LSm+w67V4CLoLWyLd4qGpggsBTrW?=
+ =?iso-8859-1?Q?y8MuP8y40MvaogRu1UomivFDa9OuORJDKQ413+54U6oD6YE31jkKrfgnZj?=
+ =?iso-8859-1?Q?AGfBSlComMr1vPUoAUlMEiUtJ4Tay7PvNHJCQiImqRWRmqbeU4xr8ue5il?=
+ =?iso-8859-1?Q?oHt6OSBtPOkfobCJ/GzoC8Xq6jl/wdmjbs+Kn5gRpf1ZXV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bef8b31a-036d-401d-0248-08de70985811
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 15:54:35.4654
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yp/DcLZqvT7m6HPpdRq6FWEKKwCEOdmrHuIUS4LwH7b6f8xsJpm7SkM9nomdnfvYdGZ2af4/hd3yx5DDDaM5dw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9690
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_075439_734298_398CC986 
-X-CRM114-Status: GOOD (  22.89  )
+X-CRM114-CacheID: sfid-20260220_075440_818986_5447AE21 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,120 +174,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 20, 2026 at 10:50:41AM +0200, Daniel Baluta wrote:
+> Hi Frank,
+>
+> Few comments inline:
+>
+>
+> > --- /dev/null
+> > +++ b/drivers/pinctrl/pinctrl-generic-mux.c
+> > @@ -0,0 +1,222 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Generic Pin Control Driver for Board-Level Mux Chips
+> > + * Copyright (C) 2026
+> >
+> Copyright 2026 NXP
+>
+> <snip>
+>
+> > +struct mux_pin_function {
+> > +	struct mux_state *mux_state;
+> > +};
+> > +
+> > +struct mux_pinctrl {
+> > +	struct device *dev;
+> > +	struct pinctrl_dev *pctl;
+> > +
+> > +	/* mutex protecting the lists */
+>
+> what lists?�
+>
+>
+> > +static int
+> > +mux_pinmux_dt_node_to_map(struct pinctrl_dev *pctldev,
+> > +			  struct device_node *np_config,
+> > +			  struct pinctrl_map **map, unsigned int *num_maps)
+> > +{
+> > +	struct mux_pinctrl *mpctl = pinctrl_dev_get_drvdata(pctldev);
+> > +	struct mux_pin_function *function;
+> > +	struct device *dev = mpctl->dev;
+> > +	const char **pgnames;
+> > +	int selector;
+> > +	int group;
+> > +	int ret;
+> > +
+> > +	*map = devm_kcalloc(dev, 1, sizeof(**map), GFP_KERNEL);
+> > +	if (!map)
+> > +		return -ENOMEM;
+> >
+> if (!*map) ?
+>
+> > +
+> > +	*num_maps = 0;
+> > +
+> > +	function = devm_kzalloc(dev, sizeof(*function), GFP_KERNEL);
+> > +	if (!function) {
+> > +		ret = -ENOMEM;
+> > +		goto err_func;
+> Do you really need this goto? Previously allocated memory is dev managed .
 
+Yes, dt_node_to_map() may re-entry because some defer. we don't want to
+defer free previous allocated memory to module remove and generally
+pinctrl driver is never removed.
 
-On 2026/2/20 01:47, Alexei Starovoitov wrote:
-> On Thu, Feb 19, 2026 at 6:30 AM Leon Hwang <leon.hwang@linux.dev> wrote:
->>
->> Implement JIT inlining of the 64-bit bitops kfuncs on x86_64.
->>
->> bpf_rol64() and bpf_ror64() are always supported via ROL/ROR.
->>
->> bpf_ctz64() and bpf_ffs64() are supported when the CPU has
->> X86_FEATURE_BMI1 (TZCNT).
->>
->> bpf_clz64() and bpf_fls64() are supported when the CPU has
->> X86_FEATURE_ABM (LZCNT).
->>
->> bpf_popcnt64() is supported when the CPU has X86_FEATURE_POPCNT.
->>
->> bpf_bitrev64() is not inlined as x86_64 has no native bit-reverse
->> instruction, so it falls back to a regular function call.
->>
->> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
->> ---
->>  arch/x86/net/bpf_jit_comp.c | 141 ++++++++++++++++++++++++++++++++++++
->>  1 file changed, 141 insertions(+)
->>
->> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
->> index 070ba80e39d7..193e1e2d7aa8 100644
->> --- a/arch/x86/net/bpf_jit_comp.c
->> +++ b/arch/x86/net/bpf_jit_comp.c
->> @@ -19,6 +19,7 @@
->>  #include <asm/text-patching.h>
->>  #include <asm/unwind.h>
->>  #include <asm/cfi.h>
->> +#include <asm/cpufeatures.h>
->>
->>  static bool all_callee_regs_used[4] = {true, true, true, true};
->>
->> @@ -1604,6 +1605,127 @@ static void emit_priv_frame_ptr(u8 **pprog, void __percpu *priv_frame_ptr)
->>         *pprog = prog;
->>  }
->>
->> +static bool bpf_inlines_func_call(u8 **pprog, void *func)
->> +{
->> +       bool has_popcnt = boot_cpu_has(X86_FEATURE_POPCNT);
->> +       bool has_bmi1 = boot_cpu_has(X86_FEATURE_BMI1);
->> +       bool has_abm = boot_cpu_has(X86_FEATURE_ABM);
->> +       bool inlined = true;
->> +       u8 *prog = *pprog;
->> +
->> +       /*
->> +        * x86 Bit manipulation instruction set
->> +        * https://en.wikipedia.org/wiki/X86_Bit_manipulation_instruction_set
->> +        */
->> +
->> +       if (func == bpf_clz64 && has_abm) {
->> +               /*
->> +                * Intel® 64 and IA-32 Architectures Software Developer's Manual (June 2023)
->> +                *
->> +                *   LZCNT - Count the Number of Leading Zero Bits
->> +                *
->> +                *     Opcode/Instruction
->> +                *     F3 REX.W 0F BD /r
->> +                *     LZCNT r64, r/m64
->> +                *
->> +                *     Op/En
->> +                *     RVM
->> +                *
->> +                *     64/32-bit Mode
->> +                *     V/N.E.
->> +                *
->> +                *     CPUID Feature Flag
->> +                *     LZCNT
->> +                *
->> +                *     Description
->> +                *     Count the number of leading zero bits in r/m64, return
->> +                *     result in r64.
->> +                */
->> +               /* emit: x ? 64 - fls64(x) : 64 */
->> +               /* lzcnt rax, rdi */
->> +               EMIT5(0xF3, 0x48, 0x0F, 0xBD, 0xC7);
-> 
-> Instead of emitting binary in x86 and arm JITs,
-> let's use in kernel disasm to check that all these kfuncs
-> conform to kf_fastcall (don't use unnecessary registers,
-> don't have calls to other functions) and then copy the binary
-> from code and skip the last 'ret' insn.
-> This way we can inline all kinds of kfuncs.
-> 
+why use devm_ version is because pinctrl framework assume you use devm_ to
+allocate map.
 
-Good idea.
+Frank
 
-Quick question on “in-kernel disasm”: do you mean adding a kernel
-instruction decoder/disassembler to validate a whitelist of kfuncs at
-load time?
-
-I’m trying to understand the intended scope:
-
-* Is the expectation that we add an in-kernel disassembler/validator for
-  a small set of supported instructions and patterns (no calls/jumps,
-  only arg/ret regs touched, etc.)?
-* Or is there already infrastructure you had in mind that we can reuse?
-
-Once I understand that piece, I can rework the series to inline by
-copying validated machine code (minus the final ret), rather than
-emitting raw opcodes in the JITs.
-
-I also noticed you mentioned a similar direction in "bpf/s390: Implement
-get_preempt_count()" [1], so I’ve added Ilya to the thread to discuss
-this approach further.
-
-[1]
-https://lore.kernel.org/bpf/CAADnVQKSMCohZy_HZwzNpFfTSnVu7rfxgmHEDgT9s28XxcDS5g@mail.gmail.com/
-
-Thanks,
-Leon
-
+> > +	}
+> > +
+> > +	pgnames = devm_kzalloc(dev, sizeof(*pgnames), GFP_KERNEL);
+> > +	if (!pgnames) {
+> > +		ret = -ENOMEM;
+> > +		goto err_pgnames;
+> >
+> Same here.
+>
+> <snip>
+>
+> > +err_mux_state_get:
+> > +	pinctrl_generic_remove_group(mpctl->pctl, group);
+> > +err_add_group:
+> > +	pinmux_generic_remove_function(mpctl->pctl, selector);
+> > +err_add_func:
+> > +	devm_kfree(dev, pgnames);
+> > +err_pgnames:
+> > +	devm_kfree(dev, function);
+> > +err_func:
+> > +	devm_kfree(dev, *map);
+> > +
+> > +	return ret;
+> > +}
+>
+>
+>
+>
 
