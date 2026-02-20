@@ -4,41 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481CEC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3654BC55190
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6tAL8GI9iApgRaPZmu4GB32Zrpmts92Rjsp7FmvajSQ=; b=q60gFc8p23d2/65PoCxvW3aO6d
-	Yiy4EjCEJOxbYMMjL6RQryN2M27erVF5nVxDs1hEKJZRX23MxP/XjgQsQ1mP8fjbK/Hmfh4Nf+1MJ
-	L8KMfyjPEIN/oSQsZ8OkGx83X3/+hCzlTvtDs2Lq/gf1EqBbIUlAM/HiTqNncKgGebxTtSJRTh8h9
-	WV+6ucFMgtBss1JxSjGjtKEtcpeY3oVy62Kpld8UVyZjaXJC+DAM0ThTAZFkhcUNFt6D0+xYjv/cT
-	HStA8mBRfXTS2q9dYZ6ffTpsbZe1rjJol4SBtjrkLHz3Ialhvdyg629tl2xnGyUDaNHgZwG4mJ+Rj
-	TVwf5SDg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9nxwdodsmrJqTCjHXzmc8/KE3pVW+pHuR2vrlazu10o=; b=Bs5N6CV5eEvUVd1ufe5Zlbvslg
+	mROu30BydQpzpgSdvXfBCIDrj4NjSXZiyF8Jd+vplXxy7baGLeIRilnC6rdwDHvGaxgeD3veOS4lM
+	afxh4Axi7Pc1+aSE0gQjcyv4rqigsn7/uy05rHSI9qaNzxNTohG4E4Xtf0kIeXLFQAfP5XjQZQcTy
+	DI2UViEAjQGATagFHvTgryt1o56OOzaVM0oME/1dqPaTCxfQYVpoNNsmBqqlkooz/s9plt1ONONA1
+	qI8E3D56mTb1snM6vYHOmXOQo7QRpaMfbOr89fuFQrIQBAykqwso9tNzlKiKDsgWQ8G1HFCI7xDVK
+	TLfrrcng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNsR-0000000E5ii-1e9j;
+	id 1vtNsR-0000000E5hx-0HM1;
 	Fri, 20 Feb 2026 10:36:51 +0000
 Received: from mail.fris.de ([116.203.77.234] helo=mail2.fris.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNsM-0000000E5ao-45O7
+	id 1vtNsN-0000000E5cl-0KIO
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 20 Feb 2026 10:36:49 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1771583801;
+	t=1771583803;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=6tAL8GI9iApgRaPZmu4GB32Zrpmts92Rjsp7FmvajSQ=;
-	b=kguP8LI8u1PoAj8In3GfvOKdb8oc8Ne0lq2zdwc2k7DNeUOZwhreRoSk0zAjouCBX8kxOr
-	hRgICRvMg6TC5thAT5wvu0RN+0z1j/gfPf9uagk7IxeDkc87+FXviOWebfg32895/s4oY1
-	rPugm+dFePo8o3OeUJUIc1pBkqCSenFhcRnz3Q18xwPeS+MLMRkYQMH//c+JM83IuEam1J
-	XlUCeLT1Dq3LIjTjYwnI+ZwlNu+9jUREHEJoSuBwhJ43bKTSxwkYHNYhxjal0IiSE6aklq
-	Vj/T4R28X8BKo2dVhOo3SznAFLwxuXcMl/p3U3pI84jaacyqfENiqZXGpMlWeQ==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9nxwdodsmrJqTCjHXzmc8/KE3pVW+pHuR2vrlazu10o=;
+	b=rv53oPStcRBBnD19zX4ntmMyBkvFbDD/j16JjHt09rFTQ2GoDktQAhkTYC6HsDFNiirVyj
+	2TRkJ42Ohs4UG82UwaZokthgNDpqJdDBmvkx5xLDTPT6JxQn0Bgu3AfanvyW/EtnPwOqM+
+	/ify3VhcGxkyUbKUA8vDLKPa0RDiLxEgu666h2XNSA0NWwSc+AZZ7M+Vi7DGXAM7QVoujL
+	NE/kt9o/gtA0a+lQchbwfsaO32AdXMjlzTMc5mTmAV8lXGOS6weAwr2QRH+pn4HnmQU5G6
+	DkEtnQKGEKUM8wj5pIrrH45l1Jt79KI7jDpSa/dBicRETMzAYJ2Mx7cwERfh5A==
 To: Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	Frank Li <Frank.Li@nxp.com>,
@@ -50,17 +51,18 @@ To: Conor Dooley <conor+dt@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>
-Cc: Annette Kobou <annette.kobou@kontron.de>,
-	Fabio Estevam <festevam@gmail.com>,
+Cc: Fabio Estevam <festevam@gmail.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v2 0/4] Kontron i.MX8MP OSM Devicetree Fixups
-Date: Fri, 20 Feb 2026 11:36:15 +0100
-Message-ID: <20260220103636.9697-1-frieder@fris.de>
+Subject: [PATCH v2 1/4] arm64: dts: imx8mp-kontron: Fix touch reset configuration on DL devices
+Date: Fri, 20 Feb 2026 11:36:16 +0100
+Message-ID: <20260220103636.9697-2-frieder@fris.de>
+In-Reply-To: <20260220103636.9697-1-frieder@fris.de>
+References: <20260220103636.9697-1-frieder@fris.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_023647_474156_10B88E8A 
-X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-CacheID: sfid-20260220_023647_474117_A9685942 
+X-CRM114-Status: UNSURE (   9.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,28 +80,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-This contains three fixes and one cosmetic change for
-the Kontron i.MX8MP OSM devices.
+The reset signal needs a pullup, but there is no hardware pullup.
+As a workaround, enable the internal pullup to fix the touchscreen.
 
-Changes for v2:
-* Add Frank's R-b tags (thanks)
-* Enhance commit message of patch 2
+As this deviates from the default generic GPIO settings in the OSM
+devicetree, add a new node for the touch pinctrl and redefine the
+generic gpio1 pinctrl.
 
-Annette Kobou (1):
-  arm64: dts: imx8mp-kontron: Fix boot order for PMIC and RTC
+Fixes: 946ab10e3f40f ("arm64: dts: Add support for Kontron OSM-S i.MX8MP SoM and BL carrier board")
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+---
+ .../boot/dts/freescale/imx8mp-kontron-dl.dtso | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-Frieder Schrempf (3):
-  arm64: dts: imx8mp-kontron: Fix touch reset configuration on DL
-    devices
-  arm64: dts: imx8mp-kontron: Drop vmmc-supply to fix SD card on SMARC
-    eval carrier
-  arm64: dts: imx8mp-kontron: Use GPIO/IRQ defines in DL devicetree
-
- .../boot/dts/freescale/imx8mp-kontron-dl.dtso | 26 ++++++++++++++++---
- .../dts/freescale/imx8mp-kontron-osm-s.dtsi   |  6 +++++
- .../imx8mp-kontron-smarc-eval-carrier.dts     |  1 -
- 3 files changed, 29 insertions(+), 4 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso b/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
+index a3cba41d2b531..7131e9a499ae1 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
++++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
+@@ -77,6 +77,8 @@ &i2c1 {
+ 	touchscreen@5d {
+ 		compatible = "goodix,gt928";
+ 		reg = <0x5d>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_touch>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <6 8>;
+ 		irq-gpios = <&gpio1 6 0>;
+@@ -98,6 +100,16 @@ &lvds_bridge {
+ 	status = "okay";
+ };
+ 
++/* redefine to remove touch controller GPIOs */
++&pinctrl_gpio1 {
++	fsl,pins = <
++		MX8MP_IOMUXC_GPIO1_IO00__GPIO1_IO00		0x19 /* GPIO_A_0 */
++		MX8MP_IOMUXC_GPIO1_IO01__GPIO1_IO01		0x19 /* GPIO_A_1 */
++		MX8MP_IOMUXC_GPIO1_IO05__GPIO1_IO05		0x19 /* GPIO_A_2 */
++		MX8MP_IOMUXC_GPIO1_IO08__GPIO1_IO08		0x19 /* GPIO_A_5 */
++	>;
++};
++
+ &pwm1 {
+ 	status = "okay";
+ };
+@@ -108,4 +120,11 @@ pinctrl_panel_stby: panelstbygrp {
+ 			MX8MP_IOMUXC_SAI3_RXFS__GPIO4_IO28		0x19
+ 		>;
+ 	};
++
++	pinctrl_touch: touchgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO06__GPIO1_IO06		0x19
++			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07		0x150
++		>;
++	};
+ };
 -- 
 2.52.0
 
