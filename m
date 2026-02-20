@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82900C54FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 13:52:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACA5C55ABE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xmweD/7gbsx6kV4w/UtdECdkLFgQu5HsrMzfVi+Kscw=; b=xo9JeFem/kPDNusiqYNhwLkxWB
-	34BqdZFbE2QhU7W162967wSskZq6kZ1o4o9nIDIKXOgVu0z8+2i1lW5Rw15WWQvIxBN5ZXwJEoFcn
-	x2QIuLcMwZqBSrokdLupEckN1+dJXyTFv5gYkxCyvFql2E8NtLkw2c+TaBSosFJD4ZZQ/7L+Nby2+
-	bcutSh1spIXPEdOTGMDAuyK9lJediqBYjzZLgzCJ/YQ85RX1v6PwuajvsN2LLKQSUcU+rKZYZRstk
-	euDMcrHYUlRNDrk8DCwk2cwIWuT2bcPJ0HCbloAE09WnrJ0ugD1U7GbGLODVjEkJdBHCQ/pizqtFk
-	kCtyXnsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CP9dVwPiOIJ4ApZ3hmFXNXHMNA0OUGRsW+EPWpg/K64=; b=qC7gdlI43mZR7JfftZFTHweaHF
+	TTbV3EXfBB93ewI7dYS2kmrFhTDOOqlEhijGtJ3LvhIXDU1ldS8GUTEWXJ9J6z+Ke0sHSKDbKBAwK
+	iAiqztK/uovLCdyq39juHCqGSI19gK41GmWmvyTEn4dajQkFniVLMKok1V8zfAAVBjjHjYqYjJCS+
+	prPIvpACFJFb9ZmEkKsH4s64jYK826uzs0AO3LhXAK340MQ+Gp8480+G/wlPlY8nK0Gh9oO4biKfQ
+	cQWdPigVsTLMSmg6Eb7iS4UYwUQhfnckplxRzj3MR0IoQ7OG1CHnL3BpQx/zO5yvdBbr5+MKhs9lo
+	YcsTShWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtQw6-0000000EcWV-299d;
-	Fri, 20 Feb 2026 13:52:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vtR6z-0000000EgkQ-1FGf;
+	Fri, 20 Feb 2026 14:04:05 +0000
+Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtQw5-0000000EcWJ-1OlQ;
-	Fri, 20 Feb 2026 13:52:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 795CA6185C;
-	Fri, 20 Feb 2026 13:52:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 641F9C116D0;
-	Fri, 20 Feb 2026 13:52:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771595568;
-	bh=aJGPw6xiAsZTtMPiPneO1+9rWvTeQEo9/V119zgzdQI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qlprimWhb4kQEKZDGi7XLSDwdRunTxR1cv0GBpYcShzsfNy+KhKEBUCZmWOYh3uPk
-	 uWxZCIjnDSZTcJ9hk7EDBb0EROaBxaJqvJBZO0LmObsZALxa35hDpEOFn41nhvzsa0
-	 /hoxG4Jwf4SwRIDqCdA0vFiZ7AUQKC1y2WmVZ0U4e/cw9FkCkA3ba+XE5rXjydLBO5
-	 fLy+MZS16WTJ0873myGAdlx//NOrrRS6zd7S7XZcXhUHGPi42hY5t6Z3u3qWvS+anD
-	 FxSycZGAlEJhwVnPJlOc2wBKfCQ1GTTU7rplN8sPIC/Izg3EBuw5M0/6RNrDZYSDgD
-	 0LyGqNCIYILng==
-Date: Fri, 20 Feb 2026 21:34:14 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
-Subject: Re: [PATCH 3/3] arm64: use runtime constant to optimize
- handle_arch_irq access
-Message-ID: <aZhi1p0NJH5ug8CA@xhacker>
-References: <20260220090922.1506-1-jszhang@kernel.org>
- <20260220090922.1506-4-jszhang@kernel.org>
- <20260220123414.GF136967@e132581.arm.com>
- <aZheqINXslxlrmTt@xhacker>
+	id 1vtR6x-0000000EgiQ-03OT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Feb 2026 14:04:04 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1771596238;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=CP9dVwPiOIJ4ApZ3hmFXNXHMNA0OUGRsW+EPWpg/K64=;
+	b=xdvEEKIUaPHnbaGQNhtYJpkVDk8QlHUviBAnHeRM4RO8KceW37HLCosNiuSJ5xrN6i/uZS
+	TkGx1AGDCdKntEGwZaisexfwI1cEFPJY8ekp2gn2q+JJYxE5ylM+9zcG1GzPNbXbhMzazj
+	kk14DCYKNAUv6tgcXv9p32B7JWdbPFs=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	stable@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: atmel-ecc - Release client on allocation failure
+Date: Fri, 20 Feb 2026 15:03:13 +0100
+Message-ID: <20260220140313.1123405-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aZheqINXslxlrmTt@xhacker>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260220_060403_266322_6E7BB9B0 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,285 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 09:16:24PM +0800, Jisheng Zhang wrote:
-> On Fri, Feb 20, 2026 at 12:34:14PM +0000, Leo Yan wrote:
-> > Hi Jisheng,
-> 
-> Hi Leo,
-> 
-> > 
-> > On Fri, Feb 20, 2026 at 05:09:22PM +0800, Jisheng Zhang wrote:
-> > > Currently, on arm64 platforms, the handle_arch_irq is a pointer which
-> > > is set during booting, and every irq processing needs to access it,
-> > > so it sits in hot code path. We can use the runtime constant mechanism
-> > > which was introduced by Linus to speed up its accessing.
-> > > 
-> > > Tested on Quad CA55 platform, the perf sched benchmark is improved
-> > > by ~6.5%
-> > 
-> > 6.5% is a quite high margin, especially for only one pointer's change.
-> > Maybe it is good to share more info for which compiler you are using,
-> > how you tested and the detailed results.
-> 
-> Sure. 
-> aarch64-linux-gnu-gcc version 15.2.0
-> 
-> my kernel defconfig is a minimal arm64 version which disables most
-> drivers, only keep timer, gic, pll/clk, uart, regulator and i2c controller
-> The reason is to avoid OS noise as much as possible.
-> It's also put at the end of the email for reference.
-> 
-> testing cmd:
-> perf bench sched pipe
-> 
-> testing steps:
-> booting into a buildroot minimal initramfs
-> force cpufreq governor as performance
-> run above cmd
-> 
-> testing resuls:
-> before the patch:
-> 9.471988 usecs/op
->   105574 ops/sec
-> 
-> after the patch:
-> 8.896280 usecs/op
->   112406 ops/sec
-> 
-> (112406 - 105574) * 100 / 105574 = ~6.5 %
-> 
-> Let me know if you need more details
-> 
-> 
-> > 
-> > I played a bit on my juno board on CA73 cores with the command:
-> 
-> IIRC, Juno is powered by a big.little SoC, then we need to ensure
-> the benchmark is always running on big or little cores when testing, to
-> ensure apple to apple comparison.
-> 
-> I also have a CA73 platform, but can't access it now. I'll test the
-> patch next week.
-> > 
-> >   perf bench sched all
-> > 
-> > Run 3 iterations, and measures three metrics (messaging/pipe/seccomp)
-> > and results in seconds. Less is better.
-> > 
-> >   +---------------------+--------+--------+--------+--------+
-> >   |Without change       |   run1 |   run2 |   run3 |    avg |
-> >   +---------------------+--------+--------+--------+--------+
-> >   |messaging (sec)      |  4.546 |  4.508 |  4.591 |  4.548 |
-> >   |pipe (sec)           | 24.258 | 24.224 | 24.017 | 24.166 |
-> >   |seccomp-notify (sec) | 48.393 | 48.457 | 48.232 | 48.361 |
-> >   +---------------------+--------+--------+--------+--------+
-> > 
-> >   +---------------------+--------+--------+--------+--------+--------+
-> >   |With change          |   run1 |   run2 |   run3 |    avg |   diff |
-> >   +---------------------+--------+--------+--------+--------+--------+
-> >   |messaging (sec)      |  4.493 |  4.523 |  4.556 |  4.524 | +0.52% |
-> >   |pipe (sec)           | 23.159 | 23.702 | 28.649 | 25.170 | -4.15% |
-> 
-> If you check the result, this result variance is abnormal, it means
-> your OS is noiser.
+Call atmel_ecc_i2c_client_free() to release the I2C client reserved by
+atmel_ecc_i2c_client_alloc() when crypto_alloc_kpp() fails. Otherwise
+->tfm_count will be out of sync.
 
-BTW: if you remove the abnormal run3 result, you'll find that the
-benchmark is improved by ~3.5% on CA73:
-(23.159 + 23.702) / 2 = 23.43
-(24.258 + 24.224) / 2 = 24.24
-(24.24 - 23.43)*100 / 23.43 = ~3.5
+Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel ECC driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+Compile-tested only.
+---
+ drivers/crypto/atmel-ecc.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
-> >   |seccomp-notify (sec) | 46.848 | 46.938 | 46.973 | 46.920 | +2.98% |
-> >   +---------------------+--------+--------+--------+--------+--------+
-> > 
-> > With this patch, the messaging test shows a minor improvement (0.52%).
-> > 
-> > The pipe test performs worse (-4.15%) after applying the patch. However,
-> > one positive signal is that the minimum latency is 23.159, which is
-> > lower than without the change (24.017).
-> 
-> The perf bench is sensitive to OS noise, so I disable most devices, only
-> uart, timer, irq chip, i2c and regulator is kept,  and stop all daemons
-> only keep a usespace process bash shell.
-> 
-> defconfig for reference:
-> 
-> # CONFIG_LOCALVERSION_AUTO is not set
-> CONFIG_SYSVIPC=y
-> CONFIG_NO_HZ_IDLE=y
-> CONFIG_HIGH_RES_TIMERS=y
-> CONFIG_PREEMPT=y
-> # CONFIG_CPU_ISOLATION is not set
-> CONFIG_BLK_DEV_INITRD=y
-> # CONFIG_RD_GZIP is not set
-> # CONFIG_RD_BZIP2 is not set
-> # CONFIG_RD_LZMA is not set
-> # CONFIG_RD_XZ is not set
-> # CONFIG_RD_LZO is not set
-> # CONFIG_RD_LZ4 is not set
-> # CONFIG_INITRAMFS_PRESERVE_MTIME is not set
-> CONFIG_EXPERT=y
-> # CONFIG_UID16 is not set
-> # CONFIG_SYSFS_SYSCALL is not set
-> CONFIG_PROFILING=y
-> CONFIG_ARCH_BERLIN=y
-> # CONFIG_ARM64_ERRATUM_826319 is not set
-> # CONFIG_ARM64_ERRATUM_827319 is not set
-> # CONFIG_ARM64_ERRATUM_824069 is not set
-> # CONFIG_ARM64_ERRATUM_819472 is not set
-> # CONFIG_ARM64_ERRATUM_832075 is not set
-> # CONFIG_ARM64_ERRATUM_845719 is not set
-> # CONFIG_ARM64_ERRATUM_843419 is not set
-> # CONFIG_ARM64_ERRATUM_1418040 is not set
-> # CONFIG_ARM64_ERRATUM_1165522 is not set
-> # CONFIG_ARM64_ERRATUM_1463225 is not set
-> # CONFIG_CAVIUM_ERRATUM_22375 is not set
-> # CONFIG_CAVIUM_ERRATUM_23154 is not set
-> # CONFIG_CAVIUM_ERRATUM_27456 is not set
-> # CONFIG_CAVIUM_ERRATUM_30115 is not set
-> # CONFIG_CAVIUM_TX2_ERRATUM_219 is not set
-> # CONFIG_FUJITSU_ERRATUM_010001 is not set
-> # CONFIG_HISILICON_ERRATUM_161600802 is not set
-> # CONFIG_QCOM_FALKOR_ERRATUM_1003 is not set
-> # CONFIG_QCOM_FALKOR_ERRATUM_1009 is not set
-> # CONFIG_QCOM_QDF2400_ERRATUM_0065 is not set
-> # CONFIG_QCOM_FALKOR_ERRATUM_E1041 is not set
-> # CONFIG_SOCIONEXT_SYNQUACER_PREITS is not set
-> CONFIG_NR_CPUS=4
-> CONFIG_HOTPLUG_CPU=y
-> CONFIG_HZ_100=y
-> # CONFIG_UNMAP_KERNEL_AT_EL0 is not set
-> CONFIG_COMPAT=y
-> CONFIG_ARMV8_DEPRECATED=y
-> CONFIG_SWP_EMULATION=y
-> CONFIG_CP15_BARRIER_EMULATION=y
-> CONFIG_SETEND_EMULATION=y
-> # CONFIG_ARM64_HW_AFDBM is not set
-> # CONFIG_ARM64_PTR_AUTH is not set
-> # CONFIG_ARM64_AMU_EXTN is not set
-> # CONFIG_ARM64_SVE is not set
-> # CONFIG_EFI is not set
-> # CONFIG_SUSPEND is not set
-> CONFIG_CPU_IDLE=y
-> CONFIG_CPU_IDLE_GOV_TEO=y
-> CONFIG_ARM_PSCI_CPUIDLE=y
-> CONFIG_CPU_FREQ=y
-> CONFIG_CPU_FREQ_GOV_USERSPACE=y
-> CONFIG_CPUFREQ_DT=y
-> CONFIG_JUMP_LABEL=y
-> # CONFIG_VMAP_STACK is not set
-> # CONFIG_BLOCK is not set
-> # CONFIG_COMPAT_BRK is not set
-> # CONFIG_COMPACTION is not set
-> CONFIG_CMA=y
-> # CONFIG_ZONE_DMA32 is not set
-> # CONFIG_VM_EVENT_COUNTERS is not set
-> CONFIG_SYNA_DOLPHIN_PLL=y
-> CONFIG_SYNA_CLK_BASE=y
-> CONFIG_SYNA_MYNA2_CLK=y
-> CONFIG_PINCTRL_MYNA2=y
-> CONFIG_USB_DWC3_SYNA=y
-> # CONFIG_SYNAPTICS_PCIE is not set
-> CONFIG_REGULATOR_HL7593=y
-> CONFIG_PHY_SYNA_USB=y
-> # CONFIG_SYNAPTICS_I2C is not set
-> CONFIG_BERLIN_CHIPID=y
-> CONFIG_BERLIN_AXI_METER=y
-> # CONFIG_SYNAPTICS_NET is not set
-> # CONFIG_SYNAPTICS_VIDEO is not set
-> # CONFIG_SYNAPTICS_SOUND is not set
-> # CONFIG_SYNAPTICS_DEVFREQ is not set
-> # CONFIG_SYNAPTICS_DMABUF is not set
-> # CONFIG_SYNAPTICS_IRQCHIP is not set
-> # CONFIG_SYNAPTICS_INPUT is not set
-> # CONFIG_SYNAPTICS_BLUETOOTH is not set
-> # CONFIG_SYNAPTICS_CLOCKSOURCE is not set
-> # CONFIG_SYNAPTICS_DMA is not set
-> # CONFIG_SYNAPTICS_TTY is not set
-> # CONFIG_SYNAPTICS_LEDS is not set
-> # CONFIG_SYNAPTICS_MFD is not set
-> # CONFIG_SYNAPTICS_MISC is not set
-> # CONFIG_SYNAPTICS_MTD is not set
-> # CONFIG_SYNAPTICS_PWM is not set
-> # CONFIG_SYNAPTICS_RTC is not set
-> # CONFIG_SYNAPTICS_SPI is not set
-> # CONFIG_SYNAPTICS_STAGING is not set
-> # CONFIG_SYNAPTICS_WATCHDOG is not set
-> # CONFIG_SYNAPTICS_MAILBOX is not set
-> # CONFIG_SYNAPTICS_RPMSG is not set
-> # CONFIG_SYNAPTICS_CRYPTO is not set
-> CONFIG_UEVENT_HELPER=y
-> CONFIG_DEVTMPFS=y
-> CONFIG_DEVTMPFS_MOUNT=y
-> # CONFIG_ALLOW_DEV_COREDUMP is not set
-> CONFIG_INPUT_EVDEV=y
-> # CONFIG_INPUT_KEYBOARD is not set
-> # CONFIG_INPUT_MOUSE is not set
-> # CONFIG_SERIO is not set
-> # CONFIG_VT is not set
-> # CONFIG_LEGACY_PTYS is not set
-> # CONFIG_LEGACY_TIOCSTI is not set
-> CONFIG_SERIAL_8250=y
-> # CONFIG_SERIAL_8250_DEPRECATED_OPTIONS is not set
-> CONFIG_SERIAL_8250_CONSOLE=y
-> CONFIG_SERIAL_8250_NR_UARTS=2
-> CONFIG_SERIAL_8250_RUNTIME_UARTS=2
-> CONFIG_SERIAL_8250_DW=y
-> # CONFIG_HW_RANDOM is not set
-> # CONFIG_DEVPORT is not set
-> CONFIG_I2C=y
-> CONFIG_I2C_CHARDEV=y
-> CONFIG_I2C_DESIGNWARE_CORE=y
-> CONFIG_GPIO_SYSFS=y
-> CONFIG_GPIO_DWAPB=y
-> CONFIG_GPIO_FXL6408=y
-> # CONFIG_HWMON is not set
-> CONFIG_MFD_SYSCON=y
-> CONFIG_REGULATOR=y
-> CONFIG_REGULATOR_FIXED_VOLTAGE=y
-> CONFIG_REGULATOR_GPIO=y
-> CONFIG_REGULATOR_TPS6286X=y
-> # CONFIG_HID_SUPPORT is not set
-> # CONFIG_USB_SUPPORT is not set
-> CONFIG_DMABUF_HEAPS=y
-> CONFIG_DMABUF_SYSFS_STATS=y
-> CONFIG_DMABUF_HEAPS_CMA=y
-> # CONFIG_VIRTIO_MENU is not set
-> # CONFIG_VHOST_MENU is not set
-> # CONFIG_SURFACE_PLATFORMS is not set
-> # CONFIG_ARM64_PLATFORM_DEVICES is not set
-> # CONFIG_ARM_ARCH_TIMER_EVTSTREAM is not set
-> # CONFIG_FSL_ERRATUM_A008585 is not set
-> # CONFIG_HISILICON_ERRATUM_161010101 is not set
-> # CONFIG_ARM64_ERRATUM_858921 is not set
-> # CONFIG_IOMMU_SUPPORT is not set
-> CONFIG_RESET_CONTROLLER=y
-> # CONFIG_DNOTIFY is not set
-> # CONFIG_PROC_PAGE_MONITOR is not set
-> CONFIG_TMPFS=y
-> CONFIG_CONFIGFS_FS=y
-> # CONFIG_MISC_FILESYSTEMS is not set
-> CONFIG_DMA_CMA=y
-> CONFIG_PRINTK_TIME=y
-> # CONFIG_SECTION_MISMATCH_WARN_ONLY is not set
-> CONFIG_DEBUG_FS=y
-> # CONFIG_SLUB_DEBUG is not set
-> CONFIG_SOFTLOCKUP_DETECTOR=y
-> CONFIG_DEBUG_ATOMIC_SLEEP=y
-> CONFIG_STACKTRACE=y
-> # CONFIG_RCU_TRACE is not set
-> # CONFIG_FTRACE is not set
-> # CONFIG_STRICT_DEVMEM is not set
-> # CONFIG_RUNTIME_TESTING_MENU is not set
-> > 
-> > For seccomp, the results indicate a benefit (2.98%) from the change.
-> > 
-> > Hope this is helpful for maintainers to judge the change.
-> > 
-> > I'd leave maintainers to review the code.
-> > 
-> > Thanks,
-> > Leo
-> 
+diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+index 0d48e64d28b1..9da5a0388080 100644
+--- a/drivers/crypto/atmel-ecc.c
++++ b/drivers/crypto/atmel-ecc.c
+@@ -261,6 +261,7 @@ static int atmel_ecdh_init_tfm(struct crypto_kpp *tfm)
+ 	if (IS_ERR(fallback)) {
+ 		dev_err(&ctx->client->dev, "Failed to allocate transformation for '%s': %ld\n",
+ 			alg, PTR_ERR(fallback));
++		atmel_ecc_i2c_client_free(ctx->client);
+ 		return PTR_ERR(fallback);
+ 	}
+ 
+-- 
+Thorsten Blum <thorsten.blum@linux.dev>
+GPG: 1D60 735E 8AEF 3BE4 73B6  9D84 7336 78FD 8DFE EAD4
+
 
