@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A91AC56201
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 15:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A85C56201
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 15:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z943trj5fRXyCPYj1ZkF6pjisLAiil83x3fUBjHtWMM=; b=Ii6md999ULp4YH0flPWgEVCLYD
-	QHK64Q48MxxuHxBGJ3Zz1l9aFmKYwe1L+TXkZ0xSw/8kNRjXpidN779AW+4FZaiPqara2rh8IJvtc
-	BMNU6gL72riAqKNW872IY+GoBjX6gD4TivoN3m+WOoIsdwJ17o43OZeobRw34J+Exb7YQhnxnnhv+
-	M+v7B5kRLq+vcg/48gDLo++WP2Pg6dId4Ecs1b+UGsD0suUXILWm60USUqGml4s8B8UKOoDOauuvA
-	zhxdrDnvMKCpwdy7GUFDBbd/BoDEk8PU/f8Nj9/6HsAMvarKp1GIZx7//kMjrkulvSGYE3XhOGH6M
-	RwZxtkYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uaXRyQ+nfw0fuP69PhNRAluZJ/sPQG2jCzkgPfelTnQ=; b=1SjGbiTkCRlhtutW5kdVT2hHAS
+	aKqRz5a2hfXDAHz1R4207WgLy+EAl395mQ4FPYuZXLsK4nvJ5oNf3EWCWlgV9oxQwIHmAgb9fmtl/
+	iCq4NFcND0YAHYtKRR/YPxTxxk7JjmDx0Juli+PpYwDTDsX4QPxY77y2EW6tMIYk8XQjyrseYaYUu
+	p+Jxj4tCgkXN6TBIiIr+47Eec2d+p7JLjrfPHoLeqBM0mOfCgVbf9nOvkvEz/zPY4/AGrWBzh7kzB
+	+ovN2eLNp8UtOwNygoYw+/yDpBZ2QQ5jEDYzDc2oTduCJTh8NiD1R5C+JwkB5kb037aspBQ6O/Mtc
+	xO/uXtVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtSWo-0000000F2kf-1cLx;
-	Fri, 20 Feb 2026 15:34:50 +0000
-Received: from out-179.mta1.migadu.com ([95.215.58.179])
+	id 1vtSYW-0000000F3Gf-1sLR;
+	Fri, 20 Feb 2026 15:36:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtSWk-0000000F2ii-47B8
+	id 1vtSYV-0000000F3G4-09XR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 15:34:48 +0000
-Message-ID: <e617cdaa-049a-453b-8f52-1966d350f907@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771601679;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Z943trj5fRXyCPYj1ZkF6pjisLAiil83x3fUBjHtWMM=;
-	b=pq1jHNkxADK2dq95ZhyKT83WWsDHhuAU9Tk7GgkqH3T9xhFYuhT/xltBiGx4vnSB6psZG9
-	mIcOrCU5w+8U9+VIJBy/0AT2mJIzS9OqpoZ7YzjSqS+5FgjD7J4hZ7u7S2FD6sYgP4+qEX
-	ir5KmvMrEex2xcOtCALbiOVA35HY59Q=
-Date: Fri, 20 Feb 2026 23:34:22 +0800
+	Fri, 20 Feb 2026 15:36:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 760586185C;
+	Fri, 20 Feb 2026 15:36:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCC05C19425;
+	Fri, 20 Feb 2026 15:36:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771601794;
+	bh=uaXRyQ+nfw0fuP69PhNRAluZJ/sPQG2jCzkgPfelTnQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Hs+JJevjOchfCOhWZxu2I1PPToeQ4ku52TqSgNuYDfcls5XgxYlB08nTtJTl9l2SP
+	 17fZsD8otb2eOPv4WOV5Ln3N5O+JjrCbsDDziMNi7QYRijEe6OG+jKFtCnPQgrFtRq
+	 U67H6CwwjpL+w4jSrw95a4eyYeA2wZMWr9bG+K1skwwrpQX+k8bMP1HTuLcNtcafXJ
+	 5Os0VgJY0Y8sohZIvdm6SWRFk9IGEg8B9BbTVAg1rJ3mhvsYFrBbGOeEN18W9UwH21
+	 kM2EUnbxGIL6wHS6Om/+UANvDmwSo3jgc9naYps/xMEIZoKVQomZgLOUjFjom9i31e
+	 nOD5yLXgaiQWA==
+Date: Fri, 20 Feb 2026 15:36:29 +0000
+From: Mark Brown <broonie@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	Emanuele Rocca <emanuele.rocca@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 3/3] arm64: gcs: Do not map the guarded control stack as
+ THP
+Message-ID: <500e3d38-2443-4ced-a2a5-f53155858288@sirena.org.uk>
+References: <20260220140532.285011-1-catalin.marinas@arm.com>
+ <20260220140532.285011-4-catalin.marinas@arm.com>
+ <4b8449b3-2e99-4a22-b89e-f7fc917a83fd@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v2 1/6] bpf: Introduce 64-bit bitops kfuncs
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: bpf <bpf@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
- Xu Kuohai <xukuohai@huaweicloud.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- X86 ML <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
- Shuah Khan <shuah@kernel.org>, Peilin Ye <yepeilin@google.com>,
- Luis Gerhorst <luis.gerhorst@fau.de>, Viktor Malik <vmalik@redhat.com>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- LKML <linux-kernel@vger.kernel.org>,
- Network Development <netdev@vger.kernel.org>,
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- kernel-patches-bot@fb.com
-References: <20260219142933.13904-1-leon.hwang@linux.dev>
- <20260219142933.13904-2-leon.hwang@linux.dev>
- <CAADnVQK=5Gb3w_QG4Vq32EfvpqAK_DPwCHtzzt7DzRkJ5_h6JQ@mail.gmail.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <CAADnVQK=5Gb3w_QG4Vq32EfvpqAK_DPwCHtzzt7DzRkJ5_h6JQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_073447_810583_9EE80FF8 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ZbyHsP7lN+x8iOHi"
+Content-Disposition: inline
+In-Reply-To: <4b8449b3-2e99-4a22-b89e-f7fc917a83fd@kernel.org>
+X-Cookie: Booths for two or more.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +76,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--ZbyHsP7lN+x8iOHi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On 2026/2/20 01:50, Alexei Starovoitov wrote:
-> On Thu, Feb 19, 2026 at 6:30 AM Leon Hwang <leon.hwang@linux.dev> wrote:
->>
->>
->> +static bool bpf_kfunc_is_fastcall(struct bpf_verifier_env *env, u32 func_id, u32 flags)
->> +{
->> +       if (!(flags & KF_FASTCALL))
->> +               return false;
->> +
->> +       if (!env->prog->jit_requested)
->> +               return true;
->> +
->> +       if (func_id == special_kfunc_list[KF_bpf_clz64])
->> +               return bpf_jit_inlines_kfunc_call(bpf_clz64);
->> +       if (func_id == special_kfunc_list[KF_bpf_ctz64])
->> +               return bpf_jit_inlines_kfunc_call(bpf_ctz64);
->> +       if (func_id == special_kfunc_list[KF_bpf_ffs64])
->> +               return bpf_jit_inlines_kfunc_call(bpf_ffs64);
->> +       if (func_id == special_kfunc_list[KF_bpf_fls64])
->> +               return bpf_jit_inlines_kfunc_call(bpf_fls64);
->> +       if (func_id == special_kfunc_list[KF_bpf_bitrev64])
->> +               return bpf_jit_inlines_kfunc_call(bpf_bitrev64);
->> +       if (func_id == special_kfunc_list[KF_bpf_popcnt64])
->> +               return bpf_jit_inlines_kfunc_call(bpf_popcnt64);
->> +       if (func_id == special_kfunc_list[KF_bpf_rol64])
->> +               return bpf_jit_inlines_kfunc_call(bpf_rol64);
->> +       if (func_id == special_kfunc_list[KF_bpf_ror64])
->> +               return bpf_jit_inlines_kfunc_call(bpf_ror64);
-> 
-> This is too ugly. Find a way to do it differently.
+On Fri, Feb 20, 2026 at 04:33:12PM +0100, David Hildenbrand (Arm) wrote:
 
-Agreed.
+> I'll note that madvise() would be able to turn THPs back on; I assume that's
+> okay.
 
-I'd like to introduce a new flag KF_JIT_MAY_INLINE to indicate the kfunc
-will be inlined by JIT backends if possible. As for those kfuncs w/
-KF_FASTCALL w/o KF_JIT_MAY_INLINE, they are fastcall always.
+It's not a functional problem so if people want to do that it seems like
+it's on them.
 
-Thanks,
-Leon
+--ZbyHsP7lN+x8iOHi
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmYf30ACgkQJNaLcl1U
+h9DJOQf/bBSHws+qVzADmtqDh7w6i5tcIIkkDGu1yDDkYyY3EfaQeKEWtnvUnyIQ
+W5grSs+Z8DJDTAk2c+W/9wEVJGGuQN7jDBsGYTGF4JglSJanR5P5vCaY50UV5pVy
+ck9VO/M6TJSmRJssNCKbIjlvWo/lgMV28obL+9CifZO3ktZRBLRGJaOrY3/mpxU4
+Ov7aouWYC1/sZSv2xQQPJZW5PRatWjqA4ma+KWwj19c7ia61g+mnIR6rNGIN596D
+KL3DbEZ8BKDozRTPh4hDD6hoogvv5PscTgB7CqvtEEYUs0IGZ4eHjdNp8XuP3yjr
+bHWVYQC9AwKpTZ560BJLrAza2xPvZg==
+=SSVy
+-----END PGP SIGNATURE-----
+
+--ZbyHsP7lN+x8iOHi--
 
