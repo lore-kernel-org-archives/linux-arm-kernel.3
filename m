@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1975C54FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 08:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA0CC54FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 08:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QWyU6+EDa2tZ3izfRcV9455sSz6dG3pm9f1+b8/1vqY=; b=WIa/ViaJWMahRLfuDn59WK7o2+
-	0YPRLxeYLZzLWvfgtkDdVnR9IBKGuE6d4anEd+boaZLNfCEeBvvhUaJeRxg1mH88svahcsvG7EfQz
-	dBgENYGlTwS/CWVyaGyohvuBDauwEi+3UQpb45sUUSNN0+0QigZMnpZH4jpeirqm55as7yzi6tzI3
-	KLXOEFHHyTv6xpjPACzPkRfUavHT+lkSKNItyCDXyHDE4mjr57tN9J+hRY9o/kV66ML30CyWiq6ta
-	tuiHNC/GfcX0AYwZG4zD576u6Jq/ZjgwWzcUEWPubVrly9c+cyaS2v1meThbAWIytvgiEoknsaRi2
-	fKNQ1KfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qoU/4x8R6qlfBpKUL3kf+2mK3W6ZQH9KLxd9zBZ2Oeg=; b=gN82lHw/v33nPHRYFDS2A5g0ZW
+	TSPyubtjX2/A9c6zeZXT16fCXmzM1iPQDxdoPgQcZW0jbRDL4X5mL4hRURFPYpuSK4mZwaP1s8Fa1
+	LIhIYw03E8Qig+KatAm4oqwaf6mfyBt0fydgZvAim6O16oeIqs9uIqp8/P6mU8okDcWK4qomI6xyC
+	94BqXiDYz7xx9gP+S4LuUxVTHWrTy5GVOdQ88ft6jRG/NC2QtXtjBgsHUr+4KhgrfHVjMXSYMVm3Q
+	B1hXwZrsXgnN19ztbLxLXsBT9u5eEUXsLsIQnPdvMvu2L8ZdaXAKlAiUkw1tjwCxHTLNlfN1FUwja
+	VJ5RJMsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtM3v-0000000DQsX-13mf;
-	Fri, 20 Feb 2026 08:40:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vtMAx-0000000DREa-2scb;
+	Fri, 20 Feb 2026 08:47:51 +0000
+Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtM3t-0000000DQs9-02ne
+	id 1vtMAv-0000000DRE2-1kAD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 08:40:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A158B40A8F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 08:40:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FE97C116D0
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 08:40:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771576832;
-	bh=cwpGuMn1KdvSvNgpU8S5spu0pCHspmC3uPRaHcV292A=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dbD6US+35B1DTaFeHFhukPBKZRCujlyRinsXovTJj8scp2d/lRVJK3BZQUt9i2kw1
-	 xcPmrgkZ6ZRFkZXNJxrYcHzQgOGZ02pYN7g4Ye7uugq3TAHrFi6ipTsh+5BseQJV1b
-	 UMQTOaDmUpowCwuiV3zabeAStnYsp4VC6Tfqwc29R6K6Pfh2gb7dxnhQENHL6T8TDx
-	 Fe3IV/3GUMef5Y1wYbRMaxq1y7HFG06kzQanOlcbDKpjjqjRVDBvRRpIe95I90Qckx
-	 HO0j270rX1yLYD8hqMm2n9qOYhpvdMXRGRaHge9ZNOFGNO310quzMzYdmWo+p+0m73
-	 rKW0nIWlpJtcw==
-Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-64ae2ce2fe1so1810099d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 00:40:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWntiaudOcchM8ep/0vwO0fmO6Z8oDDTCDsMQ1O1vg4d0mBsiEf6AkRV5eeHbGYLs11wiUm82bCrL7vmUam+a2K@lists.infradead.org
-X-Gm-Message-State: AOJu0YyocVkFRkJ3/Fg0eyAvtubBraKXyhJlU/E1vNIPPeYYcy5/2s2j
-	WmuNa5MqYqCiBRRIr2GlD3F0y9L+PoRZ0o7tJmhJnmxzwpL9Jyg7Tx+TsXDnoWmBGo4gg/IgiCu
-	VIMbOuFRLUSWVIb+cLx2iJgZ9an6lPFI=
-X-Received: by 2002:a05:690e:1444:b0:64a:df3a:1533 with SMTP id
- 956f58d0204a3-64c555625c5mr5986104d50.19.1771576831717; Fri, 20 Feb 2026
- 00:40:31 -0800 (PST)
-MIME-Version: 1.0
-References: <20260220021949.40817-1-rosenp@gmail.com>
-In-Reply-To: <20260220021949.40817-1-rosenp@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 20 Feb 2026 09:40:19 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkZJLsayzMnV=vTZ4nNMB5yWw6oogtbOjnj+MNUMJ8PEA@mail.gmail.com>
-X-Gm-Features: AaiRm52J3bhw9AXp2v83yIbHN0n5WyPOfRj4AQR_C4rA1PoazwTXCOblWRlv5eY
-Message-ID: <CAD++jLkZJLsayzMnV=vTZ4nNMB5yWw6oogtbOjnj+MNUMJ8PEA@mail.gmail.com>
-Subject: Re: [PATCH net-next 0/2] net: ethernet: cortina: support deferral
-To: Rosen Penev <rosenp@gmail.com>
-Cc: netdev@vger.kernel.org, Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	"moderated list:ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
+	Fri, 20 Feb 2026 08:47:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
+	Resent-Cc:Resent-Message-ID; bh=qoU/4x8R6qlfBpKUL3kf+2mK3W6ZQH9KLxd9zBZ2Oeg=;
+	t=1771577269; x=1772786869; b=jkPznVBQKXeVBaUKqT0NGJksWdTRppCYJEvqUD3jBuXIaGI
+	PashKdzSOwJj7tAOBF+TNh41d3PiUbVkFqc2ZebXD+I6a9iDu69mHuW1/cyI9MEZaOqjGwMXdEwmX
+	YbQDRzMRAsHF2C1c3atKoyBgZHe3gSwrW1KTYpvKe6qsNSRRoGtS+FboHkBty2nJ/KoqUy6CPbUsh
+	xeSatAdh7TV00zLfOUPGKUlM/1ujWB4Dks2PQDjbtTZ+g6SUDE0xz+Qru5VhQHW1jiPKnv9bHniab
+	hZdNFuKen7/wEAwSxm6Cqted5E2/Fx1Lw9+BsJCqdX5UckZQ18OrSwVZxtvsbp1A==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.98.2)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1vtMAo-0000000E3WL-3Adh;
+	Fri, 20 Feb 2026 09:47:42 +0100
+Message-ID: <6f14c73b7d513de1da06431d0e421e4792a43655.camel@sipsolutions.net>
+Subject: Re: [PATCH 15/15] wifi: mac80211: Use AES-CMAC library in aes_s2v()
+From: Johannes Berg <johannes@sipsolutions.net>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Ard
+ Biesheuvel	 <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ Herbert Xu	 <herbert@gondor.apana.org.au>,
+ linux-arm-kernel@lists.infradead.org, 	linux-cifs@vger.kernel.org,
+ linux-wireless@vger.kernel.org
+Date: Fri, 20 Feb 2026 09:47:41 +0100
+In-Reply-To: <20260219221527.GC32578@quark>
+References: <20260218213501.136844-1-ebiggers@kernel.org>
+	 <20260218213501.136844-16-ebiggers@kernel.org>
+	 <c62915b1956ee4c5d4bad9315f2bc44aeddbb9bc.camel@sipsolutions.net>
+	 <20260219221527.GC32578@quark>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+MIME-Version: 1.0
+X-malware-bazaar: not-scanned
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_004033_094466_AEDAB509 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20260220_004749_501139_BB1BAD85 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,26 +79,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 3:20=E2=80=AFAM Rosen Penev <rosenp@gmail.com> wrot=
-e:
+On Thu, 2026-02-19 at 14:15 -0800, Eric Biggers wrote:
+> > > -static int aes_s2v(struct crypto_shash *tfm,
+> > > +static int aes_s2v(const u8 *in_key, size_t key_len,
+> > >  		   size_t num_elem, const u8 *addr[], size_t len[], u8 *v)
+> > >  {
+> > >  	u8 d[AES_BLOCK_SIZE], tmp[AES_BLOCK_SIZE] =3D {};
+> > > -	SHASH_DESC_ON_STACK(desc, tfm);
+> > > +	struct aes_cmac_key key;
+> > > +	struct aes_cmac_ctx ctx;
+> > >  	size_t i;
+> > > +	int res;
+> > > =20
+> > > -	desc->tfm =3D tfm;
+> > > +	res =3D aes_cmac_preparekey(&key, in_key, key_len);
+> > > +	if (res)
+> > > +		return res;
+> >=20
+> > Same here, maybe, technically, but also doesn't matter.
+> >=20
+> > Acked-by: Johannes Berg <johannes@sipsolutions.net>
+> >=20
+> > johannes
+>=20
+> In this case aes_s2v() wouldn't otherwise be able to fail, so ignoring
+> the aes_cmac_preparekey() return value would indeed be a simplification.
 
-> When using nvmem, it may be necessary to defer probe until the specific
-> nvmem driver is loaded to get the proper MAC.
->
-> Rosen Penev (2):
->   net: ethernet: cortina: use devm to enable clocks
->   net: ethernet: cortina: fix nvmem mac addresses
+Right.
 
-Net-next is closed so you will have to resend this:
-https://netdev.bots.linux.dev/net-next.html
+> However, since the key length isn't a compile-time constant here, we'd
+> have to rely on non-local validation, which isn't ideal.
 
-But I like what I see :)
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+That's true.
 
-What I actually most of all want to achieve here is to support loading
-the PHY as module, but I suspect that then the ethernet driver has to
-be a module as well so modprobe can do its job.
+> To ignore the return value entirely I'd prefer a static_assert that the
+> length is equal to one of AES_KEYSIZE_*, which isn't possible here.
 
-Yours,
-Linus Walleij
+Indeed.
+
+> It's actually not clear to me where the length validation happens before
+> here.  nl80211_associate() for example just copies the length from
+> userspace without validating it.  ieee80211_mgd_assoc() only checks that
+> the length is at most FILS_MAX_KEK_LEN (64).
+
+Oh, right, I forgot this was FILS and mixed it up with the previous
+patch. We probably _should_ check it earlier there, but it won't be
+local here either way, and we have the error paths already so that's
+fine.
+
+johannes
 
