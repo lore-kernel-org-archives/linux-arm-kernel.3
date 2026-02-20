@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC85DC56201
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0ADC56204
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 14:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d47StiA7dSocBR80vImtT1TMhni8OG6XYHmv9LtOCxw=; b=w28t6jjDZqOjNuXrZ96fUNUJXK
-	FxLkdQabyxuIujdD4TTyU1+KA/xLO47HuqopkB3UnrxGp68Zo/ccXPywac6JwSvDblUiJ91n806ve
-	AGXo7EiIaIE8K6okNrcZNyw5Yad8pQCMZbGVOWk9baIwDP42ZwZHGSjGH1mUVqQeuqRU2xEcxVtKw
-	gQpjTVVFwqYxD+/rfUTP2RN8H0ZKDJgJlYNici6QLIkeP2VdteQYIimDotNlRlpJvM8cvfyTcqsCr
-	bhPKQ+4iAR/E3m/qjWfZkS0i52FDEjtdvzB5fhOblQ0SJJKkoxfE6nPRQyOlciOHHZtxo/Tsu8Ddf
-	tHDXU04g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sTdG8btimHKwmZNKKennypN5GyP/pfImU2mZiCz0IvA=; b=z31pS3KXqn4lKhmwQ649z7TQSV
+	mSkEjcbAj5Lca4YS8qQ5WCltD0jzWh4uuvF3O0BtqgsdgJpHbry0ijR8kHVqNGJbgfyuOo3kLKFak
+	4JMatc1kXqvMtgZkQuods9DBlSQCv9Y/S9jfN7vqqn2bErEIxP0PZDTVK4cUZbW6nQwLL6Whf3SO/
+	gfHWY8Bhe3lmBV5KP6yXYIL/T/f7xfMgVqpZlvGFupBm33aOBOFVZUg1Y0mCzIjlqdl1hXSjOaMN1
+	IsAmD7nIezHcA2LaqebBChBdQpVkV/UeEFhWzGi9PI2GzXS0lT0JfKSm7WrI5y07UTBBkSwgrKBsp
+	In4puG/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRla-0000000EsqM-0q7O;
-	Fri, 20 Feb 2026 14:46:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtRlX-0000000EspG-2LfS
+	id 1vtRra-0000000EtrY-0HrU;
+	Fri, 20 Feb 2026 14:52:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vtRrY-0000000EtrJ-15kc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 14:46:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98E4A339;
-	Fri, 20 Feb 2026 06:45:49 -0800 (PST)
-Received: from [10.57.58.244] (unknown [10.57.58.244])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7AE33F62B;
-	Fri, 20 Feb 2026 06:45:52 -0800 (PST)
-Message-ID: <c7cd42ff-f95a-4aaf-ab79-5af476bca894@arm.com>
-Date: Fri, 20 Feb 2026 14:45:49 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, dan.j.williams@intel.com,
- "Tian, Kevin" <kevin.tian@intel.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>,
- "will@kernel.org" <will@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "joro@8bytes.org" <joro@8bytes.org>, "praan@google.com" <praan@google.com>,
- "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
- "miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
-References: <20260203143348.GA3931454@nvidia.com>
- <aYI0LUdXqrjmRcMo@Asurada-Nvidia> <20260203175540.GC3931454@nvidia.com>
- <aZZDo3BeuBKh9q24@nvidia.com> <20260219143737.GG723117@nvidia.com>
- <aZc//6kvH3Eqfwfe@nvidia.com> <20260219174139.GI723117@nvidia.com>
- <aZfoqETxb31jp/Pk@nvidia.com> <20260220125044.GK723117@nvidia.com>
- <6a842339-3f0a-48db-830a-326add917519@arm.com>
- <20260220135124.GA1894399@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260220135124.GA1894399@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_064559_724548_F5F0CB93 
-X-CRM114-Status: GOOD (  25.52  )
+	Fri, 20 Feb 2026 14:52:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C79DD6185F;
+	Fri, 20 Feb 2026 14:52:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77C0DC116D0;
+	Fri, 20 Feb 2026 14:52:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771599130;
+	bh=cKD/AWPnjjeWq0pI84Atiws6ljOTReoU+0PYJxYItcs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=TV+Vj8GDWrGz2HdGQNgaKRORsnNRsJ4TtkD1IWFOG1VBtyPjCxEutL4SqXgJTYtT8
+	 425NFcgTEigPlV4wtZ5jugVbc64BHY+fEk7kNG5FbPJjN5NDIHXh4OWm6VJI7LeROn
+	 dyBWBaNYljwszaSMy2pR4kw9WjdTj7iHUS4Y8FoSoCHM0hS9TduFUD8YdxXweJDySq
+	 TIAdq5rlyH7DJReZefkFWpqzCCz89zj8z9lr9g0499nqSS5ld8tdVCYqZPCTz4J7c4
+	 sxRm9LOWJ756ZZjI/PJYWbBDtBsFFEJSOdZDe/2T8Zi+dcHc4Fpt+r1C4yJDcZhUqQ
+	 QGnSqGj56XncA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vtRrU-0000000CSW5-1neS;
+	Fri, 20 Feb 2026 14:52:08 +0000
+Date: Fri, 20 Feb 2026 14:52:07 +0000
+Message-ID: <86tsvba2nc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 1/9] arm64: Add logic to fully remove features from sanitised id registers
+In-Reply-To: <CA+EHjTzj9wEm7oBKBXF8sYpK60FYeLOJwEapxDiO1HxK5e6Y6g@mail.gmail.com>
+References: <20260219195533.2455736-1-maz@kernel.org>
+	<20260219195533.2455736-2-maz@kernel.org>
+	<CA+EHjTzVRq3r-7UR-MJYvv-Aw4kHQDHEmwtqY9is-fRDm-J06A@mail.gmail.com>
+	<86v7frafpx.wl-maz@kernel.org>
+	<CA+EHjTzj9wEm7oBKBXF8sYpK60FYeLOJwEapxDiO1HxK5e6Y6g@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +91,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-02-20 1:51 pm, Jason Gunthorpe wrote:
-> On Fri, Feb 20, 2026 at 01:22:49PM +0000, Robin Murphy wrote:
+On Fri, 20 Feb 2026 11:06:03 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
->> But is that an issue? Until the device has a driver, surely it shouldn't be
->> expected to send interrupts at all, much less depend on them being received
->> and understood by Linux? The MSI cookie is only populated once a driver
->> actually requests some MSI vectors (since it doesn't know what ITS
->> address(es) may or may not need mapping), so an empty DMA domain is still no
->> better than a true blocking domain in this regard anyway.
+> > > > +               switch (ftrp->visibility) {
+> > > > +               case FTR_VISIBLE:
+> > > > +                       val = arm64_ftr_set_value(ftrp, val, ftr_new);
+> > > >                         user_mask |= ftr_mask;
+> > > > -               else
+> > > > +                       break;
+> > > > +               case FTR_ALL_HIDDEN:
+> > > > +                       val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
+> > > > +                       reg->user_val = arm64_ftr_set_value(ftrp,
+> > > > +                                                           reg->user_val,
+> > > > +                                                           ftrp->safe_val);
+> > >
+> > > Should we also take the safe value in update_cpu_ftr_reg() for FTR_ALL_HIDDEN?
+> >
+> > I would expect arm64_ftr_safe_value() to do the right thing at that
+> > stage, given that we have primed the boot CPU with the safe value, and
+> > that we rely on that bootstrap to make the registers converge towards
+> > something safe. This is also what happens for the command-line override.
+> >
+> > Or have you spotted a case where this go wrong?
 > 
-> Oh, the issue is the driver_managed_dma flag.
-> 
-> In this mode we do bind a driver but the iommu callbacks at driver
-> bind are not called anymore because that flag says the driver itself
-> will call them later.
-> 
-> Things like PCI port driver that never issue DMA at all will set the
-> flag and never make any calls, while still expecting interrupts to
-> work.
-> 
-> This is why the other option is to rework this somewhat so these
-> drivers still make call in to the iommu and can get an interrupt
-> setup.
+> I think so... What if a future FTR_ALL_HIDDEN feature is defined as
+> FTR_HIGHER_SAFE? Wouldn't that cause problems on secondary CPUs?
+> init_cpu_ftr_reg() primes sys_val with safe_val on the boot CPU,
+> update_cpu_ftr_reg() on secondary CPUs compares the hardware value
+> (ftr_new) against safe_val (ftr_cur). For FTR_HIGHER_SAFE,
+> arm64_ftr_safe_value() returns max(ftr_new, safe_val). Since the
+> hardware value is higher, update_cpu_ftr_reg() overwrites sys_val with
+> the hardware value, resurrecting the hidden feature globally.
 
-Or perhaps we handle BUS_NOTIFY_BIND_DRIVER to manage the switch from 
-BLOCKED to (empty) DMA independently from whether the driver 
-subsequently claims the DMA domain or not? That said, I wouldn't have 
-any particular objection to generalising iommu_use_default_domain() into 
-something like iommu_prepare_default_domain(bool managed) either.
+Huh, that's an interesting observation.
 
-> All of this is only for multi-device groups where we want to ignore
-> some bad grouping with VFIO on old HW without sufficient ACS. Thinking
-> about it some more I suspect this entire concept has been broken from
-> day 1 in VFIO on ARM. If the iommu_group has two members, port driver
-> and a VFIO device then:
-> 
->   The port driver will start first, install the ITS page in the DMA
->   domain, VFIO will start second an switch the domain to BLOCKED, then
->   to PAGING, and the ITS mapping used by the port driver will be lost.
-> 
-> And nobody will notice this has happened because the interrupts in the
-> port driver are only used for RAS IIRC so the net effect is your
-> system doesn't print AERs anymore.
+SpecSEI is the only case we currently deal with that is
+HIGHER_SAFE. But look at what this feature describes: bloody
+speculative SErrors! Not taking this into account could be really
+deadly, and the kernel really ought to know about it.
 
-Indeed VFIO's MSI cookie doesn't inherit any existing mappings from the 
-DMA domain, and that wouldn't work anyway since the IOVAs would almost 
-certainly be different. So we'd have to somehow free any existing AER 
-interrupts before the domain switch, then fully re-request and reprogram 
-them afterwards, in both DMA->UNMANAGED and UNMANAGED->DMA directions. 
-Oof...
+>
+> The features in this patch are FTR_LOWER_SAFE or FTR_EXACT (which
+> happen to sink to safe_val), which is why it's not a problem with
+> these current features.
+
+My conclusion is that it is simply not safe to make such feature
+conditional in any way. Note that's also the case of for an override:
+look at how we will refuse to downgrade a value in init_cpu_ftr_reg():
+
+		if ((ftr_mask & reg->override->mask) == ftr_mask) {
+			s64 tmp = arm64_ftr_safe_value(ftrp, ftr_ovr, ftr_new);
+			char *str = NULL;
+
+			if (ftr_ovr != tmp) {
+				/* Unsafe, remove the override */
+				reg->override->mask &= ~ftr_mask;
+				reg->override->val &= ~ftr_mask;
+				tmp = ftr_ovr;
+				str = "ignoring override";
+		[...]
+
+I think we must prevent this downgrade the same way, meaning that
+ALL_HIDDEN and FTR_HIGHER are mutually exclusive.
+
+How about that:
+
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index d58931e63a0b6..2cae00b4b0c5f 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1067,7 +1067,14 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
+ 			user_mask |= ftr_mask;
+ 			break;
+ 		case FTR_ALL_HIDDEN:
+-			val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
++			/*
++			 * ALL_HIDDEN and HIGHER_SAFE are incompatible.
++			 * Only hide from userspace, and log the oddity.
++			 */
++			if (WARN_ON(ftrp->type == FTR_HIGHER_SAFE))
++				val = arm64_ftr_set_value(ftrp, val, ftr_new);
++			else
++				val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
+ 			reg->user_val = arm64_ftr_set_value(ftrp,
+ 							    reg->user_val,
+ 							    ftrp->safe_val);
 
 Thanks,
-Robin.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
