@@ -4,171 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9537C54FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 13:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82900C54FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 13:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4LiVMpJfAM/9gEWoxOqPDuhOLf0BttWfT8E+MGFXDrI=; b=UhAZ36LHUF+JWMDgxkhpx2Z/Ym
-	gqonrhOZeZD9qwWTKXzPV/+3B/K9mM2ewdhU2BWaaFymPwHObFv2//XJSsiCho+2WsBpw4saiKqTy
-	50EPG8g1xuweN7RGfaceVuP/ZtvFde4AKIhc6ONZ+Y8CZMlA4fP/gVFauR+al34raFG2ib/wq76d+
-	F2qfaHbTZKFvNhBJWARxflXH9Ez73O3mFiCO5cIYGbBA4ghZVS4uAFrj/yz8dlrU5Cs52oR5mrFO0
-	otvVOzC4LM6Wxq7WuuHPKGF3yVh/yFi4EBIjkgA5I7RPjA/YReOJFVSC1pb0qWDtnDKq0wLsOXuse
-	UH5NxZEw==;
+	bh=xmweD/7gbsx6kV4w/UtdECdkLFgQu5HsrMzfVi+Kscw=; b=xo9JeFem/kPDNusiqYNhwLkxWB
+	34BqdZFbE2QhU7W162967wSskZq6kZ1o4o9nIDIKXOgVu0z8+2i1lW5Rw15WWQvIxBN5ZXwJEoFcn
+	x2QIuLcMwZqBSrokdLupEckN1+dJXyTFv5gYkxCyvFql2E8NtLkw2c+TaBSosFJD4ZZQ/7L+Nby2+
+	bcutSh1spIXPEdOTGMDAuyK9lJediqBYjzZLgzCJ/YQ85RX1v6PwuajvsN2LLKQSUcU+rKZYZRstk
+	euDMcrHYUlRNDrk8DCwk2cwIWuT2bcPJ0HCbloAE09WnrJ0ugD1U7GbGLODVjEkJdBHCQ/pizqtFk
+	kCtyXnsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtQus-0000000Ebyk-0Wwx;
-	Fri, 20 Feb 2026 13:51:34 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vtQw6-0000000EcWV-299d;
+	Fri, 20 Feb 2026 13:52:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtQuq-0000000Ebwg-0lwF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 13:51:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Dn8AlByYz2I49gRCx/UGA18TD7zp9RYt7PJxkDwbhRx8LkAPECEA/HsAF88mYJpE7u2Pc0VIsI7m/c0oheHO1b5zaePshlpnum0MwvbxWzFkuMArAzo0CVLnUsAM9S98NXH9h2hDALCd9NPH0gvmAsKN0Kf4I8UKsUMVSeKA+8kyDvipf97HgBO2OOCprEO5qk+G4JrXpKq7jU2ghFEKem4Uovl7eF0mhSL2KIUMfBCn/C76d2X+Do4v+sknIebNs74wy4fuixFZC4sVetCpjcm34NTpAjJVfdMHudaF4QNJ2TmjJ/z9BFXuvm5LQfpcjq9wOgF+46g/3/skxTWVQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4LiVMpJfAM/9gEWoxOqPDuhOLf0BttWfT8E+MGFXDrI=;
- b=yKzKxm6zEkqVmukiZa/WqmWgiZYe7240vehNjeY8jqpeYMAr7EHcPxf8UG5yNtYYmKUJbtLEzyavz/KcQxYSHtrdUC+PK14EntlevUAlWPpozotf2Y8z7UyUro8naLWsY6EyWVSYos3Wje3GjvG21fGmNT36qUgzqFhuYICFYNJHF5h6pGwDr/lNqr6QH8lCQR9m0d7g+jhhA0fWMTq0Tv8dmt/pumCRAY8OF4oNhbZZKWhK+tgkZxJZUQ8hXs2piRKLuwAb8vy6JS/5vt+HdB0wQkeZAp2IB+yi2zDhxv8vC7pVhmbkVMM78GLpYPGE6JfTxWGcUvSvISpYz8A1Rg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4LiVMpJfAM/9gEWoxOqPDuhOLf0BttWfT8E+MGFXDrI=;
- b=GrDudmLzvHt21BRpjnDSyqAchp55Oca/hWYs9UASN4Tw9/iEPOI4g3u+JUDb2/aClra6U30G7jIotBJ+3VweQYoPYGuZ+2Zn77+8CAqQSCaOiblBpVqTDcUgtxalbYmNGdNVbk3DsjUT76mqbBEDiY217erxZ18C0ZzrfBxCXAD8NL8cuKoo9+WhKZJ7SAAqOqB+qJdp4DXENiIwIRsQ8wclr1eLmmFs3KfhDcCnY70D8fePh5d6+I3QZ8fdmlp/kxLqpG+C/AA7+gj2Gw2Y8usBqF+rsNLF/4ig9Mhbyr4tPMgcg9Gig3WLuLILqBXSaLjx7AzPRUN+kEodNpdDFQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH0PR12MB999111.namprd12.prod.outlook.com (2603:10b6:510:38d::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.16; Fri, 20 Feb
- 2026 13:51:25 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9632.015; Fri, 20 Feb 2026
- 13:51:25 +0000
-Date: Fri, 20 Feb 2026 09:51:24 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, dan.j.williams@intel.com,
-	"Tian, Kevin" <kevin.tian@intel.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"praan@google.com" <praan@google.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
-Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <20260220135124.GA1894399@nvidia.com>
-References: <20260203143348.GA3931454@nvidia.com>
- <aYI0LUdXqrjmRcMo@Asurada-Nvidia>
- <20260203175540.GC3931454@nvidia.com>
- <aZZDo3BeuBKh9q24@nvidia.com>
- <20260219143737.GG723117@nvidia.com>
- <aZc//6kvH3Eqfwfe@nvidia.com>
- <20260219174139.GI723117@nvidia.com>
- <aZfoqETxb31jp/Pk@nvidia.com>
- <20260220125044.GK723117@nvidia.com>
- <6a842339-3f0a-48db-830a-326add917519@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6a842339-3f0a-48db-830a-326add917519@arm.com>
-X-ClientProxiedBy: MN2PR22CA0020.namprd22.prod.outlook.com
- (2603:10b6:208:238::25) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1vtQw5-0000000EcWJ-1OlQ;
+	Fri, 20 Feb 2026 13:52:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 795CA6185C;
+	Fri, 20 Feb 2026 13:52:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 641F9C116D0;
+	Fri, 20 Feb 2026 13:52:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771595568;
+	bh=aJGPw6xiAsZTtMPiPneO1+9rWvTeQEo9/V119zgzdQI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qlprimWhb4kQEKZDGi7XLSDwdRunTxR1cv0GBpYcShzsfNy+KhKEBUCZmWOYh3uPk
+	 uWxZCIjnDSZTcJ9hk7EDBb0EROaBxaJqvJBZO0LmObsZALxa35hDpEOFn41nhvzsa0
+	 /hoxG4Jwf4SwRIDqCdA0vFiZ7AUQKC1y2WmVZ0U4e/cw9FkCkA3ba+XE5rXjydLBO5
+	 fLy+MZS16WTJ0873myGAdlx//NOrrRS6zd7S7XZcXhUHGPi42hY5t6Z3u3qWvS+anD
+	 FxSycZGAlEJhwVnPJlOc2wBKfCQ1GTTU7rplN8sPIC/Izg3EBuw5M0/6RNrDZYSDgD
+	 0LyGqNCIYILng==
+Date: Fri, 20 Feb 2026 21:34:14 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: use runtime constant to optimize
+ handle_arch_irq access
+Message-ID: <aZhi1p0NJH5ug8CA@xhacker>
+References: <20260220090922.1506-1-jszhang@kernel.org>
+ <20260220090922.1506-4-jszhang@kernel.org>
+ <20260220123414.GF136967@e132581.arm.com>
+ <aZheqINXslxlrmTt@xhacker>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH0PR12MB999111:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5bade779-014e-4e60-f025-08de7087239b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?slPMFCVOZkNPR6Y4z7xgG1j85gS0L7zEPL2u+iP7BNMHWRM9IR3Ae/B8saYz?=
- =?us-ascii?Q?IlA2cnnBwqNWvpzURYQmz9ROH+IeViHkoxt4KVOk/6KJjA6N2NQGN/oZHNsy?=
- =?us-ascii?Q?SWwCKyWY0WwZDvODSg08jHzCnIEqvppV0qEir/q7YmDhww4eNu2IH3MpG1wU?=
- =?us-ascii?Q?XGOvGurKNMPW1yMlkdxXTf7BNgVyx8YmHyh4zMoMX+2TtzDHNwNWR9Pgzlgq?=
- =?us-ascii?Q?eVwkwFDyt0O8owzwYOvmtN1pVRCgD87vDK9cu2A+hAri3SRjcnxyI6Jba0cz?=
- =?us-ascii?Q?TCPD3aAVgGDWOXB1OONwSqWLYkKBtrdETcgcg1OXpp474owBMQhCVm0n66pC?=
- =?us-ascii?Q?Vyp8cxcO1zlvmbPXJWdG5iTVSDOgAFE5prZUo1erqYi22twlNeHDZw9nIhHk?=
- =?us-ascii?Q?vFjT4XFO6VMmSw/1sdI/76ILwjOqy5dZ+6nwhNW4/+cCll5FGainAaS6xgUd?=
- =?us-ascii?Q?uEsHFC3L6SofmYiO93VNABSkpXUBUKeQv5LjY5pC8FXaTk0rGr+XAmHlRd7W?=
- =?us-ascii?Q?HxqZP1jbQJYOwBKMWZUUUUGKbyorbMFDfvnKKfpmOlKulsnAOWU8NKi6a7fa?=
- =?us-ascii?Q?uD7OZXxolHUb1voxnyOfUfiVT+Ub82GRVmJOHUn0m0rzPCvvVXB5ZtyihEnp?=
- =?us-ascii?Q?x/CLjFfB/K1x+TH7nlA75730H/Xdq80s0DHYDYg359O1Ny2js6/3fNEZAUwN?=
- =?us-ascii?Q?gXSiKzsLUb9p2/VfcA//L+Sl9WKt0q1vyNrkclZ8/RPQ16NcShIskGP2xYtX?=
- =?us-ascii?Q?WmVOC/VfwKU01M7l8pAxeBZvCp3fyVuUIYjfXUyZwEC0vp5wC91iwSR8qhMc?=
- =?us-ascii?Q?pGGPAUSj5r84/RpZk8QxQHpY3+vY5lc5T3iV8WKxRqc7KQIJ34ZAvQoVZsnx?=
- =?us-ascii?Q?Jm0ZfIc4xXqhgqKhwnddvTwidF5qGz3XyHMk07Uqr8B7Gal08cn5URS+aH1b?=
- =?us-ascii?Q?C5gcN/CmcT01bRTe5vocmr2RAN7wptO43v7iTGyAY+iLniLU2YSJXvf+pZSW?=
- =?us-ascii?Q?XcPpcfTyUgkQbwX+JVArOO8VLgnc+V2PxxqWTR1O6mY0jDwO232ZFo0C8nVD?=
- =?us-ascii?Q?42YUH30IER/Nhs9GDKhmxx2XnqlUG9TJ6qxepgHEkcY8kGV3tey0wQdxG8Yj?=
- =?us-ascii?Q?GfCdtsv0HYJSP5Ld9KrnVLKVZ5t0fnepfsZ2n8V7O3MNJaiHQ4aJYEgGlkBm?=
- =?us-ascii?Q?4vxuDprbsfcgZARqh/gGqENaKGlV9OWy6vG9HoLo+Zu1QpMMKICsSMfjRnKi?=
- =?us-ascii?Q?6jhWrxfhSiWV4CkWOalVJSqxfzT8icHVzm01GaFJvgVGsoVB5kqpQ6C3apjV?=
- =?us-ascii?Q?665DwQ/KxNgFQuM/+PkjMCg4JjyZ2gyzCIYV8JNEQRrPCfF2RU+tI1uumrIR?=
- =?us-ascii?Q?MhVhLFIry0EP5d9YX9F9ZS7uohbv648UOHphG3PE7FTQ8l1oYxrq2tDHl79b?=
- =?us-ascii?Q?DcBKLARKvnxCPXKtrtxQLdlOldqu/RWYRugunDtC8wyHQJ3E1i0LFh7Ylysa?=
- =?us-ascii?Q?GmZvBMCx+We/QcM8J5CMd0b9O1GTlT384suzrDHeaaLKuyc0GoOaXKKSwIQU?=
- =?us-ascii?Q?LYn9hUpydhCe8POn1gs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eRxUoidr2/N3xwsQxym4Vc743KXSWbaBHkKzbeB4IrOWfmf2rR/gnyolA4eI?=
- =?us-ascii?Q?5CKDlLCPPDIIjmhgZw4GtgPgS5bOcQxB20yyxjWEl0taTs5wbSJDk2A9IUIJ?=
- =?us-ascii?Q?T8zQPvqBVEpvallTd0ofGUxAkKftfdugbHi0XPeoNUUWkIU3Q8vbaL73yEQF?=
- =?us-ascii?Q?PEYTD9/dFISAojUaqcE4Y4AmI37Rz9T+tAIwOFM0VwL0GYol428AqUdsKDP6?=
- =?us-ascii?Q?Tm0kBOzhALwqWjr77Du3BdZBYizqLEo50JYMGWMmrqzeyJVkIXb/RMKhQqyG?=
- =?us-ascii?Q?l3vzhGvBE+sr8dmadODzkzhGqJBjvmXbqx4KB8AqysimHW/5CgFjfIv+kbg8?=
- =?us-ascii?Q?orgRFXEBx3l/5eXnjDkk9itupo4hBplyPJrsCTxw95lgvGumLYdrNTIDQOzq?=
- =?us-ascii?Q?9smSQ5C9nV8QubuWLW53RZ5HJjXxm5ehcg0bvaE85Dc7tFru/YBPs+pXk7Ol?=
- =?us-ascii?Q?xUJjStwwVNEeLrTYSXBXigPl+zW5oc+D68yvCvi0wMyhZ0JnPepF+Nf5wZlp?=
- =?us-ascii?Q?YJRfAFPZ1qrnyubGWXDsNGmfYc/YHtZCTzorhWC1nBn/zbcnaxk3H3trN0D1?=
- =?us-ascii?Q?N1QLIEdwG7bQZq+Npa9GhgkB9QxJM/9Ud9sqBooMIOV495/Gp9jNYSTrqj1T?=
- =?us-ascii?Q?LmiF7Ggw2WSek3O01L3btpdyUNCjyVvS3isf6MN5UrWyqO6QbA3cCSfGTGqL?=
- =?us-ascii?Q?azks9I5TAp8HD0peBs1Ga0LFdX/M0X5RlQ46pvFVAz41e497ouaJTasKgryF?=
- =?us-ascii?Q?HGOBl4kHteLgKs6Nqpy31DOG/pX09uSmiMvA7bUvYH7IWiRkH06emZaFOKNN?=
- =?us-ascii?Q?++bt4p2tV5j+02SKIAamxOJQFw/yI0UsbMsxIKs7mxr6F3iefjVoe478kQON?=
- =?us-ascii?Q?JcRIdWO27KVNTVHlvODuzblI1/l9imFJdUCcQlE+ooCZw0rnzqP46JH8IcMr?=
- =?us-ascii?Q?J5V2G+Qt5QTcifY9KXiZsjJr8YmkHc7fjMVxFZEzdK7RuHLFlocPAr7SvuJw?=
- =?us-ascii?Q?U9ijMRXUuCrJmPEZNJNOg2WkUMR+yA8TXwh5wVeGJrlP8z2oluuN/Usw/qf0?=
- =?us-ascii?Q?A1sylEm7xtYz7obp0Sye5fbvF1yTuUfajZxb/2aebSGC2XUWGmAmSxZGuifk?=
- =?us-ascii?Q?mFgu4s57dhuKLmIilC1fdJL6ILR0SbtPTP/E4tl5Zt4ZNL6nPPasYdP/4T3D?=
- =?us-ascii?Q?ND0r461RIYt1speAj91idiHC/acLFbFBZ27gCzwVHYkUsKFxH/6p9cN6Vtaj?=
- =?us-ascii?Q?DR0A8JVQ+uFXznMdNhKHlJN9TRAVDQRDROdbUDT2cTyIY/YD0UKR8UyEA4aY?=
- =?us-ascii?Q?zCBn5hMf6/fPnM5Z55sz7Aco0MiTaBmEx94NsBwalygYaP03gjYh8+HjYBSm?=
- =?us-ascii?Q?0BqMTZkxL8ZaoXZPn0oDigwfQX03ifL7H9Pecn+jWVyhT+Bi/flSYsmTMjRF?=
- =?us-ascii?Q?vh0MjeFWS0wsmq9z1mKj7V3o9cCCryhwK16CLPzH289e4brZYXQjazajz6Co?=
- =?us-ascii?Q?G3po+3F1maQh1taRwttTFthaSrYuwvvFOi3eNiXUm04NOZwIq2Lt/B7HNcR7?=
- =?us-ascii?Q?kS8cMgIt3oG/NNopn1eLErAY0l+05ZFFOXnMedbABs5NmtEuv66sRKXNWQa2?=
- =?us-ascii?Q?IVSJJVG7OKYK+nyF3wpIeeOyz556pyKT2xajPRp2fNQ+x424Bk0TFALu4lOp?=
- =?us-ascii?Q?Ja6GFas7Z+mVulHZlkIstT1guRbOTRIIShHNgNTUJTJHEuZzqO1oLSjlhIJx?=
- =?us-ascii?Q?Ueiu7kQPPQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5bade779-014e-4e60-f025-08de7087239b
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 13:51:25.5786
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xIEW4wMzyEFyb9sXfD83HDEp+lJVTUtP+xeQN7REhkcLYO8FRe7vT7UujTqSTWHT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB999111
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_055132_237700_63B91DA7 
-X-CRM114-Status: GOOD (  15.91  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aZheqINXslxlrmTt@xhacker>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,42 +77,285 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 01:22:49PM +0000, Robin Murphy wrote:
+On Fri, Feb 20, 2026 at 09:16:24PM +0800, Jisheng Zhang wrote:
+> On Fri, Feb 20, 2026 at 12:34:14PM +0000, Leo Yan wrote:
+> > Hi Jisheng,
+> 
+> Hi Leo,
+> 
+> > 
+> > On Fri, Feb 20, 2026 at 05:09:22PM +0800, Jisheng Zhang wrote:
+> > > Currently, on arm64 platforms, the handle_arch_irq is a pointer which
+> > > is set during booting, and every irq processing needs to access it,
+> > > so it sits in hot code path. We can use the runtime constant mechanism
+> > > which was introduced by Linus to speed up its accessing.
+> > > 
+> > > Tested on Quad CA55 platform, the perf sched benchmark is improved
+> > > by ~6.5%
+> > 
+> > 6.5% is a quite high margin, especially for only one pointer's change.
+> > Maybe it is good to share more info for which compiler you are using,
+> > how you tested and the detailed results.
+> 
+> Sure. 
+> aarch64-linux-gnu-gcc version 15.2.0
+> 
+> my kernel defconfig is a minimal arm64 version which disables most
+> drivers, only keep timer, gic, pll/clk, uart, regulator and i2c controller
+> The reason is to avoid OS noise as much as possible.
+> It's also put at the end of the email for reference.
+> 
+> testing cmd:
+> perf bench sched pipe
+> 
+> testing steps:
+> booting into a buildroot minimal initramfs
+> force cpufreq governor as performance
+> run above cmd
+> 
+> testing resuls:
+> before the patch:
+> 9.471988 usecs/op
+>   105574 ops/sec
+> 
+> after the patch:
+> 8.896280 usecs/op
+>   112406 ops/sec
+> 
+> (112406 - 105574) * 100 / 105574 = ~6.5 %
+> 
+> Let me know if you need more details
+> 
+> 
+> > 
+> > I played a bit on my juno board on CA73 cores with the command:
+> 
+> IIRC, Juno is powered by a big.little SoC, then we need to ensure
+> the benchmark is always running on big or little cores when testing, to
+> ensure apple to apple comparison.
+> 
+> I also have a CA73 platform, but can't access it now. I'll test the
+> patch next week.
+> > 
+> >   perf bench sched all
+> > 
+> > Run 3 iterations, and measures three metrics (messaging/pipe/seccomp)
+> > and results in seconds. Less is better.
+> > 
+> >   +---------------------+--------+--------+--------+--------+
+> >   |Without change       |   run1 |   run2 |   run3 |    avg |
+> >   +---------------------+--------+--------+--------+--------+
+> >   |messaging (sec)      |  4.546 |  4.508 |  4.591 |  4.548 |
+> >   |pipe (sec)           | 24.258 | 24.224 | 24.017 | 24.166 |
+> >   |seccomp-notify (sec) | 48.393 | 48.457 | 48.232 | 48.361 |
+> >   +---------------------+--------+--------+--------+--------+
+> > 
+> >   +---------------------+--------+--------+--------+--------+--------+
+> >   |With change          |   run1 |   run2 |   run3 |    avg |   diff |
+> >   +---------------------+--------+--------+--------+--------+--------+
+> >   |messaging (sec)      |  4.493 |  4.523 |  4.556 |  4.524 | +0.52% |
+> >   |pipe (sec)           | 23.159 | 23.702 | 28.649 | 25.170 | -4.15% |
+> 
+> If you check the result, this result variance is abnormal, it means
+> your OS is noiser.
 
-> But is that an issue? Until the device has a driver, surely it shouldn't be
-> expected to send interrupts at all, much less depend on them being received
-> and understood by Linux? The MSI cookie is only populated once a driver
-> actually requests some MSI vectors (since it doesn't know what ITS
-> address(es) may or may not need mapping), so an empty DMA domain is still no
-> better than a true blocking domain in this regard anyway.
+BTW: if you remove the abnormal run3 result, you'll find that the
+benchmark is improved by ~3.5% on CA73:
+(23.159 + 23.702) / 2 = 23.43
+(24.258 + 24.224) / 2 = 24.24
+(24.24 - 23.43)*100 / 23.43 = ~3.5
 
-Oh, the issue is the driver_managed_dma flag.
-
-In this mode we do bind a driver but the iommu callbacks at driver
-bind are not called anymore because that flag says the driver itself
-will call them later.
-
-Things like PCI port driver that never issue DMA at all will set the
-flag and never make any calls, while still expecting interrupts to
-work.
-
-This is why the other option is to rework this somewhat so these
-drivers still make call in to the iommu and can get an interrupt
-setup.
-
-All of this is only for multi-device groups where we want to ignore
-some bad grouping with VFIO on old HW without sufficient ACS. Thinking
-about it some more I suspect this entire concept has been broken from
-day 1 in VFIO on ARM. If the iommu_group has two members, port driver
-and a VFIO device then:
-
- The port driver will start first, install the ITS page in the DMA
- domain, VFIO will start second an switch the domain to BLOCKED, then
- to PAGING, and the ITS mapping used by the port driver will be lost.
-
-And nobody will notice this has happened because the interrupts in the
-port driver are only used for RAS IIRC so the net effect is your
-system doesn't print AERs anymore.
-
-Jason
+> 
+> >   |seccomp-notify (sec) | 46.848 | 46.938 | 46.973 | 46.920 | +2.98% |
+> >   +---------------------+--------+--------+--------+--------+--------+
+> > 
+> > With this patch, the messaging test shows a minor improvement (0.52%).
+> > 
+> > The pipe test performs worse (-4.15%) after applying the patch. However,
+> > one positive signal is that the minimum latency is 23.159, which is
+> > lower than without the change (24.017).
+> 
+> The perf bench is sensitive to OS noise, so I disable most devices, only
+> uart, timer, irq chip, i2c and regulator is kept,  and stop all daemons
+> only keep a usespace process bash shell.
+> 
+> defconfig for reference:
+> 
+> # CONFIG_LOCALVERSION_AUTO is not set
+> CONFIG_SYSVIPC=y
+> CONFIG_NO_HZ_IDLE=y
+> CONFIG_HIGH_RES_TIMERS=y
+> CONFIG_PREEMPT=y
+> # CONFIG_CPU_ISOLATION is not set
+> CONFIG_BLK_DEV_INITRD=y
+> # CONFIG_RD_GZIP is not set
+> # CONFIG_RD_BZIP2 is not set
+> # CONFIG_RD_LZMA is not set
+> # CONFIG_RD_XZ is not set
+> # CONFIG_RD_LZO is not set
+> # CONFIG_RD_LZ4 is not set
+> # CONFIG_INITRAMFS_PRESERVE_MTIME is not set
+> CONFIG_EXPERT=y
+> # CONFIG_UID16 is not set
+> # CONFIG_SYSFS_SYSCALL is not set
+> CONFIG_PROFILING=y
+> CONFIG_ARCH_BERLIN=y
+> # CONFIG_ARM64_ERRATUM_826319 is not set
+> # CONFIG_ARM64_ERRATUM_827319 is not set
+> # CONFIG_ARM64_ERRATUM_824069 is not set
+> # CONFIG_ARM64_ERRATUM_819472 is not set
+> # CONFIG_ARM64_ERRATUM_832075 is not set
+> # CONFIG_ARM64_ERRATUM_845719 is not set
+> # CONFIG_ARM64_ERRATUM_843419 is not set
+> # CONFIG_ARM64_ERRATUM_1418040 is not set
+> # CONFIG_ARM64_ERRATUM_1165522 is not set
+> # CONFIG_ARM64_ERRATUM_1463225 is not set
+> # CONFIG_CAVIUM_ERRATUM_22375 is not set
+> # CONFIG_CAVIUM_ERRATUM_23154 is not set
+> # CONFIG_CAVIUM_ERRATUM_27456 is not set
+> # CONFIG_CAVIUM_ERRATUM_30115 is not set
+> # CONFIG_CAVIUM_TX2_ERRATUM_219 is not set
+> # CONFIG_FUJITSU_ERRATUM_010001 is not set
+> # CONFIG_HISILICON_ERRATUM_161600802 is not set
+> # CONFIG_QCOM_FALKOR_ERRATUM_1003 is not set
+> # CONFIG_QCOM_FALKOR_ERRATUM_1009 is not set
+> # CONFIG_QCOM_QDF2400_ERRATUM_0065 is not set
+> # CONFIG_QCOM_FALKOR_ERRATUM_E1041 is not set
+> # CONFIG_SOCIONEXT_SYNQUACER_PREITS is not set
+> CONFIG_NR_CPUS=4
+> CONFIG_HOTPLUG_CPU=y
+> CONFIG_HZ_100=y
+> # CONFIG_UNMAP_KERNEL_AT_EL0 is not set
+> CONFIG_COMPAT=y
+> CONFIG_ARMV8_DEPRECATED=y
+> CONFIG_SWP_EMULATION=y
+> CONFIG_CP15_BARRIER_EMULATION=y
+> CONFIG_SETEND_EMULATION=y
+> # CONFIG_ARM64_HW_AFDBM is not set
+> # CONFIG_ARM64_PTR_AUTH is not set
+> # CONFIG_ARM64_AMU_EXTN is not set
+> # CONFIG_ARM64_SVE is not set
+> # CONFIG_EFI is not set
+> # CONFIG_SUSPEND is not set
+> CONFIG_CPU_IDLE=y
+> CONFIG_CPU_IDLE_GOV_TEO=y
+> CONFIG_ARM_PSCI_CPUIDLE=y
+> CONFIG_CPU_FREQ=y
+> CONFIG_CPU_FREQ_GOV_USERSPACE=y
+> CONFIG_CPUFREQ_DT=y
+> CONFIG_JUMP_LABEL=y
+> # CONFIG_VMAP_STACK is not set
+> # CONFIG_BLOCK is not set
+> # CONFIG_COMPAT_BRK is not set
+> # CONFIG_COMPACTION is not set
+> CONFIG_CMA=y
+> # CONFIG_ZONE_DMA32 is not set
+> # CONFIG_VM_EVENT_COUNTERS is not set
+> CONFIG_SYNA_DOLPHIN_PLL=y
+> CONFIG_SYNA_CLK_BASE=y
+> CONFIG_SYNA_MYNA2_CLK=y
+> CONFIG_PINCTRL_MYNA2=y
+> CONFIG_USB_DWC3_SYNA=y
+> # CONFIG_SYNAPTICS_PCIE is not set
+> CONFIG_REGULATOR_HL7593=y
+> CONFIG_PHY_SYNA_USB=y
+> # CONFIG_SYNAPTICS_I2C is not set
+> CONFIG_BERLIN_CHIPID=y
+> CONFIG_BERLIN_AXI_METER=y
+> # CONFIG_SYNAPTICS_NET is not set
+> # CONFIG_SYNAPTICS_VIDEO is not set
+> # CONFIG_SYNAPTICS_SOUND is not set
+> # CONFIG_SYNAPTICS_DEVFREQ is not set
+> # CONFIG_SYNAPTICS_DMABUF is not set
+> # CONFIG_SYNAPTICS_IRQCHIP is not set
+> # CONFIG_SYNAPTICS_INPUT is not set
+> # CONFIG_SYNAPTICS_BLUETOOTH is not set
+> # CONFIG_SYNAPTICS_CLOCKSOURCE is not set
+> # CONFIG_SYNAPTICS_DMA is not set
+> # CONFIG_SYNAPTICS_TTY is not set
+> # CONFIG_SYNAPTICS_LEDS is not set
+> # CONFIG_SYNAPTICS_MFD is not set
+> # CONFIG_SYNAPTICS_MISC is not set
+> # CONFIG_SYNAPTICS_MTD is not set
+> # CONFIG_SYNAPTICS_PWM is not set
+> # CONFIG_SYNAPTICS_RTC is not set
+> # CONFIG_SYNAPTICS_SPI is not set
+> # CONFIG_SYNAPTICS_STAGING is not set
+> # CONFIG_SYNAPTICS_WATCHDOG is not set
+> # CONFIG_SYNAPTICS_MAILBOX is not set
+> # CONFIG_SYNAPTICS_RPMSG is not set
+> # CONFIG_SYNAPTICS_CRYPTO is not set
+> CONFIG_UEVENT_HELPER=y
+> CONFIG_DEVTMPFS=y
+> CONFIG_DEVTMPFS_MOUNT=y
+> # CONFIG_ALLOW_DEV_COREDUMP is not set
+> CONFIG_INPUT_EVDEV=y
+> # CONFIG_INPUT_KEYBOARD is not set
+> # CONFIG_INPUT_MOUSE is not set
+> # CONFIG_SERIO is not set
+> # CONFIG_VT is not set
+> # CONFIG_LEGACY_PTYS is not set
+> # CONFIG_LEGACY_TIOCSTI is not set
+> CONFIG_SERIAL_8250=y
+> # CONFIG_SERIAL_8250_DEPRECATED_OPTIONS is not set
+> CONFIG_SERIAL_8250_CONSOLE=y
+> CONFIG_SERIAL_8250_NR_UARTS=2
+> CONFIG_SERIAL_8250_RUNTIME_UARTS=2
+> CONFIG_SERIAL_8250_DW=y
+> # CONFIG_HW_RANDOM is not set
+> # CONFIG_DEVPORT is not set
+> CONFIG_I2C=y
+> CONFIG_I2C_CHARDEV=y
+> CONFIG_I2C_DESIGNWARE_CORE=y
+> CONFIG_GPIO_SYSFS=y
+> CONFIG_GPIO_DWAPB=y
+> CONFIG_GPIO_FXL6408=y
+> # CONFIG_HWMON is not set
+> CONFIG_MFD_SYSCON=y
+> CONFIG_REGULATOR=y
+> CONFIG_REGULATOR_FIXED_VOLTAGE=y
+> CONFIG_REGULATOR_GPIO=y
+> CONFIG_REGULATOR_TPS6286X=y
+> # CONFIG_HID_SUPPORT is not set
+> # CONFIG_USB_SUPPORT is not set
+> CONFIG_DMABUF_HEAPS=y
+> CONFIG_DMABUF_SYSFS_STATS=y
+> CONFIG_DMABUF_HEAPS_CMA=y
+> # CONFIG_VIRTIO_MENU is not set
+> # CONFIG_VHOST_MENU is not set
+> # CONFIG_SURFACE_PLATFORMS is not set
+> # CONFIG_ARM64_PLATFORM_DEVICES is not set
+> # CONFIG_ARM_ARCH_TIMER_EVTSTREAM is not set
+> # CONFIG_FSL_ERRATUM_A008585 is not set
+> # CONFIG_HISILICON_ERRATUM_161010101 is not set
+> # CONFIG_ARM64_ERRATUM_858921 is not set
+> # CONFIG_IOMMU_SUPPORT is not set
+> CONFIG_RESET_CONTROLLER=y
+> # CONFIG_DNOTIFY is not set
+> # CONFIG_PROC_PAGE_MONITOR is not set
+> CONFIG_TMPFS=y
+> CONFIG_CONFIGFS_FS=y
+> # CONFIG_MISC_FILESYSTEMS is not set
+> CONFIG_DMA_CMA=y
+> CONFIG_PRINTK_TIME=y
+> # CONFIG_SECTION_MISMATCH_WARN_ONLY is not set
+> CONFIG_DEBUG_FS=y
+> # CONFIG_SLUB_DEBUG is not set
+> CONFIG_SOFTLOCKUP_DETECTOR=y
+> CONFIG_DEBUG_ATOMIC_SLEEP=y
+> CONFIG_STACKTRACE=y
+> # CONFIG_RCU_TRACE is not set
+> # CONFIG_FTRACE is not set
+> # CONFIG_STRICT_DEVMEM is not set
+> # CONFIG_RUNTIME_TESTING_MENU is not set
+> > 
+> > For seccomp, the results indicate a benefit (2.98%) from the change.
+> > 
+> > Hope this is helpful for maintainers to judge the change.
+> > 
+> > I'd leave maintainers to review the code.
+> > 
+> > Thanks,
+> > Leo
+> 
 
