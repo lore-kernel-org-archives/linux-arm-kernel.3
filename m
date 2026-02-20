@@ -4,165 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BDBC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 09:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9B9C55170
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 09:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nJulJDHR0ls5qI0ZbpX1M5TudGVe7SWtYg/eli4fPRA=; b=MHx+Q5u3zbbjDe8+UA5VU1l6sf
-	++oDfPx0I08wsxZkLh/Bi43ZsxEdyRoAsme3doGNp6v/3BCIO/BO2z7yJ4vFOMJmQG/Ps7/6Vqeqn
-	KYp6j0AoaQofSLRjBkNPR+feGLUA1Ih9T62GbakgGp7zXBaC7H6C9itcPd9o5LqBfqpbz8nGd+3HO
-	pSKq1V4P7j9g1cUTLgpOHStShketmZpkaN5use7hU+PPwIupCMiEd1SQaMtptdJOj43FBLG3u0t8N
-	l02bNUfc249jA3tUj/BL68QV7AxWQg4N+wPyULZpfgRlvqICye8nNE78nwDt8r6e/yrFHh2BE+Fb1
-	/XrLW1gg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1QYWhTLV3Gti7sQcrXZ3Z2dm6z9hyQXKslVt7rNMQUs=; b=MBJ6WxDYLs3OcaBK1MYqhp+Mn5
+	m6YqdCyU6QMWxHCVuncIgyaSM+RkxnF/nabAJEZce28SecAzDlfK4tvM7m1wBxE/+T4AZUgy8I4tJ
+	c9KhEbsNALqPB5U7X7vCAmxGhOm0edQ7Gnl7MMew1zQC6FJKzCxTEaDrtcU9+9JNt6ajnntmbNEDG
+	t02AEIAUMo9meJKnMiwJw6CRH4lVc4MXDZAd4PGevIESycx8vg0UdBad5nMtex4CQyn9DaloF4pQ8
+	aGcL6EOd2MumC6saYcsQfx8+gHpDA3U3hD6VyUR25h1nff5Xvws2uwEThkDHkIudiIh/kgnExYVe7
+	NBPI+/KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtMd5-0000000DT1B-2ule;
-	Fri, 20 Feb 2026 09:16:55 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vtMnl-0000000DVN3-1io4;
+	Fri, 20 Feb 2026 09:27:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtMd3-0000000DT0q-0zeY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 09:16:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=psyHBf+Atna3qChi3R5QJxatvFVSP3Gvs+XcZ0Fk5AAVNR+Q89YsNqLSiA0sRCwMHtP/ANjadXq9tyd6KkdZKVWGcSYRXOuVbWtve13cHEH2NgKVrw6lUGSXgoCF5GhgP5K7/4rYcnU+b2x+kIB5Ji+XJBa2Yw3zXT/5ukQBq9R26tgDp9TTREbTWCDbIxb+30nOmhQLW0o1HNkvBu0O0M6qQbg15UG+nXWrYAwZbIm6sscvJxWnprA7hdgAgn3mxzgjIiJG7VhyvlB85R4THW1L4PEXgFl+/nMsaTMnakI4C/GYGBhf/65zeGBrRSSRV+CdiLzQTIB15Qaa1O+ulw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nJulJDHR0ls5qI0ZbpX1M5TudGVe7SWtYg/eli4fPRA=;
- b=Qq5vogJgVf6TQQtKIAUVB8cVCaaavMO+10LoxQGBqwjzwZspTZUdVNjmu1ypzfqIG0UIfmdQEKEUbojOurapjOabmlJ/sM8gasGW9soGxiD4i1vWff8niLHWqdUIqflN8Hgm4/ky+ymzJHsdlxufEw/iWaIcN53REM0refKapEzqMZxMr80VZ/kg16LS0G50dNeWuxblgQZmCzlSqZgVgas4iMWXdQCIMQGzKdOuyJAxwf4REO0aD1kIJexF1KA0LyKv7icGJ6U1YfwuQxDjWnh3SnygoGn1wCtHBO+lHx4aaDv99P40mnL2ZPUj3YjZF92USHJd3YeReRIBjFRAqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=lunn.ch smtp.mailfrom=foss.st.com; dmarc=fail
- (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nJulJDHR0ls5qI0ZbpX1M5TudGVe7SWtYg/eli4fPRA=;
- b=NYK5Od6AISJ4MyH7Q/J5NWd6ogqZP7EwIp/m5Vdu0hXXBTuDCMGpnqHbe6X8z0i47QIlOMnCLP4nkB4BSnxzBUCRgWo++rDSm/FPw16uW4u1UEE4hs6W0btXLxZYyZBHWCKzDe9cSGTMr1Dji1m8D5QCmcasy5oqOGTnGcYRZyjzXbQIKwwyWdCWLCtGHMJmXtc6YzN+g5KBd5F6qRD6CGw6E+SSvfR7liDLU/Ad4Ic7GWpdyYobP5Q7PfhnaJmDBccOUoHDi8hB4PtbNaxt4IJLYs1APGM+YbUIWL3Z7cR/MtVHG8yGidaF7mbDLW8LWKbDOkzVPPsz5OyhI4FGoQ==
-Received: from DU7PR01CA0047.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:50e::24) by AS2PR10MB6614.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:55d::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.16; Fri, 20 Feb
- 2026 09:16:45 +0000
-Received: from DB1PEPF000509E4.eurprd03.prod.outlook.com
- (2603:10a6:10:50e:cafe::b4) by DU7PR01CA0047.outlook.office365.com
- (2603:10a6:10:50e::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.16 via Frontend Transport; Fri,
- 20 Feb 2026 09:16:45 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB1PEPF000509E4.mail.protection.outlook.com (10.167.242.54) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Fri, 20 Feb 2026 09:16:45 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Fri, 20 Feb
- 2026 10:18:31 +0100
-Received: from [10.48.87.127] (10.48.87.127) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Fri, 20 Feb
- 2026 10:16:43 +0100
-Message-ID: <fd257c80-d97f-45b0-a12f-3a1888ba81db@foss.st.com>
-Date: Fri, 20 Feb 2026 10:16:42 +0100
+	id 1vtMnj-0000000DVLY-03m6;
+	Fri, 20 Feb 2026 09:27:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 116CC444B9;
+	Fri, 20 Feb 2026 09:27:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE24CC116D0;
+	Fri, 20 Feb 2026 09:27:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771579674;
+	bh=NJPGvTmlDcLmtgZEyJBgLqYqr3TADL+hhrIydbb16zw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=RU4q3K6dTajkeNAMGx5MkM68MOQQHw+mrUfNV5Nzof3hNgHHADZg8J4ZN28jLsmta
+	 V+sMp+AuJkBCbLD9dOPlOLgirPzBEYsp8kPLFUlcEYOH+X2Cn09t39iCHEkYVnOAwb
+	 quH4qTw//as3CZwFrxflIbJcFBINjaPTVrhcCWPQnuF9w9H17MSfYa9+RgFxA5+Wx3
+	 O0otf8+dj9Un942DFEIE7tRSbwwhh2m3w6CQoFWhs2mC8XKdQ85J9/6m+4DXFX+Fik
+	 g6CY1BxdLUQIAWFd9kRazbYgEAaIZ08jw1nbjUTH8lHvkQyY8U70XhFcoTn7Md89eY
+	 BceCyzoQ0n9AA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-csky@vger.kernel.org
+Subject: [PATCH 0/3] use runtime constant to optimize handle_arch_irq access
+Date: Fri, 20 Feb 2026 17:09:19 +0800
+Message-ID: <20260220090922.1506-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	"Mathieu Poirier" <mathieu.poirier@linaro.org>, Frank Li <Frank.Li@nxp.com>,
-	"Sascha Hauer" <s.hauer@pengutronix.de>, Shuah Khan
-	<skhan@linuxfoundation.org>, <linux-gpio@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng
- Fan <peng.fan@nxp.com>, <devicetree@vger.kernel.org>,
-	<linux-remoteproc@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-imx@nxp.com>, "Bartosz
- Golaszewski" <brgl@bgdev.pl>
-References: <20260212213656.662437-1-shenwei.wang@nxp.com>
- <20260212213656.662437-4-shenwei.wang@nxp.com>
- <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
- <13f9d767-61d6-4e29-b36e-6dcc860ccb11@lunn.ch>
-Content-Language: en-US
-From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-In-Reply-To: <13f9d767-61d6-4e29-b36e-6dcc860ccb11@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.127]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509E4:EE_|AS2PR10MB6614:EE_
-X-MS-Office365-Filtering-Correlation-Id: d9671b7d-2ddc-4b3e-cea1-08de7060c4d6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OVM0ZC92WVpiMSsyK1Y5ZCtJa3B0UWNjTFVQbWY5YUhFWEwvazJzZjBGZXhw?=
- =?utf-8?B?elN4enhmRzhvMFZ6QWtVK2RZQ2RFcTFPY2xvZUpEVmlSZzZjcmpva0xGcy8w?=
- =?utf-8?B?VHlBN0ZibmNJbjlYcWdZMjlhUS9Zb3JXQmdFRCtXZFhlTkVhUmtibHgzK0tQ?=
- =?utf-8?B?Tlg2VVBvdm50YUxUZWNWOFZtM1hyZVBtVUE0OXdhOGRxYTMvamFEWmxQZXNV?=
- =?utf-8?B?UXI4c2d6SXBPK1RVT2ZOaUFWZUp2NC9WTkNHQUFpU1lSTytOTjdmdk45V1Jt?=
- =?utf-8?B?cldBUktLTXJoTXY0ZisrN3VyYkZGeGFIaWV6OGZFS1ljVi93dnhoOW5GMVpo?=
- =?utf-8?B?dmZYNy9LQU1LQ3h3VjN6bGI3Wm5OU0VHSVkyMHZNaVJMc3dZTXFVZm44WG1F?=
- =?utf-8?B?WlFURTd4WDlNcTFkZ2ZROURoOHR2VFdGS0RDYW5YRFlNZ01uUktLYVVoWElQ?=
- =?utf-8?B?VFBGbGF6aldDbUpLL1hzblpUQmcyZUYxd3JHY0dnN1FuUHRYeUpzc1BrT0cx?=
- =?utf-8?B?OU9yRVF1SnhYNnQzeGcwZkRDaTZDcEF0OGhxcndsOGVBQ3g0dFRNTVYrVHRh?=
- =?utf-8?B?RnNIYnF3WEhnQ1pJdytHMG55cWo5TFZnekRVR2kvOVBjR1YvTU92L3k3cldE?=
- =?utf-8?B?bFRuM0ZVaXNCNldoeW9OSmFOcm1zeUs4dUtlTW5jRDBLQnBGWnhlNFB2bFBC?=
- =?utf-8?B?UGdVU0RmbHA5SlV5ODRveEt2TSt6eEYzejNpM3BkL3REd2hYazFubUhMeGRG?=
- =?utf-8?B?dFBrL0FGaGl3Y3pWTENMODl0dmhGaUsvb2hkT0s5OGpiL2hXUlBvWE04RDF6?=
- =?utf-8?B?RFBkMzg2Qldic0ZzYW5aTmREajVPb1BXQ29kbGF5RFdjVnlxaVhzSnVZU01V?=
- =?utf-8?B?QnJmWUJxZ0I0Y2tkRUh5Y2lyU01iQkpEQmNGcktWcCtkcDM0VVVWdUd1UEdI?=
- =?utf-8?B?endycW1JZDlLaVBvNFFhUjgyckVFQ1h3RXh0QUkvT3ZlUUd3R3Nua3dpSi82?=
- =?utf-8?B?OWNDVmM2VnN6VTdmNFJjYUdLMmF0RGluWmdINS9sYjBpakJ1VFB2MXVRcFUr?=
- =?utf-8?B?NWI2cXZ3TnRtbzFjTzJyYUNhVk1FUHlSSXBqR0YvWHdnTHczZWw2dUJRc2x4?=
- =?utf-8?B?SWcyWWQrV1A4cmNYbnl2QTMvWmNnR08yVzF4QmMyOGZTVUE3eHRGdmhMcUhZ?=
- =?utf-8?B?b2h3ak1uYTdpSkZiRzJSYzd1WVZ6amdKeEsyb2ZFVUdxUHJtOTIzV3hZRDZF?=
- =?utf-8?B?Rmh0cVRJUGhjczY2dERtOVNyL1lUY010MXZ0bUE1QVEzdWlZTDdXV2JnSTk0?=
- =?utf-8?B?WUg2Yk5lYkRvNXluRlJudVlHaytISEdNajd6andpZkRrZFVtZVN4NnNnRExz?=
- =?utf-8?B?NE1ONkEwUnpPdmVlUDNEUDVDZE81bWVUaWJ1TTFHanIvZVQ5NHlJL0tsZURN?=
- =?utf-8?B?T084dHk3QW9MdEtFaE1QRjNPNHp5OXlEcXdnZVN4RmVDZFdHRVd0TGFrbjZo?=
- =?utf-8?B?dDNSWUk4LzJaM2RWSStrNjM1dFgwUUNMczQ2WlhFOFAvdWtLNHYyU0pRbFl0?=
- =?utf-8?B?L1Y4dVdXb0x5M3V1RHZTZFp1MExUVVliUDJydXF1SmVxSkIwQ0NjbFFWVnE2?=
- =?utf-8?B?Ny9talhFUXRZbUU5dytFSytrd1dERzFrT245V1kyWG9HKzhaUXZ4STJqeUdR?=
- =?utf-8?B?RjZaNjhYaTA5Z1pZWFlqc0RjdUhlVEI4YUp4YnFoSnp4L29pYkRSdHBQRUZW?=
- =?utf-8?B?cnQwQlhJWjZBTGZFYVpRNWZJQmNSSlVsc2hiZEdPUWE0ODNXMnd2NlMvRXRY?=
- =?utf-8?B?bVVPU2ZRUTZrbEJOaTVoSCtramF6OGlYdzJEVkpzM2N0QVdXNUtlL2pKUFBD?=
- =?utf-8?B?YXVlRkNmczBrODV4ZFJtVlg0T05qUHpGcFhTbzJFSHpGV0J3K2lhQm4xZmh1?=
- =?utf-8?B?RWt1aGJWdVJLRlFOV01OZnpKMWVtR1J6KzVqM1Y4aGRWeWFJOHVQZTZ1L3g3?=
- =?utf-8?B?ODJua0tmNzRnb0h4NkwzclgwU2U5YzZmTEx1c2o4T3JkdGRYNXRWR3BqL1V2?=
- =?utf-8?B?MmRQT1ZUempON1lOeXNod1BibGxLLzF3cW9pWU5GbWtRQnJTVklQajVHb0ZQ?=
- =?utf-8?B?QTU1QUtEdlloSFN1R2tjMGNSV1c5U2l1Z2N5SGZybGF3MDBNYm5mdm1NNWJi?=
- =?utf-8?B?SjQxVHM2QjFMMFR0dUdtdHNGT2ZPbUgrY0tkMTZXRzQzaXk2U2Z1NERBS3Rk?=
- =?utf-8?B?NXRzZWh3R3VYaEdEV3FYQjVTaTh3PT0=?=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 7m6Px0QhvFi6zktGHOAMR1HOp0llNQ2TIMBdpMHMphhSRXm5BP2bQam1pvTq49TPmXLkpYQ2xpAmkOFFKQ6Z0vZRDrHgYNa4/v0iwOjNsEoItB3dCP+Dmr0M7FcHEzgpnt/9GThMj/JNazhe01x3vGlQU8xCNrFFT9MsoAmcJQPFpzUBQ65eSx/wdH5LLximtPdcjM1TslOYnvNAqj14dM183Iq1fZnMpem/RB8Ju0l0V5os+NX8BaqF3c09fz2xbK3QOYDLF9gz49AjOqIWWQ9XB4PVWuxg3s9lSwV539za97xc+M2QQ4TejnfjyFVhHQ1vx51fSS3/ePfc4AkxXTAGOGbKUqRILw2t/6XLYr/8mHRTrPRzVfWF6sdF94UrINfKMXbQduDcNaew5ILsUaa/b7UL5abQiQXyOZCac86TvIGjrIf4PKLzNc9FBj+k
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 09:16:45.3695
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9671b7d-2ddc-4b3e-cea1-08de7060c4d6
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E4.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB6614
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_011653_304890_6B896834 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20260220_012755_090641_B5266BC2 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,48 +80,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Currently, on GENERIC_IRQ_MULTI_HANDLER or arm64 platforms, the
+handle_arch_irq is a pointer which is set during booting, and every
+irq processing needs to access it, so it sits in hot code path. We can
+use the runtime constant mechanism which was introduced by Linus to
+speed up its accessing.
 
+Tested on Sipeed Lichee Pi 4A (riscv64) board, the perf sched benchmark is
+improved by ~5.8%
 
-On 2/19/26 14:42, Andrew Lunn wrote:
->>> +	u8 id;		/* Message ID Code */
->>> +	u8 vendor;	/* Vendor ID number */
->>
->> Does this fields above are mandatory, seems that it is just some constant
->> values that are useless.
->>
->>> +	u8 version;	/* Vendor-specific version number */
->>
->> Why it is vendor specific? the version should represent the rpmsg-tty
->> protocol version.
->>
->>> +	u8 type;	/* Message type */
->>> +	u8 cmd;		/* Command code */
->>> +	u8 reserved[5];
->>
->> What is the purpose of this reserved field?
-> 
-> They have an implementation of the other end running on there systems,
-> and it sounds like it is widely deployed, and they are trying to keep
-> backwards compatibility. The protocol also implements more than
-> GPIO. There is also I2C, maybe watchdog, i don't remember, but early
-> versions of this patchset had a list. Some of these fields are used
-> for some of these other devices.
-> 
-> I've been arguing it should be a clean design, with the protocol
-> focusing on GPIO. And that the rpmsg channel makes it clear this is a
-> GPIO device, the protocol itself does not need to include fields to
-> differentiate between GPIO, I2C etc.
-> 
-> When they start submitting I2C over rpmsg, i expect the same sort of
-> discussion will start again, so the likelihood of keeping backwards
-> compatible with there firmware seems low to me.
+Tested on Quad CA55 platform, the perf sched benchmark is improved
+by ~6.5%
 
-Agree with you.
+As for the GENERIC_IRQ_MULTI_HANDLER platforms but without runtime const
+support, such as arm, csky, loongarch, microblaze and openrisc, there
+should be no changes.
 
-Thanks,
-Arnaud
+Jisheng Zhang (3):
+  vmlinux.lds.h: add _handle_arch_irq RUNTIME_CONST section
+  genirq: use runtime constant to optimize handle_arch_irq access
+  arm64: use runtime constant to optimize handle_arch_irq access
 
-> 
-> 	   Andrew
+ arch/arm64/kernel/entry-common.c  | 4 +++-
+ arch/arm64/kernel/irq.c           | 9 ++++++---
+ include/asm-generic/vmlinux.lds.h | 3 ++-
+ include/linux/irq.h               | 4 +++-
+ kernel/irq/handle.c               | 8 +++++---
+ 5 files changed, 19 insertions(+), 9 deletions(-)
+
+-- 
+2.51.0
 
 
