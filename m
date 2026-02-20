@@ -4,142 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE1DFC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 05:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9EB8C54F5C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 06:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ou4aWAdvorSSAq+Uj7Mk2G+bWCedytmyMt6cVuceMM8=; b=tX/XLHu9vwaZ2suLlIdV/X5y4+
-	9Je2r5X2VzVPyaqgTAsvzrZvIpk6XESTOKO5OqA+tm9D66FAifbmvvXISW1edSvKtReVnjNkUGof2
-	1SUnrxaSJyfYhiY25YMrELgLSSZny0TItsoP9U+I6eanozbmlJ/X1ouh4lJv1+/eUGSCFSyDqsF+V
-	M4pGX3HKJ+Py17S6z/s4Vnwq6HXesnpNylcVrEYtcZ4cF/JenbqQzwIAzf+J1JPvrfpP2qL31jfMN
-	Inr06ju+Yhy2TcYIljFHnTtE6HrRwW49hvQmnxEO4rbAc3q6FtBM4hKxuzm7mO9tbCVyXaDX3JJQA
-	NNazuIFg==;
+	bh=A1A3lpYSGax/n4+5eeSy2exXTa0jNnmXhF3xXfLCX3Q=; b=TiaYCcg8XiBMruvggqlXNYl2/7
+	oysdHwfH7Y5/LONBupa+kN/GaTUlC4qn+6JftivTuY3ZJ+JBATQA8hqYulSs+jl8W9jct/Sgmm+TH
+	ebHNNbWXcArvdpKgttTww+FzdFmwqc4WggPdc+iptTCbWhEELQr4CKnhz+Ly9DjaWb71AkBPkdyAL
+	L5nZkM4UH7IMVXANOEiR2P6z8klE4gvwoIl5cGrnzwK+3QQiF43ZjPGqRui4dgaEdwsg29Ita/DxW
+	Y6Jc3ag9xmxOAfzxHWYYMOd8OzhWsn4+8B9zjc+UQXNORhP1HmhdV7gEtI7EDpG4SAGlbm/dpBWPs
+	HulwSdog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtJFk-0000000DIAG-3hBz;
-	Fri, 20 Feb 2026 05:40:36 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vtK4Z-0000000DJtA-2sxq;
+	Fri, 20 Feb 2026 06:33:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtJFg-0000000DI65-2hWF
+	id 1vtK4Y-0000000DJt4-2dLR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 05:40:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EtveFcnP7h+AnlrtgmQHbea4UM8whRB0IaB9Gg1l8SEFjzzq3JJGMy0V0B/pbV91gtPVSK43V4RYj11xrmabBQogI/yDL//pDgwNtGxDqgtf2siX3yAd9TEssRqbS6zTWvTPcv8PaenInOUvz/UyTwzCbRaHdAecRFBq8YHlr5rThXxBR2ybA44a8P0KFWFO6AhicxqONHnQAuclfwn9MxKKGFIKs/a7bIuI1Ri1mK52h333gNGr2Xq9yMfi5YLmy6JiF/EZwqrKuZN7L1WXjMl1G52gtilPlfcGvXUsua/KkXM7klqCIXwcaQyJY3zeUiMVJaO2tl23U+XIvjXcWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ou4aWAdvorSSAq+Uj7Mk2G+bWCedytmyMt6cVuceMM8=;
- b=UVsQOe4gQczGmx8zSQljqpXLJKoaUVKeJiAppSArEphzqlBVu86ugl8IBLzikKSWakkburDUxTMXDz7/wpmAyywKW3sw89+WWakmkdEMXdnnRroXgdyBT5V518rsFBgKQqh45FHHK1XC9A6faL5aC1BSFNEX26y+I1mdcE8HxoFlHa92qWGEH9M4LAL25BT9Xs9OUGNELFQXMEV7c7IpxLPk/JOb34/dXZ9q6bTF6f9cj+RuQq84C1IeKCvDpCTOPxeXyaytjKV9/PkbBhvoFKsUjNrFTQDIi1vCQEyvecrAeX5YzDU8+2OMfvpa9cKNnZa9yhPpj4BS4qEqCXdrDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ou4aWAdvorSSAq+Uj7Mk2G+bWCedytmyMt6cVuceMM8=;
- b=OUIZVCe48Be1vj2HhMlJGhjqn7AvABPcmr0G+qMUvFWRuTFqjb5d1WkHTB1ypCLY9H0oongwaowfFyk+eMfwb+9yrE45E+80FAY2lFBOGNnVHd2zcnpCVEwEZ2K/VCSgCg+3rn7IcD136D/cON5vKO0lG/YeZLrfvTzvGR2p3XQ=
-Received: from PH1PEPF000132F3.NAMP220.PROD.OUTLOOK.COM (2603:10b6:518:1::38)
- by MN0PR12MB5761.namprd12.prod.outlook.com (2603:10b6:208:374::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.13; Fri, 20 Feb
- 2026 05:40:18 +0000
-Received: from SJ1PEPF000023D5.namprd21.prod.outlook.com
- (2a01:111:f403:c902::13) by PH1PEPF000132F3.outlook.office365.com
- (2603:1036:903:47::3) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.16 via Frontend Transport; Fri,
- 20 Feb 2026 05:40:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ1PEPF000023D5.mail.protection.outlook.com (10.167.244.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.0 via Frontend Transport; Fri, 20 Feb 2026 05:40:17 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 19 Feb
- 2026 23:40:10 -0600
-Received: from xhdlakshmis40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 19 Feb 2026 23:40:07 -0600
-From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-To: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>, Andy Shevchenko
-	<andy@kernel.org>, Michal Simek <michal.simek@amd.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<saikrishna12468@gmail.com>, <git@amd.com>, Sai Krishna Potthuri
-	<sai.krishna.potthuri@amd.com>
-Subject: [PATCH 3/5] iio: adc: xilinx-xadc: Replace module macro with custom init/exit functions
-Date: Fri, 20 Feb 2026 11:09:39 +0530
-Message-ID: <20260220053941.611415-4-sai.krishna.potthuri@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
-References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
+	Fri, 20 Feb 2026 06:33:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C0A660054;
+	Fri, 20 Feb 2026 06:33:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F377C116D0;
+	Fri, 20 Feb 2026 06:33:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771569185;
+	bh=Fq+HYBDt87eoP9eXSUrmnldyYQ/rSkSpbFxYlUHf1BA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MSQ82ZE30LmJrrKD9PVuqMqIuJvDK2CtgGY9C3wBZmy4pRdK/jNaqXvgw0euL+3uh
+	 TWiBisItCbT2PAjp8NXubp7LyHSMhZc91THpIb8TkiRcCLDucjDn5u7r7E//A0xZjg
+	 z2GDqgTGQVldYvJiVPtoWJVvZUOTLQ2gU7batWFj5sr4Lh5C3W7/4tYsi4+wu3mg8h
+	 FS7fGncoct/YrnchxqXEts7B03Y5RLbskDK8zxaMcNNZI6tTnGmQDj5eEwY2VwvJBX
+	 T7fGP1WxXLpgcU9LbimHWcmzf9nc3jcOl90PzPAjlS2VXpSyhqQCddFgapKvE87sBf
+	 UeXn97y9HivjA==
+Date: Fri, 20 Feb 2026 14:14:23 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@gentwo.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, maz@kernel.org
+Subject: Re: [PATCH] arm64: remove HAVE_CMPXCHG_LOCAL
+Message-ID: <aZf7v4Ix1ZWCXxPu@xhacker>
+References: <20260215033944.16374-1-jszhang@kernel.org>
+ <aZL46z1UZkQlF3Dd@willie-the-truck>
+ <89606308-3c03-4dcf-a89d-479258b710e4@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D5:EE_|MN0PR12MB5761:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9a7a7c5-1657-473c-fbba-08de70428755
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Kt863EgiBTfwf5WmRce7o9VIW5F/l+A7HQtZRtamcIr9Q1rbz8ACCPhJgD8s?=
- =?us-ascii?Q?R7iVfDrtxovmlVGF1wVxQk7uCc3MfE76KI7+v3T1SUzYwLdFy6c0eMJizzGv?=
- =?us-ascii?Q?Pw5T0S/XQv20HaSJSEXsN2rtkDRdmeRD5kwTWNq/CLzIIsONwTD0y4EngTYM?=
- =?us-ascii?Q?e5eYeZAokaFx+JSHYvT6mvW1D33+LiF5TjTDvKaxPeCo+HtmdUI8yhezaE8X?=
- =?us-ascii?Q?WyMwKCbycwKO59BkIP+5sEAuZnoWK1b9WMUB+SehPskgLu8V7HYVxEXTHJXO?=
- =?us-ascii?Q?jaY4b3ttG2FaFR4J4El/26aHkaZfCfdj0BuCOtKvCcL/2OUwDxFXTuyMOwwK?=
- =?us-ascii?Q?AhyK37qYxbnlxatlKSeqENpBcbpiML+b/lOdBt4m8gTRXpXfGpltB1BlFnUk?=
- =?us-ascii?Q?VTA6ZcNvM9QciK3E8rx+qyOeuxkw/aoZcaaiJFDXqFhS76tQpE+o+U6V/9x+?=
- =?us-ascii?Q?UlnSJg65ojuYEjdbkekfP5fvX8HKpysBHGKjNCjX92wPm/SFSbry73ccb7MH?=
- =?us-ascii?Q?e4I5LdYTsyyGTxmFlGt7Yke61+diNqrI5ifEevLPh+Dip046Frh50mNZuyjE?=
- =?us-ascii?Q?9K2rOxASfDCi8uPmn38yFpqF5324mzMzRsgtIJNeMNKi7aS/jfD751YQRgiO?=
- =?us-ascii?Q?NY010/sSu7brrkiZLxddlScKX+2qQX0sfENXG4Be0z6OqQP5ujEUNEXeeRL0?=
- =?us-ascii?Q?tLjkf5rSXUKrqegaWN4jlOqOAnelJSI3bjQUrJSKNOqyNeLH+z3bFgxuWyYW?=
- =?us-ascii?Q?13VjWsvqC0RVOnfSn66WJZ1jRNrb7CK9aQS1+9b7vJd95fjBELtSiKfew4ht?=
- =?us-ascii?Q?sxeRTlowtGnPOlOMOVUahGZjozyO64iWnOIxPstCmAO+2kUIxccJwnlTBujd?=
- =?us-ascii?Q?HuFE2ucXczMnL3+6x7NLq1oR6gwAztGHcZO5o10aFdiKumwlUpIXiNAmBxxd?=
- =?us-ascii?Q?9uqJ0oni32MO1n/NjT17sgKS8TuP8EgicmC87jGota7tg3Gc0Qyar3ZtghoX?=
- =?us-ascii?Q?2kEgAs0ipUvdksBsokKpK83hJjj2KrRruwXkR2/FoSpOJsRvLjknqqKOJIn4?=
- =?us-ascii?Q?SnAtwuyzwy2w/dFPrfY8Vazd4M7KIiAX+oj9U84xpAC392LaWnWm5vQx1HN/?=
- =?us-ascii?Q?Shm2Bfl9J4RiecgrXxjigACLOAZWlK9hN/5sRWl+6W6DaGmBreYjViXayp9j?=
- =?us-ascii?Q?WIZi0EqZkvt5iHLaeX9P2Sa0ZxWPUqIzuCGg0yippFlkbgMt7BpGgynJq5EC?=
- =?us-ascii?Q?I2/DnfcMeOnTkw9sAKLOkYKzPFzE6yWWxZrW0UJXsqLmrKyhKTDFigjVZtCw?=
- =?us-ascii?Q?At3twk5kYDeyl3JdL/6efEvEcQyslLNvE+0XuZeduayUT5sLvb3zyA//WR6A?=
- =?us-ascii?Q?+XUubNx4XKuAwPK0OH16xlaSesC5a7CtR93mgnzimEBTveGDfWJK8NiOOxAz?=
- =?us-ascii?Q?Y4wn8bpv890Ls0L4f7x1qFWA346PuPqYlEXgQvM0z7BK8oZA0JpBbiJyO5ro?=
- =?us-ascii?Q?MG4GaU/PSkCEz6MrzmL81peqA6bnWa2Bxaa9WT4F27USZ/C/gjOZa7FBawRP?=
- =?us-ascii?Q?inTnfjNWS5B6aXDgyMSll+ngRw+JJC2z/BLA+kKvo4x/zR02XWpS/YWPeo5G?=
- =?us-ascii?Q?GklKXcOUVi2Z6lgddZziYzremkdf2rAIYe4f/4blH/rlSl+8oNlMoUMTffzi?=
- =?us-ascii?Q?/5VgJA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: jfULuyL8ydEIXf6VVLux9lQU3Q4oqfaTOgQLrfObZQfU3asmAjGKaqL/ZP4K0lZ3aM7fA11IjByaD6XlsQdhqfaocUHDjs1YCmAdC7Ifm8E/AMBovZsOaeR6EW99w4Wt5JkDaD8I1cc6dkZlCi4OrVFIfSVxBp9YalNJRpI+cGkdhPfttYi87iRICaw/xq4AKLqfrlZfJTzp/Y0tb0CiLozIAIf7N702+3EYZy5LdGb81GSlxYDE4ntbKg4hZW6+aJyHTgQKwkNc+ZXMC2XTHbwRrVyuJe/+tAvVQvxANH6kejZXGiVxxdZ5sahSyeRCrJGuQ95wzDmBxN63iw04S1nO53UZlwkHGmyOrSpCMEeZdXPMLdQGC80vggr3ssAWMvQLBXURY7szlDHAOrtukcNHjfa8zqqG/KLhIZ438AZK6/U0xf/sSoxOG2vYPw7M
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2026 05:40:17.3207
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9a7a7c5-1657-473c-fbba-08de70428755
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D5.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5761
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_214032_691210_13B2BAC3 
-X-CRM114-Status: GOOD (  10.76  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <89606308-3c03-4dcf-a89d-479258b710e4@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,39 +74,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace module_platform_driver() macro with custom init and exit functions
-to prepare for supporting multiple bus interfaces (platform + I2C).
+On Mon, Feb 16, 2026 at 08:59:17PM +0530, Dev Jain wrote:
+> 
+> On 16/02/26 4:30 pm, Will Deacon wrote:
+> > On Sun, Feb 15, 2026 at 11:39:44AM +0800, Jisheng Zhang wrote:
+> >> It turns out the generic disable/enable irq this_cpu_cmpxchg
+> >> implementation is faster than LL/SC or lse implementation. Remove
+> >> HAVE_CMPXCHG_LOCAL for better performance on arm64.
+> >>
+> >> Tested on Quad 1.9GHZ CA55 platform:
+> >> average mod_node_page_state() cost decreases from 167ns to 103ns
+> >> the spawn (30 duration) benchmark in unixbench is improved
+> >> from 147494 lps to 150561 lps, improved by 2.1%
+> >>
+> >> Tested on Quad 2.1GHZ CA73 platform:
+> >> average mod_node_page_state() cost decreases from 113ns to 85ns
+> >> the spawn (30 duration) benchmark in unixbench is improved
+> >> from 209844 lps to 212581 lps, improved by 1.3%
+> >>
+> >> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> >> ---
+> >>  arch/arm64/Kconfig              |  1 -
+> >>  arch/arm64/include/asm/percpu.h | 24 ------------------------
+> >>  2 files changed, 25 deletions(-)
+> > That is _entirely_ dependent on the system, so this isn't the right
+> > approach. I also don't think it's something we particularly want to
+> > micro-optimise to accomodate systems that suck at atomics.
 
-Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
----
- drivers/iio/adc/xilinx-xadc-core.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+Hi Will,
 
-diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
-index ee58b4a80f34..4ddc962e4926 100644
---- a/drivers/iio/adc/xilinx-xadc-core.c
-+++ b/drivers/iio/adc/xilinx-xadc-core.c
-@@ -1476,7 +1476,18 @@ static struct platform_driver xadc_driver = {
- 		.of_match_table = xadc_of_match_table,
- 	},
- };
--module_platform_driver(xadc_driver);
-+
-+static int __init xadc_init(void)
-+{
-+	return platform_driver_register(&xadc_driver);
-+}
-+module_init(xadc_init);
-+
-+static void __exit xadc_exit(void)
-+{
-+	platform_driver_unregister(&xadc_driver);
-+}
-+module_exit(xadc_exit);
- 
- MODULE_LICENSE("GPL v2");
- MODULE_AUTHOR("Lars-Peter Clausen <lars@metafoo.de>");
--- 
-2.25.1
+I read this as an implication that the cmpxchg_local version is better
+than generic disable/enable irq version on the newer arm64 systems. Is my
+understanding correct?
 
+> 
+> Hi Will,
+> 
+> As I mention in the other email, the suspect is not the atomics, but
+> preempt_disable(). On Apple M3, the regression reported in [1] resolves
+> by removing preempt_disable/enable in _pcp_protect_return. To prove
+> this another way, I disabled CONFIG_ARM64_HAS_LSE_ATOMICS and the
+> regression worsened, indicating that at least on Apple M3 the
+> atomics are faster.
+> 
+> It may help to confirm this hypothesis on other hardware - perhaps
+> Jisheng can test with this change on his hardware and confirm
+> whether he gets the same performance improvement.
+
+Hi Dev,
+
+Thanks for the hints. I tried to remove the preempt_disable/enable from
+_pcp_protect_return, it improves, but the HAVE_CMPXCHG_LOCAL version is
+still worse than generic disable/enable irq version on CA55 and CA73.
+
+> 
+> By coincidence, Yang Shi has been discussing the this_cpu_* overhead
+> at [2].
+> 
+> [1] https://lore.kernel.org/all/1052a452-9ba3-4da7-be47-7d27d27b3d1d@arm.com/
+> [2] https://lore.kernel.org/all/CAHbLzkpcN-T8MH6=W3jCxcFj1gVZp8fRqe231yzZT-rV_E_org@mail.gmail.com/
+> 
+> >
+> > Will
+> >
+> >> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> >> index 38dba5f7e4d2..5e7e2e65d5a5 100644
+> >> --- a/arch/arm64/Kconfig
+> >> +++ b/arch/arm64/Kconfig
+> >> @@ -205,7 +205,6 @@ config ARM64
+> >>  	select HAVE_EBPF_JIT
+> >>  	select HAVE_C_RECORDMCOUNT
+> >>  	select HAVE_CMPXCHG_DOUBLE
+> >> -	select HAVE_CMPXCHG_LOCAL
+> >>  	select HAVE_CONTEXT_TRACKING_USER
+> >>  	select HAVE_DEBUG_KMEMLEAK
+> >>  	select HAVE_DMA_CONTIGUOUS
+> >> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+> >> index b57b2bb00967..70ffe566cb4b 100644
+> >> --- a/arch/arm64/include/asm/percpu.h
+> >> +++ b/arch/arm64/include/asm/percpu.h
+> >> @@ -232,30 +232,6 @@ PERCPU_RET_OP(add, add, ldadd)
+> >>  #define this_cpu_xchg_8(pcp, val)	\
+> >>  	_pcp_protect_return(xchg_relaxed, pcp, val)
+> >>  
+> >> -#define this_cpu_cmpxchg_1(pcp, o, n)	\
+> >> -	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
+> >> -#define this_cpu_cmpxchg_2(pcp, o, n)	\
+> >> -	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
+> >> -#define this_cpu_cmpxchg_4(pcp, o, n)	\
+> >> -	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
+> >> -#define this_cpu_cmpxchg_8(pcp, o, n)	\
+> >> -	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
+> >> -
+> >> -#define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
+> >> -
+> >> -#define this_cpu_cmpxchg128(pcp, o, n)					\
+> >> -({									\
+> >> -	typedef typeof(pcp) pcp_op_T__;					\
+> >> -	u128 old__, new__, ret__;					\
+> >> -	pcp_op_T__ *ptr__;						\
+> >> -	old__ = o;							\
+> >> -	new__ = n;							\
+> >> -	preempt_disable_notrace();					\
+> >> -	ptr__ = raw_cpu_ptr(&(pcp));					\
+> >> -	ret__ = cmpxchg128_local((void *)ptr__, old__, new__);		\
+> >> -	preempt_enable_notrace();					\
+> >> -	ret__;								\
+> >> -})
+> >>  
+> >>  #ifdef __KVM_NVHE_HYPERVISOR__
+> >>  extern unsigned long __hyp_per_cpu_offset(unsigned int cpu);
+> >> -- 
+> >> 2.51.0
+> >>
 
