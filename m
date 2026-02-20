@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F208C5ACD7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF92C5ACD4
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 16:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bnU1GLfsfh6CTuL5hdpsi/Zvec+WPL6baVdsR4hhOyQ=; b=GrWS6t159OO+1A9PKrZmxv0/Ey
-	ZhygxeAo1hdNQFl81rw5DgW0dxmNWXXXZ1UrJuFhIwj/tq1/KuwIUykpg4BAw15Kj0R6/aQXMAFK0
-	weD4T2d0CmhpvazjdOKcURYoZdb0bj3n8lW4Zcl6f/r46aHRtY2VoeN3QEA+RLNNuFEkv0Qh5J+7S
-	f/n43ttw/VVqCVWP0UWKUylODKQ50jMUzXCi2KPmMVuq5+dW9cnpuh0tsSzh4zlgje1/ycVjHO09C
-	LOTlmPX1/v7K7VxTcRCqvnzkCn80ru00vMSjzENqKc3dU0hxp25ZKn13EKwc9ohGb5RsnwN463jlj
-	LK1BweYw==;
+	bh=sc1ud4NvoSk2r2XkR507CAgHdz72HRaNe5gFe/sJK8E=; b=uy+AgyT7EXF3B7Ky7JqGv1Djyf
+	1n+s8rmzS4GgxLPuK8ogxw+UyFQ7Gzf0T1WwF3Uv7CFYP5PdEg0f2TMqiO9PyiZC6tFTAddIjP3cq
+	1ytOa2DT1sYXkkwiWoPWPrdOwHuj7WHzP3/1GsY0fDoO4dHbzW2pLuN/Gq8Xqt+rOp9l9M+FNGEVv
+	sbeeqnlcHUkerlfwZIYQhPoXIJDVAdh8ijN4iG5/jon2zUEfLWQ1EJP7SKwvFIjkoFcFhOs4DG8bi
+	3gVWB35pMRc2GC5EHNMM9r/py5JCJKjvHNdqs0Cp55JKks2YvfwEHDzjAfYLDANtrtK3QPkt+YQUc
+	dkSAdjWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtT5W-0000000FBYI-1B4Z;
-	Fri, 20 Feb 2026 16:10:42 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vtT5V-0000000FBX9-2i0Z;
+	Fri, 20 Feb 2026 16:10:41 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtT5Q-0000000FBS5-3EPS
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 16:10:38 +0000
+	id 1vtT5Q-0000000FBRN-0Z8x;
+	Fri, 20 Feb 2026 16:10:37 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 647701A0AE7;
-	Fri, 20 Feb 2026 16:10:35 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A2ED84E40945;
+	Fri, 20 Feb 2026 16:10:33 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2E2805FA8F;
-	Fri, 20 Feb 2026 16:10:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 11F2910368D43;
-	Fri, 20 Feb 2026 17:10:32 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 795395FA8F;
+	Fri, 20 Feb 2026 16:10:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7882910368D1C;
+	Fri, 20 Feb 2026 17:10:31 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1771603834; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1771603832; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=bnU1GLfsfh6CTuL5hdpsi/Zvec+WPL6baVdsR4hhOyQ=;
-	b=yy/o5J0XBww1iLBwk2qM0/8qfK8FUIErpAb29xMB6xB2FobmoCiJbtVgK/FZ+wDrrXF0P+
-	njhPMJNplLyLIB7+KYrygmL+RyVWFvbHIcqY9A4CFiysiGWy08osrA+c1/TVAK8SUEPEzI
-	N710nB7agg9msOKBVoM27xacCCcWsfN14B95EnrsIyepj7tTQmMPZ2rC83mFxH+8Z4ZgxO
-	8OG0/Jih4OyZ+CMrlLqc3mCScD8l0Lc3NZxcTyE9QH3Cagx1b9k5KQ6GgtLr/6TzH7dEES
-	svi5zgiVh1YWubpWhRU1yS2t6hC/umNoVXuE+qmtE4YnbTz4vSbA7T9iRrCq7g==
+	bh=sc1ud4NvoSk2r2XkR507CAgHdz72HRaNe5gFe/sJK8E=;
+	b=a6i2RJyL2lZNjW2hv3kXp3DpYkrzMP6CA6mYlLELH1wOzZVx5Ruuh0ikaKvklhk+jzm0aL
+	enWEmtR5phIczunvjo4Z5LVL5aisAdukPwHJiil4v9lza1fiNHJP9PJa/K5NWl6DBktl4l
+	YGksdqN/u2vlgxvEwGBv9OJQb/Wc3KYVx/VBAiTtA5WRIpju7vlbgwgEv9f7JBZz32zt/z
+	sIfpn/4MaE1gPj6JXtmMyWCo58FaY4azt7vapiW30EHX/+TIto0tXaPW9ebANNa4SYBFtB
+	jnoYN1RMgS38Qi75XgMp+pmfQPCCjnR7bndOLgZxo/eouTa1n0O+AKrgWABZnw==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Richard Weinberger <richard@nod.at>,
@@ -59,9 +58,9 @@ Cc: Wentao Liang <vulab@iscas.ac.cn>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH 2/6] mtd: rawnand: sunxi: fix sunxi_nfc_hw_ecc_read_extra_oob
-Date: Fri, 20 Feb 2026 17:10:07 +0100
-Message-ID: <20260220161011.999642-3-richard.genoud@bootlin.com>
+Subject: [PATCH 1/6] mtd: rawnand: sunxi: fix sunxi_nand_ooblayout_free
+Date: Fri, 20 Feb 2026 17:10:06 +0100
+Message-ID: <20260220161011.999642-2-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260220161011.999642-1-richard.genoud@bootlin.com>
 References: <20260220161011.999642-1-richard.genoud@bootlin.com>
@@ -69,8 +68,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_081036_941442_4BD23141 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260220_081036_303600_AB3293C7 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +84,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When dumping the OOB, the bytes at the end where actually copied from
-the beginning of the OOB instead of current_offset.
+The available length is really USER_DATA_LEN - 2 instead of just 2 (the
+user data length minus the BBM length)
+That doesn't change anything now, but if USER_DATA_LEN changes, it will.
 
-That leads to something like:
-OOB: ff ff ff ff ff ff ff ff ea 19 00 3a 83 db aa 8d
-OOB: 99 09 c8 9a 90 36 35 7d aa 15 13 07 3d 97 b2 a4
-OOB: a8 bb 19 b3 07 e9 f6 25 52 d7 1a 23 e2 7e 0a e4
-OOB: 52 8a 09 d2 1a 86 3d cf b4 99 43 13 d3 90 33 0b
-OOB: ff ff ff ff ff ff ff ff ea 19 00 3a 83 db aa 8d
-OOB: 99 09 c8 9a 90 36 35 7d aa 15 13 07 3d 97 b2 a4
-OOB: a8 bb 19 b3 07 e9 f6 25 52 d7 1a 23 e2 7e 0a e4
-OOB: 52 8a 09 d2 1a 86 3d cf b4 99 43 13 d3 90 33 0b
-instead of:
-OOB: ff ff ff ff ff ff ff ff ea 19 00 3a 83 db aa 8d
-OOB: 99 09 c8 9a 90 36 35 7d aa 15 13 07 3d 97 b2 a4
-OOB: a8 bb 19 b3 07 e9 f6 25 52 d7 1a 23 e2 7e 0a e4
-OOB: 52 8a 09 d2 1a 86 3d cf b4 99 43 13 d3 90 33 0b
-OOB: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
-OOB: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
-OOB: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
-OOB: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
-(example with BCH16, user data [8,0], no scrambling)
-
-*cur_off (offset from the beginning of the page) was compared to offset
-(offset from the beginning of the OOB), and then, the
-nand_change_read_column_op() sets the current position to the beginning
-of the OOB instead of OOB+offset
-
-Fixes: 15d6f118285f ("mtd: rawnand: sunxi: Stop supporting ECC_HW_SYNDROME mode")
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/mtd/nand/raw/sunxi_nand.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index c420909b944b..9c6e0625e34f 100644
+index 9dcdc93734cb..c420909b944b 100644
 --- a/drivers/mtd/nand/raw/sunxi_nand.c
 +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -1054,9 +1054,9 @@ static void sunxi_nfc_hw_ecc_read_extra_oob(struct nand_chip *nand,
- 	if (len <= 0)
- 		return;
+@@ -1761,12 +1761,12 @@ static int sunxi_nand_ooblayout_free(struct mtd_info *mtd, int section,
  
--	if (!cur_off || *cur_off != offset)
--		nand_change_read_column_op(nand, mtd->writesize, NULL, 0,
--					   false);
-+	if (!cur_off || *cur_off != (offset + mtd->writesize))
-+		nand_change_read_column_op(nand, mtd->writesize + offset,
-+					   NULL, 0, false);
+ 	/*
+ 	 * The first 2 bytes are used for BB markers, hence we
+-	 * only have 2 bytes available in the first user data
++	 * only have USER_DATA_SZ - 2 bytes available in the first user data
+ 	 * section.
+ 	 */
+ 	if (!section && ecc->engine_type == NAND_ECC_ENGINE_TYPE_ON_HOST) {
+ 		oobregion->offset = 2;
+-		oobregion->length = 2;
++		oobregion->length = USER_DATA_SZ - 2;
  
- 	if (!randomize)
- 		sunxi_nfc_read_buf(nand, oob + offset, len);
+ 		return 0;
+ 	}
 
