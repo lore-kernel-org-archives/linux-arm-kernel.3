@@ -4,92 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD92C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D2CEC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Feb 2026 10:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CGoxHfyZdvHZdaOxZRPHjFZrmxUcjr01IQroUI8SPoo=; b=BnJuUyi9pxIhwBYE+jxgm3qrfS
-	np0dlsUOAKiRiXx2TF7eA7qGvKp03D2vSkmAzuUpsPUHBgR2k62YbCCBOymoRF18quj6ALRLPrv16
-	tbEu8SmVcqWmzmv36FS2wYutM0ykdc9EOzif9KMY/mV+NItxliMdjEq5GwlkKFUVa+UmZMp9d575/
-	lgtDmJd7/9qaGAsXURUZGGR8b9ygzWrmHDTPicf6xDuVbpL0BUjYfcUK7R6u69WsZDZ2kEfDPPEp4
-	CqR20NM9QuxMqSmTU3+tBWpWeAI8EG2bCwVUTJWYo423jmQf8onw3fyH4Gyab2UYN5b3tIA4aJ6Od
-	eD9uPSmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kc6/Eir/gKPSVkbLPrICPq9c00va2Ku7SFS7v5CxSDE=; b=y2VdwVZTewyKCG0Bh1MquAJXLL
+	M+VxA4KnxPYxoyzlsG7L1wr+3pZhCQCMlJUpIbAYhfdt+0q7Po0ByHYUm4v0/lBFwnltnAhnkcuw6
+	dRk00QpQgvJVPo3tHsWkjaE3uE76Lr20nRGQblEGC0cxFrFZl7/XZklG58Mx6nKd8oYnY6XykZVq7
+	/zCNDtTBd2H4bcfvf9II/tlUZ6LD5Dg3/ZMpUP/Z5odb/0GK14vUU8k4EpqhUJh0sxTYcpv4CagBO
+	bn3GHbJwgLohjboeB7j4JwTEub4CkSLz5E2CNZMNdGyRufYndNnGxTUnEp17RqlHuCspg73HvPjPX
+	/xoD6uBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNMe-0000000Dnfx-1rP9;
-	Fri, 20 Feb 2026 10:04:00 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1vtNSL-0000000DrdS-3Ilr;
+	Fri, 20 Feb 2026 10:09:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtNMb-0000000Dncm-2jXd
+	id 1vtNSI-0000000DraT-1WOf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Feb 2026 10:03:58 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-435f177a8f7so1792141f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Feb 2026 02:03:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771581835; x=1772186635; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=CGoxHfyZdvHZdaOxZRPHjFZrmxUcjr01IQroUI8SPoo=;
-        b=LwLxzD3xOFiP1XE8s1N6Ybm9X0vQUBA619O/E+NdgNC/Rs8QyxfEh3AZ/VHnlSrsDU
-         OUgXjFaSmdyA2ub6+xHFzP4rAwo3BTSHOXWDxArb9FaUykmqfOxQmoSokXKChMp4+cDH
-         SW6Bz2Qs3k6Allj3+wdC5sMFddBNjM4T7WPFG1qiRUTlCb0E6SX7Ntac+6eZT8TNP49A
-         /z+cf4xhkKg7B8MHTYRSddcWvB/fTQxWW5CIQZ0hKQm6thf+VJXK5bsb3hfxAeGu9irQ
-         HHPPXV9mRndli35270ViqKtacgnou0MwJoCF9K0bmzLpW3mLWQ3aZjNJU0y2lueZ1SZk
-         v+eQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771581835; x=1772186635;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CGoxHfyZdvHZdaOxZRPHjFZrmxUcjr01IQroUI8SPoo=;
-        b=P30TqXbjtRgQqxZHRlb8FKvUJ1UZSS82FrwnFXRCjYlODeFkVtzZ/yNx5boukYlmZw
-         cm69UwxMuiWN0fFy6Hc9P/Aoh1v4ObfPjJWn4UI+OW1yKll4lxLjndH9Gwzw15a5BNh2
-         FAio1tulzepfHsaBIhsEVjiHwG5BzyviFFhtN8ukYrPzRoO71nuvK/++/t2bSerRr8XV
-         Bb8ummk7S9ZRIweXEnWoBZIZjFdmDZqlapm4gV5Jl0jLiiKF6hQ1ToHKF4LHmbLBiUzG
-         PXUHbMVQ43PetUxb2vf8PCZOQXFZT7XRO+mMgBe6DAS8hvUArrqoE07FIzd6W8C24htC
-         vtxw==
-X-Gm-Message-State: AOJu0YzjpOqS6XG2GFboytTzOoZwoChHDeuMDLrxk8GYAhHUC04gKa+M
-	fSn1+o+5XNTkP/MLyOCnTsrTNDJWBJXsuUdB0NWcQSTo5tqIOB893sYG
-X-Gm-Gg: AZuq6aJlCIvE3uzRVRSKFsPl+3ejy83e0PGvUTWrSXf+WYMmkVNtZUm/y1yxaxLU79J
-	4du4EfmnTxughDZ6GGLxDVTi02x4iKfNE6dS64N8pinzcOzoI3Wpr3ie0wNVR2e5GdYXXbDvVxE
-	Yf20gT1Bg5sWmoHsZS5bPXcr09IojOJB7lOCzv1Espq6sYqUzi8CYPxTHWXzNMnSO7X4zkBu0W7
-	5BxsECpF742GaJloOlBpMZuhOGbRq8rigtwYexnQDJBQqiIeqFZG1+48XbLD6dy3gEx6X4eMs6I
-	1URMWroouc/KzeqtMpdj4zAbNr8mcf7lTVAEpTznHHatghDeR25+MVL7xsnK5E5GYirlfveYIGU
-	X37SQtvzYWlMssHh62xxKumpBZaOEbLIa1iiR7RFcM+sg/8WKHgskaSdOVDcA1ljUmqGOyRedj/
-	lsXp660pEgD6qlQraMbLpVnJxeYSflOWrSl6IMJ8aB+q7+tIwXi4x+
-X-Received: by 2002:a05:6000:186f:b0:436:1b1:6cbb with SMTP id ffacd0b85a97d-4379db30f9bmr32510635f8f.7.1771581835115;
-        Fri, 20 Feb 2026 02:03:55 -0800 (PST)
-Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-43796ad0166sm55642699f8f.35.2026.02.20.02.03.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Feb 2026 02:03:54 -0800 (PST)
-From: Gabor Juhos <j4g8y7@gmail.com>
-Date: Fri, 20 Feb 2026 11:03:49 +0100
-Subject: [PATCH] arm64: dts: marvell: armada-37xx: align 'phy-names' of
- EHCI node with DT schema
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260220-armada-37xx-fix-ehci-phy-name-v1-1-27c9907aab8e@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAIQxmGkC/x3MTQqEMAxA4atI1hPoj1iZq8gsYhttFnakBamId
- 7e4/ODxLiichQt8uwsyH1Lknxr0pwMfKa2MEprBKDMoox1S3igQWlcrLlKRoxfc44mJNkYfFq/
- VOJveWWiPPXOL3v/0u+8Huyga6W8AAAA=
-X-Change-ID: 20260217-armada-37xx-fix-ehci-phy-name-cdfc108b2473
-To: Andrew Lunn <andrew@lunn.ch>, 
- Gregory Clement <gregory.clement@bootlin.com>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Gabor Juhos <j4g8y7@gmail.com>
-X-Mailer: b4 0.14.2
+	Fri, 20 Feb 2026 10:09:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BC9414436A;
+	Fri, 20 Feb 2026 10:09:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7959BC2BC87;
+	Fri, 20 Feb 2026 10:09:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771582189;
+	bh=cn4TTDudr7pyoUuW5ws/Qgyj6NNj2ywFq9qEjCdNWOQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Js4XPV0vpJZqOW6TsfAgkmrnaDspmvCj+19swe9MRf2GbJNXSdl3DXSwcQAvHnkff
+	 lfczSiVLp7RZJthFs7OAQuhE/ADglIxJAWwoFyBVSaTFE7pKUJFj9mZcWQzms3Kt0k
+	 F8xiVTqBaxLcu29TcQOvEJWOu/Bca32EiFwoBmp7dbaLOni7teB9cTe1uuy2IJ3fGa
+	 VssfyA9Yrg7vUUiCy03mR797BwNIXCG0i5Ikq9AeUjNyvVdRvzgW8icgzu9YTQjNU6
+	 g9R2iswJ5qagdRRgxmXUMjD2TpsEsjQhlm7ZobEcz3N8iA1k435TjER9oodWqQmo2I
+	 wvu5tBId+L7cg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vtNSF-0000000CP7W-07ar;
+	Fri, 20 Feb 2026 10:09:47 +0000
+Date: Fri, 20 Feb 2026 10:09:46 +0000
+Message-ID: <86v7frafpx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 1/9] arm64: Add logic to fully remove features from sanitised id registers
+In-Reply-To: <CA+EHjTzVRq3r-7UR-MJYvv-Aw4kHQDHEmwtqY9is-fRDm-J06A@mail.gmail.com>
+References: <20260219195533.2455736-1-maz@kernel.org>
+	<20260219195533.2455736-2-maz@kernel.org>
+	<CA+EHjTzVRq3r-7UR-MJYvv-Aw4kHQDHEmwtqY9is-fRDm-J06A@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_020357_713450_EC7EA512 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20260220_020950_447050_58DD7503 
+X-CRM114-Status: GOOD (  45.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,66 +92,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the 'generic-ehci.yaml' schema, the name of the first phy
-in an EHCI node must be "usb", however the 'usb@5e000' node in the
-'armada-37xx.dtsi' uses "usb2-utmi-host-phy" instead.
+Hey Fuad,
 
-This causes dtbs_check warnings like the following ones:
+Thanks for taking a look.
 
-  arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dtb: usb@5e000 (marvell,armada-3700-ehci): phy-names:0: 'usb' was expected
-      from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
-  arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,armada-3700-ehci): phy-names:0: 'usb' was expected
-      from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
-  arch/arm64/boot/dts/marvell/armada-3720-eDPU.dtb: usb@5e000 (marvell,armada-3700-ehci): phy-names:0: 'usb' was expected
-      from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
-  ...
+On Fri, 20 Feb 2026 08:36:04 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Thu, 19 Feb 2026 at 19:55, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > We currently make support for some features such as Pointer Auth,
+> > SVE or S1POE a compile time decision.
+> >
+> > However, while we hide that feature from userspace when such support
+> > is disabled, we still leave the value provided by the HW visible to
+> > the rest of the kernel, including KVM.
+> >
+> > This has the potential to result in ugly state leakage, as half of
+> > the kernel knows about the feature, and the other doesn't.
+> >
+> > Short of completely banning such compilation options and restore
+> > universal knowledge, introduce the possibility to fully remove such
+> > knowledge from the sanitised id registers.
+> >
+> > This has more or less the same effect as the idreg override that
+> > a user can pass on the command-line, only defined at build-time.
+> >
+> > For that purpose, we provide a new macro (FTR_CONFIG()) that defines
+> > the behaviour of a feature, both when enabled and disabled.
+> >
+> > At this stage, nothing is making use of this anti-feature.
+> >
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/cpufeature.h | 15 ++++++++++-----
+> >  arch/arm64/kernel/cpufeature.c      | 21 ++++++++++++++++-----
+> >  2 files changed, 26 insertions(+), 10 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> > index 4de51f8d92cba..2731ea13c2c86 100644
+> > --- a/arch/arm64/include/asm/cpufeature.h
+> > +++ b/arch/arm64/include/asm/cpufeature.h
+> > @@ -53,15 +53,20 @@ enum ftr_type {
+> >  #define FTR_SIGNED     true    /* Value should be treated as signed */
+> >  #define FTR_UNSIGNED   false   /* Value should be treated as unsigned */
+> >
+> > -#define FTR_VISIBLE    true    /* Feature visible to the user space */
+> > -#define FTR_HIDDEN     false   /* Feature is hidden from the user */
+> > +enum ftr_visibility {
+> > +       FTR_HIDDEN,             /* Feature hidden from the user */
+> > +       FTR_ALL_HIDDEN,         /* Feature hidden from kernel, user and KVM */
+> > +       FTR_VISIBLE,            /* Feature visible to all observers */
+> > +};
+> > +
+> > +#define FTR_CONFIG(c, e, d)                            \
+> > +       (IS_ENABLED(c) ? FTR_ ## e : FTR_ ## d)
+> >
+> > -#define FTR_VISIBLE_IF_IS_ENABLED(config)              \
+> > -       (IS_ENABLED(config) ? FTR_VISIBLE : FTR_HIDDEN)
+> > +#define FTR_VISIBLE_IF_IS_ENABLED(c)   FTR_CONFIG(c, VISIBLE, HIDDEN)
+> >
+> >  struct arm64_ftr_bits {
+> >         bool            sign;   /* Value is signed ? */
+> > -       bool            visible;
+> > +       enum ftr_visibility visibility;
+> >         bool            strict; /* CPU Sanity check: strict matching required ? */
+> >         enum ftr_type   type;
+> >         u8              shift;
+> 
+> This introduces bloat. Should you group the bools together and the
+> enums together?
 
-Use "usb" as a name for the phy to avoid the warnings.
+That should be possible as long as everybody ends up using the
+__ARM64_FTR_BITS macro. On the other hand, I could reduce the width of
+the enum to something more appropriate and keep the current layout.
 
-No functional change, the USB interface works after the change:
+With the current changes, this looks like this:
 
-    [    1.472393] orion-ehci d005e000.usb: EHCI Host Controller
-    [    1.477847] orion-ehci d005e000.usb: new USB bus registered, assigned bus number 1
-    [    1.487127] orion-ehci d005e000.usb: irq 40, io mem 0xd005e000
-    [    1.505759] orion-ehci d005e000.usb: USB 2.0 started, EHCI 1.00
-    [    1.512493] hub 1-0:1.0: USB hub found
-    [    1.516434] hub 1-0:1.0: 1 port detected
-    ...
-    [    4.175746] usb 1-1: new high-speed USB device number 2 using orion-ehci
-    [    4.347643] usb-storage 1-1:1.0: USB Mass Storage device detected
-    [    4.359972] scsi host0: usb-storage 1-1:1.0
-    [    5.367100] scsi 0:0:0:0: Direct-Access     ADATA    USB Flash Drive  1.00 PQ: 0 ANSI: 6
-    [    5.387091] sd 0:0:0:0: [sda] 30869504 512-byte logical blocks: (15.8 GB/14.7 GiB)
-    [    5.398420] sd 0:0:0:0: [sda] Write Protect is off
-    [    5.408108] sd 0:0:0:0: [sda] Write cache: disabled, read cache: disabled, doesn't support DPO or FUA
-    [    5.477359]  sda: sda1
-    [    5.480037] sd 0:0:0:0: [sda] Attached SCSI removable disk
+struct arm64_ftr_bits {
+	bool                       sign;                 /*     0     1 */
 
-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
----
- arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+	/* XXX 3 bytes hole, try to pack */
 
-diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-index 87f9367aec1227c2c6de52f358d51bcff758c147..a8d10e4de81619c44ccbe0f08e69707dc28005a3 100644
---- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-+++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-@@ -396,7 +396,7 @@ usb2: usb@5e000 {
- 				marvell,usb-misc-reg = <&usb2_syscon>;
- 				interrupts = <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
- 				phys = <&usb2_utmi_host_phy>;
--				phy-names = "usb2-utmi-host-phy";
-+				phy-names = "usb";
- 				status = "disabled";
- 			};
+	enum ftr_visibility        visibility;           /*     4     4 */
+	bool                       strict;               /*     8     1 */
+
+	/* XXX 3 bytes hole, try to pack */
+
+	enum ftr_type              type;                 /*    12     4 */
+	u8                         shift;                /*    16     1 */
+	u8                         width;                /*    17     1 */
+
+	/* XXX 6 bytes hole, try to pack */
+
+	s64                        safe_val;             /*    24     8 */
+
+	/* size: 32, cachelines: 1, members: 7 */
+	/* sum members: 20, holes: 3, sum holes: 12 */
+	/* last cacheline: 32 bytes */
+};
+
+which is 8 bytes larger than the upstream version. But if I do this:
+
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index adaae3060851c..d8accc9c94fab 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -64,9 +64,9 @@ enum ftr_visibility {
  
+ struct arm64_ftr_bits {
+ 	bool		sign;	/* Value is signed ? */
+-	enum ftr_visibility visibility;
++	enum ftr_visibility visibility:8;
+ 	bool		strict;	/* CPU Sanity check: strict matching required ? */
+-	enum ftr_type	type;
++	enum ftr_type	type:8;
+ 	u8		shift;
+ 	u8		width;
+ 	s64		safe_val; /* safe value for FTR_EXACT features */
 
----
-base-commit: fcaf733ca526b69595ed1d227e2cc59ddd24eff7
-change-id: 20260217-armada-37xx-fix-ehci-phy-name-cdfc108b2473
+I end up with the following layout:
 
-Best regards,
+struct arm64_ftr_bits {
+	bool                       sign;                 /*     0     1 */
+
+	/* Bitfield combined with previous fields */
+
+	enum ftr_visibility        visibility:8;         /*     0: 8  4 */
+
+	/* Bitfield combined with next fields */
+
+	bool                       strict;               /*     2     1 */
+
+	/* Bitfield combined with previous fields */
+
+	enum ftr_type              type:8;               /*     0:24  4 */
+	u8                         shift;                /*     4     1 */
+	u8                         width;                /*     5     1 */
+
+	/* XXX 2 bytes hole, try to pack */
+
+	s64                        safe_val;             /*     8     8 */
+
+	/* size: 16, cachelines: 1, members: 7 */
+	/* sum members: 12, holes: 1, sum holes: 2 */
+	/* sum bitfield members: 16 bits (2 bytes) */
+	/* last cacheline: 16 bytes */
+};
+
+which is 8 bytes *smaller* than the upstream version, without
+reordering. WDYT?
+
+> 
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index c840a93b9ef95..b34a39967d111 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -192,7 +192,7 @@ void dump_cpu_features(void)
+> >  #define __ARM64_FTR_BITS(SIGNED, VISIBLE, STRICT, TYPE, SHIFT, WIDTH, SAFE_VAL) \
+> >         {                                               \
+> >                 .sign = SIGNED,                         \
+> > -               .visible = VISIBLE,                     \
+> > +               .visibility = VISIBLE,                  \
+> >                 .strict = STRICT,                       \
+> >                 .type = TYPE,                           \
+> >                 .shift = SHIFT,                         \
+> > @@ -1057,17 +1057,28 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
+> >                                 ftrp->shift);
+> >                 }
+> >
+> > -               val = arm64_ftr_set_value(ftrp, val, ftr_new);
+> > -
+> >                 valid_mask |= ftr_mask;
+> >                 if (!ftrp->strict)
+> 
+> Should FTR_ALL_HIDDEN also be removed from strict_mask? i.e.
+> 
+> -                 if (!ftrp->strict)
+> +                 if (!ftrp->strict || || ftrp->visibility == FTR_ALL_HIDDEN)
+> 
+> (or under the ALL_HIDDEN case below).
+
+If we run on a system that has diverging features, we probably want to
+know irrespective of the feature being enabled. After all, the
+integration is out of spec, and conveying that information is
+important, just in case the diverging feature affects behaviour in
+funny ways...
+
+> 
+> 
+> >                         strict_mask &= ~ftr_mask;
+> > -               if (ftrp->visible)
+> > +
+> > +               switch (ftrp->visibility) {
+> > +               case FTR_VISIBLE:
+> > +                       val = arm64_ftr_set_value(ftrp, val, ftr_new);
+> >                         user_mask |= ftr_mask;
+> > -               else
+> > +                       break;
+> > +               case FTR_ALL_HIDDEN:
+> > +                       val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
+> > +                       reg->user_val = arm64_ftr_set_value(ftrp,
+> > +                                                           reg->user_val,
+> > +                                                           ftrp->safe_val);
+> 
+> Should we also take the safe value in update_cpu_ftr_reg() for FTR_ALL_HIDDEN?
+
+I would expect arm64_ftr_safe_value() to do the right thing at that
+stage, given that we have primed the boot CPU with the safe value, and
+that we rely on that bootstrap to make the registers converge towards
+something safe. This is also what happens for the command-line override.
+
+Or have you spotted a case where this go wrong?
+
+Thanks,
+
+	M.
+
 -- 
-Gabor Juhos <j4g8y7@gmail.com>
-
+Without deviation from the norm, progress is not possible.
 
