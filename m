@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF1CC5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 15:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB0AC5CFE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 16:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WF7a5GzWEFZ0La2JwjVlCs++i1kUNnI0/gEMbMwKHjA=; b=KbgDOmMmjbyA73JEvgU2GBgCUN
-	Nsv+DrhDJRtoob4vNdfz2ZYQXsBrJAerJ2Y+NoWkXjtFppPZonB7sqY9eBh6Xd72xz2Oj38xSZMBH
-	ecpAKDg7fRpDr9otL4ZKjvKiTPZQO9rHLi3tniw2iKF8xUV093Q1SM3p1ZVhCSbxrG9lXULzrfODe
-	82l+SnQrJxfI/5YlqZtA3vwDvqLuSiltiOtDxA6MKkoen9Ugdom+2UVI6jD6c7RuBOtng1GnzeP6m
-	H9dK51UrYUMal5JtbszQ+BYcWb5OdIO3v641XeW6xM916ZMDaQU6G5oYyYg24vPGFamndHmH6a/b6
-	wb37VqMw==;
+	bh=AcL+LjLtgj73uDqcT/XdINauKu/QyxlVh7Et5BeJGAU=; b=X0zaxR26dxg3h6DdIKw5YH1AC4
+	ZALASdTgXsYvnBQO0YwvBNK4N/AkEEyYgKXUibV+mBSQAP/Ji3SAcHfyUW/yODPNzf4dK5nviOl+f
+	RI0HjuFZuHySb5H2/HRGvloT9F+FGZGrq3D9lrEwtmZe0qB7Z7AVuobAv5D94bNXQDYeTQ6Sd9wgT
+	ppX0p7N6J+m2VsHCPiREwQmVXRgaAhycXK3GaJRZzbmDo57ubNODTl50k2Gq6j+kceF3cxaigoGKV
+	cCoFUa1JtTYpy4usP77/uHvMtJdu1iqxRvciUQL01e8idLSwJ+2Rng3ul2qOfb5ycSPxwlJBGf3z6
+	QoFwPzSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtp6n-0000000G9Kh-42NB;
-	Sat, 21 Feb 2026 15:41:29 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vtpS0-0000000GAJ3-0ET5;
+	Sat, 21 Feb 2026 16:03:24 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtp6m-0000000G9KI-1P19
+	id 1vtpRy-0000000GAIa-03lc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Feb 2026 15:41:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=WF7a5GzWEFZ0La2JwjVlCs++i1kUNnI0/gEMbMwKHjA=; b=YLgOqUSr1j9q4eH50aKOZ7sc2e
-	Pavn+YoVmLqyNDw84LlNVWqeHrnagMiRUllON+HAigX4Y3PhBmSlMoqX6xje9G30A2g+iXjBTeECD
-	9HQC6NdCbuErnH4VkYhmvMraiC7w7w8WTXWVwEsjqwel2JSc058f/mlpm61RD0W2XZHw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vtp6b-008BGY-Gk; Sat, 21 Feb 2026 16:41:17 +0100
-Date: Sat, 21 Feb 2026 16:41:17 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Gabor Juhos <j4g8y7@gmail.com>
-Cc: Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: marvell: armada-3720: drop
- 'marvell,xenon-emmc' properties
-Message-ID: <24cee5ef-30c8-44bd-9c4f-48f20457cc5e@lunn.ch>
-References: <20260221-armada-37xx-drop-xenon-emmc-v1-1-3110e83091b8@gmail.com>
+	Sat, 21 Feb 2026 16:03:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AcL+LjLtgj73uDqcT/XdINauKu/QyxlVh7Et5BeJGAU=; b=0YgrQZM5mI0X4FF+DOl1FYNvKm
+	Q9zSYiUM5uEhaPOtJvMd06M6mNkKisj441dcul8OhViQ1/mbs+QjD7azOeQX83TDjQDy5//PP75zM
+	6ThLKoaK0WmUZq4jJA3IuGgExnqmhmcMbzfPj8iC7BEY+tCJwS4s29BAsc/hMcahDFE1Sz1Yee/PZ
+	k2TQB8eIPQRbErd/rtNGFv9w15gQNhfCzvu0DqsX8hyAiPd1Axnn2oKoyn+bgyIM0tUQonltBdRA9
+	jpL8e1F0Ev07nr7RMhxPxg1mw6v2Xaq0FdHcnlyieimJhi5XkKSqRF2IvBXDEmXug/flcBTFXI0r8
+	+mHdI8ug==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33072)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vtpRt-000000002dA-26pU;
+	Sat, 21 Feb 2026 16:03:17 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vtpRs-000000005Rw-1s8h;
+	Sat, 21 Feb 2026 16:03:16 +0000
+Date: Sat, 21 Feb 2026 16:03:16 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm: Add runtime constant support for armv7 and
+ !THUMB2_KERNEL
+Message-ID: <aZnXRGFJ1F-nT4Ou@shell.armlinux.org.uk>
+References: <20260221141831.16136-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260221-armada-37xx-drop-xenon-emmc-v1-1-3110e83091b8@gmail.com>
+In-Reply-To: <20260221141831.16136-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_074128_377400_F6B18E8D 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260221_080322_054550_40185006 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 21, 2026 at 04:37:59PM +0100, Gabor Juhos wrote:
-> The 'marvell,xenon-emmc' property used in some device trees of Armada 3720
-> based boards is not documented. Due to this dtbs_check throws warnings:
+On Sat, Feb 21, 2026 at 10:18:31PM +0800, Jisheng Zhang wrote:
+> Implement the runtime constant infrastructure for
+> armv7 && !THUMB2_KERNEL. So that armv7 can use this infrastructure
+> to generate constants to be used by the d_hash(), dentry_cache(),
+> names_cache() and so on.
 > 
->   .../armada-3720-atlas-v5.dtb: mmc@d8000 (marvell,armada-3700-sdhci): Unevaluated properties are not allowed ('marvell,xenon-emmc' was unexpected)
->   .../armada-3720-espressobin-emmc.dtb: mmc@d8000 (marvell,armada-3700-sdhci): Unevaluated properties are not allowed ('marvell,xenon-emmc' was unexpected)
+> This is the armv7 variant of commit 94a2bc0f611c ("arm64: add 'runtime
+> constant' support") and commit e3c92e81711d ("runtime constants: add
+> x86 architecture support").
 > 
-> Apart from the warnings, 'git grep' says that the property is used in
-> device trees only:
+> As for < armv7 or THUMB2_KERNEL, we fall back to the generic
+> runtime-constant.h, no functionality changes.
 > 
->   $ git grep -n 'marvell,xenon-emmc'
->   arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dts:85:        marvell,xenon-emmc;
->   arch/arm64/boot/dts/marvell/armada-3720-espressobin.dtsi:81:    marvell,xenon-emmc;
-> 
-> Although handling of the property was there in an early version of
-> the 'sdhci-xenon' driver during the initial submission [1], but that
-> part has been removed in later versions.
-> 
-> Drop the property from the affected device trees due to the reasons
-> mentioned above.
-> 
-> No functional changes intended, compile tested only.
-> 
-> Link: https://lore.kernel.org/r/0390e7a05b6163deabb545f93729ea615eeaaee2.1477911954.git-series.gregory.clement@free-electrons.com # [1]
-> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+This looks fine to me, but it will need to appear in the patch system
+for me to apply it. Details linked via my signature below.
 
-    Andrew
+Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
