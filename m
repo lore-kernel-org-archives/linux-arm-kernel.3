@@ -4,56 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCA3C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 14:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0931AC5CFE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 15:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xA22utvgRUdA5DBTKJr5qtockNVUiH7ZtWJLs1w/PPQ=; b=MbMcI4u1xLQl2O71TDA59RNktE
-	JEWd7oSoQCZtb/0dMpDoC/9VmXxZ7Q2xfUaqg6y8qGSdsg6Bv4NertVZdLiLtLbNiMkP9zDA62S2N
-	F7ZTeMj3+U9JWjw2/a5Vi/IjUDEVev81j5i/SjDrNeIK2lPxrvPUyYnJgNOJMejmE8klLtLckzv2o
-	KQJZBO9oXmORsBblsquoQbXo7Q+Fmob4A9H8QbKgaC+CceFqWJKwJvucfnIC7DnnjV1vbYYeEsk9T
-	o+uxwT+GpBgHrUjhUeQT5nDn+c4oCrBk8JIIl1G2SlBRe3k9cWhL0RVPUBO96AG96Q74WFURYSIY5
-	D+7ka4uQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l8qR+hrpB4PvPYq3Ypso3qPSLmB4Te3SmIhkNNMiHXk=; b=4ylpdwVLHbThVmqN6Amw7kbQtz
+	XcP3/9IdnlfAFhPPzWbNJT8yqMNMMo+b81SS84uI2KupS4aMJEG+FXHpnYbCbCgZs4ui8hbHgqAae
+	8j1Qu0XMDnU+P3xnS4ZgX38cHOxiCmxD0QFLkNbGar7cQvs4JUFSIIDVgaRLineCRdvcn7DNjXwG9
+	QrcY3y5lS9hF1r+gCSkToXv744kw1YElNAJrYFsJECN5LeZz/YIgDKtqepJ2g8g3Tb+Yhq0SsEboz
+	3deUUH7aSR04TRZk7rdOCh/wMp0wzsHZO3kA8nxZS5AwtpDH29vjuwvullJXRzE8QMtCLZ+xJnn+O
+	mn8HPROg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtoS4-0000000G7Mf-3fFr;
-	Sat, 21 Feb 2026 14:59:24 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vtoYK-0000000G7kC-2tTs;
+	Sat, 21 Feb 2026 15:05:52 +0000
+Received: from mout.kundenserver.de ([217.72.192.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtoS2-0000000G7M0-1JmA;
-	Sat, 21 Feb 2026 14:59:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=xA22utvgRUdA5DBTKJr5qtockNVUiH7ZtWJLs1w/PPQ=; b=Wx3BCHB/7X48J37ZF46L83Wl/k
-	ueplWD6JS0yylKYIteTeSvP2nHfEOmBcGASYFdlda8y9op5ARPjGtTxtiV9MkM0IO4dVuQz82aIqp
-	5hoHZLupoQ4jd2xFv8NdcdItb0JUidFbUxVq6/OKaBFTLjw3yvb91WSika0/bYal1pM3I+0g0U0+p
-	ZzniUxNbLvFje/SCmuMnsuTEqaW7TgM+r6AvPukQ9w5GPttUynX+eKMcJy0q21Rc3/R4yd7C2X9B4
-	Ao7KyYRNCPibJ899dmpbjq0YvEl7FHWrVowUqqDgUTNNIK0+oVWWPdZPgCBY97ekIsVSt9xbL2Di1
-	zTYcINOA==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: robh@kernel.org, WeiHao Li <cn.liweihao@gmail.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- WeiHao Li <cn.liweihao@gmail.com>
-Subject: Re: [PATCH v2 1/4] phy: rockchip: inno-usb2: Add usb2 phy support for RK3368
-Date: Sat, 21 Feb 2026 15:59:18 +0100
-Message-ID: <4689639.clyjiGRsXx@diego>
-In-Reply-To: <20250909132958.26423-2-cn.liweihao@gmail.com>
-References: <20250909132958.26423-1-cn.liweihao@gmail.com>
- <20250909132958.26423-2-cn.liweihao@gmail.com>
-MIME-Version: 1.0
+	id 1vtoYG-0000000G7jI-4Ae7;
+	Sat, 21 Feb 2026 15:05:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=online.de;
+	s=s42582890; t=1771686343; x=1772291143; i=dubito@online.de;
+	bh=l8qR+hrpB4PvPYq3Ypso3qPSLmB4Te3SmIhkNNMiHXk=;
+	h=X-UI-Sender-Class:Message-ID:Subject:From:Reply-To:To:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version:cc:content-transfer-encoding:content-type:date:from:
+	 message-id:mime-version:reply-to:subject:to;
+	b=jEp6QxvWChMG6Ud89DVe0Lx4KB9wzmgMyscvp2RWh6KMjHwX4/pX1cf0MyK7/V1H
+	 CbCtl7bvhPEigK45gEySQegtbg8w3TPkgaBtjmuaLScnJ2jiXea/zlSWF+kcwstub
+	 Hmg8Gymr0tOCLkbHqJqAeNZdS9iSSf6hK1i+xkUebUVFhUlE99gwsNwd1hYVooLgi
+	 BuypNYtXhAU7K/6jbgw3IuQ1RxtA2h6L5TQUv6D0/hUZ6vsPaHyDjTGcuwDTuOjRW
+	 MkCbY94NDW79UgpITozboN9VpDDCY31R1rf7jL+fYpOhyHLH9jqddrQHhIYLBsHiu
+	 EIBsHrGXuGLdUDnHdA==
+X-UI-Sender-Class: 6003b46c-3fee-4677-9b8b-2b628d989298
+Received: from [192.168.0.209] ([91.66.193.45]) by mrelayeu.kundenserver.de
+ (mreue108 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1MacWq-1vIp2b3CA6-00cf5E; Sat, 21 Feb 2026 16:05:43 +0100
+Message-ID: <e18fce6a3216427d26bd10ebd837e9152c0c8b60.camel@online.de>
+Subject: Re: [REGRESSION] HDMI monitor not working on Radxa Rock 5B after
+ phy rockchip samsung hdptx HDMI 2.1 FRL patchset
+From: Thomas =?ISO-8859-1?Q?Niederpr=FCm?= <dubito@online.de>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Vinod Koul	
+ <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Heiko
+ Stuebner	 <heiko@sntech.de>, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, regressions@lists.linux.dev
+Date: Sat, 21 Feb 2026 16:05:42 +0100
+In-Reply-To: <a662745a-1b2a-47b3-a66d-7c1c5c8af525@collabora.com>
+References: <b32164001947ba922aefb6ca86a8dc59e9323d2b.camel@online.de>
+	 <8e410a11-bd7b-4a12-a711-0514a59409c0@collabora.com>
+	 <1859c940219a4dbfdf0497afbf333e627ab0ba25.camel@online.de>
+	 <98e46dbb-c8e2-451f-accb-ea48f63f9408@collabora.com>
+	 <4544ec4ccfa49cbdffee098878df7806223935a0.camel@online.de>
+	 <08369c90-fbab-477d-9ac6-388deddfd3b1@collabora.com>
+	 <26e31b3b-484f-433b-833f-c639ee437f63@collabora.com>
+	 <03b5f3d1-6db4-4835-b2a5-c22c1aa63825@collabora.com>
+	 <a3c3964e9e13c82d944fa1ee0acbb1a7806dd382.camel@online.de>
+	 <a662745a-1b2a-47b3-a66d-7c1c5c8af525@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Evolution 3.58.2 
+MIME-Version: 1.0
+X-Provags-ID: V03:K1:A6DOSPbkG2a8W4AayFyZ/jjeSuVWCTyazX1+j+t31ZRKWxK/Pnc
+ jLMRbuZsxFP7h8H8PF9hN8AVg7yCgLue0dTFe0hgTC4trdPFQ3MODOKKMZL3ebiQggmISvz
+ hFNAR1T8gWd+byqq4g//CIgMDld7Xp0bNA+UFbCaVVMKh3I2iMKjtAiBlfI+lLYpQbKjE1K
+ NBXvLCM6oJ/at7jC+v/uQ==
+UI-OutboundReport: notjunk:1;M01:P0:J+JveUSkW8c=;Fm+X29IM1PZd1HVmkootEQNq8v5
+ muHpXDJtmk4rr6WAr+yyr9f0j/zB4r3EW5upJeqF0mL0Y94RUPIwk5RbfXHeHfKRPIJC677Ta
+ OjqvArzHWsR4aMrah5R/k95Z3mKB/JKp6pGkcu2LEFPvlkuQ5Qb5xJ4UZnXCkroe7pBddEnwP
+ dCjnQeHPIX5CNrOUokkcctvWJo7iOoToNlCMs9hDiOpR11Y8HAouRyxiOyfbxjb1/x9W607/z
+ byx8GRO/ByWOwkGnRIJxQ3vXXWtslf1SA3l1bRfLPN6D2Fvrrr1RvCljX94CeriCLyI0f2Fho
+ hls5rLYmgY4DhLKdRMuZrk/fQEVpwwtoJiFk6M6nfTMGVABiRF/BVUD755vh6HNAfssPilHkW
+ FiDLwp3dYIsjkhouIC1YSjdsp8aEoMgSWqVkY6ryDT5VB5OV0CFpi2AwT8A8yjnhs3U9uyyf8
+ HnhNJZtzu9L4FtDKzGFnhUuBQqTUA9TS50Vi7mFex2hfep4zZ21zzr6hdlambw9nWOMmpj7+R
+ cBobrK/FyiY7BBT2JMhABNDViHBxxbs6fR7tPV/YbO6U2efpIz6Q9UE+3lKimI0hh46+LoBct
+ Aibf35j6/fUVwYrpPFjDnTajC2piOkkw/25ZRUQS93ed9B4ILzbw2rET3zNj6/3Sz9bNKA05k
+ Bfow53WDJ7Mx9S98sgRU1hB4DqiVW+8Wk1bVul7KIQ1kz9WOCeD3Q8WWxMNHUJ4HoWSNBE/ya
+ O3moInk05QwWdwpBUvXmIDPcqDbcs3gukIMMy7KATZFA2H6WsHUSoxxlWyHVqvl8GfnjUsHLH
+ fCBEUmkNSFCjM30lJDfJM8Zer+plRkr8woxdwN5XFWe7UiTvWKyrijvMdwHr4BXQNQCLwpTJw
+ e/JGsa4tZt6MSfTIFcib/Lz2/Pmclv2Clwhowj2Yggz4VDBa/JEa8HaAEVqySrNLqH7x0sTVC
+ Jh5E6RrSi/oK7Af6mW4ZVdGf3wLIj0X2hroLPiypiQPvC2vPeCkQKFX824Nfbe1CJoYrxfFs7
+ DOGz7NMesHagDdMe4gLBVFZnH5MbfEXmXFgMgvVxlTv3e7zHOpZRgkbSpnE5dhbyWPbm9dPXT
+ aDjC9aaIIu1SiWl52nNFwPO/AFabpkwBKLlBdstjy+nKQEZu6GPRwtyCqHDvxB3VxAC2iiT4E
+ vZsqBa4Lz78P59NoQm1uTqNk4EpRJ3g4tDVZftz12Zztj6oqx7mxN8KrSJlD6hMUHfyqvv9Do
+ OaTTupZtx8LRbrluJVkTDdkRC3Rpj15if5A8cJgf6j/sbWhZPhFPwZGU4su2uPHTZoagKdxzj
+ hnJwiu1Sesl5itpZ00vjd5hw/0f9NzQ3+2GXBBpy7qGPKyAt6KYUPFifUQR/XjGngBUtx9a2x
+ ccSGfhUQKj6Yp20NGa/oWqRWvCDiP2cmuAS9KTsahXz42/d25kaadKXk4IBB0e7Y2izzc4yuL
+ 7sJ92E9xYGXpX9/3yjT7Em9qbmssyE1aqSz5nhu6N5qbTJdTY4BSudrozpg40KC7Zo0r/xICc
+ RC0wFX2fyUoM5F22LGwxnu3DDgPGz00VdDciVNe8/xEoruYBv8FoMCkgXJr2jrz+0ttxVvNS0
+ jZldS7DfsEi4wKAi9sRowMIG4HAs+1kRiofZ7Vc8V64dllBwMsaFTyRSy0xcE0H13EGJctOXV
+ 39NiBSaVQxEhyPhm991O8fMbkJQpy/OhamZnYll6DDyYRgOOqZe2FPTD/aCCbHQ4aM0pyGBrO
+ IW/1iOEwwCf5PpLh7AVUjOsQZ5C/Kkrm3nx2kBnQUD41GTArtraTt/kuzGawM4h/kQdz86PLz
+ e2wh
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_065922_356393_BEAD07BF 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260221_070549_392072_8B73B25C 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,29 +113,106 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: dubito@online.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Cristian,
 
-Am Dienstag, 9. September 2025, 15:29:55 Mitteleurop=C3=A4ische Normalzeit =
-schrieb WeiHao Li:
-> RK3368 has one USB2.0 PHY with two ports. This adds device specific data
-> for it. Device specific data get form rockchip downstream source [1].
+Am Mittwoch, dem 18.02.2026 um 22:56 +0200 schrieb Cristian Ciocaltea:
+> Hi Thomas,
 >=20
-> [1] https://github.com/rockchip-linux/kernel/blob/develop-4.4/drivers/phy=
-/rockchip/phy-rockchip-inno-usb2.c#L2805
+> On 2/18/26 10:43 PM, 1und1 wrote:
+> > Hi Cristian,
+> >=20
+> >=20
+> > Am Mittwoch, dem 18.02.2026 um 22:15 +0200 schrieb Cristian Ciocaltea:
+> > > On 2/18/26 3:22 AM, Cristian Ciocaltea wrote:
+> > > > On 2/18/26 2:52 AM, Cristian Ciocaltea wrote:
+> > > > > Hi Thomas,
+> > > > [...]
+> > > >=20
+> > > > >=20
+> > > > > Sorry, I somehow missed the following warning message, though it =
+has
+> > > > > been
+> > > > > already present in all the logs you've sent to me so far:
+> > > > >=20
+> > > > > =C2=A0 rockchip-hdptx-phy fed60000.phy: PLL locked by unknown con=
+sumer!
+> > > > >=20
+> > > > > That indicates the PHY has been preconfigured by an external comp=
+onent
+> > > > > (e.g. the
+> > > > > bootloader), which is actually a scenario that I didn't verify.
+> > > > >=20
+> > > > > However, this just another way to expose a limitation of the curr=
+ent
+> > > > > approach
+> > > > > for managing the TMDS character rate: done via the Common Clock
+> > > > > Framework
+> > > > > API
+> > > > > instead of the HDMI PHY configuration API.
+> > > > >=20
+> > > > > As a matter of fact, it was actually an item on my TODOs list for
+> > > > > quite a
+> > > > > while,
+> > > > > but blocked until recently due to several dependencies waiting to=
+ be
+> > > > > merged
+> > > > > upstream.
+> > > > >=20
+> > > > > Hence I took the opportunity to finalize this task - please give =
+the
+> > > > > following
+> > > > > commits in my rk3588-hdmi-debug branch [2] a try:
+> > > >=20
+> > > > I've just realized I introduced a regression while doing some clean=
+up
+> > > > work,
+> > > > hence
+> > > > please ignore this until further notice.
+> > >=20
+> > > I think I got this working properly now, at least it passes all the t=
+ests
+> > > I
+> > > could run.=C2=A0 The updated commits in [2] are:
+> > >=20
+> > > =C2=A0 fa7cd1e75aaa ("phy: rockchip: samsung-hdptx: Fix rate recalcul=
+ation for
+> > > high
+> > > bpc")
+> > > =C2=A0 8048db5544da ("phy: rockchip: samsung-hdptx: Exclusively use P=
+HY config
+> > > API
+> > > for PLL changes")
+> > > =C2=A0 0085a382dfd0 ("[DEBUG] drm/rockchip: Add HDMI verbose logging"=
+)
+> > >=20
+> >=20
+> > applying these commits solves my problems. I tested 1920x1080@60,
+> > 1920x1080@50
+> > and 1920x1080@30. All work now. Thanks for the quick fix!=20
 >=20
-> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
+> Thanks for the quick test!
+>=20
+> I can add you to cc: when I submit the series, so that you may provide yo=
+ur
+> Tested-by tag if you'd like to.
 
-just realized, this patch is missing the phy maintainer/reviewer as
-recipient, the phy-list is likely not enough.
+sure, I would be happy to.
 
-Please use scripts/get_maintainer.pl for the whole series, to get necessary
-people. Because this phy-patch needs to go through the phy tree.
+>=20
+> > And the positive side> effect seems to be that you can now take one of =
+your
+> > old todos from your list.
+>=20
+> Indeed. :-)
+>=20
+> Regards,
+> Cristian
 
-Thanks
-Heiko
+Best regards,
 
-
+Thomas
 
