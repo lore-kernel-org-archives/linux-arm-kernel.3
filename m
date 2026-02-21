@@ -4,51 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2074AC61DE3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 18:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88543C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 18:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQNZeBiAnxKYiWCyD1a33b2P2Qe8jLzBI4Do6/Hfgc4=; b=IYljnvSg3OrKaS5DxyTwIgVdbl
-	cwUg3VgsXczj2F9FWc9f5LA53uqj+zrVRVFhduz98mCxP8NHXzN26Wq8zpFGrGEWnZthzwFuzZB3E
-	Lo2hIPk4/WVLtRp5CyY9ujw7CKLZzR0actotoaaqRVGEh/k+xq7eDRi8N+I89VCO9YfbSTVjUZO75
-	9qoy27Xd8c6CKneDukvY0vwyVoLolheVL+DrUK1CbXBopcmHYjwRHSPwJedRSsXS0THlnQ7tBbwxV
-	RAWJa5n+ovFLPqC2CZnpZMhBTtrU8Yd2N8cYfG1v/CzHlbjNSVzQN78tDF3MjTvlKHtz/uWW3ug2y
-	qeSK3PtA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dopCXToWZ2/xwrjXzTF4ClkzlvVAZFIbQREfj3SDAzI=; b=np2vuKzjOyGpvH
+	avWK4/OE07mUGJek1Pxzh/7/+OjUrPluE//VnW0c2dWjbGmFc5XxQm9AqyRzLZrglEi6VGDtkNoOX
+	FYRJxX9N6p62Q7KagwzSjugz3FgGcR+RjVxsgjO31/q7C07cfqV5178Zq/zfjHjeWfLl34KEWZ2tG
+	jOqwWwPSj5QoftPqyXghN/18GQOjJHxx660t4eaunloWZHEjdWJQxhoiYjyw9vQuoiu2anFD0Ma8d
+	hSwH5TJnjgN4d/NSofVcJtBeNQaer/exNpaXSMbm8CTgMngLzgqOgobR6wuk6XA3WKH0kjhgl57A7
+	xptCB0q5JdmjfQKEmVdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtrW2-0000000GEUy-0z7e;
-	Sat, 21 Feb 2026 18:15:42 +0000
-Received: from ms.puri.sm ([2a01:4f9:c012:9260::1])
+	id 1vtrVw-0000000GEU0-3xcW;
+	Sat, 21 Feb 2026 18:15:36 +0000
+Received: from ms.puri.sm ([135.181.196.210])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtrVw-0000000GET8-0GQc
+	id 1vtrVu-0000000GET5-2aZ6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Feb 2026 18:15:37 +0000
+	Sat, 21 Feb 2026 18:15:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=puri.sm; s=smtp2;
-	t=1771697732; bh=6qD4WxlgSPhVsvrYvovWSqRW5CeLnWSLVEIuD0nudn0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=vomIkakDhqc7ckGditKPSVQJgTR81T9qO8QthHrcgF19gPCvhDIuOx1L76lsEUYPe
-	 6zj0MPzJO6J0OpRzJFDMxJoFHQ7XiBDXeV92pa+fdwR0a2NH9THiVwwKpjca9dsGRr
-	 z8kZlpu1dNH0aLxaC7SsV1d9FQSWFfmybquYJvUmOijg99XrI9EW5XHreT5Dz25BAv
-	 f9BlzMzSw5iHSJkvrIL9NK62chqMRzMj6UndhbW6mOaQ713hGoKb/Aw0i7iSjrSnJ/
-	 3ScBzG/1d6oOxuPMGc0KDzm/5Kii20usIEjbDwFbsrKaXWn7pFJGhsysFBW9oKLwFZ
-	 60KIWLtNFrYpA==
+	t=1771697730; bh=jtCfrr13o4B/392SWdb5ghKU04pq1d/ZsNEtXEu0AAQ=;
+	h=From:Subject:Date:To:Cc;
+	b=IZydHVLhRFVP2zi9KCfvZVBmBfo/FfJt5BgfxLWRthoK7kQHO46NLrn2OLF46jpjO
+	 DjUpkZWDwbHD3Dp2YwJ8jxLkTUXgiq5exdxqxl17LJk1TOImxpy6u+tdKPwOjC0mFW
+	 mXXDy/i5SwSNfCr173N1CO7Sa5sxKpQ/1c+PMeBUp68mycPADBxyjYL6dkLeCEYrWe
+	 2oTjFuKaFLtk9auEkDK/ZJ1Vu/6ShmkU1CcLsvgu/Aq8tAVAgYoEDkr/k6bTQxL8k5
+	 mZ/4WNfGWOd/Dp+MYY+Tl/a0PcmM0Ba8hL1e0YbY9rBzu3KcXi53UbqCQ7plvRj49d
+	 5k/70D1cDerPg==
 Received: from pliszka.localdomain (79.184.40.11.ipv4.supernova.orange.pl [79.184.40.11])
-	by ms.puri.sm (Postfix) with ESMTPSA id 7B95E1F6B7;
-	Sat, 21 Feb 2026 10:15:31 -0800 (PST)
+	by ms.puri.sm (Postfix) with ESMTPSA id 475311F511;
+	Sat, 21 Feb 2026 10:15:28 -0800 (PST)
 From: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-Date: Sat, 21 Feb 2026 19:15:19 +0100
-Subject: [PATCH v2 2/2] arm64: dts: imx8mq-librem5: Bump BUCK1 suspend
- voltage up to 0.85V
+Subject: [PATCH v2 0/2] arm64: dts: imx8mq-librem5: PMIC voltage changes
+Date: Sat, 21 Feb 2026 19:15:17 +0100
+Message-Id: <20260221-l5-voltages-v2-0-dd8885bb9331@puri.sm>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260221-l5-voltages-v2-2-dd8885bb9331@puri.sm>
-References: <20260221-l5-voltages-v2-0-dd8885bb9331@puri.sm>
-In-Reply-To: <20260221-l5-voltages-v2-0-dd8885bb9331@puri.sm>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NQQ6CMBBFr2K6dpQ2CMSV9zAshnaASaCQDjQaw
+ t0trF2+5P/3NiUUmEQ9L5sKFFl48gnM9aJsj74jYJdYmcwUmTEahgfEaViwI4GW8rJwuW1Jlyo
+ 95kAtf07bu07coBA0Ab3tD8fAfpX7iLJQOOY9yzKF79mO+jj9z0QNGTjEComcrQr7mtfANxlVv
+ e/7D2z9HcvDAAAA
+X-Change-ID: 20260221-l5-voltages-fe476d4cfe17
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -63,26 +65,27 @@ Cc: kernel@puri.sm, devicetree@vger.kernel.org, imx@lists.linux.dev,
  Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>, 
  stable@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1237;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=890;
  i=sebastian.krzyszkowiak@puri.sm; h=from:subject:message-id;
- bh=6qD4WxlgSPhVsvrYvovWSqRW5CeLnWSLVEIuD0nudn0=;
- b=owEBbQKS/ZANAwAKAejyNc8728P/AcsmYgBpmfY/yZm25YPcks8kVOiZpmQMkUlzf4fAbTMtK
- i5qav26UFuJAjMEAAEKAB0WIQQi3Z+uAGoRQ1g2YXzo8jXPO9vD/wUCaZn2PwAKCRDo8jXPO9vD
- /wA0EAC7xmej68FmfWdPdQk3Dw2u3qHJersdxWmVMKT0J+JxvoJIGhvLcIzXayfwpV55P/2xRbe
- wtaknjtOysVw/9JXJs5fbhpYvotz8FqYVt6WUkxZsLdxFc9eLNScL9JddkponP6+1uhU/h0VWnG
- wpkGcGUrpRfYNmhZLThrOCRHr38WS4caL6tUgcn/TC7amEl5FKARztx8DEwo9hAKaK15ELMIxKE
- ta7gjtz0TUsby6uKRpoXg/yX3FQcC0B2HpO4rrG1UD4Ynnt3tdG26yHFzTiW84Q8zAxY1I2ycT4
- c0WpQszde2NK2L89oEJyCx0NSjZVri9AwuW03xBbVRSc0BABbFZR3iFPIJ2UeHwe2hNvNvDfU+9
- LzA0Bt8jv9Gi8XFyGGX/5B1b7WEFPO1VejsTIBPd/KYuVmm9gADkFS04T3JQPMtfiIKolNzAaef
- xesvHNOCGmIf1hD/dlDTIMy9ZqSsxa5pZbxMhWjMz/BZ3r6TGMdzBTRlAb00mKetMEWx2fnJtGe
- dpGlZkjgC7omVXQd7B9bxGJIZI3VwKjXXEaaluOEKqJvRlK67aS71VIYmZM3bbdA1HwHLUqRlKM
- oPjl0ncstpMteakUnQIRPdGPXri8e+wABtKVdIbV7RPloU+fF+lkahf2w9bcQ4hgMW+REDZfKGx
- sifqTFzG9PkSsJQ==
+ bh=jtCfrr13o4B/392SWdb5ghKU04pq1d/ZsNEtXEu0AAQ=;
+ b=owEBbQKS/ZANAwAKAejyNc8728P/AcsmYgBpmfY/8yEmf5Wf0qh+LHo4HeWrFbUViB3Jovo3V
+ OiUzjmeJ++JAjMEAAEKAB0WIQQi3Z+uAGoRQ1g2YXzo8jXPO9vD/wUCaZn2PwAKCRDo8jXPO9vD
+ /yXtEADAkK6+RnxOxYe9hmOYcuw0c+HNRmhZTY7Yv90YDSS/26q0J04W5k3V24OJVjnVm2VUKD8
+ 1j0rKLVfvKTcPX2uocgGFQ+4aFzkqb5NH+IeOzj1ovUXcpw1dx77gGP9yaTWo2o26vsQ/T2mRfx
+ qhwsh3iRHmg2gyae2YuPZ0syU7kQm1++o8xGWgPvtxGh5/XboQzV/lJlWfRbRHzGX9USh2Wlckt
+ RJWVd0AoDA08nZScxzA7ce7qqXSV0hc8Qwe8LIz2eZdYitRh5TVOAbeMhl+NDYjo/wsVOcZzwXj
+ 1dn2cY33kUMIUAqGvRKtxcMYos/kap/+A/OZBvcBhrfkcXPhBLEAEiKJHLUKAzYDYdQzCZGBQyd
+ MgNn5r11uTVxYNdh3bzRzFZjXv+OiKeh4+4k7IxWjHKiRwyzc0Ar9RREcZsuOx8JKmSwjhYpgVv
+ zAfJ1QzU5xACJw611D21LnLYlhnh1TYpU+R86Xcdq+Y2LSt/vX578m7UdtCdh+DzGWk9f5jhqRv
+ L/YsDk74xVh6OkVVHRPHRH6RFBIn4KolkED26ryC8tblOuFSpudH6GLUop8MPYg8679hO3n6kje
+ c2WuIoBLxDUJfcuxXOYpFgK3MpLDkE6UiAyAcaJRWe/zpLD5NqwPe1DLIT4/N689Ij/b8kw/RNv
+ 1QxqaTOIrZb+hrQ==
 X-Developer-Key: i=sebastian.krzyszkowiak@puri.sm; a=openpgp;
  fpr=22DD9FAE006A11435836617CE8F235CF3BDBC3FF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_101536_278439_BF80BD46 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260221_101534_818996_27418EE3 
+X-CRM114-Status: UNSURE (   6.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,36 +100,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The minimal voltage of VDD_SOC sourced from BUCK1 is 0.81V, which
-is the currently set value. However, BD71837 only guarantees accuracy
-of ±0.01V, and this still doesn't factor other reasons for actual
-voltage to slightly drop in, resulting in the possibility of running
-out of the operational range.
+Simple changes to bump the voltages up to their nominal values to ensure
+stable operation across all units.
 
-Bump the voltage up to 0.85V, which should give enough headroom.
-
-Cc: <stable@vger.kernel.org>
-Fixes: 8f0216b006e5 ("arm64: dts: Add a device tree for the Librem 5 phone")
 Signed-off-by: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
 ---
- arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v2:
+- added Fixes and Cc: stable tags
+- Link to v1: https://lore.kernel.org/r/20260221-l5-voltages-v1-0-daa8aeedc86c@puri.sm
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-index 7818d84f25a7..f5d529c5baf3 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-@@ -882,7 +882,7 @@ buck1_reg: BUCK1 {
- 				regulator-ramp-delay = <1250>;
- 				rohm,dvs-run-voltage = <900000>;
- 				rohm,dvs-idle-voltage = <850000>;
--				rohm,dvs-suspend-voltage = <810000>;
-+				rohm,dvs-suspend-voltage = <850000>;
- 				regulator-always-on;
- 			};
- 
+---
+Sebastian Krzyszkowiak (2):
+      Revert "arm64: dts: imx8mq-librem5: Set the DVS voltages lower"
+      arm64: dts: imx8mq-librem5: Bump BUCK1 suspend voltage up to 0.85V
 
+ .../arm64/boot/dts/freescale/imx8mq-librem5-r3.dts |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi  | 24 +++++++---------------
+ 2 files changed, 8 insertions(+), 18 deletions(-)
+---
+base-commit: d79526b89571ae447c1a5cfd3d627efa07098348
+change-id: 20260221-l5-voltages-fe476d4cfe17
+
+Best regards,
 -- 
-2.53.0
+Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
 
 
