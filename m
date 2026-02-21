@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71CA8C61DE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 10:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03357C61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 10:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nfOenuUi5XfOe7JH0iQZtUBFI5B7mULimU+ClszxYPk=; b=TwF7P0D5YHFUdPjkYE/ar/lUql
-	Q8kCUCgIqOubZayTv9GNHsVrda5CJU6+cdjxY6n3Bzxb5IOb4UW57ArCkTjw9o8zPdpAVhnjGD+ot
-	pPQHociedNKQLqj2zLxRMmTMG4IpsudeVUCvfCfhVYWa8+Gaedyn/Wc8R9HO0JU+U4A7JhbooDUFe
-	SuhE0zUWWZcOLHEvj5+0iu+dVydppQO0rKPGUsZXDPDaQITujt0aqwqwqYxGEwO/UPGcRhCUALaZ9
-	kJtNlyVZIFejxpWrm/ISoVQYQeQGDAwo/DkHRtdFDr6BAP00sXOXMlSleurbOIt3r53jmW22kB9Pr
-	1gaxDXlw==;
+	bh=W2sZTBvX0m6AN15Um6KFWTHLdrbt5GQgvNogcYH9ZMk=; b=PCZhtSGRDNemJfJLr31WqcYvgv
+	U0xu9t/8gAExK41IiaXZ2UGgNk9oc0gvRMRUxm0A4NumBnBMIovyZLqpfUmi0nvalal5hYz8pcXdc
+	1QFWzPwSTG4Ki5NXpJyIXgRfgfJBG0DcNwClaMyZuClZoCLtc9FImlhywLyDdDD+vyNZrqO3rb6+v
+	sA+/rp3SYSyA8t1T9c6yQJul+Nc1ghcocY7jDRnzEvqdOAWofkpL6JPTzhRVBE9UopaBH+FUxn0Ce
+	rolPJV6H6M5iO1appD6uHh5/xeqnm9KcM7loTYoiPZERQMuZh2+cuxaLtKL5C7IhhpE0ulX2b8Xr+
+	oTeanhbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtkJ7-0000000Fycy-3B1L;
-	Sat, 21 Feb 2026 10:33:53 +0000
+	id 1vtkNG-0000000Fynh-1XVP;
+	Sat, 21 Feb 2026 10:38:10 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtkJ5-0000000Fycs-49vF
+	id 1vtkNE-0000000FynC-3jqS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Feb 2026 10:33:52 +0000
+	Sat, 21 Feb 2026 10:38:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D28D60053;
-	Sat, 21 Feb 2026 10:33:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A49E4C19424;
-	Sat, 21 Feb 2026 10:33:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 48A3D6001D;
+	Sat, 21 Feb 2026 10:38:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9E39C4CEF7;
+	Sat, 21 Feb 2026 10:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771670030;
-	bh=9snIQC5gOtrXWI618rDXRUe8IuUkpdJsVIaZXCRFb1c=;
+	s=k20201202; t=1771670288;
+	bh=EY0D5QirCKjzBYOQo3n8rfeqwznjrVn20G/qqgpR0no=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=hh/NO0k7XuaBoh0KVavsZYCQMZF8F5LIHEv6GdfF/CNt9Vk/ROvW6rEql0kETjykA
-	 22ncgHNdpqF74CcHHxTJfnx21WJoeiygNsTGLG2vWvoMe7QN0tsyS5LzvzspjHm8ag
-	 DTq6z+nuDsVHGEtp1JBr/SK6Iecnn36amJUxUGBspOzu9qR+EmN83h+bdQwTNMoCY/
-	 tGM+0gg/5uTeYiy8gIqUQXJ6SXoeOA0POmy17XRrRw37EO/hbykl15foNDe5qvYB0M
-	 VgJRrAYElRiBNzTSHiGzPMVN/ghg6orM56mkgc1m5VWpfYH1hOzgWbd2cGKsr667wU
-	 +WNol40LL6aGw==
+	b=G/YTbXvhK8m1aG4erCIhCnv4AWhaJeot8nGbFgzq806rcCOFIawR+qIkvpc14gnxW
+	 w1xcolvbbDVk838pXLgh1Tqu2vPLW9b3jGH8UuF+AMSC4mjp6TMEOs0iNBeyaFXny2
+	 +GoVVGBPF+HZQ6JZUFujb0HrYbqi0GL52eWt7H3gOEgG+ka6y6ziDav7RAbRpqhSBB
+	 JRB0G+bQ/bh3WZRnf+T3+hRzR2wUbwQD83Y9JOdLP5he8CtrHEsH5bCZGVf6BfAjSA
+	 u2TmRqf0Kr6XeKtI/l/yLCTzEQrSFLqmEw/X1kxLbhL/Y1bM3CybzBcomn2xMveev0
+	 8UM3XxkNT5yGQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vtkJ2-0000000CcZ9-1M96;
-	Sat, 21 Feb 2026 10:33:48 +0000
-Date: Sat, 21 Feb 2026 10:33:47 +0000
-Message-ID: <87bjhie67o.wl-maz@kernel.org>
+	id 1vtkNB-0000000CcbG-3Tfr;
+	Sat, 21 Feb 2026 10:38:06 +0000
+Date: Sat, 21 Feb 2026 10:38:05 +0000
+Message-ID: <87a4x2e60i.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>, 	Fuad Tabba <tabba@google.com>
+To: Mark Brown <broonie@kernel.org>,
+	Fuad Tabba <tabba@google.com>
 Cc: Oliver Upton <oupton@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -61,8 +62,9 @@ Cc: Oliver Upton <oupton@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	Mark Rutland <mark.rutland@arm.com>
 Subject: Re: pKVM breakage in mainline on n1sdp
-In-Reply-To: <60916cb6-f460-4751-b910-f63c58700ad0@sirena.org.uk>
+In-Reply-To: <87bjhie67o.wl-maz@kernel.org>
 References: <60916cb6-f460-4751-b910-f63c58700ad0@sirena.org.uk>
+	<87bjhie67o.wl-maz@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -86,88 +88,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+ Fuad for the protected mode stuff]
-
-On Fri, 20 Feb 2026 19:08:59 +0000,
-Mark Brown <broonie@kernel.org> wrote:
+On Sat, 21 Feb 2026 10:33:47 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> Hi,
+> [+ Fuad for the protected mode stuff]
 > 
-> At some point since the 30th of January we have started seeing issues 
-> in mainline when running kvm-unit-tests on N1SDP in pKVM mode:
+> On Fri, 20 Feb 2026 19:08:59 +0000,
+> Mark Brown <broonie@kernel.org> wrote:
+> > 
+> > Hi,
+> > 
+> > At some point since the 30th of January we have started seeing issues 
+> > in mainline when running kvm-unit-tests on N1SDP in pKVM mode:
+> > 
+> > TESTNAME=pmu-mem-access TIMEOUT=90s MACHINE= ACCEL= ./arm/run arm/pmu.flat -smp 1 -append 'pmu-mem-access'
+> > <4>[  114.487201] ------------[ cut here ]------------
+> > <4>[  114.487206] WARNING: arch/arm64/kvm/pkvm.c:393 at pkvm_pgtable_stage2_map+0x1ac/0x1c4, CPU#1: qemu-system-aar/1955
+> > <4>[  114.502672] Modules linked in: stm_p_basic coresight_tpiu coresight_stm stm_core arm_spe_pmu coresight_funnel coresight_tmc coresight_replicator coresight arm_cmn sha256 cfg80211 rfkill fuse dm_mod ipv6
+> > <4>[  114.520924] CPU: 1 UID: 0 PID: 1955 Comm: qemu-system-aar Not tainted 6.19.0 #1 PREEMPT 
+> > <4>[  114.529261] pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > <4>[  114.536469] pc : pkvm_pgtable_stage2_map+0x1ac/0x1c4
+> > <4>[  114.541681] lr : pkvm_pgtable_stage2_map+0x58/0x1c4
+> > <4>[  114.546805] sp : ffff80008673b900
+> > <4>[  114.550366] x29: ffff80008673b900 x28: 0000000000200000 x27: 0000000000200000
+> > <4>[  114.557748] x26: 0000000000000000 x25: 00000000fffffff4 x24: 000000000000000f
+> > <4>[  114.565130] x23: ffff008047b65198 x22: 00000000080cbc00 x21: 0000000000040000
+> > <4>[  114.572512] x20: ffff008046f65680 x19: 0000000000000200 x18: 0000000000000001
+> > <4>[  114.579893] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> > <4>[  114.587275] x14: 0000000000000002 x13: 0000000000000002 x12: 000000000031bf68
+> > <4>[  114.594656] x11: 0000000000000000 x10: 0000ffff8be01000 x9 : ffff8000800728b0
+> > <4>[  114.602037] x8 : ffff80008673bab8 x7 : 0000000000000001 x6 : 0000000000000008
+> > <4>[  114.609419] x5 : 0000000040200000 x4 : 000000000000000f x3 : 0000000000000200
+> > <4>[  114.616800] x2 : 0000000000040000 x1 : fffffffffffffff4 x0 : 0000000000000000
+> > <4>[  114.624182] Call trace:
+> > <4>[  114.626875]  pkvm_pgtable_stage2_map+0x1ac/0x1c4 (P)
+> > <4>[  114.632088]  kvm_handle_guest_abort+0xe7c/0x12ec
+> > <4>[  114.636953]  handle_exit+0x60/0x184
+> > <4>[  114.640689]  kvm_arch_vcpu_ioctl_run+0x35c/0x968
+> > <4>[  114.645554]  kvm_vcpu_ioctl+0x254/0xa50
+> > <4>[  114.649638]  __arm64_sys_ioctl+0xac/0x104
+> > <4>[  114.653896]  invoke_syscall+0x48/0x110
+> > <4>[  114.657894]  el0_svc_common.constprop.0+0x40/0xe0
+> > <4>[  114.662846]  do_el0_svc+0x1c/0x28
+> > <4>[  114.666409]  el0_svc+0x34/0x10c
+> > <4>[  114.669798]  el0t_64_sync_handler+0xa0/0xe4
+> > <4>[  114.674228]  el0t_64_sync+0x198/0x19c
+> > <4>[  114.678137] ---[ end trace 0000000000000000 ]---
+> >
 > 
-> TESTNAME=pmu-mem-access TIMEOUT=90s MACHINE= ACCEL= ./arm/run arm/pmu.flat -smp 1 -append 'pmu-mem-access'
-> <4>[  114.487201] ------------[ cut here ]------------
-> <4>[  114.487206] WARNING: arch/arm64/kvm/pkvm.c:393 at pkvm_pgtable_stage2_map+0x1ac/0x1c4, CPU#1: qemu-system-aar/1955
-> <4>[  114.502672] Modules linked in: stm_p_basic coresight_tpiu coresight_stm stm_core arm_spe_pmu coresight_funnel coresight_tmc coresight_replicator coresight arm_cmn sha256 cfg80211 rfkill fuse dm_mod ipv6
-> <4>[  114.520924] CPU: 1 UID: 0 PID: 1955 Comm: qemu-system-aar Not tainted 6.19.0 #1 PREEMPT 
-> <4>[  114.529261] pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> <4>[  114.536469] pc : pkvm_pgtable_stage2_map+0x1ac/0x1c4
-> <4>[  114.541681] lr : pkvm_pgtable_stage2_map+0x58/0x1c4
-> <4>[  114.546805] sp : ffff80008673b900
-> <4>[  114.550366] x29: ffff80008673b900 x28: 0000000000200000 x27: 0000000000200000
-> <4>[  114.557748] x26: 0000000000000000 x25: 00000000fffffff4 x24: 000000000000000f
-> <4>[  114.565130] x23: ffff008047b65198 x22: 00000000080cbc00 x21: 0000000000040000
-> <4>[  114.572512] x20: ffff008046f65680 x19: 0000000000000200 x18: 0000000000000001
-> <4>[  114.579893] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> <4>[  114.587275] x14: 0000000000000002 x13: 0000000000000002 x12: 000000000031bf68
-> <4>[  114.594656] x11: 0000000000000000 x10: 0000ffff8be01000 x9 : ffff8000800728b0
-> <4>[  114.602037] x8 : ffff80008673bab8 x7 : 0000000000000001 x6 : 0000000000000008
-> <4>[  114.609419] x5 : 0000000040200000 x4 : 000000000000000f x3 : 0000000000000200
-> <4>[  114.616800] x2 : 0000000000040000 x1 : fffffffffffffff4 x0 : 0000000000000000
-> <4>[  114.624182] Call trace:
-> <4>[  114.626875]  pkvm_pgtable_stage2_map+0x1ac/0x1c4 (P)
-> <4>[  114.632088]  kvm_handle_guest_abort+0xe7c/0x12ec
-> <4>[  114.636953]  handle_exit+0x60/0x184
-> <4>[  114.640689]  kvm_arch_vcpu_ioctl_run+0x35c/0x968
-> <4>[  114.645554]  kvm_vcpu_ioctl+0x254/0xa50
-> <4>[  114.649638]  __arm64_sys_ioctl+0xac/0x104
-> <4>[  114.653896]  invoke_syscall+0x48/0x110
-> <4>[  114.657894]  el0_svc_common.constprop.0+0x40/0xe0
-> <4>[  114.662846]  do_el0_svc+0x1c/0x28
-> <4>[  114.666409]  el0_svc+0x34/0x10c
-> <4>[  114.669798]  el0t_64_sync_handler+0xa0/0xe4
-> <4>[  114.674228]  el0t_64_sync+0x198/0x19c
-> <4>[  114.678137] ---[ end trace 0000000000000000 ]---
->
+> The absence of any versioning information is really unhelpful. What
+> kernel version is that? Upstream? Next? A date really doesn't help
+> much, specially given how vague it is. Same thing for KUT.
 
-The absence of any versioning information is really unhelpful. What
-kernel version is that? Upstream? Next? A date really doesn't help
-much, specially given how vague it is. Same thing for KUT.
+Ah no, I can't read:
 
-> The same tests running on N1SDP in VHE mode seem happy, and I've not
-> seen any other platforms showing issues.  Unfortunately due to various
-> infrastructure issues I don't have more detail on when this started
-> happening or anything, I'll update if I get more.
+[  114.520924] CPU: 1 UID: 0 PID: 1955 Comm: qemu-system-aar Not tainted 6.19.0 #1 PREEMPT
 
-I've ran that test on an Altra (Neoverse-N1, same as N1SDP), with both
-v6.19 and linux/master as of d79526b89571 together with KUT as of
-86e53277 and nothing caught fire in protected mode, including a
-32-parallel VM test.
+If that's vanilla 6.19, then there is post Feb 8th. Sorry for the
+unwarranted rant.
 
-Most of KUT's PMU tests fail in protected mode though, probably due
-some issue with the routing of PMU exceptions (see below), but that
-doesn't seem new. Fuad, could you please have a look and see if
-something catches your eye?
+Can you share the configuration for this kernel?
 
 Thanks,
 
 	M.
-
-maz@filthy-habits:~/kvm-unit-tests$ ./arm/run arm/pmu.flat -smp 1 -append 'pmu-mem-access'
-/usr/bin/qemu-system-aarch64 -nodefaults -machine virt,gic-version=host -accel kvm -cpu host -device virtio-serial-device -device virtconsole,chardev=ctd -chardev testdev,id=ctd -device pci-testdev -display none -serial stdio -kernel arm/pmu.flat -smp 1 -append pmu-mem-access # -initrd /tmp/tmp.S6qLYpNV6X
-INFO: PMU version: 0x4
-INFO: PMU implementer/ID code: 0(" ")/0
-INFO: Implements 6 event counters
-INFO: pmu: pmu-mem-access: 32-bit overflows: counter #0 is 0x0 (MEM_ACCESS)
-INFO: pmu: pmu-mem-access: 32-bit overflows: counter #1 is 0x0 (MEM_ACCESS)
-FAIL: pmu: pmu-mem-access: 32-bit overflows: Ran 20 mem accesses
-FAIL: pmu: pmu-mem-access: 32-bit overflows: Ran 20 mem accesses with expected overflows on both counters
-INFO: pmu: pmu-mem-access: 32-bit overflows: cnt#0=0xfffffff0 cnt#1=0xfffffff0 overflow=0x0
-SKIP: pmu: pmu-mem-access: 64-bit overflows: Skip test as 64 overflows need FEAT_PMUv3p5
-SUMMARY: 3 tests, 2 unexpected failures, 1 skipped
-
-EXIT: STATUS=3
 
 -- 
 Jazz isn't dead. It just smells funny.
