@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8E0C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 18:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B32C61DFB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 18:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9L52Z43AzVgP7smJzIu46FRnXF7SXcFTv57Ck1avw7s=; b=aYUAndxPdB5LsLunzAIYuXMfQm
-	Q3XPQVgPgtL+I3wwRsBT1sQpSrE8xr5U3jWMjoPe1tMB9OPLbQhyEZZ51PXbfflYmsP3HteJyeM+u
-	/gNhHm03wSuHOaSNb0P70raLR1SAmZRLhPhLw8lYxqCOanZWEiQzc7novN0Y0Y9Ea9zHkhGhPvumU
-	IKJ489klqkpadwVwNC2KOrKRYWfdwWSqElEZS537lB3+spW7OqFuq117vlkWL/+Svp2GPjQ3BTaJO
-	MGsYel4qJHQMDCEGmZUV7CgbPkwr1eTozzt0F4Ksb8ELeEGq6Mf1nXbTl+mo9T7o2u0z75n41GIQ5
-	W/PYw1Bg==;
+	bh=Vi+zTY3v+XYAN7MEQwL4QN54NaCqF12xnryOs65hhBU=; b=X/S7zSY3V+oQtFEUEsjhnp9X61
+	n5lnMPxRT89W0zz2o1BYQZzxR8U3lDgAaA5bdyi4xSMrQS64lXOtNRbAZJmLy9p6e2UNqyXxA3zuT
+	JbJH1Zp3ujGXAtxVpMXDXKhdnWXmHjwzVG+wXFHC2v7DJGpBW96JZrEYDxWvH95iz1jY6YnIFVtPg
+	O3uut5Xvzj74VHtUoPQD7Grv3xyiJ8Y/NCfI+w/Sjh0yCii798YXkZwxlbnCDxZdlMiKFlquBT9Yb
+	vEvx+nQmGBvvFm71nVfniYIKyw31Hzwy4mdm5MqhO5CyGFTRAxkUceiDpCUUWqMCxGoAJfZQ2E+vt
+	T7yYhmCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtrqX-0000000GFZT-14Ih;
-	Sat, 21 Feb 2026 18:36:53 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1vtrqd-0000000GFeH-3jbA;
+	Sat, 21 Feb 2026 18:36:59 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtrqU-0000000GFXR-13pM
+	id 1vtrqb-0000000GFbe-39D8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Feb 2026 18:36:51 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-386b553c70eso26565171fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Feb 2026 10:36:49 -0800 (PST)
+	Sat, 21 Feb 2026 18:36:58 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-3870dec27f4so36794691fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Feb 2026 10:36:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771699008; x=1772303808; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1771699016; x=1772303816; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9L52Z43AzVgP7smJzIu46FRnXF7SXcFTv57Ck1avw7s=;
-        b=hZn+Xd5cheZ0vPuYH+HHVZpNdS4arSWBgrIwLR7l+gbiM9aBolLbQ9yizVk15gYqs2
-         b6JuvWpPR2i3NvpdyAV9avkZ82euSxCGo3RP320/uqDxq8dbshC58aPSH2HIv1DVeP7j
-         V5UdHZP9A5sapN5QBqIRQPEC1xx8qIq6U/BbjLF1Uv42UwuqIOeySFuTquIMm6In2VxN
-         ps6mo1sC20V7daS1uq7nHVb3xpNj0uqw1yWtzagoLJB6gi7Ix/Bxte3a4YazrIf7jAgp
-         42xuSYREU863MlOGNhsDAuUVyyQehG0hFjX2uUJ1RO/jqXcyIK884HGPCMG+EqylseL0
-         GNTg==
+        bh=Vi+zTY3v+XYAN7MEQwL4QN54NaCqF12xnryOs65hhBU=;
+        b=OIgOf1QfBqhxz/3M7OQZmYuHfxd0ouVFI3UtnhAfzznM54NCsaJoX/QJJknzvYJ74g
+         +mohxx8SSK5KMQ2dd2I5hre9rcoXJ28hHwK0uLHaiqPAgKPd4DFEufHtr/3SOT+zOfWw
+         Q3AZ/1AooNm77RkTUZLALMlJZ1Njj2XCZMigpXeqw7dZkZjImNpFsG3Fhp3HlvFeEejo
+         Wf8CIgUYoZRSuyIs3sPlWCH8ukspZzKPzhhDGVC0KdrgR+XDOch2F/IqmUYlNYAEot/t
+         DPc0VjCeJSqC09wJ/VThbwD/5+ex6wn6lTxJ6ueUtUJc2tJDGhwbnF3bsx9FLROjbs+k
+         UI4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771699008; x=1772303808;
+        d=1e100.net; s=20230601; t=1771699016; x=1772303816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=9L52Z43AzVgP7smJzIu46FRnXF7SXcFTv57Ck1avw7s=;
-        b=ZJJU7Jl4u/VPXmsRg4VAG5T9xxqSYr0uWmwnoHZZZykmRnzJFx6/mh1jOLd34Qt/uG
-         SrpYY1mpwb2mqPcvUXUJK4qa747Jb9pLE6ytRXy+L90dcJXMQBvdjGIG06SmunyJwmCq
-         gFUMtiIzuKSUXbkCtsB7C+fITN5qcTAbbGsW6M9mGpW364PcwqZ2Z9FzhaZKaP8wadbm
-         vmcvDZgjD+XJFDkPms/rCZrvdbIcbFh39pZ9BagO5E8VESneRxEMJ+2Ma8VB04p/U9rz
-         PEh/7ImksRGzxjLBIZLRUP1tBjd/pJBS3Rby3eBTWps97bw6BHlV4S+fvrqS3TWGE7+b
-         BQaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV38naQfJ2SW11cZc/8LxKryG+79VZdJN95ToitX6Si0IdqvCOn49ONjEgdjtQKGrUqjjxRniNtFl9Gn3k0sIMd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvSYwhDqTC3LXdSx8oJtnhI11dyks0yXS6vGyRWJ81GhcUcJ2F
-	9Vq/UTYkhXVFDMh7SpeAwt+Sf4h6jXOvYRzbzB7YklcgKaBpRtx+uKk=
-X-Gm-Gg: AZuq6aLpFAoVSsYvmBV20jEtZS1HD/3Qr0flsindhQqC/HGWL71TcBtc7nQ1Nu2lAvQ
-	d50KwjNkVW0eBaft/vscCpesmlKrWvldxEu1Z6MHopGasCpqYYV5c+6FNJhGMAKhE8t2vGn/Wgt
-	4i/Ua+wOw9tNU1sdtXm99Fvi5IyWNKkpIRXpWbtl4qV4huElhA5rH3e7EMCWzmQu0b4ZulqNauF
-	r58+WN2CdMVM9aST/ngptJyGyrHR9DztHthYh+AdRtFNmqEi+0dXXJKsp9z6nQplxQxMtwqJSUl
-	MHqa0JQXOUxYAH5lUTYC0ttRyFcMJhq6t6+RESgb9APpiPoP9DkPQjfbCEI/+VY/2OUBtkSOwLA
-	WSwcQOn2VOZck2wN0tfOjpYfD/ExRbKoYCALqXLzOrmrRIMRf+FniQp1qIUYp/1vWhXcSyIJasA
-	rTjVJCTg/y59QHiA6XfEcJQ0a0Bf9YES5X3Ajf
-X-Received: by 2002:a2e:a99f:0:b0:36b:b0eb:9d64 with SMTP id 38308e7fff4ca-389a5be1c31mr11725601fa.30.1771699007817;
-        Sat, 21 Feb 2026 10:36:47 -0800 (PST)
+        bh=Vi+zTY3v+XYAN7MEQwL4QN54NaCqF12xnryOs65hhBU=;
+        b=u3lcq+VhXdmH0tDjcCuTjPRT7Bu4QukXCULtWsJMsrmUsb5a1c4989LvuANlWIrt+t
+         Zah1SkFsRB7ORBHPnSVHxMmnWMi7cwJGzWIoC6CXMcWQFlAZ4a6rQMvqWILqFHpdFgxi
+         hSnGFKg3fOslqpAqzEkfcLRA9gEeCFylNL/c9rRzJc/EdomQXGNunQUk6pFWbRQZO+UZ
+         XGSHa6iEr5rXvyjzfdunyoGKjehxicwmN/K1ziofP0OrrvPbVjppzSutylVRJ/HFlKiN
+         DSx5BQ6J/n8JwOTw5GvkWPPjJYFbdbiY/ufSsFpB+My7xsW9dqiFwxWVnuDbTNUoBcqy
+         JM9A==
+X-Forwarded-Encrypted: i=1; AJvYcCU6YuCujJoLjRXctwFLpdfA4SZArzbgFEXwkJd1VOD+M8LT5I78wxW48hcC0/M/HzyCR3R6FXTDKbx/7F0HBEIE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw25hGAeuXQUTLOCAscu9hGkp8kHTNidVy98LtAt+tHrd/g3aXc
+	qPGe+r+svWgT8OXQyz/OHRuKgkCANbVRBLoOXvd3tk7L/EjPJ37bvXc=
+X-Gm-Gg: AZuq6aLK09VXutWLcRnep9biQ3mpQCFtr9TQ7rKLuMyt5w39XdrZf0gHsRFFNa08xPI
+	VZLVeNdaGuXuYfBKsLRZX/NOmu+8jXgGEEIWpmJDt0XhOgy0Ehmd50k7u7YAw5zElVd30dQLMQY
+	Ezgyj+/qVjL16XGdY0SlUSVxBCcIoPvNwawAOi7bBs9wxdhoyouHvwj2wZt8sGUz2auFwIZ1sGZ
+	m6mseFwJWb0kHcZD//dmYU494qxv9DasQhIGmUM6uXybxAN6jWtw77COH7n1Y2k9rdLdF1oI1je
+	1rpxCxzYn1v8JVigNKjPud+uPjVwVz53RH4/2bYaAOyOa5yoIuvporXpJDqng0NWSKizJBxcrGb
+	B1MNnCFOgYZ6nNmyCPE+s5bGPJtaysmI6PjqRBvc4zrOu42AHCHkSM5JPqYgVGot6ukM8Es2zwv
+	LL0a/3nLXjlHVB++4yH4yWTUW2URFIBxPf4TGH
+X-Received: by 2002:a2e:9853:0:b0:385:b4ef:f667 with SMTP id 38308e7fff4ca-3885335b418mr22967171fa.0.1771699015563;
+        Sat, 21 Feb 2026 10:36:55 -0800 (PST)
 Received: from localhost.localdomain ([178.176.177.46])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-389a7af19d4sm5006841fa.42.2026.02.21.10.36.45
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-389a7af19d4sm5006841fa.42.2026.02.21.10.36.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Feb 2026 10:36:47 -0800 (PST)
+        Sat, 21 Feb 2026 10:36:53 -0800 (PST)
 From: Aleksandr Shubin <privatesub2@gmail.com>
 To: linux-kernel@vger.kernel.org
 Cc: Aleksandr Shubin <privatesub2@gmail.com>,
-	Brandon Cheo Fusi <fusibrandon13@gmail.com>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -86,23 +85,23 @@ Cc: Aleksandr Shubin <privatesub2@gmail.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
 	Lukas Schmid <lukas.schmid@netcube.li>,
+	Cheo Fusi <fusibrandon13@gmail.com>,
 	linux-pwm@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v13 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
-Date: Sat, 21 Feb 2026 21:35:52 +0300
-Message-Id: <20260221183609.95403-3-privatesub2@gmail.com>
+Subject: [PATCH v13 3/3] riscv: dts: allwinner: d1: Add pwm node
+Date: Sat, 21 Feb 2026 21:35:53 +0300
+Message-Id: <20260221183609.95403-4-privatesub2@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260221183609.95403-1-privatesub2@gmail.com>
 References: <20260221183609.95403-1-privatesub2@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_103650_457667_FCD102E6 
-X-CRM114-Status: GOOD (  34.26  )
+X-CRM114-CacheID: sfid-20260221_103657_806364_3B555B64 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,455 +116,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allwinner's D1, T113-S3 and R329 SoCs have a quite different PWM
-controllers with ones supported by pwm-sun4i driver.
+D1 and T113s contain a pwm controller with 8 channels.
+This controller is supported by the sun8i-pwm driver.
 
-This patch adds a PWM controller driver for Allwinner's D1,
-T113-S3 and R329 SoCs. The main difference between these SoCs
-is the number of channels defined by the DT property.
+Add a device tree node for it.
 
-Co-developed-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
-Signed-off-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
 Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
 ---
- drivers/pwm/Kconfig     |  10 +
- drivers/pwm/Makefile    |   1 +
- drivers/pwm/pwm-sun8i.c | 393 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 404 insertions(+)
- create mode 100644 drivers/pwm/pwm-sun8i.c
+ arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 6f3147518376..44d844eba589 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -736,6 +736,16 @@ config PWM_SUN4I
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-sun4i.
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index 63e252b44973..8e38a0d95f5a 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -193,6 +193,19 @@ uart3_pb_pins: uart3-pb-pins {
+ 			};
+ 		};
  
-+config PWM_SUN8I
-+	tristate "Allwinner D1/T113s/R329 PWM support"
-+	depends on ARCH_SUNXI || COMPILE_TEST
-+	depends on COMMON_CLK
-+	help
-+	  Generic PWM framework driver for Allwinner D1/T113s/R329 SoCs.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-sun8i.
-+
- config PWM_SUNPLUS
- 	tristate "Sunplus PWM support"
- 	depends on ARCH_SUNPLUS || COMPILE_TEST
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index 0dc0d2b69025..ba2e0ec7fc17 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -67,6 +67,7 @@ obj-$(CONFIG_PWM_STM32)		+= pwm-stm32.o
- obj-$(CONFIG_PWM_STM32_LP)	+= pwm-stm32-lp.o
- obj-$(CONFIG_PWM_STMPE)		+= pwm-stmpe.o
- obj-$(CONFIG_PWM_SUN4I)		+= pwm-sun4i.o
-+obj-$(CONFIG_PWM_SUN8I)		+= pwm-sun8i.o
- obj-$(CONFIG_PWM_SUNPLUS)	+= pwm-sunplus.o
- obj-$(CONFIG_PWM_TEGRA)		+= pwm-tegra.o
- obj-$(CONFIG_PWM_TH1520)	+= pwm_th1520.o
-diff --git a/drivers/pwm/pwm-sun8i.c b/drivers/pwm/pwm-sun8i.c
-new file mode 100644
-index 000000000000..6e196f31314b
---- /dev/null
-+++ b/drivers/pwm/pwm-sun8i.c
-@@ -0,0 +1,393 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * PWM Controller Driver for sunxi platforms (D1, T113-S3 and R329)
-+ *
-+ * Limitations:
-+ * - When the parameters change, the current running period is not completed
-+ *   and new settings are applied immediately.
-+ * - The PWM output goes to a HIGH-Z state when the channel is disabled.
-+ * - Changing the clock configuration (SUN8I_PWM_CLK_CFG)
-+ *   may cause a brief output glitch.
-+ *
-+ * Copyright (c) 2023 Aleksandr Shubin <privatesub2@gmail.com>
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/pwm.h>
-+#include <linux/reset.h>
-+
-+#define SUN8I_PWM_CLK_CFG(pair)			(0x20 + ((pair) * 0x4))
-+#define SUN8I_PWM_CLK_CFG_SRC			GENMASK(8, 7)
-+#define SUN8I_PWM_CLK_SRC_HOSC			0x0
-+#define SUN8I_PWM_CLK_SRC_BUS			0x1
-+#define SUN8I_PWM_CLK_CFG_DIV_M			GENMASK(3, 0)
-+#define SUN8I_PWM_CLK_DIV_M_MAX			8
-+
-+#define SUN8I_PWM_CLK_GATE			0x40
-+#define SUN8I_PWM_CLK_GATE_BYPASS(chan)		BIT((chan) + 16)
-+#define SUN8I_PWM_CLK_GATE_GATING(chan)		BIT(chan)
-+
-+#define SUN8I_PWM_ENABLE			0x80
-+#define SUN8I_PWM_ENABLE_EN(chan)		BIT(chan)
-+
-+#define SUN8I_PWM_CTL(chan)			(0x100 + (chan) * 0x20)
-+#define SUN8I_PWM_CTL_ACT_STA			BIT(8)
-+#define SUN8I_PWM_CTL_PRESCAL_K			GENMASK(7, 0)
-+#define SUN8I_PWM_CTL_PRESCAL_K_MAX		field_max(SUN8I_PWM_CTL_PRESCAL_K)
-+
-+#define SUN8I_PWM_PERIOD(chan)			(0x104 + (chan) * 0x20)
-+#define SUN8I_PWM_PERIOD_ENTIRE_CYCLE		GENMASK(31, 16)
-+#define SUN8I_PWM_PERIOD_ACT_CYCLE		GENMASK(15, 0)
-+
-+#define SUN8I_PWM_PCNTR_SIZE			BIT(16)
-+
-+/*
-+ * SUN8I_PWM_MAGIC is used to quickly compute the values of the clock dividers
-+ * div_m (SUN8I_PWM_CLK_CFG_DIV_M) & prescale_k (SUN8I_PWM_CTL_PRESCAL_K)
-+ * without using a loop. These dividers limit the # of cycles in a period
-+ * to SUN8I_PWM_PCNTR_SIZE (65536) by applying a scaling factor of
-+ * 1 / (div_m * (prescale_k + 1)) to the clock source.
-+ *
-+ * SUN8I_PWM_MAGIC is derived by solving for div_m and prescale_k
-+ * such that for a given requested period,
-+ *
-+ * i) div_m is minimized for any prescale_k ≤ SUN8I_PWM_CTL_PRESCAL_K_MAX,
-+ * ii) prescale_k is minimized.
-+ *
-+ * The derivation proceeds as follows, with val = # of cycles for requested
-+ * period:
-+ *
-+ * for a given value of div_m we want the smallest prescale_k such that
-+ *
-+ * (val >> div_m) // (prescale_k + 1) ≤ 65536 (= SUN8I_PWM_PCNTR_SIZE)
-+ *
-+ * This is equivalent to:
-+ *
-+ * (val >> div_m) ≤ 65536 * (prescale_k + 1) + prescale_k
-+ * ⟺ (val >> div_m) ≤ 65537 * prescale_k + 65536
-+ * ⟺ (val >> div_m) - 65536 ≤ 65537 * prescale_k
-+ * ⟺ ((val >> div_m) - 65536) / 65537 ≤ prescale_k
-+ *
-+ * As prescale_k is integer, this becomes
-+ *
-+ * ((val >> div_m) - 65536) // 65537 ≤ prescale_k
-+ *
-+ * And is minimized at
-+ *
-+ * ((val >> div_m) - 65536) // 65537
-+ *
-+ * Now we pick the smallest div_m that satifies prescale_k ≤ 255
-+ * (i.e SUN8I_PWM_CTL_PRESCAL_K_MAX),
-+ *
-+ * ((val >> div_m) - 65536) // 65537 ≤ 255
-+ * ⟺ (val >> div_m) - 65536 ≤ 255 * 65537 + 65536
-+ * ⟺ val >> div_m ≤ 255 * 65537 + 2 * 65536
-+ * ⟺ val >> div_m < (255 * 65537 + 2 * 65536 + 1)
-+ * ⟺ div_m = fls((val) / (255 * 65537 + 2 * 65536 + 1))
-+ *
-+ * Suggested by Uwe Kleine-König
-+ */
-+#define SUN8I_PWM_MAGIC				(255 * 65537 + 2 * 65536 + 1)
-+#define SUN8I_PWM_DIV_CONST			65537
-+
-+struct sun8i_pwm_chip {
-+	struct clk *clk_hosc, *clk_apb;
-+	void __iomem *base;
-+};
-+
-+static inline struct sun8i_pwm_chip *to_sun8i_pwm_chip(struct pwm_chip *chip)
-+{
-+	return pwmchip_get_drvdata(chip);
-+}
-+
-+static inline u32 sun8i_pwm_readl(struct sun8i_pwm_chip *chip,
-+				   unsigned long offset)
-+{
-+	return readl(chip->base + offset);
-+}
-+
-+static inline void sun8i_pwm_writel(struct sun8i_pwm_chip *chip,
-+				     u32 val, unsigned long offset)
-+{
-+	writel(val, chip->base + offset);
-+}
-+
-+static int sun8i_pwm_get_state(struct pwm_chip *chip,
-+				struct pwm_device *pwm,
-+				struct pwm_state *state)
-+{
-+	struct sun8i_pwm_chip *sun8i_chip = to_sun8i_pwm_chip(chip);
-+	u16 ent_cycle, act_cycle, prescale_k;
-+	u64 clk_rate, tmp;
-+	u8 div_m;
-+	u32 val;
-+
-+	val = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_CLK_CFG(pwm->hwpwm / 2));
-+	div_m = FIELD_GET(SUN8I_PWM_CLK_CFG_DIV_M, val);
-+	if (div_m > SUN8I_PWM_CLK_DIV_M_MAX)
-+		div_m = SUN8I_PWM_CLK_DIV_M_MAX;
-+
-+	/*
-+	 * If CLK_CFG_SRC is 0, use the hosc clock;
-+	 * otherwise (any nonzero value) use the APB clock.
-+	 */
-+	if (FIELD_GET(SUN8I_PWM_CLK_CFG_SRC, val) == 0)
-+		clk_rate = clk_get_rate(sun8i_chip->clk_hosc);
-+	else
-+		clk_rate = clk_get_rate(sun8i_chip->clk_apb);
-+
-+	val = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_CTL(pwm->hwpwm));
-+	state->polarity = (SUN8I_PWM_CTL_ACT_STA & val) ?
-+			   PWM_POLARITY_NORMAL : PWM_POLARITY_INVERSED;
-+
-+	prescale_k = FIELD_GET(SUN8I_PWM_CTL_PRESCAL_K, val) + 1;
-+
-+	val = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_ENABLE);
-+	state->enabled = (SUN8I_PWM_ENABLE_EN(pwm->hwpwm) & val) ? true : false;
-+
-+	val = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PERIOD(pwm->hwpwm));
-+	act_cycle = FIELD_GET(SUN8I_PWM_PERIOD_ACT_CYCLE, val);
-+
-+	ent_cycle = FIELD_GET(SUN8I_PWM_PERIOD_ENTIRE_CYCLE, val);
-+
-+	/*
-+	 * The duration of the active phase should not be longer
-+	 * than the duration of the period
-+	 */
-+	if (act_cycle > ent_cycle)
-+		act_cycle = ent_cycle;
-+
-+	/*
-+	 * We have act_cycle <= ent_cycle <= 0xffff, prescale_k <= 0x100,
-+	 * div_m <= 8. So the multiplication fits into an u64 without
-+	 * overflow.
-+	 */
-+	tmp = ((u64)(act_cycle) * prescale_k << div_m) * NSEC_PER_SEC;
-+	state->duty_cycle = DIV_ROUND_UP_ULL(tmp, clk_rate);
-+	tmp = ((u64)(ent_cycle) * prescale_k << div_m) * NSEC_PER_SEC;
-+	state->period = DIV_ROUND_UP_ULL(tmp, clk_rate);
-+
-+	return 0;
-+}
-+
-+static int sun8i_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			    const struct pwm_state *state)
-+{
-+	struct sun8i_pwm_chip *sun8i_chip = to_sun8i_pwm_chip(chip);
-+	u64 bus_rate, hosc_rate, val, ent_cycle, act_cycle;
-+	u32 clk_gate, clk_cfg, pwm_en, ctl, reg_period;
-+	u32 prescale_k, div_m;
-+	u64 clk_src_rate;
-+	u8 clk_src;
-+
-+	pwm_en = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_ENABLE);
-+	clk_gate = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_CLK_GATE);
-+
-+	if (!state->enabled) {
-+		if (state->enabled != pwm->state.enabled) {
-+			clk_gate &= ~SUN8I_PWM_CLK_GATE_GATING(pwm->hwpwm);
-+			pwm_en &= ~SUN8I_PWM_ENABLE_EN(pwm->hwpwm);
-+			sun8i_pwm_writel(sun8i_chip, pwm_en, SUN8I_PWM_ENABLE);
-+			sun8i_pwm_writel(sun8i_chip, clk_gate, SUN8I_PWM_CLK_GATE);
-+		}
-+		return 0;
-+	}
-+
-+	ctl = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_CTL(pwm->hwpwm));
-+	clk_cfg = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_CLK_CFG(pwm->hwpwm / 2));
-+	hosc_rate = clk_get_rate(sun8i_chip->clk_hosc);
-+	bus_rate = clk_get_rate(sun8i_chip->clk_apb);
-+
-+	/*
-+	 * Clock selection for a PWM pair:
-+	 *
-+	 * This PWM controller groups channels in pairs,
-+	 * where CLK_SRC and DIV_M are shared between the two channels.
-+	 * If the sibling channel is already enabled,
-+	 * we must keep the existing clock configuration for this pair.
-+	 *
-+	 * If the sibling is disabled, we are free to pick a clock
-+	 * for the pair. Using the faster clock source
-+	 * improves the achievable maximum PWM frequency and generally
-+	 * gives better duty_cycle resolution for a given period.
-+	 */
-+
-+	if (pwm_en & SUN8I_PWM_ENABLE_EN(pwm->hwpwm ^ 1)) {
-+		/* Use the current clock settings */
-+		clk_src = FIELD_GET(SUN8I_PWM_CLK_CFG_SRC, clk_cfg);
-+		clk_src_rate = clk_src == SUN8I_PWM_CLK_SRC_BUS ? bus_rate : hosc_rate;
-+		val = mul_u64_u64_div_u64(state->period, clk_src_rate,
-+					  NSEC_PER_SEC);
-+
-+		div_m = FIELD_GET(SUN8I_PWM_CLK_CFG_DIV_M, clk_cfg);
-+	} else {
-+		/* Use the faster clock source */
-+		if (bus_rate > hosc_rate) {
-+			clk_src = SUN8I_PWM_CLK_SRC_BUS;
-+			clk_src_rate = bus_rate;
-+		} else {
-+			clk_src = SUN8I_PWM_CLK_SRC_HOSC;
-+			clk_src_rate = hosc_rate;
-+		}
-+
-+		val = mul_u64_u64_div_u64(state->period, clk_src_rate, NSEC_PER_SEC);
-+		/*
-+		 * If the calculated value is ≤ 1, the period is too short
-+		 * for proper PWM operation
-+		 */
-+		if (val <= 1)
-+			return -EINVAL;
-+
-+		div_m = fls(DIV_ROUND_DOWN_ULL(val, SUN8I_PWM_MAGIC));
-+		if (div_m > SUN8I_PWM_CLK_DIV_M_MAX)
-+			return -EINVAL;
-+
-+		/* Set up the CLK_DIV_M and clock CLK_SRC */
-+		clk_cfg = FIELD_PREP(SUN8I_PWM_CLK_CFG_DIV_M, div_m);
-+		clk_cfg |= FIELD_PREP(SUN8I_PWM_CLK_CFG_SRC, clk_src);
-+
-+		sun8i_pwm_writel(sun8i_chip, clk_cfg, SUN8I_PWM_CLK_CFG(pwm->hwpwm / 2));
-+	}
-+
-+	/* Calculate prescale_k and determine the number of cycles for a full PWM period */
-+	ent_cycle = val >> div_m;
-+	prescale_k = DIV_ROUND_DOWN_ULL(ent_cycle, SUN8I_PWM_DIV_CONST);
-+	if (prescale_k > SUN8I_PWM_CTL_PRESCAL_K_MAX)
-+		prescale_k = SUN8I_PWM_CTL_PRESCAL_K_MAX;
-+
-+	do_div(ent_cycle, prescale_k + 1);
-+
-+	/* ent_cycle must not be zero */
-+	if (ent_cycle == 0)
-+		return -EINVAL;
-+
-+	/* For N cycles, PPRx.PWM_ENTIRE_CYCLE = (N-1) */
-+	reg_period = FIELD_PREP(SUN8I_PWM_PERIOD_ENTIRE_CYCLE, ent_cycle - 1);
-+
-+	/* Calculate the active cycles (duty cycle) */
-+	val = mul_u64_u64_div_u64(state->duty_cycle, clk_src_rate,
-+				  NSEC_PER_SEC);
-+	act_cycle = val >> div_m;
-+	do_div(act_cycle, prescale_k + 1);
-+
-+	/*
-+	 * The formula of the output period and the duty-cycle for PWM are as follows.
-+	 * T period = PWM0_PRESCALE_K / PWM01_CLK * (PPR0.PWM_ENTIRE_CYCLE + 1)
-+	 * T high-level = PWM0_PRESCALE_K / PWM01_CLK * PPR0.PWM_ACT_CYCLE
-+	 * Duty-cycle = T high-level / T period
-+	 */
-+	reg_period |= FIELD_PREP(SUN8I_PWM_PERIOD_ACT_CYCLE, act_cycle);
-+	sun8i_pwm_writel(sun8i_chip, reg_period, SUN8I_PWM_PERIOD(pwm->hwpwm));
-+
-+	ctl = FIELD_PREP(SUN8I_PWM_CTL_PRESCAL_K, prescale_k);
-+	if (state->polarity == PWM_POLARITY_NORMAL)
-+		ctl |= SUN8I_PWM_CTL_ACT_STA;
-+
-+	sun8i_pwm_writel(sun8i_chip, ctl, SUN8I_PWM_CTL(pwm->hwpwm));
-+
-+	if (state->enabled != pwm->state.enabled) {
-+		clk_gate &= ~SUN8I_PWM_CLK_GATE_BYPASS(pwm->hwpwm);
-+		clk_gate |= SUN8I_PWM_CLK_GATE_GATING(pwm->hwpwm);
-+		pwm_en |= SUN8I_PWM_ENABLE_EN(pwm->hwpwm);
-+		sun8i_pwm_writel(sun8i_chip, pwm_en, SUN8I_PWM_ENABLE);
-+		sun8i_pwm_writel(sun8i_chip, clk_gate, SUN8I_PWM_CLK_GATE);
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct pwm_ops sun8i_pwm_ops = {
-+	.apply = sun8i_pwm_apply,
-+	.get_state = sun8i_pwm_get_state,
-+};
-+
-+static const struct of_device_id sun8i_pwm_dt_ids[] = {
-+	{ .compatible = "allwinner,sun20i-d1-pwm" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, sun8i_pwm_dt_ids);
-+
-+static int sun8i_pwm_probe(struct platform_device *pdev)
-+{
-+	struct pwm_chip *chip;
-+	struct sun8i_pwm_chip *sun8i_chip;
-+	struct clk *clk_bus;
-+	struct reset_control *rst;
-+	u32 npwm;
-+	int ret;
-+
-+	ret = of_property_read_u32(pdev->dev.of_node, "allwinner,npwms", &npwm);
-+	if (ret < 0)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Failed to get allwinner,npwms\n");
-+
-+	if (npwm < 1 || npwm > 16)
-+		return dev_err_probe(&pdev->dev, -EINVAL,
-+				     "Invalid allwinner,npwms\n");
-+
-+	chip = devm_pwmchip_alloc(&pdev->dev, npwm, sizeof(*sun8i_chip));
-+	if (IS_ERR(chip))
-+		return PTR_ERR(chip);
-+	sun8i_chip = to_sun8i_pwm_chip(chip);
-+
-+	sun8i_chip->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(sun8i_chip->base))
-+		return PTR_ERR(sun8i_chip->base);
-+
-+	clk_bus = devm_clk_get_enabled(&pdev->dev, "bus");
-+	if (IS_ERR(clk_bus))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(clk_bus),
-+				     "Failed to get bus clock\n");
-+
-+	sun8i_chip->clk_hosc = devm_clk_get_enabled(&pdev->dev, "hosc");
-+	if (IS_ERR(sun8i_chip->clk_hosc))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(sun8i_chip->clk_hosc),
-+				     "Failed to get hosc clock\n");
-+
-+	ret = devm_clk_rate_exclusive_get(&pdev->dev, sun8i_chip->clk_hosc);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Failed to get hosc exclusive rate\n");
-+
-+	sun8i_chip->clk_apb = devm_clk_get_enabled(&pdev->dev, "apb");
-+	if (IS_ERR(sun8i_chip->clk_apb))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(sun8i_chip->clk_apb),
-+				     "Failed to get apb clock\n");
-+
-+	ret = devm_clk_rate_exclusive_get(&pdev->dev, sun8i_chip->clk_apb);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Failed to get apb exclusive rate\n");
-+
-+	rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
-+	if (IS_ERR(rst))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(rst),
-+				     "Failed to get reset control\n");
-+
-+	chip->ops = &sun8i_pwm_ops;
-+
-+	ret = devm_pwmchip_add(&pdev->dev, chip);
-+	if (ret < 0)
-+		return dev_err_probe(&pdev->dev, ret, "Failed to add PWM chip\n");
-+
-+	return 0;
-+}
-+
-+static struct platform_driver sun8i_pwm_driver = {
-+	.driver = {
-+		.name = "sun8i-pwm",
-+		.of_match_table = sun8i_pwm_dt_ids,
-+	},
-+	.probe = sun8i_pwm_probe,
-+};
-+module_platform_driver(sun8i_pwm_driver);
-+
-+MODULE_AUTHOR("Aleksandr Shubin <privatesub2@gmail.com>");
-+MODULE_DESCRIPTION("Allwinner sun8i PWM driver");
-+MODULE_LICENSE("GPL");
++		pwm: pwm@2000c00 {
++			compatible = "allwinner,sun20i-d1-pwm";
++			reg = <0x02000c00 0x400>;
++			clocks = <&ccu CLK_BUS_PWM>,
++				 <&dcxo>,
++				 <&ccu CLK_APB0>;
++			clock-names = "bus", "hosc", "apb";
++			resets = <&ccu RST_BUS_PWM>;
++			status = "disabled";
++			#pwm-cells = <0x3>;
++			allwinner,npwms = <8>;
++		};
++
+ 		ccu: clock-controller@2001000 {
+ 			compatible = "allwinner,sun20i-d1-ccu";
+ 			reg = <0x2001000 0x1000>;
 -- 
 2.25.1
 
