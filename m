@@ -4,93 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B1F1C61DDA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 09:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D7DC61DDA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 09:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zmCZgLjaf6WNAl4QcnYSjzIUbADts2hS5FwiTnomwBA=; b=OSpoY0mDyfrq/dbwWuJyvtI7SZ
-	AfIqiQVvCILHnS3gBxIgclilk3cW8rOK3EPWWQYR+8boze9YtzBxp3X1FAaOzcs4OKvOL89YtvkxB
-	eZU6xfHQAqrUA8FNgKQt3xM6pyosprPDH1kk9Fb4kXhA0/ofsT71ZDuXVYuF5Rx0Aj44UQ+1eexR5
-	gW8O3hgoeTCKLSgRiTwmEWbaT8rrS6CZ+TtKzr9zjWlBEDUPVovvmfyao1BDr03JLGvS3ZYK29c/Q
-	/lpPwdJQHl9CiQNxLC48VzJ2wzeJpIhIxWzFFY+8armGCw23/ZPru8OE30udkyJrkkFkvgNKB9083
-	3y/xDvPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZghLiv0Pjb4l8sTB8mgLNzMQsPB8RsKU6NVqN9xPBQk=; b=W38T8FJyKN4CfWjTr8v2NfOq+d
+	0/HW995M+ECecI1f1zIm4e8/BCESKAByZsgWmbtr30w0ZHW0YXVm4xypMB4wGSsfilnQV371jCT7N
+	rUrDa6AkK2X8AzbhjW+zehX6KIPsRw2qZGbsZ3tfXYkuDOFvsdToaAH8LIHxpnUOdaqnqbW/aFYRC
+	Sxm5/JBcv7ZGS1VE9ZtuEhK/U4KIVTKKxzcJJhiWnLA93pyrX8Eh4/1YlmZ/ZnNrgOF2CT7qfLbdg
+	heCjHKOQcLqx4MUNnBhEAeAMHqfdohIK/8OSycHoDCKsphl5QcqRPxpRuHvZUNkzAJOMPtRwnZfJX
+	rXxCLoDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtit1-0000000Fvcx-0cHv;
-	Sat, 21 Feb 2026 09:02:51 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vtiwk-0000000Fvlw-2t0J;
+	Sat, 21 Feb 2026 09:06:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtisy-0000000Fvcd-0jH7
+	id 1vtiwj-0000000Fvlp-2uKM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Feb 2026 09:02:49 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4806bf39419so28011485e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Feb 2026 01:02:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771664566; x=1772269366; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zmCZgLjaf6WNAl4QcnYSjzIUbADts2hS5FwiTnomwBA=;
-        b=GTxifMo6Fk0L4DF+iTIeN5qXHoDE1+He4t+ZA1A6Lthp/8iQhI9UWdmOc57FWEvL7b
-         +t3A3qAw3OCMu7TcTqedrkiQFSOn1dJJ4GRfZH5k4rV6Kz4M5iV+DhlUtMenfhRkRBRq
-         Cby9iN5hFu/rng2RoCU3NfPWDPomubAaIOh1Fg8xKR2N283CRHGH92JwKmDl7eNjK68m
-         w6H8vKxAkTUMVqRPV7lzvsITx/G2gJarbLAKJoprsij9Hq+3QztEdQrlrf8Xi8kGSxff
-         wTHuvoV/KIKe3jdrkSmHUaODLFVIljHpwYc6/H2pmTxRc4ZRjqeSwFKqZ43/s2SKr2hE
-         DLEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771664566; x=1772269366;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zmCZgLjaf6WNAl4QcnYSjzIUbADts2hS5FwiTnomwBA=;
-        b=trYLPtVCDXxPKqaCtM4zqOnugTf9hlEIQwgp3aNr5FsMWLhVjmyjbOkRpHGKIiTHhe
-         dbovzCaZYBg2CWsfMqwSYxPXnRk2U+kP+xSIkGBLEv/YJmjXO/1oJqmkDxBz+xIMbEKh
-         FT8EiI+Ip0KhsSyxfZLhUscI044eKerJMc7gA0c5p4PLKv+nErT3bD0dNlOdsw2auesj
-         7b1QK1/a3Sgr7Oaq40SyRONF6TRmePj20QSjTyUN+vXaWM4jN23qVWtE5a9Dm2+nrwR+
-         6LvuBHHKT5eGWw56b0J0dqU8tZLZQ2U/CureZcgw3Vwwc1fRoVjkQajwCtlvhEsEI/aY
-         Omhw==
-X-Forwarded-Encrypted: i=1; AJvYcCWV3Sc5pbsOIStRhCsAjXelM9AJc1rmV4lgEUGxsByGYZB12Am/E7dyFqBR41nsEdirF+9Z/ZiXtMq1SY7BQqx8@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXnDPdv6z4AArm865zxnVq+5ODBK9U1LXpHbfLQ9dygB9mGPSs
-	25XCBMToCVuBO2Ln3LJ9nr0D7MpfjTHIBACojvTwag0TRXIgkUUCz8pW
-X-Gm-Gg: AZuq6aIzuqb88FnIaudvez/QozJ3gjo1HTPbppwW5ETdh5VqCXPeY5fB+r26ADHo+KJ
-	2xV6yE+cxcZqkjaCuBr4jv9L5RAANOdazkv2stkLpaGkJ8KuBHcvkrpm5p3bcP9Mqe5rqfdfUXT
-	vGnJ29SI/4mDZDmvMyE/YhyVWeM8mdSklqD66JcBjhOqnXpN2sJS5oQC4wr+Ko6AHcqvTYwh2Ki
-	IV8b0xvEuJ9W3jNlc5KZtF4VFduZnprlkc5f2QzLO6Tq5BsoK+YkG5W0w3lDVM1tp1sg7Z2OINM
-	RM3pyyd4hmOQHWSdxYwn2qmKIvDzDq88SE/c6yu3YTIFkbB5OQm01bpmFMscrYk0ASqLF/Ba+DP
-	+a8xAam6xio38c+dj88Tv07kElnHu/uHnhkUgz8ksDj6FK7egEBJmADsFClIWt9FJ12LE1qHSkb
-	JklxGGC24oOZ2uCt5zBm+Cp1L5HmUEX/eyNaimIVmQw5pHXt4STEXZjw==
-X-Received: by 2002:a05:600d:8445:20b0:47e:e0b3:2437 with SMTP id 5b1f17b1804b1-4839fe96a24mr99827825e9.5.1771664566116;
-        Sat, 21 Feb 2026 01:02:46 -0800 (PST)
-Received: from [192.168.20.124] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-483a9b75b4dsm63146555e9.4.2026.02.21.01.02.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Feb 2026 01:02:45 -0800 (PST)
-From: Gabor Juhos <j4g8y7@gmail.com>
-Date: Sat, 21 Feb 2026 10:02:37 +0100
-Subject: [PATCH v2] usb: ehci-orion: remove optional PHY handling code
- remnants
+	Sat, 21 Feb 2026 09:06:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 71D3C6001D;
+	Sat, 21 Feb 2026 09:06:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1756EC4CEF7;
+	Sat, 21 Feb 2026 09:06:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771664800;
+	bh=ht0he+pF2jvd7uZMAKcPSSsCUbxjK15Du6469AfkVP0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EkJw7Y0U10DAs0c1rqn+MgwzRTgBZBdOtg+sgmoDday8CWujdT1JNUUBSOTcFLnQk
+	 OAe4Me3ZS3CER8l+1IR0/7yWqurR52DFFYT2kQv4LLYZQ3xpygS9TEusvFnV501TC2
+	 IOPwQP57KEO/cZXQzvdSrDjOHuNBFPSCkCrWgMcsPAixL+Nf3vjCxReRhTEuFjC7ef
+	 3VymCQyDhCNyImX39GhQpxJQgQavXOQQptmMo4XDNWBv0UKkCNEcbd0Dg5rgixmv2n
+	 X5Rrq0MOuUgF/bQtEpQVErB+6/Cc1hRVmihNhGowj9Y9IFXUj/wnAlrzYQrIMjkmZA
+	 S4+UD9m0l8ZCg==
+Message-ID: <571e56ba-83c0-4d0a-8893-5a86789c22bb@kernel.org>
+Date: Sat, 21 Feb 2026 10:06:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/11] RAS: add DeviceTree firmware-first CPER provider
+To: Ahmed Tiba <ahmed.tiba@arm.com>, devicetree@vger.kernel.org,
+ linux-acpi@vger.kernel.org
+Cc: Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
+ robh@kernel.org, rafael@kernel.org, will@kernel.org, conor@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com
+References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
+ <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-11-347fa2d7351b@arm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-11-347fa2d7351b@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260221-ehci-orion-drop-phy-handling-v2-1-5e26aa73790b@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAKx0mWkC/42NQQ6CMBBFr0Jm7Zh2VCKuuIdhgdPSTgK0aQ2RE
- O5u5QQu38/L+xtkm8RmeFQbJLtIljAXoFMF7PvZWRRTGEhRrYgUWs+CIRUNTQoRo1+xiGaU2aF
- pLqxv3JC6EpRETHaQz5F/doW95HdI6/G26N/6Z3jRqFHp/mWaQdd35tZNvYxnDhN0+75/AYvaa
- 0XIAAAA
-X-Change-ID: 20260220-ehci-orion-drop-phy-handling-d93c15c92042
-To: Alan Stern <stern@rowland.harvard.edu>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Gregory CLEMENT <gregory.clement@bootlin.com>, 
- linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Gabor Juhos <j4g8y7@gmail.com>
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_010248_233186_811C6D47 
-X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,68 +117,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the USB core code handles the generic USB PHYs automatically, the
-optional PHY handling code has been removed from the 'ehci-orion' driver
-entirely by commit e04585184dcf ("usb: ehci-orion: avoid double PHY
-initialization"). However, the devm_phy_optional_get() call has been kept
-so the driver still gets the PHY even though it is not used for anything
-in the driver.
+On 20/02/2026 14:42, Ahmed Tiba wrote:
+> +	rc = ghes_ffh_init_ack(pdev, ctx);
+> +	if (rc)
+> +		return rc;
+> +
+> +	rc = ghes_ffh_init_pool();
+> +	if (rc)
+> +		return rc;
+> +
+> +	ctx->estatus = devm_kzalloc(&pdev->dev, ctx->status_len, GFP_KERNEL);
+> +	if (!ctx->estatus)
+> +		return -ENOMEM;
+> +
+> +	ctx->generic = devm_kzalloc(&pdev->dev, sizeof(*ctx->generic), GFP_KERNEL);
+> +	if (!ctx->generic)
+> +		return -ENOMEM;
+> +
+> +	ctx->generic->header.type = ACPI_HEST_TYPE_GENERIC_ERROR;
+> +	ctx->generic->header.source_id =
+> +		atomic_inc_return(&ghes_ffh_source_ids);
+> +	ctx->generic->notify.type = ctx->sync ?
+> +		ACPI_HEST_NOTIFY_SEA : ACPI_HEST_NOTIFY_EXTERNAL;
+> +	ctx->generic->error_block_length = ctx->status_len;
+> +
+> +	ctx->irq = platform_get_irq_optional(pdev, 0);
 
-Drop the remaining code, and also remove the 'phy' member of the
-'orion_ehci_hcd' structure to simplify the code.
+Please read the kerneldoc - wrong check in if.
 
-Acked-by: Alan Stern <stern@rowland.harvard.edu>
-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
----
-Changes in v2:
-  - add 'Acked-by' tag from Alan Stern
-  - remove 'Fixes' tag
-  - Link to v1: https://lore.kernel.org/r/20260220-ehci-orion-drop-phy-handling-v1-1-01abd9f168cc@gmail.com
----
- drivers/usb/host/ehci-orion.c | 9 ---------
- 1 file changed, 9 deletions(-)
+> +	if (ctx->irq <= 0) {
+> +		if (ctx->irq == -EPROBE_DEFER)
+> +			return ctx->irq;
+> +		dev_err(&pdev->dev, "interrupt is required (%d)\n", ctx->irq);
+> +		return -EINVAL;
+> +	}
+> +
+> +	rc = devm_request_threaded_irq(&pdev->dev, ctx->irq,
+> +				       NULL, ghes_ffh_irq,
+> +				       IRQF_ONESHOT,
+> +				       dev_name(&pdev->dev), ctx);
+> +	if (rc)
+> +		return rc;
+> +
+> +	platform_set_drvdata(pdev, ctx);
+> +	dev_info(&pdev->dev, "Firmware-first CPER status provider (interrupt)\n");
 
-diff --git a/drivers/usb/host/ehci-orion.c b/drivers/usb/host/ehci-orion.c
-index 34abff8669f8bf096f4547b6ce0977eb130b3c8d..eaaa49712a8c64928771eb317165091480245d0f 100644
---- a/drivers/usb/host/ehci-orion.c
-+++ b/drivers/usb/host/ehci-orion.c
-@@ -12,7 +12,6 @@
- #include <linux/clk.h>
- #include <linux/platform_data/usb-ehci-orion.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/usb.h>
- #include <linux/usb/hcd.h>
- #include <linux/io.h>
-@@ -60,7 +59,6 @@
- 
- struct orion_ehci_hcd {
- 	struct clk *clk;
--	struct phy *phy;
- };
- 
- static struct hc_driver __read_mostly ehci_orion_hc_driver;
-@@ -276,13 +274,6 @@ static int ehci_orion_drv_probe(struct platform_device *pdev)
- 			goto err_put_hcd;
- 	}
- 
--	priv->phy = devm_phy_optional_get(&pdev->dev, "usb");
--	if (IS_ERR(priv->phy)) {
--		err = PTR_ERR(priv->phy);
--		if (err != -ENOSYS)
--			goto err_dis_clk;
--	}
--
- 	/*
- 	 * (Re-)program MBUS remapping windows if we are asked to.
- 	 */
+This does not look like useful printk message. Drivers should be silent
+on success:
+https://elixir.bootlin.com/linux/v6.15-rc7/source/Documentation/process/coding-style.rst#L913
+https://elixir.bootlin.com/linux/v6.15-rc7/source/Documentation/process/debugging/driver_development_debugging_guide.rst#L79
 
----
-base-commit: 2b7a25df823dc7d8f56f8ce7c2d2dac391cea9c2
-change-id: 20260220-ehci-orion-drop-phy-handling-d93c15c92042
-
+> +	return 0;
+> +}
+> +
+> +static void ghes_ffh_remove(struct platform_device *pdev)
+> +{
+> +}
+> +
+> +static const struct of_device_id ghes_ffh_of_match[] = {
+> +	{ .compatible = "arm,ras-ffh" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, ghes_ffh_of_match);
+> +
+> +static struct platform_driver ghes_ffh_driver = {
+> +	.driver = {
+> +		.name = "esource-dt",
+> +		.of_match_table = ghes_ffh_of_match,
+> +	},
+> +	.probe = ghes_ffh_probe,
+> +	.remove = ghes_ffh_remove,
+> +};
+> +
+> +module_platform_driver(ghes_ffh_driver);
+> +
+> +MODULE_AUTHOR("Ahmed Tiba <ahmed.tiba@arm.com>");
+> +MODULE_DESCRIPTION("Firmware-first CPER provider for DeviceTree platforms");
+> +MODULE_LICENSE("GPL");
 Best regards,
--- 
-Gabor Juhos <j4g8y7@gmail.com>
-
+Krzysztof
 
