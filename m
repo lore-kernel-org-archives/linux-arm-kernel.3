@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28199C61DE7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 12:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B152DC61DE7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 13:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=br9Fo1dfeEMPffvOKFoumObqBOWwJq2Nx+QuBTPepjc=; b=IitGEmNhzNM3lcF4CYwrWXaflf
-	YG65JUxU1SCXoNFn3Ez3xHYuwPUnfKs8/fnSYV0y+T15FAOQuSlLeX6tvaege74nkl8yKKAgwtXGa
-	9C6mik1xpqhQJrsPLYCGKR4E3PWuPoj2sOO3/6GcTFTWfHXTBBelnqvR1jMrALdIcbN5o4mMNnQLU
-	GYKu85K/Y49wj1Jly29YVmoXKQSGBu6dn+8Z/5z0ZYXCjE6cc47Verw5kF1rfwNWffUEH/JOTMBlc
-	GpQUhLoBDRJ/EDTAn94JP4qs4GXuyVbIb6QFqySUrOU41wYLZe05V5nz7FjsjqSlzkHn+ptxozVTG
-	pLgLYLvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p4Sih2o2uS+eQEm1ZwddwPFwD+9KmWDEGjNhjDo1e0k=; b=mRNq53uAAsJ78elvm9r/I6REC1
+	MnBaVAIMNWvGbcmxskKNiLhj51duP82Io8YTfgv/eQenvUOiYVRk9jUbVr5cD9MdYPfL9fBw1UyYO
+	gKNQ/lcABvA1t7UDffQEBJTOKnTY1aGZBgE6RQJRhsgcaLRL7OnSsQ+kKuPpc1sm3HbgJ9JpjYZgy
+	93GADdsrLM3F/SJDEDkGi5pjLSHp9C18zPyo54GfP2pMUfR4mhM32GaZxEvNZWkjLpJFmz6R4+Nhx
+	oXWSklJi3yDdo7w7iAXi9QHOSAku4cCjLQ1BaY/Rm3iOteM9SALvP0uVbanDnOfZ8QZHio5d46S3Q
+	s8eds0DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtmRt-0000000G3A6-3ZQh;
-	Sat, 21 Feb 2026 12:51:05 +0000
-Received: from out-188.mta1.migadu.com ([2001:41d0:203:375::bc])
+	id 1vtmqI-0000000G3qV-3p52;
+	Sat, 21 Feb 2026 13:16:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtmRr-0000000G39l-0UwH
+	id 1vtmqD-0000000G3q9-209K
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Feb 2026 12:51:04 +0000
-Message-ID: <206609d9-7bd7-4923-999a-2402388b8f64@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1771678260;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=br9Fo1dfeEMPffvOKFoumObqBOWwJq2Nx+QuBTPepjc=;
-	b=icNCDIkPBixppTwoG2YRcxRBDOFrPHs5wl46DQZbCCKYEWDIpUUWJM7LrHCsqbdvez2lmt
-	WcCr1ulB0f+kojp7ZyhjC+MKcy9vB9VrxcbDpMvUyc53mrxYFmfh27ZI2hgt1hDiDW+KSc
-	uYnmHfX2R4fnoSi9mpjtw/Jhc05YLnw=
-Date: Sat, 21 Feb 2026 20:50:35 +0800
+	Sat, 21 Feb 2026 13:16:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2B3AB43F12;
+	Sat, 21 Feb 2026 13:16:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2418C4CEF7;
+	Sat, 21 Feb 2026 13:16:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771679771;
+	bh=jE+jSIPFl9zhbWCmJ1qOB1BmOqnJgZSd7hQtLem7r6Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SV8s+plriRy1ZuQ6LM0N5vavFSgU5TiWcY7SSIwMNPPoF1Qmu1apip8TSzrKSXyT9
+	 a0xXRAAA8Z3aRn9wFuQl2cTrMPtYpOb9adte6bg+ZpE3ZkwHfLO97U1mpjyl6tJTaf
+	 /pnUEKFfRPJPlf9F3FPLrYIlCex9DTDpAg7THy716oWar88zAyqBifV4/QkDx1uBFn
+	 5jkKodX+UsDqVQf9xfzReR+qAXzX7RWZhSkDU2tA4n7LJTlPkb5QsyNu/O+s6HPJNe
+	 xyLHCDeedp7C14TdsO1anBflOXyms7apEHQ9BsIJQK/r3vjwzKAfPDRIMDmCYIYGXP
+	 s95CtW17e6j7w==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 1B3E11AC5849; Sat, 21 Feb 2026 13:16:08 +0000 (GMT)
+Date: Sat, 21 Feb 2026 13:16:08 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: pKVM breakage in mainline on n1sdp
+Message-ID: <aZmwGK_j3YXZmcp1@sirena.co.uk>
+References: <60916cb6-f460-4751-b910-f63c58700ad0@sirena.org.uk>
+ <87bjhie67o.wl-maz@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v2 1/6] bpf: Introduce 64-bit bitops kfuncs
-To: Dan Carpenter <dan.carpenter@linaro.org>, oe-kbuild@lists.linux.dev,
- bpf@vger.kernel.org
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
- Xu Kuohai <xukuohai@huaweicloud.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
- Shuah Khan <skhan@linuxfoundation.org>, Peilin Ye <yepeilin@google.com>,
- Luis Gerhorst <luis.gerhorst@fau.de>, Viktor Malik <vmalik@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <202602210241.E7Q88vvq-lkp@intel.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <202602210241.E7Q88vvq-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Ccxbe4iCmwL0gVpk"
+Content-Disposition: inline
+In-Reply-To: <87bjhie67o.wl-maz@kernel.org>
+X-Cookie: Think big.  Pollute the Mississippi.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_045103_470414_FCD0A8B1 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260221_051613_568865_7762AAEB 
+X-CRM114-Status: GOOD (  22.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +82,77 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--Ccxbe4iCmwL0gVpk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 2026/2/21 17:58, Dan Carpenter wrote:
-> Hi Leon,
-> 
-> kernel test robot noticed the following build warnings:
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Leon-Hwang/bpf-Introduce-64-bit-bitops-kfuncs/20260219-223550
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
-> patch link:    https://lore.kernel.org/r/20260219142933.13904-2-leon.hwang%40linux.dev
-> patch subject: [PATCH bpf-next v2 1/6] bpf: Introduce 64-bit bitops kfuncs
-> config: i386-randconfig-141-20260220 (https://download.01.org/0day-ci/archive/20260221/202602210241.E7Q88vvq-lkp@intel.com/config)
-> compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-> smatch version: v0.5.0-8994-gd50c5a4c
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> | Closes: https://lore.kernel.org/r/202602210241.E7Q88vvq-lkp@intel.com/
-> 
-> smatch warnings:
-> kernel/bpf/verifier.c:18245 bpf_kfunc_is_fastcall() error: buffer overflow 'special_kfunc_list' 64 <= 64
-> 
-> vim +/special_kfunc_list +18245 kernel/bpf/verifier.c
-> 
-> 966e89879bbea4 Leon Hwang       2026-02-19  18223  static bool bpf_kfunc_is_fastcall(struct bpf_verifier_env *env, u32 func_id, u32 flags)
-> 966e89879bbea4 Leon Hwang       2026-02-19  18224  {
-> 966e89879bbea4 Leon Hwang       2026-02-19  18225  	if (!(flags & KF_FASTCALL))
-> 966e89879bbea4 Leon Hwang       2026-02-19  18226  		return false;
-> 966e89879bbea4 Leon Hwang       2026-02-19  18227  
-> 966e89879bbea4 Leon Hwang       2026-02-19  18228  	if (!env->prog->jit_requested)
-> 966e89879bbea4 Leon Hwang       2026-02-19  18229  		return true;
-> 966e89879bbea4 Leon Hwang       2026-02-19  18230  
-> 966e89879bbea4 Leon Hwang       2026-02-19  18231  	if (func_id == special_kfunc_list[KF_bpf_clz64])
-> 966e89879bbea4 Leon Hwang       2026-02-19  18232  		return bpf_jit_inlines_kfunc_call(bpf_clz64);
-> 966e89879bbea4 Leon Hwang       2026-02-19  18233  	if (func_id == special_kfunc_list[KF_bpf_ctz64])
-> 966e89879bbea4 Leon Hwang       2026-02-19  18234  		return bpf_jit_inlines_kfunc_call(bpf_ctz64);
-> 966e89879bbea4 Leon Hwang       2026-02-19  18235  	if (func_id == special_kfunc_list[KF_bpf_ffs64])
-> 966e89879bbea4 Leon Hwang       2026-02-19  18236  		return bpf_jit_inlines_kfunc_call(bpf_ffs64);
-> 966e89879bbea4 Leon Hwang       2026-02-19  18237  	if (func_id == special_kfunc_list[KF_bpf_fls64])
-> 966e89879bbea4 Leon Hwang       2026-02-19  18238  		return bpf_jit_inlines_kfunc_call(bpf_fls64);
-> 966e89879bbea4 Leon Hwang       2026-02-19  18239  	if (func_id == special_kfunc_list[KF_bpf_bitrev64])
-> 966e89879bbea4 Leon Hwang       2026-02-19  18240  		return bpf_jit_inlines_kfunc_call(bpf_bitrev64);
-> 966e89879bbea4 Leon Hwang       2026-02-19  18241  	if (func_id == special_kfunc_list[KF_bpf_popcnt64])
-> 966e89879bbea4 Leon Hwang       2026-02-19  18242  		return bpf_jit_inlines_kfunc_call(bpf_popcnt64);
-> 966e89879bbea4 Leon Hwang       2026-02-19  18243  	if (func_id == special_kfunc_list[KF_bpf_rol64])
-> 966e89879bbea4 Leon Hwang       2026-02-19  18244  		return bpf_jit_inlines_kfunc_call(bpf_rol64);
-> 966e89879bbea4 Leon Hwang       2026-02-19 @18245  	if (func_id == special_kfunc_list[KF_bpf_ror64])
->                                                                                           ^^^^^^^^^^^^
-> special_kfunc_list[] has 64 elements and KF_bpf_ror64 is 64 so
-> this is out of bounds.
-> 
+On Sat, Feb 21, 2026 at 10:33:47AM +0000, Marc Zyngier wrote:
+> On Fri, 20 Feb 2026 19:08:59 +0000,
+> Mark Brown <broonie@kernel.org> wrote:
 
-Ack.
+> > At some point since the 30th of January we have started seeing issues=
+=20
+> > in mainline when running kvm-unit-tests on N1SDP in pKVM mode:
 
-I'll try a new way using KF_JIT_MAY_INLINE flag in the next revision,
-which will avoid adding these kfuncs to special_kfunc_list btw.
+> The absence of any versioning information is really unhelpful. What
+> kernel version is that? Upstream? Next? A date really doesn't help
+> much, specially given how vague it is. Same thing for KUT.
 
-Thanks,
-Leon
+As mentioned above this is with mainline, that is to say with Linus'
+tree.
 
-> 966e89879bbea4 Leon Hwang       2026-02-19  18246  		return bpf_jit_inlines_kfunc_call(bpf_ror64);
-> 966e89879bbea4 Leon Hwang       2026-02-19  18247  
-> 966e89879bbea4 Leon Hwang       2026-02-19  18248  	return true;
-> 966e89879bbea4 Leon Hwang       2026-02-19  18249  }
-> 
+kvm-unit-tests should be at commit 0ed2cdf3c8 ("arm64: Fix sve_vl() for
+build errors"), though it doesn't announce a version at runtime (and we
+should really update from there, especially once the next release
+happens which will hopefully be soon).
 
+> > The same tests running on N1SDP in VHE mode seem happy, and I've not
+> > seen any other platforms showing issues.  Unfortunately due to various
+> > infrastructure issues I don't have more detail on when this started
+> > happening or anything, I'll update if I get more.
+
+> I've ran that test on an Altra (Neoverse-N1, same as N1SDP), with both
+> v6.19 and linux/master as of d79526b89571 together with KUT as of
+> 86e53277 and nothing caught fire in protected mode, including a
+> 32-parallel VM test.
+
+Indeed, one of the other machines that wasn't showing these issues for
+me was an Altra.
+
+> Most of KUT's PMU tests fail in protected mode though, probably due
+> some issue with the routing of PMU exceptions (see below), but that
+> doesn't seem new. Fuad, could you please have a look and see if
+> something catches your eye?
+
+Yes, there are a bunch of other long standing failures in protected
+mode, like can be seen with this run on i.MX8MP for Linus' tip of tree:
+
+   https://lava.sirena.org.uk/scheduler/job/2478171#L1365
+
+which is a lot less happy than the non-pKVM run for the same commit on
+the same board:
+
+   https://lava.sirena.org.uk/scheduler/job/2478178#L1360
+
+(those runs will have a more recent kvm-unit-tests version, it's
+separate infrastructure).  I don't recall those tests ever working with
+pKVM.
+
+--Ccxbe4iCmwL0gVpk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmZsBcACgkQJNaLcl1U
+h9BGmQf/SvOZp5An2iuc3Gp/of1ewSqWUC3YTerTTiwrzFE7DaB+HfODvS8ZgEuN
+Zy/wsPEXzZCm6vD88HkUN0NZqra+XWd/vM417NSltatCcAWemaLUwBU9x5/FkECa
+V8i9DinKxwxB2RxRrRaJ2wC+/CwZeDIloM9OtBeReeKvp+KAbNPPQVXaNvPxOqqh
+Q4HjnpQJFXUvfWBO4F+qYp2FxMifJzRU8EGVUCwjOj8Xf3hj21D3NAIg0b26RGiA
+OYMvWsCXYaAg4ex1PMnzREQap4bpKZgXdXYApDRgNgOwyK9uzTkOTtDH4xujKRmU
+GmAERPfn6vrvaa2gImHL4KLs/zHqdw==
+=BFzs
+-----END PGP SIGNATURE-----
+
+--Ccxbe4iCmwL0gVpk--
 
