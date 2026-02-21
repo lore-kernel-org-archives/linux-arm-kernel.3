@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F83C61DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 12:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E39C61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 12:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HxqjZ74O1Oo1/HZfWshbQKQcx3UlujgftjSBi1TAmiY=; b=ZybtM5oQo0AXMY
-	22T8D198q/Ie7WDdVSZR0LLxUCy4hmxEP1sH7xq2kwltBAb63VryCdxHKyUIBk+tWUZies3ywjMDQ
-	q3j46234basOuzl2QIv+sbeygqKm7cVslQcPMK2hIc5IzA17THmELMNacoo/TD2qds7ZyQkpR6qC8
-	yyEMYO34fXozYaddhi+6ClWbEQRTll3K6CnMpU2gGeBLge5kYsouXL8+szGOAxRrCJvaa6jy/rVIo
-	Kt42IzzL3HjYSv/v+xsU9SK+h66v8BGOjiSJWjZk2JOpkvvSiJnQ+gP1xZ6xEIVynH+OCFCYjg3JN
-	irN1li0W2LDWTbc4NqYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pH1fUdUtvpCuKRXQpdhRwdohsnI+Wum65S4lAuilXg0=; b=NgyInj9MFolRQSB58duTNjIca4
+	Rhr4PdnPUBdHwmEM1y9pG4Mv8qaSjqwPDCjh7GZwRBE84+9crioWojNcMXngWrAkiuEpzkG8JroTo
+	wNs1Ge8XJlEZxJNt/K6OsXMUARVYv+rlg7HTV+yI5KJGAcZAT9NI0PlpFqr9O3m+l85KQ6T17mj3B
+	yYV0CObwOd5W7+W9oQMkZ757lfdKCB3o91LgSwgsLrgrnF+iIgyXLj/NKr6FtQeYf4BaY967ASnZn
+	iU95YoTwbTnjSVAXF6+wFDoJJHm+3Cnib66COCGf2LLlXzMrM32XUilYMdHXb48E2S5ORNMVQmv6h
+	KyANg1pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtlhL-0000000G1cx-0uoQ;
-	Sat, 21 Feb 2026 12:02:59 +0000
-Received: from ms.puri.sm ([135.181.196.210])
+	id 1vtmCa-0000000G2hh-4BLc;
+	Sat, 21 Feb 2026 12:35:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtlhH-0000000G1bq-2ua8
+	id 1vtmCZ-0000000G2hb-1UK5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Feb 2026 12:02:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=puri.sm; s=smtp2;
-	t=1771675369; bh=lElJz2q0mo7Dbf27ywzOet/wsoBKWaPVLwbz02KuJds=;
-	h=From:Subject:Date:To:Cc;
-	b=PePbW5/KKgzTyhAAvHH0RLr8d0GQIqE30UMFmYmDDASMHRzX8TwWh6x4wXmBptLGB
-	 WzjiGkWxQKPvNqMFgmme/yNUrRHjCAcCzeBxZnBl2JDtDFzT02IXCpSrku4v4/N2vS
-	 lK5RinxER8AKdcHHY+UQIPnbbABJzAPErYJ0pEMKgQ23THbSCWtwCKY6eteS3zgnNP
-	 XKGQ5MCkZdO5Y8ojUXQ+ZCeAGRl8LBe6fXJxbpmuTaUF6RdhtXRPhPK06ZvVMUyhbB
-	 pv/ybg2DLzG18rg+GqVY2iihmOA7poFTJ6vi35lnrJfq4bJODOfAsnmkkGZX4QHeMm
-	 GzhVrgfq2Ju9g==
-Received: from pliszka.localdomain (79.184.40.11.ipv4.supernova.orange.pl [79.184.40.11])
-	by ms.puri.sm (Postfix) with ESMTPSA id 8AC571F511;
-	Sat, 21 Feb 2026 04:02:48 -0800 (PST)
-From: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-Subject: [PATCH 0/2] arm64: dts: imx8mq-librem5: PMIC voltage changes
-Date: Sat, 21 Feb 2026 13:02:09 +0100
-Message-Id: <20260221-l5-voltages-v1-0-daa8aeedc86c@puri.sm>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MwQqDMAyA4VeRnBdmi1PwVcYOsaYaqHUkKgPx3
- dft+B3+/wRjFTboqxOUDzFZc4G7VRBmyhOjjMXga9/W3jtMDzzWtNHEhpGbrh2bENl1UIq3cpT
- P//Z8FQ9kjINSDvPvkSTvdl/INla4ri+fqr2PfAAAAA==
-X-Change-ID: 20260221-l5-voltages-fe476d4cfe17
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: kernel@puri.sm, devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=744;
- i=sebastian.krzyszkowiak@puri.sm; h=from:subject:message-id;
- bh=lElJz2q0mo7Dbf27ywzOet/wsoBKWaPVLwbz02KuJds=;
- b=owEBbQKS/ZANAwAKAejyNc8728P/AcsmYgBpmZ7npDKhokjbX+6yemtwz/V5IQvX4zuTgt7ui
- UgasX+0Gv+JAjMEAAEKAB0WIQQi3Z+uAGoRQ1g2YXzo8jXPO9vD/wUCaZme5wAKCRDo8jXPO9vD
- /1VlEAC5LXbIBRnAzM+KiOwPzEIONlrtBGI2VaxRUQL6HXu3c5vUK7flltSoJ2fgbykdt3aZfTd
- FFgYvpRk/0Lg/2wKPbvJ8AK5W6f8yRGyHysD7lJ7My0evTHO0RO8h3RMbQ+dNrvPYDh9wNpXZup
- fnoeWqnV4VbmwIdww6uUjrXi20v3XTqK+QxjmA2TJXdkLfLy88mu01aUTL08L6TNRfREWtCBSMJ
- IgowFjJICHjat9SlEMoW8bUXhXpJWSO6qMaLvlHinVuBHp0UA0kIckxdTQ5PlomVCfSPyK/W5I6
- vqq6GRSZMW2ZVPZbDE7O1ax6MrCgNeMLlBNvmxt0B6d9trCxYCq1v0wSdM4UIzduACvlFh4962E
- GuUs7X0zwQhU2Z/caLB2CyamUkPl3E1DrBTnGZEJM5wpx3UJ3NA1cuAuXmjPHho2cz7lcm2ueCo
- ejfUkfJ8cKGinD8tWM74awMtvgtDGwjCkkcKGzN61duN6cPmNEDuJDVXKFFBmqtJOXL0Q7eb3SZ
- DW+wt2j939gnbysxyI72Z8r0/kTKHuVbLQhbPvPlI/125IKza6JZUa9zn9MypTqOXVDJNXE0obu
- 98RDAl8Qt/KdtBXOZwcPP5e+1EoQ1urE+FZFqCXbT10aEVVe0zyZLxigsVm8x67KmqixgS1IKJ0
- o2j9iBn3TouUq1g==
-X-Developer-Key: i=sebastian.krzyszkowiak@puri.sm; a=openpgp;
- fpr=22DD9FAE006A11435836617CE8F235CF3BDBC3FF
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_040255_893768_AF08900E 
-X-CRM114-Status: UNSURE (   6.01  )
-X-CRM114-Notice: Please train this message.
+	Sat, 21 Feb 2026 12:35:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 789526001D;
+	Sat, 21 Feb 2026 12:35:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 263B1C4CEF7;
+	Sat, 21 Feb 2026 12:35:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771677314;
+	bh=nVO2+bjOhJYrsoofKUEiTy+IZOwWSzFp1qNe5u8GV9k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=s+2u+EqG3cNlIcJRRM66NFNsdFfniERmtfG1yb96Z7PqOmUJdmFr7MVfxyGbInv63
+	 9IBtJ5rTAhUV0k8LpQldhPPIssDJFKgWe1XO25LCrF3d0ZC1bwodcUq6Fq/Emp/VN2
+	 K8VuKHlGpQNp8C16B4CwNE2kZ6URoZDjWVGR6LmFgGJmAkKumCRP6fkHBqSeWzRMq/
+	 eoLth8NlEicPIOkyp3NPq1W5hPSZx3WFLBXaOo4MBalFUge+NE62eWd73JhGGfWVzk
+	 rIV0eaSQje7KFFVar7cjmc0Zb7dfJ9cDZbmZHjlEQZ9KYi5OW968Z71QYhCh1U04y0
+	 HSGt864e8dDIg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vtmCV-0000000CdLT-457v;
+	Sat, 21 Feb 2026 12:35:12 +0000
+Date: Sat, 21 Feb 2026 12:35:11 +0000
+Message-ID: <86seau9sw0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>,
+	Fuad Tabba <tabba@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: pKVM breakage in mainline on n1sdp
+In-Reply-To: <87a4x2e60i.wl-maz@kernel.org>
+References: <60916cb6-f460-4751-b910-f63c58700ad0@sirena.org.uk>
+	<87bjhie67o.wl-maz@kernel.org>
+	<87a4x2e60i.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, tabba@google.com, oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, suzuki.poulose@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,24 +89,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simple changes to bump the voltages up to their nominal values to ensure
-stable operation across all units.
+On Sat, 21 Feb 2026 10:38:05 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
+> 
+> On Sat, 21 Feb 2026 10:33:47 +0000,
+> Marc Zyngier <maz@kernel.org> wrote:
+> > 
+> > [+ Fuad for the protected mode stuff]
+> > 
+> > On Fri, 20 Feb 2026 19:08:59 +0000,
+> > Mark Brown <broonie@kernel.org> wrote:
+> > > 
+> > > Hi,
+> > > 
+> > > At some point since the 30th of January we have started seeing issues 
+> > > in mainline when running kvm-unit-tests on N1SDP in pKVM mode:
+> > > 
+> > > TESTNAME=pmu-mem-access TIMEOUT=90s MACHINE= ACCEL= ./arm/run arm/pmu.flat -smp 1 -append 'pmu-mem-access'
+> > > <4>[  114.487201] ------------[ cut here ]------------
+> > > <4>[  114.487206] WARNING: arch/arm64/kvm/pkvm.c:393 at pkvm_pgtable_stage2_map+0x1ac/0x1c4, CPU#1: qemu-system-aar/1955
+> > > <4>[  114.502672] Modules linked in: stm_p_basic coresight_tpiu coresight_stm stm_core arm_spe_pmu coresight_funnel coresight_tmc coresight_replicator coresight arm_cmn sha256 cfg80211 rfkill fuse dm_mod ipv6
+> > > <4>[  114.520924] CPU: 1 UID: 0 PID: 1955 Comm: qemu-system-aar Not tainted 6.19.0 #1 PREEMPT 
+> > > <4>[  114.529261] pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > > <4>[  114.536469] pc : pkvm_pgtable_stage2_map+0x1ac/0x1c4
+> > > <4>[  114.541681] lr : pkvm_pgtable_stage2_map+0x58/0x1c4
+> > > <4>[  114.546805] sp : ffff80008673b900
+> > > <4>[  114.550366] x29: ffff80008673b900 x28: 0000000000200000 x27: 0000000000200000
+> > > <4>[  114.557748] x26: 0000000000000000 x25: 00000000fffffff4 x24: 000000000000000f
+> > > <4>[  114.565130] x23: ffff008047b65198 x22: 00000000080cbc00 x21: 0000000000040000
+> > > <4>[  114.572512] x20: ffff008046f65680 x19: 0000000000000200 x18: 0000000000000001
+> > > <4>[  114.579893] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> > > <4>[  114.587275] x14: 0000000000000002 x13: 0000000000000002 x12: 000000000031bf68
+> > > <4>[  114.594656] x11: 0000000000000000 x10: 0000ffff8be01000 x9 : ffff8000800728b0
+> > > <4>[  114.602037] x8 : ffff80008673bab8 x7 : 0000000000000001 x6 : 0000000000000008
+> > > <4>[  114.609419] x5 : 0000000040200000 x4 : 000000000000000f x3 : 0000000000000200
+> > > <4>[  114.616800] x2 : 0000000000040000 x1 : fffffffffffffff4 x0 : 0000000000000000
+> > > <4>[  114.624182] Call trace:
+> > > <4>[  114.626875]  pkvm_pgtable_stage2_map+0x1ac/0x1c4 (P)
+> > > <4>[  114.632088]  kvm_handle_guest_abort+0xe7c/0x12ec
+> > > <4>[  114.636953]  handle_exit+0x60/0x184
+> > > <4>[  114.640689]  kvm_arch_vcpu_ioctl_run+0x35c/0x968
+> > > <4>[  114.645554]  kvm_vcpu_ioctl+0x254/0xa50
+> > > <4>[  114.649638]  __arm64_sys_ioctl+0xac/0x104
+> > > <4>[  114.653896]  invoke_syscall+0x48/0x110
+> > > <4>[  114.657894]  el0_svc_common.constprop.0+0x40/0xe0
+> > > <4>[  114.662846]  do_el0_svc+0x1c/0x28
+> > > <4>[  114.666409]  el0_svc+0x34/0x10c
+> > > <4>[  114.669798]  el0t_64_sync_handler+0xa0/0xe4
+> > > <4>[  114.674228]  el0t_64_sync+0x198/0x19c
+> > > <4>[  114.678137] ---[ end trace 0000000000000000 ]---
+> > >
+> > 
+> > The absence of any versioning information is really unhelpful. What
+> > kernel version is that? Upstream? Next? A date really doesn't help
+> > much, specially given how vague it is. Same thing for KUT.
+> 
+> Ah no, I can't read:
+> 
+> [  114.520924] CPU: 1 UID: 0 PID: 1955 Comm: qemu-system-aar Not tainted 6.19.0 #1 PREEMPT
+> 
+> If that's vanilla 6.19, then there is post Feb 8th. Sorry for the
+> unwarranted rant.
+> 
+> Can you share the configuration for this kernel?
 
-Signed-off-by: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
----
-Sebastian Krzyszkowiak (2):
-      Revert "arm64: dts: imx8mq-librem5: Set the DVS voltages lower"
-      arm64: dts: imx8mq-librem5: Bump BUCK1 suspend voltage up to 0.85V
+Things get super bizarre with a host compiled with 16kB pages and in
+protected mode. I still can't trigger the warning, but tests stop
+making forward progress, and even running a simple Linux kernel guest
+with kvmtool hangs.
 
- .../arm64/boot/dts/freescale/imx8mq-librem5-r3.dts |  2 +-
- arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi  | 24 +++++++---------------
- 2 files changed, 8 insertions(+), 18 deletions(-)
----
-base-commit: d79526b89571ae447c1a5cfd3d627efa07098348
-change-id: 20260221-l5-voltages-fe476d4cfe17
+A bit of tracing indicates that at least in the last case, we're stuck
+taking an translation fault on instruction fetch at level 3. But
+that's clearly not new, as even 6.18 is affected.
 
-Best regards,
+Again, not sure the two things are related, but this needs
+investigating.
+
+Thanks,
+
+	M.
+
 -- 
-Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-
+Without deviation from the norm, progress is not possible.
 
