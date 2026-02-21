@@ -4,53 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4646C61DEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 14:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCA3C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 14:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZD1ZlANrf8P/MlRStCUZSXgHOShp4rteLirP3rZbn8=; b=Ko44Iks4mNKPoLwaoVLSNan3x3
-	aSFsVsoe0RTjOzhrHNv3yVYAh//j/fDhPF73CLd/VzusGer2PRIHqWvfFCqrnMB67gPtOdrz+gNQe
-	cO96bJwoplyaTAecT42dq+m1L49V3Kr57jhcxzv8X8U203hsRQdJkCQ/tc/RC/dIdr04Bgw7yG0qO
-	NZJSjGWeXk3mU2HJutw3Zkcsk+nVBAGzraOH0/xbqVAIjTo2/XXTRKWdc4Y1p9mimK8Hy4dvrGhOl
-	/HTPAvApj/8olm7M5yT5TDw/FZXzdfAUfD5N9h0+Lfv5zI7ELXCrXtHCNHRhv4oPQGFYfjhklLJsk
-	usZZBXtg==;
+	bh=xA22utvgRUdA5DBTKJr5qtockNVUiH7ZtWJLs1w/PPQ=; b=MbMcI4u1xLQl2O71TDA59RNktE
+	JEWd7oSoQCZtb/0dMpDoC/9VmXxZ7Q2xfUaqg6y8qGSdsg6Bv4NertVZdLiLtLbNiMkP9zDA62S2N
+	F7ZTeMj3+U9JWjw2/a5Vi/IjUDEVev81j5i/SjDrNeIK2lPxrvPUyYnJgNOJMejmE8klLtLckzv2o
+	KQJZBO9oXmORsBblsquoQbXo7Q+Fmob4A9H8QbKgaC+CceFqWJKwJvucfnIC7DnnjV1vbYYeEsk9T
+	o+uxwT+GpBgHrUjhUeQT5nDn+c4oCrBk8JIIl1G2SlBRe3k9cWhL0RVPUBO96AG96Q74WFURYSIY5
+	D+7ka4uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtoKy-0000000G75x-1l5l;
-	Sat, 21 Feb 2026 14:52:04 +0000
+	id 1vtoS4-0000000G7Mf-3fFr;
+	Sat, 21 Feb 2026 14:59:24 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtoKv-0000000G75a-0Xue;
-	Sat, 21 Feb 2026 14:52:02 +0000
+	id 1vtoS2-0000000G7M0-1JmA;
+	Sat, 21 Feb 2026 14:59:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=pZD1ZlANrf8P/MlRStCUZSXgHOShp4rteLirP3rZbn8=; b=i4zTMbVo45tAtv8y/QZj4XJPMa
-	U0BoNhx2iqCg+9mdhs17QPCQlaIx1n53MSWKvJgXCz+fHroUqXp1fy6Y5JZ5L/tvDeTdZ76CnWYtE
-	U2cHEGdUoROjlFWk3Ca/OlhVkjyYwgmNeQT1CdsTeSSrTZEWJSeJG4oHKPjFjjoGr3pIYhusaw45O
-	EogR4X49qGWUrKbvABVh0/k2OotblR7YVfknp0xzYOH1awiK48Njyj6m7pOtJ74Txy5WPCy4X3uym
-	9hrZ9AMFN9WS1TNPtToorUu7dTwblrZeozUA4tfVm0CrQ2wwZlziNRx+54TJ1np1oOAdMgVTV325K
-	JqQZoMqg==;
+	bh=xA22utvgRUdA5DBTKJr5qtockNVUiH7ZtWJLs1w/PPQ=; b=Wx3BCHB/7X48J37ZF46L83Wl/k
+	ueplWD6JS0yylKYIteTeSvP2nHfEOmBcGASYFdlda8y9op5ARPjGtTxtiV9MkM0IO4dVuQz82aIqp
+	5hoHZLupoQ4jd2xFv8NdcdItb0JUidFbUxVq6/OKaBFTLjw3yvb91WSika0/bYal1pM3I+0g0U0+p
+	ZzniUxNbLvFje/SCmuMnsuTEqaW7TgM+r6AvPukQ9w5GPttUynX+eKMcJy0q21Rc3/R4yd7C2X9B4
+	Ao7KyYRNCPibJ899dmpbjq0YvEl7FHWrVowUqqDgUTNNIK0+oVWWPdZPgCBY97ekIsVSt9xbL2Di1
+	zTYcINOA==;
 From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: shawn.lin@rock-chips.com, linux-arm-kernel@lists.infradead.org,
+To: robh@kernel.org, WeiHao Li <cn.liweihao@gmail.com>
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- xiaopeitux@foxmail.com
-Cc: Pei Xiao <xiaopei01@kylinos.cn>, Felix Gu <ustc.gu@gmail.com>
-Subject: Re: [PATCH] soc: rockchip: grf: fix device node refcount leak in error path
-Date: Sat, 21 Feb 2026 15:51:46 +0100
-Message-ID: <6295978.F8r316W7xa@diego>
-In-Reply-To: <tencent_BE953AE4AA17D089CF5C87EB6F4400F70206@qq.com>
-References: <tencent_BE953AE4AA17D089CF5C87EB6F4400F70206@qq.com>
+ WeiHao Li <cn.liweihao@gmail.com>
+Subject: Re: [PATCH v2 1/4] phy: rockchip: inno-usb2: Add usb2 phy support for RK3368
+Date: Sat, 21 Feb 2026 15:59:18 +0100
+Message-ID: <4689639.clyjiGRsXx@diego>
+In-Reply-To: <20250909132958.26423-2-cn.liweihao@gmail.com>
+References: <20250909132958.26423-1-cn.liweihao@gmail.com>
+ <20250909132958.26423-2-cn.liweihao@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_065201_195605_98890E3C 
-X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-CacheID: sfid-20260221_065922_356393_BEAD07BF 
+X-CRM114-Status: UNSURE (   7.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,31 +70,24 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-Am Samstag, 21. Februar 2026, 01:40:27 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb xiaopeitux@foxmail.com:
-> From: Pei Xiao <xiaopei01@kylinos.cn>
+Am Dienstag, 9. September 2025, 15:29:55 Mitteleurop=C3=A4ische Normalzeit =
+schrieb WeiHao Li:
+> RK3368 has one USB2.0 PHY with two ports. This adds device specific data
+> for it. Device specific data get form rockchip downstream source [1].
 >=20
-> The for_each_matching_node_and_match() macro automatically manages device
-> node reference counts during normal iteration. However, when breaking out
-> of the loop early with return, the current iteration's node is not
-> automatically released, leading to a reference count leak.
+> [1] https://github.com/rockchip-linux/kernel/blob/develop-4.4/drivers/phy=
+/rockchip/phy-rockchip-inno-usb2.c#L2805
 >=20
-> Fix this by adding of_node_put() before returning from the loop
-> when fails.
->=20
-> Fixes: 75fb63ae0312 ("soc: rockchip: grf: Support multiple grf to be hand=
-led")
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
 
-=46elix Gu was slightly faster [0], so I'll apply their patch once the merg=
-e-
-window is closed.
+just realized, this patch is missing the phy maintainer/reviewer as
+recipient, the phy-list is likely not enough.
+
+Please use scripts/get_maintainer.pl for the whole series, to get necessary
+people. Because this phy-patch needs to go through the phy tree.
 
 Thanks
 Heiko
-
-
-[0] http://lore.kernel.org/r/20260217-grf-v1-1-2088c966875d@gmail.com
 
 
 
