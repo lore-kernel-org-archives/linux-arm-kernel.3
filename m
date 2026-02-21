@@ -4,106 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A392C61DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 09:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71CA8C61DE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 10:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=iG95ysl0cBzDn6owjLxKJa0jdHI3ZVF2zQtfxEizLIg=; b=4BX+ZR2vfNISom
-	F0+vS/Epz8mV1xqaWadIjWGyGN1lbKl05tLmfzDJZ4mnbswE9h9YW52zWgte7vxMXrfr4gvbDQouq
-	3005LuYBtvl4g5y6FVSfa+/GePVY3dIj0v4VOBbBaH7xM2nIausyZiFltHYlb6dV5dyn2HP/Rxsfx
-	nB3AqU2sM34AoakhezwnWYBmaqYCbFpssYtqgwZ2aWmqNsAvHXd9iyNprDhOWr94aXGHNCv9LINos
-	yflzVxe38BpFnPNpi8THSAwJDcGQzrHb1NGHbfn94QhX17Gmz1y2ahDNH5z9g0zf6YA29D8WBAQ9Q
-	N1qAPS58zh6AjNjCif5A==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nfOenuUi5XfOe7JH0iQZtUBFI5B7mULimU+ClszxYPk=; b=TwF7P0D5YHFUdPjkYE/ar/lUql
+	Q8kCUCgIqOubZayTv9GNHsVrda5CJU6+cdjxY6n3Bzxb5IOb4UW57ArCkTjw9o8zPdpAVhnjGD+ot
+	pPQHociedNKQLqj2zLxRMmTMG4IpsudeVUCvfCfhVYWa8+Gaedyn/Wc8R9HO0JU+U4A7JhbooDUFe
+	SuhE0zUWWZcOLHEvj5+0iu+dVydppQO0rKPGUsZXDPDaQITujt0aqwqwqYxGEwO/UPGcRhCUALaZ9
+	kJtNlyVZIFejxpWrm/ISoVQYQeQGDAwo/DkHRtdFDr6BAP00sXOXMlSleurbOIt3r53jmW22kB9Pr
+	1gaxDXlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtjkZ-0000000FxgP-2IQg;
-	Sat, 21 Feb 2026 09:58:11 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1vtkJ7-0000000Fycy-3B1L;
+	Sat, 21 Feb 2026 10:33:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtjkX-0000000Fxg4-07pI
+	id 1vtkJ5-0000000Fycs-49vF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Feb 2026 09:58:10 +0000
-Received: by mail-wr1-x441.google.com with SMTP id ffacd0b85a97d-4375d4fb4d4so1821181f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Feb 2026 01:58:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771667886; x=1772272686; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=iG95ysl0cBzDn6owjLxKJa0jdHI3ZVF2zQtfxEizLIg=;
-        b=qFVSpEkTJtMUAFU9PyZLNDEUKTetFwadA3WqpwqTrvcCAeFsdtvWrvxebQ4phssAfn
-         LMrnFcht9Jdt2QV6+94aPyJp1ME70KTOdc+3GBSktRO6xy8yq2a88ZpcZ6M9EzDsEKmp
-         rCZ6cBnyTp4hC5G7B/st634dMrtZ+GoHaYcyTh5qx+ZOa6XFerpJvjBixQr2N4MxMJR7
-         +BrFSZ9nW26zc9RItBP4BVuFmX3JbCstblCWnqYZOdFRb3HYj7HnfL6wsOvQYie6Ndmd
-         DAsvrcFW0cRu1cggNjKJfgrt8/ow33ii3q6lNSoUVe8QAxq3ViOHCL7mTHw6nkT/ejv3
-         xX6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771667886; x=1772272686;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iG95ysl0cBzDn6owjLxKJa0jdHI3ZVF2zQtfxEizLIg=;
-        b=dhmyFYiydHAtisbpuD2hOreXDScMqTHOnuYkRdvFJ3MMOVgsmjTGNexCmdO05t0dJV
-         22qt0xoaV+IOlC3inp18Q0I5DHT9rcrITx9ouY4eJODzO9lMH2AM8u3c9hBs/W6ec03c
-         x5TTE/IqjZ6DV/LY7no7VmAZ7LYKY1siqoqL4UwTCjWx7zhkfmNXtJQV5ZTk+yW9tLez
-         wQ8m3TX29z+xRw/hDnG4FG0rnRw4+Em3E+BB1vizPrrXvf64oBwh5B+/jruEPugiNJ1E
-         YQx7jaAoKYMy3pmmY4r2Hmf2dvA5cwRRiSvIf1tNUrh/O2ReItSm4HukVrvXKVtGiKc9
-         ghwA==
-X-Forwarded-Encrypted: i=1; AJvYcCVNcnwjqM2GDOk/QovzjpylRlSx4eBiOo9c7z+9t/WlytcerrClyXYeAbpUm7rb61uvhFfN0WhA5vO7OYO6OP8R@lists.infradead.org
-X-Gm-Message-State: AOJu0YySO7VCCC+NjFJVEIidb4xuIcQLEVImDNPro372U6D58BotByVO
-	OjknSoaDL3r6dwsDWmA/yLpIwa06v0JG2NA2DFaX4BE6agvOQUiDbSopOzzfMhPAAj8=
-X-Gm-Gg: AZuq6aISknYEruDXe75lmv8yNDYdH7g67TBT65J+UCayvIcvoVcUzp7KGn8OPJxenbJ
-	YE2cvcBvpV/5XicrPoQL/PQrYQ9f78uEmQImddW7V+L15ND9ED/PqYb5v2XPsTUudN5bOnNoP2z
-	5OIUzQBJQyODS+8VzFJssfUwjWoikFWGGqI8221c2Xiktxzc+LYBOTS4BR+pxJw3bRk73cBqwG0
-	pbjFYUEEzAQW8tJH18yyFz7JdxuWgVDofaSm2RodICRb4dgaRzrxMUCKYSjJ5zw72tfgcViBM5w
-	Dj7tYMFxor2jKI0Ig+trCwXYVmK3pULswo9Zpppqoj+xbwYrX3TvhIhOSgmMY5PYjHFRoHP8oqH
-	wpa+N6eQ2VVP+P73M+hRIiahL2Gz4LZf0wvC4+XWyAkdAWo+yR6Y+nTwKKK9ZQp7/+XubLhSNCl
-	ZStUXR+WxAPa1f7PxYJq3cl0vSe0gaWDbaydjsg6k=
-X-Received: by 2002:a05:6000:2601:b0:437:81b0:6638 with SMTP id ffacd0b85a97d-4396f188767mr4885393f8f.59.1771667886111;
-        Sat, 21 Feb 2026 01:58:06 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970bfa015sm4427011f8f.8.2026.02.21.01.58.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Feb 2026 01:58:05 -0800 (PST)
-Date: Sat, 21 Feb 2026 12:58:02 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev, Leon Hwang <leon.hwang@linux.dev>,
-	bpf@vger.kernel.org
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Sat, 21 Feb 2026 10:33:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D28D60053;
+	Sat, 21 Feb 2026 10:33:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A49E4C19424;
+	Sat, 21 Feb 2026 10:33:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771670030;
+	bh=9snIQC5gOtrXWI618rDXRUe8IuUkpdJsVIaZXCRFb1c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=hh/NO0k7XuaBoh0KVavsZYCQMZF8F5LIHEv6GdfF/CNt9Vk/ROvW6rEql0kETjykA
+	 22ncgHNdpqF74CcHHxTJfnx21WJoeiygNsTGLG2vWvoMe7QN0tsyS5LzvzspjHm8ag
+	 DTq6z+nuDsVHGEtp1JBr/SK6Iecnn36amJUxUGBspOzu9qR+EmN83h+bdQwTNMoCY/
+	 tGM+0gg/5uTeYiy8gIqUQXJ6SXoeOA0POmy17XRrRw37EO/hbykl15foNDe5qvYB0M
+	 VgJRrAYElRiBNzTSHiGzPMVN/ghg6orM56mkgc1m5VWpfYH1hOzgWbd2cGKsr667wU
+	 +WNol40LL6aGw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vtkJ2-0000000CcZ9-1M96;
+	Sat, 21 Feb 2026 10:33:48 +0000
+Date: Sat, 21 Feb 2026 10:33:47 +0000
+Message-ID: <87bjhie67o.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>, 	Fuad Tabba <tabba@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Leon Hwang <leon.hwang@linux.dev>, Peilin Ye <yepeilin@google.com>,
-	Luis Gerhorst <luis.gerhorst@fau.de>,
-	Viktor Malik <vmalik@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next v2 1/6] bpf: Introduce 64-bit bitops kfuncs
-Message-ID: <202602210241.E7Q88vvq-lkp@intel.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260219142933.13904-2-leon.hwang@linux.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_015809_129215_7329497D 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: pKVM breakage in mainline on n1sdp
+In-Reply-To: <60916cb6-f460-4751-b910-f63c58700ad0@sirena.org.uk>
+References: <60916cb6-f460-4751-b910-f63c58700ad0@sirena.org.uk>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, tabba@google.com, oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, suzuki.poulose@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,63 +86,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leon,
+[+ Fuad for the protected mode stuff]
 
-kernel test robot noticed the following build warnings:
+On Fri, 20 Feb 2026 19:08:59 +0000,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> Hi,
+> 
+> At some point since the 30th of January we have started seeing issues 
+> in mainline when running kvm-unit-tests on N1SDP in pKVM mode:
+> 
+> TESTNAME=pmu-mem-access TIMEOUT=90s MACHINE= ACCEL= ./arm/run arm/pmu.flat -smp 1 -append 'pmu-mem-access'
+> <4>[  114.487201] ------------[ cut here ]------------
+> <4>[  114.487206] WARNING: arch/arm64/kvm/pkvm.c:393 at pkvm_pgtable_stage2_map+0x1ac/0x1c4, CPU#1: qemu-system-aar/1955
+> <4>[  114.502672] Modules linked in: stm_p_basic coresight_tpiu coresight_stm stm_core arm_spe_pmu coresight_funnel coresight_tmc coresight_replicator coresight arm_cmn sha256 cfg80211 rfkill fuse dm_mod ipv6
+> <4>[  114.520924] CPU: 1 UID: 0 PID: 1955 Comm: qemu-system-aar Not tainted 6.19.0 #1 PREEMPT 
+> <4>[  114.529261] pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> <4>[  114.536469] pc : pkvm_pgtable_stage2_map+0x1ac/0x1c4
+> <4>[  114.541681] lr : pkvm_pgtable_stage2_map+0x58/0x1c4
+> <4>[  114.546805] sp : ffff80008673b900
+> <4>[  114.550366] x29: ffff80008673b900 x28: 0000000000200000 x27: 0000000000200000
+> <4>[  114.557748] x26: 0000000000000000 x25: 00000000fffffff4 x24: 000000000000000f
+> <4>[  114.565130] x23: ffff008047b65198 x22: 00000000080cbc00 x21: 0000000000040000
+> <4>[  114.572512] x20: ffff008046f65680 x19: 0000000000000200 x18: 0000000000000001
+> <4>[  114.579893] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> <4>[  114.587275] x14: 0000000000000002 x13: 0000000000000002 x12: 000000000031bf68
+> <4>[  114.594656] x11: 0000000000000000 x10: 0000ffff8be01000 x9 : ffff8000800728b0
+> <4>[  114.602037] x8 : ffff80008673bab8 x7 : 0000000000000001 x6 : 0000000000000008
+> <4>[  114.609419] x5 : 0000000040200000 x4 : 000000000000000f x3 : 0000000000000200
+> <4>[  114.616800] x2 : 0000000000040000 x1 : fffffffffffffff4 x0 : 0000000000000000
+> <4>[  114.624182] Call trace:
+> <4>[  114.626875]  pkvm_pgtable_stage2_map+0x1ac/0x1c4 (P)
+> <4>[  114.632088]  kvm_handle_guest_abort+0xe7c/0x12ec
+> <4>[  114.636953]  handle_exit+0x60/0x184
+> <4>[  114.640689]  kvm_arch_vcpu_ioctl_run+0x35c/0x968
+> <4>[  114.645554]  kvm_vcpu_ioctl+0x254/0xa50
+> <4>[  114.649638]  __arm64_sys_ioctl+0xac/0x104
+> <4>[  114.653896]  invoke_syscall+0x48/0x110
+> <4>[  114.657894]  el0_svc_common.constprop.0+0x40/0xe0
+> <4>[  114.662846]  do_el0_svc+0x1c/0x28
+> <4>[  114.666409]  el0_svc+0x34/0x10c
+> <4>[  114.669798]  el0t_64_sync_handler+0xa0/0xe4
+> <4>[  114.674228]  el0t_64_sync+0x198/0x19c
+> <4>[  114.678137] ---[ end trace 0000000000000000 ]---
+>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Leon-Hwang/bpf-Introduce-64-bit-bitops-kfuncs/20260219-223550
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
-patch link:    https://lore.kernel.org/r/20260219142933.13904-2-leon.hwang%40linux.dev
-patch subject: [PATCH bpf-next v2 1/6] bpf: Introduce 64-bit bitops kfuncs
-config: i386-randconfig-141-20260220 (https://download.01.org/0day-ci/archive/20260221/202602210241.E7Q88vvq-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-smatch version: v0.5.0-8994-gd50c5a4c
+The absence of any versioning information is really unhelpful. What
+kernel version is that? Upstream? Next? A date really doesn't help
+much, specially given how vague it is. Same thing for KUT.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202602210241.E7Q88vvq-lkp@intel.com/
+> The same tests running on N1SDP in VHE mode seem happy, and I've not
+> seen any other platforms showing issues.  Unfortunately due to various
+> infrastructure issues I don't have more detail on when this started
+> happening or anything, I'll update if I get more.
 
-smatch warnings:
-kernel/bpf/verifier.c:18245 bpf_kfunc_is_fastcall() error: buffer overflow 'special_kfunc_list' 64 <= 64
+I've ran that test on an Altra (Neoverse-N1, same as N1SDP), with both
+v6.19 and linux/master as of d79526b89571 together with KUT as of
+86e53277 and nothing caught fire in protected mode, including a
+32-parallel VM test.
 
-vim +/special_kfunc_list +18245 kernel/bpf/verifier.c
+Most of KUT's PMU tests fail in protected mode though, probably due
+some issue with the routing of PMU exceptions (see below), but that
+doesn't seem new. Fuad, could you please have a look and see if
+something catches your eye?
 
-966e89879bbea4 Leon Hwang       2026-02-19  18223  static bool bpf_kfunc_is_fastcall(struct bpf_verifier_env *env, u32 func_id, u32 flags)
-966e89879bbea4 Leon Hwang       2026-02-19  18224  {
-966e89879bbea4 Leon Hwang       2026-02-19  18225  	if (!(flags & KF_FASTCALL))
-966e89879bbea4 Leon Hwang       2026-02-19  18226  		return false;
-966e89879bbea4 Leon Hwang       2026-02-19  18227  
-966e89879bbea4 Leon Hwang       2026-02-19  18228  	if (!env->prog->jit_requested)
-966e89879bbea4 Leon Hwang       2026-02-19  18229  		return true;
-966e89879bbea4 Leon Hwang       2026-02-19  18230  
-966e89879bbea4 Leon Hwang       2026-02-19  18231  	if (func_id == special_kfunc_list[KF_bpf_clz64])
-966e89879bbea4 Leon Hwang       2026-02-19  18232  		return bpf_jit_inlines_kfunc_call(bpf_clz64);
-966e89879bbea4 Leon Hwang       2026-02-19  18233  	if (func_id == special_kfunc_list[KF_bpf_ctz64])
-966e89879bbea4 Leon Hwang       2026-02-19  18234  		return bpf_jit_inlines_kfunc_call(bpf_ctz64);
-966e89879bbea4 Leon Hwang       2026-02-19  18235  	if (func_id == special_kfunc_list[KF_bpf_ffs64])
-966e89879bbea4 Leon Hwang       2026-02-19  18236  		return bpf_jit_inlines_kfunc_call(bpf_ffs64);
-966e89879bbea4 Leon Hwang       2026-02-19  18237  	if (func_id == special_kfunc_list[KF_bpf_fls64])
-966e89879bbea4 Leon Hwang       2026-02-19  18238  		return bpf_jit_inlines_kfunc_call(bpf_fls64);
-966e89879bbea4 Leon Hwang       2026-02-19  18239  	if (func_id == special_kfunc_list[KF_bpf_bitrev64])
-966e89879bbea4 Leon Hwang       2026-02-19  18240  		return bpf_jit_inlines_kfunc_call(bpf_bitrev64);
-966e89879bbea4 Leon Hwang       2026-02-19  18241  	if (func_id == special_kfunc_list[KF_bpf_popcnt64])
-966e89879bbea4 Leon Hwang       2026-02-19  18242  		return bpf_jit_inlines_kfunc_call(bpf_popcnt64);
-966e89879bbea4 Leon Hwang       2026-02-19  18243  	if (func_id == special_kfunc_list[KF_bpf_rol64])
-966e89879bbea4 Leon Hwang       2026-02-19  18244  		return bpf_jit_inlines_kfunc_call(bpf_rol64);
-966e89879bbea4 Leon Hwang       2026-02-19 @18245  	if (func_id == special_kfunc_list[KF_bpf_ror64])
-                                                                                          ^^^^^^^^^^^^
-special_kfunc_list[] has 64 elements and KF_bpf_ror64 is 64 so
-this is out of bounds.
+Thanks,
 
-966e89879bbea4 Leon Hwang       2026-02-19  18246  		return bpf_jit_inlines_kfunc_call(bpf_ror64);
-966e89879bbea4 Leon Hwang       2026-02-19  18247  
-966e89879bbea4 Leon Hwang       2026-02-19  18248  	return true;
-966e89879bbea4 Leon Hwang       2026-02-19  18249  }
+	M.
+
+maz@filthy-habits:~/kvm-unit-tests$ ./arm/run arm/pmu.flat -smp 1 -append 'pmu-mem-access'
+/usr/bin/qemu-system-aarch64 -nodefaults -machine virt,gic-version=host -accel kvm -cpu host -device virtio-serial-device -device virtconsole,chardev=ctd -chardev testdev,id=ctd -device pci-testdev -display none -serial stdio -kernel arm/pmu.flat -smp 1 -append pmu-mem-access # -initrd /tmp/tmp.S6qLYpNV6X
+INFO: PMU version: 0x4
+INFO: PMU implementer/ID code: 0(" ")/0
+INFO: Implements 6 event counters
+INFO: pmu: pmu-mem-access: 32-bit overflows: counter #0 is 0x0 (MEM_ACCESS)
+INFO: pmu: pmu-mem-access: 32-bit overflows: counter #1 is 0x0 (MEM_ACCESS)
+FAIL: pmu: pmu-mem-access: 32-bit overflows: Ran 20 mem accesses
+FAIL: pmu: pmu-mem-access: 32-bit overflows: Ran 20 mem accesses with expected overflows on both counters
+INFO: pmu: pmu-mem-access: 32-bit overflows: cnt#0=0xfffffff0 cnt#1=0xfffffff0 overflow=0x0
+SKIP: pmu: pmu-mem-access: 64-bit overflows: Skip test as 64 overflows need FEAT_PMUv3p5
+SUMMARY: 3 tests, 2 unexpected failures, 1 skipped
+
+EXIT: STATUS=3
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
+Jazz isn't dead. It just smells funny.
 
