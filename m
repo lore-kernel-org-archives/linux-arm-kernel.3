@@ -4,111 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34501C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 18:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE4AC61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Feb 2026 18:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1AnFSbbpcoJokEkHFjF59w8cecGdnQS5LOQUULQN02c=; b=IKrCqFWTtAt1wfs2HwpBIl17DZ
-	2tQ2AM1IkLTbod59LPQBb+LHqHQlYci0W0TXpOpaDm21YW633tEesyRbIrrXlx22+L8So/LDMS/aq
-	lbwdCKcf+QAvokZeT8n8GuYHD/nQpSLQP0q7dkObGbqd+6uZnpfNq2Bpd5PP1qH1oSW0k3DElIALo
-	IqyYhLihT6kEsb6VUW/6sJ/H0OQUccapfbPsVxi6Zna10iS3FlN5s39sIvyEZI7JdP9+nz/rvvhF9
-	j7REzUid1VlqFiY9GEriA1NQ5U0Hc5JtLIqjlOpEnPCIxQtF8vPTRy94u7pecMOJgWfoFLiojRH+9
-	nO/tnR2A==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XJ4mlxz9+qmH9SFVDphbLCUFby68qXbPqoJ0t+cVd+E=; b=mL6AMH0+k/CoWdUW041+aeG09t
+	CKuSwfbvK2SQLLBAjONXsz2cF2d56ZFLrma7LHwjJFgu8oGQ8RlCy2358Wq8N8xgwINw/fwF3jjEq
+	m4ifyPjv9XzYLPMHfuVUFg06ihFyGJchRx0iDHUCgHZoluQZiFriu0ggd9qpH2F520Vtw/G1YVQfl
+	kjB89krFG+DOmsF+92/aAnurrM5+W6wxtPaZyyr6PLZUsBnekmLL0JL4Gf/jxbESudRUbHAguR0NB
+	O9uZSG83BKXH4tff2sGSdkafWNFIuCrF+W6zzuXGIf6di13XyHc2AOdIhevPNoMZsqrCADzA0c6wN
+	6fLmRPJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtrlC-0000000GFHl-0LcM;
-	Sat, 21 Feb 2026 18:31:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vtrqJ-0000000GFUA-0SZe;
+	Sat, 21 Feb 2026 18:36:39 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtrl8-0000000GFHF-38NK
+	id 1vtrqG-0000000GFTL-3iWn
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Feb 2026 18:31:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2503144363;
-	Sat, 21 Feb 2026 18:31:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5643C4CEF7;
-	Sat, 21 Feb 2026 18:31:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771698678;
-	bh=Xdx/qVgTl87W9/pczjn1VI6BDP+L+XNk0pX2pjoRQHg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DY7yxzq7HxnfuV3CiXbRJLLwowy9eAXawnTgeLjUgCA+0hiRYZ/OusDKpj46pCzxi
-	 R9x6dHJdn13a7Q05csgcujfPOvHJPuevwSRwVFSDVm9NlqWJabzF3O5fPsMh2u9rp6
-	 eDjM07yXPT2+fbvyG5UVf3ZMvHhRBijVp4CSUFtbzZR0ped9xJInrJbE/We/Hirw+k
-	 x29L7TP73b9BJ2Roic1l1xdw+nNt8jfCQjwr+rJ1/wEk9xSeyJL4Q2LS9h9pFMlaLc
-	 4Yciy3UyzNL+5Ii5IJHMNdB6QTUf4FXCupU9jTQxIS/Av1LC9XpzSGg/ANPMgDMqud
-	 tTzz2Y6xQRy0w==
-Message-ID: <77c45be6-a0c1-4799-9491-f7e492d60aab@kernel.org>
-Date: Sat, 21 Feb 2026 19:31:13 +0100
+	Sat, 21 Feb 2026 18:36:38 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-3870dec27f4so36793031fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Feb 2026 10:36:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771698994; x=1772303794; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XJ4mlxz9+qmH9SFVDphbLCUFby68qXbPqoJ0t+cVd+E=;
+        b=eac3VG41+nD5u82AO0qC9PY4h6S+BEaG6Zr4Fcpn/OW4NBbl+yz7ZmPhbymVf9tRKX
+         g0xw3oCVBt5pkbTZ6kcVyPINyyGKoSUpNH3Aak1BY0CqZvVNLEHDYeP0yBmoKnS9xQqW
+         8jkh5EhjSwbuwTl6WLU7aKKAGbzJqCPSm2Ft8UgLFQra2APHCogpXA0wQwjGc0DLVGnh
+         VzuLKBaUSEO7iZ13MmfmYob+Dewa6NTr7j51sm/DD/65s80DZ5O1Zi9SWAFh8o66fhAP
+         vPA7hnaMQMJ116ivlwjLdEb78UajJNWW3r173Lm+qqEx0pnLCy5AnXwIUyVKeUaaHPe8
+         r75g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771698994; x=1772303794;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XJ4mlxz9+qmH9SFVDphbLCUFby68qXbPqoJ0t+cVd+E=;
+        b=ox/vyck+fBMa2x4ZFNpYByuLyOzNNPzF5dkntFISt0/DLxXVuvTU1p1Xyx9YsUudME
+         sQsnSTiwxHb5lRsLWZqupBN67EkYfPZxYKIM/nVu968icK9uX6KZiSILiLttaoM49fma
+         NzJ0AJpXhQRdS5n2k8JvdYpzLSCP1hhaBqHYb7+Oe4fe333jgZ0t2/oQRxFseaKqaFEC
+         ejNKiKIlEFGek7e61aqM/d48gR1EPxZsse8fPG1ElLYlgC9MdWuUykep+G9KlOZe424+
+         +D74F6uqFtjKZ1cvJ9d0qpQADhux1bsSjpM8gyfIGbfWIF6Qix0V5WBKUnvXg1xFJpzx
+         xy1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX3fPTiAN4I1TZ8nxSdFD7vjpffVf5T3OupvHV0Ut0YvQFZOkkR6Ret7fRCzPCKU7cxdGxB9utuxXOIT0tMapnd@lists.infradead.org
+X-Gm-Message-State: AOJu0YynF4xIZKTGhA44ZLcKUS8MXSEaf9OWACgTNuFOET5mUo6tqAZb
+	5Ozstr3ugXtvE2rkEgyW+HOJPGmGJOfIJgjbYCtLkgPz9mTtDKtQV/I=
+X-Gm-Gg: AZuq6aKHYONoMbroGEvZFIaC7+2Sz6ecvuKoUJKFYKDWApyBMpZkktSMXmt5HbC/Arp
+	CE4It3J9DzJMc0ppKaMd3dg/L8eT/zr+8KcsLiRQ0fpisXV9KIq7cjrfKWeuEMybwjMTeIRyQaz
+	pJfjrNm0MAEdwRbGR0SuQG3Dn+Y7/EQB+BAoXXA6zKK9neW0u6llmoIn7w5HEogvJDsLJJLTNkk
+	gJKMveED/YfvzGRPxmE6uXRaO0oqzjJ10UyI1trmdBT8QRM2d0oKgkTzGm3WNpHoY52RsvHcMN5
+	6XnZ4zCcjrcGJ5mHo9gA0n3AZ0Bq1vwRqFp9vBsTfWQ7jnoqHtcALdIIdq+cxgIKPBjOCXBu7gP
+	brE6FasodetoarHqZcaVdQgnE3f7Wb379AoRHrfpwALby6OlmVEp9m99SKI/v1Rtm89POo0TVPv
+	fb5IIV5jPAvLjJcLk6x1X6NxJPo2Ez1d/7OJxL33HObvfK6ic=
+X-Received: by 2002:a2e:868a:0:b0:387:e03:147c with SMTP id 38308e7fff4ca-388536cef04mr25730261fa.1.1771698994175;
+        Sat, 21 Feb 2026 10:36:34 -0800 (PST)
+Received: from localhost.localdomain ([178.176.177.46])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-389a7af19d4sm5006841fa.42.2026.02.21.10.36.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Feb 2026 10:36:32 -0800 (PST)
+From: Aleksandr Shubin <privatesub2@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Aleksandr Shubin <privatesub2@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Lukas Schmid <lukas.schmid@netcube.li>,
+	Cheo Fusi <fusibrandon13@gmail.com>,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v13 0/3]  Add support for Allwinner PWM on D1/T113s/R329 SoCs
+Date: Sat, 21 Feb 2026 21:35:50 +0300
+Message-Id: <20260221183609.95403-1-privatesub2@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: firmware: cznic,turris-mox-rwtm: convert to
- DT schema
-To: Gabor Juhos <j4g8y7@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260221-mox-rwtm-yaml-v1-1-25dec4a0228b@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260221-mox-rwtm-yaml-v1-1-25dec4a0228b@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_103118_835135_BBC84374 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260221_103636_934333_A633D8AD 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,31 +113,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/02/2026 19:21, Gabor Juhos wrote:
-> +
-> +description: |
-> +  This device tree node should be used on Turris Mox, or potentially
-> +  another A3700 compatible device running the Mox's rWTM firmware in
-> +  the secure processor (for example it is possible to flash this
-> +  firmware into EspressoBin).
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - const: marvell,armada-3700-rwtm-firmware
-> +
-> +      - items:
-> +        - const: marvell,armada-3700-rwtm-firmware
+v2:
+ - fix dt-bindings
+ - fix a remark in the driver
 
-This makes little sense. How this can be alone and followed by fallback?
-Plus adding new compatible has to be explicit in commit msg, including
-the reason (existing users).
+v3:
+ - fix dt-bindings
+ - fix sunxi-d1s-t113.dtsi
 
-> +        - const: cznic,turris-mox-rwtm
+v4:
+ - fix a remark in the driver
 
-Anyway, not tested. Please test your patches BEFORE you send them. I
-finished review here because of that.
+v5:
+ - dropped unused varibale in the driver
+ - fix dt-bindings
 
-Best regards,
-Krzysztof
+v6:
+ - add apb0 clock
+
+v7:
+ - fix a remark in the driver
+ - add maintainer
+
+v8:
+ - fix compile driver for 6.8-rc
+
+v9:
+ - fix a remark in the driver
+ - fix dt-bindings
+ - rename apb0 -> apb
+
+v10:
+ - fix a remark in the driver
+ - fix compile driver for 6.12-rc2
+
+v11:
+ - fix a remark in the driver
+ - fix compile driver for 6.14.0-rc2
+
+v12:
+ - fix a remark in the driver
+ - fix a remark in the dt-bindings
+ - check driver build on 6.15.0-rc3
+
+ v13:
+ - rename driver sun20i -> sun8i to reflect wider SoC coverage
+ - drop the misleading APB > HOSC dev_info() warning
+ - require allwinner,npwms and validate it as 1..16
+   (remove default 8 and silent clamp)
+ - adjust clock-source selection comment/logic:
+   when sibling is disabled, pick the faster parent (APB vs HOSC);
+   when sibling is enabled, keep existing shared settings
+
+Aleksandr Shubin (3):
+  dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
+    controller
+  pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
+  riscv: dts: allwinner: d1: Add pwm node
+
+ .../bindings/pwm/allwinner,sun20i-d1-pwm.yaml |  74 ++++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  13 +
+ drivers/pwm/Kconfig                           |  10 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-sun8i.c                       | 393 ++++++++++++++++++
+ 5 files changed, 491 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-d1-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-sun8i.c
+
+-- 
+2.25.1
+
 
