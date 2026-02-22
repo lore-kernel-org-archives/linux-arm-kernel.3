@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26299C636C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 22:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D7AC636C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 22:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t6aXQXpI+hIYWNJc19FQH/iLzUzzb2eomDnK90HQ/As=; b=QOsszTW1dRMG42U6ZXwHy/ejVs
-	2FlmHhMfRny5I5rQPnbJiLechipQIOgazhplp/pS8dfHLpXEfzTCRY4lV1BQ9NwkyI9TByHn5ZyA6
-	dbAP3glKxdnlxBlYykNSC51Y8ST7YY3P7F3mn+I90tkm4ldzJ+EyE1GIBYtsJgNa3h9U1WmtMUa3n
-	+Eh+v0emsJWd8cEacifSVAaLKCN8AiWC5CoksDvg+0Pbva3cHC2MrpsUygDF87EqRMhZ7ddl3u4kU
-	mQsTo4JSrrKxQceSzcmhHAcKi8yv8Ti9A3UlwNQbjjWWVm+t0IJE3Vhiz6XCvBa3PoGvaIER/+lwh
-	kBTNgYXQ==;
+	bh=lV75AXXuEOzZgqYdCfcJqh0AHXFWizhyarQU0FSzido=; b=Vt8fXVvERSOjhuvANP2VIwNN8q
+	2TqOqBSN75jx+SM3L4NpRY44r7l3hUpmqQdGx6qCU1v9nAt3+hQp786m9VRUY+OKZvxWkpAP8lzNU
+	WxLM8g6JjN1wssIy1DFiX1VZk+ThqeYgP/jAuhx9mhqejq0J7MSl++C7k6Y4SFVbhfeb3rNMjKQLq
+	K56bxnBwldG/7uKMSuw9fFMNqvmesnX4j7M3Ya29tAkgYC8L6q6JKWjGkxkK2ntME2A004of/NxnA
+	k69fBAAyYSgVSIFQ+xbv7oZVM4B6wGXc5r9jIeiRD8YT7OOvjZGCSMmz+/tKZ4NwfPebt7TkN9xt7
+	0prn9dDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuI7P-0000000H0Lv-2Aoo;
-	Sun, 22 Feb 2026 22:40:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuI77-0000000H05h-3Ptn;
-	Sun, 22 Feb 2026 22:39:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=t6aXQXpI+hIYWNJc19FQH/iLzUzzb2eomDnK90HQ/As=; b=BNaj6p4CR2WaCYApfywLfTaW4S
-	dDJKMNweDwgouidS8kWrzMJcqrtRa8J7pZZEtMtR+jzjLYEf6IVHsQIdGwgbOpir2pEJbccg9XQNs
-	usGgsg0x1cZyxbf9Un177Cn7HiVkH6Gt5FHYOm6b6/bSygzCL7MEZGnbudK1aadEiVv0eqAM14Ycw
-	rmLAFqZV3XBWo4Y3oFCb/TaGVPxkX/hX4Fv4V8ycMl4BPogmTn22gZ1+RTcZC8+vaqbLDgdm9Da7+
-	jMsuMIhf97N0a6aCdUgsucH7dHTmSfuABV2jpS9bdzwJOG7nK3+3SXBGrwfE4Mkt0tAQe77uJ913l
-	2HSScSyA==;
+	id 1vuIAk-0000000H1Dq-21yi;
+	Sun, 22 Feb 2026 22:43:30 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuI74-00000004DbR-1xhN;
-	Sun, 22 Feb 2026 22:39:44 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuIAi-0000000H1Cr-17bk;
+	Sun, 22 Feb 2026 22:43:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=t6aXQXpI+hIYWNJc19FQH/iLzUzzb2eomDnK90HQ/As=; b=ABegtPgLMfWzF/O2dxbd08oCG1
-	OUidPXyqteouqHDzW+i0cTKhoQoeLbCykwEb2iZrP0RpJJgGaMYG+9S+FUlkyuTeoAbnOhfAUVwSr
-	h97scWnztvIrnWo/Wi1z62DjAp2OoJPuCRHVXeoDsABsBxOXNjd8C9yKCp4vAnvNWlpvmNAvkveJG
-	ezl8OPLal7svSL7aZpyVd/l9TSNpDQp9QZzFn+veJ7Il5vWgNYUGc/q1GIqI8nXJAAoglN8FpPQgC
-	xgotDkSJrfPZvDkjTItHgvQsqITADOiUaRcQ/zqCEOO6ul9R5E0Pkm3U/hK19j6DBzyr0yoPzkw4h
-	Shu06cFw==;
+	bh=lV75AXXuEOzZgqYdCfcJqh0AHXFWizhyarQU0FSzido=; b=Wb8YeXYCQ7gpTtg7p9QO2yusXv
+	1TwrcVRqUSTsuHCYRG4vCT5+Am66uHTs10EirNcFuqJVf37zgAIWRh0bXNNsaMui+oad3QiQEAIBG
+	bFUJxnD3a8bmFfEiCtmwWaL7KYZrBw4Qzhqh0eBPVxd914sGt/u5f0+IAJ+Mih5hkJ6zm/ZOx7KM2
+	NGnIBZYLRdxO+kZse8cGQhu7mv8kLRKvZqZhxclq8sn4oqiYmrIEaFhKTX4YQl271pbU4JCjRDwLJ
+	ZOTDbWiA6z+cAoAJWnJhr4jeJWc5mcks0Vo2t3K2zMRUWEIht2Gp4RuoJA3oDz4UT3mBRM7pHtERI
+	QUV5PVeA==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: dmitry.baryshkov@oss.qualcomm.com,
-	Andy Yan <andyshrk@163.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hugh Cole-Baker <sigmaris@gmail.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	alchark@gmail.com,
-	andrzej.hajda@intel.com,
-	conor+dt@kernel.org,
-	cristian.ciocaltea@collabora.com,
-	airlied@gmail.com,
-	jernej.skrabec@gmail.com,
-	jonas@kwiboo.se,
-	kever.yang@rock-chips.com,
-	krzk+dt@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	neil.armstrong@linaro.org,
-	nicolas.frattaroli@collabora.com,
-	robh@kernel.org,
-	rfoss@kernel.org,
-	hjc@rock-chips.com,
-	sebastian.reichel@collabora.com,
-	simona@ffwll.ch,
-	tzimmermann@suse.de,
+	Dragan Simic <dsimic@manjaro.org>,
+	Alexey Charkov <alchark@gmail.com>,
 	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: (subset) [PATCH v3 0/5] Add DisplayPort support for rk3576
-Date: Sun, 22 Feb 2026 23:39:02 +0100
-Message-ID: <177179992291.1861430.1386382709600780109.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: dts: rockchip: add pwm-fan for NanoPC-T6
+Date: Sun, 22 Feb 2026 23:39:14 +0100
+Message-ID: <177179992306.1861430.10419331869777090303.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20260206010421.443605-1-andyshrk@163.com>
-References: <20260206010421.443605-1-andyshrk@163.com>
+In-Reply-To: <20260125181228.25145-1-sigmaris@gmail.com>
+References: <20260125181228.25145-1-sigmaris@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260222_223942_793844_F7CCB528 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260222_144328_306652_DAC7F2C7 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,22 +75,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 06 Feb 2026 09:04:10 +0800, Andy Yan wrote:
-> The DisplayPort found on RK3576 is very similar to that of RK3588,
-> but work in dual pixel mode and support for MST.
+On Sun, 25 Jan 2026 18:10:14 +0000, Hugh Cole-Baker wrote:
+> FriendlyELEC offers an optional heatsink and fan addon [1] for the
+> NanoPC-T6 and T6 LTS, which plugs in to the fan connector on the board
+> driven by pwm1. Add the fan as an active cooling device for the SoC package.
+> The PWM duty cycle values are taken from the vendor's source [2].
 > 
-> This patch series aims to add basic display output, not include audio
-> and MST, which will be the work for the next stage.
-> 
-> Tested with 2 lane standard DP port and USB-C Alt mode output now.
-> For those who want to give it a try, I have a reference branch here[0].
+> Signed-off-by: Hugh Cole-Baker <sigmaris@gmail.com>
 > 
 > [...]
 
 Applied, thanks!
 
-[5/5] arm64: dts: rockchip: Add DisplayPort dt node for rk3576
-      commit: 753ed4fa4e815669a025e08f5101ce0d91f46c8a
+[1/1] arm64: dts: rockchip: add pwm-fan for NanoPC-T6
+      commit: 0c02a103908b8c55633013deb9c76843db879bd6
 
 Best regards,
 -- 
