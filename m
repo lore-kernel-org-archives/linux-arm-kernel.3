@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDCDC636C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 22:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26299C636C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 22:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+5/rg89Fynsrq3dTn5BxRg8XV+0EU4hxQSafZyOwYs=; b=FYZINOPNXpmzaxtYwhtWsDMCb/
-	QKPbB3epOXT7M6+gPSOm4vpsZu8WrJQ7O610GV9Zp5mulrjUxO/iIEOdf6pMHyjofMcE7/gn2V7i5
-	Kvnd0h88ak4PJr2WhX2fVgEQivr8QAaACyVU6w8QibXhH2gb5ivh2cIXYDQe13GoiEdVqLLHLe++I
-	4M1eq1w1R9AtbXYFV41W6aegu4owHjqghFitbbGtPCtCpYcuzZ7BGJSEYtQrF4Frkh/AGoYdhPRhe
-	HSaEwR8by9xgKdnOl4C0HLgmOwbDgcELgo+i0Du2hBPRqbHdtY16h0lh3itT7eJYhYueJiOVXDCHr
-	QcT5wqHw==;
+	bh=t6aXQXpI+hIYWNJc19FQH/iLzUzzb2eomDnK90HQ/As=; b=QOsszTW1dRMG42U6ZXwHy/ejVs
+	2FlmHhMfRny5I5rQPnbJiLechipQIOgazhplp/pS8dfHLpXEfzTCRY4lV1BQ9NwkyI9TByHn5ZyA6
+	dbAP3glKxdnlxBlYykNSC51Y8ST7YY3P7F3mn+I90tkm4ldzJ+EyE1GIBYtsJgNa3h9U1WmtMUa3n
+	+Eh+v0emsJWd8cEacifSVAaLKCN8AiWC5CoksDvg+0Pbva3cHC2MrpsUygDF87EqRMhZ7ddl3u4kU
+	mQsTo4JSrrKxQceSzcmhHAcKi8yv8Ti9A3UlwNQbjjWWVm+t0IJE3Vhiz6XCvBa3PoGvaIER/+lwh
+	kBTNgYXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuI7Q-0000000H0Nt-2yC0;
-	Sun, 22 Feb 2026 22:40:04 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vuI7P-0000000H0Lv-2Aoo;
+	Sun, 22 Feb 2026 22:40:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuI79-0000000H06r-3USN;
-	Sun, 22 Feb 2026 22:39:49 +0000
+	id 1vuI77-0000000H05h-3Ptn;
+	Sun, 22 Feb 2026 22:39:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=t6aXQXpI+hIYWNJc19FQH/iLzUzzb2eomDnK90HQ/As=; b=BNaj6p4CR2WaCYApfywLfTaW4S
+	dDJKMNweDwgouidS8kWrzMJcqrtRa8J7pZZEtMtR+jzjLYEf6IVHsQIdGwgbOpir2pEJbccg9XQNs
+	usGgsg0x1cZyxbf9Un177Cn7HiVkH6Gt5FHYOm6b6/bSygzCL7MEZGnbudK1aadEiVv0eqAM14Ycw
+	rmLAFqZV3XBWo4Y3oFCb/TaGVPxkX/hX4Fv4V8ycMl4BPogmTn22gZ1+RTcZC8+vaqbLDgdm9Da7+
+	jMsuMIhf97N0a6aCdUgsucH7dHTmSfuABV2jpS9bdzwJOG7nK3+3SXBGrwfE4Mkt0tAQe77uJ913l
+	2HSScSyA==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuI74-00000004DbR-1xhN;
+	Sun, 22 Feb 2026 22:39:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=/+5/rg89Fynsrq3dTn5BxRg8XV+0EU4hxQSafZyOwYs=; b=ySjJLJEKDAEfZhqhYEYJjh2t8K
-	Ha37ThJ4DYJ/zdQvHg7Dn3B4g6IGUkZWHFwKaEMErSLmAbvqxtiAwGMU7KBOeMx4vUX37zl74B4ku
-	dRwBeXL76nOxMzhl18CaYbNFF5pMopE4c3GVHq7poGyqey3sFhtnCNO83YOGclsIwE2HJPNoikE+g
-	EQXMWNvj2i37U//bwDztVCK3TKBANuytPykre8Beg2RxohBMbaBUtfKjhI2LMpeYTGoZzrBqx3NFb
-	zo0HU+BXaTxJsi58A8ITyrWl2zs8g7UaUcuRzE5iJgvuSlHxYIaQvIFbZnaXYiwN6Ifo/agUVgDmO
-	z90sXDHg==;
+	bh=t6aXQXpI+hIYWNJc19FQH/iLzUzzb2eomDnK90HQ/As=; b=ABegtPgLMfWzF/O2dxbd08oCG1
+	OUidPXyqteouqHDzW+i0cTKhoQoeLbCykwEb2iZrP0RpJJgGaMYG+9S+FUlkyuTeoAbnOhfAUVwSr
+	h97scWnztvIrnWo/Wi1z62DjAp2OoJPuCRHVXeoDsABsBxOXNjd8C9yKCp4vAnvNWlpvmNAvkveJG
+	ezl8OPLal7svSL7aZpyVd/l9TSNpDQp9QZzFn+veJ7Il5vWgNYUGc/q1GIqI8nXJAAoglN8FpPQgC
+	xgotDkSJrfPZvDkjTItHgvQsqITADOiUaRcQ/zqCEOO6ul9R5E0Pkm3U/hK19j6DBzyr0yoPzkw4h
+	Shu06cFw==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Hsun Lai <i@chainsx.cn>,
-	John Clark <inindev@gmail.com>,
-	Jimmy Hon <honyuenkwun@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Chaoyi Chen <kernel@airkyi.com>
+To: dmitry.baryshkov@oss.qualcomm.com,
+	Andy Yan <andyshrk@163.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
+	alchark@gmail.com,
+	andrzej.hajda@intel.com,
+	conor+dt@kernel.org,
+	cristian.ciocaltea@collabora.com,
+	airlied@gmail.com,
+	jernej.skrabec@gmail.com,
+	jonas@kwiboo.se,
+	kever.yang@rock-chips.com,
+	krzk+dt@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	neil.armstrong@linaro.org,
+	nicolas.frattaroli@collabora.com,
+	robh@kernel.org,
+	rfoss@kernel.org,
+	hjc@rock-chips.com,
+	sebastian.reichel@collabora.com,
+	simona@ffwll.ch,
+	tzimmermann@suse.de,
 	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/2] arm64: dts: rockchip: Add rk3576 evb2 board
-Date: Sun, 22 Feb 2026 23:39:06 +0100
-Message-ID: <177179992305.1861430.8217804356106146651.b4-ty@sntech.de>
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: (subset) [PATCH v3 0/5] Add DisplayPort support for rk3576
+Date: Sun, 22 Feb 2026 23:39:02 +0100
+Message-ID: <177179992291.1861430.1386382709600780109.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20260131081438.100-1-kernel@airkyi.com>
-References: <20260131081438.100-1-kernel@airkyi.com>
+In-Reply-To: <20260206010421.443605-1-andyshrk@163.com>
+References: <20260206010421.443605-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260222_143947_948229_E2B55864 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260222_223942_793844_F7CCB528 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +106,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 31 Jan 2026 16:14:36 +0800, Chaoyi Chen wrote:
-> This series add support for rk3576 evb2 board.
+On Fri, 06 Feb 2026 09:04:10 +0800, Andy Yan wrote:
+> The DisplayPort found on RK3576 is very similar to that of RK3588,
+> but work in dual pixel mode and support for MST.
 > 
-> General features for rk3576 evb2 board:
->     - Rockchip RK3576
->     - LPDDR4/4X
->     - eMMC5.1
->     - RK806-2x2pcs + DiscretePower
->     - 1x HDMI2.1 TX / HDMI2.0 RX
->     - 1x full size DP1.4 TX (Only 2 Lanes)
->     - 2x 10/100/1000M Ethernet
->     - 5x SATA3.0 7Pin Slot
->     - 2x USB3.2 Gen1 Host
->     - 3x USB2.0 Host
->     - WIFI/BT
->     - ...
+> This patch series aims to add basic display output, not include audio
+> and MST, which will be the work for the next stage.
+> 
+> Tested with 2 lane standard DP port and USB-C Alt mode output now.
+> For those who want to give it a try, I have a reference branch here[0].
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] dt-bindings: arm: rockchip: Add rk3576 evb2 board
-      commit: 912fe17d0a524b571e8aab57de643c5fb5cb6376
-[2/2] arm64: dts: rockchip: Add rk3576 evb2 board
-      commit: 86a82f7a7eeda451ce1a34425133163b5b581edb
+[5/5] arm64: dts: rockchip: Add DisplayPort dt node for rk3576
+      commit: 753ed4fa4e815669a025e08f5101ce0d91f46c8a
 
 Best regards,
 -- 
