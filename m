@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FEACC636C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 22:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E31C636C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 22:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DV1g0YpwB/hE6KH8OS+6OQvyTYSFQ0UrSYX7sQhRMfA=; b=Gy3UuUHkZj+OtcmN7v0Lhm4hoX
-	47zN014oEplg3t4J06u1bK2CbtWGxNRFi+HQ5LxU1Uc07RkSsbNF3nsu2+6yYqZpP3ZaOP9JRrZG2
-	HoQU445sMdnHu3yP8mCQQ7YSaEK3NwTwjHLNpJnCmjWxnqyEBykYkg4JqrY0isXcmBT9ICPLGmgZD
-	9b9cAQ338VDB6XVP4yLW05yVtKgvZdcNEd5MkGOkwxrFyeznlq3GzRTZsjVWkg1dfOrPhm11v9Zkl
-	BtlP+XbVKzrpDDptl9KKzejkx13p5h2nr083NjGpa1bPDRTjl0zwabKgiyvYAb7v+xS/FU04VW9QZ
-	Gbzts48g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KxYpxXyzJEe+f3oGErlsZuy9sNLZi1GyKm1CzsPdpME=; b=o3zZXIZwBSeL44wNnOKJExE6js
+	Z95Ul1h2pvFdW5xocB248pIKjI/GMfkHw6/zQZ122Jw8eqkjDFnq2zbqvS5E9MPLK/g1Su4HVcRer
+	/VOcWFi685rl3Rb/ly20hdkXXIGg5QX/9fTbMSZnBJIh97haRDOzwAlhW2hg+TtAY9iN23kFQV83N
+	ilWoSnwQL3eS0AuzPezpdm2/riV80hRN2pddnI/n4VrZ/GlLO+Hb56KYX/e2HDjcfMFV8gLuVU4VT
+	vaGg+iivCtLT4Xs1d1FCx7ecZJeDzx8/6iPpfwDJiP4vL2ICsnLY+MuW3J88Yu3tvElayib7LtVqG
+	4iaUBjag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuHak-0000000GygU-0S4i;
-	Sun, 22 Feb 2026 22:06:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vuI6s-0000000Gzws-0Rm9;
+	Sun, 22 Feb 2026 22:39:30 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuHai-0000000GygL-3035;
-	Sun, 22 Feb 2026 22:06:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5DBA76001D;
-	Sun, 22 Feb 2026 22:06:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B60BC116D0;
-	Sun, 22 Feb 2026 22:06:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771797974;
-	bh=4eFrB51vniyDERNmsKInct9htMUnpN6fsZBWfR52QiQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=Cn8vgPj4mxX/Ll0NNxY1rQwyJ2pusRMOvLr6phG9p6gsGRAzlf4/BqZMz0IR1eegO
-	 nD41Y1xg/GrK6J+HZQBAX4DqPTDV6jWZ4b9MpwmBVQHs7wsv2oY4rqo+x7wAzQCHPX
-	 d7iYEf131h0dO4lq+ddQLExi/dcglJM9/+SlLW1ZF8dsMTPgM3V6WAWaV74e1l4jvB
-	 WizgJtcqW1z2zolPD8uM9Bxdc/FMrhvx/JSOH3lz6ZLEn7AUWZrHbrKYd3Krd/IYhT
-	 8rLK7nnQmo7/XHmBdPjYCnMTO4jL4vyM+aJdRTEhlhm49QCigwEgT/ZvLJGqMJ3w/G
-	 HdtVVrM7tMQqw==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann
- <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, Guo Ren <guoren@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org
-Subject: Re: [PATCH 2/3] genirq: use runtime constant to optimize
- handle_arch_irq access
-In-Reply-To: <20260220090922.1506-3-jszhang@kernel.org>
-References: <20260220090922.1506-1-jszhang@kernel.org>
- <20260220090922.1506-3-jszhang@kernel.org>
-Date: Sun, 22 Feb 2026 23:06:11 +0100
-Message-ID: <877bs4wi0c.ffs@tglx>
+	id 1vuI6n-0000000Gztl-2Alw;
+	Sun, 22 Feb 2026 22:39:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=KxYpxXyzJEe+f3oGErlsZuy9sNLZi1GyKm1CzsPdpME=; b=Y3GYoehRWgcxBMDU4i9ObAKG67
+	O5vcnRJAw4YMJDl+B/ctef8FPG/GUmoIMTkOTjmy81H6NvRkq09pL3kc3WZBX9dW/XpdQ4rILUSkn
+	xbpJXVC9o5654VFo35EhBaji7utR9228dTaEzmQk/vqERnbGU3cYCE2MoE6JRTawfnZCFhnnQotAH
+	/AD3ktVjFHtGemnKrmY7LsoQaDrj4OmcmjA7JHgWHxebC8HCKveG4VRZO8iX8qJSL7cfhplzWISn7
+	wFM659WMJSmcvZEdANjXx1D/tS7XU9kApY4zk/ToaeBJDJVUOsoiE8S+/luHMMbX/oLKTXQMOLYxf
+	xwkPHAqA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/4] Revision overlays for QNAP TSx33 devices
+Date: Sun, 22 Feb 2026 23:39:03 +0100
+Message-ID: <177179992301.1861430.8466238325458221648.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20260201191804.41421-1-heiko@sntech.de>
+References: <20260201191804.41421-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260222_143925_552660_89EF8F74 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +67,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20 2026 at 17:09, Jisheng Zhang wrote:
-> Currently, on GENERIC_IRQ_MULTI_HANDLER platforms, the handle_arch_irq
-> is a pointer which is set during booting, and every irq processing needs
-> to access it, so it sits in hot code path. We can use the
-> runtime constant mechanism which was introduced by Linus to speed up
-> its accessing.
 
-The proper solution is to use a static call and update it in
-set_handle_irq().  That removes the complete indirect call issue from
-the hot path.
+On Sun, 01 Feb 2026 20:18:00 +0100, Heiko Stuebner wrote:
+> The QNAP NAS devices actually got device revisions at some point,
+> so there are different board variants in the wild.
+> 
+> Above certain PCB revisions, the devices gained additional GPIOs
+> for controlling individual power to the sata ports and also could
+> detect the presence via GPIOs.
+> 
+> [...]
 
-Thanks,
+Applied, thanks!
 
-        tglx
+[1/4] arm64: dts: rockchip: Add port subnodes to RK356x SATA controllers
+      commit: 5918bf2a17f4689abfb94d341c5240088f8bd16e
+[2/4] arm64: dts: rockchip: add overlay for qnap-ts433 device revision
+      commit: 406c5515eb62fe6837fc1257855024b1ac6c52e1
+[3/4] arm64: dts: rockchip: add overlay for qnap-ts233 device revision
+      commit: a12bd8d24f2f942a6684431af9f885b4a4ae84fe
+[4/4] arm64: dts: rockchip: add overlay for qnap-ts133 device revision
+      commit: 5fdd6701fad197d0dfe21de3beed8ac45343aa73
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
