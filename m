@@ -4,55 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CB1C636A1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 13:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46940C636A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 14:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ff2I/wJE6bSHHw7NlocrsNF4riW7XkTVuaNjiBsfECI=; b=PZEmI4YAblrGvs3Z70nJSsnESY
-	wigApEE6BLcl0wkdU2HxNpYtvExnTCRYymYUgNSo73e54jnLy1FOBlKtcy8eCVAF778J2xA+KuiSO
-	f0hrheCUttHQhV3sP51HZswKjUhSjUmAXHcaJClh1PyjJObWJeRfjdjBGomKBp8eOiovsMH1vYtaJ
-	z60JyrnShtd/4JY+VkX8HQfFgd7QCAF8ntycqHaqRimGU6OsCuounwlpEVYANYIVhAmLSy0aE7/W8
-	wsXBW0YbA+sLGJZE3vH+sVlfp4mT1LhmJaN1xQ4RCg1NF9sPH4PlomCoGdg6AB5+Cn7mGhLs+8OXj
-	WTxH4Tmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=58ql4pD+Z1ZvJgYSvHP0ncPZg8Urocw/9ieGpsLGS8I=; b=Hq6PutDTJNC2yc45BU9DjXgOaR
+	UK7QjOoRNT5Q9/3ymkZUe7HU0y7eCBTh4l+5zy90SJvF5vlZRu4SBxjR0RN0BiOtB2HMubXWM6lYM
+	62NAZvuQ7Spm3dmJnzDU9vEG2dAvhopwPilAFmgc/lWXI3UjTUAi7Aw5voDZJiOeRVhQ+69Mv7jYJ
+	GMQTHUO9UAAZE+1J9wXcpsTzanTQntVJcm3QuFLSLEFkUsS0uZXv8a1GVXfmfRgqPv/D/X+yNuaPj
+	SJ4wIGBi9NJmE7MgdYGq4ro7BZPGAhP/W9uc9VgX6E2IPTpWgDSc6yim2uJ8kSqiLS3R/Gf4rzgtc
+	D+uzciJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vu9zy-0000000GjZB-27a4;
-	Sun, 22 Feb 2026 13:59:50 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vuA9y-0000000GjqI-2Shd;
+	Sun, 22 Feb 2026 14:10:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vu9zv-0000000GjYK-1GoU;
-	Sun, 22 Feb 2026 13:59:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Ff2I/wJE6bSHHw7NlocrsNF4riW7XkTVuaNjiBsfECI=; b=KbH4rzM+X2YN6NkUJdUuchwaz4
-	g9/eHRabRTZwpqe/MKKTjn3qzv6zt7TKYwa9jdp3ZQmnuxBLejw39jKMnFrSVPjz5v0Ibef14sFAg
-	Eo7HljYMaiY2FEGHSkG7kM79LOIR5u8YgFcKRDUg9P9aTR6C9EnPl1HxBXPy1UAdYWaLEu3/Hzil6
-	+rRNBz5pEkYKn6r2nD3GfwWOU/Up41YFNjeaOA3gnG/O8wRAdXHaTc8Kxt5zg2fBFFwKXx/9A59o4
-	1lbAypuUbq/YMhRvuZ8vD2LMlGJK79tVXmbkNru6aI80VHfF3iVLXAh91lwkdB5TD1EExfzRcVKFu
-	30aaJ2kg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: neil.armstrong@linaro.org, dianders@chromium.org,
- thierry.reding@gmail.com, sam@ravnborg.org,
- Robin Murphy <robin.murphy@arm.com>
-Cc: jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 4/4] arm64: dts: rockchip: Add overlay for FriendlyElec HD702E
-Date: Sun, 22 Feb 2026 14:59:40 +0100
-Message-ID: <24273079.6Emhk5qWAg@phil>
-In-Reply-To: <2bbc2e62ae9b54ac7594355001ce2b15885d3493.1769191673.git.robin.murphy@arm.com>
-References: <cover.1769191673.git.robin.murphy@arm.com>
- <2bbc2e62ae9b54ac7594355001ce2b15885d3493.1769191673.git.robin.murphy@arm.com>
+	id 1vuA9w-0000000Gjq2-30rk
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 22 Feb 2026 14:10:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A60F60126;
+	Sun, 22 Feb 2026 14:10:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C94F2C116D0;
+	Sun, 22 Feb 2026 14:10:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771769406;
+	bh=GzGBdumzFByqwyBN2Z2Udld9QqwV3INwp0JJWAxH/Tg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=cWooMs2NiwU5gR6QCG+4GrymmX9RweYEt6BspOKQQC5RXmiice7ZQyj1ZGNBFZrpi
+	 mJvPfILRDAZHdGQxEli2QzPfO8G2Ze9kvWkMbOpzRLzMLRCJL7f7/y7rvFQKqbU827
+	 kEiAA6RgRVTAbJ1fDssSg0dmFbgvCacuua1m6MziU30eKXkzgTnJFkQNRysWIMPYiE
+	 2ORx+XP30qFHwwIlbH0kX334539xDAYXh/y7JxwyG+Oy/OksEeaHrck8aO00RRKpx4
+	 378mVmCWd1zn+I3ApCYTUW4W/L0g4wntaekz2/Bwxt360L32Xypy9c2HpuI3z8EYhk
+	 9HqWSvZwaKa7w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vuA9s-0000000CmBl-1WA5;
+	Sun, 22 Feb 2026 14:10:04 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Quentin Perret <qperret@google.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] KVM: arm64: Fix protected mode handling of pages larger than 4kB
+Date: Sun, 22 Feb 2026 14:10:00 +0000
+Message-ID: <20260222141000.3084258-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260222_055947_344616_33503A62 
-X-CRM114-Status: GOOD (  11.74  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, qperret@google.com, will@kernel.org, tabba@google.com, vdonnefort@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,52 +84,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 23. Januar 2026, 20:22:23 Mitteleurop=C3=A4ische Normalzeit sch=
-rieb Robin Murphy:
-> Add an overlay to support FriendlyElec's HD702E 7" eDP LCD touchscreen
-> module for the NanoPC-T4 board:
->=20
-> https://www.friendlyelec.com/index.php?route=3Dproduct/product&path=3D81&=
-product_id=3D230
->=20
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Since 3669ddd8fa8b5 ("KVM: arm64: Add a range to pkvm_mappings"),
+pKVM tracks the memory that has been mapped into a guest in a
+side data structure. Crucially, it uses it to find out whether
+a page has already been mapped, and therefore refuses to map it
+twice. So far, so good.
 
-[...]
+However, this very patch completely breaks non-4kB page support,
+with guests being unable to boot. The most obvious symptom is that
+we take the same fault repeatedly, and not making forward progress.
+A quick investigation shows that this is because of the above
+rejection code.
 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-nanopc-t4-hd702e.dtso b/=
-arch/arm64/boot/dts/rockchip/rk3399-nanopc-t4-hd702e.dtso
-> new file mode 100644
-> index 000000000000..66ac530392b7
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-nanopc-t4-hd702e.dtso
-> @@ -0,0 +1,96 @@
-> +&edp {
-> +	force-hpd;
-> +	status =3D "okay";
-> +
-> +	aux-bus {
-> +		edp-panel {
+As it turns out, there are multiple issues at play:
 
-The dtbs-check was unhappy, because the auxbus binding wishes for this
-node to be named "panel". I'll just change this when applying.
+- while the HPFAR_EL2 register gives you the faulting IPA minus
+  the bottom 12 bits, it will still give you the extra bits that
+  are part of the page offset for anything larger than 4kB,
+  even for a level-3 mapping
 
+- pkvm_kvm_pgtable_stage2_map() assumes that the address passed
+  as a parameter is aligned to the size of the intended mapping
 
-Heiko
+- the faulting address is only aligned for a non-page mapping
 
-> +			compatible =3D "friendlyarm,hd702e";
-> +			backlight =3D <&backlight>;
-> +			no-hpd;
-> +			power-supply =3D <&vdd_3_3v>;
-> +
-> +			port {
-> +				panel_in_edp: endpoint {
-> +					remote-endpoint =3D <&edp_out_panel>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
+When the planets are suitably aligned (pun intended), the guest
+faults a page by accessing it past the bottom 4kB, and extra bits
+get set in the HPFAR_EL2 register. If this results in a page mapping
+(which is likely with large granule sizes), nothing aligns it further
+down, and pkvm_mapping_iter_first() finds an intersection that
+doesn't really exist. We assume this is a spurious fault and return
+-EAGAIN. And again.
 
+This doesn't hit outside of the protected code, as the page table
+code always aligns the IPA down to a page boundary, hiding the issue
+for everyone else.
 
+Fix it by always forcing the alignment on vma_pagesize, irrespective
+of the value of vma_pagesize.
+
+Fixes: 3669ddd8fa8b5 ("KVM: arm64: Add a range to pkvm_mappings")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/kvm/mmu.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 8c5d259810b2f..aa587f2e28264 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1753,14 +1753,12 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	}
+ 
+ 	/*
+-	 * Both the canonical IPA and fault IPA must be hugepage-aligned to
+-	 * ensure we find the right PFN and lay down the mapping in the right
+-	 * place.
++	 * Both the canonical IPA and fault IPA must be aligned to the
++	 * mapping size to ensure we find the right PFN and lay down the
++	 * mapping in the right place.
+ 	 */
+-	if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE) {
+-		fault_ipa &= ~(vma_pagesize - 1);
+-		ipa &= ~(vma_pagesize - 1);
+-	}
++	fault_ipa &= ~(vma_pagesize - 1);
++	ipa &= ~(vma_pagesize - 1);
+ 
+ 	gfn = ipa >> PAGE_SHIFT;
+ 	mte_allowed = kvm_vma_mte_allowed(vma);
+-- 
+2.47.3
 
 
