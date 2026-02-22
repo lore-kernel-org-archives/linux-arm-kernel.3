@@ -4,80 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EC3C636B3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 18:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7682AC636B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 18:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ggEMscMQZLK1OjbGVHHsGRG9xeS2pGJS+GQFSiW5tI=; b=QDinmD+u6YGmzTyJb3JyMFwwAF
-	QEUicP3tKfm+nx/Djyx6Tr0SXiZj3219PCWuBvEYZ3p5YtyUAasXQZYDq2SMFPi0RA7ibkfbZDOBW
-	CIE+m0m7nV7k3P1DlwecMfzJjmfQOZUwDbMD8klNxzX+6tvyBAWQxc2xvuo1GWe0GBJRC1ZM1T8Nl
-	ylCwBqjoSUoA3rqOh0rOoJuht6PFDAXScr0WvBtT3eaVpR/LT9MP2N3i4gjtAggQHhQv6CG3A1WOP
-	gLZi0majv+zpM/Ke72yU4UxTeYptzF2XfIK+cUepYRIvTtRukgVlElcBy7e2uIHxdTbxGFmx1yiJA
-	WZb3r5iQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IdT3HvcTwWWVD2tq+TXx7dbOWtZlAvH4HrFRuvwA1jA=; b=MtU05jpxGbN+XzlWz1Z6tpnarJ
+	kgxiED68B9RRmKQcOX0IJcFVmDifkvX3oERazbG4emChccv9njB5gICxnnFvLLMuovquPwR7PmSsW
+	t5ogLJ2PL7M4hrBlZLqBZ1AWc2RAKWrNXXixHkamOekB9C2CcpqudODtOOJb2RxrGueK6fefrzwXK
+	sBcCw92S9Zv+jdJD/pshQB9adCcwmWs4bvJW7LxCSbQP4J3NS6r8tRTeudCvyRFH/ktoal+L3Oar5
+	tfnAinihQnBA9e4WFVMB+qsXTMtsEsUx42RrgZ5HFi1Jn87T6CRtFSd4Yd9+jR5wWW9Y8Xh3gFjWc
+	ADwhuXgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuEbj-0000000GsP5-2gRe;
-	Sun, 22 Feb 2026 18:55:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vuEfv-0000000GsZ6-1DpO;
+	Sun, 22 Feb 2026 18:59:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuEbh-0000000GsOh-124g
+	id 1vuEft-0000000GsYx-2Sve
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Feb 2026 18:55:06 +0000
+	Sun, 22 Feb 2026 18:59:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D85A343EE0;
-	Sun, 22 Feb 2026 18:55:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE1F7C116D0;
-	Sun, 22 Feb 2026 18:55:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D8D86001D;
+	Sun, 22 Feb 2026 18:59:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 963ABC116D0;
+	Sun, 22 Feb 2026 18:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771786501;
-	bh=wFo8UbUa82jGUjMKBA3eL1iC8v+b9J2tS9Z1+mG5XAQ=;
+	s=k20201202; t=1771786762;
+	bh=CVy4Tj2u5H4VFaJURPYOOEa0YyV2n450PQLCt8qncCM=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BulHsGTTThcYf4CoitxBzJKckfnkMBZG22DPj41pbdPCVms96aj1X9/gAi80/AtzE
-	 T7UzXSSqjE3aWUjJzdIYfSVhF8KtXf/zXV3RSFQYJeYnzbKTOqnlAAPEw8VIr9UVoF
-	 sMw5YAInw3Z1h+ch++mvIi8djRoLIfEyiixOrGfhPsbLQcWudO+B66UgTdAI3JCbj6
-	 G/h0KC7AF2lwfn32I2T+XvkytG69ecPiabfLrQ/aTZB2smp//rLSRRWS23wxIwmGjc
-	 3QCChY+CV7lbA0OZKpmpn1AzdtVie/GA1ZSxgOhcvr4HgWlpYgCPYINQA0mVpXTwgj
-	 xJcZCNg4vcnZw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vuEbb-0000000Co9G-1U40;
-	Sun, 22 Feb 2026 18:54:59 +0000
-Date: Sun, 22 Feb 2026 18:54:58 +0000
-Message-ID: <878qckehh9.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Quentin Perret <qperret@google.com>,
-	Will Deacon <will@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Fix protected mode handling of pages larger than 4kB
-In-Reply-To: <CA+EHjTy4p-Mbfr86NR9n1LgHC0EWrkdVjYb8O3z7k=Lv1entQg@mail.gmail.com>
-References: <20260222141000.3084258-1-maz@kernel.org>
-	<CA+EHjTy4p-Mbfr86NR9n1LgHC0EWrkdVjYb8O3z7k=Lv1entQg@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	b=Uvb2fFZ2D0HCE4xtvx6tg1yCNbr1yDnLvLn+5qeG+PGrq1ynau1okHlnWAzKZfch5
+	 y+eHj8kg3oTYcZofd37TGR+82cQHkqcvAIPRgU/XZXgwjJ+cubER1mix88j62Gwbw7
+	 C6H96KE5JRK4rUxIk1yfzB5XxWC/XVt1fNaUKIWu8mlmKGDuESx3minvwybXpSD6Ip
+	 DhYK9arWJax4r6Fb2adLesIKzCrh0L2RQEpFhmdy3722WrdVvKT0EYnK+otoLmrYDx
+	 b5rebWdCnVbxq6mZNZ+957WdKMql2RI+Lf9ynBfImX0K61FlIsnIOk5e8HrPeT2Vvi
+	 mh0bHG/xMehSA==
+Date: Sun, 22 Feb 2026 18:59:13 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+Cc: Antoniu Miclaus <antoniu.miclaus@analog.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Nicolas Ferre
+ <nicolas.ferre@microchip.com>, Alexandre Belloni
+ <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] iio: adc: at91_adc: change at91_ts_sample to return
+ void
+Message-ID: <20260222185913.75670523@jic23-huawei>
+In-Reply-To: <01eb6fc5-4a71-4877-8a62-ef397a1036c9@baylibre.com>
+References: <20260202115733.21382-1-antoniu.miclaus@analog.com>
+	<01eb6fc5-4a71-4877-8a62-ef397a1036c9@baylibre.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, qperret@google.com, will@kernel.org, vdonnefort@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260222_105505_350882_2D19073C 
-X-CRM114-Status: GOOD (  41.17  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,126 +75,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
+On Mon, 2 Feb 2026 09:11:58 -0600
+David Lechner <dlechner@baylibre.com> wrote:
 
-On Sun, 22 Feb 2026 17:58:00 +0000,
-Fuad Tabba <tabba@google.com> wrote:
+> On 2/2/26 5:57 AM, Antoniu Miclaus wrote:
+> > The return value of at91_ts_sample() is never checked by its caller.
+> > Change the return type to void to make this explicit. The error
+> > conditions are already logged via dev_err() which provides sufficient
+> > visibility into hardware issues.
+> > 
+> > Signed-off-by: Antoniu Miclaus <antoniu.miclaus@analog.com>
+> > ---  
+> Reviewed-by: David Lechner <dlechner@baylibre.com>
 > 
-> Hi Marc,
-> 
-> On Sun, 22 Feb 2026 at 14:10, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > Since 3669ddd8fa8b5 ("KVM: arm64: Add a range to pkvm_mappings"),
-> > pKVM tracks the memory that has been mapped into a guest in a
-> > side data structure. Crucially, it uses it to find out whether
-> > a page has already been mapped, and therefore refuses to map it
-> > twice. So far, so good.
-> >
-> > However, this very patch completely breaks non-4kB page support,
-> > with guests being unable to boot. The most obvious symptom is that
-> > we take the same fault repeatedly, and not making forward progress.
-> > A quick investigation shows that this is because of the above
-> > rejection code.
-> >
-> > As it turns out, there are multiple issues at play:
-> >
-> > - while the HPFAR_EL2 register gives you the faulting IPA minus
-> >   the bottom 12 bits, it will still give you the extra bits that
-> >   are part of the page offset for anything larger than 4kB,
-> >   even for a level-3 mapping
-> 
-> Matches the ARM ARM.
-> 
-> > - pkvm_kvm_pgtable_stage2_map() assumes that the address passed
-> >   as a parameter is aligned to the size of the intended mapping
-> 
-> nit: pkvm_kvm_pgtable_stage2_map() -> kvm_pgtable_stage2_map()
 
-Actually, that's pkvm_pgtable_stage2_map(). kvm_pgtable_stage2_map()
-itself isn't affected.
-
-> 
-> > - the faulting address is only aligned for a non-page mapping
-> >
-> > When the planets are suitably aligned (pun intended), the guest
-> > faults a page by accessing it past the bottom 4kB, and extra bits
-> > get set in the HPFAR_EL2 register. If this results in a page mapping
-> > (which is likely with large granule sizes), nothing aligns it further
-> > down, and pkvm_mapping_iter_first() finds an intersection that
-> > doesn't really exist. We assume this is a spurious fault and return
-> > -EAGAIN. And again.
-> >
-> > This doesn't hit outside of the protected code, as the page table
-> > code always aligns the IPA down to a page boundary, hiding the issue
-> > for everyone else.
-> >
-> > Fix it by always forcing the alignment on vma_pagesize, irrespective
-> > of the value of vma_pagesize.
-> >
-> > Fixes: 3669ddd8fa8b5 ("KVM: arm64: Add a range to pkvm_mappings")
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > Cc: stable@vger.kernel.org
-> > ---
-> >  arch/arm64/kvm/mmu.c | 12 +++++-------
-> >  1 file changed, 5 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index 8c5d259810b2f..aa587f2e28264 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -1753,14 +1753,12 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> >         }
-> >
-> >         /*
-> > -        * Both the canonical IPA and fault IPA must be hugepage-aligned to
-> > -        * ensure we find the right PFN and lay down the mapping in the right
-> > -        * place.
-> > +        * Both the canonical IPA and fault IPA must be aligned to the
-> > +        * mapping size to ensure we find the right PFN and lay down the
-> > +        * mapping in the right place.
-> >          */
-> > -       if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE) {
-> > -               fault_ipa &= ~(vma_pagesize - 1);
-> > -               ipa &= ~(vma_pagesize - 1);
-> > -       }
-> > +       fault_ipa &= ~(vma_pagesize - 1);
-> > +       ipa &= ~(vma_pagesize - 1);
-> 
-> nit: Since we're changing this code anyway, should we use the ALIGN
-> macros instead?
-
-That'd be ALIGN_DOWN() then, as ALIGN() really is ALIGN_UP(), and
-that'd be counter-productive.  Something like:
-
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index aa587f2e28264..3952415c4f83b 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1757,8 +1757,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * mapping size to ensure we find the right PFN and lay down the
- 	 * mapping in the right place.
- 	 */
--	fault_ipa &= ~(vma_pagesize - 1);
--	ipa &= ~(vma_pagesize - 1);
-+	fault_ipa = ALIGN_DOWN(fault_ipa, vma_pagesize);
-+	ipa = ALIGN_DOWN(ipa, vma_pagesize);
- 
- 	gfn = ipa >> PAGE_SHIFT;
- 	mte_allowed = kvm_vma_mte_allowed(vma);
-
-> Reviewed-by: Fuad Tabba <tabba@google.com>
-> 
-> and using 4, 16, and 64KB pages:
-> 
-> Tested-by: Fuad Tabba <tabba@google.com>
-
-Ah, great! I couldn't be bothered with 64kB, and only used 16kB in NV
-to debug quickly and then bare-metal to verify the fix.
-
-Thanks!
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+Applied. Thanks,
 
