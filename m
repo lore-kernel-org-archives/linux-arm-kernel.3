@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4BC2C636BE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 21:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FEACC636C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 22:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EmvFoagq4laq5CsfLkxqtnL3auTtxR8uqVSGiltKyEI=; b=qyQuSlJGjIMc5eusdCRWNx0RqT
-	GwbBk/h8bB+4MLrD5fhNvnuVlynb3ru5riKQERoEd1IlqGxPacUQ5lL26XO2m8tyRyCnguNsWsOQK
-	uCPODMd1i9N1wyl/Lwu+IFY8ZF3CVYgu0jtgqhXDxwjtOkOP3HOlOwziQxUdDcu3pFeaaSyKXpRQf
-	bDAhpZk4d8kXE6ikGwo7A1ir1w4qWx4ys0zC/qGRuuafACeHGMn+HqqKXwYjX+NNN9nQNQDbIFSEw
-	vYX9oTzNy5L9616OdNGm4en9KMJefx5fs6uQZWRRIKQjPeE0P1Tmiv4jfW+54cKv7GRXYLhg1s5he
-	lSu3Cmuw==;
+	bh=DV1g0YpwB/hE6KH8OS+6OQvyTYSFQ0UrSYX7sQhRMfA=; b=Gy3UuUHkZj+OtcmN7v0Lhm4hoX
+	47zN014oEplg3t4J06u1bK2CbtWGxNRFi+HQ5LxU1Uc07RkSsbNF3nsu2+6yYqZpP3ZaOP9JRrZG2
+	HoQU445sMdnHu3yP8mCQQ7YSaEK3NwTwjHLNpJnCmjWxnqyEBykYkg4JqrY0isXcmBT9ICPLGmgZD
+	9b9cAQ338VDB6XVP4yLW05yVtKgvZdcNEd5MkGOkwxrFyeznlq3GzRTZsjVWkg1dfOrPhm11v9Zkl
+	BtlP+XbVKzrpDDptl9KKzejkx13p5h2nr083NjGpa1bPDRTjl0zwabKgiyvYAb7v+xS/FU04VW9QZ
+	Gbzts48g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuH60-0000000GxgT-4AAp;
-	Sun, 22 Feb 2026 21:34:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vuHak-0000000GygU-0S4i;
+	Sun, 22 Feb 2026 22:06:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuH5z-0000000GxgI-2zjs;
-	Sun, 22 Feb 2026 21:34:31 +0000
+	id 1vuHai-0000000GygL-3035;
+	Sun, 22 Feb 2026 22:06:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 899A460121;
-	Sun, 22 Feb 2026 21:34:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3118FC116D0;
-	Sun, 22 Feb 2026 21:34:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5DBA76001D;
+	Sun, 22 Feb 2026 22:06:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B60BC116D0;
+	Sun, 22 Feb 2026 22:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771796070;
-	bh=MoM4gAfGlJ1ngKCroMgt6s8hQQRUOv2GP6lsvWBTYTk=;
+	s=k20201202; t=1771797974;
+	bh=4eFrB51vniyDERNmsKInct9htMUnpN6fsZBWfR52QiQ=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=F3kE5G5YSHiCVZ5mOwWBQ1EmkdZUUxri8FWvUUe1+bPk6Car0R0kut2uvNuYHVkAa
-	 g8IvAYcI7E8/6hHCb/jrPziQTKClMwrJ6H0Y/aYHLJyimbtr/frfU8CLViovCDA9UV
-	 HIObLbqEucr9FrLIbWX5/hRoPhPnR0+zxQyrVmCTdNaMIGloFGLnnqKAP5W6Ewm6w7
-	 I/owa0GiWqAQBaI4TmPdDfE67f10RHZ+BDAgtt/1JTGJALkdfXpJeUzGxFHrjR/KHe
-	 NiTE6uiB4kCm6q8SZrGgK2AZmAXo4GAErDwos4utQpdh9gKlK0o0vXjumdP0UVYmSi
-	 KhiPc2AZqyPxQ==
+	b=Cn8vgPj4mxX/Ll0NNxY1rQwyJ2pusRMOvLr6phG9p6gsGRAzlf4/BqZMz0IR1eegO
+	 nD41Y1xg/GrK6J+HZQBAX4DqPTDV6jWZ4b9MpwmBVQHs7wsv2oY4rqo+x7wAzQCHPX
+	 d7iYEf131h0dO4lq+ddQLExi/dcglJM9/+SlLW1ZF8dsMTPgM3V6WAWaV74e1l4jvB
+	 WizgJtcqW1z2zolPD8uM9Bxdc/FMrhvx/JSOH3lz6ZLEn7AUWZrHbrKYd3Krd/IYhT
+	 8rLK7nnQmo7/XHmBdPjYCnMTO4jL4vyM+aJdRTEhlhm49QCigwEgT/ZvLJGqMJ3w/G
+	 HdtVVrM7tMQqw==
 From: Thomas Gleixner <tglx@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>, Ingo Molnar
- <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, Kees Cook <kees@kernel.org>, "Gustavo A. R.
- Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Mark
- Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- David Laight <david.laight.linux@gmail.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v4 3/3] randomize_kstack: Unify random source across arches
-In-Reply-To: <20260119130122.1283821-4-ryan.roberts@arm.com>
-References: <20260119130122.1283821-1-ryan.roberts@arm.com>
- <20260119130122.1283821-4-ryan.roberts@arm.com>
-Date: Sun, 22 Feb 2026 22:34:26 +0100
-Message-ID: <87ecmcwjh9.ffs@tglx>
+To: Jisheng Zhang <jszhang@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann
+ <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+ <alex@ghiti.fr>, Guo Ren <guoren@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-csky@vger.kernel.org
+Subject: Re: [PATCH 2/3] genirq: use runtime constant to optimize
+ handle_arch_irq access
+In-Reply-To: <20260220090922.1506-3-jszhang@kernel.org>
+References: <20260220090922.1506-1-jszhang@kernel.org>
+ <20260220090922.1506-3-jszhang@kernel.org>
+Date: Sun, 22 Feb 2026 23:06:11 +0100
+Message-ID: <877bs4wi0c.ffs@tglx>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -81,16 +73,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19 2026 at 13:01, Ryan Roberts wrote:
-> I tested an earlier version of this change on x86 bare metal and it
-> showed a smaller but still significant improvement. The bare metal
-> system wasn't available this time around so testing was done in a VM
-> instance. I'm guessing the cost of rdtsc is higher for VMs.
+On Fri, Feb 20 2026 at 17:09, Jisheng Zhang wrote:
+> Currently, on GENERIC_IRQ_MULTI_HANDLER platforms, the handle_arch_irq
+> is a pointer which is set during booting, and every irq processing needs
+> to access it, so it sits in hot code path. We can use the
+> runtime constant mechanism which was introduced by Linus to speed up
+> its accessing.
 
-No it's not, unless the hypervisor traps RDTSC, which would be insane as
-that would cause massive regressions all over the place.
-
-So guessing is not really helpful if you want to argue performance.
+The proper solution is to use a static call and update it in
+set_handle_irq().  That removes the complete indirect call issue from
+the hot path.
 
 Thanks,
 
