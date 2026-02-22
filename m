@@ -4,96 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6E8C636B3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 17:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6595FC636A1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Feb 2026 17:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iBykXcry3hRl95wYDSUTJ/cR3J3An6RSzJqIbZMk+XY=; b=jql8HTYRyfMWUZpngVccQ0R3QU
-	kw/7Z6h7hZd0LYj2NTX5ptCPws3bUC1iVJqT+mTvJ24hQ6ygsXaj4Ch39gVHe22DYBhDDBKB4xxrd
-	Rrta8m+VkHkH/rhvN2bS9kYJNBy7l217FT/YMtGfpKqxGpDPaVu4MztzOwB6SYMyAUktGB9JBfMFA
-	qL4wHKVtsfQr65FBbDEtbzDj8Sg/+nYQxU7YRzggS5NwstKusHFNCJ3GubZ/StmocNsgsZVoeOsKM
-	U3esroz1oDCbuyW12nZpUaSO9W5aHPgNFQ/CkpmemH2HAgviETUgagjWr4GwfrbbQPMS0SvmnHlGB
-	g4TeDdKw==;
+	bh=BnmkLIgWSk18hKSD8wtaKdnDH56mNXzkJ0gXdtf3O2E=; b=yjFcJFrTtJ+ukIoTH4EJldEmXW
+	aLAVykgFSLxqNkvdWkjQwSYyTmsfpsKceYZEsY7Z5IWDE5qY/gk+n0nDNnELZA+4ngKec/EXzSFq4
+	dblMAvlOm48SJ2FDTuwXB+takseMGjH/oXf/TIsUoARHSoV0qR7GpNZd0hupzhyfOoEvJKbrTBFT8
+	PSc5jYnd5NQXFSidj7HBeBlF0ryLFcpB0/RtOkOMqR7ws3VSGRGORstKMIiEJvD3/BczlCDKiJFFJ
+	LXFIBTOfyUX+CYHBY9Yz9lbIECQeZG1K3ycK8YBVvkpbYYLoaQgRivrx8YrHkNGgprDOomRnO+Oxx
+	4Fh7N6Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuCs8-0000000GpPa-3HhX;
-	Sun, 22 Feb 2026 17:03:56 +0000
-Received: from mail-yx1-xb12a.google.com ([2607:f8b0:4864:20::b12a])
+	id 1vuDHr-0000000Gq8e-2Bgx;
+	Sun, 22 Feb 2026 17:30:31 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuCs5-0000000GpPC-2ZWj
+	id 1vuDHo-0000000Gq8J-2oN3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Feb 2026 17:03:55 +0000
-Received: by mail-yx1-xb12a.google.com with SMTP id 956f58d0204a3-649d589ab0fso490716d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Feb 2026 09:03:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771779832; cv=none;
+	Sun, 22 Feb 2026 17:30:29 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-64ae58222aaso511531d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Feb 2026 09:30:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771781427; cv=none;
         d=google.com; s=arc-20240605;
-        b=kkJgY4ZbkOAY6p27AHJf1lNK+tOQEbi6BuyrldyQnt/N68qRkNs3k/VKkqIcW0aR9B
-         p0JnZJTe24MxUIOkNYDUUDHTy6a57CsOLhaJ2aDVAbg4WXdkw9TP0Y1j5pNEvLoJdHhy
-         R8YfXQ7gRlzK+8mpAxOM2Jmb6Ar51WG1zftj7Am4jsIj0E9ulAVosLHpIUtzIpe9NJPD
-         1l37Fcz5RO7Au/bvCKwz+IFFAvIu7/+z5oogH9ubC5Ohkec0ySqQDX3talhgoP0tndiQ
-         uxw2f39RHt4544XftBaSjrzDvOawAEQcXk0WK7qLWx1tjYLzkTevOW0fsRR7dTpFSOd3
-         fc2w==
+        b=jASXpprR8GlARDrzKXYyvNmFZPKs8a+H/9bcYZqW9u877WcYI6kzwOagF0WL375NKP
+         x6eEa3XD2mOcBmj1ZP20AgWMl04cXZUjGU/GV8cuIyY2/uOk7AZmWexqdUPtUsR1vTY7
+         JeECdk/bDIbMYe92rvIgzdD3JDDsYmyjIKJ9AlmNQKC07dzK4Dq+mdDLpOtKUiXLXjkH
+         IfkoPwRegstNdxObz9NEg+LMK8r9HEYz75pCIcu5OrgRomQxeLSFnBv/agEc7oYU/JtF
+         WnfSgfFtTKvZ0s/KUvN/2SRcKDA1tgULSO5V3B4Zj7Gvp2PpyFke/qXIz5bpkFhT1fOR
+         mIRQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=iBykXcry3hRl95wYDSUTJ/cR3J3An6RSzJqIbZMk+XY=;
-        fh=eCi4Ub9/zSev7mr3RMxdJmnwdeBuZguMcKKDIX8LT+E=;
-        b=bEvYxx/kAoO8UMoAm5YTacltf7qgeE7atFmnIlv0xbbSiDlRqsBuBr9gQ3CvRxtd+J
-         /Pq0sI8kQe6Nf80V8h2IKb3YW3bWP0gYkwbfIb9xm2ia/xyz0oT+yA6Tpq/bMkob42RC
-         YFrH0UKx99YCy3hFsjNKpuaAj0d4jsj7tRppz6zG4h9HlSoTn+0rCpcHbQu0521M5tfx
-         Ge0NT7fds+uWEtD2oX3adgY4lVa0mwbYbPyzUMjnV5B3FiqYt5ckNPL7nEk/Iq3g+uBQ
-         Z3lH0fE4oOhkXyXUjQUfausuVRRA03KYZrn+A8zzyB0w2BG+ML4yK/EI9VRyNzZhn7or
-         QZNw==;
+        bh=BnmkLIgWSk18hKSD8wtaKdnDH56mNXzkJ0gXdtf3O2E=;
+        fh=FbChYX0hNMleg62praMt7Fins7IsvqX3cnq19bixXmk=;
+        b=iUzq/gsywafdHTo6h4YGl64Fch41i3RSeK/0nrBAHqq82MfZyjM5WKx5BU+a708VZJ
+         Bm+v6DQWj5EMNT0/s70RO4OWIp6HXtnAvdx4S08DjQY7LEW6DLed2SFoRa/GJLWw53K+
+         /5WgD1rRKQOF94xfM9zPzqH/44B0nTBBHaom9wD592yuqqr8AuZRGNYMLzNGbtb18NGp
+         bwkgbp+ihHl19vRjPTFs/eNqq2qh9ElCpsPZZF+SSlhN+WImPs3kKU5SNWx29ovj1HhD
+         qfPB22mPROkZH2mG16E2GxxbETrcRQXsbWh5nm+Vo7ZLyQOlQeHjjGSvSFwJG0jHTJqn
+         kXwg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771779832; x=1772384632; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1771781427; x=1772386227; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iBykXcry3hRl95wYDSUTJ/cR3J3An6RSzJqIbZMk+XY=;
-        b=AXMPxsl9QjtO7ql/zVeitzibthxSwYN01tj1jfMGeX4OSXFlCB/nrrfJWhB/dfjCmJ
-         lQzCtRrPhvHqCOp/z1rpP9YA4uASoW1OaOPwfqZQU57GEReoGAj56dS8tP6HjmMJ+/iI
-         HxEdtlDXfzcBjZoNVoKEDLnf4ahoeqIlFavhqharO8Ubx49caGmuddkLBuAGxnT3zL5V
-         4UtPjnl81cP+7UlOWgB/zmWnT51xitOxj6EiTDO0DT/lwBAvLcja2fA8IKREnynrocAR
-         mr4NXcCzmhHlFgTaoVXzegYPiXoPruA5lveQpChIEoOAjSOuqUWWlgUL2tXpJs4d8De+
-         /HUA==
+        bh=BnmkLIgWSk18hKSD8wtaKdnDH56mNXzkJ0gXdtf3O2E=;
+        b=JZjsAbsRMkBZrg9YEk0UCvM9hJvJAlh0k2aOASluLBiqyRo1IYmkM3TDWw6s7svfx8
+         2nh+UVOGlF64WoKg4NJ91t+AZxagOvORSPXnegGgf5dznvhQrBlFvfMrwd3hMGVd3erJ
+         2lSL/lrh/diakp18+8AsRJpPgGUZngeSpDmyFKZBXQ07whg8HcYNVsFLZBMxgs+OK9PA
+         Bt/9SgNIW0j40blVpTvmOE1MsWwhfCkhijVoD+2BBR9/FU3eDXrymqoktKOSHpk3LqRT
+         grY+PcM1MQO4yZzqFFMigpeM9sdrSe4Y+VqnVIeLIlRQNBiMC3KtNip8bQQq44FeexPZ
+         rV4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771779832; x=1772384632;
+        d=1e100.net; s=20230601; t=1771781427; x=1772386227;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=iBykXcry3hRl95wYDSUTJ/cR3J3An6RSzJqIbZMk+XY=;
-        b=kbOG+l8TgrOMx1BVLnodRIinyyhLi8QZlrSn+t0w0NNFqIBPGuKB2h4KdLC0e71j0Y
-         UFYfbOUUfQrBetymk+GPToZORPsR/5IjukEtsW/uux7M4/JIWICIMoUOvD4lkyoaZF5q
-         qG00pkB1M9072yBEtaBQzBoeMnxdh1JWxjfG7FI8VcncYYuaAiw1RaYugW77DKou4/e1
-         lXxpaV9CpVckh1O6Cu4oH4TXAVTxMOsZIcca25fC7QAMlImMN/qnjET0q+y+NJb0PwX0
-         Efi512+rW+ymXz9XUKrXhGoum0N4MKJIH92cMpwW9phtW26axav4wkl/QbSb7ESuS41G
-         PrSg==
-X-Forwarded-Encrypted: i=1; AJvYcCWvFmUv9sfAa6ODgWuDOa6ynUf5gIEh5uINyEetQUJiBlgNjc0EhBiXh0HHVa9y75x+sqGlR080yD5mZpU3AW0O@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoXkh/7snxsJ44WEoSItog+Cvgsds8Kkjxi0nwcXhKxetXRcUl
-	iYc9MrgV4oFJl3xOb6XHzGv6DzufZlfwnx2t8vLglpoefi4bcpyVivaWZowZZ41bB+S4gswUWvO
-	7MF68F+m6CuWy8CSJ3CJjltBLvKhhf3Y=
-X-Gm-Gg: AZuq6aKkPr9/vCH9cseJFYu6Rjfn15X2banaZWueHfnwN4nuH5XWn/RAf+9l5RJwNaR
-	F+C/cMCh+DNcFINa+k1ZTFafQkrayRvgGh9F2L2QkhR4vtC7RAQZdgUPUZg6CajyBRf/4+9u5ac
-	n1t34LWeKrY99iYpAxRKPN5KFmqepvLzCZV4DDklo1Jn/7VoJZ0bxgikJ5VEt996WSBAN0JMkrl
-	jP8lASxrOGZSxQiot25jX3plh/M19DG9aXghfewKfPs8GAM13dHsQOUpK4PZ5X4/Wqkh7IlWKr7
-	g9Jh
-X-Received: by 2002:a53:d009:0:b0:649:c3be:a387 with SMTP id
- 956f58d0204a3-64c78d3e730mr3895155d50.4.1771779831946; Sun, 22 Feb 2026
- 09:03:51 -0800 (PST)
+        bh=BnmkLIgWSk18hKSD8wtaKdnDH56mNXzkJ0gXdtf3O2E=;
+        b=rwNl9eynlvukQ7SG/aeCWLp+44qgHvqhahwhmLa9U+/bJ7xigrBjwVDyD6mtzTVG7m
+         BLFtgRrWnf9z18LJbC6//ZN6q9nVL6YHyWOphkb0j54dGXC1QBI2gLeAFYBmg4QdtsfQ
+         mKpZxrzMC2Kpv5dMTWMiuASQHLOQ6hV434ysF84NBuzRHgBCdvy2+k0Yaul6kd+9URqX
+         gSNM+8f/Udg0bMBdBgYh3XT593zSvoEcubbmwo1LYogfsiOamnJ0Q51+Z6g8alp7wZKl
+         yeXD9lBXcqcuL4cFuDxYbPf9y9CZMNheHleUliG+1buSHqAiQ+aVABXN6q5XDMv3UBF5
+         n6yA==
+X-Forwarded-Encrypted: i=1; AJvYcCVshQ3NiYiQH+n/Fkc7VNy/wg3q+DBoIPJBRpYdMqM33TKzWswOMqZvw8v9QyJmbxYHK0uNQFlSXUQr1xc6zWtd@lists.infradead.org
+X-Gm-Message-State: AOJu0YycvquKXL1eCdgnVG3wziBQAt3LRk8lL2pkFzvqSF033hb+w2IU
+	dLiJ8ls15g8dhfBknd6Af95/fR/Rd2RnERjpxNJKiIy6HAfAWsVSAoNS3EXEXQRu0aH2061mfpY
+	xCMoFRZkN9Lkht8ZY9YlTrsfXQsLbjIo=
+X-Gm-Gg: AZuq6aJuzYURUnxoOkz+4VKeaDNQU9whGwyLPQzvWxcVolsuxs/dqkTReYAk1FErD+r
+	jT6oE/fV+pG5uun8DztD073CIBjEp1PzC4KvX4+UNsFk/dRLhL+wNi9T6TQcVwGAf8zNSoGiQDC
+	b2iPoSDpGl9v0Uc+LpVizsjxJznnENKj86WVlB7HRjvhp9izhFnYBuhM7ilRvCGEORUHy1+lxVm
+	mmjDLZeUtWWmuXHbKGFXos2W8/xDZX5MAxvLH4Vs2E0WDyr+yb3IYqkWhUUi1NohoofwYY9qtV4
+	0j8h
+X-Received: by 2002:a05:690c:93:b0:797:ab72:628f with SMTP id
+ 00721157ae682-79828fa2ab5mr44574817b3.4.1771781427236; Sun, 22 Feb 2026
+ 09:30:27 -0800 (PST)
 MIME-Version: 1.0
-References: <20260215205152.518472-3-thorsten.blum@linux.dev>
-In-Reply-To: <20260215205152.518472-3-thorsten.blum@linux.dev>
+References: <20260220133135.1122081-2-thorsten.blum@linux.dev>
+In-Reply-To: <20260220133135.1122081-2-thorsten.blum@linux.dev>
 From: Lothar Rubusch <l.rubusch@gmail.com>
-Date: Sun, 22 Feb 2026 18:03:16 +0100
-X-Gm-Features: AaiRm501A03rgVMp3fr1R-CFD3HgkD42BVCx_r2SycJdlIw_EXWDQ4yLRJnqDhk
-Message-ID: <CAFXKEHZ9TTZMdzKr8_5UesUdajGoQNm_u_paakggtGONbzjPcQ@mail.gmail.com>
-Subject: Re: [PATCH] crypto: atmel-sha204a - Fix error codes in OTP reads
+Date: Sun, 22 Feb 2026 18:29:51 +0100
+X-Gm-Features: AaiRm50kypTpMDY3ZXdNnlUeMETOr3yH_tAg04sHJcHrEEiY_Yo7xkfaj11LYrM
+Message-ID: <CAFXKEHY40ybHVbWLWPjOR_wuv5sV9YYXyum6nTT7LHG+irBpUw@mail.gmail.com>
+Subject: Re: [PATCH] crypto: atmel-sha204a - Fix uninitialized data access on
+ OTP read error
 To: Thorsten Blum <thorsten.blum@linux.dev>
 Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
 	Nicolas Ferre <nicolas.ferre@microchip.com>, 
@@ -103,8 +104,8 @@ Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260222_090353_665770_3E655B3A 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20260222_093028_718354_D8E09071 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,88 +120,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, find some comments below inlined.
+Hi Thorsten! So this one was tested on your hardware?
 
-On Sun, Feb 15, 2026 at 9:52=E2=80=AFPM Thorsten Blum <thorsten.blum@linux.=
+Wouldn't it make more sense to squash this with the patch before: 'Fix
+error codes in OTP reads' (which IMHO actually fixes mainly the bounds
+check)? This on it's own I'd consider rather a refac than "Fixes".
+
+On Fri, Feb 20, 2026 at 2:32=E2=80=AFPM Thorsten Blum <thorsten.blum@linux.=
 dev> wrote:
 >
-> Return -EINVAL from atmel_i2c_init_read_otp_cmd() on invalid addresses
-> instead of -1. Since the OTP zone is accessed in 4-byte blocks, valid
-> addresses range from 0 to OTP_ZONE_SIZE / 4 - 1. Fix the bounds check
-> accordingly.
->
-> In atmel_sha204a_otp_read(), propagate the actual error code from
-> atmel_i2c_init_read_otp_cmd() instead of -1. Also, return -EIO instead
-> of -EINVAL when the device is not ready.
+> Return early if atmel_i2c_send_receive() fails to avoid checking
+> potentially uninitialized data in 'cmd.data'.
 >
 > Cc: stable@vger.kernel.org
 > Fixes: e05ce444e9e5 ("crypto: atmel-sha204a - add reading from otp zone")
 > Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 > ---
-> Compile-tested only.
-> ---
->  drivers/crypto/atmel-i2c.c     | 4 ++--
->  drivers/crypto/atmel-sha204a.c | 7 ++++---
->  2 files changed, 6 insertions(+), 5 deletions(-)
+>  drivers/crypto/atmel-sha204a.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 >
-> diff --git a/drivers/crypto/atmel-i2c.c b/drivers/crypto/atmel-i2c.c
-> index 9688d116d07e..ba9d3f593601 100644
-> --- a/drivers/crypto/atmel-i2c.c
-> +++ b/drivers/crypto/atmel-i2c.c
-> @@ -72,8 +72,8 @@ EXPORT_SYMBOL(atmel_i2c_init_read_config_cmd);
->
->  int atmel_i2c_init_read_otp_cmd(struct atmel_i2c_cmd *cmd, u16 addr)
->  {
-> -       if (addr < 0 || addr > OTP_ZONE_SIZE)
-> -               return -1;
-> +       if (addr >=3D OTP_ZONE_SIZE / 4)
-> +               return -EINVAL;
->
->         cmd->word_addr =3D COMMAND;
->         cmd->opcode =3D OPCODE_READ;
 > diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204=
 a.c
-> index 0fcf4a39de27..6b4e2764523e 100644
+> index 0fcf4a39de27..f4a04b297257 100644
 > --- a/drivers/crypto/atmel-sha204a.c
 > +++ b/drivers/crypto/atmel-sha204a.c
-> @@ -94,9 +94,10 @@ static int atmel_sha204a_rng_read(struct hwrng *rng, v=
-oid *data, size_t max,
->  static int atmel_sha204a_otp_read(struct i2c_client *client, u16 addr, u=
-8 *otp)
->  {
->         struct atmel_i2c_cmd cmd;
-> -       int ret =3D -1;
-> +       int ret;
+> @@ -103,6 +103,10 @@ static int atmel_sha204a_otp_read(struct i2c_client =
+*client, u16 addr, u8 *otp)
+>         }
 >
-> -       if (atmel_i2c_init_read_otp_cmd(&cmd, addr) < 0) {
-> +       ret =3D atmel_i2c_init_read_otp_cmd(&cmd, addr);
+>         ret =3D atmel_i2c_send_receive(client, &cmd);
 > +       if (ret < 0) {
->                 dev_err(&client->dev, "failed, invalid otp address %04X\n=
-",
->                         addr);
->                 return ret;
-Since I2C bus errors are caught here.
-
-> @@ -106,7 +107,7 @@ static int atmel_sha204a_otp_read(struct i2c_client *=
-client, u16 addr, u8 *otp)
+> +               dev_err(&client->dev, "failed to read otp at %04X\n", add=
+r);
+> +               return ret;
+> +       }
 >
 >         if (cmd.data[0] =3D=3D 0xff) {
 >                 dev_err(&client->dev, "failed, device not ready\n");
-> -               return -EINVAL;
-> +               return -EIO;
-The cmd.data holding 0xff here is not a bus error. AFAIR it can have
-to do with the locking state, pre-initialization,
-typically the atmel watchdog kicked in / timeout, etc - so the
-response is invalid, although hardware connection (I2C) is
-supposed to work. Currently the caller of this function does not
-distinguish anyway.
-
-But why is EIO preferable here, over EINVAL?
-
-
->         }
->
->         memcpy(otp, cmd.data+1, 4);
 > --
 > Thorsten Blum <thorsten.blum@linux.dev>
 > GPG: 1D60 735E 8AEF 3BE4 73B6  9D84 7336 78FD 8DFE EAD4
