@@ -4,73 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAC0EA4FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 14:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 823DAEA4FC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 14:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9Ky2tikbQrXH6nE/bcaFG4UkGoK8WeG4CEzg6RRfEk=; b=O57RjwO6RRsgIpAHtjUzKwY5xC
-	dmvqJnr1NnSuTtbjgDMVnGPkYo1eoJoQ6HWHn0l+V9hJzVAzvdfOqkb7kb3CrXNiCdIUC0WZfcLfu
-	KJv9FM+xWU8sl40+vXeJ+4GP3Kd5IysKQ+9YyeI6yzlj0NU/m7t3YxVBcH0MI9bHB/x3RFnxvWhzw
-	fAemucrIf8khp8/e7E3sTJWbb0a0iL8+sw5IYcDFjOS0klEdYLIFctvRxWBlrDhmnENbG82iRgv/n
-	9ZBwucKVA1StsMo7Q2SSUlY8aabwbpXxnIApMFpgGWkRCNNz4YXL4Roa81qC853TQzmNV8iQPJhKh
-	IZ+J2GMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pe8kS/HsQYwBP5zgL7z8pBoY1N27zjF7IHjDKICG/rE=; b=A/sb8CDmiwk6br
+	58BkWMGPuYTYx0f5ccZl/PG6jOaB5e3m2AwgwFLncHOHzobVVhouVG2iw2qq3v2VoDLitCq0MrRhg
+	85UwmooAaR+YKLjY/Z0UZ+BA72JwG18vDRG+Y41aMJ8+tCLref3g+sf6YJ1DwdTG0fgq1CWdOUA+U
+	hsLtThP4TH0xpPlMsAGucL9dSLM6hQg0j5ZlJBXW6ySCuMwBlclcj58rHrf7TLqyH3wDbXkCB6g6w
+	H+AEvVS/ts2KVskxj8RcaHQlW7RM1XpTouFzhBjAewguFF++1DMmAr9EmAmVFz8ot03okvN9LAWQG
+	d8xB9VsDX3a7qm+stnng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuWyy-00000000TGg-19eE;
-	Mon, 23 Feb 2026 14:32:20 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vuX0R-00000000TU5-40Ob;
+	Mon, 23 Feb 2026 14:33:51 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuWyv-00000000TFg-3XaU;
-	Mon, 23 Feb 2026 14:32:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1771857124; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Qnp/tCfWMy+Zx6gDf+oqRIG2FxJ0247p2dyKPTCpkJWTcbKzmUlCUX8KyDnh7BZrzS9qp+vDvl3ys9bG0uorBDg7YMn6PajDnxt++ghsHBoz4vCXXj+VviP4CQdZgr3dRI7dE2YMv0vuRrX71XIqz6HePG6SCzAVgqR9vPS24uY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1771857124; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Y9Ky2tikbQrXH6nE/bcaFG4UkGoK8WeG4CEzg6RRfEk=; 
-	b=foI0fE6w/20v43NcW+nCTQwTKtHnm7M00j/anLPoFP0DMlzwta7ybQAoV/j4U0rU2iQIfBRIebB+kdORfzeIQuvKso7ln2Gcl9Sn4tyKmEX94M7rbIZ+4QQuutPFEeU0EENyUZ0916M+70uAZdgPzDJlw1k3K8XXKJgjX/5cnVs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771857124;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=Y9Ky2tikbQrXH6nE/bcaFG4UkGoK8WeG4CEzg6RRfEk=;
-	b=OKA4VPxJsdY02OUBQGgv2Elz5PuMdu/o7VZ3a+eCBRTcKDty7avuyOkkqola6gZv
-	q/3q3FLa4wyVcOByHVP4L45VMrFs4hwgVBRoC/SnFGoZ+mOyj2B/TztIsZIBrKFcE7y
-	BFvkVPf620BSHkuG/ZAJzzC2OevP1PWuWM+I+9qw=
-Received: by mx.zohomail.com with SMTPS id 1771857121477746.2205484461174;
-	Mon, 23 Feb 2026 06:32:01 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 964D91806CB; Mon, 23 Feb 2026 15:31:56 +0100 (CET)
-Date: Mon, 23 Feb 2026 15:31:56 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Detlev Casanova <detlev.casanova@collabora.com>, 
-	kernel@collabora.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix vdec register blocks order on
- RK3576
-Message-ID: <aZxkDGzEQCCLKR-M@venus>
-References: <20260223-vdec-reg-order-rk3576-v1-1-560976566bd3@collabora.com>
+	id 1vuX0P-00000000TT3-2WX0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Feb 2026 14:33:50 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-386714da2a2so34662531fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 06:33:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771857227; x=1772462027; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pe8kS/HsQYwBP5zgL7z8pBoY1N27zjF7IHjDKICG/rE=;
+        b=CqNuTGqDXYkZ/pg5X/q7jsjtPaYE1iv8qpfk+X52wyJM6YMUYWl7tU8ac+tY2SbhFI
+         lYfCERhJwBSvXpuimRJ5eE2U49n5WCH3SFqN0l3QHP6NuhqicgPkbF8eWBKvY4BPAHOo
+         thbtE1gkFbSYMUJdl9QeRbuzoQ1+vTB/sBAskUB3BJlpqkFIuD7ndYnd1eed384qZdHj
+         4Q+FsAOgZkJRPOi1fzBEkb2TzTWYH+5M6d0wJ/+qEl39R4qR/D4YdCv72BWjtcOr6+sn
+         M/3FSWFKZQqpLywv1Fvf9fkDO987U8xKNiRvWwF80ok9EE6czmGLHUHVK6WhykCKdR8s
+         y7SA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771857227; x=1772462027;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pe8kS/HsQYwBP5zgL7z8pBoY1N27zjF7IHjDKICG/rE=;
+        b=OP66xyiMpbN8og7aOrr7HAgaTpYFixREXXOPXSfVaevZe9QF4xwGsTjWboVeJEuvIu
+         nK8/6Qd0NMtvBN266WSUrYwtBxUCM5JzIxddzzMMoG3n8HCf4iBYXlyIeNnDVkw4GtD5
+         skzx3qn1agaF9NJEuBGTgFUU7tE6yFpTaQhBlciv39tebMJUa99JRPPV5qNm17rV0Y1F
+         TBOM38kxQJ6AmWHfB+mryjEQ8sgxZWpKa6DgJYSBsLB2kd/kPvYuGSvrj30WhyshPuAk
+         IH2k2+f3yfeEsrl3wK2zaxzGugOuqKy+hP/79sC4cCUmK6iU75/hepunnPAVhWQGO20L
+         REjA==
+X-Forwarded-Encrypted: i=1; AJvYcCXoDQDWq6GCghAt5cayXC5kdmPadaM/NgGaoMygp959Jc7iNHcMT1JxWFNRIccaoSlKLb2Hd6Gu59GVkrNfcmmX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvEMLgZ1X61mW5mzEUyWzSDK/ORunPjRFFTzabnJ8akdfC71Ew
+	2CjnhzXsHvTdHE0D4yt+ose/Gqa0h+7PIOJP/lKhCbj21sNpM/iwCzHl
+X-Gm-Gg: AZuq6aICACZbX52Shds1b0LNcUWPq4buXjgSl4NcenvbYa5UnoNfJ8Mck9LrXBCTbUb
+	xJY39IWGKe1qVa0JXF8JTYI+xzcZZVZlZ6smpVnKPGiUeAUo0vP9cSuZ6NpGwEgfx8sdoLABwER
+	kbgWqepk9roZpcm7YtJF7RL/PAzVs+KO6BD7HK/qbMysdabTCvmvjm4STC/Ns4p5RG5s6GFCW9i
+	OGS2dYLLvp2SDFzl/wbytUpT4zukUmEOKwdJVgUyaFa/D8ZYNHyfbf43rji8W5Y87uD87yxLy8m
+	MvkSaJjDgWAVBz0+gjPtCqxrPQl2VjQ5ZakJ+Nck30RP2ZkalUcH39CCQPi8ZwK8z1fMOsvIwYf
+	lh+A+puZ3/Sd28UF7gWi7NRUFj6Lg2RYGwEgW+N82aSUM7VuJA/tHGamQ1ss2FtZeI3BMo7F3C3
+	PTODQ4zRGFRV9Tne9FjQHh2NWZ15iCkmPqoa4gQaYMT9G9E9DrNDM4ufBbxwkqx4pRmpzx
+X-Received: by 2002:a05:6512:130b:b0:5a0:f5b0:401 with SMTP id 2adb3069b0e04-5a0f5b00a51mr671916e87.27.1771857226970;
+        Mon, 23 Feb 2026 06:33:46 -0800 (PST)
+Received: from [192.168.1.135] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a0eeb16344sm1631709e87.37.2026.02.23.06.33.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Feb 2026 06:33:46 -0800 (PST)
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+Subject: [PATCH v7 0/5] I2C Mux per channel bus speed
+Date: Mon, 23 Feb 2026 15:33:49 +0100
+Message-Id: <20260223-i2c-mux-v7-0-ec75b214718a@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="itcbjeav5ybt5pwy"
-Content-Disposition: inline
-In-Reply-To: <20260223-vdec-reg-order-rk3576-v1-1-560976566bd3@collabora.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.1.1.4.3/271.848.75
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2XQTW7DIBAF4KtErEs1DD+GrnqPqgszjBOkOo7sF
+ qWKfPfiqI3dZPkQ3+OJi5h4zDyJl91FjFzylIdjDc3TTtChPe5Z5lSzQEALQWmZkWT/dZYRwOn
+ E2LJJot4+jdzl87Xp7b3mQ54+h/H7WlzUcvrbgXjrKEqCRE/BtE5B0PC679v88UxDL5aOgjenA
+ DYOq4sueOsMpWDdvdMbh7A6XV0A35Klrg7R9878OQcK/epMdYnZBGJsHD3stKvDzR8VW10XkWI
+ XQhPiw3tu69zq3LIzMnqmLjX8z83z/AObzOzptgEAAA==
+X-Change-ID: 20250913-i2c-mux-b0063de2ae4d
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Peter Rosin <peda@axentia.se>, 
+ Michael Hennerich <michael.hennerich@analog.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@intel.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Marcus Folkesson <marcus.folkesson@gmail.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4457;
+ i=marcus.folkesson@gmail.com; h=from:subject:message-id;
+ bh=mCCRKMHtlBgmqWNXcSQwKAWkgQ/vQ+w7dOXdt7vYJB4=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpnGVPQ0nZwdk3uxE+uw/9EflWtmk7bBklAPLD3
+ 2yZUWYqF2uJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaZxlTwAKCRCIgE5vWV1S
+ MkDxD/9ochrRo0neboyepOM6GpwWUs/3INBmv+86oHhHBoyycSsEOmJHQjpHvkPyKeiJc5P6OZb
+ 76WLe20FxmuQJ37JoIYfHcnOxoltRG7IyVpx2BRnUtwYP9kXJVzgduQQk5nXyhbMJA7N4/Kpi4F
+ wPyhFWmEimO4g4cvrscjnGScievyf3+7lcCXMDOTM/TUHMvSy1y2wjjHi3U5hgkWux4+Ts/uL6F
+ koMnjJMVjKzr/AFKQiRwysFFJ9oeUIzsCiBhWjbfgj8oIKlzR5+8/CBAMPLQaNPEni17ARunbXO
+ RpRzmq7xT9K7JVWX89bof4ruCS89j/PlzvMjgSZV+6/HdeZjs1r8oD73Mt1Tni7eTjX8tstr6om
+ m2uXlu+XU0jRzUbk9SKa4lzvz1TmPmUHuCcMoQG1ZfCejzH6xN+6NXHXSCWYuRCyrIvrM/E7Otr
+ KRnuuEjG30uDBwhURdVyeXerpR/sT0tzXeV/GuaYZszAcPAvdEP2msfnYYS8hU3pOI2YrhoLdRY
+ CgeM1NWQLB9Bxixkpbh9ZRIZsuqJgD30PBqwaWqgt6hedZ1HgRFN5ZAaP5o6VqaAKxtP6JgTxpj
+ 9RLUt5o0SFCpCUVIpKyxhHMoVeT66eFcQYi7GDFpXoY4JAaIm/K86t3QtQSqaG+i4aM3Na5u7JC
+ P5chRZjJ3Xn1edw==
+X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
+ fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_063217_934898_65D7B739 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20260223_063349_696988_CAED194F 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,98 +126,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This was a RFC on how to implement a feature to have different bus
+speeds on different channels with an I2C multiplexer/switch.
+As no major complaints on the design came up during the review, I
+decided to submit the series without the RFC tag.
 
---itcbjeav5ybt5pwy
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix vdec register blocks order on
- RK3576
-MIME-Version: 1.0
+The benefit with this feature is that you may group devices after
+the fastest bus speed they can handle.
+A real-world example is that you could have e.g. a display running @400kHz
+and a smart battery running @100kHz using the same I2C controller.
 
-Hi,
+There are many corner cases where this may cause a problem for some
+hardware topologies. I've tried to describe those I could think of
+in the documentation, see Patch #5.
 
-On Mon, Feb 23, 2026 at 02:25:05PM +0200, Cristian Ciocaltea wrote:
-> When building device trees for the RK3576 based boards, DTC shows the
-> following complaint:
->=20
->   rk3576.dtsi:1282.30-1304.5: Warning (simple_bus_reg): /soc/video-codec@=
-27b00000: simple-bus unit address format error, expected "27b00100"
->=20
-> Provide the register blocks in the expected address-based order.
->=20
-> Fixes: da0de806d8b4 ("arm64: dts: rockchip: Add the vdpu383 Video Decoder=
- on rk3576")
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
+E.g. one risk is that if the mux driver does not disconnect channels
+when Idle, this may cause a higher frequency to "leak" through to
+devices that are supposed to run at lower bus speed.
+This is not only a "problem" for changing bus speed but could also be
+an issue for potential address conflicts.
 
-This fixes this warning, but instead creates a new one, because the
-reg-names order is fixed in the DT binding:
+This patchset has been used and tested heavily the last months
+on a custom board based on a da850 (DaVinci) platform.
 
-   reg:
-     minItems: 1
-     items:
-       - description: The function configuration registers base
-       - description: The link table configuration registers base
-       - description: The cache configuration registers base
- =20
-   reg-names:
-     items:
-       - const: function
-       - const: link
-       - const: cache
+The implementation is split up into several patches:
 
-Greetings,
+Patch #1 Introduce a callback for the i2c controller to set bus speed
+Patch #2 Introduce functionality to adjust bus speed depending on mux
+         channel.
+Patch #3 Cleanup i2c-davinci driver a bit to prepare it for set_clk_freq
+Parch #4 Implement set_clk_freq for the i2c-davinci driver
+Parch #5 Update documentation with this feature
 
--- Sebastian
+Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+---
+Changes in v7:
+- Remove code for finding first mux-locked ancestor
+- Introduce a unlocked (i2c_adapter_set_clk_freq) and unlocked
+  (__i2c_adapter_set_clk_freq) variant
+- Let the locking be handled in __i2c_adapter_set_clk_freq
+- Use I2C_MAX_STANDARD_MODE_FREQ instead of magic numbers where
+  appropriate 
+- Link to v6: https://lore.kernel.org/r/20260216-i2c-mux-v6-0-9be28ecfd7e3@gmail.com
 
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/d=
-ts/rockchip/rk3576.dtsi
-> index 49ccdf12ef7e..45eb0d053a6f 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> @@ -1281,10 +1281,10 @@ gpu: gpu@27800000 {
-> =20
->  		vdec: video-codec@27b00000 {
->  			compatible =3D "rockchip,rk3576-vdec";
-> -			reg =3D <0x0 0x27b00100 0x0 0x500>,
-> -			      <0x0 0x27b00000 0x0 0x100>,
-> +			reg =3D <0x0 0x27b00000 0x0 0x100>,
-> +			      <0x0 0x27b00100 0x0 0x500>,
->  			      <0x0 0x27b00600 0x0 0x100>;
-> -			reg-names =3D "function", "link", "cache";
-> +			reg-names =3D "link", "function", "cache";
->  			interrupts =3D <GIC_SPI 308 IRQ_TYPE_LEVEL_HIGH>;
->  			clocks =3D <&cru ACLK_RKVDEC_ROOT>, <&cru HCLK_RKVDEC>,
->  				 <&cru ACLK_RKVDEC_ROOT_BAK>, <&cru CLK_RKVDEC_CORE>,
->=20
-> ---
-> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-> change-id: 20260223-vdec-reg-order-rk3576-cc2ec6e05e98
->=20
+Changes in v6:
+- Change logic to find which ancestor to lock with I2C_LOCK_ROOT_ADAPTER
+  It now find the first mux-locked ancestor and then lock its parent.
 
---itcbjeav5ybt5pwy
-Content-Type: application/pgp-signature; name="signature.asc"
+- Remove bus_freq_hz in i2c-davinci and only use clock_hz instead
+- Mention in commit message that clock_hz can be used to store frequency in an uniform way
 
------BEGIN PGP SIGNATURE-----
+- Swap order for change freq/deselect to keep symmetry
+- Only allow bus frequency to be lowered in select()
+  This to not allow an intermediate frequency to be set when it is not
+  supposed to
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmmcZNkACgkQ2O7X88g7
-+pqeDhAAlYxBRUJxwv8eUtRISXOS4Uo/uuzeb2WoFPuk7Mn7UFi1cw4E2+9vmXjj
-Yia6EeAig3c3DkMkDZf3Gc+9fsRsiKXNFf/fvTk35cmwVdDjwfqJMAk6kCDUNSKZ
-reaJdFUjfadD7ON92dxDDEyw81Pg6eqEaCYGwKwx+/mzLlsRWlgxWuB8sFsaCAK6
-exiSCUb4hb5SWmV9GeYRmQe8BWRlM4LvZfupk9G7zoq4C6ztKIeZxH7Dr9DgGrIX
-ElTngR7vjsnTmUM5FNnawPTM5S36t8Gy0JZXtNx4W1b5aL7T7mkzLaZPuDF46+pt
-FsXGmyMM7J2kSX+MSMNeIgjwWpV2xG10/Q4RmXCCjatIyKLO8r2cvrPtADBi7Ag4
-O+zxuM4gj5b7fW+2braOXPLv62ElzAx/g8LAWSQ8rdnvTbfmCivxU2u+RiM+epTr
-Mi1ydpkI3KrpYS6WzyOpSqCTkD9eITQSCkbHXh7ycb4g5oD1AVcjl7Y7anuZB/vx
-QYo1mqUsmwsOeeOGHDU+LWdIDbs6HS+XbTYCitmnnx4U8sUdR2SmvZidQ4G+c4OZ
-gV9WC0pmwwPgMVvlwZcG80kpvggzj9fLNQr/ULljSc7TLZ/5OUnXaY9GWywAhZUZ
-6OMBsq1Y/JSSS2UEx++9h0G1MsIwtcboxOBnJ5aVXb/Ua6cJTjI=
-=uZOK
------END PGP SIGNATURE-----
+- check if(ret) instead of ret(<0) where appropriate
+- Fix typos in documentation
+- Change i2c_adapter.clock_hz from int to u32
+- Simplify i2c_adapter_set_clk_freq() by removing 'ret'
+- Link to v5: https://lore.kernel.org/r/20260213-i2c-mux-v5-0-fb2cbf9979b3@gmail.com
 
---itcbjeav5ybt5pwy--
+Changes in v5:
+- Take the lock of the top-most mutex locked mux to make sure that the
+  root is locked
+- Link to v4: https://lore.kernel.org/r/20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com
+
+Changes in v4:
+- Rebase on master
+- Swap order for printing warning about "channel %u is slower than
+  parent on a non parent-locked mux\n"
+- Fix typo in comment, adaper->adapter
+- Link to v3: https://lore.kernel.org/r/20251020-i2c-mux-v3-0-908ac5cf9223@gmail.com
+
+Changes in v3:
+- Return -EINVAL if channel is faster than parent (kernel test robot)
+- Link to v2: https://lore.kernel.org/r/20251002-i2c-mux-v2-0-b698564cd956@gmail.com
+
+Changes in v2:
+- Changed bus_freq field to bus_freq_hz in davinci_i2c_dev (Bartosz Golaszewski)
+- Removed idle_state from mux core (Peter Rosin)
+- Link to v1: https://lore.kernel.org/r/20250922-i2c-mux-v1-0-28c94a610930@gmail.com
+
+---
+Marcus Folkesson (5):
+      i2c: core: add callback to change bus frequency
+      i2c: mux: add support for per channel bus frequency
+      i2c: davinci: calculate bus freq from Hz instead of kHz
+      i2c: davinci: add support for setting bus frequency
+      docs: i2c: i2c-topology: add section about bus speed
+
+ Documentation/i2c/i2c-topology.rst | 178 +++++++++++++++++++++++++++++++++++++
+ drivers/i2c/busses/i2c-davinci.c   |  42 ++++++---
+ drivers/i2c/i2c-mux.c              | 107 +++++++++++++++++++---
+ include/linux/i2c.h                |  34 +++++++
+ 4 files changed, 338 insertions(+), 23 deletions(-)
+---
+base-commit: 1f97d9dcf53649c41c33227b345a36902cbb08ad
+change-id: 20250913-i2c-mux-b0063de2ae4d
+
+Best regards,
+-- 
+Marcus Folkesson <marcus.folkesson@gmail.com>
+
 
