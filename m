@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3993EA4FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 15:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB2FEA4FD0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 15:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4hPh5hGuf3jibuIAtDTKmHr4182bYbTgvgOGsTtP2n8=; b=aCetk2A5QwxzAJfGwNx0uCYVJ1
-	UaU7JxVg3xXVhLa/mP08lTXD42fMHc+QneHSp6QBZLqZDKHXpap3d0z1V/86qPmGXC5IcxQbNPxTs
-	VJLNy7uz3ZjOcYELnH667htD9FJswFNYSnM4+9TA8B/jApqj4XQkSR6Jor6/ntMCCenmIPDE7Hslo
-	JXET6n2xD/nEXiJIrvm3hsP9a3zTzKlhl46d+w9gOdhD7QtJS7yksG5lrbCzPkvECAXWfcGiB6hpH
-	RSreXJUmnxxV+VBMPb6u6oZ5zckJoaW96/KJh04jvKGJreZPRI4icldBpvsJjgXaVuGgzZxFM+33f
-	5aiUtiNQ==;
+	bh=5RuniNnNlGiTyYJotmFYj911sHoaLf3n2mQIYgujh2c=; b=4VtdTLHaLXnDX1TEIty50ecVY+
+	Ck3MZDgxiMNmQIF3jCTZC0GaBqSqUHmJAy/QQZ6dbcBDhdKnn1SZGCn5Am8U4U1zBdcK+DVJ/ypGZ
+	b//+DlLr7t+mUbTBhjtvhDyDujOYxG2ztDcM3u9M59s1nqT+3WTpg4Hjv8E0e5s0WmdCiE+7p24wT
+	BohoyKd67bLaupsZMddrUM6u73kwGSzbk4te+bDW8sDZ167Pz4ftiaTO0dkOL8YsUaaVE0J/TWd3C
+	jjxarIolrzWmuVACvC9waPTApt/GLiEKMoBYx2wgmlRUW4hyV8NOo8B69QOd+E3c9wdEyFxwPk+io
+	wn36viYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuXdU-00000000YMB-1rPe;
-	Mon, 23 Feb 2026 15:14:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuXdS-00000000YLo-0gLP
+	id 1vuXhk-00000000YaJ-0AiB;
+	Mon, 23 Feb 2026 15:18:36 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuXhh-00000000YZb-1jhQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 15:14:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17F00339;
-	Mon, 23 Feb 2026 07:14:02 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F1863F59E;
-	Mon, 23 Feb 2026 07:14:06 -0800 (PST)
-Message-ID: <aabcf0b8-6fdd-46ee-beb8-e22e01869c77@arm.com>
-Date: Mon, 23 Feb 2026 15:14:04 +0000
+	Mon, 23 Feb 2026 15:18:34 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-4362507f0bcso3166526f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 07:18:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771859911; x=1772464711; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5RuniNnNlGiTyYJotmFYj911sHoaLf3n2mQIYgujh2c=;
+        b=F8JYmI8YuHy7NRu6GugDlE7L6lgoMXws74U472K/yekvRUmrRr0T73ZNVENpuNxM/h
+         mCFz7g/BGUqq0EALE63PtgcEfgV+rBPPi6ELQ7QpNVOIY1E5LgB63IuKcPJ6rurA2sOH
+         O23q2gwkgIP5r4O2yvE24T2Fgibtz1b+nUn9fYIlx4jIOOYchqxu96gl4itoKqxENI4W
+         lEvVLKGCI7LDnitox9FGVJHn9+ily7B+crYSJ5vfo/OQzvLDSFrD5vNk+uGZN5/k65XG
+         q9CWTLVr/XqVVLR9MgiJPolkjzaRPaq13i2o/19ci+EXqB6NLpuJ7QoP5MyuM39JcN7N
+         bZTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771859911; x=1772464711;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5RuniNnNlGiTyYJotmFYj911sHoaLf3n2mQIYgujh2c=;
+        b=opdi0ds5RlNYc6CBa7GK1pv51cVh2bTWKBOhlMv9ldcd/OMKbNTBJUO0JjrdWf77Wa
+         +k4+3jdx+cTBzHukuHzzhpvwLJeVnMGfjfR5CruGhjQ4/kDYDMqdvoEQct0qsMzElDdn
+         SUYESl7VqhDOBwgMaAundbCaSztyZxTgeiMwMMcfwJQgydbq7kjyfjDU5eyk7t22reNO
+         1SzhyTM494YZnFWhueZB0afpScKPDK4oxhRh8IhDOnKP217zgXDD6b0jxbGIM57FSCZr
+         dZ+crA0KDbMokhWG2b1ip2kb9Hrk2WOTygNWzYRpuLX06XHZNM+Tg9r+p7rrXz6KJcAs
+         tAfA==
+X-Gm-Message-State: AOJu0Ywb4Psafvzk9O5RejQixSLf/7kwdrH5rWXym1bIffLPhUyEOjPQ
+	YTyseFvLxbpNPXgQt61wJPqCwwetE7p0ezLdTrqGCSMT/aixVX972JTT
+X-Gm-Gg: ATEYQzx39VyJdkEvMwNRNUJ/1Bpqv2h6Y0wJCnFDME8AT5ZiG4i+cLMAbaMaH0OBvqx
+	IbKH17aZJ7y08y5X77ILDoR1rWcNa235/o6YrgEK4vLfgnrPwapaCeIsARtEGDKq0xgbBYw6I0x
+	Q84GtUxYie3I2J+lj8RwlLCQ4GfrJXYlRrYPpAAkv9pn38Ah61VqQi9/28x8iWYvTtvz5ZYL0zt
+	z74p+BP3JAxPm1mCT9uTa5wtz0fSfMsJCvNefGedCb0Unur3qmKQ2oOMX21K4pEKDzDzkB0/Uyo
+	e5WSs/pjMD5o/JrouS8m4A1YfdlLuImrSYfOKE2img8ToBQOKJRpzNi7TE1bpTgvNluiih/t3kv
+	VAfQ1wOKoIMH924ZKlr/8A4H9CDlvJTJqN/QykFlcb7ZX/80mU/FNZpr78nMmSUd6hSMlmPBq3J
+	xLuhj3gTbsZ7DwufvSJ+ZKnC/HCFWrrCirwRIYhG7eluOiIBRofON3KrdxWAyi8MvS
+X-Received: by 2002:a5d:5f93:0:b0:430:2773:84d6 with SMTP id ffacd0b85a97d-4396ffde31fmr15606743f8f.24.1771859911308;
+        Mon, 23 Feb 2026 07:18:31 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970d54a68sm21133203f8f.39.2026.02.23.07.18.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Feb 2026 07:18:30 -0800 (PST)
+Date: Mon, 23 Feb 2026 15:18:29 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Daniel Mack <daniel@zonque.org>, Haojian
+ Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>,
+ Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v1 1/1] spi: pxa2xx: use min() instead of min_t()
+Message-ID: <20260223151829.6192b32d@pumpkin>
+In-Reply-To: <20260223144437.2836369-1-andriy.shevchenko@linux.intel.com>
+References: <20260223144437.2836369-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Force the use of CNTVCT_EL0 in __delay()
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Hyesoo Yu <hyesoo.yu@samsung.com>, Quentin Perret <qperret@google.com>,
- stable@vger.kernel.org
-References: <20260213141619.1791283-1-maz@kernel.org>
- <aZw3EGs4rbQvbAzV@e134344.arm.com> <86ldgja5v3.wl-maz@kernel.org>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <86ldgja5v3.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_071410_289392_BBD36C36 
-X-CRM114-Status: GOOD (  32.84  )
+X-CRM114-CacheID: sfid-20260223_071833_502170_1E1F67C1 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,152 +100,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Mon, 23 Feb 2026 15:44:37 +0100
+Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
 
-On 2/23/26 14:31, Marc Zyngier wrote:
-> Hi Ben,
-> 
-> On Mon, 23 Feb 2026 11:16:32 +0000,
-> Ben Horgan <ben.horgan@arm.com> wrote:
->>
->> Hi Marc,
->>
->> On Fri, Feb 13, 2026 at 02:16:19PM +0000, Marc Zyngier wrote:
->>> Quentin forwards a report from Hyesoo Yu, describing an interesting
->>> problem with the use of WFxT in __delay() when a vcpu is loaded and
->>> that KVM is *not* in VHE mode (either nVHE or hVHE).
->>>
->>> In this case, CNTVOFF_EL2 is set to a non-zero value to reflect the
->>> state of the guest virtual counter. At the same time, __delay() is
->>> using get_cycles() to read the counter value, which is indirected to
->>> reading CNTPCT_EL0.
->>>
->>> The core of the issue is that WFxT is using the *virtual* counter,
->>> while the kernel is using the physical counter, and that the offset
->>> introduces a really bad discrepancy between the two.
->>>
->>> Fix this by forcing the use of CNTVCT_EL0, making __delay() consistent
->>> irrespective of the value of CNTVOFF_EL2.
->>>
->>> Reported-by: Hyesoo Yu <hyesoo.yu@samsung.com>
->>> Reported-by: Quentin Perret <qperret@google.com>
->>> Reviewed-by: Quentin Perret <qperret@google.com>
->>> Fixes: 7d26b0516a0df ("arm64: Use WFxT for __delay() when possible")
->>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->>> Link: https://lore.kernel.org/r/ktosachvft2cgqd5qkukn275ugmhy6xrhxur4zqpdxlfr3qh5h@o3zrfnsq63od
->>> Cc: stable@vger.kernel.org
->>> ---
->>>  arch/arm64/lib/delay.c | 19 +++++++++++++++----
->>>  1 file changed, 15 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
->>> index cb2062e7e2340..d02341303899e 100644
->>> --- a/arch/arm64/lib/delay.c
->>> +++ b/arch/arm64/lib/delay.c
->>> @@ -23,9 +23,20 @@ static inline unsigned long xloops_to_cycles(unsigned long xloops)
->>>  	return (xloops * loops_per_jiffy * HZ) >> 32;
->>>  }
->>>  
->>> +/*
->>> + * Force the use of CNTVCT_EL0 in order to have the same base as WFxT.
->>> + * This avoids some annoying issues when CNTVOFF_EL2 is not reset 0 on a
->>> + * KVM host running at EL1 until we do a vcpu_put() on the vcpu. When
->>> + * running at EL2, the effective offset is always 0.
->>> + *
->>> + * Note that userspace cannot change the offset behind our back either,
->>> + * as the vcpu mutex is held as long as KVM_RUN is in progress.
->>> + */
->>> +#define __delay_cycles()	__arch_counter_get_cntvct_stable()
->>
->> I'm seeing this CONFIG_DEBUG_PREEMPT warning, see below, when running 7.0-rc1 on
->> FVP Base RevC. I haven't tried bisecting but it looks to be introduced by this
->> change.
->>
->> The calls are:
->>
->> __this_cpu_read()
->> erratum_handler()
->> arch_timer_reg_read_stable()
->> __arch_counter_get_cntvct_stable()
->> __delay()
->>
->> This silences the warning:
->>
->> diff --git a/arch/arm64/include/asm/arch_timer.h b/arch/arm64/include/asm/arch_timer.h
->> index f5794d50f51d..f07e4efa0d2b 100644
->> --- a/arch/arm64/include/asm/arch_timer.h
->> +++ b/arch/arm64/include/asm/arch_timer.h
->> @@ -24,14 +24,14 @@
->>  #define has_erratum_handler(h)                                         \
->>         ({                                                              \
->>                 const struct arch_timer_erratum_workaround *__wa;       \
->> -               __wa = __this_cpu_read(timer_unstable_counter_workaround); \
->> +               __wa = raw_cpu_read(timer_unstable_counter_workaround); \
->>                 (__wa && __wa->h);                                      \
->>         })
->>  
->>  #define erratum_handler(h)                                             \
->>         ({                                                              \
->>                 const struct arch_timer_erratum_workaround *__wa;       \
->> -               __wa = __this_cpu_read(timer_unstable_counter_workaround); \
->> +               __wa = raw_cpu_read(timer_unstable_counter_workaround); \
->>                 (__wa && __wa->h) ? ({ isb(); __wa->h;}) : arch_timer_##h; \
->>         })
-> 
-> It does indeed silence it, but that's IMO the wrong thing to do since
-> you can end-up calling a workaround helper on the wrong CPU if
+> min_t(int, a, b) casts an 'unsigned long' to 'int'. This might lead
+> to the cases when big number is wrongly chosen. On the other hand,
+> the SPI transfer speed rate is unsigned and driver uses signed type
+> for an unknown reason. Change the type of the SPI transfer speed
+> to be unsigned and convert to use min() instead of min_t().
 
-Agreed. This just hides the problem.
+I think you should use 'unsigned int' or 'u32' not 'unsigned long'.
+There is no reason for these fields to have different sizes on 32 and 64bit.
 
-> preempted.  If you look at how things were done before this patch, we
-> had:
+Were spi to support 4GHz clocks (fat chance on a pcb track) you'd
+need to use u64.
+
+	David
+
 > 
-> get_cycles() -> arch_timer_read_counter() -> arch_counter_get_cntvct_stable()
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> ---
+>  drivers/spi/spi-pxa2xx.c | 9 ++++-----
+>  1 file changed, 4 insertions(+), 5 deletions(-)
 > 
-> Crucially, arch_counter_get_cntvct_stable() does disable preemption,
-> and we should preserve it. Something like this:
-> 
-> diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-> index d02341303899e..25fb593f95b0c 100644
-> --- a/arch/arm64/lib/delay.c
-> +++ b/arch/arm64/lib/delay.c
-> @@ -32,7 +32,16 @@ static inline unsigned long xloops_to_cycles(unsigned long xloops)
->   * Note that userspace cannot change the offset behind our back either,
->   * as the vcpu mutex is held as long as KVM_RUN is in progress.
+> diff --git a/drivers/spi/spi-pxa2xx.c b/drivers/spi/spi-pxa2xx.c
+> index f7881a31e4cc..23e40f410814 100644
+> --- a/drivers/spi/spi-pxa2xx.c
+> +++ b/drivers/spi/spi-pxa2xx.c
+> @@ -796,7 +796,7 @@ static irqreturn_t ssp_int(int irq, void *dev_id)
+>   * The function calculates parameters for all cases and chooses the one closest
+>   * to the asked baud rate.
 >   */
-> -#define __delay_cycles()	__arch_counter_get_cntvct_stable()
-> +static cycles_t __delay_cycles(void)
-> +{
-> +	cycles_t val;
-> +
-> +	preempt_disable();
-> +	val = __arch_counter_get_cntvct_stable();
-> +	preenpt_enable();
-> +
-> +	return val;
-> +}
-
-Modulo the typo (preenpt) this looks to be correct and I see no warnings.
-
->  
->  void __delay(unsigned long cycles)
+> -static unsigned int quark_x1000_get_clk_div(int rate, u32 *dds)
+> +static unsigned int quark_x1000_get_clk_div(unsigned long rate, u32 *dds)
 >  {
-> 
-> The question is whether there is a material benefit in replicating the
-> arch_timer_read_counter() indirection for the virtual counter in order
-> to not pay the price of preempt_disable() when we're on a non-broken
-> system (hopefully the vast majority of implementations).
-
-I'm unsure of the tradeoffs here.
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-
-Thanks,
-
-Ben
+>  	unsigned long xtal = 200000000;
+>  	unsigned long fref = xtal / 2;		/* mandatory division by 2,
+> @@ -885,12 +885,12 @@ static unsigned int quark_x1000_get_clk_div(int rate, u32 *dds)
+>  	return q - 1;
+>  }
+>  
+> -static unsigned int ssp_get_clk_div(struct driver_data *drv_data, int rate)
+> +static unsigned int ssp_get_clk_div(struct driver_data *drv_data, unsigned long rate)
+>  {
+>  	unsigned long ssp_clk = drv_data->controller->max_speed_hz;
+>  	const struct ssp_device *ssp = drv_data->ssp;
+>  
+> -	rate = min_t(int, ssp_clk, rate);
+> +	rate = min(ssp_clk, rate);
+>  
+>  	/*
+>  	 * Calculate the divisor for the SCR (Serial Clock Rate), avoiding
+> @@ -902,8 +902,7 @@ static unsigned int ssp_get_clk_div(struct driver_data *drv_data, int rate)
+>  		return (DIV_ROUND_UP(ssp_clk, rate) - 1)  & 0xfff;
+>  }
+>  
+> -static unsigned int pxa2xx_ssp_get_clk_div(struct driver_data *drv_data,
+> -					   int rate)
+> +static unsigned int pxa2xx_ssp_get_clk_div(struct driver_data *drv_data, unsigned long rate)
+>  {
+>  	struct chip_data *chip =
+>  		spi_get_ctldata(drv_data->controller->cur_msg->spi);
 
 
