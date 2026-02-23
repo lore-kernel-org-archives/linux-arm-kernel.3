@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C75BE98E0B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 09:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7513FE98E0B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 09:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3PO5AtSucKAso++k1EL0+rR2+HTJk9Mvc5WVuDOn4oE=; b=gwMj55ee47VbTLQmvYRsPVywcd
-	rzIU7QXBAqlcXWDqtFphMmlw2ADo24yz8GmsbTZ3ecLCwn0+BNZPhxToO6M0k4rpIaSS4JEJ0t9cR
-	9GvRFWmdOAu7icxsjAL6qJq7XaHfRuDJA/s4KK1kdqejQFFppzrdHhv+jUc9VxfaImzBvYLrHb36X
-	1+4XqS5FOY/zURY2KF1EHe8uY9xDGEhg6xqoxz2Aet/eJzeuY2c21ch0Ma2TGpkU9u/0pZxiVZ9xJ
-	Wsk+/pXFx1PMPhbDr3ICXdUI5pEMUTF8TLRuLvCRhPfyz8fy+knWlRnsfO/hxUMYoRzm97kw3X6pU
-	d+osrb/g==;
+	bh=4tkjt1CvCdql7jbfT8ajkPQtzV1KFX8BJmrR45NSdjo=; b=JBcrBjaxgVU+OwJxqHcVrF85hY
+	aD6+xx4WXng1tpQHJm0tRHLt/W9ga9ya+3xumv/3NsJHWPkkZGSy63tmzhPjfHg038ygACtlOpGb+
+	cVcYk4KcQlVHHjTFdyp1ic6vS0G36Uw22H02ACY2LfNwuh6+sHRCocP+Y84jnO6LneDmqsOV4KJG/
+	aPCwaYByU7ksOESPatA1vPOc2s13DODYFPSww0Dvr/sK5ChbN9d/djKhg1NYS+4RqCsBy2OfLTR8k
+	8mdL7VVgRX7qrEyWsCBPIZqyjTEcXXpwE07oj4+whSBpK9lS1NcyFmfAX5pLZNQ4cICXihKpHoeXj
+	MQtDJKng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuRtL-0000000HU2p-3HHG;
-	Mon, 23 Feb 2026 09:06:11 +0000
+	id 1vuRtT-0000000HU4x-26AC;
+	Mon, 23 Feb 2026 09:06:19 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuRtI-0000000HU1I-3u0U
+	id 1vuRtK-0000000HU2A-2sQv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 09:06:10 +0000
+	Mon, 23 Feb 2026 09:06:11 +0000
 Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61N82OZ5891811
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 09:06:08 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61N5wiXw4101150
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 09:06:10 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	3PO5AtSucKAso++k1EL0+rR2+HTJk9Mvc5WVuDOn4oE=; b=ahskkLVjml4qs9Rs
-	abCFDBueRJNKtfpxcsZThuGyOucLq3meLgxH0ube6aVttmNU36suWaOf44Bv2nQQ
-	1pfOdalqzdw3RfKy++ZA/7fzftLPvTlNshwRP2387r+aukqiXBCG9y6hee3cY+nN
-	Sk1V7J6kgBT9xOjGEIrrtzUqQHo/rGA9QeAUArWMdsojv2ZNB59Iy0HOMSf8qeDF
-	Iskx/NWnpwlizui7cHAx9aLM9oogcOA6rth7ibovhjsGOQObyv6Z1msX7oSOjdiB
-	U5tTLVDtTA3ostC7ZtJ5jyp75duyFqgqkPVr8iwxurCyrQEUqe59XxHCPXDqcrXG
-	MgPrHQ==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cf5wbc2nw-1
+	4tkjt1CvCdql7jbfT8ajkPQtzV1KFX8BJmrR45NSdjo=; b=Eadl/oy99ixX+Irw
+	Mw6rBWyk6+0xGz1YjnhR1h83EMiNdZIX61oSYTTgbqwlWVvuydiXAN2nwiyYQj0e
+	fGncTBKLgHakQ+3yxzp0lnw0Kqv2Sa3vY0+vv5zMo7MjSEhNctdPK4fYF5K0I3km
+	j9MrnaeP6avPVBMTR4etuiHed98B0OPmXnwztGhhJ8i8cbFuwrOLU/kLvmTG6y/3
+	warZ/T4W15BP2Ig2kh42+Y3ld5eeeU1Wks65Sui/dN2tN0SkSX+44Hung92tgogd
+	C9TdcjmUHhhebL4kjsFIyXDrMo+SfoeFDQQ9YtwQC5Rbj+Fgjg0gsVChKxYbbqGI
+	5gCSNw==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cf5wbc2p7-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 09:06:08 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-894709fbae5so519229186d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 01:06:08 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 09:06:10 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-503342386c7so547201941cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 01:06:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771837567; x=1772442367; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1771837569; x=1772442369; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3PO5AtSucKAso++k1EL0+rR2+HTJk9Mvc5WVuDOn4oE=;
-        b=C3fF6NyPQktqS9fSikDVOo3lwUgkWI7hS6LI8MaPLOARkbF/KNaAJEMN0KRCvHTuyr
-         X8z5GT3WvqTNUEGTt2kzZWbWZzicb1iU8buyUIhVGxdK3u2OG7+RFRLDTmeZ67a3af9j
-         4nC+51PaVbO/4VNhJ6Efi2xdYo/zWAo57Ml/It84LnQjUynZ8fZbE25Wm8ToO/jI9ceu
-         iSNlGTRko76j0R5C2Yi1hk9+NiCFoU/k64l/WfT9VRtRR66PwFyXRPEPmoxQVgUGmZvT
-         DQmKedpAHCUuae+DxQ7uwK/YtkkwPoNB1JJ8Eesg0AQzkZmWNrziqmsdVwzroTAyE0BX
-         VG2Q==
+        bh=4tkjt1CvCdql7jbfT8ajkPQtzV1KFX8BJmrR45NSdjo=;
+        b=iW6ZYCfmN3+sVLrVE3sC42/uh27ulOZkpjdk8ClYGf9mr0WAkPgrj6SEEUrfc9ruPt
+         gDfstwwbkeyOKOON8siBfNmPqJnUdoRWrsM+yJlaZPYzWb0LSa1XkEWf2NS9WTfsjPF3
+         gYpgdEsDqdCxIxAZmokBh+Hr1/2tP30fpOHTwFDYrwwK3mrG1V6gCA4nbFcX7X7tB5Yo
+         lkhxI5udjKTReWjmSssibGEaXVqvbzYj94DiFFELD/cPR/YtESc1W21I8vOTHANdEWhP
+         BP88bIYgngiMBxx3AuP4jMR9kH9ig1ZSmD/sOHchx6c2jgppbqfyxRJjyYm6MfKJjwDb
+         FGMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771837567; x=1772442367;
+        d=1e100.net; s=20230601; t=1771837569; x=1772442369;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=3PO5AtSucKAso++k1EL0+rR2+HTJk9Mvc5WVuDOn4oE=;
-        b=mdXUOmq/KGF9FNb0ENfQpVE4YGxZMUC3S2GaNE+1HfZahdnHXFSMCrLRRTB314b/3H
-         B1BCz1d7mvnAsNXqLkLacQ1AYTxDLD9NJsUKL6a830PQaLGVAUlI5wvWwWLNqFfaC0hp
-         jYVOTuQQfz+nj6Jmp7WUb738FuPv+GJ8Q/0IlSEE6y6EVk+CfSQfEwvIIJx8oUaMigpC
-         p+Wy5T66eZb96rSiswlUwug/QGuMFIPeh4XYCW0ClAzQ0WVGQli+e/Xd7gWP8IYiojCP
-         Gt1hbwIZlzDEH/XYy8bDEFTKxuzJDfs07CwsoRPeeuncdxs1Cmy2R4FLr4vUB3E2ndEu
-         Te+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUCzL2xuKEimf2eLDXMRmTuOi9Za2jxSN9KqAoQ/fnYL/JeztexKemx2/8N+Rx5oZnLpX/WkShikCDKovExlmfA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmAEdNj0pEOT1/aNzJ3KdntYDx0pVAknj9v2sWEbFumV4WNZVp
-	N1j6gYav5ljiVQ/y5IgnG6UFGyzkm5tJjR0hbSaktZgc1mJbUz8QjUZLWP6Pg6DXTckH1lICP/x
-	10B48jzyL/JkT0O+g3HXELT0mjpsC9PgwOGHg+wZFuWdL9kfs3ZJ7rzAEaW9pV0xdZeQtts2xgk
-	fkPA==
-X-Gm-Gg: AZuq6aImUUO1Lnjqaua5sks40b9Owg/YQ8atDqDwL/q20ZD5Lx9g67O+mrtcUWHhZJa
-	7xm1wrXwNtYVMa7BZh00CY2wntQAnb7ZcupvCZDA2/2x3OS6aVZ2ylW73Om5mbPWkmlq2xyN4BI
-	nh7laNKqFMGQLt+4n8mpzTSCOMX/+Oq5IHEVzA2m5QBs6g0wMAUFKUHu5Kniw4BCebXSsaQORps
-	wo42GD3te4IJZHrKn4i8kbD2DAr6Wl2fp8LYYshBNJ7tSLCD98SsBQAxH9iw2TMViVdKLCkAI5X
-	EZeSzYp9YucphTvHjU0ikw9EK9iFFR5SWwz/iUktoyf59rj+xu3GDLGuXzTZoRohouDr4ObMJ/t
-	LRznhXpI/55VDLCxQkFGCZ7zw+JifYCtETVtIHOEwKsFjsCws0rXz
-X-Received: by 2002:a05:620a:199b:b0:8c6:b14e:6569 with SMTP id af79cd13be357-8cb8ca94d09mr1041099185a.79.1771837567282;
-        Mon, 23 Feb 2026 01:06:07 -0800 (PST)
-X-Received: by 2002:a05:620a:199b:b0:8c6:b14e:6569 with SMTP id af79cd13be357-8cb8ca94d09mr1041095585a.79.1771837566841;
-        Mon, 23 Feb 2026 01:06:06 -0800 (PST)
+        bh=4tkjt1CvCdql7jbfT8ajkPQtzV1KFX8BJmrR45NSdjo=;
+        b=n8uWlVQr0mQ3mD45+xFb/iULVFhN1zhztoxc8h3rW8K8pYm1JWrIvOrd/jQEw6oW+Y
+         7eGjS+dPTGSlp0XYuhWQVsVVwbd/foq4rvcNgpuL6DMRXv8uJPiUWoy+ilp466wyfDNv
+         xvIzxKJ5rrdu5lzAH/b0gcx+B0k4sOngY4u+H/518fSWrL9UlHm7ssaLwdv/DjCiYF2m
+         /ACg29axXy2jvyDp/qswzoJNfpc7NfOcf7Wmt6G9YudN+Ocq1cEb3UpScgTEuNfmaAiA
+         ykZon0/aQKbzuYjWMxI/2ZCTPVzDjq1jCSYgkivyhlOtLxVzmOyf1Y1EXdHUCuCStA0j
+         mZFw==
+X-Forwarded-Encrypted: i=1; AJvYcCVTPLIQ3QJVvtnteLT0LU5xNGdczfPWp9bKfJI33vQ5kzstqAEjvDzO211xI/WDBYl3MbxGqzBAf01v1ljSPYAv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp38yQGychgrd1idgTT1kmN09aX71NV13sO9e/0ARNe7IaSuuE
+	6aAw5LZByk/zpKyFHJ5ep6btLXVR2slWzyxoRGxD1O3kNlRMqf0b4km5bOsGc6V9TG9iJ21DJHj
+	O9bXkEdePxhOKeY8+TmzHBdkyfOt8iJESRSkXlit7TRUWeevJEEHF/DkjktSUA7I3uIH8pd87nE
+	hjEA==
+X-Gm-Gg: AZuq6aKxyk9owcRHme+mQWN1QQQbJPL3feihI9Dh3CfuPQUEk/Z87NKhH5FCPthQfwT
+	Jho8U1ssSxxtqOta6WhHzYTBsGTraHRQPQRJFLQoRyBWf69HQUqxrpkkB+K6N3bIt1orwNYPq9Q
+	FtaqHmv5L33mIpr3k7Jg9DlDTnFilu+LlISDVzco4DBHbEmxNT5tM8zS55SQ3YPjFGy//yOTdtS
+	NBWUa5p1VwaoSdb2BSZ/KajIz0RcDSPcO5EB/+AewzTR0sqRSjEKdv04gV4Cvwask6YJMpf8Gz4
+	lGDgzweJdZ/QiuNaA8ZukvwrXCk1bqvLUHuHkNqkjFD26kb08d7VWo9j9AtdV8IWm558m2cISaR
+	3udOY59EJty7sWdZM0+xRJ78v8X/alb674g1FqC3ZLMMMJBH24kqq
+X-Received: by 2002:a05:620a:2986:b0:8c5:310d:3b2d with SMTP id af79cd13be357-8cb8ca03e68mr1071110085a.33.1771837569221;
+        Mon, 23 Feb 2026 01:06:09 -0800 (PST)
+X-Received: by 2002:a05:620a:2986:b0:8c5:310d:3b2d with SMTP id af79cd13be357-8cb8ca03e68mr1071106585a.33.1771837568736;
+        Mon, 23 Feb 2026 01:06:08 -0800 (PST)
 Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:bd71:422c:5e83:8b37])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970bf9feasm17791593f8f.6.2026.02.23.01.06.05
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970bf9feasm17791593f8f.6.2026.02.23.01.06.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Feb 2026 01:06:06 -0800 (PST)
+        Mon, 23 Feb 2026 01:06:08 -0800 (PST)
 From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Mon, 23 Feb 2026 10:05:47 +0100
-Subject: [PATCH v2 01/12] i2c: allow setting the parent device and OF node
+Date: Mon, 23 Feb 2026 10:05:48 +0100
+Subject: [PATCH v2 02/12] i2c: qcom-geni: set device parent and of_node
  through the adapter struct
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260223-i2c-adap-dev-config-v2-1-d78db0a6fcf7@oss.qualcomm.com>
+Message-Id: <20260223-i2c-adap-dev-config-v2-2-d78db0a6fcf7@oss.qualcomm.com>
 References: <20260223-i2c-adap-dev-config-v2-0-d78db0a6fcf7@oss.qualcomm.com>
 In-Reply-To: <20260223-i2c-adap-dev-config-v2-0-d78db0a6fcf7@oss.qualcomm.com>
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
@@ -125,38 +125,38 @@ Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
         linux-rpi-kernel@lists.infradead.org,
         Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1578;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1058;
  i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=w5QiyKZ/sytBbiuy/pPV3fyHy9AlIC8Mm/XcZ8uxqD4=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpnBhwPaKoFJzyHUF6OMpnWGL6DX+ETQlRO5Y8c
- Ld6Qx2JUB6JAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCaZwYcAAKCRAFnS7L/zaE
- w/suD/4iFUyy0Dy49wTZDnpa2IU80l3NwdwALBtTFaokDwHgcweeaZLnFS+uMukTPoA6AdldIU6
- Xh4ZwjycC2TaenfGxYlTYVfa5ORU+p7HYVK0s6JQgqEhaXYdLLoxW2wC0VPADhBaNTKDgKjjyhu
- rmn5Has0Jd2hjrBY+aV96wRmo4/gieVqjUGAa1ClHeWOCy99MMh39cnk0y+MwKbQe24DIH0T/dq
- zQ3TSL8mqDXnKtnas9OqHTj0FEyC6uyiytZ+Zr4aezeellH2itHJzzI8Jy2y0BfRSkivHURH0xi
- VWmPtgxSeZs/nGjgUfAglbxQ7shfCBLe4jvM3sB+pwQIkucLvoYAmIsezdq4UrtRjy2Dq4iKvjz
- fCSlFthKTFiU/egqBN3hYrjM8ZxVkeT8PyTIf9ar4sQHLWHskPP2L+SGJjK6aEuVMorXFC3KMx/
- UxFIVf25usT/B/LO2Nj2evp9DYvPdMiOBLKKSP3O7zHjrYATLcdyDWew4Ps4033GbN7hK62/tgz
- 3Q3aQrO1e/Vj2dQNHSETTjc0RefDW0cNSPbQbKoEpBbad4m1l6PsaVvZTw8px5OViT/l5ZKU6Ui
- J1+wlOaLdLrFzwfvmmWzxVt15PQWip1vRosoqASWqdOzpUvj2zAjxnzF7hszS1+6h31ZgPaMma8
- Iyx96xyVHty1QFw==
+ bh=q14XiC/EF5mMq9yShl9lco+1y+s7ckLltoYVG3d8oSg=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpnBhxLArCtmmlE4gRC6CeGEzvDnbPvKlM97OaT
+ prp2vCjynqJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCaZwYcQAKCRAFnS7L/zaE
+ wynfD/9nERsf8qMwPeM4IonodXdRsy+F64xQK/uJ8mfcnvZ7ZSWSuU3pDRsjoQDv4nAjW8Z9/Me
+ SHXKyhu7lahHo5a/SFSde4mbEa/ZxhLn7prdnZv4fcEfiMiOMd8iLOHm/J6KiothsVFfhV5khGi
+ 7JeEH1JlSiyQsO1W+QsQ/cvXeyYjWUxQg42KyPDMfqn8Zu97Vm+ytckEQNKQnjQ8B8Yf+tf0jnQ
+ LqrucTueZ3rYk2i+SRB8fFmC+cSQxO3gfUJCPowDsROzIKHlG6ANnCNw31IBb0KfvzYnqsCm7oX
+ id0Plrm1YjxV3inA76Dl4Swu14UqUX8C78Xm41wBD6JVYkfzuewMmNLzCtbW5wj84Y+461lTBns
+ ERoDa4DNFoDRhrZlsnivGFpW+deCli/KIqn193yageDShkXqk1E6O8/wMYKMRq/h/JjHml2c6Y8
+ mxi3Jty4CDeG2zPkd4Kxs2P7cNUBe07XoM1i9b/X2z38tI7nklLkL/ciyoYbCdJb1fJoT1+z25P
+ PUXMf0/Rp4RbJZLzyEwM+2dHiUJLfu7qbFPhUDHiZTjXK0CjZ0ol19qi9OSS8NapU90EqB1KQyG
+ StFY/1gRv1rOXL81boZNNJNWLYXe84MuRjktMGzdPXegmAFX5gU0VDPtI6a8CWXOxLHMdHfIUaA
+ zBF6WRa/X+6Bv/w==
 X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-ORIG-GUID: CQP6zd_C6HzYHrtay334b6Qc2_DjaNcq
-X-Authority-Analysis: v=2.4 cv=UZlciaSN c=1 sm=1 tr=0 ts=699c1880 cx=c_pps
- a=UgVkIMxJMSkC9lv97toC5g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+X-Proofpoint-ORIG-GUID: ZQ0rtS_-bXyqD9nQylpagnLMkQ0XYONy
+X-Authority-Analysis: v=2.4 cv=UZlciaSN c=1 sm=1 tr=0 ts=699c1882 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
- a=GqsknrqNkdw30Ab-NAsA:9 a=QEXdDO2ut3YA:10 a=1HOtulTD9v-eNWfpl4qZ:22
-X-Proofpoint-GUID: CQP6zd_C6HzYHrtay334b6Qc2_DjaNcq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjIzMDA4MSBTYWx0ZWRfX0paiJX6y7Ljg
- nv/0Ff5oICoKlR6p4iCtVB3Bo6tp0mAw0mMGy3Nkzq1F0Ps62DGW/rBD2t6gzGKmI6Feupeszuc
- hyx/uV7unM/DcHG6r/bnCeJ1LaZfhTW6yiFTCmmHHSV55RLBXrM/CyDoPZWH+XzvekxCRc2/479
- Vbd0ANgeuAHdmh1hRjWnmVtM/DadwmOIvrQ1H6SsSQgWyzNHOwSEiORXC3QaAHDPu4J+JLwn34q
- LvCIqKyPat/SKeE4xlSgTfwuei3CmyuDEdNmXBZhkhmOPkU2B10ZfHCIjwy35mtBXtsOT3/uFBK
- C9b5K0vTYkSL5OSlovn6G0+sgjPL0Hev0UJKi5gvPkeJkttwO8T/SOl1xVMOoTQzmAodMuNdUut
- 1ehXo1Q8SZFRxWIcZvfw+mjHMItlNsTxccAkwC5+xFZBvyyPuXaxXuqd+1fSFgDjnGaRtPIMuPs
- fyjwduQfNrKBXbMr5CA==
+ a=GyXxqrRC-9zytgsE6zAA:9 a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-GUID: ZQ0rtS_-bXyqD9nQylpagnLMkQ0XYONy
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjIzMDA4MSBTYWx0ZWRfX3HWZKWtTHskG
+ 0dxfE7nJr69I3Tnlk7gPiO55Y/8nehQB+8NI3POp3jY8IkukozBXcUAdSiArEyWl/jago/PAgxm
+ WyqJr599cWXsDXr1hA2MH6OrEIS6Z/PF4MjBCgcoTb5w1SquCiwWK9kx/p7k35fA2pOfOLfC0Va
+ BpqePSzAJlZpHYmSo8qepmH2u8tFDWdo7yhoJIUxoLjvZjjdoarfeKZnzn0IL8ph0QImPpTITjF
+ pjB9HmMIvFfBVelOtoHn+OXiwszW8fgnP8AFirpiM7/pw5HS6rfJCtL4kq90BBDg/UQSngPcKD0
+ wGq0zVQtsJAb2FyOLdLYKMMAZTy4e13eb+V1r/ihepMHqNw87+tc/J0+4f9WCKAK98HeZs2YnV6
+ +AOWZfr/BjYiKkhT2com/DWGibLPgPlxNcgXlBQFCrAYq6J+PjAG+0qZibZNumYUskduSbVVuD1
+ Z4OYH76oaH0Tb9C91zw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-02-23_01,2026-02-20_04,2025-10-01_01
@@ -166,8 +166,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602230081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_010609_034269_A96395FE 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20260223_010610_721344_809AA9CA 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,47 +182,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to stop i2c bus drivers from dereferencing the struct device
-embedded in struct i2c_adapter, let's allow configuring the parent
-device and OF-node of the adapter directly through dedicated fields.
+Configure the parent device and the OF-node using dedicated fields in
+struct i2c_adapter and avoid dereferencing the internal struct device.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/i2c/i2c-core-base.c | 5 +++++
- include/linux/i2c.h         | 4 ++++
- 2 files changed, 9 insertions(+)
+ drivers/i2c/busses/i2c-qcom-geni.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-index 9c46147e3506d15d53b9b7d6b592709de56e41b9..dd8cec9b04c64b8340d20e018ab5ba28f1f7f5c9 100644
---- a/drivers/i2c/i2c-core-base.c
-+++ b/drivers/i2c/i2c-core-base.c
-@@ -1561,6 +1561,11 @@ static int i2c_register_adapter(struct i2c_adapter *adap)
- 	adap->dev.type = &i2c_adapter_type;
- 	device_initialize(&adap->dev);
+diff --git a/drivers/i2c/busses/i2c-qcom-geni.c b/drivers/i2c/busses/i2c-qcom-geni.c
+index a4acb78fafb669f49e71f739764b9779617f0cb5..d930d198518718aa107819cfebadb9e32a1da377 100644
+--- a/drivers/i2c/busses/i2c-qcom-geni.c
++++ b/drivers/i2c/busses/i2c-qcom-geni.c
+@@ -1039,8 +1039,8 @@ static int geni_i2c_probe(struct platform_device *pdev)
+ 				     "Request_irq failed: %d\n", gi2c->irq);
  
-+	if (!adap->dev.parent)
-+		adap->dev.parent = adap->parent;
-+	if (!adap->dev.of_node)
-+		adap->dev.of_node = adap->of_node;
-+
- 	/*
- 	 * This adapter can be used as a parent immediately after device_add(),
- 	 * setup runtime-pm (especially ignore-children) before hand.
-diff --git a/include/linux/i2c.h b/include/linux/i2c.h
-index 20fd41b51d5c85ee1665395c07345faafd8e2fca..72677f29aff161530bc3c497d1e07144a44eb9e4 100644
---- a/include/linux/i2c.h
-+++ b/include/linux/i2c.h
-@@ -761,6 +761,10 @@ struct i2c_adapter {
- 	struct irq_domain *host_notify_domain;
- 	struct regulator *bus_regulator;
+ 	i2c_set_adapdata(&gi2c->adap, gi2c);
+-	gi2c->adap.dev.parent = dev;
+-	gi2c->adap.dev.of_node = dev->of_node;
++	gi2c->adap.parent = dev;
++	gi2c->adap.of_node = dev->of_node;
+ 	strscpy(gi2c->adap.name, "Geni-I2C", sizeof(gi2c->adap.name));
  
-+	/* Device configuration. */
-+	struct device *parent;
-+	struct device_node *of_node;
-+
- 	struct dentry *debugfs;
- 
- 	/* 7bit address space */
+ 	ret = geni_icc_get(&gi2c->se, desc ? desc->icc_ddr : "qup-memory");
 
 -- 
 2.47.3
