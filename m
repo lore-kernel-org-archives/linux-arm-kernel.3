@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B51EA4FC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 14:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04632EA4FC6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 14:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HF8zGd0aQsQ7XGLlCXNxkoglDdo4nbAe1+o0vmFJQiQ=; b=zPHQ8wEUpmCdlOJIw4pnz1Bckg
-	8SJ8ZXrRb7dsThGNZ/l2UQ0h6hhJ4/PUUApKFp2tP/WHpa/cvQoc2Qfv40EikpVW81IX5OavvfmLD
-	I+MkgaIsHY8m4QtHm9oLDxN0qh049HihAL7toBHaeIydXFJoc2sff6IQ9s9uctNapDMK9wyDyp8q+
-	JBZjg10BoQONp60H5oxHu+WVHpmV6UVdW7iXlfZPeOBcTGYDW1VPPdmK41/xXzDYOL15MTiK1iRuz
-	JAy59+HFCKhzjp6CyPfs9JsMaep9UjVl+BpftKILmxC8vtmD+vJ1hA6yvktx/Qqk4Xb6coH9jBQEx
-	sQRLh8jQ==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8dsGNhs/X2W16wd1pyLsNwJnTK0xSFKOeI3nGX+ZGPM=; b=xpu4EzWyuefTnQoAcRmtxLxEDg
+	36oZc/mEKfw1g9rukKkfrWXXhPEC3RKawgE/dCWBAA0Bz0BgCh6omDfFQMScPZ/LmHSX2AeozisbF
+	A4Kedvp4tCWaYCZYx9B4q26+GEEo/q4stVPfg0QKmsso+U4DVCWikzSuJ7z72jMYz/+nLdZgN3/VD
+	TOA/oF1Fo/N9tgI2GUhg4a4ZbWg9N3odoqIQG1uwsHnNioCvuhlf03l1LLiyyhtlLDoEhyNzRDZFf
+	EDxonjiF+bWgiE43PhmdPG5wFFuZ5729HE+YOtBa6Xtb1Ot06hoRSkyVoaqJyhBScl1zyMbsEam4E
+	VSn/iwzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuXB4-00000000UhA-0g4J;
-	Mon, 23 Feb 2026 14:44:50 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1vuXCW-00000000UpO-2Ps7;
+	Mon, 23 Feb 2026 14:46:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuXB0-00000000UgU-3lmZ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 14:44:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771857887; x=1803393887;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Y32WQTAqs2UW8D2aV2XoqsENrdmy1i9tl4k6oIU2vyM=;
-  b=hM78A/qRdcFgVC1KSKIT4YQCmWuAX9d2u2a/clcBYSy9bsicYa/ufrtI
-   FwdMR+AXS2dGzssITr1Fsg1Usz1WbUa222TevxarZiGMDNQ60Hk0FTDF8
-   yG1RkReYYTTu3/7W69cpQkmqAXAnvLs/UVBCd+AdHBhfxov7Os/UmIanT
-   t2TdLBt10AF180d2qc2y7+mI0JTF6UlGgnJrK5B1QsXCh8Y7pcXEZ8kkP
-   pvBI2j8zcl0nqVUZBTM1PYYqiM34cSgLmu/21eNS7NYmuKg0RnWInIcGk
-   IfoEfs0eSR4TbxobYJaPqESAN6rZvyaqjWoDW8xHeg++SFaPw14XLjP3o
-   A==;
-X-CSE-ConnectionGUID: 0orXmt0AQ2SSERcXnNKm0w==
-X-CSE-MsgGUID: x6icF0RgQVSm8xTCJNYP5Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11710"; a="72952941"
-X-IronPort-AV: E=Sophos;i="6.21,306,1763452800"; 
-   d="scan'208";a="72952941"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 06:44:43 -0800
-X-CSE-ConnectionGUID: sz06HygHSkKYk9AzfMvJnQ==
-X-CSE-MsgGUID: QE4nOGsiTn6o4l29nknJHg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,306,1763452800"; 
-   d="scan'208";a="215600415"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa008.jf.intel.com with ESMTP; 23 Feb 2026 06:44:41 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 060CC99; Mon, 23 Feb 2026 15:44:40 +0100 (CET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v1 1/1] spi: pxa2xx: use min() instead of min_t()
-Date: Mon, 23 Feb 2026 15:44:37 +0100
-Message-ID: <20260223144437.2836369-1-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.50.1
+	id 1vuXCT-00000000Up1-1Tkb;
+	Mon, 23 Feb 2026 14:46:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A06B5407C9;
+	Mon, 23 Feb 2026 14:46:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52568C116C6;
+	Mon, 23 Feb 2026 14:46:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771857975;
+	bh=teNVBJErbdtcUWBxBqB1OQagnnRI/zPyGSOOwMdkUNY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=me/OJi+zmeH2vkjG9b4f82FAl9EM1UZzt69iajB21pITCljyf6YEPK2ufDGBErn4p
+	 GR3d5GxDZgTOn5eKSUrJfw8oZm3p3FEIdIW/ZL93xuaWEc+H1ZasIO1WFzEOiViaQI
+	 YKzQMNCr/6XWrALZ6/nIH7ZT2eDLpMs38KVXnSsgO3SIUihqNm9dYr/JUiXogqWCqz
+	 SpetGQ0CYqs9mnyEtmQ8FKCHW1kfoWksIWv36oiEjtoQ4o1AN6pEoeTltDd7C8yixO
+	 AJudpKBdPHE1ZIlmo5pUANfHzHi0370aqsAnoadrKeByTumiYPq//B5x/XxEtz0dEV
+	 Cy8rYDgAEu6Uw==
+From: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, 
+ Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>, 
+ David Lechner <dlechner@baylibre.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20260219-mtk-mt6359-fix-regulator-names-v1-0-ee0fcebfe1d9@baylibre.com>
+References: <20260219-mtk-mt6359-fix-regulator-names-v1-0-ee0fcebfe1d9@baylibre.com>
+Subject: Re: (subset) [PATCH 0/2] arm64: dts: mediatek: mt6359: give
+ regulators unique names
+Message-Id: <177185797303.229167.4225970079951259515.b4-ty@kernel.org>
+Date: Mon, 23 Feb 2026 14:46:13 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_064446_947318_67145E1F 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260223_064617_447432_EE9379BE 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,56 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-min_t(int, a, b) casts an 'unsigned long' to 'int'. This might lead
-to the cases when big number is wrongly chosen. On the other hand,
-the SPI transfer speed rate is unsigned and driver uses signed type
-for an unknown reason. Change the type of the SPI transfer speed
-to be unsigned and convert to use min() instead of min_t().
+On Thu, 19 Feb 2026 16:55:28 -0600, David Lechner wrote:
+> While working on this regulator in U-Boot, I noticed that the regulator
+> names were not unique. This is considered an error in U-Boot and we get
+> the following error messages:
+> 
+> mt6359_regulator ldo_vrfck_1: 'regulator-name' has nonunique value: 'vrfck
+> mt6359_regulator ldo_vemc_1: 'regulator-name' has nonunique value: 'vemc
+> 
+> [...]
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- drivers/spi/spi-pxa2xx.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+Applied to
 
-diff --git a/drivers/spi/spi-pxa2xx.c b/drivers/spi/spi-pxa2xx.c
-index f7881a31e4cc..23e40f410814 100644
---- a/drivers/spi/spi-pxa2xx.c
-+++ b/drivers/spi/spi-pxa2xx.c
-@@ -796,7 +796,7 @@ static irqreturn_t ssp_int(int irq, void *dev_id)
-  * The function calculates parameters for all cases and chooses the one closest
-  * to the asked baud rate.
-  */
--static unsigned int quark_x1000_get_clk_div(int rate, u32 *dds)
-+static unsigned int quark_x1000_get_clk_div(unsigned long rate, u32 *dds)
- {
- 	unsigned long xtal = 200000000;
- 	unsigned long fref = xtal / 2;		/* mandatory division by 2,
-@@ -885,12 +885,12 @@ static unsigned int quark_x1000_get_clk_div(int rate, u32 *dds)
- 	return q - 1;
- }
- 
--static unsigned int ssp_get_clk_div(struct driver_data *drv_data, int rate)
-+static unsigned int ssp_get_clk_div(struct driver_data *drv_data, unsigned long rate)
- {
- 	unsigned long ssp_clk = drv_data->controller->max_speed_hz;
- 	const struct ssp_device *ssp = drv_data->ssp;
- 
--	rate = min_t(int, ssp_clk, rate);
-+	rate = min(ssp_clk, rate);
- 
- 	/*
- 	 * Calculate the divisor for the SCR (Serial Clock Rate), avoiding
-@@ -902,8 +902,7 @@ static unsigned int ssp_get_clk_div(struct driver_data *drv_data, int rate)
- 		return (DIV_ROUND_UP(ssp_clk, rate) - 1)  & 0xfff;
- }
- 
--static unsigned int pxa2xx_ssp_get_clk_div(struct driver_data *drv_data,
--					   int rate)
-+static unsigned int pxa2xx_ssp_get_clk_div(struct driver_data *drv_data, unsigned long rate)
- {
- 	struct chip_data *chip =
- 		spi_get_ctldata(drv_data->controller->cur_msg->spi);
--- 
-2.50.1
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
+
+Thanks!
+
+[2/2] dt-bindings: regulator: mt6359: make regulator names unique
+      commit: be704107e79696e855aa41e901a926039b6d2410
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
