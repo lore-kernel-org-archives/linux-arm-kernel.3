@@ -4,110 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2DBEA4FAE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F388EA4FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Br5siVwmXHkLMmqx3d4sgf29fX12Q6bdQRYt3PwHjas=; b=G3gh2yTHVPlhzC6Y3v7k1/JzUv
-	VSau8spLcfON0T7SI23xPEwL4LIZ9Q76SSitmC+hN8UdrDBwt7syClmicxLPgih1iiq2/Nn8gYC2i
-	xLrmezuhf9VlYrNYhVWAkIHMBevszvFvB7VFelw/+4IGhr/Mk86eAXcIS1C2Wiy7HXmB2Oi/0RWif
-	ZvB2KDJHtzIbt4iy8GBEp59Lxqjt3yhsi8n2hSTek9hdkqWmUmEXCNj1VKlKpJt3eZbHwfwW21qLW
-	yKCdRlIGw6CYHgTVzB8AsT7lz6wYASZJ+XJ1IQya4MgFwa3ei0WgIwt1Ykv3ButiFoIYZxoWPYwWX
-	Lrcela/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JV6MMROodIfNHs5yZIiROnA2XT+gIEtvvO+RXDqEFEw=; b=qdc6l5cy7Gafxaodjdln3eOyLM
+	AIprZLgaBgpkSjWwEKQk13MtjHVh12mzDmgwPghjTdu8dE+/bCj92lvCp4xNSnrmCFMrdhjYIkOkO
+	JkbL5WFK8z/fKZHvutG3EIIoklHT7MVvlMnEIDZE9VLPMh0SlCrRaODPfFjK4IWLMLO4zMf5SsZ+q
+	6oZLSRo4HoNmqK9CDs3XGZ0txoUbyxtITK3r1q146CH8+2ZDflZIa1aSaSXQpjSa+dLTyf2nClOOm
+	1hsfdavW0OGdB5jOTJ7LUFg/eUl/stcVbqryfcqMAN/UlsZQHyto+vWSwrMuw5bY7p90DWhx4vx3j
+	ijCWSD0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuU96-00000000BOK-05EJ;
-	Mon, 23 Feb 2026 11:30:36 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vuUAw-00000000Bat-1pfI;
+	Mon, 23 Feb 2026 11:32:30 +0000
+Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuU93-00000000BNr-1JZA
+	id 1vuUAt-00000000BZi-0pV5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 11:30:34 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ab47d8b33cso23392895ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 03:30:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771846232; cv=none;
+	Mon, 23 Feb 2026 11:32:29 +0000
+Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-64ad79dfb7cso3872868d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 03:32:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771846345; cv=none;
         d=google.com; s=arc-20240605;
-        b=RJcpojwS0dBmGbjwMkssBPtSAi04SvLrdIzWgn4+mAoBJHLg78d32SKexPCEE90GRP
-         LpIRJ+wsqk8GK8fB/DLe1gH6m488ZW+r0PWGpMoH3IJzKXu2Xn+kzGXWAaYrSPRimKrX
-         eQqTeJEZrxOWogWM21XWZcubR4eew9AJO3/Kk1a1v3I9+wkR0ZZK0rW67S15XNeATGPp
-         LNa8rXL0q/ZVqKdVSffJ2VXs3hsozuxKvpVXkjsq3Ww2AavvKJ4CmpTL6kdHbjUU6+r4
-         WAjF8RxN0eHFkxNVPkOj+MsinlRLDzGVjSI+6mkYl5RVYrYTyJxJbD8bR7aTAVYlLLWp
-         +jhw==
+        b=Wzn+rdM2L7ss3BskQhkRj4evl602er1TOvnivi/NVHHs9HwMiPggJbFbsKFxDROw+l
+         pcPcFjCoPRgKolShi94Ith2NCpY1JXQsPRL0AmdbvEWxjoDFFtXBDyZy2km0LeGwSG4o
+         +hMtEaR2XNjyIh4nEvQAwml2GFGutjND5FVy99A6tlY8WFdHnzRFuNEc0eX0YXgBOMpp
+         a3LlHaClcmiG73cfN4pqk8qgCLK0LeVRru4lU3Wqh/8xApDSissQqu4LUGCOexfVLjaz
+         Rpf6NCG+zsFA3+SEYRY8K0V7cpwStX8i1YSklcgmyhrG7sualzUOYIQ9P5BO8NDvQjcK
+         s2XA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Br5siVwmXHkLMmqx3d4sgf29fX12Q6bdQRYt3PwHjas=;
-        fh=Xf8wkCS80FEWk8qXezo8IcHoVSajvPfqHy7GJCQg2u4=;
-        b=UPyXyNi9jth6LEcA4liIT8zYh7hA4099yarXARukKEdl9ozLt4txqZ5GyEN+Wy2Qbx
-         9g5UyFmzakMHxcjo+Y0YHNrX7ZDZijOgpDFtD4klnwn9Vm2TFRVlSG9Bv85TLOdUmlMd
-         3NKEOf2znWq6RrnQbp6IQUa0EEnHBS0f/8vT8jCr+t/cIOL3da9bxWqdAFjV4HoqWJNk
-         Ndwo5EHmUbcqXVB7r0lZbX/cjv0xPWWt5cZExfU5eIVjdXgv90Kca3GbZUq217Uc/Avq
-         9LEIpylaXGXS3pOyndAatUkT8mfZiirF5rx5fL0Ido3LyPPdDfgiOK1LtgvlaW1ewWhx
-         +93w==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=JV6MMROodIfNHs5yZIiROnA2XT+gIEtvvO+RXDqEFEw=;
+        fh=QVkH2JJHFOwYEzgXaOW84xeTg+FnuAbYF38DhDY8YyE=;
+        b=Jz+qV+fRNt7nT1Qu6IQwjdHqufxcCm6UBiPFp8tAFQ0QEoBwreiDzRZfmqS1fFqkGz
+         27/QOKjoQMvZLkM/drPvC3yWGO8dKWn5Jvxg3HVWPin5pFExfoQ3/5t8LEoyEZY8OFVT
+         3Vs+ZYzs0tl076SG8/NjnOXss7uSs6lu99TWrrV1HLFjhBY6youdvPNfCt/oUF2us0Y+
+         n5OQBSht+EtA17t9UDzXCybyeODuvsFZjs00WNGOf6hw1bohE/uFBq9u+RwnlztMa73p
+         WOS5tDhB2TIXEzBXPSbxA4++3wUFEOoHxA2LwQpD6+1wczwjKiZqqBp2NEq5/nMSX9Cx
+         HLjQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771846232; x=1772451032; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Br5siVwmXHkLMmqx3d4sgf29fX12Q6bdQRYt3PwHjas=;
-        b=YtMUuE3mYJ6Ecao2qkxXqMP8TTXsEno1pQ0GALiJJAS1L1wHDqejcDaYNcVS6B2zyh
-         auG7MorXEAe1fyl9t0yR8YRPONIbhjlm0jp61eSKuEUQd9QmcAkBlVaY5+EHLWwnztYE
-         aciBEcsgyi/VQASGRqy+9qt9RFQ9eYWfBz8f8k5xuc4ZP14oKCfcflKa9/DSnqTEOJ76
-         WdcakLxoIKh6j86uWMrkf3I4TYjPPRu6Bf+mjS9LWCBeX6H3eBpc5MpSmLo2Wn9y8gOm
-         r1pr0sVQXNKdc3s7xuFgB/MRFUl5cOuK/HeWCtLZ0T+QoQh6ICRfJOOATt66ThcTqqao
-         ydmg==
+        d=raspberrypi.com; s=google; t=1771846345; x=1772451145; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=JV6MMROodIfNHs5yZIiROnA2XT+gIEtvvO+RXDqEFEw=;
+        b=lIHBDE1WwfXP+c/KlVxiy7aCrB0c+RRRRvQ0HOXhZCEc90x1NKHRx0k9oBciesbK+F
+         U3S2CmyVVo+6KDHQMdXQFB45NITlK5Ahju/FHr5fht/vSYMXS55XxOrCu3gjg/6Z0GAa
+         Fnb/tgaUkIeQkxmwknFTQR7f2p+XxsGKY0pPjU5RXRuVV/v/lBTysxwSQzRhnW/yunFb
+         CALS0XHBzl1OE+8KFFWM4vPJbvHuue7bqp2IjSisBxoQkZrgjoczZGrYxvCTDwXIQkwq
+         jCIBnLFi41GHVaVqtP1v0E9I/GjmOZln34Zp1gg6/wLu/cX8oCfFRN5b/2uLL+sHiOX7
+         1LfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771846232; x=1772451032;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Br5siVwmXHkLMmqx3d4sgf29fX12Q6bdQRYt3PwHjas=;
-        b=eBsAlOgm0GKs6exfwq62fbAtk3eZIost+CcLwO3OBteFZe8AQbRVPQs1nz32Vskk7u
-         jNpzUdS6gDcQOVJNflRYGBRA5CBf/z22Z/Hg2dvhEjGcJdgaxgpX+xJ7tCIMapR8Vaa+
-         uj50Uj8ng613G7fQjTVHAD/k5vj2cMHG0aY6vs/+Iq+S7g92JMKlNb36UfvjJVO2M7QN
-         250P+6K2vzpKP8doDYUWjQhGrl8h2Ng77Ofx1YiA9bMnThElqHmJlK9QMI+HktPbq8pa
-         AUZvV1BBSWqCk70TF+H5CKJfCcczcOPXt39JPR3gq3Pcm66hUsaM7fNdFhZISn5noIem
-         WEyA==
-X-Forwarded-Encrypted: i=1; AJvYcCVDi4KMa4jmyWcucdCHcMioIbxBIQwhr+MlV5MqoDOO/eCW1qOV3/dnD+Lg8OV+Au+sD2VLCIUEEurba5KVXoxd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQms6qld2vTge875gkOQJSM/pmKQcd3Ukl652yS/b3wGDgt9DX
-	ZtYNvHz651c9RzKRHPC4pbBUbMC4iyQtGoKjCn2wHlF57o2+lE5jOuTVEHR532nRVpf4PMZmiVj
-	UwTh+eoXXHXvZ9gcjEmu/kOr3SC5UEQo=
-X-Gm-Gg: ATEYQzx1R+m2imu7ss2j0ccVZFifunJPDksHza+tuWmu8O63+Hy/RnWKLcohlrTMggn
-	lW7saMl7XuDsagea3qGcleRXlW0zjTGTIiNHx/Wloa2lkUaD5onwAxXhY65bsgJG9V9azISO4Ra
-	s4AaDpGMBWZR14xDi+jpJ740Ca3qdzDe+cKm8PfpCRkePx9EPXHQe3S1tkXgFWIpKagvbGkuJNp
-	JsHVD9cuZiefoz8SoKhi2ZVT7tEh8+fKXapszBJ0M25qrZaXmoQgO1HDwMt6OIy+rqy7UPiMXH7
-	Yjzn2Jgky8F1J7ej4h8=
-X-Received: by 2002:a17:902:d508:b0:2a7:95d0:d77d with SMTP id
- d9443c01a7336-2ad7453d949mr77681755ad.30.1771846232419; Mon, 23 Feb 2026
- 03:30:32 -0800 (PST)
+        d=1e100.net; s=20230601; t=1771846345; x=1772451145;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JV6MMROodIfNHs5yZIiROnA2XT+gIEtvvO+RXDqEFEw=;
+        b=YK1qnZ8siQTXB9GM1pw9sSWxxg/WpEaSiZ2uEFuzv//tFTiEjVCUOFKe17wmcJU4zV
+         l2TH97aCoximqppe/uiEzIVhB0V60vMhRWu0qr9Y+Pj04/Tk5NnXURceTrVWdwhfJOKu
+         3VLNupQdc8cs0lZb4uFJgXa9xMTEgNF54J8FWbdJ5b0rypXU/1de5TEOd248eVImWHui
+         2Z8WNjwXJdU+/kGatZ+QMmLs0SwBK8RoAfGsmgFDROxiJTVeSrFyxy46wMF1HYXxqwQR
+         cp6Jsc7v4JlAE9q1yFH6rTFcEXKouUYSGMK+gMFPnpoLnc/2nqbfYXJ5ewVyC7ya9wNV
+         s8+A==
+X-Forwarded-Encrypted: i=1; AJvYcCUXGPE27g4679DyDEI49iNrCTDndAn8iOMQFXzbNAi/9nYwpGJAPIpGZURIbn0YFjDcUWLz/PsKdJwhjSfN5F7d@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJ277Ax4XHCHhhG49rqs17v4eXu/I2rGB/cb59RDsnlX5uTpHl
+	p0UnHW7vAIKazGxPEL/FtIqEcjHo7Qdr+x2WuQR2ITN8lgSlmoo3uxUXFr9YhrMn7+xch1Szxv5
+	UTZ7PEbHnvsAHAvgdCnrsLvfvePD5cXZBRzUfr8Nerg==
+X-Gm-Gg: ATEYQzxmF2kIqYB7nbSjiDEcD7hKnCwyZD98AFj2N7tsrSr/O21mlIqAKVxdU6AG0o3
+	am5ixmJi+EYq1MKFaTH64y8bfX1Di28i1TYsl5zmiEtL4icrxrId2m+Y5hhYOBuPoKQxj3BgAxc
+	H+fnvLPJ934AmeKzAmxqdgNRz3/CiejDRpxuMXUN/hmA8erk7WKwJMWhDYYT/J+CXtJY7eFxOpa
+	adeMOMb1Ot5AZKYtGjrLDvvDfxDXoZ9aBmJZ6NTgVjyVIqveD0mqONC7eXjFl76LgVYwHjVOYNp
+	rQBM/iYGlzg69xqPaFsk/XKuITbT1eAO2Kh8+g==
+X-Received: by 2002:a05:690e:1601:b0:63f:a7dc:5661 with SMTP id
+ 956f58d0204a3-64c789c7e4dmr4751859d50.12.1771846345547; Mon, 23 Feb 2026
+ 03:32:25 -0800 (PST)
 MIME-Version: 1.0
-References: <20260130-yv5_revise_dts-v4-0-4d924455f3a7@gmail.com>
- <20260130-yv5_revise_dts-v4-5-4d924455f3a7@gmail.com> <73c63bc2f5eaae2c931a4ced1462024bd5a24237.camel@codeconstruct.com.au>
-In-Reply-To: <73c63bc2f5eaae2c931a4ced1462024bd5a24237.camel@codeconstruct.com.au>
-From: Kevin Tung <kevin.tung.openbmc@gmail.com>
-Date: Mon, 23 Feb 2026 19:30:21 +0800
-X-Gm-Features: AaiRm525snvy4mZcI-Gd7f7l6WX-PGaNQoSq0zz-Wk8sNwF6B9itjJFnA30z6ik
-Message-ID: <CABh9gBfuacGFHqSFT-fvE78bx7Q9vZGYzz=4frP2MTM0J0yNWA@mail.gmail.com>
-Subject: Re: [PATCH v4 5/7] ARM: dts: aspeed: yosemite5: Correct power monitor
- shunt resistor
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Amithash Prasasd <amithash@meta.com>, 
-	Kevin Tung <Kevin.Tung@quantatw.com>, Ken Chen <Ken.Chen@quantatw.com>, 
-	Leo Yang <Leo-Yang@quantatw.com>, Jackson Liu <Jackson.Liu@quantatw.com>
+References: <20260223-i2c-adap-dev-config-v2-0-d78db0a6fcf7@oss.qualcomm.com> <20260223-i2c-adap-dev-config-v2-12-d78db0a6fcf7@oss.qualcomm.com>
+In-Reply-To: <20260223-i2c-adap-dev-config-v2-12-d78db0a6fcf7@oss.qualcomm.com>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Mon, 23 Feb 2026 11:32:11 +0000
+X-Gm-Features: AaiRm53g18kb_D8a8Rz5gsK9_gN4L3-bPSeoZhzvicFe1V_X2f1sAQaShwQ_SAw
+Message-ID: <CAPY8ntDgMHgjX65ZW8dFvo5jb+yZDUQq6cEJuw=zP6DddmTPrQ@mail.gmail.com>
+Subject: Re: [PATCH v2 12/12] i2c: bcm2835: set device parent and of_node
+ through the adapter struct
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, 
+	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Vignesh R <vigneshr@ti.com>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
+	Tony Lindgren <tony@atomide.com>, Andreas Kemnade <andreas@kemnade.info>, 
+	Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-rpi-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_033033_432630_A4FBF89C 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20260223_033227_327774_2817F689 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,125 +130,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 9, 2026 at 2:21=E2=80=AFPM Andrew Jeffery
-<andrew@codeconstruct.com.au> wrote:
+On Mon, 23 Feb 2026 at 09:07, Bartosz Golaszewski
+<bartosz.golaszewski@oss.qualcomm.com> wrote:
 >
-> Hi Kevin,
+> Configure the parent device and the OF-node using dedicated fields in
+> struct i2c_adapter and avoid dereferencing the internal struct device.
 >
-> On Fri, 2026-01-30 at 16:20 +0800, Kevin Tung wrote:
-> > The shunt resistor value defined in the DTS was incorrect and did not
-> > reflect the resistor value populated on the board. As a result, power
-> > and current readings derived from this value were inaccurate.
->
-> Okay, but how did it come to be incorrect in the devicetree? Was the
-> documentation wrong and so someone entered the wrong value? Was the
-> documentation correct but there was a misunderstanding? Did the
-> hardware design change and the devicetree is now just inappropriate for
-> your needs?
->
-> Essentially, what's preventing this from happening again?
->
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
-Hi Andrew,
+When used alongside [PATCH v2 01/12] i2c: allow setting the parent
+device and OF node through the adapter struct:
 
-The root cause is a hardware design change, which made the previous
-devicetree configuration is inappropriate for our needs.
-I have updated the commit message to reflect this.
+Reviewed-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 
-The changes have been confirmed by our power team, verifying that the
-power readings now match the latest hardware design.
-
-> >
-> > This change
-> >
+> ---
+>  drivers/i2c/busses/i2c-bcm2835.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> I'd rather you rephrase this to avoid using "This change ...".
-> Hopefully the commit message always refers to its change.
+> diff --git a/drivers/i2c/busses/i2c-bcm2835.c b/drivers/i2c/busses/i2c-bcm2835.c
+> index 0d7e2654a534e92a529f27fdc049812359678522..4f7e4a178b33fdd172657cc625a34018b18f88ca 100644
+> --- a/drivers/i2c/busses/i2c-bcm2835.c
+> +++ b/drivers/i2c/busses/i2c-bcm2835.c
+> @@ -474,8 +474,8 @@ static int bcm2835_i2c_probe(struct platform_device *pdev)
+>         snprintf(adap->name, sizeof(adap->name), "bcm2835 (%s)",
+>                  of_node_full_name(pdev->dev.of_node));
+>         adap->algo = &bcm2835_i2c_algo;
+> -       adap->dev.parent = &pdev->dev;
+> -       adap->dev.of_node = pdev->dev.of_node;
+> +       adap->parent = &pdev->dev;
+> +       adap->of_node = pdev->dev.of_node;
+>         adap->quirks = of_device_get_match_data(&pdev->dev);
 >
-> Generally, please write in the imperative mood (see [1])
+>         /*
 >
-> [1]: https://docs.kernel.org/process/submitting-patches.html#describe-you=
-r-changes
+> --
+> 2.47.3
 >
-
-Updated commit message to use imperative mood, thanks for the reference.
-
-Kevin
-
-> > updates the DTS to use the correct shunt resistor value
-> > according to the hardware design, restoring accurate power and current
-> > measurements.
-> >
-> > Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
-> > ---
-> >  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts | 14 ++++++=
-+-------
-> >  1 file changed, 7 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts=
- b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-> > index 84d3731b17f7c7c87338672bbcc859de2b89b722..524597a81365ef10cd03b67=
-d35eeb88a965cbe0a 100644
-> > --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-> > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-> > @@ -415,7 +415,7 @@ power-sensor@42 {
-> >       power-monitor@43 {
-> >               compatible =3D "lltc,ltc4287";
-> >               reg =3D <0x43>;
-> > -             shunt-resistor-micro-ohms =3D <250>;
-> > +             shunt-resistor-micro-ohms =3D <100>;
-> >       };
-> >
-> >       power-sensor@44 {
-> > @@ -461,25 +461,25 @@ eeprom@57 {
-> >       power-monitor@58 {
-> >               compatible =3D "renesas,isl28022";
-> >               reg =3D <0x58>;
-> > -             shunt-resistor-micro-ohms =3D <1000>;
-> > +             shunt-resistor-micro-ohms =3D <10000>;
-> >       };
-> >
-> >       power-monitor@59 {
-> >               compatible =3D "renesas,isl28022";
-> >               reg =3D <0x59>;
-> > -             shunt-resistor-micro-ohms =3D <1000>;
-> > +             shunt-resistor-micro-ohms =3D <10000>;
-> >       };
-> >
-> >       power-monitor@5a {
-> >               compatible =3D "renesas,isl28022";
-> >               reg =3D <0x5a>;
-> > -             shunt-resistor-micro-ohms =3D <1000>;
-> > +             shunt-resistor-micro-ohms =3D <10000>;
-> >       };
-> >
-> >       power-monitor@5b {
-> >               compatible =3D "renesas,isl28022";
-> >               reg =3D <0x5b>;
-> > -             shunt-resistor-micro-ohms =3D <1000>;
-> > +             shunt-resistor-micro-ohms =3D <10000>;
-> >       };
-> >
-> >       psu@5c {
-> > @@ -723,13 +723,13 @@ gpio-expander@21 {
-> >       power-sensor@40 {
-> >               compatible =3D "ti,ina230";
-> >               reg =3D <0x40>;
-> > -             shunt-resistor =3D <2000>;
-> > +             shunt-resistor =3D <1000>;
-> >       };
-> >
-> >       power-sensor@41 {
-> >               compatible =3D "ti,ina230";
-> >               reg =3D <0x41>;
-> > -             shunt-resistor =3D <2000>;
-> > +             shunt-resistor =3D <1000>;
-> >       };
-> >
-> >       power-sensor@42 {
 >
-> The way the commit message is written suggests it was just one shunt
-> resistor, but that's clearly not the case.
->
-> Andrew
 
