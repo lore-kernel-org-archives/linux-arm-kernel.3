@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F62DEC1127
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 20:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF63EC1128
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 20:03:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lhwnfEYf/jsdsSTXrHwV/vr9BHcVPIPlM0acVP9KYq4=; b=NJuR7XDt/6zZJMhZJer3m+0P50
-	lSiFO73H9hTWCqS31zzT8ZnX+zQPCCXWGzNsdDeuuaJXV2PA26hpChDT2CSNeabFWFo3Mz87OavV/
-	CcoYmsvFwXGex0OXa3zBV04FK/V1ox+Y5xXhxXJghXHxKdznoGLLeZ63uNBYQPqcqOQfurqFh46wN
-	zZN8gjLF12yPq2l4WM5nTHcSPyr+t4/tSn8mp6+R8Bk7WuruW3b4vSStE7gH2OA7YawwG5+cWdtaS
-	ms3Xus0p78e3zWeBBQHjLuZu7/RGOAUluwxrRNLoWhx5vun6MbRJcFcT0LMHpaGKTVSd8pI8YsL6x
-	V2jnlysw==;
+	bh=i2KtwVT1f7YFKdexSqt1FkKhV6OIw7d8QvrVyoQc5m0=; b=CMNrSPIfABgvK7a0kc2R2tB//G
+	4XWfqDxp8tUgdfVmHNP79q2MMa9z/jOhitu64oGHmpNWM8ifManDNrdKS2fM28UMRWJ4Qz3CrJGt+
+	SIjfYVuf6I33hOg0ZsfL4exJwUIkXj3ZXkvVchXG8OA8y2XsAMRThIfXF93TLZz0wlLTTRDQrKq4Z
+	+5RhFRC9XpM1wxuAhFa4LE0AG6agEyxJQJa6wBPFJJxWsel8YH7yJXSlXza1Dtf+Hk9TarYyg4zAp
+	bBHJyRFFowF08bwQagcBO1ST6X3fQbfLkE/wThI0ktNmkIscYoU9O4dtm7og28p8TP6UsOvEz5PaM
+	wlCDO27g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuc8Z-00000000yOp-3MEL;
-	Mon, 23 Feb 2026 20:02:35 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vuc9E-00000000yUf-1fVa;
+	Mon, 23 Feb 2026 20:03:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuc8W-00000000yOQ-3Eq9;
-	Mon, 23 Feb 2026 20:02:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771876950;
-	bh=g5AaOwZ6430GnKveqeW2Yxjh239E7tqluKKLDlFqEyM=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=AnbE91aJ/Ot5On9xelhK2wPWwn6D9ZiG8NOs5dToMUwOqtFvNL0clajxOGHvpmvSZ
-	 9ru2YSNil6K3oVuGfaf13MOtXIUPKMEgU3xooTLntyhBgjvCsqVJvAj7b1VcG/q9fm
-	 DyjvbbHG1efuXQz+8Atdjz9ekqj9nt361iM/L52VlFe5o5OIRJPRz+4GfeLk9RBM6L
-	 /0Vd/84QCR7dhhLVK8dyOgkm68t0ZKyD0h3lDu4u7JveFuUhHDgLIwkdBI7LPFpF4/
-	 xdlIj6wHa+P2AlShoZaas/dePcsU4hI1EWkg9vKPMGYe9g2Nyb1IMY+8rFbIVzQbic
-	 +/dkaHFeC4KYQ==
-Received: from [192.168.1.90] (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1CC2A17E05B5;
-	Mon, 23 Feb 2026 21:02:30 +0100 (CET)
-Message-ID: <c6078b0d-cd88-40a8-9cc7-2e7b135be980@collabora.com>
-Date: Mon, 23 Feb 2026 22:02:29 +0200
+	id 1vuc9C-00000000yUA-0Cct
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Feb 2026 20:03:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0513A4458A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 20:03:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D02EDC2BCB4
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 20:03:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771876992;
+	bh=JBhOcyNghPQnyLeqt4d+gn4z6mbPuf4O77nqGdBnWZs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Y8NCt8LAVnc0fbhRneGkNB1037xboOU/bLB7M7bbAQh2oLQ+SLsY7k4Bw9TGV0/b8
+	 P1bzud//oT1dhKXG+aIzV1cIWYeZmt36GZszk5pEhqO8u8SHChut/2qccJxtk4d7up
+	 5rPqkUTH0Goe0PH6fyi0Lji0Wdyb8AZTV4JLE+ErQHB3jQn0QfrzEOx7YzaP2aAJOz
+	 Fn205da8dhwryiZCDsERBy3sZfFcszk7cCOmpxivSQQGSQVV+Eo/1ZIOs07AP0jiyh
+	 Nknfbsq73UupsR9/tjgClbiUAwtPlmhzCNPORHgAGR0C8mFrkP98CGQ4jWjRckvddg
+	 mE70jldWC/VRg==
+Received: by mail-oo1-f48.google.com with SMTP id 006d021491bc7-676815e1446so1749976eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 12:03:12 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUsxcm9kNqFDT589SZw4uj22hW0NJeNEW+XKN+JvS5piFgCXdjZHpbN090J5uKjU9zBEls4Rg1ud9EHnk4flrM4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmkruuWbb9s1Nt78KNkk0GJEhfaiGLoZ7LJ5AiZ/IrFGEJXtnX
+	XSVZGtnCyLWAyogugTgokpyTBkCuXwSlnTw1HAcxXDJl9Nmj0yDi6oTqeHkI9lNAkPRIgxNRVlG
+	/x9jMCbm+uyMuvJo9BaGcXesmdkytStE=
+X-Received: by 2002:a05:6820:160f:b0:679:2797:7a0f with SMTP id
+ 006d021491bc7-679c44e39dbmr4828682eaf.45.1771876991832; Mon, 23 Feb 2026
+ 12:03:11 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix vdec register blocks order on
- RK3576
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Diederik de Haas <diederik@cknow-tech.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260223-vdec-reg-order-rk3576-v1-1-560976566bd3@collabora.com>
- <aZxkDGzEQCCLKR-M@venus> <DGMF3IX3J3BP.1XT41P0G8P5OD@cknow-tech.com>
- <b4eb3031-69e8-4a73-b4f1-91dd4192bb21@collabora.com> <aZyaLG0lYao6_xxb@venus>
- <e0d7da4c-e779-43e9-bf0f-c2a0224114df@collabora.com>
-Content-Language: en-US
-In-Reply-To: <e0d7da4c-e779-43e9-bf0f-c2a0224114df@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <CAJZ5v0h8dQ10oH4KQM8Pdv0jvXyTE6yD1fn5eBPkS_jDYgA8gQ@mail.gmail.com>
+ <20260223195508.GA3703404@bhelgaas>
+In-Reply-To: <20260223195508.GA3703404@bhelgaas>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Mon, 23 Feb 2026 21:03:00 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0haUg8VtzfQ4U8PV2ww2NDHx8jbL9HTer3P6jJe+mfr7w@mail.gmail.com>
+X-Gm-Features: AaiRm522tekkYjnNwAaBXy4xZO6OyIG3-2vg_uzvGJPeWrFp-lyBHkYh-K_XrN4
+Message-ID: <CAJZ5v0haUg8VtzfQ4U8PV2ww2NDHx8jbL9HTer3P6jJe+mfr7w@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] PCI: host-common: Add helper to determine host
+ bridge D3cold eligibility
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Will Deacon <will@kernel.org>, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	jonathanh@nvidia.com, bjorn.andersson@oss.qualcomm.com, 
+	linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_120232_962768_01606478 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260223_120314_129312_3229A88F 
+X-CRM114-Status: GOOD (  30.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,57 +91,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/23/26 8:29 PM, Cristian Ciocaltea wrote:
-> Hi Sebastian,
-> 
-> On 2/23/26 8:21 PM, Sebastian Reichel wrote:
->> Hi,
->>
->> On Mon, Feb 23, 2026 at 07:07:42PM +0200, Cristian Ciocaltea wrote:
->>> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>> @@ -34,10 +34,12 @@ properties:
->>>        - description: The cache configuration registers base
->>>
->>>    reg-names:
->>> -    items:
->>> +    oneOf:
->>>        - const: function
->>> -      - const: link
->>> -      - const: cache
->>> +      - items:
->>> +          - const: link
->>> +          - const: function
->>> +          - const: cache
->>>
->>>    interrupts:
->>>      maxItems: 1
->>>
->>
->> With that change the descriptions in the reg section are wrong.
-> 
-> Yeah, I assumed it'd be acceptable for the description to document just once all
-> possible items, to avoid repeating this for all possible combinations.
-> 
-> E.g. this is from Documentation/devicetree/bindings/net/snps,dwmac.yaml:
-> 
->   resets:
->     minItems: 1
->     items:
->       - description: GMAC stmmaceth reset
->       - description: AHB reset
-> 
->   reset-names:
->     oneOf:
->       - items:
->           - enum: [stmmaceth, ahb]
->       - items:
->           - const: stmmaceth
->           - const: ahb
+On Mon, Feb 23, 2026 at 8:55=E2=80=AFPM Bjorn Helgaas <helgaas@kernel.org> =
+wrote:
+>
+> On Mon, Feb 23, 2026 at 07:46:08PM +0100, Rafael J. Wysocki wrote:
+> > On Mon, Feb 23, 2026 at 7:10=E2=80=AFPM Bjorn Helgaas <helgaas@kernel.o=
+rg> wrote:
+> > > On Tue, Feb 17, 2026 at 04:49:06PM +0530, Krishna Chaitanya Chundru w=
+rote:
+> > > > Add a common helper, pci_host_common_can_enter_d3cold(), to determi=
+ne
+> > > > whether a PCI host bridge can safely transition to D3cold.
+> > > >
+> > > > This helper is intended to be used by PCI host controller drivers t=
+o
+> > > > decide whether they may safely put the host bridge into D3cold base=
+d on
+> > > > the power state and wakeup capabilities of downstream endpoints.
+> > > >
+> > > > The helper walks all devices on the bridge's primary bus and only a=
+llows
+> > > > the host bridge to enter D3cold if all PCIe endpoints are already i=
+n
+> > > > PCI_D3hot. This ensures that we do not power off the host bridge wh=
+ile
+> > > > any active endpoint still requires the link to remain powered.
+> > > >
+> > > > For devices that may wake the system, the helper additionally requi=
+res
+> > > > that the device supports PME wake from D3cold (via WAKE#). Devices =
+that
+> > > > do not have wakeup enabled are not restricted by this check and do =
+not
+> > > > block the host bridge from entering D3cold.
+> > > >
+> > > > Devices without a bound driver and with PCI not enabled via sysfs a=
+re
+> > > > treated as inactive and therefore do not prevent the host bridge fr=
+om
+> > > > entering D3cold. This allows controllers to power down more aggress=
+ively
+> > > > when there are no actively managed endpoints.
+> > >
+> > > This series is currently structured so it's only applicable to native
+> > > host bridge drivers, i.e., things using DT.  Is there anything that
+> > > prevents using D3cold for host bridges in ACPI systems?
+> >
+> > Do you mean in principle or in practice?
+>
+> Just in principle.  I was hoping for some way to tie this decision
+> making back to a spec.  Everything downstream being in D3 already, and
+> any wakeup devices supporting PME from D3cold sounds plausible to me,
+> but I don't know about any prescriptive spec language, and I wouldn't
+> want to get locked into a scheme that couldn't be supported on ACPI.
 
-I dropped the descriptions in v2, as we discussed they don't provide much value
-anyway:
+In principle, I guess someone might want to add ACPI PM support to a
+PCI host bridge device object.
 
-https://lore.kernel.org/all/20260223-vdec-reg-order-rk3576-v2-0-daf4942dfc02@collabora.com/
+In theory, there may be a problem with message-based PME wakeup unless
+the host bridge device has some D3cold aux power, but it at least
+seems to be doable.
 
+I think that this question is for non-x86 folks who use ACPI in their
+platforms because they may just have this use case.
 
