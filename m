@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47141E98E0F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 09:27:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B6CE98E0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 09:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dvtD0OvtEl5ebfqFAgzr0sxC9a0vVwyJ14n7eKCn/9M=; b=McIIAjUVNlnAwv
-	fQVueKzp5cJAzAYnLxoMQXurvD2lUOUcyaGkDxm+1p3yU9FU1AwArLVETg3B/ICYOk7Hi+hiJUsZg
-	h3OXiqIKKtNg96+B7s2WB8O2XebDlU2xyXT7RSC5iH/R/av43yc9U9/69IrryiPt7d9iYR47v7QIK
-	wg06ACv1b3c95819WpwOkx/ftJNNG3PqXsuXtOi401ZqFivAKmvK9xaNJhGD0rJfG5NECcjjc5B2O
-	VhohhoPU3HgtN6AkkylhQILFfp2FIycg4WGvnu62H8OBpfmgp8SWzWK+1/RsuAKvMNCw03Y066afX
-	qv7ogvpWPJEoNlm2TXwg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jYLQAmS2V5vH5hD2lJBwU5t9ZdEBHgF8ZElCbh4Vl38=; b=1IiAdaMpGC9bYuDyWotDFzzyea
+	zZODzZWnowW+rbqNLVsfTPFmG2o5453tWmGjxd8HbB+oVhdsJFPZLJa9RMmLV38fwAhCc2xP6XGgb
+	djcCfRHQS5MondOvS9MUnETBhVzNhCI33xFre5bJCpL/fBMohyp+B2DcjIj9vabxgkLuA5NW9wH9Z
+	0h6iPTTp+gJSCsj6iv5ypITNyOHB+Mp1Z/YIdSCaR5lNafdSk/zBhNrlI71CshxBNzgeoYQWLAg17
+	Kfl3Hu08TlxikIi2y95PVngWzWNRroh0izqObRRpUWRtFAOiCyASlsE6eXIV+pallj2O/G0/LqdhI
+	5J3SgDhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuSEI-0000000HXI4-0Elw;
-	Mon, 23 Feb 2026 09:27:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vuSKU-0000000HXjG-2lfA;
+	Mon, 23 Feb 2026 09:34:14 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuSEG-0000000HXHw-3da6
+	id 1vuSKR-0000000HXil-1wBT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 09:27:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E707060097
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 09:27:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C43EC2BC87
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 09:27:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771838867;
-	bh=OyGFTWWAQRbhcAjRDP0+Rd6GLfLhNM1/YURdgrzC1b8=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=Mzv8+vRt5AgwSaXc0SQkB8ORQyVsexu03SzZnhyd0LnhlPuCAo/hWG6cTh1oD6LaA
-	 HeyYMJmg4v4g1Iez+LUfoAZLcaWmdBPJ0tuWWt0jqzfeqFJntQay9NVzrDbJvwChE7
-	 QBNFKloYi7SW02qj3fWX8HSZJHn8A/axkn8eGisoaQ/vAHvkp8kmvAXE+4Gkrv5nwY
-	 xXhVnd1RWiLg+5FUx404w+bo/Ewr8PEm4rr/hvDISzSdEQLKdHxzf6KyZ5AIqftWg4
-	 Ytaaw2moiUoqTdVcMqx9GMk5bzfR5q7/Ts7ISqCMD40OBfPUycfQo7m9+gQmJoBCAi
-	 64d3Ua0vmChQg==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-388126f79bcso34500451fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 01:27:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWYosRicwu6VPP3RH8nlVvFwv9hALf9oyqpO52EL4/oVm2NmEnHJ3fj+/4bBq/u8C9Hxp4p+eIkFMpXJ0t/4RzB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/+sJegB1dOKzKz74HjRcnlMBh1hDvyQdd06zneLP4lADw0IVK
-	MoinvtJznWioa3qxJLbndR95yWHbQhUIbORGMByyyuSADcvoODtV9q7rFZCgIBsJf8TF7MgetW2
-	b6Kfsatj0vODGyY0XEEbCiCewvWF1XQY=
-X-Received: by 2002:a2e:a99e:0:b0:386:1ce2:11a6 with SMTP id
- 38308e7fff4ca-389a5de767amr21982451fa.24.1771838865947; Mon, 23 Feb 2026
- 01:27:45 -0800 (PST)
+	Mon, 23 Feb 2026 09:34:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=jYLQAmS2V5vH5hD2lJBwU5t9ZdEBHgF8ZElCbh4Vl38=; b=KqTMupwg9pYja1LrDQB6IHXOgf
+	nMKlIz/G73+crJNsBegu4iKfDndmFaAg8ZxegYlGob+Wmq14kOgydAtMmWReeV3lPjU0m/obpOCzv
+	wk5Pt4ig1LUxoIeqnyZ1Fgprt0Os7TAeYYJ484oRSDlbombqK53ahPv+tzhe79izF8HuyW5MvoCPu
+	bg+UwVKp682N6FBHyDHPzOYBieoyGr/eceMPZIivAQLoMDs5G/TcPAdeyTwU9UuUwSWisKozf2N76
+	vvlPGbTBdADqCY53pQ37qQ/1Ntja6rm0Pi8GSl1+uohnold+g0j7V9WGoEU+SxC7IYrYN1ra7pswA
+	dU20lQgg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47704)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vuSKD-000000003lh-2rgk;
+	Mon, 23 Feb 2026 09:33:57 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vuSK9-000000007Fx-0IGw;
+	Mon, 23 Feb 2026 09:33:53 +0000
+Date: Mon, 23 Feb 2026 09:33:52 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Frank Li <Frank.Li@nxp.com>,
+	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next 00/10] net: stmmac: qcom-ethqos: cleanups and
+ re-organise SerDes handling
+Message-ID: <aZwfAFJQcp9f0niI@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <ZnzulZBukibZUXKM@google.com> <171958889447.2435101.5942373221568313704.b4-ty@nvidia.com>
- <aY1GZQJLKAF0fsz6@google.com> <74b13dba-830b-6ea3-e5d3-95f0423fe741@gmx.de>
- <CAGb2v64BApjGy2AZsM5sJit4ZDKDreVE230kxFikBeo-SFnGzA@mail.gmail.com> <de212734-0b59-144c-7ec9-91d1b3443148@gmx.de>
-In-Reply-To: <de212734-0b59-144c-7ec9-91d1b3443148@gmx.de>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Mon, 23 Feb 2026 17:27:32 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66a=joEGmwyoEZ6_FJQFdGqSLoVzg9DLn5=c-VpK5AJig@mail.gmail.com>
-X-Gm-Features: AaiRm533zyjmIVjIQdEPqa5bOiZeeQphW8VIiO6gupdt7m4aGch75EKhJ5fdiuA
-Message-ID: <CAGb2v66a=joEGmwyoEZ6_FJQFdGqSLoVzg9DLn5=c-VpK5AJig@mail.gmail.com>
-Subject: Re: [PATCH] ARM: tegra: paz00: use software nodes to describe GPIOs
- for WiFi rfkill
-To: Marc Dietrich <marvin24@gmx.de>
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260223_013411_503213_5EF2C5D3 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,89 +85,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 15, 2026 at 4:40=E2=80=AFAM Marc Dietrich <marvin24@gmx.de> wro=
-te:
->
-> Hallo Chen-Yu,
->
-> On Sat, 14 Feb 2026, Chen-Yu Tsai wrote:
->
-> > On Sat, Feb 14, 2026 at 10:27=E2=80=AFPM Marc Dietrich <marvin24@gmx.de=
-> wrote:
-> >>
-> >> Hi Dimitry,
-> >>
-> >> On Wed, 11 Feb 2026, Dmitry Torokhov wrote:
-> >>
-> >>> Hi Thierry,
-> >>>
-> >>> On Fri, Jun 28, 2024 at 05:35:08PM +0200, Thierry Reding wrote:
-> >>>> From: Thierry Reding <treding@nvidia.com>
-> >>>>
-> >>>>
-> >>>> On Wed, 26 Jun 2024 21:46:13 -0700, Dmitry Torokhov wrote:
-> >>>>> Complete conversion of the WiFi rfkill device to use device
-> >>>>> properties/software nodes by utilizing PROPERTY_ENTRY_GPIO() instea=
-d of
-> >>>>> a lookup table.
-> >>>>>
-> >>>>>
-> >>>>
-> >>>> Applied, thanks!
-> >>>>
-> >>>> [1/1] ARM: tegra: paz00: use software nodes to describe GPIOs for Wi=
-Fi rfkill
-> >>>>       commit: 47ac458bb229f8c4864081d173adbcfc55c34880
-> >>>
-> >>> Do you know by any chance why paz00 does not simply configure rfkill
-> >>> switch via device tree? The driver (rfkill-gpio) seem to support devi=
-ce
-> >>> tree...
-> >>
-> >> last time I tried this was rejected because the wifi chip is on the us=
-b
-> >> bus and "rfkill" should be a sub-function of this chip [1], but that w=
-as
-> >> some time ago...
-> >>
-> >> Looking hard the schematics, the wifi chip does not have a gpio input =
-as
-> >> first thought. Rather it seems that the first gpio toggles a regulator
-> >> which supplies the wifi module (m2 card) with power and the second gpi=
-o is
-> >> just connected to the wifi LED.
-> >>
-> >> Not sure how to transfer this into dt, but I guess this would be the
-> >> better solution.
-> >
-> > Then the first GPIO should probably just be described as a fixed regula=
-tor
-> > feeding the USB controller that the M.2 module is connected to.
->
-> I think that is what rfkill-gpio is for, so the proposal of
-> Dimitry looks fine, execpt for the reset-gpio, aka LED which is
-> already included in the dt (but maybe with the wrong gpio).
+Hi,
 
-I did that some years ago and was rejected. It was for SDIO, not USB
-though.
+As the last series had issues with stability, I've changed the approach
+in this series to concentrate on keeping much of the SerDes related
+code within the qcom-ethqos driver rather than trying to move it out at
+this stage. This means it should be possible to bisect these patches and
+pinpoint exactly the code movement that causes any instability.
 
-Note that if the wireless driver also registers an rfkill device, you
-would end up with two rfkill devices in the system, and with slightly
-different behavior.
+This series starts with various cleanups to qcom-ethqos (the first four
+patches) before beginning to move code, passing phylink's phy interface
+(which will change) to the fix_mac_speed() method, and then using that
+to configure the serdes and inband setting before moving the SerDes
+code.
 
-One would just disable the radio portion of the WiFi device, while the
-other would cause the WiFi device to disappear.
+This patch set has been tested.
 
+Thanks.
 
-ChenYu
+Changes since RFC:
+- add set_clk_tx_rate() conversion as that was also tested.
 
-> I will give it a try on real HW and report back.
->
-> Thanks!
->
-> Marc
+ .../ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    |   3 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c    |  11 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   |   3 +-
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 135 ++++++++++++---------
+ .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    |   3 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c    |  11 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |   3 +-
+ include/linux/stmmac.h                             |   3 +-
+ 8 files changed, 101 insertions(+), 71 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
