@@ -4,194 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04CA3EA4FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6A8EA4FB2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k+msyEEewmHFvgipVZ69CP/uWEpxdwbAJbzOhCRC/NI=; b=Lk4NwXL3HcJYvS9ikrV7RPoa89
-	RxSVRFqImR2mDtM5KNptNmyTNCzNphflOEcBQ+GH71SPPDT+SzU2eC2GkuCePDAa+VdKkmuE81pUE
-	2bbqDOXBP64hQoHvgaRh6UIv9jhVPfn/ibqKRQeuUNsiqeBe7CEaJV9tqiS1ih6Fr0v6XxEXz9YgN
-	3nq/KX21awprnD0aBWx/WY5g9CHuGiTJLkxvQI389uwaVhBhwMRsF8XrDmW5bYNhLbg9Z/1e6wa2z
-	nf0BfKxu/WigJTwide0SjjyzL0BSfhE4hZJipSyfi0n3ehQvfPXnmOZOy6GWoibvAbiBI7C5dyk1u
-	9JPeOxKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EX/LgZhWE6XhCgp9QvLGdz4j/2wmEv1dNAgYencoj8k=; b=xPDhpEt8MzpHlwTdzasTsLMA3w
+	5tr2uXtEWND53SoNNIcGdNuC3kWeWWQ9oTmP6sOhejM5+uQ4PG008cXF1PTN5Ra2ydwYbMTbkNYwS
+	qwdYRwwQdMNEOr1aYDffogE1k1NC1cvMa7zSJeyCD/lXgjBl1WVUQVZ38n2II6udC3JWdZX4OIYkg
+	4PrEYIs7zFk/LhUSR+nIgULaJSUvaQSKA7Hq8+4WV7FuCXw1GNVY3pR/fkTs7kNlh1d+dSqFijLxw
+	Bwm//g2IyEuR45gEc3dtvtbp7d1W4ZsEY9gemYsUg/LXecRCCoDFNgzz76eVJ8pJqkJFnZRSXaQfo
+	eBQHAfMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUTt-00000000Dit-2sCA;
-	Mon, 23 Feb 2026 11:52:05 +0000
-Received: from mail-westeuropeazon11010037.outbound.protection.outlook.com ([52.101.69.37] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vuUUC-00000000Dmq-1WPp;
+	Mon, 23 Feb 2026 11:52:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUTq-00000000DiY-3LqY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 11:52:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wzX0yiOJIBvhFvHySFmQVeyZtv8h6RHKFoPBA2ooyRle4jnnPyTEKpN9QGC4WMPAGWIFpo1RIxAxGOqtDlFVo4H3UGbbgu6UKGaQodfGBelHbEqQLHxbKzHBN5fOdZgrnFGuGETOxMcoeRoT1ROXMMEzFaJVx6hevqvDqgHrnggENneBwNP+4CQPz2mQKLLfN02q6jVtcp4DYnSeVOxDSgcWyykFm7R83PcIAZ2dAeo++vHTYPpsVTnuP3jtrck8Y5xfph73AsxYEFleU4OM7AFyNDeM6PmWoShYwrak/xWehXUYRa+43GIW4rH+MNPH0cn/LtWZyLWxJZ+yNg76Fw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k+msyEEewmHFvgipVZ69CP/uWEpxdwbAJbzOhCRC/NI=;
- b=DKC2+7PsqUuZFR9JHPgyw5lC9uuHs9cRGlxDuQovJjWIjBYswDJVpcggMLUMTpl9M+4Sruv9m/MnQSJC4h/AavsgvnsFZtBXDEjzxfQh2ucNpDNB5/Y/ZSAMXn0m5Yc3iG3j751TNdgYuE6+DPL/7nR38LxYexpRy1oQNvE+lYxof6eUyguC+G3533rwlVZrBds8OtyWE4z54CxASjCXqUkN6gti0SnkzhJhAgmHeMxcmD6x3m35W0n7i4rg2fc+pqz2mWjs9CdJOh5QF/wIgjiyFY+m5zJkhmPNxUWQGYegxt6tcZpZ5MoZfRDAwv5ZMuLYUgNs/TpKNLYMPUQuEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k+msyEEewmHFvgipVZ69CP/uWEpxdwbAJbzOhCRC/NI=;
- b=v5aawHpj3GRz0VpwI3rWCbO/uwr6I9KCKoBg6mHOhuVp4IMMgAGkRqr3b5yS6qxdvrNzgvd/TqgDSlyTniOVjPnf0snk2I+t+H+Nqf32ncNP0rbQOwJACy28gSH5y5FU5UYMpcc3gdJMMtFuOk6rb2CnRcgeHTlsULKuWcYkKVHoT2k06HZtuad99zy+WVUEtzNHQ9bCpLW2MGUbPv/c1BCsyGQY7HIRDVuDTxR//bwuJGoUcuho4AVynTibQbx+B6Tv8STafFKHfpnUCO4BttBD8pfwI5MB/h73NxRoW3qnG2pQULunATMEgygVyhsQepHlDUHgkDL+sBzPXTjcWg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by AMBPR04MB11742.eurprd04.prod.outlook.com (2603:10a6:20b:6f6::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.21; Mon, 23 Feb
- 2026 11:51:56 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%4]) with mapi id 15.20.9632.017; Mon, 23 Feb 2026
- 11:51:54 +0000
-Message-ID: <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
-Date: Mon, 23 Feb 2026 13:51:50 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
- module
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
- devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
- Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- "Vincent Guittot devicetree @ vger . kernel . org"
- <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
- <20260121021913.GA1704619-robh@kernel.org>
- <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
- <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
- <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
- <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
-Content-Language: en-US
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P250CA0005.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:5df::16) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	id 1vuUUA-00000000Dlg-1ucZ;
+	Mon, 23 Feb 2026 11:52:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A65443985;
+	Mon, 23 Feb 2026 11:52:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03CFFC116D0;
+	Mon, 23 Feb 2026 11:52:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771847541;
+	bh=roYpKDMhh6cZ9yMZGMqqIqsHrMiwIf+FyPju6t+JsNk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lwVm9HfohJudq8qLJ8kGaEf5+GmCGQdn3IxLVTtdB0l5TJ7Pp3jpG6gcMPHFrCGSq
+	 4BX0U+zIUMlnjCOyMdxQnajlDOscDkCWnjj2FqUxf4U+FZAROhti967yt9DFZB0fJS
+	 s3KBsW/7/BvfEzWx3BqiWSHa0ckmdt4q6boEwiqCXtjHJRpcPDi58TE51OJDfXnopZ
+	 lgzSWnrmXBYp1z79BRCcIxt1jiTnTTNaX4Wbit3b1MPn40x3Ayf0mTFRCASA++bmkE
+	 /xlA3kenzLI750wvol/nnViv2WQAK+kThLc/rB0WiAU0Tk99A7ORnmBOJCFFBkuPno
+	 a3GGGIODSo1lQ==
+Message-ID: <9dd377f6-3565-4c0c-8c98-1b5ac4982f5b@kernel.org>
+Date: Mon, 23 Feb 2026 12:52:14 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|AMBPR04MB11742:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1c33daad-3665-47d6-afab-08de72d1f07e
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VDhOeThVazFwcnBhRW9wZ2hlQm5jMWwrd1VpWUpHOWZ3bEMvMUtvTFh4anNL?=
- =?utf-8?B?T2gzVE1GYnlRZ0xRRURmdjEwYjhyOXF0L2R1UTExT2FFU0Z2UFlWSVNJWHYr?=
- =?utf-8?B?dkhuVlJaQTg4OUlieHlPazkxajNMQ3JiRDFuRGk5blUrR0ZIYnRBUklQaEND?=
- =?utf-8?B?TzlvUHlzdDZFRHlTNmd0OGdBY2VrdmlCVnJIeGVhOElDOHp1dldsY2YzcjdM?=
- =?utf-8?B?a1hETHRSczNuS2llODhWTldMM2dEdU95a3ZmbFFoQUdaWmkxTGwxUFFhcnZY?=
- =?utf-8?B?NTJ3d0NubnFZdVdMdStUMTR5ZzFqc1Y3b2VtbGxRSExFaEordUpEd1RiZHdo?=
- =?utf-8?B?ckhvUjdRRlVwT2I5QzRwYmRnQTNncW56aHk3QUtkbmR0SmtqM2pZQlJiVHRE?=
- =?utf-8?B?OXZ5bG80Y0pBMlhQeEhrZVE1eHRnMkNGUkVzSEpOdTJ1MSt0Z0NsM3lybnJv?=
- =?utf-8?B?Q1MwQ0Q2bUpDcnUxYk1GZ1lBUEJHVHpvNmpLSE5Fc29oWlFTR1ZLc3c4S3p6?=
- =?utf-8?B?VjVRTVJMUFdNS3dUcjBpb0wwV29idlBGbW1laDRyT2pqTTZDK3cwbjZYWkVF?=
- =?utf-8?B?V24zMkxUUUc1Mmt0VitRdmJ1YjMwd1JEYmNneitlaTYrd2NiaGUra0lDcWpt?=
- =?utf-8?B?b0xtaDlwQ09GUzd3QmNROXBMbHdtQjg4WnpLOUJnZnBGMU9paWVYU1dXUkRa?=
- =?utf-8?B?QXBvV1FQQkoyV0FYSzB0QTlYaFRTdE56elFDRFRPbjZsWmh3OTNOdDhCNitl?=
- =?utf-8?B?K2c0U0YrVWwzOFFrU0NPMmc3dkJVaWlmcG5YQ1BhbW1iZEFjVnh3aXNyZTFH?=
- =?utf-8?B?RDhXRlFwNjdpdkJiNjdiYitBQnhOMEwwOWJmV3VvbDBaWjRpZjlKZzdOeXZt?=
- =?utf-8?B?RFpEUEtwckFRaFpMVWhkNk40WGRxc3NTV0pMQ0pTb0JpY3ZVL2N5NE1mTkJP?=
- =?utf-8?B?UlNDMTBUWk8zbklHZmxzVHBxaHlTNldMa1l3YVM2ZnlxZUsrN1ZMa3ZKbHcr?=
- =?utf-8?B?aE5DaHF0aEdJMGNJMHNsRCt1V2tzaEV4N05kVXoxcStKNTVSYkYvTkVkNzBz?=
- =?utf-8?B?STcxbnk1bDNZcGRyVGdvQTBCNlM1NEV2Q3QwMEE0K2JsQW1kNWF5ekYxdGQ2?=
- =?utf-8?B?bUxHOGNjdUZzQUdjeUVxc0RUeUMvWDFySjFGVzZpQzB0cmx4NW9sUXUrREtS?=
- =?utf-8?B?dDVuaE5DQzZ2NUg5ODMrTm5Dek5hS0U1VEIvaWJMNUlRQUNSOEx4QnVjcWhN?=
- =?utf-8?B?RE1mbm04eEI1MElxeFJoN0RTVHhvK0h5L1lMNXBWQzgybHlKdHZDZm55a0lo?=
- =?utf-8?B?STBNdGVkTmRtVnliV1ZiUU45eVBYOE0xai8wdFZtOW4zMktSY1orcFk3ZE53?=
- =?utf-8?B?d2pCN1h6K3V0cFEwdE55bmVxSlBHK01HWVZWSENqclVvcDVXMk9TM2VNMVpk?=
- =?utf-8?B?Ump0OGNWZXZGZG9DVTBJb2MxOTlvZ0MyV3J0K1ovNmtRcDkwb2NGcFdrWGtL?=
- =?utf-8?B?RW45cVVnQitDanljcm9PWjV6WW12SWpiamtSU0I4MGN0OUtpdXZpWkp1MDlq?=
- =?utf-8?B?dDdrVE5rSmY0a3NaQVpjYzllUHVmc1pLYXhENXFRVXZibjFLVlhLTTNMUTFE?=
- =?utf-8?B?NW1yN000R0g3ZVNXQjVLTFEraHpjcHdWZHVwS2FMU0lvaHRveHcrNjIycHlQ?=
- =?utf-8?B?OW1TZk13OVVhRjBnRExPSUJ0MjJ6YWxxbitwR29XZEJka1V0OHAzOUtPZ21O?=
- =?utf-8?B?dUZrUmp1cWhjTHNRVi8xd0xsTkx3SUI5UTI4MEEzbUlodlhNUGJ2M3dseFF6?=
- =?utf-8?B?eGhTMWZNZG94aHRFemFxSVlmYVR4NjI4RlMxbXUvOHErcjhodU80OHNIQ0w2?=
- =?utf-8?B?WG9BRTRhOU83dlZjWkljSlN1STdtaktVNmk4RzBmVHNyU09McjFzdHBJUGJZ?=
- =?utf-8?B?eWtUM2tmVFFzQ29Zc1hYMEc3TFdZV3lMczN6RVNlYlFabERTWHY0QVhDaDNz?=
- =?utf-8?B?djdXblUyYlRBaklpRUo4UTB3bng3Rk1BS2grZW1sOXRGQkhzV0ljeit5ZTkr?=
- =?utf-8?Q?ETnq5j?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?My9IcTFDS1U4UEZIaTJvQnFJdTBGMEpFWkpTbXF4Unhnb1hPYUxBTXdMMmFq?=
- =?utf-8?B?eHIyTnJUUVp1ME5aR3FiS1M5TVV6Z0JHdkNtc1JWYmpLWGJlRXBwanR2R0ky?=
- =?utf-8?B?SUZoV0JkVjlBM2xSNmE3aEhmVVhZOG5pbDVDMlZiVSsrQzFXbDVZZ0UyS3pF?=
- =?utf-8?B?dlpZeEgwandYZVhUYWVVSHZ0KzY1ekZId2J0aGhacy9QSllxTEUyZ3ZRRUkz?=
- =?utf-8?B?VFcxYXpoUHNxRmVFUVVRRGNMSmhFYXpIQXBMemZja2hrK2RqWGFieCtDWWVt?=
- =?utf-8?B?VVhoYnh6UmhlK3VrQjlHeVk0bno5T0MwT2dQbHBnSmIzbnUxdnNWTm9vVmRZ?=
- =?utf-8?B?T25hTWRkc3BFT1FHZS9hQzM2bzdlMXZlN0hwSHpEbGZ6T0dOU2I0V1FRTzM1?=
- =?utf-8?B?NjlsSkp0dVJ3ckE4L0tqV21ES3Fab1VXN1Q4cjlsbm4rZ1djYVVVb2dyd0tF?=
- =?utf-8?B?WVhPd2ZGQmVHMkhFelJTVGlJUXlGN2ZibGZ6ZUJiVkoyeENacWUzdWFDSnA1?=
- =?utf-8?B?ZWFGTzV0M05rRVlRQ0pHSm9OVzVud2tGUVJVK3E4alJJMUhkL09RTEk2YUFB?=
- =?utf-8?B?dFBBOG05WEU4SWpZZEwxNVgxdmJVRi9NNFdtZllSTVFtMEpFRktZMVE0enNR?=
- =?utf-8?B?cHF0U0NwSkEwZURaK0o0d2ZiNmtEc2p0STVwb1BpYmU1WjNNQURXbU8yTVUv?=
- =?utf-8?B?SHBiQk45V3pkNCtVNjJKYkFzTVdrYjhqd0JLaDZEYllyTmduN0Z4M2RETWd1?=
- =?utf-8?B?WUh1K1I3NnNpbmRqRWFDK09LRUtZak5oOXFCbDJkYUFYQVJMTzB1OVQ0MFRF?=
- =?utf-8?B?aFdwak9BbzJNZ3pRR2JyUW5GM3RCZ2xPaXBFUDRMQVJmWEFGZlNWL3B1MzRC?=
- =?utf-8?B?bm5lMURubGcrbW1TcGdlT1oxV2FCM2RidkZ2dE5hRHlMK3RIZ3U0anBIdlpz?=
- =?utf-8?B?c1FVb1JVdmFYTWxybjJzMzMzN1NOcGhrUng5MW55aHhMYVhabjQ5aFJaWW11?=
- =?utf-8?B?TzBhNk5FMkZybjdsY2tCbEx2cVNlejBKY0hSS2ovVHpSOTV1MkVNVXc1MEIr?=
- =?utf-8?B?NmhLK01LaER0WWFXR0tLV2g0Q01RVUxsYTdYcXZKL2NsakNKVzJqODdhVnJm?=
- =?utf-8?B?Zm53UDRYTWNuK01KWXpvMVBhaVgxRnc2TlR6dkUwd1haNkxhSk9uQUhsdHNX?=
- =?utf-8?B?REdnVVhWVjU0OVQwbVBLZGdVVVAvYXhsZzdEM0JKdTBOS0J4SlhRNFNrMnpo?=
- =?utf-8?B?THpxSHQzVnBLL1Q0V3FUajB2ZGMrK3QySHVrZE50TTVtSjFzOVdDZWZHUUZB?=
- =?utf-8?B?YVUwNk8wdEFLU2kxMXlTcmM3NEtESEY3QjB4dUdGQjlPd1ZnSlZ5ZzJseW80?=
- =?utf-8?B?UGowMnZIRDc3dVlHUURHcTUzelBkblhGd1Z6alV4Z3V6UmJzSC9GVk80UmhS?=
- =?utf-8?B?Tk92VFQxYzhtRTFBeThnMDI0Z0l1ZFBpMjJJMkNYWUhuQU13MHptdThmSUpS?=
- =?utf-8?B?RE5kQSsrY3dSbHF5Wm9QaFRRZVFIRUNvWlQ1cEVBUXFkSnN3RGNxTFFMZnFN?=
- =?utf-8?B?RjJqdFRwdE5vVWxwQjRVNkRZeHhrUldHU2VQNjU0Z2tyRkFib0JSK3AyVEtP?=
- =?utf-8?B?c0xSWENYbG1uRDBZOXR0dll6TGovdXlsK0J4Vm1MaTFWN0RRNUQvSFdQNllo?=
- =?utf-8?B?ZTlMbTRkTmczQlZiMlUyRDRzQzRzM08yTWRsR0FHd2c0U20yY2x4YnN6aGs1?=
- =?utf-8?B?TDNSSEZKd2swY0JsdHVLNklaOHY5aXpBLzlla21GL1A0dnFLdkFXOTFzZFZQ?=
- =?utf-8?B?TEp3bWhGY3R1T0ZXeTk4RkVjZWJjUXR2NVpaSHFwM2NFcjJ1OXkzWDBYMHVn?=
- =?utf-8?B?N1FrSzU0anBSVzIya3lGSHc4SHFMTythdHZBamtKc1E4bUZYVUplYnIyY3Nz?=
- =?utf-8?B?UE5iaWQ2VlpOVXZpeG1iZzc1K3VTSnlaTlF6N25qM3hwNDkwUHdtSm1MK05i?=
- =?utf-8?B?Z2txdjRqMEZwamhyZmIrb0E0ZFRuMld5Wk1SQ3phY1JOd01yWGM4czFWQjZB?=
- =?utf-8?B?UmlYWjV3eE5ldzNEN0J1a3BFbEVsV0ZudkVvbXpNdGhWdHUyUU01cktMZ0xw?=
- =?utf-8?B?SkJYd0ZCS1ZVdnVlbFlic2s5TVZiR2IwSHBXTTRUT0h2YXNJMVJLcmt5VjR6?=
- =?utf-8?B?TjRvTG0ySWhWZ1p4enZKOVdOa2tWVzJwb0h2UTRtK2JrM0Z3VTR0ZVhVQ29V?=
- =?utf-8?B?YUQvUXRnWDNkeVo4L2luVjdRdW9IcldDNDVRcktDNmZXV0kyN29yWnVvaVBI?=
- =?utf-8?B?Y0g5M0FucWtvdnVQSWxDaXFYUnplc04vWUJMUWJuQzV3QUhZWE80MEI3TkxP?=
- =?utf-8?Q?0OpUPt9LOTBaEI9VGBjArP8rZmXsPn3o9mvdF?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c33daad-3665-47d6-afab-08de72d1f07e
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Feb 2026 11:51:54.4423
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vGAqv2kC0+GcJ/yKLytOJ5ygeM1eTxsIMPPGi/E0FJNhCN/dM6yAdW3f7zU/oGNTdV7v1RhEt7lpm29x30LCYF1MfeJlfBNHbIhd6aa8E/ltse6xHGjiuVe3pJ/BbAbf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB11742
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/9] workqueue: devres: Add device-managed allocate
+ workqueue
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>,
+ Tobias Schrammm <t.schramm@manjaro.org>, Sebastian Reichel <sre@kernel.org>,
+ Dan Carpenter <dan.carpenter@linaro.org>, Lee Jones <lee@kernel.org>,
+ Dzmitry Sankouski <dsankouski@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>,
+ driver-core@lists.linux.dev, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev
+References: <20260223-workqueue-devm-v1-0-10b3a6087586@oss.qualcomm.com>
+ <20260223-workqueue-devm-v1-1-10b3a6087586@oss.qualcomm.com>
+ <aZwWMiYEvr3DXi3E@smile.fi.intel.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aZwWMiYEvr3DXi3E@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_035202_997027_296D526E 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20260223_035222_614526_CC46C030 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,128 +132,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/20/2026 4:41 PM, Krzysztof Kozlowski wrote:
-> On 20/02/2026 15:36, Khristine Andreea Barbulescu wrote:
->> Hello Krzysztof,
+On 23/02/2026 09:56, Andy Shevchenko wrote:
+> On Mon, Feb 23, 2026 at 08:27:29AM +0100, Krzysztof Kozlowski wrote:
+>> Add a Resource-managed version of alloc_workqueue() to fix common
+>> problem of drivers mixing devm() calls with destroy_workqueue.  Such
+>> naive and discouraged driver approach leads to difficult to debug bugs
+>> when the driver:
 >>
->> On 2/20/2026 12:16 PM, Krzysztof Kozlowski wrote:
->>> [You don't often get email from krzk@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->>>
->>> On 19/02/2026 12:36, Khristine Andreea Barbulescu wrote:
->>>>>
->>>>>> +      reg:
->>>>>> +        maxItems: 1
->>>>>
->>>>> You have 'reg' so the node name should have unit-address.
->>>>>
->>>>> However, there's not any real DT resources in this child node, so you
->>>>> should just drop it.
->>>>>
->>>>
->>>> For context, SIUL2 exposes a set of platform‑capability and SoC identification registers that are split across the two discontiguous ranges: SIUL2-0 and SIUL2-1. These registers are the source of SoC information (e.g. identification and capability flags) that other subsystems are expected to consume (e.g. PCI Express). Because those fields are physically divided between the two SIUL2 ranges, consumers need reliable access to both ranges to correctly discover and configure the platform.
->>>>
->>>> Hence, my proposal is to keep the two 'syscon' child nodes.
->>>
->>> Please wrap your replies correctly, so this will be easily parseable.
->>>
->>> I do not understand the reasoning. If you have two register ranges, you
->>> have two <reg> entries and having a child node has nothing to do with it.
->>>
+>> 1. Allocates workqueue in standard way and destroys it in driver
+>>    remove() callback,
+>> 2. Sets work struct with devm_work_autocancel(),
+>> 3. Registers interrupt handler with devm_request_threaded_irq().
 >>
->> I’ve reorganized the SIUL2 node with two syscon subnodes for the two
->> register regions used to read system info, and a separate
->> pinctrl/GPIO child (as discussed in the v8 06/10 thread [0]). The parent
->> SIUL2 node now carries the bus addressing and ranges:
+>> Which leads to following unbind/removal path:
+>>
+>> 1. destroy_workqueue() via driver remove(),
+>>    Any interrupt coming now would still execute the interrupt handler,
+>>    which queues work on destroyed workqueue.
+>> 2. devm_irq_release(),
+>> 3. devm_work_drop() -> cancel_work_sync() on destroyed workqueue.
+>>
+>> devm_alloc_workqueue() has two benefits:
+>> 1. Solves above problem of mix-and-match devres and non-devres code in
+>>    driver,
+>> 2. Simplify any sane drivers which were correctly using
+>>    alloc_workqueue() + devm_add_action_or_reset().
 > 
-> That's not the answer to the comment. Read again:
+>>  include/linux/workqueue.h                        | 32 ++++++++++++++++++++++++
+>>  kernel/workqueue.c                               | 32 ++++++++++++++++++++++++
 > 
-> 1. Reviewer: No resources, so no separate node.
-> 2. Your answer: some soc capability and two address spaces
-> 3. Reviewer: Does not matter, address spaces can go again to original place
-> 4. Irrelevant reply.
+> Hmm... We have devm-helpers.h. Why the new one is in workqueue.h?
+> Can we have some consistency here?
 > 
-> So again, read the first comment - do you have dedicated resources in
-> children?
-> 
->>  
->>     siul2: siul2@4009c000 {
->>         compatible = "nxp,s32g3-siul2", "nxp,s32g2-siul2";
->>         #address-cells = <1>;
->>         #size-cells = <1>;
->>         ranges = <0x4009c000 0x4009c000 0x179c>,
->> 		 <0x44010000 0x44010000 0x17b0>;
->>  
->>         siul20: siul20@4009c000 {
->>             compatible = "nxp,s32g-siul2-syscfg", "syscon";
->>             reg = <0x4009c000 0x179c>;
-> 
-> 0x179c is odd size. Looks fake.
-> 
-> 
->>         };
->>  
->>         siul21: siul21@44010000 {
->>             compatible = "nxp,s32g-siul2-syscfg", "syscon";
-> 
-> And two same devices with same compatible proof it.
-> 
-> Best regards,
-> Krzysztof
 
-We don’t have dedicated resources for children. In particular,
-there are no resources allocated specifically for nodes like
-"nxp,s32g-siul2-syscfg". Their consumers are the pinctrl/gpio
-driver and other drivers that read SoC‑specific information from
-those shared registers.
- 
-My alternative is to keep two separate syscon providers for the
-SIUL2-0 and SIUL2-1 and have consumers (pinctrl/gpio , PCIe, etc.)
-reference them via phandles:
+Answering with update:
+I don't think this should go to devm-helpers.h. The definition is in
+workqueue.c, thus the declaration should be in corresponding header.
+It's logical and consistent.
 
-    siul20: syscon@4009c000 {
-        compatible = "nxp,s32g-siul20-syscfg", "syscon";
-        reg = <0x4009c000 0x2000>;
-    };
- 
-    siul21: syscon@44010000 {
-        compatible = "nxp,s32g-siul21-syscfg", "syscon";
-        reg = <0x44010000 0x2000>;
-    };
- 
-    pinctrl: pinctrl {
-        compatible = "nxp,s32g-siul2-pinctrl";
-        gpio-controller;
-        #gpio-cells = <2>;
-        gpio-ranges = <&pinctrl 0 0 102>, <&pinctrl 112 112 79>;
-        interrupt-controller;
-        #interrupt-cells = <2>;
-        interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
-        syscon = <&siul20>, <&siul21>;
- 
-        jtag_pins: jtag-pins {
-            jtag-grp0 {
-                pinmux = <0x0>;
-                input-enable;
-                bias-pull-up;
-                slew-rate = <166>;
-            };
-        };
-    };
- 
-    pcie@40400000 {
-        reg = <...>;
-        /* PCIe Dev ID */
-        syscon = <&siul20>;
-    };
- 
-I’ve seen similar approaches upstream [0].
-Would this be acceptable (even if not ideal),
-or do you prefer a different layout?
+Otherwise, I could move it entirely - definition and declaration - to
+devm-helpers.h, but then the release (devm_destroy_workqueue()) will be
+essentially exported to everyone through the header.
+
+So kind of conflicting choices.
 
 Best regards,
-Khristine
- 
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/pinctrl/xlnx,pinctrl-zynq.yaml#n182
-
-
+Krzysztof
 
