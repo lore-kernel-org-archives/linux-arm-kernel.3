@@ -4,99 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65A2EF5865
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6554EA4FC7
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 15:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZBbWrGKcc0lWLIRPbk6Pgq7bQO6bjW6W5vqvQRKlcbw=; b=TgkbO9/mv5ew7Ujn6pIkml3nMk
-	vPz0Xaczh1yN8SFY5DBaSjP+Xsbe1yZKe/J2GsWKzFxfvxcd75G/M5/s5hcxftniEdhjQWlLtUfGQ
-	VhyCN2sZbeFnFMEL1jliYrBVkc3nLpKYZFcO5UtYO9ATs4yx8xHz71favQigbkt1wTBfQSEumk5VW
-	jeq2uXwJqd58Kwaiwn4sP+N2uWi1yEZVmd4psDURWiVXMynCSH+TIRAPMuApnm0nDa9QC3cK2mW0N
-	GpFlQVAybt0jfVFsjN/c5FdhYj6hDcDB+hIZew7CmiveA/Tqy/1SU87AzogdysVtMVxCquCv1ebDn
-	SpVlTTbw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=36By4hHiLip6ZItoue2GPzjv1r334r4hKXOooo2hsrc=; b=h86ojW2kW81bKws7gDldJddGPN
+	cYBlxurWLOFwXleaKBuqIkqB4NQQY1rf7cIPwQgEhfT38ThxDnjDKMqvDL3w2irJUTwvTxOvPjR+o
+	XRzPe6Jg4iSWN7JA1KD+CKpvNU8zeYS8O4Ertd3uxNGCjnWd4kBqOxAMBLif+078amAKwQMwkis/9
+	I9ojiYoRmqP4F/Ieikc2EjsocnrVJdtcxdvPcc82iYBRMXvjzYH3C8uRAW4Hworr6gqsaO5GUrEjP
+	c8TiOxsIgq2vceLaHWK07nQDlp/EGewnfcshKbGuPsucS4RXCAYeVdb5m5WapH/a9oEHv0nxqpbY/
+	7rY2Pa3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYLM-00000000cOC-3VWL;
-	Mon, 23 Feb 2026 15:59:32 +0000
+	id 1vuYLL-00000000cMJ-3NaL;
+	Mon, 23 Feb 2026 15:59:31 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYLJ-00000000cKV-48Zo
+	id 1vuYLJ-00000000cKH-3O6M
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Feb 2026 15:59:30 +0000
+	Mon, 23 Feb 2026 15:59:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Sender:Content-ID:Content-Description:In-Reply-To:References;
-	bh=ZBbWrGKcc0lWLIRPbk6Pgq7bQO6bjW6W5vqvQRKlcbw=; b=ic0lw9bOGaOC/NMp24UkqeyrL8
-	VEUirAJbyE+thqmy/xgR4ehyo/IyIKtTDhg23/KJBW/rE8gwoESSgG7yATgCV+xgW3pLcFCs/NOiP
-	kmH0LGUGQWVd6ga1zHYu3vrnZP+Njxu8u5u1LNKaR0LJs+/FcbtDNJSL0UG2BposAbfHyQO2c86TN
-	VmfOaWuQzfqSJ9uTT4zDIz1mkHp/YyN0WVWzX+F7GwbeZbB84J4d6RFcoL3RAkWzMypcGtMxSiVKk
-	CRoP+kHv3ZfUkEVZZSBjh9vnJU1uahqiVO+1nvnXof5v92SDCN9vra9OC0gD8Eqc+PKkN0wMtKQ9n
-	ow2eUkzA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=36By4hHiLip6ZItoue2GPzjv1r334r4hKXOooo2hsrc=; b=PP5OARzi77M3pyn9Km77oaSrty
+	SVMDwxkShepTEho9Rx2SvEQii8KgZCEqnOd3JYQgr3GvPCsr+/LkoexQf7vpdJM88Am2jQvi6ncy7
+	vATJI99MRJguZQ5thSvB596kALNnNR4wMmz6iOKjR+UVpCYsiQ3pZQCLAsnvZzneE+3w306R4qgM7
+	IiYwCkqs1NZBc9+ivKZ1IzzlzbQTTGr42x7eajWV1mNPcG+Yb4RWw+Es3fYCjMDFzfjn3YQqgXnPh
+	oz+y/1/xHSFfUAlP3QQfXYo18U4o+d3BT9egdHDfUgezZzQGJw5iJi45mJqwjgE6t1S8MS4vcSL3X
+	sf9Pkt3A==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYLF-00000005PNL-0MnV
+	id 1vuYLF-00000005POU-140b
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 23 Feb 2026 15:59:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6A0144532;
-	Mon, 23 Feb 2026 15:59:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9E5B9C116D0;
-	Mon, 23 Feb 2026 15:59:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4B8624453D;
+	Mon, 23 Feb 2026 15:59:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 27EE9C116D0;
+	Mon, 23 Feb 2026 15:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771862359;
-	bh=ax3dgMPN98286F4EohyLCkzDos1bCeQOhA0dj+dqxnU=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=WOjKmT2rkm7FGAfiY3ZnamTq2QysyafH0K+IyImBv27Iip90bSa1k023ak4YDULPd
-	 NW+L61Bha6pb49JWmfxo2Y7PfKUGApYCbTIyp5ms90iJs2XW9432OM79OjLC8RROX9
-	 lxlOHmGtET1irxqvOXD3ho7mTPIkfSoVTAY2hPzYh0I64fv1FOa7zvB9YZrICp7cLt
-	 9x7GArmUkKzm4VbFfH7xIeSIK5TiBQecrV+1EkJs+w9uBfworn6r0CaQVoshmJquuF
-	 AKUkiyHCTR0ko0Ub9bpeXnSsAeWa1kgCMwmBpfeG/HDkF+AUKErZ22DbapeoQFFn79
-	 EynrPuApH/OhA==
+	s=k20201202; t=1771862360;
+	bh=8VgLBNuTxD72+GI4e0fkK8v9sYu+VLaZ56iTicorfVQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=NUXNpPayyGsKW9S8uDu3RI4dyDMmw9yk5MjGvGpU8WVZ+jR+qRN/wmS18qegVP6Um
+	 U0n0Nt4f1xPvKSuGcTMmcz2Xcjgw9NrbTIF/D4zSz19Zhzn0zmjnCPiind2d2aVGyE
+	 7oO1zsUEGWJrje2+ZGsnWnxTmSPApUxGaA/0yaFY+r9/mvl7v+cRKl4SQG4QyculwA
+	 VCgQjBZTpGlE8+QPsdDiUklj2vQnIxb9xCkzKr9ii9qD/HDOu8CSP28B9geUCBw3sR
+	 531w9w3n832apGGrB1OCMGMShZhqUyT/+oP8ot3Y1cupMxpodQht5IzInp3XadJ7kJ
+	 GzOUsFKRgUkGw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8EEE9EA4FC7;
-	Mon, 23 Feb 2026 15:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 202BDEA4FC7;
+	Mon, 23 Feb 2026 15:59:20 +0000 (UTC)
 From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Subject: [PATCH v12 0/7] i2c: xiic: use generic device property accessors
-Date: Mon, 23 Feb 2026 15:59:15 +0000
-Message-Id: <20260223-i2c-xiic-v12-0-b6c9ce4e4f3c@nexthop.ai>
+Date: Mon, 23 Feb 2026 15:59:22 +0000
+Subject: [PATCH v12 7/7] i2c: xiic: skip input clock setup on non-OF
+ systems
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFN5nGkC/3XRTU7DMBAF4KtUWePKM/5nxT0QCzseEy9IK6dER
- VXvjtMNgwLLsfw9PendhoVapWV4PtyGRmtd6mnuB+DTYRinOL+TqLk/DCjRSkAUFUdxrXUUKkU
- fSjEUgxr693OjUq+PrNe3fpd2+hCXqVFkAWCkRK/tEY3yQYCIKX+2FqePOL/MdL1Mp/Mx1i1vq
- svl1L4e1VbcUv8osaKQApQuJjutyCcesrVYFZeKSdUlJTdmjUbnspf6P6m71FFRisqAHGknDZe
- WSdOl9xFsRO8Qxp20XDom7dbWI2GxxRq3l47LwKTr0qEjrbQPjspO+h+JEpj0XWZKmDMYnyHuZ
- OCSrxK6HEnbYIpB6/JOguRUMwpys5hCsH0YVGZvgVngwwB0azL4SBEg5d/L3O/3b8p8kaXwAgA
- A
-X-Change-ID: 20260122-i2c-xiic-3ba89ff5ea93
+Message-Id: <20260223-i2c-xiic-v12-7-b6c9ce4e4f3c@nexthop.ai>
+References: <20260223-i2c-xiic-v12-0-b6c9ce4e4f3c@nexthop.ai>
+In-Reply-To: <20260223-i2c-xiic-v12-0-b6c9ce4e4f3c@nexthop.ai>
 To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>
 Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
  linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Abdurrahman Hussain <abdurrahman@nexthop.ai>, Andrew Lunn <andrew@lunn.ch>, 
- Jonathan Cameron <jonathan.cameron@huawei.com>
+ Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771862359; l=3724;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1771862359; l=1194;
  i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=ax3dgMPN98286F4EohyLCkzDos1bCeQOhA0dj+dqxnU=;
- b=fPnqxfeaffYwY5ARmdnEvl4q49/6t6DqoIjl2yIt2ViJheVHEm90bj813XWjrCJNm/gYYSqtS
- SpwB3Grhy4BCPqoPQvtBt99UOvuUbY8Za3ZKvq6yM6JTMqDPN3gsdE+
+ bh=usc1CKg+f05YBR4E4GFMUb7OKXzoYUSPfhhuE4yE/XA=;
+ b=+y1k9kEklzjax8kw0/GxG/XFD+YRKhH4DvYmswPoEay7CKIIqzhSrJB5CtDpA1+ol87X1I/6o
+ wBmNI3aTuLmDsP7/x9j7bzPOs5MdZ3A0bhlLvxYUcuC5Ia6PtpP5mJV
 X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
  pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
 X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
  auth_id=608
 X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_155925_699358_00298049 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20260223_155925_651768_671C0CA5 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,98 +106,43 @@ Reply-To: abdurrahman@nexthop.ai
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Switch to generic device property accessors.
-- Switch to managed devm_ functions to simplify error handling.
-- General cleanups.
-- Skip clock setup on non-OF systems where clock is not specified via
-firmware.
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+
+Currently Linux does not implement ACPI ClockInput() resource to describe
+clocks, unlike DT. However the xiic driver is happy if something
+magically enables the clock before the driver probes, and does not
+turn it off again. The clock should always be considered optional for
+ACPI.
 
 Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 ---
-Changes in v12:
-- Reworded the patch 3 description as suggested by Krzysztof.
-- Added fwnode to patch 3 as suggested by Andy.
-- Used fwnode added in patch 3 in patch 7 as suggested by Andy.
-- Link to v11: https://lore.kernel.org/r/20260213-i2c-xiic-v11-0-5d18aea11bde@nexthop.ai
+ drivers/i2c/busses/i2c-xiic.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-Changes in v11:
-- Cosmetic change to return 0 in patch 1.
-- Remove pm_runtime_dont_use_autosuspend() in patch 1.
-- Link to v10: https://lore.kernel.org/r/20260204-i2c-xiic-v10-0-c2b996425235@nexthop.ai
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index 6eb0c6a2618a..3e7735e1dae0 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -1464,10 +1464,12 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 
+ 	spin_lock_init(&i2c->atomic_lock);
+ 
+-	i2c->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+-	if (IS_ERR(i2c->clk))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
+-				     "failed to enable input clock.\n");
++	if (is_of_node(fwnode)) {
++		i2c->clk = devm_clk_get_enabled(dev, NULL);
++		if (IS_ERR(i2c->clk))
++			return dev_err_probe(dev, PTR_ERR(i2c->clk),
++					"failed to enable input clock.\n");
++	}
+ 
+ 	i2c->dev = dev;
+ 
 
-Changes in v10:
-- Moved dev_dbg() change from patch 4 to patch 5.
-- Reworded description in patch 6.
-- Addressed Andy's comment in patch 7 (&pdev->dev -> dev).
-- Link to v9: https://lore.kernel.org/r/20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai
-
-Changes in v9:
-- Fix an issue found by the test robot in the cleanup patch.
-- Reworded the clock change description.
-- Add a patch to switch to i2c_add_numbered_adapter().
-- Link to v8: https://lore.kernel.org/r/20260201-i2c-xiic-v8-0-deb2dd158d1a@nexthop.ai
-
-Changes in v8:
-- Made the clock change the last patch in the series.
-- Reworded the clock change description.
-- Changed dev->fwnode to dev_fwnode(dev).
-- Link to v7: https://lore.kernel.org/r/20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai
-
-Changes in v7:
-- Drop the dt-bindings patch.
-- Skip clock setup on non-OF systems.
-- Minor commit body rewording.
-- Applied code-review trailers with `b4 trailers -u`
-- Link to v6: https://lore.kernel.org/r/20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai
-
-Changes in v6:
-- Cosmetic changes to address the comments.
-- Added a patch to use resource format specifier in debug log.
-- Link to v5: https://lore.kernel.org/r/20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai
-
-Changes in v5:
-- Reorder the cosmetic patch to be the last in the series.
-- Added a documentation patch to describe the optional clock.
-- Minor commit body rewording.
-- Link to v4: https://lore.kernel.org/r/20260123-i2c-xiic-v4-0-4a3eba3510ce@nexthop.ai
-
-Changes in v4:
-- Reorder the cosmetic patch to be the first in the series.
-- Amend the mutex_init patch to also switch to the managed pm_runtime_
-  variant.
-- Link to v3: https://lore.kernel.org/r/20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai
-
-Changes in v3:
-- Reorder the "optional clock" patch to be the first in the series. 
-- Add a patch to switch to devm_mutex_init().
-- Remove dup message in error path.
-- Cosmetic: use temporary dev variable.
-- Link to v2: https://lore.kernel.org/r/20260122-i2c-xiic-v2-0-134f5d743e8b@nexthop.ai
-
-Changes in v2:
-- Split the patch into two independent changes.
-- Added struct device *dev at the top of probe() and remove() to re-use.
-- Switched to device_set_node(...)
-
----
-Abdurrahman Hussain (7):
-      i2c: xiic: switch to devres managed APIs
-      i2c: xiic: remove duplicate error message
-      i2c: xiic: switch to generic device property accessors
-      i2c: xiic: cosmetic cleanup
-      i2c: xiic: cosmetic: use resource format specifier in debug log
-      i2c: xiic: use numbered adapter registration
-      i2c: xiic: skip input clock setup on non-OF systems
-
- drivers/i2c/busses/i2c-xiic.c | 97 +++++++++++++++++++------------------------
- 1 file changed, 42 insertions(+), 55 deletions(-)
----
-base-commit: 37a93dd5c49b5fda807fd204edf2547c3493319c
-change-id: 20260122-i2c-xiic-3ba89ff5ea93
-
-Best regards,
 -- 
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
+2.52.0
 
 
 
