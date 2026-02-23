@@ -4,70 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A693EA4FB8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 12:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E10EA4FBA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 12:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SkhVeTBruLclNH0dhonRD1X/90Z560Jq62H4BJAoMrk=; b=zx+xjOrnwU3b2WmfJZu3ijsr1P
-	MvOwWruqRHZ4n7naiRhUQwmnpucKfU/LDz3q9EGQ6WiM7CPpc7W9Knw5aSQzkQVXdXbEKwm/qhIW9
-	zPCMjcPbyeU7SJ5qNG7zItHYKhN7pivB6YlPXCc4eYs5EHb394hzLIx7hhZRsqCaJmw3tokNYZL8E
-	xq9lNGdIde39Cjy3UF91k2aZohdwgA66NmWQGLAgDfEip5p/twQrRK/AAn+jAT52NYPSML0Xi++Up
-	zscU49ES69PlXG0w68NxFo6gPq9yQGPoqtIYg+qBObxfjm6Aswc6pAVWGbum+yJV/WmroVHPr9kXN
-	VCQE8oDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vFN7V026lnmVlaoqZPmxvQqPSRV+rY5RviyiO7CZHLE=; b=MUnNnRWgUlP/3uIG+jerj9dgcI
+	jkuCUzCUiI53CKdcxnChh86uGffHP3pgWGrdROCnO1uhM/fSjp7OnRPMQ9O0skvWM/dqIFWplO5kj
+	hxtPLGVHrnrEPlLddp4DxyL9cpq/8i0T2cHHWMM2ipNlTfahTZKwICEjSnbPxCpUarK5jUb1j7XJ4
+	FKHgbUuRhzkEH9tX6jfp+ZOH6ksvHasf2oI83WVnj4+4j5R5OFyTxAxhEcFNG5E8U3xlpVqs3x2vs
+	B77bLjH1B5zRylAi+Wm+hSBKGvdo/cJo0KP3sasmLouNwRqY74VaLrtYDEhwjRsNLdEWpd55ZZg03
+	bQQdtvig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuVFv-00000000ITx-3VtR;
-	Mon, 23 Feb 2026 12:41:43 +0000
-Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuVFt-00000000ISZ-2dAS
+	id 1vuVNO-00000000J5n-30LG;
+	Mon, 23 Feb 2026 12:49:26 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuVNM-00000000J5K-19SB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 12:41:42 +0000
-X-CSE-ConnectionGUID: RATekyJ1R5yKNNf7lStgUQ==
-X-CSE-MsgGUID: y0YMchb9Q8eDUObnCEjfig==
-Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie6.idc.renesas.com with ESMTP; 23 Feb 2026 21:41:40 +0900
-Received: from vm01.adwin.renesas.com (unknown [10.226.92.12])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id DEB7641AB637;
-	Mon, 23 Feb 2026 21:41:33 +0900 (JST)
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux@armlinux.org.uk,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	boon.khai.ng@altera.com,
-	rohan.g.thomas@altera.com,
-	vladimir.oltean@nxp.com,
-	hayashi.kunihiko@socionext.com,
-	matthew.gerlach@altera.com,
-	vee.khee.wong@intel.com,
-	boon.leong.ong@intel.com,
-	kim.tatt.chuah@intel.com
-Cc: netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Mon, 23 Feb 2026 12:49:25 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 0AD655BD1A;
+	Mon, 23 Feb 2026 12:49:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1771850961; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vFN7V026lnmVlaoqZPmxvQqPSRV+rY5RviyiO7CZHLE=;
+	b=hWCh/fcnYbWOr0SnKn+8Gvp9MsGvJLNT9fHklv1eZtUszRDIHovvz85EMEjwHNGndCJJFq
+	yKsJQRxQEfsfCq1SzEwcovuaP0m47F3E2kwUn+Mqc1rXsI+fKEwVdClkxApqUGmEyT23ht
+	wREDMy+J+vw6Jb8dMd7IBYXp9yi4Ltw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1771850961;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vFN7V026lnmVlaoqZPmxvQqPSRV+rY5RviyiO7CZHLE=;
+	b=730yGY6dEaj+Z3/XQywCS/aZE3fxtDGf7MGWUwWGhX4N8yLwFrbffzt/Bon2lXIlNw3a/B
+	LzAwqbD5sjsSz9AQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="hWCh/fcn";
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=730yGY6d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1771850961; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vFN7V026lnmVlaoqZPmxvQqPSRV+rY5RviyiO7CZHLE=;
+	b=hWCh/fcnYbWOr0SnKn+8Gvp9MsGvJLNT9fHklv1eZtUszRDIHovvz85EMEjwHNGndCJJFq
+	yKsJQRxQEfsfCq1SzEwcovuaP0m47F3E2kwUn+Mqc1rXsI+fKEwVdClkxApqUGmEyT23ht
+	wREDMy+J+vw6Jb8dMd7IBYXp9yi4Ltw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1771850961;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vFN7V026lnmVlaoqZPmxvQqPSRV+rY5RviyiO7CZHLE=;
+	b=730yGY6dEaj+Z3/XQywCS/aZE3fxtDGf7MGWUwWGhX4N8yLwFrbffzt/Bon2lXIlNw3a/B
+	LzAwqbD5sjsSz9AQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id ACC2A3EA68;
+	Mon, 23 Feb 2026 12:49:19 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id c4qlJs9MnGmJfgAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Mon, 23 Feb 2026 12:49:19 +0000
+Date: Mon, 23 Feb 2026 12:49:18 +0000
+From: Pedro Falcato <pfalcato@suse.de>
+To: Dev Jain <dev.jain@arm.com>
+Cc: lsf-pc@lists.linux-foundation.org, ryan.roberts@arm.com, 
+	catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org, willy@infradead.org, 
+	hughd@google.com, baolin.wang@linux.alibaba.com, akpm@linux-foundation.org, 
+	david@kernel.org, lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, 
+	vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com, 
+	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 4/4] net: stmmac: Defer VLAN HW configuration when interface is down
-Date: Mon, 23 Feb 2026 12:41:02 +0000
-Message-ID: <20260223124102.120432-5-ovidiu.panait.rb@renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260223124102.120432-1-ovidiu.panait.rb@renesas.com>
-References: <20260223124102.120432-1-ovidiu.panait.rb@renesas.com>
+Subject: Re: [LSF/MM/BPF TOPIC] Per-process page size
+Message-ID: <fqsd4x5oqavouhwawmsmpanaszvr6xsboc2oeqzs3fafrtovpk@gfnqznoqlabk>
+References: <20260217145026.3880286-1-dev.jain@arm.com>
+ <yfe2xbb6qwthg3cf4yr7zszpw5o3mx2v4bv32iwnm7yzxqjsvl@et22s2nuwzzk>
+ <a778d249-afea-4488-b045-beff3492a48a@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a778d249-afea-4488-b045-beff3492a48a@arm.com>
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-4.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MISSING_XM_UA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[20];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Queue-Id: 0AD655BD1A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_044141_780319_92633C90 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20260223_044924_468070_0AA9B892 
+X-CRM114-Status: GOOD (  26.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,170 +142,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VLAN register accesses on the MAC side require the PHY RX clock to be
-active. When the network interface is down, the PHY is suspended and
-the RX clock is unavailable, causing VLAN operations to fail with
-timeouts.
+On Mon, Feb 23, 2026 at 10:37:55AM +0530, Dev Jain wrote:
+> >>
+> >> 3. Translation from Linux pagetable to native pagetable
+> >> -------------------------------------------------------
+> >> Assume the case of a kernel pagesize of 4K and app pagesize of 64K.
+> >> Now that enlightenment is done, it is guaranteed that every single mapping
+> >> in the 4K pagetable (which we call the Linux pagetable) is of granularity
+> >> at least 64K. In the arm64 MM code, we maintain a "native" pagetable per
+> >> mm_struct, which is based off a 64K geometry. Because of the guarantee
+> >> aforementioned, any pagetable operation on the Linux pagetable
+> >> (set_ptes, clear_flush_ptes, modify_prot_start_ptes, etc) is going to happen
+> >> at a granularity of at least 16 PTEs - therefore we can translate this
+> >> operation to modify a single PTE entry in the native pagetable.
+> >> Given that enlightenment may miss corner cases, we insert a warning in the
+> >> architecture code - on being presented with an operation not translatable
+> >> into a native operation, we fallback to the Linux pagetable, thus losing
+> >> the benefits borne out of the pagetable geometry but keeping
+> >> the emulation intact.
+> > I don't understand. What exactly are you trying to do here? Maintain 2
+> > different paging structures, one for core mm and the other for the arch? As
+> > done in architectures with no radix tree paging structures?
+> 
+> The mm->pgd will be the software pagetable. So suppose that do_anonymous_page is
+> doing set_ptes on the PTE table belonging to the software pagetable. We will
+> hook a "native_set_ptes" into set_ptes, which will set the ptes on a different
+> pagetable maintained by arm64 code (probably mm_context_t->native_pgd).
 
-The VLAN core automatically removes VID 0 after the interface goes down
-and re-adds it when it comes back up, so these timeouts happen during
-normal interface down/up:
+Traditionally, you do this kind of funky manipulation in update_mmu_cache.
 
-    # ip link set end1 down
-    renesas-gbeth 15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
-    renesas-gbeth 15c40000.ethernet end1: failed to kill vid 0081/0
+But this is still an extremely complex and invasive change (that I assume most
+people would not like to see) with dubious benefit.
 
-Adding VLANs while the interface is down also fails:
+> 
+> >
+> > If so, that's wildly inefficient, unless you're willing to go into reclaimable
+> > page tables on the arm64 side. And that brings extra problems and extra fun :)
+> 
+> I didn't understand the reclaimable reference, but yes we need to make this efficient.
 
-    # ip link add link end1 name end1.10 type vlan id 10
-    renesas-gbeth 15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
-    RTNETLINK answers: Device or resource busy
+I'm not talking about CPU runtime efficiency, but memory efficiency. Doing
+this makes you essentially duplicate page tables - not exactly ideal. This is
+a Known Problem in classic UNIX systems which do something similar
+(but not the same): anonymous memory pointers are stored in some intermediary
+structure (SunOS and UVM call it "amap"), and paging structures are entirely
+redundant there. They can freely tear down a page table because they can freely
+put it together from the amap and file mappings (what they call vm_object and
+we call address_space).
 
-Use the write_hw parameter introduced in the previous commit to skip
-hardware register writes when the interface is down. The software state
-is always kept up to date regardless of interface state.
+Anyway, I'm boring you with these funny historical details so you can understand
+the similarities: the Linux page table format generally matches hardware, and
+we store anonymous memory "state" there, so you can't ever tear-down a pgtable
+without losing state of whatever was mapped there before. However, if you go
+down the "arm64 now has a separate pgtable structure", the roles switch:
+arm64's internal page table format makes for the real page tables, and linux's
+pgtable structure is nothing more than an "amap". So you could (and perhaps
+should) freely reclaim arm64 MMU page tables once memory pressure hits, because
+they are freely discardable.
 
-When the interface is brought up, stmmac_vlan_configure() is called
-to write the VLAN state to hardware.
+Does this make sense?
 
-Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 33 +++++++++++++++----
- .../net/ethernet/stmicro/stmmac/stmmac_vlan.c |  9 ++---
- 2 files changed, 29 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 536668a0d6dd..d0aede23ae0d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -156,6 +156,7 @@ static void stmmac_tx_timer_arm(struct stmmac_priv *priv, u32 queue);
- static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue);
- static void stmmac_set_dma_operation_mode(struct stmmac_priv *priv, u32 txmode,
- 					  u32 rxmode, u32 chan);
-+static int stmmac_vlan_configure(struct stmmac_priv *priv);
- 
- #ifdef CONFIG_DEBUG_FS
- static const struct net_device_ops stmmac_netdev_ops;
-@@ -4111,6 +4112,14 @@ static int __stmmac_open(struct net_device *dev,
- 
- 	phylink_start(priv->phylink);
- 
-+	if (dev->features & NETIF_F_VLAN_FEATURES) {
-+		phylink_rx_clk_stop_block(priv->phylink);
-+		ret = stmmac_vlan_configure(priv);
-+		phylink_rx_clk_stop_unblock(priv->phylink);
-+		if (ret)
-+			netdev_err(dev, "Failed to configure VLANs\n");
-+	}
-+
- 	ret = stmmac_request_irq(dev);
- 	if (ret)
- 		goto irq_error;
-@@ -6784,6 +6793,7 @@ static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double,
- static int stmmac_vlan_rx_add_vid(struct net_device *ndev, __be16 proto, u16 vid)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
-+	bool write_hw = netif_running(ndev);
- 	unsigned int num_double_vlans;
- 	bool is_double = false;
- 	int ret;
-@@ -6797,7 +6807,7 @@ static int stmmac_vlan_rx_add_vid(struct net_device *ndev, __be16 proto, u16 vid
- 
- 	set_bit(vid, priv->active_vlans);
- 	num_double_vlans = priv->num_double_vlans + is_double;
--	ret = stmmac_vlan_update(priv, num_double_vlans, true);
-+	ret = stmmac_vlan_update(priv, num_double_vlans, write_hw);
- 	if (ret) {
- 		clear_bit(vid, priv->active_vlans);
- 		goto err_pm_put;
-@@ -6805,10 +6815,11 @@ static int stmmac_vlan_rx_add_vid(struct net_device *ndev, __be16 proto, u16 vid
- 
- 	if (priv->hw->num_vlan) {
- 		ret = stmmac_add_hw_vlan_rx_fltr(priv, ndev, priv->hw, proto,
--						 vid, true);
-+						 vid, write_hw);
- 		if (ret) {
- 			clear_bit(vid, priv->active_vlans);
--			stmmac_vlan_update(priv, priv->num_double_vlans, true);
-+			stmmac_vlan_update(priv, priv->num_double_vlans,
-+					   write_hw);
- 			goto err_pm_put;
- 		}
- 	}
-@@ -6827,6 +6838,7 @@ static int stmmac_vlan_rx_add_vid(struct net_device *ndev, __be16 proto, u16 vid
- static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vid)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
-+	bool write_hw = netif_running(ndev);
- 	unsigned int num_double_vlans;
- 	bool is_double = false;
- 	int ret;
-@@ -6840,7 +6852,7 @@ static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vi
- 
- 	clear_bit(vid, priv->active_vlans);
- 	num_double_vlans = priv->num_double_vlans - is_double;
--	ret = stmmac_vlan_update(priv, num_double_vlans, true);
-+	ret = stmmac_vlan_update(priv, num_double_vlans, write_hw);
- 	if (ret) {
- 		set_bit(vid, priv->active_vlans);
- 		goto del_vlan_error;
-@@ -6848,10 +6860,11 @@ static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vi
- 
- 	if (priv->hw->num_vlan) {
- 		ret = stmmac_del_hw_vlan_rx_fltr(priv, ndev, priv->hw, proto,
--						 vid, true);
-+						 vid, write_hw);
- 		if (ret) {
- 			set_bit(vid, priv->active_vlans);
--			stmmac_vlan_update(priv, priv->num_double_vlans, true);
-+			stmmac_vlan_update(priv, priv->num_double_vlans,
-+					   write_hw);
- 			goto del_vlan_error;
- 		}
- 	}
-@@ -6864,6 +6877,14 @@ static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vi
- 	return ret;
- }
- 
-+static int stmmac_vlan_configure(struct stmmac_priv *priv)
-+{
-+	if (priv->hw->num_vlan)
-+		stmmac_restore_hw_vlan_rx_fltr(priv, priv->dev, priv->hw);
-+
-+	return stmmac_vlan_update(priv, priv->num_double_vlans, true);
-+}
-+
- static int stmmac_bpf(struct net_device *dev, struct netdev_bpf *bpf)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-index b74c173da1b5..070c11870c02 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-@@ -150,7 +150,6 @@ static void vlan_restore_hw_rx_fltr(struct net_device *dev,
- 	void __iomem *ioaddr = hw->pcsr;
- 	u32 value;
- 	u32 hash;
--	u32 val;
- 	int i;
- 
- 	/* Single Rx VLAN Filter */
-@@ -160,12 +159,8 @@ static void vlan_restore_hw_rx_fltr(struct net_device *dev,
- 	}
- 
- 	/* Extended Rx VLAN Filter Enable */
--	for (i = 0; i < hw->num_vlan; i++) {
--		if (hw->vlan_filter[i] & VLAN_TAG_DATA_VEN) {
--			val = hw->vlan_filter[i];
--			vlan_write_filter(dev, hw, i, val);
--		}
--	}
-+	for (i = 0; i < hw->num_vlan; i++)
-+		vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
- 
- 	hash = readl(ioaddr + VLAN_HASH_TABLE);
- 	if (hash & VLAN_VLHT) {
 -- 
-2.34.1
-
+Pedro
 
