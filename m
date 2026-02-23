@@ -4,50 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7EFFEC1128
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 19:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 904ECEC1120
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 19:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hpp/3PYpq5fXfYO0KfydtqN3X8iStaP5puLBD3gp2IA=; b=ITZQeUaPcaXaIHCfbJo4pLhuVx
-	K6JgaqTKNoQbD4CQIEqjf6NoplMiHjVIe0iorq3rvTrUPijcjnbLoeBOnwOJuxt6BpwSXB7n0OaL+
-	zEzy8oAoT1wZgLf9fKGOBBzTNZRegp+AEFPj6br13Wz096DqOfMiAIWkC1AAFDCpyYafbTyXhc/+n
-	dWkRmJ/AGh6hBxnb1gGQV7gFBVI7mHHuiiaWxcMFS2WRdANYqLj0ROlS0moBjjUCQesY8cHSXCMq2
-	n4bPK+/1DXmJ6H0zgAE6ir92z5WmF0bAE9uc8hFFKxQLAW5lPcM2FUc2fQpPIhWY+UPIFdvT9csbO
-	Vkx10ZSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AlhXOrkarVlCEj88DN0aAkkni6rxZVX55QsGBbo8q0s=; b=zlSaYSmwY8nIsz+g0vbJP2JmIq
+	vd2d16GAH5ef717ALGla6lxbs22t39F9Wg8WiOLEDBgiV+qmttFAekIfTRengOSAPxE3z2C0emO+p
+	BQtyYv69wW8NyqIqSYT6e+LDny5FxTvPqY7AjiNKhgGmnrgzQa2cpTKb+PRmcyq2BHL6tmKxNWUVL
+	TSfrBJlMxPEq+sBOGVU10S+YhvFwZCjJNZDzz/HGeLEu5W0es5nEGoLj/3/A9DAbfFFWpUsEJySfr
+	yVpHRcgeIg3AX56CggkigKv2vW8x51qoNcQGksuLI3BjvmiPbCUSCEvNLBJml70XhRK/PwT2cXJWk
+	H9MlGB1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vubrO-00000000wnO-2DJS;
-	Mon, 23 Feb 2026 19:44:50 +0000
-Received: from [95.181.193.9] (helo=mail.auroraos.dev)
+	id 1vubws-00000000x5x-3Chi;
+	Mon, 23 Feb 2026 19:50:30 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vubrL-00000000wmx-2Hc4;
-	Mon, 23 Feb 2026 19:44:49 +0000
-Received: from wasted (213.87.162.218) by exch16.corp.auroraos.dev
- (10.189.209.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1847.3; Mon, 23 Feb
- 2026 22:44:38 +0300
-From: Sergey Shtylyov <s.shtylyov@auroraos.dev>
-To: Linus Walleij <linusw@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	<linux-gpio@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
-CC: Sergey Shtylyov <s.shtylyov@auroraos.dev>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH] pinctrl: rockchip: use *enum* properly in rockchip_pinconf_pull_valid()
-Date: Mon, 23 Feb 2026 22:44:23 +0300
-Message-ID: <20260223194424.19251-1-s.shtylyov@auroraos.dev>
-X-Mailer: git-send-email 2.53.0
+	id 1vubwq-00000000x4s-3c8S;
+	Mon, 23 Feb 2026 19:50:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771876226;
+	bh=6NMNLw1s2WsA6uRfmv4c97SwCFOyXqpvR550+YMrFuI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fjHwpuofkkdWxQVNuLZ14r9wtAUV/v+v+lNfbCEkdXvwI+OVs3kGKCbLMFcgiV0S1
+	 jxW3d3nHOkBV0jpQFVZJZx+G+k862sZYcS2QNu9MZmo5B3gyK0Nm874wGaQRVunJMP
+	 Hxo1A4WfRTWS+TT7rx7nDTtGcmxrdqq+zomh7bsag5r27YeL+sdrJrcW+s/K8RrDTS
+	 YUU+KQJdHBmaRGr606wvgNdhvVBO5Iqt6jSp90T71KyYVu5acjcsv9Px2942jWltua
+	 E+3eBUfOEwLWWUsvB4gICLqM4dafZHVzY8p8VDgLvk6lsuq5fvg3bAZo50xOaYLh0H
+	 TCqnnUhvEG6Bw==
+Received: from localhost (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DDF3F17E0411;
+	Mon, 23 Feb 2026 20:50:25 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Mon, 23 Feb 2026 21:49:49 +0200
+Subject: [PATCH v2 1/3] media: dt-bindings: rockchip,vdec: Correct
+ reg-names order for RK35{76,88}
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [213.87.162.218]
-X-ClientProxiedBy: exch16.corp.auroraos.dev (10.189.209.38) To
- exch16.corp.auroraos.dev (10.189.209.38)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260223-vdec-reg-order-rk3576-v2-1-daf4942dfc02@collabora.com>
+References: <20260223-vdec-reg-order-rk3576-v2-0-daf4942dfc02@collabora.com>
+In-Reply-To: <20260223-vdec-reg-order-rk3576-v2-0-daf4942dfc02@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Detlev Casanova <detlev.casanova@collabora.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
+ linux-media@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_114447_604853_B544E850 
-X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-CacheID: sfid-20260223_115029_054996_DBA3EC5A 
+X-CRM114-Status: UNSURE (   9.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -63,33 +83,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In rockchip_pinconf_pull_valid(), the pull parameter has *enum* type that
-is not isomorphic with boolean type but it's used as a boolean expression
-in the ?: operator.  Compare pull with PIN_CONFIG_BIAS_BUS_HOLD instead,
-dropping the unnecessary ?: operator as well...
+Update 'reg-names' property to allow providing the register blocks in
+the expected address-based order for RK3576 & RK3588 video decoder and,
+consequently, fix some DTC warnings.
 
-Found by Linux Verification Center (linuxtesting.org) with the Svace static
-analysis tool.
+Additionally, drop the 'reg' description items as the order is not fixed
+anymore, while the information they offer is not very relevant anyway.
 
-Signed-off-by: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+Fixes: c6ffb7e1fb90 ("media: dt-bindings: rockchip: Document RK3588 Video Decoder bindings")
+Fixes: a5c4a6526476 ("media: dt-bindings: rockchip: Add RK3576 Video Decoder bindings")
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/pinctrl/pinctrl-rockchip.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/media/rockchip,vdec.yaml | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl-rockchip.c
-index 816823403e97..6d0ba2a258d1 100644
---- a/drivers/pinctrl/pinctrl-rockchip.c
-+++ b/drivers/pinctrl/pinctrl-rockchip.c
-@@ -3577,7 +3577,7 @@ static bool rockchip_pinconf_pull_valid(struct rockchip_pin_ctrl *ctrl,
- 		return (pull == PIN_CONFIG_BIAS_PULL_PIN_DEFAULT ||
- 					pull == PIN_CONFIG_BIAS_DISABLE);
- 	case RK3066B:
--		return pull ? false : true;
-+		return pull == PIN_CONFIG_BIAS_BUS_HOLD;
- 	case PX30:
- 	case RV1108:
- 	case RV1126:
+diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+index 809fda45b3bd..2d3164a2882b 100644
+--- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+@@ -28,16 +28,15 @@ properties:
+ 
+   reg:
+     minItems: 1
+-    items:
+-      - description: The function configuration registers base
+-      - description: The link table configuration registers base
+-      - description: The cache configuration registers base
++    maxItems: 3
+ 
+   reg-names:
+-    items:
++    oneOf:
+       - const: function
+-      - const: link
+-      - const: cache
++      - items:
++          - const: link
++          - const: function
++          - const: cache
+ 
+   interrupts:
+     maxItems: 1
+
 -- 
-2.53.0
+2.52.0
 
 
