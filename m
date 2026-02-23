@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC51EC110C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 17:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC5BEC1113
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 17:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/vP8YKNHmToY90EFwEgolPhOI5A6ezPDbGTe+z7CI1w=; b=wz+HO4GWnLRXf7r0Dn5RXUTc92
-	l3duH+4dtlYa+aiVThUBQoMqNG+OljcbaCEurKK4owNUp1TPURToODrWVspvaWSoxduoBScsNYzew
-	VOM83eFRwdqRGNZ+4Z7QsTCVPcslvAX2w8+2qyx6HW2ZOOUTjFJFSlNxt3ARHWmxTBZNMxL1gWNAJ
-	Ugq1Ay4E2UzAcI1B/apwpllF0TBV9TQbixtnr1rzQMX98Fd5PKekMCqscTc2/ZILKi4UB6muc2C1H
-	FcsgEHEw8GFnBV6Q7f1nyQCJVxxv5dkzYkrHkGihuAHkidZXIOrVDdfgK+L+SyQvYxXZPRWLmSxF9
-	elpmz//g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KZUdZl5z6qHV0IIb0h7NNTv33WoB9V7pmBSMHp4+dS4=; b=nnQt3ELAoOQHFX9BE0CO48kamc
+	S0uxTs51llsK2dJto9DYkF2l2jULg2xHyMPmyGKrE4QlwVLAfV6X6B9e1B8kH5HGhk55ny6Dh9Byb
+	BtCYR5UdGbd7oO7JMcw53Qrxgew54qHcq3Fod4sY8nTVQrnKnAdFEY182gn/hihe7wifWm9yBHbql
+	ivoPjtQGoUxXEi5N/rmiUXrwrMOv1Jua2XnNvFv+x78CMM1eeJ0rrlDFwUptzRqEnhwltPccJpTOH
+	aa1tmCM2JHOnjNMlgXtac/4bEw4IpyP74RX0vF0DZNDoV6qW/HlJvBxGRnIiapUEVLDcf4e5TnFj0
+	ZbHidmNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuZNV-00000000iuu-2djx;
-	Mon, 23 Feb 2026 17:05:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vuZPU-00000000j4E-0FdS;
+	Mon, 23 Feb 2026 17:07:52 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuZNU-00000000iul-1pwm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 17:05:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 75D8260123;
-	Mon, 23 Feb 2026 17:05:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4310BC116D0;
-	Mon, 23 Feb 2026 17:05:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1771866347;
-	bh=LVFzllSloWoOaF21bDE/8kEXnUUxiA/Ig/7YIS6Bvlw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=PesqEyqRg+siu8i4WJqokKfppcs3B6vrvvTYnp2IohSwb5sdovPCH5tghmE4SvGUR
-	 0yXwKHyZ3/5ccqzQhm7AtE/H/SsbQv5Zf8IuFWdrM1PQQCkkHjPnkhGuUe3bIvz0Ob
-	 WI3llk7u8WUoosEb311o5gtZle05+GJ6gZsHOJs8=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-i2c@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	stable <stable@kernel.org>
-Subject: [PATCH] i2c: s3c24xx: check the size of the SMBUS message before using it
-Date: Mon, 23 Feb 2026 18:05:15 +0100
-Message-ID: <2026022314-rely-scrubbed-4839@gregkh>
-X-Mailer: git-send-email 2.53.0
+	id 1vuZPR-00000000j3i-1GSZ;
+	Mon, 23 Feb 2026 17:07:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771866464;
+	bh=A6xnEFdr8reueLge6TPzjj/7mjnCn9LUEyXj3tdfcH0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NkX5yRnHWIe56qhSahvA9hfs/eeL3XAMkDAfj4yH5+V7lbpmnmRT9NZ37rmY82jbT
+	 ED2gAQarwg+/A2mUr8/r5O/To64gctxlKFh+mNju9sDpTEyJb8EJTV78djOydRtR+y
+	 52Uww8ZVbsfh3oy3qhU3Fgmk2cM4Qnrhnh8InPaAKVzCoC7+tDcydj9a4SeN16mwSu
+	 snLRBYrBWBkY9L5c2wVmbFcscpNkjvcx/LPbx3JP5ibB2UHTwkV+vAtih3NVpfanrz
+	 8B6FKcVrlCXaXDpHuQi5aAmspjX/bq7NuczZeMsaVdifaUfwUewyPGS1jsJ35O0Gxd
+	 hAn7rgm5USCWQ==
+Received: from [192.168.1.90] (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B9D6017E06CA;
+	Mon, 23 Feb 2026 18:07:43 +0100 (CET)
+Message-ID: <b4eb3031-69e8-4a73-b4f1-91dd4192bb21@collabora.com>
+Date: Mon, 23 Feb 2026 19:07:42 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1434; i=gregkh@linuxfoundation.org; h=from:subject:message-id; bh=LVFzllSloWoOaF21bDE/8kEXnUUxiA/Ig/7YIS6Bvlw=; b=owGbwMvMwCRo6H6F97bub03G02pJDJlzOk6pGV9pq+u8vc0l4qbNkTRxUUX/DD0HubIH0nda/ DJFlP90xLIwCDIxyIopsnzZxnN0f8UhRS9D29Mwc1iZQIYwcHEKwESeNzLMj56/N3D7vyPTy81u uTdOlpzus92/j2HBEjWTv3b6phLbplvPFD/Zv1BV4QYzAA==
-X-Developer-Key: i=gregkh@linuxfoundation.org; a=openpgp; fpr=F4B60CC5BF78C2214A313DCB3147D40DDB2DFB29
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix vdec register blocks order on
+ RK3576
+To: Diederik de Haas <diederik@cknow-tech.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260223-vdec-reg-order-rk3576-v1-1-560976566bd3@collabora.com>
+ <aZxkDGzEQCCLKR-M@venus> <DGMF3IX3J3BP.1XT41P0G8P5OD@cknow-tech.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <DGMF3IX3J3BP.1XT41P0G8P5OD@cknow-tech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260223_090749_527297_26746FA1 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +80,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first byte of an i2c SMBUS message is the size, and it should be
-verified to ensure that it is in the range of 0..I2C_SMBUS_BLOCK_MAX
-before processing it.
+On 2/23/26 4:39 PM, Diederik de Haas wrote:
+> On Mon Feb 23, 2026 at 3:31 PM CET, Sebastian Reichel wrote:
+>> On Mon, Feb 23, 2026 at 02:25:05PM +0200, Cristian Ciocaltea wrote:
+>>> When building device trees for the RK3576 based boards, DTC shows the
+>>> following complaint:
+>>>
+>>>   rk3576.dtsi:1282.30-1304.5: Warning (simple_bus_reg): /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
+>>>
+>>> Provide the register blocks in the expected address-based order.
+>>>
+>>> Fixes: da0de806d8b4 ("arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576")
+>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>> ---
+>>
+>> This fixes this warning, but instead creates a new one, because the
+>> reg-names order is fixed in the DT binding:
+>>
+>>    reg:
+>>      minItems: 1
+>>      items:
+>>        - description: The function configuration registers base
+>>        - description: The link table configuration registers base
+>>        - description: The cache configuration registers base
+>>   
+>>    reg-names:
+>>      items:
+>>        - const: function
+>>        - const: link
+>>        - const: cache
 
-This is the same logic that was added in commit a6e04f05ce0b ("i2c:
-tegra: check msg length in SMBUS block read") to the i2c tegra driver.
+Oh, right, missed to check the binding.. :-(
 
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>
-Cc: stable <stable@kernel.org>
-Assisted-by: gkh_clanker_2000
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- drivers/i2c/busses/i2c-s3c2410.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> See also the prior discussion wrt this:
+> https://lore.kernel.org/linux-rockchip/edabca63-594e-44ae-8a3d-0f60987a8664@collabora.com/
 
-diff --git a/drivers/i2c/busses/i2c-s3c2410.c b/drivers/i2c/busses/i2c-s3c2410.c
-index 8138f5ef40f0..15e14a6fe6dc 100644
---- a/drivers/i2c/busses/i2c-s3c2410.c
-+++ b/drivers/i2c/busses/i2c-s3c2410.c
-@@ -503,8 +503,13 @@ static void i2c_s3c_irq_nextbyte(struct s3c24xx_i2c *i2c, unsigned long iicstat)
- 		i2c->msg->buf[i2c->msg_ptr++] = byte;
- 
- 		/* Add actual length to read for smbus block read */
--		if (i2c->msg->flags & I2C_M_RECV_LEN && i2c->msg->len == 1)
-+		if (i2c->msg->flags & I2C_M_RECV_LEN && i2c->msg->len == 1) {
-+			if (byte == 0 || byte > I2C_SMBUS_BLOCK_MAX) {
-+				s3c24xx_i2c_stop(i2c, -EPROTO);
-+				break;
-+			}
- 			i2c->msg->len += byte;
-+		}
-  prepare_read:
- 		if (is_msglast(i2c)) {
- 			/* last byte of buffer */
--- 
-2.53.0
+That's interesting, I'm also not able to trigger the warning on RK3588.
+
+Regardless, the binding can be easily adjusted with the patch below.  Hence I'm
+going to handle this in v2, unless there's a reason against moving further.
+
+Thanks,
+Cristian
+
+
+--- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+@@ -34,10 +34,12 @@ properties:
+       - description: The cache configuration registers base
+
+   reg-names:
+-    items:
++    oneOf:
+       - const: function
+-      - const: link
+-      - const: cache
++      - items:
++          - const: link
++          - const: function
++          - const: cache
+
+   interrupts:
+     maxItems: 1
 
 
