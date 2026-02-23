@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48EFDEC111E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1509DEC111E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhPFHQNiqDUZwOZfo/T8gxImjGZX+z+NGQyBYUoXbLI=; b=JM4TJoq8709YhL4A9lN1KLRvqF
-	vVHGUlq/euRNtxr9qzbQN/AS3Tt8hZmRgobnc7ndEixiJHyLbHeb7AKMjuRL2571B1111U1/LXdgJ
-	nAQGIu1N+3JiUeMi2Hk2k8jOqF51TgI1d8yDXSIbrRSvPYlrJny70CFV9ObRmhMu42RgzfeMGMIKs
-	Pzi/L7Q5ihZieZKTROf4S8ZrcPrKhpgdCfcq00dM+lCeKJgfhcVv+IWMq5JEGfZv6aUIQoUpAAV7F
-	96Frgtm79iLzT9SRBRlrwVDYHzxZRi3Jew5JaAZ1KeoipliBTYa49+auBysoAn0RcKk/JM1BdZYAF
-	XWTjDKqg==;
+	bh=GwS/rcTv7xHIQ8xE3NgjkxTV2Y6Bi4SIJCueSxpXaPU=; b=lQZpPUzh+KeXSQTaX0lsX7mHTV
+	InaZlDmjqeId+vqQ5+CnKGHK7YExMX5qUp6ENR/yCSA74Rf150isNMRpvTsTEAKLvUpQkn2aX+XCL
+	eJjqYFfnCgX1sbHQPxCtTnBM3CaS5MUOFBcNjMo+Kbtfs6uqyHRCjS2wNQ9lHsDI0+xwjgKCmYmCD
+	cJpyddLfy2KY6LZhHsH0tSzNDPgnlSwoMUNxElfGrSE0F5FJOeJA6ctPCOBWQzOFr2ay2ovK//9ob
+	wSl+QILrVcwiv2jxOtGNX8Jbq3459jXoXz75xjqVXhgF2axB9d/SWkrsQOf7VibX1YuRs/trbzN2p
+	mBWIq+mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuakK-00000000sZs-36wr;
-	Mon, 23 Feb 2026 18:33:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vuatU-00000000sz2-0tC3;
+	Mon, 23 Feb 2026 18:42:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuakI-00000000sZi-2oJ5
+	id 1vuatS-00000000sys-3sH7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 18:33:26 +0000
+	Mon, 23 Feb 2026 18:42:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 95FA861333;
-	Mon, 23 Feb 2026 18:33:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EE29C116C6;
-	Mon, 23 Feb 2026 18:33:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E41360180;
+	Mon, 23 Feb 2026 18:42:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99A51C116D0;
+	Mon, 23 Feb 2026 18:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771871605;
-	bh=M3iI/MJ+BGFtm/5M6IZ4SD9nkAAgr25XUBkmytw5IAY=;
+	s=k20201202; t=1771872173;
+	bh=cT3H/BWva655wpPwCwjSPUa7i99cwIZsZq5v7UNpNiU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KFCg5ok3pbt/XSzLXlSb0jfDVMo72gaFVYoAKMiMWBPH1kk21yfD5ELCJtNM5Q+CE
-	 48jwe/H1hHIL+jLOJ1sspoY92hyjrlP7gTIiYYb6vSzXWUW6QMQJ/91WGfnyU4cp+1
-	 n1lhgEG2cLaeXVOfD3VbdEt5zZ+x/Owx85qj/Vi04S/dKn/ts+Hh09lIgxc1D6bxJ6
-	 KDEV+TxOUe6RYvyTbHst1ge2dZG7iP41PclNrgsZGyUgudA64OlWSv8nllv1P1blev
-	 a6T9aOTtzg29hH4MnOqojR/IU5kWBaPWeIIcLhvcdB03SgOlfnOiW9h5f1OaiF9xTl
-	 692s+rirqgBhQ==
-Date: Mon, 23 Feb 2026 12:33:24 -0600
+	b=j5T9CLQIi4r6hjxZV/gWPZoUAq+M2qHc2cQ30X6BEjIQJ32c5mIYOsAY5cuZil7Mo
+	 M7dMeymlrDMI1HefKWJQqkm5rMng83DMY1FxzER0jiUMNsBVc6B5DoDQFDL6YmZIa3
+	 hkdZhvsJ6H9hbFhKvcwFYqHUqPKfONQAxYLmc6Fz8ZMtGd4fpw/lZ1hmWJGZdXyIUW
+	 tWWssGb9LG5WYJOcApICbz5LOP6lSgc1Tm2CrJOOSjl6bZ9kABrpE8cDS+3QsX0SF0
+	 Bv4uBEz0VpF6rDwar1v/Erda7b1Fb3Mv16yc9hbaP48im+EpH3AHMYPvEqdzIuzJ4p
+	 QnOdV5X1bfTNw==
+Date: Mon, 23 Feb 2026 12:42:52 -0600
 From: Rob Herring <robh@kernel.org>
-To: Abin Joseph <abin.joseph@amd.com>
-Cc: vkoul@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	michal.simek@amd.com, radhey.shyam.pandey@amd.com, git@amd.com,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: dmaengine: xlnx,axi-dma: Convert bindings
- into yaml
-Message-ID: <20260223183324.GA118767-robh@kernel.org>
-References: <20260219152621.2375256-1-abin.joseph@amd.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/5] dt-bindings: pinctrl: Add generic pinctrl for
+ board-level mux chips
+Message-ID: <20260223184252.GA132202-robh@kernel.org>
+References: <20260219-pinctrl-mux-v1-0-678d21637788@nxp.com>
+ <20260219-pinctrl-mux-v1-2-678d21637788@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260219152621.2375256-1-abin.joseph@amd.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260219-pinctrl-mux-v1-2-678d21637788@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,456 +78,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 08:56:21PM +0530, Abin Joseph wrote:
-> Convert the bindings document for Xilinx DMA from txt to yaml.
-> No changes to existing binding description.
+On Thu, Feb 19, 2026 at 05:23:42PM -0500, Frank Li wrote:
+> Add a generic pinctrl binding for board-level pinmux chips that are
+> controlled through the multiplexer subsystem.
 > 
-> Signed-off-by: Abin Joseph <abin.joseph@amd.com>
+> On some boards, especially development boards, external mux chips are used
+> to switch SoC signals between different peripherals (e.g. MMC and UART).
+> The mux select lines are often driven by a GPIO expander over I2C,
+> as illustrated below:
+> 
+> 	┌──────┐      ┌─────┐
+> 	│ SOC  │      │     │    ┌───────┐
+> 	│      │      │     │───►│ MMC   │
+> 	│      │      │ MUX │    └───────┘
+> 	│      ├─────►│     │    ┌───────┐
+> 	│      │      │     │───►│ UART  │
+> 	│      │      └─────┘    └───────┘
+> 	│      │         ▲
+> 	│      │    ┌────┴──────────────┐
+> 	│ I2C  ├───►│ GPIO Expander     │
+> 	└──────┘    └───────────────────┘
+> 
+> Traditionally, gpio-hog is used to configure the onboard mux at boot.
+> However, the GPIO expander may probe later than consumer devices such as
+> MMC. As a result, the MUX might not be configured when the peripheral
+> driver probes, leading to initialization failures or data transfer errors.
+> 
+> Introduce a generic pinctrl binding that models the board-level MUX as a
+> pin control provider and builds proper device links between the MUX, its
+> GPIO controller, and peripheral devices. This ensures correct probe
+> ordering and reliable mux configuration.
+> 
+> The implementation leverages the standard multiplexer subsystem, which
+> provides broad support for onboard mux controllers and avoids the need for
+> per-driver custom MUX handling.
+
+Seems reasonable to me.
+
+> 
+> Allow pinctrl-* pattern as node name because this pinctrl device have not
+> reg property.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  .../bindings/dma/xilinx/xilinx_dma.txt        | 111 -------
->  .../bindings/dma/xilinx/xlnx,axi-dma.yaml     | 290 ++++++++++++++++++
->  2 files changed, 290 insertions(+), 111 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
->  create mode 100644 Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+>  .../bindings/pinctrl/pinctrl-multiplexer.yaml      | 54 ++++++++++++++++++++++
+>  .../devicetree/bindings/pinctrl/pinctrl.yaml       |  2 +-
+>  2 files changed, 55 insertions(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt b/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
-> deleted file mode 100644
-> index b567107270cb..000000000000
-> --- a/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
-> +++ /dev/null
-> @@ -1,111 +0,0 @@
-> -Xilinx AXI VDMA engine, it does transfers between memory and video devices.
-> -It can be configured to have one channel or two channels. If configured
-> -as two channels, one is to transmit to the video device and another is
-> -to receive from the video device.
-> -
-> -Xilinx AXI DMA engine, it does transfers between memory and AXI4 stream
-> -target devices. It can be configured to have one channel or two channels.
-> -If configured as two channels, one is to transmit to the device and another
-> -is to receive from the device.
-> -
-> -Xilinx AXI CDMA engine, it does transfers between memory-mapped source
-> -address and a memory-mapped destination address.
-> -
-> -Xilinx AXI MCDMA engine, it does transfer between memory and AXI4 stream
-> -target devices. It can be configured to have up to 16 independent transmit
-> -and receive channels.
-> -
-> -Required properties:
-> -- compatible: Should be one of-
-> -		"xlnx,axi-vdma-1.00.a"
-> -		"xlnx,axi-dma-1.00.a"
-> -		"xlnx,axi-cdma-1.00.a"
-> -		"xlnx,axi-mcdma-1.00.a"
-> -- #dma-cells: Should be <1>, see "dmas" property below
-> -- reg: Should contain VDMA registers location and length.
-> -- xlnx,addrwidth: Should be the vdma addressing size in bits(ex: 32 bits).
-> -- dma-ranges: Should be as the following <dma_addr cpu_addr max_len>.
-> -- dma-channel child node: Should have at least one channel and can have up to
-> -	two channels per device. This node specifies the properties of each
-> -	DMA channel (see child node properties below).
-> -- clocks: Input clock specifier. Refer to common clock bindings.
-> -- clock-names: List of input clocks
-> -	For VDMA:
-> -	Required elements: "s_axi_lite_aclk"
-> -	Optional elements: "m_axi_mm2s_aclk" "m_axi_s2mm_aclk",
-> -			   "m_axis_mm2s_aclk", "s_axis_s2mm_aclk"
-> -	For CDMA:
-> -	Required elements: "s_axi_lite_aclk", "m_axi_aclk"
-> -	For AXIDMA and MCDMA:
-> -	Required elements: "s_axi_lite_aclk"
-> -	Optional elements: "m_axi_mm2s_aclk", "m_axi_s2mm_aclk",
-> -			   "m_axi_sg_aclk"
-> -
-> -Required properties for VDMA:
-> -- xlnx,num-fstores: Should be the number of framebuffers as configured in h/w.
-> -
-> -Optional properties for AXI DMA and MCDMA:
-> -- xlnx,sg-length-width: Should be set to the width in bits of the length
-> -	register as configured in h/w. Takes values {8...26}. If the property
-> -	is missing or invalid then the default value 23 is used. This is the
-> -	maximum value that is supported by all IP versions.
-> -
-> -Optional properties for AXI DMA:
-> -- xlnx,axistream-connected: Tells whether DMA is connected to AXI stream IP.
-> -- xlnx,irq-delay: Tells the interrupt delay timeout value. Valid range is from
-> -	0-255. Setting this value to zero disables the delay timer interrupt.
-> -	1 timeout interval = 125 * clock period of SG clock.
-> -Optional properties for VDMA:
-> -- xlnx,flush-fsync: Tells which channel to Flush on Frame sync.
-> -	It takes following values:
-> -	{1}, flush both channels
-> -	{2}, flush mm2s channel
-> -	{3}, flush s2mm channel
-> -
-> -Required child node properties:
-> -- compatible:
-> -	For VDMA: It should be either "xlnx,axi-vdma-mm2s-channel" or
-> -	"xlnx,axi-vdma-s2mm-channel".
-> -	For CDMA: It should be "xlnx,axi-cdma-channel".
-> -	For AXIDMA and MCDMA: It should be either "xlnx,axi-dma-mm2s-channel"
-> -	or "xlnx,axi-dma-s2mm-channel".
-> -- interrupts: Should contain per channel VDMA interrupts.
-> -- xlnx,datawidth: Should contain the stream data width, take values
-> -	{32,64...1024}.
-> -
-> -Optional child node properties:
-> -- xlnx,include-dre: Tells hardware is configured for Data
-> -	Realignment Engine.
-> -Optional child node properties for VDMA:
-> -- xlnx,genlock-mode: Tells Genlock synchronization is
-> -	enabled/disabled in hardware.
-> -- xlnx,enable-vert-flip: Tells vertical flip is
-> -	enabled/disabled in hardware(S2MM path).
-> -Optional child node properties for MCDMA:
-> -- dma-channels: Number of dma channels in child node.
-> -
-> -Example:
-> -++++++++
-> -
-> -axi_vdma_0: axivdma@40030000 {
-> -	compatible = "xlnx,axi-vdma-1.00.a";
-> -	#dma_cells = <1>;
-> -	reg = < 0x40030000 0x10000 >;
-> -	dma-ranges = <0x00000000 0x00000000 0x40000000>;
-> -	xlnx,num-fstores = <0x8>;
-> -	xlnx,flush-fsync = <0x1>;
-> -	xlnx,addrwidth = <0x20>;
-> -	clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>, <&clk 4>;
-> -	clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk", "m_axi_s2mm_aclk",
-> -		      "m_axis_mm2s_aclk", "s_axis_s2mm_aclk";
-> -	dma-channel@40030000 {
-> -		compatible = "xlnx,axi-vdma-mm2s-channel";
-> -		interrupts = < 0 54 4 >;
-> -		xlnx,datawidth = <0x40>;
-> -	} ;
-> -	dma-channel@40030030 {
-> -		compatible = "xlnx,axi-vdma-s2mm-channel";
-> -		interrupts = < 0 53 4 >;
-> -		xlnx,datawidth = <0x40>;
-> -	} ;
-> -} ;
-> diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+> diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl-multiplexer.yaml b/Documentation/devicetree/bindings/pinctrl/pinctrl-multiplexer.yaml
 > new file mode 100644
-> index 000000000000..6a260f9292d7
+> index 0000000000000000000000000000000000000000..31efffb3167cba724b1afe0d403a0dcae65582ee
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
-> @@ -0,0 +1,290 @@
+> +++ b/Documentation/devicetree/bindings/pinctrl/pinctrl-multiplexer.yaml
+> @@ -0,0 +1,54 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/dma/xilinx/xlnx,axi-dma.yaml#
+> +$id: http://devicetree.org/schemas/pinctrl/pinctrl-multiplexer.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Xilinx AXI VDMA, DMA, CDMA and MCDMA IP
+> +title: Generic Pin Control Driver for Board-Level Mux Chips
 > +
 > +maintainers:
-> +  - Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> +  - Abin Joseph <abin.joseph@amd.com>
+> +  - Frank Li <Frank.Li@nxp.com>
 > +
 > +description:
+> +  This binding describes a generic pinctrl driver that controls on-board
 
-Need '>' to maintain paragraphs.
+Bindings don't describe drivers.
 
-> +  Xilinx AXI VDMA engine, it does transfers between memory and video devices.
-> +  It can be configured to have one channel or two channels. If configured
-> +  as two channels, one is to transmit to the video device and another is
-> +  to receive from the video device.
-> +
-> +  Xilinx AXI DMA engine, it does transfers between memory and AXI4 stream
-> +  target devices. It can be configured to have one channel or two channels.
-> +  If configured as two channels, one is to transmit to the device and another
-> +  is to receive from the device.
-> +
-> +  Xilinx AXI CDMA engine, it does transfers between memory-mapped source
-> +  address and a memory-mapped destination address.
-> +
-> +  Xilinx AXI MCDMA engine, it does transfer between memory and AXI4 stream
-> +  target devices. It can be configured to have up to 16 independent transmit
-> +  and receive channels.
+> +  pinmux chips using the multiplexer subsystem.
 > +
 > +properties:
 > +  compatible:
-> +    enum:
-> +      - xlnx,axi-cdma-1.00.a
-> +      - xlnx,axi-dma-1.00.a
-> +      - xlnx,axi-mcdma-1.00.a
-> +      - xlnx,axi-vdma-1.00.a
+> +    const: pinctrl-multiplexer
 > +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#dma-cells":
-> +    const: 1
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 1
-> +
-> +  interrupts:
-> +    minItems: 1
-> +    maxItems: 2
-> +    description:
-> +      Interrupt lines for the DMA controller. Only used when xlnx,axistream-connected
-> +      is present (DMA connected to AXI Stream IP). One interrupt for single channel
-> +      (MM2S or S2MM), two interrupts for dual channel configuration.
-> +      When child dma-channel nodes are present, interrupts are specified in the
-> +      child nodes instead.
-
-Wrap lines at 80 char.
-
-> +
-> +  clocks:
-> +    minItems: 1
-> +    maxItems: 5
-> +
-> +  clock-names:
-> +    minItems: 1
-> +    maxItems: 5
-> +
-> +  dma-ranges: true
-> +
-> +  xlnx,addrwidth:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [32, 64]
-> +    description: The DMA addressing size in bits.
-> +
-> +  xlnx,num-fstores:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 1
-> +    maximum: 32
-> +    description: Should be the number of framebuffers as configured in h/w.
-> +
-> +  xlnx,flush-fsync:
-> +    type: boolean
-> +    description: Tells which channel to Flush on Frame sync.
-> +
-> +  xlnx,sg-length-width:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 8
-> +    maximum: 26
-> +    default: 23
-> +    description:
-> +      Should be set to the width in bits of the length register as configured
-> +      in h/w. Takes values {8...26}. If the property is missing or invalid then
-> +      the default value 23 is used. This is the maximum value that is supported
-
-No need to repeat what the schema defines.
-
-> +      by all IP versions.
-> +
-> +  xlnx,irq-delay:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 255
-> +    description:
-> +      Tells the interrupt delay timeout value. Valid range is from 0-255.
-> +      Setting this value to zero disables the delay timer interrupt.
-> +      1 timeout interval = 125 * clock period of SG clock.
-> +
-> +  xlnx,axistream-connected:
-> +    type: boolean
-> +    description: Tells whether DMA is connected to AXI stream IP.
-> +
-> +# Note: This schema combines all DMA types in one file. Parent-child channel
-> +# compatibility is enforced via allOf conditionals below. Alternatively, this
-> +# could be split into separate schemas per DMA type to simplify validation rules.
-
-Yeah, it's on the border of whether we should split it or not. I think 
-it's fine as-is as splitting it would need a common schema for the 
-shared parent and child properties. I don't think we need this comment 
-in the file forever though.
-
 > +patternProperties:
-> +  "^dma-channel(-mm2s|-s2mm)?$":
+> +  '-grp$':
 > +    type: object
-> +    description:
-> +      Should have at least one channel and can have up to two channels per
-> +      device. This node specifies the properties of each DMA channel.
-> +
+
+       additionalProperties: false
+
+The tools should have caught this, I'll have to check why not...
+
 > +    properties:
-> +      compatible:
-> +        enum:
-> +          - xlnx,axi-vdma-mm2s-channel
-> +          - xlnx,axi-vdma-s2mm-channel
-> +          - xlnx,axi-cdma-channel
-> +          - xlnx,axi-dma-mm2s-channel
-> +          - xlnx,axi-dma-s2mm-channel
-> +
-> +      interrupts:
+> +      mux-states:
 > +        maxItems: 1
 > +
-> +      xlnx,datawidth:
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +        enum: [32, 64, 128, 256, 512, 1024]
-> +        description: Should contain the stream data width, take values {32,64...1024}.
-> +
-> +      xlnx,include-dre:
-> +        type: boolean
-> +        description: Tells hardware is configured for Data Realignment Engine.
-> +
-> +      xlnx,genlock-mode:
-> +        type: boolean
-> +        description: Tells Genlock synchronization is enabled/disabled in hardware.
-> +
-> +      xlnx,enable-vert-flip:
-> +        type: boolean
-> +        description:
-> +          Tells vertical flip is enabled/disabled in hardware(S2MM path).
-> +
-> +      dma-channels:
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +        description: Number of dma channels in child node.
-> +
 > +    required:
-> +      - compatible
-> +      - interrupts
-> +      - xlnx,datawidth
-> +
-> +    additionalProperties: false
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: xlnx,axi-vdma-1.00.a
-> +    then:
-> +      properties:
-> +        clock-names:
-> +          contains:
-> +            const: s_axi_lite_aclk
-> +          items:
-> +            enum:
-> +              - s_axi_lite_aclk
-> +              - m_axi_mm2s_aclk
-> +              - m_axi_s2mm_aclk
-> +              - m_axis_mm2s_aclk
-> +              - s_axis_s2mm_aclk
-> +          minItems: 1
-> +          maxItems: 5
-> +      patternProperties:
-> +        "^dma-channel(-mm2s|-s2mm)?$":
-> +          properties:
-> +            compatible:
-> +              enum:
-> +                - xlnx,axi-vdma-mm2s-channel
-> +                - xlnx,axi-vdma-s2mm-channel
-> +      required:
-> +        - xlnx,num-fstores
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: xlnx,axi-cdma-1.00.a
-> +    then:
-> +      properties:
-> +        clock-names:
-> +          items:
-> +            - const: s_axi_lite_aclk
-> +            - const: m_axi_aclk
-> +      patternProperties:
-> +        "^dma-channel(-mm2s|-s2mm)?$":
-> +          properties:
-> +            compatible:
-> +              enum:
-> +                - xlnx,axi-cdma-channel
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            anyOf:
-> +              - const: xlnx,axi-dma-1.00.a
-> +              - const: xlnx,axi-mcdma-1.00.a
-
-Use 'enum' rather than 'anyOf' and 'const'.
-
-> +    then:
-> +      properties:
-> +        clock-names:
-> +          contains:
-> +            const: s_axi_lite_aclk
-> +          items:
-> +            enum:
-> +              - s_axi_lite_aclk
-> +              - m_axi_mm2s_aclk
-> +              - m_axi_s2mm_aclk
-> +              - m_axi_sg_aclk
-> +          minItems: 1
-> +          maxItems: 4
-> +      patternProperties:
-> +        "^dma-channel(-mm2s|-s2mm)?(@[0-9a-f]+)?$":
-> +          properties:
-> +            compatible:
-> +              enum:
-> +                - xlnx,axi-dma-mm2s-channel
-> +                - xlnx,axi-dma-s2mm-channel
-> +
-> +  - if:
-> +      anyOf:
-> +        - properties:
-
-Don't need 'anyOf' with 1 entry.
-
-> +            compatible:
-> +              contains:
-> +                anyOf:
-> +                  - const: xlnx,axi-cdma-1.00.a
-> +                  - const: xlnx,axi-mcdma-1.00.a
-> +                  - const: xlnx,axi-dma-1.00.a
-
-Use 'enun' rather than 'anyOf'.
-
-> +    then:
-> +      properties:
-> +        interrupts: false
+> +      - mux-states
 > +
 > +required:
-> +  - "#dma-cells"
-> +  - reg
-> +  - xlnx,addrwidth
-> +  - dma-ranges
-> +  - clocks
-> +  - clock-names
+> +  - compatible
 > +
-> +additionalProperties: false
+> +allOf:
+> +  - $ref: pinctrl.yaml#
+> +
+> +unevaluatedProperties: false
 > +
 > +examples:
 > +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    pinctrl-mux {
+> +        compatible = "pinctrl-multiplexer";
 > +
-> +    axi_vdma_0: dma@40030000 {
-> +        compatible = "xlnx,axi-vdma-1.00.a";
-> +        #dma-cells = <1>;
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +        reg = <0x40030000 0x10000>;
-> +        dma-ranges = <0x0 0x0 0x40000000>;
-> +        xlnx,num-fstores = <8>;
-> +        xlnx,flush-fsync;
-> +        xlnx,addrwidth = <32>;
-> +        clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>, <&clk 4>;
-> +        clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk",
-> +                      "m_axi_s2mm_aclk", "m_axis_mm2s_aclk",
-> +                      "s_axis_s2mm_aclk";
-> +
-> +        dma-channel-mm2s {
-> +            compatible = "xlnx,axi-vdma-mm2s-channel";
-> +            interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
-> +            xlnx,datawidth = <64>;
+> +        uart-grp {
+> +            mux-states = <&mux 0>;
 > +        };
 > +
-> +        dma-channel-s2mm {
-> +            compatible = "xlnx,axi-vdma-s2mm-channel";
-> +            interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>;
-> +            xlnx,datawidth = <64>;
+> +        spi-grp {
+> +            mux-states = <&mux 1>;
+> +        };
+> +
+> +        i2c-grp {
+> +            mux-states = <&mux 2>;
 > +        };
 > +    };
+> diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/pinctrl.yaml
+> index 290438826c507ec6725f486d18cf686aa7c35e67..20176bf3074757de30f208e69b968a6bd6125273 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/pinctrl.yaml
+> @@ -27,7 +27,7 @@ description: |
+>  
+>  properties:
+>    $nodename:
+> -    pattern: "^(pinctrl|pinmux)(@[0-9a-f]+)?$"
+> +    pattern: "^(pinctrl|pinmux)(@[0-9a-f]+|-[a-z0-9]+)?$"
+>  
+>    "#pinctrl-cells":
+>      description: >
+> 
 > -- 
-> 2.25.1
+> 2.43.0
 > 
 
