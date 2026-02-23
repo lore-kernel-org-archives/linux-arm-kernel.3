@@ -4,74 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F8FEA4FAE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 12:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE1DEA4FB4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 12:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FZeUGH/lmPkQ+aeDfJvyUvyarahPQUbQ9ViirgESqgY=; b=xdd/Xkgjk93BxqZxkrSofPxjF7
-	6d5w1VOt4AylANc8I8JYhdw4k95ecMvAifi2a9BC2WhA7jxM555ZgZYRVK1Yl3JQjAhOFiGtdSDmK
-	o56iZenhSOulq1NIgww+g9rAuT0MeBiuIdiJmRFzoWUZ9l+xAxa1iQAmXRMNEvC0axguM6iX1foi5
-	b9V15iLC3s6hLxlb+cZOSIu5xKsYWa0ew407Xm8AIVYQcf1bXd3aPNl99vBvOtIgV57htirrXYjV9
-	pBW+frnkxnL/vsSfUy9mmAqXbF+NFRcdqdEZ4XhakPBV33Akmb4KxTLHHUNPsUitUNeNYw8H9B/n7
-	L45VdW2g==;
+	bh=YKq+XqD9UzrJQDDajsTTYQd2m6O1yzr282dV5geroQA=; b=jJesLs6dzVmzrKcIdCuAWyTMVz
+	cWtssBSR6jV4RVqvheZWJnsN1ZxmWhY9MRJy8V9g/ZSYKL/H4JfPDH3kIgCi3eOvBw4KteBVJ44g7
+	snFHS9JWc7dUVj3kxt8sWa8PoTwumgmrivHpdkgfYh+ADD0n3Ho1gxf/CZLQfIsKXTRYHpcvUAk8F
+	XWZluCDBzknDnSbQvourz82uMD+rExCQCpurCAl0Iy4IpVxII3TF5IA4BZ+rlZSwsUVJx3+Wopkje
+	7JetWM2vWBlW2nNxXsGvU+Fqc9CY2sBhrVBa4Gb6WLHF5tZ+6kPkDchWdPpTs3OOIXhvvhCMmvPO/
+	8H/RBaqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUdt-00000000FOZ-11v6;
-	Mon, 23 Feb 2026 12:02:25 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vuUoM-00000000G7L-2mWe;
+	Mon, 23 Feb 2026 12:13:14 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUdq-00000000FO4-43yY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 12:02:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=FZeUGH/lmPkQ+aeDfJvyUvyarahPQUbQ9ViirgESqgY=; b=Gxs6x5Q2sBIHtbQll5mAdrsGBm
-	J4P9x9KB/tX37XqPK4lBQryeVq6NUEhPoDX4QwdXf6U/EFspdkh16tAzSkumSHp+0Rxj1sqjixwD3
-	KpukrfPP9FYZAIJx/o02MWXvn15FLyXeoi1h5oXsZI+w/ORFLDdoY7EYuuLo8lXGaWeAPDvASB7P1
-	T4u505EgKjPIvR8SUF7UhwVgQIH5ixMUafdhKPaPHnO5DUm21gqRA6A/8yTBMKxq2UySOaA140mU1
-	IopUAWJBYAMwHMrkkwztI87Af7gsy6mjhs6f+NVcEH44BydI8LTFPQxNGJ3SmFjMah649oL1K7R9D
-	xh4B3CUA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43120)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vuUdl-0000000041f-1xCY;
-	Mon, 23 Feb 2026 12:02:17 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vuUdj-000000007LS-0fmz;
-	Mon, 23 Feb 2026 12:02:15 +0000
-Date: Mon, 23 Feb 2026 12:02:14 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 1/2] net: stmmac: use circ_buf helpers for
- descriptors
-Message-ID: <aZxBxoq8_QUzUcud@shell.armlinux.org.uk>
-References: <aZw86hpjQ-3w3xqJ@shell.armlinux.org.uk>
- <E1vuUJu-0000000AfEO-2kPP@rmk-PC.armlinux.org.uk>
+	id 1vuUoI-00000000G6s-1iXa;
+	Mon, 23 Feb 2026 12:13:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1771848790; x=1803384790;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3n9HI5ycnkli5W6BGGU+azDBkZ+AMvJ95kVejaXce4U=;
+  b=LMho2JiNrHf6p8ctMWS90OYrCBaOoyPwqH3sTC/I9xVcUuCACnkc08RO
+   oM5Vp08wHDdAnZ3xBb7vf7u0n0a+GH8s4m8rodWQN+8C5PcbsYFjh+o/S
+   zwlef4/pfaYAa1dHCyn/fncIkm0nIDqZ7bDf6u4eTDQZXvqfLZ+kEKGSV
+   Gy4RxgSGI5H4Mp81/e23TEaZEaqoXaZBIx6/Lm4B6WcFNbs+z+k/tuKiC
+   qQZHH430NV9sWcqoZT03oC1XCxdCThj5xUAz0e1n/Gp/pPGie6ruFcuZ8
+   r20HfJ9N7CtFYbWq5FQU70PjTiOJ9lLbuwn7x7LEyemRLvQZToXkUClvK
+   g==;
+X-CSE-ConnectionGUID: 9LJQVzwKTWWTp/byEmUZqA==
+X-CSE-MsgGUID: fqp5JqKHTKymtuuHxICC4A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11709"; a="90247552"
+X-IronPort-AV: E=Sophos;i="6.21,306,1763452800"; 
+   d="scan'208";a="90247552"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 04:13:08 -0800
+X-CSE-ConnectionGUID: K2itwqXdR8a5WDW9LgYZPw==
+X-CSE-MsgGUID: 63CQjMeZR761DzImy1sYWw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,306,1763452800"; 
+   d="scan'208";a="220091804"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.222])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 04:13:02 -0800
+Date: Mon, 23 Feb 2026 14:12:59 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Hans de Goede <hansg@kernel.org>,
+	Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, Tejun Heo <tj@kernel.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Tobias Schrammm <t.schramm@manjaro.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Lee Jones <lee@kernel.org>,
+	Dzmitry Sankouski <dsankouski@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>, driver-core@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev
+Subject: Re: [PATCH 1/9] workqueue: devres: Add device-managed allocate
+ workqueue
+Message-ID: <aZxES35K3hSX4KEx@smile.fi.intel.com>
+References: <20260223-workqueue-devm-v1-0-10b3a6087586@oss.qualcomm.com>
+ <20260223-workqueue-devm-v1-1-10b3a6087586@oss.qualcomm.com>
+ <aZwWMiYEvr3DXi3E@smile.fi.intel.com>
+ <9dd377f6-3565-4c0c-8c98-1b5ac4982f5b@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1vuUJu-0000000AfEO-2kPP@rmk-PC.armlinux.org.uk>
+In-Reply-To: <9dd377f6-3565-4c0c-8c98-1b5ac4982f5b@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_040223_005196_14F87245 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20260223_041310_502404_1E02B133 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,20 +107,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 11:41:46AM +0000, Russell King (Oracle) wrote:
-> @@ -4571,8 +4562,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->  	/* If we only have one entry used, then the first entry is the last
->  	 * segment.
->  	 */
-> -	is_last_segment = ((tx_q->cur_tx - first_entry) &
-> -			   (priv->dma_conf.dma_tx_size - 1)) == 1;
-> +	is_last_segment = CIRC_CNT(tx_q->cur_tx, first_entry,,
-> +				   priv->dma_conf.dma_tx_size) == 1;
++Cc: devm-helpers maintainers/reviewers
 
-Bah, I thought I fixed that, but it seems I merged the fix patch into
-the second patch not this patch. :/
+On Mon, Feb 23, 2026 at 12:52:14PM +0100, Krzysztof Kozlowski wrote:
+> On 23/02/2026 09:56, Andy Shevchenko wrote:
+> > On Mon, Feb 23, 2026 at 08:27:29AM +0100, Krzysztof Kozlowski wrote:
+> >> Add a Resource-managed version of alloc_workqueue() to fix common
+> >> problem of drivers mixing devm() calls with destroy_workqueue.  Such
+> >> naive and discouraged driver approach leads to difficult to debug bugs
+> >> when the driver:
+> >>
+> >> 1. Allocates workqueue in standard way and destroys it in driver
+> >>    remove() callback,
+> >> 2. Sets work struct with devm_work_autocancel(),
+> >> 3. Registers interrupt handler with devm_request_threaded_irq().
+> >>
+> >> Which leads to following unbind/removal path:
+> >>
+> >> 1. destroy_workqueue() via driver remove(),
+> >>    Any interrupt coming now would still execute the interrupt handler,
+> >>    which queues work on destroyed workqueue.
+> >> 2. devm_irq_release(),
+> >> 3. devm_work_drop() -> cancel_work_sync() on destroyed workqueue.
+> >>
+> >> devm_alloc_workqueue() has two benefits:
+> >> 1. Solves above problem of mix-and-match devres and non-devres code in
+> >>    driver,
+> >> 2. Simplify any sane drivers which were correctly using
+> >>    alloc_workqueue() + devm_add_action_or_reset().
+> > 
+> >>  include/linux/workqueue.h                        | 32 ++++++++++++++++++++++++
+> >>  kernel/workqueue.c                               | 32 ++++++++++++++++++++++++
+> > 
+> > Hmm... We have devm-helpers.h. Why the new one is in workqueue.h?
+> > Can we have some consistency here?
+> 
+> Answering with update:
+> I don't think this should go to devm-helpers.h. The definition is in
+> workqueue.c, thus the declaration should be in corresponding header.
+> It's logical and consistent.
+> 
+> Otherwise, I could move it entirely - definition and declaration - to
+> devm-helpers.h, but then the release (devm_destroy_workqueue()) will be
+> essentially exported to everyone through the header.
+> 
+> So kind of conflicting choices.
+
+Hmm... An alternative I see is more intrusive but should make it less
+inconsistent: Treat the devm-helpers as devres like header for workqueue
+and collect there all devm_*wq* related stuff with maybe something putting
+back to / holding in the c-file.
+
+OTOH we may leave devm_destroy_workqueue() visible for now with a comment
+saying do not use, it's internal or something like that.
+
+Hans, what would be your opinion as you IIRC is the author of devm-helpers.h?
+
+Matti, I also Cc'ed to you, you have usually non-standard thinkig and
+insightful solutions (besides being reviewer of devm-helpers).
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+With Best Regards,
+Andy Shevchenko
+
+
 
