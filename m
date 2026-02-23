@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B3EE98E15
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82887E98E13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WvKjjDt11mfP3TCN9/c30KzME2fLxT6QYWf6QQlcsEU=; b=JLIKoIflCXXKfJcxDWm+RDY1TP
-	iSQ8mI/OUEBEyqDwy88z0l+ZDNu0s3irjmPTMrmjRF8TVHSIompEEGqHd0hTLLvKTNr4PXYX0lbEj
-	+4HVee+6nxIiUbmv8l0u+/9sRKZvaNEAFADagoqou8thWZQIz9KQuRnNx/QD+JyZzKX1ldahENXcC
-	IrPzk4dA3TDQHHGdcSTJzTc0DaKhKMg8zstAIF9fpjDU7yApeZtmi3yajBxUHuD8WZs6p4oGUOii/
-	/b7UG6YJMfsin70NeLn46MMnRdh96Kuw4Ib0VBit8n9T89aCtNz7rQ9ElsvVr5vLigyQ3YfGfQLl9
-	qhnJhNsg==;
+	bh=gCKgF+SQBcRf7H7yGf7xlQEg5ny9ucdp2uQxbv5/0Os=; b=HG5DccK/ztHzUcYDvr/YGRt1iK
+	kzWmjZBOdwkT7oytoNHadfrOzpb9Td6s1kohmGJado28zt9dMcdLWQ+Z3k4PP2UCEbI+NqZwhryy8
+	ua1xSpnw4c4eGyXsVKRXdEd8LvGDwX1IiqDmWISvuXt+oHUAql8+M06+OVExBgbZ6x3KApfFPNVZa
+	R7FnxaEaep2zdtP2+RIi+wZ81lk1AvyrWHam3kFalCliQAxL6pJ9ZAlkUOqwv43FyTuT1QqDThP1n
+	l4rq1ox1DGVxR9Jl/47uKqYnS58RSjKIhCOrJUgJF8z6afMDOMlRj1ABk4VwGyUaCMvvz7LEjBqjt
+	Ht+9dTJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuT8V-000000003df-0imM;
-	Mon, 23 Feb 2026 10:25:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vuTIZ-000000004UJ-3BTq;
+	Mon, 23 Feb 2026 10:36:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuT8T-000000003d9-2Xu7
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 10:25:54 +0000
+	id 1vuTIX-000000004Tg-0fVJ;
+	Mon, 23 Feb 2026 10:36:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A4980443BA
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 10:25:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E2FCC2BCB7
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 10:25:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4CBF141852;
+	Mon, 23 Feb 2026 10:36:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DB8C116C6;
+	Mon, 23 Feb 2026 10:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771842352;
-	bh=WvKjjDt11mfP3TCN9/c30KzME2fLxT6QYWf6QQlcsEU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RZrdzrMBOhr3R2Yy5aY1ky/SrDtic0JBnj/ltzb0nFARyo2i2/1ded2OfKcmPVLw5
-	 0SHMc7soMJIGsY2m/2G4IBR2ceRyj6GM2w+erYDqgRHpGq7LL5LlHP919SaBtHe7cW
-	 8L89SDOfiliVmHT9tzvkKHm6HgIQfs+jO03uLBV0tOVsOfJlbp5ZI2TWhvVyUqbkzG
-	 cboTT6ESE/9YqHUgARbjBBBiC197Le+ZeYGttrEDJ0UKnP3AN1XRWQeSGbm7uSX3UN
-	 9Ik0vMReS5Bf9iGzaPtv0W6eMpbUmVV9jvdEjCzkR4C4/nZxlz21uCXclVqWS9hUpn
-	 7AfYtr0Cuhdig==
-Received: by mail-yx1-f53.google.com with SMTP id 956f58d0204a3-64ad019bbd4so3637348d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 02:25:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX9+/TyoBUuqKVWZnYfKdBAw2/lWwTXl+FWItInZ8Rd6jGT41UmJ4ubbUNjSxt7sHrzTQ2k58NmqUAdTMZo8qSX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN34LTP68QLuMDY9/fSODLMDzMqg7wvZrkG1K3yulzMC53DF7C
-	uciL2ITCp6XuSn79nGAywH+XSbNylEAd5d1px2iZaPwh7q3PN09HftvG93yEwPcWvY0YwW+dShZ
-	IhpMCRsMdC5vhx81ojGWab1OoLDRq7A8=
-X-Received: by 2002:a53:5a10:0:b0:646:7c25:5f86 with SMTP id
- 956f58d0204a3-64c789d438bmr5835753d50.27.1771842351841; Mon, 23 Feb 2026
- 02:25:51 -0800 (PST)
-MIME-Version: 1.0
-References: <20260211033249.2770281-1-james.hilliard1@gmail.com> <c78bd0c3-6889-46f8-8b5a-e3490ce7b9c5@arm.com>
-In-Reply-To: <c78bd0c3-6889-46f8-8b5a-e3490ce7b9c5@arm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 23 Feb 2026 11:25:41 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmPN2ET6osyKw10aCNNLkjOm-fY9nAa4j-1DnSJiLw1FQ@mail.gmail.com>
-X-Gm-Features: AaiRm53AE_h4ho1A7D5Kwiz-Y8WMceSw39JTy0fcYJsANc6fRKkBxrYq1NwI-94
-Message-ID: <CAD++jLmPN2ET6osyKw10aCNNLkjOm-fY9nAa4j-1DnSJiLw1FQ@mail.gmail.com>
-Subject: Re: [PATCH 1/1] pinctrl: sunxi: add GPIO get_direction callback
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: James Hilliard <james.hilliard1@gmail.com>, linux-sunxi@lists.linux.dev, 
-	linux-gpio@vger.kernel.org, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	s=k20201202; t=1771842975;
+	bh=AiVxbYjTjkFCDusZ5tWu7n3s2U71UIpWbTezPnBHohQ=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
+	b=g018biIbLMWiMgHMZWobv71WB0aDNk0V5mHABji3/oQj3XLzM55HPmrBH+gw8NLP9
+	 4aFelAoKv77LNIwGM+/LTapuKx9mVvzEJ2L301pPtTMtOM0r8aXiVRj5h0tlOYPnq0
+	 brl1ukA+PDKddKhXcBHoVMuJcO/8RzmbIldDMOOJjgUT92rUnefSZbuOXkTIRjUX9P
+	 joksQ/AF6fENHVP37XJW5oZWiAzNSPklNWkkCfGuG5kfnx5WJyX+qqe/Cp7gpQNvkT
+	 FOUUUbuXuikeaIw63y50ihIesqm1gE1hUP9Cy1hgtbOVFCRNlNdZfvKbHVgxwQe8ft
+	 zfydjoMRh3uMQ==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Feb 2026 11:36:08 +0100
+Message-Id: <DGM9WUWC4ZE8.1A08TAKKT4FLJ@kernel.org>
+Subject: Re: [PATCH 1/9] workqueue: devres: Add device-managed allocate
+ workqueue
+Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah Khan"
+ <skhan@linuxfoundation.org>, "Tejun Heo" <tj@kernel.org>, "Lai Jiangshan"
+ <jiangshanlai@gmail.com>, "Tobias Schrammm" <t.schramm@manjaro.org>,
+ "Sebastian Reichel" <sre@kernel.org>, "Andy Shevchenko"
+ <andriy.shevchenko@linux.intel.com>, "Dan Carpenter"
+ <dan.carpenter@linaro.org>, "Krzysztof Kozlowski" <krzk@kernel.org>, "Lee
+ Jones" <lee@kernel.org>, "Dzmitry Sankouski" <dsankouski@gmail.com>,
+ "Matthias Brugger" <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
+ <angelogioacchino.delregno@collabora.com>, "Benson Leung"
+ <bleung@chromium.org>, "Tzung-Bi Shih" <tzungbi@kernel.org>,
+ <driver-core@lists.linux.dev>, <linux-doc@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, "Sebastian Reichel"
+ <sebastian.reichel@collabora.com>, <linux-pm@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>, <chrome-platform@lists.linux.dev>
+To: "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20260223-workqueue-devm-v1-0-10b3a6087586@oss.qualcomm.com>
+ <20260223-workqueue-devm-v1-1-10b3a6087586@oss.qualcomm.com>
+In-Reply-To: <20260223-workqueue-devm-v1-1-10b3a6087586@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_022553_701100_411B7E32 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20260223_023617_264596_A83BF538 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,27 +87,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 11, 2026 at 10:08=E2=80=AFAM Andre Przywara <andre.przywara@arm=
-.com> wrote:
+On Mon Feb 23, 2026 at 8:27 AM CET, Krzysztof Kozlowski wrote:
+> +__printf(2, 5) struct workqueue_struct *
+> +devm_alloc_workqueue(struct device *dev, const char *fmt, unsigned int f=
+lags,
+> +		     int max_active, ...)
+> +{
+> +	struct workqueue_struct **ptr, *wq;
+> +	va_list args;
+> +
+> +	ptr =3D devres_alloc(devm_destroy_workqueue, sizeof(*ptr), GFP_KERNEL);
 
-> thanks for taking care and sending a patch! I am still scratching my
-> head what this warning is about exactly and why we only see this now? I
-> never saw this, so what caused that? libgpiod accesses from userland?
+The function pointer passed to devres_alloc() is commonly named *_release()=
+.
 
-I don't understand that either.
+> +	if (!ptr)
+> +		return NULL;
+> +
+> +	va_start(args, max_active);
+> +	wq =3D alloc_workqueue(fmt, flags, max_active, args);
+> +	va_end(args);
+> +	if (wq) {
+> +		*ptr =3D wq;
+> +		devres_add(dev, ptr);
+> +	} else {
+> +		devres_free(ptr);
+> +	}
+> +
+> +	return wq;
+> +}
+> +EXPORT_SYMBOL_GPL(devm_alloc_workqueue);
 
-> Regardless, can we hold back this patch, please? As part of the A733
-> pinctrl support (and as LinusW asked kindly about that) I was reworking
-> our driver to use the generic gpio interface, and I have a feeling this
-> would solve this problem automatically?
-> The actual pinctrl conversion is done, I just need to plug in the IRQ
-> support. I ideally would have something in the next days to post, would
-> that be worth waiting for?
+<snip>
 
-We are early in the v7.1 development cycle, so we certainly have
-time for this to materialize and figure out how to consolidate all
-of the new development.
+> +void devm_destroy_workqueue(struct device *dev, void *res)
+> +{
+> +	destroy_workqueue(*(struct workqueue_struct **)res);
+> +}
+> +EXPORT_SYMBOL_GPL(devm_destroy_workqueue);
 
-Yours,
-Linus Walleij
+I assume you did not mean to export the release callback (which doesn't see=
+m to
+be useful), but a function that calls devres_destroy(), i.e. something anal=
+ogous
+to devm_remove_action().
+
+If you don't actually need it, I would prefer not to add something that cal=
+ls
+devres_destroy() for now.
 
