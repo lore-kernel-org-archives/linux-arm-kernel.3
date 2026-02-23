@@ -4,135 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8168EEC280
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 21:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9432FEEC285
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 21:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RJf0nsljCI+i9g1LVWsmN8S0BjGbbwcRgx9+3Q3RHbw=; b=H58VYGP7dH5Kg8TLuoQbed72hE
-	7YTBEmAPs9FPZtyTBluzjBaBt9vl4D7CvZAbdhb2rlUHPAshGZrAA0XwdaZMoVikHBt5BzGeigj/L
-	YrPmDE6OBGU0hqB/qtbPjl1T0nrZc1fXuDCrcrsJhTUWKLzSz6dLu4keC2IO7yJirrxEn2SGV4USe
-	6/YPQZrOMtAEnUEmfaIVxqGzPKdyceMA+wxEXSiDcbnuGMlVq+YZKPi4RjpUO/CBJ53jTQsD9wAFK
-	547VIOvx9WvgYQFlk6W5rnycl0jy12kihAa4cHrJZ+j2va2Q0f8a94bd921Y6TpENe/aW50I49Snk
-	MZ6hmSuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zv2z0XGXP7D6d/jafuwzxGpU8lMS+LV4KWAcWbAkizQ=; b=vcluFtcr6BEwTMa2dzClQj7Qfe
+	zFkQe5uzYfmOsZ7rRj7tf2mIyWrn9JfTDNlu07u0C09Vj20zDHi3HRdejhSaelQzT5tV01xUB0oKq
+	8OgNP7iXCd4uBLQStAVEKcKPGn0WeQj4+zCuhtwtOzaD/EOlYMiY5/QWOcIzpl14a8rgVk3cpIqPI
+	eD8Hk/cQ6OqVvl7RiDciZP+T/0Ixpw/0lF+8LJcEEd5gNIguZRkFRL6Soeriv/anD5HRiXK0Bnqjm
+	Dty+QjH543I4FjUGMRA1HpkjFStd6WANbfj+xsWCFPmuVAgDm2Bitv4lD3301AoFObUWYOWCFn7ij
+	Zc11HVnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vudFj-000000013K3-1Xv1;
-	Mon, 23 Feb 2026 21:14:03 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1vudU0-0000000148w-39NV;
+	Mon, 23 Feb 2026 21:28:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vudFg-000000013Jh-08tI
+	id 1vudU0-0000000148p-0Zfy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 21:14:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1771881192; x=1772485992; i=deller@gmx.de;
-	bh=RJf0nsljCI+i9g1LVWsmN8S0BjGbbwcRgx9+3Q3RHbw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=a8PazJZjG/Zr0HnSR181NIFhqvPsxm4+nm0uAq5rKQECgoXKr8+eGdYkVtUCRAxz
-	 UBXzqrDnWr0Y15ZnLzkfHhkG8TBCPFDzD6dMYpUOYsgkadHubyFZfC+a8si5uY32I
-	 oDedrp0LwCBukPGafutleaNe5Ej3nvmY9WqMw3LYl29Yme0DCo2ksQ/DTVvHZrvBh
-	 RG50P4ixzzZwO6LhItn3lg/Ceu8bPZcE5gaLpE2RTwmQCYOtaVQu+OM7aL2zVQ8zz
-	 AECjshx8UJLZ4Esd9Nzzt4q79gIsCCi8uuwHjJhXPPMop0rifMXwkOFWsoW4uNelE
-	 cChB9a6if+cgGCgwNA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.20.55] ([109.250.51.98]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mof9F-1vNpeT1l4D-00fO4G; Mon, 23
- Feb 2026 22:13:12 +0100
-Message-ID: <fe6b9a16-232b-4819-b978-95775791c197@gmx.de>
-Date: Mon, 23 Feb 2026 22:13:10 +0100
+	Mon, 23 Feb 2026 21:28:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3178260131;
+	Mon, 23 Feb 2026 21:28:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 697D0C116C6;
+	Mon, 23 Feb 2026 21:28:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771882126;
+	bh=6BWCpxN467P4dyN5eoO5k0IXEao0FX3AzWwouvG6AzY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VQTSMin/rySHdNw1qv6QqInzrBz8ugXCsHyGhJzEBHqAJ79ihP31sS9Fh1wTaQf75
+	 ktJv7aJ6Z/B306tadSuT1z4nrJD4/AuPh2s0kxtomYtDEHd16vGjEskB14S+sjn0jB
+	 2IHv4vsjC+suPCFwtedKZVF0oAeIW/5mtTpwRHCBugAFAwgW1ogJ9ef3IVCAavuJzZ
+	 xvXkrheuicxBxL+LLJbvi4nzFJIEEo2Teoe5XTiH2hOwUWQ0ouqZ+lowj3/wFF36s3
+	 zm+1gMo+895d78oQljgJJ1zrD8etGyd+Z7wRsp+FbqOA3QR1cBnRxrhwlqdB3D5vPi
+	 jivuft6R2UJUQ==
+Date: Mon, 23 Feb 2026 13:28:44 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, linux-cifs@vger.kernel.org,
+	linux-wireless@vger.kernel.org
+Subject: Re: [PATCH 00/15] AES-CMAC library
+Message-ID: <20260223212844.GA2132@quark>
+References: <20260218213501.136844-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] kbuild: Switch from '-fms-extensions' to
- '-fms-anonymous-structs' when available
-To: Ard Biesheuvel <ardb@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nsc@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- James Bottomley <James.Bottomley@hansenpartnership.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Kees Cook <kees@kernel.org>, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
- linux-efi@vger.kernel.org, llvm@lists.linux.dev
-References: <20260223-fms-anonymous-structs-v1-0-8ee406d3c36c@kernel.org>
- <9ba5bb34-2356-4c10-a3d3-f122abe1073b@app.fastmail.com>
-Content-Language: en-US
-From: Helge Deller <deller@gmx.de>
-Autocrypt: addr=deller@gmx.de; keydata=
- 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
-In-Reply-To: <9ba5bb34-2356-4c10-a3d3-f122abe1073b@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:edyU13fh/kMHHybT6GaqRMeq5qiPJzYGzoSP9IilU+H5UfLe2wQ
- oDiFn7ntb+Sc2C1oFkVuugZ3Yio0sM9opPmpbo5e/bfgfChIR2f38fiq3gyZQP4PwNxnp1A
- 7RRRiLtZ/A9BTHEwih+bDa9/OBmP4fpdnVIX7px0BaxZqMOrjH/rG0WCmZItpSUUw938zf7
- Y/bYxXGufbN7sGvHlcpGw==
-UI-OutboundReport: notjunk:1;M01:P0:OX7zAu/9Gb8=;aoV7n9ivZnuEgRDXBlXSDAmx603 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
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_131400_446230_5BEC2C1E 
-X-CRM114-Status: GOOD (  14.79  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260218213501.136844-1-ebiggers@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,54 +71,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/23/26 20:38, Ard Biesheuvel wrote:
->=20
->=20
-> On Mon, 23 Feb 2026, at 20:10, Nathan Chancellor wrote:
->> Hi all,
->>
->> The kernel enabled '-fms-extensions' in commit c4781dc3d1cf ("Kbuild:
->> enable -fms-extensions") in 6.19 to gain access to a Microsoft
->> (originally Plan 9) extension around including a tagged structure/union
->> anonymously in an other structure/union. Since then, Clang 23.0.0
->> (current main) has added a flag to enable only that extension, rather
->> than all Microsoft extensions, '-fms-anonymous-structs' [1]. Using this
->> narrower compiler option would have avoided the build error fixed by
->> commit a6773e6932cb ("jfs: Rename _inline to avoid conflict with clang'=
-s
->> '-fms-extensions'"). While these errors are not expected to be common,
->> using the narrower option when available has no drawbacks because the
->> kernel only cares about this extension in '-fms-extensions', no others.
->> While this could result in build errors for folks using
->> '-fms-anonymous-structs' if a developer uses another extension in
->> '-fms-extensions' (either intentionally or unintentionally), flagging
->> these uses for further scrutiny seems worthwhile.
->>
->> This series converts the build system to use that flag when it is
->> available. The first patch consolidates all of the C dialect flags into
->> a single variable to make future updates to the dialect flags less
->> painful, as updating the logic in every place that uses their custom
->> built C flags is getting cumbersome (and C23 is looming). The second
->> patch makes the actual switch.
->>
->> I would like Nicolas to carry this in the Kbuild tree for 7.1, please
->> provide Acks as necessary.
->>
->> [1]:
->> https://github.com/llvm/llvm-project/commit/c391efe6fb67329d8e2fd231692=
-cc6b0ea902956
->>
->> ---
->> Nathan Chancellor (2):
->>        kbuild: Consolidate C dialect options
->>        kbuild: Use '-fms-anonymous-structs' if it is available
->>
->=20
-> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+On Wed, Feb 18, 2026 at 01:34:46PM -0800, Eric Biggers wrote:
+> This series can also be retrieved from:
+> 
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-cmac-v1
+> 
+> This series adds support for AES CBC-based MACs to the crypto library,
+> specifically AES-CMAC, AES-XCBC-MAC, and AES-CBC-MAC.  The
+> implementation is fully optimized with the existing
+> architecture-optimized AES code, either single-block AES en/decryption
+> or arm64's neon_aes_mac_update() and ce_aes_mac_update().  As usual,
+> optimizations are now enabled by default as well.
+> 
+> AES-CMAC support will be useful for at least the SMB client and server,
+> and the bluetooth and mac80211 drivers.  Patches 8-15 convert these
+> users to use the crypto library API instead of crypto_shash, though
+> these patches will likely go in via subsystem trees later.  They result
+> in some significant simplifications and performance improvements.
+> 
+> As usual, a KUnit test suite, FIPS self-test, and traditional crypto API
+> wrapper algorithms are included as well.
+> 
+> Note that I'm also planning to add additional AES modes to the library.
+> This is just an initial set of AES modes to get things started.
+> Notably, with the SMB client and server already using the SHA* and MD5
+> libraries, "cmac(aes)" was the only remaining use of crypto_shash there.
+> So it makes sense to take care of that.
+> 
+> Eric Biggers (15):
+>   lib/crypto: aes: Add support for CBC-based MACs
+>   crypto: aes - Add cmac, xcbc, and cbcmac algorithms using library
+>   crypto: arm64/aes - Fix 32-bit aes_mac_update() arg treated as 64-bit
+>   lib/crypto: arm64/aes: Move assembly code for AES modes into libaes
+>   lib/crypto: arm64/aes: Migrate optimized CBC-based MACs into library
+>   lib/crypto: tests: Add KUnit tests for CBC-based MACs
+>   lib/crypto: aes: Add FIPS self-test for CMAC
+>   smb: client: Use AES-CMAC library for SMB3 signature calculation
+>   smb: client: Remove obsolete cmac(aes) allocation
+>   smb: client: Make generate_key() return void
+>   smb: client: Drop 'allocate_crypto' arg from smb*_calc_signature()
+>   ksmbd: Use AES-CMAC library for SMB3 signature calculation
+>   Bluetooth: SMP: Use AES-CMAC library API
+>   wifi: mac80211: Use AES-CMAC library in ieee80211_aes_cmac()
+>   wifi: mac80211: Use AES-CMAC library in aes_s2v()
 
-For the series:
-Acked-by: Helge Deller <deller@gmx.de>  # parisc
+Applied patches 1-7 and 14-15 to
+https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
 
-Thanks!
-Helge
+Patches 8-13 (smb client, smb server, and bluetooth) can go in via
+subsystem trees later.
+
+I edited "lib/crypto: arm64/aes: Move assembly code for AES modes into
+libaes" to update the file comments to remove the file paths.
+
+- Eric
 
