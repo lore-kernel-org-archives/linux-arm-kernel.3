@@ -4,95 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE1DEA4FB4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 12:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B6CEA4FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 12:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YKq+XqD9UzrJQDDajsTTYQd2m6O1yzr282dV5geroQA=; b=jJesLs6dzVmzrKcIdCuAWyTMVz
-	cWtssBSR6jV4RVqvheZWJnsN1ZxmWhY9MRJy8V9g/ZSYKL/H4JfPDH3kIgCi3eOvBw4KteBVJ44g7
-	snFHS9JWc7dUVj3kxt8sWa8PoTwumgmrivHpdkgfYh+ADD0n3Ho1gxf/CZLQfIsKXTRYHpcvUAk8F
-	XWZluCDBzknDnSbQvourz82uMD+rExCQCpurCAl0Iy4IpVxII3TF5IA4BZ+rlZSwsUVJx3+Wopkje
-	7JetWM2vWBlW2nNxXsGvU+Fqc9CY2sBhrVBa4Gb6WLHF5tZ+6kPkDchWdPpTs3OOIXhvvhCMmvPO/
-	8H/RBaqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MSVGaTn7XmA6GkXd/fmaGcbAWdaT3/cac6c7RkoSv1I=; b=L++9pQBjxRy+oRRlWBs/RWBLs2
+	ogr6zp4AVwyEYgth2IPsDO6pV1lE55clRiM3fwawVxjhBDWfYaHu+f0WiWzQ1NF5q8B/O60W5bllX
+	metWIkFel8996b6crIaN2PgnLTQhdXG7dxkJy/R8ml6eJNYpN1rHVR8/reFhDG0BL/+Uz4sz9hMxN
+	uhmEhbrARNfjScHwbuTJHBs4CEmsv8qg4blIfLSzQKDt1MV53Om4JURCd78VQ5i+y6q3JRLZYUkfy
+	K9fhtFsVhKhVjwSiooEvQlCwbT4Yt7vXKin47ia/8R2TiV7XXulfs5B7MqWdUixFlJyoyPzR/QKXy
+	nN5c/M6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUoM-00000000G7L-2mWe;
-	Mon, 23 Feb 2026 12:13:14 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vuUsK-00000000GLq-20Fy;
+	Mon, 23 Feb 2026 12:17:20 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUoI-00000000G6s-1iXa;
-	Mon, 23 Feb 2026 12:13:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771848790; x=1803384790;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3n9HI5ycnkli5W6BGGU+azDBkZ+AMvJ95kVejaXce4U=;
-  b=LMho2JiNrHf6p8ctMWS90OYrCBaOoyPwqH3sTC/I9xVcUuCACnkc08RO
-   oM5Vp08wHDdAnZ3xBb7vf7u0n0a+GH8s4m8rodWQN+8C5PcbsYFjh+o/S
-   zwlef4/pfaYAa1dHCyn/fncIkm0nIDqZ7bDf6u4eTDQZXvqfLZ+kEKGSV
-   Gy4RxgSGI5H4Mp81/e23TEaZEaqoXaZBIx6/Lm4B6WcFNbs+z+k/tuKiC
-   qQZHH430NV9sWcqoZT03oC1XCxdCThj5xUAz0e1n/Gp/pPGie6ruFcuZ8
-   r20HfJ9N7CtFYbWq5FQU70PjTiOJ9lLbuwn7x7LEyemRLvQZToXkUClvK
-   g==;
-X-CSE-ConnectionGUID: 9LJQVzwKTWWTp/byEmUZqA==
-X-CSE-MsgGUID: fqp5JqKHTKymtuuHxICC4A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11709"; a="90247552"
-X-IronPort-AV: E=Sophos;i="6.21,306,1763452800"; 
-   d="scan'208";a="90247552"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 04:13:08 -0800
-X-CSE-ConnectionGUID: K2itwqXdR8a5WDW9LgYZPw==
-X-CSE-MsgGUID: 63CQjMeZR761DzImy1sYWw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,306,1763452800"; 
-   d="scan'208";a="220091804"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.222])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 04:13:02 -0800
-Date: Mon, 23 Feb 2026 14:12:59 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Hans de Goede <hansg@kernel.org>,
-	Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, Tejun Heo <tj@kernel.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Tobias Schrammm <t.schramm@manjaro.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Lee Jones <lee@kernel.org>,
-	Dzmitry Sankouski <dsankouski@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benson Leung <bleung@chromium.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>, driver-core@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev
-Subject: Re: [PATCH 1/9] workqueue: devres: Add device-managed allocate
- workqueue
-Message-ID: <aZxES35K3hSX4KEx@smile.fi.intel.com>
-References: <20260223-workqueue-devm-v1-0-10b3a6087586@oss.qualcomm.com>
- <20260223-workqueue-devm-v1-1-10b3a6087586@oss.qualcomm.com>
- <aZwWMiYEvr3DXi3E@smile.fi.intel.com>
- <9dd377f6-3565-4c0c-8c98-1b5ac4982f5b@kernel.org>
+	id 1vuUsI-00000000GLQ-3eNX
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Feb 2026 12:17:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=MSVGaTn7XmA6GkXd/fmaGcbAWdaT3/cac6c7RkoSv1I=; b=PS2f02IzwG5dDzXEj90R/sRgwZ
+	JligdCvKe18fAPWGEwMAVCVlYYqNrMR7OKqNT/CsyLDqD4n868fofXSMgvLaneVl8JE/Tt3lTnwIm
+	YABgQmK6SgXbcU/u3tFOGiKjoloi2qsQE8rQ52kNjtz63rP9+HUd5OTQCwalDiVjoE4oVqakgz5Qp
+	iRaxoMUm1vkEcKMxm9w+HkQ/hKh82G9DMbfePDGK5Ipfxu5n06kTuB8mmUBNT+wjbqZF7ix8wuitr
+	dJpkt7FQ8QLDobjgNNd2RWuMAWGQF9hDu04LCTDJQ3pURXZLP2lfLzQ208csrRSxIoGdc+MhlcV49
+	UUAW/4pw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:40614 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vuUsD-0000000042a-3Uz5;
+	Mon, 23 Feb 2026 12:17:13 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vuUsD-0000000Afci-0XxO;
+	Mon, 23 Feb 2026 12:17:13 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: fix EEE supportable interfaces
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <9dd377f6-3565-4c0c-8c98-1b5ac4982f5b@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vuUsD-0000000Afci-0XxO@rmk-PC.armlinux.org.uk>
+Date: Mon, 23 Feb 2026 12:17:13 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_041310_502404_1E02B133 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20260223_041718_911079_FE55979E 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,68 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Cc: devm-helpers maintainers/reviewers
+According to the dwmac v3.74a databook, only MII, GMII and RGMII dwmac
+interface modes are supported for EEE. Restrict EEE to these modes, or
+the modules supported by a PCS other than the GMAC's integrated PCS.
 
-On Mon, Feb 23, 2026 at 12:52:14PM +0100, Krzysztof Kozlowski wrote:
-> On 23/02/2026 09:56, Andy Shevchenko wrote:
-> > On Mon, Feb 23, 2026 at 08:27:29AM +0100, Krzysztof Kozlowski wrote:
-> >> Add a Resource-managed version of alloc_workqueue() to fix common
-> >> problem of drivers mixing devm() calls with destroy_workqueue.  Such
-> >> naive and discouraged driver approach leads to difficult to debug bugs
-> >> when the driver:
-> >>
-> >> 1. Allocates workqueue in standard way and destroys it in driver
-> >>    remove() callback,
-> >> 2. Sets work struct with devm_work_autocancel(),
-> >> 3. Registers interrupt handler with devm_request_threaded_irq().
-> >>
-> >> Which leads to following unbind/removal path:
-> >>
-> >> 1. destroy_workqueue() via driver remove(),
-> >>    Any interrupt coming now would still execute the interrupt handler,
-> >>    which queues work on destroyed workqueue.
-> >> 2. devm_irq_release(),
-> >> 3. devm_work_drop() -> cancel_work_sync() on destroyed workqueue.
-> >>
-> >> devm_alloc_workqueue() has two benefits:
-> >> 1. Solves above problem of mix-and-match devres and non-devres code in
-> >>    driver,
-> >> 2. Simplify any sane drivers which were correctly using
-> >>    alloc_workqueue() + devm_add_action_or_reset().
-> > 
-> >>  include/linux/workqueue.h                        | 32 ++++++++++++++++++++++++
-> >>  kernel/workqueue.c                               | 32 ++++++++++++++++++++++++
-> > 
-> > Hmm... We have devm-helpers.h. Why the new one is in workqueue.h?
-> > Can we have some consistency here?
-> 
-> Answering with update:
-> I don't think this should go to devm-helpers.h. The definition is in
-> workqueue.c, thus the declaration should be in corresponding header.
-> It's logical and consistent.
-> 
-> Otherwise, I could move it entirely - definition and declaration - to
-> devm-helpers.h, but then the release (devm_destroy_workqueue()) will be
-> essentially exported to everyone through the header.
-> 
-> So kind of conflicting choices.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c  | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
 
-Hmm... An alternative I see is more intrusive but should make it less
-inconsistent: Treat the devm-helpers as devres like header for workqueue
-and collect there all devm_*wq* related stuff with maybe something putting
-back to / holding in the c-file.
-
-OTOH we may leave devm_destroy_workqueue() visible for now with a comment
-saying do not use, it's internal or something like that.
-
-Hans, what would be your opinion as you IIRC is the author of devm-helpers.h?
-
-Matti, I also Cc'ed to you, you have usually non-standard thinkig and
-insightful solutions (besides being reviewer of devm-helpers).
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 82375d34ad57..89ded359a9fe 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1374,9 +1374,21 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
+ 				 pcs->supported_interfaces);
+ 
+ 	if (priv->dma_cap.eee) {
+-		/* Assume all supported interfaces also support LPI */
+-		memcpy(config->lpi_interfaces, config->supported_interfaces,
+-		       sizeof(config->lpi_interfaces));
++		/* The GMAC 3.74a databook states that EEE is only supported
++		 * in MII, GMII, and RGMII interfaces.
++		 */
++		__set_bit(PHY_INTERFACE_MODE_MII, config->lpi_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_GMII, config->lpi_interfaces);
++		phy_interface_set_rgmii(config->lpi_interfaces);
++
++		/* If we have a non-integrated PCS, assume that it is connected
++		 * to the GMAC using GMII or another EEE compatible interface,
++		 * and thus all PCS-supported interfaces support LPI.
++		 */
++		if (pcs)
++			phy_interface_or(config->lpi_interfaces,
++					 config->lpi_interfaces,
++					 pcs->supported_interfaces);
+ 
+ 		/* All full duplex speeds above 100Mbps are supported */
+ 		config->lpi_capabilities = ~(MAC_1000FD - 1) | MAC_100FD;
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.47.3
 
 
