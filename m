@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DABAEA4FC2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 13:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80108EA4FC2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 13:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fr7d7tb2OSvjYLeMmzPSFkX3IY9HuIWVM8tRYP8LeRw=; b=un4PgAd4rVrEAXY42Zp23MgQP/
-	7pa6h9beVNqK1i8HR7dD6tQA81DvCId7UJF4ZKhp3IukoHvEBdUHBt+E/kELoDmAZDmL4dRbB9Rp8
-	2CWTX7+kVD0W6xOM5OOc9D70WjZAsFW4aCuOdbSqcSGKmLf0OBGMw3D0OyFl81uLkpcJ/MLyf1MS0
-	Gwh9tMAJ2wKetcQjJCh+QRdLkheaAQZMIgNv9I5p0SqAAC7ZQC2EPqrtWAZA2yPMyJIXnkxRTepMM
-	3PZ56scjvyC5APXCOpQzOn5Pw9cdPA3am57gF4G+YUND/fQrtHSK0yP3cF9nbCuSyIc9ZkPKyt082
-	iLZi+feA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HW6N3rGU2ZBKiA5TO2fqe3PHPUs/lOREE9/IWMJ4tOU=; b=khbWyk8pbfy9sUcb15qVIpwafR
+	if6OOMN0SpPseSYZZWqiEZrBamFcrA9yEfBJEXD09lDCnprOgD59puu1sjfg4SQAQDQ9NmviyOZd4
+	BUR0nQwhi7O2PhElTKGK+tOg15YAx3PkeQF2ujxc/bRvLC2d/1a9Hn4HKXQjiGIeGPwQ4Yg7gJ5Fm
+	+Nl7Uo6h/b+7qaf204UOO74TePKvjQKZ3NoDcxXgaFV2x0W+OdEz1oTV7mFeZ8HUU7UUL676LM8Sa
+	ZqStYzqczpZ9ecsTBD6ohox+pgpnnQlzBvL9GE5DwJGTccjT9VAavNci9L1aDoKuHuCzkVdYjyNhJ
+	C1ZYiOMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuWOT-00000000QA0-0KiL;
-	Mon, 23 Feb 2026 13:54:37 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vuWPZ-00000000QP6-3KmJ;
+	Mon, 23 Feb 2026 13:55:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuWOP-00000000Q90-2fu4;
-	Mon, 23 Feb 2026 13:54:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1771854871;
-	bh=wsxrGT9iiPD6ZitFu90+kuRPo6NfbN5RrwpeDZ7GNQY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AlMRZCcNRh1z6NRy2/I17Dm2/sYYtXapstkwgNAT5JC829doMkVfCZu6bzBply4mX
-	 Z5V6k4Fugil9Pbk1jTOoN/oVEeqCfAKqRT6IFKDIziyaucxhMAd41jYXXqW7jof677
-	 m0mMfBerf0M5K1EAeqrIdfXRJS/x3Bi5RLQslWTpMP/myCyMmu2Sx78PopsHOkRg5o
-	 H/O52ahKyojFXDNplvjDFYJUmk8ft5TTBoJujoIoALlB0oZxnqE3hsUdIzuhOftNBq
-	 DfnF/yKg27joBLxmlkAJl7pPQ1DW9pvBgJOzHRgZOaVPAldn1YCSM7vOX8Bt/2/G1z
-	 L2GiCzzldb9Dw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 559BF17E043F;
-	Mon, 23 Feb 2026 14:54:30 +0100 (CET)
-Message-ID: <8030ee40-5972-499b-b693-b26fb7ffe7e2@collabora.com>
-Date: Mon, 23 Feb 2026 14:54:29 +0100
+	id 1vuWPY-00000000QOp-0VKG;
+	Mon, 23 Feb 2026 13:55:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=HW6N3rGU2ZBKiA5TO2fqe3PHPUs/lOREE9/IWMJ4tOU=; b=aawVdu4i1mo1dCrOic3p9eRbsp
+	Hd3IJZ7C8a60VdgJggU97MnBqnGnSf1BueQY77k1KbpP7jyxtPgQ03+unR7Z8NSfWZx1qRxe5w1ly
+	JcKhsq8LRiJxwkv3CkCdQvRbAvwYArz7kN5+3BsBhOruu6NyVnN+4BTg2PM+hacGmL9o2u+/JfzW5
+	HkbVy3C5jWGJQeggD3ZBk8pGCU97tHZ9wSTIlSPqvs8rrQeg9cNpqmPAqqBdP8//vbTqDKVSkWhil
+	zUsmBGvlAYRb5EVwQBVdD/yr2ySbuL4iut9m2iXcLpK5XdquDM0vayZ7P9BCDC2uzT3Rt8Ik49zdW
+	pB8SP2mA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuWPT-00000005B0F-1Fkb;
+	Mon, 23 Feb 2026 13:55:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E6F6339;
+	Mon, 23 Feb 2026 05:55:31 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 240543F59E;
+	Mon, 23 Feb 2026 05:55:35 -0800 (PST)
+Date: Mon, 23 Feb 2026 13:55:32 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Thomas Gleixner <tglx@kernel.org>, ardb@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
+Subject: Re: [PATCH 2/3] genirq: use runtime constant to optimize
+ handle_arch_irq access
+Message-ID: <aZxcVGr47wYM--nr@J2N7QTR9R3>
+References: <20260220090922.1506-1-jszhang@kernel.org>
+ <20260220090922.1506-3-jszhang@kernel.org>
+ <877bs4wi0c.ffs@tglx>
+ <aZxLE-wNGaEGDHGI@xhacker>
+ <aZxSEoFkXMg18qLV@J2N7QTR9R3>
+ <aZxUpATkNI5_PbNl@xhacker>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 05/18] clk: mediatek: Add MT8189 vlpckgen clock support
-To: David Lechner <dlechner@baylibre.com>,
- "irving.ch.lin" <irving-ch.lin@mediatek.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Bartosz Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>,
- Miles Chen <miles.chen@mediatek.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com,
- vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
-References: <20260202062840.342707-1-irving-ch.lin@mediatek.com>
- <20260202062840.342707-6-irving-ch.lin@mediatek.com>
- <4b22e998-b38e-4452-82ce-1389d7086a04@baylibre.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <4b22e998-b38e-4452-82ce-1389d7086a04@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZxUpATkNI5_PbNl@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_055435_373977_5B616340 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260223_135539_709368_6D3464DB 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +87,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 19/02/26 21:49, David Lechner ha scritto:
-> On 2/2/26 12:28 AM, irving.ch.lin wrote:
->> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
->>
->> Add support for the MT8189 vlpckgen clock controller, which provides
->> muxes and dividers for clock selection in vlp domain for other IP blocks.
->>
->> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
->> ---
+On Mon, Feb 23, 2026 at 09:22:44PM +0800, Jisheng Zhang wrote:
+> On Mon, Feb 23, 2026 at 01:11:46PM +0000, Mark Rutland wrote:
+> > There are various reasons for not supporting static calls, and in
+> > general we end up having to have a fall-back path that's *more*
+> > expensive than just loading the pointer.
 > 
-> ...
+> indeed, if arch doesn't support static call, the fall-back addes one
+> more loading overhead.
+
+I think you've misunderstood my point.
+
+I'm saying that *even if* arm64 supported static calls, we'd have to
+have dynamic fallback paths that are more expensive. For example, where
+branch range limitations force indirection via an out-of-line stub,
+adding an extra BL+RET pair. Note that was the case in the patches you
+linked from Ard.
+
+[...]
+
+> > > and asked for static calls "critical rather than a nice-to-have"
+> > > usage.
+> > > 
+> > > Hi Ard, Mark,
+> > > 
+> > > Could this irq performance improvement be used as a "critical" usage for
+> > > arm64 static call? Per my test, about 6.5% improvement was seen on quad CA55.
+> > 
+> > As per my other mail, does this meaningfully affect a real workload?
 > 
->> +static const struct mtk_gate vlp_ck_clks[] = {
->> +	GATE_VLP_CK(CLK_VLP_CK_VADSYS_VLP_26M_EN, "vlp_vadsys_vlp_26m", "clk26m", 1),
->> +	GATE_VLP_CK_FLAGS(CLK_VLP_CK_FMIPI_CSI_UP26M_CK_EN, "VLP_fmipi_csi_up26m",
-> 
-> Should "VLP_fmipi_csi_up26m" be all lower-case to match the style of all of
-> the other clock names? i.e. "vlp_fmipi_csi_up26m"
-> 
+> This improves generic irq processcing, I think all real workload is affected.
 
-It *must*. Yes.
+I asked about meaningful impact. For a real workload, does this show up
+at all, or does this fall within the noise?
 
-Regards,
-Angelo
+At present, I don't think your singular microbenchmark result changes
+our previous decisions regarding static calls. For various reasons, on
+arm64 static calls are nowhere near as significant an optimization (and
+can be worse).
 
->> +			  "osc_d10", 11, CLK_IS_CRITICAL),
->> +};
->> +
+I'd be happy to use a runtime constant (modulo my concerns about the
+initial value) given that the we already have the infrastructure and the
+maintenanace impact is minimal.
 
-
+Mark.
 
