@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA09FEC1105
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 16:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56397EC1106
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 16:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GsX5I8ekieUXCqSFWWV9OWjKFqWSLur0ZuBiwFVR/2E=; b=yA8Xryzf1KSau5DsFwBBSySssR
-	xC4gKK/wmhcIQvyuqw8eCUU/2XOtuaJ10jxLp5jTjYdoFgu6JYtK3s0bfdi5A3EQxcPIRmwgHz+g7
-	7XcUlThuH+/E6Rkk6cKuozLTn/5HHWaFO4rSVStM/7VLxnGOzRzxi+vuHiKVYmpzYY0caNktk73FK
-	d8TLutjZsUgeIlYkhjaQlQwBhtihQ5SKMNBgjXARd0SArcxlXNTaTKTAECJC12U8QG8VyXqcjNxxf
-	c7xRLRxdKGJTTLoKiQbf2NxIM3mLwpX1iajvkOFOixEzuG7v4sj5Z1kPJWZ/5ELHdrbkP8m3vJUO7
-	tpgLMowA==;
+	bh=87mY3bGihT8b8D/6Pcxz8+DKkw+N82+sh9Y6maoLJGk=; b=aEszb3ayn4SYW+jhjbfvsV5B6P
+	5j5duGoGHpKpjN55T1rqltTW0Ub/vngnm3s5zMZdHFYFr6MPDRgG3GBntCWOtoxzh9lkZmLHW76c2
+	wKN3Q97ABF64lRUGnvvhma1R8QQAkaNkWDsb320PJWe7pYncBDktFugMRewODP+RI5aZp8bMC+0FX
+	/xDN0HWkt94K1nKXY/qfmBdNQaVjIH8YJxN7CNo2+OQvutsmch4lbalySSvRV7wjLVxkVB8xDomGa
+	8Zdjvv6jhnnwDmc68948EQW9tuBY7eCQkFvcVNtaEGrUi/oLJ/Y+Tzzm6xCk1eUqCoQ1af0B/htq5
+	rHeposlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYlu-00000000g3a-0pgE;
+	id 1vuYlu-00000000g4T-3Gsz;
 	Mon, 23 Feb 2026 16:26:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYlm-00000000fuU-2OSI
+	id 1vuYlo-00000000fwQ-00Dt
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Feb 2026 16:26:50 +0000
+	Mon, 23 Feb 2026 16:26:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=GsX5I8ekieUXCqSFWWV9OWjKFqWSLur0ZuBiwFVR/2E=; b=nP4IMWcchX4HeUMyfgz/CoXXbm
-	ZL7vFSLCa09weF/hW6RxCouDullmBx+QvxY8pT50gFBAieSd17pSphWlI6AKUVZJ9UZ5LDQHojpK+
-	HYkX5LYmn8z6M+hoD2TqhxcutVx1DGQVSXgrbKLgPzyWwwekKn/mjCSdIw/W1ISBDpz7rSbCoZFYU
-	dK1cDXOUG6gMFH2JzXkSU+baVIsrpeQVAtpl202fNMEOW7n2udZLFFzp3RT+jpG7f8HR08m4JpRvM
-	lFfvk8Ke+R1SlSeN5pAfN2ykUGMjHt2KiOrxWNLB0yxdRWCVnRvnEQAnSr7OPK3sQZOASTgkePp90
-	jTF/DQNw==;
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	bh=87mY3bGihT8b8D/6Pcxz8+DKkw+N82+sh9Y6maoLJGk=; b=oRjVijdcpHdlwz/CTJyVkb7QRC
+	2qjYdD4Rh/LpkVvkA5edXIplNsa8jqipv69bbHhiVXxDS4KATafn1pN9qKy5cZxYGT6g2KtCVh8Yg
+	YqQ9m3gpBBrE37QsCC7oHcWsL1gMPBIOuVyqqlOykEI64M+fZt6tyaNF6OUtynltopZSkYEISHujr
+	krFb7agB+/9Z1xsZHteU0lmxbucsLrzyu+uAPaJRNT+3VCrnCNTXLM/OO7L46GFPcm++wNO70q1Cb
+	ZklJfhmXVMLH1Fa5MNYSpWcUemlMqblB7MyiQSJlFZynneRnaj1ZlA36MZ42IlTPNhZdZY4cl/op5
+	XZwXhweQ==;
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYlj-00000005TBg-22vq
+	id 1vuYlk-00000005TDa-2cc2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 16:26:49 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4358fb60802so3329147f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 08:26:46 -0800 (PST)
+	Mon, 23 Feb 2026 16:26:50 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4376acce52eso2826359f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 08:26:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771864005; x=1772468805; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1771864007; x=1772468807; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GsX5I8ekieUXCqSFWWV9OWjKFqWSLur0ZuBiwFVR/2E=;
-        b=jzJW0dZQtBnnOvqGWM7pM6b4kzMOdHbpK+FGaGgvk0KuiL/vk5nHWXc0tf+BJIFE2V
-         8FiyFA1vpXJo7cS8C/DbCosKaM5tli1YNUwd3YMzKqjk4m3unqM3uXp4oT25Dtw6aUt7
-         9NdynY7bfCsp0zKIUz6LtmWesqAiWT1HHhNkhviMqBUUkHTIAmf4aJhmYZsjuYm73WcH
-         qo2A6+wYTGoRy2HGjuSAnSqPfskcNGTY5Uhwtxrbs+1UP4nk0lA0Hu922QT9EEmGs96R
-         QAVF33gRNVh77s6A36r/Sh9UBjUMJ4MVA7V86M/AJLtCD78esOsPgLbR5juNmkfMyQHl
-         ETTQ==
+        bh=87mY3bGihT8b8D/6Pcxz8+DKkw+N82+sh9Y6maoLJGk=;
+        b=U+O793/viVyHlABQJeorWNfURwfVdWwLb3Nev9Xuzbj97tt1EwyPGBBhoPBSLsYqGP
+         QXOIhdJSRa6MxtvHtxbXbcl4bkdcLLRjuM6rCCk/T2zW/npsD8n/AYLGJ2agYOG/qlWT
+         I9vnriOykLfoZw8Y8YGZ2Yzb8isUVE7EHhmqYOQxthcC7x/TBrLvIgpGd/DCFATJoljV
+         vppTdnwGj97teo0DfpL0hEsUGGbgQ3uS7gu4iTcu1sa87QBXn5rRUozp9Npw3CM4MHaK
+         OUAbd+7jnKDI1PC2+3tSPNIyK/zdp9QHb06178ov1FX44Qv1rcYVIvjiiQydSi/ThA2K
+         0SQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771864005; x=1772468805;
+        d=1e100.net; s=20230601; t=1771864007; x=1772468807;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=GsX5I8ekieUXCqSFWWV9OWjKFqWSLur0ZuBiwFVR/2E=;
-        b=fGvh/xJrmVsMsKdsmvnh4IbzbIOlEqQ1h5JLA+mIBzzWhKSHvuVg8gzDq4erMJZij9
-         oGqFPIGEWnXdE4TXbvEXEErPFe6BRKJa4VKX9vcOAHrr+mSw7E57mMRXJXf8Tj9kZh3n
-         lA3VS1L31VfuHOtPDrF5sW2XnP7Qz6aFmUpq59gmtFEwf9oXzkB+jHRlOvL8I3OUZ8Uo
-         QuA5wfXH6dVluTe1WlZITf3Dh+XHcDgd9AAnT6OjXMNz6J3uot0Uj7qO+PXdeV9toFHI
-         hIpyGUkJGD7VxQShJM6HqXMAL1zgJyjRBjG4+e3s0zy99/+oVZsbk4E6XOCanXpU6UTv
-         mpiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXL/v4LWqyYOlC6WiEKfy+DKAN8NszdbfKJ39XopkIgqjMvLn53Bk+NRL1niAfKqVHiUSJe9H2awBYD/WBQ64JJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+Dsh/td4mnjG5qI0e8Afx9IJOt2NiUTdK86P0pHLF5BJ07pHb
-	ppMwUzniXFkW+1ojJXBOMZYqqLU2KvAJn4dDO7sD1i0G2lK/doLyZH4y
-X-Gm-Gg: ATEYQzyUH3o7T/VLRBnhmJCpsGCOVjKahk7CHdEt9AoirnWjYyMRMIMjFuZ0VTx3ZiY
-	03+1C2ujkkjGUJYxBUsiK9Rywwl9DjMmf3c+3U9KQpv5xEcOcBcQn5STBIe2/UQYfCTym//Nz3i
-	fZEo+rPezJUn2bzCjSczNURyF0qN0n4KsP8QtA7B//EefZYWlEkRD3JYVsHOWLdrlFQtG5ItGxK
-	OLkvz3k5F/smTTe0Z8tk+Z87yfJ7Op5LIfU7N0ApzjzQQW/U79tRRYsGmO6KOPZcZuVicPGp3rF
-	Or2h8XJHiH8yXp5+Y2YKiqX4kn4IFeRuH0/gEYups3ut805LCa9w/HPIrcjQX1h+FybBuAjipVV
-	82RdTHh3Kt3TDMit4XyhkBaCd2Yxqvsbx409WMgaUbTnrQYGfNb157TWgmixyapqnfkmiFG7jDC
-	iyrTZwB7+asglZHhgAr10=
-X-Received: by 2002:a5d:5886:0:b0:435:92c6:d556 with SMTP id ffacd0b85a97d-4396ffc46bfmr17665504f8f.16.1771864005236;
-        Mon, 23 Feb 2026 08:26:45 -0800 (PST)
+        bh=87mY3bGihT8b8D/6Pcxz8+DKkw+N82+sh9Y6maoLJGk=;
+        b=F44NvnJ83LdCY9eJ+zHaTIoZAfHxzKTIsWAfI6u8sNtlGgHUAuYZaymhJfQ7jUHQCS
+         VH8lCip9gHm8ZajIRjB7X/u/wvYPTssXENuCTaHYBHcULrVStb9NJkiKdkS5vpNoQRjA
+         kKECXCLjNLP1kh/U36VosH9OinbOT1cgDg4vbq9EFX2XLG0ukhEdt1L+rIb0Hx3t4tjx
+         Ma1XzTvT6U32g/p3OeVoi0ICHdPt7sBWSfmjbBMGEogNYEZC406sDjC0z6FqrTd5DSPq
+         5NJqUMgdaOP3d/XhQ/W9uufWF8ddTocGmbXPGdPwND1E21KG+/mDgLw1JCEKUGoQMHtN
+         oP8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWwu1otFjKbzJUIVcKslwXSxt8KbcIKl1L/LA+/1LsZu6CsQLqTZ8ZS5tVK37Xieqdyp2TkGH3XSP4Y8JIgM6IH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwO+1sQFgKFwYoFiGJp94bI9X4eLqYMGoXz5Hsb9f9qPl8Li+CJ
+	g5I5wI10/FxcvuRaab6aiErHPYBW1jEA25t8Msw1OoVl8PFntGkp43+K
+X-Gm-Gg: ATEYQzwafAjt+jUkL1tv45x2WKqjChCQcRbVx0lsw0dpfjlEqrv/bHB0NNN6Of+uZgh
+	BxFMdQueHeADZxv9G9cnQYEJKZID+iqba0zCcB98nmzpk9WS331cOz8+gIu761lKKgCUqjVxqAe
+	Qogmh6ri++AUKxce6L86gQ5duzwt1NSZueUGY0FN2AUNgn3RmM1oe9jwybeiPYM9hhtzj0Julen
+	CscN24gCXCGtyGBEHQ/T1fR/KLLLTNQWfQ3qCA+PKCxURUqtsSQYMTvi+6nEzHNzaKg3MvJ4jYI
+	loG0kTcp75QcbQkW4IS2db7al+B0lBuiZzIqWnfLrzwgNwiLEMGy20mAK16Blaj3zwZv4OBrz9B
+	MEhm3WBMVeKq3gmkMsafiFbRmWcIMeZ0Ln1nKYkpo8jhoAGTMVh6XguYXCLOcTCHvg0bvBpfF2Z
+	JqCNJY+6MTn5YYbv/7exQ=
+X-Received: by 2002:a05:6000:2dc7:b0:436:1a24:df81 with SMTP id ffacd0b85a97d-4396f15416cmr16926092f8f.2.1771864007344;
+        Mon, 23 Feb 2026 08:26:47 -0800 (PST)
 Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970d5463dsm19120357f8f.34.2026.02.23.08.26.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970d5463dsm19120357f8f.34.2026.02.23.08.26.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Feb 2026 08:26:44 -0800 (PST)
+        Mon, 23 Feb 2026 08:26:46 -0800 (PST)
 From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+Cc: Val Packett <val@packett.cool>,
+	Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -101,23 +103,22 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	Vinod Koul <vkoul@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-phy@lists.infradead.org
-Subject: [PATCH v3 5/6] drm/mediatek: dsi: Add compatible for mt8167-dsi
-Date: Mon, 23 Feb 2026 16:22:49 +0000
-Message-ID: <2fbf179c03c61f527e2583f9df4f97f6aaf3297a.1771863641.git.l.scorcia@gmail.com>
+Subject: [PATCH v3 6/6] gpu: drm: mediatek: ovl: add specific entry for mt8167
+Date: Mon, 23 Feb 2026 16:22:50 +0000
+Message-ID: <5f880f1334aa93184afee3e36132ca42628821fb.1771863641.git.l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1771863641.git.l.scorcia@gmail.com>
 References: <cover.1771863641.git.l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_162647_700398_DBBA072E 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20260223_162648_727412_F1808214 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,26 +133,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mt8167 DSI controller is fully compatible with the one found in
-mt2701. Device tree documentation is already present upstream.
+From: Val Packett <val@packett.cool>
 
+While this configuration is otherwise identical to mt8173, according
+to Android kernel sources, this SoC does need smi_id_en.
+
+Signed-off-by: Val Packett <val@packett.cool>
 Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dsi.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index af4871de9e4c..ad10e86b161d 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -1301,6 +1301,7 @@ static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+index e0236353d499..97a899e4bd99 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+@@ -671,6 +671,16 @@ static const struct mtk_disp_ovl_data mt2701_ovl_driver_data = {
+ 	.num_formats = ARRAY_SIZE(mt8173_formats),
+ };
  
- static const struct of_device_id mtk_dsi_of_match[] = {
- 	{ .compatible = "mediatek,mt2701-dsi", .data = &mt2701_dsi_driver_data },
-+	{ .compatible = "mediatek,mt8167-dsi", .data = &mt2701_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8173-dsi", .data = &mt8173_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8183-dsi", .data = &mt8183_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
++static const struct mtk_disp_ovl_data mt8167_ovl_driver_data = {
++	.addr = DISP_REG_OVL_ADDR_MT8173,
++	.gmc_bits = 8,
++	.layer_nr = 4,
++	.fmt_rgb565_is_0 = true,
++	.smi_id_en = true,
++	.formats = mt8173_formats,
++	.num_formats = ARRAY_SIZE(mt8173_formats),
++};
++
+ static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
+ 	.addr = DISP_REG_OVL_ADDR_MT8173,
+ 	.gmc_bits = 8,
+@@ -742,6 +752,8 @@ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
+ static const struct of_device_id mtk_disp_ovl_driver_dt_match[] = {
+ 	{ .compatible = "mediatek,mt2701-disp-ovl",
+ 	  .data = &mt2701_ovl_driver_data},
++	{ .compatible = "mediatek,mt8167-disp-ovl",
++	  .data = &mt8167_ovl_driver_data},
+ 	{ .compatible = "mediatek,mt8173-disp-ovl",
+ 	  .data = &mt8173_ovl_driver_data},
+ 	{ .compatible = "mediatek,mt8183-disp-ovl",
 -- 
 2.43.0
 
