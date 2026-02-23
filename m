@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084B7EC1118
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0443FEC111A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:29:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3QpMmW40kIat1kKs1ek+xBkNlj1NYSZ0QLAmvTB0cy0=; b=C9Wc7uTkmunq6TG2kXYQhK2SZd
-	/FY06XM6zAwJG9xmEsAv9M+NeVp7Jl/zroYO1KsimczDJ+mSIBEmEk6omAmwFzBhzIQjAoAtkLQ/p
-	ZMMc5zPvm3OV2Jbj1l1+a3ROGEozNMadDpqEhwtMEJzg0D5bMf9/3o9vZYZ0Gv8urGQkEKt8aEFZ1
-	0ubXoCuwUDrVQMhE0rWFCYs/IQqAZUUXAEQIPWETMEPvi7E6V7LjjIuKeYIidybkxDL9DlNmLPcLb
-	Jr1Wdz3YC82yxPr+WrZgd3yH+qSPbuYjLoThQNqqlmQv0ZicFTjDNytX0rc4DOZzOnPPaJSdHNC1y
-	3e4I0sJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zgw/I4+jxyToKHouYVyvXCIXngBwgWxaNw5BiZhNKW0=; b=O2fSbNX0S7fDsjZx1Jme6dCBIw
+	YggtAFHS55Ceci8f3qXdKLZxzUfX7BXwdrmDtWP8qdJZkDQIPigT456mr8+ngsv7YQuy44ZvuEVNA
+	hru2AqnSu4dP3bHZ8fCwOJ8fPJeBNNGAQVIKpNxNR6NfNOFU2YOvO/ogFfJNl33OD9qOTCWytGaU1
+	OdbcxPGHyIrWUbjC6lr2qpp9Y/2FAcJ8EhPWgX9L6KYWBDNlQMAfVQbrnajhTt0Xxrp+D1t9MHTu1
+	NRWcXxDFRBGJHNMgrGFVVCiyI+1KtiJagumSS1Zaax7omMajKjoaaY1UGRSv9kFM3TMmy+2SQ/C4A
+	o6cqgnig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuaYp-00000000rPW-29mS;
-	Mon, 23 Feb 2026 18:21:35 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vuagT-00000000s3v-1z0M;
+	Mon, 23 Feb 2026 18:29:29 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuaYn-00000000rP0-2TEK;
-	Mon, 23 Feb 2026 18:21:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1771870880; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LO0OJrIIIXkzCrQQfCcvrpHXM3U/oezz4wUsYvMrIrlH63GDypik3xEP7aAOJ3X2+AGxC2Sq5cjzVvUNtuLh/1IJTxBUmeBBvFfKMA3eIknI6y4/573sCJ0ZLjHXhHwTNe3lAdlJHs1Xzf7Nz0Q/2Eg1yeoXcu/YotcWyQ4YoRE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1771870880; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=3QpMmW40kIat1kKs1ek+xBkNlj1NYSZ0QLAmvTB0cy0=; 
-	b=fSmyZHMSc7NxjKmgF6y9yDv5piUZBSrfxAb6ghCod+pvxlBQJSISZQtbvRCSBDUL9ClSb36bmu+12UhvWxqtPTfjVvHBD1gFzh5yXTwJyI5fKBq40hGhEV2PciG2DQqAweLYEbWPd1SlfR51GDcIICalMyikihujCWznB+iHSVM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771870880;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=3QpMmW40kIat1kKs1ek+xBkNlj1NYSZ0QLAmvTB0cy0=;
-	b=AG73FSNF0slb9gErO5ktr5aF1uRpJS6fYJFYRLDZ/2dXZSU5Cu5Ox60ilETlb9KO
-	wUtThLTEA9P+sxo8w+VCHc2ag+n+3fFBGW4KBUAzgny8ZLvH/3OE/0R38vf3BtXy5D9
-	/Bf9ZvaLp18WAG6UNkcjLp7kFurj7eaYnUVM1T64=
-Received: by mx.zohomail.com with SMTPS id 1771870878966356.47662130272647;
-	Mon, 23 Feb 2026 10:21:18 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 4E4231806CB; Mon, 23 Feb 2026 19:21:14 +0100 (CET)
-Date: Mon, 23 Feb 2026 19:21:14 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Diederik de Haas <diederik@cknow-tech.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1vuagR-00000000s3T-0nUH;
+	Mon, 23 Feb 2026 18:29:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771871364;
+	bh=f8Y9T7jUIRJHt52mwSlo+OZGMV3OmtVt1CFMimMKfhk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=D+ZEZns8k6dR0nXRDqaipPSO0rIkEfbGuUR4zYwNKoBDA2u71/+fwR0FcCn6cZBR0
+	 G+NiNTIP+KZvtw+frCTb2F4TRxkJ7FYobhJalUWzUPrh/l7x3tlt2ZF9XlHK+glzAN
+	 fsyBke84OLf5/KutIll9hq6Q89kpj/xenVBre5nnYx6QkeKKCTD0myMMP2fAxn11N3
+	 +XhDfmf14+T84ZN2FRn1cB5cVFpygQyGRPKJMxx34y2+BOItmho/C/yzzgJMZ5n82W
+	 7abWKLVv2LHgGKT8VXiD2GpPhWUkDwme217BFdcPd+OT6gVPeGMJLmcsK9TejLOqir
+	 3r8fNnypcMfFw==
+Received: from [192.168.1.90] (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48DE117E003F;
+	Mon, 23 Feb 2026 19:29:24 +0100 (CET)
+Message-ID: <e0d7da4c-e779-43e9-bf0f-c2a0224114df@collabora.com>
+Date: Mon, 23 Feb 2026 20:29:23 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] arm64: dts: rockchip: Fix vdec register blocks order on
  RK3576
-Message-ID: <aZyaLG0lYao6_xxb@venus>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Diederik de Haas <diederik@cknow-tech.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260223-vdec-reg-order-rk3576-v1-1-560976566bd3@collabora.com>
- <aZxkDGzEQCCLKR-M@venus>
- <DGMF3IX3J3BP.1XT41P0G8P5OD@cknow-tech.com>
- <b4eb3031-69e8-4a73-b4f1-91dd4192bb21@collabora.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="n35exwrn3ee26t2a"
-Content-Disposition: inline
-In-Reply-To: <b4eb3031-69e8-4a73-b4f1-91dd4192bb21@collabora.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.1.1.4.3/271.848.75
-X-ZohoMailClient: External
+ <aZxkDGzEQCCLKR-M@venus> <DGMF3IX3J3BP.1XT41P0G8P5OD@cknow-tech.com>
+ <b4eb3031-69e8-4a73-b4f1-91dd4192bb21@collabora.com> <aZyaLG0lYao6_xxb@venus>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <aZyaLG0lYao6_xxb@venus>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_102133_672445_B39DA01D 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260223_102927_411180_6170A85E 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,63 +81,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Sebastian,
 
---n35exwrn3ee26t2a
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix vdec register blocks order on
- RK3576
-MIME-Version: 1.0
+On 2/23/26 8:21 PM, Sebastian Reichel wrote:
+> Hi,
+> 
+> On Mon, Feb 23, 2026 at 07:07:42PM +0200, Cristian Ciocaltea wrote:
+>> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+>> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+>> @@ -34,10 +34,12 @@ properties:
+>>        - description: The cache configuration registers base
+>>
+>>    reg-names:
+>> -    items:
+>> +    oneOf:
+>>        - const: function
+>> -      - const: link
+>> -      - const: cache
+>> +      - items:
+>> +          - const: link
+>> +          - const: function
+>> +          - const: cache
+>>
+>>    interrupts:
+>>      maxItems: 1
+>>
+> 
+> With that change the descriptions in the reg section are wrong.
 
-Hi,
+Yeah, I assumed it'd be acceptable for the description to document just once all
+possible items, to avoid repeating this for all possible combinations.
 
-On Mon, Feb 23, 2026 at 07:07:42PM +0200, Cristian Ciocaltea wrote:
-> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
-> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
-> @@ -34,10 +34,12 @@ properties:
->        - description: The cache configuration registers base
->=20
->    reg-names:
-> -    items:
-> +    oneOf:
->        - const: function
-> -      - const: link
-> -      - const: cache
-> +      - items:
-> +          - const: link
-> +          - const: function
-> +          - const: cache
->=20
->    interrupts:
->      maxItems: 1
->=20
+E.g. this is from Documentation/devicetree/bindings/net/snps,dwmac.yaml:
 
-With that change the descriptions in the reg section are wrong.
+  resets:
+    minItems: 1
+    items:
+      - description: GMAC stmmaceth reset
+      - description: AHB reset
 
-Greetings,
+  reset-names:
+    oneOf:
+      - items:
+          - enum: [stmmaceth, ahb]
+      - items:
+          - const: stmmaceth
+          - const: ahb
 
--- Sebastian
+Thanks,
+Cristian
 
---n35exwrn3ee26t2a
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmmcmpIACgkQ2O7X88g7
-+praVQ/9HoWHCL/V04hsruUcyyQNCJwHHNdFoiO6VWn6/wdlfmfFoSWWn2GUQ0L9
-TvizIFInVev87p+PLnXE6qWH5F1i3jmJ1Tj+x4SEHZL3zZ9mCferejCDvmISmAls
-5ab9QudefSeGPKQiJ6yYmmWlILD0/vYCQi2B/0PLNT75XiasWDZGXcL/EGP6qCqQ
-2J8KDJQTsqYvrTcf5fwXP6a5+pVc8V1V+DZgOBBJDcvw2qPEWR1hTPPkUdififEf
-TI3voWFDe7XTBb1R+EGQkjQSA2NzwyHc3kEzoUsf6VtRyEmzsDUUXuCI5dgYLLi3
-s2TBXhOiMneKy5FfGaAdeJolNrstJ72VWFFTHe2OKj3qhHaH/rbOuobF3MLRmT7T
-UUtrXdN/qTSSt3o8GLFaWp3iPAPOPcPCnfaMQ44HAkH/3U1sHzVlWHVEYHfFYwrQ
-4hMHVo2QBd6UQmnU9CXzA/VurS9jwQ9dprhJBD6fsYIDzrPzC+IO35JdCfQ3pyHd
-JGbBSZcXOuoo1sk/liIvZggcMfWYJs1NwZM+gk/3DWhV/MKpEzEBhugciHC5Fh+g
-xuwu0IIIpGkbLRtCfMdulYtR20svlzsrH7VfV0YDnSVKhF8/EXn9lEP5tDlblXBj
-OucwIXC/q9TQZI4phd45tPwfibr3k6qPQxwdba2LAQFHR1Vf63Q=
-=XXNn
------END PGP SIGNATURE-----
-
---n35exwrn3ee26t2a--
 
