@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEB7EC111E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48EFDEC111E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sADTQtIRYR+VJutrUNJJ+f+f3upzIebxZxHC/UMsEs0=; b=nDSmMb7FTMJi1VxbeDv70/YSkL
-	oqffjpfQEIxXNSIropD5rTuaS/G8dKlh9DXF3Vq/P80CTJ4zjCLRicV/ooCagVyRKPnq5XHA5eh3j
-	C8Uue+fYvaJobiYaEelB3BB9rxMcsGYSCBmmw/VJROgIpnyLWfl4NdNnmej46EEAZWDOIM4aAdeaJ
-	ybwd43zi2pmE0r7TatWHqhGCHqSLYNsweVM0X3wtb/eorFjU1VZPUtWHEiFpXUvtj5EGC58swBCa8
-	TDxmLD4GSr+qP5YB4BiizwygpYy5TIGulvEOYtj9GQybAqPaBqrBoBGbsVG9nFwAQ4++OJWGAjha3
-	jsX/uL3w==;
+	bh=fhPFHQNiqDUZwOZfo/T8gxImjGZX+z+NGQyBYUoXbLI=; b=JM4TJoq8709YhL4A9lN1KLRvqF
+	vVHGUlq/euRNtxr9qzbQN/AS3Tt8hZmRgobnc7ndEixiJHyLbHeb7AKMjuRL2571B1111U1/LXdgJ
+	nAQGIu1N+3JiUeMi2Hk2k8jOqF51TgI1d8yDXSIbrRSvPYlrJny70CFV9ObRmhMu42RgzfeMGMIKs
+	Pzi/L7Q5ihZieZKTROf4S8ZrcPrKhpgdCfcq00dM+lCeKJgfhcVv+IWMq5JEGfZv6aUIQoUpAAV7F
+	96Frgtm79iLzT9SRBRlrwVDYHzxZRi3Jew5JaAZ1KeoipliBTYa49+auBysoAn0RcKk/JM1BdZYAF
+	XWTjDKqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuagd-00000000s6L-0DH2;
-	Mon, 23 Feb 2026 18:29:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vuakK-00000000sZs-36wr;
+	Mon, 23 Feb 2026 18:33:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuaga-00000000s5W-2FDH
+	id 1vuakI-00000000sZi-2oJ5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 18:29:37 +0000
+	Mon, 23 Feb 2026 18:33:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 812C941B21;
-	Mon, 23 Feb 2026 18:29:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CE51C116D0;
-	Mon, 23 Feb 2026 18:29:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 95FA861333;
+	Mon, 23 Feb 2026 18:33:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EE29C116C6;
+	Mon, 23 Feb 2026 18:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771871375;
-	bh=7q9I/7S8FyRGn41y8c5S+a9DguTOS0i3PPacEUgQRsU=;
+	s=k20201202; t=1771871605;
+	bh=M3iI/MJ+BGFtm/5M6IZ4SD9nkAAgr25XUBkmytw5IAY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qgnUJpT/wj6s6lkwWB/umzdAEHvuHRCFQ7ir0Vn78bLZnyRFTr176ZVjiVQAtOYFp
-	 CzcQrrwBcZizcrcI89uZHn00FdON3GaK53mcUXzJOmBJBxBykeiM/reEOuwX6RLVlN
-	 wiuNUkdxqp6+ZP6XPX3BIab7NESRGvPQsG84Wlqb/wzjEzctBr43M406V0A70avEd6
-	 kFTI/TpueJq4b69m5CYf8z7rht9XMH1j2MOfm5jfBDjzBpD6U3KEraC9QkKiE2+UY6
-	 MSd50rmoEQjHeHMYKoewR6MbQHRYUWEAWMYHNKJhqcCwESgxpBIsCLd/HLjJx12VYm
-	 a5zHbXXb1UhXg==
-Date: Mon, 23 Feb 2026 18:29:28 +0000
-From: Will Deacon <will@kernel.org>
-To: Jie Zhan <zhanjie9@hisilicon.com>
-Cc: Sumit Gupta <sumitg@nvidia.com>, catalin.marinas@arm.com,
-	zhenglifeng1@huawei.com, viresh.kumar@linaro.org, rafael@kernel.org,
-	beata.michalska@arm.com, pierre.gondois@arm.com,
-	ionela.voinescu@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org, treding@nvidia.com,
-	jonathanh@nvidia.com, bbasu@nvidia.com
-Subject: Re: [PATCH] arm64: topology: Fix false warning in
- counters_read_on_cpu() for same-CPU reads
-Message-ID: <aZyciAy8zCvrvGB7@willie-the-truck>
-References: <20260127080700.3565546-1-sumitg@nvidia.com>
- <3c6d58b2-b4c9-4dc7-a705-b7626e127f33@hisilicon.com>
- <aXoJUYDrhuJgkXEr@willie-the-truck>
+	b=KFCg5ok3pbt/XSzLXlSb0jfDVMo72gaFVYoAKMiMWBPH1kk21yfD5ELCJtNM5Q+CE
+	 48jwe/H1hHIL+jLOJ1sspoY92hyjrlP7gTIiYYb6vSzXWUW6QMQJ/91WGfnyU4cp+1
+	 n1lhgEG2cLaeXVOfD3VbdEt5zZ+x/Owx85qj/Vi04S/dKn/ts+Hh09lIgxc1D6bxJ6
+	 KDEV+TxOUe6RYvyTbHst1ge2dZG7iP41PclNrgsZGyUgudA64OlWSv8nllv1P1blev
+	 a6T9aOTtzg29hH4MnOqojR/IU5kWBaPWeIIcLhvcdB03SgOlfnOiW9h5f1OaiF9xTl
+	 692s+rirqgBhQ==
+Date: Mon, 23 Feb 2026 12:33:24 -0600
+From: Rob Herring <robh@kernel.org>
+To: Abin Joseph <abin.joseph@amd.com>
+Cc: vkoul@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	michal.simek@amd.com, radhey.shyam.pandey@amd.com, git@amd.com,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: dmaengine: xlnx,axi-dma: Convert bindings
+ into yaml
+Message-ID: <20260223183324.GA118767-robh@kernel.org>
+References: <20260219152621.2375256-1-abin.joseph@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aXoJUYDrhuJgkXEr@willie-the-truck>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_102936_615391_8D628725 
-X-CRM114-Status: GOOD (  26.96  )
+In-Reply-To: <20260219152621.2375256-1-abin.joseph@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,72 +71,456 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 01:04:17PM +0000, Will Deacon wrote:
-> On Wed, Jan 28, 2026 at 06:50:42PM +0800, Jie Zhan wrote:
-> > On 1/27/2026 4:07 PM, Sumit Gupta wrote:
-> > > The counters_read_on_cpu() function warns when called with IRQs disabled
-> > > to prevent deadlock in smp_call_function_single(). However, this warning
-> > > is spurious when reading counters on the current CPU since no IPI is
-> > > needed for same-CPU reads.
-> > > 
-> > > Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks
-> > > for non-PCC regs") changed the CPPC Frequency Invariance Engine to read
-> > > AMU counters directly from the scheduler tick for non-PCC register
-> > > spaces (like FFH), instead of deferring to a kthread. This means
-> > > counters_read_on_cpu() is now called with IRQs disabled from the tick
-> > > handler, triggering the warning:
-> > > 
-> > > | WARNING: arch/arm64/kernel/topology.c:410 at counters_read_on_cpu
-> > > | ...
-> > > | Call trace:
-> > > |  counters_read_on_cpu+0x88/0xa8 (P)
-> > > |  cpc_read_ffh+0xdc/0x148
-> > > |  cpc_read+0x260/0x518
-> > > |  cppc_get_perf_ctrs+0xf0/0x398
-> > > |  __cppc_scale_freq_tick+0x4c/0x148 [cppc_cpufreq]
-> > > |  cppc_scale_freq_tick+0x44/0x88 [cppc_cpufreq]
-> > > |  topology_scale_freq_tick+0x34/0x58
-> > > |  sched_tick+0x58/0x300
-> > > |  update_process_times+0xcc/0x120
-> > > |  tick_nohz_handler+0xa8/0x260
-> > > |  __hrtimer_run_queues+0x154/0x360
-> > > |  hrtimer_interrupt+0xf4/0x2b0
-> > > |  arch_timer_handler_phys+0x4c/0x78
-> > > |  ....
-> > > |  CPPC Cpufreq:__cppc_scale_freq_tick: failed to read perf counters
-> > > |  ....
-> > > 
-> > > Fix this by calling the counter read function directly for same-CPU
-> > > case, bypassing smp_call_function_single() entirely. Use get_cpu() to
-> > > disable preemption as the counter read functions call this_cpu_has_cap()
-> > > which requires a non-preemptible context.
-> > > 
-> > > Fixes: 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
-> > > Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
-> > 
-> > Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
-> > 
-> > Looks fine for me except for the minor comment wrapping.
-> > 
-> > Thanks for spotting this.
-> > I may have missed the warning log in the FFH test.
-> > 
-> > This happens during the short window in cpufreq_policy_online() between
-> > driver->init() and the CREATE_POLICY notifier that gets AMU FIE ready.
-> > After that, CPPC FIE will be stopped.
-> > 
-> > Ideally this can be merged together with Viresh's PR since the CPPC FIE
-> > changes are there.
-> > https://lore.kernel.org/all/j4qdid7iqmng4gzb5ozefemjkep3wx2b5z2yki5tnqc3vzvzf4@kvrnarvdod5p/
+On Thu, Feb 19, 2026 at 08:56:21PM +0530, Abin Joseph wrote:
+> Convert the bindings document for Xilinx DMA from txt to yaml.
+> No changes to existing binding description.
 > 
-> Right, looks like this should go via Rafael but if it doesn't make the merge
-> window then I can pick it up at -rc1 (please remind me :)
+> Signed-off-by: Abin Joseph <abin.joseph@amd.com>
+> ---
+>  .../bindings/dma/xilinx/xilinx_dma.txt        | 111 -------
+>  .../bindings/dma/xilinx/xlnx,axi-dma.yaml     | 290 ++++++++++++++++++
+>  2 files changed, 290 insertions(+), 111 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
+>  create mode 100644 Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt b/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
+> deleted file mode 100644
+> index b567107270cb..000000000000
+> --- a/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
+> +++ /dev/null
+> @@ -1,111 +0,0 @@
+> -Xilinx AXI VDMA engine, it does transfers between memory and video devices.
+> -It can be configured to have one channel or two channels. If configured
+> -as two channels, one is to transmit to the video device and another is
+> -to receive from the video device.
+> -
+> -Xilinx AXI DMA engine, it does transfers between memory and AXI4 stream
+> -target devices. It can be configured to have one channel or two channels.
+> -If configured as two channels, one is to transmit to the device and another
+> -is to receive from the device.
+> -
+> -Xilinx AXI CDMA engine, it does transfers between memory-mapped source
+> -address and a memory-mapped destination address.
+> -
+> -Xilinx AXI MCDMA engine, it does transfer between memory and AXI4 stream
+> -target devices. It can be configured to have up to 16 independent transmit
+> -and receive channels.
+> -
+> -Required properties:
+> -- compatible: Should be one of-
+> -		"xlnx,axi-vdma-1.00.a"
+> -		"xlnx,axi-dma-1.00.a"
+> -		"xlnx,axi-cdma-1.00.a"
+> -		"xlnx,axi-mcdma-1.00.a"
+> -- #dma-cells: Should be <1>, see "dmas" property below
+> -- reg: Should contain VDMA registers location and length.
+> -- xlnx,addrwidth: Should be the vdma addressing size in bits(ex: 32 bits).
+> -- dma-ranges: Should be as the following <dma_addr cpu_addr max_len>.
+> -- dma-channel child node: Should have at least one channel and can have up to
+> -	two channels per device. This node specifies the properties of each
+> -	DMA channel (see child node properties below).
+> -- clocks: Input clock specifier. Refer to common clock bindings.
+> -- clock-names: List of input clocks
+> -	For VDMA:
+> -	Required elements: "s_axi_lite_aclk"
+> -	Optional elements: "m_axi_mm2s_aclk" "m_axi_s2mm_aclk",
+> -			   "m_axis_mm2s_aclk", "s_axis_s2mm_aclk"
+> -	For CDMA:
+> -	Required elements: "s_axi_lite_aclk", "m_axi_aclk"
+> -	For AXIDMA and MCDMA:
+> -	Required elements: "s_axi_lite_aclk"
+> -	Optional elements: "m_axi_mm2s_aclk", "m_axi_s2mm_aclk",
+> -			   "m_axi_sg_aclk"
+> -
+> -Required properties for VDMA:
+> -- xlnx,num-fstores: Should be the number of framebuffers as configured in h/w.
+> -
+> -Optional properties for AXI DMA and MCDMA:
+> -- xlnx,sg-length-width: Should be set to the width in bits of the length
+> -	register as configured in h/w. Takes values {8...26}. If the property
+> -	is missing or invalid then the default value 23 is used. This is the
+> -	maximum value that is supported by all IP versions.
+> -
+> -Optional properties for AXI DMA:
+> -- xlnx,axistream-connected: Tells whether DMA is connected to AXI stream IP.
+> -- xlnx,irq-delay: Tells the interrupt delay timeout value. Valid range is from
+> -	0-255. Setting this value to zero disables the delay timer interrupt.
+> -	1 timeout interval = 125 * clock period of SG clock.
+> -Optional properties for VDMA:
+> -- xlnx,flush-fsync: Tells which channel to Flush on Frame sync.
+> -	It takes following values:
+> -	{1}, flush both channels
+> -	{2}, flush mm2s channel
+> -	{3}, flush s2mm channel
+> -
+> -Required child node properties:
+> -- compatible:
+> -	For VDMA: It should be either "xlnx,axi-vdma-mm2s-channel" or
+> -	"xlnx,axi-vdma-s2mm-channel".
+> -	For CDMA: It should be "xlnx,axi-cdma-channel".
+> -	For AXIDMA and MCDMA: It should be either "xlnx,axi-dma-mm2s-channel"
+> -	or "xlnx,axi-dma-s2mm-channel".
+> -- interrupts: Should contain per channel VDMA interrupts.
+> -- xlnx,datawidth: Should contain the stream data width, take values
+> -	{32,64...1024}.
+> -
+> -Optional child node properties:
+> -- xlnx,include-dre: Tells hardware is configured for Data
+> -	Realignment Engine.
+> -Optional child node properties for VDMA:
+> -- xlnx,genlock-mode: Tells Genlock synchronization is
+> -	enabled/disabled in hardware.
+> -- xlnx,enable-vert-flip: Tells vertical flip is
+> -	enabled/disabled in hardware(S2MM path).
+> -Optional child node properties for MCDMA:
+> -- dma-channels: Number of dma channels in child node.
+> -
+> -Example:
+> -++++++++
+> -
+> -axi_vdma_0: axivdma@40030000 {
+> -	compatible = "xlnx,axi-vdma-1.00.a";
+> -	#dma_cells = <1>;
+> -	reg = < 0x40030000 0x10000 >;
+> -	dma-ranges = <0x00000000 0x00000000 0x40000000>;
+> -	xlnx,num-fstores = <0x8>;
+> -	xlnx,flush-fsync = <0x1>;
+> -	xlnx,addrwidth = <0x20>;
+> -	clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>, <&clk 4>;
+> -	clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk", "m_axi_s2mm_aclk",
+> -		      "m_axis_mm2s_aclk", "s_axis_s2mm_aclk";
+> -	dma-channel@40030000 {
+> -		compatible = "xlnx,axi-vdma-mm2s-channel";
+> -		interrupts = < 0 54 4 >;
+> -		xlnx,datawidth = <0x40>;
+> -	} ;
+> -	dma-channel@40030030 {
+> -		compatible = "xlnx,axi-vdma-s2mm-channel";
+> -		interrupts = < 0 53 4 >;
+> -		xlnx,datawidth = <0x40>;
+> -	} ;
+> -} ;
+> diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+> new file mode 100644
+> index 000000000000..6a260f9292d7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+> @@ -0,0 +1,290 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/dma/xilinx/xlnx,axi-dma.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Xilinx AXI VDMA, DMA, CDMA and MCDMA IP
+> +
+> +maintainers:
+> +  - Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> +  - Abin Joseph <abin.joseph@amd.com>
+> +
+> +description:
 
-Looks like this fix is still needed. Please can you post a new version,
-based on -rc1, so that I can pick it up?
+Need '>' to maintain paragraphs.
 
-You'll also need to fix the SHA in the commit message and the Fixes: tag,
-as 12eb8f4fff24 doesn't match the upstream change.
+> +  Xilinx AXI VDMA engine, it does transfers between memory and video devices.
+> +  It can be configured to have one channel or two channels. If configured
+> +  as two channels, one is to transmit to the video device and another is
+> +  to receive from the video device.
+> +
+> +  Xilinx AXI DMA engine, it does transfers between memory and AXI4 stream
+> +  target devices. It can be configured to have one channel or two channels.
+> +  If configured as two channels, one is to transmit to the device and another
+> +  is to receive from the device.
+> +
+> +  Xilinx AXI CDMA engine, it does transfers between memory-mapped source
+> +  address and a memory-mapped destination address.
+> +
+> +  Xilinx AXI MCDMA engine, it does transfer between memory and AXI4 stream
+> +  target devices. It can be configured to have up to 16 independent transmit
+> +  and receive channels.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - xlnx,axi-cdma-1.00.a
+> +      - xlnx,axi-dma-1.00.a
+> +      - xlnx,axi-mcdma-1.00.a
+> +      - xlnx,axi-vdma-1.00.a
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#dma-cells":
+> +    const: 1
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 1
+> +
+> +  interrupts:
+> +    minItems: 1
+> +    maxItems: 2
+> +    description:
+> +      Interrupt lines for the DMA controller. Only used when xlnx,axistream-connected
+> +      is present (DMA connected to AXI Stream IP). One interrupt for single channel
+> +      (MM2S or S2MM), two interrupts for dual channel configuration.
+> +      When child dma-channel nodes are present, interrupts are specified in the
+> +      child nodes instead.
 
-Will
+Wrap lines at 80 char.
+
+> +
+> +  clocks:
+> +    minItems: 1
+> +    maxItems: 5
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    maxItems: 5
+> +
+> +  dma-ranges: true
+> +
+> +  xlnx,addrwidth:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [32, 64]
+> +    description: The DMA addressing size in bits.
+> +
+> +  xlnx,num-fstores:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 1
+> +    maximum: 32
+> +    description: Should be the number of framebuffers as configured in h/w.
+> +
+> +  xlnx,flush-fsync:
+> +    type: boolean
+> +    description: Tells which channel to Flush on Frame sync.
+> +
+> +  xlnx,sg-length-width:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 8
+> +    maximum: 26
+> +    default: 23
+> +    description:
+> +      Should be set to the width in bits of the length register as configured
+> +      in h/w. Takes values {8...26}. If the property is missing or invalid then
+> +      the default value 23 is used. This is the maximum value that is supported
+
+No need to repeat what the schema defines.
+
+> +      by all IP versions.
+> +
+> +  xlnx,irq-delay:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 0
+> +    maximum: 255
+> +    description:
+> +      Tells the interrupt delay timeout value. Valid range is from 0-255.
+> +      Setting this value to zero disables the delay timer interrupt.
+> +      1 timeout interval = 125 * clock period of SG clock.
+> +
+> +  xlnx,axistream-connected:
+> +    type: boolean
+> +    description: Tells whether DMA is connected to AXI stream IP.
+> +
+> +# Note: This schema combines all DMA types in one file. Parent-child channel
+> +# compatibility is enforced via allOf conditionals below. Alternatively, this
+> +# could be split into separate schemas per DMA type to simplify validation rules.
+
+Yeah, it's on the border of whether we should split it or not. I think 
+it's fine as-is as splitting it would need a common schema for the 
+shared parent and child properties. I don't think we need this comment 
+in the file forever though.
+
+> +patternProperties:
+> +  "^dma-channel(-mm2s|-s2mm)?$":
+> +    type: object
+> +    description:
+> +      Should have at least one channel and can have up to two channels per
+> +      device. This node specifies the properties of each DMA channel.
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - xlnx,axi-vdma-mm2s-channel
+> +          - xlnx,axi-vdma-s2mm-channel
+> +          - xlnx,axi-cdma-channel
+> +          - xlnx,axi-dma-mm2s-channel
+> +          - xlnx,axi-dma-s2mm-channel
+> +
+> +      interrupts:
+> +        maxItems: 1
+> +
+> +      xlnx,datawidth:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [32, 64, 128, 256, 512, 1024]
+> +        description: Should contain the stream data width, take values {32,64...1024}.
+> +
+> +      xlnx,include-dre:
+> +        type: boolean
+> +        description: Tells hardware is configured for Data Realignment Engine.
+> +
+> +      xlnx,genlock-mode:
+> +        type: boolean
+> +        description: Tells Genlock synchronization is enabled/disabled in hardware.
+> +
+> +      xlnx,enable-vert-flip:
+> +        type: boolean
+> +        description:
+> +          Tells vertical flip is enabled/disabled in hardware(S2MM path).
+> +
+> +      dma-channels:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        description: Number of dma channels in child node.
+> +
+> +    required:
+> +      - compatible
+> +      - interrupts
+> +      - xlnx,datawidth
+> +
+> +    additionalProperties: false
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: xlnx,axi-vdma-1.00.a
+> +    then:
+> +      properties:
+> +        clock-names:
+> +          contains:
+> +            const: s_axi_lite_aclk
+> +          items:
+> +            enum:
+> +              - s_axi_lite_aclk
+> +              - m_axi_mm2s_aclk
+> +              - m_axi_s2mm_aclk
+> +              - m_axis_mm2s_aclk
+> +              - s_axis_s2mm_aclk
+> +          minItems: 1
+> +          maxItems: 5
+> +      patternProperties:
+> +        "^dma-channel(-mm2s|-s2mm)?$":
+> +          properties:
+> +            compatible:
+> +              enum:
+> +                - xlnx,axi-vdma-mm2s-channel
+> +                - xlnx,axi-vdma-s2mm-channel
+> +      required:
+> +        - xlnx,num-fstores
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: xlnx,axi-cdma-1.00.a
+> +    then:
+> +      properties:
+> +        clock-names:
+> +          items:
+> +            - const: s_axi_lite_aclk
+> +            - const: m_axi_aclk
+> +      patternProperties:
+> +        "^dma-channel(-mm2s|-s2mm)?$":
+> +          properties:
+> +            compatible:
+> +              enum:
+> +                - xlnx,axi-cdma-channel
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            anyOf:
+> +              - const: xlnx,axi-dma-1.00.a
+> +              - const: xlnx,axi-mcdma-1.00.a
+
+Use 'enum' rather than 'anyOf' and 'const'.
+
+> +    then:
+> +      properties:
+> +        clock-names:
+> +          contains:
+> +            const: s_axi_lite_aclk
+> +          items:
+> +            enum:
+> +              - s_axi_lite_aclk
+> +              - m_axi_mm2s_aclk
+> +              - m_axi_s2mm_aclk
+> +              - m_axi_sg_aclk
+> +          minItems: 1
+> +          maxItems: 4
+> +      patternProperties:
+> +        "^dma-channel(-mm2s|-s2mm)?(@[0-9a-f]+)?$":
+> +          properties:
+> +            compatible:
+> +              enum:
+> +                - xlnx,axi-dma-mm2s-channel
+> +                - xlnx,axi-dma-s2mm-channel
+> +
+> +  - if:
+> +      anyOf:
+> +        - properties:
+
+Don't need 'anyOf' with 1 entry.
+
+> +            compatible:
+> +              contains:
+> +                anyOf:
+> +                  - const: xlnx,axi-cdma-1.00.a
+> +                  - const: xlnx,axi-mcdma-1.00.a
+> +                  - const: xlnx,axi-dma-1.00.a
+
+Use 'enun' rather than 'anyOf'.
+
+> +    then:
+> +      properties:
+> +        interrupts: false
+> +
+> +required:
+> +  - "#dma-cells"
+> +  - reg
+> +  - xlnx,addrwidth
+> +  - dma-ranges
+> +  - clocks
+> +  - clock-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    axi_vdma_0: dma@40030000 {
+> +        compatible = "xlnx,axi-vdma-1.00.a";
+> +        #dma-cells = <1>;
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +        reg = <0x40030000 0x10000>;
+> +        dma-ranges = <0x0 0x0 0x40000000>;
+> +        xlnx,num-fstores = <8>;
+> +        xlnx,flush-fsync;
+> +        xlnx,addrwidth = <32>;
+> +        clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>, <&clk 4>;
+> +        clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk",
+> +                      "m_axi_s2mm_aclk", "m_axis_mm2s_aclk",
+> +                      "s_axis_s2mm_aclk";
+> +
+> +        dma-channel-mm2s {
+> +            compatible = "xlnx,axi-vdma-mm2s-channel";
+> +            interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
+> +            xlnx,datawidth = <64>;
+> +        };
+> +
+> +        dma-channel-s2mm {
+> +            compatible = "xlnx,axi-vdma-s2mm-channel";
+> +            interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>;
+> +            xlnx,datawidth = <64>;
+> +        };
+> +    };
+> -- 
+> 2.25.1
+> 
 
