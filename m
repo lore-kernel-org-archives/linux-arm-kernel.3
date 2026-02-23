@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 823DAEA4FC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 14:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CD98EA4FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 14:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pe8kS/HsQYwBP5zgL7z8pBoY1N27zjF7IHjDKICG/rE=; b=A/sb8CDmiwk6br
-	58BkWMGPuYTYx0f5ccZl/PG6jOaB5e3m2AwgwFLncHOHzobVVhouVG2iw2qq3v2VoDLitCq0MrRhg
-	85UwmooAaR+YKLjY/Z0UZ+BA72JwG18vDRG+Y41aMJ8+tCLref3g+sf6YJ1DwdTG0fgq1CWdOUA+U
-	hsLtThP4TH0xpPlMsAGucL9dSLM6hQg0j5ZlJBXW6ySCuMwBlclcj58rHrf7TLqyH3wDbXkCB6g6w
-	H+AEvVS/ts2KVskxj8RcaHQlW7RM1XpTouFzhBjAewguFF++1DMmAr9EmAmVFz8ot03okvN9LAWQG
-	d8xB9VsDX3a7qm+stnng==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ZXG84vOT5vo62fVrV4g27oZ8qKjWT76ti4NF1pkRLs=; b=cIp+bq9BZLynjevksELQXtbDTZ
+	Tj2o5zorqxvSZuDREJV+3amnXQaRYQkEts02l7PJ0VevHNKfdtIi7AJE1XsIm8LfQEE2DMEVfUBCc
+	9xnq0tBkvHCp6S2PtyUmgeybYd10nSClXhuIz2WcVggYo2wiNA2/3CsGaHIKErye97u/iZZJZAn7A
+	5D74acImeGDyFnBzVNxdWjOkXmrwYQjezBSUYxzjctLlt6yWCnQ06j3DSonbKq/cYc8fVFS3rE8N9
+	yULbyzSZ4+7wsu6isWM0VpJG/6KzqxzJAc0R2AeMaQfJ9hb7DEalpMaPkFrLAbzKMZ25dUSFqbsrC
+	RthDJBRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuX0R-00000000TU5-40Ob;
-	Mon, 23 Feb 2026 14:33:51 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1vuX0W-00000000TWX-3FAE;
+	Mon, 23 Feb 2026 14:33:56 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuX0P-00000000TT3-2WX0
+	id 1vuX0Q-00000000TT6-3hjb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 14:33:50 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-386714da2a2so34662531fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 06:33:48 -0800 (PST)
+	Mon, 23 Feb 2026 14:33:52 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-59e614b3dbcso4357944e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 06:33:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771857227; x=1772462027; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pe8kS/HsQYwBP5zgL7z8pBoY1N27zjF7IHjDKICG/rE=;
-        b=CqNuTGqDXYkZ/pg5X/q7jsjtPaYE1iv8qpfk+X52wyJM6YMUYWl7tU8ac+tY2SbhFI
-         lYfCERhJwBSvXpuimRJ5eE2U49n5WCH3SFqN0l3QHP6NuhqicgPkbF8eWBKvY4BPAHOo
-         thbtE1gkFbSYMUJdl9QeRbuzoQ1+vTB/sBAskUB3BJlpqkFIuD7ndYnd1eed384qZdHj
-         4Q+FsAOgZkJRPOi1fzBEkb2TzTWYH+5M6d0wJ/+qEl39R4qR/D4YdCv72BWjtcOr6+sn
-         M/3FSWFKZQqpLywv1Fvf9fkDO987U8xKNiRvWwF80ok9EE6czmGLHUHVK6WhykCKdR8s
-         y7SA==
+        d=gmail.com; s=20230601; t=1771857229; x=1772462029; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/ZXG84vOT5vo62fVrV4g27oZ8qKjWT76ti4NF1pkRLs=;
+        b=ByPsmhYC2TvQ86egSo+5nuN0QoYjlTCQQHSsCSt2Miy9+YCQx+f1lcyKAVuNsjkSHA
+         Usas1vlXU9G/925XD8stxtxHFH1d4D5K7/6wC1D2Sj4Hj89h3/PmBHpjipA3GiSXaNFt
+         EEIaBaf6pKOyfgySIFIQK+SQFi3HXtPQoJO42MtoBU5L1PdbYvQ0D1jAZQedbfY6tA4/
+         2vR4YVj0QQQvgkGbjPEiztot2XsHFpeqCEYL7mIT+HEa86VSdolb0fvRsl+F1gH8cFRo
+         PZ14qQXJkJLfDUXWslaHmG/c/RZkrEE/j4lQnipGF/iX2C7D7bvwOVYnULvOmkABRmxn
+         yeng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771857227; x=1772462027;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pe8kS/HsQYwBP5zgL7z8pBoY1N27zjF7IHjDKICG/rE=;
-        b=OP66xyiMpbN8og7aOrr7HAgaTpYFixREXXOPXSfVaevZe9QF4xwGsTjWboVeJEuvIu
-         nK8/6Qd0NMtvBN266WSUrYwtBxUCM5JzIxddzzMMoG3n8HCf4iBYXlyIeNnDVkw4GtD5
-         skzx3qn1agaF9NJEuBGTgFUU7tE6yFpTaQhBlciv39tebMJUa99JRPPV5qNm17rV0Y1F
-         TBOM38kxQJ6AmWHfB+mryjEQ8sgxZWpKa6DgJYSBsLB2kd/kPvYuGSvrj30WhyshPuAk
-         IH2k2+f3yfeEsrl3wK2zaxzGugOuqKy+hP/79sC4cCUmK6iU75/hepunnPAVhWQGO20L
-         REjA==
-X-Forwarded-Encrypted: i=1; AJvYcCXoDQDWq6GCghAt5cayXC5kdmPadaM/NgGaoMygp959Jc7iNHcMT1JxWFNRIccaoSlKLb2Hd6Gu59GVkrNfcmmX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvEMLgZ1X61mW5mzEUyWzSDK/ORunPjRFFTzabnJ8akdfC71Ew
-	2CjnhzXsHvTdHE0D4yt+ose/Gqa0h+7PIOJP/lKhCbj21sNpM/iwCzHl
-X-Gm-Gg: AZuq6aICACZbX52Shds1b0LNcUWPq4buXjgSl4NcenvbYa5UnoNfJ8Mck9LrXBCTbUb
-	xJY39IWGKe1qVa0JXF8JTYI+xzcZZVZlZ6smpVnKPGiUeAUo0vP9cSuZ6NpGwEgfx8sdoLABwER
-	kbgWqepk9roZpcm7YtJF7RL/PAzVs+KO6BD7HK/qbMysdabTCvmvjm4STC/Ns4p5RG5s6GFCW9i
-	OGS2dYLLvp2SDFzl/wbytUpT4zukUmEOKwdJVgUyaFa/D8ZYNHyfbf43rji8W5Y87uD87yxLy8m
-	MvkSaJjDgWAVBz0+gjPtCqxrPQl2VjQ5ZakJ+Nck30RP2ZkalUcH39CCQPi8ZwK8z1fMOsvIwYf
-	lh+A+puZ3/Sd28UF7gWi7NRUFj6Lg2RYGwEgW+N82aSUM7VuJA/tHGamQ1ss2FtZeI3BMo7F3C3
-	PTODQ4zRGFRV9Tne9FjQHh2NWZ15iCkmPqoa4gQaYMT9G9E9DrNDM4ufBbxwkqx4pRmpzx
-X-Received: by 2002:a05:6512:130b:b0:5a0:f5b0:401 with SMTP id 2adb3069b0e04-5a0f5b00a51mr671916e87.27.1771857226970;
-        Mon, 23 Feb 2026 06:33:46 -0800 (PST)
+        d=1e100.net; s=20230601; t=1771857229; x=1772462029;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=/ZXG84vOT5vo62fVrV4g27oZ8qKjWT76ti4NF1pkRLs=;
+        b=XxZuXkV0J5Or2TB+6dgWyVlkcviCEPlQEFw357r/phs7MbYnMBaHU/+sOJWPFJiDLa
+         THYwNO2+HtR2k0xuwbgX7tDSrP12r0am4QtWBe7O6u6eMAPpzMFF53GpTE25B6xnYTSe
+         URtmpOsnug9d2Lc8hLdU6zNxsWeFT4K25aLDGfg3/YnzpyXPADAbEU45wPvbyUHHDNPe
+         EI/Mg3pNxTwvceluzkcNcKhrkmdEmCpTfNMUJFKrPMUzOYaL8LHsUrK6aWU8U3YlShki
+         7+tWGk3bM6BAc07ryJDSgM/R/Yxr0LGuU7NKb/QHldHodHIIgcM+AgXzNsb1UtTp174V
+         VA1g==
+X-Forwarded-Encrypted: i=1; AJvYcCVFIPylboGY/TJzPBrAq075vuYUGk2QJCdHscbH90XQLG1vf+tnnQit6oOqcl7hNY/pZMKUjgU/hKp1b20NY+Qp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1zThedOsWXmdhfw0UAylU+0hmq4G6Wo4w7rHPT7XM8/J59Ni8
+	rI5tGmL7JuYzR5hWKmv1XsVVGnEyO2BtG52EB4TPb6vF+ikDMLYUHySN
+X-Gm-Gg: AZuq6aLeZZ3CiZGJ6ot4OIdpJx6UMdlUk3ZfVwvoYBMIA1iXPHafanbqMudmuMD3ncd
+	I5VvY/yL6qG8T3FN51/aq1WhvJZd7t8YHfXXVA8lL5eHSU9b/YVdkFpVnm3hXlVdHzXt/ALIAJ8
+	cK1Hgxo8nOLdMEydjSjNyxD9v22SfFOxVcYYIcrRx6TYKOLpfpnxp8+Vc2dHKtgLDGfQbq0oyhT
+	PmnMzvKhy+E7XGW+/li4kZWC4VH3xyc5/s0/w67CSYj6ciV+DJ5ZJnjPDWaf3hW0HP+ZL7vTt+L
+	+DFI6I7I63vXEfyKlwsXmAEby/2DBSl453o2Z/5UEEUmKjwO6s6sq30rUDrnM/mrN0jutRSWKc9
+	oCs7cmeoq87S4M+Khbqdg2/13XUCM6TDPvt2odwq0/Yt/qIuTxxAEC9tQCk6KTv9XtYAU4I+qPe
+	vIQv+vpaJVJxygp7SJSqumwSou4SoyxmuJo9FgMgng6wc6y15gLv8HXRdpyfHn6fUei6zn
+X-Received: by 2002:a05:6512:3091:b0:59f:6c3b:6d3c with SMTP id 2adb3069b0e04-5a0ed8a0556mr2804029e87.29.1771857228506;
+        Mon, 23 Feb 2026 06:33:48 -0800 (PST)
 Received: from [192.168.1.135] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a0eeb16344sm1631709e87.37.2026.02.23.06.33.45
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a0eeb16344sm1631709e87.37.2026.02.23.06.33.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Feb 2026 06:33:46 -0800 (PST)
+        Mon, 23 Feb 2026 06:33:47 -0800 (PST)
 From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Subject: [PATCH v7 0/5] I2C Mux per channel bus speed
-Date: Mon, 23 Feb 2026 15:33:49 +0100
-Message-Id: <20260223-i2c-mux-v7-0-ec75b214718a@gmail.com>
+Date: Mon, 23 Feb 2026 15:33:50 +0100
+Subject: [PATCH v7 1/5] i2c: core: add callback to change bus frequency
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2XQTW7DIBAF4KtErEs1DD+GrnqPqgszjBOkOo7sF
- qWKfPfiqI3dZPkQ3+OJi5h4zDyJl91FjFzylIdjDc3TTtChPe5Z5lSzQEALQWmZkWT/dZYRwOn
- E2LJJot4+jdzl87Xp7b3mQ54+h/H7WlzUcvrbgXjrKEqCRE/BtE5B0PC679v88UxDL5aOgjenA
- DYOq4sueOsMpWDdvdMbh7A6XV0A35Klrg7R9878OQcK/epMdYnZBGJsHD3stKvDzR8VW10XkWI
- XQhPiw3tu69zq3LIzMnqmLjX8z83z/AObzOzptgEAAA==
-X-Change-ID: 20250913-i2c-mux-b0063de2ae4d
+Message-Id: <20260223-i2c-mux-v7-1-ec75b214718a@gmail.com>
+References: <20260223-i2c-mux-v7-0-ec75b214718a@gmail.com>
+In-Reply-To: <20260223-i2c-mux-v7-0-ec75b214718a@gmail.com>
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
  Peter Rosin <peda@axentia.se>, 
  Michael Hennerich <michael.hennerich@analog.com>, 
@@ -89,29 +86,28 @@ To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
  Bartosz Golaszewski <brgl@kernel.org>
 Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
- Marcus Folkesson <marcus.folkesson@gmail.com>, 
- Bartosz Golaszewski <brgl@kernel.org>
+ Marcus Folkesson <marcus.folkesson@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4457;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2473;
  i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=mCCRKMHtlBgmqWNXcSQwKAWkgQ/vQ+w7dOXdt7vYJB4=;
- b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpnGVPQ0nZwdk3uxE+uw/9EflWtmk7bBklAPLD3
- 2yZUWYqF2uJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaZxlTwAKCRCIgE5vWV1S
- MkDxD/9ochrRo0neboyepOM6GpwWUs/3INBmv+86oHhHBoyycSsEOmJHQjpHvkPyKeiJc5P6OZb
- 76WLe20FxmuQJ37JoIYfHcnOxoltRG7IyVpx2BRnUtwYP9kXJVzgduQQk5nXyhbMJA7N4/Kpi4F
- wPyhFWmEimO4g4cvrscjnGScievyf3+7lcCXMDOTM/TUHMvSy1y2wjjHi3U5hgkWux4+Ts/uL6F
- koMnjJMVjKzr/AFKQiRwysFFJ9oeUIzsCiBhWjbfgj8oIKlzR5+8/CBAMPLQaNPEni17ARunbXO
- RpRzmq7xT9K7JVWX89bof4ruCS89j/PlzvMjgSZV+6/HdeZjs1r8oD73Mt1Tni7eTjX8tstr6om
- m2uXlu+XU0jRzUbk9SKa4lzvz1TmPmUHuCcMoQG1ZfCejzH6xN+6NXHXSCWYuRCyrIvrM/E7Otr
- KRnuuEjG30uDBwhURdVyeXerpR/sT0tzXeV/GuaYZszAcPAvdEP2msfnYYS8hU3pOI2YrhoLdRY
- CgeM1NWQLB9Bxixkpbh9ZRIZsuqJgD30PBqwaWqgt6hedZ1HgRFN5ZAaP5o6VqaAKxtP6JgTxpj
- 9RLUt5o0SFCpCUVIpKyxhHMoVeT66eFcQYi7GDFpXoY4JAaIm/K86t3QtQSqaG+i4aM3Na5u7JC
- P5chRZjJ3Xn1edw==
+ bh=koxBCehUmN3RuwVhQnNS8zqbXgiVP6LXVx/A/SkLKJU=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpnGVU3pImY+NWazZLlexByac0kY/hMMlKtqzJv
+ e9xVfT04j6JAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaZxlVAAKCRCIgE5vWV1S
+ MhosD/0XnbcAzCIPj1635aCrdLCtY5TJLNP8ObSXOAaHcIKi3jRWMFcPXPmuEYnvcHxyZrQtThM
+ gVckS2NTcVX+3Cj0fblydVNv70lOKxRPlYjnXNkjXF7N27AvOb2A5eY5URJ2bYNOMLFftfWOhkE
+ QREkYMV5eSG/PJuTDkdgg87uy3FjuLlYxzrYTAzr5Dkzlfq9QM+2gYNrcNMzIbcEwpGAIDHAgcW
+ STCAV325YoV0LVvczNkH+4MwSnjM5GBIPHvry/wFKppUwjsWphoPWYMXBIYWn3AW2pmuI4n5gbI
+ NQmoRzcphKsMKFTmtF68krmuqEqO6BagZKhsG7BmEXLPIQQRuNvpd8/IKGuFTH98zLkYULRIBhx
+ SrvfgNqKRrqtEtI+FjstCJxw7knWC3jIF9kSYNKyjgLbXIXqZkIf3capDa2uZTgzkKSRxrZWdkB
+ s05Qxa65bq1RyNzVEkFL5tpbOwXLprRFJ7+lLL+/JoNhMkXihwy+rBeQjABrHIttue9u7jnI7Bz
+ cILhNd+Il6GTNL5czhX3PbBI4VMt9U7yCUylUgTLJMrWOWeb6nfYrpuMoB+KEOFoHSZ2VXIdGyD
+ bilSw+JZ0VvDLxOK+SazGOYHERiYfMwtpJWM5znhM7XJlvIRNMYePCr5cvCwLbdTN9UfqWYaLir
+ AMnPiXBBEk5N6Sw==
 X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
  fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_063349_696988_CAED194F 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20260223_063350_958889_AF1DB63F 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,107 +122,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This was a RFC on how to implement a feature to have different bus
-speeds on different channels with an I2C multiplexer/switch.
-As no major complaints on the design came up during the review, I
-decided to submit the series without the RFC tag.
+All devices on the same I2C bus share the same clock line and the bus
+frequency has therefor be chosen so that all attached devices are able
+to tolarate that clock rate. IOW, the bus speed must be set for the
+slowest attached device.
 
-The benefit with this feature is that you may group devices after
-the fastest bus speed they can handle.
-A real-world example is that you could have e.g. a display running @400kHz
-and a smart battery running @100kHz using the same I2C controller.
+With I2C multiplexers/switches on the other hand, it would be possible
+to have different "domains" that runs with different speeds.
 
-There are many corner cases where this may cause a problem for some
-hardware topologies. I've tried to describe those I could think of
-in the documentation, see Patch #5.
+Prepare for such a feature by provide an optional callback function to
+change bus frequency.
 
-E.g. one risk is that if the mux driver does not disconnect channels
-when Idle, this may cause a higher frequency to "leak" through to
-devices that are supposed to run at lower bus speed.
-This is not only a "problem" for changing bus speed but could also be
-an issue for potential address conflicts.
-
-This patchset has been used and tested heavily the last months
-on a custom board based on a da850 (DaVinci) platform.
-
-The implementation is split up into several patches:
-
-Patch #1 Introduce a callback for the i2c controller to set bus speed
-Patch #2 Introduce functionality to adjust bus speed depending on mux
-         channel.
-Patch #3 Cleanup i2c-davinci driver a bit to prepare it for set_clk_freq
-Parch #4 Implement set_clk_freq for the i2c-davinci driver
-Parch #5 Update documentation with this feature
+As a side effect, several bus drivers keep the bus speed in a
+private structure and can now have this value stored in a uniform way
+instead.
 
 Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
 ---
-Changes in v7:
-- Remove code for finding first mux-locked ancestor
-- Introduce a unlocked (i2c_adapter_set_clk_freq) and unlocked
-  (__i2c_adapter_set_clk_freq) variant
-- Let the locking be handled in __i2c_adapter_set_clk_freq
-- Use I2C_MAX_STANDARD_MODE_FREQ instead of magic numbers where
-  appropriate 
-- Link to v6: https://lore.kernel.org/r/20260216-i2c-mux-v6-0-9be28ecfd7e3@gmail.com
+ include/linux/i2c.h | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-Changes in v6:
-- Change logic to find which ancestor to lock with I2C_LOCK_ROOT_ADAPTER
-  It now find the first mux-locked ancestor and then lock its parent.
+diff --git a/include/linux/i2c.h b/include/linux/i2c.h
+index 20fd41b51d5c..f81decb3f1f7 100644
+--- a/include/linux/i2c.h
++++ b/include/linux/i2c.h
+@@ -742,6 +742,8 @@ struct i2c_adapter {
+ 	struct rt_mutex mux_lock;
+ 
+ 	int timeout;			/* in jiffies */
++	u32 clock_hz;			/* bus clock speed */
++	int (*set_clk_freq)(struct i2c_adapter *adap, u32 clock_hz); /* Optional */
+ 	int retries;
+ 	struct device dev;		/* the adapter device */
+ 	unsigned long locked_flags;	/* owned by the I2C core */
+@@ -835,6 +837,38 @@ i2c_unlock_bus(struct i2c_adapter *adapter, unsigned int flags)
+ 	adapter->lock_ops->unlock_bus(adapter, flags);
+ }
+ 
++static inline int
++__i2c_adapter_set_clk_freq(struct i2c_adapter *adapter, u32 clock_hz)
++{
++	if (adapter->set_clk_freq)
++		return adapter->set_clk_freq(adapter, clock_hz);
++
++	/*
++	 * If the adapter is a root adapter without set_clk_freq implemented, this feature is not
++	 * supported
++	 */
++	if (!i2c_parent_is_i2c_adapter(adapter))
++		return -EOPNOTSUPP;
++
++	/* Update the clock_hz for non-root adapters, even if set_clk_freq is not implemented,
++	 * to allow * the clock frequency to be propagated to root adapters that do support it.
++	 */
++	adapter->clock_hz = clock_hz;
++	return 0;
++}
++
++static inline int
++i2c_adapter_set_clk_freq(struct i2c_adapter *adapter, u32 clock_hz)
++{
++	int ret;
++
++	i2c_lock_bus(adapter, I2C_LOCK_SEGMENT);
++	ret = __i2c_adapter_set_clk_freq(adapter, clock_hz);
++	i2c_unlock_bus(adapter, I2C_LOCK_SEGMENT);
++
++	return ret;
++}
++
+ /**
+  * i2c_mark_adapter_suspended - Report suspended state of the adapter to the core
+  * @adap: Adapter to mark as suspended
 
-- Remove bus_freq_hz in i2c-davinci and only use clock_hz instead
-- Mention in commit message that clock_hz can be used to store frequency in an uniform way
-
-- Swap order for change freq/deselect to keep symmetry
-- Only allow bus frequency to be lowered in select()
-  This to not allow an intermediate frequency to be set when it is not
-  supposed to
-
-- check if(ret) instead of ret(<0) where appropriate
-- Fix typos in documentation
-- Change i2c_adapter.clock_hz from int to u32
-- Simplify i2c_adapter_set_clk_freq() by removing 'ret'
-- Link to v5: https://lore.kernel.org/r/20260213-i2c-mux-v5-0-fb2cbf9979b3@gmail.com
-
-Changes in v5:
-- Take the lock of the top-most mutex locked mux to make sure that the
-  root is locked
-- Link to v4: https://lore.kernel.org/r/20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com
-
-Changes in v4:
-- Rebase on master
-- Swap order for printing warning about "channel %u is slower than
-  parent on a non parent-locked mux\n"
-- Fix typo in comment, adaper->adapter
-- Link to v3: https://lore.kernel.org/r/20251020-i2c-mux-v3-0-908ac5cf9223@gmail.com
-
-Changes in v3:
-- Return -EINVAL if channel is faster than parent (kernel test robot)
-- Link to v2: https://lore.kernel.org/r/20251002-i2c-mux-v2-0-b698564cd956@gmail.com
-
-Changes in v2:
-- Changed bus_freq field to bus_freq_hz in davinci_i2c_dev (Bartosz Golaszewski)
-- Removed idle_state from mux core (Peter Rosin)
-- Link to v1: https://lore.kernel.org/r/20250922-i2c-mux-v1-0-28c94a610930@gmail.com
-
----
-Marcus Folkesson (5):
-      i2c: core: add callback to change bus frequency
-      i2c: mux: add support for per channel bus frequency
-      i2c: davinci: calculate bus freq from Hz instead of kHz
-      i2c: davinci: add support for setting bus frequency
-      docs: i2c: i2c-topology: add section about bus speed
-
- Documentation/i2c/i2c-topology.rst | 178 +++++++++++++++++++++++++++++++++++++
- drivers/i2c/busses/i2c-davinci.c   |  42 ++++++---
- drivers/i2c/i2c-mux.c              | 107 +++++++++++++++++++---
- include/linux/i2c.h                |  34 +++++++
- 4 files changed, 338 insertions(+), 23 deletions(-)
----
-base-commit: 1f97d9dcf53649c41c33227b345a36902cbb08ad
-change-id: 20250913-i2c-mux-b0063de2ae4d
-
-Best regards,
 -- 
-Marcus Folkesson <marcus.folkesson@gmail.com>
+2.52.0
 
 
