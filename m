@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD59EC1112
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 17:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B91E8EC1116
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 17:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qy4maK+KR8yxiKmf2BYndKcRTlzXJBYQivjKLPq5DAc=; b=gz39P/Jc9q9m9HbRJuz7HFy/k7
-	8TmyYVu8VTIvrHqmgwOs1NoZKnWksJXMAKQ3F+6q5dKqWpzwMc6ArgIXzMoq4F6GOGLVmmEshc0bg
-	XSi4PkQlkGCE8/tEsYUn/M8CHXe4aS6eoYFyr5oGnmJUHjfqkE9M7Va+OLnXVF/GKM/0QPnJUa50B
-	n5YK6cJlp9FIP+op13t62lW1I7MZOmvG/xXgS+BDXUwv3UuQ7amY81XXWLaDxKB+6R+MvpwDlOCWT
-	yjWVOpTA+yFQWmkql27jYZpcxnQZSBbvI6hnBiedIEZ2bccqFOwAzkLGkfUuZLECPjypKZRRFfQ80
-	bAtf5xxA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZXu+atARh1ug5LPt8wIsVfdgFUoA6pk7Mi59qq03Un0=; b=zPR+s7ObVWCu7pcMyu8b02j2AV
+	LTJLX6Zp2CQvuKBo21xohH+Zhrh9UOO552q4sNaZVU7/R1XRwPBy5PQKDB/VUeIntjVN2noETWUs2
+	n2N0+hSMicOt0qp1s6rNBrTOdTR+lmYv52PNl3EQ1SIr5+U6eoQq+8b/JfghsEPfim/9UPQHb7U58
+	WhWE8N9AisjJoM21a63SmiXvw4qXI6OblIAXiNa3OzSxjMh8Zrge8OKbfeDxH5Sdmoa3nSTKMc51j
+	EaOkBBPFGHc6yjYG5Bd3oh9e0yiwKMhMoQSeZ7Fzd/0ZUa5IeMxVSqcUrgJeOULrvYHcFwq9Y+kS3
+	UtutZz4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vua05-00000000oKf-3DO2;
-	Mon, 23 Feb 2026 17:45:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vua09-00000000oMZ-3dJW;
+	Mon, 23 Feb 2026 17:45:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vua04-00000000oKT-3O5l
+	id 1vua07-00000000oL1-1SUq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 17:45:40 +0000
+	Mon, 23 Feb 2026 17:45:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AA5196013F;
-	Mon, 23 Feb 2026 17:45:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B0D3C116C6;
-	Mon, 23 Feb 2026 17:45:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B83D060145;
+	Mon, 23 Feb 2026 17:45:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA89BC116C6;
+	Mon, 23 Feb 2026 17:45:40 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Mark Brown <broonie@kernel.org>,
@@ -40,10 +40,12 @@ Cc: Mark Brown <broonie@kernel.org>,
 	Emanuele Rocca <emanuele.rocca@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Shuah Khan <skhan@linuxfoundation.org>
-Subject: [PATCH v2 0/3] arm64: Assorted GCS fixes
-Date: Mon, 23 Feb 2026 17:45:29 +0000
-Message-ID: <20260223174533.1478164-1-catalin.marinas@arm.com>
+Subject: [PATCH v2 2/3] arm64: gcs: Honour mprotect(PROT_NONE) on shadow stack mappings
+Date: Mon, 23 Feb 2026 17:45:31 +0000
+Message-ID: <20260223174533.1478164-3-catalin.marinas@arm.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260223174533.1478164-1-catalin.marinas@arm.com>
+References: <20260223174533.1478164-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -60,45 +62,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A couple of GCS fixes and a corresponding kselftest. The first fix
-solves a kernel panic when LPA2 is present. The second ensures that the
-shadow stack is not accessible after mprotect(PROT_NONE). The test is
-fairly close to gcs_write_fault.c but performs a normal read from the
-shadow stack before and after mprotect(PROT_NOTE).
+vm_get_page_prot() short-circuits the protection_map[] lookup for a
+VM_SHADOW_STACK mapping since it uses a different PIE index from the
+typical read/write/exec permissions. However, the side effect is that it
+also ignores mprotect(PROT_NONE) by creating an accessible PTE.
 
-v1 here:
+Special-case the !(vm_flags & VM_ACCESS_FLAGS) flags to use the
+protection_map[VM_NONE] permissions instead. No GCS attributes are
+required for an inaccessible PTE.
 
-https://lore.kernel.org/all/20260220140532.285011-1-catalin.marinas@arm.com/
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Fixes: 6497b66ba694 ("arm64/mm: Map pages for guarded control stack")
+Cc: <stable@vger.kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>
+---
+ arch/arm64/mm/mmap.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-Changes since v1:
-
-- I dropped the VM_NOHUGEPAGE patch from this series. I'll submit a
-  separate one that also changes riscv and x86 for consistency.
-
-- Added a gcs_page_prot variable to store the protection for the gcs
-  page, somewhat closer to what we do with protection_map[]. There are
-  other ways to implement this, e.g. using PTE_MAYBE_SHARED or starting
-  from protection_map[] and replacing the PIE bits with those from
-  _PAGE_GCS_RO.
-
-- The PROT_NONE patch was updated to drop the NUMA migration reference
-  (this path is not exercised in that case), mention mprotect() instead.
-  In addition, it checks VM_ACCESS_FLAGS instead of VM_READ|VM_WRITE.
-
-- Added kselftest for the GCS PROT_NONE case.
-
-Thanks.
-
-Catalin Marinas (3):
-  arm64: gcs: Do not set PTE_SHARED on GCS mappings if FEAT_LPA2 is
-    enabled
-  arm64: gcs: Honour mprotect(PROT_NONE) on shadow stack mappings
-  kselftest: arm64: Check access to GCS after mprotect(PROT_NONE)
-
- arch/arm64/include/asm/pgtable-prot.h         |  3 -
- arch/arm64/mm/mmap.c                          | 12 ++-
- .../signal/testcases/gcs_prot_none_fault.c    | 76 +++++++++++++++++++
- 3 files changed, 86 insertions(+), 5 deletions(-)
- create mode 100644 tools/testing/selftests/arm64/signal/testcases/gcs_prot_none_fault.c
-
+diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+index 75f343009b4b..92b2f5097a96 100644
+--- a/arch/arm64/mm/mmap.c
++++ b/arch/arm64/mm/mmap.c
+@@ -91,7 +91,11 @@ pgprot_t vm_get_page_prot(vm_flags_t vm_flags)
+ 
+ 	/* Short circuit GCS to avoid bloating the table. */
+ 	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+-		prot = gcs_page_prot;
++		/* Honour mprotect(PROT_NONE) on shadow stack mappings */
++		if (vm_flags & VM_ACCESS_FLAGS)
++			prot = gcs_page_prot;
++		else
++			prot = pgprot_val(protection_map[VM_NONE]);
+ 	} else {
+ 		prot = pgprot_val(protection_map[vm_flags &
+ 				   (VM_READ|VM_WRITE|VM_EXEC|VM_SHARED)]);
 
