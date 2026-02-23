@@ -4,68 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2C3EC1126
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 19:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3927EC1126
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 19:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=tDhTea5Z/cq+gIpl8VyeliU5DIMXia7dLvxi+UQ2BR8=; b=OCVhKOmzpIBK1CQ0ami58m8qwW
-	AE4qTj8/wRK6dNvFkLmqDztNjUXy7Qd6mNpDacc+cYVARfjvv3JQp9lqoAqNwi94cwJaUvNzI7Igt
-	IeOo6LjabEuqU0Ti0+1iHgNOSClyijYXaJRzG3MswOl03wmevtGV3o3nnS/TeR/wwiWiUo2aNqMJo
-	YdlM+wgKLR0gYdOreXMUJUgtmxLtbBy7ucS8C1sQROo+p52kHY6gpdX8V2hDX/7sTIpyyCS3dW7ZE
-	3uDdAzFIt+ORxltaiqjjp3ytKbu2t7wt98KMSRdWf+z5+OZBXof6UVITzrFguUFgzWlg8IqtoZ/hW
-	b7/ydbng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MqkfzzdWcQCL0LRz5rBhSJIb0gjJjtUquM4xyji+j5w=; b=j/e18kQRKD3vax3z0miZ6Xjys0
+	SRhXFTlnOO6xp9PkERRu3pLeDKMqXap6ISi6AlSFH5JfdWziI4Aa5kAmoWK+gbl5c7i8erRavCWtw
+	b6GjKW8EbD2SFSvSubSKcYWRnGUd6Biba9XLOAVlEdbQ81WCknCiDv/fY85L5pSJmX0PDKionnTqP
+	CcNeLooQi+gk13Lf6XIqfOhsSDWCG+7EyxUHIAIUyf99uxiArMyIcUiLbWhRr95kyorbn7fvDQHBs
+	epQY/x+MO907P0NtpcquIoVtuy1vT17x/kjbBrL2ux/vFU1rVutRLxSm04UGp2QY8ro0eGA/Mkcsq
+	toVbeOJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuc1R-00000000xeZ-3s8C;
-	Mon, 23 Feb 2026 19:55:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vuc1a-00000000xgM-130V;
+	Mon, 23 Feb 2026 19:55:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuc1P-00000000xdy-0caZ
+	id 1vuc1W-00000000xfl-30ZA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 19:55:12 +0000
+	Mon, 23 Feb 2026 19:55:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6232141B1F;
-	Mon, 23 Feb 2026 19:55:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D50AC116C6;
-	Mon, 23 Feb 2026 19:55:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EECF43469;
+	Mon, 23 Feb 2026 19:55:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AA70C19421;
+	Mon, 23 Feb 2026 19:55:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771876510;
-	bh=i7p1CmNCkpa7NXd9zIoDHL+Mlb5Osw0tzfGBKWXI128=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=cNi8FQkh1tR1+gLalvCR2h4vd1UPNsR4NYnjRtbue7OOiJD6d8rJYIPGiExF7wIya
-	 QyvPktXMmsNoCjSttoEHWkJapKD+D4x6MzO3KrJc6Jqe7kYXZmreQLEQ6FMR0k34+m
-	 O/AeadylZMKNIQ7tD8U8KnAbdssJfQOk6YvOO4DcE8uN1N82VJU15Wl7NyC3R+ZWa4
-	 sz4jlFM8P++iMwoPXGlf4U0FDeOA4856SM66lLy8itnt3gh5AMIfxSkvyPnMYEAvVs
-	 TC0C3PiN/WBEdesl5UnlpAD12/+wupJKbsMqlObn0i8Sn5slngkFfuWe3DL7xqGDZN
-	 caC3VkVozKl9A==
-Date: Mon, 23 Feb 2026 13:55:08 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com,
-	bjorn.andersson@oss.qualcomm.com, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] PCI: host-common: Add helper to determine host
- bridge D3cold eligibility
-Message-ID: <20260223195508.GA3703404@bhelgaas>
+	s=k20201202; t=1771876517;
+	bh=EzRTpn7SStmQR6adoeUhLcxNBw1WrKVexjwB3Z8Jb2A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mLgQYtzjl7m489aHT5PFS4KCwD++7m9HmbTt4vvtX+sCykeMxSZ64jrtyvg7sbNKq
+	 KX+qpL3vv0E39vVIGWtsmYHjtSTzPKbCptWoe5NxbNF4RUWbpEka3BftzEwWXvhlYd
+	 9lgHPWTH0ny73tjL5YusnLP3K2sgpu6f3UVbgPxSOhpuYsKWQaFvlPLk4edktO+BQi
+	 tWVDy0vIQM1iEzPfPtgNC1/L9XuYe4Qf5F69rXZEEOs89jNdZgQ+8J6XhopTR7mPq1
+	 c7DVymskANhTAza7xuDVMc/ebN+d4TsktX89VLMPNqHsvy/V7wLaBcUKXGif2tl94l
+	 SL/VSv5CcDjQw==
+Message-ID: <f44fa4d8-93de-4010-b1ee-d4e44d1d797a@kernel.org>
+Date: Mon, 23 Feb 2026 20:55:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJZ5v0h8dQ10oH4KQM8Pdv0jvXyTE6yD1fn5eBPkS_jDYgA8gQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: exynos-acpm: Drop fake 'const' on handle
+ pointer
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: stable@vger.kernel.org
+References: <20260223193416.532231-2-krzysztof.kozlowski@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260223193416.532231-2-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_115511_232335_4E9903F5 
-X-CRM114-Status: GOOD (  37.83  )
+X-CRM114-CacheID: sfid-20260223_115518_808050_1249FF2D 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,123 +119,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 07:46:08PM +0100, Rafael J. Wysocki wrote:
-> On Mon, Feb 23, 2026 at 7:10 PM Bjorn Helgaas <helgaas@kernel.org> wrote:
-> > On Tue, Feb 17, 2026 at 04:49:06PM +0530, Krishna Chaitanya Chundru wrote:
-> > > Add a common helper, pci_host_common_can_enter_d3cold(), to determine
-> > > whether a PCI host bridge can safely transition to D3cold.
-> > >
-> > > This helper is intended to be used by PCI host controller drivers to
-> > > decide whether they may safely put the host bridge into D3cold based on
-> > > the power state and wakeup capabilities of downstream endpoints.
-> > >
-> > > The helper walks all devices on the bridge's primary bus and only allows
-> > > the host bridge to enter D3cold if all PCIe endpoints are already in
-> > > PCI_D3hot. This ensures that we do not power off the host bridge while
-> > > any active endpoint still requires the link to remain powered.
-> > >
-> > > For devices that may wake the system, the helper additionally requires
-> > > that the device supports PME wake from D3cold (via WAKE#). Devices that
-> > > do not have wakeup enabled are not restricted by this check and do not
-> > > block the host bridge from entering D3cold.
-> > >
-> > > Devices without a bound driver and with PCI not enabled via sysfs are
-> > > treated as inactive and therefore do not prevent the host bridge from
-> > > entering D3cold. This allows controllers to power down more aggressively
-> > > when there are no actively managed endpoints.
-> >
-> > This series is currently structured so it's only applicable to native
-> > host bridge drivers, i.e., things using DT.  Is there anything that
-> > prevents using D3cold for host bridges in ACPI systems?
+On 23/02/2026 20:34, Krzysztof Kozlowski wrote:
+> All the functions operating on the 'handle' pointer are claiming it is a
+> pointer to const thus they should not modify the handle.  In fact that's
+> a false statement, because first thing these functions do is drop the
+> cast to const with container_of:
 > 
-> Do you mean in principle or in practice?
+>   struct acpm_info *acpm = handle_to_acpm_info(handle);
+> 
+> And with such cast the handle is easily writable with simple:
+> 
+>   acpm->handle.ops.pmic_ops.read_reg = NULL;
+> 
+> The code is not correct logically, either, because functions like
+> acpm_get_by_node() and acpm_handle_put() are meant to modify the handle
+> reference counting, thus they must modify the handle. They could not
+> work with handle being pointer to const.
+> 
+> The code does not have actual visible bug, but incorrect 'const'
+> annotations could lead to incorrect compiler decisions.
+> 
+> Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> ---
+> 
+> I will have more patches for more drivers like TI, ARM SCMI...
+> ---
+>  drivers/firmware/samsung/exynos-acpm-dvfs.c   |  4 +-
+>  drivers/firmware/samsung/exynos-acpm-dvfs.h   |  4 +-
+>  drivers/firmware/samsung/exynos-acpm-pmic.c   | 10 ++---
+>  drivers/firmware/samsung/exynos-acpm-pmic.h   | 10 ++---
+>  drivers/firmware/samsung/exynos-acpm.c        | 16 ++++----
+>  drivers/firmware/samsung/exynos-acpm.h        |  2 +-
+>  .../firmware/samsung/exynos-acpm-protocol.h   | 40 ++++++++-----------
+>  7 files changed, 41 insertions(+), 45 deletions(-)
 
-Just in principle.  I was hoping for some way to tie this decision
-making back to a spec.  Everything downstream being in D3 already, and
-any wakeup devices supporting PME from D3cold sounds plausible to me,
-but I don't know about any prescriptive spec language, and I wouldn't
-want to get locked into a scheme that couldn't be supported on ACPI.
+I forgot about clocks, so there will be a v2.
 
-> x86 platforms don't support PCI host bridge PM AFAICS and the ACPI
-> driver doesn't support PM either.  I'd rather not add it ad hoc
-> because of this patch series.
-
-Agreed.
-
-> > > Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > > ---
-> > >  drivers/pci/controller/pci-host-common.c | 45 ++++++++++++++++++++++++++++++++
-> > >  drivers/pci/controller/pci-host-common.h |  2 ++
-> > >  2 files changed, 47 insertions(+)
-> > >
-> > > diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> > > index d6258c1cffe5ec480fd2a7e50b3af39ef6ac4c8c..b0a4a3c995e80e0245657f0273a349334071013c 100644
-> > > --- a/drivers/pci/controller/pci-host-common.c
-> > > +++ b/drivers/pci/controller/pci-host-common.c
-> > > @@ -106,5 +106,50 @@ void pci_host_common_remove(struct platform_device *pdev)
-> > >  }
-> > >  EXPORT_SYMBOL_GPL(pci_host_common_remove);
-> > >
-> > > +static int pci_host_common_check_d3cold(struct pci_dev *pdev, void *userdata)
-> > > +{
-> > > +     bool *d3cold_allow = userdata;
-> > > +
-> > > +     if (pci_pcie_type(pdev) != PCI_EXP_TYPE_ENDPOINT)
-> > > +             return 0;
-> > > +
-> > > +     if (!pdev->dev.driver && !pci_is_enabled(pdev))
-> > > +             return 0;
-> > > +
-> > > +     if (pdev->current_state != PCI_D3hot)
-> > > +             goto exit;
-> > > +
-> > > +     if (device_may_wakeup(&pdev->dev) && !pci_pme_capable(pdev, PCI_D3cold))
-> > > +             goto exit;
-> > > +
-> > > +     return 0;
-> > > +exit:
-> > > +     *d3cold_allow = false;
-> > > +     return -EBUSY;
-> > > +}
-> > > +
-> > > +/**
-> > > + * pci_host_common_can_enter_d3cold - Determine whether a host bridge may enter D3cold
-> > > + * @bridge: PCI host bridge to check
-> > > + *
-> > > + * Walk downstream PCIe endpoint devices and determine whether the host bridge
-> > > + * is permitted to transition to D3cold.
-> > > + *
-> > > + * The host bridge may enter D3cold only if all active PCIe endpoints are in
-> > > + * %PCI_D3hot and any wakeup-enabled endpoint is capable of generating PME from
-> > > + * D3cold. Inactive endpoints are ignored.
-> > > + *
-> > > + * Return: %true if the host bridge may enter D3cold, otherwise %false.
-> > > + */
-> > > +bool pci_host_common_can_enter_d3cold(struct pci_host_bridge *bridge)
-> > > +{
-> > > +     bool d3cold_allow = true;
-> > > +
-> > > +     pci_walk_bus(bridge->bus, pci_host_common_check_d3cold, &d3cold_allow);
-> > > +
-> > > +     return d3cold_allow;
-> > > +}
-> > > +EXPORT_SYMBOL_GPL(pci_host_common_can_enter_d3cold);
-> > > +
-> > >  MODULE_DESCRIPTION("Common library for PCI host controller drivers");
-> > >  MODULE_LICENSE("GPL v2");
-> > > diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-> > > index b5075d4bd7eb31fbf1dc946ef1a6afd5afb5b3c6..18a731bca058828340bca84776d0e91da1edbbf7 100644
-> > > --- a/drivers/pci/controller/pci-host-common.h
-> > > +++ b/drivers/pci/controller/pci-host-common.h
-> > > @@ -20,4 +20,6 @@ void pci_host_common_remove(struct platform_device *pdev);
-> > >
-> > >  struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
-> > >       struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
-> > > +
-> > > +bool pci_host_common_can_enter_d3cold(struct pci_host_bridge *bridge);
-> > >  #endif
-> > >
-> > > --
-> > > 2.34.1
-> > >
+Best regards,
+Krzysztof
 
