@@ -4,165 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A4FE98DF6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 07:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28860E98DF5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 07:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nrZc/Z7Be2A9y5DqcniQ9Lm/4gP6G87E802BvnTYUp0=; b=fsHm4bJfSyytemWjGNTjqMf7KT
-	XWoH82aZMF3fxuwZB+V1iZGn73uvzoXGA+57RahOabVNXgae/j5D9yRjZ1FabIrEjt02zadi9D9W9
-	CpY1V5p1N9HPI60tsm7jsuSfIEnb3iiI80Cv4hDxqzL7+7JqAmbUdEb/Rntw3EHmedq8UH9BzOX4f
-	91+nY9rskRKE7nN383UrvR8JC2mDummNvVdPTPnu3J1w56ZNa2bjBZJOforEHsWjxPJIjRepJX/wB
-	Y1RCKYbHOw3QERkUv1foxmH8ooI+Wgc6GlJ9X89D7b3KBvJqtaOM4lM1/XNHNf8cehOWxPmOskP2R
-	qVKTRKTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hbZ5b7ao+DiagEDcdfKn3Bm3NVsuaQOHTS0dAlMskSs=; b=rfNx22L5SAGnRlAmj2qTltgqAT
+	eRUg/7hr8eG5ggF8DY3wL2srmdzu9/KQjAR9GkAYGla9KlBV3zUmvIExfImMbFpjWPl3KsUlnxsli
+	izX/+hRmYcqUOxs9+8wlPCyaePW0zG7P48II+lHnAszpakgXQgNjMDC7ZDY+OVM73bHThghpYcylE
+	s4zuMeZb4TA2mQSjRErA8XXy4jqn0odO/1P49Lqp4YiuK1hsnzE4X7kaEEFHk3EeWWi6eR66oEEUX
+	ATXr8wFHGodU3z0RyvPeLcrx633/kyjgyqEb+HQTZhkgumuU+4mnHzrCVxuh7zehf1Vr9kQIaW2Z3
+	SdgEQGJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuQMO-0000000HMrr-2XQf;
-	Mon, 23 Feb 2026 07:28:04 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vuQNa-0000000HNhy-3MNN;
+	Mon, 23 Feb 2026 07:29:18 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuQMI-0000000HMjP-21tT
+	id 1vuQNX-0000000HNgF-1o6H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 07:27:59 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61MKGhV02989303
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 07:27:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	nrZc/Z7Be2A9y5DqcniQ9Lm/4gP6G87E802BvnTYUp0=; b=bXFefgdhxPDsuijE
-	pYnRuIw6NL0O9YNgYItg1nt7i4ZCQEWOoOkFJAUghwrB+umKaoiUYEtnZpPxNNPv
-	OlxrAGmuu+grnE0hac0PCqTo2xII88LwC3ifwVKfvHze7LyFkgVMOAn4C6uMF0YJ
-	8jmAdcTJaXVqOp4YC+mru81BehBD+pO8nU349x98rPbYDSELkEAXuHO7UYcyA+yV
-	K0q+d/6efiT0GCyZpTSr8tHZ67dyXrgpKBBLC7c8thjs3hNPl4RTemJhOjlQSZX9
-	zgOUbR4t5ODWBY2zjHg1jkLRKO2p5vtjTVKJ21Y/ynHGhui94xPGB13nXFD7ys/s
-	uWY9GQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cf5wk3qup-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 07:27:57 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c711251ac5so3535957585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Feb 2026 23:27:57 -0800 (PST)
+	Mon, 23 Feb 2026 07:29:16 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-3870902760cso35007741fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Feb 2026 23:29:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771831677; x=1772436477; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nrZc/Z7Be2A9y5DqcniQ9Lm/4gP6G87E802BvnTYUp0=;
-        b=fWP7xNQAGI6jhhOhmY+qLmZ2QkPjZAJs3K3RlYNq2D36ANxNJElbR5idPTYj+Rn7zU
-         plCRil4SsjPDM0Lho7lHOkawN5DCrldNCCeTQ7I1uv8TFTfD8kzRoZxZ6gW7Hhr4UYev
-         2JCS6ahqy3lK/2+gyXTwDuKpE+Nr+24WpYVm1HVEhtPorI5uvBUHWJmvZ3IgkPX1ad6+
-         rpm/9yFzy1GMNTXx5NyBHVG/HtmFuo0YMAm3tso+5V7Pcj+Rp/vUQq0rugr9z2ic59vn
-         1mtpNChFUffpx0fZnMWSPuYMoTVIK7O9JXlMg0tphhssKz3an6I3MtSdLrQHJPbsKxxo
-         Hzog==
+        d=gmail.com; s=20230601; t=1771831753; x=1772436553; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hbZ5b7ao+DiagEDcdfKn3Bm3NVsuaQOHTS0dAlMskSs=;
+        b=Mlx5APr4mA12FSp9MUzXQrSZCouIkK1Oa6vGV6LWzVMpjql3dK0U/2XdLkdHUymw0J
+         +Euw9cnDTUjel7zhN+YVeKIdD5fECNy8fNzJwUcgPndawNVI8JvZmYKcALgQ5QkHmsV0
+         IWDh4wp0fAyFniFpzJhJVv55tydilrO/c9N50dfhCMZ8OriCZhDDUShSKOPTnbNlf9X5
+         gvAjFdYDtmtvNzIZeVrejGWeVmySfT5TrL5agUgtoxhcEK0pQ8pkdIbnO6ftp/q+Xg1l
+         jd3E2zkBnwDotlrsOtCFmKnkJbx2s8fLD9BYxVeWEof48K2sONL+n7TcQDBAm1A7u8DH
+         A/uA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771831677; x=1772436477;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=nrZc/Z7Be2A9y5DqcniQ9Lm/4gP6G87E802BvnTYUp0=;
-        b=Xgu3vGv7a7y09CIUJaoGLKttIZGXgNB7dQiPpAF8BH2s+akEeXTX3cTaoNbHq8u7fj
-         hhjVR6W//W0zrdkCaKM0ZCQ9IPUOkJwMIxwgfOR/2yXHcW2xKUO1Tz8ChwGCK69U0/Wn
-         IDX+1BE0e9bmj83y0dvD8qumJTjgUVNfP72c0KbeuHmRfUkfCn732Y+D2KuW4WD/2tlz
-         wOsKwW5laT/WpXhfpVJnEI4lVQV26xGHihi8t5kk5gqCAgN+v7haHfWGbzD+zVOrNVT/
-         ciS+TuV1PXaiaFYE14pM+lI7P0IiGqlFcF2FQh0UwVQYboU25qz3okzywrKihlSHvbRr
-         27oA==
-X-Forwarded-Encrypted: i=1; AJvYcCVURwW+7Eg6MZL7QQqprT/+9yHhVN6nf//KZbHDHwmAAVovXaCSyjuZmYH/niXcXPhkp+pvOxBTKyGW2rWV4h0c@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxjTSPtfWATpxHRne23fHBHyT5vByaBYbDGWurmaDkkXSFFOPQ
-	UwShpZndMoVPMwX7I/NgbplzWNByn0Y/I/m3femVJ6rbPhEn8z2TGKD0jN/xdq7UHRT12FuvMIL
-	KriaYRCPnPEDrQB9VP67lq6ibHKBVP8hS2xt1FnV6CiTcUrqRozfvvU/DZW5tHIB+F2qMfW7drT
-	QlBg==
-X-Gm-Gg: AZuq6aLasifqlaBeavBlg2gavV36zEjSLqnaUOUnykKP4rAxBsOcPkV4Q6pP1/tJSRF
-	e3jPdNeYesrbL2NYpAyuWEX9Y4+aTyKNL1ZFBtugxKfdkh4uB+sZ3jzposjRQUrUX+ylW2DjF1X
-	teT3ToTMRvjMkR3Qubd/2oci72Zfi39oKtKg+9SjRxnUfkanq6bstnQfC5U9Zn8FWkSTBKvjRrT
-	npp/j1wrTzCPdAAD8zvULJjWTk6rG6/nA7S4inhli6XrL39YoXN1jvUMgeJLgz28aWUBR2rmSu5
-	NUtUExeoq1Mekzfqd4MxjI/ig7peSur+P+H9aUVYg1bJgkDN/Kpv6OYf2TUNuCoPl7GjH83Ic7P
-	FGmHEsd74Y2uLfGAFcKo9IfmF5s7HewtFvLQBwIYrVWxg5A==
-X-Received: by 2002:a05:620a:4726:b0:8cb:66dc:9fcd with SMTP id af79cd13be357-8cb8ca740a5mr760941485a.56.1771831676918;
-        Sun, 22 Feb 2026 23:27:56 -0800 (PST)
-X-Received: by 2002:a05:620a:4726:b0:8cb:66dc:9fcd with SMTP id af79cd13be357-8cb8ca740a5mr760938185a.56.1771831676321;
-        Sun, 22 Feb 2026 23:27:56 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.223.140])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970bf9ff5sm18550286f8f.4.2026.02.22.23.27.54
+        d=1e100.net; s=20230601; t=1771831753; x=1772436553;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hbZ5b7ao+DiagEDcdfKn3Bm3NVsuaQOHTS0dAlMskSs=;
+        b=Rb6D9/ofvkph//I26kh7Iko2ayi7j69mn1dC3mEKD3nKvTLP0Ok7rYwVSRPX0OHPk6
+         u8R/bjPRqrJKkXbGGohmYExdaJshdeYkosHyemfqEPELOc4hmfFtrCQZ2eNvmIwQmzsb
+         IHt7yVomzObCkuXzFA97Z2Chiaqr9Ik75OSvRuRaMV93oZ67BuckUKdofwmP07WuUOK1
+         TUymfdZ1KkW3Nghzg4sKj2ujSSwAs1cgOu4vPbvkPbcxfkWVeN0TxPTvfbK/IdhgHay/
+         ZhI/7fkodacJQaliaKmPW7XNtHIdsO3i6eAfxNCg/Q1OW7GCpQFkbfItoFp/B1Dv2a7v
+         1B6g==
+X-Forwarded-Encrypted: i=1; AJvYcCXkjmsq+2IB2FmYPjOL30iPvR0UMHhotlUja2sjZRaS9mc+6LP9aRP0QpTrjgG8kbLtPW7vDEMRwm9ydjLZmmV3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyM7hn1aekNr0LlyYJIsZh3PREtYGDEgjMvkoRBCfE+iF44+MRT
+	qFC9+4JkQNp0Prz1FW4XoAllwE7qV2l1pAE3qUxmOCuryoziFlkyEG+f
+X-Gm-Gg: AZuq6aJAsDwEpVeph5W4pcbp5K1FRtnYiah1iAxcTeyZpjbOnzqIBGNfF4jfJfbvNip
+	cvJLpVxC+FzCTUrF9dUjxmYB8n/pShJ2rnA1h+d+km5+fKjt5wmKQsIZr2lGlAn6FmTzdRotGNN
+	iRx1icPng3DdIp4SO1duuUpyWLQKbZEkuO8uwqdB7fQhPBz+vpFN15tx5i32spkBjbnwBIyZrGx
+	Y40sVPDr3DyeXFwXq8/uaspUvPC90esEcNBRgFHJb+MVKGR0MC8iRahDnZTEpBdiQVDrP9DMkSe
+	RyGwAeoy7TYEOciRHhNcsWBNFujyZWFGt/q5Lq5ophHTedAX7sAshK/J3qNbnijFrgfLOIyIOM/
+	oiUczryKd1d9GlyZkUrPsBqK5OEEHPfP4JkvhKdow5oONMCHy8htftFqK5K337mjx4itRcdVqOd
+	ZBVQP8ikNg1x6PNOjSGBEi8tmyLUYqGDFHHJWUfOG9Q4JIQGu3HYXuHbdsKaOV
+X-Received: by 2002:a05:6512:1599:b0:59e:645d:192c with SMTP id 2adb3069b0e04-5a0ed99c6admr2114208e87.24.1771831752661;
+        Sun, 22 Feb 2026 23:29:12 -0800 (PST)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a0eeb45813sm1367725e87.64.2026.02.22.23.29.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Feb 2026 23:27:55 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Mon, 23 Feb 2026 08:27:34 +0100
-Subject: [PATCH 6/9] mfd: ezx-pcap: Drop memory allocation error message
+        Sun, 22 Feb 2026 23:29:10 -0800 (PST)
+Date: Mon, 23 Feb 2026 08:29:07 +0100
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Peter Rosin <peda@axentia.se>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 2/5] i2c: mux: add support for per channel bus
+ frequency
+Message-ID: <aZwBw4vSNO5YNQ1d@gmail.com>
+References: <20260216-i2c-mux-v6-0-9be28ecfd7e3@gmail.com>
+ <20260216-i2c-mux-v6-2-9be28ecfd7e3@gmail.com>
+ <ab7090f3-4c03-098b-b118-4cd7a68af8f0@axentia.se>
+ <aZNm6LSK9C8DHC8U@gmail.com>
+ <e21781e7-0ba2-19ce-3c0c-bd198e73c03c@axentia.se>
+ <aZVkHoDsJc6CPszz@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260223-workqueue-devm-v1-6-10b3a6087586@oss.qualcomm.com>
-References: <20260223-workqueue-devm-v1-0-10b3a6087586@oss.qualcomm.com>
-In-Reply-To: <20260223-workqueue-devm-v1-0-10b3a6087586@oss.qualcomm.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Danilo Krummrich <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>, Tejun Heo <tj@kernel.org>,
-        Lai Jiangshan <jiangshanlai@gmail.com>,
-        Tobias Schrammm <t.schramm@manjaro.org>,
-        Sebastian Reichel <sre@kernel.org>,
-        Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-        Dan Carpenter <dan.carpenter@linaro.org>,
-        Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>,
-        Dzmitry Sankouski <dsankouski@gmail.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>
-Cc: driver-core@lists.linux.dev, linux-doc@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Sebastian Reichel <sebastian.reichel@collabora.com>,
-        linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=769;
- i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=r9x2dulUi2i/xHeDpXgX0ZLrT/131D7Fe/8Z5nmd+1c=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpnAFrkKbfiaWJobMJ1uaOgm6ZHmwStj8BHlR2u
- vp1CSwCm1iJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaZwBawAKCRDBN2bmhouD
- 1zVfD/oC4r95LjZ3DM+u2Ns+t8NFjd9MPKu16F32jeMboQjnWCR9YCLIRwn7Fvr1TR+ff5UtpyT
- XBgB2Rx8udmj/g956wfXJx/U4gpvw4kMozdxk98g5ROegzSW+zpfBmSdv/Y0RkSJY7v5JcH18E4
- nWjB6GjTLB5VOxQQj3pioJknmyxmuwTELNXH+jJri9kT3Z41Bz+Klt2i8/wc91yhXb407gbpdfR
- 4DvWYkfuiKiF3C1e4MhjzEzlfuG9qQD3KIscOucgJL+YRlX3Ey7sED06o+WoJPNrPK0QfFXhHZv
- NOLX6kWeE53OeTAgE187NhmpJzoj7zvcDbaBI31ndIEGgthZWx7pORQJu6zkRlU71fOtYDaid9J
- FrKtxYHV0/sGCkFHormsZ+GOapWYEhWEJR50ScVUbd9ULC4ZlxUxCBTIWhz+Lkm9Gv5VXaFcLS+
- 7OxY4GcIIWlXpspwcVNxWaSdqZ9JRVxzaRyzkcKW3kuNAn523XVBOUAuM9iCufA13SLXkpczN+Z
- ZZSw0XB5klJtECmOL/uR9A38T4ef5aU9LT4QNNVIEmKT6SgLS7zCvlvFse5bWOgrryLV9WAJGQ4
- W5iU8ft6bo8owCRtIIzDxGrRgVlwrPd6TNb2HR4Nqzie8fw3AxXahDDaQMK6t5HaFml+MzTwWfh
- z7dV1TA37i7F3gA==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Authority-Analysis: v=2.4 cv=a6k9NESF c=1 sm=1 tr=0 ts=699c017d cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=3HoxRS3-ReI3PdwluWoA:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjIzMDA2NCBTYWx0ZWRfXw0SIcFLhrNdb
- K4Sm3Cd4tnVBvSLtTVgXSV3ZDQedhVMkLJz/njBhtUn0W8pg8LC/0TXdFg+1d6iktzeHpQXtV4n
- p6CTWUJYyKxs/Bk5TowrSjHXEV0ZMYSBgpBhLid7Ryxp/NGvxRfIC6M1IuQ1V1iFmb4N57BF305
- tigcRJ2zyq1Roc2E/I3gR8QMH/QXHRr4ilnyoMFFI7ij2cnP0wvfEX9nzETk8bd7YqNzsGGnm1G
- 7+9Rzfh5vayi5ldSg3QTvlJu0xYIPJ2jv9GNszJQpxOZ/UKY9FX8oHXGtJdV1/jJjspM3DshPqS
- kj4+xphTYaoNHzASJ0ORawzPIVqNpRFbgoMkLt0133wibWZMaa/c3QNRqi1rbrfthafXKrHUWNC
- dJa1CTFfe1IvsFjZEJpPyHSOU3nULRPri4ajT0agsq7eL5dfVHChhaiEZnuIR5ZJFsuujTr4xMH
- 3yu6hU1o7/uiGh7o66A==
-X-Proofpoint-ORIG-GUID: lxfisnOWfuAFem1hT4UjvsnvwmPenEbH
-X-Proofpoint-GUID: lxfisnOWfuAFem1hT4UjvsnvwmPenEbH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-23_01,2026-02-20_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 phishscore=0 impostorscore=0 priorityscore=1501
- bulkscore=0 lowpriorityscore=0 adultscore=0 spamscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602230064
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="MoMPLdIF9j3bHqVN"
+Content-Disposition: inline
+In-Reply-To: <aZVkHoDsJc6CPszz@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260222_232758_560493_883E6805 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260222_232915_544542_A733889D 
+X-CRM114-Status: GOOD (  33.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,33 +109,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drivers should not print error messages on memory allocation failures,
-because core already does it.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+--MoMPLdIF9j3bHqVN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
----
+Hi Peter,
 
-Further patch depends on this one, thus it should not be picked
-separately.
----
- drivers/mfd/ezx-pcap.c | 1 -
- 1 file changed, 1 deletion(-)
+On Wed, Feb 18, 2026 at 08:02:54AM +0100, Marcus Folkesson wrote:
+> Hi Peter!
+>=20
+> On Tue, Feb 17, 2026 at 10:37:39AM +0100, Peter Rosin wrote:
+> > Hi!
+> >=20
+> > 2026-02-16 at 19:50, Marcus Folkesson wrote:
+> > > Hi Peter!
+> > >=20
+> > > On Mon, Feb 16, 2026 at 05:40:37PM +0100, Peter Rosin wrote:
+> > >> Hi!
+> > >>
+> > >>> +static struct i2c_mux_core *i2c_mux_first_mux_locked(struct i2c_ad=
+apter *adap)
+> > >>> +{
+> > >>> +	struct i2c_adapter *parent;
+> > >>> +
+> > >>> +	while ((parent =3D i2c_parent_is_i2c_adapter(adap)) !=3D NULL) {
+> > >>> +		struct i2c_mux_priv *priv =3D adap->algo_data;
+> > >>
+> > >> This assumption does not hold, making the cast pretty wild indeed. T=
+here
+> > >> are other i2c_adapters with a parent besides muxes. See e.g. i2c_atr=
+=2Ec
+> > >=20
+> > > I see. Hrm, not sure how to decide if it is a mux or not. The best I
+> > > could come up with is to look at the i2c_adapter.lock_ops. E.g.
+> > >=20
+> > >=20
+> > > 	while ((parent =3D i2c_parent_is_i2c_adapter(adap)) !=3D NULL) {
+> > > 		/*
+> > > 		 * Check if this adapter is a mux channel by verifying its
+> > > 		 * lock_ops. Only mux channels use these specific lock operations.
+> > > 		 */
+> > > 		if (adap->lock_ops =3D=3D &i2c_mux_lock_ops ||
+> > > 		    adap->lock_ops =3D=3D &i2c_parent_lock_ops) {
+> > > 			struct i2c_mux_priv *priv =3D adap->algo_data;
+> > >=20
+> > > 			if (priv->muxc->mux_locked)
+> > > 				return priv->muxc;
+> > > 		}
+> > > 		adap =3D parent;
+> > > 	}
+> > >=20
+> > > Or do you have a better idea?
+> >=20
+> > That looks fragile. My recommendation would be to avoid trying to
+> > guess how a potentially diverse adapter tree should be handled
+> > locally in the mux code. To me, it would feel better to introduce
+> > locking/recursion in i2c_adapter_set_clk_freq() for muxes (and
+> > address translators), i.e. take inspiration from i2c_transfer()
+> > and i2c_smbus_xfer().
+>=20
+> That would be a more robust solution indeed.
+>=20
+> >=20
+> > I guess an unlocked __i2c_adapter_set_clk_freq() is needed.
+> >=20
+>=20
+> Rethinking the whole locking approach;
+> If I follow the same locking logic as in i2c_transfer/__i2c_transfer, do I
+> really need do take any more locks than the root adapter with
+> I2C_LOCK_ROOT_ADAPTER?
+> As the frequency can only be lowered, an intermediate i2c message will
+> not mess anything up?
+>=20
+> If so, do you think  i2c_root_adapter() should be moved to i2c-core-base.=
+c?
+> Then i2c_adapter_set(_root?)_clk_freq() could lookup the root adapter
+> and take the lock there.
 
-diff --git a/drivers/mfd/ezx-pcap.c b/drivers/mfd/ezx-pcap.c
-index 1be4557b7bdd..13cb185638a9 100644
---- a/drivers/mfd/ezx-pcap.c
-+++ b/drivers/mfd/ezx-pcap.c
-@@ -416,7 +416,6 @@ static int ezx_pcap_probe(struct spi_device *spi)
- 	pcap->workqueue = create_singlethread_workqueue("pcapd");
- 	if (!pcap->workqueue) {
- 		ret = -ENOMEM;
--		dev_err(&spi->dev, "can't create pcap thread\n");
- 		goto ret;
- 	}
- 
+I've reworked this during the weekend and think I've got some my
+answers. I will send out a new version later today.
 
--- 
-2.51.0
+Thanks!
 
+Best regards,
+Marcus Folkesson
+
+--MoMPLdIF9j3bHqVN
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmmcAb4ACgkQiIBOb1ld
+UjKEDg/+IBFMAKiHUARtHOWdNvNXagaezYzxvlG9U7d8nSHCg+2eZpqJYyjyBb1j
+WGlrRz1xUjCVcP46qy0OOMof5l0tyra6E2+bVwBJ2V8Rg4msHLQ6Fq4mQZ0H2bKG
+sGQyy0YOVzi3OppgDVthHyEbYB6h1PPKpGzyzHfdCoAbU2vlbhoK5ta/SNu49Hsj
+RG7XoX66PCKEi8VIMmb+RbUHgzOVVmBe6Ycv7IvvDjMze92oudNu3BhUJugi6y7A
+45WsilJKAC2SR6Wc6lWQPSZ/JH6bii9vCCealITbv1xdOGRWG7AJtnGXB0T86jPP
+JyB0wguefWE8O1WmR+wZ+MFBdUQZyQ54fr3LNBcX3gkze82Yay3zhMCNbDToqYHl
+o2aWR2LjMW0skWna3a6FlhEDh/reoNavq7ARKv+ANEP7VrZYEXZgrAfMSQZ0iy0p
+AVZOEPVPilfnoaGo7DD40v6Gd41yHqjLuabIEfvb/A6VdTq/MZcV30eBeV/EyqVe
+wdGTLFY+Ivm/GNJ2MMak/ju6zmfWzzVRj1ibZjEq5KtWaxiPSCY/ewxNWXXh+yQu
+XQRqo643UB3plS3w4oTWGO4JtKDZ3B6vJKPKLlT4D4nUjOCCO70mxENNnfoSGOwn
+DjPonu0VeDuVcASuSOJQ4/9bJaQ6sBWCtqn/EHWfKzi0mcfx2e8=
+=514b
+-----END PGP SIGNATURE-----
+
+--MoMPLdIF9j3bHqVN--
 
