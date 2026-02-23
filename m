@@ -4,120 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC23E98E14
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0373BE98E14
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vauRH6wSmN5THyXqYMMv35ijD3w6TuKTDxwsmKZOZGA=; b=Aj1GaI/8UN6HQJjGsHxJenHI0H
-	80+3FJqPK3z04KsqNxkriMHvBfdKRY6J3YA4RUyspDAKsNzAn7y+uRSVC+h2c0ldZLg3baE0JInos
-	8Dc4NQrhQ0hU8e/sBD6k8CmvlCeLIeQeT7sGyvvTvKl1CjYokBjw0CqJ9p5l4BDBVLRzWKpr/loed
-	RgljG1deMUvTqlpJFAzYxLyaNpIAcB8OdhCbGelDHTDLbfMvGCEa2ovhjSARYTkuoVqetIIgIgOpC
-	opst3SVVbne9US5UWsUZhMQjXEyeCrh/CoHJlt4B5FdGZ61aoKVnhfJRyyEIaFFQnFQyJy0HWQz4D
-	EINPzAlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VHea3OWHkkHkDsslxTpxNplTHtprxruHUZxobkSimgs=; b=dR8bNBMKaaOBQs/BqrVREDznlm
+	dNq+KHZ/tcq+HElGV5GVI6AknErV4vHAZIt3MG7odpVwlc1+fM/1vw7irbCNm1z4FOg74zJxVQqwZ
+	DTv47lWP6/ovFQVJ2Leb2tGwYDGz3jpkc16w3DgELLx6AXbnqXV+pIgao5MvTtD6DNqsmnTwoW3wZ
+	90HgwbR6sSwXR9u/OpnvlBy2k/KMxOx5XBWbRJ8lj5FYbfQPlFPa7lk4GLTvt05vTaMf29ucTpMRB
+	kKw9K3TPAqZ7m+ISQuAN5KbFRtDjJzV2GMXxGW+KbAjeZShS3GLGFllZ1pK4di+hE2SuCgDXqvjxV
+	DO9D2ALA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuT2D-000000001zc-0qrE;
-	Mon, 23 Feb 2026 10:19:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vuT37-000000002FB-1f2R;
+	Mon, 23 Feb 2026 10:20:21 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuT29-000000001yr-1OOW;
-	Mon, 23 Feb 2026 10:19:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 440D640913;
-	Mon, 23 Feb 2026 10:19:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06634C116C6;
-	Mon, 23 Feb 2026 10:19:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771841960;
-	bh=X0d/XGvHpwZScfvSz5HK7fcj1vTy3esDK40Iv+brjp4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mly5crhZ7ZEd6hspmnqW4r63zchGNzczzQiB/OKmKHgmLyqnEucLWVBLUXvImSirc
-	 RGgYAQT1mi6WOeBbuuvsmbOGNcW5bpXKOl/6/MQeRI2nyCfNeYzx5sB5ahCbEJP01k
-	 z0eC8eZ+vdk0I0E9ZNegzk6nYIIckNiHGndfskdWTHgIKTZkzzXT8lgdtAZh+VUNcu
-	 bmNd4PTQYOkicDydeuA6pLtFzYf033E2Jne+GJ2DpNntx/YH9RT8LRC3ltmJEnY+Ah
-	 NKg7OyU3gcrJUlUIKu/oHaEZKBOAeNObTpaZ2cncsHtJgtwt7JONUsPBzGl+iEAE7j
-	 N0mbxB2IlxggQ==
-Message-ID: <388e52a2-4537-46f0-84d9-eb7a1f3b1660@kernel.org>
-Date: Mon, 23 Feb 2026 11:19:13 +0100
+	id 1vuT34-000000002EC-3B4R
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Feb 2026 10:20:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1771842018; x=1803378018;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=HYWBr38iHIjb+NSx2zGe9SgBNR2/Jd2Z4h5rS9bUVNw=;
+  b=bMvfJp+tI1wGG2HRe8Hw0KpCog7yo4e6d45F6Va02YMzUp3ClfQz1J/5
+   J3bZBSP7+r4FEU8qiK+IdTVm7FIwU9AvmVGlccmHACcYSUusu5+a44kIS
+   xsk7WUKP6OAuYI7lNWu0szq/LrbNfCfFjX3ILuL/niFTm1ylchfmZAb5i
+   AxyIgWPjEJTDp4ASrb2aFKkfg3pt6rNyEGkovf4txEgu1MuBlq/8ECwR6
+   cClz4xGGiNo1WjpmUp0OnF59EQu9rGHO2Y6Kc/9c1FbhpbpfKSgMempM+
+   McNqUSCNEse4Hii5+breFJmT3Og3Tm1N4xOiXNnwlP9tJQK2HwnU2g71S
+   w==;
+X-CSE-ConnectionGUID: Pkelvpk5TzC1b4CVtpcYwQ==
+X-CSE-MsgGUID: v51EDN1ETbOmCom1RI3NQw==
+X-IronPort-AV: E=Sophos;i="6.21,306,1763449200"; 
+   d="scan'208";a="220994658"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Feb 2026 03:20:14 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 23 Feb 2026 03:19:54 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Mon, 23 Feb 2026 03:19:49 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <lee@kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <manikandan.m@microchip.com>, Dharma Balasubiramani
+	<dharma.b@microchip.com>
+Subject: [PATCH v3 1/4] mfd: atmel-hlcdc: fetch LVDS PLL clock for LVDS display
+Date: Mon, 23 Feb 2026 15:49:17 +0530
+Message-ID: <20260223101920.284697-2-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260223101920.284697-1-manikandan.m@microchip.com>
+References: <20260223101920.284697-1-manikandan.m@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/9] power: supply: max77705: Free allocated workqueue and
- fix removal order
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>,
- Tobias Schrammm <t.schramm@manjaro.org>, Sebastian Reichel <sre@kernel.org>,
- Dan Carpenter <dan.carpenter@linaro.org>, Lee Jones <lee@kernel.org>,
- Dzmitry Sankouski <dsankouski@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>,
- driver-core@lists.linux.dev, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev
-References: <20260223-workqueue-devm-v1-0-10b3a6087586@oss.qualcomm.com>
- <20260223-workqueue-devm-v1-3-10b3a6087586@oss.qualcomm.com>
- <aZwWl57oJln1xH5m@smile.fi.intel.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aZwWl57oJln1xH5m@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_021921_563295_42ABEDB9 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20260223_022018_929153_21702E49 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,47 +89,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/02/2026 09:57, Andy Shevchenko wrote:
-> On Mon, Feb 23, 2026 at 08:27:31AM +0100, Krzysztof Kozlowski wrote:
->> Use devm interface for allocating workqueue to fix two bugs at the same
->> time:
->>
->> 1. Driver leaks the memory on remove(), because the workqueue is not
->>    destroyed.
->>
->> 2. Driver allocates workqueue and then registers interrupt handlers
->>    with devm interface.  This means that probe error paths will not use a
->>    reversed order, but first the destroy workqueue and then, via devm
->>    release handlers, free the interrupt.
->>
->>    The interrupt handler schedules work on this exact workqueue, thus if
->>    interrupt is hit in this short time window - after destroying
->>    workqueue, but before devm() frees the interrupt, the work scheduling
->>    will lead to use of freed memory.
-> 
-> ...
-> 
->>  	ret = devm_request_threaded_irq(dev, regmap_irq_get_virq(irq_data, MAX77705_CHGIN_I),
->>  					NULL, max77705_chgin_irq,
->>  					IRQF_TRIGGER_NONE,
->>  					"chgin-irq", chg);
->> -	if (ret) {
->> -		dev_err_probe(dev, ret, "Failed to Request chgin IRQ\n");
->> -		goto destroy_wq;
->> -	}
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Failed to Request chgin IRQ\n");
-> 
-> This should be just
-> 
-> 		return ret;
-> 
-> 
-> devm_*_irq() prints the message. No need to repeat this in the caller(s).
-> 
+The XLCDC IP supports parallel RGB, MIPI DSI and LVDS Display.
+The LCD Generic clock (sys_clk) is used for Parallel RGB and MIPI
+displays, while the LVDS PLL clock (lvds_pll_clk) is used for LVDS
+displays.Since both the clocks cannot co-exist together in the DT
+for a given display, this patch tries sys_clk first (RGB/MIPI),
+fallback to lvds_pll_clk (LVDS).
 
-I guess separate commit then.
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+---
+changes in v3:
+- Rephrase the comments, err logs.
+- assign NULL to sys_clk to avoid Oops error when
+referenced in pwm-atmel-hlcdc.c
 
-Best regards,
-Krzysztof
+changes in v2:
+- Rephrase the comments, commit message and err logs
+- Replace dev_err wwith dev_warn
+- Remove Initializing sys_clk and lvds_pll_clk to NULL post
+devm_kzalloc() call
+---
+ drivers/mfd/atmel-hlcdc.c       | 13 +++++++++++--
+ include/linux/mfd/atmel-hlcdc.h |  1 +
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/mfd/atmel-hlcdc.c b/drivers/mfd/atmel-hlcdc.c
+index 4c4e35d404f3..0f83ad7ba15c 100644
+--- a/drivers/mfd/atmel-hlcdc.c
++++ b/drivers/mfd/atmel-hlcdc.c
+@@ -108,10 +108,19 @@ static int atmel_hlcdc_probe(struct platform_device *pdev)
+ 		return PTR_ERR(hlcdc->periph_clk);
+ 	}
+ 
++	/*
++	 * Retrieve one of the primary clocks required for LCD operation:
++	 * prefer sys_clk (for RGB/MIPI), and
++	 * fall back to lvds_pll_clk (for LVDS) if needed.
++	 */
+ 	hlcdc->sys_clk = devm_clk_get(dev, "sys_clk");
+ 	if (IS_ERR(hlcdc->sys_clk)) {
+-		dev_err(dev, "failed to get system clock\n");
+-		return PTR_ERR(hlcdc->sys_clk);
++		hlcdc->sys_clk = NULL;
++		hlcdc->lvds_pll_clk = devm_clk_get(dev, "lvds_pll_clk");
++		if (IS_ERR(hlcdc->lvds_pll_clk)) {
++			dev_err(dev, "Failed to obtain both the LCDC (generic) and LVDS PLL clocks\n");
++			return PTR_ERR(hlcdc->lvds_pll_clk);
++		}
+ 	}
+ 
+ 	hlcdc->slow_clk = devm_clk_get(dev, "slow_clk");
+diff --git a/include/linux/mfd/atmel-hlcdc.h b/include/linux/mfd/atmel-hlcdc.h
+index 80d675a03b39..07c2081867fd 100644
+--- a/include/linux/mfd/atmel-hlcdc.h
++++ b/include/linux/mfd/atmel-hlcdc.h
+@@ -75,6 +75,7 @@
+  */
+ struct atmel_hlcdc {
+ 	struct regmap *regmap;
++	struct clk *lvds_pll_clk;
+ 	struct clk *periph_clk;
+ 	struct clk *sys_clk;
+ 	struct clk *slow_clk;
+-- 
+2.25.1
+
 
