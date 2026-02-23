@@ -4,95 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8368E9A02C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B04DE63C8B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A9juCIWO3/qNsUDquSKfNxba1OKTRHA92+YWH/XuFNg=; b=QNcW74m+shGOWBrhs/hsELDclr
-	AF+G/xAXXuOjgw+pWsx5oLJIBiQRWv4oZsAezEOSPVISMps/jJ/fE8caqy8L6Vy9/E6tzBY264hZU
-	N0SyE5CuMFuHqgams80Kv0/QiQWXNi+JRq/4thH/w8tEoofpBJeR8lEDkcwgFBquiVP4nB+/bKoJq
-	e8Q+cal4FUSHjcROOD7ikOKPjZ7UBMsk9vqdpP7uO3tUwR8awRVSQyr/4tmUyVHCLvkwXWhvKt5hh
-	6cMZi6yGQpJcK3KuRknK5kfy/enwx+9M0WuuECoPpMP4v0oB3wj4rL2I4eq2sSdEaH/2EhjupWkYI
-	03N/MRlA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jUC9TlWmv0obtpzoHHcT8WkjssvqQiRshItuq7Tbwls=; b=yjYhO8LaC+RU+xBw3KuY7K2Jot
+	BQiHJcprm41VEgc/lwmd2F5nKNjZdoRMBlQL+Kj1d64vKE2I9NwDptz8NDARoyaeHtTIZTcrTT3NV
+	jD8Xez3xqMO1D4v/+l3GLRcc/t/v0Fg8d0/NKZpU0VnxuuRGbbas17KieyJpCiIUXQP8bEQDKvSAT
+	x9A7JTywz6pBFUiWERIv3dyojKoRbcamJKLqwF0cdCNe5YWpIovvpagy+KFgtuWdAoy9F6aptoVJp
+	inyGePKJYKTovvBd79+vFlhWG83jSxANLcnfLQ6b7oIAbThADzH5JTRF/dAJ2k+tqI90R684ImFmW
+	X8Ki419w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuTd0-000000006fY-3ygN;
-	Mon, 23 Feb 2026 10:57:26 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vuTd3-000000006gU-1FF7;
+	Mon, 23 Feb 2026 10:57:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuTcx-000000006eV-2wGo
+	id 1vuTcz-000000006ew-3N6B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 10:57:25 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4834826e555so40237465e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 02:57:22 -0800 (PST)
+	Mon, 23 Feb 2026 10:57:27 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61N8hSH4766639
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 10:57:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=jUC9TlWmv0obtpzoHHcT8WkjssvqQiRshIt
+	uq7Tbwls=; b=LvfWpcdMprHhI2Bo7zpuR5/qRf4NuIUS7FpexbRdIVN4kuNvcm0
+	Sl2rzjY/5uPjs0u1+suzqyjkPYx8Ure+n61lQXGb2WDPswxNwKNZ2Z+U4qM9iou/
+	Lc0u0tw3TvZMpHCxabxgEArC08BIpTV8RhW/qzmtLEpzfqkRGgZxAmd2czhbHcNA
+	xaCbyWIDYLlcDVxT5pr+IAbkIJHj8Wbb7bkGpiON7D4PG2hIge0lc+Roz1ZBvGaY
+	VPusb3G94vP45nqmzSaOO/RxusYA+EGfT38G2Nm4v++nZoRFgOov2KYO08vu2kGN
+	REUIv1001T26ZJVTAJ6GQzmAFC1XALJcZQw==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cf5x7vf0h-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 10:57:24 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-506b3fb32a1so399596291cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 02:57:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771844241; x=1772449041; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=A9juCIWO3/qNsUDquSKfNxba1OKTRHA92+YWH/XuFNg=;
-        b=CDCrDymApAMLW454b30JBOfnbC+Bs71fPpVC6EBlBL5ml4N1qqXJG5IkW2l+gkp/QH
-         i9ELRx7RbpfIM8fDpK+kM0vGNWRKkmUTkO/u6rf2T7mXzZ1+q69Od/aAR9X05/sMj2nK
-         di2QsxGE/N6k472Ylu+iw5X0n7eDw/rbE45675w9A7qAy4XtYKArZg7B+ku3mKVbLKgr
-         7h9/lwHo7c+3G62upRwqqT+bkO//C7hcJZ+2H//SLaceZKk60QhX4HHNrzBNrUz90PKx
-         9sl+vbpzGwHE3+xHTc+Ol93zx+fhi7RfYzhEepuF1RfKGu341dTVZ5bwe+5/zC+hm07T
-         x4uw==
+        d=oss.qualcomm.com; s=google; t=1771844244; x=1772449044; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jUC9TlWmv0obtpzoHHcT8WkjssvqQiRshItuq7Tbwls=;
+        b=iDBkWOdOg+neqXqh/km+IIKcpNp9IN/t78kz1aOp74C2oNW+fl151C2NzJGhUWxuM0
+         nj05w0E4cVk8RW/ceUlM+d/7V/939tiUJiQ+btkaNgSA7UjMimpGoh4mEeURKPKK/Ppg
+         KzqEoi6q2kiKmg/Kggt5liauLOfOaXukwCX1HwfZ0No8i/LzOeHiqmMZJJpOAjZB4LnR
+         To2vW3ISwtAAdZqVRj74YOZsW/oLCmdLV5pbYL0ELeeZUpZeH6TFsLdyIO1SaoqLnCpk
+         hegFvlaXVuXRMXnsBTMxbn0ggXm/1e3GwEnisWoWds8bUe2Ct8gZxlIFhzLDd6b8myvM
+         gWnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771844241; x=1772449041;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=A9juCIWO3/qNsUDquSKfNxba1OKTRHA92+YWH/XuFNg=;
-        b=ovy7nA9EGVYeN6uIqvYp2iX7PIv3+3VCpb5m+h0MUlSOq9djQvjcuaEZt30KSzvHee
-         wjNT2CK1MsTDLPYzMlqJC1JGyzGpb6dRTWQwceEDwck4zDZiOyjhX1N7kbEr4BHNzGEX
-         d3ws/XWB3rc2M5Jncl7A3gDuCjuKoEYCK0QC3SlnRAQBzOtMoKD90tYjCYRypFVY8TOs
-         7AvLzQNXZS3GWDIa7jcRlNZOAXPqrQ0VPiYjYfAuYMxfFVCIbSBSuf0KYcO+hy8tnGBl
-         nMG2BBUedv/WmzEbm/zWM0i6K82I9eQKVYY1hu0wF1srYF335tm/xDnmltMVWtoGcIvc
-         m/uw==
-X-Forwarded-Encrypted: i=1; AJvYcCWkR3By+HBBQYuiGQFFQdNeQ+3bHEWGRRhF4UBnWjSiECp7ar+2JuZTcBjM7r3Fk/l4qEFBGoUgv3TC5pZfu4Lq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5qE75ahR7LjUtmoMbPzbTz2zo63aeWUPs7A9Flh9LAW/osQgA
-	reWxpjHst3J2ZmT/B0EijEXtDBSCrOCLXdGkWVVjV0C0SdLKHxVOFueO
-X-Gm-Gg: AZuq6aJlHMYd8JLemkYNp3oZLIqf8tgtm6Ct6mLc+5ny0L4yHjF74PsSJLltPkjfiVD
-	vZihHI2WRKmwpR7YEh/mRvfzCBj+gNlGQ7pKpKciIYH3CQoy7G+4rh/WVPvfEeYMmM3GIXntA/c
-	ZPSXqmtOIwgpYmw/wb6/VAmx7EwRqrLgrn1M5GAmf7qLX0wEMsdOyWBkzEL4d0abxzcOUH4db38
-	mVcxg1CC/luAwD+moYtKvyz9f5A5EjXG1qIrolgiXIz9TiByNOyr1ZfHeJlixA+XvzYI4bltQSu
-	RyffoYAnUcC9D4ifeXZFUdNWNKzLF3rC7W1h7PivicvPm4gxmp1ZuHVHRRgJP45UeSrd2f3xuGQ
-	QYbmpDfpWSNLLiF4ZGdGidgE+FU6Gge4M4kkDN5IM1pH2qiLWwMn5eisqq1gG2VmGiNkk28wD7e
-	6cRwq7GD5PTOciqqeNUZfltwinZb/axYg4nWZBzpspSBl+Ju9NBCQw7Hx9+L/35+c=
-X-Received: by 2002:a05:600c:8183:b0:47d:3ffa:5f03 with SMTP id 5b1f17b1804b1-483a962e09fmr116392445e9.21.1771844241031;
-        Mon, 23 Feb 2026 02:57:21 -0800 (PST)
-Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483a3dd3391sm166294125e9.1.2026.02.23.02.57.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Feb 2026 02:57:20 -0800 (PST)
-Message-ID: <10f15883-d8db-4872-8af2-7a8cf293780d@gmail.com>
-Date: Mon, 23 Feb 2026 11:57:21 +0100
+        d=1e100.net; s=20230601; t=1771844244; x=1772449044;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jUC9TlWmv0obtpzoHHcT8WkjssvqQiRshItuq7Tbwls=;
+        b=BCQG5SUGz/1Uw5zSEYaSR1rkF61sckC/9dk1A7drZz3c2gGg+K2ftXn8XRIcrNq2FF
+         cd7sCEfbd3j/xjztNODJ7+IuSda+46xwNBIhrss/iH2M/Sb26wdPFXGLJ/1bCbciiuu5
+         1OuuZcWutTh86vV/Y2YmL/o4hC3Jvjt1CkY/+ZhfEVto7ut8cxTPkfv0JkIP0vsEgAkS
+         30cPpIsl+TlnIaTBh2XzqaqVOgYV5+mOCLR9z68IUPz5KqQL6FPGExs3bZxK4bEclPyt
+         SEEE8joT4D9S1uv1MJ6FeEXJQSeRdz8I/6GHQQDc94SWKCkfRcg6Hn9mDChD3qOdZXgM
+         Jgqg==
+X-Forwarded-Encrypted: i=1; AJvYcCWfULgOhyEt4yirQKAW9q5JW/BbBLtDsSW0S88LUvshnCwRzwCcJzxDtyLR1hhbv3yRyXMhJhwgb5bo2jGbWzQb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHkxNyygeGDS9R8X5hZerYbkHvdL6ji6KYAwfivuwgnp591nUi
+	A5+NPHpdTC2k/o4LgyHfmyhJ3/Wax20WfLsFMTQaEbJWM2wG07RUgVrkvhObBSH4jxmSJuJ6cue
+	2a3w1nrbjH/mbTpVuBtOHvuK/AfZYrFOLHJYBW7JmlHMtjWVcfH2zbLi4RL6gUL8c8P+G+IPGsn
+	RVJQ==
+X-Gm-Gg: AZuq6aLi58GgQgYYwv0V27AG2pgw845fNTP2+OQaYos9yXSep927VIH36D2knVBBmsh
+	EfAmr29p4kD3N3BzwBbig34vhs9wyiCoFBVFb4Hr5FSMNDoXhb6EGTYoBM+H6mlE5U5kqTLtI6/
+	VPIQbxySO/tZb6U9MDUpBXC/W828onsolnmKP+QUyuP/JiRcmzrMnQaM1w9IyIhy0JqkHVmoap4
+	BNX2ZV94SBpaUOZpdebZdGMWykaVAmriga7DwSNr796DBhgR4tTDfA5OUkPimipcVd+j7ezzUga
+	LJnmlmIZ2D7d3DO7qfX+MWvTxzK4/Zzu72LNUVHqltqXO7G03re1BXFIwa9CspMtTLbvWKPA+2v
+	taqL46Ps7XWY1sB6xgguhOHJR6GjCSqBrKmx97A==
+X-Received: by 2002:a05:620a:d8d:b0:8c9:f4eb:ac71 with SMTP id af79cd13be357-8cb8c9e00a7mr906245085a.10.1771844244230;
+        Mon, 23 Feb 2026 02:57:24 -0800 (PST)
+X-Received: by 2002:a05:620a:d8d:b0:8c9:f4eb:ac71 with SMTP id af79cd13be357-8cb8c9e00a7mr906242785a.10.1771844243651;
+        Mon, 23 Feb 2026 02:57:23 -0800 (PST)
+Received: from quoll ([178.197.223.140])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970d4c60bsm18140215f8f.27.2026.02.23.02.57.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Feb 2026 02:57:23 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Linus Walleij <linusw@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: David Lechner <dlechner@baylibre.com>
+Subject: [PATCH] pinctrl: rockchip: Fix configuring a deferred pin
+Date: Mon, 23 Feb 2026 11:57:18 +0100
+Message-ID: <20260223105717.48779-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Gabor Juhos <j4g8y7@gmail.com>
-Subject: Re: [PATCH] dt-bindings: firmware: cznic,turris-mox-rwtm: convert to
- DT schema
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260221-mox-rwtm-yaml-v1-1-25dec4a0228b@gmail.com>
- <77c45be6-a0c1-4799-9491-f7e492d60aab@kernel.org>
-Content-Language: hu
-In-Reply-To: <77c45be6-a0c1-4799-9491-f7e492d60aab@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1886; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=G3uoQqzwbhwMv3rHo8CzAGVUUhUj+DhmlQdTwenR1nU=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpnDKNtoQe5GdE1EfxYH3cWP7j5g7W2fBZbQJ1f
+ M1XdzvUygGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaZwyjQAKCRDBN2bmhouD
+ 1wHGD/9gOeDdNWNQGaIjTJ1BjcIplUgUa679M6zz4l7YF/MEDewvDNgHyTbQGKfp9FuPF87jP9W
+ yY1adjL4z9CMML1N1Q3darmmdoeiKkKlbmM3Pn5Qh825I/eQ6J9JJ5WREUrwhp9wPuLb5MOkWxd
+ +IL+6P72pYU5pVecdI0qkS6KPyashiEHVmK7Z6h8K0BaavFKp6w57iCEF9AF5PCIt78C3lyNcZW
+ fNRAaeXk3RF/2Zw0i+o0Br1M2MCPjQGWQS1kvm8fLGvUOLvOmM+1S+7fu59X5htauWtaITthriJ
+ NJh/1UfVosuobC5H3FrzvzyYtQIipzbkc6Ply3pjEMCEruUaghTSvOudTw96+VRJzQANOLQjj4l
+ RDzrz+Mlc6BUhT03htNS7oxyZ4k3iH7J7HQ6EXe/HWomB/GeBOIHpssgdQlOxDVs33SnTFnplX9
+ yVqtd928i7HgQJPhggJ5x3GhHBUe4huxIcx0MthHSC/Dkq6q6XWXwas6SDsP23kElujRqAfvXDg
+ NdYu4cqiD0no1pSWCitq3IeL0jLCGKWid7SILla8eJ+sR5ufRobefLmWht/Kzi6lf3Ls3rpAoia
+ eNZRZ6Sn1auRE1Df8+bAqrbUHfLkTs+XVzU9Nhek3Wm8bUEFgI/uv8D+My+84RwH1SVrz4eO1fZ 6GXs2LZxL2pQE/A==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjIzMDA5NCBTYWx0ZWRfX26o1M8XIZx+o
+ mKgn57iOnx9aNOOKWnjrX/ntLbfcJEfA0q7/2joU5zNT9FdEKj0lVkV4cimrgySOSTyOjLNHLw4
+ OEpH0/xdV07KoPFB++ZHhnmY65Py3/UDCEtUMaQrhNB/fHLzs5D9NCRoBSJdkkaLsblKGyYQAuC
+ co31y0kLpb4WzALbW7MVpC6v1HbanbQcMBoDynPpksZ/noYMsW0txcrUiBC+ookspikwTh4Yar4
+ 0ZqLW3VnvP+hnckMSoSsf1Ds5+CmkRoHXIkAei4JtnsWTrEehU0hAuLwAyh+8uFc5gulIxnPJGF
+ NCA6C/D1CaQ0myqbVHtQKyhGdlE2fHo28AHPUQgpWkzvJn02hnlMObuhcXnpGW+Y9j3LMPPZbLR
+ LfLwlW3Pg0V9fw5ADGWe1F6ju6gSgmtrYoXwXAOOceoczUv6MlV7pmhHhl8A/t91Oj3q0gSBl1f
+ Nb52Xa8uawk3qe/LGYA==
+X-Proofpoint-GUID: qljsYoUIkGsD25OWn2FNIbA8r6-ih4pw
+X-Authority-Analysis: v=2.4 cv=X71f6WTe c=1 sm=1 tr=0 ts=699c3294 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
+ a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=VwQbUJbxAAAA:8
+ a=IpJZQVW2AAAA:8 a=EUspDBNiAAAA:8 a=wq2r3B8GeWDWek6aAFgA:9
+ a=kacYvNCVWA4VmyqE58fU:22 a=IawgGOuG5U0WyFbmm1f5:22
+X-Proofpoint-ORIG-GUID: qljsYoUIkGsD25OWn2FNIbA8r6-ih4pw
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-23_02,2026-02-20_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1015 priorityscore=1501 adultscore=0 bulkscore=0
+ lowpriorityscore=0 suspectscore=0 malwarescore=0 spamscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602230094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_025723_785581_BFA7FC7B 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20260223_025725_971152_B0CBFEE2 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,138 +154,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Commit e2c58cbe3aff ("pinctrl: rockchip: Simplify locking with
+scoped_guard()") added a scoped_guard() over existing code containing a
+"break" instruction.  That "break" was for the outer (existing)
+for-loop, which now exits inner, scoped_guard() loop.  If GPIO driver
+did not probe, then driver will not bail out, but instead continue to
+configure the pin.
 
-2026. 02. 21. 19:31 keltezéssel, Krzysztof Kozlowski írta:
-> On 21/02/2026 19:21, Gabor Juhos wrote:
->> +
->> +description: |
->> +  This device tree node should be used on Turris Mox, or potentially
->> +  another A3700 compatible device running the Mox's rWTM firmware in
->> +  the secure processor (for example it is possible to flash this
->> +  firmware into EspressoBin).
->> +
->> +properties:
->> +  compatible:
->> +    oneOf:
->> +      - const: marvell,armada-3700-rwtm-firmware
->> +
->> +      - items:
->> +        - const: marvell,armada-3700-rwtm-firmware
-> 
-> This makes little sense. How this can be alone and followed by fallback?
+Fix the issue by simplifying the code - the break in original code was
+leading directly to end of the function returning 0, thus we can simply
+return here rockchip_pinconf_defer_pin status.
 
-I admit that this is quite messy, but let me describe the current situation in
-detail.
+Reported-by: David Lechner <dlechner@baylibre.com>
+Closes: https://lore.kernel.org/r/f5b38942-a584-4e78-a893-de4a219070b2@baylibre.com/
+Fixes: e2c58cbe3aff ("pinctrl: rockchip: Simplify locking with scoped_guard()")
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Originally both the dt-bindings documentation and the 'turris-mox-rwtm' driver
-have used the 'cznic,turris-mox-rwtm' compatible alone.
+---
 
-In commit 90ae47215de3 ("firmware: turris-mox-rwtm: add
-marvell,armada-3700-rwtm-firmware compatible string") a new compatible string
-'marvell,armada-3700-rwtm-firmware' has been added to the driver.
+Offending commit was introduced in v7.0-rc1
 
-Additionally, in commit 3a52a48973b3 ("arm64: dts: marvell: armada-37xx: move
-firmware node to generic dtsi file") added a node to the Armada 37xx SoC dtsi
-file which uses only 'marvell,armada-3700-rwtm-firmware' as compatible. In the
-same commit the 'armada-3720-turris-mox.dts' file has been modified to use both
-compatible strings, and the 'cznic,turris-mox-rwtm'  has been chosen to be the
-fallback.
+I also checked few other of my commits for similar error.
+---
+ drivers/pinctrl/pinctrl-rockchip.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
-Unfortunately, none of the commits above updated the original dt-binding
-documentation, so it is out of date since more than 4 years.
-
-In short, the driver handles both compatibles equally, none of those are a
-fallback of the other one. And in the existing in-kernel dts files, the
-compatible is specified in the following forms:
-  "marvell,armada-3700-rwtm-firmware", "cznic,turris-mox-rwtm"
-or
-  "marvell,armada-3700-rwtm-firmware" alone
-
-The dt-schema is based on these facts in order to avoid new 'dtbs_check'
-warnings, even if this is not the optimal/best approach.
-
-> Plus adding new compatible has to be explicit in commit msg, including
-> the reason (existing users).
-> 
->> +        - const: cznic,turris-mox-rwtm
-> 
-> Anyway, not tested. Please test your patches BEFORE you send them. I
-> finished review here because of that.
-
-Sorry about wasting your time. This is my first schema and I have missed the
-'yamllint' warning indicated by Rob's bot in the other mail.
-
-Nevertheless, I have tested the patch before sending, along with several different
-versions besides the current one.
-
-Without the patch 'make dtbs_check' throws the following warnings:
-
-  arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm']
-  arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm']
-  arch/arm64/boot/dts/marvell/armada-3720-db.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware']
-  arch/arm64/boot/dts/marvell/armada-3720-eDPU.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware']
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware']
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin-emmc.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware']
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware']
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin-v7.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware']
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin-v7-emmc.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware']
-  arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware']
-  arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm']
-  arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm']
-  arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtb: /firmware/armada-3700-rwtm: failed to match any schema with compatible: ['marvell,armada-3700-rwtm-firmware']
-
-Below are the results of testing different compatible rules.
-
-  properties:
-    compatible:
-      const: cznic,turris-mox-rwtm
-
-  arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible:0: 'cznic,turris-mox-rwtm' was expected
-  arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm'] is too long
-  arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible:0: 'cznic,turris-mox-rwtm' was expected
-  arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm'] is too long
-
-  properties:
-    compatible:
-      const: marvell,armada-3700-rwtm-firmware
-
-  arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm'] is too long
-  arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm'] is too long
-
-  properties:
-    compatible:
-      enum:
-        - marvell,armada-3700-rwtm-firmware
-        - cznic,turris-mox-rwtm
-
-  arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm'] is too long
-  arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware', 'cznic,turris-mox-rwtm'] is too long
-
-  properties:
-    compatible:
-      items:
-        - const: marvell,armada-3700-rwtm-firmware
-        - const: cznic,turris-mox-rwtm
-
-  arch/arm64/boot/dts/marvell/armada-3720-db.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware'] is too short
-  arch/arm64/boot/dts/marvell/armada-3720-eDPU.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware'] is too short
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin-emmc.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware'] is too short
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware'] is too short
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin-v7-emmc.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware'] is too short
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin-v7.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware'] is too short
-  arch/arm64/boot/dts/marvell/armada-3720-espressobin.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware'] is too short
-  arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware'] is too short
-  arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtb: armada-3700-rwtm (marvell,armada-3700-rwtm-firmware): compatible: ['marvell,armada-3700-rwtm-firmware'] is too short
-
-
-I wanted to get rid of all warnings, so I ended up with the current patch.
-
-Do you have any suggestion about what would be the acceptable solution to clean
-up the current mess?
-
-
-Regards,
-Gabor
+diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl-rockchip.c
+index 816823403e97..4f2e02322508 100644
+--- a/drivers/pinctrl/pinctrl-rockchip.c
++++ b/drivers/pinctrl/pinctrl-rockchip.c
+@@ -3640,14 +3640,10 @@ static int rockchip_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+ 			 * or the gpio driver hasn't probed yet.
+ 			 */
+ 			scoped_guard(mutex, &bank->deferred_lock) {
+-				if (!gpio || !gpio->direction_output) {
+-					rc = rockchip_pinconf_defer_pin(bank,
+-									pin - bank->pin_base,
+-									param, arg);
+-					if (rc)
+-						return rc;
+-					break;
+-				}
++				if (!gpio || !gpio->direction_output)
++					return rockchip_pinconf_defer_pin(bank,
++									  pin - bank->pin_base,
++									  param, arg);
+ 			}
+ 		}
+ 
+-- 
+2.51.0
 
 
