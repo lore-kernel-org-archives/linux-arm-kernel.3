@@ -4,125 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F441EA4FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 13:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39CCEA4FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 13:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=md098YYleEgWPR5h6+XVqGymvzDlPQ9YNmH0A44q+gQ=; b=os47wCI0coJxPouSFPRK+5rMnY
-	n5L+9qMGTvBoSBBiE9HRA37RBmmtBAw1wzlWFanc+Q589WQWCBvyckxlEoCmdEbrszXGUfLoWsYg0
-	NjqCV1yazWYL+nUQUpp6DiOVQcO1gw6iKiyMtQLi4wB7+lehpQIncj414AGXdtewL6zd1LlFvi4ZE
-	ADIEpWdOuaDHSV1dy5U/CxaX92KcSijhgiaQaWoRJkNgTEm57fHxEzoPV/iB6M63Vd9f46Xoc2xng
-	GQ3E/NBbqjgIxiOHtlAbvex66FeD1BTZVmo1G/Jk4UfeY75g6A6yV5F1W5urXefCvw4BZs/ugvXgy
-	QNWELbqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6vA5UOpm3q2+AO9sD6crc4wqaZSe1Osa8Q9jsyvZpLY=; b=uJLkADccHc7hOE1N3D+meW64QI
+	ryEEut5EHhdLZPBUZNh92wsa2WZ5tfARVvvS6QGIOKhrQ+3T+2BuLQVBenKjUSxjQcucr9iP8H+T+
+	J+sF1TWhreawA7dpvVL4IHejQlLg9f7UzIJYA6TN8gY3FFvMsFMsddtTzB8AvAoQmrxdeQDcwfdCB
+	0iG/17rcj8GV4toNutctju70Gq7Y904wQRvXxu3gEedy98wR02RUd8ckIzgmvPeIJpHwrrl7hEo45
+	vEeBehWBgyMnbHo+ZOthLxz2gtqrkJ7Cbul6c3Tm1gc10rVE9LYvuafijkUFXU9BM1XnFpPyfWssS
+	yBuVeh3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuVm0-00000000Kzd-1S0B;
-	Mon, 23 Feb 2026 13:14:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vuVoY-00000000LIf-3syY;
+	Mon, 23 Feb 2026 13:17:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuVlw-00000000KyC-1kqj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 13:14:48 +0000
+	id 1vuVoW-00000000LI1-2ii6;
+	Mon, 23 Feb 2026 13:17:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 80D6260054;
-	Mon, 23 Feb 2026 13:14:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BD52C19424;
-	Mon, 23 Feb 2026 13:14:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9D1A543E29;
+	Mon, 23 Feb 2026 13:17:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3506DC116C6;
+	Mon, 23 Feb 2026 13:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771852487;
-	bh=8DwFT3SzJIRBOZObvA0LRL2zBy3gdn77newiUsk86b8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oL+F96VgfcBJOcHfWjY8OCc7DLRkYL7rvRqvfYaO4zTIWo1qqarm2/KV6YX7QAbox
-	 FM2GZNvfkXO4u1jSmYon1GBy3oC/yas5NKZob5V2/AehahvUA9cFfgFGH/dkGl8uK5
-	 wJujyp/6kO4AlGE7tYKZcnqhSvhqPDDWy/VjYEhPRsBKhT0rrGWgVUpjIVpwY42uQg
-	 THt3FZPxXS27POM6ejDcFCGJZY7H0OpaMrqJsezbDdELEbq8EBCdN2S7IpYLiBYGrh
-	 nCMy7lHyiFv07LSeUEFdq0J3knzGvrHNXO8stz1M37gY2C1+9WwzDjOR9vaI0pq2SL
-	 QCIdNPZWUYj8g==
-Message-ID: <fe755e85-1558-4272-bdd4-af7a2038ab1f@kernel.org>
-Date: Mon, 23 Feb 2026 14:14:39 +0100
+	s=k20201202; t=1771852647;
+	bh=Gdqiq6jhk1akgvEa8JTZ01N6RvxkZkAoBZ5gq9Mj20A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=i9yaNaGYQHZdU1J+8dALnlTUYIEnZB81u2l83VVV/QParVAAsU6RGdvZ4BakIuv32
+	 eOlNm/0r/UFwfKVyuZzwdKP8U6QfZHU3eiFXtKhIWsFcveTE7VpRQmLamLgjTyP3qV
+	 4RDOddLAb8a+K8msBjq9r+dCYNfbescImkRdeP6y6WHGRieGIUBIV7K8yDKP27C7Fx
+	 au27EEK4XKzllxoLwgSQG/+iVveLb6dm/8bHs0m9eVQrfxnJUKIG52tyT66MarVVqm
+	 J1vNAyOy6uIC32RNGT2dJxGQDjzcgM0Ahv/xhvXSVkiN9Pz0TLvJumy089N7loZVa7
+	 GwdxTlSlByXjw==
+Date: Mon, 23 Feb 2026 20:58:52 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: use runtime constant to optimize
+ handle_arch_irq access
+Message-ID: <aZxPDBLpTm4yHQWY@xhacker>
+References: <20260220090922.1506-1-jszhang@kernel.org>
+ <20260220090922.1506-4-jszhang@kernel.org>
+ <aZxOe_1XGX_gGOoK@J2N7QTR9R3>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
- module
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
- devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
- Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- "Vincent Guittot devicetree @ vger . kernel . org"
- <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
- <20260121021913.GA1704619-robh@kernel.org>
- <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
- <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
- <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
- <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
- <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aZxOe_1XGX_gGOoK@J2N7QTR9R3>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260223_051728_725067_25362AD6 
+X-CRM114-Status: GOOD (  25.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,88 +79,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/02/2026 12:51, Khristine Andreea Barbulescu wrote:
-> On 2/20/2026 4:41 PM, Krzysztof Kozlowski wrote:
->> On 20/02/2026 15:36, Khristine Andreea Barbulescu wrote:
->>> Hello Krzysztof,
->>>
->>> On 2/20/2026 12:16 PM, Krzysztof Kozlowski wrote:
->>>> [You don't often get email from krzk@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->>>>
->>>> On 19/02/2026 12:36, Khristine Andreea Barbulescu wrote:
->>>>>>
->>>>>>> +      reg:
->>>>>>> +        maxItems: 1
->>>>>>
->>>>>> You have 'reg' so the node name should have unit-address.
->>>>>>
->>>>>> However, there's not any real DT resources in this child node, so you
->>>>>> should just drop it.
->>>>>>
->>>>>
->>>>> For context, SIUL2 exposes a set of platform‑capability and SoC identification registers that are split across the two discontiguous ranges: SIUL2-0 and SIUL2-1. These registers are the source of SoC information (e.g. identification and capability flags) that other subsystems are expected to consume (e.g. PCI Express). Because those fields are physically divided between the two SIUL2 ranges, consumers need reliable access to both ranges to correctly discover and configure the platform.
->>>>>
->>>>> Hence, my proposal is to keep the two 'syscon' child nodes.
->>>>
->>>> Please wrap your replies correctly, so this will be easily parseable.
->>>>
->>>> I do not understand the reasoning. If you have two register ranges, you
->>>> have two <reg> entries and having a child node has nothing to do with it.
->>>>
->>>
->>> I’ve reorganized the SIUL2 node with two syscon subnodes for the two
->>> register regions used to read system info, and a separate
->>> pinctrl/GPIO child (as discussed in the v8 06/10 thread [0]). The parent
->>> SIUL2 node now carries the bus addressing and ranges:
->>
->> That's not the answer to the comment. Read again:
->>
->> 1. Reviewer: No resources, so no separate node.
->> 2. Your answer: some soc capability and two address spaces
->> 3. Reviewer: Does not matter, address spaces can go again to original place
->> 4. Irrelevant reply.
->>
->> So again, read the first comment - do you have dedicated resources in
->> children?
->>
->>>  
->>>     siul2: siul2@4009c000 {
->>>         compatible = "nxp,s32g3-siul2", "nxp,s32g2-siul2";
->>>         #address-cells = <1>;
->>>         #size-cells = <1>;
->>>         ranges = <0x4009c000 0x4009c000 0x179c>,
->>> 		 <0x44010000 0x44010000 0x17b0>;
->>>  
->>>         siul20: siul20@4009c000 {
->>>             compatible = "nxp,s32g-siul2-syscfg", "syscon";
->>>             reg = <0x4009c000 0x179c>;
->>
->> 0x179c is odd size. Looks fake.
->>
->>
->>>         };
->>>  
->>>         siul21: siul21@44010000 {
->>>             compatible = "nxp,s32g-siul2-syscfg", "syscon";
->>
->> And two same devices with same compatible proof it.
->>
->> Best regards,
->> Krzysztof
+On Mon, Feb 23, 2026 at 12:56:27PM +0000, Mark Rutland wrote:
+> On Fri, Feb 20, 2026 at 05:09:22PM +0800, Jisheng Zhang wrote:
+> > Currently, on arm64 platforms, the handle_arch_irq is a pointer which
+> > is set during booting, and every irq processing needs to access it,
+> > so it sits in hot code path. We can use the runtime constant mechanism
+> > which was introduced by Linus to speed up its accessing.
+> > 
+> > Tested on Quad CA55 platform, the perf sched benchmark is improved
+> > by ~6.5%
 > 
-> We don’t have dedicated resources for children. In particular,
+> That is a surprisingly large impact. :/
+> 
+> Does this meaningfully actually affect any real workload?
 
-Then previous comments/review stay.
+all irqs' processing is improved to this extent. The perf sched
+bench(an existing and good benchmark to measure IPI) is used to
+show how much will be the improvement.
 
-> there are no resources allocated specifically for nodes like
-> "nxp,s32g-siul2-syscfg". Their consumers are the pinctrl/gpio
-> driver and other drivers that read SoC‑specific information from
-> those shared registers.
->  
-> My alternative is to keep two separate syscon providers for the
+> 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/arm64/kernel/entry-common.c | 4 +++-
+> >  arch/arm64/kernel/irq.c          | 9 ++++++---
+> >  2 files changed, 9 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> > index 3625797e9ee8..46a4c012e15f 100644
+> > --- a/arch/arm64/kernel/entry-common.c
+> > +++ b/arch/arm64/kernel/entry-common.c
+> > @@ -25,6 +25,7 @@
+> >  #include <asm/kprobes.h>
+> >  #include <asm/mmu.h>
+> >  #include <asm/processor.h>
+> > +#include <asm/runtime-const.h>
+> >  #include <asm/sdei.h>
+> >  #include <asm/stacktrace.h>
+> >  #include <asm/sysreg.h>
+> > @@ -139,7 +140,8 @@ static void do_interrupt_handler(struct pt_regs *regs,
+> >  	set_irq_regs(old_regs);
+> >  }
+> >  
+> > -extern void (*handle_arch_irq)(struct pt_regs *);
+> > +extern void (*_handle_arch_irq)(struct pt_regs *);
+> > +#define handle_arch_irq runtime_const_ptr(_handle_arch_irq)
+> >  extern void (*handle_arch_fiq)(struct pt_regs *);
+> 
+> We should treat handle_arch_irq and handle_arch_fiq the same way. Either
+> both get this, or neither do.
+> 
+> >  static void noinstr __panic_unhandled(struct pt_regs *regs, const char *vector,
+> > diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+> > index 15dedb385b9e..30629c183606 100644
+> > --- a/arch/arm64/kernel/irq.c
+> > +++ b/arch/arm64/kernel/irq.c
+> > @@ -23,6 +23,7 @@
+> >  #include <asm/daifflags.h>
+> >  #include <asm/exception.h>
+> >  #include <asm/numa.h>
+> > +#include <asm/runtime-const.h>
+> >  #include <asm/softirq_stack.h>
+> >  #include <asm/stacktrace.h>
+> >  #include <asm/vmap_stack.h>
+> > @@ -84,15 +85,17 @@ static void default_handle_fiq(struct pt_regs *regs)
+> >  	panic("FIQ taken without a root FIQ handler\n");
+> >  }
+> >  
+> > -void (*handle_arch_irq)(struct pt_regs *) __ro_after_init = default_handle_irq;
+> > +void (*_handle_arch_irq)(struct pt_regs *) __ro_after_init = default_handle_irq;
+> > +#define handle_arch_irq runtime_const_ptr(_handle_arch_irq)
+> 
+> This breaks the default case, since handle_arch_irq is initialized to a
+> bunch of garbage hex bytes (0x0123456789abcdef).
+> 
+> That means that if set_handle_irq() isn't called, an IRQ will result in
+> a call to that bogus address rather than default_handle_irq(), which'll
+> be more difficult to debug.
 
-You got review already.
+Oops, you're right. If runtime constants is chosen, I will address this
+comment. While Thomas suggested static call instead. I found you
+concerned with the arm64's static call implementation 5 years ago, I
+mentioned this in another email a few seconds ago. Could you plz comment
+the thread?
 
-Best regards,
-Krzysztof
+> 
+> Mark.
+> 
+> >  void (*handle_arch_fiq)(struct pt_regs *) __ro_after_init = default_handle_fiq;
+> >  
+> >  int __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
+> >  {
+> > -	if (handle_arch_irq != default_handle_irq)
+> > +	if (_handle_arch_irq != default_handle_irq)
+> >  		return -EBUSY;
+> >  
+> > -	handle_arch_irq = handle_irq;
+> > +	_handle_arch_irq = handle_irq;
+> > +	runtime_const_init(ptr, _handle_arch_irq);
+> >  	pr_info("Root IRQ handler: %ps\n", handle_irq);
+> >  	return 0;
+> >  }
+> > -- 
+> > 2.51.0
+> > 
+> > 
 
