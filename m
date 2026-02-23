@@ -4,106 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E754DEA4FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA1EEA4FB2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 12:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nWjwnS5nyC5gSG8UutEgk3IzL8z2OXssI39FR/MoAKU=; b=g+LvmF3OdoFI2ouH6ZKBk/CMjb
-	onBezjZxECcH4FafGxC9GWM7KxtdksWy4fvPEOzU9OZq9e+FwGU1n4bHb45Yw24XwXgZcOG0Qaozu
-	RlWWOjw5N4EPlAdRrdDrc6lV8oIJlCa9/cncpx9VQYeQAou7h2TKhxyDInSMhKXythGl5C+0m6oV8
-	FDWtQbnEbQ+PiJD+cwwQZPZJlMsAzendRPaqQQGVdQBUCMSoyVHCWmWHXM/XjK5CsN3wMiWrvBIWr
-	pvdi9nZ06auVw0t/7oespJK+lzQGCc4oNQRka0R/tct6PtQefYv8i74eKIdctOyXaqXRuH8iCCWVI
-	tqs0BoQg==;
+	bh=UdFqhD5LZktUthfUhKn22Gtw8dIvqWt5ob2f7Qi3d0s=; b=0sYTfx2l9HJgqSdjN8oKGalFC3
+	uWNrs4PhqcZQA5OaHJUzYubf/2Zs4KpyFBPCMwZZPG/a5BUdXvkLDgcTrkNo60Kri+0JnRxLyEH2S
+	l0noqY+l53DTupKF9sCxNbuzIoQO8yEYbhRQ7zNrkd6GPQeVS+WtK93ZXHEFJeQSGMfAbYmFuPWC1
+	fMVLgzoaRi6rkXdu+AZVk3Zr0esVkY2oRovLDm39ftL9RgvZ8OAShb7Z2qsYZ2q6HhJwNuINXOBVe
+	l7NbURfXKWt4f9Cfj5QOa3/S/uxN9D1UpXYC1fjgsGfdggF406916P/UVjRn1EzVoQGz98hgkmvD8
+	Fdwm7CZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUVM-00000000ECL-47c0;
-	Mon, 23 Feb 2026 11:53:36 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1vuUd1-00000000FGj-1UeT;
+	Mon, 23 Feb 2026 12:01:31 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUVH-00000000E6Y-1Eqo;
-	Mon, 23 Feb 2026 11:53:32 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61MKtQnQ2466391;
-	Mon, 23 Feb 2026 11:53:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=nWjwnS5nyC5gSG8Uu
-	tEgk3IzL8z2OXssI39FR/MoAKU=; b=tLTpGLjXfHeQ9VhsQJOz6Swx+T2j7lI3l
-	ejzXMx7VxaUcALuEKourvGVFKVCQGCPvXCYEjDh3bA9jaYlQu+pJ+MW2rpN+VUi3
-	cFM3cTa8sBkT0Rwp6kc/vFsV3aCHklymtxLq+y83hKjyRZ6OLdgLeipaqcoeAhUk
-	aXJIRhb96s0iWEJKL9b9EXtZR3TVnaTOi/RUT25P4jMHqyQPpWY4AhEhyPXiH9F1
-	bQ5p0P0Ts2ewq955MtrJaNfBfArOoF9etO4HL9Q/SiyI1+HLoVIciQwG2VDtDB8s
-	+6ljT8VG73J77l+jhG5+mde/OSgh6bu3D33xOiOuYTzKU0Sta8+bw==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cf4e36xd5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Feb 2026 11:53:19 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61N9uCYD015970;
-	Mon, 23 Feb 2026 11:53:18 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4cfq1scq12-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Feb 2026 11:53:18 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61NBrG1322086076
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Feb 2026 11:53:16 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8FF6D2004E;
-	Mon, 23 Feb 2026 11:53:16 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 62E6F2004B;
-	Mon, 23 Feb 2026 11:53:16 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Mon, 23 Feb 2026 11:53:16 +0000 (GMT)
-Received: by tuxmaker.boeblingen.de.ibm.com (Postfix, from userid 55669)
-	id 457A5E0B74; Mon, 23 Feb 2026 12:53:16 +0100 (CET)
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-s390@vger.kernel.org, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, x86@kernel.org
-Subject: [PATCH 3/4] s390/pgtable: Add s390 support for page table check
-Date: Mon, 23 Feb 2026 12:53:15 +0100
-Message-ID: <37fac4caa57e4509ea2f0aaecf1e2140db0b6cec.1771845678.git.agordeev@linux.ibm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1771845678.git.agordeev@linux.ibm.com>
-References: <cover.1771845678.git.agordeev@linux.ibm.com>
+	id 1vuUcx-00000000FGL-38kz
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Feb 2026 12:01:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I/f4vjFYhkXjJPcpQGCkhnXPXrixIAti22m7njsFiSP4kZeku/v3HVvfld0+2RLyQaIzMDOMajT952W78cPhy/Mvb3EazpMYfqLTN+iYUKJ0yUn1cAQmb/Mmi1asPus++IJJECPekCh5e5GtpCrrNgdch/w8b+oWH6rx2zsyAbbhwcYjaxCVjZ8BlpxK6EU/y5GoVyjNU1tQ7fkjSUraMW+0vXG4U1tVk3Ajir/4z0DyIS43iIJ/4b82QOOLOGA6I+opjpe9Yrx2GqnfuBIRUw04MXcPEE/SGU4SUioeKfPk97dfffvTzYHXak2zZMC6U0L9dkn0Dks4K2AWCeFVsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UdFqhD5LZktUthfUhKn22Gtw8dIvqWt5ob2f7Qi3d0s=;
+ b=lzju7HQK2mpJ/z599JtddUHhSlxfFV18so8hqEvJCr4yx8nvgNXezf9VncWPXlGx5xGKhayKFZa3TUjr70lm76N9IOxgmP9DuuZHI0i2/VcItXiRpc2yt8h8Jh9PYz422DH9gUxZX8QxYblL8aspVAvlCZkUI49avlxH/ENMEtP0mSPzohf+Zvxnjqlm7n7oomT32DtKQCVkv3exUvrpm4x/PJL3qRrdZNlPyu400N1oZfdyj47JC2JFs8zzCMBgHQiJ7EN7sIQ8NCo9jLR6Q0C6RlUevCrLQGzPCMJ/AE+5uVQCMYNq7Zfhy6QZ34nPCstBERomI8QnlVQl8Pxz0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UdFqhD5LZktUthfUhKn22Gtw8dIvqWt5ob2f7Qi3d0s=;
+ b=QzFb364ivyljLJs1W06SH/vleGFY9TCaYg6ioqsMAkU2mOd632cNGazczskLjAOk2HNLsvkqZtozM53EEqE6Z5N1hXuA8vSKKZ6/VmL60ywdUes3WC2XjcIs5gciuBPdonxjS7Ioi9WguHTroAcmiuSELhYaRNoZ3hj3DiBK9DM=
+Received: from BN1PR12CA0015.namprd12.prod.outlook.com (2603:10b6:408:e1::20)
+ by BN0PR10MB4997.namprd10.prod.outlook.com (2603:10b6:408:12b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.21; Mon, 23 Feb
+ 2026 12:01:21 +0000
+Received: from BN1PEPF00006001.namprd05.prod.outlook.com
+ (2603:10b6:408:e1:cafe::c) by BN1PR12CA0015.outlook.office365.com
+ (2603:10b6:408:e1::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.21 via Frontend Transport; Mon,
+ 23 Feb 2026 12:01:15 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN1PEPF00006001.mail.protection.outlook.com (10.167.243.233) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9632.12 via Frontend Transport; Mon, 23 Feb 2026 12:01:19 +0000
+Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Feb
+ 2026 06:01:19 -0600
+Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Feb
+ 2026 06:01:19 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 23 Feb 2026 06:01:19 -0600
+Received: from [172.24.231.225] (a0507033-hp.dhcp.ti.com [172.24.231.225])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61NC1EnR732929;
+	Mon, 23 Feb 2026 06:01:15 -0600
+Message-ID: <385fee0b-5cc5-4fca-a109-47c47ecae6d4@ti.com>
+Date: Mon, 23 Feb 2026 17:31:14 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=XMs9iAhE c=1 sm=1 tr=0 ts=699c3faf cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22
- a=GgsMoib0sEa3-_RKJdDe:22 a=VnNF1IyMAAAA:8 a=lBuVlAIgDHgG38O_heoA:9
-X-Proofpoint-GUID: spHIFTylbS-xflTQGj1X6_zvqoMmN6is
-X-Proofpoint-ORIG-GUID: spHIFTylbS-xflTQGj1X6_zvqoMmN6is
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjIzMDA5OSBTYWx0ZWRfX11ji3mvfr+dr
- 1WOThvYWtKMCeV7WQxJ19tU2zRTf2vFWKqcoNcOSlBLGBrNKRQNKMIoGeThg2rRvSillpKq6LWi
- vmWKbmf8LQuDqah8yWT4p3IkOTAD6/48lG2xSilgr6necM3XGkmtGHfEJhzk8dLLgZY+rHXx+RK
- iU+EMRup8Bi8vs5VI66urd3kWlZ2y/6cbngcgcaVGmvYfgGY4vWFPVB0x7+1tQlV66LFTUC7S7W
- AFFef/lMTJj3yzmlMLEvkXH7khR03NJ9OtYlHtFOP1JNTcpp1xNuorS2HzEJexwyHol4CA+uRHE
- woYKbTysohZtqw+qdGmxla1PfO40ldbDnTb4q806DDDbhI03tVS51hLIJoxcQlIDYaZ769eQDLr
- qQmiW0hVhnr8ZF/qyXRBAsYT5rf/KK2cQSLGkMfHMBLMNh8PLZfZm0XVMPXrsxkze3DNio4EIX5
- l0e1oGf3sGBSjDD9ifw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-23_02,2026-02-20_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0 suspectscore=0
- clxscore=1015 adultscore=0 spamscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602230099
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable the Keystone PCIe host and
+ endpoint driver
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	<geert+renesas@glider.be>, <bjorn.andersson@oss.qualcomm.com>,
+	<arnd@arndb.de>, <nm@ti.com>, <ebiggers@kernel.org>, <michal.simek@amd.com>,
+	<luca.weiss@fairphone.com>, <sven@kernel.org>,
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	<kuninori.morimoto.gx@renesas.com>, <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, <s-vadapalli@ti.com>, <danishanwar@ti.com>
+References: <20260223104650.876632-1-a-garg7@ti.com>
+ <abcaae3e-c0ec-4e83-9ec1-016f36212084@oss.qualcomm.com>
+ <824b8e89-29b5-4313-83dd-141d97451b82@ti.com>
+ <a7784864-5f9d-4403-ad66-841682315049@oss.qualcomm.com>
+Content-Language: en-US
+From: Aksh Garg <a-garg7@ti.com>
+In-Reply-To: <a7784864-5f9d-4403-ad66-841682315049@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00006001:EE_|BN0PR10MB4997:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74184cb7-c4e3-4ce4-fbf4-08de72d341c0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|36860700013|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RmtHWEplOFRacHViOFJLbGFnZktGQmFhNnU0RTVLd29qMmhnM3Z2b0xRcXFz?=
+ =?utf-8?B?Y0N1dFhXdytJYmdRdDE1K0lrcTJObnIxcFp4K2lWcmEwNGJPUDJhNXZrNG5Y?=
+ =?utf-8?B?L0pFSWFKaGlac25XNWxpdjkxS21WeExiNjY0MTErRFJOQ2UrOVQ4TkV0K1ls?=
+ =?utf-8?B?UElwN2FrWGlDaGhkTTJ4L3FMREwyRStGR2tXdERsb1pKUU44WTVtbzVsZjFJ?=
+ =?utf-8?B?SW1wbWhzMCtmYzFQYmEvQzVxSk9RVytCYnFTaXBhZmNuY1llckZDZ3RaYmta?=
+ =?utf-8?B?cXgzL0Rhb1l1aDgyRDYrRW9ZY2krQ0JEcFF2TzdvbG1FWXQzNm9HYnkvSitn?=
+ =?utf-8?B?UHpIbWRWLzZUTVloUnRJeXdlTDh4NjI2T1U1Qkx6ZDZMVHRNUUh0T1Q1Rll3?=
+ =?utf-8?B?YS90ZFd6K3lKTU1Hc01TdGdHV255ZDdFR1dOYzgxQTdnaHRCQzZSZkdzV3NV?=
+ =?utf-8?B?WXU0QlliLzlkSmxoZnNPUkE5UE85SzExU2VPR1BuQUNCWmFJU0tTUzBKcU55?=
+ =?utf-8?B?aHlmTjhPSlE4Qmw4Vm51cW5MUUkyUGpQcUNSZWFNM0poK210dkN0eVY1L2Rn?=
+ =?utf-8?B?SmRrY0Z5MEhrNHdoa1VYeXdFa2ExS3FkSUV1c2ttUCtzYU1COWtrc29CaGx0?=
+ =?utf-8?B?NG1NUDYvbCtWSW5aeE92bmxjeHQ3MHN1ZEZodUVvM2IwQWE0Mkc1QkJPa1gx?=
+ =?utf-8?B?Q0hmK01XbGtROGpyR0xhMk85eEU3Nno4UitVMzlnbTl3d21namtkc0QzODBz?=
+ =?utf-8?B?RHJVL2hEWUZlT0liTm1hcEFsS1hvaWRET2VOVmR2VkRSSzNNdWQ1d0ppYk9K?=
+ =?utf-8?B?K1MvZjc0dFZjRks0aFZDdUE0Z1Q0cHY0R2l0Qy9ncmF2L2VxaGZNa3UwQklk?=
+ =?utf-8?B?M1lldlVjcGRXNjBQV2FEcnpXcUh4OFgxQWpYazRSUk1QSnJVM2lmOUZxNFd3?=
+ =?utf-8?B?c0NXYmdobnJPOTdFNFhKbUdvSHg1bHRpOEpwMjRYbTlGd2lTSDJNdmR1Mk9t?=
+ =?utf-8?B?cFd2ME9tMXdwWkNkTXpYbmFrRDlZeHluS0hKN1JybkY0OU5QMVFIZjJYQWR3?=
+ =?utf-8?B?WUlTNTVDdjBqeCtRQmpyb0pTbk9oaWwzNGc5NXFsQmN4WCtRalcvMXNMU1lu?=
+ =?utf-8?B?M29XVzdaZUNUTitNL0F5aTNNRGQ3d1M2VGNqWWJXdXRTdytDZHRFRHpxbE0r?=
+ =?utf-8?B?UEQ5QTlhcDRjMGxWa2VVTjdWQUJNNnlMMmVYbERmazFPWnZ4R2U5Y2V6WGRB?=
+ =?utf-8?B?Smc5OTM4cFZXRjZBbklFVTFaSmtuT2NFOWpHMGNwRTcvd1k1NThESjdFcmQ0?=
+ =?utf-8?B?ZTBwbThld3k4ZTdkL2RPeXNSTWVNNjBhQnFwUHc2cjNWY243Tm0wV1dJSllN?=
+ =?utf-8?B?djhjdllxaW5UYllMUTJCWFkwaXhubEhCc21zYjhWbmJLSlBzMVFucDd1TW01?=
+ =?utf-8?B?ekY5VTdsYnZHYW9hRElpYUhsUEk3Q282VzdDZjZ1djZvZXJlZ1dWMXo1YnBh?=
+ =?utf-8?B?b09seXBEeVJ6MWdsYUx2OWFSMWp4L0VaMU5rZisvQ1pLZ3RqSmdraUwzWDRj?=
+ =?utf-8?B?Mi9veUZ3bGtZZUt5SThuWjcwMjc5cGxuYVdHb2ZRY1o5Vm5EK01LTWJtRnJl?=
+ =?utf-8?B?ZWIxV2gxTElNOWE3Zzc4QkdJTko0U1ZsSjhjYnYrZUxBajIxUWMxS09uc2hh?=
+ =?utf-8?B?ci9aUytkbFpwSkRuNWZFdk5OL0pPNHM2YjkzNi83TXA5bzB1OHZDVWxTRVAz?=
+ =?utf-8?B?NU5lY1hxT2Q4WVR6Nm5ldzg3R292QXFaRk00UFdJbnVSeTk0Wk1OV1lwbVJO?=
+ =?utf-8?B?NjBHSVhpN2hkWnN0Y1MvcnRXQzl4bEdZOHA2alZTa3VmSzlWU3ZrV3lKbkFz?=
+ =?utf-8?B?eVdIbnFJUnJjeVc0alNnekhPUzVRZWRTb1kza21mMUMxUVdEd1NYeGxjZUt0?=
+ =?utf-8?B?ckd5NUpwcm5NRThYMURYaU5waEFoa2Y0YTRoUGhUZGlRcVhiSk50ZUN3ZlpO?=
+ =?utf-8?B?ZlZoalhZTkgzZTM0Mys5Y3ZWZGNvMytvSU9aR3pTdytCUHY2Y1BnYzExMVFO?=
+ =?utf-8?B?RkVEdGI4Qkp3SG1hSjFzbmtwUVZzZ3l6NnNQNjlWeDF2Z2g0cnRtbEhUWi9Q?=
+ =?utf-8?B?OG9qQXQ0RC9qNi85SjZXYkNsUmJUR1FudlJzaVpOT1JsaytpY1BocHZjdXEr?=
+ =?utf-8?B?NVI3WGJpV09mN0xKWnNZOEFqQjVNZnJEaXlSL205engramRIeE1nTjV0MXhv?=
+ =?utf-8?B?ZnBEWUwrWXl1eWtDTmNPNERxNEpRPT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(36860700013)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: siIuYh4dDgRUeppRlzXaKG9G/31k3LoDkkgS2/h9UsmOJsEq+jinLP5McpF9QbMNT7yxFb/2mwKRM59iCDfSULe26EY3oz0LoTfkFJ5PRN+vniizc6YfXhE7QzruVKNXRa8ZLd/Xz0BKg9vx5bPe4Uz0jW9vFtkyQ9ZLvnpRWLR8YcZHl5ltmRtHgkTeff1I3N1rPk8YkxrBJ0A5AidVsO8kJ9N3nGl7z686eMieofkNdmHklBqgn/YQcEfD/PT9AW2pSsnxTVr+sUzwON05bQlo2yFUqO8KuCgzvDwp+kFoBTxEei7WNcUwWWZXZbVPgqc1tNe7Krrka2toLJex+bImvNgqT7V8HNZHZeqTInz68Jl9pxJc9xOji1kfK+EBPgW6qjVGxGvIe3s309S2KGYr6y1+T0MqR77q1qA1mNxPHNV1c8BUzAGBzuHHJ6UT
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Feb 2026 12:01:19.8904
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74184cb7-c4e3-4ce4-fbf4-08de72d341c0
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00006001.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB4997
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_035331_364618_DE6790A1 
-X-CRM114-Status: GOOD (  24.55  )
+X-CRM114-CacheID: sfid-20260223_040127_928990_184E7DEC 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,217 +175,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tobias Huschle <huschle@linux.ibm.com>
 
-Add page table check hooks into routines that modify user page
-tables.
 
-Unlike other architectures s390 does not have means to distinguish
-between kernel and user page table entries. Rely on the fact the
-page table check infrastructure itself operates on non-init_mm
-memory spaces only.
+On 23/02/26 16:55, Krzysztof Kozlowski wrote:
+> On 23/02/2026 12:17, Aksh Garg wrote:
+>>
+>>
+>> On 23/02/26 16:36, Krzysztof Kozlowski wrote:
+>>> On 23/02/2026 11:46, Aksh Garg wrote:
+>>>> Enable the PCIe Glue driver for Host and Endpoint mode of operation of
+>>>> the Designware PCIe controller in the Texas Instruments AM65 SoC.
+>>>>
+>>>> Signed-off-by: Aksh Garg <a-garg7@ti.com>
+>>>> ---
+>>>>    arch/arm64/configs/defconfig | 2 ++
+>>>>    1 file changed, 2 insertions(+)
+>>>
+>>> Why are you sending two separate patches one after another?
+>>>
+>>> Best regards,
+>>> Krzysztof
+>>
+>> As both the patches does not depend on each other, can independently be
+>> reviewed, and address different SoCs with different PCIe controllers, I
+>> thought it would be better to send them as two separate patches.
+> 
+> So twice more work for us? Why this cannot be one patch?
+> 
 
-Use the provided mm_struct to verify that the memory space is not
-init_mm (aka not the kernel memory space) indeed. That check is
-supposed to be succeeded already (on some code paths even twice).
+The only commonality between the patches is that they both enable PCIe
+drivers. However, the patch for J721E PCIe driver only enables the
+controller for EP mode, as Host mode is already present. On the other
+hand, the patch for Keystone PCIe driver enables both Host and EP mode
+of operation. Also as I mentioned, they belong to different SoCs with
+different PCIe controllers, so I chose to keep them separate.
 
-If the passed memory space by contrast is init_mm that would be an
-unexpected semantical change in generic code, so do VM_BUG_ON() in
-such case.
+If I squash both the patches, the subject like: "Enable PCIe drivers for
+TI SoCs" would be too generic, as TI would have more SoCs in the future.
+Hence, the squashed patch with this subject might mislead in future.
 
-Unset _SEGMENT_ENTRY_READ bit to indicate that pmdp_invalidate()
-was applied against a huge PMD and is going to be updated by
-set_pmd_at() shortly. The hook pmd_user_accessible_page() should
-skip such entries until that, otherwise the page table accounting
-falls apart and BUG_ON() gets hit as result.
+If you insist me squashing the patches, then would the following subject
+be acceptable: "Enable J721E and Keystone PCIe drivers" for the squashed
+patch?
 
-The invalidated huge PMD entry should not be confused with a PROT_NONE
-entry as reported by pmd_protnone(), though the entry characteristics
-exactly match: _SEGMENT_ENTRY_LARGE is set while _SEGMENT_ENTRY_READ is
-unset. Since pmd_protnone() implementation depends on NUMA_BALANCING
-configuration option, it should not be used in pmd_user_accessible_page()
-check, which is expected to be CONFIG_NUMA_BALANCING-agnostic.
-
-Nevertheless, an invalidated huge PMD is technically still pmd_protnone()
-entry and it should not break other code paths once _SEGMENT_ENTRY_READ
-is unset. As of now, all pmd_protnone() checks are done under page table
-locks or exercise GUP-fast and HMM code paths, which are expected to be
-safe against concurrent page table updates.
-
-Alternative approach would be using the last remaining unused PMD entry
-bit 0x800 to indicate that pmdp_invalidate() was called on a PMD. That
-would allow avoiding collisions with pmd_protnone() handling code paths,
-but saving the bit is more preferable way to go.
-
-Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
-Co-developed-by: Alexander Gordeev <agordeev@linux.ibm.com>
-Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
----
- arch/s390/Kconfig               |  1 +
- arch/s390/include/asm/pgtable.h | 54 ++++++++++++++++++++++++++++++---
- 2 files changed, 51 insertions(+), 4 deletions(-)
-
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index edc927d9e85a..7bda45d30455 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -154,6 +154,7 @@ config S390
- 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && CC_IS_CLANG
- 	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
- 	select ARCH_SUPPORTS_NUMA_BALANCING
-+	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
- 	select ARCH_SUPPORTS_PER_VMA_LOCK
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_CMPXCHG_LOCKREF
-diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgta=
-ble.h
-index 04ec9fee6498..67f5df20a57e 100644
---- a/arch/s390/include/asm/pgtable.h
-+++ b/arch/s390/include/asm/pgtable.h
-@@ -16,8 +16,10 @@
- #include <linux/mm_types.h>
- #include <linux/cpufeature.h>
- #include <linux/page-flags.h>
-+#include <linux/page_table_check.h>
- #include <linux/radix-tree.h>
- #include <linux/atomic.h>
-+#include <linux/mmap_lock.h>
- #include <asm/ctlreg.h>
- #include <asm/bug.h>
- #include <asm/page.h>
-@@ -1190,6 +1192,7 @@ static inline pte_t ptep_get_and_clear(struct mm_st=
-ruct *mm,
- 	/* At this point the reference through the mapping is still present */
- 	if (mm_is_protected(mm) && pte_present(res))
- 		WARN_ON_ONCE(uv_convert_from_secure_pte(res));
-+	page_table_check_pte_clear(mm, addr, res);
- 	return res;
- }
-=20
-@@ -1208,6 +1211,7 @@ static inline pte_t ptep_clear_flush(struct vm_area=
-_struct *vma,
- 	/* At this point the reference through the mapping is still present */
- 	if (mm_is_protected(vma->vm_mm) && pte_present(res))
- 		WARN_ON_ONCE(uv_convert_from_secure_pte(res));
-+	page_table_check_pte_clear(vma->vm_mm, addr, res);
- 	return res;
- }
-=20
-@@ -1231,6 +1235,9 @@ static inline pte_t ptep_get_and_clear_full(struct =
-mm_struct *mm,
- 	} else {
- 		res =3D ptep_xchg_lazy(mm, addr, ptep, __pte(_PAGE_INVALID));
- 	}
-+
-+	page_table_check_pte_clear(mm, addr, res);
-+
- 	/* Nothing to do */
- 	if (!mm_is_protected(mm) || !pte_present(res))
- 		return res;
-@@ -1327,6 +1334,7 @@ static inline void set_ptes(struct mm_struct *mm, u=
-nsigned long addr,
- {
- 	if (pte_present(entry))
- 		entry =3D clear_pte_bit(entry, __pgprot(_PAGE_UNUSED));
-+	page_table_check_ptes_set(mm, addr, ptep, entry, nr);
- 	for (;;) {
- 		set_pte(ptep, entry);
- 		if (--nr =3D=3D 0)
-@@ -1703,6 +1711,7 @@ static inline int pmdp_clear_flush_young(struct vm_=
-area_struct *vma,
- static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 			      pmd_t *pmdp, pmd_t entry)
- {
-+	page_table_check_pmd_set(mm, addr, pmdp, entry);
- 	set_pmd(pmdp, entry);
- }
-=20
-@@ -1717,7 +1726,11 @@ static inline pmd_t pmd_mkhuge(pmd_t pmd)
- static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long addr, pmd_t *pmdp)
- {
--	return pmdp_xchg_direct(mm, addr, pmdp, __pmd(_SEGMENT_ENTRY_EMPTY));
-+	pmd_t pmd;
-+
-+	pmd =3D pmdp_xchg_direct(mm, addr, pmdp, __pmd(_SEGMENT_ENTRY_EMPTY));
-+	page_table_check_pmd_clear(mm, addr, pmd);
-+	return pmd;
- }
-=20
- #define __HAVE_ARCH_PMDP_HUGE_GET_AND_CLEAR_FULL
-@@ -1725,12 +1738,17 @@ static inline pmd_t pmdp_huge_get_and_clear_full(=
-struct vm_area_struct *vma,
- 						 unsigned long addr,
- 						 pmd_t *pmdp, int full)
- {
-+	pmd_t pmd;
-+
- 	if (full) {
--		pmd_t pmd =3D *pmdp;
-+		pmd =3D *pmdp;
- 		set_pmd(pmdp, __pmd(_SEGMENT_ENTRY_EMPTY));
-+		page_table_check_pmd_clear(vma->vm_mm, addr, pmd);
- 		return pmd;
- 	}
--	return pmdp_xchg_lazy(vma->vm_mm, addr, pmdp, __pmd(_SEGMENT_ENTRY_EMPT=
-Y));
-+	pmd =3D pmdp_xchg_lazy(vma->vm_mm, addr, pmdp, __pmd(_SEGMENT_ENTRY_EMP=
-TY));
-+	page_table_check_pmd_clear(vma->vm_mm, addr, pmd);
-+	return pmd;
- }
-=20
- #define __HAVE_ARCH_PMDP_HUGE_CLEAR_FLUSH
-@@ -1748,7 +1766,12 @@ static inline pmd_t pmdp_invalidate(struct vm_area=
-_struct *vma,
-=20
- 	VM_WARN_ON_ONCE(!pmd_present(pmd));
- 	pmd =3D set_pmd_bit(pmd, __pgprot(_SEGMENT_ENTRY_INVALID));
--	return pmdp_xchg_direct(vma->vm_mm, addr, pmdp, pmd);
-+#ifdef CONFIG_PAGE_TABLE_CHECK
-+	pmd =3D clear_pmd_bit(pmd, __pgprot(_SEGMENT_ENTRY_READ));
-+#endif
-+	page_table_check_pmd_set(vma->vm_mm, addr, pmdp, pmd);
-+	pmd =3D pmdp_xchg_direct(vma->vm_mm, addr, pmdp, pmd);
-+	return pmd;
- }
-=20
- #define __HAVE_ARCH_PMDP_SET_WRPROTECT
-@@ -1783,6 +1806,29 @@ static inline int has_transparent_hugepage(void)
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-=20
-+#ifdef CONFIG_PAGE_TABLE_CHECK
-+static inline bool pte_user_accessible_page(struct mm_struct *mm, unsign=
-ed long addr, pte_t pte)
-+{
-+	VM_BUG_ON(mm =3D=3D &init_mm);
-+
-+	return pte_present(pte);
-+}
-+
-+static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsign=
-ed long addr, pmd_t pmd)
-+{
-+	VM_BUG_ON(mm =3D=3D &init_mm);
-+
-+	return pmd_leaf(pmd) && (pmd_val(pmd) & _SEGMENT_ENTRY_READ);
-+}
-+
-+static inline bool pud_user_accessible_page(struct mm_struct *mm, unsign=
-ed long addr, pud_t pud)
-+{
-+	VM_BUG_ON(mm =3D=3D &init_mm);
-+
-+	return pud_leaf(pud);
-+}
-+#endif
-+
- /*
-  * 64 bit swap entry format:
-  * A page-table entry has some bits we have to treat in a special way.
---=20
-2.51.0
+> 
+> Best regards,
+> Krzysztof
 
 
