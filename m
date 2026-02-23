@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A38E98E14
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7333EE98E14
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7h1ubOWGeOU8eh57jYCzivrtHqCZy9UTk9vrYhx9xY=; b=b3ONDaF80qv1SW+sdcpOhLIeg9
-	LMlIG980breXvTHMkD/1gd8rDuGq6pKWswUqbA88VZ9JUV+vn2YRte+2Z+oDazxlfrwz48ORNz3pX
-	88GTTTWEQnD7Sk4RlbcUFSWhcsAB5VN33AIymJ2XxJ3VO2A81JMF4qk1L/oWV0qUNhajUGTFUbbXR
-	cx5XBh+yb+FJ19ghX5W57EMBEgyBopuO2IQ8kCK8glovylYeM/A+FHD7E1QlRgVPFGtK9W7e1hZPQ
-	nv9jsVFTN1lEuqETdq70dbsJVm7DNpWfqLsFq0xZZ5talE3T1i1s1FnI8hU71+ESz3a1+OyrQwTnL
-	p1FrvqBw==;
+	bh=iYufON41haCPAAlB17VyKfqSryTL2wR1KeTBsoMTWuQ=; b=HZAkvIOTvT236H6jgCMsekLESj
+	CzS0v+UmYj24x+u6j1MyEoktmLltvedwqQBEXXkU1kprIK6X6IutXDqLYwg1AQvi5uUsahz0S3hQn
+	+6U9T8aOmfmov/zBpp2dQhgmbm20UaL+LL0U38pbTYkX+FUZ0+5a7Y36rnNMdIB51h1hG/rPNPJuu
+	SKm2tBO9FLTHhnzofRLDG0+9YzevGbSyNK3m+byeAuvSzFJ/xys+rq2f5TgqnqeWP8RYi7wmRbZnc
+	V+S6hwqrmc6xeYf9rXUpwcKuEH1lz7hheQv9kXnue48sefoh0ltG5VWgayHs+MATJwrZj/yqFUsg7
+	S7F0v/7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuT3O-000000002O2-1QQQ;
-	Mon, 23 Feb 2026 10:20:38 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vuT4a-000000002pE-2dJJ;
+	Mon, 23 Feb 2026 10:21:52 +0000
+Received: from mail-pf1-f179.google.com ([209.85.210.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuT3G-000000002IA-3uyY
+	id 1vuT4X-000000002o3-189F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 10:20:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1771842030; x=1803378030;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=XGUvf+KenQzk8k4vozQBvoxGs/tTB8x65xysSNH3uRc=;
-  b=2o7vaE95ZqUMIbez3UrvXpMPRVpd5yOfBaUtGNXr2Bkj8Uqv4OiOsJeO
-   h/k4wvkhmRcfnX0CZd2K0THz79uY8nQ8izFbHlhQyPemG4pWYwH8Fz9qX
-   UbW092Zw+HBv7wl0hsn74rYSqt2ym7NBnUfH/yB67A2ifQ6MzKfAfaNp9
-   uOUyPyJpa0cOFoU2DOGP5RDl7Jr4n0wxvZAKJ7ohXVACaKiPZvrMZcaw8
-   HGKX2gi3JY2XWImfkGihR4qTOChf2Sf5ICwLzfRudRnAOPkla9IRIMHV6
-   q0amIi18cdEZH6gqKI51A0W8+8hxP6OtCC1TiX0J10awL1rFQuh6iFit3
-   g==;
-X-CSE-ConnectionGUID: xLxJrVz4SA+TZ2kb8t2UqQ==
-X-CSE-MsgGUID: d6Eg9STLReWgxqckjEf6tw==
-X-IronPort-AV: E=Sophos;i="6.21,306,1763449200"; 
-   d="scan'208";a="220994672"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 03:20:29 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.35; Mon, 23 Feb 2026 03:20:00 -0700
-Received: from che-lt-i67131.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 23 Feb 2026 03:19:54 -0700
-From: Manikandan Muralidharan <manikandan.m@microchip.com>
-To: <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
-	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <lee@kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <manikandan.m@microchip.com>, Dharma Balasubiramani
-	<dharma.b@microchip.com>
-Subject: [PATCH v3 2/4] drm: atmel-hlcdc: configure LVDS PLL clock rate for LVDS Displays
-Date: Mon, 23 Feb 2026 15:49:18 +0530
-Message-ID: <20260223101920.284697-3-manikandan.m@microchip.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260223101920.284697-1-manikandan.m@microchip.com>
-References: <20260223101920.284697-1-manikandan.m@microchip.com>
+	Mon, 23 Feb 2026 10:21:52 +0000
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-824a9348603so1651041b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 02:21:48 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771842107; x=1772446907;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iYufON41haCPAAlB17VyKfqSryTL2wR1KeTBsoMTWuQ=;
+        b=gFKNPYat2uUXTgiXQVEw41JDYKNH9hmuSHHqTYbGCC9o+0VRfDso2kfq9pJAYzIrkn
+         Q5vLI9nC0RpNWTc1OOivT/H/Sg1qdTeZwbt4s5FrnzymaFulbGdBN5gutaeMT02jSwuO
+         oyF9TzhHUsSmvjnEyYlEsxwtqNpRVZTWqvsOgmUXb9Yj+9F3RUIcqgVuiLyOaN1v4qVY
+         xkIqFLFbv5SmoazpKfX60vMUGLDLM44i8ZpkeAyaGrA9mufwObOWL4HkXW52ACAqeCs8
+         XDsMChWpJAR94JPCBUy4E+eN1/lyx41VzMDjYAoFflNuxrcsBWxCjGj59qnCt4fOod/9
+         B9dw==
+X-Forwarded-Encrypted: i=1; AJvYcCX2uZMndV2DoJ1ZWXET1bP2T6+yMTW9pRwy2RwkJwjpCV0I2WUp69JelXNfQkdzGvuN6mb5UKlwP9IXE5e8PtOM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw37MkBqhTUmOOpGK3IHhxmtMAzPX5O/BkOGMe0kmsqeLz9U+IW
+	m1Yx7cPHeErSm16jVgDSDGMnaRrj2i9hARyMgrRZZm8XI9K5m5husSEMC2m0xrO9
+X-Gm-Gg: AZuq6aJmGcyDZoY8OoBtdWQQzusjeTYv2ow6T6gHkQyyJIH+h/g5dkV0zKNWUW0Kue3
+	bFuNSeCK59afh7G3VQCuLcXBa7dgz16khjwKTqalZgEkGHa+hWnbV83YVAlDWW42KarpziYFXN6
+	B5JIEhIRn0CFGLMCBFNpnX9GgnHEuIVrauiw6iBwtUUcNbmtp8A2A9NmCG+yRybhaQkPzZ9eUIk
+	JfD2J+onk/7U13lIR5QE0P5y3KflqrclAYf6lkTRai1hO0lH4tZ4gNLUNCniisV1D3JsNHhMs53
+	TVeAh4C2/UY7PkRjkrz3MlaClAxClu8EbRbeteLBiMVAEw2PWlI96FqXdLb/lkvqo6/gZwbB9v2
+	UPX7sPSmp+VfRZ+u2oHhoiWdHDoxqCQfMgbi0YX5IcliPiTRkegMjJ7LvRk7RaxzEdMVwWKGdep
+	7zl9jMSeuynEUc8bAGDY6gD2qoax5xltN1EFvBQi4N1h1CxFltcVNqJWFQI2er8v2GR2rYsA==
+X-Received: by 2002:aa7:9313:0:b0:7e8:4398:b36c with SMTP id d2e1a72fcca58-826daa86722mr6533153b3a.63.1771842107338;
+        Mon, 23 Feb 2026 02:21:47 -0800 (PST)
+Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com. [74.125.82.45])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-826dd68998bsm7978593b3a.16.2026.02.23.02.21.47
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Feb 2026 02:21:47 -0800 (PST)
+Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-126ea4e9694so5357681c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 02:21:46 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXmZVn5SDsTH8m9JUv6HczJkPySzACQl2/XAHszjFThIPZFmxOVxQCwxhjJnpEZ/q+lwRguUHGZCoPjKA9z3JbM@lists.infradead.org
+X-Received: by 2002:a05:6102:38d3:b0:5fd:8175:2eb7 with SMTP id
+ ada2fe7eead31-5feb30db471mr4509289137.34.1771841684922; Mon, 23 Feb 2026
+ 02:14:44 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <20260217212707.2450423-11-cassel@kernel.org> <20260217212707.2450423-12-cassel@kernel.org>
+ <aZTkLiUaMTC7H1kB@lizhi-Precision-Tower-5810> <81af7f88-b9c1-457f-9a21-a7b15a13d374@nvidia.com>
+In-Reply-To: <81af7f88-b9c1-457f-9a21-a7b15a13d374@nvidia.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 23 Feb 2026 11:14:33 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVTY=tV_3qq3gDuAHPjXnexT0Qq9SK39V-U2ACbvLRsaw@mail.gmail.com>
+X-Gm-Features: AaiRm52HvurLndDwor1bgpbfCcI9wH1Ckd1tYC4oQp0RsW6za3e41CkVlZ_fe6s
+Message-ID: <CAMuHMdVTY=tV_3qq3gDuAHPjXnexT0Qq9SK39V-U2ACbvLRsaw@mail.gmail.com>
+Subject: Re: [PATCH 1/9] PCI: endpoint: Introduce pci_epc_bar_type BAR_64BIT_UPPER
+To: Manikanta Maddireddy <mmaddireddy@nvidia.com>
+Cc: Frank Li <Frank.li@nxp.com>, Niklas Cassel <cassel@kernel.org>, 
+	Minghuan Lian <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Srikanth Thokala <srikanth.thokala@intel.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Marek Vasut <marek.vasut+renesas@gmail.com>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Koichiro Den <den@valinux.co.jp>, 
+	Damien Le Moal <dlemoal@kernel.org>, linuxppc-dev@lists.ozlabs.org, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_022031_040485_6D8FEA49 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20260223_022149_334668_9F14DEB8 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,103 +107,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dharma Balasubiramani <dharma.b@microchip.com>
+Hi Manikanta,
 
-As per datasheet, The LVDS PLL clock runs at 7 times the
-panel pixel clock.
-Set the LVDS PLL clock to eliminate the need of assiging
-them in the DT and fallback to sys_clk for non-LVDS displays
-with proper error handling.
+On Mon, 23 Feb 2026 at 04:57, Manikanta Maddireddy
+<mmaddireddy@nvidia.com> wrote:
+> On 18/02/26 3:27 am, Frank Li wrote:
+>
+> On Tue, Feb 17, 2026 at 10:27:07PM +0100, Niklas Cassel wrote:
+>
+> Add a pci_epc_bar_type BAR_64BIT_UPPER to more clearly differentiate
+> BAR_64BIT_UPPER from BAR_RESERVED.
+>
+> This BAR type will only be used for a BAR following a "only_64bit" BAR.
+>
+> This makes the BAR description more clear, and the reader does no longer
+> need to check the BAR type for the preceding BAR to know how to interpret
+> the BAR type.
+>
+> No functional changes.
+>
+> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+> ---
+>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>
+> Tested by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
 
-Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
----
-Changes in v3:
-- Rephrase commit message and comment block
+[...]
 
-Changes in v2:
-- Rephrase commit message and comment block
----
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c    | 36 ++++++++++++++++---
- 1 file changed, 32 insertions(+), 4 deletions(-)
+Please do not send HTML emails to the list, as they are rejected.
 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-index b075f291847f..26c9fbdfd871 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-@@ -100,7 +100,10 @@ static void atmel_hlcdc_crtc_mode_set_nofb(struct drm_crtc *c)
- 		drm_connector_list_iter_end(&iter);
- 	}
- 
--	ret = clk_prepare_enable(crtc->dc->hlcdc->sys_clk);
-+	if (crtc->dc->hlcdc->lvds_pll_clk)
-+		ret = clk_prepare_enable(crtc->dc->hlcdc->lvds_pll_clk);
-+	else
-+		ret = clk_prepare_enable(crtc->dc->hlcdc->sys_clk);
- 	if (ret)
- 		return;
- 
-@@ -187,7 +190,10 @@ static void atmel_hlcdc_crtc_mode_set_nofb(struct drm_crtc *c)
- 			   ATMEL_XLCDC_DPI : ATMEL_HLCDC_MODE_MASK),
- 			   cfg);
- 
--	clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
-+	if (crtc->dc->hlcdc->lvds_pll_clk)
-+		clk_disable_unprepare(crtc->dc->hlcdc->lvds_pll_clk);
-+	else
-+		clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
- }
- 
- static enum drm_mode_status
-@@ -243,7 +249,11 @@ static void atmel_hlcdc_crtc_atomic_disable(struct drm_crtc *c,
- 				    10, 1000))
- 		drm_warn(dev, "Atmel LCDC status register CLKSTS timeout\n");
- 
--	clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
-+	if (crtc->dc->hlcdc->lvds_pll_clk)
-+		clk_disable_unprepare(crtc->dc->hlcdc->lvds_pll_clk);
-+	else
-+		clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
-+
- 	pinctrl_pm_select_sleep_state(dev->dev);
- 
- 	pm_runtime_allow(dev->dev);
-@@ -256,15 +266,33 @@ static void atmel_hlcdc_crtc_atomic_enable(struct drm_crtc *c,
- {
- 	struct drm_device *dev = c->dev;
- 	struct atmel_hlcdc_crtc *crtc = drm_crtc_to_atmel_hlcdc_crtc(c);
-+	struct drm_display_mode *adj = &c->state->adjusted_mode;
- 	struct regmap *regmap = crtc->dc->hlcdc->regmap;
- 	unsigned int status;
-+	int ret;
- 
- 	pm_runtime_get_sync(dev->dev);
- 
- 	pm_runtime_forbid(dev->dev);
- 
- 	pinctrl_pm_select_default_state(dev->dev);
--	clk_prepare_enable(crtc->dc->hlcdc->sys_clk);
-+
-+	/*
-+	 * Set LVDS PLL clock rate (7x pixel clock) if available
-+	 */
-+	if (crtc->dc->hlcdc->lvds_pll_clk) {
-+		ret = clk_set_rate(crtc->dc->hlcdc->lvds_pll_clk,
-+				   (adj->clock * 7000));
-+		if (ret) {
-+			drm_err(dev, "Failed to set LVDS PLL clk rate: %d\n", ret);
-+			return;
-+		}
-+		ret = clk_prepare_enable(crtc->dc->hlcdc->lvds_pll_clk);
-+	} else {
-+		ret = clk_prepare_enable(crtc->dc->hlcdc->sys_clk);
-+	}
-+	if (ret)
-+		return;
- 
- 	regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_HLCDC_PIXEL_CLK);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.25.1
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
