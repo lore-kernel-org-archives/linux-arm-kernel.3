@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55D9EA4FBA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 13:34:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B80FEA4FBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 13:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+E9U1RZCokT+0vJMPSWAtnPtlZgN5NxMnzGX5ByfkxE=; b=jDtVd4X8YTY1Mw8gvwEUb4Bq6K
-	f/ZcK//locTmS3accP4SYuRobB/VFPIqPh2fE882HelN5og3PPGKSHgpVrP+YDOCUo6ehZKGQWrWX
-	QYjr/7aQRjI2nKXkEOw8LltWMIlDPm7tH0PDKYk14lwd2M65QXGOxOQdvFEh24OfW5/zfU7HSaR2Z
-	r8bEM1QcarpqUJ31UWgVu863aDUFwMFSp6zbQFGpSzrn2ea4Ti4SF/BCwkqivf5f11bYCN0gRIBhS
-	YWW9gZBl4IVmcuK+I5PkkBQxhXpXCjBSpxVEcqxrxShx+8muvhG71T0o/rmV/WflV/KL3dPfCEtM0
-	5PnRFhnw==;
+	bh=LRc2M8STgNz5ILK4RHNGIZ4msDLZv24RyUi8WCcf184=; b=jUppsQ/NE4FFqIvfE6OiFb96DN
+	AgXGr7KuIdMB7ZZA3ik8hmWR1YysmPehTL5BqkGwJEZOcMNYefAG9gpJU62HDeeJz+oleXAHHIHwt
+	EaHDNW35PLl0AICZASs+HkvqlOeWy1fE5FyLvsaQG9H6ZlGHQ2suvH2m8hQBEmpPgVgwhJOkSFiLO
+	Ez4rwfnzp8V6xnwEVYHqnRSY2tZLJuv8qVPvMmMgBV/5w7eyxiBmYUZ1a2JKKjCfjX/tU58Jkuzhw
+	+0fFX8xieolRsbn5RwHzrRJFe5kVjx1HZyjebxdh0Obsykn4kE90y8j7GTFwZE+pZnapV7vnwLDXy
+	firmRpMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuW5J-00000000NC2-0vZM;
-	Mon, 23 Feb 2026 13:34:49 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1vuW7h-00000000NN7-2wD4;
+	Mon, 23 Feb 2026 13:37:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuW5G-00000000NBZ-1fDP
+	id 1vuW7g-00000000NN0-48Wr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 13:34:47 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 82BD71A14BA;
-	Mon, 23 Feb 2026 14:34:44 +0100 (CET)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 6B0901A11FC;
-	Mon, 23 Feb 2026 14:34:44 +0100 (CET)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id BBBA1202AE;
-	Mon, 23 Feb 2026 14:34:43 +0100 (CET)
-Date: Mon, 23 Feb 2026 14:34:44 +0100
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: edumazet@google.com, shawnguo@kernel.org, kernel@pengutronix.de,
-	krzk+dt@kernel.org, robh@kernel.org, andrew+netdev@lunn.ch,
-	mbrugger@suse.com, davem@davemloft.net, pabeni@redhat.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, s32@nxp.com, imx@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com, s.hauer@pengutronix.de,
-	conor+dt@kernel.org, chester62515@gmail.com, festevam@gmail.com,
-	mcoquelin.stm32@gmail.com, ghennadi.procopciuc@oss.nxp.com,
-	devicetree@vger.kernel.org, alexandre.torgue@foss.st.com
-Subject: Re: [v4,4/4] stmmac: s32: enable support for Multi-IRQ mode
-Message-ID: <aZxXdNQGRcG6LeHS@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20260128-dwmac_multi_irq-v4-4-82fa34fcf2f2@oss.nxp.com>
- <20260129051004.375682-1-kuba@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260129051004.375682-1-kuba@kernel.org>
-X-Virus-Scanned: ClamAV using ClamSMTP
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_053446_591944_6C21C49C 
-X-CRM114-Status: GOOD (  14.38  )
+	Mon, 23 Feb 2026 13:37:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A6F3A60054;
+	Mon, 23 Feb 2026 13:37:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57615C116C6;
+	Mon, 23 Feb 2026 13:37:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771853834;
+	bh=K8tVBSZeTJU53L/A4kfm1miMVhrIxXZibSQWP4+wIXc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=BDV0RPPISyNknKpWsxe9ZWj9wfWxkXrP/wUkQ6iXOox3djPC0/JmYzYaIzboiwKiU
+	 uyhhRVivF9YhYckZ8sQtG99YvsOwdfh8E8XEh4TAVqH3LIg5/tXRF9v+sG+ilaF1gW
+	 9YlLsdR3lJJdwtMn62vNr3+QaBfZU49iOJl1u/sh7qKfebrPA/JoLCWZ0n4u0rvhBn
+	 yqvNS1y+4+P6MvhLXATOtxN3jQzJ55GrRLbeeMI1t8S//0gQTsdnL5OdhJ7gOv9oUi
+	 lNPsN5zfw42E9fVEPyfLHYxBwp+sxUkIuU4c7FLXTXNoXwr+RSQeDeMCq3s4LHqZdR
+	 u+38kNvvfWeCQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vuW7c-0000000Czww-1217;
+	Mon, 23 Feb 2026 13:37:12 +0000
+Date: Mon, 23 Feb 2026 13:37:11 +0000
+Message-ID: <86ms0za8e0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 0/6] fsl-mc: Move fsl_over to device MSI
+In-Reply-To: <kukzdg7cym2cwytx3zgbu5ik2cw7c2zq7irwp6q6o4jzupjzla@qgkrv7emus6f>
+References: <20260218135203.2267907-1-maz@kernel.org>
+	<kukzdg7cym2cwytx3zgbu5ik2cw7c2zq7irwp6q6o4jzupjzla@qgkrv7emus6f>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ioana.ciornei@nxp.com, tglx@kernel.org, chleroy@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,34 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 09:10:04PM -0800, Jakub Kicinski wrote:
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
+On Fri, 20 Feb 2026 15:41:03 +0000,
+Ioana Ciornei <ioana.ciornei@nxp.com> wrote:
 > 
-> For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
-> ---
-> stmmac: s32: enable support for Multi-IRQ mode
+> On Wed, Feb 18, 2026 at 01:51:57PM +0000, Marc Zyngier wrote:
+> > Over the past few years, I have become increasingly annoyed by this
+> > sort of messages in my boot log:
+> > 
+> > [    0.067861] fsl-mc MSI: ITS@0x100100040000 domain created
+> > [    0.073352] fsl-mc MSI: ITS@0x100100060000 domain created
+> > [    0.078841] fsl-mc MSI: ITS@0x100100080000 domain created
+> > [    0.084328] fsl-mc MSI: ITS@0x1001000a0000 domain created
+> > [    0.089815] fsl-mc MSI: ITS@0x1001000c0000 domain created
+> > [    0.095303] fsl-mc MSI: ITS@0x1001000e0000 domain created
+> > [    0.100792] fsl-mc MSI: ITS@0x100100100000 domain created
+> > [    0.106281] fsl-mc MSI: ITS@0x100100120000 domain created
+> > 
+> > While this is useful on fsl-mc systems, this is completely irrelevant
+> > on 99.99999% of the arm64 machines, which know nothing about the
+> > Freescale stuff. Including all of my machine -- bar *one*.
+> > 
+> > Global MSI domains such as the above have been obsoleted for the past
+> > two years, but nobody at NXP seems to have got the message.
 > 
-> Enables Multi-IRQ mode for the S32 GMAC driver when per-queue IRQs
-> are present and more than one RX queue is configured.
-> 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> > index 5a485ee98fa7..37a5b7b46973 100644
-> 
-> [ ... ]
-> 
-> > @@ -149,6 +149,16 @@ static int s32_dwmac_probe(struct platform_device *pdev)
-> >  	plat->core_type = DWMAC_CORE_GMAC4;
-> >  	plat->pmt = 1;
-> >  	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
-> > +
-> > +	/* Check for multi-IRQ config. Assumption: symetrical rx/tx queues */
->                                                    ^^^^^^^^^^
-> 
-> This isn't a bug, but "symetrical" should be "symmetrical".
+> I do admit that I wasn't aware that this neeeded work. In the future,
+> please let me know of this kind of things and I will do the work.
 
-I will fix it in v5.
+I guess Thomas did too good a job not breaking fsl-mc when both PCI
+and platform MSIs were rewritten, hence you missing on the good stuff!
 
-Thanks.
-/Jan
+> 
+> > 
+> > The obvious solution is to delete some code! While my first port of
+> > call would be to just 'git rm -r drivers/bus/fsl-mc' (only kidding!),
+> > a less invasive solution is to drag that code into the present times.
+> > Which is what this series is doing by converting the whole thing to
+> > device MSI, reusing the platform MSI infrastructure instead of
+> > duplicating it.
+> > 
+> > This results in the expected cleanup, and kills the last user of the
+> > non-device-MSI stuff on arm64. You're welcome.
+> 
+> Thanks!
+> 
+> Tested-by: Ioana Ciornei <ioana.ciornei@nxp.com> # LX2160ARDB, LS2088ARDB
+> Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+
+Thanks for giving it a go.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
