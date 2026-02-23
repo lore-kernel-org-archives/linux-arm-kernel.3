@@ -4,57 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDBFEA4FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 12:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D52CEA4FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 12:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3821ZnuaSZcjl964JJV2MnnoezU8zJNJGJL9ManDvI=; b=t9+p7iIwd6dNrTGSWiMAUGs5cj
-	sVlaphKQ0keeUqZSuKtgezohpkXAnH3IAOruoBQn3bCZ7EdM4dBq1NxnXMT+gZOrybHB/VtkU2oAq
-	gHDdlnvtqW1CJdDEH6MW6VvuQwAw1NpDvjPJtE0VSYRH26Z/l1BT9jcYSW1QR3E1DiluclIaIpXMb
-	bUlhcf643E1HobJMOCwOB2HMMAiZFvL3h0bRQpLxKXMaoV+ouknWmzuaTZqaZV9UIzJMlEAKBoF/h
-	VrHGRfogwoPd73lTYLWGHxokdeooZmDGCX5dN35EMBV2PeJJOM6VWCNUrZEvu5mZ1RJl7Bellcfu/
-	TuN2aCWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rU/YVRDT8ordNLseqyKDx4Z7+/L56Zvdow76iPRjBlE=; b=W/ha0s71wgrmgXTttlm2JVEyAW
+	D3d25CNDNzPQjjNMV1unoykU8O3BqikDpPvka8+ZtfD2mzPPNDs355iWjC8R08uxa0RqFG6p5snqu
+	ZSZJkCFlHsvD6fuu/jUtgaKeb8Eoc5BF5uP4B7qd14DzrNMOEh3FyGgcIWa9vaeLQm5C8hkDPNZSx
+	GRF+C5HYScKnhD0EF9dvhA4QES1+OaqJ+GIMp965AbIZd4Pauti+iDi+AuYpY848ammyqwI6bcoxh
+	QuTU1MLcqChsBQ/gwcKmwt3MhQl08BeHni+63YaKK+npKR5sOyHokSkCwOeRMALfFacH19K6d3QEn
+	cEFjfRjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuVCj-00000000Hyq-34WC;
-	Mon, 23 Feb 2026 12:38:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuVCi-00000000HyX-294v
+	id 1vuVFY-00000000IJg-08rv;
+	Mon, 23 Feb 2026 12:41:20 +0000
+Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuVFV-00000000IId-0eYd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 12:38:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9064260127;
-	Mon, 23 Feb 2026 12:38:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DBDAC116C6;
-	Mon, 23 Feb 2026 12:38:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771850303;
-	bh=5DismUcPcJBskV/yvsBitb/KFHFiQZOlsVjke+RQjdE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uYKdJVvV97pw1GmKb7yYqwm5HPYJ8CmLKYpRtwoIHM0klDrYHjjpDNJ52sVnkiszE
-	 4mDrF/OJgzpoI8XV5g1Bu1LNHOAl7PjL6nTEkzvGr1Oohisst1T8DIt6a66tFWXXrC
-	 OcuRk0BQC+Jk/wg4NtBVhUqdizeVpRpChSxuzsD8FVPEdg9dd5HGDuNgje47TpnPvf
-	 TKWzYPuvEV5uUPLtugbC8DCZtm3uhskOrzyU2hLtPEQ0RJoTKmFicG2xq9XqnS5qN1
-	 dhlvB8+ri2oqBXsmIJsdaz9OqJJSbuKccyW5ZHP70AsLiTr3/FBggNoIff/jO1Mb2o
-	 O9fdSouSWno7w==
-Date: Mon, 23 Feb 2026 20:19:49 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm: Add runtime constant support for armv7 and
- !THUMB2_KERNEL
-Message-ID: <aZxF5bjbwTKOCKZf@xhacker>
-References: <20260221141831.16136-1-jszhang@kernel.org>
- <aZnXRGFJ1F-nT4Ou@shell.armlinux.org.uk>
+	Mon, 23 Feb 2026 12:41:19 +0000
+X-CSE-ConnectionGUID: QlRjXNpSRbe8nAs7y3YahQ==
+X-CSE-MsgGUID: SQtk8V6rSKWQyLhCQ8cViw==
+Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
+  by relmlie5.idc.renesas.com with ESMTP; 23 Feb 2026 21:41:11 +0900
+Received: from vm01.adwin.renesas.com (unknown [10.226.92.12])
+	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 3C08E41AB637;
+	Mon, 23 Feb 2026 21:41:03 +0900 (JST)
+From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux@armlinux.org.uk,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	boon.khai.ng@altera.com,
+	rohan.g.thomas@altera.com,
+	vladimir.oltean@nxp.com,
+	hayashi.kunihiko@socionext.com,
+	matthew.gerlach@altera.com,
+	vee.khee.wong@intel.com,
+	boon.leong.ong@intel.com,
+	kim.tatt.chuah@intel.com
+Cc: netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next 0/4] net: stmmac: Fix VLAN handling when interface is down
+Date: Mon, 23 Feb 2026 12:40:58 +0000
+Message-ID: <20260223124102.120432-1-ovidiu.panait.rb@renesas.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aZnXRGFJ1F-nT4Ou@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260223_044117_311373_8670BC9B 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,31 +81,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 21, 2026 at 04:03:16PM +0000, Russell King (Oracle) wrote:
-> On Sat, Feb 21, 2026 at 10:18:31PM +0800, Jisheng Zhang wrote:
-> > Implement the runtime constant infrastructure for
-> > armv7 && !THUMB2_KERNEL. So that armv7 can use this infrastructure
-> > to generate constants to be used by the d_hash(), dentry_cache(),
-> > names_cache() and so on.
-> > 
-> > This is the armv7 variant of commit 94a2bc0f611c ("arm64: add 'runtime
-> > constant' support") and commit e3c92e81711d ("runtime constants: add
-> > x86 architecture support").
-> > 
-> > As for < armv7 or THUMB2_KERNEL, we fall back to the generic
-> > runtime-constant.h, no functionality changes.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> 
-> This looks fine to me, but it will need to appear in the patch system
-> for me to apply it. Details linked via my signature below.
+VLAN register accesses on the MAC side require the PHY RX clock to be
+active. When the network interface is down, the PHY is suspended and
+the RX clock is unavailable, causing VLAN operations to fail with
+timeouts.
 
-Thanks for the code review. Will put it into the patch system.
+The VLAN core automatically removes VID 0 after the interface goes down
+and re-adds it when it comes back up, so these timeouts happen during
+normal interface down/up:
 
-> 
-> Thanks.
-> 
-> -- 
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+    # ip link set end1 down
+    renesas-gbeth 15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
+    renesas-gbeth 15c40000.ethernet end1: failed to kill vid 0081/0
+
+Adding VLANs while the interface is down also fails:
+
+    # ip link add link end1 name end1.10 type vlan id 10
+    renesas-gbeth 15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
+    RTNETLINK answers: Device or resource busy
+
+Patches 3-4 address this by deferring hardware writes when the
+interface is down and reconfiguring the VLAN state on interface up.
+
+Patches 1-2 fix some issues in the existing VLAN implementation.
+
+Ovidiu Panait (4):
+  net: stmmac: Fix error handling in VLAN add and delete paths
+  net: stmmac: Improve double VLAN handling
+  net: stmmac: Add write_hw parameter to VLAN filter operations
+  net: stmmac: Defer VLAN HW configuration when interface is down
+
+ drivers/net/ethernet/stmicro/stmmac/hwif.h    |  6 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 62 ++++++++++++++++---
+ .../net/ethernet/stmicro/stmmac/stmmac_vlan.c | 51 +++++++++------
+ 4 files changed, 90 insertions(+), 30 deletions(-)
+
+-- 
+2.34.1
+
 
