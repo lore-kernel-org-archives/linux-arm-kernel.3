@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E85BEA4FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8107DEA4FA4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+B9WECREqzlttIBrp882zh209fsv+aKsgN7oxHneg0k=; b=SENm7KouxBK1WIbTvpLs/Y9H7n
-	pWrv6we0FehkJ45ZbjiCVxiJzXF2mvNcLKPuFMyw6+ojh1eWXNr0jXCAttcB68HTrTdKg+aoSto0i
-	U3PB1klRqtPLPJtLV/M9Ilods96+XIv8PUmOvCapY/XOjknkFVYVN5wlfhq5u/rRjXgPBrB9MVFB3
-	uEclrDFmUzJAab8o1mAh/ds5YViloKKz9saxWcnI8bcWPtKgHFYzru77OyxLpl/0Yd728hzsxABRS
-	Zgm3xCFZKdTkLuFtDjylH/ZjbySBbR+hPEdph0o0dTOIhHcksWT/lle378mGum8GIIxorejphsGZP
-	FSlgtneA==;
+	bh=T6jFrC1c1LAy6NsX5jj9hPnJ73A2OmhMoOTuN5h+hmk=; b=vtlEXWZbnb5c60fVdV9fJViXxH
+	of1x8I3mNBMf6wK59BCaqkbH6FdRpxRZQheAw9c19ITmGQhm0s7Rcux6iPa6y+aiNBMoGJWwFoyFA
+	1i2L9WzOeXQEIpy9yvgEaoxqkqu6IE8KLD445rHFKcCuDnaQp5VxicjS2jX/hSnDB25HFzczPS+sf
+	h01wfEYfplu0ez7PG4+Qw2m2EiJ+7HgrklKes2MJace1cN/BlBwvuyl0uHF63aKYJmFbA6jr7uA2S
+	2rUNtGEHcdawOkn4XXMGlP9nOQzDM5wdefgkLraOYkAvEt7eAVB1EsmgAvz/nZKWhR8WJvksVuv/P
+	zJi44r2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuTeI-0000000072n-2cOp;
-	Mon, 23 Feb 2026 10:58:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vuTfc-000000007GT-42FX;
+	Mon, 23 Feb 2026 11:00:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuTeG-0000000072H-2oIP;
-	Mon, 23 Feb 2026 10:58:45 +0000
+	id 1vuTfb-000000007GL-3jwp
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Feb 2026 11:00:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A10641750;
-	Mon, 23 Feb 2026 10:58:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 725D0C116C6;
-	Mon, 23 Feb 2026 10:58:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0CB0F60053
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 11:00:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B70FFC116C6
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 11:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771844323;
-	bh=QeUhpW5ZHW9W03OdaYVWS7lJzgfUrHq85mrNLwMR8Vk=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=aj1Uq+jELXnhsmWirdvYXtFjNwW/Rep8UbqYN8xtGttRFRcgPABYThU4kqtQkUdbj
-	 oCqFah1xawKiFHLvUx6BSDEPpDEZ7HHvL+qDCu6x/+KA4b+n8b5kCJoC3mlSQgZ2kH
-	 mvA3ltgbo0NBovsEGT473nQ1rM/uAPc4+YnGeg2vsTSkzfcH9YSzsb9CiXJVEMixKp
-	 MzqbqwwuakbbHRHvg/Ro0rT/FftY1XwvnF5vWJpUlvXwMyINy9SWC6K+e07O57JDr6
-	 lGWLTC4WQnN8g/KM6SMVUFBGl/raTGAmbutKnkh9uvHRLf8g+vniJA6mj6FMrsYVwb
-	 bnXy15uAZMPeg==
-Message-ID: <37669584817bdca3d569e80047c94949@kernel.org>
-Date: Mon, 23 Feb 2026 10:58:40 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v8 06/20] drm/display: hdmi-state-helper: Try
- subsampling in mode_valid
-In-Reply-To: <20260216-color-format-v8-6-5722ce175dd5@collabora.com>
-References: <20260216-color-format-v8-6-5722ce175dd5@collabora.com>
-Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, "Alex
- Deucher" <alexander.deucher@amd.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
- Yan" <andy.yan@rock-chips.com>, =?utf-8?b?Q2hyaXN0aWFuIEvDtm5pZw==?= <christian.koenig@amd.com>, "David
- Airlie" <airlied@gmail.com>, "Dmitry Baryshkov" <lumag@kernel.org>, "Harry
- Wentland" <harry.wentland@amd.com>, =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Jani
- Nikula" <jani.nikula@linux.intel.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Jonathan Corbet" <corbet@lwn.net>, "Joonas
- Lahtinen" <joonas.lahtinen@linux.intel.com>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Leo
- Li" <sunpeng.li@amd.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
- Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Rob
- Herring" <robh@kernel.org>, "Robert Foss" <rfoss@kernel.org>, "Rodrigo
- Siqueira" <siqueira@igalia.com>, "Rodrigo Vivi" <rodrigo.vivi@intel.com>, "Sandy
- Huang" <hjc@rock-chips.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>, "Tvrtko
- Ursulin" <tursulin@ursulin.net>
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_025844_748679_76C7D5D0 
-X-CRM114-Status: UNSURE (   6.03  )
-X-CRM114-Notice: Please train this message.
+	s=k20201202; t=1771844406;
+	bh=hdVE4wcCkhVsculsobOp74DHJ2ubVoFKlzXtFmYFxW0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Y1AJ++VxWHwtoen7AMLv3su7UfEmuiTIQJZzcj3pYYZwFvDu79wfQLr2+/7G1ceDL
+	 9xWYLx8/qDdJlDDpXkQrB/P1X2Eq/MPw1lA34ucpLoIvu0sl8Btqk61CjMh4bo4Bx7
+	 i/i+U4FBlpidJb1/JxEY/fTxxhTGUM1YmkPvPuq5KT/wYDmUZBkxmmHUgfjaWd3c/s
+	 uHLh7OVlaBtuRGCJRHhcQszwQNjHuda+QX+3f+9GA9Gbm0uXJsVr+O1NqJd5aUhNuU
+	 y1BuE4mujZiB9PxEeJauGVZ0YOKhbwKkZab49J8IC8JNcBALysERkhFkr5hMu4PEZt
+	 t2paYU0ribx5w==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-38707d4c8b9so50530401fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 03:00:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUDcNu5xHxopVa6kaJmA4mSHKTAvW/KiTwv3al65Gf0k/bcF4GgrYCTSEya7bYY8RXct+TKUTKkP5xzSLxTEOXs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx05rIlpUNGnUybADYYA3JZ70aDKWO4IcKr/nbsLsQpNrv28JSm
+	BimWca7fqKz+9Tu9shSed6FT6M4pd4LGPIQTvcg+srNjv74U4QNTb5a34Ym3eMX4pQa/x5B3wdF
+	LfjoglX5eRb73/+duUZIMq+AxXgcqdWoXHOwdNk7vMA==
+X-Received: by 2002:a05:6512:b91:b0:59d:dd50:f2e6 with SMTP id
+ 2adb3069b0e04-5a0ed885225mr2546189e87.21.1771844405420; Mon, 23 Feb 2026
+ 03:00:05 -0800 (PST)
+MIME-Version: 1.0
+References: <20260106134148.48257-1-bartosz.golaszewski@oss.qualcomm.com>
+In-Reply-To: <20260106134148.48257-1-bartosz.golaszewski@oss.qualcomm.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 23 Feb 2026 11:59:53 +0100
+X-Gmail-Original-Message-ID: <CAMRc=McgT9sR1nWbJo0Sw6MsStQi9998A2r62uPXKYTh_tMPFw@mail.gmail.com>
+X-Gm-Features: AaiRm53SH9VKNRKhPpBfMpHZNJCMjve-vNra7uJLYAv7inRpBkm-YyRQVMNbEfc
+Message-ID: <CAMRc=McgT9sR1nWbJo0Sw6MsStQi9998A2r62uPXKYTh_tMPFw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: Kconfig: drop unneeded dependency on OF_GPIO
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,17 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Feb 2026 14:01:20 +0100, Nicolas Frattaroli wrote:
-> drm_hdmi_connector_mode_valid assumes modes are only valid if they work
-> with RGB. The reality is more complex however: YCbCr 4:2:0
-> chroma-subsampled modes only require half the pixel clock that the same
-> mode would require in RGB.
-> 
-> 
-> [ ... ]
+On Tue, Jan 6, 2026 at 3:07=E2=80=AFPM Bartosz Golaszewski
+<bartosz.golaszewski@oss.qualcomm.com> wrote:
+>
+> OF_GPIO is selected automatically on all OF systems. Any symbols it
+> controls also provide stubs so there's really no reason to select it
+> explicitly.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>  arch/arm64/Kconfig.platforms | 1 -
+>  1 file changed, 1 deletion(-)
+>
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index fff14807c965..933281bb6139 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -244,7 +244,6 @@ config ARCH_MVEBU
+>         select MVEBU_ODMI
+>         select MVEBU_PIC
+>         select MVEBU_SEI
+> -       select OF_GPIO
+>         select PINCTRL
+>         select PINCTRL_ARMADA_37XX
+>         select PINCTRL_ARMADA_AP806
+> --
+> 2.47.3
+>
+>
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Gentle ping.
 
-Thanks!
-Maxime
+Bart
 
