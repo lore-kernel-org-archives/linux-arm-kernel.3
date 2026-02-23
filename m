@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B7DEC111A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4329BEC1118
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=49ZdfYUmuiKFw4I1m8NQ5iSXMDc75p/1mJTRCageK7g=; b=FLUxPq1ZcwuLQsvWDxNbQGhPpL
-	ulCHpz1tmcPuSq82kb2TsIy6xK/YW9wb4c5xrSfY7eZck8ZGsNJR5PEruFAYIZpIXfQ57b2miT0YM
-	O4mwrepoH4v1E6q/ogcZV9qDW7gBFKJ4XPorJzdQ3Pw3Kx0mEJAEk+axhPshlrQH5baFtHWE/ox5s
-	8p4p/iQXRvDNmWuEm8FU+GwraPoVXipXvuFUikF6pewA9ie4cLZQ0FHNynaq6qW2EIEMt+E0cTmai
-	ELQQsT4ncvleHTvLqc8lsKt35wuF2Lck95oyNoKy4Nv8ojteUjtbwSxKUZlhXbdXtmThdb4l7jGg3
-	7uoLyxgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fiud5CIg1Gq1ozSQKgPnHi3W17cUG3esBQJY/GT0Luk=; b=poKLIIryjtD20Y/hNFF9NQb2X2
+	Wnb3g8YLZms+WdDFsubnpO8lJ+Lus2hhGWNlEmmtOXKKN+CojBf7L2SII02dQslN8eeFSkGvOkVsV
+	ULgqpxYlDEUViXocH4M6PajzdAbx8BXjymREeSvZyy8xikGSpQP1m2R0nBMQ9IcOQQjqzcis7JV4+
+	QcjQHg5mvmUz+XQYuh55mSPgO2gS1IgIG2ASVyVABRJakKpjLfmoFlrciVwQVC5daZPzhJ3jRgqtc
+	VLZxG9IsqJk8gAa6AJLTcwxYAbXSlWo0feVZoDS2xEzjHw39rgLKL8XXXcoLkMQBoIpdRhM97/2UU
+	oStBI+Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuaVs-00000000r6e-2XSa;
-	Mon, 23 Feb 2026 18:18:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuaVp-00000000r5a-2zin
+	id 1vuaYI-00000000rLB-0kU4;
+	Mon, 23 Feb 2026 18:21:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuaYF-00000000rL4-3jRu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 18:18:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 048A5339;
-	Mon, 23 Feb 2026 10:18:22 -0800 (PST)
-Received: from [10.57.13.34] (unknown [10.57.13.34])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFDBE3F62B;
-	Mon, 23 Feb 2026 10:18:26 -0800 (PST)
-Message-ID: <f62d7cab-883c-44a8-9714-251af1b20eff@arm.com>
-Date: Mon, 23 Feb 2026 18:18:25 +0000
+	Mon, 23 Feb 2026 18:21:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F08CE6013A;
+	Mon, 23 Feb 2026 18:20:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BC46C116C6;
+	Mon, 23 Feb 2026 18:20:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771870858;
+	bh=Km5TB4a+OiHGQXNkXPphl5LAvR+/kNXwduKtPTQar9w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YNesqarXkUAoHz/fCehnWxM+JUI/pBhHUHpA87p8TBEMgubFbu6Be/nCzi/DTwO74
+	 rfHjMDEpuuYZoGE1WnvKmGKn9iIy8W8ouDXjuRFhGb9hedZfQwBbVmCbhZsi1gsDC2
+	 YHUHTyN2CGqkSdIwNAYyrCpMaCc9qKK+NPNWJQSKIHy2KLK+Sr0Ltw2YT+DaPB2RWR
+	 7K5YG1m/qMjCTWJ26MlSGWmEyEAh4ZSUbmmwO+QGeiw1GXvE+lDjB4ThYA02Dr++lb
+	 pEkxO9ZqLV5NvVhg7Kg9PiSa//Bv3n7keQxOm18o+uvpyxczWgeIxqIbRj9kH3y4GG
+	 ++aidvAEwI/Tg==
+Date: Mon, 23 Feb 2026 12:20:57 -0600
+From: Rob Herring <robh@kernel.org>
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, peter.ujfalusi@gmail.com,
+	vkoul@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	nm@ti.com, ssantosh@kernel.org, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, vigneshr@ti.com,
+	Frank.li@nxp.com, r-sharma3@ti.com, gehariprasath@ti.com
+Subject: Re: [PATCH v5 12/18] dt-bindings: dma: ti: Add K3 BCDMA V2
+Message-ID: <20260223182057.GA4190282-robh@kernel.org>
+References: <20260218095243.2832115-1-s-adivi@ti.com>
+ <20260218095243.2832115-13-s-adivi@ti.com>
+ <20260219-hopeful-intrepid-cuckoo-32967d@quoll>
+ <bab85365-063a-4d46-a1bf-48a25228d109@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/9] arm64: Add logic to fully remove features from
- sanitised id registers
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>, Fuad Tabba <tabba@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>,
- Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-References: <20260219195533.2455736-1-maz@kernel.org>
- <20260219195533.2455736-2-maz@kernel.org>
- <CA+EHjTzVRq3r-7UR-MJYvv-Aw4kHQDHEmwtqY9is-fRDm-J06A@mail.gmail.com>
- <86v7frafpx.wl-maz@kernel.org>
- <CA+EHjTzj9wEm7oBKBXF8sYpK60FYeLOJwEapxDiO1HxK5e6Y6g@mail.gmail.com>
- <86tsvba2nc.wl-maz@kernel.org>
- <CA+EHjTyiHALTEgA7tuqQZ2ZLW3_vFdTU=vUb7+vn1T4OoMjgsw@mail.gmail.com>
- <86pl5vaizb.wl-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <86pl5vaizb.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_101829_876014_6CA69CC5 
-X-CRM114-Status: GOOD (  18.46  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <bab85365-063a-4d46-a1bf-48a25228d109@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,84 +76,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/02/2026 09:48, Marc Zyngier wrote:
-> Hi Fuad,
+On Thu, Feb 19, 2026 at 05:45:46PM +0530, Sai Sree Kartheek Adivi wrote:
 > 
-> On Fri, 20 Feb 2026 15:36:37 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
->>
->>> I think we must prevent this downgrade the same way, meaning that
->>> ALL_HIDDEN and FTR_HIGHER are mutually exclusive.
->>>
->>> How about that:
->>>
->>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>> index d58931e63a0b6..2cae00b4b0c5f 100644
->>> --- a/arch/arm64/kernel/cpufeature.c
->>> +++ b/arch/arm64/kernel/cpufeature.c
->>> @@ -1067,7 +1067,14 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
->>>                          user_mask |= ftr_mask;
->>>                          break;
->>>                  case FTR_ALL_HIDDEN:
->>> -                       val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
->>> +                       /*
->>> +                        * ALL_HIDDEN and HIGHER_SAFE are incompatible.
->>> +                        * Only hide from userspace, and log the oddity.
->>> +                        */
->>> +                       if (WARN_ON(ftrp->type == FTR_HIGHER_SAFE))
->>> +                               val = arm64_ftr_set_value(ftrp, val, ftr_new);
->>> +                       else
->>> +                               val = arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
->>>                          reg->user_val = arm64_ftr_set_value(ftrp,
->>>                                                              reg->user_val,
->>>                                                              ftrp->safe_val);
->>>
->>
->> Yes, I think WARN_ON() here is the right call.
->>
->> That said, I still think you should explicitly short-circuit
->> update_cpu_ftr_reg() for FTR_ALL_HIDDEN features, in addition to the
->> WARN_ON(). Relying on arm64_ftr_safe_value() to naturally preserve the
->> safe_val during secondary CPU boot seems mathematically fragile.
->>
->> Take MTE_frac as an example. It uses S_ARM64_FTR_BITS and
->> FTR_LOWER_SAFE with a safe_val of 0. If it were marked FTR_ALL_HIDDEN,
->> init_cpu_ftr_reg() would prime sys_val with 0. But if a secondary CPU
->> boots and reports -1 (NI), arm64_ftr_safe_value() will execute min(-1,
->> 0) and return -1. update_cpu_ftr_reg() will then overwrite the primed
->> safe_val (0) with -1. The "hidden" state established by the boot CPU
->> is gone, and the feature's hardware state is now exposed globally.
->>
->> Note that MTE is currently ALL_HIDDEN when configured out, so it's not
->> totally inconceivable that someone decides to make MTE_frac ALL_HIDDEN
->> as well. Explicitly short-circuiting for FTR_ALL_HIDDEN features in
->> update_cpu_ftr_reg() seems to be the safer bet here.
+> On 19/02/26 13:13, Krzysztof Kozlowski wrote:
 > 
-> Right, the signed feature is a pretty compelling argument. And we
-> should do the same thing for overrides, probably as a preliminary
-> patch.
+> Hi Krzysztof,
 > 
-
-Suggestions look good to me and I was thinking on similar lines with the 
-FTR_CONFIG() (Was away last week, now back from holidays).
-
-One minor nit: Given we now have more uses
-of arm64_ftr_set_value(ftrp, x, ftrp->safe_value) , could we wrap it
-into something like :
-
-static inline s64 arm64_ftr_set_safe_value(... *ftrp, s64 val);
-{
-	return arm64_ftr_set_value(ftrp, val, ftrp->safe_val);
-}
-
-To me that makes it way easier to comprehend what we are doing.
-
-Suzuki
-
-
-  Thanks,
+> Thanks for the review.
+> > On Wed, Feb 18, 2026 at 03:22:37PM +0530, Sai Sree Kartheek Adivi wrote:
+> > > New binding document for
+> > Fix wrapping - it's wrapped too early.
+> Ack. will fix it in v6.
+> > 
+> > > Texas Instruments K3 Block Copy DMA (BCDMA) V2.
+> > > 
+> > > BCDMA V2 is introduced as part of AM62L.
+> > > 
+> > > Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> > > ---
+> > >   .../bindings/dma/ti/ti,am62l-dmss-bcdma.yaml  | 120 ++++++++++++++++++
+> > >   1 file changed, 120 insertions(+)
+> > >   create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
+> > > new file mode 100644
+> > > index 0000000000000..6fa08f22df375
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
+> > > @@ -0,0 +1,120 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +# Copyright (C) 2024-25 Texas Instruments Incorporated
+> > > +# Author: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/dma/ti/ti,am62l-dmss-bcdma.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: Texas Instruments K3 DMSS BCDMA V2
+> > > +
+> > > +maintainers:
+> > > +  - Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> > > +
+> > > +description:
+> > > +  The BCDMA V2 is intended to perform similar functions as the TR
+> > > +  mode channels of K3 UDMA-P.
+> > > +  BCDMA V2 includes block copy channels and Split channels.
+> > > +
+> > > +  Block copy channels mainly used for memory to memory transfers, but with
+> > > +  optional triggers a block copy channel can service peripherals by accessing
+> > > +  directly to memory mapped registers or area.
+> > > +
+> > > +  Split channels can be used to service PSI-L based peripherals.
+> > > +  The peripherals can be PSI-L native or legacy, non PSI-L native peripherals
+> > > +  with PDMAs. PDMA is tasked to act as a bridge between the PSI-L fabric and the
+> > > +  legacy peripheral.
+> > > +
+> > > +allOf:
+> > > +  - $ref: /schemas/dma/dma-controller.yaml#
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    const: ti,am62l-dmss-bcdma
+> > > +
+> > > +  reg:
+> > > +    items:
+> > > +      - description: BCDMA Control & Status Registers region
+> > > +      - description: Block Copy Channel Realtime Registers region
+> > > +      - description: Channel Realtime Registers region
+> > > +      - description: Ring Realtime Registers region
+> > > +
+> > > +  reg-names:
+> > > +    items:
+> > > +      - const: gcfg
+> > > +      - const: bchanrt
+> > > +      - const: chanrt
+> > > +      - const: ringrt
+> > > +
+> > > +  "#address-cells":
+> > > +    const: 0
+> > > +
+> > > +  "#interrupt-cells":
+> > > +    const: 1
+> > I don't get why this is nexus but not a interrupt-controller.
+> > 
+> > Can you point me to DTS with complete picture using this?
 > 
-> 	M.
+> Please refer https://github.com/sskartheekadivi/linux/commit/4a7078a6892bfbc4c620b9668e3421b4c7405ca4
 > 
+> for the dt nodes of AM62L BCDMA and PKTDMA.
+> 
+> Refer to the below tree for full set of driver, dt-binding and dts changes
+> 
+> https://github.com/sskartheekadivi/linux/commits/dma-upstream-v5/
 
+Whether this is an interrupt-map or a chained interrupt controller 
+entirely depends on whether the interrupts are transparent to the 
+DMA controller (i.e. do they have to be acked?). interrupt-map is 
+generally for transparent cases.
+
+If not transparent, then just 'interrupts' and 'interrupt-controller' 
+should work for you. You can map 'interrupts' entries to channels like 
+many other DMA controllers do that have per channel interrupts.
+
+Rob
 
