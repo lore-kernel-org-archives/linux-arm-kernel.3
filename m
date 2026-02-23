@@ -4,75 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBAE3E98E13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BFC4E98E0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 10:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xmBrF6vxkpldwWJ1xHm0ntg0CUP15Rh2k0uHhJgn2QU=; b=HkFAbM3qc0ThXdhitau0xCFiqe
-	EuVO/ENwlq9j0mOEcyr/VcQQxXFCZSZz9DmFLvspUiWZaeGK/w0tNKhGmnAGMxWluuIL/kiizgKQL
-	46CkpXFKhUbsAN1h32NAp0883ohX6ug9FaEHxoj4itAPTNrUaEUUP34tf2MOFLleKcXbNSM5nZtte
-	Y4qUU5KNgOgR2NgpdEZ5OEsxJB7M7A6v2iybvvFahMifj3+KqxcayDRj8lskwlXOFr+VuKAc2om8h
-	gRAbPRmdq6z7BHkYLNgraBBm+VHo8Igq07c9t+qQsG/Lg1np/4bWxURpeZWITYaD3o33XvWJu7uU3
-	klUiFyqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8fks6ZYu8+mJdy7SJcMmB/EcECm/NDn0F43wY4JtvKM=; b=hOI2b6UH6NhrA3hPtEAEXReZSk
+	ox96TlwkRDxAqE6XZmWUWVf7NqSZkoGjAuDIDPeyfT/WTQkEkYX1usIAw/93WVrLC1D7DAP2/QRhv
+	7d/7ay9+RiZljM7Uif2bKnHcS7r/+WO6VNnmyKjf5BSW8yitLBD5P70nrN9I6ODL9+9KOr1DTNOBO
+	wxWpEq+5iiIvMTSDtw2uGRY+yUWgXlcHBfJKMd35W4j9sVzIb3wUNgandx7aXmXN3YRY//WG1Wjdo
+	PrlutjpUqj3sH7+x3/5oLS5KIBa58H5CJxqsZ3MspyMLsAZA0+DgYrpOyVPjjFZqSXWKecWBmgl0h
+	HI50cOzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuSov-000000000Uz-25CK;
-	Mon, 23 Feb 2026 10:05:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuSot-000000000S3-0w0c
+	id 1vuSpF-000000000nt-1E4S;
+	Mon, 23 Feb 2026 10:06:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuSpB-000000000i0-1ZHJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 10:05:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E43240A23;
-	Mon, 23 Feb 2026 10:05:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9752AC116C6;
-	Mon, 23 Feb 2026 10:05:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771841138;
-	bh=h4Fmnm9DvFB3jjLMnVgmIRJrmS+gvXG7HnQy50p7Cpo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Mk2Wwfz2FCtMm7F+LirBqE0NRbtFtvMCWndhwc39OSeMgt3Hv1MnkHOfMVPAEc5m4
-	 vsxqDd2kkiJhRZDr6TJd0nbwWnaX5qoEyiiVd5ZHSYutcAiWGBTTo4AB5xD/HTI665
-	 ndKBJNYr30dt2+Y5l0TzB9oAm9ZUAaEsoAeCvTfmt36oFffDgtCabaOEugwyrN95+3
-	 IS4nR+3pqnbuP48TTcNRgHP28Un1IU8b6xMkX4hVQvcIweWHf+E3o+VC9Pl8dHqV5k
-	 axgwwqptV+31zb3HwEth//CmW0lvTUJFGpCkcXerlQopUgqZmvoeYTizdnMcT8r3om
-	 RUgZor/b4RwTQ==
-From: Michael Walle <mwalle@kernel.org>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-watchdog@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Michael Walle <mwalle@kernel.org>
-Subject: [PATCH 8/8] Revert "dt-bindings: hwmon: sl28cpld: add sa67mcu compatible"
-Date: Mon, 23 Feb 2026 11:04:53 +0100
-Message-ID: <20260223100459.844967-9-mwalle@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260223100459.844967-1-mwalle@kernel.org>
-References: <20260223100459.844967-1-mwalle@kernel.org>
+	Mon, 23 Feb 2026 10:06:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56CE3497;
+	Mon, 23 Feb 2026 02:05:47 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7AF23F59E;
+	Mon, 23 Feb 2026 02:05:51 -0800 (PST)
+Date: Mon, 23 Feb 2026 10:05:46 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: pKVM breakage in mainline on n1sdp
+Message-ID: <aZwmevKcvW2HxdJ5@J2N7QTR9R3>
+References: <60916cb6-f460-4751-b910-f63c58700ad0@sirena.org.uk>
+ <87bjhie67o.wl-maz@kernel.org>
+ <87a4x2e60i.wl-maz@kernel.org>
+ <aZm2XCZLYxgxL99d@sirena.co.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZm2XCZLYxgxL99d@sirena.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_020539_375248_44201F2C 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260223_020557_474146_E6E0FB49 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +70,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 0f6eae86e626e0561d2f545a3183be2e12108410.
+On Sat, Feb 21, 2026 at 01:42:52PM +0000, Mark Brown wrote:
+> On Sat, Feb 21, 2026 at 10:38:05AM +0000, Marc Zyngier wrote:
+> 
+> > If that's vanilla 6.19, then there is post Feb 8th. Sorry for the
+> > unwarranted rant.
+> 
+> It won't be vanilla v6.19, that specific log will be tip of Linus' tree
+> from yesterday morning UK time which should be 8bf22c33e7a1 ("Merge tag
+> 'net-7.0-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net"),
+> there were a few results for commits over the day prior to that showing
+> the same behaviour.
 
-I was just informed that this product is discontinued (without being
-ever released to the market). Pull the plug and let's not waste any more
-maintainers time.
+Are you sure? That log says:
 
-Signed-off-by: Michael Walle <mwalle@kernel.org>
----
- .../devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml        | 1 -
- 1 file changed, 1 deletion(-)
+  CPU: 1 UID: 0 PID: 1955 Comm: qemu-system-aar Not tainted 6.19.0 #1 PREEMPT   
 
-diff --git a/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml b/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
-index 966b221b6caa..5803a1770cad 100644
---- a/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
-+++ b/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
-@@ -16,7 +16,6 @@ description: |
- properties:
-   compatible:
-     enum:
--      - kontron,sa67mcu-hwmon
-       - kontron,sl28cpld-fan
- 
-   reg:
--- 
-2.47.3
+... where "6.19.0" means that's the 6.19 tag, and "#1" means that's the
+first build against that.
 
+Is the build system overriding things such that this is misleading?
+
+Is there potentially a problem with the build system?
+
+Mark.
 
