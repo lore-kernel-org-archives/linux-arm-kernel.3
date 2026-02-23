@@ -4,57 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045E8E98E10
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 09:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC4FE98E11
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 09:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6bHQQt0nfwa5Gpf+u6EldALeISoOQfF0AYxgdnSK/xs=; b=BVHmMisKiZnjA4Mv08SRUM1zGE
-	/JgMmdN3lxp1ATf4eVo8rwlzm/id6kJTvFIuEwBDcVKJfZZN/47usDzAbeRLaO3rBB2xJDYD0zVGM
-	1e9rMY6AKc24e1JeAVunEAgRdXj9tKa4XpV4tH/jJnk90ayBkRpz2WTmm+VhycMFRe/lhx/Tv2azW
-	2LyaGqMwolfNB8FRfCa75GgiQxdR7bDKDMpytZsIt0kfYyZ/V6Td4glUPOuK1PXIdf17BWesoTDli
-	tOGbclGjn5rl6qTsbY6+5AvXi9XMTn6H5cKtza5wus6Yyq+KAsOMMAzv8cux1SfoZ/GQGTBpMwIAd
-	celo///g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uoHMTBb8IpVzr1yOCWWsa13mcN23kWHrFMIDsOYWxZQ=; b=VO/BNd1i9NvpEYBC3xY+euKNSS
+	VKc3uX6JK56l1XV0+VHXYiw+GCG+zbSVRNSGpvTRArwXF78csPQQ11BhdmjXy+toJcmWFFZsoDGPt
+	Rf1QsNdR9ajVy6uJUHL2F3oTR/xEmY9bhzka7ZwIRYZxlGm5s7JH6uI9Y+vYWrrf9XutnyfRcmkqC
+	ilgYNC9KElfTFPoyWGli5y6UamptlHRX6OZNua5+P+nsA6pp2gbobjq1bQIBMCledOuY9DltT39J7
+	nmvVihHY88LX4DkWJhBLgJjSDddlKbnu6K387Gc517aM+BWoqJxYgVOk8619l74GsLl9Bh9WyiVdE
+	ZHqmXS3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuSaZ-0000000Ha1O-2i6a;
-	Mon, 23 Feb 2026 09:50:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuSaX-0000000Ha0E-1ESY
+	id 1vuSc0-0000000HaHy-3JcH;
+	Mon, 23 Feb 2026 09:52:20 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuSby-0000000HaGr-29Hn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 09:50:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5DA3339;
-	Mon, 23 Feb 2026 01:50:38 -0800 (PST)
-Received: from [10.57.72.33] (unknown [10.57.72.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8FEAF3F62B;
-	Mon, 23 Feb 2026 01:50:43 -0800 (PST)
-Message-ID: <666e2c55-a1aa-4960-a084-50921ec7f696@arm.com>
-Date: Mon, 23 Feb 2026 09:50:41 +0000
+	Mon, 23 Feb 2026 09:52:19 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61MNHlLE2045688
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 09:52:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=uoHMTBb8IpVzr1yOCWWsa13m
+	cN23kWHrFMIDsOYWxZQ=; b=PmD/ngZdTMeiHW3/nGgDiCP5TsITHRVqW170k49n
+	qWSXXuUYbS8lzGkkHqw9bgWAqISRDGuhZhQoyRZv1qTDjQUUbYzzqt59myo/93GF
+	onCixjAKIX8+8sySzi5VattQbfqINFnRRgLHUNx7clQMLpdaK/nQaQ7P9gY3U52y
+	grodMrdOfHlwAVjWtcYHxbciZlYTMjr5Tl3NkKC6V1gr4Br6JIw6nFrUPcTdBHuk
+	34McvIGWFAyqHrShfNLOXeCuEeUSi2HiZvPJsuW1tRuNXkuS3P/f1BFW92t5EIAJ
+	PE4x30UCIh3SEUWArj5TSV5HlG7TtyeyJjOhX6xC/NDI8Q==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cf5wav8m7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 09:52:18 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c6e78c4aa50so2754065a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 01:52:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1771840337; x=1772445137; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=uoHMTBb8IpVzr1yOCWWsa13mcN23kWHrFMIDsOYWxZQ=;
+        b=B1G3I8iUb51IVgp8x18eJwJLYy7RjWRh4alyLXfYgTgASP/gA8Fcu+nbB6LzDaeOft
+         ohQxTqCl8xCbDsZRxLgKzwJdFCt4sAcGhUj+NM6JK7Kk3Rgpzf/bUNi6Ki2FN5zVSjPW
+         XKKvKGND0EqJ0d6MZaM3vcGLkJje8UU+rJjubBZxpVaEsVYr0b+KNXmDNIsqB9hkxbPY
+         fChFkrPIGuV922A9yQYP+EtXxlAEZzV2pCXR6MxQx0DJS1a+a67+xy3c5SkoywqPdmeS
+         2oyJqx9WDNj3xKgR4oPrdqJ4RGyOegMAiujXFBP1ElLl8FHH7Qs6lt1qACYcd6YBTfTL
+         s0gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771840337; x=1772445137;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uoHMTBb8IpVzr1yOCWWsa13mcN23kWHrFMIDsOYWxZQ=;
+        b=i2RY3s9OHsrnSF486wOQWVr0G1PqAfzs21jODPAJc5XYg8hra23TWxFeITzDCqPAic
+         updtIieqrJj0dLPcZ08rKT8JYmXqJOM6Ho4GJFkeYKxkABg7Saa24aifsi6eQsSqNJCx
+         d+Rmkw0dhXU+3fIzjD3wSsw9lgW+ha/ETxD2CPM/9Y3MDoW3OHso/cmRcb8HhOlnJHAw
+         caZ8uYmvcmLtLsAgADcy22GSB0jjaT42Wgqu1HFuPS+NE3I4Uc+Edscu6lE0gSFh5RCJ
+         /WvqnLz94e9Blf85+ude/6VlWuc5pR4zov56QQAVifnR6FS+0kaudhl3kgr3vE4FKvk+
+         9bLA==
+X-Forwarded-Encrypted: i=1; AJvYcCUdeBitNMQ0Q7pPy1b7a707kKO/Py81TYT7SFP38LnqUz+WDntNF/RtYxEoy6MLDjLYwQvK87DtYpUmk+pfYDn3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAV4QKEd2sxWI6c0k53iyQCnArlA0Q9AnsGFQ89L2qs8F1AIhQ
+	ji58HyVGLrrZBxwYluA6A3OYvI9PgyIWBl7MNVGkZsmJz1l8TIlTKO/7Hhc/9NOlbrtAFf4+q4q
+	OAru4RqOVzlEVA/uUtQTuaZ90UjltFg7pJurWk+yRRKQ6dA2/n+PwCOE89QkAcBcXBcZ+n2p/qh
+	+svw==
+X-Gm-Gg: AZuq6aKwlJIEVq50BDJ3TRuvgQOsueJpJIJ1oPJWyeskiydBj1gpgKuh8eWC1NixIAL
+	AWRJXOlNnQR84HTsWlTcUSjG72JbgfYtsPjuuKtrU2O2rE+4eW9q1MCHjdFnVWHcMyB7vQemdJy
+	ZL+BiSLj/HQJgGMfV714hDGdtQNos1EImPkv17P0S/66mw2R/h/7Iy38bnszSSMhZR560CzGZkP
+	ILSBhCIb9360RJvlnlol9tjKd9flwUSPNbTcEw9htJqQephFzhHD56FX5gtgYWiUfkcEVFvZOdn
+	+DPKFg0ufe9izR1VZ2ADCyB6MH7oQD4F8wr0FsTwP63t1ubIwcQtvtEL/NgW9Iz+7Qa23Ox1Fcz
+	TsaRmc52pmfiLKGSwOp93mtagN8Fmd3rJPwQ=
+X-Received: by 2002:a05:6a21:2d42:b0:38d:b865:3a2e with SMTP id adf61e73a8af0-39545ec839bmr6508767637.25.1771840337206;
+        Mon, 23 Feb 2026 01:52:17 -0800 (PST)
+X-Received: by 2002:a05:6a21:2d42:b0:38d:b865:3a2e with SMTP id adf61e73a8af0-39545ec839bmr6508755637.25.1771840336687;
+        Mon, 23 Feb 2026 01:52:16 -0800 (PST)
+Received: from oss.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c70b71a735csm6444453a12.12.2026.02.23.01.52.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Feb 2026 01:52:16 -0800 (PST)
+Date: Mon, 23 Feb 2026 15:22:09 +0530
+From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-phy@lists.infradead.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH RFC net-next+ 2/9] net: stmmac: qcom-ethqos: move
+ ethqos_set_serdes_speed()
+Message-ID: <aZwjSe5zF1+fKoGa@oss.qualcomm.com>
+References: <aZcGxDBwfMXHbo_O@shell.armlinux.org.uk>
+ <E1vt3UI-0000000A5e2-0Im5@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: tmc: Fix overflow when calculating is bigger
- than 2GiB
-Content-Language: en-GB
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Junhao He <hejunhao3@h-partners.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Michiel van Tol <michiel.vantol@arm.com>
-References: <20260217-arm_coresight_fix_big_buffer_size-v1-1-774e893d8e3f@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260217-arm_coresight_fix_big_buffer_size-v1-1-774e893d8e3f@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1vt3UI-0000000A5e2-0Im5@rmk-PC.armlinux.org.uk>
+X-Authority-Analysis: v=2.4 cv=KJVXzVFo c=1 sm=1 tr=0 ts=699c2352 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=PHq6YzTAAAAA:8 a=EUspDBNiAAAA:8 a=4YUTyhlxiuLjCXpWR_UA:9 a=CjuIK1q_8ugA:10
+ a=bFCP_H2QrGi7Okbo017w:22 a=ZKzU8r6zoKMcqsNulkmm:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjIzMDA4NCBTYWx0ZWRfX/07kXY3Osph1
+ GLbowMlmrKSWM/dFlkmyuZZijj+ICxnlpS1U3Ushliq//Pt/SCTY2StcQ4Wr7gEQxITI3iX1Meg
+ x/oHJwTznZkHGuodWxWciccXfSUZiU8wH8Vpzdf6kqzAa/u/0JEIluVq490+swD31QE/ReIBv0J
+ 1MraxvOChwpIDat7nF/L1knXtV1Nbg1WjHudMFWzBZ3jyjjISHLW2oMIGDo0Rkb9H+6m+o40JVH
+ mvfxouGM4ZMnYfSifK3s796IwlVkEjRu3sYcgSQfiPlbBqzvcJFX43q7o+NN/CEDzl9zaK7SZ0r
+ QaTjA+U/tiRUW/v59F/eBMQKFFsfo1aCPV72zVylJqeES/O7crfsb/JORyTprC8b+Qzqwvh9D/T
+ fjMdBJVJu5sno+RgKJD5k1XNq035ZXKFB1BfHvidmilZKt4IsBVlwd4PkghF9LhNfg5w7ONw113
+ hFgWgiMCFrYSVpMV0CA==
+X-Proofpoint-ORIG-GUID: rxv4s6SMeQHa5lFvnhEmmHztPnuk5OHf
+X-Proofpoint-GUID: rxv4s6SMeQHa5lFvnhEmmHztPnuk5OHf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-23_02,2026-02-20_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 bulkscore=0 lowpriorityscore=0
+ priorityscore=1501 clxscore=1015 spamscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2602130000
+ definitions=main-2602230084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_015049_374439_FAD8E0BB 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20260223_015218_556228_23C10E05 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,68 +151,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo
-
-On 17/02/2026 13:19, Leo Yan wrote:
-> When specifying a 2GB AUX buffer, the ETR driver ends up allocating only
-> a 1MB buffer instead:
+On Thu, Feb 19, 2026 at 12:50:34PM +0000, Russell King (Oracle) wrote:
+> Combine ethqos_set_serdes_speed() with ethqos_mac_finish_serdes() to
+> simplify the code.
 > 
->    # echo 'file coresight-tmc-etr.c +p' > \
-> 	/sys/kernel/debug/dynamic_debug/control
->    # perf record -e cs_etm/@tmc_etr0,timestamp=0/u -C 0 -m ,2G -- test
->    coresight tmc_etr0: allocated buffer of size 1024KB in mode 0
-> 
-> The page index is an 'int' type, and shifting it by PAGE_SHIFT overflows
-> when the resulting value exceeds 2GB.  This produces a negative value,
-> causing the driver to fall back to the minimum buffer size (1MB).
-> 
-> Cast the page index to a wider type to accommodate large buffer sizes.
-> Also fix a similar issue in the buffer offset calculation.
-> 
-> Reported-by: Michiel van Tol <michiel.vantol@arm.com>
-> Fixes: 99443ea19e8b ("coresight: Add generic TMC sg table framework")
-> Fixes: eebe8dbd8630 ("coresight: tmc: Decouple the perf buffer allocation from sysfs mode")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
->   drivers/hwtracing/coresight/coresight-tmc-etr.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index cee82e52c4ea96b035f1db71b2d9a006bfc1c51e..990bbb721e1d712d7b93f1e36087fdaf9d3baa3b 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -154,7 +154,7 @@ tmc_pages_get_offset(struct tmc_pages *tmc_pages, dma_addr_t addr)
->   	for (i = 0; i < tmc_pages->nr_pages; i++) {
->   		page_start = tmc_pages->daddrs[i];
->   		if (addr >= page_start && addr < (page_start + PAGE_SIZE))
-> -			return i * PAGE_SIZE + (addr - page_start);
-> +			return (long)i * PAGE_SIZE + (addr - page_start);
->   	}
->   
->   	return -EINVAL;
-> @@ -1381,7 +1381,7 @@ alloc_etr_buf(struct tmc_drvdata *drvdata, struct perf_event *event,
->   	node = (event->cpu == -1) ? NUMA_NO_NODE : cpu_to_node(event->cpu);
->   
->   	/* Use the minimum limit if the required size is smaller */
-> -	size = nr_pages << PAGE_SHIFT;
-> +	size = (ssize_t)nr_pages << PAGE_SHIFT;
->   	size = max_t(ssize_t, size, TMC_ETR_PERF_MIN_BUF_SIZE);
->   
->   	/*
+>  .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 22 +++++++++----------
+>  1 file changed, 11 insertions(+), 11 deletions(-)
 > 
 
-Thanks for the fix. Could we not fix the declaration of the variables 
-instead ?  (Also add a comment to make sure people don't revert it back )
+Reviewed-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
 
-Cheers
-Suzuki
-
-
-
-> ---
-> base-commit: eebe8dbd8630f51cf70b1f68a440cd3d7f7a914d
-> change-id: 20260217-arm_coresight_fix_big_buffer_size-a8a41298369d
-> 
-> Best regards,
-
+	Ayaan
 
