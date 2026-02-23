@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCD3EC1116
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 17:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53BDEC1118
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 17:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9Bh9D4dZfCmswtYoYNWndxYXeH/2BHsrOjRd5CN/mQ=; b=HcDMrcPYkp2GtgnnOm4zMsaY72
-	eI4r1RurUnDUe5je+45g1M0PEYfVbwgtPwA+fi9uVEtISJKmrEELVKJwfaqhYMOSysn780rsOShwK
-	9mu0tIuzrzQkH3zU34Aj8Yb8S8RDhd/2na+pzCvWMXgxTpstP50DwSJd9JaqiwyH5tnE9zITFamF7
-	2IeIXqXQRaw3P5ojkZ560P0M13hYRlrwQfmRT2BoU3Rmn9RBYPMB9lQl4DilGZDxtvut8LF1RgaFI
-	L3DMxgLDZFbPAZCtPY/nhFFKgvBiE+OmJ4FD6q1pt5ugssFHNLi0Z5Pp3d8LLP2+mcGrFKj19GaLW
-	uEErs+2g==;
+	bh=IXSrZ1wEKF9AWx6SNb0tpq+6v95d/wiLK6UPSvikvfw=; b=znyxz0yJ39gLsPnBYUZ/N90CSL
+	11NiqpvWLVjtAYLwkjTZ2ossUjsSFCuMbXRXfDxnLTMLM8q3PwYEPgDM7rm3FC9ts0WpqzE1t1tGQ
+	oktnll3rR3Sly1FZ4/Mr69zX4QW52zQnE8lKbPFkYEFdznUxXby3KtUmH4bjg8+WccrFLqQ2F+VFk
+	5AFyOxZPHQg+mWJ2YFq8jqplNmghN506OlwftbnsBm2YjW0d/r0wfusnNXyEXzOkWueMfld15Ja/K
+	3lRaBZU5ihEw5lM1nIMtsMmmu386UPOJuqIjHap+y8nQ14peP7LHSTZPzsf8Hmcll7ibdbBJQGT1E
+	zMYag3XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vua2p-00000000ozR-2SLs;
-	Mon, 23 Feb 2026 17:48:31 +0000
+	id 1vua2t-00000000p3Y-0v39;
+	Mon, 23 Feb 2026 17:48:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vua2j-00000000ou7-3WMI
+	id 1vua2p-00000000ozD-2Vu4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 17:48:26 +0000
+	Mon, 23 Feb 2026 17:48:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC9E61570;
-	Mon, 23 Feb 2026 09:48:18 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5099339;
+	Mon, 23 Feb 2026 09:48:24 -0800 (PST)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 798663F59E;
-	Mon, 23 Feb 2026 09:48:22 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5F8053F59E;
+	Mon, 23 Feb 2026 09:48:28 -0800 (PST)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -53,17 +53,18 @@ Cc: catalin.marinas@arm.com,
 	joey.gouly@arm.com,
 	yuzenghui@huawei.com,
 	yeoreum.yun@arm.com
-Subject: [PATCH v13 6/8] arm64: armv8_deprecated: disable swp emulation when FEAT_LSUI present
-Date: Mon, 23 Feb 2026 17:48:00 +0000
-Message-Id: <20260223174802.458411-7-yeoreum.yun@arm.com>
+Subject: [PATCH v13 8/8] arm64: Kconfig: add support for LSUI
+Date: Mon, 23 Feb 2026 17:48:02 +0000
+Message-Id: <20260223174802.458411-9-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260223174802.458411-1-yeoreum.yun@arm.com>
 References: <20260223174802.458411-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_094825_923895_62EF8742 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260223_094831_698443_97D747FB 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +79,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The purpose of supporting LSUI is to eliminate PAN toggling.
-CPUs that support LSUI are unlikely to support a 32-bit runtime.
-Since environments that support both LSUI and
-a 32-bit runtimeare expected to be extremely rare,
-not to emulate the SWP instruction using LSUI instructions
-in order to remove PAN toggling, and instead simply disable SWP emulation.
+Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
+previleged level to access to access user memory without clearing
+PSTATE.PAN bit.
+
+Add Kconfig option entry for FEAT_LSUI.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 ---
- arch/arm64/kernel/armv8_deprecated.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/arm64/Kconfig | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/kernel/armv8_deprecated.c b/arch/arm64/kernel/armv8_deprecated.c
-index e737c6295ec7..049754f7da36 100644
---- a/arch/arm64/kernel/armv8_deprecated.c
-+++ b/arch/arm64/kernel/armv8_deprecated.c
-@@ -610,6 +610,22 @@ static int __init armv8_deprecated_init(void)
- 	}
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 38dba5f7e4d2..890a1bedbf4a 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2215,6 +2215,26 @@ config ARM64_GCS
  
- #endif
-+
-+#ifdef CONFIG_SWP_EMULATION
-+	/*
-+	 * The purpose of supporting LSUI is to eliminate PAN toggling.
-+	 * CPUs that support LSUI are unlikely to support a 32-bit runtime.
-+	 * Since environments that support both LSUI and a 32-bit runtime
-+	 * are expected to be extremely rare, we choose not to emulate
-+	 * the SWP instruction using LSUI instructions in order to remove PAN toggling,
-+	 * and instead simply disable SWP emulation.
-+	 */
-+	if (cpus_have_final_cap(ARM64_HAS_LSUI)) {
-+		insn_swp.status = INSN_UNAVAILABLE;
-+		pr_info("swp/swpb instruction emulation is not supported on this system\n");
-+	}
-+#endif
-+
- 	for (int i = 0; i < ARRAY_SIZE(insn_emulations); i++) {
- 		struct insn_emulation *ie = insn_emulations[i];
+ endmenu # "ARMv9.4 architectural features"
  
++config AS_HAS_LSUI
++	def_bool $(as-instr,.arch_extension lsui)
++	help
++	  Supported by LLVM 20+ and binutils 2.45+.
++
++menu "ARMv9.6 architectural features"
++
++config ARM64_LSUI
++	bool "Support Unprivileged Load Store Instructions (LSUI)"
++	default y
++	depends on AS_HAS_LSUI && !CPU_BIG_ENDIAN
++	help
++	  The Unprivileged Load Store Instructions (LSUI) provides
++	  variants load/store instructions that access user-space memory
++	  from the kernel without clearing PSTATE.PAN bit.
++
++	  This feature is supported by LLVM 20+ and binutils 2.45+.
++
++endmenu # "ARMv9.6 architectural feature"
++
+ config ARM64_SVE
+ 	bool "ARM Scalable Vector Extension support"
+ 	default y
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
