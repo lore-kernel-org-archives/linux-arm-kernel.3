@@ -4,139 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C4DEA4FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 13:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F441EA4FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 13:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zYhRLoiK0VLHYOzUwBccbAM03Ht3O7rDyk48fwSLsM4=; b=yF3R7tfAldsnIWnt+q2YXLx2Iy
-	bbVcesFZsTSCU9uZfhl+p7n/iqbol26has0YpUUesFJCFh7SPVdMC9BVAHZgHEzpYfuI4ro5YVWBH
-	D25m2UaQZ1OsIPDzeE0LcWg1QvzAOQG+sWC3lebaayGIZCevzb77TPdhxRtKRZpWMX4YrslbBw5k7
-	M0RTg+O8w/YE3WF/gxbx62wXtJLvb70QCJCmvwMutBsDIXlCy3bro1OJxNSWnScUpbmFGZGuVugaG
-	bR/Iwbes37OaDp7w/wZa8o3zBp4/z9MS/Zz87sFOI0VkyzwxUBRweJzpMRWIEnXlHddot6mPqPZ24
-	8GWWFCsQ==;
+	bh=md098YYleEgWPR5h6+XVqGymvzDlPQ9YNmH0A44q+gQ=; b=os47wCI0coJxPouSFPRK+5rMnY
+	n5L+9qMGTvBoSBBiE9HRA37RBmmtBAw1wzlWFanc+Q589WQWCBvyckxlEoCmdEbrszXGUfLoWsYg0
+	NjqCV1yazWYL+nUQUpp6DiOVQcO1gw6iKiyMtQLi4wB7+lehpQIncj414AGXdtewL6zd1LlFvi4ZE
+	ADIEpWdOuaDHSV1dy5U/CxaX92KcSijhgiaQaWoRJkNgTEm57fHxEzoPV/iB6M63Vd9f46Xoc2xng
+	GQ3E/NBbqjgIxiOHtlAbvex66FeD1BTZVmo1G/Jk4UfeY75g6A6yV5F1W5urXefCvw4BZs/ugvXgy
+	QNWELbqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuVlv-00000000Kxw-2LKz;
-	Mon, 23 Feb 2026 13:14:47 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vuVm0-00000000Kzd-1S0B;
+	Mon, 23 Feb 2026 13:14:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuVlt-00000000KxZ-1Npq
+	id 1vuVlw-00000000KyC-1kqj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 13:14:46 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61N1F85K2962734;
-	Mon, 23 Feb 2026 13:14:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=zYhRLo
-	iK0VLHYOzUwBccbAM03Ht3O7rDyk48fwSLsM4=; b=VhVTfmRZlcgUlS2H4zoNjO
-	cIoftXjrnJVO+eqs4xb2LmUjPaQvMLgx3ARvMEmIwP/wzgaXegXa4SMfxebr4Jl6
-	rOrZqqcQQVdXVymS4xyFEhlh7kHdBUqOgX+u0fj6nYjsUiXPIPVeFEI78dC0r0og
-	gBu6wELB17+OmxixdGAA+Np2BXE4pyxsunqdDVWs/UBpEt1i+S5lWwcNwrRFbWA3
-	Sqbwh3UB5HI+rcOfsm98h8jwSnrrCYtuKxzjE31EPy9hMQOYJy4FynC5EQqFa4b4
-	VE1MZ+O/BlCHbXVsqMxxfDDFtylqNuDNvU+Hu5Hq2CvooDNEb1G1Jb9Q1nVL1oPA
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cf24g703j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Feb 2026 13:14:03 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61NBfIQK003836;
-	Mon, 23 Feb 2026 13:14:02 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4cfs8jmn9q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Feb 2026 13:14:02 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61NDE1Qp49545712
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Feb 2026 13:14:01 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F358B20040;
-	Mon, 23 Feb 2026 13:14:00 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6D9172004B;
-	Mon, 23 Feb 2026 13:13:44 +0000 (GMT)
-Received: from [9.124.223.211] (unknown [9.124.223.211])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 23 Feb 2026 13:13:44 +0000 (GMT)
-Message-ID: <68149255-7398-466b-9d97-7f0124fda25b@linux.ibm.com>
-Date: Mon, 23 Feb 2026 18:43:42 +0530
+	Mon, 23 Feb 2026 13:14:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 80D6260054;
+	Mon, 23 Feb 2026 13:14:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BD52C19424;
+	Mon, 23 Feb 2026 13:14:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771852487;
+	bh=8DwFT3SzJIRBOZObvA0LRL2zBy3gdn77newiUsk86b8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oL+F96VgfcBJOcHfWjY8OCc7DLRkYL7rvRqvfYaO4zTIWo1qqarm2/KV6YX7QAbox
+	 FM2GZNvfkXO4u1jSmYon1GBy3oC/yas5NKZob5V2/AehahvUA9cFfgFGH/dkGl8uK5
+	 wJujyp/6kO4AlGE7tYKZcnqhSvhqPDDWy/VjYEhPRsBKhT0rrGWgVUpjIVpwY42uQg
+	 THt3FZPxXS27POM6ejDcFCGJZY7H0OpaMrqJsezbDdELEbq8EBCdN2S7IpYLiBYGrh
+	 nCMy7lHyiFv07LSeUEFdq0J3knzGvrHNXO8stz1M37gY2C1+9WwzDjOR9vaI0pq2SL
+	 QCIdNPZWUYj8g==
+Message-ID: <fe755e85-1558-4272-bdd4-af7a2038ab1f@kernel.org>
+Date: Mon, 23 Feb 2026 14:14:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/12] powerpc/xive: simplify xive_spapr_debug_show()
-To: Yury Norov <ynorov@nvidia.com>, linuxppc-dev@lists.ozlabs.org
-References: <20260219181407.290201-1-ynorov@nvidia.com>
- <20260219181407.290201-2-ynorov@nvidia.com>
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
+Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
+ devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
+ Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ "Vincent Guittot devicetree @ vger . kernel . org"
+ <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
+References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
+ <20260121021913.GA1704619-robh@kernel.org>
+ <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
+ <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
+ <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
+ <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
+ <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Cc: linux-kernel@vger.kernel.org,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        "David S. Miller" <davem@davemloft.net>,
-        "Peter Zijlstra (Intel)" <peterz@infradead.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Antoine Tenart <atenart@kernel.org>,
-        Christian Brauner <brauner@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Eric Dumazet <edumazet@google.com>,
-        Geetha sowjanya <gakula@marvell.com>, Ingo Molnar <mingo@kernel.org>,
-        Jakub Kicinski <kuba@kernel.org>, James Clark <james.clark@linaro.org>,
-        Jerin Jacob <jerinj@marvell.com>, Linu Cherian <lcherian@marvell.com>,
-        Lukasz Luba <lukasz.luba@arm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>,
-        Nicholas Piggin <npiggin@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
-        Rasmus Villemoes
- <linux@rasmusvillemoes.dk>,
-        Simon Horman <horms@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-        Subbaraya Sundeep
- <sbhatta@marvell.com>,
-        Sunil Goutham <sgoutham@marvell.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>, Tom Rix <trix@redhat.com>,
-        Xu Yilun <yilun.xu@intel.com>, Yajun Deng <yajun.deng@linux.dev>,
-        Yury Norov <yury.norov@gmail.com>, Zhang Rui <rui.zhang@intel.com>,
-        hariprasad <hkelam@marvell.com>, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
-        linux-pm@vger.kernel.org, netdev@vger.kernel.org
-In-Reply-To: <20260219181407.290201-2-ynorov@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=TNRIilla c=1 sm=1 tr=0 ts=699c529c cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=Ikd4Dj_1AAAA:8
- a=VnNF1IyMAAAA:8 a=RRjIJgXTCtlgTdhHy9AA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: zk86Bjz-ydPJYTzK12ycUFUxtnx4SsWL
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjIzMDExMyBTYWx0ZWRfXzUksRw9myqEz
- UixBWMUBZhLNgjnHiRif4qEj6UTL9WGyZkn27yUtF6CWFb9SYDOGa8ybNIYcoScAvxJAjZvhNeN
- crWv2GETS4bYnOXhGA0j9jBzFducGZUXccIKv+/lCjc59Y7xepUBptqzpDWEqkQeTWTMZOLtDAe
- JKMVrv5POWEa1ALIBmUFCCdNJAw5xb1J1rgrHt8KhPKHVdM2T59DOL7PmtHzE85KWEwjN5v4NGp
- KwqvUOH7ymRE+6kwdl+0y/KIhzwB4XbaesJX00qvqjBCniVexgjmFtm0aMlvo60ZeN66AO42SpO
- fZ+eus7mxmnk4gnXvoIwI7BShUWgz1g/JfCJNmaSyECFzmtlwps2RusoWi6ud1HQYaHQSf5ROEo
- rm2QmGaze6ialIdxLy6AR7amIsOcyElw9lE3OHW750fh185sPBRKByN+/ioJoQpV2aiqznoRRJa
- UDMaxIW562x9oJGezoA==
-X-Proofpoint-ORIG-GUID: Hf_7wRhC8iujCJ7VvfJzpi5rfR7wKIcE
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-23_02,2026-02-23_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501 impostorscore=0
- spamscore=0 clxscore=1011 bulkscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602230113
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_051445_499506_539C2BA0 
-X-CRM114-Status: GOOD (  19.76  )
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,45 +137,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/19/26 11:43 PM, Yury Norov wrote:
-> The function creates temporary buffer to convert xibm->bitmap to a
-> human-readable list before passing it to seq_printf. Drop it and print
-> the list in seq_printf() directly with the "%*pbl" specifier.
+On 23/02/2026 12:51, Khristine Andreea Barbulescu wrote:
+> On 2/20/2026 4:41 PM, Krzysztof Kozlowski wrote:
+>> On 20/02/2026 15:36, Khristine Andreea Barbulescu wrote:
+>>> Hello Krzysztof,
+>>>
+>>> On 2/20/2026 12:16 PM, Krzysztof Kozlowski wrote:
+>>>> [You don't often get email from krzk@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>>>
+>>>> On 19/02/2026 12:36, Khristine Andreea Barbulescu wrote:
+>>>>>>
+>>>>>>> +      reg:
+>>>>>>> +        maxItems: 1
+>>>>>>
+>>>>>> You have 'reg' so the node name should have unit-address.
+>>>>>>
+>>>>>> However, there's not any real DT resources in this child node, so you
+>>>>>> should just drop it.
+>>>>>>
+>>>>>
+>>>>> For context, SIUL2 exposes a set of platform‑capability and SoC identification registers that are split across the two discontiguous ranges: SIUL2-0 and SIUL2-1. These registers are the source of SoC information (e.g. identification and capability flags) that other subsystems are expected to consume (e.g. PCI Express). Because those fields are physically divided between the two SIUL2 ranges, consumers need reliable access to both ranges to correctly discover and configure the platform.
+>>>>>
+>>>>> Hence, my proposal is to keep the two 'syscon' child nodes.
+>>>>
+>>>> Please wrap your replies correctly, so this will be easily parseable.
+>>>>
+>>>> I do not understand the reasoning. If you have two register ranges, you
+>>>> have two <reg> entries and having a child node has nothing to do with it.
+>>>>
+>>>
+>>> I’ve reorganized the SIUL2 node with two syscon subnodes for the two
+>>> register regions used to read system info, and a separate
+>>> pinctrl/GPIO child (as discussed in the v8 06/10 thread [0]). The parent
+>>> SIUL2 node now carries the bus addressing and ranges:
+>>
+>> That's not the answer to the comment. Read again:
+>>
+>> 1. Reviewer: No resources, so no separate node.
+>> 2. Your answer: some soc capability and two address spaces
+>> 3. Reviewer: Does not matter, address spaces can go again to original place
+>> 4. Irrelevant reply.
+>>
+>> So again, read the first comment - do you have dedicated resources in
+>> children?
+>>
+>>>  
+>>>     siul2: siul2@4009c000 {
+>>>         compatible = "nxp,s32g3-siul2", "nxp,s32g2-siul2";
+>>>         #address-cells = <1>;
+>>>         #size-cells = <1>;
+>>>         ranges = <0x4009c000 0x4009c000 0x179c>,
+>>> 		 <0x44010000 0x44010000 0x17b0>;
+>>>  
+>>>         siul20: siul20@4009c000 {
+>>>             compatible = "nxp,s32g-siul2-syscfg", "syscon";
+>>>             reg = <0x4009c000 0x179c>;
+>>
+>> 0x179c is odd size. Looks fake.
+>>
+>>
+>>>         };
+>>>  
+>>>         siul21: siul21@44010000 {
+>>>             compatible = "nxp,s32g-siul2-syscfg", "syscon";
+>>
+>> And two same devices with same compatible proof it.
+>>
+>> Best regards,
+>> Krzysztof
 > 
-> Signed-off-by: Yury Norov <ynorov@nvidia.com>
-> ---
->   arch/powerpc/sysdev/xive/spapr.c | 12 ++----------
->   1 file changed, 2 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/powerpc/sysdev/xive/spapr.c b/arch/powerpc/sysdev/xive/spapr.c
-> index 5aedbe3e8e6a..f818299579b1 100644
-> --- a/arch/powerpc/sysdev/xive/spapr.c
-> +++ b/arch/powerpc/sysdev/xive/spapr.c
-> @@ -667,17 +667,9 @@ static void xive_spapr_sync_source(u32 hw_irq)
->   static int xive_spapr_debug_show(struct seq_file *m, void *private)
->   {
->   	struct xive_irq_bitmap *xibm;
-> -	char *buf = kmalloc(PAGE_SIZE, GFP_KERNEL);
->   
-> -	if (!buf)
-> -		return -ENOMEM;
-> -
-> -	list_for_each_entry(xibm, &xive_irq_bitmaps, list) {
-> -		memset(buf, 0, PAGE_SIZE);
-> -		bitmap_print_to_pagebuf(true, buf, xibm->bitmap, xibm->count);
-> -		seq_printf(m, "bitmap #%d: %s", xibm->count, buf);
-> -	}
-> -	kfree(buf);
-> +	list_for_each_entry(xibm, &xive_irq_bitmaps, list)
-> +		seq_printf(m, "bitmap #%d: %*pbl\n", xibm->count, xibm->count, xibm->bitmap);
->   
->   	return 0;
->   }
+> We don’t have dedicated resources for children. In particular,
 
-Looks good to me.
+Then previous comments/review stay.
 
-Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
+> there are no resources allocated specifically for nodes like
+> "nxp,s32g-siul2-syscfg". Their consumers are the pinctrl/gpio
+> driver and other drivers that read SoC‑specific information from
+> those shared registers.
+>  
+> My alternative is to keep two separate syscon providers for the
 
+You got review already.
+
+Best regards,
+Krzysztof
 
