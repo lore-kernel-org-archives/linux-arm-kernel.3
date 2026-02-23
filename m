@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B50AEEC2A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 22:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE47EEC2A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 22:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=crCBTx8/dsPEK+OSvhTeFIW5TxLjcQhWKTP9ngyNGlU=; b=3apH36/4eZefkWAJ5lL1MqYI7x
-	wrvyIftRc8b1QQzaQTaLUI8lR6CKCmSssKKD/6nxoY1Gc0rEe3tKyUWNHfLmzQxcuro7OskBTq9Sz
-	OZ7YEac8JSQF8JcvFq14K4uTHOFqMBLIqHm46lydf/IliI9qXhQZiUqpx239ho/+pWubLDEFfrDRc
-	SpiJ8NNQZSfwSVF+f3L8syx23M0p3pe7jmjL7gQvRiMlSFpdZ+Cc8v86nY6bI3oo5pmr1ksGSjVIf
-	taHXehcO+fZm/d1p2FutBj3kG5qtFJ9eQHgRqFMc/W4s1RfnOXZHie0ERiwQ7NpH0iepM2hOG06wH
-	2r0+zTiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zA8neqIU5RolfFhf2Lp4LEYhHtdffFh3y3a13wUOp+g=; b=gm/gPQwTMiJDwntRn12VazFfv7
+	2fjX//6nJhnct3CepnbQCZbEvY9mEpXl7gjwGIxttNCcOZSKeVAGCvhdVInLdoSmqJ3ylfwa+Xuvf
+	2eWbG596bkmAiKJysgAlPCccfvO/Va2gd3FlfhpBrVh+WtV7thqN3/55PPYaSAgolaPGKt2FdsnLe
+	sV6LSlny3k576E3jguOODazvPu7K7MJTICQJNY/PMBPuNiswN5JEtOFT+Ws90w0MGk+O3MxDShEOY
+	TQ3a1WeHRWMTcYQCnB2crEgTmgD6cew3pKUj3A2vqWF7OcZXDa7r/tCr/tDmXkbgcGGxMN0cnhJV5
+	TGfEarDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vueUl-000000017S8-3nFn;
-	Mon, 23 Feb 2026 22:33:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vuee3-000000017xs-12Pi;
+	Mon, 23 Feb 2026 22:43:15 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vueUi-000000017Rl-4C1R
+	id 1vuee0-000000017xB-3IAa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 22:33:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1441643280;
-	Mon, 23 Feb 2026 22:33:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAEB5C116C6;
-	Mon, 23 Feb 2026 22:33:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771886015;
-	bh=6luMqdKSuq9XRD6Jc4ImEhLDZ+nlkl7La9U57PIctFw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J983x/DUXe3wWA3l+3Y64rA0CyNpkzQkwiWNeGpfi4mVEVqwUoxLSa6SgDkizaiuU
-	 kyf+CQXTpoeB+BorC0kiHBzbL7iajtQVbKZostEWGW0GTy+zMQ2EO0UAxWNsXvZSC3
-	 pYwsPqARByxjspf6jCgBrNJRjb+aVsM3582OK2Z86dHZ4/AT3JjWfCQ7qzfd8TdDO3
-	 HYeH2KFUSJokM4IASGtQF+43uR5nJAj3Me2nQddduKJWxtNjoQfmxUNtzNPpVAXvwE
-	 LXapQT/2pi7TKjubvmD9ZBhqaEtpqEdZ/k1WaiC8FlfJvMknXYqOOUyAsPpsR2WUfK
-	 Z3GgEPZNO4NJQ==
-Date: Mon, 23 Feb 2026 14:33:35 -0800
-From: Kees Cook <kees@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Nicolas Schier <nsc@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	linux-efi@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH 2/2] kbuild: Use '-fms-anonymous-structs' if it is
- available
-Message-ID: <202602231432.20F3F0CF@keescook>
-References: <20260223-fms-anonymous-structs-v1-0-8ee406d3c36c@kernel.org>
- <20260223-fms-anonymous-structs-v1-2-8ee406d3c36c@kernel.org>
+	Mon, 23 Feb 2026 22:43:14 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8249fc726e9so2513629b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 14:43:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771886592; x=1772491392; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zA8neqIU5RolfFhf2Lp4LEYhHtdffFh3y3a13wUOp+g=;
+        b=OjI21rPzGfzRYqvcm3BnAL4BF1VX5zVNZOtI6fHNW5R0qn8qwOBwC8SY45RcC9VjVy
+         VLrHK5qNTvMTu9csyP2r6/1pNwvy3OYjVPXPt6ueIMNaj+t28GTCVaeKEKIsJHqMrYR7
+         Bzue60LZcyBcwZzSNX+MI2cZgLCEdoozGAts8NZfYoF+P2H/tSaNZhKAAVwcp+PaOgrQ
+         Zp625QhzUklCZBwVgAiHrTDhHoYGVIkj4UlnnVzuVFzolt7k21RmmJ0Cy4e5v8fSC2IZ
+         b7EdTT+/BPeI1JKQXTWF1vDtkEXHcV3qXW0tMpzLNvLoDTzh9/76s3AwLVyAc/d/2Yye
+         E0xA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771886592; x=1772491392;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zA8neqIU5RolfFhf2Lp4LEYhHtdffFh3y3a13wUOp+g=;
+        b=KE2m6DicajhcE/trZFfW+sxeHNhuwBvkp80xpdUW0TMONreWpexooNMPR5aBsUXBgl
+         CKCaqOBAys+t104izJ3eJ0t2+fF4yje9Xsy2GLM40XC2CIbIQUUrsCDwJj0AmFw45oQA
+         FaZS2duf2N08SQkzHavzwVuLQmOW2PL5IgG5mtsl4h9Z0D7wsc3cKGz6Ue/38gY7FcnK
+         /awhnJ5q7FBUsVGrcXEpxHePgG/7c9opQcsnXE6Oa9KGWTnD8IAAkP0nywSnmIM6Szq8
+         KD4TG45YAdz1L94Bm5X2DK+jvFur9Aq6VBy27R7K9dYiiJKpoFdsiM57HKVkkg9TuKjt
+         lxbA==
+X-Forwarded-Encrypted: i=1; AJvYcCXIozCEHuEZZItCuKVlrzwTxFl+mFSmIVm6+Y8dkZaVtoL6b02yjyY3bOk6qnVMWZvGOMMfWDfCvCbnstEZ8276@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNiNktoJJZpD1v7KKtmMMQenhYnXwG/2RcgFtAF12AHkLE4ilz
+	TvLGHTtiOfaKJBN49wvfiGMGuWoiob6u+J4xLUqNf99E/5SxOgQ0RMZo
+X-Gm-Gg: AZuq6aKAQ1LWrzudZl8SSKD/iT7LXc5lbHZfZ9u/As0HjdNFPqBvYqG/hlZPNLMeKoo
+	ZfKvJppaWar9yr6sn6dgbPg6kZYSoOyTgy5R5OZ/8IKD/7cu5Ze5yKe7C9ymRlH8cWL6MLWsiF1
+	IQaElMQVnqhmeQU/4IgkEwLHyZQdCKAYhzqSc/AsmSpnsRN2JQqie1trlO0DJcIp6qZ+1vqmnPu
+	eLEG81Hr1fkQ0bxOnFCxynoIVspl6WOmKeUueVLbA4Gp+w6KA5gOZPvkdY6auRd1XjBNGPvfp8k
+	S6aEIdzeM71OyK5qbYZVx9KrhRCBTZqzay2kLTo/L21u0BJXeITAg1BOWQBslTBAgeMHdksE6NR
+	S1lj2iExi5IERGO8usQyGG7W01QFgE4dLXY4uhq0b5jx/Ph+eUwwD9Q4ThdYg4blPYtJ0agqxpK
+	Vg9KfINp+PgcDOKxTSe+afIpzo3+w0fxfYrqkLnjrEr+6HA24swcZ2hRwPF41YhB42
+X-Received: by 2002:a05:6a00:130c:b0:7e8:4471:8db with SMTP id d2e1a72fcca58-826daaac4c5mr8310461b3a.60.1771886591857;
+        Mon, 23 Feb 2026 14:43:11 -0800 (PST)
+Received: from ryzen ([2601:644:8000:56f5::8bd])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-826dd693845sm10614461b3a.26.2026.02.23.14.43.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Feb 2026 14:43:11 -0800 (PST)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-wireless@vger.kernel.org
+Cc: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE),
+	linux-actions@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH ath-next] wifi: ath9k: owl: move name into owl_nvmem_probe
+Date: Mon, 23 Feb 2026 14:42:54 -0800
+Message-ID: <20260223224254.27081-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260223-fms-anonymous-structs-v1-2-8ee406d3c36c@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_143337_125565_8851E14D 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20260223_144312_854458_303475F3 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,65 +99,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 12:10:29PM -0700, Nathan Chancellor wrote:
-> Clang recently added '-fms-anonymous-structs' [1] to specifically enable
-> the Microsoft tagged anonymous structure / union extension, for which
-> the kernel added '-fms-extensions' in commit c4781dc3d1cf ("Kbuild:
-> enable -fms-extensions"). Switch to this more narrow option if it is
-> available, which would have helped avoid the issue addressed by
-> commit a6773e6932cb ("jfs: Rename _inline to avoid conflict with clang's
-> '-fms-extensions'"). GCC has talked about adding a similar flag [2] as
-> well but potentially naming it differently.
-> 
-> Move the selection of the flag to Kconfig to make it easier to use
-> cc-option (as CC_FLAGS_DIALECT may be used in arch Makefiles, which may
-> be too early for cc-option in Kbuild) and customize based on compiler
-> flag names.
-> 
-> Link: https://github.com/llvm/llvm-project/commit/c391efe6fb67329d8e2fd231692cc6b0ea902956 [1]
-> Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=123623 [2]
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
->  Makefile     | 2 +-
->  init/Kconfig | 5 +++++
->  2 files changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Makefile b/Makefile
-> index 06ff3032a6bc..1d5c0ab9ed5c 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -791,7 +791,7 @@ endif
->  
->  CC_FLAGS_DIALECT := -std=gnu11
->  # Allow including a tagged struct or union anonymously in another struct/union.
-> -CC_FLAGS_DIALECT += -fms-extensions
-> +CC_FLAGS_DIALECT += $(CONFIG_CC_MS_EXTENSIONS)
->  # Clang enables warnings about GNU and Microsoft extensions by default, disable
->  # them because this is expected with the above options.
->  ifdef CONFIG_CC_IS_CLANG
-> diff --git a/init/Kconfig b/init/Kconfig
-> index c25869cf59c1..c4282d049463 100644
-> --- a/init/Kconfig
-> +++ b/init/Kconfig
-> @@ -960,6 +960,11 @@ config CC_IMPLICIT_FALLTHROUGH
->  	default "-Wimplicit-fallthrough=5" if CC_IS_GCC && $(cc-option,-Wimplicit-fallthrough=5)
->  	default "-Wimplicit-fallthrough" if CC_IS_CLANG && $(cc-option,-Wunreachable-code-fallthrough)
->  
-> +config CC_MS_EXTENSIONS
-> +	string
-> +	default "-fms-anonymous-structs" if $(cc-option,-fms-anonymous-structs)
-> +	default "-fms-extensions"
-> +
->  # Currently, disable gcc-10+ array-bounds globally.
->  # It's still broken in gcc-13, so no upper bound yet.
->  config GCC10_NO_ARRAY_BOUNDS
+There is no need for dynamic allocation for a simple string.
+request_firmware_nowait copies the string internally anyway.
 
-Series looks good to me. One style question, why go the round-trip with
-Kconfig instead of doing it all with a fallback in the Makefile:
+The error message on failure is also wrong. It's an allocation failure,
+not a find failure.
 
-CC_FLAGS_DIALECT += $(call cc-option,-fms-anonymous-structs,-fms-extensions)
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ .../wireless/ath/ath9k/ath9k_pci_owl_loader.c | 31 +++++--------------
+ 1 file changed, 7 insertions(+), 24 deletions(-)
 
+diff --git a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+index fe1013a3a588..b9ef34709202 100644
+--- a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
++++ b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+@@ -137,24 +137,6 @@ static void owl_fw_cb(const struct firmware *fw, void *context)
+ 	release_firmware(fw);
+ }
 
--- 
-Kees Cook
+-static const char *owl_get_eeprom_name(struct pci_dev *pdev)
+-{
+-	struct device *dev = &pdev->dev;
+-	char *eeprom_name;
+-
+-	dev_dbg(dev, "using auto-generated eeprom filename\n");
+-
+-	eeprom_name = devm_kzalloc(dev, EEPROM_FILENAME_LEN, GFP_KERNEL);
+-	if (!eeprom_name)
+-		return NULL;
+-
+-	/* this should match the pattern used in ath9k/init.c */
+-	scnprintf(eeprom_name, EEPROM_FILENAME_LEN, "ath9k-eeprom-pci-%s.bin",
+-		  dev_name(dev));
+-
+-	return eeprom_name;
+-}
+-
+ static void owl_nvmem_work(struct work_struct *work)
+ {
+ 	struct owl_ctx *ctx = container_of(work, struct owl_ctx, work);
+@@ -195,8 +177,9 @@ static int owl_nvmem_probe(struct owl_ctx *ctx)
+ static int owl_probe(struct pci_dev *pdev,
+ 		     const struct pci_device_id *id)
+ {
++	char eeprom_name[EEPROM_FILENAME_LEN];
++	struct device *dev = &pdev->dev;
+ 	struct owl_ctx *ctx;
+-	const char *eeprom_name;
+ 	int err = 0;
+
+ 	if (pci_enable_device(pdev))
+@@ -215,11 +198,11 @@ static int owl_probe(struct pci_dev *pdev,
+ 	if (err <= 0)
+ 		return err;
+
+-	eeprom_name = owl_get_eeprom_name(pdev);
+-	if (!eeprom_name) {
+-		dev_err(&pdev->dev, "no eeprom filename found.\n");
+-		return -ENODEV;
+-	}
++	dev_dbg(dev, "using auto-generated eeprom filename\n");
++
++	/* this should match the pattern used in ath9k/init.c */
++	scnprintf(eeprom_name, sizeof(eeprom_name), "ath9k-eeprom-pci-%s.bin",
++		  dev_name(dev));
+
+ 	err = request_firmware_nowait(THIS_MODULE, true, eeprom_name,
+ 				      &pdev->dev, GFP_KERNEL, ctx, owl_fw_cb);
+--
+2.53.0
+
 
