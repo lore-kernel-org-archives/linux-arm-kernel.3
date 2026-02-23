@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162E9EA4FAF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1BDAEA4FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dekzOzjCcZH9VxfMLTSix7P8omyyrbtHyX+5U1//3bk=; b=wyLNTmRcolWUGN3h9TmXlwPabG
-	VLknJqDyaNl8bcIOu94Sq2g2KxLO1Aod1ygm9ArRLcjpDnefi0nRmL/M+dbWlRe78/2eLBXXeeYSF
-	KlAj04TGrE6HKBCtTWSPXbpmn3qNb8Rl6L7+pqeJ08jwVmbKlMuDVdHTYy40kmqRNmZeyogF4js0q
-	yDEVLQOu/yG22tbPyTE671RfN8pP1JxbYZX0iF0dO+umwT6IAKtDNRpEMyzpKyOaJbRMCGDOZ0ovx
-	TQITauDu+YnOnBP/cbJvGb6Bsyl5XvWh4y8dCBUYQIDsrxISRYgOcmCh5WHrDIrONBGESlSAE5Np4
-	bAiJOLvQ==;
+	bh=dEf9sD0ORFSG7AS78V5QZeKdYhd2SNplxEEftC+5unM=; b=Jekb8t2WhRqTaAqn+vUkYUTWi5
+	mxBG8SJ7pdUDhKfLn4VgJBoL5oJpXLfJ7OljdnAu0EdYsvxW+8E9xAogq9tK37eA7AlQEUIWx0Sna
+	rgQC6e0mbYB07P3UwXZmCYojoBLgAaOhpXKNlDw9tzU7Hf+1ihxNY2LX7NDhikeiA0rs44vF381oW
+	B4uvd9sJ2dIDByNUAr2hXCwEKKL8bGWO3QYwWiMBBYC6lbLHUJvcvHCj06Y+C474NuK0t50DITxqS
+	qpkCggG/KSodou89Wf+jbjqAZNBfdwgAKSd363d3AL17hpBdqIBFR+zG1fY8Utmql23C3rRrcnbM2
+	qhmob27A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuTwg-0000000096U-44AL;
-	Mon, 23 Feb 2026 11:17:46 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1vuTwk-0000000098a-1Nju;
+	Mon, 23 Feb 2026 11:17:50 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuTwd-0000000094J-0IVW
+	id 1vuTwf-0000000095s-3iGQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 11:17:45 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c6e248aa446so1687590a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 03:17:42 -0800 (PST)
+	Mon, 23 Feb 2026 11:17:47 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a9296b3926so28478255ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 03:17:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771845462; x=1772450262; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1771845465; x=1772450265; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dekzOzjCcZH9VxfMLTSix7P8omyyrbtHyX+5U1//3bk=;
-        b=Uryg2zTJ2891oJlcZFyGi8RlrfgbX6NvvSeNMhDfGKqm0AqUj7Sq15xLIQX9sgpRs+
-         ZO3p1VQQUInG1tFE3+rEV9A1u6z+7qtbD2TBqgz+8TT6Ufdf0TdCiiiroSPYGzB9FcUa
-         lgl0ptnqSDBGlkjkzNVgaEBDYPL99l+jITFflV4ND6Pn994BTh6yTMLKjnkWWoW8kqCR
-         4dHia9HiDQZGnzgQtOByAWJHzYB3xYI2sdu2qO7RDV0/AC1EFE9SttG4ytjdxRrxh8I3
-         P9y+r9uACRSobEPpMzep/wAUxyRGZj+FxgRW/KE64ySdaHxTF1tTbWg745Z+06KEN4Zy
-         2acg==
+        bh=dEf9sD0ORFSG7AS78V5QZeKdYhd2SNplxEEftC+5unM=;
+        b=YuW5Lv96q3t/smULpNzw9WAQkABWr4cTt2ye/Jk9hHGeJqQiKKekEUKF5iUR0hVGV7
+         7Yi2nG0+jbzxposuZ8YsbkoHQEKekDQx1OILmI/ZZP8A3CQQvu918ZP922CEcB99kB9T
+         8gTV1QLVYY8sG1+iXVreikzfsW9RIuhr+fCl4WPMesX9o6sdvZJV0rTNCqG292AKni7G
+         Ru5j15AFnyKYFs0zIA6Kb0xS1F61y39aAO+Rc3fnGeZASgjwe1DVKIhb5xG0EQx2P8Eo
+         4yk2EUO8XV+5KpPNQjLjsFD0ooloeq3EGesw34ZQ9hc8YRCd3T8voMgjKvKiHYOP8+Z9
+         w13g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771845462; x=1772450262;
+        d=1e100.net; s=20230601; t=1771845465; x=1772450265;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=dekzOzjCcZH9VxfMLTSix7P8omyyrbtHyX+5U1//3bk=;
-        b=QZvGoFsS3ZSj3oakyk6g74Eq64sDzzgC/POg50uaHuExaLtdL+4+HpPOHL90wZlg5Z
-         Rz9RnMiCqrcUWjDQkl/N60tGzm5afDUYyAQppMOpDK+w4U28qyP6l1q+QWUTb+ggI7hJ
-         +5Nv8uYJg/wkvu49juYJM5na9as5KQNI3a1KbCXOA9nylUNEye6diSYTq8HEL4LPEh/E
-         AJUBg99HgDe6uMx997ZykCT/gPfCdKR616ljUny8VZD0DEcxwpxxFHWQO2B9HVdWE6Fo
-         d/ikPqAwQTISDct9H1umOpS46+riECM78x4ntRlhah9i0SnJY4Ko4NcozodLnwM7DoDN
-         yIiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVzP7tj9xMMxo5RxZ2aXnklMCZhOr3EHX987Fn81FrR1dLt6nYHLrNJ4bOMQQZzx82atAWXDiC+xE6W58T6vpcX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVi/Zu84rEPjVAp3hXqwjbAGMUExunrw2RGgrmJm0KIjdWjfal
-	GX+J8uaZ7QBKrvmqv+IFJX+3wOvjEv21w6924rPweinc867MaWmK43ho
-X-Gm-Gg: ATEYQzxVnjbia6Y/H1hRNQazVkCXD06g3A6O+GXpYZb5ncSiuSqSnFO6qj3/6x2UaxQ
-	pKWMgvR4dAQ9Js+Js7q7wSsYbjxEi0msibJ4i+A0LtRZ5T961iBLemKZZSCG/0tCJDSRAZ4FZAM
-	1fPevHgaqm//Z7dZyl2fBCFuRmuU45CzXzWJWTXHm8w7DaXL5bhE/9doH1hzGZCA3zDzapes9Pz
-	wqDkWgo5efVbD5IMhSMPP+pzve2bChwUfsOass8VSihJBpq4Nh62vV+nDjWaMV2FVGUDfnkXny7
-	V8fFQ1wJw0c/cr5+2AquPLED5VvBmoAQkSsQfo4yCpgTSCf7ucysXKbk+ULthpmPyJgBAXMM9D9
-	pArHNjdD1Q+SY4A5K1kBWeH/fAt1sSA7M4XXaxTaRQ1b1B0CXqXvjMzhnwo7cNEhbtzYP+ERdZu
-	vcZUIp5KnvN4PPTXk5QbV/hasKTwabFWJVah5j8S4aVdfBVzpp1X0xOOKV1aZ0HCGul3rWJ32Hx
-	8GnASDMuJ9qEX2JY/WcSUGKbLYReO2MO7R0BtDxUI4gRg4WGnvw+3x0RTui2IBoqenC311+Ja0E
-	VPjn0dEt7BQIC07Il2Dx
-X-Received: by 2002:a17:902:e88f:b0:2aa:d289:2d95 with SMTP id d9443c01a7336-2ad74463f60mr80278615ad.17.1771845462066;
-        Mon, 23 Feb 2026 03:17:42 -0800 (PST)
+        bh=dEf9sD0ORFSG7AS78V5QZeKdYhd2SNplxEEftC+5unM=;
+        b=BkNW4DjWIwCSUyuBW5H7HgTtU08t726nk4/Oow4E+Vyzowz2V9eKu9O9uj1J5evSLL
+         bIxyXEq711r1tCK4mwTfUh6WHV+2SPSe5q7qZMBbdMANjHRXPnxqiEqaBZQ6E+FYHpSh
+         tM0hqqNP9fcDTm7wwwIxpT0FEsWPWTcojT1A3e+6I1ne8R9LPLEr5LIrmVVtoCEX69A3
+         7PqbiF0TdDIbIUYGuSm8xR535cccSRi20DgvF8huTvjq0QKfk0gbwzJD5BHY8Pvv6utL
+         Xd+PyZ86zVHvU6TiO+Elp+f0hfVbuaXseBzRCRdBlzKd640uiXvsg1B91Dtd4Nr3qH9J
+         j5RA==
+X-Forwarded-Encrypted: i=1; AJvYcCWeluY1Mb3EPFGy/lHPiodtWlq6pbn3ZvYrkOjGkJcydUoZvKVhfizMUH7YHTmRfWOalUdCizqOE/IuHSiUWbmd@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLYM6lC+o5Y6Ex/MxMUNXHFQAeRaatf8DOpJl2g8qAlfCMQf34
+	wDKRZY6+JIjRL9g/6mZQ1eKgbUSDVz8sU//kcW/721/L7DjqKUq4IB48
+X-Gm-Gg: ATEYQzyB0mHbY9trRLKA7cZl6pBQHSO9XLSn+Gs2FWf//Zd+aGABlM7/nHOqjeihwsY
+	z65FKqEypP/IQm+DCnhMmCELZm3OneM/kXbqFKAKk7VSV+WgSS2CK6fbzy33WSVldZHT5zC3Q4M
+	NvUwr5UV16o4khEYDUxj19ZapFsMqiy5FV4eH/5x121gV0AGLqoLm+9jUb2b4Y6C6+nafM/AtF7
+	gnjeJGM+ht8qul4Qy3+pJcGLt+3UQA6YjzVGqyFQOPHM7FRu3n3paKK24M5cFZ0cWMFYsNv8ACi
+	f5rE0NyD+5QMMESSMOFbkjQOmrkxjMdWv/JMDh5LX+fd7niD+qQy+jm3UPT6BDsz9Book4vF+AR
+	nWonGD0hkEuJHTNMcc52HRPvV9ZlBWVWne7Jqj3JB0PNAucztX3QbCFHaCVPKhauhOPgb4aDdPh
+	JOaj7cqcRlDvtrMQGUduIfGedmMNNpXtjVANFQ3gwWISRIqwz4CDh5sAwJwtHKfuhcPsp7Jm0/S
+	U54mPRY4bfczIPsEN8iLi39AU2cNo20OY6A6nBpaDSXAEMUbFUUFiE9kP+MQMiQ7IjqywAOKXdn
+	tiPZvLkOjqfQMsV9RxxS
+X-Received: by 2002:a17:903:1a2d:b0:2aa:e817:1bd3 with SMTP id d9443c01a7336-2ad744e1731mr86659805ad.29.1771845465072;
+        Mon, 23 Feb 2026 03:17:45 -0800 (PST)
 Received: from 2001-b400-e3a6-b683-040b-c296-04cb-fbc3.emome-ip6.hinet.net (2001-b400-e3a6-b683-040b-c296-04cb-fbc3.emome-ip6.hinet.net. [2001:b400:e3a6:b683:40b:c296:4cb:fbc3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad74d36911sm71799335ad.0.2026.02.23.03.17.39
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad74d36911sm71799335ad.0.2026.02.23.03.17.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Feb 2026 03:17:41 -0800 (PST)
+        Mon, 23 Feb 2026 03:17:44 -0800 (PST)
 From: Kevin Tung <kevin.tung.openbmc@gmail.com>
-Date: Mon, 23 Feb 2026 19:17:33 +0800
-Subject: [PATCH v5 1/8] ARM: dts: aspeed: yosemite5: Increase i2c4/i2c12
- bus speed to 400 kHz
+Date: Mon, 23 Feb 2026 19:17:34 +0800
+Subject: [PATCH v5 2/8] ARM: dts: aspeed: yosemite5: Remove ambiguous power
+ monitor DTS nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260223-yv5_revise_dts-v5-1-fc913e902488@gmail.com>
+Message-Id: <20260223-yv5_revise_dts-v5-2-fc913e902488@gmail.com>
 References: <20260223-yv5_revise_dts-v5-0-fc913e902488@gmail.com>
 In-Reply-To: <20260223-yv5_revise_dts-v5-0-fc913e902488@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -92,16 +92,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Daniel Hsu <Daniel-Hsu@quantatw.com>, 
  Kevin Tung <kevin.tung.openbmc@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771845456; l=1020;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1771845456; l=1501;
  i=kevin.tung.openbmc@gmail.com; s=20250924; h=from:subject:message-id;
- bh=Y8FxaZ3tGkhfSNOMUB9wrvZLgHj3UUmc4MXQt4g53Xs=;
- b=9PqZ9iEvttl4uBW+fcNE3uPsZFp3PxYjAx1wpMdNwgGio2/smtdbhOC9H8Xc385a4xsseqnIC
- 517wY5pxrxlBN/jjCoUegTvRbKseZvnPJXc2fms7ZaE3+VSHms9SExk
+ bh=9mIn+NRMcnY3nQa3xJUsbsqiUrUJYrQ5MBs5E/B+nyA=;
+ b=6Y7zZJPug+L/D4hZsJuZ8qj0dU08TZ1l9Yv+yjr0PCQyZ7UQs5aT10ImulnrtBzWJFP1+lqkw
+ R3+pUZQKbQ+Db8upoOwg3GGp9wJhWjkORgkT0J6Xe/KwYjRNQ/B+bSc
 X-Developer-Key: i=kevin.tung.openbmc@gmail.com; a=ed25519;
  pk=PjAss0agA0hiuLfIBlA9j/qBmJaPCDP+jmQIUB6SE7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_031743_144444_67BA88F5 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20260223_031745_956636_71FA7A58 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,35 +116,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configure i2c4 and i2c12 to operate at 400 kHz instead of 100 kHz.
-This update aligns the bus settings with the hardware capabilities
-and improves MCTP communication performance.
+Two different power monitor devices, using different drivers, reuse
+I2C addresses 0x40 and 0x45 on bus 10 across Yosemite5 board variants.
+Defining these devices statically in the DTS can lead to incorrect
+driver binding on newer boards when the wrong device is instantiated.
+
+Therefore, remove 10-0040 and 10-0045 device nodes, and let the driver
+selection is instead handled in user space by the OpenBMC Entity
+Manager based on the actual board configuration.
 
 Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts | 14 --------------
+ 1 file changed, 14 deletions(-)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-index 2486981f3d6bd36f3fe780b21e834b85242f8aa9..7991e9360847532cff9aad4ad4ed57d4c30668a0 100644
+index 7991e9360847532cff9aad4ad4ed57d4c30668a0..45b8ac2e8c65a4f672e64571631b7f6944f26213 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-@@ -231,6 +231,7 @@ sbtsi@4c {
- &i2c4 {
- 	multi-master;
- 	mctp-controller;
-+	clock-frequency = <400000>;
- 	status = "okay";
+@@ -674,20 +674,6 @@ gpio-expander@22 {
+ 			"PWRGD_P3V3_AUX","ALERT_TEMP";
+ 	};
  
- 	mctp@10 {
-@@ -782,6 +783,7 @@ adc@4b {
- &i2c12 {
- 	multi-master;
- 	mctp-controller;
-+	clock-frequency = <400000>;
- 	status = "okay";
- 
- 	mctp@10 {
+-	power-sensor@40 {
+-		compatible = "ti,ina233";
+-		reg = <0x40>;
+-		shunt-resistor = <2000>;
+-		ti,maximum-expected-current-microamp = <32768000>;
+-	};
+-
+-	power-sensor@45 {
+-		compatible = "ti,ina233";
+-		reg = <0x45>;
+-		shunt-resistor = <2000>;
+-		ti,maximum-expected-current-microamp = <32768000>;
+-	};
+-
+ 	adc@48 {
+ 		compatible = "ti,ads7830";
+ 		reg = <0x48>;
 
 -- 
 2.53.0
