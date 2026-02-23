@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4D6EA4FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 14:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D125EA4FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 14:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ATg9bPcYdbnde39QIVVoT9NZJg4HqwYIBDM9M+ootn4=; b=f86vai6weg66+zFqmsTKBNkpMT
-	JSts5lWGiNpA46u8bVD11F1+HwGp6cOvJVrhu3RW3CO+/csvgRbJV1o4t9uk9Sukh7lj0TGWXr2lz
-	BxLsqQdh5d2hIotAhUcirYl6XarnuOZjX2vODCtHGtVtSPI/WUPZ11XOsThtU3hZdFaeMKH18DcUx
-	PS7YK3lXsNvz8BYEdAjLyS9Ih8WpDt1LLQ/pbnPk3c6tlpp3XRTHZxaufw10gAzKFOBU6VwwJANR9
-	1uMLRTtymm5ajR5MNpXJctQIa8c+/75c3Lfk8qjtL64oWQY05nZcYKZtWdiRq7mp0bixsrn0qyjsX
-	bo+exkTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LwfRJ2O6s1tuDwCN8lj+4A1gUOaBVqx2ngpGh/hfIZ4=; b=PI8FxwxpCR6F6f0uOlOVfNBdrn
+	We/jPRX2em0OFSfCvbvy6oUcftABjzhZzIY7Z/xIzgbZBy3V3r73SL6UvdYFG2+T522+EsGVuCSAp
+	13fykgsoRAV2l55GKZslObnMHUuc2q60QY6EvClXYOlshvCKFPTVIEwwljofmBhva6wtVWtCf9Ps4
+	61rXWQty6DUd94h5vrv2wz3K9aDJVfXkdebezGAPCtUBwVf4CvivI6IM9b8Q3sVTSMFPpGdoJ3rs1
+	ZVTH7Dz0NDJqrotxeIMa3VU/RH0igROyZ61ciGbA0pB0XYUNLwhsaz8gSN2LUh/uZk6iqZAump7SD
+	5hEeDINA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuX98-00000000USM-2psr;
-	Mon, 23 Feb 2026 14:42:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vuXA7-00000000UZI-0SuD;
+	Mon, 23 Feb 2026 14:43:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuX97-00000000USF-1iNu
+	id 1vuXA4-00000000UYT-3kn7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 14:42:49 +0000
+	Mon, 23 Feb 2026 14:43:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 319EB600CB;
-	Mon, 23 Feb 2026 14:42:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2C39C116D0;
-	Mon, 23 Feb 2026 14:42:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DFC7C444A1
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 14:43:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD060C2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 14:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771857767;
-	bh=+cWvpV653gRQnu0cW4AkcHRnKnqyVn6i1wzLUAvgpoA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SN52Eh6IPc+fMk02ASHGoqIk/WWHlmCze5iqsWGilw5FjPFcEpklbiwgngthxUjKn
-	 RvUOedFR9DoWuDgmn2MuNhqjmhFg/eQPHOMi6tlCRztm1bBMNJCza3xPKzBz1u034n
-	 eVs4KS/hO3cYK1T5psrqopoItFerpSO5h9aw87pUE0OPFPX3IkxBOWGAXQ2Z9IZpLw
-	 X7SCZUpHCsuUKMcIU6ERuZZHmCb2FA6wCIKI2xfVhBD5Z/NjsR4HwR8WWEGrRskA3d
-	 H/6JeuXNV1UH+1uH9dqPYQ82jvUH14TQxht/v9QrVNsrLXBb8gWQBgOOdwU1Urad3O
-	 uc1qMxDY0I6qQ==
-Date: Mon, 23 Feb 2026 08:42:43 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Cc: Linus Walleij <linusw@kernel.org>, Shenwei Wang <shenwei.wang@nxp.com>, 
-	Andrew Lunn <andrew@lunn.ch>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Frank Li <frank.li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Message-ID: <nbzdtngifwrx2kyu4tsiwwua5v4i5cjtaotemq5hubaets3bcn@fk25twf5rv6x>
-References: <20260212213656.662437-4-shenwei.wang@nxp.com>
- <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com>
- <13f9d767-61d6-4e29-b36e-6dcc860ccb11@lunn.ch>
- <fd257c80-d97f-45b0-a12f-3a1888ba81db@foss.st.com>
- <396819f2-dd00-4c09-8bc7-c035a5282a56@lunn.ch>
- <PAXPR04MB9185A908F5090F0CA4FF05F78968A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <b21b9ee5-d84e-47f8-86b5-c111ecc3d43d@lunn.ch>
- <PAXPR04MB918576D67A268E59242964A08968A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <CAD++jLkUVFckLTq=SoivNFoFymhJo4KM=qGmajFcv9T9+7tPmg@mail.gmail.com>
- <b4c422ce-3538-40aa-8bfa-b70f02774b5d@foss.st.com>
+	s=k20201202; t=1771857827;
+	bh=xpkGtbKSLkOC6t0Nfnp/Fk4IE5J7TBULp81UPGnND4k=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VwfIKLux9JjVYynMSEnRVL7QtelWDuU+UToW1xycpMKmPtA4YQOmihE34mNLMitaU
+	 19JHi1jtHx4qQNpipfLozCmLfWV0AKwy/ETivTpZ7kB6ideqGLt1krkONxaLqGfZNJ
+	 POTa/jhoJzkQFJeX71rR+Ff9ZSLSF6OgliniAp+PjXv81p2oVqZ4myDxHuBxAz+rVy
+	 Y6i9V2GaRTBGDcmGypb7XZc/xXKdCn5cZG3zABAAQCgLtoEuMcZNd1yi1R/AgFKlhJ
+	 D/vm2EmJqMLN70ekuobPW6e3dK4zQaAasrGzdZ6UmQVBG23mUpTE1I79kr4OKLUPth
+	 JtBbFlWsbOZJQ==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-59e63b427aaso4622501e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 06:43:47 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUKO5o/uhqDY3181J/EhJmF0A7rH2PRQRaW9POVeb4c9EdEaxlPxcdwyF/kXPAjmwlqF+NaY0wzqmxQIPUnTDCo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQfsmjIhJ7kaAC7NZd0XboP38dbHv4/FdmP9CfsG0xotnBeYl+
+	uKA2xYg5WmLN3vgRD0kNkm6hxebxTSeV3moNBSA2e2I4ZocTQMQYyVtFnGBdKKj8qmHHBhi7LbY
+	ZsOTzQ6N/s3TcvJ/Cqpf5u2HsL+r8ZMsld6R6OQ0mag==
+X-Received: by 2002:a05:6512:3a96:b0:59f:6ec7:fa6 with SMTP id
+ 2adb3069b0e04-5a0ed9b2a30mr2997072e87.35.1771857826355; Mon, 23 Feb 2026
+ 06:43:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b4c422ce-3538-40aa-8bfa-b70f02774b5d@foss.st.com>
+References: <20260223-i2c-adap-dev-config-v2-0-d78db0a6fcf7@oss.qualcomm.com> <CAMuHMdWJCc-UeaJLM4dpDN=toDvteXFvOFpTm5AbvNoKf3rTqA@mail.gmail.com>
+In-Reply-To: <CAMuHMdWJCc-UeaJLM4dpDN=toDvteXFvOFpTm5AbvNoKf3rTqA@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 23 Feb 2026 15:43:32 +0100
+X-Gmail-Original-Message-ID: <CAMRc=Me57wj7=BJ_nJZP9BV5-ZhebbFAS+DcZ=ifGxMyo=S2kA@mail.gmail.com>
+X-Gm-Features: AaiRm52wJXWjyETw7SJc1Vpbds6l0EdwJaHmK-itcIl4J2BcM6sfQPM4owz6q88
+Message-ID: <CAMRc=Me57wj7=BJ_nJZP9BV5-ZhebbFAS+DcZ=ifGxMyo=S2kA@mail.gmail.com>
+Subject: Re: [PATCH v2 00/12] i2c: configure parent device and OF node through
+ the adapter struct
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, 
+	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Vignesh R <vigneshr@ti.com>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
+	Tony Lindgren <tony@atomide.com>, Andreas Kemnade <andreas@kemnade.info>, 
+	Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-rpi-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260223_064349_060640_3E8A19A3 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,62 +99,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 03:24:43PM +0100, Arnaud POULIQUEN wrote:
-> On 2/22/26 15:48, Linus Walleij wrote:
-> > On Fri, Feb 20, 2026 at 7:57 PM Shenwei Wang <shenwei.wang@nxp.com> wrote:
-[..]
-> > 
-> > Is it generic? If it is not, let's call it "NXP rpmsg GPIO driver" and rename
-> > files etc accordingly. Maybe it can share code with the actual generic
-> > RPMSG driver once that arrives, that is more of a library question.
-> 
-> I would like to (re)express my concerns regarding the creation of an
-> NXP-specific driver. To clarify my concerns, ST, like probably some other
-> SoC vendors, has rpmsg-gpio and rpmsg-i2c drivers in downstream with plans
-> to upstream them.
-> 
-> If we proceed in this direction:
-> 
-> -Any vendor wishing to upstream an rpmsg-gpio driver might submit their own
-> platform-specific version.
-> 
-> - If NXP upstreams other rpmsg drivers, these will likely remain NXP-centric
-> to maintain compatibility with their legacy firmware and the nxp-rpmsg-gpio
-> driver, leading to platform-specific versions in several frameworks.
-> 
-> - The implementation will impact not only the Linux side but also the remote
-> side. Indeed, some operating systems like Zephyr or NuttX implement the
-> rpmsg device side (Zephyr already implements the rpmsg-tty)
-> 
-> Maintaining a generic approach for RPMsg, similar to what is done for
-> Virtio, seems to me a more reliable solution, even though it may induce some
-> downstream costs (ST would also need to break compatibility with legacy ST
-> remote proc firmware).
-> 
+On Mon, Feb 23, 2026 at 3:15=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68=
+k.org> wrote:
+>
+> Hi Bartosz,
+>
+> On Mon, 23 Feb 2026 at 10:06, Bartosz Golaszewski
+> <bartosz.golaszewski@oss.qualcomm.com> wrote:
+> > Changes in v2:
+> > - fix a NULL-pointer dereference in gpio-rcar (Geert)
+>                                       ^^^^
+> I guess that is bound to happen when a GPIO maintainer touches
+> the I2C subsystem? ;-)
+>
 
-Could the virtio-based mechanism be used directly (without rpmsg)?
+That or caffeine had not hit the system yet. :)
 
-
-If not, it would be good to derive a generic rpmsg-gpio protocol from
-the virtio protocol, and land implementations of this in e.g. Linux and
-Zephyr to establish that option.
-
-Regards,
-Bjorn
-
-> 
-> In the end, I am just trying to influence the direction for RPMsg, but based
-> on the discussions in this thread, it seems others share similar
-> expectations, which should probably be taken into account as well.
-> 
-> Thanks and Regards,
-> Arnaud
-> 
-> 
-> I just want to
-> 
-> > 
-> > Yours,
-> > Linus Walleij
-> 
+Bartosz
 
