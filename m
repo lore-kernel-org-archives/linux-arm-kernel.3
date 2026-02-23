@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DF1EC110C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 17:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EFB4EC1113
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 17:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYpLWJusSgf+j4WABWj3QdLi9db80aykJ514OC2SQdQ=; b=ptclVMO6vJ+K0PUY/JOgf6HPFu
-	QUiplM7Rg/uxkLcfHHU/nHbZUTnIp5AwhCfe848xXlXquztec9uGkR4x5LBLHtw1Sr/HlBwVio0H1
-	x6q4JF8mcgUcmprORklNsg9faleeo9OGlHAzUgL1wc6okDbyD279StYf/+TJGWn6jHhrklYbMJ81L
-	rBp4K5ID10dysZn2/oz8H4M0RImgqGe0Jdj+hv8jPhDfZy2p/XG3eInsvX0TTshoaX/gB6kuREGZN
-	eFxXBoK5trqkVkoFBC9s28m6G77ns9lOzo8C97ILM77vhTzAlDvgyRpZZRTFgov1r70bI8bn5acS9
-	0LmcmlNQ==;
+	bh=TnVHpG1pM7+8453V13/DR9FHBaLiU1vQtsumlSKyIo0=; b=ldRVKThAAIC7MVt+jUH9g2DjJE
+	ACsveg4Vid0ZC0GEClqubIcyt/0/tLu0xmSMsILurw16Xo9p7prGbCMcu5hLyCAcOb/r5sq2200hT
+	x7l6QyJv1mHKI1w8zibgoEdMIenpl6oX4hFBa3IM8btZ92NrAu7s5i8Hi0vWw6iwMimjVArRRfJu7
+	Oa5wO0h9sdPWf9RUWxzLODNk/04x6ZWTVmbyknf3nuDxqdlJJG92KDx/YSAyu/UN+X8tZO0G3CfXI
+	b8EJXp/qDDArspXLuJq1zg77QMOp2LTfZQk7eONSkaS+fIVJX2dJ1aqb6xix9sHeX2+zyXgSXcthS
+	7vwvvbGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuZqS-00000000nFw-2uFz;
-	Mon, 23 Feb 2026 17:35:44 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1vuZtn-00000000nfv-3nn6;
+	Mon, 23 Feb 2026 17:39:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuZqP-00000000nFa-1d4l
+	id 1vuZtm-00000000ney-2V0h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 17:35:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771868141; x=1803404141;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=U5zxDmwawz4WruJGR4RkxkWHRP6haiZsXdq6zgOTCaU=;
-  b=a4FhIrxTbE2NADlKOXMYZ+5Uo7J7q5u6VK0h5m1WzaJtIrlYhBG3mCEe
-   sfe8riYGwVUNLVbvmSlX4r/9HYo/dSE2Dt/gMCq9xrbsig7vfAt5DzYT/
-   TacckbjxOHwetXEWk1V7VzDvgb+GYx1QevPHvtHSXriQsTeKwF/4R20Xr
-   GlPHzcTK16WNtGjY1eGjBBglbswkwD3Js7Le15LZChl51SUP2tW9KTx7T
-   zUrfAJOkzavzeH0w6f083umc5JYvAF9DskDQwMzS6dB0FrBj9ICOZJVNJ
-   qaAYV/7h3xcl64VsBNDdaJC/RHpbvOxoQ4iCF9hqOep5MNCNoeluGfiaS
-   A==;
-X-CSE-ConnectionGUID: lt9MdXwIQrqPqciz+LebFw==
-X-CSE-MsgGUID: VLkQlmk6T+6YB5FeQhNXOg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11710"; a="72970941"
-X-IronPort-AV: E=Sophos;i="6.21,307,1763452800"; 
-   d="scan'208";a="72970941"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 09:35:37 -0800
-X-CSE-ConnectionGUID: AKo+otEIRKW/YmGTs8gUNQ==
-X-CSE-MsgGUID: kYLwZzcFSD+fzetIaWYUuA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,307,1763452800"; 
-   d="scan'208";a="213544542"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.222])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 09:35:35 -0800
-Date: Mon, 23 Feb 2026 19:35:32 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v2 1/1] spi: pxa2xx: use min() instead of min_t()
-Message-ID: <aZyP5NdXWikG6E_C@smile.fi.intel.com>
-References: <20260223153117.2838840-1-andriy.shevchenko@linux.intel.com>
- <20260223170903.5f3379b4@pumpkin>
+	Mon, 23 Feb 2026 17:39:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 775F543803;
+	Mon, 23 Feb 2026 17:39:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74C1EC116C6;
+	Mon, 23 Feb 2026 17:39:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771868349;
+	bh=qW9i6zN1CY6w+IeHjsOXHWptGUB6blB9XwWVVi+sh1g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Wxu/8cLigHMnzGFEcQNnYenuwJd9vXt+eU8fmhzNlvcNnWrR33idDVrz8YJ8qZ8gt
+	 sit1aDhavzpGKZqmNzq7HrFUWgnp//z5HMvlNmHq8AAmtREXxi/elr3TceAnwnrcFF
+	 /VevfSQhsH97GE1xcZsAEsNDV3hU/XGigy72iojdrO6PZE0hz2XRYC6EPcqziISq0b
+	 WoNh1FD+F1e4PMqDpcJH25ffCZfGGLuIdULPOL5bv9eKCVJYY1onKNieis/qq02d7O
+	 EirCDVRx0nMQ95In+KE2frbAoqPyNyw1fg3rxYnsgH+xItEIIHvriReHMjGt7chd2S
+	 DsV6MQiziaDmA==
+Date: Mon, 23 Feb 2026 17:39:03 +0000
+From: Simon Horman <horms@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, danishanwar@ti.com,
+	rogerq@kernel.org, mwalle@kernel.org, nm@ti.com, v-singh1@ti.com,
+	vadim.fedorenko@linux.dev, matthias.schiffer@ew.tq-group.com,
+	vigneshr@ti.com, m-malladi@ti.com, jacob.e.keller@intel.com,
+	stable@vger.kernel.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com
+Subject: Re: [PATCH net 0/3] Fix Unbalanced IRQ Enable for CPSW and ICSSG
+Message-ID: <aZyQt_K7z6OdjP-K@horms.kernel.org>
+References: <20260220041431.372610-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260223170903.5f3379b4@pumpkin>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20260220041431.372610-1-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_093541_441238_59E1CD93 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20260223_093910_652043_3F177525 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +77,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 05:09:03PM +0000, David Laight wrote:
-> On Mon, 23 Feb 2026 16:30:54 +0100
-> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+On Fri, Feb 20, 2026 at 09:41:56AM +0530, Siddharth Vadapalli wrote:
+> Hello,
 > 
-> > min_t(int, a, b) casts an 'u32' to 'int'. This might lead to
-> > the cases when big number is wrongly chosen. On the other hand,
-> > the SPI transfer speed rate is unsigned and driver uses signed type
-> > for an unknown reason. Change the type of the SPI transfer speed
-> > to be unsigned and convert to use min() instead of min_t().
+> This series fixes the warning:
+>     Unbalanced enable for IRQ ...
+> for the CPSW and ICSSG drivers.
 > 
-> Reviewed-by: David Laight <david.laight.linux@gmail.com>
+> Under heavy traffic and in an SMP environment the warning shows up after
+> a relatively long time. The issue occurs due to the order in which the
+> variable 'irq_disabled' is set and the function disable_irq_nosync() is
+> invoked.
+> 
+> I have examined other drivers and they follow the right order which is
+> to invoke disable_irq_nosync() before setting 'irq_disabled' (or its
+> equivalent variable).
+> 
+> The first patch is for the CPSW driver and it has two Fixes tags since
+> the code change associated with the fix is for a recent commit while
+> the incorrect order was first introduced by a much older commit.
+> 
+> The second and third patches are for the ICSSG driver. Although they
+> are both for the same driver and could be squashed, I chose to split
+> them since they fix different commits and need to be backported as
+> Fixes for the respective commits.
 
-Thanks!
+For the series,
+
+Reviewed-by: Simon Horman <horms@kernel.org>
 
 ...
-
-> > -static unsigned int quark_x1000_get_clk_div(int rate, u32 *dds)
-> > +static unsigned int quark_x1000_get_clk_div(u32 rate, u32 *dds)
-
-> I've looked at the file...
-> I think all the 'long' in that function can be 32bit.
-> Especially if the code actually works on 32bit.
-> There is also the stunning:
-> 	do_div(fssp, 1 << 24);
-> in the only bit that that does need u64.
-
-I know, but it's unrelated to this patch aim.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
 
 
