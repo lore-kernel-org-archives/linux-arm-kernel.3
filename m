@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF30EC1118
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62397EC111D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 18:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=uOEh8pTzrvbiLp0EENKL+eTbWRA4d4VaMNHqI/qUDUo=; b=pWqCH4XtPrBLju
-	Eyv4r+iiViINkp9DfHZ9NtODMoVOxwQgQFzPw+WWI6oPMn9tasCOnQToEuRk2so91rS0+p0h+LVf8
-	M8fX55kKQToG7tF4UKUUSYQhBA7ruXAvSF7nmVDxQILCBmyAynFrqi+rSTxUW/aTazq/cqbanhAUR
-	f4IoasyxePZDS+TR7GL/O3vXkGvO3Qze/aL4Hv46MW1lOJO2J5N38QTUObDMGBMjEZhxU3EFrV8hK
-	xYNRVahAkxM4tUQDslH4Smq2fl3GnZUJogFgJvMhGtgPWIsIVDA3byWopZrJfdkMpdvh5DlurIyoC
-	/uynC1wmwBcTIoNT5Oxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UEfSeQ6hDc1YK0/wiSGwFxZAJb7vn8LhWPtGYkKI3Vk=; b=ulD0Kt9brUGNOVkAC92N7knPh7
+	ccUq4V4YviEvWJGYaxiKULWjcGtTe8lbTn8cAKooyQhj6Vf+EOtmd242FBSP//QyNko9O0Wa40Hjv
+	7wO5aHPWi+prdNdAkkex+IiIoRQXHEer4UFGc+6PToJLOmNf4t1X7IkuOi65gA6+0W9qWRYxfe9Wu
+	M4bTDOWm0dNBH4g8t8PESX973xYGRuJg+lC4sRH0Z02ba0VcbaIHhZfhW89e6f/zLrzHUsP6FsymI
+	AfqTq/zARO7zQVDjUdYqnE45qdnRGG3kmO9TmUn9i0NL9V2VrI1I2fJHUKS0LW9Bt8elKTZpoVMYp
+	yy6jv02w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuaNz-00000000qWx-352t;
-	Mon, 23 Feb 2026 18:10:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vuaR9-00000000qhH-1Qgo;
+	Mon, 23 Feb 2026 18:13:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuaNy-00000000qWO-07GG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 18:10:23 +0000
+	id 1vuaR7-00000000qh8-3XjN;
+	Mon, 23 Feb 2026 18:13:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA6C140B58;
-	Mon, 23 Feb 2026 18:10:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E68CC116C6;
-	Mon, 23 Feb 2026 18:10:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771870220;
-	bh=16cOUP8C9o+EwrZvc78geBBZllCsV2dgigYYBQoJhoA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Ge7InMPiu+LiA49+/qUlTyPFdeX/VLo2FmpjYMVekRpxG8DwIpZZLLJGHvuciBb/F
-	 BiJbJRfZ3kyZVGu/ykJQJhBc/X6DN7getwKS8cmKu2D14oivJw1HQW1Q4JQdodyBbd
-	 lygozEiECso5Xb8cBqTojfUQ0r1Dk5v9ZEa0Pk0BODbUW3jC6ov7L/fL30hC033jDC
-	 fpLzenRyc4/7FrizehKsOF9cqmj7Ikf0+8XfVRJv84rmU4HoQigfciiXUXI7C6ZyfA
-	 jjiu537s4GsdsHayFjk2RtLtInMQQYEyhHdtzO8h6kpQ3m0RoBCpgieQBWlD7nPLki
-	 W6xQbOZiQTarw==
-Date: Mon, 23 Feb 2026 12:10:19 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com,
-	bjorn.andersson@oss.qualcomm.com,
-	"Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] PCI: host-common: Add helper to determine host
- bridge D3cold eligibility
-Message-ID: <20260223181019.GA3700351@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260217-d3cold-v2-1-89b322864043@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_101022_137942_282096EF 
-X-CRM114-Status: GOOD (  28.25  )
+	by tor.source.kernel.org (Postfix) with ESMTP id C5A656013A;
+	Mon, 23 Feb 2026 18:13:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 378FAC116C6;
+	Mon, 23 Feb 2026 18:13:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1771870416;
+	bh=pQshwKNqTCLj/FvhtbZgOYNC+VNMTBvEaSSSD2wSuHE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=B3HQ7V1CoKgaBIoteEnZFo//C1eOjQmBzA363dlSZJSPGnKwrPagzWWRWHEyGkx/1
+	 6MhwDWWeaCOz0KllZsOTIWSRv2FTaTTuUgO3maOmVNlVD3xKMqbal2bskvscPZ+Bhx
+	 31nhkKYtbH0jAtANiQoO7gCBg3ymcBqFZCfessdQ=
+Date: Mon, 23 Feb 2026 10:13:35 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, linux-s390@vger.kernel.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org
+Subject: Re: [PATCH 1/4] mm/page_table_check: Pass mm_struct to
+ pxx_user_accessible_page()
+Message-Id: <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
+In-Reply-To: <68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
+References: <cover.1771845678.git.agordeev@linux.ibm.com>
+	<68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,109 +69,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Rafael, linux-pm]
+On Mon, 23 Feb 2026 12:53:13 +0100 Alexander Gordeev <agordeev@linux.ibm.com> wrote:
 
-On Tue, Feb 17, 2026 at 04:49:06PM +0530, Krishna Chaitanya Chundru wrote:
-> Add a common helper, pci_host_common_can_enter_d3cold(), to determine
-> whether a PCI host bridge can safely transition to D3cold.
+> From: Tobias Huschle <huschle@linux.ibm.com>
 > 
-> This helper is intended to be used by PCI host controller drivers to
-> decide whether they may safely put the host bridge into D3cold based on
-> the power state and wakeup capabilities of downstream endpoints.
+> Unlike other architectures, s390 does not have means to
+> distinguish kernel vs user page table entries - neither
+> an entry itself, nor the address could be used for that.
+> It is only the mm_struct that indicates whether an entry
+> in question is mapped to a user space. So pass mm_struct
+> to pxx_user_accessible_page() callbacks.
 > 
-> The helper walks all devices on the bridge's primary bus and only allows
-> the host bridge to enter D3cold if all PCIe endpoints are already in
-> PCI_D3hot. This ensures that we do not power off the host bridge while
-> any active endpoint still requires the link to remain powered.
-> 
-> For devices that may wake the system, the helper additionally requires
-> that the device supports PME wake from D3cold (via WAKE#). Devices that
-> do not have wakeup enabled are not restricted by this check and do not
-> block the host bridge from entering D3cold.
-> 
-> Devices without a bound driver and with PCI not enabled via sysfs are
-> treated as inactive and therefore do not prevent the host bridge from
-> entering D3cold. This allows controllers to power down more aggressively
-> when there are no actively managed endpoints.
+> ...
+>
+>  arch/arm64/include/asm/pgtable.h |  6 +++---
+>  arch/riscv/include/asm/pgtable.h |  6 +++---
+>  arch/x86/include/asm/pgtable.h   |  6 +++---
+>  mm/page_table_check.c            | 15 ++++++---------
+>  4 files changed, 15 insertions(+), 18 deletions(-)
 
-This series is currently structured so it's only applicable to native
-host bridge drivers, i.e., things using DT.  Is there anything that
-prevents using D3cold for host bridges in ACPI systems?
+Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
 
-> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> ---
->  drivers/pci/controller/pci-host-common.c | 45 ++++++++++++++++++++++++++++++++
->  drivers/pci/controller/pci-host-common.h |  2 ++
->  2 files changed, 47 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> index d6258c1cffe5ec480fd2a7e50b3af39ef6ac4c8c..b0a4a3c995e80e0245657f0273a349334071013c 100644
-> --- a/drivers/pci/controller/pci-host-common.c
-> +++ b/drivers/pci/controller/pci-host-common.c
-> @@ -106,5 +106,50 @@ void pci_host_common_remove(struct platform_device *pdev)
->  }
->  EXPORT_SYMBOL_GPL(pci_host_common_remove);
->  
-> +static int pci_host_common_check_d3cold(struct pci_dev *pdev, void *userdata)
-> +{
-> +	bool *d3cold_allow = userdata;
-> +
-> +	if (pci_pcie_type(pdev) != PCI_EXP_TYPE_ENDPOINT)
-> +		return 0;
-> +
-> +	if (!pdev->dev.driver && !pci_is_enabled(pdev))
-> +		return 0;
-> +
-> +	if (pdev->current_state != PCI_D3hot)
-> +		goto exit;
-> +
-> +	if (device_may_wakeup(&pdev->dev) && !pci_pme_capable(pdev, PCI_D3cold))
-> +		goto exit;
-> +
-> +	return 0;
-> +exit:
-> +	*d3cold_allow = false;
-> +	return -EBUSY;
-> +}
-> +
-> +/**
-> + * pci_host_common_can_enter_d3cold - Determine whether a host bridge may enter D3cold
-> + * @bridge: PCI host bridge to check
-> + *
-> + * Walk downstream PCIe endpoint devices and determine whether the host bridge
-> + * is permitted to transition to D3cold.
-> + *
-> + * The host bridge may enter D3cold only if all active PCIe endpoints are in
-> + * %PCI_D3hot and any wakeup-enabled endpoint is capable of generating PME from
-> + * D3cold. Inactive endpoints are ignored.
-> + *
-> + * Return: %true if the host bridge may enter D3cold, otherwise %false.
-> + */
-> +bool pci_host_common_can_enter_d3cold(struct pci_host_bridge *bridge)
-> +{
-> +	bool d3cold_allow = true;
-> +
-> +	pci_walk_bus(bridge->bus, pci_host_common_check_d3cold, &d3cold_allow);
-> +
-> +	return d3cold_allow;
-> +}
-> +EXPORT_SYMBOL_GPL(pci_host_common_can_enter_d3cold);
-> +
->  MODULE_DESCRIPTION("Common library for PCI host controller drivers");
->  MODULE_LICENSE("GPL v2");
-> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-> index b5075d4bd7eb31fbf1dc946ef1a6afd5afb5b3c6..18a731bca058828340bca84776d0e91da1edbbf7 100644
-> --- a/drivers/pci/controller/pci-host-common.h
-> +++ b/drivers/pci/controller/pci-host-common.h
-> @@ -20,4 +20,6 @@ void pci_host_common_remove(struct platform_device *pdev);
->  
->  struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
->  	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
-> +
-> +bool pci_host_common_can_enter_d3cold(struct pci_host_bridge *bridge);
->  #endif
-> 
-> -- 
-> 2.34.1
-> 
+I assume this can go into the s390 tree?
 
