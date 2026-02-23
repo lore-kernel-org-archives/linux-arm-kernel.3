@@ -4,121 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56397EC1106
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 16:27:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9653EC1104
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 16:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=87mY3bGihT8b8D/6Pcxz8+DKkw+N82+sh9Y6maoLJGk=; b=aEszb3ayn4SYW+jhjbfvsV5B6P
-	5j5duGoGHpKpjN55T1rqltTW0Ub/vngnm3s5zMZdHFYFr6MPDRgG3GBntCWOtoxzh9lkZmLHW76c2
-	wKN3Q97ABF64lRUGnvvhma1R8QQAkaNkWDsb320PJWe7pYncBDktFugMRewODP+RI5aZp8bMC+0FX
-	/xDN0HWkt94K1nKXY/qfmBdNQaVjIH8YJxN7CNo2+OQvutsmch4lbalySSvRV7wjLVxkVB8xDomGa
-	8Zdjvv6jhnnwDmc68948EQW9tuBY7eCQkFvcVNtaEGrUi/oLJ/Y+Tzzm6xCk1eUqCoQ1af0B/htq5
-	rHeposlQ==;
+	bh=DSB+twJ8RQrq+fHV4d1Hxvqhv9VsSzrh8s/dkyStF/k=; b=nTTprXdo1RuJ1B4SEn61faJPA6
+	fwob41gFwytqn87B1/Qxou2wgFgoetHB4r1qqUgXWpso8RW3ggjcuThi/XZutIlzwlAcJeTpoBFYp
+	oN2lKhcMZ5CLsX4cAjIgbdSKda9USSyW2sfTGsqa8zqkQeCL0s78dmGYfs1E6G/r5Insqk4c/efkY
+	fhk2JW0APdf0MWWxzTR8DEVRGsJcXtSNtyWpJOpi+eFATw8hpL2fANDXRYZ76RL/x2tjbcmTg77nb
+	FDsifAZnaI+Tm6RczpF1hQfvg6HeSJZNvwfvcAjM43us2YXvVqsL2ilsfPp62Jc4dBXvqO0W0mpU0
+	XvbNO2eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYlu-00000000g4T-3Gsz;
-	Mon, 23 Feb 2026 16:26:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vuYni-00000000gdB-3VO1;
+	Mon, 23 Feb 2026 16:28:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYlo-00000000fwQ-00Dt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Feb 2026 16:26:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=87mY3bGihT8b8D/6Pcxz8+DKkw+N82+sh9Y6maoLJGk=; b=oRjVijdcpHdlwz/CTJyVkb7QRC
-	2qjYdD4Rh/LpkVvkA5edXIplNsa8jqipv69bbHhiVXxDS4KATafn1pN9qKy5cZxYGT6g2KtCVh8Yg
-	YqQ9m3gpBBrE37QsCC7oHcWsL1gMPBIOuVyqqlOykEI64M+fZt6tyaNF6OUtynltopZSkYEISHujr
-	krFb7agB+/9Z1xsZHteU0lmxbucsLrzyu+uAPaJRNT+3VCrnCNTXLM/OO7L46GFPcm++wNO70q1Cb
-	ZklJfhmXVMLH1Fa5MNYSpWcUemlMqblB7MyiQSJlFZynneRnaj1ZlA36MZ42IlTPNhZdZY4cl/op5
-	XZwXhweQ==;
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYlk-00000005TDa-2cc2
+	id 1vuYnh-00000000gcp-0lYx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 16:26:50 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4376acce52eso2826359f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 08:26:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771864007; x=1772468807; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=87mY3bGihT8b8D/6Pcxz8+DKkw+N82+sh9Y6maoLJGk=;
-        b=U+O793/viVyHlABQJeorWNfURwfVdWwLb3Nev9Xuzbj97tt1EwyPGBBhoPBSLsYqGP
-         QXOIhdJSRa6MxtvHtxbXbcl4bkdcLLRjuM6rCCk/T2zW/npsD8n/AYLGJ2agYOG/qlWT
-         I9vnriOykLfoZw8Y8YGZ2Yzb8isUVE7EHhmqYOQxthcC7x/TBrLvIgpGd/DCFATJoljV
-         vppTdnwGj97teo0DfpL0hEsUGGbgQ3uS7gu4iTcu1sa87QBXn5rRUozp9Npw3CM4MHaK
-         OUAbd+7jnKDI1PC2+3tSPNIyK/zdp9QHb06178ov1FX44Qv1rcYVIvjiiQydSi/ThA2K
-         0SQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771864007; x=1772468807;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=87mY3bGihT8b8D/6Pcxz8+DKkw+N82+sh9Y6maoLJGk=;
-        b=F44NvnJ83LdCY9eJ+zHaTIoZAfHxzKTIsWAfI6u8sNtlGgHUAuYZaymhJfQ7jUHQCS
-         VH8lCip9gHm8ZajIRjB7X/u/wvYPTssXENuCTaHYBHcULrVStb9NJkiKdkS5vpNoQRjA
-         kKECXCLjNLP1kh/U36VosH9OinbOT1cgDg4vbq9EFX2XLG0ukhEdt1L+rIb0Hx3t4tjx
-         Ma1XzTvT6U32g/p3OeVoi0ICHdPt7sBWSfmjbBMGEogNYEZC406sDjC0z6FqrTd5DSPq
-         5NJqUMgdaOP3d/XhQ/W9uufWF8ddTocGmbXPGdPwND1E21KG+/mDgLw1JCEKUGoQMHtN
-         oP8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWwu1otFjKbzJUIVcKslwXSxt8KbcIKl1L/LA+/1LsZu6CsQLqTZ8ZS5tVK37Xieqdyp2TkGH3XSP4Y8JIgM6IH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwO+1sQFgKFwYoFiGJp94bI9X4eLqYMGoXz5Hsb9f9qPl8Li+CJ
-	g5I5wI10/FxcvuRaab6aiErHPYBW1jEA25t8Msw1OoVl8PFntGkp43+K
-X-Gm-Gg: ATEYQzwafAjt+jUkL1tv45x2WKqjChCQcRbVx0lsw0dpfjlEqrv/bHB0NNN6Of+uZgh
-	BxFMdQueHeADZxv9G9cnQYEJKZID+iqba0zCcB98nmzpk9WS331cOz8+gIu761lKKgCUqjVxqAe
-	Qogmh6ri++AUKxce6L86gQ5duzwt1NSZueUGY0FN2AUNgn3RmM1oe9jwybeiPYM9hhtzj0Julen
-	CscN24gCXCGtyGBEHQ/T1fR/KLLLTNQWfQ3qCA+PKCxURUqtsSQYMTvi+6nEzHNzaKg3MvJ4jYI
-	loG0kTcp75QcbQkW4IS2db7al+B0lBuiZzIqWnfLrzwgNwiLEMGy20mAK16Blaj3zwZv4OBrz9B
-	MEhm3WBMVeKq3gmkMsafiFbRmWcIMeZ0Ln1nKYkpo8jhoAGTMVh6XguYXCLOcTCHvg0bvBpfF2Z
-	JqCNJY+6MTn5YYbv/7exQ=
-X-Received: by 2002:a05:6000:2dc7:b0:436:1a24:df81 with SMTP id ffacd0b85a97d-4396f15416cmr16926092f8f.2.1771864007344;
-        Mon, 23 Feb 2026 08:26:47 -0800 (PST)
-Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970d5463dsm19120357f8f.34.2026.02.23.08.26.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Feb 2026 08:26:46 -0800 (PST)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Val Packett <val@packett.cool>,
-	Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: [PATCH v3 6/6] gpu: drm: mediatek: ovl: add specific entry for mt8167
-Date: Mon, 23 Feb 2026 16:22:50 +0000
-Message-ID: <5f880f1334aa93184afee3e36132ca42628821fb.1771863641.git.l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1771863641.git.l.scorcia@gmail.com>
-References: <cover.1771863641.git.l.scorcia@gmail.com>
+	Mon, 23 Feb 2026 16:28:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE91A43708;
+	Mon, 23 Feb 2026 16:28:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFF94C116D0;
+	Mon, 23 Feb 2026 16:28:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771864128;
+	bh=dl4eqRFk/KrviE517x++cn1PZar9Tp8XEK8Khfk13J8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ofecjYvj20dCGmilmiV0LD/TRrNYIpF4QAIatXjGsQlCf6bxawsnZT4iLzxnyjcwb
+	 vPK4jm4v1nSB79/4C2tCu+RcNOWvkxrNXL1Tf0krqX/aLBf854IXa9c5CBDqhX+odn
+	 MJKXGuK+IB+by+V4P448oY2VabEbcviBV7rAkOtPYUN7GJAJcMj5Ir1PoKbLZ9x+uj
+	 QBlMnsc8VNOqUctFBiBmh1OWLptKyOfw5xukfKmFbUA73OgOoax2hsGeRh4aDFIcvz
+	 kx302ts42lzqGTu/SlFjQ1vIcowYoKANs+ztvM9mvEHXxsohO6aBy9ny+yq1MxRQNl
+	 FJPwAJ6L2FiJg==
+Message-ID: <e7af1815-3028-4530-8d62-6004e421e35b@kernel.org>
+Date: Mon, 23 Feb 2026 17:28:41 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [LSF/MM/BPF TOPIC] Per-process page size
+To: Matthew Wilcox <willy@infradead.org>, Dev Jain <dev.jain@arm.com>
+Cc: Pedro Falcato <pfalcato@suse.de>, lsf-pc@lists.linux-foundation.org,
+ ryan.roberts@arm.com, catalin.marinas@arm.com, will@kernel.org,
+ ardb@kernel.org, hughd@google.com, baolin.wang@linux.alibaba.com,
+ akpm@linux-foundation.org, lorenzo.stoakes@oracle.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
+References: <20260217145026.3880286-1-dev.jain@arm.com>
+ <yfe2xbb6qwthg3cf4yr7zszpw5o3mx2v4bv32iwnm7yzxqjsvl@et22s2nuwzzk>
+ <a778d249-afea-4488-b045-beff3492a48a@arm.com>
+ <aZxv0mEd2BA3Mq-N@casper.infradead.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <aZxv0mEd2BA3Mq-N@casper.infradead.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_162648_727412_F1808214 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260223_082849_289200_948D785F 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,49 +126,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Val Packett <val@packett.cool>
+On 2/23/26 16:18, Matthew Wilcox wrote:
+> On Mon, Feb 23, 2026 at 10:37:55AM +0530, Dev Jain wrote:
+>> I didn't understand the reclaimable reference, but yes we need to make this efficient.
+> 
+> this goes over 80 columns so much and so often, it's painful to read.
+> so i didn't.
 
-While this configuration is otherwise identical to mt8173, according
-to Android kernel sources, this SoC does need smi_id_en.
+I just found out that Thunderbird was lying to me the whole time.
 
-Signed-off-by: Val Packett <val@packett.cool>
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+If you're using "Toggle Line Wrap" plugin you might think that mails are
+properly wrapped, you know, like *they are displayed*. And even lore
+displays them properly.
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-index e0236353d499..97a899e4bd99 100644
---- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-@@ -671,6 +671,16 @@ static const struct mtk_disp_ovl_data mt2701_ovl_driver_data = {
- 	.num_formats = ARRAY_SIZE(mt8173_formats),
- };
- 
-+static const struct mtk_disp_ovl_data mt8167_ovl_driver_data = {
-+	.addr = DISP_REG_OVL_ADDR_MT8173,
-+	.gmc_bits = 8,
-+	.layer_nr = 4,
-+	.fmt_rgb565_is_0 = true,
-+	.smi_id_en = true,
-+	.formats = mt8173_formats,
-+	.num_formats = ARRAY_SIZE(mt8173_formats),
-+};
-+
- static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
- 	.addr = DISP_REG_OVL_ADDR_MT8173,
- 	.gmc_bits = 8,
-@@ -742,6 +752,8 @@ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
- static const struct of_device_id mtk_disp_ovl_driver_dt_match[] = {
- 	{ .compatible = "mediatek,mt2701-disp-ovl",
- 	  .data = &mt2701_ovl_driver_data},
-+	{ .compatible = "mediatek,mt8167-disp-ovl",
-+	  .data = &mt8167_ovl_driver_data},
- 	{ .compatible = "mediatek,mt8173-disp-ovl",
- 	  .data = &mt8173_ovl_driver_data},
- 	{ .compatible = "mediatek,mt8183-disp-ovl",
+But in the back, Thunderbird set "format=flowed" and screws you.
+
+So, if anyone else believes that they are sending properly wrapped mails
+with Thunderbird, read
+
+	Documentation/process/email-clients.rst
+
+and make sure that "mailnews.send_plaintext_flowed" is set to false.
+
+
+Thanks Jens for the pointer!
+
 -- 
-2.43.0
+Cheers,
 
+David
 
