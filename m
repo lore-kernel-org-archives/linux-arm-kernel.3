@@ -4,69 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 493DFEC1101
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 16:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 909E5EC1104
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 16:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DYgM4TH1DpakGDlknJczUNjWSZ8y9hoVxSTIb4JHaSU=; b=L6fnR9/2jBfUEOeUMdkApUXoR6
-	T+gFLZtli1XyRRQkVXKqkFUcF13uKXEML2IlYM3JhDK4evFIOi+v3xMGSqVDTeUuwIUeGmP7QxMdB
-	FhyiB+yNE83xXBn9SdAPYAUGetswgFfQ5OZMD1pPtrD/am63xoB5YEV0HxRTjtPRfyWNK+wV0oB9K
-	9/8Ekg18APZycCD+vh7pAXngKJz4er49WwjwiNoy1TlM3Yl/yIwXFUOHWvpSzF3BdLz3PEZ6YHCkP
-	1G9cYzDdPpRLx3SY6iVrtIgs4xd92P5MuuKQqbMcEQJXGP/z1Y9hR4Lvbz32Fxoe05mtZr2NABIsQ
-	GUhQM/PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8bgNyMHuxYe6YzR2fK1AXDGfFz+EgSNcwDgdyzgb5rM=; b=nIhpQxndfW0gpqqumBUqBzk5/d
+	0aO+SYAlcdJKBioh7wks9wY03lWOirKQ5BzvvISKhn18ujzeN26PGwSdb//sXueXVpUqp7netDDv2
+	Q7xqbaC8Pkw6Ku+QHMxjHgyF9FaeF60gt/bkuwPd2NwiqnyV+XbyoAvDnFepw2pcUb+lMRS8TBX9v
+	JvJpE9m5s6YymUk2h+K3/DOLFIOwgeyIY6wso7ac5jx6hDSbg+DB9ETaZ5M8OklG4CJqIEfNvcZQv
+	o5OyGjKH6InTO3iiC2Aj6dGsTN9s5kPqNhSjE59UOV/0dNeWnVn08clVeTPkfOIIb3JTid8qaJora
+	cgMbbUmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYcW-00000000eV8-3q62;
-	Mon, 23 Feb 2026 16:17:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vuYcy-00000000edp-14vu;
+	Mon, 23 Feb 2026 16:17:44 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuYcT-00000000eUM-3zqq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Feb 2026 16:17:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 051BF4451D;
-	Mon, 23 Feb 2026 16:17:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCA44C19423;
-	Mon, 23 Feb 2026 16:17:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771863432;
-	bh=XK+PXadn+TlLWZTmix1ykoVvNzE32bv+ynARqf+1YAo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hpUNSPJmNO7oPx/1iv/Q7WtE3cARfWvR0y2ySUTfgf5bdL2nHfEk+dK/sDhplawEN
-	 J0dCp5+lFXmvytXDBKY4QCSY7Tcd0ZIXIkj8o4JlU0DDJnc97Iejvoe0gn+w8BUeGV
-	 R3C3oOmoj2/rDG3w8G8FypdJa13OWTpyoro/uoTyhNSPBqFrJhquzXNwOU7md11KYk
-	 w4mk0U7uWEI8ph2hqKIMOsW72qsjjpgr0jaFbvMgmkBU7MRQyWGO+AblsbsA9e3jkH
-	 a3BO7HYxCm9D/duUF5PYygBqtHCYnjP208JLJYxKpT1J7buMio5Ye267xQxGwj/WbG
-	 MganSQkzHrk8g==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Tomas Melin <tomas.melin@vaisala.com>,
-	Harini T <harini.t@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Sasha Levin <sashal@kernel.org>,
-	linux-rtc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.19-6.1] rtc: zynqmp: correct frequency value
-Date: Mon, 23 Feb 2026 11:17:07 -0500
-Message-ID: <20260223161707.2714732-3-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260223161707.2714732-1-sashal@kernel.org>
-References: <20260223161707.2714732-1-sashal@kernel.org>
+	id 1vuYcu-00000000ebk-1I6l;
+	Mon, 23 Feb 2026 16:17:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1771863460; x=1803399460;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=aOP5WIIIx6jXIgIj8fQMjIWqluDLQWnoK9OZpu0pAUA=;
+  b=ddmyODijzubpkvS8B4GXP3bDhz6+cTMSL5fNHvx5CEfeQ0/sjCgDFMkq
+   2nBOOGMESzDAOpgKtmIagfsfVJDWMq46PCR0q72bv9iKwv3B3cuBjowXL
+   m3FGuJMlZPbkUPMBfEg0/sdtdszh6wHxSvkCvUAHn+qW1PaKo1DZLmtn+
+   Z8M3vHThwNnOeNiRhDHc7QaxicYrW60tZMi3BAQ1EoQFNN5Uz5slNUDhB
+   s183Rx2pfeegjxPGokCXRALOE1P0vqeOb/XwBluLgGWbtrdIZoUrKNm8v
+   3GQnhcV3GMr+d8ib1EER31sTDh1va7d7vYnI9Drki9Tmd9+kGlNm3zP4v
+   g==;
+X-CSE-ConnectionGUID: n3eux9vtQHKMK0zXNlDY3Q==
+X-CSE-MsgGUID: XtWl1Iu1SI+WByhWMVf0tw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11710"; a="72964235"
+X-IronPort-AV: E=Sophos;i="6.21,307,1763452800"; 
+   d="scan'208";a="72964235"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 08:17:38 -0800
+X-CSE-ConnectionGUID: s+T+PQQsT0SyyRAKA4P4zw==
+X-CSE-MsgGUID: bqNmgWIJTXepephYLIEsgA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,307,1763452800"; 
+   d="scan'208";a="215752862"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.246.249])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2026 08:17:26 -0800
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Harry Wentland
+ <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira
+ <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, Christian
+ =?utf-8?Q?K=C3=B6nig?= <christian.koenig@amd.com>, David Airlie
+ <airlied@gmail.com>, Simona
+ Vetter <simona@ffwll.ch>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang
+ <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan
+ <andy.yan@rock-chips.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas
+ Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, Jonathan Corbet
+ <corbet@lwn.net>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-doc@vger.kernel.org, Nicolas Frattaroli
+ <nicolas.frattaroli@collabora.com>, Andri Yngvason <andri@yngvason.is>,
+ Werner Sembach <wse@tuxedocomputers.com>, Marius Vlad
+ <marius.vlad@collabora.com>
+Subject: Re: [PATCH v8 02/20] drm: Add new general DRM property "color format"
+In-Reply-To: <20260216-color-format-v8-2-5722ce175dd5@collabora.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <20260216-color-format-v8-0-5722ce175dd5@collabora.com>
+ <20260216-color-format-v8-2-5722ce175dd5@collabora.com>
+Date: Mon, 23 Feb 2026 18:17:23 +0200
+Message-ID: <3b5e5af4219671c5b4ffdcb09bd22679332244ac@intel.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.19.3
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_081714_173150_F53EE5E2 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20260223_081740_373170_65A35BFB 
+X-CRM114-Status: GOOD (  43.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,127 +108,466 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tomas Melin <tomas.melin@vaisala.com>
+On Mon, 16 Feb 2026, Nicolas Frattaroli <nicolas.frattaroli@collabora.com> wrote:
+> From: Andri Yngvason <andri@yngvason.is>
+>
+> Add a new general DRM property named "color format" which can be used by
+> userspace to request the display driver to output a particular color
+> format.
+>
+> Possible options are:
+>     - auto (setup by default, driver internally picks the color format)
+>     - rgb
+>     - ycbcr444
+>     - ycbcr422
+>     - ycbcr420
+>
+> Drivers should advertise from this list which formats they support.
+> Together with this list and EDID data from the sink we should be able
+> to relay a list of usable color formats to users to pick from.
+>
+> Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
+> Signed-off-by: Andri Yngvason <andri@yngvason.is>
+> Signed-off-by: Marius Vlad <marius.vlad@collabora.com>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/gpu/drm/drm_atomic_helper.c |   5 ++
+>  drivers/gpu/drm/drm_atomic_uapi.c   |  11 +++
+>  drivers/gpu/drm/drm_connector.c     | 150 ++++++++++++++++++++++++++++++++++++
+>  include/drm/drm_connector.h         | 116 ++++++++++++++++++++++++++--
+>  4 files changed, 277 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/drm_atomic_helper.c b/drivers/gpu/drm/drm_atomic_helper.c
+> index d422f79b96db..d7e902ce5d2d 100644
+> --- a/drivers/gpu/drm/drm_atomic_helper.c
+> +++ b/drivers/gpu/drm/drm_atomic_helper.c
+> @@ -737,6 +737,11 @@ drm_atomic_helper_check_modeset(struct drm_device *dev,
+>  			if (old_connector_state->max_requested_bpc !=
+>  			    new_connector_state->max_requested_bpc)
+>  				new_crtc_state->connectors_changed = true;
+> +
+> +			if (old_connector_state->color_format !=
+> +			    new_connector_state->color_format)
+> +				new_crtc_state->connectors_changed = true;
+> +
+>  		}
+>  
+>  		if (funcs->atomic_check)
+> diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
+> index dc013a22bf26..907dd3374533 100644
+> --- a/drivers/gpu/drm/drm_atomic_uapi.c
+> +++ b/drivers/gpu/drm/drm_atomic_uapi.c
+> @@ -931,6 +931,15 @@ static int drm_atomic_connector_set_property(struct drm_connector *connector,
+>  		state->privacy_screen_sw_state = val;
+>  	} else if (property == connector->broadcast_rgb_property) {
+>  		state->hdmi.broadcast_rgb = val;
+> +	} else if (property == connector->color_format_property) {
+> +		if (val >= DRM_COLOR_FORMAT_ENUM_NUM) {
+> +			drm_dbg_atomic(connector->dev,
+> +				       "[CONNECTOR:%d:%s] unknown color format %llu\n",
+> +				       connector->base.id, connector->name, val);
+> +			return -EINVAL;
+> +		}
+> +
+> +		state->color_format = val;
+>  	} else if (connector->funcs->atomic_set_property) {
+>  		return connector->funcs->atomic_set_property(connector,
+>  				state, property, val);
+> @@ -1016,6 +1025,8 @@ drm_atomic_connector_get_property(struct drm_connector *connector,
+>  		*val = state->privacy_screen_sw_state;
+>  	} else if (property == connector->broadcast_rgb_property) {
+>  		*val = state->hdmi.broadcast_rgb;
+> +	} else if (property == connector->color_format_property) {
+> +		*val = state->color_format;
+>  	} else if (connector->funcs->atomic_get_property) {
+>  		return connector->funcs->atomic_get_property(connector,
+>  				state, property, val);
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> index aec05adbc889..4d85add60d92 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> @@ -1359,6 +1359,32 @@ static const char * const colorspace_names[] = {
+>  	[DRM_MODE_COLORIMETRY_BT601_YCC] = "BT601_YCC",
+>  };
+>  
+> +/**
+> + * drm_get_color_format_name - return a string for color format
+> + * @color_fmt: color format to return the name of
+> + *
+> + * Returns a string constant matching the format's name, or NULL if no match
+> + * is found.
+> + */
+> +const char *drm_get_color_format_name(enum drm_color_format_enum color_fmt)
+> +{
+> +	switch (color_fmt) {
+> +	case DRM_COLOR_FORMAT_ENUM_AUTO:
+> +		return "AUTO";
+> +	case DRM_COLOR_FORMAT_ENUM_RGB444:
+> +		return "RGB";
+> +	case DRM_COLOR_FORMAT_ENUM_YCBCR444:
+> +		return "YUV 4:4:4";
+> +	case DRM_COLOR_FORMAT_ENUM_YCBCR422:
+> +		return "YUV 4:2:2";
+> +	case DRM_COLOR_FORMAT_ENUM_YCBCR420:
+> +		return "YUV 4:2:0";
+> +	default:
+> +		return NULL;
+> +	}
+> +}
+> +EXPORT_SYMBOL(drm_get_color_format_name);
+> +
+>  /**
+>   * drm_get_colorspace_name - return a string for color encoding
+>   * @colorspace: color space to compute name of
+> @@ -1388,6 +1414,20 @@ static const u32 hdmi_colorspaces =
+>  	BIT(DRM_MODE_COLORIMETRY_DCI_P3_RGB_D65) |
+>  	BIT(DRM_MODE_COLORIMETRY_DCI_P3_RGB_THEATER);
+>  
+> +/* already bit-shifted */
+> +static const u32 hdmi_colorformats =
+> +	DRM_COLOR_FORMAT_RGB444 |
+> +	DRM_COLOR_FORMAT_YCBCR444 |
+> +	DRM_COLOR_FORMAT_YCBCR422 |
+> +	DRM_COLOR_FORMAT_YCBCR420;
+> +
+> +/* already bit-shifted */
+> +static const u32 dp_colorformats =
+> +	DRM_COLOR_FORMAT_RGB444 |
+> +	DRM_COLOR_FORMAT_YCBCR444 |
+> +	DRM_COLOR_FORMAT_YCBCR422 |
+> +	DRM_COLOR_FORMAT_YCBCR420;
+> +
+>  /*
+>   * As per DP 1.4a spec, 2.2.5.7.5 VSC SDP Payload for Pixel Encoding/Colorimetry
+>   * Format Table 2-120
+> @@ -2649,6 +2689,97 @@ int drm_mode_create_hdmi_colorspace_property(struct drm_connector *connector,
+>  }
+>  EXPORT_SYMBOL(drm_mode_create_hdmi_colorspace_property);
+>  
+> +/**
+> + * drm_mode_create_color_format_property - create color format property
+> + * @connector: connector to create the color format property on
+> + * @supported_color_formats: bitmask of &enum drm_color_format values the
+> + *                           connector supports
+> + *
+> + * Called by a driver to create a color format property. Must be attached to
+> + * the desired connector afterwards.
+> + *
+> + * @supported_color_formats should only include color formats the connector
+> + * type can actually support.
+> + *
+> + * Returns:
+> + * 0 on success, negative errno on error
+> + */
+> +int drm_mode_create_color_format_property(struct drm_connector *connector,
+> +					  u32 supported_color_formats)
+> +{
+> +	struct drm_device *dev = connector->dev;
+> +	struct drm_prop_enum_list enum_list[DRM_COLOR_FORMAT_ENUM_NUM];
+> +	enum drm_color_format_enum fmt_e;
+> +	unsigned int len = 1;
+> +	unsigned int i = 1;
+> +	u32 fmt;
+> +
+> +	if (connector->color_format_property)
+> +		return 0;
+> +
+> +	if (!supported_color_formats) {
+> +		drm_err(dev, "No supported color formats provided on [CONNECTOR:%d:%s]\n",
+> +			connector->base.id, connector->name);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (supported_color_formats & ~DRM_COLOR_FORMAT_ALL) {
+> +		drm_err(dev, "Unknown color formats provided on [CONNECTOR:%d:%s]\n",
+> +			connector->base.id, connector->name);
+> +		return -EINVAL;
+> +	}
+> +
+> +	switch (connector->connector_type) {
+> +	case DRM_MODE_CONNECTOR_HDMIA:
+> +	case DRM_MODE_CONNECTOR_HDMIB:
+> +		if (supported_color_formats & ~hdmi_colorformats) {
+> +			drm_err(dev, "Color formats not allowed for HDMI on [CONNECTOR:%d:%s]\n",
+> +				connector->base.id, connector->name);
+> +			return -EINVAL;
+> +		}
+> +		break;
+> +	case DRM_MODE_CONNECTOR_DisplayPort:
+> +	case DRM_MODE_CONNECTOR_eDP:
+> +		if (supported_color_formats & ~dp_colorformats) {
+> +			drm_err(dev, "Color formats not allowed for DP on [CONNECTOR:%d:%s]\n",
+> +				connector->base.id, connector->name);
+> +			return -EINVAL;
+> +		}
+> +		break;
+> +	}
+> +
+> +	enum_list[0].name = drm_get_color_format_name(DRM_COLOR_FORMAT_ENUM_AUTO);
+> +	enum_list[0].type = DRM_COLOR_FORMAT_ENUM_AUTO;
+> +
+> +	while (supported_color_formats) {
 
-[ Upstream commit 2724fb4d429cbb724dcb6fa17953040918ebe3a2 ]
+Please consider making supported_color_formats an unsigned long, and
+using for_each_set_bit(). It makes everything below much easier.
 
-Fix calibration value in case a clock reference is provided.
-The actual calibration value written into register is
-frequency - 1.
+> +		fmt = BIT(i - 1);
+> +		if (supported_color_formats & fmt) {
+> +			supported_color_formats ^= fmt;
+> +			fmt_e = drm_color_format_to_enum(fmt);
 
-Reviewed-by: Harini T <harini.t@amd.com>
-Tested-by: Harini T <harini.t@amd.com>
-Signed-off-by: Tomas Melin <tomas.melin@vaisala.com>
-Acked-by: Michal Simek <michal.simek@amd.com>
-Link: https://patch.msgid.link/20260122-zynqmp-rtc-updates-v4-1-d4edb966b499@vaisala.com
-Signed-off-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
+This function doesn't exist yet, breaking bisectability. But I think
+this idea of two "domains" for color format is getting out of hand. See
+comments below. IMO drm_color_format_to_enum() should not be added
+anyway.
 
-LLM Generated explanations, may be completely bogus:
+I think the right option is to only use the enums, and then use those as
+bit numbers where masks are needed.
 
-## Analysis
+> +			if (fmt_e != DRM_COLOR_FORMAT_ENUM_INVALID) {
+> +				enum_list[len].name = drm_get_color_format_name(fmt_e);
+> +				enum_list[len].type = fmt_e;
+> +				len++;
+> +			} else {
+> +				drm_warn(dev,
+> +					 "Unknown supported format 0x%x on [CONNECTOR:%d:%s]\n",
+> +					 fmt, connector->base.id, connector->name);
+> +			}
 
-### What the commit fixes
+This is just unnecessary complications from the two domains.
 
-This commit fixes an off-by-one error in the RTC calibration value when
-the frequency is obtained from a clock reference (via `clk_get_rate()`).
-The ZynqMP RTC hardware register expects a calibration value of
-`frequency - 1`, but the code was writing the raw frequency value
-directly.
+> +		}
+> +		i++;
+> +	}
+> +
+> +	connector->color_format_property =
+> +		drm_property_create_enum(dev, DRM_MODE_PROP_ENUM, "color format",
+> +					 enum_list, len);
+> +
+> +	if (!connector->color_format_property)
+> +		return -ENOMEM;
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL(drm_mode_create_color_format_property);
+> +
+>  /**
+>   * drm_mode_create_dp_colorspace_property - create dp colorspace property
+>   * @connector: connector to create the Colorspace property on.
+> @@ -2866,6 +2997,25 @@ int drm_connector_attach_max_bpc_property(struct drm_connector *connector,
+>  }
+>  EXPORT_SYMBOL(drm_connector_attach_max_bpc_property);
+>  
+> +/**
+> + * drm_connector_attach_color_format_property - attach "force color format" property
+> + * @connector: connector to attach force color format property on.
+> + *
+> + * This is used to add support for selecting a color format on a connector.
+> + *
+> + * Returns:
+> + * Zero on success, negative errno on failure.
+> + */
+> +int drm_connector_attach_color_format_property(struct drm_connector *connector)
+> +{
+> +	struct drm_property *prop = connector->color_format_property;
+> +
+> +	drm_object_attach_property(&connector->base, prop, DRM_COLOR_FORMAT_ENUM_AUTO);
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL(drm_connector_attach_color_format_property);
+> +
+>  /**
+>   * drm_connector_attach_hdr_output_metadata_property - attach "HDR_OUTPUT_METADA" property
+>   * @connector: connector to attach the property on.
+> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+> index c18be8c19de0..18bd875b6918 100644
+> --- a/include/drm/drm_connector.h
+> +++ b/include/drm/drm_connector.h
+> @@ -556,6 +556,97 @@ enum drm_colorspace {
+>  	DRM_MODE_COLORIMETRY_COUNT
+>  };
+>  
+> +/**
+> + * enum drm_color_format_enum - color model description
+> + *
+> + * This enum is a high-level description of the component makeup of the image
+> + * data. It says nothing about how the components are ordered or how many bits
+> + * they take up (i.e. is unlike MEDIA_BUS_FMT\_ or DRM_FORMAT\_), but
+> + * describes the type of components (Luminance-Chrominance vs. RGB) and the
+> + * sub-sampling.
+> + *
+> + * &enum drm_color_format_enum makes statements about the same attribute of
+> + * an image as the DRM_COLOR_FORMAT\_ bitfields do. Its purpose is to inform
+> + * choices made by display protocol specific implementations when it comes to
+> + * translating it to e.g. &enum hdmi_colorspace or &enum dp_pixelformat, both
+> + * of which also describe the same attribute of the image at the same level of
+> + * specificity.
+> + *
+> + * In precise terms, this enum describes a color model. It makes no statements
+> + * about the primaries, gamma, or current phase of the moon used in conversion
+> + * from one to the other. Furthermore, it also makes no statements about the
+> + * order of components (e.g. RGB vs. BGR), their depth in bits, or their binary
+> + * packing.
+> + */
+> +enum drm_color_format_enum {
 
-**Evidence:**
-- `RTC_CALIB_DEF` = `0x7FFF` = 32767 = 32768 - 1 (the default is already
-  correctly decremented)
-- The `"calibration"` DT property presumably provides the register-ready
-  value (already freq-1)
-- But `clk_get_rate()` returns the raw clock rate (e.g., 32768), so it
-  needs the `-1` adjustment
-- Without the fix, the RTC counts one extra tick per second, causing
-  time drift
+The enum name should not have "enum" in it. That's just not a style
+that's being used.
 
-### Code change assessment
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_AUTO: The choice of format is left up to the
+> +	 * display protocol implementation. All implementations of the same
+> +	 * display protocol (e.g. HDMI) are supposed to behave the same way,
+> +	 * though display protocols may choose to behave differently compared to
+> +	 * each other (e.g. HDMI's "AUTO" does not have to match DP's "AUTO").
+> +	 *
+> +	 * Implementations may rely on @DRM_COLOR_FORMAT_ENUM_AUTO to be falsy.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_AUTO = 0,
 
-The fix adds an `else` branch with `xrtcdev->freq--` when the frequency
-comes from `clk_get_rate()` (i.e., when `xrtcdev->freq` is non-zero from
-the clock). This is a 2-line addition, surgically targeted.
+Ditto for the enumeration names, no ENUM in them please.
 
-### Dependency analysis
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_RGB444: Image components are encoded as RGB
+> +	 * values of equal resolution.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_RGB444,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_YCBCR444: Image components are encoded as
+> +	 * luminance and chrominance of equal resolution.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_YCBCR444,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_YCBCR422: Image components are encoded as
+> +	 * luminance and chrominance with the chrominance components having half
+> +	 * the horizontal resolution.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_YCBCR422,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_YCBCR420: Image components are encoded as
+> +	 * luminance and chrominance with the chrominance components having half
+> +	 * the horizontal and vertical resolution.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_YCBCR420,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_NUM: The number of valid color format values
+> +	 * in this enum. Itself not a valid color format.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_NUM,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_INVALID: Error return value for conversion
+> +	 * functions encountering unexpected inputs.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_INVALID = -EINVAL,
 
-The clock name fix `2a388ff22d2cb` ("rtc: zynqmp: Fix optional clock
-name property") was already tagged `Cc: stable@kernel.org` and is
-targeted at v6.14-rc1. Before that fix, the driver was looking for clock
-name "rtc_clk" instead of "rtc" (matching the DT binding), so the clock-
-based frequency path was effectively dead code. With `2a388ff22d2cb`
-being backported to stable, the clock can now actually be found, making
-this off-by-one bug reachable.
+Please don't hide negative error codes inside enums. If you need to
+return one from a function, please return the negative error code
+directly instead.
 
-The underlying calibration infrastructure was introduced in
-`07dcc6f9c762` (v6.0-rc1), so stable trees v6.1.y and later have the
-affected code.
+> +};
+> +
+> +/*
+> + * Constants for specifying bit masks for e.g. providing a list of supported
+> + * color formats as a single integer.
+> + */
+> +#define DRM_COLOR_FORMAT_RGB444		BIT(0)
+> +#define DRM_COLOR_FORMAT_YCBCR444	BIT(1)
+> +#define DRM_COLOR_FORMAT_YCBCR422	BIT(2)
+> +#define DRM_COLOR_FORMAT_YCBCR420	BIT(3)
 
-### Stable criteria evaluation
+I don't think we should define both enum and mask. One or the
+other. Moreover, now you have two independent definitions for the same
+thing, with nothing to ensure they keep matching. It's a bug waiting to
+happen.
 
-- **Fixes a real bug:** Yes - incorrect RTC calibration causes time
-  drift
-- **Obviously correct:** Yes - the register needs freq-1, this subtracts
-  1
-- **Small and contained:** Yes - 2 lines in one file
-- **No new features:** Correct - purely fixes calibration logic
-- **Tested:** Yes - has Tested-by and Reviewed-by from AMD engineer,
-  Acked-by from Michal Simek
+I think the problem is that they were originally defined as bits even
+though most places actually use them as single values only. It's
+confusing. It would probably have been better to just use enums and
+BIT(DRM_COLOR_FORMAT_*) where a mask is needed.
 
-### Risk assessment
+Maybe that's what should be done as the first step anyway.
 
-**Very low risk.** The change only affects the path where a clock
-reference provides the frequency. It cannot break the default path
-(`RTC_CALIB_DEF`) or the DT `"calibration"` property path. The worst
-case if something were wrong would be an RTC running at the wrong rate -
-exactly the same as the current bug.
+> +
+> +/*
+> + * Mask of all DRM_COLOR_FORMAT\_ constants. When adding new color formats,
+> + * they must be part of this define.
+> + */
+> +#define DRM_COLOR_FORMAT_ALL	(DRM_COLOR_FORMAT_RGB444   | \
+> +				 DRM_COLOR_FORMAT_YCBCR444 | \
+> +				 DRM_COLOR_FORMAT_YCBCR422 | \
+> +				 DRM_COLOR_FORMAT_YCBCR420)
+> +
+>  /**
+>   * enum drm_bus_flags - bus_flags info for &drm_display_info
+>   *
+> @@ -699,11 +790,6 @@ struct drm_display_info {
+>  	 */
+>  	enum subpixel_order subpixel_order;
+>  
+> -#define DRM_COLOR_FORMAT_RGB444		(1<<0)
+> -#define DRM_COLOR_FORMAT_YCBCR444	(1<<1)
+> -#define DRM_COLOR_FORMAT_YCBCR422	(1<<2)
+> -#define DRM_COLOR_FORMAT_YCBCR420	(1<<3)
+> -
+>  	/**
+>  	 * @panel_orientation: Read only connector property for built-in panels,
+>  	 * indicating the orientation of the panel vs the device's casing.
+> @@ -1107,6 +1193,13 @@ struct drm_connector_state {
+>  	 */
+>  	enum drm_colorspace colorspace;
+>  
+> +	/**
+> +	 * @color_format: State variable for Connector property to request
+> +	 * color format change on Sink. This is most commonly used to switch
+> +	 * between RGB to YUV and vice-versa.
+> +	 */
+> +	enum drm_color_format_enum color_format;
+> +
+>  	/**
+>  	 * @writeback_job: Writeback job for writeback connectors
+>  	 *
+> @@ -2105,6 +2198,12 @@ struct drm_connector {
+>  	 */
+>  	struct drm_property *colorspace_property;
+>  
+> +	/**
+> +	 * @color_format_property: Connector property to set the suitable
+> +	 * color format supported by the sink.
+> +	 */
+> +	struct drm_property *color_format_property;
+> +
+>  	/**
+>  	 * @path_blob_ptr:
+>  	 *
+> @@ -2507,6 +2606,9 @@ int drm_mode_create_dp_colorspace_property(struct drm_connector *connector,
+>  int drm_mode_create_content_type_property(struct drm_device *dev);
+>  int drm_mode_create_suggested_offset_properties(struct drm_device *dev);
+>  
+> +int drm_mode_create_color_format_property(struct drm_connector *connector,
+> +					  u32 supported_color_formats);
+> +
+>  int drm_connector_set_path_property(struct drm_connector *connector,
+>  				    const char *path);
+>  int drm_connector_set_tile_property(struct drm_connector *connector);
+> @@ -2588,6 +2690,10 @@ bool drm_connector_has_possible_encoder(struct drm_connector *connector,
+>  					struct drm_encoder *encoder);
+>  const char *drm_get_colorspace_name(enum drm_colorspace colorspace);
+>  
+> +int drm_connector_attach_color_format_property(struct drm_connector *connector);
+> +
+> +const char *drm_get_color_format_name(enum drm_color_format_enum color_fmt);
+> +
+>  /**
+>   * drm_for_each_connector_iter - connector_list iterator macro
+>   * @connector: &struct drm_connector pointer used as cursor
 
-### Verification
-
-- Read the full driver source: confirmed `RTC_CALIB_DEF` = 0x7FFF =
-  32767 (line 40)
-- Verified `clk_get_rate()` returns raw frequency, not register value,
-  per kernel API
-- `git show 85cab027d4e31`: confirmed previous calibration fix changed
-  default from 0x198233 to 0x7FFF (32768-1)
-- `git show 07dcc6f9c762`: confirmed this is the commit that introduced
-  clock-based calibration (v6.0-rc1)
-- `git describe --contains 2a388ff22d2cb`: confirmed clock name fix is
-  in v6.14-rc1, already tagged for stable
-- `git describe --contains 07dcc6f9c762`: confirmed calibration support
-  is in v6.0-rc1, present in all current stable trees
-- The fix directly corresponds to the relationship: `RTC_CALIB_DEF`
-  (default) = 0x7FFF = 32768 - 1, confirming the register semantics
-
-This is a small, well-tested fix for incorrect RTC timekeeping. It's a
-companion to the already-stable-tagged clock name fix. Without this fix,
-any board using the ZynqMP RTC with a clock reference will have
-incorrect time calibration.
-
-**YES**
-
- drivers/rtc/rtc-zynqmp.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
-index 3baa2b481d9f2..856bc1678e7d3 100644
---- a/drivers/rtc/rtc-zynqmp.c
-+++ b/drivers/rtc/rtc-zynqmp.c
-@@ -345,7 +345,10 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
- 					   &xrtcdev->freq);
- 		if (ret)
- 			xrtcdev->freq = RTC_CALIB_DEF;
-+	} else {
-+		xrtcdev->freq--;
- 	}
-+
- 	ret = readl(xrtcdev->reg_base + RTC_CALIB_RD);
- 	if (!ret)
- 		writel(xrtcdev->freq, (xrtcdev->reg_base + RTC_CALIB_WR));
 -- 
-2.51.0
-
+Jani Nikula, Intel
 
