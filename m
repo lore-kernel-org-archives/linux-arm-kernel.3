@@ -4,120 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6A8EA4FB2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D267DEA4FB4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Feb 2026 11:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EX/LgZhWE6XhCgp9QvLGdz4j/2wmEv1dNAgYencoj8k=; b=xPDhpEt8MzpHlwTdzasTsLMA3w
-	5tr2uXtEWND53SoNNIcGdNuC3kWeWWQ9oTmP6sOhejM5+uQ4PG008cXF1PTN5Ra2ydwYbMTbkNYwS
-	qwdYRwwQdMNEOr1aYDffogE1k1NC1cvMa7zSJeyCD/lXgjBl1WVUQVZ38n2II6udC3JWdZX4OIYkg
-	4PrEYIs7zFk/LhUSR+nIgULaJSUvaQSKA7Hq8+4WV7FuCXw1GNVY3pR/fkTs7kNlh1d+dSqFijLxw
-	Bwm//g2IyEuR45gEc3dtvtbp7d1W4ZsEY9gemYsUg/LXecRCCoDFNgzz76eVJ8pJqkJFnZRSXaQfo
-	eBQHAfMA==;
+	bh=rkuh8RE1SaYB5ngAVCW7AE/3ekpYQtmDHEks3VzHXyY=; b=HcmryeeYVmKCY+A4ByN/qebPPN
+	/F5iP9f70v7kp7HbWawdBu2ETb7Ra+RND9oW9Baqjb2xIMgFLU3ZqtRszVG322pSyTizVav32q89V
+	YHfZnagKT0gclYOGCXN8BULXwKy3PnusFtqv4MJZa5VfVbiHD138mPRGiZzcoF6j8aQhdHkjLnwzI
+	7iX4gamBYLKlr5oI/kx55n8Unz+2VQkf7uvvqeVkpRYCTMK9OGdWe08RicOSeryYRUJaAa+CkEPq+
+	IjZOWMnRE4lJcbJ4ix0+g8b9jZR6U9QzGxnt+YbkM2K1bstdCxJfUUwIbaybN2LZBZaRzqbbRxJ7v
+	5Eht376Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUUC-00000000Dmq-1WPp;
-	Mon, 23 Feb 2026 11:52:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vuUVD-00000000E44-0mnq;
+	Mon, 23 Feb 2026 11:53:27 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuUUA-00000000Dlg-1ucZ;
-	Mon, 23 Feb 2026 11:52:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A65443985;
-	Mon, 23 Feb 2026 11:52:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03CFFC116D0;
-	Mon, 23 Feb 2026 11:52:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771847541;
-	bh=roYpKDMhh6cZ9yMZGMqqIqsHrMiwIf+FyPju6t+JsNk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lwVm9HfohJudq8qLJ8kGaEf5+GmCGQdn3IxLVTtdB0l5TJ7Pp3jpG6gcMPHFrCGSq
-	 4BX0U+zIUMlnjCOyMdxQnajlDOscDkCWnjj2FqUxf4U+FZAROhti967yt9DFZB0fJS
-	 s3KBsW/7/BvfEzWx3BqiWSHa0ckmdt4q6boEwiqCXtjHJRpcPDi58TE51OJDfXnopZ
-	 lgzSWnrmXBYp1z79BRCcIxt1jiTnTTNaX4Wbit3b1MPn40x3Ayf0mTFRCASA++bmkE
-	 /xlA3kenzLI750wvol/nnViv2WQAK+kThLc/rB0WiAU0Tk99A7ORnmBOJCFFBkuPno
-	 a3GGGIODSo1lQ==
-Message-ID: <9dd377f6-3565-4c0c-8c98-1b5ac4982f5b@kernel.org>
-Date: Mon, 23 Feb 2026 12:52:14 +0100
+	id 1vuUV9-00000000E2Q-3y2A;
+	Mon, 23 Feb 2026 11:53:25 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61N1F8vE2962734;
+	Mon, 23 Feb 2026 11:53:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=rkuh8RE1SaYB5ngAV
+	CW7AE/3ekpYQtmDHEks3VzHXyY=; b=I55CmioejpT6bkGdnsKvpl7K/BUjYZDy4
+	3pIr1yLzBd9JiCSbDbST/Ec9TRNItgTD9pUmD+C5Zv1Xd//jiqR5Sk/B2dE1RwYL
+	AATB5GnG6pXHa9kYl8EL+cFKQa4/EWR9vgd1SimWBdQoK2matflxO0lbBrD0fKR5
+	gZ8jwq0AsUnMmJ+qqrtf4vcEN7zQaNtlZ21JZ/3WT67KN1Vcoqzm2Yzi5qnlZC6w
+	neicizMdfM/QggAYJy4jdWsbRe4BSOu/RIOFyYwy70M2Dqmp9NY0Knxpy4GDdYyA
+	MALJANSNhseMmAQ58hSoti0FrJXgfB3W6HKk7bU3AlCGJdUN8qWtA==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cf24g6qap-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Feb 2026 11:53:19 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61NBDPWt030385;
+	Mon, 23 Feb 2026 11:53:18 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cfrhk4gru-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Feb 2026 11:53:18 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61NBrGs731129866
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Feb 2026 11:53:16 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 83CA52004D;
+	Mon, 23 Feb 2026 11:53:16 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5FF3320043;
+	Mon, 23 Feb 2026 11:53:16 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Mon, 23 Feb 2026 11:53:16 +0000 (GMT)
+Received: by tuxmaker.boeblingen.de.ibm.com (Postfix, from userid 55669)
+	id 3FCCCE0B55; Mon, 23 Feb 2026 12:53:16 +0100 (CET)
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Pasha Tatashin <pasha.tatashin@soleen.com>,
+        Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-s390@vger.kernel.org, linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, x86@kernel.org
+Subject: [PATCH 1/4] mm/page_table_check: Pass mm_struct to pxx_user_accessible_page()
+Date: Mon, 23 Feb 2026 12:53:13 +0100
+Message-ID: <68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <cover.1771845678.git.agordeev@linux.ibm.com>
+References: <cover.1771845678.git.agordeev@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/9] workqueue: devres: Add device-managed allocate
- workqueue
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>,
- Tobias Schrammm <t.schramm@manjaro.org>, Sebastian Reichel <sre@kernel.org>,
- Dan Carpenter <dan.carpenter@linaro.org>, Lee Jones <lee@kernel.org>,
- Dzmitry Sankouski <dsankouski@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>,
- driver-core@lists.linux.dev, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev
-References: <20260223-workqueue-devm-v1-0-10b3a6087586@oss.qualcomm.com>
- <20260223-workqueue-devm-v1-1-10b3a6087586@oss.qualcomm.com>
- <aZwWMiYEvr3DXi3E@smile.fi.intel.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aZwWMiYEvr3DXi3E@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=TNRIilla c=1 sm=1 tr=0 ts=699c3faf cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22
+ a=GgsMoib0sEa3-_RKJdDe:22 a=VnNF1IyMAAAA:8 a=pGY3QCu7MjYVx_q7SwQA:9
+X-Proofpoint-GUID: CSTS6ZcxiwQHiHahNP_pkftR7dwc7dEB
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjIzMDA5OSBTYWx0ZWRfX8meC9A58lixm
+ XJ917+b0HnNVBM6bs3817+Qsqyx/N/+QJam8EoRkcPnVMeL53kLDYsNIJGlRpaPY20AkebPPBLd
+ Vmh5Ap68PCfldNzudENvaBcEBwboC2H9yra5pxDgiZ6jenFaogRJKWRxfSBEETkzhkL6wSEr5yP
+ /4sV3+CnMKF2KXlgZPkd+ThcEtB8xTTujY7veaeDFO47sWKXZouZ/L3W3h7Tu53u36Tr5gfG9+o
+ 8yxMMiqttTxxsE/mOQGbWS5zcRPP9aooSrCVszcaftwHkkbToDFa81/r1OqJFn8gWkPZ3qIWg5k
+ ScgqmcFLp8VJvHsz7j38ekPqdpY8FfUPOuTctCk/cwXlW6hRvi87xoh5BU43423SuId3uyuiTPB
+ 8MF/vGmvA/clufMlgabcPWZUqIMRBEgz+6aF8egY2PPhI2h4jivcgWDo27VUyDhfec4Excg9vMQ
+ kG2EYG1Iv+dXDVjf97A==
+X-Proofpoint-ORIG-GUID: CSTS6ZcxiwQHiHahNP_pkftR7dwc7dEB
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-23_02,2026-02-20_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501 impostorscore=0
+ spamscore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602230099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_035222_614526_CC46C030 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20260223_035324_119892_136E17E4 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,50 +118,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/02/2026 09:56, Andy Shevchenko wrote:
-> On Mon, Feb 23, 2026 at 08:27:29AM +0100, Krzysztof Kozlowski wrote:
->> Add a Resource-managed version of alloc_workqueue() to fix common
->> problem of drivers mixing devm() calls with destroy_workqueue.  Such
->> naive and discouraged driver approach leads to difficult to debug bugs
->> when the driver:
->>
->> 1. Allocates workqueue in standard way and destroys it in driver
->>    remove() callback,
->> 2. Sets work struct with devm_work_autocancel(),
->> 3. Registers interrupt handler with devm_request_threaded_irq().
->>
->> Which leads to following unbind/removal path:
->>
->> 1. destroy_workqueue() via driver remove(),
->>    Any interrupt coming now would still execute the interrupt handler,
->>    which queues work on destroyed workqueue.
->> 2. devm_irq_release(),
->> 3. devm_work_drop() -> cancel_work_sync() on destroyed workqueue.
->>
->> devm_alloc_workqueue() has two benefits:
->> 1. Solves above problem of mix-and-match devres and non-devres code in
->>    driver,
->> 2. Simplify any sane drivers which were correctly using
->>    alloc_workqueue() + devm_add_action_or_reset().
-> 
->>  include/linux/workqueue.h                        | 32 ++++++++++++++++++++++++
->>  kernel/workqueue.c                               | 32 ++++++++++++++++++++++++
-> 
-> Hmm... We have devm-helpers.h. Why the new one is in workqueue.h?
-> Can we have some consistency here?
-> 
+From: Tobias Huschle <huschle@linux.ibm.com>
 
-Answering with update:
-I don't think this should go to devm-helpers.h. The definition is in
-workqueue.c, thus the declaration should be in corresponding header.
-It's logical and consistent.
+Unlike other architectures, s390 does not have means to
+distinguish kernel vs user page table entries - neither
+an entry itself, nor the address could be used for that.
+It is only the mm_struct that indicates whether an entry
+in question is mapped to a user space. So pass mm_struct
+to pxx_user_accessible_page() callbacks.
 
-Otherwise, I could move it entirely - definition and declaration - to
-devm-helpers.h, but then the release (devm_destroy_workqueue()) will be
-essentially exported to everyone through the header.
+[agordeev@linux.ibm.com: rephrased commit message, removed braces]
 
-So kind of conflicting choices.
+Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
+Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
+---
+ arch/arm64/include/asm/pgtable.h |  6 +++---
+ arch/riscv/include/asm/pgtable.h |  6 +++---
+ arch/x86/include/asm/pgtable.h   |  6 +++---
+ mm/page_table_check.c            | 15 ++++++---------
+ 4 files changed, 15 insertions(+), 18 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pg=
+table.h
+index b3e58735c49b..ccf0e0638767 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1263,17 +1263,17 @@ static inline int pmdp_set_access_flags(struct vm=
+_area_struct *vma,
+ #endif
+=20
+ #ifdef CONFIG_PAGE_TABLE_CHECK
+-static inline bool pte_user_accessible_page(pte_t pte, unsigned long add=
+r)
++static inline bool pte_user_accessible_page(struct mm_struct *mm, unsign=
+ed long addr, pte_t pte)
+ {
+ 	return pte_valid(pte) && (pte_user(pte) || pte_user_exec(pte));
+ }
+=20
+-static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long add=
+r)
++static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsign=
+ed long addr, pmd_t pmd)
+ {
+ 	return pmd_valid(pmd) && !pmd_table(pmd) && (pmd_user(pmd) || pmd_user_=
+exec(pmd));
+ }
+=20
+-static inline bool pud_user_accessible_page(pud_t pud, unsigned long add=
+r)
++static inline bool pud_user_accessible_page(struct mm_struct *mm, unsign=
+ed long addr, pud_t pud)
+ {
+ 	return pud_valid(pud) && !pud_table(pud) && (pud_user(pud) || pud_user_=
+exec(pud));
+ }
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pg=
+table.h
+index 08d1ca047104..affe46cf3bc5 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -984,17 +984,17 @@ static inline void set_pud_at(struct mm_struct *mm,=
+ unsigned long addr,
+ }
+=20
+ #ifdef CONFIG_PAGE_TABLE_CHECK
+-static inline bool pte_user_accessible_page(pte_t pte, unsigned long add=
+r)
++static inline bool pte_user_accessible_page(struct mm_struct *mm, unsign=
+ed long addr, pte_t pte)
+ {
+ 	return pte_present(pte) && pte_user(pte);
+ }
+=20
+-static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long add=
+r)
++static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsign=
+ed long addr, pmd_t pmd)
+ {
+ 	return pmd_leaf(pmd) && pmd_user(pmd);
+ }
+=20
+-static inline bool pud_user_accessible_page(pud_t pud, unsigned long add=
+r)
++static inline bool pud_user_accessible_page(struct mm_struct *mm, unsign=
+ed long addr, pud_t pud)
+ {
+ 	return pud_leaf(pud) && pud_user(pud);
+ }
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtabl=
+e.h
+index 1662c5a8f445..f9353d5c7464 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -1680,17 +1680,17 @@ static inline bool arch_has_hw_nonleaf_pmd_young(=
+void)
+ #endif
+=20
+ #ifdef CONFIG_PAGE_TABLE_CHECK
+-static inline bool pte_user_accessible_page(pte_t pte, unsigned long add=
+r)
++static inline bool pte_user_accessible_page(struct mm_struct *mm, unsign=
+ed long addr, pte_t pte)
+ {
+ 	return (pte_val(pte) & _PAGE_PRESENT) && (pte_val(pte) & _PAGE_USER);
+ }
+=20
+-static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long add=
+r)
++static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsign=
+ed long addr, pmd_t pmd)
+ {
+ 	return pmd_leaf(pmd) && (pmd_val(pmd) & _PAGE_PRESENT) && (pmd_val(pmd)=
+ & _PAGE_USER);
+ }
+=20
+-static inline bool pud_user_accessible_page(pud_t pud, unsigned long add=
+r)
++static inline bool pud_user_accessible_page(struct mm_struct *mm, unsign=
+ed long addr, pud_t pud)
+ {
+ 	return pud_leaf(pud) && (pud_val(pud) & _PAGE_PRESENT) && (pud_val(pud)=
+ & _PAGE_USER);
+ }
+diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+index 2708c2b3ac1f..53a8997ec043 100644
+--- a/mm/page_table_check.c
++++ b/mm/page_table_check.c
+@@ -151,9 +151,8 @@ void __page_table_check_pte_clear(struct mm_struct *m=
+m, unsigned long addr,
+ 	if (&init_mm =3D=3D mm)
+ 		return;
+=20
+-	if (pte_user_accessible_page(pte, addr)) {
++	if (pte_user_accessible_page(mm, addr, pte))
+ 		page_table_check_clear(pte_pfn(pte), PAGE_SIZE >> PAGE_SHIFT);
+-	}
+ }
+ EXPORT_SYMBOL(__page_table_check_pte_clear);
+=20
+@@ -163,9 +162,8 @@ void __page_table_check_pmd_clear(struct mm_struct *m=
+m, unsigned long addr,
+ 	if (&init_mm =3D=3D mm)
+ 		return;
+=20
+-	if (pmd_user_accessible_page(pmd, addr)) {
++	if (pmd_user_accessible_page(mm, addr, pmd))
+ 		page_table_check_clear(pmd_pfn(pmd), PMD_SIZE >> PAGE_SHIFT);
+-	}
+ }
+ EXPORT_SYMBOL(__page_table_check_pmd_clear);
+=20
+@@ -175,9 +173,8 @@ void __page_table_check_pud_clear(struct mm_struct *m=
+m, unsigned long addr,
+ 	if (&init_mm =3D=3D mm)
+ 		return;
+=20
+-	if (pud_user_accessible_page(pud, addr)) {
++	if (pud_user_accessible_page(mm, addr, pud))
+ 		page_table_check_clear(pud_pfn(pud), PUD_SIZE >> PAGE_SHIFT);
+-	}
+ }
+ EXPORT_SYMBOL(__page_table_check_pud_clear);
+=20
+@@ -211,7 +208,7 @@ void __page_table_check_ptes_set(struct mm_struct *mm=
+, unsigned long addr,
+=20
+ 	for (i =3D 0; i < nr; i++)
+ 		__page_table_check_pte_clear(mm, addr + PAGE_SIZE * i, ptep_get(ptep +=
+ i));
+-	if (pte_user_accessible_page(pte, addr))
++	if (pte_user_accessible_page(mm, addr, pte))
+ 		page_table_check_set(pte_pfn(pte), nr, pte_write(pte));
+ }
+ EXPORT_SYMBOL(__page_table_check_ptes_set);
+@@ -241,7 +238,7 @@ void __page_table_check_pmds_set(struct mm_struct *mm=
+, unsigned long addr,
+=20
+ 	for (i =3D 0; i < nr; i++)
+ 		__page_table_check_pmd_clear(mm, addr + PMD_SIZE * i, *(pmdp + i));
+-	if (pmd_user_accessible_page(pmd, addr))
++	if (pmd_user_accessible_page(mm, addr, pmd))
+ 		page_table_check_set(pmd_pfn(pmd), stride * nr, pmd_write(pmd));
+ }
+ EXPORT_SYMBOL(__page_table_check_pmds_set);
+@@ -257,7 +254,7 @@ void __page_table_check_puds_set(struct mm_struct *mm=
+, unsigned long addr,
+=20
+ 	for (i =3D 0; i < nr; i++)
+ 		__page_table_check_pud_clear(mm, addr + PUD_SIZE * i, *(pudp + i));
+-	if (pud_user_accessible_page(pud, addr))
++	if (pud_user_accessible_page(mm, addr, pud))
+ 		page_table_check_set(pud_pfn(pud), stride * nr, pud_write(pud));
+ }
+ EXPORT_SYMBOL(__page_table_check_puds_set);
+--=20
+2.51.0
+
 
