@@ -4,171 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D020F4BB6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:10:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B38F4BB6F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:18:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sRcvAQ7/9BozLVUCTTFPnDAktnex573RQGPF2Rk/pSc=; b=ifLqBgk54mEeRUd5dWgoliC+Lj
-	crJkC8UOLsBDqtQoOu7/OrmwH1QJxCbZyzXNaTLCLhmdSF9RnUmRkkIoJtSQTTBtgJWHcZ4tuF7x0
-	lftZ0EJe9GjbltcY2QPfN6DraJYLHkGQjbFY7sigxr5kdsbAgQxh9Dxm5LwVb9mZCzbN8wyzPsjOp
-	h3YUWl1xptyaf2FkOAgtE1SeDjcN1yxHxzBzI4vtfhgsSMUUPa9D3SiHVcI83mBjlmTJuWZb4lwQY
-	7xlsNyScFAZRDjKedrWEUEY4COfsXAN2Z5Jb42RIvS5/wToQPsG3RgwCuLKiA2w8D/CzMrltFB1We
-	T2nUsMiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+rHMEYxhxWnVlTYkBQ9H9B9sZxXrhLq/EQmtuH5u3KI=; b=bjTmcemyvGBt2Rk1t0HNUN1hVk
+	1+EOlWgUeuh94CIFvDqYt8G94FS+bA3PnuxLV5y/OOqTjA8635Tc5tsqCjQVrWLmnHVyR9AUSITva
+	JWj9leyPIzuRMl9XREa0/Ykh2a9HRi9thY9eu9no99LnBvSY9pbGlRzVJPZdI8MDV8vW8Kmf80CY2
+	g1PLVi7lSUQ+KUUFdYpLhpJGXfeAzJWvQvlxAf4b2/jtgU10+CO7HjOb7SMjJM/0z1kxFnBOa3cpp
+	zYDHRWMdMJMq/7ND8rhGTp1YrTFI4FDRdqszmpxOPHyXWlxc0thEGSv21SlPgXu0VITOXCuuP4bat
+	lxurc3Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwrw-00000002byi-1kzc;
-	Tue, 24 Feb 2026 18:10:48 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1vuwzS-00000002cdu-3dbq;
+	Tue, 24 Feb 2026 18:18:34 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwru-00000002bwl-0W4g
+	id 1vuwzR-00000002cdX-0GxM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 18:10:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N4Z7m3SkYl+rjBC08Ediy8WdpB2Hu6uMOv7QUWYZrK5wFaxoE/lWGXUep0naRatZi8Vzoqrp7SnVP+Gye5Dh8dL5RymeZzz0RniR/Ih3CvADVRY37nl4hHCddQOpRFhmO40EB0reaL/ha4xduijY4cR9HXKWAmlqcGrAGZ+Z5/rV1o4R4imDbxcN/1KGbA/vCnVs3zdgCUmwv6O3t8OYOYlIIAcjjnJM9B/Di4P0+6Z7luvepjeK4K76AwXRkv6M6Tnuph3ptBQ74OSDfnCeWRsvwwqt1bGmsD68PLvg9HCeRNeED1/IiVW/DHMy8wujiUu1IKFDHM4FrS5RX1jyPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sRcvAQ7/9BozLVUCTTFPnDAktnex573RQGPF2Rk/pSc=;
- b=Qt5cAzjrzG3ZbnWg9g77vK5srdmJhR+VBsp/Ocs+H+me7++qTUfz6fmgrrC348mb66Xl1offeOI7zqi3pxZRhJwnyTRs5qMeeaL0yCu43Gu4VH0xZJHUuRNPZe1UtSvOkhoN2Y4OEISMKhQAo4rTP6D72UiaKMgLOOsdq6C03FJ7KM0U9biNwHSoXxIecczbqBgfneuEnw9YXfEtEOY/+TRgkth9iBo8JfTQmsgDgv6+gT1HRnI1pByggVrD+RJu/vfVJ6pdEzszOz/AAoKp8XO4OVsp+2397w6foMfIvHcCADHxYIrVyoyjq1K7U+hgi0kFg1ZumYWgRzYZeRzz+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=gmail.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sRcvAQ7/9BozLVUCTTFPnDAktnex573RQGPF2Rk/pSc=;
- b=vq9S1z9akvK+0yK2PNfaYKyWuwJ5rxLxYrvSLT6ViOjTU7DsVHnvVnAEy0eSPH5sd+mGSzlP4SY18jLkBlpKcB/4//0AuCs9BL1RIwNx6mEQpPlkePyyITa2d9KOA/cDaz+px98HmqKqE+IFPQfUO7GZzGFxFJ4cPggYyaWU+qg=
-Received: from BN1PR14CA0003.namprd14.prod.outlook.com (2603:10b6:408:e3::8)
- by PH0PR10MB997569.namprd10.prod.outlook.com (2603:10b6:510:37f::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
- 2026 18:10:42 +0000
-Received: from BN3PEPF0000B36D.namprd21.prod.outlook.com
- (2603:10b6:408:e3:cafe::ad) by BN1PR14CA0003.outlook.office365.com
- (2603:10b6:408:e3::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.22 via Frontend Transport; Tue,
- 24 Feb 2026 18:10:16 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BN3PEPF0000B36D.mail.protection.outlook.com (10.167.243.164) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.0 via Frontend Transport; Tue, 24 Feb 2026 18:10:41 +0000
-Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Feb
- 2026 12:10:24 -0600
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Feb
- 2026 12:10:12 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 24 Feb 2026 12:10:12 -0600
-Received: from [127.0.1.1] (antonios-thinkstation-p3-tower.dhcp.ti.com [128.247.81.112])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61OIABBU3186529;
-	Tue, 24 Feb 2026 12:10:11 -0600
-From: Antonios Christidis <a-christidis@ti.com>
-Date: Tue, 24 Feb 2026 12:09:15 -0600
-Subject: [PATCH 1/5] arm64: dts: ti: k3-j721e: Add GPU node
+	Tue, 24 Feb 2026 18:18:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=+rHMEYxhxWnVlTYkBQ9H9B9sZxXrhLq/EQmtuH5u3KI=; b=BY
+	hbTInMfZeqTt8+8sggpv3adTRKtRfyZnF9o4HoPDSzLOB60TUN1Bq2K4aWmRN/k8qd+XauUx6O/eU
+	8SkcE9x7i0tKMRe7yfLYM/WpXxPwX0aDDsexHxTvANsbyC6UpIejTWhaMAXxndGLg4IJHVMPH/918
+	lbvk3qt5LKX++2A=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vuwzI-008e0Y-0e; Tue, 24 Feb 2026 19:18:24 +0100
+Date: Tue, 24 Feb 2026 19:18:23 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+Message-ID: <91701822-df30-4feb-9e9a-4ee82e2a5d23@lunn.ch>
+References: <PAXPR04MB9185A908F5090F0CA4FF05F78968A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <b21b9ee5-d84e-47f8-86b5-c111ecc3d43d@lunn.ch>
+ <PAXPR04MB918576D67A268E59242964A08968A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <CAD++jLkUVFckLTq=SoivNFoFymhJo4KM=qGmajFcv9T9+7tPmg@mail.gmail.com>
+ <b4c422ce-3538-40aa-8bfa-b70f02774b5d@foss.st.com>
+ <PAXPR04MB91859B642802813F908B03DA8977A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <64ef5dbf-6264-4758-a5d8-d8c52c359fcc@foss.st.com>
+ <PAXPR04MB9185934EB640E8B21905FF878974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <79eb8bb8-83cb-4b24-8e56-42a53c710055@lunn.ch>
+ <PAXPR04MB9185F1A67384E4886282227A8974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260224-gpu_dts-v1-1-cc5ddffe140c@ti.com>
-References: <20260224-gpu_dts-v1-0-cc5ddffe140c@ti.com>
-In-Reply-To: <20260224-gpu_dts-v1-0-cc5ddffe140c@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Frank
- Binns" <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>, "David
- Airlie" <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, "Santosh
- Shilimkar" <ssantosh@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-	<linux-clk@vger.kernel.org>, Antonios Christidis <a-christidis@ti.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771956611; l=1120;
- i=a-christidis@ti.com; s=20260224; h=from:subject:message-id;
- bh=Q0SvaaSfjWLXeTMGjWiDYSHfBUPvrvABnJZEnfcqWWE=;
- b=2g62liA+7HxwFBRNvct3OClW2aGqEkASSv+YXYVRsiZyOzJa4YArju5eK7+TViUsgzB9ic6ng
- pz1uLu96e7YANFhaG1jVosZ0X6keDSWtD2NBCdNBS3Fq2lNo0hOdIwT
-X-Developer-Key: i=a-christidis@ti.com; a=ed25519;
- pk=HcbNQnPnde8WLoob9CZpry+ZyXrXg5+wessZiBGMaFw=
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B36D:EE_|PH0PR10MB997569:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9eeea4ce-487b-422f-5e63-08de73d005aa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YzE3UnVQZG1IT3drV3pONjNQTW5ydEl0b0d4MVVsbERKa3Q1ekZUZ0gyNHFa?=
- =?utf-8?B?M1NodzhJSEM4dzJxRXZUMWFGaHlwT2FJQ2ZTSEpJbjVEcFBaeGI4VktXdE02?=
- =?utf-8?B?WnIwQ1o4N1B2TXVUaUQ4WHdqZWI5MnZ2RWdKQ3VjZEVnSW5nVGJjbXFzVFhO?=
- =?utf-8?B?NlBmSVEyV1ZFU1EzYVNSZ2FCOW40UkVVMnU1cW9VbE5jbjlyZlJhZHBWdXJt?=
- =?utf-8?B?eEk5a0ZEdERLNW40b2Q3T3FSYTRkOFpEdlZsRFh3VmRNMm1WdkZBVTh4Z0k4?=
- =?utf-8?B?aGpvMldVa090MVVzQXpRL1puNE1LckxFRXBudVZOcmpzL3BxcHhXN2NSZlFZ?=
- =?utf-8?B?MmYxSWRXYlR0RUxDb2k0a253UTNVSW10ZU5IL1VZOE1zSEhCbVR6ZnVON0FV?=
- =?utf-8?B?aENuRFpPUS9CdmIyRnhYQzZLTWhkQzUzS01McTVaRHdpMVI3Mk8vRFM0VURw?=
- =?utf-8?B?UTdYQW9FMVRpeDNXMmFpbTA5dDU0eWhyeGJmMU5nY0xHRHYwN3FrRkNvY0dp?=
- =?utf-8?B?azlDaWpkRi9GQWJWS29EY0pJN1ZReThRMEFvOFV4VE5MeFRqTnZBSmVJZEJ5?=
- =?utf-8?B?WCtyTkJlTjUvVFdKT0FOcjdwMW1vY2tKRTRJdUlZYVRYZ21iNThqUHBSRG5D?=
- =?utf-8?B?SlZqdDhGbmp4YWxRL1VJdEl1U2VIT1FJcHJQREcyLzBzSnZ3NHdPald3czUw?=
- =?utf-8?B?UmQzUUNiL0JUOFJITGZWT1hWdFpCc0pLWXQ4blN1SUFzZ0NBL2JKSjNKUU11?=
- =?utf-8?B?MnBCTUYzK0NZem5mRTE4QUxudzZhNGNtU2VLRXdReUdac1ZXRjR6bHZ6Mzh2?=
- =?utf-8?B?bU12VzVxbHZObGRabU1lY0U0K0FFN1VOaWVaZ0JWb0N4UEwxOVVpdjlWQzFG?=
- =?utf-8?B?WlA4d0g0ajl3a2hvQUlLclExVmxlRzZ5SU5yK3JaQlY2ZjNuZjduT1htMXJJ?=
- =?utf-8?B?Zis3Rjh5TFEvWVphNjdDUUpETm5sbGRCOVpuNEYwaDFrR29PMy9ydDFmOE5m?=
- =?utf-8?B?TlJBWm83dllRMEJhWlJhR3RMMnFOZWhQeU8vQzNPRDVtOEpXdndxL240cjFi?=
- =?utf-8?B?TzV3RUtaUS92QlpNYjVwNVUrQkNQUGhoVTlkY3dnUEM4cW00dktjWlM3TUU3?=
- =?utf-8?B?ZHh4N1lpbnhZU29qMkxQSWtFd3pnQWc4aUNseVZiUkZjU05XODZqN2dSeUF1?=
- =?utf-8?B?VHBCUDIyUUNiYU1nYnpQMHVycExxY0NrZE9IcVFzdkF0ZE1GamxkUlpTUExx?=
- =?utf-8?B?bUVWRHlFbzlxREZtaGZ5QkM3L1g0bG9GRVhqQ3lHYndZZFlnTnJKalFrMkxj?=
- =?utf-8?B?dVdQUC9nT0lEWXdDODZYZ3dnTzhoSTl3VGlQQjFPVU9yT1dpVlF0TC9BbUk0?=
- =?utf-8?B?bkFLVENtN3l4VEJ1NEc1M3lOSmpERGQ5dGp1WmNpbU4xSXJ1OFBXTENQMlFj?=
- =?utf-8?B?RmduZ0NtbEtXM0RLVjB4Q0NjYWZKc3VpTHNxQ1BaZFpLRGNCWWdyaTVXdEJL?=
- =?utf-8?B?UlRPcHQvbVhJWXZMRVFoQno0VloyTC9zTU1TWFFTNnhVVEcvZksrcWpBRXF0?=
- =?utf-8?B?NVJLS1BZV1hlTEFNVjhjdUxZbmFkN01rMzAxajBsRG13VVdveXE1OUM3SkNX?=
- =?utf-8?B?M0RjYldzYWNtaGpraEZENWNnRkZNbmZQZWhUcVJLK2FiMWZ0eG05cTRvYUtV?=
- =?utf-8?B?QzN2MzBocnovSENqU3RaRmtBOUU3MCtSRWt4WG1pemNrRXI5L0RwNTljUGFW?=
- =?utf-8?B?ekFrVldHcnQ5NTcyVnBnbmVSQ3lUWmFSZFNabm9VRnA4V3hvbEF5bjB0NWhu?=
- =?utf-8?B?clpoQ3VHalYxK0p2MFlyNnhJVC9yU3hWMi9CRUNlYS9CNUY4WWdMMFo5NkNy?=
- =?utf-8?B?MWp4VkV0OThXT0V2djE4SFJsRDA1YW9qWUlCampObE4xRDVUZWhQN1VkWksx?=
- =?utf-8?B?L2xxdk1oenJycE9EQ2UzVHNPNHJhbkdqckZrTWpPVlJzS1J2V2hVVEhERFkr?=
- =?utf-8?B?ZERZVTI2bWp3VGxLN1ZndnNEN0d3MmlJQVE0cjRPMEFFbEdUcFNxdTFuNURq?=
- =?utf-8?B?RERpZVcwek1CTVU0OXM3S1hYa0s4NzhKTTJyK2tCV2x4UlpLemhzT21IQ2RM?=
- =?utf-8?B?Snc1eEhwRUg3MXJFVUVBMXFXU3BaTHJBMmdCTFBQNWVPSVgrTG1mblBKbE05?=
- =?utf-8?B?YTVnMFNwSVByajZIcUhEWHR0U0R1ODNVVGcrbmNGUUd0b01XaWU2M20vejR5?=
- =?utf-8?B?UkhQRHg5WHljL256K2pzVUh4dXZBPT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: CUNZsEnKf9uf5IXKFjMnInOUVf2OTfAZT5k+emcICw6JZsnGqiLwk6SRkRhBaiApZ/I6sTUjpW5ojdTlOigpor3r3q6JYvW1Imd0MLzkM3di6j5qSjxTsje2KlBwwck66pVRmXtl1UvOFKyIW0P/5mMuPqItlNSUtLmASHTWEou+rA/XIydTPJFTyFaua+ZKewNX9C9X1MRy8K9qFE1iapxleGOd2SaEb1eimJBabhzOACbtmPA6BZbdT7IciXIify0sbXhEPUy7OHy8ZbH78wgtBvg+AaNxdCS7xT0HA8l+VliF5pfxGmD4mEbhr/yXddIIYI8aIxj1Ke/v3DfvkEVrrX/pX9MG2IInZlBXFx2zBkLfkjm9M7kWZZ+idirQDGHgCRjjyeqdVGshHLVUkXqP5GOiUkrvvv2u3bphZjLc1j2jU4tLjcqj7LMJyr05
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 18:10:41.7468
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9eeea4ce-487b-422f-5e63-08de73d005aa
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B36D.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB997569
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <PAXPR04MB9185F1A67384E4886282227A8974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_101046_165118_9D7C8731 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260224_101833_102898_9AEA934C 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,40 +97,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the series 8XE GPU node for j721e device tree.
+> I don’t think we can remove port_idx if the protocol is expected to support multiple 
+> instances. If you only ever support a single instance, then sure, it becomes redundant—but 
+> imposing a single‑instance limitation on a generic protocol doesn’t seem appropriate.
 
-Signed-off-by: Antonios Christidis <a-christidis@ti.com>
----
- arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+The DT binding example is:
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-index d5fd30a01032..be91e7a2afe5 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-@@ -2624,6 +2624,20 @@ icssg1_mdio: mdio@32400 {
- 		};
- 	};
- 
-+	gpu: gpu@4e20000000 {
-+		compatible = "ti,j721e-gpu", "img,img-ge8430", "img,img-rogue";
-+		reg = <0x4e 0x20000000 0x00 0x80000>;
-+		clocks = <&k3_clks 125 0>;
-+		clock-names = "core";
-+		assigned-clocks = <&k3_clks 125 0>;
-+		assigned-clock-rates = <750000000>;
-+		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&k3_pds 125 TI_SCI_PD_EXCLUSIVE>,
-+				<&k3_pds 126 TI_SCI_PD_EXCLUSIVE>;
-+		power-domain-names = "a", "b";
-+		dma-coherent;
-+	};
++      rpmsg {
++        rpmsg-io-channel {
++          #address-cells = <1>;
++          #size-cells = <0>;
 +
- 	main_mcan0: can@2701000 {
- 		compatible = "bosch,m_can";
- 		reg = <0x00 0x02701000 0x00 0x200>,
++          gpio@0 {
++            compatible = "rpmsg-gpio";
++            reg = <0>;
++            gpio-controller;
++            #gpio-cells = <2>;
++            #interrupt-cells = <2>;
++            interrupt-controller;
++          };
++
++          gpio@1 {
++            compatible = "rpmsg-gpio";
++            reg = <1>;
++            gpio-controller;
++            #gpio-cells = <2>;
++            #interrupt-cells = <2>;
++            interrupt-controller;
++          };
++        };
++      };
 
--- 
-2.34.1
+Doesn't this instantiates the driver twice, once on channel 0 and once
+on channel 1?
 
+How does port_idx fit into this?
+
+> Regarding type, it’s needed, especially for the in packets. There are two distinct kinds of incoming 
+> packets: notification‑in and reply‑in. Because of that differences, Combining cmd and type would 
+> blur that distinction and complicate the implementation.
+
+> > #define GPIO_RPMSG_CMD_DIR_INPUT        1
+> > #define GPIO_RPMSG_CMD_DIR_OUTPUT       2
+> > #define GPIO_RPMSG_CMD_GET_DIR          3
+> > #define GPIO_RPMSG_CMD_GET              4
+> > #define GPIO_RPMSG_CMD_SET              5
+
+These are all simple RPCs. You make a request, your get a reply, using
+the same CMD. I don't see how you can make any mixup here.
+
+> > These map onto the gpio_chip ops. And i leave space for the _multiple ops if they
+> > are needed in the future.
+> > 
+> > #define GPIO_PRMSG_CMD_INTR_CONFIG      32
+> > #define GPIO_PRMSG_CMD_INTR_EVENT       33
+
+GPIO_PRMSG_CMD_INTR_CONFIG is again just a plain RPC, request of
+"please configure the interrupt handling like this", replay of
+"yes, done".
+
+GPIO_PRMSG_CMD_INTR_EVENT is more interesting. The other end can
+spontaneously send this, indicating an interrupt. Once Linux has
+handled the interrupt, especially level interrupts, it needs to be
+acknowledged. So it sends back an GPIO_PRMSG_CMD_INTR_EVENT. It could
+be considered an RPC in the opposite direction, but i think that would
+be wrong. I expect there are multiple overlapping
+GPIO_PRMSG_CMD_INTR_EVENT flying around, so you cannot enforce a
+strict RPC style communication.
+
+What is blurry or complicated here?
+
+       Andrew
 
