@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2799AE9B256
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53636E9B253
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUtISHhERGr98yspqTGuQaXs1dbX3j43bfzhIwpzcMg=; b=4TREDgxNOZ529fP57dBTNmF2gV
-	mCj5O8pPuYbdSdrlAuZQQ/FG2+WHzXEMxjDAqq8xYku39aQdvRQRfM2vP4MfWjrOZqYc1QOKuMrfG
-	rPSaS3Z4ejsxKSmmGziCf8mQERLIjnLMYcPYxHH66GhhJvJbQABoGOCgvE98GG2yzQE0gOUPk1v+4
-	bD91cc5XgNI4JlbIyvoaU2bEGUwhPacgt8VfbjQlbuu37nFlUuU4/fUQt2QBwnuzNmmUL3DCkxQsE
-	+SbGFhBu+nfGfm3X2cgMyVu6R/IGqHWXAKsaF0YKkKiRpZ09wgSI0mv74sNbwXfT+C0XbysriuUI0
-	8jHjBXkA==;
+	bh=Rz+rYqM9GfmTPqS/8kFuzcCGDhCSjghR5oazZZFUFVs=; b=A7A0kccWSV7bPAKKg4D+jWIBGA
+	LUK5l2cewZTMfF70ba5TzItz78N2wegoRiKc7BDMxsIkFLplKWXJPSEIaAavPjNFxmv0bX72WAGjh
+	LGTgk3hnYtxtkE8WuDcQBOKVMz6P4PD0hw99/Nc78EnacbAp2kzNUJ00jwfeXdFuIvLfycNY2gqny
+	pKRgIizRkioL1aamQJfv0cCk3SQIKAcjJ96Qqa5k4ft1eRs4SA/iqV9KRuwxSZxHLdzyxhErCY7UX
+	lbZ0WxotVGNZnonl4+3ZFDy+il8feYU3tNBJz4YPAi/Vq9keH7OIu3PIZT3Tp6EpvtQTxcUudqO2F
+	36pwRO8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuq88-00000001tot-2ZWT;
-	Tue, 24 Feb 2026 10:59:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vuq8F-00000001txS-0aQP;
+	Tue, 24 Feb 2026 10:59:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuq86-00000001tmA-37rv;
-	Tue, 24 Feb 2026 10:59:02 +0000
+	id 1vuq89-00000001tov-0AON;
+	Tue, 24 Feb 2026 10:59:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE11A6132E;
-	Tue, 24 Feb 2026 10:59:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD70CC2BC9E;
-	Tue, 24 Feb 2026 10:59:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C81444595;
+	Tue, 24 Feb 2026 10:59:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D90C19422;
+	Tue, 24 Feb 2026 10:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771930741;
-	bh=ZKvkBnB3xt/CIOWr+ipu8RatkK00ap/ffk+JJeo3yXA=;
+	s=k20201202; t=1771930744;
+	bh=LvIkSx5r1JzBowBg9zCH2JxqfL/pmpEZNnO8r2uWvD8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=V4ugw3a/3zTzo9WcKfqnnYxb9Dh/rIzqOhW9iIKpY9N+Qd68rqkT1P2rYXLGvNeOp
-	 VArmC9k4TRJzZVkZWy/yPe0cwi80jDQmcJuZC5Ru6CqRwwo5RgchkoGeEqSS/sFhSZ
-	 WfrwrinzIQY129CWn1M9WIe+HOgONovWAUI4nIZK0aQOvfLa/C+p/6EdabDrPXd+Ol
-	 4BprtPKSfx5xw1opfmlXhDFjOg7LdSgkq56hmyjLN+O3n8SW948BdSaXH8Rj9qDM4R
-	 R2dWTy7vLFv7KlAZPbsXAM4gphhNsyO15MbKwLfodyMbfVGx1f6qfjFZ0koU+U5+tj
-	 jh0JG0Szbmysw==
+	b=nlJzdwmGn5lzrMc8XzSAyOlmRRlAuoF+WqWH8z4jWhI6tRM3N6WO06PgUnnB5ofBv
+	 Sggd3fQ+SI9egXjDWeZSJ67rmoz9PMKV1HlZRWa1x3/tUIt8jXc38/V7AX6mKwSCki
+	 WC2BI9PqUQlW/Ps/xY1UFQ2sq02FhOD27efIXNmR6tIKzJuc4NRaW+j3a5Pi1UwyA7
+	 bT6hqUOtwLW2a5yjH0WBxKGPuDV8ilfNVzphnaAkzg0bzHwZigOkgEZsOX1tBH4bwH
+	 nrpi9k1i4qjBmw1xQxYWRFU3xs4kUPeBDv8MaQl+zVqcDogXZ6AP1NQqaF0fVdx/39
+	 FctKcbaiaeT4w==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 24 Feb 2026 11:58:42 +0100
-Subject: [PATCH 03/14] drm/display: hdmi: Convert to
+Date: Tue, 24 Feb 2026 11:58:43 +0100
+Subject: [PATCH 04/14] drm/amdgpu: display: Convert to
  drm_output_color_format
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260224-drm-rework-color-formats-v1-3-bebc76604ada@kernel.org>
+Message-Id: <20260224-drm-rework-color-formats-v1-4-bebc76604ada@kernel.org>
 References: <20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org>
 In-Reply-To: <20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
@@ -81,14 +81,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-sunxi@lists.linux.dev
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3208; i=mripard@kernel.org;
- h=from:subject:message-id; bh=ZKvkBnB3xt/CIOWr+ipu8RatkK00ap/ffk+JJeo3yXA=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJlzW5JzZb1uNXla55+N4Tf5vPSV+Kwft7p1JjtuOc0TZ
- juBSYi7YyoLgzAng6yYIssTmbDTy9sXVznYr/wBM4eVCWQIAxenAEwk/x1jvXutst2ki3fdLruY
- fZnE6jol/sCCC8/b9GcnhB3y+idXukBtWdyhpcd1j68+qK0/b6nKNcaGF41b56ww/jlzUcvOhzd
- +MsWGctXEzDmdIsel4Dxt/pp9D3ce1rJ26bQrN5H6kiD4N30LAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2046; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=LvIkSx5r1JzBowBg9zCH2JxqfL/pmpEZNnO8r2uWvD8=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJlzW1KOTVWYeKuO9+buqzsWzD5x4eKLy2mNWdMiqud9P
+ aZ133bFt46pLAzCnAyyYoosT2TCTi9vX1zlYL/yB8wcViaQIQxcnAIwkRMhjPU+Zl2OLFznvp5X
+ Yb+XdtTw9I4Vb+VPMvHIcB6PtbJaveXh7e3RrxXsUo4ecS90WyBfPYexziKxImHN0Rd+X0y+9Zl
+ dZZp6qL0ifoJoS7lV137vxbP/ryh30AqbsOboLIUrC12XXUxfAQA=
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260224_025905_140634_DBB59016 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,65 +121,31 @@ or as a discriminant in which case we don't.
 
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/display/drm_hdmi_state_helper.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-index a1d16762ac7a9ebdc48f081c5d2f5e200d406099..f2aec6f65e7a374cea9a1e3adafb4f1cc4d6ab9a 100644
---- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-+++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-@@ -426,11 +426,11 @@ sink_supports_format_bpc(const struct drm_connector *connector,
- 		 * color_formats field will be blank and not report any
- 		 * format supported. In such a case, assume that RGB is
- 		 * supported so we can keep things going and light up
- 		 * the display.
- 		 */
--		if (!(info->color_formats & DRM_COLOR_FORMAT_RGB444))
-+		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444)))
- 			drm_warn(dev, "HDMI Sink doesn't support RGB, something's wrong.\n");
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+index c3c045c8144f104ce498d8be3664438b6b799588..76348fb027dfee26c3fceaedf7d37fc29d91e7f5 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+@@ -6717,15 +6717,15 @@ static void fill_stream_properties_from_drm_display_mode(
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+ 	else if (drm_mode_is_420_also(info, mode_in)
+ 			&& aconnector
+ 			&& aconnector->force_yuv420_output)
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+-	else if ((connector->display_info.color_formats & DRM_COLOR_FORMAT_YCBCR422)
++	else if ((connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))
+ 			&& aconnector
+ 			&& aconnector->force_yuv422_output)
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR422;
+-	else if ((connector->display_info.color_formats & DRM_COLOR_FORMAT_YCBCR444)
++	else if ((connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444))
+ 			&& stream->signal == SIGNAL_TYPE_HDMI_TYPE_A)
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR444;
+ 	else
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_RGB;
  
- 		if (bpc == 10 && !(info->edid_hdmi_rgb444_dc_modes & DRM_EDID_HDMI_DC_30)) {
- 			drm_dbg_kms(dev, "10 BPC but sink doesn't support Deep Color 30.\n");
- 			return false;
-@@ -446,11 +446,11 @@ sink_supports_format_bpc(const struct drm_connector *connector,
- 		return true;
- 
- 	case HDMI_COLORSPACE_YUV420:
- 		drm_dbg_kms(dev, "YUV420 format, checking the constraints.\n");
- 
--		if (!(info->color_formats & DRM_COLOR_FORMAT_YCBCR420)) {
-+		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420))) {
- 			drm_dbg_kms(dev, "Sink doesn't support YUV420.\n");
- 			return false;
- 		}
- 
- 		if (!drm_mode_is_420(info, mode)) {
-@@ -478,11 +478,11 @@ sink_supports_format_bpc(const struct drm_connector *connector,
- 		return true;
- 
- 	case HDMI_COLORSPACE_YUV422:
- 		drm_dbg_kms(dev, "YUV422 format, checking the constraints.\n");
- 
--		if (!(info->color_formats & DRM_COLOR_FORMAT_YCBCR422)) {
-+		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))) {
- 			drm_dbg_kms(dev, "Sink doesn't support YUV422.\n");
- 			return false;
- 		}
- 
- 		if (bpc > 12) {
-@@ -501,11 +501,11 @@ sink_supports_format_bpc(const struct drm_connector *connector,
- 		return true;
- 
- 	case HDMI_COLORSPACE_YUV444:
- 		drm_dbg_kms(dev, "YUV444 format, checking the constraints.\n");
- 
--		if (!(info->color_formats & DRM_COLOR_FORMAT_YCBCR444)) {
-+		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444))) {
- 			drm_dbg_kms(dev, "Sink doesn't support YUV444.\n");
- 			return false;
- 		}
- 
- 		if (bpc == 10 && !(info->edid_hdmi_ycbcr444_dc_modes & DRM_EDID_HDMI_DC_30)) {
 
 -- 
 2.52.0
