@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 551A1EEC2B7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 01:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CBA7EA4FD8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 01:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K+gNqlCJBTWygvq/EGN0rI+nR3lNSeRKlG+h6xBTgl4=; b=f068lYlEA9Fc8OTqRRgmjMKYdl
-	VxlxhR55Anj0UGzVfDDRBwdAZgHLcrbwJvTGR5qz5ppp3fydBUqRrv/5k+vVNha1sjsXkqQknbEJh
-	jX/79O/iRaDWcmb8JxqzS/WQLTZYkgVRydmMKbnfH+xl3vMmz4+uBp/hCO/XmEbCEU++xjRO3R4F7
-	Dfbs471Ev1EHWJl++bnA831nLYkIh0zQRybzQCMpDOm5nRCI8x9+Br2P4XqgmGlg40Yz2qlDEWg7R
-	5c2hBtggmGpLCwzrLedDANRak63zB0l8PwpPku4sXTyfpCoSIQyMj3k+TLB3CV6ANbL+OAywRYsfp
-	x3IFOfag==;
+	bh=nYoPnNhwny6+7UoAuOURZ/OzjcHBhr1HVyobDv3I31s=; b=UT9ycFusUvE+IAaE5YDaahcR0+
+	Ym65mkkM16zsv7pC1ZtGX1sE8aU7eI5q8vnrS9sxkZMKyy5rpSsGzrg1cI/gbNp3oX7arNVTtKAgB
+	zPPofF3ol1gtw9QGQNv/Q3st7zl0VMOg0mx3rkgw99aD531cSD8USFpAA4pIyPh28gyPhqOM3YBSD
+	zhP5e28oMPo5qLeDvtIuDpcv1ofWrxsywcGt3AubrBjjR29K7EbkAZaC6xbUlpECaLIA2n51QDCzh
+	OEymBQmlchSsjJXMGhBNN0JRg+yvvpMv/Se2ZBzLKbywPCO+H7T7DUPSkmdLanjkBch89Qbko3OeW
+	ad+cLdmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuhUq-00000001IMi-0d7z;
-	Tue, 24 Feb 2026 01:45:56 +0000
+	id 1vuhUr-00000001INu-0k2D;
+	Tue, 24 Feb 2026 01:45:57 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuhUl-00000001IIk-0Sm9
+	id 1vuhUl-00000001IIn-0qFg
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 24 Feb 2026 01:45:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0EFC444F8;
-	Tue, 24 Feb 2026 01:45:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A8969C2BC87;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0E1394457C;
+	Tue, 24 Feb 2026 01:45:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D8CBCC2BCB1;
 	Tue, 24 Feb 2026 01:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1771897549;
-	bh=AmAxo7fp5IpPXd6kzBN/l2U0kgeWDdxXZHPBaNWlnXo=;
+	bh=5L1aAyrT1CnMHAdDXtMxEsg5bTIoOtEBzpy9bU5cmQo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=GwL8GPCPDm17hiDvb4c+E+dE2EkUMIuYP5LuB5ategtmmTrOcoLitYU4ZtOp2wOEe
-	 BWAibDxUOn7iHDXOQ0OHWi40HY1nw86ueIw7Xixm2d7qlQicHpEUejI03FNttwBzgt
-	 4I/CHrJOoko1LLIbm2uKeMXUKCAbMMPc6fNwkr96LMl0iaQhi1GrfkU/LCcuYfw8Wv
-	 flL4ORqav7KhAuGXQUaJwnJYkZXiUNZlz74tOPfg6D+5AdNxoPqxW3dgvClegKNMgA
-	 JyRNpGvhZXr3rKBWopKZthEQixe5sxcT8tpRiHLgTr3Szzf4sPKgsEmuK+8c3XZQUP
-	 7z28W6XFytXPQ==
+	b=TKPLSjH/c+PwuUsFIn68NW22pTVvXtjFANLnf57LrWKTefqRb7xNrgjtpZa6vKHaL
+	 WB06NuukSE05liTUl3yY98iv3jxBQrITa2yP8e/opVUfOnj9EojDgwt/VAuosvXbV+
+	 7Cld1Lk6963QkwhZyLV+7TmWSrvnLjIHeRYWbGLtuIBh8pbPSQUIIFiKGaJo7Z+yOP
+	 W/2tRtkdXUcJBVWTuAKQX6mOWEHyrMCcuoqkHT0/q0gr9/tgceIB7c5f46jP/aljTE
+	 UKYbRY7pLuJYKeQCwi1q6TTeQAQmzBgeEppbbONT4afemMPFmJqylEEajCJHGtuSkV
+	 ARQqBA15/d6vw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 96284EEC2BE;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CEC2EEEC2BD;
 	Tue, 24 Feb 2026 01:45:49 +0000 (UTC)
 From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
-Date: Tue, 24 Feb 2026 01:45:32 +0000
-Subject: [PATCH v8 2/6] dt-bindings: usb: maxim,max33359: Add supply
- property for vbus
+Date: Tue, 24 Feb 2026 01:45:34 +0000
+Subject: [PATCH v8 4/6] lib/linear_ranges: Add
+ linear_range_get_selector_high_array
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260224-max77759-charger-v8-2-eb86bd570e9c@google.com>
+Message-Id: <20260224-max77759-charger-v8-4-eb86bd570e9c@google.com>
 References: <20260224-max77759-charger-v8-0-eb86bd570e9c@google.com>
 In-Reply-To: <20260224-max77759-charger-v8-0-eb86bd570e9c@google.com>
 To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,23 +71,21 @@ Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>, 
- Amit Sunil Dhamne <amitsd@google.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Amit Sunil Dhamne <amitsd@google.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771897548; l=1328;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1771897548; l=3072;
  i=amitsd@google.com; s=20241031; h=from:subject:message-id;
- bh=KpwAEex2KuDxX+7g1N2U5QXHImmqPDOmY3R2NesnR54=;
- b=zVKU6LCFr3Dtl6IOUy1+yHJ8sklb+9VchNzOX+uZeM4Fs1X8Y4TsyB6BxGY40j06m9O+u98N/
- 347yBNp11ZvAj4PLra/MX/acAHZjuEkwnQ9Sz/Nh7ULA2LPFNWCs5lY
+ bh=66O0TCiwwg6+0syFe+iqI5+JzrTIE96SPH1q/Ujqi8Q=;
+ b=4GTvO9+fSlJ7boox9mtma4Z4sebxG4g2OMV0N60dr+exeQ5F9ViEqWvrV9loY5IL2lUxUot6o
+ 52/BR5Di6UQD5bTP6b1LeKgs5kRnIXP9dloPRuZUo/ZsoQgQNgV978G
 X-Developer-Key: i=amitsd@google.com; a=ed25519;
  pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
 X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
  auth_id=262
 X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_174551_219255_BA9E752A 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260223_174551_293627_E2EC49B4 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,39 +103,77 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Amit Sunil Dhamne <amitsd@google.com>
 
-Add a regulator supply property for vbus. This notifies the regulator
-provider to source vbus when Type-C operates in Source power mode,
-while turn off sourcing vbus when operating in Sink mode or
-disconnected.
+Add a helper function to find the selector for a given value in a linear
+range array. The selector should be such that the value it represents
+should be higher or equal to the given value.
 
 Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
 ---
- Documentation/devicetree/bindings/usb/maxim,max33359.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ include/linux/linear_range.h |  3 +++
+ lib/linear_ranges.c          | 36 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 39 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/usb/maxim,max33359.yaml b/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
-index 3de4dc40b79192b60443421b557bd2fb18683bf7..e652a24902eac93396fc61281cc9e2cb1d37a390 100644
---- a/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
-+++ b/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
-@@ -32,6 +32,9 @@ properties:
-     description:
-       Properties for usb c connector.
+diff --git a/include/linux/linear_range.h b/include/linux/linear_range.h
+index 2e4f4c3539c075a6caa69f6ae750a556f41fce5d..0f3037f1a94f58667ca7c5200dfda78afafe0cfd 100644
+--- a/include/linux/linear_range.h
++++ b/include/linux/linear_range.h
+@@ -57,5 +57,8 @@ void linear_range_get_selector_within(const struct linear_range *r,
+ int linear_range_get_selector_low_array(const struct linear_range *r,
+ 					int ranges, unsigned int val,
+ 					unsigned int *selector, bool *found);
++int linear_range_get_selector_high_array(const struct linear_range *r,
++					 int ranges, unsigned int val,
++					 unsigned int *selector, bool *found);
  
-+  vbus-supply:
-+    description: Regulator to control sourcing Vbus.
+ #endif
+diff --git a/lib/linear_ranges.c b/lib/linear_ranges.c
+index a1a7dfa881def894cc8cce8368cb6e9c21dcd6b1..c85583678f6b52a494f8c321ce2d307bdb6845ce 100644
+--- a/lib/linear_ranges.c
++++ b/lib/linear_ranges.c
+@@ -241,6 +241,42 @@ int linear_range_get_selector_high(const struct linear_range *r,
+ }
+ EXPORT_SYMBOL_GPL(linear_range_get_selector_high);
+ 
++/**
++ * linear_range_get_selector_high_array - return linear range selector for value
++ * @r:		pointer to array of linear ranges where selector is looked from
++ * @ranges:	amount of ranges to scan from array
++ * @val:	value for which the selector is searched
++ * @selector:	address where found selector value is updated
++ * @found:	flag to indicate that given value was in the range
++ *
++ * Scan array of ranges for selector for which range value matches given
++ * input value. Value is matching if it is equal or higher than given value
++ * If given value is found to be in a range scanning is stopped and @found is
++ * set true. If a range with values greater than given value is found
++ * but the range min is being greater than given value, then the range's
++ * lowest selector is updated to @selector and scanning is stopped.
++ *
++ * Return: 0 on success, -EINVAL if range array is invalid or does not contain
++ * range with a value greater or equal to given value
++ */
++int linear_range_get_selector_high_array(const struct linear_range *r,
++					 int ranges, unsigned int val,
++					 unsigned int *selector, bool *found)
++{
++	int i;
++	int ret;
 +
- required:
-   - compatible
-   - reg
-@@ -53,6 +56,7 @@ examples:
-             reg = <0x25>;
-             interrupt-parent = <&gpa8>;
-             interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
-+            vbus-supply = <&chgin_otg_reg>;
- 
-             connector {
-                 compatible = "usb-c-connector";
++	for (i = 0; i < ranges; i++) {
++		ret = linear_range_get_selector_high(&r[i], val, selector,
++						     found);
++		if (!ret)
++			return 0;
++	}
++
++	return -EINVAL;
++}
++EXPORT_SYMBOL_GPL(linear_range_get_selector_high_array);
++
+ /**
+  * linear_range_get_selector_within - return linear range selector for value
+  * @r:		pointer to linear range where selector is looked from
 
 -- 
 2.53.0.371.g1d285c8824-goog
