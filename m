@@ -4,83 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616E2F4BB69
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82FBF4BB6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQV1RQTJtiH7rTD45KTrA4rveTljwW8J6hyuk32NW0c=; b=e3SnRgTYHGNP1qcbfexo1Kgy+e
-	94eJF/l2d0/r/RLN5sEn69biPUHUMz/9XqXPGX8ZHNgeQ4qb2moOxv/ncufeGm2isqPQiTRZtjnCU
-	izbewzc/Vx2mf+t5HFpL24oVj9pPbKoTxnD24vxlZfDWGm0O5KRPTK2JlI/HN6zzx2f5rRKUaOl8t
-	4Xc29vf2h4tAzv1t3THBH40I0hYyhFTHQ6rNxbCjITO6to1yiM+pggPnYT4fFFDbA8IeTMk2wk/Di
-	5AUjaikSXsC82oEMQR1DjquzLMcfZAT+3lOy0mBVO0yPZaB0oau4GuoAqaEi8VkQGvkVTjYWFtrIC
-	a0etpCdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bhfodBuva6xM+0LY5TE3CrS2Ri7x6UGkD/Vd0yg1f1M=; b=sUcVED/IIIZWRSeBOUl1x34O7R
+	oJOe/fxffQOFhktFs2hGVnMpAO8kx0xHZevHQujlDmXmjzE8nSEGAFsv7z7jgwzpTFGqPVcpLvVKM
+	OIx6mYnX24nyXxqs+c6Oij+degX0MpP4xeJp/qFGinN4wWc0piN9VKpYiJG9YmD+eMisSf7VDQNej
+	q6FiYK6WVvKi9sTF55o5HYVHnMiZI5TUy+p8HqorJEKgbNza39TZLyviGfd0+CSFAthIoFBPb9LIC
+	ttsOSUaGoXsF49TUl21M8jtrwxty8MUaVItrhZ1tBRtox7VVBmWyG6w676FA7TMnhrATZSA7QFqng
+	1HRGhN3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwiu-00000002ahS-0nA5;
-	Tue, 24 Feb 2026 18:01:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwip-00000002acP-27My
+	id 1vuwlB-00000002bC5-38Ez;
+	Tue, 24 Feb 2026 18:03:49 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwl8-00000002bBZ-32Gm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 18:01:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D4881595;
-	Tue, 24 Feb 2026 10:01:16 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3B41E3F59E;
-	Tue, 24 Feb 2026 10:01:17 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
+	Tue, 24 Feb 2026 18:03:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LurdByU20NQYAHzno2FYexcJyH0dYHqnruxNQ9zil7zs3QrWRkvMkDQzA8m1rnDIHg7tByqPiPSKn8kpa6+U/TiCToNBzyg9pJ+y6ITJoOLuKUi4CJwp5eD0tCV+iX4JtksdmkTPJRLMFQemZA44wowljYTOPEhhRiaasdF/qb+tUMnXdaXtl+OGJ/ZBUCjGmYoRvs3iLwlbtb42F61S7+zaZZi07lCqBVrrQXb2oRfBtzH3wUPfVE8t6NZ2peaTT8x+QnPQakZYh+z3f8uZ9FlgMj26BG2AswNyHh8nA19LtrcP+hL0BFEJjpgNn+CdMlACffgbOTlf9fyh7IIo7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bhfodBuva6xM+0LY5TE3CrS2Ri7x6UGkD/Vd0yg1f1M=;
+ b=sC456waRsH2cbt+5MD3hQwsasVyZFZ8WDrYzgpIrg0U2ynynwWrYlQDZZ/2YYppdpE1p8rqLtA43OkhZi/CErBMdkwE7YRk4UlxtLQaY7XqTuSIIFscD7bhQWnwJjXd9SYpzgv6jRfKOiI7Q718BJkYfYLIHj/rbc26YbCjbz78MruoWm5G+12Nl+ZlA9QfBZU1uLdsOJjh3wWY7AAH5XW/SQzk6CHngM3fG9sbrw+OrFVw/cBfSjzRIQEVVeYzXmDyt3Idoq9zy+nhYNXW9F3g5KJt4V8t0btjcJRPPk4/htM/xryEW9ak3ov30da+t5VmlZ8kdKFwZdpQ4l7NKyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bhfodBuva6xM+0LY5TE3CrS2Ri7x6UGkD/Vd0yg1f1M=;
+ b=MiMlNhL+mqVU+lMyt12/rK3v5yYsmEX2qiOYmbhPdND7jPgppkURri+lWSsyUQ84ZcZB832dinAxeLotR/poe19mLCYTSmzJlFpPr0feLAvg8MhzxeKzVebcErz2+xsj26TT9Mle7Z5bTcVBTCjmYAG3KiKYoZmD1y+xCABHo9d3AGQLfTZargY/T8K4Y4OCi4LkGSuBBpPOYoNRPysv9GUQRtedI2fwRtwAvmSZL827umd6Wi/48tCv6NGj72/+trU3X14BxcZeN9Alcy8WsRpMgGHbafi8qSHKbwixRJjyZBqENx93UEgQkDX0A2krZ4DYSToVAYeYE43e9w8aTQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GVXPR04MB12239.eurprd04.prod.outlook.com (2603:10a6:150:31a::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
+ 2026 18:03:38 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.017; Tue, 24 Feb 2026
+ 18:03:37 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 41/41] arm64: mpam: Add initial MPAM documentation
-Date: Tue, 24 Feb 2026 17:57:20 +0000
-Message-ID: <20260224175720.2663924-42-ben.horgan@arm.com>
+	Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Yannic Moog <y.moog@phytec.de>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: (subset) [PATCH v5 0/3] Add support for Variscite DART-MX95 and Sonata board
+Date: Tue, 24 Feb 2026 13:03:11 -0500
+Message-ID: <177195616274.3032093.15485094966021860893.b4-ty@nxp.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
-MIME-Version: 1.0
+In-Reply-To: <20260119183604.88192-1-stefano.r@variscite.com>
+References: <20260119183604.88192-1-stefano.r@variscite.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8PR15CA0002.namprd15.prod.outlook.com
+ (2603:10b6:510:2d2::29) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB12239:EE_
+X-MS-Office365-Filtering-Correlation-Id: db47ea2e-046c-4413-156e-08de73cf0802
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SnFHMlJ3NkFSbEM3bVhENXFXRzhhM3U2N2s2WVhRQjcySStOTkZZQ1N4bjFJ?=
+ =?utf-8?B?bm9tT0lSeFZHM0VqYUZEcmtxR2JkUmFBc054QWg0WVB2MEh0dDRITURKTWlR?=
+ =?utf-8?B?S281RE1ZSUFrMjRIUW9hT3NVeXV6ZTZSd3BGZkhPMG1HbTFEclhUYXBjMG94?=
+ =?utf-8?B?MmFNWmNOaFhOenAzaHFMd0FnbHdVWGtHK3NCaEMxS3ZNL1ZIVTRkdWUvdVYw?=
+ =?utf-8?B?T0NFVlBLU0thZXBFNzBWd2RveDB6K2dlMWlJSU93bjNnV09qM2RjRG9MdlRM?=
+ =?utf-8?B?OFV4UnFvRW1qbnhiVHRlaFA1aml0cDFBTUYzcTY0OUhvK1V6MS80aVlCdFJp?=
+ =?utf-8?B?OG9NK3VlM1FocVh2MDB6QWgyMTRjTHZkSG52cmFJaWZKbWZTQVFxdGdGOEZM?=
+ =?utf-8?B?N2ZYMDBSNGhpZ2ZUNlJmZnBHWGQzd0ZIZ1U4WTg3eUxLRWRMS2RlT3dIZUxr?=
+ =?utf-8?B?bk9kejB0SERUbkpmVXdDVmp0cjNwR2E5eGMzaEwxVnBXUkRxOE84dzdRNHcr?=
+ =?utf-8?B?cExXcUxuVFVJaW1ZSGt0dGQvYnBrcVB1cEc0THQxckZnK2tRaHBJS0RhN3Ev?=
+ =?utf-8?B?S3ZxdDdBYTVVcVdKM3Q3YnU1ZDg5Q3A3ZzBJU0UvS1ZhWEpVc0lhZnFvUlg2?=
+ =?utf-8?B?OVd2ZmQ1aVpJamJoZVdlYmFzbGlmQktJNlZsMTFWN09iNFVUVFk0OW1mc1ZU?=
+ =?utf-8?B?Z0wrZ290MEtDdXYyYitPSEhjb3lzdDN0RmdoRDlaTFUrbDgxaCtEaWJmM095?=
+ =?utf-8?B?WnNMMGF5dHduUElmYTJhc2hCelhiQi9BMXVMbVpqY3B5L3ZZWGNFRHVmVHpq?=
+ =?utf-8?B?M1hjWDBEbzdBeCtGU0drazF2dWFHaGdGZVZzZCs0SUZmbjRqMmRSQWZmWmY4?=
+ =?utf-8?B?Zlc2Z2VDVS9zZnpJNmRMdXkxeFRwbFBFamlPL0pPK1M5NjRCVmFicnlBVVF3?=
+ =?utf-8?B?R2x2WlJudzhlLzFYWnJla1g2NnFKTGk0VkdNWnl1ejkxM1lmZ0d3TWtnNTNB?=
+ =?utf-8?B?YmE1TnYxUHV2U0xldlJoUkVnRmsvY3M4ZiswNUptb25TSEQyN1lmVTd2MFJm?=
+ =?utf-8?B?V1FVM3pSVUVuRkFhY1FKQTh0RFpKUkxnV0w0cjlpV2JJdWV4SkIxU2hPUE9J?=
+ =?utf-8?B?TGdsNStGdm5GWnVOaDBkODZMMUxkd0dTeEQ2OE9RY252NXZ3YmxpUVlZbEFr?=
+ =?utf-8?B?MCtXcWtrZlBGa2orRlVCRUpscFV1d2R5c3BNVURHc3ZOUW5pckhTOUl2YlVX?=
+ =?utf-8?B?VG4vMDNaR29nSTVhUlFQZEdRWHlVSmw1bnJqOW8rRVd4UzlGa1hOZVhlSzlx?=
+ =?utf-8?B?REN1NzUvRWRRNlRaZW1ldmZ1OEI3SDJrSTV0MU5tWk9HWHBBNlpkOHBjbHp4?=
+ =?utf-8?B?VTl0eWxKY0VJcnIwd3UvdFVMQWp5UlZxd3Rxd0p0am1nYUorc04xNDRrUFNY?=
+ =?utf-8?B?UFBpNXh5OGRWUkdsTm01eHkvTVBKdUJRcDJDcDgvY1Evb2FEWUJ0RUkwb3hZ?=
+ =?utf-8?B?SXljL2ZvTVpsRDM5MkZHUEIwSThQR2drUGRGZ2xzbHp2Yno3czhyalJRcmpQ?=
+ =?utf-8?B?cHVtZkRTWUFtS1M4aXUrV0N4U1lNS2puU3dkNDlhVmNFN3gxSVBraTA0TEZR?=
+ =?utf-8?B?SWNpb2k1Z1ZhOTlyU2IyNnRZZ2p3a1JzQ2UrZ3dtMkJVYi9ZWE9LVUpnb2VO?=
+ =?utf-8?B?eVZUa1V4bVdIU2Z1M2JwaFJLd0trSkhmKzQ3QkFwQVJ4NWRud0dMNlhwZDJK?=
+ =?utf-8?B?bWRSc0c5U1hpbEJQTzk1Q1N5YVNyVVRXQ01IVk9QWGlrM0ljWGNBZVpUQ1RT?=
+ =?utf-8?B?WlVzMkIzQmJ4R0N2VTAwQXN0NFdjVkRTa2lZYVB3cXkyeisxK2w4Q3FVTDAr?=
+ =?utf-8?B?SHJzK2ZINWVHZklmSFRtc1lENlN2Zm9BNGNwM2R2cmY5cGdoMHlIdFFjT1Rj?=
+ =?utf-8?B?NjZHMVZYYjBQNmtqL1cyOGhuZzVGSkJwdW0vSXJYekgyYXJCd0dwUWNETTJB?=
+ =?utf-8?B?TTYxTGxJb29Zd2lEWWcxK3k0WDgrZFMydHlRaDIrVXl3c1BGazlOUWRZZ053?=
+ =?utf-8?B?TVNQOWFjKy9BY0UwN3N3VWpVaURLT09OMVl0ekQ5a2VaKzlIY1Q0dXlXWWhw?=
+ =?utf-8?B?R3ZPT1JsazF3RVFnRmJzYnU2T1hjSVV4bGEvZ3QxT3BtUm5ITDBzcnZ3dWo5?=
+ =?utf-8?Q?EVsRN1tTjW+aj+ZooChKPrE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eVFxZFh2YUQyOGZaWE1xMnpzVjEyK3NTb3VXR2lxMnJnaVhvLy9UaVpha3ow?=
+ =?utf-8?B?SWcycU9sYSs5L3pJYTMvcXNPWllTMnlIcXd5NzR5MHY5bmpJZSswb3hyNVBG?=
+ =?utf-8?B?Q0RIdWR0Uk8vbFhCNFNkMFZSUURnOE9UdzV6MWE3L0VsNFA2dmpZUnJXT250?=
+ =?utf-8?B?T0luT1pUQmRYS0hoTnAyV0Q2b2lTZUxBT2htWWNoMjVTQjZEcFNlcEFMdmhs?=
+ =?utf-8?B?RHM4S2tad0p1MUhCYVVNQngzK1ZocmhaTUxyc0FIa3JpaVk2V0tpZllvejc0?=
+ =?utf-8?B?TUNsOWwvZnRCK1lrdXFvdnlkMkl2L2pNTDZRWHVCaDN3VTZaS1dVc2QwVWkr?=
+ =?utf-8?B?aStuUnNYNXE1clVwUFhxMjBWeWlSZitBcjhFYm5BSGlFZGRNWjIyY2tqMGZB?=
+ =?utf-8?B?dWdHblNkVGlLbUwyamVxUll6cW9HTm9FVUhVeWVOWGhzb0J5ZjNpSEJDS1la?=
+ =?utf-8?B?QzJ5WHZCT1JjTFZEK05OYW9hNmt2VmJRSXRSUUVGTzgrR1BRNE5oNDRlZFZo?=
+ =?utf-8?B?UWtlemlnMmE0ZE1kRGtXS0Fla0crdTJCNHpqaVdmb20yUWtDVVk0ZWFBZmVl?=
+ =?utf-8?B?Mi85V3d1YzhoUCtDR0ppYkhVNWtOaFB6V0JzcVV2NE5RSzZSbE9PdFlmckhn?=
+ =?utf-8?B?L0ZXYnNiMXVROE5VNGVUVnFmTXZwa1ZlY0JJcHJkRXhwa2JmL1NtMThXR2tT?=
+ =?utf-8?B?RmxibWlTVlVMVDd3ZS9rNHllRk82c09TOTZwTTNHenQ4V1JIeUIyUmJMY2Fx?=
+ =?utf-8?B?eS8rZURDVDRuMlpTNU9uVCt2YTRPRGRGMmdhelhUakRuREJJanN4MElmMWlT?=
+ =?utf-8?B?aEJoRUt6M0FDQTRYUHBnaU1kSVBTenh2cTZqM0t6a042ZXlEOW1WeXBXWXor?=
+ =?utf-8?B?SjBKVmdER2p5T2lMcW9mMUxNSFBjd1BhWjkyd1dJemM2VXpDMy9NbjBqRDN4?=
+ =?utf-8?B?MGxON3hrdU1JREVOL2lXY1RucUhmQ3BFOWtJUW5TTHpwZTh5R3dNTExBbzc4?=
+ =?utf-8?B?ZittMVFjSHBnNVZqYVNyOTJjU0dqMHJlLzc5MXh3V2NPTEEzZllrZUM0Zmhr?=
+ =?utf-8?B?OTkxSjhrOC8wRmJFL2lpVEJEdEhzdXUrN0hmNXk0RlpNU2lTblR5UjJpbGFH?=
+ =?utf-8?B?TG51OVJQRDV2U2tHTWNDWlFjQlFYSE1iSzJXMkNFaG1pNTlGS2Q2RVlBWTB5?=
+ =?utf-8?B?dDhNcGd5TjlUV21Kc0pHYnRUV1VqL2tlQURtZVFZMVh5cVFwTmJGZ2lqQlk2?=
+ =?utf-8?B?bmNqYkE2UEFseW5sN1VwMDZOcE8vUlVtQU9vUXlJcFlYMDNEd1lESXUvK1VG?=
+ =?utf-8?B?VkRjTHNaOERuYVVZZkpVUm8yVkNLS29OWVFKRktpZ2ppa2xOZUZSVERRbEJQ?=
+ =?utf-8?B?aExCYzl4SFZpNjJGem43cTJBUENickttTWlQZ09sckJKNWRoKzYyUDg5ZVdX?=
+ =?utf-8?B?blpzUWFiRm5oVUFmUngvWXBheFh6SFc5YTNVcXJjdEtGeGdGNkhEZ1Vjc0JT?=
+ =?utf-8?B?S2M5Yk16UWNRNEVXUjBiYmtzV2tBd0dHdndjODJzSkNSYXNtMU9zSlcxcG1W?=
+ =?utf-8?B?TUZBcDhrMk1Na0ZkeWxjODh0YklrSUVQMVRDSXdPanh1R3FvSElJZGNZQmdU?=
+ =?utf-8?B?VXErK1BVVWlkcmlUbmNuc09rbjBDNUoxTWxkZ3pvSS9CT2s3ZmNIRWJwMlRY?=
+ =?utf-8?B?N0F4Tkk2cVRaTEdvWUptY1QvdXdQVmM3UVJpMGJFV0c3c3FWaXdpMjRwMTVk?=
+ =?utf-8?B?ODVVNUd0ZXZDWW10UkNCVXdSWlZBUit4Mm9kQXBSODBXMmdlQ21UNHFWbjNr?=
+ =?utf-8?B?TDl6WnJIc2hrV2JOcEhTdUdUNG5weFBYOHlYcDdsRVFsQTROdVhycW02Vk5h?=
+ =?utf-8?B?S2c5RzM5R1Z1TTA0SG93MFdSRjM3RUhmZVdVWFoydjQybDhnWlE3Zm40Y2ZF?=
+ =?utf-8?B?QWM5WFhDdDVyS2VOeDNEWE5RbGVkektQbFppMGlGNFczcTZQenF4c01kUWVq?=
+ =?utf-8?B?Mm02aFNVUjNhTkRsc0ZpYWQ5TndSd0NFYjVSTHBnZDVuQkpnN3VSTUZjL3NV?=
+ =?utf-8?B?cmY1MHpyYkNQVUNydVNzYmhYTkg2K1lKOGpFNEhmWkNqelI1aXphOEpWNldl?=
+ =?utf-8?B?RmpzQWpFdkxieVlEa0hoNUFTTTI2MUdnVGNEZEtYSWE4d3l3K2VzaUlCdlcv?=
+ =?utf-8?B?K0VXQXdBd0pJeVZQc3djRDZTTUEwQ0FWdUZzSjYxTk5LaGlvcG1BbDJQVjhu?=
+ =?utf-8?B?a08rdkFNNFI0anU1bE1ONEorZVlNQWt1R011Y1NsejBMRU5RMm4xNDg1Y2hC?=
+ =?utf-8?B?MGprMWpLYnNvWWVlS0VKMVRUN0taQjNzdE8rbk55V2YwT0pKOWdKUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: db47ea2e-046c-4413-156e-08de73cf0802
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 18:03:37.0168
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: z+aE3x/9tJ4upnhLl4EMHGKHbLG+PVTekK7pves7020NWPrsJvQGPis7MT6c++wnEcZ7Gf+fGCpp2hHq8sP8ZQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_100123_688019_51BE14FE 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20260224_100346_772287_08306A8A 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,138 +199,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MPAM (Memory Partitioning and Monitoring) is now exposed to user-space via
-resctrl. Add some documentation so the user knows what features to expect.
 
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
-Changes by Ben:
-Some tidying, update for current heuristics
+On Mon, 19 Jan 2026 19:35:52 +0100, Stefano Radaelli wrote:
+> This patch series adds support for the Variscite DART-MX95 system on
+> module and the Sonata carrier board.
+>
+> The series includes:
+> - Device tree bindings documentation for both SOM and carrier board
+> - SOM device tree with on-module peripherals
+> - Sonata carrier board device tree with board-specific features
+>
+> [...]
 
-Changes from v4:
-Fix unusual indentation
----
- Documentation/arch/arm64/index.rst |  1 +
- Documentation/arch/arm64/mpam.rst  | 94 ++++++++++++++++++++++++++++++
- 2 files changed, 95 insertions(+)
- create mode 100644 Documentation/arch/arm64/mpam.rst
+Applied, thanks!
 
-diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
-index af52edc8c0ac..98052b4ef4a1 100644
---- a/Documentation/arch/arm64/index.rst
-+++ b/Documentation/arch/arm64/index.rst
-@@ -23,6 +23,7 @@ ARM64 Architecture
-     memory
-     memory-tagging-extension
-     mops
-+    mpam
-     perf
-     pointer-authentication
-     ptdump
-diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
-new file mode 100644
-index 000000000000..6dc3de54ec9a
---- /dev/null
-+++ b/Documentation/arch/arm64/mpam.rst
-@@ -0,0 +1,94 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+====
-+MPAM
-+====
-+
-+What is MPAM
-+============
-+MPAM (Memory Partitioning and Monitoring) is a feature in the CPUs and memory
-+system components such as the caches or memory controllers that allow memory
-+traffic to be labelled, partitioned and monitored.
-+
-+Traffic is labelled by the CPU, based on the control or monitor group the
-+current task is assigned to using resctrl.  Partitioning policy can be set
-+using the schemata file in resctrl, and monitor values read via resctrl.
-+See Documentation/filesystems/resctrl.rst for more details.
-+
-+This allows tasks that share memory system resources, such as caches, to be
-+isolated from each other according to the partitioning policy (so called noisy
-+neighbours).
-+
-+Supported Platforms
-+===================
-+Use of this feature requires CPU support, support in the memory system
-+components, and a description from firmware of where the MPAM device controls
-+are in the MMIO address space. (e.g. the 'MPAM' ACPI table).
-+
-+The MMIO device that provides MPAM controls/monitors for a memory system
-+component is called a memory system component. (MSC).
-+
-+Because the user interface to MPAM is via resctrl, only MPAM features that are
-+compatible with resctrl can be exposed to user-space.
-+
-+MSC are considered as a group based on the topology. MSC that correspond with
-+the L3 cache are considered together, it is not possible to mix MSC between L2
-+and L3 to 'cover' a resctrl schema.
-+
-+The supported features are:
-+
-+* Cache portion bitmap controls (CPOR) on the L2 or L3 caches.  To expose
-+  CPOR at L2 or L3, every CPU must have a corresponding CPU cache at this
-+  level that also supports the feature.  Mismatched big/little platforms are
-+  not supported as resctrl's controls would then also depend on task
-+  placement.
-+
-+* Memory bandwidth maximum controls (MBW_MAX) on or after the L3 cache.
-+  resctrl uses the L3 cache-id to identify where the memory bandwidth
-+  control is applied. For this reason the platform must have an L3 cache
-+  with cache-id's supplied by firmware. (It doesn't need to support MPAM.)
-+
-+  To be exported as the 'MB' schema, the topology of the group of MSC chosen
-+  must match the topology of the L3 cache so that the cache-id's can be
-+  repainted. For example: Platforms with Memory bandwidth maximum controls
-+  on CPU-less NUMA nodes cannot expose the 'MB' schema to resctrl as these
-+  nodes do not have a corresponding L3 cache. If the memory bandwidth
-+  control is on the memory rather than the L3 then there must be a single
-+  global L3 as otherwise it is unknown which L3 the traffic came from.
-+
-+  When the MPAM driver finds multiple groups of MSC it can use for the 'MB'
-+  schema, it prefers the group closest to the L3 cache.
-+
-+* Cache Storage Usage (CSU) counters can expose the 'llc_occupancy' provided
-+  there is at least one CSU monitor on each MSC that makes up the L3 group.
-+  Exposing CSU counters from other caches or devices is not supported.
-+
-+* Memory Bandwidth Usage (MBWU) on or after the L3 cache.  resctrl uses the
-+  L3 cache-id to identify where the memory bandwidth is measured. For this
-+  reason the platform must have an L3 cache with cache-id's supplied by
-+  firmware. (It doesn't need to support MPAM.)
-+
-+  Memory bandwidth monitoring makes use of MBWU monitors in each MSC that
-+  makes up the L3 group. If there are more monitors than the maximum number
-+  of control and monitor groups, these will be allocated and configured at
-+  boot. Otherwise, the monitors will not be usable as they are required to
-+  be free running. If the memory bandwidth monitoring is on the memory
-+  rather than the L3 then there must be a single global L3 as otherwise it
-+  is unknown which L3 the traffic came from.
-+
-+  To expose 'mbm_total_bytes', the topology of the group of MSC chosen must
-+  match the topology of the L3 cache so that the cache-id's can be
-+  repainted. For example: Platforms with Memory bandwidth monitors on
-+  CPU-less NUMA nodes cannot expose 'mbm_total_bytes' as these nodes do not
-+  have a corresponding L3 cache. 'mbm_local_bytes' is not exposed as MPAM
-+  cannot distinguish local traffic from global traffic.
-+
-+Feature emulation
-+=================
-+MPAM will emulate the Code Data Prioritisation (CDP) feature on all platforms.
-+
-+Reporting Bugs
-+==============
-+If you are not seeing the counters or controls you expect please share the
-+debug messages produced when enabling dynamic debug and booting with:
-+dyndbg="file mpam_resctrl.c +pl"
--- 
-2.43.0
+[1/3] dt-bindings: arm: fsl: add Variscite DART-MX95 Boards
 
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
