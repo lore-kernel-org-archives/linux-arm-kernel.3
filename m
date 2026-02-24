@@ -4,150 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7593BEFB7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 03:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C96EFB7EF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 04:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDQZVcPTZXfe4Bz2aiUHS8/o78gGJFSpVxSNOMoIxCc=; b=RcNr2Id1SiLbHYWkrGegPbmuqF
-	P+Bzj+PdwigiRIZ1JLfdI4k0bT9YQOS3BPaBUh3+3We1kH6fcHG5rs2Y3nkr/yb7vwVbjaZgL2R4L
-	zUtb64nFJT9072Bc1KSNp0MwnoNlLYGlpEn2z7G1Y2b3JKNOqGMItFrrRqsRrYGD/SMkp7JZkvrUF
-	qh7VCjCfnlxdCW1mIG+tzQ7UMkNgA241k5P9NkJmVT648BPNa0hMJwVWj6OijOUDdWTUaUqtU7e2g
-	8L8h6In5SdzDtXH9Tdmy2EsvKKGSZtY2bqs6n+0tBdKySn4nplTxsAwDFtqwXUzGKc5ysMILzdmBH
-	AHS7dKdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zBfxSWDoYDKpj5OHs8p3tr8Knq8WyhFiqvowRNbNglc=; b=GgOytRkEFX8AAn4+nEf8MZ0g44
+	gJRYEqeETjYuC35J9v/kPQR9ki/txpxSM+grQBzifTDl/bwLz5hw64Oad67GJ+J1SF92v87/W2FGo
+	Pg6FZSMyjKNopH5h9wm7v3BR5CLX5dTjR7M5LDCag8wGPWFaBa2jT7C+qGU+V5GX5VvE9o7YDXYOm
+	91P7SGulHguRR05fJ0YiEHsQa3CTcWX87NxWcMjDSx1dmSagQVQLJWzgzhjdoIkoyHoqIoEwmSysK
+	unmN4M7RqeXpt9EID7ADvhSThDjfd+pXSAZefVGX6gjeJSgmXUfKD5wldQTH3Fn+MkU4X/+h0xpwZ
+	FJKxO4JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vujH9-00000001PQI-23wB;
-	Tue, 24 Feb 2026 03:39:55 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vujH6-00000001PPx-0RgU
+	id 1vuk6C-00000001RCE-1jbw;
+	Tue, 24 Feb 2026 04:32:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuk69-00000001RBu-37RF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 03:39:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GXlKGGHWVSLGUO8bKiUuvQeGbSCXE92YLtgEZp6WPVnpOLtEUu1OHORYuamOxS7B57gDc0oaElLqQxscXhEllLs/aN3t2VHB7S7rPH7J3QyYnwrbyGtEzF7EJwTYAfx625sJsJVlXDM7brUoc1OPN3YfZ8/FqD/frO2qGIUfkZneU/1oEgPIX6RUbji+Uia8pi7YVcSymx82S3e3n7cYppxCwinONXyEtkll83Zvsb/EvXorYJV6jSkq2PFjgNNkTpJxxAYeUYcg3bEippuoWAmKeG/7qKqzZer5PGr7HD0ClNwcSKH7tl2S9xiaMJx5w53mppcLLEPSCJ3QC8Y3Iw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oDQZVcPTZXfe4Bz2aiUHS8/o78gGJFSpVxSNOMoIxCc=;
- b=oezIfnWluhZBmMm4i7IJmB0UMLp3vBbj6K2C8HAzXAatcRNpJk6Uw4kzUPGNmp/PLKQ+p0grFrgvIwgq3CCOy5KLUCUCPu4Hv3S0EJQhsE5YlzMYd7jbyPizl807/I/mIVsqYLBNf8zDLQRFv1WIuHY6hWpO5uvjDzafGKXD0tNMX8y7hejuhXLR8i0PYA0xgYIogYhcGE0x2DCPpco4JVIBR8XqQqhCpO2/ACeQG+q0YgHPFyhcsZm1LfXBgUdOk6DCgPjNcWYw3FZtrrByJWkY6NUGI/Ta8xLnBMd/2JaC0hBndBQgYg9WdKkY5tmnpp5t5C0S/MKKSIDXqa4xnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oDQZVcPTZXfe4Bz2aiUHS8/o78gGJFSpVxSNOMoIxCc=;
- b=eA+ZQo2KfyGqOuv/lAqOZiaeb4QuDOyhPmovz+LB09IWVxsiHEoTxsd5XkUMqitfiGcvNM+FMDAiL4zXnUwRtkpjY/pzJaa5MnAOyc06NHI8XhjYbsgD0vhW5748FQ7cD5OsbA8vn0JI20RQDJmsrpUwv72hBaedsQeKdK4JR9I=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MN2PR01MB5615.prod.exchangelabs.com (2603:10b6:208:11c::29) by
- SA0PR01MB6313.prod.exchangelabs.com (2603:10b6:806:e7::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.21; Tue, 24 Feb 2026 03:39:45 +0000
-Received: from MN2PR01MB5615.prod.exchangelabs.com
- ([fe80::996f:e4f2:dbd8:120e]) by MN2PR01MB5615.prod.exchangelabs.com
- ([fe80::996f:e4f2:dbd8:120e%7]) with mapi id 15.20.9632.017; Tue, 24 Feb 2026
- 03:39:44 +0000
-Date: Mon, 23 Feb 2026 19:39:37 -0800 (PST)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Robin Murphy <robin.murphy@arm.com>
-cc: will@kernel.org, mark.rutland@arm.com, 
-    linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-    ilkka@os.amperecomputing.com, James Morse <james.morse@arm.com>
-Subject: Re: [PATCH] perf/arm-cmn: Stop claiming entire iomem region
-In-Reply-To: <b6275655818f5af7e5fb07a9e18d1451b08b7e05.1771522073.git.robin.murphy@arm.com>
-Message-ID: <b3da566f-7b72-6259-a5cb-9b6e4e3e6a69@os.amperecomputing.com>
-References: <b6275655818f5af7e5fb07a9e18d1451b08b7e05.1771522073.git.robin.murphy@arm.com>
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-X-ClientProxiedBy: MW4PR03CA0098.namprd03.prod.outlook.com
- (2603:10b6:303:b7::13) To MN2PR01MB5615.prod.exchangelabs.com
- (2603:10b6:208:11c::29)
+	Tue, 24 Feb 2026 04:32:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 384F5339;
+	Mon, 23 Feb 2026 20:32:29 -0800 (PST)
+Received: from [10.164.148.47] (unknown [10.164.148.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 152023F62B;
+	Mon, 23 Feb 2026 20:32:28 -0800 (PST)
+Message-ID: <a9cc7306-f80c-4fe8-bd6f-95bdeea3c9c8@arm.com>
+Date: Tue, 24 Feb 2026 10:02:25 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR01MB5615:EE_|SA0PR01MB6313:EE_
-X-MS-Office365-Filtering-Correlation-Id: 50df9c80-5fb4-4069-f9f1-08de7356583d
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8ecMURcv29LN7xl30m5zcEs5mu4ScWjn8lfly+Kht9J1MmMLVowsxUXYhKxV?=
- =?us-ascii?Q?vvhJyN8UGmnnm5JZwnohZnmNoDDsIXQw1ZBabuVldesr2m3ZZGtmcq7tZ2W6?=
- =?us-ascii?Q?UnN3yNqrqAALPBGlTRsbdb154MT5Sj4t0gUWPdMIE7irixLkn9MO3AUUy976?=
- =?us-ascii?Q?0zZvaJd5fbvG2BZ2rjN5r6phweCsh1YlkPX6MgUQxhHNvEwHHg6pvv04Y5nT?=
- =?us-ascii?Q?TXhv7kqoaQ0e9VKammBvNvj5eI6se96nSvs9c9gvriq+nkNgSbJ0t2xK9Cks?=
- =?us-ascii?Q?V65jm3kYLYzBleWg9sMAMaeFfwUvmfUg94oLIVkwQBdrYGQ0dki6enGiKekW?=
- =?us-ascii?Q?BbCOkKz2Tg/Dh2NJDGlYEOXCfRA2++TY1J5xKahwljxYqAZWY0aSTMjZUry8?=
- =?us-ascii?Q?XM9uO1bjywTBGp2dBSnZDB9UBDIY4zmjfGF+y995tSSVAoPsbzQ2epPZRfza?=
- =?us-ascii?Q?gvcOuDeQGYbPSCl/Mxt6MCTx/Zii88GBM5U6J9LXkStXwlVX9uQLwkftPjG0?=
- =?us-ascii?Q?AGFZlEl148XNj7OoPikzGKJ2Z+x4Gfk2p+/GIg9OYtnp9PTRAIdDWV7qv/aP?=
- =?us-ascii?Q?bJ4cXyivu+rfTA7xdUBc3wkEdznbv1sE0B6iJc7pzJrAkB3dqpL7aL2s8or3?=
- =?us-ascii?Q?kv356Su6kYj7BZPmlIbBjwdQ9m9Amxk35s6adK+7b2tsHE0vgAyH3W5r3daK?=
- =?us-ascii?Q?jw18QjoTfBbOVH0T3EyHjgnroKcjEmXTruh3t/AX0NnRJbEO3Md6TXHYnu0a?=
- =?us-ascii?Q?HFctTALYyK4sAygCOikAtZjVGPEfDdt6f/1jyKP9tkScQpT05AT7wxTI7jAu?=
- =?us-ascii?Q?YiTqe0iNTsTHKk/W9r/6TDtzvI6e/KadWfDYHpa0CzfEvuGcwk7QnwCZLdqv?=
- =?us-ascii?Q?n57YA6l4CCfLB1QEejvzsdMQULOHUk4YsalyJ1r6BGlQ6+hP0O0REtUdJHAs?=
- =?us-ascii?Q?HpC2HVdSQfhBK3zhqy6XQ/Eue41TvIcX6FYdXl94vco0IZngl9ZNcp8ehUoY?=
- =?us-ascii?Q?iJp7gIE4swT2QEdrkF/L4MuE4mk4vHExlmhtpFjIqO/ScjVTlpe7CWWqsRBJ?=
- =?us-ascii?Q?RHUCufWqp/ijNm6rt0+GOkSX8PAc55Dn3zAHS8mKzOnPwZwflX8xj/CJPv4P?=
- =?us-ascii?Q?AjE6y+n9U4RgDGWdc897rXvhAE4YqYhQ0uaHxUgX8TkABz/7jEfAHyEcORm3?=
- =?us-ascii?Q?enttUE7gxbqiJ10bJY39/wBjtL2zLGmgX4UYkVOzZNy3j4zAO0enUeXbkweH?=
- =?us-ascii?Q?eh06qOXzm7ICC9n6aMmCsDE3HIfbIxQIYA5pJ2ps1TeJUlIyiWXLnI0ozt8W?=
- =?us-ascii?Q?TdG0VCw0P/a6v43hJvhZUyIzvS8R1VWg8kA0M3cGe6GTQeihChtEbLeyaBlB?=
- =?us-ascii?Q?T9ccGD+ToVcR8oZxCeDXSegCPGFIpAVe4YGqEwwQwBEb57DSTZBhkq3qQlMi?=
- =?us-ascii?Q?4ft4GMCtxpMgeZl2AMW0XZtItItVMd5r1fKoAkBU5xHrDVP7EfdaKq5ZJDBN?=
- =?us-ascii?Q?qn77jzWPlRJCZT5wZ4ethdY35RMFp49OBPfXUhaCVBsO3qNyltu3pwqPy4V7?=
- =?us-ascii?Q?tF06fsmTWY7iMET3Cws=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5615.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DNuQCnYEeYVlYVHJFNyKYVNSfoN5rz2FWIanZux3qA3uIBiINDmKPglsLDzX?=
- =?us-ascii?Q?jZDHfDcbZTk/dyCJEfPoUPd6icN/GWK2QeNZ555xirIhh/z4QsgFtnASErnV?=
- =?us-ascii?Q?5yvKPGrDMRz9kL8kyegqDq0Mbza7RoxQN+S98ED+lnikx58a31J9KH7e3VXv?=
- =?us-ascii?Q?Y5HxcFUo9clAepH+vJ673Wv8tuI/vagsddUeXoXN6d4E+3MApCEALds1Gs5H?=
- =?us-ascii?Q?vouaXhGb3FxgS9YxrhA2dp11T+6MzzlyzPhNukNjc/JBlz7irQpjxfRvF2oS?=
- =?us-ascii?Q?LGVuXjsQcms1UpLHxalWe9DTVOYLLSEJHjMVT73misUwJ0yDEP0WECil4Dj+?=
- =?us-ascii?Q?n4FQJKtxo4Xl5BmmFZMdaOsRVnY46MOvEoUbez6HdsOdCPA9l/5vPdr+v/SY?=
- =?us-ascii?Q?ANKPeHT7mfY4MBOdaSVRMYWD9RjBl6DX8A1hoZBZGPvYkiHifDWub5tdJzSV?=
- =?us-ascii?Q?4VYyF9usoxSXFlpD3QZbQj22SfiLFJKurgSKuyWVR9sxprG1tnC0e6wpN+nG?=
- =?us-ascii?Q?x5+nq4th1iE2+RKcwywcsy5xBD6GpGS/aUdDmBQq7whHDtJfU/UeFcmi3vcD?=
- =?us-ascii?Q?C1Q6orlIvTLtq8SNxcbGsJwVQuRMuNGB7GE1NmaCPO191W0WXv9+h/t4ziAX?=
- =?us-ascii?Q?deBWVWOJjMNaTdZLox3WZNbKKI9lik6YJvTFYusFV9TLz+x/lXbdafchIjW4?=
- =?us-ascii?Q?rEfeL1EMRqMytH/Q0deqlwwDlrMSJ68fwG/ViDez66IpcnN/jbfVsZYTrS9n?=
- =?us-ascii?Q?bd3dKKdxNcTqi9sVBnP7cVK1PoxCqH7Yfn57nPJA0QMUywnxfvdHhrPwC2vw?=
- =?us-ascii?Q?M1jk9ZyQ3Lm/xWHOCWNsQmICmJcySNaCogv91aHNilmPz6gRbVILYryrE3xq?=
- =?us-ascii?Q?bCc2yWDdCkKEVnRPG4/wn2ugWGPBWFQzHgWDs38mLS4fBCwNqTc3PY6obXa3?=
- =?us-ascii?Q?8U8t8wjDTovno/FFQbzddlqyps5ek/bsXiotOG+JoD2n6MxxKUlTALnn2XgS?=
- =?us-ascii?Q?ZtTYXmFhk7UNA5S5llfj01wLS3Stm5wzQUSUqiAi0lNNOkVFC06mq/8sdUnN?=
- =?us-ascii?Q?nqY+W8/kO3Y6w4X/7lNNZbslWo/gPXS0sQSTkQ7Q6tSXT3oVMP8ioD043E1D?=
- =?us-ascii?Q?4ZDFSIcMW32ePNpcg6ufhlwbUtvPAcRoYp+GsFnwlQKhqdhtgILipEZExEez?=
- =?us-ascii?Q?jZXr/GTd8CuxpRKRP+VITHB6eGZtsdbk/5i0AHXI6FtoMfTnqgAwgfFSeRgL?=
- =?us-ascii?Q?Beiz0ssS+XarBhNk9XnC3d05swxLHMxWAOtTPwOAuNyGXNPS3Ha3CFrXXhZk?=
- =?us-ascii?Q?FhOH5VlRXo2Sz9LzHrw/WUvESMl20BXsVC7fC5GVwqgufLciKfl+IZj1trNI?=
- =?us-ascii?Q?juTR4ELZ3SrOINCgq4nxTl0is+5T5W+7FXq1fxvSduxjBMK8lzBhgZ7gKBZf?=
- =?us-ascii?Q?dstyuEP5BDfEJuCtAe55RZQy+JY38yanhVl9HlETBoQLEJjZpEr4eRH4lBnr?=
- =?us-ascii?Q?/VDzb3ihsKaTQ8cj7hzSye++MSEL2nCN9GpbxN2/VZI6j3YPgwuirLkbNCC9?=
- =?us-ascii?Q?6necglHhmWUTIzRHL55ifAczMlJKrcw9Zlh9B6opqocP/aRRFVxPL0gp1rxL?=
- =?us-ascii?Q?U/3hqzrDU0ay5e8IDS7GtGraQLgSrgLPD/Bp9m7+Q1BbAcnWPvTKSOC69D5l?=
- =?us-ascii?Q?IPqtQXXCNM80vnX3wHm0O9Fi2Y8a1j0R526VMzxGE2xNmO6eWvjLmzl+SJJB?=
- =?us-ascii?Q?6JHTJeeZGnotcIcNJ3wnGFeiJdzbltI=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 50df9c80-5fb4-4069-f9f1-08de7356583d
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5615.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 03:39:44.3866
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EPl6YcbMV53Y2+XT0cpPqyvJ72f5EJG/B7zzyseNHPKS6jSEvZQe6ZaeFmgi6M1ApOvexAMcHZucgD84gWueT9rCFk3szDWXm8YSp9LpS+f5GFGFg/ikT5vPFBfskdL7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR01MB6313
+User-Agent: Mozilla Thunderbird
+Subject: Re: [LSF/MM/BPF TOPIC] Per-process page size
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>
+Cc: Pedro Falcato <pfalcato@suse.de>, lsf-pc@lists.linux-foundation.org,
+ ryan.roberts@arm.com, catalin.marinas@arm.com, will@kernel.org,
+ ardb@kernel.org, hughd@google.com, baolin.wang@linux.alibaba.com,
+ akpm@linux-foundation.org, lorenzo.stoakes@oracle.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
+References: <20260217145026.3880286-1-dev.jain@arm.com>
+ <yfe2xbb6qwthg3cf4yr7zszpw5o3mx2v4bv32iwnm7yzxqjsvl@et22s2nuwzzk>
+ <a778d249-afea-4488-b045-beff3492a48a@arm.com>
+ <aZxv0mEd2BA3Mq-N@casper.infradead.org>
+ <e7af1815-3028-4530-8d62-6004e421e35b@kernel.org>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <e7af1815-3028-4530-8d62-6004e421e35b@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_193952_202043_023A4357 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20260223_203237_833483_31701054 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,153 +75,36 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Hi Robin,
 
-On Thu, 19 Feb 2026, Robin Murphy wrote:
-> So far, the PMU has been the only thing of interest in the vast mass
-> of CMN registers, so we've gotten away with simply claiming the entire
-> iomem region. However, now that we can support other features like MPAM
-> controllers for the system caches, the PMU driver needs to stop being
-> selfish and learn to share. Similarly to arm-ni, requesting just the
-> DTC node(s) should suffice for staking our exclusive claim to the PMU
-> features, as requesting hundreds of tiny regions for all the individual
-> pmu_event_sel registers is definitely not worth the considerable bother.
+On 23/02/26 9:58 pm, David Hildenbrand (Arm) wrote:
+> On 2/23/26 16:18, Matthew Wilcox wrote:
+>> On Mon, Feb 23, 2026 at 10:37:55AM +0530, Dev Jain wrote:
+>>> I didn't understand the reclaimable reference, but yes we need to make this efficient.
+>>
+>> this goes over 80 columns so much and so often, it's painful to read.
+>> so i didn't.
+> 
+> I just found out that Thunderbird was lying to me the whole time.
+> 
+> If you're using "Toggle Line Wrap" plugin you might think that mails are
+> properly wrapped, you know, like *they are displayed*. And even lore
+> displays them properly.
+> 
+> But in the back, Thunderbird set "format=flowed" and screws you.
+> 
+> So, if anyone else believes that they are sending properly wrapped mails
+> with Thunderbird, read
+> 
+> 	Documentation/process/email-clients.rst
+> 
+> and make sure that "mailnews.send_plaintext_flowed" is set to false.
+> 
+> 
+> Thanks Jens for the pointer!
+> 
 
-Nice. It was on my list too but never really had time to work on. I was 
-actually wondering whether we should claim all the PMU regions but I agree 
-that would be a lot and pretty much pointless.
+Thanks for letting me know about Toggle Line Wrap. This works, along with
+mailnews.wraplength. If I set this to 0, which is what email-clients.rst
+sugggests, it doesn't work. Thunderbird is confusing.
 
->
-> As a consequence, we can also streamline the annoying CMN-600 special
-> cases even more. The ACPI binding has in fact always specified a strict
-> order for all resources, so we can reasonably drop the ancient pretence
-> of swapping base and cfg, which IIRC was more just a moment of doubt on
-> my part than anything else.
->
-> Cc: James Morse <james.morse@arm.com>
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-
-Cheers, Ilkka
-
-
-> ---
-> drivers/perf/arm-cmn.c | 70 +++++++++++++++++++-----------------------
-> 1 file changed, 31 insertions(+), 39 deletions(-)
->
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index 364a4fd8f2c0..6a5eba0be347 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -2132,6 +2132,8 @@ static void arm_cmn_init_dtm(struct arm_cmn_dtm *dtm, struct arm_cmn_node *xp, i
-> static int arm_cmn_init_dtc(struct arm_cmn *cmn, struct arm_cmn_node *dn, int idx)
-> {
-> 	struct arm_cmn_dtc *dtc = cmn->dtc + idx;
-> +	const struct resource *cfg;
-> +	resource_size_t base, size;
->
-> 	dtc->pmu_base = dn->pmu_base;
-> 	dtc->base = dtc->pmu_base - arm_cmn_pmu_offset(cmn, dn);
-> @@ -2139,6 +2141,13 @@ static int arm_cmn_init_dtc(struct arm_cmn *cmn, struct arm_cmn_node *dn, int id
-> 	if (dtc->irq < 0)
-> 		return dtc->irq;
->
-> +	cfg = platform_get_resource(to_platform_device(cmn->dev), IORESOURCE_MEM, 0);
-> +	base = dtc->base - cmn->base + cfg->start;
-> +	size = cmn->part == PART_CMN600 ? SZ_16K : SZ_64K;
-> +	if (!devm_request_mem_region(cmn->dev, base, size, dev_name(cmn->dev)))
-> +		return dev_err_probe(cmn->dev, -EBUSY,
-> +				     "Failed to request DTC region 0x%llx\n", base);
-> +
-> 	writel_relaxed(CMN_DT_DTC_CTL_DT_EN, dtc->base + CMN_DT_DTC_CTL);
-> 	writel_relaxed(CMN_DT_PMCR_PMU_EN | CMN_DT_PMCR_OVFL_INTR_EN, CMN_DT_PMCR(dtc));
-> 	writeq_relaxed(0, CMN_DT_PMCCNTR(dtc));
-> @@ -2525,43 +2534,26 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
-> 	return 0;
-> }
->
-> -static int arm_cmn600_acpi_probe(struct platform_device *pdev, struct arm_cmn *cmn)
-> -{
-> -	struct resource *cfg, *root;
-> -
-> -	cfg = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> -	if (!cfg)
-> -		return -EINVAL;
-> -
-> -	root = platform_get_resource(pdev, IORESOURCE_MEM, 1);
-> -	if (!root)
-> -		return -EINVAL;
-> -
-> -	if (!resource_contains(cfg, root))
-> -		swap(cfg, root);
-> -	/*
-> -	 * Note that devm_ioremap_resource() is dumb and won't let the platform
-> -	 * device claim cfg when the ACPI companion device has already claimed
-> -	 * root within it. But since they *are* already both claimed in the
-> -	 * appropriate name, we don't really need to do it again here anyway.
-> -	 */
-> -	cmn->base = devm_ioremap(cmn->dev, cfg->start, resource_size(cfg));
-> -	if (!cmn->base)
-> -		return -ENOMEM;
-> -
-> -	return root->start - cfg->start;
-> -}
-> -
-> -static int arm_cmn600_of_probe(struct device_node *np)
-> +static int arm_cmn_get_root(struct arm_cmn *cmn, const struct resource *cfg)
-> {
-> +	const struct device_node *np = cmn->dev->of_node;
-> +	const struct resource *root;
-> 	u32 rootnode;
->
-> -	return of_property_read_u32(np, "arm,root-node", &rootnode) ?: rootnode;
-> +	if (cmn->part != PART_CMN600)
-> +		return 0;
-> +
-> +	if (np)
-> +		return of_property_read_u32(np, "arm,root-node", &rootnode) ?: rootnode;
-> +
-> +	root = platform_get_resource(to_platform_device(cmn->dev), IORESOURCE_MEM, 1);
-> +	return root ? root->start - cfg->start : -EINVAL;
-> }
->
-> static int arm_cmn_probe(struct platform_device *pdev)
-> {
-> 	struct arm_cmn *cmn;
-> +	const struct resource *cfg;
-> 	const char *name;
-> 	static atomic_t id;
-> 	int err, rootnode, this_id;
-> @@ -2575,16 +2567,16 @@ static int arm_cmn_probe(struct platform_device *pdev)
-> 	cmn->cpu = cpumask_local_spread(0, dev_to_node(cmn->dev));
-> 	platform_set_drvdata(pdev, cmn);
->
-> -	if (cmn->part == PART_CMN600 && has_acpi_companion(cmn->dev)) {
-> -		rootnode = arm_cmn600_acpi_probe(pdev, cmn);
-> -	} else {
-> -		rootnode = 0;
-> -		cmn->base = devm_platform_ioremap_resource(pdev, 0);
-> -		if (IS_ERR(cmn->base))
-> -			return PTR_ERR(cmn->base);
-> -		if (cmn->part == PART_CMN600)
-> -			rootnode = arm_cmn600_of_probe(pdev->dev.of_node);
-> -	}
-> +	cfg = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	if (!cfg)
-> +		return -EINVAL;
-> +
-> +	/* Map the whole region now, claim the DTCs once we've found them */
-> +	cmn->base = devm_ioremap(cmn->dev, cfg->start, resource_size(cfg));
-> +	if (IS_ERR(cmn->base))
-> +		return PTR_ERR(cmn->base);
-> +
-> +	rootnode = arm_cmn_get_root(cmn, cfg);
-> 	if (rootnode < 0)
-> 		return rootnode;
->
-> -- 
-> 2.39.2.101.g768bb238c484.dirty
->
->
 
