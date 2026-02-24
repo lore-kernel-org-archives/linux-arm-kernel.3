@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FACDE9B251
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A01DE9B252
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ppgkxpzS1xy8IHabClBbYtaJIbql9qLl5gMQ4HCrJg=; b=4podUhKJC0CVvMH2t7JHfoPi02
-	5YDxVTIIKBTOG1R49cx1MHmaIhGONYjIHHhcG6C78CFicdWZ43Yvy0ivP2sxwN6Df64xkmsj+2owq
-	FRtVq19eyCpBq3yeeaH/5VVs5Vd9nBNglhU57cn92/spItrpqMuXg4a5jWp/ySnuJ96CDbLDW2KQM
-	X8aNzvErsj9xTGgbCLf9oEbCgA+Tgx+clfTUHBd4ddgU9rlSU8gk28TNLN7w58hfOPk3d7oPn7d0n
-	VEbZDnWQGfd3J5p1GiJvhWeFU+6z86xkxZEEPbvrDEf+0fyMI9XIFBwvgjpacx0MCdRLPm23NWM9c
-	dAMpBsxg==;
+	bh=yBQcgK3eC7v82CAXBiKQULeZR/0m0GYlvhbOs6Ag2dg=; b=xZzQCN8Lvt31EfXzBv4Fu2Byig
+	KbazGHqMVU6Kd7fCxIQP2j/wGQPv8yrQ0YkiEPo1mLIK6DvTiHAFeWuV91YiOLD+sdaOyUdrZHpYa
+	jrFo2YN2xfMmE3vV5z8a9MLaCxJo2pGPaC8ALKwy2fgm+18f8I1i+UqmsHKXsUDpAKXRhy53dwnzo
+	GkIYQRIoUnQ4v4eVJQzfEeL6Ut12TY33p8RieUXKGtyx1tx0qIN2KUo9q/cvd+fkxG0UvBbffLPJK
+	UNubIiR1gvn4WlNsbc2luFFjzgtM/00jPDLvmdfsQAoFlfQqxEmjxiebFGIngStDE4/sUP7+If/8w
+	G96R6x3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqlS-00000001zkp-1S8s;
-	Tue, 24 Feb 2026 11:39:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vuqn8-00000001ztR-3Es7;
+	Tue, 24 Feb 2026 11:41:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqlP-00000001zkS-1Laa
+	id 1vuqn7-00000001ztL-1Qq7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 11:39:40 +0000
+	Tue, 24 Feb 2026 11:41:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E116740B63;
-	Tue, 24 Feb 2026 11:39:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26D86C116D0;
-	Tue, 24 Feb 2026 11:39:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C6A86132D;
+	Tue, 24 Feb 2026 11:41:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B342C116D0;
+	Tue, 24 Feb 2026 11:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771933178;
-	bh=XciIbqU0M6TfQN6a2di9ZkjY1Gufztdl8IPqFNkmZUc=;
+	s=k20201202; t=1771933284;
+	bh=1g/1lWEC4KmpoUAN4DrZYJBxYp3+OnwE2eiZQSewiaw=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=McI+sIPdYrfgC2TLM3Fs+Rp3irXWV6tfxny4WrfQg13JtnWuR0lxbzDTnpjwQ3ZR9
-	 0sR5DDieMj5azyqWLtuY7cP01GqJP/xyH+tysMBoLXfvTIzj0jwGfSPuM21uPm7VmH
-	 21AxkcPTuVHTMgktpctk8jk+OrOZf4fHDSrNViX6MXLpbDWElKvUXPXD2BnJ+QCCty
-	 T6soimrym5fSFipWCgmzuemIA6WkzoZhxB7cq9TIUqaSW0zw/5JOF2bLlXmqtLsBXO
-	 26d4JtUmXx2ceBRs1ZQI7tL/kSoCVxT0/XqBNmZ0EqQK3HrZcjO4+BWo0EEeEengcw
-	 d27S60t/SkeVQ==
+	b=qqPq5G0KG56/vM/1brvKDwfj2nQbmVAU8a3h+u3AnKK48B7rRhd+5GEo9qSAw9vIk
+	 Wru97eBz0B+bmI5Wgx0ieGifOWZQ/p31QI8+4A0ouVInuPFdzfAHpxZFoktWEfgZ+l
+	 WCqAqEDMeBa08i9XBEa8dBVX/uGhFXJ4MxidvCuMKUrhzxOogZHVK+xzQzxK3i5zvo
+	 mCPytp19G9hMTwpxsIZ50UOx2n9Nyeg/dJP6jqGppqnQ00y7pg27o5GlZIBvinRbMt
+	 Op5EAnkVM6js0ei8FcJk+4jxmsRSDiqzkLS7twq9p9oJfujX0RXDujyblnmJqieDs4
+	 P1x9GKuuVntJg==
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
  jesper.nilsson@axis.com, lars.persson@axis.com, mturquette@baylibre.com, 
@@ -54,22 +54,18 @@ Cc: ksk4725@coasia.com, smn1196@coasia.com, linux-arm-kernel@axis.com,
  bread@coasia.com, jspark@coasia.com, limjh0823@coasia.com, 
  lightwise@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com, 
  shradha.t@samsung.com, swathi.ks@samsung.com, kenkim@coasia.com
-In-Reply-To: <20251029130731.51305-3-ravi.patel@samsung.com>
+In-Reply-To: <20251029130731.51305-4-ravi.patel@samsung.com>
 References: <20251029130731.51305-1-ravi.patel@samsung.com>
- <CGME20251029130841epcas5p404125f4d8ee865275a73b3bf9ae6cf52@epcas5p4.samsung.com>
- <20251029130731.51305-3-ravi.patel@samsung.com>
-Subject: Re: (subset) [PATCH v3 2/4] clk: samsung: Add clock PLL support
- for ARTPEC-9 SoC
-Message-Id: <177193317288.54984.11991926930863142214.b4-ty@kernel.org>
-Date: Tue, 24 Feb 2026 12:39:32 +0100
+ <CGME20251029130859epcas5p41a6ca2132b576687c89c6e0f07914750@epcas5p4.samsung.com>
+ <20251029130731.51305-4-ravi.patel@samsung.com>
+Subject: Re: (subset) [PATCH v3 3/4] clk: samsung: artpec-9: Add initial
+ clock support for ARTPEC-9 SoC
+Message-Id: <177193327821.57323.11275739203663152206.b4-ty@kernel.org>
+Date: Tue, 24 Feb 2026 12:41:18 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_033939_393946_9865F77E 
-X-CRM114-Status: UNSURE (   6.15  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,21 +81,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 29 Oct 2025 18:37:29 +0530, Ravi Patel wrote:
-> Add below clock PLL support for Axis ARTPEC-9 SoC platform:
-> - pll_a9fracm: Integer PLL with mid frequency FVCO (800 to 6400 MHz)
->              This is used in ARTPEC-9 SoC for shared PLL
+On Wed, 29 Oct 2025 18:37:30 +0530, Ravi Patel wrote:
+> Add initial clock support for Axis ARTPEC-9 SoC which is required
+> for enabling basic clock management.
 > 
-> - pll_a9fraco: Integer/Fractional PLL with mid frequency FVCO
->              (600 to 2400 MHz)
->              This is used in ARTPEC-9 SoC for Audio PLL
+> Add clock support for below CMU (Clock Management Unit) blocks
+> in ARTPEC-9 SoC:
+>  - CMU_CMU
+>  - CMU_BUS
+>  - CMU_CORE
+>  - CMU_CPUCL
+>  - CMU_FSYS0
+>  - CMU_FSYS1
+>  - CMU_IMEM
+>  - CMU_PERI
 > 
 > [...]
 
 Applied, thanks!
 
-[2/4] clk: samsung: Add clock PLL support for ARTPEC-9 SoC
-      https://git.kernel.org/krzk/linux/c/f051dc5bc8e785b221d2e69094e774507c3a52dd
+[3/4] clk: samsung: artpec-9: Add initial clock support for ARTPEC-9 SoC
+      https://git.kernel.org/krzk/linux/c/85cc5be65b82481d9eb14afb6a6d52d5bde36cb0
 
 Best regards,
 -- 
