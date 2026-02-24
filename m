@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F25E9B24D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C181E9B250
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o3aFZkTFo6qE95gUNZWoWD2UnJD4ca4+RPcR5rfIP54=; b=EAeeJn8TmHF4KVr8hPUvI32yAE
-	v7YWdv4L34x2IHVbxHkdINCI7/9lyUvB8KESnZ1RIde9Z3UUVqDbGo95qqwxlhIPGCpjtvcxJIRDu
-	SdpSxpkJGGXCNCBg6uXp6R/5kmjNZA5GihTEv/hjieQy3/RpGKUYIuofI/x0VW8zTwm9Jm3P7GuGq
-	iXlSovC/YCIY8nIXcUJhNStETSO8WUuK3gKHJYol2UJ3+HW60LuHjKbWOhEIgEhnYpilC5OV0DXJ4
-	50r6vamlBgStfkN8AC1nAWV/vl9xLuXT4byIE7Wtv9U0p+9LtSznMBQlNFRKG/vtC0snLDiaK512A
-	khf0+wBg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hFegG1SKfblu7TYgB2g2JejJqqd29kwFF2JVZmC5Njg=; b=Qcu9xrme5Nv3S2mHY7deCc3zuk
+	dC09bvd2LBlbFn+ZmgGfxykhmpJe8ENJxxJGsNtFCt065qUt06U7dW6jj7R6utwgORZ0RnrFqbJUp
+	h0d9mhuwFyxYRG3xIkSWGvBUGL6JP7thPtQDrf2/K8hZhBneYTOquleE3QIbkrorSImWr43qfxpGP
+	8f/aZ5wtewnd1chPNvoSpyh/Pq+GKYZy0wMFGoI035VJQASBUoiNN2E6fD1ubgb37q6t5sXrq3V7f
+	VcVEWDD4YfAyb8L2Q8SbBIT6nuIVK6y+/JzDISN8EsTp/mJ9es36cPE7Z5mPoXr4y/SSbbTlzfIE2
+	w1ksjAPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vupMT-00000001pFJ-42eg;
-	Tue, 24 Feb 2026 10:09:49 +0000
+	id 1vupMU-00000001pGK-14Po;
+	Tue, 24 Feb 2026 10:09:50 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vupMT-00000001pEx-0IFd
+	id 1vupMT-00000001pEw-0D5f
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 24 Feb 2026 10:09:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8183461336;
+	by tor.source.kernel.org (Postfix) with ESMTP id 26A7061335;
 	Tue, 24 Feb 2026 10:09:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 327E2C116D0;
-	Tue, 24 Feb 2026 10:09:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD161C2BC9E;
+	Tue, 24 Feb 2026 10:09:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771927788;
-	bh=AckF3xFv3RkFn2rCAMv8OnSIMcQRU5FCIBwvh/LY0BA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ivbQeShOSKXsmubiwKPszuyUkChI7ON4V0pULOaiPtD0++8HaIsE/hvKQ9WF0hBn9
-	 g+90fQ/i6Pxbk3n6qZwTMmUeMY8VGu0SapN3A7bCR3id26lmbv1XcDVsxawvs0Bgap
-	 Ps0s98jrNuTLoDcy4CHQ22+VWRAphBFaLo69GKGuwYAEC2kY/cphsY0FIAuKalIVlI
-	 YRGQcOd5g+mPmVi0u04JQJQ3Fx7nPFiLeCeSRH6IO9/rANPtG8Fh9w2Z5xo34UBszb
-	 pZ3PR7rHklvi/pkv7vdyJLdQ1dVvQglMxUmwNuzlpZF4wnMFwObOBdRSrwTX0jDaw5
-	 BeffElhFbTAxA==
+	s=k20201202; t=1771927787;
+	bh=YOp56FnQQmNzzQ/Xwi1OTm36PaNCk+5LjoAZScSw1a4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=u8kbHX3CefvKlWOy/GjXw52JU7MYcfHPOQMj/Fbke9kxopZWST5/f7zklaWHqgigD
+	 pKBg5JY9/7jT9w+4XkVUIY6fVcesu+mXZ4P66kmdQ95j21iqZy3PnNPIAyN1fCd4cx
+	 mrVVok+ETW3FyxgOpGdZA+DsqScBZ+W96CAgdf2T37tnjNa8MiDk21QPQxbJiXhpB0
+	 N87jwGiQw0x+PPWQjItYYj9ywF9LHFf/7CKNeOGiz2bxnYQsYcqmHa6MNhNkeT5YA8
+	 jFTxdLyVklfMN2AXakm3U7D9uQuOlzgZs6Sd+xd+0N8YfDRA15Tik6gN4+UaMV63MY
+	 W6jUzbgKnLDfw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vupMP-0000000DIa5-3TiK;
+	id 1vupMP-0000000DIa5-2exa;
 	Tue, 24 Feb 2026 10:09:45 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: Ioana Ciornei <ioana.ciornei@nxp.com>,
@@ -56,12 +56,10 @@ Cc: Sascha Bischoff <sascha.bischoff@arm.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org
-Subject: [PATCH v2 1/6] fsl-mc: Remove MSI domain propagation to sub-devices
-Date: Tue, 24 Feb 2026 10:09:31 +0000
-Message-ID: <20260224100936.3752303-2-maz@kernel.org>
+Subject: [PATCH v2 0/6] fsl-mc: Move over to device MSI infrastructure
+Date: Tue, 24 Feb 2026 10:09:30 +0000
+Message-ID: <20260224100936.3752303-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260224100936.3752303-1-maz@kernel.org>
-References: <20260224100936.3752303-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -82,37 +80,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only the root device generates MSIs (it is the only one talking to
-the ITS), so propagating the domain is pretty pointless. Remove it.
+This is the second drop of this cleanup series for the fsl-mc MSI
+infrastructure, initially posted at [1].
 
-Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
-Tested-by: Ioana Ciornei <ioana.ciornei@nxp.com> # LX2160ARDB, LS2088ARDB
-Tested-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/bus/fsl-mc/fsl-mc-bus.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+* From v1 [1]:
 
-diff --git a/drivers/bus/fsl-mc/fsl-mc-bus.c b/drivers/bus/fsl-mc/fsl-mc-bus.c
-index c117745cf2065..1a6c8e3c0b27f 100644
---- a/drivers/bus/fsl-mc/fsl-mc-bus.c
-+++ b/drivers/bus/fsl-mc/fsl-mc-bus.c
-@@ -854,14 +854,12 @@ int fsl_mc_device_add(struct fsl_mc_obj_desc *obj_desc,
- 	} else {
- 		/*
- 		 * A non-DPRC object has to be a child of a DPRC, use the
--		 * parent's ICID and interrupt domain.
-+		 * parent's ICID.
- 		 */
- 		mc_dev->icid = parent_mc_dev->icid;
- 		mc_dev->dma_mask = FSL_MC_DEFAULT_DMA_MASK;
- 		mc_dev->dev.dma_mask = &mc_dev->dma_mask;
- 		mc_dev->dev.coherent_dma_mask = mc_dev->dma_mask;
--		dev_set_msi_domain(&mc_dev->dev,
--				   dev_get_msi_domain(&parent_mc_dev->dev));
- 	}
- 
- 	/*
+  - Drop the now unused DOMAIN_BUS_FSL_MC_MSI bus token
+
+  - Tidy-up fsl_mc_write_msi_msg() while removing the legacy helper
+
+  - Fix include ordering in irq-gic-its-msi-parent.c
+
+  - Various commit message cleanups
+
+  - Collected tags from Ioana and Sascha, with thanks
+
+  - Rebased on top of v7.0.rc1
+
+[1] https://lore.kernel.org/r/20260218135203.2267907-1-maz@kernel.org
+
+Marc Zyngier (6):
+  fsl-mc: Remove MSI domain propagation to sub-devices
+  fsl-mc: Add minimal infrastructure to use platform MSI
+  irqchip/gic-v3-its: Add fsl_mc device plumbing to the msi-parent
+    handling
+  fsl-mc: Switch over to per-device platform MSI
+  fsl-mc: Remove legacy MSI implementation
+  platform-msi: Remove stale comment
+
+ drivers/base/platform-msi.c                 |   4 -
+ drivers/bus/fsl-mc/dprc-driver.c            |  14 +-
+ drivers/bus/fsl-mc/fsl-mc-bus.c             |   4 +-
+ drivers/bus/fsl-mc/fsl-mc-msi.c             | 166 +++----------------
+ drivers/bus/fsl-mc/fsl-mc-private.h         |   2 +-
+ drivers/irqchip/Kconfig                     |   6 -
+ drivers/irqchip/Makefile                    |   1 -
+ drivers/irqchip/irq-gic-its-msi-parent.c    |   7 +-
+ drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c | 168 --------------------
+ include/linux/fsl/mc.h                      |   6 +-
+ include/linux/irqdomain_defs.h              |   1 -
+ 11 files changed, 39 insertions(+), 340 deletions(-)
+ delete mode 100644 drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
+
 -- 
 2.47.3
 
