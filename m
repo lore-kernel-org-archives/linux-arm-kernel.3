@@ -4,75 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA88F3C997
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 14:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF23F3C985
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 14:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NaRwRWJbSu3ZwN8WP+QGgkgndfq5bgSYgolvmTW0/FQ=; b=4agmOWs6HHPgio8Dzbsjh496Br
-	YDy15xvAiml+7f82jG3qq3DO1+rmBhFXHkozu7VEhzKOWYHUBg3hMninFHUHVMndWPyKzbI84mLPn
-	+6RIqRq+0VRVKsZNJKrUXUCFcGldXCZf3mfViXRdp+CWy7THE0hyznT3jzmDUNHO84qvhfwfzXyfU
-	7gjRmwTSBfiVXOGKRZx2UZih2Aweja2vFA65yCzQWh2ftrQ1zpNzFHIsA2fEfRg7ZrtonWKqWKAfE
-	/vvCcAGjepLN7NHfqeCHg741A53PmZwk+tFCrhqnQDyTuwuyNEVtW/G8kRmWzskUbGccr+TMmEU8N
-	F5Ls4MLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jxmjoH0uXTz41md1p9C+JzGNZXnzFWIms4029sqr8r4=; b=2aBl7FvxkAqqzmciPQOiKJ/lV1
+	vReBrDKyXYP1qr2dlbA1m6rhiwhdQwjMOQJMgbjvWo379VemYwAkSDZGipZx5XNsW0t7pNwRvGrW8
+	ZveJEcJh36KfhvBbgi7DlQbgX1QSiQi6dvvY3hV0upbPokikAThDJM6CWq8HedOrbIqmgDF4W8Vyw
+	KCeaqvsfwj+AKDmvkrGDucjT6Lq4EEWJp6Dw/6KPqqeDgVzsVkSDTtyrw9JzNTLl+c7xxbZlhNDBZ
+	hvJpEcSOWV/n5gG2KkaOPLzhWvGdKT2Fj8Wz0aeDbUfFLcJWazravRv6PN81U1eaqz7/MIzUNKeeI
+	WCQPS4tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vutb5-00000002Fcu-0QVN;
-	Tue, 24 Feb 2026 14:41:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vutca-00000002Fln-38C7;
+	Tue, 24 Feb 2026 14:42:44 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vutb1-00000002Fc9-2t2Q;
-	Tue, 24 Feb 2026 14:41:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B7CFB41791;
-	Tue, 24 Feb 2026 14:41:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 125EFC116D0;
-	Tue, 24 Feb 2026 14:41:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771944066;
-	bh=dCGqyI+rHlM3XyQ2QUXSu5nZVqUPyjQmE2WK/m+d8es=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gA+g57QadLSgYtZf5xm7d+YH2vzWtEJsVtb2Yjxr294TnnPP+klHUGgRSnbPFMw4x
-	 vN4u/6wEExddpZypJjzNjT69Biz0S7GhYqq6J0L/D89mD25k39ddaOwSfiHZFcORpB
-	 MHAPLNeeqHAbnixkSvJidVV++YvN2rxpS7uIXzEFvqc3bY9BP8iOs2FUowmNn8CRfI
-	 s/uC/D5eHcKGqEVAipY4dqrtOP1JEAMVx/Cvtg+rY5lZdhIuEVymyUaO3aPbTphh/1
-	 0Aa45VuNgSw1tFOaTKc4DSFTJ5elMVbaSEJ5PHaSLECpTUgsK5Gs42ik0H0ntIdmDW
-	 VG5P3hlMYHljA==
-Date: Tue, 24 Feb 2026 15:41:04 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, kernel@collabora.com, 
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v8 05/20] drm/display: hdmi-state-helper: Act on color
- format DRM property
-Message-ID: <20260224-hot-adaptable-sawfish-dd0f7a@houat>
-References: <20260216-color-format-v8-0-5722ce175dd5@collabora.com>
- <20260216-color-format-v8-5-5722ce175dd5@collabora.com>
+	id 1vutcX-00000002FlR-02xH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Feb 2026 14:42:42 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2ad617d5b80so35013835ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 06:42:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771944160; x=1772548960; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jxmjoH0uXTz41md1p9C+JzGNZXnzFWIms4029sqr8r4=;
+        b=N8yrTEBhdsUs+C4U7e/5hHmooZtV/QfuJL8DJdzK1ldWkulvrNStF1IilrKVHJR3x0
+         tEvOzrqeQOnOzhyz4cGHS0M1Tut+aB8i51T04nOOWOEPo5eQa/giKOGnGlPos4pfvus2
+         1h8y8nnOuUodk8hV2D8py+YIyIMJzIkH7jwQx8d7CI3Hj6s+sjZu/EdNlXEbM8P+jNBW
+         Lw+HeuPq8+nbjzO6bWz0mIhBPVGboSAnNKyGGIkrstrVfO1SSotOsa8R6qfbV6s74wdj
+         Jvdp2hOvTIClj5ZIyu4VslOsE+FrbUSZ12xIOAY3LEN78tY4S+lhfGxO0nnVUyBbOOMo
+         Cw7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771944160; x=1772548960;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jxmjoH0uXTz41md1p9C+JzGNZXnzFWIms4029sqr8r4=;
+        b=UGDHoB3nUD5jUNJ3GHSx/S/t46xDj8eP0vJC4fl1zaQp7kPyCFgerkWF3XJViO7Fyb
+         E+6he2p/qaqqnOFupMaaXPJjcDWJhKuvXaPCtNWm0aC+Nf224oWCm5Vl6BCd7hT2stCb
+         UT4H9avh7VDswSswvB3aEUTKUxuqavXdfS0aIhlr3TC7Ro2m+UgXoSlWk3YU6PjW4Lln
+         gEwUiX1iWoclI8PzSLV2Eh1PTVmvqYBr+CA6rxw0baNxuaKTB8zAxKT/pSKucprGWENa
+         1zyqL/UzPCZjoxY6o+BpCxG4YUC225EoLezcVTUuClR9JmaqmFEzWCFmhYLr4CVmtteE
+         VxBg==
+X-Forwarded-Encrypted: i=1; AJvYcCWJcreZZxO+Y7SrMSsD5oqzPX3rdncQHeJjtIS+3HLKCdXupw9KDoQvS1C/MHxJIwGg/BnkTrpVmjScrQz53V34@lists.infradead.org
+X-Gm-Message-State: AOJu0YziClrzEZzm/RE6EYnNZHZJsS9cyOwXQBcatUxQl8Ik49QRMjsd
+	lxzZ9Pr2hFDrV2IZ2KFq4Htnyezy9bUlRV0ueM9m1MCSO+ori7Oz9nUZ
+X-Gm-Gg: ATEYQzxQmIYqMzho7Si0m50SNcolOMTlGZFhDFQ5AkjB6JLAfCOgw4EMHUPBXE9mTz6
+	dMe+iGKBBhI0XbBafB/H8dg+VpQKK12v97x+4/hkGktBNxytLifKoBMM/kjhA7f6+d5wzxzqJAe
+	yU7ma3FtZFoXQuYk7gMN7bJbe4Qqi8SK0JAkztqGPS/OrcwUbWRjSDRMn6KhaGXKEW7g7OE8OlD
+	Vc5X8ynYz9Wivf+vgP2jpUkUUMas0iJoFu0CvSVlZIfMT9qUyKYE0sEMdZ6uvtwTHgaDUHfijZF
+	bUxJSuPVkY5IgHVeGv17kTeMxBjFXPPFWnDsjeBeCG2n+gkIRuvWwqpqQ8c3iANiF73BakFhoH1
+	3vpC/ofuvqaeEdSlvGBT1TdQwACZwD3iiD8GhdPexwmDIq4v7xiw9gdoslP69GAvCDDUb6IKJNp
+	C0dkk711pAM9MWliSGVsF9BqRSyJ++Pj5LUnYSNhIaXavId6B9EPB3RLoiH2JUuv3gaG2U1qR06
+	VRNkB8l
+X-Received: by 2002:a17:903:11cc:b0:2a7:aa14:82f7 with SMTP id d9443c01a7336-2ad74418b8dmr111623135ad.10.1771944159486;
+        Tue, 24 Feb 2026 06:42:39 -0800 (PST)
+Received: from ?IPV6:2401:4900:8f4d:6bb:6d92:919c:951b:7d96? ([2401:4900:8f4d:6bb:6d92:919c:951b:7d96])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad7500e2a7sm104906565ad.46.2026.02.24.06.42.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Feb 2026 06:42:38 -0800 (PST)
+Message-ID: <11ab7eb4-5c74-4ee1-b385-a5ab95d23b7c@gmail.com>
+Date: Tue, 24 Feb 2026 20:12:32 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="5cwb2y5kukdqwgqq"
-Content-Disposition: inline
-In-Reply-To: <20260216-color-format-v8-5-5722ce175dd5@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/5] dt-bindings: Microchip/Atmel AT91/SAMA system
+ peripherals: convert to YAML
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260217-arm-microchip-v1-0-ae5d907e10e3@gmail.com>
+ <20260217-cosigner-polka-de13bb9be569@spud>
+Content-Language: en-US
+From: Akhila YS <akhilayalmati@gmail.com>
+In-Reply-To: <20260217-cosigner-polka-de13bb9be569@spud>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_064107_784835_1BC8E68B 
-X-CRM114-Status: GOOD (  21.60  )
+X-CRM114-CacheID: sfid-20260224_064241_075848_37E0FE8B 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,89 +110,41 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---5cwb2y5kukdqwgqq
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v8 05/20] drm/display: hdmi-state-helper: Act on color
- format DRM property
-MIME-Version: 1.0
+On 17-02-2026 23:21, Conor Dooley wrote:
+> On Tue, Feb 17, 2026 at 05:24:18PM +0000, Akhila YS wrote:
+>> Convert various legacy .txt bindings for Microchip (formerly Atmel) AT91/SAMA
+>> family system peripherals to proper YAML schemas. This includes:
+>>
+>> - CHIPID (SoC ID register block)
+>> - PIT (Period Interval Timer, old style)
+>> - PIT64B (64-bit Period Interval Timer, newer parts)
+>> - ST (System Timer, including watchdog subnode)
+>> - RAMC/SDRAMC/DDRAMC/UDDRC (SDRAM/DDR memory controller
+>>
+>> Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
+>> ---
+>> Akhila YS (5):
+>>       dt-bindings: arm: microchip,sama7g5-chipid : convert to DT schema
+>>       dt-bindings: arm: atmel,at91sam9260-pit: convert to DT schema
+>>       dt-bindings: arm: microchip,sam9x60-pit64b : convert to DT schema
+>>       dt-bindings: arm: atmel,at91rm9200-st: convert to DT schema
+>>       dt-bindings: arm: atmel,at91rm9200-sdramc: convert to DT schema
+>>
+>>  .../bindings/arm/atmel,at91rm9200-sdramc.yaml      | 67 ++++++++++++++++++++
+>>  .../bindings/arm/atmel,at91rm9200-st.yaml          | 65 ++++++++++++++++++++
+>>  .../bindings/arm/atmel,at91sam9260-pit.yaml        | 49 +++++++++++++++
+>>  .../devicetree/bindings/arm/atmel-sysregs.txt      | 48 ---------------
+>>  .../bindings/arm/microchip,sam9x60-pit64b.yaml     | 71 ++++++++++++++++++++++
+>>  .../bindings/arm/microchip,sama7g5-chipid.yaml     | 41 +++++++++++++
+> Is this intentional? They all say "convert", but only one file is
+> removed in one commit?
 
-On Mon, Feb 16, 2026 at 02:01:19PM +0100, Nicolas Frattaroli wrote:
-> With the introduction of the "color format" DRM property, which allows
-> userspace to request a specific color format, the HDMI state helper
-> should implement this.
->=20
-> Implement it by translating the requested drm_color_format_enum to an
-> hdmi_colorspace enum value. Auto is translated to RGB, and a fallback to
-> YUV420 is only performed if the original color format was auto.
->=20
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 28 +++++++++++++++++++=
-++++--
->  1 file changed, 26 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
-u/drm/display/drm_hdmi_state_helper.c
-> index a1d16762ac7a..3ba752200984 100644
-> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> @@ -649,10 +649,34 @@ hdmi_compute_config(const struct drm_connector *con=
-nector,
->  	unsigned int max_bpc =3D clamp_t(unsigned int,
->  				       conn_state->max_bpc,
->  				       8, connector->max_bpc);
-> +	enum hdmi_colorspace fmt;
->  	int ret;
-> =20
-> -	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
-> -				      HDMI_COLORSPACE_RGB);
-> +	switch (conn_state->color_format) {
-> +	case DRM_COLOR_FORMAT_ENUM_AUTO:
-> +	case DRM_COLOR_FORMAT_ENUM_RGB444:
-> +		fmt =3D HDMI_COLORSPACE_RGB;
-> +		break;
-> +	case DRM_COLOR_FORMAT_ENUM_YCBCR444:
-> +		fmt =3D HDMI_COLORSPACE_YUV444;
-> +		break;
-> +	case DRM_COLOR_FORMAT_ENUM_YCBCR422:
-> +		fmt =3D HDMI_COLORSPACE_YUV422;
-> +		break;
-> +	case DRM_COLOR_FORMAT_ENUM_YCBCR420:
-> +		fmt =3D HDMI_COLORSPACE_YUV420;
-> +		break;
-> +	default:
-> +		drm_dbg_kms(connector->dev, "HDMI does not support color format '%s'.\=
-n",
-> +			    drm_get_color_format_name(conn_state->color_format));
-> +		return -EINVAL;
-> +	}
-> +
-> +	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc, f=
-mt);
-> +
-> +	if (conn_state->color_format !=3D DRM_COLOR_FORMAT_ENUM_AUTO)
-> +		return ret;
-> +
 
-This should also be greatly simplified since you don't need to deal with
-hdmi_colorspace anymore, and thus you'll just be able to use the
-construct I hinted at in the previous version.
+Yes, all bindings are present in one text file.
 
-Maxime
 
---5cwb2y5kukdqwgqq
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+Best Regards,
+Akhila.
 
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaZ24fwAKCRAnX84Zoj2+
-dh+wAXwKmT5KayIifDoxyitEKWs6EiYUCC2SA4Bg4ruLTVA9Xs//EiWw+hYVo/kQ
-7bFTr10BgODaA1IvjwBbTyIPz0upLTeNeVbfqL/ghdTyMm5jaRR3hNM7V9lXYvtY
-SsWWbJGYdQ==
-=YUqC
------END PGP SIGNATURE-----
-
---5cwb2y5kukdqwgqq--
 
