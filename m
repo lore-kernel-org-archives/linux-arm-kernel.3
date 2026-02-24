@@ -4,155 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25DA6E9B25B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 12:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3F8AE9B258
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 12:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uvVKTiUq66kwIOrVrxTEFiS09140fQYkdhfu7p4PMl4=; b=QUbyhLVIaZoY2L+GgF2Fq8W0N1
-	th+MxeWQdnA+gZW/BSq1yaQ9JGgmvDPXX36aCqOYpw5LXdFVV5ofG3Gfcd5m1Mro+uKQ9RfXDq1yH
-	dN5/mLlplNBZ0WFF4uo13H5fZlWwS81MvPRsTMr4fU0RkiST4Mm6O0CZvj6NWkLYnb6+m0X77Q75j
-	uMduLEV4LsWaA7q6goP5zaRy+pg+QNLigpVxYR/9tif77UQRKiMeoycqFhStzuxcYqwxUVWoVbllJ
-	LVYwvh0lnpdSw8mPH4AtrIsfpbU4KHReDWxoP1SKv1gVG0H0dMyfRpXFcXetyLWSBrW2oZuScDQ6D
-	erf7MfUw==;
+	bh=rbOSkIjClswaPXtIytbexw0vVgDZPNWAAQu3v7t2FT0=; b=rZTsuVyfxPzzx9csWFutcgyp1t
+	JoYpLA1ASe8deRJ7wC465h3ziptl0crEjMHyi0JvE9crkgjPZtpoWDfbxBfs2q8VOOdg5475g1hBk
+	i5vUUm/YJn1u/l63CnAJm4BdPx1h8fEK9hY8v7cKKeXXzPiiHt/jgAipUy+erZ0/exD7of9u7XdjQ
+	gk7ZXnBsvAQwtUVINirKsPtmwRAh9H4Ui4qTRBfWqgOfB92NTjHQR/27pOskBG8hTGpQRHTsuGz/E
+	cYu3Fj8PNKIEig59d80ySECyQKyTbcuHa2Q7mPpwECbTWWrbPfmy1JndFwADJxmDSPmi1oFAuyP75
+	bMnjEeOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vurpw-000000025Bb-3qjr;
-	Tue, 24 Feb 2026 12:48:24 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vurqE-000000025Iu-1HQH;
+	Tue, 24 Feb 2026 12:48:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vurpu-000000025AA-1YIk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 12:48:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TM0mI23UqdfQ3AEXsYY/ihpL61wC5PH8ic6t16esfzzMUFul9LmZr1AXM1D4Y20fPPlV1/dTzAYAvkTf6T3xnBw4gKe6AnIqcCyjrdKL/gtRMyF8PUsi0cJV15Fgq3cadYbdoS/D4gprBxmS6pe0+rTNE0A7HpB6EOJLc0ldG1AQXY8VbaPfMkvMSNvBz6uxl7bsfaMzl7FvMdYkLdeNpZXs3+5x6fdwUcx0F1F+deheGlOmXVFkXM+Jo595VlPlFVGFfQOpheTYVQz2CHhsgNRBko9hF20Cg9/7ad4in7qNu89MHTVQs77QvqcSfDDN05C8tJg8wZISpsbi/vO7ow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uvVKTiUq66kwIOrVrxTEFiS09140fQYkdhfu7p4PMl4=;
- b=KMc5CZriS2thOh1GlYPvUA9B8wsBwKEtzZ3mU57Jg688BmZ5oqPboq9jIDXcNy2rAmAZd54cq9Yd/oH3lcGdY0SVOB8VP5AGbF6vzUqbGD7op9BW5t51XVODmgv6sB72opVaT9Z3uFzSEQ4K6O/iUZ83rsWNjCQf5nAErjkumHDPNv2c4a5alyxasqdpe3BEmtv3waMX29vwkWL2EuBCs20hml2LQyo2HmR5N/rv8lpewf+M7iiUq4xBEkc+c5g7jQ+cEo9ahw9b5fI0ASMB1EDMO0tYkXS46d/O2GWbKaUQ43wJUxnRU9W45LpKA6TviSuLmRP/XKCXT+M5WnT27Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=gmail.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uvVKTiUq66kwIOrVrxTEFiS09140fQYkdhfu7p4PMl4=;
- b=LvgO6j+qPcbjlaUK2zeLBI8cpTOtCJWHhHgM/kolB0qygy7P0y82vrMyahtYjZ5pAgqXRrEpU81+9lG+DcXF7jCNcVnpjSdnVNRmrO5QW35Ka7Ay+MsBDQQDawsRfQ9K1gRGtMg3Tpd/mWkPUcyyjMHVjBNNoh58CIZQVr0lTxg=
-Received: from BYAPR04CA0028.namprd04.prod.outlook.com (2603:10b6:a03:40::41)
- by CH3PR10MB7763.namprd10.prod.outlook.com (2603:10b6:610:1bd::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
- 2026 12:48:16 +0000
-Received: from MWH0EPF000C6195.namprd02.prod.outlook.com
- (2603:10b6:a03:40:cafe::7c) by BYAPR04CA0028.outlook.office365.com
- (2603:10b6:a03:40::41) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.22 via Frontend Transport; Tue,
- 24 Feb 2026 12:48:13 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- MWH0EPF000C6195.mail.protection.outlook.com (10.167.249.105) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Tue, 24 Feb 2026 12:48:15 +0000
-Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Feb
- 2026 06:48:13 -0600
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Feb
- 2026 06:48:13 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 24 Feb 2026 06:48:13 -0600
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61OCmDcf2747059;
-	Tue, 24 Feb 2026 06:48:13 -0600
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 61OCmCd7020536;
-	Tue, 24 Feb 2026 06:48:12 -0600
-From: Meghana Malladi <m-malladi@ti.com>
-To: <haokexin@gmail.com>, <vadim.fedorenko@linux.dev>,
-	<jacob.e.keller@intel.com>, <m-malladi@ti.com>, <horms@kernel.org>,
-	<basharath@couthit.com>, <parvathi@couthit.com>, <afd@ti.com>,
-	<vladimir.oltean@nxp.com>, <rogerq@kernel.org>, <danishanwar@ti.com>,
-	<pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-	<davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>
-Subject: [PATCH net-next v4 2/2] net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
-Date: Tue, 24 Feb 2026 18:18:03 +0530
-Message-ID: <20260224124803.3634808-3-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260224124803.3634808-1-m-malladi@ti.com>
-References: <20260224124803.3634808-1-m-malladi@ti.com>
+	id 1vurqD-000000025Hx-1KDt;
+	Tue, 24 Feb 2026 12:48:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5600A6111B;
+	Tue, 24 Feb 2026 12:48:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D53FFC116D0;
+	Tue, 24 Feb 2026 12:48:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771937320;
+	bh=NE+kk/QuY4v7944+aH1+qD4q77+1CSzALEv0f+0og4c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mBESL7E+Zs0Gxiat7NA52IJwqwX9UTl+sUtdsM93istQcGmDyU42b8wWUFoOXqSR3
+	 uMTU6CQicOUGvblXr4EzyzzwDyfk0fFoHGwfT4KcAOojC0eHWDP3UYzbUpeOrxPIUK
+	 iklwBVEOK2H0O5Tlp5Y0mI9FEFoppVK2vyolG+Eh5ghHp3mwWifTIUw+Icl+Y5pzML
+	 bUWot/QqZP0L7k2Ku5bFG4cvRcXZOe/heIcchyAsZI43bM6uay22DDvETaOT0A65qN
+	 i63RvyRAj5yNcz5zVL6D7OMFjaDMbHQplNzWY9GwvXpRs/8s9qlRV4EFzcp8Cj7kFL
+	 xGyfkteOzy/Yg==
+Date: Tue, 24 Feb 2026 12:48:32 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Peter Wang =?utf-8?B?KOeOi+S/oeWPiyk=?= <peter.wang@mediatek.com>
+Cc: "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	Chunfeng Yun =?utf-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>,
+	"kishon@kernel.org" <kishon@kernel.org>,
+	"James.Bottomley@HansenPartnership.com" <James.Bottomley@hansenpartnership.com>,
+	"bvanassche@acm.org" <bvanassche@acm.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	Chaotian Jing =?utf-8?B?KOS6leacneWkqSk=?= <Chaotian.Jing@mediatek.com>,
+	"lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+	"nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
+	"vkoul@kernel.org" <vkoul@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"avri.altman@wdc.com" <avri.altman@wdc.com>,
+	"martin.petersen@oracle.com" <martin.petersen@oracle.com>,
+	"linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	"kernel@collabora.com" <kernel@collabora.com>
+Subject: Re: [PATCH v7 10/23] scsi: ufs: mediatek: Handle misc host voltage
+ regulators
+Message-ID: <3f4920b2-4697-4897-bdca-65c9f02909d8@sirena.org.uk>
+References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
+ <20260216-mt8196-ufs-v7-10-b5f2907c6da7@collabora.com>
+ <2c7c84a2df19624ba9f207fd3fee47a8bdd9d8dc.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C6195:EE_|CH3PR10MB7763:EE_
-X-MS-Office365-Filtering-Correlation-Id: b0525718-d345-4762-c6fa-08de73a2fa9c
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|1800799024|376014|82310400026|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PM11W0OpFDBsZ6qWgHVnUzxl3+fGhty/KHhjBvrf8eJBKMtBtBy/8L9GjRpY?=
- =?us-ascii?Q?XKAqm5wqpgOduPcWPn9hzpR+YpkhSXz9j6B6pOzPlLGCm2T8GjhEmvCIwRhi?=
- =?us-ascii?Q?ir9+Fn7HS+foXunaQEq/vvrABACU32LMNIzc1vHkONNw554oj7N013K1l0E9?=
- =?us-ascii?Q?S8SznAYspVqUEennMpuAfZeOKutgMn4+XlhM7uSlGM5IeUgMFlAWNP1oUDbg?=
- =?us-ascii?Q?NGIhApoPdN5vxL77WwDzTPyIR/MwytMmF/Bv7lV00iYpnskN99HKU9lQQa+R?=
- =?us-ascii?Q?61wgfmT6//bgD+loN0qgMkzoeTTJ3mshH+gePHp9qFy9q9ICSAMN3Fk5YstP?=
- =?us-ascii?Q?05XQOHeRTWcIFNAldygIetJ+LkUqSPjCCE/rTtyWCz5YdZGmcN6RNPcIqMkX?=
- =?us-ascii?Q?VgRSKKHRVDcIt73RgTT058cMsmDWfoQ8pRhg0YZcPLstV3Hgp9QjYkL/sdQf?=
- =?us-ascii?Q?lnhZVz1qWwbvjJHdYpFyXufnZPvjPDbtP6lLmDmGiRu7bslXrLZG/u5S+6cv?=
- =?us-ascii?Q?EiY4LPWPo2qlKr8FvxbzZUoe/rjHF/maYG5yO6jpRTxVyd0Qwk6pd2gXDUAV?=
- =?us-ascii?Q?zLY1b8491lYWJQvDwaToobgVnpeFsyhnJALG7G5cxW8GWoTD8w6vwa2j+2t8?=
- =?us-ascii?Q?WhehMjghpSnrfEXS/KjlsI7eHe9qyr83elcVd815H3UKFEguD7JCXcGvHdj6?=
- =?us-ascii?Q?RTGMW3qtZUIHS0dtAZbeigKrJwouTu+t6pjjYeGvfBfXAZKddZpdYPUZQGAl?=
- =?us-ascii?Q?BeYYWtr3CuvBk7kyQvGbH6Wei2k4hpuavFB4hj8Y44wUqY3qhM1DaCNbvGTw?=
- =?us-ascii?Q?IrCwjQsxjw81+mKZQBHTb8KlA0yrNNWTRlE3ZV8nwFLESbvHDAfFE3O0uv3D?=
- =?us-ascii?Q?e9ohd4fAqA0NK3AEkP4NB4L1XNfDXgwSu3aZ30B0cOFgZ3AbshyjVAbtObwt?=
- =?us-ascii?Q?klvXRO2CEfVC8LpyPpuzroHnuQ95hpozirPXCuKNrZb0nQOb0A99UhGcFlt5?=
- =?us-ascii?Q?l/GnUiW6X2MiqW67R7ObBsS4q+MM0MkpUMKXlGmnuH+hH7beslQfCeMkJ7Eg?=
- =?us-ascii?Q?MHAJetWzQFuOOt4woN3rjct1JCgvfJcWuUFe9YAar/j9R8vztiiIgm9wyyik?=
- =?us-ascii?Q?iPkq9rzVMgtvV81h1DzsQsxPUgPTdirxqrzgOO2L0qQ9g1jXyolcEI9QUPYj?=
- =?us-ascii?Q?R/gC0hjdbXXpbwiSFdhhmg5RC5y+D96cTN1i5aMvClZB47ZpekUy+aOR+IWT?=
- =?us-ascii?Q?bD/IgEl0rCYvGbgcEmA1/eoDJO+RkH8A8sAsQDv0nH9NpOQzudW5ceYGvPe+?=
- =?us-ascii?Q?ZEz9v/dmiYThjkEs8C+fIX/k9kVuQtVNtYWqAeOoIR0DOZq3ss4Mes8/ih0d?=
- =?us-ascii?Q?qImNgf3SCh4X9DPR28O8BBNZcNbO+fncyhFN2c3faZSVfUOexlDxGyhjna3G?=
- =?us-ascii?Q?WksVVYzvtlbfWH/cfAbT7tT86XDZUFO+ICOerYFuE9K3ijmEXRtE4Wqq2wsz?=
- =?us-ascii?Q?lL8EscW4nzTljW+LQN77DPObtawIuK3OcvpvIrBc/GaxGzkmg9UTQGI29rv8?=
- =?us-ascii?Q?NRR1A5ASzifunRGX71RhMtSnKOkMwxt7PBJAkdDv4MP18EojNdZdFluTMIpy?=
- =?us-ascii?Q?qrbBIchrc3ihWlfHP+9kFXViwRe6WQlQjrEQYuw/1EjFhL5pDBhhClz5D3/q?=
- =?us-ascii?Q?9UVywFW3EADJmCwXHDX+zmESXpw=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(1800799024)(376014)(82310400026)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 8gqmdcvgoIgFUjN8ZnCHLlZ5V7ssfYKIbn427sAfP+1zt5XCJrPEHU787ADSQhPBatJlvFHGhbSZKpoJO/sQSFCeFKsNPeffzoHegFMk9iwLs9JTpBrwVM4dlD3wY9CqsDZCjGGw0/imjLbvtDIfYSvUYD089GWgr6gP5UfMIXd9V56I4yH9bIczcwPsZ0+E4yh2Z1I2h/B0PJ25KsDq0CfFHp0wg9EuALBREejXEDnOVbMQmW9KRlU2hTZqn6UgD+5u3+vQ3NLu+rw6Yu03iG6MlbcyBmFFrdr3eLYQGTJKxVxk4OQ30PcfeYAcPhA6NQ16vPXs/ocB1YqVIvXnY1b9dxlsn4j9/oHXFT9x9CND4unYJPw/A9gtVTTX+NSx0BhYEeA5rzHXkIRfUKqC63Ue34MKaPmHbKXzFYp/a1y6UvmFqe1OAiARzlSx6oJ1
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 12:48:15.8298
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0525718-d345-4762-c6fa-08de73a2fa9c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6195.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7763
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_044822_464526_148D1E55 
-X-CRM114-Status: GOOD (  21.09  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="1sApqFsS7KHCWKJU"
+Content-Disposition: inline
+In-Reply-To: <2c7c84a2df19624ba9f207fd3fee47a8bdd9d8dc.camel@mediatek.com>
+X-Cookie: Obey all traffic laws.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,254 +97,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: MD Danish Anwar <danishanwar@ti.com>
 
-Add driver support for viewing / changing the MAC Merge sublayer
-parameters and dump the Mac Merge stats via ethtool ops: .set_mm(),
-.get_mm() and .get_mm_stats().
+--1sApqFsS7KHCWKJU
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The minimum size of non-final mPacket fragments supported by the firmware
-without leading errors is 64 Bytes (in octets). Add a check to ensure
-user passed tx_min_frag_size argument via ethtool, honors this .
-Add pa stats registers to check statistics for preemption, which can be
-dumped using ethtool ops.
+On Tue, Feb 24, 2026 at 12:38:50PM +0000, Peter Wang (=E7=8E=8B=E4=BF=A1=E5=
+=8F=8B) wrote:
+> On Mon, 2026-02-16 at 14:37 +0100, Nicolas Frattaroli wrote:
 
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
----
+> > +	if (data->num_reg_names) {
+> > +		ret =3D devm_regulator_bulk_get_enable(dev, data-
+> > >num_reg_names,
+> > +						=C2=A0=C2=A0=C2=A0=C2=A0 data-
+> > >reg_names);
 
-v4-v3:
-- Added pa-stats availability check inside emac_get_mm_stats() as flagged
-  by AI-generated review.
-- Return -EOPNOTSUPP for SR1 devices inside ethtool_*_mm() functions
+> If these regulators are only acquired and enabled once,
+> why not just set regulator-always-on in the device tree?
 
- drivers/net/ethernet/ti/icssg/icssg_ethtool.c | 98 ++++++++++++++++++-
- drivers/net/ethernet/ti/icssg/icssg_prueth.h  |  5 +-
- drivers/net/ethernet/ti/icssg/icssg_qos.h     | 20 ++++
- drivers/net/ethernet/ti/icssg/icssg_stats.c   |  1 -
- drivers/net/ethernet/ti/icssg/icssg_stats.h   |  5 +
- .../net/ethernet/ti/icssg/icssg_switch_map.h  |  5 +
- 6 files changed, 130 insertions(+), 4 deletions(-)
+Drivers should request and enable any regulators they require, they
+should not rely on boards happening to enable a supply for them.
+Similarly the board should only impose constraints that come from the
+system design, it should not assume that drivers will continue to behave
+as they do.
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-index b715af21d23a..2176536a0989 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-@@ -6,7 +6,6 @@
-  */
- 
- #include "icssg_prueth.h"
--#include "icssg_stats.h"
- 
- static void emac_get_drvinfo(struct net_device *ndev,
- 			     struct ethtool_drvinfo *info)
-@@ -294,6 +293,100 @@ static int emac_set_per_queue_coalesce(struct net_device *ndev, u32 queue,
- 	return 0;
- }
- 
-+static int emac_get_mm(struct net_device *ndev, struct ethtool_mm_state *state)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth_qos_iet *iet = &emac->qos.iet;
-+
-+	if (emac->is_sr1)
-+		return -EOPNOTSUPP;
-+
-+	state->tx_enabled = iet->fpe_enabled;
-+	state->pmac_enabled = true;
-+	state->tx_min_frag_size = iet->tx_min_frag_size;
-+	/* 64Bytes is the minimum fragment size supported
-+	 * by the firmware. <64B leads to min frame errors
-+	 */
-+	state->rx_min_frag_size = 64;
-+	state->tx_active = iet->fpe_active;
-+	state->verify_enabled = iet->mac_verify_configure;
-+	state->verify_time = iet->verify_time_ms;
-+
-+	switch (iet->verify_status) {
-+	case ICSSG_IETFPE_STATE_DISABLED:
-+		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_DISABLED;
-+		break;
-+	case ICSSG_IETFPE_STATE_SUCCEEDED:
-+		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_SUCCEEDED;
-+		break;
-+	case ICSSG_IETFPE_STATE_FAILED:
-+		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_FAILED;
-+		break;
-+	default:
-+		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_UNKNOWN;
-+		break;
-+	}
-+
-+	/* 802.3-2018 clause 30.14.1.6, says that the aMACMergeVerifyTime
-+	 * variable has a range between 1 and 128 ms inclusive. Limit to that.
-+	 */
-+	state->max_verify_time = ETHTOOL_MM_MAX_VERIFY_TIME_MS;
-+
-+	return 0;
-+}
-+
-+static int emac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
-+		       struct netlink_ext_ack *extack)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth_qos_iet *iet = &emac->qos.iet;
-+	int err;
-+
-+	if (emac->is_sr1)
-+		return -EOPNOTSUPP;
-+
-+	if (!cfg->pmac_enabled)
-+		NL_SET_ERR_MSG_MOD(extack, "preemptible MAC is always enabled");
-+
-+	err = icssg_qos_frag_size_min_to_add(cfg->tx_min_frag_size, extack);
-+	if (err)
-+		return err;
-+
-+	iet->verify_time_ms = cfg->verify_time;
-+	iet->tx_min_frag_size = cfg->tx_min_frag_size;
-+
-+	iet->fpe_enabled = cfg->tx_enabled;
-+	iet->mac_verify_configure = cfg->verify_enabled;
-+
-+	/* Re-trigger the state machine to incorporate the updated configuration */
-+	if (iet->fpe_enabled)
-+		atomic_set(&iet->enable_fpe_config, 1);
-+	else
-+		atomic_set(&iet->enable_fpe_config, 0);
-+
-+	schedule_work(&iet->fpe_config_task);
-+
-+	return 0;
-+}
-+
-+static void emac_get_mm_stats(struct net_device *ndev,
-+			      struct ethtool_mm_stats *s)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+
-+	if (emac->is_sr1)
-+		return;
-+
-+	if (!emac->prueth->pa_stats)
-+		return;
-+
-+	s->MACMergeFrameAssOkCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_OK");
-+	s->MACMergeFrameAssErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_ERR");
-+	s->MACMergeFragCountRx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_RX");
-+	s->MACMergeFragCountTx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_TX");
-+	s->MACMergeFrameSmdErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_BAD_FRAG");
-+}
-+
- const struct ethtool_ops icssg_ethtool_ops = {
- 	.get_drvinfo = emac_get_drvinfo,
- 	.get_msglevel = emac_get_msglevel,
-@@ -317,5 +410,8 @@ const struct ethtool_ops icssg_ethtool_ops = {
- 	.set_eee = emac_set_eee,
- 	.nway_reset = emac_nway_reset,
- 	.get_rmon_stats = emac_get_rmon_stats,
-+	.get_mm = emac_get_mm,
-+	.set_mm = emac_set_mm,
-+	.get_mm_stats = emac_get_mm_stats,
- };
- EXPORT_SYMBOL_GPL(icssg_ethtool_ops);
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index 37de534e4d43..d9f95d6edc8d 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -45,6 +45,7 @@
- #include "icss_iep.h"
- #include "icssg_switch_map.h"
- #include "icssg_qos.h"
-+#include "icssg_stats.h"
- 
- #define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
- #define PRUETH_MIN_PKT_SIZE     (VLAN_ETH_ZLEN)
-@@ -58,8 +59,8 @@
- 
- #define ICSSG_MAX_RFLOWS	8	/* per slice */
- 
--#define ICSSG_NUM_PA_STATS	32
--#define ICSSG_NUM_MIIG_STATS	60
-+#define ICSSG_NUM_PA_STATS	ARRAY_SIZE(icssg_all_pa_stats)
-+#define ICSSG_NUM_MIIG_STATS	ARRAY_SIZE(icssg_all_miig_stats)
- /* Number of ICSSG related stats */
- #define ICSSG_NUM_STATS (ICSSG_NUM_MIIG_STATS + ICSSG_NUM_PA_STATS)
- #define ICSSG_NUM_STANDARD_STATS 31
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.h b/drivers/net/ethernet/ti/icssg/icssg_qos.h
-index 653dbb57791d..bf84cc1b8282 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_qos.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_qos.h
-@@ -57,4 +57,24 @@ void icssg_qos_link_up(struct net_device *ndev);
- void icssg_qos_link_down(struct net_device *ndev);
- int icssg_qos_ndo_setup_tc(struct net_device *ndev, enum tc_setup_type type,
- 			   void *type_data);
-+static inline int icssg_qos_frag_size_min_to_add(u32 min_frag_size,
-+						 struct netlink_ext_ack *extack)
-+{
-+	/* The minimum size of the non-final mPacket supported
-+	 * by the firmware is 64B and multiples of 64B.
-+	 */
-+	if (min_frag_size < 64) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "tx_min_frag_size must be at least 64 bytes");
-+		return -EINVAL;
-+	}
-+
-+	if (min_frag_size % (ETH_ZLEN + ETH_FCS_LEN)) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "tx_min_frag_size must be a multiple of 64 bytes");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
- #endif /* __NET_TI_ICSSG_QOS_H */
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.c b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-index 7159baa0155c..d27e1c48976f 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-@@ -6,7 +6,6 @@
-  */
- 
- #include "icssg_prueth.h"
--#include "icssg_stats.h"
- #include <linux/regmap.h>
- 
- #define ICSSG_TX_PACKET_OFFSET	0xA0
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-index 5ec0b38e0c67..f35ae1b4f846 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-@@ -189,6 +189,11 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
- 	ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
- 	ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
- 	ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
-+	ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
-+	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
-+	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
-+	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
-+	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
- 	ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
- 	ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
- 	ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-index 7e053b8af3ec..855fd4ed0b3f 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-@@ -256,6 +256,11 @@
- #define FW_INF_DROP_PRIOTAGGED		0x0148
- #define FW_INF_DROP_NOTAG		0x0150
- #define FW_INF_DROP_NOTMEMBER		0x0158
-+#define FW_PREEMPT_BAD_FRAG		0x0160
-+#define FW_PREEMPT_ASSEMBLY_ERR		0x0168
-+#define FW_PREEMPT_FRAG_CNT_TX		0x0170
-+#define FW_PREEMPT_ASSEMBLY_OK		0x0178
-+#define FW_PREEMPT_FRAG_CNT_RX		0x0180
- #define FW_RX_EOF_SHORT_FRMERR		0x0188
- #define FW_RX_B0_DROP_EARLY_EOF		0x0190
- #define FW_TX_JUMBO_FRM_CUTOFF		0x0198
--- 
-2.43.0
+--1sApqFsS7KHCWKJU
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmdnh8ACgkQJNaLcl1U
+h9DiTgf/fv4WLvjpgOLLYMYODnOOXRHQd1h3dBm6KtelA8k6J759K498iOyzjgnx
+A7YslxQK3ou66JhdMdWlrqY+7QykL6rXbwLBoot6l+R+wFGAEb/lqn8wF9GwrqHv
+Di47ihAw78UzoJNYds6DZnYWbxmXg/AJTGBLMpT2SEDHkQP9RZTzM+/vrFooaWFd
+D9icpI4Px4qj8dLhd2RbgPU/LuJNihS003UOXoPlxMCKwFZAedjtkvyIcDO4QEt/
+l6h8S7R9wVG/PZNQZ8mSYL3rrkFfMU7SVdCsj/rql55fKHzbdixEN89Yyvwp1Cqw
+tUY0UZW3V/fFE0ZigwUzfVZrpHJJEQ==
+=9vEz
+-----END PGP SIGNATURE-----
+
+--1sApqFsS7KHCWKJU--
 
