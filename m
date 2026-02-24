@@ -4,116 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808DDF3C984
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 14:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B33F3C984
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 14:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvPQfS2HcOi6Dwcm5kCIBpAWK6QLR1BenH137ecxFTk=; b=wQyAO6le6A/9jhYxp1yqwvB9Sl
-	MqcDRVnvMdw0C98/xqi7WOCtjKAY7aJSWXiv7BcgnK4bi5JhLygfQo64xo0bbXKKHQAbjgrgnvtto
-	JUSZYOT6as0RP9LvDlvj3NOZZXoRJc/5uA86Pg0Ygh7GoZ8p6vjhAiLcUNdu1W6ZCokMiNEhaewxE
-	xA7dQsdD5xjE2K2lUlBrH9pu3DdpJcXeR2S1O1Em9+2PRww3nnHA7W4JgxWjm/IDJmtUc4D/oJtf6
-	x5XtILzPwJuTYWCMQjfIuHjW1Mjs4yLrc6E9rllBGBCj9pHQ0+CXcjqAbnlhVzdTsitwf6AzWTxoQ
-	5WufCAGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5IhyRq6j44lbgw/MYEQwdd/zqrqvoFdKpJPwA65t7lc=; b=XAJhWDdGD77+FxWJY1XAd9nFMa
+	ZGBFahTQnBS7pwhxJNnje/bY+7Io86TAO/XBAlLVyD1fGE1bHwzvttvspbL0RmlhdafwVObM9UXri
+	xr8mTexiMwAlV147FIh3DRcC+VSiu3xEHNQKcaIShTph1IqmaVqOapwpZp0N1oLLmBWNLp22lLVPy
+	Wh7RPs0Luw5KiABeIuWCSYY+iY0vqWcz84xMaeLOwtgWyM4Tw5oWKhgTuve0x3uOmi/EbkBNAN9l5
+	ffEEQfvMC69I8dTHUnNOj00fiSiO8LxuRQaOlC6tVwpyBp/EtW5/JsBnJ2LJwJ86xP+YofR8GZgnA
+	5s4EilrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vutUp-00000002EQb-2lgz;
-	Tue, 24 Feb 2026 14:34:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vutYL-00000002F4N-0LXw;
+	Tue, 24 Feb 2026 14:38:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vutUo-00000002EQM-2Pco;
-	Tue, 24 Feb 2026 14:34:42 +0000
+	id 1vutYJ-00000002F3x-3xJh;
+	Tue, 24 Feb 2026 14:38:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B165461119;
-	Tue, 24 Feb 2026 14:34:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE404C116D0;
-	Tue, 24 Feb 2026 14:34:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BE21D61118;
+	Tue, 24 Feb 2026 14:38:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2CFBC19422;
+	Tue, 24 Feb 2026 14:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771943681;
-	bh=ONrZv/Iu6JWBztYdh+If2jwoZaKJW0Rj0z5BS5znOgA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QIay9dhOkmQuG3tnDjLlIFjJjdqNNX28pHW5hV13zcYYTXRuNob0DmAFubY7ELLwM
-	 JrlocQ3+VZ3H6U0FR+8CKOnu7nxLPILtXgsVZJQ4grj1xqj+MZjtQMLhuIPuA1LRzf
-	 HskFXf5m6YCduHz3G1b+/ahmyp9BQi3eSKNZDsptcgWN1bRQuIrmA1GbnZ7+iD29Hs
-	 n+4PUn8s+WrTDENwUajLTmSZ0z/pAJRWwYwe/b1bkvboFXXKZfqkL+CdPfsyoRqzUf
-	 q+x9v/Xe6B8T5Uw9XMjnw7C95JKHE3mYkOZf7fkUZsCoroZMnxLq6QdzT+1sYPi9Cm
-	 R9xYGX2hx0Z8Q==
-Message-ID: <1cdc36f2-6e51-492a-9063-7d0a784f5118@kernel.org>
-Date: Tue, 24 Feb 2026 15:34:36 +0100
+	s=k20201202; t=1771943898;
+	bh=wPlstvr1vtng5Z8cvx+47DS9+o9aAqKW2r6GHJ7uuxs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JU+tftSlcd79SWpTaxWdip1YcYQks3WUmm2YHyKc3+YvW3ns5HJT8soxQt6BFF+Zm
+	 ozi8Fcj8ZOsA2noENdn7ylcF+2PK5rggTKgUt01GZLDC7zMrgJ8/3NZZi38tLHvHuK
+	 cv3/3a1iNs1b6NHxVBI2LxUNgppG15UWc9XzNGPsABX50htLCFUP7Eu7hjHHTQxod5
+	 2S7h5ePYGzvdAM49gY+928Tl+rAWOhAmtNJ3WdO9hcdXXzef7MijVOrCWrFf3ccAOU
+	 ebyWMrcwYSX4376zU5+LJrds5gdSqYP1LbkbnfOUQTsRSCRljp84Z99GT+01wS7CyD
+	 U1cy0u88rQGtw==
+Date: Tue, 24 Feb 2026 15:38:15 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, kernel@collabora.com, 
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	Andri Yngvason <andri@yngvason.is>, Werner Sembach <wse@tuxedocomputers.com>, 
+	Marius Vlad <marius.vlad@collabora.com>
+Subject: Re: [PATCH v8 02/20] drm: Add new general DRM property "color format"
+Message-ID: <20260224-elegant-fine-mule-f45bca@houat>
+References: <20260216-color-format-v8-0-5722ce175dd5@collabora.com>
+ <20260216-color-format-v8-2-5722ce175dd5@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] media: dt-bindings: rockchip,vdec: Correct
- reg-names order for RK35{76,88}
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
-References: <20260223-vdec-reg-order-rk3576-v2-0-daf4942dfc02@collabora.com>
- <20260223-vdec-reg-order-rk3576-v2-1-daf4942dfc02@collabora.com>
- <20260224-saffron-peccary-from-heaven-2d5e6e@quoll>
- <244b22d3be77047163b4e47c4ed33b5b1befb4b4.camel@collabora.com>
- <0874bb3d-b38d-4ea3-a5b0-2da2484cc3e5@kernel.org>
- <e73da0713587ad5380344afa686a13431d07e232.camel@collabora.com>
- <af6c6561-3d41-4967-a224-cf239335dc5b@kernel.org>
- <0c9a158a-f70e-461c-900b-6f6485064a02@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <0c9a158a-f70e-461c-900b-6f6485064a02@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="mibp7hbznkdzhzwa"
+Content-Disposition: inline
+In-Reply-To: <20260216-color-format-v8-2-5722ce175dd5@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,59 +85,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2026 15:07, Cristian Ciocaltea wrote:
-> On 2/24/26 3:54 PM, Krzysztof Kozlowski wrote:
->> On 24/02/2026 14:48, Nicolas Dufresne wrote:
->>> Le mardi 24 février 2026 à 14:18 +0100, Krzysztof Kozlowski a écrit :
->>>> On 24/02/2026 14:14, Nicolas Dufresne wrote:
->>>>>>>  
->>>>>>>    reg-names:
->>>>>>> -    items:
->>>>>>> +    oneOf:
->>>>>>>        - const: function
->>>>>>> -      - const: link
->>>>>>> -      - const: cache
->>>>>>> +      - items:
->>>>>>> +          - const: link
->>>>>>> +          - const: function
->>>>>>> +          - const: cache
->>>>>>
->>>>>> No, ABI break without point.
->>>>>
->>>>> Its not released yet, otherwise both order would need to be allowed.
->>>>>
->>>> Also, not true.
->>>>
->>>> git describe --contains  c6ffb7e1fb90
->>>> v6.17-rc1~90^2~3
->>>
->>> Ack, I thought this was part of 7.0, it would have been logical to be part of
->>> 7.0-rc1 I must say. Whatever happen, backward compat will unfortunatly be
->>> needed.
->>
->>
->> I was here checking the binding, so the ABI. DTS maybe was in v7.0-rc1
->> indeed. Anyway, the commit msg should describe the impact on users of
->> this ABI, at least known users.
-> 
-> My bad, I only checked the DTS changes which landed in v7.0-rc1, and wrongly
-> assumed the binding also landed about the same time.  I think it's unlikely
-> there are any (external) users of this binding, but obviously we cannot be 100%
-> sure.
-> 
-> Would it be acceptable to extend the binding so that it allows both the current
-> and the new proposed order to coexist?
 
-Depends also on the drivers and that's your "users analysis" should
-cover. If there are no known released users of relatively new ABI, it is
-fine to propose the change with such explanation and reason - poor
-hardware description because convention expects the main device's
-address to be used as first "reg" entry.
+--mibp7hbznkdzhzwa
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v8 02/20] drm: Add new general DRM property "color format"
+MIME-Version: 1.0
 
-You can have also oneOf with older list "deprecated: true", if want to
-keep any users unaffected.
+Hi Nicolas,
 
+I've sent some preliminary work here that should help you with this, and
+the HDMI helpers.
 
-Best regards,
-Krzysztof
+https://lore.kernel.org/r/20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org
+
+On Mon, Feb 16, 2026 at 02:01:16PM +0100, Nicolas Frattaroli wrote:
+> +/**
+> + * enum drm_color_format_enum - color model description
+> + *
+> + * This enum is a high-level description of the component makeup of the image
+> + * data. It says nothing about how the components are ordered or how many bits
+> + * they take up (i.e. is unlike MEDIA_BUS_FMT\_ or DRM_FORMAT\_), but
+> + * describes the type of components (Luminance-Chrominance vs. RGB) and the
+> + * sub-sampling.
+> + *
+> + * &enum drm_color_format_enum makes statements about the same attribute of
+> + * an image as the DRM_COLOR_FORMAT\_ bitfields do. Its purpose is to inform
+> + * choices made by display protocol specific implementations when it comes to
+> + * translating it to e.g. &enum hdmi_colorspace or &enum dp_pixelformat, both
+> + * of which also describe the same attribute of the image at the same level of
+> + * specificity.
+> + *
+> + * In precise terms, this enum describes a color model. It makes no statements
+> + * about the primaries, gamma, or current phase of the moon used in conversion
+> + * from one to the other. Furthermore, it also makes no statements about the
+> + * order of components (e.g. RGB vs. BGR), their depth in bits, or their binary
+> + * packing.
+> + */
+> +enum drm_color_format_enum {
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_AUTO: The choice of format is left up to the
+> +	 * display protocol implementation. All implementations of the same
+> +	 * display protocol (e.g. HDMI) are supposed to behave the same way,
+> +	 * though display protocols may choose to behave differently compared to
+> +	 * each other (e.g. HDMI's "AUTO" does not have to match DP's "AUTO").
+> +	 *
+> +	 * Implementations may rely on @DRM_COLOR_FORMAT_ENUM_AUTO to be falsy.
+> +	 */
+
+The HDMI (and others if they exist) behaviour should be documented, and
+referred to here.
+
+> +	DRM_COLOR_FORMAT_ENUM_AUTO = 0,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_RGB444: Image components are encoded as RGB
+> +	 * values of equal resolution.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_RGB444,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_YCBCR444: Image components are encoded as
+> +	 * luminance and chrominance of equal resolution.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_YCBCR444,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_YCBCR422: Image components are encoded as
+> +	 * luminance and chrominance with the chrominance components having half
+> +	 * the horizontal resolution.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_YCBCR422,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_YCBCR420: Image components are encoded as
+> +	 * luminance and chrominance with the chrominance components having half
+> +	 * the horizontal and vertical resolution.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_YCBCR420,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_NUM: The number of valid color format values
+> +	 * in this enum. Itself not a valid color format.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_NUM,
+> +
+> +	/**
+> +	 * @DRM_COLOR_FORMAT_ENUM_INVALID: Error return value for conversion
+> +	 * functions encountering unexpected inputs.
+> +	 */
+> +	DRM_COLOR_FORMAT_ENUM_INVALID = -EINVAL,
+> +};
+
+So, I think with my series mentioned above, we can settle on having this
+enum as the property value (and called drm_connector_output_format or
+something?) and drm_output_color_format used internally by everyone that
+needs to list the supported formats, or the one being enforced.
+
+Assuming we use the names I mentioned before, that means the
+drm_connector_output_format -> drm_output_color_format conversion needs
+to be done by the driver (or helpers like HDMI) to expand what "auto"
+means, and could be fallible, but the drm_output_color_format ->
+drm_connector_output_format conversion is infallible. Which should also
+simplify your code paths.
+
+Maxime
+
+--mibp7hbznkdzhzwa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaZ231wAKCRAnX84Zoj2+
+dgv7AX0TPqjjMKqbcMxhzowC9vgkD4abbWiLZG7BLnMDNWqVjvbTeZ19YIowWZg1
+BzVjkb4BfjqM/rkI15M8Ts5OoyNuqrWr4Zui3f3bxCVLAB5tGzQMIYlhBIHVp1om
+T5DrzyQ2lw==
+=VVcr
+-----END PGP SIGNATURE-----
+
+--mibp7hbznkdzhzwa--
 
