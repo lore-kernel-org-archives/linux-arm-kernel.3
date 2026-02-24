@@ -4,75 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5B1E9B242
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B95B6E9B243
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kt/G2hwFOe0fsKThVxkMI25BLPW6JpzqpyK10DjGztI=; b=Yu5DvSwliMVphwgX+okFo/1WVy
-	TdGGi1waeyzLbGSFwfzPUkluQ7btTvphbxa66/w0rXNpcq+NLodMpK0vzfpE8WfhzS4ZVV/V0MdUY
-	JZ/0O/nHEp1BIgn+leCIaw6ylcDl/nkkPgLH5eCcKBp5VCvOlCy0HjV3hK42d3umySMmUSb8kpyGR
-	UTv1rQhMGPsUixresq8rtg0JkKtNqDsIje69lsQFGX86Lmh3KcmARIznJ2LL5nPcBhw/CbP1xrW7I
-	7jf3csfosCwNmyUKBMf6afMeauV5YvSEa4LALSi3bExhXS1PuB4N5PueSm87tjrFgUqb8vOOBqd3V
-	AmTLBpvg==;
+	bh=tbMrX8dEjwBmXe/M1xKs3MrYROJDUxcdPy0FKieOI3w=; b=IwEAt2EZo5x2ylL9TnlT4q0ohI
+	FI6JVkXEPpn8EP3XA1ODeYCXUGLTH3tb/rdvT5LRuG9gid9iuVgPaTb3/X0cwF9SeAz9vBrABM4Is
+	ONB6PVtlqb7uQZdYTeZw/3DsmM9OLGTuF0Lwb0pIzNuuWctzEHmIGAsgQbjDPo5lL+TOEYlppUqTs
+	pqHDbRzIvkbLExdTSZ6TAaBV2UwEfUoC9G8h2eC+xMy3EgAQJFwRlKgG6gGIzE7ksBo3uKPbbrMeG
+	PNJ+S26ic+boOaSqch35iaoDwx5z0Dwzx06Jpqhdd7AnZ7uyPUP7gQpzXLo/PDDMPa7Ncc+zC24HZ
+	Mv05ra3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuosN-00000001mfB-1MWu;
-	Tue, 24 Feb 2026 09:38:43 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vuosW-00000001mhT-2j5o;
+	Tue, 24 Feb 2026 09:38:52 +0000
+Received: from mail-westeuropeazon11011003.outbound.protection.outlook.com ([52.101.70.3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuosL-00000001meU-00xS
+	id 1vuosU-00000001mgd-2Uv2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 09:38:42 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vuorh-0000Ew-Dj; Tue, 24 Feb 2026 10:38:01 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vuore-002NLK-1B;
-	Tue, 24 Feb 2026 10:37:59 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vuorf-000000030rL-2Q5b;
-	Tue, 24 Feb 2026 10:37:59 +0100
-Date: Tue, 24 Feb 2026 10:37:59 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
-	Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, luca.ceresoli@bootlin.com, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v9 0/3] Add i.MX91/93 parallel display support
-Message-ID: <fl2br7rtcjrjj2uqxva7ai3xbvjwrrbbl2ruaoqolrccr2rd5p@z33qfx7dpavf>
-References: <20260115-v6-18-topic-imx93-parallel-display-v9-0-2c5051e4b144@pengutronix.de>
- <fpnruayalannx3jrsjqfjzawrzxazy7ioo7ufxcwkbwj2eezfp@6i6ty7fz5xtc>
- <aZNKPVZunRSZ72zt@lizhi-Precision-Tower-5810>
+	Tue, 24 Feb 2026 09:38:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MuFp+OOZvsFtX70fh7xP+PVytw0xb/pCSjD9tkK/Mx3TPuwppuZuGGwBzMNzrauPru/meJvJrE5YDu0WboAlSh2cTO/cYZ6pyKcaV3kpqJqrOsfN2eES/t2dT5r1BK2gLyG/9Rx8a0N3zzK4asV+CxDlxK3oQRAR2+vseFoQIiADO7vjlMRy3cdmsYqg36x++Vm8DEs7Xypgy6SQrp1Ud4x4FwchQN/cmHNkDV/p0XM040KLy+8g6pjaHnBeVLDn91KrjijZO5QbF4dNzaDPWuMkJGLncow5bKcH3jYgqYGY40yEDKwyvBdQL4cOBLmIVuYxnEuWcmTMOGSuyX1KiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tbMrX8dEjwBmXe/M1xKs3MrYROJDUxcdPy0FKieOI3w=;
+ b=x/ZeSpaRyKNHXxGvxPjHbxt1JPWP8RaLT+5LO5KcJTTP1x2Chd2Zxf+aKLA/9unqc/VA/wQOI+4uT4FS9+EPJoTiDfqW5Y2IDeNTGlv6ltRDWuY6SMqcvA6wrGdWo3DLEwezG87AvcqLZBqdogVvSyVhp4hxoZN1kQP0gPIkX7vIR07m+qGjwLAbwAmM0B/rv0YD6YqLVzv8AYXoQ5OR3aW7cygo6ykrOjjwHUDHu2kMiaiAfwThkCL3alsL+FTlkDCVE1AiXcbDfeOhgJ89u0b6jrO1GFTKCQeX3AVZNWOKZaTThHTxD199dPS+IDLbL4rzJFdTNgCx44S0mnDnCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tbMrX8dEjwBmXe/M1xKs3MrYROJDUxcdPy0FKieOI3w=;
+ b=m5nwIRE0gayxfOWy2eEib7UPnG50knDm6JyxWJVu61leQL4JFf34vUcJ9EasqsqMBY8opmWxvzCjrCkalu80QBI786Xk8o6trp2tB9ccow+42Vu9bbbfVTfHXcsHg2gqan/Z+qw+ohTB0mWq5T7j934fcDp09r0XrC3KIOliBbTSnuVCMwJ5L7KVCDLCxDGboKfcTP8/IBiv6u6xZJy5MHHY5hrOXGFN2OxHneQ8UXqTGYRjBkHOkE9A2J5Znbcx9pL+a3kSMmaFS0QPj0dlOKOP4Zoc+vo+9d+k8J36b6LD6X+ivuLVRh8Gf8P0onzHkQm5MVcFLqK5gVHsnU/8rw==
+Received: from DB9PR01CA0005.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:1d8::10) by VE1PR10MB3805.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:800:164::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.21; Tue, 24 Feb
+ 2026 09:38:41 +0000
+Received: from DB3PEPF0000885F.eurprd02.prod.outlook.com
+ (2603:10a6:10:1d8:cafe::e9) by DB9PR01CA0005.outlook.office365.com
+ (2603:10a6:10:1d8::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.22 via Frontend Transport; Tue,
+ 24 Feb 2026 09:38:22 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB3PEPF0000885F.mail.protection.outlook.com (10.167.242.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9632.12 via Frontend Transport; Tue, 24 Feb 2026 09:38:40 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 24 Feb
+ 2026 10:40:56 +0100
+Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 24 Feb
+ 2026 10:38:39 +0100
+Date: Tue, 24 Feb 2026 10:38:29 +0100
+From: Alain Volmat <alain.volmat@foss.st.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+CC: Mark Brown <broonie@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	<linux-spi@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] spi: stm32: Use NULL instead of 0 for pointer
+Message-ID: <aZ1xlV_E1NqsGm7P@gnbcxd0016.gnb.st.com>
+References: <20260216085816.69888-2-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <aZNKPVZunRSZ72zt@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260216085816.69888-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Disclaimer: ce message est personnel / this message is private
+X-Originating-IP: [10.130.77.119]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB3PEPF0000885F:EE_|VE1PR10MB3805:EE_
+X-MS-Office365-Filtering-Correlation-Id: 29e59ee4-bc84-42c7-9c44-08de73887e61
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OPgXd0NQJ/5RcVWu/r3YP38H8Sx9yAnIV/IZV6XiIC0fuOMokgkaiXtan0lC?=
+ =?us-ascii?Q?nmfXeOvloHwpdBn/MuQOOlxpCDE6nF107O+2Iq61VKIsLcTN2to1I1kqe59c?=
+ =?us-ascii?Q?OXwtEB+ryflzTxR1F1h8UtwZnbgh9gqtW4BYUm2LDFJx8BqPO9hCZGciAD7S?=
+ =?us-ascii?Q?qwsYmPFW9ImFscR8a9azxNVBE1UNx7H5uZJZrBC1b5mIJdOA07EXqqQM7OMh?=
+ =?us-ascii?Q?8A9ZXGswjSnQyi5SKIB0JPNbJ4wSet46Ao6bLkXbalUyMZMynoCh2OO9BV3+?=
+ =?us-ascii?Q?FEYYSU7J0H93/lNeHfbvxOAIPKYm2KYeEKmMWxmlQAC98FxIQJkxayHXWnpk?=
+ =?us-ascii?Q?wIb53tR9bTECsTHfbIimC2gYaM/O38s4Rrwg6GhmWMuVCqy1vyvHcp76XLWr?=
+ =?us-ascii?Q?bYsu/DdWUIpKNtgAieKW1NruYEqEWAPEWZOMo81KMndY7gM8uDCBbXGQWm8k?=
+ =?us-ascii?Q?pccU/XgIDwa1qiXsJJXfuKlBW3z4W5mJ84z6GeZm24ma5hGAiQIM9gqg/4Tl?=
+ =?us-ascii?Q?LCVRHHyLn7yNwSm/5kI4kkUb0ePG9mcTh/KyLAlFi72qKeqUCLyshU8ZqRRw?=
+ =?us-ascii?Q?3jsncx2/1qSBhG99lnwZW66tLhSZ5EDvuKbqQtbSLDZ7NYErbB0yPo47Tudv?=
+ =?us-ascii?Q?J3K14PEAcIROhExLHTgoOb6lOjVkAwlNhbmO9rntUXRfheiazgcAbeirZFs7?=
+ =?us-ascii?Q?Bi4R2xsLNKFI/KStNvJ8uvplQRuEFaMrfi7hXCGmIjNOK7dSxFMlaugNbhXn?=
+ =?us-ascii?Q?GCiURqlsM20fK/uo4kFiiNSiYYeW6bYzFaB3SXkjdG+uW/K5zDeoLakbSGg1?=
+ =?us-ascii?Q?gIsZCOEzgN9f3deZhumhskw2OE6mGz2S1Xcg/i3WybShIDXzrtt3LigsPIXX?=
+ =?us-ascii?Q?wP719GEExPmZP77IUlOK93UD+6djZvwerq/QcVByF9gKDRV/9rejQnj2KEC6?=
+ =?us-ascii?Q?LLqqVMe5t++3Fm6bh4I45MiC7TuUof3BCK3Cj+M031TVu10iMAXNczKbXn7A?=
+ =?us-ascii?Q?FY1InEE1XQVL6Wz8XNgQifGeMpkbhq4y+v3Jqmt8/FRaWy4UPxz66wntxeA8?=
+ =?us-ascii?Q?smQA85jWxf68MNnr0zWWl4Va05FEmvnoyw+X3X0qaLCuoXn7Kfp8lmInbZ4V?=
+ =?us-ascii?Q?q2m6ahBduXvTKnv/IJPSABSCo7SYp+DfG8IdbmrKJkB6qImut/ThplxEfQdv?=
+ =?us-ascii?Q?tH0FNBzY8oqS0wzkjhoc86UQvzBBo900+sJa9NPhqxCti7xt/8wwbzMv6byl?=
+ =?us-ascii?Q?dDRa+GYVFzaOic5vx/f4NZwjHy1AWHDL4XenS+PtwpcPtuH3N5q2l07Os4PG?=
+ =?us-ascii?Q?TZOf30MUzI2HmDT9vLlX3NJBCmqPIxwUlE98TDEQdUmqtKCRQn5W6RyJ1aa2?=
+ =?us-ascii?Q?X3/C+KuIm/zXaePdHruta02MU9rVT+780ycLSvbpnsKgGY6gBBS3npwEiR8b?=
+ =?us-ascii?Q?aL5Tbz73E2gRLv/0+rkwYRDaL8008C+ZQJYL62ETg2qAHuCxrrLSgVALsx+Q?=
+ =?us-ascii?Q?8XtYbkGCty9KBNa3Xnr14eNLH/qKj+qfNQotpt/2tq0nJuHaSadgDJrwpThi?=
+ =?us-ascii?Q?yHpPgwEYjZIxEmxH5FbtK9QZD1njIM+vazz2hzofqqorCDvQu6ZcYz0R9ZcA?=
+ =?us-ascii?Q?eWT+AbyTDctDHCm5DUmWzE1cfL+7fjaizuwti1QZEk31Z0Ajurs+hwKEQNm0?=
+ =?us-ascii?Q?+UBqcg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: neYYKSCkRBzA+Ss+7bAatA6YjXXnu1Cb3pcd8ebWFVXHTeMolMoJUJPlsqc1+/7PZJWAHy3tkLOf7xLcFP7zJFVcrC/nbC/p9V5XFjODjAKlkJ1yvS00cDZQ+ZhFA83jrXYZgEXcyT+G4EgjyMO+fzC5gRhY0mbmHdeIE1i21lk1U2guqtV7uoGzZPH4R7pdDda+l+U6FtTqr742us7nODLD4R9ZyCOdeDYOFwPYIhqGGowqB0UVUG4KSM0ZQyDZ6UQijI9xOohDR/FcTKa+DjKlXi/6KiJT5yr/ID+G1BDJn383C3m3imS15TReJvvC2B1OeiHS7uqrJNXhXFI10ZO45Wakbq8dbAFJqj5QgwVt46nWqjG2oFfD515xoo5fafOU4q/j97bDbEfD71ZS4Ki1WCMcDlKw8XieebT2GOckaczmd8aUBz5ZHqRzPw9k
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 09:38:40.5118
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29e59ee4-bc84-42c7-9c44-08de73887e61
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885F.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR10MB3805
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_013841_041107_7C8E62BE 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20260224_013850_845609_F6F3CC9A 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,128 +155,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-02-16, Frank Li wrote:
-> On Mon, Feb 16, 2026 at 11:41:26AM +0100, Marco Felsch wrote:
-> > Hi,
-> >
-> > maybe this fell through the cracks due to the maintainership change,
-> > therefore a gentle ping :)
-> >
-> > +To Frank
-> 
-> Please wait for v7.0-rc1 tag create.
+Hi Krzysztof,
 
-Okay :) Now it is out and as reminder, a gentle ping.
+thanks for this patch.
+
+On Mon, Feb 16, 2026 at 09:58:17AM +0100, Krzysztof Kozlowski wrote:
+> Pointers should use NULL instead of explicit '0', as pointed out by
+> sparse:
+> 
+>   spi-stm32.c:1659:65: warning: Using plain integer as NULL pointer
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+>  drivers/spi/spi-stm32.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
+> index b99de8c4cc99..38f6bba38b07 100644
+> --- a/drivers/spi/spi-stm32.c
+> +++ b/drivers/spi/spi-stm32.c
+> @@ -1656,7 +1656,7 @@ static int stm32_spi_transfer_one_dma(struct stm32_spi *spi,
+>  			ret = stm32_spi_prepare_rx_dma_mdma_chaining(spi, xfer, &rx_dma_conf,
+>  								     &rx_dma_desc, &rx_mdma_desc);
+>  			if (ret) { /* RX DMA MDMA chaining not possible, fallback to DMA only */
+> -				rx_dma_conf.peripheral_config = 0;
+> +				rx_dma_conf.peripheral_config = NULL;
+>  				rx_dma_desc = NULL;
+>  			}
+>  		}
+
+Reviewed-by: Alain Volmat <alain.volmat@foss.st.com>
 
 Regards,
-  Marco
+Alain
 
+> -- 
+> 2.51.0
 > 
-> Frank
-> 
-> >
-> > Regards,
-> >   Marco
-> >
-> > On 26-01-15, Marco Felsch wrote:
-> > > Hi,
-> > >
-> > > this patchset adds the driver, dt-bindings and dt integration required
-> > > to drive a parallel display on the i.MX93.
-> > >
-> > > Since the i.MX91 register layout equals the one from the i.MX93, I added
-> > > the support for both but tested only the i.MX93 case.
-> > >
-> > > This patchset depends on:
-> > >  - https://lore.kernel.org/all/20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de/
-> > >
-> > > @Conor Dooley
-> > > I dropped your r-b tag since I added the 'bus-width' property.
-> > >
-> > > Regards,
-> > >   Marco
-> > >
-> > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > > ---
-> > > Changes in v9:
-> > > - Link to v8: https://lore.kernel.org/r/20260113-v6-18-topic-imx93-parallel-display-v8-0-4abccdc473a5@pengutronix.de
-> > > - dt-bindings: drop unncessary changes (Frank)
-> > > - imx93-pdfc: drop bridge.driver_private usage (Luca)
-> > > - Kconfig: Adapt Kconfig symbol and prompt (Luca)
-> > >
-> > > Changes in v8:
-> > > - Link to v7: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de
-> > > - dt-bindings: add nxp,imx91-pdfc compatible (Liu)
-> > > - dt-bindings: use video-interfaces.yaml# (Liu)
-> > > - dt-bindings: s/data lanes/data lines/ (Liu)
-> > > - dt-bindings: drop 'reg' poperty
-> > > - dt-bindings: drop #address-cells, #size-cells
-> > > - imx93-pdfc: drop drm/drm_print.h include (Liu)
-> > > - imx93-pdfc: s/exist/exists/ (Liu)
-> > > - imx93-pdfc: drop MEDIA_BUS_FMT_FIXED from imx93_pdfc_bus_output_fmts
-> > > - imx93-pdfc: imx93_pdfc_bus_output_fmt_supported: make fmt const
-> > > - imx93-pdfc: Rework input-fmt selection to always fallback to a sane
-> > >               default.
-> > > - imx93-pdfc: imx93_pdfc_bridge_atomic_check: make use of
-> > > 	      imx93_pdfc_bus_output_fmt_supported()
-> > > - imx93-pdfc: drop 'reg' dt-property usage
-> > > - imx93-pdfc: imx93_pdfc_bridge_probe: pass -1 for endpoint reg value (Liu)
-> > >
-> > > Changes in v7:
-> > > - Link to v6: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-parallel-display-v6-0-7b056e1e5b1e@pengutronix.de
-> > > - Add missing bits.h and bitfield.h headers (lkp)
-> > >
-> > > Changes in v6:
-> > > - Link to v5: https://lore.kernel.org/all/20250304082434.834031-1-victor.liu@nxp.com/
-> > > - Add bus-width support
-> > > - rebase onto v6.18-rc1
-> > > - add review feedback (Alexander)
-> > > - driver license "GPL v2" -> "GPL" (checkpatch)
-> > > - make use of reg of-property
-> > > - fix to short Kconfig description (checkpath)
-> > > - add OF integration
-> > >
-> > > ---
-> > > Liu Ying (2):
-> > >       dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC subnode to schema and example
-> > >       drm/bridge: imx: Add i.MX93 parallel display format configuration support
-> > >
-> > > Marco Felsch (1):
-> > >       arm64: dts: imx93: Add parallel display output nodes
-> > >
-> > >  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml |  78 +++++++
-> > >  arch/arm64/boot/dts/freescale/imx91_93_common.dtsi |  54 +++++
-> > >  arch/arm64/boot/dts/freescale/imx93.dtsi           |  12 ++
-> > >  drivers/gpu/drm/bridge/imx/Kconfig                 |  11 +
-> > >  drivers/gpu/drm/bridge/imx/Makefile                |   1 +
-> > >  drivers/gpu/drm/bridge/imx/imx93-pdfc.c            | 226 +++++++++++++++++++++
-> > >  6 files changed, 382 insertions(+)
-> > > ---
-> > > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > > change-id: 20251201-v6-18-topic-imx93-parallel-display-95f9234bf6cc
-> > >
-> > > Best regards,
-> > > --
-> > > Marco Felsch <m.felsch@pengutronix.de>
-> > >
-> > >
-> >
-> > --
-> > #gernperDu
-> > #CallMeByMyFirstName
-> >
-> > Pengutronix e.K.                           |                             |
-> > Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-> > 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> > Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
-> 
-
--- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
