@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD05EFB816
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 08:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5577FEFB819
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 08:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h37SoXxOAox4YOdzJyW9JzMBrcM1QBrBBjEPpKj+7G4=; b=jYdlybgOMMlPg1CnsDUKkvly+a
-	Q4DEY3Zt7m1I20Iv0ZZ9wg8AoGt4X2mP8vq8WPEVdQ3K5p5ohVhwX4qoTEacZ3399tzwlN8KCvZoR
-	ZrocPYzs/iN1EqAgvOJEH25z7MD5UfQig9jOUqVIVAURR6bYkPyVKHgb7CIv53HhmfsSpd7LNYT/d
-	c7wnwIa4+HMshUoWjS/YlC17Zx/WNuuC2NhWJAjNyaIpxDBtUOPld9LhgzUHZiXg67l627MoNnGbw
-	Hl3Df3I2ZCSeaC6aExCXBox0Z5+Q17LcYVIYjqDM88B+HJGtsfs3AeczXslTGFpjGInfTJRHxc02V
-	misq69IA==;
+	bh=UFMF1p/NhgPyfcfJVx2kwxOkhOs0n4JLtEKgCarBr6g=; b=hTcFqrEv+6n5Vpt52GhrYHAznn
+	KqbuqOSviKPuCt+dZerzgJoSUcl/D1QmeFwVWu+0Y7TImsSii6tNnMiRTykc1ogH3ghNZjuvYwK/O
+	4/P66AMI/WsPOXDWMEB+4jAxTNLuDsqYtVJsHvPRbRUxO3eJ1H2ECM0E7WR+ZxNjJ1vth1cOva+wn
+	VxbmLP6xSBQEKkBs0dzbQY7daDxPcPv4MmfOFk8ncR7O8E3sqN3ze6JCWxQMpswvSGH9874ABcRjk
+	y0BQoZyvpLWZ3A8eM8858D/g8sIRsxSJRmRZmfqYr6MCPUM89nGxYZ9dDBS3/t8a85oWa0pXaNJgH
+	2jj/iskQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuo9N-00000001fnF-1gHZ;
-	Tue, 24 Feb 2026 08:52:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vuo9d-00000001fs1-0oet;
+	Tue, 24 Feb 2026 08:52:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuo9L-00000001fmc-1OdN
+	id 1vuo9b-00000001frC-2mVo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 08:52:12 +0000
+	Tue, 24 Feb 2026 08:52:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7A0743A05
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 08:52:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84067C2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 08:52:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DCBB1444AE
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 08:52:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA40EC2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 08:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771923130;
-	bh=TxC+9CwQPZaQ4eZ8FYnf/MRlHREBnO/JfF0+/m7jxIU=;
+	s=k20201202; t=1771923146;
+	bh=ZyS0H8QHSpm79D9MEZf7/yBV87yLDH23GUMf+3RQhgw=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=DeK1+tcojVaf6QVywu3aN3pt2jTLUQJu0i99eZvTkRaRPYZ25g7dN85erlfiObexi
-	 sBKH6lBcbvBusBaQ4gA6d0RAtzEGeBUZs4WOhYS83oXyXaWG/xSkuKm6XRTXynH7os
-	 UqjNuiCBajKp1ct+I8Cbfp2KNyL6N5WP14aloLQziMnsl7xNT1jn889pS2KwhUv/iu
-	 qAPRaJNt2lT/UJ+tDAB1B6Ad2sgz4QFF/JBFVsFQh05MjI7tXeKamHmnS/aTs+fJfA
-	 nPpJrb/Aq9QGyrXSHU79buKui8S3NNtZKNWtjtnBb5AHrODfkicqEw6KJxq16ltH0c
-	 RS1/idD0qC/rw==
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-79495b1aaa7so46659907b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 00:52:10 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXZPsk3f7PzAcgti3pg+DfWQwr0p5KfcNtWnKd7qIghzbIdPdtIpsIvswrjwSF+Zf3Fel4t+IXmbc6W2pRpS7zy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKUFR+fg2rAo0srqlQg+yju1PlwdQsetb9HSXFWwP8wsoM7DES
-	m9VpPGfTvhF2S5oWSJrF7uhmFXUY7I4mhJ3qq3ApPg0yvEFrKB55am8aYIpFDwPFvvS1HHs7OHL
-	DRTtc8ng77Ze2xS2ii0XhBRrPfEK0ZiE=
-X-Received: by 2002:a05:690c:883:b0:797:d8ae:df49 with SMTP id
- 00721157ae682-79828f3643cmr96216547b3.26.1771923129899; Tue, 24 Feb 2026
- 00:52:09 -0800 (PST)
+	b=bdZLfJFYe8+5f4w5dXjUq9zEPQylxyYsRi7aQI4Yxc5juIhLOBp520VtFeA83PFJd
+	 GVwiB9H4EWldl8WbHU250eVz8ODEGFRMNYw3ewblcpqchUwYmA1q8k3cjpydaXVyDm
+	 NRMlWc7PSCLznKCKUKrQzEP37Nm8pTMwxIEiffhvLab5Wq1Ve/rRm1hO+XNvR0NLy0
+	 chmQteHW114LSglO1tBEG6GRYYM2Z/vyWAjDvtimBlq1J5xHBpv1a0bt3yGAiEL7nN
+	 qjshPEk7p4V9BEel6nsvxOaSZVKi5VOFQFXkpwWOBYSHYVpi+TUXff+LhqfX0wILo3
+	 S8Z1JbBSNq0Jw==
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-7947cf097c1so48402707b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 00:52:26 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXy+HN36hwr0dJghhkEJAumlvc3maVp9ZElYrSahnRXl/g9q1//hWmN64/qFFjFU5gVn9QAHfrnDbebnBTPO+VI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzb5RgFNysQb7lNWsgSwb8HYnVcLdKl21qOxwlQ0EJ6/jusTW7X
+	QTxPdPsrTdKn+Lo7Vk6L2lpQ4qKwDe6EDLry2aYsB/Z8TfjR6BnvU8pCQr5foM9cDI8ZE4bAIPL
+	FR7X3AgEOKnzxOoQxxpL91Zpol4qOE14=
+X-Received: by 2002:a05:690c:6d12:b0:796:55b1:a141 with SMTP id
+ 00721157ae682-798291429d7mr103365377b3.55.1771923146101; Tue, 24 Feb 2026
+ 00:52:26 -0800 (PST)
 MIME-Version: 1.0
-References: <20260216085838.71518-3-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260216085838.71518-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260216085838.71518-3-krzysztof.kozlowski@oss.qualcomm.com> <20260216085838.71518-4-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260216085838.71518-4-krzysztof.kozlowski@oss.qualcomm.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 24 Feb 2026 09:51:59 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=0WD3993xkwt66KGaZrKUAGK-E6Jt1DHzzTXHcrjJeoA@mail.gmail.com>
-X-Gm-Features: AaiRm52_C2vP2l5LPBno5Xd20xzBqjDefpIpOf3B39RiQDyRTkW0Hul60Mk_ABo
-Message-ID: <CAD++jL=0WD3993xkwt66KGaZrKUAGK-E6Jt1DHzzTXHcrjJeoA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] pinctrl: amdisp: Make amdisp_pinctrl_ops variable static
+Date: Tue, 24 Feb 2026 09:52:15 +0100
+X-Gmail-Original-Message-ID: <CAD++jLnBNSMC2i2JSZaB1bYuJxScjNNB1A46hQbcxoJ1wzP4PQ@mail.gmail.com>
+X-Gm-Features: AaiRm535ELoqE6GjQBWumJZZYU3O-QZV3s4JmiiXSufeK5gb-Em4xaITPZHJBsA
+Message-ID: <CAD++jLnBNSMC2i2JSZaB1bYuJxScjNNB1A46hQbcxoJ1wzP4PQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] pinctrl: cix: sky1: Unexport sky1_pinctrl_pm_ops
 To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Cc: Peter Chen <peter.chen@cixtech.com>, Fugang Duan <fugang.duan@cixtech.com>, 
 	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>, linux-gpio@vger.kernel.org, 
@@ -67,8 +67,8 @@ Cc: Peter Chen <peter.chen@cixtech.com>, Fugang Duan <fugang.duan@cixtech.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_005211_400773_5FA80437 
-X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-CacheID: sfid-20260224_005227_726448_8CFB2A4E 
+X-CRM114-Status: UNSURE (   9.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,10 +87,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Mon, Feb 16, 2026 at 9:58=E2=80=AFAM Krzysztof Kozlowski
 <krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-> File-scope 'amdisp_pinctrl_ops' is not used outside of this unit, so
-> make it static to silence sparse warning:
+> File-scope 'sky1_pinctrl_pm_ops' is not used outside of this unit (and
+> it should not be!), so unexport it and make it static to silence sparse
+> warning:
 >
->   pinctrl-amdisp.c:83:26: warning: symbol 'amdisp_pinctrl_ops' was not de=
+>   pinctrl-sky1.c:525:25: warning: symbol 'sky1_pinctrl_pm_ops' was not de=
 clared. Should it be static?
 >
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
