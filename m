@@ -4,70 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F79CE9B247
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DF0E9B248
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8HVzWzouKm2cXoM/hnZEz9vy29hL3PfIfqqpzFCC/o=; b=AQNJKmFNHwBM+VQy060Wf9gcu6
-	nJr1JS4G83LwoR+UbsZrrM5pIWoZw0OqAtZws1/t2O+R+iHbla7P2ingAVk/HTwB17jLfxuf3hSSM
-	/HO/cPiLzXYKL3tV3/dvAbZgwplMjk+htNLtjMyJVjEhQ/n5/9cpg1lKYY6Flzq3kdXHro3YrS32K
-	T6xefzZqXXKikLG68DPqXwrriPaP1tGOYlkLVQHIL2a2oXdwDJ5Im3UJEON6RDluJYhnBEVaBXg1C
-	6QCGvgHmmIAhT5UkZgMrgginPI8g13Ufgn7jjUJluzXYmcpP5PvNWikQWZFm63y2Ev2yhjGqxkDF8
-	CtGRoBRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=atWeCfnf8b/NdVkyr56hTky4XjjMPB6Vdu11M3dtNFs=; b=aeK6pcvRgRJyOpFWD2nycAxo7x
+	XxdH9+bWZmYUYuPq3UtQMrgQg0XKCz+1ZO/FMFiPJsprQ1QQh1NAaPBryztYra6jj+JB1QvIK98jn
+	Vw+nwsK9/WgANfI28RLkwjDV5BsPj4provo7lZUmbfrxFHDUjo2rLryStDa7PUepb3qdXiHe/ZgCf
+	tNHiVNU9UIC2A3aNNr+rBi05urtspLuHtNlhwXcrnFhnt1McATSK/+TRQUHfsZgr67l3ETJBka7sP
+	UwL9EXcBXa/QWVrNuMAK9gImOwszdADG4Y6pUtxPQ3Bn5yA0mMnOC3iVJ/RXtxEvAiasn0XPNQp+L
+	6UImF8Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vup5p-00000001nlZ-2t1d;
-	Tue, 24 Feb 2026 09:52:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vupB7-00000001oGd-1YB1;
+	Tue, 24 Feb 2026 09:58:05 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vup5o-00000001nlJ-29Hs
+	id 1vupB4-00000001oFl-0eIM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 09:52:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F69A61332
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 09:52:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3773CC2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 09:52:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771926755;
-	bh=m8HVzWzouKm2cXoM/hnZEz9vy29hL3PfIfqqpzFCC/o=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=TRe05JmOj0zrjkSzFH05uNJmpKrg9ivJSnNZidMu2MnVIUKZF2E8qd5SAYZSngaoY
-	 O8vAPho2SoADBUurJnXaYQXTbwAs3BDM/1FyCQJRti9EE+T6XzDiKFI5obf+Kg+X3t
-	 XxWheObEfdxROoSp6FAspV52lwIO7siyrt+q+VrDk/Ubp6/DpoE4jG0h0VGtGXMHOr
-	 ot3zk8ELoOgk40t1EzX3B802yz94IAaFlz3R6aUQf11S+whbKxHnzKlO/9PsUtuYuB
-	 67GU4vmMijyDU8a2MtR+3fW4D8MnvGrTnc7bjoj2cPaE3OeRz8B9v8+7nH24XsKtVN
-	 jEXsifY9fwq+A==
-Received: by mail-yx1-f41.google.com with SMTP id 956f58d0204a3-64ad79dfb7cso5013564d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:52:35 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUI6vqi2Rbsjytl+Ri8Bws/VxrUkeVK8KlURey24DB8R4d42Ul8OlNo0SaNeq+0GjMeeP/j5XTEfkZMSo/UgYIF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBfZMdKdBWzROUNcgMvhX0b1CS7Ey5lim/vLOYwAQeMOuHRQOZ
-	ZxCPgpo8+y4LsORcNbC0bXPgUFWlOgL5N7kOCGrTVQc+7EdFtt6h0K39YdFJoW89YZGOtM3tAeB
-	XK4dMCd9wi6bAt69gKpO0zZ7H5ScSG98=
-X-Received: by 2002:a53:c94e:0:b0:64a:df24:813a with SMTP id
- 956f58d0204a3-64c78ace3b7mr7721765d50.29.1771926754578; Tue, 24 Feb 2026
- 01:52:34 -0800 (PST)
+	Tue, 24 Feb 2026 09:58:03 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61O9sNGD1958728
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 09:58:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=atWeCfnf8b/NdVkyr56hTky4
+	XjjMPB6Vdu11M3dtNFs=; b=Ss/EfuRLxJD4Jo4rOx+5N177MtA+FEq5jQgZ1rkL
+	W9tFvuyPEQRI7ZOjT3HZqiqByKq1zXOIIS8GytrhpNV7SeOvoy446wsSUrGYL3D0
+	GbbegVReVhjIQtLHy+BFD5lEwWCE0FGz7mTpjPbtuZUeiPgGpEcwISVajjkinrj1
+	hYnYsp+0WTPbx1mCUpdb+5tPgILMtOeZ2xb7Xu1bUbWLU3Ke2z2Tfu0aHDCNb7V2
+	yHHD0+ZseoyurIgCbiXo8xIbI7HLj+r7N3Zzn8ZMoq9TxlxlrX4zt+hGA/0w7B+/
+	JeAREjw5j+3gw6K+4WEIPdEolGgkeQK00X1rFclBBz9LUg==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ch45691m4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 09:58:00 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8c71156fe09so4270536085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:58:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1771927080; x=1772531880; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=atWeCfnf8b/NdVkyr56hTky4XjjMPB6Vdu11M3dtNFs=;
+        b=GgtAnqGIkFCmByUBBdF0yB+pSgjLZ67Z3JYPKkTRjLS4BuHKW9ZBOVsMFRqKarKf9u
+         GrJ3zAOR+lZntEBZWU2pmLx75bm901MjbZzTxluKe6iDB5O6thzsjzMNnmVxsyIe2hCP
+         vsdubSSTicenefmLGxbPEsfSuqDkKuqLCc9+M3nqMOsVfVxSwb7J4o0isHFXnm34QLnt
+         PXy7voyud58FDusqsrrGsq6vSNCoKcrQPPT/uDnrAmsqjK4C/Q7noyMckYsxeBeBNrXM
+         oLQAwvwmzua+FFsgP8OE6mukQTTp+wgJXiYCYUvauDLTfLS97IW+JxvNGso9OEc4+T99
+         WCPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771927080; x=1772531880;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=atWeCfnf8b/NdVkyr56hTky4XjjMPB6Vdu11M3dtNFs=;
+        b=OghLqVZCqeKutMNhsMaK8YcCDaBtnJmY4dU6ZWVINJIqE25YSC4I77k09sgGVSRTiN
+         v/mfPcOD1fyopYrf9SbQYx2NvU37eBTu996yXeloBeHZKnH1MuPqBomTIUVam52ZS+Hi
+         tgQgtKNy72hrjaaBGaY3BZQC+zBAC2DKqK1W4r8QPoT05uBBBgwzxF//goJE+drDXDgl
+         8b+oeHLQNZhflJUN+WIWTIc2DPl4SHUsrM2lE+4fSQ24Zm7DRJ1AT3Zu+NP95Kc+Z8/R
+         lsLH4lx6eo1VuVmyOF6RNneVjHmYH4mGOsZCmBkUIpFIYHJkqKdNas9VP2JCiOXlWum+
+         S7CQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWsc/rc6FBuiLoUzwwjVyH3kIJNij1lND0ousuERTDShoZNROoI8xwp1dZD5ozrNs60/Rq7CGl5Qc6QbcVmfQwb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeFpVWMXeuoGGWHlaakk7l7JvZQ2k5p4RX3MUxSpKRtaNuygMr
+	/ZbBySxipoWKAQyaDXtW8oZNEiRYloBVZkq8MYiomH8UWNUBJUyKtfa9CamaR32jvId24EYeo7W
+	Gor4HIJhz+VFmGeEmeo1fl6x7zee+JzISLes0yRfPeNtzeYVeflC7QDJ1X5ol4Gdu5gF8M6Fs2D
+	1PZw==
+X-Gm-Gg: AZuq6aLGFWVuTPR+1HRDEadaOXZryrkbSIivpkrwl138PaIk2VDn6o9b3os3qoiI7wW
+	n2nPC0JubUeogT8bMIUKp2jVaG8zowqDCKeV52k6F0H5kcuSVnPRLN5uQ9xohy4dbBot6PnxsnJ
+	9MgjulX0qDn/6qxsGOuuAeCfgoZJUoqOzo6/KGgsy/+wOdi1a1OPjrReu8SAzeGWf/dxGnCVdD3
+	Qkw+zyZGxu0qARBG0VDhZfdeg9YbsK8GyUOkGrx7uvz5cToocnfmi2auuZhGIPPCaC26JvPl3iH
+	VTFttZQNl1/fU8lCkwPMIkpxYNWj9huT8/LAbOp0qLKzxNh7cTXOgeuO7p52PLf7lQiC6LOIpoh
+	bhcaMpdo1cRY3acVVBDQOmV/NaM6vu5jMHa1/
+X-Received: by 2002:a05:620a:4587:b0:8c6:d64b:be43 with SMTP id af79cd13be357-8cb8c9d1dc0mr1513681985a.6.1771927079601;
+        Tue, 24 Feb 2026 01:57:59 -0800 (PST)
+X-Received: by 2002:a05:620a:4587:b0:8c6:d64b:be43 with SMTP id af79cd13be357-8cb8c9d1dc0mr1513679185a.6.1771927078924;
+        Tue, 24 Feb 2026 01:57:58 -0800 (PST)
+Received: from oss.qualcomm.com ([86.121.162.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970c00768sm24787904f8f.10.2026.02.24.01.57.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Feb 2026 01:57:58 -0800 (PST)
+Date: Tue, 24 Feb 2026 11:57:56 +0200
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: abelvesa@kernel.org, peng.fan@nxp.com, daniel.baluta@oss.nxp.com,
+        mturquette@baylibre.com, sboyd@kernel.org, Frank.Li@nxp.com,
+        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+        gregkh@linuxfoundation.org, rafael@kernel.org, hanguidong02@gmail.com,
+        driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+        linux-clk@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: Re: [PATCH v2] clk: scu/imx8qxp: do not register driver in probe()
+Message-ID: <66i6cgh5zmz32ikwjvrz3gtezjotltqmfzdai7ybwjhanx3bif@i5g62ziautwq>
+References: <20260212235842.85934-1-dakr@kernel.org>
+ <DGMMD195G9VX.245Z0JMIYO9HV@kernel.org>
 MIME-Version: 1.0
-References: <20260224092419.1275016-1-wens@kernel.org>
-In-Reply-To: <20260224092419.1275016-1-wens@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 24 Feb 2026 10:52:23 +0100
-X-Gmail-Original-Message-ID: <CAD++jLnKxDi1GCp94zAUKhwBvQwVAdT8bgNyw5XM2+PTOhxq1Q@mail.gmail.com>
-X-Gm-Features: AaiRm52BGBXQpCSo4y3loUoixsBJESk5D9jZK8HxDIglW3gm2oXSHNiHQK0JrJg
-Message-ID: <CAD++jLnKxDi1GCp94zAUKhwBvQwVAdT8bgNyw5XM2+PTOhxq1Q@mail.gmail.com>
-Subject: Re: [PATCH v2] pinctrl: sunxi: Implement gpiochip::get_direction()
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	James Hilliard <james.hilliard1@gmail.com>, aprizel@wens.tw, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DGMMD195G9VX.245Z0JMIYO9HV@kernel.org>
+X-Proofpoint-GUID: 1w6VyMWd0kCDXaH2jnlWi_8C-9oL67md
+X-Proofpoint-ORIG-GUID: 1w6VyMWd0kCDXaH2jnlWi_8C-9oL67md
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI0MDA4MiBTYWx0ZWRfX0ZKgB+ysGJBk
+ yq/1X+shpAfITUBbPn/MQ7aFs0gjwdR92ZUDqAcTsM4AScKfNtvNbibhvkffLzzNACWy4mbwpQa
+ aUeXrt5i20NH2XjhIbONwYQURwJoH464SN9bGnqWm37LInb4omjK2GJxxUHI1Yag+mVRuItjb3E
+ GbSgED1oVjnE28C/TsPWAKs/YTafjQPo7z8eOhi6Chc4fg6Dn4c8sTzR7Z+QUHwICiJIVpNUO/z
+ Y+9lqYdopzRHDoe5zgjgwy2hT9R8mqalS9lNW2rTRDdRx30zaTPmtFh3B5wWNhrh2IG1AeNGbbl
+ TfPboAB2X4uPBA0lprpHjQVC81GlGkoxbEQMS4gw5sDStIW8kXf9xoTOkhOLWuOBgOJC7eqdc1Q
+ Lz/REgPmfrAdcaV0r2+RZpkTaZfm8meue46e13IR5rh8qczLXQHG4VvYtoInu6jhbDnzvVXaxpC
+ DpoWXI0mWNYyldhD59A==
+X-Authority-Analysis: v=2.4 cv=J8enLQnS c=1 sm=1 tr=0 ts=699d7628 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=oauzzCmhM186DRC0Y2yWPg==:17
+ a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=VwQbUJbxAAAA:8 a=8f9FM25-AAAA:8 a=5g7N3gLuN7TUrZyG1CYA:9 a=CjuIK1q_8ugA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22 a=uSNRK0Bqq4PXrUp6LDpb:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-24_01,2026-02-23_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0 spamscore=0
+ adultscore=0 malwarescore=0 impostorscore=0 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602240082
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260224_015802_312045_AC911636 
+X-CRM114-Status: GOOD (  26.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +147,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 10:24=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wro=
-te:
+On 26-02-23 21:21:29, Danilo Krummrich wrote:
+> On Fri Feb 13, 2026 at 12:58 AM CET, Danilo Krummrich wrote:
+> > imx_clk_scu_init() registers the imx_clk_scu_driver while commonly being
+> > called from IMX driver's probe() callbacks.
+> >
+> > However, it neither makes sense to register drivers from probe()
+> > callbacks of other drivers, nor does the driver core allow registering
+> > drivers with a device lock already being held.
+> >
+> > The latter was revealed by commit dc23806a7c47 ("driver core: enforce
+> > device_lock for driver_match_device()") leading to a deadlock condition
+> > described in [1].
+> >
+> > Besides that, nothing seems to unregister the imx_clk_scu_driver once
+> > the corresponding driver module is unloaded, which leaves the
+> > driver-core with a dangling pointer.
+> >
+> > Also, if there are multiple matching devices for the imx8qxp_clk_driver,
+> > imx8qxp_clk_probe() calls imx_clk_scu_init() multiple times.  However,
+> > any subsequent call after the first one will fail, since the driver-core
+> > does not allow to register the same struct platform_driver multiple
+> > times.
+> >
+> > Hence, register the imx_clk_scu_driver from module_init() and unregister
+> > it in module_exit().
+> >
+> > Note that we first register the imx8qxp_clk_driver and then call
+> > imx_clk_scu_module_init() to avoid having to call
+> > imx_clk_scu_module_exit() in the unwind path of imx8qxp_clk_init().
+> >
+> > Fixes: dc23806a7c47 ("driver core: enforce device_lock for driver_match_device()")
+> > Fixes: 220175cd3979 ("clk: imx: scu: fix build break when compiled as modules")
+> > Reported-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> > Closes: https://lore.kernel.org/lkml/13955113.uLZWGnKmhe@steina-w/
+> > Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com> # TQMa8x/MBa8x
+> > Link: https://lore.kernel.org/lkml/DFU7CEPUSG9A.1KKGVW4HIPMSH@kernel.org/ [1]
+> > Signed-off-by: Danilo Krummrich <dakr@kernel.org>
 
-> After commit 471e998c0e31 ("gpiolib: remove redundant callback check"),
-> a warning will be printed if the gpio driver does not implement this
-> callback. The warning was added in commit e623c4303ed1 ("gpiolib:
-> sanitize the return value of gpio_chip::get_direction()"), but was
-> masked by the "redundant" check.
->
-> The warning can be triggered by any action that calls the callback,
-> such as dumping the GPIO state from /sys/kernel/debug/gpio.
->
-> Implement it for the sunxi driver. This is simply a matter of reading
-> out the mux value from the registers, then checking if it is one of
-> the GPIO functions and which direction it is.
->
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Acked-by: Abel Vesa <abelvesa@kernel.org>
 
-Pulled out v1 of my tree and put in this one instead!
+> 
+> Just a quick reminder now that -rc1 is out; I think it would be good if this
+> could go to Linus for -rc2.
+> 
+> (Just in case it helps, please let me know if you want me to take it through the
+> driver-core tree for this purpose.)
 
-Yours,
-Linus Walleij
+Sure. Go ahead.
+
+Thanks!
 
