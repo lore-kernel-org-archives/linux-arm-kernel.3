@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65D8F4BB6B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:00:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45555F4BB6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SkSvePpL5239ofVrY2bdaLk6XYxkdSLV2101OkZGy7s=; b=qm7bii4FOMZanWlec7+v6Y5ANk
-	hxMDxrNT0iRzq5U6TGc9BBGICnB9SIy7jbKg3rxbgrBSgY67nxf07SZcnDZ1ik7+XrIsmOjEbh9cf
-	mxLTIe7xuFcgyDp5aOPIB6+jBEIzOk7/XZDSmI9enPrAFx2AfbrUd84A7+j8nupSD9CayaXS0xlqB
-	lUJiCvouhI6nSL/B8w8AncHhxEiS/dDv27lmtpD1s8CBK22QDkL81ajF8CIL2je/1//yQ1IPnWZpo
-	0rGHo3vr6VuI0e8TD51CZzxBvuIxYPmJ5aOkPhqiBqjGeyrvsDa7odLueMUr7B4cC0Z6JTsK3NvvW
-	0m4j0ubA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EGWiPa0dL/ROedM+8XEWJmfaUR8wqXnAsGJgoaTGJb4=; b=IkZ/WiCrvFFTF/NCdvQK3lxZAN
+	Qnu1v5g60w5i24pS3w5BDiOffltDF3fX26Z5Ux25NugZmZgAxpABSMX0Fz9poRmMcxR067EgtY8Tu
+	aK2chU4bMKZJTJED/E7LQRnwku3fLHibQ1EOnEVGc+EWhJyqOBLmtrCG6rACgAra8rC0msSkr9zok
+	jMcdcPXz1J0pP01MrHzAJgjNM12bQT3J5LkaOyE4gAkZZB6s+3IVzorbuXHbbIEVJzCYE/+uIXEKC
+	B5WQWfZGZ4pAYrEhA8AcaxQWIYzy8fiOuy4DauqsQhbDc/EWCGKSpHYHnfV1bOA8mQmPk2L0X41eW
+	d2a3SdWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwhg-00000002ZMe-0OIS;
-	Tue, 24 Feb 2026 18:00:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwhb-00000002ZFF-2O5T
+	id 1vuwhk-00000002ZTD-4BAt;
+	Tue, 24 Feb 2026 18:00:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwhe-00000002ZJF-2I9o
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 24 Feb 2026 18:00:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=EGWiPa0dL/ROedM+8XEWJmfaUR8wqXnAsGJgoaTGJb4=; b=Gmw93RiNa3Z0b9YshELl5P8Rl/
+	E6i8vvpmAoJZQm1PtpsOdu63F3W84u7WRjbC6gJ/8J0QrYfjmBTPelTjOiXAqPzNBvVnJ7nL4yOGi
+	4T1lah2aWtYdTYnRQz93S7hCQx/7I/hQnbphFOc3624PjLyAiu/lBgx5/Waj84lfW2EFZkbKio7qf
+	7ASZh0bNBF5lYMJDznRHM+0bt0SktcLKigg0yhl6UfJbszHRLxxYtS+Ekuy6AAdOXX+NFA9tVjRdX
+	72aQQROqgn2iJsyxq4XO7IsLhZ8Y2zPjGNq0w6j9JAlq+bLoIESMH0BESpdlGi6RvwGjOFc9T/EOk
+	O4BgMRuA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwha-00000007e9c-04xo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 18:00:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A71B339;
-	Tue, 24 Feb 2026 10:00:00 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 071383F59E;
-	Tue, 24 Feb 2026 10:00:00 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 28/41] arm_mpam: resctrl: Pick classes for use as mbm counters
-Date: Tue, 24 Feb 2026 17:57:07 +0000
-Message-ID: <20260224175720.2663924-29-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
+	Tue, 24 Feb 2026 18:00:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 746A844322;
+	Tue, 24 Feb 2026 18:00:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1A95C116D0;
+	Tue, 24 Feb 2026 17:59:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771956004;
+	bh=EGWiPa0dL/ROedM+8XEWJmfaUR8wqXnAsGJgoaTGJb4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HRJ7FRaLz3YSPVrxP0PUdk14LWGnLukQxkfNzBtKnRdhIXJ0OXNEik2VasxoYQfcC
+	 ask6MmryF7N+cakziVE3AOaRmKKy/YsuSEveMGfbpMq5r7W82yK/LskvmQKsFNivTv
+	 A3/SEgF845nIdokU+2/PjKfIWB4w/0+P7b8r+cg+r1mO526Ig3Gfj6ZgkG4wg5BdOV
+	 g0vyWD5n5jNGo4GTdo8NIz3RhZeh6gM1S0ZGfCL0ir5Lp3WogF/oYn5nWIjdlhAuSe
+	 mnqj+gHDqQHZBZEVDzBaWfjH3fH01yWjgEOL1WM3uS1O6aqcS5zgPxDqMFFvPv+CKq
+	 2Ait/U9+bLdEA==
+Date: Tue, 24 Feb 2026 17:59:57 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, daniel.baluta@nxp.com,
+	dario.binacchi@amarulasolutions.com,
+	alexander.stein@ew.tq-group.com, Markus.Niebel@tq-group.com,
+	matthias.schiffer@tq-group.com, y.moog@phytec.de,
+	josua@solid-run.com, francesco.dolcini@toradex.com,
+	primoz.fiser@norik.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Frank.Li@nxp.com,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH  1/2] dt-bindings: arm: fsl: Add compatible for i.MX8MP
+ audio board (version 2)
+Message-ID: <20260224-subsystem-subfloor-465db23b2a68@spud>
+References: <20260224094527.169215-1-shengjiu.wang@nxp.com>
+ <20260224094527.169215-2-shengjiu.wang@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="srMF4upFs8PZBjXF"
+Content-Disposition: inline
+In-Reply-To: <20260224094527.169215-2-shengjiu.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_100007_755911_295B4F0E 
-X-CRM114-Status: GOOD (  25.10  )
+X-CRM114-CacheID: sfid-20260224_180006_212947_E73A3E9B 
+X-CRM114-Status: UNSURE (   6.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,251 +98,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
 
-resctrl has two types of counters, NUMA-local and global. MPAM can only
-count global either using MSC at the L3 cache or in the memory controllers.
-When global and local equate to the same thing continue just to call it
-global.
+--srMF4upFs8PZBjXF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Because the class or component backing the event may not be 'the L3', it is
-necessary for mpam_resctrl_get_domain_from_cpu() to search the monitor
-domains too. This matters the most for 'monitor only' systems, where 'the
-L3' control domains may be empty, and the ctrl_comp pointer NULL.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-resctrl expects there to be enough monitors for every possible control and
-monitor group to have one. Such a system gets called 'free running' as the
-monitors can be programmed once and left running.  Any other platform will
-need to emulate ABMC.
+--srMF4upFs8PZBjXF
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
-Changes since rfc:
-drop has_mbwu
+-----BEGIN PGP SIGNATURE-----
 
-Changes since v2:
-Iterate over mpam_resctrl_dom directly (Jonathan)
-Use for_each_mpam_resctrl_mon
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZ3nHQAKCRB4tDGHoIJi
+0vBNAP9fAOLwhbcIxU9LOWBFaQGQSQ7k8kV7S6eIpyWquTqYAwEAr9n57ZZR5u9E
+B+JD76RY2R8paRJVQ3pHPNLjfqExPQg=
+=lKqY
+-----END PGP SIGNATURE-----
 
-Changes since v3:
-Don't continue if mon not found to avoid NULL pointer deref
-use int for cache_id in mpam_resctrl_alloc_domain()
-Update commit message
-Take traffic into account
-Only use mbm_total.
-
-Drop tags due to rework
-
-Changes since v4:
-Add debug log when insufficient free running counters (added as abmc
-dropped for now)
----
- drivers/resctrl/mpam_internal.h |   8 +++
- drivers/resctrl/mpam_resctrl.c  | 124 +++++++++++++++++++++++++++++++-
- 2 files changed, 131 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 472bd5d27baa..d58428ba2005 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -340,6 +340,14 @@ struct mpam_msc_ris {
- 
- struct mpam_resctrl_dom {
- 	struct mpam_component		*ctrl_comp;
-+
-+	/*
-+	 * There is no single mon_comp because different events may be backed
-+	 * by different class/components. mon_comp is indexed by the event
-+	 * number.
-+	 */
-+	struct mpam_component		*mon_comp[QOS_NUM_EVENTS];
-+
- 	struct rdt_ctrl_domain		resctrl_ctrl_dom;
- 	struct rdt_l3_mon_domain	resctrl_mon_dom;
- };
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index a570cdf06feb..ddcf73567723 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -67,6 +67,14 @@ static bool cdp_enabled;
- static bool cacheinfo_ready;
- static DECLARE_WAIT_QUEUE_HEAD(wait_cacheinfo_ready);
- 
-+/* Whether this num_mbw_mon could result in a free_running system */
-+static int __mpam_monitors_free_running(u16 num_mbwu_mon)
-+{
-+	if (num_mbwu_mon >= resctrl_arch_system_num_rmid_idx())
-+		return resctrl_arch_system_num_rmid_idx();
-+	return 0;
-+}
-+
- bool resctrl_arch_alloc_capable(void)
- {
- 	struct mpam_resctrl_res *res;
-@@ -311,6 +319,28 @@ static bool cache_has_usable_csu(struct mpam_class *class)
- 	return true;
- }
- 
-+static bool class_has_usable_mbwu(struct mpam_class *class)
-+{
-+	struct mpam_props *cprops = &class->props;
-+
-+	if (!mpam_has_feature(mpam_feat_msmon_mbwu, cprops))
-+		return false;
-+
-+	/*
-+	 * resctrl expects the bandwidth counters to be free running,
-+	 * which means we need as many monitors as resctrl has
-+	 * control/monitor groups.
-+	 */
-+	if (__mpam_monitors_free_running(cprops->num_mbwu_mon)) {
-+		pr_debug("monitors usable in free-running mode\n");
-+		return true;
-+	}
-+
-+	pr_debug("Insufficient monitors for free-running mode\n");
-+
-+	return false;
-+}
-+
- /*
-  * Calculate the worst-case percentage change from each implemented step
-  * in the control.
-@@ -679,6 +709,22 @@ static void mpam_resctrl_pick_counters(void)
- 				break;
- 			}
- 		}
-+
-+		if (class_has_usable_mbwu(class) &&
-+		    topology_matches_l3(class) &&
-+		    traffic_matches_l3(class)) {
-+			pr_debug("class %u has usable MBWU, and matches L3 topology and traffic\n",
-+				 class->level);
-+
-+			/*
-+			 * We can't distinguish traffic by destination so
-+			 * we don't know if it's staying on the same NUMA
-+			 * node. Hence, we can't calculate mbm_local except
-+			 * when we only have one L3 and it's equivalent to
-+			 * mbm_total and so always use mbm_total.
-+			 */
-+			counter_update_class(QOS_L3_MBM_TOTAL_EVENT_ID, class);
-+		}
- 	}
- }
- 
-@@ -1035,6 +1081,20 @@ static void mpam_resctrl_domain_insert(struct list_head *list,
- 	list_add_tail_rcu(&new->list, pos);
- }
- 
-+static struct mpam_component *find_component(struct mpam_class *class, int cpu)
-+{
-+	struct mpam_component *comp;
-+
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(comp, &class->components, class_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		if (cpumask_test_cpu(cpu, &comp->affinity))
-+			return comp;
-+	}
-+
-+	return NULL;
-+}
-+
- static struct mpam_resctrl_dom *
- mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
- {
-@@ -1082,6 +1142,35 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
- 	}
- 
- 	if (resctrl_arch_mon_capable()) {
-+		struct mpam_component *any_mon_comp;
-+		struct mpam_resctrl_mon *mon;
-+		enum resctrl_event_id eventid;
-+
-+		/*
-+		 * Even if the monitor domain is backed by a different
-+		 * component, the L3 component IDs need to be used... only
-+		 * there may be no ctrl_comp for the L3.
-+		 * Search each event's class list for a component with
-+		 * overlapping CPUs and set up the dom->mon_comp array.
-+		 */
-+
-+		for_each_mpam_resctrl_mon(mon, eventid) {
-+			struct mpam_component *mon_comp;
-+
-+			if (!mon->class)
-+				continue;       // dummy resource
-+
-+			mon_comp = find_component(mon->class, cpu);
-+			dom->mon_comp[eventid] = mon_comp;
-+			if (mon_comp)
-+				any_mon_comp = mon_comp;
-+		}
-+		if (!any_mon_comp) {
-+			WARN_ON_ONCE(0);
-+			err = -EFAULT;
-+			goto offline_ctrl_domain;
-+		}
-+
- 		mon_d = &dom->resctrl_mon_dom;
- 		mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, r->rid, &mon_d->hdr);
- 		mon_d->hdr.type = RESCTRL_MON_DOMAIN;
-@@ -1108,6 +1197,35 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
- 	return dom;
- }
- 
-+/*
-+ * We know all the monitors are associated with the L3, even if there are no
-+ * controls and therefore no control component. Find the cache-id for the CPU
-+ * and use that to search for existing resctrl domains.
-+ * This relies on mpam_resctrl_pick_domain_id() using the L3 cache-id
-+ * for anything that is not a cache.
-+ */
-+static struct mpam_resctrl_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
-+{
-+	int cache_id;
-+	struct mpam_resctrl_dom *dom;
-+	struct mpam_resctrl_res *l3 = &mpam_resctrl_controls[RDT_RESOURCE_L3];
-+
-+	lockdep_assert_cpus_held();
-+
-+	if (!l3->class)
-+		return NULL;
-+	cache_id = get_cpu_cacheinfo_id(cpu, 3);
-+	if (cache_id < 0)
-+		return NULL;
-+
-+	list_for_each_entry_rcu(dom, &l3->resctrl_res.mon_domains, resctrl_mon_dom.hdr.list) {
-+		if (dom->resctrl_mon_dom.hdr.id == cache_id)
-+			return dom;
-+	}
-+
-+	return NULL;
-+}
-+
- static struct mpam_resctrl_dom *
- mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
- {
-@@ -1121,7 +1239,11 @@ mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
- 			return dom;
- 	}
- 
--	return NULL;
-+	if (r->rid != RDT_RESOURCE_L3)
-+		return NULL;
-+
-+	/* Search the mon domain list too - needed on monitor only platforms. */
-+	return mpam_resctrl_get_mon_domain_from_cpu(cpu);
- }
- 
- int mpam_resctrl_online_cpu(unsigned int cpu)
--- 
-2.43.0
-
+--srMF4upFs8PZBjXF--
 
