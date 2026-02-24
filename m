@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB033F4BB6C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 688F0F4BB6C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b7tuzCAhV71GvgAwdMCXaXNsU4mFElifaRCU9ExXxgk=; b=sONhnE6Iijsf0CEpA3F6hkgZgk
-	ydI4O62aaJ/oZ2W8qNaaGMddy/VkHcmHMH6DrK0gD940oZ0LMxLGt9Ci/9YPc3i1ZKoFMZujB9Sc3
-	f/acBLVc6/wwnjIo9lgrKvuUE2MVNjFfDb+wEMBhc1H1jkHYpFFknk7azimW3BQT0oSnzxpwLRuaL
-	OwQDHifX+t3EFR/o07eA9b9IFE3BOdpyBAI2P5YSii6y/6iVLaB+Xnvntyct1w4HbcaUT1KX5pyPT
-	OEkXEBxnLw6+SyTCxVOdNn15eg7t2qlVEGjf4pVwAIFkwCqRxuWTdiKEC0fLiFVl1zyHH52t1E6Sk
-	yKU6mIVw==;
+	bh=4pZsOoj4DMSaeClPAIb5u9k2sya8rnziXDtRdWXJ3wU=; b=nyxwS32grVAmnvq5euOO3+3vHO
+	fayDjiQ1zDqSvvPoEu+4P5rTRApdH+BqJf9RpBdplP5m9effyzCBAOW2Ym05BGoy3lyY2B6+qiscH
+	THE24X5GhFMtPKw0HkkJPk7EmqCD/i2wUSwnEbl1seaiLURA5rTQTc68zJKquK/2mf/jVF0lcMlY7
+	dXAFEd2LY7U1QOZrJ8chNkw29snbkzGFJFqJPn4Npw4YdgwtIvEazugY+GcBA/DAhKfEtZjoi7sCf
+	7U5dqYSE8dH1FQv/rYs9tJcy9OxoeQf5q9mgR2rYRpuWQKrHpOo9ZP3lupo0zRtfGJOCnakkCS7N+
+	ZSmHc+lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfR-00000002WXU-33Dd;
-	Tue, 24 Feb 2026 17:57:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfP-00000002WWC-3nwm
+	id 1vuwfZ-00000002Wc1-04SD;
+	Tue, 24 Feb 2026 17:58:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwfT-00000002WYH-1Tpf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 17:57:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE447497;
-	Tue, 24 Feb 2026 09:57:43 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1A7DD3F59E;
-	Tue, 24 Feb 2026 09:57:44 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 03/41] KVM: arm64: Make MPAMSM_EL1 accesses UNDEF
-Date: Tue, 24 Feb 2026 17:56:42 +0000
-Message-ID: <20260224175720.2663924-4-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
+	Tue, 24 Feb 2026 17:57:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A72E2442A1;
+	Tue, 24 Feb 2026 17:57:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D882AC19422;
+	Tue, 24 Feb 2026 17:57:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771955874;
+	bh=SQb91GNf6kVtqmOCOt3loCbr4Ww0TH1GIwC6YpIa3uc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=FlzYna74ue06WvicglgW5ofZKmiQcZYJBYKZPX8MGqAMXDGHaYh8mKmSzR39lAyf+
+	 cc+jWS36ewuLRiEjD9X+ss8iEUip74NsxIZ7HsG6AEoMVgWSy30nIQZXoWQOkOSFWF
+	 kDA4WkOl70NES7HOrUg4FvIkH8OEPhLSVh4+1pURK53zh8I2S75RccB+wSWBcBP33u
+	 CaFSdxrtliwgHJEye52dr0VhlRb7VgeQ0QWPPMfM8n2jx0VELRqvp3MOl5/tuo76NU
+	 VkAlQsvBd+LQlzi7VB5ESr/h+N+p/IcKukRVXMIJWAsD2J0K7HQ5EAcvUlhV8yyQpQ
+	 wmVQNodQ9fWdQ==
+From: Chen-Yu Tsai <wens@kernel.org>
+To: jernej.skrabec@gmail.com, samuel@sholland.org, mripard@kernel.org, 
+ Ethan Tidmore <ethantidmore06@gmail.com>
+Cc: maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
+ airlied@gmail.com, simona@ffwll.ch, neil.armstrong@linaro.org, 
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+In-Reply-To: <20260217014801.60760-1-ethantidmore06@gmail.com>
+References: <20260217014801.60760-1-ethantidmore06@gmail.com>
+Subject: Re: [PATCH] drm/sun4i: backend: fix error pointer dereference
+Message-Id: <177195587163.131169.15955848927842554754.b4-ty@kernel.org>
+Date: Wed, 25 Feb 2026 01:57:51 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_095751_987982_649EF2E5 
-X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-CacheID: sfid-20260224_095755_431412_7320C95B 
+X-CRM114-Status: UNSURE (   6.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,39 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MPAMSM_EL1 controls the MPAM labeling for an SMCU, Streaming Mode
-Compute Unit. As there is on MPAM support in kvm, make sure MPAMSM_EL1
-accesses trigger an UNDEF.
+On Mon, 16 Feb 2026 19:48:01 -0600, Ethan Tidmore wrote:
+> The function drm_atomic_get_plane_state() can return an error pointer
+> and is not checked for it. Add error pointer check.
+> 
+> Detected by Smatch:
+> drivers/gpu/drm/sun4i/sun4i_backend.c:496 sun4i_backend_atomic_check() error:
+> 'plane_state' dereferencing possible ERR_PTR()
+> 
+> [...]
 
-Tested-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
-Changes since v2:
-Remove paragraph from commit on allowed range of values
----
- arch/arm64/kvm/sys_regs.c | 2 ++
- 1 file changed, 2 insertions(+)
+Applied to drm-misc-next in drm-misc, thanks!
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index a7cd0badc20c..2c9a52e66fe0 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -3373,6 +3373,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 
- 	{ SYS_DESC(SYS_MPAM1_EL1), undef_access },
- 	{ SYS_DESC(SYS_MPAM0_EL1), undef_access },
-+	{ SYS_DESC(SYS_MPAMSM_EL1), undef_access },
-+
- 	{ SYS_DESC(SYS_VBAR_EL1), access_rw, reset_val, VBAR_EL1, 0 },
- 	{ SYS_DESC(SYS_DISR_EL1), NULL, reset_val, DISR_EL1, 0 },
- 
+[1/1] drm/sun4i: backend: fix error pointer dereference
+      commit: 06277983eca4a31d3c2114fa33d99a6e82484b11
+
+Best regards,
 -- 
-2.43.0
+Chen-Yu Tsai <wens@kernel.org>
 
 
