@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2ACE9B269
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 14:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045EEE9B269
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 14:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nNyfIbJseRCYZJkvG9rAEjndfQhStMyQJmY1f4lOVaQ=; b=NTYUHR/s6+uuBdV6N4I9UYua1F
-	ClXyRmOMumNZV9RGy7x12hLXUMBHKVPWAlvboIgNx/hPs7s1Vl33dmfRE8HWLrkmnuIOzb3uZiFGM
-	YfgsxT0poqdDO8pWYf2woOYHjcPrjI343S6nNd9mMj1+277NsySS6FPRlmsR7LMHBQGgcu2OpxUSR
-	eP5J3xYsmIGTzZhkLP0x7V1FPHv5DmvTWrJdoNfpR4K4tMIfXrKXOsZAxsECpeFGkQ0Z/Pfr49d+V
-	BxlOtJvonhVDzAt5VZV2Zh148/HSwwXq9DZiZy6CGq3h/kncQlTTzFfkmXVWUJckY6l+kLdcSdq3n
-	1lMfwJHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QK6DOCjohNx7unK8lcXgFZLXkzZK0qRI099OlQYqxSw=; b=vV0QLSryC27+J7nf9x5SCC7SRh
+	/79+BbFLH2hYePN0zINy5RWmtlNwFJMCn4fTHp0WXknlogjfR25zSeQH6Z0ybr5+efHJM8OdfeAzl
+	+HnVVOqbfu6+xiKNHpVIPYyP58T0ADVUuIW7YQNJR/xetDwQuMcGAtpP1Qq6fzS678DvDp8yIGQVq
+	asjFJr+A4xioKWyG0x2Ks/7XDG+/0a+5C9ZDcfimLF8shYwD8odYUL3ae1HIH989Ry4MOEnEaqFAu
+	EkpgiAzo15L46wt5mGJC2bhtAKuJBsd90piJW0IAC+Lujr8t6WAhi6MeIpiHmAr8HP0U8oN9oAef9
+	fxS3AmEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vut8F-00000002BQM-2BSp;
-	Tue, 24 Feb 2026 14:11:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vut8C-00000002BPx-33aO;
-	Tue, 24 Feb 2026 14:11:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E8DDA442C5;
-	Tue, 24 Feb 2026 14:11:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71646C116D0;
-	Tue, 24 Feb 2026 14:11:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771942279;
-	bh=/2JKDLuQmJT/18kwnROeCtwnFb0uQ79jz4jv7dCbOiE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S04o0HfkyaGX3s7YD+vFy+QibtQstZMFCM7CKDKDXro6kJ9oY3qWp3X6ZhrB9+uX9
-	 E5yQdlQA5Ww3Uri5AKXyg6f/ZDnt8/WdrBEJ4BMsSf6RtMMqHlVv0r8UWRCSbqi4Z6
-	 Htl6SeH2WevZlXGo66vsdLXm2o9VDFWXFkf8gYY9l1RdgcislLTQrGybhxCCXAjBAf
-	 gF/IYdCImbCX/TkII4LGh2g5f+kUM3Q5k2j0ZCvxP2/N7G/3/d7fly46xLS7TuK2CV
-	 370SvjP4WRQvSGHT3HxiESKzZEStcZppsUmqjuL7BK5Bx25WMWdjMg5pWg37fioJ8f
-	 TRqG8GgfTOUeg==
-Date: Tue, 24 Feb 2026 15:11:16 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>, 
-	Iago Toral Quiroga <itoral@igalia.com>, Chema Casanova <jmcasanova@igalia.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-Subject: Re: [PATCH v6 1/6] clk: bcm: rpi: Manage clock rate in
- prepare/unprepare callbacks
-Message-ID: <20260224-curvy-shiny-dodo-e50cef@houat>
-References: <20260218-v3d-power-management-v6-0-40683fd39865@igalia.com>
- <20260218-v3d-power-management-v6-1-40683fd39865@igalia.com>
+	id 1vutGS-00000002C1m-0ABp;
+	Tue, 24 Feb 2026 14:19:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vutGO-00000002C14-1Rd8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Feb 2026 14:19:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 335E0339;
+	Tue, 24 Feb 2026 06:19:38 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 364683F62B;
+	Tue, 24 Feb 2026 06:19:39 -0800 (PST)
+Message-ID: <2f2410a0-69dd-4da5-bd84-d168ba6b0605@arm.com>
+Date: Tue, 24 Feb 2026 14:19:37 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="ocscotebgpj7h4ea"
-Content-Disposition: inline
-In-Reply-To: <20260218-v3d-power-management-v6-1-40683fd39865@igalia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/41] arm_mpam: Add KVM/arm64 and resctrl glue code
+To: Zeng Heng <zengheng4@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ linux-doc@vger.kernel.org, Kefeng Wang <wangkefeng.wang@huawei.com>
+References: <20260203214342.584712-1-ben.horgan@arm.com>
+ <9945d28e-f1f2-e11a-1481-8d80167d6f89@huawei.com>
+ <b844c632-c8fc-48f1-b347-07f166019b22@arm.com>
+ <28dbde39-5b21-5f2f-59f5-4500c8b0296d@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <28dbde39-5b21-5f2f-59f5-4500c8b0296d@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_061120_845066_EB1800E0 
-X-CRM114-Status: GOOD (  30.31  )
+X-CRM114-CacheID: sfid-20260224_061948_463697_DB6A58C2 
+X-CRM114-Status: GOOD (  34.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,161 +78,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Zeng,
 
---ocscotebgpj7h4ea
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 1/6] clk: bcm: rpi: Manage clock rate in
- prepare/unprepare callbacks
-MIME-Version: 1.0
+On 2/24/26 11:03, Zeng Heng wrote:
+> Hi Ben,
+> 
+> On 2026/2/16 20:22, Ben Horgan wrote:
+>> Hi Zeng,
+>>
+>> On 2/14/26 09:40, Zeng Heng wrote:
+>>> Hi Ben,
+>>>
+>>> On 2026/2/4 5:43, Ben Horgan wrote:
+>> [...]
+>>>>
+>>>> Based on:
+>>>> [1] git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git x86/cache
+>>>> (To include telemetry code which changes the resctrl arch interface)
+>>>>
+>>>> The series can be retrieved from:
+>>>> https://gitlab.arm.com/linux-arm/linux-bh.git mpam_resctrl_glue_v4
+>>>> (Final commit is a fix already in 6.19-rc8)
+>>>>
+>> [...]
+>>>>
+>>>
+>>> I've tested the MPAM functionality on my local Kunpeng platform. Here's
+>>> a summary of the results:
+>>
+>> Thank you very much for your testing and detailed report.
+>>
+>>>
+>>> Features enabled and verified:
+>>>    * L2 and L3 CPBM
+>>>    * L3 CSU
+>>>    * L2 and L3 CDP
+>>> All enabled features passed functional testing as expected.
+>>>
+>>> + Tested-by: Zeng Heng <zengheng4@huawei.com>
+>>>
+>>> Features not enabled:
+>>>    1. MATA MBMAX partition and MBWU monitor.
+>>
+>> What's MATA here? Just memory allocation or something more specific?
+>>
+> 
+> The MATA serves as the agent for the Broadway MESI coherence protocol
+> among multiple L3 caches or between I/O and L3 caches. It maintains data
+> coherence among multiple L3 caches or between I/O and L3 caches.
+> 
+> As the connection module between the SoC and the memory system, the MATA
+> interfaces with the DMC on the DDR die. It provides the system with DDR
+> access paths, delivering high-bandwidth, low-latency DDR read/write
+> access.
+> 
+> On the Kunpeng chip, the MB related MSC resides in this module rather
+> than being directly located on the L3 cache controller.
+> 
+>>>       Reason: These do not meet the driver's current topology>
+>> expectations for MB support, hence they were not initialized.
+>>>       This behavior is expected.
+>>
+>> Is this because you have more than 1 L3 cache?
+> 
+> Yes, Kunpeng platform has more than 1 L3 cache.
+> 
+> However, the reason it is not supported here is that the current driver
+> does not support MATA recognition, while both Kunpeng MBM and MBA
+> functionalities reside in the MATA MSC side as mentioned above,
+> resulting in the inability to provide support.
+> 
+> Relevant logs are as follows:
+> 
+> [   10.997406] mpam:topology_matches_l3: class 255 component 0 has
+> Mismatched CPU mask with L3 equivalent
+> [   10.997411] mpam:mpam_resctrl_pick_mba: class 255 topology doesn't
+> match L3
+> 
+>>
+>>>
+>>>    2. L2 CSU and MBWU monitors.
+>>>       Reason: The current MPAM driver does not support L2-related
+>>>       functionality yet.
+>>
+>> Thanks for letting us know you have these. But, yes, unfortunately
+>> monitoring is only supported on the L3 at the moment.
+>>
+>>>
+>>> + Tested-by: Zeng Heng <zengheng4@huawei.com>
+>>>
+>>>
+>>> Detailed test logs are as follows:
+>>
+>> I'm confused by these logs as it looks like you aren't getting any
+>> monitors but you verified the L3 CSU. Also, it looks like cpor (cbpm) is
+>> disabled (at least partially) but you verified L2 and L3 CPBM. Is this
+>> across different machines?
+>>
+> 
+> The logs were of course tested on the same machine.
 
-Hi Maira,
+Ok and the same run? Just asking because I can't yet see how this all
+goes together.
 
-On Wed, Feb 18, 2026 at 05:44:59PM -0300, Ma=EDra Canal wrote:
-> On current firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
-> actually power off the clock. To achieve meaningful power savings, the
-> clock rate must be set to the minimum before disabling. This might be
-> fixed in future firmware releases.
->=20
-> Rather than pushing rate management to clock consumers, handle it
-> directly in the clock framework's prepare/unprepare callbacks. In
-> unprepare, set the rate to the firmware-reported minimum before
-> disabling the clock. In prepare, for clocks marked with `maximize`
-> (currently v3d), restore the rate to the maximum after enabling.
->=20
-> Signed-off-by: Ma=EDra Canal <mcanal@igalia.com>
-> ---
->  drivers/clk/bcm/clk-raspberrypi.c | 61 ++++++++++++++++++++++-----------=
-------
->  1 file changed, 35 insertions(+), 26 deletions(-)
->=20
-> diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-rasp=
-berrypi.c
-> index 1a9162f0ae31e330c46f6eafdd00350599b0eede..0d6e4f43c3bac0e7b38934c5c=
-6e4db51211233de 100644
-> --- a/drivers/clk/bcm/clk-raspberrypi.c
-> +++ b/drivers/clk/bcm/clk-raspberrypi.c
-> @@ -66,7 +66,8 @@ const struct raspberrypi_clk_data *clk_hw_to_data(const=
- struct clk_hw *hw)
->  struct raspberrypi_clk_variant {
->  	bool		export;
->  	char		*clkdev;
-> -	unsigned long	min_rate;
-> +	u32		min_rate;
-> +	u32		max_rate;
->  	bool		minimize;
->  	bool		maximize;
->  	u32		flags;
-> @@ -289,16 +290,22 @@ static int raspberrypi_fw_dumb_determine_rate(struc=
-t clk_hw *hw,
->  static int raspberrypi_fw_prepare(struct clk_hw *hw)
->  {
->  	const struct raspberrypi_clk_data *data =3D clk_hw_to_data(hw);
-> +	struct raspberrypi_clk_variant *variant =3D data->variant;
->  	struct raspberrypi_clk *rpi =3D data->rpi;
->  	u32 state =3D RPI_FIRMWARE_STATE_ENABLE_BIT;
->  	int ret;
-> =20
->  	ret =3D raspberrypi_clock_property(rpi->firmware, data,
->  					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
-> -	if (ret)
-> +	if (ret) {
->  		dev_err_ratelimited(rpi->dev,
->  				    "Failed to set clock %s state to on: %d\n",
->  				    clk_hw_get_name(hw), ret);
-> +		return ret;
-> +	}
-> +
-> +	if (variant->maximize)
-> +		ret =3D raspberrypi_fw_set_rate(hw, variant->max_rate, 0);
+> 
+> Since the L3 CSU/CPBM resides on the L3 cache, it can be correctly
+> recognized and run smoothly.
+> 
+> In fact, not only was L2 successfully mounted, but all L2 MSC CPBMs were
+> also correctly recognized. The suspicion here is that the L2
+> class->components were incorrectly mounted to an unknown object, which
+> is believed to be related to the monitoring capabilities (CSU and MBWU)
+> of Kunpeng L2. The root cause is still being investigated.
 
+I'll try and mock up a system with L2 monitoring and cpbm to see if the
+driver behaves in the same way.
 
-It's not clear to me why you would want to force it to the max there,
-and especially the max of the clock. It would make more sense to me to
-set it to whatever maximum rate clk_hw_get_rate_range would return
-(which should be the minimum of variant->max_rate + all clk->max_rate),
-but even then it would erase every call to clk_set_rate before calling
-clk_prepare().
+However, I still can't understand how you get CPOR on L2 after seeing
+"mpam:mpam_resctrl_pick_caches: class 2 cache misses CPOR" as that
+should be the only place class is set for the l2 cache which guards the
+call to mpam_control_init() in mpam_resctrl_setup(). The
+mpam_monitor_init() comes later so I can't see how that effects.
 
-I'd understand lowering the clock rate in unprepare to avoid wasting too
-much power, but why do we need to raise it here?
+Is the driver corrupting something or writing to mpam_resctrl_controls
+with the wrong index? Clutching at straws here.
 
->  	return ret;
->  }
-> @@ -306,10 +313,19 @@ static int raspberrypi_fw_prepare(struct clk_hw *hw)
->  static void raspberrypi_fw_unprepare(struct clk_hw *hw)
->  {
->  	const struct raspberrypi_clk_data *data =3D clk_hw_to_data(hw);
-> +	struct raspberrypi_clk_variant *variant =3D data->variant;
->  	struct raspberrypi_clk *rpi =3D data->rpi;
->  	u32 state =3D 0;
->  	int ret;
-> =20
-> +	/*
-> +	 * On current firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
-> +	 * actually power off the clock. To achieve meaningful power consumption
-> +	 * reduction, the driver needs to set the clock rate to minimum before
-> +	 * disabling it.
-> +	 */
-> +	raspberrypi_fw_set_rate(hw, variant->min_rate, 0);
+> 
+> Resctrl mounting status:
+> 
+> # cat schemata
+> L2:4=ff;7=ff;10=ff;13=ff;16=ff;19=ff;22=ff;25=ff;29=ff;32=ff;35=ff;
+> 38=ff;41=ff;44=ff;47=ff;50=ff;54=ff;57=ff;60=ff;63=ff;66=ff;69=ff;72=ff;
+> 75=ff;79=ff;82=ff;85=ff;88=ff;91=ff;94=ff;97=ff;100=ff;104=ff;107=ff;
+> 110=ff;113=ff;116=ff;119=ff;122=ff;125=ff;129=ff;132=ff;135=ff;138=ff;
+> 141=ff;144=ff;147=ff;150=ff;154=ff;157=ff;160=ff;163=ff;166=ff;169=ff;
+> 172=ff;175=ff;179=ff;182=ff;185=ff;188=ff;191=ff;194=ff;197=ff;200=ff;
+> 204=ff;207=ff;210=ff;213=ff;216=ff;219=ff;222=ff;225=ff;229=ff;232=ff;
+> 235=ff;238=ff;241=ff;244=ff;247=ff;250=ff;254=ff;257=ff;260=ff;263=ff;
+> 266=ff;269=ff;272=ff;275=ff;279=ff;282=ff;285=ff;288=ff;291=ff;294=ff;
+> 297=ff;300=ff
+> L3:1=1ffff;26=1ffff;51=1ffff;76=1ffff;101=1ffff;126=1ffff;151=1ffff;
+> 176=1ffff;201=1ffff;226=1ffff;251=1ffff;276=1ffff
+> 
+> # ls mon_data/*/*
+> mon_data/mon_L3_01/llc_occupancy   mon_data/mon_L3_151/llc_occupancy
+> mon_data/mon_L3_226/llc_occupancy  mon_data/mon_L3_276/llc_occupancy
+> mon_data/mon_L3_101/llc_occupancy  mon_data/mon_L3_176/llc_occupancy
+> mon_data/mon_L3_251/llc_occupancy  mon_data/mon_L3_51/llc_occupancy
+> mon_data/mon_L3_126/llc_occupancy  mon_data/mon_L3_201/llc_occupancy
+> mon_data/mon_L3_26/llc_occupancy   mon_data/mon_L3_76/llc_occupancy
 
-I'm not sure setting it to variant->min_rate would work directly either,
-since it would break consumers expectations. Also, can we guard it with
-a version check if we know that there's some good and bad firmwares?
+Thanks for the extra details. These are as expected, right?
 
->  	ret =3D raspberrypi_clock_property(rpi->firmware, data,
->  					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
->  	if (ret)
-> @@ -334,7 +350,7 @@ static struct clk_hw *raspberrypi_clk_register(struct=
- raspberrypi_clk *rpi,
->  {
->  	struct raspberrypi_clk_data *data;
->  	struct clk_init_data init =3D {};
-> -	u32 min_rate, max_rate;
-> +	unsigned long rate;
->  	int ret;
-> =20
->  	data =3D devm_kzalloc(rpi->dev, sizeof(*data), GFP_KERNEL);
-> @@ -354,18 +370,20 @@ static struct clk_hw *raspberrypi_clk_register(stru=
-ct raspberrypi_clk *rpi,
-> =20
->  	data->hw.init =3D &init;
-> =20
-> -	ret =3D raspberrypi_clock_property(rpi->firmware, data,
-> -					 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
-> -					 &min_rate);
-> -	if (ret) {
-> -		dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
-> -			id, ret);
-> -		return ERR_PTR(ret);
-> +	if (!variant->min_rate) {
-> +		ret =3D raspberrypi_clock_property(rpi->firmware, data,
-> +						 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
-> +						 &variant->min_rate);
-> +		if (ret) {
-> +			dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
-> +				id, ret);
-> +			return ERR_PTR(ret);
-> +		}
->  	}
+> 
+>>>
+>>> Boot logs:
+>>> [root@localhost ~]# dmesg | grep -i mpam
+>>> [    0.000000] ACPI: MPAM 0x000000007FF35018 003024 (v01 HISI   HIP12
+>>> 00000000 HISI 20151124)
+>>> [    9.509852] mpam_msc mpam_msc.64: Merging features for
+>>> vmsc:0xffff0800973cf5a0 |= ris:0xffff08009757ee90
+>>> [    9.509859] mpam_msc mpam_msc.254: Merging features for
+>>> class:0xffff08009736fe50 &= vmsc:0xffff080097628520
+>>> [    9.509860] mpam:__props_mismatch:
+>>> mpam_has_feature(mpam_feat_cpor_part, parent) = 1
+>>> [    9.509864] mpam:__props_mismatch:
+>>> mpam_has_feature(mpam_feat_cpor_part, child) = 0
+>>> [    9.509866] mpam:__props_mismatch: parent->cpbm_wd = 8
+>>> [    9.509869] mpam:__props_mismatch: child->cpbm_wd = 0
+>>> [    9.509871] mpam:__props_mismatch: alias = 0
+>>> [    9.509873] mpam:__props_mismatch: cleared cpor_part
 
-It feels to me like it would need to be a separate patch. Why do you
-need to override the minimum clock rate reported by the firmware?
+Do you know where this mismatch is happening? Is it expected?
 
-Maxime
+>>
+>> cpor (partially) disabled?
+>>
+>>> [    9.509876] mpam:__props_mismatch: took the min num_csu_mon
+>>> [    9.509878] mpam:__props_mismatch: took the min num_mbwu_mon
+>>> [    9.509881] mpam_msc mpam_msc.252: Merging features for
+> 
+> [...]
+> 
+>>> [   10.978496] mpam:mpam_resctrl_pick_caches: class 2 cache misses CPOR
+>>
+>> No L2 cpor?
 
---ocscotebgpj7h4ea
-Content-Type: application/pgp-signature; name="signature.asc"
+This particularly confuses me...
 
------BEGIN PGP SIGNATURE-----
+>>
+>>> [   10.978497] mpam:mpam_resctrl_pick_caches: class 255 is not a cache
+>>> [   10.980470] mpam:mpam_resctrl_pick_mba: class 2 is before L3
+>>> [   10.980472] mpam:mpam_resctrl_pick_mba: class 3 has no bandwidth
+>>> control
+>>> [   10.997406] mpam:topology_matches_l3: class 255 component 0 has
+>>> Mismatched CPU mask with L3 equivalent
+>>> [   10.997411] mpam:mpam_resctrl_pick_mba: class 255 topology doesn't
+>>> match L3
+>>> [   10.997415] mpam:mpam_resctrl_pick_counters: class 2 is before L3
+>>> [   11.024109] mpam:topology_matches_l3: class 3 component 276 has
+>>> Mismatched CPU mask with L3 equivalent
+>>> [   11.024114] mpam:class_has_usable_mbwu: monitors usable in free-
+>>> running mode
+>>
+>> mbwu enabled?
+> 
+> The fact that the number of monitors merely satisfies the conditions for
+> free-running mode does not imply that the MBWU functionality can be
+> successfully mounted. The specific reasons are explained above.
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaZ2xhAAKCRAnX84Zoj2+
-dj0uAYDYA2mhl71c/wqrDKPAvTLlIAXMJIOSicez1ItK96GamLM8F93PvhqraCfK
-fFASXvQBfjYI2nDCisxBUCZeDRhehkuv1iDeaTi0B5qRtiIAcpHPx1JdqS+f2W0b
-aFXRe67jFQ==
-=xbDx
------END PGP SIGNATURE-----
+True
 
---ocscotebgpj7h4ea--
+> 
+>>
+>>> [   11.063882] mpam:topology_matches_l3: class 255 component 0 has
+>>> Mismatched CPU mask with L3 equivalent
+>>> [   11.113183] mpam:mpam_resctrl_alloc_domain: Skipped monitor domain
+>>> online - no monitors
+>>> [   11.113189] MPAM enabled with 32 PARTIDs and 4 PMGs
+>>>
+>>>
+> 
+> Sorry for the late reply. And this is my first day back from a long
+> vacation.
+
+No problem. Hope you had a good holiday.
+
+> 
+> 
+> Best regards,
+> Zeng Heng
+
+Thanks,
+
+Ben
+
 
