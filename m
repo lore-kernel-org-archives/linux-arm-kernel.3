@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D85E9B260
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 13:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 293E5E9B260
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 13:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8r/5mlkGFR+cg2cNs/uKZz5HxZUzfmwW5AEmY5shqyA=; b=wh/tVV7RTyr94G07M0iAxK1gpH
-	NgzEGgg8d1QK3bqJMsRY1DgzrAUyr82A2SiNeRW2Cfy6hoEoGULchI4up6dDZMiEmHU0kOLDE1hSt
-	W1dmMO0/3lMuwsg50y+z4nknw5B6wrrEaJMU0PJud4DNCydxSOUKWvdpIWMOlwsnifkcm8Ycrf4tR
-	+iYLZfBLXXI/eebSpMp9AExObs/tP3kDl42SdurFlUUPLfDP78jqIxPJ2UnKrw9vB/BDBtWwU8e1h
-	4pZq8/5D/3OSSKCF7mIQvPTtKto271CWwo+IWprle/EQOyndJGyy4GfAdHkyE7Jt6aHC704Vx63ou
-	0rcqMadg==;
+	bh=n4RwNCApcBW3izJCHc5vDPzUa210jU/pBNZD7SBtwz4=; b=xi6wbZvBXVv3Au4tuGDGcnZjex
+	mqlpiE+DabtcUNK0x6bsniXQeEABIeDDVZHBjrKKO9eotsLydrd8f2PMNe6PB70Gm9O1KzqjlkWYD
+	s7NQucoHaCgYF+WvR3cv/l2tN1Faseg19xMV9USHNvzJR264eXkm8DT0uK2JK9c4q5zcnhAnw8HZy
+	Q3gQavZAha1dnGoTBKBcCg37Xv5jxIg62QMAEHG9A0Vj2a8VKaWVc4uAIgCbCMWMJCg/4uNYsLUsX
+	/eIRJJ11W0ycYKJp0WCqcDHzubfL0WfsqUSUX0BgRJJA3y3pD0Z1Wk+HylGWt3ilupuRr95kk66Xc
+	9XF9Xt7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vusIh-000000027Y5-2ruP;
-	Tue, 24 Feb 2026 13:18:07 +0000
+	id 1vusJb-000000027ln-3Gkq;
+	Tue, 24 Feb 2026 13:19:03 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vusIf-000000027XO-3MLS;
-	Tue, 24 Feb 2026 13:18:06 +0000
+	id 1vusJZ-000000027kO-2UBV;
+	Tue, 24 Feb 2026 13:19:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 20D334066C;
-	Tue, 24 Feb 2026 13:18:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DB7FC116D0;
-	Tue, 24 Feb 2026 13:18:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2612D44219;
+	Tue, 24 Feb 2026 13:19:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67ECFC116D0;
+	Tue, 24 Feb 2026 13:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771939085;
-	bh=G6eZk5Nfo/RDIiGr0N39A1cxm9lBiDCxNCqjfX17+x8=;
+	s=k20201202; t=1771939141;
+	bh=9dDLZKZe4Vnpg/vn4EwiF+rh9/b7hE8wVvMoi/ULJJU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rjxbxFoxRQXNKHhuQWTUz5qFtnYkgLOWBjXXUUm8noaFW0VgSm2s3T/pXo3gT4umW
-	 KsEXCf22g2ZNHC2fbnUOqFqFOw82LpheUV//ABxiXewlacqe9T2c9N6wDwLma543CU
-	 G5IX6PDCONCJjQQ2eUh8FF3LqPazCcw8XKLatgDOZ+wVOuc2jVD2iHCHVR+ZIHm0zv
-	 g5BBqAkHVY5YZcD8PDSkdazBsc5tzEZQMoAFgXOLBXkr91a0GIiDfFBkthWbj3uJVw
-	 sxV4OneK2RZAgx2SAMjYvd9byubBT/bJeJQnkFiG0GnrpdCds5B06enikZWld6W713
-	 wFo156lkGobcQ==
-Message-ID: <2996bc4a-1746-40ff-8ec0-76f779600c1e@kernel.org>
-Date: Tue, 24 Feb 2026 14:17:59 +0100
+	b=aUVP9Qs1It676WNKcJHtsndmf8EUw6PQg7c++d2+W5d1qXhOPe6ig6tdUhUlal3Rh
+	 Xdk0JXJjpR45f5ZuP3ZiY/y1DktkGRSWUqE12qIwEC/RJj9GJ9nJcMGUKb9P2//SiR
+	 tbK1OVyUR28oUkNpWEUE+ON2KPSDA0zs2FoZLbf9YGHbDO0jDMvsG8J3XvLrrRJqxy
+	 QPZN6SKe/N/xn5L/PKWbYfRwEF2HI38tfRXAKB4mqQ1JlquBSHnlGycJVGOBDdeZ4M
+	 WpmUiC0XdKMwpMS4uLN5qTiiKFlCa736l5gzJ/j+d0wcjU9eL516ALrXY4t5h/uem1
+	 /WcqTdCuSQ2oA==
+Message-ID: <0874bb3d-b38d-4ea3-a5b0-2da2484cc3e5@kernel.org>
+Date: Tue, 24 Feb 2026 14:18:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/3] media: dt-bindings: rockchip,vdec: Correct
@@ -111,8 +111,9 @@ In-Reply-To: <244b22d3be77047163b4e47c4ed33b5b1befb4b4.camel@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_051805_952979_860FD781 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20260224_051901_685992_4C35E522 
+X-CRM114-Status: UNSURE (   6.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,60 +129,6 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 24/02/2026 14:14, Nicolas Dufresne wrote:
-> Hi,
-> 
-> Le mardi 24 février 2026 à 08:17 +0100, Krzysztof Kozlowski a écrit :
->> On Mon, Feb 23, 2026 at 09:49:49PM +0200, Cristian Ciocaltea wrote:
->>> Update 'reg-names' property to allow providing the register blocks in
->>> the expected address-based order for RK3576 & RK3588 video decoder and,
->>
->> What? The register blocks SHOULD NOT be provided in address-based order.
->> There was never such coding style, never ever we gave such hint and if
->> you found Qcom discussions you would see me and Rob objecting to it.
-> 
-> Would be nice to make a suggestion to how to fix this warning differently.
-> 
-> rk3576.dtsi:1282.30-1304.5: Warning (simple_bus_reg): /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
-
-I provided the suggestion in the commit mentioning the issue. Nothing
-here suggests any warning, so why would I suggest some steps?
-
-> 
-> 
->>
->>> consequently, fix some DTC warnings.
->>>
->>> Additionally, drop the 'reg' description items as the order is not fixed
->>> anymore, while the information they offer is not very relevant anyway.
->>>
->>> Fixes: c6ffb7e1fb90 ("media: dt-bindings: rockchip: Document RK3588 Video Decoder bindings")
->>> Fixes: a5c4a6526476 ("media: dt-bindings: rockchip: Add RK3576 Video Decoder bindings")
->>
->> No, nothing to be fixed here. Describe the bug, because missing order
->> to address-based is for sure not a bug.
-> 
-> The warning should be part of this this commit message, since the cover letter
-> is not going into git.
-> 
->>
->>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>> ---
->>>  Documentation/devicetree/bindings/media/rockchip,vdec.yaml | 13 ++++++-------
->>>  1 file changed, 6 insertions(+), 7 deletions(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>> index 809fda45b3bd..2d3164a2882b 100644
->>> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>> @@ -28,16 +28,15 @@ properties:
->>>  
->>>    reg:
->>>      minItems: 1
->>> -    items:
->>> -      - description: The function configuration registers base
->>> -      - description: The link table configuration registers base
->>> -      - description: The cache configuration registers base
->>> +    maxItems: 3
 >>>  
 >>>    reg-names:
 >>> -    items:
@@ -197,9 +144,13 @@ here suggests any warning, so why would I suggest some steps?
 >> No, ABI break without point.
 > 
 > Its not released yet, otherwise both order would need to be allowed.
+> 
+Also, not true.
 
-Nothing in commit msg explains that and we expressed such expectation
-multiple times. Otherwise you get above comment.
+git describe --contains  c6ffb7e1fb90
+v6.17-rc1~90^2~3
+
+So clearly released.
 
 Best regards,
 Krzysztof
