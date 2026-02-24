@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91BDEEFB7EB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 02:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC85EFB7EE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 03:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/bhqqDp0cBtKICnmQVrmMtxnlMvqrexGutOGquZwg6U=; b=i2HL+Sj+9B/ZXtqBlq/+r59cjs
-	8HKaort0GJkBkqL32cX1fX+JigEYN0VLCTSO/v36ygRjue2E9Lspk8B1ltI0UwODaKV51TjdRKxWW
-	lPZXgVxJ31dpUhqa/eAAYJ/JuxrnEQu59Y8XY6rwGtUaqYnWSqQYANM+JIdH290c4zFpH9LfqVRb6
-	OdFml15hEtuILrmzo2DYeMcNjqSwaleMUuhJMqnxgOlnN1NcGbO5dbNdiHTXqf0r+lnAlhKC91hIc
-	Dbfvi42DdC6VSrCsjNQD9G3SbCFKHRmorjWkeF1Zb0ked4+RZltjLscUdJGmFFVdEKbhRyYs3fJDv
-	E3mOhNhQ==;
+	bh=oY/aVs2MBsqFBnrxFsG7MMgaG2m19nI2+4Sd2HfxOD4=; b=gRfanKsAgDmuA/2a+lYk5t7/he
+	DKbmR6EMRoAv+law9Fg/BC5+7snEais5XMYQUeRKNQY2w2j+ryvQ/np8jmgN8ggSneytjalJy0IcO
+	OiU5r3sNpRqRA3tnwO7on/N4yIJAJhiYqDJ9s/lwbDiZVPoBiJYjHUQWui2SBOlXVSJaHNfuAmsPl
+	n8MHvyApADRsx6rOdv5vam+HHtN60zDxiSzbvHT5j8imKCKQHUgOe1D88fjau5CUCqbM3tPYcLQxc
+	6mr8UFhfOZlAQFECridDrIV6JE59WtX1BPIWOyY93n2+yB8Cs8RLCJkfYqH3ouYn3a920CgHYWHpW
+	0kDOQbVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuiTd-00000001NE1-1Org;
-	Tue, 24 Feb 2026 02:48:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vuisH-00000001OEK-2QgN;
+	Tue, 24 Feb 2026 03:14:13 +0000
+Received: from mail-m1973190.qiye.163.com ([220.197.31.90])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuiTb-00000001NDG-3Tne
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 02:48:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB6D94338F;
-	Tue, 24 Feb 2026 02:48:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43363C116D0;
-	Tue, 24 Feb 2026 02:48:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771901322;
-	bh=7PJlfl1E8kHqQjY0Dl7T+Y3HgXwyKOBil5hIKHkainE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=c0r7REpI/o3XSVvBhMUsoa8mVeQQy/N1mZa0h9vor5J2fLnWeZgp1ByFLy0U3jhVp
-	 05sQnXKohDzDQRJBAhzOdM/8yhm25w2TSC8P/Bq2M3lVefiF/zJrFrCL89RaKJoYz2
-	 MtcrAFUasbYxLh1iT+sUECSU91JmdsIOIFbHSkeGaArrd+kdOYUcLkwV6bNnyJJQTs
-	 Yu/TN2dAWBKfdY+aD8QKPApeuaXJogjOKMWlWD7W404Y2kkgfUTTaP71grxOdP8S03
-	 KXRDOoUpCZqILopGpBexu9mGPP3QL5JwMyBs/CtegvM2+/rRZZukOCWY9z1nIwg/Lv
-	 h4Vo7Rr0azmag==
-Date: Mon, 23 Feb 2026 18:48:40 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
- <pabeni@redhat.com>, <danishanwar@ti.com>, <rogerq@kernel.org>,
- <horms@kernel.org>, <mwalle@kernel.org>, <nm@ti.com>, <v-singh1@ti.com>,
- <vadim.fedorenko@linux.dev>, <matthias.schiffer@ew.tq-group.com>,
- <vigneshr@ti.com>, <m-malladi@ti.com>, <jacob.e.keller@intel.com>,
- <stable@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <srk@ti.com>
-Subject: Re: [PATCH net 2/3] net: ethernet: ti: icssg_common: set
- irq_disabled after disabling TX IRQ
-Message-ID: <20260223184840.06069afa@kernel.org>
-In-Reply-To: <20260220041431.372610-3-s-vadapalli@ti.com>
-References: <20260220041431.372610-1-s-vadapalli@ti.com>
-	<20260220041431.372610-3-s-vadapalli@ti.com>
+	id 1vuisE-00000001ODp-1qKM;
+	Tue, 24 Feb 2026 03:14:12 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 34bf77547;
+	Tue, 24 Feb 2026 11:14:01 +0800 (GMT+08:00)
+Cc: shawn.lin@rock-chips.com, Heiko Stuebner <heiko@sntech.de>,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ "finley.xiao" <finley.xiao@rock-chips.com>
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: add node name for
+ RK3588_PD_RKVDEC0/1 and RK3588_PD_VENC0/1
+To: Chaoyi Chen <kernel@airkyi.com>
+References: <1770950113-19802-1-git-send-email-shawn.lin@rock-chips.com>
+ <B5000B8F1001C1D8+040b217f-8ee1-4f96-95ec-e44d140b589d@airkyi.com>
+ <9cc9a3c5-55f0-32f6-f166-acfb3a34f0a3@rock-chips.com>
+ <C28FA037F24F3E74+97535c93-cc16-4bd5-b436-db7cdc0bb580@airkyi.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+Message-ID: <54ba06df-b9eb-f4de-0254-afc3b8fcb0ab@rock-chips.com>
+Date: Tue, 24 Feb 2026 11:14:01 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <C28FA037F24F3E74+97535c93-cc16-4bd5-b436-db7cdc0bb580@airkyi.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9c8da3b33509cckunm4fd9e8659c9d03
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkwaSlYdTkwYQ0JOQxpPTUNWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUJCSU5LVU
+	pLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=kOWA5HPKq1t2S4LMXPzcHbvRfwGsQn6q4o1yVtjCJa1zZ1coXy1w0YYRyLDQTmW/wNIM2Jia9ETpK+7jIHFJXreFLw2rx9bu4qBKGx9sTwl3Dm4NGTpz1e8IT1vSJJcNX709xjEGiUXyBMkaUEmaGlvjnzEmhT5XZibzT0Qj2VY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=oY/aVs2MBsqFBnrxFsG7MMgaG2m19nI2+4Sd2HfxOD4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_184843_897741_9CE0111E 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20260223_191410_668914_83628F1C 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,23 +76,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Feb 2026 09:41:58 +0530 Siddharth Vadapalli wrote:
-> The 'irq_disabled' variable indicates the current state of the TX IRQ and
-> is used by the TX NAPI handler to determine whether the IRQ should be
-> enabled.
-> 
-> Currently, 'irq_disabled' is set before actually disabling the IRQ by
-> invoking disable_irq_nosync(). In an SMP environment, this leads to a race
-> condition wherein the processor taking the interrupt sets 'irq_disabled'
-> while another processor executing a previous instance of the TX NAPI
-> handler sees 'irq_disabled' set and invokes enable_irq() before the TX IRQ
-> is actually disabled by disable_irq_nosync(). This results in the following
-> warning:
-> 	Unbalanced enable for IRQ ...
 
-AFAICT the flow on the Tx bug is not buggy, owner ship of the IRQ
-vector passes handler -> NAPI -> timer. I don't see how those can
-race.
--- 
-pw-bot: cr
+
+在 2026/02/24 星期二 9:42, Chaoyi Chen 写道:
+> On 2/13/2026 7:11 PM, Shawn Lin wrote:
+>> Hi Chaoyi
+>>
+>> 在 2026/02/13 星期五 18:32, Chaoyi Chen 写道:
+>>> Hello Shawn,
+>>>
+>>> On 2/13/2026 10:35 AM, Shawn Lin wrote:
+>>>> Thus the board dts files could add property for these nodes.
+>>>>
+>>>> Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+>>>> ---
+>>> You should also add pmdomain driver.
+>>>
+>>> I've encountered a similar issue before.
+>>> Finley told me to use the new PMIC, and that would solve the problem.
+>>> Maybe you're using the same old PMIC as I did :)
+>>>
+>>
+>> I don't know what does new PMIC mean? New RK806 driver or new RK806
+>> hardware?
+> 
+> It is new RK806 hardware. According to Finley, end users are currently using
+> this new type of PMIC.
+> 
+> 
+>>
+>> The problem is these power domains rely on voltage supply which could
+>> be probed late after pmdomain driver, then the system enables the PD and
+>> access the IP without PD actually enabled(even w/o voltage supply
+>> enabled).
+>>
+> 
+> If I'm not mistaken, the new hardware will automatically powers up the supply
+> corresponding to VDEC/VNEC.
+> 
+
+Thanks for the clarification on the hardware update.
+
+I'm currently using the EVB board for SoC bring-up and post-silicon
+validation, which I believe carries the old RK806 hardware. It's also
+apparent that many developers (as opposed to end users) are still
+relying on the old hardware in the field.
+
+Generally speaking, upstream code has no way to distinguish between the 
+old and new PMIC variants solely from the DTS, correct? Given this, I
+think we should aim to keep both hardware versions workable in the
+upstream code.
+
+> 
+>>
+>>
+>>>
+>>>>
+>>>>    arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 8 ++++----
+>>>>    1 file changed, 4 insertions(+), 4 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+>>>> index 7fe9593..4fb8888 100644
+>>>> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+>>>> @@ -907,7 +907,7 @@
+>>>>                    #size-cells = <0>;
+>>>>                    #power-domain-cells = <0>;
+>>>>    -                power-domain@RK3588_PD_RKVDEC0 {
+>>>> +                pd_rkvdec0: power-domain@RK3588_PD_RKVDEC0 {
+>>>>                        reg = <RK3588_PD_RKVDEC0>;
+>>>>                        clocks = <&cru HCLK_RKVDEC0>,
+>>>>                             <&cru HCLK_VDPU_ROOT>,
+>>>> @@ -917,7 +917,7 @@
+>>>>                        pm_qos = <&qos_rkvdec0>;
+>>>>                        #power-domain-cells = <0>;
+>>>>                    };
+>>>> -                power-domain@RK3588_PD_RKVDEC1 {
+>>>> +                pd_rkvdec1: power-domain@RK3588_PD_RKVDEC1 {
+>>>>                        reg = <RK3588_PD_RKVDEC1>;
+>>>>                        clocks = <&cru HCLK_RKVDEC1>,
+>>>>                             <&cru HCLK_VDPU_ROOT>,
+>>>> @@ -926,7 +926,7 @@
+>>>>                        pm_qos = <&qos_rkvdec1>;
+>>>>                        #power-domain-cells = <0>;
+>>>>                    };
+>>>> -                power-domain@RK3588_PD_VENC0 {
+>>>> +                pd_venc0: power-domain@RK3588_PD_VENC0 {
+>>>>                        reg = <RK3588_PD_VENC0>;
+>>>>                        clocks = <&cru HCLK_RKVENC0>,
+>>>>                             <&cru ACLK_RKVENC0>;
+>>>> @@ -937,7 +937,7 @@
+>>>>                        #size-cells = <0>;
+>>>>                        #power-domain-cells = <0>;
+>>>>    -                    power-domain@RK3588_PD_VENC1 {
+>>>> +                pd_venc1: power-domain@RK3588_PD_VENC1 {
+>>>>                            reg = <RK3588_PD_VENC1>;
+>>>>                            clocks = <&cru HCLK_RKVENC1>,
+>>>>                                 <&cru HCLK_RKVENC0>,
+>>>
+>>
+>>
+>>
+> 
 
