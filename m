@@ -4,180 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF96F4BB83
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 20:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F62FF4BB83
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 20:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=76QJ1KCKzBZiiZYQbuarwk1eHYqDtzbS0LsMG+ylHZ8=; b=e3EqSIIIKp93mmllEtuk2IJfOf
-	7NUvcjrOAmS0OzMguTNQ5WDMjMU3bJX4am5UZd2dqRzs8QGUlzUK3I4cqwIYHub9TUA03mKqE8HyT
-	HKTTTFYrAvEn2MpRCUXYAFm84gyutnGRfh00TUXjf7g3+J7KUJojhUH9vyk+F7L5r5WncCBj/HXxE
-	71jnhN6wyffSF0eLLKgN/HM2TrnBmmYk/hd8g2nG2BYcC9Ri3qvtjOq0DkBE7hHyulpZTrsDf0Jaz
-	aHcYOVAZhI+Eob7J7MdJ43kfPAkp14K30WawJdpQQU+Z7ZdB6YECo8dfuWJ7IJPc1hRfZbow+ai6X
-	ZS5z+OQw==;
+	bh=NBNbqhCyx0DJMWjTy8MtEivhPQa5vAQ2GJ9/M7TWB7Y=; b=Ak3Ee36OH60/wgXwExZyfQrnJ4
+	sCLQiCP3Y6ECCmgw77I8hCLukg9yVdua3LiNmUDuV3BF1CpCQAHt40nqXzvNfHCJcrIjNQOPjABGj
+	EN151fpWGkqg2ghInaX+0ehCBytRPr5Nyhhi+5VvdO9cyLEj2GRjULjpLrE4T7ZHr15JF99QYmgrA
+	dQ/OXcBGNUov3ILFaFJS7CmwJsGhdn9ybBTwAuKhm7tWJo2s/hnUlmUsTcrMyxoBLMvSGPtlKOlFp
+	n5dAIHY8js4wpH/u3ar4memJFHjbqhoSR8fPKPLDf1lseKJ8IAeXp5kCQY6qnRTEvSShzFZay8O41
+	XpnQtv/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuyd3-00000002jKT-2IAx;
-	Tue, 24 Feb 2026 20:03:33 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuyd1-00000002jK3-2tF7
+	id 1vuyhL-00000002jXM-1vIB;
+	Tue, 24 Feb 2026 20:07:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuyhJ-00000002jX0-0ZOC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 20:03:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hFOgfuFYOhdndykDfefqjzC/CNiEIMzF9F5r4mGzzx9eNT2Q5wDm58DuOk7Opl29QpB8K1fTcObwM+Xg4hMIKeY23A5EQZKq36Ni3Ls/Wm9lKrXxykPtDUfu/nABQ6ptQh5W1JDjLOzN8a4G4PHqK7aOvkFoW4AXdCoOXNI/IJGsGgddDBi41cuYpxFY03Pknbo8QYxmwopCTscRmZ2RNAthM1DcIughSyba0sr3HQI3hHnpHcI7EVOaehWNU5DgdwMj6ECk520FSvcfc7di0yTHEUg2ZneVzKIX46fdwt9zomVq550ygVqBIrUaF6+orkzKtyP6C8HBCBkphtxA6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=76QJ1KCKzBZiiZYQbuarwk1eHYqDtzbS0LsMG+ylHZ8=;
- b=EZPXBIJ54xHxCBwG7hEbKbRORdj00x6Zy59jvjNQGvNDWvJ3eEiRtDGMd5eYUuLxTvw7SoF2Db9WRb9vZJPEsTk9RHX3h1jHpny/ipY7/7njZOJWYBUzGCjGcPasHDCR2LdiK9p6aJrgG7Ps0+y2lz+67+eLEk13gkOIWK5LXc76N8/wLxd9PFAsWFjpjHVMncvhEJiN+FDktd7CJlOXkR1Mfgn87E6GLb8N45jNPBnpLW2ov+qgr+83eg5lidEDqQYIaDamRuvXNJekWEENGMAwt6q9I2n/pyauV/3x5mYAuhY++oLKIUiSxUrkSRolq5DeMhs0WahMKct1QEijPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=76QJ1KCKzBZiiZYQbuarwk1eHYqDtzbS0LsMG+ylHZ8=;
- b=LIuhPlKxY+eOdQ5pH6aze5YDkL1xcpxMXA/EypXataLExPa5jDH8rLzDFuutU5sZrKYU3XOR82PlGkYJjyP7xb6/o151C1VdP9Nq/5tqRGPCuM/BO4wRiNJZE0IWUf8dE/k+/7xZFkVCEAZfRPdcpm+ZRGI4uwE9V7xwPyxJTHg1oWGX9XgP4DBEO4exGuNvJnXKc0GDi6GjE2pRIf4k8dn+hhMdRlv0t379U17Qf+c+us8DAGlgAlklS3Qe5KgXjMJojETomwdxDtHXCqizQewIrd2xd+apS8Yb2JA70/jTdLjFOzZDqNVXZpwm5dtRwYbK9Ou998pWBzxIrQV3kQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DU2PR04MB8965.eurprd04.prod.outlook.com (2603:10a6:10:2e0::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
- 2026 20:03:27 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.017; Tue, 24 Feb 2026
- 20:03:26 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1] arm64: dts: freescale: imx95-toradex-smarc: fix PMIC_SD2_VSEL label position
-Date: Tue, 24 Feb 2026 15:03:09 -0500
-Message-ID: <177196338262.3249972.2074583461103332539.b4-ty@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260129104741.888670-1-ghidoliemanuele@gmail.com>
-References: <20260129104741.888670-1-ghidoliemanuele@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BYAPR08CA0058.namprd08.prod.outlook.com
- (2603:10b6:a03:117::35) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 24 Feb 2026 20:07:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3315497;
+	Tue, 24 Feb 2026 12:07:48 -0800 (PST)
+Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2966C3F59E;
+	Tue, 24 Feb 2026 12:07:54 -0800 (PST)
+Date: Tue, 24 Feb 2026 20:07:51 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Nirmoy Das <nirmoyd@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] arm64: signal: preserve si_addr for addresses in the
+ VA hole
+Message-ID: <aZ4FF6ZdLEhvfkGp@arm.com>
+References: <20260224135503.3329100-1-nirmoyd@nvidia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU2PR04MB8965:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc5f50bc-3977-49d1-50d4-08de73dfc5ac
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cUdQWFZsVmY3MUprSDgzcVNpdW9Ha3dsTWxkci9NWjNRMUZzbXZmRE9ZMWR5?=
- =?utf-8?B?N1BRRmtETkRQZCsrZVVzL0kvTGJsdzFCOVdYVlU3azlvQmdYbmFCaHdubGEw?=
- =?utf-8?B?T0dRb3hKeGs5dDBaN2tabGtzNnMwQjdvOHgvSkpwRGtCaENaZTkrVjdtYUVY?=
- =?utf-8?B?emxQMVI2SmhuL1ZHVHdRZUJjZ3BtSFN6dnlkaElDb3VJckFvUTEzVkp0cDEr?=
- =?utf-8?B?R1JCOURyY3dtUVlPQjlkWWNiS1l3L2VwNTZGQ2hhZGZjbjNmbEN2WFRqUXBq?=
- =?utf-8?B?WmN4dnlwdXJSVTE0ZjVtR2VMOEM2R05aeFprUUxmK0lSdlRIQ0gvM3NMMCsr?=
- =?utf-8?B?YW1YREc2WkZOM05hSGkxZHV1eW5aTVJHWlNqbzNGaXZYTFAyMG8wWW1Xb2Nk?=
- =?utf-8?B?czVaRVlkV004VlVwOE5SeUlyYm5BRjBHKzBxNVdxZllZVzBVRG1iOWpKZ3kv?=
- =?utf-8?B?enRsaklDR0o5SFlncFpjekVnT0ROYjFjSGh2UUc3a2NyVU91cXllUlpIdW8y?=
- =?utf-8?B?Qi9LQVNRYWlMU1Z6ZTArSHd2cnNrcTRCdWx4MGpmZXJLN29LMmR1S3BCelJp?=
- =?utf-8?B?cTFWOUsxNGxYOVBHUHBRc0NPL3EwYURvNVB0SFdzN1JKSTN5L3VDWmdveXor?=
- =?utf-8?B?SEU4OC9yTEROYnFnRkxYUUorOFIwakJ2ZE9NaVhadThlL2lYUnZJNnZESGY3?=
- =?utf-8?B?Tkg2U0NyWk56YXhZdE9NRVpvT01Bekw4Y3h6WTlWYWxiaWtiNWVTLzZQVlRN?=
- =?utf-8?B?M3l6ZTlSTk1oZkhxM3dRRUc1clBRYTBXcnhsZ0taeDNzVjhYVVRWbTFST0dq?=
- =?utf-8?B?VGFHdDJnSklRZlNMcG0xZ2JMUzZxckkxV3poNVJxQnZaSml3V3RRWEZNeG1M?=
- =?utf-8?B?SHpNaGoyQ3pXRktPRXJsdzl6Tm54RSszU1NLV25IZ0o1MW1CLzc3VTV3SWJR?=
- =?utf-8?B?MVJVVndJU0ZoYlBXSDI3dW5PTEtJYU91L2hWRHNaT00rd2xueWd2alQ1UzlT?=
- =?utf-8?B?MUY1MlJlVHppeTRjclQybjlIcW5iZjNZSVVBeCt6N1hPbWliMTIrODc0Rjcz?=
- =?utf-8?B?c3RzQ1Bhc2RCK3FkWFpmMzU4RVZHR0JsMzlvb1A5dUhhR2k4WW9RVUNtZmNI?=
- =?utf-8?B?V25YcDg1YUFWeW9TOGxmYXo0eFQwYkNFWFdaUkJZOFV5ZFpDWjdVZ1BNTmdZ?=
- =?utf-8?B?b3oyVndWa2Z1NkZQaEhWSEZ6bmJFVDVkRDhBZ3VDckVuSmJ5K3d1bHY2Tm53?=
- =?utf-8?B?LzgrZXpuSHA0NkJRMVhrVkxZRytBbVh4aThyUFQyZ3RFVU5yd3g1akR6bXFY?=
- =?utf-8?B?a01zN0pvT0FaN0NuR3JPTWVQUnBjem5TRElJcGtTZExINi91c2RMV3k1YXpP?=
- =?utf-8?B?QlJ5ckJxU1p5VzdzL0FhUVZKU3ZWTFdCNWNoanlNZXlYSWRqSGJFanBDdUZ1?=
- =?utf-8?B?Z3Fac290cjNHTHNDMktrUHdhdExYekgrYUtjTEZEK3FzbFE4ZWZSU2NLSjNP?=
- =?utf-8?B?N1dTNGJWaDYyaGZXd0l4R3gyaGZFZGFIOEw2WEV0cXVYRWwzRUMrbmw0c1VR?=
- =?utf-8?B?bTkvTlBlZjlSb3A4RDBqL1VnUWJ1bjlLT3FWQkxMZVF6dlowNHhnYUpRNHlk?=
- =?utf-8?B?Si94TDV5RlBlYXdNVTBiY3g2L2N3YTR5c0xQYWdVQzR2dWhWa0NRU0tBb3Ba?=
- =?utf-8?B?TzFodDdQa1NVbWVjdmNmSEtUdFhlR1B5QnF5SEVPQ1YvckNidGtJUVM2aitM?=
- =?utf-8?B?ekhwWlp6c3hOTEhyejRhRlFXZjhub3lOYkFPdk01d3E5aG5Qc1FKYmdoa0J6?=
- =?utf-8?B?dE9wOFdOaFAvanZlbUF2WC81UFpsQ3p0WkJNSG01RTE4b1pTQjcrSDRWMTZy?=
- =?utf-8?B?MENkN2R6TUhreDZ3eWJDbDJwSnNRMzIyUENWT3FWazlRSGNiSWpCM1NjQXFT?=
- =?utf-8?B?bXJwRzhyenZOTzVjK2xYL1B4czYvc0d0eGEwUldoU2pzamdBVGN3TFNkT2Rr?=
- =?utf-8?B?RVdyU0ZXME94VG0wZXZVTThjbkVmck5rMndyUVBBcWpvRGtzYWpydU9wM1BL?=
- =?utf-8?B?L0FUcWxCQ29rQThvcmlEMHEyZTcxU3kwNXZMcHdCL1pULytjRVBjU3h1RXFV?=
- =?utf-8?B?R044UzVhc3BnNXozeDdyRzNvNExZYnV2SUJHMzZ6T2hsOWR1VzZNZERpUDZ5?=
- =?utf-8?Q?4qGNgrpDILXUU1VdLkC/kaE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YzdVeTROODR6UmliUFE3ais1QWhTUWpreHltMyswRnVtQmRLT2RENXJsTGQz?=
- =?utf-8?B?dHpmcTdGaWNrOGtzenA1clJSWStzam15TUJOaXk0dWtQYTNaSndQb3UySzR2?=
- =?utf-8?B?dzhxYUZXMGNKanoxTnp2SXFEaVVCSTBHTzdNLzhJZGFsZWZUNEIwc1dLMkJP?=
- =?utf-8?B?VjNSWGhaRkxlUDNkaUNwRXhONk5NL0NQYzFuaFlwWHk5WHVFWG00a2ZrMkVP?=
- =?utf-8?B?VEJxOEdzd0tHYkVDS3hrNXREMG5BdE9vU0N4VkdxZWo1V1p1bHdLOWpPVDVy?=
- =?utf-8?B?UmlnNlVYRGd4ZC96eEVCbXB3Qmp5RXJmbXdFUkJCSnFva3ZPOU1oK2xONmV4?=
- =?utf-8?B?WVREMjJKWldIVW42bmh1Z0JiMGVVUm9EanpOTnVOUUNWMVQ3V3daSU5tZ0w3?=
- =?utf-8?B?TWZoM0Y2NThrcFpUSVhFNmV5TFdobkI4Z2I1Yk1HR0R6R2ZGNEZFeHg4dTlX?=
- =?utf-8?B?dktob3Vsc1JQclBxNkJpZmR1RlhLdmlXalNuR2VyVWMvajZkcWNBb1N1TTBX?=
- =?utf-8?B?REc2OWFYaStMS1UybmxIN3lHaVFZdWJ5dDZPUG5leW51bGhpeDBSZHZyMWpX?=
- =?utf-8?B?Tlpia0hTdW1sWXBHdDQ4OUxmd2hldVYxb2JHMzFkZGorVTd1SEo0SkVkT1Bw?=
- =?utf-8?B?eldmbWQ3eGxaZkZ3MUl0YTVtcVoyTUl2WHJrV3Q5QmVWT3puMy9mUXVGeEp6?=
- =?utf-8?B?OXZOQ3JWYVkyTHRPYU9JZVdGLzBBRjNhSWpxaEYrT1UyQ2d0MVhEd0VPVDZw?=
- =?utf-8?B?VmEzd2NCa0xiWXRiV2MzeU40M3VVSHFrZCtJQTl6Q2Zla3B0SmE2VUx2aG9r?=
- =?utf-8?B?aUNDUnIxd3pJeGNjckV2WVR3SkZnY2ZrdW5EQmd6emluWnZSaGZSbnNWR29n?=
- =?utf-8?B?VTBSOTdzQ0EwaUJDZDRDUmJJVUN1RmN2SklGSUh0Vlp0V2RqVG1mSlVjSk1v?=
- =?utf-8?B?SG82SzAvbDVOeUdkaTBYbG1oVEY1VmZobWdzMHlma3RxSEtiZ1B2RFpKOGpt?=
- =?utf-8?B?K0dzbEFKUVpmWnY1MUdBQm5ReXk1cmVWWCtEVThpclMydFVqL2NkaktHbkdB?=
- =?utf-8?B?aGdxMXlMc3VBejNNRFFobnVxaFowZzUrWGM1RTlkR2c4SnRJYW5HV3FlSWtt?=
- =?utf-8?B?ekh0YmVUZ1hTUEVnTXJ3a0RJek5FbXQ4c1NDT0xjaXp6OVFpUFNMUFREWGgy?=
- =?utf-8?B?anhtQmFLVHppbnhPdnM0cDZoRExVbURGR21lS2ljYWVQWE1qTU9PdGZsd0JG?=
- =?utf-8?B?aTdFak1jUEVmQ0wxZGplSU5UU3FGYU1ieGxPbXdQM3JiV2RJdlZIMEdIcWd6?=
- =?utf-8?B?aThSK0tMbGQrVDVHdWV0RWJLSy9EUkRCZlk5OFBHQXVHOHZNeXhkNXFqdFRP?=
- =?utf-8?B?dzFLZ1hCSjBkYlJGRUdrdHV0T25TWWd2b3AxeEV1N1hCcndlZW8rMTVNZ0tn?=
- =?utf-8?B?c0Q0VEs4VktSM1NZbW5OWGtDTXozYkhpOTBhMkV1OHppd0tCUzFZYWlSVnRh?=
- =?utf-8?B?aWFpc3dNaTlnTUxrcitWM1BOeDFtYWUxOTFPdjFROEFpQk1JTDg2T0gxL0JF?=
- =?utf-8?B?K1phSGx6WEJ4L0RyS2YvVzFXajhzdC9xaW5BeDJZN0VocDVlcEZ3UWZvVmEy?=
- =?utf-8?B?UVVSWVZlMjBaZjhaZHZWNXRPT0htN0tmYkxTYkhDekJKUEFNK0YwbWR4S2Iv?=
- =?utf-8?B?TEVIUkdwVEt2dmdGSjZodXJEVW5iZjFkMmp3dmhERnNzeXpHSEF1eVNGb2tQ?=
- =?utf-8?B?QnAzejJPTUhkWEN6RnJIUUEvRDVldEFsLzhSbk9jVXlDbjBGNzRvRGpCb2Mz?=
- =?utf-8?B?NDUrQnA2WXBvNHJHWC9RcVEwTS9CRWs2NkJGY20xcG9HTEdNRjI2aEYwYkc0?=
- =?utf-8?B?dE41dEZETEw2YXNzVnViNkVTckRKVDMxRHhWYnFtQk1mVkpOYlV5Nis0S2Rk?=
- =?utf-8?B?U1RwdkFaVjFEVVhZOFhMUEwrUU55YVFoUzc5d3ZTTFI5UytHVjZxM09Na1VU?=
- =?utf-8?B?WDY3RGd0RzdpZUFidkJHNm9oc1Eza0NCeEQ4N0VadVpmbkowTm9iTVdVOHN6?=
- =?utf-8?B?OFJ0T1crZjJrNXo4WkVEQlp6KzVRT3h3cWwzcDJ1c0lvSmJYeWlJeWxKbHhQ?=
- =?utf-8?B?WXd6eml6ZFpJOGlhbzJJSzdYMTZDV3VlWXRLOTZYdlIwc1p3emVSbERNeVdT?=
- =?utf-8?B?SGJyN2x4RWVReGtxTlF2ckd1cWhidjlxVFJTLzh2NVFuamMxUTZoQzVTQUpZ?=
- =?utf-8?B?N05FVDBDemZIcmI2UXJ1MG82UiswQkRWS2tDaFk1U0pmNEpob3BJMWhRWUtD?=
- =?utf-8?Q?QrCe9ZUw15ar0Esu1B?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc5f50bc-3977-49d1-50d4-08de73dfc5ac
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 20:03:26.8140
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DixnLyrou/C5Xqy6qb+/WrdtcxP0nhlsZCFCz27aFDfpb5YbC3Kvc0vmE/E5pRR3JIwLSTDMIDldojQLj7h3LQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8965
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260224135503.3329100-1-nirmoyd@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_120331_752042_EBFA2F02 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260224_120757_219969_AE55576E 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,19 +63,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 29 Jan 2026 11:47:35 +0100, Emanuele Ghidoli wrote:
-> Fix the PMIC_SD2_VSEL gpio-line-name position. It should be on line 19
-> of gpio3, not line 20.
+On Tue, Feb 24, 2026 at 05:55:03AM -0800, Nirmoy Das wrote:
+> When userspace accesses an address in the "hole" between user and kernel
+> virtual address space, the kernel delivers SIGSEGV with si_addr set to
+> the faulting address. However, untagged_addr() uses sign_extend64() to
+> canonicalize the address which corrupts hole addresses making debugging
+> difficult as userspace cannot see the actual faulting value.
 > 
-> 
+> Fix this by only stripping the TBI top-byte for addresses that fall
+> within the valid user range (below TASK_SIZE) after masking. For hole
+> addresses, preserve the full original address including any tag bits.
 
-Applied, thanks!
+From an architecture perspective, TTBRx selection is done based on bit
+55. If TBI is enabled for one of the TTBRx ranges, bits 63:56 of the
+address are ignored for the translation. Since TBI is always on for the
+user, it makes sense to always ignore these bits. You just need to be
+aware that the byte is sign-extended from bit 55.
 
-[1/1] arm64: dts: freescale: imx95-toradex-smarc: fix PMIC_SD2_VSEL label position
-      (no commit info)
+How does it help with debugging if you know the top byte since it's
+ignored by the hardware anyway.
 
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
+> diff --git a/arch/arm64/include/asm/signal.h b/arch/arm64/include/asm/signal.h
+> index ef449f5f4ba8..ca7ff6e5cd2f 100644
+> --- a/arch/arm64/include/asm/signal.h
+> +++ b/arch/arm64/include/asm/signal.h
+> @@ -3,6 +3,7 @@
+>  #define __ARM64_ASM_SIGNAL_H
+>  
+>  #include <asm/memory.h>
+> +#include <asm/processor.h>
+>  #include <uapi/asm/signal.h>
+>  #include <uapi/asm/siginfo.h>
+>  
+> @@ -10,6 +11,8 @@ static inline void __user *arch_untagged_si_addr(void __user *addr,
+>  						 unsigned long sig,
+>  						 unsigned long si_code)
+>  {
+> +	unsigned long masked;
+> +
+>  	/*
+>  	 * For historical reasons, all bits of the fault address are exposed as
+>  	 * address bits for watchpoint exceptions. New architectures should
+> @@ -18,7 +21,16 @@ static inline void __user *arch_untagged_si_addr(void __user *addr,
+>  	if (sig == SIGTRAP && si_code == TRAP_BRKPT)
+>  		return addr;
+>  
+> -	return untagged_addr(addr);
+> +	/*
+> +	 * Strip tag bits only for valid user addresses. For addresses
+> +	 * in the VA hole, preserve the original value so userspace can
+> +	 * see the actual faulting address for debugging.
+> +	 */
+> +	masked = (unsigned long)addr & ((1UL << 56) - 1);
+> +	if (masked >= TASK_SIZE)
+> +		return addr;
+
+This doesn't make much sense architecturally. In the worst case, I'd
+keep the top byte only if bit 55 is set (not in relation to TASK_SIZE).
+But even in this case, I don't see what problem it solves. That top bit
+doesn't give you any useful information and, with MTE on, TBI1 is also
+on.
+
+-- 
+Catalin
 
