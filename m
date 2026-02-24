@@ -4,73 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B33F3C984
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 14:38:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D6BF3C982
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 14:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5IhyRq6j44lbgw/MYEQwdd/zqrqvoFdKpJPwA65t7lc=; b=XAJhWDdGD77+FxWJY1XAd9nFMa
-	ZGBFahTQnBS7pwhxJNnje/bY+7Io86TAO/XBAlLVyD1fGE1bHwzvttvspbL0RmlhdafwVObM9UXri
-	xr8mTexiMwAlV147FIh3DRcC+VSiu3xEHNQKcaIShTph1IqmaVqOapwpZp0N1oLLmBWNLp22lLVPy
-	Wh7RPs0Luw5KiABeIuWCSYY+iY0vqWcz84xMaeLOwtgWyM4Tw5oWKhgTuve0x3uOmi/EbkBNAN9l5
-	ffEEQfvMC69I8dTHUnNOj00fiSiO8LxuRQaOlC6tVwpyBp/EtW5/JsBnJ2LJwJ86xP+YofR8GZgnA
-	5s4EilrA==;
+	bh=nT8yG2jm1Z0rnRkroia3ywEyGWFFG0wrFWTnHfcIj9E=; b=o2Uc1rmkzTznH02djNIU10brAk
+	9YA9o4IjXApHECC8aa8YFy6wudNJycIrDMefFPeMrDsfaID4bg0mO+lBxyxRsy4UubQVNTjTkNn/e
+	X5KhsqCJ+RK8SiWpg6kemm/++AhUy0kgQWshaRvvCUNA9NpRxvMhoT6UYEWsLVvEUho56OHRZNRdE
+	9TwNPMl/8+fs54k6QAXq8pE0uo7nPHNRqSZjQ+UD442nJnqTDp/dqdfVmLYIFRklt+ybZY0aXsymS
+	DFJRgMsMvLf7CXttcp4pvyBawbFWXeQVTKjPYNC7FZX3lm2lkLCjbP1d/ZYfBAqtMZZzxJrzneXCv
+	O8l15OeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vutYL-00000002F4N-0LXw;
-	Tue, 24 Feb 2026 14:38:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vutYU-00000002F8M-0Z8d;
+	Tue, 24 Feb 2026 14:38:30 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vutYJ-00000002F3x-3xJh;
-	Tue, 24 Feb 2026 14:38:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE21D61118;
-	Tue, 24 Feb 2026 14:38:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2CFBC19422;
-	Tue, 24 Feb 2026 14:38:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771943898;
-	bh=wPlstvr1vtng5Z8cvx+47DS9+o9aAqKW2r6GHJ7uuxs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JU+tftSlcd79SWpTaxWdip1YcYQks3WUmm2YHyKc3+YvW3ns5HJT8soxQt6BFF+Zm
-	 ozi8Fcj8ZOsA2noENdn7ylcF+2PK5rggTKgUt01GZLDC7zMrgJ8/3NZZi38tLHvHuK
-	 cv3/3a1iNs1b6NHxVBI2LxUNgppG15UWc9XzNGPsABX50htLCFUP7Eu7hjHHTQxod5
-	 2S7h5ePYGzvdAM49gY+928Tl+rAWOhAmtNJ3WdO9hcdXXzef7MijVOrCWrFf3ccAOU
-	 ebyWMrcwYSX4376zU5+LJrds5gdSqYP1LbkbnfOUQTsRSCRljp84Z99GT+01wS7CyD
-	 U1cy0u88rQGtw==
-Date: Tue, 24 Feb 2026 15:38:15 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, kernel@collabora.com, 
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	Andri Yngvason <andri@yngvason.is>, Werner Sembach <wse@tuxedocomputers.com>, 
-	Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v8 02/20] drm: Add new general DRM property "color format"
-Message-ID: <20260224-elegant-fine-mule-f45bca@houat>
-References: <20260216-color-format-v8-0-5722ce175dd5@collabora.com>
- <20260216-color-format-v8-2-5722ce175dd5@collabora.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="mibp7hbznkdzhzwa"
+	id 1vutYR-00000002F5m-3A2s
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Feb 2026 14:38:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nJIJSYdpx2UYUO/e1/dqoxd6NtNkizJKZCeo76Uz2CH3Pmyk7dVvmyrzNiJlJDB0GZqIFMwf8pgVu6GiR7L1DKZsb+p64iDGLfsleosTcugZrPd221mP8GgqtaJoOMRmeiiSJJgbdEXoZhL7NXWJYzmmTzPqk+YUPSiTJrV9kFeT62hh7Z04n5VXqCCKLT2RhA6Ex96Y87tHN7oSE3l0poz8fj/+m3X1mRazjpt0z+r8k7CrM4r1Sxs9Pji0LtuZKefzRkGHPAlMhMn8PC5m2NhK1PVPZp+Lj7i0Z7+K/LMoHijfy1YGzdsshAIhZLHkWsfYooy8A9wPQw56Od8JZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nT8yG2jm1Z0rnRkroia3ywEyGWFFG0wrFWTnHfcIj9E=;
+ b=WU9fKp+bHpn2/zGenVN369Pry1HkYTyngLfCHW9RnZDSv2X/3cU1BTnWLmDnd3UIFRSExnD24NWv6aOkOFOwuOCHXsU5kA7tm2BORhVZS+tNpFFn8B8YIdtk6DKmBN+VqmZbHXtzFqY6csp7A7I1r0+toL0J0IV3EI6SM8gN71rnnQKKIEoDjHCATgYJVwW+xMcFrNrFq3hHUuSuT3llZO+cc3dF+Ql3uah2vV4YHkiRRP9fvCmGr8yyCNZPCUN4rhqUgQRSqaHaF+LLZndeMTrjhTwMyy92b3GNGUBra511RKBSFJJ4YeF2S1iCa7V6ELamJP8VxdrySHiVFT4rlw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nT8yG2jm1Z0rnRkroia3ywEyGWFFG0wrFWTnHfcIj9E=;
+ b=KITSLE2W9pjWObCwtnDpZP1LfTOVn2lhLflwfU7MZ2jtJeBTozJlDwbBk/EmKuzhIwWEmCKtefYxkeJJ9ztumiK7hG56fyw5pcSongsWJU2OgD3A1wyb1lwXt/M0iV9pLT1EslDr1uaIqQVB6MeyHx53FpJvEk23L9HNFk7GKdeSQPubqTPQ0NKB/1+VaeWq+Cr4B+DNdMvdhuhQUEhe4mpYSczDIBbO4/zOM/v8YHDBGQ+BrgyUtqghYCu25KIKReJLjzA4e0RrP8mJKe7b8chDSjUXzY7oxFLR+j1eb7n6rBxR3weBjHiPWYUT9vfmOFECAv8zp2FKPToZDDlfMw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by BN7PPF28614436A.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6c9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Tue, 24 Feb
+ 2026 14:38:18 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9632.017; Tue, 24 Feb 2026
+ 14:38:18 +0000
+Date: Tue, 24 Feb 2026 10:38:16 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: dan.j.williams@intel.com, "Tian, Kevin" <kevin.tian@intel.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <aZ232JHtVU6N/tFx@nvidia.com>
+References: <20260203143348.GA3931454@nvidia.com>
+ <aYI0LUdXqrjmRcMo@Asurada-Nvidia>
+ <20260203175540.GC3931454@nvidia.com>
+ <aZZDo3BeuBKh9q24@nvidia.com>
+ <20260219143737.GG723117@nvidia.com>
+ <aZc//6kvH3Eqfwfe@nvidia.com>
+ <20260219174139.GI723117@nvidia.com>
+ <aZfoqETxb31jp/Pk@nvidia.com>
+ <20260220125044.GK723117@nvidia.com>
+ <aZispVftDE/6u+Xy@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260216-color-format-v8-2-5722ce175dd5@collabora.com>
+In-Reply-To: <aZispVftDE/6u+Xy@nvidia.com>
+X-ClientProxiedBy: YQZPR01CA0145.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:8c::11) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|BN7PPF28614436A:EE_
+X-MS-Office365-Filtering-Correlation-Id: e18247c7-feeb-474a-11be-08de73b259b1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mgWNFJYZag0TOSN0pEEZDzn7m47CApr+XuhuKkJ9m6mu2nwo1HiaJ94/RN7j?=
+ =?us-ascii?Q?vAeEFPQbwHO5Xkzc24qspoZ81rTMxQ8u17y9zY3mEzKWQKUWJOwrPFrjFGdG?=
+ =?us-ascii?Q?oYqiEVdKZuYQm+VRS7ojzGkJBZCF2AdD1FmwTQocfc+NHWBqMd8OOZg8LBND?=
+ =?us-ascii?Q?oGz55Rm1U9EkhgYHLSauSonQj6j7ybP+Lc2/wbJ/YXXUymaXgAZT/qVbi8NF?=
+ =?us-ascii?Q?YhTFPWpGY5ZwhGFNx2eUwxvFapNO/9tk0pgyW6YsJlWLyX502UkKFtl4C7MK?=
+ =?us-ascii?Q?zZsQkEvQ9x26asXRxJFbQgrbvH7RGoGUA4TcGbYoooI625G+a095GnApCD1d?=
+ =?us-ascii?Q?4xdDxvk0UeRx7zFmE+gLZreg3/Tfuum6yy/nxJ+w+N9pUFFW+93MmTfLz0UU?=
+ =?us-ascii?Q?z6ZPPN+a/4/OIrZQHQI5W9E2HnwPzh98Zx2sBpndQr6oEsLeZGLAz/XdBph9?=
+ =?us-ascii?Q?e3gDzJRDGzMqMWvzlK3E2gkMEOFf/ASLgAeElyrLwJ5o9V5Ovm0eYUt6vAfb?=
+ =?us-ascii?Q?oDa95SmZBW7Kd+MWYgTodcWglGaYNpDKy+tRZui/IUoSmn3bIa0l/u6Mekk+?=
+ =?us-ascii?Q?7joL1Pas+x/2lj02smGm22edImMzSQd9rUeiLt6m8YSz8JHu8goVWTULeLvt?=
+ =?us-ascii?Q?9oPtEH1b22OjlqQIxCQveOANgsfuwFC00IugHQq/IhnqM1mNSPcMBwFF+qP3?=
+ =?us-ascii?Q?pbvbt6asUwt0WrecrdhjZ/VTUvaBP9EJKFfJuVEZ7NY4oao9rYzICplEwPeW?=
+ =?us-ascii?Q?oc0sNaPZ6icojTHpbbvby0s+dYkih/l4WeGmhPGNQ26EaKdQA6UJaMEkPUhv?=
+ =?us-ascii?Q?x7kAe7l8pO9jB56lI+of+Z6D+H8UxoAm36kW5sUnlIlNk5nweMsbhkBE2Ar9?=
+ =?us-ascii?Q?ZkMaD8Eo0/n5jUHbE/ev2pCj2QtRnTUjynX2WD/+GYto6FGUc03+oeHHcSIc?=
+ =?us-ascii?Q?52xgBJyqfUc3A8wIzeavmaMi0vlP9gXm4wkh4iqcRp7Z+ThWcrIDnv8FrMfR?=
+ =?us-ascii?Q?TF3wV4wRep2LAfhfDx7av34myOgNY09rCtKbHjPvjj55men9YTziQ8u2e0lV?=
+ =?us-ascii?Q?x2jJKcNZhjLoijwJkbn++N/8sEv3s7mX/4xGjjQgTAiy5YL+1nL1Z2rVPQ9H?=
+ =?us-ascii?Q?xtFLQ6pXAzsKWgMsKslmHbHJ3+3YZmjQKVHD9x3YI/2Nb2b7MedYDV2OZf6v?=
+ =?us-ascii?Q?aI+MKjvBFWVM435BRiB9uZjUZ44FdEa9wwxwBeoZC+ObgrjfqTLrXoIN9TTn?=
+ =?us-ascii?Q?dXF1wImBAIH3EUtj7vJzIsz4tprVvs9GGt4g7QzNctDGJdXg2S1gKjLv5HMR?=
+ =?us-ascii?Q?b0D0Sc7WSz0jdmRDyKCZOeVmR0w/AqA1viPG0/+0kkF5QTd0BNgh4WjgF5Dg?=
+ =?us-ascii?Q?w08Tz0LbhM6NmB2cr2tHUySfHeGLUrvaK7dpyve5awIg0ntgJkQefrwrDYBK?=
+ =?us-ascii?Q?yK7uiBcnswUVBm5NRgrXdZUJWSt9269udlcHLHPnKb8FC+9sltp7Fy4UcJCp?=
+ =?us-ascii?Q?PRVRsyjjzV5WDynGOcA9LwQ4UT+usijzKdHTi5JLQjJIV4Oh5Ep/78UzWQLJ?=
+ =?us-ascii?Q?MEdkFdpt3ML3XNn5gIc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wj/Mo7naP2MgbnQZjLzvmVoq623BMhY4eijtd14pT+ZbTFKjrJBhAp4VDPu4?=
+ =?us-ascii?Q?TyX7gVOQECmetONZT9PG6PPbx5KBV/fO66X32lhJn6rCzn11Kibtlt1xqKLl?=
+ =?us-ascii?Q?tYNrGFmmmfbS59QJs5rb5uA0e7wKPM2U54GRNroVuQ/PGnMZwGqGy3hVHafp?=
+ =?us-ascii?Q?WvjhAHuw2zj6vVVIB5FF/J1+jVCZEKTyT/3uo7ItYOJlcMHx3SRTCPRLZxOu?=
+ =?us-ascii?Q?0lP9o/dPw/9/TnoOmyq8S9wZ+aexQ4D0PZkkaSEcuTk5wMCyBOH4M22E1P8W?=
+ =?us-ascii?Q?oOyO/sRCAIH0vPU8uiFWJxSUCmT3pUwUo3tjPsgK4urOTmFtgbrSLP/2htR/?=
+ =?us-ascii?Q?UrVMZkUnMm7Pv5NsnIM9ZmYfrhHpHCKxGart8/RwDKaqJCNthAqxrYlB+QHy?=
+ =?us-ascii?Q?9nQGiCVlmz9PmpISMhtURJmtKtfR/hQiBf09wYDI3WfnVY01BktksJ2ra53N?=
+ =?us-ascii?Q?EBAOogcOnyE4wHIR6WF5dBBxKxmI0cBHcNmjJaY0HRsivBFkwPT/f1ksxqDs?=
+ =?us-ascii?Q?wuY/UkJnhciWDDsfyOgfdRR53nfVVpjOsPb/ECX0vUytfuy/YravHQFCt/sI?=
+ =?us-ascii?Q?Bfoak01gIWn867y9135fAD6zXmmX6pmayFbWApPikmbZdK+vC5/NLd30Avsr?=
+ =?us-ascii?Q?7mf6WqNIao6dyU6kYWvTQuA6hwXndNB3niSyjO8iPP5AQJdXApjjUlNVg/qV?=
+ =?us-ascii?Q?RaNdW69XBRNa4RzOIU7AgsCCcsMjitagSpBUDd7lNyIvw20KCDYBRHz1UCLf?=
+ =?us-ascii?Q?gBqiIx1PAtV1gwN0BYEo9hZ9owms/uYzbr/z4TkyB0PE9KiKAt6virD8ZQbu?=
+ =?us-ascii?Q?P82cmmx2YIKBzciJqoB7+j+JEdbrkpDYyHBbnw081876T677XQZJq5qhsOl1?=
+ =?us-ascii?Q?Ved8p0J2HpsD2ouHUbOm/CbaIkZyOGA/zJbSBWQs4fYUG01GllNpT7IC/QH/?=
+ =?us-ascii?Q?Ml/mqV7SddQKIrqHUjtqHzysWCV4XNUga9kC8Dgwzj6c8ii4xqDw9N0xJhCp?=
+ =?us-ascii?Q?cRnz8f6mzTJTEMSamBdF6/qac+SlBnsph2Nn1AlD8/+bYFhKDijJeM4dryyn?=
+ =?us-ascii?Q?RGWcbby8WNlSrbzfSggmCuk/+Q5Y8OPiTKu6+1+AS2N54M4fzmBo+pL7roVe?=
+ =?us-ascii?Q?9S7EYCusHEJAIqL2GSZd0oQjasy4Zm7UFUTsopFYGMFS1V0N8e9VXYlwFgU1?=
+ =?us-ascii?Q?q723pECyF9Uoypcu3KHA7+ZU5h8tKw6RTGyNnABEpVhIjKWqP1IDknm/KU93?=
+ =?us-ascii?Q?AvfUtaYtvAGCinsl7tl1FDd68Dl/LriGcAIs3Sf5EpHVrz4l6KDwecW6tgg4?=
+ =?us-ascii?Q?sCBWCzKv7o0w2I2z9JBoE5JhcbSZRSLJJFfNWPyXmP3hiCRt5SiVKxEsLYah?=
+ =?us-ascii?Q?7oMdrHpotjTfQs9uwYg65TdZFVo69jR+O3isqgkrAoFUNXoH8hQtKrURYEq4?=
+ =?us-ascii?Q?wBGVKhOqOIfxGJJJ0J1Z5BP5y9hO5ZglO/azGyTR7yBpdP3Ncv4owbAv8Ysa?=
+ =?us-ascii?Q?klMW2Dqn9sUelgm1B/Fxf80pNZ5kVp7xoLgbVtdtV1+JmAjAEdjHSb6fCAwz?=
+ =?us-ascii?Q?OOOrj+tmjGIrOAn32DQGfR97ZKCf93Mqwrco6tEc1y2qyVWgxF6e29Ko+Foj?=
+ =?us-ascii?Q?X6AsK6+AaIn340HarHmx4yD1bKOEldITphToIUee9HiGKASXnC5PMW0/ZaAQ?=
+ =?us-ascii?Q?Oqspy0k2IrZMqufH9Y4l7JUD9GbzYdF9bOKxaT66NW9ccOzGHCry/8GwyM/e?=
+ =?us-ascii?Q?zBm3eELXag=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e18247c7-feeb-474a-11be-08de73b259b1
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 14:38:18.2236
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y0qT3ARe28r1BffnKMAMQSry74nzERpyP+K2poBKAQQJbdFHbFH9yBdBFSOp0xSy
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPF28614436A
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260224_063827_803834_11FB4E54 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,123 +183,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 20, 2026 at 10:49:09AM -0800, Nicolin Chen wrote:
+> On Fri, Feb 20, 2026 at 08:50:44AM -0400, Jason Gunthorpe wrote:
+> > On Thu, Feb 19, 2026 at 08:52:56PM -0800, Nicolin Chen wrote:
+> > The next suggestion is to park the device in a real DMA domain with an
+> > actual page table and DMA API hooked up. Now interrupts will work and
+> > the domain is empty so there is no translation. The issue here is the
+> > domain doesn't block ATS. We could fix this with some "disable ATS"
+> > domain flag.
+> > 
+> > In either case when the driver is bound and requests that the DMA API
+> > start working if the user requested IDENTITY then it has to be
+> > switched away from the parked domain to IDENTITY.
+> 
+> Thanks for elaborating. This seems very orthogonal to the issue
+> that driver_managed_dma skips iommu_device_use_default_domain().
+> (And I see you discussion with Robin.)
+> 
+> Regarding the empty-DMA domain, I have an idea of accommodating
+> ARM cases with an IOMMU_DOMAIN_MSI_ONLY, which is essentially a
+> paging domain that only allows IOMMU_COOKIE_DMA_MSI but blocks
+> everything else.
 
---mibp7hbznkdzhzwa
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v8 02/20] drm: Add new general DRM property "color format"
-MIME-Version: 1.0
+Yeah, maybe, but also we probably don't need such stringent checks
+since no driver will be bound while this domain is setup, so the basic
+DMA domain is fine too.
 
-Hi Nicolas,
+> > A final thought would be to change around the driver managed DMA
+> > mechanism a bit to allow drivers to indicate they use IRQs but not
+> > DMA, then the bind step could switch from a BLOCKED domain to an empty
+> > DMA API domain to allow MSI to work.
+> 
+> Yes, "driver_managed_dma" is so unclear in pcieport case, since
+> its driver doesn't really manage DMA...
 
-I've sent some preliminary work here that should help you with this, and
-the HDMI helpers.
+It should be taken to mean "this device never does DMA when attached
+to this driver"
+ 
+> A separate flag could be clear. And the IOMMU layer might do an
+> AND operation between driver_uses_msi(?) flag and another IOMMU
+> device-level flag msi_behind_iommu?
 
-https://lore.kernel.org/r/20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org
+Perhaps the bool can become an enum:
+  NORMAL DMA API
+  MANUAL DOMAIN MANAGEMENT
+  NO DMA MSI ONLY
 
-On Mon, Feb 16, 2026 at 02:01:16PM +0100, Nicolas Frattaroli wrote:
-> +/**
-> + * enum drm_color_format_enum - color model description
-> + *
-> + * This enum is a high-level description of the component makeup of the image
-> + * data. It says nothing about how the components are ordered or how many bits
-> + * they take up (i.e. is unlike MEDIA_BUS_FMT\_ or DRM_FORMAT\_), but
-> + * describes the type of components (Luminance-Chrominance vs. RGB) and the
-> + * sub-sampling.
-> + *
-> + * &enum drm_color_format_enum makes statements about the same attribute of
-> + * an image as the DRM_COLOR_FORMAT\_ bitfields do. Its purpose is to inform
-> + * choices made by display protocol specific implementations when it comes to
-> + * translating it to e.g. &enum hdmi_colorspace or &enum dp_pixelformat, both
-> + * of which also describe the same attribute of the image at the same level of
-> + * specificity.
-> + *
-> + * In precise terms, this enum describes a color model. It makes no statements
-> + * about the primaries, gamma, or current phase of the moon used in conversion
-> + * from one to the other. Furthermore, it also makes no statements about the
-> + * order of components (e.g. RGB vs. BGR), their depth in bits, or their binary
-> + * packing.
-> + */
-> +enum drm_color_format_enum {
-> +	/**
-> +	 * @DRM_COLOR_FORMAT_ENUM_AUTO: The choice of format is left up to the
-> +	 * display protocol implementation. All implementations of the same
-> +	 * display protocol (e.g. HDMI) are supposed to behave the same way,
-> +	 * though display protocols may choose to behave differently compared to
-> +	 * each other (e.g. HDMI's "AUTO" does not have to match DP's "AUTO").
-> +	 *
-> +	 * Implementations may rely on @DRM_COLOR_FORMAT_ENUM_AUTO to be falsy.
-> +	 */
+Then the latter can switch to a DMA domain out of blocked on driver
+binding, and we'd teach VFIO to refuse multi-device groups with MSI
+ONLY members on ARM because it doesn't work :\
 
-The HDMI (and others if they exist) behaviour should be documented, and
-referred to here.
-
-> +	DRM_COLOR_FORMAT_ENUM_AUTO = 0,
-> +
-> +	/**
-> +	 * @DRM_COLOR_FORMAT_ENUM_RGB444: Image components are encoded as RGB
-> +	 * values of equal resolution.
-> +	 */
-> +	DRM_COLOR_FORMAT_ENUM_RGB444,
-> +
-> +	/**
-> +	 * @DRM_COLOR_FORMAT_ENUM_YCBCR444: Image components are encoded as
-> +	 * luminance and chrominance of equal resolution.
-> +	 */
-> +	DRM_COLOR_FORMAT_ENUM_YCBCR444,
-> +
-> +	/**
-> +	 * @DRM_COLOR_FORMAT_ENUM_YCBCR422: Image components are encoded as
-> +	 * luminance and chrominance with the chrominance components having half
-> +	 * the horizontal resolution.
-> +	 */
-> +	DRM_COLOR_FORMAT_ENUM_YCBCR422,
-> +
-> +	/**
-> +	 * @DRM_COLOR_FORMAT_ENUM_YCBCR420: Image components are encoded as
-> +	 * luminance and chrominance with the chrominance components having half
-> +	 * the horizontal and vertical resolution.
-> +	 */
-> +	DRM_COLOR_FORMAT_ENUM_YCBCR420,
-> +
-> +	/**
-> +	 * @DRM_COLOR_FORMAT_ENUM_NUM: The number of valid color format values
-> +	 * in this enum. Itself not a valid color format.
-> +	 */
-> +	DRM_COLOR_FORMAT_ENUM_NUM,
-> +
-> +	/**
-> +	 * @DRM_COLOR_FORMAT_ENUM_INVALID: Error return value for conversion
-> +	 * functions encountering unexpected inputs.
-> +	 */
-> +	DRM_COLOR_FORMAT_ENUM_INVALID = -EINVAL,
-> +};
-
-So, I think with my series mentioned above, we can settle on having this
-enum as the property value (and called drm_connector_output_format or
-something?) and drm_output_color_format used internally by everyone that
-needs to list the supported formats, or the one being enforced.
-
-Assuming we use the names I mentioned before, that means the
-drm_connector_output_format -> drm_output_color_format conversion needs
-to be done by the driver (or helpers like HDMI) to expand what "auto"
-means, and could be fallible, but the drm_output_color_format ->
-drm_connector_output_format conversion is infallible. Which should also
-simplify your code paths.
-
-Maxime
-
---mibp7hbznkdzhzwa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaZ231wAKCRAnX84Zoj2+
-dgv7AX0TPqjjMKqbcMxhzowC9vgkD4abbWiLZG7BLnMDNWqVjvbTeZ19YIowWZg1
-BzVjkb4BfjqM/rkI15M8Ts5OoyNuqrWr4Zui3f3bxCVLAB5tGzQMIYlhBIHVp1om
-T5DrzyQ2lw==
-=VVcr
------END PGP SIGNATURE-----
-
---mibp7hbznkdzhzwa--
+Jason
 
