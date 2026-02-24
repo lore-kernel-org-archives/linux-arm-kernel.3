@@ -4,85 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39182F4BB6A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7848AF4BB6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZQhsRjTjbBBgMQ1YMfiZ2PDcxLeCrsIYRgeJWdSrfAw=; b=Qi9u2c//sgbKjRDNfgVjZfCeiM
-	FLpxCaO3nObM1dmfGJnmBovvPoQnuVlyJs11Ilpt2vIoAVTHFg0ScBDUNMMrfqr+d5dKCDqjTwrer
-	dM9R428KAJbWKvF1qhTTFZdfQhVs4CeIHclVDy2eAlD7o4/pQqUBL+uZDHse/loCJfg4GwWnf17eJ
-	VHBS+eIxZJb7oOtU8gVFW4VAsqajAX1aV3QM7TOKtaB4rAQJwZRHhC5nJN3v5n3w72GZsILFiwBv3
-	BnuvScDoc9MZnAVRm2a/DzGC9yF4MqtS8/qDoi/7SFVK1XGy29lW5o/aaIJ0VUG5keKFTJDIhDgdu
-	IPixqIrw==;
+	bh=InI+bzv+ZgQ1ocvViYHGmCE3g91swjsvKBNHq5KMgdQ=; b=jCM6PkgQZpocBlHO1gAwUYnpCL
+	lSNNLaeu0Gp1H4gcP4ugNhNzUoaxySu88VRA2+f68kqGlCNZNbs7gJJOTCap09qbswmrwPqjE5v7C
+	MPJr3q2Y1Ud4cp5MPFoYRoIFsrrA6Mb9oB42K4GPNrtafesOWckbCHgo4nhf/8UKBtcQdm2cli+0F
+	DkQ1VDLJV/DFFPbDpmCLUnI6svjxLUmtXFmT6HHaKaJYvhsz33+Olxq1/5n+XRuK3L1ubR0Yl64M4
+	7sainQLTZo4I5EKn4s6l94M5/H+dAMQl1tXIe5hsDNFsb0D5h6MQqyvdP5/S3xFlBgM63CKe3pPCU
+	DnfcTpWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwdg-00000002WI1-2Ycu;
-	Tue, 24 Feb 2026 17:56:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vuwfD-00000002WQL-49l4;
+	Tue, 24 Feb 2026 17:57:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwdd-00000002WHf-33BP
+	id 1vuwfC-00000002WPj-1ZSo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 17:56:02 +0000
+	Tue, 24 Feb 2026 17:57:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A47444193;
-	Tue, 24 Feb 2026 17:56:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20710C116D0;
-	Tue, 24 Feb 2026 17:56:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 731896012A;
+	Tue, 24 Feb 2026 17:57:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED3EBC19422;
+	Tue, 24 Feb 2026 17:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771955761;
-	bh=QKhb6gfqeqWF4M1NfdEZ6xd9pTG5nQh9Ci3Hs/v4UZg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KHZmVi3g+j4VAdT4fW8Shq4B9qpabNCL6IyfdQW3M9q3DYyPcDY2OeT66plyDPg9k
-	 LRy6YI3KMcUbzOPciP6v7zglajAwrxyEvyTnZl5XtZUb72N9rJH8W83joBnRYKo5dh
-	 jVSb5mi3xkgiPVgoqkcdq7UtpGjGRZTj8jvxqgxwIXmOJgLETWDUG2cb7agIxTJ5uX
-	 /egja3m8Lc5NVeXxhFb4vb3Hd+yV3IFsRJxi9WqLYfnoXdxYGGtzcrsH4Pb60E8L4t
-	 e2AjC08WVVZcEWpKWd+VpM7UZ3HXZuIsQp6AXPLdfcoz9oIk7VWYzcffaaYgOeZXfm
-	 t6MOtIz6IzppA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vuwda-0000000DRDg-2gJ4;
-	Tue, 24 Feb 2026 17:55:58 +0000
-Date: Tue, 24 Feb 2026 17:55:58 +0000
-Message-ID: <86ecma9gb5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sumit Gupta <sumitg@nvidia.com>
-Cc: <catalin.marinas@arm.com>,
-	<will@kernel.org>,
-	<zhanjie9@hisilicon.com>,
-	<zhenglifeng1@huawei.com>,
-	<viresh.kumar@linaro.org>,
-	<rafael@kernel.org>,
-	<beata.michalska@arm.com>,
-	<pierre.gondois@arm.com>,
-	<ionela.voinescu@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>,
-	<treding@nvidia.com>,
-	<jonathanh@nvidia.com>,
-	<bbasu@nvidia.com>
-Subject: Re: [PATCH v2] arm64: topology: Fix false warning in counters_read_on_cpu() for same-CPU reads
-In-Reply-To: <20260224092714.1242141-1-sumitg@nvidia.com>
-References: <20260224092714.1242141-1-sumitg@nvidia.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: sumitg@nvidia.com, catalin.marinas@arm.com, will@kernel.org, zhanjie9@hisilicon.com, zhenglifeng1@huawei.com, viresh.kumar@linaro.org, rafael@kernel.org, beata.michalska@arm.com, pierre.gondois@arm.com, ionela.voinescu@arm.com, linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, treding@nvidia.com, jonathanh@nvidia.com, bbasu@nvidia.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_095601_823365_A218CF5C 
-X-CRM114-Status: GOOD (  34.19  )
+	s=k20201202; t=1771955857;
+	bh=TzQ9hiwv1duoPQIf+icd1+Um2qUulW1YjH1zN1xDt68=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nOR0QEC/BXqWwiRsLqCDj+hKFXDeCpDJKGEBro8VkPqauUXM1s+JWB2o4c6F+fk4W
+	 pElZ2VQ29xEmb9FWjB0b3LoPJHPJT7gCTXCuvBkewtpLheh1CrihMi0Axw/xyjzzLt
+	 iEDejc+3ttX5TEk0i+anE2bq3noshZ7hNuItGZC3JCy7HEyrhHRqo2UZvvZJx4UW1p
+	 DZlOr+fBCJaHYFFzxxcUe6WcrPBCd9raWOYCTUm/qgIqCjJ5r+qYId8XYEgUaGZgjz
+	 o6Gpx403ixbT90VYRmvTzGE9fzqDRhM9mmUt4HoY5UMqw1roWqliz+rw5w+cTMIgD5
+	 /YHioJIPzBjDA==
+Date: Tue, 24 Feb 2026 17:57:30 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Larisa Grigore <larisa.grigore@nxp.com>
+Subject: Re: [PATCH 1/4] dt-bindings: interrupt-controller: fsl,irqsteer: add
+ S32N79 support
+Message-ID: <20260224-tracing-undesired-e53512135f11@spud>
+References: <20260224111533.3194883-1-ciprianmarian.costea@oss.nxp.com>
+ <20260224111533.3194883-2-ciprianmarian.costea@oss.nxp.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="45NNQJw36F4ACibh"
+Content-Disposition: inline
+In-Reply-To: <20260224111533.3194883-2-ciprianmarian.costea@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,126 +86,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Feb 2026 09:27:14 +0000,
-Sumit Gupta <sumitg@nvidia.com> wrote:
-> 
-> The counters_read_on_cpu() function warns when called with IRQs
-> disabled to prevent deadlock in smp_call_function_single(). However,
-> this warning is spurious when reading counters on the current CPU,
-> since no IPI is needed for same CPU reads.
-> 
-> Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in
-> ticks for non-PCC regs") changed the CPPC Frequency Invariance Engine
-> to read AMU counters directly from the scheduler tick for non-PCC
-> register spaces (like FFH), instead of deferring to a kthread. This
-> means counters_read_on_cpu() is now called with IRQs disabled from
-> the tick handler, triggering the warning:
-> 
-> | WARNING: arch/arm64/kernel/topology.c:410 at counters_read_on_cpu
-> | ...
-> | Call trace:
-> |  counters_read_on_cpu+0x88/0xa8 (P)
-> |  cpc_read_ffh+0xdc/0x148
-> |  cpc_read+0x260/0x518
-> |  cppc_get_perf_ctrs+0xf0/0x398
-> |  __cppc_scale_freq_tick+0x4c/0x148 [cppc_cpufreq]
-> |  cppc_scale_freq_tick+0x44/0x88 [cppc_cpufreq]
-> |  topology_scale_freq_tick+0x34/0x58
-> |  sched_tick+0x58/0x300
-> |  update_process_times+0xcc/0x120
-> |  tick_nohz_handler+0xa8/0x260
-> |  __hrtimer_run_queues+0x154/0x360
-> |  hrtimer_interrupt+0xf4/0x2b0
-> |  arch_timer_handler_phys+0x4c/0x78
-> |  ....
-> |  CPPC Cpufreq:__cppc_scale_freq_tick: failed to read perf counters
-> |  ....
-> 
-> Fix this by calling the counter read function directly for same CPU
-> case, bypassing smp_call_function_single(). Use get_cpu() to disable
-> preemption, as the counter read functions call this_cpu_has_cap()
-> which requires a non-preemptible context.
-> 
-> Fixes: 997c021abc6e ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
-> Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
-> Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
+
+--45NNQJw36F4ACibh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 24, 2026 at 12:15:30PM +0100, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>=20
+> Add compatible string for the interrupt steering controller used in NXP
+> S32N79 SoC.
+>=20
+> The S32N79 SoC differs from the i.MX version by not implementing the
+> CHANCTRL register, but otherwise maintains the same programming model and
+> register layout.
+>=20
+> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 > ---
-> v1 -> v2:
->  - Rebased on v7.0-rc1
->  - Updated Fixes tag to match upstream commit SHA
-> ---
->  arch/arm64/kernel/topology.c | 21 +++++++++++++++++++--
->  1 file changed, 19 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 3fe1faab0362..c3e883e99aa0 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -400,12 +400,29 @@ static inline
->  int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
->  {
->  	/*
-> -	 * Abort call on counterless CPU or when interrupts are
-> -	 * disabled - can lead to deadlock in smp sync call.
-> +	 * Abort call on counterless CPU.
->  	 */
->  	if (!cpu_has_amu_feat(cpu))
->  		return -EOPNOTSUPP;
->  
-> +	/*
-> +	 * For same-CPU reads, call the function directly since no IPI
-> +	 * is needed and this is safe even with IRQs disabled.
-> +	 * Use get_cpu() to disable preemption as the counter read
-> +	 * functions call this_cpu_has_cap() which requires a
-> +	 * non-preemptible context.
-> +	 */
-> +	if (cpu == get_cpu()) {
-> +		func(val);
-> +		put_cpu();
-> +		return 0;
-> +	}
-> +	put_cpu();
+>  .../devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml   | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/fsl,i=
+rqsteer.yaml b/Documentation/devicetree/bindings/interrupt-controller/fsl,i=
+rqsteer.yaml
+> index 5c768c1e159c..caf3e4a1f26f 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer=
+=2Eyaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer=
+=2Eyaml
+> @@ -22,6 +22,7 @@ properties:
+>                - fsl,imx94-irqsteer
+>                - fsl,imx95-irqsteer
+>            - const: fsl,imx-irqsteer
+> +      - const: nxp,s32n79-irqsteer
 
-A slightly more elegant way to write this would be:
+Should there not be a corresponding driver change for this?
 
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index 3fe1faab03620..83c7b346dc8cf 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -406,6 +406,13 @@ int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
- 	if (!cpu_has_amu_feat(cpu))
- 		return -EOPNOTSUPP;
- 
-+	scoped_guard(preempt) {
-+		if (cpu == raw_smp_processor_id()) {
-+			func(val);
-+			return 0;
-+		}
-+	}
-+
- 	if (WARN_ON_ONCE(irqs_disabled()))
- 		return -EPERM;
- 
-But I'm more concerned by the overall pattern of doing these things in
-random contexts. Going back to the original patch (997c021abc6e) that
-states:
+> =20
+>    reg:
+>      maxItems: 1
+> --=20
+> 2.43.0
+>=20
 
-"However, this deferred update mechanism is unnecessary and introduces extra
- overhead for non-PCC register spaces (e.g. System Memory or FFH), where
- accessing the regs won't sleep and can be safely performed from the tick
- context."
+--45NNQJw36F4ACibh
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Clearly, the AMU registers cannot be arbitrarily accessed without
-blocking when accessed from one CPU to another, so either this
-function is never called in a cross-cpu context (and the warning
-should be removed), or the premises of this change are wrong.
+-----BEGIN PGP SIGNATURE-----
 
-Which one is it?
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZ3migAKCRB4tDGHoIJi
+0jNPAQCrg61L2aRaTJVqK4vMTJxNN++kcY0aHCaUJ0mKDHXIBgD/UW7X0XXe9khO
+FPIZw9m2B8CKjCi0+VBVQj2I3rhcJgg=
+=9tI4
+-----END PGP SIGNATURE-----
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+--45NNQJw36F4ACibh--
 
