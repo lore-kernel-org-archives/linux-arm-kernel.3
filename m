@@ -4,54 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE62E9B24B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B967E9B24A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LR70ky397ZCdtIiwYppG76bGV1m8t1k87LPHY2WPml4=; b=Gcjg3a5dbsF+b81dRZhQTcqAP3
-	FIbMvDDMV847C279+NcCdi/u4bhdcdbs/WK4g31lVbPcQr4pCCgsdZPSY/i1T3s59ZpEMjg12PLcG
-	UMZovtC6ATpz5NnX188uv4O6B1s96WrPeH/ZCWzlNSIZAOn4Lb9OxsyMEBRC2Ziiyo4cAr8DX8cf5
-	1oOuMjVDqc0ScY8qEYodenzmfxm5Q0UpIg5/pZS2BZGl/RlCVQE+Uo7WhzdoAr7jV+3BbsbvI04BI
-	VhMsO5wNImXYfLZvxi3Iz4bcDtm5KPfCxUr23NCVI7/mPsV4vZumR0nyLdAZcn4elAMBxtFYfleuR
-	4pnpyH7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fZQZhFCQRs3FRpnRYHy4Ear07Y00uoEUsCQ9F2s8RQ0=; b=h02ZvK4Du7rvFpcqqPRw63yn1i
+	uttmskvDaUtu91dyzqba7OI0q7AShS8LJPmiTd0Mx29uU9HhyzfubhBwTRX7ujYvmAE6vwu1lndp7
+	DFXmKrdJluFFOMXDlGw5zu8KQjacoQuiTfzsfyCB1rkN+W0HLRT6fa+X8d+a7ZbIrtzRJaAGyYAdH
+	uU19/582W7myXkvwgpZjDzwXwEhaqxQgqGp36CY9hkok0DsA04Tw28rMlTutK8LH1i8gNLWzaXaiK
+	v5pIEPifgxJJVhNjwYKTK4Bh25eqVAj8T4/4hccGNLQatFDpKaDWFjSgKqfOX4scYpWCU0eCx6NmK
+	LdlNHRpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vupKm-00000001p2j-1Cvs;
-	Tue, 24 Feb 2026 10:08:04 +0000
+	id 1vupLF-00000001p5s-2VZA;
+	Tue, 24 Feb 2026 10:08:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vupKj-00000001p2H-0avS
+	id 1vupLD-00000001p5D-3gQT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 10:08:02 +0000
+	Tue, 24 Feb 2026 10:08:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F776339;
-	Tue, 24 Feb 2026 02:07:53 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 628B03F62B;
-	Tue, 24 Feb 2026 02:07:58 -0800 (PST)
-Message-ID: <10f10659-448c-404e-87cd-0c110f895b11@arm.com>
-Date: Tue, 24 Feb 2026 10:07:56 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96CE2339;
+	Tue, 24 Feb 2026 02:08:22 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9AF0B3F62B;
+	Tue, 24 Feb 2026 02:08:26 -0800 (PST)
+Date: Tue, 24 Feb 2026 10:08:21 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [RFC V1 04/16] perf/events: Replace READ_ONCE() with standard
+ pgtable accessors
+Message-ID: <aZ14lUwuA86aiOH-@J2N7QTR9R3>
+References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
+ <20260224051153.3150613-5-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf/arm-cmn: Stop claiming entire iomem region
-To: Robin Murphy <robin.murphy@arm.com>, will@kernel.org
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, ilkka@os.amperecomputing.com,
- James Morse <james.morse@arm.com>
-References: <b6275655818f5af7e5fb07a9e18d1451b08b7e05.1771522073.git.robin.murphy@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <b6275655818f5af7e5fb07a9e18d1451b08b7e05.1771522073.git.robin.murphy@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260224051153.3150613-5-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_020801_241189_E13BB85C 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260224_020831_960049_AD5F719E 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,51 +75,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin,
+On Tue, Feb 24, 2026 at 10:41:41AM +0530, Anshuman Khandual wrote:
+> Replace READ_ONCE() with standard page table accessors i.e pxdp_get() which
+> anyways default into READ_ONCE() in cases where platform do not override.
 
-On 2/19/26 17:27, Robin Murphy wrote:
-> So far, the PMU has been the only thing of interest in the vast mass
-> of CMN registers, so we've gotten away with simply claiming the entire
-> iomem region. However, now that we can support other features like MPAM
-> controllers for the system caches, the PMU driver needs to stop being
-> selfish and learn to share. Similarly to arm-ni, requesting just the
-> DTC node(s) should suffice for staking our exclusive claim to the PMU>
-features, as requesting hundreds of tiny regions for all the individual
-> pmu_event_sel registers is definitely not worth the considerable bother.
+For each of the patches where you make this sort of change, please
+explain in the commit message *why* it is necessary to do this.
+
+IIUC the entire point of this is that in subsequent patches, arm64 will
+need to use something other than READ_ONCE() for all pXX levels in order
+to support D128 translation tables.
+
+Spelling that out in the commit message makes it much easier for
+reviewers to see what's going on, and to focus any discussion/questions,
+e.g. *why* won't READ_ONCE() work?
+
+Mark.
+
 > 
-> As a consequence, we can also streamline the annoying CMN-600 special
-> cases even more. The ACPI binding has in fact always specified a strict
-> order for all resources, so we can reasonably drop the ancient pretence
-> of swapping base and cfg, which IIRC was more just a moment of doubt on
-> my part than anything else.
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Arnaldo Carvalho de Melo <acme@kernel.org>
+> Cc: Namhyung Kim <namhyung@kernel.org>
+> Cc: linux-perf-users@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  kernel/events/core.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 > 
-> Cc: James Morse <james.morse@arm.com>
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-
-Without this patch applied and with mpam enabled cmn fails to probe:
-dmesg | grep cmn
-[   17.409588] arm-cmn ARMHC700:00: error -EBUSY: can't request region
-for resource [mem 0x140000000-0x17fffffff]
-[   17.409601] arm-cmn ARMHC700:00: probe with driver arm-cmn failed
-with error -16
-
-With the patch I don't see any cmn errors and it probes.
-
-$ tree -L 1 /sys/devices/platform/ARMHC700\:00/
-/sys/devices/platform/ARMHC700:00/
-├── arm_cmn_0
-├── driver -> ../../../bus/platform/drivers/arm-cmn
-├── driver_override
-├── firmware_node -> ../../LNXSYSTM:00/LNXSYBUS:00/ARMHC700:00
-├── modalias
-├── power
-├── subsystem -> ../../../bus/platform
-└── uevent
-
-Tested-by: Ben Horgan <ben.horgan@arm.com>
-
-Thanks,
-
-Ben
-
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index ac70d68217b6..4ee151cd2c6d 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -8422,7 +8422,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+>  	pte_t *ptep, pte;
+>  
+>  	pgdp = pgd_offset(mm, addr);
+> -	pgd = READ_ONCE(*pgdp);
+> +	pgd = pgdp_get(pgdp);
+>  	if (pgd_none(pgd))
+>  		return 0;
+>  
+> @@ -8430,7 +8430,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+>  		return pgd_leaf_size(pgd);
+>  
+>  	p4dp = p4d_offset_lockless(pgdp, pgd, addr);
+> -	p4d = READ_ONCE(*p4dp);
+> +	p4d = p4dp_get(p4dp);
+>  	if (!p4d_present(p4d))
+>  		return 0;
+>  
+> @@ -8438,7 +8438,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+>  		return p4d_leaf_size(p4d);
+>  
+>  	pudp = pud_offset_lockless(p4dp, p4d, addr);
+> -	pud = READ_ONCE(*pudp);
+> +	pud = pudp_get(pudp);
+>  	if (!pud_present(pud))
+>  		return 0;
+>  
+> -- 
+> 2.43.0
+> 
 
