@@ -4,74 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 839ACEFB7F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09AD2EFB7F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=srSVsiV2b/ln5UzP/d6flconP4PG3Pc7vryxNaoWscY=; b=GUm77zN2pTiWgyy9HoPjZgUcOu
-	euC6MzziAxuu0RKY/CrHjoPTMsBld0bBX8jA86pwa9cvcD9ayvhcOIZZISX90DurpKn+EO29EfMwG
-	qUKupedPCDkk4Fqo9F2q99qsEnRsbdiFRB4X3hV4frLa0Nf8g5pu1AF6pM53yeapFPJKFv7wowVnd
-	s73+gwVd5r10xb6w4KKXYgVGp1x7xum5hT4QTNrinkj04T18X96fjybEQXNHQiDpU40yGMXPnn5aG
-	5AJH4rGqUx/NqG1+PWtSKAmxO52kxD39+QlB4rEZnQsC7+juY66o+yHFe7snRf8n2MIeZx28GSqXp
-	7dJ3DKZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pP/H7SQ7kDYgmQ+jqMkmQHNlrIiDaSP02Y8vKbyocy0=; b=f2yJBQvnlimo1DUKaob9azo8Gv
+	5ZnDw0GHDW2E3RRQDe2EmG/uryVelqJOGCLOOrUD3Q535/+exR4c4nrRU6arM6Bb1dkHjGVJhS7LC
+	jE7dOuKO4Biq+LSo7skJGjGHnEC30A7tot+PihERQO/QHvUvJpYjWhRK6hXXlCwOKChSZx5ulK/EG
+	Pk+9bH37qMqwzkySvUZQ977LcllHtlg1XogHxZNSZxs2ntNBegisJLtmYBoipfGHoovLzS6vREd7C
+	1+2i3MH2sw3/fEIyMSAiS+TuiT9oxNvXep0w9EROT+w/tBULr7dYWj1Qpbql1f7UHCo117vqY+HkD
+	csBkMV2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuojJ-00000001ksJ-1Nfo;
-	Tue, 24 Feb 2026 09:29:21 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vuokr-00000001l0E-3J8M;
+	Tue, 24 Feb 2026 09:30:57 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuojH-00000001kro-2gBX
+	id 1vuokp-00000001kzv-3FZI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 09:29:20 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-483a24db6ecso55746265e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:29:18 -0800 (PST)
+	Tue, 24 Feb 2026 09:30:56 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-8217f2ad01eso5120028b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:30:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771925357; x=1772530157; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=srSVsiV2b/ln5UzP/d6flconP4PG3Pc7vryxNaoWscY=;
-        b=TRxHofvzeHHm9R3zfGY+z908LrlagBQwONPS2b5+a9R9lnoSlrgMYC6mcYAhYa8mQb
-         /LwA8QQPmiIlL+yZwismHIsRqqjsoWx0N05IQFN0jwYKDzB4IBIl9RFXX9i7i9jh6ovd
-         5KciHCQ0kVqG2958rv3dpbSjbr6fG54+1GKkBXE+Ns+B+DJtL6VDuEk0kBu8/Dba/H/2
-         ewPeHyJ/Hre9nQ242xOwRUdz7hkfPwJK9FDWN2DFau6fkVu3/o+C1qLK2KH7a/9P76Lj
-         fbf0TL+6gilsL8ASL13FUKse3dYpNfEbsf7ug3BRVZjbyarEKv4HCErIJUzX3H/j9OXO
-         NaQw==
+        d=gmail.com; s=20230601; t=1771925454; x=1772530254; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pP/H7SQ7kDYgmQ+jqMkmQHNlrIiDaSP02Y8vKbyocy0=;
+        b=CORvyzCCCaINW/uE6/7Lzgl7/UYonqc0WlvvcyBNBlKwzaN0mrQB5lqtTuYgP01VvR
+         L8yLSMcyy33X/ST0Q8Lpj53s8FdEAiJzAAz7UTcD0VDUUabj2+ek08spY7mvu81yP8nQ
+         0bhOvReRuSnbyYdOtW1a41aCAIXbtC0sOEUTi9o3S4E09uOnuaqcQJ6KB8sDT//sl5H1
+         1TyR1BtOzoFr4P/M+/n5j4JKjlRJtBQcqiEfHlvgwFo0eChHQhaQT1uMpQzhq1Bo6QNd
+         nhr2z+l2caEAu3JuOCI28dgxSi5O6cjiexkCI7BgT9jyz/RifGoWa0kOWszRNJJgDZ5p
+         433w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771925357; x=1772530157;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=srSVsiV2b/ln5UzP/d6flconP4PG3Pc7vryxNaoWscY=;
-        b=Qj0MtLqakD9I4Hy+6fFQh2YLwL8qQIKJkoM3YoxkA2IhAY8mjaDTRIkYh4PrdrmGbQ
-         9nST0IT59yRDO31l9+/EDnfRW48l/go9pHmaopCPxJYxJWPBBvWTeW+XFQ5mrAAODhNY
-         e8OhXv2e7guc5+l0lcjTc0De+g7WAxkCWBrda9KeYB7+9Zj7Fby8Yt1RIma9nvwAutlN
-         xaqgz7gRzDjVO2vhvgq1UWp3LK3elmJipm8LJIXKZJbgMvY7WTnz+fUwORMnLR546XZf
-         DGEwX1RDSk7gqx8xSlYWZsKyiUSGO+WqA6UgYoBpdVdzx5UhcLmC5NfRdj1zYSJh/VCU
-         Ptbg==
-X-Forwarded-Encrypted: i=1; AJvYcCVwL4nrmtMi+JH5AEvIORtZwL2nXHUdHvEbhmtd5R549YkyJvvLX9sQPdf1YwJRQyNkj3Ti/zWFOuBiMG5KuYWO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkDtdvJuLowozWHvEe87qMmop5zZj+JPWUWtFIpl+boQ2JocAL
-	IAs0ctSyHMquj+otft7LIg40mt74OAecpg7Se10vOJNOEX4fu4OK1TC9X0+aEu6cuM3Q+Mo0ly9
-	+gQ==
-X-Received: from wmbju22.prod.google.com ([2002:a05:600c:56d6:b0:47e:e4a5:c5f2])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:6298:b0:477:5c58:3d42
- with SMTP id 5b1f17b1804b1-483a95fb23amr187555705e9.10.1771925356794; Tue, 24
- Feb 2026 01:29:16 -0800 (PST)
-Date: Tue, 24 Feb 2026 09:29:15 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.53.0.371.g1d285c8824-goog
-Message-ID: <20260224092915.1925488-1-tabba@google.com>
-Subject: [PATCH] arm64: bpf: Fix UBSAN misaligned access in BPF JIT
-From: Fuad Tabba <tabba@google.com>
-To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Cc: tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1771925454; x=1772530254;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=pP/H7SQ7kDYgmQ+jqMkmQHNlrIiDaSP02Y8vKbyocy0=;
+        b=s0zrGtWRbP34X+6/5vZJPgG/AXPMsdlWTY/jdPD5odGNjKjvVeU2I8An9WntN1Z7zj
+         QbEu+SXlwrvou9NKlXh1zLy7ZGCTYG/rHfQ0TWhZhxSwrLX3TrugTrw8B6YHxyB536S3
+         fUFK1g5KZKtNfAYdpdn7H9A5vtcqTQZR+EAs4FYlEMdeUUVrXRrje/WyixjSJCwkb1SZ
+         ezKLfYf3UFcT7OieD/6V0cxf6764WE96sak5RteHf+f5vnMzo6msTLn42DQLP0O8fy0f
+         3P8FXK/fHqd00O8ZOlknFULVRgWOVuD01P9W1tnmY7U1C9SRRlwrhwUXimYVQsGoZob9
+         BQlg==
+X-Forwarded-Encrypted: i=1; AJvYcCUHnq1jeCcDygiT/mPDTbNqfHqHriEIsKHYAF/ZZGV9hcHvXAUTA0auCvKFcjyqVUNUBNggpHZVFcA/FQpuW+Yx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRbcAUXu4OUcfFrZ0RZhK7uSX/GwkfTWKC7BwHnW3OKdJAgVgi
+	2vBxPIe0Fb+J1IM2JgLL8jFqpfpQUkV5ghNcTwAVU0mOZ5XjM5s9X/ce
+X-Gm-Gg: ATEYQzxK2ZUYYJ6bCJxbglKsu0PRrUH5hL6jgNbWFTU9t2AbgpmHknl4oyaJ8oXBYPj
+	Md2n7XUFgbV+gNigoerJtzxFU6POHK0lxu4TkKQny7ogpSrmAlLMCI/fV2ZuiVvUFNdrkgQIr1O
+	CgIGCsulZkOY55sMnYzSu939mtu4IMVO8+KiprYZz6KXw1mRIg2V4DdjdpjLGmVq/j+3ucf49KJ
+	pubWT/Lo9rJtLQlakuvx95wPxTUpreO+e5zIcfJw6BSq7z449k7axSeSxhS0FhHV8kTI0Cbf77I
+	ZQAPVLq/zr3EqxRJofaNDC1GyfLmTpIzbCmO1ZSqkK2IH1CbQ3Eveh12BKSUq519Qs5iZHhEM1e
+	4fGnvkK+SF357IHQvf1pHzn26ens/hGYP7u39Ocjv6c7gXXEjW642A8ORF17UTVQgjtvyHcsCGd
+	pMHwfCk4MdfmqSmJZ4PlJa2w==
+X-Received: by 2002:a05:6a00:2da5:b0:824:b334:3053 with SMTP id d2e1a72fcca58-826da8f4a85mr9620099b3a.22.1771925454274;
+        Tue, 24 Feb 2026 01:30:54 -0800 (PST)
+Received: from bsp.. ([2401:4900:1b90:3a2c:517f:a983:9a1b:5289])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-826dd86c5b6sm9780044b3a.32.2026.02.24.01.30.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Feb 2026 01:30:53 -0800 (PST)
+From: Rahul Navale <rahulnavale04@gmail.com>
+To: Folker Schwesinger <dev@folker-schwesinger.de>
+Cc: Rahul Navale <rahul.navale@ifm.com>,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	michal.simek@amd.com,
+	suraj.gupta2@amd.com,
+	thomas.gessler@brueckmann-gmbh.de,
+	radhey.shyam.pandey@amd.com,
+	tomi.valkeinen@ideasonboard.com,
+	rahulnavale04@gmail.com
+Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction reporting via device_caps
+Date: Tue, 24 Feb 2026 15:00:39 +0530
+Message-ID: <20260224093041.38699-1-rahulnavale04@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_012919_700896_03D9D3FA 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20260224_013055_814006_42BCFA52 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +110,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-struct bpf_plt contains a u64 'target' field. The BPF JIT allocator
-was using an alignment of 4 bytes (sizeof(u32)), which could lead
-to the 'target' field being misaligned in the JIT buffer.
+From: Rahul Navale <rahul.navale@ifm.com>
 
-Increase the alignment requirement to 8 bytes (sizeof(u64)) in
-bpf_jit_binary_pack_alloc() to guarantee proper alignment for
-struct bpf_plt.
+>this is an important bit of information. Could you verify that your
+>customized driver uses dmaengine's dma_get_slave_caps() to obtain
+>channel capabilities and that the newly introduced
+>xilinx_dma_device_caps() is actually called?
 
-Fixes: b2ad54e1533e9 ("bpf, arm64: Implement bpf_arch_text_poke() for arm64")
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/net/bpf_jit_comp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi Folker,
 
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 356d33c7a4ae..adf84962d579 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -2119,7 +2119,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	extable_offset = round_up(prog_size + PLT_TARGET_SIZE, extable_align);
- 	image_size = extable_offset + extable_size;
- 	ro_header = bpf_jit_binary_pack_alloc(image_size, &ro_image_ptr,
--					      sizeof(u32), &header, &image_ptr,
-+					      sizeof(u64), &header, &image_ptr,
- 					      jit_fill_hole);
- 	if (!ro_header) {
- 		prog = orig_prog;
--- 
-2.53.0.371.g1d285c8824-goog
+Thanks for the clarification — I misunderstood about custom drivers.
+
+I have confirmed that we are using the upstream xilinx DMA driver (drivers/dma/xilinx/xilinx_dma.c)
+and using AXI DMA for audio. We use separate fixed-direction channels:
+MM2S for playback (DMA_MEM_TO_DEV) and S2MM for capture (DMA_DEV_TO_MEM), referenced
+via device tree.
+
+Thanks,
+Rahul Navale
 
 
