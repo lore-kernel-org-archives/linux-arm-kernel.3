@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BE0E9B24C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B86F2E9B24C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xsbyc6xSN64IwuouCIbGm1bsxBc8Ytwp45NUUfUC4vw=; b=ca/NJOjO2lB+YWpBDy2Ep2D6rP
-	kIdKA8yVVu6mHcp9abKEDWHpgPILuvr/LSbcn3+KPmqHX9g+jStA7AqiWfHkrc/DJLHivYOMAVABr
-	AEWiLWA0fCHXGlQdmSeIGYBQaLJ1Kdg7ACnEl3B/K3HUl6iCRqzpI5TDn17UInrQ03Qi4KKTPfLdK
-	jnw3uvYID1Vi+1ViL3akrER01T9O/oq3CZEJuSGomgcMrqsvcpB9TGLdm6lfz+QY4WNVa0aDxPkyH
-	WiB5w66XCJMde3lqvgD0xwQ67Q3cZUl5bpmawSkuPTS2457zLNoTOV41GXGF6xqQ2u2y5IYVflrw8
-	xY+zU5Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qla7NVb510HyX1E9DXrCSrlPTdx+L5zMGpiVCkC5glI=; b=dFiY+Sc5qZVijqij3BFho/X6c3
+	6o/3N+KB9B+ohwKt5OCDv7S/50YtlmnvF2hEk9Br3Zjm/yND7+zmq2HmOzG9jLzOEvvsHXZO9dd1+
+	9IiKiYWGZClyoUbciKcRp+MY+BEPVwEF1VuajkxMai2ie6Hc/Q3gnhzNw4Gdce2xcKJiyk3+CJISL
+	U2pDueP6DbWSWHlIDnFfPZZ3zU9GH5k4SGAXqu2wRQ1TTrq0f6XCugkb5rB3pPWz5IuwaqwsQ9rzZ
+	XrvSZM3Y4S3qaYm8rRk3dKNf2te66HKw2+eLMNpDdbh4p8Whk3dskhaduRsOZX18CZ4/j7v+rgcHF
+	6hHpMvQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vupMd-00000001pLT-3HeH;
-	Tue, 24 Feb 2026 10:09:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vupPA-00000001pwW-1sAV;
+	Tue, 24 Feb 2026 10:12:36 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vupMU-00000001pFI-0S4g
+	id 1vupP6-00000001pw6-3ujT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 10:09:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C828446FF;
-	Tue, 24 Feb 2026 10:09:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9C20C19422;
-	Tue, 24 Feb 2026 10:09:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771927789;
-	bh=KNa1RmYpKJc5D6w4FHSt+0MARD+RIlYnpGxVG69oH7c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jV4DAPVy8Nk+RIEc104Ct2KPj2WQWvCb6+X0y/GpbE/CeqsHEUtu+66XMNlY5CvXg
-	 jRhXxQ9E217MC2GBosjaFwDPjgz7DwO8WLgxu3PJkBC1T32Pt5QDjvUJS0GxLZcbH+
-	 n66BF3Ae23oWr+JMJklTA5LSVAiGv8q/aczOTSXxs2ss+lrAw2flKLq9+mcpKGI3To
-	 vvkfQ94ws+QpU79L1GsGUQ2ZBAK/OAzt3we/iG8wOqCHru6zQKX7e/MiGRdSmWZUov
-	 RjOHLTFI3nPNzO/7hgTcg2Bd6J/ghMb48RMcPx+J/X/1y5aotmGZernaz9hhDUpDkM
-	 nU7tVs5kyJdKg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vupMQ-0000000DIa5-37bM;
-	Tue, 24 Feb 2026 10:09:46 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Sascha Bischoff <sascha.bischoff@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org
-Subject: [PATCH v2 5/6] fsl-mc: Remove legacy MSI implementation
-Date: Tue, 24 Feb 2026 10:09:35 +0000
-Message-ID: <20260224100936.3752303-6-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260224100936.3752303-1-maz@kernel.org>
-References: <20260224100936.3752303-1-maz@kernel.org>
+	Tue, 24 Feb 2026 10:12:34 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vupOt-0007Jy-Iy; Tue, 24 Feb 2026 11:12:19 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vupOr-002Nj2-35;
+	Tue, 24 Feb 2026 11:12:19 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vupOt-000000005QA-0wYu;
+	Tue, 24 Feb 2026 11:12:19 +0100
+Message-ID: <21bba957f7e317617ddb20af03fe46c0e5a1d9bb.camel@pengutronix.de>
+Subject: Re: [PATCH v9 2/3] reset: add Sky1 soc reset support
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Gary Yang <gary.yang@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, peter.chen@cixtech.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
+Date: Tue, 24 Feb 2026 11:12:19 +0100
+In-Reply-To: <20260224092111.2198005-3-gary.yang@cixtech.com>
+References: <20260224092111.2198005-1-gary.yang@cixtech.com>
+	 <20260224092111.2198005-3-gary.yang@cixtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ioana.ciornei@nxp.com, tglx@kernel.org, chleroy@kernel.org, sascha.bischoff@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_020950_237366_A7D1A977 
-X-CRM114-Status: GOOD (  28.32  )
+X-CRM114-CacheID: sfid-20260224_021233_282320_5D6F185B 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,464 +78,416 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Get rid of most of the fsl_mc MSI infrastructure, which is now replaced
-by common code.
+On Di, 2026-02-24 at 17:21 +0800, Gary Yang wrote:
+> Add support for the resets on Cix's Sky1 SoC.
+> There are two reset controllers on Cix Sky1 Soc. One is located in S0
+> domain, and the other is located in S5 domain.
 
-Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
-Tested-by: Ioana Ciornei <ioana.ciornei@nxp.com> # LX2160ARDB, LS2088ARDB
-Tested-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/bus/fsl-mc/fsl-mc-msi.c             | 166 +------------------
- drivers/bus/fsl-mc/fsl-mc-private.h         |   1 -
- drivers/irqchip/Kconfig                     |   6 -
- drivers/irqchip/Makefile                    |   1 -
- drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c | 168 --------------------
- include/linux/fsl/mc.h                      |   4 -
- include/linux/irqdomain_defs.h              |   1 -
- 7 files changed, 8 insertions(+), 339 deletions(-)
- delete mode 100644 drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
+The second controller is not in S0 domain anymore?
+This change was not explained in the change log.
 
-diff --git a/drivers/bus/fsl-mc/fsl-mc-msi.c b/drivers/bus/fsl-mc/fsl-mc-msi.c
-index c9f50969e88ce..be38b43803dea 100644
---- a/drivers/bus/fsl-mc/fsl-mc-msi.c
-+++ b/drivers/bus/fsl-mc/fsl-mc-msi.c
-@@ -15,53 +15,16 @@
- 
- #include "fsl-mc-private.h"
- 
--#ifdef GENERIC_MSI_DOMAIN_OPS
--/*
-- * Generate a unique ID identifying the interrupt (only used within the MSI
-- * irqdomain.  Combine the icid with the interrupt index.
-- */
--static irq_hw_number_t fsl_mc_domain_calc_hwirq(struct fsl_mc_device *dev,
--						struct msi_desc *desc)
--{
--	/*
--	 * Make the base hwirq value for ICID*10000 so it is readable
--	 * as a decimal value in /proc/interrupts.
--	 */
--	return (irq_hw_number_t)(desc->msi_index + (dev->icid * 10000));
--}
--
--static void fsl_mc_msi_set_desc(msi_alloc_info_t *arg,
--				struct msi_desc *desc)
--{
--	arg->desc = desc;
--	arg->hwirq = fsl_mc_domain_calc_hwirq(to_fsl_mc_device(desc->dev),
--					      desc);
--}
--#else
--#define fsl_mc_msi_set_desc NULL
--#endif
--
--static void fsl_mc_msi_update_dom_ops(struct msi_domain_info *info)
--{
--	struct msi_domain_ops *ops = info->ops;
--
--	if (!ops)
--		return;
--
--	/*
--	 * set_desc should not be set by the caller
--	 */
--	if (!ops->set_desc)
--		ops->set_desc = fsl_mc_msi_set_desc;
--}
--
--static void __fsl_mc_msi_write_msg(struct fsl_mc_device *mc_bus_dev,
--				   struct fsl_mc_device_irq *mc_dev_irq,
--				   struct msi_desc *msi_desc)
-+static void fsl_mc_write_msi_msg(struct msi_desc *msi_desc, struct msi_msg *msg)
- {
--	int error;
-+	struct fsl_mc_device *mc_bus_dev = to_fsl_mc_device(msi_desc->dev);
-+	struct fsl_mc_bus *mc_bus = to_fsl_mc_bus(mc_bus_dev);
-+	struct fsl_mc_device_irq *mc_dev_irq = &mc_bus->irq_resources[msi_desc->msi_index];
- 	struct fsl_mc_device *owner_mc_dev = mc_dev_irq->mc_dev;
- 	struct dprc_irq_cfg irq_cfg;
-+	int error;
-+
-+	msi_desc->msg = *msg;
- 
- 	/*
- 	 * msi_desc->msg.address is 0x0 when this function is invoked in
-@@ -110,111 +73,6 @@ static void __fsl_mc_msi_write_msg(struct fsl_mc_device *mc_bus_dev,
- 	}
- }
- 
--static void fsl_mc_write_msi_msg(struct msi_desc *msi_desc, struct msi_msg *msg)
--{
--	struct fsl_mc_device *mc_bus_dev = to_fsl_mc_device(msi_desc->dev);
--	struct fsl_mc_bus *mc_bus = to_fsl_mc_bus(mc_bus_dev);
--	struct fsl_mc_device_irq *mc_dev_irq =
--		&mc_bus->irq_resources[msi_desc->msi_index];
--
--	msi_desc->msg = *msg;
--
--	/*
--	 * Program the MSI (paddr, value) pair in the device:
--	 */
--	__fsl_mc_msi_write_msg(mc_bus_dev, mc_dev_irq, msi_desc);
--}
--
--/*
-- * NOTE: This function is invoked with interrupts disabled
-- */
--static void fsl_mc_msi_write_msg(struct irq_data *irq_data,
--				 struct msi_msg *msg)
--{
--	struct msi_desc *msi_desc = irq_data_get_msi_desc(irq_data);
--
--	fsl_mc_write_msi_msg(msi_desc, msg);
--}
--
--static void fsl_mc_msi_update_chip_ops(struct msi_domain_info *info)
--{
--	struct irq_chip *chip = info->chip;
--
--	if (!chip)
--		return;
--
--	/*
--	 * irq_write_msi_msg should not be set by the caller
--	 */
--	if (!chip->irq_write_msi_msg)
--		chip->irq_write_msi_msg = fsl_mc_msi_write_msg;
--}
--
--/**
-- * fsl_mc_msi_create_irq_domain - Create a fsl-mc MSI interrupt domain
-- * @fwnode:	Optional firmware node of the interrupt controller
-- * @info:	MSI domain info
-- * @parent:	Parent irq domain
-- *
-- * Updates the domain and chip ops and creates a fsl-mc MSI
-- * interrupt domain.
-- *
-- * Returns:
-- * A domain pointer or NULL in case of failure.
-- */
--struct irq_domain *fsl_mc_msi_create_irq_domain(struct fwnode_handle *fwnode,
--						struct msi_domain_info *info,
--						struct irq_domain *parent)
--{
--	struct irq_domain *domain;
--
--	if (WARN_ON((info->flags & MSI_FLAG_LEVEL_CAPABLE)))
--		info->flags &= ~MSI_FLAG_LEVEL_CAPABLE;
--	if (info->flags & MSI_FLAG_USE_DEF_DOM_OPS)
--		fsl_mc_msi_update_dom_ops(info);
--	if (info->flags & MSI_FLAG_USE_DEF_CHIP_OPS)
--		fsl_mc_msi_update_chip_ops(info);
--	info->flags |= MSI_FLAG_ALLOC_SIMPLE_MSI_DESCS | MSI_FLAG_FREE_MSI_DESCS;
--
--	domain = msi_create_irq_domain(fwnode, info, parent);
--	if (domain)
--		irq_domain_update_bus_token(domain, DOMAIN_BUS_FSL_MC_MSI);
--
--	return domain;
--}
--
--struct irq_domain *fsl_mc_find_msi_domain(struct device *dev)
--{
--	struct device *root_dprc_dev;
--	struct device *bus_dev;
--	struct irq_domain *msi_domain;
--	struct fsl_mc_device *mc_dev = to_fsl_mc_device(dev);
--
--	fsl_mc_get_root_dprc(dev, &root_dprc_dev);
--	bus_dev = root_dprc_dev->parent;
--
--	if (bus_dev->of_node) {
--		msi_domain = of_msi_map_get_device_domain(dev,
--						  mc_dev->icid,
--						  DOMAIN_BUS_FSL_MC_MSI);
--
--		/*
--		 * if the msi-map property is missing assume that all the
--		 * child containers inherit the domain from the parent
--		 */
--		if (!msi_domain)
--
--			msi_domain = of_msi_get_domain(bus_dev,
--						bus_dev->of_node,
--						DOMAIN_BUS_FSL_MC_MSI);
--	} else {
--		msi_domain = iort_get_device_domain(dev, mc_dev->icid,
--						    DOMAIN_BUS_FSL_MC_MSI);
--	}
--
--	return msi_domain;
--}
--
- struct irq_domain *fsl_mc_get_msi_parent(struct device *dev)
- {
- 	struct fsl_mc_device *mc_dev = to_fsl_mc_device(dev);
-@@ -232,18 +90,10 @@ struct irq_domain *fsl_mc_get_msi_parent(struct device *dev)
- int fsl_mc_msi_domain_alloc_irqs(struct device *dev,  unsigned int irq_count)
- {
- 	int error = msi_setup_device_data(dev);
--
- 	if (error)
- 		return error;
- 
--	/*
--	 * NOTE: Calling this function will trigger the invocation of the
--	 * its_fsl_mc_msi_prepare() callback
--	 */
--	if (!irq_domain_is_msi_parent(dev_get_msi_domain(dev)))
--		error = msi_domain_alloc_irqs_range(dev, MSI_DEFAULT_DOMAIN, 0, irq_count - 1);
--	else
--		error = platform_device_msi_init_and_alloc_irqs(dev, irq_count, fsl_mc_write_msi_msg);
-+	error = platform_device_msi_init_and_alloc_irqs(dev, irq_count, fsl_mc_write_msi_msg);
- 	if (error)
- 		dev_err(dev, "Failed to allocate IRQs\n");
- 	return error;
-diff --git a/drivers/bus/fsl-mc/fsl-mc-private.h b/drivers/bus/fsl-mc/fsl-mc-private.h
-index 44868f874fd66..197edcc8cde46 100644
---- a/drivers/bus/fsl-mc/fsl-mc-private.h
-+++ b/drivers/bus/fsl-mc/fsl-mc-private.h
-@@ -641,7 +641,6 @@ int fsl_mc_msi_domain_alloc_irqs(struct device *dev,
- 
- void fsl_mc_msi_domain_free_irqs(struct device *dev);
- 
--struct irq_domain *fsl_mc_find_msi_domain(struct device *dev);
- struct irq_domain *fsl_mc_get_msi_parent(struct device *dev);
- 
- int __must_check fsl_create_mc_io(struct device *dev,
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index f07b00d7fef90..3e5b2040cb4ef 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -51,12 +51,6 @@ config ARM_GIC_V3_ITS
- 	default ARM_GIC_V3
- 	select IRQ_MSI_IOMMU
- 
--config ARM_GIC_V3_ITS_FSL_MC
--	bool
--	depends on ARM_GIC_V3_ITS
--	depends on FSL_MC_BUS
--	default ARM_GIC_V3_ITS
--
- config ARM_GIC_V5
- 	bool
- 	select IRQ_DOMAIN_HIERARCHY
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index 26aa3b6ec99fd..d5a28cee0d8eb 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -35,7 +35,6 @@ obj-$(CONFIG_ARM_GIC_V2M)		+= irq-gic-v2m.o
- obj-$(CONFIG_ARM_GIC_V3)		+= irq-gic-v3.o irq-gic-v3-mbi.o irq-gic-common.o
- obj-$(CONFIG_ARM_GIC_ITS_PARENT)	+= irq-gic-its-msi-parent.o
- obj-$(CONFIG_ARM_GIC_V3_ITS)		+= irq-gic-v3-its.o irq-gic-v4.o
--obj-$(CONFIG_ARM_GIC_V3_ITS_FSL_MC)	+= irq-gic-v3-its-fsl-mc-msi.o
- obj-$(CONFIG_ARM_GIC_V5)		+= irq-gic-v5.o irq-gic-v5-irs.o irq-gic-v5-its.o \
- 					   irq-gic-v5-iwb.o
- obj-$(CONFIG_HISILICON_IRQ_MBIGEN)	+= irq-mbigen.o
-diff --git a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c b/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
-deleted file mode 100644
-index b5785472765a3..0000000000000
---- a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
-+++ /dev/null
-@@ -1,168 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--/*
-- * Freescale Management Complex (MC) bus driver MSI support
-- *
-- * Copyright (C) 2015-2016 Freescale Semiconductor, Inc.
-- * Author: German Rivera <German.Rivera@freescale.com>
-- *
-- */
--
--#include <linux/acpi.h>
--#include <linux/acpi_iort.h>
--#include <linux/irq.h>
--#include <linux/msi.h>
--#include <linux/of.h>
--#include <linux/of_irq.h>
--#include <linux/fsl/mc.h>
--
--static struct irq_chip its_msi_irq_chip = {
--	.name = "ITS-fMSI",
--	.irq_mask = irq_chip_mask_parent,
--	.irq_unmask = irq_chip_unmask_parent,
--	.irq_eoi = irq_chip_eoi_parent,
--	.irq_set_affinity = msi_domain_set_affinity
--};
--
--static u32 fsl_mc_msi_domain_get_msi_id(struct irq_domain *domain,
--					struct fsl_mc_device *mc_dev)
--{
--	struct device_node *of_node;
--	u32 out_id;
--
--	of_node = irq_domain_get_of_node(domain);
--	out_id = of_node ? of_msi_xlate(&mc_dev->dev, &of_node, mc_dev->icid) :
--			iort_msi_map_id(&mc_dev->dev, mc_dev->icid);
--
--	return out_id;
--}
--
--static int its_fsl_mc_msi_prepare(struct irq_domain *msi_domain,
--				  struct device *dev,
--				  int nvec, msi_alloc_info_t *info)
--{
--	struct fsl_mc_device *mc_bus_dev;
--	struct msi_domain_info *msi_info;
--
--	if (!dev_is_fsl_mc(dev))
--		return -EINVAL;
--
--	mc_bus_dev = to_fsl_mc_device(dev);
--	if (!(mc_bus_dev->flags & FSL_MC_IS_DPRC))
--		return -EINVAL;
--
--	/*
--	 * Set the device Id to be passed to the GIC-ITS:
--	 *
--	 * NOTE: This device id corresponds to the IOMMU stream ID
--	 * associated with the DPRC object (ICID).
--	 */
--	info->scratchpad[0].ul = fsl_mc_msi_domain_get_msi_id(msi_domain,
--							      mc_bus_dev);
--	msi_info = msi_get_domain_info(msi_domain->parent);
--
--	/* Allocate at least 32 MSIs, and always as a power of 2 */
--	nvec = max_t(int, 32, roundup_pow_of_two(nvec));
--	return msi_info->ops->msi_prepare(msi_domain->parent, dev, nvec, info);
--}
--
--static struct msi_domain_ops its_fsl_mc_msi_ops __ro_after_init = {
--	.msi_prepare = its_fsl_mc_msi_prepare,
--};
--
--static struct msi_domain_info its_fsl_mc_msi_domain_info = {
--	.flags	= (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS),
--	.ops	= &its_fsl_mc_msi_ops,
--	.chip	= &its_msi_irq_chip,
--};
--
--static const struct of_device_id its_device_id[] = {
--	{	.compatible	= "arm,gic-v3-its",	},
--	{},
--};
--
--static void __init its_fsl_mc_msi_init_one(struct fwnode_handle *handle,
--					  const char *name)
--{
--	struct irq_domain *parent;
--	struct irq_domain *mc_msi_domain;
--
--	parent = irq_find_matching_fwnode(handle, DOMAIN_BUS_NEXUS);
--	if (!parent || !msi_get_domain_info(parent)) {
--		pr_err("%s: unable to locate ITS domain\n", name);
--		return;
--	}
--
--	mc_msi_domain = fsl_mc_msi_create_irq_domain(handle,
--						&its_fsl_mc_msi_domain_info,
--						parent);
--	if (!mc_msi_domain) {
--		pr_err("%s: unable to create fsl-mc domain\n", name);
--		return;
--	}
--
--	pr_info("fsl-mc MSI: %s domain created\n", name);
--}
--
--#ifdef CONFIG_ACPI
--static int __init
--its_fsl_mc_msi_parse_madt(union acpi_subtable_headers *header,
--			  const unsigned long end)
--{
--	struct acpi_madt_generic_translator *its_entry;
--	struct fwnode_handle *dom_handle;
--	const char *node_name;
--	int err = 0;
--
--	its_entry = (struct acpi_madt_generic_translator *)header;
--	node_name = kasprintf(GFP_KERNEL, "ITS@0x%lx",
--			      (long)its_entry->base_address);
--
--	dom_handle = iort_find_domain_token(its_entry->translation_id);
--	if (!dom_handle) {
--		pr_err("%s: Unable to locate ITS domain handle\n", node_name);
--		err = -ENXIO;
--		goto out;
--	}
--
--	its_fsl_mc_msi_init_one(dom_handle, node_name);
--
--out:
--	kfree(node_name);
--	return err;
--}
--
--
--static void __init its_fsl_mc_acpi_msi_init(void)
--{
--	acpi_table_parse_madt(ACPI_MADT_TYPE_GENERIC_TRANSLATOR,
--			      its_fsl_mc_msi_parse_madt, 0);
--}
--#else
--static inline void its_fsl_mc_acpi_msi_init(void) { }
--#endif
--
--static void __init its_fsl_mc_of_msi_init(void)
--{
--	struct device_node *np;
--
--	for (np = of_find_matching_node(NULL, its_device_id); np;
--	     np = of_find_matching_node(np, its_device_id)) {
--		if (!of_device_is_available(np))
--			continue;
--		if (!of_property_read_bool(np, "msi-controller"))
--			continue;
--
--		its_fsl_mc_msi_init_one(of_fwnode_handle(np),
--					np->full_name);
--	}
--}
--
--static int __init its_fsl_mc_msi_init(void)
--{
--	its_fsl_mc_of_msi_init();
--	its_fsl_mc_acpi_msi_init();
--
--	return 0;
--}
--
--early_initcall(its_fsl_mc_msi_init);
-diff --git a/include/linux/fsl/mc.h b/include/linux/fsl/mc.h
-index bcc38c0fc230a..e9522233f9b57 100644
---- a/include/linux/fsl/mc.h
-+++ b/include/linux/fsl/mc.h
-@@ -425,10 +425,6 @@ int __must_check fsl_mc_object_allocate(struct fsl_mc_device *mc_dev,
- 
- void fsl_mc_object_free(struct fsl_mc_device *mc_adev);
- 
--struct irq_domain *fsl_mc_msi_create_irq_domain(struct fwnode_handle *fwnode,
--						struct msi_domain_info *info,
--						struct irq_domain *parent);
--
- int __must_check fsl_mc_allocate_irqs(struct fsl_mc_device *mc_dev);
- 
- void fsl_mc_free_irqs(struct fsl_mc_device *mc_dev);
-diff --git a/include/linux/irqdomain_defs.h b/include/linux/irqdomain_defs.h
-index 36653e2ee1c92..3a03bdfeeee93 100644
---- a/include/linux/irqdomain_defs.h
-+++ b/include/linux/irqdomain_defs.h
-@@ -17,7 +17,6 @@ enum irq_domain_bus_token {
- 	DOMAIN_BUS_PLATFORM_MSI,
- 	DOMAIN_BUS_NEXUS,
- 	DOMAIN_BUS_IPI,
--	DOMAIN_BUS_FSL_MC_MSI,
- 	DOMAIN_BUS_TI_SCI_INTA_MSI,
- 	DOMAIN_BUS_WAKEUP,
- 	DOMAIN_BUS_VMD_MSI,
--- 
-2.47.3
+This seems to contradict a comment in=20
+"cix,sky1-s5-system-control" -> variant_sky1 -> sky1_src_signals:
 
+	/* reset group1 for s0 domain modules */
+
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> ---
+>  drivers/reset/Kconfig      |   7 +
+>  drivers/reset/Makefile     |   1 +
+>  drivers/reset/reset-sky1.c | 367 +++++++++++++++++++++++++++++++++++++
+>  3 files changed, 375 insertions(+)
+>  create mode 100644 drivers/reset/reset-sky1.c
+>=20
+> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+> index 6e5d6deffa7d..0aaac1b88d02 100644
+> --- a/drivers/reset/Kconfig
+> +++ b/drivers/reset/Kconfig
+> @@ -291,6 +291,13 @@ config RESET_SIMPLE
+>  	   - SiFive FU740 SoCs
+>  	   - Sophgo SoCs
+> =20
+> +config RESET_SKY1
+> +	bool "Cix Sky1 reset controller"
+> +	depends on OF && REGMAP_MMIO
+
+Select REGMAP_MMIO instead.
+
+> +	depends on ARCH_CIX || COMPILE_TEST
+> +	help
+> +	  This enables the reset controller for Cix Sky1.
+> +
+>  config RESET_SOCFPGA
+>  	bool "SoCFPGA Reset Driver" if COMPILE_TEST && (!ARM || !ARCH_INTEL_SOC=
+FPGA)
+>  	default ARM && ARCH_INTEL_SOCFPGA
+> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+> index 9c3e484dfd81..0d2e1329561d 100644
+> --- a/drivers/reset/Makefile
+> +++ b/drivers/reset/Makefile
+> @@ -37,6 +37,7 @@ obj-$(CONFIG_RESET_RZG2L_USBPHY_CTRL) +=3D reset-rzg2l-=
+usbphy-ctrl.o
+>  obj-$(CONFIG_RESET_RZV2H_USB2PHY) +=3D reset-rzv2h-usb2phy.o
+>  obj-$(CONFIG_RESET_SCMI) +=3D reset-scmi.o
+>  obj-$(CONFIG_RESET_SIMPLE) +=3D reset-simple.o
+> +obj-$(CONFIG_RESET_SKY1) +=3D reset-sky1.o
+>  obj-$(CONFIG_RESET_SOCFPGA) +=3D reset-socfpga.o
+>  obj-$(CONFIG_RESET_SPACEMIT) +=3D reset-spacemit.o
+>  obj-$(CONFIG_RESET_SUNPLUS) +=3D reset-sunplus.o
+> diff --git a/drivers/reset/reset-sky1.c b/drivers/reset/reset-sky1.c
+> new file mode 100644
+> index 000000000000..fb8a919fd3f7
+> --- /dev/null
+> +++ b/drivers/reset/reset-sky1.c
+> @@ -0,0 +1,367 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + *
+> + * CIX System Reset Controller (SRC) driver
+> + *
+> + * Author: Jerry Zhu <jerry.zhu@cixtech.com>
+> + */
+> +
+> +#include <linux/delay.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/reset-controller.h>
+> +
+> +#include <dt-bindings/reset/cix,sky1-rst.h>
+> +#include <dt-bindings/reset/cix,sky1-rst-fch.h>
+> +
+> +#define SKY1_RESET_SLEEP_MIN_US		50
+> +#define SKY1_RESET_SLEEP_MAX_US		100
+> +
+> +struct sky1_src_signal {
+> +	unsigned int offset;
+> +	unsigned int bit;
+> +};
+> +
+> +struct sky1_src_variant {
+> +	const struct sky1_src_signal *signals;
+> +	unsigned int signals_num;
+> +};
+> +
+> +struct sky1_src {
+> +	struct reset_controller_dev rcdev;
+> +	const struct sky1_src_signal *signals;
+> +	struct regmap *regmap;
+> +};
+> +
+> +enum {
+> +	CSU_PM_RESET				=3D 0x304,
+> +	SENSORFUSION_RESET			=3D 0x308,
+> +	SENSORFUSION_NOC_RESET			=3D 0x30c,
+> +	RESET_GROUP0_S0_DOMAIN_0		=3D 0x400,
+> +	RESET_GROUP0_S0_DOMAIN_1		=3D 0x404,
+> +	RESET_GROUP1_USB_PHYS			=3D 0x408,
+> +	RESET_GROUP1_USB_CONTROLLERS		=3D 0x40c,
+> +	RESET_GROUP0_RCSU			=3D 0x800,
+> +	RESET_GROUP1_RCSU			=3D 0x804,
+> +};
+> +
+> +static const struct sky1_src_signal sky1_src_signals[] =3D {
+> +	/* reset group1 for s0 domain modules */
+> +	[SKY1_CSU_PM_RESET_N]		=3D { CSU_PM_RESET, BIT(0) },
+> +	[SKY1_SENSORFUSION_RESET_N]	=3D { SENSORFUSION_RESET, BIT(0) },
+> +	[SKY1_SENSORFUSION_NOC_RESET_N]	=3D { SENSORFUSION_NOC_RESET, BIT(0) },
+> +	[SKY1_DDRC_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(0) },
+> +	[SKY1_GIC_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(1) },
+> +	[SKY1_CI700_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(2) },
+> +	[SKY1_SYS_NI700_RESET_N]	=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(3) },
+> +	[SKY1_MM_NI700_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(4) },
+> +	[SKY1_PCIE_NI700_RESET_N]	=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(5) },
+> +	[SKY1_GPU_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(6) },
+> +	[SKY1_NPUTOP_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(7) },
+> +	[SKY1_NPUCORE0_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(8) },
+> +	[SKY1_NPUCORE1_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(9) },
+> +	[SKY1_NPUCORE2_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(10) },
+> +	[SKY1_VPU_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(11) },
+> +	[SKY1_ISP_SRESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(12) },
+> +	[SKY1_ISP_ARESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(13) },
+> +	[SKY1_ISP_HRESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(14) },
+> +	[SKY1_ISP_GDCRESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(15) },
+> +	[SKY1_DPU_RESET0_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(16) },
+> +	[SKY1_DPU_RESET1_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(17) },
+> +	[SKY1_DPU_RESET2_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(18) },
+> +	[SKY1_DPU_RESET3_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(19) },
+> +	[SKY1_DPU_RESET4_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(20) },
+> +	[SKY1_DP_RESET0_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(21) },
+> +	[SKY1_DP_RESET1_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(22) },
+> +	[SKY1_DP_RESET2_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(23) },
+> +	[SKY1_DP_RESET3_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(24) },
+> +	[SKY1_DP_RESET4_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(25) },
+> +	[SKY1_DP_PHY_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_0, BIT(26) },
+> +
+> +	/* reset group1 for s0 domain modules */
+> +	[SKY1_AUDIO_HIFI5_RESET_N]	=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(0) },
+> +	[SKY1_AUDIO_HIFI5_NOC_RESET_N]	=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(1) }=
+,
+> +	[SKY1_CSIDPHY_PRST0_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(2) },
+> +	[SKY1_CSIDPHY_CMNRST0_N]	=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(3) },
+> +	[SKY1_CSI0_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(4) },
+> +	[SKY1_CSIDPHY_PRST1_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(5) },
+> +	[SKY1_CSIDPHY_CMNRST1_N]	=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(6) },
+> +	[SKY1_CSI1_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(7) },
+> +	[SKY1_CSI2_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(8) },
+> +	[SKY1_CSI3_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(9) },
+> +	[SKY1_CSIBRDGE0_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(10) },
+> +	[SKY1_CSIBRDGE1_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(11) },
+> +	[SKY1_CSIBRDGE2_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(12) },
+> +	[SKY1_CSIBRDGE3_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(13) },
+> +	[SKY1_GMAC0_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(14) },
+> +	[SKY1_GMAC1_RST_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(15) },
+> +	[SKY1_PCIE0_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(16) },
+> +	[SKY1_PCIE1_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(17) },
+> +	[SKY1_PCIE2_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(18) },
+> +	[SKY1_PCIE3_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(19) },
+> +	[SKY1_PCIE4_RESET_N]		=3D { RESET_GROUP0_S0_DOMAIN_1, BIT(20) },
+> +
+> +	/* reset group1 for usb phys */
+> +	[SKY1_USB_DP_PHY0_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(0) },
+> +	[SKY1_USB_DP_PHY1_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(1) },
+> +	[SKY1_USB_DP_PHY2_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(2) },
+> +	[SKY1_USB_DP_PHY3_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(3) },
+> +	[SKY1_USB_DP_PHY0_RST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(4) },
+> +	[SKY1_USB_DP_PHY1_RST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(5) },
+> +	[SKY1_USB_DP_PHY2_RST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(6) },
+> +	[SKY1_USB_DP_PHY3_RST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(7) },
+> +	[SKY1_USBPHY_SS_PST_N]			=3D { RESET_GROUP1_USB_PHYS, BIT(8) },
+> +	[SKY1_USBPHY_SS_RST_N]			=3D { RESET_GROUP1_USB_PHYS, BIT(9) },
+> +	[SKY1_USBPHY_HS0_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(10) },
+> +	[SKY1_USBPHY_HS1_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(11) },
+> +	[SKY1_USBPHY_HS2_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(12) },
+> +	[SKY1_USBPHY_HS3_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(13) },
+> +	[SKY1_USBPHY_HS4_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(14) },
+> +	[SKY1_USBPHY_HS5_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(15) },
+> +	[SKY1_USBPHY_HS6_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(16) },
+> +	[SKY1_USBPHY_HS7_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(17) },
+> +	[SKY1_USBPHY_HS8_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(18) },
+> +	[SKY1_USBPHY_HS9_PRST_N]		=3D { RESET_GROUP1_USB_PHYS, BIT(19) },
+> +
+> +	/* reset group1 for usb controllers */
+> +	[SKY1_USBC_SS0_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(0) },
+> +	[SKY1_USBC_SS1_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(1) },
+> +	[SKY1_USBC_SS2_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(2) },
+> +	[SKY1_USBC_SS3_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(3) },
+> +	[SKY1_USBC_SS4_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(4) },
+> +	[SKY1_USBC_SS5_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(5) },
+> +	[SKY1_USBC_SS0_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(6) },
+> +	[SKY1_USBC_SS1_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(7) },
+> +	[SKY1_USBC_SS2_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(8) },
+> +	[SKY1_USBC_SS3_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(9) },
+> +	[SKY1_USBC_SS4_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(10) },
+> +	[SKY1_USBC_SS5_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(11) },
+> +	[SKY1_USBC_HS0_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(12) },
+> +	[SKY1_USBC_HS1_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(13) },
+> +	[SKY1_USBC_HS2_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(14) },
+> +	[SKY1_USBC_HS3_PRST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(15) },
+> +	[SKY1_USBC_HS0_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(16) },
+> +	[SKY1_USBC_HS1_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(17) },
+> +	[SKY1_USBC_HS2_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(18) },
+> +	[SKY1_USBC_HS3_RST_N]		=3D { RESET_GROUP1_USB_CONTROLLERS, BIT(19) },
+> +
+> +	/* reset group0 for rcsu */
+> +	[SKY1_AUDIO_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(0) },
+> +	[SKY1_CI700_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(1) },
+> +	[SKY1_CSI_RCSU0_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(2) },
+> +	[SKY1_CSI_RCSU1_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(3) },
+> +	[SKY1_CSU_PM_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(4) },
+> +	[SKY1_DDR_BROADCAST_RCSU_RESET_N]	=3D { RESET_GROUP0_RCSU, BIT(5) },
+> +	[SKY1_DDR_CTRL_RCSU_0_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(6) },
+> +	[SKY1_DDR_CTRL_RCSU_1_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(7) },
+> +	[SKY1_DDR_CTRL_RCSU_2_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(8) },
+> +	[SKY1_DDR_CTRL_RCSU_3_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(9) },
+> +	[SKY1_DDR_TZC400_RCSU_0_RESET_N]	=3D { RESET_GROUP0_RCSU, BIT(10) },
+> +	[SKY1_DDR_TZC400_RCSU_1_RESET_N]	=3D { RESET_GROUP0_RCSU, BIT(11) },
+> +	[SKY1_DDR_TZC400_RCSU_2_RESET_N]	=3D { RESET_GROUP0_RCSU, BIT(12) },
+> +	[SKY1_DDR_TZC400_RCSU_3_RESET_N]	=3D { RESET_GROUP0_RCSU, BIT(13) },
+> +	[SKY1_DP0_RCSU_RESET_N]			=3D { RESET_GROUP0_RCSU, BIT(14) },
+> +	[SKY1_DP1_RCSU_RESET_N]			=3D { RESET_GROUP0_RCSU, BIT(15) },
+> +	[SKY1_DP2_RCSU_RESET_N]			=3D { RESET_GROUP0_RCSU, BIT(16) },
+> +	[SKY1_DP3_RCSU_RESET_N]			=3D { RESET_GROUP0_RCSU, BIT(17) },
+> +	[SKY1_DP4_RCSU_RESET_N]			=3D { RESET_GROUP0_RCSU, BIT(18) },
+> +	[SKY1_DPU0_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(19) },
+> +	[SKY1_DPU1_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(20) },
+> +	[SKY1_DPU2_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(21) },
+> +	[SKY1_DPU3_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(22) },
+> +	[SKY1_DPU4_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(23) },
+> +	[SKY1_DSU_RCSU_RESET_N]			=3D { RESET_GROUP0_RCSU, BIT(24) },
+> +	[SKY1_FCH_RCSU_RESET_N]			=3D { RESET_GROUP0_RCSU, BIT(25) },
+> +	[SKY1_GICD_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(26) },
+> +	[SKY1_GMAC_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(27) },
+> +	[SKY1_GPU_RCSU_RESET_N]			=3D { RESET_GROUP0_RCSU, BIT(28) },
+> +	[SKY1_ISP_RCSU0_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(29) },
+> +	[SKY1_ISP_RCSU1_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(30) },
+> +	[SKY1_NI700_MMHUB_RCSU_RESET_N]		=3D { RESET_GROUP0_RCSU, BIT(31) },
+> +
+> +	/* reset group1 for rcsu */
+> +	[SKY1_NPU_RCSU_RESET_N]			=3D { RESET_GROUP1_RCSU, BIT(0) },
+> +	[SKY1_NI700_PCIE_RCSU_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(1) },
+> +	[SKY1_PCIE_X421_RCSU_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(2) },
+> +	[SKY1_PCIE_X8_RCSU_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(3) },
+> +	[SKY1_SF_RCSU_RESET_N]			=3D { RESET_GROUP1_RCSU, BIT(4) },
+> +	[SKY1_RCSU_SMMU_MMHUB_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(5) },
+> +	[SKY1_RCSU_SMMU_PCIEHUB_RESET_N]	=3D { RESET_GROUP1_RCSU, BIT(6) },
+> +	[SKY1_RCSU_SYSHUB_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(7) },
+> +	[SKY1_NI700_SMN_RCSU_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(8) },
+> +	[SKY1_NI700_SYSHUB_RCSU_RESET_N]	=3D { RESET_GROUP1_RCSU, BIT(9) },
+> +	[SKY1_RCSU_USB2_HOST0_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(10) },
+> +	[SKY1_RCSU_USB2_HOST1_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(11) },
+> +	[SKY1_RCSU_USB2_HOST2_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(12) },
+> +	[SKY1_RCSU_USB2_HOST3_RESET_N]		=3D { RESET_GROUP1_RCSU, BIT(13) },
+> +	[SKY1_RCSU_USB3_TYPEA_DRD_RESET_N]	=3D { RESET_GROUP1_RCSU, BIT(14) },
+> +	[SKY1_RCSU_USB3_TYPEC_DRD_RESET_N]	=3D { RESET_GROUP1_RCSU, BIT(15) },
+> +	[SKY1_RCSU_USB3_TYPEC_HOST0_RESET_N]	=3D { RESET_GROUP1_RCSU, BIT(16) }=
+,
+> +	[SKY1_RCSU_USB3_TYPEC_HOST1_RESET_N]	=3D { RESET_GROUP1_RCSU, BIT(17) }=
+,
+> +	[SKY1_RCSU_USB3_TYPEC_HOST2_RESET_N]	=3D { RESET_GROUP1_RCSU, BIT(18) }=
+,
+> +	[SKY1_VPU_RCSU_RESET_N]			=3D { RESET_GROUP1_RCSU, BIT(19) },
+> +};
+> +
+> +static const struct sky1_src_variant variant_sky1 =3D {
+> +	.signals =3D sky1_src_signals,
+> +	.signals_num =3D ARRAY_SIZE(sky1_src_signals),
+> +};
+> +
+> +enum {
+> +	FCH_SW_RST_FUNC			=3D 0x8,
+> +	FCH_SW_RST_BUS			=3D 0xc,
+> +	FCH_SW_XSPI			=3D 0x10,
+> +};
+> +
+> +static const struct sky1_src_signal sky1_src_fch_signals[] =3D {
+> +	/* resets for fch_sw_rst_func */
+> +	[SW_I3C0_RST_FUNC_G_N]	=3D { FCH_SW_RST_FUNC, BIT(0) },
+> +	[SW_I3C0_RST_FUNC_I_N]	=3D { FCH_SW_RST_FUNC, BIT(1) },
+> +	[SW_I3C1_RST_FUNC_G_N]	=3D { FCH_SW_RST_FUNC, BIT(2) },
+> +	[SW_I3C1_RST_FUNC_I_N]	=3D { FCH_SW_RST_FUNC, BIT(3) },
+> +	[SW_UART0_RST_FUNC_N]	=3D { FCH_SW_RST_FUNC, BIT(4) },
+> +	[SW_UART1_RST_FUNC_N]	=3D { FCH_SW_RST_FUNC, BIT(5) },
+> +	[SW_UART2_RST_FUNC_N]	=3D { FCH_SW_RST_FUNC, BIT(6) },
+> +	[SW_UART3_RST_FUNC_N]	=3D { FCH_SW_RST_FUNC, BIT(7) },
+> +	[SW_TIMER_RST_FUNC_N]	=3D { FCH_SW_RST_FUNC, BIT(20) },
+> +
+> +	/* resets for fch_sw_rst_bus */
+> +	[SW_I3C0_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(0) },
+> +	[SW_I3C1_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(1) },
+> +	[SW_DMA_RST_AXI_N]	=3D { FCH_SW_RST_BUS, BIT(2) },
+> +	[SW_UART0_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(4) },
+> +	[SW_UART1_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(5) },
+> +	[SW_UART2_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(6) },
+> +	[SW_UART3_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(7) },
+> +	[SW_SPI0_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(8) },
+> +	[SW_SPI1_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(9) },
+> +	[SW_I2C0_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(12) },
+> +	[SW_I2C1_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(13) },
+> +	[SW_I2C2_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(14) },
+> +	[SW_I2C3_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(15) },
+> +	[SW_I2C4_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(16) },
+> +	[SW_I2C5_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(17) },
+> +	[SW_I2C6_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(18) },
+> +	[SW_I2C7_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(19) },
+> +	[SW_GPIO_RST_APB_N]	=3D { FCH_SW_RST_BUS, BIT(21) },
+> +
+> +	/* resets for fch_sw_xspi */
+> +	[SW_XSPI_REG_RST_N]	=3D { FCH_SW_XSPI, BIT(0) },
+> +	[SW_XSPI_SYS_RST_N]	=3D { FCH_SW_XSPI, BIT(1) },
+> +};
+> +
+> +static const struct sky1_src_variant variant_sky1_fch =3D {
+> +	.signals =3D sky1_src_fch_signals,
+> +	.signals_num =3D ARRAY_SIZE(sky1_src_fch_signals),
+> +};
+> +
+> +static struct sky1_src *to_sky1_src(struct reset_controller_dev *rcdev)
+> +{
+> +	return container_of(rcdev, struct sky1_src, rcdev);
+> +}
+> +
+> +static int sky1_reset_set(struct reset_controller_dev *rcdev,
+> +			  unsigned long id, bool assert)
+> +{
+> +	struct sky1_src *sky1src =3D to_sky1_src(rcdev);
+> +	const struct sky1_src_signal *signal =3D &sky1src->signals[id];
+> +	unsigned int value =3D assert ? 0 : sky1src->signals[id].bit;
+
+This could be shortened to:
+
+	unsigned int value =3D assert ? 0 : signal->bit;
+
+> +
+> +	return regmap_update_bits(sky1src->regmap,
+> +				  signal->offset, signal->bit, value);
+> +}
+> +
+> +static int sky1_reset_assert(struct reset_controller_dev *rcdev,
+> +			     unsigned long id)
+> +{
+> +	sky1_reset_set(rcdev, id, true);
+> +	usleep_range(SKY1_RESET_SLEEP_MIN_US,
+> +		     SKY1_RESET_SLEEP_MAX_US);
+> +	return 0;
+> +}
+> +
+> +static int sky1_reset_deassert(struct reset_controller_dev *rcdev,
+> +			       unsigned long id)
+> +{
+> +	sky1_reset_set(rcdev, id, false);
+> +	usleep_range(SKY1_RESET_SLEEP_MIN_US,
+> +		     SKY1_RESET_SLEEP_MAX_US);
+> +	return 0;
+> +}
+> +
+> +static int sky1_reset(struct reset_controller_dev *rcdev,
+> +		      unsigned long id)
+> +{
+> +	sky1_reset_assert(rcdev, id);
+> +	sky1_reset_deassert(rcdev, id);
+> +	return 0;
+> +}
+> +
+> +static int sky1_reset_status(struct reset_controller_dev *rcdev,
+> +			     unsigned long id)
+> +{
+> +	unsigned int value =3D 0;
+> +	struct sky1_src *sky1src =3D to_sky1_src(rcdev);
+> +	const struct sky1_src_signal *signal =3D &sky1src->signals[id];
+> +
+> +	regmap_read(sky1src->regmap, signal->offset, &value);
+> +	return !(value & signal->bit);
+> +}
+> +
+> +static const struct reset_control_ops sky1_src_ops =3D {
+> +	.reset    =3D sky1_reset,
+> +	.assert   =3D sky1_reset_assert,
+> +	.deassert =3D sky1_reset_deassert,
+> +	.status   =3D sky1_reset_status
+> +};
+> +
+> +static int sky1_reset_probe(struct platform_device *pdev)
+> +{
+> +	struct sky1_src *sky1src;
+> +	struct device *dev =3D &pdev->dev;
+> +	const struct sky1_src_variant *variant;
+> +
+> +	sky1src =3D devm_kzalloc(dev, sizeof(*sky1src), GFP_KERNEL);
+> +	if (!sky1src)
+> +		return -ENOMEM;
+> +
+> +	variant =3D of_device_get_match_data(dev);
+> +
+> +	sky1src->regmap =3D device_node_to_regmap(dev->of_node);
+> +	if (IS_ERR(sky1src->regmap)) {
+> +		dev_err(dev, "Unable to get sky1-src regmap");
+> +		return PTR_ERR(sky1src->regmap);
+
+This can be simplified with dev_err_probe().
+
+regards
+Philipp
 
