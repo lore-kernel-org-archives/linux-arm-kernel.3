@@ -4,83 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828FAF4BB6D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0851F4BB6C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S4w/Ome7nOr3BnrKeVfyosHUYAd0oiktayvZSdacCQU=; b=kO6niMwTc3OIr3gRImux7npq2I
-	7xMvLFm8BKBpwSc1CO/B+mcMZsVUenhc/w77zetGl7c8pINVJ0LdDd/bdPx9H07uxpmq4Vf7ja27u
-	dE/bSGb3pqN+d3bjkU1UKy7Q8/uELRmlSiN5l5qdys7RtncAu/GWnvESuZMdnHa3W/yntcULZTOIY
-	u6QsaJbpLKfp5oqRbpeQlDQvsbi98+u6x7xzDQvJJRveFP+IhTYaB9+nGJPGbsMuTgTOgPSsvHdvz
-	r1ei3EihS43+JXo6Z+0M6QecSVDduUq43waoxbKVnCTI2faxr/+1iiQIalBxnI+nGkT28ZCOZLjr3
-	+9QawD9w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hkM+tLt+lg1PX5UAHL5V6yrO8Ui0OtMZiaPAp5Jak2w=; b=hzrN3rzS7U6+80+VywVH7AyQ65
+	jgeKlkTd7eiwNWnKP5yB+h5h85nRP+wReBowoF/OJYIoYpvnBmPBou681XJ/dWVJHkNBsUj/KdRfo
+	VKDP7yNb+fjkTKc21z0KJ80Pg0iJqoMvIOEYSypQNslJrhJxNJqoq4djbE31nyF7VYnij09tYerAA
+	GAJdL4vcjYdHbcAyxp1YQEzflY2GcRUBQJBpeah+ttQbV0RhbYhzn9Daq62WT1ZE6TZv0xpR5jVaa
+	lZHHoFRheNZ0Jyl/gNKhtXruw1MazOBZ08aHhdofz0JsluGwZEEYoJDZ1IXYctyi614goheIAJOVe
+	cxj9QFCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfh-00000002WjP-18yT;
+	id 1vuwfh-00000002WkL-3jiO;
 	Tue, 24 Feb 2026 17:58:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfZ-00000002Wbv-0Eb3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 17:58:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C1A4E339;
-	Tue, 24 Feb 2026 09:57:53 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2CCCF3F59E;
-	Tue, 24 Feb 2026 09:57:55 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwff-00000002Whi-1hFB;
+	Tue, 24 Feb 2026 17:58:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 64C436011F;
+	Tue, 24 Feb 2026 17:58:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B645BC19422;
+	Tue, 24 Feb 2026 17:58:02 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>
+Cc: Will Deacon <will@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 05/41] arm64: mpam: Re-initialise MPAM regs when CPU comes online
-Date: Tue, 24 Feb 2026 17:56:44 +0000
-Message-ID: <20260224175720.2663924-6-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
+	linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org
+Subject: [PATCH 0/5] mm: arch/shstk: Common shadow stack mapping helper and VM_NOHUGEPAGE
+Date: Tue, 24 Feb 2026 17:57:52 +0000
+Message-ID: <20260224175800.2500729-1-catalin.marinas@arm.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_095801_224022_96EC5226 
-X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,80 +71,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+Hi,
 
-Now that the MPAM system registers are expected to have values that change,
-reprogram them based on the previous value when a CPU is brought online.
+arm64, riscv and x86 all implement shadow stack support and use a
+similar pattern for mapping the user shadow stack (originally cloned
+from x86). Extract this common pattern into a shared helper -
+vm_mmap_shadow_stack().
 
-Previously MPAM's 'default PARTID' of 0 was always used for MPAM in
-kernel-space as this is the PARTID that hardware guarantees to
-reset. Because there are a limited number of PARTID, this value is exposed
-to user-space, meaning resctrl changes to the resctrl default group would
-also affect kernel threads.  Instead, use the task's PARTID value for
-kernel work on behalf of user-space too. The default of 0 is kept for both
-user-space and kernel-space when MPAM is not enabled.
+Patch 1 introduces vm_mmap_shadow_stack() in mm/util.c, which wraps
+do_mmap() with the flags required for a VM_SHADOW_STACK mapping. The
+helper uses PROT_READ|PROT_WRITE prot bits instead of the earlier x86
+approach of PROT_READ with an explicit VM_WRITE vm_flag. Functionally
+there is no difference. I looked up the history of this flag on the
+lists but it wasn't conclusive. My guess is that the original aim was to
+mark the vma not writable but that would confuse the kernel, so it ended
+up with the VM_WRITE flag instead.
 
-Tested-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
-Changes since rfc:
-CONFIG_MPAM -> CONFIG_ARM64_MPAM
-Check mpam_enabled
-Comment about relying on ERET for synchronisation
-Update commit message
+Patches 2-4 update arm64, riscv and x86 respectively to use the new
+helper, removing the duplicated mmap logic.
 
-Changes since v3:
-Always set MPAM1_EL1.MPAMEN rather than relying on it being read only
----
- arch/arm64/kernel/cpufeature.c | 19 ++++++++++++-------
- 1 file changed, 12 insertions(+), 7 deletions(-)
+Patch 5 forces VM_NOHUGEPAGE when allocating the shadow stack via the
+new helper, mirroring what commit c4608d1bf7c6 ("mm: mmap: map MAP_STACK
+to VM_NOHUGEPAGE") did for normal stacks. It will save some memory,
+especially when the ulimit -s is high.
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c31f8e17732a..c3f900f81653 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -86,6 +86,7 @@
- #include <asm/kvm_host.h>
- #include <asm/mmu.h>
- #include <asm/mmu_context.h>
-+#include <asm/mpam.h>
- #include <asm/mte.h>
- #include <asm/hypervisor.h>
- #include <asm/processor.h>
-@@ -2492,13 +2493,17 @@ test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
- static void
- cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
- {
--	/*
--	 * Access by the kernel (at EL1) should use the reserved PARTID
--	 * which is configured unrestricted. This avoids priority-inversion
--	 * where latency sensitive tasks have to wait for a task that has
--	 * been throttled to release the lock.
--	 */
--	write_sysreg_s(0, SYS_MPAM1_EL1);
-+	int cpu = smp_processor_id();
-+	u64 regval = 0;
-+
-+	if (IS_ENABLED(CONFIG_ARM64_MPAM) && static_branch_likely(&mpam_enabled))
-+		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
-+
-+	write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
-+	isb();
-+
-+	/* Synchronising the EL0 write is left until the ERET to EL0 */
-+	write_sysreg_s(regval, SYS_MPAM0_EL1);
- }
- 
- static bool
--- 
-2.43.0
+Boot-tested on x86, fully tested on arm64. I do not have a compiler
+version that supports the -march=rv64ima_zicfiss_zicfilp option for
+riscv, so any help with testing is welcome.
+
+Thanks.
+
+Catalin Marinas (5):
+  mm: Introduce vm_mmap_shadow_stack() as a helper for VM_SHADOW_STACK
+    mappings
+  arm64: gcs: Use the new common vm_mmap_shadow_stack() helper
+  riscv: shstk: Use the new common vm_mmap_shadow_stack() helper
+  x86: shstk: Use the new common vm_mmap_shadow_stack() helper
+  mm: Do not map the shadow stack as THP
+
+ arch/arm64/mm/gcs.c         | 14 +-------------
+ arch/riscv/kernel/usercfi.c | 12 +-----------
+ arch/x86/kernel/shstk.c     | 12 ++----------
+ include/linux/mm.h          |  4 ++++
+ mm/util.c                   | 29 +++++++++++++++++++++++++++++
+ 5 files changed, 37 insertions(+), 34 deletions(-)
 
 
