@@ -4,63 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35557F3C997
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 15:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D406F3C997
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 15:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7lnZZRC5vix+mX0t37jzo8LD6pmOFq4/J832n125LfM=; b=Eq0Ti3g0m9oofGNJOfSO0T8KV7
-	P7lVT2JGlqe466YtMh10SAH3l9XHJFEE7G8IjRp8xiR0haj2TIhrkNWnRx4dSydPW1p9KMcuaW+kw
-	niO9rXLXluFm6lGnP366AiMHfs7ZdcejAz2+nDAPsN0NVL5d8kjWPfbCYrIYr/ZjSHu3NQeeAI1qQ
-	xLRZwo7RmuvdAabBYRpQuPga3deoxxa8DUI0gOaedU3ySUdP/lpLAI6tZgFmWYgGYuLmt/SUnpteH
-	PWElZy91MUNfeSuNN7eX8MXZbOxen38BusVdEEaG+D8n3lGRxevzzIYpX+fty3byRbuISvyGbXa67
-	f1D3yfoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vrV9BhMxEEs17TmWJHa8CNzBUwr0TwzU8O3qC1THpDI=; b=P1pdO8NrH23OZPP/rvHdndEGLl
+	4atnMXKQZqmLFBxNwnEbFmVjD4Yaodi68ffKCgmiPppJo+2cnoOW4On6pCGatvHvz1Jgea7BFi+Gz
+	vO/ieOvMRg3n660NsuYCkEBaeAFH/aECg3YDpCtWaUB9FxEEWscfMaOtTLWp8hrvbYaCGGkACAII1
+	uvbvGM8A+gP+zP9uj+3AivW3pW6WUzAYvk2xu2PltWKIjJ6xNgXYK5E9EulqvcT3vnjm2XXt5p2Ba
+	SrYrW6YmNu1RijxLNsP7aRGR7IvS5AxdpC5K16ntQAAT+on0kw2i8pPYu6Lzo1J5LKr7PpH3UW1z6
+	0dDUWGNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuuIC-00000002JDs-1zYn;
-	Tue, 24 Feb 2026 15:25:44 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vuuIS-00000002JGr-3PLb;
+	Tue, 24 Feb 2026 15:26:00 +0000
+Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuuI9-00000002JCn-2cIk
+	id 1vuuIQ-00000002JGI-3jbD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 15:25:42 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fL1k03LybzHnHWN;
-	Tue, 24 Feb 2026 23:24:56 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9A2B740570;
-	Tue, 24 Feb 2026 23:25:36 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 24 Feb
- 2026 15:25:35 +0000
-Date: Tue, 24 Feb 2026 15:25:34 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-CC: <devicetree@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<Dmitry.Lamerov@arm.com>, <catalin.marinas@arm.com>, <bp@alien8.de>,
-	<robh@kernel.org>, <rafael@kernel.org>, <will@kernel.org>,
-	<conor@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <krzk+dt@kernel.org>, <Michael.Zhao2@arm.com>,
-	<tony.luck@intel.com>
-Subject: Re: [PATCH v2 02/11] ACPI: APEI: GHES: add ghes_cper.o stub
-Message-ID: <20260224152534.000040b6@huawei.com>
-In-Reply-To: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-2-347fa2d7351b@arm.com>
-References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
-	<20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-2-347fa2d7351b@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 24 Feb 2026 15:25:59 +0000
+Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-1274204434bso4320104c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 07:25:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771946758; x=1772551558; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vrV9BhMxEEs17TmWJHa8CNzBUwr0TwzU8O3qC1THpDI=;
+        b=Vq6IWx/w5IHJAAxQA6bY6lNpB9oKzM5NoXnkda+2rMs8EdqpXCDEcPWTxeG9jl+qxf
+         tAym4TL8+RkpRMipBmOsO+n+qTh4aFiJTs4iqBFE/T1K7o7SbMtiRDM6nMA97yCAaell
+         OCxXJfygVicpnMX2lx6a2Jog72Hzu8ozoAmHDDMp7aKhmBHvMW6d5nCglJff4DU10+Dj
+         CoTK/WV6afklY0O2jVQDbeqIWukhbzZcAjRyhMiGSghNaDUiTc3oClVj3UV5XFaSIlA5
+         2N2ECB9R1wBYqCb4dxZeP866jQ1v3e0on5LzDx/IBHy2/BAzCSJKwSBX+BjmXTS7wvHk
+         show==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771946758; x=1772551558;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vrV9BhMxEEs17TmWJHa8CNzBUwr0TwzU8O3qC1THpDI=;
+        b=uNX7rfjlhtici4HxiOsOSkqWCXTkuTc5Sf1u0u3RmoV+K/jv8Mli2X8wBs1ohgzJry
+         GpXnQxSlk5D2V2SdyqpiwgfqU1e6QGwvVZcDZnBixuA13I7dTdxdpW1z5PfyHFZYHBtP
+         PSUg/dh6GL3RwGF4WFK+Qz4uHJIUX0+YWPYGXfEJjf5kE7Xp3iumE3R7PZ4k3FCbtcJT
+         IGRoX4x/po6vsZy7eliIRtBL1AtlTMOzaLU0XNZqfAMMldJQWefdqw+WilPW1dPmjeW+
+         HWxEigl1McYaZTpTXtph0aIuzdnsSkBcB9WbwFFN4ZNpcjBqBzaEe5nBcnRr+U0+jc4G
+         VTgA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQt3omXzKwJdHQgsZPBBhYe/j2gI6g+my43+0flDpRweR5t1TMFbqXZrGv0M9Hp4m/woRwnaUiEtP9KKKBNmt+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmwfLVQ8QM5lJ27psTu4Sd+f9wSzFivUuCNDZTLCDi0GC/Z8e2
+	b3S4tpBjt99pqvfl5L+e5aqFeMeP7RBiN2zCT+nqt0iRg2LcRvbrlSjF
+X-Gm-Gg: AZuq6aIxmUIQwLjKPpDax3AD0CS63pmkS6sXUJ8HMdpHXiBAWVatCIiBb403kFiWkKH
+	uy365R81ETyHmk4/JMi0LRmpz7ifIP7Zi7HZTQRC2HTuiTwc1vfMvKWBK68djXlPisPPSDiO5N5
+	slOgmyKKWHbfo91VXLmumyB7mBggmOz6Q5IqVMpIy/IxDhzwULSsNyKtrDsVSJIcILI+OFGlSU/
+	hv57qGOhmZW9H3dgcT3sIx9z2wR0o2JJwfBw6kGIg1IDwG/MaKsBVfvFqh2/2gCCB1NkrBOiZYb
+	d7TgNFqzkV11hfwF27dn0T1RT3M2BQcj9W4df6E6yWjNEtCATZwPF22VTqoU0TPcRSvjyIyG9jL
+	koR4aqU1kFe2f4I1wo55QLklL2BkBSBlSpLnbrtZuFt+PEnZe1+pr5qwWSbUx8P/m9/GMv2nQtj
+	ARnOWmvQlqNdD6I324O+aWsyZcQlW13bpyIjrS
+X-Received: by 2002:a05:7022:421:b0:11b:ca88:c4f1 with SMTP id a92af1059eb24-1277f5606afmr123769c88.20.1771946757470;
+        Tue, 24 Feb 2026 07:25:57 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1276af7ae99sm10658338c88.10.2026.02.24.07.25.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Feb 2026 07:25:56 -0800 (PST)
+Date: Tue, 24 Feb 2026 07:25:55 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Michael Walle <mwalle@kernel.org>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
+	linux-watchdog@vger.kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH 3/8] Revert "hwmon: add SMARC-sAM67 support"
+Message-ID: <05db17b0-d9f0-478d-bbe6-1efdd9802abc@roeck-us.net>
+References: <20260223100459.844967-1-mwalle@kernel.org>
+ <20260223100459.844967-4-mwalle@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260223100459.844967-4-mwalle@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_072541_971697_CD204F6C 
-X-CRM114-Status: GOOD (  17.82  )
+X-CRM114-CacheID: sfid-20260224_072558_932320_D720B956 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,79 +108,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Feb 2026 13:42:20 +0000
-Ahmed Tiba <ahmed.tiba@arm.com> wrote:
-
-> Introduce a dedicated ghes_cper translation unit so that follow-on commits
-> can move helpers out of ghes.c without touching the build logic twice.
-> This keeps the object in the tree while remaining functionally identical.
-
-I'd probably do this with the first move patch not as a separate patch.
-That would resolve the question of headers etc below.
-
+On Mon, Feb 23, 2026 at 11:04:48AM +0100, Michael Walle wrote:
+> This reverts commit 443b39c82c322c9f3c38bea0389fe927ba00b3b4.
 > 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-> ---
->  drivers/acpi/apei/Makefile    |  2 +-
->  drivers/acpi/apei/ghes_cper.c | 26 ++++++++++++++++++++++++++
->  2 files changed, 27 insertions(+), 1 deletion(-)
+> I was just informed that this product is discontinued (without being
+> ever released to the market). Pull the plug and let's not waste any more
+> maintainers time.
 > 
-> diff --git a/drivers/acpi/apei/Makefile b/drivers/acpi/apei/Makefile
-> index 1a0b85923cd4..b3774af70883 100644
-> --- a/drivers/acpi/apei/Makefile
-> +++ b/drivers/acpi/apei/Makefile
-> @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_ACPI_APEI)		+= apei.o
-> -obj-$(CONFIG_ACPI_APEI_GHES)	+= ghes.o
-> +obj-$(CONFIG_ACPI_APEI_GHES)	+= ghes.o ghes_cper.o
->  # clang versions prior to 18 may blow out the stack with KASAN
->  ifeq ($(CONFIG_COMPILE_TEST)_$(CONFIG_CC_IS_CLANG)_$(call clang-min-version, 180000),y_y_)
->  KASAN_SANITIZE_ghes.o := n
-> diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
-> new file mode 100644
-> index 000000000000..63047322a3d9
-> --- /dev/null
-> +++ b/drivers/acpi/apei/ghes_cper.c
-> @@ -0,0 +1,26 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + *
+> Signed-off-by: Michael Walle <mwalle@kernel.org>
 
-As below.
+Applied. Please let me know if there are any objections.
 
-> + * APEI GHES CPER helper translation unit - staging file for helper moves
-> + *
-> + * Copyright (C) 2026 ARM Ltd.
-
-As before. If there isn't significant new content copyright doesn't make sense yet.
-
-> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
-> + * Based on ACPI APEI GHES driver.
-> + *
-
-No obvious benefit in this blank line so I'd drop it.
-
-> + */
-> +
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/mm.h>
-> +#include <linux/ratelimit.h>
-> +#include <linux/slab.h>
-Build includes up as they become relevant. That way we can see whether
-they are needed or not.  Right now none of them are..
-
-> +
-> +#include <acpi/apei.h>
-> +
-> +#include <asm/fixmap.h>
-> +#include <asm/tlbflush.h>
-> +
-> +#include "apei-internal.h"
-> +
-> +/* Helper bodies will be moved here in follow-up commits. */
-> 
-
+Guenter
 
