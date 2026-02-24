@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF84DF4BB69
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2063F4BB6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ztdr/0ZrGuB1B+YkEuWhUxc8alpUJOuDXNNqgIe0sKU=; b=WUv5dLE//OakRS375v4KWGiELw
-	6dI/H2aqc/UXW1KemWovJewsVeiFCZx8M5iT7EmqT2s04OxdO4zh6o7hmZr3UFpKR4qWKNiMHq//z
-	+bvCmsPq/ZmIVOOQBUF+eOkSmIy/6XrL1s9KW6uPiL1thWj88v5EWgjsQLr81Wr9cGBIGpNCgIWya
-	AOdygHAuBYWCalBf0BnaP/3ugPMLQ68i9XnGTzhEYVvubEIv5qHCBlEUNOONnvPXyutmj9k/c9cvv
-	gO3NXFchfg+uGluLZRJWd4Qm4PJFFzxRT6oPqBHixjROt66Mb8N/u14l49NNJ7SBTPWpBvyuPssYF
-	7WfNykWQ==;
+	bh=DitVAqt2W7BtSWDInWdyQeL6ANzecOicylNEOZcx3tE=; b=4HQwCXiYGkZivqcqAPGhoMT4ek
+	Loij1nzM1wM2E7rE2yF//bnkk5fJf0Ar7h9a5y2VJylj3kvh51zxJv1D65xP0g7nvdQyhLzY1ksTP
+	6l8ruc6lHeR5Je83elRoFq/eR4WBWWc9t8G2JmyYtXelydoTImmfGMufSwfgKhZRZeP5K3AsM17qT
+	9n9nX751qOcIwQlT83fptd96BoqYtKTUTz8kCFqVrs3EhWJuFiZIUNBI25hY4/rDqfMHoTWElCA82
+	F4fYaeXqazSiI/aBQxn8H8YWzvsBXQTB1Mfzp/hY/w0TRWW5r//JYACQvSBkmhxJTDU1gDWZUs0dU
+	ASs2v2hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwii-00000002aVb-0AZn;
-	Tue, 24 Feb 2026 18:01:16 +0000
+	id 1vuwip-00000002acz-3PKT;
+	Tue, 24 Feb 2026 18:01:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwid-00000002aRH-3pIY
+	id 1vuwij-00000002aXY-2btX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 18:01:13 +0000
+	Tue, 24 Feb 2026 18:01:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F9E01595;
-	Tue, 24 Feb 2026 10:01:05 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF164165C;
+	Tue, 24 Feb 2026 10:01:10 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A0D973F59E;
-	Tue, 24 Feb 2026 10:01:05 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7FF2A3F59E;
+	Tue, 24 Feb 2026 10:01:11 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -68,19 +68,18 @@ Cc: amitsinght@marvell.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 39/41] arm_mpam: Add workaround for T241-MPAM-6
-Date: Tue, 24 Feb 2026 17:57:18 +0000
-Message-ID: <20260224175720.2663924-40-ben.horgan@arm.com>
+	linux-doc@vger.kernel.org
+Subject: [PATCH v5 40/41] arm_mpam: Quirk CMN-650's CSU NRDY behaviour
+Date: Tue, 24 Feb 2026 17:57:19 +0000
+Message-ID: <20260224175720.2663924-41-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
 References: <20260224175720.2663924-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_100112_068067_724301FA 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20260224_100117_800061_91B8761F 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,124 +94,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shanker Donthineni <sdonthineni@nvidia.com>
+From: James Morse <james.morse@arm.com>
 
-The registers MSMON_MBWU_L and MSMON_MBWU return the number of requests
-rather than the number of bytes transferred.
+CMN-650 is afflicted with an erratum where the CSU NRDY bit never clears.
+This tells us the monitor never finishes scanning the cache. The erratum
+document says to wait the maximum time, then ignore the field.
 
-Bandwidth resource monitoring is performed at the last level cache, where
-each request arrive in 64Byte granularity. The current implementation
-returns the number of transactions received at the last level cache but
-does not provide the value in bytes. Scaling by 64 gives an accurate byte
-count to match the MPAM specification for the MSMON_MBWU and MSMON_MBWU_L
-registers. This patch fixes the issue by reporting the actual number of
-bytes instead of the number of transactions from __ris_msmon_read().
+Add a flag to indicate whether this is the final attempt to read the
+counter, and when this quirk is applied, ignore the NRDY field.
 
-Tested-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+This means accesses to this counter will always retry, even if the counter
+was previously programmed to the same values.
+
+The counter value is not expected to be stable, it drifts up and down with
+each allocation and eviction. The CSU register provides the value for a
+point in time.
+
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since rfc:
-MPAM_IIDR_NVIDIA_T421 -> MPAM_IIDR_NVIDIA_T241
-Don't apply workaround to MSMON_MBWU_LWD
+Changes since v3:
+parentheses in macro
 ---
- Documentation/arch/arm64/silicon-errata.rst |  2 ++
- drivers/resctrl/mpam_devices.c              | 26 +++++++++++++++++++--
- drivers/resctrl/mpam_internal.h             |  1 +
- 3 files changed, 27 insertions(+), 2 deletions(-)
+ Documentation/arch/arm64/silicon-errata.rst |  3 +++
+ drivers/resctrl/mpam_devices.c              | 12 ++++++++++++
+ drivers/resctrl/mpam_internal.h             |  6 ++++++
+ 3 files changed, 21 insertions(+)
 
 diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index a4b246655e37..1aa3326bb320 100644
+index 1aa3326bb320..65ed6ea33751 100644
 --- a/Documentation/arch/arm64/silicon-errata.rst
 +++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -251,6 +251,8 @@ stable kernels.
+@@ -214,6 +214,9 @@ stable kernels.
  +----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | T241 MPAM       | T241-MPAM-4     | N/A                         |
+ | ARM            | SI L1           | #4311569        | ARM64_ERRATUM_4311569       |
  +----------------+-----------------+-----------------+-----------------------------+
-+| NVIDIA         | T241 MPAM       | T241-MPAM-6     | N/A                         |
++| ARM            | CMN-650         | #3642720        | N/A                         |
 ++----------------+-----------------+-----------------+-----------------------------+
+++----------------+-----------------+-----------------+-----------------------------+
+ | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_845719        |
  +----------------+-----------------+-----------------+-----------------------------+
- | Freescale/NXP  | LS2080A/LS1043A | A-008585        | FSL_ERRATUM_A008585         |
- +----------------+-----------------+-----------------+-----------------------------+
+ | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_843419        |
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 8f44e9dee207..48a233875a9a 100644
+index 48a233875a9a..9182c8fcf003 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -685,6 +685,12 @@ static const struct mpam_quirk mpam_quirks[] = {
+@@ -691,6 +691,12 @@ static const struct mpam_quirk mpam_quirks[] = {
  	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
- 	.workaround = T241_FORCE_MBW_MIN_TO_ONE,
+ 	.workaround = T241_MBW_COUNTER_SCALE_64,
  	},
 +	{
-+	/* NVIDIA t241 erratum T241-MPAM-6 */
-+	.iidr       = MPAM_IIDR_NVIDIA_T241,
++	/* ARM CMN-650 CSU erratum 3642720 */
++	.iidr       = MPAM_IIDR_ARM_CMN_650,
 +	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
-+	.workaround = T241_MBW_COUNTER_SCALE_64,
++	.workaround = IGNORE_CSU_NRDY,
 +	},
  	{ NULL } /* Sentinel */
  };
  
-@@ -1146,7 +1152,7 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
- 	}
- }
+@@ -1003,6 +1009,7 @@ struct mon_read {
+ 	enum mpam_device_features	type;
+ 	u64				*val;
+ 	int				err;
++	bool				waited_timeout;
+ };
  
--static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
-+static u64 __mpam_msmon_overflow_val(enum mpam_device_features type)
- {
- 	/* TODO: implement scaling counters */
- 	switch (type) {
-@@ -1161,6 +1167,18 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
- 	}
- }
- 
-+static u64 mpam_msmon_overflow_val(enum mpam_device_features type,
-+				   struct mpam_msc *msc)
-+{
-+	u64 overflow_val = __mpam_msmon_overflow_val(type);
+ static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
+@@ -1249,6 +1256,10 @@ static void __ris_msmon_read(void *arg)
+ 		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
+ 			nrdy = now & MSMON___NRDY;
+ 		now = FIELD_GET(MSMON___VALUE, now);
 +
-+	if (mpam_has_quirk(T241_MBW_COUNTER_SCALE_64, msc) &&
-+	    type != mpam_feat_msmon_mbwu_63counter)
-+		overflow_val *= 64;
++		if (mpam_has_quirk(IGNORE_CSU_NRDY, msc) && m->waited_timeout)
++			nrdy = false;
 +
-+	return overflow_val;
-+}
-+
- static void __ris_msmon_read(void *arg)
- {
- 	u64 now;
-@@ -1251,13 +1269,17 @@ static void __ris_msmon_read(void *arg)
- 			now = FIELD_GET(MSMON___VALUE, now);
- 		}
+ 		break;
+ 	case mpam_feat_msmon_mbwu_31counter:
+ 	case mpam_feat_msmon_mbwu_44counter:
+@@ -1386,6 +1397,7 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+ 			.ctx = ctx,
+ 			.type = type,
+ 			.val = val,
++			.waited_timeout = true,
+ 		};
+ 		*val = 0;
  
-+		if (mpam_has_quirk(T241_MBW_COUNTER_SCALE_64, msc) &&
-+		    m->type != mpam_feat_msmon_mbwu_63counter)
-+			now *= 64;
-+
- 		if (nrdy)
- 			break;
- 
- 		mbwu_state = &ris->mbwu_state[ctx->mon];
- 
- 		if (overflow)
--			mbwu_state->correction += mpam_msmon_overflow_val(m->type);
-+			mbwu_state->correction += mpam_msmon_overflow_val(m->type, msc);
- 
- 		/*
- 		 * Include bandwidth consumed before the last hardware reset and
 diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 9f92fd49a61c..1443a1dd996e 100644
+index 1443a1dd996e..195ab821cc52 100644
 --- a/drivers/resctrl/mpam_internal.h
 +++ b/drivers/resctrl/mpam_internal.h
-@@ -225,6 +225,7 @@ struct mpam_props {
- enum mpam_device_quirks {
+@@ -226,6 +226,7 @@ enum mpam_device_quirks {
  	T241_SCRUB_SHADOW_REGS,
  	T241_FORCE_MBW_MIN_TO_ONE,
-+	T241_MBW_COUNTER_SCALE_64,
+ 	T241_MBW_COUNTER_SCALE_64,
++	IGNORE_CSU_NRDY,
  	MPAM_QUIRK_LAST
  };
  
+@@ -251,6 +252,11 @@ struct mpam_quirk {
+ 				 FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0)	 | \
+ 				 FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0x36b))
+ 
++#define MPAM_IIDR_ARM_CMN_650	(FIELD_PREP_CONST(MPAMF_IIDR_PRODUCTID,   0)	 | \
++				 FIELD_PREP_CONST(MPAMF_IIDR_VARIANT,     0)	 | \
++				 FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0)	 | \
++				 FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0x43b))
++
+ /* The values for MSMON_CFG_MBWU_FLT.RWBW */
+ enum mon_filter_options {
+ 	COUNT_BOTH	= 0,
 -- 
 2.43.0
 
