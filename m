@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92687EFB7FB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 05:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D336EFB7FD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 05:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XyMmPe5KZHpxRz+aCrAeoCereLzBxY81aUUYYCbmq3A=; b=ERikAplYYH4argLb7EndRBZCtB
-	YmVymTqDOoJm5+kiyaNN/MWM/giYHxLPStCmj7aPbt3V8lhGIJByfnEHnXudqIIvO0qW+nK2nIaQi
-	IgYl+sZJMb5IQrD4Ly1N3vzACH6ln98XlAb+nv7uXlnUgBrLyGqdMrN4OpjnG9iN9TMMwAhMeQ+SX
-	QomnTJpGEJdjB4GILETbMR8Ui7QS20zuieG7EFmNW7tAl0ND0/gpBagSQHwgBCUhsJzyoSF+MGWtB
-	C2zPB7b+yP7jLE6USIRASQp4UBRbgaSo3rvOo1/xvMpJtrnqOVNiBvLETzkwJ5zpy3QpM/KJcouOS
-	F1LhLXMA==;
+	bh=/C/RjEuENHKQ8NVKZ+XHFLTLUPqm8179r+FfKGRQPEI=; b=Ob+KyBjW9Xql/U0vTcnyz2Pdpt
+	8ZK07guH7T6RXb22ZDe+KgyICBhAZcJQjMmRtmZODnTdkgCLaxN/n7qBMSPUJKBqm3YYr49I9V1ZE
+	PiG8MOKcSWlSugGL4mYIVPo1Lmp5N5jFhA/485n2Qzr+gU95tbod/alZl2vCQ53cTsBygzdNruCUh
+	gBXKIe1kKuXljdhbFns3QMxy7DJrN+8OWwp7mI9cnNw7pQi6SdNFr3wiSAfMHc2aT2gOD4r/959eh
+	rJDMBGJE57IF2Tx4qVOuspbpoSTF5VCE4OjiMTnSvXEROO/FZQRWq4qQEWQIaiQXJL7h2JipGSlbG
+	R5I3xWdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vukk2-00000001TOW-07sn;
-	Tue, 24 Feb 2026 05:13:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vukjx-00000001TJW-33jQ
+	id 1vulJ8-00000001VCO-2KX6;
+	Tue, 24 Feb 2026 05:50:06 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vulJ4-00000001VBo-0cqX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 05:13:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D218497;
-	Mon, 23 Feb 2026 21:13:38 -0800 (PST)
-Received: from a085714.blr.arm.com (a085714.arm.com [10.164.18.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 647083F7BD;
-	Mon, 23 Feb 2026 21:13:40 -0800 (PST)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Linu Cherian <linu.cherian@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [RFC V1 16/16] arm64/mm: Add initial support for FEAT_D128 page tables
-Date: Tue, 24 Feb 2026 10:41:53 +0530
-Message-ID: <20260224051153.3150613-17-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260224051153.3150613-1-anshuman.khandual@arm.com>
-References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
+	Tue, 24 Feb 2026 05:50:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1771912196; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=/C/RjEuENHKQ8NVKZ+XHFLTLUPqm8179r+FfKGRQPEI=;
+	b=mJ63lv8j9uuGIyPuyHTIwBJ1yKXvQOVZA9A935RQFQeGJIiOuIE0cYXINL9DyAqHLifVwOAIAxJWAokWYEVRJ7kQHpiLKoB5QvDvM4ulF8BbXLWF/Coae9r2nYyFst/qUG/izonMPPTsthzc48up98RlzdnlT9E39s4R0V8VYYY=
+Received: from 30.74.144.111(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WziN4bE_1771912193 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Feb 2026 13:49:54 +0800
+Message-ID: <ec92b9a6-d6a6-4b14-9724-b1722d35b69d@linux.alibaba.com>
+Date: Tue, 24 Feb 2026 13:49:53 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] mm: rmap: add a ZONE_DEVICE folio warning in
+ folio_referenced()
+To: Rik van Riel <riel@surriel.com>, akpm@linux-foundation.org,
+ david@kernel.org
+Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, harry.yoo@oracle.com,
+ jannh@google.com, willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
+ axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com,
+ hannes@cmpxchg.org, zhengqi.arch@bytedance.com, shakeel.butt@linux.dev,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
+ <e91eaa86a6fbb0682b4e308082048c688a57c035.1771897150.git.baolin.wang@linux.alibaba.com>
+ <b3c1c739c233ccb32945ccaffdaf25fd3f96dd59.camel@surriel.com>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <b3c1c739c233ccb32945ccaffdaf25fd3f96dd59.camel@surriel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_211345_910454_5BA39D0D 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20260223_215003_579380_A818E0CB 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,723 +76,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add build time support for FEAT_D128 page tables with a new Kconfig option
-i.e CONFIG_ARM64_D128. When selected, PTE types become 128 bits wide and
-PTE bits are mapped to their new locations. Besides the basic page table
-geometry is also updated since each table page now holds half the number
-of entries (aka PTRS_PER_PXX) as it did previously.
 
-Since FEAT_D128 exclusively supports the permission indirection style for
-page table entry permission management, given kernel compiled for FEAT_D128
-requires both FEAT_S1PIE and FEAT_D128. If these architecture features are
-not present at boot, the kernel panics just like it does when there is a
-granule size mismatch.
 
-TTBR0/1_EL1 and PAR_EL1 registers become 128 bit wide when D128 is enabled,
-thus requiring MSRR/MRRS instructions for their updates. Because PA_BITS is
-still capped at 52 bits, MRS/MSR instructions are currently sufficient for
-the register accesses that basically operate on the lower 64 bits. Although
-entire 128 bits for these registers get cleared during boot via MSRR.
+On 2/24/26 10:38 AM, Rik van Riel wrote:
+> On Tue, 2026-02-24 at 09:56 +0800, Baolin Wang wrote:
+>>
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index bff8f222004e..be785dfc9336 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -1065,6 +1065,7 @@ int folio_referenced(struct folio *folio, int
+>> is_locked,
+>>   		.invalid_vma = invalid_folio_referenced_vma,
+>>   	};
+>>   
+>> +	VM_WARN_ON_FOLIO(folio_is_zone_device(folio), folio);
+>>   	*vm_flags = 0;
+>>   	if (!pra.mapcount)
+>>   		return 0;
+> 
+> Should be a VM_WARN_ON_ONCE_FOLIO so we do not cause
+> a softlockup if we try to print information about a
+> million ZONE_DEVICE pages?
 
-Add support for TLBIP instruction for TLB flush macros with level hint and
-address range operations. Although existing TLBI based TLB flush would have
-been sufficient given PA_BITS is still capped at 52, but then it would have
-lacked both level hint and range support.
-
-This enables support for all granule size, VA_BITS and PA_BITS combination.
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm64/Kconfig                     |  39 ++++++-
- arch/arm64/Makefile                    |   4 +
- arch/arm64/include/asm/assembler.h     |   4 +-
- arch/arm64/include/asm/el2_setup.h     |   9 ++
- arch/arm64/include/asm/pgtable-hwdef.h | 137 +++++++++++++++++++++++++
- arch/arm64/include/asm/pgtable-prot.h  |  18 +++-
- arch/arm64/include/asm/pgtable-types.h |   9 ++
- arch/arm64/include/asm/pgtable.h       |  56 +++++++++-
- arch/arm64/include/asm/smp.h           |   1 +
- arch/arm64/include/asm/tlbflush.h      |  65 ++++++++++++
- arch/arm64/kernel/head.S               |  12 +++
- arch/arm64/mm/proc.S                   |  25 ++++-
- 12 files changed, 372 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 38dba5f7e4d2..aaf910295c39 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -309,6 +309,10 @@ config GCC_SUPPORTS_DYNAMIC_FTRACE_WITH_ARGS
- 	def_bool CC_IS_GCC
- 	depends on $(cc-option,-fpatchable-function-entry=2)
- 
-+config CC_SUPPORTS_LSE128
-+	def_bool CC_IS_GCC
-+	depends on $(cc-option, -march=armv8.1-a+lse128)
-+
- config 64BIT
- 	def_bool y
- 
-@@ -395,6 +399,16 @@ config FIX_EARLYCON_MEM
- 
- config PGTABLE_LEVELS
- 	int
-+	default 4 if ARM64_D128 && ARM64_4K_PAGES && ARM64_VA_BITS_39
-+	default 5 if ARM64_D128 && ARM64_4K_PAGES && ARM64_VA_BITS_48
-+	default 5 if ARM64_D128 && ARM64_4K_PAGES && ARM64_VA_BITS_52
-+	default 3 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_36
-+	default 4 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_47
-+	default 4 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_48
-+	default 4 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_52
-+	default 3 if ARM64_D128 && ARM64_64K_PAGES && ARM64_VA_BITS_42
-+	default 3 if ARM64_D128 && ARM64_64K_PAGES && ARM64_VA_BITS_48
-+	default 3 if ARM64_D128 && ARM64_64K_PAGES && ARM64_VA_BITS_52
- 	default 2 if ARM64_16K_PAGES && ARM64_VA_BITS_36
- 	default 2 if ARM64_64K_PAGES && ARM64_VA_BITS_42
- 	default 3 if ARM64_64K_PAGES && (ARM64_VA_BITS_48 || ARM64_VA_BITS_52)
-@@ -1504,7 +1518,7 @@ config ARM64_PA_BITS
- 
- config ARM64_LPA2
- 	def_bool y
--	depends on ARM64_PA_BITS_52 && !ARM64_64K_PAGES
-+	depends on ARM64_PA_BITS_52 && !ARM64_64K_PAGES && !ARM64_D128
- 
- choice
- 	prompt "Endianness"
-@@ -2195,6 +2209,29 @@ config ARM64_HAFT
- 
- endmenu # "ARMv8.9 architectural features"
- 
-+menu "ARMv9.3 architectural features"
-+
-+config AS_HAS_ARMV9_3
-+	def_bool $(cc-option,-Wa$(comma)-march=armv9.3-a)
-+
-+config ARM64_D128
-+	bool "Enable support for 128 bit page table (FEAT_D128)"
-+	depends on ARCH_SUPPORTS_INT128
-+	depends on CC_SUPPORTS_LSE128
-+	depends on AS_HAS_ARMV9_3
-+	depends on EXPERT
-+	depends on !VIRTUALIZATION
-+	depends on !KASAN
-+	depends on !UNMAP_KERNEL_AT_EL0
-+	default n
-+	help
-+	  ARMv9.3 introduces FEAT_D128, which provides a 128 bit page
-+	  table format, along with related instructions.
-+
-+	  If unsure, say Y.
-+
-+endmenu # "ARMv9.3 architectural features"
-+
- menu "ARMv9.4 architectural features"
- 
- config ARM64_GCS
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 73a10f65ce8b..4dedaaee9211 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -54,6 +54,10 @@ endif
- KBUILD_CFLAGS	+= $(call cc-option,-mabi=lp64)
- KBUILD_AFLAGS	+= $(call cc-option,-mabi=lp64)
- 
-+ifeq ($(CONFIG_ARM64_D128),y)
-+KBUILD_AFLAGS	+= -march=armv9.3-a+d128
-+endif
-+
- # Avoid generating .eh_frame* sections.
- ifneq ($(CONFIG_UNWIND_TABLES),y)
- KBUILD_CFLAGS	+= -fno-asynchronous-unwind-tables -fno-unwind-tables
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index d3d46e5f7188..5f2b60c207e9 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -614,7 +614,7 @@ alternative_else_nop_endif
-  * 	ttbr:	returns the TTBR value
-  */
- 	.macro	phys_to_ttbr, ttbr, phys
--#ifdef CONFIG_ARM64_PA_BITS_52
-+#if defined(CONFIG_ARM64_PA_BITS_52) && !defined(CONFIG_ARM64_D128)
- 	orr	\ttbr, \phys, \phys, lsr #46
- 	and	\ttbr, \ttbr, #TTBR_BADDR_MASK_52
- #else
-@@ -623,7 +623,7 @@ alternative_else_nop_endif
- 	.endm
- 
- 	.macro	phys_to_pte, pte, phys
--#ifdef CONFIG_ARM64_PA_BITS_52
-+#if defined(CONFIG_ARM64_PA_BITS_52) && !defined(CONFIG_ARM64_D128)
- 	orr	\pte, \phys, \phys, lsr #PTE_ADDR_HIGH_SHIFT
- 	and	\pte, \pte, #PHYS_TO_PTE_ADDR_MASK
- #else
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 85f4c1615472..e25257237157 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -80,6 +80,15 @@
- 	cbz	x0, .Lskip_hcrx_\@
- 	mov_q	x0, (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_EnFPM)
- 
-+#ifdef CONFIG_ARM64_D128
-+	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
-+	ubfx	x1, x1, #ID_AA64MMFR3_EL1_D128_SHIFT, #4
-+	cbz	x1, .Lskip_d128_\@
-+
-+	orr	x0, x0, HCRX_EL2_D128En		// Disable MRRS/MSRR traps
-+.Lskip_d128_\@:
-+#endif
-+
-         /* Enable GCS if supported */
- 	mrs_s	x1, SYS_ID_AA64PFR1_EL1
- 	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
-diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-index d49180bb7cb3..5d5c6ef99215 100644
---- a/arch/arm64/include/asm/pgtable-hwdef.h
-+++ b/arch/arm64/include/asm/pgtable-hwdef.h
-@@ -7,7 +7,11 @@
- 
- #include <asm/memory.h>
- 
-+#ifdef CONFIG_ARM64_D128
-+#define PTDESC_ORDER 4
-+#else
- #define PTDESC_ORDER 3
-+#endif
- 
- /* Number of VA bits resolved by a single translation table level */
- #define PTDESC_TABLE_SHIFT	(PAGE_SHIFT - PTDESC_ORDER)
-@@ -97,6 +101,137 @@
- #define CONT_PMD_SIZE		(CONT_PMDS * PMD_SIZE)
- #define CONT_PMD_MASK		(~(CONT_PMD_SIZE - 1))
- 
-+#ifdef CONFIG_ARM64_D128
-+
-+/*
-+ * Hardware page table definitions.
-+ *
-+ * Level -1 descriptor (PGD).
-+ */
-+#define PGD_SKL_SHIFT		109
-+#define PGD_SKL_MASK		GENMASK_U128(110, 109)
-+#define PGD_SKL_TABLE		(_AT(pgdval_t, 0) << PGD_SKL_SHIFT)
-+
-+#define PGD_TYPE_TABLE		_AT(pgdval_t, (PTE_VALID | PGD_SKL_TABLE))
-+#define PGD_TYPE_MASK		_AT(pgdval_t, (PTE_VALID | PGD_SKL_MASK))
-+#define PGD_TABLE_AF		(_AT(pgdval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
-+#define PGD_TABLE_PXN		_AT(pgdval_t, 0)		/* Not supported for D128 */
-+#define PGD_TABLE_UXN		_AT(pgdval_t, 0)		/* Not supported for D128 */
-+
-+/*
-+ * Level 0 descriptor (P4D).
-+ */
-+#define P4D_SKL_SHIFT		109
-+#define P4D_SKL_MASK		GENMASK_U128(110, 109)
-+#define P4D_SKL_TABLE		(_AT(p4dval_t, 0) << P4D_SKL_SHIFT)
-+#define P4D_SKL_SECT		(_AT(p4dval_t, 3) << P4D_SKL_SHIFT)
-+
-+#define P4D_TYPE_TABLE		_AT(p4dval_t, (PTE_VALID | P4D_SKL_TABLE))
-+#define P4D_TYPE_MASK		_AT(p4dval_t, (PTE_VALID | P4D_SKL_MASK))
-+#define P4D_TYPE_SECT		_AT(p4dval_t, (PTE_VALID | P4D_SKL_SECT))
-+#define P4D_SECT_RDONLY		(_AT(p4dval_t, 1) << 7)		/* nDirty */
-+#define P4D_TABLE_AF		(_AT(p4dval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
-+#define P4D_TABLE_PXN		_AT(p4dval_t, 0)		/* Not supported for D128 */
-+#define P4D_TABLE_UXN		_AT(p4dval_t, 0)		/* Not supported for D128 */
-+
-+/*
-+ * Level 1 descriptor (PUD).
-+ */
-+#define PUD_SKL_SHIFT		109
-+#define PUD_SKL_MASK		GENMASK_U128(110, 109)
-+#define PUD_SKL_TABLE		(_AT(pudval_t, 0) << PUD_SKL_SHIFT)
-+#define PUD_SKL_SECT		(_AT(pudval_t, 2) << PUD_SKL_SHIFT)
-+
-+#define PUD_TYPE_TABLE		_AT(pudval_t, (PTE_VALID | PUD_SKL_TABLE))
-+#define PUD_TYPE_MASK		_AT(pudval_t, (PTE_VALID | PUD_SKL_MASK))
-+#define PUD_TYPE_SECT		_AT(pudval_t, (PTE_VALID | PUD_SKL_SECT))
-+#define PUD_SECT_RDONLY		(_AT(pudval_t, 1) << 7)		/* nDirty */
-+#define PUD_TABLE_AF		(_AT(pudval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
-+#define PUD_TABLE_PXN		_AT(pudval_t, 0)		/* Not supported for D128 */
-+#define PUD_TABLE_UXN		_AT(pudval_t, 0)		/* Not supported for D128 */
-+
-+/*
-+ * Level 2 descriptor (PMD).
-+ */
-+#define PMD_SKL_SHIFT		109
-+#define PMD_SKL_MASK		GENMASK_U128(110, 109)
-+#define PMD_SKL_TABLE		(_AT(pmdval_t, 0) << PMD_SKL_SHIFT)
-+#define PMD_SKL_SECT		(_AT(pmdval_t, 1) << PMD_SKL_SHIFT)
-+
-+#define PMD_TYPE_MASK		_AT(pmdval_t, (PTE_VALID | PMD_SKL_MASK))
-+#define PMD_TYPE_TABLE		_AT(pmdval_t, (PTE_VALID | PMD_SKL_TABLE))
-+#define PMD_TYPE_SECT		_AT(pmdval_t, (PTE_VALID | PMD_SKL_SECT))
-+#define PMD_TABLE_AF		(_AT(pmdval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
-+#define PMD_TABLE_PXN		_AT(pmdval_t, 0)		/* Not supported for D128 */
-+#define PMD_TABLE_UXN		_AT(pmdval_t, 0)		/* Not supported for D128 */
-+
-+/*
-+ * Section
-+ */
-+#define PMD_SECT_USER		(_AT(pmdval_t, 1) << 115)	/* PIIndex[0] */
-+#define PMD_SECT_RDONLY		(_AT(pmdval_t, 1) << 7)		/* nDirty */
-+#define PMD_SECT_S		(_AT(pmdval_t, 3) << 8)
-+#define PMD_SECT_AF		(_AT(pmdval_t, 1) << 10)
-+#define PMD_SECT_NG		(_AT(pmdval_t, 1) << 11)
-+#define PMD_SECT_CONT		(_AT(pmdval_t, 1) << 111)
-+#define PMD_SECT_PXN		(_AT(pmdval_t, 1) << 117)	/* PIIndex[2] */
-+#define PMD_SECT_UXN		(_AT(pmdval_t, 1) << 118)	/* PIIndex[3] */
-+
-+/*
-+ * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
-+ */
-+#define PMD_ATTRINDX(t)		(_AT(pmdval_t, (t)) << 2)
-+#define PMD_ATTRINDX_MASK	(_AT(pmdval_t, 7) << 2)
-+
-+/*
-+ * Level 3 descriptor (PTE).
-+ */
-+#define PTE_SKL_SHIFT		109
-+#define PTE_SKL_MASK		GENMASK_U128(110, 109)
-+#define PTE_SKL_SECT		(_AT(pteval_t, 0) << PTE_SKL_SHIFT)
-+
-+#define PTE_VALID		(_AT(pteval_t, 1) << 0)
-+#define PTE_TYPE_MASK		_AT(pteval_t, (PTE_VALID | PTE_SKL_MASK))
-+#define PTE_TYPE_PAGE		_AT(pteval_t, (PTE_VALID | PTE_SKL_SECT))
-+#define PTE_USER		(_AT(pteval_t, 1) << 115)	/* PIIndex[0] */
-+#define PTE_RDONLY		(_AT(pteval_t, 1) << 7)		/* nDirty */
-+#define PTE_SHARED		(_AT(pteval_t, 3) << 8)		/* SH[1:0], inner shareable */
-+#define PTE_AF			(_AT(pteval_t, 1) << 10)	/* Access Flag */
-+#define PTE_NG			(_AT(pteval_t, 1) << 11)	/* nG */
-+#define PTE_GP			(_AT(pteval_t, 1) << 113)	/* BTI guarded */
-+#define PTE_DBM			(_AT(pteval_t, 1) << 116)	/* PIIndex[1] */
-+#define PTE_CONT		(_AT(pteval_t, 1) << 111)	/* Contiguous range */
-+#define PTE_PXN			(_AT(pteval_t, 1) << 117)	/* PIIndex[2] */
-+#define PTE_UXN			(_AT(pteval_t, 1) << 118)	/* PIIndex[3] */
-+#define PTE_SWBITS_MASK		_AT(pteval_t, GENMASK_U128(100, 91))
-+
-+#define PTE_ADDR_LOW		(((_AT(pteval_t, 1) << (55 - PAGE_SHIFT)) - 1) << PAGE_SHIFT)
-+
-+/*
-+ * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
-+ */
-+#define PTE_ATTRINDX(t)		(_AT(pteval_t, (t)) << 2)
-+#define PTE_ATTRINDX_MASK	(_AT(pteval_t, 7) << 2)
-+
-+/*
-+ * PIIndex[3:0] encoding (Permission Indirection Extension)
-+ */
-+#define PTE_PI_MASK	GENMASK_U128(118, 115)
-+#define PTE_PI_SHIFT	115
-+
-+/*
-+ * POIndex[3:0] encoding (Permission Overlay Extension)
-+ */
-+#define PTE_PO_IDX_0	(_AT(pteval_t, 1) << 121)
-+#define PTE_PO_IDX_1	(_AT(pteval_t, 1) << 122)
-+#define PTE_PO_IDX_2	(_AT(pteval_t, 1) << 123)
-+#define PTE_PO_IDX_3	(_AT(pteval_t, 1) << 124)
-+
-+#define PTE_PO_IDX_MASK		GENMASK_U128(124, 121)
-+#define PTE_PO_IDX_SHIFT	121
-+
-+#else /* !CONFIG_ARM64_D128 */
-+
- /*
-  * Hardware page table definitions.
-  *
-@@ -211,7 +346,9 @@
- #define PTE_PO_IDX_2	(_AT(pteval_t, 1) << 62)
- 
- #define PTE_PO_IDX_MASK		GENMASK_ULL(62, 60)
-+#define PTE_PO_IDX_SHIFT	60
- 
-+#endif /* CONFIG_ARM64_D128 */
- 
- /*
-  * Memory Attribute override for Stage-2 (MemAttr[3:0])
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index d27e8872fe3c..3b16ab03ed90 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -13,10 +13,15 @@
- /*
-  * Software defined PTE bits definition.
-  */
--#define PTE_WRITE		(PTE_DBM)		 /* same as DBM (51) */
-+#define PTE_WRITE		(PTE_DBM)		 /* same as DBM (51 / 116) */
- #define PTE_SWP_EXCLUSIVE	(_AT(pteval_t, 1) << 2)	 /* only for swp ptes */
-+#ifdef CONFIG_ARM64_D128
-+#define PTE_DIRTY		(_AT(pteval_t, 1) << 91)
-+#define PTE_SPECIAL		(_AT(pteval_t, 1) << 92)
-+#else
- #define PTE_DIRTY		(_AT(pteval_t, 1) << 55)
- #define PTE_SPECIAL		(_AT(pteval_t, 1) << 56)
-+#endif
- 
- /*
-  * PTE_PRESENT_INVALID=1 & PTE_VALID=0 indicates that the pte's fields should be
-@@ -26,7 +31,11 @@
- #define PTE_PRESENT_INVALID	(PTE_NG)		 /* only when !PTE_VALID */
- 
- #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
-+#ifdef CONFIG_ARM64_D128
-+#define PTE_UFFD_WP		(_AT(pteval_t, 1) << 94) /* uffd-wp tracking */
-+#else
- #define PTE_UFFD_WP		(_AT(pteval_t, 1) << 58) /* uffd-wp tracking */
-+#endif
- #define PTE_SWP_UFFD_WP		(_AT(pteval_t, 1) << 3)	 /* only for swp ptes */
- #else
- #define PTE_UFFD_WP		(_AT(pteval_t, 0))
-@@ -129,11 +138,18 @@ static inline bool __pure lpa2_is_enabled(void)
- 
- #endif /* __ASSEMBLER__ */
- 
-+#ifdef CONFIG_ARM64_D128
-+#define pte_pi_index(pte)	(((pte) & PTE_PI_MASK) >> PTE_PI_SHIFT)
-+#define pte_po_index(pte)	((pte_val(pte) & PTE_PO_IDX_MASK) >> PTE_PO_IDX_SHIFT)
-+#else
- #define pte_pi_index(pte) ( \
- 	((pte & BIT(PTE_PI_IDX_3)) >> (PTE_PI_IDX_3 - 3)) | \
- 	((pte & BIT(PTE_PI_IDX_2)) >> (PTE_PI_IDX_2 - 2)) | \
- 	((pte & BIT(PTE_PI_IDX_1)) >> (PTE_PI_IDX_1 - 1)) | \
- 	((pte & BIT(PTE_PI_IDX_0)) >> (PTE_PI_IDX_0 - 0)))
-+#define pte_po_index(pte)	FIELD_GET(PTE_PO_IDX_MASK, pte_val(pte))
-+#endif
-+
- 
- /*
-  * Page types used via Permission Indirection Extension (PIE). PIE uses
-diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
-index dc3791dc9f14..2341d393d81e 100644
---- a/arch/arm64/include/asm/pgtable-types.h
-+++ b/arch/arm64/include/asm/pgtable-types.h
-@@ -11,8 +11,13 @@
- 
- #include <asm/types.h>
- 
-+#ifdef CONFIG_ARM64_D128
-+#define __PRIpte		"016llx%016llx"
-+#define __PRIpte_args(val)	(u64)((val) >> 64), (u64)(val)
-+#else
- #define __PRIpte		"016llx"
- #define __PRIpte_args(val)	((u64)val)
-+#endif
- 
- /*
-  * Page Table Descriptor
-@@ -20,7 +25,11 @@
-  * Generic page table descriptor format from which
-  * all level specific descriptors can be derived.
-  */
-+#ifdef CONFIG_ARM64_D128
-+typedef u128 ptdesc_t;
-+#else
- typedef u64 ptdesc_t;
-+#endif
- 
- typedef ptdesc_t pteval_t;
- typedef ptdesc_t pmdval_t;
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 0f262a97e320..4b6253caf678 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -84,18 +84,64 @@ static inline void arch_leave_lazy_mmu_mode(void)
- 	arch_flush_lazy_mmu_mode();
- }
- 
-+#ifdef CONFIG_ARM64_D128
-+#define ptdesc_get(x)							\
-+({									\
-+	typeof(&(x)) __x = &(x);					\
-+	union __u128_halves __v;					\
-+									\
-+	asm volatile ("ldp %[lo], %[hi], %[v]\n"			\
-+		: [lo] "=r"(__v.low),					\
-+		  [hi] "=r"(__v.high)					\
-+		: [v] "Q"(*__x)						\
-+	);								\
-+									\
-+	*(typeof(__x))(&__v.full);					\
-+})
-+
-+#define ptdesc_set(x, val)						\
-+({									\
-+	typeof(&(x)) __x = &(x);					\
-+	union __u128_halves __v = { .full = *(u128*)(&(val)) };		\
-+									\
-+	asm volatile ("stp %[lo], %[hi], %[v]\n"			\
-+		: [v] "=Q"(*__x)					\
-+		: [lo] "r"(__v.low),					\
-+		  [hi] "r"(__v.high)					\
-+	);								\
-+})
-+#else
- #define ptdesc_get(x)		READ_ONCE(x)
- #define ptdesc_set(x, val)	WRITE_ONCE(x, val)
-+#endif
- 
- static inline ptdesc_t ptdesc_cmpxchg_relaxed(ptdesc_t *ptep, ptdesc_t old,
- 					      ptdesc_t new)
- {
-+#ifdef CONFIG_ARM64_D128
-+	return cmpxchg128_relaxed(ptep, old, new);
-+#else
- 	return cmpxchg_relaxed(ptep, old, new);
-+#endif
- }
- 
- static inline ptdesc_t ptdesc_xchg_relaxed(ptdesc_t *ptep, ptdesc_t new)
- {
-+#ifdef CONFIG_ARM64_D128
-+	union __u128_halves r = { .full = new };
-+
-+	asm volatile(
-+	".arch_extension lse128\n"
-+	"swpp %[lo], %[hi], %[v]\n"
-+		: [lo] "+r" (r.low),
-+		  [hi] "+r" (r.high),
-+		  [v] "+Q" (*ptep)
-+		:);
-+
-+	return r.full;
-+#else
- 	return xchg_relaxed(ptep, new);
-+#endif
- }
- 
- #define pmdp_get pmdp_get
-@@ -166,7 +212,7 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
- #define pte_ERROR(e)	\
- 	pr_err("%s:%d: bad pte %" __PRIpte ".\n", __FILE__, __LINE__, __PRIpte_args(pte_val(e)))
- 
--#ifdef CONFIG_ARM64_PA_BITS_52
-+#if defined(CONFIG_ARM64_PA_BITS_52) && !defined(CONFIG_ARM64_D128)
- static inline phys_addr_t __pte_to_phys(pte_t pte)
- {
- 	pte_val(pte) &= ~PTE_MAYBE_SHARED;
-@@ -277,7 +323,7 @@ static inline bool por_el0_allows_pkey(u8 pkey, bool write, bool execute)
- 	(((pte_val(pte) & (PTE_VALID | PTE_USER)) == (PTE_VALID | PTE_USER)) && (!(write) || pte_write(pte)))
- #define pte_access_permitted(pte, write) \
- 	(pte_access_permitted_no_overlay(pte, write) && \
--	por_el0_allows_pkey(FIELD_GET(PTE_PO_IDX_MASK, pte_val(pte)), write, false))
-+	por_el0_allows_pkey(pte_po_index(pte), write, false))
- #define pmd_access_permitted(pmd, write) \
- 	(pte_access_permitted(pmd_pte(pmd), (write)))
- #define pud_access_permitted(pud, write) \
-@@ -1117,6 +1163,8 @@ static inline bool pgtable_l4_enabled(void) { return false; }
- 
- static __always_inline bool pgtable_l5_enabled(void)
- {
-+	if (IS_ENABLED(CONFIG_ARM64_D128))
-+		return true;
- 	if (!alternative_has_cap_likely(ARM64_ALWAYS_BOOT))
- 		return vabits_actual == VA_BITS;
- 	return alternative_has_cap_unlikely(ARM64_HAS_VA52);
-@@ -1606,11 +1654,15 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
- #define update_mmu_cache_pmd(vma, address, pmd) do { } while (0)
- 
-+#ifdef CONFIG_ARM64_D128
-+#define phys_to_ttbr(addr)	(addr)
-+#else
- #ifdef CONFIG_ARM64_PA_BITS_52
- #define phys_to_ttbr(addr)	(((addr) | ((addr) >> 46)) & TTBR_BADDR_MASK_52)
- #else
- #define phys_to_ttbr(addr)	(addr)
- #endif
-+#endif
- 
- /*
-  * On arm64 without hardware Access Flag, copying from user will fail because
-diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-index 10ea4f543069..1dd675d2b84d 100644
---- a/arch/arm64/include/asm/smp.h
-+++ b/arch/arm64/include/asm/smp.h
-@@ -22,6 +22,7 @@
- 
- #define CPU_STUCK_REASON_52_BIT_VA	(UL(1) << CPU_STUCK_REASON_SHIFT)
- #define CPU_STUCK_REASON_NO_GRAN	(UL(2) << CPU_STUCK_REASON_SHIFT)
-+#define CPU_STUCK_REASON_NO_D128	(UL(3) << CPU_STUCK_REASON_SHIFT)
- 
- #ifndef __ASSEMBLER__
- 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 9c93ffbcc1e0..a221a1a9b87e 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -49,6 +49,19 @@
- 
- #define __tlbi(op, ...)		__TLBI_N(op, ##__VA_ARGS__, 1, 0)
- 
-+#ifdef CONFIG_ARM64_D128
-+#define __tlbip(op, arg1, arg2) do {	\
-+	u128 value = 0;			\
-+	value |= (u128)arg2 << 64;	\
-+	value |= (u128)arg1;		\
-+					\
-+	asm (ARM64_ASM_PREAMBLE		\
-+	".arch_extension d128\n\t"	\
-+	"tlbip " #op ", %0, %H0\n"	\
-+	: : "r" (value));		\
-+} while (0)
-+#endif
-+
- #define __tlbi_user(op, arg) do {						\
- 	if (arm64_kernel_unmapped_at_el0())					\
- 		__tlbi(op, (arg) | USER_ASID_FLAG);				\
-@@ -128,6 +141,46 @@ static inline unsigned long get_trans_granule(void)
- 		__tlbi_level(op, (arg | USER_ASID_FLAG), level);	\
- } while (0)
- 
-+#ifdef CONFIG_ARM64_D128
-+/*
-+ *
-+ * TLBIP Encoding
-+ *
-+ * +------------+-----------------+-------+-------+------------------+
-+ * |     RES0   |     BADDR       |  ASID |  TTL  |      RES0        |
-+ * +------------------------------+-------+-------+------------------+
-+ * |127      108|107            64|63   48|47   44|43               0|
-+ */
-+
-+#define __tlbip_user(op, arg, addr) do {					\
-+	if (arm64_kernel_unmapped_at_el0())					\
-+		__tlbip(op, (arg) | USER_ASID_FLAG, addr);			\
-+} while (0)
-+/*
-+ * FEAT_TTL being mandatory from armv8.4 and FEAT_D128 is available
-+ * only from armv9.4, we dont need the capability check for TTL.
-+ */
-+#define __TLBIP_ARGS(asid, level)						\
-+	({									\
-+		u64 arg = 0;							\
-+										\
-+		arg |= FIELD_PREP(TLBI_ASID_MASK, (asid));			\
-+		if ((level) >= 0 && (level) <= 3) {				\
-+			arg |= FIELD_PREP(TLBI_TG_MASK, get_trans_granule());	\
-+			arg |= FIELD_PREP(TLBI_LVL_MASK, (level));		\
-+		}								\
-+		arg;								\
-+	})									\
-+
-+#define __tlb_asid_level(op, addr, asid, level, tlb_user) do {		\
-+	u64 arg1 = __TLBIP_ARGS(asid, level);				\
-+	u64 arg2 = (addr) >> 12;					\
-+									\
-+	__tlbip(op, arg1, arg2);					\
-+	if (tlb_user)							\
-+		__tlbip_user(op, arg1, arg2);				\
-+} while (0)
-+#else
- #define __tlb_asid_level(op, addr, asid, level, tlb_user) do {		\
- 	u64 arg1;							\
- 									\
-@@ -136,6 +189,7 @@ static inline unsigned long get_trans_granule(void)
- 	if (tlb_user)							\
- 		__tlbi_user_level(op, arg1, level);			\
- } while (0)
-+#endif
- 
- /*
-  * This macro creates a properly formatted VA operand for the TLB RANGE. The
-@@ -200,6 +254,16 @@ static inline unsigned long get_trans_granule(void)
- 		(__pages >> (5 * (scale) + 1)) - 1;			\
- 	})
- 
-+#ifdef CONFIG_ARM64_D128
-+#define __tlb_range(op, addr, lpa2, range_args, tlb_user) do {		\
-+	u64 arg1 = range_args;						\
-+	u64 arg2 = (addr) >> 12;					\
-+									\
-+	__tlbip(r##op, arg1, arg2);					\
-+	if (tlb_user)							\
-+		__tlbip_user(r##op, arg1, arg2);			\
-+} while (0)
-+#else
- #define __tlb_range(op, addr, lpa2, range_args, tlb_user) do {		\
- 	u64 arg1;							\
- 	int shift = lpa2 ? 16 : PAGE_SHIFT;				\
-@@ -209,6 +273,7 @@ static inline unsigned long get_trans_granule(void)
- 	if (tlb_user)							\
- 		__tlbi_user(r##op, arg1);				\
- } while (0)
-+#endif
- 
- /*
-  *	TLB Invalidation
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 87a822e5c4ca..4ad8047963ad 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -505,6 +505,18 @@ SYM_FUNC_START_LOCAL(__no_granule_support)
- 	b	1b
- SYM_FUNC_END(__no_granule_support)
- 
-+#ifdef CONFIG_ARM64_D128
-+SYM_FUNC_START(__no_d128_support)
-+	/* Indicate that this CPU can't boot and is stuck in the kernel */
-+	update_early_cpu_boot_status \
-+		CPU_STUCK_IN_KERNEL | CPU_STUCK_REASON_NO_D128, x1, x2
-+1:
-+	wfe
-+	wfi
-+	b	1b
-+SYM_FUNC_END(__no_d128_support)
-+#endif
-+
- SYM_FUNC_START_LOCAL(__primary_switch)
- 	adrp	x1, reserved_pg_dir
- 	adrp	x2, __pi_init_idmap_pg_dir
-diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-index 22866b49be37..5c8bfd56a781 100644
---- a/arch/arm64/mm/proc.S
-+++ b/arch/arm64/mm/proc.S
-@@ -215,7 +215,7 @@ SYM_FUNC_ALIAS(__pi_idmap_cpu_replace_ttbr1, idmap_cpu_replace_ttbr1)
- 
- 	.macro	pte_to_phys, phys, pte
- 	and	\phys, \pte, #PTE_ADDR_LOW
--#ifdef CONFIG_ARM64_PA_BITS_52
-+#if defined(CONFIG_ARM64_PA_BITS_52) && !defined(CONFIG_ARM64_D128)
- 	and	\pte, \pte, #PTE_ADDR_HIGH
- 	orr	\phys, \phys, \pte, lsl #PTE_ADDR_HIGH_SHIFT
- #endif
-@@ -541,7 +541,30 @@ alternative_else_nop_endif
- 
- 	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
- 	ubfx	x1, x1, #ID_AA64MMFR3_EL1_S1PIE_SHIFT, #4
-+#ifdef CONFIG_ARM64_D128
-+	cbnz	x1, .Lcheck_d128
-+	bl	__no_d128_support
-+.Lcheck_d128:
-+	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
-+	ubfx	x1, x1, #ID_AA64MMFR3_EL1_D128_SHIFT, #4
-+	cbnz	x1, .Linit_d128
-+	bl	__no_d128_support
-+.Linit_d128:
-+	/*
-+	* Although the lower 64 bits in TTBRx_EL1 registers are now
-+	* being used it is prudent to clear out the entire 128 bits
-+	* just in case the kernel receives non-zero value in higher
-+	* 64 bits from the EL3 which might corrupt the page tables.
-+	*/
-+	mov	x4, xzr
-+	mov	x5, xzr
-+
-+	msrr	ttbr0_el1, x4, x5
-+	msrr	ttbr1_el1, x4, x5
-+	orr	tcr2, tcr2, #TCR2_EL1_D128
-+#else
- 	cbz	x1, .Lskip_indirection
-+#endif
- 
- 	mov_q	x0, PIE_E0_ASM
- 	msr	REG_PIRE0_EL1, x0
--- 
-2.43.0
-
+Yes, sounds reasonable. Will do in next version. Thanks for reviewing.
 
