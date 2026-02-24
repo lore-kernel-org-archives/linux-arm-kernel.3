@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34091EFB811
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 07:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49EBEFB7F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 07:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G/Mt3Ra+5yhEMXBUYKmVnriP9LLAY3r66sMCycefNDI=; b=VMW0Q7a6lRwY7Dr8++CETLmGhW
-	xF+EOBGM+RFnO32iWiCghbhUCiTylJ6+p6EKOiBzsusaQKHH/KJLShJ2O9+YmbMWkT1XCiM+TJXmk
-	gXDWTWAchVsaOZp1vNcraSSBCey4GGKTyn2fIEwNqwSqFNm0qM7+89Bms3X481edULKZ82yE/8QbI
-	FygIJUGfBYgJ1JGkdq68x2+5EK6WFUrbPqztLiOTzcfy+pIB85+1Q0dsRrcall6V9E+3osmsN0umA
-	OnMj3Idg3Q7KHJILqRffvEqQrZtiV1EYIkpfIrQ5lCT+jfA8HGKyeMWQ7p/aXfBFjYadi590dhY6Y
-	IPIgP+WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=USeX1JFWWi+mIY67WzULvHmLcVm3A4NFaLK71acSSIY=; b=1RTUuLpYo3tGGEruvuAJwqTl6B
+	YvXm+W9lBf7CuDyVdv/EWGSnj37lsaWsQjr642LdaHMvMg7fkYtqvRK8KgcNS3A3sofEyfzPsmOyF
+	TGLnlqxvcymLrvnBM0xIcNsYpkSBlRcnMIW4Nb+XUuiFynVTDiA+4uV4YgGgvCVe8HVHKRcWifaiX
+	+iGs5+q0dWkyK9KXVjUAWYmLsqVDaZy7KhciDRY804DRbkPNhtvZ/LMW/ces33WomOq2xbRDL3Too
+	+oOG8mes4sHt/DqCK44SkJscnb1sH4B9hjtobDSxT+/yhoVSo3MLslm0QGrF/VJcVUrxSixY8N3OC
+	AANE0HOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vumS1-00000001YW9-1Xcd;
-	Tue, 24 Feb 2026 07:03:21 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1vumUr-00000001YgJ-0Vyj;
+	Tue, 24 Feb 2026 07:06:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vumRy-00000001YVU-3T9z
+	id 1vumUo-00000001Yfx-3Xkl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 07:03:19 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-824a829f9bbso2688494b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 23:03:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1771916597; x=1772521397; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=G/Mt3Ra+5yhEMXBUYKmVnriP9LLAY3r66sMCycefNDI=;
-        b=U4t9G+yViEnf35xDRFPPY55dSq5m8p+4JWG3XgJtJwaXomssg4kqB6cOTbmBtRvsEI
-         9+pS1EYOp5Xyh9zLsRriEfnci8dDNPOa8aRXY8NPWERAUpr39GPtZPVuBJPWA77YzQ5Q
-         c170D4jxeQMvhw9ZXrYcWSWW/3Ffhks7g8J3M=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771916597; x=1772521397;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G/Mt3Ra+5yhEMXBUYKmVnriP9LLAY3r66sMCycefNDI=;
-        b=aJQhFZV9hj87a4aVE9FfNyoKt68jt4PMvPlAwqQ+VqykM3cwjgv7HC7AFoyl+vpN6X
-         3yij4/cStvz0kXr4MGgCm1X5sMjBmhKBLZT0YkJBoN1vdzC65R1fvjpTp4htN3+QOiYV
-         cCLnbztYg024gjl7j+Cv1ckyB1QWqAhg/KY3X7TE4qPHAHgI+Rb/ImJeywSac/Ct0LDR
-         6fvWE5qcPuU0qSn+JQIN2cVTPxTtVqt4i8HsljZSu+93Org0sOWG4XPWH4eauAoARzEH
-         Hyn0iCcxqEK5ApLoKQPtwZDxNbh4ycfkeCQiKC6fKbZcb/H1ZMtlahUym1c7K/fHVN6B
-         7ULQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUi9y+rt1CLIjmFpjJCp+sPchUT5a15ozaEtm9QWokcL3Nup1SjMnp/1MCFjYa85k3C/WUj4IX8Bi8EgmUPcEhU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6vtVOCkGH9nU7cq+ZsHdGuZjA1dJS1u20vEO/KLxVWZhTL70Y
-	rTNLNCl6YvZuCwa9Y//ieUeDkLBEKc40UONBHNoqd7rGAOYjsUntVqhH9bEI/J1W8A==
-X-Gm-Gg: ATEYQzz27sR4ISVhVATklNVlh5Z4LZ/scqElS+4giNFL6nV4Brg8dcSaKkzC/iDvMDZ
-	kBbruKipFCX1RK6VdZYjJhqarQqiYg4GCLcQo4fpNxRB8RnRFvFQ12BEgcGNr2LJGRn4JVZynrF
-	EtaT8u9UijZyycXe9E1inKJDWQF+SegRY5lJEWi/m7KkazxJ7JUobmK7CunVZms0vk0v+VR5CXa
-	jowQqa/+mht5UGYcKIGxBEcwTx0mSZYWHcoLyF1gd4pmRK6RNgB0LxMY4qaxNFhEmLGs6kfR/Ul
-	PwB5uREG56APUQHHHm5LBst+BrRqWAPrRPdItttj6gZzl6F5ksu2TqZlCiZscqXh2UHQeeiV5LG
-	ETHhs2fa53ih0a0il4XWDOy/6SSoZzfv7wM92oDRXNiUbZ9dPLT6l/1ooxRvy1NcLqVXlNoMN8h
-	MptBLo+Ms7YQ6saAXQaMeZ4L1jVX73huSMxaLI0UD/3LTriySBQPFY43s3HzxpTD0WNNJ1NJVhO
-	4aTkTNw
-X-Received: by 2002:a05:6a00:330a:b0:81f:9986:9205 with SMTP id d2e1a72fcca58-826daab0281mr12440056b3a.57.1771916597314;
-        Mon, 23 Feb 2026 23:03:17 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:752d:3fd0:786d:ab57])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-826dd873263sm10007748b3a.33.2026.02.23.23.03.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Feb 2026 23:03:16 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm64: dts: mediatek: mt8195-cherry: Disable xhci1 completely
-Date: Tue, 24 Feb 2026 15:03:05 +0800
-Message-ID: <20260224070306.2650182-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.53.0.371.g1d285c8824-goog
+	Tue, 24 Feb 2026 07:06:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 370DD40053;
+	Tue, 24 Feb 2026 07:06:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84AF6C116D0;
+	Tue, 24 Feb 2026 07:06:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771916774;
+	bh=+7HAa46+csyyfFenGu741DgQ0m/L/d1UUx6mgp8nvUI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d31fTtcpY8I9cJoKWJ3UEniHz7RsfiFq9uU5sAhsntQBf5du4P+x3xpG//OsG3lmN
+	 7OgqoFGzx6hpHFeqMfTKq/hTpv7Ik1HZSU6oSfDEY96qV/mhnMagxUv7yEbOVGuKKd
+	 atR3yi19ndUjIVhw+uV9flLAAzqxcRtvYBZL3YQObRLuamy5AaxwVCBMd+OchiNYzK
+	 BNupMV1fEQXiLypin5s5DLXhZTZCWdpXiJBDgTUCyRou90d4EiJD5K/Ajz6lt+G8pv
+	 Y8B3ZQZDEte86QBesK3IwEbZQ4XaW9BhehybzEkMXn8mSPSm5cIciYoM7VVTaHrar4
+	 9SL7I9nZejwRg==
+Date: Tue, 24 Feb 2026 08:06:11 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, NXP S32 Linux Team <s32@nxp.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 2/4] dt-bindings: net: nxp,s32-dwmac: Declare
+ per-queue interrupts
+Message-ID: <20260224-diligent-bloodhound-of-hail-3fe982@quoll>
+References: <20260223-dwmac_multi_irq-v5-0-8fc699a5fac4@oss.nxp.com>
+ <20260223-dwmac_multi_irq-v5-2-8fc699a5fac4@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260223-dwmac_multi_irq-v5-2-8fc699a5fac4@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_230318_953868_FBDD8565 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260223_230614_965951_60F35544 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,47 +83,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is nothing connected to xhci1 in this design, nor in the actual
-end devices.
+On Mon, Feb 23, 2026 at 02:58:05PM +0100, Jan Petrous (OSS) wrote:
+> The DWMAC IP on NXP S32G/R SoCs has connected queue-based IRQ lines,
+> set them to allow using Multi-IRQ mode.
+> 
+> Reviewed-by: Matthias Brugger <mbrugger@suse.com>
+> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> ---
+>  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 44 +++++++++++++++++++---
+>  1 file changed, 39 insertions(+), 5 deletions(-)
+> 
 
-Disable xhci1. Keep the USB PHY enabled, as it is a shared PHY and used
-for pcie1.
+<form letter>
+This is a friendly reminder during the review process.
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi | 11 +----------
- 1 file changed, 1 insertion(+), 10 deletions(-)
+It looks like you received a tag and forgot to add it.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi b/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi
-index b3761b80cac7..6e99122c65ac 100644
---- a/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi
-@@ -1495,6 +1495,7 @@ &u3phy0 {
- };
- 
- &u3phy1 {
-+	/* shared between xhci1 and pcie1. */
- 	status = "okay";
- };
- 
-@@ -1563,16 +1564,6 @@ &xhci0 {
- 	vbus-supply = <&usb_vbus>;
- };
- 
--&xhci1 {
--	status = "okay";
--
--	phys = <&u2port1 PHY_TYPE_USB2>;
--	rx-fifo-depth = <3072>;
--	vusb33-supply = <&mt6359_vusb_ldo_reg>;
--	vbus-supply = <&usb_vbus>;
--	mediatek,u3p-dis-msk = <1>;
--};
--
- &xhci2 {
- 	status = "okay";
- 	vbus-supply = <&usb_vbus>;
--- 
-2.53.0.371.g1d285c8824-goog
+If you do not know the process, here is a short explanation:
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+versions of patchset, under or above your Signed-off-by tag, unless
+patch changed significantly (e.g. new properties added to the DT
+bindings). Tag is "received", when provided in a message replied to you
+on the mailing list. Tools like b4 can help here. However, there's no
+need to repost patches *only* to add the tags. The upstream maintainer
+will do that for tags received on the version they apply.
 
+Please read:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state why and what changed.
+</form letter>
+
+> diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+> index 1b2934f3c87c..3a0e41b63c3d 100644
+> --- a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+> @@ -1,5 +1,5 @@
+>  # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> -# Copyright 2021-2024 NXP
+> +# Copyright 2021-2026 NXP
+>  %YAML 1.2
+>  ---
+>  $id: http://devicetree.org/schemas/net/nxp,s32-dwmac.yaml#
+> @@ -16,6 +16,8 @@ description:
+>    the SoC S32R45 has two instances. The devices can use RGMII/RMII/MII
+>    interface over Pinctrl device or the output can be routed
+>    to the embedded SerDes for SGMII connectivity.
+> +  The DWMAC instances have connected all RX/TX queues interrupts,
+> +  enabling load balancing of data traffic across all CPU cores.
+>  
+>  properties:
+>    compatible:
+> @@ -45,10 +47,22 @@ properties:
+>        FlexTimer Modules connect to GMAC_0.
+>  
+>    interrupts:
+> -    maxItems: 1
+> +    minItems: 11
+> +    maxItems: 11
+>  
+>    interrupt-names:
+> -    const: macirq
+> +    items:
+> +      - const: macirq
+> +      - const: tx-queue-0
+> +      - const: rx-queue-0
+> +      - const: tx-queue-1
+> +      - const: rx-queue-1
+> +      - const: tx-queue-2
+> +      - const: rx-queue-2
+> +      - const: tx-queue-3
+> +      - const: rx-queue-3
+> +      - const: tx-queue-4
+> +      - const: rx-queue-4
+>  
+>    clocks:
+>      items:
+> @@ -88,8 +102,28 @@ examples:
+>                <0x0 0x4007c004 0x0 0x4>;    /* GMAC_0_CTRL_STS */
+>          nxp,phy-sel = <&gpr 0x4>;
+>          interrupt-parent = <&gic>;
+> -        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> -        interrupt-names = "macirq";
+> +        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 0: tx, rx */
+> +                     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 1: tx, rx */
+> +                     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 2: tx, rx */
+> +                     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 3: tx, rx */
+> +                     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 4: tx, rx */
+> +                     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
+> +        interrupt-names = "macirq",
+> +                          "tx-queue-0", "rx-queue-0",
+> +                          "tx-queue-1", "rx-queue-1",
+> +                          "tx-queue-2", "rx-queue-2",
+> +                          "tx-queue-3", "rx-queue-3",
+> +                          "tx-queue-4", "rx-queue-4";
+>          snps,mtl-rx-config = <&mtl_rx_setup>;
+>          snps,mtl-tx-config = <&mtl_tx_setup>;
+>          clocks = <&clks 24>, <&clks 17>, <&clks 16>, <&clks 15>;
+> 
+> -- 
+> 2.47.0
+> 
 
