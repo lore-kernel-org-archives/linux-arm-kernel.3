@@ -4,109 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3645CEFB7F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 06:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C4CEFB7F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 06:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uSwCN+J+wMeHyT6grODleBZy2GEkq0PcaMF6dUqouaQ=; b=Bskxle1QkUOiGL29jHS0CLj+CA
-	gjc47TMomywqblHs7NV5oOm4WKL3iDqAT78aW9fzLN5+g2EhalG9XJTQcpNMDpdxpSbV0k3jJujfw
-	ylPGPmpKszeO1ducKvdCcSsfF698ic7+3+eZEMb2BD0Ts3v7/tlwO3Rnj9VyXzBKXVQUmt4Q5aAnT
-	PjSVNnDk8UH7edG5whrIfIuGssXz5iTG8gqiF8wmW98VpfAxM2ahFh7LKCvlgWUotl0eUtCrOK4+Z
-	oC1/HVDEcTTNBYUxh+QhqEeEJpKskp6xVLRuW+OOwmT09cyqBaMSWxalL47ETqYepGaeAo1vnjJRY
-	RQ1+o/yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HMFLeT6pMM4BynW1w1H1drFPBJgoY5QwHa7vgRHSC0M=; b=vfssISxiGkfVRkxgkJ0CpFq80E
+	c/S3KQ++Z/SQ1+RleIBZ725rHpMaoUUecHHt9zOXa0UIsnSeUh8NfpEjymlBsitCrrka6wyuviQc6
+	Y3HszdOUo9/5Hv6w6o5GZ4Y1lLT8t63jzAgZI/ZLezey7XuC1q2OJLCmm4aSRT3UhZmSyKfKmN3tN
+	OvkyFGWKtc+8cPTm+9r4yAnyb/7jQCkn0Nr7zw4KEkksVQphX16DiGFOincMwKcv9vwf7FsjzZmdH
+	GHJ/tphKUH3gfND+9vxB6KF5eDPPA0Q4P9pZlJ0px7xCB+OoVnA7fWP/cYFWDyl73m3l1ThQ99hh+
+	xZ0F+oiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vulZH-00000001VgW-1VO6;
-	Tue, 24 Feb 2026 06:06:47 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vulZB-00000001Vg1-3E29;
-	Tue, 24 Feb 2026 06:06:45 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61NGPScP2832046;
-	Tue, 24 Feb 2026 06:06:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=uSwCN+J+wMeHyT6grODleBZy2GEkq0
-	PcaMF6dUqouaQ=; b=Q+sikCqdOnEu0m1X8P3rXKKxoogSH8A7M6OgY5QzabXD/K
-	vYEollVPH0SnHN0teWlne7IIGNzNYDEujC89EKknnkNyDCyx5PnTODBgQfPU7Syj
-	zmBozBkckkUyyToEo8FjD5Y8e4oj1zqu8cQ8X1NRVs446fGfpYAL9lFovpoKJGh9
-	YcLk6Qeg/Vt/PuWofk6Wixh9Qzu5lyy/lxm5GQw9Nkqwpl/QKWG/MmWQ7moOE7A9
-	yYx4l8o5pCUptYHXr0gmg6ogCYuP28bhcH28L7739jM9n6+QZxYYgXDHPhlEkNn/
-	AkII+GeeJIAyTZaUA34wruFzQThwlbxQMcrgA/kg==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cf4brsjfu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Feb 2026 06:06:32 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61O37WZf027821;
-	Tue, 24 Feb 2026 06:06:32 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4cfsr1qdvq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Feb 2026 06:06:32 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61O66UdD42402116
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Feb 2026 06:06:30 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 45F022004B;
-	Tue, 24 Feb 2026 06:06:30 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 975FE20040;
-	Tue, 24 Feb 2026 06:06:29 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.3.229])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 24 Feb 2026 06:06:29 +0000 (GMT)
-Date: Tue, 24 Feb 2026 07:06:28 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-        Vasily Gorbik <gor@linux.ibm.com>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, linux-s390@vger.kernel.org,
-        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        x86@kernel.org
-Subject: Re: [PATCH 1/4] mm/page_table_check: Pass mm_struct to
- pxx_user_accessible_page()
-Message-ID: <cfdc9b3d-06fd-4cc1-b946-076ff1479c66-agordeev@linux.ibm.com>
-References: <cover.1771845678.git.agordeev@linux.ibm.com>
- <68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
- <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
+	id 1vulqY-00000001WrF-2hRX;
+	Tue, 24 Feb 2026 06:24:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vulqV-00000001Wps-1BWk
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Feb 2026 06:24:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46912339;
+	Mon, 23 Feb 2026 22:24:27 -0800 (PST)
+Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 10F033F62B;
+	Mon, 23 Feb 2026 22:24:31 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: david@kernel.org,
+	mark.rutland@arm.com,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V3 0/2] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+Date: Tue, 24 Feb 2026 06:24:21 +0000
+Message-Id: <20260224062423.972404-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: GRFhXxJJ51Drfa5KN-RgSm71wqJuLn6I
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI0MDA0NiBTYWx0ZWRfX1uDOPTCSWGJm
- H28pUjz7WGw4rD7VYhrEKjR3wg5TnqYAO9fws+uEqxvLRB07iiUVvPUWvke4PquoiaHy7cj8NP0
- +5MgaPW34kffQmMJwrJOzID1NlSHyGC1xRPjjpVc0DJtk+Ei9BSKJrK/MTg/uBF7CHEUtyrBEgm
- C8pv7ZPckr0Po4LPDbSsI/kid9Phn3VvVADlJGR+B0eZN9g8aP315xXoblRCeHkhcccGbVxpMJ1
- DimKqPwVFtB0GfFZXnWVLOIyLev9XNuRnLc5gjtcxk7i3PSPH6DQO5CHGxAU88Fl1DSfNddJRpF
- zCrD9OX+BuzNo5iPhvuxgVh5wzbSyJDcGk5cNKRYBcGOei2Gvk2vQF1A6X+6yzK7czC5GEBr7ms
- xqNUd8nfV8wQ9NbpXHKeEzn6WXK2DXy33/wCLKadxjfeemckf67RPFYG2YMxjPHUYBrhwk/xpzH
- aO9nMbTo1mWhHFFtwhg==
-X-Authority-Analysis: v=2.4 cv=eNceTXp1 c=1 sm=1 tr=0 ts=699d3fe9 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=Z4Rwk6OoAAAA:8
- a=I00-mOCqQq542zIoxl0A:9 a=CjuIK1q_8ugA:10 a=HkZW87K1Qel5hWWM3VKY:22
-X-Proofpoint-GUID: GRFhXxJJ51Drfa5KN-RgSm71wqJuLn6I
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-23_06,2026-02-23_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 phishscore=0 suspectscore=0 adultscore=0
- bulkscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602240046
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_220641_952179_E532FBA4 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20260223_222435_367414_0CD97562 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,19 +68,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 10:13:35AM -0800, Andrew Morton wrote:
-> >  arch/arm64/include/asm/pgtable.h |  6 +++---
-> >  arch/riscv/include/asm/pgtable.h |  6 +++---
-> >  arch/x86/include/asm/pgtable.h   |  6 +++---
-> >  mm/page_table_check.c            | 15 ++++++---------
-> >  4 files changed, 15 insertions(+), 18 deletions(-)
-> 
-> Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+This series enables batched TLB flush in unmap_hotplug_range() which avoids
+individual page TLB flush for potential CONT blocks in linear mapping while
+also improving performance due to range based TLB operation along with less
+synchronization barrier instructions.
 
-Thank you, Andrew!
+It also now rejects memory removal that might split a leaf entry in kernel
+mapping, which would have otherwise required re-structuring using the break
+before make (BBM) semantics. But kernel cannot tolerate BBM, so remapping to
+fine grained leaves would not be possible on systems without BBML2_NOABORT.
 
-> I assume this can go into the s390 tree?
+This series applies on 7.0-rc1 and tested on KVM guest.
 
-I think so.
-@Vasily?
+Changes in V3:
+
+- Fixed some typos in the commit message for [PATCH 2/2]
+- Dropped copying stable@vger.kernel.org per Ryan
+
+Changes in V2:
+
+https://lore.kernel.org/all/20260203130348.612150-1-anshuman.khandual@arm.com/
+
+- Renamed split_kernel_leaf_boundary() as addr_splits_kernel_leaf()
+- Dropped pte_valid()/pmd_leaf() before checking pte_cont()/pmd_cont()
+- Changed and dropped variables in can_unmap_without_split()
+- Moved can_unmap_without_split() after boot memory check
+- Renamed 'prevent_bootmem' as 'prevent_memory' across the board
+- Updated commit message in both patches
+
+Changes in V1:
+
+- https://lore.kernel.org/all/20260202042617.504183-1-anshuman.khandual@arm.com/
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Yang Shi <yang@os.amperecomputing.com>
+Cc: Christoph Lameter <cl@gentwo.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+
+Anshuman Khandual (2):
+  arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+  arm64/mm: Reject memory removal that splits a kernel leaf mapping
+
+ arch/arm64/mm/mmu.c | 236 ++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 216 insertions(+), 20 deletions(-)
+
+-- 
+2.30.2
+
 
