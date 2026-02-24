@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63827F4BB69
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 327B5F4BB6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yaWNfHWpa8tZvRBPRqQ+bQUu5O0FNMK1ZiwNbgC0XR0=; b=bSlcD7Q6S//NgqkdfcsWUCRkwr
-	cyxcHyalCyPQcR8AMZj2hipc1aDYq+S9ss7dt1TV9qjNLJdyKRzVQuU1PndWvqW6rWf/++7FUVcR4
-	XylaESWq7GYbWcFWEIHAqSyvHPV/z/L2hzuk9LZGT9POGB2fpPoKQHTdedSc3ccG7UPSU1Kj7tRse
-	nyzEB+HKV5fpxUYsyyL9Y1xEsK15TkLB29whaJQ3vos4wcNo60SP6d1xzcjPuHWt4TgkPNBTnF/A9
-	mc0G4zSzQWN8R7bUTmcktML7wHewHI434GKiSo2o4MX2vWJ6VpDjSFIe9E17yZzpTPr1txf5nQMs7
-	TVrOyEcg==;
+	bh=VMOi93g6571JUy4c50YDN+/RvU4JC5aWrovPaHaZFBs=; b=wvagZWsGw5RnLx+GoxqRcCQ2Qq
+	2syQjkeYSdFRfXDl+qo2CX32RTyYza+Ny1psU1c6cuCA4fhdq8E9yoqdRDXfwlu+KnhS0BT9TIddb
+	Ne8e+vAPUfHmF6bsV2Shy3LKocP9HXkcLTZZKgTXLPZGJnealYpg+s2p0bQTQzLdblebxJ+0uppjZ
+	EVmFg46s1YAQc5kJxv+kPRqyp3S9jis1R38qdM/Q9bwJp2VLLMU6JR0tsv2bZjxQxVEKTEyxDssXa
+	VPZXqx3BnipiUJz1vcr14t1A753Cs7C+26idYkigw9P03HtD25Z6op2PqCytKgAclxFcKi1WiWCM6
+	D3cZtXTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwi9-00000002Zx1-12XQ;
-	Tue, 24 Feb 2026 18:00:41 +0000
+	id 1vuwiE-00000002a2p-2a6N;
+	Tue, 24 Feb 2026 18:00:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwi6-00000002Zs4-0lGA
+	id 1vuwi8-00000002ZvH-3Jv0
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 24 Feb 2026 18:00:39 +0000
+	Tue, 24 Feb 2026 18:00:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=yaWNfHWpa8tZvRBPRqQ+bQUu5O0FNMK1ZiwNbgC0XR0=; b=Vzq3g9JSvvj6Y9Mz9sRuAq9qnj
-	yF6fO3Tkex/rto8ovrtqPG6kRCeUdKR6GGVloDK7uMJDs06dThuICb+uZca5Lu+b2P0A4w2Exlw6D
-	O46lypGe/zFKbNhnWoFH9KwaLCEw1oGIy7HXxTCXZDfKYvJqoanJpcFB3iozczh9NWNcOj//pNeuv
-	WjWsprnfCUGRsBH2pWzvCQSvf0o6wdkT8gy9l26i8psoSOFnstJQw4EWR7wjlSHp+zmdtAcm0QYWq
-	D/jTNfH6364ecgncEw+RaBbXrkc5Xcf6sB4Iy9f89Ex61TJzsQzT1r7fny6Is+pnGU8U3ODxOmDYw
-	n0J+ol2g==;
+	bh=VMOi93g6571JUy4c50YDN+/RvU4JC5aWrovPaHaZFBs=; b=Mhy7wddNwozdAQ6hTszr81IjJJ
+	AUMj3Kl1adV8pZj+xvFPmzXzZHsIdUxttHHnnnKE7Hnku63WlIk3nMHweHPY9DIBfCI14V0z64umZ
+	yzH2oUa5FSK4AzlQ6F/uVx1GCprx8ypLjDP04INApdwYd6AauSZ4G1X4am2GzNaMfoyb5FmGICNIC
+	XWBPba4CJkUGXbTgu43b9mOEqfVN56QOV6IPSW1EgJ1H6cS9qS7nd0jC6W2AGX5kwHCnQR4PgI4WV
+	Ent8E4XrakVRoGxkZmlkoBsO55xp3Vr4ifDM3RsFrrMjJBHL8KnGYFv2O6p/e+w/wZpW4QQTB10iA
+	6lWSX8MQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwhz-00000007eJ8-0mpV
+	id 1vuwi5-00000007eKU-0bye
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 18:00:34 +0000
+	Tue, 24 Feb 2026 18:00:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E29E3339;
-	Tue, 24 Feb 2026 10:00:23 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5450339;
+	Tue, 24 Feb 2026 10:00:29 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7B8D53F59E;
-	Tue, 24 Feb 2026 10:00:24 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5F6F33F59E;
+	Tue, 24 Feb 2026 10:00:30 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -85,17 +85,17 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 32/41] arm_mpam: resctrl: Update the rmid reallocation limit
-Date: Tue, 24 Feb 2026 17:57:11 +0000
-Message-ID: <20260224175720.2663924-33-ben.horgan@arm.com>
+Subject: [PATCH v5 33/41] arm_mpam: resctrl: Add empty definitions for assorted resctrl functions
+Date: Tue, 24 Feb 2026 17:57:12 +0000
+Message-ID: <20260224175720.2663924-34-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
 References: <20260224175720.2663924-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_180031_713631_1CC73C28 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20260224_180037_585856_69E4B74E 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,12 +112,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-resctrl's limbo code needs to be told when the data left in a cache is
-small enough for the partid+pmg value to be re-allocated.
+A few resctrl features and hooks need to be provided, but aren't needed or
+supported on MPAM platforms.
 
-x86 uses the cache size divided by the number of rmid users the cache may
-have. Do the same, but for the smallest cache, and with the number of
-partid-and-pmg users.
+resctrl has individual hooks to separately enable and disable the
+closid/partid and rmid/pmg context switching code. For MPAM this is all the
+same thing, as the value in struct task_struct is used to cache the value
+that should be written to hardware. arm64's context switching code is
+enabled once MPAM is usable, but doesn't touch the hardware unless the
+value has changed.
+
+For now event configuration is not supported, and can be turned off by
+returning 'false' from resctrl_arch_is_evt_configurable().
+
+The new io_alloc feature is not supported either, always return false from
+the enable helper to indicate and fail the enable.
+
+Add this, and empty definitions for the other hooks.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
@@ -128,76 +139,107 @@ Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since v2:
-Move waiting for cache info into it's own patch
-
 Changes since v3:
-Move check class is csu higher (just kept to document intent)
-continue -> break
-
-to squash update rmid limits
-use raw_smp_processor_id()
+Add resctrl_arch_pre_mount() {}
+resctrl_arch_reset_rmid_all() signature update
+add stubs for abmc
+keep empty definitions together
 ---
- drivers/resctrl/mpam_resctrl.c | 39 ++++++++++++++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ drivers/resctrl/mpam_resctrl.c | 60 ++++++++++++++++++++++++++++++++++
+ include/linux/arm_mpam.h       |  9 +++++
+ 2 files changed, 69 insertions(+)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 99b6ad89f1ab..d4fdad875d95 100644
+index d4fdad875d95..490e49ab730c 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -495,6 +495,42 @@ void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_l3_mon_domain *d
- 	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
+@@ -99,6 +99,66 @@ bool resctrl_arch_mon_capable(void)
+ 	return l3->mon_capable;
  }
  
-+/*
-+ * The rmid realloc threshold should be for the smallest cache exposed to
-+ * resctrl.
-+ */
-+static int update_rmid_limits(struct mpam_class *class)
++bool resctrl_arch_is_evt_configurable(enum resctrl_event_id evt)
 +{
-+	u32 num_unique_pmg = resctrl_arch_system_num_rmid_idx();
-+	struct mpam_props *cprops = &class->props;
-+	struct cacheinfo *ci;
-+
-+	lockdep_assert_cpus_held();
-+
-+	if (!mpam_has_feature(mpam_feat_msmon_csu, cprops))
-+		return 0;
-+
-+	/*
-+	 * Assume cache levels are the same size for all CPUs...
-+	 * The check just requires any online CPU and it can't go offline as we
-+	 * hold the cpu lock.
-+	 */
-+	ci = get_cpu_cacheinfo_level(raw_smp_processor_id(), class->level);
-+	if (!ci || ci->size == 0) {
-+		pr_debug("Could not read cache size for class %u\n",
-+			 class->level);
-+		return -EINVAL;
-+	}
-+
-+	if (!resctrl_rmid_realloc_limit ||
-+	    ci->size < resctrl_rmid_realloc_limit) {
-+		resctrl_rmid_realloc_limit = ci->size;
-+		resctrl_rmid_realloc_threshold = ci->size / num_unique_pmg;
-+	}
-+
-+	return 0;
++	return false;
 +}
 +
- static bool cache_has_usable_cpor(struct mpam_class *class)
- {
- 	struct mpam_props *cprops = &class->props;
-@@ -1000,6 +1036,9 @@ static void mpam_resctrl_pick_counters(void)
- 			/* CSU counters only make sense on a cache. */
- 			switch (class->type) {
- 			case MPAM_CLASS_CACHE:
-+				if (update_rmid_limits(class))
-+					break;
++void resctrl_arch_mon_event_config_read(void *info)
++{
++}
 +
- 				counter_update_class(QOS_L3_OCCUP_EVENT_ID, class);
- 				break;
- 			default:
++void resctrl_arch_mon_event_config_write(void *info)
++{
++}
++
++void resctrl_arch_reset_rmid_all(struct rdt_resource *r, struct rdt_l3_mon_domain *d)
++{
++}
++
++void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			     u32 closid, u32 rmid, int cntr_id,
++			     enum resctrl_event_id eventid)
++{
++}
++
++void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			      enum resctrl_event_id evtid, u32 rmid, u32 closid,
++			      u32 cntr_id, bool assign)
++{
++}
++
++int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			   u32 unused, u32 rmid, int cntr_id,
++			   enum resctrl_event_id eventid, u64 *val)
++{
++	return -EOPNOTSUPP;
++}
++
++bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
++{
++	return false;
++}
++
++int resctrl_arch_mbm_cntr_assign_set(struct rdt_resource *r, bool enable)
++{
++	return -EINVAL;
++}
++
++int resctrl_arch_io_alloc_enable(struct rdt_resource *r, bool enable)
++{
++	return -EOPNOTSUPP;
++}
++
++bool resctrl_arch_get_io_alloc_enabled(struct rdt_resource *r)
++{
++	return false;
++}
++
++void resctrl_arch_pre_mount(void)
++{
++}
++
+ bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
+ {
+ 	return mpam_resctrl_controls[rid].cdp_enabled;
+diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+index 86d5e326d2bd..f92a36187a52 100644
+--- a/include/linux/arm_mpam.h
++++ b/include/linux/arm_mpam.h
+@@ -67,6 +67,15 @@ struct rdt_resource;
+ void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
+ void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid, void *ctx);
+ 
++/*
++ * The CPU configuration for MPAM is cheap to write, and is only written if it
++ * has changed. No need for fine grained enables.
++ */
++static inline void resctrl_arch_enable_mon(void) { }
++static inline void resctrl_arch_disable_mon(void) { }
++static inline void resctrl_arch_enable_alloc(void) { }
++static inline void resctrl_arch_disable_alloc(void) { }
++
+ static inline unsigned int resctrl_arch_round_mon_val(unsigned int val)
+ {
+ 	return val;
 -- 
 2.43.0
 
