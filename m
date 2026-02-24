@@ -4,115 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED8EE9B260
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 13:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D8E9E9B260
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 13:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uhrLJN+dYf1ZOiHijeuLeGnisGM2wT8S3rNW4/NFHIU=; b=IJ5QpDgIxE5I6i468q8jzqwtuu
-	RY57LUDibH1KIu4jgoh8bwIRZFB9CMQZe9+7tvHoheBsy5CifFWsXapKI58vP9y2aY5Pl22dKy1x6
-	bceAQnWGjWewQeaN/c4MJtwQnCinljMrh9dlFPCT2EYmaRPE5wQtHABK4TzrdW48rKmRkQsth7VjM
-	QpXuflMKv/3r2PVpmIDYkJfiS6PDAtZeQYz2kFXyVCSZFdSEYD39To8aQWHdu6AaMnTHfDcZ0f2hj
-	89qooQl1gKxTWZmlLJA8z16PgwSqnmxhRiCFo3SPNJxyDBhsiTh5gTvf9+k7uZ62/Nd1me/v6YsHh
-	j0pRCo2Q==;
+	bh=CObB27JMxovfM8wyNCjWJgmKAirbBGB/9n12INFjL+M=; b=BC+pQw7KGmVfCVG5EY+/czUTsE
+	/Ctd5GqwXVLiQUG7IxyPfRN+0Q8AOK3Y75or0RPhWVoybAviny592BMtqhhI0dWvPm81i7cCgW7kc
+	luFbFrmvnSGNjZnRojKdLA1NbSxpzYKL2OmknMxyGz4ci+6Xa/f9nTKaKbS4iYP+/XmQ/SdD2iKkY
+	efIxBJarkzjpyr7aINdSwQ8WjXeNT2cglSIq1x6rfAZFuQbUPfGTi1kamfrU7xlVBW2y2FPp7nKqT
+	vtZKztwLPR7nal0xrzzTox7NaYHJHxGDgrg3HQtKbS2CjRpMHstXajFUmU0Y13IOTMcIRoYsy142s
+	gD+WWTIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vusL4-000000028G6-2DB6;
-	Tue, 24 Feb 2026 13:20:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vuslo-000000029sM-0XBT;
+	Tue, 24 Feb 2026 13:48:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vusL1-000000028De-0vCW;
-	Tue, 24 Feb 2026 13:20:32 +0000
+	id 1vusll-000000029s1-3EcD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Feb 2026 13:48:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD882402C5;
-	Tue, 24 Feb 2026 13:20:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3215EC116D0;
-	Tue, 24 Feb 2026 13:20:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2279B42E42
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 13:48:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02CD4C116D0
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 13:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771939230;
-	bh=/cwEX8nlHRJVwbvm2pJNaEZRc+lYm5XQEkzF4FtU3U4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZUEbJsLrM2UoNgrTIz7X3nplCDMSQdF7a8vMD6hbJOGUr+mol6HhH9fwYtMhARftP
-	 m+QL4+zbRp49GaFvrdfJ3GJEGqD07Dx0n3YmW5VIDDgHQzlZUK0ZZrysBUJXFan78d
-	 qr1O18jeDAGyw1qU8S+CUQqw+QpbLyQTxCv/y0+dOIIPCEBgpDTQ2xIvbEXtul1ZnF
-	 7FZnHxIap3TAROfy0i2XCqFU2rkGmYCJREO3uW5YFsjo9Xa4Z0LJBLttc7vcO0Wuk+
-	 PE1Y5s5Ve6piHuTFMDUMiwYu8/8x88JGkaB3xuNlBKlGvugoEo2Kq5k9CzZAXHzc62
-	 gC5XbW5rr1k7A==
-Message-ID: <37bebecf-3e16-446e-907a-d006e4cec4c4@kernel.org>
-Date: Tue, 24 Feb 2026 14:20:25 +0100
+	s=k20201202; t=1771940887;
+	bh=CObB27JMxovfM8wyNCjWJgmKAirbBGB/9n12INFjL+M=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=maWJnBIldOGiH8Ni6hMPjlPJUA4qpPHV5Ae/+uAq91UF8Qtqv9iCcZ+1yKSwvilWi
+	 Se6Q9yq2OXiLTksTZ/fvAU2qIWviuqaLguvdMAO74n9+KWvJlWz3WNmyjPXojgy5mk
+	 Cjnb4qr2jcEUBlEkgT4QAoghY5KiBC/K9gCnDW0npmAhIFoSZ2x0bo/M+yQgVk1gR+
+	 Zz0O8zu4OOGlslv37HpNZJMgYif4x7b95N5bXyL0AQ0IiFaHy+tmy3WBrA81KzyC8J
+	 b40CIoFsT7PXLu3GJ5IDfXZ78EBa+i7SBG1Q1NobfuuVX5u304iu9eULVfDFEecSCp
+	 jpIJp3Z0swpaw==
+Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-794719afcd4so56949857b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 05:48:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUhYbU79QioFNyLSaEi4CpJjnDQcYOXqAgRPdoVZ64zPuzuyFrz1zLUYp8sY9LwuqQziP+Ps22t9TtD8jhZ2LQW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsGyqURKK+1MckRP7c9sLWHQXfZ5fwptnSFPBDtoabFHb4HInX
+	FgvfA7kpw+814U2zUNqSVa3edoDJ89FfPrsd1QlQiUeUzcwbrnmY6MhWh6LbCxvdweC38ojupZL
+	CEzpg9kpzEyF/NGabx3/l+hSdbaxPtwo=
+X-Received: by 2002:a05:690c:f06:b0:797:ffb6:fd6f with SMTP id
+ 00721157ae682-79828ff36admr100103757b3.38.1771940886307; Tue, 24 Feb 2026
+ 05:48:06 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Fix vdec register blocks
- order on RK3576
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
-References: <20260223-vdec-reg-order-rk3576-v2-0-daf4942dfc02@collabora.com>
- <20260223-vdec-reg-order-rk3576-v2-2-daf4942dfc02@collabora.com>
- <20260224-glaring-poetic-goshawk-b44d7b@quoll>
- <366daf706b5dc3942e3340f29151ece1f49460e0.camel@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <366daf706b5dc3942e3340f29151ece1f49460e0.camel@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251223152457.155392-3-krzysztof.kozlowski@oss.qualcomm.com>
+ <20251223152457.155392-4-krzysztof.kozlowski@oss.qualcomm.com>
+ <aVarmf5rlHWzNZ0Q@bogus> <739a4379-5be8-453a-8ff0-780aa35c9b71@kernel.org>
+In-Reply-To: <739a4379-5be8-453a-8ff0-780aa35c9b71@kernel.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 24 Feb 2026 14:47:55 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmFkS2mxXxj8ds+wYtGyB_9ZuCmu9+wvMeV48Eypn-Mmg@mail.gmail.com>
+X-Gm-Features: AaiRm53UUlEOLWzGiaL2z5SgIqcCNTYT-VjRsxPH8pu0MbKt5Y1jW00kb6mGSX4
+Message-ID: <CAD++jLmFkS2mxXxj8ds+wYtGyB_9ZuCmu9+wvMeV48Eypn-Mmg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: arm: Use lowercase hex
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_052031_314434_5BC41011 
-X-CRM114-Status: GOOD (  19.66  )
+X-CRM114-CacheID: sfid-20260224_054809_861129_A39A3E45 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,64 +88,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2026 14:17, Nicolas Dufresne wrote:
-> Hi,
-> 
-> Le mardi 24 février 2026 à 08:22 +0100, Krzysztof Kozlowski a écrit :
->> On Mon, Feb 23, 2026 at 09:49:50PM +0200, Cristian Ciocaltea wrote:
->>> When building device trees for the RK3576 based boards, DTC shows the
->>> following complaint:
->>>
->>>   rk3576.dtsi:1282.30-1304.5: Warning (simple_bus_reg): /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
->>
->> So you need to fix the unit address. This is what the warning tells you.
-> 
-> The unit address is where the register range starts. Picking a random point
-> inside the range is just bad idea.
+On Tue, Feb 24, 2026 at 12:54=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+> On 01/01/2026 18:15, Sudeep Holla wrote:
+> > On Tue, Dec 23, 2025 at 04:24:59PM +0100, Krzysztof Kozlowski wrote:
+> >> The DTS code coding style expects lowercase hex for values and unit
+> >> addresses.
+> >>
+> >
+> > s/arm64/ARM in $subject would be ideal.
+> >
+> > Anyways,
+> >
+> > Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+> >
+> > Linus,
+> >
+> > I assume you will send it to arm-soc. Please shout if you want be to ac=
+t
+> > on this.
+>
+> I applied it to soc tree with subject fix.
 
-Of course and that's why you run tools BEFORE you send patches to tell
-you that.
+Thanks Krzysztof!
 
-> For anyone that uses spec to develop these
-> drivers and device tree, its just plain difficult and error prone.
-> 
->>
->>>
->>> Provide the register blocks in the expected address-based order.
->>>
->>> Fixes: da0de806d8b4 ("arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576")
->>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>> ---
->>>  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 6 +++---
->>>  1 file changed, 3 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
->>> index 49ccdf12ef7e..45eb0d053a6f 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
->>> @@ -1281,10 +1281,10 @@ gpu: gpu@27800000 {
->>>  
->>>  		vdec: video-codec@27b00000 {
->>>  			compatible = "rockchip,rk3576-vdec";
->>> -			reg = <0x0 0x27b00100 0x0 0x500>,
->>> -			      <0x0 0x27b00000 0x0 0x100>,
->>> +			reg = <0x0 0x27b00000 0x0 0x100>,
->>> +			      <0x0 0x27b00100 0x0 0x500>,
->>>  			      <0x0 0x27b00600 0x0 0x100>;
->>
->> The main block, so probably the lowest address as in unit address,
->> should be used, but this ship has sailed. You shipped this DTS, because
->> the order of items is FIXED. Your binding change is clearly incorrect
->> and ABI break without explanation and without reason, so you cannot use
->> such as an argument here.
-> 
-> Its not released yet.
-
-Nothing in commit msg explained that and your previous comment about
-binding was false. Binding WAS released.
-
-I am not going to check every claim you make whether it is true or not.
-
-Best regards,
-Krzysztof
+Linus
 
