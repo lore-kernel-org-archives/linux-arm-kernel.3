@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55958F4BB6C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BB8F4BB6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rtHbmFo2/voKLy5pRuxTgB8urATfjI3cl2qCaw0Shps=; b=DHm3EYwPJ5jcl+XRs5coU2T3EW
-	EJC2felBTvRMZmAeox42wkI6KQCZoFIw+VqwQakgZwXhIuEXBfNDy0I3odevMUrB8b3nk+j+yX9wd
-	ocCmFllNojuQ9sN88Fl8bhBLUlbzCZI6aEm01s24f1fvksAlDsLvTBB7oVa7eYPMqzyG2Wh0/T7Ux
-	YCYJ3ej1vfremMxhoeQCusKeWHaj2IDPsei4tsgWmwA9cnbsEhYaeN/lG3z9STjiYryqKCHpwfKwR
-	qTGBg6e0EjzAMxUkjyBvF92Yn+tqUd6tngyB2YLjNuQ8Ju03xjqMh954CEnqaIIAPQ8YiNIWYzUP6
-	RquEeYaA==;
+	bh=EoL0eRhhvpbRBRln03sOpMdPRbyV32Kws7V5NUGwFl0=; b=QULiRlw7dZKRpv1Pn4Td3THbqJ
+	6odoKFNxQzQ1rOz47cI0wBbIRd5DAKvT+H84/pIoMSRHuP+RxP/jTDxokE2Pegak2tFnlbnCxdMsP
+	AZ51le+Ubcm0aLFWfMXY5MD80GdLVOQ2pt7iGZdc4xtXovypxT7BLpkTIANXppW6+hP24bpSei7D1
+	O9LfTBFEeATE4S6rMOvCZTeSl02O7QtwA2nGVL7r5yF1aQz2VtEx89mAfQSwp7jHZ9X4qytPLVO3r
+	LQu9J7sPbHr6itZXfdYbrKeTH8OQPGJtHpCN9Xv/T9VazmBbhSBJc1Nm2pdkxg3QB+NpSOHXNj11c
+	lDiy98pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwgH-00000002XVA-2xbS;
-	Tue, 24 Feb 2026 17:58:45 +0000
+	id 1vuwgT-00000002XjN-1XsM;
+	Tue, 24 Feb 2026 17:58:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfy-00000002X5P-0zdN
+	id 1vuwg8-00000002XIn-0sO7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 17:58:29 +0000
+	Tue, 24 Feb 2026 17:58:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14B6E1595;
-	Tue, 24 Feb 2026 09:58:19 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 24664165C;
+	Tue, 24 Feb 2026 09:58:29 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 562EB3F59E;
-	Tue, 24 Feb 2026 09:58:20 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 862AA3F59E;
+	Tue, 24 Feb 2026 09:58:30 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -69,19 +69,18 @@ Cc: amitsinght@marvell.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Dave Martin <Dave.Martin@arm.com>
-Subject: [PATCH v5 10/41] arm64: mpam: Add helpers to change a task or cpu's MPAM PARTID/PMG values
-Date: Tue, 24 Feb 2026 17:56:49 +0000
-Message-ID: <20260224175720.2663924-11-ben.horgan@arm.com>
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: [PATCH v5 12/41] KVM: arm64: Use kernel-space partid configuration for hypercalls
+Date: Tue, 24 Feb 2026 17:56:51 +0000
+Message-ID: <20260224175720.2663924-13-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
 References: <20260224175720.2663924-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_095826_503698_77A19D29 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260224_095836_337853_CC535BB6 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,96 +95,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
-
-Care must be taken when modifying the PARTID and PMG of a task in any
-per-task structure as writing these values may race with the task being
-scheduled in, and reading the modified values.
-
-Add helpers to set the task properties, and the CPU default value.  These
-use WRITE_ONCE() that pairs with the READ_ONCE() in mpam_get_regval() to
-avoid causing torn values.
+On nVHE systems whether or not MPAM is enabled, EL2 continues to use
+partid-0 for hypercalls, even when the host may have configured its kernel
+threads to use a different partid. 0 may have been assigned to another
+task. Copy the EL1 MPAM register to EL2. This ensures hypercalls use the
+same partid as the kernel thread does on the host.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Tested-by: Peter Newman <peternewman@google.com>
 Tested-by: Zeng Heng <zengheng4@huawei.com>
-CC: Dave Martin <Dave.Martin@arm.com>
 Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since rfc:
-Keep comment attached to mpam_get_regval()
-Add internal helper, __mpam_regval() (Jonathan)
+Changes since v2:
+Use mask
+Use read_sysreg_el1 to cope with hvhe
 
 Changes since v3:
-Remove extra CONFIG_ARM64_MPAM guarding
-Extend CONFIG_ARM64_MPAM guarding
+Set MPAM2_EL2.MPAMEN to 1 as we rely on that before and after
 ---
- arch/arm64/include/asm/mpam.h | 28 +++++++++++++++++++++++++++-
- 1 file changed, 27 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
-index 6bccbfdccb87..05aa71200f61 100644
---- a/arch/arm64/include/asm/mpam.h
-+++ b/arch/arm64/include/asm/mpam.h
-@@ -4,6 +4,7 @@
- #ifndef __ASM__MPAM_H
- #define __ASM__MPAM_H
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index e7790097db93..80e71eeddc03 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -638,6 +638,15 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+ 	unsigned long hcall_min = 0;
+ 	hcall_t hfn;
  
-+#include <linux/bitfield.h>
- #include <linux/jump_label.h>
- #include <linux/percpu.h>
- #include <linux/sched.h>
-@@ -22,6 +23,23 @@ DECLARE_PER_CPU(u64, arm64_mpam_current);
-  */
- extern u64 arm64_mpam_global_default;
- 
-+#ifdef CONFIG_ARM64_MPAM
-+static inline u64 __mpam_regval(u16 partid_d, u16 partid_i, u8 pmg_d, u8 pmg_i)
-+{
-+	return FIELD_PREP(MPAM0_EL1_PARTID_D, partid_d) |
-+	       FIELD_PREP(MPAM0_EL1_PARTID_I, partid_i) |
-+	       FIELD_PREP(MPAM0_EL1_PMG_D, pmg_d) |
-+	       FIELD_PREP(MPAM0_EL1_PMG_I, pmg_i);
-+}
++	if (system_supports_mpam()) {
++		u64 mask = MPAM1_EL1_PARTID_D | MPAM1_EL1_PARTID_I |
++			MPAM1_EL1_PMG_D | MPAM1_EL1_PMG_I;
++		u64 val = MPAM2_EL2_MPAMEN | (read_sysreg_el1(SYS_MPAM1) & mask);
 +
-+static inline void mpam_set_cpu_defaults(int cpu, u16 partid_d, u16 partid_i,
-+					 u8 pmg_d, u8 pmg_i)
-+{
-+	u64 default_val = __mpam_regval(partid_d, partid_i, pmg_d, pmg_i);
++		write_sysreg_s(val, SYS_MPAM2_EL2);
++		isb();
++	}
 +
-+	WRITE_ONCE(per_cpu(arm64_mpam_default, cpu), default_val);
-+}
-+
- /*
-  * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
-  * which may race with reads in mpam_thread_switch(). Ensure only one of the old
-@@ -30,12 +48,20 @@ extern u64 arm64_mpam_global_default;
-  * value to be stored with cache allocations, despite being considered 'free' by
-  * resctrl.
-  */
--#ifdef CONFIG_ARM64_MPAM
- static inline u64 mpam_get_regval(struct task_struct *tsk)
- {
- 	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
- }
- 
-+static inline void mpam_set_task_partid_pmg(struct task_struct *tsk,
-+					    u16 partid_d, u16 partid_i,
-+					    u8 pmg_d, u8 pmg_i)
-+{
-+	u64 regval = __mpam_regval(partid_d, partid_i, pmg_d, pmg_i);
-+
-+	WRITE_ONCE(task_thread_info(tsk)->mpam_partid_pmg, regval);
-+}
-+
- static inline void mpam_thread_switch(struct task_struct *tsk)
- {
- 	u64 oldregval;
+ 	/*
+ 	 * If pKVM has been initialised then reject any calls to the
+ 	 * early "privileged" hypercalls. Note that we cannot reject
 -- 
 2.43.0
 
