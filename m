@@ -4,82 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2AEEFB7F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 05:04:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD356EFB7F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 05:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vrQ0mwshRBYab2r4k57mA3X9nwlqOpIBe6PLaoR3Y5Q=; b=uy6dQG5gjX+ln7Ui2tRKfWZMZz
-	ho+bxOiZO++mfuIMFNDt8cjLE6sCM0mAh5fcjZ2QiVGxcEaHhQzWltE428pJq5en61A69hoyr7Ou+
-	gBywq0Y6KYcoiMGx+diGQ8/SOx/LjqZufj2IWuPTT+PhRJoEUj9iZxtVZtu8aU7Pa9GfiSJZ1M5iZ
-	PpdmtrkiFfGRwcSzsBkaOG5rZqkEwNe680Cz2TJHM7NLgAovmtBLgS/X7m3cnRQvmc+l765qjcz9O
-	hU2ds5Sch8KOeeZ55QP0+ZrIJQKx5Mrj6QiKKGVg879fw7OAShasNgea0izZiG39po+3C6j3RMGYc
-	/ibEIapA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DHPAI6LmOhG6pwB4C6sW/Z+omkjLiyjc9iKZFx6DF0s=; b=2rot3JoYVaOf/j0R0wZAbATd0G
+	3mp071OvPKJLQqgG+N6U6pNRGYKgq28bT0Wzx0WzBsIVHEWoXka5OEpkUDVjmCIo4vMk8Q/jMqsh1
+	IQ6EUUzVzrqFt+b9sWHjBsYs/80qNHsIdWi0mF6+Zz6sqkk+nBdLmX5/LdwTLEMpWxPUkQqTjaD2H
+	G3X0gRHiSjFa+nK7YpYeKJ1MBNn7aklgSXbk2zQi7frXxNemWIXhZupr2tE5iqTpHpOA0SqZBpvZh
+	gegNyJ8Vg3y5MXuI27Bzubr9CcBzboNFN91cyEVuiU7f1rJ5R4Xj7VmY8Rt/kpeljfxGFCJs6cSfz
+	/hQJsvVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vukb1-00000001S2t-1Fy9;
-	Tue, 24 Feb 2026 05:04:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vukfE-00000001SDf-3mD7;
+	Tue, 24 Feb 2026 05:08:52 +0000
+Received: from mail-southcentralusazon11013000.outbound.protection.outlook.com ([40.93.196.0] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vukay-00000001S2U-1upC
+	id 1vukfC-00000001SDJ-0meu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 05:04:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEF95434EC;
-	Tue, 24 Feb 2026 05:04:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 86453C116D0;
-	Tue, 24 Feb 2026 05:04:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771909467;
-	bh=Px7YCJTLYs5dcI6uV0LeqCWSBT3HnluSpU++9H1U5Kc=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=aR8C5yu4fQlNa6mCDKDrzfbVSB6C/hW3Aq2SI2ihLNqaXRnq7HSEVBlPxTLG91ip1
-	 6dlYSey7wVC7CT3l0GutzT/NNWvrFa2JcNZ44mRCxlamuiLfA8JnHIWioPHCkIFCee
-	 vqL6AM4Dk0XZKu+dhoIM3Ta5Ly0W/I7jfBEbDicla2CP3bDONhKQsUmVj+cAHbJdf7
-	 RgRXMRloIs2O7h2XX5FM9jlsPoGQ+GSLuAoJjlvPmJKYy6X+P9HGEp4/D112S8O4Or
-	 2yStczOqr5Be1pDupQdmuwsYMZ0HfipxNQcjoT36o0N1fbedlpmn7FPyY9wy0uT2jo
-	 wX8kWGfy+gcvA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6FAEDEFB7FA;
-	Tue, 24 Feb 2026 05:04:27 +0000 (UTC)
-From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
-Date: Tue, 24 Feb 2026 05:03:47 +0000
-Subject: [PATCH] arm64: dts: exynos: gs101-pixel-common: add supply and
- regulator properties
+	Tue, 24 Feb 2026 05:08:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B1dbxgU4SbWz6ZA+EnyoqdEeyuiXSYdxifB+uB7frlcvsse6RW03wMu9Fg8B6AELC2/7iNEomr7Gwfxtn952QXs3i0qJnWj6oOslfSh0TMnX0OH1Bwk6bH2U6zruyCti77jj9bia0j5R3/X1Ypw6kL03yNnWJZg93SYftumHpjnxRvyONQR4l6fyT0fODHiPVB3g36YbTTrwGNPgXbLCdkNnSJDW4ANPwVly3oeUYi1ntoL9/wNVy+q9vYENiYwWyH4qa+97AFbQ1tXmJcgzhZLue1fakTaKM3R4NYeL1f6rTMjNOwaXRkOI/KHPJcWc/8RxvhtP8xVLaKXOfm8ARA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DHPAI6LmOhG6pwB4C6sW/Z+omkjLiyjc9iKZFx6DF0s=;
+ b=K8xYXCvHa3/oX9JamSRPNPhRGc5YQ+7mK1QeWqyIPzshvuhzKFLhCfcvDpuVy3d2RKd8kvRLmKlJT24KqzRPlzQPPfSrq/KFHL38UvXZhFThND1B1NzamnT+s/+3IjgOxtIafbS/utMeuDVsVrGDwBFL4GJ5jIHrSj87aWWMjvR2LEs8VUwizRspDW3SHdZnzNhW2aRxK5TQyKXDbBoQUWRll6xqLMDl+bigbdpIx72smJvEZgJuX5qkpxOCx9UWc/K9eJ6XfEYkYQHUKxPUCDyEOwUwEy3p8KllnjD2c/Yel6N/Q7iN9G6muxievHpoLPAtm9hXApg8NjczaouXPQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DHPAI6LmOhG6pwB4C6sW/Z+omkjLiyjc9iKZFx6DF0s=;
+ b=UUMRiL4omR2OEyYFaemFBbnlxAHFjfL5ouNcM2p/Me5nZnx01GDhvfj1KYyQYQIqiWAS+LIrWeRLamuFhoPsMI19di/S1E1hUjGZc1KVsTunus4/+x8kRRM9oNO9n6S6ORgl6gkxK+HP6q+AohkssyaUVx+wgLRyOUeINXsqQl8=
+Received: from PH7PR17CA0025.namprd17.prod.outlook.com (2603:10b6:510:323::27)
+ by DM4PR10MB7449.namprd10.prod.outlook.com (2603:10b6:8:17e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
+ 2026 05:08:46 +0000
+Received: from CY4PEPF0000EE3D.namprd03.prod.outlook.com
+ (2603:10b6:510:323:cafe::1f) by PH7PR17CA0025.outlook.office365.com
+ (2603:10b6:510:323::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.22 via Frontend Transport; Tue,
+ 24 Feb 2026 05:08:39 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CY4PEPF0000EE3D.mail.protection.outlook.com (10.167.242.15) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9632.12 via Frontend Transport; Tue, 24 Feb 2026 05:08:44 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Feb
+ 2026 23:08:41 -0600
+Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Feb
+ 2026 23:08:40 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 23 Feb 2026 23:08:40 -0600
+Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61O58Y8H2110554;
+	Mon, 23 Feb 2026 23:08:35 -0600
+Message-ID: <c9b1c5c2c5f9587c31132586fddb1921ff6824a8.camel@ti.com>
+Subject: Re: [PATCH net 1/3] net: ethernet: ti: am65-cpsw-nuss: set
+ irq_disabled after disabling RX IRQ
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<pabeni@redhat.com>, <danishanwar@ti.com>, <rogerq@kernel.org>,
+	<horms@kernel.org>, <mwalle@kernel.org>, <nm@ti.com>, <v-singh1@ti.com>,
+	<vadim.fedorenko@linux.dev>, <matthias.schiffer@ew.tq-group.com>,
+	<vigneshr@ti.com>, <m-malladi@ti.com>, <jacob.e.keller@intel.com>,
+	<stable@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>, <s-vadapalli@ti.com>
+Date: Tue, 24 Feb 2026 10:40:05 +0530
+In-Reply-To: <20260223184803.739c17a7@kernel.org>
+References: <20260220041431.372610-1-s-vadapalli@ti.com>
+		<20260220041431.372610-2-s-vadapalli@ti.com>
+	 <20260223184803.739c17a7@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260224-max77759-charger-dts-v1-1-b443545c04aa@google.com>
-X-B4-Tracking: v=1; b=H4sIADIxnWkC/x2Myw5AQAwAf0V61oQuav2KOAhFDx7pikjEv9s4T
- iYzDwQxlQBN8oDJpUH3LUKeJjAs/TYL6hgZKKMqIypw7W9mLj1GbbMYjmdAcoV3ztfCPEBMD5N
- J73/bdu/7Aa9c1r1mAAAA
-X-Change-ID: 20260224-max77759-charger-dts-23493398e77c
-To: Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Badhri Jagan Sridharan <badhri@google.com>, 
- Amit Sunil Dhamne <amitsd@google.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1771909466; l=1720;
- i=amitsd@google.com; s=20241031; h=from:subject:message-id;
- bh=3jPKBl5MYkX7r6yLANmNLU9+YkyAc1+ak/0AsjI+qS4=;
- b=xTODcHq7YQIqPLOpbsQ57wvld95whooxac8lki1NNt9ZVz3sztOBRGNt96j+7mATnfkIxwmBB
- zEKUbhMJFStA6yMbG41n30f/UvvXDg+G1wf+8YOhqtJBep5TAgogwgd
-X-Developer-Key: i=amitsd@google.com; a=ed25519;
- pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
-X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
- auth_id=262
-X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3D:EE_|DM4PR10MB7449:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5dea64b6-024f-42f4-bd96-08de7362c8c8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Ymg5QWtOL2xkRTJoY0tmWHFTL1o2QXVNbE5uR2RPMlZsVUxkVXdqcks2KzVK?=
+ =?utf-8?B?c29oVUxwZFVFMVNLV3NQZllyZlRrcGtsbFNUWkFlSWxpZnZ4VjhVdzhiWko5?=
+ =?utf-8?B?SWR4bk9Rb0hrby8wZm8rNmdaN3hreDBGaTJYSm9YbE1sM29iWEhlUmM0YXJL?=
+ =?utf-8?B?MDlVdUYybU5OMS9YZHRIWEJJaG4yNzVtc2kwNGxOVzZBb0FOL3BmaDh2UDRt?=
+ =?utf-8?B?T0xSYXlvZlJ6bXJrbTFlR1dCR1BQUnBVbmo1RkVaMjg4ellFVGlUSEFYYkdP?=
+ =?utf-8?B?aTFHSmdvQmVYSlA3V1lNbHlrUGMyczBMam0wS2ZlVzNPWlJQb20yMU0yR01m?=
+ =?utf-8?B?Wlp2RGVITlNLYVNKQUI2bmZQM3FEc2l0cGRiWUF3WHREaFBaTmppQWVpdlZU?=
+ =?utf-8?B?dEgvakYwZld2c3g0WWs0TVhLdC9DZ2R6Y1pRVXpzY2FMaWEzYU5raGorVFpM?=
+ =?utf-8?B?WDNBOFdEb2Fad0p4M0I1SUhNK2pSUElxMmNlR2FZOWE1ZTN6VkJKcm1aRWti?=
+ =?utf-8?B?YUxTTUpPLzVqZ0VOSHozV2pRQ3Z0ckZiRjRmSUZSeWc1OGZrZ3hOQm5UQm5M?=
+ =?utf-8?B?QzJYa2NqcXBDVG51Zkx1TEpLMHZjMEJ5Z0NOTnVJRmhZaElkTmNVdkNDeDRp?=
+ =?utf-8?B?NlppcW4vY1FUVWwyWHFMWVYxZ3pURkdobklSQ2pBMlVHdUdiVkI4QkxHVExx?=
+ =?utf-8?B?LzNxVDZOWmladUowWFlpSU5HVW4zbEd1NTVKVmg1alBObUNlS3ZCSmRabzN3?=
+ =?utf-8?B?U2xGZTJFOWVOKzhPdGozOTY3MkEwUTgxSHZKT0FHaWl3RjBHSmxzeGJVQnpD?=
+ =?utf-8?B?VjZPUVVta0lyMDRoeUZkTWI3a2l0UU5POG5VNmxwdFVoUndiaitVU1h6MnUr?=
+ =?utf-8?B?Q2FPbnY2UjYzMEQyNXdRQUt2RnVXNG8wTzRtMXl3TWFiNHBnOEcvc042NGpm?=
+ =?utf-8?B?NTErcStSR3BxbWkySXM5dzRMZ2JLdGhmR2ZuTFE0dHB6YnRESTFaQ05lV1V5?=
+ =?utf-8?B?RW45Tm55S2gvL25Ba2hSL24waDJNQ1dUQ3AzbGN6TXh5dFRoZklRYnl2bUFO?=
+ =?utf-8?B?UjY1eExXODBXUW9kc05FYnAzckpyK2k2NWtpRFg4ZmRjSU9wbjUzeit0STRH?=
+ =?utf-8?B?UHV2eHpRdDlIdnltU09KRm5XQ1BpK01HaWdpUCtDWjZLL081dHFvL1BURGNk?=
+ =?utf-8?B?K1pQc09jaGxYN3J6RzZzeVBZWGEvaVdRYlFUd2FqRlBkeWtQN0haN2xlYVZJ?=
+ =?utf-8?B?UnAyUitjcVBQVWlSWkIrRk5la2pick41Q3ZIczNPS0JyMDg2TlhvNVR0OFc3?=
+ =?utf-8?B?cEYwS0t2S2FpVXJqK0N3WlBiTVl3cGgyVksrQ2xGT2pyV0hmTVlNcTlacmRK?=
+ =?utf-8?B?TE5XR1RUQzJCYngrTk9CYnVFRVA2dU9pTlc2TnRvTGdGSnB5bmk5MUFMZzVU?=
+ =?utf-8?B?LzN2N3RqK2U4TDFJSTY3bUczeXRQRUtQNTVpbnFDc2EybUFSUFpQcEhEU2hT?=
+ =?utf-8?B?cnlIcEhnbDNkTm5tZFpEYTJ3T2RpaksxamZnRnUxcnVQeW9RRkRzaGRWa042?=
+ =?utf-8?B?a0Q1bGdxTmYrYm5lMC9WUkNWeUVxN2RDMFY3clN4d0VsK3VpaENZRHRkNjJO?=
+ =?utf-8?B?TGhROGRIbmFkckdneUgwL0RWQ0RKMFVVYzJ5V1JaYXNHRnh2WjhzMHJycURk?=
+ =?utf-8?B?OGh3VlNZbUtKelMySzEvN21DYnhKNkZzNnlDMUloU2lmelJPdFZRdE9KSTBP?=
+ =?utf-8?B?ajd4bmpTbUZIWmNBTHBpMlRSTzVsNFl2R0JvdXQ5V3NWaklSYjRiRkR4REpH?=
+ =?utf-8?B?aFJCSTdzSDczWGVIZXljRnQyM1Y5bzVkMHg5bnIzNTZpN2FGVTFNQlcrU2lZ?=
+ =?utf-8?B?ZHJYTU9ZaFA4cGZic2xXK0duUFpWSUZwVlByZEwzTHlucXoyZmpDVUNHNzQ0?=
+ =?utf-8?B?Y1Y1d3ZyamQxbW1ZTWtpb2hxV0hxZ3hxY0ZzM2l4RitTME5rT0s0bEFjWnFB?=
+ =?utf-8?B?bjI4YmFUOWVubGpKQlQ5ejZqM2RPWnk4dEV6THlKR3NqUWxhd3dUZ25EejRu?=
+ =?utf-8?B?N0R1MCtGblVmeHVYbEpRRm9ST2hvYjlsZ3o0Qzh6UVhlRitvNUx5WWZvNnVS?=
+ =?utf-8?B?UzRpbEFnL2daOFdZZ2Q0eUVEaDh3YlFxaHl3dWV1V3lLSEFtOXhrdzRkUE9k?=
+ =?utf-8?B?ck9ZSVJHMjg5TWJVYjJUVi8xYVhMQ2c1eDZ1QVpEV3ErRTBiREVlNWF2dENJ?=
+ =?utf-8?B?bjZRQlFSa05rVkp2MExGYUJJbzFBPT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: bBm1QK6hmhPWmzpve/x3tYNyS91z/NYWK5OE1xvlcNiwIcNT6g6f8WFBMKTvq+bC3/3wIOecKGRFDyI+wQEq6Ie0wcNnFByRcAHTLH1CQlt2C5MA3l9H2OJt6stuAiof9x2LgDhkYzJBrMKns5Ds4YtXZve7Qi8rg89Rx1kz22KgUG+ZaQuESV6WN7m7IsoEraPujrvXnBsyXqUr+m3YcCNk7XObMR9ZBms9oqhsxnuOcqeLNUUOIieRjh0SEJV47b0PAFidxhck+WIcvBBXie8jLOL4VL6/tg56sOpjACNTGXAJkXvcEMuGUXp2IP9ZNbnvrsrpdaE9Gk4LwxfuR1hrrEmdruaQCScGcSQs/AF7VOEjTaJVEURoQAzECDC44QEBHeELn49vdMUZOYF21Z7n/IMhLI4+b6gR4a4oAjPvTJTeZEOhqcu5fZJRYcLc
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 05:08:44.4891
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5dea64b6-024f-42f4-bd96-08de7362c8c8
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3D.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB7449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_210428_563417_29B2FAB0 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20260223_210850_323544_8FBA3FB3 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,63 +172,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: amitsd@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Amit Sunil Dhamne <amitsd@google.com>
+On Mon, 2026-02-23 at 18:48 -0800, Jakub Kicinski wrote:
+> On Fri, 20 Feb 2026 09:41:57 +0530 Siddharth Vadapalli wrote:
+> > The 'irq_disabled' variable indicates the current state of the RX IRQ a=
+nd
+> > is used by the RX NAPI handler to determine whether the IRQ should be
+> > enabled.
+> >=20
+> > Currently, 'irq_disabled' is set before actually disabling the IRQ by
+> > invoking disable_irq_nosync(). In an SMP environment, this leads to a r=
+ace
+> > condition wherein the processor taking the interrupt sets 'irq_disabled=
+'
+> > while another processor executing a previous instance of the RX NAPI
+> > handler sees 'irq_disabled' set and invokes enable_irq() before the RX =
+IRQ
+> > is actually disabled by disable_irq_nosync(). This results in the follo=
+wing
+> > warning:
+> > 	Unbalanced enable for IRQ ...
+> >=20
+> > Fix this by disabling the RX IRQ using disable_irq_nosync() before sett=
+ing
+> > 'irq_disabled'.
+>=20
+> I'm not sure this is enough. The IRQ enable/disable serves as barriers
+> so the ordering is sane. I think the problem is that there are multiple
+> paths for Rx which may schedule NAPI, not just the path from the IRQ
+> handler. If the state changes have to be atomic you need a lock.
 
-Add power supply and regulator properties to the MAX77759 pmic. The
-usb-typec device will reference the regulator provided by the pmic as
-it supplies vbus to the typec device when operating in power source mode.
+I assume that state changes will be atomic since 'irq_disabled' is set in
+the HARD
+IRQ handler. Only the processor taking the interrupt will be able to update
+the state.
+Other processors can read the variable during their execution of the
+previous NAPI
+RX handlers. Only when 'irq_disabled' is set they will invoke
+'enable_irq()'. So the race
+condition that you are referring to, is possible during the 'enable_irq()'
+path:
 
-Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
----
-This patch depends on the patchset [1].
-[1] https://lore.kernel.org/all/20260224-max77759-charger-v8-0-eb86bd570e9c@google.com/
----
- arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+	In am65_cpsw_nuss_rx_poll() =3D> The RX NAPI Handler
+		...
+		if (flow->irq_disabled) {
+			flow->irq_disabled =3D false;
+			...
+			enable_irq();
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-index 93892adaa679..2cc00d34dda8 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-@@ -142,12 +142,13 @@ &hsi2c_12 {
- 	status = "okay";
- 	/* TODO: add the devices once drivers exist */
- 
--	usb-typec@25 {
-+	maxtcpci: usb-typec@25 {
- 		compatible = "maxim,max77759-tcpci", "maxim,max33359";
- 		reg = <0x25>;
- 		interrupts-extended = <&gpa8 2 IRQ_TYPE_LEVEL_LOW>;
- 		pinctrl-0 = <&typec_int>;
- 		pinctrl-names = "default";
-+		vbus-supply = <&chgin_otg_reg>;
- 
- 		connector {
- 			compatible = "usb-c-connector";
-@@ -236,6 +237,11 @@ pmic@66 {
- 		interrupt-controller;
- 		#interrupt-cells = <2>;
- 
-+		power-supplies = <&maxtcpci>;
-+		chgin_otg_reg: chgin-otg-regulator {
-+			regulator-name = "chgin-otg";
-+		};
-+
- 		gpio {
- 			compatible = "maxim,max77759-gpio";
- 
+CPU1 sees irq_disabled being 'true' and before it updates it to 'false', if
+CPU2 also sees irq_disabled
+being 'true', both CPU1 and CPU2 will enter the IF-condition and eventually
+invoke enable_irq().
 
----
-base-commit: 8bf22c33e7a172fbc72464f4cc484d23a6b412ba
-change-id: 20260224-max77759-charger-dts-23493398e77c
+Please let me know if this is what you were referring to. I will use atomic
+APIs at all places to update
+'irq_disabled'.
 
-Best regards,
--- 
-Amit Sunil Dhamne <amitsd@google.com>
-
-
+Regards,
+Siddharth.
 
