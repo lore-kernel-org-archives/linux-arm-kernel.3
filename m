@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C1A0F4BB6B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C595BF4BB6C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yBpGPoVK+mjBXRmCCrLO6nBgXbC+EUoSy/ZYK4iJkPQ=; b=eNwhT9SKn2vpreTOf+ljR3kIKY
-	FCOiQizCMZo3Znb80m7HprdrqzW7ZNJS78lVYu6LmriSKESvSvJjm4rPPRWgMzCXcmeKhPkFJvIoQ
-	yDd+q8c3h5mr3t79/1AqlOqXclDBoGX4330+yVcSn+CvHMh/NSBukvu9C7mYArfilkF/9T3o8/8lI
-	CYrwZmg0soE8Igy6qXscofjQ9GJxsSVjNVlkkmTTah4EjVL42wQN3tzjBFgVmt1H7HrZJvvKYWbZU
-	U3gzdINeqLgbC44pSkkXEZCb0Yc8+7dtdaCM8tIWJBIYZbKE3tlO17cvLlsABQlFJqlNwaPUfa7HL
-	Xx4zooGQ==;
+	bh=ZVjcUrsshY335jAS+cTXoVtGVUrUBUxhLdL39wQsdzU=; b=p9LMgquOncNKToXwTGEXZyvXLW
+	2JxnZs60K5qGxKz9sAM0K/gB0jso2NPPSWDtGkOs7E1wth47hX4IHERmUOwXm2XZgyzT5+1tR+Kf6
+	ILiI2lj2khwfqX7xAoZJA32OvKLVI9qQJn9EpToB6wo9j8fRyA14jxE6KabmOhSv2oblmuzk68LwM
+	Fp20jiQZ1ZjzSpUIIou/kgZBnZD3JO8+lX8h9wxn9OrlFy8ektU58jvgglXCnFNcwyi2FKOj7952H
+	LMLqtNgDYr0RG+gyh4EuvBLR2yyzrCNdQpyy5k1ryg4HeHMoTzLkELDF139e1bswI2/A/Wfc8itd1
+	v+sAN0IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwhH-00000002YnS-1206;
-	Tue, 24 Feb 2026 17:59:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwhA-00000002YdV-3Mc4
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vuwhI-00000002YpR-3XUl;
+	Tue, 24 Feb 2026 17:59:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwhC-00000002Yf9-35uz
+	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 24 Feb 2026 17:59:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=ZVjcUrsshY335jAS+cTXoVtGVUrUBUxhLdL39wQsdzU=; b=Yvo+A1uMJpIPFGv39UTpdlzTYY
+	KHK6X/0Tx+/8zkie8M8Ws6yI2Lad6E0dnDyJnNZUg6X3qx4H6nswi4+93r56FW9mAHXvAlX2JLZFm
+	ifDK2aAHMylmZhgsaHk05JjUUKghyDUdJPXie4z0EqvSggf1rMhbyC3j+xglGu4lWm/jRtUHCeeAs
+	p/0m1xoq7wZmEXAOTEnmJXZXMaEK0eIWQYUJhxOCRb0+neBpN3KW0Htr9lpIbwISHhaNHtugnBIvn
+	/322hQQk91hoI2AZqHHTi+Ews2FC0HEcGE50G/Hu66ZkNDwwTnccyQHuPzNiztsbBRlRYk65erFCd
+	dJQLxX1A==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwh0-00000007dxj-27GK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Feb 2026 17:59:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A68D4165C;
-	Tue, 24 Feb 2026 09:59:32 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94BFC339;
+	Tue, 24 Feb 2026 09:59:22 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 10A8C3F59E;
-	Tue, 24 Feb 2026 09:59:33 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 01ABA3F59E;
+	Tue, 24 Feb 2026 09:59:23 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -70,17 +85,18 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 24/41] arm_mpam: resctrl: Wait for cacheinfo to be ready
-Date: Tue, 24 Feb 2026 17:57:03 +0000
-Message-ID: <20260224175720.2663924-25-ben.horgan@arm.com>
+Subject: [PATCH v5 22/41] arm_mpam: resctrl: Add rmid index helpers
+Date: Tue, 24 Feb 2026 17:57:01 +0000
+Message-ID: <20260224175720.2663924-23-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
 References: <20260224175720.2663924-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_095940_967039_6994E6D9 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260224_175931_082160_9829DC82 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,79 +111,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to calculate the rmid realloc threshold the size of the cache
-needs to be known. Cache domains will also be named after the cache id. So
-that this information can be extracted from cacheinfo we need to wait for
-it to be ready. The cacheinfo information is populated in device_initcall()
-so we wait for that.
+Because MPAM's pmg aren't identical to RDT's rmid, resctrl handles some
+data structures by index. This allows x86 to map indexes to RMID, and MPAM
+to map them to partid-and-pmg.
+
+Add the helpers to do this.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Tested-by: Peter Newman <peternewman@google.com>
 Tested-by: Zeng Heng <zengheng4@huawei.com>
 Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Suggested-by: James Morse <james.morse@arm.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-[horgan: split out from another patch]
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-This is moved into it's own patch to allow all uses of cacheinfo to be
-valid when they are introduced.
+Changes since rfc:
+Use ~0U instead of ~0 in lhs of left shift
+
+Changes since v2:
+Drop changes signed-off-by as reworked patch
+Use multiply and add rather than shift to avoid holes
 ---
- drivers/resctrl/mpam_resctrl.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ drivers/resctrl/mpam_resctrl.c | 16 ++++++++++++++++
+ include/linux/arm_mpam.h       |  3 +++
+ 2 files changed, 19 insertions(+)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 48f96d7f9109..fc5877eb5970 100644
+index ded18a9d4cd4..48f96d7f9109 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -16,6 +16,7 @@
- #include <linux/resctrl.h>
- #include <linux/slab.h>
- #include <linux/types.h>
-+#include <linux/wait.h>
- 
- #include <asm/mpam.h>
- 
-@@ -42,6 +43,13 @@ static DEFINE_MUTEX(domain_list_lock);
-  */
- static bool cdp_enabled;
- 
-+/*
-+ * We use cacheinfo to discover the size of the caches and their id. cacheinfo
-+ * populates this from a device_initcall(). mpam_resctrl_setup() must wait.
-+ */
-+static bool cacheinfo_ready;
-+static DECLARE_WAIT_QUEUE_HEAD(wait_cacheinfo_ready);
-+
- bool resctrl_arch_alloc_capable(void)
- {
- 	struct mpam_resctrl_res *res;
-@@ -743,6 +751,8 @@ int mpam_resctrl_setup(void)
- 	struct mpam_resctrl_res *res;
- 	enum resctrl_res_level rid;
- 
-+	wait_event(wait_cacheinfo_ready, cacheinfo_ready);
-+
- 	cpus_read_lock();
- 	for_each_mpam_resctrl_control(res, rid) {
- 		INIT_LIST_HEAD_RCU(&res->resctrl_res.ctrl_domains);
-@@ -781,6 +791,15 @@ int mpam_resctrl_setup(void)
- 	return 0;
+@@ -130,6 +130,22 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
+ 	return mpam_partid_max + 1;
  }
  
-+static int __init __cacheinfo_ready(void)
++u32 resctrl_arch_system_num_rmid_idx(void)
 +{
-+	cacheinfo_ready = true;
-+	wake_up(&wait_cacheinfo_ready);
-+
-+	return 0;
++	return (mpam_pmg_max + 1) * (mpam_partid_max + 1);
 +}
-+device_initcall_sync(__cacheinfo_ready);
 +
- #ifdef CONFIG_MPAM_KUNIT_TEST
- #include "test_mpam_resctrl.c"
- #endif
++u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
++{
++	return closid * (mpam_pmg_max + 1) + rmid;
++}
++
++void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
++{
++	*closid = idx / (mpam_pmg_max + 1);
++	*rmid = idx % (mpam_pmg_max + 1);
++}
++
+ void resctrl_arch_sched_in(struct task_struct *tsk)
+ {
+ 	lockdep_assert_preemption_disabled();
+diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+index d329b1dc148b..7d23c90f077d 100644
+--- a/include/linux/arm_mpam.h
++++ b/include/linux/arm_mpam.h
+@@ -58,6 +58,9 @@ void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
+ void resctrl_arch_sched_in(struct task_struct *tsk);
+ bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
+ bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
++void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
++u32 resctrl_arch_system_num_rmid_idx(void);
+ 
+ /**
+  * mpam_register_requestor() - Register a requestor with the MPAM driver
 -- 
 2.43.0
 
