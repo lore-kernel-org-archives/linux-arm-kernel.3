@@ -4,146 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CCAEFB7F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0242EA4FD7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R0fq8jNFbhZQL0ibJNOBN7lM8AHq1zH29Kp6RHw9gMw=; b=y1hoOwUKLbuQkoJwWrIz7phUD1
-	/uPJEqL1gvB5WK8L6xt3JMH+auK8V1mrHUhjyGdkb0eYgGdhe9bbueU0ISgmi951EED8D5RLSn+JK
-	ZrCSkht7GoEb2DmJ4A4y3UaUxco44/PuEQr//JVEyNnqMtfAyh76FpORdvGMBjUSjTTo72FJsYrCU
-	XSvFpQ+qb6T2xEvsmlPZK7Im4mdjWOJDpmRP3s8NUnKnuaB3gHlfRTrtcbAC/TOFNk3k2Yg9We4aW
-	6HK6VfUO11bujEKQheJhlDsbrf/DGQWVSGOzJe7PZs+GwunDeX0nLQK6K5tY0ZtAlo8bV0cUxB6ro
-	3Y1JvC2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c1QK+XTI72jPh2y/0D4GbqXzfXEd9VJ42J/eWjmHkRs=; b=ARPpzTHAr+4izUozp9vc4rd3aX
+	z4YNkChXeqFVa9Na6rs0mT2ZJ1uKlvtIzYDqG7O9L7jOYpHnNGK/MnKdx+L3XIi7/+d5kxe5i5kMB
+	CczCUPEmDYbgCLUt6lky+UicJPoa7f1gKi5V0CFH9h00rsTQ7iqjPwl+tlgr14xXmVfl+SmJaD1E4
+	jeX8cgpZzB8WyZf9zqscgiQbfNc4KSXxLD+OtDguGKbt7LeqiKMwsXiKO9kPpAFEXyOc4rfL9Gr3g
+	XWLTJTHPzONOhFPplPA7MhIeTKk4mCuJ96dO7IMKQZ6MJILHr+D38JXrbnv05idB6QjtueUYJ2UPl
+	+mlWFLng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuohj-00000001kdh-2isT;
-	Tue, 24 Feb 2026 09:27:43 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vuoi9-00000001kgp-43j5;
+	Tue, 24 Feb 2026 09:28:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuohg-00000001kdA-3LqX
+	id 1vuoi8-00000001kgT-11t3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 09:27:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eCrsDlfxQ1ru09q4Af3SD23cW3RXImt5mJ/NZ8dAZWNmHnytPc2yALIrlXKdXjR+GN6bUMqE0Rw+mB4nvbPzTN3/dctrca66kyByu9446UwcsynJ79YlWu6oBZ6YpwBl1r+wwqGMJSZUrSh4TgfsREHGA7EXuyKmHkvIvwYgBuSa9DUnaGi9DLqMjf8bvFAxJZaBeepVy1SE+Yc9Z6A8KZMhwPpdGqUNkwdYYp/z8HNsRw3IYh6Sr1jxlsUeFYSDK7N6my6E2LMfEvr3e9KkNf8hWtj1yYIIJc3aL0Ma543rNLWAGcO0PWYf5QHikA2GMrL70r86t3EoYQLPN4UHFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R0fq8jNFbhZQL0ibJNOBN7lM8AHq1zH29Kp6RHw9gMw=;
- b=lRBK4DlMegWAVbLObNluaCg+wOg7h/izrBQgt1U3MUJ4haKbfj7hLs37ewUEgAPtA0EwlUG4LF+AwGFffIluBYs8gFvLytW2rCyeIWb2GcxB/WAql4sQvWRXe9raYFLUUoR0oSqWkWk0w2u5op0J5wU+mtETlyQzd1OiYgzZnyn7ht3yWR8roHD+vzzVoEj+xygRWYPl2UhoVpuwRUS5JY8pDJhiADsfFj6KpUg8qRBUQIScP3UzSAyH71WByFtRkspryKzJSbH2MKU/RHrB81s9Qs33OnN4EylUdj2OACAASK3G+PnRxSuPJXF2p8MUIBRrJoXFD86vq9NPn5k1Xw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R0fq8jNFbhZQL0ibJNOBN7lM8AHq1zH29Kp6RHw9gMw=;
- b=SPIVHAbMZNkz5Rz9DmLmjRqPRmsZJIHYBlkgZXihnIds9n/IhreFehiNf//C55ATahcgfod/XZbDF/9v9H1egu3NCr/H4WW1pYrqEWDJX2COhxGJvdteyyuFUsK/YP0OH3nWXVy9eSBOD5C2GBYl7s40fljx3A5dVHY9dQmFWBxDHUVYzDN6YaRfcqlA2SfNuPWu5iuzeO1q6W4DRGEbKApRRac4CstmJKveFe7bCbHIUfy5u9yNafL/aQuliJOW7W0uqLhr7XAGxaYzauOh0OoF++CdSDpuVfJ/qmiuYBDiNxUcqp7pLVBDOq4dJCfWTwD/RCq33fe2FqQ5aq6Hvg==
-Received: from BL1PR13CA0017.namprd13.prod.outlook.com (2603:10b6:208:256::22)
- by SA3PR12MB8439.namprd12.prod.outlook.com (2603:10b6:806:2f7::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.19; Tue, 24 Feb
- 2026 09:27:35 +0000
-Received: from MN1PEPF0000ECD6.namprd02.prod.outlook.com
- (2603:10b6:208:256:cafe::af) by BL1PR13CA0017.outlook.office365.com
- (2603:10b6:208:256::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.22 via Frontend Transport; Tue,
- 24 Feb 2026 09:27:34 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- MN1PEPF0000ECD6.mail.protection.outlook.com (10.167.242.135) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Tue, 24 Feb 2026 09:27:34 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Feb
- 2026 01:27:21 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Tue, 24 Feb 2026 01:27:21 -0800
-Received: from sumitg-l4t.nvidia.com (10.127.8.14) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Tue, 24 Feb 2026 01:27:16 -0800
-From: Sumit Gupta <sumitg@nvidia.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <zhanjie9@hisilicon.com>,
-	<zhenglifeng1@huawei.com>, <viresh.kumar@linaro.org>, <rafael@kernel.org>,
-	<beata.michalska@arm.com>, <pierre.gondois@arm.com>,
-	<ionela.voinescu@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>
-CC: <treding@nvidia.com>, <jonathanh@nvidia.com>, <bbasu@nvidia.com>,
-	<sumitg@nvidia.com>
-Subject: [PATCH v2] arm64: topology: Fix false warning in counters_read_on_cpu() for same-CPU reads
-Date: Tue, 24 Feb 2026 14:57:14 +0530
-Message-ID: <20260224092714.1242141-1-sumitg@nvidia.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 24 Feb 2026 09:28:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C0D86091C;
+	Tue, 24 Feb 2026 09:28:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFDE2C116D0;
+	Tue, 24 Feb 2026 09:28:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771925287;
+	bh=UjV+lVT62XoKCNm3uXANF9IwXBOBlVqxQ2pDtUbIBXc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OUZpqHl9KOq3NztIgVFQnBX5c8PRe87hioP2HSuqHpab1UHLsBZ1svI4vteAQLBs7
+	 OLLP0B1MFP/TXSaItgMk2liCMMbrwVVrCe+rnHoxFAEUmwjVdmFQDavW+rwWOqJ6wT
+	 7pDiHJ5lAQmlfqabozb2hCqOok6MNK0d4i2zEO/Bu11+ZHQITQfh5m1iXI/D5QprT8
+	 /NIQxW8w1xhBkngwn/+JQoxH43uRqFerkMTn1IqsD6LCH32ro2/JEbLk2R+8O+K3Lw
+	 ENg9Hux853QsTM7B6D/Kuz1Ct7LNCm+u4eznPQk+7+1lWUHYhmYn8qwwgBlHh3MKGp
+	 NbzsPIp6HJN3Q==
+Date: Tue, 24 Feb 2026 09:28:02 +0000
+From: Simon Horman <horms@kernel.org>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next] net: stmmac: fix timestamping configuration
+ after suspend/resume
+Message-ID: <aZ1vImgrq1yxBIyy@horms.kernel.org>
+References: <E1vuUu4-0000000Afea-0j9B@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-X-NVConfidentiality: public
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD6:EE_|SA3PR12MB8439:EE_
-X-MS-Office365-Filtering-Correlation-Id: acbb0c6e-151a-4f1f-c35f-08de7386f142
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|82310400026|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qdLmABD3lqXznGKZUgHHX2S/2d9XUu+06X5aBj9o+JBb/HqaBS+KC0Np2XUx?=
- =?us-ascii?Q?8Mzvm/leNi14/90ZEoD2EfNrJwAoob94PXgsSOGHlaRK0SRkmUwDYDw6X/xU?=
- =?us-ascii?Q?g4Q3BeZtFTg37i1dhCKqlaJddILqQCTQwF73yZkWm/gtm/60pYikhudBtQlv?=
- =?us-ascii?Q?FnHBeV6lOJuDwuTVrRGzfdODN692FGeURj8NxIMO1zQ62Xtyheuf4HVnfwZ5?=
- =?us-ascii?Q?7wekT6Npf+YWlKL3qMht2OASSeOO7P/JyDj57ffFQATVuatXXgtHGzDqq+bq?=
- =?us-ascii?Q?wZJWuEVFA2wmfK/uy2WB3bUIuuMwygNi9+r1JVCrVAobK3DhgwotM7iJSzJI?=
- =?us-ascii?Q?CVBKBSCwj1K834r50skzog3eL8iOn4cU47KrGXD0EWD8xSVjxNTDE94pV68w?=
- =?us-ascii?Q?kaxJ2in1pnYDuzaulZ6pFGhTCL7XDStDOFpsr954XeQdOgHmuwrX8/cCIaQ6?=
- =?us-ascii?Q?Ci+r5kLlPOeIOob8N5Yvd1gjUXMuV66iN173fYfzk5ZTzFgOAtY9sHvuppaR?=
- =?us-ascii?Q?8Ukmcz5qeXbtp2jrg/lt7OodNvUGKQwbhYrU3Whx4RZsnsFyZfEMwBD+THUh?=
- =?us-ascii?Q?c3NsXHy3GYTDyqmc7cElwmRp51ze/5TKZjemJTr2K0r0iSGV0YUrXXEeB5eR?=
- =?us-ascii?Q?F1W+SAZKUqupwzkxqzRZcCMg9ERuhBaHJPfKeS8ENWdUGlD+VvHvlDPB3RGo?=
- =?us-ascii?Q?5Gv4u/Eg3VaCwk/GCu4lmlBirZEXlep2oR+ASFBKIBeDKEXDG5Alrqy9fPOG?=
- =?us-ascii?Q?rhFfBPWqFHMOOxMFGS/O7hUZFNiZckYby0Odg4pPWwCrbjG/XFQzQNzW/VIO?=
- =?us-ascii?Q?4ytppthjQkMPso0J+9CqBywiODY6614GdLURXX6+KqeAEmL423Gxh4OMsAA4?=
- =?us-ascii?Q?iphgYXbpWiWiIEmVGtyFLcoOqq2K6xy1ho12IVN05juElII4MvhhitAravBP?=
- =?us-ascii?Q?s8N5+embnSYT129kYE4odGBa6SrxEPPz4sfFdmyJ3SqeMXyGeW001GbubKvi?=
- =?us-ascii?Q?gc8ghw543utjZSBFRO90t1F6tHskbHRF8rh9IW7TPKX7O4jobPL2p2L89p3y?=
- =?us-ascii?Q?3NgHWSl499sl/wn62V1/lwj1eOsdJ0VnlDSFvI9uXMi+u0jagR3KXoJiXv5A?=
- =?us-ascii?Q?RkkDKb3IDcxDuLXIEhuHnioAeB69SFBzjVNIVvPPtFSjtFXg1oqscLNPAAm0?=
- =?us-ascii?Q?QPCjojgQXnpm2RbcqNv8gYk6sd4WQb2pnqVxHXEGA20V2UZUDQg8m0I2DNgK?=
- =?us-ascii?Q?WWRVF6AelmheWDhsJKMacFkrr8FOSHPEBm5elMQkkFOkYggb4g7svn01FEGB?=
- =?us-ascii?Q?UFZA0ayG0B5kZrxwbQpB0GsvK1SWbIviKplD6feuBlAFv+qDaK5PRsqbM8rD?=
- =?us-ascii?Q?PdtEM/GZJjLokzGhmROnMqaaeyNAQr/g2Liir0HbcHs2eFaGwzUBb0sd+eCS?=
- =?us-ascii?Q?2bulZDFEyLqSfOaCNGSRNJ5Z1RNMlnRyUmQN9xD7M28y1f/jca4rZCO391rk?=
- =?us-ascii?Q?mrJ9vo+Rh1bwUVTwDZjGFYGRFyBgpt58tfNjwHLJeoSAgu3oHIN9ACHw/5Is?=
- =?us-ascii?Q?woWERYx1zSfE5ORlnSlzzy03s55tJzgvAfICVaEliXgQ70+jJdRGzMfsb29+?=
- =?us-ascii?Q?MoAex8yZ7MLQQ3iFknQGtjgAD/XMwbXud8jUvDmYN4A+R4cCvxX62RMV+4lq?=
- =?us-ascii?Q?LrlxNXbyOCUQzArmu6GTCUKf2D4=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(82310400026)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: N2ANBq9QGPWjVp2ot5PghDaWnaZuL9Zut3oViwQY+xMEMMV6qhqdggsZ/ZElzj3TYnZKaLBWWYUe6rgl7F8xoVHyyCxZbwfJIy9ieHtDH1SHbINa8RtSyP8z9meAvrGpD6pg1M1qC7VnN1RqnAhCsTTfZwBkVLyugHckEnEwtLLrHVduCzP1yZxI0W68IlHWFlmD7v5cFJcW0/B9XSAXJtiYRzHZKTIYK0DF3gvcNm9sMtx3ojR6q/M4WzEOvId6Kh8YZdNAxqWOm3Dre1cja9Obxcvaqhxic0OpFuyjvd4y9xDJKjo6+bd0X5Xg5MzNyHVjli1zwx05g+6US4tr+ebcfs202RTf4jTYv1U3ng1LX3727P3GyfmFpV9rnMTaM2q8y63TLymu3BO34iH55o3l61EcMOHRumMk20wTmrelEIKQ05AoQFSi6kmr4AUc
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 09:27:34.1744
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: acbb0c6e-151a-4f1f-c35f-08de7386f142
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD6.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB8439
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_012740_840860_C0FD6646 
-X-CRM114-Status: GOOD (  16.13  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1vuUu4-0000000Afea-0j9B@rmk-PC.armlinux.org.uk>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,91 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The counters_read_on_cpu() function warns when called with IRQs
-disabled to prevent deadlock in smp_call_function_single(). However,
-this warning is spurious when reading counters on the current CPU,
-since no IPI is needed for same CPU reads.
+On Mon, Feb 23, 2026 at 12:19:08PM +0000, Russell King (Oracle) wrote:
+> When stmmac_init_timestamping() is called, it clears the receive and
+> transmit path booleans that allow timestamps to be read. These are
+> never re-initialised until after userspace requests timestamping
+> features to be enabled.
+> 
+> However, our copy of the timestamp configuration is not cleared, which
+> means we return the old configuration to userspace when requested.
+> This is inconsistent. Fix this by clearing the timestamp configuration.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+> 
+> I'm in two minds whether this should go via net or net-next - no one
+> has noticed that getting the timestamp configuration after resume
+> doesn't reflect the hardware state. Here's the commit that introduced
+> the problem:
+> 
+> Fixes: d6228b7cdd6e ("net: stmmac: implement the SIOCGHWTSTAMP ioctl")
 
-Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in
-ticks for non-PCC regs") changed the CPPC Frequency Invariance Engine
-to read AMU counters directly from the scheduler tick for non-PCC
-register spaces (like FFH), instead of deferring to a kthread. This
-means counters_read_on_cpu() is now called with IRQs disabled from
-the tick handler, triggering the warning:
+My feeling is that the bar is not if someone noticed or not.
+So I would lean towards a fix for net in this case.
 
-| WARNING: arch/arm64/kernel/topology.c:410 at counters_read_on_cpu
-| ...
-| Call trace:
-|  counters_read_on_cpu+0x88/0xa8 (P)
-|  cpc_read_ffh+0xdc/0x148
-|  cpc_read+0x260/0x518
-|  cppc_get_perf_ctrs+0xf0/0x398
-|  __cppc_scale_freq_tick+0x4c/0x148 [cppc_cpufreq]
-|  cppc_scale_freq_tick+0x44/0x88 [cppc_cpufreq]
-|  topology_scale_freq_tick+0x34/0x58
-|  sched_tick+0x58/0x300
-|  update_process_times+0xcc/0x120
-|  tick_nohz_handler+0xa8/0x260
-|  __hrtimer_run_queues+0x154/0x360
-|  hrtimer_interrupt+0xf4/0x2b0
-|  arch_timer_handler_phys+0x4c/0x78
-|  ....
-|  CPPC Cpufreq:__cppc_scale_freq_tick: failed to read perf counters
-|  ....
+Regardless, feel free to include:
 
-Fix this by calling the counter read function directly for same CPU
-case, bypassing smp_call_function_single(). Use get_cpu() to disable
-preemption, as the counter read functions call this_cpu_has_cap()
-which requires a non-preemptible context.
-
-Fixes: 997c021abc6e ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
-Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
-Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
----
-v1 -> v2:
- - Rebased on v7.0-rc1
- - Updated Fixes tag to match upstream commit SHA
----
- arch/arm64/kernel/topology.c | 21 +++++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index 3fe1faab0362..c3e883e99aa0 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -400,12 +400,29 @@ static inline
- int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
- {
- 	/*
--	 * Abort call on counterless CPU or when interrupts are
--	 * disabled - can lead to deadlock in smp sync call.
-+	 * Abort call on counterless CPU.
- 	 */
- 	if (!cpu_has_amu_feat(cpu))
- 		return -EOPNOTSUPP;
- 
-+	/*
-+	 * For same-CPU reads, call the function directly since no IPI
-+	 * is needed and this is safe even with IRQs disabled.
-+	 * Use get_cpu() to disable preemption as the counter read
-+	 * functions call this_cpu_has_cap() which requires a
-+	 * non-preemptible context.
-+	 */
-+	if (cpu == get_cpu()) {
-+		func(val);
-+		put_cpu();
-+		return 0;
-+	}
-+	put_cpu();
-+
-+	/*
-+	 * Reading from a remote CPU requires IRQs enabled to avoid
-+	 * deadlock in smp_call_function_single().
-+	 */
- 	if (WARN_ON_ONCE(irqs_disabled()))
- 		return -EPERM;
- 
--- 
-2.34.1
-
+Reviewed-by: Simon Horman <horms@kernel.org>
 
