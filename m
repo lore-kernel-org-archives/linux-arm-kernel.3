@@ -4,63 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A54E9B259
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 12:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA4DE9B25B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 12:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7yCDCpzidXFJrqjKffj6ZqlqIj3OuDNjvIWiEPxPwWE=; b=ZpvpXTgMRR2B1bjIt8BG0DXbus
-	T0vvyzwnIbBBT66HHMBqWYIWb3YMEtLr0BSJIN5vzQgQlcRWvlQNENiw5qM/T9llGTZaZgjt0eFyC
-	rd5Fz8mPCMTjZmyYxTNwUQar4R+ZwwkMKmC10uCdrf0+Pga3xVKKsJUsOJk8nbEMQ1Z0iGljq/6A3
-	x0cnm4zehhHEx04MKnWdQES0F5lvpCg8KkFhe1UcRDy0+ze594cAyUY3WIH+82yi9dvEPu1OCSxuV
-	Xwh/Kfj+cO88d/lL04b9+ZldoJ2l1qRXRZsWOdQq1KJWqOx0zjdP4pZcbMn5MPHLcJS6vB7a+E3as
-	gAaqNtqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TfME3h7UIRqdZB08XBZLbsOYbylhdRAB8yQywpePCMQ=; b=QIuRDN/ofas4ikWF5+6J2z1EwI
+	FzysKm1aR/j51gzsyXXTVuMIXhJf/r8EVYL4UHw7YTTPql/RFl/aWz8UUt1TRFayiFb5byu9Pv/Vq
+	5Rn+zsd523XbdNACeoFS3LxnVZ4nPWkSHMnWIQwuPTCqh1etno84F7ZValgFUIZsnW3vEkoKXZ9Th
+	+RkSQ4wMl2ZKF0Bkiy1iBHZugprZDvCw9CpumwhaVPk4sv4CwiqmXbYR7NHkFEQoBcsano0tdESSo
+	dm4U29tAEk6L7OAHX8u4z4Y8/Kx18TDi4fFE/19G4qS7I7VF92v39acESm2ZZESgJmewoaaSSeT4x
+	1FkRRwyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vurBI-0000000219g-2r63;
-	Tue, 24 Feb 2026 12:06:24 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vurRR-000000022A1-0iXI;
+	Tue, 24 Feb 2026 12:23:05 +0000
+Received: from mail-westcentralusazon11010053.outbound.protection.outlook.com ([40.93.198.53] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vurBF-0000000218x-1EJT
+	id 1vurRN-0000000229Z-442h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 12:06:23 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fKxJN1R30zJ46fX;
-	Tue, 24 Feb 2026 20:05:56 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id B598340539;
-	Tue, 24 Feb 2026 20:06:17 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 24 Feb
- 2026 12:06:16 +0000
-Date: Tue, 24 Feb 2026 12:06:15 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<bhelgaas@google.com>, <joro@8bytes.org>, <praan@google.com>,
-	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
-	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>
-Subject: Re: [PATCH v2 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
-Message-ID: <20260224120615.00003ad9@huawei.com>
-In-Reply-To: <bdeebd35e81cfa5f76d16706a775b23ee1f01fdd.1771886695.git.nicolinc@nvidia.com>
-References: <cover.1771886695.git.nicolinc@nvidia.com>
-	<bdeebd35e81cfa5f76d16706a775b23ee1f01fdd.1771886695.git.nicolinc@nvidia.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 24 Feb 2026 12:23:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Xq4W+gfEa+vB3OwJfl1PRPrC+aQW9teLjgCm6hAAmkx9IoyshUilvKKPdz1k1Q8bnKWthl51AA+ihHt7o9DbOI25FEIpUDnL9QiQYja4OGU8mQNnRjs44wOWBxFa0yT0sF+gt/vmYLIpPhM15aEd5UhoNlWlU+rScGX5/Vq7YfSla9Jlnd99WVSKYnyXJ6Xtbc6bSrzuz9nfQI0IhApt1d1rVB5WqZbSCWhs+sIHdb3GA1fOVltl+b0wnBK76v34mNqoWEWhDBY8S4rLRc4mG1MB5k4Rt2U4pZLovTpGUnQkpGHBSldGVwHU13GAf6WqahKEnBwPQr+BEMqsebqBRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TfME3h7UIRqdZB08XBZLbsOYbylhdRAB8yQywpePCMQ=;
+ b=MoTxPMXrjlSbwbfFduJ2i2x6gL2Kr04qfKEOf6Vho/PwVgZTvMzy2Iq28gUnHwerUbK0iP9ECP2BDYIu7y199blJI5QZhC8XpMlaAlAW5zLmF5ScQuF2fOi6cmrlCb7EU9BDuQEqXT4W+NJrj8Cp/RqMFMxHAeGR92VRClKpyjYzmLKtcnB8+r/7PG58gisNICEt5MLWZf8ejgASIxMIdfdcQc3Gb6K/Aop8r4giDozgnUGMCByWkSXj+QTRR6gg9LmG3wXRwUWPfNITRD5Ihdgq5CL1M/3yht9bAw+LWQ+kBJN5/8AUOsb8aLjCRlWcCNB596uxWjT1ABAJzm2sWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TfME3h7UIRqdZB08XBZLbsOYbylhdRAB8yQywpePCMQ=;
+ b=B72TYvp2l/nwWJGxU4epFZRqPEf8PZHF8rs1UmqLt32bydxNsFrUbuX2HYeIYoHQV4jvCd3W1FfsKXhgVagis6cX1jP/V/G7lLrv6WG9fovaomLJ0RJwCWGkWqTkKnU5IKQuC+slb+VGfoTvtoKTh0kUn8vAgZQFJHUy8DBwO/w=
+Received: from PH5P220CA0002.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:34a::17)
+ by BLAPR10MB5156.namprd10.prod.outlook.com (2603:10b6:208:321::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
+ 2026 12:22:56 +0000
+Received: from SA2PEPF000015C7.namprd03.prod.outlook.com
+ (2603:10b6:510:34a:cafe::39) by PH5P220CA0002.outlook.office365.com
+ (2603:10b6:510:34a::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.22 via Frontend Transport; Tue,
+ 24 Feb 2026 12:23:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SA2PEPF000015C7.mail.protection.outlook.com (10.167.241.197) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9632.12 via Frontend Transport; Tue, 24 Feb 2026 12:22:54 +0000
+Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Feb
+ 2026 06:22:53 -0600
+Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Feb
+ 2026 06:22:53 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 24 Feb 2026 06:22:53 -0600
+Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61OCMlFn2715733;
+	Tue, 24 Feb 2026 06:22:48 -0600
+Message-ID: <57e05b57556e94ed666acd8b4c542efc28e7408b.camel@ti.com>
+Subject: Re: [PATCH net 2/3] net: ethernet: ti: icssg_common: set
+ irq_disabled after disabling TX IRQ
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<pabeni@redhat.com>, <danishanwar@ti.com>, <rogerq@kernel.org>,
+	<horms@kernel.org>, <mwalle@kernel.org>, <nm@ti.com>, <v-singh1@ti.com>,
+	<vadim.fedorenko@linux.dev>, <matthias.schiffer@ew.tq-group.com>,
+	<vigneshr@ti.com>, <m-malladi@ti.com>, <jacob.e.keller@intel.com>,
+	<stable@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>, <s-vadapalli@ti.com>
+Date: Tue, 24 Feb 2026 17:54:18 +0530
+In-Reply-To: <20260223184840.06069afa@kernel.org>
+References: <20260220041431.372610-1-s-vadapalli@ti.com>
+		<20260220041431.372610-3-s-vadapalli@ti.com>
+	 <20260223184840.06069afa@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015C7:EE_|BLAPR10MB5156:EE_
+X-MS-Office365-Filtering-Correlation-Id: 62cb82e1-52a1-4d0c-c592-08de739f6fe4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|1800799024|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?b3BmUnFubDJ6Mm9KOFVjYk0zK2xHdUJMejJubjltcVJhcjI2aEp6OGc3VDIw?=
+ =?utf-8?B?N2p0eWJkbDJuczV6aUUxZTNyOHAxNUR2V1ZnbTdzbyt2a3p4US80TnRpZUw5?=
+ =?utf-8?B?bDBMZGcxN1V1V1RWQzVqUlQ2MytwbHlBTGhvUCtsdkRFSlJvM3FnWFc2alg2?=
+ =?utf-8?B?OTdLYWxSdGd1S3BMVXJMM1ZRT0RFU1JUMUN4RWwyKzdWdGRZMXM0MUNFREVI?=
+ =?utf-8?B?TUs0akVQYm9ONk9LcmQ5T041NGY5bTIzOHpnMXRRTFJMYmFHNUU4RlFtWFdP?=
+ =?utf-8?B?S080Z2d4MnZycHNWemJjU1o2eTA4cDM4eE5HN0hrQTBFa3hoZGIxejJBWTRy?=
+ =?utf-8?B?ODhlbXczaUtjNUI4aUZTMC9pUEhBRkZrT2I4QXBCK2tUZFQ5MXJ4c29QOTJN?=
+ =?utf-8?B?cjNMOGFzT3EwTERhMjRZSTFIUVhaMk1seVE1T3VjWUtBK2dGcVpERFRDblh6?=
+ =?utf-8?B?MjVzNDc5eDV3OUpGbW5uTi9vZThneEUxZHVwSlpPOHpUOEUxTForSllacVBs?=
+ =?utf-8?B?Tjd2eHM3VlhjM3pUOVJ3K2V5YmY0eUg1QnY0aDVpSTE4SW9zY0pXQzBMZG42?=
+ =?utf-8?B?QzhtczhiR0R0NlhjVlNxbStGd1B1bFNYY2dkclNhUHV2RjNMbG1IT3ZadEZy?=
+ =?utf-8?B?bjg0UEVyazJ1Zi9CNmdVNDEwZXNxVkdlWkNubXl4cnIrOWw0djVUVlV5T3Jw?=
+ =?utf-8?B?VjVOemRSRkFUKy9VcS9ncVhDUHQ3MDVXRTU3b1pISUxQdHNHbWJITU8vQ1F3?=
+ =?utf-8?B?ZUNZblRrR29SaVJtWW5YWnR1U3lNQUI1RFlSVExXM0JBakZZUjBaVTRLMXBC?=
+ =?utf-8?B?bXlkQjdySEVOYURjY2tRMnVQc1NZQzRJVzB5OFVQZnBRb3hrS2xXeTJnalVO?=
+ =?utf-8?B?OUYyd0Fmd3pBMk9wL1o5cUd0S2Y2aythQ1FYek1YU3YxeHFtdWJuN2dNYkpN?=
+ =?utf-8?B?MmNZWGdLcEhkOGdESnh4bG9zaHpONzRleVZuME1XcDNsQVFOOEh3Ym40MXR0?=
+ =?utf-8?B?cDJRZWF4akp0Tk5Odm5FRDJWZkdPU25rSGMvOEw4K3JvT2Rub2t1b0g0aXJR?=
+ =?utf-8?B?RGRxd0pVMTNnMnFDMlJlTU96blZEYWEvZllteDJ5VUpzUW8xbVdpVGQxcEY1?=
+ =?utf-8?B?WGhGZi9RcWFFWnBGa2VPTmpOSCt4eFRDY2krYXRBaVhUMVFVSnhWQTZHUUNp?=
+ =?utf-8?B?YzA4eExyYkN0ditES2xmaksySkJ5bEZXdWhpa3FoN3BCMDBGR05hN25TNHlj?=
+ =?utf-8?B?U2xkK0hUWDJBLzZSeU1nS0hwVHU2anhrdTFGdnB6MXlMTmFNNzI4TXQvMTRu?=
+ =?utf-8?B?dFlTaWp4WEQrMzg0dFdtWHNTNGVsek4ybHF0RkZuTk5UNVlOYjcyR0Rhd3pa?=
+ =?utf-8?B?ZG1qdTFQS3NncTVqUGg4MVlDL2V4ZFJScWFobzZYMTVyaTZ4b2sxb1prRXk1?=
+ =?utf-8?B?aFFma1hrWmc0blVUazNOMklCSGYzNjRqOE0weUN0S0huT241dkg2Z290K3lC?=
+ =?utf-8?B?Q0tSdFhjYTVRMjZhUkxWMmg1bFlUMW9VNk1jR2FGWDBYMlFKT0Q0WFFtc05X?=
+ =?utf-8?B?RGJqdER4VE5NWFdBV3VobkJMY0tiK0NqSFpNaWxXYklFNnFOQ2VMeGNna2k2?=
+ =?utf-8?B?TFhoS0ZvQVRQN3NFeGZKVEFPczdUeEV4SGE4U0ZnT08xQVJDZzJCNVBrWTI0?=
+ =?utf-8?B?UTlFY2RxM21tWURwaEV3cTZ0VUJBaWdYcVlmRXd0UjBXNzN5TXMzbnpBK1Jn?=
+ =?utf-8?B?V0MrV0FXUVZqVSs0dkRTSVRWUWNzdzh1Y0RjVTZlN09sOFNUd1M4NHZCN29R?=
+ =?utf-8?B?T3UvSUdPSFpOUDIxY2tMTkRPRksrRnp3WGJ2QnFPS3BEczMreE44VUhmWlVE?=
+ =?utf-8?B?MVNUeUQzUkZnblhaR2tOY0FEdkpBTXZHbVZpNnpRSnljcUVQMWtPcWFlbSsy?=
+ =?utf-8?B?R2dyZk9tOTlVTHR1cWVuT09LZWxFUEE3cVpyLzNPQmtsTkZzNS83cVo0SWRj?=
+ =?utf-8?B?SDZnZDRIOU9kZ1J3a0NNeWxnYXBEMlF2WUtZcnV0ZUlzSzhHeGROZ1UzNlRI?=
+ =?utf-8?B?Q1NONUFIWTBJSmNwaVQ1OFRtejZzdHV4WE82aGF4TFM2SkV3QWVyRnloaEZ4?=
+ =?utf-8?B?anB2MktXZ2pjU0VWQTVYL0djWlIzcnFJMGJtZFpYMTZkUTBDOFZ5bzB0WWdM?=
+ =?utf-8?B?SSs2TWV1dVoveUo5dWJGT29kN2QzOS9HVTlENDN0VHhqSHN5dHIwUnMzWlYx?=
+ =?utf-8?B?YTVueU9kZDA1enhMcHI1Sml4cGp3PT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: CsbJUVZzEgo9CV+aff5KWosB30izHtFsPAo7b67ijy89QiaHmwgn3+Su5O/pwCEjHvOnLVkkw99PX8t65gBGd0GIBNOVmAQUZ01QVT4fCI+zlkd0nFhT2bXh9Dd37UOhP45bAszpzp8tDoagO9+AFHjNXGI2fPSaCmod45fisORPYo/dvstvEwC8so23i2pCVrtOtyQZ+Ht08tHx2sMVNLVNHbJFu5q4xfTJckFPhADqoGsnoYXedheT4iP39Bv6SNqqlB0NdGLMbIDKuupTo+4CWY4NHJOOJ72+xzEiOvGQdKKo0gxVcJ9tmD3YAOQk2s9XtM6+YJD4v9fP7ATWarec91nNESsBvHZZTFVwbMAOrEc6UECPwv6WDpx278b9ZUurcA8uMH/jjF5bTsX7OWGvCDbfBtAKg8s7aW1MI5AmakzvuzZ2rBXpzaKkm+Zf
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 12:22:54.6780
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 62cb82e1-52a1-4d0c-c592-08de739f6fe4
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015C7.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR10MB5156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_040622_242400_85137B77 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20260224_042302_014282_35DC48D4 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,66 +175,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Feb 2026 14:52:22 -0800
-Nicolin Chen <nicolinc@nvidia.com> wrote:
+On Mon, 2026-02-23 at 18:48 -0800, Jakub Kicinski wrote:
+> On Fri, 20 Feb 2026 09:41:58 +0530 Siddharth Vadapalli wrote:
+> > The 'irq_disabled' variable indicates the current state of the TX IRQ a=
+nd
+> > is used by the TX NAPI handler to determine whether the IRQ should be
+> > enabled.
+> >=20
+> > Currently, 'irq_disabled' is set before actually disabling the IRQ by
+> > invoking disable_irq_nosync(). In an SMP environment, this leads to a r=
+ace
+> > condition wherein the processor taking the interrupt sets 'irq_disabled=
+'
+> > while another processor executing a previous instance of the TX NAPI
+> > handler sees 'irq_disabled' set and invokes enable_irq() before the TX =
+IRQ
+> > is actually disabled by disable_irq_nosync(). This results in the follo=
+wing
+> > warning:
+> > 	Unbalanced enable for IRQ ...
+>=20
+> AFAICT the flow on the Tx bug is not buggy, owner ship of the IRQ
+> vector passes handler -> NAPI -> timer. I don't see how those can
+> race.
 
-> When a device's default substream attaches to an identity domain, the SMMU
-> driver currently sets the device's STE between two modes:
-> 
->   Mode 1: Cfg=Translate, S1DSS=Bypass, EATS=1
->   Mode 2: Cfg=bypass (EATS is ignored by HW)
-> 
-> When there is an active PASID (non-default substream), mode 1 is used. And
-> when there is no PASID support or no active PASID, mode 2 is used.
-> 
-> The driver will also downgrade an STE from mode 1 to mode 2, when the last
-> active substream becomes inactive.
-> 
-> However, there are PCIe devices that demand ATS to be always on. For these
-> devices, their STEs have to use the mode 1 as HW ignores EATS with mode 2.
-> 
-> Change the driver accordingly:
->   - always use the mode 1
->   - never downgrade to mode 2
->   - allocate and retain a CD table (see note below)
-> 
-> Note that these devices might not support PASID, i.e. doing non-PASID ATS.
-> In such a case, the ssid_bits is set to 0. However, s1cdmax must be set to
-> a !0 value in order to keep the S1DSS field effective. Thus, when a master
-> requires ats_always_on, set its s1cdmax to minimal 1, meaning the CD table
-> will have a dummy entry (SSID=1) that will be never used.
-> 
-> Now, for these device, arm_smmu_cdtab_allocated() will always return true,
-> v.s. false prior to this change. When its default substream is attached to
-> an IDENTITY domain, its first CD is NULL in the table, which is a totally
-> valid case. Thus, add "!master->ats_always_on" to the condition.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+The issue is seen in practice. Interrupt coalescing (hrtimer) isn't used.
+The call sequence leading to the warning is:
+	net_rx_action
+		__napi_poll
+			NAPI TX Handler
+It does seem strange that the 'net_rx_action' leads to the NAPI TX Handler.
+However, it is exactly this path that causes the warning, and it is due to
+this that we could end up in the following situation:
 
-In my head at least, it would be nice if a driver had to explicitly opt in
-to this behavior. The presence of CXL.cache support for instance doesn't
-actually mean the driver is going to enable it.  However it is probably
-harmless so lets go with this as path of least resistance.
+			CPU0					=09
+				CPU1
+		----------------
+								--------------
+1.	TX HARD IRQ Handler entered				NAPI TX
+Handler is running
+2.	irq_disabled is
+set							Sees irq_disabled being set
+3.	Starts executing disable_irq_nosync()		Invokes
+enable_irq() for TX IRQ before its really disabled
+								=09
+			[UNBALANCED IRQ WARNING IS DISPLAYED]
 
-One trivial thing inline (ignore if you like!) Otherwise LGTM
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 4d00d796f0783..69d40918bc22f 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-
-> @@ -3274,7 +3294,10 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
->  		.old_domain = old_domain,
->  		.ssid = IOMMU_NO_PASID,
->  	};
-> +	bool ats_always_on = false;
->  
-> +	if (master->ats_always_on && s1dss != STRTAB_STE_1_S1DSS_TERMINATE)
-> +		ats_always_on = true;
-Maybe flatten this to not do the off then on dance.
-
-	bool ats_always_on = master->ats_always_on && s1dss != STRTAB_STE_1_S1DSS_TERMINATE;
-
-
+Regards,
+Siddharth.
 
