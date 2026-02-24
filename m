@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD00EFB7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 02:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80FCEFB7E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 02:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mYRZ99KL1yINLei2Vk29C2qJPrL7JdHX8hSgaz+HhLE=; b=GigN4opG1QfV5sMDdoAhcqqEvR
-	FE+qN3jeQy3ZBzav22TYnXiG3MjuX68jSKzcLtNWQuv14H97xChQTtHmgvs/KUZSgcYETSFg01cBb
-	Ruk2aGZrrbw3YLZmwwDrsfGiVr8C85xOCs5OzWf7bXENVSO3SAm2WSXvAUMza97ukhl0IvK7EM8iG
-	+pfkAnJZiMD3h37dF0ORs8bQ2nCXQBBryerBPxtc+pdnNA1EMP9pWaJOvz65+morwpKWXv5uN5Frz
-	16N6zVE0omr06PdEboUejkFN114qyTemjuNonPUWQJocxZbrPI8uelRSmIpoUsy+hfrYa27i9BXj8
-	+jEbBU2w==;
+	bh=7X1iUhAUWuFURylZjRz/UYuilzjOVBho6gFijhNRoZI=; b=gM5QbLakMLKg/6QNqAZjPKm1T0
+	oxMWFvnkbwLc6rGTd91QmRYzsvhOM4C6XOruxAmGiCk0/xIQCcQA8Z5DA1lXLVs4FTwTp+4yeHfyD
+	xJ9lc6YqieR1kY6DFdmiKN8SQLxMtj3OcmzLxLsACldbwnPb8vtkmmluIT/oMw8NxR3MFmBhNznbl
+	7RKOF1bDz7D+VSZmdz3HVgPWL1pYvMl1rZCQ3vCTgxL+iEFaLzmu9K9F+3P/sU9QYmTd73oJSPpeJ
+	ReinZB1dUKNAoo7ujVJ1EnK6u2VijZxRgncRTOPNsbLYpR7SrjMYvRN5PfZPFnF6GEp7HZpL9wO29
+	EXgbatxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuhkc-00000001KPW-1f6p;
-	Tue, 24 Feb 2026 02:02:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vuhqi-00000001Kq1-34f3;
+	Tue, 24 Feb 2026 02:08:32 +0000
+Received: from mail-m21472.qiye.163.com ([117.135.214.72])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuhkZ-00000001KOG-3q94
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 02:02:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 742EC4452C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 02:02:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A5C1C4AF0E
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 02:02:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771898531;
-	bh=HI15qPZpODUUYmT3koZ5s3kfYeK07PPTFU7DvVv4qdc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GjSAE+Gzvl7MTKyXrXtFonZmUs9umZp2h+IMq3fABO4JJCL1aoEZElxco7fD7vQRn
-	 fGUnZwCnZAujrJY8Czuc1Meo7Mo/EDCH9oysx1oTesTFcA4hg9hJXUqfz3UfFujXXk
-	 3DZbodxSpPhUywtjZ8xtXY7ik3H5N2dcgpQGY/2diAtPqtp/W+ajXsF2CPkKnRK9lG
-	 tC/1KhyBGXh9nKWRSC3AnogrQsvf/c6r0MvKOpQbgE8zGHb0+/jntXgRIsayK2iqJh
-	 zjjbPgkyhAijWs0ICN+FAEGdrgwoX+DopxZ1wyxAszLPv5JcT/NZIhQP5Z69haxY0u
-	 IotkJQWZUIPSg==
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-436234ef0f0so3209011f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 18:02:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVlPdqNY1/FURzOPYy+ub2WJoPzcL20ITrGSrsmYW1vQiMFdk6pn4QngsHTyHztiFwfr6UoJogz5q3WaDP0+Vsd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxGE5r87GBowViuusk3wZx+c/Om+lFzdF/B2qXYxp1OxkKD3dp
-	31ap3e8As9QINrnbuDVaY1oDOLw5sRKnPlr3QG54KALOhdf4zs82JoE1B7qN590jdasi2ippue8
-	ceybW0ru9Q3mjW3q7hEjAs06/cJDb7kk=
-X-Received: by 2002:a05:6000:4201:b0:3ec:db87:e5f4 with SMTP id
- ffacd0b85a97d-4396f15d10cmr18428515f8f.7.1771898529711; Mon, 23 Feb 2026
- 18:02:09 -0800 (PST)
+	id 1vuhqf-00000001KpW-3H74;
+	Tue, 24 Feb 2026 02:08:31 +0000
+Received: from [127.0.0.1] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 34bd766c9;
+	Tue, 24 Feb 2026 10:08:16 +0800 (GMT+08:00)
+Message-ID: <e0c180ae-22b7-4151-a655-74f83161deb8@rock-chips.com>
+Date: Tue, 24 Feb 2026 10:08:00 +0800
 MIME-Version: 1.0
-References: <20260220090922.1506-1-jszhang@kernel.org> <20260220090922.1506-2-jszhang@kernel.org>
-In-Reply-To: <20260220090922.1506-2-jszhang@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 24 Feb 2026 10:01:57 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRq+Pp0AC4jFDQdSsQv8x_XWV4o1UrRGcrkAJD2238MSg@mail.gmail.com>
-X-Gm-Features: AaiRm51r629qqEXKS58ilHPH1EHwU6F6qXM6VgeaCXkG7tSCgEZ_ZRupW9dwMWo
-Message-ID: <CAJF2gTRq+Pp0AC4jFDQdSsQv8x_XWV4o1UrRGcrkAJD2238MSg@mail.gmail.com>
-Subject: Re: [PATCH 1/3] vmlinux.lds.h: add _handle_arch_irq RUNTIME_CONST section
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: Problematic understanding of phy-mode in Rockchip DWMAC driver
+To: Diederik de Haas <diederik@cknow-tech.com>,
+ "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>
+Cc: Yao Zi <me@ziyao.cc>, Heiko Stuebner <heiko@sntech.de>,
+ Heiner Kallweit <hkallweit1@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org
+References: <aY9s5PXP4zZ7R6fa@pie> <aY9xsslT56D9LGLe@shell.armlinux.org.uk>
+ <f1e047e1-3f1c-4562-ab43-af2fe358fe04@lunn.ch>
+ <aZDGsJNLZIty0242@shell.armlinux.org.uk>
+ <a4aebacc-c273-4e42-97ff-0cdd88d771dd@lunn.ch>
+ <aZMxKdkl2Qa7e1WU@shell.armlinux.org.uk>
+ <DGGK56T574F0.TJSLQL9P1SM@cknow-tech.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <DGGK56T574F0.TJSLQL9P1SM@cknow-tech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9c8d677e7303abkunm282acd41e78e52
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhpDT1ZCQh1LQxlLGkkaQ05WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=YLGrRVTYXYwJ78iiZ/DQI2fHLRiYr025TGHy3A3AHdE80kecqRFIsnllhhGoByhzUL5aPHOlAcb34VOOcpOOk4xagSKOFFoHtm5VN9dMan8jLwXRHM9lMM64M1RQFiG5po0AiS8Z7/N/zQZ4T0iovsY4S6BMJwQHXcrVVmbcPP4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=7X1iUhAUWuFURylZjRz/UYuilzjOVBho6gFijhNRoZI=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_180212_030844_E5BEEC5B 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20260223_180830_450035_4BAE3696 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +82,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 5:27=E2=80=AFPM Jisheng Zhang <jszhang@kernel.org> =
-wrote:
->
-> We will use the runtime constant to optimize the handle_arch_irq
-> accessing. This is preparation patch.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  include/asm-generic/vmlinux.lds.h | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmli=
-nux.lds.h
-> index eeb070f330bd..c4af2c7d0eed 100644
-> --- a/include/asm-generic/vmlinux.lds.h
-> +++ b/include/asm-generic/vmlinux.lds.h
-> @@ -973,7 +973,8 @@
->                 RUNTIME_CONST(shift, d_hash_shift)                      \
->                 RUNTIME_CONST(ptr, dentry_hashtable)                    \
->                 RUNTIME_CONST(ptr, __dentry_cache)                      \
-> -               RUNTIME_CONST(ptr, __names_cache)
-> +               RUNTIME_CONST(ptr, __names_cache)                       \
-> +               RUNTIME_CONST(ptr, _handle_arch_irq)
->
->  /* Alignment must be consistent with (kunit_suite *) in include/kunit/te=
-st.h */
->  #define KUNIT_TABLE()                                                  \
-> --
-> 2.51.0
->
-Reviewed by: Guo Ren (Alibaba Damo Academy) <guoren@kernel.org>
+Hi all,
 
---=20
-Best Regards
- Guo Ren
+On 2/17/2026 1:21 AM, Diederik de Haas wrote:
+> On Mon Feb 16, 2026 at 4:00 PM CET, Russell King (Oracle) wrote:
+>> On Mon, Feb 16, 2026 at 02:57:48AM +0100, Andrew Lunn wrote:
+>>> On Sat, Feb 14, 2026 at 07:02:08PM +0000, Russell King (Oracle) wrote:
+>>>> On Sat, Feb 14, 2026 at 05:50:15PM +0100, Andrew Lunn wrote:
+>>>>> Rockchip have recently started adding support for a new version, and
+>>>>> appear to of listened to what we have been saying. So it could be the
+>>>>> next generation of chips get this correct.
+>>>>
+>>>> Have you seen any proposed code from Rockchip for their new scheme?
+>>>
+>>> There was a patch, including a rather odd formulae to convert register
+>>> value to delay. I gave some feedback, but it has been silence
+>>> afterwards.
+>>
+>> Searching lore's netdev archive doesn't seem to bring anything up.
+> 
+> https://patch.msgid.link/b25d6eb2-e105-4060-86fa-c1a06396ca92@lunn.ch/
+> 
+
+I am the author of this patch series. My understanding is that
+"rgmii-id" should be adopted first, and for any delays that may
+need to be introduced, they should be implemented in the PHY rather
+than in the GMAC, although I did try to do so. 
+
+Did I miss something?
+
+-- 
+Best, 
+Chaoyi
 
