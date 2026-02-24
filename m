@@ -4,162 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A242F3C995
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 15:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762E4F3C991
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 15:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vkxWiApaUdejSgyPWQRPTTZ4pxfmImMWJtctMxSrLXI=; b=dsfHAp61uJf0NNKQKBqX+s9cdh
-	LvVcljJSjPmbUA7N4wue0m/2UANHpt3PAn6gV0PvjJ6a9P8efUnt/eLFWoWi7c1L+bcaVox4bFZ0a
-	aN6NVZgQil675ArtnU5l6vhyFVaS/dkyBzU0kj/5WbCnV9cw/mliAFtszAnOHItSJQJ94nJVUpKm4
-	oKx02hIsA3NSEOsHiWnHIhwB/gQDiO+7CDrkgqiETKsMN1Q+9KqZr3ZSwjMkLzp8KQlV6tPFmnmAl
-	7rw2aAOd6w1Bb1yhN1JY8SNUttys1i05vwhLQd1b/HQGWkpjnemBxLecEZxITmP5nH9U/wiwfp/dW
-	EpwvijHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=th8oyztfLOQgsAePew2Ea9c9epWfEYTmUdUBoQvDVlo=; b=Q7XaCHoasMNH21B6YVXgoz3LvV
+	m12iDbA9Q8/mMkloCkD2rri0Eiiz3xDr/ugMcrxMcXUV/rLEQN6TPUxYxpb6DOVeEIdfa6tXGIkTJ
+	9TT2qR6UZhnZVFsJ+wAF8QgHXg+QBNOwEkWn4O4X+zT5TplUoW6+oBYeqUXhpMzppGvn33hMv0n0C
+	aymI6bL5smnQpUyMkBFUWBBy//ezDv1aGczwL65XpW6pabI4NJYAEKu+/2vnEDTY1AAGDoD1/u5j6
+	AWH0rEXB8/34YFUFfWPFJoxLwUwIMcTVjwYDMcSQdZqQpm4T4mDfjUM1iFqA1AFrIdrp6csIJSqWJ
+	pswwqDiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuu8n-00000002IR2-4BoF;
-	Tue, 24 Feb 2026 15:16:02 +0000
-Received: from mail-northeuropeazon11011009.outbound.protection.outlook.com ([52.101.65.9] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vuuFN-00000002IrX-2h5M;
+	Tue, 24 Feb 2026 15:22:49 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuu8k-00000002IQJ-3IWg
+	id 1vuuFK-00000002IqU-1yti
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 15:16:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hBBJJfuTVhslk1cCMifXXaR3i6PuobFzdgqdWLP+jyFdxwlJoZxyO36TwWtW4Qlyl59uExxRVMO4Gi+/r6r17ME5p9hnSrfSkKAd09UJr30Bek6s9FKqdfJZWcAUE8I+otIyvSQwwIMULY4e58haw4bU51/Bl7o8yAYzq+f49guYj45A8Yw7sHVcVXJ0eAXx/XocAFd5ZCd3zYbYDcWMyOGDrJw1Yjx972+MJ6Vi9+SF2nue2LFWRxKZMb70tGqhnq1sWXhbrDLJoGJoX6ThjO4oRqWbdRSchBOFIxYqPpddnCRyuCvEkyHsBxSQNj8wHVEqkbwnBlI0ASpAcl8Ayg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vkxWiApaUdejSgyPWQRPTTZ4pxfmImMWJtctMxSrLXI=;
- b=oHwShq6YRE8YrXnaMiCpvUwVgBUtgOJOrcBI+z1koHGDYKcCRXfYQanjnTBMkLNAS7+GkjEYdGW1Am1sRVesZe2ef0Gf8ntaqUsuur4Y4yNF2GL2e5oJT4U05MsaqvMK9SGvdG6aVuw8OTX4Yrvv+UZiP8fDEDxQxBZE/7DxaHTbtSMEhwJSbDxcDorfIFFck7VK1xuDaGa66gq3kZfAXwt6Iu2P3JWOnsZjeZIwVrZYfvkK7QwFxIQAZCpNLKzzB2y70r+sRldXAeR31LHmeb0P903gvsm4XMBSnZbUZTvuXoJj80OL5PwEH7NiZaKdG8MRm9qjbly0I/IOGNiBRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vkxWiApaUdejSgyPWQRPTTZ4pxfmImMWJtctMxSrLXI=;
- b=fvTqCCrKwU5MjQC5f/u0CWg9Nei41NX368wc6A8OW5bB5ayk+mDyR1b223dzSEfIz6y+6Jk2Jn7/m+OscMW5vl+iw+pPYYbr+xdUmsVSP5DnOlapJUGBb1M94DpEMJr7IHsm3knXEYoF+8tgv4dyvZqjnVuW6+74lQ7+MlRJJbG8H6mE26W88y+JsdTU/iPW96kUtmYrgP0neliDwUA4s5xBMpyTTgs5oK6ktyXd0/zyMXvcLFsSorT95d44rRg5385/Q5+O4LXBvjarewS+xoNHOjYon7MaZKJ5u8Ue1Ol5tVGkYAl5+a+iLbE643oJvL6xl135vC93KOwqNE8AAQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GV2PR04MB12019.eurprd04.prod.outlook.com (2603:10a6:150:30c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
- 2026 15:15:54 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.017; Tue, 24 Feb 2026
- 15:15:54 +0000
-Date: Tue, 24 Feb 2026 10:15:43 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, andrej.picej@norik.com,
-	primoz.fiser@norik.com, c.hemp@phytec.de,
-	s.mueller-klieser@phytec.de, n.wesp@phytec.de, c.stoidner@phytec.de,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3] arm64: dts: imx93-phyboard-segin: Add peb-av-02
- overlay
-Message-ID: <aZ3AnxbjO8YDTPP7@lizhi-Precision-Tower-5810>
-References: <20260113-v6-18-topic-imx93-phyboard-segin-av-02-display-v3-1-fcbb85b0fbe5@pengutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260113-v6-18-topic-imx93-phyboard-segin-av-02-display-v3-1-fcbb85b0fbe5@pengutronix.de>
-X-ClientProxiedBy: PH8PR22CA0006.namprd22.prod.outlook.com
- (2603:10b6:510:2d1::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 24 Feb 2026 15:22:48 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fL1fp4W6xzJ46g6;
+	Tue, 24 Feb 2026 23:22:10 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 612B64056A;
+	Tue, 24 Feb 2026 23:22:32 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 24 Feb
+ 2026 15:22:31 +0000
+Date: Tue, 24 Feb 2026 15:22:30 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+CC: <devicetree@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<Dmitry.Lamerov@arm.com>, <catalin.marinas@arm.com>, <bp@alien8.de>,
+	<robh@kernel.org>, <rafael@kernel.org>, <will@kernel.org>,
+	<conor@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <krzk+dt@kernel.org>, <Michael.Zhao2@arm.com>,
+	<tony.luck@intel.com>, "Mauro Carvalho Chehab" <mchehab+huawei@kernel.org>
+Subject: Re: [PATCH v2 01/11] ACPI: APEI: GHES: share macros via a private
+ header
+Message-ID: <20260224152230.00000531@huawei.com>
+In-Reply-To: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-1-347fa2d7351b@arm.com>
+References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
+	<20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-1-347fa2d7351b@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV2PR04MB12019:EE_
-X-MS-Office365-Filtering-Correlation-Id: a46d4211-6ae2-4d74-dff4-08de73b79a27
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|52116014|7416014|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RhOtjvUVT+sTmnfapdiWKh4eQ5SXkWVPY2iXbu9447I4uzENahfUR6FvcsrS?=
- =?us-ascii?Q?hrs/XOr1iDDskd4G12uggwxaqjJkBAGV04ObjnSMeN3e1+QiWGEzaZFHpKEX?=
- =?us-ascii?Q?iITUFFlQDekb01YMqtke8008SBCGCEPSM9xFyFgcvz/pogZv+sDvML0HQMNq?=
- =?us-ascii?Q?I+ecind6R3beDlIBRdUy51jbVRAFGAQR9W0wV47ewSVDy/0jim4B9wVCk3X8?=
- =?us-ascii?Q?zr8hwZPjQDJu6+3Q4hnyH96yHVlJTyf3SEPCIXPv/MNfSKZcirRcJOmNYn0s?=
- =?us-ascii?Q?YDUypU+jMbrkn9T/57tpUwj2Yfo8aUzSRM/wGp8SL3WUeEZY+RLiboQwrNoi?=
- =?us-ascii?Q?H0KaazfYgalSvOjmEWRxQ+oAZ/KhU7m9sjE3KvpuYZvOXJkX8hMGeD+SOYhr?=
- =?us-ascii?Q?0sqJx6kOermAWGopaSVXAH+Di6zFRtDMBxl/FuvO6ycB7K7LM2nWtwlzH1hQ?=
- =?us-ascii?Q?qDVqRrCS65Q+rnxWZg2PqbzaPhRt481VU6j7Eee4qYlszOzRJxgnMUxET79I?=
- =?us-ascii?Q?OcJKyQn22wTm+CpPeThT9SDvzk6uYpzbQKEwjU64Bu/aX+djR8idFUkU2NSA?=
- =?us-ascii?Q?HaRaiaIXdQsOT/GGquIDEfIjR6Ekvo8hxNgfKG28tT/mJVFaMRGFtFox1LlW?=
- =?us-ascii?Q?YmsiRJe1yzti2QXodHgMIL5eJjpatQOHohJvq30OmP3F56U4yiRHDGQ5+Bds?=
- =?us-ascii?Q?NjD6gETz/Vi3xtrbHuDE+QB6gjTndNkTUija4bt+Y4XocRyMLt8LYjVeiIRp?=
- =?us-ascii?Q?y3nYcVG88Ehwv+Q1o2KjGyx1aNo0Acin6PD1VTZxRBVXiADIdx2rl/O5GH8i?=
- =?us-ascii?Q?KRRukeNg0cKM63Fu0uHqemQREHfm9ycaav/FjiUWmqaXselst4p6scTaLtkn?=
- =?us-ascii?Q?P0x2twMMlPYTDYzZ4ev1NW5ss0poopuob9Ca8kUkURpMn1nRScgqKMRrGgr7?=
- =?us-ascii?Q?eM+lvApligj6ItoVZacCDWhDJ5sfDde/dBj8Wt+g0qZBf+yQen7XaAILjMe5?=
- =?us-ascii?Q?DIfXU/4NXqJlRvtRYmunN85HHePinEe+9VyqqhJR6+xg8nPqJBt8OkrxHvu+?=
- =?us-ascii?Q?wF/G4UAlit7Bk2PC9NjUwa3a59Fpg8GcLPw9uEWsdlWkbeb7EAUwRiOqwsut?=
- =?us-ascii?Q?iFz6/Ql7oY/uUkMzpT6SkOACRqAsknFVwQ0LmMEBamj7QtNmeNja6rfOfpww?=
- =?us-ascii?Q?IYOys1GMwJOU7J1BnVIZTeu8Twc98Os76fJjvTFIgsIhnUyhvv8E7dblPo0O?=
- =?us-ascii?Q?m5qI/C6Y5RqtI3a83ZuFnNBKoWaN1BQ0m1jjy2eJtzU3AjUvYJVvMnRCX4jQ?=
- =?us-ascii?Q?MPCrEDe1x6RPQRVPT10rtW3ywfiSvFqQ5QwgTH1JulglPffHYhaJdI12vXex?=
- =?us-ascii?Q?QGF9U+GmzVg9SlJiTruX8n0qkQRYrpGqqQiDyA9bpj8fzXFajrhRj1eEsquN?=
- =?us-ascii?Q?yYEVQ5/v8vX6Gd6Qz4UQuuMH1519E/AMKsyUlrYjg0uqDQ1eeCRF9pM3DC0M?=
- =?us-ascii?Q?U/A3CH1qc0yOoh5Hr9z2hdfvHIplLiYpieFvzj6+jY1/B+JW0nD9eg8KwENJ?=
- =?us-ascii?Q?e4Pz4R/I7Q6PT+30Q85X+7WeOstBBmbvYBvbf7ZGAkICWdQQRGEyGakw+nwF?=
- =?us-ascii?Q?4GXhrWe2rASbs26z8Z7SYWY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JGboF6zuSqFuzSi+beNG+JTrGGAoYb0KXNdwbn3lGfSO6LVAbHbUdq8Jx2vm?=
- =?us-ascii?Q?JEy8R0mYvP8Pu/sAl6b61p0D2Y6xDDwOS0ZSVDCaX2An2gFr89AOzAulZ49n?=
- =?us-ascii?Q?H3FAOrsb/7hU2NAVh245wGcIMGoUQPOFxc8ICdUqm/9dPpfQO4sPgPdKaDag?=
- =?us-ascii?Q?vHGtx4MnBZGXzVo0+cloVDgnaR8leVOF23F57hpCjWRDRtWSfJoO0ReHZKj4?=
- =?us-ascii?Q?AQtb0YhNQ6684Ptm4Dpm8h53TunG3LuxOl8wLpug9KEPGKDnEw3XH8vqdmdB?=
- =?us-ascii?Q?SFlB+aPnZeMVVj0Hv4xlhjHUG/jFAR/X6wcH0x2vI/K3n4/i7yXmp/iUEzED?=
- =?us-ascii?Q?Cu5riWCRiKJkyJR6Ijxh3W5CVAODk0H01IUUzvk2vfKsEJZOdSMG/OH7IhbF?=
- =?us-ascii?Q?/Ootemzxdil1EBaHgXlzkIutq5T44CdcFIbL0ADsN3qL0pDkmH60bStKlFsP?=
- =?us-ascii?Q?5ertRk74/fGPV2MC0f77j4jcsWla6iZ/n4VlWZcrmBw78QC4i8U34yMzEW1k?=
- =?us-ascii?Q?fnzEi5uiiWxKUTxnNntKZf+LXErjTwRdkdg50qKp788WFmHx5zC27KwJTixr?=
- =?us-ascii?Q?UkQ0zYdrnFumd0ZKUI/kZprpyft84yWyudiEzJP6GOS0fi0vlsVkXbmJVvX/?=
- =?us-ascii?Q?JJ2IApKTHeQacFcgFl6/pYfkB4M21anl7TnTKK3UoBN2Vf1kQKC0T4E6LQDS?=
- =?us-ascii?Q?KCyy0lAtFGtLw5TTB8J1VgJMZtO+9o8aWO2h/isySUqbUDOhDoZ2Vf0gHruR?=
- =?us-ascii?Q?MxdkHGexyjGuMBPfl38/aABjq8JcByEFlfptmBo8T6YZ7OA5/ZXpBEktba7k?=
- =?us-ascii?Q?LMHixfxZ9HMlMMs1eeUaTImQ2tAy8X9aBcTk/WSkk9Sv4XtHtR/UbvxnabQJ?=
- =?us-ascii?Q?LrFzVKGKE5XijvD/KtDjKSqP8gDPHi7DBG3xyhbaK9rarCCl3KZk/WpipM3I?=
- =?us-ascii?Q?0GfxqM9UbdQWvAek1/hpVbVOBpbDKPpFaabm/44oQgjDOuiTi78zN5PWq7Fx?=
- =?us-ascii?Q?Vp4anCW1OhB+XhGSfdT+WhtS1YCTuku3q4a0US05v1sBn+llWJyq3Ysc69N2?=
- =?us-ascii?Q?51oICw9TaM9xXtEVPpOJcMjmMItBLXWc/1fr2iwnVobi5tJydPodX5u+Iphf?=
- =?us-ascii?Q?aYf0TWHM6jByEPZWEE9afqrfplixinuHGdPEy6T+KsUB3CzemErfis27/OQ/?=
- =?us-ascii?Q?ZIQ1cqN9yi9saJNO+AynaWycoIZ0PPH2Rp2/PCXJZJn3do6J9rgJkhjzdYlx?=
- =?us-ascii?Q?RdolDzlsibYgpB09O1uVyTioPMWuDvedRm0ySJPrtUtejZwDsfRXVudZm8b3?=
- =?us-ascii?Q?uUCqDwqoOEn2r2neqm4SfPAQtQUyoczl4EsH3QYmAhQeQG6sSOjJonkZHp9t?=
- =?us-ascii?Q?7FSKAx4ej8epEp0M/TjLlU07nQvdGqqJFqUn7vsi83kDFESCtuyHlMG9K/2k?=
- =?us-ascii?Q?MohVamboicGX5+EYfOXxcDgGF1I+fMEF8ozPyTw40PfXb5oRuBpToHoRMFBw?=
- =?us-ascii?Q?0a58ZQp1dGKL6gKCSBMs1nyXEtnVXgx1RVct9FhEi9b9PhKIQOYyt5Ns8oFO?=
- =?us-ascii?Q?jMMDAvSHDjyJnoZ2dN2veTl//z5qLs+q671uNv3sMn73ta0yghb9B78lFtO2?=
- =?us-ascii?Q?FI8yh8UtLHVwhbW94We/Gl5x4I5LQBC8SSEL99QQzVDO6Zl2yR/WhxPyqSOU?=
- =?us-ascii?Q?9F3ouKZ9uQSXWxwkyQ7EaR4D1S9Ckqskq1zwWdwxoKOctMr9nirYXHGIPtLS?=
- =?us-ascii?Q?ouR8so2kZQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a46d4211-6ae2-4d74-dff4-08de73b79a27
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 15:15:54.0360
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Q2ktYngtKwRJIjtKVQXKjAlQLL398bx6oPqTGqrj2gHD4GtXr41V8rqmQYJ/1bC7T08JKYivEfYGmJTImRKRtA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12019
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_071558_971392_3B8978A2 
-X-CRM114-Status: GOOD (  25.38  )
+X-CRM114-CacheID: sfid-20260224_072246_812966_56E204DA 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,244 +76,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 08:06:08PM +0100, Marco Felsch wrote:
-> From: Andrej Picej <andrej.picej@norik.com>
->
-> Add overlay for Audio-Video module PEB-AV-02. Add support for panel
-> display, capacitive touchscreen and backlight.
->
-> The pwm-backlight uses the GPIO based PWM implementation for now. Switch
-> to the FlexIO PWM support once available.
->
-> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-> [rework commit message, use local regulator, remove compatible]
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> Signed-off-by: Christian Hemp <c.hemp@phytec.de>
-> [m.felsch@pengutronix.de: cleanup downstream commit]
-> Tested-by: Primoz Fiser <primoz.fiser@norik.com>
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+On Fri, 20 Feb 2026 13:42:19 +0000
+Ahmed Tiba <ahmed.tiba@arm.com> wrote:
+
+> Carve the CPER helper macros out of ghes.c and place them in a private
+> header so they can be shared with upcoming helper files. This is a
+> mechanical include change with no functional differences.
+> 
+> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
++CC Mauro as he's been doing a lot of work on error injection recently so
+can probably review the use of the various structures much more easily
+than I can!
+
+My main comment is on the naming of the new header.
+
+Jonathan
+
+
 > ---
-> Hi,
->
-> this small series add the support for the phyBOARD-Segin DisplayKit
-> AV-02 evaluation kit. This patchset depends on the following patchsets:
->
->  - https://lore.kernel.org/linux-arm-kernel/20251202-v6-18-topic-imx93-blkctrl-v2-0-e73501034adc@pengutronix.de/
->  - https://lore.kernel.org/linux-arm-kernel/20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de/
->  - https://lore.kernel.org/all/20260113-v6-18-topic-clk-fracn-gppll-v3-0-45da70f43c98@pengutronix.de/
->
-> My test setup was:
-> - phyCORE-i.MX93 +
-> - phyBOARD-Segin +
-> - DisplayKit
->
-> and I used 'modeset -r' to validate the display output.
->
-> Regards,
->  Marco
-> ---
-> Changes in v3:
-> - Link to v2: https://lore.kernel.org/r/20260113-v6-18-topic-imx93-phyboard-segin-av-02-display-v2-1-39399e4d691d@pengutronix.de
-> - adapt commit message accordingly
->
-> Changes in v2:
-> - Link to v1: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-0-9c14be6c7478@pengutronix.de
-> - Add tested-by and r-b (Primoz)
-> - Rebase to v6.19-rc1 (Primoz)
-> - Rename power supply name (Primoz)
-> - add vcc/iovcc-supply (Primoz)
-> - add wakeup-source (Primoz)
-> - add pwm-backlight and gpio-pwm
-> ---
->  arch/arm64/boot/dts/freescale/Makefile             |   2 +
->  .../freescale/imx93-phyboard-segin-peb-av-02.dtso  | 146 +++++++++++++++++++++
->  2 files changed, 148 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index f30d3fd724d0ce6b38f7bef10e3970ac34f70f4a..a850cf5d8c0298c1bcfbff0fe857c39745ac7a6c 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -384,12 +384,14 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
->  imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
->  imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
->  imx93-phyboard-nash-pwm-fan-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-pwm-fan.dtbo
-> +imx93-phyboard-segin-peb-av-02-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-02.dtbo
->  imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
->  imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
->  imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-jtag.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-pwm-fan.dtb
-> +dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-02.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
+>  drivers/acpi/apei/ghes.c | 60 +-----------------------------
+>  include/acpi/ghes_cper.h | 95 ++++++++++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 96 insertions(+), 59 deletions(-)
+> 
+> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+> index f96aede5d9a3..07b70bcb8342 100644
+> --- a/drivers/acpi/apei/ghes.c
+> +++ b/drivers/acpi/apei/ghes.c
 
-I get build error
-
-Failed to apply 'arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtbo': FDT_ERR_NOTFOUND
-
-Frank
-
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
+>  
+>  static struct ghes_estatus_cache __rcu *ghes_estatus_caches[GHES_ESTATUS_CACHES_SIZE];
+> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
 > new file mode 100644
-> index 0000000000000000000000000000000000000000..af330756abfd127f2dd0a7e54c2e141300462889
+> index 000000000000..2597fbadc4f3
 > --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
-> @@ -0,0 +1,146 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +++ b/include/acpi/ghes_cper.h
+> @@ -0,0 +1,95 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
 > +/*
-> + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-> + * Copyright (C) 2025 Pengutronix
+> + * APEI Generic Hardware Error Source: CPER Helper
+
+There is other stuff in her usch as the GHES acks etc
+in ghes_clear_estatus(). So I think this intro text
+needs a bit more thought.  The boundary is already rather
+blurred though as for example cper_estatus_len() is only
+tangentially connected to cper.
+
 > + *
-> + * Author: Andrej Picej <andrej.picej@norik.com>
-> + * Author: Marco Felsch <kernel@pengutronix.de>
+> + * Copyright (C) 2026 ARM Ltd.
+
+Doesn't make sense to ad this copyright in this patch as so far
+it's cut and paste of code from a file that you didn't write (at least
+not in 2026!)
+
+Might make sense after a few patches, in which case add the copyright
+when it does.
+
+> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
+> + * Based on ACPI APEI GHES driver.
+> + *
 > + */
 > +
-> +#include <dt-bindings/clock/imx93-clock.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include "imx93-pinfunc.h"
+> +#ifndef ACPI_APEI_GHES_CPER_H
+> +#define ACPI_APEI_GHES_CPER_H
 > +
-> +/dts-v1/;
-> +/plugin/;
+> +#include <linux/workqueue.h>
 > +
-> +&{/} {
-> +	backlight: backlight {
-> +		compatible = "pwm-backlight";
-> +		brightness-levels = <0 4 8 16 32 64 128 255>;
-> +		default-brightness-level = <5>;
-> +		power-supply = <&reg_vcc_3v3_con>;
-> +		pwms = <&pwm7 0 5000000 0>;
-> +	};
+> +#include <acpi/ghes.h>
 > +
-> +	panel {
-> +		compatible = "edt,etm0700g0edh6";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_panel>;
+> +#define GHES_PFX	"GHES: "
 > +
-> +		backlight = <&backlight>;
-> +		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
-> +		power-supply = <&reg_vcc_3v3_con>;
+> +#define GHES_ESTATUS_MAX_SIZE		65536
+> +#define GHES_ESOURCE_PREALLOC_MAX_SIZE	65536
 > +
-> +		port {
-> +			panel_in: endpoint {
-> +				remote-endpoint = <&dpi_to_panel>;
-> +			};
-> +		};
-> +	};
+> +#define GHES_ESTATUS_POOL_MIN_ALLOC_ORDER 3
 > +
-> +	/* TODO: Convert to FlexIO PWM once supported */
-> +	pwm7: pwm-7 {
-> +		compatible = "pwm-gpio";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_pwm7>;
-> +		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
-> +		#pwm-cells = <3>;
-> +	};
+> +/* This is just an estimation for memory pool allocation */
+> +#define GHES_ESTATUS_CACHE_AVG_SIZE	512
 > +
-> +	reg_vcc_3v3_con: regulator-vcc-3v3-con {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC3V3_CON";
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-min-microvolt = <3300000>;
-> +	};
+> +#define GHES_ESTATUS_CACHES_SIZE	4
+> +
+> +#define GHES_ESTATUS_IN_CACHE_MAX_NSEC	10000000000ULL
+> +/* Prevent too many caches are allocated because of RCU */
+> +#define GHES_ESTATUS_CACHE_ALLOCED_MAX	(GHES_ESTATUS_CACHES_SIZE * 3 / 2)
+> +
+> +#define GHES_ESTATUS_CACHE_LEN(estatus_len)			\
+> +	(sizeof(struct ghes_estatus_cache) + (estatus_len))
+> +#define GHES_ESTATUS_FROM_CACHE(estatus_cache)			\
+> +	((struct acpi_hest_generic_status *)				\
+> +	 ((struct ghes_estatus_cache *)(estatus_cache) + 1))
+> +
+> +#define GHES_ESTATUS_NODE_LEN(estatus_len)			\
+> +	(sizeof(struct ghes_estatus_node) + (estatus_len))
+> +#define GHES_ESTATUS_FROM_NODE(estatus_node)			\
+> +	((struct acpi_hest_generic_status *)				\
+> +	 ((struct ghes_estatus_node *)(estatus_node) + 1))
+> +
+> +#define GHES_VENDOR_ENTRY_LEN(gdata_len)                               \
+> +	(sizeof(struct ghes_vendor_record_entry) + (gdata_len))
+> +#define GHES_GDATA_FROM_VENDOR_ENTRY(vendor_entry)                     \
+> +	((struct acpi_hest_generic_data *)                              \
+> +	((struct ghes_vendor_record_entry *)(vendor_entry) + 1))
+> +
+> +static inline bool is_hest_type_generic_v2(struct ghes *ghes)
+> +{
+> +	return ghes->generic->header.type == ACPI_HEST_TYPE_GENERIC_ERROR_V2;
+> +}
+> +
+> +/*
+> + * A platform may describe one error source for the handling of synchronous
+> + * errors (e.g. MCE or SEA), or for handling asynchronous errors (e.g. SCI
+> + * or External Interrupt). On x86, the HEST notifications are always
+> + * asynchronous, so only SEA on ARM is delivered as a synchronous
+> + * notification.
+> + */
+> +static inline bool is_hest_sync_notify(struct ghes *ghes)
+> +{
+> +	u8 notify_type = ghes->generic->notify.type;
+> +
+> +	return notify_type == ACPI_HEST_NOTIFY_SEA;
+> +}
+> +
+> +struct ghes_vendor_record_entry {
+> +	struct work_struct work;
+> +	int error_severity;
+> +	char vendor_record[];
 > +};
 > +
-> +&dpi_bridge {
-> +	status = "okay";
-> +};
+> +static struct ghes *ghes_new(struct acpi_hest_generic *generic);
+> +static void ghes_fini(struct ghes *ghes);
 > +
-> +&dpi_to_panel {
-> +	remote-endpoint = <&panel_in>;
-> +};
+> +static int ghes_read_estatus(struct ghes *ghes,
+> +		      struct acpi_hest_generic_status *estatus,
+> +		      u64 *buf_paddr, enum fixed_addresses fixmap_idx);
+> +static void ghes_clear_estatus(struct ghes *ghes,
+> +			struct acpi_hest_generic_status *estatus,
+> +			u64 buf_paddr, enum fixed_addresses fixmap_idx);
+
+I'm not sure some of this makes sense in a file named ghes_cper.h
+Maybe we just need a different intro comment though.
+
+> +static int __ghes_peek_estatus(struct ghes *ghes,
+> +			struct acpi_hest_generic_status *estatus,
+> +			u64 *buf_paddr, enum fixed_addresses fixmap_idx);
+> +static int __ghes_check_estatus(struct ghes *ghes,
+> +			 struct acpi_hest_generic_status *estatus);
+> +static int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
+> +			u64 buf_paddr, enum fixed_addresses fixmap_idx,
+> +			size_t buf_len);
 > +
-> +&lcdif {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_lcdif>;
-> +	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
-> +	assigned-clock-rates = <332600000>;
-> +	status = "okay";
-> +};
-> +
-> +&lpi2c2 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	touchscreen@38 {
-> +		compatible = "edt,edt-ft5406";
-> +		reg = <0x38>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_touchscreen>;
-> +		interrupt-parent = <&gpio4>;
-> +		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
-> +		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
-> +		vcc-supply = <&reg_vcc_3v3_con>;
-> +		iovcc-supply = <&reg_vcc_3v3_con>;
-> +		touchscreen-size-x = <1792>;
-> +		touchscreen-size-y = <1024>;
-> +		wakeup-source;
-> +	};
-> +};
-> +
-> +&media_blk_ctrl {
-> +	status = "okay";
-> +};
-> +
-> +&iomuxc {
-> +	pinctrl_lcdif: lcdifgrp {
-> +		fsl,pins = <
-> +			MX93_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
-> +			MX93_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
-> +			MX93_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
-> +			MX93_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
-> +			MX93_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA00	0x50e
-> +			MX93_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA01	0x50e
-> +			MX93_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA02	0x50e
-> +			MX93_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA03	0x50e
-> +			MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04	0x50e
-> +			MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05	0x51e
-> +			MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06	0x50e
-> +			MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07	0x50e
-> +			MX93_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA08	0x50e
-> +			MX93_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA09	0x50e
-> +			MX93_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
-> +			MX93_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
-> +			MX93_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
-> +			MX93_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
-> +			MX93_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
-> +			MX93_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
-> +			MX93_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
-> +			MX93_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
-> +		>;
-> +	};
-> +
-> +	pinctrl_panel: panelgrp {
-> +		fsl,pins = <
-> +			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
-> +		>;
-> +	};
-> +
-> +	pinctrl_pwm7: pwm7grp {
-> +		fsl,pins = <
-> +			MX93_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
-> +		>;
-> +	};
-> +
-> +	pinctrl_touchscreen: touchscreengrp {
-> +		fsl,pins = <
-> +			MX93_PAD_ENET1_MDIO__GPIO4_IO01			0x11e
-> +			MX93_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
-> +		>;
-> +	};
-> +};
->
-> ---
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> change-id: 20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-c1687aa1ccf4
->
-> Best regards,
-> --
-> Marco Felsch <m.felsch@pengutronix.de>
->
+> +#endif /* ACPI_APEI_GHES_CPER_H */
+> 
+
 
