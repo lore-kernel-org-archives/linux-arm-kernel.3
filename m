@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38432EFB7FB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 05:13:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA56EFB7FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 05:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=al0CxO/T+3Vzo6bAStDPqo5GOdTHNtQ67l/V+ahAuFM=; b=RaGEIAz2CWiFvmLbhaenrs62m8
-	GfS5lPMgIXAlOTz6lRFAKjvpnRHmZwbTA2+GaVYp4oMTnQQpK8S6sV7Qd+thwrJND3nWe2ayU9JrO
-	T9UZFWcF7ib6HG6a+WsAEId+JQhXsORcfz/9TdNCQTqPdQRtbpyO3MEOK8NKRxDklSRvp/mBuwmtI
-	ak2u6854f6Q84+TNaj1d5az53a597MtW0lpnylMn5rK0YpEFjcLjIiY3ualSotbLsgvaDXpptiBhZ
-	UiRNttnIpsFVNQ2SH5oshX5+oDzR1BPy+KoQNHmzaecM48RzLnndfxARLKTmL44xDEZaJVwFeRC8O
-	FrSdPs5w==;
+	bh=2ayvpnHYj4EbJddjYMjzafBC+RiccfjiA2UiMgNEX2Q=; b=opEvfA0ACH4h07namw3WoIIKoH
+	gK3zvuZoer56mcR4sx55sr0tD+dBH6nN054eEpZskFi2KYPgcKQgamNYjdrjabDRbOPf3y3+THx5B
+	It2wrucmQYJSpfIE5btkW+IMudY+TYj1ReWjB5Bn32aRe/KHR02zoj1mtZ4jt8ezyo9U21dYRs71k
+	dPdy1LWVWu5YFzdxxUGmq8T3KQpuI0HKaNVTwN3KYcjBLbj5HMt1KWSKVfMIw+Zd9dZXuWC7+YBx2
+	qIklYJIAeUmZhuvatXjwSuTB1iLaxcteV+yo5HLGINrV+HXveYv/AFL5Wep+/Yvi9aflXB0FwDNah
+	6wBoxWzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vukjY-00000001SvQ-1fpQ;
-	Tue, 24 Feb 2026 05:13:20 +0000
+	id 1vukjd-00000001T0p-3fFU;
+	Tue, 24 Feb 2026 05:13:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vukjV-00000001SrV-0EM4
+	id 1vukjZ-00000001Sw8-0wG2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 05:13:18 +0000
+	Tue, 24 Feb 2026 05:13:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8440B497;
-	Mon, 23 Feb 2026 21:13:09 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EF02497;
+	Mon, 23 Feb 2026 21:13:14 -0800 (PST)
 Received: from a085714.blr.arm.com (a085714.arm.com [10.164.18.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A0BB83F7BD;
-	Mon, 23 Feb 2026 21:13:11 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6C87D3F7BD;
+	Mon, 23 Feb 2026 21:13:16 -0800 (PST)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -47,17 +47,17 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Linu Cherian <linu.cherian@arm.com>,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [RFC V1 10/16] arm64/mm: Route all pgtable writes via ptdesc_set()
-Date: Tue, 24 Feb 2026 10:41:47 +0530
-Message-ID: <20260224051153.3150613-11-anshuman.khandual@arm.com>
+Subject: [RFC V1 11/16] arm64/mm: Route all pgtable atomics to central helpers
+Date: Tue, 24 Feb 2026 10:41:48 +0530
+Message-ID: <20260224051153.3150613-12-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260224051153.3150613-1-anshuman.khandual@arm.com>
 References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_211317_227668_4758F0C6 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260223_211321_395409_19336EA3 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,12 +72,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently ptdesc_set() is defined as WRITE_ONCE() but this will change for
-D128 pgtable builds, for which WRITE_ONCE() is not sufficient for single
-copy atomicity.
+Route all cmpxchg() operations performed on various page table entries to a
+new ptdesc_cmpxchg_relaxed() helper. Similarly route all xchg() operations
+performed on page table entries to a new ptdesc_xchg_relaxed() helper.
 
-In future this infrastructure can be used for D128 to maintain single copy
-atomicity semantics with inline asm blocks.
+Currently these helpers just forward to the same APIs that were previously
+called direct, but in future we will change the routing for D128 which is
+too long to use the standard APIs.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
@@ -87,112 +88,92 @@ Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/arm64/include/asm/pgtable.h | 11 ++++++-----
- arch/arm64/mm/mmu.c              |  4 ++--
- mm/debug_vm_pgtable.c            |  4 ++--
- 3 files changed, 10 insertions(+), 9 deletions(-)
+ arch/arm64/include/asm/pgtable.h | 23 +++++++++++++++++------
+ arch/arm64/mm/fault.c            |  2 +-
+ 2 files changed, 18 insertions(+), 7 deletions(-)
 
 diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 804ef49aea88..42124d2f323d 100644
+index 42124d2f323d..cf69ce68f951 100644
 --- a/arch/arm64/include/asm/pgtable.h
 +++ b/arch/arm64/include/asm/pgtable.h
-@@ -85,6 +85,7 @@ static inline void arch_leave_lazy_mmu_mode(void)
- }
- 
+@@ -87,6 +87,17 @@ static inline void arch_leave_lazy_mmu_mode(void)
  #define ptdesc_get(x)		READ_ONCE(x)
-+#define ptdesc_set(x, val)	WRITE_ONCE(x, val)
+ #define ptdesc_set(x, val)	WRITE_ONCE(x, val)
  
++static inline ptdesc_t ptdesc_cmpxchg_relaxed(ptdesc_t *ptep, ptdesc_t old,
++					      ptdesc_t new)
++{
++	return cmpxchg_relaxed(ptep, old, new);
++}
++
++static inline ptdesc_t ptdesc_xchg_relaxed(ptdesc_t *ptep, ptdesc_t new)
++{
++	return xchg_relaxed(ptep, new);
++}
++
  #define pmdp_get pmdp_get
  static inline pmd_t pmdp_get(pmd_t *pmdp)
-@@ -389,7 +390,7 @@ static inline pte_t pte_clear_uffd_wp(pte_t pte)
- 
- static inline void __set_pte_nosync(pte_t *ptep, pte_t pte)
  {
--	WRITE_ONCE(*ptep, pte);
-+	ptdesc_set(*ptep, pte);
+@@ -1313,8 +1324,8 @@ static inline int __ptep_test_and_clear_young(struct vm_area_struct *vma,
+ 	do {
+ 		old_pte = pte;
+ 		pte = pte_mkold(pte);
+-		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
+-					       pte_val(old_pte), pte_val(pte));
++		pte_val(pte) = ptdesc_cmpxchg_relaxed(&pte_val(*ptep),
++						      pte_val(old_pte), pte_val(pte));
+ 	} while (pte_val(pte) != pte_val(old_pte));
+ 
+ 	return pte_young(pte);
+@@ -1350,7 +1361,7 @@ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
+ 					       pte_t *ptep,
+ 					       unsigned long pgsize)
+ {
+-	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
++	pte_t pte = __pte(ptdesc_xchg_relaxed(&pte_val(*ptep), 0));
+ 
+ 	switch (pgsize) {
+ 	case PAGE_SIZE:
+@@ -1426,7 +1437,7 @@ static inline void ___ptep_set_wrprotect(struct mm_struct *mm,
+ 	do {
+ 		old_pte = pte;
+ 		pte = pte_wrprotect(pte);
+-		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
++		pte_val(pte) = ptdesc_cmpxchg_relaxed(&pte_val(*ptep),
+ 					       pte_val(old_pte), pte_val(pte));
+ 	} while (pte_val(pte) != pte_val(old_pte));
  }
+@@ -1464,7 +1475,7 @@ static inline void __clear_young_dirty_pte(struct vm_area_struct *vma,
+ 		if (flags & CYDP_CLEAR_DIRTY)
+ 			pte = pte_mkclean(pte);
  
- static inline void __set_pte_complete(pte_t pte)
-@@ -856,7 +857,7 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
- 	}
- #endif /* __PAGETABLE_PMD_FOLDED */
- 
--	WRITE_ONCE(*pmdp, pmd);
-+	ptdesc_set(*pmdp, pmd);
- 
- 	if (pmd_valid(pmd))
- 		queue_pte_barriers();
-@@ -917,7 +918,7 @@ static inline void set_pud(pud_t *pudp, pud_t pud)
- 		return;
- 	}
- 
--	WRITE_ONCE(*pudp, pud);
-+	ptdesc_set(*pudp, pud);
- 
- 	if (pud_valid(pud))
- 		queue_pte_barriers();
-@@ -999,7 +1000,7 @@ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
- 		return;
- 	}
- 
--	WRITE_ONCE(*p4dp, p4d);
-+	ptdesc_set(*p4dp, p4d);
- 	queue_pte_barriers();
+-		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
++		pte_val(pte) = ptdesc_cmpxchg_relaxed(&pte_val(*ptep),
+ 					       pte_val(old_pte), pte_val(pte));
+ 	} while (pte_val(pte) != pte_val(old_pte));
  }
- 
-@@ -1120,7 +1121,7 @@ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
- 		return;
- 	}
- 
--	WRITE_ONCE(*pgdp, pgd);
-+	ptdesc_set(*pgdp, pgd);
- 	queue_pte_barriers();
+@@ -1503,7 +1514,7 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ 		unsigned long address, pmd_t *pmdp, pmd_t pmd)
+ {
+ 	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+-	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
++	return __pmd(ptdesc_xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
  }
+ #endif
  
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index bcf32d1a92de..ffd307c546f5 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -83,7 +83,7 @@ void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
- 	 * writable in the kernel mapping.
- 	 */
- 	if (rodata_is_rw) {
--		WRITE_ONCE(*pgdp, pgd);
-+		ptdesc_set(*pgdp, pgd);
- 		dsb(ishst);
- 		isb();
- 		return;
-@@ -91,7 +91,7 @@ void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index 7bb14765a98d..21964a387bf8 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -230,7 +230,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
+ 		pteval ^= PTE_RDONLY;
+ 		pteval |= pte_val(entry);
+ 		pteval ^= PTE_RDONLY;
+-		pteval = cmpxchg_relaxed(&pte_val(*ptep), old_pteval, pteval);
++		pteval = ptdesc_cmpxchg_relaxed(&pte_val(*ptep), old_pteval, pteval);
+ 	} while (pteval != old_pteval);
  
- 	spin_lock(&swapper_pgdir_lock);
- 	fixmap_pgdp = pgd_set_fixmap(__pa_symbol(pgdp));
--	WRITE_ONCE(*fixmap_pgdp, pgd);
-+	ptdesc_set(*fixmap_pgdp, pgd);
  	/*
- 	 * We need dsb(ishst) here to ensure the page-table-walker sees
- 	 * our new entry before set_p?d() returns. The fixmap's
-diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
-index 83cf07269f13..faf6a19a89a1 100644
---- a/mm/debug_vm_pgtable.c
-+++ b/mm/debug_vm_pgtable.c
-@@ -445,7 +445,7 @@ static void __init pmd_huge_tests(struct pgtable_debug_args *args)
- 	 * X86 defined pmd_set_huge() verifies that the given
- 	 * PMD is not a populated non-leaf entry.
- 	 */
--	WRITE_ONCE(*args->pmdp, __pmd(0));
-+	ptdesc_set(*args->pmdp, __pmd(0));
- 	WARN_ON(!pmd_set_huge(args->pmdp, __pfn_to_phys(args->fixed_pmd_pfn), args->page_prot));
- 	WARN_ON(!pmd_clear_huge(args->pmdp));
- 	pmd = pmdp_get(args->pmdp);
-@@ -465,7 +465,7 @@ static void __init pud_huge_tests(struct pgtable_debug_args *args)
- 	 * X86 defined pud_set_huge() verifies that the given
- 	 * PUD is not a populated non-leaf entry.
- 	 */
--	WRITE_ONCE(*args->pudp, __pud(0));
-+	ptdesc_set(*args->pudp, __pud(0));
- 	WARN_ON(!pud_set_huge(args->pudp, __pfn_to_phys(args->fixed_pud_pfn), args->page_prot));
- 	WARN_ON(!pud_clear_huge(args->pudp));
- 	pud = pudp_get(args->pudp);
 -- 
 2.43.0
 
