@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF54BEEC2B7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 01:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C7AEEC2BA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 01:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3dAEu5PVOuCuQR6jVI3/4OYFcoq/jUx3ENH0aU8pdaI=; b=qIsBpHYfFhTATmTvOar1xHbbhw
-	PFBIhm4l8l+FvKNmrZ3XPSGIpqMC563Uf9enM+2jWaIZQgIS33cS3QXvocTxz26XHwH1stDXjMy8V
-	qeexTv3gZPv62J6r3NSXesmJW02UFu7ZlLcNEXg/QWG/nk7Tp7QOsQvrRL1sRwgkzFG10LLtiPLLA
-	IjrvUcdqFk7kYv2OE4d49t+wYylsDqYTRzpcv1/wEois4d21ElMEins3HP4mU6ZBVb/ZLNBMh9iB5
-	0dFpuhHfRQNU9S/HRbvclIbFUc75uwuygeOCST61cDyVdTWlUwY1TsuKLMusGOHxNbjpE/rGNU796
-	8+PAjMbQ==;
+	bh=Jcc+Bm636zbBsjTNZ3EK3Eue5zZ9zHiTiOlMdsEG1Jc=; b=qz58ntbIAHkW5baXXW93xqVVd7
+	uFtAIBekBXP2fiXCkE7c9SW3OGoigGrNBKnd2TRyHgG8HUxGgv6IR4kZRM1sijJH3QaB1d6enWXAf
+	9NAndPREdIYB0zmDZDdw0J5xxFcUWXtjJV2/ZW3QDosSigvYTcTVvIPPkHikYvTMbLK0PPNvGeVAn
+	4E8hYLHZ6/q971FmbBtud94sksBtTSG8Rs0J/C42/s78WTMUfM70rPKO2hlLwkR4bQwWNjBmMCIqM
+	d6n9AHS4NhAO4cxJN7WtCRtu7q1ca13ljMydPTRLFG8aEgfCJmmdHXTtNxhJuZXkcugTSENGZ32Xg
+	brZf6wpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuhQF-00000001Hlv-2LjM;
-	Tue, 24 Feb 2026 01:41:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vuhRv-00000001Hzm-07Sb;
+	Tue, 24 Feb 2026 01:42:55 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuhQD-00000001Hld-48ZH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 01:41:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E86D2600AE
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:41:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C7E5C116C6
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:41:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771897267;
-	bh=C0arap7e7ErnJBW4Gn1rKZG1I696BkggqBdWrjRMig8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=PcFhxqGfs4x6ojAoWOJ2rb4klb5JydefbuelWwG/YTKlf877rWdg200FWqVWL0Ped
-	 xaUkRJM/TQrgkSh2CE5IdQwx8uaCbXPpLNpr0t8AWdzOS2ohLwQY59VtaUYM8L1Nub
-	 JRId/E+xxYgSdx+4a73xSEMcpaAFF11TI9uDEAlt+NNfbGwxxK60oVOwbEPBn72mvs
-	 Mq05zOhFQJTII+DpobEDzC9eixZZu+WdyYNI0751THHEFjOM7PhLSGnNdmwuEawPI2
-	 JrtrIyKpflD3bhPmbl3zHDTqKW0e3eHLDGBWSSmttDdCHmAQhkzud+B+888AGfFqbo
-	 aOe51MazNHd7A==
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4358fb60802so3608712f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Feb 2026 17:41:07 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWJwkIM/22d1F/MOvt98KKlRLi9uRXDADp4fwGe6AJZO82LQxphTYTBfTgnrz4z6njMWkMoJ1N9uWlSsrD+xWrp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnJbpu3xHp48mOIIiSReXtjKrm00DR+QkcA+TdVfBr3jVsUK2e
-	l7ICGq/HwT1ddbA1RbObl60q16WAD8M6ZuMpGUK/sGL30nGxfK1yXU2+nwwwmfLH4uibZNaemOQ
-	mrUDywYBYguMIhKDKJZikbozMZNEw52c=
-X-Received: by 2002:a5d:588d:0:b0:435:bdc2:461 with SMTP id
- ffacd0b85a97d-43962733de0mr29840042f8f.21.1771897266184; Mon, 23 Feb 2026
- 17:41:06 -0800 (PST)
+	id 1vuhRr-00000001HxC-2ZGx;
+	Tue, 24 Feb 2026 01:42:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1771897343;
+	bh=Jcc+Bm636zbBsjTNZ3EK3Eue5zZ9zHiTiOlMdsEG1Jc=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=VcOSGa3qsRmuOcmKvj/Dke3MbVeXFPDmIjSGVU/Uh6YJvGQCanaHUr5/1on2LicyJ
+	 xMbVFeZhHSWDm0Y/Kj6L6EHz06BcVGIAd/DAu7Uka80a9GHaeHzPw/GwhIJFGOAz69
+	 hg/Wlslts+7lbalHKhRWitnyNwjWsEgVGicTHcLU=
+X-QQ-mid: zesmtpgz3t1771897338te0671743
+X-QQ-Originating-IP: VxWANHq/kQn9OZsEiJ4CYippYDR23qbKKQHdJan0+js=
+Received: from [127.0.0.1] ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 24 Feb 2026 09:42:17 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 17092131372750963368
+Message-ID: <C28FA037F24F3E74+97535c93-cc16-4bd5-b436-db7cdc0bb580@airkyi.com>
+Date: Tue, 24 Feb 2026 09:42:02 +0800
 MIME-Version: 1.0
-References: <20260220090922.1506-1-jszhang@kernel.org> <20260220090922.1506-3-jszhang@kernel.org>
-In-Reply-To: <20260220090922.1506-3-jszhang@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 24 Feb 2026 09:40:54 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTG849M7mmWo+sri0xoGYkKYxMwSEDhVr-OedMfMWC0Kw@mail.gmail.com>
-X-Gm-Features: AaiRm50lHvRaJWlxL081KRQ9Nsp_QxSbpbb_HVp27aHXjz14wyjJ-xtZBksh99A
-Message-ID: <CAJF2gTTG849M7mmWo+sri0xoGYkKYxMwSEDhVr-OedMfMWC0Kw@mail.gmail.com>
-Subject: Re: [PATCH 2/3] genirq: use runtime constant to optimize
- handle_arch_irq access
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: add node name for
+ RK3588_PD_RKVDEC0/1 and RK3588_PD_VENC0/1
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <1770950113-19802-1-git-send-email-shawn.lin@rock-chips.com>
+ <B5000B8F1001C1D8+040b217f-8ee1-4f96-95ec-e44d140b589d@airkyi.com>
+ <9cc9a3c5-55f0-32f6-f166-acfb3a34f0a3@rock-chips.com>
+Content-Language: en-US
+From: Chaoyi Chen <kernel@airkyi.com>
+In-Reply-To: <9cc9a3c5-55f0-32f6-f166-acfb3a34f0a3@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NVgUsgecbtFOUkTH+U2yxknL5s9pEbBwWrJgzv2os8snM7fa2YfLveCT
+	qqRjDqwe/is7Jxgv4P97rRTMtfDOWPkXee73aeJDIGJiER1q+o0+2W4WTTMEsHnOu3d51IX
+	/KLcVUrruHXWUsdosYtMicdrRv86ztzv9yRGHVYrT5XQO4bCA0bga4yUZyPKMwCk3jny7du
+	sfhO5qtpbqTaem1bPoQ24OFT50Fb8N9xaAN766csZjPwJTMAB0p4ghmaocFkHpOwyAG3Y7J
+	akEyR+t0MZWS6dc5gr8cueCV39RGcVmcXS7BxxsUF0FsZw0CvsQrIqzcDoXMTAdRQqijzHR
+	nhb2elj5XR9h2khReLcqw6HsE67rP7bQVhTRcbb5IibQ8o0bW0FE/SRSoM5LjQcP6cAn9uP
+	T7zs5Q+aV3+23DCfeb0aB1I3/o6I9DvGOvHJxgKgh26vf+3mRr2GFtDolyWDr/u+C/9vh0k
+	ipvovA96nAkPOfN4TN0OrSKgm/D8xqnkx/KEGL+aotkDRRSCc7i7Q23HPTpiGG+rIUvu/nu
+	IzigGEb+B2Lt6c/MdZ2WFjO64W+dYxvGEoiVhQQjq+ab5MaPjSnH0ubJje6RPSlgmdoRj0G
+	klR8Sdn64MEdkEB/1Buaf5Suc/8pw1wqo15z//TMzWvqQBq8lpg7Vpn/AtGCAkaEOcjJad5
+	kf2eSUPG5LgtqKi1qRUw4VxjX5XCab1xEuGnxWoRZVknrVCtHdIu6eVf3xyqppoVLAlMVa2
+	5Rvx4lzkDRI1kzymShHdHi23dHXyhxkHFxrJO7MO7bYaRe490iC4i+Z8Mv5iBrcZq2c4/EY
+	Y3uDnongwLGurOPR+2COojNi+TLBjX9iWS2k61lJaZmzibD10S0/xbAk6k2ScYvPK2pO3Cz
+	zsOcD8qAifg82b9RvFAj6z49kRV75Fnri3dye/GMGOXpoUmAB2ya+TP0d3jqASLKyBzpJU9
+	Xu81tADr/Ls4x6aPia0vNdMIkGhYyeVyV8Bma1PAjsBmmf1IAkvshVHhEaDkVWScZY1Ey8H
+	ZH77PbpbFoOi1EFwYztkyKz/VvXLw=
+X-QQ-XMRINFO: M/715EihBoGS/VAi3I5lh1UT7FCdJekTaA==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260223_174252_172135_28D7D96A 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,102 +95,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 5:28=E2=80=AFPM Jisheng Zhang <jszhang@kernel.org> =
-wrote:
->
-> Currently, on GENERIC_IRQ_MULTI_HANDLER platforms, the handle_arch_irq
-> is a pointer which is set during booting, and every irq processing needs
-> to access it, so it sits in hot code path. We can use the
-> runtime constant mechanism which was introduced by Linus to speed up
-> its accessing.
->
-> Tested on Sipeed Lichee Pi 4A (riscv64) board, the perf sched benchmark i=
-s
-> improved by ~5.8%
-Thx for the work. It's a visible improvement.
+On 2/13/2026 7:11 PM, Shawn Lin wrote:
+> Hi Chaoyi
+> 
+> 在 2026/02/13 星期五 18:32, Chaoyi Chen 写道:
+>> Hello Shawn,
+>>
+>> On 2/13/2026 10:35 AM, Shawn Lin wrote:
+>>> Thus the board dts files could add property for these nodes.
+>>>
+>>> Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+>>> ---
+>> You should also add pmdomain driver.
+>>
+>> I've encountered a similar issue before.
+>> Finley told me to use the new PMIC, and that would solve the problem.
+>> Maybe you're using the same old PMIC as I did :)
+>>
+> 
+> I don't know what does new PMIC mean? New RK806 driver or new RK806
+> hardware?
 
-Compared to the original handler pointer approach, this solution
-introduces no observable drawbacks. Since the static_call alternative
-requires further analysis and consensus, adopting this implementation
-serves as a pragmatic interim step.
-
-So, I give:
-Reviewed-by: Guo Ren (Alibaba Damo Academy) <guoren@kernel.org>
-
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  include/linux/irq.h | 4 +++-
->  kernel/irq/handle.c | 8 +++++---
->  2 files changed, 8 insertions(+), 4 deletions(-)
->
-> diff --git a/include/linux/irq.h b/include/linux/irq.h
-> index 951acbdb9f84..2ba4a8afb71e 100644
-> --- a/include/linux/irq.h
-> +++ b/include/linux/irq.h
-> @@ -1274,6 +1274,7 @@ void ipi_mux_process(void);
->  int ipi_mux_create(unsigned int nr_ipi, void (*mux_send)(unsigned int cp=
-u));
->
->  #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
-> +#include <asm/runtime-const.h>
->  /*
->   * Registers a generic IRQ handling function as the top-level IRQ handle=
-r in
->   * the system, which is generally the first C code called from an assemb=
-ly
-> @@ -1288,7 +1289,8 @@ int __init set_handle_irq(void (*handle_irq)(struct=
- pt_regs *));
->   * Allows interrupt handlers to find the irqchip that's been registered =
-as the
->   * top-level IRQ handler.
->   */
-> -extern void (*handle_arch_irq)(struct pt_regs *) __ro_after_init;
-> +extern void (*_handle_arch_irq)(struct pt_regs *) __ro_after_init;
-> +#define handle_arch_irq runtime_const_ptr(_handle_arch_irq)
->  asmlinkage void generic_handle_arch_irq(struct pt_regs *regs);
->  #else
->  #ifndef set_handle_irq
-> diff --git a/kernel/irq/handle.c b/kernel/irq/handle.c
-> index b7d52821837b..aac9e7b1301e 100644
-> --- a/kernel/irq/handle.c
-> +++ b/kernel/irq/handle.c
-> @@ -15,13 +15,14 @@
->  #include <linux/kernel_stat.h>
->
->  #include <asm/irq_regs.h>
-> +#include <asm/runtime-const.h>
->
->  #include <trace/events/irq.h>
->
->  #include "internals.h"
->
->  #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
-> -void (*handle_arch_irq)(struct pt_regs *) __ro_after_init;
-> +void (*_handle_arch_irq)(struct pt_regs *) __ro_after_init;
->  #endif
->
->  /**
-> @@ -270,10 +271,11 @@ irqreturn_t handle_irq_event(struct irq_desc *desc)
->  #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
->  int __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
->  {
-> -       if (handle_arch_irq)
-> +       if (_handle_arch_irq)
->                 return -EBUSY;
->
-> -       handle_arch_irq =3D handle_irq;
-> +       _handle_arch_irq =3D handle_irq;
-> +       runtime_const_init(ptr, _handle_arch_irq);
->         return 0;
->  }
->
-> --
-> 2.51.0
->
+It is new RK806 hardware. According to Finley, end users are currently using 
+this new type of PMIC.
 
 
---=20
-Best Regards
- Guo Ren
+> 
+> The problem is these power domains rely on voltage supply which could
+> be probed late after pmdomain driver, then the system enables the PD and
+> access the IP without PD actually enabled(even w/o voltage supply
+> enabled).
+> 
+
+If I'm not mistaken, the new hardware will automatically powers up the supply
+corresponding to VDEC/VNEC.
+
+
+> 
+> 
+>>
+>>>
+>>>   arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 8 ++++----
+>>>   1 file changed, 4 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+>>> index 7fe9593..4fb8888 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+>>> @@ -907,7 +907,7 @@
+>>>                   #size-cells = <0>;
+>>>                   #power-domain-cells = <0>;
+>>>   -                power-domain@RK3588_PD_RKVDEC0 {
+>>> +                pd_rkvdec0: power-domain@RK3588_PD_RKVDEC0 {
+>>>                       reg = <RK3588_PD_RKVDEC0>;
+>>>                       clocks = <&cru HCLK_RKVDEC0>,
+>>>                            <&cru HCLK_VDPU_ROOT>,
+>>> @@ -917,7 +917,7 @@
+>>>                       pm_qos = <&qos_rkvdec0>;
+>>>                       #power-domain-cells = <0>;
+>>>                   };
+>>> -                power-domain@RK3588_PD_RKVDEC1 {
+>>> +                pd_rkvdec1: power-domain@RK3588_PD_RKVDEC1 {
+>>>                       reg = <RK3588_PD_RKVDEC1>;
+>>>                       clocks = <&cru HCLK_RKVDEC1>,
+>>>                            <&cru HCLK_VDPU_ROOT>,
+>>> @@ -926,7 +926,7 @@
+>>>                       pm_qos = <&qos_rkvdec1>;
+>>>                       #power-domain-cells = <0>;
+>>>                   };
+>>> -                power-domain@RK3588_PD_VENC0 {
+>>> +                pd_venc0: power-domain@RK3588_PD_VENC0 {
+>>>                       reg = <RK3588_PD_VENC0>;
+>>>                       clocks = <&cru HCLK_RKVENC0>,
+>>>                            <&cru ACLK_RKVENC0>;
+>>> @@ -937,7 +937,7 @@
+>>>                       #size-cells = <0>;
+>>>                       #power-domain-cells = <0>;
+>>>   -                    power-domain@RK3588_PD_VENC1 {
+>>> +                pd_venc1: power-domain@RK3588_PD_VENC1 {
+>>>                           reg = <RK3588_PD_VENC1>;
+>>>                           clocks = <&cru HCLK_RKVENC1>,
+>>>                                <&cru HCLK_RKVENC0>,
+>>
+> 
+> 
+> 
+
+-- 
+Best, 
+Chaoyi
+
+
 
