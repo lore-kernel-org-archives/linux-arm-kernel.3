@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70369E9B24D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A27E5E9B251
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1HnxGAbp2yndzQJZkGpfpC3TDryEVoVJW+Ppm2RN9II=; b=JRMFHlQXmFCVkQXdB+JrY0AbGU
-	F8kIpfzoQFsQPohiC5JFX3X9jLaRkB4o7rTIL1B4bhi0zBzjkbPXT9L8za7jNVarAMHQAGy1lJcgm
-	fdVfgBXTlSnNesSxBWS/i/zMgZPGgEse6m3An0D9mKIANFF1PnbIkTp02SYcCLCgJHUeHQ6BqdxdK
-	ENfKk7MXA/0ujhlPD2Kg/8Mm1vML76I6bN1mEIFvlWNoBJA6j6/uQAy6PUlbIura1B/C7vdAVKUK9
-	1l+Laca7H1/CrK1n3LJkzTOhpZV5+093JNjeAmexLqxRAa7aKoafFOnrovBuD8lxom7p8uXiwNe9m
-	GRlzOGGQ==;
+	bh=q77XJi90zQ7AgMZ/Ckhwzi9fjYJJMrR+NUaYPZwjgHA=; b=V7ve0oYdP98gDJkNhJw+s+4+MS
+	33EiGcxLZEMqci1p386cm6UI1XaM7jHJEkCJ15KEatns0kve2u3S0M2Z/ijgdcXTMXudc54NG726m
+	3EUdwTmhRpVhs/DK47YmLBhvnv1DEMZrqHy+7zSwWHp2KIx1Bi8zBA5IG1Ri+t/5I4KJqX5sLBfVE
+	VtjCsZeWDJXNpABfMpo75Vi91XOLTjyHG016S1gH82X56cfQxO3wmnUnz37ybBb1w/SmXc08QJl2B
+	bJCDBv02x1wGNJQE/6qCtkzuGiANJ/HVqeIk6o3AMQl0iWi7jH1lGCxb/QKmywWz30DDIZ75aSzhJ
+	wta8KIZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqOP-00000001x2K-3x5V;
-	Tue, 24 Feb 2026 11:15:53 +0000
-Received: from mail-northeuropeazon11012066.outbound.protection.outlook.com ([52.101.66.66] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vuqOX-00000001x6P-39FG;
+	Tue, 24 Feb 2026 11:16:01 +0000
+Received: from mail-northeuropeazon11011028.outbound.protection.outlook.com ([52.101.65.28] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqON-00000001wyB-1DeI
+	id 1vuqOO-00000001x0E-1xjy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 11:15:52 +0000
+	Tue, 24 Feb 2026 11:15:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YY2+sZPoqnuUXuz/UD2a472DRXk4p949OkgaQBIY4J0/+w52LydwMYjLkNp7RTVqDZSpX6Q0cKIjY9dJ2+T/DxWKMX/2tJjmxiFg84oeTWivJH3OeySIAtZ3St4CqzEFJQfDKH86ZgfeWnA+nogTxvbaBI67S9s4leyU1qg8h+qhybIjdiMPOgeawT6dVPqV77jSHlNAR6YKwitSUCJwADKMSf8PibU8ckthywbYJYh9ElEVKDtheVMJt2bC6bumcYwDRwkChW0OqRfsIdSh/ZNcDI8G999hfSVmf9vOj1GNkO3yyGlyTDJmu67h1FE2N4z8fSHhJejPOfr2jPzwvA==
+ b=sWsxV8YL1YHLwMPg2Cl3nUbgH581yOKkpeX1RP9M+cZN+0bgqg0MKcFbNMj+bN7UKptyMhoF0zVFvRxgv/quReU0ebFKk6iVdnqUCwybmAhmX5eUeS7C1YL3257rcE+zuk1hN65SrYpgxMgjUeqX6zWRxdJ9DPRexsfHa/RRDc5uWY55zbeXum4purddGyfjOGRgUhfiN8Bx4FQV0yjTcru6UXCteGkacj/msqvN5M895nNvYn4fMUoNaRAr6nwpr+iNxlgHUot8nkwRy/Mm9cfE+pm6eTkQLv97M+2eb1OoAK+uUBxtJ4evAp3VePfF085kQVXcbFspAq59PIc/0A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1HnxGAbp2yndzQJZkGpfpC3TDryEVoVJW+Ppm2RN9II=;
- b=rXzFJQbCjsOEOwd2iKJn4miUtHGHOn27pd5BskE9DSAevXOI6PGLLTWcfZAqbvzgxIIZfCJoqKI8Ay89LZP6hAQq2KTm1D5I/SjSkwy03ZvcM/44AA0qYbe+BOwD9FurrsrapmPkyqLsC//IAx3j9RnT4IBObpW7oBx8hfRrztEphE1EUwyUR/ifbaYLvKgzHfXIQS5RgnnbCGI8N+bwpvIwz6SQL71Gdgy5Anzblh78jBH1EuYiPeyx7RdSv9ZusuJ2yVEn5YtIZI2w1eWMLLllYHNBRNZeePDWZSvXSmLCK+Vl8NWre4AjKZy14P2vb0IRKxt0d9KbRh0LhsrwqA==
+ bh=q77XJi90zQ7AgMZ/Ckhwzi9fjYJJMrR+NUaYPZwjgHA=;
+ b=Uc6drj+opao9WUg579Qa/UEt5lpnXMSZC3Q6PqeXUDCQNkN+vAXj+TSRNeNoqhG2Fdjxp5IjfTtH4Qs8RV34kYuYqzrw8PiCWy55lMKCxkxufspA1tbmkqEa0X5MZ0b+Mt5ut9VhgaJ1KQOR/mbnfjxLDOpgpL45oFh65Sy4ohXNUONVpn+G1mk4f2kQbl/2YKFSMXjgzJSb+ugsccJ7e7/lAnRLKrc4TxHTeiF8obLunv/50LL88JZnmFmNEirhKOx0bx/aL2/antsHzPthcapo8Iqe89eAoCaEuGUZQno7h9Q5bnSl8xiNVFy+JZGG3wk/1U8foYvW6PsjenJBBA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1HnxGAbp2yndzQJZkGpfpC3TDryEVoVJW+Ppm2RN9II=;
- b=gWG47fh3QtucfR+VQHRo8mZO5jKgMSE9L14iavMZlGlvIRyz6gesswT442VH48mf58xWc65T4yT9Uj/97sbTv6GSqLkZ0IW467+WYa5M+58Ri9noXzn7fIMUgwP8JDH6sOASIFmtwMP1+LYRVPQaB/yquYxBLn0OSceLpyzoZaJdMm4jVDmoKVziPnPt0XuF4GCk13pgVeYfKBhXnAgUIevlbDngI9yScRXqvpp4IsMZm/Xu80wfz2Chvy9vqFp+/aUAs/HckW64ASdrBtFMlV1ohnLiEhVEqzwBcHKzEAZhonWVaEpIvj+CV884gWAjsWASzauqa76RNG2+xjJlzA==
+ bh=q77XJi90zQ7AgMZ/Ckhwzi9fjYJJMrR+NUaYPZwjgHA=;
+ b=g+9zCImjGEXkWA1P//27MLOY3QuULuxPaATkfO+Gecga16Dh7lN06vEaUkCNb79RanCRNlcnq8CDzcjpYtKY4waoPI9QyvBW/BnYoOeq6uJuWEjT/HDq3E1h/daHmOCcgrZZ0rDFjv+oxoKWPYeOz2q87ldsrP3Esp5jczjet3DAxrkqjs0yyPluIrcVbQs4xPOGKjZLwJDRMpo0uwA9EaJ2SM0sNDG4qAXllVum9gDMDABw9gD8Yz+DhD7DMOODpq0bvSwblwlIk/1hD2ClA2O4Vg19wTIiDXpLV1nLUzM275gy/SUJFk9KPvUR1NUF1+UioMrTCaqV1UTcF4ovug==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by VI0PR04MB12114.eurprd04.prod.outlook.com (2603:10a6:800:315::13) with
+ by AM9PR04MB8228.eurprd04.prod.outlook.com (2603:10a6:20b:3e9::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
- 2026 11:15:44 +0000
+ 2026 11:15:47 +0000
 Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
  ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
  ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9632.017; Tue, 24 Feb 2026
- 11:15:44 +0000
+ 11:15:47 +0000
 From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -76,121 +76,122 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
 	NXP S32 Linux Team <s32@nxp.com>,
 	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
-	Larisa Grigore <larisa.grigore@nxp.com>
-Subject: [PATCH 2/4] dt-bindings: mmc: fsl-imx-esdhc: add S32N79 support
-Date: Tue, 24 Feb 2026 12:15:31 +0100
-Message-ID: <20260224111533.3194883-3-ciprianmarian.costea@oss.nxp.com>
+	Larisa Grigore <larisa.grigore@nxp.com>,
+	Andra-Teodora Ilie <andra.ilie@nxp.com>,
+	Andrei Cherechesu <andrei.cherechesu@nxp.com>
+Subject: [PATCH 4/4] arm64: dts: freescale: Add minimal support for S32N79
+Date: Tue, 24 Feb 2026 12:15:33 +0100
+Message-ID: <20260224111533.3194883-5-ciprianmarian.costea@oss.nxp.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260224111533.3194883-1-ciprianmarian.costea@oss.nxp.com>
 References: <20260224111533.3194883-1-ciprianmarian.costea@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR2P281CA0072.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:9a::11) To DU0PR04MB9251.eurprd04.prod.outlook.com
+X-ClientProxiedBy: FR2P281CA0076.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:9a::18) To DU0PR04MB9251.eurprd04.prod.outlook.com
  (2603:10a6:10:352::15)
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|VI0PR04MB12114:EE_
-X-MS-Office365-Filtering-Correlation-Id: 23d775ae-22e6-4ce4-d478-08de73960d63
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|AM9PR04MB8228:EE_
+X-MS-Office365-Filtering-Correlation-Id: bb4cd32a-3f10-4215-5468-08de73960f64
 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NzkxaUxvcG12aFZwQ1VCdUNBVlp2Q0tlUDV5clVmRmlXNTZncElBelErbVFG?=
- =?utf-8?B?YzVQNVMzaHF3SXJ0RWMyMi80MUpYRzJIMlMyTkZzVzVUT0IrUC93a2ppdDVU?=
- =?utf-8?B?L0cvUnYzck5mbDhzWkRJN2lwOVZKY3FWRHZEVW5sZzc3VU0vOHUvVGRpYmRN?=
- =?utf-8?B?K1l5Uis3MEVwQmhLclZwenE5aXppV3MyeHZZNGo1QjB0MklQRmJmOWNyN3d5?=
- =?utf-8?B?T3dEZCtBNmpPWVF1Ui9mcEV4UGtPeUhZOWVoNTQwcXE5K2NTVjhtNEE2bDAy?=
- =?utf-8?B?YStIOTVCWFJLL0l0ZnZjdVFHWFFxc1BZdVZ5MkJuTmxQQTdXek5HTzZacUZp?=
- =?utf-8?B?K2dDNGErTHB5Tk9ZbUc1UG5XeDIyRmV0WXc0ZDAxRHhQL2tSNjk1anhERGtO?=
- =?utf-8?B?enVQNDZkWkVZQ3NqajZIeTNHUUhhOC9nVkJrdnhuejJnckhOS0hOOWNWOWll?=
- =?utf-8?B?VUNWdi9JdkRWa2VNVzNnM1JBem9OUUlmNkpqaVZ1OW0xMkwzSmFYakNNY3VB?=
- =?utf-8?B?SnFGcW01N0EvZ0dtMzExTml0Tld2Wm9aOXdCNy9PNms3ZStUZHBzcXRpNWVD?=
- =?utf-8?B?eWsxd2F2ZXNlM3RNdTc2NitxdG9NSFhvekp3eUF6cnNPaUU4Zk5sc1A5Q1hz?=
- =?utf-8?B?WUVjMy9XbTArbkZScGtudmhKT0JOZlJzL0NrNUl3cnlqWC9Ma0dCbFF6ek5U?=
- =?utf-8?B?aG1RcFRmWjJXd2JQSm5odGpEUzBEUVlicGRUKzNUOUIxZE5nWmQvNHJSZ0FT?=
- =?utf-8?B?eXRrNkRRYVk0cm51dGxpM3hMUVRPREVzM3BHVE5hWnJSeGVrS3VjbWh4WHJj?=
- =?utf-8?B?RThMc2V4ei9mK1ZoUXZjOWMrWDJJd0NCODhhM1hMbTRiT3I0VDZZZjZ5YXdv?=
- =?utf-8?B?RHZsbTV2NFJ1ajA1MGtTQmF4UUg3YzRib0ptdzZQRVBYNElQNGpYWm1naDF0?=
- =?utf-8?B?ZW5FTTl1ZHlWbU05ZnUrRzhna3JKdGYwL2k1WkdoZkY0Z0NUSkprQUR2NERK?=
- =?utf-8?B?Y2hYZkoxbFl1cWlXL0VNaVRLZ1Y5L29Ybm9uRmZ4MTJ3OUtRV1lFTXM3dWdV?=
- =?utf-8?B?Y1p2bEM0elRQRzByaXl1RUpDQm1RalI2SHpRVlNSUzE4ZFBHclJsMkcycXFn?=
- =?utf-8?B?TG10WEhzeUl3VGV2NWNmWUZkUW9IbE9XVWIwZXFiM0RnUXdHM0MxMGVXMklv?=
- =?utf-8?B?TE80TGY5REhEaVBKOXN3bENha2ZVM2RZQUpNcTl6RWhQaFdlRzJOb3VUUEN6?=
- =?utf-8?B?NEpuRVVGS29KTTVNd2dpNktLa0svaG41OUwvNnV5MjE1eGtUWmxUenBNazJL?=
- =?utf-8?B?Yy8va0wwUXR3d3FKelI0VVFCK3gvS21jbi9JUlo5NDgybFBNR2lyV2M0MWUv?=
- =?utf-8?B?QUlqK0lVNjBxNlRiZ1NEWXoyQTN0bjFrMEdkeXBxMk14OTZ0d0NPOGxTWXc4?=
- =?utf-8?B?WlBMd09vRURsNWJSSkZvYVkrV0VaWjB1WDdHZjE3ZkVjK09JRzRaTnlieitu?=
- =?utf-8?B?bjNLSkFxU2dxNGdFbkVBTXk2QmxvSDRocFUrVG9jdGhZZ3VWT282aVU1RDU5?=
- =?utf-8?B?Y0xGMGpYMDVYS1d0ZUtyZWNQeis4UWhqbmdpOVFqMTRuWlUxNGoxNzlSN1FZ?=
- =?utf-8?B?SE13dnVZY012SXVaUDhqUjJ5NWxiNkFkZGdyZDlOSk9vVmxDT1dnQjlhUWlX?=
- =?utf-8?B?ZHBzZjFERkk5RzlkejljdEt6ck0vM2ZXS1ZoeWJyOWhmRUhlaWZsZDZudjZw?=
- =?utf-8?B?eGpsSTZFcU5zNWtJVzU1d3JuSkdDQjhpWVVjRU9qS3dJWVpOcENJbWFJSnZY?=
- =?utf-8?B?R1gzcFRPdFlUUjNsL0M5NFhOWXhUU2M4S3N2SlZzdE1NL2pXZXR2QmszTlpJ?=
- =?utf-8?B?Rm9vYkh0UytzTjl0eHpzSXYxMUl6ODFSbmFsc045M1FCdUdQcDFzMDdNWWZw?=
- =?utf-8?B?Zk4raldKc0UwVEFKTGdNbzdQY0dKS1cvejlKWk9uVFRmRHhjdXBZemVDOENY?=
- =?utf-8?B?ai9DY3RJLzBSM05SZzE0RVNLSStvRkF1Z0wydXpMRzFrVlE0QUNUZklHY0RR?=
- =?utf-8?B?Mi9SREx6bWpKUytRLzlzeWNQRGR2YkVYblhnMS9BTGpCMjNpMnA3MnNUbmhm?=
- =?utf-8?B?d2k2b1dHNWxjZ0RrMVVMRko1VitndDlLQXRLMWRiZk82NlpUVGJMVFZRTkp6?=
- =?utf-8?B?WUE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(366016)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?czFkbmNNTGRqdjVkZWpLMXZnRmY1VDkxbzdrTUdaRHlUMktnRmF0VFpsQzFC?=
+ =?utf-8?B?ZDBGSjJvcUNDMDhPY21uRnRJRzNBOEw5WmpGb214K3NvVTBMbVNDbHVpYzlr?=
+ =?utf-8?B?M1ViR2l6alBvWExybjBhQnBHeUdyQ0tUcStoaktpTXpaN05DRkZwS1lpTWhq?=
+ =?utf-8?B?UURPNy83UG5Vd0NNNkRDM1JwWW9FUDdrQ25oSEM3Q3hhNFRHVHFYc0d5aUh3?=
+ =?utf-8?B?R3BFTlpEbGs5a1VkekEvTHhLQVdVcWxwUDQvcTJqNHZnOU9OdjZkRUxTSmk4?=
+ =?utf-8?B?dmJFYlFLWjN4cUxLcDBRMDE0UVlZZHM2WTR6QzBOQjRXUy9QU3VmUi82RWFU?=
+ =?utf-8?B?UXNRUUpPbVdEWWd0dWdxNjBQUEVhSTJUc0RJalJQR0plVUJiaWdrS2JwTHdZ?=
+ =?utf-8?B?UEt0NmJuR1JIRVR1QWUyVWI0Rkk1WnMxdkRCUzlWQVJMSXJsNUJqaXhmRTkz?=
+ =?utf-8?B?V0ZkdjN4eElDVFd5ekp0OVNEN0dOdXRITmI0b05ZS3pUSXoxNjV4Z2JycnZx?=
+ =?utf-8?B?d1d2RnN0cjJIMzZrSStpRkd5SG9GVStocHVuOU5rR2wwNlhrUFVMS0x5Z00r?=
+ =?utf-8?B?RGY2WDJYY0c0dXNqM2JLZitGYTczMzR3R1RVSWl3VEx0NVFhYUlQcGdicDJu?=
+ =?utf-8?B?aW05RmhXR3F2ZEJaNjJlTEgzazBUZjlEdUwweHp5ZVdtOFl6L3htVXlnSWVy?=
+ =?utf-8?B?MGk0SURPL0M3alhibHl0eHRUeDVneHFudkd4WURiV1B0S3ZwUHVpRGxsQlZx?=
+ =?utf-8?B?R043RVNUSWZRd2FwbXMxekY0Z0Judk1Ba2kwN1NjSFNndHN4NlN3aDFrV2Uv?=
+ =?utf-8?B?bG5PN1dwdzBKMHljcFBubGVVQVBEeHc5NzQ0aVkyVDV5aE0xMnpjdG8rbGhy?=
+ =?utf-8?B?L0UwaVlTSDRPaXpHdWhZcXRzYTZJdklraFFkNkJKOVNSSTRRZzFrMUYwS2NX?=
+ =?utf-8?B?NGZJOEZQbzJWbFkyVUM2cXlydEJRRGQrNlpMcmZPL1dVRUtEOTVFdm5nVDlU?=
+ =?utf-8?B?bktXR0lac3A2Q1F6VlZQZUhaREt4SldaM2o4OTRUSFptbXJkQ3ErM21wRGpW?=
+ =?utf-8?B?cHVqZDFaUjRuaFdQYTVSZXVITFlpdEpjRmFRdFROcVFQMUFaNnVVMlpKcm9k?=
+ =?utf-8?B?RS9tOVN3aHhTOGJuVUhKaGJMRGtFYXFHckZuZFdwMGR0TjRNWDhrb001bEJP?=
+ =?utf-8?B?dWVOUmV1L09YdERTUUhQQ2NNK3ArL3JrZkpjUmsrMXJ1Y3lMeXpvNVVaNUtD?=
+ =?utf-8?B?L0RORExQbTd5U0gyN3hqY0h4dnkzVytwRy9iZXBVMVdvNm1lYnZUdWFjVHYw?=
+ =?utf-8?B?SE5uS1FiMWZYYzZ0NG1oWHZCRjJ6OGNEYzRMUkx3OWZ4QXJISkg1YXJsZGhn?=
+ =?utf-8?B?aVk0WUF4cGFZczFpbFVGTnozSTlocDJlZnRscUovcGJSaVhJZy9lU1lPemxr?=
+ =?utf-8?B?UTY5R2RJOTNDVGxScEE2U0VoVW1YUVJSWG1JOVZESEE4QUdiWHlZWUxBdVpN?=
+ =?utf-8?B?SG1lSlJYRm1BRzFMa1JtVXBQa3VpU3FnR211S1R3bmV1SXpKU2FQS0dRYkhk?=
+ =?utf-8?B?bWM5ekV5N0dQYlRvZkJ1aFkyOE1kblkrcXFkMGZLUmxiWm10MndPUlVZa2ZU?=
+ =?utf-8?B?ZWNqZmVzNC9senp3RnJDL1VZMW1qVnlWc28zZXJiNERIczBHRk1iS2dSV1Bz?=
+ =?utf-8?B?VGpGamt1Zkp6WlVpbFViSERkU3Z4UTNzSlBIbDdnY3hLZngvdmtYZWg1TXlH?=
+ =?utf-8?B?TUZ1Qm11alplZS9CNi84NlF6Q3pSdnFNei9Xait6T2JBQ2JrV1VJMXpTOWxK?=
+ =?utf-8?B?Sk5Bbmdaa3Y1OXdLWE9RT1ZHcEs2WFIwLzBrR0JZRXNSSnN1K0Z6S2tFOVdF?=
+ =?utf-8?B?VTVjVW5ydGkyY0MxSTNBTEc1bGtUYXNhaFc3MlloNUVmeU5NbXlQRjRyak53?=
+ =?utf-8?B?cWtHRUtyai96aHpoRTFlYTAyR3UwWTFqcmk0VFprT082aFlWcmdmbFphQ2lQ?=
+ =?utf-8?B?RFBWeEZ0UTZvN3RqTjVqMG5EYURLYm10ajFEaXJpSVFLeG9TTzRRM3Bab25V?=
+ =?utf-8?B?Yno0L041YXdzbG1kVk52aVVrL2hrQjBPY2xTOW13UFMxRHFqclhtU2lyTEtQ?=
+ =?utf-8?B?VmRFbGREMVFYUVRDL3ptMFBPTUszVDQ3aUtoQnNXWHJMNGFDdExqemZEaDRM?=
+ =?utf-8?B?dUE9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MFJCc2tXRXlNYXJzL0ZpTDhMcXkxb3JMRWlYVEdsczFpWG9ZVSszamJURllF?=
- =?utf-8?B?Q1BSd09YckFCVE1OeGFZbkdUOTB6R1FVRWp3L0xFdzdpOVpnVllpOXVRc01V?=
- =?utf-8?B?eEtTVGV0NWFWN2tmWmFuZFArSmpUclY5OUM0ODFyRnVMbDVJU2lSSCtHRmFX?=
- =?utf-8?B?UEMvRnBvM3hYTUlsWXB3UUdzK2hXemF2SS83aFlYNGl2cndyYWFNR1ZRQXQr?=
- =?utf-8?B?UTNWNFJhTFUxY05CSTZzRk5YcEJvTHVMZUFUYm1jSVBsN3BxYUxOZVhrSlk1?=
- =?utf-8?B?R2VoVG4yYTMvdTlsSlNYSXAyemRtNS9EYUJRMkZpRWlYS3BiNlJGSFJWU1lu?=
- =?utf-8?B?dDExUDFwVk1XU2tMZE1xb29hcFlXWXlxNFNDU3Zub2ErOVRPa0VxOFM4NEJx?=
- =?utf-8?B?MkJyTllqNlVKR29FV3o2Q2F2SWg4Y0IxZE5laUxTbDkrM2pWbnl2RVkrYXdR?=
- =?utf-8?B?MDJzaUJ1YVgvSmNHNklrZXF3RDdpWmgyMjFlTWVNdElWanJ0M3ZnT2piY1Rt?=
- =?utf-8?B?R2h1VWdkTUxDYnhWUkxzRjdMbjloZFoxSklpQjJXNzNaTWpkZkhsUE9JekZw?=
- =?utf-8?B?UzFZQ0ZjV3c4cjNQNDNHTkFyc1R1d1ZGcWVsQ09LQU1Gdk1URGw2RHFuajVD?=
- =?utf-8?B?M1RybXlqOFRTT0ExV3U2YzFaOFEzRXBvTGV1N2hpS21nUm9pYUpHQnArYlNF?=
- =?utf-8?B?czFGRXZFVCtiNlZCSWlrNFN1RmV6ckphQWFLMFdTZ1hlZnRrNnhoUDdReEpv?=
- =?utf-8?B?YVJHdnlMRWNISjU3WEtqU3JVWHJpcHVrRlhoUlh6SlFzZlduNDVKYmhERlA0?=
- =?utf-8?B?VFhTS2xVWWtpZVZJYzAxTUlTcW5SRHhmQjNXeHZoQzRIak9ONjhsdDRJcE5l?=
- =?utf-8?B?aXYrVGM5cUNnaUNhNTNyWlVNcWlucjZ1cWRjNy9UL2orSUYydm5EQ0RtVzFG?=
- =?utf-8?B?blgwd05uTktPK2t2Zk1KdTI5bDMzaDJMdDBXc0xsNDBMendTbFpVbWNVREJE?=
- =?utf-8?B?MnllMmlxdVJkU1hNcHdEZ3RWbTRmTTNnaHFzYllkVVVtNXBta3BIVFk3UnhY?=
- =?utf-8?B?b3hmcEx6dDdrSmdXWnlXdXJMQmJqSkp6d21nTnc1WjNEaGdRWGJYS3BUcXRJ?=
- =?utf-8?B?eE1VQU5peEV6Z0I5VmFWUmZmV0xMUFlOcU9GYlN4RU4vdjBBaFFEQUdUTkpt?=
- =?utf-8?B?RnI1ZEJkZXFZaWx2c0dpQlQ0SWh0VGl4LzRVek5JcWlJcjNidUo2RWYyeXJT?=
- =?utf-8?B?L0VldGFzWUMxYzY1ekpTR0NsUGxHcC96L2wwaVE4Z3VlMzE3ZTc3dERDeVRW?=
- =?utf-8?B?NWNFbERGMTZ6M0U3UnRZSi9ENVcvbHZLWnRscHJTREpuQjNGTzA3WDRrSkt0?=
- =?utf-8?B?UHk5WDlBMGhETmk1WDRVcUFlVEYvZHFldUZHbXlnakVKZE43YVk0Z0kxYU1V?=
- =?utf-8?B?Qk52bVJibTdJYW9pTEZYdUFnYUJyZG1oQnlvK2dmRUtVb2V5Q3E5NmNsN3NQ?=
- =?utf-8?B?U2NiaGNZUXpQUzdQM002b242eWpoOFBNZ1Nhdzk3UlRwcUtCWnNiYmxRY2I0?=
- =?utf-8?B?NXMxcURhUUxvVm1iQUgxRUF4ZTZlcHhWY1Zob2NqenJ3b1BrdlVSMENyNi9T?=
- =?utf-8?B?NlJGclZBaUx5MVZDQ2MrNXNBb0tkUWFmWktCZFZUaVF6WGZKczVKUzRNNldU?=
- =?utf-8?B?K0JvVXJtNVNBR2laZ0hCUzk2aTk4YVI2eStLcUYzcGs2ZXJNMnBKdysyaDFt?=
- =?utf-8?B?STFjSFFyV3RpQk1EV2c4blk1NktkQUVkZ2tCN2NKdVNWNGVUcU9FSGJNTFRS?=
- =?utf-8?B?QW82NzdxUEFac0x4Q2Rqd0xhOTFKejh3a2c3ejJOdUg4NTlYdXJxZW11VTM1?=
- =?utf-8?B?Ym8zeXprb0FicG1QRmZNZ2QzalRSV09LQkQvUDM2S1ZNc0ZaZ2owWjV5Vk5p?=
- =?utf-8?B?L2FCZHJtZnE2ZWFFck4wK3FtMlhkSGFBR3dvWmVaa25pTFl4aThlNWQxMkE0?=
- =?utf-8?B?Zkc0T0p2Q0pFa0wwMWFacVpZZWpXdVFDaTByQlFkSVRWRzFnMWhQZ2NCR0Rp?=
- =?utf-8?B?eGtxNWg1eFd0VVJKc3Y2YXI1SCtSYjU0OG8vckZHUWNiR3hTRFdVNlByWHBP?=
- =?utf-8?B?bjZDMkk1SStuYVlzMVlkcmZqSjFPM2dQL012K0I5QmQ4cDVOc2RocGl5QzFo?=
- =?utf-8?B?U0hLUUV5KzExUlRyOXJDTVZhSXp1Z3pleU55c0lYeEJMNWZraVdGZ2lCZllr?=
- =?utf-8?B?N1Mvd0ZLRkZPdENjL3liYVJrdk1Mbm1UYWc1WFJkOUxVc1pvSzFLU3JpMFFE?=
- =?utf-8?B?dHlVVVVBZVdyeDRlUUtaTjArQ1MxQkRicEcwTFdWTS9qaFcreC9aMFFCeGFI?=
- =?utf-8?Q?3xD1S21BXhdhXbTo=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WGtFNG5jTlFYOUIyck1CQm5qZGxmd0hHYTkwRlhiQTZEbVNMbTl0WEY0VC9P?=
+ =?utf-8?B?cDhNQmhYMmgwZVFXdWNxaWdCY3piV1lCZHAxSlNhaFV1TzNxQzVtTTlucG5X?=
+ =?utf-8?B?cXB1emlyWndOSnVCb0prVHdZb3pGUW5zd3ZoSHgvL1ZBanNJdW0xelZkd3li?=
+ =?utf-8?B?ZUxjQktNdXQ3NkUzTStTWDZOTmVSdGVPUUZvQ2VxM2xtS0t2NGs3QnZreUow?=
+ =?utf-8?B?cW1LMEk5cDFFYkQySTViOXZEbGtDUGxQQ3Rpc0UvTWdnWmdhOGJJZDhNUDBp?=
+ =?utf-8?B?bFVjRVluZlRNd0xycHRQcGRJZDRvb1Nkd0pJZnpSRnVyTFFvTXRPMzUwUFpW?=
+ =?utf-8?B?NTZIR1RmeWszV2tuczZzL1B1MXY5a29ydGhsZGFnQXc0blhpUUl5bVlxM3dX?=
+ =?utf-8?B?N0F4a0lXbldMVkxTUkx0L2JhbGxTamF3S0hJZm5XQVlIVnBEbnlMZEMwWDJX?=
+ =?utf-8?B?ekJsQzhleDRTRVZDYWRvVTl1TGRmZmhHdU91Q2h1TUw1bHFQZTJ1OVY4Uy9J?=
+ =?utf-8?B?Y3NnZWpVNjFRWFhJemhMRk5YWWE4NUZjcjVaQ2NCZERZUE0zSzRoU2RqWkgw?=
+ =?utf-8?B?QUxFZEJOWDYrbkhTOXE2OEhFbzBWajlEdVR1cXBlelJNVDBtM3dOQ1E3Q2Jv?=
+ =?utf-8?B?OGhyTUE3aUlpRWxYSTh3RGZjVVJOWmQzWnlKOGhhOUloMlgxUGNJY05QN2Q0?=
+ =?utf-8?B?UUxCdGhHa0dITXFTM0JOLzNmZmNxT3daYi9Pb2RhanlweDRwNjczaWoxblZj?=
+ =?utf-8?B?Q1V4ZzFRellHSi9CQXhmTUh2VGE2SmljSzhkeGdOYU1oUHh4NThTQjQ0cmFN?=
+ =?utf-8?B?YzdpV2FQdThUL0IwSnNlVkRHOTN5YS84V0pjQkVZVERaaXJaZmlnRmhkS2dL?=
+ =?utf-8?B?U2hZU2RkRmhPVmh6ZUNCNDVQZTZNSThMU08xUnhXNXgrcWkyNnRJakQ2alFV?=
+ =?utf-8?B?QThsa0Z2WDJOZVVMQk54c2FuK2M4OUwvcEpmNzhWSTkrSWxxZXhhUFRLUTdL?=
+ =?utf-8?B?T2hka3BsVUEzUTB4ODJsMWlHZHgyY1ZuaXQxN2EvSERzTWZuM1ErVjNVNThY?=
+ =?utf-8?B?ODBHWEVFVEkycnFuZ3JoMWcxNW9iOUdOeUVxOWFaUW53NDJhdHB0cU5wSFRq?=
+ =?utf-8?B?dlh4MDZRVi9ybjZtbjM3bnZFNGtIcDVSTWhNYktWc1h6T3pIeE40YlI3VlFP?=
+ =?utf-8?B?bmlsL3BxaVpRR3E2OG5aeHFpbEVMb3NxNzFtRm03cFRHUWZwTjBhMzRvM29s?=
+ =?utf-8?B?VHNEQUwwa0dGTmV6dUNjdG0wblVIa3dqcG5PSFRiUGhiVU44ZFljSm1xVi9Y?=
+ =?utf-8?B?ci9nOFV3bHUrclBIdEpuVTg3TnVmb25ld1hmc1NoaEZUWnl4VnpYMXFNY3NY?=
+ =?utf-8?B?dXNOckM0UkcvdjRraXE5TTVkRFpzWktlMTQveGFvcnp2eXBsSHdrL1oyMFBU?=
+ =?utf-8?B?N3M0RzJTV21WcW9BZVZ2Z0FXNHhWbitXMklpQVFWQ1dNZzBSbEdrTzcwdUZ3?=
+ =?utf-8?B?SWU0a3JsZ1VEektSYmhLMVJkQjFaWFRTZXJJKzZvcngweTFlRzg4Z2k4STU1?=
+ =?utf-8?B?LzhBUzd0aG5xWDlQbkg1THRNajB4TWJnVzVoejB2cGhwenRWUkhIZE1Sd0Er?=
+ =?utf-8?B?UHBab1hoMVAyT3Q2cllEdlY0aVZkZklSMElaMCtFV0gzakNDRG04SXRFcTFE?=
+ =?utf-8?B?c3Q2SWVUMWtWYTcrZng2WnpnVFNWT0dUa0xZU3JBVVJNUVJHVzZFUjE4Uysx?=
+ =?utf-8?B?OTRKNTU4VkJwRE13dWE5UmxEY1F6TDNyU1o2MTJkMEJDVU1PVjZnTE1oRVUx?=
+ =?utf-8?B?ZnpaSWY3bWdBN1Jyb3BqZGRwN0tMM3E0YWttTWIxSGVhMDlyU3UzZ3kxRDFJ?=
+ =?utf-8?B?YS9qTFBWMGZWWis3Y0luVkRRYUVEVnY4RXJuQ0tKMWtGSWgvSVBIeFNCOHdu?=
+ =?utf-8?B?UnplMVBNYzV4U3NyYVRISDltU3lUbXAyV2FWLzROa3pIVjI5aDljV1gyd2ov?=
+ =?utf-8?B?UFcvUk93U2dVMTBxNFkrbXIzdEk5UHQ5WCs3OFV5SlMyNTBTVVRhVSthNEMv?=
+ =?utf-8?B?WElYQVFYMVhnN2VnUkR3eDAzL3R3Z1NSdVFYdk42a2Vpd0dYTDBzZjBHOStX?=
+ =?utf-8?B?SjZXY0ZWenp3TForSFN2VGVlYkM0c05POHpISldZOG1kTUwvTFA4alpmeGow?=
+ =?utf-8?B?WFZzVGFOLzN0N3M4b0dOb1FHR2FXa2NxRFpXSmNMNFU2ZVpwK0V3R09LUHNT?=
+ =?utf-8?B?a2tuMUtzREwwUmE1cEVseW1Cbm03ZDNtYzhSRVc1eEFmZnZQVE9RNUV1am1o?=
+ =?utf-8?B?eVRBR1pkRHpJRFp2cS8xQ1ZhRkMxcUNIbjI0ckhxc0l5VmZWa216NG1WT2lT?=
+ =?utf-8?Q?TP0xVE6u1BJATPUQ=3D?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 23d775ae-22e6-4ce4-d478-08de73960d63
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb4cd32a-3f10-4215-5468-08de73960f64
 X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 11:15:44.2679
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 11:15:47.5726
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MuX045tdfke98g0qpSw045ZzJ09QkBsWCgoKnAKk3mQ+xkLcQXnSAL3VSTCWOqGw7KrX+6MzT24sUmugOwc0dImVZwb3U3NaKZkBuZHARYA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12114
+X-MS-Exchange-CrossTenant-UserPrincipalName: s61AocYcF9Lc6m2+Vg69GUVkx3aGuwsNR1r//GHL2ZGV/A8lkiYOTZSVdqKxRO7NiGxTWBQlWLd0drXPjq69nBBmOi74OzJPeEl6U7HVvyI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8228
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_031551_336463_3C91C7D8 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260224_031552_693429_E49E4229 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,30 +208,496 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-Add compatible string "nxp,s32n79-usdhc" for the uSDHC controller found in
-NXP S32N79 series automotive SoCs.
+Add device tree support for the NXP S32N79 automotive SoC and the S32N79
+Reference Design Board (RDB) [1].
 
-The controller is compatible with the existing i.MX uSDHC controllers.
+The S32N79 features eight Arm Cortex-A78AE cores organized in four
+dual-core clusters, with a three-level cache hierarchy (L1/L2 per core,
+L3 per dual-core cluster) and 32GB of DRAM memory. It includes an SMMUv3
+for IOMMU functionality.
+
+On S32N79 SoC, peripherals are organized into subsystems, such as:
+- CIS (Coherent Interconnect Subsystem).
+- COSS (Connectivity Subsystem)
+- FSS (Foundation Subsystem)
+
+This initial support includes basic peripherals:
+- GICv3, SMMUv3 from CIS Subsystem
+- PL011 UARTs and IRQ steering controller from COSS Subsystem
+- uSDHC from FSS Subsystem
+
+Clock and Pin multiplexing settings for the chip are managed over SCMI.
+
+[1] https://www.nxp.com/products/processors-and-microcontrollers/s32-automotive-platform/s32n-vehicle-super-integration-processors:S32N
 
 Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
 Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+Co-developed-by: Andra-Teodora Ilie <andra.ilie@nxp.com>
+Signed-off-by: Andra-Teodora Ilie <andra.ilie@nxp.com>
+Co-developed-by: Andrei Cherechesu <andrei.cherechesu@nxp.com>
+Signed-off-by: Andrei Cherechesu <andrei.cherechesu@nxp.com>
 Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 ---
- Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/freescale/Makefile       |   1 +
+ arch/arm64/boot/dts/freescale/s32n79-rdb.dts |  70 ++++
+ arch/arm64/boot/dts/freescale/s32n79.dtsi    | 361 +++++++++++++++++++
+ 3 files changed, 432 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/s32n79-rdb.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/s32n79.dtsi
 
-diff --git a/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml b/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml
-index b98a84f93277..014b049baeb6 100644
---- a/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml
-+++ b/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml
-@@ -35,6 +35,7 @@ properties:
-           - fsl,imx8mm-usdhc
-           - fsl,imxrt1050-usdhc
-           - nxp,s32g2-usdhc
-+          - nxp,s32n79-usdhc
-       - items:
-           - const: fsl,imx50-esdhc
-           - const: fsl,imx53-esdhc
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 700bab4d3e60..e79807bf1820 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -501,4 +501,5 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-phygate-tauri-l-rs232-rs485.dtb
+ dtb-$(CONFIG_ARCH_S32) += s32g274a-evb.dtb
+ dtb-$(CONFIG_ARCH_S32) += s32g274a-rdb2.dtb
+ dtb-$(CONFIG_ARCH_S32) += s32g399a-rdb3.dtb
++dtb-$(CONFIG_ARCH_S32) += s32n79-rdb.dtb
+ dtb-$(CONFIG_ARCH_S32) += s32v234-evb.dtb
+diff --git a/arch/arm64/boot/dts/freescale/s32n79-rdb.dts b/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
+new file mode 100644
+index 000000000000..c8b1dcefa2db
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
+@@ -0,0 +1,70 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright 2026 NXP
++ *
++ * NXP S32N79 Reference Design Board (S32N79-RDB)
++ */
++
++/dts-v1/;
++#include "s32n79.dtsi"
++
++/ {
++	model = "NXP S32N79-RDB";
++	compatible = "nxp,s32n79-rdb", "nxp,s32n79";
++
++	aliases {
++		serial0 = &uart0;
++		serial1 = &uart5;
++		serial2 = &uart6;
++		serial3 = &uart7;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x00 0x80000000 0x00 0x80000000>,
++			<0x88 0x00000000 0x03 0x40000000>,
++			<0xc0 0x00000000 0x03 0x40000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		scmi_shbuf: shm@93000000 {
++			compatible = "arm,scmi-shmem";
++			reg = <0x0 0x93000000 0x0 0x80>;
++			no-map;
++		};
++	};
++};
++
++&irqsteer_coss {
++	status = "okay";
++};
++
++&uart0 {
++	status = "okay";
++};
++
++&uart5 {
++	status = "okay";
++};
++
++&uart6 {
++	status = "okay";
++};
++
++&uart7 {
++	status = "okay";
++};
++
++&usdhc0 {
++	disable-wp;
++	no-sdio;
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/s32n79.dtsi b/arch/arm64/boot/dts/freescale/s32n79.dtsi
+new file mode 100644
+index 000000000000..ff4e004fcd7c
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/s32n79.dtsi
+@@ -0,0 +1,361 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * NXP S32N79 SoC
++ *
++ * Copyright 2026 NXP
++ */
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++/ {
++	interrupt-parent = <&gic>;
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu-map {
++			cluster0 {
++				core0 {
++					cpu = <&cpu0>;
++				};
++
++				core1 {
++					cpu = <&cpu1>;
++				};
++			};
++
++			cluster1 {
++				core0 {
++					cpu = <&cpu2>;
++				};
++
++				core1 {
++					cpu = <&cpu3>;
++				};
++			};
++
++			cluster2 {
++				core0 {
++					cpu = <&cpu4>;
++				};
++
++				core1 {
++					cpu = <&cpu5>;
++				};
++			};
++
++			cluster3 {
++				core0 {
++					cpu = <&cpu6>;
++				};
++
++				core1 {
++					cpu = <&cpu7>;
++				};
++			};
++		};
++
++		cpu0: cpu@0 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78ae";
++			reg = <0x0>;
++			enable-method = "psci";
++			next-level-cache = <&l2_0>;
++		};
++
++		cpu1: cpu@100 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78ae";
++			reg = <0x100>;
++			enable-method = "psci";
++			next-level-cache = <&l2_0>;
++		};
++
++		cpu2: cpu@10000 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78ae";
++			reg = <0x10000>;
++			enable-method = "psci";
++			next-level-cache = <&l2_1>;
++		};
++
++		cpu3: cpu@10100 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78ae";
++			reg = <0x10100>;
++			enable-method = "psci";
++			next-level-cache = <&l2_1>;
++		};
++
++		cpu4: cpu@20000 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78ae";
++			reg = <0x20000>;
++			enable-method = "psci";
++			next-level-cache = <&l2_2>;
++		};
++
++		cpu5: cpu@20100 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78ae";
++			reg = <0x20100>;
++			enable-method = "psci";
++			next-level-cache = <&l2_2>;
++		};
++
++		cpu6: cpu@30000 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78ae";
++			reg = <0x30000>;
++			enable-method = "psci";
++			next-level-cache = <&l2_3>;
++		};
++
++		cpu7: cpu@30100 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78ae";
++			reg = <0x30100>;
++			enable-method = "psci";
++			next-level-cache = <&l2_3>;
++		};
++
++		l2_0: l2-cache0 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <524288>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
++			cache-unified;
++			next-level-cache = <&l3_0>;
++		};
++
++		l2_1: l2-cache1 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <524288>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
++			cache-unified;
++			next-level-cache = <&l3_1>;
++		};
++
++		l2_2: l2-cache2 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <524288>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
++			cache-unified;
++			next-level-cache = <&l3_2>;
++		};
++
++		l2_3: l2-cache3 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <524288>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
++			cache-unified;
++			next-level-cache = <&l3_3>;
++		};
++
++		l3_0: l3-cache0 {
++			compatible = "cache";
++			cache-level = <3>;
++			cache-size = <1048576>;
++			cache-line-size = <64>;
++			cache-sets = <1024>;
++			cache-unified;
++		};
++
++		l3_1: l3-cache1 {
++			compatible = "cache";
++			cache-level = <3>;
++			cache-size = <1048576>;
++			cache-line-size = <64>;
++			cache-sets = <1024>;
++			cache-unified;
++		};
++
++		l3_2: l3-cache2 {
++			compatible = "cache";
++			cache-level = <3>;
++			cache-size = <1048576>;
++			cache-line-size = <64>;
++			cache-sets = <1024>;
++			cache-unified;
++		};
++
++		l3_3: l3-cache3 {
++			compatible = "cache";
++			cache-level = <3>;
++			cache-size = <1048576>;
++			cache-line-size = <64>;
++			cache-sets = <1024>;
++			cache-unified;
++		};
++	};
++
++	pmu: pmu {
++		compatible = "arm,armv8-pmuv3";
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
++	};
++
++	timer: timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++	};
++
++	firmware {
++		scmi: scmi {
++			compatible = "arm,scmi-smc";
++			shmem = <&scmi_shbuf>;
++			arm,smc-id = <0xc20000fe>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "okay";
++
++			clks: protocol@14 {
++				reg = <0x14>;
++				#clock-cells = <1>;
++			};
++		};
++
++		psci {
++			compatible = "arm,psci-1.0";
++			method = "smc";
++		};
++	};
++
++	cis-bus {
++		compatible = "simple-bus";
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges = <0x4f200000 0x0 0x4f200000 0xc00000>;
++
++		gic: interrupt-controller@4f200000 {
++			compatible = "arm,gic-v3";
++			#address-cells = <1>;
++			#size-cells = <1>;
++			#interrupt-cells = <3>;
++			interrupt-controller;
++			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
++			reg = <0x4f200000 0x10000>, /* GIC Dist */
++			      <0x4f260000 0x100000>; /* GICR (RD_base + SGI_base) */
++			ranges;
++
++			its: msi-controller@4f240000 {
++				compatible = "arm,gic-v3-its";
++				reg = <0x4f240000 0x20000>;
++				msi-controller;
++				#msi-cells = <1>;
++			};
++		};
++
++		smmu: iommu@4fc00000 {
++			compatible = "arm,smmu-v3";
++			reg = <0x4fc00000 0x200000>;
++			interrupt-parent = <&gic>;
++			interrupts = <GIC_SPI 1 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 4 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 8 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 2 IRQ_TYPE_EDGE_RISING>;
++			interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
++			#iommu-cells = <1>;
++			dma-coherent;
++			status = "disabled";
++		};
++	};
++
++	coss-bus {
++		compatible = "simple-bus";
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges = <0x4a000000 0x0 0x4a000000 0xff0000>,
++			 <0x4e000000 0x0 0x4e000000 0x1000000>;
++
++		uart0: serial@4a030000 {
++			compatible = "arm,pl011", "arm,primecell";
++			reg = <0x4a030000 0x1000>;
++			clocks = <&clks 0x9a>, <&clks 0x9a>;
++			clock-names = "uartclk", "apb_pclk";
++			interrupt-parent = <&irqsteer_coss>;
++			interrupts = <264>;
++			status = "disabled";
++		};
++
++		uart5: serial@4a060000 {
++			compatible = "arm,pl011", "arm,primecell";
++			reg = <0x4a060000 0x1000>;
++			clocks = <&clks 0x9a>, <&clks 0x9a>;
++			clock-names = "uartclk", "apb_pclk";
++			interrupt-parent = <&irqsteer_coss>;
++			interrupts = <269>;
++			status = "disabled";
++		};
++
++		uart6: serial@4aa30000 {
++			compatible = "arm,pl011", "arm,primecell";
++			reg = <0x4aa30000 0x1000>;
++			clocks = <&clks 0x9a>, <&clks 0x9a>;
++			clock-names = "uartclk", "apb_pclk";
++			interrupt-parent = <&irqsteer_coss>;
++			interrupts = <270>;
++			status = "disabled";
++		};
++
++		uart7: serial@4aa40000 {
++			compatible = "arm,pl011", "arm,primecell";
++			reg = <0x4aa40000 0x1000>;
++			clocks = <&clks 0x9a>, <&clks 0x9a>;
++			clock-names = "uartclk", "apb_pclk";
++			interrupt-parent = <&irqsteer_coss>;
++			interrupts = <271>;
++			status = "disabled";
++		};
++
++		irqsteer_coss: interrupt-controller@4ed00000 {
++			compatible = "nxp,s32n79-irqsteer";
++			reg = <0x4ed00000 0x10000>;
++			interrupts = <GIC_SPI 527 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 528 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 529 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 530 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 531 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 532 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 533 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 534 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-controller;
++			interrupt-parent = <&gic>;
++			#interrupt-cells = <1>;
++			clocks = <&clks 0x9a>;
++			clock-names = "ipg";
++			fsl,channel = <0>;
++			fsl,num-irqs = <512>;
++			status = "disabled";
++		};
++	};
++
++	fss-bus {
++		compatible = "simple-bus";
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges = <0x5b490000 0x0 0x5b490000 0x1000>;
++
++		usdhc0: mmc@5b490000 {
++			compatible = "nxp,s32n79-usdhc";
++			reg = <0x5b490000 0x1000>;
++			interrupts = <GIC_SPI 472 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 0x58>, <&clks 0x50>, <&clks 0x5f>;
++			clock-names = "ipg", "ahb", "per";
++			bus-width = <8>;
++			status = "disabled";
++		};
++	};
++};
 -- 
 2.43.0
 
