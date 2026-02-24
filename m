@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DFEF3C997
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 15:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF3EF3C999
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 15:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TPwHnjOyDLcddYkDcBVqNyNrgFvDUOQLimt5YHFhyj0=; b=hnS1WLSRSOXHj6knUZtapK9fPr
-	WQOJwHVJyZRSFuTmPLspSoCtTvmKHJMLZfw2iBtKUEj1d22qXc+PYOD9p5ave5p2PlWgBImMQd7GW
-	Jq8z2aIYOlrgDCQmV6fP1glOvxGcAuHSnCPAGqhB+QHhEfud3MI6fjz+kUENL8rac127m2lVvoN5P
-	hlvaYoQ/1wwDOMS+PZyo36Jw6ZJl0jsIPM7Ou7Qf/H5/vCzdFOyoZtvIiEsjt9XZQfG5grbr0Hxek
-	1FwjHNIBEBKECBKXCtFVDKC4XQmX46Gtf3/XOb+3U3sfKme+/nIOBpqJ6NOjL4+wowZeRiRau8GiL
-	BfpEeNOw==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v2BIaLrHmTdiO79bYx9b6ErOuUG3GaaTJ6BAtvYvqsU=; b=pb/eKk64d8qr6WbdcAWDsIgt5v
+	24OEIhMjgzY5UysEBqDly7l57eMz562l3Qcq9p0HWCI02QkdvFuHOrLa+0fhbIVA5PqKoCeq5EIIg
+	j6uZS1sLwVCyLkdWNQIuECFt/eCnIcbqSozRmHvgulleB9jx51micivbG3oZNUuZ+508blqc6NCEF
+	6Hn2Vj3BJ5sO3wn/m56RivYLgbCXysmU8MqZPwKsUXP0XtViGjbfm6SqQkJ3cDB5MaNqbMEdc9gJX
+	l/lZPwbBAUkpvYUBZAbGhZ0etxlQ5BtLKzl1Fb8G32497fCmc+5rZYpQ17sO9BcMBF2jtbx4Du0s6
+	XlG25c6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuuJ9-00000002JSr-2m2N;
-	Tue, 24 Feb 2026 15:26:43 +0000
-Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuuJ3-00000002JQp-2S4b
+	id 1vuuK3-00000002Jf4-019M;
+	Tue, 24 Feb 2026 15:27:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuuK0-00000002Je8-2iNR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 15:26:41 +0000
-ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=TPwHnjOyDLcddYkDcBVqNyNrgFvDUOQLimt5YHFhyj0=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1771946784;
- b=HMWK/uALn48dj/TC9wU+N8JbmIXzPC7iUvpnUJv6FPJUbudGGkGisgWVwwavq1IRLNtoPs6w
- J7eCupjI1+ggTL6vTeexNvhKM+A2owhie4ox8A2OLei9CROwxyaks3s9BT7rtQB73+/e+A68vtd
- F1XKvo4ByNfMgxMLqQTAqugfVF7sWfDLvAc9G2ZD+eCX9SPkY48eD+4jn9utu16Dk5XEQXE4rxK
- /a0XZw7YlcYgL7X8BZsK/CAHVKJheRUZ49WdRPU75lhafqJFij4M0YV7JCs60tbPjL0XvLWcyRu
- a3h24wbOiFUCuyjllFoMAqJU2N/uwxVe8hzO78PldebgQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1771946784;
- b=DqrS+Zya7Vyy7GKnp7qUZaC9pjM+dUxhj+ZEWy2WpZcrS75cOPsEHLYa0BXJS4klTYz+1C+B
- wZesWz15UQTN4F8OlPZFfvHUWdm6EAQvqknWf4Rovycdd+Dd/sQJh1jJlUQIXrJVsJIPnbZjc/K
- y4qouXAi0AooyTbFFo+yoW5bnGtAe3MKl2w/k2NiF7tXWEz5W2VW5bQSL70FFGfXhB3yr7rYGBQ
- IJ4Mdda+7FljYTVARVtElVFXNVy4oyGtP0gLVAHN2cIS01h0wLRJr42ODhv7RN4PkhD/qo477+R
- zMZDlgAuTa0PNpXdZj2a1EXFYcz9bRBy+url3bK4InOQA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
- Tue, 24 Feb 2026 16:26:24 +0100
-Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: nora.schiffer@ew.tq-group.com)
-	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 35EDFA4112B;
-	Tue, 24 Feb 2026 16:26:11 +0100 (CET)
-From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: [PATCH v2] arm64: dts: freescale: fsl-ls1028a-tqmls1028a-mbls1028a: switch mmc aliases
-Date: Tue, 24 Feb 2026 16:25:23 +0100
-Message-ID: <20260224152523.570057-1-nora.schiffer@ew.tq-group.com>
-X-Mailer: git-send-email 2.53.0
+	Tue, 24 Feb 2026 15:27:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A80A2339;
+	Tue, 24 Feb 2026 07:27:28 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD7AF3F59E;
+	Tue, 24 Feb 2026 07:27:29 -0800 (PST)
+Message-ID: <78af29ea-772a-4fbb-8a34-dbc2760d6415@arm.com>
+Date: Tue, 24 Feb 2026 15:27:28 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/41] arm_mpam: Add KVM/arm64 and resctrl glue code
+From: Ben Horgan <ben.horgan@arm.com>
+To: Zeng Heng <zengheng4@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ linux-doc@vger.kernel.org, Kefeng Wang <wangkefeng.wang@huawei.com>
+References: <20260203214342.584712-1-ben.horgan@arm.com>
+ <9945d28e-f1f2-e11a-1481-8d80167d6f89@huawei.com>
+ <b844c632-c8fc-48f1-b347-07f166019b22@arm.com>
+ <28dbde39-5b21-5f2f-59f5-4500c8b0296d@huawei.com>
+ <2f2410a0-69dd-4da5-bd84-d168ba6b0605@arm.com>
+Content-Language: en-US
+In-Reply-To: <2f2410a0-69dd-4da5-bd84-d168ba6b0605@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: nora.schiffer@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: nora.schiffer@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4fL1lR64HJz3yYSv
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: b434f169457cacbf55fdb26bd24b492f
-X-cloud-security: scantime:1.981
-DKIM-Signature: a=rsa-sha256;
- bh=TPwHnjOyDLcddYkDcBVqNyNrgFvDUOQLimt5YHFhyj0=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1771946783; v=1;
- b=EKKNG1T3wLcFczZpPStQl3CzNqkr4f0lGCtNIaA+/kO26EgJnZzE8vqg2MoH/BTkI+F0bSyE
- p1ZUwuvRm+8JATBjsGZcftTszjVgk2Uh56sfdTYardz247CiTG1HTRe9UFSWFsnevN+YFvJZstO
- orEyI0LR6oDUd6IE6novO6JU+dmh7a5sNLZNMmL+7P2avVJK1QL+yF1kjoLk8EULtuaHAdieh8f
- D0KYPtt8+PYVUrkr6wWOdpWcc2K8NvuayROxNjFa04jtbzhXAPft6vtAv88JDFy9N5MBJGxl7kW
- dc/oyk8/ZJdW4w8n5Evwri2mXVCW7UCl8mcRYmlqEW2ag==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_072637_884801_BC5C7DA3 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20260224_072736_799406_D034AA9F 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,53 +79,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All modern TQ-Systems boards follow the convention that mmc0 is the eMMC
-and mmc1 is the SD-card when both interfaces exist, reducing differences
-between boards for both documentation and U-Boot code (which uses the
-same Device Trees). Adjust the recently added MBLS1028A Device Tree
-accordingly.
+Hi Zeng,
 
-Fixes: 0538ca1f102d ("arm64: dts: ls1028a: Add mbls1028a and mbls1028a-ind devicetrees")
-Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
+On 2/24/26 14:19, Ben Horgan wrote:
+> Hi Zeng,
+> 
+> On 2/24/26 11:03, Zeng Heng wrote:
+>> Hi Ben,
+>>
+>> On 2026/2/16 20:22, Ben Horgan wrote:
+>>> Hi Zeng,
+>>>
+>>> On 2/14/26 09:40, Zeng Heng wrote:
+>>>> Hi Ben,
+>>>>
+>>>> On 2026/2/4 5:43, Ben Horgan wrote:
+>>> [...]
+>>>>>
+>>>>> Based on:
+>>>>> [1] git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git x86/cache
+>>>>> (To include telemetry code which changes the resctrl arch interface)
+>>>>>
+>>>>> The series can be retrieved from:
+>>>>> https://gitlab.arm.com/linux-arm/linux-bh.git mpam_resctrl_glue_v4
+>>>>> (Final commit is a fix already in 6.19-rc8)
+[...]
+>>>> [   10.978497] mpam:mpam_resctrl_pick_caches: class 255 is not a cache
+>>>> [   10.980470] mpam:mpam_resctrl_pick_mba: class 2 is before L3
 
-v2:
-- updated author information after name change
-- collected review tags
+This debug message was removed in v4 of the series.
+v3 has it: https://lore.kernel.org/linux-arm-kernel/20260112165914.4086692-28-ben.horgan@arm.com/
+v4 doesn't: https://lore.kernel.org/linux-arm-kernel/20260203214342.584712-27-ben.horgan@arm.com/
 
-As mentioned in the v1 submission, it would be great to get this in
-before v7.0, as the TQMLS1028A/MBLS1028A was just added in the current
-development cycle, and we'd like to avoid changing the aliases after the
-DTS was part of a mainline kernel release.
+Do you know which version of the series you were running?
 
-Best,
-Nora
+>>>> [   10.980472] mpam:mpam_resctrl_pick_mba: class 3 has no bandwidth
+>>>> control
+>>>> [   10.997406] mpam:topology_matches_l3: class 255 component 0 has
+>>>> Mismatched CPU mask with L3 equivalent
+>>>> [   10.997411] mpam:mpam_resctrl_pick_mba: class 255 topology doesn't
+>>>> match L3
+>>>> [   10.997415] mpam:mpam_resctrl_pick_counters: class 2 is before L3
+>>>> [   11.024109] mpam:topology_matches_l3: class 3 component 276 has
+>>>> Mismatched CPU mask with L3 equivalent
+>>>> [   11.024114] mpam:class_has_usable_mbwu: monitors usable in free-
+>>>> running mode
+>>>
+>>> mbwu enabled?
+>>
+>> The fact that the number of monitors merely satisfies the conditions for
+>> free-running mode does not imply that the MBWU functionality can be
+>> successfully mounted. The specific reasons are explained above.
+> 
+> True
+> 
+>>
+>>>
+>>>> [   11.063882] mpam:topology_matches_l3: class 255 component 0 has
+>>>> Mismatched CPU mask with L3 equivalent
+>>>> [   11.113183] mpam:mpam_resctrl_alloc_domain: Skipped monitor domain
+>>>> online - no monitors
+>>>> [   11.113189] MPAM enabled with 32 PARTIDs and 4 PMGs
+>>>>
+>>>>
+>>
+>> Sorry for the late reply. And this is my first day back from a long
+>> vacation.
+> 
+> No problem. Hope you had a good holiday.
+> 
+>>
+>>
+>> Best regards,
+>> Zeng Heng
+> 
+> Thanks,
+> 
+> Ben
+> 
+> 
 
 
- .../boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi  | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Thanks,
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
-index cf338b2e80064..426a81e1743f1 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
-@@ -17,8 +17,8 @@ aliases {
- 		gpio0 = &gpio1;
- 		gpio1 = &gpio2;
- 		gpio2 = &gpio3;
--		mmc0 = &esdhc; /* SD-Card */
--		mmc1 = &esdhc1; /* eMMC */
-+		mmc0 = &esdhc1; /* eMMC */
-+		mmc1 = &esdhc; /* SD-Card */
- 		serial0 = &duart0;
- 		serial1 = &duart1;
- 	};
--- 
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-https://www.tq-group.com/
+Ben
 
 
