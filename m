@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9EDF4BB6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F531F4BB6F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OKnrDzCUwa89CjqkQK+aELBLtJlIYA6cfH4PLt2AKb8=; b=x/ydrSkr7otKVat9EUyZkG/+sW
-	nN2bKx574ofRZyekKS3xYQ1Fu6efolgmmGX6fQWfTc9YbF3NXTlc/mojWCRcSeguicFtBWtZY/Nx5
-	YIvRAhXNm/NB8hq0BtdBMYLmQD0tpMQI/jkoaAmoMoBTtLAUcsFnmEZtp2Gy5NAYTsUrbWBzGosx8
-	1er9K7N+nwS1nSeIavP/+SbRpTfzvdNPH/jU/K0PTvoE0RrGUCPkTS0czgpe72QeLG9NBjqbsvsjk
-	C/6y0tZopIEzFCXIh26vBCZbURMCsWIl4AwgkQmL/nrOkYTWFJAuFIxF9YoKNO+UoRUbR7Ylqj1Kj
-	UVTot2kQ==;
+	bh=A+wt+cqWMAKn0qeQvax6HGIKjE9SdwduGQxWzEqqTI4=; b=Di7UYeXctcOAjiPK/4fHO1c43C
+	8QTStyzCGGN+nHSPqPLsAmsVE8QxeKGlpqx4rh6dw0hzOirLLRAjvT2ZMg8UmkRKMSfqyTjjDKpbM
+	tUFj7HYpRIlRdDOTEQ/x3FYUuaL0McgKglL4IfW9KYl6fNlU+aRyF2Y3xCk8VZczsvc5O0R/Y7llp
+	2Y3Id4eEMqZ1WVKUyRVQTbpZPyRe1rSPg5fX8BtrqGYZSPnzY7ldQ/e5JuxFGHzbR0fyvk7Rln98i
+	uNicoxq1RB9Fo6ZyFKxtnIlDScSXoAc+tOhTF22W/pl2Gt6jS4/I8pqY1YW6ahFi+/XBBIOPU0VaU
+	LWL8Wtpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfq-00000002Wv2-2KPa;
-	Tue, 24 Feb 2026 17:58:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfi-00000002Wl4-312P;
-	Tue, 24 Feb 2026 17:58:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2439A60130;
-	Tue, 24 Feb 2026 17:58:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CCD0C116D0;
-	Tue, 24 Feb 2026 17:58:06 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>
-Cc: Will Deacon <will@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
+	id 1vuwfu-00000002X0K-2fXN;
+	Tue, 24 Feb 2026 17:58:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwfj-00000002Wla-011O
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Feb 2026 17:58:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D32D2339;
+	Tue, 24 Feb 2026 09:58:03 -0800 (PST)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3CFE63F59E;
+	Tue, 24 Feb 2026 09:58:05 -0800 (PST)
+From: Ben Horgan <ben.horgan@arm.com>
+To: ben.horgan@arm.com
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	carl@os.amperecomputing.com,
+	dave.martin@arm.com,
+	david@kernel.org,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gshan@redhat.com,
+	james.morse@arm.com,
+	jonathan.cameron@huawei.com,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org
-Subject: [PATCH 1/5] mm: Introduce vm_mmap_shadow_stack() as a helper for VM_SHADOW_STACK mappings
-Date: Tue, 24 Feb 2026 17:57:53 +0000
-Message-ID: <20260224175800.2500729-2-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260224175800.2500729-1-catalin.marinas@arm.com>
-References: <20260224175800.2500729-1-catalin.marinas@arm.com>
+	peternewman@google.com,
+	punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com,
+	reinette.chatre@intel.com,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	kvmarm@lists.linux.dev,
+	zengheng4@huawei.com,
+	linux-doc@vger.kernel.org,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: [PATCH v5 07/41] arm64: mpam: Advertise the CPUs MPAM limits to the driver
+Date: Tue, 24 Feb 2026 17:56:46 +0000
+Message-ID: <20260224175720.2663924-8-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
+References: <20260224175720.2663924-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260224_095811_115611_3E0DCEF8 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,73 +95,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm64, riscv and x86 use a similar pattern for mapping the user shadow
-stack (cloned from x86). Extract this into a helper to facilitate code
-reuse.
+From: James Morse <james.morse@arm.com>
 
-The call to do_mmap() from the new helper uses PROT_READ|PROT_WRITE prot
-bits instead of the PROT_READ with an explicit VM_WRITE vm_flag. The
-x86 intent was to avoid PROT_WRITE implying normal write since the
-shadow stack is not writable by normal stores. However, from a kernel
-perspective, the vma is writeable. Functionally there is no difference.
+Requestors need to populate the MPAM fields for any traffic they send on
+the interconnect. For the CPUs these values are taken from the
+corresponding MPAMy_ELx register. Each requestor may have a limit on the
+largest PARTID or PMG value that can be used. The MPAM driver has to
+determine the system-wide minimum supported PARTID and PMG values.
 
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>
+To do this, the driver needs to be told what each requestor's limit is.
+
+CPUs are special, but this infrastructure is also needed for the SMMU and
+GIC ITS. Call the helper to tell the MPAM driver what the CPUs can do.
+
+The return value can be ignored by the arch code as it runs well before the
+MPAM driver starts probing.
+
+Tested-by: Gavin Shan <gshan@redhat.com>
+Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Tested-by: Peter Newman <peternewman@google.com>
+Tested-by: Zeng Heng <zengheng4@huawei.com>
+Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: James Morse <james.morse@arm.com>
+Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- include/linux/mm.h |  4 ++++
- mm/util.c          | 25 +++++++++++++++++++++++++
- 2 files changed, 29 insertions(+)
+ arch/arm64/kernel/mpam.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 5be3d8a8f806..1f28be975f86 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3908,6 +3908,10 @@ extern int vm_munmap(unsigned long, size_t);
- extern unsigned long __must_check vm_mmap(struct file *, unsigned long,
-         unsigned long, unsigned long,
-         unsigned long, unsigned long);
-+#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
-+extern unsigned long __must_check vm_mmap_shadow_stack(unsigned long addr,
-+	unsigned long len, unsigned long flags);
-+#endif
+diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
+index 9866d2ca0faa..e6feff2324ac 100644
+--- a/arch/arm64/kernel/mpam.c
++++ b/arch/arm64/kernel/mpam.c
+@@ -3,6 +3,7 @@
  
- struct vm_unmapped_area_info {
- #define VM_UNMAPPED_AREA_TOPDOWN 1
-diff --git a/mm/util.c b/mm/util.c
-index b05ab6f97e11..2592291948f0 100644
---- a/mm/util.c
-+++ b/mm/util.c
-@@ -618,6 +618,31 @@ unsigned long vm_mmap(struct file *file, unsigned long addr,
- }
- EXPORT_SYMBOL(vm_mmap);
+ #include <asm/mpam.h>
  
-+#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
-+/*
-+ * Perform a userland memory mapping for a shadow stack into the current
-+ * process address space. This is intended to be used by architectures that
-+ * support user shadow stacks.
-+ */
-+unsigned long vm_mmap_shadow_stack(unsigned long addr, unsigned long len,
-+				   unsigned long flags)
++#include <linux/arm_mpam.h>
+ #include <linux/jump_label.h>
+ #include <linux/percpu.h>
+ 
+@@ -11,3 +12,14 @@ DEFINE_PER_CPU(u64, arm64_mpam_default);
+ DEFINE_PER_CPU(u64, arm64_mpam_current);
+ 
+ u64 arm64_mpam_global_default;
++
++static int __init arm64_mpam_register_cpus(void)
 +{
-+	struct mm_struct *mm = current->mm;
-+	unsigned long ret, unused;
++	u64 mpamidr = read_sanitised_ftr_reg(SYS_MPAMIDR_EL1);
++	u16 partid_max = FIELD_GET(MPAMIDR_EL1_PARTID_MAX, mpamidr);
++	u8 pmg_max = FIELD_GET(MPAMIDR_EL1_PMG_MAX, mpamidr);
 +
-+	flags |= MAP_ANONYMOUS | MAP_PRIVATE;
-+	if (addr)
-+		flags |= MAP_FIXED_NOREPLACE;
-+
-+	mmap_write_lock(mm);
-+	ret = do_mmap(NULL, addr, len, PROT_READ | PROT_WRITE, flags,
-+		      VM_SHADOW_STACK, 0, &unused, NULL);
-+	mmap_write_unlock(mm);
-+
-+	return ret;
++	return mpam_register_requestor(partid_max, pmg_max);
 +}
-+#endif /* CONFIG_ARCH_HAS_USER_SHADOW_STACK */
-+
- /**
-  * __vmalloc_array - allocate memory for a virtually contiguous array.
-  * @n: number of elements.
++/* Must occur before mpam_msc_driver_init() from subsys_initcall() */
++arch_initcall(arm64_mpam_register_cpus)
+-- 
+2.43.0
+
 
