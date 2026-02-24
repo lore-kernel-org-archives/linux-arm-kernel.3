@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29863E9B24E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EF6E9B251
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gjEIQusiMpllNiS/DCJM+W+sXMq5H3Qd6XeWyYTGjy4=; b=zPxDH0O8c2FRv/uyHY9visTjjo
-	00kItlnTQcmKK6vTL/k2UdjhA3HhnvwVYbDjliowqW2fniGxPbkvuEq9yAM/obSABbwFLv+Ht/GN1
-	lvr4h1jKIB7zdn/Mzt5bHXyu7ikmv9g6DRPYLLyZJmo9TfMHMKyBs2dC6vqsl0iFve+sOtHJtyZ9Q
-	81y9XK93CRWcvvzjlYp42VqkPYzcsEPp6Za1RM1+EEVoYik0E6F6oQlluW19Ad5WfjppBlRmZEjzD
-	umcLhbPfZaP1ebyXlMBtZz/cahEHVsIWcePTbnvbNJLWCf1Z0+Rs/7q+rX1EOs2Oe2lvFTrtrKN0U
-	Ck/sRApg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MFHc1xCz+Fi535nwKGC6HpBRQOFBcLAy3w9pPNgxwNQ=; b=YJV9et5YvUnZEdxIlc6op+pFzm
+	4qqn3ivUEJYYIrsBo1WtEIQnTrhEI8urWxespd/Nt08Fcf+5US3gGlY8R56z8bJyQiHwrHqaXUjkH
+	Y/MEYDXQttGzPaHPIhfqc3m6M/s8QSJ0Ho4SO4EWQPf2KiskPtBLniBpmZ/Q7w4pSVyrmojab2XvW
+	8R5K/OPuZXY6O6y9tcwbA7azpzu9bnOB2B6aBBOltdcARa+jvzHidFlm5fyQZQbmwXGUsu7ZfAIMq
+	CMnDFNT0GQA9stU/ZJcts8g4GO8Tqlj4hwyINlhvI8jHCvZlOs65oqLBNKt25v2HPMsGml9ZZmiQU
+	qerRqP2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqbz-00000001zGX-36Iz;
-	Tue, 24 Feb 2026 11:29:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vuqkK-00000001zds-4BwH;
+	Tue, 24 Feb 2026 11:38:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqbx-00000001zGR-49BR
+	id 1vuqkI-00000001zdS-0dBc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 11:29:54 +0000
+	Tue, 24 Feb 2026 11:38:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C20E6132D;
-	Tue, 24 Feb 2026 11:29:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 736CBC116D0;
-	Tue, 24 Feb 2026 11:29:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 48317406B1;
+	Tue, 24 Feb 2026 11:38:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86878C116D0;
+	Tue, 24 Feb 2026 11:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771932592;
-	bh=qae+KiV0H06twWryyZRy7nDOgPhLMz/Ho0BGykyklJo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JDh5Dx0EpWIZ64bcRaZ27qvAnJXequ/LMJZm4dN0Hcri0QTx6R3nsCe/hglXvzRlr
-	 WsV9QiFJFmNxwfDwP+P9MdJWbU/RbK+hH2+Ajz+kDBw5bG1foZM5utHkfNHuIdEzYZ
-	 j1hxzKVTMDL19wu+McDjN2CYQ7kIPaf9m2E+UDGxMj6e1fcWAMkfNFBu6kqG0QKInx
-	 u2mOO18OtXEeSGxB2iFubpjCXq4Sf1Epo+TT75cKEoVtuInl1p6SJqZJv5aeFuTlCz
-	 QI5xiYYfC3bo/CXqbw/m+pJrOJohUKOS8BVi6dS3dGbypYKAfAjFi9hrKN/ZUDuX5r
-	 EiSqkp9FOe2aw==
-Date: Tue, 24 Feb 2026 11:29:48 +0000
-From: Simon Horman <horms@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next] net: stmmac: ptp: limit n_per_out
-Message-ID: <aZ2LrDLPTR61TfQP@horms.kernel.org>
-References: <E1vuUvf-0000000AfhS-0lJR@rmk-PC.armlinux.org.uk>
- <aZ1uxX_fddwO7UYD@horms.kernel.org>
- <aZ13Gjav_5PYNGEN@shell.armlinux.org.uk>
+	s=k20201202; t=1771933109;
+	bh=QS7CNJiQG7B9ALbJjQUVylSiRh7zGL57LuSxHqmBi4g=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Uzzkmfv9bpJw09ktqybI8ICbNfnuTktHHxwRhi04Y1J6PsGW8WbVaybZVCjX8ew6V
+	 DY4cNvK6ZLnzyFuYtMktlLe+GuDpUgHOqc3M4EFt1ibnbV7CgW2b9p26co/D5ACXJf
+	 xw8TQqmSY0T1n14XTCKiK25sBkG2P2j38JJMX13rUJJrbOoll5GgtH7CToUNQ4/qFj
+	 k/ZF9UggSm2nZjFEtAU6GR3x0yobir3FAJvXwcEyZtD/Gb8KivZHv6b9AWT0gL7FR9
+	 fQ/TBtTXhaUDBtry4Y3U07gDQLxpOaEWdYFPkZJBH726qnOqZ0aDGWhkc/w0gBXWpv
+	 jEr75bdsf+SPg==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ jesper.nilsson@axis.com, lars.persson@axis.com, mturquette@baylibre.com, 
+ sboyd@kernel.org, alim.akhtar@samsung.com, s.nawrocki@samsung.com, 
+ cw00.choi@samsung.com, Ravi Patel <ravi.patel@samsung.com>
+Cc: ksk4725@coasia.com, smn1196@coasia.com, linux-arm-kernel@axis.com, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-clk@vger.kernel.org, pjsin865@coasia.com, gwk1013@coasia.com, 
+ bread@coasia.com, jspark@coasia.com, limjh0823@coasia.com, 
+ lightwise@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com, 
+ shradha.t@samsung.com, swathi.ks@samsung.com, kenkim@coasia.com
+In-Reply-To: <20251029130731.51305-2-ravi.patel@samsung.com>
+References: <20251029130731.51305-1-ravi.patel@samsung.com>
+ <CGME20251029130826epcas5p180506ff38fb57ecca0e33b2f5c57ed6c@epcas5p1.samsung.com>
+ <20251029130731.51305-2-ravi.patel@samsung.com>
+Subject: Re: (subset) [PATCH v3 1/4] dt-bindings: clock: Add ARTPEC-9 clock
+ controller
+Message-Id: <177193310325.54679.15908657347853584387.b4-ty@kernel.org>
+Date: Tue, 24 Feb 2026 12:38:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aZ13Gjav_5PYNGEN@shell.armlinux.org.uk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260224_033830_233582_4A8EFA5B 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,50 +84,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 10:02:02AM +0000, Russell King (Oracle) wrote:
-> On Tue, Feb 24, 2026 at 09:26:29AM +0000, Simon Horman wrote:
-> > On Mon, Feb 23, 2026 at 12:20:47PM +0000, Russell King (Oracle) wrote:
 
-...
+On Wed, 29 Oct 2025 18:37:28 +0530, Ravi Patel wrote:
+> Add dt-schema for Axis ARTPEC-9 SoC clock controller.
+> 
+> The Clock Management Unit (CMU) has a top-level block CMU_CMU
+> which generates clocks for other blocks.
+> 
+> Add device-tree binding definitions for following CMU blocks:
+> - CMU_CMU
+> - CMU_BUS
+> - CMU_CORE
+> - CMU_CPUCL
+> - CMU_FSYS0
+> - CMU_FSYS1
+> - CMU_IMEM
+> - CMU_PERI
+> 
+> [...]
 
-> > > This could be a user exploitable bug (although one has to be root
-> > > so the gun is already pointing at one's foot.) This is the commit
-> > > which introduced the problem:
-> > 
-> > Hi Russell,
-> > 
-> > From the description I assumed that for this problem to manifest
-> > out-of-range values would need to be turned by hardware.
-> > But maybe I misunderstand things.
-> > 
-> > Could you elaborate on the vector you have in mind?
+Applied, thanks!
 
-...
+[1/4] dt-bindings: clock: Add ARTPEC-9 clock controller
+      https://git.kernel.org/krzk/linux/c/6974ae5aa23b7f37182da6b66d7f58313a55a88e
 
-> Either code should care about values > 4, or it shouldn't. The current
-> code cares about it in one place but then ignores it in all other
-> places where the index is under userspace control, allowing the
-> potential for array overrun.
-
-Hi Russell,
-
-Thanks for the clarification.
-
-Personally I think it would be best if the Kernel took a robust approach
-and assumed that hw may provide out of range values. But in my experience
-this is generally not the approach taken by drivers. And it's not a hill I
-which to spend too much time occupying.
-
-IOW, I don't think the current practice is to treat such cases as bugs.
-
-On the other hand, I agree that the code should be consistent.
-And I would lean towards verifying rather than not, although again,
-I don't think that one can find plenty of cases where the Kernel
-doesn't do that.
-
-Which is to say that I agree with the approach taken by your patch.
-But I lean towards it not being a fix.
-
-Reviewed-by: Simon Horman <horms@kernel.org>
+Best regards,
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
 
 
