@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FA7F4BB6C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:59:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 070F1F4BB6C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/f7wXLxrYRGqTC9JgfLqmQkwlwuQASOsJtyL6OXD1jY=; b=db2fYeP5ofYLMbnIUCYY7ggcHc
-	MIr1oZWBK8sSZTQ7d1LRI+K1z57yeajQA3RY4KxYeHshkSzEHGolasG0gxlW6SwoW+DA5RBWxB4z2
-	OWSReyqwpTLPHOcGg7P+jQ1caMeZghN3AgCZIV0zpsrzzeY61FuSdX6Ss5z4xv8nBAIydY92IUxM8
-	luC5XbwnL3tU9fnpqEmjlA42Ez6PQtcc+vWijBGsW3Hmafi6lHR5Yxdd0CChot5dLLpOqYFE3nPkS
-	N+aLzADs2Rgm20GTGuZnDkKhwU8DDdJ0HadowU/2J9wGiKPxECIyce0lxzvXKvWAQnGroiMP/Qt6z
-	L77hAOXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EAbGsN5jwYcKtQnh4HcERW/DJaa8iU8kncHDOnNPM5A=; b=BruN/r7JcPLgmBN/a1xuW9dCQ3
+	L+9YDwgAuihMm8J4QnQzJXImSRa6LLwTb7mPcMcniSnJ9VEsBWhnPfHknhDMr4BTnGvtdnP3ud+Rj
+	NJhFvls7MVO1QKykwc1X9afzkmlJ1AFYoc0CtD2JhVeGOlaAxbcRGbQIAOSqDJcYhgfnYodAShe4s
+	AKi20k3Y3x0jC7JO9FUleJIvJm0QNCgVfVXvyw20LXoeCTnyso0gLo7Dds1LGySkWW10bGtYfGGsU
+	bcP34yrm7jMuKibOUE0g0lPa0Q8m/cukx/JCj+q1IGn+QfvRofPTZAf8rHAjwINV4Z0bqpq1sNJ1A
+	9IX1SaYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwhB-00000002YeF-06GY;
-	Tue, 24 Feb 2026 17:59:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwh4-00000002YVI-3PNw
+	id 1vuwhF-00000002YlA-2AE2;
+	Tue, 24 Feb 2026 17:59:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwh9-00000002YcG-3uhe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 17:59:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E94D1595;
-	Tue, 24 Feb 2026 09:59:27 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 08D303F59E;
-	Tue, 24 Feb 2026 09:59:28 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
+	Tue, 24 Feb 2026 17:59:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 350EA600AE;
+	Tue, 24 Feb 2026 17:59:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8761C19425;
+	Tue, 24 Feb 2026 17:59:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771955978;
+	bh=Pm0JybyrwPgd7Q3ZPwZAesVM4nExNviwgUepqONQY9E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bN0nuxW5g0VsrYpqmJx3G74DnHU/8MhQT9q+TAko5i1psT9b5zGDxTUNSR39qKcXh
+	 VJkuR6dLGCaQZwCR9dTqHUyei+/GdA/fDTJ32yxzNpuTKCJWA+oeKpwKGmuvXhBZRM
+	 69Th8rYqptplTG31VwXaGfrWpamJfLf1gA6HDd8Q4bMebr/9VSiRHS+IQ5Ce01xCJ9
+	 M0pqjgVibh1pK5rjtwFG6rNW+2w0Ri82/e22Vef+nbyuYrTgbkWEaz4rc6pHWd0gn1
+	 r/+3rOfbmPavcNiQmHWiS6BcbrddvgUxBJAUK7VdAno3f9YAGJiJqcppE6BtcafjA8
+	 aaLKeTnPJRXZA==
+Date: Tue, 24 Feb 2026 17:59:32 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 23/41] arm_mpam: resctrl: Add kunit test for rmid idx conversions
-Date: Tue, 24 Feb 2026 17:57:02 +0000
-Message-ID: <20260224175720.2663924-24-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
+	NXP S32 Linux Team <s32@nxp.com>,
+	Larisa Grigore <larisa.grigore@nxp.com>
+Subject: Re: [PATCH 2/4] dt-bindings: mmc: fsl-imx-esdhc: add S32N79 support
+Message-ID: <20260224-splatter-sneak-3ec0e4d1272b@spud>
+References: <20260224111533.3194883-1-ciprianmarian.costea@oss.nxp.com>
+ <20260224111533.3194883-3-ciprianmarian.costea@oss.nxp.com>
+ <20260224-remote-deliverer-958fcaba8bfa@spud>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_095935_064917_EF09951B 
-X-CRM114-Status: GOOD (  10.14  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GvK9ZLScef9N3RQa"
+Content-Disposition: inline
+In-Reply-To: <20260224-remote-deliverer-958fcaba8bfa@spud>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,90 +86,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As MPAM's pmg are scoped by partid and RDT's rmid are global the
-rescrl mapping to an index needs to differ.
 
-Add some tests for the MPAM rmid mapping.
+--GvK9ZLScef9N3RQa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Tested-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
- drivers/resctrl/test_mpam_resctrl.c | 49 +++++++++++++++++++++++++++++
- 1 file changed, 49 insertions(+)
+On Tue, Feb 24, 2026 at 05:58:05PM +0000, Conor Dooley wrote:
+> On Tue, Feb 24, 2026 at 12:15:31PM +0100, Ciprian Costea wrote:
+> > From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> >=20
+> > Add compatible string "nxp,s32n79-usdhc" for the uSDHC controller found=
+ in
+> > NXP S32N79 series automotive SoCs.
+> >=20
+> > The controller is compatible with the existing i.MX uSDHC controllers.
+> >=20
+> > Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> > Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> > ---
+> >  Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml | 1 +
+> >  1 file changed, 1 insertion(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml b=
+/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml
+> > index b98a84f93277..014b049baeb6 100644
+> > --- a/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml
+> > +++ b/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml
+> > @@ -35,6 +35,7 @@ properties:
+> >            - fsl,imx8mm-usdhc
+> >            - fsl,imxrt1050-usdhc
+> >            - nxp,s32g2-usdhc
+> > +          - nxp,s32n79-usdhc
+>=20
+> Ditto here, no driver change?
 
-diff --git a/drivers/resctrl/test_mpam_resctrl.c b/drivers/resctrl/test_mpam_resctrl.c
-index b93d6ad87e43..a20da161d965 100644
---- a/drivers/resctrl/test_mpam_resctrl.c
-+++ b/drivers/resctrl/test_mpam_resctrl.c
-@@ -296,6 +296,54 @@ static void test_percent_to_max_rounding(struct kunit *test)
- 	KUNIT_EXPECT_LE(test, 4 * num_rounded_up, 3 * total);
- }
- 
-+struct rmid_idx_case {
-+	u32 max_partid;
-+	u32 max_pmg;
-+};
-+
-+static const struct rmid_idx_case rmid_idx_cases[] = {
-+	{0, 0}, {1, 4}, {3, 1}, {5, 9}, {4, 4}, {100, 11}, {0xFFFF, 0xFF},
-+};
-+
-+static void test_rmid_idx_desc(const struct rmid_idx_case *param, char *desc)
-+{
-+	snprintf(desc, KUNIT_PARAM_DESC_SIZE, "max_partid=%d, max_pmg=%d\n",
-+		 param->max_partid, param->max_pmg);
-+}
-+
-+KUNIT_ARRAY_PARAM(test_rmid_idx, rmid_idx_cases, test_rmid_idx_desc);
-+
-+static void test_rmid_idx_encoding(struct kunit *test)
-+{
-+	u32 orig_mpam_partid_max = mpam_partid_max;
-+	u32 orig_mpam_pmg_max = mpam_pmg_max;
-+	const struct rmid_idx_case *param = test->param_value;
-+	u32 idx, num_idx, count = 0;
-+
-+	mpam_partid_max = param->max_partid;
-+	mpam_pmg_max = param->max_pmg;
-+
-+	for (u32 partid = 0; partid <= mpam_partid_max; partid++) {
-+		for (u32 pmg = 0; pmg <= mpam_pmg_max; pmg++) {
-+			u32 partid_out, pmg_out;
-+
-+			idx = resctrl_arch_rmid_idx_encode(partid, pmg);
-+			/* Confirm there are no holes in the rmid idx range */
-+			KUNIT_EXPECT_EQ(test, count, idx);
-+			count++;
-+			resctrl_arch_rmid_idx_decode(idx, &partid_out, &pmg_out);
-+			KUNIT_EXPECT_EQ(test, pmg, pmg_out);
-+			KUNIT_EXPECT_EQ(test, partid, partid_out);
-+		}
-+	}
-+	num_idx = resctrl_arch_system_num_rmid_idx();
-+	KUNIT_EXPECT_EQ(test, idx + 1, num_idx);
-+
-+	/* Restore global variables that were messed with */
-+	mpam_partid_max = orig_mpam_partid_max;
-+	mpam_pmg_max = orig_mpam_pmg_max;
-+}
-+
- static struct kunit_case mpam_resctrl_test_cases[] = {
- 	KUNIT_CASE(test_get_mba_granularity),
- 	KUNIT_CASE_PARAM(test_mbw_max_to_percent, test_percent_value_gen_params),
-@@ -304,6 +352,7 @@ static struct kunit_case mpam_resctrl_test_cases[] = {
- 	KUNIT_CASE(test_percent_to_max_rounding),
- 	KUNIT_CASE_PARAM(test_percent_max_roundtrip_stability,
- 			 test_all_bwa_wd_gen_params),
-+	KUNIT_CASE_PARAM(test_rmid_idx_encoding, test_rmid_idx_gen_params),
- 	{}
- };
- 
--- 
-2.43.0
+Actually, this doesn't make sense per the commit message "the
+controller is compatible with the existing...". I'd expect to see a
+fallback compatible permitted in that case.
 
+>=20
+> >        - items:
+> >            - const: fsl,imx50-esdhc
+> >            - const: fsl,imx53-esdhc
+> > --=20
+> > 2.43.0
+> >=20
+
+
+
+--GvK9ZLScef9N3RQa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZ3nBAAKCRB4tDGHoIJi
+0m+EAQDnbg8zdo9Sf4rvR034p6zn4SpvO/7R/5X0IYTSPdIyrwEAkdsQLtF2gKTA
+X6rF0qy1YqMwF44vvtHbxe6qP2OwtAg=
+=nn62
+-----END PGP SIGNATURE-----
+
+--GvK9ZLScef9N3RQa--
 
