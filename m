@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 293E5E9B260
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 13:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED8EE9B260
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 13:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4RwNCApcBW3izJCHc5vDPzUa210jU/pBNZD7SBtwz4=; b=xi6wbZvBXVv3Au4tuGDGcnZjex
-	mqlpiE+DabtcUNK0x6bsniXQeEABIeDDVZHBjrKKO9eotsLydrd8f2PMNe6PB70Gm9O1KzqjlkWYD
-	s7NQucoHaCgYF+WvR3cv/l2tN1Faseg19xMV9USHNvzJR264eXkm8DT0uK2JK9c4q5zcnhAnw8HZy
-	Q3gQavZAha1dnGoTBKBcCg37Xv5jxIg62QMAEHG9A0Vj2a8VKaWVc4uAIgCbCMWMJCg/4uNYsLUsX
-	/eIRJJ11W0ycYKJp0WCqcDHzubfL0WfsqUSUX0BgRJJA3y3pD0Z1Wk+HylGWt3ilupuRr95kk66Xc
-	9XF9Xt7Q==;
+	bh=uhrLJN+dYf1ZOiHijeuLeGnisGM2wT8S3rNW4/NFHIU=; b=IJ5QpDgIxE5I6i468q8jzqwtuu
+	RY57LUDibH1KIu4jgoh8bwIRZFB9CMQZe9+7tvHoheBsy5CifFWsXapKI58vP9y2aY5Pl22dKy1x6
+	bceAQnWGjWewQeaN/c4MJtwQnCinljMrh9dlFPCT2EYmaRPE5wQtHABK4TzrdW48rKmRkQsth7VjM
+	QpXuflMKv/3r2PVpmIDYkJfiS6PDAtZeQYz2kFXyVCSZFdSEYD39To8aQWHdu6AaMnTHfDcZ0f2hj
+	89qooQl1gKxTWZmlLJA8z16PgwSqnmxhRiCFo3SPNJxyDBhsiTh5gTvf9+k7uZ62/Nd1me/v6YsHh
+	j0pRCo2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vusJb-000000027ln-3Gkq;
-	Tue, 24 Feb 2026 13:19:03 +0000
+	id 1vusL4-000000028G6-2DB6;
+	Tue, 24 Feb 2026 13:20:34 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vusJZ-000000027kO-2UBV;
-	Tue, 24 Feb 2026 13:19:02 +0000
+	id 1vusL1-000000028De-0vCW;
+	Tue, 24 Feb 2026 13:20:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2612D44219;
-	Tue, 24 Feb 2026 13:19:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67ECFC116D0;
-	Tue, 24 Feb 2026 13:18:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CD882402C5;
+	Tue, 24 Feb 2026 13:20:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3215EC116D0;
+	Tue, 24 Feb 2026 13:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771939141;
-	bh=9dDLZKZe4Vnpg/vn4EwiF+rh9/b7hE8wVvMoi/ULJJU=;
+	s=k20201202; t=1771939230;
+	bh=/cwEX8nlHRJVwbvm2pJNaEZRc+lYm5XQEkzF4FtU3U4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aUVP9Qs1It676WNKcJHtsndmf8EUw6PQg7c++d2+W5d1qXhOPe6ig6tdUhUlal3Rh
-	 Xdk0JXJjpR45f5ZuP3ZiY/y1DktkGRSWUqE12qIwEC/RJj9GJ9nJcMGUKb9P2//SiR
-	 tbK1OVyUR28oUkNpWEUE+ON2KPSDA0zs2FoZLbf9YGHbDO0jDMvsG8J3XvLrrRJqxy
-	 QPZN6SKe/N/xn5L/PKWbYfRwEF2HI38tfRXAKB4mqQ1JlquBSHnlGycJVGOBDdeZ4M
-	 WpmUiC0XdKMwpMS4uLN5qTiiKFlCa736l5gzJ/j+d0wcjU9eL516ALrXY4t5h/uem1
-	 /WcqTdCuSQ2oA==
-Message-ID: <0874bb3d-b38d-4ea3-a5b0-2da2484cc3e5@kernel.org>
-Date: Tue, 24 Feb 2026 14:18:55 +0100
+	b=ZUEbJsLrM2UoNgrTIz7X3nplCDMSQdF7a8vMD6hbJOGUr+mol6HhH9fwYtMhARftP
+	 m+QL4+zbRp49GaFvrdfJ3GJEGqD07Dx0n3YmW5VIDDgHQzlZUK0ZZrysBUJXFan78d
+	 qr1O18jeDAGyw1qU8S+CUQqw+QpbLyQTxCv/y0+dOIIPCEBgpDTQ2xIvbEXtul1ZnF
+	 7FZnHxIap3TAROfy0i2XCqFU2rkGmYCJREO3uW5YFsjo9Xa4Z0LJBLttc7vcO0Wuk+
+	 PE1Y5s5Ve6piHuTFMDUMiwYu8/8x88JGkaB3xuNlBKlGvugoEo2Kq5k9CzZAXHzc62
+	 gC5XbW5rr1k7A==
+Message-ID: <37bebecf-3e16-446e-907a-d006e4cec4c4@kernel.org>
+Date: Tue, 24 Feb 2026 14:20:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] media: dt-bindings: rockchip,vdec: Correct
- reg-names order for RK35{76,88}
+Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Fix vdec register blocks
+ order on RK3576
 To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
  Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -59,9 +59,9 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
  Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
 References: <20260223-vdec-reg-order-rk3576-v2-0-daf4942dfc02@collabora.com>
- <20260223-vdec-reg-order-rk3576-v2-1-daf4942dfc02@collabora.com>
- <20260224-saffron-peccary-from-heaven-2d5e6e@quoll>
- <244b22d3be77047163b4e47c4ed33b5b1befb4b4.camel@collabora.com>
+ <20260223-vdec-reg-order-rk3576-v2-2-daf4942dfc02@collabora.com>
+ <20260224-glaring-poetic-goshawk-b44d7b@quoll>
+ <366daf706b5dc3942e3340f29151ece1f49460e0.camel@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,13 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <244b22d3be77047163b4e47c4ed33b5b1befb4b4.camel@collabora.com>
+In-Reply-To: <366daf706b5dc3942e3340f29151ece1f49460e0.camel@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_051901_685992_4C35E522 
-X-CRM114-Status: UNSURE (   6.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260224_052031_314434_5BC41011 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,29 +127,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2026 14:14, Nicolas Dufresne wrote:
->>>  
->>>    reg-names:
->>> -    items:
->>> +    oneOf:
->>>        - const: function
->>> -      - const: link
->>> -      - const: cache
->>> +      - items:
->>> +          - const: link
->>> +          - const: function
->>> +          - const: cache
+On 24/02/2026 14:17, Nicolas Dufresne wrote:
+> Hi,
+> 
+> Le mardi 24 février 2026 à 08:22 +0100, Krzysztof Kozlowski a écrit :
+>> On Mon, Feb 23, 2026 at 09:49:50PM +0200, Cristian Ciocaltea wrote:
+>>> When building device trees for the RK3576 based boards, DTC shows the
+>>> following complaint:
+>>>
+>>>   rk3576.dtsi:1282.30-1304.5: Warning (simple_bus_reg): /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
 >>
->> No, ABI break without point.
+>> So you need to fix the unit address. This is what the warning tells you.
 > 
-> Its not released yet, otherwise both order would need to be allowed.
+> The unit address is where the register range starts. Picking a random point
+> inside the range is just bad idea.
+
+Of course and that's why you run tools BEFORE you send patches to tell
+you that.
+
+> For anyone that uses spec to develop these
+> drivers and device tree, its just plain difficult and error prone.
 > 
-Also, not true.
+>>
+>>>
+>>> Provide the register blocks in the expected address-based order.
+>>>
+>>> Fixes: da0de806d8b4 ("arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576")
+>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>> ---
+>>>  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 6 +++---
+>>>  1 file changed, 3 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+>>> index 49ccdf12ef7e..45eb0d053a6f 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+>>> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+>>> @@ -1281,10 +1281,10 @@ gpu: gpu@27800000 {
+>>>  
+>>>  		vdec: video-codec@27b00000 {
+>>>  			compatible = "rockchip,rk3576-vdec";
+>>> -			reg = <0x0 0x27b00100 0x0 0x500>,
+>>> -			      <0x0 0x27b00000 0x0 0x100>,
+>>> +			reg = <0x0 0x27b00000 0x0 0x100>,
+>>> +			      <0x0 0x27b00100 0x0 0x500>,
+>>>  			      <0x0 0x27b00600 0x0 0x100>;
+>>
+>> The main block, so probably the lowest address as in unit address,
+>> should be used, but this ship has sailed. You shipped this DTS, because
+>> the order of items is FIXED. Your binding change is clearly incorrect
+>> and ABI break without explanation and without reason, so you cannot use
+>> such as an argument here.
+> 
+> Its not released yet.
 
-git describe --contains  c6ffb7e1fb90
-v6.17-rc1~90^2~3
+Nothing in commit msg explained that and your previous comment about
+binding was false. Binding WAS released.
 
-So clearly released.
+I am not going to check every claim you make whether it is true or not.
 
 Best regards,
 Krzysztof
