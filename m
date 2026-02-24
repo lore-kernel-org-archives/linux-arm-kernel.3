@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0039CEFB7F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D371EFB7F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=srSVsiV2b/ln5UzP/d6flconP4PG3Pc7vryxNaoWscY=; b=3xpgf97jsw/ag3AXAUlbA61jqX
-	HqYfHP9407Kot9/EnOr0wi3rV9zOdEDyl+Zc0vhNNzMVXVvftjSV0Dulm//dBbFco0m7tN3/pd63M
-	Z4z+XWh7EM74MnlmRqrHC+nvOWe8dVFaJ0YUt4WE/FXBztSjhqvNxVpwptzyeL1j0nyErOUCEmJln
-	dIcU9HxS74dWmwSYSrWXVpHAiaccoNvGgShjyYy8ncPHRevuzsWvqb8B8EXX0GGH+WMw/MhW5xf+C
-	Frs0fzUqH1gMzkmp2iWsPhX/Mg+Xx50c/1JYwKwWqd2+96WQzbHTkZzRjpN43o45BG8pfFhdjEu87
-	vIJAODrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WIubZXzK5F9ouxqgWF0FClCgkxaDOHC3De7wfbFAbt8=; b=uYmbAfexVFfisR2RJDTgduROyL
+	7l85bwgrcpAlSNscSc9F+T8JULKIm+/NeO2RkqnAN+bfEQpMNaF8i53fWK2vSiE644V/Lp7C3zMIM
+	w7JZ71Dymh6dAziO4ttpFnah8gDK1N7bAouRo3y7/7dY2WL84neFObSSSxTZItnJNN7xyp+95VlGT
+	2MQjMF9cEuzet4cSre2tdn7hxHIgr6h9JOE45leg8ERhbTQ0CD5xgcBBpKHFALXN7Qy/2yveSzPO2
+	eiF/IViNoZJRh+FpTF/7Xo822Ks0fTKxvbyb4FjcPrsAgr8Vjfo/3/Pn8Cs2Ke/fyFf6T9N5MINBU
+	ZCHGZarw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuolS-00000001lBh-0t2Q;
-	Tue, 24 Feb 2026 09:31:34 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vuonu-00000001lQe-0EzZ;
+	Tue, 24 Feb 2026 09:34:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuolP-00000001lAm-2H4a
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 09:31:32 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-483786a09b1so54279395e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:31:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771925489; x=1772530289; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=srSVsiV2b/ln5UzP/d6flconP4PG3Pc7vryxNaoWscY=;
-        b=1LJCW071jSA2ijACithdxixAAjl+9n309rKhdHHbWqe1J4qxZ3c1e5sAwFxbnUCJKD
-         rqmSVGuiUvNVurNgQrkKXrNbA4X2HZCl04wQJd6Ju3FIIoAnOHcE2rYcQzurW5xfhsP5
-         Ppma+D6ph8hAUsUgDbL0yUnxGeyx8DMzqyPXhczifvvqcHQd3eOW1KFfwgfKYAquSkCE
-         Zu/kLqx9c9Q5vZLGjRg4/rAAtk/YnavvHR6WlVnb1p7Xr6TNeRlL5NyoqkWqhWFzr8+k
-         GhKrfsufEKiS2MV9O+aOT6X899i1yyJBgU49ICtUhnTWnpp8Hr/cWJuIQ1UrE1PqcFCs
-         LVdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771925489; x=1772530289;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=srSVsiV2b/ln5UzP/d6flconP4PG3Pc7vryxNaoWscY=;
-        b=cfVrekHYEsKBxLqywjhieUi94dcNUULEgkIKBxzZGCafHL0qfIi17z5Salkpvlw63I
-         lIALKJIEJNoeNTtO4KoRpLm8nDJLLn6TDKfaaq5OO59NRB95G6Su8yKxoWHja8fy2uId
-         k5SnQPadxwVYhS41H6+2y/aBxHuogJqfX4cF6Yknt4n647qYQHVgAdGoyY0iiNBp06Mu
-         1XlRWHIpvXPTrR1omBCpNMUd1ccltOgGzakAx/xSvS3IIFy9OQ3kOevytz4KvARD+xPT
-         GCvZZ6Ge7BfHBo+4H0vNNHLF6AOTtfBnEggaUurpT6GYpaYDfYvRZWzjMYtq52HFmYfs
-         aYOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW/fRF5LGmOfGmwZ+ZIDO/vP5jFEKIExNaBkZrQE6vx6lEwmhPRqMC+IJQVL4M6BIPt1XLdtuU291K4cK7TerRj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxp3LVLH5jL5E7Nfe5lpBokgZAxRk+/UzJzS4duwaUwtM0X4H6n
-	hbcFVZmM1yWviJaYC+dAzp9ZxyVU0DaGO34wZpbhEg+mVwYt5SwZRgy896a2uSNjrzTtjGZC2fy
-	NLQ==
-X-Received: from wmdq4.prod.google.com ([2002:a05:600c:304:b0:483:2ac4:5da6])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1e1d:b0:483:456a:514b
- with SMTP id 5b1f17b1804b1-483a95befe5mr191351835e9.12.1771925489179; Tue, 24
- Feb 2026 01:31:29 -0800 (PST)
-Date: Tue, 24 Feb 2026 09:31:28 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.53.0.371.g1d285c8824-goog
-Message-ID: <20260224093128.1926610-1-tabba@google.com>
-Subject: [PATCH] arm64: bpf: Fix UBSAN misaligned access in BPF JIT
-From: Fuad Tabba <tabba@google.com>
-To: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
-	Jakub Sitnicki <jakub@cloudflare.com>, Jean-Philippe Brucker <jpb@kernel.org>, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	id 1vuonr-00000001lOm-2ByF;
+	Tue, 24 Feb 2026 09:34:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1771925640;
+	bh=rwBqGNstFp5t0Kn3FUGpCZ0lCjGXdvzm7ehoHB93r2k=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=FpyIrnpC5DC/hFyJdF1Ehd500yaAu7RL5MiJI0ozk/SUT0tYrmWh/O1ttk27iZ8B2
+	 xi2e2XfRCeeDTcBfXE0nxIuFbeFpqYxr7oEoG3J8MCepdTl7h+Pc8OGbRVxt5nkJNz
+	 qI+ZR3ZEoJ0gjkzLH+M4DLjrAgDByWjsOt4Ye7d4u7ypFlS6mOhdglPfPnCypUTpQG
+	 ZXI7yYqylvDXEBX5m2BBOVHqv0q92vcJdRf/y9Maf0WGbxe3I6464HuGUErVivslbL
+	 HgkVEbk+rLhZmyAGAlBMw8xv6nG+YSRQAcxlkDK09lj82kGFHIeYzuw8Ul/lrEz01K
+	 rCdkTbazxDajA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5336917E0BA2;
+	Tue, 24 Feb 2026 10:34:00 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Amjad Ouled-Ameur <aouledameur@baylibre.com>, 
+ =?utf-8?q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>, 
+ Fabien Parent <fparent@baylibre.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20250502-mt8365-infracfg-nao-compatible-v1-0-e40394573f98@collabora.com>
+References: <20250502-mt8365-infracfg-nao-compatible-v1-0-e40394573f98@collabora.com>
+Subject: Re: (subset) [PATCH 0/2] Correct MT8365's infracfg-nao DT node
+ description as a pure syscon
+Message-Id: <177192564029.11826.9934120449874433312.b4-ty@collabora.com>
+Date: Tue, 24 Feb 2026 10:34:00 +0100
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_013131_585549_CB1F3644 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20260224_013403_704799_D18BDDCF 
+X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,34 +84,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-struct bpf_plt contains a u64 'target' field. The BPF JIT allocator
-was using an alignment of 4 bytes (sizeof(u32)), which could lead
-to the 'target' field being misaligned in the JIT buffer.
+On Fri, 02 May 2025 12:43:20 -0400, Nícolas F. R. A. Prado wrote:
+> Introduce a new compatible to the binding and use it in the infracfg-nao
+> node in the mt8365.dtsi to correctly describe the node and prevent probe
+> errors.
+> 
+> 
 
-Increase the alignment requirement to 8 bytes (sizeof(u64)) in
-bpf_jit_binary_pack_alloc() to guarantee proper alignment for
-struct bpf_plt.
+Applied to v7.0-next/dts64, thanks!
 
-Fixes: b2ad54e1533e9 ("bpf, arm64: Implement bpf_arch_text_poke() for arm64")
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/net/bpf_jit_comp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[2/2] arm64: dts: mediatek: mt8365: Describe infracfg-nao as a pure syscon
+      commit: 0651c24658360706c30588cec0a12c05edb03e9a
 
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 356d33c7a4ae..adf84962d579 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -2119,7 +2119,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	extable_offset = round_up(prog_size + PLT_TARGET_SIZE, extable_align);
- 	image_size = extable_offset + extable_size;
- 	ro_header = bpf_jit_binary_pack_alloc(image_size, &ro_image_ptr,
--					      sizeof(u32), &header, &image_ptr,
-+					      sizeof(u64), &header, &image_ptr,
- 					      jit_fill_hole);
- 	if (!ro_header) {
- 		prog = orig_prog;
--- 
-2.53.0.371.g1d285c8824-goog
+Cheers,
+Angelo
+
 
 
