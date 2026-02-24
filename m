@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F1BEFB7FB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 05:12:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09581EFB7FB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 05:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qLhTzKtdbXIm/8qAUkJLODhrMb/B50HEdj961gOEOsw=; b=BlzLyt+iSxg6jaDRna6vnxoofK
-	miUhnzuQN1/Lky5ywmLrW9oydce/cOI6eSw938yPwmr1NeXpHibI9y9Lrkx8z5hSrZorlz63jAJ8g
-	PKj4YKMYq02dB68y08LgfNisffgW52U71FKkrmH2mZpMIyoAhwQs//0jhwTnwXHBLLqpnEWkKH2cb
-	9AzRA40Mn6xT3doQ7CKr0Irm1WZygZjshWXT+zHWOIYELP2JpqYIOPOULNmTAZVFyqmiEq5+hJzRn
-	Y3GDGlJ5/4rTWguGpGMMy3eEYpzvY9UPpwRP62kWRodCcYbkqW7xjLd9GgWpFE+BTeC3rtLOSjuR+
-	M75sNneQ==;
+	bh=TluUqlJoO0JDaYOrPvbW1pMETA1lm1IMn4MgEDIXoB4=; b=D/x0vfHOufvW92pFZR8QBMctz+
+	F17GFxjXp6RyNtUeNqqs/iwVJVM7GrD+dUrkZEHUYXnR5mw7FORdSOrhhnshnoMB/P399wVzuMNJb
+	9mkbYlB/4VDVutNvZ34XRhWCzJ/32rTeH7en1ljMaQrMSRcTayumTxOO/8pnTfxNEYTKvj0sfgWS3
+	Sq+0Jjzgk59wTaJwDzFT18+gWhsRT9m5rPFywJGqURh77vx2V+F/F8zPJowPNMfGzp62pZyYaeu0Y
+	8Gt1M9Usk5dbOppErAAVsmqeV/UQN7mDZWKKOx12WwNBURKZ7JdPEp37mBM0XkcYsv15ZxT5+80cP
+	ROycUKgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vukiy-00000001SSJ-05Dr;
-	Tue, 24 Feb 2026 05:12:44 +0000
+	id 1vukj3-00000001SVg-1O9h;
+	Tue, 24 Feb 2026 05:12:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vukiu-00000001SQI-2fsR
+	id 1vukj1-00000001SUG-0nTC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 05:12:41 +0000
+	Tue, 24 Feb 2026 05:12:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7AE95339;
-	Mon, 23 Feb 2026 21:12:33 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA859339;
+	Mon, 23 Feb 2026 21:12:39 -0800 (PST)
 Received: from a085714.blr.arm.com (a085714.arm.com [10.164.18.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8FBEC3F7BD;
-	Mon, 23 Feb 2026 21:12:35 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 63A333F7BD;
+	Mon, 23 Feb 2026 21:12:40 -0800 (PST)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -46,18 +46,23 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Mike Rapoport <rppt@kernel.org>,
 	Linu Cherian <linu.cherian@arm.com>,
 	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [RFC V1 03/16] mm: Replace READ_ONCE() in pud_trans_unstable()
-Date: Tue, 24 Feb 2026 10:41:40 +0530
-Message-ID: <20260224051153.3150613-4-anshuman.khandual@arm.com>
+	linux-mm@kvack.org,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	linux-perf-users@vger.kernel.org
+Subject: [RFC V1 04/16] perf/events: Replace READ_ONCE() with standard pgtable accessors
+Date: Tue, 24 Feb 2026 10:41:41 +0530
+Message-ID: <20260224051153.3150613-5-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260224051153.3150613-1-anshuman.khandual@arm.com>
 References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_211240_713508_84F8A1D0 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20260223_211247_266533_4797E998 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,35 +77,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace READ_ONCE() with the existing standard page table accessor for PUD
-aka pudp_get() in pud_trans_unstable(). This does not create any functional
-change for platforms that do not override pudp_get(), which still defaults
-to READ_ONCE().
+Replace READ_ONCE() with standard page table accessors i.e pxdp_get() which
+anyways default into READ_ONCE() in cases where platform do not override.
 
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: linux-mm@kvack.org
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: linux-perf-users@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- include/linux/pgtable.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ kernel/events/core.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 8858b8b03a02..397a0cd99ebd 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -2008,7 +2008,7 @@ static inline int pud_trans_unstable(pud_t *pud)
- {
- #if defined(CONFIG_TRANSPARENT_HUGEPAGE) && \
- 	defined(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD)
--	pud_t pudval = READ_ONCE(*pud);
-+	pud_t pudval = pudp_get(pud);
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index ac70d68217b6..4ee151cd2c6d 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -8422,7 +8422,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+ 	pte_t *ptep, pte;
  
- 	if (pud_none(pudval) || pud_trans_huge(pudval))
- 		return 1;
+ 	pgdp = pgd_offset(mm, addr);
+-	pgd = READ_ONCE(*pgdp);
++	pgd = pgdp_get(pgdp);
+ 	if (pgd_none(pgd))
+ 		return 0;
+ 
+@@ -8430,7 +8430,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+ 		return pgd_leaf_size(pgd);
+ 
+ 	p4dp = p4d_offset_lockless(pgdp, pgd, addr);
+-	p4d = READ_ONCE(*p4dp);
++	p4d = p4dp_get(p4dp);
+ 	if (!p4d_present(p4d))
+ 		return 0;
+ 
+@@ -8438,7 +8438,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+ 		return p4d_leaf_size(p4d);
+ 
+ 	pudp = pud_offset_lockless(p4dp, p4d, addr);
+-	pud = READ_ONCE(*pudp);
++	pud = pudp_get(pudp);
+ 	if (!pud_present(pud))
+ 		return 0;
+ 
 -- 
 2.43.0
 
