@@ -4,113 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F31E9B24E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C65E9B24E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QOKvRhfZsnhzwbM0EzN4b0rL8EuPsyoKUbQcczCj2gs=; b=zKX5FjbzpGMIVBvJtp0dLwCbFV
-	y2h3fW1UOpZALeJQuINIYtqiCPkCq0F3wdLsf3XDMyYqJltc8m29e6CIXj7EQRvWbkuFjmEy8sOra
-	RoUkvI7f5ph0LUR4iAXfHuJL7USsMrUyvyywWoq6HWhTMu0fwcXq/viFzWx8BSJdUMG54hbgkwqEc
-	WV1jRXOwde9Wza/mI0nRn50l8r55B0vz6EOvaFmcgU+Cj2zJMLZhO2P0sm6WaSz/qezO1gHQdfkia
-	UV0o9HfvB0iaeFbFpzT2ZRAYE22MhKv9bCZrcXqKGSUo2iybW6cFIz21ITG64jzk40QgDJUTiLXt2
-	uhhwAQjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ij6cdWejKy/ffyyWn1sSZBOlQicgWQuMd2VPZ5860kM=; b=vMA7Q9p4qSTGQeuORMyzrXLLif
+	l5s0T8qwK7l2+UY9TrhYUf1e7zja+FhO9hvHuqBGFC8c+/U6ASZ3hB54pavYnDtMPkLdMsZQtJRrP
+	08wWe/ua9wmuz5DFvylTw8INPDtwps+dZk4HXTRy6w67phv5Ws0rVcHzDFDs0ptg2q0U2IpO8I0k0
+	gt0Zcx7YznB8fC6QLft4Ry5HU4sa2XUBEiKVdSOWooxItA99SQMn05jC7CvNFvcj7wCLBgpvSIDCX
+	SnsxPZnAiksKuLdc0S6reJOrjjYr458+9JfzptSDLEAnfPmn88mIpMsNnyJbqY4E6ZNgCoqVNaqq5
+	LfPZZnMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqTF-00000001yIf-2jmR;
-	Tue, 24 Feb 2026 11:20:53 +0000
+	id 1vuqV4-00000001yZP-0a2v;
+	Tue, 24 Feb 2026 11:22:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqTD-00000001yHz-0R01
+	id 1vuqV1-00000001yZ3-3Ijl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 11:20:52 +0000
+	Tue, 24 Feb 2026 11:22:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7142643D5B;
-	Tue, 24 Feb 2026 11:20:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70558C19424;
-	Tue, 24 Feb 2026 11:20:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 54E7C40419;
+	Tue, 24 Feb 2026 11:22:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230B3C116D0;
+	Tue, 24 Feb 2026 11:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771932050;
-	bh=r0WAmM0UXc9ELJLkGALCNQFBNPexcMsmlDe+prud3Ag=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aUL2hpF2wqJczReljyV+O4M4FGgEJhiu1iLkxHhFiNbNwveDVFC61Mp27PXTxYau6
-	 OME6LFCV/dBPp8K7GKeSBAgKGUQ9GvLRFPbx8obzfruBNNIpTTdFtGAm4+DSpTyya8
-	 ubUVPiYHJKTLsM7DeI4XgP+V6iKegqp4F0A3op0mIMaksqdEEch4uCdSHiRAKpITE4
-	 +8JgUbnRfo8D6Q3QtoitTCxq/s/JoOB45tvnlfNFAIDkd1o6Q1qfoHvfuejXvb6cEA
-	 yKlpDnWX6I4v1tKwpYghjHTthFpuG6t3NW2swOI6D6VV20ZiIXfvlSiTva4yJ27Rpa
-	 evMnuDrxX9Slw==
-Message-ID: <7cdeb30e-13b9-4c7d-95b4-f6bb6cf15ae8@kernel.org>
-Date: Tue, 24 Feb 2026 12:20:45 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: exynos: add initial support for Samsung
- Galaxy J7 (2016)
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Kees Cook <kees@kernel.org>,
- Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Rayan Marzouk <rayanmarzouk743@gmail.com>,
- bluebunny <kalorin.bok084@passinbox.com>
-References: <20260125-exynos7870-j7xelte-v1-0-5cacc3042c42@disroot.org>
- <20260125-exynos7870-j7xelte-v1-2-5cacc3042c42@disroot.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260125-exynos7870-j7xelte-v1-2-5cacc3042c42@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1771932163;
+	bh=L4l/FOenVBHtlTfEzTtLmBPv4vF+0FmANuPZot2vfPc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=a+XNg1gIghl0ZFdpzRU+Mo2WRjddUGvA/kPhU0LD8NxGpwkqVmGqs+4id8f0Cg+vs
+	 VgY3m9Mi0tLN0PQaiz8WeuYdtuK+/8B1aVmeYopmhFnLAQxIBLGpx5jtzKzrGh34i+
+	 fKZlcmJXd4hK2n8aaOUOI1Wi1dnQwpaNRKphUKe9nYPz2uP7FKiuKjQSeWUaLh0XX4
+	 QFNlSFxKAPipwyJpCcjAbz4LR1WXVT3UiJ2mwvzdDsx9hNyvaq1e5JB/BbHecaJdkk
+	 O54jsDFu5n9a5fpgMrKvx+rmTJ+Yz7lVtwhHZyE202it2XwQZg3DkwJp/GlM+mB0V7
+	 7dlFhhZW0kwtA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vuqUz-0000000DK3I-0JYQ;
+	Tue, 24 Feb 2026 11:22:41 +0000
+Date: Tue, 24 Feb 2026 11:22:40 +0000
+Message-ID: <86fr6q9yin.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: James Clark <james.clark@linaro.org>,
+	Will Deacon <will@kernel.org>,
+	kvmarm@lists.linux.dev,
+	mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running in guest context
+In-Reply-To: <20260220154820.GG136967@e132581.arm.com>
+References: <20260216130959.19317-1-will@kernel.org>
+	<86a4x8bw38.wl-maz@kernel.org>
+	<d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
+	<868qcsbsbd.wl-maz@kernel.org>
+	<076e013a-b66d-4985-9709-734d7184ad72@linaro.org>
+	<867bscbpmp.wl-maz@kernel.org>
+	<20260220154820.GG136967@e132581.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: leo.yan@arm.com, james.clark@linaro.org, will@kernel.org, kvmarm@lists.linux.dev, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, suzuki.poulose@arm.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_032051_205248_93B5883E 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260224_032243_899331_2CF0B16E 
+X-CRM114-Status: GOOD (  24.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,23 +95,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/01/2026 21:05, Kaustabh Chakraborty wrote:
-> From: Rayan Marzouk <rayanmarzouk743@gmail.com>
+On Fri, 20 Feb 2026 15:48:20 +0000,
+Leo Yan <leo.yan@arm.com> wrote:
 > 
-> Add initial devicetree support for Samsung Galaxy J7 (2016) (codename:
-> j7xelte), an Exynos7870 device.
+> On Mon, Feb 16, 2026 at 04:49:02PM +0000, Marc Zyngier wrote:
 > 
-> Signed-off-by: Rayan Marzouk <rayanmarzouk743@gmail.com>
-> Co-developed-by: bluebunny <kalorin.bok084@passinbox.com>
-> Signed-off-by: bluebunny <kalorin.bok084@passinbox.com>
+> [...]
+> 
+> > > > But that's *not* working. If you trace EL1 only, even with a VHE host,
+> > > > the result is not usable.
+> > > > 
+> > > 
+> > > Do you mean not working because of the missing exceptions? I did a bit
+> > > of testing before and the trace did seem somewhat usable to me. It had
+> > > EL1 and EL0 atoms in there.
+> > 
+> > Sure. Now try to look at what that means for NV, where all the
+> > EL1->EL2 exceptions are emulated, where all the EL2->EL1 exception
+> > returns are emulated.
+> > 
+> > What does it give you? A bag of nonsense.
+> 
+> Sorry for jumping in.
+> 
+> If we enable TRBE in a VM, whether nested or not, why is it necessary to
+> capture trace data for the exception transition between the VM and its
+> higher level host(s)?
 
-I cannot take anonymous contributions (see submitting patches). Please
-resend or confirm that I should drop above Co-dev and SoB.
+Because that's what the architecture guarantees. If you can't honour
+what the architecture guarantees, then you don't have an
+implementation.
 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
+> Seems to me, regardless of what happens during exception emulation, once
+> the VM is switched out, tracing will be stopped, and then re-enabled
+> when the VM is switched back.  In that case, we should be able to record
+> the complete trace data for whatever occurs while the VM is running.
 
+And that's breaking the architecture when the exception return is
+emulated.
 
-Best regards,
-Krzysztof
+Really, I'm getting tired of having to argue this.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
