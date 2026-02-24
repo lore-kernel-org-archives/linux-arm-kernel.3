@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2063F4BB6B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616E2F4BB69
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 18:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DitVAqt2W7BtSWDInWdyQeL6ANzecOicylNEOZcx3tE=; b=4HQwCXiYGkZivqcqAPGhoMT4ek
-	Loij1nzM1wM2E7rE2yF//bnkk5fJf0Ar7h9a5y2VJylj3kvh51zxJv1D65xP0g7nvdQyhLzY1ksTP
-	6l8ruc6lHeR5Je83elRoFq/eR4WBWWc9t8G2JmyYtXelydoTImmfGMufSwfgKhZRZeP5K3AsM17qT
-	9n9nX751qOcIwQlT83fptd96BoqYtKTUTz8kCFqVrs3EhWJuFiZIUNBI25hY4/rDqfMHoTWElCA82
-	F4fYaeXqazSiI/aBQxn8H8YWzvsBXQTB1Mfzp/hY/w0TRWW5r//JYACQvSBkmhxJTDU1gDWZUs0dU
-	ASs2v2hA==;
+	bh=gQV1RQTJtiH7rTD45KTrA4rveTljwW8J6hyuk32NW0c=; b=e3SnRgTYHGNP1qcbfexo1Kgy+e
+	94eJF/l2d0/r/RLN5sEn69biPUHUMz/9XqXPGX8ZHNgeQ4qb2moOxv/ncufeGm2isqPQiTRZtjnCU
+	izbewzc/Vx2mf+t5HFpL24oVj9pPbKoTxnD24vxlZfDWGm0O5KRPTK2JlI/HN6zzx2f5rRKUaOl8t
+	4Xc29vf2h4tAzv1t3THBH40I0hYyhFTHQ6rNxbCjITO6to1yiM+pggPnYT4fFFDbA8IeTMk2wk/Di
+	5AUjaikSXsC82oEMQR1DjquzLMcfZAT+3lOy0mBVO0yPZaB0oau4GuoAqaEi8VkQGvkVTjYWFtrIC
+	a0etpCdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwip-00000002acz-3PKT;
-	Tue, 24 Feb 2026 18:01:23 +0000
+	id 1vuwiu-00000002ahS-0nA5;
+	Tue, 24 Feb 2026 18:01:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwij-00000002aXY-2btX
+	id 1vuwip-00000002acP-27My
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 18:01:22 +0000
+	Tue, 24 Feb 2026 18:01:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF164165C;
-	Tue, 24 Feb 2026 10:01:10 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D4881595;
+	Tue, 24 Feb 2026 10:01:16 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7FF2A3F59E;
-	Tue, 24 Feb 2026 10:01:11 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3B41E3F59E;
+	Tue, 24 Feb 2026 10:01:17 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -68,18 +68,19 @@ Cc: amitsinght@marvell.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org
-Subject: [PATCH v5 40/41] arm_mpam: Quirk CMN-650's CSU NRDY behaviour
-Date: Tue, 24 Feb 2026 17:57:19 +0000
-Message-ID: <20260224175720.2663924-41-ben.horgan@arm.com>
+	linux-doc@vger.kernel.org,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: [PATCH v5 41/41] arm64: mpam: Add initial MPAM documentation
+Date: Tue, 24 Feb 2026 17:57:20 +0000
+Message-ID: <20260224175720.2663924-42-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
 References: <20260224175720.2663924-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_100117_800061_91B8761F 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20260224_100123_688019_51BE14FE 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,115 +95,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+MPAM (Memory Partitioning and Monitoring) is now exposed to user-space via
+resctrl. Add some documentation so the user knows what features to expect.
 
-CMN-650 is afflicted with an erratum where the CSU NRDY bit never clears.
-This tells us the monitor never finishes scanning the cache. The erratum
-document says to wait the maximum time, then ignore the field.
-
-Add a flag to indicate whether this is the final attempt to read the
-counter, and when this quirk is applied, ignore the NRDY field.
-
-This means accesses to this counter will always retry, even if the counter
-was previously programmed to the same values.
-
-The counter value is not expected to be stable, it drifts up and down with
-each allocation and eviction. The CSU register provides the value for a
-point in time.
-
+Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Signed-off-by: James Morse <james.morse@arm.com>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since v3:
-parentheses in macro
----
- Documentation/arch/arm64/silicon-errata.rst |  3 +++
- drivers/resctrl/mpam_devices.c              | 12 ++++++++++++
- drivers/resctrl/mpam_internal.h             |  6 ++++++
- 3 files changed, 21 insertions(+)
+Changes by Ben:
+Some tidying, update for current heuristics
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 1aa3326bb320..65ed6ea33751 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -214,6 +214,9 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | SI L1           | #4311569        | ARM64_ERRATUM_4311569       |
- +----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | CMN-650         | #3642720        | N/A                         |
-++----------------+-----------------+-----------------+-----------------------------+
-++----------------+-----------------+-----------------+-----------------------------+
- | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_845719        |
- +----------------+-----------------+-----------------+-----------------------------+
- | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_843419        |
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 48a233875a9a..9182c8fcf003 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -691,6 +691,12 @@ static const struct mpam_quirk mpam_quirks[] = {
- 	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
- 	.workaround = T241_MBW_COUNTER_SCALE_64,
- 	},
-+	{
-+	/* ARM CMN-650 CSU erratum 3642720 */
-+	.iidr       = MPAM_IIDR_ARM_CMN_650,
-+	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
-+	.workaround = IGNORE_CSU_NRDY,
-+	},
- 	{ NULL } /* Sentinel */
- };
- 
-@@ -1003,6 +1009,7 @@ struct mon_read {
- 	enum mpam_device_features	type;
- 	u64				*val;
- 	int				err;
-+	bool				waited_timeout;
- };
- 
- static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
-@@ -1249,6 +1256,10 @@ static void __ris_msmon_read(void *arg)
- 		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
- 			nrdy = now & MSMON___NRDY;
- 		now = FIELD_GET(MSMON___VALUE, now);
+Changes from v4:
+Fix unusual indentation
+---
+ Documentation/arch/arm64/index.rst |  1 +
+ Documentation/arch/arm64/mpam.rst  | 94 ++++++++++++++++++++++++++++++
+ 2 files changed, 95 insertions(+)
+ create mode 100644 Documentation/arch/arm64/mpam.rst
+
+diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
+index af52edc8c0ac..98052b4ef4a1 100644
+--- a/Documentation/arch/arm64/index.rst
++++ b/Documentation/arch/arm64/index.rst
+@@ -23,6 +23,7 @@ ARM64 Architecture
+     memory
+     memory-tagging-extension
+     mops
++    mpam
+     perf
+     pointer-authentication
+     ptdump
+diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
+new file mode 100644
+index 000000000000..6dc3de54ec9a
+--- /dev/null
++++ b/Documentation/arch/arm64/mpam.rst
+@@ -0,0 +1,94 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
-+		if (mpam_has_quirk(IGNORE_CSU_NRDY, msc) && m->waited_timeout)
-+			nrdy = false;
++====
++MPAM
++====
 +
- 		break;
- 	case mpam_feat_msmon_mbwu_31counter:
- 	case mpam_feat_msmon_mbwu_44counter:
-@@ -1386,6 +1397,7 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
- 			.ctx = ctx,
- 			.type = type,
- 			.val = val,
-+			.waited_timeout = true,
- 		};
- 		*val = 0;
- 
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 1443a1dd996e..195ab821cc52 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -226,6 +226,7 @@ enum mpam_device_quirks {
- 	T241_SCRUB_SHADOW_REGS,
- 	T241_FORCE_MBW_MIN_TO_ONE,
- 	T241_MBW_COUNTER_SCALE_64,
-+	IGNORE_CSU_NRDY,
- 	MPAM_QUIRK_LAST
- };
- 
-@@ -251,6 +252,11 @@ struct mpam_quirk {
- 				 FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0)	 | \
- 				 FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0x36b))
- 
-+#define MPAM_IIDR_ARM_CMN_650	(FIELD_PREP_CONST(MPAMF_IIDR_PRODUCTID,   0)	 | \
-+				 FIELD_PREP_CONST(MPAMF_IIDR_VARIANT,     0)	 | \
-+				 FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0)	 | \
-+				 FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0x43b))
++What is MPAM
++============
++MPAM (Memory Partitioning and Monitoring) is a feature in the CPUs and memory
++system components such as the caches or memory controllers that allow memory
++traffic to be labelled, partitioned and monitored.
 +
- /* The values for MSMON_CFG_MBWU_FLT.RWBW */
- enum mon_filter_options {
- 	COUNT_BOTH	= 0,
++Traffic is labelled by the CPU, based on the control or monitor group the
++current task is assigned to using resctrl.  Partitioning policy can be set
++using the schemata file in resctrl, and monitor values read via resctrl.
++See Documentation/filesystems/resctrl.rst for more details.
++
++This allows tasks that share memory system resources, such as caches, to be
++isolated from each other according to the partitioning policy (so called noisy
++neighbours).
++
++Supported Platforms
++===================
++Use of this feature requires CPU support, support in the memory system
++components, and a description from firmware of where the MPAM device controls
++are in the MMIO address space. (e.g. the 'MPAM' ACPI table).
++
++The MMIO device that provides MPAM controls/monitors for a memory system
++component is called a memory system component. (MSC).
++
++Because the user interface to MPAM is via resctrl, only MPAM features that are
++compatible with resctrl can be exposed to user-space.
++
++MSC are considered as a group based on the topology. MSC that correspond with
++the L3 cache are considered together, it is not possible to mix MSC between L2
++and L3 to 'cover' a resctrl schema.
++
++The supported features are:
++
++* Cache portion bitmap controls (CPOR) on the L2 or L3 caches.  To expose
++  CPOR at L2 or L3, every CPU must have a corresponding CPU cache at this
++  level that also supports the feature.  Mismatched big/little platforms are
++  not supported as resctrl's controls would then also depend on task
++  placement.
++
++* Memory bandwidth maximum controls (MBW_MAX) on or after the L3 cache.
++  resctrl uses the L3 cache-id to identify where the memory bandwidth
++  control is applied. For this reason the platform must have an L3 cache
++  with cache-id's supplied by firmware. (It doesn't need to support MPAM.)
++
++  To be exported as the 'MB' schema, the topology of the group of MSC chosen
++  must match the topology of the L3 cache so that the cache-id's can be
++  repainted. For example: Platforms with Memory bandwidth maximum controls
++  on CPU-less NUMA nodes cannot expose the 'MB' schema to resctrl as these
++  nodes do not have a corresponding L3 cache. If the memory bandwidth
++  control is on the memory rather than the L3 then there must be a single
++  global L3 as otherwise it is unknown which L3 the traffic came from.
++
++  When the MPAM driver finds multiple groups of MSC it can use for the 'MB'
++  schema, it prefers the group closest to the L3 cache.
++
++* Cache Storage Usage (CSU) counters can expose the 'llc_occupancy' provided
++  there is at least one CSU monitor on each MSC that makes up the L3 group.
++  Exposing CSU counters from other caches or devices is not supported.
++
++* Memory Bandwidth Usage (MBWU) on or after the L3 cache.  resctrl uses the
++  L3 cache-id to identify where the memory bandwidth is measured. For this
++  reason the platform must have an L3 cache with cache-id's supplied by
++  firmware. (It doesn't need to support MPAM.)
++
++  Memory bandwidth monitoring makes use of MBWU monitors in each MSC that
++  makes up the L3 group. If there are more monitors than the maximum number
++  of control and monitor groups, these will be allocated and configured at
++  boot. Otherwise, the monitors will not be usable as they are required to
++  be free running. If the memory bandwidth monitoring is on the memory
++  rather than the L3 then there must be a single global L3 as otherwise it
++  is unknown which L3 the traffic came from.
++
++  To expose 'mbm_total_bytes', the topology of the group of MSC chosen must
++  match the topology of the L3 cache so that the cache-id's can be
++  repainted. For example: Platforms with Memory bandwidth monitors on
++  CPU-less NUMA nodes cannot expose 'mbm_total_bytes' as these nodes do not
++  have a corresponding L3 cache. 'mbm_local_bytes' is not exposed as MPAM
++  cannot distinguish local traffic from global traffic.
++
++Feature emulation
++=================
++MPAM will emulate the Code Data Prioritisation (CDP) feature on all platforms.
++
++Reporting Bugs
++==============
++If you are not seeing the counters or controls you expect please share the
++debug messages produced when enabling dynamic debug and booting with:
++dyndbg="file mpam_resctrl.c +pl"
 -- 
 2.43.0
 
