@@ -4,70 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80FCEFB7E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 02:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610ECEFB7E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 02:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7X1iUhAUWuFURylZjRz/UYuilzjOVBho6gFijhNRoZI=; b=gM5QbLakMLKg/6QNqAZjPKm1T0
-	oxMWFvnkbwLc6rGTd91QmRYzsvhOM4C6XOruxAmGiCk0/xIQCcQA8Z5DA1lXLVs4FTwTp+4yeHfyD
-	xJ9lc6YqieR1kY6DFdmiKN8SQLxMtj3OcmzLxLsACldbwnPb8vtkmmluIT/oMw8NxR3MFmBhNznbl
-	7RKOF1bDz7D+VSZmdz3HVgPWL1pYvMl1rZCQ3vCTgxL+iEFaLzmu9K9F+3P/sU9QYmTd73oJSPpeJ
-	ReinZB1dUKNAoo7ujVJ1EnK6u2VijZxRgncRTOPNsbLYpR7SrjMYvRN5PfZPFnF6GEp7HZpL9wO29
-	EXgbatxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G24I7Ff/etxg0a2wqzeI/LH7DTsK+u1io5dvhJpjM+c=; b=UDYzneZ1A69FY4ueToOQFebQ4m
+	eQekHnPSPlhaVXu0c1rtq2GaEdsUeIUMJXrvg+RwDtt+6kVTFBHNMtoq/liC3RvemJQi9PAdLwhSd
+	9Zr5D97U2EoIwZJZpFZpAJ98qzr22WAxZW9PzEyndw0yizka5wCGfAa4+KJGxrj7OaKWgUzuseikg
+	2U6xlUGg12nfiKl+iRBxkt8m3BQg3BwqbadLr9XndrXdHnf4Ma1kZZvvQOdd1ghE3UvOAZSD/ZQ68
+	DZDaZLKBVZi25a+e+H8O2G0tarxONbCzovjpCb+yCoVfmF2KxOjMQqr8iTWEEsiUm26kScYbdWhER
+	80eHYzzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuhqi-00000001Kq1-34f3;
-	Tue, 24 Feb 2026 02:08:32 +0000
-Received: from mail-m21472.qiye.163.com ([117.135.214.72])
+	id 1vuiJR-00000001Maq-3fii;
+	Tue, 24 Feb 2026 02:38:13 +0000
+Received: from shelob.surriel.com ([96.67.55.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuhqf-00000001KpW-3H74;
-	Tue, 24 Feb 2026 02:08:31 +0000
-Received: from [127.0.0.1] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 34bd766c9;
-	Tue, 24 Feb 2026 10:08:16 +0800 (GMT+08:00)
-Message-ID: <e0c180ae-22b7-4151-a655-74f83161deb8@rock-chips.com>
-Date: Tue, 24 Feb 2026 10:08:00 +0800
+	id 1vuiJP-00000001MaS-415x
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Feb 2026 02:38:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
+	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=G24I7Ff/etxg0a2wqzeI/LH7DTsK+u1io5dvhJpjM+c=; b=N0fPBP0ZX3nff+uESHr5dr836B
+	DFRdCMf3GvEX6pucye5mFXvdon/1RMquIa2SWyCAt0OtILzFqh4mEeh7zI8UA7ryKKGO4+iMj9ecA
+	4od6s2TJAoWRl98Eoo42SaRd0JZ12d/CtajA0lU5UMRMyBH8zTiuHfInBt60A9z/kHOSge9KZgVCG
+	1D3NSnr8x0I4U1n/A4lXRDShJrK7H4PI6xiFd2SQSHxs3OzNLyHC4MVR8cxNc72jq6aCNTobtHBJO
+	uFa9pu7zX6chMGPqbq6ckUfYkygRP75MlToC6N1m7Jdatdi6apM4AOTzmNGS2u+45GJ77yZfhShiA
+	vwEVG3Og==;
+Received: from fangorn.home.surriel.com ([10.0.13.7])
+	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.97.1)
+	(envelope-from <riel@surriel.com>)
+	id 1vuiHl-000000000cE-3D2J;
+	Mon, 23 Feb 2026 21:36:30 -0500
+Message-ID: <01f4ffab0da9e4326a78f8b6eedce23dfb115e7a.camel@surriel.com>
+Subject: Re: [PATCH 1/5] mm: use inline helper functions instead of ugly
+ macros
+From: Rik van Riel <riel@surriel.com>
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org, 
+	david@kernel.org
+Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com, 
+	ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, 	surenb@google.com, mhocko@suse.com, harry.yoo@oracle.com,
+ jannh@google.com, 	willy@infradead.org, baohua@kernel.org,
+ dev.jain@arm.com, axelrasmussen@google.com, 	yuanchu@google.com,
+ weixugc@google.com, hannes@cmpxchg.org, 	zhengqi.arch@bytedance.com,
+ shakeel.butt@linux.dev, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 23 Feb 2026 21:36:30 -0500
+In-Reply-To: <dc94552605926f9ce84f9fc2ddfe5f7d1319e41c.1771897150.git.baolin.wang@linux.alibaba.com>
+References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
+	 <dc94552605926f9ce84f9fc2ddfe5f7d1319e41c.1771897150.git.baolin.wang@linux.alibaba.com>
+Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
+ keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
+ eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
+ Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
+ lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
+ dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
+ mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
+ gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
+ r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
+ WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
+ 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
+ Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
+ +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
+ g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
+ KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
+ fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
+ 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
+ G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
+ okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
+ TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
+ cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
+ omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
+ QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
+ c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Problematic understanding of phy-mode in Rockchip DWMAC driver
-To: Diederik de Haas <diederik@cknow-tech.com>,
- "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>
-Cc: Yao Zi <me@ziyao.cc>, Heiko Stuebner <heiko@sntech.de>,
- Heiner Kallweit <hkallweit1@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <aY9s5PXP4zZ7R6fa@pie> <aY9xsslT56D9LGLe@shell.armlinux.org.uk>
- <f1e047e1-3f1c-4562-ab43-af2fe358fe04@lunn.ch>
- <aZDGsJNLZIty0242@shell.armlinux.org.uk>
- <a4aebacc-c273-4e42-97ff-0cdd88d771dd@lunn.ch>
- <aZMxKdkl2Qa7e1WU@shell.armlinux.org.uk>
- <DGGK56T574F0.TJSLQL9P1SM@cknow-tech.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <DGGK56T574F0.TJSLQL9P1SM@cknow-tech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9c8d677e7303abkunm282acd41e78e52
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhpDT1ZCQh1LQxlLGkkaQ05WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=YLGrRVTYXYwJ78iiZ/DQI2fHLRiYr025TGHy3A3AHdE80kecqRFIsnllhhGoByhzUL5aPHOlAcb34VOOcpOOk4xagSKOFFoHtm5VN9dMan8jLwXRHM9lMM64M1RQFiG5po0AiS8Z7/N/zQZ4T0iovsY4S6BMJwQHXcrVVmbcPP4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=7X1iUhAUWuFURylZjRz/UYuilzjOVBho6gFijhNRoZI=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_180830_450035_4BAE3696 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260223_183812_024200_724C8221 
+X-CRM114-Status: UNSURE (   7.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +109,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Tue, 2026-02-24 at 09:56 +0800, Baolin Wang wrote:
+> People have already complained that these *_clear_young_notify()
+> related
+> macros are very ugly, so let's use inline helpers to make them more
+> readable.
+>=20
+> In addition, I cannot implement these inline helper functions in the
+> mmu_notifier.h file, because some arch-specific files will include
+> the
+> mmu_notifier.h, which introduces header compilation dependencies and
+> causes
+> build errors (e.g., arch/arm64/include/asm/tlbflush.h). Moreover,
+> since
+> these functions are only used in the mm, implementing these inline
+> helpers
+> in the mm/internal.h header seems reasonable.
+>=20
+> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 
-On 2/17/2026 1:21 AM, Diederik de Haas wrote:
-> On Mon Feb 16, 2026 at 4:00 PM CET, Russell King (Oracle) wrote:
->> On Mon, Feb 16, 2026 at 02:57:48AM +0100, Andrew Lunn wrote:
->>> On Sat, Feb 14, 2026 at 07:02:08PM +0000, Russell King (Oracle) wrote:
->>>> On Sat, Feb 14, 2026 at 05:50:15PM +0100, Andrew Lunn wrote:
->>>>> Rockchip have recently started adding support for a new version, and
->>>>> appear to of listened to what we have been saying. So it could be the
->>>>> next generation of chips get this correct.
->>>>
->>>> Have you seen any proposed code from Rockchip for their new scheme?
->>>
->>> There was a patch, including a rather odd formulae to convert register
->>> value to delay. I gave some feedback, but it has been silence
->>> afterwards.
->>
->> Searching lore's netdev archive doesn't seem to bring anything up.
-> 
-> https://patch.msgid.link/b25d6eb2-e105-4060-86fa-c1a06396ca92@lunn.ch/
-> 
+Reviewed-by: Rik van Riel <riel@surriel.com>
 
-I am the author of this patch series. My understanding is that
-"rgmii-id" should be adopted first, and for any delays that may
-need to be introduced, they should be implemented in the PHY rather
-than in the GMAC, although I did try to do so. 
-
-Did I miss something?
-
--- 
-Best, 
-Chaoyi
+--=20
+All Rights Reversed.
 
