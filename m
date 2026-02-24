@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE75EFB810
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 07:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA19EFB810
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 07:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Axcry1PBDWHYIS9BuruhJLCAKzo5uN9W3aIz3QHxSA=; b=O164QVmaziUUtlR1rhKB8I7TwA
-	WWJUy1ppgMV7si1r02A3PVEeKMscmpkxxBsI+Pyu98WHtmhUQ0jRfaSIeWqFO6oIaYi37424yLkEb
-	kpvPN9GQKTz4MFldBv+mj+YUtKi3nvo73HXhzp8UKf53sZlaOJ3Fa728pz+soTUd5uZgAs0wR2C9f
-	LameAe4SUOAfCNXQm9YzIc+aTafcd4NqlFo8wSFQnO2l8K94MbwlyA/IHmMDVodrxePIqmOe3GtTT
-	lGFtKZzdX7uw1Ck8kAGRtxW5LtS6A1HIWMSfPfRKEsMSzNq5szko41++Yxnbh93VF2zy9g4gzAirG
-	9jY1SNPw==;
+	bh=x1IkUg3Q9+Zu2kPt5FkumK1ZX1m9hcDplS2/G3IHqF0=; b=lNBEK79Pr1fF8qL8IznfpUNgPS
+	MwMOMveM9JuQlDuYUctV4QVFVJx8Xagt3c+bBmlG37BvMPRGN69SKj7MDzWejIQ3n5sHriIsVT9mM
+	/qqbJ+Y+ypzmGWWvjfOplNVWrJW9yRier66ugQOZDtucSW8PklLUGC8pQXiDGgQilt7o0eeeU0pgL
+	4rwGDPNxYHLcN83L2nDNlj98iuZArdFn1rLJCFeKhaeKtfqKsyWvEXk524DVsH3oN9jaYXmU1mkgP
+	amGZcXeeMKYGLn/O/rVb3mMgnUsaGqAcbGyVRAafVHAh9TaGdfIr3Bfqia6l6YhNc9nrjxstxxOJB
+	0g0UX1Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vumic-00000001a4d-3diI;
-	Tue, 24 Feb 2026 07:20:30 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1vumkV-00000001aFW-1EPz;
+	Tue, 24 Feb 2026 07:22:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vumiZ-00000001a4H-39Dr
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 07:20:29 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 2EF621A2307;
-	Tue, 24 Feb 2026 08:20:25 +0100 (CET)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 17C9B1A22FD;
-	Tue, 24 Feb 2026 08:20:25 +0100 (CET)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 1E51A202A7;
-	Tue, 24 Feb 2026 08:20:24 +0100 (CET)
-Date: Tue, 24 Feb 2026 08:20:25 +0100
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 2/4] dt-bindings: net: nxp,s32-dwmac: Declare
- per-queue interrupts
-Message-ID: <aZ1ROUzQdsuOpGFz@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20260223-dwmac_multi_irq-v5-0-8fc699a5fac4@oss.nxp.com>
- <20260223-dwmac_multi_irq-v5-2-8fc699a5fac4@oss.nxp.com>
- <20260224-diligent-bloodhound-of-hail-3fe982@quoll>
+	id 1vumkS-00000001aF7-3wYH;
+	Tue, 24 Feb 2026 07:22:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F3F743A5F;
+	Tue, 24 Feb 2026 07:22:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC75EC116D0;
+	Tue, 24 Feb 2026 07:22:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771917743;
+	bh=8sYxib13fUYmbRr8GN0ErWAgBVzMRPr1YYVyj9V9drg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eWFIBFTFfD96BBFjZyhR8OqD6QzhH3cB5oEsh8Ydkk3OcGGvYH3mF8alU7drTiAjB
+	 xgDVCDtq4TsWk5y1w2IwFngLZzSTL+UWH+P4j3n1wm/2kw6fy9maApDpWFcuhzQnqK
+	 mtFLm0d1vQJGT+GhjbTJ432c6aiQBQq5YY5XGr1K7xt0ZTQ/m6zM9FaLcL+hcoK7Vo
+	 n/rVIzUck7mJAFLj8YmZslzSZsDHBXAQgGwdAPE0it1BJTFL9t3HEgbbDL9BskqhQE
+	 1UJJ6cKy2uqC8Ev/SjRA1yZPwr172Ffv+Fdd998t/UYZqZ19WyBHwHg+7OgDn0cf1C
+	 B0tBsqlycriLg==
+Date: Tue, 24 Feb 2026 08:22:20 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Detlev Casanova <detlev.casanova@collabora.com>, 
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Fix vdec register blocks
+ order on RK3576
+Message-ID: <20260224-glaring-poetic-goshawk-b44d7b@quoll>
+References: <20260223-vdec-reg-order-rk3576-v2-0-daf4942dfc02@collabora.com>
+ <20260223-vdec-reg-order-rk3576-v2-2-daf4942dfc02@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260224-diligent-bloodhound-of-hail-3fe982@quoll>
-X-Virus-Scanned: ClamAV using ClamSMTP
+In-Reply-To: <20260223-vdec-reg-order-rk3576-v2-2-daf4942dfc02@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_232027_945284_6A127FC3 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20260223_232225_007592_BE141956 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +78,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 08:06:11AM +0100, Krzysztof Kozlowski wrote:
-> On Mon, Feb 23, 2026 at 02:58:05PM +0100, Jan Petrous (OSS) wrote:
-> > The DWMAC IP on NXP S32G/R SoCs has connected queue-based IRQ lines,
-> > set them to allow using Multi-IRQ mode.
-> > 
-> > Reviewed-by: Matthias Brugger <mbrugger@suse.com>
-> > Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> > ---
-> >  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 44 +++++++++++++++++++---
-> >  1 file changed, 39 insertions(+), 5 deletions(-)
-> > 
+On Mon, Feb 23, 2026 at 09:49:50PM +0200, Cristian Ciocaltea wrote:
+> When building device trees for the RK3576 based boards, DTC shows the
+> following complaint:
 > 
-> <form letter>
-> This is a friendly reminder during the review process.
-> 
-> It looks like you received a tag and forgot to add it.
-> 
-> If you do not know the process, here is a short explanation:
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-> versions of patchset, under or above your Signed-off-by tag, unless
-> patch changed significantly (e.g. new properties added to the DT
-> bindings). Tag is "received", when provided in a message replied to you
-> on the mailing list. Tools like b4 can help here. However, there's no
-> need to repost patches *only* to add the tags. The upstream maintainer
-> will do that for tags received on the version they apply.
-> 
-> Please read:
-> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-> 
-> If a tag was not added on purpose, please state why and what changed.
-> </form letter>
-> 
-> > diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-> > index 1b2934f3c87c..3a0e41b63c3d 100644
-> > --- a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-[...]
+>   rk3576.dtsi:1282.30-1304.5: Warning (simple_bus_reg): /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
 
-Hi Krzysztof,
+So you need to fix the unit address. This is what the warning tells you.
 
-thanks for pointing out the missing Rob's Reviewed-by.
-It was the mistake not by purpose.
-Should I resend v5 series or only this patch 2 or prepare v6?
+> 
+> Provide the register blocks in the expected address-based order.
+> 
+> Fixes: da0de806d8b4 ("arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576")
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> index 49ccdf12ef7e..45eb0d053a6f 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> @@ -1281,10 +1281,10 @@ gpu: gpu@27800000 {
+>  
+>  		vdec: video-codec@27b00000 {
+>  			compatible = "rockchip,rk3576-vdec";
+> -			reg = <0x0 0x27b00100 0x0 0x500>,
+> -			      <0x0 0x27b00000 0x0 0x100>,
+> +			reg = <0x0 0x27b00000 0x0 0x100>,
+> +			      <0x0 0x27b00100 0x0 0x500>,
+>  			      <0x0 0x27b00600 0x0 0x100>;
 
-BR.
-/Jan
+The main block, so probably the lowest address as in unit address,
+should be used, but this ship has sailed. You shipped this DTS, because
+the order of items is FIXED. Your binding change is clearly incorrect
+and ABI break without explanation and without reason, so you cannot use
+such as an argument here.
+
+You cannot change it without impact, so just fix the unit address.
+
+Best regards,
+Krzysztof
+
 
