@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49EBEFB7F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 07:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4301EFB80E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 07:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USeX1JFWWi+mIY67WzULvHmLcVm3A4NFaLK71acSSIY=; b=1RTUuLpYo3tGGEruvuAJwqTl6B
-	YvXm+W9lBf7CuDyVdv/EWGSnj37lsaWsQjr642LdaHMvMg7fkYtqvRK8KgcNS3A3sofEyfzPsmOyF
-	TGLnlqxvcymLrvnBM0xIcNsYpkSBlRcnMIW4Nb+XUuiFynVTDiA+4uV4YgGgvCVe8HVHKRcWifaiX
-	+iGs5+q0dWkyK9KXVjUAWYmLsqVDaZy7KhciDRY804DRbkPNhtvZ/LMW/ces33WomOq2xbRDL3Too
-	+oOG8mes4sHt/DqCK44SkJscnb1sH4B9hjtobDSxT+/yhoVSo3MLslm0QGrF/VJcVUrxSixY8N3OC
-	AANE0HOw==;
+	bh=1sKuDgot7I4GOx5EWcg0U/E5ZJktWKrw37TouVBOS68=; b=d2MHe1de2e7SykfCrDGm1A6ICX
+	F1AoWMiwKgaMTYEl8wb/Dmj+aAcwaIrA2VaDjJApqTSJM8FrVYYRXpbtbzpldYZ+QjVLQW6JGwoxc
+	gJdW2QXuYy9BMjMxsoJq0RImwA6tTkroBEFBEDaQZEZwkqXpLcAqcWyK1734Pp3M6rEUtYEfpi3ti
+	u/cbbn94rt1ann5DvwJZZPbFXK9nA5bNV3hA6+TBFNgBaEN2O8EzNQX5QMEepv03UjgfW5sV2SgfP
+	EgGlAdgq1Y3FUeuL+WHAotb/YyXVIAHpZBime+SxpU8TwP96ToWpFtFFLKQc/3nTmN/awhaVy6IJQ
+	KCNC1MhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vumUr-00000001YgJ-0Vyj;
-	Tue, 24 Feb 2026 07:06:17 +0000
+	id 1vumWS-00000001Ynj-2aB3;
+	Tue, 24 Feb 2026 07:07:56 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vumUo-00000001Yfx-3Xkl
+	id 1vumWP-00000001YnK-3Z7y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 07:06:16 +0000
+	Tue, 24 Feb 2026 07:07:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 370DD40053;
-	Tue, 24 Feb 2026 07:06:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84AF6C116D0;
-	Tue, 24 Feb 2026 07:06:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 61F6B416E3;
+	Tue, 24 Feb 2026 07:07:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0E5DC116D0;
+	Tue, 24 Feb 2026 07:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771916774;
-	bh=+7HAa46+csyyfFenGu741DgQ0m/L/d1UUx6mgp8nvUI=;
+	s=k20201202; t=1771916873;
+	bh=hHcyq/uvklfIp0Y5DZyNfWw9A4+Llx6RoaYL0waqnm0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d31fTtcpY8I9cJoKWJ3UEniHz7RsfiFq9uU5sAhsntQBf5du4P+x3xpG//OsG3lmN
-	 7OgqoFGzx6hpHFeqMfTKq/hTpv7Ik1HZSU6oSfDEY96qV/mhnMagxUv7yEbOVGuKKd
-	 atR3yi19ndUjIVhw+uV9flLAAzqxcRtvYBZL3YQObRLuamy5AaxwVCBMd+OchiNYzK
-	 BNupMV1fEQXiLypin5s5DLXhZTZCWdpXiJBDgTUCyRou90d4EiJD5K/Ajz6lt+G8pv
-	 Y8B3ZQZDEte86QBesK3IwEbZQ4XaW9BhehybzEkMXn8mSPSm5cIciYoM7VVTaHrar4
-	 9SL7I9nZejwRg==
-Date: Tue, 24 Feb 2026 08:06:11 +0100
+	b=l5Gx85a2Dkl1xNL/peu5+mEiIidCDKoxthwZjziZNEW5wXlHK0sFejRSQgI6T+6BR
+	 acAKxbWlo9665jpbZ+f05s/2d0BZnkK9W75jYGH7pOGiMvJwWAGRvxhvgkNyUvneUx
+	 wKOdlyoKtYzAlgIUCIpC/9z8N4gBbIGNZhhrqFC7nZLvJUK7VDERv2FqyrBtIaCapA
+	 0BCSMAcW8RHB+Mj+CqFo6ZFpHIxv12vHHdhXazuVcvvEz2S70p8OA/vL4o9XcJJa15
+	 Fi7VPIsrvSjxA48qoPmOXpX1o3j5a7HsI5vX+KqNx9Zw30I4uw2AznKJ/Mh1HiGVsl
+	 2ZYAgjudV2EMQ==
+Date: Tue, 24 Feb 2026 08:07:50 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, NXP S32 Linux Team <s32@nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 2/4] dt-bindings: net: nxp,s32-dwmac: Declare
- per-queue interrupts
-Message-ID: <20260224-diligent-bloodhound-of-hail-3fe982@quoll>
-References: <20260223-dwmac_multi_irq-v5-0-8fc699a5fac4@oss.nxp.com>
- <20260223-dwmac_multi_irq-v5-2-8fc699a5fac4@oss.nxp.com>
+To: Kamal Dasu <kamal.dasu@broadcom.com>
+Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, baolin.wang@linux.alibaba.com, florian.fainelli@broadcom.com, 
+	bcm-kernel-feedback-list@broadcom.com, linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/3] dt-bindings: hwlock: Adding brcmstb-hwspinlock
+ support
+Message-ID: <20260224-innocent-fluorescent-caribou-be5bba@quoll>
+References: <20260224014758.2660318-1-kamal.dasu@broadcom.com>
+ <20260224014758.2660318-2-kamal.dasu@broadcom.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260223-dwmac_multi_irq-v5-2-8fc699a5fac4@oss.nxp.com>
+In-Reply-To: <20260224014758.2660318-2-kamal.dasu@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_230614_965951_60F35544 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20260223_230753_915822_FD8E4827 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,115 +75,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 02:58:05PM +0100, Jan Petrous (OSS) wrote:
-> The DWMAC IP on NXP S32G/R SoCs has connected queue-based IRQ lines,
-> set them to allow using Multi-IRQ mode.
+On Mon, Feb 23, 2026 at 08:47:56PM -0500, Kamal Dasu wrote:
+> The Broadcom settop SoCs have hardware semaphores as part of the
+> "sundry" IP block which has other controls that do not belong anywhere
+> else e.g. pin/mux controls, SoC identification, drive strength, reset
+> controls, and other misc bits are part of this block.
 > 
-> Reviewed-by: Matthias Brugger <mbrugger@suse.com>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> Adding brcmstb-hwspinlock bindings which allows the hwspinlock driver
+> to iomap only the 16 hardware semaphore registers that are part of all
+> settop SoCs. The semaphore registers are based on the BCM7038 SoC
+> where they were first introduced in settop chips.
+> 
+> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
 > ---
->  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 44 +++++++++++++++++++---
->  1 file changed, 39 insertions(+), 5 deletions(-)
+>  .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 45 +++++++++++++++++++
+>  1 file changed, 45 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
 > 
+> diff --git a/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
+> new file mode 100644
+> index 000000000000..416d8d2948af
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
 
-<form letter>
-This is a friendly reminder during the review process.
+Now filename does not match the compatible. You must always CHANGE ALL
+places, compatible, ID and filename. Please read writing-bindings
+document.
 
-It looks like you received a tag and forgot to add it.
+Best regards,
+Krzysztof
 
-If you do not know the process, here is a short explanation:
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions of patchset, under or above your Signed-off-by tag, unless
-patch changed significantly (e.g. new properties added to the DT
-bindings). Tag is "received", when provided in a message replied to you
-on the mailing list. Tools like b4 can help here. However, there's no
-need to repost patches *only* to add the tags. The upstream maintainer
-will do that for tags received on the version they apply.
-
-Please read:
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-
-If a tag was not added on purpose, please state why and what changed.
-</form letter>
-
-> diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-> index 1b2934f3c87c..3a0e41b63c3d 100644
-> --- a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-> @@ -1,5 +1,5 @@
->  # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> -# Copyright 2021-2024 NXP
-> +# Copyright 2021-2026 NXP
->  %YAML 1.2
->  ---
->  $id: http://devicetree.org/schemas/net/nxp,s32-dwmac.yaml#
-> @@ -16,6 +16,8 @@ description:
->    the SoC S32R45 has two instances. The devices can use RGMII/RMII/MII
->    interface over Pinctrl device or the output can be routed
->    to the embedded SerDes for SGMII connectivity.
-> +  The DWMAC instances have connected all RX/TX queues interrupts,
-> +  enabling load balancing of data traffic across all CPU cores.
->  
->  properties:
->    compatible:
-> @@ -45,10 +47,22 @@ properties:
->        FlexTimer Modules connect to GMAC_0.
->  
->    interrupts:
-> -    maxItems: 1
-> +    minItems: 11
-> +    maxItems: 11
->  
->    interrupt-names:
-> -    const: macirq
-> +    items:
-> +      - const: macirq
-> +      - const: tx-queue-0
-> +      - const: rx-queue-0
-> +      - const: tx-queue-1
-> +      - const: rx-queue-1
-> +      - const: tx-queue-2
-> +      - const: rx-queue-2
-> +      - const: tx-queue-3
-> +      - const: rx-queue-3
-> +      - const: tx-queue-4
-> +      - const: rx-queue-4
->  
->    clocks:
->      items:
-> @@ -88,8 +102,28 @@ examples:
->                <0x0 0x4007c004 0x0 0x4>;    /* GMAC_0_CTRL_STS */
->          nxp,phy-sel = <&gpr 0x4>;
->          interrupt-parent = <&gic>;
-> -        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
-> -        interrupt-names = "macirq";
-> +        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
-> +                     /* CHN 0: tx, rx */
-> +                     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
-> +                     /* CHN 1: tx, rx */
-> +                     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
-> +                     /* CHN 2: tx, rx */
-> +                     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
-> +                     /* CHN 3: tx, rx */
-> +                     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
-> +                     /* CHN 4: tx, rx */
-> +                     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
-> +        interrupt-names = "macirq",
-> +                          "tx-queue-0", "rx-queue-0",
-> +                          "tx-queue-1", "rx-queue-1",
-> +                          "tx-queue-2", "rx-queue-2",
-> +                          "tx-queue-3", "rx-queue-3",
-> +                          "tx-queue-4", "rx-queue-4";
->          snps,mtl-rx-config = <&mtl_rx_setup>;
->          snps,mtl-tx-config = <&mtl_tx_setup>;
->          clocks = <&clks 24>, <&clks 17>, <&clks 16>, <&clks 15>;
-> 
-> -- 
-> 2.47.0
-> 
 
