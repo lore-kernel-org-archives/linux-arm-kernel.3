@@ -4,177 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6407BE9B242
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5E9E9B242
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N5RxqzPIZRbdR1vQBi9gJb7SRx9jUuwSe2KfVpJKCPM=; b=sAitunM3q7UPzH0ipvx5zgemYs
-	ZN5bYEk4BgR956qXn4VT3mgh+Rqi/3uNQjX2aJyBPO4ln7Sf4NoKuhsRuSWXE/8QrQSXQoEeSxhCo
-	ZaMtWgx2VnmcO7fWD9WqLssTpr01C2DbrNxQhp7Ias7aztpbAvgW1GMoOgAtCH3VePNKcrBuZfLxr
-	ebpjQljrIoj90eXCg36zJs/odkT54AQq7ZazThzPp+hbehLvx4HFgG4lIKHPMoJRF7QtTvVvo2hg3
-	HP41Qia9Su0YLC8+AYACVQQSbZrwOjWFP9dI4ocLvlfY6y8mjmATIIi2KDGbL03wmPBnnAxAbIzEp
-	LfMrlZtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rhKdfKO/7s0CvWTtS6Na5vHU5m9o337GMZQWXqRgub8=; b=kDGs3eenATkrkuDcG/nEhXyQhx
+	nZiDRVbHpEV9CmXixdxB9YItphc4EiUgh/PHcmCTP6spgcQWkyVeAq9eTaIObcqse+nqJnoAmb07a
+	ao9NLLQJGYG8PyYXiGY25+TbVKgNdpUQBbZIB4zRS4O9eOJnvE0KxxNKUBy21aNmWA57/x36tqj+E
+	J46Zyszew7UoKE3H0H5E4e34+rjk+M1RqnET+SOsMZ7xC9nsYjUGkfsHCS8RTiwFpqUo7lhOVAMQw
+	mPjshMTX1YkU6hleJtZrkTjtMsaaQ1XBN0BWf9Pe3hoHo1GV0pjoTOTuwESGisOKiWVLowS8cPAB/
+	d8gBJpqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoqQ-00000001mJO-0P2f;
-	Tue, 24 Feb 2026 09:36:42 +0000
-Received: from mail-centralusazon11010037.outbound.protection.outlook.com ([52.101.61.37] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vuorM-00000001mSS-1rDr;
+	Tue, 24 Feb 2026 09:37:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoqO-00000001mIP-06sz
+	id 1vuorK-00000001mRk-1bW3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 09:36:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kbgVRvzV6yqXMRKRQoxZm9yKzrfEzkwXTE7uOUx2mY0G4Ob7BdNG8d+Si0G4pRv6JeLoCmz2D3beyBkShM6rlfKlpD77AVUJmPrg3FYgS0V1IOtxY9Lualoi+D+kkw0GyLEHinHu2Z7zutsgbfVD7lkr4zf1z69J/5oi350R/8VCJLvvs6Yq8rVcmHNNWbeoteDF/xxSEZyZQ/EVgMnUn07Q2JUc/tMF6ApYVKnVoi5U55KLQeHngEIohAYEnRY9KZJrIo2c+XGUXiqyKwswY8+GbF1GqfgoJMA5EiD43/I1lAO6ZqqUaBZkaBIS2xHrh1OgzcJviwagc98GHDoQkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N5RxqzPIZRbdR1vQBi9gJb7SRx9jUuwSe2KfVpJKCPM=;
- b=t4lYaACBUSitNO9OZ7G+s/mT2ZIAu8mN5DYPGLgYsiPizv7u9GrQwmAkqiC71b1gnU1cDJpfr0yXNgkj7MHiWT2cIbWZMe/EXg9kWxPPbTZEkTQFv++CX4Aw3hmknH6hxMJ3mKDlTIKIM1xAe6fagBM4vgIUzJGxqWq//ise9GpxYaL7ywst/tzjuu3+jNW3FzFLFdR44TsbQKrYNQntRwSD5/XvENKjdDeErAgWmoB7miFfpJ+I3ZPPwABWJMHsjBX0QK41zqD31IOxYjfEKT9/vXzGiXwoRzS+2jQ0E65W5OGPbzyb4NI/tP+ymSLBOVk00r1uhBet7t3l2OXLwQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N5RxqzPIZRbdR1vQBi9gJb7SRx9jUuwSe2KfVpJKCPM=;
- b=dnB0yAWeHuOo9loOn90P3pEIQ3vmxnQ2OiWFRBjFzwstWmXujo4cg+TAGBrEW4/WHKTwbjrsY+yjnfymoG0v9lmcgiWpA88Wn22BTgXvwxcmqmkPv2NwaFPjq4iFCpxHJJ3tWSSVCgs/5sxSRvV/WpjNpkJsK0An0hqZN8nX1YVDF7D1oG2w/yGkPIXUsuCdrNsgiQnZFOZiowLc05FOgWhyb7vFEZbqpNxNvf3TGfQ1gOXomNph7wJdFX2Rq5r8xEa5cdS1uRAJEuyr/jY+sfgsLkOSO0EfYAgVlO8AL7ZdCheFtcEUnP0nn+3ChaQBbBV8RVIsn7dmJ6J6L4gGXQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com (2603:10b6:408:11c::18)
- by MN2PR12MB4143.namprd12.prod.outlook.com (2603:10b6:208:1d0::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
- 2026 09:36:34 +0000
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f]) by BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f%6]) with mapi id 15.20.9632.017; Tue, 24 Feb 2026
- 09:36:34 +0000
-Message-ID: <82521edf-27ce-4f8a-b283-ea0c5943bd35@nvidia.com>
-Date: Tue, 24 Feb 2026 15:06:24 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: topology: Fix false warning in
- counters_read_on_cpu() for same-CPU reads
-To: Jie Zhan <zhanjie9@hisilicon.com>, Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, zhenglifeng1@huawei.com,
- viresh.kumar@linaro.org, rafael@kernel.org, beata.michalska@arm.com,
- pierre.gondois@arm.com, ionela.voinescu@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
- treding@nvidia.com, jonathanh@nvidia.com, bbasu@nvidia.com, sumitg@nvidia.com
-References: <20260127080700.3565546-1-sumitg@nvidia.com>
- <3c6d58b2-b4c9-4dc7-a705-b7626e127f33@hisilicon.com>
- <aXoJUYDrhuJgkXEr@willie-the-truck> <aZyciAy8zCvrvGB7@willie-the-truck>
- <b4c98160-e6b4-44a5-9396-0acc8334a39c@hisilicon.com>
-Content-Language: en-US
-From: Sumit Gupta <sumitg@nvidia.com>
-In-Reply-To: <b4c98160-e6b4-44a5-9396-0acc8334a39c@hisilicon.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5PR01CA0204.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b0::16) To BN9PR12MB5179.namprd12.prod.outlook.com
- (2603:10b6:408:11c::18)
+	Tue, 24 Feb 2026 09:37:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AB69743E64
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 09:37:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83263C2BCB0
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 09:37:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771925857;
+	bh=g8edeZSicPJhy++p3maHG8V56bDu+kyumjD/ZT9RxXk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ADBNcvUYlfljcYMUK1YXe6mWXiZyA0e20GKeaTNKWidPih5IS7X18yQ7xBzX4XR2k
+	 YLo4ksg5UcaOfk9K/uUe1ZTeYPDFaVCb/xedtqh3u8m9AgfT4i2VqHgVS49GDCYOBi
+	 7qx2tEPJyLOD/bkLqf+HNccjdkP5s8CmUbM+gsKtSChqWvpMCqYNku8h4pyHPh9329
+	 zZ2jAXRogmpLvmoq48k3qr1njxCfKuTnCeijehPzXPelC2kZ1VeYWz6hTZIKNBnjwY
+	 cNrlsiryUdVASp8/fn8bJ3eomuICcrx52MVBwgu4/dX/skjtXmHOIOcReWOZtYKzFK
+	 hVdaitIlxrdkg==
+Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-797ab169454so50328707b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:37:37 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUdsjJewjukejcZiDnGpxR1y2zP3+jWUW8dxA3fgr72qmsHtsDqlmVnBxfbhHX0YFLhUl6+5ji0YnXthvA64vci@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0MO52ZmjVc9PVetfGkPq31Q6/HJHbr3LT9pIocAjS55wH7QjL
+	PutbIs6dipcwiXKIJM/xu1yoo4FXfS8RukvXzA3cZe04eGdd0qaXuD5P4htdqPj72zRp+IsrCt0
+	I4WkyXReUKx9IPP4Wa4aOGdwGXzv3YqM=
+X-Received: by 2002:a05:690c:e3e5:b0:798:1b2d:4b6c with SMTP id
+ 00721157ae682-79828cde4bamr107400237b3.11.1771925856834; Tue, 24 Feb 2026
+ 01:37:36 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN9PR12MB5179:EE_|MN2PR12MB4143:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9c803258-5e2f-411f-9a8f-08de738832d2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UkVQb0xhL2dQSURVQkJEYXk3QXFoTnhucjVTMk1IU0VYSGQ1Z3JlR1Jzb1Fj?=
- =?utf-8?B?U2V3SUp1cmRHZVR0SEIrYkpTOEpGKzNXREdJd2RIalA2TXpkQkdXSXZGQjkx?=
- =?utf-8?B?SUJqRmNDUTFUQ0trMDN6Sy8weVZsUUxVOFAwaVlaVlFUQ0FhWHAwa1NGZUli?=
- =?utf-8?B?SlhpOWhsYkp0eFFSb2E2U2FJVjhGR1dtd3ZDRXpsWC9QU2Z0T0pad0hMMFpE?=
- =?utf-8?B?THl2RDVKMmZETWxpSnluaFdsNmJIS0ZSSVFuU2ExWVFDRWZHRENnYzFlcS9M?=
- =?utf-8?B?VWdDZ3dIeFd0Q25tYWloZ0l0RHhqeGFyeHhaU1ptbUVjSmtHTGNVcFVETWc4?=
- =?utf-8?B?dGNiSUpDcDV1VWhYcU5aNFFlUGs5Nmtvb3ZRZ1ltcU0vYnBsdHN2aGNGMEFY?=
- =?utf-8?B?QVBaQlBzZ0s4Q05NcUM0OTF2aTBPa3pLaE45OWpEWTRsMElIaDNEZFpnUnJr?=
- =?utf-8?B?NEpmYkJYSE1HSk41eFZzNDFxbThmVGYxNSs2QW91QXdOVmpZTi9oT2JBcGl6?=
- =?utf-8?B?ZnR5OVlHaUFpd2tDdmFaVUQ2bzJkZS9weDQwazNid3JhV0Q4OFMyL2ZLS1Vp?=
- =?utf-8?B?clhtU3VybnlaRnBjL0FMVWlqdGlCNW11MW1reEVlQmxtNndmZ2xrN0d3TnBC?=
- =?utf-8?B?TTJmb0d0VXEwbEhwdkxDZzFiRDF2SnJyS2V1TGR0NVptb0dueVlWVnBHV1lV?=
- =?utf-8?B?SEVacnlBTmVOUXFUb09nNGEwZkNmdHBQVldvcHhYQi9hb1RLQzVsRnM5eWgy?=
- =?utf-8?B?WVR4di9CTE1QY0Ntb3NHKzNHS2hBYWswR3lVMENXcmYwZThIY0Zhd044VDI3?=
- =?utf-8?B?SWdkdFlodlVhSWU0d3FRS0l6cFUyalZnYVp0WmIvVFMzcS9rM3ZVTjVJd0xy?=
- =?utf-8?B?dURaVk5ZMFI2Ni9DMk9PNWw4M0pHRDF2dVYxNVFJV1FIWTYzSlYrWGJ2ditj?=
- =?utf-8?B?Q1QrbDNRNnM1VW40bHlGV01lUFRpb1ZTTm5TUTlVblJIOHNQdmNrNUNUYVBU?=
- =?utf-8?B?MVd4MjdXalB0TUh0UjR6Y2hnNUdLMFF4NjlXaURDUmdwTklnM1p3QmpOaHhB?=
- =?utf-8?B?Y1MyNEVmK3RDRXExUE1ydVExeG5UcUtFbmRCUENwcEt3cFdGVEUvNXJ3Z0NB?=
- =?utf-8?B?MGxteUlvdUlHN09ybHN4NnYrK0JLelBhbitWY3FUbnlCdDlxNVJYNXpqbU53?=
- =?utf-8?B?b0grbCtGMFlET1laK1Fzc3Bqd1ZRNXNMZE1wcy9CdlFzMjBYclcrSDZ0aDVa?=
- =?utf-8?B?OTZLNWg0VDVYTTRvUVdLV0c5VSsvK0NDSHdBbE1TMWxNNllYQkR5VzlDek5Q?=
- =?utf-8?B?OTdCcFdiM3pwbzFWTzh6bWQ0S0FUdGFuVlh1ejNYc0M3YXZwY0pVME9MOHhI?=
- =?utf-8?B?ZkdocEw5M2U2SnFwVVBXd0d2eUFBbkJWc044c2pERzA0c1JNaE5Obnp2UmFD?=
- =?utf-8?B?RnB3cDR5NnN6NjEzQnFncXBsN25SRlVDUkUzQVZyMzRLMjM4ZUx2V1Nnd2Q1?=
- =?utf-8?B?WmFpUlFDOTVleUxhYUFvL2RBTzd2VWtPSW96ZWxSSmUvT1pWUjhZbXFTRmFV?=
- =?utf-8?B?R2QxdFArWm9CQzVqN0RlY2hydWs3OXoyaDVwYzV3Nlh6a2RzZFRGOWJlbldT?=
- =?utf-8?B?VjBmbjM0ZUJVcDdCVE1pdjFnOFdxUVRqSi9xM2c4d0N5R09paFFtZ3FWYWRS?=
- =?utf-8?B?WXlnTWFqQ2lXclgrZ0U2aDhLZThDWksvaC9PYTdRcENXR0Z6cytzTXZJK2VN?=
- =?utf-8?B?ODV4ZDdKdGJvUzRSTHRyVkFjMEJpTU0rZ1R6aWQ1Y2ZwazdkTmtFb3A3aWtl?=
- =?utf-8?B?Q1VGNWFCeTdsYmNGUHVUUlhZbms1VGZnUzQxTUdkN25USWxsNEZ4UTdSZzF6?=
- =?utf-8?B?MXplVU1MTmVqNjdGQVh4MXVybXFjRjIrUHpTa2czdXY3L1YxN3RmU21MVEdw?=
- =?utf-8?B?Y3oxUW5FZ1ZrUWpObUdHclVsMVlIK1BOWlgvejVkMVlDVU9aMENDYXVkckdW?=
- =?utf-8?B?RVkvYzcxQ29Wd3p0MFc2bFg0YnpxYVZ0NE1NTE5oSlJETnl0bEdJZW5MVzlO?=
- =?utf-8?B?c05Nam1UYkMweS9VWnZ2cWtNOE1tb0xYUFlhRlhXdDlac01vQUdvdUpzWFg5?=
- =?utf-8?Q?/fkM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR12MB5179.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z05pZnJwVGFUa0JOT0YxWE5sTmtKcFRyQVRqZzdueFdyRzVEL2M0Z2FpaFRS?=
- =?utf-8?B?dG5xbjJiWmZUWnhXbGZUSkQyRDE2bG0wTExoZXVpNGVENEtYZWpHVkZTN215?=
- =?utf-8?B?VDdRcDB5UitpNWR0ZlJYRnRweVo3elBzaUIzSnI1VnVRcWNqTzM5VlNobmtJ?=
- =?utf-8?B?Y1gvNzJuRHpGQ1NHdDNLQlFsbUlwWjNzSzZYR2JtT3VGV3NnMm5CeGk4S1lk?=
- =?utf-8?B?OXdzWm84L2VSQkppWVYwbXJaZGpyV1hmbWNCYWtZZ2JTM0hTUGVhMEZDVGZi?=
- =?utf-8?B?ZVcydnNhUDVBUEx4WnFEK2FmbklZVTArV1ZiQ2UyOW1FLzlSWVB0bGkvcnFm?=
- =?utf-8?B?bnpBdCtJS2x2VWd3RDNoZjYxbkh4amZ4QmVHekJ2b3hkM0V4YkY1V3dBMi8v?=
- =?utf-8?B?N0dUVUFRMlhISnNxaEVDQ0pwR3JhU2Rpc0JIbzFHT3gvMFVmQXI4WERoLy80?=
- =?utf-8?B?V1FCMDFjREpWMkFaa09NdEtkdm9IRG42T0ErWWVJaDM5d0VsSGxxc085eVFB?=
- =?utf-8?B?ays3ekhmYVRoSVN6VHJMMXlhdzFKeUF4UmtnTjhYaHZsWVZFQm9ydURGRjQ2?=
- =?utf-8?B?OTBYV25TeHM0dXpFZFZMQTF3eDlWRUkvamJ6QTczOHJBeGczeFY0K3FqVldo?=
- =?utf-8?B?a3B6U3RQTGJiV2ZweVhLcTdyUjBYZ1lMQ1N6YTJwNktmSTBvNzAxOCttN2ZC?=
- =?utf-8?B?ZWFtUnFnM2hJMS9JQWZTaUtTZU9pM1F2VFVRR2ExK0tTcjlBNjVVaWtmVHJL?=
- =?utf-8?B?dStVZXgwck1oRkVrR2JzRC82VlcvSkMwWGw2VWUxVnp0V1B6NjRvQ1RMYVdO?=
- =?utf-8?B?dW0rK01OVlMyUEF4TGxQcnNPekpvQXlLZXZONWNiSElzVyt2eWszRkRCa2Vu?=
- =?utf-8?B?M0VBZjJCN1B3Wk9MNTBPMlFYNWNsRWx1VnB6ZjJoUEFCOVp5Vk1MTUE5U2lo?=
- =?utf-8?B?S3NnUUJmVzI4U2RGZEluVVpUVlBYd3pZSnRyNkZxZUp6OTYvbVFvNk9mME9I?=
- =?utf-8?B?Q0M5a2JBQkx2UU40Z2dSYXR2RWRIa1NYcEdlTzNZQ200SWovZjV0WVpGbHlJ?=
- =?utf-8?B?d0svc0tTSUZXWU1IWEVZWHJvOGFuQTZodmpEZmhNaEpGWnRsZ2FYRi91TEJO?=
- =?utf-8?B?SGpBUk5uYjJWZElFd2NmWWhSd3ZwNVlXejRTZTJNUlF5dVNLRHB2S0lReTds?=
- =?utf-8?B?Q05UQnc1SElMSGI0Nkc3Mm1CL2J4Y2JxbGdMd0hUZE1EM3ppOGJGcmR4Q04w?=
- =?utf-8?B?T3Q1bGlJSjJCS2FLa1k0UXF0NmRWU3J3RWFLOHE1YXROUEFJQUZMdERHZ0Fn?=
- =?utf-8?B?V0Fwc0JvanAxcWlKdHM4bDRkaXBEWnNiWXRmYno1RVJWenBocDFNeFNSbGRV?=
- =?utf-8?B?TjZySlZLOHF0ZnhWNG42ZzErbjQva2VXQmRkRkl2WnlvVFhWaTJOL0xMT1lL?=
- =?utf-8?B?OFpaQVd2Vjg0RE5HRFB2ZFZySHovclBsekI1bjIxNDM2c2NPcS9iTVppaXE0?=
- =?utf-8?B?bFVjbGI4RzlEMStQclNCekRBRXpXb21WTEhBODdzOWk3Nm5UeEtFY25OeXlq?=
- =?utf-8?B?WlVwTmQwckRJQmpKcGZHSS9udVoyKzFrRFpLOGRLNHI2eVFhcFMxRVYyTkdE?=
- =?utf-8?B?bXBWY09WbmpRSnZMQ0owNWRHdkR4djlwQmxaZCt0R3dFS1dTM3p1WU80WXBY?=
- =?utf-8?B?dXhIM2wvWWpMWVJNbjc1UVFJTXBxZDhnUDNxNzhtRE5Xd2gzZUhJUUtIeW5G?=
- =?utf-8?B?aWZoUHhIL2lhVEVTbnlpY1RrS3oyUmhYbWcxWVlCOU12d3oxOXdHMkJIVm9R?=
- =?utf-8?B?ZDlnYVVHMDFKdFovM1lNMC95bGxYZUVLcG1DRmpYQzNWeEpaSmh1RFZSYnVN?=
- =?utf-8?B?RUw0YmsyUlJYQUZSb0Z2KzArQURQWmI4YmZlZ2lIeS9aVXlOaFFkQVJvZnVD?=
- =?utf-8?B?VmtxWmhDYUkrTExjYkpORG93dE9jaXl4VmZPNHpmdko2UVdNb29SM0NWMzZS?=
- =?utf-8?B?a3JkL2pQZnUwcnYrbzNicU9pT01YbkxFd1RuYXlxSHAvUklsc1lnWG1FQlBh?=
- =?utf-8?B?ZklkNllWelY4Vkl5RXVuV0lkK2JRcFNSR1Q3ejl6M1hoQUNMVVFMSEdOT2R6?=
- =?utf-8?B?Z1FkR0pmaUJLMGswMEF4SHlaTU83VTZJZnVPd0VwNmo2TDR5bVREWkZuWGw1?=
- =?utf-8?B?Rk5TOW9taGhzU213V1dydUF3QzVsdTFJbXl3YUZxTE5EaS9xZmRlRlJrQlND?=
- =?utf-8?B?RXZ5eitValUxLzdkNExFbmliZFhwOXg5VCttYnZVR1ZGK3ZGYVBrcnRKTUEy?=
- =?utf-8?Q?Iit2e534vt83UPRxnX?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c803258-5e2f-411f-9a8f-08de738832d2
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR12MB5179.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2026 09:36:34.2359
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Gwb2+3QkiFoNXshfJSsvLzoKHBLDAjqlNnw4QFJgoerv99Fo6wGpK9jIPNbzHoBqbdh6+1gyo/+j8p8T1dcvkw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4143
+References: <20260212213656.662437-1-shenwei.wang@nxp.com> <20260212213656.662437-4-shenwei.wang@nxp.com>
+ <aae7c851-a93b-4d57-a118-43c6e68c4790@foss.st.com> <13f9d767-61d6-4e29-b36e-6dcc860ccb11@lunn.ch>
+ <fd257c80-d97f-45b0-a12f-3a1888ba81db@foss.st.com> <396819f2-dd00-4c09-8bc7-c035a5282a56@lunn.ch>
+ <PAXPR04MB9185A908F5090F0CA4FF05F78968A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <b21b9ee5-d84e-47f8-86b5-c111ecc3d43d@lunn.ch> <PAXPR04MB918576D67A268E59242964A08968A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <CAD++jLkUVFckLTq=SoivNFoFymhJo4KM=qGmajFcv9T9+7tPmg@mail.gmail.com>
+ <b4c422ce-3538-40aa-8bfa-b70f02774b5d@foss.st.com> <PAXPR04MB91859B642802813F908B03DA8977A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+In-Reply-To: <PAXPR04MB91859B642802813F908B03DA8977A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 24 Feb 2026 10:37:25 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkHwKxcDu7oX+_+N00SSfEMrj4CBEKUYZTEmTZv5Gjb2Q@mail.gmail.com>
+X-Gm-Features: AaiRm53tdO9PraGZNM_tmFUQUZSiJUlpqFoMJNSwiXKqWWTvRU2E_PWdBXxyRms
+Message-ID: <CAD++jLkHwKxcDu7oX+_+N00SSfEMrj4CBEKUYZTEmTZv5Gjb2Q@mail.gmail.com>
+Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Shuah Khan <skhan@linuxfoundation.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_013640_074258_2C74ABA6 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20260224_013738_475197_E4F77669 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,90 +101,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 23, 2026 at 9:33=E2=80=AFPM Shenwei Wang <shenwei.wang@nxp.com>=
+ wrote:
 
-On 24/02/26 07:12, Jie Zhan wrote:
-> External email: Use caution opening links or attachments
+> Arnaud, if you agree with the points above, my proposal is the following:
+>  - Remove the fields you mentioned in the protocol and update the driver =
+accordingly so
+> that we can establish a true baseline for a generic implementation we all=
+ agree.
+>  - Then prepare a separate patch to add support for existing NXP platform=
+s by introducing
+> the necessary fix=E2=80=91up functions.
 >
->
-> On 2/24/2026 2:29 AM, Will Deacon wrote:
->> On Wed, Jan 28, 2026 at 01:04:17PM +0000, Will Deacon wrote:
->>> On Wed, Jan 28, 2026 at 06:50:42PM +0800, Jie Zhan wrote:
->>>> On 1/27/2026 4:07 PM, Sumit Gupta wrote:
->>>>> The counters_read_on_cpu() function warns when called with IRQs disabled
->>>>> to prevent deadlock in smp_call_function_single(). However, this warning
->>>>> is spurious when reading counters on the current CPU since no IPI is
->>>>> needed for same-CPU reads.
->>>>>
->>>>> Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks
->>>>> for non-PCC regs") changed the CPPC Frequency Invariance Engine to read
->>>>> AMU counters directly from the scheduler tick for non-PCC register
->>>>> spaces (like FFH), instead of deferring to a kthread. This means
->>>>> counters_read_on_cpu() is now called with IRQs disabled from the tick
->>>>> handler, triggering the warning:
->>>>>
->>>>> | WARNING: arch/arm64/kernel/topology.c:410 at counters_read_on_cpu
->>>>> | ...
->>>>> | Call trace:
->>>>> |  counters_read_on_cpu+0x88/0xa8 (P)
->>>>> |  cpc_read_ffh+0xdc/0x148
->>>>> |  cpc_read+0x260/0x518
->>>>> |  cppc_get_perf_ctrs+0xf0/0x398
->>>>> |  __cppc_scale_freq_tick+0x4c/0x148 [cppc_cpufreq]
->>>>> |  cppc_scale_freq_tick+0x44/0x88 [cppc_cpufreq]
->>>>> |  topology_scale_freq_tick+0x34/0x58
->>>>> |  sched_tick+0x58/0x300
->>>>> |  update_process_times+0xcc/0x120
->>>>> |  tick_nohz_handler+0xa8/0x260
->>>>> |  __hrtimer_run_queues+0x154/0x360
->>>>> |  hrtimer_interrupt+0xf4/0x2b0
->>>>> |  arch_timer_handler_phys+0x4c/0x78
->>>>> |  ....
->>>>> |  CPPC Cpufreq:__cppc_scale_freq_tick: failed to read perf counters
->>>>> |  ....
->>>>>
->>>>> Fix this by calling the counter read function directly for same-CPU
->>>>> case, bypassing smp_call_function_single() entirely. Use get_cpu() to
->>>>> disable preemption as the counter read functions call this_cpu_has_cap()
->>>>> which requires a non-preemptible context.
->>>>>
->>>>> Fixes: 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
->>>>> Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
->>>> Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
->>>>
->>>> Looks fine for me except for the minor comment wrapping.
->>>>
->>>> Thanks for spotting this.
->>>> I may have missed the warning log in the FFH test.
->>>>
->>>> This happens during the short window in cpufreq_policy_online() between
->>>> driver->init() and the CREATE_POLICY notifier that gets AMU FIE ready.
->>>> After that, CPPC FIE will be stopped.
->>>>
->>>> Ideally this can be merged together with Viresh's PR since the CPPC FIE
->>>> changes are there.
->>>> https://lore.kernel.org/all/j4qdid7iqmng4gzb5ozefemjkep3wx2b5z2yki5tnqc3vzvzf4@kvrnarvdod5p/
->>> Right, looks like this should go via Rafael but if it doesn't make the merge
->>> window then I can pick it up at -rc1 (please remind me :)
->> Looks like this fix is still needed. Please can you post a new version,
->> based on -rc1, so that I can pick it up?
->>
->> You'll also need to fix the SHA in the commit message and the Fixes: tag,
->> as 12eb8f4fff24 doesn't match the upstream change.
->>
->> Will
->>
-> I believe this goes to Sumit because he's the author.
->
-> Sumit, can you update this patch?
->
-> Jie
+> Please let me know if this approach works for you. My goal is to find a s=
+olution that works for
+> everyone =E2=80=94 even though I know that pleasing everyone is almost im=
+possible.
 
-Sent v2[1] with updated Fixes: tag and re-based on v7.0-rc1.
+This looks good to me, and Arnaud seems happy too so let's go ahead
+with this.
 
-[1] https://lore.kernel.org/lkml/20260224092714.1242141-1-sumitg@nvidia.com/
-
-Thank you,
-Sumit Gupta
-
-
+Yours,
+Linus Walleij
 
