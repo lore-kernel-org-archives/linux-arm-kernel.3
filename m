@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0242EA4FD7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 839ACEFB7F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:29:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c1QK+XTI72jPh2y/0D4GbqXzfXEd9VJ42J/eWjmHkRs=; b=ARPpzTHAr+4izUozp9vc4rd3aX
-	z4YNkChXeqFVa9Na6rs0mT2ZJ1uKlvtIzYDqG7O9L7jOYpHnNGK/MnKdx+L3XIi7/+d5kxe5i5kMB
-	CczCUPEmDYbgCLUt6lky+UicJPoa7f1gKi5V0CFH9h00rsTQ7iqjPwl+tlgr14xXmVfl+SmJaD1E4
-	jeX8cgpZzB8WyZf9zqscgiQbfNc4KSXxLD+OtDguGKbt7LeqiKMwsXiKO9kPpAFEXyOc4rfL9Gr3g
-	XWLTJTHPzONOhFPplPA7MhIeTKk4mCuJ96dO7IMKQZ6MJILHr+D38JXrbnv05idB6QjtueUYJ2UPl
-	+mlWFLng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=srSVsiV2b/ln5UzP/d6flconP4PG3Pc7vryxNaoWscY=; b=GUm77zN2pTiWgyy9HoPjZgUcOu
+	euC6MzziAxuu0RKY/CrHjoPTMsBld0bBX8jA86pwa9cvcD9ayvhcOIZZISX90DurpKn+EO29EfMwG
+	qUKupedPCDkk4Fqo9F2q99qsEnRsbdiFRB4X3hV4frLa0Nf8g5pu1AF6pM53yeapFPJKFv7wowVnd
+	s73+gwVd5r10xb6w4KKXYgVGp1x7xum5hT4QTNrinkj04T18X96fjybEQXNHQiDpU40yGMXPnn5aG
+	5AJH4rGqUx/NqG1+PWtSKAmxO52kxD39+QlB4rEZnQsC7+juY66o+yHFe7snRf8n2MIeZx28GSqXp
+	7dJ3DKZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoi9-00000001kgp-43j5;
-	Tue, 24 Feb 2026 09:28:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vuojJ-00000001ksJ-1Nfo;
+	Tue, 24 Feb 2026 09:29:21 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoi8-00000001kgT-11t3
+	id 1vuojH-00000001kro-2gBX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 09:28:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C0D86091C;
-	Tue, 24 Feb 2026 09:28:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFDE2C116D0;
-	Tue, 24 Feb 2026 09:28:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771925287;
-	bh=UjV+lVT62XoKCNm3uXANF9IwXBOBlVqxQ2pDtUbIBXc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OUZpqHl9KOq3NztIgVFQnBX5c8PRe87hioP2HSuqHpab1UHLsBZ1svI4vteAQLBs7
-	 OLLP0B1MFP/TXSaItgMk2liCMMbrwVVrCe+rnHoxFAEUmwjVdmFQDavW+rwWOqJ6wT
-	 7pDiHJ5lAQmlfqabozb2hCqOok6MNK0d4i2zEO/Bu11+ZHQITQfh5m1iXI/D5QprT8
-	 /NIQxW8w1xhBkngwn/+JQoxH43uRqFerkMTn1IqsD6LCH32ro2/JEbLk2R+8O+K3Lw
-	 ENg9Hux853QsTM7B6D/Kuz1Ct7LNCm+u4eznPQk+7+1lWUHYhmYn8qwwgBlHh3MKGp
-	 NbzsPIp6HJN3Q==
-Date: Tue, 24 Feb 2026 09:28:02 +0000
-From: Simon Horman <horms@kernel.org>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next] net: stmmac: fix timestamping configuration
- after suspend/resume
-Message-ID: <aZ1vImgrq1yxBIyy@horms.kernel.org>
-References: <E1vuUu4-0000000Afea-0j9B@rmk-PC.armlinux.org.uk>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1vuUu4-0000000Afea-0j9B@rmk-PC.armlinux.org.uk>
+	Tue, 24 Feb 2026 09:29:20 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-483a24db6ecso55746265e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:29:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1771925357; x=1772530157; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=srSVsiV2b/ln5UzP/d6flconP4PG3Pc7vryxNaoWscY=;
+        b=TRxHofvzeHHm9R3zfGY+z908LrlagBQwONPS2b5+a9R9lnoSlrgMYC6mcYAhYa8mQb
+         /LwA8QQPmiIlL+yZwismHIsRqqjsoWx0N05IQFN0jwYKDzB4IBIl9RFXX9i7i9jh6ovd
+         5KciHCQ0kVqG2958rv3dpbSjbr6fG54+1GKkBXE+Ns+B+DJtL6VDuEk0kBu8/Dba/H/2
+         ewPeHyJ/Hre9nQ242xOwRUdz7hkfPwJK9FDWN2DFau6fkVu3/o+C1qLK2KH7a/9P76Lj
+         fbf0TL+6gilsL8ASL13FUKse3dYpNfEbsf7ug3BRVZjbyarEKv4HCErIJUzX3H/j9OXO
+         NaQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771925357; x=1772530157;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=srSVsiV2b/ln5UzP/d6flconP4PG3Pc7vryxNaoWscY=;
+        b=Qj0MtLqakD9I4Hy+6fFQh2YLwL8qQIKJkoM3YoxkA2IhAY8mjaDTRIkYh4PrdrmGbQ
+         9nST0IT59yRDO31l9+/EDnfRW48l/go9pHmaopCPxJYxJWPBBvWTeW+XFQ5mrAAODhNY
+         e8OhXv2e7guc5+l0lcjTc0De+g7WAxkCWBrda9KeYB7+9Zj7Fby8Yt1RIma9nvwAutlN
+         xaqgz7gRzDjVO2vhvgq1UWp3LK3elmJipm8LJIXKZJbgMvY7WTnz+fUwORMnLR546XZf
+         DGEwX1RDSk7gqx8xSlYWZsKyiUSGO+WqA6UgYoBpdVdzx5UhcLmC5NfRdj1zYSJh/VCU
+         Ptbg==
+X-Forwarded-Encrypted: i=1; AJvYcCVwL4nrmtMi+JH5AEvIORtZwL2nXHUdHvEbhmtd5R549YkyJvvLX9sQPdf1YwJRQyNkj3Ti/zWFOuBiMG5KuYWO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkDtdvJuLowozWHvEe87qMmop5zZj+JPWUWtFIpl+boQ2JocAL
+	IAs0ctSyHMquj+otft7LIg40mt74OAecpg7Se10vOJNOEX4fu4OK1TC9X0+aEu6cuM3Q+Mo0ly9
+	+gQ==
+X-Received: from wmbju22.prod.google.com ([2002:a05:600c:56d6:b0:47e:e4a5:c5f2])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:6298:b0:477:5c58:3d42
+ with SMTP id 5b1f17b1804b1-483a95fb23amr187555705e9.10.1771925356794; Tue, 24
+ Feb 2026 01:29:16 -0800 (PST)
+Date: Tue, 24 Feb 2026 09:29:15 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.371.g1d285c8824-goog
+Message-ID: <20260224092915.1925488-1-tabba@google.com>
+Subject: [PATCH] arm64: bpf: Fix UBSAN misaligned access in BPF JIT
+From: Fuad Tabba <tabba@google.com>
+To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260224_012919_700896_03D9D3FA 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 12:19:08PM +0000, Russell King (Oracle) wrote:
-> When stmmac_init_timestamping() is called, it clears the receive and
-> transmit path booleans that allow timestamps to be read. These are
-> never re-initialised until after userspace requests timestamping
-> features to be enabled.
-> 
-> However, our copy of the timestamp configuration is not cleared, which
-> means we return the old configuration to userspace when requested.
-> This is inconsistent. Fix this by clearing the timestamp configuration.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
-> 
-> I'm in two minds whether this should go via net or net-next - no one
-> has noticed that getting the timestamp configuration after resume
-> doesn't reflect the hardware state. Here's the commit that introduced
-> the problem:
-> 
-> Fixes: d6228b7cdd6e ("net: stmmac: implement the SIOCGHWTSTAMP ioctl")
+struct bpf_plt contains a u64 'target' field. The BPF JIT allocator
+was using an alignment of 4 bytes (sizeof(u32)), which could lead
+to the 'target' field being misaligned in the JIT buffer.
 
-My feeling is that the bar is not if someone noticed or not.
-So I would lean towards a fix for net in this case.
+Increase the alignment requirement to 8 bytes (sizeof(u64)) in
+bpf_jit_binary_pack_alloc() to guarantee proper alignment for
+struct bpf_plt.
 
-Regardless, feel free to include:
+Fixes: b2ad54e1533e9 ("bpf, arm64: Implement bpf_arch_text_poke() for arm64")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/net/bpf_jit_comp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 356d33c7a4ae..adf84962d579 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -2119,7 +2119,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 	extable_offset = round_up(prog_size + PLT_TARGET_SIZE, extable_align);
+ 	image_size = extable_offset + extable_size;
+ 	ro_header = bpf_jit_binary_pack_alloc(image_size, &ro_image_ptr,
+-					      sizeof(u32), &header, &image_ptr,
++					      sizeof(u64), &header, &image_ptr,
+ 					      jit_fill_hole);
+ 	if (!ro_header) {
+ 		prog = orig_prog;
+-- 
+2.53.0.371.g1d285c8824-goog
+
 
