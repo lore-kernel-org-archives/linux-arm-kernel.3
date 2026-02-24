@@ -4,97 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A32E9B262
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 12:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB66E9B260
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 13:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P+4mGVj3G+psOD6BQM4z8xFWUBs0ualVLWXw/Lw/cGE=; b=H4zrfSH6rGWyK9avhCn1SHTX8m
-	xrSAypPBSET8vFkb1HsvFG9llUFw7Sdc62HH+qHlJsfaADAekP72o6W8KYxviDd7TZfrHxvplRepZ
-	yHUI9oilgSgaptwEcbZpHD9gm83u3QYbPyXriFg7XsICOnjzvHuZemneSfw/VqOfaE9ACopzuz8H7
-	hWQkWoKrlxqPSz5EuOymYNi5HjKjB+lc4WfWTtphMOBHqo18AFCu/MwzlTxzzdAmMQYLj/jqEg+V4
-	Y95LfYRXrsvgQKJtvHMlxX5z0WKKsMdinBjL9MCucVb0QYBAMy9t3ztMTawuTLDVPxoTXJ/t/aRay
-	LpNfFnuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wO64/dkjbW/dvFC/vqTXMyNPJLKJF7tJot1AAAqsBp4=; b=xkLIuxAXDeQRwL+2gKLXWYK5KP
+	jU1J2UZ2aQZ/qxphrbLMfspF5Og007zjVo5yNSODg0W6VaklOI26qJ4Aa3sX/NrRezRKvjJ7CJfky
+	yWW6Ilt4TJ3bFrd+Atp3l6nyHQlc5xjk+1zJm3BY46acs7Ttf50hEUaZ72sgGsSYgdfuAVQ9uNsEE
+	j8mgrMc0gVxdmjRf6kvRnDxy5I3Q3vDLglSAYAzUl+y6zU8xOkUXTmfNE2ZPCBRPqFuU5bJvIiEWQ
+	NJrGoGedT4tGqAl8IljQTGv/4D4vbHMmc48OVbkfbv/Nj/oaLzULwa2I3QykZ6GkNfW6PvUraMuNj
+	jHknp2ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuryO-000000025xv-368j;
-	Tue, 24 Feb 2026 12:57:08 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1vus6J-000000026ME-0vPQ;
+	Tue, 24 Feb 2026 13:05:19 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuryL-000000025xV-2TWf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 12:57:06 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-436e8758b91so3780070f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 04:57:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1771937823; x=1772542623; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=P+4mGVj3G+psOD6BQM4z8xFWUBs0ualVLWXw/Lw/cGE=;
-        b=jiCM5Fm7R0+2KR6yjbELmuNTqoL0Ku9LjFQccRk9VimhQDAU1ntDcLRR4BYUu9H7A5
-         1tgn7L+6CBbrrWD0XUHApn41vaNsaFENutCOhYKSL/1vC/bfGJNt8hFBjYzP+sTszNuA
-         rkkdSKz3fcxW6jIe+oQyTJICJyvVexqV9RXtQMknoRRN4iS1QF35f7jkWay0MZJHQEg/
-         0EHFMrkyBwR5IJNZYvb2L5bfLVqqzZ9QNQ/5YFkUSDd9s2xRrimpk4nN14NebIjmNgPf
-         SeN/8wksdeiMPhDXnf3bTcG0Hc8PjQV+i/4xt7h9ozjm8yiPLgEYygcl2QPwvKKucPwO
-         Bwsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771937823; x=1772542623;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=P+4mGVj3G+psOD6BQM4z8xFWUBs0ualVLWXw/Lw/cGE=;
-        b=FjIvbF8ZJ/fXxkYsgSzXBU0BoJOY5fdUvw/D4saAgnbT/ofq22jTvSW/IFvK4BEFYH
-         9ry1JTU1+xiV6HVXKdYTOlRDW1ZsAR0o7ZGDAFMD9uIo+3DnRD9rw0jRykko9l6YWIB6
-         e4v3u8kHCInFqpOmakpzgG6gfLRlbfhUAk1na+tzFJCXXfkg5mcnD+X648CmV2zaDj7j
-         kOcJVg/ncPUqcapFzKHCnn1oMidiG+N46LFtvPJ47y592Dfomvbk/P1Bp0LRE3iE7TvW
-         2Ibi4LLS8EOrt1sEhQZn2Ed4M8riRonojXiX7nkzAG80LW7Kqa8oQkj+n8jCJiiQ4PA9
-         1DWw==
-X-Forwarded-Encrypted: i=1; AJvYcCV5aUVj1H1vZ5eJqju9AWEDauzpNmwE3GWwirWwEA+0oofMqMwxWJShbPZDoj1nkEobhYNo3F9iiAQq269UIGh3@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywue5G68N9ylnwbEOShI4msONdto9eRYEbgvV0ApGtSUOhSrOlS
-	j2bZ2yKrJ4Px8zWcmka2EuOFSzFyWmeeZO2K66GofN5PHKbP7xg5ryH38v29bOcrmdA=
-X-Gm-Gg: ATEYQzze34EtMj7QFpq+mbUQFqY22HqpKdJ+uoJ8t3evr4mW5opkmFIBnV+KHDgC2z7
-	3GfcTusESD7QJGwd2fABwufo8TpZPkxrMe0S0LL6/aAm5swEok8YxC83YKvQjrSxDVG5pKm9EAr
-	0fK2h0uhFjBe072DQa7fLFB6ZMmr17ejdPZb/0WJv1YOIyD7gz99vf5Nr7hmv1WTnOwnZn6J7ZY
-	RICjGiJfsGkqH0Ee78wRgpq4IqbXxRswdLK7Z6G/KUvqp1lpVwum/yLzZ4HNRGKejhacTL+qSud
-	O8vGIo8V+O1httMzJZDZV3YJnubeeyBJsKKTV2wA1ZiULQFnSm9q2SDOEgAc2npa/DFz91UXvrF
-	YT9cSgTY3TVdzWp9Ng+T0jEfHOLnjJb2bqZBgLp+Cn9NeqCRURo1xOu92tLJG4w/4z/Azz/FgY6
-	KqLYvIIYe5ym0Hv8UJ9jOJcz0lnDdbWRcE
-X-Received: by 2002:a05:6000:230b:b0:437:71cc:a246 with SMTP id ffacd0b85a97d-4396f153cd2mr24591474f8f.10.1771937822763;
-        Tue, 24 Feb 2026 04:57:02 -0800 (PST)
-Received: from [10.11.12.108] ([79.115.63.134])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970d4bf89sm25284611f8f.29.2026.02.24.04.57.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Feb 2026 04:57:02 -0800 (PST)
-Message-ID: <b083e950-f54a-44aa-b587-eec2cc10460b@linaro.org>
-Date: Tue, 24 Feb 2026 14:57:01 +0200
+	id 1vus6G-000000026Lm-3BxU;
+	Tue, 24 Feb 2026 13:05:17 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61O83maL2345992;
+	Tue, 24 Feb 2026 13:05:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=wO64/dkjbW/dvFC/vqTXMyNPJLKJF7
+	tJot1AAAqsBp4=; b=OVtLzw386cqqEN37RlRH6SOPVS0YfpM6+NNCREe1cEwYeg
+	O7FA3I9ee7WboClZR71kA5J+WFSubxzJC+nE+aJypc3bjKqXgQCeDf/4qTy5SKhr
+	ZhTaoJIPi9HIcvAtdUN8Ks8KIcJ6aB5ipwyzjSA7QQXQvsUl7hEtmuy7qpjD9ftr
+	fR7lnjFAJTuRe3c0ZX+kDTM29i9GtoqMqLZWyI6Po6asx10ZCZTh6RU0HlnLZqjZ
+	7z7LU2cq15D5/dVqRXUbKSvcly+RBU2lFfFWN9v4v/snifEbXfNrG+9nKnyuQnJP
+	ubiYhIbCCpi66j+0hwlJSYXTRljAozQhlnGyLidA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ch858h0m3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Feb 2026 13:05:04 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61OCQq3G013438;
+	Tue, 24 Feb 2026 13:05:03 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cfqdy118h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Feb 2026 13:05:03 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61OD4xLB57475566
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 24 Feb 2026 13:04:59 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 63BDE2004B;
+	Tue, 24 Feb 2026 13:04:59 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BCBA820043;
+	Tue, 24 Feb 2026 13:04:58 +0000 (GMT)
+Received: from localhost (unknown [9.111.88.84])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 24 Feb 2026 13:04:58 +0000 (GMT)
+Date: Tue, 24 Feb 2026 14:04:57 +0100
+From: Vasily Gorbik <gor@linux.ibm.com>
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+        Pasha Tatashin <pasha.tatashin@soleen.com>, linux-s390@vger.kernel.org,
+        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        x86@kernel.org
+Subject: Re: [PATCH 1/4] mm/page_table_check: Pass mm_struct to
+ pxx_user_accessible_page()
+Message-ID: <your-ad-here.call-01771938297-ext-2808@work.hours>
+References: <cover.1771845678.git.agordeev@linux.ibm.com>
+ <68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
+ <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
+ <cfdc9b3d-06fd-4cc1-b946-076ff1479c66-agordeev@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] firmware: exynos-acpm: Drop fake 'const' on handle
- pointer
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: stable@vger.kernel.org
-References: <20260224104203.42950-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20260224104203.42950-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <cfdc9b3d-06fd-4cc1-b946-076ff1479c66-agordeev@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI0MDEwMyBTYWx0ZWRfX82K/iej59Gbi
+ jcOJ4LV65vjd++THoXAxHcOdHzl9vxwXul+tKmMciocrWFcM4MzDCiFMma5wnoQRFwQzwk2EUBo
+ owgONljOlgoxYQ/sphxEac8MzWSTdSTmmJ1euVadS2kLw2mK651rPT6pc4Y8JUKpz9+kA0i3Qdr
+ 0NjLoQ/uXZ4ylbetYJiJi3eLDnxuBmvkISzhb5p3iHvDssAio/iJP3IhtlhLBtIntIKgtZ9jvQY
+ N9UvSFPPSWb+D7jqlrvouPooEObPd0Ls/OaMZsv0oPQpzoQWIDGhIC9pPsqz8KYKLAxWPGkOYqe
+ xvgEJpXH9jQLtd4G6OrmHss4/N8DuG3FasVJOptPVsjLFxrmQpgI9vS48WGLo4GGfHF/pUL//u+
+ dzDB3AI8mMgPzjh+Uue9Gm/engWga5K7G9IVgo/bX9fukaUzzkeWhv/HczqOxdZfsFvXjrwQOyl
+ SfanzqqZBDLrB1sjlbg==
+X-Proofpoint-GUID: -kGng4CI3unx1jXZ8zqVfjNMiflOOOSx
+X-Authority-Analysis: v=2.4 cv=S4HUAYsP c=1 sm=1 tr=0 ts=699da200 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=Z4Rwk6OoAAAA:8
+ a=8RkruKr-LY4rosFeA0QA:9 a=QEXdDO2ut3YA:10 a=HkZW87K1Qel5hWWM3VKY:22
+X-Proofpoint-ORIG-GUID: -kGng4CI3unx1jXZ8zqVfjNMiflOOOSx
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-24_01,2026-02-23_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1011 impostorscore=0 malwarescore=0 bulkscore=0
+ phishscore=0 adultscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602240103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_045705_683645_B0454B57 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20260224_050516_805981_1346403A 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,57 +122,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On 2/24/26 12:42 PM, Krzysztof Kozlowski wrote:
-> All the functions operating on the 'handle' pointer are claiming it is a
-> pointer to const thus they should not modify the handle.  In fact that's
-> a false statement, because first thing these functions do is drop the
-> cast to const with container_of:
+On Tue, Feb 24, 2026 at 07:06:28AM +0100, Alexander Gordeev wrote:
+> On Mon, Feb 23, 2026 at 10:13:35AM -0800, Andrew Morton wrote:
+> > >  arch/arm64/include/asm/pgtable.h |  6 +++---
+> > >  arch/riscv/include/asm/pgtable.h |  6 +++---
+> > >  arch/x86/include/asm/pgtable.h   |  6 +++---
+> > >  mm/page_table_check.c            | 15 ++++++---------
+> > >  4 files changed, 15 insertions(+), 18 deletions(-)
+> > 
+> > Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
 > 
->   struct acpm_info *acpm = handle_to_acpm_info(handle);
+> Thank you, Andrew!
 > 
-> And with such cast the handle is easily writable with simple:
+> > I assume this can go into the s390 tree?
 > 
->   acpm->handle.ops.pmic_ops.read_reg = NULL;
->> The code is not correct logically, either, because functions like
-> acpm_get_by_node() and acpm_handle_put() are meant to modify the handle
-> reference counting, thus they must modify the handle.  Modification here
+> I think so.
+> @Vasily?
 
-You are right that casting away const via container_of to modify the
-parent's reference count is incorrect, so dropping the const from the
-handle argument makes sense.
-
-However, to address the underlying issue of the operations being
-writable (e.g., acpm->handle.ops.pmic_ops.read_reg = NULL), I think we
-should also decouple the ops from the handle struct and keep them strictly
-constant in .rodata.
-
-How about we apply your fix for the signatures, and I follow up with
-(or we include) a patch to do the following:
-
-struct acpm_handle {
-        const struct acpm_ops *ops; // Changed from embedded struct to pointer
-};
-
-static const struct acpm_ops exynos_acpm_driver_ops = {
-        .dvfs_ops = {
-                .set_rate = acpm_dvfs_set_rate,
-                .get_rate = acpm_dvfs_get_rate,
-        },
-        .pmic_ops = {
-                .read_reg = acpm_pmic_read_reg,
-                .write_reg = acpm_pmic_write_reg,
-                // ... other ops
-        },
-};
-
-and in probe:
-acpm->handle.ops = &exynos_acpm_driver_ops;
-
-This way, the handle safely reflects the mutability of its container,
-but our function pointers remain fully protected.
-
-Cheers,
-ta
+I've picked it up, thank you!
 
