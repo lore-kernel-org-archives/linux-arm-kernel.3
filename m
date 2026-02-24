@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15775F4BB6B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E06F4BB6C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,75 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=38MtNEkQ+ukku45eIFYk4lvSukUKNnbE/W0bBIzoGm8=; b=g0//6exlNRpvT+m2nAbivOiPgg
-	XE6dwSJ1shXWaFgMeWd9vSj9nyV7rBi2nelYS81U9XlRfBHMWHj+137peopkHIXtu8glzysoLrK+g
-	uFQ5CpOJBiT5SACTVQP8FcK1kXSl1GX1WmaI0OoEDV6AI3flI9EF4OIrrmmJ0CiKmP4GYu1ABVCUN
-	t4yjuHe090Jqp3x9RLBwCPjqJUCIqzOI4/cYwiK3ofmy7qHPD2lwYwYkd1a6QOuv9iQVpS32C5Pa6
-	2ORZDJRBkVzH6QvuSTk5E9Trt5hECi6033EXfnVqIAEL7ENczV/o0lLtJ6XdQciV2OJxNtx9Xr3bj
-	m3ubx3Yg==;
+	bh=GpIT185sCtpiWe7UQSE7TdalinJh0M9JALKV4zJSBSU=; b=n6PE7Uio638a7bW+1EGGP6U8hP
+	YNX5D69uJCbLcKiq55s4IycoqnQ404FQ5wZtYma2TS4ZiwIsa1u6tB71AR38t+fprtvyry/34K2p9
+	oxvdsMohoWv6IJkAj54pL5070FuuSIIY5/AYgoyAqtvNithQeI0JNkFhQNAaZs7h8pDhGzq1sRtSx
+	5mXxSlRBo2+/H6fWtizPEhGa76On2QQayv9eKYt36Qc2nFglxVUg8dt99CVrWyTjDN9RzDDOA/qE5
+	wYHsuopfb9FrO8a0OOtvqwojTk31W74uUaVrdkVbua6XNNhcfLhZJg3zDi1yq2OHiAFKQwW4DeX8S
+	UXlWUe6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwgE-00000002XRV-3Kvt;
-	Tue, 24 Feb 2026 17:58:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwft-00000002Wyt-3StB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 17:58:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E41F4339;
-	Tue, 24 Feb 2026 09:58:13 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4DAB43F59E;
-	Tue, 24 Feb 2026 09:58:15 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
+	id 1vuwgG-00000002XTq-2vMe;
+	Tue, 24 Feb 2026 17:58:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwfx-00000002X4L-3cem;
+	Tue, 24 Feb 2026 17:58:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E653F44553;
+	Tue, 24 Feb 2026 17:58:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70AC5C19425;
+	Tue, 24 Feb 2026 17:58:21 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>
+Cc: Will Deacon <will@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 09/41] arm64: mpam: Initialise and context switch the MPAMSM_EL1 register
-Date: Tue, 24 Feb 2026 17:56:48 +0000
-Message-ID: <20260224175720.2663924-10-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
+	linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org
+Subject: [PATCH 5/5] mm: Do not map the shadow stack as THP
+Date: Tue, 24 Feb 2026 17:57:57 +0000
+Message-ID: <20260224175800.2500729-6-catalin.marinas@arm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260224175800.2500729-1-catalin.marinas@arm.com>
+References: <20260224175800.2500729-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_095821_960346_647A796C 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20260224_095826_004249_FBBFA9C0 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,101 +76,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MPAMSM_EL1 sets the MPAM labels, PMG and PARTID, for loads and stores
-generated by a shared SMCU. Disable the traps so the kernel can use it and
-set it to the same configuration as the per-EL cpu MPAM configuration.
+The default shadow stack size allocated on first prctl() for the main
+thread or subsequently on clone() is either half of RLIMIT_STACK or half
+of a thread's stack size (for arm64). Both of these are likely to be
+suitable for a THP allocation and the kernel is more aggressive in
+creating such mappings. However, it does not make much sense to use a
+huge page. It didn't make sense for the normal stacks either, see commit
+c4608d1bf7c6 ("mm: mmap: map MAP_STACK to VM_NOHUGEPAGE").
 
-If an SMCU is not shared with other cpus then it is implementation
-defined whether the configuration from MPAMSM_EL1 is used or that from
-the appropriate MPAMy_ELx. As we set the same, PMG_D and PARTID_D,
-configuration for MPAM0_EL1, MPAM1_EL1 and MPAMSM_EL1 the resulting
-configuration is the same regardless.
+Force VM_NOHUGEPAGE when allocating/mapping the shadow stack. As per
+commit 7190b3c8bd2b ("mm: mmap: map MAP_STACK to VM_NOHUGEPAGE only if
+THP is enabled"), only pass this flag if TRANSPARENT_HUGEPAGE is enabled
+as not to confuse CRIU tools.
 
-The range of valid configurations for the PARTID and PMG in MPAMSM_EL1 is
-not currently specified in Arm Architectural Reference Manual but the
-architect has confirmed that it is intended to be the same as that for the
-cpu configuration in the MPAMy_ELx registers.
-
-Tested-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>
 ---
-Changes since v2:
-Mention PMG_D and PARTID_D specifically int he commit message
-Add paragraph in commit message on range of MPAMSM_EL1 fields
+ mm/util.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-Changes since v3:
-Use cpus_have_cap() in cpu_enable_mpam()
-add {}
----
- arch/arm64/include/asm/el2_setup.h | 3 ++-
- arch/arm64/include/asm/mpam.h      | 2 ++
- arch/arm64/kernel/cpufeature.c     | 2 ++
- arch/arm64/kernel/mpam.c           | 4 ++++
- 4 files changed, 10 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 85f4c1615472..4d15071a4f3f 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -513,7 +513,8 @@
- 	check_override id_aa64pfr0, ID_AA64PFR0_EL1_MPAM_SHIFT, .Linit_mpam_\@, .Lskip_mpam_\@, x1, x2
+diff --git a/mm/util.c b/mm/util.c
+index 2592291948f0..9f33c6de6082 100644
+--- a/mm/util.c
++++ b/mm/util.c
+@@ -629,14 +629,18 @@ unsigned long vm_mmap_shadow_stack(unsigned long addr, unsigned long len,
+ {
+ 	struct mm_struct *mm = current->mm;
+ 	unsigned long ret, unused;
++	vm_flags_t vm_flags = VM_SHADOW_STACK;
  
- .Linit_mpam_\@:
--	msr_s	SYS_MPAM2_EL2, xzr		// use the default partition
-+	mov	x0, #MPAM2_EL2_EnMPAMSM_MASK
-+	msr_s	SYS_MPAM2_EL2, x0		// use the default partition,
- 						// and disable lower traps
- 	mrs_s	x0, SYS_MPAMIDR_EL1
- 	tbz	x0, #MPAMIDR_EL1_HAS_HCR_SHIFT, .Lskip_mpam_\@  // skip if no MPAMHCR reg
-diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
-index 0747e0526927..6bccbfdccb87 100644
---- a/arch/arm64/include/asm/mpam.h
-+++ b/arch/arm64/include/asm/mpam.h
-@@ -53,6 +53,8 @@ static inline void mpam_thread_switch(struct task_struct *tsk)
- 		return;
+ 	flags |= MAP_ANONYMOUS | MAP_PRIVATE;
+ 	if (addr)
+ 		flags |= MAP_FIXED_NOREPLACE;
  
- 	write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
-+	if (system_supports_sme())
-+		write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D | MPAMSM_EL1_PMG_D), SYS_MPAMSM_EL1);
- 	isb();
++	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE))
++		vm_flags |= VM_NOHUGEPAGE;
++
+ 	mmap_write_lock(mm);
+ 	ret = do_mmap(NULL, addr, len, PROT_READ | PROT_WRITE, flags,
+-		      VM_SHADOW_STACK, 0, &unused, NULL);
++		      vm_flags, 0, &unused, NULL);
+ 	mmap_write_unlock(mm);
  
- 	/* Synchronising the EL0 write is left until the ERET to EL0 */
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c3f900f81653..4f34e7a76f64 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2500,6 +2500,8 @@ cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
- 		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
- 
- 	write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
-+	if (cpus_have_cap(ARM64_SME))
-+		write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D | MPAMSM_EL1_PMG_D), SYS_MPAMSM_EL1);
- 	isb();
- 
- 	/* Synchronising the EL0 write is left until the ERET to EL0 */
-diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
-index 48ec0ffd5999..3a490de4fa12 100644
---- a/arch/arm64/kernel/mpam.c
-+++ b/arch/arm64/kernel/mpam.c
-@@ -28,6 +28,10 @@ static int mpam_pm_notifier(struct notifier_block *self,
- 		 */
- 		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
- 		write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
-+		if (system_supports_sme()) {
-+			write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D | MPAMSM_EL1_PMG_D),
-+				       SYS_MPAMSM_EL1);
-+		}
- 		isb();
- 
- 		write_sysreg_s(regval, SYS_MPAM0_EL1);
--- 
-2.43.0
-
+ 	return ret;
 
