@@ -4,104 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F93EFB811
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 07:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8C3EFB7F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 08:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ldww1WlQMkoL/zBNyH/ndnXhb+ElXOiHG/mK0hPi1Qc=; b=XlH5YgmS16vTSzScQNZ+x9aMNc
-	pFWY718Jc38n0IamhBxU1KAfy4tFPUgOiIoBvmc7kLlKExhYspU9eoQd7mISL0uJBKhd/ZfIjHJ/c
-	tMCEuSyNHrXlBOntkSkkEtBsSwuPfX2wbmZ3c2OnYr/maHiyUTUqwyFTpGS3K5WCEJI+a62tmZ5G1
-	IC0iQDyZ3eR6VxlARfsDnc5AZztzDPcsxqdxVgeJ/Bmqa4l6sCI0pp+mKsW9UTnUSXU2/pvTRQXMU
-	G27c0c1pxU1zXV2Joz7jOI63+TXE0CcpITIK7OrsNmur5hcJCT3zQ7N5Zn70lmgpBqlp4NXenVpmt
-	YKaAj1hQ==;
+	bh=UUrX13PQ6bQW6WoHt4Jnc2qdmn6Z6cdBK26JSTbUSDc=; b=A3KsDChLKQ/r1E74shm5D53YT9
+	WMTX9K3Opc6Xotq+7LxbtM9ruFNJpuP61BIJGPwsl+3GT2O1iHi0Y8YG9mvtVkwmVinjoIzr2cN4m
+	Wf9X9lxn7E62lGy7rIL32WevFwZRngYeeM4MBcCyEyJSQpcq9gyqpyKzqwTm9blM2626sBNbPuNxF
+	9DCCWMUNzKxP/Yj3Sijfr4l6jp17PgwXylETeS8xT6f6GJOiVC8m2CnDHl4cyW94TtpWlNJFqbx/+
+	lmKIpXqpUMfjC0AUwdO6+a2tWbdHGU52tNxN7EivZBiY4GnLVKHTqHjnNfsvI+YmPpr2nTwchi7Dg
+	qPbo2GNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vunI9-00000001bss-2uVe;
-	Tue, 24 Feb 2026 07:57:13 +0000
-Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vunI6-00000001bsQ-13zc;
-	Tue, 24 Feb 2026 07:57:11 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfout.phl.internal (Postfix) with ESMTP id 43A19EC0330;
-	Tue, 24 Feb 2026 02:57:08 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Tue, 24 Feb 2026 02:57:08 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1771919828; x=1772006228; bh=ldww1WlQMk
-	oL/zBNyH/ndnXhb+ElXOiHG/mK0hPi1Qc=; b=nN/T9M+vmH5YqvY1M4+dtPwULO
-	CPqnNKjgIsJ2ihdGyRkXskoJXQDDmxTU1S967RwRLPJf55RPZgGRYw48Z7TAK9Rp
-	Rmz5xaZhz7yAIDMCXS5XdbuTQLwVrHdNNgA05yiRl4zmM0uA8V+IVZM2RcVbz1+j
-	KgKwZJdBHEsyzgoWyZF2B5koy1pNgtPhhAfnHUy81nXnwyC3n77smPEbZktI7sBt
-	dG/g6vMhwz4QMBysMcbFuJTt2sPcSdw0+WBUiqSUwyreI01eVfbcHR3bcWNfeqIw
-	4308RgbuurCQgufA6hqQXOl7qOITn/4dGwk9Pr89eOxZUjdOUQ0+Mb0/HAeg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1771919828; x=1772006228; bh=ldww1WlQMkoL/zBNyH/ndnXhb+ElXOiHG/m
-	K0hPi1Qc=; b=bdmc02QWewmtGwV3ILdMIAeoaK4OpigMC1Rc9l74iN0cios4jBv
-	VGiZC4gUMUJkEmy5EWeqvVjwSXTsYS0ntRXCHv0XPTJoymwKAQTYRxj9bxfS8MHW
-	SI9CmQgYGTjiBvJNgawmkB1DUD6nzgSOmsqAOWOyQWP5mGaV4c7ilnxFS7BIhKwT
-	CA2fhdMtM7AXx6K3p5AHIIonzi6gSUhr963d7wHpF9CA0aV2JwGFU3IcLEF38WBI
-	AkvvRAR8aWTdBejQPLxS+GvmaekdpkxCPnXFgwnMM1aWwxIb5TSMHya+0elUsoo3
-	iFyDGwT6aO9ERBXsohQ66akUMf5my5HbUNA==
-X-ME-Sender: <xms:01mdaUjUsyTtDSNTcu2odblcfhI0IeSvrnYO7oBCOZ2bO1QDJkrJjA>
-    <xme:01mdaVLkqH5ynk9ohtpxRuVYvrUb672JHQ3z-fXXYQA3Cobu-lTKT3Qb5P_NbQEtp
-    1RmxQP-PsXpApyTSXn3ugJBToG0kAD1ljjxSukRz2ljcYXw2_6GEozf>
-X-ME-Received: <xmr:01mdabnwOwxd2iOX4HaIZzuWaPF_lZXBfhWni4owJblHsZxPfuN35BTC61xAGN4_dTY2r0ol05HSQlhcoBVyHKBXT48yC_pmXL8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvfeeliedvucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
-    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
-    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
-    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
-    drnhgvthdpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopehkrhiihihsiihtohhfrdhkohiilhhofihskhhisehoshhsrdhquhgrlhgtohhmmh
-    drtghomhdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohep
-    nhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepvhhkohhulheskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhr
-    ghdprhgtphhtthhopehprdiirggsvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtph
-    htthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhi
-    nhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpd
-    hrtghpthhtoheplhhinhhugidqphhhhieslhhishhtshdrihhnfhhrrgguvggrugdrohhr
-    gh
-X-ME-Proxy: <xmx:01mdaVMzwroFnj39sRBE1ZP6UfRkYYKP8xh4Eri-FxBTqYAeWrQDsQ>
-    <xmx:01mdad6NQMaFSVf9mb2Rd8rz76GSjMJ4tlkXuoBGozwzlwpcb8fqig>
-    <xmx:01mdaRZ7BxuC8sAAqhK2bN_4ZkTxYTKyAMI0O68eWe3Pq1rPTI3mQw>
-    <xmx:01mdaSc3918Gp60VyRKHANVNtwJYzDJlpyU_g8qNCM58BSf5NiYZVg>
-    <xmx:1FmdafEQ5HQiUWC3y0T9sK-O5XRFLbybtqoG4Er5bS92OzYedtH7yOcO>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Feb 2026 02:57:07 -0500 (EST)
-Date: Tue, 24 Feb 2026 08:57:05 +0100
-From: Janne Grunau <j@jannau.net>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 1/3] phy: apple: atc: Make atcphy_dwc3_reset_ops variable
- static
-Message-ID: <20260224075705.GA1310076@robin.jannau.net>
-References: <20260216110413.159994-4-krzysztof.kozlowski@oss.qualcomm.com>
+	id 1vunVQ-00000001cZl-1kpC;
+	Tue, 24 Feb 2026 08:10:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vunVN-00000001cZ1-0joo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Feb 2026 08:10:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3983339;
+	Tue, 24 Feb 2026 00:10:42 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1046D3F62B;
+	Tue, 24 Feb 2026 00:10:47 -0800 (PST)
+Date: Tue, 24 Feb 2026 08:10:45 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Zeng Heng <zengheng4@huawei.com>,
+	Jinjiang Tu <tujinjiang@huawei.com>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH 1/2] arm64: io: Rename ioremap_prot() to __ioremap_prot()
+Message-ID: <aZ1dBTpUdJm_-gES@arm.com>
+References: <20260223221012.31962-1-will@kernel.org>
+ <20260223221012.31962-2-will@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260216110413.159994-4-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260223221012.31962-2-will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_235710_730674_B9AB201A 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260224_001053_274116_FD6B17BF 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,34 +65,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 12:04:14PM +0100, Krzysztof Kozlowski wrote:
-> File-scope 'atcphy_dwc3_reset_ops' is not used outside of this unit, so
-> make it static to silence sparse warning:
+On Mon, Feb 23, 2026 at 10:10:10PM +0000, Will Deacon wrote:
+> Rename our ioremap_prot() implementation to __ioremap_prot() and convert
+> all arch-internal callers over to the new function.
 > 
->   atc.c:2026:32: warning: symbol 'atcphy_dwc3_reset_ops' was not declared. Should it be static?
+> ioremap_prot() remains as a #define to __ioremap_prot() for
+> generic_access_phys() and will be subsequently extended to handle user
+> permissions in 'prot'.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  drivers/phy/apple/atc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
-> index dc867f368b68..32d97226e926 100644
-> --- a/drivers/phy/apple/atc.c
-> +++ b/drivers/phy/apple/atc.c
-> @@ -2023,7 +2023,7 @@ static int atcphy_dwc3_reset_deassert(struct reset_controller_dev *rcdev, unsign
->  	return 0;
->  }
->  
-> -const struct reset_control_ops atcphy_dwc3_reset_ops = {
-> +static const struct reset_control_ops atcphy_dwc3_reset_ops = {
->  	.assert = atcphy_dwc3_reset_assert,
->  	.deassert = atcphy_dwc3_reset_deassert,
->  };
+> Cc: Zeng Heng <zengheng4@huawei.com>
+> Cc: Jinjiang Tu <tujinjiang@huawei.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Will Deacon <will@kernel.org>
 
-Reviewed-by: Janne Grunau <j@jannau.net>
-
-thanks
-
-Janne
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
