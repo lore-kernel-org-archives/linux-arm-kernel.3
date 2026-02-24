@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D5CEFB818
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB51EFB818
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wrYNaMOH0TzghKNkY2gl5+fHgiHnouoR8L4MzPIrLQs=; b=EWm+ZczwN1r8DJMma+v8rHLD8Z
-	kEorSiv8+VLjbA948x4BY5xvfWqiJ7lpQs7YzCIlJ01yBH4qjvF5x2Pu0OYlgJ44rG7JQsNCK5y4v
-	JZlRLqmvyyXNos8cWbVjEbbcV/XEA0Iouo05ksNvRWOEj3pPAF/w3lj+KZ3WtR4/kO2naabOl6vfH
-	q4vDn/nkpVHDEWFiNbP8HO/YNKTB67wsnBgfFIA4EB9komOH8nBxIYY6UQTtKrWxffptzgqzZFzWg
-	kX2RFURREd68fsHM/wIHGglBOd0nobD9JVo3eeoRQDBZ6KPFhLpsG3yJ6E/GfffKZkaQckNFs/dPZ
-	PCkqYU4g==;
+	bh=cZvD/6XFqfPCPXyr2nRCWetVJUUTym67DrxVL+hwiSY=; b=MXgQ4OmUCc1Dzt19PQwionUhLC
+	UYpN+hr+qAZSzevHHmAVdGEWtoyMg0+fGQeL2588BnrtCilj6B4hKca8F1v4NQvVrGYmz+yjdKB/Q
+	e1l5txU5heUQPCzVD7UXcs/Bja1RD9yyy4i49ANVgJ+FqVK2mAMSrivdh/djmJ7RzzCT40Z4D0j+U
+	aa21Vx1tq1L9m1GGKBPMpoZ+cHYdXyzYq2oRTYBCvLQQ7DByeramE6An9+nlWwGIlwnUOXOf/Mq9+
+	eA4N9mTbi1ZbgthkkNbShBYFU4M9U5mf8Z29ZlEOQ2XOis78tj8rzJFrj8bH4ZBTFZyntKV+Rl83P
+	HThrbACQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoIv-00000001hb4-3V5p;
-	Tue, 24 Feb 2026 09:02:05 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vuoJL-00000001hie-0gFj;
+	Tue, 24 Feb 2026 09:02:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoIq-00000001hYm-3Cfh
+	id 1vuoJF-00000001hh4-1QZU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 09:02:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=wrYNaMOH0TzghKNkY2gl5+fHgiHnouoR8L4MzPIrLQs=; b=mw2ib0HuC9E0Zqjnf7ey4YyaQ0
-	PbfUPNlapr6uP9hLfkxAQ/qPrEd4gLN+1dWbLlDINtrha5GqZTMrC2lGIuDzkWyt6KUpCHeqloYuj
-	4zWcsBsUhnsDovNGy1CNfpGRpK/+2FcNjcgGruVjnHYr06idMjGpATU9vyzUX4q9E1QqBm/3ihHO3
-	OPcYErNmn6kNVALpk4Yn22tf8bFSmXTD/QjWIJlDtKZV4Uh+wDMxN9Oo2i230Z8tQHNEnzaDfWNkg
-	/x2f4c33cDvdOYAXziQwelaCp6p4Tpx3wjHaf8eE0Y9UrkWMylONrKxXzvebRF99o0SQ5UZzXyPJv
-	8tmWV0CA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41980 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vuoIl-000000004yS-3zCH;
-	Tue, 24 Feb 2026 09:01:56 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vuoIl-0000000Aouz-0ttb;
-	Tue, 24 Feb 2026 09:01:55 +0000
-In-Reply-To: <aZ1o2dmfpeiubCik@shell.armlinux.org.uk>
-References: <aZ1o2dmfpeiubCik@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 2/2] net: stmmac: fix transmit interrupt
- coalescing
+	Tue, 24 Feb 2026 09:02:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CCF3E44539
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 09:02:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6D1AC19424
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 09:02:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771923744;
+	bh=cZvD/6XFqfPCPXyr2nRCWetVJUUTym67DrxVL+hwiSY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=dPyJblg8XNBIFwgJpnAlSHMQbMmtUYguxmNAU/HeFketfG3kwyCTDuG+0UMKDiRpz
+	 aS5EVmby2GzxMFeRj7A6mNbBGj8JL3RySqiJ2Ecq9vnO/N7mrxtDKFvTr6CEmRKlwI
+	 xyPu7vPrYyF+F3jMp2KuTAR7LrgKOakDAChpwXzjIfHqCoYRjPbKlPyAdFlLihkobq
+	 l0/ZIyUqxEX4VAdNRY17pTxAkGiqlnQpM7uq94XKM8Jukn0N6rHINsrCedIzrRz560
+	 bvvnCjUV11WRlyGm/q/GOSIjrgVMToLq0R8gFVAfZnth+kRb0cO6ltXgFGyOwmgHV+
+	 HB+5H+ML5/6ew==
+Received: by mail-yx1-f51.google.com with SMTP id 956f58d0204a3-64c97997b0fso893096d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 01:02:24 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWFT+kQySwe6FDerYxvx0woZ6s90E6FSEX3UHPNEBMI9hpd5dPLpbfCYIHLZBIVXKuykIeLZlyzXvpHX9Uoodw4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4ovIk9+6lBwGDrGLJx8rWqGwH3bqasNLyyHSJtWauw6cu0GiC
+	DVAe5+cuIKhbria4xmo47Wx1a5gyYYDInIrWieE4/Zw/4eBJt4c/U7nr+NnvAhv93Mq4r+TIMyM
+	yLXALypKjUU1Wv7fLjNgnGdIk7TXnNc4=
+X-Received: by 2002:a53:b5cc:0:b0:649:ca5c:59a1 with SMTP id
+ 956f58d0204a3-64c788d108fmr7682076d50.27.1771923743916; Tue, 24 Feb 2026
+ 01:02:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vuoIl-0000000Aouz-0ttb@rmk-PC.armlinux.org.uk>
-Date: Tue, 24 Feb 2026 09:01:55 +0000
+References: <20260211-imx2_iomux_warning-v1-0-1c5233771b32@nxp.com> <20260211-imx2_iomux_warning-v1-1-1c5233771b32@nxp.com>
+In-Reply-To: <20260211-imx2_iomux_warning-v1-1-1c5233771b32@nxp.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 24 Feb 2026 10:02:12 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=6e-gRMMXBUV0OqdDu0BAsiXmch1mROZJ8VxnSCsf2oQ@mail.gmail.com>
+X-Gm-Features: AaiRm510za3zndD0inGMLCEH7QG-m8mCRLz97beAHEtvRk_6T0tZrIsQM9QjFTA
+Message-ID: <CAD++jL=6e-gRMMXBUV0OqdDu0BAsiXmch1mROZJ8VxnSCsf2oQ@mail.gmail.com>
+Subject: Re: [PATCH 1/4] dt-bindings: pinctrl: convert fsl,imx27-pinctrl.txt
+ to YAML
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Jacky Bai <ping.bai@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	NXP S32 Linux Team <s32@nxp.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_010200_801755_10DE256C 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20260224_010225_402878_76D0B006 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +87,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The accounting for transmit frames does not count the descriptors
-correctly. It uses:
+On Wed, Feb 11, 2026 at 10:00=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
 
-	tx_packets = (tx_q->cur_tx + 1) - first_tx;
+> Convert fsl,imx27-pinctrl.txt to YAML format.
+>
+> Additional changes:
+> - Add the compatible string "fsl,imx1-iomuxc".
+> - Add gpio@... child nodes.
+> - Add ranges property.
+> - Remove the redundant intermediate node between pinmux and group nodes.
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-however, these are indexes into a circular buffer, so cur_tx can be
-less than first_tx, and when that happens, tx_packets becomes a very
-large unsigned integer. When this is added to tx_q->tx_count_frames,
-it has the effect of reducing the count of frames, possibly causing
-it to also wrap to a very large unsigned integer.
+This patch (1/4) applied to the pinctrl tree.
 
-Fix this by using CIRC_CNT() to calculate the number of descriptors
-used.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 2d74fe98ad61..baf2ff577f45 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4503,7 +4503,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf_type = STMMAC_TXBUF_T_SKB;
- 
- 	/* Manage tx mitigation */
--	tx_packets = (tx_q->cur_tx + 1) - first_tx;
-+	tx_packets = CIRC_CNT(tx_q->cur_tx + 1, first_tx,
-+			      priv->dma_conf.dma_tx_size);
- 	tx_q->tx_count_frames += tx_packets;
- 
- 	if ((skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) && priv->hwts_tx_en)
-@@ -4781,7 +4782,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	 * This approach takes care about the fragments: desc is the first
- 	 * element in case of no SG.
- 	 */
--	tx_packets = (entry + 1) - first_tx;
-+	tx_packets = CIRC_CNT(entry + 1, first_tx, priv->dma_conf.dma_tx_size);
- 	tx_q->tx_count_frames += tx_packets;
- 
- 	if ((skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) && priv->hwts_tx_en)
--- 
-2.47.3
-
+Yours,
+Linus Walleij
 
