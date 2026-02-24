@@ -4,179 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2933F4BB8B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 21:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C834F4BB8C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 21:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+JRdnnLxbCYX5mKT3xJydokzuJurWE0z2qetdHwGt0Q=; b=3sVvRNN/gvO00fE2jF9lJifw1c
-	+haM9TNJghwUw+sQ8AjXhBSyMdzqeEAdS0GEl1RAxZbejUu/jubsXi4MkRC58cEUBF+0Sd3matv5s
-	S94TZkK3d8tYad4/8vgOLMVD6z2mwxpdcI/Qi5MWXpWyQ+5PER96juXZv5N6faL5NzpBKVHEkliTI
-	CnQuQh3JdPXSWmpnSp2SdLsWyVkhq6lLlybPEwkLqgzCqXQ+Spno8OE2XZ+0ce0cOn/409ozOazVU
-	iOhhM7YWeMxRO6eeMgQ6JFNpiPrLVBqkXJDZLwTGB7vnV3dmrTynKP+qAMsm53bZKuH4ZwtIiqDeO
-	GX5uMtPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yDayGCTx715bDzSgsBZo6/sacRFjwz6HQIrmD08ogXA=; b=BoBzCWS3htcUhmHZ4irZZpus35
+	NaSu0loOS087Si1axTojf74MN/T6UzUomWcxVueklf/4vKP04tTvLae8x4sRhGe2DnOolaIkzCbgS
+	lcuUkzPA1UZ2PKLS+wlmEssrfAcgz8hLek4TZA4Ssgp0Iz4d4X9/m/fxKNfdl//kzWQqr/vyuVPJY
+	T9NLvkvxIrdoarTSpSpBKNbJR+HZwjA8qVC3xDzzwi3EhxJeR+SSqXKsw308Vq4Vfohhr4PoBtvYD
+	JBMr6DJJMTi4bXchOzq6yK0IqFSpm6Owu5gPbgB2noAN322SppXZwzdS/+e2XQz8axgozJNXOGvlq
+	qSEgW6VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuznw-00000002o3r-32zt;
-	Tue, 24 Feb 2026 21:18:52 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vuzxd-00000002oQ9-1Rk5;
+	Tue, 24 Feb 2026 21:28:53 +0000
+Received: from mail-dl1-x1242.google.com ([2607:f8b0:4864:20::1242])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuznt-00000002o3F-46mB
+	id 1vuzxa-00000002oPn-0tET
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 21:18:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ISIDUKcMcDpC8IfipRjwORWKZa3ZCu8XAyyLTJ2zdPoCIyQR5yuIby8bzJ8FUDXSBEXV7F88ZhSZCQBa1LClK7cRcImeUuVRrQqpaGbaGxjqcRY2O5HdrM3Ynxhs0DcvlhkUKNdSOaqX1OWjoKiqkX7OkkWS2MraPUYm3McUlNOGfSa7Ed369JkTNsD48OWyEmtiRrG4fZZLpv/vAqpsRpoAP2R7Tztb7Uwk//Il5P9N+AAacvRXermoDnjiKHZxOQl1INwH+8ktZEj9MEvgKDv2bKR9IX3yTVyeSs3T9i2LwK5FBGKRwXzN4ONph/4nqGk0JdhHB5Rx6jMl38xn8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+JRdnnLxbCYX5mKT3xJydokzuJurWE0z2qetdHwGt0Q=;
- b=Yd+sgM7EKDhQwLpC22GdsBkjzGtFXRsBqEi2jeNi6R9frL6uObsrAUykthJMjNEmDonJnDvyQ4tnkrFAQ7M1qwN3J+8XQpeLW12mJpQ+JVmMTugPRUTvdkzzpUh/q/TH//pHmBEdbmnpSb7TA3W+vJ6gPqTVFK9JCMxnbOk2ItdWJD8JE12/ylcTKyOqPIYYVUu0h1U9+/+C6fxD9/aKSdIF90Bf5q+64//E18ee/ASfAOCtB28zpHEfplb0NoLa0UHmy8O66l+k9e4NKYsYdHCCJMF1J1WgNeeik2IIH5WrzlQpDcCI0sq12km+pdUKbF2zsM6H9j8i55Jjdc1Nig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+JRdnnLxbCYX5mKT3xJydokzuJurWE0z2qetdHwGt0Q=;
- b=jUXi+8vtv365GwCnbdJ5g5bXPurpwaRQThq06+PqhJ6mYg+jvk1rNEPw5EXY13E8AqnMJesFVRWFXWf3wwfbDBIRLPnJF2t4BMppDAhqyDJesYzxrqhNGk/Egu1eIasap6/UcrBqgC5D1/KmDJ4hJl5Vnx3dolBVdIATOtD5SyYDrfTrPRzQ/Bj87iFV3AufCBFGexFK+inwGXdx1hlaPRTMvp8Rc+2tfYf/Zj0KW1k360zK4LULI2EzHD6Jq+4etHdEb8RZ8dFVoRRaMJr9L0qQ30DO83Fu3wMS4GzlLgcNULgRXqpoG4kV6/vsznd0yMTmFCWYJWxTK7QLKscf1w==
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by PA4PR04MB9293.eurprd04.prod.outlook.com (2603:10a6:102:2a4::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.23; Tue, 24 Feb
- 2026 21:18:43 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9632.017; Tue, 24 Feb 2026
- 21:18:42 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, Linus Walleij
-	<linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson
-	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Frank
- Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan
-	<skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
-	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: RE: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO
- driver
-Thread-Topic: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO
- driver
-Thread-Index: AQHcpcbqyuKnLu7nVEOA8R+860c+KrWSVdGAgAAED2A=
-Date: Tue, 24 Feb 2026 21:18:42 +0000
-Message-ID: <PAXPR04MB918509F265757E6028B45DDC8974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
-References: <PAXPR04MB918576D67A268E59242964A08968A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <CAD++jLkUVFckLTq=SoivNFoFymhJo4KM=qGmajFcv9T9+7tPmg@mail.gmail.com>
- <b4c422ce-3538-40aa-8bfa-b70f02774b5d@foss.st.com>
- <PAXPR04MB91859B642802813F908B03DA8977A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <64ef5dbf-6264-4758-a5d8-d8c52c359fcc@foss.st.com>
- <PAXPR04MB9185934EB640E8B21905FF878974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <79eb8bb8-83cb-4b24-8e56-42a53c710055@lunn.ch>
- <PAXPR04MB9185F1A67384E4886282227A8974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <91701822-df30-4feb-9e9a-4ee82e2a5d23@lunn.ch>
- <PAXPR04MB9185FD3EEC313CC2408E157F8974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <0b42e303-a2ed-4983-bee5-a4eafd6c7f36@lunn.ch>
-In-Reply-To: <0b42e303-a2ed-4983-bee5-a4eafd6c7f36@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|PA4PR04MB9293:EE_
-x-ms-office365-filtering-correlation-id: 230226b3-52bd-4453-984e-08de73ea49ae
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?FbhrwYelo/shdDPm2/Rg5GSFveB5QSTZzVFl6/DY+6+37/qBwx6kRgh7t0oU?=
- =?us-ascii?Q?OVaVTXLyG69emiMIGlKjcnBvsHnxn8T6ddTOiGOXxaNLo4q0Eu0ahsCFALPE?=
- =?us-ascii?Q?lTS0etkaemK9QF6a2YZL4ohX6xR0YuModA4+yHJfXhl+tFlYNRShfxyV+JUB?=
- =?us-ascii?Q?TAN7bpjkr7wd+NSMPBYANO5GtONBSLFlWnbWRQl4U2bOYVQCx27RC9Rqwv2K?=
- =?us-ascii?Q?CQ9yxK22PTkR0n80cU4+k6aOByzTUtQXk2j+aR4ZvV5RM59Q4iqkF3ZQmm0q?=
- =?us-ascii?Q?T96RgSRrKMZw4o7gqFXS/rmY5Yqow0SGkMeyzXpMF8Vur+5l7vOa5QJdT0a4?=
- =?us-ascii?Q?R6po8xIjgzXhxVgJYVhE8n58/RFQmK93yfC7aMhjCntjhec5K/AvLQMnrf3A?=
- =?us-ascii?Q?QtowcEsltNuCmwmlACYW2cyZFtT8m7k7ROo8CWDFqsTpImP6KRSYCp+gDaIB?=
- =?us-ascii?Q?8xTg0HAlnd3l7MKWHfb7Um0wujvuBRCqwG5hbwBVJXeCpNneKqde7ATTJ6W4?=
- =?us-ascii?Q?/J56WQSV41GAM2JHjA55FVFrYPNxBy7hXB3hsoDc5eyacHeizVyZJoGuZyaA?=
- =?us-ascii?Q?Z8kcIZbGmAkiA+eh/2vb6w0PaiM9HuqqJOCo0Itn7Q6+A2ugOkW0HCGWk2ge?=
- =?us-ascii?Q?EPeki+6wxyYemcYKFm37iy9yl/D/Y4YtKK2Fi0A+gsi8EfASup3wr++2NFmr?=
- =?us-ascii?Q?YTZkiRwPEGU7NRlD0T+vfT6HWTijDguaJGptX0zJ+kaTi1o4/3V1qGAhECP7?=
- =?us-ascii?Q?g4dymxi/swNnkkrtqaKW1yW6GpyoUgYzmqmbH+MurqDM1qf9rRNEUd5Y87jx?=
- =?us-ascii?Q?lRXgtQOkolQH14J3FH3tZWbXZpM0TCaS6K3FAkotFh6r+MVvONuQHJfCncap?=
- =?us-ascii?Q?sOKUf55e6HVfn9pJGrQkf2kQBstLN90chbLl7zZG50u/nSvaGawn6gyeKli7?=
- =?us-ascii?Q?GoPhQGUzMFamPwM1JgDvEsG7kYK2/Z3ItA9YLtCATQSAbTIsBE4mTnWJbOlS?=
- =?us-ascii?Q?pPpCNP2Rr2rnahOzfczrK9g6oktTA6aWmoiHG2hCn2pAtMQTY+ZpNDph9KtW?=
- =?us-ascii?Q?0cage+j3uE6jHhWbO2f2LuMHQL9QeGCD6JyyfdfKgrgMrCsQ0/swS21ZSTny?=
- =?us-ascii?Q?qGBSOn9Yp73MB7wCvsVmc24EtyVonVc66+nfODiSRXpM0WzarG+sRg4cOtya?=
- =?us-ascii?Q?i1jMeqXmKNzfMeEqNJR0csiXv0aeELVkt0PbY3QM0bjyJhkGismJZklF/hPg?=
- =?us-ascii?Q?o80xmU53GIIj1eP1tEIOaIPYNglP+JLvgHKZZOXWnaHErsT1RsA8gqDg+MK1?=
- =?us-ascii?Q?ZIoeDcFe6ys37YXZJ2FJ3do4MOCbp7Po8VZfXd+voR6U54rXK+UnO0RpFgOl?=
- =?us-ascii?Q?FqUe3lXV0WzMVrKUKIcA+WZx9RfF24pi9ZM3/FzNBbro/KEJ0upRbW3it83R?=
- =?us-ascii?Q?djSaA1FZIt65B+iCANRcd7cg5wEBmCN+xnP9ynuXc8meTgmiV5toZ4czNMps?=
- =?us-ascii?Q?3FPGx5l8Jn32ZlcMRssyuzN7z+5wdPB8S4x6we6KMFmskDNJxUo67WBu97pa?=
- =?us-ascii?Q?jehTriaNiaGVjEYoApNtX1pLgy+3bB6ZUvfTSyL/9yrgvB56+U7hMCpmrkPA?=
- =?us-ascii?Q?HRKoPXXpjYITlEFtj3Rn8MI=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?N5lBfnbgbzwHiTzau59ro7XnROuW9jaHYc8yU1R4XJ1WrOTtmhVtM9khtDPK?=
- =?us-ascii?Q?sDYKsmmybl/s3qQvfKRGIhHTiXtECdQYN9L8gjytTPAuvBQ06m0EYcj6h4jd?=
- =?us-ascii?Q?JRd1DfKU/1lLhL0iwJEigKayruNzBjyzONVTDbU03LieBqcOp3om4oYNrqnP?=
- =?us-ascii?Q?l2yQW0s6pOSihFeLxY0Wj/TTz518vOqy5l62lRJYAkWVl0tc+RXpeg8xHd+3?=
- =?us-ascii?Q?R/yExcqWfbFI5AhIEDPXedoGXvlJFF7/SS0FLduSnBNzaFHjS0NFljVnS5bX?=
- =?us-ascii?Q?tbSqh84koGA/R1iiEn5IKXNbmp7+J/E0kObeozr7h0ps/zgwfKPAOOJolUyu?=
- =?us-ascii?Q?0lsMnNVnN7ocEx4DOivknr5KX9snW0RuMCW+AlxXaKOPmrws056GPHvgmqwP?=
- =?us-ascii?Q?GdrgTcIGpm/+4YI5aI2PstXObywBQ9DDZyg6BaZxmF0co36hEGzLkfVTIqZY?=
- =?us-ascii?Q?2VVNPsamdCaXU51akpg6Jv1U3hWL5tiAzLqZ6f0otwe0KKlrbceMd89GScE3?=
- =?us-ascii?Q?Y88xfFcM5cDUSqU7wpznI6fPsFnxkBfn5dtVldZxCeVo0W7/WdMAwfS+A1fa?=
- =?us-ascii?Q?bP2FGxSUeiOzJYX7E/U/yksCl+PgpnPa/TYDe2Vpco6Bc8AXjQCAIXQ+OMof?=
- =?us-ascii?Q?f6K8OpRFsxJFojKMfnot7kg8b5Z8M96ylcesQpd/38IbUlO2I5zxGExiwwL7?=
- =?us-ascii?Q?9QhFBMIFAVcKJzcUpV0o7MH12uSx67yt8QFOVMLdij+8WSfI3U23Hw5jqR0a?=
- =?us-ascii?Q?uQSyCEI2OOCozw7nj9sk++btNu0KwbHVY+J3Mo9gNXnMxEyDV+5qZTvladjL?=
- =?us-ascii?Q?/fsIpyOZPMnr678WNueVobyiWHt6zb8obr/V5M3AGOfwwS0KMy0RVerE78nS?=
- =?us-ascii?Q?ql8EiIO2lH2jGCAAgICFgXjR94+xdy0lcGJOwji/i/unv6FynwPSvLLN5gYW?=
- =?us-ascii?Q?ZQjpIcP4M/1uYg+IbaRdcocft47jZv+adbO2ZxORyeUmS5kjShUP80OgLu4J?=
- =?us-ascii?Q?j7C6PF0xRjFQlc0gUNgEaccxBmufv8E3RQPhIml91c49aqS/oaQWe+ID8aSi?=
- =?us-ascii?Q?npgGmRm2mC/1RffSKn3pY7yKNDSSqAJYaFUVB5v++p+xzQ8KHGdtRHfKiShr?=
- =?us-ascii?Q?+7VXYqRTYkmvNiGrAuccxT6cRqU2BEXi42yZTbJ7bwDgzBX7OjQBfXEK0Bio?=
- =?us-ascii?Q?AF94oP6FMTi+TNw9JZzmswIEKHrsOY/7dWg3gjGuBoZrpA3tVkgiaWxXCOdP?=
- =?us-ascii?Q?+MhtM6BCM4A9hx+SSzTVlyE6I7dbUHAEbZX47N0+wD7jw22UrPg8dJcWp+Pw?=
- =?us-ascii?Q?BEE8NPaLSC512P8s6yioBJVjlB6ocfAS1EWutH0NSiTl2oPHyEdCvSFdZv0X?=
- =?us-ascii?Q?HOTLna0y0mA65FmhHHO0/RGmrJ+BsywcGYuiePVspuwt7uoLuDx1+WaM8u6q?=
- =?us-ascii?Q?JC5dYNApdh6L68fOUz9yk8QDnR0n6ouJtYFxNr/qKHBLuE+0XqdsjJ+3cgFE?=
- =?us-ascii?Q?zDyRnpx4Ben4kdG+ehPC8LUQN4YrpXTlI7krdP4y7BTW76a/i26oS9Swl3L2?=
- =?us-ascii?Q?nDtVhO+ot6K0E3XaZeKPUied/eH3w87eqbwNoHNumdLyCnGBwlmn0o5ohFfM?=
- =?us-ascii?Q?x47qv5Dnm2cHVIijmhawhTD1Cz3BFPvTunzjW2/RRVvSscIkCAD5yH6L4hXZ?=
- =?us-ascii?Q?ZfqlXMaixEZGJyQzE56TvsMieF6UvjbshAeGY9UYDUfxrVsYdVLkIYQT4pg3?=
- =?us-ascii?Q?VbeDQwsnHQ=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 24 Feb 2026 21:28:51 +0000
+Received: by mail-dl1-x1242.google.com with SMTP id a92af1059eb24-1271195d2a7so3508139c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 13:28:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1771968528; x=1772573328; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yDayGCTx715bDzSgsBZo6/sacRFjwz6HQIrmD08ogXA=;
+        b=KCjn3hGwF8h/qdhs/JhjA8A2zromo9f1FqPabQm8oMtRElxt9muIB/Z96k36aq0Seg
+         m1gvPcfgvspg9mCSFa+CbwwMaVipfMf67lR3fhSP7SBnN9gFu3m1dTA7+c9DOtXLlSC6
+         OmCkdlRxnRyC4/MYz7lPoUzfxlEvvGql3mfqLBL0fQkPm/7xhlZogBoT6A6No8m5v3KR
+         VQIHVJjxVr8+qAIYebO284/GIQf1Ji31t6Tsf8ilKhyReTIcUl0WnbnNUNYgijJZkJIU
+         8AMxJLApu2Ygc7mlP44M4CCgDdkHx3VO2WnRXVs9gBqcMn3XMbVG02/88HfYMtRI6hws
+         g8Vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771968528; x=1772573328;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yDayGCTx715bDzSgsBZo6/sacRFjwz6HQIrmD08ogXA=;
+        b=f5mX++wLZPkW0G2Bf8Yhx636HbBEu7XX3NUOvNR2PL23t/wmop5dYtZUPWzXjR4Aua
+         RqNWmux897rTZVzgAMJo2+stbb4TtMGz1QF5LbODqWTbLxrDDtT5AXeixolRqhmnNB+K
+         TXekij+h9iSb/KdKtj/wR190EiNTvUO1JMTUPcoSlLLV7zKqop5pJbKC+oaj+3E7bJFW
+         tEQ0b+sF9NwBLzt212xwDy2NwclSTjbQcICbEr4iJ2hUH808Q5Ul3pushwxA6kfqy4cG
+         LjZUKJgP6fT2KehRzagp0iOVw2G4ktM92jWkVyMfQY41ztP5xx+gei9N6zT1DRXhWKyH
+         6b2g==
+X-Gm-Message-State: AOJu0Yyc4FI6Tp70lkX8JFONpuQ6E+eXREoDrdQKHIhZp8aqnWPlpX6Z
+	hqhDEvfXMr4ss7RePsfMSS0J2Jcg1iIfFvp1/JC0XwpxuR4sHe0T/xyc0FkxVCCwIA==
+X-Gm-Gg: AZuq6aKbJO+CWrH4okR5TPY5RsivtXGcP52uR6goSLyJ/bWaicbXH/KVGIkrgZoFduP
+	z/P9VLCZGIIW3cobYx/1oMPZ1Ww2LLnWFUbpS3N87TtOAC7H6LWdOzdiAUxX3sqbnZtS2enqvfL
+	JNJvV1PrVyVnV3xPWmo/MzCNhO6TK17wdLkJeEdLfu7Z+ydC351wzZJANuOfR1phpwKstv+G/Q1
+	N8/4JFzhlNl9O1B8Rsb4+3RHiuWHseihQEEcomCStdyqG/0Lbl+ZxirK8eSjstYLv5K6xHlwLEL
+	9GH12Iafy6nX0u5eiysrjjWRQWvd8fyiw2vlcQWVLd8gFhVUnWnb8DKccv1fK8b/yhV+uhlIocy
+	udzAPuPx7LDQUp0V5M8tBTV5jdQ/QuzdkM1FQHknM64iHJBs1CYDCUIINnCUhX0ymdGNLe+JfJR
+	LBUL+iaFrDriHsZNgSAPBlcPCgTSn1PGECDhOQrE31wuHEeReCHr8RU7KrudBZb1Q9WGiFIZqpv
+	CSJxX7dJPZFLupItyJv2IN4Jg==
+X-Received: by 2002:a05:7022:1285:b0:127:33c5:5390 with SMTP id a92af1059eb24-12781e0aac0mr52023c88.11.1771968527891;
+        Tue, 24 Feb 2026 13:28:47 -0800 (PST)
+Received: from ?IPV6:2a00:79e0:2e7c:8:665e:550c:2a20:8866? ([2a00:79e0:2e7c:8:665e:550c:2a20:8866])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1276af207d6sm12385902c88.5.2026.02.24.13.28.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Feb 2026 13:28:47 -0800 (PST)
+Message-ID: <fa253e2f-bdb5-4ad0-9308-ba2f9bb97596@google.com>
+Date: Tue, 24 Feb 2026 13:28:39 -0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 230226b3-52bd-4453-984e-08de73ea49ae
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Feb 2026 21:18:42.8420
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 1dqWLaxYI/zagoDc2AIM5WMmHqgt9wRGdwl8PwonfcT1C9yZqyBfhIkQclXWjZOzd0SzkX7henfkBuPLcF+HSA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9293
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: exynos: gs101-pixel-common: add supply and
+ regulator properties
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Badhri Jagan Sridharan <badhri@google.com>
+References: <20260224-max77759-charger-dts-v1-1-b443545c04aa@google.com>
+ <48d5eb8e-834f-4e87-a59c-d05add0dfda7@kernel.org>
+Content-Language: en-US
+From: Amit Sunil Dhamne <amitsd@google.com>
+In-Reply-To: <48d5eb8e-834f-4e87-a59c-d05add0dfda7@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_131850_046099_68C46D38 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20260224_132850_309758_126670C3 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,92 +110,70 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 2/23/26 11:01 PM, Krzysztof Kozlowski wrote:
+> On 24/02/2026 06:03, Amit Sunil Dhamne via B4 Relay wrote:
+>> From: Amit Sunil Dhamne <amitsd@google.com>
+>>
+>> Add power supply and regulator properties to the MAX77759 pmic. The
+>> usb-typec device will reference the regulator provided by the pmic as
+>> it supplies vbus to the typec device when operating in power source mode.
+>>
+>> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+>> ---
+>> This patch depends on the patchset [1].
+>> [1] https://lore.kernel.org/all/20260224-max77759-charger-v8-0-eb86bd570e9c@google.com/
+>> ---
+>>   arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 8 +++++++-
+>>   1 file changed, 7 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+>> index 93892adaa679..2cc00d34dda8 100644
+>> --- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+>> +++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+>> @@ -142,12 +142,13 @@ &hsi2c_12 {
+>>   	status = "okay";
+>>   	/* TODO: add the devices once drivers exist */
+>>   
+>> -	usb-typec@25 {
+>> +	maxtcpci: usb-typec@25 {
+>>   		compatible = "maxim,max77759-tcpci", "maxim,max33359";
+>>   		reg = <0x25>;
+>>   		interrupts-extended = <&gpa8 2 IRQ_TYPE_LEVEL_LOW>;
+>>   		pinctrl-0 = <&typec_int>;
+>>   		pinctrl-names = "default";
+>> +		vbus-supply = <&chgin_otg_reg>;
+>>   
+>>   		connector {
+>>   			compatible = "usb-c-connector";
+>> @@ -236,6 +237,11 @@ pmic@66 {
+>>   		interrupt-controller;
+>>   		#interrupt-cells = <2>;
+>>   
+>> +		power-supplies = <&maxtcpci>;
+> Missing blank line. Please follow DTS coding style.
 
-> -----Original Message-----
-> From: Andrew Lunn <andrew@lunn.ch>
-> Sent: Tuesday, February 24, 2026 3:01 PM
-> To: Shenwei Wang <shenwei.wang@nxp.com>
-> Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>; Linus Walleij
-> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corb=
-et
-> <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
-> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Fra=
-nk Li
-> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Shuah Khan
-> <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
-> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix Kernel Tea=
-m
-> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
-> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
-> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
-> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Bartosz
-> Golaszewski <brgl@bgdev.pl>
-> Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO dri=
-ver
-> > > How does port_idx fit into this?
-> >
-> > I think you were assuming there is only one remoteproc in the system?
-> > In practice, the setup can look more like this:
-> >
-> > + remote_cm33{
-> > +     rpmsg {
-> > +        rpmsg-io-channel {
-> > +          #address-cells =3D <1>;
-> > +          #size-cells =3D <0>;
-> > +
-> > +          gpio@0 {
-> > +            compatible =3D "rpmsg-gpio";
-> > +            reg =3D <0>;
-> > +            gpio-controller;
-> > +            #gpio-cells =3D <2>;
-> > +            #interrupt-cells =3D <2>;
-> > +            interrupt-controller;
-> > +          };
-> > +          gpio@1 {
-> > +            compatible =3D "rpmsg-gpio";
-> > +            reg =3D <1>;
-> > +            gpio-controller;
-> > +            #gpio-cells =3D <2>;
-> > +            #interrupt-cells =3D <2>;
-> > +            interrupt-controller;
-> > +          };
-> > +  ...
-> > +        };
-> > +      };
-> > +};
-> > +
-> > + remote_dsp {
-> > +     rpmsg {
-> > +        rpmsg-io-channel {
-> > +          #address-cells =3D <1>;
-> > +          #size-cells =3D <0>;
-> > +
-> > +          gpio@0 {
-> > +            compatible =3D "rpmsg-gpio";
-> > +            reg =3D <0>;
-> > +            gpio-controller;
-> > +            #gpio-cells =3D <2>;
-> > +            #interrupt-cells =3D <2>;
-> > +            interrupt-controller;
-> > +          };
-> > +  ...
-> > +        };
-> > +      };
-> > +};
->=20
-> And why would this require a port_idx? If they are different rpmsg instan=
-ces, the
-> channel numbers are in different address spaces.
->=20
+Sorry, will fix.
 
-Then how would you distinguish gpio@0 from gpio@1 on the CM33 RPMSG bus in =
-the example above?
-They are running on the same transport.
 
-Thanks,
-Shenwei
+BR,
 
->         Andrew
+Amit
 
+>
+>> +		chgin_otg_reg: chgin-otg-regulator {
+>> +			regulator-name = "chgin-otg";
+>> +		};
+>> +
+>>   		gpio {
+>>   			compatible = "maxim,max77759-gpio";
+>>   
+>>
+>> ---
+>> base-commit: 8bf22c33e7a172fbc72464f4cc484d23a6b412ba
+>> change-id: 20260224-max77759-charger-dts-23493398e77c
+>>
+>> Best regards,
+>
+> Best regards,
+> Krzysztof
 
