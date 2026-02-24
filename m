@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D29E9B251
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59967E9B24D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nOR7dw2e6VbSE6TAo2/QiB5hJHo3XCf4r9aWZj1VUpQ=; b=Wg1aSlkXwZhFDw
-	GCbTqCUV+fb8YVUBZFdbHKOh2z2Pc75eYRXUWdqzFagbJQy/d1qCAUBaBupYxm5YqjR28ix4/0gEk
-	moDflk4SzgKqgbVQ0YqJ/m9zG3OdJedu7INZ3TRM6kuLXb5dTnZeJp7vYuo5qORmiIiOjSZnGamno
-	AZKvnRNz08gCbd1prkjNqyOxMefRBz6L9l0UgZWu1H5wu7xSzGgzQ0huMBdAZ+aAOH+EemnHBeFl/
-	e7g7UHta6yGw/uRWriumHnMsDtukWi9qVGuvHse3b5cqmDEU5MUM0OZJkYRRFkdrpmM/IQdMyezCT
-	rPtKIB9st53wc8aPFIHQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CMQ2dPXbUPxph58caxVIxHQPGTVI7q+aJADc5yoPJko=; b=iXCtztERm/3ZHywoWXzG1qXmyn
+	Qe1kqfy9X0M9BUucaCO4V+sn1PzknuGM3USa13gf52d0q0H8JkvAM34Hw9n6fRe0HgFesOlh2huPO
+	SC/WJNVtLGlQlypjYKk/1WGnD4+gNcbZ939BZ2vozWxQ6e+MKNsP6+h6/dPj2Ef4DlQMxFKJJJg7E
+	SuoIHB4zsMjim02WQqfU73IjZwSECXc/QO1aT+wASXTX/a0+b2B410OYfANhjOIvRhFTe8siU8FXS
+	1ASquX1E8XF7KHfJLwSd9JwNaVB58J28rPn5v2I4ujDHHhejOCJ3uQ1uYo861/EOLDo6yoBKQLMNA
+	RoXzzLUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqRm-00000001xsG-13Zh;
-	Tue, 24 Feb 2026 11:19:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vuqRx-00000001xxu-0gKF;
+	Tue, 24 Feb 2026 11:19:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuqRk-00000001xrY-3zBN
+	id 1vuqRw-00000001xxX-10tG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 11:19:21 +0000
+	Tue, 24 Feb 2026 11:19:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1117861421
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 11:19:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8D76C2BC87
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 11:19:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D44A61840;
+	Tue, 24 Feb 2026 11:19:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 463D1C116D0;
+	Tue, 24 Feb 2026 11:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771931959;
-	bh=B5BzWRm+eShin5kvq4aIMD1wYheUUZDI+gvled/jh1k=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=ec1Ad9rBGzW4ziKtYVy9VgteB4iquKM5tiiK76ayw7TSXjyfZqSM984jZYB+hudq3
-	 4erjiwp9x0G29uYKomhukDaq52V8ENp3Ovj+DXBJPABve4u5c61ycvUxQJ806cbJKU
-	 VI4jAUp3pHXtV7FAczbZFyWoB+iucpnPf+BKDMfRy40CE735aUY1/RVSGJJx983Pjg
-	 qPn/BfL6zmsJys0v1fTUJAoX+PdhmHpmajUUYj5fy59Bp/gDgnWtmby8+Sm82OApUu
-	 WUon+WH9alNLSf3Ig0ngIs8Ub1nLZIQm3yNfrW3h9KwLRLvYEk4y/pTF076Y2AI74M
-	 t9I7T49Q2tgdw==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5a0fb5ef6e9so367275e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 03:19:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVBqHWFzEcQK6QqGMZ4yvbWSwdbAiKkkrWec60I7A5y3qkEVWlaChzmjTYs5c2TEwPr7z1bTG/j46xknDnYpJVQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVyB2uCDsgSXbwcM07YFLF9Cys5oshIDk5HQW05bgAnhVmJvrF
-	XPXsQdmp/sxKe+4/0Ovtn9lWQC1guU9ydIQzWdtgjXQ5jthky8iABzMszs23bPfG8MfpvWfc1MH
-	3lgvQVt4zaulTF6+d+i2mRevfWy0yMps=
-X-Received: by 2002:a05:6512:334b:b0:59e:5fc4:26b2 with SMTP id
- 2adb3069b0e04-5a0ed83e246mr3961609e87.0.1771931958134; Tue, 24 Feb 2026
- 03:19:18 -0800 (PST)
-MIME-Version: 1.0
-References: <20260215100302.136719-1-work@onurozkan.dev>
-In-Reply-To: <20260215100302.136719-1-work@onurozkan.dev>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 24 Feb 2026 19:19:04 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65ADpZYcwG+nd6sDE3j-wc7v5LEQft9tkbxDh7C-MnziA@mail.gmail.com>
-X-Gm-Features: AaiRm51ME-8YiE4AvLn72GWWw2sauxN-ScuBUrDsWnKr42ng_6yKdEudjebdqcE
-Message-ID: <CAGb2v65ADpZYcwG+nd6sDE3j-wc7v5LEQft9tkbxDh7C-MnziA@mail.gmail.com>
-Subject: Re: [PATCH v1 1/2] arm64: dts: add missing sram-supply to mali gpu nodes
-To: =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1771931971;
+	bh=/cqjKX0xZ4V/OSet2LzETOv0Xzk3FLA4xFyvuKUPvQs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IdZO5PBFlcWJv7wvqZ5ymSvSQdJTS4Iz3DpCndcZeYBAZsGYs8Zb/OyACIH6//Vbj
+	 5h9ke9Jq8rj533O/oT5Adl9G/ZfFxL1H7PFZZkFy4fTalt5mTQ1YyBJs2gwB5oghVg
+	 AEikhxIQ/I7AmxIgIeW8NOyE3iKT/BnUf30ZP7oq4zbXwR97agekO7CHLQMWzc5ezr
+	 Dp0NZKnArq0jmTXUuhoUz8xmjgKNEJ1t5jOSoBrUx4cGR7lLwGzDWJpOowwbyU3KY4
+	 EwkcjB0vX0xqeuMJSIBpCsYWxuIDgJVZkGvVFEKe/VoyE2UT4nvoGVAthJaIwKMF8f
+	 PML73z8CMfqIw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vuqRt-0000000DJz4-1FBC;
+	Tue, 24 Feb 2026 11:19:29 +0000
+Date: Tue, 24 Feb 2026 11:19:28 +0000
+Message-ID: <86h5r69ynz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Will Deacon <will@kernel.org>,
+	kvmarm@lists.linux.dev,
+	mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running in guest context
+In-Reply-To: <22de3d44-b266-4ba3-af3a-67159c9742d1@linaro.org>
+References: <20260216130959.19317-1-will@kernel.org>
+	<86a4x8bw38.wl-maz@kernel.org>
+	<d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
+	<868qcsbsbd.wl-maz@kernel.org>
+	<076e013a-b66d-4985-9709-734d7184ad72@linaro.org>
+	<867bscbpmp.wl-maz@kernel.org>
+	<22de3d44-b266-4ba3-af3a-67159c9742d1@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, will@kernel.org, kvmarm@lists.linux.dev, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, leo.yan@arm.com, suzuki.poulose@arm.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +89,197 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 15, 2026 at 6:04=E2=80=AFPM Onur =C3=96zkan <work@onurozkan.dev=
-> wrote:
->
-> Some arm64 Mali GPU DT nodes define mali-supply but
-> are missing sram-supply.
->
-> As discussed in [1], sram-supply should be explicitly
-> defined for all relevant compatibles. If there is no
-> separate SRAM rail, it can reference the same regulator
-> as mali-supply.
->
-> This change adds the missing sram-supply properties to
-> affected DT files. This aligns DTs with expected regulator
-> modeling and avoids relying on implicit fallback behavior.
->
-> [1]: https://lore.kernel.org/all/20260213155937.6af75786@nimda/
->
-> Signed-off-by: Onur =C3=96zkan <work@onurozkan.dev>
-> ---
->  arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts          | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h313-x96q.dts               | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h6-beelink-gs1.dts          | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts           | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi.dtsi            | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts             | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi               | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h616-bigtreetech-cb1.dtsi   | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts     | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts           | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h618-longan-module-3h.dtsi  | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts    | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts     | 1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts  | 1 +
->  .../boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts      | 1 +
->  arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts          | 1 +
->  arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts           | 1 +
->  arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts          | 1 +
->  arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts        | 1 +
+On Fri, 20 Feb 2026 11:42:11 +0000,
+James Clark <james.clark@linaro.org> wrote:
+> 
+> 
+> 
+> On 16/02/2026 4:49 pm, Marc Zyngier wrote:
+> > On Mon, 16 Feb 2026 16:10:14 +0000,
+> > James Clark <james.clark@linaro.org> wrote:
+> >> 
+> >> 
+> >> 
+> >> On 16/02/2026 3:51 pm, Marc Zyngier wrote:
+> >>> On Mon, 16 Feb 2026 15:05:10 +0000,
+> >>> James Clark <james.clark@linaro.org> wrote:
+> >>>> 
+> >>>> 
+> >>>> 
+> >>>> On 16/02/2026 2:29 pm, Marc Zyngier wrote:
+> >>>>> On Mon, 16 Feb 2026 13:09:59 +0000,
+> >>>>> Will Deacon <will@kernel.org> wrote:
+> >>>>>> 
+> >>>>>> The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
+> >>>>>> generation in guest context when self-hosted TRBE is in use by the host.
+> >>>>>> 
+> >>>>>> Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
+> >>>>>> TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
+> >>>>>> per R_YCHKJ the Trace Buffer Unit will still be enabled if
+> >>>>>> TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
+> >>>>>> Trace Buffer Unit can perform address translation for the "owning
+> >>>>>> exception level" even when it is out of context.
+> >>>>> 
+> >>>>> Great. So TRBE violates all the principles that we hold true in the
+> >>>>> architecture. Does SPE suffer from the same level of brokenness?
+> >>>>> 
+> >>>>>> Consequently, we can end up in a state where TRBE performs speculative
+> >>>>>> page-table walks for a host VA/IPA in guest/hypervisor context depending
+> >>>>>> on the value of MDCR_EL2.E2TB, which changes over world-switch. The
+> >>>>>> result appears to be a heady mixture of data corruption and hardware
+> >>>>>> lockups.
+> >>>>>> 
+> >>>>>> Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
+> >>>>>> draining the buffer, restoring the register on return to the host.
+> >>>>>> 
+> >>>>>> Cc: Marc Zyngier <maz@kernel.org>
+> >>>>>> Cc: Oliver Upton <oupton@kernel.org>
+> >>>>>> Cc: James Clark <james.clark@linaro.org>
+> >>>>>> Cc: Leo Yan <leo.yan@arm.com>
+> >>>>>> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> >>>>>> Cc: Fuad Tabba <tabba@google.com>
+> >>>>>> Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
+> >>>>>> Signed-off-by: Will Deacon <will@kernel.org>
+> >>>>>> ---
+> >>>>>> 
+> >>>>>> NOTE: This is *untested* as I don't have a TRBE-capable device that can
+> >>>>>> run upstream but I noticed this by inspection when triaging occasional
+> >>>>>> hardware lockups on systems using a 6.12-based kernel with TRBE running
+> >>>>>> at the same time as a vCPU is loaded. This code has changed quite a bit
+> >>>>>> over time, so stable backports are not entirely straightforward.
+> >>>>>> Hopefully James/Leo/Suzuki can help us test if folks agree with the
+> >>>>>> general approach taken here.
+> >>>>>> 
+> >>>>>>     arch/arm64/include/asm/kvm_host.h  |  1 +
+> >>>>>>     arch/arm64/kvm/hyp/nvhe/debug-sr.c | 36 ++++++++++++++++++++++--------
+> >>>>>>     2 files changed, 28 insertions(+), 9 deletions(-)
+> >>>>>> 
+> >>>>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> >>>>>> index ac7f970c7883..a932cf043b83 100644
+> >>>>>> --- a/arch/arm64/include/asm/kvm_host.h
+> >>>>>> +++ b/arch/arm64/include/asm/kvm_host.h
+> >>>>>> @@ -746,6 +746,7 @@ struct kvm_host_data {
+> >>>>>>     		u64 pmscr_el1;
+> >>>>>>     		/* Self-hosted trace */
+> >>>>>>     		u64 trfcr_el1;
+> >>>>>> +		u64 trblimitr_el1;
+> >>>>>>     		/* Values of trap registers for the host before guest entry. */
+> >>>>>>     		u64 mdcr_el2;
+> >>>>>>     		u64 brbcr_el1;
+> >>>>>> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> >>>>>> index 2a1c0f49792b..fd389a26bc59 100644
+> >>>>>> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> >>>>>> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> >>>>>> @@ -57,12 +57,27 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+> >>>>>>     	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+> >>>>>>     }
+> >>>>>>     -static bool __trace_needs_drain(void)
+> >>>>>> +static void __trace_drain_and_disable(void)
+> >>>>>>     {
+> >>>>>> -	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
+> >>>>>> -		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
+> >>>>>> +	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
+> >>>>>>     -	return host_data_test_flag(TRBE_ENABLED);
+> >>>>>> +	*trblimitr_el1 = 0;
+> >>>>>> +
+> >>>>>> +	if (is_protected_kvm_enabled()) {
+> >>>>>> +		if (!host_data_test_flag(HAS_TRBE))
+> >>>>>> +			return;
+> >>>>>> +	} else {
+> >>>>>> +		if (!host_data_test_flag(TRBE_ENABLED))
+> >>>>>> +			return;
+> >>>>>> +	}
+> >>>>>> +
+> >>>>>> +	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
+> >>>>>> +	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
+> >>>>>> +		isb();
+> >>>>>> +		tsb_csync();
+> >>>>>> +		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+> >>>>>> +		isb();
+> >>>> 
+> >>>> The TRBE driver might do an extra drain here as a workaround. Hard to
+> >>>> tell if it's actually required in this case (seems like probably not)
+> >>>> but it might be worth doing it anyway to avoid hitting the
+> >>>> issue. Especially if we add guest support later where some of the
+> >>>> affected registers might start being used.
+> >>> 
+> >>> Just to set the expectations: guest TRBE support is not happening
+> >>> until the architecture is fixed. It cannot reliably give a trace that
+> >>> includes emulated exceptions, and until then, no TRBE for you.
+> >>> 
+> >>>> See:
+> >>>> 
+> >>>>       if (trbe_needs_drain_after_disable(cpudata))
+> >>>>           trbe_drain_buffer();
+> >>>> 
+> >>>> 
+> >>>>>> +	}
+> >>>>> 
+> >>>>> Doesn't this mean we should be able to get rid of most of the TRFCR
+> >>>>> messing about that litters the entry/exit code and leave that to VHE
+> >>>> 
+> >>>> Technically you could have ETMs that and are connected to sinks other
+> >>>> than TRBE. Unless you somehow switch off those sinks you still need to
+> >>>> do the TRFCR switching stuff.
+> >>>> 
+> >>>>> only? And even then, I'm tempted to simply get rid of any sort of
+> >>>>> guest-only tracing, given that TRBE is not capable of representing
+> >>>>> exceptions that are synthesised by the host, making it the resulting
+> >>>>> traces useless.
+> >>>> 
+> >>>> I haven't heard of anyone tracing a guest from the host, but until we
+> >>>> add support for guests to be able to trace themselves it's the only
+> >>>> way of doing it, so it could be useful.
+> >>> 
+> >>> But that's *not* working. If you trace EL1 only, even with a VHE host,
+> >>> the result is not usable.
+> >>> 
+> >> 
+> >> Do you mean not working because of the missing exceptions? I did a bit
+> >> of testing before and the trace did seem somewhat usable to me. It had
+> >> EL1 and EL0 atoms in there.
+> > 
+> > Sure. Now try to look at what that means for NV, where all the
+> > EL1->EL2 exceptions are emulated, where all the EL2->EL1 exception
+> > returns are emulated.
+> > 
+> > What does it give you? A bag of nonsense.
+> > 
+> > Same thing for EL2->EL0, by the way, so you can't even correctly
+> > profile an EL0 program that performs a syscall, or that gets
+> > interrupted. And while without NV, these exceptions are rare, having a
+> > trace that is unreliable has the potential of being worse than no
+> > trace at all.
+> 
+> If there are issues with NV perhaps we can skip it for the initial
+> trace virtualisation implementation?
 
-We don't know the internals of these SoCs, even though said power is
-likely from the same regulator, as that rail provides power to most
-of the SoC. But I would rather not speculate.
+No. This is broken for *any* hypervisor-generated exception.
 
-I think these systems are at the other end of the spectrum: the power
-rail for the GPU and the rest of the SoC is simply never turned off.
-Neither is DVFS available. In theory you could make it work, but the
-voltage range is fixed so there is little savings to be had.
+> I'm not familiar with it but isn't NV still an experimental feature
+> anyway?
 
+Let me give you a clue: if I have to choose between TRBE and NV, it's
+not TRBE I'm going to pick.
 
-ChenYu
+> I can't imagine actual users who want to do tracing in guests would
+> accept that they can't do tracing on a non-NV guest because there is
+> something that doesn't work in NV.
+
+But that's the thing: they are not getting a trace. They are getting
+nonsense.
+
+> Also do you have an example of these exceptions that you mean without
+> NV so I can have a look?
+
+Anything that ends up in arch/arm64/kvm/hyp/exception.c, where the
+exception is emulated by changing PC.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
