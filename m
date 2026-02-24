@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E67EFB819
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 08:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888D0EFB818
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 09:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lnhLem2XceV3pkuUOPOzNVK496IDuAS6Fz9EZZTLZDs=; b=zsg2v5lyrjK5N3fHqJNLWnMafD
-	nn104OeTABYlJug+8HlRV9mRvviTRRpTqwlRweGQqUlNiLNG8+pcC/GtPLmYexeBS5rwilZrt9q+4
-	J1L1pR24tpWeWA/XHlONhk2AV3Qfo+m9d0wWACbxhmwdq0aASPrjEAvLrYdPOKiM39z/a4ocZWfCA
-	reFmimNm+FOG+4pSVTvt7DHe4yuNngsre07slt1xhUnEy8oFsapuE+GnksX+b6bFnjt3siktIV0S2
-	hZBpgemG+IhOq0fNUY+/L3HDR+Wl1C09V6z0RtXlkPCn6pNBeVlMH+RU51PNGqV1Z0zKSCIj/lxl1
-	VJU6hGbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fV4QC4srgxPWasBRwi85CI5pwqpQSREXoj0SicemL9I=; b=NzO2IZoh44MmOqJucerGOfNDYe
+	DmbVyEc9+y8Mwvy7CfGwcvwrP7FVvHLM2GVB0lOuBXP6xAxUygBdm+TmSfP1BJkrYTuEB4YtcvqUx
+	1Ys30yN8NP5tcpQFVsNKQvkGv9HWSx+gOY8W4PNmsj5ACBfCX37fcfMAFLt5C/1weCcKe+WGNyfug
+	uSeV+5twG1w6HjnD9ky0U76xcRsZEiC0CNU06Tkc4NDZT5iTuWZm/cd0h6UOIHRgLQyZ1CSx/KabS
+	4RjohIjBPDIoFkxhShXAqkB7yKg3VTQvH79q2wfkd9a61T+UKXVjB+85lL78Ya/XFXrAOYCJx7euY
+	KJk4Bc/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoGo-00000001hJd-0h4Q;
-	Tue, 24 Feb 2026 08:59:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vuoIL-00000001hV1-2eCd;
+	Tue, 24 Feb 2026 09:01:29 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoGl-00000001hJ3-3Hlv
+	id 1vuoIG-00000001hUj-0Qpc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 08:59:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03C7144046
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 08:59:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7318C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 08:59:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771923590;
-	bh=lnhLem2XceV3pkuUOPOzNVK496IDuAS6Fz9EZZTLZDs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=OGPg96sAODW7wqtA1uf+71Mk5aGsU9mJID4Vhqky/fq3t7dyRnKEejzEahlvF0kks
-	 MwE2U9TbBg0plsvVss+faU5N9eS/irEtfP5XiyaQ+RuOiU86d1CLakBKi4WmtTPwVG
-	 PDW8khAFXliQt0Y/o/dnjniaWha5/yarFbCzFR+aL9bmyOtPTGn5Ihj+tf2fcV3Wui
-	 0PS6r6I2Uz+QbDCGgM4GPnQ5nYhAOClwQv5nmvxvqEXnasBKVvqcHiEMwDc6BOLmAb
-	 5IRgSwEiFkc5KyUBLx7jdgKxgOwqwYypcymaPo7tezkrNul0u4ZK2MlfmeDIiav80p
-	 mYnG7Fi2vnABg==
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-79827d28fc4so27327757b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 00:59:50 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVa43yPFDsT9ldvDDy5yfJZ9jduDxRm4ygn50Xqk8SvH0CtCiBZ0fBtB0qg3k4zQKMd1xlRmdF8i7lXNoz/hsOU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxOAPVBr35k7PuAIy0Tubb4/I9E/dH93cAJxqgEJRG3LQMlJUq
-	ZLv+V/8Bk634K5ecaN6MHUX4VYHCa4VYfKZD+SHC/YneSsJO7C7doY+7iSvZ3CsCSWYWqfSonM8
-	hsL/ZNNiZflWO0AHBHwQU/aLpeK1CoGw=
-X-Received: by 2002:a05:690c:4806:b0:78f:a616:7b99 with SMTP id
- 00721157ae682-798290172b5mr93654927b3.49.1771923590224; Tue, 24 Feb 2026
- 00:59:50 -0800 (PST)
+	Tue, 24 Feb 2026 09:01:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=fV4QC4srgxPWasBRwi85CI5pwqpQSREXoj0SicemL9I=; b=1jDR7KmibgorBla6kbgIVITyYx
+	qm9WuzxywIaFGfUeOouVwPZG3GDg1L7m/y/VjyFiivKU0qipwulPP5cfRQnbwje2H4P+zrbNZdMY+
+	MVXgUmn5lJLiChpl8eGFCcADFkja06rrcH1uOT9VGqupwzoDvLN63g12DF1TOQfywV0fCc5BfRDZ3
+	grfgLbW9+rs/AxZRRJGkWLnp+OAtIxOfUNs1QJetE9pgSXLi+Qg2D8FrbYcZqOcHcMbMnjGsdPt45
+	JCWha5he7bzKmYz4+aZSCWW3XyjHAr6+Cup8G/8PoiAy5WqQRBlXN+4u/+T0Vr5obqO6Kc3DFiJ0H
+	xA9b2f7w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52654)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vuoI9-000000004xw-00WP;
+	Tue, 24 Feb 2026 09:01:17 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vuoI5-000000008EU-3dBj;
+	Tue, 24 Feb 2026 09:01:13 +0000
+Date: Tue, 24 Feb 2026 09:01:13 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next v2 0/2] net: stmmac: fix interrupt coalescing
+Message-ID: <aZ1o2dmfpeiubCik@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20260219-a4-v1-1-9666d6edbe2f@gmail.com>
-In-Reply-To: <20260219-a4-v1-1-9666d6edbe2f@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 24 Feb 2026 09:59:39 +0100
-X-Gmail-Original-Message-ID: <CAD++jLm6ybwu3coyZfOh0BwvscGBp+B+oHp5bUR5rUp80cSjHQ@mail.gmail.com>
-X-Gm-Features: AaiRm53Vb4IAD6Sp1D0WlxQIdn1apde_GXyUgxJPFAFGQfJTy6x8-4GGpF2nJHQ
-Message-ID: <CAD++jLm6ybwu3coyZfOh0BwvscGBp+B+oHp5bUR5rUp80cSjHQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: meson: amlogic-a4: Fix device node reference
- leak in aml_dt_node_to_map_pinmux()
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_005951_847203_148A7438 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20260224_010124_144403_AD101396 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,20 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 18, 2026 at 5:51=E2=80=AFPM Felix Gu <ustc.gu@gmail.com> wrote:
+Hi,
 
-> The of_get_parent() function returns a device_node with an incremented
-> reference count.
->
-> Use the __free(device_node) cleanup attribute to ensure of_node_put()
-> is automatically called when pnode goes out of scope, fixing a
-> reference leak.
->
-> Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+While cleaning up the descriptor handling, I noticed that the accounting
+of transmit "packets" for interrupt coalescing was buggy in that it
+takes the difference of the two indexes into the circular list of
+transmit discriptors and merely subtracts one from the other without
+regard for the indexes wrapping.
 
-Patch applied!
+This can result in a negative number or very large positive number
+which would have the effect of either reducing tx_q->tx_count_frames
+or making that very large.
 
-Yours,
-Linus Walleij
+Either way, the result is numerically incorrect, and could trigger
+interrupts or not trigger interrupts when required.
+
+This series converts stmmac to use the circ_buf helpers, and then fixes
+this problem.
+
+v2: move build fix to correct patch
+
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 28 ++++++++---------------
+ 1 file changed, 10 insertions(+), 18 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
