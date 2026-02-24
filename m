@@ -4,226 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703E9E9B25F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 12:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF320E9B258
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 12:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5ABMQP3shS2yKKD4poxWIGJ+qOiX8cDv62GFaYRCqs=; b=lc0XhkPNILV3+ciCubbFK0c7aI
-	1fvF9qwVPZR/hJ7bt3pAtHb30dRfWHxBqdrWY/qgLuMhxaLpv/TAktFmgEcolby95hbDqtNenxp3M
-	U2hH2ExW4TdsXVR8EzgMkCI7TtZJ36nb1Y2rS4JKfKAl4OrxUMxEg0NnkHbcngfYP4GB9UkQrw4F5
-	tntALJt56B5IqtvK15aUQ0QgNERtAjXV++z7l8wqzO82id+roJ/HBn9O1BflG7PBrVuGtWr5TxRvh
-	2ZTK32PEbLqZuYr2eMe7JqH+9UGtYfLfUu5Jvx9LCwA+QFVJPCXZUVTl5E6Z8psXyAcylo3i7JYHz
-	8Qa2wdCA==;
+	bh=eOZEdnbp46Z76LsK49tdtTNIOhWoViPgM8WCccLIHUE=; b=c2pJ8g+7nGU/x4XDRGXDW8ojh2
+	zvAF9OETcPsKI05TsTh8Vh/ntORkQ2x03Anv2dXhMYDCJducB8zDlS0vOTDUMUvYTu9uL94Ko+rzw
+	qroNLvxljsuDvvtkGrJqZh7RPEYo/dmo9+HAzYBA0O0Z9eC4GY2kU2ox79xlz+4Pq7p9Siw/j7xmL
+	qejDwS9SH3Np2ssdVBIuoi8BvLg+arQJklEPVG3LgSR1TFobvnffvr+YzOIfbD8U8aYC+y7vpLzFX
+	rOhnjdzkomiYBX5RxMl/GvB6qcicEyOyjRjw53L9OhqYdSRYszxcQUAw0sqbZsPO0OLxcEpxg4odq
+	KrB0ohGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuri1-000000023dJ-2V6g;
-	Tue, 24 Feb 2026 12:40:13 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vuriL-000000023jv-2hsa;
+	Tue, 24 Feb 2026 12:40:33 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vurhy-000000023cD-38tG;
-	Tue, 24 Feb 2026 12:40:11 +0000
-X-UUID: f3308fca117d11f1ad39f32c34db0b1c-20260224
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=G5ABMQP3shS2yKKD4poxWIGJ+qOiX8cDv62GFaYRCqs=;
-	b=PwjtBZF6qWfRM76JLeWZbsCM47BGEEuxLsHewnsORJ59l3vhAVB7sLwOZGMaV86JWNj4ZfkbYjuSycqMn5EKwPoH9J9qxVlFQHs6pEGSIRG9en/ocKyoBQtjsekhyTuB99IjYkYj4lYiBp0oPK0LIn9HzNicXCkImyzERukqRhI=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:3cd8e349-20b4-4fca-ac8d-855558f580ac,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:89c9d04,CLOUDID:b6728e5b-a957-4259-bcca-d3af718d7034,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
-	C:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f3308fca117d11f1ad39f32c34db0b1c-20260224
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 265904535; Tue, 24 Feb 2026 05:40:07 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 24 Feb 2026 20:40:04 +0800
-Received: from SI4PR04CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 24 Feb 2026 20:40:04 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fp+Tnfgr+QRZUjHg0YcplVH/cxx5Gb81eJxn+yFuQKl+4saA9xjNkVG/a0wpmRpkDI2u0PKP8eLO58JXHBLvuzNC+rYPW/4UQDC3Yh0bs94XXutuop3mhAGC8BosXPrW1JPhEft7lmxpDBMQZzinFSUHBocl5H9yZEpUOR20HSn/LLIiC5jSxoXz8t7aoUafi1Bi+QdESB8/KKs4kltCMJtn+6VB36SK+7Z07tjmqBhnmM2f/qAnsUJoAiw+qS+S5iFjtf6alOcCftxVXQeOvPxMbS6fVMWgVQC/5KlnMaanYcskZFD7TUe4MZ4T8q6+q+wFaaR6Ixy2SEYXX8tY+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G5ABMQP3shS2yKKD4poxWIGJ+qOiX8cDv62GFaYRCqs=;
- b=y3kzC5ehsfobXkbx4u8Vw5aD0Vpf0CLsTvygxYl0LJU79Ne9jOQfd6b1kK9N8ZWf/1VjYRVqqu+aUqXZdC+1SMQRURF42rm83Qr/pC6vkND5bhbn719rg9uiqfgKfF41/gn6TXT/5ZNfKt2baEmP+V7C9NrEWnZSBHIrLcsVIHmcJsogcFB/qDCt8Lpr4zwOohdRq7Fbe5gev9lNgwMp/Fb/elp9nkwrRh2RaSfLe7VqxXQB0SbZAvl8XJ3WhHiCUXhQNFTj9MiPl3UIoSenxaxIbVIpxgIaWtQ1D3YWYa1P6Cm3VWc6V0Ov2+JfN1SAD2JvqTkG8QEIS5scrNrYtg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G5ABMQP3shS2yKKD4poxWIGJ+qOiX8cDv62GFaYRCqs=;
- b=J7HHbrOG4SniTingia0Tc432U2oTL7JO2PmESRWTwSKF13BmLWkWsTAW3maBhP7QcpFryhsy1eohSy7ssJAXw6CZiFy4XgXYh30FbLzTa8r2T4xjuoWjykpAK2H61Qii/tk+CeglWvjIiNQ81v5JUjl+CCSY0V38zAPRt5KOcX4=
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
- by TYSPR03MB8625.apcprd03.prod.outlook.com (2603:1096:405:83::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Tue, 24 Feb
- 2026 12:40:01 +0000
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::165:d36a:3f76:2925%4]) with mapi id 15.20.9632.017; Tue, 24 Feb 2026
- 12:40:01 +0000
-From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
-To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>, "robh@kernel.org"
-	<robh@kernel.org>, =?utf-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?=
-	<Chunfeng.Yun@mediatek.com>, "kishon@kernel.org" <kishon@kernel.org>,
-	"James.Bottomley@HansenPartnership.com"
-	<James.Bottomley@HansenPartnership.com>, "bvanassche@acm.org"
-	<bvanassche@acm.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "neil.armstrong@linaro.org"
-	<neil.armstrong@linaro.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	=?utf-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
-	<Chaotian.Jing@mediatek.com>, "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
-	"nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
-	"vkoul@kernel.org" <vkoul@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "avri.altman@wdc.com" <avri.altman@wdc.com>,
-	"martin.petersen@oracle.com" <martin.petersen@oracle.com>,
-	"broonie@kernel.org" <broonie@kernel.org>
-CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-phy@lists.infradead.org"
-	<linux-phy@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, Louis-Alexis Eyraud
-	<louisalexis.eyraud@collabora.com>, "kernel@collabora.com"
-	<kernel@collabora.com>
-Subject: Re: [PATCH v7 11/23] scsi: ufs: mediatek: Rework probe function
-Thread-Topic: [PATCH v7 11/23] scsi: ufs: mediatek: Rework probe function
-Thread-Index: AQHcn0nUcDjnf+bAfEmRQvLdKFMHqLWR1s0A
-Date: Tue, 24 Feb 2026 12:40:01 +0000
-Message-ID: <c6a57fa2f0841fb11e6377d7df763a2117a4c01b.camel@mediatek.com>
-References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
-	 <20260216-mt8196-ufs-v7-11-b5f2907c6da7@collabora.com>
-In-Reply-To: <20260216-mt8196-ufs-v7-11-b5f2907c6da7@collabora.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|TYSPR03MB8625:EE_
-x-ms-office365-filtering-correlation-id: 5b0312ee-7db9-4867-c6b3-08de73a1d3d6
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700021|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?ZEVqZkRId2NJTXVZekNSVkZjVi84WjRwUnBjdC91Mko3R1QxWE54R3Q5Rmky?=
- =?utf-8?B?djZXN3oycll4anJENEhYR3p1YzRNWGMxTGRUN2hoaDhtNG9OVXZaa2YvSENr?=
- =?utf-8?B?T2VBRkh4VDljVy9Pc2hvaHp4STFVTHB5aFFZcm94K2VmQlRDQURKNjJsN2k0?=
- =?utf-8?B?dDk5eVJsSnliYnZOV2h0SUR2QTdVZ2hHalRsdlpiZnl4em5JcXZRdVN1SjBp?=
- =?utf-8?B?aFFFZ3dYN0FwWkgvUjl5UzBRQlhXZFp1cHR2eWhEUys1RU9SU0lNbWROS0dH?=
- =?utf-8?B?dVhTYTJVNmg3eDBtb2VHYzBjSHFJZXJYWVBQYTdFejViLy94QjFIVThHakp3?=
- =?utf-8?B?bktGNmlLb2svVWlKa1pMYmJ0dmQrQ3YwcUtIQUVkNkgzREJoQWF6dW9xOGxC?=
- =?utf-8?B?WDFLYWtPOUdtQzNsM0FiQjdRWGJ3VG1UWTVCV2JPZzRtNG44WHpSd0xjckJE?=
- =?utf-8?B?bmphWWhxbDQvQmhFbk1Ib3Buc1hTOFpiNEZIWmo0U1IvT1pvY01XcWdFR1Ns?=
- =?utf-8?B?Zk1lWE5IaEFQRGlIYWdVbzMxREF2QjB4VDVzZCtmUnJYNUoxUnprL0UvT1pR?=
- =?utf-8?B?SHU1a3ZtQWpOVnB6cnVaSXhHWEl3SGJpaTR6UEwxb3dZWHNVYVNLaVEwRDFu?=
- =?utf-8?B?dnRYL21EUVA2ZzlRcE5MYUx6aHhyTmZHQjl5aU4vbVFZTXRrSXhaUE52cXUz?=
- =?utf-8?B?aVZLMDBCVkRKakpUME5ldWszN2JqaHkzOUdDRlJjVVpFeGpQanUvRkdmTVJ1?=
- =?utf-8?B?RWRMRlNRcDU5MGZFVnlPS3h4T0p4V2tOelZEa3dUUGNMaXJUM1ZsNGwwUFpC?=
- =?utf-8?B?ZzQvU25IQUV6WEMzRUlYTnJYNW1DVHBZNW1zU05TZmlDdjRQb3NqUER1T2VC?=
- =?utf-8?B?S2RST0VYNGQwa3l4UmRiOXdXZFBsb0pIOU5mSnlkVjNHekpsOTNkOVlHT0pU?=
- =?utf-8?B?TGpwMW5IZGRyVzRwWHkrL3NuTG42TFMrY0ZaelZFckcrdEJaMTVEYmprMUll?=
- =?utf-8?B?VGZIY1U2UlVNdlJLTEtXWHowVEV6c3d3WkZCc1BMaUJFdTU1b2R5b1BSWTFN?=
- =?utf-8?B?KzBYaTFvZkFMY1F0R2ZLMnJIVVZHUmFuN3BiNUZsR0Y2K1V3L242S1lTeGZY?=
- =?utf-8?B?MTV4aUpwblpJK3Q4eDZCSDJUbVdoVGNSdGRsSmdqamNrVEVDRjFGaUN2S3Qv?=
- =?utf-8?B?TEVFUkRxRnl4ODd6VnV5NFZIYTRTWnE5ampLSUxrTG16WXFGYXBxdk5JcE95?=
- =?utf-8?B?L0FaVWJxZ3VPM2RUdXp4ak5ESHpCb3Fhdno4Q3Q0dTRrUXFqSzVyY2M1U3d1?=
- =?utf-8?B?WjVXTDNNQXdOcmpNVnRKbitydTFGQmwyTjFKTFNQWXMzTWYxdzRnNDRwaVVV?=
- =?utf-8?B?Y0RIWHlRZjZsTnROb28vQjJKcVR2dUorU0ZwQ1haUnMybUI0OWFncC9ocWNO?=
- =?utf-8?B?SXBnVllRRXdsTDcrMzZWd21NelMvc1NsQlp1RXljb0w1STBBRXhXUElrRTY3?=
- =?utf-8?B?VlU3cmxyMTA1U3FXWUpxb01TNHN3ZUNpekVPQk9JVThXWEFhdVpSR2tUdVAr?=
- =?utf-8?B?V1FhU0RzcDk4dDQzMW9UcGtQRzBoRk1DMlJiOUw4c2JaUHc5dHoxLzJSZkN0?=
- =?utf-8?B?ckJXYWJWNFpPU0FVMG5KSUhZRkRXSDlCeWliYzRsd2FpV1Z6bWFXeXI1Q0N3?=
- =?utf-8?B?MGxDL2RjNU1vS3NoSmtIUkVmWWhBdDBhMmlqbEZpTEF1YnI0aFZ4OFNkOVR0?=
- =?utf-8?B?Z0hkZUdCUzVNaFl2R0tOSUlsZTFqalY4dmRUTGdMREo3UVFvRVFnQUpjY3ll?=
- =?utf-8?B?Mjg3Z2hkTTQyNTdaUTFvY0RqUXJ2TEFoUStxeHVhS3pML2FLUkJFZ3pPY1dP?=
- =?utf-8?B?V2lRcjJNM2ZTM2hpbTREd0pMOWZjYU1mbUlBVE5ucEpBd3l4dUNDWjFMK0hq?=
- =?utf-8?B?YWQzTG9CNXRESWlrdDlmaWV5UXlFT2creGVLbURYQ3ZGYjhjM1BGRURXSjQz?=
- =?utf-8?B?d2dhOWJYS3RRUjQzamNudHFDajdySFJucWl1aWlMWk5HZnZaSlhJeWFuNk8r?=
- =?utf-8?B?TWNKUGowYjNkUmtSQm1iWUlGdmkrSkNzKytOVFlKKzR1TUYrZ29PeTJuNEE5?=
- =?utf-8?B?UTRWWW1Yb1ZrbURORDIwNGt5VXJvcXRENlV6U2FYWk9kc3Z1OExZbzhVRVp6?=
- =?utf-8?Q?823dBspf2Sot2VkMyTXTWP5yEX4tNlXrHP6GuGxpmjlw?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700021)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QkJ2T3NMbXhNdDN2bXIxcmc1OGZIVkNMOUM4ckVhUGU1UWZpbFh2KzltdnNY?=
- =?utf-8?B?RnBVQ3ZOOWo4eWdyZnpoTnJibXVoeU0zL2xTUVlYT1lzOERWMGVOTU9CSkpU?=
- =?utf-8?B?TjBBeTFpbXYrdUdoWVJ5bEtLcjJyMGgzWDFWbnFaeHNxVUpXVUZlMXdOMTBi?=
- =?utf-8?B?N00vWGJvUStJR0FGNWdQZldjNkFHam5EUmJDamtyMDRETUxJT05JRHpGb043?=
- =?utf-8?B?aHprWGRoY3NKcjFyQ1M5akZUTERxMllaKzJ1ZWlFVDljak11eDVCbjM4bDdq?=
- =?utf-8?B?TzhrQTYvbTA4L3Z5c2dGUUduM3RIOEtaL3U1THZ0cHBOamNMMVpyZzM3TTRO?=
- =?utf-8?B?bnZUVENZcDJLNkt0b3I4cE5OMlJGR0FaWlMxVUFtbm9sSW82cnZHRlNtVWJm?=
- =?utf-8?B?eFdldUVWQjdKM3JnQnNUQWJhV0R2cVN4RVkyVmJOQlZ4eHpxR2JRMXhsZHZE?=
- =?utf-8?B?ejZlODNnWVRoSytMblRlRWgxSGwzNUFteXFxWkZxTjVjMVIyUk5mdWxBZHZK?=
- =?utf-8?B?WHpzSVc3ZWFDeHBaVHJzVzIzY1kwdVNvaGNtZlJjV2c5QXoxbVNOVGxHb0ly?=
- =?utf-8?B?elpld3lsS3NmNTNwMjV4c2pSRVF3cHJEVlNzQWZBZjkzZk9wUmpKM2h6Y3Js?=
- =?utf-8?B?RU0ySm9HR1JqcVl2d214RTB2dU0xZVg5TW5aQ0ZTODJ3enl5K21wRmNhUFpr?=
- =?utf-8?B?azF5VE9ocUdsKzFhdVRobHYrSERud2V2T0RYbHd0VVIwOHVJcDZMS1lCK3dP?=
- =?utf-8?B?WFROZDl2OG9SWWM0V3NtUVhaTC9xaFVOMEhDR3pTUCtlNlR2T1A0SWNmNDZB?=
- =?utf-8?B?U3o2aWpkaEZNOHdmRHNWNklFdFpCZm5kelJKYVdRNnZvdDJoZFlsLzZFRE9V?=
- =?utf-8?B?cWUwa3pIaVNZc1cvSW9kaE84elI1czBnRC90bDFwUllrZVN2eFBxS3A4WHFn?=
- =?utf-8?B?TGVDYzVnR3hGZ1VwZlA1cEpTcnNPYVdmeTRhaWg4VHJMRzByMmNWYUpjbjBJ?=
- =?utf-8?B?T2x0VmhJWGEyOHM5bHozV1pJcTVlRkNKQzdlaTBFS2F0eEVEU3RTV2tETnVC?=
- =?utf-8?B?QWdhWFE2cFU3Mi9FOVRrWUE2TGV5UDBwOVU2MllVeVlndXJpTFFzdGF6aG5C?=
- =?utf-8?B?bkdDbFhJRjlxVlZYZkZuZ3lSRXRTWU5weEVBbi8zSVRYWnZLY29Wek1uRWx5?=
- =?utf-8?B?b3RLeUxhNkJ5b0tIVXp6ZWU2VndMR2ZvT2p4OUV6SVU1UEdqdFdNeTVIbEN6?=
- =?utf-8?B?enhCd21tRUpRNG1iYzJSbldPZ3FYRjRRcXcxL3F5V1pSYjhpQThsOG5WVlNT?=
- =?utf-8?B?dURMaDl1SjJUUWRHbjFKQS9ldUFXTHJRYnBicGNHMVV3dTEwNUFLQjhJS0t0?=
- =?utf-8?B?dUlIL0gvTlZDWk9wK3RlZzZwVmsySEJ1WldObmVUN1pMSDkrdTExamp6TWtU?=
- =?utf-8?B?RUx1ZTBoNWwvVThvK2ZLVjVTZ3M5MmduRnJIdFhuYlMvcUN6bzJVb2gySklt?=
- =?utf-8?B?OC9CMGlLUFFsbXFvSGZXM0pGMmlOSmRmZXJLZ09sSUFpNitjRWQ3emhpTjFZ?=
- =?utf-8?B?NzFDc2xsYlZhWEo5dXdLbldid2ZCeXpaVzcyekorcldqcG5EVGpVVVhLSXFi?=
- =?utf-8?B?dGNqVWdvVDF6RGJlMnA1MHJ4RWJSS0RURDdCbSs1ZXNNdlg1Zm5OVXdObEE3?=
- =?utf-8?B?VUx1MVpNNnpKZGlhaUtJeE5EWG1KbFl4WGdWd1RDY2srN1gxTW1Uc0duZ09o?=
- =?utf-8?B?OStZV1lYdDJOVi9QcEFwSUlIM1Qwa0FjZXlnbVlURG9PZ2oxRkZscFlqTnBh?=
- =?utf-8?B?ZlIxalJZRjBtTG1YczBjRS9GWlVZMXRLNXRLdjFUQitBcEJPTlIzY1dLdXNP?=
- =?utf-8?B?cE5kSUF5Um1vSDBIcGNrWlBzZ0JvL3NMUUJnNG5zVTVmTE84dlkybjdBVkVR?=
- =?utf-8?B?b0RUdXBzWmZrZzl3S3JUVjdnRVFYNUIzcFY0VWdROXFhb1BOSzJ3RFJMdnlN?=
- =?utf-8?B?c1p6SU5Dck9NcFI1ako1c2lUWDRZZms5UCtKK0hJZTlyME5TWFdXZmhmUU9G?=
- =?utf-8?B?QlM1RHEreTc0RCt2YW1yVUJZbkhjeExJSWw4eElsSjZxTVkwbEJnVFpqNDNx?=
- =?utf-8?B?c0Vndnl6encxS05mV09wNys2bXBzOWI4clJaclRGT3VZTVBzNjVhOStrVnhn?=
- =?utf-8?B?cFVKdHd2SGhGUVFTWEpObXVRUkhZaXJSd0ZLL2lhK0owU2pCd0dKRDlGby9i?=
- =?utf-8?B?bEJIOXVvTW1PZjFHeDIwVFVaYW1CY2plbjJ6UTYyZE5iNzhYS3k1V2l5b1dI?=
- =?utf-8?B?Mjl5cEhSQmZpdFZKdmlhVzZzakdaaVRKQTdkODdiSXlXK0dGTGRRVm9yOG5R?=
- =?utf-8?Q?rV7PWak5b4Fsvf7E=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <A3C3BCF218C80249810C9738DFAC983A@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1vuriJ-000000023ip-0GRx;
+	Tue, 24 Feb 2026 12:40:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771936826; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SqUdUsUQcnjO0yJANGrZuNzL9PCGuKWgRkHOd2/Z1f0X6hYFcX0dLEnGZcUyC6V5WJhUZvuts6fzKYwWnh4i5ahw7QrjjcUAu1EUjgeRD0oYGW4icYnXnrP0evXZzKSOtv4RKPR2eip6HIieZgIIZg1lUf3tmCFaMLPcboRKqQQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1771936826; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=eOZEdnbp46Z76LsK49tdtTNIOhWoViPgM8WCccLIHUE=; 
+	b=jnHZYsjvx4bgXFj2fwDjKLViSY7aFM9q4NORoOs0BAUUhH/SRf432yZgbOHMaP/PWKFYrOKUhOqShxi+hn8sMixSYSQ5r232ekx4Orp0a7vhLE8ba6JnaFAmyXM4VP48oRJY/JdmRYwaBbXUp3EWi/K9jqTUw5YT7cYLBEcRR4k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771936826;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=eOZEdnbp46Z76LsK49tdtTNIOhWoViPgM8WCccLIHUE=;
+	b=MV5O3D43ndbEy9mp7nq8rtLMNyNdMG8MnNEj8pZPqcPhftte69WLFJV/+8o398ir
+	hnrOTRXSzormLfL1sqLDROsM6DuSbgYyrUldvmoXs9AKEKiYHyLHp7IgeqoP0ObRD+6
+	16nALCxSkfRZeVakaq7j3J69dFlLJpiwcMVvkiJM=
+Received: by mx.zohomail.com with SMTPS id 1771936824130242.17321167502485;
+	Tue, 24 Feb 2026 04:40:24 -0800 (PST)
+Message-ID: <ba9d9132bab9d897b89bd686192693ef22bd2923.camel@collabora.com>
+Subject: Re: [PATCH v5 06/18] clk: mediatek: Add MT8189 vlpcfg clock support
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>, Michael Turquette	
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Richard Cochran <richardcochran@gmail.com>, Bartosz Golaszewski	
+ <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, Miles Chen	
+ <miles.chen@mediatek.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, Qiqi Wang	
+ <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com,
+ vince-wl.liu@mediatek.com, 	jh.hsu@mediatek.com
+Date: Tue, 24 Feb 2026 13:40:16 +0100
+In-Reply-To: <20260202062840.342707-7-irving-ch.lin@mediatek.com>
+References: <20260202062840.342707-1-irving-ch.lin@mediatek.com>
+	 <20260202062840.342707-7-irving-ch.lin@mediatek.com>
+Organization: Collabora Ltd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: DnRu+RAHh15nhDXPIr2X3AGjsZNGlFh/Sf+EOmK5pwSRlquu/k5sD0/HUeNuPib2ryfpCRK/cvzugqB0GzBPAChDp4IQgnEGWfwgVAOI9TK2L9X19ExwS6ON837OrRQUft6cFcHXscYX0AU0tkxvXjBCuF4ppO+CvqijiucK1RX5fgwn6vSFddePA0T9RUc0gKKHAQ/WTExOhtfR8431A4dlWj8C1z2b58tlPoscq+cDcgCWU72FZaWkb9/zsd5q0dP4gh+raYX4p3kDRM3CQV5wWR5NI2H6fqwArr63sAMjAm2wnaaYpdFBfG2CwvI2kV9Lu1eEGDsVG4wUUjZdaQ==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b0312ee-7db9-4867-c6b3-08de73a1d3d6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Feb 2026 12:40:01.3611
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rpIGWieA0nU4P/DHBYkqWaLO+WJY69AsyZK9cmWZQQg7D8BMrJxAanw0vexIFw6Ku8JreBEcZQjAV5QGhjKLdg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB8625
-X-MTK: N
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_044010_797316_5779ECFC 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20260224_044031_168409_74A5C92A 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -238,18 +90,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI2LTAyLTE2IGF0IDE0OjM3ICswMTAwLCBOaWNvbGFzIEZyYXR0YXJvbGkgd3Jv
-dGU6DQo+IFJlbW92ZSB0aGUgdGksc3lzY29uLXJlc2V0IGNydWZ0LCBhcyBpdCB3YXMgbmV2ZXIg
-ZG9jdW1lbnRlZCBpbiB0aGUNCj4gYmluZGluZywgYW5kIGlzIG5vdCBtb2RlbGxpbmcgdGhlIGhh
-cmR3YXJlIGNvcnJlY3RseS4NCj4gDQo+IE1ha2UgUEhZIG1hbmRhdG9yeS4gQWxsIHRoZSBjb21w
-YXRpYmxlcyBzdXBwb3J0ZWQgYnkgdGhlIGJpbmRpbmcgbWFrZQ0KPiBpdA0KPiBtYW5kYXRvcnku
-DQo+IA0KPiBFbnRlcnRhaW4gdGhpcyBkcml2ZXIncyBpbnNpc3RlbmNlIG9uIHBsYXlpbmcgd2l0
-aCB0aGUgUEhZJ3MgUlBNLCBidXQNCj4gYXQNCj4gbGVhc3QgZml4IHRoZSBwYXJ0IHdoZXJlIGl0
-IGRvZXNuJ3QgaW5jcmVhc2UgdGhlIHJlZmVyZW5jZSBjb3VudCwNCj4gd2hpY2gNCj4gd291bGQg
-bGVhZCB0byB1c2UtYWZ0ZXItZnJlZS4NCj4gDQo+IFJldmlld2VkLWJ5OiBBbmdlbG9HaW9hY2No
-aW5vIERlbCBSZWdubw0KPiA8YW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJvcmEuY29t
-Pg0KPiBTaWduZWQtb2ZmLWJ5OiBOaWNvbGFzIEZyYXR0YXJvbGkgPG5pY29sYXMuZnJhdHRhcm9s
-aUBjb2xsYWJvcmEuY29tPg0KDQpDb3VsZCB5b3Ugc2VwYXJhdGUgdGhpcyBwYXRjaCB0byAicmVt
-b3ZlIHJlc2V0IiBhbmQgInJlb3JnYW5pemUgUEhZIj8NClRoZSBQSFkgcmVvcmdhbml6YXRpb24g
-Y2FuIGJlIG1lcmdlZCB3aXRoIHBhdGNoICgxMy8yMykuDQoNClRoYW5rcw0KUGV0ZXINCg==
+Hi Irving-CH,
+
+On Mon, 2026-02-02 at 14:28 +0800, irving.ch.lin wrote:
+> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
+>=20
+> Add support for the MT8189 vlpcfg clock controller,
+> which provides clock gate control for vlp domain IPs.
+>=20
+> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> ---
+> =C2=A0drivers/clk/mediatek/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +-
+> =C2=A0drivers/clk/mediatek/clk-mt8189-vlpcfg.c | 111
+> +++++++++++++++++++++++
+> =C2=A02 files changed, 112 insertions(+), 1 deletion(-)
+> =C2=A0create mode 100644 drivers/clk/mediatek/clk-mt8189-vlpcfg.c
+>=20
+> diff --git a/drivers/clk/mediatek/Makefile
+> b/drivers/clk/mediatek/Makefile
+> index 3b25df9e7b50..d9279b237b7b 100644
+> --- a/drivers/clk/mediatek/Makefile
+> +++ b/drivers/clk/mediatek/Makefile
+> @@ -124,7 +124,7 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VENCSYS) +=3D clk-
+> mt8188-venc.o
+> =C2=A0obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) +=3D clk-mt8188-vpp0.o clk-
+> mt8188-vpp1.o
+> =C2=A0obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) +=3D clk-mt8188-wpe.o
+> =C2=A0obj-$(CONFIG_COMMON_CLK_MT8189) +=3D clk-mt8189-apmixedsys.o clk-
+> mt8189-topckgen.o \
+> -				=C2=A0=C2=A0 clk-mt8189-vlpckgen.o
+> +				=C2=A0=C2=A0 clk-mt8189-vlpckgen.o clk-mt8189-
+> vlpcfg.o
+> =C2=A0obj-$(CONFIG_COMMON_CLK_MT8192) +=3D clk-mt8192-apmixedsys.o clk-
+> mt8192.o
+> =C2=A0obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) +=3D clk-mt8192-aud.o
+> =C2=A0obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) +=3D clk-mt8192-cam.o
+> diff --git a/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
+> b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
+> new file mode 100644
+> index 000000000000..2b9c3101f2b4
+> --- /dev/null
+> +++ b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
+> @@ -0,0 +1,111 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + * Author: Qiqi Wang <qiqi.wang@mediatek.com>
+> + */
+> +
+> +#include <linux/clk-provider.h>
+> +#include <linux/module.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include "clk-mtk.h"
+> +#include "clk-gate.h"
+> +
+> +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
+> +
+> +static const struct mtk_gate_regs vlpcfg_ao_reg_cg_regs =3D {
+> +	.set_ofs =3D 0x0,
+> +	.clr_ofs =3D 0x0,
+> +	.sta_ofs =3D 0x0,
+> +};
+> +
+> +#define GATE_VLPCFG_AO_REG(_id, _name, _parent,
+> _shift)		\
+> +	GATE_MTK(_id, _name, _parent, &vlpcfg_ao_reg_cg_regs,
+> _shift, &mtk_clk_gate_ops_no_setclr)
+> +
+> +static const struct mtk_gate vlpcfg_ao_reg_clks[] =3D {
+> +	GATE_VLPCFG_AO_REG(CLK_VLPCFG_AO_APEINT_RX,
+> "vlpcfg_ao_apeint_rx", "clk26m", 8),
+> +};
+> +
+> +static const struct mtk_clk_desc vlpcfg_ao_reg_mcd =3D {
+> +	.clks =3D vlpcfg_ao_reg_clks,
+> +	.num_clks =3D ARRAY_SIZE(vlpcfg_ao_reg_clks),
+> +};
+> +
+> +static const struct mtk_gate_regs vlpcfg_reg_cg_regs =3D {
+> +	.set_ofs =3D 0x4,
+> +	.clr_ofs =3D 0x4,
+> +	.sta_ofs =3D 0x4,
+> +};
+> +
+> +#define GATE_VLPCFG_REG_FLAGS(_id, _name, _parent, _shift,
+> _flags)		\
+> +	GATE_MTK_FLAGS(_id, _name, _parent, &vlpcfg_reg_cg_regs,
+> _shift,	\
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &mtk_clk_gate_ops_no_setclr_inv, =
+_flags)
+> +
+> +#define GATE_VLPCFG_REG(_id, _name, _parent, _shift)		\
+> +	GATE_VLPCFG_REG_FLAGS(_id, _name, _parent, _shift, 0)
+> +
+> +static const struct mtk_gate vlpcfg_reg_clks[] =3D {
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SCP, "vlpcfg_scp",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "vlp_scp_sel", 28, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_RG_R_APXGPT_26M,
+> "vlpcfg_r_apxgpt_26m",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "clk26m", 24, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DPMSRCK_TEST,
+> "vlpcfg_dpmsrck_test",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "clk26m", 23, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_RG_DPMSRRTC_TEST,
+> "vlpcfg_dpmsrrtc_test",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "clk32k", 22, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DPMSRULP_TEST,
+> "vlpcfg_dpmsrulp_test",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "osc_d10", 21, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SPMI_P_MST,
+> "vlpcfg_spmi_p",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "vlp_spmi_p_sel", 20,
+> CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SPMI_P_MST_32K,
+> "vlpcfg_spmi_p_32k",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "clk32k", 18, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PMIF_SPMI_P_SYS,
+> "vlpcfg_pmif_spmi_p_sys",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "vlp_pwrap_ulposc_sel", 13,
+> CLK_IS_CRITICAL),
+There is no such "vlp_pwrap_ulposc_sel" clock defined in your mt8189
+clock driver patch series. The parent clock should probably be
+"vlp_pwrap_osc_sel" (that is defined in clk-mt8189-vlpckgen.c) instead.
+
+Same thing for vlpcfg_pmif_spmi_p_tmr, vlpcfg_pmif_spmi_m_sys and
+vlpcfg_pmif_spmi_m_tmr below that have the same parent clock.
+
+Best regards,
+Louis-Alexis
+
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PMIF_SPMI_P_TMR,
+> "vlpcfg_pmif_spmi_p_tmr",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "vlp_pwrap_ulposc_sel", 12,
+> CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG(CLK_VLPCFG_REG_PMIF_SPMI_M_SYS,
+> "vlpcfg_pmif_spmi_m_sys",
+> +			"vlp_pwrap_ulposc_sel", 11),
+> +	GATE_VLPCFG_REG(CLK_VLPCFG_REG_PMIF_SPMI_M_TMR,
+> "vlpcfg_pmif_spmi_m_tmr",
+> +			"vlp_pwrap_ulposc_sel", 10),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DVFSRC,
+> "vlpcfg_dvfsrc",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "vlp_dvfsrc_sel", 9, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PWM_VLP,
+> "vlpcfg_pwm_vlp",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "vlp_pwm_vlp_sel", 8,
+> CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SRCK, "vlpcfg_srck",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "vlp_srck_sel", 7, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_F26M,
+> "vlpcfg_sspm_f26m",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "vlp_sspm_f26m_sel", 4,
+> CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_F32K,
+> "vlpcfg_sspm_f32k",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "clk32k", 3, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_ULPOSC,
+> "vlpcfg_sspm_ulposc",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "vlp_sspm_ulposc_sel", 2,
+> CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_VLP_32K_COM,
+> "vlpcfg_vlp_32k_com",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "clk32k", 1, CLK_IS_CRITICAL),
+> +	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_VLP_26M_COM,
+> "vlpcfg_vlp_26m_com",
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "clk26m", 0, CLK_IS_CRITICAL),
+> +};
+> +
+> +static const struct mtk_clk_desc vlpcfg_reg_mcd =3D {
+> +	.clks =3D vlpcfg_reg_clks,
+> +	.num_clks =3D ARRAY_SIZE(vlpcfg_reg_clks),
+> +};
+> +
+> +static const struct of_device_id of_match_clk_mt8189_vlpcfg[] =3D {
+> +	{ .compatible =3D "mediatek,mt8189-vlp-ao", .data =3D
+> &vlpcfg_ao_reg_mcd },
+> +	{ .compatible =3D "mediatek,mt8189-vlpcfg-ao", .data =3D
+> &vlpcfg_reg_mcd },
+> +	{ /* sentinel */ }
+> +};
+> +
+> +static struct platform_driver clk_mt8189_vlpcfg_drv =3D {
+> +	.probe =3D mtk_clk_simple_probe,
+> +	.remove =3D mtk_clk_simple_remove,
+> +	.driver =3D {
+> +		.name =3D "clk-mt8189-vlpcfg",
+> +		.of_match_table =3D of_match_clk_mt8189_vlpcfg,
+> +	},
+> +};
+> +
+> +module_platform_driver(clk_mt8189_vlpcfg_drv);
+> +MODULE_DESCRIPTION("MediaTek MT8189 vlpcfg clocks driver");
+> +MODULE_LICENSE("GPL");
 
