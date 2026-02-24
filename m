@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B967E9B24A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F25E9B24D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 10:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fZQZhFCQRs3FRpnRYHy4Ear07Y00uoEUsCQ9F2s8RQ0=; b=h02ZvK4Du7rvFpcqqPRw63yn1i
-	uttmskvDaUtu91dyzqba7OI0q7AShS8LJPmiTd0Mx29uU9HhyzfubhBwTRX7ujYvmAE6vwu1lndp7
-	DFXmKrdJluFFOMXDlGw5zu8KQjacoQuiTfzsfyCB1rkN+W0HLRT6fa+X8d+a7ZbIrtzRJaAGyYAdH
-	uU19/582W7myXkvwgpZjDzwXwEhaqxQgqGp36CY9hkok0DsA04Tw28rMlTutK8LH1i8gNLWzaXaiK
-	v5pIEPifgxJJVhNjwYKTK4Bh25eqVAj8T4/4hccGNLQatFDpKaDWFjSgKqfOX4scYpWCU0eCx6NmK
-	LdlNHRpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o3aFZkTFo6qE95gUNZWoWD2UnJD4ca4+RPcR5rfIP54=; b=EAeeJn8TmHF4KVr8hPUvI32yAE
+	v7YWdv4L34x2IHVbxHkdINCI7/9lyUvB8KESnZ1RIde9Z3UUVqDbGo95qqwxlhIPGCpjtvcxJIRDu
+	SdpSxpkJGGXCNCBg6uXp6R/5kmjNZA5GihTEv/hjieQy3/RpGKUYIuofI/x0VW8zTwm9Jm3P7GuGq
+	iXlSovC/YCIY8nIXcUJhNStETSO8WUuK3gKHJYol2UJ3+HW60LuHjKbWOhEIgEhnYpilC5OV0DXJ4
+	50r6vamlBgStfkN8AC1nAWV/vl9xLuXT4byIE7Wtv9U0p+9LtSznMBQlNFRKG/vtC0snLDiaK512A
+	khf0+wBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vupLF-00000001p5s-2VZA;
-	Tue, 24 Feb 2026 10:08:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vupLD-00000001p5D-3gQT
+	id 1vupMT-00000001pFJ-42eg;
+	Tue, 24 Feb 2026 10:09:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vupMT-00000001pEx-0IFd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 10:08:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96CE2339;
-	Tue, 24 Feb 2026 02:08:22 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9AF0B3F62B;
-	Tue, 24 Feb 2026 02:08:26 -0800 (PST)
-Date: Tue, 24 Feb 2026 10:08:21 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [RFC V1 04/16] perf/events: Replace READ_ONCE() with standard
- pgtable accessors
-Message-ID: <aZ14lUwuA86aiOH-@J2N7QTR9R3>
-References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
- <20260224051153.3150613-5-anshuman.khandual@arm.com>
+	Tue, 24 Feb 2026 10:09:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8183461336;
+	Tue, 24 Feb 2026 10:09:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 327E2C116D0;
+	Tue, 24 Feb 2026 10:09:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771927788;
+	bh=AckF3xFv3RkFn2rCAMv8OnSIMcQRU5FCIBwvh/LY0BA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ivbQeShOSKXsmubiwKPszuyUkChI7ON4V0pULOaiPtD0++8HaIsE/hvKQ9WF0hBn9
+	 g+90fQ/i6Pxbk3n6qZwTMmUeMY8VGu0SapN3A7bCR3id26lmbv1XcDVsxawvs0Bgap
+	 Ps0s98jrNuTLoDcy4CHQ22+VWRAphBFaLo69GKGuwYAEC2kY/cphsY0FIAuKalIVlI
+	 YRGQcOd5g+mPmVi0u04JQJQ3Fx7nPFiLeCeSRH6IO9/rANPtG8Fh9w2Z5xo34UBszb
+	 pZ3PR7rHklvi/pkv7vdyJLdQ1dVvQglMxUmwNuzlpZF4wnMFwObOBdRSrwTX0jDaw5
+	 BeffElhFbTAxA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vupMP-0000000DIa5-3TiK;
+	Tue, 24 Feb 2026 10:09:45 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Sascha Bischoff <sascha.bischoff@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org
+Subject: [PATCH v2 1/6] fsl-mc: Remove MSI domain propagation to sub-devices
+Date: Tue, 24 Feb 2026 10:09:31 +0000
+Message-ID: <20260224100936.3752303-2-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260224100936.3752303-1-maz@kernel.org>
+References: <20260224100936.3752303-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260224051153.3150613-5-anshuman.khandual@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_020831_960049_AD5F719E 
-X-CRM114-Status: GOOD (  20.18  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ioana.ciornei@nxp.com, tglx@kernel.org, chleroy@kernel.org, sascha.bischoff@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,67 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 10:41:41AM +0530, Anshuman Khandual wrote:
-> Replace READ_ONCE() with standard page table accessors i.e pxdp_get() which
-> anyways default into READ_ONCE() in cases where platform do not override.
+Only the root device generates MSIs (it is the only one talking to
+the ITS), so propagating the domain is pretty pointless. Remove it.
 
-For each of the patches where you make this sort of change, please
-explain in the commit message *why* it is necessary to do this.
+Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+Tested-by: Ioana Ciornei <ioana.ciornei@nxp.com> # LX2160ARDB, LS2088ARDB
+Tested-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/bus/fsl-mc/fsl-mc-bus.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-IIUC the entire point of this is that in subsequent patches, arm64 will
-need to use something other than READ_ONCE() for all pXX levels in order
-to support D128 translation tables.
+diff --git a/drivers/bus/fsl-mc/fsl-mc-bus.c b/drivers/bus/fsl-mc/fsl-mc-bus.c
+index c117745cf2065..1a6c8e3c0b27f 100644
+--- a/drivers/bus/fsl-mc/fsl-mc-bus.c
++++ b/drivers/bus/fsl-mc/fsl-mc-bus.c
+@@ -854,14 +854,12 @@ int fsl_mc_device_add(struct fsl_mc_obj_desc *obj_desc,
+ 	} else {
+ 		/*
+ 		 * A non-DPRC object has to be a child of a DPRC, use the
+-		 * parent's ICID and interrupt domain.
++		 * parent's ICID.
+ 		 */
+ 		mc_dev->icid = parent_mc_dev->icid;
+ 		mc_dev->dma_mask = FSL_MC_DEFAULT_DMA_MASK;
+ 		mc_dev->dev.dma_mask = &mc_dev->dma_mask;
+ 		mc_dev->dev.coherent_dma_mask = mc_dev->dma_mask;
+-		dev_set_msi_domain(&mc_dev->dev,
+-				   dev_get_msi_domain(&parent_mc_dev->dev));
+ 	}
+ 
+ 	/*
+-- 
+2.47.3
 
-Spelling that out in the commit message makes it much easier for
-reviewers to see what's going on, and to focus any discussion/questions,
-e.g. *why* won't READ_ONCE() work?
-
-Mark.
-
-> 
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Arnaldo Carvalho de Melo <acme@kernel.org>
-> Cc: Namhyung Kim <namhyung@kernel.org>
-> Cc: linux-perf-users@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  kernel/events/core.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index ac70d68217b6..4ee151cd2c6d 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -8422,7 +8422,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
->  	pte_t *ptep, pte;
->  
->  	pgdp = pgd_offset(mm, addr);
-> -	pgd = READ_ONCE(*pgdp);
-> +	pgd = pgdp_get(pgdp);
->  	if (pgd_none(pgd))
->  		return 0;
->  
-> @@ -8430,7 +8430,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
->  		return pgd_leaf_size(pgd);
->  
->  	p4dp = p4d_offset_lockless(pgdp, pgd, addr);
-> -	p4d = READ_ONCE(*p4dp);
-> +	p4d = p4dp_get(p4dp);
->  	if (!p4d_present(p4d))
->  		return 0;
->  
-> @@ -8438,7 +8438,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
->  		return p4d_leaf_size(p4d);
->  
->  	pudp = pud_offset_lockless(p4dp, p4d, addr);
-> -	pud = READ_ONCE(*pudp);
-> +	pud = pudp_get(pudp);
->  	if (!pud_present(pud))
->  		return 0;
->  
-> -- 
-> 2.43.0
-> 
 
