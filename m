@@ -4,52 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF3FEFB7F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 08:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313B9EFB811
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 08:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JrK3VBIjVrucSlrAberyLkEdWmeJE2yLhBbtaEZeu7c=; b=fc8mv6r+13AhsBYHKbOSIWBJEN
-	4/WiF8X2Df659VIzoC7Lk+4rznZ2azguTCo5RUE/B7wxG1X36/pNXS4CR6e0ZkI7V/ZVEagSu0EQY
-	gqVm8OaVQdocHNN/R8JN6tj+piRqaEsWi+g27nuy/eyx0qKjsbZuhM6ZFgXSQbVdFGvbgGLPBW2E4
-	Hc+BjfoUZAK/RkBzMBQi1ZHpEV603ZiNQm3LifvEpKkE4Sq/NNb2MWYiXIYUdmm/rxI09ituInVxT
-	szSRaJ3PcNukrWP4K0W88x1HkEXGfacghJi4VsBUowuO1dWjFVNbyNgT5JrSSR3CcRtV0h9S3aBKS
-	uZKnRfxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iizpfzio0v/iDnU/1NLHbWCsyqKgQ3UFSP5S6pHOju8=; b=ACCboG0/FfpmQi
+	6mt1WCPu7AhVb7Rir1UU6l87fYB9nRDK3iSc6ay7WX5jrFWHQ4SuTwM5MtlAA4nQzPE5PXvfRwuHg
+	qbpJJn+Opt+BOqTOiPaMaOzX43AVrGl0ZbJAHb4UtkoPQCUB8d4qrTv2ddMUoG4RGZKBYSvqywIph
+	vvWsQH5vjrx2VOIAn0NLoBmsH66jg88NeiutXPCKqUW7R2dgYlAaRCefqLsJPODrnsYnAf+9Cf++3
+	G7ga2SMKSrdrlYnpaNoB/RnmKw7+4/TuC5l4HwvFrfeswd9xzrHcOIafqpeMOgxcFB7ARPUZUVy1k
+	1ZeA5tDPCImJQ/BXp2oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vunVZ-00000001cb1-2x1v;
-	Tue, 24 Feb 2026 08:11:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vunVW-00000001caS-3OTP
+	id 1vunhv-00000001dZR-48jT;
+	Tue, 24 Feb 2026 08:23:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vunhu-00000001dZH-2x7h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 08:11:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45FCE339;
-	Tue, 24 Feb 2026 00:10:55 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC0343F62B;
-	Tue, 24 Feb 2026 00:11:00 -0800 (PST)
-Date: Tue, 24 Feb 2026 08:10:58 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Zeng Heng <zengheng4@huawei.com>,
-	Jinjiang Tu <tujinjiang@huawei.com>,
-	Andrew Morton <akpm@linux-foundation.org>
-Subject: Re: [PATCH 2/2] arm64: io: Extract user memory type in ioremap_prot()
-Message-ID: <aZ1dEsub9133Qv1e@arm.com>
-References: <20260223221012.31962-1-will@kernel.org>
- <20260223221012.31962-3-will@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260223221012.31962-3-will@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_001102_894227_072C8BE6 
-X-CRM114-Status: GOOD (  14.70  )
+	Tue, 24 Feb 2026 08:23:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D5E40600CB;
+	Tue, 24 Feb 2026 08:23:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E176C116D0;
+	Tue, 24 Feb 2026 08:23:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771921429;
+	bh=yW/XdX7C6OB/JJmDVlyglpXhjr79lcN8BLHSEqmvmuw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cpx6cgZql3OwQ/HJCQrsGktvOyjDIU47oLrJ4zVE+Ubk8lQBV/R9eo0107OvLJmIT
+	 roM6sWuHUryAPLCGIugNxqV4ptPnsT5YEcnOTsruUM9QWg0zkXwVPlCO/zdKfJniQ5
+	 yEWn5ketwoDlGyBemeLEemHxdcQssoZhutw8nN1PitISkwNx+rAnFQWmqbQ1xTPARH
+	 5znb2xfgDnRI94BHc77IG6Exdx46ShMh914oWmr8Tjvuz2hGe8UK0zZFQS3Gtu5QmH
+	 cQznkVTt0t1t10c0gFdoUA/+E1DWEVEosXP0M6yIdK3e0Tzsqip84sWbdFOW2fqhrH
+	 6Iz53NCvwyDtg==
+Date: Tue, 24 Feb 2026 17:23:46 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v2 2/2] arm64: insn: drop NOP from steppable hint list
+Message-Id: <20260224172346.9f094cffc58ce7e013a4d7c2@kernel.org>
+In-Reply-To: <aZSd5O0gdGM9dUkR@J2N7QTR9R3.cambridge.arm.com>
+References: <20251106104955.2089268-1-khaja.khaji@oss.qualcomm.com>
+	<20260217133855.3142192-1-khaja.khaji@oss.qualcomm.com>
+	<20260217133855.3142192-3-khaja.khaji@oss.qualcomm.com>
+	<aZSd5O0gdGM9dUkR@J2N7QTR9R3.cambridge.arm.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,42 +67,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: catalin.marinas@arm.com, dev.jain@arm.com, linux-kernel@vger.kernel.org, mhiramat@kernel.org, linux-arm-msm@vger.kernel.org, yang@os.amperecomputing.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 10:10:11PM +0000, Will Deacon wrote:
-> The only caller of ioremap_prot() outside of the generic ioremap()
-> implementation is generic_access_phys(), which passes a 'pgprot_t' value
-> determined from the user mapping of the target 'pfn' being accessed by
-> the kernel. On arm64, the 'pgprot_t' contains all of the non-address
-> bits from the pte, including the permission controls, and so we end up
-> returning a new user mapping from ioremap_prot() which faults when
-> accessed from the kernel on systems with PAN:
-> 
->   | Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
->   | ...
->   | Call trace:
->   |   __memcpy_fromio+0x80/0xf8
->   |   generic_access_phys+0x20c/0x2b8
->   |   __access_remote_vm+0x46c/0x5b8
->   |   access_remote_vm+0x18/0x30
->   |   environ_read+0x238/0x3e8
->   |   vfs_read+0xe4/0x2b0
->   |   ksys_read+0xcc/0x178
->   |   __arm64_sys_read+0x4c/0x68
-> 
-> Extract only the memory type from the user 'pgprot_t' in ioremap_prot()
-> and assert that we're being passed a user mapping, to protect us against
-> any changes in future that may require additional handling. To avoid
-> falsely flagging users of ioremap(), provide our own ioremap() macro
-> which simply wraps __ioremap_prot().
-> 
-> Cc: Zeng Heng <zengheng4@huawei.com>
-> Cc: Jinjiang Tu <tujinjiang@huawei.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
-> Reported-by: Jinjiang Tu <tujinjiang@huawei.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
+On Tue, 17 Feb 2026 16:57:08 +0000
+Mark Rutland <mark.rutland@arm.com> wrote:
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> On Tue, Feb 17, 2026 at 07:08:55PM +0530, Khaja Hussain Shaik Khaji wrote:
+> > NOP is already handled via instruction emulation and does not require
+> > single-stepping. Drop it from aarch64_insn_is_steppable_hint().
+> > 
+> > Signed-off-by: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
+> > ---
+> >  arch/arm64/include/asm/insn.h | 1 -
+> >  1 file changed, 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+> > index e1d30ba99d01..9429f76906e0 100644
+> > --- a/arch/arm64/include/asm/insn.h
+> > +++ b/arch/arm64/include/asm/insn.h
+> > @@ -456,7 +456,6 @@ static __always_inline bool aarch64_insn_is_steppable_hint(u32 insn)
+> >  	case AARCH64_INSN_HINT_BTIC:
+> >  	case AARCH64_INSN_HINT_BTIJ:
+> >  	case AARCH64_INSN_HINT_BTIJC:
+> > -	case AARCH64_INSN_HINT_NOP:
+> >  		return true;
+> >  	default:
+> >  		return false;
+> 
+> The intent is that aarch64_insn_is_steppable_hint() says whether an
+> instruction is safe to step, not whether it *must* be stepped. I think
+> we can leave NOP here unless this is causing some functional problem?
+
+Agreed. I think we should keep this as it is.
+
+Thank you,
+
+> 
+> Mark.
+> 
+
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
