@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA825E9B24E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 11:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF79AE9B24E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 12:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wINCB2Tp8Y+gRlhm+rxQa5lT/CxQDdZXT85D1cujnVw=; b=sg5gGIgMwORt0a0PyPZbNcGxG5
-	riBLLsWCX8fPb5yNzaeRqF3JuTRBpSWRt0HCL6GxRZYy35ps+6pbTuIp4fIAJvNEbdilvLiAtFiQB
-	5jrQzMqJHDArYkRHLrwYO6K0KOq1Zs2lb8GacsEKUyP2pu0hQ3KjTyaqdmEqyzr8ZObyEjrJaZ8YP
-	riOvxMOltTpISpvdnicnrLD++KTR5vyTemJquPwej31weMR5g0pP4vE40pViDBuDw6b4zznCedZOm
-	91jm31Zo4ig9ZlmINSuArd5Wyp/DSwQTKTfbdNlCEgynSTNEbncYvRSRnyvk73i2vQ9AkL1q01wSL
-	e2naD68w==;
+	bh=bPCdU8qlDnneQjdIWhtLLRjwYIcMnaxrk0b2pZgW4m4=; b=jeSMQ3Jn9jwI/mWw2KNEkgVBYF
+	sXjVIbEUiez7becVImDa2yyXOfBjPUV0S+/1kAx1XB2rrX3fX64IKpNtVMZZ+CTdBiNzLx+B/G3XE
+	wTkYukTzt5PnyuXJNXPzFaU4vT8ZKAJ/HwUZ1/HAYMeU1OjvWTELiAm01ZNeTG3qEe3BUpwV4RPid
+	+AbByMhvyX8t8V2D0qdWTlJEMyWZrqao9PD77IB24YOmQJ/35yG+qAf4VgMTe6/TITzE2swfeB9Hr
+	ojJKEQyVTg4hpFImeqg3DXwcvOHFeHG/rad+Ksflm3eR1nam9+ZUTGbV2wrfAoIlAVGzNGll1JQeW
+	9l9eBimw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vur13-000000020hO-3ZGy;
-	Tue, 24 Feb 2026 11:55:49 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vur9u-0000000212R-1BI6;
+	Tue, 24 Feb 2026 12:04:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vur10-000000020gG-32k8
+	id 1vur9s-00000002124-2D3m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 11:55:48 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fKx431VmgzJ46jF;
-	Tue, 24 Feb 2026 19:55:15 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id B398640569;
-	Tue, 24 Feb 2026 19:55:36 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 24 Feb
- 2026 11:55:35 +0000
-Date: Tue, 24 Feb 2026 11:55:34 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<bhelgaas@google.com>, <joro@8bytes.org>, <praan@google.com>,
-	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
-	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>,
-	<linux-cxl@vger.kernel.org>
-Subject: Re: [PATCH v2 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <20260224115534.00000ac7@huawei.com>
-In-Reply-To: <ad4efe2f85958ee1ab0673a1ceb0db5141852732.1771886695.git.nicolinc@nvidia.com>
-References: <cover.1771886695.git.nicolinc@nvidia.com>
-	<ad4efe2f85958ee1ab0673a1ceb0db5141852732.1771886695.git.nicolinc@nvidia.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+	Tue, 24 Feb 2026 12:04:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1EE5F43949;
+	Tue, 24 Feb 2026 12:04:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FBF3C19424;
+	Tue, 24 Feb 2026 12:04:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771934695;
+	bh=Qz9qdMX+vBbJV6Arts3WVnCOBY9g2cEaJRQR11r+cxw=;
+	h=Date:Cc:To:From:Subject:References:In-Reply-To:From;
+	b=lZiR7AxqIghjBpkiiGPbBNU5t/SUaLyeoB/0nQt2fSrl1Beg4CgujW9KAO47LRyGB
+	 gRMEnoLvxX/Sk1/OmRxBRu9b9fjgMF0N/JReEMBg52nVnVgyZONl7bJM1LU0wpbtof
+	 BUwAM3slBbS+Og0xUMNsx7hI6+TsNz83haBAjl5Nf2JGdoQuzPbHVpF27vtd94qnup
+	 ByA+2P/nqhdUIiANEa/jqtWGbg1TTOlE3p2hWNf/tlxsHQczMXoaO6+iR93fHSN90J
+	 Da3VCwvil8CKtBctvBhguUvplmPGEMPP2AOfgoxBdFtoGRQGvRx/PfQ5zfTRdZBBLj
+	 Hs6tAA3QVwr/A==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Feb 2026 13:04:49 +0100
+Message-Id: <DGN6FANOYD3K.AFFNS0QXPCQW@kernel.org>
+Cc: <abelvesa@kernel.org>, <peng.fan@nxp.com>, <daniel.baluta@oss.nxp.com>,
+ <mturquette@baylibre.com>, <sboyd@kernel.org>, <Frank.Li@nxp.com>,
+ <s.hauer@pengutronix.de>, <kernel@pengutronix.de>, <festevam@gmail.com>,
+ <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+ <hanguidong02@gmail.com>, <driver-core@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>, "Alexander
+ Stein" <alexander.stein@ew.tq-group.com>
+To: "Abel Vesa" <abel.vesa@oss.qualcomm.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH v2] clk: scu/imx8qxp: do not register driver in probe()
+References: <20260212235842.85934-1-dakr@kernel.org>
+ <DGMMD195G9VX.245Z0JMIYO9HV@kernel.org>
+ <66i6cgh5zmz32ikwjvrz3gtezjotltqmfzdai7ybwjhanx3bif@i5g62ziautwq>
+In-Reply-To: <66i6cgh5zmz32ikwjvrz3gtezjotltqmfzdai7ybwjhanx3bif@i5g62ziautwq>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_035547_070131_516142F2 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20260224_040456_619752_94DB7A96 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,146 +79,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Feb 2026 14:52:20 -0800
-Nicolin Chen <nicolinc@nvidia.com> wrote:
+On Tue Feb 24, 2026 at 10:57 AM CET, Abel Vesa wrote:
+> On 26-02-23 21:21:29, Danilo Krummrich wrote:
+>> On Fri Feb 13, 2026 at 12:58 AM CET, Danilo Krummrich wrote:
+>> > imx_clk_scu_init() registers the imx_clk_scu_driver while commonly bei=
+ng
+>> > called from IMX driver's probe() callbacks.
+>> >
+>> > However, it neither makes sense to register drivers from probe()
+>> > callbacks of other drivers, nor does the driver core allow registering
+>> > drivers with a device lock already being held.
+>> >
+>> > The latter was revealed by commit dc23806a7c47 ("driver core: enforce
+>> > device_lock for driver_match_device()") leading to a deadlock conditio=
+n
+>> > described in [1].
+>> >
+>> > Besides that, nothing seems to unregister the imx_clk_scu_driver once
+>> > the corresponding driver module is unloaded, which leaves the
+>> > driver-core with a dangling pointer.
+>> >
+>> > Also, if there are multiple matching devices for the imx8qxp_clk_drive=
+r,
+>> > imx8qxp_clk_probe() calls imx_clk_scu_init() multiple times.  However,
+>> > any subsequent call after the first one will fail, since the driver-co=
+re
+>> > does not allow to register the same struct platform_driver multiple
+>> > times.
+>> >
+>> > Hence, register the imx_clk_scu_driver from module_init() and unregist=
+er
+>> > it in module_exit().
+>> >
+>> > Note that we first register the imx8qxp_clk_driver and then call
+>> > imx_clk_scu_module_init() to avoid having to call
+>> > imx_clk_scu_module_exit() in the unwind path of imx8qxp_clk_init().
+>> >
+>> > Fixes: dc23806a7c47 ("driver core: enforce device_lock for driver_matc=
+h_device()")
+>> > Fixes: 220175cd3979 ("clk: imx: scu: fix build break when compiled as =
+modules")
+>> > Reported-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+>> > Closes: https://lore.kernel.org/lkml/13955113.uLZWGnKmhe@steina-w/
+>> > Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com> # TQMa8x/=
+MBa8x
+>> > Link: https://lore.kernel.org/lkml/DFU7CEPUSG9A.1KKGVW4HIPMSH@kernel.o=
+rg/ [1]
+>> > Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+>
+> Acked-by: Abel Vesa <abelvesa@kernel.org>
 
-> Controlled by the IOMMU driver, ATS is usually enabled "on demand" when a
-> device requests a translation service from its associated IOMMU HW running
-> on the channel of a given PASID. This is working even when a device has no
-> translation on its RID (i.e., the RID is IOMMU bypassed).
-> 
-> However, certain PCIe devices require non-PASID ATS on their RID even when
-> the RID is IOMMU bypassed. Call this "always on".
-> 
-> For instance, the CXL spec notes in "3.2.5.13 Memory Type on CXL.cache":
-> "To source requests on CXL.cache, devices need to get the Host Physical
-> Address (HPA) from the Host by means of an ATS request on CXL.io."
-> 
-> In other words, the CXL.cache capability requires ATS; otherwise, it can't
-> access host physical memory.
-> 
-> Introduce a new pci_ats_always_on() helper for the IOMMU driver to scan a
-> PCI device and shift ATS policies between "on demand" and "always on".
-> 
-> Add the support for CXL.cache devices first. Pre-CXL devices will be added
-> in quirks.c file.
-> 
-> Note that pci_ats_always_on() validates against pci_ats_supported(), so we
-> ensure that untrusted devices (e.g. external ports) will not be always on.
-> This maintains the existing ATS security policy regarding potential side-
-> channel attacks via ATS.
-> 
-> Suggested-by: Vikram Sethi <vsethi@nvidia.com>
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-
-+CC Linux-cxl
-
-> ---
->  include/linux/pci-ats.h       |  3 +++
->  include/uapi/linux/pci_regs.h |  1 +
->  drivers/pci/ats.c             | 44 +++++++++++++++++++++++++++++++++++
->  3 files changed, 48 insertions(+)
-> 
-> diff --git a/include/linux/pci-ats.h b/include/linux/pci-ats.h
-> index 75c6c86cf09dc..d14ba727d38b3 100644
-> --- a/include/linux/pci-ats.h
-> +++ b/include/linux/pci-ats.h
-> @@ -12,6 +12,7 @@ int pci_prepare_ats(struct pci_dev *dev, int ps);
->  void pci_disable_ats(struct pci_dev *dev);
->  int pci_ats_queue_depth(struct pci_dev *dev);
->  int pci_ats_page_aligned(struct pci_dev *dev);
-> +bool pci_ats_always_on(struct pci_dev *dev);
->  #else /* CONFIG_PCI_ATS */
->  static inline bool pci_ats_supported(struct pci_dev *d)
->  { return false; }
-> @@ -24,6 +25,8 @@ static inline int pci_ats_queue_depth(struct pci_dev *d)
->  { return -ENODEV; }
->  static inline int pci_ats_page_aligned(struct pci_dev *dev)
->  { return 0; }
-> +static inline bool pci_ats_always_on(struct pci_dev *dev)
-> +{ return false; }
->  #endif /* CONFIG_PCI_ATS */
->  
->  #ifdef CONFIG_PCI_PRI
-> diff --git a/include/uapi/linux/pci_regs.h b/include/uapi/linux/pci_regs.h
-> index ec1c54b5a3101..ef061c0313ce6 100644
-> --- a/include/uapi/linux/pci_regs.h
-> +++ b/include/uapi/linux/pci_regs.h
-> @@ -1349,6 +1349,7 @@
->  /* CXL r4.0, 8.1.3: PCIe DVSEC for CXL Device */
->  #define PCI_DVSEC_CXL_DEVICE				0
->  #define  PCI_DVSEC_CXL_CAP				0xA
-> +#define   PCI_DVSEC_CXL_CACHE_CAPABLE			_BITUL(0)
->  #define   PCI_DVSEC_CXL_MEM_CAPABLE			_BITUL(2)
->  #define   PCI_DVSEC_CXL_HDM_COUNT			__GENMASK(5, 4)
->  #define  PCI_DVSEC_CXL_CTRL				0xC
-> diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
-> index ec6c8dbdc5e9c..93060fdc0d3c0 100644
-> --- a/drivers/pci/ats.c
-> +++ b/drivers/pci/ats.c
-> @@ -205,6 +205,50 @@ int pci_ats_page_aligned(struct pci_dev *pdev)
->  	return 0;
->  }
->  
-> +/*
-> + * CXL r4.0, sec 3.2.5.13 Memory Type on CXL.cache notes: to source requests on
-> + * CXL.cache, devices need to get the Host Physical Address (HPA) from the Host
-> + * by means of an ATS request on CXL.io.
-> + *
-> + * In other world, CXL.cache devices cannot access physical memory without ATS.
-
-Maybe tweak that to "host physical memory"
-
-There are too many physical memories in CXL land...
-
-> + */
-> +static bool pci_cxl_ats_always_on(struct pci_dev *pdev)
-> +{
-> +	int offset;
-> +	u16 cap;
-> +
-> +	offset = pci_find_dvsec_capability(pdev, PCI_VENDOR_ID_CXL,
-> +					   PCI_DVSEC_CXL_DEVICE);
-> +	if (!offset)
-> +		return false;
-> +
-> +	pci_read_config_word(pdev, offset + PCI_DVSEC_CXL_CAP, &cap);
-> +	if (cap & PCI_DVSEC_CXL_CACHE_CAPABLE)
-> +		return true;
-
-Could just do
-
-	return cap & PCI_DVSEC_CXL_CACHE_CAPABLE;
-
-Unless the thinking is there may be other stuff that comes here.
-
-> +
-> +	return false;
-> +}
-> +
-> +/**
-> + * pci_ats_always_on - Whether the PCI device requires ATS to be always enabled
-> + * @pdev: the PCI device
-> + *
-> + * Returns true, if the PCI device requires non-PASID ATS function on an IOMMU
-> + * bypassed configuration.
-> + */
-> +bool pci_ats_always_on(struct pci_dev *pdev)
-> +{
-> +	if (pci_ats_disabled() || !pci_ats_supported(pdev))
-> +		return false;
-> +
-> +	/* A VF inherits its PF's requirement for ATS function */
-> +	if (pdev->is_virtfn)
-> +		pdev = pci_physfn(pdev);
-> +
-> +	return pci_cxl_ats_always_on(pdev);
-> +}
-> +EXPORT_SYMBOL_GPL(pci_ats_always_on);
-> +
->  #ifdef CONFIG_PCI_PRI
->  void pci_pri_init(struct pci_dev *pdev)
->  {
-
+Applied to driver-core-linus, thanks!
 
