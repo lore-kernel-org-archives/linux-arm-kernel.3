@@ -4,53 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 718EEF4BB62
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413CAF4BB66
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w4jNIzatVrtMgWJBfSmaGgWhvgVjZBLgbs+9hhJpJW4=; b=iGizHUlq/Z7Zecg9aEa2ZIY/gP
-	f+PlmZuLDWSdJoU0IuO3lX3TzpCdMk24pPyRzucFk+2WV6CilkUGwU/SDA02HUGfTDk1C/sC1GgSr
-	dLvRVCe6G6im/o9j5BF1ooPcBPdz0QmBxL6vCsTn6nMR7cnfQcpl0chgst3MvCkjKA6VRqagN6BmE
-	aJdglpKfEL4E46McC3dpZQsKTEJLhd3IknVHjke7/dt1oAtB84Mrv//PuM89y9OJpWLwmSOySAmse
-	YftzBlBhE2Ti7k7vZiZSPxRW4/J13flpUX/7n/X+s0jJDHje6Hzdr55gynFFHkuKFiJQrrAouljL6
-	md6fCSXA==;
+	bh=0B3jcTNUQM4dYgkUTVaMAfAHtbtRMSVxu9Gvpkl5SlM=; b=2IPbHeOwUrBHpWKpatu3nyhVw4
+	J8vl0t6+IHaHvlVT0uMF4/kNPmoiGvBM5+p0gmuijOnYb/l2D6qfV2r328To3NIRG2RXio2g8XTdz
+	1xnghvaX8G8A3nmEe2PJ6dTWmICX0RG29ZzSf2mj6HHGZCu/+1qwKm0Uh3cid8+nUf7KAy1xTk7lv
+	B6C1PRn+XIVnn0xa4o8AzKYt6TFZDWsESD0dsZbwTkelWflQvWbE0ih/H/OCzbIlp3/FV/Zdxf6vC
+	udRJ7kpa3BWUzl/KAUZUf1U/6oW4NwQ1AfAV8c+3UMm7Ei9E+UzUDWB8kG3CpN0h3M+nz45UeSO3X
+	0bmoYBoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuw4J-00000002U51-01XT;
-	Tue, 24 Feb 2026 17:19:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuw4G-00000002U4F-1ECN
+	id 1vuwG8-00000002Ulb-1Myc;
+	Tue, 24 Feb 2026 17:31:44 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwG6-00000002Uko-15Xd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 17:19:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09693339;
-	Tue, 24 Feb 2026 09:19:20 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ECBA43F59E;
-	Tue, 24 Feb 2026 09:19:24 -0800 (PST)
-Date: Tue, 24 Feb 2026 17:19:22 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Christoph Hellwig <hch@lst.de>
-Cc: kernel test robot <lkp@intel.com>, linux-kernel@vger.kernel.org,
-	Jens Axboe <axboe@kernel.dk>, Eric Biggers <ebiggers@kernel.org>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Subject: Re: fs/crypto/bio.c:67:17: sparse: sparse: cast to restricted
- blk_status_t
-Message-ID: <aZ3dmvNZnJYxL8vA@arm.com>
-References: <202602230947.uNRsPyBn-lkp@intel.com>
- <20260224145528.GA13793@lst.de>
+	Tue, 24 Feb 2026 17:31:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=0B3jcTNUQM4dYgkUTVaMAfAHtbtRMSVxu9Gvpkl5SlM=; b=mJ
+	OKozCogVPMZiP3rAW+cNmMDp/bx1jxiidjm/0T1emzMGXkyvjcbPuG7xbf1irH4tyZi5C/H1186zj
+	3v3vUGoMw3yAK/uybiMfdAFagVF/FGPYDZBSwntv45jfu+UQoVmWE78v4zcslAvbV2rJjehE1ydmC
+	EMd07yKG45mshgI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vuwFr-008dOV-Dl; Tue, 24 Feb 2026 18:31:27 +0100
+Date: Tue, 24 Feb 2026 18:31:27 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+Message-ID: <79eb8bb8-83cb-4b24-8e56-42a53c710055@lunn.ch>
+References: <fd257c80-d97f-45b0-a12f-3a1888ba81db@foss.st.com>
+ <396819f2-dd00-4c09-8bc7-c035a5282a56@lunn.ch>
+ <PAXPR04MB9185A908F5090F0CA4FF05F78968A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <b21b9ee5-d84e-47f8-86b5-c111ecc3d43d@lunn.ch>
+ <PAXPR04MB918576D67A268E59242964A08968A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <CAD++jLkUVFckLTq=SoivNFoFymhJo4KM=qGmajFcv9T9+7tPmg@mail.gmail.com>
+ <b4c422ce-3538-40aa-8bfa-b70f02774b5d@foss.st.com>
+ <PAXPR04MB91859B642802813F908B03DA8977A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <64ef5dbf-6264-4758-a5d8-d8c52c359fcc@foss.st.com>
+ <PAXPR04MB9185934EB640E8B21905FF878974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260224145528.GA13793@lst.de>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <PAXPR04MB9185934EB640E8B21905FF878974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_091928_458301_E84D67B1 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20260224_093142_297260_981CAD8F 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,79 +97,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 03:55:28PM +0100, Christoph Hellwig wrote:
-> On Mon, Feb 23, 2026 at 09:23:07AM +0800, kernel test robot wrote:
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> > head:   6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-> > commit: bc26e2efa2c5bb9289fa894834446840dea0bc31 fscrypt: keep multiple bios in flight in fscrypt_zeroout_range_inline_crypt
-> > date:   6 weeks ago
-> > config: arm64-randconfig-r134-20260223 (https://download.01.org/0day-ci/archive/20260223/202602230947.uNRsPyBn-lkp@intel.com/config)
-> > compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project d8f778935a5bf8a173a3c1d886fd736a4ef6cf05)
-> > reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260223/202602230947.uNRsPyBn-lkp@intel.com/reproduce)
-> > 
-> > If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> > the same patch/commit), kindly add following tags
-> > | Reported-by: kernel test robot <lkp@intel.com>
-> > | Closes: https://lore.kernel.org/oe-kbuild-all/202602230947.uNRsPyBn-lkp@intel.com/
-> > 
-> > sparse warnings: (new ones prefixed by >>)
-> >    fs/crypto/bio.c:67:17: sparse: sparse: cast from restricted blk_status_t
-> > >> fs/crypto/bio.c:67:17: sparse: sparse: cast to restricted blk_status_t
-> > 
-> > vim +67 fs/crypto/bio.c
-> > 
-> >     61	
-> >     62	static void fscrypt_zeroout_range_end_io(struct bio *bio)
-> >     63	{
-> >     64		struct fscrypt_zero_done *done = bio->bi_private;
-> >     65	
-> >     66		if (bio->bi_status)
-> >   > 67			cmpxchg(&done->status, 0, bio->bi_status);
-> >     68		fscrypt_zeroout_range_done(done);
-> >     69		bio_put(bio);
-> >     70	}
-> >     71	
+> Hi Arnaud,
+> Glad to hear you find this approach reasonable.
+> To be more specific, I’m proposing to do the following modifications for the protocol:
 > 
-> It looks like some arm64 configs generate sparse warnings when using
-> cmpxchg on __bitwise types.  Any chance I could prod the arm64 maintainers
-> into looking into this?
+>   - remove the “id” field (Message ID Code)
+>   - remove the “reserved[5]” field
+>   - and also reorder the fields so that port_idx appears before pin_idx
+> 
+> If you think additional fields should be removed or adjusted, please let me know.
 
-It looks like sparse doesn't like the __bitwise cast to unsigned long in
-the arm64 cmxchg code. We could force the type cast, not sure whether it
-hides any real issues. Another option is to do the force cast in bio.c
-but I don't think that code is doing anything wrong:
+I would squash head and body into one. Remove vendor and version. Do
+we need both cmd and type? It seems like they can be combined. And is
+port_idx needed? Don't you just instantiate more instances of the
+device, one per port. That is how you would do it with MMIO GPIOs.
 
-diff --git a/arch/arm64/include/asm/cmpxchg.h b/arch/arm64/include/asm/cmpxchg.h
-index d7a540736741..6cf3cd6873f5 100644
---- a/arch/arm64/include/asm/cmpxchg.h
-+++ b/arch/arm64/include/asm/cmpxchg.h
-@@ -91,8 +91,9 @@ __XCHG_GEN(_mb)
- #define __xchg_wrapper(sfx, ptr, x)					\
- ({									\
- 	__typeof__(*(ptr)) __ret;					\
--	__ret = (__typeof__(*(ptr)))					\
--		__arch_xchg##sfx((unsigned long)(x), (ptr), sizeof(*(ptr))); \
-+	__ret = (__force __typeof__(*(ptr)))				\
-+		__arch_xchg##sfx((__force unsigned long)(x), (ptr),	\
-+				  sizeof(*(ptr)));			\
- 	__ret;								\
- })
- 
-@@ -175,9 +176,10 @@ __CMPXCHG_GEN(_mb)
- #define __cmpxchg_wrapper(sfx, ptr, o, n)				\
- ({									\
- 	__typeof__(*(ptr)) __ret;					\
--	__ret = (__typeof__(*(ptr)))					\
--		__cmpxchg##sfx((ptr), (unsigned long)(o),		\
--				(unsigned long)(n), sizeof(*(ptr)));	\
-+	__ret = (__force __typeof__(*(ptr)))				\
-+		__cmpxchg##sfx((ptr), (__force unsigned long)(o),	\
-+				(__force unsigned long)(n),		\
-+				sizeof(*(ptr)));			\
- 	__ret;								\
- })
- 
+struct gpio_rpmsg_packet {
+	u8 cmd;
+	u8 pin;
+	union {
+		u8 event;
+		u8 retcode;
+		u8 value;
+	} out;
+	union {
+		u8 wakeup;
+		u8 value;
+	} in;
+}
 
--- 
-Catalin
+4 bytes, a nice size.
+
+#define GPIO_RPMSG_CMD_DIR_INPUT 	1
+#define GPIO_RPMSG_CMD_DIR_OUTPUT 	2
+#define GPIO_RPMSG_CMD_GET_DIR		3
+#define GPIO_RPMSG_CMD_GET		4
+#define GPIO_RPMSG_CMD_SET		5
+
+These map onto the gpio_chip ops. And i leave space for the _multiple
+ops if they are needed in the future.
+
+#define GPIO_PRMSG_CMD_INTR_CONFIG	32
+#define GPIO_PRMSG_CMD_INTR_EVENT	33
+
+And then interrupt handling. These are less obvious, struct irq_chip
+has a lot more ops, so i'm not very confident this is sufficient.
+
+	Andrew
 
