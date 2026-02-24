@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14908F4BB6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E904F4BB6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=whC4VVJS9cGeHepaW+PGrzZfNnk4F5mIqyAFpWVv4iQ=; b=NCHZijmddmtdUsIy6TiT53s4c9
-	LpiF9SHY+fhrgyn1npoWB9Rha5V3LrBa6IANsbubzEJ5NGsQCZyAlKD+sl3E7AeltfAWc/AtzVdAC
-	dLjaJ+wR6MQa4x+1nTlrVrHmdn3R3J0EuP0V8fagf1gLHgWfeWOVKBv1qFrBLBNuKIDBUkCYzBvTw
-	ZRnzJA3x0+kumdaRHJriVpHTz6DoB+BgM283jHMTQ4E/reiAj91Ml8vcuUsjHnurot4IYnhBKJXvj
-	YULTbsua28Na4WSwSa0zEewuYEMYEFo9wRGA2yoC1Sk2zE6q6xxHKmxeFOUR1fn/qE5yLJIJhxg39
-	Vj4ii9PQ==;
+	bh=TfZCao8eT3K1iK4rErnvc1JseTGUetZNFAIXCIxV164=; b=28PFgjix//t/9WEUsHzttHqFcB
+	R8BcjYLDZwo658sDKeTTbJNjNm1Eavyh2+sgcplMAuRAoNWCy8eYYFaoo4oSVWWiwLqlgzuEUTr6w
+	9uwwMKfIIQeerAOKhjBvpjZemixYwnVnkpdeU7IJxE4G8SeSHLSXpE0jUr/GdFLqIVGx5VFtey9mQ
+	FHT4tmR5f7/1haW3clGi00f53Mwssvxcz65EvWLh7bJ0815+Xuh1oAMB+o//Rwymau/W6Jy47XgMv
+	n5mfD+d56AplVQBbDuWv8pQBOjOaQ0rhCa0N3heTT6Go7+GqO3fVUUhUd7QLZ0RQqeqZ4p3cfx6vM
+	NTZG2ZqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfx-00000002X4J-11ia;
-	Tue, 24 Feb 2026 17:58:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfn-00000002WsG-3N6R
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Feb 2026 17:58:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB181497;
-	Tue, 24 Feb 2026 09:58:08 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 458D43F59E;
-	Tue, 24 Feb 2026 09:58:10 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
+	id 1vuwfy-00000002X6E-1yJq;
+	Tue, 24 Feb 2026 17:58:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuwfq-00000002Wu7-1HbX;
+	Tue, 24 Feb 2026 17:58:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 777404414E;
+	Tue, 24 Feb 2026 17:58:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04822C19422;
+	Tue, 24 Feb 2026 17:58:13 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>
+Cc: Will Deacon <will@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v5 08/41] arm64: mpam: Add cpu_pm notifier to restore MPAM sysregs
-Date: Tue, 24 Feb 2026 17:56:47 +0000
-Message-ID: <20260224175720.2663924-9-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260224175720.2663924-1-ben.horgan@arm.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
+	linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org
+Subject: [PATCH 3/5] riscv: shstk: Use the new common vm_mmap_shadow_stack() helper
+Date: Tue, 24 Feb 2026 17:57:55 +0000
+Message-ID: <20260224175800.2500729-4-catalin.marinas@arm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260224175800.2500729-1-catalin.marinas@arm.com>
+References: <20260224175800.2500729-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_095815_995100_FC08BC90 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20260224_095818_388034_235C6E9D 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,93 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+Replace part of the allocate_shadow_stack() content with a call to
+vm_mmap_shadow_stack().
 
-The MPAM system registers will be lost if the CPU is reset during PSCI's
-CPU_SUSPEND.
-
-Add a PM notifier to restore them.
-
-mpam_thread_switch(current) can't be used as this won't make any changes if
-the in-memory copy says the register already has the correct value. In
-reality the system register is UNKNOWN out of reset.
-
-Tested-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Deepak Gupta <debug@rivosinc.com>
 ---
-Changes since v3:
-Always set MPAM1_EL1.MPAMEN rather than relying on it being read only
-Bail out early if mpam not supported (Gavin)
----
- arch/arm64/kernel/mpam.c | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+ arch/riscv/kernel/usercfi.c | 12 +-----------
+ 1 file changed, 1 insertion(+), 11 deletions(-)
 
-diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
-index e6feff2324ac..48ec0ffd5999 100644
---- a/arch/arm64/kernel/mpam.c
-+++ b/arch/arm64/kernel/mpam.c
-@@ -4,6 +4,7 @@
- #include <asm/mpam.h>
- 
- #include <linux/arm_mpam.h>
-+#include <linux/cpu_pm.h>
- #include <linux/jump_label.h>
- #include <linux/percpu.h>
- 
-@@ -13,12 +14,44 @@ DEFINE_PER_CPU(u64, arm64_mpam_current);
- 
- u64 arm64_mpam_global_default;
- 
-+static int mpam_pm_notifier(struct notifier_block *self,
-+			    unsigned long cmd, void *v)
-+{
-+	u64 regval;
-+	int cpu = smp_processor_id();
-+
-+	switch (cmd) {
-+	case CPU_PM_EXIT:
-+		/*
-+		 * Don't use mpam_thread_switch() as the system register
-+		 * value has changed under our feet.
-+		 */
-+		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
-+		write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
-+		isb();
-+
-+		write_sysreg_s(regval, SYS_MPAM0_EL1);
-+
-+		return NOTIFY_OK;
-+	default:
-+		return NOTIFY_DONE;
-+	}
-+}
-+
-+static struct notifier_block mpam_pm_nb = {
-+	.notifier_call = mpam_pm_notifier,
-+};
-+
- static int __init arm64_mpam_register_cpus(void)
+diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
+index 1adba746f164..7e57f54dc5b2 100644
+--- a/arch/riscv/kernel/usercfi.c
++++ b/arch/riscv/kernel/usercfi.c
+@@ -230,17 +230,7 @@ int restore_user_shstk(struct task_struct *tsk, unsigned long shstk_ptr)
+ static unsigned long allocate_shadow_stack(unsigned long addr, unsigned long size,
+ 					   unsigned long token_offset, bool set_tok)
  {
- 	u64 mpamidr = read_sanitised_ftr_reg(SYS_MPAMIDR_EL1);
- 	u16 partid_max = FIELD_GET(MPAMIDR_EL1_PARTID_MAX, mpamidr);
- 	u8 pmg_max = FIELD_GET(MPAMIDR_EL1_PMG_MAX, mpamidr);
+-	int flags = MAP_ANONYMOUS | MAP_PRIVATE;
+-	struct mm_struct *mm = current->mm;
+-	unsigned long populate;
+-
+-	if (addr)
+-		flags |= MAP_FIXED_NOREPLACE;
+-
+-	mmap_write_lock(mm);
+-	addr = do_mmap(NULL, addr, size, PROT_READ, flags,
+-		       VM_SHADOW_STACK | VM_WRITE, 0, &populate, NULL);
+-	mmap_write_unlock(mm);
++	addr = vm_mmap_shadow_stack(addr, size, 0);
  
-+	if (!system_supports_mpam())
-+		return 0;
-+
-+	cpu_pm_register_notifier(&mpam_pm_nb);
- 	return mpam_register_requestor(partid_max, pmg_max);
- }
- /* Must occur before mpam_msc_driver_init() from subsys_initcall() */
--- 
-2.43.0
-
+ 	if (!set_tok || IS_ERR_VALUE(addr))
+ 		goto out;
 
