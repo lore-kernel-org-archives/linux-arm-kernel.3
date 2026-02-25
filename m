@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74538EFD20E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00785EFD20E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rNshoaLTBhcJW7yN1+hPWRf0X75Pvv07WwEwspmr8Eg=; b=pMrD9OiICT++CKo/SGj3ZhCq6a
-	BnStEx+QjbialGJkA7nI7vwO3WHXn6ftvb29aA5YJjDu9dock6/l3Z/kWMzA7TvO9YeIni6gwL9yX
-	jILEJWOzvN+dWRQqw2N+XNCSi4t26pannO7QgtVu5eWX8bXkCtg29ZgMDEfygGQMtAfDOSbmfs9H2
-	Cn4k4Xk8PvF3YXG6EKAIrTzc5vJi3sqTWLtGvz5FR3vjxXT/BaDK1WnFzNlmhKAFp3dxLO9fpCXRd
-	ufRD4x2ppbqJxQsv7mARd24G+hBsnVhfTLuGXZn/5ZSSzI9j/fG2io4+arqVVBoRvL8iXa8XlRZKV
-	p+SQVoWg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ceQDrL5DOVlS5N2qxR82gwvNuohL7ZjkdOt35hoBMNg=; b=O99dEHPJZFCVGuJPCnXTAx2q/L
+	QvauvU/Au7ojcnAkYJ1Yz2VMHOt0oEzOuYXj80hkuDb3FR9IhFgar6+tYyG6rOTby286tb9TXCxuz
+	QnOUenrVT0HynW/qE+DsLg1YnV3+mtP+YtHTDQ6mLrhTDMQ38ZFFxHYAxYPS9Ze9SuHoGnzBdsvHv
+	FTLfzLtuTncMGVDoLlE+IKGilthSK38PbPd6YPoz/mZB0c0s0OJcI/5XEik8aIgzmG5x4kbSufoQp
+	kPoNqOAYe8RHm+OsZfZ34S9fLjIf04QlpRIhGmyHoauFa5kwBijS0wD1B8pCFvVqgErqCgQqrOcTC
+	sl5/NApg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvAgY-00000003aml-0CsQ;
-	Wed, 25 Feb 2026 08:55:58 +0000
+	id 1vvAgh-00000003aoM-1PpO;
+	Wed, 25 Feb 2026 08:56:07 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvAgV-00000003amT-2n77
+	id 1vvAgd-00000003ann-0mg6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 08:55:56 +0000
+	Wed, 25 Feb 2026 08:56:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1772009756; x=1803545756;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=i46Qb3s6eVAXm1sSFvp5MLg6SJ5Diz0ziosLJaMA1uQ=;
-  b=hPh0I/MlVoIng9KBxQ+1dO26pufIkuvFKnneKINRfd1S1Akalgd7NMr8
-   WHjMoBShlsneYqdVnUaDRPFUu7rsuXEyT0BjaJ+5ThYUWo3BabH5+aV+/
-   T0DFjsmJAMb1h1kmv9J6h6W+Kb+al3j6xD9rTQXTVU32iPu+42PbhEHp4
-   TJaI+VCs4LzYy6LEnc6BtIcKul3jZvbU3JRMGx8cfoombOOPcks50OXxV
-   q0TkHXymCXpLqjz3a8+oUUpOspJLOWOJCC9I+/9PLKqcfr6ocAzdnXbcK
-   CQdrK6v9HrK8w4ItfQ9+R/GfV09LHX4rSGLtN9NyzwMLHZx9BhWiCENVp
-   Q==;
-X-CSE-ConnectionGUID: neVyK9f3SAikpi5vvw2F3w==
-X-CSE-MsgGUID: ua4dCAt0RTCj+aj0j49NbQ==
+  t=1772009763; x=1803545763;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=DjsW4WVQpIf0YjMorUTuW0e2BWorQ3xaVI7oaiRoRXQ=;
+  b=BkencEe5F+VN7/gi29CWfutw5pJtEWNkQ68L/W+ONf8PH4VBbNYlQTb0
+   KjMRiK3bf8K89jEcyGIGW4RNo4TxZaiOS5KReBQOxo0lHA2SZY1iONzFE
+   EwQrMqH07Fi3gsJV5+vVOtCu4E5nrE7rddzoARFiw030WOiXi86w0LZKG
+   +1xHyIrLW1CpOjP2MhAA2V9Finbc324rCsr6QD0Cep8cShx3Kt4dU/qjc
+   RRZwqgdyf7FSKf1Ewiz1HuKEhTKma6s/LPuzPMNS5HlBxzJAQ0VH6b3cg
+   qnHAkLjOAEVGPy+lgJykvQfo8QzLGGqo7YxpmULcoV5qvWpiC5pPiZCHU
+   A==;
+X-CSE-ConnectionGUID: mgYlUVw0QgaTuiIytbevoA==
+X-CSE-MsgGUID: Ze8n1SsCTMSiNQM14jDlQA==
 X-IronPort-AV: E=Sophos;i="6.21,310,1763449200"; 
-   d="scan'208";a="53830037"
+   d="scan'208";a="285203687"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2026 01:55:51 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Feb 2026 01:56:02 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.35; Wed, 25 Feb 2026 01:55:39 -0700
+ 15.1.2507.58; Wed, 25 Feb 2026 01:55:59 -0700
 Received: from che-lt-i67131.microchip.com (10.10.85.11) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 25 Feb 2026 01:55:30 -0700
+ 15.1.2507.58 via Frontend Transport; Wed, 25 Feb 2026 01:55:50 -0700
 From: Manikandan Muralidharan <manikandan.m@microchip.com>
 To: <andrzej.hajda@intel.com>, <neil.armstrong@linaro.org>,
 	<rfoss@kernel.org>, <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
@@ -67,16 +67,18 @@ To: <andrzej.hajda@intel.com>, <neil.armstrong@linaro.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>
 CC: Manikandan Muralidharan <manikandan.m@microchip.com>
-Subject: [PATCH 0/6] Add LCD and LVDS controller for sama7d65 SoC
-Date: Wed, 25 Feb 2026 14:24:24 +0530
-Message-ID: <20260225085430.480052-1-manikandan.m@microchip.com>
+Subject: [PATCH 2/6] dt-bindings: display: bridge: microchip,sam9x75-lvds: document SAMA7D65 binding
+Date: Wed, 25 Feb 2026 14:24:26 +0530
+Message-ID: <20260225085430.480052-3-manikandan.m@microchip.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260225085430.480052-1-manikandan.m@microchip.com>
+References: <20260225085430.480052-1-manikandan.m@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_005555_823954_B3D7B9EC 
-X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-CacheID: sfid-20260225_005605_509382_53909B09 
+X-CRM114-Status: UNSURE (   9.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,32 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for image subsystem nodes
-like LCD and LVDS controller in sama7d65 SoC with binidngs.
-Also takes care of enabling the required configs.
+Update the microchip LVDS bridge device tree bindings to support the
+SAMA7D65 SoC LVDS controller
 
-Aubin Constans (1):
-  ARM: configs: at91: sama7: enable LVDS serializer support
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+---
+ .../bindings/display/bridge/microchip,sam9x75-lvds.yaml     | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-Manikandan Muralidharan (1):
-  dt-bindings: display: bridge: microchip,sam9x75-lvds: document
-    SAMA7D65 binding
-
-Romain Sioen (1):
-  ARM: configs: at91: sama7: enable config for atmel maxtouch
-
-Ryan Wanner (3):
-  ARM: dts: microchip: sama7d65: add LCD controller
-  ARM: dts: microchip: sama7d65: add LVDS controller
-  ARM: configs: at91: sama7: enable DRM hlcdc support
-
- .../bridge/microchip,sam9x75-lvds.yaml        |  6 +++-
- arch/arm/boot/dts/microchip/sama7d65.dtsi     | 35 +++++++++++++++++++
- arch/arm/configs/sama7_defconfig              | 10 ++++++
- 3 files changed, 50 insertions(+), 1 deletion(-)
-
-
-base-commit: 7dff99b354601dd01829e1511711846e04340a69
+diff --git a/Documentation/devicetree/bindings/display/bridge/microchip,sam9x75-lvds.yaml b/Documentation/devicetree/bindings/display/bridge/microchip,sam9x75-lvds.yaml
+index 862ef441ac9f..669ef2393659 100644
+--- a/Documentation/devicetree/bindings/display/bridge/microchip,sam9x75-lvds.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/microchip,sam9x75-lvds.yaml
+@@ -17,7 +17,11 @@ description:
+ 
+ properties:
+   compatible:
+-    const: microchip,sam9x75-lvds
++    oneOf:
++      - const: microchip,sam9x75-lvds
++      - items:
++          - const: microchip,sama7d65-lvds
++          - const: microchip,sam9x75-lvds
+ 
+   reg:
+     maxItems: 1
 -- 
 2.25.1
 
