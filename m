@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 658B7F357DA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 07:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7C5F357DA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 07:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k8XpTwYaznTB7X95a9deMFZcsmj1UdrXkb3hcBiKjSk=; b=pzkAG2SSCEiXj5YQS/PpcjsqZV
-	+nl6DN6gP5OE1CBOTfLYFTLCm1HEiW1CXuDQakIsMElp5lknpfr5Q5ugiV20vJwOhc2T/u8G6twfT
-	wSA3Y8Kzky4HGw9o35PotaSrRb8oU7qnAR0rKMnbMCQOULfhMkalvUzksUlRDGPzL33NYaqmgqrci
-	vSUrQPkP7AcymUG/paxNo1V3U21c9a8hbt/hFdWN3f2iObj1HUmncq5lLJj8FOLTi6imDcYSdeyRz
-	nSH5vlBavLqTWRTyL78ATQKGJ4fY2VbtImjYIRkDVT81dtXZoamp3V1FC5FiprSPzzI3NPo3r2lHd
-	WlJubicw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QS0Ykx5d3ml8rzk8tsHJLTUHxdInYPjDBS3HSjaXmrs=; b=0wr6VQWyv7EExiZVIzFFXTHPAm
+	B00caiAxCmaXeBRQSrfbxYs7T/KQzptdpLgnl78VUWzItgVFahcbhMYfzpq/zkoLZsQxc1jIm+ETY
+	M6vn0Zk7BTPEX+YY7CMC3TWa8fHzvMMvW8j9jBp9prUQPUW0gou+Vu5YhhDfjj3+YPpJW8jwc8IJA
+	CrJUvoV7A4T+UnQyQueDTv4xuAeUls7bISrNITuIzFt3u/xxIAj2TIgavbMmoRuJ4QK4RwNAAIM0p
+	mvTnHvtCtfqF4Qz+jLBfsS/UQQiOdt5gt1V3xXWm/lsFK5QHt6F1lZ0CMNhwgvhJfIayacMO2RJWo
+	kmrWrT0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv9ES-00000003PIw-3xgC;
-	Wed, 25 Feb 2026 07:22:52 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vv9EW-00000003PLB-2Jgu;
+	Wed, 25 Feb 2026 07:22:56 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv9EQ-00000003PDT-1Oh0
+	id 1vv9ES-00000003PIO-2vCR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 07:22:51 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ab232cc803so31315005ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 23:22:49 -0800 (PST)
+	Wed, 25 Feb 2026 07:22:53 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2aadc18f230so39348395ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 23:22:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1772004169; x=1772608969; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=k8XpTwYaznTB7X95a9deMFZcsmj1UdrXkb3hcBiKjSk=;
-        b=mtzG/kblBFsM+krKSuhALnR0/4QRhFbL+jwvwZ93Pw32gKFRSzITpOKkx9RRrarodx
-         3S7Gky9qlUd/PBPqYNCOxahF6EWe810KlKhkVVwbYGJsit2t+vh236o9qG6EKFmZQdgk
-         z2FSjuF1jkLgLm2C6zv3GT7RH23CUrGEXp6SY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772004169; x=1772608969;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1772004172; x=1772608972; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=k8XpTwYaznTB7X95a9deMFZcsmj1UdrXkb3hcBiKjSk=;
-        b=ANgCEr4Y2kj+4XJplYHcpTw9GjQUaJmdEamkb0VP8w/TCm/lqel/HGyqsRRMzCOCik
-         U4gZhOyjoyuXI1OfaSqOpfmrv0n1Vp28cZ3NDObRS7FwPFq9tOZt5qdPPTIanoPBA5lh
-         UO8XU4rZ/3UcfZx6RLiqrImO9FNmdKRWZFmrv8JJJLHEX91xq5g1hno4kDxQtBf0k/iY
-         JxSkjZjfwCZ/Ryut1NbsXacsOQi+sM4dErMQlWpGGKuZuVMEiZIV1bNtGm6C2mzhK6YS
-         jyoF2IDU5vl4hZL+W16aoIIstAo1tg1PsTadKDZpQqvcFwmlOOztMC5BUDjoRS/SDo80
-         qQeA==
-X-Forwarded-Encrypted: i=1; AJvYcCW+GfMpGyBmjev/R2iF/Be1bifgmPv0mpFKcFb4ZpDtKKrtHZJbtJChqUMm4WNVQntmqjPWeFskVSwbPx3e9NAV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzt2ULHLmChL1T/hiYTl+0U5tP6/ZV9wP6lwq3JneEL04XJGHJp
-	du0hiRWoCF8YgGT0U/lAGDV4fPt0QiucKQCYms93X48eZL+LWE6KibC1Z8UTvmqNFA==
-X-Gm-Gg: ATEYQzz8jV+l+QIjfnDAxAluq8qocyfoLGIKu29qkXs1z1e56bBYidKVPCtmYiJH6jF
-	BDZExpQBhuNeQ/WTpjs/y+tQCUGQa7/35dqxh/K6In0/02iSnXSU70cLrmcP1My0qKHdb6znk37
-	BcuDprSPirqO+gGZR3t74bhYz9Z5N0+tI5f3zuS7sXdl5FIO9af3cmLV0VgSeUiG6eQOEiR0E/0
-	TiGcSQUqocT2frhG9PXGdOxH7CYhLNNn1tckJo+GsalO/hOsQJIcsmjqg0z0IJ9RLeFcO0goT2z
-	raYMG0c//97707CYLhMC5+9V2YStEZ7i66RLy7RegA0K6MsAaEfPmaLMtOVkH9MHj2Emk/bg3C1
-	wuOkPEnzXr6HwISOhFbMR+LuET91ktXl+EKbn2WOhtB/Yg6E5EH5Bv/pUdwT39ZFbD6e4V54540
-	/d8OYxWe+JfI9VoUa/fT1Mqr8vYdvQLOk35K96Q1tZv0EaS/R+pT7gxpH/CkIu394YKSvlDNhkk
-	NIv5w==
-X-Received: by 2002:a17:902:e80b:b0:2ab:3ac6:8d01 with SMTP id d9443c01a7336-2add1382e48mr18547135ad.29.1772004168768;
-        Tue, 24 Feb 2026 23:22:48 -0800 (PST)
+        bh=QS0Ykx5d3ml8rzk8tsHJLTUHxdInYPjDBS3HSjaXmrs=;
+        b=ER1V7ojlqYee2D7FS1SZRwfQMzwOJEJ87Z93vPhLVwlshj99OaxbQ1pyeJK6+ba96d
+         rwqWAaziNQjpCOzDaJwwHTWIvt6u6Aofa/DSCYP6tn7AM0cb0L+28tdxW9RcbHb3+CrN
+         o7EcMgYCYUKqf4eBNqeMVMQIztYnwmXkuH6P8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772004172; x=1772608972;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=QS0Ykx5d3ml8rzk8tsHJLTUHxdInYPjDBS3HSjaXmrs=;
+        b=n+/zuOYLwT07GeEWyidwCfhhtILBP7hiWutfH+JBhC0zyPexas9kyzOml1MTvzE80n
+         IvBdKyOPOcx3K2j3/Z7rc2DoPulSSYUb9J/r9Hv2qiY2XW9aFdZ+lWmPkAxnYze4pSYz
+         3qsLfWUBVgxBDyyv7tWIonsjJYzWwicDP1vqju7+oYTrehtPHpuQk7SbeKQrgV2qz0cs
+         60DIxk+kw3ga8xj+JfYm0BH5Y/Thgjfvwa8VZWYpVHY5zsTS++Uxoe0e64g5wb7Bavjv
+         /PX20S/MXyBZDAYWnkwytGmlp65Ek2Nr4VbB3DytUtdSkzszPUtKvtOIcRzSpY1XmBgz
+         kjmA==
+X-Forwarded-Encrypted: i=1; AJvYcCXUXMsocHCidDsu2aOuR5tQW1M8uqlSbi3QPtD0tu9U0Cs+VXx9hNndnKQhd20IrbHtQv/8v+iN5Fe3WsYeaBau@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuAhL/u9vQ++U8QwOb8MYrBoa1oKvCvV85VlOPde4ebc5nPEzw
+	ksgVg2tjqmBXBQcuWvG1WpdQXqNiUhMmCABAQJmfLOBpK8d2Vx08ZCMYY2MMkd9KjQ==
+X-Gm-Gg: ATEYQzyADKd6z2kd3+FVjS9auYpiw3yED4bA7j+dcPzygeX7PtSsWtJniKRmpzhw3dN
+	PIjPge3cvLpk5AJbF7fVZbDloIzUopvJnJZmcC2ilvoDUMO+5PWHH2KApuxoqVGVo0jm9zLPTHq
+	blXNhwPekSgAth90CwKN/TbAUB+yDdIb+zNXBg73ICnUzalqQ3Vzc3Maard9H1CxrSI64wW1mSo
+	Dp/8En9AJBz3+bn/diUuS8wX+3Q1sjbbEtH7uKLGtwXDQs1fviPE0gb7lB0xBnSw8VTlrpOI/6n
+	5PBjjD2AAtMcqMyJkKv8/bScnvlv7Jf8C3AkBZfcVucYZ8EqMD1xF6dQoYn1C0DzNsBEkZYjBan
+	ymm/TaHGl1n3cJaXdkYRriJgwZJ1jKr6AkqkiJvLDEFEPW+XkPOcUFv4kFHqvkit6wuM81UHQpa
+	N6FJNgmvnGJPT0jtpAnC5c6RUAOvkzJbewRlKpMDDDLsGLTMUuYAhr/vLiVGU6Z0uxuwBoxpFfO
+	Hyrk0VRZfpxJkCP
+X-Received: by 2002:a17:902:d4c6:b0:2aa:d7fe:8611 with SMTP id d9443c01a7336-2add13fda8cmr13861915ad.27.1772004171868;
+        Tue, 24 Feb 2026 23:22:51 -0800 (PST)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:9d6:2e6a:941b:690])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad7503fdc9sm130814435ad.80.2026.02.24.23.22.45
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad7503fdc9sm130814435ad.80.2026.02.24.23.22.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Feb 2026 23:22:48 -0800 (PST)
+        Tue, 24 Feb 2026 23:22:51 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -83,15 +84,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/7] PCI: mediatek-gen3: add power control support
-Date: Wed, 25 Feb 2026 15:22:17 +0800
-Message-ID: <20260225072225.3345307-1-wenst@chromium.org>
+Subject: [PATCH 1/7] PCI: mediatek-gen3: Clean up mtk_pcie_parse_port() with dev_err_probe()
+Date: Wed, 25 Feb 2026 15:22:18 +0800
+Message-ID: <20260225072225.3345307-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.53.0.414.gf7e9f6c205-goog
+In-Reply-To: <20260225072225.3345307-1-wenst@chromium.org>
+References: <20260225072225.3345307-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_232250_517783_EB38FE65 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20260224_232252_756424_2D7BA5E9 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,56 +109,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+mtk_pcie_parse_port() in the pcie-mediatek-gen driver has a bunch of
 
-This series adds power control support to the MediaTek PCIe gen3
-controller driver. This allows proper modeling of WiFi and NVMe
-adapters in the device tree and control over their power supplies.
+    if (err) {
+    	dev_err(dev, "error message\n");
+	return err; # or goto
+    }
 
-Patch 1 through 4 are cleanups and minor improvements to the driver.
+patterns.
 
-Patch 5 adds power control support using the new pwrctrl API to the
-PCIe controller driver.
+Simplify these with dev_err_probe(). The system also gains proper
+deferred probe messages that can be seen in
 
-Patch 6 adds the WiFi and BT power supplies for the MT8195 Cherry design.
-This is actually a M.2 E-key slot, but support for that is still WIP [1].
-And even with it merged, support for the USB side still needs to be
-figured out.
+    /sys/kernel/debug/devices_deferred
 
-We can either merge this as is for now, and do another conversion later,
-or just keep this one out. However this is still an improvement over
-the current device tree, in which the power for the slot is always on
-using a pinctrl setting.
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ drivers/pci/controller/pcie-mediatek-gen3.c | 36 ++++++---------------
+ 1 file changed, 10 insertions(+), 26 deletions(-)
 
-Patch 7 adds the M.2 M-key NVMe slot found on MT8195 Dojo Chromebooks.
-This change actually makes use of the M.2 pwrseq driver.
-
-
-Please have a look.
-
-
-Thanks
-ChenYu
-
-[1] https://lore.kernel.org/linux-pci/20260224-pci-m2-e-v5-0-dd9b9501d33c@oss.qualcomm.com/
-
-Chen-Yu Tsai (7):
-  PCI: mediatek-gen3: Clean up mtk_pcie_parse_port() with
-    dev_err_probe()
-  PCI: mediatek-gen3: Add error path for probe and resume driver
-    callbacks
-  PCI: mediatek-gen3: Split out device power helpers
-  PCI: mediatek-gen3: Disable device if further setup fails
-  PCI: mediatek-gen3: Integrate new pwrctrl API
-  arm64: dts: mediatek: mt8195-cherry: add WiFi PCIe and BT USB power
-    supplies
-  arm64: dts: mediatek: mt8195-cherry-dojo: Describe M.2 M-key NVMe slot
-
- .../dts/mediatek/mt8195-cherry-dojo-r1.dts    |  38 ++++
- .../boot/dts/mediatek/mt8195-cherry.dtsi      |  47 +++--
- drivers/pci/controller/pcie-mediatek-gen3.c   | 185 +++++++++++-------
- 3 files changed, 183 insertions(+), 87 deletions(-)
-
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index 75ddb8bee168..1939cac995b5 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -876,10 +876,8 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
+ 	if (!regs)
+ 		return -EINVAL;
+ 	pcie->base = devm_ioremap_resource(dev, regs);
+-	if (IS_ERR(pcie->base)) {
+-		dev_err(dev, "failed to map register base\n");
+-		return PTR_ERR(pcie->base);
+-	}
++	if (IS_ERR(pcie->base))
++		return dev_err_probe(dev, PTR_ERR(pcie->base), "failed to map register base\n");
+ 
+ 	pcie->reg_base = regs->start;
+ 
+@@ -888,34 +886,20 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
+ 
+ 	ret = devm_reset_control_bulk_get_optional_shared(dev, num_resets,
+ 							  pcie->phy_resets);
+-	if (ret) {
+-		dev_err(dev, "failed to get PHY bulk reset\n");
+-		return ret;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to get PHY bulk reset\n");
+ 
+ 	pcie->mac_reset = devm_reset_control_get_optional_exclusive(dev, "mac");
+-	if (IS_ERR(pcie->mac_reset)) {
+-		ret = PTR_ERR(pcie->mac_reset);
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(dev, "failed to get MAC reset\n");
+-
+-		return ret;
+-	}
++	if (IS_ERR(pcie->mac_reset))
++		return dev_err_probe(dev, PTR_ERR(pcie->mac_reset), "failed to get MAC reset\n");
+ 
+ 	pcie->phy = devm_phy_optional_get(dev, "pcie-phy");
+-	if (IS_ERR(pcie->phy)) {
+-		ret = PTR_ERR(pcie->phy);
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(dev, "failed to get PHY\n");
+-
+-		return ret;
+-	}
++	if (IS_ERR(pcie->phy))
++		return dev_err_probe(dev, PTR_ERR(pcie->phy), "failed to get PHY\n");
+ 
+ 	pcie->num_clks = devm_clk_bulk_get_all(dev, &pcie->clks);
+-	if (pcie->num_clks < 0) {
+-		dev_err(dev, "failed to get clocks\n");
+-		return pcie->num_clks;
+-	}
++	if (pcie->num_clks < 0)
++		return dev_err_probe(dev, pcie->num_clks, "failed to get clocks\n");
+ 
+ 	ret = of_property_read_u32(dev->of_node, "num-lanes", &num_lanes);
+ 	if (ret == 0) {
 -- 
 2.53.0.414.gf7e9f6c205-goog
 
