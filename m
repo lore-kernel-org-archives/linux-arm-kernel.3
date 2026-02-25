@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30160F55452
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 03:52:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB28F55452
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 03:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l9PrUBWLmkhjPnxdXWvJ+SdleTgLF5abPoBvW8rUQkE=; b=qOY8MDWiwM/sNMdmuVUpOCAvOI
-	7cdaMyxVLd3NXFvOMXn/a5Xm1DJiDAYooO7r9yGLJn8QPyctVy/7duUPQ/14w+ijmWUxKJipdilrO
-	iXzU4BjajabcraXaQvluKCavPN8bCga+2bs5n4AdZrPYfkZymTpKRSx8SOP9a+XFK+KDgYKYQqDUm
-	6qHmOGQIxF2GceQa/EUbJjF6a2idhTCt2O7QWfuvBug39TkOCb8dVK/IkSFzSYLJdJCW377dGuTYV
-	9YXx6SjK+3NmLJFuuo/BvXbXKXnOF2iktGblJyEZpVKYxNjbKv9Dgu0pnLTqCnWL1tkMM4i3a3KRz
-	DzF2t39Q==;
+	bh=kanCFeNtmoqsE80GUPjGn4xqHS1sdBUq7vbrjsSrXI8=; b=qqkJUnXIm+ufp35eI9SK0wqMhZ
+	Wi9byQO9JaEzINvPHjOb5jL9UlTn4+e/bJJQK0fIDN4jKl0sOyY1hDGLSZKuTTDIpI8BS5IdoSuiD
+	OvCu7h+q1vTfHSiUP3mhn3lFu3O2YjQBkhImm8i6G5omlq5qBX0PhUy1NdeFUDcnOqI1M9LFNhDxi
+	TVAqnoTlACuhS3ssJUsnFzQlEfhU3FUYDgPBgrITAYo2h6TPxtd86qgbdimZQNoDAZZy7kTu4MBcX
+	mEEthLWXWxs59FHr0X/fbRSha5coc5wT6U9ulVA/pAXxOxC3XeQitXI+w1gS5W/l3N6xnv8L7To33
+	BRNfsZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv5wb-00000003ABw-0rxG;
-	Wed, 25 Feb 2026 03:52:13 +0000
+	id 1vv5we-00000003ADI-26Qo;
+	Wed, 25 Feb 2026 03:52:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv5wW-00000003A9V-3FkT
+	id 1vv5wZ-00000003AAw-2pNN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 03:52:09 +0000
+	Wed, 25 Feb 2026 03:52:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 834C11691;
-	Tue, 24 Feb 2026 19:52:01 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 99531169E;
+	Tue, 24 Feb 2026 19:52:03 -0800 (PST)
 Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1BF7A3F7BD;
-	Tue, 24 Feb 2026 19:52:05 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2D4223F7BD;
+	Tue, 24 Feb 2026 19:52:08 -0800 (PST)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -44,17 +44,17 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Subject: [PATCH 1/2] arm64/mm: Directly use TTBRx_EL1_ASID_MASK
-Date: Wed, 25 Feb 2026 03:51:56 +0000
-Message-Id: <20260225035157.1159962-2-anshuman.khandual@arm.com>
+Subject: [PATCH 2/2] arm64/mm: Directly use TTBRx_EL1_CnP
+Date: Wed, 25 Feb 2026 03:51:57 +0000
+Message-Id: <20260225035157.1159962-3-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260225035157.1159962-1-anshuman.khandual@arm.com>
 References: <20260225035157.1159962-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_195208_888612_30E4DF66 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20260224_195211_839309_26283243 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,9 +69,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace all TTBR_ASID_MASK macro instances with TTBRx_EL1_ASID_MASK which
-is a standard field mask from tools sysreg format. Drop the now redundant
-custom macro TTBR_ASID_MASK. No functional change.
+Replace all TTBR_CNP_BIT macro instances with TTBRx_EL1_CNP_BIT which
+is a standard field from tools sysreg format. Drop the now redundant
+custom macro TTBR_CNP_BIT. No functional change.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
@@ -82,145 +82,89 @@ Cc: linux-kernel@vger.kernel.org
 Cc: kvmarm@lists.linux.dev
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/arm64/include/asm/asm-uaccess.h | 2 +-
- arch/arm64/include/asm/mmu.h         | 1 -
- arch/arm64/include/asm/mmu_context.h | 2 +-
- arch/arm64/include/asm/uaccess.h     | 6 +++---
- arch/arm64/kernel/entry.S            | 2 +-
- arch/arm64/kvm/at.c                  | 2 +-
- arch/arm64/kvm/nested.c              | 4 ++--
- arch/arm64/mm/context.c              | 6 +++---
- 8 files changed, 12 insertions(+), 13 deletions(-)
+ arch/arm64/include/asm/pgtable-hwdef.h | 2 --
+ arch/arm64/kernel/mte.c                | 4 ++--
+ arch/arm64/kvm/hyp/nvhe/hyp-init.S     | 4 ++--
+ arch/arm64/mm/context.c                | 2 +-
+ arch/arm64/mm/mmu.c                    | 2 +-
+ 5 files changed, 6 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
-index 9148f5a31968..12aa6a283249 100644
---- a/arch/arm64/include/asm/asm-uaccess.h
-+++ b/arch/arm64/include/asm/asm-uaccess.h
-@@ -15,7 +15,7 @@
- #ifdef CONFIG_ARM64_SW_TTBR0_PAN
- 	.macro	__uaccess_ttbr0_disable, tmp1
- 	mrs	\tmp1, ttbr1_el1			// swapper_pg_dir
--	bic	\tmp1, \tmp1, #TTBR_ASID_MASK
-+	bic	\tmp1, \tmp1, #TTBRx_EL1_ASID_MASK
- 	sub	\tmp1, \tmp1, #RESERVED_SWAPPER_OFFSET	// reserved_pg_dir
- 	msr	ttbr0_el1, \tmp1			// set reserved TTBR0_EL1
- 	add	\tmp1, \tmp1, #RESERVED_SWAPPER_OFFSET
-diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-index 137a173df1ff..019b36cda380 100644
---- a/arch/arm64/include/asm/mmu.h
-+++ b/arch/arm64/include/asm/mmu.h
-@@ -10,7 +10,6 @@
- #define MMCF_AARCH32	0x1	/* mm context flag for AArch32 executables */
- #define USER_ASID_BIT	48
- #define USER_ASID_FLAG	(UL(1) << USER_ASID_BIT)
--#define TTBR_ASID_MASK	(UL(0xffff) << 48)
+diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
+index d49180bb7cb3..5e6809a462c7 100644
+--- a/arch/arm64/include/asm/pgtable-hwdef.h
++++ b/arch/arm64/include/asm/pgtable-hwdef.h
+@@ -223,8 +223,6 @@
+  */
+ #define S1_TABLE_AP		(_AT(pmdval_t, 3) << 61)
  
- #ifndef __ASSEMBLER__
- 
-diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-index cc80af59c69e..5b1ecde9f14b 100644
---- a/arch/arm64/include/asm/mmu_context.h
-+++ b/arch/arm64/include/asm/mmu_context.h
-@@ -210,7 +210,7 @@ static inline void update_saved_ttbr0(struct task_struct *tsk,
- 	if (mm == &init_mm)
- 		ttbr = phys_to_ttbr(__pa_symbol(reserved_pg_dir));
- 	else
--		ttbr = phys_to_ttbr(virt_to_phys(mm->pgd)) | ASID(mm) << 48;
-+		ttbr = phys_to_ttbr(virt_to_phys(mm->pgd)) | ASID(mm) << TTBRx_EL1_ASID_SHIFT;
- 
- 	WRITE_ONCE(task_thread_info(tsk)->ttbr0, ttbr);
- }
-diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
-index 9810106a3f66..86dfc356ee6e 100644
---- a/arch/arm64/include/asm/uaccess.h
-+++ b/arch/arm64/include/asm/uaccess.h
-@@ -62,7 +62,7 @@ static inline void __uaccess_ttbr0_disable(void)
- 
- 	local_irq_save(flags);
- 	ttbr = read_sysreg(ttbr1_el1);
--	ttbr &= ~TTBR_ASID_MASK;
-+	ttbr &= ~TTBRx_EL1_ASID_MASK;
- 	/* reserved_pg_dir placed before swapper_pg_dir */
- 	write_sysreg(ttbr - RESERVED_SWAPPER_OFFSET, ttbr0_el1);
- 	/* Set reserved ASID */
-@@ -85,8 +85,8 @@ static inline void __uaccess_ttbr0_enable(void)
- 
- 	/* Restore active ASID */
- 	ttbr1 = read_sysreg(ttbr1_el1);
--	ttbr1 &= ~TTBR_ASID_MASK;		/* safety measure */
--	ttbr1 |= ttbr0 & TTBR_ASID_MASK;
-+	ttbr1 &= ~TTBRx_EL1_ASID_MASK;		/* safety measure */
-+	ttbr1 |= ttbr0 & TTBRx_EL1_ASID_MASK;
- 	write_sysreg(ttbr1, ttbr1_el1);
- 
- 	/* Restore user page table */
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index f8018b5c1f9a..9e1bcc821a16 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -473,7 +473,7 @@ alternative_else_nop_endif
+-#define TTBR_CNP_BIT		(UL(1) << 0)
+-
+ /*
+  * TCR flags.
+  */
+diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+index 32148bf09c1d..eceead1686f2 100644
+--- a/arch/arm64/kernel/mte.c
++++ b/arch/arm64/kernel/mte.c
+@@ -315,8 +315,8 @@ void mte_cpu_setup(void)
+ 	 * CnP is not a boot feature so MTE gets enabled before CnP, but let's
+ 	 * make sure that is the case.
  	 */
- SYM_CODE_START_LOCAL(__swpan_entry_el1)
- 	mrs	x21, ttbr0_el1
--	tst	x21, #TTBR_ASID_MASK		// Check for the reserved ASID
-+	tst	x21, #TTBRx_EL1_ASID_MASK	// Check for the reserved ASID
- 	orr	x23, x23, #PSR_PAN_BIT		// Set the emulated PAN in the saved SPSR
- 	b.eq	1f				// TTBR0 access already disabled
- 	and	x23, x23, #~PSR_PAN_BIT		// Clear the emulated PAN in the saved SPSR
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 885bd5bb2f41..d5c342ccf0f9 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -560,7 +560,7 @@ static int walk_s1(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 			BUG();
- 		}
+-	BUG_ON(read_sysreg(ttbr0_el1) & TTBR_CNP_BIT);
+-	BUG_ON(read_sysreg(ttbr1_el1) & TTBR_CNP_BIT);
++	BUG_ON(read_sysreg(ttbr0_el1) & TTBRx_EL1_CnP);
++	BUG_ON(read_sysreg(ttbr1_el1) & TTBRx_EL1_CnP);
  
--		wr->asid = FIELD_GET(TTBR_ASID_MASK, asid_ttbr);
-+		wr->asid = FIELD_GET(TTBRx_EL1_ASID_MASK, asid_ttbr);
- 		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
- 		    !(tcr & TCR_ASID16))
- 			wr->asid &= GENMASK(7, 0);
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 620126d1f0dc..82558fb2685f 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1343,7 +1343,7 @@ static bool kvm_vncr_tlb_lookup(struct kvm_vcpu *vcpu)
- 			    vcpu_read_sys_reg(vcpu, TTBR0_EL2));
- 		u16 asid;
+ 	/* Normal Tagged memory type at the corresponding MAIR index */
+ 	sysreg_clear_set(mair_el1,
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+index 0d42eedc7167..445eb0743af2 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+@@ -130,7 +130,7 @@ SYM_CODE_START_LOCAL(___kvm_hyp_init)
+ 	ldr	x1, [x0, #NVHE_INIT_PGD_PA]
+ 	phys_to_ttbr x2, x1
+ alternative_if ARM64_HAS_CNP
+-	orr	x2, x2, #TTBR_CNP_BIT
++	orr	x2, x2, #TTBRx_EL1_CnP
+ alternative_else_nop_endif
+ 	msr	ttbr0_el2, x2
  
--		asid = FIELD_GET(TTBR_ASID_MASK, ttbr);
-+		asid = FIELD_GET(TTBRx_EL1_ASID_MASK, ttbr);
- 		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
- 		    !(tcr & TCR_ASID16))
- 			asid &= GENMASK(7, 0);
-@@ -1459,7 +1459,7 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
- 			    vcpu_read_sys_reg(vcpu, TTBR0_EL2));
- 		u16 asid;
+@@ -291,7 +291,7 @@ SYM_TYPED_FUNC_START(__pkvm_init_switch_pgd)
+ 	/* Install the new pgtables */
+ 	phys_to_ttbr x5, x0
+ alternative_if ARM64_HAS_CNP
+-	orr	x5, x5, #TTBR_CNP_BIT
++	orr	x5, x5, #TTBRx_EL1_CnP
+ alternative_else_nop_endif
+ 	msr	ttbr0_el2, x5
  
--		asid = FIELD_GET(TTBR_ASID_MASK, ttbr);
-+		asid = FIELD_GET(TTBRx_EL1_ASID_MASK, ttbr);
- 		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
- 		    !(tcr & TCR_ASID16))
- 			asid &= GENMASK(7, 0);
 diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index b2ac06246327..718c495832d0 100644
+index 718c495832d0..0f4a28b87469 100644
 --- a/arch/arm64/mm/context.c
 +++ b/arch/arm64/mm/context.c
-@@ -358,11 +358,11 @@ void cpu_do_switch_mm(phys_addr_t pgd_phys, struct mm_struct *mm)
+@@ -354,7 +354,7 @@ void cpu_do_switch_mm(phys_addr_t pgd_phys, struct mm_struct *mm)
+ 
+ 	/* Skip CNP for the reserved ASID */
+ 	if (system_supports_cnp() && asid)
+-		ttbr0 |= TTBR_CNP_BIT;
++		ttbr0 |= TTBRx_EL1_CnP;
  
  	/* SW PAN needs a copy of the ASID in TTBR0 for entry */
  	if (IS_ENABLED(CONFIG_ARM64_SW_TTBR0_PAN))
--		ttbr0 |= FIELD_PREP(TTBR_ASID_MASK, asid);
-+		ttbr0 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index a6a00accf4f9..c22678769c37 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -2188,7 +2188,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
+ 	phys_addr_t ttbr1 = phys_to_ttbr(virt_to_phys(pgdp));
  
- 	/* Set ASID in TTBR1 since TCR.A1 is set */
--	ttbr1 &= ~TTBR_ASID_MASK;
--	ttbr1 |= FIELD_PREP(TTBR_ASID_MASK, asid);
-+	ttbr1 &= ~TTBRx_EL1_ASID_MASK;
-+	ttbr1 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
+ 	if (cnp)
+-		ttbr1 |= TTBR_CNP_BIT;
++		ttbr1 |= TTBRx_EL1_CnP;
  
- 	cpu_set_reserved_ttbr0_nosync();
- 	write_sysreg(ttbr1, ttbr1_el1);
+ 	replace_phys = (void *)__pa_symbol(idmap_cpu_replace_ttbr1);
+ 
 -- 
 2.30.2
 
