@@ -4,165 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AACDBF55425
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 00:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB183F55425
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 00:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cFbFxILw8z/WHEBjoq2ZMztetevIFEwE8orbafe4X+g=; b=CyXy0ywsOHdiu0A1agX+/DOklq
-	lLUg+bpqbOyAaQx03Sl+ZgF2Ve7nPwzndUpCST2NxGNjBeyv2cHaNyQwyeASLfBqkKPuwV+0dehI0
-	h9zpEvFUFY4LBMsWJ652quV1KrxSmiKj03EECPAAH5tUXciLNCj85nH0rgLr+YLySC7xvHrEs55J8
-	COQYnWazGPvLPNid/LnuouKdPaTjQnEa3hYMBrmyFh2m732/z5gREKKFddY9EweDgrVtN4zFEY9P4
-	Ku6MTSe8giVPk0qrKFrr3HWjfXwNeuOOYofX07Fyy3ZtNI3e15PXLDqYuKJmn7c+qIqNv5JyQanCb
-	Gd9T8kiQ==;
+	bh=2hwbo+qh3ZKjcL1ArZ2cEab76Y3DqcSCVeG8QenLMGQ=; b=RQdE65hvFV2k/rm4aKV1766p06
+	K3izc5x0XyOeXfebldBdzLa3MzZQ2XQ+c3YYl12WHh+aKbExN+flrzdMmhdCT2sFMBUkinBZ2Ex/7
+	ogNxFVfYUHRN5wNY3/zd5lqpKP/7N5FJMZHfzEuvD01nyiteXP+z6ks1pqfGoJIOfpy0OKLfLS7Ws
+	aCSJrMDrvN3oYBxWF0BuuMroRA1dj+utB8QCbw5ieLJB5aXyEGKKfiXO4jqrVEhVdxeebyhgUUp91
+	yBbL6YslEOkx6LXg31BLqobqMVOCzYDbuRdy63/CgU1wBL3XjiLbSsEr3A1wsCBjATeG3wM37LMhj
+	VHvLUp+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv2Nx-00000002xau-1q5s;
-	Wed, 25 Feb 2026 00:04:13 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1vv2Pz-00000002xs6-372H;
+	Wed, 25 Feb 2026 00:06:19 +0000
+Received: from mail-dl1-x1241.google.com ([2607:f8b0:4864:20::1241])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv2Nu-00000002xa0-2eOy
+	id 1vv2Px-00000002xrM-0XrM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 00:04:11 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61OKo3mo2894740;
-	Wed, 25 Feb 2026 00:03:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=cFbFxI
-	Lw8z/WHEBjoq2ZMztetevIFEwE8orbafe4X+g=; b=TDPeo8v/2+wirzhVbwsQUy
-	hYpVYSVAc0lg1TDb8j+bjbT6nU7ETrG+IW1bV3dwqFTJ6ryXa/vazci9dAxEZTNG
-	za6txZ0VpMGiiTyrUkYkGSynN5Ugck33b3VltjtkuYTBAXc2QR0FcN2P2Jgs9bPx
-	33pfHCbLbYKsuq2iKQ4mZMaPcoeJcGDnQZdFaoTQPUpF6waYgUBh2mw1Xmyj4WfK
-	jmg+Q3C2q+Q8FFiQtMa7+TqiQdMIpB2/iOqevicTdezsXzN5wVOQkBIzazGpnvp9
-	ZrPaq3cjiJH4QOKOjUUkRtj0uNcvGJ+LBM3BOZgkZvNY8O2h1gvNk7hddd9AbgWQ
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cf471x2sa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Feb 2026 00:03:15 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61OLXORR030259;
-	Wed, 25 Feb 2026 00:03:14 GMT
-Received: from smtprelay05.dal12v.mail.ibm.com ([172.16.1.7])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cfrhkb1gd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Feb 2026 00:03:14 +0000
-Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
-	by smtprelay05.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61P03DrN32375318
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 25 Feb 2026 00:03:13 GMT
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1E5865805A;
-	Wed, 25 Feb 2026 00:03:13 +0000 (GMT)
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D3A8E5805C;
-	Wed, 25 Feb 2026 00:03:10 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.83.151])
-	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 25 Feb 2026 00:03:10 +0000 (GMT)
-Message-ID: <ad471c33eeb9e21c49ac81032dc64555a2fb816f.camel@linux.ibm.com>
-Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot
- integrity-wide
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Coiby Xu <coxu@redhat.com>, Dave Hansen <dave.hansen@intel.com>,
-        linux-integrity@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
-        Roberto Sassu <roberto.sassu@huaweicloud.com>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Will Deacon	 <will@kernel.org>,
-        Madhavan
- Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman	 <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev	
- <agordeev@linux.ibm.com>,
-        Christian Borntraeger
- <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav
- Petkov	 <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)"	 <x86@kernel.org>,
-        "H.
- Peter Anvin" <hpa@zytor.com>,
-        Roberto Sassu	 <roberto.sassu@huawei.com>,
-        Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
-        Eric Snowberg
- <eric.snowberg@oracle.com>,
-        Paul Moore <paul@paul-moore.com>, James Morris
- <jmorris@namei.org>,
-        "Serge E. Hallyn"	 <serge@hallyn.com>,
-        Jarkko
- Sakkinen <jarkko@kernel.org>,
-        "moderated list:ARM64 PORT (AARCH64
- ARCHITECTURE)"	 <linux-arm-kernel@lists.infradead.org>,
-        open list
- <linux-kernel@vger.kernel.org>,
-        "open list:LINUX FOR POWERPC (32-BIT AND
- 64-BIT)"	 <linuxppc-dev@lists.ozlabs.org>,
-        "open list:S390 ARCHITECTURE"	
- <linux-s390@vger.kernel.org>,
-        "open list:EXTENSIBLE FIRMWARE INTERFACE
- (EFI)"	 <linux-efi@vger.kernel.org>,
-        "open list:SECURITY SUBSYSTEM"	
- <linux-security-module@vger.kernel.org>,
-        "open
- list:KEYS/KEYRINGS_INTEGRITY"	 <keyrings@vger.kernel.org>
-In-Reply-To: <CAMj1kXFBMSEdRL8FotASbQO3dcfNG0bpp9Vnm5JPn-yjyDr=GA@mail.gmail.com>
-References: <20260115004328.194142-1-coxu@redhat.com>
-	 <20260115004328.194142-2-coxu@redhat.com>
-	 <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
-	 <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
-	 <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
-	 <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
-	 <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
-	 <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
-	 <aW2i3yacr5TvWU-m@Rk>
-	 <1a0b6e5601a673a81f8823de0815f92b7afbeb60.camel@linux.ibm.com>
-	 <CAMj1kXFBMSEdRL8FotASbQO3dcfNG0bpp9Vnm5JPn-yjyDr=GA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 24 Feb 2026 19:03:10 -0500
+	Wed, 25 Feb 2026 00:06:18 +0000
+Received: by mail-dl1-x1241.google.com with SMTP id a92af1059eb24-1270adc5121so7236390c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 16:06:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1771977976; x=1772582776; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2hwbo+qh3ZKjcL1ArZ2cEab76Y3DqcSCVeG8QenLMGQ=;
+        b=VuWueEku/HegHhxUbcr3BcYj9CUxGp/xQkoRQ1X6igtV/t6RLNI4zadyefePrGqxpq
+         vdTQz9/vZ9UdnH3Ysoud6cEbJbtZW381dkW9pzTD75RraqS1j1Xe1S2Anb7lcsu6zFcZ
+         GQf9Xpn7JMxGMQswBEfJkTPkD0cex5MELrVytmR/G+SIyqVb15yy8tvK48yu5KxSjZVc
+         lzDTAYP2gRi50qo/hTK9H/J3C1zDzyij12UBT6eiQfj6CDR0xcKX4l9ilOYI73vBcjNk
+         r/2kigBXeA0VdFKkacLbCCGq9iZ2fMsrGV9GAkXdRabr+M7pDKdvr1meTSOfKGRA0GiZ
+         vFNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771977976; x=1772582776;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2hwbo+qh3ZKjcL1ArZ2cEab76Y3DqcSCVeG8QenLMGQ=;
+        b=c/g+hFSed/9mNpH5LmJljhF+/QHE/7JWbgy7vERQsqw6naTxgovOzqXWTaVycKHz9O
+         avhQrjUy4hIlDoX8TJFhAcSmF/iBPzSgqfE5rD2l6Xt1PYB9K+wYi0qOHSxjYSl5iGxj
+         aOv0Aq71oTjW/K5NvhtLAv64Jbb99yzKN3Plq88I7re7WytbsTAiycY8yMJbg7Ag7o/n
+         4nrDmTGWPQ7YvVXtGuIdLMJWPbdZYyLvgimxm+bhQbGNfIItz/Yti0jPAP+KHCkCpMCu
+         DFhUAGKzTl72aLg65Fv5bCqZA1cUAwKInWtq/nJOpd9IJ6zTHI45LHGlc6IvTrHKDkdG
+         rwQw==
+X-Forwarded-Encrypted: i=1; AJvYcCVSTuOYOdrMpw9aMWySCedFZgj25DKWkmC1iyR4dq7b2gXhT9xsxjFUCTRDWH0Da9ZPKzZztThIxAQCwZGQFMz1@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQk2fHIccLSbCH6/c4INC3w9uYSSwtlDEUP/oId2GjdY7ql2lb
+	jViGCL8+PFm52oOquQnnyAWbiXpitO0kKSzWBYZJ8PCE2EvgKUxY3L2o5Vv4em7LkCs=
+X-Gm-Gg: ATEYQzwcxS3POZvZLbhPG74C6ZtzU3UEjNVuIPXj38ZqIL0+mcWt3/pqQ205RWyRrep
+	jRYdmE5YK7TwKlMNC2qruulH1Mhr/PAhxwQyPp/zPOJ8PhweY8d8lZRuysaIxwNU7r3oempur3Z
+	oc0qE+eSnXslMEBKYUS3A68Q+PO/DImN8n/X35WpiVs489zV6D9rZKxvocXEzpOBYDIOjvGziW5
+	qh0vtzmoQahHGULwtbg1h1BktHxx/2vrLvfk3jQFVK+AyLkgiFGlJcKteqfK66JZTOj/7/pJDPL
+	vsh0qziT0hnNDtUMlF3eqLEH8FQHRvhaAmqx+HSjhCgKYgkP+ej0kRQ+ziOWERyv3vZP7ofg7u4
+	ndG35W44DF6sNGEopZ7lSzwAGGxX9fh+zKpu8ixIU4bETFtP2rviqKaIPCdtg0uBL8jL+jSVugU
+	S8eGektPl7hcLQT2Vn3WSG1CWmOVojNIHGMTSmr6Z/nzM=
+X-Received: by 2002:a05:7022:396:b0:127:c88:d597 with SMTP id a92af1059eb24-1276acec1a2mr5538246c88.10.1771977975966;
+        Tue, 24 Feb 2026 16:06:15 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1276af2edd7sm12707115c88.8.2026.02.24.16.06.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Feb 2026 16:06:15 -0800 (PST)
+Date: Tue, 24 Feb 2026 16:06:13 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Kito Cheng <kito.cheng@sifive.com>,
+	Jesse Huang <jesse.huang@sifive.com>,
+	valentin.haudiquet@canonical.com, heinrich.schuchardt@canonical.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH 0/5] mm: arch/shstk: Common shadow stack mapping helper
+ and VM_NOHUGEPAGE
+Message-ID: <aZ489QDHxEZfLydn@debug.ba.rivosinc.com>
+References: <20260224175800.2500729-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: KmeUE4GQkjFCEA-onCkjAzUZBg2oc_Jk
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI0MDIwOSBTYWx0ZWRfX2xjh5sVgzhOS
- dnNMnaiYXxvEopWHavbqXkdT3qDid/FcKrZW6PmQdfwrcST/ZX7r1DIOCK79NPeBkmvn5ZHnYe9
- iQCAUuGXNwIfntSmXBmb3sUwGlIdjaEKqZi1yYK+izhn6dUmiu/Nzuts6JG8Ag64IbvlsCzY9HR
- y1IRHwNmX0lY22905adj132keU3lKlbxSTaMIzXpdbD2idW7uvTZCuaRnWcSmyCenN1pvMDPDtz
- Ojr2imkhf9l9gWYtYrhl9C6I4J8BD8+fWsWgo8o8r/qtjNfpI8oxVuSL/ZlJTwW4+zm6hRkbkoN
- 4lqBW+WzVRY5+AOS30Msdg/NZ8hJlFIKGLqUHVrs0oDlu2icF3c2sOI3QWj0LDoJJ5HzB/Elg74
- cnpm/637Zl1QbABBe956sXpIE+1HpOurd+ceDGYdkaBpuRjH9KncE0ga2Ag7Qpm+1XRIU3zjk+0
- 9ddSy/sJJwN86SA5NEA==
-X-Authority-Analysis: v=2.4 cv=R7wO2NRX c=1 sm=1 tr=0 ts=699e3c44 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=VwQbUJbxAAAA:8
- a=20KFwNOVAAAA:8 a=VnNF1IyMAAAA:8 a=qGODes0vNXlHMsmaWvgA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: 2x_WgBn-lXEWRE-KKGAySI2MMRU7Qajr
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-24_03,2026-02-23_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 clxscore=1015 impostorscore=0 phishscore=0 spamscore=0
- suspectscore=0 malwarescore=0 bulkscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602240209
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20260224175800.2500729-1-catalin.marinas@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_160410_679231_15E2DF7B 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20260224_160617_270943_59BA867D 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,51 +112,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-01-21 at 17:25 +0100, Ard Biesheuvel wrote:
-> On Wed, 21 Jan 2026 at 16:41, Mimi Zohar <zohar@linux.ibm.com> wrote:
-> >=20
-> > On Mon, 2026-01-19 at 12:04 +0800, Coiby Xu wrote:
-> >=20
-> > > diff --git a/security/integrity/ima/Kconfig b/security/integrity/ima/=
-Kconfig
-> > > index 976e75f9b9ba..5dce572192d6 100644
-> > > --- a/security/integrity/ima/Kconfig
-> > > +++ b/security/integrity/ima/Kconfig
-> > > @@ -311,6 +311,7 @@ config IMA_QUEUE_EARLY_BOOT_KEYS
-> > >   config IMA_SECURE_AND_OR_TRUSTED_BOOT
-> > >          bool
-> > >          depends on IMA_ARCH_POLICY
-> > > +       depends on INTEGRITY_SECURE_BOOT
-> > >=20
-> > >=20
-> > > Another idea is make a tree-wide arch_get_secureboot i.e. to move
-> > > current arch_ima_get_secureboot code to arch-specific secure boot
-> > > implementation. By this way, there will no need for a new Kconfig opt=
-ion
-> > > INTEGRITY_SECURE_BOOT. But I'm not sure if there is any unforeseen
-> > > concern.
-> >=20
-> > Originally basing IMA policy on the secure boot mode was an exception. =
- As long
-> > as making it public isn't an issue any longer, this sounds to me.  Ard,=
- Dave, do
-> > you have any issues with replacing arch_ima_get_secureboot() with
-> > arch_get_secureboot()?
->=20
-> I don't see an issue with that. If there is a legitimate need to
-> determine this even if IMA is not enabled, then this makes sense.
++ Kito, Jesse, Valentin and Heinrich.
 
-Ard, Dave -
+I had to rebuild toolchain by bumping up prctl (prctl conflict in 7.0 merge led
+to landing pad prctls bumping by 1)
 
-FYI, Coiby posted v3 of this patch set[1], which is queued in the next-
-integrity-testing branch[2].
+Jesse/Kito,
 
-[1]
-https://lore.kernel.org/linux-integrity/20260213012851.2532722-1-coxu@redha=
-t.com/
+So you might want to do that as well before sending out next iteration of libc
+changes.
 
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/zohar/linux-integrity.g=
-it/
+Rest inline.
 
-Mimi
+On Tue, Feb 24, 2026 at 05:57:52PM +0000, Catalin Marinas wrote:
+>Hi,
+>
+>arm64, riscv and x86 all implement shadow stack support and use a
+>similar pattern for mapping the user shadow stack (originally cloned
+>from x86). Extract this common pattern into a shared helper -
+>vm_mmap_shadow_stack().
+>
+>Patch 1 introduces vm_mmap_shadow_stack() in mm/util.c, which wraps
+>do_mmap() with the flags required for a VM_SHADOW_STACK mapping. The
+>helper uses PROT_READ|PROT_WRITE prot bits instead of the earlier x86
+>approach of PROT_READ with an explicit VM_WRITE vm_flag. Functionally
+>there is no difference. I looked up the history of this flag on the
+>lists but it wasn't conclusive. My guess is that the original aim was to
+>mark the vma not writable but that would confuse the kernel, so it ended
+>up with the VM_WRITE flag instead.
+>
+>Patches 2-4 update arm64, riscv and x86 respectively to use the new
+>helper, removing the duplicated mmap logic.
+>
+>Patch 5 forces VM_NOHUGEPAGE when allocating the shadow stack via the
+>new helper, mirroring what commit c4608d1bf7c6 ("mm: mmap: map MAP_STACK
+>to VM_NOHUGEPAGE") did for normal stacks. It will save some memory,
+>especially when the ulimit -s is high.
+>
+>Boot-tested on x86, fully tested on arm64. I do not have a compiler
+>version that supports the -march=rv64ima_zicfiss_zicfilp option for
+>riscv, so any help with testing is welcome.
+
+Catalin,
+
+FWIW, I applied your patches on v7.0-rc1 and risc-v cfi kselftest passes
+
+# ./cfitests
+TAP version 13
+# Starting risc-v tests
+# Landing pad and shadow stack are enabled for binary
+# cfi_ptrace_test, ptrace test succeeded
+# Executing RISC-V shadow stack self tests
+1..5
+# Exercising shadow stack fork test
+# Parent pid 130 and child pid 132
+# dummy calls for sspush and sspopchk in context of parent
+# Spewing out shadow stack ptr: 7fff914b7fb8
+   This is to ensure shadow stack is indeed enabled and working
+# Waiting on child to finish
+# dummy calls for sspush and sspopchk in context of child
+# Spewing out shadow stack ptr: 7fff914b7fb8
+   This is to ensure shadow stack is indeed enabled and working
+ok 1 shstk fork test
+# Exercising shadow stack map test
+ok 2 map shadow stack syscall
+# Exercising shadow stack gup tests
+ok 3 shadow stack gup tests
+# Exercising shadow stack signal test
+ok 4 shadow stack signal tests
+# Exercising shadow stack protection test (WPT)
+ok 5 memory protections of shadow stack memory
+# Totals: pass:5 fail:0 xfail:0 xpass:0 skip:0 error:0
+#
+
+So you can tag tested by for risc-v.
+
+>
+>Thanks.
+>
+>Catalin Marinas (5):
+>  mm: Introduce vm_mmap_shadow_stack() as a helper for VM_SHADOW_STACK
+>    mappings
+>  arm64: gcs: Use the new common vm_mmap_shadow_stack() helper
+>  riscv: shstk: Use the new common vm_mmap_shadow_stack() helper
+>  x86: shstk: Use the new common vm_mmap_shadow_stack() helper
+>  mm: Do not map the shadow stack as THP
+>
+> arch/arm64/mm/gcs.c         | 14 +-------------
+> arch/riscv/kernel/usercfi.c | 12 +-----------
+> arch/x86/kernel/shstk.c     | 12 ++----------
+> include/linux/mm.h          |  4 ++++
+> mm/util.c                   | 29 +++++++++++++++++++++++++++++
+> 5 files changed, 37 insertions(+), 34 deletions(-)
+>
 
