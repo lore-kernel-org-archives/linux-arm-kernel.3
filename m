@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7A9FD374F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CADCFD3747
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HiNhnp/UpdXltyD3LOF3MjASPAeJbDVta/vtdwARuIU=; b=kuZ2qDRfU7VrSYNZv5EGytcvMh
-	W8QmnhqHXArN/euE4cxJjnWpb5Yv+FdS1fV1vUeOEHizIFzd3DQKIKv+2XWNxjJRLp8Yb3XH8Qb0y
-	8wcZ8F3w+mY4xhAkDL0jO+mZdkAOXeK662lhVouJSD7u4sCRicuEPOs2GyHxcSNaFNGXVtY0c43gM
-	sAw2nIJlY+xUBtC5wQlrfrYIK4bQUkrqnihrzUhHq+QOLPGZjKNuiJvBzZ4GmMIIryhzwNHYuJIC+
-	DvYgtx50+T3cF3QaewEH24CzrXgk62NPKs+VLdyJCpVR5XlLHPz5TS/epzk1OB8bEbkrN1zPYh3BG
-	Vj+IFfLw==;
+	bh=OWYwVky7PhOdh1TUQ3DYgeeCuP4zQUy8AXe8YExvGe0=; b=PLwvn4QFwqgzuMN5OgpOxj8NVE
+	3tEdSTd4ll7f8iwJZC0bsOtpzjUzmqsDXHjP80rPGSa2nV40WFVbPO6ZVO5xGWILg2KGsesl2rfTf
+	pqkJgdm7ZpF/3nmT5INlD/fKWbwZtYFl/hIIEDu2eRg7bn4lh4tby7Y5Z74Hwm0KtDO413xFF5Dym
+	cbrfua3X/N2W1lvINM/wVFU9kK/Tjs9v0Ll6VTeRmkPt4wOe1TsKP5eRwUqgWLyg/hFDuAOKvmVOa
+	AY4r8nzLvmoQzJsjUfGGWhWeU/fflZcRC6YGGv7hSdmWckfkj3mjjmOywYydkgufSyxfI+FL/E2ee
+	A6t9sXEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDsC-00000003yuF-1IEE;
-	Wed, 25 Feb 2026 12:20:12 +0000
+	id 1vvDsH-00000003yyG-1utR;
+	Wed, 25 Feb 2026 12:20:17 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDs4-00000003ypF-3xYp;
+	id 1vvDs5-00000003ypr-2h7t;
 	Wed, 25 Feb 2026 12:20:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772022002;
-	bh=JlJr368Iduqmofj7bAqR0psZwFk+j7JbEHb1QjmEwow=;
+	s=mail; t=1772022003;
+	bh=fWQKaJ3KVVTMepHRQE9cVCUJU/NMZyu4U07A0PswQIs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MKcN0WkXoI1k+XOxeqUivO4w6+eS6CbdalVc9vSRowUuCI19GMXAxIKWV8G7Sa/sl
-	 7Fft0mqi7+maC1RaLOsApU5jbz7VfIMaH7QBCY33wnT6sSYOB/tfSq8bif/CwIrVtc
-	 WqhxhKkkVs5I3fFvYwY07/uPZP62MEQeeqAIpoHius1byDluGaWZJlb616l7rY4yey
-	 vXEWAez+Vo1noZaJxKv72H3oXi876S/+91PoV3cr0xHCxVzXrpqmlhC2VNL6KdJnS/
-	 dNs5Dz9t8eHzk6xnfGzQUNMjHwobzN+W5AWq5F4wyQgBJmO4ppXsGnWOv8eQgHDWSg
-	 keF1ZB1jtWPkQ==
+	b=fdjFDCDCVQLTuObBeHpSDDrY0mNHmbBdwPFozwtkIedBw+D1aux27QHYXpCYS6c4n
+	 cU+vPjmWOdRz9Ak/F6ZiXYKIQ82z/10tUaznABe8FEYALu8sfWdIHCJmz64V2Xdxml
+	 OSMQS5k+6MzmhN3YqIiCIrKNZCRfSyd5OC47D6tSTIq70N0yFAY6U1DQDBdNUjSKXW
+	 ibrdvep6Ys44K4IKjMF80eDjpO7yhCY9yGAmm8QDzNa8T0u0v/JE6m83DXBNU3fWY3
+	 0n48Rkr4cYGzc0PuW53bPV5fP5Sj1oAGaUhWdcXCWd9fiKW3gZMrtwwPmYpdsvrjvH
+	 fnqg7bt1a/qbA==
 Received: from localhost (unknown [86.123.23.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5861417E04DC;
-	Wed, 25 Feb 2026 13:20:02 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2E66617E0D8E;
+	Wed, 25 Feb 2026 13:20:03 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 25 Feb 2026 14:19:58 +0200
-Subject: [PATCH v3 2/3] arm64: dts: rockchip: Fix vdec register blocks
- order on RK3576
+Date: Wed, 25 Feb 2026 14:19:59 +0200
+Subject: [PATCH v3 3/3] arm64: dts: rockchip: Update vdec register blocks
+ order on RK3588
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260225-vdec-reg-order-rk3576-v3-2-5a2ebe1b11a8@collabora.com>
+Message-Id: <20260225-vdec-reg-order-rk3576-v3-3-5a2ebe1b11a8@collabora.com>
 References: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
 In-Reply-To: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -66,8 +66,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  linux-media@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_042005_157447_5AD4F97D 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20260225_042005_830064_85C5720E 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +82,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When building device trees for the RK3576 based boards, DTC shows the
-following complaint:
+Provide the register blocks for RK3588 vdec0 & vdec1 nodes using the
+'link,function,cache' listing, which follows the address-based ordering
+and, implicitly, ensures the unit address points to the first register
+range.
 
-  rk3576.dtsi:1282.30-1304.5: Warning (simple_bus_reg): /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
-
-Provide the register blocks using the 'link,function,cache' listing,
-which follows the address-based ordering and, implicitly, ensures the
-unit address points to the first register range.
+This aligns with a similar fix for RK3576 where DTC complained about the
+bus address format.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 49ccdf12ef7e..45eb0d053a6f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1281,10 +1281,10 @@ gpu: gpu@27800000 {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 7fe9593d8c19..b95129f85aba 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1355,10 +1355,10 @@ vepu121_3_mmu: iommu@fdbac800 {
  
- 		vdec: video-codec@27b00000 {
- 			compatible = "rockchip,rk3576-vdec";
--			reg = <0x0 0x27b00100 0x0 0x500>,
--			      <0x0 0x27b00000 0x0 0x100>,
-+			reg = <0x0 0x27b00000 0x0 0x100>,
-+			      <0x0 0x27b00100 0x0 0x500>,
- 			      <0x0 0x27b00600 0x0 0x100>;
--			reg-names = "function", "link", "cache";
-+			reg-names = "link", "function", "cache";
- 			interrupts = <GIC_SPI 308 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cru ACLK_RKVDEC_ROOT>, <&cru HCLK_RKVDEC>,
- 				 <&cru ACLK_RKVDEC_ROOT_BAK>, <&cru CLK_RKVDEC_CORE>,
+ 	vdec0: video-codec@fdc38000 {
+ 		compatible = "rockchip,rk3588-vdec";
+-		reg = <0x0 0xfdc38100 0x0 0x500>,
+-		      <0x0 0xfdc38000 0x0 0x100>,
++		reg = <0x0 0xfdc38000 0x0 0x100>,
++		      <0x0 0xfdc38100 0x0 0x500>,
+ 		      <0x0 0xfdc38600 0x0 0x100>;
+-		reg-names = "function", "link", "cache";
++		reg-names = "link", "function", "cache";
+ 		interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		clocks = <&cru ACLK_RKVDEC0>, <&cru HCLK_RKVDEC0>, <&cru CLK_RKVDEC0_CA>,
+ 			 <&cru CLK_RKVDEC0_CORE>, <&cru CLK_RKVDEC0_HEVC_CA>;
+@@ -1387,10 +1387,10 @@ vdec0_mmu: iommu@fdc38700 {
+ 
+ 	vdec1: video-codec@fdc40000 {
+ 		compatible = "rockchip,rk3588-vdec";
+-		reg = <0x0 0xfdc40100 0x0 0x500>,
+-		      <0x0 0xfdc40000 0x0 0x100>,
++		reg = <0x0 0xfdc40000 0x0 0x100>,
++		      <0x0 0xfdc40100 0x0 0x500>,
+ 		      <0x0 0xfdc40600 0x0 0x100>;
+-		reg-names = "function", "link", "cache";
++		reg-names = "link", "function", "cache";
+ 		interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		clocks = <&cru ACLK_RKVDEC1>, <&cru HCLK_RKVDEC1>, <&cru CLK_RKVDEC1_CA>,
+ 			 <&cru CLK_RKVDEC1_CORE>, <&cru CLK_RKVDEC1_HEVC_CA>;
 
 -- 
 2.52.0
