@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4921AEFD23E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4630F357DA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GXkTgtMOLhl4TizRQ1OlW2YG7QtDfVSM79TSTL4IFME=; b=xFj4nHIZGhe3fHDyQJBxmSWxc6
-	x9litqNIsffNzODtZz6Ps2V3rHWVYs8M/292xL7CsNbaS4nJd1LoYZ9XVijV+RQLZ0Z3+LC2hl9GA
-	8lkL+Nfk/0vfcapFDOaHoHV9MkjaOTYBUjmxHxdmQ0yjHzYlIiE0+G04Kek9H1FNsfzDKGWjQMazr
-	ycu2z8Aw6O4j864twyooGs4G/AEhahmjvzMTOUcsDR5nSfFQA2lVcZR1ZRk4My9plyZGhhITCMDBK
-	LtPSfkPHadOZgH/wWl6TJBa1ErGO0Yk77w3Qb59S2R99xitibC2RJ3UapoxXuki/+SEHup3evB1hQ
-	SUoVeRhw==;
+	bh=HHdWtwcSGCnySeLrzaB8W0fOyrDeMkyOiQKIlOWzO6A=; b=W/7AKdZYcIEdG4zSEKSFt02UN+
+	mhQviJdYsOC6bHmOKh+d72cFdbCQggGDe1Q4lqlJb43bopIndjo5Ri4L2/bbWogTGxVe2xzyyCdkF
+	ySM0+DZj5vQGyBjwsqkB8olQD1ghi/hP1IoByXxC4tF4DKKQpFzvhLGhh5BDWQqzYtBhgJ3FvyI2q
+	uOfVRxDlJtlZ99s8tvjipbwEOwmmrPxg4D9+xSEb950ixGqHKp1C7pn+HbaoPGrIh1PjToV0PiDAX
+	0FzWYQ2P0ECMa/fqf85xl4L/dhvE7f6mqFPRLpIlyWhgyBivZZsPlMsdOUNgae4OhfXL6V4RnzVzX
+	D5o8VMbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBuz-00000003ks4-0mXh;
-	Wed, 25 Feb 2026 10:14:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvBvg-00000003kzN-2IEv;
+	Wed, 25 Feb 2026 10:15:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBux-00000003krr-1dRd
+	id 1vvBvf-00000003kz3-0kjC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Feb 2026 10:15:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=HHdWtwcSGCnySeLrzaB8W0fOyrDeMkyOiQKIlOWzO6A=; b=Aczme403M4UyD8txZAehR0yTs6
+	yobfp9nNiYrZA/OkjSBbxN42WYKNUmtXHt0XsB6wvVUtHQSbUvYlyhpjA/uTYWMG6ooIbzY40JLqc
+	Ldla3u71KHRvi3ISNZwpj5UODLog7HAhA7zTii/DrPCrEG//nPo87EMOJOhgSvVfJjzpQlGX1ywdK
+	kzkbIEL1S3gpebT858odm+XIUOpkS5GLf6Ll1BQxs3xV0/eUr+2EohEukz+hYMK7/sIhOySQR6r3O
+	mYmp+C2Xl0NgwQ/KWlSjdJtwe54ySqEYEenIDQ+IDr/ExR24falsk2c74miiD7fhxl+LpSRuPyqYj
+	agsSivGA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvBvc-00000008m4R-0rja
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 10:14:55 +0000
+	Wed, 25 Feb 2026 10:15:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 919F260053;
-	Wed, 25 Feb 2026 10:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6DFDC19422;
-	Wed, 25 Feb 2026 10:14:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2220E43933;
+	Wed, 25 Feb 2026 10:15:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE5EEC19423;
+	Wed, 25 Feb 2026 10:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772014494;
-	bh=1Ezybvb09OMMSafqRAumx+H3UoRIusDuBCGUgx389YY=;
+	s=k20201202; t=1772014532;
+	bh=la5l3tmm9VgUaAKbSveODFwXjKNCLaluNNlPXBLN8HM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fiYgKzsm7m4PU0dl3fUp9v+0qOHH54sdDVevNNI4MTN8F7mg8jyfqvy21+ARQjC0b
-	 RZz/GXiP5ix4rHmMrmt79i3HsHIDhR2gJmIiegSE7JH/NI3ucHG1FBm4b8oR7t/ena
-	 lj2cxWwPoVcEWKNnPdNz4OKcNNIyaNhSDL8/rLnvZ4I/s/lhALu5+4KFP+2ovZ16Ba
-	 VMgJ8fXtmIvudCjo1oQXtLct5gjixPIQ4T+MUKtfgx39O4zksV1VRikeFmVDpAavng
-	 UdaB4exN0KrNgjdgM/gQViVNf8w+ec/QfvhDvtgeNecVOJTL4aHcOIHjo2mIHBFmh8
-	 gJpBfITZU8beA==
-Date: Wed, 25 Feb 2026 11:14:50 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Kamal Dasu <kamal.dasu@broadcom.com>
-Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, baolin.wang@linux.alibaba.com, florian.fainelli@broadcom.com, 
-	bcm-kernel-feedback-list@broadcom.com, linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 1/3] dt-bindings: hwlock: Adding brcmstb-hwspinlock
- support
-Message-ID: <20260225-free-fractal-ladybug-f02feb@quoll>
-References: <20260224220407.2351692-1-kamal.dasu@broadcom.com>
- <20260224220407.2351692-2-kamal.dasu@broadcom.com>
+	b=TWrjYKI9tt2sMnNPyFMBbpvE3NgZWgKknoOKEi67iRk5S2NxGftUPKohJHlBwCCnN
+	 SJEquZYRQyCSL7WJ/gYD6jByRTuYhF6BxvXNbxEvQKnLeINU4xvGFDpYmuK/4tkUPQ
+	 9PRMk6CxdQgtzc2soqUVeNFuwiYcIqtzlpYoyDz8zsDROUgGzvlFrmM97EaqbfvrrA
+	 JkNGAQZZtH+4q7gox5Sxjig+e9OSJOf0sS44EUFqkOiNqUvD6g5PJRrF4wr9uKhKCS
+	 6ibvy0IfEn7lbHjBuoyysL7Y+ZulICmk68KN+2sLIYg9GNY9wpeuWjBY6Zvdgdea04
+	 nfNRdCS/V34zQ==
+Date: Wed, 25 Feb 2026 10:15:27 +0000
+From: Simon Horman <horms@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 0/2] net: stmmac: fix interrupt coalescing
+Message-ID: <aZ7Lv38VkVKNkxIs@horms.kernel.org>
+References: <aZ1o2dmfpeiubCik@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260224220407.2351692-2-kamal.dasu@broadcom.com>
+In-Reply-To: <aZ1o2dmfpeiubCik@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_101536_599276_26C440EA 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,22 +93,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 05:04:05PM -0500, Kamal Dasu wrote:
-> The Broadcom settop SoCs have hardware semaphores as part of the
-> "sundry" IP block which has other controls that do not belong anywhere
-> else e.g. pin/mux controls, SoC identification, drive strength, reset
-> controls, and other misc bits are part of this block.
+On Tue, Feb 24, 2026 at 09:01:13AM +0000, Russell King (Oracle) wrote:
+> Hi,
 > 
-> Adding brcmstb-hwspinlock bindings which allows the hwspinlock driver
-> to iomap only the 16 hardware semaphore registers that are part of all
-> settop SoCs. The semaphore registers are based on the BCM7038 SoC
-> where they were first introduced in settop chips.
+> While cleaning up the descriptor handling, I noticed that the accounting
+> of transmit "packets" for interrupt coalescing was buggy in that it
+> takes the difference of the two indexes into the circular list of
+> transmit discriptors and merely subtracts one from the other without
+> regard for the indexes wrapping.
 > 
-> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+> This can result in a negative number or very large positive number
+> which would have the effect of either reducing tx_q->tx_count_frames
+> or making that very large.
+> 
+> Either way, the result is numerically incorrect, and could trigger
+> interrupts or not trigger interrupts when required.
+> 
+> This series converts stmmac to use the circ_buf helpers, and then fixes
+> this problem.
+> 
+> v2: move build fix to correct patch
+> 
+> 
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 28 ++++++++---------------
+>  1 file changed, 10 insertions(+), 18 deletions(-)
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Thanks Russell.
 
-Best regards,
-Krzysztof
+For the series,
 
+Reviewed-by: Simon Horman <horms@kernel.org>
 
