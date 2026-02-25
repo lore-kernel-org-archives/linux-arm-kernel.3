@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AEDEFD206
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F09EFD207
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+hcGrB8f3LFV3yEVggniwkqkX4Jmt/LlWOAR6G9rqjM=; b=ZCon7ZMk5aKS/04J/JH7zvbwIB
-	xUTczYWFCwAIzFTkVQdEIKXLiyWSi7xplUVuY9uCXoPqa6/NO0vmvkmWnsm2Ph6eFiBlr7IAG6j9+
-	tBfuEYUQLzobeVxjnJvBUrTJcu/RzDAzU4JjwYyvnZ6EGlKX5hPvS8AZm5FHxwhhNZPXDak3rY3be
-	YmsAj8gEkUiyRs09AQaDWeIqUK0+q1/RHPWGyg91iAkD6ggfaABmNEwJyasNB14xIpenajz+/nM9w
-	uP0R1o2xK8BWzweD52Qe1ouSoapDyrRzkwnvLZqj/xc6eNgQDQH14dz4C8gwBgNzyPl1HlqkckXFQ
-	w1wbY+Rg==;
+	bh=xWgvuyyKOdHiamZL9D4cj9vV0r+h5EBYUsOqhsdXzTM=; b=l6/PIYuBux1Vu4AFXBsEAetkLm
+	EWSXq0Gxr6KMHJp8qYQweQUK2oO1X2ctqjvmbxyDhEYVP8+HVyLCCKFbK41aCRgvG+ahdNH1Fj4Jn
+	227XJSq40MB+Tp8JeRkizHRvC92iYT4EnN6f+1jS4C6B0mPBCbrBwwHCF8g8gQOthKqKXOtEHE9Iw
+	AXRA0DIhH0UXSRswTiT0HEsEz3wAFMtV/5z54fIGcNunFtWDEyDuV7qIIzQNBtnrntp9Ca/FARaYl
+	Je5azRi3DBzhANI0SLi/Hsrs459+hdQENDpl/lqWZtB/1rYkVd7rr2HfYioxIsNdGG37Q2HOD+S8R
+	uOaT2XNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv9x3-00000003TAV-3RPb;
-	Wed, 25 Feb 2026 08:08:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv9wu-00000003T8W-438E;
-	Wed, 25 Feb 2026 08:08:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0A4A165C;
-	Wed, 25 Feb 2026 00:08:40 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CDAFD3F59E;
-	Wed, 25 Feb 2026 00:08:43 -0800 (PST)
-Date: Wed, 25 Feb 2026 08:08:41 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Kito Cheng <kito.cheng@sifive.com>,
-	Jesse Huang <jesse.huang@sifive.com>,
-	valentin.haudiquet@canonical.com, heinrich.schuchardt@canonical.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH 0/5] mm: arch/shstk: Common shadow stack mapping helper
- and VM_NOHUGEPAGE
-Message-ID: <aZ6uCceePh73wcMP@arm.com>
-References: <20260224175800.2500729-1-catalin.marinas@arm.com>
- <aZ489QDHxEZfLydn@debug.ba.rivosinc.com>
+	id 1vv9zY-00000003TZ7-1sSu;
+	Wed, 25 Feb 2026 08:11:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vv9zX-00000003TYT-33H5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Feb 2026 08:11:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CF34760053
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 08:11:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 846D7C116D0
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 08:11:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772007090;
+	bh=usaysjS0gpHIFyZHKJqEeInHs9jknMQNaMJew5h1pqg=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=YYc/RIttJOjCfXUewXc0JG8muvoFbg2hfl3g2yQ9Ch/KYy+WqwclhcPEbkZgrYv/J
+	 LCuzuzOCSgB1psAFoEHbVuOCsmQ+j686d/ofMNUVUKWqE9YhiFuX3b/ez1TLeJwpDJ
+	 FQOpMeSxcDM1tTIQfNG+FkzE1MIgHOoK8ZNdlkI5PwZdbvxY6b+WO9a6Hgjy8XP+/J
+	 /djEwSr6Kk6YMHA/jUDEYzomg72N3j0XmY4WDsWp9yGt+VvRXCdNjwfZMrrY8G8srz
+	 As0q4z4TITTCTLtw8GONuAgTQQcZms3oQsVn2fvW1kSspwmA/YBk5CpS9M3gKceSXF
+	 HaozfnjBTLfMA==
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-38708180241so49940281fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 00:11:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUFtqFED3uJl4Tnef8lnpP0PWMjr8zM0U/wngVgjA8dTiRvjNf4oINDNOT7FUgrunrOFPCoHJ9rnuOSTuvDjJRO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9rZXtinlkBgdjOs9WLURJOV4DGfghVoXJvFMiAXRkEjBsExK1
+	bLC4yWJC3NCoqTxfOZ6rmlPfax959vSv3n7dyrwa1PREHvTHWqx0PTTErPB14FpzCJpOdqEl7QG
+	yj+l0i+9v/0nR/PmJCUmsrrdVQQ/+5dMxgsdARpsCpg==
+X-Received: by 2002:a2e:bccb:0:b0:383:246a:74ec with SMTP id
+ 38308e7fff4ca-389a5cddb2amr51858551fa.18.1772007089247; Wed, 25 Feb 2026
+ 00:11:29 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 25 Feb 2026 00:11:28 -0800
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 25 Feb 2026 00:11:28 -0800
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260225072225.3345307-2-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aZ489QDHxEZfLydn@debug.ba.rivosinc.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_000849_043213_FE4A2A47 
-X-CRM114-Status: GOOD (  11.55  )
+References: <20260225072225.3345307-1-wenst@chromium.org> <20260225072225.3345307-2-wenst@chromium.org>
+Date: Wed, 25 Feb 2026 00:11:28 -0800
+X-Gmail-Original-Message-ID: <CAMRc=Mc79ex9Sbz1ThVf62JEO3G-KY6LRS0EyBGvvJwxrzSqww@mail.gmail.com>
+X-Gm-Features: AaiRm53FAfXDI6zI7HqJU4aTyz7YrJdL0-41-67eGZ5k3Q4aiUw3d0tcyRAeQOs
+Message-ID: <CAMRc=Mc79ex9Sbz1ThVf62JEO3G-KY6LRS0EyBGvvJwxrzSqww@mail.gmail.com>
+Subject: Re: [PATCH 1/7] PCI: mediatek-gen3: Clean up mtk_pcie_parse_port()
+ with dev_err_probe()
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-pci@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang <jianjun.wang@mediatek.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,21 +89,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Deepak,
+On Wed, 25 Feb 2026 08:22:18 +0100, Chen-Yu Tsai <wenst@chromium.org> said:
+> mtk_pcie_parse_port() in the pcie-mediatek-gen driver has a bunch of
+>
+>     if (err) {
+>     	dev_err(dev, "error message\n");
+> 	return err; # or goto
+>     }
+>
+> patterns.
+>
+> Simplify these with dev_err_probe(). The system also gains proper
+> deferred probe messages that can be seen in
+>
+>     /sys/kernel/debug/devices_deferred
+>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
 
-On Tue, Feb 24, 2026 at 04:06:13PM -0800, Deepak Gupta wrote:
-> On Tue, Feb 24, 2026 at 05:57:52PM +0000, Catalin Marinas wrote:
-> > arm64, riscv and x86 all implement shadow stack support and use a
-> > similar pattern for mapping the user shadow stack (originally cloned
-> > from x86). Extract this common pattern into a shared helper -
-> > vm_mmap_shadow_stack().
-[...]
-> FWIW, I applied your patches on v7.0-rc1 and risc-v cfi kselftest passes
-[...]
-> So you can tag tested by for risc-v.
-
-That's great, thanks!
-
--- 
-Catalin
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
