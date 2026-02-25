@@ -4,113 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4B5FD3761
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4618FD3760
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DSAgkJWi5hoJt+P3JikprjcOkH0bitSNHNb5Lpt8ZRM=; b=RUTNIyfYK5EWQwMEgDO0RvPPR7
-	N7etOBfvwO+yy5I3P4ZVnuABCY1Ji7VXalWBakvw4HTA/8LnzVp4EuiYqjyKjLBuAjnp0y83ym6Hs
-	sxVBXIyton8BRP2gDxXMvheOrRm2aMi3NaVMWfAJc001iNDy+NACmADzOFba4AoEwyZzNdjPXALgD
-	hHwKcpHR/oRvpLNUOOnGMAyQcbWLdig5lhRLNfyTV+QDJVwE2V9rLBRsI1fxK7xit+cI4Ef+TMsmr
-	fJd8ShXwKuZMRGpljy5widAO3E8Y78/uwDqjUNk9928G4PPzblog+R+o/AnyFIOnUwqmY/H++ieX7
-	nhV2EAUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XWRvKSrVzQxumCJr/FJXMqnLK+ok9RFugzOcVZ5aYRY=; b=yWMb+tvviuwxNMniJ7hWHaFSml
+	7geloMYpiY4g11hXsuWOfU/beaY4nMdSYbsJl0YEWrAFI0Cx8Cl5oXVRq+c4/ipkX/FLqqxRumBCv
+	Ur6/piCbaLXWlSv07UazFuePWt4AgmA+UcliKqr/uFHBtklhx19UWs6gDKsLDRpERb65R7a1UI8s7
+	Rboj3Srt6Ns84P/0S3Nv84n5ezlRbGabrsDhC88PX5mOEMlEk14zaFWXi9X4Jq1pnEqvTs0JGqtcP
+	7LOUe4ILo7QLEKwollyPsA9MGLCJWsv4qcJzyZQYtu6I0ovG+pYZElbYvFJz3kn1lc7DtZpIogei4
+	dioOONaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFV6-00000004ABU-1TeY;
-	Wed, 25 Feb 2026 14:04:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFV3-00000004AAy-2t03
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 14:04:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1921343C79;
-	Wed, 25 Feb 2026 14:04:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1371FC116D0;
-	Wed, 25 Feb 2026 14:04:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772028265;
-	bh=uGl0916oRQSQUnxyyrcUO8NjVfohNTiN1mXCplhRCQA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PClkNlBYDQ2xdogeOlwf0lwcfsg8VJYH5FB61T1LdXbnCrDvl409Q9vKrvHyWSapz
-	 6YHimcgknAFRJHtKYdKoKu3wtkVHa0WrB6Juwh5XxqTV+O4WE4DNivfekLfdQ2Y27J
-	 Bs/XpORBfPSoslHXzkCwCQLmE6OKF0o5hV5mOrvRs6KNAcaVSLJjr7gSBQfR64L9sg
-	 JOnakNnjyfNTVutKLSaugkSwjGDg4Vj7QhjoepZRF4yfpA/fjRpxmza7KB3+D2OG14
-	 413W7Kgem4AGvcItQtQnCP+i6sLuxBtvhXQsW8uSxM0tT3LdwjhyW3lXj84sZLb3gb
-	 9orwgTYjnzsTw==
-Message-ID: <d172d6bf-c60c-4cf5-9da9-f30de38cdfed@kernel.org>
-Date: Wed, 25 Feb 2026 15:04:17 +0100
+	id 1vvFZU-00000004AMo-0Kxi;
+	Wed, 25 Feb 2026 14:09:00 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvFZO-00000004AMD-2PsX;
+	Wed, 25 Feb 2026 14:08:54 +0000
+Date: Wed, 25 Feb 2026 06:08:54 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Jay Wang <wanjay@amazon.com>, Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	linux-crypto@vger.kernel.org,
+	Jay Wang <jay.wang.upstream@gmail.com>,
+	Vegard Nossum <vegard.nossum@oracle.com>,
+	Nicolai Stange <nstange@suse.de>,
+	Ilia Okomin <ilya.okomin@oracle.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	linux-kbuild@vger.kernel.org, linux-modules@vger.kernel.org
+Subject: Re: [PATCH 17/17] Add standalone crypto kernel module technical
+ documentation
+Message-ID: <aZ8Cdq2doSHlPG9-@infradead.org>
+References: <20260212024228.6267-1-wanjay@amazon.com>
+ <20260212024228.6267-18-wanjay@amazon.com>
+ <20260225015517.GA162634@quark>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] mm: add a batched helper to clear the young flag for
- large folios
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
-Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
- ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
- yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
- zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
- <bfbe28e381b02452b455498e7ea82662e83a3865.1771897150.git.baolin.wang@linux.alibaba.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <bfbe28e381b02452b455498e7ea82662e83a3865.1771897150.git.baolin.wang@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_060425_775904_0F15F350 
-X-CRM114-Status: GOOD (  28.52  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260225015517.GA162634@quark>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,154 +68,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/24/26 02:56, Baolin Wang wrote:
-> Currently, MGLRU will call ptep_clear_young_notify() to check and clear the
-> young flag for each PTE sequentially, which is inefficient for large folios
-> reclamation.
+On Tue, Feb 24, 2026 at 05:55:17PM -0800, Eric Biggers wrote:
+> Let's be clear: this is possible only when the kernel has a stable ABI
+> to the crypto module, which realistically isn't something that is going
+> to be supported upstream.  The Linux kernel is well-known for not
+> maintaining a stable in-kernel ABI, for good reasons.
 > 
-> Moreover, on Arm64 architecture, which supports contiguous PTEs, the Arm64-
-> specific ptep_test_and_clear_young() already implements an optimization to
-> clear the young flags for PTEs within a contiguous range. However, this is not
-> sufficient. Similar to the Arm64 specific clear_flush_young_ptes(), we can
-> extend this to perform batched operations for the entire large folio (which
-> might exceed the contiguous range: CONT_PTE_SIZE).
+> So, the only case where this feature would have a benefit over the
+> kernel's existing approach to FIPS 140 is in downstream kernels that
+> maintain a stable in-kernel ABI.  There would be no benefit to direct
+> users of the mainline kernel or even the stable release series.
 > 
-> Thus, we can introduce a new batched helper: test_and_clear_young_ptes() and
-> its wrapper clear_young_ptes_notify(), to perform batched checking of the young
-> flags for large folios, which can help improve performance during large folio
-> reclamation when MGLRU is enabled. And it will be overridden by the architecture
-> that implements a more efficient batch operation in the following patches.
-> 
+> For this to be considered for upstream there would need to be some level
+> of consensus in the community to support this feature despite this.
 
-Maybe mention that the implementation follows the other existing functions.
+That's a very nice way to say this goes against all the established
+principles for kernel development.
 
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> ---
->  include/linux/pgtable.h | 36 ++++++++++++++++++++++++++++++++++++
->  mm/internal.h           | 23 ++++++++++++++++++-----
->  2 files changed, 54 insertions(+), 5 deletions(-)
-> 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 776993d4567b..0bcd3be524d3 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -1103,6 +1103,42 @@ static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
->  }
->  #endif
->  
-> +#ifndef test_and_clear_young_ptes
-> +/**
-> + * test_and_clear_young_ptes - Mark PTEs that map consecutive pages of the same
-> + *			       folio as old
-> + * @vma: The virtual memory area the pages are mapped into.
-> + * @addr: Address the first page is mapped at.
-> + * @ptep: Page table pointer for the first entry.
-> + * @nr: Number of entries to clear access bit.
-> + *
-> + * May be overridden by the architecture; otherwise, implemented as a simple
-> + * loop over ptep_test_and_clear_young().
-> + *
-> + * Note that PTE bits in the PTE range besides the PFN can differ. For example,
-> + * some PTEs might be write-protected.
-
-Document the return value?
-
-Returns: whether any PTE was young.
-
-Or sth like that.
-
-> + *
-> + * Context: The caller holds the page table lock.  The PTEs map consecutive
-> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
-> + */
-> +static inline int test_and_clear_young_ptes(struct vm_area_struct *vma,
-> +					    unsigned long addr, pte_t *ptep,
-> +					    unsigned int nr)
-
-Two tabs ...
-
-> +{
-> +	int young = 0;
-> +
-> +	for (;;) {
-> +		young |= ptep_test_and_clear_young(vma, addr, ptep);
-> +		if (--nr == 0)
-> +			break;
-> +		ptep++;
-> +		addr += PAGE_SIZE;
-> +	}
-> +
-> +	return young;
-
-BTW: can this function simply return (and use) a bool instead?
-
-Likely we should do the same for the other functions, but that can be
-done separately.
-
-> +}
-> +#endif
-> +
->  /*
->   * On some architectures hardware does not set page access bit when accessing
->   * memory page, it is responsibility of software setting this bit. It brings
-> diff --git a/mm/internal.h b/mm/internal.h
-> index 1ba175b8d4f1..1b59be99dc3f 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -1813,16 +1813,23 @@ static inline int pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
->  	return young;
->  }
->  
-> -static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
-> -					  unsigned long addr, pte_t *ptep)
-> +static inline int clear_young_ptes_notify(struct vm_area_struct *vma,
-> +					  unsigned long addr, pte_t *ptep,
-> +					  unsigned int nr)
->  {
->  	int young;
->  
-> -	young = ptep_test_and_clear_young(vma, addr, ptep);
-> -	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + PAGE_SIZE);
-> +	young = test_and_clear_young_ptes(vma, addr, ptep, nr);
-> +	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + nr * PAGE_SIZE);
->  	return young;
->  }
->  
-> +static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
-> +					  unsigned long addr, pte_t *ptep)
-> +{
-> +	return clear_young_ptes_notify(vma, addr, ptep, 1);
-> +}
-> +
->  static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
->  					  unsigned long addr, pmd_t *pmdp)
->  {
-> @@ -1837,9 +1844,15 @@ static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
->  
->  #define clear_flush_young_ptes_notify	clear_flush_young_ptes
->  #define pmdp_clear_flush_young_notify	pmdp_clear_flush_young
-> -#define ptep_clear_young_notify	ptep_test_and_clear_young
-> +#define clear_young_ptes_notify	test_and_clear_young_ptes
->  #define pmdp_clear_young_notify	pmdp_test_and_clear_young
->  
-> +static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
-> +					  unsigned long addr, pte_t *ptep)
-> +{
-> +	return test_and_clear_young_ptes(vma, addr, ptep, 1);
-> +}
-
-Why not outside of the ifdef a single generic
-
-static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
-		 unsigned long addr, pte_t *ptep)
-{
-	return clear_young_ptes_notify(vma, addr, ptep, 1);
-}
-
-Same comment regarding bool.
-
--- 
-Cheers,
-
-David
 
