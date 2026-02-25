@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE10FD377D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 18:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5309CFD377D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 18:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n8g3yLFBGU8BOlI+Ywz5KdyYzZEHSLV85HshimeQA5A=; b=Oe3O7k/WYMQAkEVki8SwXI00Bl
-	ADM1nT7/V5NaHOGBmjrl0E0Dkh0EzQZ/LOyxdqrarFCgVxGqR40Oop/97UIn7W/g0tLKgJQdcRB2m
-	zCt2VPpd0vsRwSZG0amMhh/wjVAzLbDbDnJsXQjIalA1J7JA2kuewu7c8/OJmK4/Qnrj9diupupWC
-	dJEaiCsElAzRnwvMGze587x7nRPZ4231zsfVU8cArhaj6GfLXVZmOqfCR9gi42h9y+z8LcBt+6RIg
-	hko7XDGBaKTIEv94sXiVOnQQkc9NRUm8JwI6y7iZQ7EdbYUrej1FYiCXQiEDgefgi/UkMLE6ckaD0
-	EAgAJYYg==;
+	bh=Z9Bh9D4dZfCmswtYoYNWndxYXeH/2BHsrOjRd5CN/mQ=; b=yfbjaF8CBpatydKdsGO6qGRTiV
+	Yfk7cITdnMeAhq1vjVTH4Cz0sJnv+B05tOmkerMY3xPzB2S6LZhuyw+FoAP1i17gObjr+ahulOihT
+	pcqy8SOqn5UGMUTvva469uKrcpyPip2VVNo05A37dyfR04+ETgwwwLoYOgwribswa1aST/TzGDSpw
+	0rm7/akI9LgeZVKsXZPjLnY4w8U+SRT/vtYmLfd5m3as33ef6VIhSkvIGM3rkSgpphqSVWuLiO3Sb
+	x/ECZwCrpMaFooIoHYq44rxv7zvDL6R1DQHPn/5XvU+2IbJKld6NMs2k436wtwR5DKtw1xHLefm4n
+	lb4SQJ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvJbh-00000004jmR-41Vw;
-	Wed, 25 Feb 2026 18:27:33 +0000
+	id 1vvJbo-00000004jrx-3OTN;
+	Wed, 25 Feb 2026 18:27:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvJbe-00000004jkZ-2K2K
+	id 1vvJbh-00000004jlh-2GTS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 18:27:31 +0000
+	Wed, 25 Feb 2026 18:27:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2EA6A165C;
-	Wed, 25 Feb 2026 10:27:23 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 95B263F73B;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76D4F15A1;
 	Wed, 25 Feb 2026 10:27:26 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D32643F73B;
+	Wed, 25 Feb 2026 10:27:29 -0800 (PST)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -52,17 +52,17 @@ Cc: catalin.marinas@arm.com,
 	joey.gouly@arm.com,
 	yuzenghui@huawei.com,
 	yeoreum.yun@arm.com
-Subject: [PATCH v14 5/8] arm64: futex: support futex with FEAT_LSUI
-Date: Wed, 25 Feb 2026 18:27:05 +0000
-Message-Id: <20260225182708.3225211-6-yeoreum.yun@arm.com>
+Subject: [PATCH v14 6/8] arm64: armv8_deprecated: disable swp emulation when FEAT_LSUI present
+Date: Wed, 25 Feb 2026 18:27:06 +0000
+Message-Id: <20260225182708.3225211-7-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260225182708.3225211-1-yeoreum.yun@arm.com>
 References: <20260225182708.3225211-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_102730_670490_0234FF17 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20260225_102733_611778_6F1E742B 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,222 +77,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current futex atomic operations are implemented with ll/sc instructions
-and clearing PSTATE.PAN.
-
-Since Armv9.6, FEAT_LSUI supplies not only load/store instructions but
-also atomic operation for user memory access in kernel it doesn't need
-to clear PSTATE.PAN bit anymore.
-
-With theses instructions some of futex atomic operations don't need to
-be implmented with ldxr/stlxr pair instead can be implmented with
-one atomic operation supplied by FEAT_LSUI and don't enable mto like
-ldtr*/sttr* instructions usage.
-
-However, some of futex atomic operation don't have matched
-instructuion i.e) eor or cmpxchg with word size.
-For those operation, uses cas{al}t to implement them.
+The purpose of supporting LSUI is to eliminate PAN toggling.
+CPUs that support LSUI are unlikely to support a 32-bit runtime.
+Since environments that support both LSUI and
+a 32-bit runtimeare expected to be extremely rare,
+not to emulate the SWP instruction using LSUI instructions
+in order to remove PAN toggling, and instead simply disable SWP emulation.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- arch/arm64/include/asm/futex.h | 166 ++++++++++++++++++++++++++++++++-
- 1 file changed, 164 insertions(+), 2 deletions(-)
+ arch/arm64/kernel/armv8_deprecated.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-index 9a0efed50743..b579e9d0964d 100644
---- a/arch/arm64/include/asm/futex.h
-+++ b/arch/arm64/include/asm/futex.h
-@@ -9,6 +9,8 @@
- #include <linux/uaccess.h>
- #include <linux/stringify.h>
+diff --git a/arch/arm64/kernel/armv8_deprecated.c b/arch/arm64/kernel/armv8_deprecated.c
+index e737c6295ec7..049754f7da36 100644
+--- a/arch/arm64/kernel/armv8_deprecated.c
++++ b/arch/arm64/kernel/armv8_deprecated.c
+@@ -610,6 +610,22 @@ static int __init armv8_deprecated_init(void)
+ 	}
  
-+#include <asm/alternative.h>
-+#include <asm/alternative-macros.h>
- #include <asm/errno.h>
- 
- #define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
-@@ -87,11 +89,171 @@ __llsc_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
- 	return ret;
- }
- 
-+#ifdef CONFIG_ARM64_LSUI
+ #endif
 +
-+#define __LSUI_PREAMBLE	".arch_extension lsui\n"
-+
-+#define LSUI_FUTEX_ATOMIC_OP(op, asm_op)				\
-+static __always_inline int						\
-+__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-+{									\
-+	int ret = 0;							\
-+	int oldval;							\
-+									\
-+	uaccess_ttbr0_enable();						\
-+									\
-+	asm volatile("// __lsui_futex_atomic_" #op "\n"			\
-+	__LSUI_PREAMBLE							\
-+"1:	" #asm_op "al	%w3, %w2, %1\n"					\
-+"2:\n"									\
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)				\
-+	: "+r" (ret), "+Q" (*uaddr), "=r" (oldval)			\
-+	: "r" (oparg)							\
-+	: "memory");							\
-+									\
-+	uaccess_ttbr0_disable();					\
-+									\
-+	if (!ret)							\
-+		*oval = oldval;						\
-+	return ret;							\
-+}
-+
-+LSUI_FUTEX_ATOMIC_OP(add, ldtadd)
-+LSUI_FUTEX_ATOMIC_OP(or, ldtset)
-+LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr)
-+LSUI_FUTEX_ATOMIC_OP(set, swpt)
-+
-+static __always_inline int
-+__lsui_cmpxchg64(u64 __user *uaddr, u64 *oldval, u64 newval)
-+{
-+	int ret = 0;
-+
-+	uaccess_ttbr0_enable();
-+
-+	asm volatile("// __lsui_cmpxchg64\n"
-+	__LSUI_PREAMBLE
-+"1:	casalt	%2, %3, %1\n"
-+"2:\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
-+	: "+r" (ret), "+Q" (*uaddr), "+r" (*oldval)
-+	: "r" (newval)
-+	: "memory");
-+
-+	uaccess_ttbr0_disable();
-+
-+	return ret;
-+}
-+
-+static __always_inline int
-+__lsui_cmpxchg32(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-+{
-+	u64 __user *uaddr64;
-+	bool futex_pos, other_pos;
-+	int ret, i;
-+	u32 other, orig_other;
-+	union {
-+		u32 futex[2];
-+		u64 raw;
-+	} oval64, orig64, nval64;
-+
-+	uaddr64 = (u64 __user *) PTR_ALIGN_DOWN(uaddr, sizeof(u64));
-+	futex_pos = !IS_ALIGNED((unsigned long)uaddr, sizeof(u64));
-+	other_pos = !futex_pos;
-+
-+	oval64.futex[futex_pos] = oldval;
-+	ret = get_user(oval64.futex[other_pos], (u32 __user *)uaddr64 + other_pos);
-+	if (ret)
-+		return -EFAULT;
-+
-+	ret = -EAGAIN;
-+	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
-+		orig64.raw = nval64.raw = oval64.raw;
-+
-+		nval64.futex[futex_pos] = newval;
-+
-+		if (__lsui_cmpxchg64(uaddr64, &oval64.raw, nval64.raw))
-+			return -EFAULT;
-+
-+		oldval = oval64.futex[futex_pos];
-+		other = oval64.futex[other_pos];
-+		orig_other = orig64.futex[other_pos];
-+
-+		if (other == orig_other) {
-+			ret = 0;
-+			break;
-+		}
-+	}
-+
-+	if (!ret)
-+		*oval = oldval;
-+
-+	return ret;
-+}
-+
-+static __always_inline int
-+__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
-+{
++#ifdef CONFIG_SWP_EMULATION
 +	/*
-+	 * Undo the bitwise negation applied to the oparg passed from
-+	 * arch_futex_atomic_op_inuser() with FUTEX_OP_ANDN.
++	 * The purpose of supporting LSUI is to eliminate PAN toggling.
++	 * CPUs that support LSUI are unlikely to support a 32-bit runtime.
++	 * Since environments that support both LSUI and a 32-bit runtime
++	 * are expected to be extremely rare, we choose not to emulate
++	 * the SWP instruction using LSUI instructions in order to remove PAN toggling,
++	 * and instead simply disable SWP emulation.
 +	 */
-+	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
-+}
-+
-+static __always_inline int
-+__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
-+{
-+	u32 oldval, newval, val;
-+	int ret, i;
-+
-+	if (get_user(oldval, uaddr))
-+		return -EFAULT;
-+
-+	/*
-+	 * there are no ldteor/stteor instructions...
-+	 */
-+	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
-+		newval = oldval ^ oparg;
-+
-+		ret = __lsui_cmpxchg32(uaddr, oldval, newval, &val);
-+		if (ret)
-+			return ret;
-+
-+		if (val == oldval) {
-+			*oval = val;
-+			return 0;
-+		}
-+
-+		oldval = val;
++	if (cpus_have_final_cap(ARM64_HAS_LSUI)) {
++		insn_swp.status = INSN_UNAVAILABLE;
++		pr_info("swp/swpb instruction emulation is not supported on this system\n");
 +	}
++#endif
 +
-+	return -EAGAIN;
-+}
-+
-+static __always_inline int
-+__lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-+{
-+	return __lsui_cmpxchg32(uaddr, oldval, newval, oval);
-+}
-+
-+#define __lsui_llsc_body(op, ...)					\
-+({									\
-+	alternative_has_cap_unlikely(ARM64_HAS_LSUI) ?			\
-+		__lsui_##op(__VA_ARGS__) : __llsc_##op(__VA_ARGS__);	\
-+})
-+
-+#else	/* CONFIG_ARM64_LSUI */
-+
-+#define __lsui_llsc_body(op, ...)	__llsc_##op(__VA_ARGS__)
-+
-+#endif	/* CONFIG_ARM64_LSUI */
-+
-+
- #define FUTEX_ATOMIC_OP(op)						\
- static __always_inline int						\
- __futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)		\
- {									\
--	return __llsc_futex_atomic_##op(oparg, uaddr, oval);		\
-+	return __lsui_llsc_body(futex_atomic_##op, oparg, uaddr, oval);	\
- }
+ 	for (int i = 0; i < ARRAY_SIZE(insn_emulations); i++) {
+ 		struct insn_emulation *ie = insn_emulations[i];
  
- FUTEX_ATOMIC_OP(add)
-@@ -103,7 +265,7 @@ FUTEX_ATOMIC_OP(set)
- static __always_inline int
- __futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
- {
--	return __llsc_futex_cmpxchg(uaddr, oldval, newval, oval);
-+	return __lsui_llsc_body(futex_cmpxchg, uaddr, oldval, newval, oval);
- }
- 
- static inline int
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
