@@ -4,108 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56A7CEFD209
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C691EEFD20A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1z9BWz3z5pxfzq2/6/DM6j0C4sXxYJlJrqOJoumJEJ0=; b=MV22175pBkFN9J/avhyktjBTQb
-	w9aWpfEJupO4M/xx/IghUuOSkjeEqVE5chDCngGC6KB7nDictGF4q7WIUsAdRL6PZsX/TFEbMdG57
-	NzX1xbOOiJKrasIspOgwZ3nuRpRL1RzbPnhYp3dnr/H9MeYTrg+elk+SrOk4NYxihIsxfltbfQR0w
-	vqApj99PG3e38F4U/nfKn5C/d6gHg3Yb7rHOM0qJRrJb2PuLjpsN8QkUtzv9Ddqj7wd019NSGJdeg
-	8w6fv4WrF/cLVbInwvtQf8RpJAQyTpHXDWuOCR9bRL/LU2r3/DnP9wMZv8njm8Rubgme09JfWU4g4
-	QZMsDdBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CwTftfPLORKMn5vbTjWLfPI4meAs67WbxJlY6dwYVxc=; b=FyemYRVIlG2CiBovIXJcwoTh8o
+	vctXr2Yq9ZVkmMPzplvuT+IrVvS7gwkZ7QcK116voweEJXcS2U1kpJRRvDa8oSVVTQ38xUwChgWgY
+	AsVwKxwguj12gRse99pAIPmtmSp6oaSP5+vMTPuayqcN5EzKdA3UaqjaPc1cCY2GZRYWytNX5fTmf
+	gHoSzq4/vU1bo9YShaQzTaEDPw6WXidjX5ggSwmIE+C5LNLcLO3fUCNtPMXGERzWT/kTn95AUxjrP
+	bP0B1o0xtFaiobwsm9U/ZsMYMESfnTQEZ5pHAYu5SWAigXUQYdEqH9M4S1jz9KAAZ+dLYxJ+IpM/U
+	UFPHrYAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA8I-00000003YBh-2ZG4;
-	Wed, 25 Feb 2026 08:20:34 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1vvAC7-00000003Yrw-0Eq1;
+	Wed, 25 Feb 2026 08:24:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA8G-00000003YAp-3UGD
+	id 1vvAC4-00000003Yre-2bbN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Feb 2026 08:24:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=CwTftfPLORKMn5vbTjWLfPI4meAs67WbxJlY6dwYVxc=; b=R/tRZzxP/yP1+0uU5Go2G7UImI
+	FkW+OyQsDbkpOuCA85OOzzN11W/T22xls5UVsZEJj1GH+rzl1/RR1U12RsrHIlGC5jezU3eb/+htD
+	L4icO7bP/BS+iqdjlV82aZWGNQ54mjIJ4uzcyl1ZApRNy27gUYHSeQDdppfRMm9CXT+F/uq3jB4rC
+	OxlhtzubJH1mnYyN9J1T7Ue3zlREQLshR9mt69cTodCZqvBT2pgfbhCVePLWafQLwvBVKpz1nJSh4
+	ztiYKogDe8f1j+P4+7YjeRZJZlmomOu0VV2ZTaFyQc+e34qpa9snAQzkWMzEHMX5os3x/J3pFVRVz
+	5CmjP+Jg==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvAC1-00000008ZFe-1aV4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 08:20:34 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-59e614b3dbcso6783127e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 00:20:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772007631; cv=none;
-        d=google.com; s=arc-20240605;
-        b=gT/uNMH+m43HqfpwkfFh82R3qyrPLJnycGYGtidphhJNJHS0mqwy/kj8hLlLWefpLP
-         xZFCrDzGkI3M3PDsWRZLMDAeDE0Zhf7YKmICqOMrVSRggOGf7rvtCWaYYniq1H/fKDtS
-         PcnJEWvgkO0MnifcIqmu0Zh7xo3IkN4jjHEEbjib+mMZFN1rjOoPstTnybhb3c88KZRZ
-         PgHAXjywDff+eqYN+ZWbpZnBapY7LwHi6mAKBsY8kPaf/SLz5q5mTZkKo1WtHyVbpZeM
-         nR9wgdT7QMDZCmgu6dUULky5zW6GbQsq9V2Obc0NfL2HV+O4cZ5hYG2th7BQ2eEetHoq
-         YcaQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1z9BWz3z5pxfzq2/6/DM6j0C4sXxYJlJrqOJoumJEJ0=;
-        fh=TGPumRgDz0UNyPQAhZDg3ICgaHprGkb+2Moy62kw2Ks=;
-        b=UNX7vpZ88U/WEw9vWHGGO+z9rrTQEPOigtW1aNEoYFbVuESSId3mzpfpxIqmK1dgZn
-         qfpTeOdaTSL+MSXqmMii2PZ19/QDAIftIV23fe2x7ylvmxYpPkdpubNT0GrQZbQYUz4J
-         uLLLSFz1sJhUyDfI+SE9z7hkAy7Yc092aNRnH4QEdNDuH7seTQpP7ejwt7iGUMdVMsK9
-         4DSrjl21IspPS1TFZoBt40tUFAFdqEBQdbNiVrneNWzOC9Y/vDpBcApZb9CeovJ6f0Cg
-         hn5W38Bdj/0XPErYs3PHFDkKej4em4BEWlt743Ze2d2AN40h5YPF/k8SsVbjY5cZCvhN
-         idGw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1772007631; x=1772612431; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1z9BWz3z5pxfzq2/6/DM6j0C4sXxYJlJrqOJoumJEJ0=;
-        b=beHx+nm9C7ezLARUWXP3DPRF74Qg1v1SuYWdNAdWgASij0Dp4KV0ecjPWT13QnzOQS
-         Zc2+uFzhnliKQfkphjafbZBm2s0AzTjnTIUKTsBo6WNxPvjdNyTrwuQSUC2UhYcp0Z8W
-         Kr1MTR//o0HPfqUggRAKhPSOSwLHS3XFYW/kc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772007631; x=1772612431;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1z9BWz3z5pxfzq2/6/DM6j0C4sXxYJlJrqOJoumJEJ0=;
-        b=vEe1vvXODUoindgl+IUjOzMSsAh2S9irwmh/KA7fneGySeNe+Kq037LkzL7EL6vuDr
-         uuMwSo7gXP4Csx2hcL1tIj6FBkAv4OpxETNL0Y0Bg5dxgFatAoemy5wnahM0JMDu0bdG
-         DowVfWrbk1eLTph7QuidUHDu2HRfQQyqglwTJ22rX9AVhPxci8ED67Gw/C1tofs/bve7
-         LhP9wBtJquuQnGrm9awVrqjLfCHmqjTyrgH3ScYeC3HLewM5rccIrFdLGWp2VPtcffqm
-         9tUZOgNTc5p5HNPcBF0T77GedLGAxEnnaLpfeXwVFqJp5yPohVT8bB5kHEAn94YnNwW1
-         NB5A==
-X-Forwarded-Encrypted: i=1; AJvYcCX8C/fr4fe5gp/5WELjHPVj6a4Xe5INbeqq2ydIEIMQWpoQKzvymT8L2ldEa6e7p1POh9uLihvYwmjlv6KhI3tu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTjUyEhnWFJFDQg6I5qOrz9AQMYmO2Z8BE9Z7GmzKPh/veEsic
-	WrU4lzsTi0QdP4FWusKzrvDXb0LPHrBX6d4bKMjQe5xTYXuj075uvfMtSvrvlUfPP1+dYLEJTY8
-	1d3b0V5GdBEftVZB/NNd2it7KUJJc1PNAxxgnjQlR
-X-Gm-Gg: ATEYQzyYvwSgvJqv9t97jDxVCB7Mv0BvzQcHQguz3o/65DloGM5qI9xCpEtScYhIdPD
-	yif6EFelWxmeT1sdoXuq2BwrkM1RqEsTDTBDFeJGkfchY5uILpU3tTokCOYMi0XfaM+KgOWi/zD
-	UVyheai5DllfCYqNRJ5T2rl+Y6lsQLgXC9iI8kTzyr0HeH36O+56/1Et1cfD9/ypMcKleTDeERm
-	YAmzFSCGRwHmDl8zzq0Xhj4JmMqtygAi6q5ft2YkBrvma9lOHBaYEyzVl7WbuPAz6zaglH8rJrq
-	HP8vqp5sM4tDjNADPnzEAxGyfypv/HPC+Lk=
-X-Received: by 2002:a05:6512:b9b:b0:5a1:430:6222 with SMTP id
- 2adb3069b0e04-5a10430638emr227734e87.7.1772007630593; Wed, 25 Feb 2026
- 00:20:30 -0800 (PST)
+	Wed, 25 Feb 2026 08:24:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=CwTftfPLORKMn5vbTjWLfPI4meAs67WbxJlY6dwYVxc=; b=kfzVf4+IM4IiPw4cIgIYd3bERw
+	+DP84XAV4/0wtN/BzlkFLseEOWDvHg5qQwgrzMP7UdzYPGcFGsl+LcyBC4dQe3XNeH6DojGmKUbjU
+	lW9s5j9i0NG1gkC50JfQdFm1oESpk+TxLCAy51Ftlum7O5nHCGLZHyTlPw9p9vmuJSpoTDRNGZaJd
+	c2f9aUY7+84rXRiU52Nk52OA3xS6MtK8ysgQ5Q0muYLqQSlfi9M7YNbGxZQ5AwVVtcgixmvEXTIxt
+	jDuS98wXkr41ETbXxZIyRzGGJMc29PQf94MX/5VFdKZazR01lZbYYmmI1JQJ41Rqy8Vp1TYqgug/8
+	OGMRSsGw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35986)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vvABp-000000006C7-2ZRo;
+	Wed, 25 Feb 2026 08:24:13 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vvABm-000000000mM-2Dvn;
+	Wed, 25 Feb 2026 08:24:10 +0000
+Date: Wed, 25 Feb 2026 08:24:10 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next] net: stmmac: fix .ndo_fix_features()
+Message-ID: <aZ6xqig4zh_Un8R7@shell.armlinux.org.uk>
+References: <E1vuU3X-0000000Ae9G-1Er8@rmk-PC.armlinux.org.uk>
+ <20260224173037.7871e5ac@kernel.org>
 MIME-Version: 1.0
-References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com> <80cecc13015aca7fe68dd40845e60af4bad42223.camel@mediatek.com>
-In-Reply-To: <80cecc13015aca7fe68dd40845e60af4bad42223.camel@mediatek.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 25 Feb 2026 16:20:19 +0800
-X-Gm-Features: AaiRm53aktJkvWRSs_OtrFpEUnAjkj1Xocp5KjXoLsN4g3Olmuw0jfNPNr4TOdc
-Message-ID: <CAGXv+5H1=7O36txmf+m08w1fg3kZKjpqnSOuOAOfiPPcCjtMvA@mail.gmail.com>
-Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-Cc: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"airlied@gmail.com" <airlied@gmail.com>, "bisson.gary@gmail.com" <bisson.gary@gmail.com>, 
-	"simona@ffwll.ch" <simona@ffwll.ch>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260224173037.7871e5ac@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_002032_951791_D2D52B3E 
-X-CRM114-Status: GOOD (  30.30  )
+X-CRM114-CacheID: sfid-20260225_082425_691028_27A65400 
+X-CRM114-Status: GOOD (  24.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,148 +100,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 2:20=E2=80=AFPM CK Hu (=E8=83=A1=E4=BF=8A=E5=85=89)=
- <ck.hu@mediatek.com> wrote:
->
-> On Tue, 2026-01-20 at 12:36 +0100, Gary Bisson wrote:
-> > External email : Please do not click links or open attachments until yo=
-u have verified the sender or the content.
-> >
-> >
-> > Some bridges, such as the TI SN65DSI83, require the HS clock to be
-> > running in order to lock its PLL during its own pre-enable function.
-> >
-> > Without this change, the bridge gives the following error:
-> > sn65dsi83 14-002c: failed to lock PLL, ret=3D-110
-> > sn65dsi83 14-002c: Unexpected link status 0x01
-> > sn65dsi83 14-002c: reset the pipe
-> >
-> > Move the necessary functions from enable to pre-enable.
->
-> Looks good to me, but this change the flow for all SoC and panel,
-> so I would wait for more SoC and more panel test.
->
-> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+On Tue, Feb 24, 2026 at 05:30:37PM -0800, Jakub Kicinski wrote:
+> On Mon, 23 Feb 2026 11:24:51 +0000 Russell King (Oracle) wrote:
+> > netdev features documentation requires that .ndo_fix_features() is
+> > stateless: it shouldn't modify driver state. Yet, stmmac_fix_features()
+> > does exactly that, changing whether GSO frames are processed by the
+> > driver.
+> > 
+> > Move this code to stmmac_set_features() instead, which is the correct
+> > place for it. We don't need to check whether TSO is supported; this
+> > is already handled via the setup of netdev->hw_features, and we are
+> > guaranteed that if netdev->hw_features indicates that a feature is
+> > not supported, .ndo_set_features() won't be called with it set.
+> 
+> No lies detected, but is this enough? The whole TSO enablement 
+> looks quite wobbly (as you mentioned in another email IIRC). 
+> 
+> Only stmmac_hw_setup() actually calls stmmac_enable_tso(). 
+> And stmmac_set_features() does not call stmmac_hw_setup().
 
-Tested-by: Chen-Yu Tsai <wenst@chromium.org> # Chromebooks
+Looking deeper, dwmac4_enable_tso() has two paths depending on the "en"
+flag, both of which are commented as "enable TSO".
 
-Tested on:
-- MT8173 Hana (Telesu) w/ PS8640 bridge
-- MT8183 Krane w/ DSI panel
-- MT8183 Juniper w/ ANX7625 bridge
-- MT8186 Tentacruel w/ PS8640 bridge
-- MT8186 Steelix w/ PS8640 bridge
+Then, looking at the "Enable TSO" block of code in stmmac_hw_setup(),
+it looks to me like we can end up with some queues that have TSO
+enabled, and others which don't (because TBS has been enabled on the
+queue.) As far as I'm aware, the network layer doesn't support
+per-queue TSO.
 
-No regressions observed.
+We can't call stmmac_hw_setup() from any path that we care about any
+state being preserved - it issues a software reset which causes
+everything, including the PTP clock, to be reset and all state then
+needs to be reloaded.
 
-> > Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
-> > ---
-> > Tested on Tungsten510 module with sn65dsi83 + tm070jdhg30 panel.
-> >
-> > Left mtk_dsi_set_mode() as part of the enable function to mimic what is
-> > done in the Samsung DSIM driver which is known to be working the TI
-> > bridge.
-> > ---
-> >  drivers/gpu/drm/mediatek/mtk_dsi.c | 35 +++++++++++++++++-------------=
------
-> >  1 file changed, 17 insertions(+), 18 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/media=
-tek/mtk_dsi.c
-> > index 0e2bcd5f67b7..b560245d1be9 100644
-> > --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-> > +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-> > @@ -672,6 +672,21 @@ static s32 mtk_dsi_switch_to_cmd_mode(struct mtk_d=
-si *dsi, u8 irq_flag, u32 t)
-> >         }
-> >  }
-> >
-> > +static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
-> > +{
-> > +       if (!dsi->lanes_ready) {
-> > +               dsi->lanes_ready =3D true;
-> > +               mtk_dsi_rxtx_control(dsi);
-> > +               usleep_range(30, 100);
-> > +               mtk_dsi_reset_dphy(dsi);
-> > +               mtk_dsi_clk_ulp_mode_leave(dsi);
-> > +               mtk_dsi_lane0_ulp_mode_leave(dsi);
-> > +               mtk_dsi_clk_hs_mode(dsi, 0);
-> > +               usleep_range(1000, 3000);
-> > +               /* The reaction time after pulling up the mipi signal f=
-or dsi_rx */
-> > +       }
-> > +}
-> > +
-> >  static int mtk_dsi_poweron(struct mtk_dsi *dsi)
-> >  {
-> >         struct device *dev =3D dsi->host.dev;
-> > @@ -724,6 +739,8 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
-> >         mtk_dsi_set_vm_cmd(dsi);
-> >         mtk_dsi_config_vdo_timing(dsi);
-> >         mtk_dsi_set_interrupt_enable(dsi);
-> > +       mtk_dsi_lane_ready(dsi);
-> > +       mtk_dsi_clk_hs_mode(dsi, 1);
-> >
-> >         return 0;
-> >  err_disable_engine_clk:
-> > @@ -769,30 +786,12 @@ static void mtk_dsi_poweroff(struct mtk_dsi *dsi)
-> >         dsi->lanes_ready =3D false;
-> >  }
-> >
-> > -static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
-> > -{
-> > -       if (!dsi->lanes_ready) {
-> > -               dsi->lanes_ready =3D true;
-> > -               mtk_dsi_rxtx_control(dsi);
-> > -               usleep_range(30, 100);
-> > -               mtk_dsi_reset_dphy(dsi);
-> > -               mtk_dsi_clk_ulp_mode_leave(dsi);
-> > -               mtk_dsi_lane0_ulp_mode_leave(dsi);
-> > -               mtk_dsi_clk_hs_mode(dsi, 0);
-> > -               usleep_range(1000, 3000);
-> > -               /* The reaction time after pulling up the mipi signal f=
-or dsi_rx */
-> > -       }
-> > -}
-> > -
-> >  static void mtk_output_dsi_enable(struct mtk_dsi *dsi)
-> >  {
-> >         if (dsi->enabled)
-> >                 return;
-> >
-> > -       mtk_dsi_lane_ready(dsi);
-> >         mtk_dsi_set_mode(dsi);
-> > -       mtk_dsi_clk_hs_mode(dsi, 1);
-> > -
-> >         mtk_dsi_start(dsi);
-> >
-> >         dsi->enabled =3D true;
-> >
-> > ---
-> > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > change-id: 20260120-mtkdsi-29e4c84e7b38
-> >
-> > Best regards,
-> > --
-> > Gary Bisson <bisson.gary@gmail.com>
-> >
-> >
->
->
-> ************* MEDIATEK Confidentiality Notice
->  ********************
-> The information contained in this e-mail message (including any
-> attachments) may be confidential, proprietary, privileged, or otherwise
-> exempt from disclosure under applicable laws. It is intended to be
-> conveyed only to the designated recipient(s). Any use, dissemination,
-> distribution, printing, retaining or copying of this e-mail (including it=
-s
-> attachments) by unintended recipient(s) is strictly prohibited and may
-> be unlawful. If you are not an intended recipient of this e-mail, or beli=
-eve
->
-> that you have received this e-mail in error, please notify the sender
-> immediately (by replying to this e-mail), delete any and all copies of
-> this e-mail (including any attachments) from your system, and do not
-> disclose the content of this e-mail to any other person. Thank you!
+Lastly, we don't need to disable the TSE bit (via stmmac_enable_tso()
+when we disable TSO, because there's a bit in the descriptors that
+also needs to be set for the packet to undergo TSO. However, if the
+system undergoes a suspend/resume with TSO disabled by the user, we'll
+call stmmac_hw_setup(), which as I note in the previous paragraph will
+reset all state, including the TSE bit. stmmac_enable_tso() won't be
+called, and thus the TSE bit will remain clear. If the user
+subsequently re-enables TSO, then we'll queue packets for TSO but
+the hardware won't have that enabled...
+
+That's a problem today. So, while you're right to point this out (I
+had missed it) it's a separate problem to the one being addressed
+in this patch. In fact, I think there's two new issues that have now
+been identified here.
+
+1. The lack of setting TSE on resume if TSO is supported but but has
+   been disabled by the user.
+2. The interaction of TBS and TSO feature where some channels can
+   support TSO and others not, which I don't think can be supported.
+   So, I think if we have _any_ channel with TBS enabled, we have to
+   disable TSO on the entire netdev.
+
+I think these need to be separate patches, and this one is still
+valid on its own.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
