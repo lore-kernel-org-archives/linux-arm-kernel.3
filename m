@@ -4,145 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC23FD45F7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 21:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF331FD45F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 21:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGOFHg/hll7O/++dlfRJ6QHtxIAr58DEfZz4IdkJ1LA=; b=M2SjZBL0AAs+3r5vJOkpsYaBfk
-	1FPC2Hax/oKowVxTrvaAjiy/250DYc98lsu2Qc6RZES6jEN71SX+Y+Bw0GzzViwfmHr14sIKlmzzD
-	lPhHjnCtu3HlNHpkdOQy+ZEyNOvlJAfwMYasDSkhqsqLgha57B3AbFO6z1GyY/WuReN3JVjIqJf5i
-	xw8P/NPz+Qb/WEQDj7ts3HCkk+C1l+HHEZhbteGVIPIDxjOeRbv+q0+SP3SnIQ++kGlqwQgsjT8sr
-	W5c4L6jfNJ21mTIa0vZnNEfhYza6b4/ARIK1rEyuLoEYVAqrDTzUcFeeNlgKEI9Wdtl7OdNfFvODo
-	eZixldRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qynXNHPWMkC/Dsp1GodjENA+o7nP+5AXv7EbouCSYiI=; b=SYsZO0pbaQuT9smiO3kFFeZcRE
+	elgIjEQKxk4/zNXke8OX7VVueX48KGVgGGPCKDOdRo0LpOhirVCsuoLokoTpKIhBuwnd4dcf4SdDn
+	0sEiYCY01ii5Ryfc8EOCbr0CuRsgdLAtdXwF+zoQPSWpQ25O2geV1VH7N4CNlh4JhxInjaEoZkA+0
+	7I+2UiuT/JJNnvjSMZwDgI11zYcPbrbcaTdLHK75bXIVhW1VNjVjw8L7wyYoCt55kO0AU6/dhxv3e
+	aKqZiyNAMEQKUOQGeRvkRu47Ua8Mbvm9E7a04tet6IG/tapgYw4OLBK5hxcXiuDFJ3gBijguwFCq1
+	ckwyIUlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvMei-00000004wcX-27GV;
-	Wed, 25 Feb 2026 21:42:52 +0000
-Received: from mail-swedencentralazon11013022.outbound.protection.outlook.com ([52.101.83.22] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vvMjX-00000004xTs-0Yfe;
+	Wed, 25 Feb 2026 21:47:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvMeY-00000004wQY-1W14
+	id 1vvMjV-00000004xTl-1c0Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 21:42:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HmUirwMCEmtbE1+aTaTAIPFhoVfltjG1oyUoZSI0Hh6SED6qv7m8rv7pc/yscHgx7Zx2n5WUJfmgUTogMmEiOtp6kGSUqcJ5VXO+hTaXCQLhHfHsptEEClRsL2E4tIetM8mZdrd0cEF0QL8eUvOGc4hDujHGUlVlrMR6N94mXXM91CoMkcshvMl6nT6E2779DySZ6lCOHfncAK9X6h7rQydRcw91MF9k0L/RjlyDZ0eHvC2Z/NJ/JuPyYfROVc9lA7xQR6XbJDlkS4gjBf0j6Gjk7rP6BMfIv/wsecImRaywtXQE/kZxR3i1D9pTKVpFMZLEdZbRNlm+vsEtx/J+Dg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JGOFHg/hll7O/++dlfRJ6QHtxIAr58DEfZz4IdkJ1LA=;
- b=n62t34kS752cpyqo/BH3+vZZZlQVfz5E6+zHGRgI1tcSMY0iE7B3Mg031tea/X602KD7OtGfVUMsDfSKcbEujHov8eHPgtcBtkphQ3y3drzGDsPNCN+1LnnTkKzAZBX3lA9xdMZAo31WGFpeMdFfexeEfg1Yq72KxEjDPpQ2DzwW5flpUD3wlcdOTvAFCgBx5x+CCCHtz98Zh14PUlm8SjGN+l9ZWGPjQMINvT6C2SNFzkzrsu7wjNqLjPKrGbBs+tAqiSY97K2P2yBmLQP0xXngrsi85MBdSldMKPwPxG3jowlfIU3NsA1GghM72nmDmC711lWTqqSkE1me1eULXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JGOFHg/hll7O/++dlfRJ6QHtxIAr58DEfZz4IdkJ1LA=;
- b=WkuBVefZQJHr9xoepRNWIAFDqvClFT29dKEeirPlN2Q/2wmi7EN/mM1bA6OemzPLoIZgePU/iIUalgsA29Yjt832fb0bOQPArVjYGXYZ/O77h/7s9pD/vaK77gpBqP3+QE+/rB9rr+veZ4SbsRAANA3xY14OUmUxtqbxKejTFlMwq4CrHpL6M15MlW7TZNbx9bnpYGLZHsDfW4s6S5Jfjg/dKs/2WegNA3LrU+9c9qp9SM54spYWYg9uvbY7vQ0pEQGNs5ZIzELQZXSOvFnBi0gLk6qr/TbwTr/nuQFBTScrol7Yi/bwWV0OR1evPG719uIa0fKq49D0+a3HCVdEXg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DB8PR04MB7196.eurprd04.prod.outlook.com (2603:10a6:10:123::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.21; Wed, 25 Feb
- 2026 21:42:36 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.017; Wed, 25 Feb 2026
- 21:42:36 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 25 Feb 2026 16:41:49 -0500
-Subject: [PATCH v3 13/13] dmaengine: fsl-qdma: Use dev_err_probe() to
- simplify code
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260225-mxsdma-module-v3-13-8f798b13baa6@nxp.com>
-References: <20260225-mxsdma-module-v3-0-8f798b13baa6@nxp.com>
-In-Reply-To: <20260225-mxsdma-module-v3-0-8f798b13baa6@nxp.com>
-To: Rob Herring <robh@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Saravana Kannan <saravanak@kernel.org>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Shawn Guo <shawn.guo@freescale.com>, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772055708; l=2838;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=gY2Y7IlCtzZRw/+mVgZsxbVKsW3Vj3C5YGxgrl7lCNE=;
- b=OH8Eb5lNdlnhCVSjNWODakWr7mSTz6yTZFTYbU2/Qa73k1WIq11BNucQZLHqeyp2tdcmBDQVx
- FvZ1NdjQToCDGwt5zDexyIq5nZmb5lZNkOQiD+Jo4LTjJ/MQQZVstZr
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH0PR07CA0052.namprd07.prod.outlook.com
- (2603:10b6:510:e::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Wed, 25 Feb 2026 21:47:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2990A600CB
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 21:47:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D46E7C2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 21:47:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772056067;
+	bh=l8N6B+v3LKcBSMQDhhMsq1Ou4LUvHgBtC7GiADD7q1o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=lNwdo0nUY0vYNlniM9tZn3gVIj62mw9G4B/6roySJN2yYSIKp3Wl6adjb9q3m7M8F
+	 3U+qdqQuwsI+L/D53LkkRLNmsjH64zrvmQTYwG9xtZtg4urFoV+mSrjt5/M7pDxJ17
+	 8QLkWyiQTcRJumUZJgjzpV+z2Eh54aP0okn5EnZwMfz2RBGa+s7aJwxio2m7V2W4PC
+	 pRI/La+3ZJOEnrHypTCrYI99pE1Q2sWsaEhLPWj3dDAzEKWait8gxLs1TWDH+upu+U
+	 jVutIDBZwWqE6SmOFaC15sUFxWQIrY2XSL16u9bGwI1tnNY51R0tVq/D+TDSM1Kzak
+	 vTu8DBpj4e92w==
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-b904e1cd038so23532566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 13:47:47 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUNOO9mULSK0ejkmhsqUQIDsKCd6TYBpsgCWBH3yDJWoWQrOWqstRqlpDQx2s13vsLfpR8VFmXRZZslkNe3ch/R@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBKkkJtejTqJ+w9acQXOHGNVcmetXkaEmZHoAYyTToImCnwuEv
+	EPuoG2tEiBWb+oZPKo0kjbEnIRX9cwb3VEweYnyF86bZz34/G5G2xDglZKk0alxeQJqHB49XAwy
+	M5hU3QxWHuTFROXv5tPDyK8d8XRlmew==
+X-Received: by 2002:a17:906:38cb:b0:b8f:7200:63bd with SMTP id
+ a640c23a62f3a-b9351794335mr92810866b.42.1772056066379; Wed, 25 Feb 2026
+ 13:47:46 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB8PR04MB7196:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4a5475c8-3528-45c4-2197-08de74b6ca31
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|19092799006|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: Gtjlm0FChUXnK0QtFa33JQNieSkWsgXRKGE1SVyyNcP5lNMDMXJJjyOJzisZHvZW9pHJKreB1M0Km6MsxSFdMVTGbHQSD2kZjab1vvlG+TBjicplZDDQmwjtm5U7JvQM8vtCBXUBZD127xbVMaYv//N3WN3RhV7BYLX+nW1jBcuO5VZig7mAlJL4IrTOpCQG8UwsA6ED8NX/Zy0j1mhEzuacUe+kEFqiqKrNsgS8U4NYo+h5hxDRl47MAfoxf1ZYvm+tcqHq1Ji6GwExuWSLA0kE6nTHFkl36h/e5BHri9Lv+V3u4cWR5xb3vs/H6/UblDhDLksN8M5zFSTaoG0chxokj/5uqAllUKfuk6bS80BBXk3ZqwPrYP/AKbzHWUhwdsNIIWVTJ6LNxtqjoNG9Vaus8IKMPfzHJvSOWuJ4xX91dRimUtM+Y8xCxSPs1jDKGWKlcDQJooecvpepC4Jj9ozeRJscHrs1MPrzNiDcqFuOowiG7ozxtEv2ucj8k/c40QxMlmcCbVFdwI7SQcybZAdOOrqFRejTBaoiHorXkyR+Liff6wL8MSh8ZykF4u/fi09TxPIdQkUMiVTNeoPKTKG1Qzs1N60r9iNR4jpZRsXK/iwolZXLEwsuyjIon+UV3OXF7DSEECGWdk1oh+BfzQ5fWT1N7dla5R06XXcyJ6ey43OuN419dTHTqX/NnTjdMAXbvtJQlloTs5WEjkFfZnCc1M0H/RANs6Gge+RQlwoXUE/tVrPb4txTQj4Nd8YNn0mmhBS+7a0Q1JkQxOxuMb5GiiGCftzjBccTCAJ2axc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(19092799006)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U0pJOFdWWUFwdjhJSERlYW5VS2pYQ1lvZ0xUR2tKbnJOakZwaXN4NTc5T3Jy?=
- =?utf-8?B?MWF3SWsxdmVDK09xSXVSc2pjQnBjMFJYN0ZDSWNYT1R4UCtGNEY2Y2d1N3Z0?=
- =?utf-8?B?c2wxeU9keGFJbXJKS3NxNWFMSUtBa29DSnhwS3FtUEw0ZjIyQjJvb1RNUFo1?=
- =?utf-8?B?QlBMdndpaEkyQnU3YS9TUWhZejUxN2VDbFFjbUJwODJaRFlWRUZwc3IxUTYw?=
- =?utf-8?B?bzZVaXIwQnp3eHVCMDJGT012ajhUcmN3bnRnRFRhVGliTVlDOTRnREI1ckw5?=
- =?utf-8?B?RFZ2bDc0TktCendlVXpsM0EvMlh1dUJKemhlNXVlSUp0L0JPRUVWSTdYT2pF?=
- =?utf-8?B?SmNtUCsxVjVRSUNUVkk3b0JwT0RvY1lrTEg4ZmZCNG0xdHJ6SDZjUEs0WXNQ?=
- =?utf-8?B?MzJyKzdxUGZueHdGUlo1aXZvUHdxRjBSNGNnY0NaSGJMcFE1UXcvMm1Wb2kx?=
- =?utf-8?B?M0NOWnZqalpPV2RCN1dOWDczWE4wMGRoOHdkQ0QvTXM4VVd4SHVOODk5Y3Jh?=
- =?utf-8?B?TlIvcVQ1MHJlbVROeG5nQTF6R014SjVyTklFS1djSGdFY2libS9JaWpqOWRO?=
- =?utf-8?B?aldvRDdqem15RFNvc1RMZWZBOVo3TmxSSFZJbk43Qk45eTVHOEh5aXI5L0Fw?=
- =?utf-8?B?bkRjb0lTUXFCcVZlcm9JcVRNRlgvWGNEYUkyRkI1b1UwWDBsZERCQld4a2xk?=
- =?utf-8?B?djhDc0krT254Y2FVcmdCcGdzTng3UWNDdUI3NTJTb0xKbkZhcWIwdHF5akU5?=
- =?utf-8?B?ZjAwY0R2aEJWeUxFTzlSSStHd2NPbS94L1ZPbzN1N2UwWVZtSDJRRDZBcFdy?=
- =?utf-8?B?ZVY1UEN5c2hxMGp3eVFYZTNJeVBoMmUxUVJncTVBMEhHVTJobTVLcFkwTzZp?=
- =?utf-8?B?cVRHcDZWY1l0MmZvQzNSSU5jRnV1dlFNUjFoQVNCMUlaaGtmMGE3YzFRZy93?=
- =?utf-8?B?NXR4M0xBSTVXSTU4Qy9PNFBkOFErMEd6ZjZFUjNCdlVYUmN4VGc3emNkNnR4?=
- =?utf-8?B?RWx6V1JQWEpveHdCM0xhOEtVb1JiTVJEc3d0bDRBZDZHVGhPKzVDNFg2bDBq?=
- =?utf-8?B?THpYTFhmVzh1ajRDbUFhSTNUVG1sNTRsZTdjYitQQ05Vc3FZOExHeDZxOURY?=
- =?utf-8?B?cFJOdFZTQWhVeWlqSTRYT3VwUCtGY29PVndoU3Nwb0ZBUExDUm9nejlyN1RB?=
- =?utf-8?B?emE4akZKcC9IeHkwd3VWekcyTHU4eC9ldkZtL29OSUdSRExNcEx1YjBMb1Ju?=
- =?utf-8?B?RmJrUkhySUVnOUd1WnVCdE45TDdRN3FubWNaV3BTVldiQ2lVK285U1h0WUN1?=
- =?utf-8?B?bjBLRStJa1ZzOXphd2xsWTJtQllaMldsY2piK0NXTFFDYVgwOHlDaDNvYkRJ?=
- =?utf-8?B?MkRZWC8rdkIxU0QwOHdiSDF0RmtFZzViNHA3T1ZLWGRocjdYS0ZHeStEMGE1?=
- =?utf-8?B?ZndyQjRJeis4OXlJM1JZeDRHeFl2RE1QSkNZTzBRdDlBMDU2ckpZV0tCUm1I?=
- =?utf-8?B?WFBFK2RPYmw1RWpMMDM5S0lvbGhaczQraU0vN2hWRTJrOWUwTVRWZlpOZktY?=
- =?utf-8?B?ZkxHcnpUL3UzYTh2SjUvMXpIRkZCdkpRREViT1VSUi9XV0p3LzV6azZYWGhB?=
- =?utf-8?B?UTNPQTBhcjFTMER4Ti9jWFhBNTFQY01UVjN4cEpJUXAreHdLdXU3eG1IMktF?=
- =?utf-8?B?WTNwMHpLem1yUUFCcVROYmJEU2FSWXRTYjdFUW03NFE2TUVaSmt3bElkZk5p?=
- =?utf-8?B?M3F2TERUWGV4ck4zeHJpSEdHcUVOLzE1WkxoS1dRVmV6QXlxYXNNd1VENloz?=
- =?utf-8?B?QzNyUHp5VXN1ZjQvMHR2bFpZanp2Yk9tUVhBYTBRa1p0SHFZdmF6Z1JzSy80?=
- =?utf-8?B?MWFaMUxkTWd4alFodWRqaHZDNExJMldJTlYyQWM0aUdSd2JpOVJFR1lZQ2hs?=
- =?utf-8?B?TGRoUzVQWjZFOUVHdkZEU1JlYUFpT0o1bWZFOHlWU2JTdGRiZnBUdkxXTE5x?=
- =?utf-8?B?Rys3eUdXdlhFL2RCMXRGMXFtcVRkWFZyWHRWMEhWN0h2bWFVL0lQc3dDak9a?=
- =?utf-8?B?UlFnZnU2bzRXSzZNSUdqdlR2UjlJK0RaZTRLa1hOUk5zUlY3ekRXU1hyZC9K?=
- =?utf-8?B?YU1XS1NHVGhyZ0NRWW8zR3JRQ0syS1pub1lrUHBKVGswc2FtVzgyZ29tMklJ?=
- =?utf-8?B?QVBxUHRmQXZneDYxdngzTmZJNW1EZG15aUNYcGFQcEZDMmJsdlgzQ3c4VzFG?=
- =?utf-8?B?YkhUV1ROeTROY2g4VkdJaFFNOTFiWTFNRnkxb1R4ZmEzU0dsY3c1RndIOHRJ?=
- =?utf-8?B?ZE9yN29kcjdzWVJOZ0FTdTFZU21VWWdNVkFmVkszNkJYVmxFMGhyUT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4a5475c8-3528-45c4-2197-08de74b6ca31
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2026 21:42:36.0154
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cxAMn9kLvzmWLVSOBtTQIUYmdCMjtUPy3Fns/Nk/fpRdt2yTgB1SAYkAcFqcjrzEhldlIo2RBxd+17auoYhCKA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7196
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_134242_426206_4FF99118 
-X-CRM114-Status: GOOD (  11.69  )
+References: <20260223-soc-of-root-v2-0-b45da45903c8@oss.qualcomm.com>
+ <20260223-soc-of-root-v2-8-b45da45903c8@oss.qualcomm.com> <20260224183213.GA3239922-robh@kernel.org>
+ <CAMRc=MfAuDqQZQAPXnJPJ9P1OV38dsQb0CWCh_EtZVq_G9dwsA@mail.gmail.com>
+In-Reply-To: <CAMRc=MfAuDqQZQAPXnJPJ9P1OV38dsQb0CWCh_EtZVq_G9dwsA@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 25 Feb 2026 15:47:35 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLr3zzBfVujuj2kO3VCngV-wa97e+xEQj_sjakzRXyZSw@mail.gmail.com>
+X-Gm-Features: AaiRm539jdazKEwDTNuu6a7Fra_2vBg28zXqHEjYX1GN3S7PxX9gedX_Y-Td3eI
+Message-ID: <CAL_JsqLr3zzBfVujuj2kO3VCngV-wa97e+xEQj_sjakzRXyZSw@mail.gmail.com>
+Subject: Re: [PATCH v2 8/9] soc: renesas: don't access of_root directly
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Saravana Kannan <saravanak@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Frank Li <Frank.Li@nxp.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, driver-core@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,101 +91,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_err_probe() to simplify code. No functional change.
+On Wed, Feb 25, 2026 at 3:42=E2=80=AFAM Bartosz Golaszewski <brgl@kernel.or=
+g> wrote:
+>
+> On Tue, Feb 24, 2026 at 7:32=E2=80=AFPM Rob Herring <robh@kernel.org> wro=
+te:
+> >
+> > On Mon, Feb 23, 2026 at 02:37:23PM +0100, Bartosz Golaszewski wrote:
+> > > Don't access of_root directly as it reduces the build test coverage f=
+or
+> > > this driver with COMPILE_TEST=3Dy and OF=3Dn. Use existing helper fun=
+ctions
+> > > to retrieve the relevant information.
+> > >
+> > > Suggested-by: Rob Herring <robh@kernel.org>
+> > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.=
+com>
+> > > ---
+> > >  drivers/soc/renesas/renesas-soc.c | 7 ++++++-
+> > >  1 file changed, 6 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/soc/renesas/renesas-soc.c b/drivers/soc/renesas/=
+renesas-soc.c
+> > > index 38ff0b823bdaf1ba106bfb57ed423158d9103f8d..bd8ba0ac30fa91fcf2a10=
+edd0d58b064650085cf 100644
+> > > --- a/drivers/soc/renesas/renesas-soc.c
+> > > +++ b/drivers/soc/renesas/renesas-soc.c
+> > > @@ -6,6 +6,7 @@
+> > >   */
+> > >
+> > >  #include <linux/bitfield.h>
+> > > +#include <linux/cleanup.h>
+> > >  #include <linux/io.h>
+> > >  #include <linux/of.h>
+> > >  #include <linux/of_address.h>
+> > > @@ -468,7 +469,11 @@ static int __init renesas_soc_init(void)
+> > >       const char *soc_id;
+> > >       int ret;
+> > >
+> > > -     match =3D of_match_node(renesas_socs, of_root);
+> > > +     struct device_node *root __free(device_node) =3D of_find_node_b=
+y_path("/");
+> > > +     if (!root)
+> > > +             return -ENOENT;
+> > > +
+> > > +     match =3D of_match_node(renesas_socs, root);
+> >
+> > Doesn't of_machine_device_match() work here?
+> >
+>
+> No, because we're using the returned address of the matching struct
+> of_device_id later in the function. If you think it's a better idea to
+> introduce of_machine_match_node(), let me know but I think that should
+> be done separately.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/dma/fsl-qdma.c | 47 +++++++++++++++++++----------------------------
- 1 file changed, 19 insertions(+), 28 deletions(-)
+No, it's fine.
 
-diff --git a/drivers/dma/fsl-qdma.c b/drivers/dma/fsl-qdma.c
-index 0bbff9df362f87ca7cfa09c668ad5996111a424f..df843fad0ece50c148b6a45d2c1c6ddb413d5c24 100644
---- a/drivers/dma/fsl-qdma.c
-+++ b/drivers/dma/fsl-qdma.c
-@@ -1127,22 +1127,19 @@ static int fsl_qdma_probe(struct platform_device *pdev)
- 	struct device_node *np = pdev->dev.of_node;
- 
- 	ret = of_property_read_u32(np, "dma-channels", &chans);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't get dma-channels.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't get dma-channels.\n");
- 
- 	ret = of_property_read_u32(np, "block-offset", &blk_off);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't get block-offset.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't get block-offset.\n");
- 
- 	ret = of_property_read_u32(np, "block-number", &blk_num);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't get block-number.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't get block-number.\n");
- 
- 	blk_num = min_t(int, blk_num, num_online_cpus());
- 
-@@ -1167,10 +1164,8 @@ static int fsl_qdma_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	ret = of_property_read_u32(np, "fsl,dma-queues", &queues);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't get queues.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "Can't get queues.\n");
- 
- 	fsl_qdma->desc_allocated = 0;
- 	fsl_qdma->n_chans = chans;
-@@ -1231,28 +1226,24 @@ static int fsl_qdma_probe(struct platform_device *pdev)
- 	fsl_qdma->dma_dev.device_terminate_all = fsl_qdma_terminate_all;
- 
- 	ret = dma_set_mask(&pdev->dev, DMA_BIT_MASK(40));
--	if (ret) {
--		dev_err(&pdev->dev, "dma_set_mask failure.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "dma_set_mask failure.\n");
- 
- 	platform_set_drvdata(pdev, fsl_qdma);
- 
- 	ret = fsl_qdma_reg_init(fsl_qdma);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't Initialize the qDMA engine.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't Initialize the qDMA engine.\n");
- 
- 	ret = fsl_qdma_irq_init(pdev, fsl_qdma);
- 	if (ret)
- 		return ret;
- 
- 	ret = dma_async_device_register(&fsl_qdma->dma_dev);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't register NXP Layerscape qDMA engine.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't register NXP Layerscape qDMA engine.\n");
- 
- 	return 0;
- }
-
--- 
-2.43.0
-
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
