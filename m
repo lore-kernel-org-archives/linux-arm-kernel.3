@@ -4,72 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23399F55449
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 04:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE56F55449
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 04:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oWK2ofi54zMcLAjgob+INTbuXamQKlF7srcKYgpzrAM=; b=e0gLKDEB0WwG13dZAX3aP947ac
-	kgHNX+WJXpCyVtYz0XUrDvbjlPPmyW4nRCzy7kI8FshcIWy91bC9xEIg9prtcmcko5wx0XDS4BVuC
-	GtaJpkwYV7Ia1Xy9q++cyEoUq68gD71Y+DaV/s42MC6dJRw2o0PHiLQXN7oTrtb6G4vct9lPRsAox
-	br1CZ92gcp9n8Bq1NsqnKlSQT8UyG3J0F3T22oqucbkm0u+Q/IdCEe4vY2imNXISJivynKNuNTotT
-	XaekZyIVzf77GosMA/jund6f5etqJ72syLWANMw4d8lJisHwMNfTfbY5zpYpGR7Dqo38nTn7M89ZR
-	5yjogTbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uuNz0M9WBkItf7D1SEjgMLlBY5QrhLH+7WlBomk+924=; b=nsT7V7JhpYJF0eUFTc1qQ/j+hv
+	kZr6Kpsuxo5tmv4+6vcPTzH8aoSn6R8eTOiQoxMK662HhRuEVT/UuQgWf0GfZPIvSqDbtXLYDoIxF
+	eUtIORySZr5fmzw0iPruQWN25/A/evrcw1C83TqYGLVqQetvZeQv/qYwUs3jO3gOa3Kkfx7WL+rAf
+	mmWXu6R7/yfDXBIXoGUTUb+BLYaN0yzkBeqkWBXHj5m1pLsE4Ka/wzzc8x/68WMvvP+VMdxZYSE6A
+	QgZbCLnWPu0wYDcilbCalOdjXWhZljQS5XKcB0D8azKP5gh9h+mHxqCZku/2xeQkXLo+5xxeloBHQ
+	EpD/IV1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv68o-00000003Awc-0yVu;
-	Wed, 25 Feb 2026 04:04:50 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1vv6gK-00000003Cnv-1ihX;
+	Wed, 25 Feb 2026 04:39:28 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv68b-00000003Ane-2wdN
+	id 1vv6gJ-00000003Cnk-0USS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Feb 2026 04:39:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=uuNz0M9WBkItf7D1SEjgMLlBY5QrhLH+7WlBomk+924=; b=GAED7for2rx0mx5Zmxxm04ytqi
+	wLMScoz3ai/jhZ6LbZaOcGAMXau1H+u3SV8KYRO9SeXcF5B+ItUW3WthLLxSMZBfwGXVgUiYBnvX9
+	n8G8iOf+lucpkutkjVJhAFxmMuFf3tqTFhxoyqrzjvHjxcB8Io+uxig6VG94Cbyk+fx9aJgbvt2of
+	eNGG7wXEFMIcm63Hl9CLjt5ZbWj2Ecj0uOEK/MB/AhoC9B+lgQU/qlwumZEfQmbnhvLTfHD55spl9
+	QUAs23LpLcnaz6hWPnX2jNvlBRjbrc4SB57xqmRaU5x/uJm3Gx4FqKDCocXXScKa5mGBu+sQppmv2
+	T8GaiNqg==;
+Received: from layka.disroot.org ([178.21.23.139])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vv6gF-00000000RpP-48za
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 04:04:39 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=oWK2ofi54zMcLAjgob+INTbuXamQKlF7srcKYgpzrAM=;
-	b=CW0Bug7uYrdqez3aI6HNfhMUOFoKDbhN07lqNEnUGbSz1jezWHCduIHeGNP6uqeQMYwSbD8oE
-	1+lrZAeQfW2D8yUgkV5mHnwUbxQuAtuT+vmNFW8gXGzFihC+43J0GsIiJhoFSfnJnY3ZqGpvPTX
-	qLoV8jz80msWR8XZ4t4+0Gk=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4fLLSn5TSmzmV6k;
-	Wed, 25 Feb 2026 11:59:37 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 65C1F4055B;
-	Wed, 25 Feb 2026 12:04:25 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
- (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 25 Feb
- 2026 12:04:24 +0800
-From: Tian Zheng <zhengtian10@huawei.com>
-To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<corbet@lwn.net>, <pbonzini@redhat.com>, <will@kernel.org>,
-	<zhengtian10@huawei.com>
-CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<liuyonglong@huawei.com>, <Jonathan.Cameron@huawei.com>,
-	<yezhenyu2@huawei.com>, <linuxarm@huawei.com>, <joey.gouly@arm.com>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
-	<suzuki.poulose@arm.com>, <leo.bras@arm.com>
-Subject: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
-Date: Wed, 25 Feb 2026 12:04:19 +0800
-Message-ID: <20260225040421.2683931-4-zhengtian10@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260225040421.2683931-1-zhengtian10@huawei.com>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+	Wed, 25 Feb 2026 04:39:25 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id E37B126726;
+	Wed, 25 Feb 2026 05:30:19 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id OcC-zT7sxKQm; Wed, 25 Feb 2026 05:30:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1771993819; bh=uuNz0M9WBkItf7D1SEjgMLlBY5QrhLH+7WlBomk+924=;
+	h=Date:Cc:Subject:From:To:References:In-Reply-To;
+	b=bA7IWNSXuxq9cLSSxbWjAk5ujiAduUFug6RLBCgZXwgfbcccZlh/xsZH42iEZU7XR
+	 4BFNG4mP0X4QGhRkYj47c/7y0VqPRzQkdCGi7qHnqqQFC7YBmspc8Sco7TlLKAX/aW
+	 2E9Xko1TebrdVBWaTrzUdvH9QmzxntuRlOyvwPyO28CZteadOqSc+TYwK0ogYC1xaX
+	 sG0eLsCcWCQWtLrJBWJA+RywgEONg+3szUhMuFuwNba08mmVQ1aQ+s+029MGgGT04R
+	 uBlNl00dDN0G+KGK67SWHRfnRkWzAtgr4TiQRAed6l+SKdT2l698gXVah82S52yfQs
+	 8skxxwcVya5IA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Feb 2026 10:00:09 +0530
+Message-Id: <DGNRDQ5886K7.3NSLKILM1GDWR@disroot.org>
+Cc: <linux-arm-kernel@lists.infradead.org>,
+ <linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, "Rayan Marzouk"
+ <rayanmarzouk743@gmail.com>, "bluebunny" <kalorin.bok084@passinbox.com>
+Subject: Re: [PATCH 2/2] arm64: dts: exynos: add initial support for Samsung
+ Galaxy J7 (2016)
+From: "Kaustabh Chakraborty" <kauschluss@disroot.org>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Kaustabh Chakraborty"
+ <kauschluss@disroot.org>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Rob
+ Herring" <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Kees Cook" <kees@kernel.org>,
+ "Tony Luck" <tony.luck@intel.com>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>
+References: <20260125-exynos7870-j7xelte-v1-0-5cacc3042c42@disroot.org>
+ <20260125-exynos7870-j7xelte-v1-2-5cacc3042c42@disroot.org>
+ <7cdeb30e-13b9-4c7d-95b4-f6bb6cf15ae8@kernel.org>
+In-Reply-To: <7cdeb30e-13b9-4c7d-95b4-f6bb6cf15ae8@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_200438_093492_178D5324 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20260225_043924_055076_477DE649 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,113 +98,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: eillon <yezhenyu2@huawei.com>
+On 2026-02-24 12:20 +01:00, Krzysztof Kozlowski wrote:
+> On 24/01/2026 21:05, Kaustabh Chakraborty wrote:
+>> From: Rayan Marzouk <rayanmarzouk743@gmail.com>
+>>=20
+>> Add initial devicetree support for Samsung Galaxy J7 (2016) (codename:
+>> j7xelte), an Exynos7870 device.
+>>=20
+>> Signed-off-by: Rayan Marzouk <rayanmarzouk743@gmail.com>
+>> Co-developed-by: bluebunny <kalorin.bok084@passinbox.com>
+>> Signed-off-by: bluebunny <kalorin.bok084@passinbox.com>
+>
+> I cannot take anonymous contributions (see submitting patches). Please
+> resend or confirm that I should drop above Co-dev and SoB.
 
-Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
-indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
-to notify the user of the feature.
+Please drop the tags and accept, this has been endorsed by the
+co-author. Thank you.
 
-Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
-ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
-cannot be determined at KVM initialization, an IOCTL interface is
-required.
-
-Actually exposing the new capability to user space happens in a later
-patch.
-
-Signed-off-by: eillon <yezhenyu2@huawei.com>
-Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
----
- arch/arm64/include/asm/cpufeature.h |  5 +++++
- arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
- arch/arm64/tools/cpucaps            |  1 +
- include/uapi/linux/kvm.h            |  1 +
- tools/include/uapi/linux/kvm.h      |  1 +
- 5 files changed, 20 insertions(+)
-
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 4de51f8d92cb..dcc2e2cad5ad 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
- 	return cpus_have_final_cap(ARM64_HAFT);
- }
-
-+static inline bool system_supports_hdbss(void)
-+{
-+	return cpus_have_final_cap(ARM64_HAS_HDBSS);
-+}
-+
- static __always_inline bool system_supports_mpam(void)
- {
- 	return alternative_has_cap_unlikely(ARM64_MPAM);
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c31f8e17732a..348b0afffc3e 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
- 	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
- }
-
-+static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
-+{
-+	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
-+}
-+
- bool cpu_supports_bbml2_noabort(void)
- {
- 	/*
-@@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
- 	},
- #endif
-+	{
-+		.desc = "Hardware Dirty state tracking structure (HDBSS)",
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.capability = ARM64_HAS_HDBSS,
-+		.matches = has_vhe_hdbss,
-+		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
-+	},
- 	{
- 		.desc = "CRC32 instructions",
- 		.capability = ARM64_HAS_CRC32,
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 7261553b644b..f6ece5b85532 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -68,6 +68,7 @@ HAS_VA52
- HAS_VIRT_HOST_EXTN
- HAS_WFXT
- HAS_XNX
-+HAS_HDBSS
- HAFT
- HW_DBM
- KVM_HVHE
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 65500f5db379..15ee42cdbd51 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -985,6 +985,7 @@ struct kvm_enable_cap {
- #define KVM_CAP_ARM_SEA_TO_USER 245
- #define KVM_CAP_S390_USER_OPEREXEC 246
- #define KVM_CAP_S390_KEYOP 247
-+#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
-
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
-diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
-index dddb781b0507..93e0a1e14dc7 100644
---- a/tools/include/uapi/linux/kvm.h
-+++ b/tools/include/uapi/linux/kvm.h
-@@ -974,6 +974,7 @@ struct kvm_enable_cap {
- #define KVM_CAP_GUEST_MEMFD_FLAGS 244
- #define KVM_CAP_ARM_SEA_TO_USER 245
- #define KVM_CAP_S390_USER_OPEREXEC 246
-+#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
-
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
---
-2.33.0
+>
+>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>> ---
+>
+>
+> Best regards,
+> Krzysztof
 
 
