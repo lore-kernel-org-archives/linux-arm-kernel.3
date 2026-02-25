@@ -4,76 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E084BEFD207
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 258E6EFD206
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yUGoA5Mdlzfvkphr1VZ4u6c5zcEyJv1/BZWrrk27NlQ=; b=19AJ2PpnLM80qxe2jToBNn2EDz
-	3OQYGiPAMigQId/p6B6y8qxMTigUTuGV4u1IIDNaBN3iG7yBnTne+pjp3U5aiGGJa1ifrme/yT3gZ
-	Eq5bSorSwcAGVsOXZhdBVnKurIFGtcRsw1mhm6xURop9+IWGDFp0jeZvJTRHoJ5QOV994wt6EftV5
-	zPCjVRFzbesfLorVfwOHvkk6baz86VSqUk8sXzwi8N+hQYD3oZOe8xyykuIaJxZ39qxQuM3a/xble
-	ujf7dxwdokgCyPP3miXtiYZV8ZGFPMXxCv8I0ezbJsYSEFjgTaAYB65MFyD5Q61jtHmAwfCQsV9q4
-	jUNal3WQ==;
+	bh=BypvY7FCk/Vy+mMebpYCbwRrnnvNfIyP/hPsKx45jhM=; b=vZTKZy3nLgTqlXtrk0ZB3H0Ldo
+	j+HUbJg/PxMrPf6dq0D77aNVXQR1mZu4cPBYhbPu7QvSA5y/XfUvZKAwvmrh+JGM7H/xGgereOsj2
+	jpcFTNGzDh3u4ckbt/7UgSxYOKkEIVmYVHbJFaBX3fc2deabkZUr3yAEytJqJKoPEg2L5UrLYNdPS
+	2xaLJ2bBjlYvBQ/McWJu6ue5M0uDJS/rRkW87ug3XnPQoRWEqxhLlScbjNPSgvaAt1DVPowdCFsna
+	Kk3p7o3DYEeyy7dJz/koFIAu2VeN+jlNO7zlMs5vvVfStiWVdkUeq7cNXuBqMdXqOYcVaxqSgvajw
+	32dvu6GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA1o-00000003TyX-2dYL;
-	Wed, 25 Feb 2026 08:13:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvA2N-00000003U5Q-3MeM;
+	Wed, 25 Feb 2026 08:14:27 +0000
+Received: from mail-westeuropeazon11010030.outbound.protection.outlook.com ([52.101.69.30] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA1m-00000003Txi-0pDY
+	id 1vvA2K-00000003U4U-2EOD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 08:13:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43D9560122
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 08:13:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1A92C4AF0D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 08:13:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772007228;
-	bh=yUGoA5Mdlzfvkphr1VZ4u6c5zcEyJv1/BZWrrk27NlQ=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=a1KW1w1NP0SkuWG0/jC6/7GF6KsOUR1Jc9ooB1NefXY+vLKECYAtkuw/lpJC1kBLr
-	 qWxlsEiZ6K/7HM4e3ba/q9fc3PZUw66mBnkKFiyc+gGc5sSExWeJn2JYWO5mEwM0p1
-	 2kxoJHO8KuKScsV1zlm4CWaB2w98Dj4tjt5f7gxEtRebBvi7k96l+HKCa1DNOiDVOB
-	 H2U2gQu9yrg42zKjkFMr35ODOv7oYVk+v0azDNLAfQf75g9AmJmW9D2Ry0vrVVxKbg
-	 xpF+Ear+zia6bwdUAxT2XTjULZDAXj0GRRGhlFDc+DSPpMzCfLJ9jBPaRJB00CIVd/
-	 pvONpBxcBy2pw==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-59e62834439so7314027e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 00:13:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUXH3d9gDS//f9Msq7DVs9y9o4UnvSmSFB6nLINNah7/M20nAs9nliUtdSXucPdJxJFEQ6w0SjTuimuCNY5snP+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw66T/ydArdVA2qhuza7Ssliw5IhUfBgOkBUkuJNr6Skhfmu9N8
-	nJ4k779NcGA+eCFXSbcXFWYnAjvUqrdy4lD3OL13D73otuLYbefpdXSwprcYDUxt9dF0C0MB7h8
-	ldcOuwcsPQ6S8HBJbnrqMnTtkan4ZFVUDgNzGN/9UsQ==
-X-Received: by 2002:a05:6512:4010:b0:59b:6d12:6bd7 with SMTP id
- 2adb3069b0e04-5a0ed99fae0mr4879974e87.40.1772007227325; Wed, 25 Feb 2026
- 00:13:47 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Feb 2026 00:13:46 -0800
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Feb 2026 00:13:46 -0800
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260225072225.3345307-4-wenst@chromium.org>
+	Wed, 25 Feb 2026 08:14:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Fox4tdZ7y1GUi3Raeo/Ii6nxJaEUWlwRBfEKpRaW9Wi/sm9hRVwlHvf4lTWGS2WgChN6wbwWXBY/hFH0LsNruXz5myv5RkJnfxO4C6C8vsF2XdM5qzu+2nlNo95/2Ekn9EMyUJUsPR/bZeKYeROGxnula74dxCqxCInHfPbWQlT5h8JKXDSnQoqbSItvbCf1kpfReKAbRJF3VcytoHFFVSZMFTyLuy+4TqEqhklOfRfV6y5K51CwmGLMGfadl7yBzZK5Jfq60K2g+cjvWe0JwU/sI4BtZ4HfESaA34Ja6hyTvHQeZZV1v6EW3w1uIkH/JLZqU76TAMw+ILZdaXamag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BypvY7FCk/Vy+mMebpYCbwRrnnvNfIyP/hPsKx45jhM=;
+ b=nluVGsH10+xI2eqZegNmpLh9CrHCL0IaQk54wUylIGvYr0Ibo1IUwDAVUp7zrwQMdHhIYfHs6PAH5OK5ppKiw0bnGlrjgdvlUnIbTuCi4lnJ07meOQWT6rxo77FsB9yb+Vbs5dWG++nxmrh9ExqZzZJKwcklkyrMTeFjnB/t/l5L8QUOlTAqGqJrD6a42mirHjEwu43KSr2z1vkoaAN6NFAbJiAzvjlj5d4Eu3OvtDKWj8wH1rwbBI98CZgvVwlmFBodrc9FQHFyZXCqk/oXp5F4OeJZg659/9r8mSQe2V0uboTUvpMulHFM2QKxRNguRdKM7Klg+qNOhJz8QHMY8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BypvY7FCk/Vy+mMebpYCbwRrnnvNfIyP/hPsKx45jhM=;
+ b=NRBhP+aTzq/PU947f3qwqXuoDN1vpAb2Cn3O154ybI9ot+ln7l/BE7XcpmVbK6JmBOWk7H+6UWTualMlC6GxU4dtfuB827W1ht47DXdMNVBLjE9GNZcMf/FAbbF7LJlhlF9LcwFjdsAVJ2kdjNcia/RudNaxLj+5FHNk9rT/RwtYA0SmSUrct94V/s8qB2JxZAyrLQWjCxJN8MIYqYwm9fosKPCYq/iFWJ0PwbRuKA8jEacrru6OjJj3x6vx3HS/yDKJcYgzOsx8vzZrFJ0sTb6nAf0/KFJlCXHoabHjTRzVlAjte3IxGfC+Zz1YLtlTnfyTRNY4KyDRD1VqIeJbcA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAXPR04MB9325.eurprd04.prod.outlook.com (2603:10a6:102:2b9::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Wed, 25 Feb
+ 2026 08:14:17 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9632.017; Wed, 25 Feb 2026
+ 08:14:17 +0000
+Date: Wed, 25 Feb 2026 16:16:09 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: abelvesa@kernel.org, peng.fan@nxp.com, daniel.baluta@oss.nxp.com,
+	mturquette@baylibre.com, sboyd@kernel.org, Frank.Li@nxp.com,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	gregkh@linuxfoundation.org, rafael@kernel.org,
+	hanguidong02@gmail.com, driver-core@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: Re: [PATCH v2] clk: scu/imx8qxp: do not register driver in probe()
+Message-ID: <aZ6vyQw5a5LhSCaT@shlinux89>
+References: <20260212235842.85934-1-dakr@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260212235842.85934-1-dakr@kernel.org>
+X-ClientProxiedBy: SI1PR02CA0053.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-References: <20260225072225.3345307-1-wenst@chromium.org> <20260225072225.3345307-4-wenst@chromium.org>
-Date: Wed, 25 Feb 2026 00:13:46 -0800
-X-Gmail-Original-Message-ID: <CAMRc=MdH0_JVRLXtc8fWkdr1qMBERCc-kjp58nbyzhVuMnCgrQ@mail.gmail.com>
-X-Gm-Features: AaiRm52AQF02eEDkSj7XKJdKxnJmEy0P3IRZQuLjGUKE0XqIuxZJ88cZvI40wzQ
-Message-ID: <CAMRc=MdH0_JVRLXtc8fWkdr1qMBERCc-kjp58nbyzhVuMnCgrQ@mail.gmail.com>
-Subject: Re: [PATCH 3/7] PCI: mediatek-gen3: Split out device power helpers
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang <jianjun.wang@mediatek.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-pci@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB9325:EE_
+X-MS-Office365-Filtering-Correlation-Id: c8b2554a-3411-4d6c-7303-08de7445de5a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|19092799006|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1l+ki1JGRpcXi9zja3iZ67TN08RWhtwG5QqBdi/Wf52EemoeeNqsla/8recc?=
+ =?us-ascii?Q?OEJnzGaMdr/IzGu/FKmFLFtlIdvn91sehzH2dRLsypFRxCFKDLXkez1L7JF8?=
+ =?us-ascii?Q?O6cMEx1GU7/aYBqjwOCCwhnN3o//Co/ImC2GqEcuIrsUPEdRLB78ORzoHpKE?=
+ =?us-ascii?Q?vMiHBXrkYc8Bv65QCb7m0JOGc/1BqVbJIJADnE18LD06xlRpihf8+P4LxIDt?=
+ =?us-ascii?Q?tXHVeVDPTOd2vpdYvojVEEHu/CfaNKcgTLifjaub8CDoR7L5Bhq4a5FztE8r?=
+ =?us-ascii?Q?XDz5ZuZu1a9ECYETnQadF9olXXp5QZg+iovOgqzoSXkjTw/qaX4rxJFbCyjV?=
+ =?us-ascii?Q?j5/3hQNakeT/oJSgsE7tzro1NK3O8bT3H/62yXV1GMZJx6JW/r0jc0ddLzhh?=
+ =?us-ascii?Q?3H69l5OcYCB1iGUHtRU7HdCTMDGn/6AvlC/WCkyZ5rnOEd5zF6lWCb8noMO0?=
+ =?us-ascii?Q?F0pDclNFlm2Ci6EEc606EuNj0awg/e4Ra2QNG0EmuhvI6RX0JS+6sSpRQKPu?=
+ =?us-ascii?Q?IhuasFGtW79U3qFZqwYJhuXF0HCDyyhNOwiI/dMc26ob3HdZWX7xTyCKhX80?=
+ =?us-ascii?Q?652nIdC9sXDxGvjsPkHa2oKeeRFkokphwrTlE2h2XTcLPH/vDIwFQn5mAWB8?=
+ =?us-ascii?Q?nlG/g2pKaU0UdqTGQH3b0UFt96cCrXhUDzzdiuRcULHuaFdj9S3jCltL+XYu?=
+ =?us-ascii?Q?HAkjoLL2yQfRmOrnhBpgWQqi/wIlMfxWrIsjd+Lf+6vNM4GyWJ8tobotSKyC?=
+ =?us-ascii?Q?txhU5Ihu5yqZdJ5eTONa+v8vfT49aJSBvWXXXLKD/3mAXF/gDI7hfFX/uPUq?=
+ =?us-ascii?Q?izbIEl39U5aU/HRROVqwvEw2MOmjLIETlQKr/UUobl5I4rkqFeU26giv5F8k?=
+ =?us-ascii?Q?jOXcCysUBY0WTFBAarU5+B/tewcEsaVcYyNfikTMlGrQFItIS7/+NI9uS+De?=
+ =?us-ascii?Q?vplng86fBBPulcEefLSr8qri2tw1u2Tivbi6ApTj8OCnIXvY5Fnel7BUcheh?=
+ =?us-ascii?Q?03rdqMGwzdH9vvVVhY34LLPQ8JVR4cyOOTSXKjDq9+X6C3UEJvxxOPgiIsct?=
+ =?us-ascii?Q?B5xh8vtVfZhUsTSlXZidOgKcZTI+r28GrHdjrA+JaiIuQLtZv/zrj+3KLygF?=
+ =?us-ascii?Q?YI6S+qa890nUq+rpKrlTnMyMTWClzUK/EHMjukBlcegK0BurVgkyr24+WIPj?=
+ =?us-ascii?Q?GArzhhG1y2IE95JCM8cNujvzWRM5RkFG7N9Nw6wpalRCnYo2xGqF4e7zjbMM?=
+ =?us-ascii?Q?25Yu7Zxn75JAC6seb6gY6QCX4t/g/3Vfi6zx/xBkJCb02DbhvLe2nLDtq3Ru?=
+ =?us-ascii?Q?FtsK714ifMjqexIPzcuVr58fiBflAGefjEHF0ctFgpdcRwK+P1s9TcV2VX3e?=
+ =?us-ascii?Q?7GxPFXC8JWgcojjBBb38MbTdKtjgm5cke4AJhkeJMebYomUt8p4mzl1cTrPd?=
+ =?us-ascii?Q?DYNksCwn0R1yVeKZxykv0h2iW/KcIUM4m7bU6XBaaSbeqou/u0HFnfiAjUW0?=
+ =?us-ascii?Q?Sa6bKluYJGP/PMYkZ96dH2YLSx8AcEUZRkVtFt+x2zi/F2VJPIUQAbWBC7oi?=
+ =?us-ascii?Q?Ivv9EvTUbJwg5jOOOFjyszHUmnnGTBa6pq8X9fPT8owxPqDBA/LwFBSNCF4N?=
+ =?us-ascii?Q?Rpxfp3vsrhOwDT+hbRcf/L6ZOeaT92jYPsoHsnienL3k?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(19092799006)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VspT1dIoD/FPHL1NbQpNwYVWquZEA8vZhJIlUiBBwTVvHtO66R6Lqz30k7tR?=
+ =?us-ascii?Q?0tH7Ine4i8oKdvw18y3mE9u350JsIbQUZ2dDian0LVA67mMv9YthquSM2TNZ?=
+ =?us-ascii?Q?TfWHbJsyR0cwk61QtUsvRYExlgio8ah2m5W7ZlB0wXZLM170A+9gdzUK5RdV?=
+ =?us-ascii?Q?HI/Qk+GDHqmv+3BYQbwSxoKyKGwx3zIHsCK/6eMBCP63mRLIekdEKVnicnUS?=
+ =?us-ascii?Q?fM59DU5jAj4RUVQhHCXUJxlNPD2opKH7u0H4strIVVSj1VovtA/AN80pwpoR?=
+ =?us-ascii?Q?fiNXGbRfRURYpdrWmEbtsh76fRl6j/VafcriQ8VvkICd2MaTBCprTHfX1iPe?=
+ =?us-ascii?Q?ZWaDFFyTJRLj8pqM1wyHe+iM/pKmMcBqXLv20fBHYj8D/w/1pKD4RiLCqMpB?=
+ =?us-ascii?Q?d2rcvl6t6JJF9yGqRlPaml7NuVck2B4ATYntOgNIcxj+9XBKdAlRAKLedI3a?=
+ =?us-ascii?Q?nmpOpoQ1w7JlnDMm2IjhY6lutcFI6CP7Qa1qRz/vxGcGGcnudZ2qPFa1nmul?=
+ =?us-ascii?Q?wj4OlktRqFRMxmR7QtEYTTKpQ7SqM8J/SvAmLVmGuAf6Q2FKiJyXl65wQTA9?=
+ =?us-ascii?Q?URLG2pXJCPe+wZVoGA9rEA1U3FEZtGIslr2XCZAI98Ehc+mgPT8IGB+cRDDH?=
+ =?us-ascii?Q?3pittiEbUPXXWqe2++MHYPzsurH99f9pDyxcASKJKsMhJ9U4jcoMshNbSJ9G?=
+ =?us-ascii?Q?dXnGHYRP69oyt5VVYrblgUg4sCXBh7KXyKW3EJuKrhcf9dyy4pBamasQ+Q41?=
+ =?us-ascii?Q?z1EC/u8aRlPX0k2sKGcIQ2Cs/3xYS8k+nZdpttBkgPgYfnIUxtQckLk8KE9z?=
+ =?us-ascii?Q?pyH/TY3UdJbikZcx6NZNqvGVosMa1itzQ2tkxKuw1C4e6sxFveMgwh9SzETn?=
+ =?us-ascii?Q?4S34gI6A5Fj/55Bho8hFvSQQ049N1SrqI+g10sA0HwQRfGzzBgshc4zYuU2N?=
+ =?us-ascii?Q?+PL/EENPikGltB55IJjB4NkhPk7CchRSV7G9/5t2HJXzxVi6uAfjkbSiFo5F?=
+ =?us-ascii?Q?In1p+5kC9ChJIwD5HjNUBsgUBv0n5pPnpRfN8Eoc1DbcrX5hhB60/FGwjbFB?=
+ =?us-ascii?Q?85rorxpxa1sQpGl/eOPTrUqC+JOYDl+rmGfujEBoX3SoFwbIh8NiGF7jQRhH?=
+ =?us-ascii?Q?g3fdTf24q0GV7S/7lF83W82rl0ZMMV2CToSH+rNp7gfbQwCd9K7w9r28Eq2a?=
+ =?us-ascii?Q?QMVoBSmUOxROXKFfJ9HFTvH+cEJrfMS/tI6wAD0IfNFS7FHis2oGwXmI4Asz?=
+ =?us-ascii?Q?De5gF0LuKXaljw2aaQVLDqJ2OPX1uEP3WDT8YPQqsSQGZ/ho+h+cbPNQNd7x?=
+ =?us-ascii?Q?+WKnDTqfZsH8FsljHnOfg0v+4SmaqBPBboYNEKrLaDIaQnoaj3erWR8Fpv1D?=
+ =?us-ascii?Q?ZIB1uZ9p1+AKBR4MvepXf1wqSFtNqFQuyTHEfSLQaKNSWCatMpjhIcZRewdf?=
+ =?us-ascii?Q?9uo8q+Hm5Vw/Zh0tcftXsod2ANlBbN34qyomErBXGCo8OeTXcW4Tj2Dr8A+r?=
+ =?us-ascii?Q?+NjRkWIlS7peEI4DCxB+PQ8+vD/T7o09GP604ttMLwsTeooAQqYXBkMQh8ZH?=
+ =?us-ascii?Q?NSjR27zMZOBN4EMTJY9KY/gajdFr18RIZIWG2HkAy6GZecaWmwDcERpNh11v?=
+ =?us-ascii?Q?ADSmmF7Vye7verpOF2JeWWR4/jXSt2uj3MM0K1KXjdTbgJMMWdyPXIQ/DyKX?=
+ =?us-ascii?Q?oSfIGR0OIL2ILvQssHK5S1h7mfnocg2LfZoVFfvX2fGIZPLNsKT3z64JvWHV?=
+ =?us-ascii?Q?+c7YaCH51g=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c8b2554a-3411-4d6c-7303-08de7445de5a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2026 08:14:16.7257
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: M3XFWPk8QrdH42YqmIF4VzMHMJ/7SH5T5KAa0DxPvDhh7X0ouusCj8Pf3jQGs0dFQ2VXoMVQZPWEJyGN4SAxUA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9325
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_001424_571667_C1258E27 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,15 +170,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Feb 2026 08:22:20 +0100, Chen-Yu Tsai <wenst@chromium.org> said:
-> Split out existing code that deals with device power sequencing into
-> into helpers to allow cleaning up the error paths and integrating the
-> new PCI pwrctrl API,
->
-> This change is purely code movement.
->
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
+Sorry for late reply, just back from holiday.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+On Fri, Feb 13, 2026 at 12:58:11AM +0100, Danilo Krummrich wrote:
+>imx_clk_scu_init() registers the imx_clk_scu_driver while commonly being
+>called from IMX driver's probe() callbacks.
+>
+>However, it neither makes sense to register drivers from probe()
+>callbacks of other drivers, nor does the driver core allow registering
+>drivers with a device lock already being held.
+>
+>The latter was revealed by commit dc23806a7c47 ("driver core: enforce
+>device_lock for driver_match_device()") leading to a deadlock condition
+>described in [1].
+>
+>Besides that, nothing seems to unregister the imx_clk_scu_driver once
+>the corresponding driver module is unloaded, which leaves the
+>driver-core with a dangling pointer.
+>
+>Also, if there are multiple matching devices for the imx8qxp_clk_driver,
+>imx8qxp_clk_probe() calls imx_clk_scu_init() multiple times.  However,
+>any subsequent call after the first one will fail, since the driver-core
+>does not allow to register the same struct platform_driver multiple
+>times.
+>
+>Hence, register the imx_clk_scu_driver from module_init() and unregister
+>it in module_exit().
+>
+>Note that we first register the imx8qxp_clk_driver and then call
+>imx_clk_scu_module_init() to avoid having to call
+>imx_clk_scu_module_exit() in the unwind path of imx8qxp_clk_init().
+>
+>Fixes: dc23806a7c47 ("driver core: enforce device_lock for driver_match_device()")
+>Fixes: 220175cd3979 ("clk: imx: scu: fix build break when compiled as modules")
+>Reported-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+>Closes: https://lore.kernel.org/lkml/13955113.uLZWGnKmhe@steina-w/
+>Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com> # TQMa8x/MBa8x
+>Link: https://lore.kernel.org/lkml/DFU7CEPUSG9A.1KKGVW4HIPMSH@kernel.org/ [1]
+>Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+>---
+>Changes in v2:
+>  - Expand commit message, mentioning a third bug fixed by this patch and noting
+>    the order of platform_driver_register() and imx_clk_scu_module_init() in
+>    imx8qxp_clk_init().
+>  - Rename imx8qxp_{init,exit} to imx8qxp_clk_{init,exit}.
+>  - Link to v1: https://lore.kernel.org/driver-core/20260211142321.55404-1-dakr@kernel.org/
+>---
+> drivers/clk/imx/clk-imx8qxp.c | 24 +++++++++++++++++++++++-
+> drivers/clk/imx/clk-scu.c     | 12 +++++++++++-
+> drivers/clk/imx/clk-scu.h     |  2 ++
+> 3 files changed, 36 insertions(+), 2 deletions(-)
+>
+>diff --git a/drivers/clk/imx/clk-imx8qxp.c b/drivers/clk/imx/clk-imx8qxp.c
+>index 3ae162625bb1..c781425a005e 100644
+>--- a/drivers/clk/imx/clk-imx8qxp.c
+>+++ b/drivers/clk/imx/clk-imx8qxp.c
+>@@ -346,7 +346,29 @@ static struct platform_driver imx8qxp_clk_driver = {
+> 	},
+> 	.probe = imx8qxp_clk_probe,
+> };
+>-module_platform_driver(imx8qxp_clk_driver);
+>+
+>+static int __init imx8qxp_clk_init(void)
+>+{
+>+	int ret;
+>+
+>+	ret = platform_driver_register(&imx8qxp_clk_driver);
+>+	if (ret)
+>+		return ret;
+>+
+>+	ret = imx_clk_scu_module_init();
+>+	if (ret)
+>+		platform_driver_unregister(&imx8qxp_clk_driver);
+>+
+>+	return ret;
+>+}
+>+module_init(imx8qxp_clk_init);
+>+
+>+static void __exit imx8qxp_clk_exit(void)
+>+{
+>+	imx_clk_scu_module_exit();
+>+	platform_driver_unregister(&imx8qxp_clk_driver);
+>+}
+>+module_exit(imx8qxp_clk_exit);
+
+The clk driver is critical for the system to work, removing this driver will
+make the system not work properly I think, so it may not make too much
+value to add an exit function here.
+
+Regards
+Peng
 
