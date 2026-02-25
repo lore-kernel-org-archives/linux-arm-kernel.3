@@ -4,56 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4618FD3760
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57A6FD3762
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWRvKSrVzQxumCJr/FJXMqnLK+ok9RFugzOcVZ5aYRY=; b=yWMb+tvviuwxNMniJ7hWHaFSml
-	7geloMYpiY4g11hXsuWOfU/beaY4nMdSYbsJl0YEWrAFI0Cx8Cl5oXVRq+c4/ipkX/FLqqxRumBCv
-	Ur6/piCbaLXWlSv07UazFuePWt4AgmA+UcliKqr/uFHBtklhx19UWs6gDKsLDRpERb65R7a1UI8s7
-	Rboj3Srt6Ns84P/0S3Nv84n5ezlRbGabrsDhC88PX5mOEMlEk14zaFWXi9X4Jq1pnEqvTs0JGqtcP
-	7LOUe4ILo7QLEKwollyPsA9MGLCJWsv4qcJzyZQYtu6I0ovG+pYZElbYvFJz3kn1lc7DtZpIogei4
-	dioOONaQ==;
+	bh=L9jg3LVlUdrt/5saKoO+nhMQWQOQ3FaMpJSoPoujSvM=; b=y3yz1W5unIOZXoZJoE5HLkXxgv
+	i1LSWySVqr0YqxJx+6KrIghFAW0FMLYn/M1smyhOEnEswhohjHHGWlr7/HHEjecF18eFtZpUUoQlj
+	2dG66jPx+hsn2HpsL6bHwQLWXwwbyML4Kkr+lb0Ocb2JlT4pxBrQ48dPq7ErIPwT8XkYj3aILUmrt
+	R9XngAFDwYxJcuYMtnVVv9c0JVkoAOzM+j3MshohFD20k+xLvBnl1JUHMc9Mtnp1y+LE0iYIQFzvj
+	vosjz/fWrw86Jma9iSRvWUTAu8ew/kIFhKUnkAvUen5rvCRjJqkHAf/eZYPmHAUIWqHX6uzRCBJ6s
+	/+SNwANQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFZU-00000004AMo-0Kxi;
-	Wed, 25 Feb 2026 14:09:00 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFZO-00000004AMD-2PsX;
-	Wed, 25 Feb 2026 14:08:54 +0000
-Date: Wed, 25 Feb 2026 06:08:54 -0800
-From: Christoph Hellwig <hch@infradead.org>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Jay Wang <wanjay@amazon.com>, Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>,
-	linux-crypto@vger.kernel.org,
-	Jay Wang <jay.wang.upstream@gmail.com>,
-	Vegard Nossum <vegard.nossum@oracle.com>,
-	Nicolai Stange <nstange@suse.de>,
-	Ilia Okomin <ilya.okomin@oracle.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
-	linux-kbuild@vger.kernel.org, linux-modules@vger.kernel.org
-Subject: Re: [PATCH 17/17] Add standalone crypto kernel module technical
- documentation
-Message-ID: <aZ8Cdq2doSHlPG9-@infradead.org>
-References: <20260212024228.6267-1-wanjay@amazon.com>
- <20260212024228.6267-18-wanjay@amazon.com>
- <20260225015517.GA162634@quark>
+	id 1vvFbm-00000004AZG-29GX;
+	Wed, 25 Feb 2026 14:11:22 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvFbj-00000004AYt-2p0Y
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Feb 2026 14:11:20 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b884a84e622so1042665866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 06:11:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772028676; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NhNBUf8GYjH86cdWL0WAzlpIKItVYoqrukVABEH+lBMk8jOuvU6i2doochHgl54qbB
+         NeRq4iP2+45++/uJlDkYRzMMI1yUsA8GOWDlypmWVg0W7wKpCLPgZTUT/jUua4b14UEc
+         ySn0H6Yd7AFnB0YTa2QZTxLGDs0u13qYqx2ANGKxsituatVYCU5ato+Bl4hbVZ86u4Ck
+         2KN2bQD83uBgIH4aVJOUozy3c/QJED0iqraGmIRqxBc6bu6fJjwRXq1dnGMLn4vXqnmL
+         7FCw4z8nXU04ojWAZf1YDwiZ6I9cpXGhNuU8pzehBnmEiV7sry14pi3B5zDPCTvlKVoT
+         JYQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=L9jg3LVlUdrt/5saKoO+nhMQWQOQ3FaMpJSoPoujSvM=;
+        fh=txVC8/ml37KfRe1i2B211dO+4NK6dpiQQ0uGu0jsOZc=;
+        b=f9G6TR70QWiXzY9bZys+f0buZKItNukWX7uoZXDE62DrrEl2l4olxQ0JtfbecEb3vG
+         Jo64GTowiYxnYG97sycXvm6xm0oqcjF5A0J9d7rS8S4i436By3Cp5ECElXWo6HMrn2IH
+         sKURCrIp6XqTFn4D0/SVcbweVSIiuhKaEb195v7HmUWjYRbj1g6U2kL1uWSl3DPhr3hZ
+         40+AawJbLRtJzGkLyiQTXk3SFB0f1NIhhFj94Q2AP6oU33ty72VtirSRhkZvwiN0B2mN
+         4FJ1f4nDm9mcZxZYxC02r6sqYRwzOLpn13GLv6dMthVKVH/qpV26viROujsScvs65qV7
+         qBhQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772028676; x=1772633476; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=L9jg3LVlUdrt/5saKoO+nhMQWQOQ3FaMpJSoPoujSvM=;
+        b=KApyOkJIrZYQXydVBZPA2uRg/JJXXR0iD3kTBJ3O5LWRgIJrXl3WEoVyl0crXMIqzt
+         8r5yz5NJStQOPYlX0KtdrRXzNC/gx1xBFMZRos3oT1QROLlfWXO2t+lAK0JP0ifl1UPN
+         88uQ3DqusZ1W0G514a7LM+UxCGpJdKR1/fkPtcSM4Ti4RlNfwkaT0IPoKanQK/mKNp8J
+         USkCouOmfomJ8yHEV2G931honC7AiTVdpZls9WwZLP0TUZ898BreV20wujegp+9+Hy5d
+         GFHFN1rWmh8QPp9BFaLKcQtk8CbaQPDvHVLFQXrUcAsX3K7Osh8kdwMkSBpt62bLzC0C
+         IdKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772028676; x=1772633476;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L9jg3LVlUdrt/5saKoO+nhMQWQOQ3FaMpJSoPoujSvM=;
+        b=VnTsDva5y7t0+yoJ6/4FjHFu6a3ZQYt9PmRPMGpVEYCvy8+D0Dcn9/t8ybD3ekwHIb
+         AzcyiHFaN11+xDDKQ1DfB0PrB2XeqyKs4V20N16l9TK+4kuWgE1Gg5sRS23KKzFBzD2g
+         XMOVPEDJ/Rv11zJGKwmk/HH+cFuOMsunWHIpe3wvDmpFni+PE2I0eULn8ItZFY09cH1s
+         J6RDV/2FXXoLRCeF2DzeSwM4vGCxGOrQd4twzqcUPhduLUi/swqJjnKHQsf+fG/RVzx2
+         OIJI/nN2kEAkGnJt1QkhXpz9DKotGEvN7cEf8JN79peyamCek7ksA6y02JkSEGjcXLN7
+         UBmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVxswj0m90nxTL0NJStl/dOC4DS+ysMXB02BQ/Z6Krh2sygM42+KGkisxeMaaQAXghxhYuxJ5KsnegcxuXov827@lists.infradead.org
+X-Gm-Message-State: AOJu0Yws3nPLVoVSwutTDJJpLOr6X3ZfJI0WSncf3z9sUlNq41Vs3IIN
+	NynFtjCEhjjdAcnypC3Vb2mnLWFJvPUerwkVmF7nNzN+vKl3ujKaqT6bWPZjjaF8ODpafq5L3NM
+	7nXQ+CNGk7Ng1hmWSIH5DCkoKiihLw20=
+X-Gm-Gg: ATEYQzyKDP2XiRb03hsMuckMprF2l0RnRZzKV3M2iW0dodhVnehGkKS4g4lM415K1fr
+	OTmau0dbRXYvsZfmifjxirOcdFODEH4xk+MLgZRGRSeA//KnqqA4GJ8Ja5pKrh1TFuCW1fpbmyU
+	arhqYyTNU6PoB6JBc7ObOUTW+O5qwmC80CtjGFQ1bk63OkHaMuXymgL+gk2rRMGCifeNo0H6Fcx
+	k42EUTSp7Xe/3klN1VGxIbnGVTs0uPIf6CSKYkGHZjsSDmiH1/w/asbQEddre5kJijtNzTgowyt
+	XvyP1Rc=
+X-Received: by 2002:a17:907:1b1c:b0:b8e:d260:cb20 with SMTP id
+ a640c23a62f3a-b9081a09c97mr1077231966b.18.1772028675957; Wed, 25 Feb 2026
+ 06:11:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260225015517.GA162634@quark>
+References: <20260129022910.3942028-1-onlywig@gmail.com> <20260129022910.3942028-2-onlywig@gmail.com>
+ <aXsdyzZEUaVzC34W@shlinux89> <CAPStFe7ASmYxJdDorJ0KAerfTH51ioZ=89F8fRcs6fBVqqhdUw@mail.gmail.com>
+ <aZ4HrSNp32lbnVT-@lizhi-Precision-Tower-5810>
+In-Reply-To: <aZ4HrSNp32lbnVT-@lizhi-Precision-Tower-5810>
+From: Wig Cheng <onlywig@gmail.com>
+Date: Wed, 25 Feb 2026 22:11:02 +0800
+X-Gm-Features: AaiRm503W-bxJ6qYfmScp36dL07me8fXiI8oeeybDFZb9ZdLCMZhOZ9palVel14
+Message-ID: <CAPStFe6sFCo2-+9ataPBy9pvEUo_uZ5G7XNA_8jH+sF6=FNOpw@mail.gmail.com>
+Subject: Re: [PATCH v4 1/1] arm64: dts: freescale: add pixpaper display
+ overlay for i.MX93 FRDM
+To: Frank Li <Frank.li@nxp.com>
+Cc: Peng Fan <peng.fan@oss.nxp.com>, shawnguo@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, zaq14760@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_061119_729942_E7923EF7 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,21 +121,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 05:55:17PM -0800, Eric Biggers wrote:
-> Let's be clear: this is possible only when the kernel has a stable ABI
-> to the crypto module, which realistically isn't something that is going
-> to be supported upstream.  The Linux kernel is well-known for not
-> maintaining a stable in-kernel ABI, for good reasons.
-> 
-> So, the only case where this feature would have a benefit over the
-> kernel's existing approach to FIPS 140 is in downstream kernels that
-> maintain a stable in-kernel ABI.  There would be no benefit to direct
-> users of the mainline kernel or even the stable release series.
-> 
-> For this to be considered for upstream there would need to be some level
-> of consensus in the community to support this feature despite this.
+>
+> arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtb: display@0 (mayqueen,pixpaper): spi-max-frequency: 5000000 is greater than the maximum of 1000000
+>         from schema $id: http://devicetree.org/schemas/display/mayqueen,pixpaper.yaml
+>
+> Does 1000000 work for spi-max-frequency? or need update binding doc?
+>
 
-That's a very nice way to say this goes against all the established
-principles for kernel development.
+Both 1MHz and 5MHz work on i.MX93. I chose 5MHz for better refresh
+performance, which is within the LPSPI3 controller's capabilities.
+The 1MHz limit in the binding is a conservative generic value I think.
 
+Thanks,
+Wig
 
