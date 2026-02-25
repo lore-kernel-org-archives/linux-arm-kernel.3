@@ -4,100 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049C3EFD238
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 09:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19930EFD239
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ANOrIzf22DYFST/OGsWrBLVKkhNoHDH6p+6DszzjdIE=; b=fQ8rurCrD2G6kSDHSI7aNSZrBO
-	mpHyIV1KWOPExc06Fn21laJXYp8ZfjtQDTuPDa8bNdul93asDt9UDHezQMr+FaxZ1Zf49tGmE/c9K
-	ufOrOpCKP4Nu61L6dPUemP1gmtSah0/0kasXsndA+gMksyx1GjxDfXsgelDeBVHBvJ5JyCvKAiPNW
-	2wNzKLooVZqS1IkRIWqelNBpXT7Aj61X9pDKdnYtDXGQL8EPE6/6ps35RXAfbsxAKcge7gM4VmhMj
-	JM3ZYGIKJqomCIGeUxCixD/WbpfeCZbLyFJ6GgnPn9XYr2uMy1hR7We0b2jLT6MQTHgyZUcSWfXeL
-	3mHCd6hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=38K4Obu3dyZvtMCqpE/ceP/5IVodcIyze6jjAf4GDug=; b=WB9vlZMJKae46pfLpdON2OFoI3
+	th7sfIrIGdAeMgVvWcAJkU0vQKeGYzAz55OWNpYbrBCmIO2p/dpl7C92T/JFrjle0yfHjjhDOEYSo
+	Lw4Gw/mxIu624RKWNX8+N2yNlxo6j/Oo062wQARQBKM9nf//mhjW9i7ZNsZ2pFv3tL98bX/9p2gJl
+	p3IWquX7zp0aWCw+aOjiUsimmHnds7Q7Qo71o4HB0DSKkHeNdbfFGZAcQGv0vAEV4B+1LNOy5bCCB
+	FIpeqBBoWYM3NILsBz14tvFP4uDm/NzVgwRwcUNi3CZRM05Ya058SSDBIvESReFMUtfQwqSnkKAGv
+	m20uvzcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBWG-00000003iu3-3bH6;
-	Wed, 25 Feb 2026 09:49:24 +0000
-Received: from mx-relay90-hz2.antispameurope.com ([94.100.136.190])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBWC-00000003itf-430r
+	id 1vvBhp-00000003jWB-0hvZ;
+	Wed, 25 Feb 2026 10:01:21 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvBhm-00000003jVc-0PGp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 09:49:24 +0000
-ARC-Authentication-Results: i=1; mx-gate90-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=ANOrIzf22DYFST/OGsWrBLVKkhNoHDH6p+6DszzjdIE=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1772008520;
- b=HllywRJVnXgcxWW/thrScn30qrka7ankUro8LbTUKln4qgaVBTmC8DxQC21ncLngZ9r+pijd
- nZxxLbWlaC3O/+y8KOHSkcdrer5NY77P2GAeXzDuCWWaf0MOlAcRSed9y8GJpmOJxSFfbxUyIO3
- usoTTiwUYPiPEH1QRJT3YIAzfImylFTntYcAn8EYk0vrWaMWBtkOd+H/7Yg0ld4/Ik3PwSGH2eL
- zkhsYTBa5o4q4fSxZIuQt2oi2bOl77gSBk9l6sS9cQaqwhd7H3LWW4TMDPMwFsfFqUPKHDqzJ1A
- P33xYxteibLDWjPVp7gS6OlGjXJ7ruHJ2gTAyceJZmElQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1772008520;
- b=CTKBjgh9c36lUI+KD1vMiq4KzAdq6J2OVI7+TRw2iRkWpQX3U/KsWNjpvMCd5aAYdxwHLVyO
- MIVBZth9SODfjrSW73+hUe/Vza0D2/OEYkvoe4BZohhgjBFpcMFFWpHzbVAkHDyU2N1J27JJh1q
- DEszvBy1UINVVw3GXR3Sj0KdruvjIkfZ/im/O/13zgT7FmBVRL4P0ICoKTEqga1nZAItzfVleXZ
- UcBfdObUltNwy/+Rwax9/c9n7yHn/8Ss6iSR2sK/A9b3Q99J7wMLOXxfiwmfUa/XNqEaLSA8FM9
- hYAI2bvHZx/+GjkB5+/3Ea5oEYlXVrYHEU7ce90/4HXmQ==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay90-hz2.antispameurope.com;
- Wed, 25 Feb 2026 09:35:19 +0100
-Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: nora.schiffer@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 59917CC0D25;
-	Wed, 25 Feb 2026 09:35:04 +0100 (CET)
-From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: [PATCH] arm64: dts: freescale: imx8mp-tqma8mpql-mba8mp-ras314: fix UART1 RTS/CTS muxing
-Date: Wed, 25 Feb 2026 09:34:18 +0100
-Message-ID: <20260225083419.5639-1-nora.schiffer@ew.tq-group.com>
-X-Mailer: git-send-email 2.53.0
+	Wed, 25 Feb 2026 10:01:19 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 28B381A30BB;
+	Wed, 25 Feb 2026 11:01:13 +0100 (CET)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id F001C1A2F90;
+	Wed, 25 Feb 2026 11:01:12 +0100 (CET)
+Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id ADB012037D;
+	Wed, 25 Feb 2026 11:01:12 +0100 (CET)
+Date: Wed, 25 Feb 2026 11:01:12 +0100
+From: Jan Petrous <jan.petrous@oss.nxp.com>
+To: Simon Horman <horms@kernel.org>
+Cc: alexandre.torgue@foss.st.com, devicetree@vger.kernel.org,
+	festevam@gmail.com, chester62515@gmail.com, s.hauer@pengutronix.de,
+	linux-arm-kernel@lists.infradead.org, davem@davemloft.net,
+	mbrugger@suse.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+	s32@nxp.com, pabeni@redhat.com, linux-kernel@vger.kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
+	robh@kernel.org, kuba@kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	ghennadi.procopciuc@oss.nxp.com, kernel@pengutronix.de,
+	shawnguo@kernel.org, edumazet@google.com, mcoquelin.stm32@gmail.com,
+	imx@lists.linux.dev
+Subject: Re: [v5,1/4] net: stmmac: platform: read channels irq
+Message-ID: <aZ7IaP0pFRLYR/iA@lsv051416.swis.nl-cdc01.nxp.com>
+References: <20260223-dwmac_multi_irq-v5-1-8fc699a5fac4@oss.nxp.com>
+ <20260225092456.174241-1-horms@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: nora.schiffer@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: nora.schiffer@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay90-hz2.antispameurope.com with 4fLSZd0gYQzWygV
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 1e9880415023cc401d11ce049b439fb1
-X-cloud-security: scantime:1.897
-DKIM-Signature: a=rsa-sha256;
- bh=ANOrIzf22DYFST/OGsWrBLVKkhNoHDH6p+6DszzjdIE=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1772008519; v=1;
- b=KEXGlZ3pE3iEJJmwiBKK2jAe+ICd6eAleaEZZ7d3l9M647HBvqHPNSTCv5iETchLt6j2SsM6
- k6SmnEdxC9HmlYwZkNYVdsLfQ2TvYlRPqOHo4fCcE1ZwmeaBtLoJj8ACNR8Ji3Q/OfZymyIfEcF
- QwKM6b5cby/NHx3rmzyH7lBbzbo4K9qNVjeOOC7sErU15P1/guuCgmkiMvz4tMtuViU09YZunu0
- +r8/84VEc3nB1wunPfcDOCzsjWhkyYygtJa+on2g738Wyol6YEFjRJqxxljr4ueV9md+D5FzgUW
- oYutdfqwNxwtwuU112q4jhof53ge4Pvyoi2oPePnoyz/w==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260225092456.174241-1-horms@kernel.org>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_014921_259860_808964A8 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260225_020118_432840_FCA307A4 
+X-CRM114-Status: GOOD (  24.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,37 +76,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pinmuxing for UART1 was mixing DCE and DTE modes, which cannot work.
-Consistently use DCE mode.
+On Wed, Feb 25, 2026 at 09:24:56AM +0000, Simon Horman wrote:
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> 
+> For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+> ---
+> net: stmmac: platform: read channels irq
+> 
+> This commit adds support for reading IRQ resources for all rx/tx channels
+> in the stmmac platform driver to enable Multi-IRQ mode for platform glue
+> drivers.
+> 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> > index 5c9fd91a1db9..6166a9b0c0bb 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> > @@ -700,6 +700,9 @@ EXPORT_SYMBOL_GPL(stmmac_pltfr_find_clk);
+> >  int stmmac_get_platform_resources(struct platform_device *pdev,
+> >  				  struct stmmac_resources *stmmac_res)
+> >  {
+> > +	char name[16];
+> > +	int i;
+> > +
+> >  	memset(stmmac_res, 0, sizeof(*stmmac_res));
+> >
+> >  	/* Get IRQ information early to have an ability to ask for deferred
+> > @@ -735,7 +738,42 @@ int stmmac_get_platform_resources(struct platform_device *pdev,
+> >
+> >  	stmmac_res->addr = devm_platform_ioremap_resource(pdev, 0);
+> >
+> > -	return PTR_ERR_OR_ZERO(stmmac_res->addr);
+> > +	if (IS_ERR(stmmac_res->addr))
+> > +		return PTR_ERR(stmmac_res->addr);
+> > +
+> > +	/* RX channels irq */
+> > +	for (i = 0; i < MTL_MAX_RX_QUEUES; i++) {
+> > +		scnprintf(name, sizeof(name), "rx-queue-%d", i);
+> > +		stmmac_res->rx_irq[i] = platform_get_irq_byname_optional(pdev,
+> > +									 name);
+> > +		if (stmmac_res->rx_irq[i] <= 0) {
+> > +			if (stmmac_res->rx_irq[i] == -EPROBE_DEFER)
+> > +				return -EPROBE_DEFER;
+> > +			dev_dbg(&pdev->dev, "IRQ rx-queue-%d not found\n", i);
+> > +
+> > +			/* Stop on first unset rx-queue-%i property member */
+> > +			stmmac_res->rx_irq[i] = 0;
+> > +			break;
+> > +		}
+> > +	}
+> > +
+> > +	/* TX channels irq */
+> > +	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
+> > +		scnprintf(name, sizeof(name), "tx-queue-%d", i);
+> > +		stmmac_res->tx_irq[i] = platform_get_irq_byname_optional(pdev,
+> > +									 name);
+> > +		if (stmmac_res->tx_irq[i] <= 0) {
+> > +			if (stmmac_res->tx_irq[i] == -EPROBE_DEFER)
+> > +				return -EPROBE_DEFER;
+> > +			dev_dbg(&pdev->dev, "IRQ tx-queue-%d not found\n", i);
+> > +
+> > +			/* Stop on first unset tx-queue-%i property member */
+> > +			stmmac_res->tx_irq[i] = 0;
+> > +			break;
+> > +		}
+> > +	}
+> 
+> This isn't a bug, but the RX and TX channel IRQ handling blocks follow an
+> identical 14-line pattern that differs only in the queue name format string
+> and target array. Both blocks format the IRQ name with scnprintf(), call
+> platform_get_irq_byname_optional(), check for -EPROBE_DEFER, log a debug
+> message on error, and break on the first missing IRQ.
+> 
+> Could this duplication be reduced with a helper function? Note that the
+> existing code in this function already contains similar non-factored
+> patterns for wol_irq and sfty_irq handling, so this level of duplication
+> may be acceptable in this file's style.
+> 
 
-This switches the RTS and CTS pins, which is fine for this board, as
-UART1 is routed to a pin header.
+Hi Simon,
+I already addressed this in v6, I sent today.
 
-Fixes: ddabb3ce3f90 ("arm64: dts: freescale: add TQMa8MPQL on MBa8MP-RAS314")
-Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
----
- .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts     | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-index b7f69c92b7748..1665a5030b993 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-@@ -848,8 +848,8 @@ pinctrl_tlv320aic3x04: tlv320aic3x04grp {
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <MX8MP_IOMUXC_SAI2_RXFS__UART1_DCE_TX	0x14>,
- 			   <MX8MP_IOMUXC_SAI2_RXC__UART1_DCE_RX		0x14>,
--			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DTE_CTS	0x14>,
--			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DTE_RTS	0x14>;
-+			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DCE_RTS	0x14>,
-+			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DCE_CTS	0x14>;
- 	};
- 
- 	pinctrl_uart1_gpio: uart1gpiogrp {
--- 
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-https://www.tq-group.com/
-
+/Jan
 
