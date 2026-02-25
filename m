@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA72F357DA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 07:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DE0F357DA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 07:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KjmmZwc6KWVq4M0dNXYbWQ21OGo4O/i55CZpo06FEF0=; b=mK/xh9hzFz4WF848NQ/MI532PN
-	k6aI5Demp7AO9vLdswxWDn0/enig+h2qLONt3SNPB7fe9cA0yIZQW7mIZ8XiibDdQAhsSUrE/2++u
-	fYNXU9rYJG5fq+dZC4szt2tv2HalNlRPvaMiQm7+pOpbxjBFkPjtuyWGXoS8N9oU2QQhfLjcY3g6P
-	g/F8woghAnEh0mueCZQMw3PERcDKc2t6hWdi09+up/RWQ6fgjBAV70woZsdhUKGNQ9YGkS0rSo1DB
-	/WRVB2hW1C3kgqOhoAGUSeVX4fClcV6x0znnKzUJqDufbqjTx2VWdS/wnLoSvj02xZO/tJmecI4UP
-	TaCvILKA==;
+	bh=oUo4vtr12HAXaUXM31/ATv4Xjd7UfeFJnf/tlsKW30E=; b=2eQTSuD0kn5hCt+vaOEwoB/bXo
+	GJC0bSJdcaU1XNWL5+FB/kZiMhbX1jyiv9HfBh+c5E7teQ71xesxk5BWrzrMdEVMbFCxwCenbsXjZ
+	qKVbdXV+JK9bt9t4XZNVcxiaulLrxRmOKJBL4VGadO6BuqWVlZC9RcM3wap/spxsMb8loZbYrPg4K
+	8sMHjtjWv3k0JjWLxM3XABeVZ7UxHLwYjSVIQpvbKa4xvlrQvoaki9NaEJZkwmaLp94fQhlXcaWIL
+	srSqyTfHnlyK0dvYmHMz7C5UsfWP8xODMJs5Ix4CFc2gs9miAVdBJs7xDxirs0FF/mp1626sOapPO
+	d7g0kaXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv9Ed-00000003PTG-1tdZ;
-	Wed, 25 Feb 2026 07:23:03 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1vv9Ei-00000003PZD-3rKp;
+	Wed, 25 Feb 2026 07:23:08 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv9EY-00000003PNU-3UsP
+	id 1vv9Ee-00000003PUi-3SEy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 07:22:59 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2aae4816912so44388195ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 23:22:58 -0800 (PST)
+	Wed, 25 Feb 2026 07:23:06 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ad3f12a496so2299935ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 23:23:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1772004178; x=1772608978; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1772004184; x=1772608984; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KjmmZwc6KWVq4M0dNXYbWQ21OGo4O/i55CZpo06FEF0=;
-        b=J5K+l26L54eKlyGfZtuJrtqQNAWbyfgWdQG2xZ9xDnDzUWqyCxeYjONDiKNDCjaU2U
-         guoymunHqVolcv4hBiizTtJWlb0VsK34E1o3/PJgXiMkEmDeqABduNMXXPFM4weNH3O3
-         nhi5WDCZgrfRo/IWVTEZxNcCOQF8CTPGJENmc=
+        bh=oUo4vtr12HAXaUXM31/ATv4Xjd7UfeFJnf/tlsKW30E=;
+        b=lDhKP6sSEcJ5TihNZe6YZjrFwy+Phto+2suN7hJotoRZoJ0ei78JMD5NQnGCp2OA2S
+         weaLbnAXcmUsHfvKhI5minVjjqUf2oMh8SycPYTVUMt+vkMrUu6cu/ftgo6f3TV2zNCL
+         AAlYLhoZDUe72JXgg1p/0LsH6T0oloFaw7fcc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772004178; x=1772608978;
+        d=1e100.net; s=20230601; t=1772004184; x=1772608984;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=KjmmZwc6KWVq4M0dNXYbWQ21OGo4O/i55CZpo06FEF0=;
-        b=JNUdvBAG/znin28H5M+WkIMEjImn/SqYe8REdrj7+LQbTYHFEkyRZTmQwQbB2SIbXS
-         g8Tok97RUUBNZ6NjLof209j6Ud0Y8iMcdpyYxLizFIbqr3tm9zB/ygSVLL07zU8ZrHTH
-         NdcRAvUBihZAWPbLJIOqUy+ACL8SZjheIMG9Qmm4G1LB6ShPaacf3HcXC6KDo+egQSeB
-         ITdBy01Y+d7bqSgi/232n1Q7zV6rKgIyrLCS4JoixsnQ1F5oEnQ03XOQKx+AGwSQwB48
-         lNJDB5SyGJCZo4wQ+gVHo8/5yQUlAT/Tv4M6l0NY4tM0rGL2JD5qolLpj5xas5dFXgnH
-         NZgw==
-X-Forwarded-Encrypted: i=1; AJvYcCXzVwe4cxK2WmkDvLyhbY/osTJD4wtVQFWYDj66LbWmELsSP16+aoRf06zfceGT/YwWj17GHB5FTIG4yX1+E116@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIYWAdu96LJ7vLdcntFk1dLIbAzlD0XRn4FBya2tpt9ufGwyIh
-	AYJGtbcrbvWcFbRPXWNdXTEKwxWqOd4dR5yWo8nAwvJu3+36tP0cajshw7AikMZblg==
-X-Gm-Gg: ATEYQzz6NKK2gFPM2AGFY+fL5MabtXQUlTPpSkGwNPvKLv85RrPQjr+fvsw3uXsdph+
-	tj9z6tITAG3do8Txtwu588M41wWuLhygX6oA5f33ygQ84WZ7gvO3fR1db1v0TtKLUoHcesZOXOq
-	hzl56dKUqx7ERlW5mOTnmFzasGibQQq7PqG/Jf5c552XNe8Aia+/q74mnCmSnlAkeB7AM3LyWmz
-	60N/eptJlOmYs428aLV5yj0qic6RRLlQJN8Wj52Y+AWdnF7A653VoBw1zkbqb/apggB0d4jCEFK
-	HCGHVvDbukaB0U1yKwmH3zDPrwzYsvNZ28JFRSesppylXzPSgmnLMhAf5OwxDlGm3aCI76n8o6v
-	AOxqHFW32P8YgWkks4Fddz7zsvSGINmO8YAAcjzPee+QNnHzcG7amsnvDPIm/kYFRL9PHOBMkGS
-	CRoUvbV3w+QmZkEw71eKM510hTEKuAsFCROAWHbAyQh2+FKdZAoKKO5Y9PmDkbqjHEFSPCxGekX
-	roCAA==
-X-Received: by 2002:a17:903:46c6:b0:2a0:e5cd:80a1 with SMTP id d9443c01a7336-2add141780dmr17635675ad.41.1772004178049;
-        Tue, 24 Feb 2026 23:22:58 -0800 (PST)
+        bh=oUo4vtr12HAXaUXM31/ATv4Xjd7UfeFJnf/tlsKW30E=;
+        b=LJxHmg4j/ZLobRdQ97DYGShs7FUS8ijsOYeY4DUt27QY2wG5snrcVQy8J9BacFwzUn
+         AeuLfpsUZzOPeyOkS2WuvUHILsm3h4dZKNKyNC7S0xTxyps9c+RLKE6XkxCQJ037btsG
+         SPV46PFPqMAHfNemd1fh3xQXUSVJAVgi7mIOKMOKD5u+pGmadn+JpZNDnFAcSXyvjTe8
+         X1DPaZVEybBdhwdliKbqYW5dRJ+XRgEW/od4ydY4OQDpvz48KV+hCFcEVcHW+bQmYqnO
+         Cnw6SSRHL6K/BtEcTrYKyYxXWux3EiEp0j0iZVjce3ynsl7bBGajCMOPrsntLZiydCHS
+         VXKg==
+X-Forwarded-Encrypted: i=1; AJvYcCWELxiw0uh5KT+eFQ1M2zI++YhIy5VxKSTYrp1odvFKZj82pci2Pw0i58VTW9CTArOr3l3pnbsVDM1ekeI4I69Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDorkIx5F0CaO5K2RL05xn3f01P0GbSFngiE+vlZk4WMBeg9F+
+	zxpJkoIv7VmLR9n0AOnezDMB/NRzgJwQoWA5Smps3/TATAvDgwK7LK7LJx3ErXz14A==
+X-Gm-Gg: ATEYQzyXQZhpVqqSvF+n4MSk1aaP2wl8DOKOnR0ONtNXGG3zIDNc5OwVb95eNqqJi1s
+	gN1ViUKpyv2wRkMSb4jBbPZxONK8drHDTqZVoh45wv2Gvy2Pev4UTKhxtcH70Zs3GYJK4nEJWkO
+	cJeoTQvUQCg4UpbDwwf1PqinNIj5XNlfrhs1C0EWQKvAEkgQ8LfWGb4Z86vRJuUsLYSx2svPbJO
+	nSOzfJBsGd16XS7UdRmN7GzfNhfhv50PF8NZJ4B4vhV3xAxkoQHYv8Ia2Z4Nkdrb7w/7ww6y+j8
+	qk3HlqBbCjhHONLP/Sjd80cwAln4vYOcdlh1arpdn4xsx62AL3egxx6gVDDwoB43PffiECpp+E0
+	VU0LkFv9rb2M8ALEHnqsDy65rgfw4ZKdg0s5Mw1P0G5Q7QCGcHTyjzljhnLdq1yJVYDD2eMWkFR
+	3WdlJa7NcoaHIcC/Vjp15oQcN7zYVRtP7IKPURpIKxRtUr1NVSyVWwbjTs8+hr4vyIaXV2i+OiJ
+	AgmYA==
+X-Received: by 2002:a17:903:230f:b0:2a7:aac1:7201 with SMTP id d9443c01a7336-2adbdc0fea2mr28441365ad.3.1772004184166;
+        Tue, 24 Feb 2026 23:23:04 -0800 (PST)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:9d6:2e6a:941b:690])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad7503fdc9sm130814435ad.80.2026.02.24.23.22.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ad7503fdc9sm130814435ad.80.2026.02.24.23.23.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Feb 2026 23:22:57 -0800 (PST)
+        Tue, 24 Feb 2026 23:23:03 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -84,17 +84,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/7] PCI: mediatek-gen3: Split out device power helpers
-Date: Wed, 25 Feb 2026 15:22:20 +0800
-Message-ID: <20260225072225.3345307-4-wenst@chromium.org>
+Subject: [PATCH 5/7] PCI: mediatek-gen3: Integrate new pwrctrl API
+Date: Wed, 25 Feb 2026 15:22:22 +0800
+Message-ID: <20260225072225.3345307-6-wenst@chromium.org>
 X-Mailer: git-send-email 2.53.0.414.gf7e9f6c205-goog
 In-Reply-To: <20260225072225.3345307-1-wenst@chromium.org>
 References: <20260225072225.3345307-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_232258_897917_F7D482A0 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20260224_232304_880836_0E60F4C9 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,94 +109,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Split out existing code that deals with device power sequencing into
-into helpers to allow cleaning up the error paths and integrating the
-new PCI pwrctrl API,
+With the new PCI pwrctrl API and PCI slot binding and power drivers, we
+now have a way to describe and power up WiFi/BT adapters connected
+through a PCIe or M.2 slot, or exploded onto the mainboard itself.
 
-This change is purely code movement.
+Integrate the PCI pwrctrl API into the PCIe driver, so that power is
+properly enabled before PCIe link training is done, allowing the
+card to successfully be detected.
 
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- drivers/pci/controller/pcie-mediatek-gen3.c | 87 ++++++++++++---------
- 1 file changed, 52 insertions(+), 35 deletions(-)
+ drivers/pci/controller/pcie-mediatek-gen3.c | 38 ++++++++++++++++-----
+ 1 file changed, 30 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index f2bf4afbdc2f..870d3b3db11d 100644
+index 7459e1c1899d..93e591f788f7 100644
 --- a/drivers/pci/controller/pcie-mediatek-gen3.c
 +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -403,6 +403,54 @@ static void mtk_pcie_enable_msi(struct mtk_gen3_pcie *pcie)
- 	writel_relaxed(val, pcie->base + PCIE_INT_ENABLE_REG);
- }
- 
-+static int mtk_pcie_device_power_up(struct mtk_gen3_pcie *pcie)
-+{
-+	int err;
-+	u32 val;
-+
-+	/*
-+	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-+	 * causing occasional PCIe link down. In order to overcome the issue,
-+	 * PCIE_RSTB signals are not asserted/released at this stage and the
-+	 * PCIe block is reset using en7523_reset_assert() and
-+	 * en7581_pci_enable().
-+	 */
-+	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-+		/* Assert all reset signals */
-+		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-+		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-+		       PCIE_PE_RSTB;
-+		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-+
-+		/*
-+		 * Described in PCIe CEM specification revision 6.0.
-+		 *
-+		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
-+		 * for the power and clock to become stable.
-+		 */
-+		msleep(PCIE_T_PVPERL_MS);
-+
-+		/* De-assert reset signals */
-+		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-+			 PCIE_PE_RSTB);
-+		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+@@ -22,6 +22,7 @@
+ #include <linux/of_device.h>
+ #include <linux/of_pci.h>
+ #include <linux/pci.h>
++#include <linux/pci-pwrctrl.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
+@@ -421,15 +422,23 @@ static int mtk_pcie_device_power_up(struct mtk_gen3_pcie *pcie)
+ 		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+ 		       PCIE_PE_RSTB;
+ 		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
 +	}
 +
-+	return 0;
-+}
-+
-+static void mtk_pcie_device_power_down(struct mtk_gen3_pcie *pcie)
-+{
-+	u32 val;
-+
-+	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-+		/* Assert the PERST# pin */
-+		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-+		val |= PCIE_PE_RSTB;
-+		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++	err = pci_pwrctrl_power_on_devices(pcie->dev);
++	if (err) {
++		dev_err(pcie->dev, "Failed to power on devices: %pe\n", ERR_PTR(err));
++		return err;
 +	}
-+}
-+
- static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
- {
- 	struct resource_entry *entry;
-@@ -464,33 +512,9 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
- 	val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
- 	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
  
--	/*
--	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
--	 * causing occasional PCIe link down. In order to overcome the issue,
--	 * PCIE_RSTB signals are not asserted/released at this stage and the
--	 * PCIe block is reset using en7523_reset_assert() and
--	 * en7581_pci_enable().
--	 */
--	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
--		/* Assert all reset signals */
--		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
--		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
--		       PCIE_PE_RSTB;
--		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
--
 -		/*
 -		 * Described in PCIe CEM specification revision 6.0.
 -		 *
@@ -204,41 +153,65 @@ index f2bf4afbdc2f..870d3b3db11d 100644
 -		 * for the power and clock to become stable.
 -		 */
 -		msleep(PCIE_T_PVPERL_MS);
--
--		/* De-assert reset signals */
--		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
--			 PCIE_PE_RSTB);
--		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
--	}
-+	err = mtk_pcie_device_power_up(pcie);
-+	if (err)
-+		return err;
++	/*
++	 * Described in PCIe CEM specification revision 6.0.
++	 *
++	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
++	 * for the power and clock to become stable.
++	 */
++	msleep(PCIE_T_PVPERL_MS);
  
- 	/* Check if the link is up or not */
- 	err = readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
-@@ -1269,7 +1293,6 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
- {
- 	struct mtk_gen3_pcie *pcie = dev_get_drvdata(dev);
- 	int err;
--	u32 val;
- 
- 	/* Trigger link to L2 state */
- 	err = mtk_pcie_turn_off_link(pcie);
-@@ -1278,13 +1301,7 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
- 		return err;
++	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
+ 		/* De-assert reset signals */
+ 		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+ 			 PCIE_PE_RSTB);
+@@ -449,6 +458,8 @@ static void mtk_pcie_device_power_down(struct mtk_gen3_pcie *pcie)
+ 		val |= PCIE_PE_RSTB;
+ 		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
  	}
++
++	pci_pwrctrl_power_off_devices(pcie->dev);
+ }
  
--	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
--		/* Assert the PERST# pin */
--		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
--		val |= PCIE_PE_RSTB;
--		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
--	}
--
+ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
+@@ -1211,9 +1222,13 @@ static int mtk_pcie_probe(struct platform_device *pdev)
+ 	pcie->soc = device_get_match_data(dev);
+ 	platform_set_drvdata(pdev, pcie);
+ 
++	err = pci_pwrctrl_create_devices(pcie->dev);
++	if (err)
++		return dev_err_probe(dev, err, "failed to create pwrctrl devices\n");
++
+ 	err = mtk_pcie_setup(pcie);
+ 	if (err)
+-		return err;
++		goto err_destroy_pwrctrl;
+ 
+ 	host->ops = &mtk_pcie_ops;
+ 	host->sysdata = pcie;
+@@ -1226,7 +1241,12 @@ static int mtk_pcie_probe(struct platform_device *pdev)
+ 
+ err_teardown_irq_and_power_down:
+ 	mtk_pcie_irq_teardown(pcie);
 +	mtk_pcie_device_power_down(pcie);
- 	dev_dbg(pcie->dev, "entered L2 states successfully");
+ 	mtk_pcie_power_down(pcie);
++err_destroy_pwrctrl:
++	if (err != -EPROBE_DEFER)
++		pci_pwrctrl_destroy_devices(pcie->dev);
++
+ 	return err;
+ }
  
- 	mtk_pcie_irq_save(pcie);
+@@ -1241,7 +1261,9 @@ static void mtk_pcie_remove(struct platform_device *pdev)
+ 	pci_unlock_rescan_remove();
+ 
+ 	mtk_pcie_irq_teardown(pcie);
++	pci_pwrctrl_power_off_devices(pcie->dev);
+ 	mtk_pcie_power_down(pcie);
++	pci_pwrctrl_destroy_devices(pcie->dev);
+ }
+ 
+ static void mtk_pcie_irq_save(struct mtk_gen3_pcie *pcie)
 -- 
 2.53.0.414.gf7e9f6c205-goog
 
