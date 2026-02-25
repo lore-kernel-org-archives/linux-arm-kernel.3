@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527B5FD3779
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A06FD3776
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:CC:To:From:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YRY5VNh5WJAQAaMILsab9VN7315yMrX1I852eDbxTtU=; b=DZdpP316HKN/HtAaZ4sXIrXys6
-	bVZkZBJl9bBTXLVYQhP1eo9uhjoKoUi1rILuCJS4vCIosSe9CSr+evF5bMin8b34D6WE2R/fc6r7C
-	uZOsHyAMNhvMFI0l7I4SZVoznt2aZidXFOgnn9RD3haDBtTkH3o3LcXCudqkOj7bmBMxkP+h7u2Ae
-	BwCcsoF8WNLwCDCUddpZlnF8lF/0VL4BIeWreYHaqjkOhpQ04waOcGTEVce568K+1DJ2/ecCGQuBd
-	q2jArjbWLN6d8BbnekMorOhnSaAe20vNA7CsYDLGyzIVbZneX93QYI0/PBPBG7ySr7t/IaC5CXv3F
-	Dz4gCVjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eZJe1ysZtHDQPXqYHzpEFAwR2dAkNxW7ASLxemDvh/o=; b=lNY6VcLswW2Duc
+	1iTkH2lQRqrXp4pg4NKXG3uNWhFoSaNLDZqWM54C72MLgdGxksjlkfwIfsXmQNcWEYF/PsTzTwUCi
+	SMsFJhh6H13/bl0TW6HP6kVYdypLLSR72u+p1sa/4bCxY+8mTwzsZtPAtiraaMATsOFibB4sY1pbA
+	4ryycCql9/llRg71N22kINErhL9HQc+KlI40UDdKJ8RxpvkgUYkUTF9XIQrX3lUIa1mbKFgzoI590
+	WuSr/TXZXr8pdttLwCtiMh5Zkfiu4gYqbAseqIV3Tt97mBLBuJ6hJBfS9cybCTvoPStZI11ZH+n//
+	7etpqYcszzml+LCTl4cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvInx-00000004fWJ-4BZP;
-	Wed, 25 Feb 2026 17:36:10 +0000
-Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
+	id 1vvIoY-00000004fj5-1Oqo;
+	Wed, 25 Feb 2026 17:36:46 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvInu-00000004fTr-3CW4
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 17:36:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1772040966; x=1803576966;
-  h=from:to:cc:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding:subject;
-  bh=YRY5VNh5WJAQAaMILsab9VN7315yMrX1I852eDbxTtU=;
-  b=IdBsFvR0rGwa8YN2WuuCGEOvaU2FD0kq5G5AVPZhSQ+gcSvopkSY0tO8
-   wRSpoP461zomP9jz4Lx/QjbvG/Pl4fG2TRpxVDY/NsIhVgFvzWN7gZYqr
-   W/MrFIvRklrD3YdBhp7w5USbpqzv/BU5f/zbXBnip3OD3QfC0yqlN6QXA
-   am74riEaX0Uij0W72E16eGHGWQoQYOJUuTV4NU6dUeKjc5oxE51czV8rn
-   YQy3upQ2rQpclKmkP2UtJvnl2z8C2+1VXXxk7AV9ky4Ci2fcWAh6Afzaz
-   Pz7+SlozTjcxva6ngzEzmTsnn9N8223bHENRZBlJHWc55ua6FHMVx4PdA
-   w==;
-X-CSE-ConnectionGUID: 8uhsIv4TQIe9EcUHkouJpQ==
-X-CSE-MsgGUID: ba3PhwdMSXS3IlmTrBGnTQ==
-X-IronPort-AV: E=Sophos;i="6.21,310,1763424000"; 
-   d="scan'208";a="13593227"
-Subject: RE: [PATCH 17/17] Add standalone crypto kernel module technical documentation
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2026 17:36:03 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.105:1793]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.24.86:2525] with esmtp (Farcaster)
- id 93693ec8-671a-42a3-87bc-f5a3c251f9ed; Wed, 25 Feb 2026 17:36:02 +0000 (UTC)
-X-Farcaster-Flow-ID: 93693ec8-671a-42a3-87bc-f5a3c251f9ed
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 25 Feb 2026 17:36:00 +0000
-Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
- by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 25 Feb 2026 17:35:59 +0000
-From: Jay Wang <wanjay@amazon.com>
-To: <ebiggers@kernel.org>
-CC: <bp@alien8.de>, <catalin.marinas@arm.com>, <davem@davemloft.net>,
-	<herbert@gondor.apana.org.au>, <ilya.okomin@oracle.com>,
-	<jay.wang.upstream@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-crypto@vger.kernel.org>, <linux-kbuild@vger.kernel.org>,
-	<linux-modules@vger.kernel.org>, <mcgrof@kernel.org>, <mingo@redhat.com>,
-	<nathan@kernel.org>, <nsc@kernel.org>, <nstange@suse.de>,
-	<petr.pavlu@suse.com>, <tglx@kernel.org>, <vegard.nossum@oracle.com>,
-	<wanjay@amazon.com>, <will@kernel.org>, <x86@kernel.org>
-Date: Wed, 25 Feb 2026 17:35:45 +0000
-Message-ID: <20260225173551.8704-1-wanjay@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260225015517.GA162634@quark>
-References: <20260225015517.GA162634@quark>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D032UWA003.ant.amazon.com (10.13.139.37) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+	id 1vvIoV-00000004fhX-1zlk;
+	Wed, 25 Feb 2026 17:36:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
+	:Date:subject:date:message-id:reply-to;
+	bh=eZJe1ysZtHDQPXqYHzpEFAwR2dAkNxW7ASLxemDvh/o=; b=tF+WrfizVOqWBP1aoKqgQFJKi9
+	7aWfTCGHVJ7F+0sHSSaOjn2xTVV+zsvEbdDFcrEApR8LLJEC8hYZcIfiiOOy5TkamOIOxuTWkeSHt
+	pirVEDGEIj/ZzLbBX/J9olz8lvqTyyZPpB9R3/KYbE3GDeqiBocLFYHhYq26+Uz9ASvU=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:53172 helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.92)
+	(envelope-from <hugo@hugovil.com>)
+	id 1vvIoJ-0007uZ-Po; Wed, 25 Feb 2026 12:36:32 -0500
+Date: Wed, 25 Feb 2026 12:36:31 -0500
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, robin@protonic.nl,
+ andy@kernel.org, geert@linux-m68k.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, hvilleneuve@dimonoff.com, mkorpershoek@kernel.org,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ lee@kernel.org, alexander.sverdlin@gmail.com, marek.vasut@gmail.com,
+ akurz@blala.de, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Message-Id: <20260225123631.6a2c039e05d7609604463809@hugovil.com>
+In-Reply-To: <aZ8voAddPvMLCvc4@smile.fi.intel.com>
+References: <20260225155409.612478-1-hugo@hugovil.com>
+	<20260225155409.612478-5-hugo@hugovil.com>
+	<aZ8fXXGMx3fk7gKs@smile.fi.intel.com>
+	<20260225114155.3ee2efb002aa0f52a905f535@hugovil.com>
+	<20260225115652.8beb1979df3824f7a95d22bc@hugovil.com>
+	<aZ8tocPCKqTXqbC0@google.com>
+	<aZ8voAddPvMLCvc4@smile.fi.intel.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 70.80.174.168
+X-SA-Exim-Mail-From: hugo@hugovil.com
+Subject: Re: [PATCH v3 4/4] Input: charlieplex_keypad: add GPIO charlieplex
+ keypad
+X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
+X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_093606_850754_532267C0 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20260225_093643_875245_7500F509 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,22 +83,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks to everyone who has taken the time to review and comment.
+On Wed, 25 Feb 2026 19:21:36 +0200
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-Based on the discussion so far, it seems the core question is whether this feature is appropriate for upstream at all, or whether it should remain entirely downstream.
+> On Wed, Feb 25, 2026 at 09:14:16AM -0800, Dmitry Torokhov wrote:
+> > On Wed, Feb 25, 2026 at 11:56:52AM -0500, Hugo Villeneuve wrote:
+> > > On Wed, 25 Feb 2026 11:41:55 -0500
+> > > Hugo Villeneuve <hugo@hugovil.com> wrote:
+> > > > On Wed, 25 Feb 2026 18:12:13 +0200
+> > > > Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+> > > > > On Wed, Feb 25, 2026 at 10:54:01AM -0500, Hugo Villeneuve wrote:
+> 
+> ...
+> 
+> > > > > > +#include <linux/of.h>
+> > > > > 
+> > > > > Is this in use? Or you wanted mod_devicetable.h for OF ID table?
+> > > > 
+> > > > I need only OF ID table, so will replace with mod_devicetable.h.
+> > > 
+> > > Hi Andy,
+> > > finally I need <linux/of.h> for of_match_ptr()...
+> > > 
+> > > But I will keep <mod_devicetable.h> ...
+> > 
+> > Do we need the dependency on OF? We may include of match pointer
+> > unconditionally and the driver could be used on ACPI systems with
+> > PRP0001 HID.
+> 
+> Not only that. of_match_ptr() or ACPI_PTR() shouldn't be used in a new code
+> (there are, of course, _rare_ corner cases, which this one is not one of).
 
-We’ve discussed this with a few folks, and to help clarify the discussion, let me outline what is actually required to use this approach and what the community would gain from upstreaming it:
+Ok, will remove of_match_ptr() and also include <linux/of.h>
 
-1. Maintaining a crypto snapshot (for example, a source code snapshot used for streamlined FIPS re-validation processes such as NSRL).
-2. Maintaining the loadable crypto build infrastructure itself (i.e., this patch set).
-
-For (1), since this requires maintaining a specific snapshot, we acknowledge that this is inherently a downstream responsibility. We are not expecting upstream to provide or guarantee a stable in-kernel API (to clarify, a stable ABI is not strictly required here, since the crypto module can be rebuilt against newer kernels and still benefit from FIPS through the shorter NSRL re-validation process of roughly 3 months, compared to the full 12–18 month certification cycle). The upstream crypto subsystem should continue evolving independently.
-
-For (2), since this feature mainly serves as infrastructure and is of interest to multiple distributions, upstreaming it could help reduce the effort each distribution would otherwise spend maintaining similar infrastructure patches independently.
-
-We’d love to hear more thoughts on this. If the general consensus is that the downsides outweigh the benefits of merging this into mainline, we are happy to maintain it in a separate repository tracking the latest mainline and stable releases in order to keep the work publicly available.
-
-Thanks again for taking the time to read and discuss this.
-
-Jay
+Hugo Villeneuve
 
