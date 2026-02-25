@@ -4,76 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B650FD45F1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 22:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50EBEFD45F1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 22:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=znRqW8MB2hKUQcuoDftf0UbuyFnBmsadzxoh2hjrY4U=; b=hLPZdii2S5NeUHAtojegzejUh1
-	yeceddPSSlwujSlh9wUeXlaJ//rubnsg5faskNBHwOqDDO4R0kcQOCzfv6SyglAnHGxUv1OG6h7ub
-	PgIDkAqiB0wxYAZKl9V7IEWS42KjTXfV/RaXYJbneModigeVTPCgmr9HH/ZHG4RCmLGNfMmSIwDLF
-	WRXYt9YZ09790V+fiUiPn9HTn4yNjv+eCVTY/DPQE2dGT7mE7PaYEtRXPQvufmAZElPYLWfaEorxm
-	GBn7Xvf/uos5hFzoCW9vTykaYoqTtpXKqpyXqPvwvMLqMenJj1TB1u0KoXvEFSyLG1QhT9wLxU3i4
-	UCT2WLYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TcgCgCEo03Z5mFFecYPzQD3Rq4C5qPBZUB42/osw6tY=; b=GjTEk+82dCIH4mXkU94WZwpWlh
+	5/pWr6Moie3pd25ZS6qAHQ7GwA6kU7EuCG1hhZGhhx9h7zEO6aHRbsMkbMTbcNf8kz+P7y0Mro1+j
+	yBixy77wGkAamyfgCM+EvNoXXrNwujgXE4ut1oy1fx3ciy4+5sbCeO/BCWquXb7cUlnPjxiluYbZ8
+	2QFrXKgb4XT0CMXuEiLNV3TtJq8zlUUQ09JllXW4eqp6Veny6dSfTvcjEctfqdsqiSFgPm/CFjIDo
+	10liToxq9kZNP4/Uu5anMk/6vQQrvmCHdgOEZ/USlfRaWGwMC8+EaEqQNB0XP/3QfHDRGS0sB7Cr9
+	PG4ZX1Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvNL9-00000004zrh-3qLn;
-	Wed, 25 Feb 2026 22:26:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vvNLO-00000004zwv-1w5h;
+	Wed, 25 Feb 2026 22:26:58 +0000
+Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvNL7-00000004zqp-1htL;
-	Wed, 25 Feb 2026 22:26:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772058398;
-	bh=k0xNHmg+Rg6PlS1Wra/0RI+5j9ZASPAy6uL892tIiMs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DLPQZ1qKtw0UPrCiH2oVW0xmo2GRHB9P+bSqPaE3iHm8F6eBR7XvhpIfEjh3pBidG
-	 tmE3bOZ8btb+Vq1Z9DzXcObYLgjLIHlA9tCrVsNQhy886X754qzz6KZogPIQyOFufM
-	 fGwKqVnhPWDd7+dt3t3VyHSuXjPXk0G2fyROFV4dgNlNjRmSLxeUReHAOrYF9zWZ0T
-	 DbkDx4mCDmCCXHFaIXiDXOXGVu8yaRgEOOEUT5mW0MDS5hbbhQRA7W1cY8674oR0zl
-	 VTpL/+73warn2Svdh10gyq2gMHAIcGcpi1r0ep8wCRtPOVWcYlcDsJN9aAmkFvZwY8
-	 OSl5n1LiErqKA==
-Received: from [192.168.1.90] (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 959D617E03E5;
-	Wed, 25 Feb 2026 23:26:37 +0100 (CET)
-Message-ID: <72a72c50-4816-47d4-b533-be4b7feee027@collabora.com>
-Date: Thu, 26 Feb 2026 00:26:37 +0200
+	id 1vvNLM-00000004zvS-1QNE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Feb 2026 22:26:57 +0000
+Received: by mail-vk1-xa2e.google.com with SMTP id 71dfb90a1353d-5674d8be45eso130055e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 14:26:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772058414; x=1772663214; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TcgCgCEo03Z5mFFecYPzQD3Rq4C5qPBZUB42/osw6tY=;
+        b=FrzIHlUe4RHVDNTxU7ozU/rsQKWSKCqzaO3u+mxk3WAUeCP00MFmb37yRoiFJKPSuT
+         086TS1WQCkMrEzbRcYEzKSKJzs8iOBZgI2q0eiP8QbuvHw8+TLSaufioFEpRKz6B7Kso
+         aAlJjNM18dktrfFn/525Ee/eaWnXAANrouupoRdFOX5Ng8Jk+NmihPym3ErcaHzyrp8B
+         4j7aILb3+eriETO0EjQ6LpSSpZD7YKuENo6gkCRaP6pUn0cK48LC3rBWFv2BcwDUj/O6
+         xnterClcJrm/LrVQj8dMD/rUgHX2ACSYPMV15x0EiAO0x2qUYt32fbQAe4uM6CprqXFe
+         4HgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772058414; x=1772663214;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TcgCgCEo03Z5mFFecYPzQD3Rq4C5qPBZUB42/osw6tY=;
+        b=GPp/WgaZbZOdDkeSBsdKNiR596ndI0cKUOf2YUS4yoQG9v85BFDDu/fJaHyTr7B2P8
+         PfJs1JM9rcpRZ6z4WglCII4LS3yhyEZ0gOvkeyoS0s/TP8ae4Gf4XqLiklsk4ovqVqq1
+         P7BKKJ25urVTnN8dmyLrkuMXAQs0jLucQN4VJMXjo64DtaewFs3fss3ebpAHC3c7awWP
+         Revi6EEm8E9WDeQGgP4n7SFLuvZuQibDJwK5vCM32LQlBIvfX+K6TvzL06TZqdliV/Rm
+         ldn/qHqYh2iXcT3dMGMrtnG3+iOn8dJDYoermo2iEwEyppXkxdXH4MijybW/9QqhkL4W
+         AiYg==
+X-Forwarded-Encrypted: i=1; AJvYcCWXB8gcbxo+SEdpiJHQbcInwOKT9JgRMxIPsQKUTAE/FEX94xnlauV9+GEIifvZslQoYT/LVjwgMubFAAQr776H@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6mX9rlZIRh7wfybevoWxedzG7gRWfGGBkPFL2FjzaNJTX1qCK
+	zUnH8b44fHc2lxOyNRh4jij4b5LfW7A+eQ6q6WONde9HqSl2Ui9pvPRX
+X-Gm-Gg: ATEYQzzv6e8NiJnDnYcfEWHOodWv+B1gS880ovcU0yCTpsAcY7q0h8BzViHrJ9QmLXl
+	SP/rED4Eoc0GjUgrV0WEafNZtXHrY0xOxx1csD2c7YvfhW3iTo4FwZGOcwPSKeRlGGi1NcsEoc8
+	NtVpa2Ws5R9+UZAwdlSUGOh9bjBfRiylPgZIZwKg6QXHG/eaKzNTOqWAppzeWwTIIHpFAql0s8N
+	0JI1ccySd/oh0OA4420Ac866zQut/VGBGcZ+yxUcei1X3YBmp4bqRUHnUGxvy5TY+ZtMR0Vi8VN
+	NS8nn3d0PPSmaL8XRAWj/xPlt0B3GaFLtfctI8F1Xk11P+kLSAI1w6er27J3Bc/HCZFU0Wcikcs
+	DWVIpRi6N7wywNDQcnqm6FdACOboP2Nn5l1eYKowGG2dzhN4j/zvhXpgBrT2HdqetrtvVC8qxJc
+	B1yNnVfedN1e62sroPUTeH
+X-Received: by 2002:a05:6122:3b82:b0:567:443f:a772 with SMTP id 71dfb90a1353d-56a92ecd28amr155892e0c.0.1772058414356;
+        Wed, 25 Feb 2026 14:26:54 -0800 (PST)
+Received: from geday ([2804:7f2:800b:f14d::dead:c001])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56a91659421sm592428e0c.0.2026.02.25.14.26.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Feb 2026 14:26:53 -0800 (PST)
+Date: Wed, 25 Feb 2026 19:26:46 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Geraldo Nascimento <geraldogabriel@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>
+Cc: linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/2] PCI: rockchip: 5.0 GT/s speed may be dangerous
+Message-ID: <cover.1772057799.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] media: dt-bindings: rockchip,vdec: Add alternative
- reg-names order for RK35{76,88}
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
- linux-media@vger.kernel.org
-References: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
- <20260225-vdec-reg-order-rk3576-v3-1-5a2ebe1b11a8@collabora.com>
- <9bb74438-e759-46a7-9fa1-2c6b1fced76b@kernel.org>
- <d5a244f3-5f1b-4bcb-8042-646320a47b6c@collabora.com>
- <85793250-425d-40da-b382-ada9fc7b50e1@kernel.org>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <85793250-425d-40da-b382-ada9fc7b50e1@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_142641_610495_39D2867D 
-X-CRM114-Status: GOOD (  32.64  )
+X-CRM114-CacheID: sfid-20260225_142656_390171_6AA3BA00 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,132 +102,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/25/26 4:11 PM, Krzysztof Kozlowski wrote:
-> On 25/02/2026 14:36, Cristian Ciocaltea wrote:
->> On 2/25/26 2:26 PM, Krzysztof Kozlowski wrote:
->>> On 25/02/2026 13:19, Cristian Ciocaltea wrote:
->>>> With the introduction of the RK3588 SoC, and RK3576 afterwards, the
->>>> 'link' and 'cache' register blocks have been provided for the video
->>>> decoder unit in addition to the existing 'function' one, which now shows
->>>> up in between them (from address-based ordering point of view).
->>>>
->>>> However, the binding does not properly describe this hardware layout, as
->>>> the new blocks are listed after the old one.  Therefore it breaks the
->>>> convention expecting the unit address to indicate the first register
->>>> range.
->>>>
->>>> Since the binding changes have been already released and a fix would
->>>> bring up an ABI break, mark the current 'reg-names' listing as
->>>> deprecated and introduce an alternative 'link,function,cache' one.
->>>>
->>>> Additionally, drop the 'reg' description items as the order is not fixed
->>>> anymore, while the information they offer is not very relevant anyway.
->>>>
->>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>> ---
->>>>  .../devicetree/bindings/media/rockchip,vdec.yaml      | 19 ++++++++++++-------
->>>>  1 file changed, 12 insertions(+), 7 deletions(-)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>>> index 809fda45b3bd..3f6072e8baa5 100644
->>>> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>>> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>>> @@ -28,16 +28,21 @@ properties:
->>>>  
->>>>    reg:
->>>>      minItems: 1
->>>> -    items:
->>>> -      - description: The function configuration registers base
->>>> -      - description: The link table configuration registers base
->>>> -      - description: The cache configuration registers base
->>>> +    maxItems: 3
->>>>  
->>>>    reg-names:
->>>> -    items:
->>>> +    oneOf:
->>>>        - const: function
->>>
->>> This is confusing, I think I missed that in previous patch because it
->>> did not leave that part or I misread the diff hunk - why do you allow
->>> one entry?
->>
->> That's for the older SoCs, e.g. RK3288, RK3399, as the 'link' and 'cache' blocks
->> are only available for RK3576 & RK3588.
-> 
-> Yeah, I see in the bottom of the binding
-> 
->>
->>>
->>> If the first entry is function, then all others MUST built on top, thus
->>> this:
->>>
->>>> +          - const: link
->>>> +          - const: function
->>>> +          - const: cache
->>>
->>> is not correct.
->>>
->>> No, you don't change the orders. So again, if you have such binding,
->>> then you just fix the unit address leaving the binding as is.
->>
->> Changing the unit address would mean it will point inside the register range,
->> rather than at the beginning of it.
-> 
-> First, not true. If this was one register range, you would have one
-> entry. You cannot split entries. Split entries means you have two
-> SEPARATE register ranges.
-> Second, it does not matter because main rule stays - the unit address
-> describes the main address space. The main address space in other device
-> was called "function", so I assume the main address space is also here
-> the "function". Which makes sense, because link feels secondary to
-> functioning of the device.
-> 
->>
->> Sorry, but I don't quite get why would this be a better approach than just
->> properly list the items according to the HW layout, i.e. following the
->> address-based ordering?
-> 
-> We always expect the list to grow, to have common set. That's rule given
-> during reviews multiple times. For multiple reasons, also explained
-> (consistency, maintenance and actually proper description of hardware
-> like the main reg address space).
-> 
-> Probably this was also given to that binding during discussions when it
-> was upstream, so your change reverts previous discussion and to that I
-> do not agree.
+Dragan Simic already had warned me of potential issues with 5.0 GT/s
+speed operation in Rockchip PCIe. However, in recent interactions
+with Shawn Lin from Rockchip it came to my attention there's grave
+danger in the unknown errata regarding 5.0 GT/s operational speed
+of their PCIe core. Even if the odds are low, to contain any damage,
+let's prevent 5.0 GT/s operation as well as add a comment to
+Root Complex driver core, documenting this danger of data loss or
+worse.
 
-Thank you for detailing this, I get your point now.
+---
 
-After digging a bit further, it looks like the "function" naming has been
-introduced as part of the RK3588 support via commit c6ffb7e1fb90 ("media:
-dt-bindings: rockchip: Document RK3588 Video Decoder bindings").
+Changes in v3:
+- Clarify warning message even though Rockchip won't disclose details
+- Drop DT changes as they were applied as subset by Heiko
+- Link to v2: https://lore.kernel.org/all/cover.1763415705.git.geraldogabriel@gmail.com/
 
-Morever, it also sets `reg-names: false` for all the SoCs other than RK3588 -
-sorry for missing this initially.
+Changes in v2:
+- hard limit to 2.5 GT/s, not just warn
+- add Reported-by: and Reviewed-by: Dragan Simic
+- remove redundant declaration of max-link-speed from helios64 dts
+- fix Link: of helios64 patch
+- simplify RC mode comment
+- Link to v1: https://lore.kernel.org/all/aRhR79u5BPtRRFw3@geday/
 
-Hence "function" wasn't used at all in the context of the older SoCs, while on
-RK3588 & RK3576 there is no indication that "function" should be treated as the
-main address space or anything like that.  E.g. RK3588 TRM clearly shows the
-"link" range at the top of the listing, starting at video decoder unit base
-address:
+---
 
---------------------------------------------------------------------------------
-Config Register                         |   Base addr
---------------------------------------------------------------------------------
-VDPU381 core0/1 link table config base  |   VDPU381_core0/1_base+0x000
-VDPU381 core0/1 function config base    |   VDPU381_core0/1_base+0x100
---------------------------------------------------------------------------------
-                                        |   VDPU381_core0/1_base+0x600 for Y channel
-VDPU381 core0/1 cache config base       |   VDPU381_core0/1_base+0x640 for C channel
-                                        |   VDPU381_core0/1_base+0x680 for head channel
---------------------------------------------------------------------------------
+Geraldo Nascimento (2):
+  PCI: rockchip: limit RK3399 to 2.5 GT/s to avoid data loss
+  PCI: rockchip-host: comment danger of 5.0 GT/s speed
 
-Assuming the reasoning above is now good enough to move further with the
-proposed approach, I can prepare a new revision dropping the unnecessary
-one-entry item from the reg-names, while keeping all the rest in the series as
-is.
+ drivers/pci/controller/pcie-rockchip-host.c |  4 ++++
+ drivers/pci/controller/pcie-rockchip.c      | 10 ++++++++--
+ 2 files changed, 12 insertions(+), 2 deletions(-)
 
-Regards,
-Cristian
+-- 
+2.52.0
 
 
