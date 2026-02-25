@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF331FD45F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 21:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27257FD45F6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 22:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qynXNHPWMkC/Dsp1GodjENA+o7nP+5AXv7EbouCSYiI=; b=SYsZO0pbaQuT9smiO3kFFeZcRE
-	elgIjEQKxk4/zNXke8OX7VVueX48KGVgGGPCKDOdRo0LpOhirVCsuoLokoTpKIhBuwnd4dcf4SdDn
-	0sEiYCY01ii5Ryfc8EOCbr0CuRsgdLAtdXwF+zoQPSWpQ25O2geV1VH7N4CNlh4JhxInjaEoZkA+0
-	7I+2UiuT/JJNnvjSMZwDgI11zYcPbrbcaTdLHK75bXIVhW1VNjVjw8L7wyYoCt55kO0AU6/dhxv3e
-	aKqZiyNAMEQKUOQGeRvkRu47Ua8Mbvm9E7a04tet6IG/tapgYw4OLBK5hxcXiuDFJ3gBijguwFCq1
-	ckwyIUlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IR0GC/jchphP9j9Xo53UEXdnn2YKN/sSiihx46NdjDk=; b=U3PRnKTtiiB+6rQ/A6i2lM/KnL
+	Dz3YJAJt9llDtilKQN5j6ccRpeaBlxJlRrIMY16yeir7JoGVRpiYp7DmwwqXAlzsmjQqgUzmd0TWm
+	CfcOnmxB4lt/GcA8TW1odK0INy8BYDnaLKCpVtd5wTTehfhsbEHVHqPsakJ99+tHPdKNyYVLxVW5h
+	FCd0gP3AnrxER2zoyBS0VqceLbCsTbE0zdEYr1DrZ9amar3vIt05tRu2+rLkahTai6Yo6P1MFX/5U
+	jw0tNQX324YE9PaeAixTiazzdaBboMtdjfPR8iIUxDATOd6T+vGF/09AQvwm7yLHd7+kgbIAtEr0b
+	TF4vfEog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvMjX-00000004xTs-0Yfe;
-	Wed, 25 Feb 2026 21:47:51 +0000
+	id 1vvNBL-00000004yfD-3YVH;
+	Wed, 25 Feb 2026 22:16:35 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvMjV-00000004xTl-1c0Q
+	id 1vvNBL-00000004yf6-0YRG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 21:47:49 +0000
+	Wed, 25 Feb 2026 22:16:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2990A600CB
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 21:47:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D46E7C2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 21:47:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3138E60054;
+	Wed, 25 Feb 2026 22:16:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0D32C116D0;
+	Wed, 25 Feb 2026 22:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772056067;
-	bh=l8N6B+v3LKcBSMQDhhMsq1Ou4LUvHgBtC7GiADD7q1o=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=lNwdo0nUY0vYNlniM9tZn3gVIj62mw9G4B/6roySJN2yYSIKp3Wl6adjb9q3m7M8F
-	 3U+qdqQuwsI+L/D53LkkRLNmsjH64zrvmQTYwG9xtZtg4urFoV+mSrjt5/M7pDxJ17
-	 8QLkWyiQTcRJumUZJgjzpV+z2Eh54aP0okn5EnZwMfz2RBGa+s7aJwxio2m7V2W4PC
-	 pRI/La+3ZJOEnrHypTCrYI99pE1Q2sWsaEhLPWj3dDAzEKWait8gxLs1TWDH+upu+U
-	 jVutIDBZwWqE6SmOFaC15sUFxWQIrY2XSL16u9bGwI1tnNY51R0tVq/D+TDSM1Kzak
-	 vTu8DBpj4e92w==
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-b904e1cd038so23532566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 13:47:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUNOO9mULSK0ejkmhsqUQIDsKCd6TYBpsgCWBH3yDJWoWQrOWqstRqlpDQx2s13vsLfpR8VFmXRZZslkNe3ch/R@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBKkkJtejTqJ+w9acQXOHGNVcmetXkaEmZHoAYyTToImCnwuEv
-	EPuoG2tEiBWb+oZPKo0kjbEnIRX9cwb3VEweYnyF86bZz34/G5G2xDglZKk0alxeQJqHB49XAwy
-	M5hU3QxWHuTFROXv5tPDyK8d8XRlmew==
-X-Received: by 2002:a17:906:38cb:b0:b8f:7200:63bd with SMTP id
- a640c23a62f3a-b9351794335mr92810866b.42.1772056066379; Wed, 25 Feb 2026
- 13:47:46 -0800 (PST)
+	s=k20201202; t=1772057793;
+	bh=tEgYXcuadwgc0jGOrrazjHEeJPSuoYBMFjqz54qNa/8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TTDbjccJ47OQeIWWdMJl7YmAu/C1rTnsih7/vny6eesQcQVAy3AkFkRKSG0xQW3YX
+	 lcCWps83dlR5fzCPH+dWrbLhDM8QI1SgMsrZPSKbrV1vFPJi1DOkrFYmqeNbAMwwVZ
+	 6OxUwiKgG7UEav1S4RZW3qArTuFFDD26pS+/8W/iZAvaeT4oEq6m4cshiDjaU4XIGA
+	 YtcQ9I8xEh5AleeUoHOKjrGSqyt9uedgK/7BZmXCqGYvPo+NKbV+cxsToyhHyIE6RK
+	 tO8g/Hf7TgWQQTkTrCWOiH9lXOuEs4VgY9rcHnjd03sad6nou02AxhZM3+hJy2MAsH
+	 AH1PMiB+2856w==
+Date: Wed, 25 Feb 2026 22:16:27 +0000
+From: Will Deacon <will@kernel.org>
+To: Sumit Gupta <sumitg@nvidia.com>
+Cc: Marc Zyngier <maz@kernel.org>, catalin.marinas@arm.com,
+	zhanjie9@hisilicon.com, zhenglifeng1@huawei.com,
+	viresh.kumar@linaro.org, rafael@kernel.org, beata.michalska@arm.com,
+	pierre.gondois@arm.com, ionela.voinescu@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	treding@nvidia.com, jonathanh@nvidia.com, bbasu@nvidia.com
+Subject: Re: [PATCH v2] arm64: topology: Fix false warning in
+ counters_read_on_cpu() for same-CPU reads
+Message-ID: <aZ90u4HrDh1N7ylK@willie-the-truck>
+References: <20260224092714.1242141-1-sumitg@nvidia.com>
+ <86ecma9gb5.wl-maz@kernel.org>
+ <bdd6a7bc-0b7d-405d-99a7-a11eebaf627a@nvidia.com>
 MIME-Version: 1.0
-References: <20260223-soc-of-root-v2-0-b45da45903c8@oss.qualcomm.com>
- <20260223-soc-of-root-v2-8-b45da45903c8@oss.qualcomm.com> <20260224183213.GA3239922-robh@kernel.org>
- <CAMRc=MfAuDqQZQAPXnJPJ9P1OV38dsQb0CWCh_EtZVq_G9dwsA@mail.gmail.com>
-In-Reply-To: <CAMRc=MfAuDqQZQAPXnJPJ9P1OV38dsQb0CWCh_EtZVq_G9dwsA@mail.gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 25 Feb 2026 15:47:35 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqLr3zzBfVujuj2kO3VCngV-wa97e+xEQj_sjakzRXyZSw@mail.gmail.com>
-X-Gm-Features: AaiRm539jdazKEwDTNuu6a7Fra_2vBg28zXqHEjYX1GN3S7PxX9gedX_Y-Td3eI
-Message-ID: <CAL_JsqLr3zzBfVujuj2kO3VCngV-wa97e+xEQj_sjakzRXyZSw@mail.gmail.com>
-Subject: Re: [PATCH v2 8/9] soc: renesas: don't access of_root directly
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Saravana Kannan <saravanak@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Frank Li <Frank.Li@nxp.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, driver-core@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bdd6a7bc-0b7d-405d-99a7-a11eebaf627a@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,61 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 3:42=E2=80=AFAM Bartosz Golaszewski <brgl@kernel.or=
-g> wrote:
->
-> On Tue, Feb 24, 2026 at 7:32=E2=80=AFPM Rob Herring <robh@kernel.org> wro=
-te:
-> >
-> > On Mon, Feb 23, 2026 at 02:37:23PM +0100, Bartosz Golaszewski wrote:
-> > > Don't access of_root directly as it reduces the build test coverage f=
-or
-> > > this driver with COMPILE_TEST=3Dy and OF=3Dn. Use existing helper fun=
-ctions
-> > > to retrieve the relevant information.
-> > >
-> > > Suggested-by: Rob Herring <robh@kernel.org>
-> > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.=
-com>
-> > > ---
-> > >  drivers/soc/renesas/renesas-soc.c | 7 ++++++-
-> > >  1 file changed, 6 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/soc/renesas/renesas-soc.c b/drivers/soc/renesas/=
-renesas-soc.c
-> > > index 38ff0b823bdaf1ba106bfb57ed423158d9103f8d..bd8ba0ac30fa91fcf2a10=
-edd0d58b064650085cf 100644
-> > > --- a/drivers/soc/renesas/renesas-soc.c
-> > > +++ b/drivers/soc/renesas/renesas-soc.c
-> > > @@ -6,6 +6,7 @@
-> > >   */
-> > >
-> > >  #include <linux/bitfield.h>
-> > > +#include <linux/cleanup.h>
-> > >  #include <linux/io.h>
-> > >  #include <linux/of.h>
-> > >  #include <linux/of_address.h>
-> > > @@ -468,7 +469,11 @@ static int __init renesas_soc_init(void)
-> > >       const char *soc_id;
-> > >       int ret;
-> > >
-> > > -     match =3D of_match_node(renesas_socs, of_root);
-> > > +     struct device_node *root __free(device_node) =3D of_find_node_b=
-y_path("/");
-> > > +     if (!root)
-> > > +             return -ENOENT;
-> > > +
-> > > +     match =3D of_match_node(renesas_socs, root);
-> >
-> > Doesn't of_machine_device_match() work here?
-> >
->
-> No, because we're using the returned address of the matching struct
-> of_device_id later in the function. If you think it's a better idea to
-> introduce of_machine_match_node(), let me know but I think that should
-> be done separately.
+On Wed, Feb 25, 2026 at 05:08:03PM +0530, Sumit Gupta wrote:
+> On 24/02/26 23:25, Marc Zyngier wrote:
+> > But I'm more concerned by the overall pattern of doing these things in
+> > random contexts. Going back to the original patch (997c021abc6e) that
+> > states:
+> > 
+> > "However, this deferred update mechanism is unnecessary and introduces extra
+> >   overhead for non-PCC register spaces (e.g. System Memory or FFH), where
+> >   accessing the regs won't sleep and can be safely performed from the tick
+> >   context."
+> > 
+> > Clearly, the AMU registers cannot be arbitrarily accessed without
+> > blocking when accessed from one CPU to another, so either this
+> > function is never called in a cross-cpu context (and the warning
+> > should be removed), or the premises of this change are wrong.
+> > 
+> > Which one is it?
+> 
+> The function is also called in cross-CPU contexts, but only from
+> process context (get_rate, sysfs show) with IRQs enabled and
+> calling smp_call_function_single() is safe. In the tick path,
+> cppc_scale_freq_tick() uses per_cpu(cppc_freq_inv, smp_processor_id()).
+> So we always read the current CPU's counters and no cross-CPU access.
+> 
+> The premise of 997c021abc6e applies to same-CPU accesses only:
+> Reading the local CPU's AMU regs does not sleep and is safe from
+> tick context.
+> The irqs_disabled() WARN is still needed to guard against unsafe
+> cross-CPU calls. This also returns '-EPERM' unlike the WARN inside
+> smp_call_function_single(). So we fail instead of risking deadlock.
 
-No, it's fine.
+Hmm, so why isn't this structured such as:
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+	if (irqs_disabled()) {
+		/* XXX: Explain the tick case */
+		if (WARN_ON_ONCE(cpu != smp_processor_id()))
+			return -EPERM;
+		func(val);
+	} else {
+		smp_call_function_single(cpu, func, val, 1);
+	}
+
+	return 0;
+
+That way, the irqs-enabled case remains the same and doesn't need to
+mess with preemption.
+
+Will
 
