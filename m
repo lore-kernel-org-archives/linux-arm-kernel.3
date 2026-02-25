@@ -4,102 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F57EFD21A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 09:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D40BEFD211
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 09:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JKzZmUF3e/EMczVJbvGTTAlD+3+vGtQBALWlnTbMvUo=; b=uVAHLtM/nK2+nPby2m94C3/7x1
-	AGs58JC1IhJWTyujbQfBSYKni6Pqzn6Fyt2ag3DSZajOgouY2NN2lrnr0CaKzEy+zequfr3HFMjIb
-	p1cHcC1q3iJ/5LYaRd5fZo3rN7pInvdFoWlPCcQ2tGMSnPXvdbrIkop8OisPrPXCUyn/o4fTNhUqU
-	JXlCKjYDKH/34Wpf513pITTwsoxEE31a5lSlvv5XPVT8veMHqFBUlTkPvbbXYcLbUHgbAwsuQiBtz
-	r0dYM281xXIdBZmclN4fJ1UW8eZp5be2hw8FsnIyB4BNmnnFUPUxOLGyaf32jWFoF9S1XFAMKoyjL
-	7cMRZyGA==;
+	bh=OGuxkMX0kM60aNE9QHAj3qrKDisClRlnBUy8ZVl16+8=; b=36/iD00DDM6E4zdW1iDN8qz85g
+	95i5ZxelGC9zKB5yO9p/GUT6aXrxvzd5Y5qLrh5O3s1oT+53FOD3gmT9njGBeRhahpsAs6VrzCli8
+	wYAhZjzQMlNA+gNuYjvsYkvxvW0jUWt6t1aaMidiZK3RKzcA1V5UL+gS0MVG6NGOYRD9Y24j6Ess+
+	gbMv8zKK/zCUG2gv3I7uLc31R4IRsyl63zHCbpZ+2Nut2rqfUkRdWI8VvXpIgCeGUHrvAT2BpDM0w
+	upJBnijyfVFecOXST4ak5VS9MrixtxQbSQxjKcSCJ9tu5wOBoQbYB50fzLlIs4bmga30ay+WGx1v6
+	4UFhIu3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvB4u-00000003eiC-2sfd;
-	Wed, 25 Feb 2026 09:21:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vvB6S-00000003fO2-1NCe;
+	Wed, 25 Feb 2026 09:22:44 +0000
+Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvB4p-00000003efE-35T1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Feb 2026 09:21:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=JKzZmUF3e/EMczVJbvGTTAlD+3+vGtQBALWlnTbMvUo=; b=Ay3UHF9AM8hN54bKhgfdgxeyGA
-	CqdV8ina3VSOL5UKuXegcnR/syoB/Q5mSpl0DuOGfUskBduv5HWaklKBVLxGbEEXSazl/KoCgAdFb
-	a7Ku0VERUUtMh+ZgK6CPEtI140G9b6nJ/WO7uWqokhHtzKB7PR4Y9NJtty++hQwAUge66TbgBlLCA
-	eAF0rjBQCu1Td5Xk/qFOAZdGLaLKMpfjxsSXiy0Z2hkTT3ONPcaUNRTxNHo3K+gzt+9lY4FakZkmJ
-	4GB0DHheMiZ+spOwMMTRJByLfuBuBKHY4Ffwg9q8CYQO6xx6yZzeJmWqxbV9dslAlAcbufvdh5/t9
-	ylVMTigA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvB4m-00000008ewe-2uvS
+	id 1vvB6P-00000003fN5-0632
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 09:21:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7547344570;
-	Wed, 25 Feb 2026 09:20:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 48B6AC2BCB1;
-	Wed, 25 Feb 2026 09:20:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772011256;
-	bh=t5KwaNb/RUlMNvnjAQljSY30lTI+e060jlUtQ9txKe8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=dXebnJsfDvKn9PtkLzsKc4MAee+sp/U9l4f/JkqXDomC8csiVU+kOccZKQLGMZlgx
-	 pUA99JXJ2KsXklEYyFvXs63j+GgaF86a5qWGQNBHiW4Cdp7lpMPrM9G8SW+B00V/kT
-	 edYBLGQfdRa5fD/6K9qMncWNd/XDBjMZ1/HlkMayFOlZbHUH0Ejkac3+F92UsR0eNc
-	 e9PcDjz/kOQBZffa+xvgFKuwnaz1Qu9bpcyWH94ecTN8PgqcVHke8dtOTIK9jtiQz7
-	 ZqnFdM1aQzgLivUlKZ0qkYBzNtAisZVb5zjaRppioE3wb3GjOTSTj3Hn+L73U4F04c
-	 POC83Gi+dOG1A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 403C5EFD214;
-	Wed, 25 Feb 2026 09:20:56 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Wed, 25 Feb 2026 10:20:36 +0100
-Subject: [PATCH v6 4/5] arm64: dts: s32: set Ethernet channel irqs
+	Wed, 25 Feb 2026 09:22:42 +0000
+Received: by mail-ed1-x544.google.com with SMTP id 4fb4d7f45d1cf-65f812e0d93so1236746a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 01:22:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1772011359; x=1772616159; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OGuxkMX0kM60aNE9QHAj3qrKDisClRlnBUy8ZVl16+8=;
+        b=pwB0+sb9bYEYLaMiZfbyw28Kirjteh1rkRLmqy3HeNF+sro29Xz5rYAyRMVGG2KX98
+         Js2g8BhAfVLsDHkzTdBOX2SLw70jw9U+G02IVgRcdMCaEhjNOcJ4QlDYjRiqKM8NwZGq
+         ufz98xXVZGckqCdaVwt17x/5U32SO8hmfPuwXnh5BwFU2pnNKLi5GCkV1HO01qWsGtKw
+         4dNaQjMbcxhvOhR/avZpGZPaep5NXvApOVuWMce7dC8u/BWmR9/sA0bP8KlXuf1ORD6X
+         LglzuAyvxZcWIIunHbGmLuUbsleysfOXjATeSL0SjHkwUvD0kdwR8WFgju1NdExYBdVi
+         cADg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772011359; x=1772616159;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OGuxkMX0kM60aNE9QHAj3qrKDisClRlnBUy8ZVl16+8=;
+        b=YR9pNswgxDExl6VMTgEiM1VmiFnzj/ucFsEOuVO1mWTiCtVOF2AlffBlYTIMMEW8E8
+         a17s+gVtzrlXWJJd3t1YwItOQtEYMUMYW5VyqAyJaVr7vdg5dEwLgfILq7js7ZgrXTCM
+         TNJS3y4DHrsVRwq5b+iIGBFF72U1EseJGQyiTSPAeeDJNohvC6sQXcpGdlASJw4qXKAo
+         yFQu3erb8QaFMdtPdQfFAawZv0TUsBEBEoSWq96jRMquzazuOpMu2Rz+LWIBpALWohvu
+         sTynmOq2QLoelVtSSC1wUVBTqUBUGM1LJoj1B1jF1tJ1LPTF/8DjDT0btPN70COKUP0b
+         s1Og==
+X-Forwarded-Encrypted: i=1; AJvYcCVNl1bywMy/PHSLM4oWlOtmW3+ImvqZ/oTUtPDeCtdnYd/2N0CfwQAOg1SgoTh62qtXKMFHieSfYB2FX40fPT3o@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCbzMol0Az1LxDuTlgS3dAqVMjuVbgUCQtkoCZhAbNtFwmMep8
+	KRZen27sZTu1toMaNNRX7u/zhMQ4dc5c5XfwuZccjE7URyw4a6So4yDF6LwGGwrUAuQ=
+X-Gm-Gg: ATEYQzzJ7N9N+mOzFfQdEUkoML1B7t2XwiQy3r6mR03UqcQMy3khCkOw3jbRky8O/br
+	yAutUOzZ6IxL0EkKuz6t/fsmaZPpfctpdrYPQrC4cw01oqlpThdMv3+SVKGdcxEgydat/z0ceSq
+	D7tYgNRnleGIxmaItq7K9cS8ZqJeIa/GvW99uQBfmzKVSWMQNfHHsLgRDuIQe0vDyGFei2gFd/B
+	nWOFLxB5pO9/+p+sCuboLR8NBrsWF1KaSA7M7tNWsRWfsclzG9Y9Y/TmLQ3HneStixdWYfV33lQ
+	tWroL6l8TmfQq70402vTdBwlY6646WP5IVwDkgCqi16x46s5rO690WxaR0InO7lStvG3OUSxCa1
+	O3HHaf0Hl/rGIyTTiz21oACVH7bz8oI5vHifDTBVGg8a5Xg1ObJ34Un4pWIcXK7qBkhuPHBMZke
+	ExniDn8gXvXmkobRKBI4RXeHU=
+X-Received: by 2002:a17:907:d8c:b0:b8f:a8bc:a081 with SMTP id a640c23a62f3a-b9081a02587mr927550166b.19.1772011358547;
+        Wed, 25 Feb 2026 01:22:38 -0800 (PST)
+Received: from draig.lan ([185.124.0.126])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-65eaba1375dsm4099202a12.21.2026.02.25.01.22.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Feb 2026 01:22:37 -0800 (PST)
+Received: from draig (localhost [IPv6:::1])
+	by draig.lan (Postfix) with ESMTP id EAB235F834;
+	Wed, 25 Feb 2026 09:22:36 +0000 (GMT)
+From: =?utf-8?Q?Alex_Benn=C3=A9e?= <alex.bennee@linaro.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>,  Joey Gouly <joey.gouly@arm.com>,
+  Catalin Marinas <catalin.marinas@arm.com>,  Suzuki K Poulose
+ <suzuki.poulose@arm.com>,  Will Deacon <will@kernel.org>,  Paolo Bonzini
+ <pbonzini@redhat.com>,  Jonathan Corbet <corbet@lwn.net>,  Shuah Khan
+ <shuah@kernel.org>,  Oliver Upton <oupton@kernel.org>,  Dave Martin
+ <Dave.Martin@arm.com>,  Fuad Tabba <tabba@google.com>,  Mark Rutland
+ <mark.rutland@arm.com>,  Ben Horgan <ben.horgan@arm.com>,
+  linux-arm-kernel@lists.infradead.org,  kvmarm@lists.linux.dev,
+  linux-kernel@vger.kernel.org,  kvm@vger.kernel.org,
+  linux-doc@vger.kernel.org,  linux-kselftest@vger.kernel.org,  Peter
+ Maydell <peter.maydell@linaro.org>,  Eric Auger <eric.auger@redhat.com>,
+ Richard Henderson <richard.henderson@linaro.org>
+Subject: Re: [PATCH v9 00/30] KVM: arm64: Implement support for SME
+In-Reply-To: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> (Mark
+	Brown's message of "Tue, 23 Dec 2025 01:20:54 +0000")
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
+User-Agent: mu4e 1.14.0-pre1; emacs 30.1
+Date: Wed, 25 Feb 2026 09:22:36 +0000
+Message-ID: <87fr6p2n4z.fsf@draig.linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260225-dwmac_multi_irq-v6-4-245bf1d7110c@oss.nxp.com>
-References: <20260225-dwmac_multi_irq-v6-0-245bf1d7110c@oss.nxp.com>
-In-Reply-To: <20260225-dwmac_multi_irq-v6-0-245bf1d7110c@oss.nxp.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, devicetree@vger.kernel.org, rmk+kernel@armlinux.org.uk, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772011254; l=4163;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=GJtLVXXJ6B4rcW9eI+Zdnzjbg44iN/frnopr12Ti4EU=;
- b=sAH0X4mViB2MoTIZGnnU0V2U+j/nD8rnu7UyOh3diPo1bPVnCkjXgzNim2p/xSYweUpr3YyTn
- BnBaOeZTFpFAQ2Pl2MVyZziYWiUItZHTW/L9H+qMTHP/MVWMbBY2ToF
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_092101_101415_3A98FC4E 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20260225_012241_140007_0BF8EF47 
+X-CRM114-Status: GOOD (  52.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,121 +110,250 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+Mark Brown <broonie@kernel.org> writes:
 
-The GMAC Ethernet controller found on S32G2/S32G3 and S32R45
-contains up to 5 RX and 5 TX channels.
-It can operate in two interrupt modes:
+> I've removed the RFC tag from this version of the series, but the items
+> that I'm looking for feedback on remains the same:
+>
+>  - The userspace ABI, in particular:
+>   - The vector length used for the SVE registers, access to the SVE
+>     registers and access to ZA and (if available) ZT0 depending on
+>     the current state of PSTATE.{SM,ZA}.
+>   - The use of a single finalisation for both SVE and SME.
+>
 
-  1) Sharing IRQ mode: only MAC IRQ line is used
-     for all channels.
+Hi Mark,
 
-  2) Multiple IRQ mode: every channel uses two IRQ lines,
-     one for RX and second for TX.
+Richard has posted an initial QEMU RFC series here:
 
-Specify all IRQ twins for all channels.
+  Message-ID: <20260216034432.23912-1-richard.henderson@linaro.org>
+  Date: Mon, 16 Feb 2026 13:44:19 +1000
+  Subject: [RFC PATCH 00/13] target/arm: Support SME for KVM
+  From: Richard Henderson <richard.henderson@linaro.org>
 
-Reviewed-by: Matthias Brugger <mbrugger@suse.com>
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
----
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 26 +++++++++++++++++++++++---
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 26 +++++++++++++++++++++++---
- 2 files changed, 46 insertions(+), 6 deletions(-)
+For those that would like to test. Given the residency of SME2 context
+and the timing of running everything under TCG it might be worth adding
+some SME2 workloads to the kvm-unit-tests similar to how the GIC ITS
+migration is tested.
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 51d00dac12de..5a553d503137 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -3,7 +3,7 @@
-  * NXP S32G2 SoC family
-  *
-  * Copyright (c) 2021 SUSE LLC
-- * Copyright 2017-2021, 2024-2025 NXP
-+ * Copyright 2017-2021, 2024-2026 NXP
-  */
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-@@ -732,8 +732,28 @@ gmac0: ethernet@4033c000 {
- 			reg = <0x4033c000 0x2000>, /* gmac IP */
- 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
- 			interrupt-parent = <&gic>;
--			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "macirq";
-+			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 0: tx, rx */
-+				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 1: tx, rx */
-+				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 2: tx, rx */
-+				     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 3: tx, rx */
-+				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 4: tx, rx */
-+				     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq",
-+					  "tx-queue-0", "rx-queue-0",
-+					  "tx-queue-1", "rx-queue-1",
-+					  "tx-queue-2", "rx-queue-2",
-+					  "tx-queue-3", "rx-queue-3",
-+					  "tx-queue-4", "rx-queue-4";
- 			snps,mtl-rx-config = <&mtl_rx_setup>;
- 			snps,mtl-tx-config = <&mtl_tx_setup>;
- 			status = "disabled";
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index e314f3c7d61d..b43e6f001f4d 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
- /*
-- * Copyright 2021-2025 NXP
-+ * Copyright 2021-2026 NXP
-  *
-  * Authors: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-  *          Ciprian Costea <ciprianmarian.costea@nxp.com>
-@@ -809,8 +809,28 @@ gmac0: ethernet@4033c000 {
- 			reg = <0x4033c000 0x2000>, /* gmac IP */
- 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
- 			interrupt-parent = <&gic>;
--			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "macirq";
-+			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 0: tx, rx */
-+				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 1: tx, rx */
-+				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 2: tx, rx */
-+				     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 3: tx, rx */
-+				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
-+				     /* CHN 4: tx, rx */
-+				     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq",
-+					  "tx-queue-0", "rx-queue-0",
-+					  "tx-queue-1", "rx-queue-1",
-+					  "tx-queue-2", "rx-queue-2",
-+					  "tx-queue-3", "rx-queue-3",
-+					  "tx-queue-4", "rx-queue-4";
- 			snps,mtl-rx-config = <&mtl_rx_setup>;
- 			snps,mtl-tx-config = <&mtl_tx_setup>;
- 			status = "disabled";
+>  - The addition of control for enabling fine grained traps in a similar
+>    manner to FGU but without the UNDEF, I'm not clear if this is desired
+>    at all and at present this requires symmetric read and write traps like
+>    FGU. That seemed like it might be desired from an implementation
+>    point of view but we already have one case where we enable an
+>    asymmetric trap (for ARM64_WORKAROUND_AMPERE_AC03_CPU_38) and it
+>    seems generally useful to enable asymmetrically.
+>
+> This series implements support for SME use in non-protected KVM guests.
+> Much of this is very similar to SVE, the main additional challenge that
+> SME presents is that it introduces a new vector length similar to the
+> SVE vector length and two new controls which change the registers seen
+> by guests:
+>
+>  - PSTATE.ZA enables the ZA matrix register and, if SME2 is supported,
+>    the ZT0 LUT register.
+>  - PSTATE.SM enables streaming mode, a new floating point mode which
+>    uses the SVE register set with the separately configured SME vector
+>    length.  In streaming mode implementation of the FFR register is
+>    optional.
+>
+> It is also permitted to build systems which support SME without SVE, in
+> this case when not in streaming mode no SVE registers or instructions
+> are available.  Further, there is no requirement that there be any
+> overlap in the set of vector lengths supported by SVE and SME in a
+> system, this is expected to be a common situation in practical systems.
+>
+> Since there is a new vector length to configure we introduce a new
+> feature parallel to the existing SVE one with a new pseudo register for
+> the streaming mode vector length.  Due to the overlap with SVE caused by
+> streaming mode rather than finalising SME as a separate feature we use
+> the existing SVE finalisation to also finalise SME, a new define
+> KVM_ARM_VCPU_VEC is provided to help make user code clearer.  Finalising
+> SVE and SME separately would introduce complication with register access
+> since finalising SVE makes the SVE registers writeable by userspace and
+> doing multiple finalisations results in an error being reported.
+> Dealing with a state where the SVE registers are writeable due to one of
+> SVE or SME being finalised but may have their VL changed by the other
+> being finalised seems like needless complexity with minimal practical
+> utility, it seems clearer to just express directly that only one
+> finalisation can be done in the ABI.
+>
+> Access to the floating point registers follows the architecture:
+>
+>  - When both SVE and SME are present:
+>    - If PSTATE.SM =3D=3D 0 the vector length used for the Z and P registe=
+rs
+>      is the SVE vector length.
+>    - If PSTATE.SM =3D=3D 1 the vector length used for the Z and P registe=
+rs
+>      is the SME vector length.
+>  - If only SME is present:
+>    - If PSTATE.SM =3D=3D 0 the Z and P registers are inaccessible and the
+>      floating point state accessed via the encodings for the V registers.
+>    - If PSTATE.SM =3D=3D 1 the vector length used for the Z and P registe=
+rs
+>  - The SME specific ZA and ZT0 registers are only accessible if SVCR.ZA i=
+s 1.
+>
+> The VMM must understand this, in particular when loading state SVCR
+> should be configured before other state.  It should be noted that while
+> the architecture refers to PSTATE.SM and PSTATE.ZA these PSTATE bits are
+> not preserved in SPSR_ELx, they are only accessible via SVCR.
+>
+> There are a large number of subfeatures for SME, most of which only
+> offer additional instructions but some of which (SME2 and FA64) add
+> architectural state. These are configured via the ID registers as per
+> usual.
+>
+> Protected KVM supported, with the implementation maintaining the
+> existing restriction that the hypervisor will refuse to run if streaming
+> mode or ZA is enabled.  This both simplfies the code and avoids the need
+> to allocate storage for host ZA and ZT0 state, there seems to be little
+> practical use case for supporting this and the memory usage would be
+> non-trivial.
+>
+> The new KVM_ARM_VCPU_VEC feature and ZA and ZT0 registers have not been
+> added to the get-reg-list selftest, the idea of supporting additional
+> features there without restructuring the program to generate all
+> possible feature combinations has been rejected.  I will post a separate
+> series which does that restructuring.
+>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+> Changes in v9:
+> - Rebase onto v6.19-rc1.
+> - ABI document clarifications.
+> - Add changes dropping asserts on single bit wide bitfields in set_id_reg=
+s.
+> - Link to v8: https://lore.kernel.org/r/20250902-kvm-arm64-sme-v8-0-2cb21=
+99c656c@kernel.org
+>
+> Changes in v8:
+> - Small fixes in ABI documentation.
+> - Link to v7: https://lore.kernel.org/r/20250822-kvm-arm64-sme-v7-0-7a65d=
+82b8b10@kernel.org
+>
+> Changes in v7:
+> - Rebase onto v6.17-rc1.
+> - Handle SMIDR_EL1 as a VM wide ID register and use this in feat_sme_smps=
+().
+> - Expose affinity fields in SMIDR_EL1.
+> - Remove SMPRI_EL1 from vcpu_sysreg, the value is always 0 currently.
+> - Prevent userspace writes to SMPRIMAP_EL2.
+> - Link to v6: https://lore.kernel.org/r/20250625-kvm-arm64-sme-v6-0-114cf=
+f4ffe04@kernel.org
+>
+> Changes in v6:
+> - Rebase onto v6.16-rc3.
+> - Link to v5: https://lore.kernel.org/r/20250417-kvm-arm64-sme-v5-0-f469a=
+2d5f574@kernel.org
+>
+> Changes in v5:
+> - Rebase onto v6.15-rc2.
+> - Add pKVM guest support.
+> - Always restore SVCR.
+> - Link to v4: https://lore.kernel.org/r/20250214-kvm-arm64-sme-v4-0-d64a6=
+81adcc2@kernel.org
+>
+> Changes in v4:
+> - Rebase onto v6.14-rc2 and Mark Rutland's fixes.
+> - Expose SME to nested guests.
+> - Additional cleanups and test fixes following on from the rebase.
+> - Flush register state on VMM PSTATE.{SM,ZA}.
+> - Link to v3: https://lore.kernel.org/r/20241220-kvm-arm64-sme-v3-0-05b01=
+8c1ffeb@kernel.org
+>
+> Changes in v3:
+> - Rebase onto v6.12-rc2.
+> - Link to v2: https://lore.kernel.org/r/20231222-kvm-arm64-sme-v2-0-da226=
+cb180bb@kernel.org
+>
+> Changes in v2:
+> - Rebase onto v6.7-rc3.
+> - Configure subfeatures based on host system only.
+> - Complete nVHE support.
+> - There was some snafu with sending v1 out, it didn't make it to the
+>   lists but in case it hit people's inboxes I'm sending as v2.
+>
+> ---
+> Mark Brown (30):
+>       arm64/sysreg: Update SMIDR_EL1 to DDI0601 2025-06
+>       arm64/fpsimd: Update FA64 and ZT0 enables when loading SME state
+>       arm64/fpsimd: Decide to save ZT0 and streaming mode FFR at bind time
+>       arm64/fpsimd: Check enable bit for FA64 when saving EFI state
+>       arm64/fpsimd: Determine maximum virtualisable SME vector length
+>       KVM: arm64: Pay attention to FFR parameter in SVE save and load
+>       KVM: arm64: Pull ctxt_has_ helpers to start of sysreg-sr.h
+>       KVM: arm64: Move SVE state access macros after feature test macros
+>       KVM: arm64: Rename SVE finalization constants to be more general
+>       KVM: arm64: Document the KVM ABI for SME
+>       KVM: arm64: Define internal features for SME
+>       KVM: arm64: Rename sve_state_reg_region
+>       KVM: arm64: Store vector lengths in an array
+>       KVM: arm64: Implement SME vector length configuration
+>       KVM: arm64: Support SME control registers
+>       KVM: arm64: Support TPIDR2_EL0
+>       KVM: arm64: Support SME identification registers for guests
+>       KVM: arm64: Support SME priority registers
+>       KVM: arm64: Provide assembly for SME register access
+>       KVM: arm64: Support userspace access to streaming mode Z and P regi=
+sters
+>       KVM: arm64: Flush register state on writes to SVCR.SM and SVCR.ZA
+>       KVM: arm64: Expose SME specific state to userspace
+>       KVM: arm64: Context switch SME state for guests
+>       KVM: arm64: Handle SME exceptions
+>       KVM: arm64: Expose SME to nested guests
+>       KVM: arm64: Provide interface for configuring and enabling SME for =
+guests
+>       KVM: arm64: selftests: Remove spurious check for single bit safe va=
+lues
+>       KVM: arm64: selftests: Skip impossible invalid value tests
+>       KVM: arm64: selftests: Add SME system registers to get-reg-list
+>       KVM: arm64: selftests: Add SME to set_id_regs test
+>
+>  Documentation/virt/kvm/api.rst                   | 120 ++++++++---
+>  arch/arm64/include/asm/fpsimd.h                  |  26 +++
+>  arch/arm64/include/asm/kvm_emulate.h             |   6 +
+>  arch/arm64/include/asm/kvm_host.h                | 163 ++++++++++++---
+>  arch/arm64/include/asm/kvm_hyp.h                 |   5 +-
+>  arch/arm64/include/asm/kvm_pkvm.h                |   2 +-
+>  arch/arm64/include/asm/vncr_mapping.h            |   2 +
+>  arch/arm64/include/uapi/asm/kvm.h                |  33 +++
+>  arch/arm64/kernel/cpufeature.c                   |   2 -
+>  arch/arm64/kernel/fpsimd.c                       |  89 ++++----
+>  arch/arm64/kvm/arm.c                             |  10 +
+>  arch/arm64/kvm/config.c                          |  11 +-
+>  arch/arm64/kvm/fpsimd.c                          |  28 ++-
+>  arch/arm64/kvm/guest.c                           | 252 +++++++++++++++++=
++++---
+>  arch/arm64/kvm/handle_exit.c                     |  14 ++
+>  arch/arm64/kvm/hyp/fpsimd.S                      |  28 ++-
+>  arch/arm64/kvm/hyp/include/hyp/switch.h          | 168 +++++++++++++--
+>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h       | 110 ++++++----
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c               |  86 ++++++--
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c                   |  85 ++++++--
+>  arch/arm64/kvm/hyp/nvhe/switch.c                 |   4 +-
+>  arch/arm64/kvm/hyp/nvhe/sys_regs.c               |   6 +
+>  arch/arm64/kvm/hyp/vhe/switch.c                  |  17 +-
+>  arch/arm64/kvm/hyp/vhe/sysreg-sr.c               |   7 +
+>  arch/arm64/kvm/nested.c                          |   3 +-
+>  arch/arm64/kvm/reset.c                           | 156 ++++++++++----
+>  arch/arm64/kvm/sys_regs.c                        | 140 ++++++++++++-
+>  arch/arm64/tools/sysreg                          |   8 +-
+>  include/uapi/linux/kvm.h                         |   1 +
+>  tools/testing/selftests/kvm/arm64/get-reg-list.c |  15 +-
+>  tools/testing/selftests/kvm/arm64/set_id_regs.c  |  84 ++++++--
+>  31 files changed, 1367 insertions(+), 314 deletions(-)
+> ---
+> base-commit: 3e7f562e20ee87a25e104ef4fce557d39d62fa85
+> change-id: 20230301-kvm-arm64-sme-06a1246d3636
+>
+> Best regards,
 
--- 
-2.47.0
-
-
+--=20
+Alex Benn=C3=A9e
+Virtualisation Tech Lead @ Linaro
 
