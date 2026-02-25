@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38987FD376A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 16:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282EAFD3773
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 16:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uo6/vG6pTjnZYfWeyll6LRF6bq1HR1IJE0RrNI3QQ3g=; b=Uw8Ue/rZgaxYGF
-	L/rh8kVz7hrMDfWtSjindXFr3MFiQYlsp+Eu0p+LR6Lhdz1iedbwyWmNYY59OKhaMLQzwn5YfSwJW
-	Q0kzvcvZcStIGzgbImmDTOM85vW3n1x5QgCpLtXIaBr6/tf1aCqI6DscxbRuQFcyODWkNoTeWD2JM
-	qJPbXbfUpQOhMpUhQlhAdUIY8D/vYBogYGsICYp4cpCuJnkZdHaKaWcR/Sg0Zml+Wxof/GdjV5Iqm
-	LXWnBO9ILX45P4ITLhSteSZL9FtELnxoy93zmALYEUhB5U0m1wTXvccK/fWmCwoe/2apIAm678r6C
-	T7Dgmfa1Elmuo58MPJHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nnBjrX0bQL3U41NR9f2JQMbwQ/kpp6U5NlGNmgZ8yJA=; b=U2TaZWZLDk/KWsRlvDfBK4Rs1d
+	q03iqkTmV1vuiZkolWRKV22K495fAEZNhPbeCK2xvWxOS0OCyJ9MeAYrUEtmps63bRlDRakR+gVC1
+	TbGksA1jlLSNBMV6c2E1HigHOmWz10kZWlcDIjUB72898gKteUxpd8JECYuF2mV+iID54T6UXc86+
+	sFFNbAiJXDPpcme2DEbutiZp3Srf/UfDMRnbT8xK8xTGh2TSr9pH7t1dDh3wTZ8zCXK4FMOdMd5Tw
+	AN7oJ3rQwCQmSx88VzLtTwu0CWH5U9lHbjNOASuPNPRiwkJv+21Teo5vhRAdI4kXYt3tSjU8thu3c
+	9T5u5eXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvHxh-00000004YDO-3RUZ;
-	Wed, 25 Feb 2026 16:42:09 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1vvI26-00000004YqD-3vI3;
+	Wed, 25 Feb 2026 16:46:42 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvHxf-00000004YCX-1YV2;
-	Wed, 25 Feb 2026 16:42:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
-	:Date:subject:date:message-id:reply-to;
-	bh=uo6/vG6pTjnZYfWeyll6LRF6bq1HR1IJE0RrNI3QQ3g=; b=VgNIrzyVlKVN9Zo1uk162e5wzN
-	luQ/AdgC2LA/vMsVN2BuZNM4FZ4ERjWO9oNyt+/zID4K3tzNlJS/8LhxPHbigPQcyKlXH+FHiOrE0
-	V8SwiX/MVQUfnK+q6d/6UwUiHKxgYxTrWozn7vAGXjmf2bAy7AuYNfObLK5rAa/cFtXI=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:57576 helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.92)
-	(envelope-from <hugo@hugovil.com>)
-	id 1vvHxU-0004tC-1v; Wed, 25 Feb 2026 11:41:56 -0500
-Date: Wed, 25 Feb 2026 11:41:55 -0500
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: robin@protonic.nl, andy@kernel.org, geert@linux-m68k.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com,
- mkorpershoek@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, lee@kernel.org,
- alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Message-Id: <20260225114155.3ee2efb002aa0f52a905f535@hugovil.com>
-In-Reply-To: <aZ8fXXGMx3fk7gKs@smile.fi.intel.com>
-References: <20260225155409.612478-1-hugo@hugovil.com>
-	<20260225155409.612478-5-hugo@hugovil.com>
-	<aZ8fXXGMx3fk7gKs@smile.fi.intel.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 70.80.174.168
-X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: Re: [PATCH v3 4/4] Input: charlieplex_keypad: add GPIO charlieplex
- keypad
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
+	id 1vvI24-00000004Ypa-3RQZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Feb 2026 16:46:42 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DE0854E41120;
+	Wed, 25 Feb 2026 16:46:38 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9CBDA5FDE6;
+	Wed, 25 Feb 2026 16:46:38 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0122110369259;
+	Wed, 25 Feb 2026 17:46:33 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1772037997; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=nnBjrX0bQL3U41NR9f2JQMbwQ/kpp6U5NlGNmgZ8yJA=;
+	b=Sa38iQd+A9UKiqdZk/EdYjEH6IBO5bXLaf0J6duKpVyx8/5+NjLYE550rxS7kLJUpbpHY8
+	eB50pkmmpah8JYJwqV/iT4h1cI3uiSibfVSTduskPOQhZAvMmoR2KDPs0mdDd2Yx9lPqd6
+	gKZanXCP8ffkN80WWGgJ/0eLb71d7YuZJ+a35EW5WOLeAH0izuKn1tcU1wslNNoj/QFQJg
+	q87D7w2MtOgobKscNEY2h2aTgMKt9zDGeccgmdZoolDrEXj0b+DcOplelDiZt1vaxkEe/m
+	idP2ulswtNRCJrKEISKNX2X4RNejHlMMei41fYPIcO9LV9edq/8v5zzFmVkPMA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Frank Li <Frank.Li@nxp.com>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+	linux-mtd@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v2 0/3] ARM: dts: imx: clean up imx2* NAND CHECK_DTBS warnings
+Date: Wed, 25 Feb 2026 17:46:25 +0100
+Message-ID: <177203795880.1985489.4831780196878536315.b4-ty@bootlin.com>
+X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20260213-imx25_nand_dtb_warnings-v2-0-f9d4b43bba24@nxp.com>
+References: <20260213-imx25_nand_dtb_warnings-v2-0-f9d4b43bba24@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_084207_529173_0344B2DF 
-X-CRM114-Status: GOOD (  32.83  )
+X-CRM114-CacheID: sfid-20260225_084640_990734_630A271B 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,242 +90,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-thank you for the review.
+On Fri, 13 Feb 2026 12:08:24 -0500, Frank Li wrote:
+> The nand-controller schema enforces specific node naming. Adjust the
+> existing DTs instead of modifying the YAML schema to match legacy layouts.
+> 
+> Update the DTs to follow the modern NAND controller layout, which has
+> been used in the MTD subsystem for many years.
+> 
+> 
+> [...]
 
-On Wed, 25 Feb 2026 18:12:13 +0200
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+Applied to nand/next, thanks!
 
-> On Wed, Feb 25, 2026 at 10:54:01AM -0500, Hugo Villeneuve wrote:
-> 
-> > Add support for GPIO-based charlieplex keypad, allowing to control
-> > N^2-N keys using N GPIO lines.
-> > 
-> > Reuse matrix keypad keymap to simplify, even if there is no concept
-> > of rows and columns in this type of keyboard.
-> 
-> ...
-> 
-> > +/*
-> > + *  GPIO driven charlieplex keypad driver
-> > + *
-> > + *  Copyright (c) 2025 Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> > + *
-> > + *  Based on matrix_keyboard.c
-> 
-> A single space after asterisk is enough.
+[1/3] dt-bindings: mtd: mxc-nand: add i.MX25 and i.MX27 nand support
+      commit: d86e70e9ca995942e848515b089e9be7430c862e
 
-Ok, leftover from copy/paste from matrix_keyboard.c :)
+Patche(s) should be available on mtd/linux.git and will be
+part of the next PR (provided that no robot complains by then).
 
-> 
-> > + */
-> 
-> ...
-> 
-> + bitops.h
-> 
-> > +#include <linux/delay.h>
-> 
-> + dev_printk.h
-> + device/devres.h
-> + err.h
-> 
-> > +#include <linux/gpio/consumer.h>
-> > +#include <linux/input.h>
-> > +#include <linux/input/matrix_keypad.h>
-> 
-> + math.h
-
-Ok.
-
-
-> 
-> > +#include <linux/module.h>
-> 
-> > +#include <linux/of.h>
-> 
-> Is this in use? Or you wanted mod_devicetable.h for OF ID table?
-
-I need only OF ID table, so will replace with mod_devicetable.h.
-
-
-> 
-> > +#include <linux/platform_device.h>
-> > +#include <linux/property.h>
-> > +#include <linux/types.h>
-> 
-> ...
-> 
-> > +	for (code = 0, oline = 0; oline < keypad->nlines; oline++) {
-> > +		DECLARE_BITMAP(values, MATRIX_MAX_ROWS);
-> > +		int iline;
-> 
-> > +		int rc;
-> 
-> I think Dmitry prefers 'error' name for this kind of variables.
-
-I hate using "error", can be so misleading :)
-
-I would prefer to use "rc" everywhere, but if Dmitry chimes in and
-specifies "error" or "err", then so it will be.
-
-
-> 
-> > +		/* Activate only one line as output at a time. */
-> > +		gpiod_direction_output(keypad->line_gpios->desc[oline], 1);
-> > +
-> > +		if (keypad->settling_time_us)
-> > +			fsleep(keypad->settling_time_us);
-> > +
-> > +		/* Read input on all other lines. */
-> > +		rc = gpiod_get_array_value_cansleep(keypad->line_gpios->ndescs,
-> > +						    keypad->line_gpios->desc,
-> > +						    keypad->line_gpios->info, values);
-> > +		if (rc)
-> > +			return;
-> > +
-> > +		for (iline = 0; iline < keypad->nlines; iline++) {
-> > +			if (iline == oline)
-> > +				continue; /* Do not read active output line. */
-> > +
-> > +			/* Check if GPIO is asserted. */
-> > +			if (test_bit(iline, values)) {
-> > +				code = MATRIX_SCAN_CODE(oline, iline,
-> > +							get_count_order(keypad->nlines));
-> > +				/*
-> > +				 * Exit loop immediately since we cannot detect
-> > +				 * more than one key press at a time.
-> > +				 */
-> > +				break;
-> > +			}
-> > +		}
-> > +
-> > +		gpiod_direction_input(keypad->line_gpios->desc[oline]);
-> > +
-> > +		if (code)
-> > +			break;
-> > +	}
-> 
-> ...
-> 
-> > +static int charlieplex_keypad_init_gpio(struct platform_device *pdev,
-> > +					struct charlieplex_keypad *keypad)
-> > +{
-> > +	int i;
-> 
-> Why signed? But see below as well.
-
-Will switch to unsigned.
-
-
-> 
-> > +	keypad->line_gpios = devm_gpiod_get_array(&pdev->dev, "line", GPIOD_IN);
-> > +	if (IS_ERR(keypad->line_gpios))
-> > +		return PTR_ERR(keypad->line_gpios);
-> > +
-> > +	keypad->nlines = keypad->line_gpios->ndescs;
-> > +
-> > +	if (keypad->nlines > MATRIX_MAX_ROWS)
-> > +		return -EINVAL;
-> 
-> > +	for (i = 0; i < keypad->nlines; i++)
-> 
-> iterator is local to the loop, hence
-> 
-> 	for (unsigned int i = 0; i < keypad->nlines; i++)
-
-Ok
-
-
-> 
-> > +		gpiod_set_consumer_name(keypad->line_gpios->desc[i], "charlieplex_kbd_line");
-> > +
-> > +	return 0;
-> > +}
-> 
-> ...
-> 
-> > +static int charlieplex_keypad_probe(struct platform_device *pdev)
-> > +{
-> > +	struct charlieplex_keypad *keypad;
-> > +	unsigned int debounce_interval_ms;
-> > +	unsigned int poll_interval_ms;
-> > +	struct input_dev *input_dev;
-> 
-> > +	int err;
-> 
-> The naming is even inconsistent between the functions...
-
-Agreed, will fix as stated above.
-
-
-> 
-> > +	keypad = devm_kzalloc(&pdev->dev, sizeof(*keypad), GFP_KERNEL);
-> > +	if (!keypad)
-> > +		return -ENOMEM;
-> > +
-> > +	input_dev = devm_input_allocate_device(&pdev->dev);
-> > +	if (!input_dev)
-> > +		return -ENOMEM;
-> > +
-> > +	keypad->input_dev = input_dev;
-> > +
-> > +	device_property_read_u32(&pdev->dev, "poll-interval", &poll_interval_ms);
-> > +	device_property_read_u32(&pdev->dev, "debounce-delay-ms", &debounce_interval_ms);
-> > +	device_property_read_u32(&pdev->dev, "settling-time-us", &keypad->settling_time_us);
-> > +
-> > +	keypad->current_code = -1;
-> > +	keypad->debounce_code = -1;
-> > +	keypad->debounce_threshold = DIV_ROUND_UP(debounce_interval_ms, poll_interval_ms);
-> > +
-> > +	err = charlieplex_keypad_init_gpio(pdev, keypad);
-> > +	if (err)
-> > +		return err;
-> > +
-> > +	input_dev->name		= pdev->name;
-> > +	input_dev->id.bustype	= BUS_HOST;
-> > +
-> > +	err = matrix_keypad_build_keymap(NULL, NULL, keypad->nlines,
-> > +					 keypad->nlines, NULL, input_dev);
-> > +	if (err)
-> > +		dev_err_probe(&pdev->dev, -ENOMEM, "failed to build keymap\n");
-> > +
-> > +	if (device_property_read_bool(&pdev->dev, "autorepeat"))
-> > +		__set_bit(EV_REP, input_dev->evbit);
-> > +
-> > +	input_set_capability(input_dev, EV_MSC, MSC_SCAN);
-> > +
-> > +	err = input_setup_polling(input_dev, charlieplex_keypad_poll);
-> > +	if (err)
-> > +		dev_err_probe(&pdev->dev, err, "unable to set up polling\n");
-> > +
-> > +	input_set_poll_interval(input_dev, poll_interval_ms);
-> > +
-> > +	input_set_drvdata(input_dev, keypad);
-> > +
-> > +	err = input_register_device(keypad->input_dev);
-> > +	if (err)
-> > +		return err;
-> 
-> > +	platform_set_drvdata(pdev, keypad);
-> 
-> Is this needed?
-
-No, will remove it, and replace last lines with:
-
-   return input_register_device(keypad->input_dev);
-
-
-> 
-> > +	return 0;
-> > +}
-> 
-> -- 
-> With Best Regards,
-> Andy Shevchenko
-> 
-> 
-> 
-
-Hugo Villeneuve
+Kind regards,
+Miquèl
 
