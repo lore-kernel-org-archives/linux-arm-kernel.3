@@ -4,64 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2596FD3774
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46800FD3774
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BcLNx9UMsyWZpet3moXoK3gAbQENZ+pY/k1fTbM/ox8=; b=mwnQCcY3calLk7lh5I03XWEpRJ
-	D/ERrtTKISuzoMpkjlBJcaEwUBISJBjyCOG4K3HfUBpPJ+ZF8Q2rnp9+Eq5vXXzM678yYzesaGkOk
-	09aP5vrd61FfXdRCUfQmyJaVNXU1RytRyDYrGQLIEnstoDUssxOFgjFJy3VEzaVfn9iv/deyotlzn
-	Ahpy0dQPaSS8aeqDFB+UqKULLdwfhJ4NaeHMsOSYvNHz3A4Rhk/KEctBxUsYoUPPi4V7t/qwiir9D
-	aOWqSSxj86QSDs2TBqUl4I23PADqoPBy+H50UsfTMllZnV8dzySHvfca8kwDwcRDH7YREcYAG6ETj
-	8w5Sn3Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E6Ehhu/p48I8BFank35i0jRWbnO3y+NJ7AuacIynifc=; b=qVj161+TpoOL29qN5ilVgPmPed
+	bay0EVJaC1+wCyUIInX0YkKvpx8nWaWQXH98+pNIoQ3PMwEEt8JxOE5vRi3L1VWAuFDfsDbO5uJB9
+	GlXXJHELfgeVTsMlM7mzGzyeCqSHtN8LLlx/gC0RoRmmYy/lbL4Obyn6pxzFU//vLL/hyqNAxr1fJ
+	RxvcSvVE7ISz+pey9MZHiCjeWxdKutvC8CaZ5uITPF+cn3MeQpPBYfNyj0iBYpyRS/rLxzaxQJ3nU
+	C+UxH6hmbhKD3c16MGDzxdPEPfkuB8riLKo55jk9qjDmBhEtOxACVEg7/2dsPzp/N1CUxdTadlNGt
+	Ss1wl52A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvIFr-00000004alS-06Ki;
-	Wed, 25 Feb 2026 17:00:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvIHg-00000004azO-3JF0;
+	Wed, 25 Feb 2026 17:02:48 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvIFo-00000004al7-1SZg
+	id 1vvIHf-00000004az4-1FuC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 17:00:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 719CD423D2;
-	Wed, 25 Feb 2026 17:00:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DDE4C116D0;
-	Wed, 25 Feb 2026 17:00:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772038851;
-	bh=PNi0/q4UjW5yMslxBn+SOhC+y5Dq6F9aivP5HpDL04s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=bQXAnmwUUO4LEEFrLZyamQRoP73t0nSZoDD1T4nV/7Es3kXCzK0p9z9TPjuQYJchH
-	 alKkgA5Sms82jlH2bGPfmd0A0WKIr6AAxnJKd03ev7/265PxpVpBQTrYIzmWHKmm3g
-	 w+MRUPwbgzoj6nTovchwWBOxM2NuYP64xPgTlixg0EvmccIJIdykNwNKccYdncB2gd
-	 MthZN+KjLruyCPN+tDh367gC8EXz2AdPtA8R8EsulxlDx3STY6gMe86YHg7MhBq4fs
-	 DsZXlRmy+vEqpcmBK/kXdJrYy3DM21MrSceEGhESZrr6ao/Da9eoG6QplhxY9NpWfh
-	 Q8mSv+jOOdx1Q==
-Received: by wens.tw (Postfix, from userid 1000)
-	id A68325FD2A; Thu, 26 Feb 2026 01:00:48 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: allwinner: pine-h64: Enable USB 3.0 host
-Date: Thu, 26 Feb 2026 01:00:44 +0800
-Message-ID: <20260225170045.1707778-1-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Wed, 25 Feb 2026 17:02:48 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b904e1cd038so995930566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 09:02:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772038965; x=1772643765; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=E6Ehhu/p48I8BFank35i0jRWbnO3y+NJ7AuacIynifc=;
+        b=biC2eYsroaasK7l3BUcLLx0dF5IzjeXjOqjeDNV2AW6fJ1D6fMuD0X8NxYi2WITP9S
+         qVanLp6nzviHLO3T2qrRDVAcRoK00g8CosJCFh1LT+QmeRBO51QpqOgHm+7VZgDlsloS
+         eVIdYCqMwvsV0RMczS4yPnXJv1Wm05e9b24Kbp3OPpjn+w3jod7c/YFwFKNwDUgXo7Su
+         av6LgnZklOnejZ80T4gBA34gOrxBpUOgLwDQQLZpNkCIB8wmNfWpxOh8LwqybXYPxFvm
+         RRfClj+J91egjLvxidNkxpjtbc4pcu8nB/IfxFqOV2gMI+mnSzOldKnsiByCoFrVWz+o
+         aDYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772038965; x=1772643765;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=E6Ehhu/p48I8BFank35i0jRWbnO3y+NJ7AuacIynifc=;
+        b=NAwKd0tkbiHPAuHqjIlbxc6GWWlXOn7CxuxdLfOyVDTpA5/9BjCWWI7N9CBvC5bGN4
+         hiewGkHTJluGo5Nq/mBTverCvd5wro6loVvdNQXcXCrLG2KiDQuIhRfovKtFXfhrJuzN
+         Td1pCu5Esdsi2g29RMkPRWcotChlfDNoupNp8cC4dJ0U605zEgfyd56FVe3nBsc/z2+t
+         k4af2nqFyjLlGKiVbyGOi7I19DfYwfqxvy/rCbvtCaKBJW2IrIiQAX7VzUUgjOm3TAQh
+         6Q6Kif5E6xzIcZ8zsFTvDbj7jYnDxOp0cqsC3io9KieoINk47eE2UXL3/Tg8jTPoNlW2
+         fNUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW59H0LUeKlZ87Xh3fzrdLMJonY02e1bAfTnjjwc5+kKegJa6UCbgkJonlhRmODov9QXtbaWKjxmoUyX379cYxF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yztg7ujtQ4ZX98/Ywx5vVbRemqyrrq42VCuCn21AmntuU4l/2HS
+	YHNQkrsDNm3XttUrIroUv1pA7LcoHUQHEAD3wrsBi9ynCtiH17YCHBKR
+X-Gm-Gg: ATEYQzwYj67xKy+MtP/1/LOfa4Vk94AhelRtKZ5B6D52JFW0odxEvnfcAQf5o6vNxZ+
+	Me7B1ibAVsC6y45CPhu38BEY9hkdP9LBi33e1JI4d2hHyM0FY9twa82azjCEHVZ4FhXtMcwwY0h
+	2Oczvl3IeOB3A0GPRjaFReEUZl+p/r7NzqjcBl5v0n0LQs02EcOukZwGrCV3GCMfQl8wgJxAUU6
+	AAojVYawneNEA9sB9GEs1Q5mNuJOkenYnSKv9C1Pn7Z0eDgf3STKgLtZUg35iItK/c04msLQgl5
+	133ywk2LNoXyibErQs7zYpB81lU2mWjwtjrJb+uP8FGz5bB16/1cLP+QhqmepJXjuoPbROyff0q
+	In3vG5ffOIP+K5aflNE5oWn1GrbW1fM/HR/vE1IvErQXESRj8ydS10jb+J72muNDJrIqf8faN0L
+	YW95pwaBbMboiEH3IMvgELmj44WsAftK0YrT+f8XOR9R5psJjpbt+x3yh7SZtxDbEf3FUU2bKvZ
+	WsID6wwYBC91qFY3w==
+X-Received: by 2002:a17:907:3ea4:b0:b87:7042:9aea with SMTP id a640c23a62f3a-b935153e459mr63561566b.18.1772038964791;
+        Wed, 25 Feb 2026 09:02:44 -0800 (PST)
+Received: from jernej-laptop.localnet (86-58-126-118.dynamic.telemach.net. [86.58.126.118])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970bf9fb2sm35504200f8f.1.2026.02.25.09.02.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Feb 2026 09:02:43 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Chen-Yu Tsai <wens@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-leds@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: dts: allwinner: sun55i-t527: avaota-a1: Enable LEDs
+Date: Wed, 25 Feb 2026 18:02:41 +0100
+Message-ID: <4714447.LvFx2qVVIh@jernej-laptop>
+In-Reply-To: <20260225160828.1687643-4-wens@kernel.org>
+References: <20260225160828.1687643-1-wens@kernel.org>
+ <20260225160828.1687643-4-wens@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_090052_427784_E951395B 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260225_090247_366013_448BCDD0 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +105,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On both Pine H64 models, there is one USB 3.0 host port directly
-connected to the SoC. The VBUS is shared with the other USB 2.0 ports.
-Unfortunately the DWC controller binding does not have a VBUS supply.
+Dne sreda, 25. februar 2026 ob 17:08:26 Srednjeevropski standardni =C4=8Das=
+ je Chen-Yu Tsai napisal(a):
+> The Avaota A1 board features 4 RGB LEDs in a string connected to the
+> SoC's LED controller.
+>=20
+> Enable the LED controller and add device nodes for them. The timings
+> were copied from the downstream vendor DTS. The design does not specify
+> what these LEDs are for, nor are there any markings on the board for
+> them, so just use them as indicators.
+>=20
+> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
----
- arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts b/arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts
-index fa7a765ee828..f2c453ed344a 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts
-@@ -89,6 +89,10 @@ &de {
- 	status = "okay";
- };
- 
-+&dwc3 {
-+	status = "okay";
-+};
-+
- &ehci0 {
- 	status = "okay";
- };
-@@ -333,3 +337,7 @@ &usb2phy {
- 	usb3_vbus-supply = <&reg_usb_vbus>;
- 	status = "okay";
- };
-+
-+&usb3phy {
-+	status = "okay";
-+};
--- 
-2.47.3
+Best regards,
+Jernej
+
 
 
