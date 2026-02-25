@@ -4,113 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582C9FD374E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:57:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19DAFD375F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=euXigfeu1Ls+Mvlqr/jfLJrufgIc8aH5ZNnJ/mmFges=; b=IebJw4BjKasyRM7cVjtOrM0F/0
-	eA/UkEjc3JcAi8M+T8NrGokFx3o8Gz2J0J+kFuJjHh5aZJdWJkX/A+nghtea2yiU3F7H3KIjXl4Od
-	O9Qd7uXORd36x4F/SkzPgBte3+gp2W+GbaNAtqfxCIMIbnGTjX1BF/308/OPCPD2d76z9jz3OuXmA
-	DekXUt7g+0ACyIYyAE3Lm3Mven1E2f2uUbybHQWSP+n/YGzH/E/GDKYWUz++J+ulD4Erp38sNxMnR
-	vPXmmd5+w6Ke9AzJjJlH6oERQe9dEbYnag8M/r3mhP3FR/00QcuSsCMoP7zxwpQ1xTBzf0SbtPmA0
-	tM5aqGAQ==;
+	bh=rG3bFXrppjeuA+iWryZ7vgudlEyemROZ7fVq2Z8BIXg=; b=v3GZOcrHWhLkL6MEiVpP6IvQJx
+	xdMYt2uYKXHdk1S5x8m74pNtilYB92/ji3aRGQU2mfViTMSCOQ4+F5PuORitM98kTI0Hiby697dwl
+	YPs4keqoSF8p6PjQRGgZduHYV/VZtneUMcWFPZF+UmwPR6oFyWlZYhb6eg4/KWaLuPESd0t31TPUm
+	8C0VyetcXf2AFe1hmm3o6i5dQL7AIGqqc4jllf+xX+0fPfgxjg0OlpbEJluL0BxpQs7u7CyJ8k+VO
+	Iaex7A3+vBw/10iNYYWX3Z4zHrMO1PCtFg/Z0zubJjTQkwM5flrmruIaXGwtHlWPXhJuF36ldJYnv
+	jTZZmsDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFOI-000000049Ok-0775;
-	Wed, 25 Feb 2026 13:57:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvFOX-000000049SQ-1NhZ;
+	Wed, 25 Feb 2026 13:57:41 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFOH-000000049O8-1rqb
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 13:57:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CAFE16012B;
-	Wed, 25 Feb 2026 13:57:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AD8CC116D0;
-	Wed, 25 Feb 2026 13:57:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772027844;
-	bh=OUurYv35bNhXesuuVWjFpAi6I65QdGPN0j4kp3KPEIs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=I92pcnP/2w/38kBmgcDkuu+UDMvqA+rUZOm3NlbmqSs/M2THpW0kgPllrMeteQshm
-	 vOfYwOs6vei328598cOpaenhGoAYoIXD8nqV3ivJKUH8XAGotGZwQ7E8Z0JAMtXwgK
-	 D4xDk1e+5hc9dMVj+LDpW/dmGs9gFZYy5974BopbOmYeeSGU2+JN7Sw45oAvy3uVKa
-	 JPaQR+IhNJIM34CCmd1FDef2ElMhcfCqoXmwPSLgxT2yWhQK9+phbCg0ro0Wucn9HE
-	 pBg9j6ZoA5ndt9PZGt40XNny4FR0erxKyQ9Zb5gdcR8sE2EAbZB5tjLfsw+1I1avWS
-	 sXSvM8ohkeL9A==
-Message-ID: <258cad5e-9ad2-4dfa-a090-c65bbe3fc7ff@kernel.org>
-Date: Wed, 25 Feb 2026 14:57:16 +0100
+	id 1vvFOU-000000049R7-0Fs3;
+	Wed, 25 Feb 2026 13:57:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rG3bFXrppjeuA+iWryZ7vgudlEyemROZ7fVq2Z8BIXg=; b=sE7ro5j5T1LKj13VybTetBxXZT
+	VRbucUIenZh6gy/4TouqpsqjKJcgsP8yNOxWIk8MzTwu8+4ShFqiYkD9dkIU7NIKmjKvFMGyoD1zC
+	dI0LkSU3Q332Wcs/BfHk98kabRpqLwi/j820Ryd/x5ppOJBoI/00Qou4NktlGhAx/gJ78jZXxILsa
+	m837YfYMtkCCWuSh7WPjwoFOvvFk2zzuMGZzFzfzg0jcgqhkurnKTYAO7B+seO9bYPeKGrEHyX4aM
+	DfLHnMX4GMQbhoLpe5CCCs/kNZtZPRSK1OJnVQjq1MhZ4+7IxBzwypfV5jjZBpauyQs0s3h29xttG
+	IYc7JnHw==;
+Received: from [189.7.87.203] (helo=[192.168.0.2])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1vvFOB-005FoP-D2; Wed, 25 Feb 2026 14:57:19 +0100
+Message-ID: <481489f1-850f-44ae-8586-b69c1d2faf8e@igalia.com>
+Date: Wed, 25 Feb 2026 10:57:11 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] mm: rmap: add a ZONE_DEVICE folio warning in
- folio_referenced()
-To: Baolin Wang <baolin.wang@linux.alibaba.com>,
- Rik van Riel <riel@surriel.com>, akpm@linux-foundation.org
-Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
- ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, harry.yoo@oracle.com,
- jannh@google.com, willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
- axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com,
- hannes@cmpxchg.org, zhengqi.arch@bytedance.com, shakeel.butt@linux.dev,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
- <e91eaa86a6fbb0682b4e308082048c688a57c035.1771897150.git.baolin.wang@linux.alibaba.com>
- <b3c1c739c233ccb32945ccaffdaf25fd3f96dd59.camel@surriel.com>
- <ec92b9a6-d6a6-4b14-9724-b1722d35b69d@linux.alibaba.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v6 1/6] clk: bcm: rpi: Manage clock rate in
+ prepare/unprepare callbacks
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>,
+ Iago Toral Quiroga <itoral@igalia.com>,
+ Chema Casanova <jmcasanova@igalia.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+References: <20260218-v3d-power-management-v6-0-40683fd39865@igalia.com>
+ <20260218-v3d-power-management-v6-1-40683fd39865@igalia.com>
+ <20260224-curvy-shiny-dodo-e50cef@houat>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <ec92b9a6-d6a6-4b14-9724-b1722d35b69d@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <20260224-curvy-shiny-dodo-e50cef@houat>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_055738_570965_B212D955 
+X-CRM114-Status: GOOD (  29.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,39 +110,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/24/26 06:49, Baolin Wang wrote:
+Hi Maxime,
+
+On 24/02/26 11:11, Maxime Ripard wrote:
+> Hi Maira,
+> 
+
+[...]
+
+>> @@ -289,16 +290,22 @@ static int raspberrypi_fw_dumb_determine_rate(struct clk_hw *hw,
+>>   static int raspberrypi_fw_prepare(struct clk_hw *hw)
+>>   {
+>>   	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
+>> +	struct raspberrypi_clk_variant *variant = data->variant;
+>>   	struct raspberrypi_clk *rpi = data->rpi;
+>>   	u32 state = RPI_FIRMWARE_STATE_ENABLE_BIT;
+>>   	int ret;
+>>   
+>>   	ret = raspberrypi_clock_property(rpi->firmware, data,
+>>   					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
+>> -	if (ret)
+>> +	if (ret) {
+>>   		dev_err_ratelimited(rpi->dev,
+>>   				    "Failed to set clock %s state to on: %d\n",
+>>   				    clk_hw_get_name(hw), ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	if (variant->maximize)
+>> +		ret = raspberrypi_fw_set_rate(hw, variant->max_rate, 0);
 > 
 > 
-> On 2/24/26 10:38 AM, Rik van Riel wrote:
->> On Tue, 2026-02-24 at 09:56 +0800, Baolin Wang wrote:
->>>
->>> diff --git a/mm/rmap.c b/mm/rmap.c
->>> index bff8f222004e..be785dfc9336 100644
->>> --- a/mm/rmap.c
->>> +++ b/mm/rmap.c
->>> @@ -1065,6 +1065,7 @@ int folio_referenced(struct folio *folio, int
->>> is_locked,
->>>           .invalid_vma = invalid_folio_referenced_vma,
->>>       };
->>>   +    VM_WARN_ON_FOLIO(folio_is_zone_device(folio), folio);
->>>       *vm_flags = 0;
->>>       if (!pra.mapcount)
->>>           return 0;
->>
->> Should be a VM_WARN_ON_ONCE_FOLIO so we do not cause
->> a softlockup if we try to print information about a
->> million ZONE_DEVICE pages?
+> It's not clear to me why you would want to force it to the max there,
+> and especially the max of the clock. It would make more sense to me to
+> set it to whatever maximum rate clk_hw_get_rate_range would return
+> (which should be the minimum of variant->max_rate + all clk->max_rate),
+> but even then it would erase every call to clk_set_rate before calling
+> clk_prepare().
 > 
-> Yes, sounds reasonable. Will do in next version. Thanks for reviewing.
+> I'd understand lowering the clock rate in unprepare to avoid wasting too
+> much power, but why do we need to raise it here?
 
-Feel free to add my
+This only applies to clocks with variant->maximize == true, which is
+exclusively the V3D clock. The V3D driver doesn't do fine-grained rate
+control, it always wants maximum performance. In the case of V3D, there
+are no intermediate clk_set_rate() calls to preserve.
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+> 
+>>   	return ret;
+>>   }
+>> @@ -306,10 +313,19 @@ static int raspberrypi_fw_prepare(struct clk_hw *hw)
+>>   static void raspberrypi_fw_unprepare(struct clk_hw *hw)
+>>   {
+>>   	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
+>> +	struct raspberrypi_clk_variant *variant = data->variant;
+>>   	struct raspberrypi_clk *rpi = data->rpi;
+>>   	u32 state = 0;
+>>   	int ret;
+>>   
+>> +	/*
+>> +	 * On current firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
+>> +	 * actually power off the clock. To achieve meaningful power consumption
+>> +	 * reduction, the driver needs to set the clock rate to minimum before
+>> +	 * disabling it.
+>> +	 */
+>> +	raspberrypi_fw_set_rate(hw, variant->min_rate, 0);
+> 
+> I'm not sure setting it to variant->min_rate would work directly either,
+> since it would break consumers expectations. Also, can we guard it with
 
-to that.
+The clock is being unprepared, which means that any consumer that wants
+to use it again must call clk_prepare() first, at which point the rate
+gets restored (for maximize clocks) or re-established by the consumer
+via clk_set_rate(). Considering that no consumer should be relying on
+the rate of an unprepared clock, I understand that there are no
+expectations to break here.
 
--- 
-Cheers,
+> a version check if we know that there's some good and bad firmwares?
 
-David
+So far, all firmware versions have this issue. For future firmware
+releases, it might change, but so far, all firmware versions have this
+issue.
+
+> 
+>>   	ret = raspberrypi_clock_property(rpi->firmware, data,
+>>   					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
+>>   	if (ret)
+>> @@ -334,7 +350,7 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+>>   {
+>>   	struct raspberrypi_clk_data *data;
+>>   	struct clk_init_data init = {};
+>> -	u32 min_rate, max_rate;
+>> +	unsigned long rate;
+>>   	int ret;
+>>   
+>>   	data = devm_kzalloc(rpi->dev, sizeof(*data), GFP_KERNEL);
+>> @@ -354,18 +370,20 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+>>   
+>>   	data->hw.init = &init;
+>>   
+>> -	ret = raspberrypi_clock_property(rpi->firmware, data,
+>> -					 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
+>> -					 &min_rate);
+>> -	if (ret) {
+>> -		dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
+>> -			id, ret);
+>> -		return ERR_PTR(ret);
+>> +	if (!variant->min_rate) {
+>> +		ret = raspberrypi_clock_property(rpi->firmware, data,
+>> +						 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
+>> +						 &variant->min_rate);
+>> +		if (ret) {
+>> +			dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
+>> +				id, ret);
+>> +			return ERR_PTR(ret);
+>> +		}
+>>   	}
+> 
+> It feels to me like it would need to be a separate patch. Why do you
+> need to override the minimum clock rate reported by the firmware?
+
+This change is needed because the prepare/unprepare callbacks need
+access to the min/max rates. In the current code, these are local
+variables in raspberrypi_clk_register(). Storing them in the variant
+struct makes them available to the callbacks. The `if (!variant-
+ >min_rate)` guard only preserves the existing behavior for clocks like
+M2MC that have a hard-coded minimum rate.
+
+Having said that, I can split this into a separate preparatory patch if
+you prefer.
+
+Thanks for your review!
+
+Best regards,
+- Maíra
+
+> 
+> Maxime
+
 
