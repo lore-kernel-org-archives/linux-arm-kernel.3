@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7A9EFD23D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CCAAEFD239
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:06:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Vwr+rWR0Jsar34NmyxPBREZAhGVuj7hFZxIBZqkruA=; b=DL33y6KrAUyyXsw6QShCBOfuSu
-	bASm2MDZkYBy4M7cJ5y8gzRY0k71Gd5obs+hI2DxEL5ZpmACPHbSjg8Y8z1bmRMTF401hO0OohS+o
-	NmGXlkv82VT++OlNf84XndgZbgEKijZ4iWCgj1s3mE4VIH/eFmo+t6o2BpvZ0OBG9uEoCuE3GX5qY
-	vEW/rDe3DylTT0x85iCSG5zfz3UE/NUSs9gIq3st33wmmNFoROgATTrToV6f1g7FU3PQPWy86WCTB
-	MxvDjP5Kgn7/T0RbR0iAxl7oyFWM2QPnvGRLiNt9B7WfkdYIQEls1lAAenFxfHDIYbV4B+qUzQZRM
-	tb4YnE5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6i6YHWbS70atz74nPkc4FhQ7yekh7SIze6KRm1M4GHc=; b=elpBaoYimk2wrDL6hJLrdW0EYK
+	LEGazjph9gt7p5mvHTn/lmYh3DI8zTvJJdtCzqOo7TqmORESczZ170kf5PffNr3GCiMJAKPt0G1M2
+	HEwSov/SCspd90OBK2GJ1CHoaj98/egON42cg42OjCVLoe4iJowaWckmf7xxrbR5/9BQQx0qJu3Ky
+	Dl77SVWgQlzQ86bWFqhJjObh9tBmbdP5pHp4Hoeu+0TJ71JInbgnTFf0wJgb/j28YBpHx9Xnmkrwi
+	Wv/fFH4fA9vUh0O+CrWZmxU9piwmhOSg93NXHLm4vACJer8dOaY5gt7HRAkwR1YWspB0eE7ORky98
+	mbnUqSfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBjH-00000003jlC-0hvK;
-	Wed, 25 Feb 2026 10:02:51 +0000
-Received: from inva021.nxp.com ([92.121.34.21])
+	id 1vvBmo-00000003k2z-2Co3;
+	Wed, 25 Feb 2026 10:06:30 +0000
+Received: from mail-m49205.qiye.163.com ([45.254.49.205])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBjA-00000003jjX-0Xp5
+	id 1vvBmk-00000003k1f-3RQ6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 10:02:49 +0000
-Received: from inva021.nxp.com (localhost [127.0.0.1])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 2FA77200D05;
-	Wed, 25 Feb 2026 11:02:42 +0100 (CET)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 13AFE200D16;
-	Wed, 25 Feb 2026 11:02:42 +0100 (CET)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id CD6852037D;
-	Wed, 25 Feb 2026 11:02:41 +0100 (CET)
-Date: Wed, 25 Feb 2026 11:02:42 +0100
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Simon Horman <horms@kernel.org>
-Cc: alexandre.torgue@foss.st.com, devicetree@vger.kernel.org,
-	festevam@gmail.com, chester62515@gmail.com, s.hauer@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org, davem@davemloft.net,
-	mbrugger@suse.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
-	s32@nxp.com, pabeni@redhat.com, linux-kernel@vger.kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
-	robh@kernel.org, kuba@kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	ghennadi.procopciuc@oss.nxp.com, kernel@pengutronix.de,
-	shawnguo@kernel.org, edumazet@google.com, mcoquelin.stm32@gmail.com,
-	imx@lists.linux.dev
-Subject: Re: [v5,4/4] stmmac: s32: enable support for Multi-IRQ mode
-Message-ID: <aZ7IwgwP5iy2kej8@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20260223-dwmac_multi_irq-v5-4-8fc699a5fac4@oss.nxp.com>
- <20260225092513.174261-1-horms@kernel.org>
+	Wed, 25 Feb 2026 10:06:28 +0000
+Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 34ea9e547;
+	Wed, 25 Feb 2026 18:06:20 +0800 (GMT+08:00)
+From: Albert Yang <yangzh0906@thundersoft.com>
+To: arnd@arndb.de,
+	soc@kernel.org,
+	krzk@kernel.org
+Cc: krzk+dt@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	gordon.ge@bst.ai,
+	bst-upstream@bstai.top,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	yangzh0906@thundersoft.com
+Subject: [PATCH v6 2/2] arm64: defconfig: enable BST SDHCI controller
+Date: Wed, 25 Feb 2026 18:06:13 +0800
+Message-ID: <20260225100613.3791261-3-yangzh0906@thundersoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260225100613.3791261-1-yangzh0906@thundersoft.com>
+References: <20260225100613.3791261-1-yangzh0906@thundersoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260225092513.174261-1-horms@kernel.org>
-X-Virus-Scanned: ClamAV using ClamSMTP
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9c94438d3e09cckunm3fc0fc0ab1afef
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDHU8dVhkZGE4dT0pJT05OS1YVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSktISkxDSlVKS0
+	tVSkJLS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=JSEUhPBVD6hKkRnOG45ELt6vl7vdvQ3THFNVDWlYAwK3wmld7QAWCrGo2AKiHJjYRT2FGDCDDo6EKUi30aow1xtOBfp96UckMsSQSIOoy8y+PqrAf5i3+UWLlLdwQR7AWBxkW9e5pv2brM+HwATxfCbd2rmdid7AdDa2y9U+YH4=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
+	bh=6i6YHWbS70atz74nPkc4FhQ7yekh7SIze6KRm1M4GHc=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_020244_461600_256469FF 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20260225_020627_209409_FDECCF3B 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,73 +80,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 09:25:13AM +0000, Simon Horman wrote:
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> 
-> For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
-> ---
-> stmmac: s32: enable support for Multi-IRQ mode
-> 
-> This commit enables Multi-IRQ mode for the S32 DWMAC driver, allowing
-> per-queue IRQs for improved performance. The driver checks for multiple
-> queues and per-queue IRQs, enabling multi-IRQ mode when both are present.
-> 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> > index af594a096676..4aad7077c9d6 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> 
-> [ ... ]
-> 
-> > @@ -165,6 +165,16 @@ static int s32_dwmac_probe(struct platform_device *pdev)
-> >  	plat->core_type = DWMAC_CORE_GMAC4;
-> >  	plat->pmt = 1;
-> >  	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
-> > +
-> > +	/* Check for multi-IRQ config. Assumption: symmetrical rx/tx queues */
-> > +	if (plat->rx_queues_to_use > 1 &&
-> > +	    (res.rx_irq[0] > 0 && res.tx_irq[0] > 0)) {
-> > +		plat->flags |= STMMAC_FLAG_MULTI_MSI_EN;
-> > +		dev_info(dev, "Multi-IRQ mode (per queue IRQs) selected\n");
-> > +	} else {
-> > +		dev_info(dev, "MAC IRQ mode selected\n");
-> > +	}
-> 
-> Does this validation check all queues have IRQs? The condition verifies
-> only res.rx_irq[0] and res.tx_irq[0] but doesn't confirm that higher
-> queues have IRQs when rx_queues_to_use > 1.
-> 
-> If a device tree specifies multiple queues but only provides IRQs for
-> queue 0:
-> 
->     snps,rx-queues-to-use = <2>;
->     interrupt-names = "macirq", "rx-queue-0", "tx-queue-0";
->                       /* queue 1 IRQs missing */
-> 
-> The driver would enable STMMAC_FLAG_MULTI_MSI_EN, but later in
-> stmmac_request_irq_multi_msi() (drivers/net/ethernet/stmicro/stmmac/
-> stmmac_main.c), queues with rx_irq[i] == 0 are silently skipped:
-> 
->     for (i = 0; i < priv->plat->rx_queues_to_use; i++) {
->         if (priv->rx_irq[i] <= 0)
->             continue;  /* queue 1+ skipped, no handler registered */
->         ...
->     }
-> 
-> This would leave higher-numbered queues with no interrupt handler,
-> causing packet loss when traffic arrives on those queues.
-> 
-> Would it be safer to validate all queue IRQs before enabling multi-IRQ
-> mode, or fall back to MAC IRQ mode if any queue IRQ is missing?
-> 
-> > +
-> >  	plat->rx_fifo_size = 20480;
-> >  	plat->tx_fifo_size = 20480;
+Enable CONFIG_MMC_SDHCI_BST to support eMMC on Black Sesame
+Technologies C1200 boards.
 
-Hi Simon,
+Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
 
-I already addressed this in v6 I sent today.
+---
+Changes for v6:
+- Fix CONFIG_MMC_SDHCI_BST ordering to match Kconfig position
+  (between CONFIG_MMC_SDHCI_TEGRA and CONFIG_MMC_SDHCI_F_SDH30)
+  as pointed out by Krzysztof Kozlowski. Confirmed via savedefconfig.
 
-/Jan
+Changes for v5:
+- Split from platform series per Arnd's feedback
+
+Changes for v4:
+- Move CONFIG_MMC_SDHCI_BST before CONFIG_MMC_SDHCI_F_SDH30
+
+Changes for v3:
+- Split from arm64: dts patch
+
+Changes for v2:
+- Initial defconfig change included in DTS patch
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 45288ec9eaf7..7b054da42fa9 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1230,6 +1230,7 @@ CONFIG_MMC_SDHCI_OF_SPARX5=y
+ CONFIG_MMC_SDHCI_CADENCE=y
+ CONFIG_MMC_SDHCI_ESDHC_IMX=y
+ CONFIG_MMC_SDHCI_TEGRA=y
++CONFIG_MMC_SDHCI_BST=y
+ CONFIG_MMC_SDHCI_F_SDH30=y
+ CONFIG_MMC_MESON_GX=y
+ CONFIG_MMC_SDHCI_MSM=y
+-- 
+2.43.0
+
 
