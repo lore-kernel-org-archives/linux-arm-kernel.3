@@ -4,109 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F9A6F4BB93
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEE8F4BB99
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/WgIDhDH3jaVp3/FLagR8a+6ggxGOFFeOiu4B1HZxXQ=; b=oFAa6m+hr8HIob2yMJKaDI2OW+
-	cilc6szlBuK+kvIR9G3WRn9KBUAxpnJeyRQlSCpSK5o9wmLo5uofgmN4dnZLbGuZsY+tLb7P7JuLh
-	PBLlYBMUvh9cRg9jQGzEqRNHc7oAodcier978zQdrEIAhQRienRsPPSVaJJ2HrKN8xQY2WYoV9dM+
-	tbpWYHGJ54CwFFuEP6QrJGEmln6ubWR+NvYOWbgzQkgAuQwRlfMRYwwez2Bvnee6jHl/XExMziOEm
-	oPhaKx4rQgKSjBsmWeZlfKxBuDVr9WaAbnLbiFwRqzDo3l3PzPz8pIChOSXvN3ioRONuN5+hEPai9
-	bvqXfQ8g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0NWZvdmuUy/a9oTvMtkAJDR/5U2u3pffBYskaW/dSPE=; b=VDaAKtXf/9mAkU4yguC73Xd6rJ
+	/zxFWcmg2hjWGbmKEBnd/XhM+F3j658Iua0qiqAtRS9MSNZuyVRxFA92AzbEfQ3LE6eVEQu+N4PDy
+	14yYEV0KrXkdKLZJXgOS74GyiRgmAnR8hTimF4Ek4DVLFDMOjNSwJHU87pAvW1MB2eIinddizV2iR
+	B7ZRYysP5YiIkwWFWIyAUv8d87q/X4lJ0LG8D7aUsg6hGUyYKbzycwlgbg+k59bvcKaVXw8ivlM5J
+	SfCzwTLH9hmuoWd080o10OILR1CD6y6xKOjmUK0P3s2n3XvJU6USRxCzbUFpcT5lAphMwlhvo3mPf
+	TQo3oXrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCIi-00000003ojd-0roh;
-	Wed, 25 Feb 2026 10:39:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCIf-00000003ojI-28jf
+	id 1vvCKG-00000003ove-2oRj;
+	Wed, 25 Feb 2026 10:41:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvCKD-00000003ovE-1j12
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 10:39:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EED7460054;
-	Wed, 25 Feb 2026 10:39:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C80CCC116D0;
-	Wed, 25 Feb 2026 10:39:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772015964;
-	bh=vuDxrOs7Pa8LN5fKUdeZkZDcpZkrW/ynLPO0dSo8KmQ=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=TXp06KvC8g3xaNWRlZc8Q9h7wFIlTV2TuypyuxNmONdcZLmSNueDlHgpZF0SJcsPz
-	 EL9U/lB0qaVH7ik4zroIgg9LjfVxsFFZWxQtrTQ7f2oLLqYJzE/RXjzGBbREo9RbC2
-	 GGsddHhquB27reEwfY/U1kjN/N8hpUX8F4awJfvDOtKr7X9w2dHVyC5rGbG9BSkyCt
-	 uV+EcwT+jSQJyMp+vcQQfFPEBE8WMjGFebdU0qvTG1Wf9AJ61bp/r4FcBeu3/1gtho
-	 qaV6vW3NllB22i+oe9Aj23wdNDKg7Iv/X4UB+QmAG1M1MkMbhGZpugu1n893eotkv/
-	 GKkH8bFKCO5mw==
-Message-ID: <409f6214-7ffd-4076-a658-f4005adbe101@kernel.org>
-Date: Wed, 25 Feb 2026 11:39:17 +0100
+	Wed, 25 Feb 2026 10:41:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1ED6165C;
+	Wed, 25 Feb 2026 02:40:52 -0800 (PST)
+Received: from [10.163.172.18] (unknown [10.163.172.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DCCD3F59E;
+	Wed, 25 Feb 2026 02:40:55 -0800 (PST)
+Message-ID: <0a417a62-dfac-4715-93f0-8d9293f3871f@arm.com>
+Date: Wed, 25 Feb 2026 16:10:52 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: add support for NXP i.MX8MP audio board
- (version 2)
-To: Shengjiu Wang <shengjiu.wang@nxp.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
- daniel.baluta@nxp.com, dario.binacchi@amarulasolutions.com,
- alexander.stein@ew.tq-group.com, Markus.Niebel@tq-group.com,
- matthias.schiffer@tq-group.com, y.moog@phytec.de, josua@solid-run.com,
- francesco.dolcini@toradex.com, primoz.fiser@norik.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Frank.Li@nxp.com,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20260224094527.169215-1-shengjiu.wang@nxp.com>
- <20260224094527.169215-3-shengjiu.wang@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 1/2] arm64/mm: Directly use TTBRx_EL1_ASID_MASK
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Oliver Upton <oupton@kernel.org>, linux-kernel@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20260225035157.1159962-1-anshuman.khandual@arm.com>
+ <20260225035157.1159962-2-anshuman.khandual@arm.com>
+ <86bjhd9nxq.wl-maz@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260224094527.169215-3-shengjiu.wang@nxp.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <86bjhd9nxq.wl-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_024101_537618_3A0D65CA 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,24 +69,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2026 10:45, Shengjiu Wang wrote:
-> +
-> +&ecspi2 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
-> +	pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +
-> +	spidev1: spi@0 {
-> +		compatible = "rohm,dh2228fv";
+On 25/02/26 2:53 PM, Marc Zyngier wrote:
+> On Wed, 25 Feb 2026 03:51:56 +0000,
+> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+>>
+>> Replace all TTBR_ASID_MASK macro instances with TTBRx_EL1_ASID_MASK which
+>> is a standard field mask from tools sysreg format. Drop the now redundant
+>> custom macro TTBR_ASID_MASK. No functional change.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Oliver Upton <oupton@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: kvmarm@lists.linux.dev
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/include/asm/asm-uaccess.h | 2 +-
+>>  arch/arm64/include/asm/mmu.h         | 1 -
+>>  arch/arm64/include/asm/mmu_context.h | 2 +-
+>>  arch/arm64/include/asm/uaccess.h     | 6 +++---
+>>  arch/arm64/kernel/entry.S            | 2 +-
+>>  arch/arm64/kvm/at.c                  | 2 +-
+>>  arch/arm64/kvm/nested.c              | 4 ++--
+>>  arch/arm64/mm/context.c              | 6 +++---
+>>  8 files changed, 12 insertions(+), 13 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
+>> index 9148f5a31968..12aa6a283249 100644
+>> --- a/arch/arm64/include/asm/asm-uaccess.h
+>> +++ b/arch/arm64/include/asm/asm-uaccess.h
+>> @@ -15,7 +15,7 @@
+>>  #ifdef CONFIG_ARM64_SW_TTBR0_PAN
+>>  	.macro	__uaccess_ttbr0_disable, tmp1
+>>  	mrs	\tmp1, ttbr1_el1			// swapper_pg_dir
+>> -	bic	\tmp1, \tmp1, #TTBR_ASID_MASK
+>> +	bic	\tmp1, \tmp1, #TTBRx_EL1_ASID_MASK
+>>  	sub	\tmp1, \tmp1, #RESERVED_SWAPPER_OFFSET	// reserved_pg_dir
+>>  	msr	ttbr0_el1, \tmp1			// set reserved TTBR0_EL1
+>>  	add	\tmp1, \tmp1, #RESERVED_SWAPPER_OFFSET
+>> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+>> index 137a173df1ff..019b36cda380 100644
+>> --- a/arch/arm64/include/asm/mmu.h
+>> +++ b/arch/arm64/include/asm/mmu.h
+>> @@ -10,7 +10,6 @@
+>>  #define MMCF_AARCH32	0x1	/* mm context flag for AArch32 executables */
+>>  #define USER_ASID_BIT	48
+>>  #define USER_ASID_FLAG	(UL(1) << USER_ASID_BIT)
+>> -#define TTBR_ASID_MASK	(UL(0xffff) << 48)
+>>  
+>>  #ifndef __ASSEMBLER__
+>>  
+>> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
+>> index cc80af59c69e..5b1ecde9f14b 100644
+>> --- a/arch/arm64/include/asm/mmu_context.h
+>> +++ b/arch/arm64/include/asm/mmu_context.h
+>> @@ -210,7 +210,7 @@ static inline void update_saved_ttbr0(struct task_struct *tsk,
+>>  	if (mm == &init_mm)
+>>  		ttbr = phys_to_ttbr(__pa_symbol(reserved_pg_dir));
+>>  	else
+>> -		ttbr = phys_to_ttbr(virt_to_phys(mm->pgd)) | ASID(mm) << 48;
+>> +		ttbr = phys_to_ttbr(virt_to_phys(mm->pgd)) | ASID(mm) << TTBRx_EL1_ASID_SHIFT;
+>>
+> 
+> Could you please use FIELD_PREP() for this sort of constructs?
 
-NAK
+Will replace with something like the following.
 
-You don't have there. Stop faking up hardware. NXP received this comment
-multiple times already.
+--- a/arch/arm64/include/asm/mmu_context.h
++++ b/arch/arm64/include/asm/mmu_context.h
+@@ -210,7 +210,8 @@ static inline void update_saved_ttbr0(struct task_struct *tsk,
+        if (mm == &init_mm)
+                ttbr = phys_to_ttbr(__pa_symbol(reserved_pg_dir));
+        else
+-               ttbr = phys_to_ttbr(virt_to_phys(mm->pgd)) | ASID(mm) << TTBRx_EL1_ASID_SHIFT;
++               ttbr = phys_to_ttbr(virt_to_phys(mm->pgd)) |
++                      FIELD_PREP(TTBRx_EL1_ASID_MASK, ASID(mm));
 
-Best regards,
-Krzysztof
+        WRITE_ONCE(task_thread_info(tsk)->ttbr0, ttbr);
+ }
+
+> 
+> [...]
+> 
+>> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+>> index 885bd5bb2f41..d5c342ccf0f9 100644
+>> --- a/arch/arm64/kvm/at.c
+>> +++ b/arch/arm64/kvm/at.c
+>> @@ -560,7 +560,7 @@ static int walk_s1(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+>>  			BUG();
+>>  		}
+>>  
+>> -		wr->asid = FIELD_GET(TTBR_ASID_MASK, asid_ttbr);
+>> +		wr->asid = FIELD_GET(TTBRx_EL1_ASID_MASK, asid_ttbr);
+>>  		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
+>>  		    !(tcr & TCR_ASID16))
+>>  			wr->asid &= GENMASK(7, 0);
+>> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+>> index 620126d1f0dc..82558fb2685f 100644
+>> --- a/arch/arm64/kvm/nested.c
+>> +++ b/arch/arm64/kvm/nested.c
+>> @@ -1343,7 +1343,7 @@ static bool kvm_vncr_tlb_lookup(struct kvm_vcpu *vcpu)
+>>  			    vcpu_read_sys_reg(vcpu, TTBR0_EL2));
+>>  		u16 asid;
+>>  
+>> -		asid = FIELD_GET(TTBR_ASID_MASK, ttbr);
+>> +		asid = FIELD_GET(TTBRx_EL1_ASID_MASK, ttbr);
+>>  		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
+>>  		    !(tcr & TCR_ASID16))
+>>  			asid &= GENMASK(7, 0);
+>> @@ -1459,7 +1459,7 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
+>>  			    vcpu_read_sys_reg(vcpu, TTBR0_EL2));
+>>  		u16 asid;
+>>  
+>> -		asid = FIELD_GET(TTBR_ASID_MASK, ttbr);
+>> +		asid = FIELD_GET(TTBRx_EL1_ASID_MASK, ttbr);
+>>  		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
+>>  		    !(tcr & TCR_ASID16))
+>>  			asid &= GENMASK(7, 0);
+> 
+> Given the 3 hunks above, there is clearly a better approach.
+
+Agreed.
 
