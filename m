@@ -4,109 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04762FD374E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4B5FD3761
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:04:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vy6cNiKVqqdOzrXGU51JG+BLZ2VHPDg76L+Bf6A/K7w=; b=j5qedeE/czrResPd792QglnY8v
-	fTPtYxkr19Tp/09f2jCESzIyCrhUyZH0bFGYC8ImXgByl2WdLYLEsEfX+s1nwal7UYKM1gDutN//y
-	OJU/7UbzgiqvlmnF4BovQcR3yUpXOLlVVqO+vYD75RK+YMYtRA47+X9NHn7oLKu56RchTpDKSwJZT
-	kNRSi5jobtCM4tFPneOka7kKKnaVD1fkIgyjSAFYK2fKnUQ7/jRhtIeWGjYAPP5cah7VB8frI2Prs
-	/oEQzFjNleXD123BN0QBI+0AlL0cbgKgWf7wpINoefjTqcJn9qNKNJ/lvyKY+05Kfw2En/wXaqwZo
-	zbxbefQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DSAgkJWi5hoJt+P3JikprjcOkH0bitSNHNb5Lpt8ZRM=; b=RUTNIyfYK5EWQwMEgDO0RvPPR7
+	N7etOBfvwO+yy5I3P4ZVnuABCY1Ji7VXalWBakvw4HTA/8LnzVp4EuiYqjyKjLBuAjnp0y83ym6Hs
+	sxVBXIyton8BRP2gDxXMvheOrRm2aMi3NaVMWfAJc001iNDy+NACmADzOFba4AoEwyZzNdjPXALgD
+	hHwKcpHR/oRvpLNUOOnGMAyQcbWLdig5lhRLNfyTV+QDJVwE2V9rLBRsI1fxK7xit+cI4Ef+TMsmr
+	fJd8ShXwKuZMRGpljy5widAO3E8Y78/uwDqjUNk9928G4PPzblog+R+o/AnyFIOnUwqmY/H++ieX7
+	nhV2EAUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFSH-000000049rF-25mJ;
-	Wed, 25 Feb 2026 14:01:33 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1vvFV6-00000004ABU-1TeY;
+	Wed, 25 Feb 2026 14:04:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFSC-000000049pJ-0384
+	id 1vvFV3-00000004AAy-2t03
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 14:01:31 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b9047e72201so990523166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 06:01:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772028086; cv=none;
-        d=google.com; s=arc-20240605;
-        b=gggQzlLl1Bu8iKRcg1JwzkyLS75k38pPx5yN8j4ogiGZLBQOA4gBkH3nIxIZYth3BO
-         fuCcMzzcSXFn+bjx/yg+o3CyeRzGQ5yMQsc1FziXHGVRCvE+qs1qmC/Xhjy9e94evFrJ
-         AF0MRG21YZ6FSDseJWtH3pvcNFdfPqXEPkTx9SwFrKL1cL/LS/DFF0MYVuYKS/2YGrGs
-         bA2z/GwUmoa+cUAmI24NfErmESkiJkAndAVEKqESCwwv30sSW7G5tBYBOdiGlArMkhuO
-         cmL/r/vPvmwjlRWYQR1F38TCrtv0SMpRa3Xn+WGNBSmn0phfVdN1LL7tqmva85s/XdA6
-         cSWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Vy6cNiKVqqdOzrXGU51JG+BLZ2VHPDg76L+Bf6A/K7w=;
-        fh=dTk0tCXv8rv0FxQtVoIu4h6tabHToj8nj0Db6T8S8kQ=;
-        b=hyAdnPBciuocxHqlMylENaxrjR+lAzsQHdk+dF8ptySsabtaDEanfyk7RekZEziMcU
-         YcjMWYDm2F/Xz5PEAqev8PrvGM4MWlVp2E6+2ETrHlccP53GvJFM9HSzlgD8ftjSponL
-         3RahjuNnwqUjTsaTC14zPRckpqCY1S7qFRkJGI1DQ9s2LpLur1SVrr2X2Mcq1X1nafCk
-         Piu675sycmNd4MUg2olzMq/G8hX/FDwW9s6JMkJAzaYG9u++psVfKiA6z2FO9A0dUbYM
-         WiaKHS/rp04EoulxP886uS83QfZFIOxqXx6CHpOEX8BQpbyzGc3eWolfnN0ikz+S1Vt4
-         KCcg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772028086; x=1772632886; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Vy6cNiKVqqdOzrXGU51JG+BLZ2VHPDg76L+Bf6A/K7w=;
-        b=FNVu+iGJh/bX14A6OnOKQ29K94Hny+UB8hBNEO9qQhEkDY+ksT4Amk61ldJXXnolgl
-         6fyh5OajcujzC0feq8qDIzqVkbgsw+4i0GStQVtQehzZ7GSOlK41BdZd+/8SSzgN/ujM
-         x9gm27MOdXydqtecIXFtoMvflxprqlYYbIAVk2rcp5/9oe7vmdlf/9vs7iy6+wpsAbT8
-         dMsu5AS+dnDLcuKDK5cx6HuKev7YOiVaI1Lh9dYFF2aqLBWhjAWWFq54Q94dezLAEZWm
-         IWsGhTJwgfJUPlfDlKZHXakx97Oi4mcOSVe4ZMCXPWr0pVf5VOmarb4rncUf5qbiNbVv
-         1y+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772028086; x=1772632886;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Vy6cNiKVqqdOzrXGU51JG+BLZ2VHPDg76L+Bf6A/K7w=;
-        b=uElHlnoDrX453H+22C6xngXoMPQFba67OoQuxyMvgPYgGDw7d68q3BY8kMoI3j8WbN
-         IG0mJivrRSvMWTElILhixHlAZcKID0CkTQw48XXKlSCrS4MYgjLj3iUs+GAECdvUA4PI
-         Iau9zlyHI8Q10p66w0OkBvcOyJy+DfQuSxsRZ1AnJvot9jEVmx1NA2d+xlzb8cfphVTF
-         1BLesHmDYHYdFy1hUXbElgfYLakVwQrBDpYlzekfSBJRhAst/SMr933wawtiQKJMWkvy
-         jezJmgYWN9h0dV59GDPHRK86TNQg7rXqqi9UpuNmYRRWTQy0ov3qPy/2H7/zBVdmfwA/
-         en1w==
-X-Forwarded-Encrypted: i=1; AJvYcCWBfCUPMr+FIQxxsU3p2fC5BxG/Dz3FIiUwVtbEztCoEayaAfRv5FJbTANZdU50a602pEBVs3zC5PLd2WyjRqxm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrG5RafrUiZmdTy4yobYv14RsRGgJya+8oziPJWj6CR6Z0jWHg
-	J1l6YZOg4zydr2rjLUoDtVdsABFD+KIAPFOMZJENI33OCFw/dA+WzU1M9hyCE5UMAcgnF0ZNFH9
-	PnG0wV7947b4qEXTjK5qj1qFNYahJk88DrT91MCxlZw==
-X-Gm-Gg: ATEYQzzOkFHCJxqEDkgeGmxulAGB7Cift4rnR6+54YrF9lguDoawyte6l7ZEvVCG2QC
-	e4CWE4HUxZzNJ9TWeevoS4dgV7bFV8n7WE1scyR04EtiJKGP+vrIjwGevXinmeHV3yGe/Czv4mA
-	N/kmnbF418Qx/xdx+FpOVRqwEfwHHQjnQQhzTkK2x2AnGcMPoOpkbQ/DSe4IJhL6ajr+LfhzYNr
-	CIUelAW3VMRgWQbe8zlPGpnUErWAkjfnFMKFxR3bQg3P9Gyxk3K0LBMyBRxfIQ7GjLrB/DYnTJ6
-	ZJncq9zaUZUw3QizD4uTtFRyrqyXqNDdGw==
-X-Received: by 2002:a17:907:2d89:b0:b93:5297:b3a2 with SMTP id
- a640c23a62f3a-b935297b3bdmr8044466b.59.1772028085419; Wed, 25 Feb 2026
- 06:01:25 -0800 (PST)
+	Wed, 25 Feb 2026 14:04:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1921343C79;
+	Wed, 25 Feb 2026 14:04:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1371FC116D0;
+	Wed, 25 Feb 2026 14:04:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772028265;
+	bh=uGl0916oRQSQUnxyyrcUO8NjVfohNTiN1mXCplhRCQA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PClkNlBYDQ2xdogeOlwf0lwcfsg8VJYH5FB61T1LdXbnCrDvl409Q9vKrvHyWSapz
+	 6YHimcgknAFRJHtKYdKoKu3wtkVHa0WrB6Juwh5XxqTV+O4WE4DNivfekLfdQ2Y27J
+	 Bs/XpORBfPSoslHXzkCwCQLmE6OKF0o5hV5mOrvRs6KNAcaVSLJjr7gSBQfR64L9sg
+	 JOnakNnjyfNTVutKLSaugkSwjGDg4Vj7QhjoepZRF4yfpA/fjRpxmza7KB3+D2OG14
+	 413W7Kgem4AGvcItQtQnCP+i6sLuxBtvhXQsW8uSxM0tT3LdwjhyW3lXj84sZLb3gb
+	 9orwgTYjnzsTw==
+Message-ID: <d172d6bf-c60c-4cf5-9da9-f30de38cdfed@kernel.org>
+Date: Wed, 25 Feb 2026 15:04:17 +0100
 MIME-Version: 1.0
-References: <20260203161917.1666696-1-vincent.guittot@linaro.org>
- <20260203161917.1666696-2-vincent.guittot@linaro.org> <20260210004011.GA2188625-robh@kernel.org>
- <aY2rR3Hlm525kGUN@shell.armlinux.org.uk>
-In-Reply-To: <aY2rR3Hlm525kGUN@shell.armlinux.org.uk>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Wed, 25 Feb 2026 15:01:13 +0100
-X-Gm-Features: AaiRm52xymbtUvdX0WARhHIKYaRvNgdQ5-vzrvF5qBi6nov6q2mJRcNPXMItfGk
-Message-ID: <CAKfTPtBB6ZNde+-t7FKkf0F5Uvy0rDvebM_fsGTy9tk=CBq6Xg@mail.gmail.com>
-Subject: Re: [PATCH 1/4 v2] dt-bindings: serdes: s32g: Add NXP serdes subsystem
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Rob Herring <robh@kernel.org>, vkoul@kernel.org, neil.armstrong@linaro.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, 
-	s32@nxp.com, p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com, 
-	Ionut.Vicovan@nxp.com, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
-	horms@kernel.org, Frank.li@nxp.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] mm: add a batched helper to clear the young flag for
+ large folios
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
+Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
+ yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
+ zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
+ <bfbe28e381b02452b455498e7ea82662e83a3865.1771897150.git.baolin.wang@linux.alibaba.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <bfbe28e381b02452b455498e7ea82662e83a3865.1771897150.git.baolin.wang@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_060128_071662_E44FE4FD 
-X-CRM114-Status: GOOD (  25.07  )
+X-CRM114-CacheID: sfid-20260225_060425_775904_0F15F350 
+X-CRM114-Status: GOOD (  28.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,92 +125,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sorry for the delayed reply. Some days off kept me away from keyboard
+On 2/24/26 02:56, Baolin Wang wrote:
+> Currently, MGLRU will call ptep_clear_young_notify() to check and clear the
+> young flag for each PTE sequentially, which is inefficient for large folios
+> reclamation.
+> 
+> Moreover, on Arm64 architecture, which supports contiguous PTEs, the Arm64-
+> specific ptep_test_and_clear_young() already implements an optimization to
+> clear the young flags for PTEs within a contiguous range. However, this is not
+> sufficient. Similar to the Arm64 specific clear_flush_young_ptes(), we can
+> extend this to perform batched operations for the entire large folio (which
+> might exceed the contiguous range: CONT_PTE_SIZE).
+> 
+> Thus, we can introduce a new batched helper: test_and_clear_young_ptes() and
+> its wrapper clear_young_ptes_notify(), to perform batched checking of the young
+> flags for large folios, which can help improve performance during large folio
+> reclamation when MGLRU is enabled. And it will be overridden by the architecture
+> that implements a more efficient batch operation in the following patches.
+> 
 
-On Thu, 12 Feb 2026 at 11:28, Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
->
-> On Mon, Feb 09, 2026 at 06:40:11PM -0600, Rob Herring wrote:
-> > On Tue, Feb 03, 2026 at 05:19:14PM +0100, Vincent Guittot wrote:
-> > > +description: |
-> > > +  The SerDes subsystem on S32G SoC Family includes two types of PHYs:
-> > > +    - One PCIe PHY: Supports various PCIe operation modes
-> > > +    - Two Ethernet Physical Coding Sublayer (XPCS) controllers
-> > > +
-> > > +  SerDes operation mode selects the enabled PHYs and speeds. Clock frequency
-> > > +  must be adapted accordingly. Below table describes all possible operation
-> > > +  modes.
-> > > +
-> > > +  Mode  PCIe       XPCS0           XPCS1           PHY clock       Description
-> > > +                SGMII              SGMII             (MHz)
-> > > +  -------------------------------------------------------------------------
-> > > +  0        Gen3    N/A             N/A             100             Single PCIe
-> > > +  1        Gen2    1.25Gbps        N/A             100             PCIe/SGMII
-> > > +  2        Gen2    N/A             1.25Gbps        100             PCIe/SGMII
-> > > +  3        N/A     1.25Gbps        1.25Gbps        100,125         SGMII
-> > > +  4        N/A     3.125/1.25Gbps  3.125/1.25Gbps  125             SGMII
-> > > +  5        Gen2    N/A             3.125Gbps       100             PCIe/SGMII
-> >
-> > Mixed tabs and spaces. Drop the tabs.
-> >
-> > What's not clear to me is do you have 2 or 4 lanes?
-> >
-> ...
-> > > +  nxp,sys-mode:
-> > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> >
-> >        maximum: 5
-> >
-> > Though isn't this redundant with the child nodes? You could use the
-> > standard 'phy-mode' property in each child.
->
-> phy-mode is ethernet, but the above is more than just ethernet.
->
-> I've been wondering why a generic PHY driver needs to know this via DT
-> when the generic PHY API has:
->
-> phy_set_mode() / phy_set_mode_ext()
->  - sets the type of the PHY and its submode (e.g. ethernet interface
->     mode)
-> phy_set_speed()
-> phy_set_bus_width()
->
-> Surely these are sufficient to describe what mode is required from the
-> generic PHY, and the generic PHY driver can figure out whether the
-> mode is permitted from the above table, programming the PHY as
-> desired.
+Maybe mention that the implementation follows the other existing functions.
 
-For the lanes that output SGMII, we don't register a generic phy
-driver but we provide the pcs with
+> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> ---
+>  include/linux/pgtable.h | 36 ++++++++++++++++++++++++++++++++++++
+>  mm/internal.h           | 23 ++++++++++++++++++-----
+>  2 files changed, 54 insertions(+), 5 deletions(-)
+> 
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 776993d4567b..0bcd3be524d3 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -1103,6 +1103,42 @@ static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
+>  }
+>  #endif
+>  
+> +#ifndef test_and_clear_young_ptes
+> +/**
+> + * test_and_clear_young_ptes - Mark PTEs that map consecutive pages of the same
+> + *			       folio as old
+> + * @vma: The virtual memory area the pages are mapped into.
+> + * @addr: Address the first page is mapped at.
+> + * @ptep: Page table pointer for the first entry.
+> + * @nr: Number of entries to clear access bit.
+> + *
+> + * May be overridden by the architecture; otherwise, implemented as a simple
+> + * loop over ptep_test_and_clear_young().
+> + *
+> + * Note that PTE bits in the PTE range besides the PFN can differ. For example,
+> + * some PTEs might be write-protected.
 
-pcs-handle = <&phy_xpcs0_0>;
+Document the return value?
 
->
-> For Ethernet, we don't call the 3.125Gbps "SGMII" using that term. We
-> use SGMII strictly for Cisco SGMII, which runs at 1.25Gbps. 3.125Gbps
-> single-lane serdes ethernet is not able to use Cisco SGMII inband
-> signalling because running the underlying data rate with 10 or 100
-> symbol replications makes no sense. So we have decided to all this
-> 2500BASE-X. If such a SerDes is connected to a SFP cage, then we
-> support switching between 1.25Gbps and 3.125Gbps mode depending on
-> the module inserted, which requires dynamic reconfiguration of the
-> SerDes.
+Returns: whether any PTE was young.
 
-yes, I still have to figure out how to handle 3.125Gbps and 2500BASE-X mode
+Or sth like that.
 
->
-> What I'm saying is that describing a single mode covering several ports
-> could make things difficult in the future, so make sure you think
-> carefully.
+> + *
+> + * Context: The caller holds the page table lock.  The PTEs map consecutive
+> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
+> + */
+> +static inline int test_and_clear_young_ptes(struct vm_area_struct *vma,
+> +					    unsigned long addr, pte_t *ptep,
+> +					    unsigned int nr)
 
-The serdes mode (deciding wether to output pcie or ethernet for each
-lane) has to be decided before de-asserting the reset of the HW IP so
-we can't really make it dynamic
+Two tabs ...
 
+> +{
+> +	int young = 0;
+> +
+> +	for (;;) {
+> +		young |= ptep_test_and_clear_young(vma, addr, ptep);
+> +		if (--nr == 0)
+> +			break;
+> +		ptep++;
+> +		addr += PAGE_SIZE;
+> +	}
+> +
+> +	return young;
 
+BTW: can this function simply return (and use) a bool instead?
 
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Likely we should do the same for the other functions, but that can be
+done separately.
+
+> +}
+> +#endif
+> +
+>  /*
+>   * On some architectures hardware does not set page access bit when accessing
+>   * memory page, it is responsibility of software setting this bit. It brings
+> diff --git a/mm/internal.h b/mm/internal.h
+> index 1ba175b8d4f1..1b59be99dc3f 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -1813,16 +1813,23 @@ static inline int pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
+>  	return young;
+>  }
+>  
+> -static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
+> -					  unsigned long addr, pte_t *ptep)
+> +static inline int clear_young_ptes_notify(struct vm_area_struct *vma,
+> +					  unsigned long addr, pte_t *ptep,
+> +					  unsigned int nr)
+>  {
+>  	int young;
+>  
+> -	young = ptep_test_and_clear_young(vma, addr, ptep);
+> -	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + PAGE_SIZE);
+> +	young = test_and_clear_young_ptes(vma, addr, ptep, nr);
+> +	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + nr * PAGE_SIZE);
+>  	return young;
+>  }
+>  
+> +static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
+> +					  unsigned long addr, pte_t *ptep)
+> +{
+> +	return clear_young_ptes_notify(vma, addr, ptep, 1);
+> +}
+> +
+>  static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
+>  					  unsigned long addr, pmd_t *pmdp)
+>  {
+> @@ -1837,9 +1844,15 @@ static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
+>  
+>  #define clear_flush_young_ptes_notify	clear_flush_young_ptes
+>  #define pmdp_clear_flush_young_notify	pmdp_clear_flush_young
+> -#define ptep_clear_young_notify	ptep_test_and_clear_young
+> +#define clear_young_ptes_notify	test_and_clear_young_ptes
+>  #define pmdp_clear_young_notify	pmdp_test_and_clear_young
+>  
+> +static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
+> +					  unsigned long addr, pte_t *ptep)
+> +{
+> +	return test_and_clear_young_ptes(vma, addr, ptep, 1);
+> +}
+
+Why not outside of the ifdef a single generic
+
+static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
+		 unsigned long addr, pte_t *ptep)
+{
+	return clear_young_ptes_notify(vma, addr, ptep, 1);
+}
+
+Same comment regarding bool.
+
+-- 
+Cheers,
+
+David
 
