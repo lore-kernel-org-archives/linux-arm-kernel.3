@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F09EFD207
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39937EFD206
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xWgvuyyKOdHiamZL9D4cj9vV0r+h5EBYUsOqhsdXzTM=; b=l6/PIYuBux1Vu4AFXBsEAetkLm
-	EWSXq0Gxr6KMHJp8qYQweQUK2oO1X2ctqjvmbxyDhEYVP8+HVyLCCKFbK41aCRgvG+ahdNH1Fj4Jn
-	227XJSq40MB+Tp8JeRkizHRvC92iYT4EnN6f+1jS4C6B0mPBCbrBwwHCF8g8gQOthKqKXOtEHE9Iw
-	AXRA0DIhH0UXSRswTiT0HEsEz3wAFMtV/5z54fIGcNunFtWDEyDuV7qIIzQNBtnrntp9Ca/FARaYl
-	Je5azRi3DBzhANI0SLi/Hsrs459+hdQENDpl/lqWZtB/1rYkVd7rr2HfYioxIsNdGG37Q2HOD+S8R
-	uOaT2XNQ==;
+	bh=26Heb3z8+JRGyYR/K9qQ4p1lo9b1s7t7d4idtz27MvU=; b=fMnsVhbi+gt16oYrITEC0+b2Eh
+	WWRWxEiZ9jPM/1kAoiDqHrEuU8wsyzdqAV1F2a5NdklVB2LqoFiLfN/PoFmYg6wPoxF3g15ED3ELO
+	JdCrA6iLjRWEY7trgJ8zUmKjTqsUQ02XbRAZ1WtX/QbpcrSCeBlZU8e05I5Vq/TledEfdk0tWuCjY
+	+vQQemdjSjzFDG9Z3kGv8OB77dbwW04FkfThyDKipNGiB4VblW1a9C03mhsDMgkC64iEdwPhexKwp
+	WQfIxw6G4ZmDdh9Phh2LHUYgC75xqE9atsXsq1qi4wqo1PyCVFFZUX1SrW4kCFcsAdpfx8ht0AzIp
+	hTpvkyBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv9zY-00000003TZ7-1sSu;
-	Wed, 25 Feb 2026 08:11:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv9zX-00000003TYT-33H5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 08:11:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CF34760053
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 08:11:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 846D7C116D0
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 08:11:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772007090;
-	bh=usaysjS0gpHIFyZHKJqEeInHs9jknMQNaMJew5h1pqg=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=YYc/RIttJOjCfXUewXc0JG8muvoFbg2hfl3g2yQ9Ch/KYy+WqwclhcPEbkZgrYv/J
-	 LCuzuzOCSgB1psAFoEHbVuOCsmQ+j686d/ofMNUVUKWqE9YhiFuX3b/ez1TLeJwpDJ
-	 FQOpMeSxcDM1tTIQfNG+FkzE1MIgHOoK8ZNdlkI5PwZdbvxY6b+WO9a6Hgjy8XP+/J
-	 /djEwSr6Kk6YMHA/jUDEYzomg72N3j0XmY4WDsWp9yGt+VvRXCdNjwfZMrrY8G8srz
-	 As0q4z4TITTCTLtw8GONuAgTQQcZms3oQsVn2fvW1kSspwmA/YBk5CpS9M3gKceSXF
-	 HaozfnjBTLfMA==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-38708180241so49940281fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 00:11:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUFtqFED3uJl4Tnef8lnpP0PWMjr8zM0U/wngVgjA8dTiRvjNf4oINDNOT7FUgrunrOFPCoHJ9rnuOSTuvDjJRO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9rZXtinlkBgdjOs9WLURJOV4DGfghVoXJvFMiAXRkEjBsExK1
-	bLC4yWJC3NCoqTxfOZ6rmlPfax959vSv3n7dyrwa1PREHvTHWqx0PTTErPB14FpzCJpOdqEl7QG
-	yj+l0i+9v/0nR/PmJCUmsrrdVQQ/+5dMxgsdARpsCpg==
-X-Received: by 2002:a2e:bccb:0:b0:383:246a:74ec with SMTP id
- 38308e7fff4ca-389a5cddb2amr51858551fa.18.1772007089247; Wed, 25 Feb 2026
- 00:11:29 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Feb 2026 00:11:28 -0800
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Feb 2026 00:11:28 -0800
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260225072225.3345307-2-wenst@chromium.org>
+	id 1vvA0e-00000003Tkt-0I6V;
+	Wed, 25 Feb 2026 08:12:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvA0b-00000003Tj3-1HCp;
+	Wed, 25 Feb 2026 08:12:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E79E6165C;
+	Wed, 25 Feb 2026 00:12:27 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40DC83F59E;
+	Wed, 25 Feb 2026 00:12:31 -0800 (PST)
+Date: Wed, 25 Feb 2026 08:12:28 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "david@kernel.org" <david@kernel.org>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"pjw@kernel.org" <pjw@kernel.org>, "alex@ghiti.fr" <alex@ghiti.fr>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"tglx@kernel.org" <tglx@kernel.org>,
+	"hpa@zytor.com" <hpa@zytor.com>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 4/5] x86: shstk: Use the new common
+ vm_mmap_shadow_stack() helper
+Message-ID: <aZ6u7LMfGmExzhS4@arm.com>
+References: <20260224175800.2500729-1-catalin.marinas@arm.com>
+ <20260224175800.2500729-5-catalin.marinas@arm.com>
+ <eac72941ab8d9520cadc1b98bdcfd7e5d2ef14ca.camel@intel.com>
 MIME-Version: 1.0
-References: <20260225072225.3345307-1-wenst@chromium.org> <20260225072225.3345307-2-wenst@chromium.org>
-Date: Wed, 25 Feb 2026 00:11:28 -0800
-X-Gmail-Original-Message-ID: <CAMRc=Mc79ex9Sbz1ThVf62JEO3G-KY6LRS0EyBGvvJwxrzSqww@mail.gmail.com>
-X-Gm-Features: AaiRm53FAfXDI6zI7HqJU4aTyz7YrJdL0-41-67eGZ5k3Q4aiUw3d0tcyRAeQOs
-Message-ID: <CAMRc=Mc79ex9Sbz1ThVf62JEO3G-KY6LRS0EyBGvvJwxrzSqww@mail.gmail.com>
-Subject: Re: [PATCH 1/7] PCI: mediatek-gen3: Clean up mtk_pcie_parse_port()
- with dev_err_probe()
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-pci@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang <jianjun.wang@mediatek.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eac72941ab8d9520cadc1b98bdcfd7e5d2ef14ca.camel@intel.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_001237_376248_A977991D 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,23 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Feb 2026 08:22:18 +0100, Chen-Yu Tsai <wenst@chromium.org> said:
-> mtk_pcie_parse_port() in the pcie-mediatek-gen driver has a bunch of
->
->     if (err) {
->     	dev_err(dev, "error message\n");
-> 	return err; # or goto
->     }
->
-> patterns.
->
-> Simplify these with dev_err_probe(). The system also gains proper
-> deferred probe messages that can be seen in
->
->     /sys/kernel/debug/devices_deferred
->
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
+On Tue, Feb 24, 2026 at 07:47:14PM +0000, Edgecombe, Rick P wrote:
+> On Tue, 2026-02-24 at 17:57 +0000, Catalin Marinas wrote:
+> > Replace part of the x86 alloc_shstk() content with a call to
+> > vm_mmap_shadow_stack().
+> 
+> I ran it through the selftest. It would be nice to have a bit more information
+> in the log, like that there is no functional change. Otherwise,
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Good point, I'll add this to the other arch patches as well.
+
+> Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+> Tested-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+
+Thanks.
+
+-- 
+Catalin
 
