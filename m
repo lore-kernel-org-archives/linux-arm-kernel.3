@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC7DFD375D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A72AFD375E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r/BIt0AkrHzZfy8VWEHWcN0h4Kur1kjxpemvkiH5QGE=; b=tuWmlremWcNlpfyh7v6d/vnJPO
-	VG6yNhyx7LXXJD8hWredBizAaRG0M8BwrE/ttohH6rvUO3gscfs9Fc/KH/tSi0ww65iKUSqi+/LRP
-	Yn5UfYY8G6QKWr/KY73QlqeCgmhjeRWFi05vS7wjtG+23PXzsbTVEWFIpzwyMi6I/CXGm5kVDGgAE
-	QO9b91vtTUvaeApq8yRrIbWlGGO0lFmQIruIHslcDZZ4E+E3dTARKhvB0i6Iu1pTVIbAOQ/AKZg56
-	UbLCu0Bm65X/W33L4EJIdauwqrVLNpy5WSEZLcoGXTDpDaXqOSQCtN6IiiiifBfH1RcJqPaeq0s/Q
-	VCL9LF2g==;
+	bh=9RsTWDf14QtNv3DKRjlmmqkSfCmRVGn4apdp3Oe3I5A=; b=e0gTSTtQT7xCHeAH3cdKFOnWS/
+	aZgC4KMLYfvC5KSgLhTRJLSFDHOkt4QrWS32tkj++arAh5Af2NZgb8F2BDgckjsIBS5XWfF/C6aJT
+	y20lBtVTqJmnQbSUfu++wJ0491TSuZBFSfbchik/oOXZGVQe1+mBmCZ/pS2iEHPuTlmDBukdIkQO7
+	hwO75IJZ6QDxtT88E3plMkNmtAGDchPF4SCiFWL6ey+0pgYLWgAOae0kgocNqDVd0mfTWnPAs5lJE
+	tOyEYUCGsbnAYysjIJI97a8GAKLQKS3G2ElHnsG7Ib4uOWVhKrmtADmegkF7OXvrHCByKVHUZb40J
+	NeJRlJEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvF10-000000046PD-2K5u;
-	Wed, 25 Feb 2026 13:33:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvF24-000000046nS-1LgO;
+	Wed, 25 Feb 2026 13:34:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvF0z-000000046OY-1pQF;
-	Wed, 25 Feb 2026 13:33:21 +0000
+	id 1vvF22-000000046mp-1Cxj;
+	Wed, 25 Feb 2026 13:34:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D67CD60054;
-	Wed, 25 Feb 2026 13:33:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A58BEC19421;
-	Wed, 25 Feb 2026 13:33:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DD242409BE;
+	Wed, 25 Feb 2026 13:34:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FA12C116D0;
+	Wed, 25 Feb 2026 13:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772026400;
-	bh=ZKEw1M2s7XFotvUcCDiETx2C3JnnIOtIpjsC1zCO9VI=;
+	s=k20201202; t=1772026465;
+	bh=I4BmllZon4wXTUwY4iaEDQa03sd3XDaHKo3rrTsYu58=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qJCkpZ0cc47LpObHi0ME+D+ssjzGR+srEweXb4I3/4hNUqYO3ivvqSYoLaTgWlu4Q
-	 SOOTLCCloxOVhAf3rKNOpaEZSDPQMp15xzjtNYjyA86ykO7vouTKUw04YJ80+rz7V/
-	 l0HYvmOpo1MCbQ9OpjnJ72iDP9+bvb6gcEQffzWvf2yLTEddhtC9VYnvvamRSAbbZR
-	 qcMFiI2SVb116plOcQo8ASLYucYpI6HsAabTgocn/PGVKVMmLuhxnrOavEEXvgkrs5
-	 l0zss6Li/KWG610eDCmUBAhLUe23uhKcKHt9pXIvA/54i0h0oAbFkB45RCMM8YUxqe
-	 mtBBUPx8BQeYQ==
-Message-ID: <5200f32b-6212-4ba0-ad6d-f8b30ae455e6@kernel.org>
-Date: Wed, 25 Feb 2026 14:33:14 +0100
+	b=M2raHCHFjbQuoKN+1JJ1ithXRJ/YlzK5Ob/8MKCToeVRYCT8YDXNPeJ8k2WgICu03
+	 ufOVHoUR3FIRjOIWBF23a1EvEvFuORCt3Una+Mv+xUf0677TKWEmhmiHcGp+ElYZyO
+	 xhessAvmAdb0RpW5u1m0cx9TKai5n7wDD0eUuoJwA2oCWdrQKTty1voqTXmUTf6rus
+	 UXX9Xuoxu3WAYvzPK+Dl4vRDykQBY07Yn83bTzUEAOUHb5kGuqwKKulSAzmZJi1ypa
+	 JUVvUUAz4mFtlHAgVyK9mkufEorz/9T0+UsBATDLdiz2GCFK9he3uaGkEXkf0gjV8H
+	 SLUaGvJQT+tsw==
+Message-ID: <01f4a679-bc4d-484b-a019-0e07fe520363@kernel.org>
+Date: Wed, 25 Feb 2026 14:33:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] riscv: shstk: Use the new common
- vm_mmap_shadow_stack() helper
+Subject: Re: [PATCH 4/5] x86: shstk: Use the new common vm_mmap_shadow_stack()
+ helper
 To: Catalin Marinas <catalin.marinas@arm.com>,
  Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>,
  Deepak Gupta <debug@rivosinc.com>,
@@ -59,7 +59,7 @@ Cc: Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-mm@kvack.org
 References: <20260224175800.2500729-1-catalin.marinas@arm.com>
- <20260224175800.2500729-4-catalin.marinas@arm.com>
+ <20260224175800.2500729-5-catalin.marinas@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -106,9 +106,13 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260224175800.2500729-4-catalin.marinas@arm.com>
+In-Reply-To: <20260224175800.2500729-5-catalin.marinas@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_053426_369768_E9FDB4AA 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,15 +128,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2/24/26 18:57, Catalin Marinas wrote:
-> Replace part of the allocate_shadow_stack() content with a call to
+> Replace part of the x86 alloc_shstk() content with a call to
 > vm_mmap_shadow_stack().
 > 
 > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Paul Walmsley <pjw@kernel.org>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Alexandre Ghiti <alex@ghiti.fr>
-> Cc: Deepak Gupta <debug@rivosinc.com>
+> Cc: Thomas Gleixner <tglx@kernel.org>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: H. Peter Anvin <hpa@zytor.com>
+> Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
 > ---
 
 Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
