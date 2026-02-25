@@ -4,112 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2121FD3758
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26BCDFD3758
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0joXdqCmpjckjOnaHr+/OVg5l+LX4VW8NWHw8AyruZ0=; b=b+ard6Yf56FvvAi4pmdzLZGdSH
-	iht0jDeGCjRRP6J79vpQH0rh0I88OYkQP0nblVQ3WoMgsw/DBrszam8kLnEtZJGeJoW7QgknnAoIb
-	wAIuRgCASFyTFpND46K8tHBjZiDSSzIrkX6gKoSwR03VGdmai8EyUiUeKugQhEpOoRIlAFBmyjkSw
-	jJ0sS+70ApDtmFoGp9sKD5Wnk93GwfZRSkI+aR/s96YtUTQXgoKDp13QZvVj9s9f3xYjV7ORo8kTN
-	1Zg6h0oGyKUTsXh/eoh4LPx4AnB4zGuj+kowWPEVEhebbY/V8RtN/uOxnfOO5SYSNAqiXMEPIOolR
-	uUrPGl7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T70ySPmQ1GqRu+gzswXj2+yT3BqSZsUEEsLuHeI35co=; b=IsbZj6ReHTyyGhlvXnyM2KqPbC
+	fqasTTyuOvH9X47w3awizS+b0Gf9cjbgEtpnc1Yt/M3QgflohFuc3zY25XhD5pdDmOZjqouRn++ZE
+	zZjWsnkvYD20xi4cIoPhI1Qz7fKzVQ6fdQG8M8pU1uKoH4rE/mWQ7bVR1v8+dcNAiSWoqHF2SDzoi
+	P1l51yT1L9eH2Zbcyb3LrHvQOC5qvujbWu4SxknZX+o3gv9hgSqEHRaWdKMI+8Fg0Ma3ZPnuEK7t6
+	abfKEsVrXfR5bMUQxqlKNPcmozFj/aOPoRZd2lAxuDDWkDmA9TQ/9tmzpjpLhss+glleVhmgDBo8X
+	NVSSDGMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvEJS-000000041YS-1ymE;
-	Wed, 25 Feb 2026 12:48:22 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1vvENA-000000041mA-0Ort;
+	Wed, 25 Feb 2026 12:52:12 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvEJQ-000000041Y0-1CGZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 12:48:21 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c70bfef17a4so2283742a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 04:48:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772023699; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Yv9aW7OkAwOeBe0uPitsI0jsj88C/CSoya2vah68OtHqtUFhgEQRw87Bx2xM/Ajfjm
-         a0E8QWod3Zmiic424tVL5occTeXfnemihBV/5IfSAdlGZaJYXM+gVFauiTs4Qk7ci5RG
-         YYtqU2wjraMxwiIN3047CquyTwrxOgWE11koLeqC5cmJFB5XFCRVJW8Yxm5TA0g8SH6J
-         513qydkF3s9911XoEAHoZsZxwCXYZ3VzJkiQTVSHKIj3m3752REKVMt941toE5n/amL2
-         nLfj2uKbpw9459mfn9GPl4tiSQF2GXsQlFyxI2GNQRtoIUkcArbnqq5i6APQudI9lxT/
-         SvlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=0joXdqCmpjckjOnaHr+/OVg5l+LX4VW8NWHw8AyruZ0=;
-        fh=4LtQbphNM04igEdWGeouw2xgwzjq2Wu4xA+jJ7gKveE=;
-        b=e0RbqHUCsC4LU/Bc5c79aC0bhhHlIHvDNs13UQ3J0XCxt422zTBVLBSQjJNhJua9lQ
-         i2lwCKr5x2eJJH9DvAwz6ZY2eSNb4FIchluHNj4pcWjX/lChXZ5jsqn8nnjCfxiT9qui
-         se6ZPBAlXpOt6Bp8Wg9KkT1f2jh6XrkHntk6Cv6o00MHf8VzSs/eYK2L/i2VU94y8h+M
-         +CzztgWlh5DFk2xFoXFBvKt6Cwtx6NebcMC+5wveXUk0BzsuTA16Vx8qT+1KATbZR7YY
-         KrCEyH8ZD1o22rLI1OdOTYpWOUicnMuuoZLGwZWDF9P1RTMHw/BdtwVSA7ZG3Nq8ZI4Z
-         s88Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772023699; x=1772628499; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0joXdqCmpjckjOnaHr+/OVg5l+LX4VW8NWHw8AyruZ0=;
-        b=afGXX2MeiW5m5Fh99z3DJZlXiJTGq0ZB8h0EvYklv4QOMnQPTxz4NGvvVUoP2z7won
-         Tt6RBBVFK3q5Z9r4kjBxhwrPKea1PTc3vYLJVssI75fGNFSlErVlcmia4nOzi8WZ5mjb
-         zXaRcC9kOcCsG1h4t92oiVzkGckRse/dP51upY3NEjblNXA/IaI0YkBO1wi6+xGmqFsh
-         9mRZGp3LlB20CypX2fJoS1rNiSOeAC51o+zAmPc+IsOXx2IaacW8wB0reFCet2W8gHr/
-         KXqRaVt2I48n0h9EI2gfRzTchcJIsyp4I1kv66TZbMG/NhVBuETFclW+KWLx4fkpZzzO
-         5iUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772023699; x=1772628499;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0joXdqCmpjckjOnaHr+/OVg5l+LX4VW8NWHw8AyruZ0=;
-        b=rkL2EOoyujcEmJ7wFsjhKgBl21KG9WOd/YPSvmWAfmajAssOaqTanhvvpRvDg/NZUY
-         0ZuVMq04/GuI2Gnc/DDN9Yaa24FpWjp9cYxv+6Ww/UBJBPUtG67K/dujrFMpKqb20EGX
-         Tzk8Qyvua8l2dI/BgC83fpjkZPvAlpvARsCLf2bGRVHIoBsXdR/JaZM/EQs4gmdAKO5X
-         hYC98yhlAbuTWVC0o3w2liz4ccfT1qqpAUCjYkRTIR3go1fP7jBkCtOUfKQtu5qVUCeG
-         H5ELex6dxR+fVG12hDHLQvQMsEeEFuNbdAW1mdge/OWHNOGELuEOX2njxMLB1TYwGDoY
-         rlEw==
-X-Forwarded-Encrypted: i=1; AJvYcCWXdrBRxFRckq0q4Xom8O7eJ7nieux+siRSegIA7bQfMQdSB4LVwvT7EkXJGF0MXiYzJdIMv9wUIWFGT8OhuTP6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy3EPRj005W/5JGHLy9FnrQ9H9YtU1NaG2K2Pc2E00QdHjrYdv
-	wkStbuNSw+xQeg3pBiviL4Ya/aofFP7YsfVi0Xtdf32H2gWxBL8IPAImivVAenhm4X6cfEq09HO
-	h+Bzz/vp8zjjYLwTTEX1CvJgH7lL2N5c=
-X-Gm-Gg: ATEYQzyBHAkDuds2Q32eXjEwbMKFKK9NGhBmI0o+EaRzlspYFHZ82OAXdLoONYnTRak
-	wgbpPF7j2n2YvHQJTzxbZSBngNwCr6xkH95Fjqngapd70PwGtpCvTd8Ubl53g5FgnTz0YEcVuZU
-	INMG8adFU5PerZyG4TtobN7u2tRdW0MVemVvhTICJpAqmGGvLgZ+QwnaxODKgbFqFSNEtMV9gLF
-	I9kIz5WfsQLR+1VbpJsfi7UDo9qsO5vMImLZSTEBlElq5poAUxMOSjCE9MwYY0WEcrOxxlOr0VP
-	SuLIqTkPZs/1uCKqHg==
-X-Received: by 2002:a17:90b:4a4b:b0:354:c602:a573 with SMTP id
- 98e67ed59e1d1-35928bc4ed5mr108304a91.27.1772023699139; Wed, 25 Feb 2026
- 04:48:19 -0800 (PST)
+	id 1vvEN7-000000041lI-0sk0;
+	Wed, 25 Feb 2026 12:52:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772023918; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ICTEfHhyDwLJkhsdDnqW0m6pUOTdJbtZU+i7vtiytvbTDJZv5wHNiLsHIP9QegFSAI1ghfZVLZOplV1gbia6JuQe8RmfFiG69QBoa14HfclhBdamUFMc2BucV25iR8ZRHDMz3mkC+iCPTsXEFmEJjsVMZrkLLok0AZe9Yf0lkLA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772023918; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=T70ySPmQ1GqRu+gzswXj2+yT3BqSZsUEEsLuHeI35co=; 
+	b=QHK/4er+tLCtdBvg1RAIKIHElknd71Syfrn0VLgKCF4JurPSJa3MK3aNPOkwa+oUNOgfcllqhHG0L889/m0zoxNbJGYht22ffNrLLbEZRRd26KCII8SiZ3DzFdZD9bLcs51Yf/bWtFUWsvuHGKjfnTLq20XJhJkaUPgfWqBxNJw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772023917;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=T70ySPmQ1GqRu+gzswXj2+yT3BqSZsUEEsLuHeI35co=;
+	b=Z7mEQDq9HC4wHL2/KtkISM6JrMa8Ymly1nhRZFgYFA6bLp+TR1/JhcV/4yorEipU
+	9UpkbXY7tYpq0mRVXesynsKp0CU5ycg6NSuRBuJcMgNO106uILhZVZ3Vt/W3SipYe25
+	L0fI3wr0n+YkIDSfSdbwDI154gEHdXaU+MsSWI1I=
+Received: by mx.zohomail.com with SMTPS id 1772023915403681.8519199142135;
+	Wed, 25 Feb 2026 04:51:55 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ Chunfeng Yun =?UTF-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>,
+ "kishon@kernel.org" <kishon@kernel.org>,
+ "James.Bottomley@HansenPartnership.com"
+ <James.Bottomley@hansenpartnership.com>,
+ "bvanassche@acm.org" <bvanassche@acm.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ Chaotian Jing =?UTF-8?B?KOS6leacneWkqSk=?= <Chaotian.Jing@mediatek.com>,
+ "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+ "vkoul@kernel.org" <vkoul@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "avri.altman@wdc.com" <avri.altman@wdc.com>,
+ "martin.petersen@oracle.com" <martin.petersen@oracle.com>,
+ "broonie@kernel.org" <broonie@kernel.org>,
+ Peter Wang =?UTF-8?B?KOeOi+S/oeWPiyk=?= <peter.wang@mediatek.com>
+Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ "kernel@collabora.com" <kernel@collabora.com>
+Subject: Re: [PATCH v7 14/23] scsi: ufs: mediatek: Remove mediatek,ufs-broken-rtc
+ property
+Date: Wed, 25 Feb 2026 13:51:47 +0100
+Message-ID: <3140774.mvXUDI8C0e@workhorse>
+In-Reply-To: <ee2e18e1a6177c40c5a4b3ed0ff228b9302429b7.camel@mediatek.com>
+References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
+ <20260216-mt8196-ufs-v7-14-b5f2907c6da7@collabora.com>
+ <ee2e18e1a6177c40c5a4b3ed0ff228b9302429b7.camel@mediatek.com>
 MIME-Version: 1.0
-References: <20260224094527.169215-1-shengjiu.wang@nxp.com>
- <20260224094527.169215-3-shengjiu.wang@nxp.com> <409f6214-7ffd-4076-a658-f4005adbe101@kernel.org>
-In-Reply-To: <409f6214-7ffd-4076-a658-f4005adbe101@kernel.org>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Wed, 25 Feb 2026 20:48:06 +0800
-X-Gm-Features: AaiRm53oiJrh-4UikRVcBaU7QuDhh_o55M-8VgnZYHqUuq2eisQEPvQ0Y1s59EE
-Message-ID: <CAA+D8APngdt0vx6MJ7Knj_-0Ngr=1czTeDZruhqA6c7zRSfeDQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: add support for NXP i.MX8MP audio board
- (version 2)
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, shawnguo@kernel.org, daniel.baluta@nxp.com, 
-	dario.binacchi@amarulasolutions.com, alexander.stein@ew.tq-group.com, 
-	Markus.Niebel@tq-group.com, matthias.schiffer@tq-group.com, y.moog@phytec.de, 
-	josua@solid-run.com, francesco.dolcini@toradex.com, primoz.fiser@norik.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_044820_331226_FF8B6A47 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260225_045209_298404_A7540729 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,36 +105,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 6:39=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 24/02/2026 10:45, Shengjiu Wang wrote:
-> > +
-> > +&ecspi2 {
-> > +     #address-cells =3D <1>;
-> > +     #size-cells =3D <0>;
-> > +     cs-gpios =3D <&gpio5 13 GPIO_ACTIVE_LOW>;
-> > +     pinctrl-0 =3D <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
-> > +     pinctrl-names =3D "default";
-> > +     status =3D "okay";
-> > +
-> > +     spidev1: spi@0 {
-> > +             compatible =3D "rohm,dh2228fv";
->
-> NAK
->
-> You don't have there. Stop faking up hardware. NXP received this comment
-> multiple times already.
+On Tuesday, 24 February 2026 13:43:10 Central European Standard Time Peter =
+Wang (=E7=8E=8B=E4=BF=A1=E5=8F=8B) wrote:
+> On Mon, 2026-02-16 at 14:37 +0100, Nicolas Frattaroli wrote:
+> > diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-
+> > mediatek.c
+> > index 230e11533eac..424533538b90 100644
+> > --- a/drivers/ufs/host/ufs-mediatek.c
+> > +++ b/drivers/ufs/host/ufs-mediatek.c
+> > @@ -655,9 +655,6 @@ static void ufs_mtk_init_host_caps(struct ufs_hba
+> > *hba)
+> >  	if (of_property_read_bool(np, "mediatek,ufs-rtff-mtcmos"))
+> >  		host->caps |=3D UFS_MTK_CAP_RTFF_MTCMOS;
+> > =20
+> > -	if (of_property_read_bool(np, "mediatek,ufs-broken-rtc"))
+> > -		host->caps |=3D UFS_MTK_CAP_MCQ_BROKEN_RTC;
+> > -
+> >  	dev_info(hba->dev, "caps: 0x%x", host->caps);
+> >  }
+> > =20
+> > @@ -1185,8 +1182,6 @@ static int ufs_mtk_init(struct ufs_hba *hba)
+> >  	hba->quirks |=3D UFSHCI_QUIRK_SKIP_MANUAL_WB_FLUSH_CTRL;
+> > =20
+> >  	hba->quirks |=3D UFSHCD_QUIRK_MCQ_BROKEN_INTR;
+> > -	if (host->caps & UFS_MTK_CAP_MCQ_BROKEN_RTC)
+> > -		hba->quirks |=3D UFSHCD_QUIRK_MCQ_BROKEN_RTC;
+> > =20
+>=20
+> Maybe check the hardware version (host->ip_ver)=20
+> and set UFSHCD_QUIRK_MCQ_BROKEN_RTC instead of removing it?
 
-Sorry,  didn't notice this was a fake device before and didn't check
-the history in
-community.
-Thanks for pointing it out.  I will remove this node.
+I do not have access to a complete list of hardware IP versions
+that need this quirk applied. No upstream DTs seem to use it.
 
-Best regards
-Shengjiu Wang
->
-> Best regards,
-> Krzysztof
->
+If MediaTek wants the quirk back, you can submit a patch to apply
+it based on the ip_ver once this series has landed, as you have all
+the necessary information.
+
+>=20
+> Thanks
+> Peter
+>=20
+
+
+
+
 
