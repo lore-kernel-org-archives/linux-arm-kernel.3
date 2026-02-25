@@ -4,112 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0383EFB7F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 06:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFD8EFB7F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 06:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=74IdwuXc21OGgUiiss6XTtfN5U3py4VIK4AnmFhKGeQ=; b=ptJ2aY5yMv7eoNJYntxuHNKc94
-	nucOeL6B/+UYYblDr4qK2sQBtP13eGDLTwSGyCa0qjf0UVwfs3XWmPtW10vKhEBtm2mo0It3cUjcQ
-	uSsv8mIQlw3sjyknyyPO4adIAUjG/WeHfZmg5G37GKjgheTkzuFEJTKEpRnCDo0MroswXhv9msVak
-	TAhDwi6iN+Hlr4VxAqlS/QI2dkzBmYOhbLiQRFOe7afoAkYJEzt3RRCnvrRuUE6dlY/Zok+A+tPD+
-	81DmZ+TP7j7bYzaQWY/N2aHHNCj1xpc+7a81qkJBjgstz73kM0BCN6SRS1CQ7/u2fHJUpyBiNRm8N
-	KSzfJrzQ==;
+	bh=PSd0bIge3du5q4k1ITIqdipNWSaUEDd+YaQHudv3Gec=; b=ENI1Y5w59eZrAzs0tuz1+Ym+Zj
+	AB42UjDEJuBYd9+7RA8ND09fk1/FnuBJBSchIDViRQvhOzdNZ0v/qIdKe3Fs9gPrOiBOWX/zXg6zJ
+	LVzxK+XnxrBckf7gnufyIFVHzAeaJw/uPVWonBvI3bIMFtJviNs5q+GaRWJNN2n463bG+7g1Xsisn
+	tZ6XiXoPsPesBzCjrVUyz+3xd3EWdPds0Dzar2tUd1Qzj7fwntOJxLgpy6fixyGoFhu0hvcY4G1Wh
+	EnZ2TXqx1niPTg8zLyP/QqU6YgUASFJZsMocJR/ghcla+G4+HuBs5pi/XdLNbDqsHtQdITbjhbl/S
+	bo+YYHSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv8M8-00000003KUy-2Gaa;
-	Wed, 25 Feb 2026 06:26:44 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vv8YM-00000003Lru-1CTB;
+	Wed, 25 Feb 2026 06:39:22 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv8M6-00000003KSj-2KRR
+	id 1vv8YI-00000003LrM-2Stq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 06:26:43 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2add623cb27so2321435ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Feb 2026 22:26:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772000801; cv=none;
-        d=google.com; s=arc-20240605;
-        b=boZrXzQ+mC69HfduoGFMeRi16XlJdmfoz1USXpEkTMgDKtQAfTZWTE80YusYT5RqGe
-         uEjKNqNO1Elo70EkyK28aSj2GQInB8hBlt0WqmQ9r039CsTazXxT4rffAnVJcPv2vX2c
-         T6GPNPMvbvCMSrA9X8WiocM5u8wLR72/s3vdjp40dJd3ouZidwczt/Nx2ooveIpHaSsD
-         IKcuSpg362D1jai2sVqSNrJgUzzGohHtjxK9Tq8d3e1WPfFY6braoV3HKo6WC1bGHWqt
-         rUDeb+DLnpkBT+ue3i2pAiBNW+m9Kt42kWkpRZVQNvHimzT/YEXV/Lfui2Yycm78etNA
-         5NKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=74IdwuXc21OGgUiiss6XTtfN5U3py4VIK4AnmFhKGeQ=;
-        fh=EB519t+viwsf27ByD8q0U1CZHQNdZdQUtYTV3s+7Kno=;
-        b=WPUKWTtuoCRMiXfnEvwXcrPTdsyMKEnFrfCw4rDTkVgnfqz06pcTQup//o+LAOtpln
-         5SxGSqBnCx09w+1HOiePtwNH/vHx5PTLKbtiBeERxytXIM8BjRvb+ICWCLijsGNqszwI
-         LKIKXmU0l5neAQrN5Ry7HnSujCm6CC+E8E63JYwt/dG4BJ/guv4himGLgDa9cRcwRjh6
-         w9mwI7CLNO6Uv2NP+x2vbyE414dGnkSSK4Tq0NsBWaqYc4/D3zZmPGnPCdIlXKL91817
-         SRIf+bIDbgtrAsui9BqRhNdvG2QST+PxqSCtXeJcorZuKBD3dV3T4bPh3i8y4n1w7kjo
-         NEDA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772000801; x=1772605601; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=74IdwuXc21OGgUiiss6XTtfN5U3py4VIK4AnmFhKGeQ=;
-        b=YjMfp9bQ2t0/hfP5k4lJ4OSOiVR8UQx/PvRyLsaaGvTQIWXtckdpF113fwRQDF2IRP
-         hawtg5uALsbjtiQUW0kBXKK0QGO3Jb6wz3kiiORo4Y8cX2j8uhx/ArglGWsgFwv6MjgG
-         81TJpyhSe7AgGN39k03Yi7I3sOLGuiyrOkalt3UOczjt5ii34/QskOKyZrXzPvz7Gouo
-         bH22gHRYudJoSPr9gqiwwnOaPiHyZLhbxVNK8v1WesK15M3ncY9tl4w1hEYY5R0yEE90
-         Kg+k841yvC+6vulompObiulCO1YLuaV1kaPOzB+B7dz8gCOtzTxDxZnWmu8rr3aWy4bY
-         OqJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772000801; x=1772605601;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=74IdwuXc21OGgUiiss6XTtfN5U3py4VIK4AnmFhKGeQ=;
-        b=e0McQkCS5HYUSbXeus/hNqN7nRJp8UBhn1rrw3h0JYD9XRkO3UAIE88SJqU2Jc495y
-         4fXX9IS8TIppjQ+IKknNuKuuq1BCjUq79xgyqlaERVw1eRCZmpg8AAe9rKhndXZEE9Q9
-         7XeF+xxlfA3tdkllW3lgLczuU5+cidEpULAF6vkqvhMS8uvqeYYBEFkWuPq2BHTNdTOs
-         vvLNlVv4MmOLC4rXiGRxreiPBVNM8+9R4dIgIi92aqsyBzF9K/djeaHcaD7NQurBN7jN
-         OquDVL1byPX76gqoWZXjjQVrUkXXhXneJIultjp1aV5IVR5og1ohX5qk/37zuGC05T2g
-         lVhg==
-X-Forwarded-Encrypted: i=1; AJvYcCVcyyKZpsAvBa9T6LjxCoLiH9lZPaQ3iQ8AhCAb1I1a/yhEXceRa6gOWncG31v+t5aHRTULWCrcVy3Chj8rorx6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmKbbsV86YiVCRWsYnQbsxSJhQalC3X7TWKlU0XlH5/IKz7x2m
-	UMROBoxPvlZ9inT9VdDIhaWzT0PLxQebG0jQkiVzS2OqVfXiPuuJ0UD34r5d3+4+Ja0JqJQ0PZC
-	k0J+JkdWrtR1om75xhs3h43bUAbRzTPU=
-X-Gm-Gg: ATEYQzx4JuaicwHVmtozsxbMWTJutHtBYNuINo266BLXfpVWW55n/FpFrkZ4nfJl4g/
-	NVwHnMW2AkweHhvoy+pGy8TaRSPXusurHhMoeeMccrneS/ReP1wl9BXVHtX5OuN7duaOrrHjWZ6
-	aACNZqK0m0RXYBYvPYMSz45ThEf0zJmUbbmbae3sJvMuHxrdwQwqW9PjGCOe0Y3IicTsjKUBQDF
-	fhO6AWe/JpJn2JI4NEEVZlaHTlnBAO+sRH3HN0P5i0pEgMZ6IdgBetHpA1n4aOvPK2xL1Pk1drX
-	Wcv28fw=
-X-Received: by 2002:a17:902:e746:b0:2ad:ae4e:bb6a with SMTP id
- d9443c01a7336-2adae4ebd03mr38828325ad.24.1772000801097; Tue, 24 Feb 2026
- 22:26:41 -0800 (PST)
+	Wed, 25 Feb 2026 06:39:20 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=PSd0bIge3du5q4k1ITIqdipNWSaUEDd+YaQHudv3Gec=;
+	b=DPQL/IurM9+EUBSco39+DIWp20D9Za9zlHjxpKr6vQ6m/YmUSSm3K3pANqIS5kAfvdQlyM1tr
+	CtLgq3AQ9BxuDrp3dFCWh5saGf4UyDXbH/XAY6017jBToLb7V5LirPd7WdZ5T48woRwPK33S+nz
+	DU3+s6Nc+SwTDd339Lj25Kk=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4fLPvH4xvrz1K97v;
+	Wed, 25 Feb 2026 14:34:19 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 234A1402AB;
+	Wed, 25 Feb 2026 14:39:04 +0800 (CST)
+Received: from [10.174.179.37] (10.174.179.37) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Wed, 25 Feb 2026 14:39:02 +0800
+Message-ID: <7cb6092c-c4b2-46e6-9b32-ef82b694f9b0@huawei.com>
+Date: Wed, 25 Feb 2026 14:39:01 +0800
 MIME-Version: 1.0
-References: <20260224094527.169215-1-shengjiu.wang@nxp.com>
- <20260224094527.169215-3-shengjiu.wang@nxp.com> <CAOMZO5DW5Yo3A3kPOe+NdQNwTATzzWguCGBDyK2UFjCrHtwFeg@mail.gmail.com>
-In-Reply-To: <CAOMZO5DW5Yo3A3kPOe+NdQNwTATzzWguCGBDyK2UFjCrHtwFeg@mail.gmail.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Wed, 25 Feb 2026 14:26:29 +0800
-X-Gm-Features: AaiRm53sttei49Mx1DQyMYFyac4_nAUg2Jcjs65LfbJ3vj7sOi1Zd0RL6CnHQbk
-Message-ID: <CAA+D8AMRdCu0h=ctdwYdavGquSe5+XGXyHY3JPSmznhAsX1S=w@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: add support for NXP i.MX8MP audio board
- (version 2)
-To: Fabio Estevam <festevam@gmail.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, shawnguo@kernel.org, daniel.baluta@nxp.com, 
-	dario.binacchi@amarulasolutions.com, alexander.stein@ew.tq-group.com, 
-	Markus.Niebel@tq-group.com, matthias.schiffer@tq-group.com, y.moog@phytec.de, 
-	josua@solid-run.com, francesco.dolcini@toradex.com, primoz.fiser@norik.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v4 18/41] arm_mpam: resctrl: Implement helpers to update
+ configuration
+Content-Language: en-US
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
+	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20260203214342.584712-1-ben.horgan@arm.com>
+ <20260203214342.584712-19-ben.horgan@arm.com>
+ <d7de359e-9bf3-e41d-b00d-985ca7263ad8@huawei.com>
+ <a5bc5d67-4dab-4699-8a11-5a92ca334159@arm.com>
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <a5bc5d67-4dab-4699-8a11-5a92ca334159@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.179.37]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_222642_652634_B45A88C1 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20260224_223919_251844_4B78C46E 
+X-CRM114-Status: GOOD (  33.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,30 +95,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 6:27=E2=80=AFPM Fabio Estevam <festevam@gmail.com> =
-wrote:
->
-> On Tue, Feb 24, 2026 at 6:44=E2=80=AFAM Shengjiu Wang <shengjiu.wang@nxp.=
-com> wrote:
->
-> > +&ecspi2 {
-> > +       #address-cells =3D <1>;
-> > +       #size-cells =3D <0>;
-> > +       cs-gpios =3D <&gpio5 13 GPIO_ACTIVE_LOW>;
-> > +       pinctrl-0 =3D <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
-> > +       pinctrl-names =3D "default";
-> > +       status =3D "okay";
-> > +
-> > +       spidev1: spi@0 {
-> > +               compatible =3D "rohm,dh2228fv";
->
-> I bet you don't have such a device populated on this board.
+Hi Ben,
 
-Yes, you are right,  it is used internally for test purposes.
-I will remove it.
+On 2026/2/16 22:23, Ben Horgan wrote:
+> Hi Zeng,
+> 
+> On 2/14/26 10:39, Zeng Heng wrote:
+>> Hi Ben,
+>>
+>> On 2026/2/4 5:43, Ben Horgan wrote:
+>>> From: James Morse <james.morse@arm.com>
+>>>
+>>> resctrl has two helpers for updating the configuration.
+>>> resctrl_arch_update_one() updates a single value, and is used by the
+>>> software-controller to apply feedback to the bandwidth controls, it
+>>> has to
+>>> be called on one of the CPUs in the resctrl:domain.
+>>>
+>>> resctrl_arch_update_domains() copies multiple staged configurations,
+>>> it can
+>>> be called from anywhere.
+>>>
+>>> Both helpers should update any changes to the underlying hardware.
+>>>
+>>> Implement resctrl_arch_update_domains() to use
+>>> resctrl_arch_update_one(). Neither need to be called on a specific CPU as
+>>> the mpam driver will send IPIs as needed.
+>>>
+>>> Tested-by: Gavin Shan <gshan@redhat.com>
+>>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>>> Tested-by: Peter Newman <peternewman@google.com>
+>>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>>> Signed-off-by: James Morse <james.morse@arm.com>
+>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>>> ---
+>>> Changes since rfc:
+>>> list_for_each_entry -> list_for_each_entry_rcu
+>>> return 0
+>>> Restrict scope of local variables
+>>>
+>>> Changes since v2:
+>>> whitespace fix
+>>> ---
+>>>    drivers/resctrl/mpam_resctrl.c | 70 ++++++++++++++++++++++++++++++++++
+>>>    1 file changed, 70 insertions(+)
+>>>
+>>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/
+>>> mpam_resctrl.c
+>>> index ecf00386edca..48d047510089 100644
+>>> --- a/drivers/resctrl/mpam_resctrl.c
+>>> +++ b/drivers/resctrl/mpam_resctrl.c
+>>> @@ -212,6 +212,76 @@ u32 resctrl_arch_get_config(struct rdt_resource
+>>> *r, struct rdt_ctrl_domain *d,
+>>>        }
+>>>    }
+>>>    +int resctrl_arch_update_one(struct rdt_resource *r, struct
+>>> rdt_ctrl_domain *d,
+>>> +                u32 closid, enum resctrl_conf_type t, u32 cfg_val)
+>>> +{
+>>> +    u32 partid;
+>>> +    struct mpam_config cfg;
+>>> +    struct mpam_props *cprops;
+>>> +    struct mpam_resctrl_res *res;
+>>> +    struct mpam_resctrl_dom *dom;
+>>> +
+>>> +    lockdep_assert_cpus_held();
+>>> +    lockdep_assert_irqs_enabled();
+>>> +
+>>> +    /*
+>>> +     * No need to check the CPU as mpam_apply_config() doesn't care, and
+>>> +     * resctrl_arch_update_domains() relies on this.
+>>> +     */
+>>> +    res = container_of(r, struct mpam_resctrl_res, resctrl_res);
+>>> +    dom = container_of(d, struct mpam_resctrl_dom, resctrl_ctrl_dom);
+>>> +    cprops = &res->class->props;
+>>> +
+>>> +    partid = resctrl_get_config_index(closid, t);
+>>
+>>
+>> As a victim, I must admit I cannot verify this feedback on my local
+>> Kunpeng environment since MB functionality is not yet supported by the
+>> driver. However, after careful consideration, I believe this is worth
+>> bringing up for discussion.
+> 
+> Thank you for thinking and finding problems beyond your platform.
+> 
+>>
+>> Regarding the MB configuration flow, the partid conversion should
+>> include the mpam_resctrl_hide_cdp() condition check. Here's the
+>> rationale:
+>>
+>> After resctrl parsing schemata update, MB configuration is set via
+>> parse_bw() or rdtgroup_init_mba(), which stores the updated
+>> configuration in dom->staged_config[CDP_NONE]. If the MB configuration
+>> update directly uses t = CDP_NONE, it would result in MB obtaining the
+>> wrong partid and cfg[partid].
+>>
+>> The specific fix would be like:
+>>
+>> -       partid = resctrl_get_config_index(closid, t);
+>> +       if (mpam_resctrl_hide_cdp(r->rid))
+>> +        /* The configuration of CDP_DATA is same as the CDP_CODE one. */
+>> +               partid = resctrl_get_config_index(closid, CDP_DATA);
+>> +       else
+>> +               partid = resctrl_get_config_index(closid, t);
+> 
+> The CDP emulation support is added later in the series in patch 20, Add
+> CDP emulation. However, I think you have spotted an actual problem. With
+> hidden CDP the cfg is first found with
+> 
+> resctrl_get_config_index(closid, t) when CDP_NONE
+> but then the setting does use CDP_CODE and CDP_DATA.
+> 
+> CDP in general is proving to be quite tricky.
+> 
+>>
+>> Similarly, in resctrl_arch_get_config() requires the same treatment to
+>> ensure consistency.
+> 
+> I don't see the problem here but maybe I'm missing something?
+> 
+> Isn't this handled by:
+> 
+> 	/*
+> 	 * When CDP is enabled, but the resource doesn't support it,
+> 	 * the control is cloned across both partids.
+> 	 * Pick one at random to read:
+> 	 */
+> 	if (mpam_resctrl_hide_cdp(r->rid))
+> 		type = CDP_DATA;
+> 
+> I think we could do similar in resctrl_arch_update_one()
+> 
+>>
+>>
 
-Best regards
-Shengjiu Wang
 
->
+Yes, I noticed that handling has already been added to
+resctrl_arch_get_config(), and I have updated the comments on v5
+accordingly.
+
+
+Thanks,
+Zeng Heng
 
