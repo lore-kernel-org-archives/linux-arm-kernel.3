@@ -4,53 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C7BF4BB93
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4464CEFD23D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UMcjtXB4yyJeSnMWmAawDm7gIDm9nMteZfI3gAGuiiw=; b=izC7+USrsRIM+Atjk4Hvaag1pg
-	SD505EomL6hznqUp4jGAw7Lig7hqsOEQDtY3X6pKfAp74qaN8JoNukphaAcTLQdLnv1O5plIl8MCT
-	2B9VJ6tGdT6h5WB4m6evkzGv+tTrPJPY7FMLSua1JcIuuIGd6fEZfGZxjKUFbIDp0pZxeAYGp8lKs
-	iZ/Wdlhi+K0buIpkumT4yApVmd4NGGsi6ci0/H4+vmqClBlKoD65N7JoXRbf0Sk245sNMyldPRQjH
-	I6zVSDWIigeXe0SlvfKZRlEls8IFO3ei+KHFH4sU6KlXqiKYOxKgxKFcQYtRnXJ+AdKOM77LCrIWj
-	bmD6je7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BSFeRBUD7PcA3K+Iwm8l1Nm8cfeKRY0ypbJpWtaU3F0=; b=ZsfBFUWnjdLsgx2Y+E8JjtwO+P
+	ulXoSabD0i9bTkDnN0GBkWncgiibhYt9sBvvzesWoXLNCot6CwEC9WBtwcP5JwPkl+7/HbqOh9uGo
+	Q9i9zDtpU4oDDGOJta2Ss6myJz5yp294kfgat3TcE0GCAMYlgbvzgHQUIQqvpBEDcVh3jwZG6Wvxw
+	FWoD7YExdw0Iz8fNSV1aOnqgwSIK8hQhFhuywrIkHypSeN169Jx92u2nW7mCU1dGnibPD9btqsXrK
+	cyy7TGOnPq/ftSwKgyT4/5F4MeqEPrzbWyfHGxD2KVU9da5H+JA3dRN/hzEf3k/054GJAtV1t5dNI
+	Cl+sIV4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCF7-00000003nnz-0JQF;
-	Wed, 25 Feb 2026 10:35:45 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vvCFX-00000003nuK-3tZq;
+	Wed, 25 Feb 2026 10:36:11 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCF4-00000003nmC-43n0;
-	Wed, 25 Feb 2026 10:35:44 +0000
-Received: from thinkpad.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A2C62E47;
-	Wed, 25 Feb 2026 11:34:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1772015677;
-	bh=hb+mpvmmToFRkdvmVoWvD1xELlIkq++a/igkCkZJ9Ro=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=aX/17CgY4joVLDvgjjJ5YXF+cQlxeL3kTLkK/yJX17BwyxYvJTr454m+HOspTjnYX
-	 AXeHJ+kSKWufBQI5IZxl17A0HsHjl+w8h29UXtRSt1LeCndIPhpO1qA2GLVahsB7II
-	 bJ4KQ7W3eY7Pw6L27zs5YLXh+cXT8JWYKaT/8aU4=
+	id 1vvCFU-00000003nsh-0wHT;
+	Wed, 25 Feb 2026 10:36:09 +0000
+X-UUID: c7f64576123511f1a16f0188aa809bee-20260225
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=BSFeRBUD7PcA3K+Iwm8l1Nm8cfeKRY0ypbJpWtaU3F0=;
+	b=XKNo7FlkeDsqGYtJ4806LHRJ4ViJ2nvlTm06TPPjPspkvnWDbTGSe0W4/qnP5btYWt0Xrf6f2egwU7rP7wnBSnDGBOWcGpny2nsI5jPh46knDUMTgcq0GnWyF8Cln+BsOnFEhcGnWtHzgNzlsQ5zeVmjOpN02YA2i5YiRXG5cqo=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:aefb98d7-eb1c-4db8-920d-f314be08bf37,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:5910fff0-16bd-4243-b4ca-b08ca08ab1d8,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c7f64576123511f1a16f0188aa809bee-20260225
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2145000177; Wed, 25 Feb 2026 03:36:02 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 25 Feb 2026 18:35:59 +0800
+Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 25 Feb 2026 18:35:59 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LxT1zhgx+v8qAEZcGp2pgcWk5kIXTAziNZlP2w7VA+xZKsR7j2MiNvmknakRBCAe2aOg5e+HTorOJgGT6ak+IRQ/lwZKq2nQFcbTOgdxeSTpINAGLjdB2mLj82Rjsck6K52m4qdvu5+pvgQyR6S/c+5xS5+WKh2dkI+vmhnbVTIKgjyIOn3qViu9H+xn1UgKkI29NoMmZ4UWI745zt/KScBAusXfzCQPiehE2Ay/vphH0rKps9ZwKnpgOgYAlmMIw2M8RSZT8RnbAC58t/pGHpF/yo+Q3tqyQCTT7lRenrSkn9jEa81YWC6AS+ehZZUH9bFK7yzEunpnrzUi5JzoNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BSFeRBUD7PcA3K+Iwm8l1Nm8cfeKRY0ypbJpWtaU3F0=;
+ b=MHI7oMu97r9TVQujRRUfoVFENaot/egvP4nAWav9smUtkR03JJUBRpBHJ4PplDgCqUW2e65oKv5hWz7LbbwjGYunxpVqRoUB19jGs7Xs/kB86hZt+KUQZvIu7eqL2HNT5kZNwfEjmdsVYo5yswxjXuS9uOtha+gO5lj+kH6cuEyKOwQ7ZJP++g2wRmaAZJzVnJQDwCwxMLz4lIAahG5bP5CykGpCFszOJjsYBTn70jOCgE8yAvk8s+V+E0xRgXzpMn2dOG3bARkVDS4i6GiBVvOZRkcXVLBJjGA7tqGmRskPZX/vD7w4f7ohQ6BIBwr0jxU/VtlLDZfq8ib0TRlvAA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BSFeRBUD7PcA3K+Iwm8l1Nm8cfeKRY0ypbJpWtaU3F0=;
+ b=skdp2cGq4HnO+GTuohiPDDe7YMic+5s54VmVW6OSdrIoB57fvREQc/IUYsRJI8fOY12b0jcafwBPde3Of3aesMuW0twJ+cCAoZUVXSMgjVjzTO3XenQDLaMn6/J1DtI/FZfNS+7JgdSkJ3eAT1nMPGCSD88A0NtppgPnAgn5HQg=
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
+ by SEZPR03MB8472.apcprd03.prod.outlook.com (2603:1096:101:21c::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.23; Wed, 25 Feb
+ 2026 10:35:52 +0000
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925%4]) with mapi id 15.20.9632.017; Wed, 25 Feb 2026
+ 10:35:52 +0000
+From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
+To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>, "robh@kernel.org"
+	<robh@kernel.org>, =?utf-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?=
+	<Chunfeng.Yun@mediatek.com>, "kishon@kernel.org" <kishon@kernel.org>,
+	"James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>, "bvanassche@acm.org"
+	<bvanassche@acm.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "neil.armstrong@linaro.org"
+	<neil.armstrong@linaro.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	=?utf-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
+	<Chaotian.Jing@mediatek.com>, "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+	"nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
+	"vkoul@kernel.org" <vkoul@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "avri.altman@wdc.com" <avri.altman@wdc.com>,
+	"martin.petersen@oracle.com" <martin.petersen@oracle.com>,
+	"broonie@kernel.org" <broonie@kernel.org>
+CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-phy@lists.infradead.org"
+	<linux-phy@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, Louis-Alexis Eyraud
+	<louisalexis.eyraud@collabora.com>, "kernel@collabora.com"
+	<kernel@collabora.com>
+Subject: Re: [PATCH v7 20/23] scsi: ufs: mediatek: Back up idle timer in
+ per-instance struct
+Thread-Topic: [PATCH v7 20/23] scsi: ufs: mediatek: Back up idle timer in
+ per-instance struct
+Thread-Index: AQHcn0oP6tEnScLyfUKovG8pABVQS7WTRnGA
+Date: Wed, 25 Feb 2026 10:35:51 +0000
+Message-ID: <5d9723fd6b4ff8430889efb33e0fc93a10c4a880.camel@mediatek.com>
+References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
+	 <20260216-mt8196-ufs-v7-20-b5f2907c6da7@collabora.com>
+In-Reply-To: <20260216-mt8196-ufs-v7-20-b5f2907c6da7@collabora.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|SEZPR03MB8472:EE_
+x-ms-office365-filtering-correlation-id: 87cf1171-7b4c-4d5b-e22c-08de7459a604
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|921020|38070700021;
+x-microsoft-antispam-message-info: 4mP3fejSoK2TWiZYS2bt30R55eNAZJAWFHvdpjp69QzExanCSOVpzrEl0+BUBkmLFsdJrHqxQDlubrz/8DSdtqFFhXK0hFDph/OXqNtvgHh2r5aNkVX05mz/WItVnNE2muAmw9p/Maje10jN7RziyAYweBjcP8M/gk/gH+/5XRqo+A44KwtuGCxGgcWeGdIiWsOuu7O4lzGlvHl+ratmMqyLoVrt/zUhpkv56snMa/v30E5LGSD4lce3uM+NJSX+plNhyPQ7j20wXEsm2veFpbw9SAZATDK5qTWMfpeet/ae6hReclBoDYukdGq6py1hu0dgDydDwnv0XLltXo8qq7mfeJIRqrevwCeTP7wChY2nUs7a4usJSItsblHmU/WqIn8o7nmAhsVSKCkYPIAtsI9VRRUAcR4vdNgPUvhQfJw2NbNFKU+hmR3DqiHBA0TijEWbAmOIflbc4qkGg18DLyQ1SGuP/g6zmPiq97zbzTT8SL5BH7vdtIfVMG7Nt2E8lpMgPyhsbdD2neae5GacvkMrJAXo4VDR9+6UfoGBm9dAApJwjRkKe4chlAfEX+s7JIuhFn7AMINSfPyT1oHdFm76MKRB5au9S0jMnucUYgjg0GFga7Zj5W2mww8rsBBNFEZISOcGz1PsdEjc3GMcgpL4qK2ME1Sl3IU6OCelK7KnssGPs4iBszLI4EuT80G9dmwSs5lU9/qpASNYoQ2W+N/zz+Rib+Gh7zB7aBUy48nJvroLLx9aVIbxBiHzv9UNoM2jEqCLyR9zP3+MeahoIu3gR4ziM0EEk9sDtLIXz6ps4H16+di1NrCHOeZqPd8e
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(921020)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MVRxZzVQMkhLbmZ1azczVk4yc3lPNDlzaU1ua2xYKzVGL3ZWTzFicXlaV1NC?=
+ =?utf-8?B?YzBkNWNmOEs3bWRBT0wyOHJkZDdsV1BWQnlONmRncFRyUTBOUkdNYTZpTUZU?=
+ =?utf-8?B?MURYSk5OTTZ1WkNyb1B3dDJuYnFnTU11UzRDYWQwM0IrWmxlcW41VUZIcHpS?=
+ =?utf-8?B?bzlZNG1qSXkrNHZacDVaTUhOczJUT1RWNWt6N2JuZFgwTzhqcG9GK2NrN3pp?=
+ =?utf-8?B?TnN1WENZTVdWeUR1djNXTi9rM1dlRkZxbDRRL2piem5PWEFJVnkxVFRLd0s5?=
+ =?utf-8?B?L2Y3YnM5VkVSNnNFYk9ibjNJWjAzWTRTZU5lc3plV3BUaFRua1ZjNmc5RVhm?=
+ =?utf-8?B?b0Y5bXN1L29RK05oK25TZlhTOW8vZ3M2RFNzUnkyZk10RW9Db0FJMVpkdTRo?=
+ =?utf-8?B?RTlDaCt2MHF0bnJwdHNUcmhjTEE5U0tRS0Uzc1h3SG91eEpXMklBc2VKNE0z?=
+ =?utf-8?B?Z0crd0ljcjdPMlZoOGxEd2NOU1AzeDlScVVkUzN2MkoxRUhBdTNaZFUrL3Vq?=
+ =?utf-8?B?RXhUWnErdEZtOFllRW81SGRYN2JGNGZEWWJoTTBEbFRsQm1GRjZMV1NYSEpH?=
+ =?utf-8?B?Q3RTTTJqWEZNUzNGT0dGTTc3Sk5uVWNzUmtIZXhRWThlUUF2U3FCY2xUSDdQ?=
+ =?utf-8?B?RnIxaVFEczhQL3I2b2kxYWdqRU5sOUIvWGVZckVzczhTVTRFL21JRGZsMEtk?=
+ =?utf-8?B?SmNwYUhGdGZ1QWFrUkJZRHBKd0tSTkFIUTkydjJwMndTMXlnekkwMFZCWFVt?=
+ =?utf-8?B?czU3U3FMMWRzc0FVOWtpUTJPcGF4OFlMMUJEVGYxY3dDRnFRVklFRzV1eE5v?=
+ =?utf-8?B?YjhoVGVTSklBelNPdXVtSlBRWFZyaS9JTmE5Nlh3c0k3SkNRRERIK2ZnaXo4?=
+ =?utf-8?B?MzNFQU5FQ20rVFprVEMwR1F5MTdoVUVaYmd4UFZjbkg2ZlhNMTdYT0gwUS9w?=
+ =?utf-8?B?Z1cyc2lHY0Y4WWJHRXZZbzk2emo4aGFQK1NZODhaZGh3UFVjeXpuemVYWmhX?=
+ =?utf-8?B?bmFHcWJUa2NYOFlUREF2Nmc2cUxadldwM1phamR0bEdUcVJ6anZQNDRheU8x?=
+ =?utf-8?B?YmRoUEN2eWhDdElrU1paNTZGUWhpZjBlWTJtUTY5NWdZTy9IL2VHUGFJZTFy?=
+ =?utf-8?B?OWJWSDh1emtwcHdhb244cWFBRXRxcWhBdTdBYm11b3Q4L3lRWm5SLzAwcnFx?=
+ =?utf-8?B?SUJCUCtIV0ZpS2lqYVJmdk5NMnFrNW9TNUtPbXBZOFh1T2M5TDBmamhsSE9G?=
+ =?utf-8?B?bHE3cVQwTXdrYlN3dXMzdmY4eGFyZS9zdS9YSmtrZ2x3ZlJjOVRWelpKUHFw?=
+ =?utf-8?B?R0tPU3ZXSmI4RnlRSVREVks3cHNkSjZMbVlMMnRoREZzREVHSC9UUno1MFRr?=
+ =?utf-8?B?WmFnbzJ1VjBVYkJIWVFPYzMzVXFmWHFxYWw0MnI3NDI1a3owVUU2R0JPdEE0?=
+ =?utf-8?B?UWs3UW85ajhwZ0VTRlNHanlhb3NoS1k3SkQveFE5MXJVQXNldlBhZWFwWDBH?=
+ =?utf-8?B?M1JVejBYWFg3bmN6cWNiekExVXZTcnpPTFEzcjBZVW5qYTlSUWVwZnJrdExn?=
+ =?utf-8?B?eU1pM0lGUlVhWVo2dGJmc291MlNOSm1kcW03ZktZenFaeVBtWUIwTGFIZXBT?=
+ =?utf-8?B?ejFQUHZoZFhWcTg1Y2tqcVA1OEM3TXJ4WHQzRm1LQXBNUHB0Nm5TNzVydkM4?=
+ =?utf-8?B?ZjlodUFDSVVsTGhHeFB4REhYUW1ua2Rwa0JjenZqRGVHeFc2QmJ2Y2xJRVow?=
+ =?utf-8?B?UHBwUlFSSEZLSk52RGE3T3paR05BK3RiMy9IekVuREl1cDJYZVh3b0svNElM?=
+ =?utf-8?B?UjhuYlk1MitrY0NQZEdTSkw3MVNkcHFVUWhLM0FGKzRHakZLWFF2eDRpVlZj?=
+ =?utf-8?B?TEdycXZNbUVrMmpkSFBDWUlXbUtOWkU4YzZBaG03VU42N2NSclQ0eUlqY0Zh?=
+ =?utf-8?B?MHBtcERuM0w5QlJBYjhPUFJjTCtueFdVR3dnM0xDY1Z0eCswVkxrcFJyZkpS?=
+ =?utf-8?B?UzAvMmtCMW42YzJTZEliZG1abHRVSUk3cS9jMFdqbG1yWmh5VTRSRUFUdU5q?=
+ =?utf-8?B?UFhYQlJRZ0IwbTBUaVdNVUtKc09hT2pNZWFYN2pHRy9pMzdXOXJjV1I3enNP?=
+ =?utf-8?B?THMyaWRNaWhDUEF6RGtrY0x2M0YxYVFBSjdSWUwyd0kyS3RQNTZUdXROVGpQ?=
+ =?utf-8?B?eWh0K2pZcWdLVDJNa01xNXYyK2d3VTlRVEJtTlg4c0tENmF3MDJMNmF1cnJH?=
+ =?utf-8?B?Z0RxV0Q2ODlRMFUvTVRWb2JEMTNiZlpLRE5BZDRaUlNxVUczRHdFVTZPZnlk?=
+ =?utf-8?B?MjFVTUg4Qk9yYlRHT3JYYjRnVktYYVd3SWl4S0FpaVdQNTlVcExENXRIMXhk?=
+ =?utf-8?Q?lcBznqs2plXOqHxQ=3D?=
 Content-Type: text/plain; charset="utf-8"
+Content-ID: <B92546EFDD8AAA4F8B9D7675BD9D92DF@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260216-rkcif-fixes-v2-2-ee40931fe0ff@collabora.com>
-References: <20260216-rkcif-fixes-v2-0-ee40931fe0ff@collabora.com> <20260216-rkcif-fixes-v2-2-ee40931fe0ff@collabora.com>
-Subject: Re: [PATCH v2 2/2] media: rockchip: rkcif: comply with minimum number of buffers requirement
-From: Isaac Scott <isaac.scott@ideasonboard.com>
-Cc: Collabora Kernel Team <kernel@collabora.com>, stable@kernel.org, linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>, Chen-Yu Tsai <wens@kernel.org>
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, Dan Carpenter <dan.carpenter@linaro.org>, Hans Verkuil <hverkuil+cisco@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Mehdi Djait <mehdi.djait@linux.intel.com>, Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>, Paul Elder <paul.elder@ideasonboard.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, michael.riesch@collabora.com
-Date: Wed, 25 Feb 2026 10:35:32 +0000
-Message-ID: <177201573211.1569069.5955260325057590452@t16>
-User-Agent: alot/0.10
+X-Exchange-RoutingPolicyChecked: AzjOqdQxsAauVDfZFr6fbPCrHnb8+23fqEDxSEfLMvKnVgC3tkgELUSqw0orpx/Va3T3vdJmOT7MTNAsARZ3jPoNIX9PAYqmgOq9ZnamtEXFuF9vLO+kMJP6C14ITCn0nbrhfynUgRxJcjozGMymP8mzKb4yk+SqipIykoiVjysqSJC17MHnBEI3HuH27T3BupA5t/UtWF8EtMWgkCMIpKGxurerXdEVDb1WYJ/rP9gW3OzjDfCNvL2KfU90qHSQw7P8aorTX8NMrqTMXr8bAjvys2CDNq/nPfVcBq9LiDhMrWeEX2GXQgH14eLUHludzj2IF4CMMSvU+49T6dA1PQ==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87cf1171-7b4c-4d5b-e22c-08de7459a604
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Feb 2026 10:35:51.9155
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3A9nhbaH6IvSzhS9UWbIu5m1HPHY+ks0Kwp3VY2O9ZGMMXS7N21vdgGZaQTzB9sK4zAN66t+qJ791a9Izf2qmw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB8472
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_023543_143841_BDAB6736 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20260225_023608_271422_6BB9ADFA 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,114 +205,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
-
-Thank you for the patch!
-
-Quoting Michael Riesch via B4 Relay (2026-02-20 08:15:08)
-> From: Michael Riesch <michael.riesch@collabora.com>
->=20
-> Each stream requires CIF_REQ_BUFS_MIN=3D1 buffers to enable streaming.
-> However, it failed with only one buffer provided.
->=20
-> Comply with the minimum number of buffers requirement and accept
-> exactly one buffer.
->=20
-> Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma blo=
-cks")
-> Cc: stable@kernel.org
-> Tested-by: Paul Elder <paul.elder@ideasonboard.com>
-> Tested-by: Chen-Yu Tsai <wens@kernel.org>
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
->  .../media/platform/rockchip/rkcif/rkcif-stream.c   | 44 +++++++++++-----=
-------
->  1 file changed, 22 insertions(+), 22 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drive=
-rs/media/platform/rockchip/rkcif/rkcif-stream.c
-> index e00010a91e8b..f15bee4f7cd7 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> @@ -106,42 +106,42 @@ static int rkcif_stream_init_buffers(struct rkcif_s=
-tream *stream)
->  {
->         struct v4l2_pix_format_mplane *pix =3D &stream->pix;
-> =20
-> -       stream->buffers[0] =3D rkcif_stream_pop_buffer(stream);
-> -       if (!stream->buffers[0])
-> -               goto err_buff_0;
-> -
-> -       stream->buffers[1] =3D rkcif_stream_pop_buffer(stream);
-> -       if (!stream->buffers[1])
-> -               goto err_buff_1;
-> -
-> -       if (stream->queue_buffer) {
-> -               stream->queue_buffer(stream, 0);
-> -               stream->queue_buffer(stream, 1);
-> -       }
-> -
->         stream->dummy.size =3D pix->num_planes * pix->plane_fmt[0].sizeim=
-age;
->         stream->dummy.vaddr =3D
->                 dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
->                                 &stream->dummy.buffer.buff_addr[0], GFP_K=
-ERNEL,
->                                 DMA_ATTR_NO_KERNEL_MAPPING);
->         if (!stream->dummy.vaddr)
-> -               goto err_dummy;
-> +               return -ENOMEM;
-> =20
->         for (unsigned int i =3D 1; i < pix->num_planes; i++)
->                 stream->dummy.buffer.buff_addr[i] =3D
->                         stream->dummy.buffer.buff_addr[i - 1] +
->                         pix->plane_fmt[i - 1].bytesperline * pix->height;
-> =20
-> -       return 0;
-> +       stream->buffers[0] =3D rkcif_stream_pop_buffer(stream);
-> +       if (!stream->buffers[0])
-> +               goto err_dummy_free;
-> +
-> +       stream->buffers[1] =3D rkcif_stream_pop_buffer(stream);
-> +       if (!stream->buffers[1]) {
-> +               stream->buffers[1] =3D &stream->dummy.buffer;
-> +               stream->buffers[1]->is_dummy =3D true;
-> +       }
-
-Looks good to me!
-
-Reviewed-by: Isaac Scott <isaac.scott@ideasonboard.com>
-
-> =20
-> -err_dummy:
-> -       rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEU=
-ED);
-> -       stream->buffers[1] =3D NULL;
-> +       if (stream->queue_buffer) {
-> +               stream->queue_buffer(stream, 0);
-> +               stream->queue_buffer(stream, 1);
-> +       }
-> +
-> +       return 0;
-> =20
-> -err_buff_1:
-> -       rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEU=
-ED);
-> -       stream->buffers[0] =3D NULL;
-> -err_buff_0:
-> +err_dummy_free:
-> +       dma_free_attrs(stream->rkcif->dev, stream->dummy.size,
-> +                      stream->dummy.vaddr,
-> +                      stream->dummy.buffer.buff_addr[0],
-> +                      DMA_ATTR_NO_KERNEL_MAPPING);
-> +       stream->dummy.vaddr =3D NULL;
->         return -EINVAL;
->  }
-> =20
->=20
-> --=20
-> 2.39.5
->=20
->=20
->
+T24gTW9uLCAyMDI2LTAyLTE2IGF0IDE0OjM3ICswMTAwLCBOaWNvbGFzIEZyYXR0YXJvbGkgd3Jv
+dGU6DQo+IEBAIC0xODcsNiArMTg3LDcgQEAgc3RydWN0IHVmc19tdGtfaG9zdCB7DQo+IMKgCXUx
+NiByZWZfY2xrX2dhdGluZ193YWl0X3VzOw0KPiDCoAl1MzIgaXBfdmVyOw0KPiDCoAlib29sIGxl
+Z2FjeV9pcF92ZXI7DQo+ICsJdTMyIGhpYmVybmF0ZV9pZGxlX3RpbWVyOw0KDQpUaGUgbmFtZSBo
+aWJlcm5hdGVfaWRsZV90aW1lciBpcyBzb21ld2hhdCBjb25mdXNpbmcgaW4NCnRlcm1zIG9mIGl0
+cyBpbnRlbmRlZCB1c2UuIEkgd291bGQgc3VnZ2VzdCB1c2luZyANCmJhY2t1cF9haGl0IG9yIHNh
+dmVkX2FoaXQgaW5zdGVhZC4NCg0KVGhhbmtzDQpQZXRlcg0KDQo=
 
