@@ -4,153 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48858FD375F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED39DFD374E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JseeBAqhQoc8tjlmefoNYPMIWK9MS6SAEVo6FYrBrZw=; b=2a1VRsKULmlSgMbi99wrsIxgFA
-	3Ft0wmq4EA7qYtr4qK7EljUU5HROwyFR1zvaBaTNODWoTylC1J0mXQQC1SzkS1810FcnkMz5e+AU5
-	1S/UZBVh14GS9Yl7sK23fXVbqyVhk0mfhukZjnGFBlwYecNVY33f1+Px3le1TfOUvErUaFENi7rAC
-	3RiIEKtcX7mMx+hd4mmqPSgqdfKBrj6j+Dvp2WRSFWMj2S0EF1J9PcpjlCi9yURqxIEsYrMqRqo4I
-	3PfdgoET4dsu4VTERScj3aF4cNtYndAayELlyWCEGWYFlG+E0H6ouZrU4ff5dyB9sMcgY7qP+FUQO
-	sPiuML5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ic0tJ9oGrpcJbx0Ys3nLG4VmEW5f6HgZdRcOvHuGYr4=; b=iqS539W/04H9vmfIU5mhr5JqMd
+	EsONWQy72GDLu/KpvoHSrYERdImTdzuTmHv0/m6+GSkogkaF9jUr7fL/t3RgkX3iayINZwLWTwee1
+	f6XGaV2RV15d7PgzVQR/Q8ygT92Z1lFSS17gbIjIdSLCLeLeORwo6/KLWtqmk349PeAm9pYOqyyEu
+	FMwrTLCgNsPc0MmquUa0ZclUdFheX2u2Pv1jnp0cMym7FVmHrfCb6KWVVwAfin6fkoOy+26gQdGxE
+	UJ8KaMwVj6nU6VY5hgGKzwBuUGc0Hi0WdLodcYrGrek12tisr1nk97s5lmBgQkon0kFobcsAYxXxD
+	l6jzCAqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFHM-000000048to-1OCD;
-	Wed, 25 Feb 2026 13:50:16 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vvFNV-000000049D9-0cL3;
+	Wed, 25 Feb 2026 13:56:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFHJ-000000048tT-18QO
+	id 1vvFNT-000000049Cn-0U9Y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 13:50:15 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=SHb5wABV0TLE64umNUnmBok0UyFJZqyo8jzBdUEaz8WQnN5qC+TLX8/h+SErkvqP8pAMj/3mjsP6Ad8DmIwoFJTWZ9chGEa+h2kWUyiWeFuZJCADzjJNNOYSdViMUn3Yubf24ksFrAgvV7J/M3TUKySOvI+z0ko8XgjdjjYCABTopESyqJIk3FHrAs1GpXGXvD8vJQiIEX6dmG+uTEl6I507PxIM0WtjCVAFKTzP+u2Jw2H9Qre0lPOlGZWqOlRpVSALp28hVhxDHR3IuUO3ZDZk385SpP8k/18rSELvytqs2zH7Ptt4E33WvHJ6gX0OO56z6n+tGxl4ftqZbtB8Mw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JseeBAqhQoc8tjlmefoNYPMIWK9MS6SAEVo6FYrBrZw=;
- b=hXDjv5EoF9hqHAeJoR2KT6dh98JTvfXsDKWMoJ1aKJ6DzXRi3J7rRbNScxRKkGq5GKRsYzOktMx9r7w30oT09NE5zAiredIjoQ1cKUU3xUwCMowyaFcJQrREreutjbLK6wdSKxUXm2Ey1D7uy9ViaHNHf6BLwvJlmGxvayYTha5vVxJYtZii6kd1dFIh2lBw62sms8VggmREuibG9V28orzj/4a22icQYBf7wAOuqSV7JHIpU8PuhcIC6a7xpnlkIG/Mqp9t2bSPPBI1ZlltKD9s0UK0byGlFgtD3NtGFj+kX/IInYHT4UITDfxZA1yCGPcKwLm2YsCY7YxGMS8LXQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JseeBAqhQoc8tjlmefoNYPMIWK9MS6SAEVo6FYrBrZw=;
- b=LWtFz35q8p/GFAZhKSuWGBoEfXcqlsNfmuB9526hRqp8+GBwWUCD+YtaN2cWFkLcNbCyOqdfSvc8qOzbn3muvWlHPHP2AFbJc5o9SVXkH8YglpK5JlBw6UzzVJS3hRGnVxlib7F/4kFB3LQoaSSi7FZ2Xo44cBFGrqzzE5Xxp2U=
-Received: from DU7P194CA0026.EURP194.PROD.OUTLOOK.COM (2603:10a6:10:553::23)
- by GV1PR08MB8356.eurprd08.prod.outlook.com (2603:10a6:150:a6::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Wed, 25 Feb
- 2026 13:49:58 +0000
-Received: from DB1PEPF000509F1.eurprd03.prod.outlook.com
- (2603:10a6:10:553:cafe::e7) by DU7P194CA0026.outlook.office365.com
- (2603:10a6:10:553::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.23 via Frontend Transport; Wed,
- 25 Feb 2026 13:49:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509F1.mail.protection.outlook.com (10.167.242.75) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
- via Frontend Transport; Wed, 25 Feb 2026 13:49:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QBx65p8CZ82SZOG+2rtoSOpmdN0d7ZGkDCJ4+O0R2MxjBhQEB3EaXdIggGXEj0zqWGKSwxK5+efRE8zxBxhl4B9wS2C0rwYTkF4YHbR10hWyJoMlTUQm/DSYvB9YbsbEePTnbzAsLRZDCjii0nDBn2IEz2NP4+3tiFprrYRdIF1MXGLgYD3MofmNgfQlakR5MYuzQS79Z3FMtNpp/BgFN81auKzIUuFjJUrMP9HrKwKcyOQsSob+tK3F7BXlP+kwBQyQwMyvDmixL8lUM28e+OFDD6gy8vkbfu/fQdUHF4yMknn1dxgKmwuNcFzt57ZpNY406xGZ8EW6EUZ9cBQDVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JseeBAqhQoc8tjlmefoNYPMIWK9MS6SAEVo6FYrBrZw=;
- b=xozYrGlJBsZNqpfg7JZRYiz+B8QKbqZQyemh2ApOlW9+CfCCokggNyCGUzAuBSbFBzKrIifC1Qt+0+W4x3vei5RFayObpRZnIq8Z/RGGk5CRx1s4wbJw8caqAS1I5L8t0jIWWKasHiKiCtRDiMkRqm3Oi5jWjpBH3iU1Pz75t+wFg8BiSCHL1gdGoacjN4BfBc3s0MwjdaoUwK0W0fTKioMeb2iO/++MNCmThu8pWlThgtEoyxsYmp8UwJtH7xbeSnssYSXk9FRmTQEw7Au4VEKjKICjhOgSaLqwyW3Tj8FSEUYrHORLEgGxkuUzuZ5ztIEoQJWq9qaPwO5zDb5xGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JseeBAqhQoc8tjlmefoNYPMIWK9MS6SAEVo6FYrBrZw=;
- b=LWtFz35q8p/GFAZhKSuWGBoEfXcqlsNfmuB9526hRqp8+GBwWUCD+YtaN2cWFkLcNbCyOqdfSvc8qOzbn3muvWlHPHP2AFbJc5o9SVXkH8YglpK5JlBw6UzzVJS3hRGnVxlib7F/4kFB3LQoaSSi7FZ2Xo44cBFGrqzzE5Xxp2U=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PAVPR08MB9674.eurprd08.prod.outlook.com (2603:10a6:102:31d::14)
- by DB4PR08MB8173.eurprd08.prod.outlook.com (2603:10a6:10:383::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.23; Wed, 25 Feb
- 2026 13:48:54 +0000
-Received: from PAVPR08MB9674.eurprd08.prod.outlook.com
- ([fe80::6f25:3681:7c97:ea2e]) by PAVPR08MB9674.eurprd08.prod.outlook.com
- ([fe80::6f25:3681:7c97:ea2e%5]) with mapi id 15.20.9632.017; Wed, 25 Feb 2026
- 13:48:54 +0000
-Message-ID: <29efbd9b-f83c-408f-b43a-20ccc768814c@arm.com>
-Date: Wed, 25 Feb 2026 13:48:52 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/8] coresight: cti: Refactor cti_reg32_{show|store}()
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki Poulose <Suzuki.Poulose@arm.com>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
- Jie Gan <jie.gan@oss.qualcomm.com>,
- "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, nd@arm.com
-References: <20260209-arm_coresight_cti_refactor_v1-v1-0-db71ab4d200b@arm.com>
- <20260209-arm_coresight_cti_refactor_v1-v1-8-db71ab4d200b@arm.com>
- <PAVPR08MB96744050482081B274E6E4BB8C68A@PAVPR08MB9674.eurprd08.prod.outlook.com>
- <20260220173549.GI136967@e132581.arm.com>
-Content-Language: en-US
-From: Mike Leach <mike.leach@arm.com>
-In-Reply-To: <20260220173549.GI136967@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO3P265CA0018.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:bb::23) To PAVPR08MB9674.eurprd08.prod.outlook.com
- (2603:10a6:102:31d::14)
+	Wed, 25 Feb 2026 13:56:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7706F40774;
+	Wed, 25 Feb 2026 13:56:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69545C19421;
+	Wed, 25 Feb 2026 13:56:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772027794;
+	bh=adewTxheBJ0exE2Odd3Bcl/XDcxF8jBrDVD2w5lYLiM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BrrhvcB6m+QHlz7bEjPpcTkhpxbZOBs5XQrkDdBe/HikRWLNblps/GYtmxvT8NLmT
+	 lwjp4a9/wkSHSw83DXgMJkE26YbADXQ5Wgrzma0Lzkxe6PrTvGTmGMkcr0S7tjD25a
+	 cUbxobXSpjd3msn5/omXQOip0YId1+NkqtVjYSR8RRdQzG4xfaRZOJR/ihRWKT8neU
+	 CyfSniRPgXT1bmdKqFRcjIn51gGNFGCW55g6/YssgE3kDtmeAaQ5AMDeliVC3lBXzs
+	 mR57N/UT6rGaAzfrKRvdVNfv/88j0Bmfs9tfmn8MrYQmlFcMu4cjEn1Wx+6+4aZ3sn
+	 DrC3YTLtn/MQA==
+Message-ID: <1e90b26c-5934-47e4-a0ea-96fd8af45076@kernel.org>
+Date: Wed, 25 Feb 2026 14:56:26 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAVPR08MB9674:EE_|DB4PR08MB8173:EE_|DB1PEPF000509F1:EE_|GV1PR08MB8356:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6a9451eb-ee04-4a58-06b5-08de7474c2b7
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info-Original: yOTsdrpTkDS0k8cpcKsiC0P8j5wzR7ZqFoFF7CuhmTJdm7MqxhCT/9WL6X1qbN6epLTA1TsoGxarcE9NrkQmmt3P6/xfHK2/7SQDBaUZeX0rNZnK0H6IbtakRzyALuj3W6nLCybe576XDpWyd6fuZzEproTnCQV8sbP1RAETVZF+u4+DEOx/fEpymiy1DGpi2ZJH7i1xNtOPlqwt05feGvvUNLmyryGyyQ7Rre2o8jZFCNKiIbRUqKUrj2N5ZyYiqsy0+Lhc1V66dICij1Kk7gqfnDc/dTll+8MQfpwOrumua7AmqnaWlBkArtwIZC2ft6hLt0+8Qxcma7XiDKePHwCRj8xvbglaVj01w6t0lpoQGlCzJ7BTx2PxMsdvemXguVoqorFOx+Remu9OVSApScXqNt86kBblrfuEP3UK1D+wf0aJ1Z6dHGExxldtb/PZzDaH9XLht14t+iD0jrByRDKZIJBapnTgKgTbPXiZQozB5mKGMerSW7VL9gZwicm7Kr0YUQGXo6+EfNr9Onh/rWpj/YWnRUqwl6bZZj1YJv2b9FnmkJHnKAM7P61Rts5Fb6+EKfwwNpADQ3KQekFF9HlC3LB3HwpVy0I2TyJeDtYxXjIiZPxXabT/APqLhoMKmIIsh4Pid3OxtvKb/tlQUSRZAcxqOOzGOqM+0nLdpWU/sYksuxSOrIJCiLbeS/FO/DNFOzfzYI5hz0l0vR8TehiGxl2z0xmEZzFFLPKJ2Co=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAVPR08MB9674.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR08MB8173
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F1.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 3577ea73-c477-4ea8-5b83-08de74749d51
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|14060799003|36860700013|1800799024|35042699022;
-X-Microsoft-Antispam-Message-Info: Bvg+b6riffBUiCOyEFZ9om+p/TCaojNTqJpHcW17Exsfb+EkIaNk6p2yG8JE3XWMjigscuPQH5k9aeJJ+YXBpFwI0kt0oPg8USIyN8sEx5P0VXQn8w/4uXw5UaIu/LF+URgJHQo2pvMyuYcdPCBQm6hxduVfsUBbLr1iahqu7EjjpE+wMShS7HLk9OjPSA0P8UpZuPRnei9qEuEeBLAAPtHtO63tkPwxDR6B8tP+2q+iD7DgOOud+lupoTnc8wIwFfalG9Zd/6NOdttDamjEh2qjT3tGIi5EL23nKbfqC+omb/8izJvXm5B7LXP8dOBiYqe3kdFzvtw8X+AVnpslx71gbZUcS0fcQAa64IGk9tIL3fUE0TAc7AejnqKoFni9P2P2w4F5agKckh3kFeTEAWUQSeCwm8zzObN4aml67FkyhqCI5KuP5I1Covr5rfapn3RCuBa6E5oDrt5m56R3qIRdRidjRJ3VMPpsbh7Conqq+B1WYF/x7uFNe/HdTfFhDDCWICwp+vo737H9mHmBn4Wyrq53EHpSr7raJUfoAKyo7+6XOEJrc97BPlgwJlsIJvbueZ0do3g/8Njkdh4M8UVXsSRnKWdx+15mAhxfRj+MU96nVGr2ELQNHX35rAExPyWN4LKHRiveZZgM1M1YRscYQqflCy+MAsIIHFFxtzi3Owr4No6VtIZXtxG5UH2nlLvLzfxtEQ0fVzPUiaHAs7KKaoIVzRBcmB7EoNjXFQJ3dQMldcVupdbowZIYki49wsf/aHY+Q70GnTHgY7of15284HAilrV/iL2TmJpjhe+a7toRmHoOr4Gl6LkPuSDt5+k+R9W7GaeqLmzaVkvtdQ==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(14060799003)(36860700013)(1800799024)(35042699022);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: M9PIqgzADo+S7iZ0iFs2PYI4isa7tV6HCrzk27MZD6amVQq7ID11PrqxRQ7r95id1TnhS25ozlErOKuAHyC29Nka0s10DfyA8qzUQfI3DNmoN1L1yP4EH5DlaUJLsiIMwxrwf/PWmiIfC34mMmL50HYdapu6bd4hdr2spLUQTertl83z+Sefg0AEG26QsipQFHktrsT0tJJowS70pS54Dn2F0k404XIQKG37RSKF7JNUmOGpSV/Tx7CjM9uAJnaySPZtm6gRpeyRv/BhdeOPcKMrxhKCLfDDtO3isnT4adTo0s4+Xrt8dy4LSKYi1Eva6JrXar8x/jWfKmMe4msnEvke5cB7O3w/mXXSNFgBUN4ekC1XrflwlHqK09n0U8FROJIfj9olcOUG0QPWIox7s7QgDHoXHoCv22OQPFkv69OF7TITPhnFXPCvLX+cEGn9
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2026 13:49:56.3999
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a9451eb-ee04-4a58-06b5-08de7474c2b7
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F1.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8356
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] mm: use inline helper functions instead of ugly
+ macros
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
+Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
+ yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
+ zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
+ <dc94552605926f9ce84f9fc2ddfe5f7d1319e41c.1771897150.git.baolin.wang@linux.alibaba.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <dc94552605926f9ce84f9fc2ddfe5f7d1319e41c.1771897150.git.baolin.wang@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_055013_560867_490E9661 
-X-CRM114-Status: GOOD (  36.20  )
+X-CRM114-CacheID: sfid-20260225_055635_223933_F9FB55FC 
+X-CRM114-Status: GOOD (  22.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,119 +125,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+On 2/24/26 02:56, Baolin Wang wrote:
+> People have already complained that these *_clear_young_notify() related
+> macros are very ugly, so let's use inline helpers to make them more readable.
 
-On 2/20/26 17:35, Leo Yan wrote:
-> Hi Mike,
-> 
-> On Fri, Feb 20, 2026 at 02:44:03PM +0000, Mike Leach wrote:
-> 
-> [...]
-> 
->>> @@ -252,14 +252,14 @@ static ssize_t cti_reg32_show(struct device *dev,
->>> char *buf,
->>>   	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>>   	struct cti_config *config = &drvdata->config;
->>>
->>> +	if (reg_offset < 0)
->>> +		return -EINVAL;
->>> +
->>>   	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
->>> -		if ((reg_offset >= 0) && cti_is_active(config)) {
->>> +		if (cti_is_active(config))
->>>   			val = cti_read_single_reg(drvdata, reg_offset);
->>> -			if (pcached_val)
->>> -				*pcached_val = val;
->>
->> I think we still need this. If a register with an none-zero default
->> value / status that can change over time is read when active, then
->> read when inactive, but never written, then the inactive value will
->> not reflect the last read value.
-> 
-> Let us consider below operations using your suggested approach:
-> 
->    echo 0xab > /sys/bus/coresight/devices/cti_cpu0/regs/gate
->    cat /sys/bus/coresight/devices/cti_cpu0/regs/gate
-> 
->    echo 1 > /sys/bus/coresight/devices/cti_cpu0/enable
->    cat /sys/bus/coresight/devices/cti_cpu0/regs/gate
-> 
->    echo 0 > /sys/bus/coresight/devices/cti_cpu0/enable
->    cat /sys/bus/coresight/devices/cti_cpu0/regs/gate
-> 
-> If a user reads the "gate" knob three times in the above flow, it ends
-> up having three different semantics.
-> 
->   - The first "cat ../gate" outputs the user specified value (0xab).
->   - The second "cat" outputs the real-time register value after the
->     module has been enabled.
-
-which for a non volatile register will be 0xab as enable writes all the 
-regs from the config to the device - or will have been written through 
-the cache to the device by the echo command if the device was powered 
-and available .
-
->   - The third "cat" outputs the last read value before disabling.
-> 
-
-Still 0xab unless this is a register that can change do to operation in 
-which case it will be whatever the last noted value is.
-
-All of the above is entirely expected and required. We should always 
-show the user the latest value of the register. If the CTI is powered 
-and available then this will be that directly read from the register.
-
-The ETM is not different in this respect, except that the ETM reads all 
-registers back on disable - and registers are architecturally forbidden 
-to be written while the device is enabled - unlike the CTI where 
-registers can be written after the device is enabled, and for some 
-registers it makes sense only to write them when enabled.
-
-With the CTI we do not readback all the regs at disable. They are demand 
-read for sysfs, which is more efficient.
-
-
-> This could be confusing for users (even for ourseleves), as it needs to
-> understand the meaning of the value under specific conditions and based
-> on prior operations.
-> 
-
-That is pretty much the definition of reading a hardware register on any 
-device. You need to know if it can change during operation or not, if it 
-is volatile under the conditions you are reading it.
-
-> To simplify the semantics in this patch, the "cat" returns the realtime
-> register value when the module is enabled; otherwise, it returns the
-> user configured value.  Since "*pcached_val" always stores the user
-> configuration, it remains consistent configurations across multiple
-> enable/disable cycles.
-
-The semantics of the cache are to use it if the registers are 
-unavailable if not powered.
-
+Could it have been me :)
 
 > 
->> Relatively minor issue but does represent a potential change in
->> functionality for the driver - even if I cannot see specific issues
->> for current ARM CTIs. This is a R/W cache so should be updated on
->> both R and W.
+> In addition, I cannot implement these inline helper functions in the
+
+"We cannot implement ..."
+
+> mmu_notifier.h file, because some arch-specific files will include the
+> mmu_notifier.h, which introduces header compilation dependencies and causes
+> build errors (e.g., arch/arm64/include/asm/tlbflush.h). Moreover, since
+> these functions are only used in the mm, implementing these inline helpers
+> in the mm/internal.h header seems reasonable.
+
+Agreed. if it compiles, all good.
+
 > 
-> "R/W cache" mixes the cached user configured value with the hardware
-> register dump and may become inconsistent across multiple
-> enable/disable cycles.
+> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> ---
+>  include/linux/mmu_notifier.h | 54 ------------------------------------
+>  mm/internal.h                | 53 +++++++++++++++++++++++++++++++++++
+>  2 files changed, 53 insertions(+), 54 deletions(-)
 > 
-> It seems to me that this is a bit overdesigned and complex. thoughts?
-> 
+> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
+> index 07a2bbaf86e9..93894b90c8c1 100644
+> --- a/include/linux/mmu_notifier.h
+> +++ b/include/linux/mmu_notifier.h
+> @@ -515,55 +515,6 @@ static inline void mmu_notifier_range_init_owner(
+>  	range->owner = owner;
+>  }
+>  
+> -#define clear_flush_young_ptes_notify(__vma, __address, __ptep, __nr)	\
+> -({									\
+> -	int __young;							\
+> -	struct vm_area_struct *___vma = __vma;				\
+> -	unsigned long ___address = __address;				\
+> -	unsigned int ___nr = __nr;					\
+> -	__young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);	\
+> -	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
+> -						  ___address,		\
+> -						  ___address +		\
+> -						  ___nr * PAGE_SIZE);	\
+> -	__young;							\
+> -})
+> -
+> -#define pmdp_clear_flush_young_notify(__vma, __address, __pmdp)		\
+> -({									\
+> -	int __young;							\
+> -	struct vm_area_struct *___vma = __vma;				\
+> -	unsigned long ___address = __address;				\
+> -	__young = pmdp_clear_flush_young(___vma, ___address, __pmdp);	\
+> -	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
+> -						  ___address,		\
+> -						  ___address +		\
+> -							PMD_SIZE);	\
+> -	__young;							\
+> -})
+> -
+> -#define ptep_clear_young_notify(__vma, __address, __ptep)		\
+> -({									\
+> -	int __young;							\
+> -	struct vm_area_struct *___vma = __vma;				\
+> -	unsigned long ___address = __address;				\
+> -	__young = ptep_test_and_clear_young(___vma, ___address, __ptep);\
+> -	__young |= mmu_notifier_clear_young(___vma->vm_mm, ___address,	\
+> -					    ___address + PAGE_SIZE);	\
+> -	__young;							\
+> -})
+> -
+> -#define pmdp_clear_young_notify(__vma, __address, __pmdp)		\
+> -({									\
+> -	int __young;							\
+> -	struct vm_area_struct *___vma = __vma;				\
+> -	unsigned long ___address = __address;				\
+> -	__young = pmdp_test_and_clear_young(___vma, ___address, __pmdp);\
+> -	__young |= mmu_notifier_clear_young(___vma->vm_mm, ___address,	\
+> -					    ___address + PMD_SIZE);	\
+> -	__young;							\
+> -})
+> -
+>  #else /* CONFIG_MMU_NOTIFIER */
+>  
+>  struct mmu_notifier_range {
+> @@ -651,11 +602,6 @@ static inline void mmu_notifier_subscriptions_destroy(struct mm_struct *mm)
+>  
+>  #define mmu_notifier_range_update_to_read_only(r) false
+>  
+> -#define clear_flush_young_ptes_notify clear_flush_young_ptes
+> -#define pmdp_clear_flush_young_notify pmdp_clear_flush_young
+> -#define ptep_clear_young_notify ptep_test_and_clear_young
+> -#define pmdp_clear_young_notify pmdp_test_and_clear_young
+> -
+>  static inline void mmu_notifier_synchronize(void)
+>  {
+>  }
+> diff --git a/mm/internal.h b/mm/internal.h
+> index e0ef192b0be3..1ba175b8d4f1 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -11,6 +11,7 @@
+>  #include <linux/khugepaged.h>
+>  #include <linux/mm.h>
+>  #include <linux/mm_inline.h>
+> +#include <linux/mmu_notifier.h>
+>  #include <linux/pagemap.h>
+>  #include <linux/pagewalk.h>
+>  #include <linux/rmap.h>
+> @@ -1789,4 +1790,56 @@ static inline int io_remap_pfn_range_complete(struct vm_area_struct *vma,
+>  	return remap_pfn_range_complete(vma, addr, pfn, size, prot);
+>  }
+>  
+> +#ifdef CONFIG_MMU_NOTIFIER
+> +static inline int clear_flush_young_ptes_notify(struct vm_area_struct *vma,
+> +						unsigned long addr, pte_t *ptep,
+> +						unsigned int nr)
 
-RW caching has been around for a long time - not sure 2 lines of code 
-could be described as complex!
+Two tabs indent on the second line makes this fit into two lines.
 
-Regards
+Same for the others.
 
-Mike
+With that
 
-> Thanks a lot for review!
-> 
-> Leo
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
+> +{
+> +	int young;
+> +
+> +	young = clear_flush_young_ptes(vma, addr, ptep, nr);
+> +	young |= mmu_notifier_clear_flush_young(vma->vm_mm, addr,
+> +						addr + nr * PAGE_SIZE);
+> +	return young;
+> +}
+> +
+> +static inline int pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
+> +						unsigned long addr, pmd_t *pmdp)
+> +{
+> +	int young;
+> +
+> +	young = pmdp_clear_flush_young(vma, addr, pmdp);
+> +	young |= mmu_notifier_clear_flush_young(vma->vm_mm, addr, addr + PMD_SIZE);
+> +	return young;
+> +}
+> +
+> +static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
+> +					  unsigned long addr, pte_t *ptep)
+> +{
+> +	int young;
+> +
+> +	young = ptep_test_and_clear_young(vma, addr, ptep);
+> +	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + PAGE_SIZE);
+> +	return young;
+> +}
+> +
+> +static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
+> +					  unsigned long addr, pmd_t *pmdp)
+> +{
+> +	int young;
+> +
+> +	young = pmdp_test_and_clear_young(vma, addr, pmdp);
+> +	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + PMD_SIZE);
+> +	return young;
+> +}
+
+Wonder why someone thought it would be a good idea to not include the
+"test_and_", to make the function names inconsistent.
+
+-- 
+Cheers,
+
+David
 
