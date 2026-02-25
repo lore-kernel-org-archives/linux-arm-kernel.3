@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19DAFD375F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB3BDFD374E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rG3bFXrppjeuA+iWryZ7vgudlEyemROZ7fVq2Z8BIXg=; b=v3GZOcrHWhLkL6MEiVpP6IvQJx
-	xdMYt2uYKXHdk1S5x8m74pNtilYB92/ji3aRGQU2mfViTMSCOQ4+F5PuORitM98kTI0Hiby697dwl
-	YPs4keqoSF8p6PjQRGgZduHYV/VZtneUMcWFPZF+UmwPR6oFyWlZYhb6eg4/KWaLuPESd0t31TPUm
-	8C0VyetcXf2AFe1hmm3o6i5dQL7AIGqqc4jllf+xX+0fPfgxjg0OlpbEJluL0BxpQs7u7CyJ8k+VO
-	Iaex7A3+vBw/10iNYYWX3Z4zHrMO1PCtFg/Z0zubJjTQkwM5flrmruIaXGwtHlWPXhJuF36ldJYnv
-	jTZZmsDg==;
+	bh=v83nX06CFNonzs3aaey88JZD1iHRYlh5Rsz4acoeN6I=; b=w4cka8zlxb47WXXyh2UP7gdJ+M
+	qduRb6RafMnHhE5KCFMrEWmxDa891+56Q+X4f0wZ7ccgagqaUIsa2EdrX+agCJHgM91YQnXaKc2kK
+	QVBqIIKUyw562FSIE0Xfre01OovGFiZCHd01/AHRAVjN5L3dNv9Xg1n/UIbJhCuNM9o/BkNcl5HrO
+	61vd0DtKgn1temXArfl1m/t/sd7ljDQnXiIAobo650F2njeeLsnhyNMe5WGgBonZ+R8RILKg04Cx8
+	3vZjbHQ/yDFNTzLu+7tmN6XxnFsWxRFSGSe3AgL6QxB81UiD+HtBmDcC+psGeR6Hd5dlMYzQKl+Wx
+	8fMogObA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFOX-000000049SQ-1NhZ;
-	Wed, 25 Feb 2026 13:57:41 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1vvFRa-000000049h6-3aAy;
+	Wed, 25 Feb 2026 14:00:50 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFOU-000000049R7-0Fs3;
-	Wed, 25 Feb 2026 13:57:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rG3bFXrppjeuA+iWryZ7vgudlEyemROZ7fVq2Z8BIXg=; b=sE7ro5j5T1LKj13VybTetBxXZT
-	VRbucUIenZh6gy/4TouqpsqjKJcgsP8yNOxWIk8MzTwu8+4ShFqiYkD9dkIU7NIKmjKvFMGyoD1zC
-	dI0LkSU3Q332Wcs/BfHk98kabRpqLwi/j820Ryd/x5ppOJBoI/00Qou4NktlGhAx/gJ78jZXxILsa
-	m837YfYMtkCCWuSh7WPjwoFOvvFk2zzuMGZzFzfzg0jcgqhkurnKTYAO7B+seO9bYPeKGrEHyX4aM
-	DfLHnMX4GMQbhoLpe5CCCs/kNZtZPRSK1OJnVQjq1MhZ4+7IxBzwypfV5jjZBpauyQs0s3h29xttG
-	IYc7JnHw==;
-Received: from [189.7.87.203] (helo=[192.168.0.2])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1vvFOB-005FoP-D2; Wed, 25 Feb 2026 14:57:19 +0100
-Message-ID: <481489f1-850f-44ae-8586-b69c1d2faf8e@igalia.com>
-Date: Wed, 25 Feb 2026 10:57:11 -0300
+	id 1vvFRY-000000049gl-1mnP
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Feb 2026 14:00:49 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-480706554beso79690105e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 06:00:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1772028046; x=1772632846; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=v83nX06CFNonzs3aaey88JZD1iHRYlh5Rsz4acoeN6I=;
+        b=Q9XoK+34OtbDIP+cjBRFZlEf515PR9cLUUargknzDsf/J1xgn0192hCUruLVkR8kAp
+         TLav7Vg35nLM4C9KMdcfzkRdYMl5whjASbQc38nSeIY1OQWXLMMMVJsuVhxUUQADyJ3o
+         4zP4FzCsKdAb0qQhXc8aQdS96DWAwQ8Q6YVd3OoievEDwOBAYttX966ACjYeARUtAGz4
+         Ui5vggCYAaEY1vnqovI2Udvr1TuPhWeDlEWeEnAXUdQ2MMzsnXR4DYC/9x/vUAZIMOV+
+         5OO9PLe2L2B+1LZA84dnRdEUtmlFkBzQwJknHwPCaVQWYIWIXXWoqMcvpz+Bd66s+kN1
+         A7Ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772028046; x=1772632846;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=v83nX06CFNonzs3aaey88JZD1iHRYlh5Rsz4acoeN6I=;
+        b=DhBmgGLW9HkHxNvLuCkwF4ELBxbb4LNlH1aoZ89m3kRNmtkbWn0eLW/MIHMkZ3E8jd
+         O9ZpRTEN/PFp8GqF+Q1DkTwqyCJ6OCXGyVGQQq1q4aK+liwCIAWBLVTPC0whN6zB/7xZ
+         oeKk/8kfEmwKp+Q5v/wTt6ReuGn/FCB6jWyVEUX32bOk7Y1GcHoj6m3FY7R9CXDuu32W
+         UTuSNoS9gbsz8QkpPBqSJQDwZeR8xmuln2310RH1nNaLpYmURHO3VZn9p4DEJLVuO1F9
+         m92Pb8I6AgiY1eOLwOu6cDqLiwsY7oE1lENxVvSgwtion4NFxlgXcxdEfxO8M4kIQi9u
+         x9Eg==
+X-Forwarded-Encrypted: i=1; AJvYcCUC1qlcZTcxL1QRPNnwsr/Z7HJOw87fLSgJ2cdAeAhNGJoYlPdOLcziO9UOus8lkJQ0sOa60u49jytkXpQfLiw6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiZccnCxV1DBXtuP2ijMrOO91a6Qm0MnvVWwZ6Zt3CZlAwmOLH
+	Hay8/TEy9fD6c0+4BiTv5MDgRLEBXAn3gc5s3iElwknhZsvOF3OsF3zXc9qGF/vI5aQ=
+X-Gm-Gg: ATEYQzxc6ta3hEIKGOy793q/JkmYpGlYPnimnKafKcc0L9Qzax/mpKtYpNgDe1LYC2K
+	nvCmyvc1hg5e0YVOKCWZbRHd5ODg6dFAXVffOI5pmzkYavpFPIw2os75tJHBESNCXvTV5DIlVP/
+	hQHDe76QbF/J76ntUGxt5SuyAjc31w2MUVmZ/7FpgwnsFyFH2sjlCZDEFqH9Q2b9dymEBIBUwno
+	Rsg4MUN+077R1Lo7vVK7XyCzM7i3R1hmEr8fgINlNSlzId64exB0UHB4YlMW53pmdJvOelyo+Js
+	yRrhchXxhyUiVBZaCUUBrH8/D/upg58qbsISbtzu+0+CvvXSe4qm5J3KSGJ8wXy0c2E4Cg+cNDJ
+	9cJ+ju5tI7I/G3I7jBtJsIt1BvxMzT8yLxrkPtolgoXoUBupuC+l3IGjf93l99TjRCp8/iohrfS
+	MFi4j3pbIBmAWDKhexW2SU3H6jTF8ipFT3
+X-Received: by 2002:a05:600c:3e1b:b0:483:703e:4ad9 with SMTP id 5b1f17b1804b1-483c219b659mr8852985e9.19.1772028045947;
+        Wed, 25 Feb 2026 06:00:45 -0800 (PST)
+Received: from [10.11.12.108] ([79.115.63.134])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43970c09897sm35367670f8f.17.2026.02.25.06.00.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Feb 2026 06:00:45 -0800 (PST)
+Message-ID: <279baf9e-ef05-4217-9357-94d21bd93978@linaro.org>
+Date: Wed, 25 Feb 2026 16:00:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/6] clk: bcm: rpi: Manage clock rate in
- prepare/unprepare callbacks
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>,
- Iago Toral Quiroga <itoral@igalia.com>,
- Chema Casanova <jmcasanova@igalia.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-References: <20260218-v3d-power-management-v6-0-40683fd39865@igalia.com>
- <20260218-v3d-power-management-v6-1-40683fd39865@igalia.com>
- <20260224-curvy-shiny-dodo-e50cef@houat>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Subject: Re: [PATCH v2] firmware: exynos-acpm: Drop fake 'const' on handle
+ pointer
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: stable@vger.kernel.org
+References: <20260224104203.42950-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <b083e950-f54a-44aa-b587-eec2cc10460b@linaro.org>
+ <3e5001a6-ea3c-4304-8db3-bbe616eb4015@oss.qualcomm.com>
 Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <20260224-curvy-shiny-dodo-e50cef@houat>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <3e5001a6-ea3c-4304-8db3-bbe616eb4015@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_055738_570965_B212D955 
-X-CRM114-Status: GOOD (  29.39  )
+X-CRM114-CacheID: sfid-20260225_060048_500197_382059A2 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,142 +111,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
 
-On 24/02/26 11:11, Maxime Ripard wrote:
-> Hi Maira,
+
+On 2/25/26 12:48 PM, Krzysztof Kozlowski wrote:
+> On 24/02/2026 13:57, Tudor Ambarus wrote:
+>> Hi Krzysztof,
+>>
+>> On 2/24/26 12:42 PM, Krzysztof Kozlowski wrote:
+>>> All the functions operating on the 'handle' pointer are claiming it is a
+>>> pointer to const thus they should not modify the handle.  In fact that's
+>>> a false statement, because first thing these functions do is drop the
+>>> cast to const with container_of:
+>>>
+>>>   struct acpm_info *acpm = handle_to_acpm_info(handle);
+>>>
+>>> And with such cast the handle is easily writable with simple:
+>>>
+>>>   acpm->handle.ops.pmic_ops.read_reg = NULL;
+>>>> The code is not correct logically, either, because functions like
+>>> acpm_get_by_node() and acpm_handle_put() are meant to modify the handle
+>>> reference counting, thus they must modify the handle.  Modification here
+>>
+>> You are right that casting away const via container_of to modify the
+>> parent's reference count is incorrect, so dropping the const from the
+>> handle argument makes sense.
+>>
+>> However, to address the underlying issue of the operations being
+>> writable (e.g., acpm->handle.ops.pmic_ops.read_reg = NULL), I think we
+>> should also decouple the ops from the handle struct and keep them strictly
+>> constant in .rodata.
+>>
+>> How about we apply your fix for the signatures, and I follow up with
+>> (or we include) a patch to do the following:
+>>
+>> struct acpm_handle {
+>>         const struct acpm_ops *ops; // Changed from embedded struct to pointer
+>> };
+>>
+>> static const struct acpm_ops exynos_acpm_driver_ops = {
+>>         .dvfs_ops = {
+>>                 .set_rate = acpm_dvfs_set_rate,
+>>                 .get_rate = acpm_dvfs_get_rate,
+>>         },
+>>         .pmic_ops = {
+>>                 .read_reg = acpm_pmic_read_reg,
+>>                 .write_reg = acpm_pmic_write_reg,
+>>                 // ... other ops
+>>         },
+>> };
+>>
+>> and in probe:
+>> acpm->handle.ops = &exynos_acpm_driver_ops;
+>>
+>> This way, the handle safely reflects the mutability of its container,
+>> but our function pointers remain fully protected.
+> 
+> Yes, this makes sense.
 > 
 
-[...]
+Will you come with a follow up patch or do you want me to ACK this and do
+the follow up patch myself? Both options are fine by mine.
 
->> @@ -289,16 +290,22 @@ static int raspberrypi_fw_dumb_determine_rate(struct clk_hw *hw,
->>   static int raspberrypi_fw_prepare(struct clk_hw *hw)
->>   {
->>   	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
->> +	struct raspberrypi_clk_variant *variant = data->variant;
->>   	struct raspberrypi_clk *rpi = data->rpi;
->>   	u32 state = RPI_FIRMWARE_STATE_ENABLE_BIT;
->>   	int ret;
->>   
->>   	ret = raspberrypi_clock_property(rpi->firmware, data,
->>   					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
->> -	if (ret)
->> +	if (ret) {
->>   		dev_err_ratelimited(rpi->dev,
->>   				    "Failed to set clock %s state to on: %d\n",
->>   				    clk_hw_get_name(hw), ret);
->> +		return ret;
->> +	}
->> +
->> +	if (variant->maximize)
->> +		ret = raspberrypi_fw_set_rate(hw, variant->max_rate, 0);
-> 
-> 
-> It's not clear to me why you would want to force it to the max there,
-> and especially the max of the clock. It would make more sense to me to
-> set it to whatever maximum rate clk_hw_get_rate_range would return
-> (which should be the minimum of variant->max_rate + all clk->max_rate),
-> but even then it would erase every call to clk_set_rate before calling
-> clk_prepare().
-> 
-> I'd understand lowering the clock rate in unprepare to avoid wasting too
-> much power, but why do we need to raise it here?
-
-This only applies to clocks with variant->maximize == true, which is
-exclusively the V3D clock. The V3D driver doesn't do fine-grained rate
-control, it always wants maximum performance. In the case of V3D, there
-are no intermediate clk_set_rate() calls to preserve.
-
-> 
->>   	return ret;
->>   }
->> @@ -306,10 +313,19 @@ static int raspberrypi_fw_prepare(struct clk_hw *hw)
->>   static void raspberrypi_fw_unprepare(struct clk_hw *hw)
->>   {
->>   	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
->> +	struct raspberrypi_clk_variant *variant = data->variant;
->>   	struct raspberrypi_clk *rpi = data->rpi;
->>   	u32 state = 0;
->>   	int ret;
->>   
->> +	/*
->> +	 * On current firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
->> +	 * actually power off the clock. To achieve meaningful power consumption
->> +	 * reduction, the driver needs to set the clock rate to minimum before
->> +	 * disabling it.
->> +	 */
->> +	raspberrypi_fw_set_rate(hw, variant->min_rate, 0);
-> 
-> I'm not sure setting it to variant->min_rate would work directly either,
-> since it would break consumers expectations. Also, can we guard it with
-
-The clock is being unprepared, which means that any consumer that wants
-to use it again must call clk_prepare() first, at which point the rate
-gets restored (for maximize clocks) or re-established by the consumer
-via clk_set_rate(). Considering that no consumer should be relying on
-the rate of an unprepared clock, I understand that there are no
-expectations to break here.
-
-> a version check if we know that there's some good and bad firmwares?
-
-So far, all firmware versions have this issue. For future firmware
-releases, it might change, but so far, all firmware versions have this
-issue.
-
-> 
->>   	ret = raspberrypi_clock_property(rpi->firmware, data,
->>   					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
->>   	if (ret)
->> @@ -334,7 +350,7 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
->>   {
->>   	struct raspberrypi_clk_data *data;
->>   	struct clk_init_data init = {};
->> -	u32 min_rate, max_rate;
->> +	unsigned long rate;
->>   	int ret;
->>   
->>   	data = devm_kzalloc(rpi->dev, sizeof(*data), GFP_KERNEL);
->> @@ -354,18 +370,20 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
->>   
->>   	data->hw.init = &init;
->>   
->> -	ret = raspberrypi_clock_property(rpi->firmware, data,
->> -					 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
->> -					 &min_rate);
->> -	if (ret) {
->> -		dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
->> -			id, ret);
->> -		return ERR_PTR(ret);
->> +	if (!variant->min_rate) {
->> +		ret = raspberrypi_clock_property(rpi->firmware, data,
->> +						 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
->> +						 &variant->min_rate);
->> +		if (ret) {
->> +			dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
->> +				id, ret);
->> +			return ERR_PTR(ret);
->> +		}
->>   	}
-> 
-> It feels to me like it would need to be a separate patch. Why do you
-> need to override the minimum clock rate reported by the firmware?
-
-This change is needed because the prepare/unprepare callbacks need
-access to the min/max rates. In the current code, these are local
-variables in raspberrypi_clk_register(). Storing them in the variant
-struct makes them available to the callbacks. The `if (!variant-
- >min_rate)` guard only preserves the existing behavior for clocks like
-M2MC that have a hard-coded minimum rate.
-
-Having said that, I can split this into a separate preparatory patch if
-you prefer.
-
-Thanks for your review!
-
-Best regards,
-- Maíra
-
-> 
-> Maxime
-
+Thanks!
+ta
 
