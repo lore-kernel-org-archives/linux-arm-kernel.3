@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B3FFCEE95
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC631FD374D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFLXg9YsqVnx/vQirs8Wi4dOzFCMdydXCNqeeph3xoQ=; b=0zGNRlBS9EECkqDPcJT/MKthLp
-	oRsFv8MVqL9PUi1+ZPYBPA3+ZccaPNVfj/A3Mkyjv5rIaQ+9rEm27cEVIR8CIoct6gAbhAtVo4UHK
-	NMM34+zOibtvJ16SXOfLkSXqQcxoiryv/1WILy81KR0CY6AWNeq0s/i/ce1iHlqzuNeh6T/0dC3o4
-	zpFDVcfEgHwN1rXFjfL3BTGfBQBdXLjmKJKes97fl8VO8AvTVO+OcaIQwsP20BxCXihRhCoMV/eTG
-	d/AVatABsUtQ9gnBfZcVeEV4D8Bpr1GQQaJZK99aJSWbmMxjLHTrstSDFGmSfuFSKy+To0pOrK72M
-	oR2nxXMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sqkhyIG8YSc1/MWvhsPMUBdOyqqhujHZIwamGJKys3k=; b=Dj9YPzBR3VuRaOeST1/rhOot7M
+	ptv5XAQOK61YuMaIT2YvN8P51uaLARUXbpN7dj3AbxymF2wiQb0Gq7yCRxmBPXU8Ien1RJmf1PKrL
+	/ae4I7w2MYUrFyojP9xJDRce16HPRsyPJC9lOJ8MOQeFyxK7XkeoU0Ky0dnwrxe8u/7kfGlidu91t
+	2Mud4tR/E47wJlkaVYPNJz5r1rpyASdFY8QUVOoezTPIJRc6bS2quk+bcZKiWhWceJFZnlb9Vinqf
+	x/rubfIw+9mMOSQ3Rs0apxS8a87YTUIbHVO6FIMjju8n5iFnxPVjbOSYC+F/Mrl0El380r4rggFs2
+	JDFFZ7Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDiR-00000003xxH-06li;
-	Wed, 25 Feb 2026 12:10:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDiN-00000003xwX-3R2D
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 12:10:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDDEF165C;
-	Wed, 25 Feb 2026 04:09:52 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A7ACC3F59E;
-	Wed, 25 Feb 2026 04:09:58 -0800 (PST)
-Date: Wed, 25 Feb 2026 12:09:56 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Will Deacon <will@kernel.org>, yabinc@google.com
-Cc: James Clark <james.clark@linaro.org>, Marc Zyngier <maz@kernel.org>,
-	kvmarm@lists.linux.dev, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
- in guest context
-Message-ID: <20260225120956.GD4184494@e132581.arm.com>
-References: <20260216130959.19317-1-will@kernel.org>
- <86a4x8bw38.wl-maz@kernel.org>
- <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
- <aZNec3B0Iou9PYGw@willie-the-truck>
- <20260217141917.GA136967@e132581.arm.com>
- <aZSAsC1YI5_lK3e0@willie-the-truck>
- <20260217190121.GB136967@e132581.arm.com>
- <aZcWC25GE2iUKsNt@willie-the-truck>
- <20260219185800.GD136967@e132581.arm.com>
+	id 1vvDs6-00000003yr0-2gm0;
+	Wed, 25 Feb 2026 12:20:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvDs4-00000003ypE-0Rlb;
+	Wed, 25 Feb 2026 12:20:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772022001;
+	bh=5vb/63Vg1zh5nED3D61MNyCtaS3psPO98Y/6tkPDleU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ikhbhifTL9C/xEAfLs7iQbQPAdqG6wRoodYW1tBAHNtAoWWBL1JfXJJappgxqrsaM
+	 Q2qfANnTW+rkaTH/LYWzl0+yT8R9We9IPPEigv97tmyWLYlMsbaaaZJ6QKetXMUNee
+	 dWeWLbQsgV9BQdGZwnLXRvnYj2CVChAejRXV4/midgxe8f7v6AN1nr564flS9U63Sw
+	 66GeMZYPFVliyqr43WN23NIe1rEY8cYiH8fwm9wTTLfUiZgdo6a8dQPyNqPpoZAlcL
+	 +CXcxBxfOFjTX/ePdfPwnLMdoc9a9acuIjj64dSnkK3//jYUZVGOw4yLZnVoMF0UmA
+	 ZmdAzOM3y/kcA==
+Received: from localhost (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7E3DD17E04C4;
+	Wed, 25 Feb 2026 13:20:01 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Wed, 25 Feb 2026 14:19:57 +0200
+Subject: [PATCH v3 1/3] media: dt-bindings: rockchip,vdec: Add alternative
+ reg-names order for RK35{76,88}
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260219185800.GD136967@e132581.arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260225-vdec-reg-order-rk3576-v3-1-5a2ebe1b11a8@collabora.com>
+References: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
+In-Reply-To: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Detlev Casanova <detlev.casanova@collabora.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
+ linux-media@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_041003_905578_1B3E8141 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20260225_042004_294309_35D43FE8 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,57 +82,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+With the introduction of the RK3588 SoC, and RK3576 afterwards, the
+'link' and 'cache' register blocks have been provided for the video
+decoder unit in addition to the existing 'function' one, which now shows
+up in between them (from address-based ordering point of view).
 
-[ + Yabin ]
+However, the binding does not properly describe this hardware layout, as
+the new blocks are listed after the old one.  Therefore it breaks the
+convention expecting the unit address to indicate the first register
+range.
 
-Thanks for Suzuki's reminding, I should mention that Yabin reported
-another lockup issue caused by missing CPU PM support in TRBE driver.
+Since the binding changes have been already released and a fix would
+bring up an ABI break, mark the current 'reg-names' listing as
+deprecated and introduce an alternative 'link,function,cache' one.
 
-We have a patch series to fix the issue:
-https://lore.kernel.org/linux-arm-kernel/20251119-arm_coresight_path_power_management_improvement-v5-16-f615a301ad0b@arm.com/
+Additionally, drop the 'reg' description items as the order is not fixed
+anymore, while the information they offer is not very relevant anyway.
 
-Besides your fix the translation regime issue, I'd also suggest applying
-the CoreSight PM patch series to fix lockup caused by CPU idle.
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ .../devicetree/bindings/media/rockchip,vdec.yaml      | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-I have a supplement for the context switch, please see the comment below.
+diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+index 809fda45b3bd..3f6072e8baa5 100644
+--- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+@@ -28,16 +28,21 @@ properties:
+ 
+   reg:
+     minItems: 1
+-    items:
+-      - description: The function configuration registers base
+-      - description: The link table configuration registers base
+-      - description: The cache configuration registers base
++    maxItems: 3
+ 
+   reg-names:
+-    items:
++    oneOf:
+       - const: function
+-      - const: link
+-      - const: cache
++      - items:
++          - const: link
++          - const: function
++          - const: cache
++      - items:
++          - const: function
++          - const: link
++          - const: cache
++        deprecated: true
++        description: Use link,function,cache block order instead.
+ 
+   interrupts:
+     maxItems: 1
 
-On Thu, Feb 19, 2026 at 06:58:03PM +0000, Leo Yan wrote:
+-- 
+2.52.0
 
-[...]
-
-> Based on these conclusions, let me summarize the flow:
-> 
->   // Prohibit trace
->   TRFCR_EL1 = 0;
-> 
->   // No new program-flow trace
->   isb();
-> 
->   // Trace operation and trace unit are flushed
->   tsb_csync();   // Executes twice if ARM64_WORKAROUND_TSB_FLUSH_FAILURE!
-> 
->   // Disable trace unit
->   TRCPRGCTLR.EN = 0b0
-
-We conclude that no need to disable and re-enable the trace unit
-(TRCPRGCTLR.EN) during a KVM context switch.
-
-Here are the details:
-
-I initially proposed controlling the TRCPRGCTLR.EN bit during switch.
-This would allow the trace unit to generate ASYNC packets, which I
-assumed would be convenient for decoding, since the decoder can
-recognize ASYNC packets rather than decoder is to be reset if any
-discontinuity occurs.
-
-After review, during a VM context switch, the trace unit can guarantee
-a single continuous stream when switching back to the host. There is no
-discontinuity in trace stream.  Therefore, we don't need to touch
-TRCPRGCTLR.EN bit to generate ASYNC packets.
-
-I hope this is reasonable to you.
-
-Thanks,
-Leo
 
