@@ -4,109 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57A6FD3762
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD767FD3762
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L9jg3LVlUdrt/5saKoO+nhMQWQOQ3FaMpJSoPoujSvM=; b=y3yz1W5unIOZXoZJoE5HLkXxgv
-	i1LSWySVqr0YqxJx+6KrIghFAW0FMLYn/M1smyhOEnEswhohjHHGWlr7/HHEjecF18eFtZpUUoQlj
-	2dG66jPx+hsn2HpsL6bHwQLWXwwbyML4Kkr+lb0Ocb2JlT4pxBrQ48dPq7ErIPwT8XkYj3aILUmrt
-	R9XngAFDwYxJcuYMtnVVv9c0JVkoAOzM+j3MshohFD20k+xLvBnl1JUHMc9Mtnp1y+LE0iYIQFzvj
-	vosjz/fWrw86Jma9iSRvWUTAu8ew/kIFhKUnkAvUen5rvCRjJqkHAf/eZYPmHAUIWqHX6uzRCBJ6s
-	/+SNwANQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GFxLS33PdhSpznMuzyw3zEVwtXfEKBUhPAuoZQ1rmbY=; b=E1aIIwKveC+W85POhht+ZnpVH2
+	LFCmC/lY1IbFuRHrtN/Pqgs4yg+n+gmi1jCjx1ZehkOpijt6UR+q0G2dhpVoMATHE/F79TwMCELs7
+	xHewdYL5lOuNuhnBadCkHcr5+8xtr6LwrhdQLnoGOhiqmnCJ9KAeC92WACR/exvwFOFtwp3DZrCt7
+	alqFVhTxfd3vicauoZIxPD+uRvaH70rq1SYAiRcpIOyHCyTMNDXKUl5eODaYgknrIXoxy1Nb+wyY9
+	PKMoNTgaeTJGSePNc3S+klgDagGmszARSmY2Yf+y1gD93SqEVTa8ggTgEjW1W2trQJ/6XBGFzH42N
+	wWEee38Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFbm-00000004AZG-29GX;
-	Wed, 25 Feb 2026 14:11:22 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1vvFc1-00000004AbP-1WK5;
+	Wed, 25 Feb 2026 14:11:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFbj-00000004AYt-2p0Y
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 14:11:20 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b884a84e622so1042665866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 06:11:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772028676; cv=none;
-        d=google.com; s=arc-20240605;
-        b=NhNBUf8GYjH86cdWL0WAzlpIKItVYoqrukVABEH+lBMk8jOuvU6i2doochHgl54qbB
-         NeRq4iP2+45++/uJlDkYRzMMI1yUsA8GOWDlypmWVg0W7wKpCLPgZTUT/jUua4b14UEc
-         ySn0H6Yd7AFnB0YTa2QZTxLGDs0u13qYqx2ANGKxsituatVYCU5ato+Bl4hbVZ86u4Ck
-         2KN2bQD83uBgIH4aVJOUozy3c/QJED0iqraGmIRqxBc6bu6fJjwRXq1dnGMLn4vXqnmL
-         7FCw4z8nXU04ojWAZf1YDwiZ6I9cpXGhNuU8pzehBnmEiV7sry14pi3B5zDPCTvlKVoT
-         JYQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=L9jg3LVlUdrt/5saKoO+nhMQWQOQ3FaMpJSoPoujSvM=;
-        fh=txVC8/ml37KfRe1i2B211dO+4NK6dpiQQ0uGu0jsOZc=;
-        b=f9G6TR70QWiXzY9bZys+f0buZKItNukWX7uoZXDE62DrrEl2l4olxQ0JtfbecEb3vG
-         Jo64GTowiYxnYG97sycXvm6xm0oqcjF5A0J9d7rS8S4i436By3Cp5ECElXWo6HMrn2IH
-         sKURCrIp6XqTFn4D0/SVcbweVSIiuhKaEb195v7HmUWjYRbj1g6U2kL1uWSl3DPhr3hZ
-         40+AawJbLRtJzGkLyiQTXk3SFB0f1NIhhFj94Q2AP6oU33ty72VtirSRhkZvwiN0B2mN
-         4FJ1f4nDm9mcZxZYxC02r6sqYRwzOLpn13GLv6dMthVKVH/qpV26viROujsScvs65qV7
-         qBhQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772028676; x=1772633476; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=L9jg3LVlUdrt/5saKoO+nhMQWQOQ3FaMpJSoPoujSvM=;
-        b=KApyOkJIrZYQXydVBZPA2uRg/JJXXR0iD3kTBJ3O5LWRgIJrXl3WEoVyl0crXMIqzt
-         8r5yz5NJStQOPYlX0KtdrRXzNC/gx1xBFMZRos3oT1QROLlfWXO2t+lAK0JP0ifl1UPN
-         88uQ3DqusZ1W0G514a7LM+UxCGpJdKR1/fkPtcSM4Ti4RlNfwkaT0IPoKanQK/mKNp8J
-         USkCouOmfomJ8yHEV2G931honC7AiTVdpZls9WwZLP0TUZ898BreV20wujegp+9+Hy5d
-         GFHFN1rWmh8QPp9BFaLKcQtk8CbaQPDvHVLFQXrUcAsX3K7Osh8kdwMkSBpt62bLzC0C
-         IdKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772028676; x=1772633476;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=L9jg3LVlUdrt/5saKoO+nhMQWQOQ3FaMpJSoPoujSvM=;
-        b=VnTsDva5y7t0+yoJ6/4FjHFu6a3ZQYt9PmRPMGpVEYCvy8+D0Dcn9/t8ybD3ekwHIb
-         AzcyiHFaN11+xDDKQ1DfB0PrB2XeqyKs4V20N16l9TK+4kuWgE1Gg5sRS23KKzFBzD2g
-         XMOVPEDJ/Rv11zJGKwmk/HH+cFuOMsunWHIpe3wvDmpFni+PE2I0eULn8ItZFY09cH1s
-         J6RDV/2FXXoLRCeF2DzeSwM4vGCxGOrQd4twzqcUPhduLUi/swqJjnKHQsf+fG/RVzx2
-         OIJI/nN2kEAkGnJt1QkhXpz9DKotGEvN7cEf8JN79peyamCek7ksA6y02JkSEGjcXLN7
-         UBmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxswj0m90nxTL0NJStl/dOC4DS+ysMXB02BQ/Z6Krh2sygM42+KGkisxeMaaQAXghxhYuxJ5KsnegcxuXov827@lists.infradead.org
-X-Gm-Message-State: AOJu0Yws3nPLVoVSwutTDJJpLOr6X3ZfJI0WSncf3z9sUlNq41Vs3IIN
-	NynFtjCEhjjdAcnypC3Vb2mnLWFJvPUerwkVmF7nNzN+vKl3ujKaqT6bWPZjjaF8ODpafq5L3NM
-	7nXQ+CNGk7Ng1hmWSIH5DCkoKiihLw20=
-X-Gm-Gg: ATEYQzyKDP2XiRb03hsMuckMprF2l0RnRZzKV3M2iW0dodhVnehGkKS4g4lM415K1fr
-	OTmau0dbRXYvsZfmifjxirOcdFODEH4xk+MLgZRGRSeA//KnqqA4GJ8Ja5pKrh1TFuCW1fpbmyU
-	arhqYyTNU6PoB6JBc7ObOUTW+O5qwmC80CtjGFQ1bk63OkHaMuXymgL+gk2rRMGCifeNo0H6Fcx
-	k42EUTSp7Xe/3klN1VGxIbnGVTs0uPIf6CSKYkGHZjsSDmiH1/w/asbQEddre5kJijtNzTgowyt
-	XvyP1Rc=
-X-Received: by 2002:a17:907:1b1c:b0:b8e:d260:cb20 with SMTP id
- a640c23a62f3a-b9081a09c97mr1077231966b.18.1772028675957; Wed, 25 Feb 2026
- 06:11:15 -0800 (PST)
+	id 1vvFbo-00000004AZd-2yaT;
+	Wed, 25 Feb 2026 14:11:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EED59444E7;
+	Wed, 25 Feb 2026 14:11:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C094C2BC86;
+	Wed, 25 Feb 2026 14:11:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772028683;
+	bh=SjklxF5P1ukWq1BdzFbfzWWtsg3DlSbDa9GVYCTfBao=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=B3ivDnBnOfYCqWXOyOu+/9HdePS1rKGtYvm03h40GTUFPLcP2JpCzl2IQ1ByV0DwE
+	 Z7+ITwCMl2tD4W57SVN9g1RujPJIx6cyy/NwFhM0gomZcQ4vrMfzHuJDa6rFGQ55Cd
+	 rmkIOeo5l0cy8isgwOJ0GMwOvMoEXQLCJWZ2BEioD5AtCyIRQYj83/9d+Gqg6YcL4H
+	 D0oEkp9azfV0rCPDmuV9Vo4TcWYve+f0CnvgssNeBaPTv35f+79+PP467+orGSZOmQ
+	 b2idEes6l5kywJrNei3PLGIcH3L2cR5p/8o+eJU0rZAfiwJEDe2BjLgstjmAro4svs
+	 R2DBFCUDzNW+g==
+Message-ID: <85793250-425d-40da-b382-ada9fc7b50e1@kernel.org>
+Date: Wed, 25 Feb 2026 15:11:18 +0100
 MIME-Version: 1.0
-References: <20260129022910.3942028-1-onlywig@gmail.com> <20260129022910.3942028-2-onlywig@gmail.com>
- <aXsdyzZEUaVzC34W@shlinux89> <CAPStFe7ASmYxJdDorJ0KAerfTH51ioZ=89F8fRcs6fBVqqhdUw@mail.gmail.com>
- <aZ4HrSNp32lbnVT-@lizhi-Precision-Tower-5810>
-In-Reply-To: <aZ4HrSNp32lbnVT-@lizhi-Precision-Tower-5810>
-From: Wig Cheng <onlywig@gmail.com>
-Date: Wed, 25 Feb 2026 22:11:02 +0800
-X-Gm-Features: AaiRm503W-bxJ6qYfmScp36dL07me8fXiI8oeeybDFZb9ZdLCMZhOZ9palVel14
-Message-ID: <CAPStFe6sFCo2-+9ataPBy9pvEUo_uZ5G7XNA_8jH+sF6=FNOpw@mail.gmail.com>
-Subject: Re: [PATCH v4 1/1] arm64: dts: freescale: add pixpaper display
- overlay for i.MX93 FRDM
-To: Frank Li <Frank.li@nxp.com>
-Cc: Peng Fan <peng.fan@oss.nxp.com>, shawnguo@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, zaq14760@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] media: dt-bindings: rockchip,vdec: Add alternative
+ reg-names order for RK35{76,88}
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+ linux-media@vger.kernel.org
+References: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
+ <20260225-vdec-reg-order-rk3576-v3-1-5a2ebe1b11a8@collabora.com>
+ <9bb74438-e759-46a7-9fa1-2c6b1fced76b@kernel.org>
+ <d5a244f3-5f1b-4bcb-8042-646320a47b6c@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <d5a244f3-5f1b-4bcb-8042-646320a47b6c@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_061119_729942_E7923EF7 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260225_061124_796940_6875604B 
+X-CRM114-Status: GOOD (  27.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,17 +128,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->
-> arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtb: display@0 (mayqueen,pixpaper): spi-max-frequency: 5000000 is greater than the maximum of 1000000
->         from schema $id: http://devicetree.org/schemas/display/mayqueen,pixpaper.yaml
->
-> Does 1000000 work for spi-max-frequency? or need update binding doc?
->
+On 25/02/2026 14:36, Cristian Ciocaltea wrote:
+> On 2/25/26 2:26 PM, Krzysztof Kozlowski wrote:
+>> On 25/02/2026 13:19, Cristian Ciocaltea wrote:
+>>> With the introduction of the RK3588 SoC, and RK3576 afterwards, the
+>>> 'link' and 'cache' register blocks have been provided for the video
+>>> decoder unit in addition to the existing 'function' one, which now shows
+>>> up in between them (from address-based ordering point of view).
+>>>
+>>> However, the binding does not properly describe this hardware layout, as
+>>> the new blocks are listed after the old one.  Therefore it breaks the
+>>> convention expecting the unit address to indicate the first register
+>>> range.
+>>>
+>>> Since the binding changes have been already released and a fix would
+>>> bring up an ABI break, mark the current 'reg-names' listing as
+>>> deprecated and introduce an alternative 'link,function,cache' one.
+>>>
+>>> Additionally, drop the 'reg' description items as the order is not fixed
+>>> anymore, while the information they offer is not very relevant anyway.
+>>>
+>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>> ---
+>>>  .../devicetree/bindings/media/rockchip,vdec.yaml      | 19 ++++++++++++-------
+>>>  1 file changed, 12 insertions(+), 7 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+>>> index 809fda45b3bd..3f6072e8baa5 100644
+>>> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+>>> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+>>> @@ -28,16 +28,21 @@ properties:
+>>>  
+>>>    reg:
+>>>      minItems: 1
+>>> -    items:
+>>> -      - description: The function configuration registers base
+>>> -      - description: The link table configuration registers base
+>>> -      - description: The cache configuration registers base
+>>> +    maxItems: 3
+>>>  
+>>>    reg-names:
+>>> -    items:
+>>> +    oneOf:
+>>>        - const: function
+>>
+>> This is confusing, I think I missed that in previous patch because it
+>> did not leave that part or I misread the diff hunk - why do you allow
+>> one entry?
+> 
+> That's for the older SoCs, e.g. RK3288, RK3399, as the 'link' and 'cache' blocks
+> are only available for RK3576 & RK3588.
 
-Both 1MHz and 5MHz work on i.MX93. I chose 5MHz for better refresh
-performance, which is within the LPSPI3 controller's capabilities.
-The 1MHz limit in the binding is a conservative generic value I think.
+Yeah, I see in the bottom of the binding
 
-Thanks,
-Wig
+> 
+>>
+>> If the first entry is function, then all others MUST built on top, thus
+>> this:
+>>
+>>> +          - const: link
+>>> +          - const: function
+>>> +          - const: cache
+>>
+>> is not correct.
+>>
+>> No, you don't change the orders. So again, if you have such binding,
+>> then you just fix the unit address leaving the binding as is.
+> 
+> Changing the unit address would mean it will point inside the register range,
+> rather than at the beginning of it.
+
+First, not true. If this was one register range, you would have one
+entry. You cannot split entries. Split entries means you have two
+SEPARATE register ranges.
+Second, it does not matter because main rule stays - the unit address
+describes the main address space. The main address space in other device
+was called "function", so I assume the main address space is also here
+the "function". Which makes sense, because link feels secondary to
+functioning of the device.
+
+> 
+> Sorry, but I don't quite get why would this be a better approach than just
+> properly list the items according to the HW layout, i.e. following the
+> address-based ordering?
+
+We always expect the list to grow, to have common set. That's rule given
+during reviews multiple times. For multiple reasons, also explained
+(consistency, maintenance and actually proper description of hardware
+like the main reg address space).
+
+Probably this was also given to that binding during discussions when it
+was upstream, so your change reverts previous discussion and to that I
+do not agree.
+
+Best regards,
+Krzysztof
 
