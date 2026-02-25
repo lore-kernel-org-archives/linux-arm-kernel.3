@@ -4,138 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D143CF4BB9C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F80F4BB9E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iA6HH3oT7NxLhdanoXDLc8ORR9yhZ3AIV2S3H1AIpj0=; b=hqvCjjfGU64Tht3xAb3XuzXY4c
-	Ch7vzUsml5AngIKP5z0npxRMVBKsioJm3nTC8KXC7tLSzzfg1TcEQpgWdHYCGd34MUzE29tEtT/CC
-	shoAIjp76MHiIkz+LF762zysSj5+UIww224bjthmRJgRTExccNLe2ThY5JQPUoBe5GBxrcGbTXxc+
-	42kz4LYaeC9XcohAxV20KcAVnEVsi0PuDyh0781O+jdRPJvQeh99S0vtt97sA9NPQwVbMis3KT9Es
-	HYvwE5IbI/NKVoilmS3vxJL17viCa7+HYuFztb6C8zR6369XIYdomaNxVidOijBNIWCZ0geAtspOo
-	viwhrsRQ==;
+	bh=ga10eSgFE90ZtSvOsQUcopfNpkOfowVKw1XZ4wXDdCM=; b=wqkow+OgMAn9b3cH/V6W0FGRj1
+	Kc/5LRux2qBr8uETWPyaGDhsRHJ4l3R/A9iOJUwckPciIkTPMaIw5vV7a2sT0ddduqTuW0QucQ86y
+	npxLLLOhEiS9I750b+YbAy/LtuImFdbFWafngZCrYK/lFK+ElMuDdhNAl0Au3cbwFeMS3HcJZHlwj
+	BO1ViVieqjmSA2Kr/HALUvCJz73Dg1N8eC5fOerbJcfIE5coP4zaSr4dDt4JugPAKzyXGvkIxA+qh
+	gwnWWSh8hgX1ExYSVp4iGouoRjXQnlgJq8ImablPMJT/rpscpIsDGy7lUQKr+1GwFPICwFn0Lqq9P
+	dwaTJNcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCYJ-00000003rLM-3qBL;
-	Wed, 25 Feb 2026 10:55:35 +0000
-Received: from mail-northeuropeazon11012044.outbound.protection.outlook.com ([52.101.66.44] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vvCc4-00000003ryy-3aY9;
+	Wed, 25 Feb 2026 10:59:28 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCYH-00000003rID-1IOR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 10:55:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ytocul7EhQWt3W7QJ+CMjSekr8aSGPrS0XmzNoR5w+lvQaIk548pFcRwmQDP4Psb2JwUJMYD6cn1aABfwQReT1GD+pkWaU0iQ3GxLE+n2dYK0YSnZ/I5LldhTFWVnSoh5ESKkPyQsZDj8zJyNVRotU7mlhjHnOAKMyFHfXOrdfcARtE2/3ZvxaGJHLLZf/vT0nLH1JlPSLNFVebNY7nsIfmAnAk95Vka7g4e9C21HUwrQogJlBFMU7kWzAnugTYn6YE0DYw/5aIgO+uCDCHeEcI1GQWZ1BKSpNTMg8Vg7Tvg8DllwY5rd0pvowrjBG/pzAUc9zpFcEfu7txo3qS6KA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iA6HH3oT7NxLhdanoXDLc8ORR9yhZ3AIV2S3H1AIpj0=;
- b=NstARuzDCwt/Dl8bFbF/jS7hw5+lzBlVOkLlD7ffMJnAHZ9eI3YLi/WRFWM+2wJgJ7EgFbloNNr4Pia6g8M4hOrWgZAxtUmfEqJGh5jwkeoAnwNC85FmPy/PjLhOjEWtyQRWnAketFIxhbjuasuNTjpnxZpxKrhp1HvAp6O01ysm3UP4wKeAqlnSscsx3wvodYSIuyXShpjtlkX5WEkw/7cwaRjdpioe58QYmo6d7wp3zE/ohnpNdemRZNNJvBrK1O5Pv/US8ZuLNVpsc9pq0Em1mcA6jWaA95Irfap/dQiwtywb6Bn39J6L8hJA32U2WdwqtToiAk8ZtQ5cQFnrpg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iA6HH3oT7NxLhdanoXDLc8ORR9yhZ3AIV2S3H1AIpj0=;
- b=Epm51ls0oVmNctVI2/IbrIVTRcSgl4e2qCbluVHbK64wgTYF0yCGIRMrCk1iBNxEWEipHKswRVwaU0q5W0I3aW9v/SIOSx3Lx4o1kXuD5dhJRcxBCki5Ltxl49MhCNQRuDVKp0t3JmXRzrV2RfZa+k8XJGNy5tQjOohkv7vVgzY0wKpDQ2vguMiv+A9jJSPkObMgbcbk9pIP91VwZP7g9cUEex4PW8lpJakYWi068U554XQk0MzVxRQ3bES9KNXZIQmKUUDNudlqIMcieesl5nM5zaiLX1FdoeEtb4fOyiwUfAgOZ7/YNNffH8doYs3lbUA0r4s7B4DUKHTLG0RYAQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by PA4PR04MB7823.eurprd04.prod.outlook.com
- (2603:10a6:102:c1::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.23; Wed, 25 Feb
- 2026 10:55:28 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9632.017; Wed, 25 Feb 2026
- 10:55:28 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de,
-	Frank.Li@nxp.com,
-	bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	linux-pci@vger.kernel.org,
+	id 1vvCc2-00000003ryN-1L3A;
+	Wed, 25 Feb 2026 10:59:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ga10eSgFE90ZtSvOsQUcopfNpkOfowVKw1XZ4wXDdCM=; b=bZQfow/vi7pdFWOl/ITz9NlKxT
+	aPIQ4Nc+zafMdUFWqbqwe7vzDE/yfiDweu0EQjca7ABawF104R0HybfM2KBqI05evdZYCRb98uDJm
+	UEk+d33k3k2znQRRIOpgyXXUWEVgbacqv4YBeJb4/kzo5TUdimo0TeIWXu3ikIQyBDg21zQ64Iiiz
+	K8ymEyol/Th1oW1AIpDgAaG89RKOeEXGtngt1pl4BLRbvZaaXmQELfq4we3jY8VaUWoVcUAur+S1N
+	Rok8C9bRzDmA92JbnokqNDD4BX85Ywfnp5dY39JFJdv7S7p2dQsIySYk+4mkaHp5B/NMN7HczYjpm
+	ElOUlZEg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:44156 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vvCbu-000000006Uw-39e5;
+	Wed, 25 Feb 2026 10:59:18 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vvCbt-0000000ArKy-3Wog;
+	Wed, 25 Feb 2026 10:59:17 +0000
+In-Reply-To: <aZ66OT9scKipRRu2@shell.armlinux.org.uk>
+References: <aZ66OT9scKipRRu2@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V6 12/12] arm64: dts: imx95: Add Root Port node and PERST property
-Date: Wed, 25 Feb 2026 18:55:23 +0800
-Message-Id: <20260225105523.748775-13-sherry.sun@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260225105523.748775-1-sherry.sun@nxp.com>
-References: <20260225105523.748775-1-sherry.sun@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0104.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1b5::12) To VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13)
+	linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next 2/8] phy: qcom-sgmii-eth: add .set_mode() and
+ .validate() methods
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|PA4PR04MB7823:EE_
-X-MS-Office365-Filtering-Correlation-Id: 969c5c7c-d719-4295-a59c-08de745c6352
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|7416014|376014|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: KeqHudLt9bLBrjwPO++T6WICH4YtmpcyeXutBBd0D59NXSTUhsk9szMpEM2WlOdjCc4RYZ7QbTYtMbrQ8v0Fm510GTrUS2mKM20FncaQI4ha43rqJo1sOphhMm7D/LYBQ8wFxgNYUL8NXlTZ4bcjRjmNkys4IyOMgaks+Wykj/pnjoUXd+m2kBUBLsSfzpCP/TE9CsIluDFsZNgMGf/f4kvPuBWB9GHkm/fM1WKnBqjuxwSb06+/QmBlBVPzdGPpOzUADevlmBgP/4ppijIcn/2lRa4JldauVhkaB3uQlQ2PaeMnE2GfI6scloN3Ob0rEAuCs0yvezjdNxxhG81DPc1xX8jbDFGrv1efdeiDE3Roo5duYAZtLeo/5YmYcEeyHNeaqjJUjRGkmjOb3SGZsDPvVE2w/BrofX8oj6hi3XnUTfqAtlr8BhFU99/7ohyqNj1Z/CmqwcRic71WfBBSA+Lr+C/1rgHz33vqsZmeXZA5dR2sJxNvBieTGv1HLo8O3hgwG7BJk0+iH6zXJ/C1fdNpR1WDxqw3x3tfy9fYJmyKHuN18762+GUkvu8iPo1wMqwyDjDfJVXOAqV4TgEyUq7aVUUVo1PpGizopBJHAF37y0jfDBykps8zyKJvhATWS3RVFo7Noo7YndbLPOi3CZg4Q8m8rLB1MXib0kh3222uAZ1HLeRbAGjNwPtXob4mNEkCkPsh6ohvyc/o0IurkO4lTH2yukVyuH/fndQGgVbfmjDEOX86MjWMlPxhScaRwl2XKUKjWhnka9SgFtpR/aI3nYc2ryyadR1ysiSxRoqv9NVWWUScEpn9vXAWRXau
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(7416014)(376014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XWWqsaU29bot4SnLqAzdtsBqXma13UARjestnXCP5FGnscXMHgE8ztNCoGNe?=
- =?us-ascii?Q?2sl+pVf+ig5G6V0Sfz5derfgaD6aaXRQYI+eL35lCIg2H/gvBvH0FfbqDRKj?=
- =?us-ascii?Q?H7oiZmGcKu2skMjxLOAgBKLJTPNAkwfiVIWJyB44oAw6bsbRuaEtCPPrzze1?=
- =?us-ascii?Q?DQ5qxCWJzNV5UzsxGF6CkxAPErUov7VTSpNcWM7wU0WHxIO6v4BKinCZyQVi?=
- =?us-ascii?Q?iwrBdzjzs8SwpiwYn/wdd6z1BU91Qa/uYRV2WfNkPES7CYxIsxtk3bysMZBb?=
- =?us-ascii?Q?KlZnFbjA6JcTg4NMNN44xgRfx+bKVJDar7acRdsJ2+pKP7AfLYtSfpQgi+Wd?=
- =?us-ascii?Q?lpRPrhSjcuyOnrfzZiAV4GLLoJaksxOSl3C3aqZrNckZ4/9OoDU3IxI/CdoT?=
- =?us-ascii?Q?trLkfOthpiRsCW47pSJAxw2f47JvXShzjNVJdXUPosb9pTj4vrxOeVxfUe2Y?=
- =?us-ascii?Q?KQ8Vdcx8kGCay0QCJbDaHVqJQcfSlNYCtliZh6WJNn2dkCRzK7xwGDUDVaCZ?=
- =?us-ascii?Q?4O+S+dlbdxKs4DMEa2u5Kc4WnJakQdjKj0l3fW6d731dTWWkOnSEOuvXQJ5I?=
- =?us-ascii?Q?LmpXxIT+KAY8nJu1Jwv7AajBY5rvfhVKTLDj4f2lAnxP1QZ8BMyrgKXFzRE6?=
- =?us-ascii?Q?YCGRF8tPrhpdEVdm7/lbf5ETJ0a0MPJVKxftRtNwDplUTMTfA1xajEIuhJ9p?=
- =?us-ascii?Q?2zGomIc+f92yxJPV/AfpIZ3m09DXgjiK6lSonDm9w98ErS5oWRm1YReF1mBZ?=
- =?us-ascii?Q?wHyTxNkglgYwTfW8YEFd9ul3qMvk/LVlNsUn6s1eTGdj+wz7cz46Btd/D60z?=
- =?us-ascii?Q?UtbmWuyaf5Lzgr+h0dub/pSuqFkakcdYH/aEC71Sd4tOAP5iyErbKDOmElQG?=
- =?us-ascii?Q?52tJbLASolAYBTydRXNNvk14DbLkc9ifPTlgUJGa0teyXASNtuWfKNZVJGj/?=
- =?us-ascii?Q?9CVZDlV1mt/IvyAnzszuNTY1WE8B47AMrTxjWKJfNIAJFJmUNRIauI1kK3hT?=
- =?us-ascii?Q?rCYvfHXMz4er8jJzV2KTEUqyZY46oTwfaIsAaKLJnj2JYmYG1AMfirkGqmoS?=
- =?us-ascii?Q?+CIc4nkfkjXbZxcFj0frtUxBtTrzs63ovHvcC4fh/Lb5BMdiCHO8D04u6Aom?=
- =?us-ascii?Q?vgOx6lQ2KL5+umnBjiCaWgKscjB2L4lutyg47N/xMuqxawv9bIPGrXX5+vQT?=
- =?us-ascii?Q?nAhXIJ+gn635eMIlWpdhaGD0AwMXr+nPxl6Y2Gc1Ciu2pecHBrhlW4dethS+?=
- =?us-ascii?Q?z0tYA9CHxAh9BavYfU14R979uUF+xdq5KADZLgVPqDjtcYeXKCCBJmWh9X6+?=
- =?us-ascii?Q?MFhig3QBM0naoP2tVAEWf1ZPjAdozGqXHBuRw+8WOlPSR4bAtA6EwI0RcCSJ?=
- =?us-ascii?Q?zYMtLHrvT4RR3eurSWTkAwayKRPPeqx0kmhPFm7zzCwRlo9VN7ZnR8T9WFdI?=
- =?us-ascii?Q?uiP4oDOwO5YXW/FO4e0u90MfYVYSA5HGfiJvp3QzOJNh8ewBAGvx9zEky9ce?=
- =?us-ascii?Q?TluohuckW7+ssoTlDg1On8PrHPGNp3/6f2iiOmtiJTWs/YEyf4pu4zRcjNTV?=
- =?us-ascii?Q?hzGcE8nMNc+QPTat2oItINpaBrCQjlinjrVA4eL70CXOURTZiHNU7wXddP7i?=
- =?us-ascii?Q?LkfeTpXEq53Niqt5o1Ae857tkZXafp+0ZMeq1edo37Qs16VmuQs9JrMVuTT2?=
- =?us-ascii?Q?HxKx7I3gad5vPrp8JHPevccJJlTmj+d2mcxpQwJMXq2NxmwBs9tseQzLJXkI?=
- =?us-ascii?Q?AtiBgyYSZg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 969c5c7c-d719-4295-a59c-08de745c6352
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2026 10:55:28.6056
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p+Kf8ulXvRJh7RmdXPf6QD++ePhLxKiScCKt7LfCl2iuMf3AYfzFZ78Yv5ys18OleQME0JiwrB3PRFI43TLA0w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7823
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vvCbt-0000000ArKy-3Wog@rmk-PC.armlinux.org.uk>
+Date: Wed, 25 Feb 2026 10:59:17 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_025533_357641_96401CD0 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260225_025926_356127_6217DF75 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,120 +91,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since describing the PCIe PERST# property under Host Bridge node is now
-deprecated, it is recommended to add it to the Root Port node, so
-creating the Root Port node and add the reset-gpios property in Root
-Port.
+qcom-sgmii-eth is an Ethernet SerDes supporting only Ethernet mode
+using SGMII, 1000BASE-X and 2500BASE-X.
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+Add an implementation of the .set_mode() method, which can be used
+instead of or as well as the .set_speed() method. The Ethernet
+interface modes mentioned above all have a fixed data rate, so
+setting the mode is sufficient to fully specify the operating
+parameters.
+
+Add an implementation of the .validate() method, which will be
+necessary to allow discovery of the SerDes capabilities for platform
+independent SerDes support in the stmmac network driver.
+
+Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Acked-by: Vinod Koul <vkoul@kernel.org>
+Tested-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../boot/dts/freescale/imx95-15x15-evk.dts    |  5 +++++
- .../boot/dts/freescale/imx95-19x19-evk.dts    | 10 +++++++++
- arch/arm64/boot/dts/freescale/imx95.dtsi      | 22 +++++++++++++++++++
- 3 files changed, 37 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-index d4184fb8b28c..42bc09e48b80 100644
---- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-@@ -554,6 +554,7 @@ &netcmix_blk_ctrl {
- &pcie0 {
- 	pinctrl-0 = <&pinctrl_pcie0>;
- 	pinctrl-names = "default";
-+	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&gpio5 13 GPIO_ACTIVE_LOW>;
- 	vpcie-supply = <&reg_m2_pwr>;
- 	vpcie3v3aux-supply = <&reg_m2_pwr>;
-@@ -568,6 +569,10 @@ &pcie0_ep {
- 	status = "disabled";
+Resending as netdev (and others) were missing.
+
+ drivers/phy/qualcomm/phy-qcom-sgmii-eth.c | 43 +++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
+
+diff --git a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
+index 5b1c82459c12..4ea3dce7719f 100644
+--- a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
++++ b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
+@@ -7,6 +7,7 @@
+ #include <linux/ethtool.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/phy.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+@@ -286,6 +287,37 @@ static int qcom_dwmac_sgmii_phy_power_off(struct phy *phy)
+ 	return 0;
+ }
+ 
++static int qcom_dwmac_sgmii_phy_speed(enum phy_mode mode, int submode)
++{
++	if (mode != PHY_MODE_ETHERNET)
++		return -EINVAL;
++
++	if (submode == PHY_INTERFACE_MODE_SGMII ||
++	    submode == PHY_INTERFACE_MODE_1000BASEX)
++		return SPEED_1000;
++
++	if (submode == PHY_INTERFACE_MODE_2500BASEX)
++		return SPEED_2500;
++
++	return -EINVAL;
++}
++
++static int qcom_dwmac_sgmii_phy_set_mode(struct phy *phy, enum phy_mode mode,
++					 int submode)
++{
++	struct qcom_dwmac_sgmii_phy_data *data = phy_get_drvdata(phy);
++	int speed;
++
++	speed = qcom_dwmac_sgmii_phy_speed(mode, submode);
++	if (speed < 0)
++		return speed;
++
++	if (speed != data->speed)
++		data->speed = speed;
++
++	return qcom_dwmac_sgmii_phy_calibrate(phy);
++}
++
+ static int qcom_dwmac_sgmii_phy_set_speed(struct phy *phy, int speed)
+ {
+ 	struct qcom_dwmac_sgmii_phy_data *data = phy_get_drvdata(phy);
+@@ -296,10 +328,21 @@ static int qcom_dwmac_sgmii_phy_set_speed(struct phy *phy, int speed)
+ 	return qcom_dwmac_sgmii_phy_calibrate(phy);
+ }
+ 
++static int qcom_dwmac_sgmii_phy_validate(struct phy *phy, enum phy_mode mode,
++					 int submode,
++					 union phy_configure_opts *opts)
++{
++	int ret = qcom_dwmac_sgmii_phy_speed(mode, submode);
++
++	return ret < 0 ? ret : 0;
++}
++
+ static const struct phy_ops qcom_dwmac_sgmii_phy_ops = {
+ 	.power_on	= qcom_dwmac_sgmii_phy_power_on,
+ 	.power_off	= qcom_dwmac_sgmii_phy_power_off,
++	.set_mode	= qcom_dwmac_sgmii_phy_set_mode,
+ 	.set_speed	= qcom_dwmac_sgmii_phy_set_speed,
++	.validate	= qcom_dwmac_sgmii_phy_validate,
+ 	.calibrate	= qcom_dwmac_sgmii_phy_calibrate,
+ 	.owner		= THIS_MODULE,
  };
- 
-+&pcie0_port0 {
-+	reset-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
-+};
-+
- &sai1 {
- 	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
- 			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-index 041fd838fabb..6f193cf04119 100644
---- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-@@ -540,6 +540,7 @@ &netc_timer {
- &pcie0 {
- 	pinctrl-0 = <&pinctrl_pcie0>;
- 	pinctrl-names = "default";
-+	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
- 	vpcie-supply = <&reg_pcie0>;
- 	vpcie3v3aux-supply = <&reg_pcie0>;
-@@ -554,9 +555,14 @@ &pcie0_ep {
- 	status = "disabled";
- };
- 
-+&pcie0_port0 {
-+	reset-gpios = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
-+};
-+
- &pcie1 {
- 	pinctrl-0 = <&pinctrl_pcie1>;
- 	pinctrl-names = "default";
-+	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
- 	vpcie-supply = <&reg_slot_pwr>;
- 	vpcie3v3aux-supply = <&reg_slot_pwr>;
-@@ -570,6 +576,10 @@ &pcie1_ep {
- 	status = "disabled";
- };
- 
-+&pcie1_port0 {
-+	reset-gpios = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
-+};
-+
- &sai1 {
- 	#sound-dai-cells = <0>;
- 	pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 55e2da094c88..7c5f350fe3a4 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -1883,6 +1883,17 @@ pcie0: pcie@4c300000 {
- 			iommu-map-mask = <0x1ff>;
- 			fsl,max-link-speed = <3>;
- 			status = "disabled";
-+
-+			pcie0_port0: pcie@0 {
-+				compatible = "pciclass,0604";
-+				device_type = "pci";
-+				reg = <0x0 0x0 0x0 0x0 0x0>;
-+				bus-range = <0x01 0xff>;
-+
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges;
-+			};
- 		};
- 
- 		pcie0_ep: pcie-ep@4c300000 {
-@@ -1960,6 +1971,17 @@ pcie1: pcie@4c380000 {
- 			iommu-map-mask = <0x1ff>;
- 			fsl,max-link-speed = <3>;
- 			status = "disabled";
-+
-+			pcie1_port0: pcie@0 {
-+				compatible = "pciclass,0604";
-+				device_type = "pci";
-+				reg = <0x0 0x0 0x0 0x0 0x0>;
-+				bus-range = <0x01 0xff>;
-+
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges;
-+			};
- 		};
- 
- 		pcie1_ep: pcie-ep@4c380000 {
 -- 
-2.37.1
+2.47.3
 
 
