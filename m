@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E178EFD213
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE70EFD23F
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 19:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,54 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SUZn0OidZs1TgTALnqd5KmUmAdGNY//FztONd+/Cl2Q=; b=LWf6IfK8X39lXav1R62czB0p1I
-	eMSrdMlaHPNg+4I2DcgJrhUd6GQYcFyeOJLYMOWZgiT7bw/5nYORV+d+7KAiKGDFC+t7LL/yODQ8v
-	8tpzF/xx9DqwuSRLsU2wsfzndRbMeIbRDSaNyFOj3wv9x6TYF70LS8oa3CBrNeotcNjs4PHOn0mZz
-	zFl7KzGaDJ8pRmafVzC3TWM68OS+cVvg0dYNLOObB8D44s0WHzzzipazkEVkFMFA88pBifTJieTYA
-	ewwV/83t2amrXsg/f7lhEy5nAwNwkH4UH/Tu6oNXjN2F6xm/gVyU1gAqLEUHyPsED5c6bTBUBz2Vs
-	9EfjQFJg==;
+	bh=kCFVFObzWl7uiJ7DKi9f+WMWIZEu6xCzwdS7RV3hLJ8=; b=l2vNMM+KLi0mgQWbe2bFPjpPx7
+	XW7ynscaRCTcwthxWjRZokpS/7mrzVdu8flbIKULwhKT5+KajWXIZQL7X8bBBYvgSLd/NzSyt8/30
+	A0O6mvMRbdjVwnFlGA0ezWHWuHW/009/HV1dKm8s0dEY+56JDD1fN9vQ3YoIpTGm0qF4KNP7v1HbX
+	a+f3LonVr35oi8r/jGznKOw34E1uqDgmFIooL76IwTik1Wl2pn4rjTx0oXrdlArYpAxbdRytg0jY0
+	3e982vZ7m/sgAf14tU5ceoN844v1USk81Pxir8pSZDnTqnp0HiA4x2ppXvY8r7TwkZlDmSLBnoJNx
+	E0PSMcoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvKEi-00000004llO-09Jx;
+	id 1vvKEi-00000004lmH-2ZNl;
 	Wed, 25 Feb 2026 19:07:52 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvKEW-00000004ljM-41su
+	id 1vvKEf-00000004lkm-49PD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 19:07:43 +0000
+	Wed, 25 Feb 2026 19:07:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA78C4455F;
-	Wed, 25 Feb 2026 19:07:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0529C19422;
-	Wed, 25 Feb 2026 19:07:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B09464438C;
+	Wed, 25 Feb 2026 19:07:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36EF8C19421;
+	Wed, 25 Feb 2026 19:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772046460;
-	bh=bI+Op+k/62if1XQZhqOZn4GmEtiaxB5GHYdEO5Xw5Q8=;
+	s=k20201202; t=1772046469;
+	bh=/fC8mtMNV8v0M5K9EhKSE0JzfsOboD027+MkCKRsFVM=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=JmxezAw+Y/L9/rljxKrYvciHY3AqhSrQtv9hHB0ln7aW/hTCVMd7cZFV8w9VmYNHV
-	 h7lJvNh0xg2bACYHHbI61Izugl93tIBJMT3QBccYl4FW2Nih862mTAOSUePVDowouH
-	 +/E0JMvQsBj5OPZL2MCxub0R23DsEojy4MJzOGQln+QoM4weJ3jt/frieE4scr8PPr
-	 Rz0XJrydCdS0Awyx2yScST0yee1HcjaC1h9zm4DaR5i1Jdye3B8S5mBGTP62UIMjGS
-	 HsoEDzPVtnx6E7Jb3gUYAMJwxzWXYptVkV7Ej+H/Ir/mLq7/SgK2fQ+B2ttc/0ygMQ
-	 wtP20oaAeUEtw==
+	b=D1MYwCeihEtPbugUoN66TcSmkPwEuC13KnKlBhIfCu5HOeOkL7ZIAgzcDz+Kdn0jR
+	 17sslS44CPGIb2a4sqcMsZDBnUa0vsZYcdYYptVT0Xz8vSZnnM27Y2IMfEGmA/Bw/c
+	 GifLKy37po9Yk/D0JK2HmF3r64o6C0jA+r8eOlCmVdNhymGybK8kGmQR2KKKny8mIt
+	 hBZ3Nsa12A8E7aiRiWbm7vcv3dEbQndr25h7ePUbypRszc8OaJGCpLS4resRVhScmQ
+	 M3fktNxF+mKN1fSDOOuLa41jNlpOoZfn2FDqyAYzk91YytmmqYxZ7i8npATl4ykvqQ
+	 JM87f7eNUZ44Q==
 From: Mark Brown <broonie@kernel.org>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260213-upstream_ospi_remove_exec_op_debug_log-v1-1-164f17515fd0@foss.st.com>
-References: <20260213-upstream_ospi_remove_exec_op_debug_log-v1-1-164f17515fd0@foss.st.com>
-Subject: Re: [PATCH] spi: stm32-ospi: Remove exec_op() callback debug log
-Message-Id: <177204645867.169139.10618667712861229552.b4-ty@kernel.org>
-Date: Wed, 25 Feb 2026 19:07:38 +0000
+To: linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Daniel Mack <daniel@zonque.org>, 
+ Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>
+In-Reply-To: <20260223144437.2836369-1-andriy.shevchenko@linux.intel.com>
+References: <20260223144437.2836369-1-andriy.shevchenko@linux.intel.com>
+Subject: Re: [PATCH v1 1/1] spi: pxa2xx: use min() instead of min_t()
+Message-Id: <177204646782.169139.4278556764726477870.b4-ty@kernel.org>
+Date: Wed, 25 Feb 2026 19:07:47 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-47773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_110741_023896_0ED113B5 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260225_110750_246936_46825B90 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,12 +75,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Feb 2026 09:19:11 +0100, Patrice Chotard wrote:
-> Since commit ad4488845193 ("spi: spi-mem: Introduce a default ->exec_op()
-> debug log") a common debug log is available in spi-mem, so remove the one
-> from spi-stm32-ospi driver.
+On Mon, 23 Feb 2026 15:44:37 +0100, Andy Shevchenko wrote:
+> min_t(int, a, b) casts an 'unsigned long' to 'int'. This might lead
+> to the cases when big number is wrongly chosen. On the other hand,
+> the SPI transfer speed rate is unsigned and driver uses signed type
+> for an unknown reason. Change the type of the SPI transfer speed
+> to be unsigned and convert to use min() instead of min_t().
 > 
 > 
+> [...]
 
 Applied to
 
@@ -87,8 +91,8 @@ Applied to
 
 Thanks!
 
-[1/1] spi: stm32-ospi: Remove exec_op() callback debug log
-      commit: 52531750d39b94803e089dda95e43925730c03bd
+[1/1] spi: pxa2xx: use min() instead of min_t()
+      commit: 507a071d9868cb60e4e76f8a06fc8eb014f59ae4
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
