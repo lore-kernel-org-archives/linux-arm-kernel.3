@@ -4,77 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0FAAFD45EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 21:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D945FD45EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 21:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u2i0xPoB7t6a2BIsBt7bTqbrXFRlBJUodrn+tXd5Mx4=; b=f7lFbHR+qJv2FY5B0BTemaLFUJ
-	6XVfYpZ8DYilHBVRSW2vkrGNcDYHpkTSUHoqbInAYltTYbiak/4aLX2OamRechoeEed8qiyG9AB1q
-	DfuNdkUDsEHaJ6rF32lmA24pxkoaqtxLWoNheIL7aGKdtCinqsmWQDZ6V6gc1gteRqrhYKK7ZgFla
-	U76l6HzmpNFjTlDmzmLGAgW5zmNBsRAkXTUOyfjGOaXZ0SwFVdL4xicqqxcM8Ix5mjfl89K/ZfoqC
-	q+IAcWfAteCtk66xm9h9yHnEfIHOvjJnoFz81b66Eca0WqWlrBsBDpFdZFFF5KVdI0RsWNnXUn4EZ
-	4rFQ8GJA==;
+	bh=VBmnl9PJw1wesdKZ2FfBJpI0enm3lW3EvYf0jk7sk7w=; b=rmsqJzazCPVNkYHYVlMvha3R4K
+	YnqH0DVY9HY9dUHoqGyfIAc+g+IezgrN3k8m66xXA/a0otwncQrdxPhd4BptnCwCSOOByeQpYgulX
+	v1M0/gps82G2MMLyi2/FCVdU+28ABsstDQMmDlKqSxaoBchHJlY3ZkpZ3q8/hkezg9Gnhhsq+Sfb6
+	rHQnEeHrY5lzned+BykParpUyC6SNV2HVQgaETavRPqdUr/OnjAcGFTNHn11E0Cii2imco6bG7voH
+	QH3a1K3c8CkY8gHB16jatlns7MS5bLeL4N77DhkNJFJO1JHCGAAS90zbxwTUPQAHNW5EDqdKGgG/q
+	qzJcOAiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvM1b-00000004tIY-3RVF;
-	Wed, 25 Feb 2026 21:02:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvM7x-00000004tYp-35tu;
+	Wed, 25 Feb 2026 21:09:01 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvM1a-00000004tID-0EKW
+	id 1vvM7v-00000004tY6-3a5F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 21:02:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0098F60054;
-	Wed, 25 Feb 2026 21:02:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12D99C116D0;
-	Wed, 25 Feb 2026 21:02:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772053344;
-	bh=Jy6N4IhDvASBtWTrPNraJpD5E/n58S/X9rF10vWsGxo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a23zWkRXy8vl9KpsWM3WnIQDHv5KYZxIkD9EzaTAuYeMVllHnEtvD7eDFZIOvpovG
-	 NyT3pHLz6vBKDacWjPBF2Y7YLvtK+UpcOHVeAlr6IVFmUMqOKUyLUHoxeLCIefGe/4
-	 KDA1ElBAy3D3WtzRCmMr1IRZmeKwexlOtSozi568vaUtgwtjjov2SRc8vLAmc5upa8
-	 fpy5OHgptojo/HYMS3m2GA6hFJcObfwfN0rCVE7s9b9LwjKgcEot1q8FAEhsyU6svv
-	 huy/XM8X573n77N53VjBQ3iJdQ/gcaCcs++iMY0V9TjMjmLkJ5YpeyAvbI0yX0qepC
-	 WUD4dpEJBnxZw==
-Date: Wed, 25 Feb 2026 15:02:18 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Message-ID: <l7vmhr5rg444pqp47x2k5ejamjnisx5rqwfmfr6m2tjazxpbm6@wq2vd4hcxco2>
-References: <CANLsYkxAwgG1WkMRr8EJZuSUnN_jKVnsWhWTakVqhvtMBO365A@mail.gmail.com>
- <PAXPR04MB91851D3DA6A92669CB5926A18974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <CANLsYkw-8ERXy3v8Sv55Cpq=+41Toez3EjLMbENAkavvr8STeQ@mail.gmail.com>
- <PAXPR04MB9185B68BC640D940534E44098974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <d4c8f7dd-c0a8-4721-9750-47429637d8c1@lunn.ch>
- <PAXPR04MB9185BB6443B9E1E407F409D68974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <ndozoc6qdrpv3xuktumsah56im5rbtg6iwerq3xi2xkcuyewpx@szswqvojleg3>
- <AS8PR04MB917652D63DB090D22129D3D78975A@AS8PR04MB9176.eurprd04.prod.outlook.com>
- <2b72kkgwe5hio4uwrxj5oi72llkxhx7egw442fugq6unv7unah@5bfve7k3mvky>
- <PAXPR04MB918508A39832000D786E8F938975A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+	Wed, 25 Feb 2026 21:09:01 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61PGkJHT3632329
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 21:08:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=VBmnl9PJw1wesdKZ2FfBJpI0
+	enm3lW3EvYf0jk7sk7w=; b=aPLRKa94YDUOW/qMnOjRcpCcH8aILpYCYua+iSRW
+	oAz+0avS3bsLqu+Or7sIXixWe1zdVa3PvO0vshaSlXLCKro7vtqWlirNpNkmWZrH
+	GmgxwyIkc2ADY0hO5A8AGSPA5S+v6s9XuGkeDAFa4yPVzkqE7TCxZnnLVxgUHFT1
+	3BfDm1X2MPQzsPdvIFj+fbuJU61j/J2lduCDZ0m2nVzvW1QEe8F9mVnPc7ASwZRc
+	kDtUrRXDnkKY27sa4HaxdUdVKg6GFM4EUX+Kp959gwvrkRk1qkp+FC9cxJZYoC9J
+	vFkU6d2moA9Ruqp5l1HKEe2pG2U5DIQIIyBpk+zbAxLHxA==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cj4w4rt0h-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 21:08:58 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-2bdc5078895so2069888eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 13:08:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772053738; x=1772658538; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=VBmnl9PJw1wesdKZ2FfBJpI0enm3lW3EvYf0jk7sk7w=;
+        b=RRPJP9KK+8QdcblYz6SKt4W8UuWvQV9J1t1BxO/4jnnNw3PwfQfhnxR1SC6qD5XTZr
+         weweWs2LNKw98SrZvcAV8k+GihV1mgCKz+SWamE0NK++ucpIQTFY1PRuzBoHjCNYTVhQ
+         MZQgH9Pnihc9MmvH4WxsqHofIHSNu+XL+2oMrTA2fyX4UyfoTPRcR7Lo1LY7PJKBD3PD
+         R/qv0QF9t+T/1wlPsdRdlkXYIutkWiWZpGDqUojBgRC9X39vqY8Ye0bv6aKSXRGxTMFD
+         zIDDE+McIg/CfEr0pmZJlkgSFhlsoEPqP3Z9jVMYFGiTGotY6a4SoLkoDNP4gFkyRHf2
+         EyJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772053738; x=1772658538;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VBmnl9PJw1wesdKZ2FfBJpI0enm3lW3EvYf0jk7sk7w=;
+        b=pEUmfgDcOnnER8GDyffRaZQS+8ekuXrMrVsPk/Cfqh+s665464Npnh+SqRJSAA4GQ9
+         FmdAfVmiReUnh7YUoPiXVAr3HWVa+LZRj3zHMdtkP7hGr+ZuCy7NLIZsZ60FwcuAh70Z
+         VBQq5JAxaEUhXpMP4liKayTveVJwVKb7W1CK4QFz5te6CysU3y845wfK9L6izUOUMypd
+         Leigxp5sqm1++Wce+Exe4nrfwXI/9ppYyqzlp7QaHPo5Xo0xXBqQBZaO8nPQugx6aeT+
+         WQ1PJDpcUaSCCgFsNFhsa/4N1Ga4sVdO0W+e9pTk5q8kr9xy+bka27Mk3flcDUMDzZKM
+         V8bQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWiPOXPng/0BBirvb6gi2hRiaBWsv5l2oPEYCjpRcgkmEQKRSt/VP+2hmAYI0jAO+ffOGENpAiIkH1HjgHZuJUa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwDz7iulEQ6i99/XJL8sMs5CkUTyferBJ0D1VBqrqJybv87Oq8
+	tUsPOgZOq55sPWEn7OHK5Qv4gA1n79jcSp6isPhZ2qXMNrYDywiYYZ/jQFQ3u3ecdvBseLQ+VEt
+	FBW/6yh50dXxxg73M+5zSntifwF68H+8Sb5iqmliYSBq0POpoHltnNLgWQR0V7EN6D6UwxdWX+D
+	W7TA==
+X-Gm-Gg: ATEYQzzy8ys4qAhS/nra0FIqVgKF46vAdf/zpQJj9FYDqyZFED+6l0djRB/4xkcbVXC
+	0suVyYwOWa0EWpXYMYsqW6Rz5MJJ9XLap1zg0oXB7086X51KBNVdzX8hsRFTSpUM+cHw+zjkY5t
+	LTA3kwe81MWW6K0GU9KX9QFQIYckV1nAezDDx7VzIJOMVrcfTGc5thBrnkdRk6HfV/aEEpk4V34
+	ZOSOL0nG93TXG67J1UdKTVJn1EqwlUCir9ERISZ7bG4c1PUhHdU2SrWo1DbajBhiM/mbzn4HWZ0
+	IxjcegbyN/ZL7bBCnU5JHqjeD8xMlQ9do8e236CLqvO44cxOeh6l5EahdIeT0qlGh2RaP5/j3SM
+	c0oAOvnpjQRH8M5gnVXifPUWvxY6dKPtT
+X-Received: by 2002:a05:7301:678a:b0:2b8:5159:eca5 with SMTP id 5a478bee46e88-2bdcbf7ebf5mr946974eec.14.1772053737597;
+        Wed, 25 Feb 2026 13:08:57 -0800 (PST)
+X-Received: by 2002:a05:7301:678a:b0:2b8:5159:eca5 with SMTP id 5a478bee46e88-2bdcbf7ebf5mr946947eec.14.1772053736987;
+        Wed, 25 Feb 2026 13:08:56 -0800 (PST)
+Received: from localhost ([138.199.100.237])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bdd1df6b0asm188889eec.12.2026.02.25.13.08.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Feb 2026 13:08:56 -0800 (PST)
+Date: Wed, 25 Feb 2026 15:08:54 -0600
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+        Arnaldo Carvalho de Melo <acme@kernel.org>,
+        Namhyung Kim <namhyung@kernel.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+        James Clark <james.clark@linaro.org>,
+        John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+        Leo Yan <leo.yan@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Alexandre Ghiti <alex@ghiti.fr>,
+        Dmitrii Dolgov <9erthalion6@gmail.com>,
+        Blake Jones <blakejones@google.com>, Tomas Glozar <tglozar@redhat.com>,
+        Yuzhuo Jing <yuzhuo@google.com>,
+        Dapeng Mi <dapeng1.mi@linux.intel.com>,
+        Shimin Guo <shimin.guo@skydio.com>,
+        Athira Rajeev <atrajeev@linux.ibm.com>,
+        Chun-Tse Shao <ctshao@google.com>, Howard Chu <howardchu95@gmail.com>,
+        linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+        Thomas Richter <tmricht@linux.ibm.com>, libunwind-devel@nongnu.org
+Subject: Re: [RFC PATCH v1 7/7] perf unwind-libunwind: Add RISC-V libunwind
+ support
+Message-ID: <q3oys2ukvylrd7xfn7267bh3wpumyxbbxpk2udhps375cmk64p@l7sjnlxll6c7>
+References: <20260224142938.26088-1-irogers@google.com>
+ <20260224142938.26088-8-irogers@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <PAXPR04MB918508A39832000D786E8F938975A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+In-Reply-To: <20260224142938.26088-8-irogers@google.com>
+X-Proofpoint-ORIG-GUID: e8h66SRBr1Qukskd3J3EemnKUcijdWiI
+X-Authority-Analysis: v=2.4 cv=IqMTsb/g c=1 sm=1 tr=0 ts=699f64ea cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=OC80/TC5XWgnnCQ5Z9xtWg==:17
+ a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=8mPsIthyXUsASUFpomQA:9 a=CjuIK1q_8ugA:10 a=PxkB5W3o20Ba91AHUih5:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI1MDIwMSBTYWx0ZWRfX38DKHYO5h2Qe
+ cdtYl4JWbHD5cusNrXRYiVcVaEAcsfAsQ6HpyjFICBqX+PvbSMGmyRk0OdnId+t3YjcShMI/GLY
+ GWNkL5kStpG8moA4+PxBXJMNnz4xeF5gGfvuF29tOSQHcncPYnB7nNzTkFiOJwnjJeOje0vJ4fJ
+ uH1LRCvirFfe16r8jqrBmWIqjw4mjz17/ZFN5ZJjVZkDkytqzszoXjqbNN325gdLYDPVu5piT/B
+ ETx/Ilm01nDwQW/++RFaz0+bG1J1sZ8khrkSRBh5ZytG07qH/9xSlwBepM23nycfVSo0uS/O8iD
+ Ax0xkJjB4T58O5Q8kIxeeKP1vK2jjjy0JcobiyHv87EkPb99F+9icymR+NUXQ6BOcB60XpvJqmp
+ pQkler/flGY96PN/gufRjkoCX5UFh6HSbKtGtYAQxRgD7vnNDrhA4zqohgGONR0bJOzcaKYRxva
+ 7D8enQnDDN/ofNOb0DA==
+X-Proofpoint-GUID: e8h66SRBr1Qukskd3J3EemnKUcijdWiI
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-25_03,2026-02-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0 adultscore=0
+ impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602250201
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_130900_033166_09E5F0F8 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,202 +159,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 08:31:33PM +0000, Shenwei Wang wrote:
-> 
-> 
-> > -----Original Message-----
-> > From: Bjorn Andersson <andersson@kernel.org>
-> > Sent: Wednesday, February 25, 2026 1:44 PM
-> > To: Shenwei Wang <shenwei.wang@nxp.com>
-> > Cc: Andrew Lunn <andrew@lunn.ch>; Mathieu Poirier
-> > <mathieu.poirier@linaro.org>; Arnaud POULIQUEN
-> > <arnaud.pouliquen@foss.st.com>; Linus Walleij <linusw@kernel.org>; Bartosz
-> > Golaszewski <brgl@kernel.org>; Jonathan Corbet <corbet@lwn.net>; Rob Herring
-> > <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
-> > <conor+dt@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
-> > <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
-> > gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
-> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
-> > devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
-> > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <linux-
-> > imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>
-> > Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-> > 
-> > Caution: This is an external email. Please take care when clicking links or opening
-> > attachments. When in doubt, report the message using the 'Report this email'
-> > button
-> > 
-> > 
-> > On Wed, Feb 25, 2026 at 05:54:00PM +0000, Shenwei Wang wrote:
-> > >
-> > >
-> > > > -----Original Message-----
-> > > > From: Bjorn Andersson <andersson@kernel.org>
-> > > > Sent: Wednesday, February 25, 2026 9:53 AM
-> > > > To: Shenwei Wang <shenwei.wang@nxp.com>
-> > > > Cc: Andrew Lunn <andrew@lunn.ch>; Mathieu Poirier
-> > > > <mathieu.poirier@linaro.org>; Arnaud POULIQUEN
-> > > > <arnaud.pouliquen@foss.st.com>; Linus Walleij <linusw@kernel.org>;
-> > > > Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corbet
-> > > > <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> > > > <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Frank Li
-> > > > <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Shuah
-> > > > Khan <skhan@linuxfoundation.org>; linux- gpio@vger.kernel.org;
-> > > > linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix
-> > > > Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > > > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
-> > > > devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
-> > > > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
-> > > > dl-linux-imx <linux- imx@nxp.com>; Bartosz Golaszewski
-> > > > <brgl@bgdev.pl>
-> > > > Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg
-> > > > GPIO driver On Tue, Feb 24, 2026 at 10:43:06PM +0000, Shenwei Wang
-> > wrote:
-> > > > >
-> > > > >
-> > > > > > -----Original Message-----
-> > > > > > From: Andrew Lunn <andrew@lunn.ch>
-> > > > > > Sent: Tuesday, February 24, 2026 4:15 PM
-> > > > > > To: Shenwei Wang <shenwei.wang@nxp.com>
-> > > > > > Cc: Mathieu Poirier <mathieu.poirier@linaro.org>; Bjorn
-> > > > > > Andersson <andersson@kernel.org>; Arnaud POULIQUEN
-> > > > > > <arnaud.pouliquen@foss.st.com>; Linus Walleij
-> > > > > > <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>;
-> > > > > > Jonathan Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>;
-> > > > > > Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
-> > > > > > <conor+dt@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
-> > > > > > <s.hauer@pengutronix.de>; Shuah Khan
-> > > > > > <skhan@linuxfoundation.org>; linux- gpio@vger.kernel.org;
-> > > > > > linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
-> > > > > > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > > > > > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
-> > > > > > devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
-> > > > > > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
-> > > > > > dl-linux-imx <linux- imx@nxp.com>; Bartosz Golaszewski
-> > > > > > <brgl@bgdev.pl>
-> > > > > > Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg
-> > > > > > GPIO driver
-> > > > > > > Please explain how you would design your generic rpmsg-gpio
-> > > > > > > driver which is derived From gpio-virtio?
-> > > > > >
-> > > > > > We have already seen the virtio commands are pretty much
-> > > > > > identical to what i suggested.
-> > > > > >
-> > > > > > You could just replace virtqueue_add_sgs() with rpmsg_sendto()
-> > > > > > and reimplement
-> > > > > > virtio_gpio_request_vq() to be the callback registered with
-> > > > rpmsg_create_ept().
-> > > > > > The rest of basic GPIO handling should not need any changes at all.
-> > > > > >
-> > > > >
-> > > > > Creating endpoints and calling rpmsg_sendto() is only a small part
-> > > > > of the picture. You also need to manage the service announcement
-> > > > > from the remote side and handle asynchronous notification
-> > > > > messages. That entire flow is already implemented in the existing
-> > virtio_rpmsg_bus driver.
-> > > > > Re‑implementing those pieces just to mimic gpio‑virtio over RPMSG
-> > > > > would
-> > > > essentially mean reinventing the wheel without any real benefit.
-> > > > >
-> > > >
-> > > > I can absolutely see a benefit to this, there are multiple different
-> > > > rpmsg backends supported in Linux, so a gpio-rpmsg driver could be used by
-> > any one of them.
-> > > >
-> > > > I don't see this to be a case of "reinventing the wheel". Instead we
-> > > > copy what looks to be a very functional wheel and make it fit rpmsg.
-> > > > This will result in some "duplication", but rpmsg already provide
-> > > > the life cycle management and has a clean send/callback interface,
-> > > > so there shouldn't be any inventing...
-> > > >
-> > >
-> > > Interesting — could you walk me through how you’d structure the driver
-> > > with the new proposal? I’d like to see how you would layer it conceptually.
-> > >
-> > > The current RPMSG solution:
-> > >
-> > >      On Remoteprc                      On Linux
-> > > GPIOs -> RPMSG -> VIRTIO == VIRTIO -> RPMSG -> GPIO-RPMSG drivers
-> > >
-> > > The VIRTIO solution:
-> > >
-> > >      On Remoteprc                     On Linux
-> > >           GPIO -> VIRTIO == VIRTIO -> GPIO-VIRTIO driver
-> > >
-> > > Your proposal:
-> > >
-> > >      On Remoteprc                     On Linux
-> > > GPIOs -> RPMSG -> VIRTIO == VIRTIO -> ???
-> > 
-> > What I'm suggesting is the following:
-> > 
-> > GPIOs -> RPMSG -> VIRTIO == VIRTIO -> RPMSG -> GPIO-RPMSG
-> >        ^                                    ^
-> >        \-----+------------------------------/
-> >              |
-> >              |
-> > With this interface on being directly derived from the existing protocol (and likely
-> > the implementation as well) using gpio-virtio.
-> > 
-> > You can have multiple "GPIOs" (presumably a "bank" each) instances and that
-> > will be reflected in having multiple "GPIO-RPMSG" instances.
-> > 
-> > I haven't made any attempts at implementing this, but it looks very similar to
-> > gpio-virtio in concept and it looks very similar to the exiting RPMSG tty in the
-> > sense of being a generic implementation.
-> > 
-> > To reach something functional on the Linux side it seems to be a matter of taking
-> > the gpio-virtio driver, register a rpmsg_driver instead, change _virtio_gpio_req()
-> > to use rpmsg_send(), and perform the actions of virtio_gpio_event_vq() in the
-> > rpmsg_driver callback function.
-> > 
-> 
-> Thanks for the explanation. If I’m understanding correctly, what you’re suggesting is 
-> essentially a driver that merges the roles of a virtio_driver and an rpmsg_driver into a 
-> single source file. There may be opportunities for a few function reuse, but overall it 
-> would still result in a fairly distinct codebase.
-> 
+On Tue, Feb 24, 2026 at 06:29:37AM -0800, Ian Rogers wrote:
+...
+> +struct unwind_info *__libunwind_arch_unwind_info__new_riscv(struct thread *thread __maybe_unused,
+> +							     struct perf_sample *sample  __maybe_unused,
+> +							     int max_stack __maybe_unused,
+> +							     bool best_effort  __maybe_unused,
+> +							     uint64_t first_ip  __maybe_unused)
+> +{
+> +#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
+> +	struct x86_64_unwind_info {
+               ^ copy+paste issue?
 
-Most of the non-boilerplate code in gpio-virtio would be impacted by
-differences between rpmsg and virtio. So combining the two
-implementations in a single source file would add complexity to an
-otherwise straightforward driver, only with trivial parts reused.
-
-My expectation is that it will be better to just have two separate
-drivers - but reuse all the design-work done in the gpio-virtio.
-
-Regards,
-Bjorn
-
-> Thanks,
-> Shenwei
-> 
-> > Regards,
-> > Bjorn
-> > 
-> > >
-> > > Thanks,
-> > > Shenwei
-> > >
-> > > > Similarly, I'm guessing that there's a firmware-side implementation
-> > > > of virtio-gpio in Zephyr, it should be straightforward to transplant this to the
-> > rpmsg interface.
-> > > >
-> > > > Regards,
-> > > > Bjorn
-> > > >
-> > > > > Thanks,
-> > > > > Shenwei
-> > > > >
-> > > > > > Interrupt support does however need some changes. The
-> > > > > > virtio_gpio_request_vq() replacement would need to see if the
-> > > > > > received message indicates an interrupt and call the equivalent
-> > > > > > of virtio_gpio_event_vq(), since rpmsg does not have a separate
-> > > > > > mechanism to
-> > > > deliver interrupts, unlike rpmsg.
-> > > > > >
-> > > > > > At a guess, 90% of the code would stay the same?
-> > > > > >
-> > > > > >    Andrew
+Thanks,
+drew
 
