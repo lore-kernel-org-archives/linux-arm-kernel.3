@@ -4,123 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D1FEFD20A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C411EFD208
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oV6MOc6IZ/eQSfEt7lDYf3QV1I2fYi7uzloZcjfdDk8=; b=hhR+o9PgYGNoGkxVBeGKEILAIs
-	i6cOlw6FLsMcep94JZId5L1AB2nkEZqV4YnJ12v++VmB5ad1E9cEVjfWZlscyTGiwywUSiCqu3iSw
-	NpQElTvtM3Drtp7U9o95sqJvgxFrsfhS3B3FFy75KEwXxzjNBUV/OW2IO+zy3GA970+bOBYM3pYKB
-	hjCTgAJgDL8NaTT71aFpRsJ2kMpppH6nYoQaUL7b3aZI/jRH3oa4u/nSxlU37FzuNuioqS4XCYMVV
-	QweISMDYFlsFogvsXppwcrTZmEER71i03lXaiHVodNDzLtvd+6ONPaeIWcDpn02uadSOCJBSh4f75
-	9g79ExWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i767YM81rg16oZZHvqRpOQjd5YhsJg23jCgSi88ETAE=; b=DBmg7F1+gqXt1neWWm7D/gQ1jZ
+	WegIdsTprqNmbc6OccjZwSUgPFqduxnFi4hduedoBBb/RuX9gbBSYRqpfF23dmbz6ki7hy35IYJCQ
+	iwAoMnGXgG+rxGOM9w/2V9j7Q4s0lAyXTrnjDRNndVJcn2VI8aWCpmIBcR1GCU0mNv7iLlfG2eSYd
+	smgZrWtqjJUEqYS46lA6j67yAHSIiKr7QMfJHMSSk/DYuGbgVxBTpCBMW9EIxUjTlgjopbYcyyyQL
+	jRaeYjmjvu8j3OcNsInC150EagsNE/JlXr1eUbC5yYunNBKMbZS9lg3QAL0wOCoibnm4VJR23VS4e
+	FCRloCjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA5S-00000003WuV-1MWK;
-	Wed, 25 Feb 2026 08:17:38 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vvA72-00000003Xj4-2kSk;
+	Wed, 25 Feb 2026 08:19:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA5N-00000003WqQ-38FF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Feb 2026 08:17:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-type:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=oV6MOc6IZ/eQSfEt7lDYf3QV1I2fYi7uzloZcjfdDk8=; b=QjpLLwvJ05UIAPduOy9AXLiK8O
-	jbVtnBCu8OYOT5IjjYnfUQZ/4dZrccttok8qNmI2V53hCv+STREcdT/XED7ENe/KFf/0MfB0rfybW
-	6Y/EQP2oOLP2xDUpvhqfe/8dbgGFKAfpgktryrl59dZp6uZMGboSL0ukRiRGniNY37XR0lK5CqFdK
-	WBzj9Be04eTAfqrxG9Ddjyqkso4X2KVVE14jqEz6yCsne+rB4Suirk00Q1PQUVXAPe7zLMsSbxLtS
-	P4iL6qDFBG9u7URyGMgSU6DYKclhcrhrWYQ2HTqVFXYQN89QqJOtTinEI6zzBFjiVhIW6OzsVNBKu
-	sQc59qZQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA5K-00000000joc-34L3
+	id 1vvA70-00000003Xi6-2z8o
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 08:17:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007449;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oV6MOc6IZ/eQSfEt7lDYf3QV1I2fYi7uzloZcjfdDk8=;
-	b=WW4ASAbjKiZJwmqvnpoJBSZI4GdcELiPvOCWF3rP3m5Z19YZy5cRv/zsWZ45p2cwOOJq7r
-	YvFtkVQ0obCGhXegVhEocKWpUWeHD3fv3pYOptNBLZrfC45O5c32p0j+9qlDnLRUmAay1b
-	fMDAzOHLxhqsMOcwBVL9FwEGOCxILg4=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007449;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oV6MOc6IZ/eQSfEt7lDYf3QV1I2fYi7uzloZcjfdDk8=;
-	b=WW4ASAbjKiZJwmqvnpoJBSZI4GdcELiPvOCWF3rP3m5Z19YZy5cRv/zsWZ45p2cwOOJq7r
-	YvFtkVQ0obCGhXegVhEocKWpUWeHD3fv3pYOptNBLZrfC45O5c32p0j+9qlDnLRUmAay1b
-	fMDAzOHLxhqsMOcwBVL9FwEGOCxILg4=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007449;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oV6MOc6IZ/eQSfEt7lDYf3QV1I2fYi7uzloZcjfdDk8=;
-	b=WW4ASAbjKiZJwmqvnpoJBSZI4GdcELiPvOCWF3rP3m5Z19YZy5cRv/zsWZ45p2cwOOJq7r
-	YvFtkVQ0obCGhXegVhEocKWpUWeHD3fv3pYOptNBLZrfC45O5c32p0j+9qlDnLRUmAay1b
-	fMDAzOHLxhqsMOcwBVL9FwEGOCxILg4=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-477-d1eK6WOzOV6_MuYcbjoUdg-1; Wed,
- 25 Feb 2026 03:17:22 -0500
-X-MC-Unique: d1eK6WOzOV6_MuYcbjoUdg-1
-X-Mimecast-MFC-AGG-ID: d1eK6WOzOV6_MuYcbjoUdg_1772007439
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 33B381955E8C;
-	Wed, 25 Feb 2026 08:17:16 +0000 (UTC)
-Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.55])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 657C01800465;
-	Wed, 25 Feb 2026 08:17:04 +0000 (UTC)
-From: Baoquan He <bhe@redhat.com>
-To: kasan-dev@googlegroups.com
-Cc: linux-mm@kvack.org,
-	andreyknvl@gmail.com,
-	ryabinin.a.a@gmail.com,
-	glider@google.com,
-	dvyukov@google.com,
-	linux-kernel@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	x86@kernel.org,
-	chris@zankel.net,
-	jcmvbkbc@gmail.com,
-	linux-s390@vger.kernel.org,
-	hca@linux.ibm.com,
-	Baoquan He <bhe@redhat.com>
-Subject: [PATCH v5 15/15] mm/kasan: clean up unneeded ARCH_DEFER_KASAN and kasan_arch_is_ready
-Date: Wed, 25 Feb 2026 16:14:12 +0800
-Message-ID: <20260225081412.76502-16-bhe@redhat.com>
-In-Reply-To: <20260225081412.76502-1-bhe@redhat.com>
-References: <20260225081412.76502-1-bhe@redhat.com>
+	Wed, 25 Feb 2026 08:19:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EA9C44206
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 08:19:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0CBFC2BC87
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 08:19:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772007553;
+	bh=i767YM81rg16oZZHvqRpOQjd5YhsJg23jCgSi88ETAE=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=m3MnF8kg8EdpV9TU8qMVIyRtyy9/e4Sc7qdBSw7Kmbx1O/1IQVhMe62U56el3Q/1k
+	 jAqYvJ5zQWcCSk+wSu5VRgVyrERgCYFo0yLzeFapQxOGWNY5i38UYyNfKPQKIn2MFO
+	 TbcLMBptwcoK3QOFNuZShpI9rnqwr+XKTnBdR8LT+p73sHev4Yna30R8exUDG6Ki0q
+	 UOUjUjheFSk0BXDERTF5jqlIlnsHwIOPgB3vu3e0cn6ofmiMyx86oPNZyFXzQEvexL
+	 yEfI8mKfouLgxGH51mxfnY6ke55/jie2AOXfv21aQCN/djFyBsC8M30M3dwDJexryF
+	 HNda32plqi0Qg==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-38704f70ea3so57207091fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 00:19:13 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVgl7VtsqQdrbz01Km7tkxrq++P/Gv10h7U6bYOnawDfbzhCiJORhDqmn/Zv9H54vv++BZ1cPAQFZZIEoZ3cjgi@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBxYeJAT2PQ/mV6HI3ufdIGm+jQ/oPHHUNHbYp+cc5wZc7xkxa
+	b+sRg+dU+fS/vYRCwlHmbJSGVUAcm5tOwRRIsIXjbua8BJnUaFZy6EGsB2kIS0+07EAUDgtU9u1
+	ucLwPcAPJjMdun8RvphkgtXViVochs1X4XNGcfag5Mg==
+X-Received: by 2002:a05:6512:1252:b0:59f:8993:df7d with SMTP id
+ 2adb3069b0e04-5a0ed8a2429mr4956665e87.26.1772007552569; Wed, 25 Feb 2026
+ 00:19:12 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 25 Feb 2026 00:19:10 -0800
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 25 Feb 2026 00:19:10 -0800
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260225072225.3345307-3-wenst@chromium.org>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: Kc4LnlNlta6pNrL1um4dXtqvnsvmYEkCPlMF0cTMFxY_1772007439
-X-Mimecast-Originator: redhat.com
-Content-type: text/plain
-Content-Transfer-Encoding: 8bit
+References: <20260225072225.3345307-1-wenst@chromium.org> <20260225072225.3345307-3-wenst@chromium.org>
+Date: Wed, 25 Feb 2026 00:19:10 -0800
+X-Gmail-Original-Message-ID: <CAMRc=MefvP2bxdGqhw+Sn_MDqVcA2fPefCBygP=ZdFLnkPcHUA@mail.gmail.com>
+X-Gm-Features: AaiRm52W52XmwIgwxtOACerr-UA7gcczLgZWX36auM-UC97DyKrwy0k9pm1Y2nk
+Message-ID: <CAMRc=MefvP2bxdGqhw+Sn_MDqVcA2fPefCBygP=ZdFLnkPcHUA@mail.gmail.com>
+Subject: Re: [PATCH 2/7] PCI: mediatek-gen3: Add error path for probe and
+ resume driver callbacks
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-pci@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang <jianjun.wang@mediatek.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_081731_183452_EE64F090 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260225_001914_766122_20E4C486 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,99 +93,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 1e338f4d99e6 ("kasan: introduce ARCH_DEFER_KASAN and unify
-static key across modes"), kasan_arch_is_ready() has been dead code.
-And up to now, ARCH_DEFER_KASAN is useless too because of code change
-for 'kasan=on|off'.
+On Wed, 25 Feb 2026 08:22:19 +0100, Chen-Yu Tsai <wenst@chromium.org> said:
+> The probe and resume callbacks currently do teardown in the conditional
+> block directly. This is going to get ugly when the pwrctrl calls are
+> added.
+>
+> Move the teardown to proper error cleanup paths.
+>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
 
-Here clean them up.
-
-Signed-off-by: Baoquan He <bhe@redhat.com>
----
- arch/loongarch/Kconfig |  1 -
- arch/powerpc/Kconfig   |  1 -
- arch/um/Kconfig        |  1 -
- lib/Kconfig.kasan      | 12 ------------
- mm/kasan/kasan.h       |  6 ------
- 5 files changed, 21 deletions(-)
-
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index d211c6572b0a..4b7802d02911 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -9,7 +9,6 @@ config LOONGARCH
- 	select ACPI_PPTT if ACPI
- 	select ACPI_SYSTEM_POWER_STATES_SUPPORT	if ACPI
- 	select ARCH_BINFMT_ELF_STATE
--	select ARCH_NEEDS_DEFER_KASAN
- 	select ARCH_DISABLE_KASAN_INLINE
- 	select ARCH_ENABLE_MEMORY_HOTPLUG
- 	select ARCH_ENABLE_MEMORY_HOTREMOVE
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index ad7a2fe63a2a..b51fbc25bdc9 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -122,7 +122,6 @@ config PPC
- 	# Please keep this list sorted alphabetically.
- 	#
- 	select ARCH_32BIT_OFF_T if PPC32
--	select ARCH_NEEDS_DEFER_KASAN		if PPC_RADIX_MMU
- 	select ARCH_DISABLE_KASAN_INLINE	if PPC_RADIX_MMU
- 	select ARCH_DMA_DEFAULT_COHERENT	if !NOT_COHERENT_CACHE
- 	select ARCH_ENABLE_MEMORY_HOTPLUG
-diff --git a/arch/um/Kconfig b/arch/um/Kconfig
-index 098cda44db22..fd0bedd2c696 100644
---- a/arch/um/Kconfig
-+++ b/arch/um/Kconfig
-@@ -6,7 +6,6 @@ config UML
- 	bool
- 	default y
- 	select ARCH_DISABLE_KASAN_INLINE if STATIC_LINK
--	select ARCH_NEEDS_DEFER_KASAN if STATIC_LINK
- 	select ARCH_WANTS_DYNAMIC_TASK_STRUCT
- 	select ARCH_HAS_CACHE_LINE_SIZE
- 	select ARCH_HAS_CPU_FINALIZE_INIT
-diff --git a/lib/Kconfig.kasan b/lib/Kconfig.kasan
-index a4bb610a7a6f..f82889a830fa 100644
---- a/lib/Kconfig.kasan
-+++ b/lib/Kconfig.kasan
-@@ -19,18 +19,6 @@ config ARCH_DISABLE_KASAN_INLINE
- 	  Disables both inline and stack instrumentation. Selected by
- 	  architectures that do not support these instrumentation types.
- 
--config ARCH_NEEDS_DEFER_KASAN
--	bool
--
--config ARCH_DEFER_KASAN
--	def_bool y
--	depends on KASAN && ARCH_NEEDS_DEFER_KASAN
--	help
--	  Architectures should select this if they need to defer KASAN
--	  initialization until shadow memory is properly set up. This
--	  enables runtime control via static keys. Otherwise, KASAN uses
--	  compile-time constants for better performance.
--
- config CC_HAS_KASAN_GENERIC
- 	def_bool $(cc-option, -fsanitize=kernel-address)
- 
-diff --git a/mm/kasan/kasan.h b/mm/kasan/kasan.h
-index fc9169a54766..f08f7f75c285 100644
---- a/mm/kasan/kasan.h
-+++ b/mm/kasan/kasan.h
-@@ -552,12 +552,6 @@ static inline void kasan_poison_last_granule(const void *address, size_t size) {
- 
- #endif /* CONFIG_KASAN_GENERIC */
- 
--#ifndef kasan_arch_is_ready
--static inline bool kasan_arch_is_ready(void)	{ return true; }
--#elif !defined(CONFIG_KASAN_GENERIC) || !defined(CONFIG_KASAN_OUTLINE)
--#error kasan_arch_is_ready only works in KASAN generic outline mode!
--#endif
--
- #if IS_ENABLED(CONFIG_KASAN_KUNIT_TEST)
- 
- void kasan_kunit_test_suite_start(void);
--- 
-2.52.0
-
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
