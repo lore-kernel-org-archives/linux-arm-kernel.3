@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30CEDFCEE91
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B3FFCEE95
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IizUq26mU0IFus36KtptiQJycd4Ah24lnhNyzSKAepg=; b=3Gt6kMXSe+PFRvYNLBf9H5kyaW
-	CNgw2Mgu5n8qjQ/Aeg71cuXblwxzmbLSlBVpJEthyjPV2tmCspmuw2nTJP97u3WuCujfi3CaDWpwG
-	tK0C/LLHWUTtkuHKD6ao9BJrdzlGVMO4E4zyBSR38C/nVO3i7IruRT58j7wOtctf3Mczi4S/VpNg8
-	8/mgUM7FESx4/ase4QLuEDcULJ2tS4luGZvhDetqAHctWaLYdjIAQ/AvIO4Rqj8CdxgtQHjwUmvwf
-	WhulB9WyQxgDLhgmkD47C1KUj5crqpR7PnUY3095MdVoL83HJTlg8YiYVQKeE83PrEarscQ6SupHu
-	37TZgJIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oFLXg9YsqVnx/vQirs8Wi4dOzFCMdydXCNqeeph3xoQ=; b=0zGNRlBS9EECkqDPcJT/MKthLp
+	oRsFv8MVqL9PUi1+ZPYBPA3+ZccaPNVfj/A3Mkyjv5rIaQ+9rEm27cEVIR8CIoct6gAbhAtVo4UHK
+	NMM34+zOibtvJ16SXOfLkSXqQcxoiryv/1WILy81KR0CY6AWNeq0s/i/ce1iHlqzuNeh6T/0dC3o4
+	zpFDVcfEgHwN1rXFjfL3BTGfBQBdXLjmKJKes97fl8VO8AvTVO+OcaIQwsP20BxCXihRhCoMV/eTG
+	d/AVatABsUtQ9gnBfZcVeEV4D8Bpr1GQQaJZK99aJSWbmMxjLHTrstSDFGmSfuFSKy+To0pOrK72M
+	oR2nxXMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDb8-00000003xfb-0gRA;
-	Wed, 25 Feb 2026 12:02:34 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDb5-00000003xfF-1Afk
+	id 1vvDiR-00000003xxH-06li;
+	Wed, 25 Feb 2026 12:10:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvDiN-00000003xwX-3R2D
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 12:02:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772020938; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=TNJv7kHvKUjGqmcwqmsA3x0Le/gXxWBaVPK9MVwLfT0THMVAbnnQafEgk4xL24tsUzOtwk5HHaO7z/S46vhBpb1zdwWLVPIMrGQpcUeBP29lrbkbUywNE9BJqL5Hd2FNpTvxF0nz23wenBDorGxfuwYEshJOxbVn+mh+ru9ski4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772020938; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=IizUq26mU0IFus36KtptiQJycd4Ah24lnhNyzSKAepg=; 
-	b=OCSRMenj1mEEe8LNXJ4se7RyUl8bq3NAXYRIYzTPesWb0vXEPNFzJAGKLYUT1NMPmZlLloEjQhlTlP2CjrKMUqI4zblo60nLKvGf5u1Qk6hVU/VpsAWQ6mzhb4g+H2xhGtbRlY2qJULoJMmyZHwx3ZJZEqiPT36/nqnKWaDkCCM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772020938;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:References:In-Reply-To:Reply-To;
-	bh=IizUq26mU0IFus36KtptiQJycd4Ah24lnhNyzSKAepg=;
-	b=k9FhMGUzjDF6Zv9rpTWG7kHQfLXoH3dpXC1A2r40o3ZV9uctEqbdPyvh4ZjlJm61
-	XiS2C33j+JVBS8KJcrVPa1IAnBN/LojPSdNyOTuPC8LmkUYWJChQmOEdwQ6/YoHc7Ls
-	Ggv2L55nMYeb7L2cx03R245+LsUb0Hx+5OBs7Ux0=
-Received: by mx.zohomail.com with SMTPS id 177202093493336.86441168143767;
-	Wed, 25 Feb 2026 04:02:14 -0800 (PST)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 25 Feb 2026 20:02:03 +0800
-Message-Id: <DGO0ZQ827ZV8.4EO0ONZBR8CL@pigmoral.tech>
-Cc: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
- <linux-rtc@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 0/7] rtc: sun6i: Add support for Allwinner A733 SoC
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: =?utf-8?q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>, "Michael
- Turquette" <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
- "Chen-Yu Tsai" <wens@kernel.org>, "Samuel Holland" <samuel@sholland.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Maxime Ripard" <mripard@kernel.org>,
- "Junhui Liu" <junhui.liu@pigmoral.tech>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
- <5061953.GXAFRqVoOG@jernej-laptop>
-In-Reply-To: <5061953.GXAFRqVoOG@jernej-laptop>
-X-ZohoMailClient: External
+	Wed, 25 Feb 2026 12:10:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDDEF165C;
+	Wed, 25 Feb 2026 04:09:52 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A7ACC3F59E;
+	Wed, 25 Feb 2026 04:09:58 -0800 (PST)
+Date: Wed, 25 Feb 2026 12:09:56 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Will Deacon <will@kernel.org>, yabinc@google.com
+Cc: James Clark <james.clark@linaro.org>, Marc Zyngier <maz@kernel.org>,
+	kvmarm@lists.linux.dev, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
+ in guest context
+Message-ID: <20260225120956.GD4184494@e132581.arm.com>
+References: <20260216130959.19317-1-will@kernel.org>
+ <86a4x8bw38.wl-maz@kernel.org>
+ <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
+ <aZNec3B0Iou9PYGw@willie-the-truck>
+ <20260217141917.GA136967@e132581.arm.com>
+ <aZSAsC1YI5_lK3e0@willie-the-truck>
+ <20260217190121.GB136967@e132581.arm.com>
+ <aZcWC25GE2iUKsNt@willie-the-truck>
+ <20260219185800.GD136967@e132581.arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260219185800.GD136967@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_040231_712370_4D84C572 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20260225_041003_905578_1B3E8141 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,69 +75,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jernej,
-Thanks for your review.
+Hi Will,
 
-On Sun Feb 22, 2026 at 6:41 PM CST, Jernej =C5=A0krabec wrote:
-> Hi!
->
-> Dne sreda, 21. januar 2026 ob 11:59:06 Srednjeevropski standardni =C4=8Da=
-s je Junhui Liu napisal(a):
->> Add support for the Allwinner A733 RTC and its internal Clock Control
->> Unit (CCU). Reuse the rtc-sun6i rtc driver while introducing a new
->> SoC-specific RTC CCU driver to handle the hardware's evolved clock
->> structure.
->>=20
->> To facilitate this addition and improve driver modularity, transition
->> the binding between the RTC and its internal CCU from direct
->> cross-subsystem function calls to the auxiliary bus. Also extract shared
->> IOSC and 32kHz clock logic into a standalone ccu_rtc module for reuse
->> across newer SoC generations.
->>=20
->> The A733 implementation supports hardware detection of three external
->> crystal frequencies (19.2MHz, 24MHz and 26MHz), which is represented in
->> the driver via read-only mux operations. Implement logic to derive a
->> normalized 32kHz reference from these DCXO sources using fixed
->> pre-dividers. Additionally, provide several new DCXO gate clocks for
->> peripherals, including SerDes, HDMI, and UFS.
->
-> This work looks nice, but I have some questions/comments:
-> - you're missing RTC SPI clock, which is needed for RTC, at least accordi=
-ng
->   to vendor 5.15 DT. Could it be that this bit set by vendor U-Boot so yo=
-u
->   missed it during testing? Manual says that it's disabled by default.
+[ + Yabin ]
 
-You're right! I tried disabling the RTC SPI clock in U-Boot and found
-that the output of UART became garbled during booting kernel. I will add
-it in the next version.
+Thanks for Suzuki's reminding, I should mention that Yabin reported
+another lockup issue caused by missing CPU PM support in TRBE driver.
 
-> - Vendor DT has strange RTC CCU phandles for UFS and HDMI. In first case
->   uses RTC wakeup and in second DCXO, which doesn't make any sense. Did y=
-ou
->   do any experimentation with these clocks? It wouldn't be the first time
->   that either code or manual contained some kind of error.
+We have a patch series to fix the issue:
+https://lore.kernel.org/linux-arm-kernel/20251119-arm_coresight_path_power_management_improvement-v5-16-f615a301ad0b@arm.com/
 
-Regarding UFS, I am still working on getting UFS functional on the
-mainline kernel. I will investigate the actual relationship between the
-RTC wakeup clock and UFS during this process.
+Besides your fix the translation regime issue, I'd also suggest applying
+the CoreSight PM patch series to fix lockup caused by CPU idle.
 
-As for HDMI, I believe it actually requires the hosc_hdmi_clk
-(DCXO_HDMI_GATING in the manual) provided by the RTC module.
+I have a supplement for the context switch, please see the comment below.
 
->
-> Btw, switch last two patches. With current order during bisection you wou=
-ld
-> get a complaint that A733 RTC CCU driver is not present.
+On Thu, Feb 19, 2026 at 06:58:03PM +0000, Leo Yan wrote:
 
-Okay, I will do it.
+[...]
 
->
-> Best regards,
-> Jernej
+> Based on these conclusions, let me summarize the flow:
+> 
+>   // Prohibit trace
+>   TRFCR_EL1 = 0;
+> 
+>   // No new program-flow trace
+>   isb();
+> 
+>   // Trace operation and trace unit are flushed
+>   tsb_csync();   // Executes twice if ARM64_WORKAROUND_TSB_FLUSH_FAILURE!
+> 
+>   // Disable trace unit
+>   TRCPRGCTLR.EN = 0b0
 
---=20
-Best regards,
-Junhui Liu
+We conclude that no need to disable and re-enable the trace unit
+(TRCPRGCTLR.EN) during a KVM context switch.
 
+Here are the details:
+
+I initially proposed controlling the TRCPRGCTLR.EN bit during switch.
+This would allow the trace unit to generate ASYNC packets, which I
+assumed would be convenient for decoding, since the decoder can
+recognize ASYNC packets rather than decoder is to be reset if any
+discontinuity occurs.
+
+After review, during a VM context switch, the trace unit can guarantee
+a single continuous stream when switching back to the host. There is no
+discontinuity in trace stream.  Therefore, we don't need to touch
+TRCPRGCTLR.EN bit to generate ASYNC packets.
+
+I hope this is reasonable to you.
+
+Thanks,
+Leo
 
