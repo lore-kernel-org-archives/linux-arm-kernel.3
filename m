@@ -4,69 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24195FD3773
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 16:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05636FD3773
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 16:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6Xsu0Zgs56ZTjjF/y5JOVDhujspJDUCWfcwVY2hiQD8=; b=gnYWLeJKAnHOmN
-	OszRPPBstqeWCYCtQezqtPxA7KR+Yd7kDbRZ58VInmCMJucNov5h4Oq8Vovd7mZ0yhvJR8We3roNu
-	zXamOmK6jz/KxmR96Y7vFscFcKdDbwFwYyOe7DyuOi3t6xyopJ4oYsjhComlOFzYS7V2oqQLtvnpd
-	wZXBzKyjVuWs+MsSQ2AKvFGf0/C4gf+JAG/YnPlXFi4RtJWDB7jyPt1Fcq6QGwDIE7DtdGYv+RL7u
-	poddkGhvvsuvjmP3hBRVDaAix+5sgrcnwAVX1C2C5MfFqk/SqDGiF1pX3TuOoO2ep/TtzDp1Atowc
-	lwDDnplgdg57g5Fc0mxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1UUJBaTxIHqlB8DyLOC24tnGMlzJ3zInPGqEl8rtHAA=; b=xSAyyHBIrbA6JCKv4nC9p4a6ZT
+	9a/J/PcpKB4DTNrilIeqcSu+ZOX85Fgr8nE0icz/HA+PbIbTX26Qw8BzuQvNF5Ygx5WwcRHSOwkg1
+	gPe6OtZITdhlsfrk4QSS87MviHdK61/XunWPGsrxULfG1RDmrA7ljqkfUXgm3OSpOEZgIWGafRgP0
+	GUM73knZNs9XS7d442ZglGCYAn4UoEQIPtLUz9T7ryM8yt7njMUFeHKp/8MVNokwEUe+W3Q6pUxNk
+	NnVaSOFxielrLyQaS4o/J8E0dg7YjZFRjVZneRhe0WpGJ75p+KeIcMzQGpuVSubSBem6G2k4ErDTk
+	sh5JD+uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvICF-00000004aBh-0b2n;
-	Wed, 25 Feb 2026 16:57:11 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1vvICw-00000004aJ9-1Qt5;
+	Wed, 25 Feb 2026 16:57:54 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvICC-00000004aBJ-2sSm;
-	Wed, 25 Feb 2026 16:57:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
-	:Date:subject:date:message-id:reply-to;
-	bh=6Xsu0Zgs56ZTjjF/y5JOVDhujspJDUCWfcwVY2hiQD8=; b=nlq+pd4/mueP7MR8da4s9fG+Ti
-	MljCQ+I9fT/muEHpM7HjYQ1Rm7WEu9flXyI/luE18WWn7ip6pe9Wlal1ky0J5d6mhymsbNol+LFFO
-	3w7U6zl+tKxiynCVvsATte/zSLDIPdrZcl9hffvDqgh6f1HTrBmLZclre3BdaV3mZz3c=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:39918 helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.92)
-	(envelope-from <hugo@hugovil.com>)
-	id 1vvIBw-0001Vc-St; Wed, 25 Feb 2026 11:56:54 -0500
-Date: Wed, 25 Feb 2026 11:56:52 -0500
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, robin@protonic.nl,
- andy@kernel.org, geert@linux-m68k.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com,
- mkorpershoek@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, lee@kernel.org,
- alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Message-Id: <20260225115652.8beb1979df3824f7a95d22bc@hugovil.com>
-In-Reply-To: <20260225114155.3ee2efb002aa0f52a905f535@hugovil.com>
-References: <20260225155409.612478-1-hugo@hugovil.com>
-	<20260225155409.612478-5-hugo@hugovil.com>
-	<aZ8fXXGMx3fk7gKs@smile.fi.intel.com>
-	<20260225114155.3ee2efb002aa0f52a905f535@hugovil.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 70.80.174.168
-X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: Re: [PATCH v3 4/4] Input: charlieplex_keypad: add GPIO charlieplex
- keypad
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
+	id 1vvICt-00000004aIf-1Pg6
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Feb 2026 16:57:52 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48371bb515eso87563625e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 08:57:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772038669; x=1772643469; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1UUJBaTxIHqlB8DyLOC24tnGMlzJ3zInPGqEl8rtHAA=;
+        b=NpjsCpnZaDmUn/8X99En7LkbPI/aEocMXUI6PBILKARFnF4UEaNQyf29v/Usub6PwZ
+         KeQHq+LJVysDe/w16PtOpCtdkpBKli+rNiQdFn7/wTvUqYRdQ4zUrI8U5JZutm1OSTan
+         Z4HophwdxoAK0PexOcrJA2SPH1Rd8nUk/vypsjPcMgmmdIUSqcCURiCx3T7vzNZZMdcH
+         bQtkd36g4ZCnb1DGdjWygDlMmX3py70Y+YZkuKy0CtMOy5UKxmwihkLTZ+AVUIXYqwr+
+         /TgDOrjGiVvjbCzxDJKx20TUbYAm12x/J1pu0ea5Tj9MTLDpguXCNGGd5RMNl8YDsCCS
+         IzyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772038669; x=1772643469;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=1UUJBaTxIHqlB8DyLOC24tnGMlzJ3zInPGqEl8rtHAA=;
+        b=LcTM1GjEoMC1bZeZ6kb8Knw6lkOTf3NbS3yc539pzWV1RaKhzE/TuJGRLmjdVj3BFu
+         iFmagz9bXea9sTEyiBqam3wD2bCMc0H1itWmqI4+t88tazr28+xvijulW7ryuZhSGfni
+         dP/cjZ7cLPF+V+ydlcg1AbCzYbwBecIu+kwRfG5EC22t2LUVKG59u3eXefY6p0vd3+aU
+         9IMz/0jSnPEGCnolQpDhEacF7PmN4n7/uCcuNFUczW97OWnnKTs4asB7yqC+6EaCMVmw
+         Qj1PJuhLKqKHGCXCRJNmi+41KA1E81baRxXJAioq6dYL1g17BIlTJCGvPNaKbAQziJzz
+         n7Sw==
+X-Forwarded-Encrypted: i=1; AJvYcCV+rwRYpDT+KT3lIQfjIn773316Su+yN76/5U0WhhZnbc1DCyfbgc0FeHAR2dV+AmgJyfpkWlYCzdLRjBRoqIE8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvhFSGfJdA2l2QhJG1Kk7rcTdH29PGaL/ail90uR7+pVBvRxPB
+	pkEgX+hI9V/shjvenYr3rBRxVk9zxR67ICf7wBJYZKW4yzhezJxTG8HB
+X-Gm-Gg: ATEYQzyRhF1DUtspkzSXE6jYxpv9TQXR6AwQaoRlSU+7eSF2rzzYcEZF87OZQNYhKwH
+	AzefP49tk02ubzzSLwgZ21H8HVWpukGstHO3xD/SM+otZcGDEcDzpNNaI8LJtMQ/oUeFKXHEN3u
+	ABCBBJtUyvAVQ5Szn9f99QioREYQxY21VYEMAIC+X8pdJjJ+Z6ncM++z+ghUJj8hLaem7vFAYCc
+	sA3OVp597f06o56aKbtEoLsv1NATf/RO7vnqx4PV61Np7Op2mYj+7rdv3VGlJIxZ/0igYKlhgnT
+	QB3fKgnyBVt/9m/yKG+XH4tWz2FOSnG89lLtR6XqC90OnxM5b9sPNGrIjuhFQtdPH4ztSis1MJ3
+	ZUVBZJ7KCc23y9pmvU/47FvUR1v7wvFScog6B8ofJJXjjdLtsaPkmfD9mfNSCPgOrqHbgLCtKwB
+	w2o2pjEHBeA6axTrrNgCR6VDrPKS/L/2O+ZVEM5eU7vaCCQB76cmXYxLBQbIy+HsW8NxFl+Mbgf
+	YBqW78VYn3jWaEKqMwPCcQZZf3Y
+X-Received: by 2002:a05:600c:a016:b0:477:fcb:2256 with SMTP id 5b1f17b1804b1-483a962e470mr290674845e9.17.1772038668640;
+        Wed, 25 Feb 2026 08:57:48 -0800 (PST)
+Received: from jernej-laptop.localnet (86-58-126-118.dynamic.telemach.net. [86.58.126.118])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd7141e4sm86300175e9.7.2026.02.25.08.57.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Feb 2026 08:57:48 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ wens@kernel.org
+Cc: devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-leds@vger.kernel.org
+Subject: Re: [PATCH 2/3] arm64: dts: allwinner: sun55i-a523: Add LED controller
+Date: Wed, 25 Feb 2026 17:57:46 +0100
+Message-ID: <2818809.mvXUDI8C0e@jernej-laptop>
+In-Reply-To: <CAGb2v675r8idb3MHyaPD6XNrDF3na-rH2342ET0TUm1kGsT20w@mail.gmail.com>
+References: <20260225160828.1687643-1-wens@kernel.org>
+ <20260225160828.1687643-3-wens@kernel.org>
+ <CAGb2v675r8idb3MHyaPD6XNrDF3na-rH2342ET0TUm1kGsT20w@mail.gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_085708_915709_A3658393 
-X-CRM114-Status: GOOD (  38.21  )
+X-CRM114-CacheID: sfid-20260225_085751_391931_A486A2F0 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,254 +106,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Feb 2026 11:41:55 -0500
-Hugo Villeneuve <hugo@hugovil.com> wrote:
+Dne sreda, 25. februar 2026 ob 17:14:51 Srednjeevropski standardni =C4=8Das=
+ je Chen-Yu Tsai napisal(a):
+> On Thu, Feb 26, 2026 at 12:08=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> w=
+rote:
+> >
+> > The A523 SoC family features an LED controller that is identical to the
+> > one found on previous SoCs.
+> >
+> > Add a device node for it, and one of the possible pinmux settings. This
+> > setting is used on the Avaota A1.
+> >
+> > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+> > ---
+> >  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 22 +++++++++++++++++++
+> >  1 file changed, 22 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm6=
+4/boot/dts/allwinner/sun55i-a523.dtsi
+> > index 09bd149bbf51..b8263e2872af 100644
+> > --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> > +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> > @@ -170,6 +170,13 @@ i2s2_pi_pins: i2s2-pi-pins {
+> >                                 bias-disable;
+> >                         };
+> >
+> > +                       /omit-if-no-ref/
+> > +                       ledc_ph_pin: ledc-ph-pin {
+> > +                               pins =3D "PH19";
+> > +                               function =3D "ledc";
+> > +                               allwinner,pinmux =3D <5>;
+> > +                       };
+> > +
+> >                         mmc0_pins: mmc0-pins {
+> >                                 pins =3D "PF0" ,"PF1", "PF2", "PF3", "P=
+=464", "PF5";
+> >                                 allwinner,pinmux =3D <2>;
+> > @@ -300,6 +307,21 @@ ccu: clock-controller@2001000 {
+> >                         #reset-cells =3D <1>;
+> >                 };
+> >
+> > +               ledc: led-controller@2008000 {
+> > +                       compatible =3D "allwinner,sun55i-a523-ledc",
+> > +                                    "allwinner,sun50i-a100-ledc";
+> > +                       reg =3D <0x02008000 0x400>;
+> > +                       interrupts =3D <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
+> > +                       clocks =3D <&ccu CLK_BUS_LEDC>, <&ccu CLK_LEDC>;
+> > +                       clock-names =3D "bus", "mod";
+> > +                       resets =3D <&ccu RST_BUS_LEDC>;
+> > +                       dmas =3D <&dma 42>;
+> > +                       dma-names =3D "tx";
+> > +                       #address-cells =3D <1>;
+> > +                       #size-cells =3D <0>;
+> > +                       status =3D "disabled";
+> > +               };
+> > +
+> >                 ths1: thermal-sensor@2009400 {
+>=20
+> I Forgot to rebase this patch before the thermal sensor one in my tree.
+> I can fix this when applying, so please still review the patch.
 
-> Hi Andy,
-> thank you for the review.
-> 
-> On Wed, 25 Feb 2026 18:12:13 +0200
-> Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
-> 
-> > On Wed, Feb 25, 2026 at 10:54:01AM -0500, Hugo Villeneuve wrote:
-> > 
-> > > Add support for GPIO-based charlieplex keypad, allowing to control
-> > > N^2-N keys using N GPIO lines.
-> > > 
-> > > Reuse matrix keypad keymap to simplify, even if there is no concept
-> > > of rows and columns in this type of keyboard.
-> > 
-> > ...
-> > 
-> > > +/*
-> > > + *  GPIO driven charlieplex keypad driver
-> > > + *
-> > > + *  Copyright (c) 2025 Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> > > + *
-> > > + *  Based on matrix_keyboard.c
-> > 
-> > A single space after asterisk is enough.
-> 
-> Ok, leftover from copy/paste from matrix_keyboard.c :)
-> 
-> > 
-> > > + */
-> > 
-> > ...
-> > 
-> > + bitops.h
-> > 
-> > > +#include <linux/delay.h>
-> > 
-> > + dev_printk.h
-> > + device/devres.h
-> > + err.h
-> > 
-> > > +#include <linux/gpio/consumer.h>
-> > > +#include <linux/input.h>
-> > > +#include <linux/input/matrix_keypad.h>
-> > 
-> > + math.h
-> 
-> Ok.
-> 
-> 
-> > 
-> > > +#include <linux/module.h>
-> > 
-> > > +#include <linux/of.h>
-> > 
-> > Is this in use? Or you wanted mod_devicetable.h for OF ID table?
-> 
-> I need only OF ID table, so will replace with mod_devicetable.h.
+Values are correct, so with a rebase this patch is:
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-Hi Andy,
-finally I need <linux/of.h> for of_match_ptr()...
+Best regards,
+Jernej
 
-But I will keep <mod_devicetable.h> ...
-
-
-> > 
-> > > +#include <linux/platform_device.h>
-> > > +#include <linux/property.h>
-> > > +#include <linux/types.h>
-> > 
-> > ...
-> > 
-> > > +	for (code = 0, oline = 0; oline < keypad->nlines; oline++) {
-> > > +		DECLARE_BITMAP(values, MATRIX_MAX_ROWS);
-> > > +		int iline;
-> > 
-> > > +		int rc;
-> > 
-> > I think Dmitry prefers 'error' name for this kind of variables.
-> 
-> I hate using "error", can be so misleading :)
-> 
-> I would prefer to use "rc" everywhere, but if Dmitry chimes in and
-> specifies "error" or "err", then so it will be.
-> 
-> 
-> > 
-> > > +		/* Activate only one line as output at a time. */
-> > > +		gpiod_direction_output(keypad->line_gpios->desc[oline], 1);
-> > > +
-> > > +		if (keypad->settling_time_us)
-> > > +			fsleep(keypad->settling_time_us);
-> > > +
-> > > +		/* Read input on all other lines. */
-> > > +		rc = gpiod_get_array_value_cansleep(keypad->line_gpios->ndescs,
-> > > +						    keypad->line_gpios->desc,
-> > > +						    keypad->line_gpios->info, values);
-> > > +		if (rc)
-> > > +			return;
-> > > +
-> > > +		for (iline = 0; iline < keypad->nlines; iline++) {
-> > > +			if (iline == oline)
-> > > +				continue; /* Do not read active output line. */
-> > > +
-> > > +			/* Check if GPIO is asserted. */
-> > > +			if (test_bit(iline, values)) {
-> > > +				code = MATRIX_SCAN_CODE(oline, iline,
-> > > +							get_count_order(keypad->nlines));
-> > > +				/*
-> > > +				 * Exit loop immediately since we cannot detect
-> > > +				 * more than one key press at a time.
-> > > +				 */
-> > > +				break;
-> > > +			}
-> > > +		}
-> > > +
-> > > +		gpiod_direction_input(keypad->line_gpios->desc[oline]);
-> > > +
-> > > +		if (code)
-> > > +			break;
-> > > +	}
-> > 
-> > ...
-> > 
-> > > +static int charlieplex_keypad_init_gpio(struct platform_device *pdev,
-> > > +					struct charlieplex_keypad *keypad)
-> > > +{
-> > > +	int i;
-> > 
-> > Why signed? But see below as well.
-> 
-> Will switch to unsigned.
-> 
-> 
-> > 
-> > > +	keypad->line_gpios = devm_gpiod_get_array(&pdev->dev, "line", GPIOD_IN);
-> > > +	if (IS_ERR(keypad->line_gpios))
-> > > +		return PTR_ERR(keypad->line_gpios);
-> > > +
-> > > +	keypad->nlines = keypad->line_gpios->ndescs;
-> > > +
-> > > +	if (keypad->nlines > MATRIX_MAX_ROWS)
-> > > +		return -EINVAL;
-> > 
-> > > +	for (i = 0; i < keypad->nlines; i++)
-> > 
-> > iterator is local to the loop, hence
-> > 
-> > 	for (unsigned int i = 0; i < keypad->nlines; i++)
-> 
-> Ok
-> 
-> 
-> > 
-> > > +		gpiod_set_consumer_name(keypad->line_gpios->desc[i], "charlieplex_kbd_line");
-> > > +
-> > > +	return 0;
-> > > +}
-> > 
-> > ...
-> > 
-> > > +static int charlieplex_keypad_probe(struct platform_device *pdev)
-> > > +{
-> > > +	struct charlieplex_keypad *keypad;
-> > > +	unsigned int debounce_interval_ms;
-> > > +	unsigned int poll_interval_ms;
-> > > +	struct input_dev *input_dev;
-> > 
-> > > +	int err;
-> > 
-> > The naming is even inconsistent between the functions...
-> 
-> Agreed, will fix as stated above.
-> 
-> 
-> > 
-> > > +	keypad = devm_kzalloc(&pdev->dev, sizeof(*keypad), GFP_KERNEL);
-> > > +	if (!keypad)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	input_dev = devm_input_allocate_device(&pdev->dev);
-> > > +	if (!input_dev)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	keypad->input_dev = input_dev;
-> > > +
-> > > +	device_property_read_u32(&pdev->dev, "poll-interval", &poll_interval_ms);
-> > > +	device_property_read_u32(&pdev->dev, "debounce-delay-ms", &debounce_interval_ms);
-> > > +	device_property_read_u32(&pdev->dev, "settling-time-us", &keypad->settling_time_us);
-> > > +
-> > > +	keypad->current_code = -1;
-> > > +	keypad->debounce_code = -1;
-> > > +	keypad->debounce_threshold = DIV_ROUND_UP(debounce_interval_ms, poll_interval_ms);
-> > > +
-> > > +	err = charlieplex_keypad_init_gpio(pdev, keypad);
-> > > +	if (err)
-> > > +		return err;
-> > > +
-> > > +	input_dev->name		= pdev->name;
-> > > +	input_dev->id.bustype	= BUS_HOST;
-> > > +
-> > > +	err = matrix_keypad_build_keymap(NULL, NULL, keypad->nlines,
-> > > +					 keypad->nlines, NULL, input_dev);
-> > > +	if (err)
-> > > +		dev_err_probe(&pdev->dev, -ENOMEM, "failed to build keymap\n");
-> > > +
-> > > +	if (device_property_read_bool(&pdev->dev, "autorepeat"))
-> > > +		__set_bit(EV_REP, input_dev->evbit);
-> > > +
-> > > +	input_set_capability(input_dev, EV_MSC, MSC_SCAN);
-> > > +
-> > > +	err = input_setup_polling(input_dev, charlieplex_keypad_poll);
-> > > +	if (err)
-> > > +		dev_err_probe(&pdev->dev, err, "unable to set up polling\n");
-> > > +
-> > > +	input_set_poll_interval(input_dev, poll_interval_ms);
-> > > +
-> > > +	input_set_drvdata(input_dev, keypad);
-> > > +
-> > > +	err = input_register_device(keypad->input_dev);
-> > > +	if (err)
-> > > +		return err;
-> > 
-> > > +	platform_set_drvdata(pdev, keypad);
-> > 
-> > Is this needed?
-> 
-> No, will remove it, and replace last lines with:
-> 
->    return input_register_device(keypad->input_dev);
-> 
-> 
-> > 
-> > > +	return 0;
-> > > +}
-> > 
-> > -- 
-> > With Best Regards,
-> > Andy Shevchenko
-> > 
-> > 
-> > 
-> 
-> Hugo Villeneuve
+>=20
+> ChenYu
+>=20
+> >                         compatible =3D "allwinner,sun55i-a523-ths1";
+> >                         reg =3D <0x02009400 0x400>;
+> > --
+> > 2.47.3
+> >
+>=20
 
 
--- 
-Hugo Villeneuve
+
+
 
