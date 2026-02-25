@@ -4,140 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10792FCEE8A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 11:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1042AFCEE8E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 11:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVkpacYkLktk7NwjHf6TlufLjZDRVmvmyGTSggIMA0c=; b=uZ+EmZ4orx0bnqDQhF7uhFXRS9
-	eVudfoZwHzzIg6dwa0ilENdgBaAMc6lyil2/IpzT0r+nu4Oqri+KI4Z7Q5kLee8Rkpu0ToIkLMylF
-	6IWdgclYid8RHxrMnyaM7zimD4QsIqhy8mU1QqWIzl2Cl/5HSXIjSMLBzLpMdcEjZFUQFbJA2BQBp
-	C0Kl8GbMLBfe6KhYv0XtgkGGHCZbmgeJovNO7YtxWZmdkOZLa31Yotbg8SgiWUkasf+9QdTbG0MnP
-	36IAdBub4/px0reSAGL012KnpU6iLz5ANtDcYSh++nrU7Pku5pjXN95lXrxTFNDbtmm0uFl2uHAJ2
-	MEWYPKjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M0OQnEeU5Q+WwKOM0afwTTmeLdjh3sD9aEF0/WZ5DEc=; b=xtK+IM8lUV/3ofCHxrewIUTAym
+	Wve9btxb+q6nRFKUkBjrOudbSSkxrFT4SIjXImWip/j0FPI8l+veuHXmD0if7qpq1DvQmgtipXRHb
+	hiR+rNa0tEjjjUlvUEnxxt3qgK5zwvcau7J7K8VXDmAXlU7gYHrFyBeloEWbNNHV37EJX1E04+5Bw
+	PQbTtyJ+cbsSIjlNB0R16Wbzyfpcst6kz3PayGQ0+eBQFXjqrCscl8yY96OAUcfl0T4A2ikKfSXlM
+	hMif6LxawUD1/xhb+t1mybt8rQ/IPPuFyvkwTVRuJcT0sVQss8lc0K0r9OU8YAxs+ELnMMYy8Q5oc
+	DS4rBpZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDDl-00000003veJ-2qAy;
-	Wed, 25 Feb 2026 11:38:25 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1vvDHT-00000003vtY-385a;
+	Wed, 25 Feb 2026 11:42:15 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDDi-00000003vdj-27Ma
+	id 1vvDHQ-00000003vt2-38Eg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 11:38:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KhD5xUy13f7WDOFpfXUGaNAwAfc8D6uQPEEp3zvpUMBuiXuCdNYqXADPKFyeL0CzOtjsoXiH8B2xp1R/fQ5b6Hz1/9xIh1mKi1qmF+AFGbOyqz2vqmkDDmSwr29NJ/wMwgSiGz5hhBXsAyBJECZBkupzD5+alHZ6NToGBEvrv0vaTHi595K6r21de5UHxx0DqjDiAQq0Ki/wey+6HS7YoAcOl3k3lH0+Htb4Igg6016naiMYxcSkEfa+xDqeRb+OL8+QoRjN/mUnJpQFIa7YSdSwDDFxWK3VKGkcy2XpdqoOKxf5kYJuRhRKznN/cA2THaTklQhI4TgNegi1u0RGLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sVkpacYkLktk7NwjHf6TlufLjZDRVmvmyGTSggIMA0c=;
- b=eGmkWa8B15eezsDeBi/A7Xuo8AhHXRia6vqE3JVY5bBETv56+Y8k7RGj+9shBlZ1g/q2Cu9HUS1khCt/jBWVVsfYkB7VRsTnmMMAfBa/Cn3S84H6YArL7xNkBeGHeogr6FK/AHu9ePJssBHiAWyD3JsiGrHDytKZBtI+CEmAkN8C4CG/lcmyVd2bXRy3DQo2pxqmQ/0jVpydOMLdqcqsgTizkDLm8Aea3VeoKC0h0bzO4jaUUCS26A85mIQPRFIJsDIjuuCtWjptP6WJE51P14SXZFDBEC9MzDxasELL+0TEuFdHwb1algsKTg9XLGW1N+xOxroDrMiqo0w1kie6Lg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sVkpacYkLktk7NwjHf6TlufLjZDRVmvmyGTSggIMA0c=;
- b=Cwk/COO+jfKVSqc+Of3Kwq3FnjiKZmdW7pPT/JBjwlur2HWSX158c2ET9A6fOJNzjcsQ28ZfNPs37pZiptWmIcql7jx0SYMKgW424hcGlJq7qs6WFGuGMrTgcPK9x3Lmg5O92oND2vzSKnNHRtMIrJQKfwzn6fDc8W3llwDBIa2Aa1Z8RLgmSOIMSkKp7l4HYNBfnDdF8nr87CWoTgtzRYnUrBrAb2ZL0hClD6khiZHNpLPwLm19ux+LmcPRtQn8h+dzj26az+F0hU9zAj3kOfreIvvkL4gUEL/kvfjoYcVJR3tJxg7HTLL6kDzpAvsOg8hrzAtSF+6RIYqUS0zT/A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com (2603:10b6:408:11c::18)
- by CH2PR12MB4039.namprd12.prod.outlook.com (2603:10b6:610:a8::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.21; Wed, 25 Feb
- 2026 11:38:15 +0000
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f]) by BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f%6]) with mapi id 15.20.9654.007; Wed, 25 Feb 2026
- 11:38:15 +0000
-Message-ID: <bdd6a7bc-0b7d-405d-99a7-a11eebaf627a@nvidia.com>
-Date: Wed, 25 Feb 2026 17:08:03 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: topology: Fix false warning in
- counters_read_on_cpu() for same-CPU reads
-To: Marc Zyngier <maz@kernel.org>
-Cc: catalin.marinas@arm.com, will@kernel.org, zhanjie9@hisilicon.com,
- zhenglifeng1@huawei.com, viresh.kumar@linaro.org, rafael@kernel.org,
- beata.michalska@arm.com, pierre.gondois@arm.com, ionela.voinescu@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
- treding@nvidia.com, jonathanh@nvidia.com, bbasu@nvidia.com, sumitg@nvidia.com
-References: <20260224092714.1242141-1-sumitg@nvidia.com>
- <86ecma9gb5.wl-maz@kernel.org>
-Content-Language: en-US
-From: Sumit Gupta <sumitg@nvidia.com>
-In-Reply-To: <86ecma9gb5.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0243.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1ae::17) To BN9PR12MB5179.namprd12.prod.outlook.com
- (2603:10b6:408:11c::18)
+	Wed, 25 Feb 2026 11:42:14 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61P9TBxc2365339
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 11:42:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	M0OQnEeU5Q+WwKOM0afwTTmeLdjh3sD9aEF0/WZ5DEc=; b=Z1ocSeFSSKfx9CKk
+	Z7W7lxxpWsPTa1SXmVzYfh9Tc9OUamekzIOGJdCotWmggY2LGihUWpDGwbDa2R8q
+	J+9PUy1yXQAuSOE9iOov3bPcrZCcYVH12zqUWzDCv2wL6F8aFQOYsIpm6vJusyRA
+	lrHqP0uFLgRlvyAcbDKYMkJxVqvx3ROIFUamKt5LYKbK345laD93SRgbiqTYPkYt
+	Op8U2WylGH8jo9kWQVmJRXTA4rPcyDUvOcCtvDrpT153YNiK4TeP95SO2uNmfzkU
+	sNZ6/4wdA378RPxsfvHPImn1K3UxlOLDmMoyvZXnawuLmf3SBHzQBERmdVaU3QIr
+	sbmFIw==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cherjbdjb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 11:42:12 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8cb3b0d938dso5811026385a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 03:42:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772019731; x=1772624531; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=M0OQnEeU5Q+WwKOM0afwTTmeLdjh3sD9aEF0/WZ5DEc=;
+        b=c5Kz9T3ZvDX14gcMmuj//GV1Pz4k9IGgH7d5Xi2bOMgTb/jub/6DIlWEku90z0y5/R
+         D02PCL4x3dTdgOJEeEz2srtlQ+CftVxbvOxMer50lkj/IHcu/Fy6PaRn1IWibnR9O2SN
+         i2x9kbkoW5Y/wJMWRd+/kiFRUB5vxyruIahQ9WiDGHN/w1fgx1qPBX0RR4Q3Qqp8a/NI
+         hqtlnD5jheuIzQPt9vNe5XNJ5kP6LXuOhKWi+HXu1jWQZLKCjCsNpXLLXGA2jsQ5Cm67
+         5tV0BKjVc8Np8wWeaxLdMo7Xx+tRLInrCnoB3jHeLbuZzHIxPdPtFlL1ww+cmKvugorZ
+         Pr4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772019731; x=1772624531;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=M0OQnEeU5Q+WwKOM0afwTTmeLdjh3sD9aEF0/WZ5DEc=;
+        b=W8EIrqsbeHzhkV7PYdmMlEMthetGSCQgfe/CtUUEL4vQSqBIGlyStwAZ18oz/P+ORF
+         9MjIkQ45ebvhSmvO2Lo6xHdUCT095WtyD3RouaXJlT2G2Vk22Fi+vWmZq6XL6KQtudXm
+         N/mo2fpYfXqHheKx2oQ3mQtt/dsDCSB7K6LoeB7/F4ea21/d3Ec7djcT+FvlloAGeaK1
+         htYTo3oGwCUUfgGnh3l48wT51+8otT/qL7Ie5GRFs7ir5UIQAnXozCV7EnFxmt4aY8K8
+         JwqtfSCtyjsLYt8gNOMRxJwAsbCioqzks4jvlDRUTJkv7mNE08raMgNxNGACz63FX5Bg
+         GDfA==
+X-Forwarded-Encrypted: i=1; AJvYcCUcV55oYRMt4rQHgL4tNfUEdCoIkhKnq161QOYghCaFCT3j1Vj+59LP+Ns/r/eUoPGCUsriQRenivDeyHFTkvA4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzwmkd5S5gBGKmdgd1Uff3U2DpjtWgWyplzj80hAIzWw2kG00Wv
+	5/qHvFL1d8m1BwwfiAbseb0qiWKtBcOjo7a2qEKLGZjDSFHAY8EJRIGkyfV54VMKBeWIwrkbtXR
+	bsXIZFX0XM09+4dhmrelyzwPhgGR2aj9vBwJZGsb+u+SFMNwHk69/uc8pR42MzWU5JouxvTeMur
+	vWrA==
+X-Gm-Gg: ATEYQzwh5EB/1Wm6apmVDjWjwnMFxi/8YlJcA5VsiQin9jOC3qS26cfDezRhjXYmE9d
+	6t9dS05LgWZMN6NZFfbbGyBIzsb0LpOw3+xhVxCluB+k+LueSXLrnGu+0aGWjSQuK53/h/0lMZ3
+	talqA6g/pXm2LzlfkBy01C+2VuSPBzUDr2ukUcKADO7wXo3LxiFC3zLqNYbvHC0uSCFVJCAQ0OS
+	i2ad7KSvmZ5mDqXClX18+BziN1e0+63Ebt02fNU1/e4MnvZctaLybPSi+5I7EwdzCEULeKVox7u
+	k7e8YfMK43qvtjQwXrWzV+kRuLozbgrAQn3sl0s0CILx+K3viUlWM4u9jngf1L8uSm4472MBmf2
+	J+hcJB1gcQ5x5FZxnPdomOaYBJKs3TXaRxBoScU9HuKg//6CFkQ==
+X-Received: by 2002:a05:620a:4094:b0:8b2:eea5:32f8 with SMTP id af79cd13be357-8cb8ca0d5cemr2179429285a.34.1772019730886;
+        Wed, 25 Feb 2026 03:42:10 -0800 (PST)
+X-Received: by 2002:a05:620a:4094:b0:8b2:eea5:32f8 with SMTP id af79cd13be357-8cb8ca0d5cemr2179425985a.34.1772019730386;
+        Wed, 25 Feb 2026 03:42:10 -0800 (PST)
+Received: from [192.168.1.29] ([178.197.223.140])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439934cc51csm1432467f8f.3.2026.02.25.03.42.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Feb 2026 03:42:09 -0800 (PST)
+Message-ID: <b4c42f88-80fb-488b-9ca5-95f5795fd2f8@oss.qualcomm.com>
+Date: Wed, 25 Feb 2026 12:42:08 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN9PR12MB5179:EE_|CH2PR12MB4039:EE_
-X-MS-Office365-Filtering-Correlation-Id: a4e11e38-9287-447c-e842-08de74625cce
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: P2rUsq5yeEDLtNceJcaDANUfIlGUentjq0am5ea7tzfAgzcsLwg1v4GP7cFIJ/PAeqP09yiud2dJxoxsiXLCVe/msqRb8rZmcJN5oyW4dhaSrEHSwx+7pC8NziOfK/uHIAYaja6gv0piPj/ABf74qJihNFcR5VbGRLixcjuzLzrXMhOPjQflrgOD8V+B9CeG8z87QbwJWO29QUII0q1kWdJO4WIF39b+sePqwlbRBH8VemdxlAnvN5IbPDMXjYnVruef23aOUUoB+GmgqlZKqMV1dEHX36FtHicSxnoEwQuBi/Taa+x0acB9ePylc0puXhWkunDEC5+xzoI6GjrrI2eL6NDS5+d+vCfHCiaoCvQSrnxjuzRmJpu5Fj7KZ+gMk+Z7V89WPxUTHXG1ASU2FhYp/rly9NvNs6RkdEOaqemJve+AfnwxUHZPK2DYUJFVxYhrHy/lNfrfVD25k9WDDGx/ln9WFgJTgbOqrz/aOnUI4LyIbGNPkdwf8XHApReLpce4iCuyUOuQokq2pMR920glG3eL+SnkjnOCezV0sDbBXqEz2lZk9Zx+9ADSTcVA40zOPwgBgj81uT73Txi1LuQ3FRiTbH7sEjGVq9GbQNsG72L2+TDgtd1cttpokY+WuyfN3AR2Eq8ZzKinlsbAIsE9KVs5qk4SnxnQ6eGAN0mNmXjEFNTZ+EcCc7lUf8eXJXSO33HETYqCB5Hz+O7XTeSYS8dafs+/98OdfFocgQE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR12MB5179.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2Mrazh5RlYvK3Fmd2hFL1BkV2dkT2hTaWlvMWpBZjhIMER2ZU5JdEhpaFhp?=
- =?utf-8?B?b2xNUXora0hWVHZjbWZkMXVUaGVxdWZTeDRXWHVaWkxrR015eXJVMzhHMWtN?=
- =?utf-8?B?cmZoNlcxZUd3VCtCVnI1M3VxVTBrbG9DdVozQ2JHUUo0M3d2WTdYZU9zYmhh?=
- =?utf-8?B?ZjZWQWwxSGtvRkJzQ1ZtdkIwbVFBSXJPYTVzQ0RVdDhndFRaMFh6YjBtQ0FN?=
- =?utf-8?B?RnBJdFoyckMraDZ5cTFyVUp5ZDQ1YnRYaXZwb0dvdmovM3lDd3BLSnJOK0lm?=
- =?utf-8?B?VXN5aDJzRitqaS9PVlJBRS84M2NqSWdOdnlSblVBQmlkeGp0a3Nuc05IK2VX?=
- =?utf-8?B?RkFOR1Q2cXZWeUpkRElTREdtVjVLdjFmdFVmU29sWm13TGxJWnlFYlUzcVk1?=
- =?utf-8?B?YW9idmZWVFNvOVlGWk8zeEsyY0Y2N2ZjMWdyZWJ4V2tFeWE4Y1dBbGI3OVRn?=
- =?utf-8?B?ZWdCZVgwajU4ZjhjVDRIa0wvUkRMZlBpVFQxRUdBdkhhT3UrczlnblZFSHVo?=
- =?utf-8?B?OE1GbWhsbGl4ZU82N2dEbnVoWEVtV1c5QWhYOWtpQVB4S1N0c1JFdlJVK25T?=
- =?utf-8?B?YnFrWlpNaUYyYnhpMmVYdXlhVzgwbVBZdWw4ang1cmppbjRBQVc2VGRSUXQz?=
- =?utf-8?B?aVFQWHpyaFphZWowdHRLWE8vemZkakZqVElaTWUvZzZWSzY0dy81anA4STNh?=
- =?utf-8?B?UEswWnY5OUdZcjQrQ09UcjlTWDg4QVhVV2JlZm51enByNWI0QTlKWkdMQ3px?=
- =?utf-8?B?OEhoWTZjakJuYmMvajRvQ3liajh1cXZ4NGo5MXYzQjFGeXFxWEt5OFNBb3J3?=
- =?utf-8?B?VXdiOFVVOGVUYzNlYkJta1drTCs3UGlxc3JLWTRQSHVqSm1BRTZVTXRyNWdm?=
- =?utf-8?B?dkpsRVB0K25Na1BWa25JZDAxUTVheEV2TjZLS3F6RUZoVXZJTzkySHRYOGY4?=
- =?utf-8?B?MTdUbEVGL1JFd0swVW9lT2tYb2pUYUFjdEVoK1RnRmg1NUpOTVRybmdhZlc1?=
- =?utf-8?B?eTNYalI1V2U0Y3ErYXYycnFzZE11d1BWSndNVTdacEdOcXBXYzJWTUpSMUJj?=
- =?utf-8?B?U1ZqWmxwT01wY084Q2VVOS85MW1NcTJLVzZpSEVhRVdwV0Z4MjNSS0ZiNlRP?=
- =?utf-8?B?bkRzOUdnRFlMK1FxMHZSQm56RDJQcjlPY0FrVGpNUExWLzQ4SWxmTnBBSnFQ?=
- =?utf-8?B?Tzg2bER3T1IvU2R0WHI4dXpGb2tldmYvWmdoK2JsQWh1bHBOS25tQXZCTFRr?=
- =?utf-8?B?NVQyZzVvZGxZbnlmeVpFaFVjUHBvSml4RnpTeS8zOXU3dTFHQitlcTMyTEpC?=
- =?utf-8?B?RktJYTlWQnExaW9QTExaUkRnNmkxVm5QdVI4a0dmejNaay80bkVpeldtbkNI?=
- =?utf-8?B?RGZkUmp6SVdOa09TcWlnQk5Yc0JUc2dVay9zeFZOcnNCYlJPeWFSUEpqcS8z?=
- =?utf-8?B?SXA1Vi8ydDdHeDk0T2dJV2VIbnUwZ3BjRzZHSkFrVVJtbnk2dTBaRlZQbmk4?=
- =?utf-8?B?Z1NKRm1mOTBOaWJ2QkZMcDBJYlB1YWIzVVFGUDZxVVZ2eEdHZTYvaFI4b25z?=
- =?utf-8?B?T091SGdpMzhhY2VNZnlQMTVUYWlTMU1ubTEzN3p2aHZsaEdwa0trcTROUlgw?=
- =?utf-8?B?NDlsQWRLYWZmVEZyclJNdXVDb2tlTkQwZG1yZitUYUhHcHdwaWN3d1p3MnEw?=
- =?utf-8?B?bmdONFhDTTdaSUUwSjJsT1c1Q1dxQnlhYWx2QlZGUnROUVhSb1VtVG9KVkRk?=
- =?utf-8?B?dnRBUzFkT29sWmM4M00wVERFcE5FM3Izczk4NTBPT3VSL1AzN1VBejYxQ0Zw?=
- =?utf-8?B?ekE1MG92cEdZZVVxRVR0SVcrYjJTcHNNRUovYTRvTGswYmR3cnluT25yU1Ja?=
- =?utf-8?B?OE8wcXIvdUgyaG9ucC9PSVc0WUk5d1pGK240bkVYL0lPNHphVDdOZ1R2amx4?=
- =?utf-8?B?cmM1b053TEkrNzFRSE5pd29ZNUhCRVhsUnI1SmRWeXZra3VZOTZERW1ocnVx?=
- =?utf-8?B?bERVNHRoaFNwajlQRFowd3ZPdEgrOFVEMVVZS01tZFJHcVlZWkNnSlNXZ2Zk?=
- =?utf-8?B?RUdtK0cwL3F6ZGhEWi9wY2RhUm1QaG1NTEthaVRCOVJCTzA3a1pYT2Vkd2xm?=
- =?utf-8?B?SHkwdkljb3gvazZlYjJxa2grSEp0QU1tdnRDZzdMOFlNZVIxQWh4TWpvSmw3?=
- =?utf-8?B?Ty9PODlKRjV0S1RvYTNHNndsenZER3ZwR2JDaHBlcGxvOVdUdFhhR3d0MDFq?=
- =?utf-8?B?UTlxbkRIT1M1OFBDMHZqT1dmU3hSTGFWZFkvQit4TkVXc3dFZkdMeUEvV0U4?=
- =?utf-8?B?QnFDL0lVNlBYNXJhVFo5NG5kaER6VkxzMytMdDdYK3N5aEdDNkU0QT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a4e11e38-9287-447c-e842-08de74625cce
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR12MB5179.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2026 11:38:14.9610
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5ZRDCwVy1WMhMA9+GC2eZw9I0pDyGOnMAWdDijwlFOGB+vt2W7nmfRumEnG3tUlV7SLU7UmqFfrxQVG9wj/90w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4039
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] firmware: arm_scmi: Drop fake 'const' on scmi_handle
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+        Frank Li
+ <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+        linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+        stable@vger.kernel.org
+References: <20260224-handle-not-const-v1-0-90bf93b53e27@oss.qualcomm.com>
+ <aZ2aBD_u_RVhgsei@pluto>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
+ 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
+ cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <aZ2aBD_u_RVhgsei@pluto>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI1MDExNCBTYWx0ZWRfX1mHZtTkIuG1k
+ 4A1VmlcxSPzD4qEEDY6yqcz/ubppJlYjbv16skxW41wSwFEMnaQABMWoOSuoDk7Q8yzqeucLrlB
+ xnsiovvV40lDq+45Q2fLM14Ff21EpTtOu+2Kxb0qMv0mRq1q/kXXEUD0b92lo71q/cH6h0Pk26r
+ kZfVv+x7g2cHB4QwmQRvOqxJsX8x9boCb8BFr+kcoEgsII4GjD2XfDysyBLEk1bCZb2vrisxh5z
+ kp3kr7yLnMtD0yWbUsi47dtuFwkxXEcH4AY3Fu5IOoOqNaHcRVYZkd0IMuLvoN/7dfJv2St6Rjb
+ R8JfcMPy8ykKFQ/XJi36tgFgZDwM6+IIMgz814R51vaUNOc2o4sZYxRa7JgQyoTbgnuvh53QU/x
+ Uq+kngY8oYsXDWpx1/EkTGAZ03pZo5S7qmlqbE29XsPO6yGmfpKvwZ00uR66VRndetztaB/KpZQ
+ FBIHrsuqNqtpK2fj5Ww==
+X-Proofpoint-GUID: RK9dHvfqDuE5R2BIpVKJyT31UH3expF6
+X-Proofpoint-ORIG-GUID: RK9dHvfqDuE5R2BIpVKJyT31UH3expF6
+X-Authority-Analysis: v=2.4 cv=NeDrFmD4 c=1 sm=1 tr=0 ts=699ee014 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=zDAgSCSiOJkZ-3sd130A:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-24_03,2026-02-23_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 adultscore=0 spamscore=0 priorityscore=1501
+ suspectscore=0 lowpriorityscore=0 phishscore=0 malwarescore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602250114
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_033822_578527_0B7EFB72 
-X-CRM114-Status: GOOD (  31.82  )
+X-CRM114-CacheID: sfid-20260225_034213_689659_B0E54C51 
+X-CRM114-Status: GOOD (  39.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,150 +198,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On 24/02/2026 13:31, Cristian Marussi wrote:
+> On Tue, Feb 24, 2026 at 11:43:38AM +0100, Krzysztof Kozlowski wrote:
+>> Severale functions operating on the 'handle' pointer, like
+> 
+> Hi Krzysztof,
+> 
+>> scmi_handle_put() or scmi_xfer_raw_get(), are claiming it is a pointer
+>> to const thus they should not modify the handle.  In fact that's a false
+>> statement, because first thing these functions do is drop the cast to
+>> const with container_of:
+> 
+> Thanks for this first of all...
+> 
+> ...but :D
+> 
+> ... the SCMI stack attempts to follow a sort of layered design, so roughly
+> we have transport, core, protocols and finally SCMI Drivers.
+> 
+> Each of these layers has its own responsabilities and the aim was to
+> enforce some sort of isolation between these layers, OR even between
+> different disjoint features within the same layer, if it made sense,
+> like with the notification subsystem within the core...
+> 
+> Now, given that all of the above must be attained using our beloved C
+> language, such attempt to enforce isolation between such 'islands' with
+> different responsibilities is based on:
+> 
+>  - fully opaque pointers/handles...like the ph protocol handels within
+>    SCMI drivers...best way to do it..if you cannot even peek into an
+>    object you certainly cannot mess with it...
+> 
+>  - some 'constification' when passing around some nonm-opaque references
+>    across such boundaries
+> 
+> So, when you say that some of these functions sports a fake const
+> reference, is certainly true to some extent, BUT you miss the fact that
+> usually the const is meant to stop the CALLER from messing freely with
+> the handle and instead enforce the usage of a dedicated helper that sits
+> in another layer...
+
+The caller can mess with the handle, because of container_of() cast, so
+there is nothing stopping it. I understand you want to express that
+handle is somehow unchangeable but then as you mentioned - it should be
+opaque pointer.
+
+> 
+> As an example, when you say that the scmi_protocol_handle *ph is indeed
+> manipulated by scmi_protocol_set_priv() and so it is NOT const, you are
+> certainly right, BUT the above function and the protocol handle itself
+> lives in the core, a different layer from the protocols, and indeed the
+> protocol_init function cannot change directly the protocol priv value
+> but instead has to pass through the helper ph->set_priv() which is the
+> only helper that can touch the ph content...
+> ...IOW you are forced to respect the isolation boundary (as much as
+> possible) by the constification of ph...if you drop the const in the
+> protocol_init protoypes you end opening the stack to all sort of
+> cross-boundary manipulations annd hacks: helpers like set_priv were
+> added to be able to manipulate the bits that needed to be modifiable
+> while maintaining separation of resposibilities between latyers.
+> 
+> Similarly for notifications, they are kept isolated as much as possible
+> from the core.
+
+I understand the goal this code tried to achieve. And it did achieve
+it... plus another goal of having "const" like functions modifying
+memory. This is not a readable code. Function which receives only
+arguments as values and pointers to const is expected to not modify
+state of received pointed data. But all the functions here, because of
+the cast, can or even do modify.
+
+I understand we do not write here C++ const methods, obviously. But all
+these functions look re-entrant from the interface point of view but in
+fact are not re-entrant.
 
 
-On 24/02/26 23:25, Marc Zyngier wrote:
-> External email: Use caution opening links or attachments
->
->
-> On Tue, 24 Feb 2026 09:27:14 +0000,
-> Sumit Gupta <sumitg@nvidia.com> wrote:
->> The counters_read_on_cpu() function warns when called with IRQs
->> disabled to prevent deadlock in smp_call_function_single(). However,
->> this warning is spurious when reading counters on the current CPU,
->> since no IPI is needed for same CPU reads.
->>
->> Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in
->> ticks for non-PCC regs") changed the CPPC Frequency Invariance Engine
->> to read AMU counters directly from the scheduler tick for non-PCC
->> register spaces (like FFH), instead of deferring to a kthread. This
->> means counters_read_on_cpu() is now called with IRQs disabled from
->> the tick handler, triggering the warning:
->>
->> | WARNING: arch/arm64/kernel/topology.c:410 at counters_read_on_cpu
->> | ...
->> | Call trace:
->> |  counters_read_on_cpu+0x88/0xa8 (P)
->> |  cpc_read_ffh+0xdc/0x148
->> |  cpc_read+0x260/0x518
->> |  cppc_get_perf_ctrs+0xf0/0x398
->> |  __cppc_scale_freq_tick+0x4c/0x148 [cppc_cpufreq]
->> |  cppc_scale_freq_tick+0x44/0x88 [cppc_cpufreq]
->> |  topology_scale_freq_tick+0x34/0x58
->> |  sched_tick+0x58/0x300
->> |  update_process_times+0xcc/0x120
->> |  tick_nohz_handler+0xa8/0x260
->> |  __hrtimer_run_queues+0x154/0x360
->> |  hrtimer_interrupt+0xf4/0x2b0
->> |  arch_timer_handler_phys+0x4c/0x78
->> |  ....
->> |  CPPC Cpufreq:__cppc_scale_freq_tick: failed to read perf counters
->> |  ....
->>
->> Fix this by calling the counter read function directly for same CPU
->> case, bypassing smp_call_function_single(). Use get_cpu() to disable
->> preemption, as the counter read functions call this_cpu_has_cap()
->> which requires a non-preemptible context.
->>
->> Fixes: 997c021abc6e ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
->> Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
->> Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
->> ---
->> v1 -> v2:
->>   - Rebased on v7.0-rc1
->>   - Updated Fixes tag to match upstream commit SHA
->> ---
->>   arch/arm64/kernel/topology.c | 21 +++++++++++++++++++--
->>   1 file changed, 19 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
->> index 3fe1faab0362..c3e883e99aa0 100644
->> --- a/arch/arm64/kernel/topology.c
->> +++ b/arch/arm64/kernel/topology.c
->> @@ -400,12 +400,29 @@ static inline
->>   int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
->>   {
->>        /*
->> -      * Abort call on counterless CPU or when interrupts are
->> -      * disabled - can lead to deadlock in smp sync call.
->> +      * Abort call on counterless CPU.
->>         */
->>        if (!cpu_has_amu_feat(cpu))
->>                return -EOPNOTSUPP;
->>
->> +     /*
->> +      * For same-CPU reads, call the function directly since no IPI
->> +      * is needed and this is safe even with IRQs disabled.
->> +      * Use get_cpu() to disable preemption as the counter read
->> +      * functions call this_cpu_has_cap() which requires a
->> +      * non-preemptible context.
->> +      */
->> +     if (cpu == get_cpu()) {
->> +             func(val);
->> +             put_cpu();
->> +             return 0;
->> +     }
->> +     put_cpu();
-> A slightly more elegant way to write this would be:
->
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 3fe1faab03620..83c7b346dc8cf 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -406,6 +406,13 @@ int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
->          if (!cpu_has_amu_feat(cpu))
->                  return -EOPNOTSUPP;
->
-> +       scoped_guard(preempt) {
-> +               if (cpu == raw_smp_processor_id()) {
-> +                       func(val);
-> +                       return 0;
-> +               }
-> +       }
-> +
->          if (WARN_ON_ONCE(irqs_disabled()))
->                  return -EPERM;
+> 
+> So, I still have definitely to properly go through all of your
+> series, but while the usage of container_of_const() is certainly a
+> welcome addition, because it raises the isolation factor, dropping the
+> 'fake' const seems to me a step back in the enforcement of isolation
+> boundaries between different layers or different subsystems within the
+> same layer.
+> 
+> IOW, the last that we want is to be able to freely change the content
+> of such const handles from outside the 'island' they live in...
 
-Thank you for the suggestion.
-Will switched to this in v3.
+If I understood correctly the composition here:
 
+The handle should be in such case be not contained in the upper
+structure, but be a pointer to const like:
 
-> But I'm more concerned by the overall pattern of doing these things in
-> random contexts. Going back to the original patch (997c021abc6e) that
-> states:
->
-> "However, this deferred update mechanism is unnecessary and introduces extra
->   overhead for non-PCC register spaces (e.g. System Memory or FFH), where
->   accessing the regs won't sleep and can be safely performed from the tick
->   context."
->
-> Clearly, the AMU registers cannot be arbitrarily accessed without
-> blocking when accessed from one CPU to another, so either this
-> function is never called in a cross-cpu context (and the warning
-> should be removed), or the premises of this change are wrong.
->
-> Which one is it?
->
-> Thanks,
->
->          M.
+struct scmi_protocol_instance {
+	...
+-	struct scmi_protocol_handle     ph;
++	const struct scmi_protocol_handle     *ph;
+}
 
-The function is also called in cross-CPU contexts, but only from
-process context (get_rate, sysfs show) with IRQs enabled and
-calling smp_call_function_single() is safe. In the tick path,
-cppc_scale_freq_tick() uses per_cpu(cppc_freq_inv, smp_processor_id()).
-So we always read the current CPU's counters and no cross-CPU access.
+And since this is 1-to-1 relationship, the scmi_protocol_handle should
+have a pointer to scmi_protocol_instance. This way you keep passing
+pointer to const handle without ever needing to cast it.
 
-The premise of 997c021abc6e applies to same-CPU accesses only:
-Reading the local CPU's AMU regs does not sleep and is safe from
-tick context.
-The irqs_disabled() WARN is still needed to guard against unsafe
-cross-CPU calls. This also returns '-EPERM' unlike the WARN inside
-smp_call_function_single(). So we fail instead of risking deadlock.
+The current solution would be much nicer than above, if the code was not
+dropping const, IMO.
 
-Thank you,
-Sumit Gupta
-
-
+> 
+> Any improvement on such isolation with more modern C tricks, if
+> possible, is pretty much welcome, i.e. I am not saying that the current
+> system is perfect and not improvable...but just dropping all of this in
+> name of some better possible compilation optimization seems not worth in
+> terms of maintainability...
+> 
+> Does any of the above blabbing of mine makes sense :P ?
+> 
+Best regards,
+Krzysztof
 
