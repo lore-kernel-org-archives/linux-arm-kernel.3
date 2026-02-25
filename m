@@ -4,117 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E413EFD3764
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78966FD3764
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DpzsUByNGjcLChjmcQ8IdupgxBvxPeDh0Iibj1+hi1c=; b=jVVZEHJADR554c7JXaOYhSpVp3
-	rrag5xmoVvAY8Okb3dGM+zSRuXlk5+4BXlS/S9uN0tsqixypEMDuJE3RHkLfoQS2ruVf/oItKJiNa
-	ujNsOX1X/VOdHyw8ug2hFbMotYCs4Zn3n9duspm9RpEUVxRVoS7YVurfLp4o6SoBOfnOpM1qCyxMM
-	ufDiceBiIKD71qpnZVa3F8YKpH/gmX8Rwqp7qk3nNp83bMoM1FRiNXmVxL3kR/DTYoVh4Zcl1jIIx
-	qXMnLbKHAMTLiymtqZoBRSjV8iVKFZv4oAo0DsKdo7XhON2xMOtojiKcDUgf7UwiJ+3UUZU31nmIu
-	0w9mVD3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u9sTS/COQK0TNP+zdsgEfylJgdDenBDQ3tXHsCk89OQ=; b=Wlhprmk8VQB/6O2MkYHbQ1sEPh
+	DHqxhgC+DpXgU3YbEGHAQH62xpSrfzREBNxdrdFxATyiIApu6v4rdcOdJ0qHvh16gMhpLZoFv4caW
+	XmjzTwoHO56BXl/PFNZKXqegQll+4UPlgEptzkTNa3tt9d0FG+0rwHPOngtQp9u1og7zX+YCw7twa
+	67V5vK8fuNlGfbhhhk5Dccf+huKwipU90EC6hh6/RJHkRfOZh9n6Z9XWpIh/2d5N3zolgsGafYGQH
+	ZkR+FiEnp8EpbAqTeUAptG+w3tFwmUt+YZXVDyRVt4nIuGnSIF9yOLwXgzRqHjA/IscZlCiYOBtVP
+	Y60HLw+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFrZ-00000004D0P-3Q1g;
-	Wed, 25 Feb 2026 14:27:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvFsS-00000004DAt-1nT9;
+	Wed, 25 Feb 2026 14:28:36 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFrX-00000004D01-05PR;
-	Wed, 25 Feb 2026 14:27:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 640C240274;
-	Wed, 25 Feb 2026 14:27:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B86ECC116D0;
-	Wed, 25 Feb 2026 14:27:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772029658;
-	bh=U9E2ZLZ0JLTenLJ3Y/BpGghxxT+1M6o7BfxH/hbK7+Y=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=Bx31QDeCwTuAv0aIQC96Gk1GVeLTBS/5yg+8jPkfcS6e3IMl75T4NlxJ9G0tryUnN
-	 IwmSR2rhnZlVpi+VkmtVWjkx4gzFs89OMpzBIsLk+CUBSRt60CZOz5jkucToy+6Sy5
-	 7Z1DuPVuIRdvs6+DkD57hD3DGA4lBu8w5RUi08PhT/KC36hxERT9AY49nRZhUNY74E
-	 dFiNO6MTyDJV36oCsckH8LDrJuPy5CAqFWm37LxF741OCI3k0rNhjuDk0U1hOsozit
-	 CUDNjbCW43/zEuIr97h/ZIiTlqJgnGf2zej+VK1OiDdgff9TGrhbDjdaxhRvu8cIpu
-	 NYdsnDPkkZKcA==
-Message-ID: <d460c40a-c0cc-41d3-999d-bead4e688a34@kernel.org>
-Date: Wed, 25 Feb 2026 15:27:32 +0100
+	id 1vvFsQ-00000004DAT-1lZM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Feb 2026 14:28:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=u9sTS/COQK0TNP+zdsgEfylJgdDenBDQ3tXHsCk89OQ=; b=ZCPN7cmsYrI8trnhdkfyXbxopZ
+	+aHMkjP6AfRWOQe2Xw3sbdtGMlMbYuJ8CldyvWgPlcif9xqKBPVPUgsywG98M+j7zR8Z682RpGRCM
+	XzKxi4+eAuJDIc3ZulZQQE2vO+2QkETkhT/iYknkjoEmB2dMvhuAU7wk6MV63PPbBEpcCXrHwST+p
+	65N/CKRLXwuuDVoKt4slKQmxziIpxker+IYtMiJK2nUYMmuYxPxmbGzKVbPfEnZyTHdoT1MxFcHBw
+	PdaKcSRIYFX87btRV53rBk+Z68jm+4tBwRmQa7zZQGcDsl3nghFUuGFgrj3ay7TmwVB2WQTTA5Ump
+	5edXpufQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59420)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vvFsI-000000006nJ-3keZ;
+	Wed, 25 Feb 2026 14:28:27 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vvFsF-00000000116-3bDX;
+	Wed, 25 Feb 2026 14:28:23 +0000
+Date: Wed, 25 Feb 2026 14:28:23 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next] net: stmmac: fix .ndo_fix_features()
+Message-ID: <aZ8HB-xu9KzYPHdc@shell.armlinux.org.uk>
+References: <E1vuU3X-0000000Ae9G-1Er8@rmk-PC.armlinux.org.uk>
+ <20260224173037.7871e5ac@kernel.org>
+ <aZ6xqig4zh_Un8R7@shell.armlinux.org.uk>
+ <af465a47-264f-4029-943a-fd4222092f9d@lunn.ch>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] media: dt-bindings: rockchip,vdec: Add alternative
- reg-names order for RK35{76,88}
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
- linux-media@vger.kernel.org
-References: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
- <20260225-vdec-reg-order-rk3576-v3-1-5a2ebe1b11a8@collabora.com>
- <9bb74438-e759-46a7-9fa1-2c6b1fced76b@kernel.org>
- <d5a244f3-5f1b-4bcb-8042-646320a47b6c@collabora.com>
- <85793250-425d-40da-b382-ada9fc7b50e1@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <85793250-425d-40da-b382-ada9fc7b50e1@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <af465a47-264f-4029-943a-fd4222092f9d@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_062739_124528_CFA0ACBF 
-X-CRM114-Status: GOOD (  26.55  )
+X-CRM114-CacheID: sfid-20260225_062834_608937_CCFF3448 
+X-CRM114-Status: GOOD (  39.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,98 +87,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2026 15:11, Krzysztof Kozlowski wrote:
-> On 25/02/2026 14:36, Cristian Ciocaltea wrote:
->> On 2/25/26 2:26 PM, Krzysztof Kozlowski wrote:
->>> On 25/02/2026 13:19, Cristian Ciocaltea wrote:
->>>> With the introduction of the RK3588 SoC, and RK3576 afterwards, the
->>>> 'link' and 'cache' register blocks have been provided for the video
->>>> decoder unit in addition to the existing 'function' one, which now shows
->>>> up in between them (from address-based ordering point of view).
->>>>
->>>> However, the binding does not properly describe this hardware layout, as
->>>> the new blocks are listed after the old one.  Therefore it breaks the
->>>> convention expecting the unit address to indicate the first register
->>>> range.
->>>>
->>>> Since the binding changes have been already released and a fix would
->>>> bring up an ABI break, mark the current 'reg-names' listing as
->>>> deprecated and introduce an alternative 'link,function,cache' one.
->>>>
->>>> Additionally, drop the 'reg' description items as the order is not fixed
->>>> anymore, while the information they offer is not very relevant anyway.
->>>>
->>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>> ---
->>>>  .../devicetree/bindings/media/rockchip,vdec.yaml      | 19 ++++++++++++-------
->>>>  1 file changed, 12 insertions(+), 7 deletions(-)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>>> index 809fda45b3bd..3f6072e8baa5 100644
->>>> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>>> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>>> @@ -28,16 +28,21 @@ properties:
->>>>  
->>>>    reg:
->>>>      minItems: 1
->>>> -    items:
->>>> -      - description: The function configuration registers base
->>>> -      - description: The link table configuration registers base
->>>> -      - description: The cache configuration registers base
->>>> +    maxItems: 3
->>>>  
->>>>    reg-names:
->>>> -    items:
->>>> +    oneOf:
->>>>        - const: function
->>>
->>> This is confusing, I think I missed that in previous patch because it
->>> did not leave that part or I misread the diff hunk - why do you allow
->>> one entry?
->>
->> That's for the older SoCs, e.g. RK3288, RK3399, as the 'link' and 'cache' blocks
->> are only available for RK3576 & RK3588.
+On Wed, Feb 25, 2026 at 02:26:42PM +0100, Andrew Lunn wrote:
+> > Then, looking at the "Enable TSO" block of code in stmmac_hw_setup(),
+> > it looks to me like we can end up with some queues that have TSO
+> > enabled, and others which don't (because TBS has been enabled on the
+> > queue.) As far as I'm aware, the network layer doesn't support
+> > per-queue TSO.
 > 
-> Yeah, I see in the bottom of the binding
+> There is a software implementation of TSO. See for example:
 > 
->>
->>>
->>> If the first entry is function, then all others MUST built on top, thus
->>> this:
->>>
->>>> +          - const: link
->>>> +          - const: function
->>>> +          - const: cache
->>>
->>> is not correct.
->>>
->>> No, you don't change the orders. So again, if you have such binding,
->>> then you just fix the unit address leaving the binding as is.
->>
->> Changing the unit address would mean it will point inside the register range,
->> rather than at the beginning of it.
+> commit 3ae8f4e0b98b640aadf410c21185ccb6b5b02351
+> Author: Ezequiel Garcia <ezequiel.garcia@free-electrons.com>
+> Date:   Mon May 19 14:00:00 2014 -0300
 > 
-> First, not true. If this was one register range, you would have one
-> entry. You cannot split entries. Split entries means you have two
-> SEPARATE register ranges.
-> Second, it does not matter because main rule stays - the unit address
-> describes the main address space. The main address space in other device
-> was called "function", so I assume the main address space is also here
-> the "function". Which makes sense, because link feels secondary to
-> functioning of the device.
+>     net: mv643xx_eth: Implement software TSO
 > 
->>
->> Sorry, but I don't quite get why would this be a better approach than just
->> properly list the items according to the HW layout, i.e. following the
->> address-based ordering?
+> You might be able to use this to fill in the gaps.
 
-One more comment here, actually repeating Rob, because this awfully
-reminds me discussions with Linaro folks around media/iris/camss where
-they came with terrible idea of sorting everything by value
-(reg+clocks+interrupts) - because binding does not know anything about
-addresses, thus you cannot sort/order this list in the binding by
-address. There is simple no "key" to sort with.
+That'll likely need some major rework to the descriptor handling, which
+is also buggy, certainly in the non-TSO path.
 
-Best regards,
-Krzysztof
+stmmac_xmit() does this:
+
+        if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 1)) {
+                if (!netif_tx_queue_stopped(netdev_get_tx_queue(dev, queue))) {
+                        netif_tx_stop_queue(netdev_get_tx_queue(priv->dev,
+                                                                queue));
+                        /* This is a hard error, log it. */
+                        netdev_err(priv->dev,
+                                   "%s: Tx Ring full when queue awake\n",
+                                   __func__);
+                }
+                return NETDEV_TX_BUSY;
+        }
+
+Then it sets the descriptors, which are consumed as per:
+
+- 1 descriptor if priv->dma_cap.vlins && skb has a vlan
+- for non-jumbo:
+  - 1 descriptor for skb head (with sarc & tbs)
+- for jumbo:
+  - if headlen > 8KiB:
+    - 1 descriptor for first bmax (2 or 8 KiB) of skb head
+        (sets buffer2 of descriptor to data + 4KiB)
+    - 1 descriptor for remainder of skb head
+        (sets buffer2 of descriptor to data + 4KiB)
+  - otherwise:
+    - 1 descriptor for skb head
+        (sets buffer2 of descriptor to data + 4KiB)
+- 1 descriptor per skb fragment
+
+So, the number of descriptors used is 1 + nfrags + overhead, where
+overhead is:
+
+overhead += 1 if jumbo > 8KiB is supported
+overhead += 1 if priv->dma_cap.vlins
+
+To put it another way:
+- if we have a non-jumbo non-vlan skb, then 1 + nfrags descriptors will
+  be used.
+- if we have a jumbo vlan skb, then 3 + nfrags descriptors will be
+  used.
+
+However, the decision to stop the queue is:
+
+        if (unlikely(stmmac_tx_avail(priv, queue) <= (MAX_SKB_FRAGS + 1))) {
+                netif_dbg(priv, hw, priv->dev, "%s: stop transmitted packets\n",
+                          __func__);
+                netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, queue));
+        }
+
+So it doesn't account for the extra descriptor for vlan insertion, nor
+does it account for the extra descriptor for a jumbo frame.
+
+In the existing TSO path, the same problem exists - its the same check
+for the last test, although the first test is different:
+
+        /* Desc availability based on threshold should be enough safe */
+        if (unlikely(stmmac_tx_avail(priv, queue) <
+                (((skb->len - proto_hdr_len) / TSO_MAX_BUFF_SIZE + 1)))) {
+
+This doesn't deal with vlan insertion by the hardware, nor I think
+jumbo frames (I may be wrong on that) but it does use an extra
+descriptor each time the MSS (as the driver calls it, actually
+skb_shinfo(skb)->gso_size) changes on this specific queue. So, it
+can be one extra descriptor on top of that +1 above.
+
+The implications of this is that if the descriptors are almost full,
+there is the possibility to overwrite the tail descriptor (that the
+hardware has yet to process) as, when setting up the descriptors,
+the insertion index is merely incremented, and not individually
+checked to see whether it's caught up with the tail.
+
+I think the only thing which saves the driver from this is that the
+transmit descriptor ring is large (512 entries by default) and
+probably never fills up in a way that we hit the boundary condition
+that allows descriptor overwrite to occur. However, there is this
+comment:
+
+/* TX and RX Descriptor Length, these need to be power of two.
+ * TX descriptor length less than 64 may cause transmit queue timed out error.
+ * RX descriptor length less than 64 may cause inconsistent Rx chain error.
+ */
+in drivers/net/ethernet/stmicro/stmmac/common.h, which hints at the
+problem here: if we do overflow the tail, the hardware may have already
+processed that descriptor, but we haven't yet reaped it. The driver
+will be expecting to write to the following descriptor. However, when
+we real the tail, the driver will clear it. This results in following
+packets being added after a descriptor with the hardware OWN bit clear,
+so transmission will stop when the hardware gets to that descriptor,
+eventually causing a transmit timeout.
+
+With this driver, it's really a case of "which of its many problems
+do we address first" because the more I look at it, the more problems
+I'm finding.
+
+The next problem which can be seen in my analysis of the descriptor
+usage is - take a close look at the jumbo processing. In some
+configurations, the length fields are 11 bits. The jumbo code seems
+to know this because it calculates bmax accordingly. However, the
+rest of the code just assumes that - even though we can only describe
+up to 2KiB (actually 4KiB-1) bytes in the length field and it limits
+the length of the first descriptor to that, it then promptly maps the
+bytes from 4KiB to the total length to the second buffer in the
+descriptor. What happens to the 2KiB..4KiB part of the data in this
+case?!?!
+
+I have a huge pile of cleanups to this driver that have helped to
+uncover these problems by making the code more readable than it
+currently is - and one of the problems is, I'm generating cleanups
+and finding problems faster than I can get the changes merged.
+
+During the last cycle, I tried to avoid adding to my set of patches
+for this driver during the -rc phase. That hasn't helped. It also
+meant that I didn't get any chance to post much else, such as the
+Marvell PTP changes.
+
+I was thinking that, when I get stmmac's phylink mess sorted out,
+(essentially a few more patches beyond the part 3 RFC I posted today)
+I'll stop hacking on stmmac, but stmmac just seems to be far too
+broken. It needs someone to be a proper maintainer, someone who is
+prepared to say "no" to patches that increase the messy complexity in
+the driver that I think has led to a lot of these problems... to say
+no to patches that introduce e.g. TBS without first thinking about
+its interaction with TSO and whether the upper networking layers can
+cope with some but not all queues being TSO capable... etc.
+
+I do feel that, having got involved with stmmac to try and sort out
+its bloody abuse of phylink, it's now become a huge mill stone, and
+I don't have time to look at phylink / sfp related stuff (which is
+why I've hardly been able to look at Maxime's patches.)
+
+Can't we just delete stmmac to put it out of its misery? :D
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
