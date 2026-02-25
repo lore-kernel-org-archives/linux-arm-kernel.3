@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04283EFD208
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 835E7EFD20A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 08:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ufH5nmkXpWJzJI9ksuEPClUSVztzr8yoo3w4HNv6hNs=; b=NUOCwrsGNQ4f70Yr9O3F19dJO1
-	RKJYVC0iZlafn+Az+Qdf2nQvQRf3rOYFrXM/YSW8q0+gJ67K1a6PQFPrSPPzIRboaiT6sGSHNrGhP
-	kbGbBlCAqS5/uUpywZQqgT8BMmpAHLyne2exyE6QeGx7KwEPrg69y+2Cx9JCx6jtP9nHML55aWZT+
-	JwWMWQPi+RDLRTh1S8rJHkiE8LbButgTHnYPD9c+xK5+3S7bbR74glkIZOcP/2InNJHa60oAf2v3x
-	zemOb0wGEroGVDl9YpyPG5dL3SClIpeK7ZyXaXhuhxxoO3oRnu9r0+lmK/eTyaev7BwV1N8IoRWXU
-	pGQTsEPg==;
+	bh=4hnbGAm/9+0AQuOsI/z6/MObWdWASDtilCdbwr5t2xI=; b=k8PwS8vwZ3sOkul9d4P5bORMck
+	qo9xC1K86E97sdMm9Z62+0TH1W+/eAYYlEDonCP6R1Ua9KlMyz+mpmh75oDbXXU5keigMdb4FcOkc
+	vB8nIhwo+jEvZMJoJ4s7Slz0WssU0rDV5PKB/Zej7R6TuFlEvDGIqw1Y+XraSHUssFw/Qisu0bZcw
+	dmlT3d28/DNlD8OVXcu5UzwsSm/z2GapEBakzP4DLn6MdnQn7XoBO241DM6gEjnbbXVv3rPl5Gwp0
+	ehLbhgVZMwN1/8+/omSE2OgGeUqJfyQ4mx0vv4+JrWqCavSkZeqxS+Sbxjh7yyLWJrBeHtYWYTUWu
+	gHLaOyEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA4d-00000003VxQ-2yTk;
-	Wed, 25 Feb 2026 08:16:48 +0000
+	id 1vvA4k-00000003W5l-2aOc;
+	Wed, 25 Feb 2026 08:16:54 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA4b-00000003VuA-3s1n
+	id 1vvA4j-00000003W3E-06HE
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Feb 2026 08:16:46 +0000
+	Wed, 25 Feb 2026 08:16:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-type:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
 	:Reply-To:Content-ID:Content-Description;
-	bh=ufH5nmkXpWJzJI9ksuEPClUSVztzr8yoo3w4HNv6hNs=; b=Mmq68F8t9iXSChdGELiWDsNJLd
-	8OG/TPsvLoa5DbdGyQYZ3CJ4PkX3vOCVC35dsXgv5ND1ai7018gqDXkadwSMH89CkcMfFegwDAccK
-	P8dYsAB51W1AIqgpzjhCXiXDul4suw+606HO6zxGF2u1gX3MNk08VDIgn+h01ASmqO+pAD9pbUWLi
-	gjn4JsObv+v9KF8izkJodmHYkcd8CgVtzwDzOcJjyA/B2f86Bhp2awM5/ewVASI9ElpkCT1QXMBlb
-	K8rX2IDaXk4+ADfP4L40oyWOmsMOep/KWX16cJLLlF316U4ZZAXjFIpIw8vyKESdZx3i6H9qzOwYd
-	qrArBBpw==;
+	bh=4hnbGAm/9+0AQuOsI/z6/MObWdWASDtilCdbwr5t2xI=; b=vHhRVxhe2bKs8iYTThtvMnQRnE
+	793Nbp2ZH71POOErwO3h5HURsxQxpMOwixITerObI+GEirDAzdd/NSHRo8M8CMio1bV4Jp9FCkgLb
+	aMJc1XzUGOnQbcryoCF9Bo2K1vCfWIwzo4ZVH6/3Xo+zdbdnU4wPio+ZOtsuw3N5dBb34GTs3130J
+	YayCrJuiCt+kHVASFrSn0vVj5U1/yfUxGKWIxvSxKhVL1d6J5bJiIYbPSL4zuwN0sL0x7myqZuPcv
+	P1jMK4o0y7oOo9DKzf9SW0a5lIBZm6UlJywCT4UKMCerV9Gb3de9QLgDCFS0APpt2upx1XC6pO5/K
+	gPrM/4xg==;
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA4X-00000000jXE-2Plv
+	id 1vvA4g-00000000jYw-0ZRb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 08:16:44 +0000
+	Wed, 25 Feb 2026 08:16:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007399;
+	s=mimecast20190719; t=1772007408;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ufH5nmkXpWJzJI9ksuEPClUSVztzr8yoo3w4HNv6hNs=;
-	b=e5kUXn/3mhffdK3f9Raaf/GTZGh/L6Ie1W/AsQ7SgVhmeoJCDKGLXPxi9DNqJnvFDyVNGX
-	9HCm6ucWNDeoJ88wccLJregxSzVz8/csWyKfgxA5jzOLkP37NA6uhyrzSy0CPcKuWWJnM3
-	vqBB7MHXLu2YQJ2Vl0rf8+CudM2NOPg=
+	bh=4hnbGAm/9+0AQuOsI/z6/MObWdWASDtilCdbwr5t2xI=;
+	b=TFvSnbXktl352fRbf4w4mqTsU5sctLYV3yuSg0B8PcgrOClb7kh4nTlMBQToMQCb6zZjwx
+	lsPo8eW6mMPs9XMMG8I5GHw6mtFsHK43FKPlx5Bm/A/IiQeGqVoASm2xs3sQEw1gfqJYSu
+	lqK5NlHlJhmKHZ5JKy8jNs+QBQyyf5o=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007399;
+	s=mimecast20190719; t=1772007408;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ufH5nmkXpWJzJI9ksuEPClUSVztzr8yoo3w4HNv6hNs=;
-	b=e5kUXn/3mhffdK3f9Raaf/GTZGh/L6Ie1W/AsQ7SgVhmeoJCDKGLXPxi9DNqJnvFDyVNGX
-	9HCm6ucWNDeoJ88wccLJregxSzVz8/csWyKfgxA5jzOLkP37NA6uhyrzSy0CPcKuWWJnM3
-	vqBB7MHXLu2YQJ2Vl0rf8+CudM2NOPg=
+	bh=4hnbGAm/9+0AQuOsI/z6/MObWdWASDtilCdbwr5t2xI=;
+	b=TFvSnbXktl352fRbf4w4mqTsU5sctLYV3yuSg0B8PcgrOClb7kh4nTlMBQToMQCb6zZjwx
+	lsPo8eW6mMPs9XMMG8I5GHw6mtFsHK43FKPlx5Bm/A/IiQeGqVoASm2xs3sQEw1gfqJYSu
+	lqK5NlHlJhmKHZ5JKy8jNs+QBQyyf5o=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007400;
+	s=mimecast20190719; t=1772007409;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ufH5nmkXpWJzJI9ksuEPClUSVztzr8yoo3w4HNv6hNs=;
-	b=HRqhc9PLD9SrWJunPqvxDVzXGrOv/La6n9M39SyDXv9rOiFnazq48VcmZC6dlgeETpnLr1
-	yJGQi6rkeBFqpRoI6Hf3LGRrprKHL/5JzL4p8PEy60rgoqfYjOUTRnXABew4BRbv07IkuF
-	LGPDeRSDwf0rfoqhyTFUglen2uV0Ni8=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=4hnbGAm/9+0AQuOsI/z6/MObWdWASDtilCdbwr5t2xI=;
+	b=CstRHfmzJW0SAxDBPeC8ZrG0UQEVnejWHsT7+J6zBnovr3XL6d49DauJKhaz0IgqFNeuDJ
+	DU9rwxvTwFZH6qTLcBApGqxhQlUbYi5dT8J1vLN5Nq3/ZuIj7q1SzYvHvSt3Fy4j65menh
+	a22Uzgw9wwAS5YqRE6kpiUKCeFNa+vo=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-648-Jj4asdUeMuyAfccAe_OsEQ-1; Wed,
- 25 Feb 2026 03:16:33 -0500
-X-MC-Unique: Jj4asdUeMuyAfccAe_OsEQ-1
-X-Mimecast-MFC-AGG-ID: Jj4asdUeMuyAfccAe_OsEQ_1772007391
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-354-kB3PHjUANFi-zOP_mIJF6w-1; Wed,
+ 25 Feb 2026 03:16:43 -0500
+X-MC-Unique: kB3PHjUANFi-zOP_mIJF6w-1
+X-Mimecast-MFC-AGG-ID: kB3PHjUANFi-zOP_mIJF6w_1772007401
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B293618005BC;
-	Wed, 25 Feb 2026 08:16:31 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A6D5A19560A7;
+	Wed, 25 Feb 2026 08:16:41 +0000 (UTC)
 Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.55])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 5C45A1800465;
-	Wed, 25 Feb 2026 08:16:20 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8570F1800465;
+	Wed, 25 Feb 2026 08:16:32 +0000 (UTC)
 From: Baoquan He <bhe@redhat.com>
 To: kasan-dev@googlegroups.com
 Cc: linux-mm@kvack.org,
@@ -107,20 +107,20 @@ Cc: linux-mm@kvack.org,
 	linux-s390@vger.kernel.org,
 	hca@linux.ibm.com,
 	Baoquan He <bhe@redhat.com>
-Subject: [PATCH v5 11/15] arch/x86: don't initialize kasan if it's disabled
-Date: Wed, 25 Feb 2026 16:14:08 +0800
-Message-ID: <20260225081412.76502-12-bhe@redhat.com>
+Subject: [PATCH v5 12/15] arch/xtensa: don't initialize kasan if it's disabled
+Date: Wed, 25 Feb 2026 16:14:09 +0800
+Message-ID: <20260225081412.76502-13-bhe@redhat.com>
 In-Reply-To: <20260225081412.76502-1-bhe@redhat.com>
 References: <20260225081412.76502-1-bhe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: O77GjfiAC07NXqTRlpHExQwBc35zZ16KyBMbScG_Jhc_1772007391
+X-Mimecast-MFC-PROC-ID: r8wttf6dCbtzPVy0rHH9Q1ECZNiFTTLfxUE-ytYAz2s_1772007401
 X-Mimecast-Originator: redhat.com
 Content-type: text/plain
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_081641_789024_FADFB698 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20260225_081650_425238_41FC44EB 
+X-CRM114-Status: UNSURE (   9.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -138,27 +138,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Here, kasan is disabled if specified 'kasan=off' in kernel cmdline.
 
-Signed-off-by: Baoquan He <bhe@redhat.com>
-Cc: x86@kernel.org
----
- arch/x86/mm/kasan_init_64.c | 4 ++++
- 1 file changed, 4 insertions(+)
+And also call jump_label_init() early in setup_arch() so that later
+kasan_init() can enable static key kasan_flag_enabled. Put
+jump_label_init() beofre parse_early_param() as other architectures
+do.
 
-diff --git a/arch/x86/mm/kasan_init_64.c b/arch/x86/mm/kasan_init_64.c
-index 998b6010d6d3..5ebf2850c77d 100644
---- a/arch/x86/mm/kasan_init_64.c
-+++ b/arch/x86/mm/kasan_init_64.c
-@@ -343,6 +343,10 @@ void __init kasan_init(void)
- 	unsigned long shadow_cea_begin, shadow_cea_per_cpu_begin, shadow_cea_end;
+Signed-off-by: Baoquan He <bhe@redhat.com>
+Cc: Chris Zankel <chris@zankel.net>
+Cc: Max Filippov <jcmvbkbc@gmail.com>
+---
+ arch/xtensa/kernel/setup.c  | 1 +
+ arch/xtensa/mm/kasan_init.c | 4 ++++
+ 2 files changed, 5 insertions(+)
+
+diff --git a/arch/xtensa/kernel/setup.c b/arch/xtensa/kernel/setup.c
+index f72e280363be..aabeb23f41fa 100644
+--- a/arch/xtensa/kernel/setup.c
++++ b/arch/xtensa/kernel/setup.c
+@@ -352,6 +352,7 @@ void __init setup_arch(char **cmdline_p)
+ 	mem_reserve(__pa(_SecondaryResetVector_text_start),
+ 		    __pa(_SecondaryResetVector_text_end));
+ #endif
++	jump_label_init();
+ 	parse_early_param();
+ 	bootmem_init();
+ 	kasan_init();
+diff --git a/arch/xtensa/mm/kasan_init.c b/arch/xtensa/mm/kasan_init.c
+index 0524b9ed5e63..eb367b801218 100644
+--- a/arch/xtensa/mm/kasan_init.c
++++ b/arch/xtensa/mm/kasan_init.c
+@@ -70,6 +70,10 @@ void __init kasan_init(void)
+ {
  	int i;
  
 +	/* If KASAN is disabled via command line, don't initialize it. */
 +	if (kasan_arg_disabled)
 +		return;
 +
- 	memcpy(early_top_pgt, init_top_pgt, sizeof(early_top_pgt));
- 
- 	/*
+ 	BUILD_BUG_ON(KASAN_SHADOW_OFFSET != KASAN_SHADOW_START -
+ 		     (KASAN_START_VADDR >> KASAN_SHADOW_SCALE_SHIFT));
+ 	BUILD_BUG_ON(VMALLOC_START < KASAN_START_VADDR);
 -- 
 2.52.0
 
