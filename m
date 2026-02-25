@@ -4,59 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CA8FD3776
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527B5FD3779
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:CC:To:From:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VY0eOcbP10xypHAaHBqk13P+uVcLzRh1cwtoBu1zlLg=; b=B/5vEzhPH0K79pWQpN4KsJqO1B
-	uxc6HtE/7fL2JF8DCBbuElO7Y4Pw+JXUbg9gMvfQpZvGuxPYS6jBccOQb7Y0e+h+fhH3iuC1TIe60
-	4VSUJPnmWrRwe8Ge0xr+mFC39TCnmlMAG+lnQF3nu+VzmBdvXyzMzY9WHYZJQXmkVAAb91rVIoB46
-	ThvMpY9Fpy/LqVFRpGVKQjh5M4hrKlIH6SkJY0mUNPt/8EQIgFzyXmLqZndiMgBLs8kz4N5oHWhge
-	0PyWq1PEVZZzV13XR0JDPAqN489zs+cOqfE/UQQ2BQubsHQECzHa3m4QroZIlv1bLEiT35rNvJyDe
-	NGr70mPg==;
+	bh=YRY5VNh5WJAQAaMILsab9VN7315yMrX1I852eDbxTtU=; b=DZdpP316HKN/HtAaZ4sXIrXys6
+	bVZkZBJl9bBTXLVYQhP1eo9uhjoKoUi1rILuCJS4vCIosSe9CSr+evF5bMin8b34D6WE2R/fc6r7C
+	uZOsHyAMNhvMFI0l7I4SZVoznt2aZidXFOgnn9RD3haDBtTkH3o3LcXCudqkOj7bmBMxkP+h7u2Ae
+	BwCcsoF8WNLwCDCUddpZlnF8lF/0VL4BIeWreYHaqjkOhpQ04waOcGTEVce568K+1DJ2/ecCGQuBd
+	q2jArjbWLN6d8BbnekMorOhnSaAe20vNA7CsYDLGyzIVbZneX93QYI0/PBPBG7ySr7t/IaC5CXv3F
+	Dz4gCVjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvInj-00000004fQe-3djv;
-	Wed, 25 Feb 2026 17:35:55 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1vvInx-00000004fWJ-4BZP;
+	Wed, 25 Feb 2026 17:36:10 +0000
+Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvInd-00000004fNz-20rH
+	id 1vvInu-00000004fTr-3CW4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 17:35:50 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1772040939;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VY0eOcbP10xypHAaHBqk13P+uVcLzRh1cwtoBu1zlLg=;
-	b=T6tTNy3J0NKZ3vVtfsZaNmJ3RWluFB+MVGvDgb63KduKHnw56dW5iFn4tJuihx1rmd6/OV
-	hBRZrSxFr4yjZJGd4AofiyEpHb6vQkp82KPkGqCDKJI4NB8Al+7IVpCEEjPVQSkxQpzrKV
-	5ayRPePmoODkK4hJ5K9IeRqfpza+8mQ=
-From: Zenghui Yu <zenghui.yu@linux.dev>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	"Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
-Subject: [PATCH 1/3] KVM: arm64: nv: Check S2 limits based on implemented PA size
-Date: Thu, 26 Feb 2026 01:35:13 +0800
-Message-ID: <20260225173515.20490-2-zenghui.yu@linux.dev>
-In-Reply-To: <20260225173515.20490-1-zenghui.yu@linux.dev>
-References: <20260225173515.20490-1-zenghui.yu@linux.dev>
+	Wed, 25 Feb 2026 17:36:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1772040966; x=1803576966;
+  h=from:to:cc:date:message-id:in-reply-to:references:
+   mime-version:content-transfer-encoding:subject;
+  bh=YRY5VNh5WJAQAaMILsab9VN7315yMrX1I852eDbxTtU=;
+  b=IdBsFvR0rGwa8YN2WuuCGEOvaU2FD0kq5G5AVPZhSQ+gcSvopkSY0tO8
+   wRSpoP461zomP9jz4Lx/QjbvG/Pl4fG2TRpxVDY/NsIhVgFvzWN7gZYqr
+   W/MrFIvRklrD3YdBhp7w5USbpqzv/BU5f/zbXBnip3OD3QfC0yqlN6QXA
+   am74riEaX0Uij0W72E16eGHGWQoQYOJUuTV4NU6dUeKjc5oxE51czV8rn
+   YQy3upQ2rQpclKmkP2UtJvnl2z8C2+1VXXxk7AV9ky4Ci2fcWAh6Afzaz
+   Pz7+SlozTjcxva6ngzEzmTsnn9N8223bHENRZBlJHWc55ua6FHMVx4PdA
+   w==;
+X-CSE-ConnectionGUID: 8uhsIv4TQIe9EcUHkouJpQ==
+X-CSE-MsgGUID: ba3PhwdMSXS3IlmTrBGnTQ==
+X-IronPort-AV: E=Sophos;i="6.21,310,1763424000"; 
+   d="scan'208";a="13593227"
+Subject: RE: [PATCH 17/17] Add standalone crypto kernel module technical documentation
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2026 17:36:03 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.105:1793]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.24.86:2525] with esmtp (Farcaster)
+ id 93693ec8-671a-42a3-87bc-f5a3c251f9ed; Wed, 25 Feb 2026 17:36:02 +0000 (UTC)
+X-Farcaster-Flow-ID: 93693ec8-671a-42a3-87bc-f5a3c251f9ed
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Wed, 25 Feb 2026 17:36:00 +0000
+Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Wed, 25 Feb 2026 17:35:59 +0000
+From: Jay Wang <wanjay@amazon.com>
+To: <ebiggers@kernel.org>
+CC: <bp@alien8.de>, <catalin.marinas@arm.com>, <davem@davemloft.net>,
+	<herbert@gondor.apana.org.au>, <ilya.okomin@oracle.com>,
+	<jay.wang.upstream@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-crypto@vger.kernel.org>, <linux-kbuild@vger.kernel.org>,
+	<linux-modules@vger.kernel.org>, <mcgrof@kernel.org>, <mingo@redhat.com>,
+	<nathan@kernel.org>, <nsc@kernel.org>, <nstange@suse.de>,
+	<petr.pavlu@suse.com>, <tglx@kernel.org>, <vegard.nossum@oracle.com>,
+	<wanjay@amazon.com>, <will@kernel.org>, <x86@kernel.org>
+Date: Wed, 25 Feb 2026 17:35:45 +0000
+Message-ID: <20260225173551.8704-1-wanjay@amazon.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260225015517.GA162634@quark>
+References: <20260225015517.GA162634@quark>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-Originating-IP: [172.19.198.4]
+X-ClientProxiedBy: EX19D032UWA003.ant.amazon.com (10.13.139.37) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_093549_668992_52848F98 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260225_093606_850754_532267C0 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,91 +97,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
+Thanks to everyone who has taken the time to review and comment.
 
-check_base_s2_limits() checks the validity of SL0 and inputsize against
-ia_size (inputsize again!) but the pseudocode from DDI0487 G.a
-AArch64.TranslationTableWalk() says that we should check against the
-implemented PA size.
+Based on the discussion so far, it seems the core question is whether this feature is appropriate for upstream at all, or whether it should remain entirely downstream.
 
-We would otherwise fail to walk S2 with a valid configuration. E.g.,
-granule size = 4KB, inputsize = 40 bits, initial lookup level = 0 (no
-concatenation) on a system with 48 bits PA range supported is allowed by
-architecture.
+We’ve discussed this with a few folks, and to help clarify the discussion, let me outline what is actually required to use this approach and what the community would gain from upstreaming it:
 
-Fix it by obtaining PA size by kvm_get_pa_bits(). Note that
-kvm_get_pa_bits() returns the fixed limit now and should eventually reflect
-the per VM PARange (one day!). Given that the configured PARange should not
-be greater that kvm_ipa_limit, it at least fixes the problem described
-above.
+1. Maintaining a crypto snapshot (for example, a source code snapshot used for streamlined FIPS re-validation processes such as NSRL).
+2. Maintaining the loadable crypto build infrastructure itself (i.e., this patch set).
 
-While at it, inject a level 0 translation fault to guest if
-check_base_s2_limits() fails, as per the pseudocode.
+For (1), since this requires maintaining a specific snapshot, we acknowledge that this is inherently a downstream responsibility. We are not expecting upstream to provide or guarantee a stable in-kernel API (to clarify, a stable ABI is not strictly required here, since the crypto module can be rebuilt against newer kernels and still benefit from FIPS through the shorter NSRL re-validation process of roughly 3 months, compared to the full 12–18 month certification cycle). The upstream crypto subsystem should continue evolving independently.
 
-Fixes: 61e30b9eef7f ("KVM: arm64: nv: Implement nested Stage-2 page table walk logic")
-Signed-off-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
----
- arch/arm64/kvm/nested.c | 20 +++++++++++---------
- 1 file changed, 11 insertions(+), 9 deletions(-)
+For (2), since this feature mainly serves as infrastructure and is of interest to multiple distributions, upstreaming it could help reduce the effort each distribution would otherwise spend maintaining similar infrastructure patches independently.
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 620126d1f0dc..44ed3915b961 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -152,31 +152,31 @@ static int get_ia_size(struct s2_walk_info *wi)
- 	return 64 - wi->t0sz;
- }
- 
--static int check_base_s2_limits(struct s2_walk_info *wi,
-+static int check_base_s2_limits(struct kvm_vcpu *vcpu, struct s2_walk_info *wi,
- 				int level, int input_size, int stride)
- {
--	int start_size, ia_size;
-+	int start_size, pa_max;
- 
--	ia_size = get_ia_size(wi);
-+	pa_max = kvm_get_pa_bits(vcpu->kvm);
- 
- 	/* Check translation limits */
- 	switch (BIT(wi->pgshift)) {
- 	case SZ_64K:
--		if (level == 0 || (level == 1 && ia_size <= 42))
-+		if (level == 0 || (level == 1 && pa_max <= 42))
- 			return -EFAULT;
- 		break;
- 	case SZ_16K:
--		if (level == 0 || (level == 1 && ia_size <= 40))
-+		if (level == 0 || (level == 1 && pa_max <= 40))
- 			return -EFAULT;
- 		break;
- 	case SZ_4K:
--		if (level < 0 || (level == 0 && ia_size <= 42))
-+		if (level < 0 || (level == 0 && pa_max <= 42))
- 			return -EFAULT;
- 		break;
- 	}
- 
- 	/* Check input size limits */
--	if (input_size > ia_size)
-+	if (input_size > pa_max)
- 		return -EFAULT;
- 
- 	/* Check number of entries in starting level table */
-@@ -269,9 +269,11 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
- 	if (input_size > 48 || input_size < 25)
- 		return -EFAULT;
- 
--	ret = check_base_s2_limits(wi, level, input_size, stride);
--	if (WARN_ON(ret))
-+	ret = check_base_s2_limits(vcpu, wi, level, input_size, stride);
-+	if (WARN_ON(ret)) {
-+		out->esr = compute_fsc(0, ESR_ELx_FSC_FAULT);
- 		return ret;
-+	}
- 
- 	base_lower_bound = 3 + input_size - ((3 - level) * stride +
- 			   wi->pgshift);
--- 
-2.53.0
+We’d love to hear more thoughts on this. If the general consensus is that the downsides outweigh the benefits of merging this into mainline, we are happy to maintain it in a separate repository tracking the latest mainline and stable releases in order to keep the work publicly available.
 
+Thanks again for taking the time to read and discuss this.
+
+Jay
 
