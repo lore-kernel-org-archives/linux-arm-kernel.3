@@ -4,74 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B792EFD21B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 09:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837A0EFD22A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 09:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vxNxps+OuZ2xANrOCzteDxtEt2BxFwhyI1Ya+QPBeRo=; b=bv+Fd1Yn2qYhYr
-	kwETN4hYS9No4qnDO3x3fQPWQs3Vu67FcSC8okqn3GEGV6nI3pE1i1El1GDPhQtHvDDx6qZwz4kcM
-	zAsKCnS7hisPCz9MMCwyh49KumYuCnmm6/lW1EFm9LbJSRLxHxboj4/C4SwVTEt1XoQ620hkNbGPA
-	/wxfa7Gqrlir+h9L7Rc3llUyGsJ4+IPTAEtNtsbBUe7/LqxqRngZyu51y0DXrU7Xv1pnIdCgio0eS
-	qrYihQlnEtJnAs9rSgNedcjN9mgQBDKNahKDfcfQZ1eUA16y+FbvcDPX5qVn7BhIPsMrgGjjo7WEO
-	x+6yWP1rp+dUXoImIALA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w8Akx+2GvbufW9FvweuS73QWf9j29lb9ATm2R77Cotc=; b=wedp8aXsRBWvvze2ftqNZXK0Fc
+	z7eorsG3iKm3a8sKAMYPSOKPONzzayQ4Yo1G5pJHIgC/nAOi91ZoUatkeshpLZKwB5IKit5a0GGUC
+	vvhZ7thsPuyvh3fi2KR7A+ftTmC78dfZRQRz3/pZi68wQ7JW9OWWBNKSFKviUn0LF1JV6VCJ41Jjn
+	1Y0UvXKwQW7oBKsEec0Ba60u0354Hp2YXIXFYeZmKXX78ZSin92ukJtRVnUcPqUeL9Kg0Di0vX9O+
+	rQl/vrRvZhY45ZkcABOlZiA1grg6mg676rmLmtaMaZZK+k0kspxc6T2TR0br2JXSmPf1wjeFniSYk
+	WDdJU54Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBL3-00000003hjn-2sa4;
-	Wed, 25 Feb 2026 09:37:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvBLd-00000003hr2-3A59;
+	Wed, 25 Feb 2026 09:38:25 +0000
+Received: from mail-northeuropeazon11012047.outbound.protection.outlook.com ([52.101.66.47] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBL2-00000003hje-00cZ
+	id 1vvBLc-00000003hqB-0B3M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 09:37:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A3F760054
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 09:37:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB5BFC19423
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 09:37:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772012266;
-	bh=vxNxps+OuZ2xANrOCzteDxtEt2BxFwhyI1Ya+QPBeRo=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=Chhl3YH9kOiN/ftbHTBwHqPLakN+mnq3Wz8u/Ew7YxHGj+Rk1ZIWR2K89ecE8iAUP
-	 K5Z9l2eymGUDOsoBt5T2/q/AJBWXINcjtLCSlgWwoS5TjGxU1Ufbd1D1ht0efSX6mT
-	 LAAoRmLRjjte/GNPaUq1jJS1telxI+uZd2c6Y00MwjFBJTAL/UXWflBYdVrg49LpCK
-	 07p+ZmNBwwuHjYnZiOdKL5FHketp0aA0aMNWvD6FnXz9flIHK0Of4t10/rniRRl1gY
-	 w4DTkhtcZ05G55SFy/LP4rU3BQbvOBLayIkFTw3Xi5dcaG2450y8R4p55t83Sjc0vW
-	 JUMOeoTa/BTNQ==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-38706f96202so40711771fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 01:37:46 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW7SMvciQsMAWuAO7e1kmzl/25sgX0ponVBSWSGGJCCGf1XilNkkf1ZC6DPD1Fe28nLREpJqcddGsFjyw2Na/kZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzxbAPZCU73COS9kjuuYnMVl5IU7Du3HHa9QBD5THRTvMOYhGE
-	RXEPTV9sRZsmpbc6L883+1ZiGZfIauyjodposEQoKHsfuby71kOn/SQ7d84s8Ll/ckaQTVFCDR8
-	Z64cbhKHV26U1/DJ3PJL28rFUC1OGiqk=
-X-Received: by 2002:a05:651c:2104:b0:37f:c5ca:a6d4 with SMTP id
- 38308e7fff4ca-389a5c9276fmr48586841fa.6.1772012265107; Wed, 25 Feb 2026
- 01:37:45 -0800 (PST)
+	Wed, 25 Feb 2026 09:38:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RowqW9286H19LGMO7cfuNBcKditS0RcigeOULRahq+4gzJDFRkVDKFRoYu0WvOqIU9ohVBV9Hbzz3NriTo63AUnQSZYq+7M1X92Q/89xAhqBFOxNlUwm8dCwx102Y/uWlKLid2famE2V0wUV8deZVkgydcblEAJTuJ6SxYmUvgLP57tPGH0afN8Pg2bqhJrznUjqCbt/MHVPv0AMIH1ExzOsEdgcW+SQh42cSLrXAbURJuPY6Bq/7TqFFSV8y0murFtiFbW1PoVctKk/Se3yf3AfsmApGFDk6DU0daGjjPO+vEcqxR+mWQqjIrDr4mZ4Nz+/34PAwZRQx4kxuYRaIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w8Akx+2GvbufW9FvweuS73QWf9j29lb9ATm2R77Cotc=;
+ b=aZ21wgtVDKEFQ9ywUNcKQkXopL/x28a27AYx04fI16Va/SPAuk3R1QwNtZa7fREldlKhJZMH29LBwzB01lGfmtOsGUF0YiY92GWdEn8SvhZ7nyUi13DlyQx1iigsJ4RUeRBzIpstdSYQxrGU4G439lSl0WA6lUmkpsDRmTNJeVqYGE6o/61KJQZFmvX0MsleITU+4HR/PCApH+O3c8Q5QPmCVqbTbVumoUKsF8qiIXiflEjknqDEJ9cmVGP7AaVo+edULKYL6YTJnQYnku8MFE4UL01RQIoUaTS+/RLmlde0ZDpqmKApKZrNj4Qc0sWglaHMr73AURj1yMF+kAwEzg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w8Akx+2GvbufW9FvweuS73QWf9j29lb9ATm2R77Cotc=;
+ b=p++pCvQuZvazcO5/3QTKhIu5yUk6QJD+cRks4bMsgi9+BizlT5h6RKBTAC0alQrzY8gjgYhFb7OGTmocJ36m5ewVk/i2/pVajzl2oRX/hSvWLMEUuOc2Gid9Y7N5HprHa5qKPouKRl0MdbnPLzDymxs9H3AtRMjoiYj6eLuVg/O1SrcCjaG4456QfbzgVnyqFX1Xf0anO/d+2CUOMSjO9z8kAw//DIuvAm8ATgE+pRH3s9MYBA7CdWjzs/Nkxn/9hu6Ufb3itFncnfg9Y8Mpqf0Osv0Kd5BafqMmDnuTKcB0rlTvIu0ril/3DmSekU5PCARKQrl/cclnPcD1waRh0w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by PAXPR04MB8206.eurprd04.prod.outlook.com (2603:10a6:102:1cb::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Wed, 25 Feb
+ 2026 09:38:17 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9632.017; Wed, 25 Feb 2026
+ 09:38:17 +0000
+Message-ID: <7e716cf9-fa73-4d2b-bc2b-9757107ddb6e@oss.nxp.com>
+Date: Wed, 25 Feb 2026 11:38:13 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] dt-bindings: mmc: fsl-imx-esdhc: add S32N79 support
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Shawn Guo <shawnguo@kernel.org>, Lucas Stach <l.stach@pengutronix.de>,
+ Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
+ Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ NXP S32 Linux Team <s32@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>
+References: <20260224111533.3194883-1-ciprianmarian.costea@oss.nxp.com>
+ <20260224111533.3194883-3-ciprianmarian.costea@oss.nxp.com>
+ <20260224-remote-deliverer-958fcaba8bfa@spud>
+ <20260224-splatter-sneak-3ec0e4d1272b@spud>
+Content-Language: en-US
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+In-Reply-To: <20260224-splatter-sneak-3ec0e4d1272b@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P250CA0027.EURP250.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5e3::18) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
 MIME-Version: 1.0
-References: <20260225072225.3345307-1-wenst@chromium.org> <20260225072225.3345307-6-wenst@chromium.org>
- <CAMRc=MehRxdoip8++NfwU_WEJ+yYuC1=2BRv8Ry9VytU=YvR=Q@mail.gmail.com>
-In-Reply-To: <CAMRc=MehRxdoip8++NfwU_WEJ+yYuC1=2BRv8Ry9VytU=YvR=Q@mail.gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Wed, 25 Feb 2026 17:37:31 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67MwbOA3oQp4NCDEzzsLP6-zzTTyXi_uENJVDbJi6RpCA@mail.gmail.com>
-X-Gm-Features: AaiRm50YXFDVbK-wg2pjz5zqS_wWe0Q4kSUl0929RdQ8XNtoQPy9JMLS28sbKio
-Message-ID: <CAGb2v67MwbOA3oQp4NCDEzzsLP6-zzTTyXi_uENJVDbJi6RpCA@mail.gmail.com>
-Subject: Re: [PATCH 5/7] PCI: mediatek-gen3: Integrate new pwrctrl API
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang <jianjun.wang@mediatek.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|PAXPR04MB8206:EE_
+X-MS-Office365-Filtering-Correlation-Id: 989a722a-48f0-455f-bbb0-08de74519ae3
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|19092799006;
+X-Microsoft-Antispam-Message-Info: ys7ndfRDy+5+3oCvFnqQHZ0+f9e2UKLIyk+YaknZz2/qDDGckhpJOGgP/Jtm3O7TpdsfSm/ZtjaGED3lGBcjSi1Rbf8+W5dHWiYbcu5jmZlQ97HxiUk7IYCyRahvQnJCS0nQdMzhqaYZuZC0m7l8tU/Fx+0bgunDj3Bwrvd5ZXOKxVzyq7NSO4Mzys2+gIeiGMYka0/oY0XbJUlwMZbSpeXU31U3yt5JYvSveaaMqR7gS5YHxtbPuXGpyT7x9Hhm5DzmQtqluelq17sjq2EsadlwKaKH3Kn+TrztjURmHQxnQsgN44CEuIuGaXY3FiJK7T4ByklxqZ04vsxfhI3+5i1sG8l2PedSthvOv80eeaLQIw5HMFn3aogT1eeR9W1F7Q/MpGfsRDbLC6v6t7nspazRjQCDJdoyB6+iX6bBnbUlBysaCyrFRvdUOTgtZnroVN1LjRLz4/+AIK2G7aivm3G6SjxBpaSl46Idp7of5RHEg6AzKcfQ+iOD1NLL7BEjdLmhUGxy39/zF8SDVkc0eRtfzKA2BwgVglA0wEupYhvh1D5qWnZ2s6Qn9wl/F6JBVnQZUx+V/aLov96Ti8Qlv2Z3PUSV1YPVtNWpX6ZpY4oNFNdtrOEfiOvKvzsKSOohbxV+hzaMzdB8hVo78eIXhjUaBq5yUl/nOHKazAC3x9m+JxHCaQEJt7Hch2SWbcWfYz1pB1CTP40o8rhR6H6bJbKSdl2vtMNlgOoAU84LfxQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(19092799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGh6bkRZVmg1NjcwSDFuQU52SDdWRnpSby9ac0Z6YnFIZkIwUkE4dzFVdHZZ?=
+ =?utf-8?B?SnMzM3I0VmZ2N0tRRXBEemxUUlV5TUxkVkpCYkthYTc4VWd4L1laWmNpQXh6?=
+ =?utf-8?B?bDR6TEV6OG1Xa3YrOXBKRmFLZkE5cGljVjFUaEExZzFpQit5MUxSV1lESnFL?=
+ =?utf-8?B?MURBRFZiOHVVbnBDclhwQ2l6OWlqaFF2cnVPZXNycHR2Vkk0M1FWTTlNSGp1?=
+ =?utf-8?B?VlpsejkrUDh5T3lHdHE2eFhCdW5qeWgrQkIvcFRrdUZKMXQrUDdQNHJ3WWEw?=
+ =?utf-8?B?ZCtqeGZLTk90RXl0b0ZOb0RuQVZ3Rmlvc0NwVUJkQUlrMzVuNlg4NlR6VVlY?=
+ =?utf-8?B?NHh0VjRHaXlMV0Z2K0JDNThvbmhQdVh1Q0locmF1dkpzNWZwV1Q5WGlsV1ZN?=
+ =?utf-8?B?MjFPVllaWFo2V3dZa0hrYUdhVTYyZWYrOWZpOFVVVXdsSy9KOVBDTVVPMy9z?=
+ =?utf-8?B?YlpUWFgvMEljNzRmVHhxbE5ESlVrcUpyT0hWS2M3MUZjK3NQVXFaVnZvb2lP?=
+ =?utf-8?B?QUhBbEo1MzY1cDJhci9CV3NGWVE2dStyV0Q3LzBPay9LMGx6WGZCL1lHUXJw?=
+ =?utf-8?B?RGEveVVZM1lKby81TS9yMXBtM25ER3h6YW03Ni90V3pBRy9JV0xFSU05RzdN?=
+ =?utf-8?B?M0hIbTJGMVZ2Y3V1M0UyeTJIS0pHTEVxZllaUWovWGxtZ1JWanhSL2l0UnBj?=
+ =?utf-8?B?a3A1TXRuTXdkYVVTcjRWOWs4YlFzNHZNa3EySzJhVTlRejNaQ09xYlNRQnpw?=
+ =?utf-8?B?ZUo4V2N4K0ZyRkMxdndteUNqUjRtSDMvMG51VnMyenY2MFhJNS8vT1d2NjNK?=
+ =?utf-8?B?ditBTEFydVFKcnZiNjZSYlFhWWRSZnpHZkIvZW9BYndtZkdGRDQvZk1Ra211?=
+ =?utf-8?B?WnoxZ01hZUpXM05ZQ0VhaGE3MkZDcXRiS0JDdjhDSktPell0bi9wcHBhZEs4?=
+ =?utf-8?B?SUFnWUVNRzE3cE92L2xiOWtRYnBralJsV1ZrbHlRMkg1ajFHeFRWd3hKVkRv?=
+ =?utf-8?B?MWRnMXJ6NS8xTW9udVFQVWViMndrRyt2OWFDcDVzN0VHVUdTQ1R2SlV3QXgy?=
+ =?utf-8?B?K3BSWUZwWTlnV3VKdEZyaXVDYW1tN0FvNk5lV3RyYlJXdzlFZkFrNi9SS05L?=
+ =?utf-8?B?S0FHWjRVMUZ4djIrWm9Cekw3VnFDMmN6cHVRc3R1WUNFUzhjemphTlpPNkRk?=
+ =?utf-8?B?OTQvcG5lRjdEQTVGUHJ3bkJWS29NNmdDOVFNUGdwZitBSDNMZWxDSWlDOC8v?=
+ =?utf-8?B?RDF0aGNxU2FrYXhyWEdLeWwxUWdmL1pERmIycnpiT3QvUDRweUZuQUxTdWNt?=
+ =?utf-8?B?cWc3UjgvTEU1aWpTRC9GMVVOSUV2VklFSUN1d1Ewd1hKQmdXRzBLNXFFN1FZ?=
+ =?utf-8?B?MXlLWk5EM3RKcW5ta3M0YVRmV1NESnhkQStFazFQV3VyUzlRaVV4RjhCMjBZ?=
+ =?utf-8?B?ZkNod2djNU1GODFmd0ZSUkVRVlVrNHk0QmlxR0dqbjZkdEU4UERGRXpZZmN4?=
+ =?utf-8?B?T2dOb2RiZ01FaHFpTCtjN3laQWQxYWV2cng3MEhHWFNNRkluY1pQbTRudzhl?=
+ =?utf-8?B?TlIycVpqeWJOZFdtZEVSaUZvejdYeXlDQ3ZHWWd6T3pjdVROSi8xRGZEc2lv?=
+ =?utf-8?B?U3hvMHBINmVQWEZzUzJuQzZJaUNIOFRjR2J3T29QRitkVkJHTkR1eTJ6eWg5?=
+ =?utf-8?B?L015R0JVUURvZHFtYWRmU0JhMG5tUFYyTHhrY25Dbk1ra0pFSU9LNUM2QnJL?=
+ =?utf-8?B?Z2hmNHpTMDByN1pDRUJyWWRUTUFsZDNQd3gxNTdQOXk1T29sbUpyL1dkbXV0?=
+ =?utf-8?B?dUtBWUVKdzNEbXVhR01ZMVFwLzVXV0xuZWpCWFU5d2pJVWpGV3o3TUQ2d2Ro?=
+ =?utf-8?B?QnVNblBkQ3psbDdaNWxtVlFHSDkvdjliNkRzaDRENXhUYnJvT1hoK0ozelJJ?=
+ =?utf-8?B?WXNqbTNNa3Yxd0pVMkFpazdiNVFMZCtZYXdKRWxpRkhKcGlQcmFuSnYxTVds?=
+ =?utf-8?B?YlNsU2hsYWVRTTFwcWNQQmZGcng5OXp0bjRET21vN283UktWYk1LQzBrNXZm?=
+ =?utf-8?B?WHduYSt2a0Z0VHdwWkl2TDQvS29lMUNCR045ZjFpSkJNbjdDU1BLRXpjNE55?=
+ =?utf-8?B?eEpIZ2R4OG02UVdIVlMyUmppN1lRbEdNRGQvd0JYdG52bHVqVXpLZnlEY0k0?=
+ =?utf-8?B?TWp6Ym5IN3FqdnUveEZMWUdZSTBsSnZ6enpHbXhuSU9NUml6SnFUWW5iQ2ND?=
+ =?utf-8?B?YVJmS09mZnIybzFsRjVDVlJFMW1vbmlpRGFyTkt0ZnVQVk9wRjl6RC91Mkps?=
+ =?utf-8?B?em9iTUhLVlJ6aTJoeitqZ3p0Ums5dGpMRlJNVmE0WkhySUNpT3JxWjVwVGpi?=
+ =?utf-8?Q?MH8I0iHn+f7xpJQng6k8VGKglgXodYhy1/Ce6?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 989a722a-48f0-455f-bbb0-08de74519ae3
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2026 09:38:17.5231
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: U03LsrhQkbCccePdc5JVClLVjMpSXwCrlAcxAx7R1ZEmLcQMlmiSUnx9R55uaSCPYgk2Yf4j61iD/QYRdtt9qjrOUt1wZH63oTvNJ+B4f+E=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8206
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_013824_088148_C3DC9C1B 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,31 +158,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 5:30=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
-g> wrote:
->
-> On Wed, 25 Feb 2026 08:22:22 +0100, Chen-Yu Tsai <wenst@chromium.org> sai=
-d:
-> > With the new PCI pwrctrl API and PCI slot binding and power drivers, we
-> > now have a way to describe and power up WiFi/BT adapters connected
-> > through a PCIe or M.2 slot, or exploded onto the mainboard itself.
-> >
-> > Integrate the PCI pwrctrl API into the PCIe driver, so that power is
-> > properly enabled before PCIe link training is done, allowing the
-> > card to successfully be detected.
-> >
-> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> > ---
->
-> Thanks, looks small and sweet.
+On 2/24/2026 7:59 PM, Conor Dooley wrote:
+> On Tue, Feb 24, 2026 at 05:58:05PM +0000, Conor Dooley wrote:
+>> On Tue, Feb 24, 2026 at 12:15:31PM +0100, Ciprian Costea wrote:
+>>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>>
+>>> Add compatible string "nxp,s32n79-usdhc" for the uSDHC controller found in
+>>> NXP S32N79 series automotive SoCs.
+>>>
+>>> The controller is compatible with the existing i.MX uSDHC controllers.
+>>>
+>>> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+>>> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+>>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>> ---
+>>>   Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml | 1 +
+>>>   1 file changed, 1 insertion(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml b/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml
+>>> index b98a84f93277..014b049baeb6 100644
+>>> --- a/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml
+>>> +++ b/Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.yaml
+>>> @@ -35,6 +35,7 @@ properties:
+>>>             - fsl,imx8mm-usdhc
+>>>             - fsl,imxrt1050-usdhc
+>>>             - nxp,s32g2-usdhc
+>>> +          - nxp,s32n79-usdhc
+>>
+>> Ditto here, no driver change?
+> 
+> Actually, this doesn't make sense per the commit message "the
+> controller is compatible with the existing...". I'd expect to see a
+> fallback compatible permitted in that case.
 
-Thanks! I originally had one large patch that was kind of ugly. I managed
-to dissect it into this series.
+I can see how my statement mean more that what I've intended.
 
-> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
->
+I've mostly wanted to emphasize that the S32N79 uSDHC controller follows
+the same register layout as other i.MX SoCs. But regarding quirks it 
+differs from other i.MX uSDHC.
+
+Hence, I will drop this comment from the commit message in V2.
+
+Best Regards,
+Ciprian
+
+> 
+>>
+>>>         - items:
+>>>             - const: fsl,imx50-esdhc
+>>>             - const: fsl,imx53-esdhc
+>>> -- 
+>>> 2.43.0
+>>>
+> 
+> 
+
 
