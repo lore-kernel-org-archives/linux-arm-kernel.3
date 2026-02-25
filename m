@@ -4,113 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6083FD3760
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E413EFD3764
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NRnwp9JeeMuXV2IPWrFKL08ojPGCfMkvh4ICRPXvlx4=; b=0bldc/WmqDbxV2/jd6ZpGrrNAD
-	TbL3qjvdGVKSMXeVO8QqaYtMHTYfYLqx+8d1GrDy4CUd6fhgBh80YduxlSW9vDQy5/70kQrkir1Kt
-	z5CJ2RvjFqfKdmfegpElAcCn6tys27S+f9mTc9G1XiNSlKLWuYIT6TbKaiv3uB6GspiCg7z5r6QYh
-	S8tArxOoL0PsTTFEl1wYJXSoJ7TePvOplnSbtgeJlLSS2Kd3iN0Ummp7B6yEKffJaht5V8WGtj20p
-	0LoBMvfOS45NAs5nvqx0c/9uVF60L76ik71uuLkwJcLPKWxf+CWWVxtBhOY0ZMM7IMyNsngxOxyjk
-	fa9JnY9w==;
+	bh=DpzsUByNGjcLChjmcQ8IdupgxBvxPeDh0Iibj1+hi1c=; b=jVVZEHJADR554c7JXaOYhSpVp3
+	rrag5xmoVvAY8Okb3dGM+zSRuXlk5+4BXlS/S9uN0tsqixypEMDuJE3RHkLfoQS2ruVf/oItKJiNa
+	ujNsOX1X/VOdHyw8ug2hFbMotYCs4Zn3n9duspm9RpEUVxRVoS7YVurfLp4o6SoBOfnOpM1qCyxMM
+	ufDiceBiIKD71qpnZVa3F8YKpH/gmX8Rwqp7qk3nNp83bMoM1FRiNXmVxL3kR/DTYoVh4Zcl1jIIx
+	qXMnLbKHAMTLiymtqZoBRSjV8iVKFZv4oAo0DsKdo7XhON2xMOtojiKcDUgf7UwiJ+3UUZU31nmIu
+	0w9mVD3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFq6-00000004CaC-1WmK;
-	Wed, 25 Feb 2026 14:26:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvFrZ-00000004D0P-3Q1g;
+	Wed, 25 Feb 2026 14:27:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFq4-00000004CZe-132a
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 14:26:09 +0000
+	id 1vvFrX-00000004D01-05PR;
+	Wed, 25 Feb 2026 14:27:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7D8E943AF9;
-	Wed, 25 Feb 2026 14:26:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DC66C116D0;
-	Wed, 25 Feb 2026 14:26:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 640C240274;
+	Wed, 25 Feb 2026 14:27:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B86ECC116D0;
+	Wed, 25 Feb 2026 14:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772029566;
-	bh=4Zuc2Y9/N0Q0CeGfuCJTQWoryvTqEgChCwBgzAT8okc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CxpYOHbNRnMWhNAqNpFrfukLpdzeg1LRV0oAqS7UDI5b8GZrx5v/O5ao+ghL1UebI
-	 ZQn3qMZBfq9IYorrdR/9wGj8EcxZXdNBmypOPG7gq5JoT01S5yxYCB4T59d5lg29eZ
-	 6xN16q4cgYEsJARO3HUrgAyPhZ0JY+Z3dgyaVYSgDFJWjKZ/A3jgC/ktsqYX2UevCX
-	 RGKpENC1W72otHAW6gF4NMAKERAgcq0l9KkLMTitGjP8ippq4coA5LVSgHUBJDgaFr
-	 2QDY4d9b8L03kcJ2r9teoUSv4yE3KzdSVbHPUqYvH05yBMcDm5pl+5a0FC1KXZpiK3
-	 K0cPoIVdbAhnw==
-Message-ID: <2e7a1e24-3616-4b79-b943-b5f7efde2d31@kernel.org>
-Date: Wed, 25 Feb 2026 15:25:58 +0100
+	s=k20201202; t=1772029658;
+	bh=U9E2ZLZ0JLTenLJ3Y/BpGghxxT+1M6o7BfxH/hbK7+Y=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=Bx31QDeCwTuAv0aIQC96Gk1GVeLTBS/5yg+8jPkfcS6e3IMl75T4NlxJ9G0tryUnN
+	 IwmSR2rhnZlVpi+VkmtVWjkx4gzFs89OMpzBIsLk+CUBSRt60CZOz5jkucToy+6Sy5
+	 7Z1DuPVuIRdvs6+DkD57hD3DGA4lBu8w5RUi08PhT/KC36hxERT9AY49nRZhUNY74E
+	 dFiNO6MTyDJV36oCsckH8LDrJuPy5CAqFWm37LxF741OCI3k0rNhjuDk0U1hOsozit
+	 CUDNjbCW43/zEuIr97h/ZIiTlqJgnGf2zej+VK1OiDdgff9TGrhbDjdaxhRvu8cIpu
+	 NYdsnDPkkZKcA==
+Message-ID: <d460c40a-c0cc-41d3-999d-bead4e688a34@kernel.org>
+Date: Wed, 25 Feb 2026 15:27:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] mm: support batched checking of the young flag for
- MGLRU
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
-Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
- ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
- yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
- zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
- <84d2426c63c1eafeaa0cfbad7c5cc11e9c11b980.1771897150.git.baolin.wang@linux.alibaba.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v3 1/3] media: dt-bindings: rockchip,vdec: Add alternative
+ reg-names order for RK35{76,88}
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+ linux-media@vger.kernel.org
+References: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
+ <20260225-vdec-reg-order-rk3576-v3-1-5a2ebe1b11a8@collabora.com>
+ <9bb74438-e759-46a7-9fa1-2c6b1fced76b@kernel.org>
+ <d5a244f3-5f1b-4bcb-8042-646320a47b6c@collabora.com>
+ <85793250-425d-40da-b382-ada9fc7b50e1@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <84d2426c63c1eafeaa0cfbad7c5cc11e9c11b980.1771897150.git.baolin.wang@linux.alibaba.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <85793250-425d-40da-b382-ada9fc7b50e1@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_062608_337269_F1B5124F 
-X-CRM114-Status: GOOD (  27.66  )
+X-CRM114-CacheID: sfid-20260225_062739_124528_CFA0ACBF 
+X-CRM114-Status: GOOD (  26.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,198 +129,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/24/26 02:56, Baolin Wang wrote:
-> Use the batched helper clear_young_ptes_notify() to check and clear the
-> young flag to improve the performance during large folio reclamation when
-> MGLRU is enabled.
+On 25/02/2026 15:11, Krzysztof Kozlowski wrote:
+> On 25/02/2026 14:36, Cristian Ciocaltea wrote:
+>> On 2/25/26 2:26 PM, Krzysztof Kozlowski wrote:
+>>> On 25/02/2026 13:19, Cristian Ciocaltea wrote:
+>>>> With the introduction of the RK3588 SoC, and RK3576 afterwards, the
+>>>> 'link' and 'cache' register blocks have been provided for the video
+>>>> decoder unit in addition to the existing 'function' one, which now shows
+>>>> up in between them (from address-based ordering point of view).
+>>>>
+>>>> However, the binding does not properly describe this hardware layout, as
+>>>> the new blocks are listed after the old one.  Therefore it breaks the
+>>>> convention expecting the unit address to indicate the first register
+>>>> range.
+>>>>
+>>>> Since the binding changes have been already released and a fix would
+>>>> bring up an ABI break, mark the current 'reg-names' listing as
+>>>> deprecated and introduce an alternative 'link,function,cache' one.
+>>>>
+>>>> Additionally, drop the 'reg' description items as the order is not fixed
+>>>> anymore, while the information they offer is not very relevant anyway.
+>>>>
+>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>>> ---
+>>>>  .../devicetree/bindings/media/rockchip,vdec.yaml      | 19 ++++++++++++-------
+>>>>  1 file changed, 12 insertions(+), 7 deletions(-)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+>>>> index 809fda45b3bd..3f6072e8baa5 100644
+>>>> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+>>>> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+>>>> @@ -28,16 +28,21 @@ properties:
+>>>>  
+>>>>    reg:
+>>>>      minItems: 1
+>>>> -    items:
+>>>> -      - description: The function configuration registers base
+>>>> -      - description: The link table configuration registers base
+>>>> -      - description: The cache configuration registers base
+>>>> +    maxItems: 3
+>>>>  
+>>>>    reg-names:
+>>>> -    items:
+>>>> +    oneOf:
+>>>>        - const: function
+>>>
+>>> This is confusing, I think I missed that in previous patch because it
+>>> did not leave that part or I misread the diff hunk - why do you allow
+>>> one entry?
+>>
+>> That's for the older SoCs, e.g. RK3288, RK3399, as the 'link' and 'cache' blocks
+>> are only available for RK3576 & RK3588.
 > 
-> Meanwhile, we can also support batched checking the young and dirty flag
-> when MGLRU walks the mm's pagetable to update the folios' generation
-> counter. Since MGLRU also checks the PTE dirty bit, use folio_pte_batch_flags()
-> with FPB_MERGE_YOUNG_DIRTY set to detect batches of PTEs for a large folio.
+> Yeah, I see in the bottom of the binding
 > 
-> Then we can remove the ptep_clear_young_notify() since it has no users now.
+>>
+>>>
+>>> If the first entry is function, then all others MUST built on top, thus
+>>> this:
+>>>
+>>>> +          - const: link
+>>>> +          - const: function
+>>>> +          - const: cache
+>>>
+>>> is not correct.
+>>>
+>>> No, you don't change the orders. So again, if you have such binding,
+>>> then you just fix the unit address leaving the binding as is.
+>>
+>> Changing the unit address would mean it will point inside the register range,
+>> rather than at the beginning of it.
 > 
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> ---
+> First, not true. If this was one register range, you would have one
+> entry. You cannot split entries. Split entries means you have two
+> SEPARATE register ranges.
+> Second, it does not matter because main rule stays - the unit address
+> describes the main address space. The main address space in other device
+> was called "function", so I assume the main address space is also here
+> the "function". Which makes sense, because link feels secondary to
+> functioning of the device.
+> 
+>>
+>> Sorry, but I don't quite get why would this be a better approach than just
+>> properly list the items according to the HW layout, i.e. following the
+>> address-based ordering?
 
-[...]
+One more comment here, actually repeating Rob, because this awfully
+reminds me discussions with Linaro folks around media/iris/camss where
+they came with terrible idea of sorting everything by value
+(reg+clocks+interrupts) - because binding does not know anything about
+addresses, thus you cannot sort/order this list in the binding by
+address. There is simple no "key" to sort with.
 
->  
-> -static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
-> -					  unsigned long addr, pte_t *ptep)
-> -{
-> -	return clear_young_ptes_notify(vma, addr, ptep, 1);
-> -}
-> -
->  static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
->  					  unsigned long addr, pmd_t *pmdp)
->  {
-> @@ -1847,12 +1841,6 @@ static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
->  #define clear_young_ptes_notify	test_and_clear_young_ptes
->  #define pmdp_clear_young_notify	pmdp_test_and_clear_young
->  
-> -static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
-> -					  unsigned long addr, pte_t *ptep)
-> -{
-> -	return test_and_clear_young_ptes(vma, addr, ptep, 1);
-> -}
-> -
-
-Oh, we remove the last user, nice.
-
-
->  #endif /* CONFIG_MMU_NOTIFIER */
->  
->  #endif	/* __MM_INTERNAL_H */
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index be785dfc9336..1c147251ae28 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -958,25 +958,21 @@ static bool folio_referenced_one(struct folio *folio,
->  			return false;
->  		}
->  
-> +		if (pvmw.pte && folio_test_large(folio)) {
-> +			unsigned long end_addr = pmd_addr_end(address, vma->vm_end);
-> +			unsigned int max_nr = (end_addr - address) >> PAGE_SHIFT;
-
-Both could be const.
-
-> +			pte_t pteval = ptep_get(pvmw.pte);
-
-I wonder if there could be a way to avoid this ptep_get() by letting
-page_vma_mapped_walk() just provide the last value it used (in
-check_pte() I guess). Something for another patch.
-
-> +
-> +			nr = folio_pte_batch(folio, pvmw.pte, pteval, max_nr);
-> +			ptes += nr;
-> +		}
-> +
->  		if (lru_gen_enabled() && pvmw.pte) {
-> -			if (lru_gen_look_around(&pvmw))
-> +			if (lru_gen_look_around(&pvmw, nr))
->  				referenced++;
->  		} else if (pvmw.pte) {
-> -			if (folio_test_large(folio)) {
-> -				unsigned long end_addr = pmd_addr_end(address, vma->vm_end);
-> -				unsigned int max_nr = (end_addr - address) >> PAGE_SHIFT;
-> -				pte_t pteval = ptep_get(pvmw.pte);
-> -
-> -				nr = folio_pte_batch(folio, pvmw.pte,
-> -						     pteval, max_nr);
-> -			}
-> -
-> -			ptes += nr;
->  			if (clear_flush_young_ptes_notify(vma, address, pvmw.pte, nr))
->  				referenced++;
-> -			/* Skip the batched PTEs */
-> -			pvmw.pte += nr - 1;
-> -			pvmw.address += (nr - 1) * PAGE_SIZE;
->  		} else if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE)) {
->  			if (pmdp_clear_flush_young_notify(vma, address,
->  						pvmw.pmd))
-> @@ -995,6 +991,12 @@ static bool folio_referenced_one(struct folio *folio,
->  			page_vma_mapped_walk_done(&pvmw);
->  			break;
->  		}
-> +
-> +		/* Skip the batched PTEs */
-> +		if (nr > 1) {
-> +			pvmw.pte += nr - 1;
-> +			pvmw.address += (nr - 1) * PAGE_SIZE;
-> +		}
-
-As nr >= 1, you can just unconditionaly do
-
-pvmw.pte += nr - 1;
-pvmw.address += (nr - 1) * PAGE_SIZE;
-
->  	}
->  
->  	if (referenced)
-> diff --git a/mm/vmscan.c b/mm/vmscan.c
-> index 728868c61750..d83962468b2e 100644
-> --- a/mm/vmscan.c
-> +++ b/mm/vmscan.c
-> @@ -3494,6 +3494,7 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
->  	struct pglist_data *pgdat = lruvec_pgdat(walk->lruvec);
->  	DEFINE_MAX_SEQ(walk->lruvec);
->  	int gen = lru_gen_from_seq(max_seq);
-> +	unsigned int nr;
->  	pmd_t pmdval;
->  
->  	pte = pte_offset_map_rw_nolock(args->mm, pmd, start & PMD_MASK, &pmdval, &ptl);
-> @@ -3512,11 +3513,13 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
->  
->  	lazy_mmu_mode_enable();
->  restart:
-> -	for (i = pte_index(start), addr = start; addr != end; i++, addr += PAGE_SIZE) {
-> +	for (i = pte_index(start), addr = start; addr != end; i += nr, addr += nr * PAGE_SIZE) {
->  		unsigned long pfn;
->  		struct folio *folio;
-> -		pte_t ptent = ptep_get(pte + i);
-> +		pte_t *ptep = pte + i;
-> +		pte_t ptent = ptep_get(ptep);
-
-
-Existing "pte vs ptent" vs. "ptep vs. pte" is already confusing.
-Combining them into "pte vs. ptep vs. ptent" is no good.
-
-If you need another variable, call it "cur_pte". Or rename "pte" to
-"start_pte".
-
->  
-> +		nr = 1;
->  		total++;
->  		walk->mm_stats[MM_LEAF_TOTAL]++;
->  
-> @@ -3528,7 +3531,14 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
->  		if (!folio)
->  			continue;
->  
-> -		if (!ptep_clear_young_notify(args->vma, addr, pte + i))
-> +		if (folio_test_large(folio)) {
-> +			unsigned int max_nr = (end - addr) >> PAGE_SHIFT;
-> +
-> +			nr = folio_pte_batch_flags(folio, NULL, ptep, &ptent,
-> +						   max_nr, FPB_MERGE_YOUNG_DIRTY);
-> +		}
-> +
-> +		if (!clear_young_ptes_notify(args->vma, addr, ptep, nr))
->  			continue;
->  
->  		if (last != folio) {
-> @@ -4186,7 +4196,7 @@ static void lru_gen_age_node(struct pglist_data *pgdat, struct scan_control *sc)
->   * the PTE table to the Bloom filter. This forms a feedback loop between the
->   * eviction and the aging.
->   */
-> -bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw)
-> +bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw, unsigned int batched)
-
-What is "batched"? Did you mean "nr_ptes" ? Or just the initial value
-for "nr" ?
-
-[...]
-
->  
-> -		if (!ptep_clear_young_notify(vma, addr, pte + i))
-> +		if (folio_test_large(folio)) {
-> +			unsigned int max_nr = (end - addr) >> PAGE_SHIFT;
-
-Can be const.
-
-> +
-> +			nr = folio_pte_batch_flags(folio, NULL, ptep, &ptent,
-> +						   max_nr, FPB_MERGE_YOUNG_DIRTY);
-> +		}
-
-I guess we might benefit from a FPB_MERGE_YOUNG only here. But this
-should work.
-
--- 
-Cheers,
-
-David
+Best regards,
+Krzysztof
 
