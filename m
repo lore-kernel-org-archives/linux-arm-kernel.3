@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED39DFD374E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582C9FD374E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ic0tJ9oGrpcJbx0Ys3nLG4VmEW5f6HgZdRcOvHuGYr4=; b=iqS539W/04H9vmfIU5mhr5JqMd
-	EsONWQy72GDLu/KpvoHSrYERdImTdzuTmHv0/m6+GSkogkaF9jUr7fL/t3RgkX3iayINZwLWTwee1
-	f6XGaV2RV15d7PgzVQR/Q8ygT92Z1lFSS17gbIjIdSLCLeLeORwo6/KLWtqmk349PeAm9pYOqyyEu
-	FMwrTLCgNsPc0MmquUa0ZclUdFheX2u2Pv1jnp0cMym7FVmHrfCb6KWVVwAfin6fkoOy+26gQdGxE
-	UJ8KaMwVj6nU6VY5hgGKzwBuUGc0Hi0WdLodcYrGrek12tisr1nk97s5lmBgQkon0kFobcsAYxXxD
-	l6jzCAqg==;
+	bh=euXigfeu1Ls+Mvlqr/jfLJrufgIc8aH5ZNnJ/mmFges=; b=IebJw4BjKasyRM7cVjtOrM0F/0
+	eA/UkEjc3JcAi8M+T8NrGokFx3o8Gz2J0J+kFuJjHh5aZJdWJkX/A+nghtea2yiU3F7H3KIjXl4Od
+	O9Qd7uXORd36x4F/SkzPgBte3+gp2W+GbaNAtqfxCIMIbnGTjX1BF/308/OPCPD2d76z9jz3OuXmA
+	DekXUt7g+0ACyIYyAE3Lm3Mven1E2f2uUbybHQWSP+n/YGzH/E/GDKYWUz++J+ulD4Erp38sNxMnR
+	vPXmmd5+w6Ke9AzJjJlH6oERQe9dEbYnag8M/r3mhP3FR/00QcuSsCMoP7zxwpQ1xTBzf0SbtPmA0
+	tM5aqGAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFNV-000000049D9-0cL3;
-	Wed, 25 Feb 2026 13:56:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvFOI-000000049Ok-0775;
+	Wed, 25 Feb 2026 13:57:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFNT-000000049Cn-0U9Y
+	id 1vvFOH-000000049O8-1rqb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 13:56:36 +0000
+	Wed, 25 Feb 2026 13:57:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7706F40774;
-	Wed, 25 Feb 2026 13:56:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69545C19421;
-	Wed, 25 Feb 2026 13:56:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CAFE16012B;
+	Wed, 25 Feb 2026 13:57:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AD8CC116D0;
+	Wed, 25 Feb 2026 13:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772027794;
-	bh=adewTxheBJ0exE2Odd3Bcl/XDcxF8jBrDVD2w5lYLiM=;
+	s=k20201202; t=1772027844;
+	bh=OUurYv35bNhXesuuVWjFpAi6I65QdGPN0j4kp3KPEIs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BrrhvcB6m+QHlz7bEjPpcTkhpxbZOBs5XQrkDdBe/HikRWLNblps/GYtmxvT8NLmT
-	 lwjp4a9/wkSHSw83DXgMJkE26YbADXQ5Wgrzma0Lzkxe6PrTvGTmGMkcr0S7tjD25a
-	 cUbxobXSpjd3msn5/omXQOip0YId1+NkqtVjYSR8RRdQzG4xfaRZOJR/ihRWKT8neU
-	 CyfSniRPgXT1bmdKqFRcjIn51gGNFGCW55g6/YssgE3kDtmeAaQ5AMDeliVC3lBXzs
-	 mR57N/UT6rGaAzfrKRvdVNfv/88j0Bmfs9tfmn8MrYQmlFcMu4cjEn1Wx+6+4aZ3sn
-	 DrC3YTLtn/MQA==
-Message-ID: <1e90b26c-5934-47e4-a0ea-96fd8af45076@kernel.org>
-Date: Wed, 25 Feb 2026 14:56:26 +0100
+	b=I92pcnP/2w/38kBmgcDkuu+UDMvqA+rUZOm3NlbmqSs/M2THpW0kgPllrMeteQshm
+	 vOfYwOs6vei328598cOpaenhGoAYoIXD8nqV3ivJKUH8XAGotGZwQ7E8Z0JAMtXwgK
+	 D4xDk1e+5hc9dMVj+LDpW/dmGs9gFZYy5974BopbOmYeeSGU2+JN7Sw45oAvy3uVKa
+	 JPaQR+IhNJIM34CCmd1FDef2ElMhcfCqoXmwPSLgxT2yWhQK9+phbCg0ro0Wucn9HE
+	 pBg9j6ZoA5ndt9PZGt40XNny4FR0erxKyQ9Zb5gdcR8sE2EAbZB5tjLfsw+1I1avWS
+	 sXSvM8ohkeL9A==
+Message-ID: <258cad5e-9ad2-4dfa-a090-c65bbe3fc7ff@kernel.org>
+Date: Wed, 25 Feb 2026 14:57:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] mm: use inline helper functions instead of ugly
- macros
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
+Subject: Re: [PATCH 2/5] mm: rmap: add a ZONE_DEVICE folio warning in
+ folio_referenced()
+To: Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Rik van Riel <riel@surriel.com>, akpm@linux-foundation.org
 Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
  ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
- yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
- zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, harry.yoo@oracle.com,
+ jannh@google.com, willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
+ axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com,
+ hannes@cmpxchg.org, zhengqi.arch@bytedance.com, shakeel.butt@linux.dev,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
- <dc94552605926f9ce84f9fc2ddfe5f7d1319e41c.1771897150.git.baolin.wang@linux.alibaba.com>
+ <e91eaa86a6fbb0682b4e308082048c688a57c035.1771897150.git.baolin.wang@linux.alibaba.com>
+ <b3c1c739c233ccb32945ccaffdaf25fd3f96dd59.camel@surriel.com>
+ <ec92b9a6-d6a6-4b14-9724-b1722d35b69d@linux.alibaba.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -105,12 +108,9 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <dc94552605926f9ce84f9fc2ddfe5f7d1319e41c.1771897150.git.baolin.wang@linux.alibaba.com>
+In-Reply-To: <ec92b9a6-d6a6-4b14-9724-b1722d35b69d@linux.alibaba.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_055635_223933_F9FB55FC 
-X-CRM114-Status: GOOD (  22.10  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,174 +125,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/24/26 02:56, Baolin Wang wrote:
-> People have already complained that these *_clear_young_notify() related
-> macros are very ugly, so let's use inline helpers to make them more readable.
-
-Could it have been me :)
-
+On 2/24/26 06:49, Baolin Wang wrote:
 > 
-> In addition, I cannot implement these inline helper functions in the
-
-"We cannot implement ..."
-
-> mmu_notifier.h file, because some arch-specific files will include the
-> mmu_notifier.h, which introduces header compilation dependencies and causes
-> build errors (e.g., arch/arm64/include/asm/tlbflush.h). Moreover, since
-> these functions are only used in the mm, implementing these inline helpers
-> in the mm/internal.h header seems reasonable.
-
-Agreed. if it compiles, all good.
-
 > 
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> ---
->  include/linux/mmu_notifier.h | 54 ------------------------------------
->  mm/internal.h                | 53 +++++++++++++++++++++++++++++++++++
->  2 files changed, 53 insertions(+), 54 deletions(-)
+> On 2/24/26 10:38 AM, Rik van Riel wrote:
+>> On Tue, 2026-02-24 at 09:56 +0800, Baolin Wang wrote:
+>>>
+>>> diff --git a/mm/rmap.c b/mm/rmap.c
+>>> index bff8f222004e..be785dfc9336 100644
+>>> --- a/mm/rmap.c
+>>> +++ b/mm/rmap.c
+>>> @@ -1065,6 +1065,7 @@ int folio_referenced(struct folio *folio, int
+>>> is_locked,
+>>>           .invalid_vma = invalid_folio_referenced_vma,
+>>>       };
+>>>   +    VM_WARN_ON_FOLIO(folio_is_zone_device(folio), folio);
+>>>       *vm_flags = 0;
+>>>       if (!pra.mapcount)
+>>>           return 0;
+>>
+>> Should be a VM_WARN_ON_ONCE_FOLIO so we do not cause
+>> a softlockup if we try to print information about a
+>> million ZONE_DEVICE pages?
 > 
-> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
-> index 07a2bbaf86e9..93894b90c8c1 100644
-> --- a/include/linux/mmu_notifier.h
-> +++ b/include/linux/mmu_notifier.h
-> @@ -515,55 +515,6 @@ static inline void mmu_notifier_range_init_owner(
->  	range->owner = owner;
->  }
->  
-> -#define clear_flush_young_ptes_notify(__vma, __address, __ptep, __nr)	\
-> -({									\
-> -	int __young;							\
-> -	struct vm_area_struct *___vma = __vma;				\
-> -	unsigned long ___address = __address;				\
-> -	unsigned int ___nr = __nr;					\
-> -	__young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);	\
-> -	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
-> -						  ___address,		\
-> -						  ___address +		\
-> -						  ___nr * PAGE_SIZE);	\
-> -	__young;							\
-> -})
-> -
-> -#define pmdp_clear_flush_young_notify(__vma, __address, __pmdp)		\
-> -({									\
-> -	int __young;							\
-> -	struct vm_area_struct *___vma = __vma;				\
-> -	unsigned long ___address = __address;				\
-> -	__young = pmdp_clear_flush_young(___vma, ___address, __pmdp);	\
-> -	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
-> -						  ___address,		\
-> -						  ___address +		\
-> -							PMD_SIZE);	\
-> -	__young;							\
-> -})
-> -
-> -#define ptep_clear_young_notify(__vma, __address, __ptep)		\
-> -({									\
-> -	int __young;							\
-> -	struct vm_area_struct *___vma = __vma;				\
-> -	unsigned long ___address = __address;				\
-> -	__young = ptep_test_and_clear_young(___vma, ___address, __ptep);\
-> -	__young |= mmu_notifier_clear_young(___vma->vm_mm, ___address,	\
-> -					    ___address + PAGE_SIZE);	\
-> -	__young;							\
-> -})
-> -
-> -#define pmdp_clear_young_notify(__vma, __address, __pmdp)		\
-> -({									\
-> -	int __young;							\
-> -	struct vm_area_struct *___vma = __vma;				\
-> -	unsigned long ___address = __address;				\
-> -	__young = pmdp_test_and_clear_young(___vma, ___address, __pmdp);\
-> -	__young |= mmu_notifier_clear_young(___vma->vm_mm, ___address,	\
-> -					    ___address + PMD_SIZE);	\
-> -	__young;							\
-> -})
-> -
->  #else /* CONFIG_MMU_NOTIFIER */
->  
->  struct mmu_notifier_range {
-> @@ -651,11 +602,6 @@ static inline void mmu_notifier_subscriptions_destroy(struct mm_struct *mm)
->  
->  #define mmu_notifier_range_update_to_read_only(r) false
->  
-> -#define clear_flush_young_ptes_notify clear_flush_young_ptes
-> -#define pmdp_clear_flush_young_notify pmdp_clear_flush_young
-> -#define ptep_clear_young_notify ptep_test_and_clear_young
-> -#define pmdp_clear_young_notify pmdp_test_and_clear_young
-> -
->  static inline void mmu_notifier_synchronize(void)
->  {
->  }
-> diff --git a/mm/internal.h b/mm/internal.h
-> index e0ef192b0be3..1ba175b8d4f1 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -11,6 +11,7 @@
->  #include <linux/khugepaged.h>
->  #include <linux/mm.h>
->  #include <linux/mm_inline.h>
-> +#include <linux/mmu_notifier.h>
->  #include <linux/pagemap.h>
->  #include <linux/pagewalk.h>
->  #include <linux/rmap.h>
-> @@ -1789,4 +1790,56 @@ static inline int io_remap_pfn_range_complete(struct vm_area_struct *vma,
->  	return remap_pfn_range_complete(vma, addr, pfn, size, prot);
->  }
->  
-> +#ifdef CONFIG_MMU_NOTIFIER
-> +static inline int clear_flush_young_ptes_notify(struct vm_area_struct *vma,
-> +						unsigned long addr, pte_t *ptep,
-> +						unsigned int nr)
+> Yes, sounds reasonable. Will do in next version. Thanks for reviewing.
 
-Two tabs indent on the second line makes this fit into two lines.
-
-Same for the others.
-
-With that
+Feel free to add my
 
 Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
-> +{
-> +	int young;
-> +
-> +	young = clear_flush_young_ptes(vma, addr, ptep, nr);
-> +	young |= mmu_notifier_clear_flush_young(vma->vm_mm, addr,
-> +						addr + nr * PAGE_SIZE);
-> +	return young;
-> +}
-> +
-> +static inline int pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
-> +						unsigned long addr, pmd_t *pmdp)
-> +{
-> +	int young;
-> +
-> +	young = pmdp_clear_flush_young(vma, addr, pmdp);
-> +	young |= mmu_notifier_clear_flush_young(vma->vm_mm, addr, addr + PMD_SIZE);
-> +	return young;
-> +}
-> +
-> +static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
-> +					  unsigned long addr, pte_t *ptep)
-> +{
-> +	int young;
-> +
-> +	young = ptep_test_and_clear_young(vma, addr, ptep);
-> +	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + PAGE_SIZE);
-> +	return young;
-> +}
-> +
-> +static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
-> +					  unsigned long addr, pmd_t *pmdp)
-> +{
-> +	int young;
-> +
-> +	young = pmdp_test_and_clear_young(vma, addr, pmdp);
-> +	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + PMD_SIZE);
-> +	return young;
-> +}
-
-Wonder why someone thought it would be a good idea to not include the
-"test_and_", to make the function names inconsistent.
+to that.
 
 -- 
 Cheers,
