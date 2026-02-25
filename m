@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 606AFFD375D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BC4FD375D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bG6lGKiO/AQSqFZF8zcYKPFnP3iI8eQTbAgyFLNKPn4=; b=S4VT5M/8w+KGYlfqqBK42dAbof
-	fbN+bQOmJK1Z/jgN8pHw4kcBaKO1RBV3iNiAIAouus9xpsiwgUzuhjGfHvRfH6isWjn+BbnrqsSnO
-	AZ+IdvAdWcTAmSQ3eha8Z0wXiQUDYEnlJfDKGC5bStga5HoIfpLhY3FaWrfDW2TJN2Ky/DOmFh7yi
-	M4en9abiHn22PebfsuBkeOcOEYdS1MIIjaHzyTunvph358eFk2geplw98x7lOM7KJ/BhCBPyKPa4g
-	hvkc43Xw72p6UqBCldlSWn6AuY9SzdLSyJWLqKXrRADB3QCPmTkfAEdNbwThsxYmZYdaUXH2Gj1Gr
-	+2gNAUTw==;
+	bh=T6dW9tqfhUfNJnxZ03UfE/DW2B+xHA6p+xbQjEx8Pf8=; b=jul8lw3zUuJXAROufQqBdZ5T0h
+	vRQSd455FxvIwUeZl44Hf8AGdP3tTg5YIE83vM/1wVVK5E9hffmqpu6G2iSwVCKbeuSFAEC+9M080
+	c6sat5lcpnygTPKVjlAz2GT7bdtnfrNKXF4r7LOmRjPnwHr1I4Ib1k5qJbmyYPoFETKcpfKaImBxA
+	MmocPXTNZUzTLsrHJ+wxKnGEcwxx8mGWOkQ0uDrJ7VETYgYLHgUQ0JYt9ma7e78KrwqXjhLDBJVcl
+	y+bv4G+OzGTmWbu4wbrRIYsMIRnhkxSJBAtmr+qTnA3X9efIIf9qP4Bd3FLURu1Z8GwgNc5Iu/aNt
+	0iNrXWlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvEXO-000000042X1-2VZh;
-	Wed, 25 Feb 2026 13:02:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvEap-000000042nf-0gAV;
+	Wed, 25 Feb 2026 13:06:19 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvEXM-000000042Wd-2G55;
-	Wed, 25 Feb 2026 13:02:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C7A514330B;
-	Wed, 25 Feb 2026 13:02:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33C0AC19421;
-	Wed, 25 Feb 2026 13:02:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772024562;
-	bh=bG6lGKiO/AQSqFZF8zcYKPFnP3iI8eQTbAgyFLNKPn4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SE8sVtK83K2QC+fszgE6mdJqlWX4NOw4VxSEr/x/zobnV9TuTZGvyfRCcnl4q5/la
-	 PQiRd/1FLIOKG4HsfPqTGTflSF3IKNNMLvc+v2sUjGs2+k1XXsVIs6QQN8dqqNtSgo
-	 x9WV4Ez6VyRXwBjAgRbc6iJkdG7d4ZSrMpcXR6UV+pJkBMeCqNBf2L7nHVtqPi/QnK
-	 ZBiQiDprzbU4Ca2VbsVg9FOKpraWdix34QjN4zwYwSyQup0xNv4MuWDk+MaqG2lLoa
-	 uUMeVvk9qCmHaFMWS/FUKzmpaa2ZfalKOUKr4ROzTdpaN7qhbz59/wsT0w46uuCa4R
-	 uNxJbFgKgMAnw==
-Date: Wed, 25 Feb 2026 13:02:36 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH 5/5] mm: Do not map the shadow stack as THP
-Message-ID: <5570c06d-fbc1-42c9-9b27-26211e8b033c@sirena.org.uk>
-References: <20260224175800.2500729-1-catalin.marinas@arm.com>
- <20260224175800.2500729-6-catalin.marinas@arm.com>
+	id 1vvEam-000000042mj-1DgG;
+	Wed, 25 Feb 2026 13:06:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772024764; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=epdV6sfEGGWgxTUxXR+oqoZSQob5OAuSJo/IxQeoiJmS3pQiIkTVSN9yEH8KC3zG22qWQI35fbW9BNRE7buiWsI/FI+0PDME8v6/GBoyI6n2Uvqmjlh6qxhhpjmQ4BmIdA+k3eaQ40qkHXRbuIhebhDyb5J60OvhNGCRkW5uM/o=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772024764; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=T6dW9tqfhUfNJnxZ03UfE/DW2B+xHA6p+xbQjEx8Pf8=; 
+	b=JApQiUWgQPuga1LI9SOPB7AY/Xw6+SCuYlqi+/SEGz0BpUv+HfWIeFoIRkVLndllADmqKbqgaVLWOz1HqTpeGYnSEgw0vupYa0YNhlzdOUWLDhTGqjiIYM5p0VjXndasVjcZ5dgiHAV6ahvbgu9Qe6F2c1HZH48pTaBB1/SpbHE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772024764;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=T6dW9tqfhUfNJnxZ03UfE/DW2B+xHA6p+xbQjEx8Pf8=;
+	b=BubcYS0qqWwRPOl105g64yZkIwEjCDwd8SxMH3oqKAKPNAOTaE2y31QAoj2vOMix
+	21qTnSjPngc4EFsfl9Bya0v1qpy65ZjUtS/7Ci0ekBX5zjEiJ0f9/IpBCNHfpwQfemE
+	+gdnaM2TFkQbGlrVQtKoHZyT8J8cryvaUzbIM8cI=
+Received: by mx.zohomail.com with SMTPS id 1772024762844490.7485741503249;
+	Wed, 25 Feb 2026 05:06:02 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ Chunfeng Yun =?UTF-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>,
+ "kishon@kernel.org" <kishon@kernel.org>,
+ "James.Bottomley@HansenPartnership.com"
+ <James.Bottomley@hansenpartnership.com>,
+ "bvanassche@acm.org" <bvanassche@acm.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ Chaotian Jing =?UTF-8?B?KOS6leacneWkqSk=?= <Chaotian.Jing@mediatek.com>,
+ "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+ "vkoul@kernel.org" <vkoul@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "avri.altman@wdc.com" <avri.altman@wdc.com>,
+ "martin.petersen@oracle.com" <martin.petersen@oracle.com>,
+ "broonie@kernel.org" <broonie@kernel.org>,
+ Peter Wang =?UTF-8?B?KOeOi+S/oeWPiyk=?= <peter.wang@mediatek.com>
+Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ "kernel@collabora.com" <kernel@collabora.com>
+Subject: Re: [PATCH v7 16/23] scsi: ufs: mediatek: Clean up logging prints
+Date: Wed, 25 Feb 2026 14:05:55 +0100
+Message-ID: <2575185.irdbgypaU6@workhorse>
+In-Reply-To: <c333898413d249c017430d4ae98bc7be3bf33a64.camel@mediatek.com>
+References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
+ <20260216-mt8196-ufs-v7-16-b5f2907c6da7@collabora.com>
+ <c333898413d249c017430d4ae98bc7be3bf33a64.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cXmct3hgznYcvsc+"
-Content-Disposition: inline
-In-Reply-To: <20260224175800.2500729-6-catalin.marinas@arm.com>
-X-Cookie: From concentrate.
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_050244_618835_C013CDAF 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20260225_050616_361526_25C9DC08 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +104,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tuesday, 24 February 2026 13:47:28 Central European Standard Time Peter =
+Wang (=E7=8E=8B=E4=BF=A1=E5=8F=8B) wrote:
+> On Mon, 2026-02-16 at 14:37 +0100, Nicolas Frattaroli wrote:
+> >  drivers/ufs/host/ufs-mediatek.c | 99 ++++++++++++++++++-------------
+> > ----------
+> >  1 file changed, 43 insertions(+), 56 deletions(-)
+> >=20
+> > diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-
+> > mediatek.c
+> > index ecf16e82a326..2b1f26b55782 100644
+> > --- a/drivers/ufs/host/ufs-mediatek.c
+> > +++ b/drivers/ufs/host/ufs-mediatek.c
+> > [... snip ...]
+> > @@ -810,11 +806,11 @@ static void ufs_mtk_mcq_set_irq_affinity(struct
+> > ufs_hba *hba, unsigned int cpu)
+> >  	_cpu =3D (cpu =3D=3D 0) ? 3 : cpu;
+> >  	ret =3D irq_set_affinity(irq, cpumask_of(_cpu));
+> >  	if (ret) {
+> > -		dev_err(hba->dev, "set irq %d affinity to CPU %d
+> > failed\n",
+> > +		dev_err(hba->dev, "setting irq %d affinity to CPU %d
+> > failed\n",
+> >  			irq, _cpu);
+> >  		return;
+> >  	}
+> > -	dev_info(hba->dev, "set irq %d affinity to CPU: %d\n", irq,
+> > _cpu);
+> > +	dev_dbg(hba->dev, "set irq %d affinity to CPU %d\n", irq,
+> > _cpu);
+> >=20
+>=20
+> Is it more appropriate to use dev_info for state changes or for setting
+> changes?
 
---cXmct3hgznYcvsc+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Is this information a user would want to see in their bootup log in
+every case? My understanding right now is no.
 
-On Tue, Feb 24, 2026 at 05:57:57PM +0000, Catalin Marinas wrote:
-> The default shadow stack size allocated on first prctl() for the main
-> thread or subsequently on clone() is either half of RLIMIT_STACK or half
-> of a thread's stack size (for arm64). Both of these are likely to be
-> suitable for a THP allocation and the kernel is more aggressive in
-> creating such mappings. However, it does not make much sense to use a
-> huge page. It didn't make sense for the normal stacks either, see commit
-> c4608d1bf7c6 ("mm: mmap: map MAP_STACK to VM_NOHUGEPAGE").
+> > [... snip ...]
+> > @@ -1571,7 +1559,7 @@ static int ufs_mtk_device_reset(struct ufs_hba
+> > *hba)
+> >  	/* Some devices may need time to respond to rst_n */
+> >  	usleep_range(10000, 15000);
+> > =20
+> > -	dev_info(hba->dev, "device reset done\n");
+> > +	dev_dbg(hba->dev, "device reset done\n");
+> > =20
+>=20
+> Is it more appropriate to use dev_info for state changes or for setting
+> changes?
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Depends on your view of what's useful information for the user.
 
-The create THP and immediately splitting it pattern is very clear when
-checking the mm behaviour on new GCSs, this should help performance.
+I can change both of these back to _info if I have to send out a next
+revision, just to get this through though.
 
---cXmct3hgznYcvsc+
-Content-Type: application/pgp-signature; name="signature.asc"
+>=20
+> Thanks
+> Peter
+>=20
 
------BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmme8usACgkQJNaLcl1U
-h9CDqwf6An6emWNltb5SR1AZIjifc5oF4Kkplg3VEBjz2qejH6O1DHtpUEPr90d1
-/Np0MHYou2I8q7SWp4mdaNs1ovD2UT5Gr1SMFxZZBviJ0r9/Eob3BrpxVrC3QT9J
-qybG0P8RYytpWk5rc2TJllnyTlY7gcVhjDT7BqCec6wWQOmLFeLinB845irNXV16
-fFjtAtMZw+1Gye+rZY1EeEKfdRZLlnkMneBaoKF0KSr4h5n8PvtcGAHHvzCral8n
-LS1poo8sjbOv0XtR6ZqTSEN0R7jQQ9w2QlZhaatEcZczugZRFs4jZDe7Q7HAZK1E
-yiaDOtnMo5LnFk3zQouQJMNjqU37lg==
-=SFPj
------END PGP SIGNATURE-----
 
---cXmct3hgznYcvsc+--
+
 
