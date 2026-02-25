@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FADFD3774
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E0E3FD3776
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TqhXuvVrp2mV3toj8x782sf0bXQcOA6nx/6Rxr3Er3A=; b=jw2lC7ATQC5GjPfgwrdae3Gsk7
-	R7EEeo8f5tTKhsAVJVu/JFCC3UuSExoUZpYxP6jH0a1nhjFtogV2iLWNxCTCeWWOX3h6aebgKvz4f
-	XDzbxDM9y2kivvJo2P3vVUvSSVJQdSmb8rmxBXq/SzmCrB30rYBkcPbUBAazpDtH+cn+a4v4CbMdM
-	0qiqvYnKmAk/dYe4jJL7IM8jPA8HTIRvhLvmUi6eZj0Go+6dd+tY83FCRtGZXB5hPugs7Nm9CR75k
-	KLW8BTSy743NnDdsr0qbUfWQne9aKuwA0wxaZNqdyYIRrmJRO9kur6t3CnMfXzbphh7g/H6yvnrXp
-	uoBLxalg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3RYgv+ynJj3S1QIru3Hn9dqc29aPNWjUzmoSLU7r5Kw=; b=dyChKLlasMlxejuRhiXJ+G6Tnq
+	dxjwVhN3lJP67QZkvbXMIPNWHWTd3F+T4ywPJsJDDeBwGEC6r39HHIfHyacbP93n9tt8p5V/Wny9a
+	1uryjX18VJvg27a8nCK4lt/9l5r7CEM6IUTiGZwK9wnWHoThKdHDoKmWYZ8ZJSS574qbGuRaNyXM+
+	TcYaYw0iSbcbS2g2/hkpeO4YPz3ITl12elJjKknlCtiKU5u6BmgDxKgMvP1e+ohrr+bwxkuluc9MA
+	Quaw7kZeRw7rHENvNZVfWDLieOmHIWZy9ido13bqo2j70UY7g/WVyc2N6PCever0vBy0AFM1RzGsC
+	tXs+Pw3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvIIu-00000004bAc-0W2V;
+	id 1vvIIu-00000004bBT-34W5;
 	Wed, 25 Feb 2026 17:04:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvIIr-00000004b7h-0Blc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 17:04:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 343044447F;
-	Wed, 25 Feb 2026 17:04:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 654D0C116D0;
-	Wed, 25 Feb 2026 17:03:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772039040;
-	bh=RGTq2r18gzctz4JuOYOuKDVbbCaqEX2oIvtQSlFHBiU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CLmKNEGdcK2zbWeegsql3ttZ/G0nbTxxNv0XSGCdbEkUgCFuDFdBvpwjyheON8HnR
-	 09zAHVHOJqlQG9KDpbRca2tPvPOhCDb/MvYOfyr6kDKyU9FNj1rafDBltVUYM9AxAm
-	 5dilpw6O800XwarBNRxYaCf3Nx6Ps496P6dw9NI3juZSl1Foe4YRgSKgKhLcwbWxvo
-	 QYTjeh8pCYDrrMbOK1bs34jF+NkD6NBPehShsKNdlCOpFpBZHxfa29YA72Lvbi6Fwl
-	 Or3vXRwGWSn10GVBn63B6ETqxHqjlSG/HR8u30JhmT8ZCtyNAVqswCG8mQnq3kaIrd
-	 sGfrYHRkldxLg==
-From: Niklas Cassel <cassel@kernel.org>
-To: Minghuan Lian <minghuan.Lian@nxp.com>,
-	Mingkai Hu <mingkai.hu@nxp.com>,
-	Roy Zang <roy.zang@nxp.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Srikanth Thokala <srikanth.thokala@intel.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Kishon Vijay Abraham I <kishon@kernel.org>
-Cc: Manikanta Maddireddy <mmaddireddy@nvidia.com>,
-	Koichiro Den <den@valinux.co.jp>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 1/9] PCI: endpoint: Introduce pci_epc_bar_type BAR_64BIT_UPPER
-Date: Wed, 25 Feb 2026 18:03:24 +0100
-Message-ID: <20260225170324.4033466-12-cassel@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260225170324.4033466-11-cassel@kernel.org>
-References: <20260225170324.4033466-11-cassel@kernel.org>
+	id 1vvIIr-00000004b8i-3YBx;
+	Wed, 25 Feb 2026 17:04:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772038990; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Stq7NiyxW5CF/ZYpj1nqvMDannoyZwlnMzQ/PgyeF0NaxkMVUlI68eDs/afuHnbr2+WHFmRQZxfJTlYWlLd0zyLWqjjWUVTxJnumFxAofhYeOXCqmvKvqp555F7wVXsQumH5tw1GduK4PpZ5MrE99aPbOnBScVHIW5+7cxFCsaM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772038990; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=3RYgv+ynJj3S1QIru3Hn9dqc29aPNWjUzmoSLU7r5Kw=; 
+	b=a5Oe0Ndnnz06KHDJo5Dq3J6MK/1KLjOuG3mwgwqqqQbKovJWasZ2MCpjlf8ey6OnHnCH4SKGA2z2D1avhxLtcyK+FRyYoZXnSih4UZM7quz5VNvfSBEPZ9pvoY+A2AMBB4eNwEzhaTesQui5FtYM0obtGOLyxS312/LjUHkL7vg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772038990;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=3RYgv+ynJj3S1QIru3Hn9dqc29aPNWjUzmoSLU7r5Kw=;
+	b=V3jgCVhIW8MxRWz+GFV+y8JHyIm3dWD68I3G+7EGdF+br4N512+++HwmFH7XXJyX
+	VTX84XBJmyiXwt+qxWxRcDszqGbmzTaLyzaROG7CcMhxb7bXr21EUYFCQsl2vZalyv8
+	FARjC/W5DW9MnsdktyO2a03wVkp5f4pro6xFBbTQ=
+Received: by mx.zohomail.com with SMTPS id 1772038989356790.0109700812275;
+	Wed, 25 Feb 2026 09:03:09 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Andy Yan <andy.yan@rock-chips.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Maxime Ripard <mripard@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 14/14] drm/display: hdmi: Use drm_output_color_format instead of
+ hdmi_colorspace
+Date: Wed, 25 Feb 2026 18:03:00 +0100
+Message-ID: <8234454.EvYhyI6sBW@workhorse>
+In-Reply-To: <20260224-drm-rework-color-formats-v1-14-bebc76604ada@kernel.org>
+References: <20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org>
+ <20260224-drm-rework-color-formats-v1-14-bebc76604ada@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7896; i=cassel@kernel.org; h=from:subject; bh=RGTq2r18gzctz4JuOYOuKDVbbCaqEX2oIvtQSlFHBiU=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDLnayctW3Lxod/+JDe558cXxpiWLNH87L5dOvdbyXXZl pWKbOrLOkpZGMS4GGTFFFl8f7jsL+52n3Jc8Y4NzBxWJpAhDFycAjCRJAaGf9qx249vjgvfNlmg hmtliuqzqUFvFB4f/rSOyYQpnOuEyVFGhk19spL56Q3vZSqvLm2sVt5w8eojiz1uv+XWCPWG7dW ZwgoA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_090401_135135_D17CFFF5 
-X-CRM114-Status: GOOD (  21.70  )
+X-CRM114-CacheID: sfid-20260225_090401_924473_64CEDFDA 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,191 +103,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a pci_epc_bar_type BAR_64BIT_UPPER to more clearly differentiate from
-BAR_RESERVED.
+On Tuesday, 24 February 2026 11:58:53 Central European Standard Time Maxime Ripard wrote:
+> The hdmi_colorspace enum was defined to represent the colorspace value
+> of the HDMI infoframes. It was later used by some HDMI drivers to
+> express the output format they should be setting up.
+> 
+> During the introduction of the HDMI helpers, it then was used to
+> represent it in the drm_connector_hdmi_state structure.
+> 
+> However, it's always been somewhat redundant with the DRM_COLOR_FORMAT_*
+> defines, and now with the drm_output_color_format enum. Let's
+> consolidate around drm_output_color_format in drm_connector_hdmi_state
+> to facilitate the current effort to provide a global output format
+> selection mechanism.
+> 
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+>  drivers/gpu/drm/bridge/inno-hdmi.c                 |   6 +-
+>  drivers/gpu/drm/bridge/ite-it6263.c                |   2 +-
+>  drivers/gpu/drm/display/drm_hdmi_helper.c          |   7 +-
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  52 ++++--
+>  drivers/gpu/drm/drm_bridge.c                       |   2 +-
+>  drivers/gpu/drm/drm_connector.c                    |  14 +-
+>  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c             |   8 +-
+>  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
+>  drivers/gpu/drm/tests/drm_connector_test.c         |  80 ++++-----
+>  drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 182 ++++++++++-----------
+>  drivers/gpu/drm/vc4/vc4_hdmi.c                     |  18 +-
+>  drivers/gpu/drm/vc4/vc4_hdmi.h                     |   2 +-
+>  include/drm/display/drm_hdmi_helper.h              |   3 +-
+>  include/drm/drm_connector.h                        |   7 +-
+>  14 files changed, 205 insertions(+), 180 deletions(-)
+> 
+> [... snip ...]
+>
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> index 4f5b27fab475c7c733622eb8727927571f3fb8fe..171cd495976a3e16f201fd339d3d42a09dc3b63f 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> [... snip ...]
+>  
+> @@ -1424,25 +1424,25 @@ drm_hdmi_connector_get_broadcast_rgb_name(enum drm_hdmi_broadcast_rgb broadcast_
+>  	return broadcast_rgb_names[broadcast_rgb].name;
+>  }
+>  EXPORT_SYMBOL(drm_hdmi_connector_get_broadcast_rgb_name);
+>  
+>  static const char * const output_format_str[] = {
+> -	[HDMI_COLORSPACE_RGB]		= "RGB",
+> -	[HDMI_COLORSPACE_YUV420]	= "YUV 4:2:0",
+> -	[HDMI_COLORSPACE_YUV422]	= "YUV 4:2:2",
+> -	[HDMI_COLORSPACE_YUV444]	= "YUV 4:4:4",
+> +	[DRM_OUTPUT_COLOR_FORMAT_RGB444]	= "RGB",
+> +	[DRM_OUTPUT_COLOR_FORMAT_YCBCR420]	= "YUV 4:2:0",
+> +	[DRM_OUTPUT_COLOR_FORMAT_YCBCR422]	= "YUV 4:2:2",
+> +	[DRM_OUTPUT_COLOR_FORMAT_YCBCR444]	= "YUV 4:4:4",
+>  };
+>  
+>  /*
+>   * drm_hdmi_connector_get_output_format_name() - Return a string for HDMI connector output format
+>   * @fmt: Output format to compute name of
+>   *
+>   * Returns: the name of the output format, or NULL if the type is not
+>   * valid.
+>   */
+>  const char *
+> -drm_hdmi_connector_get_output_format_name(enum hdmi_colorspace fmt)
+> +drm_hdmi_connector_get_output_format_name(enum drm_output_color_format fmt)
+>  {
+>  	if (fmt >= ARRAY_SIZE(output_format_str))
+>  		return NULL;
 
-This BAR type will only be used for a BAR following a "only_64bit" BAR.
+Almost unrelated nit: we might want to also `fmt < 0 ||` here, since the
+base type of enums is a signed int. I almost caught myself using this function
+as a way to quickly check if a supplied color format property from userspace
+was valid, which would've had some unpleasant consequences for the kernel's
+memory.
 
-This makes the BAR description more clear, and the reader does no longer
-need to check the BAR type for the preceding BAR to know how to interpret
-the BAR type.
+Alternatively, I make my own switch-case based "is this a valid enum value"
+function. I probably should do that actually, but my laziness lead me to
+make sure we only have a single source of truth of what counts as a valid
+enum value.
 
-No functional changes.
+>  
+>  	return output_format_str[fmt];
+> [... snip ...]
 
-Tested-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
----
- drivers/pci/controller/dwc/pci-layerscape-ep.c |  4 ++--
- drivers/pci/controller/dwc/pcie-keembay.c      |  6 +++---
- drivers/pci/controller/dwc/pcie-qcom-ep.c      |  4 ++--
- drivers/pci/controller/dwc/pcie-tegra194.c     |  2 +-
- drivers/pci/controller/dwc/pcie-uniphier-ep.c  | 10 +++++-----
- drivers/pci/controller/pcie-rcar-ep.c          |  6 +++---
- drivers/pci/endpoint/pci-epc-core.c            |  3 ++-
- include/linux/pci-epc.h                        |  5 ++++-
- 8 files changed, 22 insertions(+), 18 deletions(-)
+Thanks for your work on this series, I was afraid of getting rid of
+DRM_COLOR_FORMAT_* myself because I suspected it was going to be a
+fairly large refactor across every driver. Guess I was both right
+and wrong: it touches many files, but all the replacements are
+fairly simple. :)
 
-diff --git a/drivers/pci/controller/dwc/pci-layerscape-ep.c b/drivers/pci/controller/dwc/pci-layerscape-ep.c
-index a4a800699f89..5a03a8f895f9 100644
---- a/drivers/pci/controller/dwc/pci-layerscape-ep.c
-+++ b/drivers/pci/controller/dwc/pci-layerscape-ep.c
-@@ -251,9 +251,9 @@ static int __init ls_pcie_ep_probe(struct platform_device *pdev)
- 	pci->ops = pcie->drvdata->dw_pcie_ops;
- 
- 	ls_epc->bar[BAR_2].only_64bit = true;
--	ls_epc->bar[BAR_3].type = BAR_RESERVED;
-+	ls_epc->bar[BAR_3].type = BAR_64BIT_UPPER;
- 	ls_epc->bar[BAR_4].only_64bit = true;
--	ls_epc->bar[BAR_5].type = BAR_RESERVED;
-+	ls_epc->bar[BAR_5].type = BAR_64BIT_UPPER;
- 	ls_epc->linkup_notifier = true;
- 
- 	pcie->pci = pci;
-diff --git a/drivers/pci/controller/dwc/pcie-keembay.c b/drivers/pci/controller/dwc/pcie-keembay.c
-index 2666a9c3d67e..5a00b8cf5b53 100644
---- a/drivers/pci/controller/dwc/pcie-keembay.c
-+++ b/drivers/pci/controller/dwc/pcie-keembay.c
-@@ -313,11 +313,11 @@ static const struct pci_epc_features keembay_pcie_epc_features = {
- 	.msi_capable		= true,
- 	.msix_capable		= true,
- 	.bar[BAR_0]		= { .only_64bit = true, },
--	.bar[BAR_1]		= { .type = BAR_RESERVED, },
-+	.bar[BAR_1]		= { .type = BAR_64BIT_UPPER, },
- 	.bar[BAR_2]		= { .only_64bit = true, },
--	.bar[BAR_3]		= { .type = BAR_RESERVED, },
-+	.bar[BAR_3]		= { .type = BAR_64BIT_UPPER, },
- 	.bar[BAR_4]		= { .only_64bit = true, },
--	.bar[BAR_5]		= { .type = BAR_RESERVED, },
-+	.bar[BAR_5]		= { .type = BAR_64BIT_UPPER, },
- 	.align			= SZ_16K,
- };
- 
-diff --git a/drivers/pci/controller/dwc/pcie-qcom-ep.c b/drivers/pci/controller/dwc/pcie-qcom-ep.c
-index 18460f01b2c6..e55675b3840a 100644
---- a/drivers/pci/controller/dwc/pcie-qcom-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom-ep.c
-@@ -850,9 +850,9 @@ static const struct pci_epc_features qcom_pcie_epc_features = {
- 	.msi_capable = true,
- 	.align = SZ_4K,
- 	.bar[BAR_0] = { .only_64bit = true, },
--	.bar[BAR_1] = { .type = BAR_RESERVED, },
-+	.bar[BAR_1] = { .type = BAR_64BIT_UPPER, },
- 	.bar[BAR_2] = { .only_64bit = true, },
--	.bar[BAR_3] = { .type = BAR_RESERVED, },
-+	.bar[BAR_3] = { .type = BAR_64BIT_UPPER, },
- };
- 
- static const struct pci_epc_features *
-diff --git a/drivers/pci/controller/dwc/pcie-tegra194.c b/drivers/pci/controller/dwc/pcie-tegra194.c
-index 06571d806ab3..31aa9a494dbc 100644
---- a/drivers/pci/controller/dwc/pcie-tegra194.c
-+++ b/drivers/pci/controller/dwc/pcie-tegra194.c
-@@ -1993,7 +1993,7 @@ static const struct pci_epc_features tegra_pcie_epc_features = {
- 	.msi_capable = true,
- 	.bar[BAR_0] = { .type = BAR_FIXED, .fixed_size = SZ_1M,
- 			.only_64bit = true, },
--	.bar[BAR_1] = { .type = BAR_RESERVED, },
-+	.bar[BAR_1] = { .type = BAR_64BIT_UPPER, },
- 	.bar[BAR_2] = { .type = BAR_RESERVED, },
- 	.bar[BAR_3] = { .type = BAR_RESERVED, },
- 	.bar[BAR_4] = { .type = BAR_RESERVED, },
-diff --git a/drivers/pci/controller/dwc/pcie-uniphier-ep.c b/drivers/pci/controller/dwc/pcie-uniphier-ep.c
-index d52753060970..f873a1659592 100644
---- a/drivers/pci/controller/dwc/pcie-uniphier-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-uniphier-ep.c
-@@ -426,9 +426,9 @@ static const struct uniphier_pcie_ep_soc_data uniphier_pro5_data = {
- 		.msix_capable = false,
- 		.align = 1 << 16,
- 		.bar[BAR_0] = { .only_64bit = true, },
--		.bar[BAR_1] = { .type = BAR_RESERVED, },
-+		.bar[BAR_1] = { .type = BAR_64BIT_UPPER, },
- 		.bar[BAR_2] = { .only_64bit = true, },
--		.bar[BAR_3] = { .type = BAR_RESERVED, },
-+		.bar[BAR_3] = { .type = BAR_64BIT_UPPER, },
- 		.bar[BAR_4] = { .type = BAR_RESERVED, },
- 		.bar[BAR_5] = { .type = BAR_RESERVED, },
- 	},
-@@ -445,11 +445,11 @@ static const struct uniphier_pcie_ep_soc_data uniphier_nx1_data = {
- 		.msix_capable = false,
- 		.align = 1 << 12,
- 		.bar[BAR_0] = { .only_64bit = true, },
--		.bar[BAR_1] = { .type = BAR_RESERVED, },
-+		.bar[BAR_1] = { .type = BAR_64BIT_UPPER, },
- 		.bar[BAR_2] = { .only_64bit = true, },
--		.bar[BAR_3] = { .type = BAR_RESERVED, },
-+		.bar[BAR_3] = { .type = BAR_64BIT_UPPER, },
- 		.bar[BAR_4] = { .only_64bit = true, },
--		.bar[BAR_5] = { .type = BAR_RESERVED, },
-+		.bar[BAR_5] = { .type = BAR_64BIT_UPPER, },
- 	},
- };
- 
-diff --git a/drivers/pci/controller/pcie-rcar-ep.c b/drivers/pci/controller/pcie-rcar-ep.c
-index 657875ef4657..9b3f5391fabe 100644
---- a/drivers/pci/controller/pcie-rcar-ep.c
-+++ b/drivers/pci/controller/pcie-rcar-ep.c
-@@ -440,13 +440,13 @@ static const struct pci_epc_features rcar_pcie_epc_features = {
- 	/* use 64-bit BARs so mark BAR[1,3,5] as reserved */
- 	.bar[BAR_0] = { .type = BAR_FIXED, .fixed_size = 128,
- 			.only_64bit = true, },
--	.bar[BAR_1] = { .type = BAR_RESERVED, },
-+	.bar[BAR_1] = { .type = BAR_64BIT_UPPER, },
- 	.bar[BAR_2] = { .type = BAR_FIXED, .fixed_size = 256,
- 			.only_64bit = true, },
--	.bar[BAR_3] = { .type = BAR_RESERVED, },
-+	.bar[BAR_3] = { .type = BAR_64BIT_UPPER, },
- 	.bar[BAR_4] = { .type = BAR_FIXED, .fixed_size = 256,
- 			.only_64bit = true, },
--	.bar[BAR_5] = { .type = BAR_RESERVED, },
-+	.bar[BAR_5] = { .type = BAR_64BIT_UPPER, },
- };
- 
- static const struct pci_epc_features*
-diff --git a/drivers/pci/endpoint/pci-epc-core.c b/drivers/pci/endpoint/pci-epc-core.c
-index e546b3dbb240..1ad2f62963c8 100644
---- a/drivers/pci/endpoint/pci-epc-core.c
-+++ b/drivers/pci/endpoint/pci-epc-core.c
-@@ -104,7 +104,8 @@ enum pci_barno pci_epc_get_next_free_bar(const struct pci_epc_features
- 
- 	for (i = bar; i < PCI_STD_NUM_BARS; i++) {
- 		/* If the BAR is not reserved, return it. */
--		if (epc_features->bar[i].type != BAR_RESERVED)
-+		if (epc_features->bar[i].type != BAR_RESERVED &&
-+		    epc_features->bar[i].type != BAR_64BIT_UPPER)
- 			return i;
- 	}
- 
-diff --git a/include/linux/pci-epc.h b/include/linux/pci-epc.h
-index c021c7af175f..c22f8a6cf9a3 100644
---- a/include/linux/pci-epc.h
-+++ b/include/linux/pci-epc.h
-@@ -192,12 +192,15 @@ struct pci_epc {
-  *		   NOTE: An EPC driver can currently only set a single supported
-  *		   size.
-  * @BAR_RESERVED: The BAR should not be touched by an EPF driver.
-+ * @BAR_64BIT_UPPER: Should only be set on a BAR if the preceding BAR is marked
-+ *		     as only_64bit.
-  */
- enum pci_epc_bar_type {
- 	BAR_PROGRAMMABLE = 0,
- 	BAR_FIXED,
- 	BAR_RESIZABLE,
- 	BAR_RESERVED,
-+	BAR_64BIT_UPPER,
- };
- 
- /**
-@@ -207,7 +210,7 @@ enum pci_epc_bar_type {
-  * @only_64bit: if true, an EPF driver is not allowed to choose if this BAR
-  *		should be configured as 32-bit or 64-bit, the EPF driver must
-  *		configure this BAR as 64-bit. Additionally, the BAR succeeding
-- *		this BAR must be set to type BAR_RESERVED.
-+ *		this BAR must be set to type BAR_64BIT_UPPER.
-  *
-  *		only_64bit should not be set on a BAR of type BAR_RESERVED.
-  *		(If BARx is a 64-bit BAR that an EPF driver is not allowed to
--- 
-2.53.0
+Kind regards,
+Nicolas Frattaroli
+
 
 
