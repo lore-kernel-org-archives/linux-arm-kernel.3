@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8BF5FD376A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 16:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFC8FD3770
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 16:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lF810MbBOXWurvKEDoVBlIzVVMsOiboRq+22IVkxsxs=; b=bkXDOLgUjpwVTY9EN5AV8eXP92
-	G1Q5FB3sH4+1m0cE/FWadVNbdyNiYgXpCWY8/aVc3ILlm9zpjUi1LLbxk00Jb3dvoU5pIqHUcfVzc
-	TFEsPboLDWkMVSmcEi2FCir/v6ALDhu9ve1mQg26yCzvsySsT1IbkW7n4B1gHCQCKGtEBriOxlPK1
-	CU2kpT83t1S3Wb2TJMB5QCwgKTeWZZGKf1qk8Nq0rvkbGT5RELwzhQOSYkAAGHuFKDyKMsJkQWfxd
-	8mosJ1hhPAfkZeidNF5YMQskXTIrwavuKj7lz/Ag4tcfYZ+UkbPEj3hRw7KGOVmmpTxWuZSt4XM7j
-	ZevdpTAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ytBKjXnIpZFlPj6k38mosVxqNhe9e+hzjAgkKDAFxus=; b=qSftEvDBAtlVr9sZQlk30NvUuH
+	CSX5/KpbfoWchCK0GRD/DPAI3z0brbh7foKw9ONuQrse0xqknoYWeGBqfnskXHgs6yPqQodDBoVpU
+	fKg26bDxN1XgeqCR9r/0nE0/bxbKm1mPZZsggjVUZAF76qXUBbAgQcLIZsXE09DOWebbx8Tz5oWEm
+	tW6jpmmtZ5wYocxvcvRNbqf4kKBuiDmeriRyr9ZS+TKb4UlUQRcYpqlNhPmsUxxyOHA5k3fT+I2/1
+	8NrS07IsjgmFW7CLzNoyLfIkwguY3PCeOvFGP8gsGU3Tnra2fH/41K4aMqQWi1X3VikYEG0/VxWjJ
+	Zh/rFtww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvHLR-00000004Riv-29yP;
-	Wed, 25 Feb 2026 16:02:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvHLO-00000004RiQ-3j9Q
+	id 1vvHRK-00000004S2F-2RbH;
+	Wed, 25 Feb 2026 16:08:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvHRH-00000004S0R-2tGl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 16:02:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20658165C;
-	Wed, 25 Feb 2026 08:02:27 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 116AA3F62B;
-	Wed, 25 Feb 2026 08:02:32 -0800 (PST)
-Date: Wed, 25 Feb 2026 16:02:31 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Mike Leach <Mike.Leach@arm.com>
-Cc: Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Tingwei Zhang <quic_tingwei@quicinc.com>,
-	Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-	Jie Gan <jie.gan@oss.qualcomm.com>,
-	"coresight@lists.linaro.org" <coresight@lists.linaro.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	nd <nd@arm.com>
-Subject: Re: [PATCH 7/8] coresight: cti: Remove hw_enabled flag
-Message-ID: <20260225160231.GE4184494@e132581.arm.com>
-References: <20260209-arm_coresight_cti_refactor_v1-v1-0-db71ab4d200b@arm.com>
- <20260209-arm_coresight_cti_refactor_v1-v1-7-db71ab4d200b@arm.com>
- <PAVPR08MB9674FF028BD91B6DDF5B035A8C68A@PAVPR08MB9674.eurprd08.prod.outlook.com>
+	Wed, 25 Feb 2026 16:08:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FEB5444C3;
+	Wed, 25 Feb 2026 16:08:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F5B2C19421;
+	Wed, 25 Feb 2026 16:08:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772035718;
+	bh=/B2QfrFALKWSloUZN8RZMJ44JhHxgk0zEngrHRn7UaM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=aQsusfUtp/W0y6R3mZUwfIRgnm0Py09Oc41jSqlIBiRdOFaivWvTWaZwA3bBLRwTX
+	 zLLlHZ/tDHdGXtibR/a8LQKN6TBM1zNYkrWP938DRhAoU/R0/8AyqLS5LBDOhNrT2m
+	 lR57E5htV8oJXTx4mo3sDu1us49zf6uKRmfE10bIelSOBcuBub7vpjoeQKp7a0vewO
+	 ja21Wcnep40GXsNJlvUXQykzIlKLASpyLHOzDc78JVYE9XMwL919xSwnmDYpeeEKm/
+	 mmSfDFSkqQ8131ghAI34gGG8kVlwlVe3ZA6Mj250PHFg+2DFsr6AtJtbf+XVrnCqQG
+	 X37uKCpOkqa1w==
+Received: by wens.tw (Postfix, from userid 1000)
+	id A095A5FD2A; Thu, 26 Feb 2026 00:08:35 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Lee Jones <lee@kernel.org>,
+	Pavel Machek <pavel@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-leds@vger.kernel.org
+Subject: [PATCH 1/3] dt-bindings: leds: sun50i-a100: Add compatible for Allwinner A523 SoC
+Date: Thu, 26 Feb 2026 00:08:24 +0800
+Message-ID: <20260225160828.1687643-2-wens@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260225160828.1687643-1-wens@kernel.org>
+References: <20260225160828.1687643-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAVPR08MB9674FF028BD91B6DDF5B035A8C68A@PAVPR08MB9674.eurprd08.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_080234_990715_7BB9C74C 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260225_080839_752882_A1E27AC7 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,26 +83,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
+The Allwinner A523 SoC family features an identical LED controller as
+found on the A100.
 
-On Fri, Feb 20, 2026 at 02:31:11PM +0000, Mike Leach wrote:
+Add a SoC-specific compatible for it, with fallback to the A100 one.
 
-[...]
+Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+---
+ .../devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml     | 1 +
+ 1 file changed, 1 insertion(+)
 
-> > The enable_req_count field already tracks whether the CTI device is
-> > enabled.  A non-zero value indicates that the device is active, the
-> > hw_enabled flag is redundant if so.
-> > 
-> 
-> Minor nit - removal of this flag actually started in the previous patch.
-> If respinning might be worth combining this and the previous one.
+diff --git a/Documentation/devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml b/Documentation/devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml
+index 760cb336dccb..0b73fe5b662f 100644
+--- a/Documentation/devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml
++++ b/Documentation/devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml
+@@ -21,6 +21,7 @@ properties:
+           - enum:
+               - allwinner,sun20i-d1-ledc
+               - allwinner,sun50i-r329-ledc
++              - allwinner,sun55i-a523-ledc
+           - const: allwinner,sun50i-a100-ledc
+ 
+   reg:
+-- 
+2.47.3
 
-In the new version, I will keep separate patches for removing the
-hw_enabled and hw_powered flags, as they are two different things.
-This would be easier to review and friendly for bisection.
-
-I will take your suggestion in patch 08.
-
-Thanks,
-Leo
 
