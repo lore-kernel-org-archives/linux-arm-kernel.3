@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0632EFD214
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 09:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250D6EFD211
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 09:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/YFuJsq9cUoXg0nWCd+cbLNRSqV7PV/bFihaLL87l0=; b=QR8KdLr3DacUXrGfpkIZCxaMxh
-	AYhvE5ethlWfR7v+l3BX3brHufIZ4mXYSsBLxBFkFZH+aHGzGuNZUUcuH+02OpdsiJloN6AytuheP
-	LYFQ9tLG/xzuD0RM9/znvJeEUqAM7/30Jd5RyOITjFUraUPK3VkPNNu6S1Q+w6xyvUSdBXKXQCd4b
-	CF/ZHPVgbiRFZPRo9TXzkv8ggYSrD8uVDRGp19gHshLvemEohLtyaCdOlmTL7ITsUA2TdDYwjbCaM
-	7+326NOdpZszRPuye0G18J2zCrNZiujehNqq47M2HFhq9QZ30awH0+KtW7EyuEfaiYE9ApFEyXO9C
-	q8uUTVOw==;
+	bh=4GE1UuB5Zf3febGkFeJcabfLeF/rQloilvat6kJRzwk=; b=rSm8JWhpH/Y1YQJgkZtFCRhIae
+	yklbNJlmOhO8+V/FFLRvR76hrJE4vCQUXZjLwBvEbaxdKrcJr43cg8k9ufjYRetH39rXk00uckOoA
+	W8oL6SpyT6UhsFB/mdX3+ULnRcJQ1NPi2gHAY+ciggz1of5i04P0cPiQ5QGjLOSXNjH1E8tuIgaKj
+	eFGHysJEA3Y5WuEJtTxy+D6X3JQI0Mq5Lf6iMiPdFdnOsO88oqeVuJNcuHy5kCzeDOhW8ua4/dttY
+	f44wSrQGM7OI81fpZ6MgfKPYvlPwM7LkRb337G32zatERrDNOXF+z3UAYtPlJNVS/+xwahOXRF+oI
+	1cnKXB9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvB8g-00000003g3g-3CZf;
-	Wed, 25 Feb 2026 09:25:02 +0000
+	id 1vvB8h-00000003g45-0FMr;
+	Wed, 25 Feb 2026 09:25:03 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvB8c-00000003g0P-2GlQ
+	id 1vvB8e-00000003g0P-0t79
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 09:24:59 +0000
+	Wed, 25 Feb 2026 09:25:01 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 25 Feb
@@ -35,13 +35,13 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Wed, 25 Feb 2026 17:19:41 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Wed, 25 Feb 2026 17:19:38 +0800
-Subject: [PATCH v25 1/4] dt-bindings: i2c: Split AST2600 binding into a new
- YAML
+Date: Wed, 25 Feb 2026 17:19:39 +0800
+Subject: [PATCH v25 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and transfer-mode properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260225-upstream_i2c-v25-1-9f4bdd954f3f@aspeedtech.com>
+Message-ID: <20260225-upstream_i2c-v25-2-9f4bdd954f3f@aspeedtech.com>
 References: <20260225-upstream_i2c-v25-0-9f4bdd954f3f@aspeedtech.com>
 In-Reply-To: <20260225-upstream_i2c-v25-0-9f4bdd954f3f@aspeedtech.com>
 To: <jk@codeconstruct.com.au>, <andriy.shevchenko@linux.intel.com>, Andi Shyti
@@ -55,16 +55,16 @@ CC: <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>, Ryan Chen
 	<ryan_chen@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772011180; l=3535;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772011180; l=2721;
  i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=p3XViIblhW8oJFj6n1Zsl2Rw5WTqZm8nLB8Wh7OmMo4=;
- b=yyABtNoyBgfq/HsTN7vuppf+LNLpgedEgEYnXwHJK6eePm47Cj81kCQTATl+KqMsokwQu7jj8
- MVAoLhx9BMHBkQ9wcPXnxfrqv0Brepquj6mz57dqq8DLD0Xxfe37L86
+ bh=oX37qsTcUQZ/XyFfLT9VnkE5sPvidHdjowEh6vs+5BE=;
+ b=QqlvBQCChB3mqPzpYxnPzXFaa4Be4013ejFg7dEOh7fjspFug+AfMSLos4WUMeDHySrX0r48S
+ mrEb9/haromC8gX4n8AtgegaCnyD1KHHhlsUjsaHtaF/bSOUTRPgVcQ
 X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
  pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_012458_575377_EF844B83 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20260225_012500_244543_552CD4EC 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,120 +79,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2600 I2C controller introduces a completely new register layout
-with separate controller and target register blocks, unlike the mixed
-register layout used by AST2400/AST2500.
+The AST2600 I2C controller supports three transfer modes (byte, buffer,
+DMA). Add "aspeed,transfer-mode" so DT can select the preferred transfer
+method per controller instance. Also add the "aspeed,global-regs"
+phandle to reference the AST2600 global registers syscon/regmap used by
+the controller.
 
-To describe this properly, split out the AST2600 I2C binding into its
-own YAML file. The compatible string remains unchanged.
-
-The example section is updated to reflect the actual AST2600 SoC
-register layout and interrupt configuration (aspeed-g6.dtsi,
-lines 885-897):
-
-- I2C bus and buffer register offsets
-  - AST2600 I2C controller register base starts at 0x80, and the
-    buffer region is located at 0xc00, per the AST2600 SoC register map.
-
-- Interrupt configuration
-  - AST2600 I2C controllers are connected to the ARM GIC, not the legacy
-    internal interrupt controller.
+These properties apply only to the AST2600 binding and are not part of
+the legacy binding, which uses a mixed controller/target register layout
+and does not have the split register blocks or these new configuration
+registers. Legacy DTs remain unchanged.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 ---
- .../bindings/i2c/aspeed,ast2600-i2c.yaml           | 62 ++++++++++++++++++++++
- .../devicetree/bindings/i2c/aspeed,i2c.yaml        |  3 +-
- 2 files changed, 63 insertions(+), 2 deletions(-)
+ .../bindings/i2c/aspeed,ast2600-i2c.yaml           | 29 ++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-new file mode 100644
-index 000000000000..077be85137c9
---- /dev/null
+index 077be85137c9..c45c8ceaf897 100644
+--- a/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
 +++ b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-@@ -0,0 +1,62 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/i2c/aspeed,ast2600-i2c.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ASPEED I2C on the AST26XX SoCs
-+
-+maintainers:
-+  - Ryan Chen <ryan_chen@aspeedtech.com>
-+
-+allOf:
-+  - $ref: /schemas/i2c/i2c-controller.yaml#
-+
-+properties:
-+  compatible:
+@@ -37,6 +37,33 @@ properties:
+   resets:
+     maxItems: 1
+ 
++  aspeed,transfer-mode:
++    description: |
++      ASPEED ast2600 platform equipped with 16 I2C controllers each i2c controller
++      have 1 byte transfer buffer(byte mode), 32 bytes buffer(buffer mode), and
++      share a DMA engine.
++      Select I2C transfer mode for this controller. Supported values are:
++        - "byte": Use 1 byte for i2c transmit (1-byte buffer).
++        - "buffer": Use buffer (32-byte buffer) for i2c transmit. (default)
++                    Better performance then byte mode.
++        - "dma": Each controller DMA mode is shared DMA engine. The AST2600 SoC
++                 provides a single DMA engine shared for 16 I2C controllers,
++                 so only a limited number of controllers can use DMA simultaneously.
++                 Therefore, the DTS must explicitly assign which controllers are
++                 configured to use DMA.
++      On AST2600, each controller supports all three modes.
++      If not specified, buffer mode is used by default.
 +    enum:
-+      - aspeed,ast2600-i2c-bus
++      - byte
++      - buffer
++      - dma
 +
-+  reg:
-+    items:
-+      - description: controller registers
-+      - description: controller buffer space
++  aspeed,global-regs:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle reference to the i2c global syscon node, containing the
++      SoC-common i2c register set.
 +
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-frequency:
-+    description: Desired operating frequency of the I2C bus in Hz.
-+    minimum: 500
-+    maximum: 4000000
-+    default: 100000
-+
-+  resets:
-+    maxItems: 1
-+
-+required:
-+  - reg
-+  - compatible
-+  - clocks
-+  - resets
-+  - interrupts
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/aspeed-clock.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    i2c@80 {
-+      #address-cells = <1>;
-+      #size-cells = <0>;
-+      compatible = "aspeed,ast2600-i2c-bus";
-+      reg = <0x80 0x80>, <0xc00 0x20>;
-+      clocks = <&syscon ASPEED_CLK_APB>;
-+      resets = <&syscon ASPEED_RESET_I2C>;
-+      clock-frequency = <100000>;
-+      interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-+    };
-diff --git a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-index 5b9bd2feda3b..d4e4f412feba 100644
---- a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: ASPEED I2C on the AST24XX, AST25XX, and AST26XX SoCs
-+title: ASPEED I2C on the AST24XX, AST25XX SoCs
- 
- maintainers:
-   - Rayn Chen <rayn_chen@aspeedtech.com>
-@@ -17,7 +17,6 @@ properties:
-     enum:
-       - aspeed,ast2400-i2c-bus
-       - aspeed,ast2500-i2c-bus
--      - aspeed,ast2600-i2c-bus
- 
-   reg:
-     minItems: 1
+ required:
+   - reg
+   - compatible
+@@ -59,4 +86,6 @@ examples:
+       resets = <&syscon ASPEED_RESET_I2C>;
+       clock-frequency = <100000>;
+       interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
++      aspeed,global-regs = <&i2c_global>;
++      aspeed,transfer-mode = "buffer";
+     };
 
 -- 
 2.34.1
