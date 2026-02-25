@@ -4,116 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD767FD3762
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA0DFD3760
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 14:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GFxLS33PdhSpznMuzyw3zEVwtXfEKBUhPAuoZQ1rmbY=; b=E1aIIwKveC+W85POhht+ZnpVH2
-	LFCmC/lY1IbFuRHrtN/Pqgs4yg+n+gmi1jCjx1ZehkOpijt6UR+q0G2dhpVoMATHE/F79TwMCELs7
-	xHewdYL5lOuNuhnBadCkHcr5+8xtr6LwrhdQLnoGOhiqmnCJ9KAeC92WACR/exvwFOFtwp3DZrCt7
-	alqFVhTxfd3vicauoZIxPD+uRvaH70rq1SYAiRcpIOyHCyTMNDXKUl5eODaYgknrIXoxy1Nb+wyY9
-	PKMoNTgaeTJGSePNc3S+klgDagGmszARSmY2Yf+y1gD93SqEVTa8ggTgEjW1W2trQJ/6XBGFzH42N
-	wWEee38Q==;
+	bh=od3up8LA4QWuWHDBqv+P6oVpa8CKp0bnaTd8fhvCKZs=; b=RQ8r6R5SZUG/VSPnp7NM3zyWaj
+	qQZ/6JnZVSp/XKO7q3Y2wtyg5BPrzEKlKMtnWq5+eti6mpR8c0gTq8yoagRp1rMr9t4mOXjQofNO9
+	aPElP3/0hgF7DetktyYrx7Ztvvi5H/gvBebHQ56TLcbdiH2KnrDGoGmKH9YDID9fevZYUQQj6JMR/
+	CKLEvomC0TB1OO9piAii9N2IxQpMbukqd8a7mX6tpBR5xuWi1uHehktsU+MTkfe32XPBXM3oH4Py+
+	JlFDJzsZJHwTeGg6hTnq6f1QpZYqdKDi+l6cFi4avD3ZqRzQiyxgWc8ycnfUIYDwIj4umcvzmA22N
+	lydNjFsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFc1-00000004AbP-1WK5;
-	Wed, 25 Feb 2026 14:11:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvFc9-00000004Aej-0osI;
+	Wed, 25 Feb 2026 14:11:45 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvFbo-00000004AZd-2yaT;
-	Wed, 25 Feb 2026 14:11:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EED59444E7;
-	Wed, 25 Feb 2026 14:11:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C094C2BC86;
-	Wed, 25 Feb 2026 14:11:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772028683;
-	bh=SjklxF5P1ukWq1BdzFbfzWWtsg3DlSbDa9GVYCTfBao=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B3ivDnBnOfYCqWXOyOu+/9HdePS1rKGtYvm03h40GTUFPLcP2JpCzl2IQ1ByV0DwE
-	 Z7+ITwCMl2tD4W57SVN9g1RujPJIx6cyy/NwFhM0gomZcQ4vrMfzHuJDa6rFGQ55Cd
-	 rmkIOeo5l0cy8isgwOJ0GMwOvMoEXQLCJWZ2BEioD5AtCyIRQYj83/9d+Gqg6YcL4H
-	 D0oEkp9azfV0rCPDmuV9Vo4TcWYve+f0CnvgssNeBaPTv35f+79+PP467+orGSZOmQ
-	 b2idEes6l5kywJrNei3PLGIcH3L2cR5p/8o+eJU0rZAfiwJEDe2BjLgstjmAro4svs
-	 R2DBFCUDzNW+g==
-Message-ID: <85793250-425d-40da-b382-ada9fc7b50e1@kernel.org>
-Date: Wed, 25 Feb 2026 15:11:18 +0100
+	id 1vvFc3-00000004Abg-1KEN;
+	Wed, 25 Feb 2026 14:11:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=od3up8LA4QWuWHDBqv+P6oVpa8CKp0bnaTd8fhvCKZs=; b=p6UN2QO95OKKBQnoln6IyVQC41
+	KeUkZGynHy6LSadI71VbPa0STO2LDPAvFMZdF1MWyq39wq8EpSpuaaO0dE/SvnDekleU/iRvJAGmK
+	hD8rj7c5F1Jxwuw+y8fyal1zvmws7WuPz+Xo5KPLIkXoE7OSI5FhCMAx3Ubsz60eaBprODLuAQTId
+	Gwb47gZgaKdeGuOUAXYuosXZIteseb8IM4DcmvMGPFZ1IK2ecnO+GNUB6809FORqV8o8A5jY3WQAS
+	zDAopCscV+NeybnqOnBFN/AivHw8yQDwZ4dMvknoxVQ87S10n4Qzu/K9vCZqv/Ciq6gwpXGaVXPtW
+	uyp+PTzg==;
+Received: from [189.7.87.203] (helo=[192.168.0.2])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1vvFby-005G79-Qu; Wed, 25 Feb 2026 15:11:35 +0100
+Message-ID: <8cbde2e6-e5e3-4bfa-a7da-7ffe47b77658@igalia.com>
+Date: Wed, 25 Feb 2026 11:11:29 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] media: dt-bindings: rockchip,vdec: Add alternative
- reg-names order for RK35{76,88}
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
- linux-media@vger.kernel.org
-References: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
- <20260225-vdec-reg-order-rk3576-v3-1-5a2ebe1b11a8@collabora.com>
- <9bb74438-e759-46a7-9fa1-2c6b1fced76b@kernel.org>
- <d5a244f3-5f1b-4bcb-8042-646320a47b6c@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Fix broken reset status
+ read
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>
+Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+References: <20260212150039.67117-2-mcanal@igalia.com>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <d5a244f3-5f1b-4bcb-8042-646320a47b6c@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <20260212150039.67117-2-mcanal@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_061124_796940_6875604B 
-X-CRM114-Status: GOOD (  27.13  )
+X-CRM114-CacheID: sfid-20260225_061139_362181_5A64210B 
+X-CRM114-Status: GOOD (  24.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,99 +102,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2026 14:36, Cristian Ciocaltea wrote:
-> On 2/25/26 2:26 PM, Krzysztof Kozlowski wrote:
->> On 25/02/2026 13:19, Cristian Ciocaltea wrote:
->>> With the introduction of the RK3588 SoC, and RK3576 afterwards, the
->>> 'link' and 'cache' register blocks have been provided for the video
->>> decoder unit in addition to the existing 'function' one, which now shows
->>> up in between them (from address-based ordering point of view).
->>>
->>> However, the binding does not properly describe this hardware layout, as
->>> the new blocks are listed after the old one.  Therefore it breaks the
->>> convention expecting the unit address to indicate the first register
->>> range.
->>>
->>> Since the binding changes have been already released and a fix would
->>> bring up an ABI break, mark the current 'reg-names' listing as
->>> deprecated and introduce an alternative 'link,function,cache' one.
->>>
->>> Additionally, drop the 'reg' description items as the order is not fixed
->>> anymore, while the information they offer is not very relevant anyway.
->>>
->>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>> ---
->>>  .../devicetree/bindings/media/rockchip,vdec.yaml      | 19 ++++++++++++-------
->>>  1 file changed, 12 insertions(+), 7 deletions(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>> index 809fda45b3bd..3f6072e8baa5 100644
->>> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
->>> @@ -28,16 +28,21 @@ properties:
->>>  
->>>    reg:
->>>      minItems: 1
->>> -    items:
->>> -      - description: The function configuration registers base
->>> -      - description: The link table configuration registers base
->>> -      - description: The cache configuration registers base
->>> +    maxItems: 3
->>>  
->>>    reg-names:
->>> -    items:
->>> +    oneOf:
->>>        - const: function
->>
->> This is confusing, I think I missed that in previous patch because it
->> did not leave that part or I misread the diff hunk - why do you allow
->> one entry?
-> 
-> That's for the older SoCs, e.g. RK3288, RK3399, as the 'link' and 'cache' blocks
-> are only available for RK3576 & RK3588.
+Hi Ulf,
 
-Yeah, I see in the bottom of the binding
-
-> 
->>
->> If the first entry is function, then all others MUST built on top, thus
->> this:
->>
->>> +          - const: link
->>> +          - const: function
->>> +          - const: cache
->>
->> is not correct.
->>
->> No, you don't change the orders. So again, if you have such binding,
->> then you just fix the unit address leaving the binding as is.
-> 
-> Changing the unit address would mean it will point inside the register range,
-> rather than at the beginning of it.
-
-First, not true. If this was one register range, you would have one
-entry. You cannot split entries. Split entries means you have two
-SEPARATE register ranges.
-Second, it does not matter because main rule stays - the unit address
-describes the main address space. The main address space in other device
-was called "function", so I assume the main address space is also here
-the "function". Which makes sense, because link feels secondary to
-functioning of the device.
-
-> 
-> Sorry, but I don't quite get why would this be a better approach than just
-> properly list the items according to the HW layout, i.e. following the
-> address-based ordering?
-
-We always expect the list to grow, to have common set. That's rule given
-during reviews multiple times. For multiple reasons, also explained
-(consistency, maintenance and actually proper description of hardware
-like the main reg address space).
-
-Probably this was also given to that binding during discussions when it
-was upstream, so your change reverts previous discussion and to that I
-do not agree.
+Friendly ping on this patch. Could you take a look at it when you get a
+chance? Florian and Stefan already reviewed it a couple of weeks ago and
+it would be great to have it picked.
 
 Best regards,
-Krzysztof
+- Maíra
+
+On 12/02/26 11:49, Maíra Canal wrote:
+> bcm2835_reset_status() has a misplaced parenthesis on every PM_READ()
+> call. Since PM_READ(reg) expands to readl(power->base + (reg)), the
+> expression:
+> 
+>      PM_READ(PM_GRAFX & PM_V3DRSTN)
+> 
+> computes the bitwise AND of the register offset PM_GRAFX with the
+> bitmask PM_V3DRSTN before using the result as a register offset, reading
+> from the wrong MMIO address instead of the intended PM_GRAFX register.
+> The same issue affects the PM_IMAGE cases.
+> 
+> Fix by moving the closing parenthesis so PM_READ() receives only the
+> register offset, and the bitmask is applied to the value returned by
+> the read.
+> 
+> Fixes: 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domains under a new binding.")
+> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+> ---
+> 
+> Hi,
+> 
+> Most likely this bug went unnoticed as there is no in-tree driver
+> currently calling reset_control_status() on the BCM2835 reset
+> controller. Although I'm sending a fix to the .status callback, another
+> possibility would be removing the implementation of this callback
+> considering that (1) it's broken and (2) it's not used.
+> 
+> I'd appreciate your feedback about the most suitable option.
+> 
+> Best regards,
+> - Maíra
+> 
+> ---
+> 
+>   drivers/pmdomain/bcm/bcm2835-power.c | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm/bcm2835-power.c
+> index 1d29addfe036..0450202bbee2 100644
+> --- a/drivers/pmdomain/bcm/bcm2835-power.c
+> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
+> @@ -580,11 +580,11 @@ static int bcm2835_reset_status(struct reset_controller_dev *rcdev,
+>   
+>   	switch (id) {
+>   	case BCM2835_RESET_V3D:
+> -		return !PM_READ(PM_GRAFX & PM_V3DRSTN);
+> +		return !(PM_READ(PM_GRAFX) & PM_V3DRSTN);
+>   	case BCM2835_RESET_H264:
+> -		return !PM_READ(PM_IMAGE & PM_H264RSTN);
+> +		return !(PM_READ(PM_IMAGE) & PM_H264RSTN);
+>   	case BCM2835_RESET_ISP:
+> -		return !PM_READ(PM_IMAGE & PM_ISPRSTN);
+> +		return !(PM_READ(PM_IMAGE) & PM_ISPRSTN);
+>   	default:
+>   		return -EINVAL;
+>   	}
+
 
