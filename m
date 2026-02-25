@@ -4,89 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4BDFD376C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 15:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DADDBFD376C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 15:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0P0g16xTJdhYm8l3vI0AbR3OUqzHDBE6PhK3jSMQGU=; b=ZgbThBBPBhUj+a+0OJx2Chf9iE
-	GnwAplwZ/gsmhh9C6kcjBQbOzchlzl2BmRZeai+Jjjj42MAv/ZMER58KzExmdXcu5cSfi+7nNSecF
-	jrls95FuPjFavSquIJMrdn+Jg6XPrG1FDvUdSH0SKLiQX9gt12n1VlHzGn6JL2OyWWnVB4DRCVUKk
-	DB9p5Rl9bDaSUgKujdbUKGIhsDBYUFJf8/ANUu9AWZQhcCVnb35RyX2J1LCC0HndFFluGTYwzyoK7
-	bEpjr7Drwrfcu8fv3fy7KvQgy1zL+ptOzZ9gLc/vtsJiiE21f/CucE/Eo2lAI63fl4lwDgTfkgitE
-	gEH+U/Kw==;
+	bh=IU5+/mH4e4THScL9oOYyJ/vmrag8/yXTCNKNMqupNCk=; b=mOxebcxGabAyxZ4Qv0wKjFQpGx
+	50kItLWNwxSXjbJe4Ccgw6uYn3zCYBPjXilhu6K3ZofOdoYbBrif6lLpm+kLWK4444bgAuqqZGJY/
+	7Xiz+G35UdxVcYb8j6OHiEJFcM9mWSe7WrLbSgd1dXtSYbLrmf/xyH4SU0EkOTBrzAlau3S1PAqGi
+	vsDyDSSi3QT49QphmTF+dJrF/RgT0jICA6QBjM5Z9qwX+eIbTk/Ri5EAEfeGe8JhwP9ka2DiKBPhs
+	ntgZ1AAftKP5WM6hxc6R4GM4G0huwkrg/6EKsbHKgPIIBV6o4pDfE5qPLSFus7bRbvK+TG4NTrQ5G
+	o7dwOMYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvHFd-00000004Qws-1y5r;
-	Wed, 25 Feb 2026 15:56:37 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vvHIO-00000004RFN-1aRF;
+	Wed, 25 Feb 2026 15:59:28 +0000
+Received: from mail-northeuropeazon11011007.outbound.protection.outlook.com ([52.101.65.7] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvHFc-00000004QwY-22aI;
-	Wed, 25 Feb 2026 15:56:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Subject:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Cc:To:From:Sender:
-	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=K0P0g16xTJdhYm8l3vI0AbR3OUqzHDBE6PhK3jSMQGU=; b=szulYOn7tWgpvOjLdOm8k/k76m
-	ea8R9BgeQ2inIfZ+VbjawZMZFcR2iI1hibFxR0/PeEWQGbthaVhpxToH4USlluMZrwjZS1VkXC2Pv
-	8PXN2o71aq3Mf3ysKq08Jg1sRWAViMHG+YwoWMlgpI07mgE5fMUDZqSQMGNIH4AwSNTJZzBXb9eUz
-	SnPij4iCidjOM9h0j9rusyD72MBwPKLXpfJKLgJZALqKEnuXSjRZQCEpUrPn8WJ7Vf5xmNTAFN+Hs
-	OEgjN6PAcRyQOQlNKjD7vzNmtkYOit9ngsZjEQCKtc+JpX8SknZGoNVqm2ahCAIgEkFSzEBwaJcw2
-	GM3GOuhQ==;
-Received: from mail.hugovil.com ([162.243.120.170])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvHFZ-00000001I8T-1OWm;
-	Wed, 25 Feb 2026 15:56:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=x; h=Subject:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Cc:To
-	:From:subject:date:message-id:reply-to;
-	bh=K0P0g16xTJdhYm8l3vI0AbR3OUqzHDBE6PhK3jSMQGU=; b=rsQqJHwZaMP5H5rjbQqDX0aJEH
-	CrKT+SkMKHEXDVfMlwtNuZBDMjp6mtOSI8g0XVYvTH6v+lJPMF83+gyOS/c5T9xVRRZV75I4qPxRs
-	2XsQ1gBJEoQoBHFkhckW7V+W2zp7vbjFN0a3IniMGMdsyiBE6JB/JiIJIfvaWqj5lTvg=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:47746 helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.92)
-	(envelope-from <hugo@hugovil.com>)
-	id 1vvHDM-0005uT-JY; Wed, 25 Feb 2026 10:54:17 -0500
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: robin@protonic.nl,
-	andy@kernel.org,
-	geert@linux-m68k.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	dmitry.torokhov@gmail.com,
-	hvilleneuve@dimonoff.com,
-	mkorpershoek@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	lee@kernel.org,
-	alexander.sverdlin@gmail.com,
-	marek.vasut@gmail.com,
-	akurz@blala.de
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	hugo@hugovil.com
-Date: Wed, 25 Feb 2026 10:54:00 -0500
-Message-ID: <20260225155409.612478-4-hugo@hugovil.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260225155409.612478-1-hugo@hugovil.com>
-References: <20260225155409.612478-1-hugo@hugovil.com>
+	id 1vvHIL-00000004REc-44lK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Feb 2026 15:59:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Kb55BnEUBgYkmDk+33nLyHMRZiZu4sKvnhXKYFudyIs1lEvromv+fredKrZXgi5FFDqhq5/Mp4dqh4dIFSfcHVLKFTlmstburv2VK5JvtLkhOBu/1huEgRLlGwsCL6L/WbA0AYtmYwDKr98hoNMUp1UnWDmpmsvqHquqRCip7SC0/iIAH2G6CXZ66xeoCh46oWOJsd637XsNzXla018fInGJGX40dBkT+khRUpqeJJX2cppGr5Gom6Sy6ID0Xkbj+QWIb++zrB3rE9bMvVTlEM35IgDp4ywzlVCV4ufmK7ByFi8HNPdiZG8Bj5AUtMDtlSYQwWKsBqHFk9+xFQ/OoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IU5+/mH4e4THScL9oOYyJ/vmrag8/yXTCNKNMqupNCk=;
+ b=WcYYCl0Op9x8bhOh6i/KbQCGsYePyJ/CTE4WGqVUBh6+B7cITF9nHUi9VO/2AI7onglpofE9R5E6/kzenfvfvlUM9N7IZjpODK5jl82BAgwR6xcqevnN1eACcX1tyesjBVxAAiIwtkX5pOqKkUKqpGqRU1/fZRh/k3otoEn77mbY3hu1Cg3RcYGl6HEtrX76Wrviz+pkdYxgxDMZsiIvwqs7c0jtA2wYpHeFs/zj1ydU9QdIJ4pxTG0AUu+4OuJ5WjfqA0kdz1O+gK1pvzlWlBXhM9K8ypkiRQXSDisA8L+cQUMKyuR5pLWPC4chr3fXNUi9qb+JFCyRHLaHLMUNHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IU5+/mH4e4THScL9oOYyJ/vmrag8/yXTCNKNMqupNCk=;
+ b=aat5GCoX8GsNkNIhpwGWT5bYEP+zVcvUTB+69Z0S68V2Y7P1VwPtJhWwMSPUTKScQK5TWMv+i/n8gsCRpqiOGbKYLW0y7Qv8S0hxufyJHI/7SGRiP2ez82Yc4XH+CshHj26b8YGgxJ2FfXLGrg11Ks09Qbq8Ql6Wrtwk51fpHLNOiUA6Ec/LGEgLo4fjgOMWKEy/SDkOlBgI6YzfUUiT3Xdivm+L92FComDUW+aem2gxeZiusrhxZggT79NfvsKoUWrGwRFPnKzXO4g/bIFnBG5+Kgl45a9asz2lQBcNqdiwNnd34TgotNIjn25s3UGMol31YB5nO10NXLGcyK4m6A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AM8PR04MB7251.eurprd04.prod.outlook.com (2603:10a6:20b:1d2::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.23; Wed, 25 Feb
+ 2026 15:59:22 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.017; Wed, 25 Feb 2026
+ 15:59:22 +0000
+Date: Wed, 25 Feb 2026 10:59:16 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 00/10] i.MX SDMA cleanups and fixes
+Message-ID: <aZ8cVP7E-BOEJKFu@lizhi-Precision-Tower-5810>
+References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
+X-ClientProxiedBy: SA1P222CA0144.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c2::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 70.80.174.168
-X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: [PATCH v3 3/4] dt-bindings: input: add GPIO charlieplex keypad
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM8PR04MB7251:EE_
+X-MS-Office365-Filtering-Correlation-Id: 496dced6-1a60-4d8b-6344-08de7486d756
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|52116014|7416014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: 4c3I9q8oaP3QdyIQ+7hkpbpUdSECbJSeUlKGGEgV/po6C+3RSqrOhAu4TCXRVoLvqIJPwUFg3dWo5NAT0U5lrWS3ewuHD3SFhRV2wLspH+AC7kpgh9QSpc+8VH+fi2vZTXSsoTH0cygD8+zEd+wg8wosaOUCaV1iZCPZOWVWmFkFO0e8Ti0HbJwIvHZJOxdjZJKIppfklqGwU8OCC2sgAsFX3JJrkrf462pwF2rAlMqIXXPaUwnTcCrYpMnKgyQ5JklmWajzV+BD3kGy81hJWkjTdgmk95Z1fkXkjWsZfuPwScbb7DRilnqXUm78y6FvgYEQpPBV1kgD51pKZ37BsqLiBTJIvhPie3ZFhHE3N4qv+48X74+vzKkw48XOww7s72uo4Q/ICvGusyhZzgu5fldRDLxEzf2h8qDPkyL64nx9pCTvl7OrQVQAFpHVxE8GkXO5DkN9HGDU2uZES3DdQFYP2X2G8stM39Ch6qMZ6Rze/xTV47/ayO3NZ1t2R/IeNP01zIL7dZq0qcNfJyI99tVk2q17gh2Ss3bA0EuJfo4BfwYOqN+UrN5yB1SewlzItk69o2zrBpm+gLmVSjOAH1NF7u5lDJ/FAjDPMDfQvFYbfda/fWu2O+cpfpcv8Q6lii2VS2ivICiPMm4dJzu+8yultJifa16s37uzK0lFKkzpSHaADqa7KcLd8k0vz08SDBnVc9HMWu10e1hMnAEgKhM85i2io0JKaKky8Wx16/+LDBfLPkdGiW0mkRTmLaC1pUtw0KeMd3BmyNP0vAapfg28yJDSO0svY8hgYxEFnio=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(52116014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MK6FVu3cbnZIt3/Sc8rqum1oSqnULpVfEsKuw5FYjieuu0PRFr7f7Pz0LxZL?=
+ =?us-ascii?Q?q0yj+zo5CrNE9qcu4J3PGET6OlJWbgk0u6wLsERsj9ok7akV1rR+YvOKHxlg?=
+ =?us-ascii?Q?B1qWLhRxcDDSj7JCjKA4zvz7YQ0qFxOjU0W23+Vck0qV82CVTErlwJUbu3di?=
+ =?us-ascii?Q?l1/tY/qACo1jv74uL3KOzP7JqZUX1kxwWULDJAPge/ybldm5gwOhvCMxGQ6A?=
+ =?us-ascii?Q?X8+7Xg5JY57GZDxDKQqhSuKQ81ro4mzrjSJV3g3NRoZcZZxT+jLPHeLdtRzl?=
+ =?us-ascii?Q?klGEgQhAfG/F1y5I3kluyL2qbkdpKigNGFnPuIzciaBWHxnuap7BHjEnzxCC?=
+ =?us-ascii?Q?wAKy27eksHdHsF8Y/XYgEMu2YtysP68y0jPSCroPtuHkusZDznDrBW7mQGEF?=
+ =?us-ascii?Q?qzwocKRjUaIxnY/E7VGEUdUAMgqypZ49tuszN+grsiS8jdOsC9JoIekowFk9?=
+ =?us-ascii?Q?OMkgNmUMtH3TylcF5oKv8cPDMrXb+H8xx5pkd2bpIIjn8NKiDk0srIicTQt6?=
+ =?us-ascii?Q?WGTOdHypG8RaaKAn7cvCsAFVKOrnlTM19W0fzzzC1JNGsVLX4FRwDCEjZg5C?=
+ =?us-ascii?Q?Xx/gSPu06sHzaJzQnFHlPol92qMGaUa2NOtjD5Z5vJ6XP0Qit8YgR/hhNXV3?=
+ =?us-ascii?Q?4lfqO4tH193TyGG71vGNPhJZ4NZ29spRupMCNYIkJUfiF0Cvxhnm7+c5ZL9+?=
+ =?us-ascii?Q?b7mzsUlkySwJ8UeIYy1gCu6nRN+TWecyLJWAuA+i5v3kKYtqZV7jm1HVTGov?=
+ =?us-ascii?Q?DBXzEGcDlxM2jjBtI+S2+8qASSnR7BAfo7CpDz94A1rLOZ+n8D3KW3GNG0nJ?=
+ =?us-ascii?Q?2UFAV4soAaPhqZVh+udEt4WZcmEGvYXmb9SQp0Cpg4IuYWY7QGaS/Z8cECoi?=
+ =?us-ascii?Q?Tf25AQHMuJ3ImjptuF22cmluDigrZiygi3RbEOVBY3gRGuslZZJnCyJp9S4C?=
+ =?us-ascii?Q?WiKcCnp7XSheQqRJEArozaCMmA8g0c/uGQrUDIFBipXdAo+pf40lyUH2XZKn?=
+ =?us-ascii?Q?2rXMVviQyht5bK7EJtS4x7cslIIhKo12Vr1R4ntHYfmuDyMQRD1+XoiY4Iqx?=
+ =?us-ascii?Q?IQrjMEXDWvSX+tZNNGCaXBX0r3tkz+k19crOCM2M6x6jZAjM/ARCRQ2okPf0?=
+ =?us-ascii?Q?QyVzXfbjw07i22SDdF2/BaZWaN5K/Ym2HIyFB1Bl5w5cYIC1vgGs/dIKgz4+?=
+ =?us-ascii?Q?F8578WRQLRFltqKAeeg5IFLGaD/jol0NFiLYeJf501FJnlxMWs+i6IHh6+MW?=
+ =?us-ascii?Q?APRUmThfYRXjvocRt+NBqnOg7QVq1mrSJ8X1IOS/Cs5W8w9IuzpSajPtcKZL?=
+ =?us-ascii?Q?2fZTSddK5siF12eMisVMZW9la6q2cQ4E06486pe4JtpKeLPKHvlCV3PUppCp?=
+ =?us-ascii?Q?+FqO+Jf5CMAJjWa6mevK+YrMJi25EvRHOWxZXiXzmjMQpUQLiFPuy6B+Eenw?=
+ =?us-ascii?Q?y7sMBtcgibPQPSVn4mflUIzVLM0aFYAs47Tcllbgvycb0Omt+T/FzmiSworg?=
+ =?us-ascii?Q?1pVrqzdqK8alJQ+ENXCXOxHFDnvEwOV8s9PnkpbqHTSERqW+ATHoa57B56kV?=
+ =?us-ascii?Q?U30UGy8xe7EyDMjZqvS3dXsZviPrg/jtrtMW6G8uVinneqBHEOyftCn2lbGL?=
+ =?us-ascii?Q?yltTsvsYktZOdXCnGsrT9hrPMtJXGW6HKvf1u4vt9bQA5h1pAY+ZpL1IA3v2?=
+ =?us-ascii?Q?pZp9kx++y+a4UN297oy2ulhdmITmKCPtcLMPRIya8hHjVwyI?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 496dced6-1a60-4d8b-6344-08de7486d756
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2026 15:59:22.2192
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SX8wBS3pyKmYv7qqGOB6NxRZ1L34eMJBE/rYknhp1f0fffravO1awQ7yF3SYhuY20H+jH9PiVzGvmzPDdu5s5Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7251
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_155633_559864_612F96C3 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20260225_075926_009442_459C76B9 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,129 +138,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+On Thu, Sep 11, 2025 at 11:56:41PM +0200, Marco Felsch wrote:
+> Hi,
+>
+> by this series the i.MX SDMA handling for i.MX8M devices is fixed. This
+> is required because these SoCs do have multiple SPBA busses.
+>
+> Furthermore this series does some cleanups to prepare the driver for the
+> upcoming DMA devlink support. The DMA devlink support is required to fix
+> the consumer <-> provider issue because the current i.MX SDMA driver
+> doesn't honor current active DMA users once the i.MX SDMA driver is
+> getting removed. Which can lead into very situations e.g. hang the whole
+> system.
 
-Add DT bindings for GPIO charlieplex keypad.
+Marco Felsch:
 
-Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
----
- .../input/gpio-charlieplex-keypad.yaml        | 106 ++++++++++++++++++
- 1 file changed, 106 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml
+	Can you help rebase these patches?
 
-diff --git a/Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml b/Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml
-new file mode 100644
-index 000000000000..d3eeddc8e533
---- /dev/null
-+++ b/Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml
-@@ -0,0 +1,106 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+
-+$id: http://devicetree.org/schemas/input/gpio-charlieplex-keypad.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: GPIO charlieplex keypad
-+
-+maintainers:
-+  - Hugo Villeneuve <hvilleneuve@dimonoff.com>
-+
-+description: |
-+  The charlieplex keypad supports N^2)-N different key combinations (where N is
-+  the number of lines). Key presses and releases are detected by configuring
-+  only one line as output at a time, and reading other line states. This process
-+  is repeated for each line. Diodes are required to ensure current flows in only
-+  one direction between any pair of pins.
-+  This mechanism doesn't allow to detect simultaneous key presses.
-+
-+  Wiring example for 3 lines keyboard with 6 switches and 3 diodes:
-+
-+  L0  --+---------------------+----------------------+
-+        |                     |                      |
-+  L1  -------+-----------+---------------------+     |
-+        |    |           |    |                |     |
-+  L2  -------------+----------------+-----+    |     |
-+        |    |     |     |    |     |     |    |     |
-+        |    |     |     |    |     |     |    |     |
-+        |  S1 \  S2 \    |  S3 \  S4 \    |  S5 \  S6 \
-+        |    |     |     |    |     |     |    |     |
-+        |    +--+--+     |    +--+--+     |    +--+--+
-+        |       |        |       |        |       |
-+        |    D1 v        |    D2 v        |    D3 v
-+        |       - (k)    |       - (k)    |       - (k)
-+        |       |        |       |        |       |
-+        +-------+        +-------+        +-------+
-+
-+  L: GPIO line
-+  S: switch
-+  D: diode (k indicates cathode)
-+
-+allOf:
-+  - $ref: input.yaml#
-+  - $ref: /schemas/input/matrix-keymap.yaml#
-+
-+properties:
-+  compatible:
-+    const: gpio-charlieplex-keypad
-+
-+  autorepeat: true
-+
-+  debounce-delay-ms:
-+    default: 5
-+
-+  line-gpios:
-+    description:
-+      List of GPIOs used as lines. The gpio specifier for this property
-+      depends on the gpio controller to which these lines are connected.
-+
-+  linux,keymap: true
-+
-+  poll-interval: true
-+
-+  settling-time-us: true
-+
-+  wakeup-source: true
-+
-+required:
-+  - compatible
-+  - line-gpios
-+  - linux,keymap
-+  - poll-interval
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+    #include <dt-bindings/input/input.h>
-+
-+    charlieplex-keypad {
-+        compatible = "gpio-charlieplex-keypad";
-+        debounce-delay-ms = <20>;
-+        poll-interval = <5>;
-+        settling-time-us = <2>;
-+
-+        line-gpios = <&gpio2 25 GPIO_ACTIVE_HIGH
-+                      &gpio2 26 GPIO_ACTIVE_HIGH
-+                      &gpio2 27 GPIO_ACTIVE_HIGH>;
-+
-+        /* MATRIX_KEY(output, input, key-code) */
-+        linux,keymap = <
-+            /*
-+             * According to wiring diagram above, if L1 is configured as
-+             * output and HIGH, and we detect a HIGH level on input L0,
-+             * then it means S1 is pressed: MATRIX_KEY(L1, L0, KEY...)
-+             */
-+            MATRIX_KEY(1, 0, KEY_F1) /* S1 */
-+            MATRIX_KEY(2, 0, KEY_F2) /* S2 */
-+            MATRIX_KEY(0, 1, KEY_F3) /* S3 */
-+            MATRIX_KEY(2, 1, KEY_F4) /* S4 */
-+            MATRIX_KEY(1, 2, KEY_F5) /* S5 */
-+            MATRIX_KEY(0, 2, KEY_F6) /* S6 */
-+        >;
-+    };
--- 
-2.47.3
+Frank
 
+>
+> Regards,
+>   Marco
+>
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> ---
+> Changes in v2:
+> - Link to v1: https://lore.kernel.org/r/20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de
+> - Split DMA devlink support and SDMA driver fixes&cleanups into two series
+> - Make of_dma_controller_free() fix backportable
+> - Update struct sdma_channel documentation
+> - Shuffle patches to have fixes patches at the very start of the series
+> - Fix commit message wording
+> - Check return value of devm_add_action_or_reset()
+>
+> ---
+> Marco Felsch (10):
+>       dmaengine: imx-sdma: fix missing of_dma_controller_free()
+>       dmaengine: imx-sdma: fix spba-bus handling for i.MX8M
+>       dmaengine: imx-sdma: drop legacy device_node np check
+>       dmaengine: imx-sdma: sdma_remove minor cleanups
+>       dmaengine: imx-sdma: cosmetic cleanup
+>       dmaengine: imx-sdma: make use of devm_kzalloc for script_addrs
+>       dmaengine: imx-sdma: make use of devm_clk_get_prepared()
+>       dmaengine: imx-sdma: make use of devm_add_action_or_reset to unregiser the dma_device
+>       dmaengine: imx-sdma: make use of devm_add_action_or_reset to unregiser the dma-controller
+>       dmaengine: imx-sdma: make use of dev_err_probe()
+>
+>  drivers/dma/imx-sdma.c | 181 ++++++++++++++++++++++++++-----------------------
+>  1 file changed, 96 insertions(+), 85 deletions(-)
+> ---
+> base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
+> change-id: 20250903-v6-16-topic-sdma-4c8fd3bb0738
+>
+> Best regards,
+> --
+> Marco Felsch <m.felsch@pengutronix.de>
+>
 
