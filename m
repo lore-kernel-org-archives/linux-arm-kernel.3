@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A72AFD375E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDED0FD375E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 13:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RsTWDf14QtNv3DKRjlmmqkSfCmRVGn4apdp3Oe3I5A=; b=e0gTSTtQT7xCHeAH3cdKFOnWS/
-	aZgC4KMLYfvC5KSgLhTRJLSFDHOkt4QrWS32tkj++arAh5Af2NZgb8F2BDgckjsIBS5XWfF/C6aJT
-	y20lBtVTqJmnQbSUfu++wJ0491TSuZBFSfbchik/oOXZGVQe1+mBmCZ/pS2iEHPuTlmDBukdIkQO7
-	hwO75IJZ6QDxtT88E3plMkNmtAGDchPF4SCiFWL6ey+0pgYLWgAOae0kgocNqDVd0mfTWnPAs5lJE
-	tOyEYUCGsbnAYysjIJI97a8GAKLQKS3G2ElHnsG7Ib4uOWVhKrmtADmegkF7OXvrHCByKVHUZb40J
-	NeJRlJEg==;
+	bh=ANyhmJ6aewq4DbfTbeK0S0AZqXu7HsmNHKjdTl0Y+ho=; b=2BEqZzMD/v+A6Z2LkeTUP7Yz0r
+	avzMnsly8QmEnyW3rxdSrJ2KPZIbxyfx2DfYgP2pndCspBMkYNBehE6lp1krgTM42b87VGmEd3Go4
+	Eu8POnRq7RoDyErDQi/KFUPq4KGlZenmcWTdODFUmH+PiHvHlq9ZkLkGpYhZ65r2tKVby6pSVC3hS
+	J+EnwqhnGIU2p2KzGAwtNghiZFGitWC0TCclNRXOe+u+1EKhUrCdiTA7r+8xcHNexi2wA1Mpo0xDQ
+	bKY4QfGWNEBdZBaz8xWqBQpUGWKPjurAgbY4pLUa270hrJhZrql/ItYen8nZP+VEn5wfRUWLb6117
+	lHIXa3mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvF24-000000046nS-1LgO;
-	Wed, 25 Feb 2026 13:34:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvF2V-000000046vC-3tjU;
+	Wed, 25 Feb 2026 13:34:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvF22-000000046mp-1Cxj;
-	Wed, 25 Feb 2026 13:34:27 +0000
+	id 1vvF2U-000000046uZ-19Yx;
+	Wed, 25 Feb 2026 13:34:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD242409BE;
-	Wed, 25 Feb 2026 13:34:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FA12C116D0;
-	Wed, 25 Feb 2026 13:34:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EE4B643294;
+	Wed, 25 Feb 2026 13:34:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C4EEC2BCAF;
+	Wed, 25 Feb 2026 13:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772026465;
-	bh=I4BmllZon4wXTUwY4iaEDQa03sd3XDaHKo3rrTsYu58=;
+	s=k20201202; t=1772026493;
+	bh=oz6PkwWT72KoTYXI1dSUbmwT9Xn+9gUZ1Yrp8upYEqo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=M2raHCHFjbQuoKN+1JJ1ithXRJ/YlzK5Ob/8MKCToeVRYCT8YDXNPeJ8k2WgICu03
-	 ufOVHoUR3FIRjOIWBF23a1EvEvFuORCt3Una+Mv+xUf0677TKWEmhmiHcGp+ElYZyO
-	 xhessAvmAdb0RpW5u1m0cx9TKai5n7wDD0eUuoJwA2oCWdrQKTty1voqTXmUTf6rus
-	 UXX9Xuoxu3WAYvzPK+Dl4vRDykQBY07Yn83bTzUEAOUHb5kGuqwKKulSAzmZJi1ypa
-	 JUVvUUAz4mFtlHAgVyK9mkufEorz/9T0+UsBATDLdiz2GCFK9he3uaGkEXkf0gjV8H
-	 SLUaGvJQT+tsw==
-Message-ID: <01f4a679-bc4d-484b-a019-0e07fe520363@kernel.org>
-Date: Wed, 25 Feb 2026 14:33:51 +0100
+	b=P52K68ixQOfuix63rwPzWY9perX2PhXSjGQbvXfYzzb7nWjbSNrdhQEp0cVS9znnQ
+	 1KLOAgOWAL14CjcqtSFIkP+o8IS9gijY2ZRWz2+2K0jBR30VfhREbl6ubKRUVLXdKZ
+	 QHkg+nJt8M7WcJ2VD66vs8d7WX4Rjg54gAtqh8XnGenvMoYGH6eQktDZVWFWWFU/46
+	 ftMNXCoM5uEC4OFOzEv9y5qy9cWGBV3b2ypRLSnlZdKQihcYhX7qEr7MUxFhVbxNHd
+	 P9XA1VfqI/il6mMq56KwFqnnOf4gx1OfmtdIicESEDsZ5MlqKc8XWtlYzs8B49d8m6
+	 OZvvIgsMw4XGQ==
+Message-ID: <3198ab73-3690-4dfc-80e3-dd2b29b78658@kernel.org>
+Date: Wed, 25 Feb 2026 14:34:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] x86: shstk: Use the new common vm_mmap_shadow_stack()
- helper
+Subject: Re: [PATCH 5/5] mm: Do not map the shadow stack as THP
 To: Catalin Marinas <catalin.marinas@arm.com>,
  Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>,
  Deepak Gupta <debug@rivosinc.com>,
@@ -59,7 +58,7 @@ Cc: Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-mm@kvack.org
 References: <20260224175800.2500729-1-catalin.marinas@arm.com>
- <20260224175800.2500729-5-catalin.marinas@arm.com>
+ <20260224175800.2500729-6-catalin.marinas@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -106,13 +105,12 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260224175800.2500729-5-catalin.marinas@arm.com>
+In-Reply-To: <20260224175800.2500729-6-catalin.marinas@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_053426_369768_E9FDB4AA 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260225_053454_357156_D945FD93 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,19 +126,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2/24/26 18:57, Catalin Marinas wrote:
-> Replace part of the x86 alloc_shstk() content with a call to
-> vm_mmap_shadow_stack().
+> The default shadow stack size allocated on first prctl() for the main
+> thread or subsequently on clone() is either half of RLIMIT_STACK or half
+> of a thread's stack size (for arm64). Both of these are likely to be
+> suitable for a THP allocation and the kernel is more aggressive in
+> creating such mappings. However, it does not make much sense to use a
+> huge page. It didn't make sense for the normal stacks either, see commit
+> c4608d1bf7c6 ("mm: mmap: map MAP_STACK to VM_NOHUGEPAGE").
+> 
+> Force VM_NOHUGEPAGE when allocating/mapping the shadow stack. As per
+> commit 7190b3c8bd2b ("mm: mmap: map MAP_STACK to VM_NOHUGEPAGE only if
+> THP is enabled"), only pass this flag if TRANSPARENT_HUGEPAGE is enabled
+> as not to confuse CRIU tools.
 > 
 > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Thomas Gleixner <tglx@kernel.org>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: H. Peter Anvin <hpa@zytor.com>
-> Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: David Hildenbrand <david@kernel.org>
 > ---
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
