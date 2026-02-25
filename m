@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE096FD45F1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 20:55:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0FAAFD45EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 21:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3+LYWjzwpTA5nw3Zf2Wz1QjxqS14+mOTD0zQJCYYXyY=; b=IjDSxxKymSjF58IdQPeVlPdv51
-	F7B69MPoq+TELmW/KW0AT88pqZLzbkcDmTSZ5QRdvdscZwzs2twNIef8iNQwYA2ExGCyLu+dUnS6N
-	/9ZFWpJCT/Y7D4zxw0Qzbj+sUCYIj+CZTGvr2ZN9tps5YCKzRnJsgvhw2ssXJ3ZCKzmXQi+646ymZ
-	NT2fF+STgRqi6A2jph2AEY/QznR4Hh7i6LOCvNKC9FSaRpNuIerj6cd58iVAkjP4VoITGNQzjJZbd
-	dd6spcfef9WJw12E5iKh5lOnR343oG7d3TCUncP4L+ps+b+8nSZLJCrp0UOEDvdp6djaMoHpFmt2j
-	IvXLg/Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u2i0xPoB7t6a2BIsBt7bTqbrXFRlBJUodrn+tXd5Mx4=; b=f7lFbHR+qJv2FY5B0BTemaLFUJ
+	6XVfYpZ8DYilHBVRSW2vkrGNcDYHpkTSUHoqbInAYltTYbiak/4aLX2OamRechoeEed8qiyG9AB1q
+	DfuNdkUDsEHaJ6rF32lmA24pxkoaqtxLWoNheIL7aGKdtCinqsmWQDZ6V6gc1gteRqrhYKK7ZgFla
+	U76l6HzmpNFjTlDmzmLGAgW5zmNBsRAkXTUOyfjGOaXZ0SwFVdL4xicqqxcM8Ix5mjfl89K/ZfoqC
+	q+IAcWfAteCtk66xm9h9yHnEfIHOvjJnoFz81b66Eca0WqWlrBsBDpFdZFFF5KVdI0RsWNnXUn4EZ
+	4rFQ8GJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvLuc-00000004sjQ-01TR;
-	Wed, 25 Feb 2026 20:55:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvLuV-00000004sh6-3RCh
+	id 1vvM1b-00000004tIY-3RVF;
+	Wed, 25 Feb 2026 21:02:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvM1a-00000004tID-0EKW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 20:55:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5526F175A;
-	Wed, 25 Feb 2026 12:55:00 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 23F803F73B;
-	Wed, 25 Feb 2026 12:55:03 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	zengheng4@huawei.com
-Subject: [RFC PATCH v1 4/4] arm_mpam: resctrl: Add resctrl_arch_cntr_read() & resctrl_arch_reset_cntr()
-Date: Wed, 25 Feb 2026 20:54:36 +0000
-Message-ID: <20260225205436.3571756-5-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260225205436.3571756-1-ben.horgan@arm.com>
-References: <20260225205436.3571756-1-ben.horgan@arm.com>
+	Wed, 25 Feb 2026 21:02:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0098F60054;
+	Wed, 25 Feb 2026 21:02:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12D99C116D0;
+	Wed, 25 Feb 2026 21:02:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772053344;
+	bh=Jy6N4IhDvASBtWTrPNraJpD5E/n58S/X9rF10vWsGxo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a23zWkRXy8vl9KpsWM3WnIQDHv5KYZxIkD9EzaTAuYeMVllHnEtvD7eDFZIOvpovG
+	 NyT3pHLz6vBKDacWjPBF2Y7YLvtK+UpcOHVeAlr6IVFmUMqOKUyLUHoxeLCIefGe/4
+	 KDA1ElBAy3D3WtzRCmMr1IRZmeKwexlOtSozi568vaUtgwtjjov2SRc8vLAmc5upa8
+	 fpy5OHgptojo/HYMS3m2GA6hFJcObfwfN0rCVE7s9b9LwjKgcEot1q8FAEhsyU6svv
+	 huy/XM8X573n77N53VjBQ3iJdQ/gcaCcs++iMY0V9TjMjmLkJ5YpeyAvbI0yX0qepC
+	 WUD4dpEJBnxZw==
+Date: Wed, 25 Feb 2026 15:02:18 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, 
+	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+Message-ID: <l7vmhr5rg444pqp47x2k5ejamjnisx5rqwfmfr6m2tjazxpbm6@wq2vd4hcxco2>
+References: <CANLsYkxAwgG1WkMRr8EJZuSUnN_jKVnsWhWTakVqhvtMBO365A@mail.gmail.com>
+ <PAXPR04MB91851D3DA6A92669CB5926A18974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <CANLsYkw-8ERXy3v8Sv55Cpq=+41Toez3EjLMbENAkavvr8STeQ@mail.gmail.com>
+ <PAXPR04MB9185B68BC640D940534E44098974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <d4c8f7dd-c0a8-4721-9750-47429637d8c1@lunn.ch>
+ <PAXPR04MB9185BB6443B9E1E407F409D68974A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <ndozoc6qdrpv3xuktumsah56im5rbtg6iwerq3xi2xkcuyewpx@szswqvojleg3>
+ <AS8PR04MB917652D63DB090D22129D3D78975A@AS8PR04MB9176.eurprd04.prod.outlook.com>
+ <2b72kkgwe5hio4uwrxj5oi72llkxhx7egw442fugq6unv7unah@5bfve7k3mvky>
+ <PAXPR04MB918508A39832000D786E8F938975A@PAXPR04MB9185.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_125508_866282_2FAA8FF1 
-X-CRM114-Status: GOOD (  11.48  )
+In-Reply-To: <PAXPR04MB918508A39832000D786E8F938975A@PAXPR04MB9185.eurprd04.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,102 +89,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+On Wed, Feb 25, 2026 at 08:31:33PM +0000, Shenwei Wang wrote:
+> 
+> 
+> > -----Original Message-----
+> > From: Bjorn Andersson <andersson@kernel.org>
+> > Sent: Wednesday, February 25, 2026 1:44 PM
+> > To: Shenwei Wang <shenwei.wang@nxp.com>
+> > Cc: Andrew Lunn <andrew@lunn.ch>; Mathieu Poirier
+> > <mathieu.poirier@linaro.org>; Arnaud POULIQUEN
+> > <arnaud.pouliquen@foss.st.com>; Linus Walleij <linusw@kernel.org>; Bartosz
+> > Golaszewski <brgl@kernel.org>; Jonathan Corbet <corbet@lwn.net>; Rob Herring
+> > <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> > <conor+dt@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
+> > <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
+> > gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
+> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
+> > devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
+> > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <linux-
+> > imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>
+> > Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+> > 
+> > Caution: This is an external email. Please take care when clicking links or opening
+> > attachments. When in doubt, report the message using the 'Report this email'
+> > button
+> > 
+> > 
+> > On Wed, Feb 25, 2026 at 05:54:00PM +0000, Shenwei Wang wrote:
+> > >
+> > >
+> > > > -----Original Message-----
+> > > > From: Bjorn Andersson <andersson@kernel.org>
+> > > > Sent: Wednesday, February 25, 2026 9:53 AM
+> > > > To: Shenwei Wang <shenwei.wang@nxp.com>
+> > > > Cc: Andrew Lunn <andrew@lunn.ch>; Mathieu Poirier
+> > > > <mathieu.poirier@linaro.org>; Arnaud POULIQUEN
+> > > > <arnaud.pouliquen@foss.st.com>; Linus Walleij <linusw@kernel.org>;
+> > > > Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corbet
+> > > > <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
+> > > > <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Frank Li
+> > > > <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Shuah
+> > > > Khan <skhan@linuxfoundation.org>; linux- gpio@vger.kernel.org;
+> > > > linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix
+> > > > Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> > > > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
+> > > > devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
+> > > > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
+> > > > dl-linux-imx <linux- imx@nxp.com>; Bartosz Golaszewski
+> > > > <brgl@bgdev.pl>
+> > > > Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg
+> > > > GPIO driver On Tue, Feb 24, 2026 at 10:43:06PM +0000, Shenwei Wang
+> > wrote:
+> > > > >
+> > > > >
+> > > > > > -----Original Message-----
+> > > > > > From: Andrew Lunn <andrew@lunn.ch>
+> > > > > > Sent: Tuesday, February 24, 2026 4:15 PM
+> > > > > > To: Shenwei Wang <shenwei.wang@nxp.com>
+> > > > > > Cc: Mathieu Poirier <mathieu.poirier@linaro.org>; Bjorn
+> > > > > > Andersson <andersson@kernel.org>; Arnaud POULIQUEN
+> > > > > > <arnaud.pouliquen@foss.st.com>; Linus Walleij
+> > > > > > <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>;
+> > > > > > Jonathan Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>;
+> > > > > > Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> > > > > > <conor+dt@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
+> > > > > > <s.hauer@pengutronix.de>; Shuah Khan
+> > > > > > <skhan@linuxfoundation.org>; linux- gpio@vger.kernel.org;
+> > > > > > linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
+> > > > > > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> > > > > > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
+> > > > > > devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
+> > > > > > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
+> > > > > > dl-linux-imx <linux- imx@nxp.com>; Bartosz Golaszewski
+> > > > > > <brgl@bgdev.pl>
+> > > > > > Subject: [EXT] Re: [PATCH v8 3/4] gpio: rpmsg: add generic rpmsg
+> > > > > > GPIO driver
+> > > > > > > Please explain how you would design your generic rpmsg-gpio
+> > > > > > > driver which is derived From gpio-virtio?
+> > > > > >
+> > > > > > We have already seen the virtio commands are pretty much
+> > > > > > identical to what i suggested.
+> > > > > >
+> > > > > > You could just replace virtqueue_add_sgs() with rpmsg_sendto()
+> > > > > > and reimplement
+> > > > > > virtio_gpio_request_vq() to be the callback registered with
+> > > > rpmsg_create_ept().
+> > > > > > The rest of basic GPIO handling should not need any changes at all.
+> > > > > >
+> > > > >
+> > > > > Creating endpoints and calling rpmsg_sendto() is only a small part
+> > > > > of the picture. You also need to manage the service announcement
+> > > > > from the remote side and handle asynchronous notification
+> > > > > messages. That entire flow is already implemented in the existing
+> > virtio_rpmsg_bus driver.
+> > > > > Re‑implementing those pieces just to mimic gpio‑virtio over RPMSG
+> > > > > would
+> > > > essentially mean reinventing the wheel without any real benefit.
+> > > > >
+> > > >
+> > > > I can absolutely see a benefit to this, there are multiple different
+> > > > rpmsg backends supported in Linux, so a gpio-rpmsg driver could be used by
+> > any one of them.
+> > > >
+> > > > I don't see this to be a case of "reinventing the wheel". Instead we
+> > > > copy what looks to be a very functional wheel and make it fit rpmsg.
+> > > > This will result in some "duplication", but rpmsg already provide
+> > > > the life cycle management and has a clean send/callback interface,
+> > > > so there shouldn't be any inventing...
+> > > >
+> > >
+> > > Interesting — could you walk me through how you’d structure the driver
+> > > with the new proposal? I’d like to see how you would layer it conceptually.
+> > >
+> > > The current RPMSG solution:
+> > >
+> > >      On Remoteprc                      On Linux
+> > > GPIOs -> RPMSG -> VIRTIO == VIRTIO -> RPMSG -> GPIO-RPMSG drivers
+> > >
+> > > The VIRTIO solution:
+> > >
+> > >      On Remoteprc                     On Linux
+> > >           GPIO -> VIRTIO == VIRTIO -> GPIO-VIRTIO driver
+> > >
+> > > Your proposal:
+> > >
+> > >      On Remoteprc                     On Linux
+> > > GPIOs -> RPMSG -> VIRTIO == VIRTIO -> ???
+> > 
+> > What I'm suggesting is the following:
+> > 
+> > GPIOs -> RPMSG -> VIRTIO == VIRTIO -> RPMSG -> GPIO-RPMSG
+> >        ^                                    ^
+> >        \-----+------------------------------/
+> >              |
+> >              |
+> > With this interface on being directly derived from the existing protocol (and likely
+> > the implementation as well) using gpio-virtio.
+> > 
+> > You can have multiple "GPIOs" (presumably a "bank" each) instances and that
+> > will be reflected in having multiple "GPIO-RPMSG" instances.
+> > 
+> > I haven't made any attempts at implementing this, but it looks very similar to
+> > gpio-virtio in concept and it looks very similar to the exiting RPMSG tty in the
+> > sense of being a generic implementation.
+> > 
+> > To reach something functional on the Linux side it seems to be a matter of taking
+> > the gpio-virtio driver, register a rpmsg_driver instead, change _virtio_gpio_req()
+> > to use rpmsg_send(), and perform the actions of virtio_gpio_event_vq() in the
+> > rpmsg_driver callback function.
+> > 
+> 
+> Thanks for the explanation. If I’m understanding correctly, what you’re suggesting is 
+> essentially a driver that merges the roles of a virtio_driver and an rpmsg_driver into a 
+> single source file. There may be opportunities for a few function reuse, but overall it 
+> would still result in a fairly distinct codebase.
+> 
 
-When used in ABMC mode, resctrl uses a different set of helpers to read and
-reset the counters.
+Most of the non-boilerplate code in gpio-virtio would be impacted by
+differences between rpmsg and virtio. So combining the two
+implementations in a single source file would add complexity to an
+otherwise straightforward driver, only with trivial parts reused.
 
-Add these.
+My expectation is that it will be better to just have two separate
+drivers - but reuse all the design-work done in the gpio-virtio.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
- drivers/resctrl/mpam_resctrl.c | 56 ++++++++++++++++++++++++++--------
- 1 file changed, 43 insertions(+), 13 deletions(-)
+Regards,
+Bjorn
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 18528210ba46..6c2542cfb0df 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -137,19 +137,6 @@ void resctrl_arch_reset_rmid_all(struct rdt_resource *r, struct rdt_l3_mon_domai
- {
- }
- 
--void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
--			     u32 closid, u32 rmid, int cntr_id,
--			     enum resctrl_event_id eventid)
--{
--}
--
--int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
--			   u32 unused, u32 rmid, int cntr_id,
--			   enum resctrl_event_id eventid, u64 *val)
--{
--	return -EOPNOTSUPP;
--}
--
- bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
- {
- 	if (r != &mpam_resctrl_controls[RDT_RESOURCE_L3].resctrl_res)
-@@ -544,6 +531,28 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
- 				 closid, rmid, val);
- }
- 
-+/* MBWU counters when in ABMC mode */
-+int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			   u32 closid, u32 rmid, int mon_idx,
-+			   enum resctrl_event_id eventid, u64 *val)
-+{
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
-+
-+	if (!mpam_is_enabled())
-+		return -EINVAL;
-+
-+	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+		return -EINVAL;
-+
-+	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	mon_comp = l3_dom->mon_comp[eventid];
-+
-+	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu, mon_idx,
-+				 closid, rmid, val);
-+}
-+
- static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
- 			int mon_idx,
- 			enum resctrl_conf_type cdp_type, u32 closid, u32 rmid)
-@@ -600,6 +609,27 @@ void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_l3_mon_domain *d
- 	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
- }
- 
-+/* Reset an assigned counter */
-+void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			     u32 closid, u32 rmid, int cntr_id,
-+			     enum resctrl_event_id eventid)
-+{
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
-+
-+	if (!mpam_is_enabled())
-+		return;
-+
-+	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+		return;
-+
-+	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	mon_comp = l3_dom->mon_comp[eventid];
-+
-+	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
-+}
-+
- /*
-  * The rmid realloc threshold should be for the smallest cache exposed to
-  * resctrl.
--- 
-2.43.0
-
+> Thanks,
+> Shenwei
+> 
+> > Regards,
+> > Bjorn
+> > 
+> > >
+> > > Thanks,
+> > > Shenwei
+> > >
+> > > > Similarly, I'm guessing that there's a firmware-side implementation
+> > > > of virtio-gpio in Zephyr, it should be straightforward to transplant this to the
+> > rpmsg interface.
+> > > >
+> > > > Regards,
+> > > > Bjorn
+> > > >
+> > > > > Thanks,
+> > > > > Shenwei
+> > > > >
+> > > > > > Interrupt support does however need some changes. The
+> > > > > > virtio_gpio_request_vq() replacement would need to see if the
+> > > > > > received message indicates an interrupt and call the equivalent
+> > > > > > of virtio_gpio_event_vq(), since rpmsg does not have a separate
+> > > > > > mechanism to
+> > > > deliver interrupts, unlike rpmsg.
+> > > > > >
+> > > > > > At a guess, 90% of the code would stay the same?
+> > > > > >
+> > > > > >    Andrew
 
