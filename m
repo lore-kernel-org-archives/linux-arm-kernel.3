@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CCEFD3779
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B649FFD377A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 17:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=vfPVzGsOpxFMqLnHbeOt97S7ASvz/dPPsmfURT55c2c=; b=LsdSFe+kuTCVgI
-	IAyiriu9gBL2ruslqAE5TfllxL7Atn00Uqo1hJdNZ39p2kI3gJ+uDrv2tQw7kkhZ0w+n8OjEeW+B7
-	HlWpmDhx15U1hcd9GmKGEsoWFC+Y9E/DH22jNpOIqDjS6d0eE0rPj48VC28Cnuoxv1rJqci5Wwk8X
-	0rww6y025pmSrVkqnzmkqaCel85zbyJXnT8DaqbPCWQM9MpvSie3ax52ey7WU2BgYLQ5Azfhgf9TI
-	nRkd8dPaql0Hiv7i8V+nQJRDJ93jJ9mwCqAX6RqVNT7YqFm34hEyM9h74OFEn2NGmXeXDtlVkS80L
-	uInS0ozitcnYMg3EtGhw==;
+	List-Owner; bh=P/hBoEMiXYtzSJAai3x+/Zjn0NP0IL/2TZ2kRQnBAyM=; b=IQ3s62h6c0Yflj
+	ELzc0cxnpVEra6SyfQ36vZD9x2STMODRES9cx99Td7GxEH3yWk2wS8J6qCDP+SHXbLN2Zqujm/I6H
+	2BNXIgxl6lCOkAI84LS1AZT5Fv67UNIJv6CDFUErDaBslOF2YGokXU7VKI3IDOR/NLF+ce07osMnL
+	XgQ5+XHmUncOMXggCRsSKtNXyQLjvQO5V3XafAsy6rBadhcF6YAE0rE8qSRPFeqU+cceFz2Ez1iE0
+	3xcMfUn111M0XiYynaJkFcgLMByhdpNxZhVJwpbHjMLHjMPn2vrcfOPAV5Sp5YYiF9OvSL/wyY2Ma
+	NW0b5eE+fVPzeA7TD0+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvIsf-00000004gD2-3BLT;
-	Wed, 25 Feb 2026 17:41:01 +0000
-Received: from mail-ot1-x349.google.com ([2607:f8b0:4864:20::349])
+	id 1vvIwj-00000004gdw-0DdK;
+	Wed, 25 Feb 2026 17:45:13 +0000
+Received: from mail-oo1-xc4a.google.com ([2607:f8b0:4864:20::c4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvIsd-00000004gCI-0mjE
+	id 1vvIwf-00000004gdU-1SSd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 17:41:00 +0000
-Received: by mail-ot1-x349.google.com with SMTP id 46e09a7af769-7d4cb5810a0so46147050a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 09:40:57 -0800 (PST)
+	Wed, 25 Feb 2026 17:45:11 +0000
+Received: by mail-oo1-xc4a.google.com with SMTP id 006d021491bc7-672c40f3873so474636eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 09:45:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772041257; x=1772646057; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1772041507; x=1772646307; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=vfPVzGsOpxFMqLnHbeOt97S7ASvz/dPPsmfURT55c2c=;
-        b=Fxstg84voo1xq8ZKL0cegtiWwQs+3YsjSrVKqfL16sbSEpQsfFd6vejmpHofItIyjC
-         rvRSmnrYzIJnCvyo+4AOgnVMR4agyR/T8VaMLich6SbneDCsvINZKkxjFqrebw9oeWN1
-         8zTA/Vp3GjDZXp8Q1S/NaXO5DygnbZc34ESHP13gKykfe2jxldiYe2FOVz3B2B/wO5AB
-         T4/+EIZ+ObkXMS6Gnnfr3WrX0Gmj2NNBIEj0lzxCq3PkLFq50nLTCfLJ9aY9YjwcsGNS
-         yIYh6eDVGCOVTcSYm9XCDkZ5zK5j05wdx0EhaLnMcZqOFouSnZ9yHk4R9AmIfXENm5t8
-         e9eQ==
+        bh=P/hBoEMiXYtzSJAai3x+/Zjn0NP0IL/2TZ2kRQnBAyM=;
+        b=I1ekVm6SMkf2pW9ZHj63tYTLuFvgzFWmvcQE1cFeV5+VJRP3JR0h3T/BxJCE39eM9J
+         Dj3sQFr8T4QrHhEqZ1/bxN3cJGW3lLT13rDUA6x+fkiEYWF1NWny/j/u1j6Xc7g8kIHb
+         PcChOeI1r9jC0EJtpJbXBRvWCjKGckCpagJCETg8F8EfJ2Qj1I0OKsRKO3rAVN06oVbo
+         mfvdXi8r6RqCdF+4mh2Z8PDBu9N5WXVkJxNMFMTOqJJfR5Mh9DkcORzZih5YgyNgpt5x
+         Knnn3gBYAATULFasZufjRxo+/+9zqJme+YyfPb1WtrR2OP1p7atv/Yk8SYx6mG4rb8Fm
+         kaaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772041257; x=1772646057;
+        d=1e100.net; s=20230601; t=1772041507; x=1772646307;
         h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vfPVzGsOpxFMqLnHbeOt97S7ASvz/dPPsmfURT55c2c=;
-        b=CKwjCHitC+Imut5ImE2YMqTEOrc149jLw+fF02AibatnQoOYOLZuqlfKDx4EbBi6NQ
-         rtmrxktX+/ZFa0NoEqPsYGUCG1h/rZfA6LyrwiJuP5rPUSHP0sbpEUeVMKpcCAXAvRh2
-         Uqa75XkQkxHHxIf1ApEqI6XU3+Ua33plKYkmtityfjifYP4C7oSK7V0sd/SzP8dgo4Bp
-         aTEKj6KuOrPQ+TS5CoofMRFTTeGtl9zbeynb00buwgxRulTdnGENIte2kIiMhY+g2HE0
-         tPi7W7j6r+nD/Hvhgs82+AwcnpVxRTLQRDW5ioQBn8PAGlrjRm4XB+DuwHldGt8R52vN
-         ++jg==
-X-Forwarded-Encrypted: i=1; AJvYcCXBRMOx4B0iuMqvPqnsUV6FAecYUDF0rkwIjdDeWhry2l50b0TtKw2rI8U7LVZRoIm5/6k2bFE1XBpqjvSarM8U@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgoLASiPYXUMLCo+zd77I7udBqALbJ3VxTXDe45FdvlaqTsV7S
-	izcSUIvpGRbdTvy2u8werSmlLKJN1fe2+oFaLqeHeg76uKhseQWBrt4FN2UOxHpVNOZyakPt++C
-	hPTn/0hBGAdEensPWPvRvhaWNsA==
-X-Received: from iluj15.prod.google.com ([2002:a05:6e02:154f:b0:4d2:8640:5d64])
+        bh=P/hBoEMiXYtzSJAai3x+/Zjn0NP0IL/2TZ2kRQnBAyM=;
+        b=qXvseJdNTz4Sao8hbetDtAuRvwuQQ/G4O2nTGAkJKjmWTme7R3x8JbnD8AC8/lwESR
+         46nZ1GCY1qa8sKTwVgmMxzP2Bdiy89ryXrkGBZ2aNGoSrcV+mi62w9c2tZtCKgCv6JtC
+         vFfR0xY54ltATEQofQHzLvM+C+ACXidawS6BvZWJTYS8RwTSAD65NRuke4SKACp3Ctg6
+         OhXihOUhZh7gdcFrOmH8sreDv+UFIQ8Hu+YxEVqxjHY8j0KI1bfrYJEDVpjQM3JDquHB
+         lzvemYBmHE1k7gHH2Wcm0Am8q8m8klJ4IxRFqp0TOjK2spJMIMk0FYO7dE7oC5wM8ppx
+         vNSA==
+X-Forwarded-Encrypted: i=1; AJvYcCU/T0w2QhFVBRJ0HNv3kJa5uItbsqi6TAtQgY4Do9ovfIlxRSVsIjFEqcGYO2wrqdilPBl0nT1ICVthli5gDlDw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSIB4Vt+o3+QMiKNJbfiQIJ3Sn2UcHCYdrQ5Zk6q4iNQY/kvpW
+	80T3nvG1bbPuKhACw35MHiSjbYCfYqBbrSH7dZdJtink35PNBIrJC+HbtVBz7ZTIXyMMpUyDJPp
+	yBYG6MAT2pA/LasBj6zNiqXWh5A==
+X-Received: from iobjf28.prod.google.com ([2002:a05:6602:649c:b0:957:6d3d:c3bf])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:2019:b0:672:e67a:96cf with SMTP id 006d021491bc7-679c4684cbcmr8062877eaf.16.1772041256681;
- Wed, 25 Feb 2026 09:40:56 -0800 (PST)
-Date: Wed, 25 Feb 2026 17:40:55 +0000
-In-Reply-To: <86h5rlawru.wl-maz@kernel.org> (message from Marc Zyngier on Fri,
- 13 Feb 2026 08:11:01 +0000)
+ 2002:a05:6820:2d01:b0:679:a4cc:e04f with SMTP id 006d021491bc7-679c4618dbbmr8769461eaf.51.1772041506836;
+ Wed, 25 Feb 2026 09:45:06 -0800 (PST)
+Date: Wed, 25 Feb 2026 17:45:06 +0000
+In-Reply-To: <86ldgyba96.wl-maz@kernel.org> (message from Marc Zyngier on Thu,
+ 12 Feb 2026 09:07:33 +0000)
 Mime-Version: 1.0
-Message-ID: <gsnty0kgoh5k.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v6 00/19] ARM64 PMU Partitioning
+Message-ID: <gsntv7fkogyl.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH v6 09/19] KVM: arm64: Write fast path PMU register handlers
 From: Colton Lewis <coltonlewis@google.com>
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com, 
@@ -77,8 +77,8 @@ Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com,
 	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_094059_269427_CA6EDC22 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20260225_094509_408499_58F2814F 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,51 +95,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Marc Zyngier <maz@kernel.org> writes:
 
-> On Thu, 12 Feb 2026 21:08:36 +0000,
+> On Mon, 09 Feb 2026 22:14:04 +0000,
 > Colton Lewis <coltonlewis@google.com> wrote:
 
->> Hey Marc, thanks for the review.
+>> We may want a partitioned PMU but not have FEAT_FGT to untrap the
+>> specific registers that would normally be untrapped. Add a handler for
+>> those registers in the fast path so we can still get a performance
+>> boost from partitioning.
 
->> Marc Zyngier <maz@kernel.org> writes:
+>> The idea is to handle traps for all the PMU registers quickly by
+>> writing directly to the hardware when possible instead of hooking into
+>> the emulated vPMU as the standard handlers in sys_regs.c do.
 
->> > On Mon, 09 Feb 2026 22:13:55 +0000,
->> > Colton Lewis <coltonlewis@google.com> wrote:
+> This seems extremely premature. My assumption is that PMU traps are
+> rare, and that doing a full exit should be acceptable. Until you
+> demonstrate the contrary, I don't want this sort of massive bloat in
+> the most performance-critical path.
 
->> >> This series creates a new PMU scheme on ARM, a partitioned PMU that
->> >> allows reserving a subset of counters for more direct guest access,
->> >> significantly reducing overhead. More details, including performance
->> >> benchmarks, can be read in the v1 cover letter linked below.
-
->> >> An overview of what this series accomplishes was presented at KVM
->> >> Forum 2025. Slides [1] and video [2] are linked below.
-
->> >> IMPORTANT: This iteration does not yet implement the dynamic counter
->> >> reservation approach suggested by Will Deacon in January [3]. I am
->> >> working on it, but wanted to send this version first to keep momentum
->> >> going and ensure I've addressed all issues besides that.
-
->> > [...]
-
->> > As I have asked before, this is missing an example of how userspace is
->> > going to use this. Without it, it is impossible to correctly review
->> > this series.
-
->> > Please consider this as a blocker.
-
->> Understood. I remember you asking for a QEMU patch specifically.
-
-> No. *any* VMM. QEMU, kvmtool, crosvm, firecrackpoter, whichever you want.
-
->> I had hoped that the use in the selftest was sufficient to show how to
->> use the uAPI.
-
-> The selftests are absolutely pointless, like 99% of all selftests.
-> They don't demonstrate how the userspace API works, now how
-> configuring the PMU is ordered with the rest of the save/restore flow.
-
->> If not, I can send out an example QEMU patch to the QEMU ARM mailing
->> list.
-
-Okay I sent one to you, qemu-arm, and everyone else I asked to review
-this series.
+After some consideration I agree. I will try a full exit and see if that
+is sufficient.
 
