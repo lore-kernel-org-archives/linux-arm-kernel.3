@@ -4,96 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE65EFD238
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 09:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62270EFD238
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 09:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2FVw1Jjv4YamguvXiaYBNnqdEOuqllBWzjW+UVlpnc=; b=GZyM53eYZXEKVfxrw11ojLvHWK
-	ZbuouZIkcE9SxX8amMHpWqA6Zhdekv37Mib07xZaSq8yHhPZ9AyHGupEANOG6c6TmJYU+a78+kFJZ
-	pLXVjyjCPNVYic+eJhrzyuJ5pKtN96ecyN52yys1+rKYsH2mdrqRXfnRAKgAm1leVGQN0r+2FKCK0
-	zaxy41AaxHtvZQSnsXybXb0c/A3BUvuOs4MMPcfEvd4clZGB8kuFCBIeil4ugbhnE34YBWOAAL+Jo
-	xOdnrnQPtdYjTv3l3RoK2I+bvciKMERIdhub5lCPaNzEWbvCGydBVEsDD7yrtcFYi/MXV+8O5Ssb2
-	tzhRFrPA==;
+	bh=LSA+UtCMxXx/BNfS/+hdbwz6e1Axfm6SSwuPR60K34Y=; b=yPW4zMulVY8Kdc7XFlx9e9Hhx6
+	uj/F5fQO5T7CWrYFJwpUd3Uyho3CBmwBcYr8UTvNy0Yszs5RoT5Zt+ErNpr3m8tDbdnSq7wYbrZ0D
+	nAvNBLafzwk2XUvA/4fEQLl3WUQC4+0zvL2ielTwa74rJRlRwlpM0imvlYK+QkeX2NEtTqPMFsbXj
+	iMQLJFdwbmRSoBMTOpb5SB6PdqEzz+9toH5GKJD1cZljmeV9vIduzzwU0BVEQ+QGUGPUTwcCMQXFv
+	cMM24wg7uVFBFhKPXhDlefgDJ6DWAOwPZ6CV3+v6A2M8sC/aQ2SSiC5KD9WdnVVPT9Au+M543+0uX
+	tl0/1SdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBPv-00000003iSD-25Uh;
-	Wed, 25 Feb 2026 09:42:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vvBU2-00000003ihi-0TGJ;
+	Wed, 25 Feb 2026 09:47:06 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBPt-00000003iS5-1qk2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Feb 2026 09:42:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=A2FVw1Jjv4YamguvXiaYBNnqdEOuqllBWzjW+UVlpnc=; b=Ta9EgB0zbsH+bMNEQzQXptU/R/
-	rEheCZjM+r/A/rjHuSTYN9gX8x9X8U1ggQpGjiCvWI1k3JohRXWTOmj0VTpN0gtGo9YLTuZa/g/JC
-	LzyLELg9vfaTEfdFOZUba53UpsWOZgQkddxhT9KEFmoDKhMwnrebUBCCe9UnV6cUKCtYyg12pR/kn
-	qywireXiusy+61Y/Vwl+IYoeRYFgEmAaOpnNLg2uywc+B83QBEddcGZNr0cVN/XQgUoKmBFyuxyff
-	qSBnGP/2JnMW2ZoToGMeidRJIP96UnG9RKr6wLTRuezi5GdDuyPlb28tkNUEUvNPQLh23XSY59K3O
-	AHIIbdCg==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBPq-00000008i3C-1plY
+	id 1vvBTw-00000003ih6-2H2s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 09:42:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9C3743E01
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 09:42:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F3EFC2BCB2
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 09:42:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772012562;
-	bh=K9a2s9JYkj0KSLlC0p3v78WuyHO3yDxajztaUeqowf4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=mT9SpqfgCsu/X3E++A3RmEyNDeS1Jlb38T25+6EctL4aTNtrYmIn9sJwobi0Kjivc
-	 SIWlIil8HD6rI4tZWkASdHUvWoNLME+BBS77ASy39EdP9AEAvu8Grv97sZx0mgt4gA
-	 FeuVzd0nOinFN0twGSxBNd48CSosm2UTZtSO4BSCkLC9t3U6SY6VNPtrfdwBTtZPix
-	 cjoD2KrAApoFMf/6vraGzPtSqKDsk0JAwdh9JUpg0jU9012elBvMgLfvKfToNyDphC
-	 cRF+6q6DtW/u0Fl2wkp2IU3lxk1cSXZg3CgiNc7XIWbaJI8xW6WZRbGZZKtucy4U+G
-	 mWWi1ENNudy+g==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-38709888abeso54625911fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 01:42:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVJlQmOJpE1fxGO1wsufyVfamkYsRMeITsO9Me104VB/oVIhFR71IucYwx3PfmjxZjMj7gjQt63ObSpboKBF+7n@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGQT8xrczAE0/WriuvMU8ys5Dt0bYPOLUyGnOguEYJtaII1s9z
-	ee1QubOToa2tIC3sMondfWur6wNcox1eQ/zcVcO6A0VXu6QLDLilB704SrPPaJPFbGtdGuhhsGs
-	ZbXVVtdIT4LQIrKVEDm3Fo02ODRpIQJFa22W6kh7Xsw==
-X-Received: by 2002:a2e:9e46:0:b0:388:25c1:d969 with SMTP id
- 38308e7fff4ca-389a5d14de0mr32354961fa.9.1772012560925; Wed, 25 Feb 2026
- 01:42:40 -0800 (PST)
+	Wed, 25 Feb 2026 09:47:04 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fLV921X2GzYQtt8
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 17:46:30 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id B2ED440570
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 17:46:53 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP2 (Coremail) with SMTP id Syh0CgAXfn0MxZ5pptNWIg--.15064S2;
+	Wed, 25 Feb 2026 17:46:53 +0800 (CST)
+Message-ID: <2d0c6893-d4a5-42bc-a480-55bc669da130@huaweicloud.com>
+Date: Wed, 25 Feb 2026 17:46:52 +0800
 MIME-Version: 1.0
-References: <20260223-soc-of-root-v2-0-b45da45903c8@oss.qualcomm.com>
- <20260223-soc-of-root-v2-8-b45da45903c8@oss.qualcomm.com> <20260224183213.GA3239922-robh@kernel.org>
-In-Reply-To: <20260224183213.GA3239922-robh@kernel.org>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Wed, 25 Feb 2026 10:42:26 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MfAuDqQZQAPXnJPJ9P1OV38dsQb0CWCh_EtZVq_G9dwsA@mail.gmail.com>
-X-Gm-Features: AaiRm52qiNgvNEan0Ja9tgnzlKTIzAcLn92f5zLzhmXEy4_h8wLWb64Qeoqf4C4
-Message-ID: <CAMRc=MfAuDqQZQAPXnJPJ9P1OV38dsQb0CWCh_EtZVq_G9dwsA@mail.gmail.com>
-Subject: Re: [PATCH v2 8/9] soc: renesas: don't access of_root directly
-To: Rob Herring <robh@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Saravana Kannan <saravanak@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Frank Li <Frank.Li@nxp.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, driver-core@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: bpf: Fix UBSAN misaligned access in BPF JIT
+Content-Language: en-US
+To: Fuad Tabba <tabba@google.com>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Puranjay Mohan <puranjay@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Martin KaFai Lau <martin.lau@linux.dev>,
+ Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Jakub Sitnicki <jakub@cloudflare.com>,
+ Jean-Philippe Brucker <jpb@kernel.org>
+References: <20260224093128.1926610-1-tabba@google.com>
+ <c402e95a-26d3-47eb-8249-52ece97989d3@huaweicloud.com>
+ <CA+EHjTyXWqnr4Cu_cZyxDCVNCxto9pJN0WS18S_ri824oQhwug@mail.gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <CA+EHjTyXWqnr4Cu_cZyxDCVNCxto9pJN0WS18S_ri824oQhwug@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: Syh0CgAXfn0MxZ5pptNWIg--.15064S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxuryrWry5Jw47tr4rAw4ruFg_yoW5Xw47pa
+	4kK3ZIkFWqq3yjk3W2qa1rAr4agw4kWr43GrWUK34Fyrn0gr97WFy3K3ya9FZ8Crs8Gw45
+	ZFWjg3y7uF18ArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
+	s2-5UUUUU==
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_094246_855360_B3CB46A0 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20260225_014700_954166_5563A1BD 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,55 +97,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 7:32=E2=80=AFPM Rob Herring <robh@kernel.org> wrote=
-:
->
-> On Mon, Feb 23, 2026 at 02:37:23PM +0100, Bartosz Golaszewski wrote:
-> > Don't access of_root directly as it reduces the build test coverage for
-> > this driver with COMPILE_TEST=3Dy and OF=3Dn. Use existing helper funct=
-ions
-> > to retrieve the relevant information.
-> >
-> > Suggested-by: Rob Herring <robh@kernel.org>
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
-m>
-> > ---
-> >  drivers/soc/renesas/renesas-soc.c | 7 ++++++-
-> >  1 file changed, 6 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/soc/renesas/renesas-soc.c b/drivers/soc/renesas/re=
-nesas-soc.c
-> > index 38ff0b823bdaf1ba106bfb57ed423158d9103f8d..bd8ba0ac30fa91fcf2a10ed=
-d0d58b064650085cf 100644
-> > --- a/drivers/soc/renesas/renesas-soc.c
-> > +++ b/drivers/soc/renesas/renesas-soc.c
-> > @@ -6,6 +6,7 @@
-> >   */
-> >
-> >  #include <linux/bitfield.h>
-> > +#include <linux/cleanup.h>
-> >  #include <linux/io.h>
-> >  #include <linux/of.h>
-> >  #include <linux/of_address.h>
-> > @@ -468,7 +469,11 @@ static int __init renesas_soc_init(void)
-> >       const char *soc_id;
-> >       int ret;
-> >
-> > -     match =3D of_match_node(renesas_socs, of_root);
-> > +     struct device_node *root __free(device_node) =3D of_find_node_by_=
-path("/");
-> > +     if (!root)
-> > +             return -ENOENT;
-> > +
-> > +     match =3D of_match_node(renesas_socs, root);
->
-> Doesn't of_machine_device_match() work here?
+On 2/25/2026 5:08 PM, Fuad Tabba wrote:
+> Hi Xu,
+> 
+> On Wed, 25 Feb 2026 at 01:43, Xu Kuohai <xukuohai@huaweicloud.com> wrote:
+>>
+>> On 2/24/2026 5:31 PM, Fuad Tabba wrote:
+>>> struct bpf_plt contains a u64 'target' field. The BPF JIT allocator
+>>> was using an alignment of 4 bytes (sizeof(u32)), which could lead
+>>> to the 'target' field being misaligned in the JIT buffer.
+>>>
+>>> Increase the alignment requirement to 8 bytes (sizeof(u64)) in
+>>> bpf_jit_binary_pack_alloc() to guarantee proper alignment for
+>>> struct bpf_plt.
+>>>
+>>> Fixes: b2ad54e1533e9 ("bpf, arm64: Implement bpf_arch_text_poke() for arm64")
+>>> Signed-off-by: Fuad Tabba <tabba@google.com>
+>>> ---
+>>>    arch/arm64/net/bpf_jit_comp.c | 2 +-
+>>>    1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+>>> index 356d33c7a4ae..adf84962d579 100644
+>>> --- a/arch/arm64/net/bpf_jit_comp.c
+>>> +++ b/arch/arm64/net/bpf_jit_comp.c
+>>> @@ -2119,7 +2119,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+>>>        extable_offset = round_up(prog_size + PLT_TARGET_SIZE, extable_align);
+>>>        image_size = extable_offset + extable_size;
+>>>        ro_header = bpf_jit_binary_pack_alloc(image_size, &ro_image_ptr,
+>>> -                                           sizeof(u32), &header, &image_ptr,
+>>> +                                           sizeof(u64), &header, &image_ptr,
+>>>                                              jit_fill_hole);
+>>>        if (!ro_header) {
+>>>                prog = orig_prog;
+>>
+>> Good catch. build_plt pads NOP instructions to ensure a 64-bit relative offset for
+>> plt target, but it misses the alignment check for image base itself.
+>>
+>> Acked-by: Xu Kuohai <xukuohai@huaweicloud.com>
+>>
+>> nit: Add check for base alignment in build_plt, or a comment to clarify?
+> 
+> Thanks for the having a look and for the Ack.
+> 
+> You're right that build_plt() assumes 64-bit alignment when
+> calculating the NOP padding. However, Will pointed out, over-aligning
+> the entire JIT buffer just to satisfy the C standard is somewhat
+> heavy-handed. I didn't actually run into a functional bug. The issue
+> is that UBSAN complains because we violate the standard's alignment
+> rules.
+> I'll dropping the allocator change in favor of marking struct bpf_plt
+> as __packed.
 >
 
-No, because we're using the returned address of the matching struct
-of_device_id later in the function. If you think it's a better idea to
-introduce of_machine_match_node(), let me know but I think that should
-be done separately.
+Interesting, I think the plt target should be 64-bit aligned to ensure
+atomic reading on arm64. It can be updated concurrently by WRITE_ONCE
+in the bpf_arch_text_poke function while the ldr instruction in the plt is
+executed. If it is not aligned correctly, the ldr may read a half-old
+half-new value, causing the plt to jump to an invalid destination.
 
-Bart
+To avoid over-aligning the entire buffer, how about fixing the padding
+method in build_plt to just make the plt target aligned correctly?
+
+
+> Thanks again,
+> /fiad
+
 
