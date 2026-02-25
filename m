@@ -4,67 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB538F357D5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C81BDF4BB99
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 10:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yOHJbbx/TC/BvSPr8TCoHju7w3Xrp4iJMc5vBNkY7YM=; b=jlHP2mQXrSguu2pePqgIx7SHDm
-	+nsRTPQL+/R9RYl9g4Zrtt+X3j27II/ZneA5Fgtb5D0K9egbIDcNuUOGyj3QqnFZbOoUyCaCks0uH
-	utswYR6ZCuhsG78eQV/ey+KFBsNXJY0gW12X8AikNVLz0ywUFTlos5G3tsBekvU01ylCmFo6cwSoO
-	GM8mKY1ydkpjQg0p+SXP8RQ4tCAfc57a2uHmJ0RZLRSHbOL34TC5J2yBxlNtGV9vj2C+1rOK5gO96
-	gY5g21nifiMq9vVrYHag5AATvskvkNcfB0/ljEzkOSZ59842iAvBXFVUtBp3XxBqtteRRxcpLjsnq
-	xWLFS4Qg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=asexqnFyFkaUecgQLxvKMFLjNlOwun5ZD/JgnhKqz5g=; b=o6vrB1jqwDMjXVD9fKpcod8hd5
+	IwdvGvG/mRAwcRAZZXgIYq8rj/PiVWE9siPNJrLYrIExjRLzdS3PBkpN1sbV+5AqPZjHxNdICzZYN
+	F38LbhL94zbs3bfzGfyYpV62ce8B/fJyy72K0ypuVjwkucB3UBHA2iK0QuCTaf6kvgpsbNrdCuE49
+	Wp/+GtgjGFcSRFT/4pzowWGX93TcW7cai6fi+tQyQbPoGmJnLKmA/a9kmryEuY60ObBVHUAECrtTU
+	WexVWb4huccRmu+vR4oqJ+bHh03Tj6bykbq6+p5JlBb+gTlf69XaprqZ01VAmTTHBeB04vlEgZv3R
+	CUi4RONw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCQW-00000003ps6-3fgc;
-	Wed, 25 Feb 2026 10:47:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvCRf-00000003q19-15gt;
+	Wed, 25 Feb 2026 10:48:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCQV-00000003prx-1FbI
+	id 1vvCRb-00000003q0O-2PLj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 10:47:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 70B7460097;
-	Wed, 25 Feb 2026 10:47:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1666CC116D0;
-	Wed, 25 Feb 2026 10:47:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772016450;
-	bh=bdnD7YNeSgoFDjsR80h75dWUj9sAfEHgusImJ+0NuKc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=E7zF8h14iwOT1qT9iOWT7EGY03pcGgxNH7GaOxOfwhZ0hWHhL39qWqjHb4Lu67WpF
-	 XkIPZk+e2z+Ae+O2v2sVnbFzz3d4t6xuUEN1u4VSzBMeMEr2ZS9Fm6WCi13CBGqJen
-	 YxsDoFcYQdXvLHYZ9HSEt8Z06by/Gf4qaItoTi5G3tCo9QzO36L3Tx84S6h2qAmO3P
-	 uKfdciTaUj5ZEiPpbzw8/VYQtvK4Okp4FIyUFZD97cWObSr25LL0KtRkvUjqU4wFxc
-	 Lqf1eho3m0ZdVG8cz/Q8GjVSRSJJYYtEDB7JpzN4EwmFyqNJqNTlZC7bCCf/SGmobZ
-	 NYW89HC0OTHZw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vvCQR-0000000Dfkb-3VQP;
-	Wed, 25 Feb 2026 10:47:27 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH] KVM: arm64: Deduplicate ASID retrieval code
-Date: Wed, 25 Feb 2026 10:47:18 +0000
-Message-ID: <20260225104718.14209-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Wed, 25 Feb 2026 10:48:40 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61P9TNkn583437
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 10:48:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	asexqnFyFkaUecgQLxvKMFLjNlOwun5ZD/JgnhKqz5g=; b=bJNYOFPMoVkrwUGH
+	q8VqaChnncNNAL9KhiurTorI36tFsTdMqWtAc8+JUIR/8cSDkStb8DnezRRskB6X
+	q61ZDMLuP7fo5o4EflJDlcc2SOl816huVSISzBwWj6YXvsxg0xTN4BOwYWd0uV8M
+	ZWd0QLTvR/n8MCLKQ+3yX4nw/PBtHJXQ6Fk7JROJkvoiECBAzmWmJkLUygCsFxOA
+	HIGCiMV1eKpAO0p27htQDpdy2lkjsn6q31j900vvvhZ07lNDCpXk6n5J+7pEqx5e
+	0uRtiKfE1IT+R62wisrAmVvvgXV/4U22J/GULLvnzyaVzEJk2jGMIsu/WDzs2CLo
+	aVxAdA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4chekjbc7q-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 10:48:37 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8c71304beb4so3966019085a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 02:48:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772016517; x=1772621317; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=asexqnFyFkaUecgQLxvKMFLjNlOwun5ZD/JgnhKqz5g=;
+        b=MurtvgYiy0SogSCpIE6CYIbBVSnYJTFyDNekHnwJ6hPdBEt2AUV+pz2+XrML/D78gN
+         ICbgrbBmIl9sWZIR6ZBkB20j383nRYpGkRP8JE5iSegkJL0T09Kibn25wZA1TJ076MOE
+         y4MpIg/TyZVDgMMZCE5fbpXuiyR9WjQuAfVbdCad1gttW6coMlNn3OO92HCeFbCaINk3
+         H3+aTwdEySFSfQWqNQQiZkC62Q3eahgOtuyE/iM2H/+2nQdyocN2H5DTqVSBGaATChgz
+         EHgNeL8fS1+DWAveyxpEj8OlJUPUcNf5ndql/ryxr66e+pVvZjwMLrKKodA98ouhTw9G
+         RKjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772016517; x=1772621317;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=asexqnFyFkaUecgQLxvKMFLjNlOwun5ZD/JgnhKqz5g=;
+        b=CvKmvSPs97EpAYZEg+67/tbz7R8Gm87rVRf89CDDVObcjOQurb0SU1bdZVIWVWNe3g
+         5w9Am1u7HKsPaXq9Ob6AHyJiYcLQ2q5F1ZTEK7A2aiI/S+LNFRtbgNFKL4poQCeYUXtS
+         FyvdaxSEWvX2RY8d/vQh90PRl/zmdI06gpHmjQ/deef50k3Iovk4AOQz4RbgaI1Rn6at
+         srSCSOSUmzkxgbWRGgdvAR2UG13uJVioOBswheafpuQnhBhPHwsLDFqxV4U7SNpAR/UG
+         X4DYk/9OKz9ucJlmQa75S/fiNxDzmLRZoc0+utH9nfHdtzCb6xa7Jq4dE3U/h/zpXjP1
+         1sLw==
+X-Forwarded-Encrypted: i=1; AJvYcCVb9w1CVo3qrQKHPaaMDU/ne9MO0z/iz0HEaep9gIokdzk4lVxxtWWaS9YSJncnoWUGxWz9YIvBVikbuwEYyvm0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwR7afwKKpAn/Z8XdiOh3BxhS3vUT/kImWM3qxcJIyMNePZ6Y/m
+	ZZLpJZVirrrJefGKgfwi8GxxFUB/S13WZAaCs7u5S5i9H4NtG2ObOlCy8bJhy2tPwTHoqQ+89th
+	RM+Alf9/NTU1UZUVYwT8x8ae+eEm6ELQo4/JuVdtcYZigSvOJSd/GSWqEPjDfaLvCiIj4OA8Wuq
+	vMYw==
+X-Gm-Gg: ATEYQzytEk4ErwAjsY43geuQt9p5fYUSvHdcAvZ1v6PjXKBsxVqaF4yPy7+MITWNlBl
+	YhQcZqPtgX3H1Vppjxm74hcgFSzMotTACL0xs4WSUYphr0e728TKRQZk4Ba9pnVNwt06EX1LWV/
+	AQfMB121X/W3TzQ7qhY6zuxWaBOaQ02hUuwyKq/k//tFsS6A5MjxI4DQKwYPCMmsjZMhYamyS/+
+	kM5U//6Cal1cOhVb6RAb2/qpNu312unuX68f9bzQ9eg6JdHACGYhJzU4Tdvf8qrNy7Jhj8bW3ia
+	zm9syxFBhq/ZhrqOxraw5UOxyZXQZqhpr7xKLmhMSerNJyEYHIAA5iauL7vfwya8HmIKOZEiTFf
+	Iaga69Y9josmEQVbX8yfoR85ZlWovsxhxYDWZhG+zknvUVwgMIA==
+X-Received: by 2002:a05:620a:4554:b0:8b2:37ff:de74 with SMTP id af79cd13be357-8cb8ca048d4mr2023793885a.34.1772016516963;
+        Wed, 25 Feb 2026 02:48:36 -0800 (PST)
+X-Received: by 2002:a05:620a:4554:b0:8b2:37ff:de74 with SMTP id af79cd13be357-8cb8ca048d4mr2023791885a.34.1772016516425;
+        Wed, 25 Feb 2026 02:48:36 -0800 (PST)
+Received: from [192.168.1.29] ([178.197.223.140])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd7031f3sm58897785e9.6.2026.02.25.02.48.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Feb 2026 02:48:35 -0800 (PST)
+Message-ID: <3e5001a6-ea3c-4304-8db3-bbe616eb4015@oss.qualcomm.com>
+Date: Wed, 25 Feb 2026 11:48:33 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] firmware: exynos-acpm: Drop fake 'const' on handle
+ pointer
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Sylwester Nawrocki <s.nawrocki@samsung.com>,
+        Chanwoo Choi <cw00.choi@samsung.com>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>,
+        =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>,
+        Lee Jones <lee@kernel.org>, linux-kernel@vger.kernel.org,
+        linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+Cc: stable@vger.kernel.org
+References: <20260224104203.42950-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <b083e950-f54a-44aa-b587-eec2cc10460b@linaro.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
+ 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
+ cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <b083e950-f54a-44aa-b587-eec2cc10460b@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=RNe+3oi+ c=1 sm=1 tr=0 ts=699ed385 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=6nO30s3o7FuWeffXwhKHTA==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=CFJn5XCy4UlJ5aEQFSIA:9 a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-ORIG-GUID: 5POpoBZiYPvcEqsJujkf65nti-mNW1YO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI1MDEwMyBTYWx0ZWRfXxk+aCpGjmH4M
+ egLJjv5OMus/A7KyPAw2H9DbQZIVaKT0MDUduq4Q6aNAnH3JyABn50A+CdpOK4WXiRST7maUthp
+ ECLP12MVDOUGYCCQmowVhfBewbc76r++CKfpkFgSQqNMoGxgw4f5iLblAsegba1N0MujKAXH5ra
+ K2SJuAWnSTvf44cGz6568gVI3Adku0TQRavW0g8mww8/bXobPdxeGPSx2N3qM6vmPJxDI9xk1M0
+ FYulVL08Lzdda2c9hVddzCum5OsTWy0fVgSotnl+XqQpS5Qws+lv4rPfYc1GdGsvLTXGQlWLdxZ
+ a4AsYf56R9EjPgRVEKsv1t1wlfUOhCWTJ9be+a8omCua/ojd1Qsa+mDOTQfTpPYq48wT5vtgazV
+ ewEgPd1mSRFXwZr+A6M1nNQ3aCcJaczhB0WixOX+1cWie6zGHkhrn8jKqA2gdBy2nMmKER6QIHD
+ NPB1GWaOp7fVuzdEbgg==
+X-Proofpoint-GUID: 5POpoBZiYPvcEqsJujkf65nti-mNW1YO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-24_03,2026-02-23_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501 phishscore=0
+ clxscore=1015 spamscore=0 impostorscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602250103
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_024839_733521_3E8ED4EB 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,157 +201,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently have three versions of the ASID retrieval code, one
-in the S1 walker, and two in the VNCR handling (although the last
-two are limited to the EL2&0 transltion regime).
+On 24/02/2026 13:57, Tudor Ambarus wrote:
+> Hi Krzysztof,
+> 
+> On 2/24/26 12:42 PM, Krzysztof Kozlowski wrote:
+>> All the functions operating on the 'handle' pointer are claiming it is a
+>> pointer to const thus they should not modify the handle.  In fact that's
+>> a false statement, because first thing these functions do is drop the
+>> cast to const with container_of:
+>>
+>>   struct acpm_info *acpm = handle_to_acpm_info(handle);
+>>
+>> And with such cast the handle is easily writable with simple:
+>>
+>>   acpm->handle.ops.pmic_ops.read_reg = NULL;
+>>> The code is not correct logically, either, because functions like
+>> acpm_get_by_node() and acpm_handle_put() are meant to modify the handle
+>> reference counting, thus they must modify the handle.  Modification here
+> 
+> You are right that casting away const via container_of to modify the
+> parent's reference count is incorrect, so dropping the const from the
+> handle argument makes sense.
+> 
+> However, to address the underlying issue of the operations being
+> writable (e.g., acpm->handle.ops.pmic_ops.read_reg = NULL), I think we
+> should also decouple the ops from the handle struct and keep them strictly
+> constant in .rodata.
+> 
+> How about we apply your fix for the signatures, and I follow up with
+> (or we include) a patch to do the following:
+> 
+> struct acpm_handle {
+>         const struct acpm_ops *ops; // Changed from embedded struct to pointer
+> };
+> 
+> static const struct acpm_ops exynos_acpm_driver_ops = {
+>         .dvfs_ops = {
+>                 .set_rate = acpm_dvfs_set_rate,
+>                 .get_rate = acpm_dvfs_get_rate,
+>         },
+>         .pmic_ops = {
+>                 .read_reg = acpm_pmic_read_reg,
+>                 .write_reg = acpm_pmic_write_reg,
+>                 // ... other ops
+>         },
+> };
+> 
+> and in probe:
+> acpm->handle.ops = &exynos_acpm_driver_ops;
+> 
+> This way, the handle safely reflects the mutability of its container,
+> but our function pointers remain fully protected.
 
-Make this code common, and take this opportunity to also simplify
-the code a bit while switching over to the TTBRx_EL1_ASID macro.
+Yes, this makes sense.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_nested.h |  2 +
- arch/arm64/kvm/at.c                 | 27 +------------
- arch/arm64/kvm/nested.c             | 60 +++++++++++++++--------------
- 3 files changed, 35 insertions(+), 54 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 905c658057a43..091544e6af442 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -397,6 +397,8 @@ int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu);
- int kvm_handle_vncr_abort(struct kvm_vcpu *vcpu);
- void kvm_handle_s1e2_tlbi(struct kvm_vcpu *vcpu, u32 inst, u64 val);
- 
-+u16 get_asid_by_regime(struct kvm_vcpu *vcpu, enum trans_regime regime);
-+
- #define vncr_fixmap(c)						\
- 	({							\
- 		u32 __c = (c);					\
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 885bd5bb2f416..6588ea251ed77 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -540,31 +540,8 @@ static int walk_s1(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 	wr->pa |= va & GENMASK_ULL(va_bottom - 1, 0);
- 
- 	wr->nG = (wi->regime != TR_EL2) && (desc & PTE_NG);
--	if (wr->nG) {
--		u64 asid_ttbr, tcr;
--
--		switch (wi->regime) {
--		case TR_EL10:
--			tcr = vcpu_read_sys_reg(vcpu, TCR_EL1);
--			asid_ttbr = ((tcr & TCR_A1) ?
--				     vcpu_read_sys_reg(vcpu, TTBR1_EL1) :
--				     vcpu_read_sys_reg(vcpu, TTBR0_EL1));
--			break;
--		case TR_EL20:
--			tcr = vcpu_read_sys_reg(vcpu, TCR_EL2);
--			asid_ttbr = ((tcr & TCR_A1) ?
--				     vcpu_read_sys_reg(vcpu, TTBR1_EL2) :
--				     vcpu_read_sys_reg(vcpu, TTBR0_EL2));
--			break;
--		default:
--			BUG();
--		}
--
--		wr->asid = FIELD_GET(TTBR_ASID_MASK, asid_ttbr);
--		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
--		    !(tcr & TCR_ASID16))
--			wr->asid &= GENMASK(7, 0);
--	}
-+	if (wr->nG)
-+		wr->asid = get_asid_by_regime(vcpu, wi->regime);
- 
- 	return 0;
- 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 7f1ea85dc67ab..787776aaf4ad1 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -854,6 +854,33 @@ int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2)
- 	return kvm_inject_nested_sync(vcpu, esr_el2);
- }
- 
-+u16 get_asid_by_regime(struct kvm_vcpu *vcpu, enum trans_regime regime)
-+{
-+	enum vcpu_sysreg ttbr_elx;
-+	u64 tcr;
-+	u16 asid;
-+
-+	switch (regime) {
-+	case TR_EL10:
-+		tcr = vcpu_read_sys_reg(vcpu, TCR_EL1);
-+		ttbr_elx = (tcr & TCR_A1) ? TTBR1_EL1 : TTBR0_EL1;
-+		break;
-+	case TR_EL20:
-+		tcr = vcpu_read_sys_reg(vcpu, TCR_EL2);
-+		ttbr_elx = (tcr & TCR_A1) ? TTBR1_EL2 : TTBR0_EL2;
-+		break;
-+	default:
-+		BUG();
-+	}
-+
-+	asid = FIELD_GET(TTBRx_EL1_ASID, vcpu_read_sys_reg(vcpu, ttbr_elx));
-+	if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
-+	    !(tcr & TCR_ASID16))
-+		asid &= GENMASK(7, 0);
-+
-+	return asid;
-+}
-+
- static void invalidate_vncr(struct vncr_tlb *vt)
- {
- 	vt->valid = false;
-@@ -1333,20 +1360,8 @@ static bool kvm_vncr_tlb_lookup(struct kvm_vcpu *vcpu)
- 	if (read_vncr_el2(vcpu) != vt->gva)
- 		return false;
- 
--	if (vt->wr.nG) {
--		u64 tcr = vcpu_read_sys_reg(vcpu, TCR_EL2);
--		u64 ttbr = ((tcr & TCR_A1) ?
--			    vcpu_read_sys_reg(vcpu, TTBR1_EL2) :
--			    vcpu_read_sys_reg(vcpu, TTBR0_EL2));
--		u16 asid;
--
--		asid = FIELD_GET(TTBR_ASID_MASK, ttbr);
--		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
--		    !(tcr & TCR_ASID16))
--			asid &= GENMASK(7, 0);
--
--		return asid == vt->wr.asid;
--	}
-+	if (vt->wr.nG)
-+		return get_asid_by_regime(vcpu, TR_EL20) == vt->wr.asid;
- 
- 	return true;
- }
-@@ -1449,21 +1464,8 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
- 	if (read_vncr_el2(vcpu) != vt->gva)
- 		return;
- 
--	if (vt->wr.nG) {
--		u64 tcr = vcpu_read_sys_reg(vcpu, TCR_EL2);
--		u64 ttbr = ((tcr & TCR_A1) ?
--			    vcpu_read_sys_reg(vcpu, TTBR1_EL2) :
--			    vcpu_read_sys_reg(vcpu, TTBR0_EL2));
--		u16 asid;
--
--		asid = FIELD_GET(TTBR_ASID_MASK, ttbr);
--		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
--		    !(tcr & TCR_ASID16))
--			asid &= GENMASK(7, 0);
--
--		if (asid != vt->wr.asid)
--			return;
--	}
-+	if (vt->wr.nG && get_asid_by_regime(vcpu, TR_EL20) != vt->wr.asid)
-+		return;
- 
- 	vt->cpu = smp_processor_id();
- 
--- 
-2.47.3
-
+Best regards,
+Krzysztof
 
