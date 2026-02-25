@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166A5FD3756
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFA6FD3758
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 12:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bk588DBfNe67SRQfvFVlYp/ZLLbI8UjxnD459J1IWfU=; b=G9R4YQfnwjoTr/1yQ2x/8WEgU/
-	/dOwcmkeOhbHflHqXMcPSWq4402w7VL+RAoRamlLu6w6y2zHf4G+fX9dgZBrEv5AXd0Id5q88x4cL
-	tsJ6puOk8spSuH05itg0011vXqvQVj9Ub6p7FvVovKBLN8ZiBKvNMbImXcijcS5bQ8K12DGhkmrZv
-	x6EzmYsfZYuDMBPaWx7xAJK0GD/n0RtmWwWN0/AZNBARZBtHDIuDAFzMhWkA/EsRsZZS3niguZe/p
-	dsqxnUj6EDByfU517KAaui9PoK9L9YLVSlsPr38foZdvefZO4r2Sz4/pwuJ9NzxCrRa6dlPIr2X5K
-	Ol+FbPzw==;
+	bh=do0BN02JpxbtxKX+wWJ7Osy1fAw9wO/zuPc7l6zseOM=; b=KUZCqwgzVhkFZehP/bZGVi4TTl
+	gz9M5VtUMAHUWeOIzwn/B/3MqR2x+8GJKVscRK4lEC8UQklrxRNe38qR2m7yag8DjQfAgO+blLQ1I
+	ZdkHFCMWYv8wXjANFNUezyYeZC/F1A3sZo9nW3JQYnNqkAH2edWmFECw3FHGc2lqfOB6ZJ9xxLF5B
+	HOb9ac7VSqL0Kp/fbUUnfviru2NultVyqUM6fIwWgBMi2hyZtbOo1X0B2IMgu4bYSm7S906kr8unO
+	zIzM5tqQW5N1DnuIOLE0SvyqDilPni7M0XDJGnsFcVvlSVbR8/maig539CD2ERibRCSL9k6+cTTp9
+	c7NvNdvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvECI-0000000415i-2xbW;
-	Wed, 25 Feb 2026 12:40:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vvEFd-000000041KY-1FRB;
+	Wed, 25 Feb 2026 12:44:25 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvECG-0000000415J-0ohV;
-	Wed, 25 Feb 2026 12:40:57 +0000
+	id 1vvEFa-000000041Jx-1VP8;
+	Wed, 25 Feb 2026 12:44:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772023252;
-	bh=ngaopgY039OjChM8qBLj6ujB7B8vDxU3MnbrCR2xlPs=;
+	s=mail; t=1772023459;
+	bh=wJo7H+wg7oWjDPXBu3O5+/hGWpnIf4Wz8/+O3JhSsoY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pWdD6mGI99dJH6qGsQBVWGzvUP0BjC6j8ll7dXJ7r3qUj2dev2m56xdT5JREZegZx
-	 oJHt7qifVuU+9NB3qfgmjgMXQelsciYLzjO3ZruDropQ7r7UbCYbRLWcG+kBCJXxyr
-	 Z54s0yBU5k8OUs0qdu+im92weAONwkkcxqBj9x4v8l77u3xbTmcqQDoGrbX2S2VFmq
-	 KAdm5Yi9IDKgkyG5sT/GcbcyH8gFV4j9LQlQretgY/ZDuqATS3ZsxBmZygEXC358kU
-	 Y5V20tbJNW/YGHyIbL0x7Yjv2cTXyjT/BH2Ouy/jlwDtljXgjA2aDG7TRGjPMNj4OC
-	 MKc3oKTR85SoQ==
+	b=ROxU34RDm7sR9Vf1z2KVIJOAc33DQRkColUGHO9bPXNdfSXDKCWB+kgKzU/2LahbC
+	 IN2jKNzQGcZbLJ9PVmjr3InHvPCLUq/KKnrb8n5HYQg5Lh5ftnWAzx8chNslc9RTVq
+	 NfzXDc5kK9IQcM/6uZoFCAQoTrm9pGb9fLjUgJ8kRqEL6oY5uDdn+XkRWCqK7eyZk6
+	 eO4ja1rhXmf0aTJhPhhqnL3lckGI/QJKVaTWxkIXtFVzIVhdEgGWpqM9a6bQGuxz/F
+	 ghh74A4oAgJgKSFzLwI/sXuUDRZkWBTEhNID/9IlYsvGoFNAeXsmUakRKmQeXcQJBb
+	 0tJf+Pq55HDKA==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A013417E0BA2;
-	Wed, 25 Feb 2026 13:40:51 +0100 (CET)
-Message-ID: <cad2e275-8b5d-4023-b3da-a191bfd065c5@collabora.com>
-Date: Wed, 25 Feb 2026 13:40:51 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AEEBE17E012E;
+	Wed, 25 Feb 2026 13:44:18 +0100 (CET)
+Message-ID: <821f0078-9d4d-4548-ae6f-5f43cf5bcd6d@collabora.com>
+Date: Wed, 25 Feb 2026 13:44:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 20/23] scsi: ufs: mediatek: Back up idle timer in
- per-instance struct
+Subject: Re: [PATCH v7 22/23] scsi: ufs: mediatek: Remove undocumented
+ "clk-scale-up-vcore-min"
 To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
  "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
  "robh@kernel.org" <robh@kernel.org>,
@@ -80,17 +80,16 @@ Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  "kernel@collabora.com" <kernel@collabora.com>
 References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
- <20260216-mt8196-ufs-v7-20-b5f2907c6da7@collabora.com>
- <5d9723fd6b4ff8430889efb33e0fc93a10c4a880.camel@mediatek.com>
+ <20260216-mt8196-ufs-v7-22-b5f2907c6da7@collabora.com>
+ <e452951498ae82433337ca428bd49c7358194dd8.camel@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <5d9723fd6b4ff8430889efb33e0fc93a10c4a880.camel@mediatek.com>
+In-Reply-To: <e452951498ae82433337ca428bd49c7358194dd8.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_044056_399372_56F25B94 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260225_044422_595476_DAB89A6D 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +104,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 25/02/26 11:35, Peter Wang (王信友) ha scritto:
+Il 25/02/26 11:37, Peter Wang (王信友) ha scritto:
 > On Mon, 2026-02-16 at 14:37 +0100, Nicolas Frattaroli wrote:
->> @@ -187,6 +187,7 @@ struct ufs_mtk_host {
->>   	u16 ref_clk_gating_wait_us;
->>   	u32 ip_ver;
->>   	bool legacy_ip_ver;
->> +	u32 hibernate_idle_timer;
+>> The MediaTek UFS driver contains support for an undocumented,
+>> non-vendor-prefixed u32 property named "clk-scale-up-vcore-min".
+>>
+>> Since it is not part of any binding, and would not pass a bindings
+>> review in its current form, remove it.
+>>
+>> To return this functionality, it needs to be resubmitted in a series
+>> that also introduces it to the binding, and justifies what it is used
+>> for. Compatibility with downstream device trees is not a valid
+>> justification for its existence.
+>>
+>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > 
-> The name hibernate_idle_timer is somewhat confusing in
-> terms of its intended use. I would suggest using
-> backup_ahit or saved_ahit instead.
+> Can MT8196 work on Gear 5 without raising Vcore?
+> I'm afraid it might cause problems.
+> Maybe we can add the correct binding for MT8196?
 > 
 
-In my opinion "ahit" is way less readable than "hibernate_idle_timer".
+Might cause problems as much as literally on every other MediaTek SoC with the
+current version of this driver.
 
-The hibernate_idle_timer member here stores the AUTO HIBERNATE IDLE TIMER, and
-there is no other possible hibernation state in this driver.
+Besides, the right way of declaring freq<->voltage relationship is with OPP
+tables, not with custom properties invented out of the blue - and support for OPPs
+being generic is already supported in UFSHCI, so... moral of the story:
 
-Not sure why this could ever be confusing in terms of its intended use: its
-intended use is to store the (auto) hibern8 idle timer, and the member is called
-hibernate_idle_timer.
-
-In my eyes, that matches 1:1 with its usage. Loud and clear.
+As long as the platform is correctly configured in the devicetree, it's going to
+work without any kind of issues.
 
 Regards,
 Angelo
 
 > Thanks
 > Peter
-> 
 
 
 
