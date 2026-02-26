@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0121BFC5903
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 07:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EDEFC5907
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 07:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+Pe6E5F67ML6hKJke7YoqbvmtddOHGFr4A2w6RaLUU=; b=qFbdhNnWjN3zKHX33GJDqoGFCq
-	0ifD+d0TUVz1JqEp/irnR4yqPt/5uhl3wwuV6A3HwTvwSE/UIwQGirZcjJBts6vSA1R9vvmTc4RFl
-	6ZuysR4cg7qGhZERnhPn9n44wOEWEjxrthIcWLJgad63rALclMXrq95fNRwlYHsZkCnICofJb9DaY
-	eLLhC66PzUet85K5dnS1TCAPQJiATdeSuA2RhulshaULP77/dXxN14sPmkZAT3gsSKzgrE3HfhIHL
-	cqfZsW3i3GL5gc+4JJFwq9pGbAkRSWF17EBCThddnp4Z+mf3BQ9cPy4GqQFWarfDy3UDTC+SbiKk0
-	K5bVRRkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qTiV+7M8bDPB5RgaNqKdBFimBVxJbqD8RZxZc4n1LbQ=; b=w+fBSJBsQcW9a6bnYBofGqFHzm
+	7OrtkYnTdEIUAJUa/mzBYyr7478v9xPQFwLRt8DRE4pKJ7MgEQElpSCuGFqkQKOhhLF4br2Yh4I+O
+	Fb5ifUwrikXpzXwB4C3U8LQGaI5j9jGuap/qa/2ChhoQWLux+xGFkB5DEeailILTKikGl2RQl/wrr
+	/px4XpCTlHD9pf/ZwaeN3GosJrha7PMl05uVQbVx+YfkcSwccIg25iXiFZnkmuwz0heZdyov7ydbp
+	0ocDUf70l48/+CCvtDCiTA1JzflTYuoOVHHnMN3zBXsuie0gUVqVPz2+F3+DOEHD2RxZfsJnf9183
+	vDjc/sNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVfm-00000005ZGe-2d5M;
-	Thu, 26 Feb 2026 07:20:34 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1vvVkz-00000005ZUS-1f0S;
+	Thu, 26 Feb 2026 07:25:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVfj-00000005ZGG-1vfY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 07:20:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772090431; x=1803626431;
-  h=message-id:date:mime-version:subject:to:references:from:
-   in-reply-to:content-transfer-encoding;
-  bh=tDr1730A/DrFy+JHRefGsmFg7lJjL+tJRJhPR7ZqTSI=;
-  b=efJA96A39ccoSv63YD9I8jnFb/Cbn8DeNeT6dht2IvPt2Mn0+0Z7rFDA
-   RMFeBdEs+o5p9TFsZg1jZA+1eTwTUkcZMeZ/eH/GfoimOgiJjAATe+4+2
-   d2JSVKBxyhwcrj1Mi/neLkVXjBYVxExB1NHKB3cm2vxT+J1Bl/ozgNyTU
-   T3yBfdlW85IiqP5O5U/wzs2oWrEXuUtpYva//LS2CSEl/tRy2GHob1T05
-   dPkLLI6CAr1jMYIHvZwMA88ILgozX6Z/bUNG4lsEQmBCHQLCuJ/90jQPb
-   7shmDsYsons+AJ1QIspLDQ4D3ChumGyN4+0CItL+FTBVQzagQXnBSpKUM
-   Q==;
-X-CSE-ConnectionGUID: YyJon129RmqAS/zFJewr6g==
-X-CSE-MsgGUID: b1owyzMjR9K0fjuULbuuvQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11712"; a="98615489"
-X-IronPort-AV: E=Sophos;i="6.21,311,1763452800"; 
-   d="scan'208";a="98615489"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2026 23:20:27 -0800
-X-CSE-ConnectionGUID: bBkjfjIWS2CQWyLh2ByqVA==
-X-CSE-MsgGUID: KhMYPWouR5qFHDgF4581kQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,311,1763452800"; 
-   d="scan'208";a="215591493"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.241.147]) ([10.124.241.147])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2026 23:20:23 -0800
-Message-ID: <fd7649cf-d436-47ab-a7b9-eb5e915fce05@linux.intel.com>
-Date: Thu, 26 Feb 2026 15:20:20 +0800
+	id 1vvVkw-00000005ZU3-3YuW;
+	Thu, 26 Feb 2026 07:25:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 203F542E1D;
+	Thu, 26 Feb 2026 07:25:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6709BC19424;
+	Thu, 26 Feb 2026 07:25:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772090754;
+	bh=MVMppmnDaxJ0p8khr1M1MIEYFy0p0GyoafbyqGtoHrw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SbVawm3e0Fz+jOlSNrulCzWFmus7hdfmcyD2ZgjmgUZvk5MnozYxZ2CsxPiMkOuuB
+	 5+H41/YooRaLn5BRievRqKiCqaGNGS8rzsbbEfXRxf39fND+TUBh5GfmIFaxBwleMo
+	 tisXXfKun7Am+3iwx3L7Egcqx309McOFI/660N2srl72XEsBlBNOolAeuWB5cVJIbG
+	 GPsG9A+MlvMHefWf9Seh51w8Z/qvsg46/WiP4+iRktpwW4op05pYRfwKzA4t6Yl5Wy
+	 DW084hjKPEDQJCmCxTFonaDKwPj4i+KqLq2PQjkUJ0D0ts+cngvPsWWF6oskfhCqWD
+	 MSHfJbx8MlL2g==
+Date: Thu, 26 Feb 2026 08:25:51 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Detlev Casanova <detlev.casanova@collabora.com>, 
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] media: dt-bindings: rockchip,vdec: Add
+ alternative reg-names order for RK35{76,88}
+Message-ID: <20260226-screeching-manatee-of-amplitude-6dfbf6@quoll>
+References: <20260225-vdec-reg-order-rk3576-v3-0-5a2ebe1b11a8@collabora.com>
+ <20260225-vdec-reg-order-rk3576-v3-1-5a2ebe1b11a8@collabora.com>
+ <9bb74438-e759-46a7-9fa1-2c6b1fced76b@kernel.org>
+ <d5a244f3-5f1b-4bcb-8042-646320a47b6c@collabora.com>
+ <85793250-425d-40da-b382-ada9fc7b50e1@kernel.org>
+ <72a72c50-4816-47d4-b533-be4b7feee027@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 07/10] perf vendor events intel: Update lunarlake
- events from 1.18 to 1.20
-To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- James Clark <james.clark@linaro.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
- <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260226045301.459948-1-irogers@google.com>
- <20260226045301.459948-7-irogers@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <20260226045301.459948-7-irogers@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <72a72c50-4816-47d4-b533-be4b7feee027@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_232031_568434_44B464D8 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20260225_232554_929084_D2AA2821 
+X-CRM114-Status: GOOD (  24.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,325 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It seems a typo in the shortlog, it should be meteorlake instead of
-lunarlake. :)
+On Thu, Feb 26, 2026 at 12:26:37AM +0200, Cristian Ciocaltea wrote:
+> >> Sorry, but I don't quite get why would this be a better approach than just
+> >> properly list the items according to the HW layout, i.e. following the
+> >> address-based ordering?
+> > 
+> > We always expect the list to grow, to have common set. That's rule given
+> > during reviews multiple times. For multiple reasons, also explained
+> > (consistency, maintenance and actually proper description of hardware
+> > like the main reg address space).
+> > 
+> > Probably this was also given to that binding during discussions when it
+> > was upstream, so your change reverts previous discussion and to that I
+> > do not agree.
+> 
+> Thank you for detailing this, I get your point now.
+> 
+> After digging a bit further, it looks like the "function" naming has been
+> introduced as part of the RK3588 support via commit c6ffb7e1fb90 ("media:
+> dt-bindings: rockchip: Document RK3588 Video Decoder bindings").
+> 
+> Morever, it also sets `reg-names: false` for all the SoCs other than RK3588 -
+> sorry for missing this initially.
+> 
+> Hence "function" wasn't used at all in the context of the older SoCs, while on
+> RK3588 & RK3576 there is no indication that "function" should be treated as the
+> main address space or anything like that.  E.g. RK3588 TRM clearly shows the
+> "link" range at the top of the listing, starting at video decoder unit base
+> address:
+> 
+> --------------------------------------------------------------------------------
+> Config Register                         |   Base addr
+> --------------------------------------------------------------------------------
+> VDPU381 core0/1 link table config base  |   VDPU381_core0/1_base+0x000
+> VDPU381 core0/1 function config base    |   VDPU381_core0/1_base+0x100
+> --------------------------------------------------------------------------------
+>                                         |   VDPU381_core0/1_base+0x600 for Y channel
+> VDPU381 core0/1 cache config base       |   VDPU381_core0/1_base+0x640 for C channel
+>                                         |   VDPU381_core0/1_base+0x680 for head channel
+> --------------------------------------------------------------------------------
+> 
+> Assuming the reasoning above is now good enough to move further with the
+> proposed approach, I can prepare a new revision dropping the unnecessary
+> one-entry item from the reg-names, while keeping all the rest in the series as
+> is.
 
-On 2/26/2026 12:52 PM, Ian Rogers wrote:
-> The updated events were published in:
-> https://github.com/intel/perfmon/commit/2eebd8e2612a0655e82b88e1d2fab960315c025b
-> https://github.com/intel/perfmon/commit/81c4ce2c16f05b839d2c40e8cf183ed110357b73
->
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/pmu-events/arch/x86/mapfile.csv    |  2 +-
->  .../pmu-events/arch/x86/meteorlake/cache.json | 67 ++++++++++++++++---
->  .../arch/x86/meteorlake/frontend.json         | 18 +++++
->  .../arch/x86/meteorlake/pipeline.json         | 46 +++++++++++--
->  4 files changed, 116 insertions(+), 17 deletions(-)
->
-> diff --git a/tools/perf/pmu-events/arch/x86/mapfile.csv b/tools/perf/pmu-events/arch/x86/mapfile.csv
-> index a2dde3faad5e..8d8fd8b08166 100644
-> --- a/tools/perf/pmu-events/arch/x86/mapfile.csv
-> +++ b/tools/perf/pmu-events/arch/x86/mapfile.csv
-> @@ -23,7 +23,7 @@ GenuineIntel-6-3E,v24,ivytown,core
->  GenuineIntel-6-2D,v24,jaketown,core
->  GenuineIntel-6-(57|85),v16,knightslanding,core
->  GenuineIntel-6-BD,v1.21,lunarlake,core
-> -GenuineIntel-6-(AA|AC|B5),v1.18,meteorlake,core
-> +GenuineIntel-6-(AA|AC|B5),v1.20,meteorlake,core
->  GenuineIntel-6-1[AEF],v4,nehalemep,core
->  GenuineIntel-6-2E,v4,nehalemex,core
->  GenuineIntel-6-CC,v1.02,pantherlake,core
-> diff --git a/tools/perf/pmu-events/arch/x86/meteorlake/cache.json b/tools/perf/pmu-events/arch/x86/meteorlake/cache.json
-> index d3fc04b2ffbd..4c1220c19456 100644
-> --- a/tools/perf/pmu-events/arch/x86/meteorlake/cache.json
-> +++ b/tools/perf/pmu-events/arch/x86/meteorlake/cache.json
-> @@ -513,6 +513,15 @@
->          "UMask": "0x6",
->          "Unit": "cpu_atom"
->      },
-> +    {
-> +        "BriefDescription": "Counts the number of unhalted cycles when the core is stalled due to an ICACHE or ITLB miss which hit in the LLC, no snoop was required. LLC provides the data. If the core has access to an L3 cache, an LLC hit refers to an L3 cache hit, otherwise it counts zeros.",
-> +        "Counter": "0,1,2,3,4,5,6,7",
-> +        "EventCode": "0x35",
-> +        "EventName": "MEM_BOUND_STALLS_IFETCH.LLC_HIT_NOSNOOP",
-> +        "SampleAfterValue": "1000003",
-> +        "UMask": "0x2",
-> +        "Unit": "cpu_atom"
-> +    },
->      {
->          "BriefDescription": "Counts the number of unhalted cycles when the core is stalled due to an ICACHE or ITLB miss which missed all the caches. If the core has access to an L3 cache, an LLC miss refers to an L3 cache miss, otherwise it is an L2 cache miss.",
->          "Counter": "0,1,2,3,4,5,6,7",
-> @@ -522,6 +531,15 @@
->          "UMask": "0x78",
->          "Unit": "cpu_atom"
->      },
-> +    {
-> +        "BriefDescription": "Counts the number of unhalted cycles when the core is stalled due to an ICACHE or ITLB miss which missed all the caches. DRAM, MMIO or other LOCAL memory type provides the data. If the core has access to an L3 cache, an LLC miss refers to an L3 cache miss, otherwise it is an L2 cache miss.",
-> +        "Counter": "0,1,2,3,4,5,6,7",
-> +        "EventCode": "0x35",
-> +        "EventName": "MEM_BOUND_STALLS_IFETCH.LLC_MISS_LOCALMEM",
-> +        "SampleAfterValue": "1000003",
-> +        "UMask": "0x50",
-> +        "Unit": "cpu_atom"
-> +    },
->      {
->          "BriefDescription": "Counts the number of unhalted cycles when the core is stalled due to an L1 demand load miss.",
->          "Counter": "0,1,2,3,4,5,6,7",
-> @@ -559,6 +577,24 @@
->          "UMask": "0x6",
->          "Unit": "cpu_atom"
->      },
-> +    {
-> +        "BriefDescription": "Counts the number of unhalted cycles when the core is stalled due to a demand load miss which hit in the LLC, no snoop was required. LLC provides the data. If the core has access to an L3 cache, an LLC hit refers to an L3 cache hit, otherwise it counts zeros.",
-> +        "Counter": "0,1,2,3,4,5,6,7",
-> +        "EventCode": "0x34",
-> +        "EventName": "MEM_BOUND_STALLS_LOAD.LLC_HIT_NOSNOOP",
-> +        "SampleAfterValue": "1000003",
-> +        "UMask": "0x2",
-> +        "Unit": "cpu_atom"
-> +    },
-> +    {
-> +        "BriefDescription": "Counts the number of unhalted cycles when the core is stalled due to a demand load miss which hit in the LLC, a snoop was required, the snoop misses or the snoop hits but NO_FWD. LLC provides the data. If the core has access to an L3 cache, an LLC hit refers to an L3 cache hit, otherwise it counts zeros.",
-> +        "Counter": "0,1,2,3,4,5,6,7",
-> +        "EventCode": "0x34",
-> +        "EventName": "MEM_BOUND_STALLS_LOAD.LLC_HIT_SNOOP",
-> +        "SampleAfterValue": "1000003",
-> +        "UMask": "0x4",
-> +        "Unit": "cpu_atom"
-> +    },
->      {
->          "BriefDescription": "Counts the number of unhalted cycles when the core is stalled due to a demand load miss which missed all the local caches. If the core has access to an L3 cache, an LLC miss refers to an L3 cache miss, otherwise it is an L2 cache miss.",
->          "Counter": "0,1,2,3,4,5,6,7",
-> @@ -568,6 +604,15 @@
->          "UMask": "0x78",
->          "Unit": "cpu_atom"
->      },
-> +    {
-> +        "BriefDescription": "Counts the number of unhalted cycles when the core is stalled to a demand load miss and the data was provided from an unknown source. If the core has access to an L3 cache, an LLC miss refers to an L3 cache miss, otherwise it is an L2 cache miss.",
-> +        "Counter": "0,1,2,3,4,5,6,7",
-> +        "EventCode": "0x34",
-> +        "EventName": "MEM_BOUND_STALLS_LOAD.LLC_MISS_LOCALMEM",
-> +        "SampleAfterValue": "1000003",
-> +        "UMask": "0x50",
-> +        "Unit": "cpu_atom"
-> +    },
->      {
->          "BriefDescription": "Counts the number of unhalted cycles when the core is stalled to a store buffer full condition",
->          "Counter": "0,1,2,3,4,5,6,7",
-> @@ -969,7 +1014,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 1024. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -981,7 +1026,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 128. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -993,7 +1038,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 16. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -1005,7 +1050,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 2048. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -1017,7 +1062,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 256. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -1029,7 +1074,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 32. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -1041,7 +1086,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 4. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -1053,7 +1098,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 512. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -1065,7 +1110,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 64. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -1077,7 +1122,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-> +        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 8. Only counts with PEBS enabled.",
->          "Counter": "0,1",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> @@ -1159,7 +1204,7 @@
->          "Unit": "cpu_atom"
->      },
->      {
-> -        "BriefDescription": "Counts the number of  stores uops retired same as MEM_UOPS_RETIRED.ALL_STORES",
-> +        "BriefDescription": "Counts the number of stores uops retired.",
->          "Counter": "0,1,2,3,4,5,6,7",
->          "Data_LA": "1",
->          "EventCode": "0xd0",
-> diff --git a/tools/perf/pmu-events/arch/x86/meteorlake/frontend.json b/tools/perf/pmu-events/arch/x86/meteorlake/frontend.json
-> index 6484834b1127..dcf8c8e720f3 100644
-> --- a/tools/perf/pmu-events/arch/x86/meteorlake/frontend.json
-> +++ b/tools/perf/pmu-events/arch/x86/meteorlake/frontend.json
-> @@ -430,6 +430,24 @@
->          "UMask": "0x4",
->          "Unit": "cpu_core"
->      },
-> +    {
-> +        "BriefDescription": "ICACHE_TAG.STALLS_INUSE",
-> +        "Counter": "0,1,2,3",
-> +        "EventCode": "0x83",
-> +        "EventName": "ICACHE_TAG.STALLS_INUSE",
-> +        "SampleAfterValue": "200003",
-> +        "UMask": "0x10",
-> +        "Unit": "cpu_core"
-> +    },
-> +    {
-> +        "BriefDescription": "ICACHE_TAG.STALLS_ISB",
-> +        "Counter": "0,1,2,3",
-> +        "EventCode": "0x83",
-> +        "EventName": "ICACHE_TAG.STALLS_ISB",
-> +        "SampleAfterValue": "200003",
-> +        "UMask": "0x8",
-> +        "Unit": "cpu_core"
-> +    },
->      {
->          "BriefDescription": "Cycles Decode Stream Buffer (DSB) is delivering any Uop",
->          "Counter": "0,1,2,3",
-> diff --git a/tools/perf/pmu-events/arch/x86/meteorlake/pipeline.json b/tools/perf/pmu-events/arch/x86/meteorlake/pipeline.json
-> index bfdaabe9377d..7662846745bd 100644
-> --- a/tools/perf/pmu-events/arch/x86/meteorlake/pipeline.json
-> +++ b/tools/perf/pmu-events/arch/x86/meteorlake/pipeline.json
-> @@ -517,7 +517,7 @@
->          "Unit": "cpu_core"
->      },
->      {
-> -        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles",
-> +        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles. [This event is alias to CPU_CLK_UNHALTED.THREAD]",
->          "Counter": "Fixed counter 1",
->          "EventName": "CPU_CLK_UNHALTED.CORE",
->          "SampleAfterValue": "2000003",
-> @@ -583,7 +583,7 @@
->          "Unit": "cpu_core"
->      },
->      {
-> -        "BriefDescription": "Fixed Counter: Counts the number of unhalted reference clock cycles",
-> +        "BriefDescription": "Fixed Counter: Counts the number of unhalted reference clock cycles.",
->          "Counter": "Fixed counter 2",
->          "EventName": "CPU_CLK_UNHALTED.REF_TSC",
->          "SampleAfterValue": "2000003",
-> @@ -620,7 +620,7 @@
->          "Unit": "cpu_core"
->      },
->      {
-> -        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles",
-> +        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles. [This event is alias to CPU_CLK_UNHALTED.CORE]",
->          "Counter": "Fixed counter 1",
->          "EventName": "CPU_CLK_UNHALTED.THREAD",
->          "SampleAfterValue": "2000003",
-> @@ -804,10 +804,10 @@
->          "Unit": "cpu_core"
->      },
->      {
-> -        "BriefDescription": "Fixed Counter: Counts the number of instructions retired",
-> +        "BriefDescription": "Fixed Counter: Counts the number of instructions retired.",
->          "Counter": "Fixed counter 0",
->          "EventName": "INST_RETIRED.ANY",
-> -        "PublicDescription": "Fixed Counter: Counts the number of instructions retired Available PDIST counters: 32",
-> +        "PublicDescription": "Fixed Counter: Counts the number of instructions retired. Available PDIST counters: 32",
->          "SampleAfterValue": "2000003",
->          "UMask": "0x1",
->          "Unit": "cpu_atom"
-> @@ -1207,6 +1207,42 @@
->          "UMask": "0x20",
->          "Unit": "cpu_core"
->      },
-> +    {
-> +        "BriefDescription": "Counts the number of CLFLUSH, CLWB, and CLDEMOTE instructions retired.",
-> +        "Counter": "0,1,2,3,4,5,6,7",
-> +        "EventCode": "0xe0",
-> +        "EventName": "MISC_RETIRED1.CL_INST",
-> +        "SampleAfterValue": "1000003",
-> +        "UMask": "0xff",
-> +        "Unit": "cpu_atom"
-> +    },
-> +    {
-> +        "BriefDescription": "Counts the number of LFENCE instructions retired.",
-> +        "Counter": "0,1,2,3,4,5,6,7",
-> +        "EventCode": "0xe0",
-> +        "EventName": "MISC_RETIRED1.LFENCE",
-> +        "SampleAfterValue": "1000003",
-> +        "UMask": "0x2",
-> +        "Unit": "cpu_atom"
-> +    },
-> +    {
-> +        "BriefDescription": "Counts the number of accesses to KeyLocker cache.",
-> +        "Counter": "0,1,2,3,4,5,6,7",
-> +        "EventCode": "0xe1",
-> +        "EventName": "MISC_RETIRED2.KEYLOCKER_ACCESS",
-> +        "SampleAfterValue": "1000003",
-> +        "UMask": "0x10",
-> +        "Unit": "cpu_atom"
-> +    },
-> +    {
-> +        "BriefDescription": "Counts the number of misses to KeyLocker cache.",
-> +        "Counter": "0,1,2,3,4,5,6,7",
-> +        "EventCode": "0xe1",
-> +        "EventName": "MISC_RETIRED2.KEYLOCKER_MISS",
-> +        "SampleAfterValue": "1000003",
-> +        "UMask": "0x11",
-> +        "Unit": "cpu_atom"
-> +    },
->      {
->          "BriefDescription": "Cycles stalled due to no store buffers available. (not including draining form sync).",
->          "Counter": "0,1,2,3,4,5,6,7",
+Yes, with drop of the oneOf this would be fine.
+
+> 
+> Regards,
+> Cristian
+> 
 
