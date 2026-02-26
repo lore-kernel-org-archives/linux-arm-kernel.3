@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1156FCE068
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F88FCE078
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 13:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,86 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0gpTv0cQ1xaud3+6Hv+n3cMevQTI+cIYX2yYWA3C2vw=; b=hV0UhqH9NUFzJkRtLwOLN1+X6o
-	l2lQgCk3afJGyou+JIYNbXTXA57JCsi3JcSWErzhOn6/ddZYXYE3+3n8tcC6zS6SEd0tsB2bSrh97
-	nRpOUBhrMGGSOh7g7qhgcpSgd7msiYWsp6cN7oX+EgCUUNlhhXbhIBuhiaStcyHq7gr3p/9mim62W
-	p2JJ2IURDhM1P71iUyh53w7+fIniIspr+FQxSI8eRVFEBVHqynrN4+l/kHFLrOt/6ywjJXKiO7i3G
-	ocesIF2kw2ivxr4eznelSqnKWk0CdEd9PoLix35GlL/Ixl5Sf6x2v5XZ2uZtrtcC0eyobPckabK4D
-	vnEKSN1w==;
+	bh=vgeR7jOGELUtY0ZmhFwjtCwPGAZoEdq03U4EngMFDbI=; b=s9EkcTAWVc0xJDwX/1IeOJIYc2
+	R1GtmSi7Huglq0L79IN8Vkw1yM5xlfH8bQwWuyyAZK4AGuQmNMpUKc5y8F2OUhM/mYKlhchS7pA+Q
+	dC6nFwDARBVtxc1Nckf0V2adMEYjhg3fOnlYD9DP/P7/9IaXGBWSTxmfWNodNcdepnDhVxZJXpUlw
+	kReP7I6MZve2fl1HMhS0XrvGltyZIPg/WUmesvCmBiQyr57Ahv0kaD4erQG9hmmdp9EttmLz5lOFa
+	6dqBDrinmgmzr3O0BZ32TCbulMaQvGXYMZg3gQoC/UEk7KGHyjyjC2wq5P2bKch1qkduaXKpV0qe1
+	eT6VhxHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvb9d-00000006BIe-0VnZ;
+	id 1vvb9d-00000006BIu-1kl2;
 	Thu, 26 Feb 2026 13:11:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvb9b-00000006BI1-1YMr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 26 Feb 2026 13:11:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=0gpTv0cQ1xaud3+6Hv+n3cMevQTI+cIYX2yYWA3C2vw=; b=XUN5oRHfB/sfBUIeoqeW1jtxcN
-	vze4Vwb9HmRFAy+IS1K3QoV7UpPYAikUbrYbiFF2CvVjBK7E4DS+8NtRFNxGToSqvOThQcEPA1wXQ
-	VlW2HLl9hd8UgdfZTKTLI3tT3Pw+2BpSsAWQc6ZS/Ql923YWgkfFnHaJmSiDZG114CJ7kqjXSnd7Y
-	sek2OapJoX4gdnNJm0r3sIwqdOfW6lT5iEv86DrwBaSjwUxi8wslqZm8Hus/GecjY0HbaTCarmiUD
-	QDdRCPHZ3yYRuNfgnoaXAndUlYWUXgJ9G2Gs0EOT04/DEtOwyB1DvK0Y1HERG+nxjOLu/wAHpG2YJ
-	E15zP0hQ==;
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvb9Y-0000000B0OW-0eVo
+	id 1vvb9a-00000006BHT-17LV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 13:11:42 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4837584120eso5964215e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 05:11:39 -0800 (PST)
+	Thu, 26 Feb 2026 13:11:43 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43988056dc3so857603f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 05:11:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772111498; x=1772716298; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772111500; x=1772716300; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0gpTv0cQ1xaud3+6Hv+n3cMevQTI+cIYX2yYWA3C2vw=;
-        b=ZqO2Y4+IxWJOFRVOnGsIQzEew3d/6rV1E1u/ZtEv88gNvUwQePF/lkfPrVn1FClt6V
-         olWJgayFncAlRq6ZyqjMq/bpbqfiSTxjAlvqwG9WTOizyWixUtPE6qvhF2UZwRIAPcfU
-         qj4gRArWm3o1AwZH2fGxf3ruBcYvLpDcaARMQF2d+ggeU7Qu0+yoE3Vujzn7BFle+oGa
-         ki8eR2KA8xkGAq2sVdjJthrxEaDp0+z7yQ/TntUnGAMAjkYAc8rB1t/jNch6UbLsY/wB
-         Tw5wDvN7vhGeM+xHUCThL4Em/0gpNBQW7M52gzMqEh5SVAzRD1ZggnCWd+D+hm5C9ubB
-         Wk9Q==
+        bh=vgeR7jOGELUtY0ZmhFwjtCwPGAZoEdq03U4EngMFDbI=;
+        b=bBWngoJcC3yJ3/xgqQaiWZ0NX9znpbH1FefK3iR/FFK6KYvVZb0zIrGKz6Y1Zt6jp2
+         X96t9fRrAiJuccbcrl1cpnK3yEaNNThvA0eq0BSOYWOfrNa4BAueQ8UXpV6dKSl6pH9E
+         N+K2HWiYSlO+1ZRgfHz1ukSHeSpJvBap7FznaPSR5vtMMe68CqRM0OJrxjYf1KQ9cSFT
+         ntbmuHhSnxIP2P4nXzcxfhGRf4GgmnZH3xFVw2yqA+dnjFgWrGvfhTBXQT4Z7LAajgkb
+         QN1LHIoctqAuR+lODbavp2yti5Pz1eheE4PQCYpxqnnHS+pZwCl1OlDsVdJXfuG4eULv
+         N05Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772111498; x=1772716298;
+        d=1e100.net; s=20230601; t=1772111500; x=1772716300;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=0gpTv0cQ1xaud3+6Hv+n3cMevQTI+cIYX2yYWA3C2vw=;
-        b=IbJyglmwmfjMxgAKJTjeE9VXOyubvBiBLUYIUKm6qmMJvGzdK28wc1/MgfPTaiAMiV
-         kWOKuJ61Snkwgc0Qpi8xsu53oiHN+IM0IRPxB0ntd6uDlSGAPPpu2VpwXzJunltx1VbQ
-         ZMKzU87gCNWi0DqH/CSqFBw5SK/qqggbGQ5NEqQFsQVbQkXlKJX8ZiLfIgdTlAGsai7G
-         MgQUCdEuagL0CyP2JkFJUF6ZScXAUG1LdHqRIKxKY84c4rVBLeYTtkcqMlWvKI/nZWjV
-         CHVoUn9UYHJH8TTA+O8qbt6+pbiUwZcE0vsBJmZDf2iEsh/5v1BupPSfdAcDixWJ0rQa
-         tqsA==
-X-Forwarded-Encrypted: i=1; AJvYcCUq4aq8os9tUz5sntlRvxhq/8qymOiVKlM9SIsXGNkcDUzEpuX2tbRw4dVHSO1GMOhhpKv3I+NaLjOB46C1pVmU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzFZttLWAbPbKUPvun0K56UBEKZZiE5GsnQh/F+7EI6PgA/DVt
-	orH13KWnx9XWykDXJqrq++MHcud9YbmEhqDjwPTOlmVzeL9x+Y/fMHMe
-X-Gm-Gg: ATEYQzxHCMUysXwsZWYw08bj8kyYzBzJZJKhbaf4TToi8vYpm7M8WoKkA2Cgi6E62GB
-	aKy+MmuMDmDwtdmY8pqGTdjqXbWfLDVuS7gs5w0ZJijZoawY19m9JwuSdCv9AC3bNjEWFcfPUJP
-	3T5z0i/fg4H/YuWUTY0QBp8VX46dE5i0AFkHmMm+4+O2uI1qqOZBEZaDwhuKOPtKPUO1OuZ4709
-	OJRD/Taa/9jKAw5Lz3mOMUroswOx7wbhW9ub/g/TlJNXLOdDu5ISQ3XZMannm5dPJVFvCR34W53
-	tTQkNmXdLMTIBMZAEEsubxqpIQ+B5os7a6/s1ojOddSq+eY3L9ibOXCemihY5vPgr9iA+1MYcxR
-	TjKYaFDIORMCGnIgkkL3+EEMN/fJgxjmzurC63x6VJ6dMOUk8/7qUYltzgbjKk7pGNdosNaIXZG
-	zWMZWkEk67qQ5eeIiFGYJ5noyMsn3+olTjKaS9CpxtcrBxoX3P/P8uh+3Z6a9u4Xo=
-X-Received: by 2002:a05:600c:83ce:b0:477:7b16:5f9f with SMTP id 5b1f17b1804b1-483c21a9ab7mr73637575e9.31.1772111497833;
-        Thu, 26 Feb 2026 05:11:37 -0800 (PST)
+        bh=vgeR7jOGELUtY0ZmhFwjtCwPGAZoEdq03U4EngMFDbI=;
+        b=iSHXcukZYV25THAkiOp1oPV2RsXAJlLGtlq/IA8c67V8lrDDPsbKs8gEkWyqkrKQPU
+         y773rt/LaaEP6s6SB8dUFWKp6AdsgpE1bYZ6XUWsVm4baTQI7rM9VyXPwceXz066hWem
+         ZmpAtZpxGEzHLvHD0RzsiO//hOfRahSgCRxRFSw3o0BTRaaUsE4yOnR72fncCRW0DGq8
+         4cQf7RG9YXfUpxLWYu1VgCoRN7MAeDZS7EbXmkDj3Y3HHt1wDi/OadoUP3PNJk1Pzinf
+         w+j+OSdu/Plj9Mz/UU0TGXMurpmQPlPROCxdgFhILYN5btG1io+LN5Dc8sxPxEH4Y8JH
+         kMCg==
+X-Forwarded-Encrypted: i=1; AJvYcCVG/8JH+DSmQ0Fbu+QguIu0wWwTL7yEErXb910I/uxAGrUc/f9bwx5RXuLlciPaeJPeo49dPQ8qYDUbUIxJqhNP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrSUhekNMahe/QUdVC0yKRZDFbQVDxCV/CHBa1QCWkEIrXrZga
+	s+muR1TQ7XT7zVJvpQ2jzYqA4C0RsFP4dhzmJvFqYYKbU3auh2Ux/3io
+X-Gm-Gg: ATEYQzzeJLps++BKhxKxGgv9WNYuFW/sobD3iF/IMHPtSDsgaN0JWQmOT6snM/Lxy/U
+	PZ/NUXldruMRHXzA3C/69SjPQHrrCLtOklc70VaFHN1bcc507vFc1GSIzgnwqTMhUxzchPuV1bD
+	wNnkBsXixtaQUwlyq5umQJJC6Dju9DcyFfmRd+dpfukkiGb3uU32Cfa+LSXQJK8BDTSdU/eaQ+8
+	XuvTy2twl2YIKN6zs1qJALDsHhuCouPXl1m75ew4ZBgiuJlSVWTZlUcw0mlwMrpD/Avnyqs0njL
+	HWaaXpEgeccsR6+8MttNnOXDLJjI0VmNjbqbnZt31TMIBvi+aw58BETDlIYJ0iQ1QodwI892NSw
+	UDpTULN8UUHTSfxhgThKAJWcSMKS8Qp4LJtyOXbldLNHk/9glDJmUh4Mlmlvz0warykjA5ck6BA
+	D+LSZhLMlg0Kdg4l5L54vmm6mF5Wabgy85jo8l7nJN3dhNTlNPgGw7
+X-Received: by 2002:a05:600c:8211:b0:477:76bf:e1fb with SMTP id 5b1f17b1804b1-483c3de3dd6mr38027625e9.16.1772111500174;
+        Thu, 26 Feb 2026 05:11:40 -0800 (PST)
 Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-483bfb789efsm64827145e9.2.2026.02.26.05.11.35
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-483bfb789efsm64827145e9.2.2026.02.26.05.11.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 05:11:37 -0800 (PST)
+        Thu, 26 Feb 2026 05:11:38 -0800 (PST)
 From: Gabor Juhos <j4g8y7@gmail.com>
-Date: Thu, 26 Feb 2026 14:11:27 +0100
-Subject: [PATCH v4 1/2] i2c: pxa: defer reset on Armada 3700 when recovery
- is used
+Date: Thu, 26 Feb 2026 14:11:28 +0100
+Subject: [PATCH v4 2/2] i2c: pxa: handle 'Early Bus Busy' condition on
+ Armada 3700
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-i2c-pxa-fix-i2c-communication-v4-1-797a091dae87@gmail.com>
+Message-Id: <20260226-i2c-pxa-fix-i2c-communication-v4-2-797a091dae87@gmail.com>
 References: <20260226-i2c-pxa-fix-i2c-communication-v4-0-797a091dae87@gmail.com>
 In-Reply-To: <20260226-i2c-pxa-fix-i2c-communication-v4-0-797a091dae87@gmail.com>
 To: Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang <wsa@kernel.org>, 
@@ -102,11 +87,11 @@ To: Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang <wsa@kernel.org>,
 Cc: Robert Marko <robert.marko@sartura.hr>, linux-i2c@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Gabor Juhos <j4g8y7@gmail.com>, Linus Walleij <linusw@kernel.org>, 
- stable@vger.kernel.org
+ stable@vger.kernel.org, Imre Kaloz <kaloz@openwrt.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_131140_334632_CB2A7AAA 
-X-CRM114-Status: GOOD (  31.54  )
+X-CRM114-CacheID: sfid-20260226_051142_369370_0B33699D 
+X-CRM114-Status: GOOD (  32.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,145 +106,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The I2C communication is completely broken on the Armada 3700 platform
-since commit 0b01392c18b9 ("i2c: pxa: move to generic GPIO recovery").
+Under some circumstances I2C recovery fails on Armada 3700. At least
+on the Methode uDPU board, removing and replugging an SFP module fails
+often, like this:
 
-For example, on the Methode uDPU board, probing of the two onboard
-temperature sensors fails ...
-
-  [    7.271713] i2c i2c-0: using pinctrl states for GPIO recovery
-  [    7.277503] i2c i2c-0:  PXA I2C adapter
-  [    7.282199] i2c i2c-1: using pinctrl states for GPIO recovery
-  [    7.288241] i2c i2c-1:  PXA I2C adapter
-  [    7.292947] sfp sfp-eth1: Host maximum power 3.0W
-  [    7.299614] sfp sfp-eth0: Host maximum power 3.0W
-  [    7.308178] lm75 1-0048: supply vs not found, using dummy regulator
-  [   32.489631] lm75 1-0048: probe with driver lm75 failed with error -121
-  [   32.496833] lm75 1-0049: supply vs not found, using dummy regulator
-  [   82.890614] lm75 1-0049: probe with driver lm75 failed with error -121
-
-... and accessing the plugged-in SFP modules also does not work:
-
-  [  511.298537] sfp sfp-eth1: please wait, module slow to respond
-  [  536.488530] sfp sfp-eth0: please wait, module slow to respond
+  [   36.953127] sfp sfp-eth1: module removed
+  [   38.468549] i2c i2c-1: i2c_pxa: timeout waiting for bus free
+  [   38.486960] sfp sfp-eth1: module MENTECHOPTO      POS22-LDCC-KR    rev 1.0  sn MNC208U90009     dc 200828
+  [   38.496867] mvneta d0040000.ethernet eth1: unsupported SFP module: no common interface modes
+  [   38.521448] hwmon hwmon2: temp1_input not attached to any thermal zone
+  [   39.249196] sfp sfp-eth1: module removed
   ...
-  [ 1065.688536] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
-  [ 1090.888532] sfp sfp-eth0: failed to read EEPROM: -EREMOTEIO
+  [  292.568799] sfp sfp-eth1: please wait, module slow to respond
+  ...
+  [  625.208814] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
 
-After a discussion [1], there was an attempt to fix the problem by
-reverting the offending change by commit 7b211c767121 ("Revert "i2c:
-pxa: move to generic GPIO recovery""), but that only helped to fix
-the issue in the 6.1.y stable tree. The reason behind the partial succes
-is that there was another change in commit 20cb3fce4d60 ("i2c: Set i2c
-pinctrl recovery info from it's device pinctrl") in the 6.3-rc1 cycle
-which broke things further.
+Note that the 'unsupported SFP module' messages are not relevant. The
+module is used only for testing the I2C recovery funcionality, because
+the error can be triggered easily with this specific one.
 
-The cause of the problem is the same in case of both offending commits
-mentioned above. Namely, the I2C core code changes the pinctrl state to
-GPIO while running the recovery initialization code. Although the PXA
-specific initialization also does this, but the key difference is that
-it happens before the controller is getting enabled in i2c_pxa_reset(),
-whereas in the case of the generic initialization it happens after that.
+Enabling debug in the i2c-pxa driver reveals the following:
 
-Change the code to reset the controller only before the first transfer
-instead of before registering the controller. This ensures that the
-controller is not enabled at the time when the generic recovery code
-performs the pinctrl state changes, thus avoids the problem described
-above.
+  [   82.034678] sfp sfp-eth1: module removed
+  [   90.008654] i2c i2c-1: slave_0x50 error: timeout with active message
+  [   90.015112] i2c i2c-1: msg_num: 2 msg_idx: 0 msg_ptr: 0
+  [   90.020464] i2c i2c-1: IBMR: 00000003 IDBR: 000000a0 ICR: 000007e0 ISR: 00000802
+  [   90.027906] i2c i2c-1: log:
+  [   90.030787]
 
-As the result this change restores the original behaviour, which in
-turn makes the I2C communication to work again as it can be seen from
-the following log:
+This continues until the retries are exhausted ...
 
-  [    7.363250] i2c i2c-0: using pinctrl states for GPIO recovery
-  [    7.369041] i2c i2c-0:  PXA I2C adapter
-  [    7.373673] i2c i2c-1: using pinctrl states for GPIO recovery
-  [    7.379742] i2c i2c-1:  PXA I2C adapter
-  [    7.384506] sfp sfp-eth1: Host maximum power 3.0W
-  [    7.393013] sfp sfp-eth0: Host maximum power 3.0W
-  [    7.399266] lm75 1-0048: supply vs not found, using dummy regulator
-  [    7.407257] hwmon hwmon0: temp1_input not attached to any thermal zone
-  [    7.413863] lm75 1-0048: hwmon0: sensor 'tmp75c'
-  [    7.418746] lm75 1-0049: supply vs not found, using dummy regulator
-  [    7.426371] hwmon hwmon1: temp1_input not attached to any thermal zone
-  [    7.432972] lm75 1-0049: hwmon1: sensor 'tmp75c'
-  [    7.755092] sfp sfp-eth1: module MENTECHOPTO      POS22-LDCC-KR    rev 1.0  sn MNC208U90009     dc 200828
-  [    7.764997] mvneta d0040000.ethernet eth1: unsupported SFP module: no common interface modes
-  [    7.785362] sfp sfp-eth0: module Mikrotik         S-RJ01           rev 1.0  sn 61B103C55C58     dc 201022
-  [    7.803426] hwmon hwmon2: temp1_input not attached to any thermal zone
+  [  110.192489] i2c i2c-1: slave_0x50 error: exhausted retries
+  [  110.198012] i2c i2c-1: msg_num: 2 msg_idx: 0 msg_ptr: 0
+  [  110.203323] i2c i2c-1: IBMR: 00000003 IDBR: 000000a0 ICR: 000007e0 ISR: 00000802
+  [  110.210810] i2c i2c-1: log:
+  [  110.213633]
 
-Link: https://lore.kernel.org/r/20230926160255.330417-1-robert.marko@sartura.hr #1
+... then the whole sequence starts again ...
 
-Cc: stable@vger.kernel.org # 6.3+
-Fixes: 20cb3fce4d60 ("i2c: Set i2c pinctrl recovery info from it's device pinctrl")
+  [  115.368641] i2c i2c-1: slave_0x50 error: timeout with active message
+
+... while finally the SFP core gives up:
+
+  [  671.975258] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
+
+When we analyze the log, it can be seen that bit 1 and 11 is set in the
+ISR (Interface Status Register). Bit 1 indicates the ACK/NACK status, but
+the purpose of bit 11 is not documented in the driver code unfortunately.
+
+The 'Functional Specification' document of the Armada 3700 SoCs family
+however says that this bit indicates an 'Early Bus Busy' condition. The
+document also notes that whenever this bit is set, it is not possible to
+initiate a transaction on the I2C bus. The observed behaviour corresponds
+to this statement.
+
+Unfortunately, I2C recovery does not help as it never runs in this
+special case. Although the driver checks the busyness of the bus at
+several places, but since it does not consider the A3700 specific bit
+in these checks it can't determine the actual status of the bus correctly
+which results in the errors above.
+
+In order to fix the problem, add a new member to struct 'i2c_pxa' to
+store a controller specific bitmask containing the bits indicating the
+busy status, and use that in the code while checking the actual status
+of the bus. This ensures that the correct status can be determined on
+the Armada 3700 based devices without causing functional changes on
+devices based on other SoCs.
+
+With the change applied, the driver detects the busy condition, and runs
+the recovery process:
+
+  [  742.617312] i2c i2c-1: state:i2c_pxa_wait_bus_not_busy:449: ISR=00000802, ICR=000007e0, IBMR=03
+  [  742.626099] i2c i2c-1: i2c_pxa: timeout waiting for bus free
+  [  742.631933] i2c i2c-1: recovery: resetting controller, ISR=0x00000802
+  [  742.638421] i2c i2c-1: recovery: IBMR 0x00000003 ISR 0x00000000
+
+This clears the EBB bit in the ISR register, so it makes it possible to
+initiate transactions on the I2C bus again.
+
+After this patch, the SFP module used for testing can be removed and
+replugged numerous times without causing the error described at the
+beginning. Previously, the error happened after a few such attempts.
+
+The patch has been tested also with the following kernel versions:
+5.10.251, 5.15.201, 6.1.164, 6.6.127, 6.12.74, 6.14.11, 6.15.10, 6.16.1,
+6.18.13, 6.19.3
+It improves recovery on all of them.
+
+Cc: stable@vger.kernel.org # 5.10+
+Reviewed-by: Imre Kaloz <kaloz@openwrt.org>
 Tested-by: Robert Marko <robert.marko@sartura.hr>
 Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
 ---
 Changes in v4:
   - rebase on tip of i2c/i2c-host-fixes
   - add Tested-by tag from Robert
-  - Link to v3: https://lore.kernel.org/r/20250827-i2c-pxa-fix-i2c-communication-v3-1-052c9b1966a2@gmail.com
+  - update list of tested kernels
+  - Link to v3: https://lore.kernel.org/r/20250827-i2c-pxa-fix-i2c-communication-v3-2-052c9b1966a2@gmail.com
 
 Changes in v3:
   - rebase on tip of i2c/for-current
-  - rework the patch and use a different approach which does not requires
-    modification in the I2C core code and update commit description
-    acccordingly
-  - remove Imre's SoB tag, it should have been a Reviewed-by tag, but due
-    to the rework this is an entirely different patch so that does not
-    apply anyway
-  - use Link tag for the URL of the referenced LKML thread
-  - Link to v2: https://lore.kernel.org/r/20250811-i2c-pxa-fix-i2c-communication-v2-2-ca42ea818dc9@gmail.com
+  - use Reviewed-by tag for Imre
+  - remove Fixes tag as the problem is not caused by the previously mentioned
+    commit, simply it is not handled by the code yet
+  - update list of tested kernels
+  - Link to v2: https://lore.kernel.org/r/20250811-i2c-pxa-fix-i2c-communication-v2-3-ca42ea818dc9@gmail.com
 
 Changes in v2:
   - rebase and retest on tip of i2c/for-current
-  - Link to v1: https://lore.kernel.org/r/20250511-i2c-pxa-fix-i2c-communication-v1-2-e9097d09a015@gmail.com
+  - Link to v1: https://lore.kernel.org/r/20250511-i2c-pxa-fix-i2c-communication-v1-3-e9097d09a015@gmail.com
 ---
- drivers/i2c/busses/i2c-pxa.c | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+ drivers/i2c/busses/i2c-pxa.c | 18 ++++++++++++------
+ 1 file changed, 12 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.c
-index 09af3b3625f1107d2722cb026e67b69b07cca2e3..f55840b2eb9ab70aad43bd7f4f44c39aa4d9c67f 100644
+index f55840b2eb9ab70aad43bd7f4f44c39aa4d9c67f..9a8b154ab69e1b934b82a4e68a97a2dce3673408 100644
 --- a/drivers/i2c/busses/i2c-pxa.c
 +++ b/drivers/i2c/busses/i2c-pxa.c
-@@ -268,6 +268,7 @@ struct pxa_i2c {
+@@ -71,6 +71,7 @@
+ #define ISR_GCAD	(1 << 8)	   /* general call address detected */
+ #define ISR_SAD		(1 << 9)	   /* slave address detected */
+ #define ISR_BED		(1 << 10)	   /* bus error no ACK/NAK */
++#define ISR_A3700_EBB	(1 << 11)	   /* early bus busy for armada 3700 */
+ 
+ #define ILCR_SLV_SHIFT		0
+ #define ILCR_SLV_MASK		(0x1FF << ILCR_SLV_SHIFT)
+@@ -263,6 +264,7 @@ struct pxa_i2c {
+ 	bool			highmode_enter;
+ 	u32			fm_mask;
+ 	u32			hs_mask;
++	u32			busy_mask;
+ 
+ 	struct i2c_bus_recovery_info recovery;
  	struct pinctrl		*pinctrl;
- 	struct pinctrl_state	*pinctrl_default;
- 	struct pinctrl_state	*pinctrl_recovery;
-+	bool			reset_before_xfer;
- };
+@@ -430,7 +432,7 @@ static int i2c_pxa_wait_bus_not_busy(struct pxa_i2c *i2c)
  
- #define _IBMR(i2c)	((i2c)->reg_ibmr)
-@@ -1144,6 +1145,11 @@ static int i2c_pxa_xfer(struct i2c_adapter *adap,
- {
- 	struct pxa_i2c *i2c = adap->algo_data;
+ 	while (1) {
+ 		isr = readl(_ISR(i2c));
+-		if (!(isr & (ISR_IBB | ISR_UB)))
++		if (!(isr & i2c->busy_mask))
+ 			return 0;
  
-+	if (i2c->reset_before_xfer) {
-+		i2c_pxa_reset(i2c);
-+		i2c->reset_before_xfer = false;
-+	}
+ 		if (isr & ISR_SAD)
+@@ -467,7 +469,7 @@ static int i2c_pxa_wait_master(struct pxa_i2c *i2c)
+ 		 * quick check of the i2c lines themselves to ensure they've
+ 		 * gone high...
+ 		 */
+-		if ((readl(_ISR(i2c)) & (ISR_UB | ISR_IBB)) == 0 &&
++		if ((readl(_ISR(i2c)) & i2c->busy_mask) == 0 &&
+ 		    readl(_IBMR(i2c)) == (IBMR_SCLS | IBMR_SDAS)) {
+ 			if (i2c_debug > 0)
+ 				dev_dbg(&i2c->adap.dev, "%s: done\n", __func__);
+@@ -488,7 +490,7 @@ static int i2c_pxa_set_master(struct pxa_i2c *i2c)
+ 	if (i2c_debug)
+ 		dev_dbg(&i2c->adap.dev, "setting to bus master\n");
+ 
+-	if ((readl(_ISR(i2c)) & (ISR_UB | ISR_IBB)) != 0) {
++	if ((readl(_ISR(i2c)) & i2c->busy_mask) != 0) {
+ 		dev_dbg(&i2c->adap.dev, "%s: unit is busy\n", __func__);
+ 		if (!i2c_pxa_wait_master(i2c)) {
+ 			dev_dbg(&i2c->adap.dev, "%s: error: unit busy\n", __func__);
+@@ -514,7 +516,7 @@ static int i2c_pxa_wait_slave(struct pxa_i2c *i2c)
+ 			dev_dbg(&i2c->adap.dev, "%s: %ld: ISR=%08x, ICR=%08x, IBMR=%02x\n",
+ 				__func__, (long)jiffies, readl(_ISR(i2c)), readl(_ICR(i2c)), readl(_IBMR(i2c)));
+ 
+-		if ((readl(_ISR(i2c)) & (ISR_UB|ISR_IBB)) == 0 ||
++		if ((readl(_ISR(i2c)) & i2c->busy_mask) == 0 ||
+ 		    (readl(_ISR(i2c)) & ISR_SAD) != 0 ||
+ 		    (readl(_ICR(i2c)) & ICR_SCLE) == 0) {
+ 			if (i2c_debug > 1)
+@@ -1177,7 +1179,7 @@ static int i2c_pxa_pio_set_master(struct pxa_i2c *i2c)
+ 	/*
+ 	 * Wait for the bus to become free.
+ 	 */
+-	while (timeout-- && readl(_ISR(i2c)) & (ISR_IBB | ISR_UB))
++	while (timeout-- && readl(_ISR(i2c)) & i2c->busy_mask)
+ 		udelay(1000);
+ 
+ 	if (timeout < 0) {
+@@ -1322,7 +1324,7 @@ static void i2c_pxa_unprepare_recovery(struct i2c_adapter *adap)
+ 	 * handing control of the bus back to avoid the bus changing state.
+ 	 */
+ 	isr = readl(_ISR(i2c));
+-	if (isr & (ISR_UB | ISR_IBB)) {
++	if (isr & i2c->busy_mask) {
+ 		dev_dbg(&i2c->adap.dev,
+ 			"recovery: resetting controller, ISR=0x%08x\n", isr);
+ 		i2c_pxa_do_reset(i2c);
+@@ -1479,6 +1481,10 @@ static int i2c_pxa_probe(struct platform_device *dev)
+ 	i2c->fm_mask = pxa_reg_layout[i2c_type].fm;
+ 	i2c->hs_mask = pxa_reg_layout[i2c_type].hs;
+ 
++	i2c->busy_mask = ISR_UB | ISR_IBB;
++	if (i2c_type == REGS_A3700)
++		i2c->busy_mask |= ISR_A3700_EBB;
 +
- 	return i2c_pxa_internal_xfer(i2c, msgs, num, i2c_pxa_do_xfer);
- }
+ 	if (i2c_type != REGS_CE4100)
+ 		i2c->reg_isar = i2c->reg_base + pxa_reg_layout[i2c_type].isar;
  
-@@ -1521,7 +1527,16 @@ static int i2c_pxa_probe(struct platform_device *dev)
- 		}
- 	}
- 
--	i2c_pxa_reset(i2c);
-+	/*
-+	 * Skip reset on Armada 3700 when recovery is used to avoid
-+	 * controller hang due to the pinctrl state changes done by
-+	 * the generic recovery initialization code. The reset will
-+	 * be performed later, prior to the first transfer.
-+	 */
-+	if (i2c_type == REGS_A3700 && i2c->adap.bus_recovery_info)
-+		i2c->reset_before_xfer = true;
-+	else
-+		i2c_pxa_reset(i2c);
- 
- 	ret = i2c_add_numbered_adapter(&i2c->adap);
- 	if (ret < 0)
 
 -- 
 2.53.0
