@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342B7FD461C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 04:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 821C9FD461C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 04:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SIkrR2v3wC29qcjsP4YhOH26EEZHrurO6GFAvIUIF/8=; b=SxZNod9XhHH4AlgCBGodUJFH8M
-	UixFFTmhV9H0fwkP+HNR7zw4astIhpmDYSbAXUWSr5H6orS8+JXkjd5AxAA+Bx66xGskTh47txRgI
-	ynPvm2HAzsTOSm6GOLSP4E1YeGs6Tv0HrmEKN8hAjrLN+DIvVrLWJWrKJ2EXgA0qXuFNB7Zf9KniU
-	Kcjul2MLMkeWwu17XjSH+KUSprB1xYrEBEGl4Ox6DRLgaoIJNmehWMW0IJYCM3gVvznwcj1lbM9k+
-	ejmhktKL6EzRe8DeZ+O6D+3hUDirp9sk+GR//FV8aNxD7A3RW+9c+mnk7xwI2WwK4M7Hjcn+l08SZ
-	2GwGWyYw==;
+	Content-Type:To:From:Subject:Message-ID:References:Mime-Version:In-Reply-To:
+	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p0sd+ZwPNif80S6gNRMMBCY+IhDOwA5QIZbdK/H8ojY=; b=r2qa+etJ7zme5Aia7Kip/z8S/C
+	txKT3kBUlFVaRVCGCv7Wa+AGrvKQq2P5sj5P40uijqwil4K8hbE3vSLEfRJmlOn6VywlW4U0GyUYr
+	JayuhqaclWigZNd9nS7fyUNN7Qq2/Bsp1fTW8HTLyxQPuGwLNQC5lZ3sWCQwjwW+BaQhkuW52/7hD
+	IYsBH//EaZpKvGN33Im5jzXFxWhHIw/NRF4fnDuyWBMPjW0DkSrnGUhj0C/A0jW+djrfM869pB1qx
+	ne9C/0KXfPCA1TvIJWOZ6qHtzg1AlLu7JSfBKDAr6jH7P+ChLJThbL3kltrvP3nD2K/+7mSmXNCgB
+	+ff6a/bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvTN9-00000005NjB-2OLl;
-	Thu, 26 Feb 2026 04:53:11 +0000
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	id 1vvTNR-00000005Ntq-4B7s;
+	Thu, 26 Feb 2026 04:53:30 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvTN6-00000005Ni1-27tb
+	id 1vvTNF-00000005Nkk-1bmo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 04:53:10 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12776bebeb3so9206095c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 20:53:07 -0800 (PST)
+	Thu, 26 Feb 2026 04:53:20 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2bdb0c8c5bcso9867837eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 20:53:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772081587; x=1772686387; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:from:subject:message-id:mime-version
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SIkrR2v3wC29qcjsP4YhOH26EEZHrurO6GFAvIUIF/8=;
-        b=l0r0syBbZpylbl4+aelymkXmyogM2P97dEfeorvuv6RI32tSSc+IGIrrOGM6Cm0eZS
-         pipKLWUyiuMoP9Q5Cbz0iGoxi7denqJS3o7BVZIVrnXjheJnHfkzvZuV5Tb7vnFDr23L
-         HnXw+TCkp/Sq1SEK9E7j43vWMhpFlVylQ2mWTnyVQpDCilLiUzppp14nLMgpC/WCP9jj
-         VlVg5oltTScd57sSLBAc4qkfldFztqH6rNWeFTa0FUDmoV1Raw5y6sEg314jY1XHWrX+
-         kYrvx1dmaKZZsotKbFb1AibEmJ4Mq6eSQbQc7fVDYXT9vJ8McCHZ/LH/GATMt0F9dZts
-         jd/w==
+        d=google.com; s=20230601; t=1772081596; x=1772686396; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=p0sd+ZwPNif80S6gNRMMBCY+IhDOwA5QIZbdK/H8ojY=;
+        b=MVdbi5b3E5kURjOYytvSIpbiA0OvyOusWJnXTUPHr89AzB1Xs/3sLjxZ+gE098ZEei
+         eP9ZExJNhTxUKQTJbOtfSD+cm26qEikqTLZbGCGsO+Bpz9dKhTfL+zrTqwrfOsaXP3x1
+         canPQFKU//cRrnF53iceTQMUHQ/rAErl7AyRvyNLQlkVM7Q+gq4SqA2MNSEooveOUo7f
+         dZ9bwfLPCEdDfM9uZxL/xn/NDjOs1XdtBd6TUMnhKFt3pp4I0tve76kkjwD5L6pjS30W
+         swivWaxPdmXFPoV3k/NuwWrTgpJat1hREp6GQNaYyqgftsX7RKUDFT+MEtufKNiGylfW
+         dCNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772081587; x=1772686387;
-        h=content-transfer-encoding:to:from:subject:message-id:mime-version
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SIkrR2v3wC29qcjsP4YhOH26EEZHrurO6GFAvIUIF/8=;
-        b=dDqFiWLZkb52e4itiA/QJnXyNLzuKO+hdECqkJPbYrSIwCuuaJ1C6ehCT1dT67Tvy/
-         ODCDWkRlT/thONkzDsgFlU98U8aL8G38bSDrbTxZs6InV4a3zH3ZB2qxfKvCuylKnrh0
-         GXMLbJ/WclTZfn2YFiF6hjzeJewffH2++ejiGNeRddSuVYTZqsXwFuv/X6h1o5HoK+Oi
-         aepWeU+ecSkRBwm3iQYMISA0Eg9zcTNKUbShCFaQ+7O4+JIIoaBcSTDNb0ROrWb9z5R3
-         Etco8uaoBYkxx7YiQqyN4omtIpBmtRSIxN5tc0/xMH/2CgWetJKYYLVXNcHME2cfyNoB
-         19vQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUqlUmi7JdVWcl7aGTpB7yKpY9vPzR/LvhuC2x+cy7yaYVm2bim4eNNIOnTLtjWcsBoadN9lt14Y5IxW52meLOt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmXg57H1jIuqGqxIe/Sd3JZ54pYmUgrcYouHNX9FC3MSLLlorw
-	bb/17vS9KdcrGdN8BPan3wiGvC36WJNtgq6sl6uI5ds/3jua3xBK6JXMulZ9czEr/TJvMwiZP7n
-	I0PJ4u61o+w==
-X-Received: from dlbtp14.prod.google.com ([2002:a05:7022:3b8e:b0:127:84eb:a910])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:a85:b0:11b:bf3f:5251
- with SMTP id a92af1059eb24-1278694da4dmr1324907c88.16.1772081586585; Wed, 25
- Feb 2026 20:53:06 -0800 (PST)
-Date: Wed, 25 Feb 2026 20:52:52 -0800
+        d=1e100.net; s=20230601; t=1772081596; x=1772686396;
+        h=content-transfer-encoding:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=p0sd+ZwPNif80S6gNRMMBCY+IhDOwA5QIZbdK/H8ojY=;
+        b=RpftAHHOFLCh90o6U/jAJvuiF8p+lE66HugEQA7dXmd5HkeurzLonP9QP4d8WOfU29
+         zh6y5Nr6aetqGrVcx86wo+2/G4JOSzf8Wzw/Sx83w52J6TiZL/wRexCYvb4WjykwX1R6
+         FV+rYJtnmyM3v6cWCE8q2xB95C+fcqKRsbhDpjL4to3VheZXLYuTzc08x98INfJdyDZS
+         wL2cTtvOsBlg37vMSRbqvvoZdgEllZuPLIPs8Uj44Zo9utfMneO8XjXnwdk/dWXrMHny
+         Eds+lfaOSe+Fhx3dheMf/GGdYKoUzo4h+wtihbDhipx86fHU3tYyA9foKp2RLrhXMCIu
+         8/4w==
+X-Forwarded-Encrypted: i=1; AJvYcCUS9+V4iRSowHOdidAqqFuCphOLgFE4URCHlyIhs2PuXRu3sLWpcH2cFHaCQ+U5JarivA8xevVDX8WsT5zQUzoi@lists.infradead.org
+X-Gm-Message-State: AOJu0YzF+zRrygFZOYDY3nVA6AQ2zW5NJtp27JvLdJN+jAFQWcwUQ/Al
+	rb4nMX8PfMy3dfq1YpUMZjEcM/9NMEXoTeXahLZ7hFP2KsEUtFWBonNLNR5jfRSn4zZZwoUNUWI
+	8W/sjbV/V+w==
+X-Received: from dybia18.prod.google.com ([2002:a05:7301:312:b0:2ae:3309:a304])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:df41:b0:2b7:1b54:6081
+ with SMTP id 5a478bee46e88-2bd7baed292mr8598146eec.11.1772081595621; Wed, 25
+ Feb 2026 20:53:15 -0800 (PST)
+Date: Wed, 25 Feb 2026 20:52:56 -0800
+In-Reply-To: <20260226045301.459948-1-irogers@google.com>
 Mime-Version: 1.0
+References: <20260226045301.459948-1-irogers@google.com>
 X-Mailer: git-send-email 2.53.0.414.gf7e9f6c205-goog
-Message-ID: <20260226045301.459948-1-irogers@google.com>
-Subject: [PATCH v1 01/10] perf vendor events intel: Update alderlake events
- from 1.35 to 1.37
+Message-ID: <20260226045301.459948-5-irogers@google.com>
+Subject: [PATCH v1 05/10] perf vendor events intel: Update graniterapids
+ events from 1.16 to 1.17
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -77,8 +81,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_205308_642584_CB8E3441 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20260225_205317_451124_D613D340 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,225 +98,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The updated events were published in:
-https://github.com/intel/perfmon/commit/632936400cfc5978c7b4519c865c137de52=
-3bfdd
-https://github.com/intel/perfmon/commit/a96d6bf4b50d6ce31e2ffd0be8d13022d07=
-ae319
+https://github.com/intel/perfmon/commit/c9ebc3ff9c3d408a888fbfbe73d386ef86c=
+7306f
+
+With new IO and SNC metrics in:
+https://github.com/intel/perfmon/commit/04cf5e1e804afd775401167870d48cd2586=
+4be7b
+https://github.com/intel/perfmon/commit/98b2602d83de6625bae1e6fcaab3a39b0a3=
+41255
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- .../pmu-events/arch/x86/alderlake/cache.json  | 27 +++-----
- .../arch/x86/alderlake/frontend.json          | 18 +++++
- .../arch/x86/alderlake/pipeline.json          | 66 +++++++++++++++++--
- .../pmu-events/arch/x86/alderlaken/cache.json | 27 +++-----
- .../arch/x86/alderlaken/pipeline.json         | 60 +++++++++++++++--
- tools/perf/pmu-events/arch/x86/mapfile.csv    |  4 +-
- 6 files changed, 152 insertions(+), 50 deletions(-)
+ .../arch/x86/graniterapids/frontend.json      | 16 +++++++++++
+ .../arch/x86/graniterapids/gnr-metrics.json   | 27 +++++++++++++++++++
+ tools/perf/pmu-events/arch/x86/mapfile.csv    |  2 +-
+ 3 files changed, 44 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/pmu-events/arch/x86/alderlake/cache.json b/tools/pe=
-rf/pmu-events/arch/x86/alderlake/cache.json
-index be15a7f83717..5d0d824f3e7e 100644
---- a/tools/perf/pmu-events/arch/x86/alderlake/cache.json
-+++ b/tools/perf/pmu-events/arch/x86/alderlake/cache.json
-@@ -876,105 +876,97 @@
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 128 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled."=
-,
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 128. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_128",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x80",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 128 cycles as def=
-ined in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.=
- If a PEBS record is generated, will populate the PEBS Latency and PEBS Dat=
-a Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5",
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 16 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 16. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_16",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x10",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 16 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. =
-If a PEBS record is generated, will populate the PEBS Latency and PEBS Data=
- Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5",
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 256 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled."=
-,
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 256. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_256",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x100",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 256 cycles as def=
-ined in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.=
- If a PEBS record is generated, will populate the PEBS Latency and PEBS Dat=
-a Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5",
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 32 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 32. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_32",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x20",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 32 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. =
-If a PEBS record is generated, will populate the PEBS Latency and PEBS Data=
- Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5",
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 4 cycles as define=
-d in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 4. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_4",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x4",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 4 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. I=
-f a PEBS record is generated, will populate the PEBS Latency and PEBS Data =
-Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5",
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 512 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled."=
-,
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 512. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_512",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x200",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 512 cycles as def=
-ined in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.=
- If a PEBS record is generated, will populate the PEBS Latency and PEBS Dat=
-a Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5",
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 64 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 64. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_64",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x40",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 64 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. =
-If a PEBS record is generated, will populate the PEBS Latency and PEBS Data=
- Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5",
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 8 cycles as define=
-d in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 8. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_8",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x8",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 8 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. I=
-f a PEBS record is generated, will populate the PEBS Latency and PEBS Data =
-Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5",
-         "Unit": "cpu_atom"
-@@ -1030,12 +1022,11 @@
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of stores uops retired. Cou=
-nts with or without PEBS enabled.",
-+        "BriefDescription": "Counts the number of stores uops retired.",
-         "Counter": "0,1,2,3,4,5",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.STORE_LATENCY",
--        "PublicDescription": "Counts the number of stores uops retired. Co=
-unts with or without PEBS enabled. If PEBS is enabled and a PEBS record is =
-generated, will populate PEBS Latency and PEBS Data Source fields according=
-ly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x6",
-         "Unit": "cpu_atom"
-diff --git a/tools/perf/pmu-events/arch/x86/alderlake/frontend.json b/tools=
-/perf/pmu-events/arch/x86/alderlake/frontend.json
-index ff3b30c2619a..11fc853f2d0b 100644
---- a/tools/perf/pmu-events/arch/x86/alderlake/frontend.json
-+++ b/tools/perf/pmu-events/arch/x86/alderlake/frontend.json
-@@ -327,6 +327,24 @@
-         "UMask": "0x4",
-         "Unit": "cpu_core"
+diff --git a/tools/perf/pmu-events/arch/x86/graniterapids/frontend.json b/t=
+ools/perf/pmu-events/arch/x86/graniterapids/frontend.json
+index d580d305c926..1fdeaebb739f 100644
+--- a/tools/perf/pmu-events/arch/x86/graniterapids/frontend.json
++++ b/tools/perf/pmu-events/arch/x86/graniterapids/frontend.json
+@@ -325,6 +325,22 @@
+         "SampleAfterValue": "200003",
+         "UMask": "0x4"
      },
 +    {
 +        "BriefDescription": "ICACHE_TAG.STALLS_INUSE",
@@ -320,8 +129,7 @@ index ff3b30c2619a..11fc853f2d0b 100644
 +        "EventCode": "0x83",
 +        "EventName": "ICACHE_TAG.STALLS_INUSE",
 +        "SampleAfterValue": "200003",
-+        "UMask": "0x10",
-+        "Unit": "cpu_core"
++        "UMask": "0x10"
 +    },
 +    {
 +        "BriefDescription": "ICACHE_TAG.STALLS_ISB",
@@ -329,554 +137,99 @@ index ff3b30c2619a..11fc853f2d0b 100644
 +        "EventCode": "0x83",
 +        "EventName": "ICACHE_TAG.STALLS_ISB",
 +        "SampleAfterValue": "200003",
-+        "UMask": "0x8",
-+        "Unit": "cpu_core"
++        "UMask": "0x8"
 +    },
      {
          "BriefDescription": "Cycles Decode Stream Buffer (DSB) is deliveri=
 ng any Uop",
          "Counter": "0,1,2,3",
-diff --git a/tools/perf/pmu-events/arch/x86/alderlake/pipeline.json b/tools=
-/perf/pmu-events/arch/x86/alderlake/pipeline.json
-index 57a8c78cdc49..80cad3c49d20 100644
---- a/tools/perf/pmu-events/arch/x86/alderlake/pipeline.json
-+++ b/tools/perf/pmu-events/arch/x86/alderlake/pipeline.json
-@@ -244,6 +244,15 @@
-         "UMask": "0xfb",
-         "Unit": "cpu_atom"
+diff --git a/tools/perf/pmu-events/arch/x86/graniterapids/gnr-metrics.json =
+b/tools/perf/pmu-events/arch/x86/graniterapids/gnr-metrics.json
+index cc3c834ca286..299631fb8d53 100644
+--- a/tools/perf/pmu-events/arch/x86/graniterapids/gnr-metrics.json
++++ b/tools/perf/pmu-events/arch/x86/graniterapids/gnr-metrics.json
+@@ -143,6 +143,12 @@
+         "MetricName": "io_full_write_l3_miss",
+         "ScaleUnit": "100%"
      },
 +    {
-+        "BriefDescription": "Counts the number of near indirect JMP branch=
- instructions retired.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xc4",
-+        "EventName": "BR_INST_RETIRED.INDIRECT_JMP",
-+        "SampleAfterValue": "200003",
-+        "UMask": "0xef",
-+        "Unit": "cpu_atom"
++        "BriefDescription": "The number of times per second that ownership=
+ of a cacheline was stolen from the integrated IO controller before it was =
+able to write back the modified line",
++        "MetricExpr": "(UNC_I_MISC1.LOST_FWD + UNC_I_MISC1.SEC_RCVD_INVLD)=
+ / duration_time",
++        "MetricName": "io_lost_fwd",
++        "ScaleUnit": "1per_sec"
 +    },
      {
-         "BriefDescription": "This event is deprecated. Refer to new event =
-BR_INST_RETIRED.INDIRECT_CALL",
-         "Counter": "0,1,2,3,4,5",
-@@ -464,6 +473,15 @@
-         "UMask": "0x2",
-         "Unit": "cpu_core"
+         "BriefDescription": "Message Signaled Interrupts (MSI) per second =
+sent by the integrated I/O traffic controller (IIO) to System Configuration=
+ Controller (Ubox)",
+         "MetricExpr": "UNC_IIO_NUM_REQ_OF_CPU_BY_TGT.UBOX_POSTED / duratio=
+n_time",
+@@ -294,6 +300,27 @@
+         "MetricName": "memory_bandwidth_write",
+         "ScaleUnit": "1MB/s"
      },
 +    {
-+        "BriefDescription": "Counts the number of mispredicted near indire=
-ct JMP branch instructions retired.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xc5",
-+        "EventName": "BR_MISP_RETIRED.INDIRECT_JMP",
-+        "SampleAfterValue": "200003",
-+        "UMask": "0xef",
-+        "Unit": "cpu_atom"
-+    },
-     {
-         "BriefDescription": "This event is deprecated. Refer to new event =
-BR_MISP_RETIRED.INDIRECT_CALL",
-         "Counter": "0,1,2,3,4,5",
-@@ -573,7 +591,7 @@
-         "Unit": "cpu_core"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es. (Fixed event)",
-+        "BriefDescription": "Fixed Counter: Counts the number of unhalted =
-core clock cycles. [This event is alias to CPU_CLK_UNHALTED.THREAD]",
-         "Counter": "Fixed counter 1",
-         "EventName": "CPU_CLK_UNHALTED.CORE",
-         "PublicDescription": "Counts the number of core cycles while the c=
-ore is not in a halt state. The core enters the halt state when it is runni=
-ng the HLT instruction. The core frequency may change from time to time. Fo=
-r this reason this event may have a changing ratio with regards to time. Th=
-is event uses fixed counter 1.",
-@@ -582,7 +600,7 @@
-         "Unit": "cpu_atom"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es.",
-+        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es. [This event is alias to CPU_CLK_UNHALTED.THREAD_P]",
-         "Counter": "0,1,2,3,4,5",
-         "EventCode": "0x3c",
-         "EventName": "CPU_CLK_UNHALTED.CORE_P",
-@@ -651,7 +669,7 @@
-         "Unit": "cpu_core"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted reference clock=
- cycles at TSC frequency. (Fixed event)",
-+        "BriefDescription": "Fixed Counter: Counts the number of unhalted =
-reference clock cycles at TSC frequency.",
-         "Counter": "Fixed counter 2",
-         "EventName": "CPU_CLK_UNHALTED.REF_TSC",
-         "PublicDescription": "Counts the number of reference cycles that t=
-he core is not in a halt state. The core enters the halt state when it is r=
-unning the HLT instruction. This event is not affected by core frequency ch=
-anges and increments at a fixed frequency that is also used for the Time St=
-amp Counter (TSC). This event uses fixed counter 2.",
-@@ -689,7 +707,7 @@
-         "Unit": "cpu_core"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es. (Fixed event)",
-+        "BriefDescription": "Fixed Counter: Counts the number of unhalted =
-core clock cycles. [This event is alias to CPU_CLK_UNHALTED.CORE]",
-         "Counter": "Fixed counter 1",
-         "EventName": "CPU_CLK_UNHALTED.THREAD",
-         "PublicDescription": "Counts the number of core cycles while the c=
-ore is not in a halt state.  The core enters the halt state when it is runn=
-ing the HLT instruction. The core frequency may change from time to time. F=
-or this reason this event may have a changing ratio with regards to time.  =
-This event uses fixed counter 1.",
-@@ -707,7 +725,7 @@
-         "Unit": "cpu_core"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es.",
-+        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es. [This event is alias to CPU_CLK_UNHALTED.CORE_P]",
-         "Counter": "0,1,2,3,4,5",
-         "EventCode": "0x3c",
-         "EventName": "CPU_CLK_UNHALTED.THREAD_P",
-@@ -875,7 +893,7 @@
-         "Unit": "cpu_core"
-     },
-     {
--        "BriefDescription": "Counts the total number of instructions retir=
-ed. (Fixed event)",
-+        "BriefDescription": "Fixed Counter: Counts the total number of ins=
-tructions retired.",
-         "Counter": "Fixed counter 0",
-         "EventName": "INST_RETIRED.ANY",
-         "PublicDescription": "Counts the total number of instructions that=
- retired. For instructions that consist of multiple uops, this event counts=
- the retirement of the last uop of the instruction. This event continues co=
-unting during hardware interrupts, traps, and inside interrupt handlers. Th=
-is event uses fixed counter 0. Available PDIST counters: 32",
-@@ -1273,6 +1291,42 @@
-         "UMask": "0x20",
-         "Unit": "cpu_core"
-     },
-+    {
-+        "BriefDescription": "Counts the number of CLFLUSH, CLWB, and CLDEM=
-OTE instructions retired.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xe0",
-+        "EventName": "MISC_RETIRED1.CL_INST",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0xff",
-+        "Unit": "cpu_atom"
++        "BriefDescription": "All reads to the local sub-numa cluster cache=
+ as a percentage of total memory read accesses",
++        "MetricExpr": "(L2_LINES_IN.ALL - (OCR.READS_TO_CORE.SNC_CACHE.HIT=
+M + OCR.READS_TO_CORE.SNC_CACHE.HIT_WITH_FWD + OCR.READS_TO_CORE.REMOTE_CAC=
+HE.SNOOP_FWD + OCR.READS_TO_CORE.REMOTE_MEMORY + OCR.READS_TO_CORE.L3_MISS_=
+LOCAL)) / L2_LINES_IN.ALL",
++        "MetricName": "numa_percent_all_reads_to_local_cluster_cache",
++        "PublicDescription": "All reads to the local sub-numa cluster cach=
+e as a percentage of total memory read accesses. Includes demand and prefet=
+ch requests for data reads, code reads, read for ownerships (RFO), does not=
+ include LLC prefetches",
++        "ScaleUnit": "100%"
 +    },
 +    {
-+        "BriefDescription": "Counts the number of LFENCE instructions reti=
-red.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xe0",
-+        "EventName": "MISC_RETIRED1.LFENCE",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0x2",
-+        "Unit": "cpu_atom"
++        "BriefDescription": "All reads to the local sub-numa cluster memor=
+y as a percentage of total memory read accesses",
++        "MetricExpr": "OCR.READS_TO_CORE.L3_MISS_LOCAL / L2_LINES_IN.ALL",
++        "MetricName": "numa_percent_all_reads_to_local_cluster_memory",
++        "PublicDescription": "All reads to the local sub-numa cluster memo=
+ry as a percentage of total memory read accesses. Includes demand and prefe=
+tch requests for data reads, code reads, read for ownerships (RFO), does no=
+t include LLC prefetches",
++        "ScaleUnit": "100%"
 +    },
 +    {
-+        "BriefDescription": "Counts the number of accesses to KeyLocker ca=
-che.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xe1",
-+        "EventName": "MISC_RETIRED2.KEYLOCKER_ACCESS",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0x10",
-+        "Unit": "cpu_atom"
-+    },
-+    {
-+        "BriefDescription": "Counts the number of misses to KeyLocker cach=
-e.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xe1",
-+        "EventName": "MISC_RETIRED2.KEYLOCKER_MISS",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0x11",
-+        "Unit": "cpu_atom"
++        "BriefDescription": "All reads to a remote sub-numa cluster cache =
+as a percentage of total memory read accesses",
++        "MetricExpr": "(OCR.READS_TO_CORE.SNC_CACHE.HIT_WITH_FWD + OCR.REA=
+DS_TO_CORE.SNC_CACHE.HITM) / L2_LINES_IN.ALL",
++        "MetricName": "numa_percent_all_reads_to_remote_cluster_cache",
++        "PublicDescription": "All reads to a remote sub-numa cluster cache=
+ as a percentage of total memory read accesses. Includes demand and prefetc=
+h requests for data reads, code reads, read for ownerships (RFO), does not =
+include LLC prefetches",
++        "ScaleUnit": "100%"
 +    },
      {
-         "BriefDescription": "Cycles stalled due to no store buffers availa=
-ble. (not including draining form sync).",
-         "Counter": "0,1,2,3,4,5,6,7",
-diff --git a/tools/perf/pmu-events/arch/x86/alderlaken/cache.json b/tools/p=
-erf/pmu-events/arch/x86/alderlaken/cache.json
-index 76a841675337..1f97a4dc6fb1 100644
---- a/tools/perf/pmu-events/arch/x86/alderlaken/cache.json
-+++ b/tools/perf/pmu-events/arch/x86/alderlaken/cache.json
-@@ -246,98 +246,90 @@
-         "UMask": "0x82"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 128 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled."=
-,
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 128. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_128",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x80",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 128 cycles as def=
-ined in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.=
- If a PEBS record is generated, will populate the PEBS Latency and PEBS Dat=
-a Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 16 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 16. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_16",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x10",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 16 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. =
-If a PEBS record is generated, will populate the PEBS Latency and PEBS Data=
- Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 256 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled."=
-,
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 256. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_256",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x100",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 256 cycles as def=
-ined in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.=
- If a PEBS record is generated, will populate the PEBS Latency and PEBS Dat=
-a Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 32 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 32. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_32",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x20",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 32 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. =
-If a PEBS record is generated, will populate the PEBS Latency and PEBS Data=
- Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 4 cycles as define=
-d in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 4. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_4",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x4",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 4 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. I=
-f a PEBS record is generated, will populate the PEBS Latency and PEBS Data =
-Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 512 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled."=
-,
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 512. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_512",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x200",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 512 cycles as def=
-ined in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.=
- If a PEBS record is generated, will populate the PEBS Latency and PEBS Dat=
-a Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 64 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 64. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_64",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x40",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 64 cycles as defi=
-ned in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. =
-If a PEBS record is generated, will populate the PEBS Latency and PEBS Data=
- Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged loads with an ins=
-truction latency that exceeds or equals the threshold of 8 cycles as define=
-d in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired=
- that exceed the latency threshold of 8. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_8",
-         "MSRIndex": "0x3F6",
-         "MSRValue": "0x8",
--        "PublicDescription": "Counts the number of tagged loads with an in=
-struction latency that exceeds or equals the threshold of 8 cycles as defin=
-ed in MEC_CR_PEBS_LD_LAT_THRESHOLD (3F6H). Only counts with PEBS enabled. I=
-f a PEBS record is generated, will populate the PEBS Latency and PEBS Data =
-Source fields accordingly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x5"
-     },
-@@ -387,12 +379,11 @@
-         "UMask": "0x12"
-     },
-     {
--        "BriefDescription": "Counts the number of stores uops retired. Cou=
-nts with or without PEBS enabled.",
-+        "BriefDescription": "Counts the number of stores uops retired.",
-         "Counter": "0,1,2,3,4,5",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-         "EventName": "MEM_UOPS_RETIRED.STORE_LATENCY",
--        "PublicDescription": "Counts the number of stores uops retired. Co=
-unts with or without PEBS enabled. If PEBS is enabled and a PEBS record is =
-generated, will populate PEBS Latency and PEBS Data Source fields according=
-ly.",
-         "SampleAfterValue": "1000003",
-         "UMask": "0x6"
-     },
-diff --git a/tools/perf/pmu-events/arch/x86/alderlaken/pipeline.json b/tool=
-s/perf/pmu-events/arch/x86/alderlaken/pipeline.json
-index d650cbd48c1f..a13851071624 100644
---- a/tools/perf/pmu-events/arch/x86/alderlaken/pipeline.json
-+++ b/tools/perf/pmu-events/arch/x86/alderlaken/pipeline.json
-@@ -108,6 +108,14 @@
-         "SampleAfterValue": "200003",
-         "UMask": "0xfb"
-     },
-+    {
-+        "BriefDescription": "Counts the number of near indirect JMP branch=
- instructions retired.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xc4",
-+        "EventName": "BR_INST_RETIRED.INDIRECT_JMP",
-+        "SampleAfterValue": "200003",
-+        "UMask": "0xef"
-+    },
-     {
-         "BriefDescription": "This event is deprecated. Refer to new event =
-BR_INST_RETIRED.INDIRECT_CALL",
-         "Counter": "0,1,2,3,4,5",
-@@ -225,6 +233,14 @@
-         "SampleAfterValue": "200003",
-         "UMask": "0xfb"
-     },
-+    {
-+        "BriefDescription": "Counts the number of mispredicted near indire=
-ct JMP branch instructions retired.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xc5",
-+        "EventName": "BR_MISP_RETIRED.INDIRECT_JMP",
-+        "SampleAfterValue": "200003",
-+        "UMask": "0xef"
-+    },
-     {
-         "BriefDescription": "This event is deprecated. Refer to new event =
-BR_MISP_RETIRED.INDIRECT_CALL",
-         "Counter": "0,1,2,3,4,5",
-@@ -278,7 +294,7 @@
-         "UMask": "0xfe"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es. (Fixed event)",
-+        "BriefDescription": "Fixed Counter: Counts the number of unhalted =
-core clock cycles. [This event is alias to CPU_CLK_UNHALTED.THREAD]",
-         "Counter": "Fixed counter 1",
-         "EventName": "CPU_CLK_UNHALTED.CORE",
-         "PublicDescription": "Counts the number of core cycles while the c=
-ore is not in a halt state. The core enters the halt state when it is runni=
-ng the HLT instruction. The core frequency may change from time to time. Fo=
-r this reason this event may have a changing ratio with regards to time. Th=
-is event uses fixed counter 1.",
-@@ -286,7 +302,7 @@
-         "UMask": "0x2"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es.",
-+        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es. [This event is alias to CPU_CLK_UNHALTED.THREAD_P]",
-         "Counter": "0,1,2,3,4,5",
-         "EventCode": "0x3c",
-         "EventName": "CPU_CLK_UNHALTED.CORE_P",
-@@ -303,7 +319,7 @@
-         "UMask": "0x1"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted reference clock=
- cycles at TSC frequency. (Fixed event)",
-+        "BriefDescription": "Fixed Counter: Counts the number of unhalted =
-reference clock cycles at TSC frequency.",
-         "Counter": "Fixed counter 2",
-         "EventName": "CPU_CLK_UNHALTED.REF_TSC",
-         "PublicDescription": "Counts the number of reference cycles that t=
-he core is not in a halt state. The core enters the halt state when it is r=
-unning the HLT instruction. This event is not affected by core frequency ch=
-anges and increments at a fixed frequency that is also used for the Time St=
-amp Counter (TSC). This event uses fixed counter 2.",
-@@ -320,7 +336,7 @@
-         "UMask": "0x1"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es. (Fixed event)",
-+        "BriefDescription": "Fixed Counter: Counts the number of unhalted =
-core clock cycles. [This event is alias to CPU_CLK_UNHALTED.CORE]",
-         "Counter": "Fixed counter 1",
-         "EventName": "CPU_CLK_UNHALTED.THREAD",
-         "PublicDescription": "Counts the number of core cycles while the c=
-ore is not in a halt state.  The core enters the halt state when it is runn=
-ing the HLT instruction. The core frequency may change from time to time. F=
-or this reason this event may have a changing ratio with regards to time.  =
-This event uses fixed counter 1.",
-@@ -328,7 +344,7 @@
-         "UMask": "0x2"
-     },
-     {
--        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es.",
-+        "BriefDescription": "Counts the number of unhalted core clock cycl=
-es. [This event is alias to CPU_CLK_UNHALTED.CORE_P]",
-         "Counter": "0,1,2,3,4,5",
-         "EventCode": "0x3c",
-         "EventName": "CPU_CLK_UNHALTED.THREAD_P",
-@@ -336,7 +352,7 @@
-         "SampleAfterValue": "2000003"
-     },
-     {
--        "BriefDescription": "Counts the total number of instructions retir=
-ed. (Fixed event)",
-+        "BriefDescription": "Fixed Counter: Counts the total number of ins=
-tructions retired.",
-         "Counter": "Fixed counter 0",
-         "EventName": "INST_RETIRED.ANY",
-         "PublicDescription": "Counts the total number of instructions that=
- retired. For instructions that consist of multiple uops, this event counts=
- the retirement of the last uop of the instruction. This event continues co=
-unting during hardware interrupts, traps, and inside interrupt handlers. Th=
-is event uses fixed counter 0. Available PDIST counters: 32",
-@@ -426,6 +442,38 @@
-         "SampleAfterValue": "1000003",
-         "UMask": "0x1"
-     },
-+    {
-+        "BriefDescription": "Counts the number of CLFLUSH, CLWB, and CLDEM=
-OTE instructions retired.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xe0",
-+        "EventName": "MISC_RETIRED1.CL_INST",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0xff"
-+    },
-+    {
-+        "BriefDescription": "Counts the number of LFENCE instructions reti=
-red.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xe0",
-+        "EventName": "MISC_RETIRED1.LFENCE",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0x2"
-+    },
-+    {
-+        "BriefDescription": "Counts the number of accesses to KeyLocker ca=
-che.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xe1",
-+        "EventName": "MISC_RETIRED2.KEYLOCKER_ACCESS",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0x10"
-+    },
-+    {
-+        "BriefDescription": "Counts the number of misses to KeyLocker cach=
-e.",
-+        "Counter": "0,1,2,3,4,5",
-+        "EventCode": "0xe1",
-+        "EventName": "MISC_RETIRED2.KEYLOCKER_MISS",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0x11"
-+    },
-     {
-         "BriefDescription": "Counts the number of issue slots in a UMWAIT =
-or TPAUSE instruction where no uop issues due to the instruction putting th=
-e CPU into the C0.1 activity state. For Tremont, UMWAIT and TPAUSE will onl=
-y put the CPU into C0.1 activity state (not C0.2 activity state)",
-         "Counter": "0,1,2,3,4,5",
+         "BriefDescription": "Memory read that miss the last level cache (L=
+LC) addressed to local DRAM as a percentage of total memory read accesses, =
+does not include LLC prefetches",
+         "MetricExpr": "(UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL + UNC_CHA_TO=
+R_INSERTS.IA_MISS_DRD_PREF_LOCAL) / (UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL =
++ UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_LOCAL + UNC_CHA_TOR_INSERTS.IA_MISS_=
+DRD_REMOTE + UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_REMOTE)",
 diff --git a/tools/perf/pmu-events/arch/x86/mapfile.csv b/tools/perf/pmu-ev=
 ents/arch/x86/mapfile.csv
-index 149bbe7abaf5..9370722dc564 100644
+index b84035dc5b4f..96580ffda7bf 100644
 --- a/tools/perf/pmu-events/arch/x86/mapfile.csv
 +++ b/tools/perf/pmu-events/arch/x86/mapfile.csv
-@@ -1,6 +1,6 @@
- Family-model,Version,Filename,EventType
--GenuineIntel-6-(97|9A|B7|BA|BF),v1.35,alderlake,core
--GenuineIntel-6-BE,v1.35,alderlaken,core
-+GenuineIntel-6-(97|9A|B7|BA|BF),v1.37,alderlake,core
-+GenuineIntel-6-BE,v1.37,alderlaken,core
- GenuineIntel-6-C[56],v1.14,arrowlake,core
- GenuineIntel-6-(1C|26|27|35|36),v5,bonnell,core
- GenuineIntel-6-(3D|47),v30,broadwell,core
+@@ -13,7 +13,7 @@ GenuineIntel-6-CF,v1.21,emeraldrapids,core
+ GenuineIntel-6-5[CF],v13,goldmont,core
+ GenuineIntel-6-7A,v1.01,goldmontplus,core
+ GenuineIntel-6-B6,v1.11,grandridge,core
+-GenuineIntel-6-A[DE],v1.16,graniterapids,core
++GenuineIntel-6-A[DE],v1.17,graniterapids,core
+ GenuineIntel-6-(3C|45|46),v36,haswell,core
+ GenuineIntel-6-3F,v29,haswellx,core
+ GenuineIntel-6-7[DE],v1.24,icelake,core
 --=20
 2.53.0.414.gf7e9f6c205-goog
 
