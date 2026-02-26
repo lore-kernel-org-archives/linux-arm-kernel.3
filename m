@@ -4,89 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA594FC5927
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C85FCFC5927
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bnw64VDmOIsDBjD+cxaJBPxWhHWJgKFnBBtMRI3MdyY=; b=OJe8oTm7lE5A0cg0BGydKyMc+W
-	T7bjEs2rMhRlFYW9IfFaP3fILRCqixg2dsi/hCEQUIkzt8hymhVIP++SfFBrRdP+gKqf3qe8G2ZF3
-	rBKTTVlU9TH0FmpdbYRiI1ai3YsB4eKFlz9A2aoVFS+k9RF/eTuXSFX34eomRsRqJ0uGHXh33BNLy
-	kVbba9IoIebBP//mUrHiEKPy7XPaQXLy/HI1+SjrEa/xELrGxYX6e7ctN4MwswObC2QJEYCDigphX
-	VRQFJggR/BbOpBBFM20LOJA0WOTmrOd8HYrsd1Y4KIlLGYzjdiJ88eR2h6wqjgY7iSp4ja0uxOuOk
-	XhlUhW8Q==;
+	bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=; b=R4Z1TuJaZ3fMoh7uG8cgEcQkmB
+	nOR0vlKQYoyHgEeHMSbypfe92jBUDiSDykCptZdN884DUlXAyoovw6U3QNJRD9K9NEiDAeojz5ZUw
+	mmhsFRCL+yq6093GGO8Yqz3WT1bqolGtLg6cLamNtuMDr3b8ct/LKkAt5KhQ7IS0BensTpIJP+Fmx
+	2SmstNyfLJ0s/BE6pX7kZtnshCv/TEW0Dp2XbncsJ15Fyzb9YOzVt8lE1YbdtK1tGFQn5vpr5V/fF
+	X4YA/dL12mieaAbN2sYx2VPeljGITD6nZ0YmpbkMhzhh/P50iOjNovl3lWlWbDFTuuojCFAKaXHmi
+	tpKMkISA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZAx-00000005zHH-2RNu;
-	Thu, 26 Feb 2026 11:04:59 +0000
-Received: from mail-oi1-f177.google.com ([209.85.167.177])
+	id 1vvZBr-00000005zXi-3X8a;
+	Thu, 26 Feb 2026 11:05:55 +0000
+Received: from mail-francecentralazon11013057.outbound.protection.outlook.com ([40.107.162.57] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZAu-00000005zFq-0bDh
+	id 1vvZBo-00000005zVr-1vfU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 11:04:57 +0000
-Received: by mail-oi1-f177.google.com with SMTP id 5614622812f47-463960df4f9so611990b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 03:04:55 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772103895; x=1772708695;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bnw64VDmOIsDBjD+cxaJBPxWhHWJgKFnBBtMRI3MdyY=;
-        b=ccLJEhBCol7ZYqjfZxEtX6BHiskpP3oyYMaopPkaXM/pim33dgA5fJlrSo61DTUkLl
-         vb+Y8kxdrbpE/i3icRF+BgMt6Pp4ILtK8HHMSAjOqmAEgTzDDM2BALS+CLafKKOcGpIi
-         ORDV7MZouTSAqHrOf79hAvARLp88kdPzGIj6zhB1H2W9k4ZSRF/72X4IBMeZ2AXqUTrb
-         ByWwt3YCBdktB0x8dTqMExGrX3COt9Iiky3ECoNe87blZgQEZkp8VCVvLlAj3LG+b+T2
-         VOORsG3ziEr+2QOgpm9j3vYu/jEyJe0/WJ1CQ9WuzYBwnmcS9S1A05sWA0t6QOAJZARz
-         8qWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUf6FBceRANuzlGOpoZfcsQgoYhfdAETezQT84cpUenq//t/O1/v1NCuDNE21z6cGiW7iQ47eWZ2j89UbrD2NkJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfS1kdMVXDgY/8REW2FR0zjYMvJUCkAS85RjsLV/IY74WJnH56
-	QBP+gSi/b10PBf7YE1i1UGr9pr/PR8yeBqdVTxyV/a69dD5+bqzJewm6JducyL5P
-X-Gm-Gg: ATEYQzx+QEK1VpB4LsQjy9zgYxviu0nb3H54a0VxJuuamyB86Ssa7F++3Ej2V64rZoU
-	eFe+4XdmDbJCbw3P2X0IyDJjeR15rMX4X0NKeIypFG5WI/0NJFH2KP1f6NoNX0HtMfP9YAP9Xk7
-	Re5Ew6C0NPbq4gUG9P+Go/eoeKr3Ned7EJMx2GlG4YR21ZBV15sv0nkUbgkHbrPrkD3ZuEtnhF2
-	j9Zl+S5aG8dFLlopmBibhW+xeXL6//2tUIr8mL43T1eLJgVb8Np//aMWMr+9NBdCBPNSxMuecYK
-	PgFF7mqCvvZe804RCAXEJPojnB0dq2p9bA+HFkgcGyFX29s2t101L/kstG+si9SQGFlw8c20Yel
-	bNnNirtVxVR2tMQYVTtK9cGfV9mM0RkFbaxHEVs64CS4l/508WgRPAp84pkUx6zvB+//5FjsGlY
-	wmk0a98H1H6x1OT1tRQEYm7RxKMV8MG2rHTtNytoyjbC4+k7UIaDUID8N0ZzjCA1dCJqyYfdk27
-	S8=
-X-Received: by 2002:a05:6122:4f86:b0:559:65d6:1674 with SMTP id 71dfb90a1353d-56a8bc7bfe4mr1873930e0c.14.1772097645763;
-        Thu, 26 Feb 2026 01:20:45 -0800 (PST)
-Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com. [209.85.221.180])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56a9215ac92sm1941941e0c.14.2026.02.26.01.20.44
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Feb 2026 01:20:45 -0800 (PST)
-Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-5637886c92aso367769e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 01:20:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXn/ZmnSJg23WbrcHYvlsjZSAG7aL4tk3fba7C5uSKMbV6EInBEqd4d5NllaDWmD5eNjI55Ab9evT1zNvrW2MRO@lists.infradead.org
-X-Received: by 2002:a05:6102:1606:b0:5fe:12c9:6e55 with SMTP id
- ada2fe7eead31-5ff141ca4fdmr1209533137.39.1772097644539; Thu, 26 Feb 2026
- 01:20:44 -0800 (PST)
+	Thu, 26 Feb 2026 11:05:54 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=O6O3xP6TRi1H47nHVxBGe7qU98ZH85/dR0sBfPQrncRndLaTTgbQnQPNwjE5ZTEO2Qs5+VRynzxQ3+v2RnryE65BaKKEpcOfjfyhl23n4kxlHfYX3iAUz6ACBC5JP//zjsCUPDX+r7y1vSuy0G1YXWUL2FkYzpna7Uc9y/WR4XL/hzd/Cs9dSlsRMiL2VFlkpAnxffOLo+wxbaiim3TS0MI2xODQZATCcT4ePPPozccppFF8n+pWXtbbey6eWB00Jn4UhCaCmd0X+V8JQOx3Z72kePeakGUZTOZ+PBit1n/3/ClH+vCTQ9mswNmLyNiKIuoliGfrUkIHS8dEDiN/aA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=;
+ b=ZLOo3soJCSehE7WzFiL4c8CS1uGhFlwKvFOgyG+7UxiozrzmcsudCEoQAjK5/3hIJo8KP/xV08o0uw6nR0HxqKV4kHlNH2MIGcDya0jzTkrZbEwAYih2SW1xvE3Tw3EcyYk1nJsORkKFVUfTaFZzjA355H8zl1bai+h/EUnEoebKH37j2LxG9YtaPdw6HWRQ/MzT+N6oGtpy28FuIw5q+NX9AC+ZnvYXslAZXF/N0EcCZg0PlGLTy1yZdfOtFda1TtxvazwU6s0Pbppdy25xyo+5CMkYlCXJgsS5ORzcBglcO+PLOkQ68itiWvn+/LynC9dTeApcGum5Qeowy1MBUw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=foss.st.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=;
+ b=fphy8PUmoOnzcD8PCiY3MZJlmn/4tJZXL9d7mZoQk10IrH2OHNpoql/Ss9ltHoXRtWxQDbGtSt37Aufu3o2fGn8PVFyv4/MaYs9ZLj7e3YBjwHuN+XH+CRyEYaohVurXPzUWNLtVqbPYOq2eR1rtS6bj4xN/hQzu/x4bLdG21Js=
+Received: from DUZPR01CA0179.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b3::10) by DB3PR08MB8940.eurprd08.prod.outlook.com
+ (2603:10a6:10:431::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Thu, 26 Feb
+ 2026 11:05:43 +0000
+Received: from DB5PEPF00014B9F.eurprd02.prod.outlook.com
+ (2603:10a6:10:4b3:cafe::47) by DUZPR01CA0179.outlook.office365.com
+ (2603:10a6:10:4b3::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.24 via Frontend Transport; Thu,
+ 26 Feb 2026 11:05:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB5PEPF00014B9F.mail.protection.outlook.com (10.167.8.169) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
+ via Frontend Transport; Thu, 26 Feb 2026 11:05:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kG5CzKKg9a5YCzwImXluMIPGQM3yJyubeeSm7u4WL4/MrXe1St0T4jk9SrAuakhl+14gIC46f4h/MCcky9toKxrsJntlFELbNAMbNsLfvCRCMiFn8ZqKBo4J/7S/QwP9SChhszjErnxsNtV01HegD74T8mVzNYM8Q9mle+MQaurF7d01zXJdH5r/DpsKSRjayZH3FKKguz5WvmNm2HDcIBhTVNpApnBFtmwzkHvsKqyNkRcMzFkQ8Ec6Cr/eCdeInZXP++44r0JHeI7WqruQGiV1fvcZVhMnqoiYcOzDBo9/V8xUZ2RZyqp6Aq1nRtVgI6+sBdiX/ZxNq0QkETiuqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=;
+ b=Ju772H8g0I39yTAJTRm/ZtifGkxs5IBYR1eylE9qbubGEpyYZQHazqYru1+gxnZwUbswgelQy7ZRThol8mi51Fj9C4OK8817OenUT9Y8LbIiByzZByWNkXZ2wxkNL1+iST2EG7T9QKNmByg1nMnfMZOA9apddtatC2sXuU+JJ3dFVJQlnhnuVzw2TuySuPgL3iMZkSIc70D51RsGrNvNuNILUPonxtqzSKeZehwuaWsSurAtqaj92vZ3It+BNcQLm2QHSxCok4wYVp0vlg67mmzFqNb0b2fVkV2azvLm2dLJvAgj166rXYer8vry823b3Fkz8K8eXabNfHmqxsdLYA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=;
+ b=fphy8PUmoOnzcD8PCiY3MZJlmn/4tJZXL9d7mZoQk10IrH2OHNpoql/Ss9ltHoXRtWxQDbGtSt37Aufu3o2fGn8PVFyv4/MaYs9ZLj7e3YBjwHuN+XH+CRyEYaohVurXPzUWNLtVqbPYOq2eR1rtS6bj4xN/hQzu/x4bLdG21Js=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by AS8PR08MB6631.eurprd08.prod.outlook.com (2603:10a6:20b:339::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.23; Thu, 26 Feb
+ 2026 11:05:15 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%6]) with mapi id 15.20.9654.013; Thu, 26 Feb 2026
+ 11:05:15 +0000
+Message-ID: <b2e8dbf1-f492-4fab-ac17-8237a759a427@arm.com>
+Date: Thu, 26 Feb 2026 11:05:14 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 01/12] dt-bindings: document access-controllers
+ property for coresight peripherals
+To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>,
+ Linus Walleij <linusw@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, cristian.marussi@arm.com,
+ jens.wiklander@linaro.org, etienne.carriere@foss.st.com,
+ Sudeep Holla <sudeep.holla@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com>
+ <20260226-debug_bus-v6-1-5d794697798d@foss.st.com>
+ <fb91b392-2a01-4f01-85a2-335bb39ec60e@arm.com>
+ <7c60e928-d99d-4341-966a-eed759069f5e@foss.st.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <7c60e928-d99d-4341-966a-eed759069f5e@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: LO4P265CA0137.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c4::15) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
 MIME-Version: 1.0
-References: <20260225155409.612478-1-hugo@hugovil.com>
-In-Reply-To: <20260225155409.612478-1-hugo@hugovil.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 26 Feb 2026 10:20:33 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVd0Ds5vHQa+MG2E+E36qAu5HQE3b+Vzpbv84MM=2DFWw@mail.gmail.com>
-X-Gm-Features: AaiRm50xBGkpSKzhEw3ibXVEzal-pPxdV_uLqXQh8Zi8JcZzUL3k8C9xrOoM_9A
-Message-ID: <CAMuHMdVd0Ds5vHQa+MG2E+E36qAu5HQE3b+Vzpbv84MM=2DFWw@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] input: add GPIO-based charlieplex keypad
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: robin@protonic.nl, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com, 
-	mkorpershoek@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, lee@kernel.org, 
-	alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|AS8PR08MB6631:EE_|DB5PEPF00014B9F:EE_|DB3PR08MB8940:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b682ac3-058b-46ef-0aad-08de7526fbd2
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|921020|7053199007;
+X-Microsoft-Antispam-Message-Info-Original: Ck+xwoKXH0aOrC4IC1U5s1rX06ERh7WIeaqI46P+axK8D+JOtYJd1szaXJY6ZNb/oRC7sDkIL6EV5Ki9euvwxMHeBTClBwkV7UoPzYDvReqyT/k1q819fMgK9e3Lm3woMODfu55ISJPIrjj1LZihYbYBpDoy+Ly04xRaEsa6TRGvqnLDFUOPRNQ7dvlc1K5fmdxTh58ESmFRPF7gdttJeHJrSTPKHq70gc3Ivnc8yypgI3LIWWiJ11gGn3+Zm2fCY7WmA2MXwksg2KoLDDZVAGLqK58QYzIuvunDeJFzXeKSACrov63ppjfX4k8TQI7WShbBzpJK0A73bNkAzWdW6tz9DNqFTTekORhOgfsyzV5ZhSJm6azbpSJ/fMcW3/2uvzych0HF3j4dOTdmL3zo2n/kisTKgdFP1tDFfyU8m9j9+VOn+5KZot7BByLLVQqqj1W0pDBjBdpJ8PLmKfkXMZoJAAH969djgQu/qgpU5keoAYpOB4gae5eqcyBgG4VubDmgszUiua/Q3UHc+Fty7VxbLbPyCLSMQONAtz+MabIoblYmUyxP1icXzAo7oRIJTN4oyAtVvzfiW3Wj6a+ts9YuaZblgolHgjozRLK3CFjsg2ABFVR25ZgTL7+6BkPXCWnWZHbzOWVxjlfcaVpdnB/MYTvF0vddJz3xVZWFvDC3QrZrhoGR4LXY+gNdpbK3qiE5fwY2+RCWlBa7GCFU7zNpAAKdLlQPNRzAyVrV8pDfkIUMFGV7VEC4ncOzuEDRuCdLriQIKbHv7/bsm8yP1A==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6631
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B9F.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 2bc16013-572a-474b-6722-08de7526eb44
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|14060799003|1800799024|35042699022|376014|7416014|82310400026|921020;
+X-Microsoft-Antispam-Message-Info: 4qBxew7zSmdeizISpR43bdtwZv2Z4jb59l8YKukF0F7sn3i5Rbn1w+3qaGhh3PlslO+CE8We2xGf3GAt5dczBP76yu0o9rK3tnwQnyVvCMxN3mldir3DTu62pASwm+cYFiUd2+jbTs0R3aWt71L2njQj7AxDqRmcN2aIzRK6c8cGF67/A1E6Xk2RrQg43gcdwEkSN1pbI6+BVzP/ooANj31JGvHXJ81DORXTFacJCGTqM7Kn4Opg/YAfumT6EKYo9bA4KjA0nU+2VU16GOuxLnjNVUgPZ9K157ef7LtAbEV4qYVLRIlRYtiUvp97SoyLwbpwSBksl/I7Ps6iWw3Q0KjHWaEjSiqqwzdgcAljCvPHyAOzNbHJhG1VoeFVUwAUwBXXa7wY474e6DzJF/CXM0t5AMcPueSr5xw+hLjfH7Quypy45lkJ58ODhZcvYfjryk43QvvhsYyYPN/NUg/QxZ1sdYSKMHwESbMfp2PDIyL5rDu5Shrz70CVaeTeZ8IieQZ+aaAf30Bi29ZULcVrxFYZ05lRLwvO50i2oo47CISOsAzfbj31F/KNtEiP9WPE34XcrOaN1hDRW32y+/eNa1O4oY1Yz+aPIs2Hv2zyhyXg9udOGLBUqWdCLUwCtGCgzPKS8xiteEDDU2MY+sKve+3xPCAKXN1bBMWoYzcv+IEQMnTKuA5g/RKQM453ae6By+6fDNrWbnTACm4kZVJ20498YxZYgGmy5y48L0pLlFB9xyehF96w2PpxWc6go6msavrxCwT7zlE4X34XgsGEAg6z6FXpY6IceBa7XsvXWc3rcw9kEA32IGrzBVK9ANp29WsAQKw8GOPLhPpg39VL7Jh0f/cTmoxMmnl0Xf0pnbg=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(14060799003)(1800799024)(35042699022)(376014)(7416014)(82310400026)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: v5RIaY7bw905NERDMCgKD0tlci8vTeJZr+AZvj+UeR6a6QrrGr5PzIQsTMIoetXF2cDirJkOwioIHWmFG8NO8T9Fbeb+t4894BBCfkQJ/pen97QV9uSuL2z4CFoba+aQHQDxX/Gf8BKVmhPl3mAoeI+JH2/Ab4bMfLHwm/K+JiTy2hXdnvNinpzw6GV+5KF4hnf7YyJkhR7C7+LE6o54QfMXyWBWJYl98CkjSRNaCbc3AMP5W5ChE+z5gqEfZRl3L6ZoQktLU5kWLVQy/G+K6WgwaR/oUxHwvB2m1q81BRiPRkP71KDFZnHJEztlW/HN9ZckeqNn5SPMCTxODEVnPPO6NcbXhyhj5ST5vnNL7F6nx4JswJWibFcI+MDCf+F2REOgYlLDqqg1/Xz8a9OmxQd10lTw7qH28TQkwuAGseq1JhDKNPfmRYLrqihyels5
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 11:05:42.5086
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b682ac3-058b-46ef-0aad-08de7526fbd2
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9F.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR08MB8940
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_030456_179410_D493BCA9 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20260226_030552_745576_C5453A70 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +168,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hugo,
+On 26/02/2026 10:54, Gatien CHEVALLIER wrote:
+> 
+> 
+> On 2/26/26 11:46, Suzuki K Poulose wrote:
+>> Hi
+>>
+>> On 26/02/2026 10:30, Gatien Chevallier wrote:
+>>> Document the access-controllers for coresight peripherals in case some
+>>> access checks need to be performed to use them.
+>>>
+>>> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+>>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+>>> ---
+>>>   Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> cti.yaml           | 3 +++
+>>>   .../devicetree/bindings/arm/arm,coresight-dynamic- 
+>>> funnel.yaml          | 3 +++
+>>>   Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> etm.yaml           | 3 +++
+>>>   Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> stm.yaml           | 3 +++
+>>>   Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> tmc.yaml           | 3 +++
+>>>   Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> tpiu.yaml          | 3 +++
+>>
+>> Are you sure, you are not missing "replicator" in the list ?
+>>
+>> Otherwise, looks good to me.
+>>
+>> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>
+> 
+> The replicator is not present on the Linux side on stm32mp1x platforms
+> (Only present for the Cortex M4 co-processor on stm32mp15x platforms).
+> On stm32mp2x platforms, it will be necessary so it will be added in the
+> related P-R because we'll need the same debug access check mechanism.
 
-Thanks for your series!
+Fair enough. It looked a bit odd to me with TMC and TPIU both in the
+list without a Replicator.
 
-On Wed, 25 Feb 2026 at 16:54, Hugo Villeneuve <hugo@hugovil.com> wrote:
-> From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
->
-> Hello,
-> this patch series add a new GPIO charlieplex keypad driver.
->
-> The first two patches simply commonize two properties that are present in
-> a few bindings, so that the actual patches for the charlieplex keypad driver
-> can reuse them instead of also redefining them.
->
-> I have tested the driver on a custom board with a Solidrun RZ/G2LC SOM
-> with three charlieplex keyboards, all connected thru a single PCA9416 I2C GPIO
+Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-PCA9416? The closest I could find is TCA9416, which is something
-different.
 
-> expander.
->
-> Link: [v1] https://lore.kernel.org/all/20260203155023.536103-1-hugo@hugovil.com/
-> Link: [v2] https://lore.kernel.org/all/20260213171431.2228814-1-hugo@hugovil.com/
+> 
+>>
+>>
+>>>   6 files changed, 18 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>>> index 2a91670ccb8c..949444aba1f8 100644
+>>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>>> @@ -128,6 +128,9 @@ properties:
+>>>     "#address-cells":
+>>>       const: 1
+>>> +  access-controllers:
+>>> +    maxItems: 1
+>>> +
+>>>   patternProperties:
+>>>     '^trig-conns@([0-9]+)$':
+>>>       type: object
+>>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> dynamic-funnel.yaml b/Documentation/devicetree/bindings/arm/ 
+>>> arm,coresight-dynamic-funnel.yaml
+>>> index b74db15e5f8a..b0693cd46d27 100644
+>>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic- 
+>>> funnel.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic- 
+>>> funnel.yaml
+>>> @@ -78,6 +78,9 @@ properties:
+>>>           description: Output connection to CoreSight Trace bus
+>>>           $ref: /schemas/graph.yaml#/properties/port
+>>> +  access-controllers:
+>>> +    maxItems: 1
+>>> +
+>>>   required:
+>>>     - compatible
+>>>     - reg
+>>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> etm.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml
+>>> index 71f2e1ed27e5..10ebbbeadf93 100644
+>>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml
+>>> @@ -118,6 +118,9 @@ properties:
+>>>           description: Output connection from the ETM to CoreSight 
+>>> Trace bus.
+>>>           $ref: /schemas/graph.yaml#/properties/port
+>>> +  access-controllers:
+>>> +    maxItems: 1
+>>> +
+>>>   required:
+>>>     - compatible
+>>>     - clocks
+>>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> stm.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml
+>>> index 378380c3f5aa..f243e76f597f 100644
+>>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml
+>>> @@ -73,6 +73,9 @@ properties:
+>>>           description: Output connection to the CoreSight Trace bus.
+>>>           $ref: /schemas/graph.yaml#/properties/port
+>>> +  access-controllers:
+>>> +    maxItems: 1
+>>> +
+>>>   required:
+>>>     - compatible
+>>>     - reg
+>>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> tmc.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
+>>> index 96dd5b5f771a..9dc096698c65 100644
+>>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
+>>> @@ -128,6 +128,9 @@ properties:
+>>>         - const: tracedata
+>>>         - const: metadata
+>>> +  access-controllers:
+>>> +    maxItems: 1
+>>> +
+>>>   required:
+>>>     - compatible
+>>>     - reg
+>>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> tpiu.yaml b/Documentation/devicetree/bindings/arm/arm,coresight- 
+>>> tpiu.yaml
+>>> index a207f6899e67..29bbc3961fdf 100644
+>>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml
+>>> @@ -70,6 +70,9 @@ properties:
+>>>           description: Input connection from the CoreSight Trace bus.
+>>>           $ref: /schemas/graph.yaml#/properties/port
+>>> +  access-controllers:
+>>> +    maxItems: 1
+>>> +
+>>>   required:
+>>>     - compatible
+>>>     - reg
+>>>
+>>
+> 
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
