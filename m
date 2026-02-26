@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E17FC591C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3330FC5910
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2hmAPdeq+yK4yox6gFwVhrtvKKbGXLa4UpDk8msuzM=; b=FMNGa71QFoPvIttMFucBargTIE
-	LRNXSI7XcnLNi78WBBtJzpzbXwoCLRepeiFm6IttIL+8F9oDnJXKY1t0OtmBYiTavhNhecxmHOrlv
-	RfvNVFJoFdpr8rNrq6ahBY6VzFNLa1Y1Z8JJxJ0YIZCn7rqcCqd442Wow79HdLMOK+wExzTxgRFYs
-	yGbh7j2WlRoYO4bEyxph2WflQLC4y/NTrNUGZt0TRYXmLt2b1p5ckcmF9xarOv1acnq6tllblkChj
-	NNEF7Y0R2vk7a+SLr8G0CLu+9aEY1JgRRt3dLZqXBFt6xHb6h6VpnAw3nB3t2d1t6bN3TGZDDLLUb
-	6EEPGsug==;
+	bh=s021WFuQ4aN5Za5roNFnQHL4/t2NgPbjyCfo2WOubSE=; b=oycBLKx1G3SqAqwwv/02uBQIKz
+	XB90eL23TX9tDhykd6r2zNYirhCGIN07h4SoRrYf6k98j9Y9WaV5X6Cz44NeVba6XPu74YDH8VvXH
+	vBqpMwPSSq5a5eHNpnvhxCfSXEF1VEciWMVRb31/c9anmdoLi20cfbp5gW4k8L9FocPBn3rauNcNq
+	YdgtwOZ9ywlmhP4TAPY/1wrMQCPx0fAapVJ2M+gSl8z3SAhF4mzBKY8KvAw/YNx4hobwh/qIQM1q5
+	SaflcB4VloiOzjHy5i/wmXCwU3sjUvycTPfaHp/hh4JtSNDjKW6Q5UbIDOlQGNF3oHJJb12lPe7uc
+	VSJkDGzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvY3U-00000005qOe-0N28;
-	Thu, 26 Feb 2026 09:53:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvY3Q-00000005qNo-4655
+	id 1vvYDg-00000005qvv-34Tf;
+	Thu, 26 Feb 2026 10:03:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvYDe-00000005qvZ-07Y5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 09:53:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E82D643DD9;
-	Thu, 26 Feb 2026 09:53:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E27A3C19422;
-	Thu, 26 Feb 2026 09:53:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772099586;
-	bh=gOp0kpfXl5Pk7tntCuMPl5ytXJG2Ia6XHeykt8grkxk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bKAl6+a63YoKhP045GVfWx0jHVFXhW9LZJwtaG1W4eWc1goGV4M4TfPBoQAA6izqI
-	 6WdQBpAv54eP1ND0tIBHQHI+GWfxGafuqN75FJ/POxBvVk+QceuIEnnd85M3egf5o3
-	 pCeDonuhpqPi3Q5JsPNW71YAQT68YxFW1abLbggLEb7X7tezojU4W02K9iE8iBv9cy
-	 VgBvu/TU6bNIYRIbEQ5QLvlwgl65/0WF9vYEMym0EF+pNunedprXYz4G1AGpCnrD0q
-	 9yWeaUPqehQ2DxyUkSk0kvZgsTFG5PoBx2dLGHDyLcNtEmzEKx81wVi4YZWkCj0xCb
-	 xFPIqy5iBsk7Q==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Marc Zyngier <maz@kernel.org>
-Cc: Christophe Leroy <chleroy@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	linux-kernel@vger.kernel.org,
+	Thu, 26 Feb 2026 10:03:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BFCB91516;
+	Thu, 26 Feb 2026 02:03:33 -0800 (PST)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DA97C3F7BD;
+	Thu, 26 Feb 2026 02:03:38 -0800 (PST)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v2 0/6] fsl-mc: Move over to device MSI infrastructure
-Date: Thu, 26 Feb 2026 10:50:43 +0100
-Message-ID: <177209938125.547814.7154250802402503122.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260224100936.3752303-1-maz@kernel.org>
-References: <20260224100936.3752303-1-maz@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] coresight: ctcu: fix the spin_bug
+Date: Thu, 26 Feb 2026 10:03:25 +0000
+Message-ID: <177210018860.1370014.12776574224023445436.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260219-fix-spin-lock-issue-v1-1-557f7d513d7e@oss.qualcomm.com>
+References: <20260219-fix-spin-lock-issue-v1-1-557f7d513d7e@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1045; i=chleroy@kernel.org; h=from:subject:message-id; bh=boh47sxvFmCUdmRIsSFUJwcMqqWdfzkyZGUbgxkJCNk=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWQuEC/5yeVfffBG5F+JDwyhtnLatdJqQmdfN6+451Eof /MXj+2NjlIWBjEuBlkxRZbj/7l3zej6kpo/dZc+zBxWJpAhDFycAjAR5/0Mf7iP1Brdbp1lf/vd nH39+VdOHVs059/V8+df+0xw/dNbcmo9w/+s9i2MK73M59yteOu92Urq9mWZG9n5jhaLrF209+1 vSuIHAA==
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_015309_063985_04EDB8FC 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20260226_020342_113131_6D15AB34 
+X-CRM114-Status: UNSURE (   5.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,32 +71,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 24 Feb 2026 10:09:30 +0000, Marc Zyngier wrote:
-> This is the second drop of this cleanup series for the fsl-mc MSI
-> infrastructure, initially posted at [1].
+On Thu, 19 Feb 2026 22:46:57 +0800, Jie Gan wrote:
+> Acquiring an uninitialized raw_spin_lock is invalid and may trigger
+> unexpected behavior or spin_bug.
 > 
-> * From v1 [1]:
 > 
->   - Drop the now unused DOMAIN_BUS_FSL_MC_MSI bus token
-> 
-> [...]
 
 Applied, thanks!
 
-[1/6] fsl-mc: Remove MSI domain propagation to sub-devices
-      commit: 1fb7392ee3408494d4d62c09a8c3e5f5934caba7
-[2/6] fsl-mc: Add minimal infrastructure to use platform MSI
-      commit: 0c9f522f2d41c7e055a602a0d2c41dc7af01010b
-[3/6] irqchip/gic-v3-its: Add fsl_mc device plumbing to the msi-parent handling
-      commit: cf3179b4e53f527aba9f0c6c3b921619c8adf761
-[4/6] fsl-mc: Switch over to per-device platform MSI
-      commit: 4a958e47c246fa3fb8954f4303e0da15ab3d026d
-[5/6] fsl-mc: Remove legacy MSI implementation
-      commit: 14b1cbcc6cec0b02298f4adf717646cd943b7ef6
-[6/6] platform-msi: Remove stale comment
-      commit: f0a2eac6a597268034fd40d92c1469182438b53d
+[1/1] coresight: ctcu: fix the spin_bug
+      https://git.kernel.org/coresight/c/36ffbbc2b387
 
 Best regards,
 -- 
-Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
