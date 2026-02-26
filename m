@@ -4,150 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25498FD8FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17067FD8FD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FxzCbWBTB6rk/FfdE4lnoFMA1qq4hi+lRpkzSyUqgbE=; b=0+g6j+/AR2mEtU3kKGLdCwVfe6
-	kYEA3xX13DEnvot9p5Fv8X+yswLvytpFCsfP0cGZeiXq1bteFE2y9Zm6+qDNfgJF7pUrRgL/6X3KT
-	T6VEzGKinWTe78uADcFl+Xlxjb890DWmN1J1DUwEE9d43SD9PZHgcgfMBYy5i0ZlqPTAH1jWyvnf/
-	CVAVWnRz0iG9d160GZBA5wwj05DNT4+lnMnXY7dDJ3Ca1mc6IJ1ZocvKfSHg7mFtgVyZlyvN4C3hs
-	rGq5ORsMu0dQZr7FigPFnoWcsQHXpGTo642ZQ/So7hePNz6xAVPQ4dHYtee2cfSWSqbfhbWchq7vD
-	TL6+Fl3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=98cDGFKI0ittGN9WTwtDxfJA6FpPSB/XcdXQA2mPpIs=; b=y7QdwfvCo4p0he9voWsWHDuz3A
+	hLTZPpcBOeG9ZNtOZQl6qOaQO+S2y7Osfx1Kf9qD26Rqea32ygmnHxn0+Fq6fPotH38hmLUX+faFg
+	zUFsEGsevRcUZIMKWDIGQ2xJArU/vc5vkt3pD6Skcf5yEbVuOV3H5lRlvvlCvUoabkkQRsSWxD51Q
+	FjQlTm8RCpQ7nsyxZMaeCP8upLkV+z+jIDFrBRYu6T3nXCNLek9hVZH6ViDdyTvDOk/wIb0CsN6R1
+	+BlixZ1c7zNZB0hWCUD4XWOCWnNeEBMJ4QoCQTybqs/z8eYI09PNbJNsBmdeQoEHup92aaiZ24AH5
+	2Ho8X8Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vve00-00000006hga-3LGO;
-	Thu, 26 Feb 2026 16:14:00 +0000
-Received: from mail-westeuropeazon11011039.outbound.protection.outlook.com ([52.101.70.39] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vve09-00000006hml-04Z4;
+	Thu, 26 Feb 2026 16:14:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdzx-00000006heX-2Urs
+	id 1vve05-00000006hkO-2PAw
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 26 Feb 2026 16:14:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=98cDGFKI0ittGN9WTwtDxfJA6FpPSB/XcdXQA2mPpIs=; b=V63Krjo7iVKXzlwIxFb6cxUAEd
+	WSZnBn4vnXv0CEtwy4ehBeoCoovB1uDPmByhARnbyf7ybM9l5Ne773+JHvBidKuE74znuM5BDHyZ9
+	PBldIFpD31tmTz/J/bkYtN+guaYZ5Wj/W//emUvRpizLdlAUhluH+RZGJywVYTj/JT9i9fDosuoNS
+	6OJYpAJ+OiGvrEvPPv3vdXSxcsgOq7funrFMn/0HRPPPXvWeVGGKb7DDjsHLFvsadAySIsXv5BavK
+	MbNl7KHlztXLQkf6YPfhcm33J8pMM6JG+JILeHdCG+kHf32C1UTcl2yaN1FKI56dwIG1jfwdf/1yn
+	m5UZw0HA==;
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vve02-0000000BRgE-0mnA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 16:13:58 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=INsy7Z6OvbMYCLqrusMGMxLPsS2xbj59UU45UpbBEArDA41C8hPs1Z8b7JAycFeR1B4PqYqeW23RlFINa7y0sYRGvbRBrnHFTBD1ibUdHEZEjSkwkKcxFa0I6LoPO7X1bPX3Z1GTQVeSmXiuWQtMwIAFDO5Pc1ZfJisxBGOk1k3GpSp86Ee9IAOyux6IftNXYlGSREUF9aeaLzcFZOBS5e7vCUzvohUtx089Q7BX/p5/7RBtAd0w5AFJxvQSoHvW8Fkttc8uvFMal6i4etw3hBXvO4kPvScXvpTPQaPMGyMTlIJSKP5gksFrLXdur3iFWfnccmnekKd4RquLRpe8mw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FxzCbWBTB6rk/FfdE4lnoFMA1qq4hi+lRpkzSyUqgbE=;
- b=GA8tAAdSSLsjgQ8mktChCN3nXkBr2wbLEpB9oxm9OwFhTIpXJDEN0J0rXRGHPEuS4pwOeTGr/EFuKKd9g5mYeipB+kepqyfxRUX4fZAUDoyPE1hUxKqR8io0JvJt02MVofmZONJRYxh1UaV2kOZxfhYz8AytFnm+ek4GKZUWJonPuZ4Gm05aY1kNN3FuffVbQgy7mlGH8duyJApKEKPFawnrnKwAHF8a3vlBuRY6AQ8FBsEKZxMZFoTe/IZhT9+K2aMcIs00ixxGkV8RtHsKptbkNOhxOA1V2uSxmrqHkhNCb6g/HYkto2yaxSDLpUmQu9uK8GF828R3RciJ/4Jb/g==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FxzCbWBTB6rk/FfdE4lnoFMA1qq4hi+lRpkzSyUqgbE=;
- b=c38BQDcFCcBpBplbqrc/12JEdjyvwPM9cxrFFLDiCQ5IiXhU8hka/v6MzcMfWNU3HZjFmAJ7zQsgt/bhVw3Nwmn0UEW+UVL2V+EerR5iBGc4Cv1wMSxnAWUuB9H+vwqlBSYsWB1G50zZLtpZUggRgrf6ixa5VZZUmgwC9fBIG0s=
-Received: from AS9PR05CA0275.eurprd05.prod.outlook.com (2603:10a6:20b:492::13)
- by DB9PR08MB9804.eurprd08.prod.outlook.com (2603:10a6:10:45f::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Thu, 26 Feb
- 2026 15:59:04 +0000
-Received: from AMS0EPF0000019D.eurprd05.prod.outlook.com
- (2603:10a6:20b:492:cafe::71) by AS9PR05CA0275.outlook.office365.com
- (2603:10a6:20b:492::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.24 via Frontend Transport; Thu,
- 26 Feb 2026 15:58:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF0000019D.mail.protection.outlook.com (10.167.16.249) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
- via Frontend Transport; Thu, 26 Feb 2026 15:59:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RjtBwg6fFQ8tg0xnxIf5k+4W0RDGHqOkMX9T9UZPoR99o1ShTRw7d6hKFmM6CCi4Ph30S7uslBVCVnPHL8PEcrjWII3m3X2ND+2h+c+mNZQNz8Z7Wum19RdvsrrRlNgBWymCqlEiBhpACwqlCuuwLoqlOBPV0IpiSLq1hkcFY12QuvyvXXFoHtCfILuhePbKOHOzjqlsEHsSmVRrvoLzy724cCyqkdGIrIZ7hlYqU2wSU4uofZKssxAUzMCzY6EnHJ/jQJUaPFnRaCKimFoDVbPreGwqbg0FEgNMUqjZpAoSTXAXUDD4ZBaCQxzKsAH5kg45Bkyg86GTuczFZV7Szw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FxzCbWBTB6rk/FfdE4lnoFMA1qq4hi+lRpkzSyUqgbE=;
- b=qw7tnsJRAoQq+ecfu6RYYYWy+Pc4j23OxmNKGT0wja2Mb2DyqEjwk/OmAVBW+gMiIo1T5XEcYUcf5Sdo+JocQ4RLj3FFFmjvwCprWhOfyL4ZaBY9ndOGZSHR6wnCUyuCcf2PftD7CaYhSCO9+TCoBmeLZLCaSaVZZe1GMybR3ZQB+Chei2FD1/mGC3uV7XiWuiIKsuzYCJBMrsHRLwZSN/jL9OWzDlIdC0vvvRqB/3vbYcAd1MO9P7m4QwlmRVSzfida+YsNtHqCqoINGR6RLztRs2vIuHZ4hoMGtI+G4uNmyWRr0tGXihGdsEWPqZ9E2tHgMfTU2CGjj8+AHpgtww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FxzCbWBTB6rk/FfdE4lnoFMA1qq4hi+lRpkzSyUqgbE=;
- b=c38BQDcFCcBpBplbqrc/12JEdjyvwPM9cxrFFLDiCQ5IiXhU8hka/v6MzcMfWNU3HZjFmAJ7zQsgt/bhVw3Nwmn0UEW+UVL2V+EerR5iBGc4Cv1wMSxnAWUuB9H+vwqlBSYsWB1G50zZLtpZUggRgrf6ixa5VZZUmgwC9fBIG0s=
-Received: from DBAPR08MB5687.eurprd08.prod.outlook.com (2603:10a6:10:1b1::17)
- by DU0PR08MB7486.eurprd08.prod.outlook.com (2603:10a6:10:356::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.15; Thu, 26 Feb
- 2026 15:58:00 +0000
-Received: from DBAPR08MB5687.eurprd08.prod.outlook.com
- ([fe80::7d4a:f17a:4cb0:9793]) by DBAPR08MB5687.eurprd08.prod.outlook.com
- ([fe80::7d4a:f17a:4cb0:9793%4]) with mapi id 15.20.9654.013; Thu, 26 Feb 2026
- 15:58:00 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>, "jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: [PATCH v5 10/36] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
-Thread-Topic: [PATCH v5 10/36] KVM: arm64: gic-v5: Sanitize
- ID_AA64PFR2_EL1.GCIE
-Thread-Index: AQHcpziuo/7/0mB0SUe2eEbqwtZsng==
-Date: Thu, 26 Feb 2026 15:58:00 +0000
-Message-ID: <20260226155515.1164292-11-sascha.bischoff@arm.com>
-References: <20260226155515.1164292-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260226155515.1164292-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: DBAPR08MB5687:EE_|DU0PR08MB7486:EE_|AMS0EPF0000019D:EE_|DB9PR08MB9804:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0a6ffb76-e251-43cb-f392-08de754ff6dd
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
-X-Microsoft-Antispam-Message-Info-Original: xZyxt7+coBxDn/Dhjngn0xOd8SfLVHeVDK4zDuFF27qvdP8AMsvGwb37gKoe1/R8qLTnCy6SVxOmDymYYF06tKHtiMn+jQyoKWCd0lxcp6do3uJol/6fjHaBz90Snmphu3kmPxfFO69xQauN3f6WFFXBmYJKjeDqP+yvayOAzNh1ptJs01aLnA6Ss1VazuFg2JLPlK2otkImtkRWfd3Abn42YMu8eGTw7BPbMvGM+pghwC5FAV8CSH9W67g/UbCsIz6Q8lUx6rz4h7LXM9Cw+5fXtuctzpoBkBsrxWncB3hmShx6Y0cYmoMP7RG6w+OyxXiwNB1BESSkQx3M25t2CfBDaFTL9DFAkpC8Um5bRKlzG9A5sCX+pGaLUX1YT6AZdR0bypowmbbQfaDCB73kfgsXEFABRSRS9OspETlCJ/D2/CGADJpwKsl3i5Jh9wnJqJrkD2GG0AKcBAKdQvqzllRJ0RKuUuFaWJa09VPbeNIols30HnjuFTNTGgc0NVQ3VtHpm2nE6qk/t5QyrN4TAiKTV8STL+rT9AhGdJLXSMwQshYYXO2Sa7N7QMyjE1/INiybJT3NQBhqssjCZjUAPJLZLCakn1i0yAl8j6JrhxkbJx3uSqtxKubKj5zqYdbKvTiVx1FD4giH4IOnkdGpLb5Bg4xmO8lEIC1KmsVr/5bdqtrh76g545/O9ikFfeSKd3xHCJy7H9FxnIjCpdAkiI8yvRgE4KIqVYRagf5Jyvg3QT3Ew5dD7y1CFEhOdpDf5fINo1X2GeH0zgJN5KvUsYJy+J/uzG2JP6ygOO9Bql8=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBAPR08MB5687.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 26 Feb 2026 16:14:04 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2aaf9191da3so6171715ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 08:14:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772122440; x=1772727240; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=98cDGFKI0ittGN9WTwtDxfJA6FpPSB/XcdXQA2mPpIs=;
+        b=GFT9ugOE3u1u/YeXBzIaPOZO+pBPUFqtVjeQCqVyBE3k65ge6h9B2SAc9hjP19CnZ8
+         SL6U3JPcOEar+HGy2NDHsbTIaLEIWPvuVeTgWPjHLXMZvJLtun0Cuq1eHf46mSrMI8zK
+         nSTCTGW+bHBQ8r1njresTM8BwmwElVwqen1SxRgxDv6FB/ZAJysIz4HpSKSmWiHqicUu
+         NdrYr+8CbdMeQOZ1kv9yNvSiWDQ4A+bXmrgw9w3gk3zd5s9LfRk6L6vZMiDT6kMNoELQ
+         Rf9+/eA3oJJnVe4JSb6xtCGS7iwto/u3ThJsZTJI8NuRVe//XdOaz3tPbRo3h2xGMUxR
+         a+gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772122440; x=1772727240;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=98cDGFKI0ittGN9WTwtDxfJA6FpPSB/XcdXQA2mPpIs=;
+        b=i0Rk2Ol/CCiZlgjGs/mO3IuwznIn8UlxgSBgM1FZVN8bDFVPf/JpwUCZ1QqG0GagYJ
+         vgsWHDoP6fylWIi3sT+jW5zKVTK63jzpU55PvP1lt2dGvJ7rauyFL000zls3UVME68TJ
+         Ub5o/rlX6+/TmDekaS7C/hK0SsKNXPnDHCouHJoWQZ/ag6AwLH1+YmFRWlHU/aJt3uto
+         QoDNR0h3CFm5XE41bfRSROPOgrpBUs0TK0SZih29pJkf4aB7kbXjzDJk6DilrO3yTuDV
+         IJk4fLRk6ZNeujywSXnf7vPrN/2UmxqsPsSb2QEffzcHoT2K+gRJRgzXDtVZMQgsqnVV
+         QwVA==
+X-Forwarded-Encrypted: i=1; AJvYcCWVZNlN7+lAoh/u5kahDUj+d7yKD1VXbYJMlkntjGDAYkWlAMUpxrKA9djcsVbiYPx+/nmYojJ3vF7xYWqzk2KN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwD/PfejsI2YZeuRqKFESs8YQEbNvxd/3dUJCDGPVosU4do2GIQ
+	avR0SVMhheDOHlTZ5hd3RMEjaGZvBKnJR8CKmwAGCba8k03bpvEOZCzf
+X-Gm-Gg: ATEYQzxl1CczI8Fou+iypRrq2CW8aHsH/T5UAz/9ysXtNcFqzWfeivD6GUQpLiFjpE2
+	YS6n4CR0to5i7sMqCPHBXxp4ATPgAicc2sCJapWKrT2xpq5AOfJw/bij/8uXzIzH+1ZJnx6bmqs
+	S0mlgitc7x0rcs/+bNnYe9oBLK2eReraDWnQDKP3ngIatPQxjVQUzHQK1jtotLTTAPL2FrC/vKT
+	zmgvRHifPo8xz1Qtz+JLR91eSO2bM9fSrD05dSPAUqbjmwXuEYXy6oaUm4Sjo0X8/PpmV6Vhjnh
+	CLeVhDmOcPdGWw31wZwSjDkQ0kRlWrE2ZiMgatZsy7CLm+ltTr01F7pfmzm/duum0lzcjvYsPKH
+	depjeSysNcDMbYptK8MwveoGmD9WEi9bcD7lByagtA+0XBf2vAEucqu0dBSRY+QXInFZmow2jAH
+	KwpX2D00n30w4UUE/TUfR32mYBvo4JjPnYXZMejeV4VjDb1Q==
+X-Received: by 2002:a17:902:e74e:b0:2a9:602c:159 with SMTP id d9443c01a7336-2ae0327267fmr27260525ad.19.1772122439955;
+        Thu, 26 Feb 2026 08:13:59 -0800 (PST)
+Received: from LAPTOP-872M7T80.localdomain ([122.183.54.8])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2adfb6a0432sm44384595ad.52.2026.02.26.08.13.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Feb 2026 08:13:59 -0800 (PST)
+From: Akhila YS <akhilayalmati@gmail.com>
+Date: Thu, 26 Feb 2026 16:13:36 +0000
+Subject: [PATCH v3 4/5] dt-bindings: arm: atmel,at91rm9200-st: convert to
+ DT schema
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB7486
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF0000019D.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: ea06a30d-b9a0-492f-5f24-08de754fd131
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|14060799003|36860700013|35042699022|1800799024;
-X-Microsoft-Antispam-Message-Info: KqdlPQF9BOiWHF5SrbC/2io8JAKJURMcIIpjazQg0HTwIoPNQnxTMDEntD2cAUaNXKi7RCsG8JK5t2J0rHWZyXHVvaHFUQvd9qdZxvE9gT79cUHS7pdC4EPeFKI3196tQ6QUJupY5+yx3jWwxWW3BGFZfkNa0QyiagiJpmMbiHVsXDeEiIlULlNCISNrkDKa2xbFuXfOJhlYdj5y60L+7QbME5o1MoqAlp1tXCjG0d7wvYTpULMRmCXpBTm4sXE8KjCYYxyuQhd1VTnfGklZe0GEjN0blHlfEL8Fde/Bhd5EkLemdhjvDoAFd3KVOiR1WSKqAmkBusPZHwmUrynjLyWz9cuEbUkLbzsIUugoygg1WlBgLdkhiA/FFe5o87No9Buk0kqWf7qkTANKE7x/eWYW5ozNUCS8Ypo/p7sBzYAYayd4vRUqeI9mq2gfvKwHXFLWvrhJyuj4GSEUHz2VKc9uTozgucwenKJIGplLi0EMT8+pRj964FfZaBhCW6J8WheB+e3uHvRlX/VIQpv2a6vBTjhektiiAHJRmU2GrAUqZMmu+ArKL6yEPo6HgEKZlhD3rZYCn0qAa19Q+2Qyem2VtCAIfs7h13kzBd0rkfAhaiyAuSoy0UydE+laqXwN8a++UjWkfq+4FuSM0wu5hHnka+kU0Al8B+8tUM3cQav5J2jFJ6QGQlv9ocfV0xTI0eJGBShlE2BzWAfY6+nlLbKZM2oiSTKA8uHsil9gI3mMnMI4gOXhJJgwN50a+jxym37qMr57qeAEF07bwL6OV360117ULdXTCyOHCXKi7c1xRNqkM7mngjk4lRl3o1Cv1SrQzMPYBHZPT6b8MyNylw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(14060799003)(36860700013)(35042699022)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: w4EDSGvKcwRiPlM6XrAMt9py886Gb5tpf926xmK+eW0apd+4x7fZfgNfsI1FzAJRV/4oisLpiZM+R3GOQ6BVVFCRNtAIL+sUqEj+aM4opDSMLXaffSFEQpY0XVBh9wPRM9a3/EAdE25Cm30ruiEQ64RbfUiyo/fylpHlBj+/U2ZhItWk98Z8wNQu6szmA7J0SgYMlwJBpwdyxam6PfjlxfipMspFEw89ltfI/twa+uLujk3VPCL0nPy5oehY2dFuWRVO9Qtl0DilV8Iskcn2lihcwinb8yMyqrteGU4I5GyYftVcuOu2M66TyuKwekhU+N88DIdcSs50TA0+JIR/9u/szxz4mnoTJwWVe2gyVe0tUK2GZM/m287D2J7K+P0wTaIlfJ2ovDUVAcjirkwhvNxKYGfkrEjpxx2awbmZ2Cu0Dp4i/rOm9x3llxHMZ5b1
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 15:59:03.6874
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0a6ffb76-e251-43cb-f392-08de754ff6dd
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF0000019D.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB9804
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260226-arm-microchip-v3-4-0bda15abd922@gmail.com>
+References: <20260226-arm-microchip-v3-0-0bda15abd922@gmail.com>
+In-Reply-To: <20260226-arm-microchip-v3-0-0bda15abd922@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Akhila YS <akhilayalmati@gmail.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_081357_797380_D8C50134 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20260226_161402_339046_84B690AD 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,255 +119,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add in a sanitization function for ID_AA64PFR2_EL1, preserving the
-already-present behaviour for the FPMR, MTEFAR, and MTESTOREONLY
-fields. Add sanitisation for the GCIE field, which is set to IMP if
-the host supports a GICv5 guest and NI, otherwise.
+Convert System Timer binding to YAML format.
+Changes during conversion:
+- Add "#address-cells" and "#size-cells" to the properties and required as
+  watchdog is defined as a child node to the timer parent node.
+- Define watchdog as a pattern property along with unit address in
+  examples.
 
-Extend the sanitisation that takes place in kvm_vgic_create() to zero
-the ID_AA64PFR2.GCIE field when a non-GICv5 GIC is created. More
-importantly, move this sanitisation to a separate function,
-kvm_vgic_finalize_sysregs(), and call it from kvm_finalize_sys_regs().
-
-We are required to finalize the GIC and GCIE fields a second time in
-kvm_finalize_sys_regs() due to how QEMU blindly reads out then
-verbatim restores the system register state. This avoids the issue
-where both the GCIE and GIC features are marked as present (an
-architecturally invalid combination), and hence guests fall over. See
-the comment in kvm_finalize_sys_regs() for more details.
-
-Overall, the following happens:
-
-* Before an irqchip is created, FEAT_GCIE is presented if the host
-  supports GICv5-based guests.
-* Once an irqchip is created, all other supported irqchips are hidden
-  from the guest; system register state reflects the guest's irqchip.
-* Userspace is allowed to set invalid irqchip feature combinations in
-  the system registers, but...
-* ...invalid combinations are removed a second time prior to the first
-  run of the guest, and things hopefully just work.
-
-All of this extra work is required to make sure that "legacy" GICv3
-guests based on QEMU transparently work on compatible GICv5 hosts
-without modification.
-
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
 ---
- arch/arm64/kvm/sys_regs.c       | 70 +++++++++++++++++++++++++++++----
- arch/arm64/kvm/vgic/vgic-init.c | 43 +++++++++++++-------
- include/kvm/arm_vgic.h          |  1 +
- 3 files changed, 92 insertions(+), 22 deletions(-)
+ .../bindings/arm/atmel,at91rm9200-st.yaml          | 69 ++++++++++++++++++++++
+ .../devicetree/bindings/arm/atmel-sysregs.txt      |  9 ---
+ 2 files changed, 69 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 11e75f2522f95..1039150716d43 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1758,6 +1758,7 @@ static u8 pmuver_to_perfmon(u8 pmuver)
-=20
- static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
- static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val);
-+static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val);
- static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
-=20
- /* Read a sanitised cpufeature ID register by sys_reg_desc */
-@@ -1783,10 +1784,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct =
-kvm_vcpu *vcpu,
- 		val =3D sanitise_id_aa64pfr1_el1(vcpu, val);
- 		break;
- 	case SYS_ID_AA64PFR2_EL1:
--		val &=3D ID_AA64PFR2_EL1_FPMR |
--			(kvm_has_mte(vcpu->kvm) ?
--			 ID_AA64PFR2_EL1_MTEFAR | ID_AA64PFR2_EL1_MTESTOREONLY :
--			 0);
-+		val =3D sanitise_id_aa64pfr2_el1(vcpu, val);
- 		break;
- 	case SYS_ID_AA64ISAR1_EL1:
- 		if (!vcpu_has_ptrauth(vcpu))
-@@ -2024,6 +2022,23 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm=
-_vcpu *vcpu, u64 val)
- 	return val;
- }
-=20
-+static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val)
-+{
-+	val &=3D ID_AA64PFR2_EL1_FPMR |
-+	       ID_AA64PFR2_EL1_MTEFAR |
-+	       ID_AA64PFR2_EL1_MTESTOREONLY;
+diff --git a/Documentation/devicetree/bindings/arm/atmel,at91rm9200-st.yaml b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-st.yaml
+new file mode 100644
+index 000000000000..3f6a934a2a69
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-st.yaml
+@@ -0,0 +1,69 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/atmel,at91rm9200-st.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	if (!kvm_has_mte(vcpu->kvm)) {
-+		val &=3D ~ID_AA64PFR2_EL1_MTEFAR;
-+		val &=3D ~ID_AA64PFR2_EL1_MTESTOREONLY;
-+	}
++title: Atmel System Timer
 +
-+	if (vgic_host_has_gicv5())
-+		val |=3D SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
++maintainers:
++  - Nicolas Ferre <nicolas.ferre@microchip.com>
++  - Claudiu Beznea <claudiu.beznea@tuxon.dev>
 +
-+	return val;
-+}
++description:
++  The System Timer (ST) module in AT91RM9200 provides periodic tick and
++  alarm capabilities. It is exposed as a simple multi-function device
++  (simple-mfd + syscon) because it shares its register space and interrupt
++  with other System Controller blocks.
 +
- static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
- {
- 	val =3D ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64DFR0_EL1, DebugVer, V8P8);
-@@ -2213,6 +2228,12 @@ static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu=
-,
- 	return set_id_reg(vcpu, rd, user_val);
- }
-=20
-+static int set_id_aa64pfr2_el1(struct kvm_vcpu *vcpu,
-+			       const struct sys_reg_desc *rd, u64 user_val)
-+{
-+	return set_id_reg(vcpu, rd, user_val);
-+}
++properties:
++  compatible:
++    items:
++      - const: atmel,at91rm9200-st
++      - const: syscon
++      - const: simple-mfd
 +
- /*
-  * Allow userspace to de-feature a stage-2 translation granule but prevent=
- it
-  * from claiming the impossible.
-@@ -3194,10 +3215,11 @@ static const struct sys_reg_desc sys_reg_descs[] =
-=3D {
- 				       ID_AA64PFR1_EL1_RES0 |
- 				       ID_AA64PFR1_EL1_MPAM_frac |
- 				       ID_AA64PFR1_EL1_MTE)),
--	ID_WRITABLE(ID_AA64PFR2_EL1,
--		    ID_AA64PFR2_EL1_FPMR |
--		    ID_AA64PFR2_EL1_MTEFAR |
--		    ID_AA64PFR2_EL1_MTESTOREONLY),
-+	ID_FILTERED(ID_AA64PFR2_EL1, id_aa64pfr2_el1,
-+		    ~(ID_AA64PFR2_EL1_FPMR |
-+		      ID_AA64PFR2_EL1_MTEFAR |
-+		      ID_AA64PFR2_EL1_MTESTOREONLY |
-+		      ID_AA64PFR2_EL1_GCIE)),
- 	ID_UNALLOCATED(4,3),
- 	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
- 	ID_HIDDEN(ID_AA64SMFR0_EL1),
-@@ -5668,8 +5690,40 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
-=20
- 		val =3D kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_EL1_=
-GIC;
- 		kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, val);
-+		val =3D kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR2_EL1) & ~ID_AA64PFR2_EL1_=
-GCIE;
-+		kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR2_EL1, val);
- 		val =3D kvm_read_vm_id_reg(kvm, SYS_ID_PFR1_EL1) & ~ID_PFR1_EL1_GIC;
- 		kvm_set_vm_id_reg(kvm, SYS_ID_PFR1_EL1, val);
-+	} else {
-+		/*
-+		 * Certain userspace software - QEMU - samples the system
-+		 * register state without creating an irqchip, then blindly
-+		 * restores the state prior to running the final guest. This
-+		 * means that it restores the virtualization & emulation
-+		 * capabilities of the host system, rather than something that
-+		 * reflects the final guest state. Moreover, it checks that the
-+		 * state was "correctly" restored (i.e., verbatim), bailing if
-+		 * it isn't, so masking off invalid state isn't an option.
-+		 *
-+		 * On GICv5 hardware that supports FEAT_GCIE_LEGACY we can run
-+		 * both GICv3- and GICv5-based guests. Therefore, we initially
-+		 * present both ID_AA64PFR0.GIC and ID_AA64PFR2.GCIE as IMP to
-+		 * reflect that userspace can create EITHER a vGICv3 or a
-+		 * vGICv5. This is an architecturally invalid combination, of
-+		 * course. Once an in-kernel GIC is created, the sysreg state is
-+		 * updated to reflect the actual, valid configuration.
-+		 *
-+		 * Setting both the GIC and GCIE features to IMP unsurprisingly
-+		 * results in guests falling over, and hence we need to fix up
-+		 * this mess in KVM. Before running for the first time we yet
-+		 * again ensure that the GIC and GCIE fields accurately reflect
-+		 * the actual hardware the guest should see.
-+		 *
-+		 * This hack allows legacy QEMU-based GICv3 guests to run
-+		 * unmodified on compatible GICv5 hosts, and avoids the inverse
-+		 * problem for GICv5-based guests in the future.
-+		 */
-+		kvm_vgic_finalize_sysregs(kvm);
- 	}
-=20
- 	if (vcpu_has_nv(vcpu)) {
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-ini=
-t.c
-index 9b3091ad868cf..d1db384698238 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -71,7 +71,6 @@ static int vgic_allocate_private_irqs_locked(struct kvm_v=
-cpu *vcpu, u32 type);
- int kvm_vgic_create(struct kvm *kvm, u32 type)
- {
- 	struct kvm_vcpu *vcpu;
--	u64 aa64pfr0, pfr1;
- 	unsigned long i;
- 	int ret;
-=20
-@@ -162,19 +161,11 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
-=20
- 	kvm->arch.vgic.vgic_dist_base =3D VGIC_ADDR_UNDEF;
-=20
--	aa64pfr0 =3D kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_=
-EL1_GIC;
--	pfr1 =3D kvm_read_vm_id_reg(kvm, SYS_ID_PFR1_EL1) & ~ID_PFR1_EL1_GIC;
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#address-cells":
++    const: 1
++
++  "#size-cells":
++    const: 1
++
++patternProperties:
++  "^watchdog@[0-9a-f]+$":
++    $ref: /schemas/watchdog/atmel,at91rm9200-wdt.yaml#
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    timer@fffffd00 {
++        compatible = "atmel,at91rm9200-st", "syscon", "simple-mfd";
++        reg = <0xfffffd00 0x100>;
++        interrupts = <1 IRQ_TYPE_LEVEL_HIGH 7>;
++        clocks = <&slow_xtal>;
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        watchdog@fffffd40 {
++            compatible = "atmel,at91rm9200-wdt";
++            reg = <0xfffffd40 0x40>;
++        };
++    };
++...
+diff --git a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
+index d0561f7f465c..14642384bc87 100644
+--- a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
++++ b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
+@@ -1,14 +1,5 @@
+ Atmel system registers
+ 
+-System Timer (ST) required properties:
+-- compatible: Should be "atmel,at91rm9200-st", "syscon", "simple-mfd"
+-- reg: Should contain registers location and length
+-- interrupts: Should contain interrupt for the ST which is the IRQ line
+-  shared across all System Controller members.
+-- clocks: phandle to input clock.
+-Its subnodes can be:
+-- watchdog: compatible should be "atmel,at91rm9200-wdt"
 -
--	if (type =3D=3D KVM_DEV_TYPE_ARM_VGIC_V2) {
--		kvm->arch.vgic.vgic_cpu_base =3D VGIC_ADDR_UNDEF;
--	} else {
--		INIT_LIST_HEAD(&kvm->arch.vgic.rd_regions);
--		aa64pfr0 |=3D SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
--		pfr1 |=3D SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
--	}
--
--	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, aa64pfr0);
--	kvm_set_vm_id_reg(kvm, SYS_ID_PFR1_EL1, pfr1);
-+	/*
-+	 * We've now created the GIC. Update the system register state
-+	 * to accurately reflect what we've created.
-+	 */
-+	kvm_vgic_finalize_sysregs(kvm);
-=20
- 	if (type =3D=3D KVM_DEV_TYPE_ARM_VGIC_V3)
- 		kvm->arch.vgic.nassgicap =3D system_supports_direct_sgis();
-@@ -617,6 +608,30 @@ int kvm_vgic_map_resources(struct kvm *kvm)
- 	return ret;
- }
-=20
-+void kvm_vgic_finalize_sysregs(struct kvm *kvm)
-+{
-+	u32 type =3D kvm->arch.vgic.vgic_model;
-+	u64 aa64pfr0, aa64pfr2, pfr1;
-+
-+	aa64pfr0 =3D kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_=
-EL1_GIC;
-+	aa64pfr2 =3D kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR2_EL1) & ~ID_AA64PFR2_=
-EL1_GCIE;
-+	pfr1 =3D kvm_read_vm_id_reg(kvm, SYS_ID_PFR1_EL1) & ~ID_PFR1_EL1_GIC;
-+
-+	if (type =3D=3D KVM_DEV_TYPE_ARM_VGIC_V2) {
-+		kvm->arch.vgic.vgic_cpu_base =3D VGIC_ADDR_UNDEF;
-+	} else if (type =3D=3D KVM_DEV_TYPE_ARM_VGIC_V3) {
-+		INIT_LIST_HEAD(&kvm->arch.vgic.rd_regions);
-+		aa64pfr0 |=3D SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
-+		pfr1 |=3D SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
-+	} else {
-+		aa64pfr2 |=3D SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
-+	}
-+
-+	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, aa64pfr0);
-+	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR2_EL1, aa64pfr2);
-+	kvm_set_vm_id_reg(kvm, SYS_ID_PFR1_EL1, pfr1);
-+}
-+
- /* GENERIC PROBE */
-=20
- void kvm_vgic_cpu_up(void)
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 9e4798333b46c..25e36f8b97a1e 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -467,6 +467,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type);
- void kvm_vgic_destroy(struct kvm *kvm);
- void kvm_vgic_vcpu_destroy(struct kvm_vcpu *vcpu);
- int kvm_vgic_map_resources(struct kvm *kvm);
-+void kvm_vgic_finalize_sysregs(struct kvm *kvm);
- int kvm_vgic_hyp_init(void);
- void kvm_vgic_init_cpu_hardware(void);
-=20
---=20
-2.34.1
+ RAMC SDRAM/DDR Controller required properties:
+ - compatible: Should be "atmel,at91rm9200-sdramc", "syscon" or
+ 			"atmel,at91sam9260-sdramc" or
+
+-- 
+2.43.0
+
 
