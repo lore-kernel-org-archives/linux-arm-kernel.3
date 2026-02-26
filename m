@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 809F0FC5913
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:26:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB07FC5913
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cqoaeSOvXhitA2HXEQSMccZTdcMAnAelkKxEfxzuAyU=; b=MypU+SFoePJ8aSH9a5KfiO7Y+a
-	sZaQGWAwIdsr8L4dNERKnlyRCBSHo5qHzmPpOYeBgxa7cIGOY4gxZR0wb8KR07sgBgNloovFj7fv+
-	FMGtoLU6ATLz3KdTe0+EgD2kx1FSu6999jzgSaY5TmSlxVGW2Kod+vZbTBDblZOXiYd0u/wn/rF5C
-	MUBJ0e+Gt4uoYatzE3Cfw3peL6FuVPZso+g8pokE09cyvMksEeq082RWwwdEsRz4669429e/kiA/E
-	XqdkVYP7s7YEnCQyr+kfntAt4J9h7aUoiMLLYvjn6syPmKtskmm0hzVWThvXQ1yQTpbQPTX27oxiD
-	BvNnUlSg==;
+	bh=5Z7J2/ULNSA00ESGJkV5zPKGTqAvtL1rE4wzbzIL92k=; b=qC1AD43Ol8eNYurRowNwe7FW4A
+	CdH2ja7cKbNWdfe3DXVQueUzVBysXipbiOjCWhsLZjbho/yW11dj4Zxrlq+JD/TI8pmg+/ziyKw0K
+	bnhXL617GXHMY9aEtxnHp9u8gOCHcouVCqGliI8GPPZYkTNMpWNbbL4VdFitFEuXmiJQpraR8tqlq
+	yhKfPpGtpNu8S4D7289uwEZWdjg6TzX0w1oPYF1yEaZqmTaVfIZnowdTm01FolCrdMcwz1KvrKqrD
+	kvoh+cerY6r2jEJHdxb/7uImtJi3WmCJie3Iw+bkFc8JX339Oy0+bokLiWoJLo+zK7IZGkcEmFi9n
+	SZJm7/dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX7G-00000005i9h-2Vm1;
-	Thu, 26 Feb 2026 08:53:02 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vvXee-00000005oHZ-39NK;
+	Thu, 26 Feb 2026 09:27:32 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX79-00000005i89-2FA3
+	id 1vvXeb-00000005oFY-2dCc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 08:53:02 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 2AC98C4068B;
-	Thu, 26 Feb 2026 08:53:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B0D955FDEB;
-	Thu, 26 Feb 2026 08:52:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D60A9103686A8;
-	Thu, 26 Feb 2026 09:52:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772095969; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=cqoaeSOvXhitA2HXEQSMccZTdcMAnAelkKxEfxzuAyU=;
-	b=ceyG5wRzBUSZDZJd8vq7QFyD7UyDmJWfbAJfQwYXtJD5prIhqEEhLjgfJAd91y1drMc6ok
-	5joGS6f7f7IZw+nshB+ezUhebo+tXOx9SWIMOZzgHJy4iT0fgqjqq6xW9JcuWTQ0m//H+S
-	rs0bxqV8/j1NBG7vicb5BdxG7z3LOTnrhB4jL1kVWwXm0xbaoRkMoCY7S8X+CwWL08o9Im
-	IIho6/U9V1KZ1GhuS8YjOT2lPxuIVXxfTseoQMd+fODg52SyC+8/MgPXm8w+7xWcA8e2pA
-	7oVSpwrAYVkmsDZgVFn/tlXtI71scFC9fhjX6bEwIDlFn/fBzfXZtgFhNGXkog==
-Message-ID: <11efec54-6d13-4ca1-a11b-f91da9e1306b@bootlin.com>
-Date: Thu, 26 Feb 2026 09:52:43 +0100
+	Thu, 26 Feb 2026 09:27:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1772098041; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=5Z7J2/ULNSA00ESGJkV5zPKGTqAvtL1rE4wzbzIL92k=;
+	b=SgQCKRSZhME4C4DX5vpQoBSS3s4YVJSHYbsTxYcJT8ddl67T3QASt9KM7J8dl1cfhaU2lHYfeX4mXRTMgswmLaYiWCy70USpzdW90iCmhi8iNnAID727dUCHHxm3p9L1G0egtqR+8EFdtnnQ31M/aQJP8fJxdKs+B5dfVfWEwo0=
+Received: from 30.74.144.118(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WzqngAX_1772098037 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 26 Feb 2026 17:27:18 +0800
+Message-ID: <08a22ed6-3165-41a5-8d46-aaa09402a0f9@linux.alibaba.com>
+Date: Thu, 26 Feb 2026 17:27:17 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/4] Introduce Allwinner H616 PWM controller
-To: John Stultz <jstultz@google.com>
-Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Paul Kocialkowski <paulk@sys-base.io>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-pwm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260123093322.1327389-1-richard.genoud@bootlin.com>
- <CANDhNCrSjp1F0PifJXmxrAbRiTC=d_ZXeiiT5kGuM=gNke7ebA@mail.gmail.com>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <CANDhNCrSjp1F0PifJXmxrAbRiTC=d_ZXeiiT5kGuM=gNke7ebA@mail.gmail.com>
+Subject: Re: [PATCH 4/5] mm: support batched checking of the young flag for
+ MGLRU
+To: "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org
+Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
+ yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
+ zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
+ <84d2426c63c1eafeaa0cfbad7c5cc11e9c11b980.1771897150.git.baolin.wang@linux.alibaba.com>
+ <2e7a1e24-3616-4b79-b943-b5f7efde2d31@kernel.org>
+ <0871edb9-08a2-46a0-ade6-af842a12e0d3@linux.alibaba.com>
+ <2599bc1e-1f8e-46bc-afea-4cb8f657545b@kernel.org>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <2599bc1e-1f8e-46bc-afea-4cb8f657545b@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_005256_201427_61A19D79 
-X-CRM114-Status: GOOD (  22.71  )
+X-CRM114-CacheID: sfid-20260226_012730_125326_EBBAEBFA 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,98 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 23/02/2026 à 21:14, John Stultz a écrit :
-> On Fri, Jan 23, 2026 at 1:33 AM Richard Genoud
-> <richard.genoud@bootlin.com> wrote:
->>
->> Allwinner H616 PWM controller is quite different from the A10 one.
->>
->> It can drive 6 PWM channels, and like for the A10, each channel has a
->> bypass that permits to output a clock, bypassing the PWM logic, when
->> enabled.
->>
->> But, the channels are paired 2 by 2, sharing a first set of
->> MUX/prescaler/gate.
->> Then, for each channel, there's another prescaler (that will be bypassed
->> if the bypass is enabled for this channel).
->>
->> It looks like that:
->>              _____      ______      ________
->> OSC24M --->|     |    |      |    |        |
->> APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
->>             |_____|    |______|    |________|
->>                            ________
->>                           |        |
->>                        +->| /div_k |---> PWM_clock_x
->>                        |  |________|
->>                        |    ______
->>                        |   |      |
->>                        +-->| Gate |----> PWM_bypass_clock_x
->>                        |   |______|
->> PWM_clock_src_xy -----+   ________
->>                        |  |        |
->>                        +->| /div_k |---> PWM_clock_y
->>                        |  |________|
->>                        |    ______
->>                        |   |      |
->>                        +-->| Gate |----> PWM_bypass_clock_y
->>                            |______|
->>
->> Where xy can be 0/1, 2/3, 4/5
->>
->> PWM_clock_x/y serve for the PWM purpose.
->> PWM_bypass_clock_x/y serve for the clock-provider purpose.
->> The common clock framework has been used to manage those clocks.
->>
->> This PWM driver serves as a clock-provider for PWM_bypass_clocks.
->> This is needed for example by the embedded AC300 PHY which clock comes
->> from PMW5 pin (PB12).
->>
->> Usually, to get a clock from a PWM driver, we use the pwm-clock driver
->> so that the PWM driver doesn't need to be a clk-provider itself.
->> While this works in most cases, here it just doesn't.
->> That's because the pwm-clock request a period from the PWM driver,
->> without any clue that it actually wants a clock at a specific frequency,
->> and not a PWM signal with duty cycle capability.
->> So, the PWM driver doesn't know if it can use the bypass or not, it
->> doesn't even have the real accurate frequency information (23809524 Hz
->> instead of 24MHz) because PWM drivers only deal with periods.
->>
->> With pwm-clock, we loose a precious information along the way (that we
->> actually want a clock and not a PWM signal).
->> That's ok with simple PWM drivers that don't have multiple input clocks,
->> but in this case, without this information, we can't know for sure which
->> clock to use.
->> And here, for instance, if we ask for a 24MHz clock, pwm-clock will
->> requests 42ns (assigned-clocks doesn't help for that matter). The logic
->> is to select the highest clock (100MHz) with no prescaler and a duty
->> cycle value of 2/4 => we have 25MHz instead of 24MHz.
->> And that's a perfectly fine choice for a PMW, because we still can
->> change the duty cycle in the range [0-4]/4.
->> But obviously for a clock, we don't care about the duty cycle, but more
->> about the clock accuracy.
->>
->> And actually, this PWM is really a PWM AND a real clock when the bypass
->> is set.
-> 
-> During my free/personal time this weekend I was tinkering with Orange
-> Pi Zero 2w and was able to use this patch series (along with an
-> hdmi-phy patch and some dts changes) to get HDMI working on the
-> device.
-> I'm eager to see these land!
-> 
-> Tested-by: John Stultz <jstultz@google.com>
-
-That's great, thanks for testing!
-
-> 
-> thanks
-> -john
-> 
 
 
--- 
-Richard Genoud, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+On 2/26/26 5:08 PM, David Hildenbrand (Arm) wrote:
+> 
+>>>
+>>>> +            pte_t pteval = ptep_get(pvmw.pte);
+>>>
+>>> I wonder if there could be a way to avoid this ptep_get() by letting
+>>> page_vma_mapped_walk() just provide the last value it used (in
+>>> check_pte() I guess). Something for another patch.
+>>
+>> Well, we’d need to add a new field to ‘struct page_vma_mapped_walk’ to
+>> store the last value (e.g., pvmw.pteval),
+> 
+> Yes.
+> 
+>> but this makes me wonder if it
+>> is worth adding a new field just to avoid a lightweight read (which
+>> should have no obvious performance impact).
+> 
+> You recall that ptep_get() on arm64 is not that lightweight due to
+> con-pte? :)
+> 
+> But yeah, something for another day.
+
+OK.
+
+>>> What is "batched"? Did you mean "nr_ptes" ? Or just the initial value
+>>> for "nr" ?
+>>
+>> There is already an 'nr' variable in this function. "nr_ptes" sounds
+>> good to me, and will use it.
+> 
+> You can just use "nr" here and reuse it for the existing variable?
+> 
+> Both have the same semantics (nr of ptes / pages), so having a single
+> value might cause less confusion.
+
+Sure. Will do.
 
