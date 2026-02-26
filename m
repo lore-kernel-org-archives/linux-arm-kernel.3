@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A35FC5918
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 809F0FC5913
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dLPqE0j6hp14YDJfWRRlBQ9s7sIP3JqSbJujXTK94MY=; b=2QONU/sbUYFyNu6QiIxgrD5SsW
-	bjermWq1YG/6/dbN0X2IIq4XBRKIgK7C35uTIsL5CY/rb0+DHUqZhzIj8ubSwZSkVN9ca1VLPTkkT
-	iOJiazNg62eoErLsmmXypy3DvoxM6NYMFimlLAACQBbCRAknvD8Fh5HKygXmfEa17j0b8azNvE2CQ
-	Rr6I7344KtDe2/O6R9BS/t9qIxnD/g/dONarPWiH/xHyaMpCzvZhOk0LnJlhtoEOS7Ovtbuzl/YuM
-	rzaS62zaOAoGpja2PRCA8FcFMdZqHXvjLzOun1lnC5wm0an2Rj9fL2O1zGwvzlcBLBJpmlsXH127S
-	z1kYGseA==;
+	bh=cqoaeSOvXhitA2HXEQSMccZTdcMAnAelkKxEfxzuAyU=; b=MypU+SFoePJ8aSH9a5KfiO7Y+a
+	sZaQGWAwIdsr8L4dNERKnlyRCBSHo5qHzmPpOYeBgxa7cIGOY4gxZR0wb8KR07sgBgNloovFj7fv+
+	FMGtoLU6ATLz3KdTe0+EgD2kx1FSu6999jzgSaY5TmSlxVGW2Kod+vZbTBDblZOXiYd0u/wn/rF5C
+	MUBJ0e+Gt4uoYatzE3Cfw3peL6FuVPZso+g8pokE09cyvMksEeq082RWwwdEsRz4669429e/kiA/E
+	XqdkVYP7s7YEnCQyr+kfntAt4J9h7aUoiMLLYvjn6syPmKtskmm0hzVWThvXQ1yQTpbQPTX27oxiD
+	BvNnUlSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXAa-00000005j4i-0AdO;
-	Thu, 26 Feb 2026 08:56:28 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vvX7G-00000005i9h-2Vm1;
+	Thu, 26 Feb 2026 08:53:02 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXAG-00000005iui-3ta4;
-	Thu, 26 Feb 2026 08:56:14 +0000
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1772096164;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dLPqE0j6hp14YDJfWRRlBQ9s7sIP3JqSbJujXTK94MY=;
-	b=QQkVUKFf+GnE5OnlECGNuAz5CmGJ2fdqGToowYQvLhheozd1Qvq/116NPVHZGyPzWdZB/F
-	OCjuXSIrg5OocxOSGRbl3Acc0h0MCoJtrvUhggFY9xfTMWHl6v7Aof8bvnYc7J8bVl4J12
-	Hnk76OoBkje2VSu3chE4LSHswzGBBiX0pLpKOl1OjPU573A8WYHHDcUpEmiGIoHzaMcSVw
-	KE3nxS8Ka5KW+QZTGN7uFOMLTd0RnQg5UWt1Ud/0HCOl0DwyrGXstDR49Bii5JR2EA4Mo8
-	5lYgRvPkXsP9mV50jtaXpoaY2D29bPVMqnyBQT8kVHTv/OAD4IVS2cDqR4F8Yg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1772096164;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dLPqE0j6hp14YDJfWRRlBQ9s7sIP3JqSbJujXTK94MY=;
-	b=W/6z7IE8a+EU5+PLedv/uBfvNOCezZBjNAdgwNlSStx8clkxM06PZgtRycvuu6Iii+IzrU
-	foCkPjLH1/XH48Bw==
-Date: Thu, 26 Feb 2026 09:55:56 +0100
-Subject: [PATCH 3/6] arm64: dts: broadcom: bcm2712: add camera backend node
- pispbe
+	id 1vvX79-00000005i89-2FA3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Feb 2026 08:53:02 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 2AC98C4068B;
+	Thu, 26 Feb 2026 08:53:06 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B0D955FDEB;
+	Thu, 26 Feb 2026 08:52:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D60A9103686A8;
+	Thu, 26 Feb 2026 09:52:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1772095969; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=cqoaeSOvXhitA2HXEQSMccZTdcMAnAelkKxEfxzuAyU=;
+	b=ceyG5wRzBUSZDZJd8vq7QFyD7UyDmJWfbAJfQwYXtJD5prIhqEEhLjgfJAd91y1drMc6ok
+	5joGS6f7f7IZw+nshB+ezUhebo+tXOx9SWIMOZzgHJy4iT0fgqjqq6xW9JcuWTQ0m//H+S
+	rs0bxqV8/j1NBG7vicb5BdxG7z3LOTnrhB4jL1kVWwXm0xbaoRkMoCY7S8X+CwWL08o9Im
+	IIho6/U9V1KZ1GhuS8YjOT2lPxuIVXxfTseoQMd+fODg52SyC+8/MgPXm8w+7xWcA8e2pA
+	7oVSpwrAYVkmsDZgVFn/tlXtI71scFC9fhjX6bEwIDlFn/fBzfXZtgFhNGXkog==
+Message-ID: <11efec54-6d13-4ca1-a11b-f91da9e1306b@bootlin.com>
+Date: Thu, 26 Feb 2026 09:52:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-raspi-dts-updates-v1-3-60832d20ff04@linutronix.de>
-References: <20260226-raspi-dts-updates-v1-0-60832d20ff04@linutronix.de>
-In-Reply-To: <20260226-raspi-dts-updates-v1-0-60832d20ff04@linutronix.de>
-To: Andrea della Porta <andrea.porta@suse.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Gregor Herburger <gregor.herburger@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772096163; l=1063;
- i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=4yhwJHqJ8mRGZwRqgzheUigdPtyQBU400qjbkzPeQbg=;
- b=lltfORfUj39o0ujhdEIHlUztFsoa2ypY1+8DsqBODq2uz8ckKO+H/vdA1uDUONvHpfOzfsSyN
- Ktaf0n9pGQqCPV6B6Mxx/Cj0Mpv/SQC2w0a1ePAtjDy4PRCHebKQKpZ
-X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
- pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/4] Introduce Allwinner H616 PWM controller
+To: John Stultz <jstultz@google.com>
+Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Paul Kocialkowski <paulk@sys-base.io>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-pwm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260123093322.1327389-1-richard.genoud@bootlin.com>
+ <CANDhNCrSjp1F0PifJXmxrAbRiTC=d_ZXeiiT5kGuM=gNke7ebA@mail.gmail.com>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <CANDhNCrSjp1F0PifJXmxrAbRiTC=d_ZXeiiT5kGuM=gNke7ebA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_005609_114189_98DA438A 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260226_005256_201427_61A19D79 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,36 +85,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bcm2712 found in the Raspberry Pi 5 has a PiSP Image Signal
-Processor back end image processor.
+Le 23/02/2026 à 21:14, John Stultz a écrit :
+> On Fri, Jan 23, 2026 at 1:33 AM Richard Genoud
+> <richard.genoud@bootlin.com> wrote:
+>>
+>> Allwinner H616 PWM controller is quite different from the A10 one.
+>>
+>> It can drive 6 PWM channels, and like for the A10, each channel has a
+>> bypass that permits to output a clock, bypassing the PWM logic, when
+>> enabled.
+>>
+>> But, the channels are paired 2 by 2, sharing a first set of
+>> MUX/prescaler/gate.
+>> Then, for each channel, there's another prescaler (that will be bypassed
+>> if the bypass is enabled for this channel).
+>>
+>> It looks like that:
+>>              _____      ______      ________
+>> OSC24M --->|     |    |      |    |        |
+>> APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
+>>             |_____|    |______|    |________|
+>>                            ________
+>>                           |        |
+>>                        +->| /div_k |---> PWM_clock_x
+>>                        |  |________|
+>>                        |    ______
+>>                        |   |      |
+>>                        +-->| Gate |----> PWM_bypass_clock_x
+>>                        |   |______|
+>> PWM_clock_src_xy -----+   ________
+>>                        |  |        |
+>>                        +->| /div_k |---> PWM_clock_y
+>>                        |  |________|
+>>                        |    ______
+>>                        |   |      |
+>>                        +-->| Gate |----> PWM_bypass_clock_y
+>>                            |______|
+>>
+>> Where xy can be 0/1, 2/3, 4/5
+>>
+>> PWM_clock_x/y serve for the PWM purpose.
+>> PWM_bypass_clock_x/y serve for the clock-provider purpose.
+>> The common clock framework has been used to manage those clocks.
+>>
+>> This PWM driver serves as a clock-provider for PWM_bypass_clocks.
+>> This is needed for example by the embedded AC300 PHY which clock comes
+>> from PMW5 pin (PB12).
+>>
+>> Usually, to get a clock from a PWM driver, we use the pwm-clock driver
+>> so that the PWM driver doesn't need to be a clk-provider itself.
+>> While this works in most cases, here it just doesn't.
+>> That's because the pwm-clock request a period from the PWM driver,
+>> without any clue that it actually wants a clock at a specific frequency,
+>> and not a PWM signal with duty cycle capability.
+>> So, the PWM driver doesn't know if it can use the bypass or not, it
+>> doesn't even have the real accurate frequency information (23809524 Hz
+>> instead of 24MHz) because PWM drivers only deal with periods.
+>>
+>> With pwm-clock, we loose a precious information along the way (that we
+>> actually want a clock and not a PWM signal).
+>> That's ok with simple PWM drivers that don't have multiple input clocks,
+>> but in this case, without this information, we can't know for sure which
+>> clock to use.
+>> And here, for instance, if we ask for a 24MHz clock, pwm-clock will
+>> requests 42ns (assigned-clocks doesn't help for that matter). The logic
+>> is to select the highest clock (100MHz) with no prescaler and a duty
+>> cycle value of 2/4 => we have 25MHz instead of 24MHz.
+>> And that's a perfectly fine choice for a PMW, because we still can
+>> change the duty cycle in the range [0-4]/4.
+>> But obviously for a clock, we don't care about the duty cycle, but more
+>> about the clock accuracy.
+>>
+>> And actually, this PWM is really a PWM AND a real clock when the bypass
+>> is set.
+> 
+> During my free/personal time this weekend I was tinkering with Orange
+> Pi Zero 2w and was able to use this patch series (along with an
+> hdmi-phy patch and some dts changes) to get HDMI working on the
+> device.
+> I'm eager to see these land!
+> 
+> Tested-by: John Stultz <jstultz@google.com>
 
-Add the relevant node to the devicetree.
+That's great, thanks for testing!
 
-Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
----
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+> 
+> thanks
+> -john
+> 
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index 69bd2934b93b34fef27989f9ddcd8a860979ab5f..98cb2173137ecda89d7f7ca1456598ff27231196 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -648,6 +648,13 @@ mip1: msi-controller@1000131000 {
- 			brcm,msi-offset = <8>;
- 		};
- 
-+		isp: isp@1000880000  {
-+		     compatible = "brcm,bcm2712-pispbe", "raspberrypi,pispbe";
-+		     reg = <0x10 0x00880000 0x0 0x4000>;
-+		     interrupts = <GIC_SPI 72 IRQ_TYPE_LEVEL_HIGH>;
-+		     clocks = <&firmware_clocks 7>;
-+		};
-+
- 		v3d: gpu@1002000000 {
- 			compatible = "brcm,2712-v3d";
- 			reg = <0x10 0x02000000 0x00 0x4000>,
 
 -- 
-2.47.3
-
+Richard Genoud, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
