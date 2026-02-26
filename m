@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17067FD8FD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF20FD8FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98cDGFKI0ittGN9WTwtDxfJA6FpPSB/XcdXQA2mPpIs=; b=y7QdwfvCo4p0he9voWsWHDuz3A
-	hLTZPpcBOeG9ZNtOZQl6qOaQO+S2y7Osfx1Kf9qD26Rqea32ygmnHxn0+Fq6fPotH38hmLUX+faFg
-	zUFsEGsevRcUZIMKWDIGQ2xJArU/vc5vkt3pD6Skcf5yEbVuOV3H5lRlvvlCvUoabkkQRsSWxD51Q
-	FjQlTm8RCpQ7nsyxZMaeCP8upLkV+z+jIDFrBRYu6T3nXCNLek9hVZH6ViDdyTvDOk/wIb0CsN6R1
-	+BlixZ1c7zNZB0hWCUD4XWOCWnNeEBMJ4QoCQTybqs/z8eYI09PNbJNsBmdeQoEHup92aaiZ24AH5
-	2Ho8X8Dw==;
+	bh=EFga16pAfpv0gli5xDLk4KBBaOwrjAv2u5Qo96sb+dM=; b=1WxXppWYmpsizEaTj/NdJKYcSJ
+	WkLRwZShZqk88hFHZKYgRZbGL/+vZu+LvRvkaSj0pK3X0Qv/4/vPTBJ051if4j0hQal4SyR7/YFtL
+	qGthmhSOYIFMytcJuwJpElE/F3DhFn1usZpbyr5ZCVoPrUffnO4JLvJeSUVZAHUcok54pKkVSrMoM
+	Y+WRtGt4+QyFYlmpdRpyHsfiqbxjRn0B6A3qjSy9NWu8OlZ8mE0Q3EkH8omVTPcI/5lEH6pO7Iln0
+	TnaqBKxwx2n8EwlsPdOX5R4GU04mHsl1umvwPdNGiipIoETRCNLvuSQWS1P8PLBll2UWsC9MgkO9S
+	HHgpKxWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vve09-00000006hml-04Z4;
+	id 1vve09-00000006hnE-1QiD;
 	Thu, 26 Feb 2026 16:14:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vve05-00000006hkO-2PAw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 26 Feb 2026 16:14:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=98cDGFKI0ittGN9WTwtDxfJA6FpPSB/XcdXQA2mPpIs=; b=V63Krjo7iVKXzlwIxFb6cxUAEd
-	WSZnBn4vnXv0CEtwy4ehBeoCoovB1uDPmByhARnbyf7ybM9l5Ne773+JHvBidKuE74znuM5BDHyZ9
-	PBldIFpD31tmTz/J/bkYtN+guaYZ5Wj/W//emUvRpizLdlAUhluH+RZGJywVYTj/JT9i9fDosuoNS
-	6OJYpAJ+OiGvrEvPPv3vdXSxcsgOq7funrFMn/0HRPPPXvWeVGGKb7DDjsHLFvsadAySIsXv5BavK
-	MbNl7KHlztXLQkf6YPfhcm33J8pMM6JG+JILeHdCG+kHf32C1UTcl2yaN1FKI56dwIG1jfwdf/1yn
-	m5UZw0HA==;
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vve02-0000000BRgE-0mnA
+	id 1vve05-00000006hkU-1g4c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 16:14:04 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2aaf9191da3so6171715ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 08:14:01 -0800 (PST)
+	Thu, 26 Feb 2026 16:14:06 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2aae146b604so7757645ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 08:14:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772122440; x=1772727240; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772122444; x=1772727244; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=98cDGFKI0ittGN9WTwtDxfJA6FpPSB/XcdXQA2mPpIs=;
-        b=GFT9ugOE3u1u/YeXBzIaPOZO+pBPUFqtVjeQCqVyBE3k65ge6h9B2SAc9hjP19CnZ8
-         SL6U3JPcOEar+HGy2NDHsbTIaLEIWPvuVeTgWPjHLXMZvJLtun0Cuq1eHf46mSrMI8zK
-         nSTCTGW+bHBQ8r1njresTM8BwmwElVwqen1SxRgxDv6FB/ZAJysIz4HpSKSmWiHqicUu
-         NdrYr+8CbdMeQOZ1kv9yNvSiWDQ4A+bXmrgw9w3gk3zd5s9LfRk6L6vZMiDT6kMNoELQ
-         Rf9+/eA3oJJnVe4JSb6xtCGS7iwto/u3ThJsZTJI8NuRVe//XdOaz3tPbRo3h2xGMUxR
-         a+gA==
+        bh=EFga16pAfpv0gli5xDLk4KBBaOwrjAv2u5Qo96sb+dM=;
+        b=NVsCClLSziVRlNfxJXXIdjBzRrT670xtsRkm4NJVgk/9f2XBnaN7VXyhcyu/bG0QTS
+         PPKWPi0qmFB1VAkkJuUVEgyoc1Zcq3DbkhxV75wvrYPAUCqN48fH1ogawt0K2S9pXyLv
+         5PZ+LIajsZVbqEv06t47CYDUEtKYWAXuU8X2h9Phbzm1+x0lW8BjsblNMxE5b74usr20
+         frnxp/Ba1HAsmgEM1Eyca5nx2H3bGX1s36LeUlwx5Ri6rNPZl+dUZOw/xCW9H5jVQ1u6
+         GAieLyAf52++AXAir4eYW/5lQ67u5lCWQb61Mdw8/8EOYtKg5jlDu68Ox4jvpUOUBP1m
+         1jcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772122440; x=1772727240;
+        d=1e100.net; s=20230601; t=1772122444; x=1772727244;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=98cDGFKI0ittGN9WTwtDxfJA6FpPSB/XcdXQA2mPpIs=;
-        b=i0Rk2Ol/CCiZlgjGs/mO3IuwznIn8UlxgSBgM1FZVN8bDFVPf/JpwUCZ1QqG0GagYJ
-         vgsWHDoP6fylWIi3sT+jW5zKVTK63jzpU55PvP1lt2dGvJ7rauyFL000zls3UVME68TJ
-         Ub5o/rlX6+/TmDekaS7C/hK0SsKNXPnDHCouHJoWQZ/ag6AwLH1+YmFRWlHU/aJt3uto
-         QoDNR0h3CFm5XE41bfRSROPOgrpBUs0TK0SZih29pJkf4aB7kbXjzDJk6DilrO3yTuDV
-         IJk4fLRk6ZNeujywSXnf7vPrN/2UmxqsPsSb2QEffzcHoT2K+gRJRgzXDtVZMQgsqnVV
-         QwVA==
-X-Forwarded-Encrypted: i=1; AJvYcCWVZNlN7+lAoh/u5kahDUj+d7yKD1VXbYJMlkntjGDAYkWlAMUpxrKA9djcsVbiYPx+/nmYojJ3vF7xYWqzk2KN@lists.infradead.org
-X-Gm-Message-State: AOJu0YwD/PfejsI2YZeuRqKFESs8YQEbNvxd/3dUJCDGPVosU4do2GIQ
-	avR0SVMhheDOHlTZ5hd3RMEjaGZvBKnJR8CKmwAGCba8k03bpvEOZCzf
-X-Gm-Gg: ATEYQzxl1CczI8Fou+iypRrq2CW8aHsH/T5UAz/9ysXtNcFqzWfeivD6GUQpLiFjpE2
-	YS6n4CR0to5i7sMqCPHBXxp4ATPgAicc2sCJapWKrT2xpq5AOfJw/bij/8uXzIzH+1ZJnx6bmqs
-	S0mlgitc7x0rcs/+bNnYe9oBLK2eReraDWnQDKP3ngIatPQxjVQUzHQK1jtotLTTAPL2FrC/vKT
-	zmgvRHifPo8xz1Qtz+JLR91eSO2bM9fSrD05dSPAUqbjmwXuEYXy6oaUm4Sjo0X8/PpmV6Vhjnh
-	CLeVhDmOcPdGWw31wZwSjDkQ0kRlWrE2ZiMgatZsy7CLm+ltTr01F7pfmzm/duum0lzcjvYsPKH
-	depjeSysNcDMbYptK8MwveoGmD9WEi9bcD7lByagtA+0XBf2vAEucqu0dBSRY+QXInFZmow2jAH
-	KwpX2D00n30w4UUE/TUfR32mYBvo4JjPnYXZMejeV4VjDb1Q==
-X-Received: by 2002:a17:902:e74e:b0:2a9:602c:159 with SMTP id d9443c01a7336-2ae0327267fmr27260525ad.19.1772122439955;
-        Thu, 26 Feb 2026 08:13:59 -0800 (PST)
+        bh=EFga16pAfpv0gli5xDLk4KBBaOwrjAv2u5Qo96sb+dM=;
+        b=K/AZxsVrjrjTA4g7kud5Uc0ecyAPj2/Q/kACbG6fyhg+fvDFENc8IxDnEfe2KXw2qX
+         GD5MxrSMLgim3Y047DKTtaWm5aZbAx0yjeyWnpvuTZ249ceGd8VfcD9rGsKJA7v4hYCG
+         1UY/LYXLd+VnfnkBBXm1N9wvAuacA9OYQfC0mXNWVV0a09iKAYxBZQFFVqcjVhbN++eb
+         7oW8w+ATqgJihBZ1ukQ2mIptgOmCIoVZODagEFu0yz5HMdx2wMEe0SG6Nm0b6zxRy0D6
+         YW3ADGdRSbifsHXlOKF7eEB4MhpY6sY7zikoDgAxKt6Ye4PxGiHdUO7+hBfv0tF6Mb8C
+         iZow==
+X-Forwarded-Encrypted: i=1; AJvYcCUuuslx1bVP7VW6gpKBrKyY2WfV+BZrtjoPOMD2CSZ8aaS9CGxBpLgH2KtFw0h3144GfszmPwHirjzDyQCHxXNh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7WybtE50xcqTRccpH6vfhUf0r5+DHeOVzFLOzl4s3Fj23z1/6
+	hKX8Kbrxn/Q5L8hzCnSiOWqxPmqzhOzIZNvVrSZygRkKU+pNRXCpKS6uNpASww==
+X-Gm-Gg: ATEYQzxVHnVSC5lz3O7CbR2kGMBT4+jK4btrSaLcoUMTzE3AGqObvC7o2tfeM08ZkA3
+	nplSP5K0FmZbUd9j0U2agj5CfYqircwl8nHeH6K2EDwZEMe3Pw38sN/Ec3eliEjgM1rnhuwR1ec
+	VDIehTFz1al+2wZGCdahQtK+uex9bZNOPasxuwSEnn9cALdSoF+9GpiocW1/anEVz4KcW9eq2CT
+	luoE8YP9MNACOiPUkHGv1AyBPePkNrVYQrgW10mta3dZaEomDuzW3pYHubGc3mQx+nTMiZ9PXM5
+	j31tVSa+ggMsdAKOZIw0Ny4eBbLNIw688sIDxfVjUpDm4ILB6gFSUlxDwvMdB4SKCAZpJWJ+/uA
+	DVEoYm6MzloxXtSY4TXMLzzADRs8KoXQ45Vx/WaQyWa0AjaubmOaWLJWBAk/GysM0SdWcjA56nR
+	0CQJ45FDcqSKJyky8V6d7aAxBPRRfM/VxigpV6hlUL1RqvUQPIswccw/vo
+X-Received: by 2002:a17:903:1b4d:b0:29f:2f40:76c4 with SMTP id d9443c01a7336-2ad744e05demr198619235ad.34.1772122444511;
+        Thu, 26 Feb 2026 08:14:04 -0800 (PST)
 Received: from LAPTOP-872M7T80.localdomain ([122.183.54.8])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2adfb6a0432sm44384595ad.52.2026.02.26.08.13.55
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2adfb6a0432sm44384595ad.52.2026.02.26.08.14.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 08:13:59 -0800 (PST)
+        Thu, 26 Feb 2026 08:14:03 -0800 (PST)
 From: Akhila YS <akhilayalmati@gmail.com>
-Date: Thu, 26 Feb 2026 16:13:36 +0000
-Subject: [PATCH v3 4/5] dt-bindings: arm: atmel,at91rm9200-st: convert to
- DT schema
+Date: Thu, 26 Feb 2026 16:13:37 +0000
+Subject: [PATCH v3 5/5] dt-bindings: arm: atmel,at91rm9200-sdramc: convert
+ to DT schema
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-arm-microchip-v3-4-0bda15abd922@gmail.com>
+Message-Id: <20260226-arm-microchip-v3-5-0bda15abd922@gmail.com>
 References: <20260226-arm-microchip-v3-0-0bda15abd922@gmail.com>
 In-Reply-To: <20260226-arm-microchip-v3-0-0bda15abd922@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -103,8 +88,8 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Akhila YS <akhilayalmati@gmail.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_161402_339046_84B690AD 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20260226_081405_458054_5F26E4B2 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,113 +104,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert System Timer binding to YAML format.
-Changes during conversion:
-- Add "#address-cells" and "#size-cells" to the properties and required as
-  watchdog is defined as a child node to the timer parent node.
-- Define watchdog as a pattern property along with unit address in
-  examples.
+Convert RAMC SDRAM/DDR controller binding to YAML format.
 
 Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
 ---
- .../bindings/arm/atmel,at91rm9200-st.yaml          | 69 ++++++++++++++++++++++
- .../devicetree/bindings/arm/atmel-sysregs.txt      |  9 ---
- 2 files changed, 69 insertions(+), 9 deletions(-)
+ .../bindings/arm/atmel,at91rm9200-sdramc.yaml      | 67 ++++++++++++++++++++++
+ .../devicetree/bindings/arm/atmel-sysregs.txt      | 20 -------
+ 2 files changed, 67 insertions(+), 20 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/atmel,at91rm9200-st.yaml b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-st.yaml
+diff --git a/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
 new file mode 100644
-index 000000000000..3f6a934a2a69
+index 000000000000..1516fc8e09e1
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-st.yaml
-@@ -0,0 +1,69 @@
++++ b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
+@@ -0,0 +1,67 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/arm/atmel,at91rm9200-st.yaml#
++$id: http://devicetree.org/schemas/arm/atmel,at91rm9200-sdramc.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Atmel System Timer
++title: Microchip (Atmel) SDRAM / DDR Controller (RAMC / DDRAMC / UDDRC)
 +
 +maintainers:
 +  - Nicolas Ferre <nicolas.ferre@microchip.com>
 +  - Claudiu Beznea <claudiu.beznea@tuxon.dev>
 +
 +description:
-+  The System Timer (ST) module in AT91RM9200 provides periodic tick and
-+  alarm capabilities. It is exposed as a simple multi-function device
-+  (simple-mfd + syscon) because it shares its register space and interrupt
-+  with other System Controller blocks.
++  The SDRAM/DDR Controller (often called RAMC or DDRAMC) in various
++  Atmel/Microchip ARM9 and Cortex-A5/A7 SoCs  manages external
++  SDRAM / DDR memory. It is typically exposed as a syscon node for
++  register access from other drivers (e.g. for initialization or mode
++  configuration). No interrupts or clocks are usually required in the
++  binding.
 +
 +properties:
 +  compatible:
-+    items:
-+      - const: atmel,at91rm9200-st
-+      - const: syscon
-+      - const: simple-mfd
++    oneOf:
++      - items:
++          - const: atmel,at91rm9200-sdramc
++          - const: syscon
++      - items:
++          - const: microchip,sama7d65-uddrc
++          - const: microchip,sama7g5-uddrc
++      - items:
++          enum:
++            - atmel,at91sam9260-sdramc
++            - atmel,at91sam9g45-ddramc
++            - atmel,sama5d3-ddramc
++            - microchip,sam9x60-ddramc
++            - microchip,sam9x7-ddramc
++            - microchip,sama7g5-uddrc
 +
 +  reg:
 +    maxItems: 1
 +
-+  interrupts:
-+    maxItems: 1
-+
 +  clocks:
-+    maxItems: 1
++    minItems: 1
++    maxItems: 2
 +
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 1
-+
-+patternProperties:
-+  "^watchdog@[0-9a-f]+$":
-+    $ref: /schemas/watchdog/atmel,at91rm9200-wdt.yaml#
++  clock-names:
++    minItems: 1
++    items:
++      - const: ddrck
++      - const: mpddr
 +
 +required:
 +  - compatible
 +  - reg
-+  - interrupts
-+  - clocks
 +
 +unevaluatedProperties: false
 +
 +examples:
 +  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    timer@fffffd00 {
-+        compatible = "atmel,at91rm9200-st", "syscon", "simple-mfd";
-+        reg = <0xfffffd00 0x100>;
-+        interrupts = <1 IRQ_TYPE_LEVEL_HIGH 7>;
-+        clocks = <&slow_xtal>;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+
-+        watchdog@fffffd40 {
-+            compatible = "atmel,at91rm9200-wdt";
-+            reg = <0xfffffd40 0x40>;
-+        };
++    #include <dt-bindings/clock/at91.h>
++    ramc@ffffe400 {
++        compatible = "atmel,at91sam9g45-ddramc";
++        reg = <0xffffe400 0x200>;
++        clocks = <&pmc PMC_TYPE_SYSTEM 2>;
++        clock-names = "ddrck";
 +    };
 +...
 diff --git a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-index d0561f7f465c..14642384bc87 100644
+deleted file mode 100644
+index 14642384bc87..000000000000
 --- a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-+++ b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-@@ -1,14 +1,5 @@
- Atmel system registers
- 
--System Timer (ST) required properties:
--- compatible: Should be "atmel,at91rm9200-st", "syscon", "simple-mfd"
--- reg: Should contain registers location and length
--- interrupts: Should contain interrupt for the ST which is the IRQ line
--  shared across all System Controller members.
--- clocks: phandle to input clock.
--Its subnodes can be:
--- watchdog: compatible should be "atmel,at91rm9200-wdt"
++++ /dev/null
+@@ -1,20 +0,0 @@
+-Atmel system registers
 -
- RAMC SDRAM/DDR Controller required properties:
- - compatible: Should be "atmel,at91rm9200-sdramc", "syscon" or
- 			"atmel,at91sam9260-sdramc" or
+-RAMC SDRAM/DDR Controller required properties:
+-- compatible: Should be "atmel,at91rm9200-sdramc", "syscon" or
+-			"atmel,at91sam9260-sdramc" or
+-			"atmel,at91sam9g45-ddramc" or
+-			"atmel,sama5d3-ddramc" or
+-			"microchip,sam9x60-ddramc" or
+-			"microchip,sama7g5-uddrc" or
+-			"microchip,sama7d65-uddrc", "microchip,sama7g5-uddrc" or
+-			"microchip,sam9x7-ddramc", "atmel,sama5d3-ddramc".
+-- reg: Should contain registers location and length
+-
+-Examples:
+-
+-	ramc0: ramc@ffffe800 {
+-		compatible = "atmel,at91sam9g45-ddramc";
+-		reg = <0xffffe800 0x200>;
+-	};
+-
 
 -- 
 2.43.0
