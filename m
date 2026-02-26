@@ -4,150 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F7AEF55450
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 05:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C55CF55451
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 06:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=; b=lbhpk27MJkklrGRUHDkpnNwADE
-	VzelSK9ORrE/P3oXpVr39FwoYcG7CHysc0n8Kkz0QXcHytlh18VuyL7YEovG4SYLCpvl0sriXaFTX
-	QOIefYyazFLoh1kG8ZiwEYUYJ9I4Am0MkcB1oM11mjdqA/SguUF47eUMHWHOU5DbVQI2/XCDFicnP
-	wWsD4IGPr2EiAB964rcmJ0XX06iOp6nnitxvsuTremUn5fjfkhiWYdVsMfoKoplFBkWpZwn1r8c3C
-	8WlaHZNixmOXF5+gSGtYIMpWziAtr6I69uvSnUgLs5cK5FdEB9G/R9VpfI0pl2YTOK/UyWjTSO6Vf
-	rsJMs8Cw==;
+	bh=BeHB229LAHK62S/IYU9XzvqGNdRbg1JR9qdKYw6/ls4=; b=s4+rb4CIRk1QP6MOhcUuJtkQgd
+	GiU+4m81DHYYcKd7uJAQNn/+D62WWs9vYBX9zIB4FtJ2XFGPRXfCvRxMdt8y91FGaMMolq5mUeZLQ
+	wK6kKcpdPtzDLTAQ2BqaiQQ2V5T759XyDmEtaMy38VQI4NHAjKicQmrO8geZbduoc83wfi5AsZ+Tz
+	ghuesbxdW7oAc4/KrF9oiXqLaCbHhbHuSEuKKBlhHqAL9MTt58D5mx6JPNgdgBbRaa+T5QQ+vYiTU
+	G5zyBMgOtJGxGv46tBnn5AfgQhKz9ztqdPCnPjiACIknFnMGthsFBwDxehxOCei7tZNtQYlNQmZsz
+	S7aYzRNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvUOE-00000005Sco-3AiX;
-	Thu, 26 Feb 2026 05:58:22 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vvUXG-00000005T41-0PwF;
+	Thu, 26 Feb 2026 06:07:42 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvUOC-00000005ScI-0xLr
+	id 1vvUXD-00000005T3c-18EW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 05:58:21 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61Q4Vkls1280842
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 05:58:19 GMT
+	Thu, 26 Feb 2026 06:07:40 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61Q4V8cP918920
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 06:07:37 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=; b=o3WKY9oHfg4/cMhI
-	gs1+YiPTIqvHlAMO37lS2mfF30HjGxgXsuO77MhchZOFQa+Hxb/d+5ktqn6st+3K
-	eGg9/5xd1vo2BkgQCFxeGg7skSZ0x+cZ4iRWu6YjvXJWfhdGS583npPHtVVKdE2g
-	neSXgiCS2O08/S35T1587vNbUSMIf1bfsY/pahSfFhmKEBs3CKkEthXJbj3EToTJ
-	GTSiUQIURZc4yWAo8ii4059uLYw8ecN7Jaxy9Ubg4Z4jnXOeNp9/loMo73rLRoEy
-	bfH9jwDWu3YN3TcaB/NPqXnaiEGisrUXY1bYc+WjuRdZMCuwdFmTGy74lTkMGhxN
-	PeOw9Q==
-Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com [209.85.161.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4chx39kea9-1
+	BeHB229LAHK62S/IYU9XzvqGNdRbg1JR9qdKYw6/ls4=; b=mRpRAsCUzV5g29KJ
+	MVEUWokgEgo+PlA2MbaGHY8a4G9XVYQu0ptG6vHSUzodF62jMErizfog+bGJBN8g
+	eHKKEHT2ec9ZOYrwRGWBJyVWnaKE33f2cl9uDmCHw9ZnWkqpLgc69gijSDkpgBvQ
+	oHFELGHm3CAPHTXEfXSiOKrDyBs0d1rP/nyDLY5wqAW8bzxpjbjBBnOVwBu84bBY
+	Lg01IV+vUCp9dYcjYYcX04xZgviAN72bCErWZ1Mj2VV1guqKaoyfq1cae/ewtrVM
+	yjAby7CdCJfYsyVPyGxDB0Y6mA4b/sioR/uATNkcBV7wEWFO1mejBDV60htGGEIy
+	AJEU4g==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cj4w4t2nk-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 05:58:19 +0000 (GMT)
-Received: by mail-oo1-f71.google.com with SMTP id 006d021491bc7-679862e4413so5409476eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 21:58:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772085498; cv=none;
-        d=google.com; s=arc-20240605;
-        b=EcZpSr/f2tzIq3F4XW63YwrUZhriQrz48uqZT3ZKYEhaXF3qNok8GbvTLCcPfqpByK
-         TmmMy69r/vH6pF1m/prtvpY85476J4rjKeTA/miw+k+xfYZ2kDD9qnPEVWSgHDoyZM4m
-         c8hL4R1b+oCXohRr6i0u5MaonxN8zbl6w7E8nZcP+j9p4oc0pgGfW5yW/YNZZCWRtqDV
-         4MFhMrFDMV9VxqgFLMxsZgiO+U7e9lULpJ2koGbNgohBctCOA7pAOFlROkDETioyqZYb
-         2LFN79ag4+rQnfL5VrEaFGCKkT/Ud+HBIn+PZrjB09WEfYZhwwb8IBE2tTpwWV47wfjJ
-         gqBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=;
-        fh=fFUWkiayjilMTgKZkEeOy8PfKiXXdjB/D0WIgnv9pQk=;
-        b=jXn/OHQlNxOrdZHfQjO7Mr8lZ+xd0JMDO/0RV4Wk1UO3txQWN7mzPzxvRVcik5I0+l
-         MiJivxGknSwqS+1Go8S00yjN0gpZuEJzQSZQymrh0EW/jt//g6yCFe1yXYVL77DP2E30
-         m97yInm8nbYMTtl081DoQJ9rXe6h5RHG3RsbuhE8n5fdXkA+wBEMj0SBZHiseFJc1j9q
-         uFW97Td1RzxDHEUS7b3bgEq5EHrmgpWZOdr0dh/84HO+xwfMJC2qeK86G9jxC97kADgm
-         A5WXKIUSWOta831Vx5GlBHn95znCWb/DJuccuh87R9gJ6GdhtGgNpaJqFFC/EA4hLRdL
-         o/SA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 06:07:37 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c70b6a624bfso306956a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 22:07:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772085498; x=1772690298; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=;
-        b=cEthPA9q5IFJTdIsCSNeDvhlDegcIuyatA36Iy0Gm8QJfHKcU37yms14NwR2yOwJ9F
-         4cd5Il9aCBz6idDHI8jDPV6aOMgAaXcUeftb5LXyJmCUuWZQ2JPbSyknLIWT+lg5HIOW
-         r2KoiUBq9QFjufUFh/xZNroPONYpEsEhVe11JgLeQqJt/ZnCc9Sxb8saSbKZKuG1zjKf
-         YbdO5e554KJRppF7xMve6LhDeFLZwfJDQPOS4yxJ1zjnrDxlduJQBdkkzFIuFGgLV383
-         MpttX3EeRkMhYrEU8nXERDu5BmNg5MVw9zr1fAXMyYJ3P9nUX43YudJRVFzN9i+g94TT
-         32fg==
+        d=oss.qualcomm.com; s=google; t=1772086056; x=1772690856; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BeHB229LAHK62S/IYU9XzvqGNdRbg1JR9qdKYw6/ls4=;
+        b=Hj0Sf9b68ZZqFrAydqpmd0OLkBies/GQu+JIgAyTGfjJeWvFNbrueyIqIOekr2E3Ts
+         OCrABBlb9TT2JHcpfwJ6GvuEiLxGRi6e8fnMfcy6MFzhDpWBDwhkuSTO+zlYs5bDBfwx
+         EWZos/ARM06b9hfd8CR+o+WNxjruovL9b9HX32Ym2muADF/JA4tJPC8tWxheItml72qB
+         bMSQZ7uWsWUDuATWX6yMrK1UiblNQMW8EFvJKUtYRdU5jbmTflCTPhjp1xTElXXYNM2a
+         gNUR0IIHDwD8EePoa/YatW2tz49z1oRlvefhjvcCpzGIjIvQVcJ2Y7e5faP/URsJRa7T
+         cXMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772085498; x=1772690298;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=;
-        b=dvuQMlSqAWGX99fPEdHMKp93j2GXFW5+T4WdomfbzW7n3Am9Hn/LPAeFG4eoa56fun
-         vgT2t0LII/vhVIHCMmse9D7TTNPq9Zv8MqlTLYoh0Eg94yfb0PqnNwJQLz+c3J2/Va3W
-         EAXb5v85+/2rtjg3Fh9vNzTcausfTD7jEs0/jWITohGDNaoJVBARoImx+0BzASCYgyRb
-         ZxFXkXQBl6S7PQxsFZQgm4BUO2dM7s3Vgr8Kx3o8tG/bVBvaJkZftCxKU4jvAUMRjRE9
-         P1K/+ahczYp/UgEzKi5masS6aXqnt33sLUqwmFF9jcglALwVyxE8xs+Q3q8Me0kerj6B
-         ZjNg==
-X-Forwarded-Encrypted: i=1; AJvYcCU6BSBcJOpQG4lgw/s4RQ8ABPsNwtualeKmBhHNgX6ROPWSAsmSegR0m+PzpR+yW1cXnww/qcwxYFH7poprpbCL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8jVFQmmZq0CWpH3yVUTRKjJb2hHMGur0iC8PW7v94F690Umx0
-	XgMxivkHJtZSKT2SrhqPnCIfOREQGEtAIomKbQRny8qXHzkoEE/38CFo6P0N6lag5FDeLv445w+
-	dW1Rt7K+TQYY80qR7tkPZRqSXYNRdgaFfYfpqg8XeqbPMUpLdLEBRikU6PRUdbWAMJAc5d1w0XZ
-	HbKOQsq6y8/6SgWPTbeiiHSa2ShCqQI8Mp1Iebk7QiF1LXkcVWlaP9
-X-Gm-Gg: ATEYQzxuik3rBiQZcBdkJ99CPuYL/9p+ClkVurgm5SBInmQNgerYejE0SqVvTX3HBkx
-	joILNLjouDGDFgyHWvkm+PvZ1LJLVdhAJ0G5JodQE0cB7Hq87zYubf7hoNgC8326XyrnYVe9NWp
-	L2IqdSmpufnj4StuVnW/T4JOnPDrdemZ/1Q/XvUcbhX6AVjS2OIevkE827soZGWA4v25Rgrb7K1
-	JiHm9o=
-X-Received: by 2002:a05:6820:1990:b0:676:6c3c:a1e9 with SMTP id 006d021491bc7-679f3da6aecmr436090eaf.57.1772085498453;
-        Wed, 25 Feb 2026 21:58:18 -0800 (PST)
-X-Received: by 2002:a05:6820:1990:b0:676:6c3c:a1e9 with SMTP id
- 006d021491bc7-679f3da6aecmr436077eaf.57.1772085497991; Wed, 25 Feb 2026
- 21:58:17 -0800 (PST)
+        d=1e100.net; s=20230601; t=1772086056; x=1772690856;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BeHB229LAHK62S/IYU9XzvqGNdRbg1JR9qdKYw6/ls4=;
+        b=Rl234bc94wHv3prkij2y2EL57f9crsrcCnkGLP/5nXt35K8m4sy5QU34Pn7Jxngkj/
+         X0dMlprkaDizlCfKp75DnhU8QjpnFk+qDn4ebVvO5Gp/3r/zTNSn4ZRNBFf0iSff7itO
+         IZtbJKJqUdjhvlQKlTHoGKQp6iDbXaI/fNQrbXFdrSTX3aXC5Avu1HBL22ggoCBGKqpH
+         WCRqFnYGoT2bZItIysYAOoVbeaqX2ZcNndLCOHsag1UcNG2HID6jz17R63q06x8RD21z
+         l18pfD7StAvnMo0yCwLmt31HqVf4VYYxzdBi82BC7HgIi2waHdUMWUeCofmbvc4EKTFU
+         yZUA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5dvN4RquzctBwWJWHz+Nr3l5DaqC8gmi6yzFq/es8HC1i05b5/xCQT3cpY90yhf6fjJ31otPlm65e9LGUoTUg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfooBAlTwqv02kRyub4BfhWMa+25V5xEwVn9yfH9lqbkWL8maX
+	EkVYjMKZisOzE+p/onkvWT4w4FpJq6Ix+jdrRp6SBHmig7YOkgyjS6hD+rQeb9p7E0qy2tECoRn
+	K9q9tmMqe+38iaVirKIFHW9ZDmDL/cUeee1PEjpOiLqTqDucaW9OeeEMcyfGNyJuYUDtUDlVy6s
+	Sc5Q==
+X-Gm-Gg: ATEYQzzIOh44tmN9U9aBbgRLPuDsvEPpfjDK+AS7ZG93PxhhuflFoRe3ObgyoogmjL9
+	XWTL1QVDKCw3PZdFXAPPe6ivbS47tsMvHvbxnFkgJ4T5Y5NWk87FkiKJbzS55y+rdJFFVfqHtPM
+	VAJ8TmS03aWF72gQE0jXBhOkfwuaqCoaKRgTJfIBkZiR6cs6ngqP2U9wD0f2yEZElCqVTohLVbi
+	9XwO3RdUNiBEr7pdG0n48bPuIwpKbVFdCiPe3uIqeFj8EERWtAzmIcb0PNzLgqQh84xYkZmWAsN
+	y7OePwglDPrse6rdGtZoEuTWbUu0ezVZbojEDZE2HnosmGlUYPpNsJN7CVXGFg/e/9lF72EFrXn
+	h6xQ64oXQF62bt7yDFnJJ+0kjZHf59ytjC5nSuf7GncqEDrHKISPOipHz+FOwA8r3iEuKdXOUEP
+	yQKxXNBtWW2w==
+X-Received: by 2002:a05:6a00:cc8:b0:827:2b7f:e1d0 with SMTP id d2e1a72fcca58-82739827658mr1697784b3a.24.1772086056044;
+        Wed, 25 Feb 2026 22:07:36 -0800 (PST)
+X-Received: by 2002:a05:6a00:cc8:b0:827:2b7f:e1d0 with SMTP id d2e1a72fcca58-82739827658mr1697755b3a.24.1772086055513;
+        Wed, 25 Feb 2026 22:07:35 -0800 (PST)
+Received: from [10.133.33.67] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739dabd43sm1290899b3a.25.2026.02.25.22.07.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Feb 2026 22:07:35 -0800 (PST)
+Message-ID: <32309e19-e193-4f56-80c4-39b028f05876@oss.qualcomm.com>
+Date: Thu, 26 Feb 2026 14:07:28 +0800
 MIME-Version: 1.0
-References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
- <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-3-347fa2d7351b@arm.com>
-In-Reply-To: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-3-347fa2d7351b@arm.com>
-From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Date: Thu, 26 Feb 2026 11:28:06 +0530
-X-Gm-Features: AaiRm50j2ioKzT8O5WkXwOBzaz_quUV9p2zoAkjwudfimibESDbgnebOCS_fs4k
-Message-ID: <CA+Ht8=aL8wp0nwH3vnnm8FnRmfp1nUasfXh3HjeWwi8UadBLOg@mail.gmail.com>
-Subject: Re: [PATCH v2 03/11] ACPI: APEI: GHES: move CPER read helpers
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
-        Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
-        robh@kernel.org, rafael@kernel.org, will@kernel.org, conor@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-        krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDA1MCBTYWx0ZWRfX4OchC3YtPh09
- 1ujlSzr3z0WVEMvXsKOz7M4eSx8qL+hMPf3YyPAC2r6OaimenPpISQ2B98uvt8GsGd8G8fFPmyG
- /+JTH7HTjwlhXS5DRd/CvL3Hp9T6AWlqq5eJdqRml/yQoTz3IOym3SyD9nexfCd732g0JHSsyUt
- cDZOamCBUFT033uYytwrtv67uSEapdEnGtASfwz3oBD5d6Lw9m/KgsGkgSHoRNGFaFKT0zf2LoN
- niREzVGAb3qLKw1SHaMWy/1GjIobyG9ptX2Ox6sbLnL04dbR9X/6ynHL2tIAWgFWfr+XgwYEfRh
- S01iRwudF54uI7eSJwEaYojVCD3CYBhuphrfMZW8cftyP9adNXy9ApBSV2zk27xljo349antzS6
- +LydhRSQQsi+ptP6VTfWb4VYalUHz+j0K8FZk6Qp5Jg4BQVbomM0eFxuIUdYXoyDx+eRoD2QTFl
- XceJbO8elVFg4mR+mYA==
-X-Authority-Analysis: v=2.4 cv=FvoIPmrq c=1 sm=1 tr=0 ts=699fe0fb cx=c_pps
- a=V4L7fE8DliODT/OoDI2WOg==:117 a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_K5XuSEh1TEqbUxoQ0s3:22 a=7CQSdrXTAAAA:8 a=MJR9BmDR2wurswiG5j0A:9
- a=QEXdDO2ut3YA:10 a=WZGXeFmKUf7gPmL3hEjn:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: vyOMyl3ijahM3ghJURHEhYVJ1tNFc1UY
-X-Proofpoint-ORIG-GUID: vyOMyl3ijahM3ghJURHEhYVJ1tNFc1UY
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 1/7] dt-bindings: arm: Add support for Qualcomm TGU
+ trace
+To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
+        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
+        konrad.dybcio@oss.qualcomm.com, suzuki.poulose@arm.com,
+        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        devicetree@vger.kernel.org, gregkh@linuxfoundation.org,
+        Rob Herring <robh@kernel.org>
+References: <20260226020454.3210149-1-songwei.chai@oss.qualcomm.com>
+ <20260226020454.3210149-2-songwei.chai@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260226020454.3210149-2-songwei.chai@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: nqN2rEe-asamlBHNOy38iO9UxdtzuVwj
+X-Authority-Analysis: v=2.4 cv=IqMTsb/g c=1 sm=1 tr=0 ts=699fe329 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=gEfo2CItAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=IwjJGIUIzvyStixYlZUA:9
+ a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22 a=sptkURWiP4Gy88Gu7hUp:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDA1MSBTYWx0ZWRfX2nsCo3V9oFDP
+ JGTFTsugnQgXCyttLCmWXfsdMndJUBEmqEXc1wCgXT3LJ0FOr4r3rdqIlutIMpV7QXDxkq+N+gG
+ wZivKc9GPGPAcny8LIgaXGRJxQxWG6DoHnO+s21aJkqxDA01WJczU3amORQy2YgHj4TkvU0zhxh
+ 95PmzUPXpsGQ+Hyj/VyKiEShfTVWDMxuwfvAVwdoq8GOiKo9LiycV3u1cS0CSf740LRE2ou/hgm
+ SANJieu/rm/AP8X5XZblsNnIgkH9Z2NN4zCM2KCnq0in/JyTPIDz4tEF7yudh9wmOrDvSdd8KCm
+ GCsQl/UkmF5E+xTsGkTfipweEWTPYu9pHo6s0ZhNthePMSw0jxuGkKSPvXzaHtHiIVpXkz2sxku
+ Ino4vQ5VWVTwnBE+Rpd0shdN3JdqjSlAQD5WNvYfUlxnn6qn+XSt8HssP6Mx/UJUOxU3iUNhKBz
+ zw6C+G2++YwohJfpoMQ==
+X-Proofpoint-GUID: nqN2rEe-asamlBHNOy38iO9UxdtzuVwj
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-02-25_04,2026-02-25_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0
- impostorscore=0 priorityscore=1501 clxscore=1011 adultscore=0 malwarescore=0
+ phishscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0 adultscore=0
+ impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602260050
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602260051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_215820_276621_016E7E6C 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20260225_220739_437263_35890E39 
+X-CRM114-Status: GOOD (  30.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,494 +153,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 7:13=E2=80=AFPM Ahmed Tiba <ahmed.tiba@arm.com> wro=
-te:
->
-> Relocate the CPER buffer mapping, peek, and clear helpers from ghes.c int=
-o
-> ghes_cper.c so they can be shared with other firmware-first providers.
-> This commit only shuffles code; behavior stays the same.
->
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+
+
+On 2/26/2026 10:04 AM, Songwei Chai wrote:
+> The Trigger Generation Unit (TGU) is designed to detect patterns or
+> sequences within a specific region of the System on Chip (SoC). Once
+> configured and activated, it monitors sense inputs and can detect a
+> pre-programmed state or sequence across clock cycles, subsequently
+> producing a trigger.
+> 
+>     TGU configuration space
+>          offset table
+>   x-------------------------x
+>   |                         |
+>   |                         |
+>   |                         |                           Step configuration
+>   |                         |                             space layout
+>   |   coresight management  |                           x-------------x
+>   |        registers        |                     |---> |             |
+>   |                         |                     |     |  reserve    |
+>   |                         |                     |     |             |
+>   |-------------------------|                     |     |-------------|
+>   |                         |                     |     | priority[3] |
+>   |         step[7]         |<--                  |     |-------------|
+>   |-------------------------|   |                 |     | priority[2] |
+>   |                         |   |                 |     |-------------|
+>   |           ...           |   |Steps region     |     | priority[1] |
+>   |                         |   |                 |     |-------------|
+>   |-------------------------|   |                 |     | priority[0] |
+>   |                         |<--                  |     |-------------|
+>   |         step[0]         |-------------------->      |             |
+>   |-------------------------|                           |  condition  |
+>   |                         |                           |             |
+>   |     control and status  |                           x-------------x
+>   |           space         |                           |             |
+>   x-------------------------x                           |Timer/Counter|
+>                                                         |             |
+> 						       x-------------x
+> TGU Configuration in Hardware
+> 
+> The TGU provides a step region for user configuration, similar
+> to a flow chart. Each step region consists of three register clusters:
+> 
+> 1.Priority Region: Sets the required signals with priority.
+> 2.Condition Region: Defines specific requirements (e.g., signal A
+> reaches three times) and the subsequent action once the requirement is
+> met.
+> 3.Timer/Counter (Optional): Provides timing or counting functionality.
+> 
+> Add a new tgu.yaml file to describe the bindings required to
+> define the TGU in the device trees.
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
 > ---
->  drivers/acpi/apei/ghes.c      | 170 +-----------------------------------=
-------
->  drivers/acpi/apei/ghes_cper.c | 170 ++++++++++++++++++++++++++++++++++++=
-+++++-
->  include/acpi/ghes_cper.h      |  14 ++--
->  3 files changed, 177 insertions(+), 177 deletions(-)
->
-> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-> index 07b70bcb8342..b159dbee90ac 100644
-> --- a/drivers/acpi/apei/ghes.c
-> +++ b/drivers/acpi/apei/ghes.c
-> @@ -118,26 +118,6 @@ static struct gen_pool *ghes_estatus_pool;
->  static struct ghes_estatus_cache __rcu *ghes_estatus_caches[GHES_ESTATUS=
-_CACHES_SIZE];
->  static atomic_t ghes_estatus_cache_alloced;
->
-> -static void __iomem *ghes_map(u64 pfn, enum fixed_addresses fixmap_idx)
-> -{
-> -       phys_addr_t paddr;
-> -       pgprot_t prot;
-> -
-> -       paddr =3D PFN_PHYS(pfn);
-> -       prot =3D arch_apei_get_mem_attribute(paddr);
-> -       __set_fixmap(fixmap_idx, paddr, prot);
-> -
-> -       return (void __iomem *) __fix_to_virt(fixmap_idx);
-> -}
-> -
-> -static void ghes_unmap(void __iomem *vaddr, enum fixed_addresses fixmap_=
-idx)
-> -{
-> -       int _idx =3D virt_to_fix((unsigned long)vaddr);
-> -
-> -       WARN_ON_ONCE(fixmap_idx !=3D _idx);
-> -       clear_fixmap(fixmap_idx);
-> -}
-> -
->  int ghes_estatus_pool_init(unsigned int num_ghes)
->  {
->         unsigned long addr, len;
-> @@ -193,22 +173,7 @@ static void unmap_gen_v2(struct ghes *ghes)
->         apei_unmap_generic_address(&ghes->generic_v2->read_ack_register);
->  }
->
-> -static void ghes_ack_error(struct acpi_hest_generic_v2 *gv2)
-> -{
-> -       int rc;
-> -       u64 val =3D 0;
-> -
-> -       rc =3D apei_read(&val, &gv2->read_ack_register);
-> -       if (rc)
-> -               return;
-> -
-> -       val &=3D gv2->read_ack_preserve << gv2->read_ack_register.bit_off=
-set;
-> -       val |=3D gv2->read_ack_write    << gv2->read_ack_register.bit_off=
-set;
-> -
-> -       apei_write(val, &gv2->read_ack_register);
-> -}
-> -
-> -static struct ghes *ghes_new(struct acpi_hest_generic *generic)
-> +struct ghes *ghes_new(struct acpi_hest_generic *generic)
->  {
->         struct ghes *ghes;
->         unsigned int error_block_length;
-> @@ -255,7 +220,7 @@ static struct ghes *ghes_new(struct acpi_hest_generic=
- *generic)
->         return ERR_PTR(rc);
->  }
->
-> -static void ghes_fini(struct ghes *ghes)
-> +void ghes_fini(struct ghes *ghes)
->  {
->         kfree(ghes->estatus);
->         apei_unmap_generic_address(&ghes->generic->error_status_address);
-> @@ -280,137 +245,6 @@ static inline int ghes_severity(int severity)
->         }
->  }
+>   .../devicetree/bindings/arm/qcom,tgu.yaml     | 92 +++++++++++++++++++
+>   1 file changed, 92 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/arm/qcom,tgu.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/qcom,tgu.yaml b/Documentation/devicetree/bindings/arm/qcom,tgu.yaml
+> new file mode 100644
+> index 000000000000..5b6a58ebe691
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/qcom,tgu.yaml
+> @@ -0,0 +1,92 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +# Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/qcom,tgu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Trigger Generation Unit - TGU
+> +
+> +description: |
+> +  The Trigger Generation Unit (TGU) is a Data Engine which can be utilized
+> +  to sense a plurality of signals and create a trigger into the CTI or
+> +  generate interrupts to processors. The TGU is like the trigger circuit
+> +  of a Logic Analyzer. The corresponding trigger logic can be realized by
+> +  configuring the conditions for each step after sensing the signal.
+> +  Once setup and enabled, it will observe sense inputs and based upon
+> +  the activity of those inputs, even over clock cycles, may detect a
+> +  preprogrammed state/sequence and then produce a trigger or interrupt.
+> +
+> +  The primary use case of the TGU is to detect patterns or sequences on a
+> +  given set of signals within some region to identify the issue in time
+> +  once there is abnormal behavior in the subsystem.
+> +
+> +maintainers:
+> +  - Mao Jinlong <jinlong.mao@oss.qualcomm.com>
+> +  - Songwei Chai <songwei.chai@oss.qualcomm.com>
+> +
+> +# Need a custom select here or 'arm,primecell' will match on lots of nodes
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - qcom,tgu
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: qcom,tgu
+> +      - const: arm,primecell
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  clock-names:
+> +    items:
+> +      - const: apb_pclk
+> +
+> +  in-ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +    additionalProperties: false
+> +
 
-Can it be "ghes_finish"? We already have "creat" without 'e'.
+The TGU device is no longer a CoreSight device, so I think the in-ports 
+property is no longer needed.
 
->
-> -static void ghes_copy_tofrom_phys(void *buffer, u64 paddr, u32 len,
-> -                                 int from_phys,
-> -                                 enum fixed_addresses fixmap_idx)
-> -{
-> -       void __iomem *vaddr;
-> -       u64 offset;
-> -       u32 trunk;
-> -
-> -       while (len > 0) {
-> -               offset =3D paddr - (paddr & PAGE_MASK);
-> -               vaddr =3D ghes_map(PHYS_PFN(paddr), fixmap_idx);
-> -               trunk =3D PAGE_SIZE - offset;
-> -               trunk =3D min(trunk, len);
-> -               if (from_phys)
-> -                       memcpy_fromio(buffer, vaddr + offset, trunk);
-> -               else
-> -                       memcpy_toio(vaddr + offset, buffer, trunk);
-> -               len -=3D trunk;
-> -               paddr +=3D trunk;
-> -               buffer +=3D trunk;
-> -               ghes_unmap(vaddr, fixmap_idx);
-> -       }
-> -}
-> -
-> -/* Check the top-level record header has an appropriate size. */
-> -static int __ghes_check_estatus(struct ghes *ghes,
-> -                               struct acpi_hest_generic_status *estatus)
-> -{
-> -       u32 len =3D cper_estatus_len(estatus);
-> -       u32 max_len =3D min(ghes->generic->error_block_length,
-> -                         ghes->estatus_length);
-> -
-> -       if (len < sizeof(*estatus)) {
-> -               pr_warn_ratelimited(FW_WARN GHES_PFX "Truncated error sta=
-tus block!\n");
-> -               return -EIO;
-> -       }
-> -
-> -       if (!len || len > max_len) {
-> -               pr_warn_ratelimited(FW_WARN GHES_PFX "Invalid error statu=
-s block length!\n");
-> -               return -EIO;
-> -       }
-> -
-> -       if (cper_estatus_check_header(estatus)) {
-> -               pr_warn_ratelimited(FW_WARN GHES_PFX "Invalid CPER header=
-!\n");
-> -               return -EIO;
-> -       }
-> -
-> -       return 0;
-> -}
-> -
-> -/* Read the CPER block, returning its address, and header in estatus. */
-> -static int __ghes_peek_estatus(struct ghes *ghes,
-> -                              struct acpi_hest_generic_status *estatus,
-> -                              u64 *buf_paddr, enum fixed_addresses fixma=
-p_idx)
-> -{
-> -       struct acpi_hest_generic *g =3D ghes->generic;
-> -       int rc;
-> -
-> -       rc =3D apei_read(buf_paddr, &g->error_status_address);
-> -       if (rc) {
-> -               *buf_paddr =3D 0;
-> -               pr_warn_ratelimited(FW_WARN GHES_PFX
-> -"Failed to read error status block address for hardware error source: %d=
-.\n",
-> -                                  g->header.source_id);
-> -               return -EIO;
-> -       }
-> -       if (!*buf_paddr)
-> -               return -ENOENT;
-> -
-> -       ghes_copy_tofrom_phys(estatus, *buf_paddr, sizeof(*estatus), 1,
-> -                             fixmap_idx);
-> -       if (!estatus->block_status) {
-> -               *buf_paddr =3D 0;
-> -               return -ENOENT;
-> -       }
-> -
-> -       return 0;
-> -}
-> -
-> -static int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
-> -                              u64 buf_paddr, enum fixed_addresses fixmap=
-_idx,
-> -                              size_t buf_len)
-> -{
-> -       ghes_copy_tofrom_phys(estatus, buf_paddr, buf_len, 1, fixmap_idx)=
-;
-> -       if (cper_estatus_check(estatus)) {
-> -               pr_warn_ratelimited(FW_WARN GHES_PFX
-> -                                   "Failed to read error status block!\n=
-");
-> -               return -EIO;
-> -       }
-> -
-> -       return 0;
-> -}
-> -
-> -static int ghes_read_estatus(struct ghes *ghes,
-> -                            struct acpi_hest_generic_status *estatus,
-> -                            u64 *buf_paddr, enum fixed_addresses fixmap_=
-idx)
-> -{
-> -       int rc;
-> -
-> -       rc =3D __ghes_peek_estatus(ghes, estatus, buf_paddr, fixmap_idx);
-> -       if (rc)
-> -               return rc;
-> -
-> -       rc =3D __ghes_check_estatus(ghes, estatus);
-> -       if (rc)
-> -               return rc;
-> -
-> -       return __ghes_read_estatus(estatus, *buf_paddr, fixmap_idx,
-> -                                  cper_estatus_len(estatus));
-> -}
-> -
-> -static void ghes_clear_estatus(struct ghes *ghes,
-> -                              struct acpi_hest_generic_status *estatus,
-> -                              u64 buf_paddr, enum fixed_addresses fixmap=
-_idx)
-> -{
-> -       estatus->block_status =3D 0;
-> -
-> -       if (!buf_paddr)
-> -               return;
-> -
-> -       ghes_copy_tofrom_phys(estatus, buf_paddr,
-> -                             sizeof(estatus->block_status), 0,
-> -                             fixmap_idx);
-> -
-> -       /*
-> -        * GHESv2 type HEST entries introduce support for error acknowled=
-gment,
-> -        * so only acknowledge the error if this support is present.
-> -        */
-> -       if (is_hest_type_generic_v2(ghes))
-> -               ghes_ack_error(ghes->generic_v2);
-> -}
->
->  /**
->   * struct ghes_task_work - for synchronous RAS event
-> diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.=
-c
-> index 63047322a3d9..7e0015e960c1 100644
-> --- a/drivers/acpi/apei/ghes_cper.c
-> +++ b/drivers/acpi/apei/ghes_cper.c
+Thanks,
+Jie
 
-IMO, just "cper.c" would be fine.
+> +    properties:
+> +      port:
+> +        description:
+> +          The port mechanism here ensures the relationship between TGU and
+> +          TPDM, as TPDM is one of the inputs for TGU. It will allow TGU to
+> +          function as TPDM's helper and enable TGU when the connected
+> +          TPDM is enabled.
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    tgu@10b0e000 {
+> +        compatible = "qcom,tgu", "arm,primecell";
+> +        reg = <0x10b0e000 0x1000>;
+> +
+> +        clocks = <&aoss_qmp>;
+> +        clock-names = "apb_pclk";
+> +
+> +        in-ports {
+> +            port {
+> +                tgu_in_tpdm_swao: endpoint{
+> +                    remote-endpoint = <&tpdm_swao_out_tgu>;
+> +                };
+> +            };
+> +        };
+> +    };
+> +...
 
-> @@ -1,7 +1,7 @@
->  // SPDX-License-Identifier: GPL-2.0
->  /*
->   *
-> - * APEI GHES CPER helper translation unit - staging file for helper move=
-s
-> + * APEI GHES CPER helper translation unit - code mechanically moved from=
- ghes.c
->   *
->   * Copyright (C) 2026 ARM Ltd.
->   * Author: Ahmed Tiba <ahmed.tiba@arm.com>
-> @@ -17,10 +17,176 @@
->  #include <linux/slab.h>
->
->  #include <acpi/apei.h>
-> +#include <acpi/ghes_cper.h>
->
->  #include <asm/fixmap.h>
->  #include <asm/tlbflush.h>
->
->  #include "apei-internal.h"
->
-> -/* Helper bodies will be moved here in follow-up commits. */
-> +static void __iomem *ghes_map(u64 pfn, enum fixed_addresses fixmap_idx)
-> +{
-> +       phys_addr_t paddr;
-> +       pgprot_t prot;
-> +
-> +       paddr =3D PFN_PHYS(pfn);
-> +       prot =3D arch_apei_get_mem_attribute(paddr);
-> +       __set_fixmap(fixmap_idx, paddr, prot);
-> +
-> +       return (void __iomem *) __fix_to_virt(fixmap_idx);
-> +}
-> +
-> +static void ghes_unmap(void __iomem *vaddr, enum fixed_addresses fixmap_=
-idx)
-> +{
-> +       int _idx =3D virt_to_fix((unsigned long)vaddr);
-> +
-> +       WARN_ON_ONCE(fixmap_idx !=3D _idx);
-> +       clear_fixmap(fixmap_idx);
-> +}
-> +
-> +static void ghes_ack_error(struct acpi_hest_generic_v2 *gv2)
-> +{
-> +       int rc;
-> +       u64 val =3D 0;
-> +
-> +       rc =3D apei_read(&val, &gv2->read_ack_register);
-> +       if (rc)
-> +               return;
-> +
-> +       val &=3D gv2->read_ack_preserve << gv2->read_ack_register.bit_off=
-set;
-> +       val |=3D gv2->read_ack_write    << gv2->read_ack_register.bit_off=
-set;
-> +
-> +       apei_write(val, &gv2->read_ack_register);
-> +}
-> +
-> +static void ghes_copy_tofrom_phys(void *buffer, u64 paddr, u32 len,
-> +                                 int from_phys,
-> +                                 enum fixed_addresses fixmap_idx)
-> +{
-> +       void __iomem *vaddr;
-> +       u64 offset;
-> +       u32 trunk;
-> +
-> +       while (len > 0) {
-> +               offset =3D paddr - (paddr & PAGE_MASK);
-> +               vaddr =3D ghes_map(PHYS_PFN(paddr), fixmap_idx);
-> +               trunk =3D PAGE_SIZE - offset;
-> +               trunk =3D min(trunk, len);
-> +               if (from_phys)
-> +                       memcpy_fromio(buffer, vaddr + offset, trunk);
-> +               else
-> +                       memcpy_toio(vaddr + offset, buffer, trunk);
-> +               len -=3D trunk;
-> +               paddr +=3D trunk;
-> +               buffer +=3D trunk;
-> +               ghes_unmap(vaddr, fixmap_idx);
-> +       }
-> +}
-> +
-> +/* Check the top-level record header has an appropriate size. */
-> +int __ghes_check_estatus(struct ghes *ghes,
-> +                               struct acpi_hest_generic_status *estatus)
-> +{
-> +       u32 len =3D cper_estatus_len(estatus);
-> +       u32 max_len =3D min(ghes->generic->error_block_length,
-> +                         ghes->estatus_length);
-> +
-> +       if (len < sizeof(*estatus)) {
-> +               pr_warn_ratelimited(FW_WARN GHES_PFX "Truncated error sta=
-tus block!\n");
-> +               return -EIO;
-> +       }
-> +
-> +       if (!len || len > max_len) {
-> +               pr_warn_ratelimited(FW_WARN GHES_PFX "Invalid error statu=
-s block length!\n");
-> +               return -EIO;
-> +       }
-> +
-> +       if (cper_estatus_check_header(estatus)) {
-> +               pr_warn_ratelimited(FW_WARN GHES_PFX "Invalid CPER header=
-!\n");
-> +               return -EIO;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +/* Read the CPER block, returning its address, and header in estatus. */
-> +int __ghes_peek_estatus(struct ghes *ghes,
-> +                              struct acpi_hest_generic_status *estatus,
-> +                              u64 *buf_paddr, enum fixed_addresses fixma=
-p_idx)
-> +{
-> +       struct acpi_hest_generic *g =3D ghes->generic;
-> +       int rc;
-> +
-> +       rc =3D apei_read(buf_paddr, &g->error_status_address);
-> +       if (rc) {
-> +               *buf_paddr =3D 0;
-> +               pr_warn_ratelimited(FW_WARN GHES_PFX
-> +"Failed to read error status block address for hardware error source: %d=
-.\n",
-> +                                  g->header.source_id);
-> +               return -EIO;
-> +       }
-> +       if (!*buf_paddr)
-> +               return -ENOENT;
-> +
-> +       ghes_copy_tofrom_phys(estatus, *buf_paddr, sizeof(*estatus), 1,
-> +                             fixmap_idx);
-> +       if (!estatus->block_status) {
-> +               *buf_paddr =3D 0;
-> +               return -ENOENT;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
-> +                              u64 buf_paddr, enum fixed_addresses fixmap=
-_idx,
-> +                              size_t buf_len)
-> +{
-> +       ghes_copy_tofrom_phys(estatus, buf_paddr, buf_len, 1, fixmap_idx)=
-;
-> +       if (cper_estatus_check(estatus)) {
-> +               pr_warn_ratelimited(FW_WARN GHES_PFX
-> +                                   "Failed to read error status block!\n=
-");
-> +               return -EIO;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +int ghes_read_estatus(struct ghes *ghes,
-> +                            struct acpi_hest_generic_status *estatus,
-> +                            u64 *buf_paddr, enum fixed_addresses fixmap_=
-idx)
-> +{
-> +       int rc;
-> +
-> +       rc =3D __ghes_peek_estatus(ghes, estatus, buf_paddr, fixmap_idx);
-> +       if (rc)
-> +               return rc;
-> +
-> +       rc =3D __ghes_check_estatus(ghes, estatus);
-> +       if (rc)
-> +               return rc;
-> +
-> +       return __ghes_read_estatus(estatus, *buf_paddr, fixmap_idx,
-> +                                  cper_estatus_len(estatus));
-> +}
-> +
-> +void ghes_clear_estatus(struct ghes *ghes,
-> +                              struct acpi_hest_generic_status *estatus,
-> +                              u64 buf_paddr, enum fixed_addresses fixmap=
-_idx)
-> +{
-> +       estatus->block_status =3D 0;
-> +
-> +       if (!buf_paddr)
-> +               return;
-> +
-> +       ghes_copy_tofrom_phys(estatus, buf_paddr,
-> +                             sizeof(estatus->block_status), 0,
-> +                             fixmap_idx);
-> +
-> +       /*
-> +        * GHESv2 type HEST entries introduce support for error acknowled=
-gment,
-> +        * so only acknowledge the error if this support is present.
-> +        */
-> +       if (is_hest_type_generic_v2(ghes))
-> +               ghes_ack_error(ghes->generic_v2);
-> +}
-> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
-> index 2597fbadc4f3..2e3919f0c3e7 100644
-> --- a/include/acpi/ghes_cper.h
-> +++ b/include/acpi/ghes_cper.h
-> @@ -74,21 +74,21 @@ struct ghes_vendor_record_entry {
->         char vendor_record[];
->  };
->
-
-ditto. "include/acpi/cper.h"
-
-> -static struct ghes *ghes_new(struct acpi_hest_generic *generic);
-> -static void ghes_fini(struct ghes *ghes);
-> +struct ghes *ghes_new(struct acpi_hest_generic *generic);
-> +void ghes_fini(struct ghes *ghes);
->
-> -static int ghes_read_estatus(struct ghes *ghes,
-> +int ghes_read_estatus(struct ghes *ghes,
->                       struct acpi_hest_generic_status *estatus,
->                       u64 *buf_paddr, enum fixed_addresses fixmap_idx);
-> -static void ghes_clear_estatus(struct ghes *ghes,
-> +void ghes_clear_estatus(struct ghes *ghes,
->                         struct acpi_hest_generic_status *estatus,
->                         u64 buf_paddr, enum fixed_addresses fixmap_idx);
-> -static int __ghes_peek_estatus(struct ghes *ghes,
-> +int __ghes_peek_estatus(struct ghes *ghes,
->                         struct acpi_hest_generic_status *estatus,
->                         u64 *buf_paddr, enum fixed_addresses fixmap_idx);
-> -static int __ghes_check_estatus(struct ghes *ghes,
-> +int __ghes_check_estatus(struct ghes *ghes,
->                          struct acpi_hest_generic_status *estatus);
-> -static int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
-> +int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
->                         u64 buf_paddr, enum fixed_addresses fixmap_idx,
->                         size_t buf_len);
->
->
-> --
-> 2.43.0
->
->
 
