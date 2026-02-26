@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2810DFD8FF4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA7ECFD8FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qwEftJ0NcmMJLtU/aiqGwUqPRTnTId50gEy3oxHoSu0=; b=K4Np80X3RgHTmUc36JE63JA5x6
-	oyZ0dTP3JJ6n5dz6a57csBehTkY5eiYFC0U94YeXLhuQcMzalVfRxdjnAFvpsXZuxRoaCj/iPKf/Z
-	fUtxEb3cl6V83kquxPP6OfNhZZ3pKG/ZUdhA05sX4ZWiKixWOp+ugT/qSuuvKtjwE9c+cd86AEWVU
-	DAHuiixarVoHbebmWFoc/VEdAe9afnlLuLGYeqBN3VgvReP2xPZx7PLcMEmucyxxLwUtnEOFQ6ZkU
-	pfs1RC3YVbE8YdFv1Cm9o6PqjjlzKf0zMK8W3r4kxQtSAxjmz8lg0ii/4FSYk1ooWd+/oI0noG+29
-	NbTsg96w==;
+	bh=K4rF/X8aea67hZOXMT+UYba+SqW5LVeTU8PgivEoaeo=; b=iIOoOwNU2wyzcrRu85oaj8IUx5
+	wiyeIhDXzQr6iQJr0644+xHPHGoE08+6w6kaQH/uM36mWwBr+qK3pZ5iutJCt2oPl6VREf+bhKL93
+	HcEWiO461TUxfwUmMkM30ij3nPUXhtzu1zP53Lxys5ZSmymEvuuEsZ/JkC3ydvosvqKH24Q+pcr+N
+	a9pZCatuMBlGRrYNAFi+7kJgSPTXDXsEPQ+MNCzK8EBtt7L86pSVR8zpvH7mzOcROu+jFHoKPX5Al
+	rO+zNUzdroFkjzXPrgfl19+g3/4hhplPAjjtkcm0Ijuuqer/+S/VNFvBkWBi/ERVmOtgbbiprtVnD
+	tMrUsfAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvg37-00000006xW2-2W5C;
-	Thu, 26 Feb 2026 18:25:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvg6M-00000006xom-2OpK;
+	Thu, 26 Feb 2026 18:28:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvg36-00000006xVm-23q3
+	id 1vvg6K-00000006xoN-2LkF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 18:25:20 +0000
+	Thu, 26 Feb 2026 18:28:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C4716013A;
-	Thu, 26 Feb 2026 18:25:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFC77C116C6;
-	Thu, 26 Feb 2026 18:25:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CFC8944455;
+	Thu, 26 Feb 2026 18:28:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0C55C116C6;
+	Thu, 26 Feb 2026 18:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772130319;
-	bh=jfMff4Gl6e4MBoQvWfFtpIMIZ+n9o8V8+kADuSP57iw=;
+	s=k20201202; t=1772130519;
+	bh=oeZrAgJFMwqGZHSjk5nZ3zbz2F6r/nSnzcy3tZ0eXY8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NOwhH9egiNcn+t7MqkfmuYBcFV91Tw8sbA3d7EinxbrxVe3N7i6KNwIblL2NP7Azm
-	 5bdy0mgPas/gv4JdSL1aSqAyNsw/7fmHEDRYem6myikiwWFyp47uSHhJb8Mik/FUld
-	 1KzshbwFSi7WCZSSVH6OoBGFxVYJck305FoIw7eqbbRbkjYVas73i2gZoe6okP2TPT
-	 uTH1Z0H1dzgDogMAadc447coWUa9UItt8Ar16QaYfAZH/MSR7yAG0EowuRr0WMWVXw
-	 rXaAXEy6TCH1RfY1AhJs9S3hPNUXGB81GYkeD4IYD4lL6QWSSNtKxmDcSr9eAqFKK0
-	 KtFEx+n/2GQIQ==
-Date: Thu, 26 Feb 2026 18:25:14 +0000
+	b=s8/1orjP1X94HWjRzto4h4vmRPu2QG8g68OkYZOh24/S+GensgXNzGqQ29TavR1ib
+	 9aICWL1knlGq7TcrGD93EPt0C2UHmvYu2/wEmEHh+CUqbKh6pYCzxAX1OZPKBIz/57
+	 Q+WW2p+w151zgGRO9zQVB8poh/U4D4TyydM+M9lZ0YTlw8WPxypZlPkLJh1FZC7Ii0
+	 m1izZdv36Z4ZK28DAFU/SoRJySegWXfkIllPjpTnuEkvuBfVbpAK0GDRfBqFmjPkdk
+	 NjoPr5QZ6xl6x2TdLVE2FPGR9yMZECx5wosnswAtSkx5mxQtcuXYpAW13fVMqope4i
+	 1uMzB6mmLBL2Q==
+Date: Thu, 26 Feb 2026 18:28:32 +0000
 From: Will Deacon <will@kernel.org>
-To: syzbot <syzbot+b29d18a34746f34c94cc@syzkaller.appspotmail.com>
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com,
-	maz@kernel.org
-Subject: Re: [syzbot] [arm?] BUG: using __this_cpu_read() in preemptible code
- in __delay
-Message-ID: <aaCQCnM9eaBK_ON0@willie-the-truck>
-References: <69a06135.050a0220.305b49.0024.GAE@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Jakub Sitnicki <jakub@cloudflare.com>,
+	Jean-Philippe Brucker <jpb@kernel.org>
+Subject: Re: [PATCH v3] arm64: bpf: Force 8-byte alignment for JIT buffer to
+ prevent atomic tearing
+Message-ID: <aaCQ0M9h1QfCPKGb@willie-the-truck>
+References: <8b7050b7-f2ad-4237-890c-76fc13dc0189@huaweicloud.com>
+ <20260226075525.233321-1-tabba@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <69a06135.050a0220.305b49.0024.GAE@google.com>
+In-Reply-To: <20260226075525.233321-1-tabba@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260226_102840_637329_EDB8E0DE 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,51 +86,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 07:05:25AM -0800, syzbot wrote:
-> syzbot found the following issue on:
+On Thu, Feb 26, 2026 at 07:55:25AM +0000, Fuad Tabba wrote:
+> struct bpf_plt contains a u64 target field. Currently, the BPF JIT
+> allocator requests an alignment of 4 bytes (sizeof(u32)) for the JIT
+> buffer.
 > 
-> HEAD commit:    32a92f8c8932 Convert more 'alloc_obj' cases to default GFP..
-> git tree:       upstream
-> console output: https://syzkaller.appspot.com/x/log.txt?x=1019fc02580000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=b77d736d2f4fe1b1
-> dashboard link: https://syzkaller.appspot.com/bug?extid=b29d18a34746f34c94cc
-> compiler:       aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
-> userspace arch: arm64
+> Because the base address of the JIT buffer can be 4-byte aligned (e.g.,
+> ending in 0x4 or 0xc), the relative padding logic in build_plt() fails
+> to ensure that target lands on an 8-byte boundary.
 > 
-> Unfortunately, I don't have any reproducer for this issue yet.
+> This leads to two issues:
+> 1. UBSAN reports misaligned-access warnings when dereferencing the
+>    structure.
+> 2. More critically, target is updated concurrently via WRITE_ONCE() in
+>    bpf_arch_text_poke() while the JIT'd code executes ldr. On arm64,
+>    64-bit loads/stores are only guaranteed to be single-copy atomic if
+>    they are 64-bit aligned. A misaligned target risks a torn read,
+>    causing the JIT to jump to a corrupted address.
 > 
-> Downloadable assets:
-> disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-32a92f8c.raw.xz
-> vmlinux: https://storage.googleapis.com/syzbot-assets/aabf4d7d9d6a/vmlinux-32a92f8c.xz
-> kernel image: https://storage.googleapis.com/syzbot-assets/0367e274b699/Image-32a92f8c.gz.xz
+> Fix this by increasing the allocation alignment requirement to 8 bytes
+> (sizeof(u64)) in bpf_jit_binary_pack_alloc(). This anchors the base of
+> the JIT buffer to an 8-byte boundary, allowing the relative padding math
+> in build_plt() to correctly align the target field.
 > 
-> IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> Reported-by: syzbot+b29d18a34746f34c94cc@syzkaller.appspotmail.com
+> Fixes: b2ad54e1533e ("bpf, arm64: Implement bpf_arch_text_poke() for arm64")
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  arch/arm64/net/bpf_jit_comp.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> BUG: using __this_cpu_read() in preemptible [00000000] code: syz.0.1012/5537
-> caller is __this_cpu_preempt_check+0x20/0x40 lib/smp_processor_id.c:64
-> CPU: 0 UID: 0 PID: 5537 Comm: syz.0.1012 Tainted: G             L      syzkaller #0 PREEMPT 
-> Tainted: [L]=SOFTLOCKUP
-> Hardware name: linux,dummy-virt (DT)
-> Call trace:
->  show_stack+0x18/0x24 arch/arm64/kernel/stacktrace.c:499 (C)
->  __dump_stack lib/dump_stack.c:94 [inline]
->  dump_stack_lvl+0x7c/0xb0 lib/dump_stack.c:120
->  dump_stack+0x1c/0x28 lib/dump_stack.c:129
->  check_preemption_disabled+0xe0/0xe8 lib/smp_processor_id.c:47
->  __this_cpu_preempt_check+0x20/0x40 lib/smp_processor_id.c:64
->  __arch_counter_get_cntvct_stable arch/arm64/include/asm/arch_timer.h:195 [inline]
->  __delay+0x40/0x374 arch/arm64/lib/delay.c:39
->  __const_udelay+0x48/0x64 arch/arm64/lib/delay.c:66
->  udelay include/asm-generic/delay.h:62 [inline]
+> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+> index 356d33c7a4ae..adf84962d579 100644
+> --- a/arch/arm64/net/bpf_jit_comp.c
+> +++ b/arch/arm64/net/bpf_jit_comp.c
+> @@ -2119,7 +2119,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+>  	extable_offset = round_up(prog_size + PLT_TARGET_SIZE, extable_align);
+>  	image_size = extable_offset + extable_size;
+>  	ro_header = bpf_jit_binary_pack_alloc(image_size, &ro_image_ptr,
+> -					      sizeof(u32), &header, &image_ptr,
+> +					      sizeof(u64), &header, &image_ptr,
+>  					      jit_fill_hole);
+>  	if (!ro_header) {
+>  		prog = orig_prog;
 
-This should be fixed by the first patch in this series:
-
-https://lore.kernel.org/r/20260226082234.26707-1-maz@kernel.org
-
-I'll queue that today.
+Acked-by: Will Deacon <will@kernel.org>
 
 Will
-
-#syz fix: arm64: Fix sampling the "stable" virtual counter in preemptible section
 
