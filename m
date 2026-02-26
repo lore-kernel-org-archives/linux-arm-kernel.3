@@ -4,75 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BC0FD9E14
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 21:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54847FD9E1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 21:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fpFL8gAw4IAHZejDMtFioFGSH6+h+EUQlY1TRzKiVrk=; b=iBu1ASFTwpjNJstYP4vWZvSQVS
-	3bwnuWg4pr71IiAmik+V2IB9isNZc+0ZGHx/iwKzIRy5EvKnA4cmNdgj06Lo4WliJyJiZNruFUXVR
-	5EmxTC1KEVI8A6D4NCYTaLRodLF+JOrtr1Xg/Xzq67JdInBuQMUH+jWFTwLkuKMpK2/kUBAit6Yjr
-	EcSTNm2+yfv2/87fMDhMAAfsepEIL/ltgRmGYK//LDkY81obluLMvHZYPbSXqvon9zECzqksouO9N
-	QbFdaMurJ6yzJ9/2uEsXMm1wpjlg+xTKmFJtjeyYrNvr248qQioIl6beLDM4PEzE0SCoz54Vrevc4
-	gGGVlRQQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dsCRG0iMNmW9L8aiB7Z8unJe03vgR5EOjM6cSyXzpw8=; b=2wjuX0zGb985Y7QU812TQpzMNF
+	M4oGWXFdHp5vu2XX82v4eAl7dIs71nSguTbc82EPzaZbs3+fcf4sDx+peTJ7Goqqa7gWpQSRmyzvd
+	Qzla4R9dMOJyBPM0GufORnkgfMBr7MmcRHFWUI2hNPxSw197BTy4J+bhRcoAz0CU+HeqOXHrR+n7c
+	h0uIDkcweLreQG8/OLpq+R0P9m/SycFpwxpiHdOxZP/0fkim6I182d89x3hyqhvgB6XpLToCym7Fm
+	px6kq4EusyjkS5cX9D2xRLWMP9n6q5AJLyzFOIyMgZIJYN38heBadnWs+ELN1T6+gesuuE4Qq7s2x
+	pj7r4tjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvjAn-00000007GLx-0QTB;
-	Thu, 26 Feb 2026 21:45:29 +0000
-Received: from mailgate02.uberspace.is ([2a00:d0c0:200:0:1c7b:a6ff:fee0:8ea4])
+	id 1vvjFF-00000007GkD-2oXs;
+	Thu, 26 Feb 2026 21:50:05 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvjAj-00000007GKk-3B1e
+	id 1vvjFD-00000007GjR-3a31
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 21:45:28 +0000
-Received: from perseus.uberspace.de (perseus.uberspace.de [95.143.172.134])
-	by mailgate02.uberspace.is (Postfix) with ESMTPS id 156F718015F
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 22:45:10 +0100 (CET)
-Received: (qmail 6313 invoked by uid 988); 26 Feb 2026 21:45:08 -0000
-Authentication-Results: perseus.uberspace.de;
-	auth=pass (plain)
-Received: from unknown (HELO unkown) (::1)
-	by perseus.uberspace.de (Haraka/3.1.1) with ESMTPSA; Thu, 26 Feb 2026 22:45:07 +0100
-From: David Bauer <mail@david-bauer.net>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] wifi: mt76: mt7915: add debug query from WA firmware
-Date: Thu, 26 Feb 2026 22:45:00 +0100
-Message-ID: <20260226214502.2561168-1-mail@david-bauer.net>
-X-Mailer: git-send-email 2.51.0
+	Thu, 26 Feb 2026 21:50:04 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ade574f05eso9516155ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 13:50:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772142602; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PdcZaXSPrC3Yo8QkAgC1eHlPdCRHlCXgJabmzqgKJxdMUhTFbHr3qE1jNeolPfhse0
+         U1cC2FTrdKYkeOoZ4EgAPhVHcBUKFR87KUjqN61F1KXJSSi4L+dDcCOzSuGoWySeM2Lv
+         g7VNwdDFCInE1PLils4lgSkybqdqnGZ4nLaHAShc/uXABjoz1KU31NzvNRThCMAn/8dn
+         w5CGLJz4yShlMlH/oQuOwmo5AOO9NpiB2LJfMUvGK50npr3bpoC5qRuTnDElpz4YG/NY
+         BFPX44IF6RqDLbvxYXkcIrtNQgXw1VH5EubGP/8xnclpArLjcuRXsUnnr2xASIDtXlrm
+         oWXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=dsCRG0iMNmW9L8aiB7Z8unJe03vgR5EOjM6cSyXzpw8=;
+        fh=L8OlLxYcyN5mOmO5tqxCnxxWPW1ZG69gApxFBvHa/RQ=;
+        b=OzS66sp9i+XqkCzKI7oVpX3WKm2aC8lt56VkiJzfSBPE3JMMwnFC2psQ5Li/Sj0Zl+
+         InyUWQ7jQkKCIGqKEIoWg2MBnTkmJ8wJoyygjbrFZi51PgzJqZbdgGwBcGplwjq1/eaS
+         3VboAWneif4a22SgjK2IrTkThBfh28UTLRuD7sDvLO6X+emjx7+F9UNcHO20asLbDfFv
+         IpI8qzRhK+fa6SyM5YD0ylYrMaHCH1Rlo+zv668VQtXMEKpwi46OmfsP1tuWKAc6ocbx
+         yIcRCp/eSlZUEvCaheDTwrN5Fodrix0polAYVSgN2wRHY2fijCiE6Kk5VnOYe80zP51M
+         AJ1w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1772142602; x=1772747402; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dsCRG0iMNmW9L8aiB7Z8unJe03vgR5EOjM6cSyXzpw8=;
+        b=i42YbUO9XCR9g52rXGRn9xuudOWZBCeHpn4e4rucSkMeoc6kHPLS+sn4OKo/dARgco
+         7ChuzrJQHfUERD1+61QV5NuQt4BiVYhykPKEUvSZHe6E+5Jp1YjugY6SdTjJICAP/V5v
+         F9bUclCIKv4afAdI1eFXZmMbtqM7iVJap0YmwyORAledqQkpSdYnDkE1y8ZUHDH1ZMwo
+         spRthGYMDskpZNHnJNPXnZIlyEsWatvM2iPXf/PQRg3ohhVZu0/p8hl9J1tGVsnc+c7J
+         0iYNT40RVi7RvVnQkfG7huoe4W0x7vwvSQYcXp3UIQHKIYThMd90iz5fK4GCaO7ezJFG
+         VpqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772142602; x=1772747402;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=dsCRG0iMNmW9L8aiB7Z8unJe03vgR5EOjM6cSyXzpw8=;
+        b=LtZJux0P1NnMsaQxl97z+s+rmDmNSPMflFgltI07PrMTeMhYpjcsGJY/321dhc1LSh
+         vvT37wSkL4phBuIxddZdTVLZruZQoZ8UaPneCzh+84tN4BW3Ib1gVZ4GG7N8SLTt2NL8
+         vtbMN7g5YBcicSCShrTa2FYTHhoItjyDbZcNvMh6Q1vAKzEoXSBECL4ml+94W919DMAN
+         JSwRl6iqiIwVYZ0K4rVIKEF3eKHs3jh3MG1SkFM5jrCbxlQjzczqxEF/hQbVGvsNmndm
+         gmggpLQ6HNKhzFOuuwvILC1aY2ldAf9/vs37h0ZOroe9JT4zt/Oc4icje0v4Hrn2gUyU
+         dKfw==
+X-Forwarded-Encrypted: i=1; AJvYcCUu7EXfp3vnlztmFXAb6s5xabgRxSlbi5URqTok/2vNmeQ74AAK68Lp1yxgisRsTiNBNjaEORvquPL+z75w7GCL@lists.infradead.org
+X-Gm-Message-State: AOJu0YysjQfB8qe8lBuJUyTdw3AlQl576lpOMLJv98TvW1mNWNkHsLDd
+	AG7B2fSua0DPuQhqL1kPbC4YsODqMtXYPLYIKQ6x79vGBdFY4el2tiIpiiAoNHCn7R/yUxNUCt0
+	1q+22td9RkKsat5glO32Q7z5siWo39n4=
+X-Gm-Gg: ATEYQzy/s1YGzjA2UPx5/DDmb+HU7UwY8tensvuyORVZKO1FASkRIchXZf4rR/FyHEM
+	xajWSeWaPQonUMnWBi3sV0MGt9mzvallLOYFs0fjblS/t1ThCDJL7jTQK5N/6CVL+bWotUi7G2e
+	UaPzm8sPafCh0VqFus5A/9NGR6J+tSTuMUflllTApyvtGAwrp8uECCOuIGiNb4klN3owg+Vkax7
+	q3D55YRiHC70M/E5/8wgJVrgMdV6ya5vYlEmQtZ/B56GmaWTjFtAx7DY0FF98If8xZEZMTmGYVz
+	r5oCmPnla4KeRvWcX4bQJNWqKEKm2Ecyppd/pixW
+X-Received: by 2002:a17:902:e849:b0:2aa:de68:98c1 with SMTP id
+ d9443c01a7336-2ae2e47df0cmr4513215ad.26.1772142602187; Thu, 26 Feb 2026
+ 13:50:02 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Bar: /
-X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-2.999999) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
-X-Rspamd-Score: -0.099999
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=david-bauer.net; s=uberspace;
-	h=from:to:cc:subject:date;
-	bh=7k4vYrbJ6xrpxAjo9hJNkIdxQq6FFLUNTmda5XOMLE0=;
-	b=v0EcSVJyA3j4V41/5QzOj4WBK9JMFD9bud0Fewr2BKZ1XkNJUPXyPZ7rl9x44lt0ouI5GhVCKx
-	JPV9YEaiQggB72quWuW33gzsZ5ZQdturHuYScCFFVXJyDVRRBjeWzmXj9MSxqBzRJOVuBcvdNE5S
-	2dTgcMSnS/maZWYSHje+aVwSnynuyPazCqkzoaQctsoJd61gdO/ohKKLnNxKFNGOkoBcP/CgwPve
-	GoIVhkzzv7nxBcNxhserfT9BuQJT5FwSR3T0/2GoNyjO7FuOJv+JxGmDKxNMTzayTuqzO8Ca3XWt
-	speoY+nQoVPT4xHtZIsyOeS+aFNX2KYA9+STP5mWvYqvGIiZpJwz9rStNC7oyW4wLnX63/Z6ncAA
-	cpYP5Q48OktQd+KTpXy8LWEamMaakSdG6+U6GpP4l/WqdePWxGhZCNu0svynKJtRQijkfxN7nOen
-	Ox0abD9a5k6fgw9uhwuLCC7Z97IKzeHyGsXny/x06nDq+ol5+Kx5j4dVAaQG0lMdapDrp1LL2obO
-	3RdW+a1iVLRBnrdl8Ql+PhotOry6hJ1E4lBAioLWfGqS3SkFeOi6aNxQK7D88Ym8QpevC0nkwtW+
-	S3AfEFLE0NmdxZoQMkz8SstnuEmTEFKbPdR/uL2L5AFqBY9hrD67KVzOanY9VyM6fHe3sesfmDtq
-	M=
+References: <20260123022258.136448-1-nick@khadas.com> <20260123022258.136448-6-nick@khadas.com>
+In-Reply-To: <20260123022258.136448-6-nick@khadas.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Thu, 26 Feb 2026 22:49:51 +0100
+X-Gm-Features: AaiRm52EfSMFA2O8jNHHtEJKIVvMNtNK2XUKbtJkKO0CR4bhD1JcrnoKD6-Fiww
+Message-ID: <CAFBinCB0MhXUb635Pe8mth74H7wkpHZbEFoFqbgFLw_yRQ_A=g@mail.gmail.com>
+Subject: Re: [PATCH 5/6] arm64: dts: amlogic: meson-s4: add internal SARADC controller
+To: Nick Xie <nick@khadas.com>
+Cc: neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org, xieqinick@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_134526_234220_BE10B963 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20260226_135003_886001_5126265B 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,117 +118,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new file to the mt76 debugfs to allow querying internal state
-information from the WA firmware.
+Hi Nick,
 
-This allows to extract more information from the internal queue
-structures and configured limits.
+On Fri, Jan 23, 2026 at 3:23=E2=80=AFAM Nick Xie <nick@khadas.com> wrote:
+[...]
+> +       saradc: adc@fe026000 {
+> +               compatible =3D "amlogic,meson-g12a-saradc",
+> +                            "amlogic,meson-saradc";
+It seems that the engineers at Amlogic are constantly updating the SARADC c=
+ore.
+To avoid any problems in the future, can you please add a new
+compatible string for the s4-saradc?
+For reference you can take a look at:
+- commit e415a1659ec9 ("iio: adc: meson-saradc: add support for Meson
+G12A") which added the g12a compatible string to the driver (note that
+meson_sar_adc_gxl_param since then has been replaced by
+meson_sar_adc_g12a_param - you can re-use the latter)
+- commit b2729cdf2bc0 ("dt-bindings: iio: adc: amlogic,meson-saradc:
+Add GXLX SoC compatible") which documented a new compatible string in
+the dt-bindings
 
-Signed-off-by: David Bauer <mail@david-bauer.net>
----
- .../wireless/mediatek/mt76/mt7915/debugfs.c   | 81 +++++++++++++++++++
- 1 file changed, 81 insertions(+)
+I think it is best to do this in a separate series.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c b/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c
-index 26ed3745af43e..018b1c70b524b 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c
-@@ -603,6 +603,86 @@ mt7915_fw_debug_wa_get(void *data, u64 *val)
- DEFINE_DEBUGFS_ATTRIBUTE(fops_fw_debug_wa, mt7915_fw_debug_wa_get,
- 			 mt7915_fw_debug_wa_set, "%lld\n");
- 
-+struct {
-+	u8 idx;
-+	u8 query_cmd;
-+	char *description;
-+} mt7915_fw_wa_debug_query[] = {
-+	{ 0, 0x16, "MSDU drop info" },
-+	{ 1, 0x17, "AC queue tail drop" },
-+	{ 2, 0x19, "TX Free info" },
-+	{ 3, 0x20, "BSS Table" },
-+	{ 4, 0x21, "STA records" },
-+};
-+
-+static ssize_t
-+mt7915_fw_query_wa_set(struct file *file, const char __user *user_buf,
-+		       size_t count, loff_t *ppos)
-+{
-+	struct mt7915_phy *phy = file->private_data;
-+	struct mt7915_dev *dev = phy->dev;
-+	char buf[16];
-+	u16 val;
-+
-+	if (count >= sizeof(buf))
-+		return -EINVAL;
-+
-+	if (copy_from_user(buf, user_buf, count))
-+		return -EFAULT;
-+
-+	if (count && buf[count - 1] == '\n')
-+		buf[count - 1] = '\0';
-+	else
-+		buf[count] = '\0';
-+
-+	if (kstrtou16(buf, 0, &val))
-+		return -EINVAL;
-+
-+	for (int i = 0; i < ARRAY_SIZE(mt7915_fw_wa_debug_query); i++) {
-+		if (val != mt7915_fw_wa_debug_query[i].idx)
-+			continue;
-+
-+		mt7915_mcu_wa_cmd(dev, MCU_WA_PARAM_CMD(QUERY),
-+				  mt7915_fw_wa_debug_query[i].query_cmd,
-+				  0, 0);
-+		return count;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static ssize_t
-+mt7915_fw_query_wa_get(struct file *file, char __user *user_buf,
-+		       size_t count, loff_t *ppos)
-+{
-+	static const size_t bufsz = 1024;
-+	ssize_t ret;
-+	char *buff;
-+	int desc = 0;
-+	int i;
-+
-+	buff = kmalloc(bufsz, GFP_KERNEL);
-+	if (!buff)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < ARRAY_SIZE(mt7915_fw_wa_debug_query); i++) {
-+		desc += scnprintf(buff + desc, bufsz - desc,
-+				  "%d: %s\n", mt7915_fw_wa_debug_query[i].idx,
-+				  mt7915_fw_wa_debug_query[i].description);
-+	}
-+
-+	ret = simple_read_from_buffer(user_buf, count, ppos, buff, desc);
-+	kfree(buff);
-+	return ret;
-+}
-+
-+static const struct file_operations fw_query_wa_fops = {
-+	.write = mt7915_fw_query_wa_set,
-+	.read = mt7915_fw_query_wa_get,
-+	.open = simple_open,
-+	.llseek = default_llseek,
-+};
-+
- static struct dentry *
- create_buf_file_cb(const char *filename, struct dentry *parent, umode_t mode,
- 		   struct rchan_buf *buf, int *is_global)
-@@ -1310,6 +1390,7 @@ int mt7915_init_debugfs(struct mt7915_phy *phy)
- 			    &mt7915_sys_recovery_ops);
- 	debugfs_create_file("fw_debug_wm", 0600, dir, dev, &fops_fw_debug_wm);
- 	debugfs_create_file("fw_debug_wa", 0600, dir, dev, &fops_fw_debug_wa);
-+	debugfs_create_file("fw_query_wa", 0600, dir, dev, &fw_query_wa_fops);
- 	debugfs_create_file("fw_debug_bin", 0600, dir, dev, &fops_fw_debug_bin);
- 	debugfs_create_file("fw_util_wm", 0400, dir, dev,
- 			    &mt7915_fw_util_wm_fops);
--- 
-2.51.0
+In case we discover anything that needs changing in the SARADC driver in fu=
+ture:
+Having a dedicated compatible string means we can just update the
+driver and be done with it.
+One example where this has happened for G12A is commit 48dc1abde015
+("iio: adc: meson-saradc: Disable BL30 integration on G12A and newer
+SoCs").
 
+
+Thank you!
+Martin
 
