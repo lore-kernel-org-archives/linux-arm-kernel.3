@@ -4,117 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A01C1FD8FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA73FD8FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fk8NLlHkhD53dIXYV85RoJYZP852rCqMTPf3HuiPxuc=; b=ngqUwbrmIU+IdlRvLbWISMGby4
-	cRJSmlZfSXWIUJkl8yj7xny4qCJgRCbWgF1/bzfSbQzxjR/mSLo3MLmD2xqBKpNAS9x6I1N1sBfH8
-	tJVWt6+wSM9vN9v9U8eYEnnrMj21BnlLJJi8I32IfTIYI67dMZaAlmWK/12Sa1BtbUKEDJIhyH/PF
-	Wj5Q2fBcK8Nimr0c9ASU5R7anCwZITPPP+r5YZk2Kpf01WJGscBWqM/szVKUGQpdZa+gWLMMtrzHn
-	nICczQ8hC0kPemRIs/h0+5PA6XHr4FoA1qzFP4bZfyY0Dcup9Sc10viHH4KLDYzoBc2HkyZzBpQjc
-	aJun6QFA==;
+	bh=3OtTVwfI5EdoTQbhG5XRtDZZgaRr1Iijt9vnK29bd14=; b=z5Zj/JNuWZkKuOTm9Lr7X1jAgT
+	vYEW13Fvf+ljgFkq1NIcvsZbij+mWtaFiEFAv3dniVIxab0XqkzhHbd3fSETBPWc+Qwy2a6RI3jSp
+	F4Ri5ejrnja6z1sBTL5bUkBifHh+TFByt2cQJuNBvJp1IxU4s/CpCYQM/MEPvoRMd3YnIPEZ4KAD6
+	T/5jqphSxW/wtuBz7EZuKc01928dzKrR+tm75HcoDclThReVHDBTRBaoN/F3o8pEMmMBNbxal0gij
+	9Ska5+A8h73WrTu32hDeD1y0wgTRZ+ignDywB7e/xCx7D7jpwah8ljqT1o50NeiHfp/OZtCIirr42
+	XdLnEdng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vveVu-00000006lda-2b90;
-	Thu, 26 Feb 2026 16:46:58 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vveX5-00000006llk-02Ac;
+	Thu, 26 Feb 2026 16:48:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vveVs-00000006ld0-14wW
+	id 1vveX2-00000006llO-3kgV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 16:46:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MJ2Ki30V0warTyPW49wi2ku4eiHqHPtx+mXNvgaLM+Hy2llTv4DsnWuUhayO/Ile4jwbbSpQLJMrEvDmNixdN6anPwEO6/u8FGLWjMk07mIzwGDeAQh+QrXyIrbLle1NJMHmpXVy7O5a7OKth4dT4Xotqv/xmXEcZAVLqyLoy4d72qynSLx7PH+N9yNqKwZ27ZNkImvxh140seYSDLHja4E48DCgXKMeVK/B+Ot84cr0fO11ESonb8m4XgFStEl04yAOqadjNi1CrqmEdW561t4yvDOLQDkTKrfgKXjFd6yhnCkg4RnqQZvFobswFXTq4MpiHOhFw4KrJBpbymGFtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fk8NLlHkhD53dIXYV85RoJYZP852rCqMTPf3HuiPxuc=;
- b=Pa+oy7cqHkJt6bAGzqvuj99lYZSzViX3m4nUltpdaPZdvqVooSNeedH6kR8na3nu62D5uRM+C1i8yk1dkReJRSHC/HCsvyuHs6d/mgQN/XzmojECFT8BETCAmPsxgg0n0UihKv6WacLJEmIn9k3gaqVJLd8RaOdadBUTSwuNxZDcya1yKyVnROrJuMmXRsPkdhjBuBF7ejAL66xA5UFxghbBbq9ek8nzxia4p8dc8SjNbMC//PVX2eIZtZ8gmn4JZztGzDZP2lyOhwGVSDGf1c8cDBOW/fvS/ozWm1Jl+vVHDfVXT45MkEpwOB4r4aX/b1l+/EKgCHrjwJZ4tsqo4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=mandelbit.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fk8NLlHkhD53dIXYV85RoJYZP852rCqMTPf3HuiPxuc=;
- b=JQ0hWynNvQ9OsW6Zvgfa0JkPB1jV8Gs7krx8e+4TEgxL6QlXIpWGUP2J0FCoGsLD0WHv7hco0sb0o5XhFWGZPmN7rDlVyRRFCfxJE2R6OGoQISD1/VJmz7RJMU98f3xGuF7cJfSGPdG8BJs9t5du7/zelp96fO8XyZPHFx+KdXHrK9RKhlcLcM3TAzddU/4fGx8uj8vD+Nq8lOdmw43gsngreM6/+YPkTf/VFvBvwpEVd1ydv5PMn/k6QQvxBPgjIBO1ip1vjPgXYI5El7DFBccp1k0x1VPc1mw+ZoHhBrpT1QbsFtht/qiy9af93N8S/EUl9aLFrIjIQ0YOs3gNgw==
-Received: from DB3PR08CA0011.eurprd08.prod.outlook.com (2603:10a6:8::24) by
- PR3PR10MB4046.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:a3::19) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.13; Thu, 26 Feb 2026 16:46:49 +0000
-Received: from DU2PEPF00028D0E.eurprd03.prod.outlook.com
- (2603:10a6:8:0:cafe::83) by DB3PR08CA0011.outlook.office365.com
- (2603:10a6:8::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.24 via Frontend Transport; Thu,
- 26 Feb 2026 16:46:51 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DU2PEPF00028D0E.mail.protection.outlook.com (10.167.242.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9611.8 via Frontend Transport; Thu, 26 Feb 2026 16:46:48 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 26 Feb
- 2026 17:48:55 +0100
-Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 26 Feb
- 2026 17:46:47 +0100
-Date: Thu, 26 Feb 2026 17:46:41 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: Antonio Quartulli <antonio@mandelbit.com>
-CC: Mark Brown <broonie@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Clement LE GOFFIC <clement.legoffic@foss.st.com>,
-	<linux-spi@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] spi: stm32: fix missing pointer assignment in case of
- dma chaining
-Message-ID: <aaB4z_A4aTqirDGb@gnbcxd0016.gnb.st.com>
-References: <20260224-spi-stm32-chaining-fix-v1-1-5da7a4851b66@foss.st.com>
- <d14f3943-b97a-4940-95dd-39c6fc240130@mandelbit.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <d14f3943-b97a-4940-95dd-39c6fc240130@mandelbit.com>
-X-Disclaimer: ce message est personnel / this message is private
-X-Originating-IP: [10.130.77.119]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0E:EE_|PR3PR10MB4046:EE_
-X-MS-Office365-Filtering-Correlation-Id: 910a6b22-b5ff-42e9-f7ce-08de7556a2a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: CYXCXb2Mm6NysiS8vrtpDAY1pgSFUvcmwMeKYPepIDybfxQlUW7+2mYu4ivmAGxStztPPT4Ci/NDTJyDpGydbITopBX58RoCemJ5ASeYtBAcfAeBYcyrUOZrhbgnPMndB1xPl5Jfj1Nw15aeA9TujzijODzYhOHy3k99UTkli1+D942cjD4HRtDdppJi+kofw0Bl7tZOTt6gAQlKwepxR65Zb/BMFoD1r2SKMMSTfsNfaCr9SDQw7rn1FdagZ9YwUyPPc2tgqNpVoOzy3xfotrqOZ6gvUGyPEeiWlrmuNQfNguOql7ZGtBhhyxbHDiTvpP1SEcXM2LiDzvpKnHINlIFChIg6kXBkK/wx/gOgkm7jG/onrMe5BWYY8nCYEjH99MrQJ3iADXK4qz5mm1vqh9wIQfKn8apRpSXLLrBunkljr9TNWLWj16Z8gNiG8ujZNMl00+ZbJONtShKLYCfRy0E3WcFNrZYg5BWY+VcaVCUoOTSrk5uQEIDOX9hIBzuDKU08tLBEQOB9xuzxSWfu+oJgjePB+Z8Jbxl2bb3Z0lSn+E4agnbO27FIxpVjeS5FIqMDlsQzwaDXnr29u6QqJasUW5PFC8csJA9PefAggfV9PEdF+MzOfHSESkP3nwGzLwy2baW774fby042jbNva/RJdhWpNC7Sgk+icKCU98IXPJyoiPDQjapf8kEXx2hXggj3fCVtcut2ZVjTY6L0PcjTv9lJeW7yiQ+mEpwKhpRpa5+dq2YTHnuDC2a6W0Ekvk8CLSFyHLu4R/ZnJNCqLd1flZmHpZhybVALxsCq973B7b8R1hTYnb3TxAI6osC4otFrYTplYYNysrhEdu5tqQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: VXTXnRzEh5YfonnSP3HePI9YrWco8hiFotl9GUuUHPnl718nqhWq4ujjyHaX+foXO4ElTymdn4uvwDMg7OwSURK6pix0kl0G1xfn0ZmEmnjvJSnzmEKmQ5ym2Zu/Jw9hgap7kO+DGX6MxJFd9OWdONID8fEjRXJsQRZCiSIRZmoQPdV7jg14UTMjgFjBMu73lVGAwCJZU1L6+04HB6IzpmOirGqrEdzxBcmBlHsCvWoeewqt4RZX4l+g+f89UdjMv1KPhZENFSydlOd+jz4CNLdpt36ayyQw+AqU1cLyjys86Ph3nh5nZ4c8xj1PlBtHglskIgtQIygUJQkdYitVG0st8sM5bWW+5RsyBMp+qD7OmpmJ/diA4eW9o7OHS3oZjgYQGtar5KP747H5WLA8wQnYFi4T4EYL7EQXlqqEJkjSsQqKPracKBWCJdcjMJ3/
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 16:46:48.8251
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 910a6b22-b5ff-42e9-f7ce-08de7556a2a1
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0E.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR10MB4046
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_084656_654338_344781F8 
-X-CRM114-Status: GOOD (  20.62  )
+	Thu, 26 Feb 2026 16:48:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F03BC60122;
+	Thu, 26 Feb 2026 16:48:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A00F1C116C6;
+	Thu, 26 Feb 2026 16:48:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772124487;
+	bh=6IgteOujw4QUNLN0dbDKU2Si6JJRwngrRv4WhbmtUw4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=G04kmmUKEg7YMH7x7NLWpHD2Jy09Ob2y5LjCvy6cuzHVxPEJ9KoHotJUGSIefeZoL
+	 /2QK2CnrvBIPuyf7MOq6SxEdQ+y24Px66I0KF2SECbT3pCcNEuGL1dqkti426dAp3q
+	 KrTNzkD84ZbgsNQTtwI5aWbBWrsBXPeCvLTdBT2GAeK/B0DaSsVvH8OML2p9KRGA4k
+	 du5Fb9Q5It1ZZsuzvKLVQuSUD6xAHB2xSZ/OKTsOYFbIizQVlfKktu6bvxRw1GyRBz
+	 bjTf1+UG/rb2AMVzLIUbUm4Mvas5kW0w+VFMSYn3vz7zjIXvZgYaIqMvTC+fFgkYI3
+	 ekVY1VfzEbGfQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vveWz-0000000E8b8-1lOc;
+	Thu, 26 Feb 2026 16:48:05 +0000
+Date: Thu, 26 Feb 2026 16:48:05 +0000
+Message-ID: <864in3a1tm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>
+Subject: Re: [PATCH 2/3] clocksource/drivers/arm_arch_timer: Expose a direct accessor for the virtual counter
+In-Reply-To: <4ab7b471-a67f-454e-aaf4-9e0b1f0d96e8@arm.com>
+References: <20260226082234.26707-1-maz@kernel.org>
+	<20260226082234.26707-3-maz@kernel.org>
+	<aa607343-9dd8-4e96-a7e3-5937fa084891@arm.com>
+	<4ab7b471-a67f-454e-aaf4-9e0b1f0d96e8@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, linux-arm-kernel@lists.infradead.org, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, daniel.lezcano@linaro.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,53 +86,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Tue, Feb 24, 2026 at 04:25:14PM +0100, Antonio Quartulli wrote:
-> Hi,
+On Thu, 26 Feb 2026 14:03:36 +0000,
+Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> On 24/02/2026 16:09, Alain Volmat wrote:
-> > Commit c4f2c05ab029 ("spi: stm32: fix pointer-to-pointer variables usage")
-> > introduced a regression since dma descriptors generated as part of the
-> > stm32_spi_prepare_rx_dma_mdma_chaining function are not well propagated
-> > to the caller function, leading to mdma-dma chaining being no more
-> > functional.
+> 
+> 
+> On 2/26/26 13:48, Ben Horgan wrote:
+> > Hi Marc,
 > > 
-> > Fixes: c4f2c05ab029 ("spi: stm32: fix pointer-to-pointer variables usage")
-> > Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-> > ---
-> >   drivers/spi/spi-stm32.c | 3 +++
-> >   1 file changed, 3 insertions(+)
+> > On 2/26/26 08:22, Marc Zyngier wrote:
+> >> We allow access to the architected counter via arch_timer_read_counter().
+> >> However, this accessor can either be the virtual or the physical
+> >> view of the counter, depending on how the kernel has been booted.
+> >>
+> >> At the same time, we have some architectural features (such as WFIT,
+> >> WFET) that rely on the virtual counter, and nothing else.
+> >>
+> >> If implementations were perfect, we'd rely on reading CNTVCT_EL0,
+> >> and be done with it. However, we have a bunch of broken implementations
+> >> in the wild, which rely on preemption being disabled and other
+> >> costly workarounds.
+> >>
+> >> In order to provide decent performance on non-broken HW while still
+> >> supporting the legacy horrors, expose arch_timer_read_vcounter() as
+> >> a new helper that hides this complexity.
+> >>
+> >> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> >> ---
+> >>  drivers/clocksource/arm_arch_timer.c | 5 +++++
+> >>  include/clocksource/arm_arch_timer.h | 1 +
+> >>  2 files changed, 6 insertions(+)
+> >>
+> >> diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+> >> index 90aeff44a2764..4e4a62e1c9439 100644
+> >> --- a/drivers/clocksource/arm_arch_timer.c
+> >> +++ b/drivers/clocksource/arm_arch_timer.c
+> >> @@ -137,6 +137,8 @@ static noinstr u64 arch_counter_get_cntvct(void)
+> >>  u64 (*arch_timer_read_counter)(void) __ro_after_init = arch_counter_get_cntvct;
+> >>  EXPORT_SYMBOL_GPL(arch_timer_read_counter);
+> >>  
+> >> +u64 (*arch_timer_read_vcounter)(void) __ro_after_init = arch_counter_get_cntvct;
+> >> +
+> >>  static u64 arch_counter_read(struct clocksource *cs)
+> >>  {
+> >>  	return arch_timer_read_counter();
+> >> @@ -931,6 +933,9 @@ static void __init arch_counter_register(void)
+> >>  	}
+> >>  
+> >>  	arch_timer_read_counter = rd;
+> >> +	arch_timer_read_vcounter = (arch_timer_counter_has_wa() ?
 > > 
-> > diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
-> > index b99de8c4cc99..33f211e159ef 100644
-> > --- a/drivers/spi/spi-stm32.c
-> > +++ b/drivers/spi/spi-stm32.c
-> > @@ -1625,6 +1625,9 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
-> >   		return -EINVAL;
-> >   	}
-> > +	*rx_mdma_desc = _mdma_desc;
-> > +	*rx_dma_desc = _dma_desc;
-> > +
+> > This matches what is done for arch_timer_read_counter but it seems a bit
+> > surprising to me that arch_timer_counter_has_wa() is checking that the
+> > workaround is in use and not whether the workaround should be in use. Do
+> > we need to worry about what happens if the workaround fails to be enabled?
 > 
-> Thanks for catching this!
-> 
-> Indeed my fix lost the pointer-to-pointer logic, which was needed to pass
-> back the computed values.
-> 
-> This patch looks good, but at this point I think you can also remove the
-> lines:
-> 
-> 	_dma_desc = NULL;
-> 
-> in the error paths above? Setting them to NULL makes no sense as they are
-> not going anywhere.
+> Or is the point that if you haven't enabled a relevant workaround then
+> all cores are treated the same and so there is no need to disable
+> preemption?
 
-I agree that those lines can be removed. However my feeling is that this
-is not part of this fix since this is more about removing useless lines.
-If this is ok for you I will propose another patch on top of the current
-one for that purpose and without the Fixes on it.
+There are multiple things at play here:
 
-Regards,
-Alain
+- we cannot fail to enable a workaround. If we find one, we enable it.
+
+- if no workaround are available, then there is no need to disable
+  preemption, because the read of the counter is the same on all CPUs.
+
+However, this code is a bug nest, and I just re-discovered an
+interesting failure mode (boot on a sane CPU, keeping the broken CPUs
+offline, online a broken CPU late, enjoy the fireworks).
+
+Plus the fact that we don't indirect sched_clock(), which means we
+never really enable a workaround if the boot CPU is not affected.
+
+I have a small pile of hacks to address all of this, but I need to
+convince myself that this is actually correct.
+
+Stay tuned...
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
