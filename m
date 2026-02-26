@@ -4,141 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C5CFC592B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E0CFFC592B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wadq2m+FmgXvrzGESbTc/1jxM8gXxmwbUbtOvbfuNBk=; b=VmX+UBPkTzOZricezs05pG0AOb
-	LOvB4r/MmBjf1DdLK8AD8NWfI0eQFkfu+BRtfJ07yL8mQrks1ZJN2WHQ4Z3iiuVTZFP86dJogLlE8
-	T6USo98cNqR9he2eMU7QbtlQv7FUzMsUB7y7tXOfS8HuTU2jddRnfm79kU9SrxEMcKKsusSWSiVD8
-	OHp4XHW53BAv2zknDFJKGtPfbg7E6m27207O6NB6u6QOQYjIGujsRBEy/nJCO4JeWY7IldKEmECfs
-	QHokVFzmWoXcye1QQnrC5PzxWwd1+K5Ccixue0AvjLPC0kMRkCauCUnQlN2J48RGYjpuuH+w+nW5Z
-	HnkRJJbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BWCo0kG96iv+7s5TDWEYgj7Bqm4OdYUx2iwx1W1m2LI=; b=U7MKnduYOHWncZlYqwiJeC8O7S
+	dBANiZyJuVqZLso+gJj/C6chKbUGBHtyZfx/UaggOR/NsmvL00Qj5swEY7kYGzv0h2VqWSD8ws2am
+	ycX4NSzOfxfNQNNsU5jaVvbW5Lw7416F0Nj5uZgdk8RUY9SWDXrUnKTEeXOYTdlemzNjPZFWxMyje
+	XG8sqvoUtgaosS+RK/DCzOpzLtOm7DZTsgl4AItly7oS3gaxyktqaBypteQNR+hzZKpxXQ7ByUOpM
+	+xThMCuWhlhmyPi0nXP5I/aSjUd4qdojULV3SGqpnEvovJ6awlgmgVP4nneTtLdjDWMx7PYLDVuq3
+	+GE5D07Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZ98-00000005ycD-1Etj;
-	Thu, 26 Feb 2026 11:03:06 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vvYa0-00000005uMd-1Lk2;
+	Thu, 26 Feb 2026 10:26:48 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZ94-00000005yZp-2YIt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 11:03:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ryxlqi7qwI48UDvRSOJu+aylWSOxQii+bdiC+gDx2HgbcaVUVxg9ZtZKAiwiHiNZBsAACsOTzlXlsy5fKh+7QPKs0CdVZgFlaPNeq8JPgd5XDIf24tNdCd9ZY7FR4aRwbDPK84/9wI5766Zp36WKhZvZsds+Snkt+OxzfHGo/y9B3/yGKSltOovyoxy/6ODuSbXKVxtdSK/b8ScyBLMHDPCn1miBmXwb44mP5CAVuxIDnZJouxtgjrqVHI81tR25UkfqNnsRguhjhW+3Vfvu0vBbsip6BZqxOrba9s55hk8GRJfattvr/uTTHk5Y7NLBQBEjWAmgUh8TUmYey6kntA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Wadq2m+FmgXvrzGESbTc/1jxM8gXxmwbUbtOvbfuNBk=;
- b=JWlH1LocuJPIB3radzFOM895wGSBaPAo5FyvxPahC4Rwgc287nt8EgDHYq5t9Z8Y7xRlMjho1aS73z9P9rIhK2YRfRdxetpsot3SmxKkvtWDmwI+5Xe9jesNN/mKlsAjEkasPbtG1EHjVHxdl3DSdy7h6N6Q+rrAyg4GZH3wJeBrTQ1W4ylwJd9ejzn/2AgvlMcQl2deuGxwRuXSpElwxPeeLH+a2a4W4NIBeNJ5lvDN1ANWRtpt70I4FbXPBBBc+FhuvBw21c34fh7qOHz2qBhBEjWjIZbjiQyFA5+Ji4i7WAfp60m/PzYjTOgcK2qOgKwVfVkL6hPAkvcrLXeVQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Wadq2m+FmgXvrzGESbTc/1jxM8gXxmwbUbtOvbfuNBk=;
- b=qFKg7tLq5+0BE6kpAcUqwy+1HgSgrXMZObiM8+8cP96pZj882dl5lhFt4MndAFr1ZdxDrMo/ONdoLb/K3YqjbMC/11v0G0dhlLH3sRt81tI/eLFooE3koKHdl4xT6+WmvZTFj1D3FHcIW6qnXwP5yRhm48bqVyVH3gS4iGzaCkvwijGqLjQPGJe4tlHNtiTlvSnCT4RWwmLJHfMLQ8u8lvUtUdiCdBLjNfub7PBV3WMEEiSn2jL8oGwFTAIqhral5kQ7VJOHuCz9gRbzgpf0T4YElScdLHphixd0fvCu1XXw/8n9JW5n2UmBSNKXCHgLOZrb9fbjQaLm3BLf5dBgnA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA6PR04MB11830.eurprd04.prod.outlook.com (2603:10a6:102:521::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Thu, 26 Feb
- 2026 11:02:59 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9632.017; Thu, 26 Feb 2026
- 11:02:59 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Thu, 26 Feb 2026 19:04:16 +0800
-Subject: [PATCH 2/2] ARM: dts: imx7ulp: Add CPU clock and OPP table support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-imx7ulp-v1-2-3fd611ceb346@nxp.com>
-References: <20260226-imx7ulp-v1-0-3fd611ceb346@nxp.com>
-In-Reply-To: <20260226-imx7ulp-v1-0-3fd611ceb346@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, "A.s. Dong" <aisheng.dong@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SI1PR02CA0002.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1vvYZs-00000005uKT-1xx5;
+	Thu, 26 Feb 2026 10:26:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772101597;
+	bh=3eCyIbVoYn9bRaJqczY4pr5CznMSS3V4x87uwrFbJ8c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MjUnMuyP3A9OINHEM1o5EkAlqs43uO4wcutkdSRek77KS0YwY3w3YUluDbMw5H2qe
+	 0Mg5JjkP471JwsyMgSNKGGMGHDGYxopjSBAwog7VoL7ySRUlyS5D6fyDMR2ieD9/c6
+	 5aMFlxvr8ahCmIRQh0bFwDKwTe8mZD0MtR/0n7O1g27CJmNkQjpysBwem3bfcYW20g
+	 4q2FQQ/Dp/efBlcZPJpNsdsQCvK+Op4uFUhq03ZqjBuNElbeYCFunPUhuRXlmuskqP
+	 puec1xwDeGqNwkefR0voO3Ys3h4r6f+wTL6b2fQy790CVJCg0RKVfUQI1by3qx5J9P
+	 quH1qqZTClrQQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3494A17E0097;
+	Thu, 26 Feb 2026 11:26:37 +0100 (CET)
+Message-ID: <2e241629-2526-41c5-92fd-a0a0ec3ffc4e@collabora.com>
+Date: Thu, 26 Feb 2026 11:26:36 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA6PR04MB11830:EE_
-X-MS-Office365-Filtering-Correlation-Id: c4c0c001-348e-4148-2145-08de75269a3c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: dFbtixcTrcR0uKS9FJDc/+3D0lciGr6rvDe6jAWgggzUmBxd8XXxXqAsuvM4IvQBgquAgAqLSn/9YjOqNMGYzH8argrJFRlMIzdiQzpg9Cn7US9XpE009cdtj5F0I49qlG0lQOPv76ELGT6uplOmQk3AkIf9/EC5mrSkdbe33TZUi0+zL7MCfd6PKbnwk5w3CrJ2XE3Z54s6iRVD5272oZUwGLSSkTO6D8vf+vsQ9O8feRy2fmvYVcQ0s3tKwa5YAG2WEKdmnXhCC+092f2I6xtt2SF1ZUbmJ4vCJLMR9lhnigF2ZEdSlYRQqaHrUqk4ZmyUDxTvW1BQWBpuwRtqSTxaOLOPB9pJ+fG8pJRCZlI5uqbJS8GW39kr8XSxcEFbLkQhIX/RvqtMr6sfPTWnp8r0BVX/YSGSlGqwlG4GpaeN7M1NFQGAuGQPgEsK4AWIzqhBG3SGA/vOrtzf59njCGQWMpkGXvTCIrES6/ybO41vPwrrKOm5QSMNXwKoqt7tYV0kKM7xEKaOVLcY8ACwuRAzK05Nfyfnees31B/KIqTUtH/7LGeJw8tTPPEE08oZ+IF3mCEBwgvDQMyt3tw6oJJFw59+WgXd48X6KB0PozgPLhno/Gt7fzM0Zy0fBsSB2UyzS4GmCbIGHKo1CuTbcFlcvas/DJ1/89w4DdVU6JqnZfbeQjyDmN0/RBDIU1gsfXZ8fmpKOP3HHgP7D3z2gDJBHWUdHTjxVXqVrlgU0PFzrwYQQj4dMPRTZexdsNi3ZAXBvdrLTKSA0n496CEw1yxGgXXeBghFow+I4jmANeo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VUI2My9WbjZZMVJYUVJMdUFWcCtFdEtJcXlOditydGhxOFh5Rml3aVMwMCtY?=
- =?utf-8?B?WmRoS3V2RWV5ZmhPbDNxOE1pV2srdDJFWXR2M2tnTmtkM3l2TkN2WklYR3Js?=
- =?utf-8?B?eUxDUVlDT3I5VUlURVNma2E4ZFpyYis2S01jWGVxUnJpcllxTTUzR0U3M1Bp?=
- =?utf-8?B?SlBvdC9mQWdMdExIYkN3N3JxR0dROC95a3pSd01BMTc3aHlyNFAwbVdmVVRh?=
- =?utf-8?B?K2dCMzdXeWtGQy9HLzV0b2I4SEdRd3loOWdkMFd6cFMxSWtmdXF5OFJHc3hk?=
- =?utf-8?B?NmhORTRSSzlnNWpzRDZzYkZ5dGQwTFNJaThJSzBIWk5QeDlJUjZoQ0ZVbHMy?=
- =?utf-8?B?M29MNkg3dXVJMVdvQXhoRjduNXhJMFE5THcrRVR4cmtJOGkzNlExSDIzano1?=
- =?utf-8?B?UngwOHlqaG96SXpCa0I0QWxoQVcyYkFBTUxwUFd4bXkzeDI5Y09OWitrMmVN?=
- =?utf-8?B?U21NVTNmL1pldlBBa2hhblFVVzVtUndCSUNaZENkSDJHbzY3ZllRY1JNQlo2?=
- =?utf-8?B?NXJ1NEFKM29jb0ZpTVRQRDZWcmdETXNUTk9tTGtzQmN3aEVBR0ZSdm1BdWw0?=
- =?utf-8?B?NnNlNHoraUQvblc0S05KZTB4YzRwOERvSXNnT0UvempzbmVCWW5yYU5IemtW?=
- =?utf-8?B?YlRvenowSTBqdUI2cTBjMS8vU0NOTU9hTVVYeWxsdFdwTEhxeFhUWmFGTkRE?=
- =?utf-8?B?eHlEVjhicG5sUE9Ud1VyQmNGZ09CRVlrQndJRUtCaG9rSnQ1VjNkQkYvdTgy?=
- =?utf-8?B?bzhtWndaQWdLR2pmSU80eEx6MS9abkNLN1FMdFRka0RCSGNZNjBzNTJlYzIr?=
- =?utf-8?B?ckVzTGw3bDNtTkR6NlppYTBnS0w3TjhERlZJVXp6M0NKeUJtZndXTDJsOGdM?=
- =?utf-8?B?ZWNGK3pLdUNwNVdUUFFrVmFRMXdZTU9QZ3Ryd1Y1MngzTFpPd29DR2N2YXQ2?=
- =?utf-8?B?djhZdXFwZWJFZGhUT0xTOERLcVBuQVpGQjNoeHJHN3NjZTVsOWdUcW5yMjZE?=
- =?utf-8?B?SktqQjhBR2tTMHhOakNqNCtMVGFlcmt6VXhUYmppM3Z4RVJUME5vZHFEb2hC?=
- =?utf-8?B?N0hlbE9LRXRVVmZEeWEyVW1mV3ZrTnJhUjQ1R3VoN3BPczlvc2ZhdjlsME1D?=
- =?utf-8?B?Y2JMWDdRaWQxckZKcStlTGsvQ0VsYVdqZXFZQTJZVm1SMDVDYUxPWnBFajZh?=
- =?utf-8?B?R3MxQzF4TXE3N2JTQ3R2c2lYOGFZOXBHMnNYUzFEK0tUQWlDWHNObk1acmRa?=
- =?utf-8?B?ZDVqZTR5OENVL3ZaOVE5dzBUY3l4TzZMY3NUMmwzb0VFdUYybG5HSEcrNzlP?=
- =?utf-8?B?RjljOWxIa0lBdnd1eDB0NGYrU1V3Nm40Y0Y0RlI0cGJjVlZ6ZG9FdEZNVDUr?=
- =?utf-8?B?MTAzVS9kZHYveGcwV2xCOWlBZ2x1THZlQ2VkVW1OaWdUcG5ZRHgvanF0MjJL?=
- =?utf-8?B?YXF6MGUwd1FUNTN0ZVVZb0tnbi8wVkVMZ1ZObVdOS2hxVjhTdVc2UkZvMkl4?=
- =?utf-8?B?cUh2UFV4Wm9XSlZjSTlLNlJvM2c2Z3R4TUdBUVJ3MEZublE2SzZuUkZMbkZI?=
- =?utf-8?B?MVRkTVZGTzcrNVRyL1pKTlhzSUpUOXdoVHc2c0ZIbithVmJOU2oxek1HVUxw?=
- =?utf-8?B?aWZ0OXo3Z29FaTgzR2g1bFlPcnVDQlVPNlZ0ck9SVklGTEpTU0U5OEdaY3R0?=
- =?utf-8?B?b25rWDhGN0ZwUnNGOGZaNGFuUlNZa0JRWlAzYXVQV1BpUlBSbTBmSEZZdzBw?=
- =?utf-8?B?dkloQkZQVzNLcFBOQ0R0VmJTUFdCeUpValJJR1BHZitjRHlZOFRpcXRkNUVv?=
- =?utf-8?B?UldzVFZlSnovYmFtUUpWY0dwWGw0NFlHeFlnZHp3d21jTFBVWmVLK2xDV1RV?=
- =?utf-8?B?MlFQRWZpNW5HNkRlTHJocUoxRnRyeElUVkp2V3NGNHRFZXQzL0NQZCs4bEp6?=
- =?utf-8?B?VjFOa292eUNOVm0wZ1R5VDBEcXgxTzVGNDBRYllFbU0vL2hLMGhFcEJDNnE5?=
- =?utf-8?B?ZE9HRzhIS1VKSG9nNjBqTXNHVUVYdHhLRWIvdkhZdXFqVlBGcVBCT25uK01i?=
- =?utf-8?B?dkEyY2xESys3eG1DcTA1R0NFUEcvdmgvbmo4YzlWdDR2blF2UzNSQVhhVTJR?=
- =?utf-8?B?SGt4eVNDUVRUajdkVmR2OWw2a3JFb0xhTndiVnNPL2NUK1VRejBLQ293VVlz?=
- =?utf-8?B?VVJXbDR3VVh5dVlGclc3dFB5c0FtZGE5ZzF4bjRraEVVWmw0ZlE2UWsyS3Mz?=
- =?utf-8?B?NFIvNWg1ejNxOVhhaFBjYkFJZ2ZHTnB2ai8rT09Uc3R4RWZucEwxR1lWdTFr?=
- =?utf-8?B?NzEyRjkxcXFaMVdaVk9JT3dkc2txWVkxU2N2ZUVOYzM3NkJScXZ4Zz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c4c0c001-348e-4148-2145-08de75269a3c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 11:02:59.1735
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vwwXiO8IhtDtl8JLi1PCRt982bbW2MdBgqtRl8x9eOWDDjKTsG4yP2xjkhseO75t9s0B0SFsZdjs8wUV2OBUSw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11830
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/11] Plane Color Pipeline support for MediaTek
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "pekka.paalanen@collabora.com" <pekka.paalanen@collabora.com>,
+ Nicolas Prado <nfraprado@collabora.com>,
+ "harry.wentland@amd.com" <harry.wentland@amd.com>
+Cc: "wiagn233@outlook.com" <wiagn233@outlook.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, Daniel Stone <daniels@collabora.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ Ariel D'Alessandro <ariel.dalessandro@collabora.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "xaver.hugl@gmail.com" <xaver.hugl@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "airlied@gmail.com"
+ <airlied@gmail.com>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
+References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
+ <TY4PR01MB144323B0DDC18B05EE1472B5298BFA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+ <TY4PR01MB14432E7601C0BE848D25E80C398BAA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+ <cdf6a704-88f8-414a-adf1-65ea7237337f@amd.com>
+ <20260206110901.660cf712@eldfell>
+ <5963bca37996fa054ad75d4e5017d9c7e5158e9f.camel@collabora.com>
+ <3efaa7ec40c68f0d463da00c3a57474a40d4fdae.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <3efaa7ec40c68f0d463da00c3a57474a40d4fdae.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_030302_657300_97CB05E4 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260226_022640_656025_F1AD2DF2 
+X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,58 +97,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Il 26/02/26 07:24, CK Hu (胡俊光) ha scritto:
+> On Fri, 2026-02-06 at 08:28 -0500, Nícolas F. R. A. Prado wrote:
+>> On Fri, 2026-02-06 at 11:09 +0200, Pekka Paalanen wrote:
+>>> On Fri, 2 Jan 2026 13:40:21 -0500
+>>> Harry Wentland <harry.wentland@amd.com> wrote:
+>>>
+>>>> On 2026-01-01 07:37, Shengyu Qu wrote:
+>>>>>
+>>>>>
+>>>>> 在 2025/12/30 02:53, Shengyu Qu 写道:
+>>>>>>
+>>>>>>
+>>>>>> 在 2025/12/24 3:44, NÃ colas F. R. A. Prado 写道:
+>>>
+>>>>>>> Given the lack of support for writeback connectors on the
+>>>>>>> MediaTek KMS driver, combined with limited hardware
+>>>>>>> documentation, I haven't been able to verify the correctness
+>>>>>>> of
+>>>>>>> each curve, only that they were visually sane (gamma curves
+>>>>>>> made
+>>>>>>> the image on the display brighter, while inverse gamma made
+>>>>>>> it
+>>>>>>> darker).
+>>>>>>
+>>>>>> Hmmm I don't think this is acceptable. sRGB/scRGB has two
+>>>>>> transfer
+>>>>>> functions mentioned in original specification[1]. To keep color
+>>>>>> accuracy, we need someone from mediatek confirm whether this is
+>>>>>> piece- wise or pure power 2.2 transfer function, this is
+>>>>>> already
+>>>>>> done in original amdgpu color pipeline series, sRGB means
+>>>>>> piece-wise while also dedicated power 2.2 function exists.
+>>>>
+>>>> Not sure what you mean with this not being acceptable. This is
+>>>> about
+>>>> enabling HW support for this functionality. Not every HW has
+>>>> writeback for testing. At some point you'll have to trust the
+>>>> driver
+>>>> devs if you're going to use functionality of the driver. We're not
+>>>> always going to get everything perfect, but if that's really such a
+>>>> worry you can always use shaders to do precisely what you want.
+>>>>
+>>>
+>>> Hi Harry,
+>>>
+>>> yes, but I understood that in this case, the hardware documentation
+>>> available is so vague that it's impossible to say what it will
+>>> actually
+>>> do. There are no formulas given or referenced in the documentation,
+>>> are
+>>> there, Nícolas?
+>>
+>> No formulas at all, the only documentation I had available for the
+>> curves was the register definition, which simply lists the possible
+>> values: SCRGB, BT709, BT2020, HLG.
+> 
+> Hi, Nicolas:
+> 
+> In [1], it shows OVL could output data to WDMA which could write data into DRAM.
+> Its control is similar to RDMA. RDMA read data from DRAM and WDMA write data into DRAM.
+> Do you have interest to implement WDMA?
 
-Add missing CPU clock definitions and operating-points-v2 table for the
-Cortex-A7 on i.MX7ULP to enable proper CPU frequency scaling and
-integration with the cpufreq/OPP frameworks.
+I wrote a WDMA driver a long ago, but I couldn't get it to work (though, I admit I
+didn't try hard to actually get it working).... if you want to take a look to check
+if anything obvious is missing, the driver is here:
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+https://gitlab.collabora.com/mediatek/aiot/linux/-/blob/mediatek-dev/drivers/gpu/drm/mediatek/mtk_disp_wdma.c?ref_type=heads
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-index 880b9a4f32b0846a773dbf9ad30715c84ac2fda6..1355feda1aa72d88dcf56033dfdeaae631c108f8 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-@@ -41,6 +41,34 @@ cpu0: cpu@f00 {
- 			compatible = "arm,cortex-a7";
- 			device_type = "cpu";
- 			reg = <0xf00>;
-+			clocks = <&smc1 IMX7ULP_CLK_ARM>,
-+				 <&scg1 IMX7ULP_CLK_CORE>,
-+				 <&scg1 IMX7ULP_CLK_SYS_SEL>,
-+				 <&scg1 IMX7ULP_CLK_HSRUN_CORE>,
-+				 <&scg1 IMX7ULP_CLK_HSRUN_SYS_SEL>,
-+				 <&scg1 IMX7ULP_CLK_FIRC>;
-+			clock-names = "arm", "core", "scs_sel",
-+				      "hsrun_core", "hsrun_scs_sel",
-+				      "firc";
-+			operating-points-v2 = <&cpu0_opp_table>;
-+		};
-+	};
-+
-+	cpu0_opp_table: opp-table {
-+		compatible = "operating-points-v2";
-+		opp-shared;
-+
-+		opp-500210000 {
-+			opp-hz = /bits/ 64 <500210000>;
-+			opp-microvolt = <1025000>;
-+			clock-latency-ns = <150000>;
-+			opp-suspend;
-+		};
-+
-+		opp-720000000 {
-+			opp-hz = /bits/ 64 <720000000>;
-+			opp-microvolt = <1125000>;
-+			clock-latency-ns = <150000>;
- 		};
- 	};
- 
+The driver I wrote was supposed to work on MT8781 Helio G99 (for a personal project
+as in upstreaming of the Xiaomi Poco M5 smartphone) and on MT8195 as a PoC.
+I did test both platforms and this driver didn't work on both... not sure if that
+was because I misconfigured the MMSYS routing (on both) or if there's any actual
+issue with the driver I wrote.
 
--- 
-2.37.1
+Again, didn't invest much time on this, anyway, so some obvious issue might be
+present.
+
+Cheers,
+Angelo
+
+> This is just a suggestion.
+> I could accept we believe what document say first and wait for someone to verify it.
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/soc/mediatek/mt8195-mmsys.h?h=v7.0-rc1#n8
+> 
+> Regards,
+> CK
+> 
+>>
+> 
+
 
 
