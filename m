@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16EC1FC5916
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9E7FC5919
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXI40ev4wBykmnci4HuvnthFCypjC1zor8RV6FiMLVw=; b=AVuPs0I/R1MnMCHWwzIs8Xkbjw
-	Q17TCplsGe2wnP3IcPWg5LM99E5crR+I0bbUtcuqidiONPID/qF1TZa9YaGxoayA6m/KcDpjKWKoZ
-	ncMRSe34XfBC8Sn6P7Tk2gJxHtgfaEny0hYUHF2N51dm9267VtEaXM58o6b21rF+tcKYZrRvq+I7b
-	igBJjg/BtpdL/FHJ0LVbbMptcW03ynkt60pBPhcqgxNH5LjNjp0xGH25jIz/hHmoK13IUTjIMVatB
-	gmDOBxUAvxQHm/fVLD0boJvHiNhfe/b/bxMsSCaVHrXvslaYpMfP4xydlBipR+WZ50wVp+cQEjHhM
-	ftnzcu7A==;
+	bh=t2NyDWOK+eHx4xT/gJyPNx6GY2DrrurOqAMbsCwAius=; b=FrzCWNIJyqcwiYuJxyVUg7MJzj
+	gg3jHSqNSJrwV3AarfEzr7ysBy6M2m+BxkddTLe/QeXyp0CPf5qzoddfWvOq2Gg48g+KYf8IQ0ZIa
+	idFKwmLHLRJGvKNnMg8f8dGJjjClWqXHw/eeYihvU9Mxp//bj+ZfEXLLyiFzjGF3YK9wfxrP3xd/j
+	j3hi8yvLGHq+FGBYJABKIDBqfJ0Gwzd3tXs/sffkfvpcZG0giJ4WstMwOsRpCmZBJr6AzcogSDEKQ
+	0B1hh7/KMgPzoHBiPk+Bjw4fALaOXwOrDhD2uEi1/pVrWU7oKjcWqaNQdO1i3YBsnYeU+RGRboS4j
+	s4Gkks8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXbd-00000005n6k-3vdE;
-	Thu, 26 Feb 2026 09:24:25 +0000
+	id 1vvXbe-00000005n7F-0xxX;
+	Thu, 26 Feb 2026 09:24:26 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXbW-00000005n16-218D
+	id 1vvXbY-00000005n2e-1IHr
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 26 Feb 2026 09:24:18 +0000
+	Thu, 26 Feb 2026 09:24:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=NXI40ev4wBykmnci4HuvnthFCypjC1zor8RV6FiMLVw=; b=JnXXx1TV1mHcBslcSSuh9+XNYb
-	cm+Tz66Js8zMU+TggL6TVYZFZ5LEh1p3KktPrz60Ma6odsVljvqgjJ1YnWEAcv6gECrAUDsFnEt08
-	sKB6t8SUmZ6PUfezuGNVlCiJ7RniZhnOAO4hA5cUQ10khWOq5FRXwD4hgob1n15daAtZzjlctVKs2
-	aAuLKehkR8Axtoq4e9Q7LTTeBimQCYRSD9KxT0VZ5vFec1CMq+8QM+EJwI05LUu2QzUtiLGZBVhD9
-	nniJcu7iKcnwkPMBNZQLAR8Pxh65GNyZ6m96tu9GsXTCTCixVOi0oZ0vUqqiKNnKCeVQP0k+ldkwW
-	EgAHsDXQ==;
+	bh=t2NyDWOK+eHx4xT/gJyPNx6GY2DrrurOqAMbsCwAius=; b=pBkGVYg3CdfGeu389StWpbC8rd
+	j8fO+2mbDjJboqYZRIbuTccWkeGDXVfIl06yMFsjs5ka3GImwYOxKemOd9ZsGI+hqf8GDLqacTA/P
+	ttJDT/jY4VFq0tN9X8Gdepjsf7TQ/Es0132Pp0/30A3ez1ZSKVg59rVWCMICKvtITUge3H/ee1a8b
+	5PZPSJ1o3/+g2S0ccDUDIrJCl+cDq+Q3d07svsAp/an0SUQDV1Zneg5OFKeP2/y/DrlISDYTNkCZq
+	k850o1BWLV6pnbs52eE8p5rBova7sNY9UP4l9SFYc0FrMNg6k5ZdD5TFYsXPN3xDmA2iRt2Cd5rqi
+	Eonyd47Q==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXbT-0000000AbV7-1WnH
+	id 1vvXbV-0000000AbTs-1VQA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 09:24:17 +0000
+	Thu, 26 Feb 2026 09:24:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4FCAC1516;
-	Thu, 26 Feb 2026 01:24:08 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72C61153B;
+	Thu, 26 Feb 2026 01:24:10 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD7023F62B;
-	Thu, 26 Feb 2026 01:24:12 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E05003F62B;
+	Thu, 26 Feb 2026 01:24:14 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 26 Feb 2026 09:23:55 +0000
-Subject: [PATCH v2 7/8] coresight: cti: Remove hw_enabled flag
+Date: Thu, 26 Feb 2026 09:23:56 +0000
+Subject: [PATCH v2 8/8] coresight: cti: Properly handle negative offsets in
+ cti_reg32_{show|store}()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-arm_coresight_cti_refactor_v1-v2-7-b30fada3cfec@arm.com>
+Message-Id: <20260226-arm_coresight_cti_refactor_v1-v2-8-b30fada3cfec@arm.com>
 References: <20260226-arm_coresight_cti_refactor_v1-v2-0-b30fada3cfec@arm.com>
 In-Reply-To: <20260226-arm_coresight_cti_refactor_v1-v2-0-b30fada3cfec@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -68,16 +69,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772097837; l=4151;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772097837; l=1566;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=g2L3i1CezfA6Jf1Jke+6/YKaXLSWcNpqDPO+Nh3fXjw=;
- b=xvlMausvbKO7aFJ/w3JHJfQomLjTikxfuO3Vyt4MebonledDtqJ7hAzsENFJ4+LJHKZ/+9nbr
- +UuSOaeDK4gDwqblAMgK9iGzswvwhDh1gNcD6Kvr3yaBgfk6ausbqsc
+ bh=ye21p2Z8xpYMwCHdRE3woYwpjNxaruoyhn86mQr557I=;
+ b=EKYiu4kRhBuqL+Uo0b2d48MeSRDH0H4DurSO6lej+Cw/AkGUN4wa+c0nsR4rjs/34IaolNNxN
+ nfRLdjrlhf8B4c4FuZ+hfvm4sHJgqhlQ/iVdZQ7IH74dW6BNj+EXvSX
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_092415_859947_45D20037 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20260226_092417_684229_15B0F0A2 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,109 +93,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The enable_req_count field already tracks whether the CTI device is
-enabled.  A non-zero value indicates that the device is active, the
-hw_enabled flag is redundant if so.
+Return an error when the offset is negative.
 
-Remove hw_enabled and update cti_is_active() to check enable_req_count.
-Replace open-coded enable_req_count checks with cti_is_active().
-
-Reviewed-by: Mike Leach <mike.leach@arm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-cti-core.c  | 11 ++---------
- drivers/hwtracing/coresight/coresight-cti-sysfs.c |  2 +-
- drivers/hwtracing/coresight/coresight-cti.h       |  4 +---
- 3 files changed, 4 insertions(+), 13 deletions(-)
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-index 5ac36f0776181559a87b3ee37d6c9076882576b5..2f4c9362709a90b12a1aeb5016905b7d4474b912 100644
---- a/drivers/hwtracing/coresight/coresight-cti-core.c
-+++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-@@ -81,7 +81,7 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
- 	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
- 
- 	/* no need to do anything if enabled */
--	if (config->hw_enabled)
-+	if (cti_is_active(config))
- 		goto cti_state_unchanged;
- 
- 	/* claim the device */
-@@ -91,8 +91,6 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
- 
- 	cti_write_all_hw_regs(drvdata);
- 
--	config->hw_enabled = true;
--
- cti_state_unchanged:
- 	drvdata->config.enable_req_count++;
- 	return 0;
-@@ -107,22 +105,17 @@ static int cti_disable_hw(struct cti_drvdata *drvdata)
- 	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
- 
- 	/* don't allow negative refcounts, return an error */
--	if (!drvdata->config.enable_req_count)
-+	if (!cti_is_active(config))
- 		return -EINVAL;
- 
- 	/* check refcount - disable on 0 */
- 	if (--drvdata->config.enable_req_count > 0)
- 		return 0;
- 
--	/* no need to do anything if disabled */
--	if (!config->hw_enabled)
--		return 0;
--
- 	CS_UNLOCK(drvdata->base);
- 
- 	/* disable CTI */
- 	writel_relaxed(0, drvdata->base + CTICONTROL);
--	config->hw_enabled = false;
- 
- 	coresight_disclaim_device_unlocked(csdev);
- 	CS_LOCK(drvdata->base);
 diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-index 9ab586a5c9a4fd2a64c542aaaaa625e2299edd62..9ef44956ebdc7781717d773fa014165989df2048 100644
+index 9ef44956ebdc7781717d773fa014165989df2048..4c0a60840efb9ecc47850c1eb5a7abb41b49c5cc 100644
 --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
 +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-@@ -84,7 +84,7 @@ static ssize_t enable_show(struct device *dev,
+@@ -252,8 +252,11 @@ static ssize_t cti_reg32_show(struct device *dev, char *buf,
  	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *config = &drvdata->config;
  
- 	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock)
--		enable_req = drvdata->config.enable_req_count;
-+		enable_req = cti_is_active(&drvdata->config);
++	if (reg_offset < 0)
++		return -EINVAL;
++
+ 	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
+-		if ((reg_offset >= 0) && cti_is_active(config)) {
++		if (cti_is_active(config)) {
+ 			val = cti_read_single_reg(drvdata, reg_offset);
+ 			if (pcached_val)
+ 				*pcached_val = val;
+@@ -280,13 +283,16 @@ static ssize_t cti_reg32_store(struct device *dev, const char *buf,
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
  
- 	return sprintf(buf, "%d\n", !!enable_req);
- }
-diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
-index 8754cb5def7918f03235343844467af8410b75a8..c5f9e79fabc608f5a95e7e4d8b0cbe1c853d584a 100644
---- a/drivers/hwtracing/coresight/coresight-cti.h
-+++ b/drivers/hwtracing/coresight/coresight-cti.h
-@@ -121,7 +121,6 @@ struct cti_device {
-  * @nr_ctm_channels: number of available CTM channels - from ID register.
-  * @asicctl_impl: true if asicctl is implemented.
-  * @enable_req_count: CTI is enabled alongside >=1 associated devices.
-- * @hw_enabled: true if hw is currently enabled.
-  * @trig_in_use: bitfield of in triggers registered as in use.
-  * @trig_out_use: bitfield of out triggers registered as in use.
-  * @trig_out_filter: bitfield of out triggers that are blocked if filter
-@@ -144,7 +143,6 @@ struct cti_config {
++	if (reg_offset < 0)
++		return -EINVAL;
++
+ 	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
+ 		/* local store */
+ 		if (pcached_val)
+ 			*pcached_val = (u32)val;
  
- 	/* cti enable control */
- 	int enable_req_count;
--	bool hw_enabled;
+ 		/* write through if offset and enabled */
+-		if ((reg_offset >= 0) && cti_is_active(config))
++		if (cti_is_active(config))
+ 			cti_write_single_reg(drvdata, reg_offset, val);
+ 	}
  
- 	/* registered triggers and filtering */
- 	u32 trig_in_use;
-@@ -236,7 +234,7 @@ const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
- /* Check if a cti device is enabled */
- static inline bool cti_is_active(struct cti_config *cfg)
- {
--	return cfg->hw_enabled;
-+	return !!cfg->enable_req_count;
- }
- 
- #endif  /* _CORESIGHT_CORESIGHT_CTI_H */
 
 -- 
 2.34.1
