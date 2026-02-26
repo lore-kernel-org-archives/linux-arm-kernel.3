@@ -4,125 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1441FC5926
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A98FC5927
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bVs7MxvhdLDc7zG07LLHXKs1oSCI2DtIrJ7yPKs9+JA=; b=m1UxFYsLmA8ibeo2SCte81ZGlv
-	+bqS1A7IeTDtORKo3FmfgwAxqkviPnjF5Mtc2adg4SeJes4eM7ut5WlyogYYNGvui6h2dVq2Qj7Sj
-	TOqLsUXTWJRHtqVPLBlt4DgGm9EoWQdoZ10Hm2ORogs6EUbA+N9oWky0sxSjoQ2ezaJruihOzBu+G
-	/nq6V8EpKkc7kH3FB7U5pigCbcnHQ8s/f3a4CD3eMzR6M28ueSiOsUcGj88MgPRPcTcs759gYJWFf
-	CcIYzF5fPGu8IzEonIjdTLbfIfsrw6Jfkear+51tmN0aDrWTqx3FucIwiJGVp2jAk6hTNHp+ZX748
-	CNeUebwg==;
+	bh=Acs4mdWOeu0RVlYgoszzz099Xsw0LTZEFLKS3hlerbs=; b=njeYs36AZjfftWG32LXOK0W8Pb
+	D+PIJjpedDJReQWqA9oLbQ689Q6pldwhG0lq4hmEarKpT0y5RSrkXBdiRpxqvmTxUagqueZboBQ7U
+	vLGqPb1rrDDf55nF4ZxEJeq5rIApTbZidvg+zIEM2yLXuNCUiUvEk96XkZHqCBGTJ5QuDm3xqhdz4
+	+A5WZO8eyLe16oxF5sf6ZcBISBkE8SdNYZj6rY/ef1thU/RiHyPrEov6XxHwL+Exa/PlACdxUCxzp
+	pFA1pGtXLL6ip6bqJveBb8/6U63oSvKaiYKopiYLYBG8ycKX9Bs4xrus592yq3TBF0K9BFRfMIqQV
+	a1VjfzMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYfe-00000005vhG-3WqU;
-	Thu, 26 Feb 2026 10:32:38 +0000
-Received: from mail-westeuropeazon11010009.outbound.protection.outlook.com ([52.101.69.9] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vvYgZ-00000005vwt-135c;
+	Thu, 26 Feb 2026 10:33:35 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYfc-00000005vei-0qJq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 10:32:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FUMyI2Xju1FeQiBIgNI7Nc0VbDKMzxsj9LVkMtMA5lHPPMvLAUqgiBbsn/uyiN1+oPZ68EUA4eqL0/4vEu7xSSw4RSjVWDnFRclEob8ZtXcfmPVhVof44U++ND6w04SkFMJja+U9mTofPQ96BqBXAA6IEYtdKVl5PzNWV0zeZN4evcNRQ/3K3ypnuKyY9IzaLCguteYi7IA1vq9lNR2GQgidHR7RqYekvS1NIhPy+klRVlRUnboH2j8ftMJxTfdBOL9Ox71lupAHe8kg/rXCL/9J80gbr/Y128RcJU9d1TEFRtlJWMndfC/L7d0lHg0RJUct7e8CtEz+xMbWkWn6UQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bVs7MxvhdLDc7zG07LLHXKs1oSCI2DtIrJ7yPKs9+JA=;
- b=SK1CmBCTaoXl0i6FFgRujNvyZnRZ26UBHzVcFTKUF3Z8FwmBEwUtqfvNrfegvSKUuU0v5FUdixX5Xn38bqI14KGvaOPWdH8Vd4zj3W0w3eM9hfrTw41sZBoXeQ/InWkMg+FmE5/wbo8JbcqjQeZbsGtuy5YI8dt16BS8c082gM/ufMnzJtd5aH+RIWRJiiPMmX4CvYmqw5Hfrsp0z/JhZcSNPFAATA/mkCWBu0xkw0aioPDIYbp6avbt0avL2J+2wx9R4EzyVFczpLRU2RuOUPVeqK6lutTuQbVkZnVebcD+7ZGk1VrlkL1PA0gjWtxnD5GCVBIIis5vv+89LfEdUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=st-md-mailman.stormreply.com
- smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
- header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bVs7MxvhdLDc7zG07LLHXKs1oSCI2DtIrJ7yPKs9+JA=;
- b=bzZR7jIWiYOCUfWmxMVOVU8c41bOjow89uztINQX0ydY0hIHK/b74yySA2UYQDVqd4SMg/y5L1OxSF5nIElNbfDmicpl41OoXLRpMdXh5+GYEZZlveJX223uhYT6VQs7WHNkNh/TbJspuF3TT4ynxhPBtXJiHR4G8ZoLHjJzsIY+fXdJXoRILCJfghNV9GKeKyP2cu2N1SKHKYcLFlKLYjQOmKgV45Rt3GDxsv/4jvKQ75kgpZ92adkM9aVPUrs9yRT0lB/p8slLG5A08LewydR+KqsFf0W00WtVAIMWWgO87qE3afqoWEtV3q1A/erX0Y4sd4lGBsGXv4u9b6cNiQ==
-Received: from AM9P193CA0001.EURP193.PROD.OUTLOOK.COM (2603:10a6:20b:21e::6)
- by PA3PR10MB9310.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:4ad::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
- 2026 10:32:31 +0000
-Received: from AM3PEPF00009B9D.eurprd04.prod.outlook.com
- (2603:10a6:20b:21e:cafe::ca) by AM9P193CA0001.outlook.office365.com
- (2603:10a6:20b:21e::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.23 via Frontend Transport; Thu,
- 26 Feb 2026 10:32:19 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AM3PEPF00009B9D.mail.protection.outlook.com (10.167.16.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Thu, 26 Feb 2026 10:32:30 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 26 Feb
- 2026 11:34:38 +0100
-Received: from localhost (10.48.86.212) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 26 Feb
- 2026 11:32:30 +0100
-From: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Date: Thu, 26 Feb 2026 11:30:27 +0100
-Subject: [PATCH v6 12/12] pinctrl: stm32: add firewall checks before
- probing the HDP driver
+	id 1vvYgW-00000005vwK-2aTO;
+	Thu, 26 Feb 2026 10:33:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772102009;
+	bh=jdsbqMmee99OyhJwJac7k9/iwfoy7HEhr67oW7RcG5E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PRHn6pu+LYe1i99VPr8a907RdPH5EhiuOOyQtA7a/NK/fnXla5CncaTSQKWOpYLQR
+	 yLbX7w4Xe9MowggMHpLaITfeEpI+vsE0HWZUuixZchr0IlNWYy621A3ihrW9g7yvLE
+	 CnJT3vghjIDsu/lmOBoB0OPGCB6zUTciwjtb27n7mBeY/enrvY4dfDucHEFtrbW+AX
+	 c11jnZBAwJk2LQgPKxdFbQoEgV4ItyB2JHLJV9tLiX8kXhxpE9C1t/c9gxnUROXJqf
+	 narGfuanBg48j2NvI4RInpxAiTp4PPsU2ExWCANyvvLuSv1UNVQEHNyJMV2QQ+JKGm
+	 48XTfhIxKJXcw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EB06017E0097;
+	Thu, 26 Feb 2026 11:33:28 +0100 (CET)
+Message-ID: <20e7b970-df30-455e-8067-128de2dca022@collabora.com>
+Date: Thu, 26 Feb 2026 11:33:28 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 18/23] scsi: ufs: mediatek: Don't acquire dvfsrc-vcore
+ twice
+To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
+ "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
+ "kishon@kernel.org" <kishon@kernel.org>,
+ "James.Bottomley@HansenPartnership.com"
+ <James.Bottomley@HansenPartnership.com>,
+ "bvanassche@acm.org" <bvanassche@acm.org>,
+ =?UTF-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
+ <Chaotian.Jing@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+ "nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
+ "vkoul@kernel.org" <vkoul@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "avri.altman@wdc.com" <avri.altman@wdc.com>,
+ "broonie@kernel.org" <broonie@kernel.org>,
+ "martin.petersen@oracle.com" <martin.petersen@oracle.com>
+Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ "kernel@collabora.com" <kernel@collabora.com>
+References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
+ <20260216-mt8196-ufs-v7-18-b5f2907c6da7@collabora.com>
+ <010d77378b9cca477439b92d92c8f5bfb2d4df65.camel@mediatek.com>
+ <edf07a47-77be-4acc-8825-b14a5d1838df@collabora.com>
+ <c7214effa728b74e753abc0dee8d655e036ca7fb.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <c7214effa728b74e753abc0dee8d655e036ca7fb.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Message-ID: <20260226-debug_bus-v6-12-5d794697798d@foss.st.com>
-References: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com>
-In-Reply-To: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan
-	<leo.yan@linux.dev>, =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
-	<legoffic.clement@gmail.com>, Linus Walleij <linusw@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, <cristian.marussi@arm.com>,
-	<jens.wiklander@linaro.org>, <etienne.carriere@foss.st.com>, Sudeep Holla
-	<sudeep.holla@kernel.org>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-gpio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>
-X-Mailer: b4 0.14.3
-X-Originating-IP: [10.48.86.212]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM3PEPF00009B9D:EE_|PA3PR10MB9310:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4c53ca2e-b56c-44cb-7291-08de75225895
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: IABhZFfhIzsE+RoCy9h4C3b45SSZq0Zba8OzFHhmJS1LAfaOURaEJDVXOf/qliYMUAA5piFqwBElXUOBCiUNuel/twpmSss6NLi9M/6Q01dMzZiln2UAFeLbSCuI6RcMRCqA8LzvbMJ5AVi9pt0RXa8sHL2ddzGqWfYx1KdhfgWYaCed7wEl/X20sGCJ7fyuBTtXkBlAZI8jcgUhJYujSiaojtWmH7MaVStnYra1/IvfqDwy0Zg+XcyOE0LGk5D5oltBQL5ZG38Ijxd5pRS6xcyQO96BOBHSS3ijXC7J3xCXlVsYhEeCpIzcssC+Q6FxEQ+XpES2kGf590aE76jkQ9szkIDrBAgr2mshbjPaUgEjedmpKVFXFmR9OcR0dnMrPF+3pKUm6HYTsU/tF73ExcEPPgY4hy5fVtE+W2Ly9EYIuefO9Es478rw59akECusvRPco+GlxwK4+2Vuyrj7whiRDhkr7JfDU16LFnHukkZEUlJlFovsoFRNE+Bjzpg2tRQJDb+mQNV1tLITk5OaklZK8vkqhdMpMbriA9MJnHW9REdT2rG90UC+K8VFdxjbMlbMx+pu9HrjnrueSGs74hOnu0QDCenWYYVnBRKkFZ3dGRHvyRgTEEnzZqW3eCAu5wvik4w5S3jI5eKZJWqPRc4h9NRi9lNETiHf2VrHfd/9pKgcSS7E2GPbvxhx4xSRlK0MlLW3794DQZmqTjp7hEUe0/bJquPCzBf+8Sr2y5rbyXW5/jhzhuS1z4/UoaA17FxCDXrKwy/eULi6Wm2d0EgTc/No1BfkxlDgau5B4QSGWyvT5TCmai5JChJST68N6uvldtIC2mgTS7qP5C/yXUnjfazPMKiXL/HELoQ7wVc=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 1mO2dnKtgdVih5HWHrK/Yrw+ZteH9NgCgB2lm4Pjqkxgjiq7iTui/SFZOULK8IUA+SWrkaUzhpyv34m45t2SqWj3qdgK7CaRYjccljmHwXnlGmnNvINcEFwmi1ucz8Li6DI2e6rigP5WptEKmTbvhDcyX3WjJVjwM9KAEPzK1y+F5qsZYhHZ55u/zkTRwsSvg49CfLUruFqfsU/dgLg6OtA8bJZrNxg1vxtpfAtq1ksff9Pb9CjfyCn1/PvYy7K7+nPAX9I7fkGymR11HPFN2JZS14zKzjwnNDg/9u3rBPwLcBvPCNiX70Ngk+0V76/GAd7s1ZAnFYKBvnwyeqKrLE8P82wpBrHWD2h+RvEg5dX7S91wywpfsI2ZgGABYE9y1gfgeflcFJrWh5DIcS7neHAIkhWgJJ43Rp4+nSGprzh3pVo8dQEjjlkRwgSy9CUD
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 10:32:30.7956
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4c53ca2e-b56c-44cb-7291-08de75225895
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9D.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR10MB9310
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_023236_338910_AA529A0C 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260226_023332_801077_C88530F0 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,71 +106,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Because the HDP peripheral both depends on debug and firewall
-configuration, when CONFIG_STM32_FIREWALL is present, use the
-stm32 firewall framework to be able to check these configuration against
-the relevant controllers.
+Il 26/02/26 04:45, Peter Wang (王信友) ha scritto:
+> On Wed, 2026-02-25 at 13:37 +0100, AngeloGioacchino Del Regno wrote:
+>> We need to check both because UFS_MTK_CAP_BOOST_CRYPT_ENGINE depends
+>> on:
+>>    1. reg_vcore
+>>    2. clocks (crypt_mux, crypt_lp, crypt_perf).
+>>
+>> Failing to check for both ufs_mtk_is_boost_crypt_enabled() and
+>> reg_vcore here
+>> will introduce a bug that may result in storage corruption.
+>>
+>> So yes, Nicolas is checking both because it is *required* to check
+>> both.
+>>
+>> Regards,
+>> Angelo
+> 
+> Hi AngeloGioacchino,
+> 
+> To clarify, BCE stands for UFS_MTK_CAP_BOOST_CRYPT_ENGINE.
+> 
+> BCE     reg_vcore   Action
+> true	true	    If check is false, continue
+> true	false	    This case cannot happen (X)
+> false	true	    If check is true, return
+> false	false	    If check is true, return
+> Therefore, we only need to check whether BCE is
+> true (to continue) or false (to return).
+> 
 
-Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Reviewed-by: Clément Le Goffic <legoffic.clement@gmail.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
----
- drivers/pinctrl/stm32/pinctrl-stm32-hdp.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Thanks for the information.
 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-index 0b1dff01e04c..cce477e86ef9 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-@@ -4,6 +4,7 @@
-  * Author: Clément Le Goffic <clement.legoffic@foss.st.com> for STMicroelectronics.
-  */
- #include <linux/bits.h>
-+#include <linux/bus/stm32_firewall_device.h>
- #include <linux/clk.h>
- #include <linux/gpio/driver.h>
- #include <linux/gpio/generic.h>
-@@ -46,9 +47,11 @@ struct stm32_hdp {
- 	void __iomem *base;
- 	struct clk *clk;
- 	struct pinctrl_dev *pctl_dev;
-+	struct stm32_firewall *firewall;
- 	struct gpio_generic_chip gpio_chip;
- 	u32 mux_conf;
- 	u32 gposet_conf;
-+	int nb_firewall_entries;
- 	const char * const *func_name;
- };
- 
-@@ -615,6 +618,13 @@ static int stm32_hdp_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 	hdp->dev = dev;
- 
-+	if (IS_ENABLED(CONFIG_STM32_FIREWALL)) {
-+		err = stm32_firewall_get_grant_all_access(dev, &hdp->firewall,
-+							  &hdp->nb_firewall_entries);
-+		if (err)
-+			return err;
-+	}
-+
- 	platform_set_drvdata(pdev, hdp);
- 
- 	hdp->base = devm_platform_ioremap_resource(pdev, 0);
-@@ -670,8 +680,12 @@ static int stm32_hdp_probe(struct platform_device *pdev)
- static void stm32_hdp_remove(struct platform_device *pdev)
- {
- 	struct stm32_hdp *hdp = platform_get_drvdata(pdev);
-+	int i;
- 
- 	writel_relaxed(HDP_CTRL_DISABLE, hdp->base + HDP_CTRL);
-+
-+	for (i = 0; i < hdp->nb_firewall_entries; i++)
-+		stm32_firewall_release_access(&hdp->firewall[i]);
- }
- 
- static int stm32_hdp_suspend(struct device *dev)
+Now I agree. There's no need to check for that twice, as the cap is set
+only when all clocks and when reg_vcore is not NULL - I missed the first
+lines of the ufs_mtk_init_boost_crypt_function() from this patch, where
+Nicolas is adding a check for that at the very beginning of this function.
 
--- 
-2.43.0
+This means that the UFS_MTK_CAP_BOOST_CRYPT_ENGINE flag is being set only
+when all of the prerequisites (reg_vcore and clocks) are satisfied.
+
+I agree with you, Peter, there's no need to check for both the vreg and
+caps, as the cap can only be set if the vreg+clocks are present.
+
+Nicolas, can you please fix that and send a v8 ASAP?
+
+Thanks,
+Angelo
+
+> Thanks
+> Peter
+
 
 
