@@ -4,58 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 656A7FCE06D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 12:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D631FCE070
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 12:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BcQzBIoel8ouA37v+xJmTro0U9klZrqKYw4HmUnjPwY=; b=CHSjYroEnIFD0om2mnnUy7HP/F
-	H/YjnFoP1JbUzJ5hgBlJnL3ZQFrooqpOp6/ojC9C57kXUpqFg2136vBhxmB9dRci6PyTxpQ3Xj4pJ
-	D7uCSWLqKJqH5HDW/gxrHBVcGm/zjW5nmqzHqXlf6Fw99GNUVs+kYPQ4EfiofVu+O1S8EvWVqPcmO
-	+pDL1tmpWWjL0VT9scuEcgHou8Tq05VUvKZCur8TPXCh9+BHCTfnZYmwPYA4Btq1d/WleH7vd2Rdj
-	Br6Rbr3PMmP0syjsa5kfUvp0h3LvpX+ElD7sWn0nwy1BxqcYlvNagUdkxqP1qbSmTJUgygwRQ8jBt
-	Cx2MPkmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h21jdGJzMzU8vMvLduJlltIbngyV6SpuNptLYZWQ7zs=; b=tGJ/OErraCSVtipB/cE8ozBF0Z
+	lHOC5LN+frbngtBzqWBQO6HTEXIShzD7AmoPW56PecuLEZOGXGfSmRSVDRvcjQxCVX6EF84vwWC+U
+	TsOd+AgAe/p4hRnX+ms8LXq0sF/uCLizBz1gj+kldW232vPgZogp3bLdr1BA5MAVrPrWs792j85kg
+	XJed3OSNNjgkhilPQzqGNrUx6j7nf9d0pNJtCGKIkXUssarIQS00vKDVfhJQMlF8I6LcObYJedfjM
+	68W16++9tBXu68hwT+vqAQYs2AHwF7k45qzwZE7fcGKMsX/CgUbYEi6ZTvWiARtmsv/H5+Rf6mDAW
+	+Jua30oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvaoX-000000069Co-0aqU;
-	Thu, 26 Feb 2026 12:49:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvaoU-000000069CP-2SQe
+	id 1vvarG-000000069P0-3QDx;
+	Thu, 26 Feb 2026 12:52:46 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvarE-000000069Ob-2TSl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 12:49:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A9E91516;
-	Thu, 26 Feb 2026 04:49:47 -0800 (PST)
-Received: from [10.163.173.11] (unknown [10.163.173.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D99D43F73B;
-	Thu, 26 Feb 2026 04:49:48 -0800 (PST)
-Message-ID: <75c09e05-1b8a-4009-bbb3-07924b76b532@arm.com>
-Date: Thu, 26 Feb 2026 18:19:45 +0530
+	Thu, 26 Feb 2026 12:52:45 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4398f8403edso635184f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 04:52:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1772110362; x=1772715162; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=h21jdGJzMzU8vMvLduJlltIbngyV6SpuNptLYZWQ7zs=;
+        b=CDEOH9FfZZdrGIpLnfJZ3EmXhNYuAdEGafSbTULlhWIKbH0UgRYvj4cirzTrpxp+Ww
+         CyYLkpwhCOoy4qiY/rQMUgx1Mxhlk/Yf3ysPg852EoOmXZgoeI3gHiA30hkZF9s8LDl4
+         JtLDT46Tt6+BktBPmGMeRhM8O4F25OBepo8JV3Mp2hir+fq0BIzGsFQ78Y8O3D4U+i5h
+         NrE5x9RlMQkGeTmyPlDQjfAGlwu2mqiaV/Nyd0h4UTEDuPjC3Fhc+AJge00Bomqg+MqO
+         AYDWkh1p/lszLmPy6/ZjL3+I83qA7pRPXjBBMxbWpalSdWEBI2HYmcq9reHDKm8lFWiN
+         pe4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772110362; x=1772715162;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=h21jdGJzMzU8vMvLduJlltIbngyV6SpuNptLYZWQ7zs=;
+        b=SnhDQ5usgzTq6Su3SNRLPRQ6wZUP7Mmlvo1JgKxdacw5JBt6dBGIoJXA8MtE4DnmpM
+         zb7xksL49UE260a6EIeFfPY9ysCIonUJRG2t7+ZCE4bSU8wrGeMgshvU7/WpYJPtJWGw
+         dsumttMxmZ5Uh6ccATRsipKYI3lC12Zub6A2Hkx2gwCld6uWPO4m0FMX2TplOaFDDOVu
+         ammjKVnvqFXvNn+TBiFG06H0zrhvxQgKZkKsV8YJkhKevT9w9GBwNluERpulwaMtCRMN
+         4PMIFRkANuS2m4zx3Vl5aEF5dP7heDdEkbTb9hloQUHkVfvnmazLLq46HNsINygx/neX
+         Yudg==
+X-Forwarded-Encrypted: i=1; AJvYcCXUbuOYtESRZGjkicKeTb2ddmfxUhG4S/tYCD0PDbCwAHaQISMuOlMrE9LfDRKDl9GLrgxOqWmViOChzqg/UZb2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLfPGANI2/4ePDGzeUPXK8InuMAiLqqQOZT39frBhfGv4nKeSK
+	7kcidFKrtwBtJlBbrl2+eiLebiqW2DLLey67ZNBleIzxDc4S+0U7lpyjbcHs/z9n1fI=
+X-Gm-Gg: ATEYQzy5ThhG19WzBEC4eV0rbaaweK8t4/CaAB1Z1uxSWho4L6xLwrvm1Yydl2FH0Du
+	5p1591euhPFIyrRF+AaOP327J/26aYDKh1YsFGedNlb4tGdg4eWZg0X2hA4q9gDY9Q5Qr+v9VnT
+	UlL+MpjL+SSAa1a0fDx3F72kktiMix4ARqdy1ZgIQTt5H7K1DtEDEAzMA/xeyRkriDkGA/88cbA
+	LeEPgNCzxp6fY9qJd5IkCodQ2uLIz0NgaPLccbUs8w1WcmaHWPV71Grx/W7CiOwvLgJFFXXpB2e
+	JOed+ikQAQ30vGWQKF4i8JbhU5Lg9BcuBIm66qKwr0ykeR/2Ba0iwJA6THUx59Y9CKpnlNgZF5O
+	DgnAwMxpIFzbc6K1L0H7HHN+U5QNm+ivLk67roQEjkAKwjty7nLYSVaicQ/uAdhQ2DZ6lp0sMIJ
+	bXIBFkuB2osFctFf526SBfQ7EKw8+HFw==
+X-Received: by 2002:a05:6000:2c12:b0:439:56ee:d65a with SMTP id ffacd0b85a97d-43994302470mr8038842f8f.50.1772110362338;
+        Thu, 26 Feb 2026 04:52:42 -0800 (PST)
+Received: from draszik.lan ([212.129.82.143])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439941a2d34sm7596696f8f.38.2026.02.26.04.52.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Feb 2026 04:52:42 -0800 (PST)
+Message-ID: <92969f1bb04f41c2ad3b9a17d8ba652defa2a29e.camel@linaro.org>
+Subject: Re: [PATCH 0/3] arm64: WFxT fixes, take #2
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>,  Mark Rutland <mark.rutland@arm.com>, Ben Horgan
+ <ben.horgan@arm.com>, Daniel Lezcano	 <daniel.lezcano@linaro.org>
+Date: Thu, 26 Feb 2026 12:53:31 +0000
+In-Reply-To: <20260226082234.26707-1-maz@kernel.org>
+References: <20260226082234.26707-1-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2+build4 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V1 01/16] mm: Abstract printing of pxd_val()
-To: Usama Arif <usama.arif@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20260226123442.759447-1-usama.arif@linux.dev>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260226123442.759447-1-usama.arif@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_044954_729611_AE1B5658 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20260226_045244_649821_7493B2EC 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,157 +100,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/26 6:04 PM, Usama Arif wrote:
-> On Tue, 24 Feb 2026 10:41:38 +0530 Anshuman Khandual <anshuman.khandual@arm.com> wrote:
-> 
->> Ahead of adding support for D128 pgtables, refactor places that print
->> PTE values to use the new __PRIpte format specifier and __PRIpte_args()
->> macro to prepare the argument(s). When using D128 pgtables in future,
->> we can simply redefine __PRIpte and __PTIpte_args().
->>
->> Besides there is also an assumption about pxd_val() being always capped
->> at 'unsigned long long' size but that will not work for D128 pgtables.
->> Just increase its size to u128 if the compiler supports via a separate
->> data type pxdval_t which also defaults to existing 'unsigned long long'.
->>
->> Cc: Andrew Morton <akpm@linux-foundation.org>
->> Cc: David Hildenbrand <david@kernel.org>
->> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
->> Cc: Mike Rapoport <rppt@kernel.org>
->> Cc: linux-mm@kvack.org
->> Cc: linux-kernel@vger.kernel.org
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->>  include/linux/pgtable.h |  5 +++++
->>  mm/memory.c             | 29 +++++++++++++++++++----------
->>  2 files changed, 24 insertions(+), 10 deletions(-)
->>
->> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->> index a50df42a893f..da17139a1279 100644
->> --- a/include/linux/pgtable.h
->> +++ b/include/linux/pgtable.h
->> @@ -17,6 +17,11 @@
->>  #include <asm-generic/pgtable_uffd.h>
->>  #include <linux/page_table_check.h>
->>  
->> +#ifndef __PRIpte
->> +#define __PRIpte		"016llx"
->> +#define __PRIpte_args(val)	((u64)val)
->> +#endif
->> +
->>  #if 5 - defined(__PAGETABLE_P4D_FOLDED) - defined(__PAGETABLE_PUD_FOLDED) - \
->>  	defined(__PAGETABLE_PMD_FOLDED) != CONFIG_PGTABLE_LEVELS
->>  #error CONFIG_PGTABLE_LEVELS is not consistent with __PAGETABLE_{P4D,PUD,PMD}_FOLDED
->> diff --git a/mm/memory.c b/mm/memory.c
->> index 07778814b4a8..cfc3077fc52f 100644
->> --- a/mm/memory.c
->> +++ b/mm/memory.c
->> @@ -532,9 +532,15 @@ static bool is_bad_page_map_ratelimited(void)
->>  	return false;
->>  }
->>  
->> +#ifdef __SIZEOF_INT128__
->> +	typedef u128 pxdval_t;
->> +#else
->> +	typedef unsigned long long pxdval_t;
->> +#endif
->> +
->>  static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long addr)
->>  {
->> -	unsigned long long pgdv, p4dv, pudv, pmdv;
->> +	pxdval_t pgdv, p4dv, pudv, pmdv;
->>  	p4d_t p4d, *p4dp;
->>  	pud_t pud, *pudp;
->>  	pmd_t pmd, *pmdp;
->> @@ -548,7 +554,7 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->>  	pgdv = pgd_val(*pgdp);
->>  
->>  	if (!pgd_present(*pgdp) || pgd_leaf(*pgdp)) {
->> -		pr_alert("pgd:%08llx\n", pgdv);
->> +		pr_alert("pgd:%" __PRIpte "\n", __PRIpte_args(pgdv));
->>  		return;
->>  	}
->>  
->> @@ -557,7 +563,8 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->>  	p4dv = p4d_val(p4d);
->>  
->>  	if (!p4d_present(p4d) || p4d_leaf(p4d)) {
->> -		pr_alert("pgd:%08llx p4d:%08llx\n", pgdv, p4dv);
->> +		pr_alert("pgd:%" __PRIpte "p4d:%" __PRIpte "\n",
-> 
-> Hi Anshuman,
-> 
-> The original format had a space between values ("pgd:%08llx p4d:%08llx").
-> The replacement loses the space separator producing output like
-> "pgd:123p4d:456" instead of "pgd:123 p4d:456". The same issue exists
-> in other places in this commit.
+Hi,
 
-There needs to be a forward single space before p4d starts.
+On Thu, 2026-02-26 at 08:22 +0000, Marc Zyngier wrote:
+> After my previous WFxT fix went in 7.0-rc1 as 29cc0f3aa7c64 ("arm64:
+> Force the use of CNTVCT_EL0 in __delay()"), Ben reported that it isn't
+> playing nice with preemption, due to the use of the timer workaround
+> percpu variable. This series tries to address this, and propose a
+> hopefully better alternative.
+>=20
+> That alternative is in the form of a new "virtual counter" accessor,
+> available in the same way arch_timer_read_counter() is, except that it
+> is guaranteed to be the virtual counter. This helper (a function
+> pointer, really) is updated on each CPU boot in the same manner the
+> counter accessor is.
+>=20
+> This is then plugged into the __delay() helper, providing the expected
+> guarantees (and resulting in a much nicer code gen).
+>=20
+> Patches on top of -rc1.
+>=20
+> Marc Zyngier (3):
+> =C2=A0 arm64: Fix sampling the "stable" virtual counter in preemptible
+> =C2=A0=C2=A0=C2=A0 section
+> =C2=A0 clocksource/drivers/arm_arch_timer: Expose a direct accessor for t=
+he
+> =C2=A0=C2=A0=C2=A0 virtual counter
+> =C2=A0 arm64: Convert __delay_cycles() to arch_timer_read_vcounter()
+>=20
+> =C2=A0arch/arm64/lib/delay.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 5 ++++-
+> =C2=A0drivers/clocksource/arm_arch_timer.c | 5 +++++
+> =C2=A0include/clocksource/arm_arch_timer.h | 1 +
+> =C2=A03 files changed, 10 insertions(+), 1 deletion(-)
 
-pr_alert("pgd:%" __PRIpte " p4d:%" __PRIpte "\n"
+FWIW, I was observing similar traces from various drivers and can confirm t=
+hat
+for me, on Pixel 6, the warnings are gone again with these patches applied =
+on
+top of next-20260225
 
-			  ^^^
-Will fix all the instances.
-
-> 
->> +			 __PRIpte_args(pgdv), __PRIpte_args(p4dv));
->>  		return;
->>  	}
->>  
->> @@ -566,7 +573,8 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->>  	pudv = pud_val(pud);
->>  
->>  	if (!pud_present(pud) || pud_leaf(pud)) {
->> -		pr_alert("pgd:%08llx p4d:%08llx pud:%08llx\n", pgdv, p4dv, pudv);
->> +		pr_alert("pgd:%" __PRIpte "p4d:%" __PRIpte "pud:%" __PRIpte "\n",
->> +			 __PRIpte_args(pgdv), __PRIpte_args(p4dv), __PRIpte_args(pudv));
->>  		return;
->>  	}
->>  
->> @@ -580,8 +588,9 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->>  	 * doing another map would be bad. print_bad_page_map() should
->>  	 * already take care of printing the PTE.
->>  	 */
->> -	pr_alert("pgd:%08llx p4d:%08llx pud:%08llx pmd:%08llx\n", pgdv,
->> -		 p4dv, pudv, pmdv);
->> +	pr_alert("pgd:%" __PRIpte "p4d:%" __PRIpte "pud:%" __PRIpte "pmd:%" __PRIpte "\n",
->> +		 __PRIpte_args(pgdv), __PRIpte_args(p4dv),
->> +		 __PRIpte_args(pudv), __PRIpte_args(pmdv));
->>  }
->>  
->>  /*
->> @@ -597,7 +606,7 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->>   * page table lock.
->>   */
->>  static void print_bad_page_map(struct vm_area_struct *vma,
->> -		unsigned long addr, unsigned long long entry, struct page *page,
->> +		unsigned long addr, pxdval_t entry, struct page *page,
->>  		enum pgtable_level level)
->>  {
->>  	struct address_space *mapping;
->> @@ -609,8 +618,8 @@ static void print_bad_page_map(struct vm_area_struct *vma,
->>  	mapping = vma->vm_file ? vma->vm_file->f_mapping : NULL;
->>  	index = linear_page_index(vma, addr);
->>  
->> -	pr_alert("BUG: Bad page map in process %s  %s:%08llx", current->comm,
->> -		 pgtable_level_to_str(level), entry);
->> +	pr_alert("BUG: Bad page map in process %s  %s:%" __PRIpte, current->comm,
->> +		 pgtable_level_to_str(level), __PRIpte_args(entry));
->>  	__print_bad_page_map_pgtable(vma->vm_mm, addr);
->>  	if (page)
->>  		dump_page(page, "bad page map");
->> @@ -695,7 +704,7 @@ static void print_bad_page_map(struct vm_area_struct *vma,
->>   */
->>  static inline struct page *__vm_normal_page(struct vm_area_struct *vma,
->>  		unsigned long addr, unsigned long pfn, bool special,
->> -		unsigned long long entry, enum pgtable_level level)
->> +		pxdval_t entry, enum pgtable_level level)
->>  {
->>  	if (IS_ENABLED(CONFIG_ARCH_HAS_PTE_SPECIAL)) {
->>  		if (unlikely(special)) {
->> -- 
->> 2.43.0
->>
->>
-
+Tested-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
