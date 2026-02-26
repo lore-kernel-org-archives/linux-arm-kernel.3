@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 352CBFD9E0A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 21:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BC0FD9E14
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 21:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P3KSzDZH5WcI3naCdA20D7hQPLm9fLJpZnjg0HtC5mU=; b=Oro4wiDatDiELETwlJGFi9BWhX
-	jcq1b6N1+Gy3csCIK6aWQZewXkomlTM0o2IAO0OebfnSqqGZBYyiatuarpQ9rpGkrd73WVD05qcZb
-	9O9rr7OVen7Sn18hZn/3RoFXEpjGOLiERkYbNMOBQ3mNWZHXJ850Q//rR2JuL2E02Z1gEDF++S/Gh
-	Q18gs87qziGMXIvpUF29TWia0jh7lB1EifE3qslCdCUzONUUKtJNKFyK88PchiZ5QR+Nnwyo1DLzx
-	yR+aIs9ql4hIaNSfmrSdgX/Ox3Y0RO29uFiB3cJ/3JJvOt2aE/3TIRsusfafnoDE5dIatXSnmm3JA
-	4kjTQ7SQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fpFL8gAw4IAHZejDMtFioFGSH6+h+EUQlY1TRzKiVrk=; b=iBu1ASFTwpjNJstYP4vWZvSQVS
+	3bwnuWg4pr71IiAmik+V2IB9isNZc+0ZGHx/iwKzIRy5EvKnA4cmNdgj06Lo4WliJyJiZNruFUXVR
+	5EmxTC1KEVI8A6D4NCYTaLRodLF+JOrtr1Xg/Xzq67JdInBuQMUH+jWFTwLkuKMpK2/kUBAit6Yjr
+	EcSTNm2+yfv2/87fMDhMAAfsepEIL/ltgRmGYK//LDkY81obluLMvHZYPbSXqvon9zECzqksouO9N
+	QbFdaMurJ6yzJ9/2uEsXMm1wpjlg+xTKmFJtjeyYrNvr248qQioIl6beLDM4PEzE0SCoz54Vrevc4
+	gGGVlRQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vviyu-00000007FsI-0YiG;
-	Thu, 26 Feb 2026 21:33:12 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vvjAn-00000007GLx-0QTB;
+	Thu, 26 Feb 2026 21:45:29 +0000
+Received: from mailgate02.uberspace.is ([2a00:d0c0:200:0:1c7b:a6ff:fee0:8ea4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vviyq-00000007Fqr-19C6
+	id 1vvjAj-00000007GKk-3B1e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 21:33:09 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ad21f437eeso10025155ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 13:33:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772141587; cv=none;
-        d=google.com; s=arc-20240605;
-        b=DtJ4ijFclzOwKQi6mnRcF/+bNuOpxXSX2ln6qrNtGZy7cdUQ4C/k/3K1noVi+kWWde
-         5s4w3mhFuVZZqFqQtg6hxYLQIwhWenwWM1gJrdtwN/xzHHuXmYt/0fGLijx2OUr2+rjp
-         6CCfEx3ISxwxqaaSAP/4zv6y1WCglY1sTZNsOipBTb4K9suWfDGU3cBZ7phRCxN5RjJC
-         rTAdQADBmBlemFHzTNE2Tr2HuXLL/kZscAvKzMY/uM+oO7BGC1rheAbZC09EdPRXik0y
-         boNOb3v7PfRGjW/LMxUlHlR1aZFmHLm1O/cbSlJEoRnFIZl3kHQrhw8LAkxRPKVegTiz
-         5h/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=P3KSzDZH5WcI3naCdA20D7hQPLm9fLJpZnjg0HtC5mU=;
-        fh=JAw59LfACxbDVqXoIXjlUPTibEAZ3Lgqo7hrtg4pSLU=;
-        b=cV8xvmxyGT/K9W5o7oOIuwY9RV7y38XXmhBrcxUv+ZtktpJ/fGCkU0UTeqiUl/eVVq
-         A8/afUky8JtOD2ulSHOd0FBxF0nudldRQNV8MOEg0FfcIBTW8Ir/FdAuxRvvSIgnQhfV
-         QR8GtdE8pLASSJ6MHnhAX5M+ATuCYroRBeAF+KHnHRe3kpHfC8qjg+cM2Wh3SdIbk63X
-         AYCW1csJwwUgH+HtPEOJmZRNwrRBDQD9uLCjYmunyyhDFbvzFbJyHMqQj67CdkAeXs2w
-         td+xhVE4DGPIt0L/toY2s3IqGDgp6mMtAWA/Rad6cVW8Tg+KT75k2Dc9MxdK7hAoLwj+
-         6TdA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1772141587; x=1772746387; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P3KSzDZH5WcI3naCdA20D7hQPLm9fLJpZnjg0HtC5mU=;
-        b=BUF3X99tz3xdqULW+wjUxk6qxMh+UJay9x/emqizt+UnEf9tzHwCKfZhPMDez8cmDV
-         42vdUL/bASiGM2R0boKoO3hWGEt3vYmoEdL59ecccNuBikoodtp8sYalIK1DZcnkAKP9
-         kwT5h8gAEsHnxVhoB3TtzoP1HH8L8BUBavUYyjH5m5JNylgxC7E5ZFdeKf5VUMVI8xL1
-         7ZY0mgxUdzi9xlY5uJCqLWZcmuGduDFoStNjtRVMBMxh5hXGa6yjNHzlIW3lyuik8L58
-         qhcVVH12hVgTovrtBx4H9hs4KkDuZQhGELPaa3GitYn8pM3g31XbrD/w1G32boLiG0YZ
-         PU4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772141587; x=1772746387;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=P3KSzDZH5WcI3naCdA20D7hQPLm9fLJpZnjg0HtC5mU=;
-        b=mKkoiBIGur2fuLcKfRd++2DqhCdcK5WPhJUwdnGLOVbPiOc9Uo85zeYrS2kTuXy871
-         9UMuzGy9mCIn9vJYopa6Q3+KNlgxh7EnCAYH/1/C9kMMteKD9BF6VSAIOkBG5/+cuSr2
-         BQrkb53fklQj5GggFLXhsUkZqXqJ/kO/HX1Nvh40d7r5vLLRpBuQqPIL7U8KUNJsOQlG
-         24Tdtzbdn0S5STizztTXjhxIf7H24IVheXJLYW13abQHQUlAJmyicGUmEfdcpYGOGZE4
-         7iHhMghRrnTgmGC4ySIUBWwJrOmSe0ZJxEeEiPv7IDs/fLmb4phwYgNVJk7Qn3bTVflS
-         GIpA==
-X-Forwarded-Encrypted: i=1; AJvYcCVImHSDxBOPkTBjvgBvafTggisIYTtFxalDR5Mr9yU4S4JtzTF5URRawYrRg3aOHfONlYrgMFhWctonHuxrGk8S@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhuDhC0IyEBg2SNhJ1Jgl5qicifIv5qkDzhpxt0yWCUT0YqGW9
-	19YBdsYXw2x6WWpG4nj9iR6DIjBFc1ljy+pcbleTt8igSRpH2AmgQfaoqoOSZW8a2cdURwpYQvx
-	RNC0Mfa2S+uufQFrhMWW27YkbppP4qmQ=
-X-Gm-Gg: ATEYQzwewvNHmNbQIZRWU9eEpBoTCtTwsDaPFrzgMATjTpBnh8dCHU6dcB0Cs7Wk03g
-	vM623BZc+XR+TpexszFpQHrgbjh6zWqImQ8TgsmEXd2/LZtO/A4pgVUdVN3+i9SX3Q/jtAapE9k
-	glEPTW2izf5/VL+KLcAnX7+fGiahFhUoISr/EK8vlsBOyELWA1p4RekRs/y8SC+ch8REaHV8Fdw
-	N1KESko7vR0JMN4jL8p9F+xV+p1o+7U3agJbk6SmgnhyW1y7crC/ba6yyqtiM8i3Or/IrK6Nz++
-	SXYRQlYQP4Yo8ybG+opsfhL86I5at2dwELm6OMdNiKAsbEk1ovk=
-X-Received: by 2002:a17:903:4b07:b0:2a7:8c6f:939b with SMTP id
- d9443c01a7336-2ae2bce58eemr4336975ad.27.1772141587391; Thu, 26 Feb 2026
- 13:33:07 -0800 (PST)
+	Thu, 26 Feb 2026 21:45:28 +0000
+Received: from perseus.uberspace.de (perseus.uberspace.de [95.143.172.134])
+	by mailgate02.uberspace.is (Postfix) with ESMTPS id 156F718015F
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 22:45:10 +0100 (CET)
+Received: (qmail 6313 invoked by uid 988); 26 Feb 2026 21:45:08 -0000
+Authentication-Results: perseus.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unkown) (::1)
+	by perseus.uberspace.de (Haraka/3.1.1) with ESMTPSA; Thu, 26 Feb 2026 22:45:07 +0100
+From: David Bauer <mail@david-bauer.net>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: mt76: mt7915: add debug query from WA firmware
+Date: Thu, 26 Feb 2026 22:45:00 +0100
+Message-ID: <20260226214502.2561168-1-mail@david-bauer.net>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20260123022258.136448-1-nick@khadas.com> <20260123022258.136448-5-nick@khadas.com>
-In-Reply-To: <20260123022258.136448-5-nick@khadas.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Thu, 26 Feb 2026 22:32:56 +0100
-X-Gm-Features: AaiRm51PyRfiLatDzwSiR5eluGOKGQK9uyO4t3-kfB8JjH98-aVUutjpr9phvHI
-Message-ID: <CAFBinCABMXTGZ8A6LPN3N-4TcJH5DrxWcnVAoCzE954KgnEpeA@mail.gmail.com>
-Subject: Re: [PATCH 4/6] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s:
- add POWER key support
-To: Nick Xie <nick@khadas.com>
-Cc: neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org, xieqinick@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Bar: /
+X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-2.999999) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -0.099999
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=david-bauer.net; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=7k4vYrbJ6xrpxAjo9hJNkIdxQq6FFLUNTmda5XOMLE0=;
+	b=v0EcSVJyA3j4V41/5QzOj4WBK9JMFD9bud0Fewr2BKZ1XkNJUPXyPZ7rl9x44lt0ouI5GhVCKx
+	JPV9YEaiQggB72quWuW33gzsZ5ZQdturHuYScCFFVXJyDVRRBjeWzmXj9MSxqBzRJOVuBcvdNE5S
+	2dTgcMSnS/maZWYSHje+aVwSnynuyPazCqkzoaQctsoJd61gdO/ohKKLnNxKFNGOkoBcP/CgwPve
+	GoIVhkzzv7nxBcNxhserfT9BuQJT5FwSR3T0/2GoNyjO7FuOJv+JxGmDKxNMTzayTuqzO8Ca3XWt
+	speoY+nQoVPT4xHtZIsyOeS+aFNX2KYA9+STP5mWvYqvGIiZpJwz9rStNC7oyW4wLnX63/Z6ncAA
+	cpYP5Q48OktQd+KTpXy8LWEamMaakSdG6+U6GpP4l/WqdePWxGhZCNu0svynKJtRQijkfxN7nOen
+	Ox0abD9a5k6fgw9uhwuLCC7Z97IKzeHyGsXny/x06nDq+ol5+Kx5j4dVAaQG0lMdapDrp1LL2obO
+	3RdW+a1iVLRBnrdl8Ql+PhotOry6hJ1E4lBAioLWfGqS3SkFeOi6aNxQK7D88Ym8QpevC0nkwtW+
+	S3AfEFLE0NmdxZoQMkz8SstnuEmTEFKbPdR/uL2L5AFqBY9hrD67KVzOanY9VyM6fHe3sesfmDtq
+	M=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_133308_312211_48432840 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20260226_134526_234220_BE10B963 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,14 +87,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 3:23=E2=80=AFAM Nick Xie <nick@khadas.com> wrote:
->
-> Add the gpio-keys-polled node to support the Power button found on the
-> Khadas VIM1S board. The button is connected to the GPIOD_8 pin.
->
-> Use polled mode instead of gpio-keys because the GPIO interrupt
-> controller support for Meson S4 SoC is not yet available upstream.
->
-> Signed-off-by: Nick Xie <nick@khadas.com>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Add a new file to the mt76 debugfs to allow querying internal state
+information from the WA firmware.
+
+This allows to extract more information from the internal queue
+structures and configured limits.
+
+Signed-off-by: David Bauer <mail@david-bauer.net>
+---
+ .../wireless/mediatek/mt76/mt7915/debugfs.c   | 81 +++++++++++++++++++
+ 1 file changed, 81 insertions(+)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c b/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c
+index 26ed3745af43e..018b1c70b524b 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c
+@@ -603,6 +603,86 @@ mt7915_fw_debug_wa_get(void *data, u64 *val)
+ DEFINE_DEBUGFS_ATTRIBUTE(fops_fw_debug_wa, mt7915_fw_debug_wa_get,
+ 			 mt7915_fw_debug_wa_set, "%lld\n");
+ 
++struct {
++	u8 idx;
++	u8 query_cmd;
++	char *description;
++} mt7915_fw_wa_debug_query[] = {
++	{ 0, 0x16, "MSDU drop info" },
++	{ 1, 0x17, "AC queue tail drop" },
++	{ 2, 0x19, "TX Free info" },
++	{ 3, 0x20, "BSS Table" },
++	{ 4, 0x21, "STA records" },
++};
++
++static ssize_t
++mt7915_fw_query_wa_set(struct file *file, const char __user *user_buf,
++		       size_t count, loff_t *ppos)
++{
++	struct mt7915_phy *phy = file->private_data;
++	struct mt7915_dev *dev = phy->dev;
++	char buf[16];
++	u16 val;
++
++	if (count >= sizeof(buf))
++		return -EINVAL;
++
++	if (copy_from_user(buf, user_buf, count))
++		return -EFAULT;
++
++	if (count && buf[count - 1] == '\n')
++		buf[count - 1] = '\0';
++	else
++		buf[count] = '\0';
++
++	if (kstrtou16(buf, 0, &val))
++		return -EINVAL;
++
++	for (int i = 0; i < ARRAY_SIZE(mt7915_fw_wa_debug_query); i++) {
++		if (val != mt7915_fw_wa_debug_query[i].idx)
++			continue;
++
++		mt7915_mcu_wa_cmd(dev, MCU_WA_PARAM_CMD(QUERY),
++				  mt7915_fw_wa_debug_query[i].query_cmd,
++				  0, 0);
++		return count;
++	}
++
++	return -EINVAL;
++}
++
++static ssize_t
++mt7915_fw_query_wa_get(struct file *file, char __user *user_buf,
++		       size_t count, loff_t *ppos)
++{
++	static const size_t bufsz = 1024;
++	ssize_t ret;
++	char *buff;
++	int desc = 0;
++	int i;
++
++	buff = kmalloc(bufsz, GFP_KERNEL);
++	if (!buff)
++		return -ENOMEM;
++
++	for (i = 0; i < ARRAY_SIZE(mt7915_fw_wa_debug_query); i++) {
++		desc += scnprintf(buff + desc, bufsz - desc,
++				  "%d: %s\n", mt7915_fw_wa_debug_query[i].idx,
++				  mt7915_fw_wa_debug_query[i].description);
++	}
++
++	ret = simple_read_from_buffer(user_buf, count, ppos, buff, desc);
++	kfree(buff);
++	return ret;
++}
++
++static const struct file_operations fw_query_wa_fops = {
++	.write = mt7915_fw_query_wa_set,
++	.read = mt7915_fw_query_wa_get,
++	.open = simple_open,
++	.llseek = default_llseek,
++};
++
+ static struct dentry *
+ create_buf_file_cb(const char *filename, struct dentry *parent, umode_t mode,
+ 		   struct rchan_buf *buf, int *is_global)
+@@ -1310,6 +1390,7 @@ int mt7915_init_debugfs(struct mt7915_phy *phy)
+ 			    &mt7915_sys_recovery_ops);
+ 	debugfs_create_file("fw_debug_wm", 0600, dir, dev, &fops_fw_debug_wm);
+ 	debugfs_create_file("fw_debug_wa", 0600, dir, dev, &fops_fw_debug_wa);
++	debugfs_create_file("fw_query_wa", 0600, dir, dev, &fw_query_wa_fops);
+ 	debugfs_create_file("fw_debug_bin", 0600, dir, dev, &fops_fw_debug_bin);
+ 	debugfs_create_file("fw_util_wm", 0400, dir, dev,
+ 			    &mt7915_fw_util_wm_fops);
+-- 
+2.51.0
+
 
