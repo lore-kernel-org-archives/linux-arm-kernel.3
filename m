@@ -4,101 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808E6FD8FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 17:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0521FD8FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 17:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwTJv9LGSAlffYlkadnvjA+g9OCfZ1CRMJttWHSXLMM=; b=GH71rN94DN9KrabQRXLl7yZ3du
-	6nsdyBg0ycneV8AwgYbb0u82gBETtsrt7dXogH60MNf2HVqdkPKWMZ9EGkAFqkP1QMG9gD70Dyh+C
-	SipaEOjz0pX+R1CwZvR3lWnhcRzrXfpqJuLhNZ6e3xdMPb8dygOsufIrminNnCMN/SEe6cobaaQnP
-	bhs8ycyQU5NP/ikR92LbhbP8VJQZUXOEUOZjSIH24q6WgG6rN79m0Id3II1WUMiT2sb1KFY8UIrK8
-	kPtTG0sDB7WPA5LUM9v2pZlRkEUxe6gfPfTEi/+LmhbuH0XO3tw9OJtaxWm47GSXwvLgRYYYm++rv
-	oDWB1knA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e9TlxE1gH5r3d7X8NijoCBdiHdCbjv9mY0VQW5vrzyU=; b=tQgYBGXEio6mKbW2CENBRk80D1
+	iORMk1IK83Z9HI0BeNG10Wa5oykUCWKhaTEh/3I+XQfQhjIDGYfIvDdUHfE3ggyuihng7iqFar9yY
+	GmqCmqzFNomoqo+hFY/gJTWB7q3Izg6BsqavdFKzxPzC08R132UzxM0GjhTakS80mGadompuhPN0M
+	fXRpDwEHkUGI5820USPYHgEMkUVj1JmDOz1wGePfVWHLoDKPp5qUGUW8hNOGuAO94cbcKucpZSSr1
+	naapxP1p0Bc27OCw4ppTdpm8uwDbuytrvQRQYfgxLv0QRdo8ovhAvmPdHAvykuwnpLfYtbwlpDkOs
+	rh13bG1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfQB-00000006sgr-0lxl;
-	Thu, 26 Feb 2026 17:45:07 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1vvfTq-00000006sxs-3IKu;
+	Thu, 26 Feb 2026 17:48:54 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfQ8-00000006sgJ-3F1X
+	id 1vvfTn-00000006swy-0HVE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 17:45:05 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-65f73225f45so2053742a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 09:45:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772127902; x=1772732702; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lwTJv9LGSAlffYlkadnvjA+g9OCfZ1CRMJttWHSXLMM=;
-        b=iEscL5IDVRV/v28Pv3Ca3+iPxc8UMUoc1El617NavFIcxZZMp9HZlhalF+HGel2Mkm
-         wVWI6TtLitCQk/rHsqDlXUq4hCoUPU0FOw/PEmTn5bXM3n6AjbOI2gL9rlsmBONPcr55
-         ypN5mkkG7GtMM8JiQhNG9DiBAw4kMThoACjIMIEUtzLwnPPMVYaRmECaMRHSzsJbxNgv
-         eZ3++qfCCgyr3x1loC45el0HChA026K6AxLPU68h+VpUmuWIRbzRqvOGkLmAF5FGeR6Y
-         WuV5unumD3k9l77EgXkdFeTK9iK/fHMtag5URk9Hu2imVumlLaX+a5u4fnefNGYuSk4G
-         THGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772127902; x=1772732702;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lwTJv9LGSAlffYlkadnvjA+g9OCfZ1CRMJttWHSXLMM=;
-        b=SeyeeugFeEP3rwT/3rgEKDC5wMBOhtwZIe2UKmANSWIBi4BxO+WWxcPj3JJWqrqKXb
-         cCqCCGi095aihB8EMd6BTrJtOTJtzi0QaQ5T4BwYpKJmJTsS3EtbiM2VJrx/O4HBQ7LE
-         8Y89VawZho7e0a4GiXUTaG7fTI0nxJuV7NumfmCQnDZ1lcBeVlaQCDF4hORqsjWv3rT/
-         6fvg7b16joAEfR08QAkFZrDE2yt85f8F3SHklqVeQeomDJ82IYY7DM4bY0/FDrQ4iaKp
-         khHg/bs869/PE3EkSlstvvNA9dZ+IuDAy3wjRV9aPQMU00d4Ux4FxifeueXJlGHVmMyE
-         Pdwg==
-X-Forwarded-Encrypted: i=1; AJvYcCUQ7agHaYCgei2/M+e6Xbh76SkGASHdz8UUWymieUzGUKBdQYKw+SCbZ7hb88myeSR88KAjHBICtn8NF/DqSVfu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzb7MKvsG8sYlXrtDnymI9ORtRyp/BMEnSsEzDuyGyyqUPqYyr0
-	iOCo27Gyx51NM8WMLyd63T7OlScfJbeCV/u3dHowigMido4jVHug6rQr
-X-Gm-Gg: ATEYQzxwiK0JkQYMBiXkF1/tPxmVfdcCYg12+hK2ZBL3rM3C654id1VUgPAgG7higvz
-	Q/ck1Rf3QqiGYmc6a6HLGjmGyUNV8Ga7Nuj81mnOS9ZMdPEggUiZk61hYh/6O4hT9/qGSijgaFY
-	RT4qXpbFng5rOP3KWx2E6JrWrjeLj/Rm3GroOF2RmBGJDxK1r+G6Wjv+EGwMPUfdPaGAlC+n11S
-	C59JBe7JO5EYX+3fIKb14UYhTcBbHoh2AlHxHCZR89ScTcR5YLZdIEogCbEBqUHa9EhgPC+RSCG
-	kp3cwgQLWB4O1QRFYb6DmESC4aFMl1gkeNhcgOyZkJv0+w8s8nqXLTjYVKm4T+kTsQopuBFzrKu
-	oasmHCe786BAod9T3XeZz+B+dUQU4s437LNJU9hnauUP8mzEhI20DM7PSrD3QJmqF5fEFxWCNrU
-	e03zdhVLNALpGUNSlnjBQoGWUfRxhSacTdBVR4JmBbp6PefM9+uJZCOn6+RuHrWwjkQQLRJRMN9
-	xC9P9tE04xLqXIcXe1NoXg9XzXWUpbQ68Q5vdEAeh3MbOI=
-X-Received: by 2002:a17:907:f497:b0:b83:32b7:21b0 with SMTP id a640c23a62f3a-b935b502ecamr191281066b.17.1772127901905;
-        Thu, 26 Feb 2026 09:45:01 -0800 (PST)
-Received: from Lord-Beerus.station (net-188-152-100-94.cust.vodafonedsl.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b935ab13564sm81364866b.9.2026.02.26.09.45.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 09:45:01 -0800 (PST)
-Date: Thu, 26 Feb 2026 18:44:59 +0100
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v1 06/11] arm64: dts: freescale: imx8mm-var-som: Update
- WiFi/BT configuration
-Message-ID: <aaCGmyqONKj7GoOy@Lord-Beerus.station>
-References: <cover.1771353301.git.stefano.r@variscite.com>
- <3e79c4d806b8b8024b71bc99c36b09a2fbb90a65.1771353301.git.stefano.r@variscite.com>
- <CAOMZO5CAb8738HdH49WcY-JPTzQ90n4Bnmyn96_3jfw47mxOug@mail.gmail.com>
- <aZTEm8nUUVcKZH0v@Lord-Beerus.station>
- <aZXqSz_OsCC64P7i@lizhi-Precision-Tower-5810>
- <aZX0WB_6qPoCYVvC@Lord-Beerus.station>
- <aZ28RtuAWcatyVAf@Lord-Beerus.station>
- <aZ4YdCIG2JIT6BQS@lizhi-Precision-Tower-5810>
+	Thu, 26 Feb 2026 17:48:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t21RgdcEHKCKaRbanMRTlgGLVvLGCAZdc8VV++sMcaDUnKPdjH47mUmf7s9kJVKx0TbbUNxC11sBeU1eymvD1PQaENo0x3nDE3A88KiFehFfKgTrvVSbZxIOWcC43kSk2XOE7KoQT7e4Tb5+h2MWfwn/Z/f2GwAB+V5RlYrJKCEfs/L7coEvhO3rZGsrIM1VHLEsUCSUWMjFmQkDnVZ67UqlEYVrrRxY3PkUbn/x4Pxc4szMOjoKStlePOG8+cYOVsq4L40cX+I4JWqebCPbHQ+k8fGZhOMgxNt10CNZABS5YLfFYEdDuh7ZKR9BUjtp7gPq+TulpWZ6+IBw28KW9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e9TlxE1gH5r3d7X8NijoCBdiHdCbjv9mY0VQW5vrzyU=;
+ b=cPY0VeTJKLWxDP5RdAL4OhWdPm9bcijqdxqaKYmw0I56TWwMmnN/dZo4ocP/dRtCddlfnQoYxNQBNdi/h5wRNgnXKT76lPnM5PfLkoPaD+y1IVqJA9wySqcwwK4Cy3IK1J0N4Cj6b8jM3XzQG0pbeN1hNN9SWOsbd/k09s7339B61kp1DDFDl1oAmLJEcDINGLtqv4WR3rOZWlqWbYmVQ3Pvjto1IUN/YkX7ttMoXIFRm+FaZSIUa8I2bFYFGpcTpEguHNvwY6L/JKP32q3oUZ+j7KkQ9/9V4TXhnObwmGy9qR0N2/FZHb8/fOlzRO6pVL4qNBiMbmH6XNmCiNmseQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e9TlxE1gH5r3d7X8NijoCBdiHdCbjv9mY0VQW5vrzyU=;
+ b=UIPHFxNMHcg3rvr4v505onZ63FXQBPFGH9TlzkJIInBAmK3OLhmzSUoqOSLNF2KAH84FLRAkHeiT7trm5GBzwrMRb/7rtcQpFdpPE/GA76/plBDP3QPxHPxxfRLcDYUc/3VIazGU4sPOLZoRepH9hR3xEuXL8Dm+v+ajT6Hm/Gw=
+Received: from BN9PR03CA0434.namprd03.prod.outlook.com (2603:10b6:408:113::19)
+ by CY5PR10MB6189.namprd10.prod.outlook.com (2603:10b6:930:33::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.11; Thu, 26 Feb
+ 2026 17:48:45 +0000
+Received: from BN1PEPF0000467F.namprd03.prod.outlook.com
+ (2603:10b6:408:113:cafe::23) by BN9PR03CA0434.outlook.office365.com
+ (2603:10b6:408:113::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.26 via Frontend Transport; Thu,
+ 26 Feb 2026 17:48:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BN1PEPF0000467F.mail.protection.outlook.com (10.167.243.84) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9632.12 via Frontend Transport; Thu, 26 Feb 2026 17:48:44 +0000
+Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 26 Feb
+ 2026 11:48:43 -0600
+Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 26 Feb
+ 2026 11:48:43 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE209.ent.ti.com
+ (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 26 Feb 2026 11:48:43 -0600
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61QHmdJv2289228;
+	Thu, 26 Feb 2026 11:48:41 -0600
+Message-ID: <46eed0e2-e5cc-4bc9-924a-83646cbd0351@ti.com>
+Date: Thu, 26 Feb 2026 23:18:39 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aZ4YdCIG2JIT6BQS@lizhi-Precision-Tower-5810>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-j721s2-common-proc-board: Add QSPI
+ flash partition details
+To: Anurag Dutta <a-dutta@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+	<kristo@kernel.org>
+CC: <gehariprasath@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<u-kumar1@ti.com>
+References: <20260226091730.2735587-1-a-dutta@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20260226091730.2735587-1-a-dutta@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000467F:EE_|CY5PR10MB6189:EE_
+X-MS-Office365-Filtering-Correlation-Id: e55b4521-3c9c-46cf-f3f5-08de755f4914
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|34020700016|1800799024;
+X-Microsoft-Antispam-Message-Info: qtAiSWvZKApS7ZRXzWCX09mabKVyvfwgKv/2FCMRGdmiba6rJGzbWPOMu0Jh+Z7CskKevAAlKJKJQgJ2lYzNish9NuovPOZQhzovwdLxzwXskJJs4PT+XPHE4Be+Mt2VnoZWpVZ7EBNs5nNeY/Qs1BfuWTHhIavZWd098yVAIeN1nm9IeuRksm8fBNarZF8T/7t+XdFtKwOg/HZKEe+jRFPsq0KNHUdEJPmj3VOLQTf3e++fVSFUjNXetkFsbLNTCh4EKvfLmojY7TRRGjeFsjeWCHUuL/Xlu9yPua4f7gpFEc7LtAHHX13h9xujgYHXreVWGFJp9nq330svetgk80TNnhJfLvbRJ2AAGCw2u4kwiPRx3worsQ3Po93knUy3z1Nz0U9/+U2cNAIfRK6QtJ9kDxj6zJihFu2zE2ibJeSPhvgtO9GNwrpKd1PO2T/Y7TVxxjWnjHHVb24GjhJ9ZbWlWe4IWCILAuqd8Y8JuW3wVH/1biX1Xaq4Ioc7BefHvhYs3jbgH0DTino2PPpCyYCEfc1uv2aXRO0cb6JlooMJqQNKeWtlfl1U8pNWKbj1iOQvdGw4rbgDYM1VAqH2tXJyk+kzOsyNXXqQ1dLPFsxyDblYmhtQ9yyjZcHZtxC8EtDX4RM28qWvGBOPxNQ17u7GYdR3GZWth/LSF9d4FG7I8FldvbCgsWK6QjeULeLUD2svx6JTNVwcF0WREPQAqPNM1uzbwRt9hsyrfBXXuwgTEvpqLCUDwj/Te9NvZ1oVtoeN44DWRohjUzmVQfamaCdt6Rc5pNWAli5UpCVGYl0=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(34020700016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: i8VEo6X3ZtOVgNQ/EHQnp/gnE2MeM6WcXvZCiGwClv1QneeJUGTiNJ7nwh2oynV+gJpxzgJWkRZfTeQfDpdel5oDua/rq9b5n6ouSGvhj4aROdL6nTuqlbGlidkw/ytbo/qBLWGWXYc/jBytOZHOs4OTt0Aud58ey1Mt4d7Nl5BhhcqqlDHXo7rC5VdA3T0Wzk5xiPO7+sIO/xiNru4935xRnKvMktx4UQzrg7kKDISrN9TfsuIpsh3aHyTdXUpSugvWA0zajymY0hnd3OcRMWnBfdMuHNsTL34Gk/yVVJlBusxN2wzsjgfGhB4E4xzG46RC4skj14iVKIBFScvHGmgq5pnlb85kMA3a/ohmEJPcgs0hueRdtHvA4t7f6aruYsOKv2FSM385zgokQOW6H7o1Ur3/x+jcdXBP8cutu93MJ0YJmL/rybWjNiG44yAc
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 17:48:44.0508
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e55b4521-3c9c-46cf-f3f5-08de755f4914
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000467F.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR10MB6189
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_094504_831526_63EA16ED 
-X-CRM114-Status: GOOD (  19.29  )
+X-CRM114-CacheID: sfid-20260226_094851_333434_93A5DDCB 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,50 +133,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Thanks for updating bootph
 
-On Tue, Feb 24, 2026 at 04:30:28PM -0500, Frank Li wrote:
+On 2/26/2026 2:47 PM, Anurag Dutta wrote:
+> J721S2 EVM has MT25QU512AB 64 MiB Quad SPI NOR flash connected
+> to OSPI1. Add the partition information as per bootloader.
 > 
-> If can't auto detected, I think keep old dts, use overlay change to new
-> one.
+> Signed-off-by: Anurag Dutta <a-dutta@ti.com>
+> ---
 > 
-> For example, board.dtb
+> changelog : v2:
+> 1.  Added bootph-all to qspi.phypattern
 > 
-> you can rename board.dtb to board-revA.dtb
-> new board.dtb, by apply verb.dtso to board-revA.dtb.  Or you direct use
-> board-revb.dtb.
+> Link to v1 : https://lore.kernel.org/all/20260121051855.5890-1-a-dutta@ti.com/
 > 
-> If change is big, you can create new one.
+>  .../dts/ti/k3-j721s2-common-proc-board.dts    | 42 +++++++++++++++++++
+>  1 file changed, 42 insertions(+)
 > 
-> Frank
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+> index 4fea99519113..1b48294e47ac 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+> @@ -530,6 +530,48 @@ flash@0 {
+>  		cdns,tchsh-ns = <60>;
+>  		cdns,tslch-ns = <60>;
+>  		cdns,read-delay = <2>;
+> +
+> +		partitions {
+> +			compatible = "fixed-partitions";
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +
+> +			partition@0 {
+> +				label = "qspi.tiboot3";
+> +				reg = <0x0 0x80000>;
+> +			};
+> +
+> +			partition@80000 {
+> +				label = "qspi.tispl";
+> +				reg = <0x80000 0x200000>;
+> +			};
+> +
+> +			partition@280000 {
+> +				label = "qspi.u-boot";
+> +				reg = <0x280000 0x400000>;
+> +			};
+> +
+> +			partition@680000 {
+> +				label = "qspi.env";
+> +				reg = <0x680000 0x40000>;
+> +			};
+> +
+> +			partition@6c0000 {
+> +				label = "qspi.env.backup";
+> +				reg = <0x6c0000 0x40000>;
+> +			};
+> +
+> +			partition@800000 {
+> +				label = "qspi.rootfs";
+> +				reg = <0x800000 0x37c0000>;
+> +			};
+> +
+> +			partition@3fc0000 {
+> +				bootph-all;
+> +				label = "qspi.phypattern";
+> +				reg = <0x3fc0000 0x40000>;
 
-Thanks for the clarification, I understand that the preferred approach
-would be to keep the existing Broadcom-based DTS unchanged and add a
-separate description for the IW612-based revision.
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
 
-My only concern is avoiding confusion in mainline.
 
-The Broadcom-based SOM revision is obsolete and no longer manufactured.
-All currently produced VAR-SOM-MX8MM modules use the IW612 module, and
-this will remain the only production hardware going forward.
+> +			};
+> +		};
+>  	};
+>  };
+>  
 
-I would like to avoid giving the impression that we are actively
-supporting two parallel SOM revisions in mainline, while in reality
-only the IW612-based hardware exists in production.
-
-For this reason, would it be acceptable to:
-
-  - move the Broadcom-based description into an explicitly legacy
-    revision-specific DTS (kept unchanged for existing users), and
-  - update the main imx8mm-var-som DTS to reflect the current
-    IW612-based hardware?
-
-This would preserve compatibility for older boards, but ensure that
-the primary DTS in mainline represents the hardware that is actually
-produced and aligns with the rest of the VAR-SOM family.
-
-Thank you again for your support and your patience!
-
-Best regards,
-Stefano
 
