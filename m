@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12D9FD8FF5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3586FD8FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K8Fwf51Mygx0AWGX8r2o9Nphu/I8BQiLR4Do9iJDy5E=; b=lopk5eoq9gOh7vdaNDV8pU0KSe
-	PkmjpEgLG1enzxBiR8EPimMnlFsE9IXXF5bUn3z4zRPZxUl9eWuvmOoVNWV0En854Dk5+fXTTAKHT
-	LiVoQW7V0v870GHntVd1xsOLMs/2lcJN89vo7HEOvlQb/YT0iNvlIB3/gpTsCIJfqffZZz1up26Nr
-	ssReBc68hDHvYyvI8jZZGTSQifkmdukSBAQc2bH6NFkS5uMCYLwcV6NdNG0rO9WvwBZEZ+KeJZPNB
-	b7Mn2CvyAUu2tOfoK70TbDTdoqY3cBawzoKRSu8k4LG7nHJYp+zVH2FpFgzCj4fvad59leTquMEmc
-	4uyc++8w==;
+	bh=zCoCG3Ok7nW/o16b9nWgmLc3dgITUgeZwEqBinhLuec=; b=yJRWl8QLsgMqR0LdzqBF9Wkn16
+	lDapFOD83Q6v0fBpuvUVux0v33XD5yPfXswOIufhHQR9iHAQN0t5Br+o0VvtZqmFqE5Vk9dbzHZox
+	ZGPuWmigWjGcU6wUzCsQ5GDJ/4yIkKuoc+A9q5tTSpynH5OSuJBChCJAHx9BDJAA+1BhCFi/M3IuG
+	F64Y6ahNtIR6Kz9dURVh7V2xOGP4FpbMI4lvUuOhWrh0xi73t268HhGAgIbE6ENu1jwtgydWj/U5N
+	fXAbBLbr01WUW5KwEGFJjA8jyZ3h5+Au44Bk+S4qw2SP/Kx9uqZJOYddzO+aN4nuxHLMnEEvNV8Qc
+	yBu3YR4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfqK-00000006vjX-237h;
-	Thu, 26 Feb 2026 18:12:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvfqc-00000006vnv-1TMn;
+	Thu, 26 Feb 2026 18:12:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfqJ-00000006vir-0ag8
+	id 1vvfqa-00000006vnM-0g8L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 18:12:07 +0000
+	Thu, 26 Feb 2026 18:12:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 318BC60138;
-	Thu, 26 Feb 2026 18:12:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89C8BC116C6;
-	Thu, 26 Feb 2026 18:12:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D7EA743844;
+	Thu, 26 Feb 2026 18:12:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8D7AC116C6;
+	Thu, 26 Feb 2026 18:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772129525;
-	bh=8Cj4mVY38C6nhdFzrjSAka6RCIWO/rW2rKB3wTy3Mrk=;
+	s=k20201202; t=1772129543;
+	bh=pwv4c3DZNyODTHone22LzNjJgvcn88A3kBVODStq6jA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uorws0FBPDWAIpjNgZRvwPN30CfVU62ec1xMNL1dXXIixREopcQ7IA/snjB8enMNX
-	 4M4DirIRgsvtXnogsIHu5KoLlilHDfujrSPV9lYQ49i+aFpDu4iAiOBA5V/dleIRNq
-	 /lmx4vsKqbPgFMrjODdA20VP8LqrR+T2yyNXfhnd/Po3TNEFVkD8Ir+5nxFZ+9yBrE
-	 0xk82X6+fhdbtZyFWRbLwIFXGA0S2SLkz8L1rzDYKSyjedMbbXnKwLd9xBRQ1tl0VS
-	 80dTiyvlzr3/O/UZIB+K6Eldt1WeEFvlMr2dxBhsEFIQrUOTDJ+t9zlZext145mnF6
-	 r+u2fReFBZuhg==
-Date: Thu, 26 Feb 2026 10:11:14 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
-	KUnit Development <kunit-dev@googlegroups.com>
-Subject: Re: [PATCH 02/12] lib/crypto: tests: Add KUnit tests for NH
-Message-ID: <20260226181114.GD2251@sol>
-References: <20251211011846.8179-1-ebiggers@kernel.org>
- <20251211011846.8179-3-ebiggers@kernel.org>
- <CAMuHMdVFRQZXCKJBOBDJtpENvpVO39AxGMUFWVQdM6xKTpnYYw@mail.gmail.com>
+	b=Ef3D++YuYVHUjD/BDgy/GJUCMcNqZRydCEr/+xhCiox6mAyUPg5/sqgekTGUcJNxH
+	 U9XEBXFQFSkJr/+YeU/z7Ust1K3J4KWcb+5YoQLaqyPz3O0y/uoEoICtvAGYJmH8ZH
+	 gJF0i17JytseYoJ5aXgS65WaOy5F0Pbu8ARFjvsPM6fa7O7vSmL1YHzhYCq4X0UGb/
+	 bbIpPfVDt2caWbtntPkd6yLpVWWlvUSdAuecKNhHy+aDph3xB7ebXDzvt9ox9oW40p
+	 LTDVzQeO4RDyGUFNa8RHGhu9aDOthLfCl3tUn9m1OQYFiGJpJQp97A0FzPPly31SSc
+	 JLFknbjhLAUtg==
+Date: Thu, 26 Feb 2026 18:12:19 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Akhila YS <akhilayalmati@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 5/5] dt-bindings: arm: atmel,at91rm9200-sdramc:
+ convert to DT schema
+Message-ID: <20260226-escapade-staff-4f2842222b3e@spud>
+References: <20260226-arm-microchip-v3-0-0bda15abd922@gmail.com>
+ <20260226-arm-microchip-v3-5-0bda15abd922@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xblG4IE1HbojiYMm"
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdVFRQZXCKJBOBDJtpENvpVO39AxGMUFWVQdM6xKTpnYYw@mail.gmail.com>
+In-Reply-To: <20260226-arm-microchip-v3-5-0bda15abd922@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260226_101224_239052_FC35810B 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +79,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 02:12:38PM +0100, Geert Uytterhoeven wrote:
-> Hi Eric,
-> 
-> On Thu, 11 Dec 2025 at 02:25, Eric Biggers <ebiggers@kernel.org> wrote:
-> > Add some simple KUnit tests for the nh() function.
-> >
-> > These replace the test coverage which will be lost by removing the
-> > nhpoly1305 crypto_shash.
-> >
-> > Note that the NH code also continues to be tested indirectly as well,
-> > via the tests for the "adiantum(xchacha12,aes)" crypto_skcipher.
-> >
-> > Signed-off-by: Eric Biggers <ebiggers@kernel.org>
-> 
-> Thanks for your patch, which is now commit 7246fe6cd64475d8
-> ("lib/crypto: tests: Add KUnit tests for NH") in v7.0-rc1.
-> 
-> > --- a/lib/crypto/tests/Kconfig
-> > +++ b/lib/crypto/tests/Kconfig
-> > @@ -45,10 +45,18 @@ config CRYPTO_LIB_MLDSA_KUNIT_TEST
-> >         select CRYPTO_LIB_BENCHMARK_VISIBLE
-> >         select CRYPTO_LIB_MLDSA
-> >         help
-> >           KUnit tests for the ML-DSA digital signature algorithm.
-> >
-> > +config CRYPTO_LIB_NH_KUNIT_TEST
-> > +       tristate "KUnit tests for NH" if !KUNIT_ALL_TESTS
-> > +       depends on KUNIT
-> > +       default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
-> > +       select CRYPTO_LIB_NH
-> 
-> This select means that enabling KUNIT_ALL_TESTS also enables
-> extra functionality, which may not be desirable in a production system.
-> Fortunately CRYPTO_LIB_NH is tristate, so in the modular case the
-> extra functionality is a module, too, and not part of the running
-> system by default.  Unfortunately CRYPTO_LIB_NH is invisible, so this
-> cannot just be changed from "select" to "depends on".
 
-I'll probably be changing this, pending the result of the discussion on
-the similar thread about CRYPTO_LIB_MLDSA_KUNIT_TEST:
-https://lore.kernel.org/linux-crypto/20260226180538.GC2251@sol/
+--xblG4IE1HbojiYMm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-- Eric
+On Thu, Feb 26, 2026 at 04:13:37PM +0000, Akhila YS wrote:
+> Convert RAMC SDRAM/DDR controller binding to YAML format.
+>=20
+> Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
+> ---
+>  .../bindings/arm/atmel,at91rm9200-sdramc.yaml      | 67 ++++++++++++++++=
+++++++
+>  .../devicetree/bindings/arm/atmel-sysregs.txt      | 20 -------
+>  2 files changed, 67 insertions(+), 20 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdram=
+c.yaml b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
+> new file mode 100644
+> index 000000000000..1516fc8e09e1
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
+> @@ -0,0 +1,67 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/atmel,at91rm9200-sdramc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip (Atmel) SDRAM / DDR Controller (RAMC / DDRAMC / UDDRC)
+> +
+> +maintainers:
+> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
+> +  - Claudiu Beznea <claudiu.beznea@tuxon.dev>
+> +
+> +description:
+> +  The SDRAM/DDR Controller (often called RAMC or DDRAMC) in various
+> +  Atmel/Microchip ARM9 and Cortex-A5/A7 SoCs  manages external
+> +  SDRAM / DDR memory. It is typically exposed as a syscon node for
+> +  register access from other drivers (e.g. for initialization or mode
+> +  configuration). No interrupts or clocks are usually required in the
+> +  binding.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: atmel,at91rm9200-sdramc
+> +          - const: syscon
+> +      - items:
+> +          - const: microchip,sama7d65-uddrc
+> +          - const: microchip,sama7g5-uddrc
+> +      - items:
+> +          enum:
+
+Whoops, sorry for not noticing this earlier, but an items list with one
+entry can be reduced to that one entry. For you here that means that
+"- items enum:" becomes "- enum:".
+
+--xblG4IE1HbojiYMm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaCNAwAKCRB4tDGHoIJi
+0qtpAP9APtvalgzi0zvyIeO61JzAAmgR5MhmOEmLmbI/hapjCAD/Xmuxw6uLJVCq
+SsgDnOlRaH/Sip9zrvYl75+sAEQyBQA=
+=PX69
+-----END PGP SIGNATURE-----
+
+--xblG4IE1HbojiYMm--
 
