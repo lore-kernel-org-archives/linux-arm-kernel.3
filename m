@@ -4,111 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25DA7FD8FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 15:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907A2FD8FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 15:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FbzUlYKMaWIfUalQuB+QlRwOyMJx/oa+ZaF52Snu/7g=; b=NWazodXskKy/SV0qiEo2DKWB0z
-	FxHYzx7KtNe63+E43LYYI6Ewjf1M9jec3g0pegrg9R0JLtl9HVV72GoJc7/UJr1fV03x0IaaDsnnN
-	3s9j9uCkGvFap3+apVOY/ktwJ+qM9JG+EbhvqkchYQYjfmXf3pmFBJIFU/dlI3Iu+0sVAwhHUmziY
-	JrfcoLf7zNyNX5JITqah2EB7w305CjbDrgc5KIaAvjrlj8/1glnAqXvzo4bTTIpuA8MIXX5yUkzVV
-	rueJIzzCuYyEQ4L0Kp33xS4i0Nwg+TMJ7F/Za8PplhFpXnBea3mEKpndau2rq0H26FWpEIKV45l2+
-	Y4vX2pAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RYBU/M9VJN8cvl2jzZM84GpAkw2MdvoJrIkeRS+LQo8=; b=aCsQtehfYXxPTUdLnPQ46zO82f
+	1c8XkkPg5c7ZyYh/I16X/BVdEuOJt3MkGTJD01F9I11CDR49CkEY1zwCL3ItxgnkUIRetTIPPC0BR
+	iB6njN9lHA3KElLXTc5LyTQHLJzICcoYvQLEDhTiGizM1won1eKarcRGC4yb5eAc7yNRFPFHROVYV
+	fKmHG65gPHX9V+sU1ld0x7r2XY8bBgtDeomjzdJbaoFIH6aSF3FVKpYmG0TF4WniErD0BSVQIpub0
+	T32RKxLKI8q+YwuCFOczChWCwj2w/wMPBmiK+XmEOWcTuj0fWh+UN89Xqh4Lt3prb7PmAXAUqJ7OK
+	6Pue+hog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdaQ-00000006YEU-0Cu6;
-	Thu, 26 Feb 2026 15:47:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vvdjF-00000006ZJz-0syl;
+	Thu, 26 Feb 2026 15:56:41 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdaC-00000006Y5S-3nx1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 26 Feb 2026 15:47:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=FbzUlYKMaWIfUalQuB+QlRwOyMJx/oa+ZaF52Snu/7g=; b=LzqYf9DNlR/pAVhDxuYvqnN49N
-	C0pqRMUl+g+NeOaRlyAPjouD4s4iFMbHC5weiTR8euLOyeiHtRMyST1hnOOEDrvDbPLe6qAQ4csUt
-	ms5/3weqv+GIrnHnR0X4N/P8uBiXPndrB+KFCcgH/tmhD/P8hhku0HghVHwHLDj576edlEycnKdn8
-	HBac4GRwbML9zpNRZMRcpOLdJ+dJ8pboAC+wb6HnNpW42JtNYQkvoyMIvfaefSmLpo4hq0XTgBvZW
-	nDfvO/PG3SjsZW/iojfOSUNqe1hRnurpm1MGRSZ+Wptl0wOYSwIkBkgkqP4OT2peRN2QyZMR4eCal
-	rqdGgXOA==;
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvda9-0000000BMzs-1PR2
+	id 1vvdjB-00000006ZHu-2stz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 15:47:19 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48375f10628so7149125e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 07:47:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772120836; x=1772725636; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FbzUlYKMaWIfUalQuB+QlRwOyMJx/oa+ZaF52Snu/7g=;
-        b=nRl2w1cB3lfUlmHtlCz/aFGeZAvasibeB0rDF1662L+6DUgPVSBpktFy6vzAdp/JS8
-         m9VrmRZn8sxow10FbKfW82B24zMxq8W/Y+KYJMuHlxIGLJz+fVWn4LQVL4e1qtizeAqT
-         oknZHfGfZOi6U2LrzY3mudWu3M25P7AGTNQHwWfcEnFRgdd/ulgheLkOD2vUFsWirq5E
-         Z7seWZRyr+f/xUTQupuGPhmTIWaUzvVQHGYGXo/PoepwLEezvNUIy8780/LWKOksGK6K
-         AtWve+Yrfwg7nfl7bY7WdYdgGyxh5aMd9nJ50ulMQJmweCBmBzhd0FQQJtFIQqTxM9Uk
-         xiDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772120836; x=1772725636;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=FbzUlYKMaWIfUalQuB+QlRwOyMJx/oa+ZaF52Snu/7g=;
-        b=Dg0J8HMKVmVzhMyiFbyZRVnrUleLOl+PaNsO94EnoLGItsYVTHJcna5fzrUD7GECCF
-         Fw8ycX/Oq+H+cvgi5z1g39f31eBJV4sW1hThb35/b+ztY2nm7/+e7p9TywW/AtpkA8O1
-         n2StlW2CLMmAWZcNDjpPwvPdN8zW51Tr/Kw/eAe1dsO0Q6IZ7l0JPrO7lLG1RZqAUJFv
-         VUk+rcyw0t5IOtdvKfE8Bkgl8vmHxbsxFlylCFlosTuYucM1gnl84beYP5nCG72l2Shw
-         qkq0WSqsEHK3xYLY9fZ9NBBNDImVE7GF3tz6ex6pA2/0Q4dfTJXdOytpaOMaH9VZMaIh
-         sJbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUpjkfeqAj5nTJQMlzzI3b5u0rX3JfU4lebrXI04IcVb01B6y0cKS7ivmYddZPt8KXkG4Iaruj4fW4/7x/aZwO4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1oLUrNwA8Wom3f/ZQAJsxyIH5TJ6eUApEsOJjiZAqfQxD++PK
-	5UAmu4gUyDqQdWfXvJN3Q8Dc9tpW955WxFPE5ESHqjBCzG4QSEpCD84UAI6gOKayYn8=
-X-Gm-Gg: ATEYQzyp7WtzAj2mC6fhAd50fvvwRXsdW1lYQCBV/3F6XLjj4HcQhBNP+B6vd/DBwlR
-	sIWjDVd5dMQpzULXz+msNu27B4AGNRD1VO0am+I9wbo78J2DjGJlTcVw95iTHucGnNidZelTPZu
-	admUX/dSXfXIonDcmOohPkhGm686uEcpebvtP+yZzFP/oZ/Sj06BCh1ZEFtBNn/zvrvEN4Tjp31
-	o7I778/BgCCbEKv37e5xKYaSeGoLSAUzKNGPJNmYaJ50f6JlbIkCP6rZY6oAx/O2e3x+A3o+FvC
-	j2spGG61hbrGuw5xGfqFTMJrKgfdWiJFPsF7gcWM2JkwBUDTVLX9e2ervTzBFLQHvV2Iho3vXIB
-	fomJrUjI64JERxfNTjoPQmx/SRYDDGiN5t+2N2peURMPhQc5saGPwJZ7bwzBjvRlWPOxMZWl1qE
-	VDr6AwfoJAqeQwJmH8ZmRmvK462nZdtBggBFFCFBKhlYMM29bYdhpTtmge2kHZ7G6HzH7iUKiqs
-	h9M8f+HzoxBt74=
-X-Received: by 2002:a05:600c:3f14:b0:483:703e:4ad5 with SMTP id 5b1f17b1804b1-483a95e2563mr324727115e9.22.1772120836160;
-        Thu, 26 Feb 2026 07:47:16 -0800 (PST)
-Received: from [127.0.1.1] ([94.4.193.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483c3b4410bsm56007365e9.6.2026.02.26.07.47.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 07:47:15 -0800 (PST)
-From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Thu, 26 Feb 2026 15:47:12 +0000
-Subject: [PATCH RFC 6/8] soc: samsung: exynos-pmu: generalise GS101 PMU
- intr gen for Exynos SoCs
+	Thu, 26 Feb 2026 15:56:39 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=b4zicsYCgTDFrxe3osZ/hEBqsAU9qzFIFLvfpMgfpDLKTgDKrSPW2Udg5qK+H0aGiQKHh7y4K6JjAvncav4iBYNP+tIgPmHxb5BhIUNr0/gW+mMfNDxSllAxoqUrvr+SofKG4M94VCiSgw2Xhs+0Y/KFmZrkB6W146dMotafuqbeOwGSinX09lF3mtlRZCNf1TedBYrGljzwSPZo8yuUOxTpIuwMOgXgaMaktpu4vINow56uRRuP7S/ZgQD/IceK7i2qKdJ/qxH+YHztzc3fi8CEgnalrix2odDsB5Qu8KB7Wfi/IUVzRS+OwfQV4zzYKWcZ9aM/gB3pZUfWDwP59A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RYBU/M9VJN8cvl2jzZM84GpAkw2MdvoJrIkeRS+LQo8=;
+ b=XMkRyuI44gkgsGnOMzEmNO+cuDe+2byqGEJIdGRotS5aAddoC0rmGO6RJJkC5saOw9IBEqrszihcP1XmqUKcsKvkICP2Azc649yK3BTay0g/hU9k8EZu8vCiqeLOms/MtlhyNPPR1wkVyyIA064U7SQtJWYC4z0Dh7iNFwBtdBaBfC2V5TfAWiW2jetWB21RsWfaQk8NLobrddlMWx5JweYq/MKJvUqPdr0N/Oze2MPmKu1ctHhiDYY9irkFJoqGlV8Ao4Hxp60ymtCWmTLS3zEwnzfL7q0OOh87bFs+mG3BG2vOPHT6hh46GPvEF8tpM4da8cR2CtQot8RWNThFXA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RYBU/M9VJN8cvl2jzZM84GpAkw2MdvoJrIkeRS+LQo8=;
+ b=hSoRnFnWlTqLITjr3SvIIc4DwlehIfzJK6wGFQZGbBHP0RSgqmN6n3dwziq+5b2NGFmNIk9NoLSMER1fbznvKJycIKepU2juhcFEaptx3d6ZQsJwv0svmIJg9j/rmoErjBrMrs4NS35f8wQ6uKvwTmSaryjAn3Y8efFj2uhfKvo=
+Received: from AM0PR02CA0133.eurprd02.prod.outlook.com (2603:10a6:20b:28c::30)
+ by GV2PR08MB8438.eurprd08.prod.outlook.com (2603:10a6:150:bc::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
+ 2026 15:56:26 +0000
+Received: from AM4PEPF00027A63.eurprd04.prod.outlook.com
+ (2603:10a6:20b:28c:cafe::57) by AM0PR02CA0133.outlook.office365.com
+ (2603:10a6:20b:28c::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.26 via Frontend Transport; Thu,
+ 26 Feb 2026 15:56:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM4PEPF00027A63.mail.protection.outlook.com (10.167.16.73) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
+ via Frontend Transport; Thu, 26 Feb 2026 15:56:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mSJ3vt9MS7yjFB8sz8nxTBFnY9c4WXiCor9Sfb/L8KaZWNKJl0sxCxXI3d7ZHATdF/+G1UnFflAmEDEo+wUXUnRq3mzz5+K5vlqin7dN5/ATrWvB3vGEVagaLpgHQIH+nCqYyuGQ0Gfu9pqwZ/xPsRQFMelvJtqKzAVjhBqjJB9wHcZDCCLW/Ed0QL6+u6pu2Iwa96h2uclL5YkzgIPYKNZ27XXt1ifKCzBD7/xvMjUwfVBRf0Rh5Qk4/Xu4Uu5zME7S5bvhNIjg9g2Obzj/9E+Wpg432x6Vl91/xTRyPCfsr3QOI7wPt/hbMYzn6wFA8eqcEuNf0UFpWDtByg10qQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RYBU/M9VJN8cvl2jzZM84GpAkw2MdvoJrIkeRS+LQo8=;
+ b=kgVuVj3eYTpRQ849LkGSDrHivU0oZXojDXtQAe+Pd5YZKg8n1idiiENcwtbuxObDcpXY9Kk5LRBoXpH4FlI/Vi9ZdL+ZYC9tdQgJzJpc/DUXQUFx3pV5+T0h8fTHDalZl/7Eer2tdNMfGqx/FG5hBKh33g+8mzJuxyEtTEf2IJ3jmIOM+U0yJng/kyAirD2hN8+UDyNdQyLuaYmzbO1eMagcLHn/S1zJIYvBOtfAAKSWeG6yzrhbdzfn1wc29CwO5pQmdiwnfY8rYB7DM9bQTENXNUpDxXvHM9aCuYeB5LZuDi1ILVE8X6HykKJatlnAKR9y0IlnqdG9cnlJBTh61A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RYBU/M9VJN8cvl2jzZM84GpAkw2MdvoJrIkeRS+LQo8=;
+ b=hSoRnFnWlTqLITjr3SvIIc4DwlehIfzJK6wGFQZGbBHP0RSgqmN6n3dwziq+5b2NGFmNIk9NoLSMER1fbznvKJycIKepU2juhcFEaptx3d6ZQsJwv0svmIJg9j/rmoErjBrMrs4NS35f8wQ6uKvwTmSaryjAn3Y8efFj2uhfKvo=
+Received: from DBAPR08MB5687.eurprd08.prod.outlook.com (2603:10a6:10:1b1::17)
+ by AS2PR08MB8999.eurprd08.prod.outlook.com (2603:10a6:20b:5fb::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Thu, 26 Feb
+ 2026 15:55:21 +0000
+Received: from DBAPR08MB5687.eurprd08.prod.outlook.com
+ ([fe80::7d4a:f17a:4cb0:9793]) by DBAPR08MB5687.eurprd08.prod.outlook.com
+ ([fe80::7d4a:f17a:4cb0:9793%4]) with mapi id 15.20.9654.013; Thu, 26 Feb 2026
+ 15:55:21 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>, "jonathan.cameron@huawei.com"
+	<jonathan.cameron@huawei.com>
+Subject: [PATCH v5 00/36] KVM: arm64: Introduce vGIC-v5 with PPI support
+Thread-Topic: [PATCH v5 00/36] KVM: arm64: Introduce vGIC-v5 with PPI support
+Thread-Index: AQHcpzhPz9xBH4mvBE+PzHYUZXFJww==
+Date: Thu, 26 Feb 2026 15:55:21 +0000
+Message-ID: <20260226155515.1164292-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: DBAPR08MB5687:EE_|AS2PR08MB8999:EE_|AM4PEPF00027A63:EE_|GV2PR08MB8438:EE_
+X-MS-Office365-Filtering-Correlation-Id: 69cfe6da-4b0e-4954-6539-08de754f98c7
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|38070700021;
+X-Microsoft-Antispam-Message-Info-Original: eqFmjky1d4j7y8jAY4si8dpHD6Qymv/sQv3Ud4SuOizIZQvF6x7nKSgOec87CKWOJLVCpx1DlmKaKy1XqmuPnTrFVbk7V2tNe4FKpl6vLvr/dK7JHOHiJxBbdaLyiUdF7bC+sLcoPC8VJaeTZib+SvHCK1PMJ3J+HrVEqqlAT9c+CVRUIWs1CudYROTLPrzLlq9ixC+5v5GgWu2/UYNs1ca/vUPFzCWEIXSArUz0zFl3COjIbeY0XbVqMoyOEn7WH5tKF3b2BMjDUkB1eqwufnU7BxqvWnsXQXCm3lnoHsi2VmxAcHDHjy0WdBHKFZPmke7ITVm7v+mQ/d0Zw0i9HSW90jfScHdk9kMyBFdXAGeatLeulip3RYSZP9GGElC6ejlsbA4JvSYfaxJIRlhUo6wmsVyge0p80n4BLScpJu3pTKbulMq/3TIEQNCmc0lgPjnSGy0RQMlYZk3jUfGOfMM1nBvMt6K8+4+9bVrzWodLhRj1zshGgAiT10cI7gq/yYx1WBo4ANVBD+5ZKF5ZXxw6m37YZqTc7ugSd7hRoP3VRIOXfoapOcHVsRWZljHqEb8ciGkgNuYcAN5nUYucwckmFG9kU1XgP2mXZpuu0t3FxX80SUyCZZoNm7/tSPLniwGRpHRhHlNC8oqu/8yW9783B4gO9qZHbgXuOLZRUiRPJ89wLmJIUQItSxNWKIQEvpjB44tn1/k2F6OfwTA9gchDV1ez10xio/8p2/TH/DFlJ9ZOF3m0hDLV492XIBZx
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBAPR08MB5687.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700021);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-exynos850-cpuhotplug-v1-6-71d7c4063382@linaro.org>
-References: <20260226-exynos850-cpuhotplug-v1-0-71d7c4063382@linaro.org>
-In-Reply-To: <20260226-exynos850-cpuhotplug-v1-0-71d7c4063382@linaro.org>
-To: Sam Protsenko <semen.protsenko@linaro.org>, 
- linux-samsung-soc@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alexey Klimov <alexey.klimov@linaro.org>
-X-Mailer: b4 0.14.3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8999
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A63.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 2905a737-3638-4d73-f042-08de754f7242
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|82310400026|36860700013|376014|1800799024|35042699022|13003099007;
+X-Microsoft-Antispam-Message-Info: ZDk3JBBWf8lCV6IgC0F5OoA7volUoBDJc+L1TuAiNtyrlbX5TmzakP/hbEqBEbLbIgoUR660yjQIUKRteZMhBvoJqXtt2DqZ2tDOr2j4C7fsUEBEHkiSfSg+o1b8660NFPLQjjJUlyn8cRsP7iHVaamFaKxLxxFpSXBDAhTyUrrFbAovUP+Z0B3BhBJaqrCH5s1KS6F2u8qh78a72ahWvZO3ZoFI4LsHRCy05pdN3YY3JLPxyy/Jiu1kWJr9zEs8HslatuS2xRZNjnj5OyTVLGRj4fhVYjp9e13gL0Q3+NzqDpXg+C9/mX4+N9qeimIxMqn/OETueXICVRFBRduFiYsiuVtgOk5naTZ/z7CLkybEBIaPf299eOPUSSY7ttLePiVSLNBfGi30dqqnZvFVPT8bkplBtCu31tqJ9v+n2mw/nYaBduH1s/RaPRpHCYLt31LaOuQKhOwguJdSY6hSqFyUA/O4BHoOBbNGTeyySoxRK3r3t5rlyT8SB4guuoPskb6ofdvrsrPExmzz0SZO0A8qrQ/HbbrSHKv+N80yy9XHDN4Ma8AQ3g2Irce2onA3CLIzq3oGz/9NHcmgaZRMrGpZm6UWKfh4+dCnl6WqrzSQXrTX5BRW3o2hkfGmjEQMFn8xtAF+EP2yU6SEvaFHFUIhIaA/UZ3r4Rzjd4zZTtmoqvVSExYo6eK0+mj9nIeTvjhj1hI/sBSKt5iw+5tF6n051i7Qmb8FOJNO5fAYAvFjTHD2fCSImoqBzATiLUpN5MgHWU6ofRdOBRYLzVtmRlWel1y9r7gsxo16i9giwWc=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(82310400026)(36860700013)(376014)(1800799024)(35042699022)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: kuSP+X78W8UXnHY7wQpBSN9g0e65nhg0ZR8nCuuph12B7R9fl8nuTncnFobQPpuLavVejGI8p9oZhJZv8VFS32851ILqvLPHV3VzJJg1xa8xlcQAOOy3Xpq2uf1fAfA5AGZ/hn8zf3EelRJt8lr6JKOT/c2LdgqxbK4YSOoWJKkg6uwrp3L0CxDNbjq1XiDcDd3imvMdLs2l1uRbS1aMEdoZwSlXonpBEWKjz2pphPxUqanpg5CpEQvwqmcfKv6N+h3iRF5t305zPyYAyudixwUnzvYJoAxPVUEXidkm5dbW9Q2ZqSkQ8we3eAhXVwtw11vRB7MWymi7jYsaubrl8tReNQULeRxaCfRVKrGCsOPewoCjPY+w30CJsXc4C7DbbenO/cNV3F7TVHyBs2CvAejHdnyHrUcDEoaT6BSPvukvoCjeUGrS4SYMDoxHeUVx
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 15:56:25.8290
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 69cfe6da-4b0e-4954-6539-08de754f98c7
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A63.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8438
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_154717_474237_676877BA 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20260226_075638_065934_1781308A 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,164 +159,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GS101 PMU interrupts generation block is not exclusive to Google
-GS101 SoCs and is a standard Exynos IP block found in different older
-SoCs like Exynos850 and others.
-To prepare for the addition of Exynos850 PMU interrupts generation block
-and cpu hotplug support we need to generalise (Exynosize or Exynosify)
-names and calls related to CPU hotplug and CPU idle.
-pmu_context struct has now calls to offline and online procedures which are
-SoC specific (and maybe even firmware-specific for any given board),
-and one of this set of {offline,online} calls becomes GS101-specific.
-This allows adding calls for other boards later.
+This is v5 of the patch series to add the virtual GICv5 [1] device
+(vgic_v5). Only PPIs are supported by this initial series, and the
+vgic_v5 implementation is restricted to the CPU interface,
+only. Further patch series are to follow in due course, and will add
+support for SPIs, LPIs, the GICv5 IRS, and the GICv5 ITS.
 
-Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
----
- drivers/soc/samsung/exynos-pmu.c | 39 ++++++++++++++++++++++-----------------
- 1 file changed, 22 insertions(+), 17 deletions(-)
+v1, v2, v3, and v4 of this series can be found at [2], [3], [4], [5],
+respectively.
 
-diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-index 92870e6ffc1c..0967fa56708a 100644
---- a/drivers/soc/samsung/exynos-pmu.c
-+++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -36,6 +36,8 @@ struct exynos_pmu_context {
- 	 */
- 	raw_spinlock_t cpupm_lock;
- 	unsigned long *in_cpuhp;
-+	int (*cpu_pmu_offline)(unsigned int cpu);
-+	int (*cpu_pmu_online)(unsigned int cpu);
- 	bool sys_insuspend;
- 	bool sys_inreboot;
- };
-@@ -256,7 +258,7 @@ static int __gs101_cpu_pmu_online(unsigned int cpu)
- }
- 
- /* Called from CPU PM notifier (CPUIdle code path) with IRQs disabled */
--static int gs101_cpu_pmu_online(void)
-+static int exynos_cpu_pmu_online(void)
- {
- 	int cpu;
- 
-@@ -268,20 +270,20 @@ static int gs101_cpu_pmu_online(void)
- 	}
- 
- 	cpu = smp_processor_id();
--	__gs101_cpu_pmu_online(cpu);
-+	pmu_context->cpu_pmu_online(cpu);
- 	raw_spin_unlock(&pmu_context->cpupm_lock);
- 
- 	return NOTIFY_OK;
- }
- 
- /* Called from CPU hot plug callback with IRQs enabled */
--static int gs101_cpuhp_pmu_online(unsigned int cpu)
-+static int exynos_cpuhp_pmu_online(unsigned int cpu)
- {
- 	unsigned long flags;
- 
- 	raw_spin_lock_irqsave(&pmu_context->cpupm_lock, flags);
- 
--	__gs101_cpu_pmu_online(cpu);
-+	pmu_context->cpu_pmu_online(cpu);
- 	/*
- 	 * Mark this CPU as having finished the hotplug.
- 	 * This means this CPU can now enter C2 idle state.
-@@ -320,7 +322,7 @@ static int __gs101_cpu_pmu_offline(unsigned int cpu)
- }
- 
- /* Called from CPU PM notifier (CPUIdle code path) with IRQs disabled */
--static int gs101_cpu_pmu_offline(void)
-+static int exynos_cpu_pmu_offline(void)
- {
- 	int cpu;
- 
-@@ -338,14 +340,14 @@ static int gs101_cpu_pmu_offline(void)
- 		return NOTIFY_OK;
- 	}
- 
--	__gs101_cpu_pmu_offline(cpu);
-+	pmu_context->cpu_pmu_offline(cpu);
- 	raw_spin_unlock(&pmu_context->cpupm_lock);
- 
- 	return NOTIFY_OK;
- }
- 
- /* Called from CPU hot plug callback with IRQs enabled */
--static int gs101_cpuhp_pmu_offline(unsigned int cpu)
-+static int exynos_cpuhp_pmu_offline(unsigned int cpu)
- {
- 	unsigned long flags;
- 
-@@ -355,29 +357,29 @@ static int gs101_cpuhp_pmu_offline(unsigned int cpu)
- 	 * ACPM the CPU entering hotplug should not enter C2 idle state.
- 	 */
- 	set_bit(cpu, pmu_context->in_cpuhp);
--	__gs101_cpu_pmu_offline(cpu);
-+	pmu_context->cpu_pmu_offline(cpu);
- 
- 	raw_spin_unlock_irqrestore(&pmu_context->cpupm_lock, flags);
- 
- 	return 0;
- }
- 
--static int gs101_cpu_pm_notify_callback(struct notifier_block *self,
-+static int exynos_cpu_pm_notify_callback(struct notifier_block *self,
- 					unsigned long action, void *v)
- {
- 	switch (action) {
- 	case CPU_PM_ENTER:
--		return gs101_cpu_pmu_offline();
-+		return exynos_cpu_pmu_offline();
- 
- 	case CPU_PM_EXIT:
--		return gs101_cpu_pmu_online();
-+		return exynos_cpu_pmu_online();
- 	}
- 
- 	return NOTIFY_OK;
- }
- 
--static struct notifier_block gs101_cpu_pm_notifier = {
--	.notifier_call = gs101_cpu_pm_notify_callback,
-+static struct notifier_block exynos_cpu_pm_notifier = {
-+	.notifier_call = exynos_cpu_pm_notify_callback,
- 	/*
- 	 * We want to be called first, as the ACPM hint and handshake is what
- 	 * puts the CPU into C2.
-@@ -425,6 +427,9 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
- 		return 0;
- 	}
- 
-+	pmu_context->cpu_pmu_online = __gs101_cpu_pmu_online;
-+	pmu_context->cpu_pmu_offline = __gs101_cpu_pmu_offline;
-+
- 	/*
- 	 * To avoid lockdep issues (CPU PM notifiers use raw spinlocks) create
- 	 * a mmio regmap for pmu-intr-gen that uses raw spinlocks instead of
-@@ -458,17 +463,17 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
- 
- 	/* set PMU to power on */
- 	for_each_online_cpu(cpu)
--		gs101_cpuhp_pmu_online(cpu);
-+		exynos_cpuhp_pmu_online(cpu);
- 
- 	/* register CPU hotplug callbacks */
- 	cpuhp_setup_state(CPUHP_BP_PREPARE_DYN,	"soc/exynos-pmu:prepare",
--			  gs101_cpuhp_pmu_online, NULL);
-+			  exynos_cpuhp_pmu_online, NULL);
- 
- 	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/exynos-pmu:online",
--			  NULL, gs101_cpuhp_pmu_offline);
-+			  NULL, exynos_cpuhp_pmu_offline);
- 
- 	/* register CPU PM notifiers for cpuidle */
--	cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
-+	cpu_pm_register_notifier(&exynos_cpu_pm_notifier);
- 	register_reboot_notifier(&exynos_cpupm_reboot_nb);
- 	return 0;
- }
+Main changes since v4:
 
--- 
-2.51.0
+* Split out host capabilities from guest configuration by adding
+  vgic_host_has_gicvX() for GICv3 and GICv5.
 
+* Updated the GICv5 trap handlers to check for FEAT_GCIE in the ID
+  registers, rather than checking the vgic model. This matches the
+  GICv3 behaviour.
+
+* Reworked the system register sanitisation to expose FEAT_GCIE in the
+  ID registers if the host supports it. Once an irqchip is created the
+  fields corresponding to othrr irqchips are zeroed. Twice. Once when
+  the irqchip is created, and a second time in kvm_finalize_sys_regs()
+  to work around QEMU restoring illegal state combinations to the
+  system registers.
+
+  This is ugly, but needs to be done to keep "legacy" (GICv3)
+  QEMU-based VMs running without modification on GICv5 hardware. See
+  "KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE" for more
+  details.
+
+* Limited GICv5 VM support to 16 bits of ID space for SPIs and LPIs
+  (realistically, only LPIs). Previously, we matched the host, which
+  would have limited migration from 24-bit-capable hosts.
+
+* Added trapping for ICC_IDR0_EL1 accesses to expose the ID bits (and
+  hide whatever the host supports) and to hide FEAT_GCIE_LEGACY from
+  guests.
+
+* Renamed the no-vgic-v3 selftest to no-vgic, and extended it with
+  GICv5 support.
+
+These changes are based on v7.0-rc1. There's one additional fix
+required which has been posted and pulled into fixes separately, which
+can be found at [6]. I have pushed these changes (including the fix)
+to a branch that can be found at [7], with the full WIP set at [8].
+
+Thanks all for the feedback!
+
+Sascha
+
+[1] https://developer.arm.com/documentation/aes0070/latest
+[2] https://lore.kernel.org/all/20251212152215.675767-1-sascha.bischoff@arm=
+.com/
+[3] https://lore.kernel.org/all/20251219155222.1383109-1-sascha.bischoff@ar=
+m.com/
+[4] https://lore.kernel.org/all/20260109170400.1585048-1-sascha.bischoff@ar=
+m.com/
+[5] https://lore.kernel.org/all/20260128175919.3828384-1-sascha.bischoff@ar=
+m.com/
+[6] https://lore.kernel.org/all/20260225083130.3378490-1-sascha.bischoff@ar=
+m.com/
+[7] https://gitlab.arm.com/linux-arm/linux-sb/-/tree/gicv5_ppi_support_v5
+[8] https://gitlab.arm.com/linux-arm/linux-sb/-/tree/gicv5_support_wip
+
+Sascha Bischoff (36):
+  KVM: arm64: vgic-v3: Drop userspace write sanitization for
+    ID_AA64PFR0.GIC on GICv5
+  KVM: arm64: vgic: Rework vgic_is_v3() and add vgic_host_has_gicvX()
+  KVM: arm64: Return early from kvm_finalize_sys_regs() if guest has run
+  arm64/sysreg: Add remaining GICv5 ICC_ & ICH_ sysregs for KVM support
+  arm64/sysreg: Add GICR CDNMIA encoding
+  KVM: arm64: gic-v5: Add ARM_VGIC_V5 device to KVM headers
+  KVM: arm64: gic: Introduce interrupt type helpers
+  KVM: arm64: gic-v5: Add Arm copyright header
+  KVM: arm64: gic-v5: Detect implemented PPIs on boot
+  KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
+  KVM: arm64: gic-v5: Support GICv5 FGTs & FGUs
+  KVM: arm64: gic-v5: Add emulation for ICC_IAFFIDR_EL1 accesses
+  KVM: arm64: gic-v5: Trap and emulate ICC_IDR0_EL1 accesses
+  KVM: arm64: gic-v5: Add vgic-v5 save/restore hyp interface
+  KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore
+  KVM: arm64: gic-v5: Implement direct injection of PPIs
+  KVM: arm64: gic-v5: Finalize GICv5 PPIs and generate mask
+  KVM: arm64: gic: Introduce queue_irq_unlock to irq_ops
+  KVM: arm64: gic-v5: Implement PPI interrupt injection
+  KVM: arm64: gic-v5: Init Private IRQs (PPIs) for GICv5
+  KVM: arm64: gic-v5: Check for pending PPIs
+  KVM: arm64: gic-v5: Trap and mask guest ICC_PPI_ENABLERx_EL1 writes
+  KVM: arm64: gic-v5: Support GICv5 interrupts with KVM_IRQ_LINE
+  KVM: arm64: gic-v5: Create and initialise vgic_v5
+  KVM: arm64: gic-v5: Initialise ID and priority bits when resetting
+    vcpu
+  KVM: arm64: gic-v5: Enlighten arch timer for GICv5
+  KVM: arm64: gic-v5: Mandate architected PPI for PMU emulation on GICv5
+  KVM: arm64: gic: Hide GICv5 for protected guests
+  KVM: arm64: gic-v5: Hide FEAT_GCIE from NV GICv5 guests
+  KVM: arm64: gic-v5: Introduce kvm_arm_vgic_v5_ops and register them
+  KVM: arm64: gic-v5: Set ICH_VCTLR_EL2.En on boot
+  KVM: arm64: gic-v5: Probe for GICv5 device
+  Documentation: KVM: Introduce documentation for VGICv5
+  KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest
+  KVM: arm64: gic-v5: Communicate userspace-driveable PPIs via a UAPI
+  KVM: arm64: selftests: Add no-vgic-v5 selftest
+
+ Documentation/virt/kvm/api.rst                |   6 +-
+ .../virt/kvm/devices/arm-vgic-v5.rst          |  50 ++
+ Documentation/virt/kvm/devices/index.rst      |   1 +
+ Documentation/virt/kvm/devices/vcpu.rst       |   5 +-
+ arch/arm64/include/asm/el2_setup.h            |   2 +
+ arch/arm64/include/asm/kvm_asm.h              |   4 +
+ arch/arm64/include/asm/kvm_host.h             |  34 ++
+ arch/arm64/include/asm/kvm_hyp.h              |   9 +
+ arch/arm64/include/asm/sysreg.h               |   7 +
+ arch/arm64/include/asm/vncr_mapping.h         |   3 +
+ arch/arm64/include/uapi/asm/kvm.h             |   1 +
+ arch/arm64/kvm/arch_timer.c                   | 118 +++-
+ arch/arm64/kvm/arm.c                          |  40 +-
+ arch/arm64/kvm/config.c                       | 123 +++-
+ arch/arm64/kvm/emulate-nested.c               |  68 +++
+ arch/arm64/kvm/hyp/include/hyp/switch.h       |  27 +
+ arch/arm64/kvm/hyp/nvhe/Makefile              |   2 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  32 ++
+ arch/arm64/kvm/hyp/nvhe/switch.c              |  15 +
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            |   8 +
+ arch/arm64/kvm/hyp/vgic-v5-sr.c               | 120 ++++
+ arch/arm64/kvm/hyp/vhe/Makefile               |   2 +-
+ arch/arm64/kvm/nested.c                       |   5 +
+ arch/arm64/kvm/pmu-emul.c                     |  20 +-
+ arch/arm64/kvm/sys_regs.c                     | 175 +++++-
+ arch/arm64/kvm/vgic/vgic-init.c               | 151 +++--
+ arch/arm64/kvm/vgic/vgic-kvm-device.c         | 100 +++-
+ arch/arm64/kvm/vgic/vgic-mmio.c               |  28 +-
+ arch/arm64/kvm/vgic/vgic-v3.c                 |   2 +-
+ arch/arm64/kvm/vgic/vgic-v5.c                 | 531 +++++++++++++++++-
+ arch/arm64/kvm/vgic/vgic.c                    | 106 +++-
+ arch/arm64/kvm/vgic/vgic.h                    |  59 +-
+ arch/arm64/tools/sysreg                       | 480 ++++++++++++++++
+ include/kvm/arm_arch_timer.h                  |  11 +-
+ include/kvm/arm_pmu.h                         |   5 +-
+ include/kvm/arm_vgic.h                        | 143 ++++-
+ include/linux/irqchip/arm-gic-v5.h            |  35 ++
+ include/linux/kvm_host.h                      |   1 +
+ include/uapi/linux/kvm.h                      |   2 +
+ tools/arch/arm64/include/uapi/asm/kvm.h       |   1 +
+ tools/include/uapi/linux/kvm.h                |   2 +
+ tools/testing/selftests/kvm/Makefile.kvm      |   3 +-
+ .../testing/selftests/kvm/arm64/no-vgic-v3.c  | 177 ------
+ tools/testing/selftests/kvm/arm64/no-vgic.c   | 297 ++++++++++
+ tools/testing/selftests/kvm/arm64/vgic_v5.c   | 219 ++++++++
+ .../selftests/kvm/include/arm64/gic_v5.h      | 148 +++++
+ 46 files changed, 3026 insertions(+), 352 deletions(-)
+ create mode 100644 Documentation/virt/kvm/devices/arm-vgic-v5.rst
+ create mode 100644 arch/arm64/kvm/hyp/vgic-v5-sr.c
+ delete mode 100644 tools/testing/selftests/kvm/arm64/no-vgic-v3.c
+ create mode 100644 tools/testing/selftests/kvm/arm64/no-vgic.c
+ create mode 100644 tools/testing/selftests/kvm/arm64/vgic_v5.c
+ create mode 100644 tools/testing/selftests/kvm/include/arm64/gic_v5.h
+
+--=20
+2.34.1
 
