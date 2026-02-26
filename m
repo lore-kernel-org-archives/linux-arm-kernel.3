@@ -4,82 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA92FD8FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B96FD8FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JebxhsuRXpmS99sqoEAcdewBCf+xeG1RAop12duRn7Q=; b=DGFdNu8a0kPuiVZX6ftvyJRoOJ
-	n2dSx4/G0EM5x0X3dg5bGH/UEvgBqmIsZDyTamFnwfEcTb2dFcsn9VcDvx8EHXK/K5XIUE2sLbC7U
-	LmN/OWnL5JgKaonuPmVf9MuJxUamCBQIvg2YI4Ly9wOAnSkeXxNwDYuJpraCAkE11nDGuncirVpnf
-	x3J5iuYGnEdKuFxt531H9BfhefdmIP6CZdNXqlUhW6dPH1L49jWKIjCV/WjcYt7ovNRu2Yh9SDX+N
-	rOzfirAXHZ+WWdNYG3QELiOgJRMTN95mzuSTMOa8kAZYcUQAoUaSZmC1NU3DiWEuRfhhh1dCDaY5x
-	Mo/0CWIA==;
+	bh=w3o3LEkLV+O33pIc+Y0C9D9XD7DZVLPXTZ3GvgVtrXA=; b=VadlWiZe0N3ZbEaoiKJvXqDR+X
+	y5tFJooLrpo7RFadD+dU3Jrsm7Y3J5O0El+WO0rkwGTLPJgPhe9zipASi/00JVemEjBPxYU3UR3cH
+	5FwGcQsX3qQ5he2CDw11OxDKKoK+bdIIrc4bEt3R9jD3680zY5ELZn2/2iNZ/uUdDn1dNh1SKyrIz
+	iPygZELAdVEda7oZQ9KApgTbtTtY53YSaU4bsOisq8ohmi6f6Nr+GGoSgyYIAFljUicsO2PFyrGev
+	Y8ETefIiKbTMcV2yJiQ2B33iwEK/We8VxzxY7/l3j7BvarbBnp26rKCrEfiQy7p6G6DGh9xqYHZZg
+	nbFc+AxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfer-00000006uEU-01YU;
-	Thu, 26 Feb 2026 18:00:17 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1vvfn6-00000006v8w-3veW;
+	Thu, 26 Feb 2026 18:08:48 +0000
+Received: from mail-francecentralazon11013045.outbound.protection.outlook.com ([40.107.162.45] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfec-00000006tyf-3Rze
+	id 1vvfn4-00000006v8b-2tyW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 18:00:04 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12711967e0eso1542186c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 10:00:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772128802; x=1772733602; darn=lists.infradead.org;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=JebxhsuRXpmS99sqoEAcdewBCf+xeG1RAop12duRn7Q=;
-        b=V59hvLotxmls6XRaetWcx9jJid+tEnzFvBprYOH40hJ+vXcbkdvHkB1aSFR3oQuPGl
-         QQdCDAHWjgZNt1qUUAk9Qcs8izHjIGwIX2EOEp+ZTxzKfBXw8vbnDHU6OUR49QUCzluz
-         +e17AUCjfInxN6SIRC/aStVAP5FlOMkChUKi9LAMbvDAMYoeC5kzYocrATKqeqBvRe9B
-         P4vchKXIH00MhU5KgD5tcH9Q0UFsm0S1Z11e/ggdajImyMYTW/3w5BoCBISGLFSLCkZU
-         3uWQOUQ4/rz8ksKXYDEi9u2oCQU+FWQMIqDf0MrwpIvrOZiB+evBjRuzSihMLQp35/vI
-         0h6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772128802; x=1772733602;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JebxhsuRXpmS99sqoEAcdewBCf+xeG1RAop12duRn7Q=;
-        b=p2s2m7ap9o1W1CuX8FhuXD7zWR0fcZha0yjy4xSEWP3k3qjurn8VypvRRnUPTwSDbU
-         QGEyiqFLIdsafcV//oHf3mRgM9wID8mTcMB//HJH5pV4N6VjAwbhks3QUxHeQIQcoePq
-         vu/Gl5CEK2foEzy0RIoxxgQmNrolK2qJEZqZ7gjyp0xOYVPgX/SxXRUlG7geL8b7WHPE
-         bJvlZMLnC9nfTgbfjbRsP4T0bcF2SiNRRy9UibHx4iZGxdokFpTUm2i4W8llzw8rbX9X
-         2bJJFXX/gKP6fvrFx9e+7G63/zGAmXBUZIlU4z1pwciLE6E9rw1BFGHdqpEpsKsFibYf
-         0lfw==
-X-Forwarded-Encrypted: i=1; AJvYcCWdEG+ys2PeKzQNhlm80eZ7Js6NnON1Gh5ysOv+6L7STq4vgGrye2Lg0IpDRMw3tnW7fE57CBl0lSWrhP0SKqAA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKL4ZXAaIV5Kq6hh786wz76lFwvg/SsNZjdyGrO/VYQj1RCclA
-	dq0OCDXa5m5Lsp2KPSQ0IM8IH5uvDuvoYZyqa+68BKY8EeS7vuFvhFrODekasjSTEKhTPOAGcfC
-	4anr8IF4VfQ==
-X-Received: from dlw4.prod.google.com ([2002:a05:7022:44:b0:124:9d31:3581])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:45a8:b0:11b:82b8:40ae
- with SMTP id a92af1059eb24-1276acc4a5cmr9814942c88.18.1772128801157; Thu, 26
- Feb 2026 10:00:01 -0800 (PST)
-Date: Thu, 26 Feb 2026 09:59:36 -0800
-In-Reply-To: <20260226175936.593159-1-irogers@google.com>
-Mime-Version: 1.0
-References: <20260226175936.593159-1-irogers@google.com>
-X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260226175936.593159-10-irogers@google.com>
-Subject: [PATCH v2 10/10] perf vendor events intel: Update sierraforest events
- from 1.13 to 1.15
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	James Clark <james.clark@linaro.org>, 
-	"=?UTF-8?q?Andreas=20F=C3=A4rber?=" <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 26 Feb 2026 18:08:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DRD/qsL7JhXjnQSjGp8rkHxYc1TQCs4rroo7l9FeVQxhWbzu0JoDGKTPV6ehsjuYJdDZfe8OZkxFpa2lBzcXB1efeDmPt3uP6tPYkatOc7Q6SlLUPHB1EH3B8rTlCb77tgguRZfUcK1NF84aqSoky8yGicXPvGCy6kiza9x4dgNQMHUrK2slnmJt2IJY9D6XeyGviv73ZKQAyY5Mwf/6ocNZWe2OPYMM8AhpK/mcfrPWUUQWAo55SEZY5F+Q3kFVRYnCGBuyjBaUo+HG1pvkquNwvMaS8bF4yTZ1OU8AJ6OOd0cfopcJWA/zfW+pYCf2+C1J2tAfPnqML+0f/XzsIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w3o3LEkLV+O33pIc+Y0C9D9XD7DZVLPXTZ3GvgVtrXA=;
+ b=v5apxPk3pykp+Ocpo4tM+PfZbih34x7GrZ1PfWp7VAT5JAxzzINNouiYUCZ5lRIJm20GK0mNqEB1hRQzBme3qrRlzniIZLe6PMWF3HUEN7knUa3qrTci+3TpyUMv4nulQkhwFDxINnNG81ajT7tfb9mRS16pZo866Iaty4qCwwrFMkqC/onmmY0OGVIk6tKUcZTtw48HR9ceLN/E7AvgVD66COIhtvD/mwB7YkTJXq3HHWl0Kru5vHqn9ljQMXBmHsdsJm6QuiX3CDTkIFwlgDtvk/XqQZdXVmi1kQxyftD4D/gwy0WppJiYRpm4nNHt6pirZKmMnmNFPxogllUaxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w3o3LEkLV+O33pIc+Y0C9D9XD7DZVLPXTZ3GvgVtrXA=;
+ b=KVMafZrJyTeq+vS1992JcC50uN8LI4QbcMnQMt1/E9KUreMHv4clsI8IDO88ACadFHN/s8tiJk8rQD/MKkf6LiWiNi6Rye5072m8XCO/X7nVRPla2jH5YW/MToLerk5bNIaUBECFAsDWWSbIodNzDk5prLKz2pIB3Emf7aMbeis+3VtFBk46as/Bf6Ghjp5B/Zh459MgqniFOIOZ0Z2QyY0Qqgkj4lhCSoOd/0SKj3yEuI65wcxSzUcS37tdYB9aeEd+GLE0jrS5fZfWNMincKePv3mja67Tficcgbtu1d8ZFTVSz70aZfywMh3skamlbqv0DVzG3KxH0uwkLI6T7w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
+ by AS8PR04MB7749.eurprd04.prod.outlook.com (2603:10a6:20b:2a9::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
+ 2026 18:08:42 +0000
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9632.017; Thu, 26 Feb 2026
+ 18:08:41 +0000
+Date: Thu, 26 Feb 2026 20:08:37 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Meghana Malladi <m-malladi@ti.com>
+Cc: haokexin@gmail.com, vadim.fedorenko@linux.dev, jacob.e.keller@intel.com,
+	horms@kernel.org, basharath@couthit.com, parvathi@couthit.com,
+	afd@ti.com, rogerq@kernel.org, danishanwar@ti.com,
+	pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
+	davem@davemloft.net, andrew+netdev@lunn.ch,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH net-next v4 2/2] net: ti: icssg-prueth: Add ethtool ops
+ for Frame Preemption MAC Merge
+Message-ID: <20260226180837.2oszjdyh65hrxkzk@skbuf>
+References: <20260224124803.3634808-1-m-malladi@ti.com>
+ <20260224124803.3634808-1-m-malladi@ti.com>
+ <20260224124803.3634808-3-m-malladi@ti.com>
+ <20260224124803.3634808-3-m-malladi@ti.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260224124803.3634808-3-m-malladi@ti.com>
+ <20260224124803.3634808-3-m-malladi@ti.com>
+X-ClientProxiedBy: VI1PR0902CA0026.eurprd09.prod.outlook.com
+ (2603:10a6:802:1::15) To AM9PR04MB8585.eurprd04.prod.outlook.com
+ (2603:10a6:20b:438::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|AS8PR04MB7749:EE_
+X-MS-Office365-Filtering-Correlation-Id: 97f58f4d-a3a1-49c2-be9e-08de756212c9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|10070799003|19092799006|1800799024;
+X-Microsoft-Antispam-Message-Info: tEzJf/33ssEE2/KF7th4N0YpHoB0GJFLlvThaDUvXeTST1vl/6jCduxXqzg8QXDn9atTPShGS7+iDZKdO9JrDQ4SU4hA8bXHiVMn7DLaau1xxHsNLl8UMnXFWERLDV9RTSR4IyiC8pESY9rjAk20eI8MBWq/c+ZUwMUfWfu39T+2CRjHMUx/uk8ImWPh1M3wZhhLxz9TTJCegMrklR4tjFUCj2S1csKgxxN/jH65s99VbvsIVB49D9I2JLe9YS3bkWoV0WbgZJGRZ/S0eJGk0I9I5Q5Cgqh2mQv613IcRlFTTOMoPX0HwI0RcVgEsoDZzK5RUGpwd7e+BrLmk+I00FkkWFBhlHE5H1ryloraWRXgOaBe3JOr11hQSoCQu+Qf/OPgzFD8ImihgXNu0rsq4R4JCm9vxDpGu6ZpUpvgwSrsqY8tBFw5140Z2iWNrwibZ2siF+mPYbASynje/BYg8SS6rrWsHTNgbrMqH/6n+PtZ7KMKj8U1a0sU1Ulpml61GbGNRWFvy/3xDqVYaPPB/ofNsoS4HMfu8nXDTDH4bjVhQKsCwNn532xM9EWRXHxzXe85m0ugo7VImUJ1Fqs0IBn7oMfDT4y3u/aRHSiQZIBtbfRfmrJN4umePC0gr7DAzazSG5nFU9RALBB2v51CV67G6PXzO/sni2YWSh+MpcWDsvOlUbaSOSN0WqgW07JXrPFL/4W8IuiyP5FwoSpsFujQea6eRK9Kp+z7R9Z+Z1w=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(10070799003)(19092799006)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?A1AtxCPFDEwpUmaOz3mHmaPSy7NBjBSppv5M43Y55Fv3yO6e1KVVVFaeSi7V?=
+ =?us-ascii?Q?5ke3sLCVDeDDIO3vT80p1fsHcAG20AbUv2YD/PCCorzvo2fWSaIkFS6yBaAN?=
+ =?us-ascii?Q?GiaoSi5tga9v85IEVnBKiytzD23KZc9sbIX2WjtJr7Jf54XSQNIgB3TrnaeR?=
+ =?us-ascii?Q?e51PQ72f+2yzFS4wYgugQvOQKGw/Bd5AnMbH3wJeJlNRWjE1FfzXKH1E6fLl?=
+ =?us-ascii?Q?0/69daVyNK1R2lOQFgklu57ZvgmSHTc0rBiq5qB8rCx4d4jISFtlbBwobsnC?=
+ =?us-ascii?Q?zZ+OEj8QZJzqqe/aUAjIb92wvbCiyL5u+stWh+qxe1blBlnC304Tt6Bya9xW?=
+ =?us-ascii?Q?cT4pnRgws0OIiAoLvPGqOZ3ftA9j46rEs7KPOP7PhFrl1u5mNyx9i442lgMv?=
+ =?us-ascii?Q?FGvn/XpkpawASj8WBlRI7hV4G42gQ1i3XyZe/CFqxap0m+PESdXbHC8o0ADb?=
+ =?us-ascii?Q?HMlNEMMpUcTpCqp2LEob3L+Ea8n//KFzsJ6T4oggEeh39rX5t2sSRHrykcDh?=
+ =?us-ascii?Q?YCVkViu6qJEwMogqwi6QCcb1rQuI8cDo6SxPFgQK6Ncb96ENP29SmqmkEo/d?=
+ =?us-ascii?Q?vj/CSTgPRQ+Wsh3LT2ELfoefWkGJfee4HxVIRVKrbOzZI3s9AuCk5/icTYyu?=
+ =?us-ascii?Q?zVhd8gGjDG1c1gkeeHxe0pffjqmF/ORPFPP6mr81bzRDlZRgS8GOXlQn1SOp?=
+ =?us-ascii?Q?O0hsiS4OpRowKrIgEWQphFPBm4G5r75eKYVsFhPjznHjZBK76xYFae6EIYNu?=
+ =?us-ascii?Q?L1HMHuBR+UuvzRg8qpQQxtBJaArJkx+oMXBY9RZLaCJaoww+6bjxOb0Ds9Yi?=
+ =?us-ascii?Q?lWdKRuDFZgw0wR4Yqb0Z22F0fRpYZ9udADJmjKQAirJObYWG9nNzuNF36Kxw?=
+ =?us-ascii?Q?pCn4tasYV2X06XAO5/3Z3jha/QsBSrHOIFcYuqiGn1oFBRa3HIBsN/buIJ1K?=
+ =?us-ascii?Q?Ubo5t8n0jMybIW73udCuDoyy8J1T8/OlPjkgGHW36G9W3GZaM+dxG9ACwT63?=
+ =?us-ascii?Q?SwrI/+36cUTSgD2HWYjyNa/UUTeoKPwebatshPiCRXuw4AYgqaHHrt0rxf8X?=
+ =?us-ascii?Q?eSiTC4DOKBGxjnEzHyt4ByNN2M+yC9/CUbmiMfqtEWAVUV/yoabWQvCdqV6I?=
+ =?us-ascii?Q?N076uFZBGw6lmcsMWxbUiw24KGRtTdv9OLGHKgRWC9GzFERYiAMpOXp0B/C7?=
+ =?us-ascii?Q?wcrZTLEnokxKDKjDt7pUmKe9y+RIjjyHttUQY3vz0CJAZFdjEydY3Kmy8Rz4?=
+ =?us-ascii?Q?kwyN/ZL/5uenjHGfPWRiRQ/tJulSgQVEG3Rz98zXimas196RsN7AtxHI4qkV?=
+ =?us-ascii?Q?wgqKwycRO+ATtuGZgch2akW9Cg1km0xbnRRRNg8Y0HVV0/FqCzL3JMEqpgKc?=
+ =?us-ascii?Q?niTNA1M/GLEsCjNM7OnfD91huqp8oOpURgNLlmKYE1wiNClvyECoHh3geSUx?=
+ =?us-ascii?Q?4QEr6befM0HtKACPDfI8dcfEduQrs4JtgVoeEQG7fBeen8M3WqrexbD8BrrX?=
+ =?us-ascii?Q?cMbqVb1udlN3tPKJtt3Ou+4MF2qLQ7D9W+kz1/UISsp5uWo2koOheeALKExR?=
+ =?us-ascii?Q?/Fqb7BzmxSaQ6tLIZ96AM9GjO+Pf4x2I7Ds3K8Csdex0vXLf7ciTm7ifX3bd?=
+ =?us-ascii?Q?LuFYcrl7Wxi9h9RwXxZQqMqHJdGtp8qT3iNratzipL4S4O1BUimO6X0h3zKN?=
+ =?us-ascii?Q?x9j7g6LOALMht+VFyB59NXwLQIdyDqB2A00bfRmuL4jylKPnJz5oN6Tpg0rG?=
+ =?us-ascii?Q?rEWSrQCs2r9Ef1227E0D1LcYm/cF+AbZ8c+OIB+S5V9LC2PBPX8aU5SfKXIr?=
+X-MS-Exchange-AntiSpam-MessageData-1: Gcsq2HVEeq1DpnxSb3phjOT/DAtATHsTz9c=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97f58f4d-a3a1-49c2-be9e-08de756212c9
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 18:08:41.7899
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5QqYjoe80l5jGzRDHGqfRta8IOqT5hUk+YxF9u3sZPfO8C/G5iLO1kJkWylovCK0EBhP5AOWesf4wllYus83pA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7749
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_100002_869333_5F52C589 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20260226_100846_739789_1A50D7AD 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,217 +146,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The updated events were published in:
-https://github.com/intel/perfmon/commit/996bacad8f144e675b32f0096b9fe6813380695c
-https://github.com/intel/perfmon/commit/93b6ef08ca9b01788458e8f5a0e7cbb716715b7c
+On Tue, Feb 24, 2026 at 06:18:03PM +0530, Meghana Malladi wrote:
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.h b/drivers/net/ethernet/ti/icssg/icssg_qos.h
+> index 653dbb57791d..bf84cc1b8282 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_qos.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.h
+> @@ -57,4 +57,24 @@ void icssg_qos_link_up(struct net_device *ndev);
+>  void icssg_qos_link_down(struct net_device *ndev);
+>  int icssg_qos_ndo_setup_tc(struct net_device *ndev, enum tc_setup_type type,
+>  			   void *type_data);
+> +static inline int icssg_qos_frag_size_min_to_add(u32 min_frag_size,
+> +						 struct netlink_ext_ack *extack)
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/pmu-events/arch/x86/mapfile.csv    |  2 +-
- .../arch/x86/sierraforest/cache.json          | 22 +++++-----
- .../arch/x86/sierraforest/pipeline.json       | 42 ++++++++++++++++---
- 3 files changed, 49 insertions(+), 17 deletions(-)
+This function is poorly named.
 
-diff --git a/tools/perf/pmu-events/arch/x86/mapfile.csv b/tools/perf/pmu-events/arch/x86/mapfile.csv
-index 8ef03af9f150..8a9e1735e21e 100644
---- a/tools/perf/pmu-events/arch/x86/mapfile.csv
-+++ b/tools/perf/pmu-events/arch/x86/mapfile.csv
-@@ -30,7 +30,7 @@ GenuineIntel-6-CC,v1.04,pantherlake,core
- GenuineIntel-6-A7,v1.04,rocketlake,core
- GenuineIntel-6-2A,v19,sandybridge,core
- GenuineIntel-6-8F,v1.36,sapphirerapids,core
--GenuineIntel-6-AF,v1.13,sierraforest,core
-+GenuineIntel-6-AF,v1.15,sierraforest,core
- GenuineIntel-6-(37|4A|4C|4D|5A),v15,silvermont,core
- GenuineIntel-6-(4E|5E|8E|9E|A5|A6),v59,skylake,core
- GenuineIntel-6-55-[01234],v1.37,skylakex,core
-diff --git a/tools/perf/pmu-events/arch/x86/sierraforest/cache.json b/tools/perf/pmu-events/arch/x86/sierraforest/cache.json
-index de0e7661a52d..168f43557a0e 100644
---- a/tools/perf/pmu-events/arch/x86/sierraforest/cache.json
-+++ b/tools/perf/pmu-events/arch/x86/sierraforest/cache.json
-@@ -326,7 +326,7 @@
-         "UMask": "0x82"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 1024. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -337,7 +337,7 @@
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 128. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -348,7 +348,7 @@
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 16. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -359,7 +359,7 @@
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 2048. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -370,7 +370,7 @@
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 256. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -381,7 +381,7 @@
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 32. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -392,7 +392,7 @@
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 4. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -403,7 +403,7 @@
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 512. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -414,7 +414,7 @@
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 64. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -425,7 +425,7 @@
-         "UMask": "0x5"
-     },
-     {
--        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
-+        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 8. Only counts with PEBS enabled.",
-         "Counter": "0,1",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-@@ -499,7 +499,7 @@
-         "UMask": "0x12"
-     },
-     {
--        "BriefDescription": "Counts the number of  stores uops retired same as MEM_UOPS_RETIRED.ALL_STORES",
-+        "BriefDescription": "Counts the number of stores uops retired.",
-         "Counter": "0,1,2,3,4,5,6,7",
-         "Data_LA": "1",
-         "EventCode": "0xd0",
-diff --git a/tools/perf/pmu-events/arch/x86/sierraforest/pipeline.json b/tools/perf/pmu-events/arch/x86/sierraforest/pipeline.json
-index 70af13143024..cf67ff6135e0 100644
---- a/tools/perf/pmu-events/arch/x86/sierraforest/pipeline.json
-+++ b/tools/perf/pmu-events/arch/x86/sierraforest/pipeline.json
-@@ -186,7 +186,7 @@
-         "UMask": "0xf7"
-     },
-     {
--        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles",
-+        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles. [This event is alias to CPU_CLK_UNHALTED.THREAD]",
-         "Counter": "Fixed counter 1",
-         "EventName": "CPU_CLK_UNHALTED.CORE",
-         "SampleAfterValue": "2000003",
-@@ -200,7 +200,7 @@
-         "SampleAfterValue": "2000003"
-     },
-     {
--        "BriefDescription": "Fixed Counter: Counts the number of unhalted reference clock cycles",
-+        "BriefDescription": "Fixed Counter: Counts the number of unhalted reference clock cycles.",
-         "Counter": "Fixed counter 2",
-         "EventName": "CPU_CLK_UNHALTED.REF_TSC",
-         "SampleAfterValue": "2000003",
-@@ -216,7 +216,7 @@
-         "UMask": "0x1"
-     },
-     {
--        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles",
-+        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles. [This event is alias to CPU_CLK_UNHALTED.CORE]",
-         "Counter": "Fixed counter 1",
-         "EventName": "CPU_CLK_UNHALTED.THREAD",
-         "SampleAfterValue": "2000003",
-@@ -230,10 +230,10 @@
-         "SampleAfterValue": "2000003"
-     },
-     {
--        "BriefDescription": "Fixed Counter: Counts the number of instructions retired",
-+        "BriefDescription": "Fixed Counter: Counts the number of instructions retired.",
-         "Counter": "Fixed counter 0",
-         "EventName": "INST_RETIRED.ANY",
--        "PublicDescription": "Fixed Counter: Counts the number of instructions retired Available PDIST counters: 32",
-+        "PublicDescription": "Fixed Counter: Counts the number of instructions retired. Available PDIST counters: 32",
-         "SampleAfterValue": "2000003",
-         "UMask": "0x1"
-     },
-@@ -309,6 +309,38 @@
-         "SampleAfterValue": "1000003",
-         "UMask": "0x1"
-     },
-+    {
-+        "BriefDescription": "Counts the number of CLFLUSH, CLWB, and CLDEMOTE instructions retired.",
-+        "Counter": "0,1,2,3,4,5,6,7",
-+        "EventCode": "0xe0",
-+        "EventName": "MISC_RETIRED1.CL_INST",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0xff"
-+    },
-+    {
-+        "BriefDescription": "Counts the number of LFENCE instructions retired.",
-+        "Counter": "0,1,2,3,4,5,6,7",
-+        "EventCode": "0xe0",
-+        "EventName": "MISC_RETIRED1.LFENCE",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0x2"
-+    },
-+    {
-+        "BriefDescription": "Counts the number of accesses to KeyLocker cache.",
-+        "Counter": "0,1,2,3,4,5,6,7",
-+        "EventCode": "0xe1",
-+        "EventName": "MISC_RETIRED2.KEYLOCKER_ACCESS",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0x10"
-+    },
-+    {
-+        "BriefDescription": "Counts the number of misses to KeyLocker cache.",
-+        "Counter": "0,1,2,3,4,5,6,7",
-+        "EventCode": "0xe1",
-+        "EventName": "MISC_RETIRED2.KEYLOCKER_MISS",
-+        "SampleAfterValue": "1000003",
-+        "UMask": "0x11"
-+    },
-     {
-         "BriefDescription": "Counts the number of issue slots in a UMWAIT or TPAUSE instruction where no uop issues due to the instruction putting the CPU into the C0.1 activity state.",
-         "Counter": "0,1,2,3,4,5,6,7",
--- 
-2.53.0.414.gf7e9f6c205-goog
+It draws obvious inspiration from ethtool_mm_frag_size_min_to_add(),
+which had the following meaning: "convert min_frag_size (input) to
+addFragSize (output)". That's where the "min *to* add" comes from.
 
+Your function does _not_ do that (nor is it used like that). It returns
+negative failure, or 0. But that 0 is confusingly not an addFragSize
+value, just "success".
+
+> +{
+> +	/* The minimum size of the non-final mPacket supported
+> +	 * by the firmware is 64B and multiples of 64B.
+> +	 */
+> +	if (min_frag_size < 64) {
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "tx_min_frag_size must be at least 64 bytes");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (min_frag_size % (ETH_ZLEN + ETH_FCS_LEN)) {
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "tx_min_frag_size must be a multiple of 64 bytes");
+
+The min_frag_size as passed by user space represents a value that
+doesn't include the FCS length (this is what the "4" in the addFragSize
+formula excludes: "64 x (1 + addFragSize) - 4").
+
+If your firmware takes a value including FCS, make the adjustment
+privately to the driver, but accept values from user space that are 4
+octets larger than what is programmed to the firmware. This allows the
+same user space commands to have the same meaning on your hardware.
+
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
 
