@@ -4,134 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A659FD4609
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 02:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E22FD4609
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 02:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bQq0lAUlGrO11icn77YtT7QP0MohK01/PRDre5JKNm0=; b=d9otnujL8CfDxGV6S9Phs5goiO
-	Ek6S4hko2lq68LtawGCOrC5wpW/e1vaeEc9DFgfUnIgubmA3aj8Rbpeyng5N/vQ9BoXjNjGH6s6dE
-	7yBeosAOJFCczbsgojuzyQMHhkp2t9iBBF4ZID+FGW/JCOLrUSEuyr1wtZoNvje5Ssj1G2iouPiSU
-	lyscCX2EBY0VYclOZJ/dpBQq8yagc8ws16zT342kUEXmk0nKQHGlMebvkHw+HqyEpUVTxYpvLE77E
-	dgJ6hzbvs5EyfQU2y+MGsvLFGq+6Un0hA6OEX3SVXz628TbkUhu9f3taQQCO5PXKPXHaHU8ck36IZ
-	A6uq+StA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zfLTltYqSe/ND3M3BYUM8dCDtPCvqn6CcMqbwUsZ0UM=; b=XLzm4cZpGCavw6NlpNVYsOLPtn
+	Tv5DCtJqvuktuLAXgggtUuCwx6hIuZY7bo3qZUVaf1uvDIJcjfEdRuR3o23VUXo5AukEEek2zJozR
+	hhq0+BbmIBCfJ3B8VIXzj2ZegcJIkou24YMrmVmKiwZy2mVeNCeriXwa+4E78cS728ND6OgQiqpWn
+	J7hr3Vg86CPJwOsbApLwP+12qxDYuHe9UDpRcGZhIXtif0Im5Hdq6mMO2speCILqqZ6C6/T1+fV/L
+	5Dv3SVgHbIqv9pSwvJshw7BWM3O1tWUnFl6EMIRRtlhuYC67jf7AggWQC/4Kfp0F4zI9W9rSsBj3Y
+	Hju+QUog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvQl3-00000005DSf-2UWd;
-	Thu, 26 Feb 2026 02:05:41 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vvQnl-00000005E55-304X;
+	Thu, 26 Feb 2026 02:08:29 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvQks-00000005DLy-0Ouk
+	id 1vvQnh-00000005E4L-3jxd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 02:05:31 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61Q0qtQ22976802
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 02:05:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=bQq0lAUlGrO
-	11icn77YtT7QP0MohK01/PRDre5JKNm0=; b=lVRY3XDS/39DEJqSoNqoXpIxCYB
-	qOnGOZxzHszmpuZQ5hvqYMmuu9JzCAZ0/6RdbbLquR7ZVNlnFYJjMrFXMoJdKG+y
-	nQA+VNTQfi6lpFVneVlzCJ7UGPfdX72mHsto4ZS/y6hKlPJRVoRH2Hn/1afivAXo
-	jn6AOTMYR7L2ABw54VtnHktTKktyOe2vuhbrJwsoZdjFM3fa4XiJFqWwLfqWDyjT
-	tqPG3sepb5HyO9CujkKiVGx2tEqJBQqV9Cce6W4m+3MgV7+XumAv3cnqoeGiN5xn
-	qVOVflZoA0xUCWaivubC8ujjsogFNoPjDW/tg0dE2EdrAJQhqL9MCfriAXQ==
-Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com [209.85.161.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cjc0g85wf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 02:05:29 +0000 (GMT)
-Received: by mail-oo1-f71.google.com with SMTP id 006d021491bc7-66308f16ea1so3231310eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 18:05:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772071529; x=1772676329; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bQq0lAUlGrO11icn77YtT7QP0MohK01/PRDre5JKNm0=;
-        b=IOWZ7lkUSmHP+M/5uTW5RI8UOQoz43llvf+XgtCjeG7PngjQO+Nr9svZ5Kqz2+3lSn
-         SHUvWYkzQwYCIA/A8U4ofzZ2tKBH23M1qMEQqe/D9une6dklACv/iDZ2kznKT6A0hz0h
-         fGmnJm5yCa9rvGmea2i0bxiOiivrCv4rruoXaffMwnC8Q6fTW06UBRVc73539XAMdzxr
-         49cTSCHoLQsfcfqyxUez19+B431ug9tFJkjgvrvTZd8gnIX1lQ+8gOCIDfMgjojpLSdr
-         BZS2vLPiL2j2QckNr9dQsGnsq46OBGtWDYyqgcNCGtsq38J0NOOjxFhStVPXzELwNUv6
-         fQrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772071529; x=1772676329;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=bQq0lAUlGrO11icn77YtT7QP0MohK01/PRDre5JKNm0=;
-        b=BWsScKVe2/v7dw9OVRQFFPQPnhtnBzUZH4KKi+VFrodtuJ+Oa+koHn5Y2fZT3CHRYz
-         7gk/vGFwgHmceAFpLE3h6W/gjyr6eULfsno4U1tKIDA/HXzt3p9MbCVU/QXXW05ZIHyU
-         4cIUBQEf22LZ2HijAnX7kwJTIkOOrgYnl2dN5o98/qaqGD4GD4doB00xAD0SCozKapk7
-         ZCARDo9suoa4ENo2/lWhBoRapxt37GE6VWYjWdnKhTqcoWMn2uMdfMxvKXv0sRjXrg1V
-         JXzUYuN41fCVPcmuWzXZWQPVCwoDVMlGaJ0uKZD6ae6sFosW9nuOaINPNHo5pIRfQOC2
-         +mkA==
-X-Forwarded-Encrypted: i=1; AJvYcCVW9+WoACB2PU+Ruc19LUIqbfr7xHVV8Ol3NCemOscZf4Z2+i6uWDNu3mxfT3YSf0F/mjvDQeLS0qdyG4B5DoOs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBoOLkNG05HBA+t0KiDja2M7qnT7kMivjL5lOtcgd4/XKQfqAR
-	b2oKOMrgxISevXiwvSKKVvHQ4yYsR2jyaZ/TtZI6b/l570QghMgLE5PIUjS+g1o87VPVSibBMdp
-	vP7AGPYvH/47a2IIs/cSC7yRHqsncprb8sDxt8hH/Yxve0S7lDLnU9de6/dQoFVuf6K+GyLTy5i
-	sfzOAdT7s96g==
-X-Gm-Gg: ATEYQzxP1txqHE/+5VUXibxYDjmnlvZyVFLVv4jZp4O7hQX82k8HivPtAgzTq8p2bgY
-	vlpwbjnz3JFhaLwkApi52H154lbcfShb+4wum2ScdSfIbH6k+s6TOiPjRfj7fJnRlUdN63Zqkz1
-	7B2ufxpy/ClP+wLSNQj/CmWTdWPtW2xkzRT8je64viygZOHEdnQ1kAgTRX9UMN/o/sIMcS+wfxI
-	mLbsoFK4UKknmM+gD6StB3V+YfebvFDWaI2Y5UTltQsywo7m0OJabAFjN+K6glyGcqhCaBWsRgH
-	XqvYa1gLZI/khL92IUqzDMGbOVY3U7dHkJMSjhE9j6RwW16MVY8QikSEvxDoJkU3aTO3w733KGH
-	QfhoF5UAum012ZbgYdQ+4jSjBP3bMEVhD6YXkTVQHN+Rl4J41RRP/F7cOVXE0xIBbK5+/NY6MCA
-	JA
-X-Received: by 2002:a05:6820:6ac1:b0:663:3ad:4c27 with SMTP id 006d021491bc7-679f3d700e8mr270636eaf.42.1772071528546;
-        Wed, 25 Feb 2026 18:05:28 -0800 (PST)
-X-Received: by 2002:a05:6820:6ac1:b0:663:3ad:4c27 with SMTP id 006d021491bc7-679f3d700e8mr270622eaf.42.1772071528097;
-        Wed, 25 Feb 2026 18:05:28 -0800 (PST)
-Received: from hu-songchai-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-679f2d9e8d6sm549939eaf.13.2026.02.25.18.05.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Feb 2026 18:05:27 -0800 (PST)
-From: Songwei Chai <songwei.chai@oss.qualcomm.com>
-To: andersson@kernel.org, alexander.shishkin@linux.intel.com,
-        mike.leach@linaro.org, konrad.dybcio@oss.qualcomm.com,
-        suzuki.poulose@arm.com, james.clark@arm.com, krzk+dt@kernel.org,
-        conor+dt@kernel.org
-Cc: Songwei Chai <songwei.chai@oss.qualcomm.com>, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        coresight@lists.linaro.org, devicetree@vger.kernel.org,
-        gregkh@linuxfoundation.org
-Subject: [PATCH v11 6/7] qcom-tgu: Add timer/counter functionality for TGU
-Date: Wed, 25 Feb 2026 18:04:53 -0800
-Message-Id: <20260226020454.3210149-7-songwei.chai@oss.qualcomm.com>
+	Thu, 26 Feb 2026 02:08:28 +0000
+Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61PNvr2F3277797;
+	Thu, 26 Feb 2026 02:08:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2025-04-25; bh=zfLTltYqSe/ND3M3BYUM8dCDtPCvq
+	n6CcMqbwUsZ0UM=; b=IOQR4tXiUC1j4gvEUcN3KhzVGh6WAPlmJxZXu857cC+vg
+	5PL01Euf8NdwKbKiqdqgIAq3s9c75XcMeKEYcke2Ank55+gYeHVN2oux4zt4VfJb
+	phB3Gu0hKo2cBI+TFtHbLOBcVfKLj/zYsBa2S3NiSxAhe34Qu6x6MLrM0EAH29aB
+	h2wsXf8tRM0M5gOyhTH3OvouS80RVAnGlrXNMzn47JHszacU7JNQnJNmBjXFGngf
+	fL8KGIG765ODOK7OaT9Jy/0gi9oHXUIMVIfSi+nhO0aYmlCxMyNmdvZM48T4P5En
+	olT8Zg9T3IX5XGIQFHd43zW6/my49OdTx/GrTiAmQ==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4cf4k5ydtk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 Feb 2026 02:08:16 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 61Q01ANr012453;
+	Thu, 26 Feb 2026 02:08:15 GMT
+Received: from imran-metabox.au.oracle.com (dhcp-10-191-70-123.vpn.oracle.com [10.191.70.123])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 4cf35g4s58-1;
+	Thu, 26 Feb 2026 02:08:15 +0000
+From: Imran Khan <imran.f.khan@oracle.com>
+To: glider@google.com, elver@google.com, dvyukov@google.com,
+        catalin.marinas@arm.com, will@kernel.org
+Cc: kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: move early allocation of kfence pool after acpi table initialization.
+Date: Thu, 26 Feb 2026 10:07:48 +0800
+Message-Id: <20260226020748.1282208-1-imran.f.khan@oracle.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260226020454.3210149-1-songwei.chai@oss.qualcomm.com>
-References: <20260226020454.3210149-1-songwei.chai@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=XI49iAhE c=1 sm=1 tr=0 ts=699faa69 cx=c_pps
- a=V4L7fE8DliODT/OoDI2WOg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
- a=eGDQztGCVwpQsGOtWZEA:9 a=WZGXeFmKUf7gPmL3hEjn:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDAxNiBTYWx0ZWRfX7II1XCS6KQpu
- JEtEfSn7719sXLqJ3G6mJLf0AOH452jW0zC0PfiJ7HGLwg7SytVNyUeDqUW+yO83RqEfY2iUzmC
- oKWoEf0W11RXRgQlARjDE1TlEMuuK24K3A30ecF3O/QqRpMjaTyp5xS6JzvvHEfb14CowAvCfJ+
- lf5KsLdZeumaw5HfsT0d5FVQupq3I5TXhD/mPTjtoo4/ISiditk1xRv5VkkrIxSAaYTeA6YvGi8
- 1ubd0ADT8bV7CW3JvZMD3N/cJem+UnaTRgErhA/+oUj/hWXATGA+piiC+JqjkInfYn+LFAV1RKB
- eM0l29+An/kd/FtPlDhlThy03M39S3P3aBlgClM3GWHmwXPUmSn89JNkofFOkYLAC33hoFT26pE
- BgxO+3HsYiweGgxm+MrjgUVwlwYw4eSUYD3kTEPomBHJBZY3Pql52wADmONYuLAjEIjAArwQK6e
- XWOlR4TM5XQWFYnA5HA==
-X-Proofpoint-ORIG-GUID: B9-dHfjBzqpO0SzRQYer6vCTvWvK30yf
-X-Proofpoint-GUID: B9-dHfjBzqpO0SzRQYer6vCTvWvK30yf
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-02-25_04,2026-02-25_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 suspectscore=0 bulkscore=0 impostorscore=0 lowpriorityscore=0
- clxscore=1015 spamscore=0 malwarescore=0 priorityscore=1501 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602260016
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 adultscore=0
+ bulkscore=0 spamscore=0 phishscore=0 malwarescore=0 suspectscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2602130000 definitions=main-2602260017
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDAxNyBTYWx0ZWRfX2TM68zV1/Igv
+ ZBcYjFroWrZvAlnjZ/KbBpt9iL1lUGHL9kDrje7zIejD/opofl1Y6AOsbbE+5GsTLnFENk41E2H
+ NczCtDRCgedaQyUiURiYG7lUBQY2KvLkvdBD+bpLMU2Edrp4+ifaCFRm8XuZdqKinxUAGTxKymb
+ IeqsbOe04gvLs6RrWPo36yEWi4FZUc9GzAnxI9RcPiALdgO9KeS2bO4ppqJnzYPzvNNcqIkl3//
+ LBlYZIGGaTnTtAhc5zmkq6DEgI1sVDHokDMSI+KxR2geU+myPqTkz7UNl5qCOQ+X4M1Qd0pmgkY
+ 41HKcNznto3lnkDb4dCK14mu0jMk0l3VWHtB1b2Ugt14W1vmOO4v7g3AsNhs8/TvVefvo1C2Ikq
+ LBU5PV3Wbt3mRbPlLEo7qHm4hYCeQfhC8s7VQjPy+kWTlgCR7SaH6EO/xXRkghJFOF+j/AyCv6p
+ XVDhdhhPbZWE5cLJJlxgrcn6F6qZmgBIerMeMZq0=
+X-Proofpoint-GUID: AihCWpVNfZLyPvFnjNs5e6EBuo6MKpnA
+X-Authority-Analysis: v=2.4 cv=b9C/I9Gx c=1 sm=1 tr=0 ts=699fab10 b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22
+ a=GgsMoib0sEa3-_RKJdDe:22 a=yPCof4ZbAAAA:8 a=U-mDAgou2R5dctFzu_EA:9 cc=ntf
+ awl=host:13810
+X-Proofpoint-ORIG-GUID: AihCWpVNfZLyPvFnjNs5e6EBuo6MKpnA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_180530_141156_625DAAD9 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20260225_180825_936693_8CE83536 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,363 +99,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add counter and timer node for each step which could be
-programed if they are to be utilized in trigger event/sequence.
+Currently early allocation of kfence pool (arm64_kfence_alloc_pool) happens
+before ACPI table parsing (acpi_boot_table_init) and hence the kfence pool
+can overlap with area containing ACPI data.
+For example on my setup I see that kfence pool of size 32MB is getting
+allocated at physical address 0xc3c570000 and BGRT table is present at
+0xc3e512018.
+This is causing KFENCE to generate false positive reports.
+For example trying to access BGRT binary attributes, reports errors like:
 
-Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+[  101.153638] ==================================================================
+[  101.153639] BUG: KFENCE: use-after-free read in __pi_memcpy_generic+0x14c/0x230
+[  101.153639]
+[  101.153642] Use-after-free read at 0x000000002b4fde1e (in kfence-#252):
+[  101.153643]  __pi_memcpy_generic+0x14c/0x230
+[  101.153645]  sysfs_kf_bin_read+0x70/0x140
+[  101.153647]  kernfs_file_read_iter+0xac/0x220
+[  101.153649]  kernfs_fop_read_iter+0x30/0x80
+[  101.153651]  copy_splice_read+0x1f0/0x400
+[  101.153653]  do_splice_read+0x84/0x1a0
+[  101.153655]  splice_direct_to_actor+0xb4/0x2a0
+[  101.153657]  do_splice_direct+0x70/0x100
+[  101.153659]  do_sendfile+0x360/0x400
+[  101.153661]  __arm64_sys_sendfile64+0x70/0x1c0
+[  101.153663]  invoke_syscall+0x70/0x160
+[  101.153664]  el0_svc_common.constprop.0+0x108/0x140
+[  101.153666]  do_el0_svc+0x24/0x60
+[  101.153667]  el0_svc+0x38/0x160
+[  101.153669]  el0t_64_sync_handler+0xb8/0x100
+[  101.153670]  el0t_64_sync+0x19c/0x1a0
+[  101.153671]
+[  101.153672] kfence-#252: 0x00000000e0140f78-0x00000000451bb320, size=256, cache=maple_node
+[  101.153672]
+[  101.153674] allocated by task 8328 on cpu 0 at 99.989222s (1.164452s ago):
+[  101.153679]  mas_alloc_nodes+0x138/0x180
+[  101.153682]  mas_store_gfp+0x198/0x3e0
+[  101.153684]  do_vmi_align_munmap+0x168/0x320
+[  101.153687]  do_vmi_munmap+0xb8/0x1c0
+[  101.153689]  __vm_munmap+0xdc/0x1e0
+[  101.153691]  __arm64_sys_munmap+0x28/0x60
+[  101.153693]  invoke_syscall+0x70/0x160
+[  101.153695]  el0_svc_common.constprop.0+0x108/0x140
+[  101.153696]  do_el0_svc+0x24/0x60
+[  101.153697]  el0_svc+0x38/0x160
+[  101.153699]  el0t_64_sync_handler+0xb8/0x100
+[  101.153701]  el0t_64_sync+0x19c/0x1a0
+[  101.153702]
+[  101.153702] freed by task 0 on cpu 0 at 100.057612s (1.096089s ago):
+[  101.153722]  __rcu_free_sheaf_prepare+0x11c/0x260
+[  101.153723]  rcu_free_sheaf+0x2c/0x140
+[  101.153725]  rcu_do_batch+0x158/0x560
+[  101.153727]  rcu_core+0x110/0x220
+[  101.153728]  rcu_core_si+0x18/0x40
+[  101.153729]  handle_softirqs+0x128/0x340
+[  101.153731]  __do_softirq+0x1c/0x34
+[  101.153732]  ____do_softirq+0x18/0x38
+
+The place of warning remains the same but freer and allocator stacks can
+differ.
+
+Moving early allocation of kfence pool, after ACPI table initialization,
+avoids the above mentioned overlap and prevents false positive reports
+such as the one above.
+
+Signed-off-by: Imran Khan <imran.f.khan@oracle.com>
 ---
- .../ABI/testing/sysfs-bus-amba-devices-tgu    |  14 +++
- drivers/hwtracing/qcom/tgu.c                  | 116 +++++++++++++++++-
- drivers/hwtracing/qcom/tgu.h                  |  54 ++++++++
- 3 files changed, 182 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/kfence.h |  9 +++++++++
+ arch/arm64/kernel/setup.c       |  7 +++++++
+ arch/arm64/mm/mmu.c             | 13 ++-----------
+ 3 files changed, 18 insertions(+), 11 deletions(-)
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-index fbe8efe470d1..9daacd68eed0 100644
---- a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-+++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-@@ -28,3 +28,17 @@ KernelVersion	6.20
- Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
- Description:
- 		(RW) Set/Get the next action with specific step for TGU.
+diff --git a/arch/arm64/include/asm/kfence.h b/arch/arm64/include/asm/kfence.h
+index 21dbc9dda7478..25c66f8059d6d 100644
+--- a/arch/arm64/include/asm/kfence.h
++++ b/arch/arm64/include/asm/kfence.h
+@@ -19,6 +19,11 @@ static inline bool kfence_protect_page(unsigned long addr, bool protect)
+ 
+ #ifdef CONFIG_KFENCE
+ extern bool kfence_early_init;
 +
-+What:		/sys/bus/amba/devices/<tgu-name>/step[0:7]_timer/reg[0:1]
-+Date:		February 2026
-+KernelVersion	6.20
-+Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-+Description:
-+		(RW) Set/Get the timer value with specific step for TGU.
++extern phys_addr_t arm64_kfence_alloc_pool(void);
 +
-+What:		/sys/bus/amba/devices/<tgu-name>/step[0:7]_counter/reg[0:1]
-+Date:		February 2026
-+KernelVersion	6.20
-+Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-+Description:
-+		(RW) Set/Get the counter value with specific step for TGU.
-diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
-index 1d996b9e303a..4539415571f6 100644
---- a/drivers/hwtracing/qcom/tgu.c
-+++ b/drivers/hwtracing/qcom/tgu.c
-@@ -32,6 +32,10 @@ static int calculate_array_location(struct tgu_drvdata *drvdata,
- 	case TGU_CONDITION_SELECT:
- 		return step_index * (drvdata->num_condition_select) +
- 			reg_index;
-+	case TGU_COUNTER:
-+		return step_index * (drvdata->num_counter) + reg_index;
-+	case TGU_TIMER:
-+		return step_index * (drvdata->num_timer) + reg_index;
- 	default:
- 		break;
- 	}
-@@ -77,6 +81,12 @@ static ssize_t tgu_dataset_show(struct device *dev,
- 	case TGU_CONDITION_SELECT:
- 		return sysfs_emit(buf, "0x%x\n",
- 				drvdata->value_table->condition_select[index]);
-+	case TGU_TIMER:
-+		return sysfs_emit(buf, "0x%x\n",
-+				drvdata->value_table->timer[index]);
-+	case TGU_COUNTER:
-+		return sysfs_emit(buf, "0x%x\n",
-+				drvdata->value_table->counter[index]);
- 	default:
- 		break;
- 	}
-@@ -122,6 +132,14 @@ static ssize_t tgu_dataset_store(struct device *dev,
- 		tgu_drvdata->value_table->condition_select[index] = val;
- 		ret = size;
- 		break;
-+	case TGU_TIMER:
-+		tgu_drvdata->value_table->timer[index] = val;
-+		ret = size;
-+		break;
-+	case TGU_COUNTER:
-+		tgu_drvdata->value_table->counter[index] = val;
-+		ret = size;
-+		break;
- 	default:
- 		ret = -EINVAL;
- 		break;
-@@ -163,6 +181,18 @@ static umode_t tgu_node_visible(struct kobject *kobject,
- 		if (tgu_attr->reg_num < drvdata->num_condition_select)
- 			return attr->mode;
- 		break;
-+	case TGU_COUNTER:
-+		if (!drvdata->num_counter)
-+			break;
-+		if (tgu_attr->reg_num < drvdata->num_counter)
-+			return attr->mode;
-+		break;
-+	case TGU_TIMER:
-+		if (!drvdata->num_timer)
-+			break;
-+		if (tgu_attr->reg_num < drvdata->num_timer)
-+			return attr->mode;
-+		break;
- 	default:
- 		break;
- 	}
-@@ -213,6 +243,30 @@ static ssize_t tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
- 				drvdata->base + CONDITION_SELECT_STEP(i, j));
- 		}
- 	}
++extern void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp);
 +
-+	for (i = 0; i < drvdata->num_step; i++) {
-+		for (j = 0; j < drvdata->num_timer; j++) {
-+			index = check_array_location(drvdata, i, TGU_TIMER, j);
+ static inline bool arm64_kfence_can_set_direct_map(void)
+ {
+ 	return !kfence_early_init;
+@@ -26,6 +31,10 @@ static inline bool arm64_kfence_can_set_direct_map(void)
+ bool arch_kfence_init_pool(void);
+ #else /* CONFIG_KFENCE */
+ static inline bool arm64_kfence_can_set_direct_map(void) { return false; }
 +
-+			if (index == -EINVAL)
-+				goto exit;
++static inline phys_addr_t arm64_kfence_alloc_pool(void) { return 0; }
 +
-+			writel(drvdata->value_table->timer[index],
-+				drvdata->base + TIMER_COMPARE_STEP(i, j));
-+		}
-+	}
++static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) { }
+ #endif /* CONFIG_KFENCE */
+ 
+ #endif /* __ASM_KFENCE_H */
+diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+index 23c05dc7a8f2a..2e9ec94cd4d5b 100644
+--- a/arch/arm64/kernel/setup.c
++++ b/arch/arm64/kernel/setup.c
+@@ -32,6 +32,7 @@
+ #include <linux/sched/task.h>
+ #include <linux/scs.h>
+ #include <linux/mm.h>
++#include <linux/kfence.h>
+ 
+ #include <asm/acpi.h>
+ #include <asm/fixmap.h>
+@@ -54,6 +55,7 @@
+ #include <asm/efi.h>
+ #include <asm/xen/hypervisor.h>
+ #include <asm/mmu_context.h>
++#include <asm/kfence.h>
+ 
+ static int num_standard_resources;
+ static struct resource *standard_resources;
+@@ -280,6 +282,8 @@ u64 cpu_logical_map(unsigned int cpu)
+ 
+ void __init __no_sanitize_address setup_arch(char **cmdline_p)
+ {
++	phys_addr_t early_kfence_pool;
 +
-+	for (i = 0; i < drvdata->num_step; i++) {
-+		for (j = 0; j < drvdata->num_counter; j++) {
-+			index = check_array_location(drvdata, i, TGU_COUNTER, j);
+ 	setup_initial_init_mm(_text, _etext, _edata, _end);
+ 
+ 	*cmdline_p = boot_command_line;
+@@ -341,6 +345,9 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
+ 	if (acpi_disabled)
+ 		unflatten_device_tree();
+ 
++	early_kfence_pool = arm64_kfence_alloc_pool();
++	arm64_kfence_map_pool(early_kfence_pool, swapper_pg_dir);
 +
-+			if (index == -EINVAL)
-+				goto exit;
-+
-+			writel(drvdata->value_table->counter[index],
-+				drvdata->base + COUNTER_COMPARE_STEP(i, j));
-+		}
-+	}
- 	/* Enable TGU to program the triggers */
- 	writel(1, drvdata->base + TGU_CONTROL);
- exit:
-@@ -256,6 +310,27 @@ static void tgu_set_conditions(struct tgu_drvdata *drvdata)
- 	drvdata->num_condition_select = TGU_DEVID_CONDITIONS(devid) + 1;
+ 	bootmem_init();
+ 
+ 	kasan_init();
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index a6a00accf4f93..5a7215daa9ce5 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1048,7 +1048,7 @@ static int __init parse_kfence_early_init(char *arg)
+ }
+ early_param("kfence.sample_interval", parse_kfence_early_init);
+ 
+-static phys_addr_t __init arm64_kfence_alloc_pool(void)
++phys_addr_t __init arm64_kfence_alloc_pool(void)
+ {
+ 	phys_addr_t kfence_pool;
+ 
+@@ -1068,7 +1068,7 @@ static phys_addr_t __init arm64_kfence_alloc_pool(void)
+ 	return kfence_pool;
  }
  
-+static void tgu_set_timer_counter(struct tgu_drvdata *drvdata)
-+{
-+	int num_timers = 0, num_counters = 0;
-+	u32 devid2;
-+
-+	devid2 = readl(drvdata->base + CORESIGHT_DEVID2);
-+
-+	if (TGU_DEVID2_TIMER0(devid2))
-+		num_timers++;
-+	if (TGU_DEVID2_TIMER1(devid2))
-+		num_timers++;
-+
-+	if (TGU_DEVID2_COUNTER0(devid2))
-+		num_counters++;
-+	if (TGU_DEVID2_COUNTER1(devid2))
-+		num_counters++;
-+
-+	drvdata->num_timer = num_timers;
-+	drvdata->num_counter = num_counters;
-+}
-+
- static int tgu_enable(struct device *dev)
+-static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp)
++void __init arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp)
  {
- 	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-@@ -395,6 +470,22 @@ static const struct attribute_group *tgu_attr_groups[] = {
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(5),
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(6),
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(7),
-+	TIMER_ATTRIBUTE_GROUP_INIT(0),
-+	TIMER_ATTRIBUTE_GROUP_INIT(1),
-+	TIMER_ATTRIBUTE_GROUP_INIT(2),
-+	TIMER_ATTRIBUTE_GROUP_INIT(3),
-+	TIMER_ATTRIBUTE_GROUP_INIT(4),
-+	TIMER_ATTRIBUTE_GROUP_INIT(5),
-+	TIMER_ATTRIBUTE_GROUP_INIT(6),
-+	TIMER_ATTRIBUTE_GROUP_INIT(7),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(0),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(1),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(2),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(3),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(4),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(5),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(6),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(7),
- 	NULL,
- };
+ 	if (!kfence_pool)
+ 		return;
+@@ -1107,11 +1107,6 @@ bool arch_kfence_init_pool(void)
  
-@@ -402,8 +493,8 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
- {
- 	struct device *dev = &adev->dev;
- 	struct tgu_drvdata *drvdata;
--	unsigned int *priority, *condition, *select;
--	size_t priority_size, condition_size, select_size;
-+	unsigned int *priority, *condition, *select, *timer, *counter;
-+	size_t priority_size, condition_size, select_size, timer_size, counter_size;
- 	int ret;
+ 	return !ret;
+ }
+-#else /* CONFIG_KFENCE */
+-
+-static inline phys_addr_t arm64_kfence_alloc_pool(void) { return 0; }
+-static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) { }
+-
+ #endif /* CONFIG_KFENCE */
  
- 	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-@@ -422,6 +513,7 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
- 	tgu_set_reg_number(drvdata);
- 	tgu_set_steps(drvdata);
- 	tgu_set_conditions(drvdata);
-+	tgu_set_timer_counter(drvdata);
+ static void __init map_mem(pgd_t *pgdp)
+@@ -1120,7 +1115,6 @@ static void __init map_mem(pgd_t *pgdp)
+ 	phys_addr_t kernel_start = __pa_symbol(_text);
+ 	phys_addr_t kernel_end = __pa_symbol(__init_begin);
+ 	phys_addr_t start, end;
+-	phys_addr_t early_kfence_pool;
+ 	int flags = NO_EXEC_MAPPINGS;
+ 	u64 i;
  
- 	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
- 	if (ret) {
-@@ -464,6 +556,26 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+@@ -1137,8 +1131,6 @@ static void __init map_mem(pgd_t *pgdp)
+ 	BUILD_BUG_ON(pgd_index(direct_map_end - 1) == pgd_index(direct_map_end) &&
+ 		     pgd_index(_PAGE_OFFSET(VA_BITS_MIN)) != PTRS_PER_PGD - 1);
  
- 	drvdata->value_table->condition_select = select;
+-	early_kfence_pool = arm64_kfence_alloc_pool();
+-
+ 	linear_map_requires_bbml2 = !force_pte_mapping() && can_set_direct_map();
  
-+	timer_size = drvdata->num_step * drvdata->num_timer;
-+
-+	timer = devm_kcalloc(dev, timer_size,
-+			    sizeof(*(drvdata->value_table->timer)),
-+			    GFP_KERNEL);
-+	if (!timer)
-+		return -ENOMEM;
-+
-+	drvdata->value_table->timer = timer;
-+
-+	counter_size = drvdata->num_step * drvdata->num_counter;
-+
-+	counter = devm_kcalloc(dev, counter_size,
-+			      sizeof(*(drvdata->value_table->counter)),
-+			      GFP_KERNEL);
-+	if (!counter)
-+		return -ENOMEM;
-+
-+	drvdata->value_table->counter = counter;
-+
- 	drvdata->enabled = false;
+ 	if (force_pte_mapping())
+@@ -1178,7 +1170,6 @@ static void __init map_mem(pgd_t *pgdp)
+ 	__map_memblock(pgdp, kernel_start, kernel_end,
+ 		       PAGE_KERNEL, NO_CONT_MAPPINGS);
+ 	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
+-	arm64_kfence_map_pool(early_kfence_pool, pgdp);
+ }
  
- 	pm_runtime_put(&adev->dev);
-diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
-index 5beaf82b4b8c..6ea71963e672 100644
---- a/drivers/hwtracing/qcom/tgu.h
-+++ b/drivers/hwtracing/qcom/tgu.h
-@@ -11,6 +11,7 @@
- #define TGU_LAR		0xfb0
- #define TGU_UNLOCK_OFFSET	0xc5acce55
- #define TGU_DEVID		0xfc8
-+#define CORESIGHT_DEVID2	0xfc0
- 
- #define TGU_DEVID_SENSE_INPUT(devid_val) \
- 	((int)FIELD_GET(GENMASK(17, 10), devid_val))
-@@ -18,6 +19,14 @@
- 	((int)FIELD_GET(GENMASK(6, 3), devid_val))
- #define TGU_DEVID_CONDITIONS(devid_val) \
- 	((int)FIELD_GET(GENMASK(2, 0), devid_val))
-+#define TGU_DEVID2_TIMER0(devid_val)    \
-+	((int)FIELD_GET(GENMASK(23, 18), devid_val))
-+#define TGU_DEVID2_TIMER1(devid_val)    \
-+	((int)FIELD_GET(GENMASK(17, 13), devid_val))
-+#define TGU_DEVID2_COUNTER0(devid_val)  \
-+	((int)FIELD_GET(GENMASK(11, 6), devid_val))
-+#define TGU_DEVID2_COUNTER1(devid_val)  \
-+	((int)FIELD_GET(GENMASK(5, 0), devid_val))
- 
- #define TGU_BITS_PER_SIGNAL	4
- #define LENGTH_REGISTER	32
-@@ -54,6 +63,8 @@
- #define PRIORITY_START_OFFSET		0x0074
- #define CONDITION_DECODE_OFFSET	0x0050
- #define CONDITION_SELECT_OFFSET	0x0060
-+#define TIMER_START_OFFSET		0x0040
-+#define COUNTER_START_OFFSET		0x0048
- #define PRIORITY_OFFSET		0x60
- #define REG_OFFSET			0x4
- 
-@@ -68,6 +79,12 @@
- #define CONDITION_SELECT_STEP(step, select) \
- 	(CONDITION_SELECT_OFFSET + REG_OFFSET * select + STEP_OFFSET * step)
- 
-+#define TIMER_COMPARE_STEP(step, timer) \
-+	(TIMER_START_OFFSET + REG_OFFSET * timer + STEP_OFFSET * step)
-+
-+#define COUNTER_COMPARE_STEP(step, counter) \
-+	(COUNTER_START_OFFSET + REG_OFFSET * counter + STEP_OFFSET * step)
-+
- #define tgu_dataset_rw(name, step_index, type, reg_num)                  \
- 	(&((struct tgu_attribute[]){ {                                   \
- 		__ATTR(name, 0644, tgu_dataset_show, tgu_dataset_store), \
-@@ -83,6 +100,10 @@
- 	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_DECODE, reg_num)
- #define STEP_SELECT(step_index, reg_num) \
- 	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_SELECT, reg_num)
-+#define STEP_TIMER(step_index, reg_num) \
-+	tgu_dataset_rw(reg##reg_num, step_index, TGU_TIMER, reg_num)
-+#define STEP_COUNTER(step_index, reg_num) \
-+	tgu_dataset_rw(reg##reg_num, step_index, TGU_COUNTER, reg_num)
- 
- #define STEP_PRIORITY_LIST(step_index, priority) \
- 	{STEP_PRIORITY(step_index, 0, priority), \
-@@ -123,6 +144,18 @@
- 	 NULL               \
- 	}
- 
-+#define STEP_TIMER_LIST(n) \
-+	{STEP_TIMER(n, 0), \
-+	 STEP_TIMER(n, 1), \
-+	 NULL              \
-+	}
-+
-+#define STEP_COUNTER_LIST(n) \
-+	{STEP_COUNTER(n, 0), \
-+	 STEP_COUNTER(n, 1), \
-+	 NULL                \
-+	}
-+
- #define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
- 	(&(const struct attribute_group){\
- 		.attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
-@@ -144,6 +177,19 @@
- 		.name = "step" #step "_condition_select" \
- 	})
- 
-+#define TIMER_ATTRIBUTE_GROUP_INIT(step)\
-+	(&(const struct attribute_group){\
-+		.attrs = (struct attribute*[])STEP_TIMER_LIST(step),\
-+		.is_visible = tgu_node_visible,\
-+		.name = "step" #step "_timer" \
-+	})
-+
-+#define COUNTER_ATTRIBUTE_GROUP_INIT(step)\
-+	(&(const struct attribute_group){\
-+		.attrs = (struct attribute*[])STEP_COUNTER_LIST(step),\
-+		.is_visible = tgu_node_visible,\
-+		.name = "step" #step "_counter" \
-+	})
- 
- enum operation_index {
- 	TGU_PRIORITY0,
-@@ -152,6 +198,8 @@ enum operation_index {
- 	TGU_PRIORITY3,
- 	TGU_CONDITION_DECODE,
- 	TGU_CONDITION_SELECT,
-+	TGU_TIMER,
-+	TGU_COUNTER
- };
- 
- /* Maximum priority that TGU supports */
-@@ -168,6 +216,8 @@ struct value_table {
- 	unsigned int *priority;
- 	unsigned int *condition_decode;
- 	unsigned int *condition_select;
-+	unsigned int *timer;
-+	unsigned int *counter;
- };
- 
- static inline void TGU_LOCK(void __iomem *addr)
-@@ -199,6 +249,8 @@ static inline void TGU_UNLOCK(void __iomem *addr)
-  * @num_step: Maximum step size
-  * @num_condition_decode: Maximum number of condition_decode
-  * @num_condition_select: Maximum number of condition_select
-+ * @num_timer: Maximum number of timers
-+ * @num_counter: Maximum number of counters
-  *
-  * This structure defines the data associated with a TGU device,
-  * including its base address, device pointers, clock, spinlock for
-@@ -215,6 +267,8 @@ struct tgu_drvdata {
- 	int num_step;
- 	int num_condition_decode;
- 	int num_condition_select;
-+	int num_timer;
-+	int num_counter;
- };
- 
- #endif
+ void mark_rodata_ro(void)
+
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
 -- 
 2.34.1
 
