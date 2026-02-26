@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E0CFFC592B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:04:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA594FC5927
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BWCo0kG96iv+7s5TDWEYgj7Bqm4OdYUx2iwx1W1m2LI=; b=U7MKnduYOHWncZlYqwiJeC8O7S
-	dBANiZyJuVqZLso+gJj/C6chKbUGBHtyZfx/UaggOR/NsmvL00Qj5swEY7kYGzv0h2VqWSD8ws2am
-	ycX4NSzOfxfNQNNsU5jaVvbW5Lw7416F0Nj5uZgdk8RUY9SWDXrUnKTEeXOYTdlemzNjPZFWxMyje
-	XG8sqvoUtgaosS+RK/DCzOpzLtOm7DZTsgl4AItly7oS3gaxyktqaBypteQNR+hzZKpxXQ7ByUOpM
-	+xThMCuWhlhmyPi0nXP5I/aSjUd4qdojULV3SGqpnEvovJ6awlgmgVP4nneTtLdjDWMx7PYLDVuq3
-	+GE5D07Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bnw64VDmOIsDBjD+cxaJBPxWhHWJgKFnBBtMRI3MdyY=; b=OJe8oTm7lE5A0cg0BGydKyMc+W
+	T7bjEs2rMhRlFYW9IfFaP3fILRCqixg2dsi/hCEQUIkzt8hymhVIP++SfFBrRdP+gKqf3qe8G2ZF3
+	rBKTTVlU9TH0FmpdbYRiI1ai3YsB4eKFlz9A2aoVFS+k9RF/eTuXSFX34eomRsRqJ0uGHXh33BNLy
+	kVbba9IoIebBP//mUrHiEKPy7XPaQXLy/HI1+SjrEa/xELrGxYX6e7ctN4MwswObC2QJEYCDigphX
+	VRQFJggR/BbOpBBFM20LOJA0WOTmrOd8HYrsd1Y4KIlLGYzjdiJ88eR2h6wqjgY7iSp4ja0uxOuOk
+	XhlUhW8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYa0-00000005uMd-1Lk2;
-	Thu, 26 Feb 2026 10:26:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vvZAx-00000005zHH-2RNu;
+	Thu, 26 Feb 2026 11:04:59 +0000
+Received: from mail-oi1-f177.google.com ([209.85.167.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYZs-00000005uKT-1xx5;
-	Thu, 26 Feb 2026 10:26:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772101597;
-	bh=3eCyIbVoYn9bRaJqczY4pr5CznMSS3V4x87uwrFbJ8c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MjUnMuyP3A9OINHEM1o5EkAlqs43uO4wcutkdSRek77KS0YwY3w3YUluDbMw5H2qe
-	 0Mg5JjkP471JwsyMgSNKGGMGHDGYxopjSBAwog7VoL7ySRUlyS5D6fyDMR2ieD9/c6
-	 5aMFlxvr8ahCmIRQh0bFwDKwTe8mZD0MtR/0n7O1g27CJmNkQjpysBwem3bfcYW20g
-	 4q2FQQ/Dp/efBlcZPJpNsdsQCvK+Op4uFUhq03ZqjBuNElbeYCFunPUhuRXlmuskqP
-	 puec1xwDeGqNwkefR0voO3Ys3h4r6f+wTL6b2fQy790CVJCg0RKVfUQI1by3qx5J9P
-	 quH1qqZTClrQQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3494A17E0097;
-	Thu, 26 Feb 2026 11:26:37 +0100 (CET)
-Message-ID: <2e241629-2526-41c5-92fd-a0a0ec3ffc4e@collabora.com>
-Date: Thu, 26 Feb 2026 11:26:36 +0100
+	id 1vvZAu-00000005zFq-0bDh
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Feb 2026 11:04:57 +0000
+Received: by mail-oi1-f177.google.com with SMTP id 5614622812f47-463960df4f9so611990b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 03:04:55 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772103895; x=1772708695;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Bnw64VDmOIsDBjD+cxaJBPxWhHWJgKFnBBtMRI3MdyY=;
+        b=ccLJEhBCol7ZYqjfZxEtX6BHiskpP3oyYMaopPkaXM/pim33dgA5fJlrSo61DTUkLl
+         vb+Y8kxdrbpE/i3icRF+BgMt6Pp4ILtK8HHMSAjOqmAEgTzDDM2BALS+CLafKKOcGpIi
+         ORDV7MZouTSAqHrOf79hAvARLp88kdPzGIj6zhB1H2W9k4ZSRF/72X4IBMeZ2AXqUTrb
+         ByWwt3YCBdktB0x8dTqMExGrX3COt9Iiky3ECoNe87blZgQEZkp8VCVvLlAj3LG+b+T2
+         VOORsG3ziEr+2QOgpm9j3vYu/jEyJe0/WJ1CQ9WuzYBwnmcS9S1A05sWA0t6QOAJZARz
+         8qWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUf6FBceRANuzlGOpoZfcsQgoYhfdAETezQT84cpUenq//t/O1/v1NCuDNE21z6cGiW7iQ47eWZ2j89UbrD2NkJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfS1kdMVXDgY/8REW2FR0zjYMvJUCkAS85RjsLV/IY74WJnH56
+	QBP+gSi/b10PBf7YE1i1UGr9pr/PR8yeBqdVTxyV/a69dD5+bqzJewm6JducyL5P
+X-Gm-Gg: ATEYQzx+QEK1VpB4LsQjy9zgYxviu0nb3H54a0VxJuuamyB86Ssa7F++3Ej2V64rZoU
+	eFe+4XdmDbJCbw3P2X0IyDJjeR15rMX4X0NKeIypFG5WI/0NJFH2KP1f6NoNX0HtMfP9YAP9Xk7
+	Re5Ew6C0NPbq4gUG9P+Go/eoeKr3Ned7EJMx2GlG4YR21ZBV15sv0nkUbgkHbrPrkD3ZuEtnhF2
+	j9Zl+S5aG8dFLlopmBibhW+xeXL6//2tUIr8mL43T1eLJgVb8Np//aMWMr+9NBdCBPNSxMuecYK
+	PgFF7mqCvvZe804RCAXEJPojnB0dq2p9bA+HFkgcGyFX29s2t101L/kstG+si9SQGFlw8c20Yel
+	bNnNirtVxVR2tMQYVTtK9cGfV9mM0RkFbaxHEVs64CS4l/508WgRPAp84pkUx6zvB+//5FjsGlY
+	wmk0a98H1H6x1OT1tRQEYm7RxKMV8MG2rHTtNytoyjbC4+k7UIaDUID8N0ZzjCA1dCJqyYfdk27
+	S8=
+X-Received: by 2002:a05:6122:4f86:b0:559:65d6:1674 with SMTP id 71dfb90a1353d-56a8bc7bfe4mr1873930e0c.14.1772097645763;
+        Thu, 26 Feb 2026 01:20:45 -0800 (PST)
+Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com. [209.85.221.180])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56a9215ac92sm1941941e0c.14.2026.02.26.01.20.44
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Feb 2026 01:20:45 -0800 (PST)
+Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-5637886c92aso367769e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 01:20:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXn/ZmnSJg23WbrcHYvlsjZSAG7aL4tk3fba7C5uSKMbV6EInBEqd4d5NllaDWmD5eNjI55Ab9evT1zNvrW2MRO@lists.infradead.org
+X-Received: by 2002:a05:6102:1606:b0:5fe:12c9:6e55 with SMTP id
+ ada2fe7eead31-5ff141ca4fdmr1209533137.39.1772097644539; Thu, 26 Feb 2026
+ 01:20:44 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/11] Plane Color Pipeline support for MediaTek
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "pekka.paalanen@collabora.com" <pekka.paalanen@collabora.com>,
- Nicolas Prado <nfraprado@collabora.com>,
- "harry.wentland@amd.com" <harry.wentland@amd.com>
-Cc: "wiagn233@outlook.com" <wiagn233@outlook.com>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, Daniel Stone <daniels@collabora.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- Ariel D'Alessandro <ariel.dalessandro@collabora.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "xaver.hugl@gmail.com" <xaver.hugl@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "airlied@gmail.com"
- <airlied@gmail.com>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
-References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
- <TY4PR01MB144323B0DDC18B05EE1472B5298BFA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
- <TY4PR01MB14432E7601C0BE848D25E80C398BAA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
- <cdf6a704-88f8-414a-adf1-65ea7237337f@amd.com>
- <20260206110901.660cf712@eldfell>
- <5963bca37996fa054ad75d4e5017d9c7e5158e9f.camel@collabora.com>
- <3efaa7ec40c68f0d463da00c3a57474a40d4fdae.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <3efaa7ec40c68f0d463da00c3a57474a40d4fdae.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20260225155409.612478-1-hugo@hugovil.com>
+In-Reply-To: <20260225155409.612478-1-hugo@hugovil.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 26 Feb 2026 10:20:33 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVd0Ds5vHQa+MG2E+E36qAu5HQE3b+Vzpbv84MM=2DFWw@mail.gmail.com>
+X-Gm-Features: AaiRm50xBGkpSKzhEw3ibXVEzal-pPxdV_uLqXQh8Zi8JcZzUL3k8C9xrOoM_9A
+Message-ID: <CAMuHMdVd0Ds5vHQa+MG2E+E36qAu5HQE3b+Vzpbv84MM=2DFWw@mail.gmail.com>
+Subject: Re: [PATCH v3 0/4] input: add GPIO-based charlieplex keypad
+To: Hugo Villeneuve <hugo@hugovil.com>
+Cc: robin@protonic.nl, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com, 
+	mkorpershoek@kernel.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, lee@kernel.org, 
+	alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_022640_656025_F1AD2DF2 
-X-CRM114-Status: GOOD (  24.59  )
+X-CRM114-CacheID: sfid-20260226_030456_179410_D493BCA9 
+X-CRM114-Status: GOOD (  22.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,96 +101,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 26/02/26 07:24, CK Hu (胡俊光) ha scritto:
-> On Fri, 2026-02-06 at 08:28 -0500, Nícolas F. R. A. Prado wrote:
->> On Fri, 2026-02-06 at 11:09 +0200, Pekka Paalanen wrote:
->>> On Fri, 2 Jan 2026 13:40:21 -0500
->>> Harry Wentland <harry.wentland@amd.com> wrote:
->>>
->>>> On 2026-01-01 07:37, Shengyu Qu wrote:
->>>>>
->>>>>
->>>>> 在 2025/12/30 02:53, Shengyu Qu 写道:
->>>>>>
->>>>>>
->>>>>> 在 2025/12/24 3:44, NÃ colas F. R. A. Prado 写道:
->>>
->>>>>>> Given the lack of support for writeback connectors on the
->>>>>>> MediaTek KMS driver, combined with limited hardware
->>>>>>> documentation, I haven't been able to verify the correctness
->>>>>>> of
->>>>>>> each curve, only that they were visually sane (gamma curves
->>>>>>> made
->>>>>>> the image on the display brighter, while inverse gamma made
->>>>>>> it
->>>>>>> darker).
->>>>>>
->>>>>> Hmmm I don't think this is acceptable. sRGB/scRGB has two
->>>>>> transfer
->>>>>> functions mentioned in original specification[1]. To keep color
->>>>>> accuracy, we need someone from mediatek confirm whether this is
->>>>>> piece- wise or pure power 2.2 transfer function, this is
->>>>>> already
->>>>>> done in original amdgpu color pipeline series, sRGB means
->>>>>> piece-wise while also dedicated power 2.2 function exists.
->>>>
->>>> Not sure what you mean with this not being acceptable. This is
->>>> about
->>>> enabling HW support for this functionality. Not every HW has
->>>> writeback for testing. At some point you'll have to trust the
->>>> driver
->>>> devs if you're going to use functionality of the driver. We're not
->>>> always going to get everything perfect, but if that's really such a
->>>> worry you can always use shaders to do precisely what you want.
->>>>
->>>
->>> Hi Harry,
->>>
->>> yes, but I understood that in this case, the hardware documentation
->>> available is so vague that it's impossible to say what it will
->>> actually
->>> do. There are no formulas given or referenced in the documentation,
->>> are
->>> there, Nícolas?
->>
->> No formulas at all, the only documentation I had available for the
->> curves was the register definition, which simply lists the possible
->> values: SCRGB, BT709, BT2020, HLG.
-> 
-> Hi, Nicolas:
-> 
-> In [1], it shows OVL could output data to WDMA which could write data into DRAM.
-> Its control is similar to RDMA. RDMA read data from DRAM and WDMA write data into DRAM.
-> Do you have interest to implement WDMA?
+Hi Hugo,
 
-I wrote a WDMA driver a long ago, but I couldn't get it to work (though, I admit I
-didn't try hard to actually get it working).... if you want to take a look to check
-if anything obvious is missing, the driver is here:
+Thanks for your series!
 
-https://gitlab.collabora.com/mediatek/aiot/linux/-/blob/mediatek-dev/drivers/gpu/drm/mediatek/mtk_disp_wdma.c?ref_type=heads
+On Wed, 25 Feb 2026 at 16:54, Hugo Villeneuve <hugo@hugovil.com> wrote:
+> From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+>
+> Hello,
+> this patch series add a new GPIO charlieplex keypad driver.
+>
+> The first two patches simply commonize two properties that are present in
+> a few bindings, so that the actual patches for the charlieplex keypad driver
+> can reuse them instead of also redefining them.
+>
+> I have tested the driver on a custom board with a Solidrun RZ/G2LC SOM
+> with three charlieplex keyboards, all connected thru a single PCA9416 I2C GPIO
 
-The driver I wrote was supposed to work on MT8781 Helio G99 (for a personal project
-as in upstreaming of the Xiaomi Poco M5 smartphone) and on MT8195 as a PoC.
-I did test both platforms and this driver didn't work on both... not sure if that
-was because I misconfigured the MMSYS routing (on both) or if there's any actual
-issue with the driver I wrote.
+PCA9416? The closest I could find is TCA9416, which is something
+different.
 
-Again, didn't invest much time on this, anyway, so some obvious issue might be
-present.
+> expander.
+>
+> Link: [v1] https://lore.kernel.org/all/20260203155023.536103-1-hugo@hugovil.com/
+> Link: [v2] https://lore.kernel.org/all/20260213171431.2228814-1-hugo@hugovil.com/
 
-Cheers,
-Angelo
+Gr{oetje,eeting}s,
 
-> This is just a suggestion.
-> I could accept we believe what document say first and wait for someone to verify it.
-> 
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/soc/mediatek/mt8195-mmsys.h?h=v7.0-rc1#n8
-> 
-> Regards,
-> CK
-> 
->>
-> 
+                        Geert
 
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
