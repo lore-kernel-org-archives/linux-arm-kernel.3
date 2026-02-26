@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FF2FC5908
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 08:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC6BFC5910
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 08:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z7NQVeDljRoPgpojRwN+bpaAJ+lzNR5Llcq92e8JUDs=; b=YEk+7HHJG5/0vLzipr2XXk0Lpz
-	qPcJ3XXOKMKS+oHvYp2zZ5OmbqifFKOsJxylHo5ntVaFYjgzWI6GO8yxINSSG0tHLw6wPnsP8w5hg
-	vQIPEYbrCySluhwSqAmgLD4Jw2L1nio7aF8rwDjpY1kTU2ejts0796tInMKY8zDEc8ta71f40hAqm
-	zjdHTNzq9xuBG5udoS9HEbx+AbXZ24WcbTnYw+fgig3k24ZBNeaQzbGcZk46ujmrwt/JW31pEtgrz
-	P1iKUj6LD2JfMS09UCspusrdC3ECvCBphL7QG1A0ytLqVHN6QT78utpAmXCGRWoCKb9UTp7MWMAf9
-	RCIVLwQg==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gtC52ELc0UW+0V1vkk/lWXLOrSGx7hwRDR6yrPq+uSU=; b=mO9xf7+lw9LoYXUGEexHwYMO2p
+	Rrsuy5ef0bB16y8ZUmfPXXNmRFeL9tW1jfq6VG1UTSdbzI2CARcS+dzBwSGgjdiIltfayzoEHMsUD
+	uKqPn/QwKVPQJb/0kHem4b1FN1y9wi45q6ZNNWXjz1YMxaThoSJze28D++y/wRJs4ci1PwBb3Q0BO
+	X8q0avQMEMj3KWANIi70UrZ6FQdBBldw68kTkvBOVTTA/kJr1kZ8zdb37SpJ+B/l57nD+uHJwGPs3
+	z/ce0/SI87lkt2MDVkWbxmn8asjrLhFSOBq4F2F09zlMyqKMxuTGZ8SC0eVM3lJnw7Lhll4E74ucm
+	dYtMtT6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWdx-00000005dy9-3pfC;
-	Thu, 26 Feb 2026 08:22:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvWv6-00000005fXf-1CGX;
+	Thu, 26 Feb 2026 08:40:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWds-00000005dw3-43UE
+	id 1vvWv4-00000005fWq-0X1k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 08:22:42 +0000
+	Thu, 26 Feb 2026 08:40:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF76E40A91;
-	Thu, 26 Feb 2026 08:22:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C736CC19422;
-	Thu, 26 Feb 2026 08:22:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 671F0443F8;
+	Thu, 26 Feb 2026 08:40:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86137C19422;
+	Thu, 26 Feb 2026 08:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772094159;
-	bh=y10uzK8X5izzFDoyVUpNZndKCD/o1x7AcgSEzhBkctU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=q7821CvzQH3+P3IMDV79YpS2y5m+zSAq31/V7HiVYTKjE0o7gf2Cz54DMSgNig9Pc
-	 e/M4TDwDbeweGslPzRA+1PBm79/TqHtcwamWJQwLu34Lpacq0fCiIBP303mA2E1991
-	 wdzsG2eUx2i8EznbXcNqh2WWrgeg45IyfxaV3qTSY3yKBBElY8OuCurgU6M33jT+q/
-	 PlpS42hIDyfsHJtyCIcxwXog8VUDcDZP3MfOe+fiwAgwnIiEvPy3C/KoLAwUJ4izku
-	 b5hfXhnSBFoULuc9FIH1QHn/T1CkI6FovXGruzl0Hhkb3Hp4a2AqpqHZ5gr/Ntp4d6
-	 GI4kSHGxkSbBQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vvWdp-0000000DyFd-2rrb;
-	Thu, 26 Feb 2026 08:22:37 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: [PATCH 0/3] arm64: WFxT fixes, take #2
-Date: Thu, 26 Feb 2026 08:22:31 +0000
-Message-ID: <20260226082234.26707-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	s=k20201202; t=1772095225;
+	bh=03ww9eTAIOimZhGpfh2LPpkkMRKr/FXHrMGkGgHg/uw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=ThIjjoHxqM636G0Cb4gnvicEzqDaWweb11h4BxNO2jwU+10Vl/Wm9iKZjaw+5VWjm
+	 ufG1bjxq4wdlIb2/8c+ESNhu4fquHv61kkdnMXhsscm6nNgZoBSDd/XFlMMIII4bta
+	 VELfeTX6NG22vMvnuPbsOfGMHKYXCUP7nOR02q5dIBc8cDrHMu8Lkq6ibO7Xp+gN6w
+	 jmkhuT6D3/c/X1KILWfAeZ72tsTAcXx9sGyAJYBB+Sm0lYnuO2MNBLkGY1kWSlkjyU
+	 fPY5MQ5RwoiBS3jeqMHMtlbIvvOrJAN5lBLFN5YvDtHrCrlCWPTE6wzCfu5zBJpgDb
+	 SsBLNBXbUPIWg==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Rayan Marzouk <rayanmarzouk743@gmail.com>, 
+ bluebunny <kalorin.bok084@passinbox.com>
+In-Reply-To: <20260125-exynos7870-j7xelte-v1-0-5cacc3042c42@disroot.org>
+References: <20260125-exynos7870-j7xelte-v1-0-5cacc3042c42@disroot.org>
+Subject: Re: [PATCH 0/2] Add device tree for Samsung Galaxy J7 (2016)
+Message-Id: <177209522223.26390.6219893536178441080.b4-ty@kernel.org>
+Date: Thu, 26 Feb 2026 09:40:22 +0100
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, ben.horgan@arm.com, daniel.lezcano@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_002241_025434_7A3F479D 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20260226_004026_182796_4F535E78 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +80,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After my previous WFxT fix went in 7.0-rc1 as 29cc0f3aa7c64 ("arm64:
-Force the use of CNTVCT_EL0 in __delay()"), Ben reported that it isn't
-playing nice with preemption, due to the use of the timer workaround
-percpu variable. This series tries to address this, and propose a
-hopefully better alternative.
 
-That alternative is in the form of a new "virtual counter" accessor,
-available in the same way arch_timer_read_counter() is, except that it
-is guaranteed to be the virtual counter. This helper (a function
-pointer, really) is updated on each CPU boot in the same manner the
-counter accessor is.
+On Sun, 25 Jan 2026 01:35:25 +0530, Kaustabh Chakraborty wrote:
+> This series introduces the device tree for a new Samsung Exynos 7870
+> device – Samsung Galaxy J7 (2016).
+> 
+> I have acquired permission from the authors of this patch to upstream
+> this on their behalf.
+> 
+> 
+> [...]
 
-This is then plugged into the __delay() helper, providing the expected
-guarantees (and resulting in a much nicer code gen).
+Applied, thanks!
 
-Patches on top of -rc1.
+[1/2] dt-bindings: arm: samsung: add compatible for samsung-j7xelte
+      https://git.kernel.org/krzk/linux/c/be961cdb8ed3befa81dce118a6a41f0138732d10
+[2/2] arm64: dts: exynos: add initial support for Samsung Galaxy J7 (2016)
+      https://git.kernel.org/krzk/linux/c/5d692f20de6311fa507c952adc3487c641edee00
 
-Marc Zyngier (3):
-  arm64: Fix sampling the "stable" virtual counter in preemptible
-    section
-  clocksource/drivers/arm_arch_timer: Expose a direct accessor for the
-    virtual counter
-  arm64: Convert __delay_cycles() to arch_timer_read_vcounter()
-
- arch/arm64/lib/delay.c               | 5 ++++-
- drivers/clocksource/arm_arch_timer.c | 5 +++++
- include/clocksource/arm_arch_timer.h | 1 +
- 3 files changed, 10 insertions(+), 1 deletion(-)
-
+Best regards,
 -- 
-2.47.3
+Krzysztof Kozlowski <krzk@kernel.org>
 
 
