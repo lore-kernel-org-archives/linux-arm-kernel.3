@@ -4,151 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 097FEFD8FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA03FD8FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hebf0HeusOemTZFvqEe/EsBXhIPh/r7+s7cOJw118iU=; b=niOjOUEBWxjG/XH+uY4WvXdFYF
-	0Hk+MBoro7yXpQphXC3Wjb38Ruo+ArXPhprQ5wBYqdfYv7SPDuy9heg0bBclxQIxl5zqXRqxwtKL3
-	iRJPEz0Zvv+FgB+R7/YEo7KfIURRxIL4T0JnhzdWkatXHXaAcXy/gH6dL6zyaZ/4ovrJJwgmHgyR9
-	abSg3/xBSFtH7WDqBKIAm7FioMTCeYINDa0ElvsVzLGxykMfCpZsxRWHBbccUcCb0RF9hVZxqhP8a
-	A/4A2IQVkopaMqnjVZ3TX5NImqi5x0kGQkQgheomV2opCBgnQ90udYk1rfIJwPaT+rU7pJtHw71Ke
-	b0VA8EBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gHrNVpcs/hEO06/Gn4MOS4dYkB1LY3OsaJK5+hgF/9c=; b=Cf7YVwXtxl2F5b
+	BnvtswKQmiMXItMdgkRsMDckRYHoYgecmiD/qzP3VNYFjWtkVB+CeYbhvJjNZ4EXkZhYOHnZQRb5l
+	6C2bSBTDnvA5gOZUTT4dvyvkK2X/SgmGD4o9kzbDyzoJR8S3KB3WIiSxY3p9uwG7qItKgQgWdttXT
+	PUwt78vvlgUVdGZjCT9EyblFIjQa/J54vI3D4SWZmsJ+AzO/dleJBnoI1jxX0weknU2Yp+YXYM8lE
+	ciDt3GwIZ5m+bYlduv1RA/b1Mu7rIhfFGfby+19W9zfpClTAzkmpBadg7bX/d7YNoXEkK7XZ5+fba
+	Pe3rCpAOOQEF3K/Q5Mkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdtE-00000006gHL-0raL;
-	Thu, 26 Feb 2026 16:07:00 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vvdzm-00000006hbB-0pTP;
+	Thu, 26 Feb 2026 16:13:46 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdtB-00000006gFc-33Uj
+	id 1vvdzj-00000006ham-2aYU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 16:06:59 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=yfPbREUkOH3evPNtx6fD/S6HlGU9xQV9dETOxp3DOOrykRhpPraAQn0eBAu3qW9HtZXIi9dRbo7xa6UW1mTzuu7n2Qy9x1vL7Qf+iJxVnm/e1gsEQ7LdlEJGJtbXRV7l0/11hmfk2cyM/syFea/Cm8B9R2eOLFR2q6uCv9KRC35Ve7mp1NYwk4uE+b6vJtSPew8YllyOIkBs5Tw48UOIb+AnF4ZN8yeNkZ8GnjytGTIUDrIvDMLc9taFeSsmnX37zzrPf5nN/ycvdX6T+OGAIVtdfZy5+41W0EVnItP5KeqjdNl0djibEs0Ko2humqAmJByDRY2bXSj3zrkxM3RzMw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hebf0HeusOemTZFvqEe/EsBXhIPh/r7+s7cOJw118iU=;
- b=KHyPzt2Q5JHIdY7Gvd46/iKJdX/EgiixbBIshM555OdC/1vRDO60D5bjP+SUYblKLHSyYvFwtLrcuTAdExil/WFhvYDKfWTrRYGOcqTSWSUA9KxHH/8T03piCEIU1wp2uHTYCEUD2quImmQrSMY5odpzQ+He6WvURgMvhtybOY4A0YfTVkA3fOvJAJ14gTR+hFq1i/J7d3HC/sij0b0tkKF4FeKzbtZSAvS2EwG3Q0Woi7y8ScqNLqwdYXY0M0r2hGKESsN0wtLLlNzlhTD0TBAelQ1wpS8+YiEjfpWEGEo9pinVxiwE9eYVRNaLLJZmHDshViNUDOmgqviwwfSmOg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hebf0HeusOemTZFvqEe/EsBXhIPh/r7+s7cOJw118iU=;
- b=iqDGqZ+295XZT6y9UeKqdZ1Wne3AEiCRedrS2Yapw3XdvjWTgeNNY+u46a6b4fL5uOo5jigPGFgGxFqvtzWzUQ/c0OiEUWtlO1hcvpRBr6/Y6fE1ew7fYPlPDVB1ORuvx1pUSDzs0RhPPDcKEAYNGStzJQ9JArAhHNqSKLmtsGU=
-Received: from DUZPR01CA0169.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b3::13) by VI0PR08MB10969.eurprd08.prod.outlook.com
- (2603:10a6:800:250::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
- 2026 16:06:48 +0000
-Received: from DB1PEPF00039233.eurprd03.prod.outlook.com
- (2603:10a6:10:4b3:cafe::1b) by DUZPR01CA0169.outlook.office365.com
- (2603:10a6:10:4b3::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.23 via Frontend Transport; Thu,
- 26 Feb 2026 16:06:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF00039233.mail.protection.outlook.com (10.167.8.106) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
- via Frontend Transport; Thu, 26 Feb 2026 16:06:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xa68J/cgkxSpDdYZkAmM181lkR5Lgi/IuRbY6zJCObcwWaVHgZInK8ydiSwB3Yhpbovvg7G7n2yWos/RzhYpz4BBAM/bhyB7Dyrqv3ia7wpaUvBZBRUGGdSfxRc/rIzIjObhl8ivDLEZRh3A+gOmDbVRglJgR9I72pb9ND9wuLSlnAA10mXJvAbALiKT8CebPzfct3UAFCQbMjqU2dOmCPhcMy1iV6Sg2SRnsvuqI+W2hyz1cZqMCSUhiYR6VHudxwEofslbbZs5JgSIoZ0EXu75gC8oJsxb0p1z/81oPVyG0Upvx0LqjvRzPyT+HrvjIGlA0v2vdYo/yCJ8pLJK8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hebf0HeusOemTZFvqEe/EsBXhIPh/r7+s7cOJw118iU=;
- b=enrsFdliDWP4IWw3XvrctC+4pV4y9yfRQ9O0cgZlkgB3qO0y3/dprioSK8XTiQuCIjlY/sZrxeXbmkH+IpXjOg9TjSaTRgYHCmulbgk/B+iuVCRjjjyb7TU3ZBaQoJZyKrCMP7m3pOhyJc2JflBbcmXsFExeyXU5yi9xDIq+nQH3cXmWQTXbNMiwYr+1lqAlWbI9byCTJvODF33raTpqZb6OXd+zmJ6WktwrPH0TIiIzeXWmgRRVV40rHXVv0/xzYBU05fIVFd79mcBrlZvv6vCN9p30so0S91dPadPmhykhj7POh4mxwVGWae5Oysj6Gnik06GA2pUBHWvUYlWeDw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hebf0HeusOemTZFvqEe/EsBXhIPh/r7+s7cOJw118iU=;
- b=iqDGqZ+295XZT6y9UeKqdZ1Wne3AEiCRedrS2Yapw3XdvjWTgeNNY+u46a6b4fL5uOo5jigPGFgGxFqvtzWzUQ/c0OiEUWtlO1hcvpRBr6/Y6fE1ew7fYPlPDVB1ORuvx1pUSDzs0RhPPDcKEAYNGStzJQ9JArAhHNqSKLmtsGU=
-Received: from DBAPR08MB5687.eurprd08.prod.outlook.com (2603:10a6:10:1b1::17)
- by PA4PR08MB5950.eurprd08.prod.outlook.com (2603:10a6:102:e0::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
- 2026 16:04:31 +0000
-Received: from DBAPR08MB5687.eurprd08.prod.outlook.com
- ([fe80::7d4a:f17a:4cb0:9793]) by DBAPR08MB5687.eurprd08.prod.outlook.com
- ([fe80::7d4a:f17a:4cb0:9793%4]) with mapi id 15.20.9654.013; Thu, 26 Feb 2026
- 16:04:31 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>, "jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: [PATCH v5 35/36] KVM: arm64: gic-v5: Communicate userspace-driveable
- PPIs via a UAPI
-Thread-Topic: [PATCH v5 35/36] KVM: arm64: gic-v5: Communicate
- userspace-driveable PPIs via a UAPI
-Thread-Index: AQHcpzmXAqqGLzsX2kahds3TU55X/Q==
-Date: Thu, 26 Feb 2026 16:04:31 +0000
-Message-ID: <20260226155515.1164292-36-sascha.bischoff@arm.com>
-References: <20260226155515.1164292-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260226155515.1164292-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: DBAPR08MB5687:EE_|PA4PR08MB5950:EE_|DB1PEPF00039233:EE_|VI0PR08MB10969:EE_
-X-MS-Office365-Filtering-Correlation-Id: 165ae7d2-8521-476c-4ddc-08de75510bda
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|38070700021;
-X-Microsoft-Antispam-Message-Info-Original: Dc0TdhKtXHwmB+W/Rb3KwWAGZHxz8vQ4UKolwy7b6RkHKZF5tjGYe2VcDC0ias+TuY+ZW0dienDwXCmSY7i1TLoUEAPEL5USd8Jw1hidc7cbBTo+4dcTMmrKcpMW1EdMTwrRkbTeGmXo2Zl86FSoijJeJmC29p6mbZmLUDkMaSJTUMZcwOXOGznE0DglaEbJEIjzVoqWJzB1AflbazLXJ+TAot7mu+bfHcMQKoZhvpT7oNzTQy04pDOrBR75vh8bQQCNZUYKEWblMEFkqlBnwmEE0KXn2pGpQby+j943hDJ8t//M8cnKAwMyWbnyI56rqWDyWjg8DXsICL3iHmsOsfgCGmu2KmzqEpmUn94DdysUPaSIbAeU5m6Z3FcOp+h8Mf6jUBTAuy8v8jPCavEKdKpzt0bIz46foRXNeYOTusTrMU84FqGauLeGXhek74+8hFoEF9onGELB1UP7QfrqMdCpSXFLTCFmJckNVoGBXQ20UpHsT08j10IA/M0ZfjK1chTiY2kj2kgmO2hY7xUBpVYDCuCLpmvZukGBeF6vKk6V5dQdOn0qP9vulPqbP7xyzwwNs3512+xGUM3B5L2n5jGSlxopOjMqpIs+5gx9HQOoCA42XqKERLBtjiD/xon+RYDdAVS5hMgBkOJ0gAttXxCa/kAxdrn4pfmu7zGvkybkUVDxwNY+EUEv4ulq9GFFsjMVZpJzh1w3ujrNcrFpzyhlbi3Lcks0rRaSlCeHDdb6MK09h7877lljtTuZNmHQyTHW81Dt5dLYpW9Cor1/VoropH173XpErT5/d+pAZB8=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBAPR08MB5687.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700021);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 26 Feb 2026 16:13:44 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2aaf59c4f7cso5062045ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 08:13:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772122422; x=1772727222; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gHrNVpcs/hEO06/Gn4MOS4dYkB1LY3OsaJK5+hgF/9c=;
+        b=NrQuJSsStFtoVmx6rC/Yz0lWpOJ6ixqcjsgVqZNmCrFONDIfVHv23BqIox3Cl8BDtv
+         mm/GxbhE7qFO5CVglCqXjiHDq/qp3+T2A61xlEdHuuXMc3JGmK0TGluKAaOS9NUiyHpr
+         JzhQTFy0ix/64weEkp0Vb/H6JGQF+TN5NOesg+JTDM06ZykWiG2q2M7b5OHWEoC8NPQV
+         SrSVPm9DakNzoBWPUGGYhfORbjNnPQfTIowGEgA78XJ+lgrKyRrZh1rnHugX/4fg2JyM
+         +GtQq3g/xWR3ke+uq267TbD4QP6V9cNhgvw+LKwRWwS1by3yoTYySymHAUVv0v5eLVla
+         3zzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772122422; x=1772727222;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gHrNVpcs/hEO06/Gn4MOS4dYkB1LY3OsaJK5+hgF/9c=;
+        b=GdVOfVkzdWyrz6c52CwJQWgV1Yit/ruDaUDnQJQt/628r3DSHim/LytCU0rRpV6hhV
+         ACuukb+O8HX7CQ0iJupbOy1LW6SvZBOsL0Ij+oCuZYYF5uBwHqQrnMjizakpfT8HRklr
+         HbjoD5kwEuyLud3VxIhSOg49TZ9J1pIA637DHD5PNgUT7gLwcqX1SL6J6TmIQTDOpaVR
+         IsWzqzaBvi6yWyFMZDToNB0dbapblQW1th+x/7tMzoPprZUzw/z9XDaNyB8mLbgKuRU6
+         9tMf7QDd23M1AfQ1jM8Kj6IyUpj5E/lbbs8ZXl89MYNAUlmaEa9VTzqrSSoX6h4LR5P7
+         OIuA==
+X-Forwarded-Encrypted: i=1; AJvYcCW8QgGgSIIS/qaT6NZIPc4RmzQGF0NXSmYWOw5W8Hw9GPLN16rMZssCT1m0Knr6oXaUutIcW0Ai/gfsaQH6r6RJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOA2yvdI6JOUFHq9IKsY1MxW7sNY/6XRwwiHyhPVYBGkjaW3st
+	qHNBZczywFSGu7/dLo90dEaeqtVip/x3XRR/PsKVSkpVj1IrZb28/0KO
+X-Gm-Gg: ATEYQzw4is2Hs86Y3PS80LTgIX5kIFcIS9Q3o+gyQ0n0nS1adkklvsZqyo3JFl3y86p
+	VkZyN2pXLuJ5MKy4Mh5hhBJrtkLwnf5Y2k+Zs96KzgkFGoIw38W4atvjpUO9ZEvDzOUJizyZJ2N
+	UySJwqQb0lTQAhZb9iIeyrugHoO9r/rUh9ut54UWEy/USBcrrsZHEkZm/ommy6l2ihbq5g9PaaR
+	uT+WeCkP8zqQsT9j4A2dFCJflns8ou6mumfD6QNtVLdqcbmOajdiYIGCyl5H0AWTRHrncycinvf
+	UR42YhNoEO35PoZxW0WqL1Lfmk3dLcmOV7i/NbSPYkdjjhrB+a9RBRjUnwP7eaSITmVFGSjnbLo
+	hAMfX5AEXcB2jP2KJoN7npWZ0cS6RXE6RVB0XMGOg/1Z9X/vzeLNzc5n6M8UMbsIqXckMoNd6UD
+	rZaiKeVbaXL05tHy7MHRx1Z+ksmVSYh7QA4VqAXgQQCsQRsAB86RbuAqfg
+X-Received: by 2002:a17:902:e54d:b0:2ad:ad0f:bbc4 with SMTP id d9443c01a7336-2ae03487058mr35953045ad.31.1772122421968;
+        Thu, 26 Feb 2026 08:13:41 -0800 (PST)
+Received: from LAPTOP-872M7T80.localdomain ([122.183.54.8])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2adfb6a0432sm44384595ad.52.2026.02.26.08.13.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Feb 2026 08:13:41 -0800 (PST)
+From: Akhila YS <akhilayalmati@gmail.com>
+Subject: [PATCH v3 0/5] dt-bindings: Microchip/Atmel AT91/SAMA system
+ peripherals: convert to YAML
+Date: Thu, 26 Feb 2026 16:13:32 +0000
+Message-Id: <20260226-arm-microchip-v3-0-0bda15abd922@gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB5950
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF00039233.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: e5f97caf-1550-4825-3b74-08de7550ba69
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|35042699022|376014|82310400026|14060799003;
-X-Microsoft-Antispam-Message-Info: jqs6bb9+ZSNMY8HkmkNfr3MMswsS/JaUfoE7VgwhdaYZawAk5m9LRr2kNJoNLc7FGllyHITkwIczVkXBd3QQ0Q0P+AV5N2u75JAkwGtXaFIlxFhslNUxXye8vXhkGhs0ihZtUg8HpuYX740WLGvP3T4/RWEudlpzhJ8myEOXpBGx+jq5AZk7c2tr1uRXACgo6MNAVXE5fhv4uw24g9l2jruqH02uNmJ8b4O7o4TWdJummMeyFXJ1TyPKY1s3PiZLrTmS2IiIorOJNQFinQbwx92FOET1vWVATaolHLJgnrCpSBoYDz3gVr2EeUXD0JdKxrosujhd7Q3jFSKzaL2zcudsdkSY4CpRuwcTFSDiXklTMwlMRj+6Dw+Rm79quODZuO2/CthM97PJzdcUrLLEnqVd6lKvh07beN/czQ3XtwOhRcmvJ2ygSdjWb/R0Bhi6qvtuIun8ApYPvF11hHkTRPUyxgjV7qcfdNXBZX9jedbHk8sZ2FUGzNu3jRnPcTHPYbb5klUckH8669oKpkulQKF41JgpI8yPWre5C6TS6IeCtr5VmOZ/nai1RKbx1K/qugAwnL3emZ6vrVEnB9xcculS8K/lY2Dbw6MIHHP8QmWJLTWqtyzWyNLdFswEKiRF2YCSnV/JMw6b5Fc9clxGqUS8q8ugNzriziFuidXzQUwas205KJffpALvccCv9V0mEIPKhoZNLdBNBeMMG/c55RoyccKB81iwaf66UunZi7RGVxzUcrYyRu761dx9VTqPYsrZtzVkca77g2OHL1dbpUh6g/YBsH7953/dZxJZznvODdSfHHxYEm/1XlwyKrKawYnyHVL1R7w2vqjedRouZA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(35042699022)(376014)(82310400026)(14060799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: AbknPq9GIlehNsNpz6sbyjJf9wObWMPJ4XLawtkVaTto4kaTnMFS0Gxeq4xWkkbhyl3TkXNfmo413DVUCx9FiJ8T0xAFXuHuJ74bzgaGPJ2ua21Wl/0R2b4WuuvIppdqE75/CIWK/Kn5lLVA2CxKS+L7hJ/r/dbEdvsnvG9m5JJP3cHRQyBRykCMQHzgwE0Y2A8dmyzBYfx2TxlrOZK2pYQO6ACn2FsreWH3XxWUFTpkEgn8gQik11yICwwLtC9BaKaMuJ0fWQcxeIHtVF3/AcZyyoTqWX8pAlI0uHntvBGygTanC6A7C4pzSRHu/SuISzxgAYN8iFfm9dc5lwS6BgfyH+6hWDl3IpS6UgcN6NbCKWQ9nuiF49M+FY1eAhadziJhdkp54dgvocqb+HyEEdZxy4+WzwWoDXUSgakHa2ST8jE8wpVY1gqYzgqPFMRh
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 16:06:48.3650
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 165ae7d2-8521-476c-4ddc-08de75510bda
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF00039233.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR08MB10969
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACxxoGkC/13Myw6CMBCF4VchXVvTDldd+R7GRZmOMIlQ0ppGQ
+ 3h3C24Iy3OS/5tFIM8UxDWbhafIgd2YRn7KBPZm7EiyTVuAgkppaKTxgxwYvcOeJ4kKValLBQV
+ VIjWTpyd/Nu/+SLvn8Hb+u/FRr+9fAl0fpKilkoZKe1E1aUX5rRsMv87oBrFKEXY1FMcaUt20Z
+ A1aQIvtvl6W5QehN0F66AAAAA==
+X-Change-ID: 20260128-arm-microchip-c0c0515024e6
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Akhila YS <akhilayalmati@gmail.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_080657_928459_D3321CA5 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20260226_081343_665614_3E2A4E8B 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,216 +107,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-GICv5 systems will likely not support the full set of PPIs. The
-presence of any virtual PPI is tied to the presence of the physical
-PPI. Therefore, the available PPIs will be limited by the physical
-host. Userspace cannot drive any PPIs that are not implemented.
+Convert various legacy .txt bindings for Microchip (formerly Atmel) AT91/SAMA
+family system peripherals to proper YAML schemas. This includes:
 
-Moreover, it is not desirable to expose all PPIs to the guest in the
-first place, even if they are supported in hardware. Some devices,
-such as the arch timer, are implemented in KVM, and hence those PPIs
-shouldn't be driven by userspace, either.
+- CHIPID (SoC ID register block)
+- PIT (Period Interval Timer, old style)
+- PIT64B (64-bit Period Interval Timer, newer parts)
+- ST (System Timer, including watchdog subnode)
+- RAMC/SDRAMC/DDRAMC/UDDRC (SDRAM/DDR memory controller
 
-Provided a new UAPI:
-  KVM_DEV_ARM_VGIC_GRP_CTRL =3D> KVM_DEV_ARM_VGIC_USERPSPACE_PPIs
-
-This allows userspace to query which PPIs it is able to drive via
-KVM_IRQ_LINE.
-
-Additionally, introduce a check in kvm_vm_ioctl_irq_line() to reject
-any PPIs not in the userspace mask.
-
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
 ---
- .../virt/kvm/devices/arm-vgic-v5.rst          | 13 ++++++++++
- arch/arm64/include/uapi/asm/kvm.h             |  1 +
- arch/arm64/kvm/arm.c                          | 10 +++++++-
- arch/arm64/kvm/vgic/vgic-kvm-device.c         | 24 +++++++++++++++++++
- arch/arm64/kvm/vgic/vgic-v5.c                 |  5 ++++
- include/linux/irqchip/arm-gic-v5.h            |  3 +++
- tools/arch/arm64/include/uapi/asm/kvm.h       |  1 +
- 7 files changed, 56 insertions(+), 1 deletion(-)
+Changes in v3:
+- Change email for maintainers.
+- atmel,at91rm9200-st: redefine watchdog node as a pattern property.
+- Remove corresponding binding node from txt document for every yaml patch. 
+- Link to v2: https://lore.kernel.org/r/20260224-arm-microchip-v2-0-8bedacd2cdcb@gmail.com
 
-diff --git a/Documentation/virt/kvm/devices/arm-vgic-v5.rst b/Documentation=
-/virt/kvm/devices/arm-vgic-v5.rst
-index 9904cb888277d..29335ea823fc5 100644
---- a/Documentation/virt/kvm/devices/arm-vgic-v5.rst
-+++ b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
-@@ -25,6 +25,19 @@ Groups:
-       request the initialization of the VGIC, no additional parameter in
-       kvm_device_attr.addr. Must be called after all VCPUs have been creat=
-ed.
-=20
-+   KVM_DEV_ARM_VGIC_USERPSPACE_PPIs
-+      request the mask of userspace-drivable PPIs. Only a subset of the PP=
-Is can
-+      be directly driven from userspace with GICv5, and the returned mask
-+      informs userspace of which it is allowed to drive via KVM_IRQ_LINE.
-+
-+      Userspace must allocate and point to __u64[2] of data in
-+      kvm_device_attr.addr. When this call returns, the provided memory wi=
-ll be
-+      populated with the userspace PPI mask. The lower __u64 contains the =
-mask
-+      for the lower 64 PPIS, with the remaining 64 being in the second __u=
-64.
-+
-+      This is a read-only attribute, and cannot be set. Attempts to set it=
- are
-+      rejected.
-+
-   Errors:
-=20
-     =3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/as=
-m/kvm.h
-index a792a599b9d68..1c13bfa2d38aa 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -428,6 +428,7 @@ enum {
- #define   KVM_DEV_ARM_ITS_RESTORE_TABLES        2
- #define   KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES	3
- #define   KVM_DEV_ARM_ITS_CTRL_RESET		4
-+#define   KVM_DEV_ARM_VGIC_USERSPACE_PPIS	5
-=20
- /* Device Control API on vcpu fd */
- #define KVM_ARM_VCPU_PMU_V3_CTRL	0
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 40d69a96d78d0..a945951dec61d 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1447,7 +1447,7 @@ static int vcpu_interrupt_line(struct kvm_vcpu *vcpu,=
- int number, bool level)
- int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level=
-,
- 			  bool line_status)
- {
--	u32 irq =3D irq_level->irq;
-+	u32 mask, irq =3D irq_level->irq;
- 	unsigned int irq_type, vcpu_id, irq_num;
- 	struct kvm_vcpu *vcpu =3D NULL;
- 	bool level =3D irq_level->level;
-@@ -1484,6 +1484,14 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kv=
-m_irq_level *irq_level,
- 			if (irq_num >=3D VGIC_V5_NR_PRIVATE_IRQS)
- 				return -EINVAL;
-=20
-+			/*
-+			 * Only allow PPIs that are explicitly exposed to
-+			 * usespace to be driven via KVM_IRQ_LINE
-+			 */
-+			mask =3D kvm->arch.vgic.gicv5_vm.userspace_ppis[irq_num / 64];
-+			if (!(mask & BIT_ULL(irq_num % 64)))
-+				return -EINVAL;
-+
- 			/* Build a GICv5-style IntID here */
- 			irq_num |=3D FIELD_PREP(GICV5_HWIRQ_TYPE, GICV5_HWIRQ_TYPE_PPI);
- 		} else if (irq_num < VGIC_NR_SGIS ||
-diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vg=
-ic-kvm-device.c
-index 772da54c1518b..21d21216f2185 100644
---- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
-+++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
-@@ -720,6 +720,25 @@ struct kvm_device_ops kvm_arm_vgic_v3_ops =3D {
- 	.has_attr =3D vgic_v3_has_attr,
- };
-=20
-+static int vgic_v5_get_userspace_ppis(struct kvm_device *dev,
-+				      struct kvm_device_attr *attr)
-+{
-+	u64 __user *uaddr =3D (u64 __user *)(long)attr->addr;
-+	struct gicv5_vm *gicv5_vm =3D &dev->kvm->arch.vgic.gicv5_vm;
-+	int ret;
-+
-+	guard(mutex)(&dev->kvm->arch.config_lock);
-+
-+	for (int i =3D 0; i < 2; i++) {
-+		ret =3D put_user(gicv5_vm->userspace_ppis[i], uaddr);
-+		if (ret)
-+			return ret;
-+		uaddr++;
-+	}
-+
-+	return 0;
-+}
-+
- static int vgic_v5_set_attr(struct kvm_device *dev,
- 			    struct kvm_device_attr *attr)
- {
-@@ -732,6 +751,7 @@ static int vgic_v5_set_attr(struct kvm_device *dev,
- 		switch (attr->attr) {
- 		case KVM_DEV_ARM_VGIC_CTRL_INIT:
- 			return vgic_set_common_attr(dev, attr);
-+		case KVM_DEV_ARM_VGIC_USERSPACE_PPIS:
- 		default:
- 			return -ENXIO;
- 		}
-@@ -753,6 +773,8 @@ static int vgic_v5_get_attr(struct kvm_device *dev,
- 		switch (attr->attr) {
- 		case KVM_DEV_ARM_VGIC_CTRL_INIT:
- 			return vgic_get_common_attr(dev, attr);
-+		case KVM_DEV_ARM_VGIC_USERSPACE_PPIS:
-+			return vgic_v5_get_userspace_ppis(dev, attr);
- 		default:
- 			return -ENXIO;
- 		}
-@@ -773,6 +795,8 @@ static int vgic_v5_has_attr(struct kvm_device *dev,
- 		switch (attr->attr) {
- 		case KVM_DEV_ARM_VGIC_CTRL_INIT:
- 			return 0;
-+		case KVM_DEV_ARM_VGIC_USERSPACE_PPIS:
-+			return 0;
- 		default:
- 			return -ENXIO;
- 		}
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index 626d9d62cb7e6..ef5c65067b02f 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -137,6 +137,11 @@ int vgic_v5_init(struct kvm *kvm)
- 		}
- 	}
-=20
-+	/* We only allow userspace to drive the SW_PPI, if it is implemented. */
-+	kvm->arch.vgic.gicv5_vm.userspace_ppis[0] =3D BIT_ULL(GICV5_ARCH_PPI_SW_P=
-PI);
-+	kvm->arch.vgic.gicv5_vm.userspace_ppis[0] &=3D ppi_caps.impl_ppi_mask[0];
-+	kvm->arch.vgic.gicv5_vm.userspace_ppis[1] =3D 0;
-+
- 	return 0;
- }
-=20
-diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm=
--gic-v5.h
-index 30a1b656daa35..55d5fc28a08be 100644
---- a/include/linux/irqchip/arm-gic-v5.h
-+++ b/include/linux/irqchip/arm-gic-v5.h
-@@ -388,6 +388,9 @@ struct gicv5_vm {
- 	 */
- 	u64			vgic_ppi_mask[2];
-=20
-+	/* A mask of the PPIs that are exposed for userspace to drive */
-+	u64			userspace_ppis[2];
-+
- 	/*
- 	 * The HMR itself is handled by the hardware, but we still need to have
- 	 * a mask that we can use when merging in pending state (only the state
-diff --git a/tools/arch/arm64/include/uapi/asm/kvm.h b/tools/arch/arm64/inc=
-lude/uapi/asm/kvm.h
-index a792a599b9d68..1c13bfa2d38aa 100644
---- a/tools/arch/arm64/include/uapi/asm/kvm.h
-+++ b/tools/arch/arm64/include/uapi/asm/kvm.h
-@@ -428,6 +428,7 @@ enum {
- #define   KVM_DEV_ARM_ITS_RESTORE_TABLES        2
- #define   KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES	3
- #define   KVM_DEV_ARM_ITS_CTRL_RESET		4
-+#define   KVM_DEV_ARM_VGIC_USERSPACE_PPIS	5
-=20
- /* Device Control API on vcpu fd */
- #define KVM_ARM_VCPU_PMU_V3_CTRL	0
---=20
-2.34.1
+Changes in v2:
+- Change email for maintainers.
+- microchip,sam9x60-pit64b: modify compatible and clock-names in properties.  
+- Link to v1: https://lore.kernel.org/r/20260217-arm-microchip-v1-0-ae5d907e10e3@gmail.com
+
+---
+Akhila YS (5):
+      dt-bindings: arm: microchip,sama7g5-chipid : convert to DT schema
+      dt-bindings: arm: atmel,at91sam9260-pit: convert to DT schema
+      dt-bindings: arm: microchip,sam9x60-pit64b : convert to DT schema
+      dt-bindings: arm: atmel,at91rm9200-st: convert to DT schema
+      dt-bindings: arm: atmel,at91rm9200-sdramc: convert to DT schema
+
+ .../bindings/arm/atmel,at91rm9200-sdramc.yaml      | 67 +++++++++++++++++++++
+ .../bindings/arm/atmel,at91rm9200-st.yaml          | 69 ++++++++++++++++++++++
+ .../bindings/arm/atmel,at91sam9260-pit.yaml        | 49 +++++++++++++++
+ .../devicetree/bindings/arm/atmel-sysregs.txt      | 48 ---------------
+ .../bindings/arm/microchip,sam9x60-pit64b.yaml     | 68 +++++++++++++++++++++
+ .../bindings/arm/microchip,sama7g5-chipid.yaml     | 41 +++++++++++++
+ 6 files changed, 294 insertions(+), 48 deletions(-)
+---
+base-commit: ca3a02fda4da8e2c1cb6baee5d72352e9e2cfaea
+change-id: 20260128-arm-microchip-c0c0515024e6
+
+Best regards,
+-- 
+Akhila YS <akhilayalmati@gmail.com>
+
 
