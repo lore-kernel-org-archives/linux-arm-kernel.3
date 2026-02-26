@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F88FCE078
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 13:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31EEEFCE078
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 13:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vgeR7jOGELUtY0ZmhFwjtCwPGAZoEdq03U4EngMFDbI=; b=s9EkcTAWVc0xJDwX/1IeOJIYc2
-	R1GtmSi7Huglq0L79IN8Vkw1yM5xlfH8bQwWuyyAZK4AGuQmNMpUKc5y8F2OUhM/mYKlhchS7pA+Q
-	dC6nFwDARBVtxc1Nckf0V2adMEYjhg3fOnlYD9DP/P7/9IaXGBWSTxmfWNodNcdepnDhVxZJXpUlw
-	kReP7I6MZve2fl1HMhS0XrvGltyZIPg/WUmesvCmBiQyr57Ahv0kaD4erQG9hmmdp9EttmLz5lOFa
-	6dqBDrinmgmzr3O0BZ32TCbulMaQvGXYMZg3gQoC/UEk7KGHyjyjC2wq5P2bKch1qkduaXKpV0qe1
-	eT6VhxHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0hKnjbv3BL565dFjMkZ/BcbOnxBMvs6z5ncDkkB7tgA=; b=jjKdw/hWdFNwkx3fapJ7G0xvBH
+	g9rZ5TbujRcE4afiPFEBSv+ewKaurwqP+bAJCOVoaukq7huI4aWxcaOBQQCaWEe/e6vhnVito0AIt
+	DeumVv4Y/s3LA8kxV/Yjgs1P9hc3L/ZuCUuTNsh8fPM81yT67uattSTAySwVYDDJ/KNBvM0/XAcMi
+	i9Xx6u1HmOvhG/kXl09cdQU8pjF2sbRFjMzteUwCr49/KxoDSoT2wJ9F9TsWqV58QACT0RmT0TCnn
+	kXY08+iYCv3+5XEWrBxcLcizC0IouPhVjaffX/TVIkSjZ7OsEt/IfpQUe33UmdZfpX2tiDDluc3aJ
+	wy7xtXkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvb9d-00000006BIu-1kl2;
-	Thu, 26 Feb 2026 13:11:45 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1vvbAk-00000006BXF-2B4R;
+	Thu, 26 Feb 2026 13:12:54 +0000
+Received: from mail-vk1-f181.google.com ([209.85.221.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvb9a-00000006BHT-17LV
+	id 1vvbAi-00000006BWC-0caN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 13:11:43 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43988056dc3so857603f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 05:11:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772111500; x=1772716300; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vgeR7jOGELUtY0ZmhFwjtCwPGAZoEdq03U4EngMFDbI=;
-        b=bBWngoJcC3yJ3/xgqQaiWZ0NX9znpbH1FefK3iR/FFK6KYvVZb0zIrGKz6Y1Zt6jp2
-         X96t9fRrAiJuccbcrl1cpnK3yEaNNThvA0eq0BSOYWOfrNa4BAueQ8UXpV6dKSl6pH9E
-         N+K2HWiYSlO+1ZRgfHz1ukSHeSpJvBap7FznaPSR5vtMMe68CqRM0OJrxjYf1KQ9cSFT
-         ntbmuHhSnxIP2P4nXzcxfhGRf4GgmnZH3xFVw2yqA+dnjFgWrGvfhTBXQT4Z7LAajgkb
-         QN1LHIoctqAuR+lODbavp2yti5Pz1eheE4PQCYpxqnnHS+pZwCl1OlDsVdJXfuG4eULv
-         N05Q==
+	Thu, 26 Feb 2026 13:12:53 +0000
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-56753dc51baso367715e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 05:12:51 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772111500; x=1772716300;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vgeR7jOGELUtY0ZmhFwjtCwPGAZoEdq03U4EngMFDbI=;
-        b=iSHXcukZYV25THAkiOp1oPV2RsXAJlLGtlq/IA8c67V8lrDDPsbKs8gEkWyqkrKQPU
-         y773rt/LaaEP6s6SB8dUFWKp6AdsgpE1bYZ6XUWsVm4baTQI7rM9VyXPwceXz066hWem
-         ZmpAtZpxGEzHLvHD0RzsiO//hOfRahSgCRxRFSw3o0BTRaaUsE4yOnR72fncCRW0DGq8
-         4cQf7RG9YXfUpxLWYu1VgCoRN7MAeDZS7EbXmkDj3Y3HHt1wDi/OadoUP3PNJk1Pzinf
-         w+j+OSdu/Plj9Mz/UU0TGXMurpmQPlPROCxdgFhILYN5btG1io+LN5Dc8sxPxEH4Y8JH
-         kMCg==
-X-Forwarded-Encrypted: i=1; AJvYcCVG/8JH+DSmQ0Fbu+QguIu0wWwTL7yEErXb910I/uxAGrUc/f9bwx5RXuLlciPaeJPeo49dPQ8qYDUbUIxJqhNP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrSUhekNMahe/QUdVC0yKRZDFbQVDxCV/CHBa1QCWkEIrXrZga
-	s+muR1TQ7XT7zVJvpQ2jzYqA4C0RsFP4dhzmJvFqYYKbU3auh2Ux/3io
-X-Gm-Gg: ATEYQzzeJLps++BKhxKxGgv9WNYuFW/sobD3iF/IMHPtSDsgaN0JWQmOT6snM/Lxy/U
-	PZ/NUXldruMRHXzA3C/69SjPQHrrCLtOklc70VaFHN1bcc507vFc1GSIzgnwqTMhUxzchPuV1bD
-	wNnkBsXixtaQUwlyq5umQJJC6Dju9DcyFfmRd+dpfukkiGb3uU32Cfa+LSXQJK8BDTSdU/eaQ+8
-	XuvTy2twl2YIKN6zs1qJALDsHhuCouPXl1m75ew4ZBgiuJlSVWTZlUcw0mlwMrpD/Avnyqs0njL
-	HWaaXpEgeccsR6+8MttNnOXDLJjI0VmNjbqbnZt31TMIBvi+aw58BETDlIYJ0iQ1QodwI892NSw
-	UDpTULN8UUHTSfxhgThKAJWcSMKS8Qp4LJtyOXbldLNHk/9glDJmUh4Mlmlvz0warykjA5ck6BA
-	D+LSZhLMlg0Kdg4l5L54vmm6mF5Wabgy85jo8l7nJN3dhNTlNPgGw7
-X-Received: by 2002:a05:600c:8211:b0:477:76bf:e1fb with SMTP id 5b1f17b1804b1-483c3de3dd6mr38027625e9.16.1772111500174;
-        Thu, 26 Feb 2026 05:11:40 -0800 (PST)
-Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-483bfb789efsm64827145e9.2.2026.02.26.05.11.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 05:11:38 -0800 (PST)
-From: Gabor Juhos <j4g8y7@gmail.com>
-Date: Thu, 26 Feb 2026 14:11:28 +0100
-Subject: [PATCH v4 2/2] i2c: pxa: handle 'Early Bus Busy' condition on
- Armada 3700
+        d=1e100.net; s=20230601; t=1772111570; x=1772716370;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0hKnjbv3BL565dFjMkZ/BcbOnxBMvs6z5ncDkkB7tgA=;
+        b=rdqb16bqsaw/2pPIvOHhJs6RKV3bEgD2La5/Nn+jMLlLa9+ianAX77WJnAmjLMeGCT
+         nDY0Ve86GcxqUvgA6CwYoX1mbVZjRkHnUZYbl3qNg+ddLGbdqB6JOTH2wkhFeg/nygrS
+         9x0f52Ux4yJbFV3GH+ZTcv4ReCIlTM17ACUwWT+WhcV/AVc+nCv7xH6GkAvwsZV9UgW2
+         I4nSs7JCNv6FNDz6LXpmHRaTXaG0C4wiq2oJIvPHvyzP0gllSI/L0Jify2jMMzXUw5Nt
+         SZkx5qjBRaEdoS6/yjgpSLyFlZ2qfIOMMrptegZ4NHEUSCGvli83VrVeG3lJrSjNQz3v
+         VljA==
+X-Forwarded-Encrypted: i=1; AJvYcCWDpaTFiKTAO8tNBrw/M0nzbu7xT8gWEtGmPZirqAYZEo4qaLdC6DdvRmh4QqyAJiZDFitmDW9yHoUUrXlXbwK7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2ykukT6r9nJppruqgJW4GZ4f6z2Z61STU6ymfOgYP3ExuAyae
+	7ZBiZsQS7X1xOTggt48wYXulZM0ns8N35vYZ1/RQ0Alcr4fdI7tjTxW0tQ0HoMe4
+X-Gm-Gg: ATEYQzzigF3i8epsxRqSR6eg4M/jYnA7YcWu+JN87M+qHugDxkjcdAegJpMWrfD7i9n
+	4L+7YUpT5aNGm3mC8sow8HBLpxokYS0fL44qOnZNjWR7snF+w/QdukP38pD8sTd7cgAFMtvQA98
+	5ysKHtH12y2mBPdrjMuEOu49qxHfqQn75002HqKzxh6Xn8Hreq6ASb2Dq2ZXM4Aq+8JDTfVemtr
+	bpZOFsFDcP6A9QZqLkkiC/HL+QvC2uIs2vyUjP4Mp/9xECQHsIf6ouwv8fy+uYROcKxW09eKus7
+	cc5ss4r6OihGZSfWq8HjYex+TXfQrAHG1Zm4bJ7yIBDbSaHCrUtXe3YEPrHpQasYIxUuOAvBgB2
+	in93feibxfuKkMYhMYKBdT8eKeq4fzzLZyX+dYnntCVjl7hOX11RTIYtpfLci3dJNUGlqYDUA3f
+	uUzjIMVJt9R4ynps/igrZ5/jBCcnRUZM6vEai1vanNhTEzNiH8o/BhMvtnvwiV
+X-Received: by 2002:a05:6122:3224:b0:56a:9841:efd4 with SMTP id 71dfb90a1353d-56a9841f361mr647493e0c.1.1772111570039;
+        Thu, 26 Feb 2026 05:12:50 -0800 (PST)
+Received: from mail-vs1-f52.google.com (mail-vs1-f52.google.com. [209.85.217.52])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56a9229a4d4sm2354666e0c.19.2026.02.26.05.12.49
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Feb 2026 05:12:49 -0800 (PST)
+Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-5fdecf79484so172365137.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 05:12:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUA0WWc+fPEbrauB0Sdx+K/jelDKFP/TRSPhAk510j3cDrBrZK/L8G4eICT2ayS28bpdA4qtkKjWjK0AjCSkRVx@lists.infradead.org
+X-Received: by 2002:a05:6102:c4b:b0:5f1:4fc3:855d with SMTP id
+ ada2fe7eead31-5feb311d364mr7291638137.38.1772111569094; Thu, 26 Feb 2026
+ 05:12:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-i2c-pxa-fix-i2c-communication-v4-2-797a091dae87@gmail.com>
-References: <20260226-i2c-pxa-fix-i2c-communication-v4-0-797a091dae87@gmail.com>
-In-Reply-To: <20260226-i2c-pxa-fix-i2c-communication-v4-0-797a091dae87@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang <wsa@kernel.org>, 
- Wolfram Sang <wsa+renesas@sang-engineering.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Russell King <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>, 
- Hanna Hawa <hhhawa@amazon.com>
-Cc: Robert Marko <robert.marko@sartura.hr>, linux-i2c@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Gabor Juhos <j4g8y7@gmail.com>, Linus Walleij <linusw@kernel.org>, 
- stable@vger.kernel.org, Imre Kaloz <kaloz@openwrt.org>
-X-Mailer: b4 0.14.2
+References: <20251211011846.8179-1-ebiggers@kernel.org> <20251211011846.8179-3-ebiggers@kernel.org>
+In-Reply-To: <20251211011846.8179-3-ebiggers@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 26 Feb 2026 14:12:38 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVFRQZXCKJBOBDJtpENvpVO39AxGMUFWVQdM6xKTpnYYw@mail.gmail.com>
+X-Gm-Features: AaiRm52VYzvaWsbmGKoOT8WKSlc9iNIE8yX77bG4Rzm2pI7VadASzUVGgBSmV4w
+Message-ID: <CAMuHMdVFRQZXCKJBOBDJtpENvpVO39AxGMUFWVQdM6xKTpnYYw@mail.gmail.com>
+Subject: Re: [PATCH 02/12] lib/crypto: tests: Add KUnit tests for NH
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-kernel@lists.infradead.org, 
+	x86@kernel.org, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, 
+	KUnit Development <kunit-dev@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_051142_369370_0B33699D 
-X-CRM114-Status: GOOD (  32.88  )
+X-CRM114-CacheID: sfid-20260226_051252_192351_548A5FEC 
+X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,206 +98,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Under some circumstances I2C recovery fails on Armada 3700. At least
-on the Methode uDPU board, removing and replugging an SFP module fails
-often, like this:
+Hi Eric,
 
-  [   36.953127] sfp sfp-eth1: module removed
-  [   38.468549] i2c i2c-1: i2c_pxa: timeout waiting for bus free
-  [   38.486960] sfp sfp-eth1: module MENTECHOPTO      POS22-LDCC-KR    rev 1.0  sn MNC208U90009     dc 200828
-  [   38.496867] mvneta d0040000.ethernet eth1: unsupported SFP module: no common interface modes
-  [   38.521448] hwmon hwmon2: temp1_input not attached to any thermal zone
-  [   39.249196] sfp sfp-eth1: module removed
-  ...
-  [  292.568799] sfp sfp-eth1: please wait, module slow to respond
-  ...
-  [  625.208814] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
+On Thu, 11 Dec 2025 at 02:25, Eric Biggers <ebiggers@kernel.org> wrote:
+> Add some simple KUnit tests for the nh() function.
+>
+> These replace the test coverage which will be lost by removing the
+> nhpoly1305 crypto_shash.
+>
+> Note that the NH code also continues to be tested indirectly as well,
+> via the tests for the "adiantum(xchacha12,aes)" crypto_skcipher.
+>
+> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 
-Note that the 'unsupported SFP module' messages are not relevant. The
-module is used only for testing the I2C recovery funcionality, because
-the error can be triggered easily with this specific one.
+Thanks for your patch, which is now commit 7246fe6cd64475d8
+("lib/crypto: tests: Add KUnit tests for NH") in v7.0-rc1.
 
-Enabling debug in the i2c-pxa driver reveals the following:
+> --- a/lib/crypto/tests/Kconfig
+> +++ b/lib/crypto/tests/Kconfig
+> @@ -45,10 +45,18 @@ config CRYPTO_LIB_MLDSA_KUNIT_TEST
+>         select CRYPTO_LIB_BENCHMARK_VISIBLE
+>         select CRYPTO_LIB_MLDSA
+>         help
+>           KUnit tests for the ML-DSA digital signature algorithm.
+>
+> +config CRYPTO_LIB_NH_KUNIT_TEST
+> +       tristate "KUnit tests for NH" if !KUNIT_ALL_TESTS
+> +       depends on KUNIT
+> +       default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
+> +       select CRYPTO_LIB_NH
 
-  [   82.034678] sfp sfp-eth1: module removed
-  [   90.008654] i2c i2c-1: slave_0x50 error: timeout with active message
-  [   90.015112] i2c i2c-1: msg_num: 2 msg_idx: 0 msg_ptr: 0
-  [   90.020464] i2c i2c-1: IBMR: 00000003 IDBR: 000000a0 ICR: 000007e0 ISR: 00000802
-  [   90.027906] i2c i2c-1: log:
-  [   90.030787]
+This select means that enabling KUNIT_ALL_TESTS also enables
+extra functionality, which may not be desirable in a production system.
+Fortunately CRYPTO_LIB_NH is tristate, so in the modular case the
+extra functionality is a module, too, and not part of the running
+system by default.  Unfortunately CRYPTO_LIB_NH is invisible, so this
+cannot just be changed from "select" to "depends on".
 
-This continues until the retries are exhausted ...
+> +       help
+> +         KUnit tests for the NH almost-universal hash function.
+> +
+>  config CRYPTO_LIB_POLY1305_KUNIT_TEST
+>         tristate "KUnit tests for Poly1305" if !KUNIT_ALL_TESTS
+>         depends on KUNIT
+>         default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
+>         select CRYPTO_LIB_BENCHMARK_VISIBLE
 
-  [  110.192489] i2c i2c-1: slave_0x50 error: exhausted retries
-  [  110.198012] i2c i2c-1: msg_num: 2 msg_idx: 0 msg_ptr: 0
-  [  110.203323] i2c i2c-1: IBMR: 00000003 IDBR: 000000a0 ICR: 000007e0 ISR: 00000802
-  [  110.210810] i2c i2c-1: log:
-  [  110.213633]
+Gr{oetje,eeting}s,
 
-... then the whole sequence starts again ...
+                        Geert
 
-  [  115.368641] i2c i2c-1: slave_0x50 error: timeout with active message
 
-... while finally the SFP core gives up:
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-  [  671.975258] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
-
-When we analyze the log, it can be seen that bit 1 and 11 is set in the
-ISR (Interface Status Register). Bit 1 indicates the ACK/NACK status, but
-the purpose of bit 11 is not documented in the driver code unfortunately.
-
-The 'Functional Specification' document of the Armada 3700 SoCs family
-however says that this bit indicates an 'Early Bus Busy' condition. The
-document also notes that whenever this bit is set, it is not possible to
-initiate a transaction on the I2C bus. The observed behaviour corresponds
-to this statement.
-
-Unfortunately, I2C recovery does not help as it never runs in this
-special case. Although the driver checks the busyness of the bus at
-several places, but since it does not consider the A3700 specific bit
-in these checks it can't determine the actual status of the bus correctly
-which results in the errors above.
-
-In order to fix the problem, add a new member to struct 'i2c_pxa' to
-store a controller specific bitmask containing the bits indicating the
-busy status, and use that in the code while checking the actual status
-of the bus. This ensures that the correct status can be determined on
-the Armada 3700 based devices without causing functional changes on
-devices based on other SoCs.
-
-With the change applied, the driver detects the busy condition, and runs
-the recovery process:
-
-  [  742.617312] i2c i2c-1: state:i2c_pxa_wait_bus_not_busy:449: ISR=00000802, ICR=000007e0, IBMR=03
-  [  742.626099] i2c i2c-1: i2c_pxa: timeout waiting for bus free
-  [  742.631933] i2c i2c-1: recovery: resetting controller, ISR=0x00000802
-  [  742.638421] i2c i2c-1: recovery: IBMR 0x00000003 ISR 0x00000000
-
-This clears the EBB bit in the ISR register, so it makes it possible to
-initiate transactions on the I2C bus again.
-
-After this patch, the SFP module used for testing can be removed and
-replugged numerous times without causing the error described at the
-beginning. Previously, the error happened after a few such attempts.
-
-The patch has been tested also with the following kernel versions:
-5.10.251, 5.15.201, 6.1.164, 6.6.127, 6.12.74, 6.14.11, 6.15.10, 6.16.1,
-6.18.13, 6.19.3
-It improves recovery on all of them.
-
-Cc: stable@vger.kernel.org # 5.10+
-Reviewed-by: Imre Kaloz <kaloz@openwrt.org>
-Tested-by: Robert Marko <robert.marko@sartura.hr>
-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
----
-Changes in v4:
-  - rebase on tip of i2c/i2c-host-fixes
-  - add Tested-by tag from Robert
-  - update list of tested kernels
-  - Link to v3: https://lore.kernel.org/r/20250827-i2c-pxa-fix-i2c-communication-v3-2-052c9b1966a2@gmail.com
-
-Changes in v3:
-  - rebase on tip of i2c/for-current
-  - use Reviewed-by tag for Imre
-  - remove Fixes tag as the problem is not caused by the previously mentioned
-    commit, simply it is not handled by the code yet
-  - update list of tested kernels
-  - Link to v2: https://lore.kernel.org/r/20250811-i2c-pxa-fix-i2c-communication-v2-3-ca42ea818dc9@gmail.com
-
-Changes in v2:
-  - rebase and retest on tip of i2c/for-current
-  - Link to v1: https://lore.kernel.org/r/20250511-i2c-pxa-fix-i2c-communication-v1-3-e9097d09a015@gmail.com
----
- drivers/i2c/busses/i2c-pxa.c | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.c
-index f55840b2eb9ab70aad43bd7f4f44c39aa4d9c67f..9a8b154ab69e1b934b82a4e68a97a2dce3673408 100644
---- a/drivers/i2c/busses/i2c-pxa.c
-+++ b/drivers/i2c/busses/i2c-pxa.c
-@@ -71,6 +71,7 @@
- #define ISR_GCAD	(1 << 8)	   /* general call address detected */
- #define ISR_SAD		(1 << 9)	   /* slave address detected */
- #define ISR_BED		(1 << 10)	   /* bus error no ACK/NAK */
-+#define ISR_A3700_EBB	(1 << 11)	   /* early bus busy for armada 3700 */
- 
- #define ILCR_SLV_SHIFT		0
- #define ILCR_SLV_MASK		(0x1FF << ILCR_SLV_SHIFT)
-@@ -263,6 +264,7 @@ struct pxa_i2c {
- 	bool			highmode_enter;
- 	u32			fm_mask;
- 	u32			hs_mask;
-+	u32			busy_mask;
- 
- 	struct i2c_bus_recovery_info recovery;
- 	struct pinctrl		*pinctrl;
-@@ -430,7 +432,7 @@ static int i2c_pxa_wait_bus_not_busy(struct pxa_i2c *i2c)
- 
- 	while (1) {
- 		isr = readl(_ISR(i2c));
--		if (!(isr & (ISR_IBB | ISR_UB)))
-+		if (!(isr & i2c->busy_mask))
- 			return 0;
- 
- 		if (isr & ISR_SAD)
-@@ -467,7 +469,7 @@ static int i2c_pxa_wait_master(struct pxa_i2c *i2c)
- 		 * quick check of the i2c lines themselves to ensure they've
- 		 * gone high...
- 		 */
--		if ((readl(_ISR(i2c)) & (ISR_UB | ISR_IBB)) == 0 &&
-+		if ((readl(_ISR(i2c)) & i2c->busy_mask) == 0 &&
- 		    readl(_IBMR(i2c)) == (IBMR_SCLS | IBMR_SDAS)) {
- 			if (i2c_debug > 0)
- 				dev_dbg(&i2c->adap.dev, "%s: done\n", __func__);
-@@ -488,7 +490,7 @@ static int i2c_pxa_set_master(struct pxa_i2c *i2c)
- 	if (i2c_debug)
- 		dev_dbg(&i2c->adap.dev, "setting to bus master\n");
- 
--	if ((readl(_ISR(i2c)) & (ISR_UB | ISR_IBB)) != 0) {
-+	if ((readl(_ISR(i2c)) & i2c->busy_mask) != 0) {
- 		dev_dbg(&i2c->adap.dev, "%s: unit is busy\n", __func__);
- 		if (!i2c_pxa_wait_master(i2c)) {
- 			dev_dbg(&i2c->adap.dev, "%s: error: unit busy\n", __func__);
-@@ -514,7 +516,7 @@ static int i2c_pxa_wait_slave(struct pxa_i2c *i2c)
- 			dev_dbg(&i2c->adap.dev, "%s: %ld: ISR=%08x, ICR=%08x, IBMR=%02x\n",
- 				__func__, (long)jiffies, readl(_ISR(i2c)), readl(_ICR(i2c)), readl(_IBMR(i2c)));
- 
--		if ((readl(_ISR(i2c)) & (ISR_UB|ISR_IBB)) == 0 ||
-+		if ((readl(_ISR(i2c)) & i2c->busy_mask) == 0 ||
- 		    (readl(_ISR(i2c)) & ISR_SAD) != 0 ||
- 		    (readl(_ICR(i2c)) & ICR_SCLE) == 0) {
- 			if (i2c_debug > 1)
-@@ -1177,7 +1179,7 @@ static int i2c_pxa_pio_set_master(struct pxa_i2c *i2c)
- 	/*
- 	 * Wait for the bus to become free.
- 	 */
--	while (timeout-- && readl(_ISR(i2c)) & (ISR_IBB | ISR_UB))
-+	while (timeout-- && readl(_ISR(i2c)) & i2c->busy_mask)
- 		udelay(1000);
- 
- 	if (timeout < 0) {
-@@ -1322,7 +1324,7 @@ static void i2c_pxa_unprepare_recovery(struct i2c_adapter *adap)
- 	 * handing control of the bus back to avoid the bus changing state.
- 	 */
- 	isr = readl(_ISR(i2c));
--	if (isr & (ISR_UB | ISR_IBB)) {
-+	if (isr & i2c->busy_mask) {
- 		dev_dbg(&i2c->adap.dev,
- 			"recovery: resetting controller, ISR=0x%08x\n", isr);
- 		i2c_pxa_do_reset(i2c);
-@@ -1479,6 +1481,10 @@ static int i2c_pxa_probe(struct platform_device *dev)
- 	i2c->fm_mask = pxa_reg_layout[i2c_type].fm;
- 	i2c->hs_mask = pxa_reg_layout[i2c_type].hs;
- 
-+	i2c->busy_mask = ISR_UB | ISR_IBB;
-+	if (i2c_type == REGS_A3700)
-+		i2c->busy_mask |= ISR_A3700_EBB;
-+
- 	if (i2c_type != REGS_CE4100)
- 		i2c->reg_isar = i2c->reg_base + pxa_reg_layout[i2c_type].isar;
- 
-
--- 
-2.53.0
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
