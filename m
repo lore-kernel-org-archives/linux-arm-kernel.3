@@ -4,147 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F44FD45F9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Feb 2026 23:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3261CFD45F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 00:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KAZEuhxh8s28UGQs2QC8rTuQc3uiuIlfeoBBY97q8+I=; b=vNN8BVDciS7DoYHhRXi7tLjGNm
-	anSY6iU9Aa+LkWcXi/UiZoGynGG8c/TROeAAI2x3Kt3iMehT1niQF0AscgUBz8yvBZqMjOeycgF6h
-	GLyTYy1Ji7pL0IgrXnqQMo82/uGnf586JwIifHkPHnABnmTkImfTjNdelkSvsYSY2EBzlaGzT+LsG
-	UQ6tSFvOdQ2Xsxk7COUZ3yDO5eVvle8x0S3+LP4K5GbW+/WbOWMuG049TQrQnaEFznboJuR+Dlknw
-	1WyMsHqT3/nB7qXZDEgB1Ca60jRsQ6+/c22GJ8i+ByGqgS8qfYhe9/Dc1fiyxgRDHN8HoveIVHxHy
-	i64T3MMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ANyBf3kE4iNfEXkE69RNPvOtClQp7JDz8CQQzRUcCds=; b=gK1/zgm7VT5am3C1EeyLsIs6WS
+	S0+W+PIs3iM9JAGuVQMZ1j6HnXgHHkZbqiJIR70tkR8P5CoNZb8gnqlEZ4+DvMm5NtREyumLtYrsY
+	GHWhIc64GVxSTdJAkVsa2UkA5gUKpVUCooCGgpkgnlZe0R+hf2a3LwEvOsw8X04KlwWNPpth6WqHb
+	+MuP6Ql6kKARWybbfbKOxQQMy0COY29+ble2eCD1oi43KWZC420UjZ6WjFOekDhhFRSXsZrHp/EXb
+	EH/Gck9XxEPgu1TTeVceS7DBlSZx2HVM0YZP0U/KVTDhb6jYl84ARb04j59tiHfRrG36Tza+93J0L
+	ckKfYg2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvOjI-000000056Fj-1icI;
-	Wed, 25 Feb 2026 23:55:44 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vvOuJ-0000000571e-0I22;
+	Thu, 26 Feb 2026 00:07:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvOjD-0000000569T-3mfp
+	id 1vvOuG-00000005715-4BfL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Feb 2026 23:55:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mOnWzHs4ANQ7p5R1h7Btgt2EPgIAHKPHZv7uLNdsOSEXGCysjpvMgehFAupUZZJWzO7zn3dUyw5D0ecC/GImM4jWqCvC4gp3lP06cVBzltR7jcaAPr0GhYU7DaaWS1Pf4+gfgplm5qxbpSCty3/FZuDRsIDv4zw/SWWwe/W1vCNVfigGiRDZyao3PK/0ghC+vm4+ZRgvc8Htofyi03NNJBklCaYMzxOqLFDn8xfCRq7LTrlemTPVLp5+On8ApMSxx2F6UtRi7OdMHL4BpJSgsAaU92NH7f8OtWnneKKbuWvG+1VZMjLdb0ctN36diQ9Lc8PTqafr4nbGRwJyxb/Jgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KAZEuhxh8s28UGQs2QC8rTuQc3uiuIlfeoBBY97q8+I=;
- b=BoMsCogFCVqjf5OZHU5sO+CrwXChEWb1nOemAydGSfut9mQmXkBas7sJ0Ex6caI1yG31400k/SSP27o8BWMJLnBYH0p9DsXkzolEifQRAXm2GIBUGpXLISM7ZK2nXKHvpGGdzOrS+fCJga+PV8t/oLM/kgBlOWazQXsOjaHN6uZXWUZD5QLt2dbVqRDvKVB4YkoFgGr/cNAXhvSnQ9RqW//Jn3ydQNTki45rCXmApVmm5rfTp3YfCY/MMzGfqCJLw+gLUiQZVeehtJcn6pl4eX5Gj5nGCEVeLj70LtkLHfw+3jO8njcWKLRR7T8aLDCHd2Jr18jUMCziOjyOUgqvPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KAZEuhxh8s28UGQs2QC8rTuQc3uiuIlfeoBBY97q8+I=;
- b=SRPnQXO9llIREYZKxiFeTAJX8ZuhFoSrfhhk8Bw5JKcbzyYSLX8uQ3j2oe57GPzqRUl3yC9ZKa+mWXLT5KgVLlk1z0akjYBB4GmtID9SypGkzS02QLkGc1Tlu/IAgTiENzGMx35yZ3b5cdGyl9XWq5fEM/RxFbog2DQDUpnifGhUZnPcdHcMHo0X8tOuuGOHqQ9LsarSZ76yd9y3k6dYO8qoeaVtp17IzcWIdeg3eWnpTjci8CNKJ7OuE1CQtsp+Tx/JMFEKpOL5tbx8CX44X/Ip/fUEXvu428xhMw40nSzjk0GHdBlRhQbyrA9XTGcVSbXqicsFz1OJNfBvb8qboQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB8771.eurprd04.prod.outlook.com (2603:10a6:20b:42c::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Wed, 25 Feb
- 2026 23:55:37 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.017; Wed, 25 Feb 2026
- 23:55:37 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 25 Feb 2026 18:55:10 -0500
-Subject: [PATCH v2 6/6] arm64: dts: imx8mp-evk: add flexcan2 overlay file
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260225-pinctrl-mux-v2-6-1436a25fa454@nxp.com>
-References: <20260225-pinctrl-mux-v2-0-1436a25fa454@nxp.com>
-In-Reply-To: <20260225-pinctrl-mux-v2-0-1436a25fa454@nxp.com>
-To: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772063713; l=1688;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=Mrv8690NFbwq9YfxxVKxVjG1LaSA8D856X2XcXjhNwk=;
- b=g6YDmsBH3klPxtAhs1iU3+WlZSMoRPYXbBj2+tIoU/oGGp6dFoK05c1rYiGCJ5N6T4QWCQwNX
- l8V5yIFL3vVCf9fH2l2xDy2/vKEkPcxVRUuasytzwrchm5jTNC5TnrK
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH8PR02CA0020.namprd02.prod.outlook.com
- (2603:10b6:510:2d0::9) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Thu, 26 Feb 2026 00:07:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E077341700;
+	Thu, 26 Feb 2026 00:07:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B149DC116D0;
+	Thu, 26 Feb 2026 00:07:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772064422;
+	bh=s3Girc+bNp3czkHfjQVBAR5NXjL6Cl0HPW+PD8Y36FU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FqbEmP6ndwJwSoNn1OmPZrIdYccIrFSuMbfAEVkBpQsVCDiqpjEdsAYvgvH2M/Wxy
+	 iCHEQQuHduhx0HR9PjYvdCegefDG+KzAWSBn4HxIQpYlk0aj/aDS0ZuLhvulmYGLwd
+	 g/AsniZSbzWeVMg+bs+PJTov2mVOrT3KZFIwG1sCJ0L8HDZIXErHXTwmTm9RekL4Yo
+	 nTd0bP6K8S4VnC9Sv5key+738g/JAXz+DLwZMDgbR7MbzfpMSFtzQbgUzx7Lr/4EZT
+	 9Ua6Ckb8FNsUIGTRYXLxGpkDQbcBolOmDFsfiCpllmFmaGE2CIW5KnGtLJiKoapczd
+	 vkchkAlid2xHw==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Emanuele Rocca <emanuele.rocca@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>
+Subject: Re: [PATCH v2 0/3] arm64: Assorted GCS fixes
+Date: Thu, 26 Feb 2026 00:06:52 +0000
+Message-ID: <177204923879.3245937.13575031331477938583.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260223174533.1478164-1-catalin.marinas@arm.com>
+References: <20260223174533.1478164-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8771:EE_
-X-MS-Office365-Filtering-Correlation-Id: a35c6568-ee1f-460c-363f-08de74c95f92
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: gfTBUMHg/ZRPoT8iFvFdZrORirDGIiD2mAHGgTJ3rlwxTNUttWloYIL2IdhJ6EbNF6573QXUj8CLxtUePwqNPRztCEmYPzKoaR70zC+iIYqsvv6GDNQSFzDnh8tXscYPPJ0nUVOnvdNE8NAMTTu/7n/kt16iDNvcxr+i5cMiaYuVyVA0Bzp3gV4ib3zkpObFvS5Nuvl7oxsDrMZROSGgaa6r+hMYfRm4uqAhf8kFy1Wuk53QGsBRhHx6OF88zxfIfqq8POWqwo5AQBkqdFVr1V4FEKeyB3faPoQzpF0RQd209ctjzOaIrZP4SckZpztdQOakntkXSIbkn+/UY30Msn6VJ0+pPkgct+IQWgzqgyLEQymhWaONFmKt1XrnH85Y8hf07Ij3nXxzb3WkNzB04rspAHkfd4BhLkN//Y2PgmI0nuyMnOSGTAAuXbquOel7VajIy2CcYBpGVCGvfUHC4CgT1YTTswXlnneh/C1n/uRIamuIf6yWOGx1KndKO4FNTmi8E4UUOWI3+rOLOHUyojdTdwLYfbe5MI68KdX7aTHdo7i8DBi2romj1pxmRWxKqO+ysXyNe5f6l/Ej0cUC6aCkyIszTXl9CjpU3NyVPn+oR9V2Org+2BOfMjCaTbgWcMTIVbjy2XsHrEpCfhglgKyu/e5fG9zYjqPQ7TXIBjKHn2b/yaF8zInNtASO1R4b1UW9t0L5oTmZ+FdxWatg3Y5cwQeDRejuOTqIkt15C5tSnCn2FB3Ow3xKf53YNRAaEov70gIk8LZceZ0+XEStXBjlY9rEaWR2ZM0mjzMfkXw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TjZYa0tYeVMvRmtPR2x4RndoaXhKcHlNMTNJRlFFVFU1czNBQUJqTnRzM04z?=
- =?utf-8?B?QUdCSDNYYUIvRm5NM203dGc1TXhCQlJselBWWEZBUWR6bkpMQ3g3RTZ1dFVl?=
- =?utf-8?B?Y3kvU0x1bDAzYlNuSWZXRnc4V1l1SFJnZy84cHJFT0RUTDFiU1IxUjV1RE5C?=
- =?utf-8?B?MVhtK1VUMjZ4WjEwdXBGaW9Vcm4wbVROVmx4S2hRQUdqMlBUaDlVV3RPUW5m?=
- =?utf-8?B?Sm02K2NDVFlGc21VaW9FcGUzZ1pxUGhGYlVaNlJNMVp4UWhuUGRDRDJTeFRC?=
- =?utf-8?B?aUNBQ1MxcmZQSHNoenVNbE5qVjVncHM2M1RuY0RNWitjcGNUZXBPaVdlalRH?=
- =?utf-8?B?RTV5dFNrT2hkY203RTFHZEdmWmVEaHFFZ2RETEhtTlJZdnh5UExaWFZaQktu?=
- =?utf-8?B?aGtHVGpzZ0VhcjcremlMeDJ2dndNSUZuLzhtcGlKK2lsbXhMUUhkTXJnaU14?=
- =?utf-8?B?WFFObEpTaXM3WDc1RWFnc0RRZENXeFFqbEtHMEp1RWhKaElaUUdkNTlXeUxr?=
- =?utf-8?B?SGpqZTU1dUpJWmpISktubWJPdFhHVFVLRndQNzdqOVVEdjMvQTdNdGkwTytG?=
- =?utf-8?B?Ly9zdTdZWk93M0xaTXhsSW9lcmVyLzRwOWFJcmdOSDhEaHNmME1HcTZpWEky?=
- =?utf-8?B?NUtVaXgvUnFYL3lsTncwZHF1NUgyaGpMcDkzckpndzRoSDByYi9ZOUNYRE1T?=
- =?utf-8?B?Y3NVeEh3NGtZbkNteHcrWDEwUHQxeFdiQmZnM2FTYktWTDRjai80a045ZHlC?=
- =?utf-8?B?SWdsQkcvMWxMVlIyM2N0dndsdDBlOFdUNmxXWklsUGlsQzZnQnA1RWNPZWlK?=
- =?utf-8?B?aEVWSUsyL21hNlN3aXlVeE9VSEhjUUEyT1pQcEQ1a2dROXN0OWJGN3l1eTZs?=
- =?utf-8?B?OGlLbWJvdGx3czhjRk1XL0RGdDBnZUtoV2xhV2VWU0I3bnFYQ2JxcGdRMjlC?=
- =?utf-8?B?ZGxRQUpSdzFjbEVUK2I2VUxjeFQ1b0lnSWNJL0NDaEdZbG4vTTlCSW9zZEI3?=
- =?utf-8?B?Ym80ZVlmS2NZckw3QiswM2plUGR6R3Ezb3VUQ01zdi9GQzgrRko4ZzJmVWtN?=
- =?utf-8?B?TGtybkNzbW9Ia1RZL0grNTRxYXdpYU1rU2dzN0Z2MDBqQ1BIUDQvVXVmNktP?=
- =?utf-8?B?aHc3M3MxN0lKemVJRkxtUFNRUEJreXdYQlIwMDQxdlAzYXdPVWFjR0JDVG9O?=
- =?utf-8?B?Z2NmZFR2aEs3SXJETGZIdmMxdTJoOXVPa2lJMmRadUFLVnZVTXFRbnNRdWd1?=
- =?utf-8?B?SmVYZmJHWlNFMkFwYmQvZ1NhbHkyWGRtR0pydzlVSXMrbHdTaTdkempUNUtL?=
- =?utf-8?B?dFBtcG1PMDc5TXFPelA4OTlaMUlsUTBTd08raTNpb1Izc0ROQXR4Ui9TeHZW?=
- =?utf-8?B?WHE0TDBUOFFncGx0Nlk3T3V5eXZ3YnBSaUVUeXRyVGxJSERudi9QZFFEL3VS?=
- =?utf-8?B?Zk5qV2U5MVR4MlJXNnJWTUM0dnRXTXJtalRQTkVqYytCbXBYTFpYZVpjUDZq?=
- =?utf-8?B?YVV0UVpFNHpTN0twR1hYcUtFMWhkY3UxYkdCZHpYcnN5OFhWbGZ4ek9HU2lS?=
- =?utf-8?B?SHR0S0R6N1JRMHBlcEpxNlhFdzBCMVZjUmVCTzA2VVQ3U1ZCSE5JS040Unk5?=
- =?utf-8?B?Unl1OGVCSU5GU3padnRBY0h3eUpnV3AwYnhMc2tNeWNlc2tMQitZZGdFU1lo?=
- =?utf-8?B?eTIrNlozN1BTU1ZzL0dhNGMwZlAxK2JwUFgwZGhtUHh3T2dCWXJBb3FPL1A1?=
- =?utf-8?B?aXhLSFBhK2ZMdFltYUYrZXVGUWo3UUlvNU1yK1krMkxCaUpXdFdxY093MHYv?=
- =?utf-8?B?OCsrVVNSQnQrOUlPWTVuU2M5TmxXUEZoWE1zNWxyaWxPVVh3RENKTEVCRjYx?=
- =?utf-8?B?ZXUxemp5TGtQa2tBd3dyTkFOQVlIZ09yeWY5UTdWT013WW5NNlFhdUw1M2pF?=
- =?utf-8?B?MjMvYVhPaTdKaTdwUDNJSGU5TXFGeGZHbHY2Z20vbThJME5nVmNVZ3RtNi9Y?=
- =?utf-8?B?dnN6MDVsTVhMYlk0R1JIZ1ZPZEZ4QXEzRE45cGlraHJMS09WbXRFTzNPaWhw?=
- =?utf-8?B?d1NRdXhEdHVyYVZjM1Z2MENpT0hjZFFGVXltYmwvSXY0ZXJjV3JGeUlRSGlM?=
- =?utf-8?B?ekwybGs4NzIwQkpHd09yaTYra0l1Ulo5S3B5azlMZllLRS9LSkRCSTdqOHR4?=
- =?utf-8?B?dHk5THM2VzVUZFV5QXJTY3NOZW1HNXNaZDVxZGNYamtOL2VLWTl1M2VqNjF6?=
- =?utf-8?B?Z1Vzc211N05KTDhjMUNDbUh5b1puZ2VMSU1oVXYzUjBuTGNHcFE1T1VZV1Ur?=
- =?utf-8?Q?JJMlwYH+Lq5JJv3y/w?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a35c6568-ee1f-460c-363f-08de74c95f92
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2026 23:55:37.5303
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GBVB506+7YFcNfWK34leqBFzgIfMf3DDIl6yJrLR2g5Mp6JuOhs5ggkP2AzSWXPn52NZIadUSbXB+JXSpkLZOg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8771
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_155539_954589_3D6A9714 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20260225_160705_078677_8A2BB1C7 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,53 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add flexcan2 overlay file, which enable flexcan2 node and disable micfil
-node.
+On Mon, 23 Feb 2026 17:45:29 +0000, Catalin Marinas wrote:
+> A couple of GCS fixes and a corresponding kselftest. The first fix
+> solves a kernel panic when LPA2 is present. The second ensures that the
+> shadow stack is not accessible after mprotect(PROT_NONE). The test is
+> fairly close to gcs_write_fault.c but performs a normal read from the
+> shadow stack before and after mprotect(PROT_NOTE).
+> 
+> v1 here:
+> 
+> [...]
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile                 |  4 ++++
- arch/arm64/boot/dts/freescale/imx8mp-evk-flexcan2.dtso | 15 +++++++++++++++
- 2 files changed, 19 insertions(+)
+Applied to arm64 (for-next/fixes), thanks!
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 700bab4d3e6001fe6cf460fcb09cfe57acc77e36..bd377191a68a6167d5f9a65184d19c789a4223ee 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -233,6 +233,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-pdk3.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-picoitx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-edm-g-wb.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk.dtb
-+
-+imx8mp-evk-flexcan2-dtbs += imx8mp-evk.dtb imx8mp-evk-flexcan2.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-flexcan2.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-mate.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-pro.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-flexcan2.dtso b/arch/arm64/boot/dts/freescale/imx8mp-evk-flexcan2.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..f7d2674c45f72353a20300300e98c8a1eba4a2a6
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-flexcan2.dtso
-@@ -0,0 +1,15 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&flexcan2 {
-+        status = "okay"; /* can2 pin conflict with pdm */
-+};
-+
-+&micfil {
-+        status = "disabled";
-+};
+[1/3] arm64: gcs: Do not set PTE_SHARED on GCS mappings if FEAT_LPA2 is enabled
+      https://git.kernel.org/arm64/c/8a85b3131225
+[2/3] arm64: gcs: Honour mprotect(PROT_NONE) on shadow stack mappings
+      https://git.kernel.org/arm64/c/47a8aad135ac
+[3/3] kselftest: arm64: Check access to GCS after mprotect(PROT_NONE)
+      https://git.kernel.org/arm64/c/9d1a7c4a457e
 
+Cheers,
 -- 
-2.43.0
+Will
 
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
