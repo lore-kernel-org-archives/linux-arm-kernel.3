@@ -4,78 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D18FC590F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 08:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A7FBFC590F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vFD6FKSmgk3jLQFpWqZllRzrzjFOnCiWATF9H9ooJ8g=; b=y4eEbuQc/8E4fYvrEsrtmE4WGm
-	mwQ5gW/u8kjvLzQpJ6yRiIFFVVhBhArRg5DRHeLRErwu48ZPkleo83g36iemBRY7TbBNCPfuhwBsD
-	RvdyBQiysFTqsumelTjD9VXPt/teRA44zhoIG/STXyDzozf9el9PCYH1BONRFj7KVvFI+NAOM5X0h
-	w5towM2rXV1H0uSJ3GERUjdSw91U58GIWZo7EjKE/vEmNNeRbtUuap5Q5dLGyYr4PCb7erZX9/+Fq
-	s8zmjXI7FvRjV6exBY0Zxk+YVQXmLPQpMUVBH2XqMJTAbDb8jxzuYNDumvfg4bUQ9oL4nO64Wf5QC
-	LHPuxQbw==;
+	bh=ZK7GuAAqTeAFUKvzeWscf/j5ZdNK8bmY8WqQW6p8a+M=; b=wIyeda7OY8pNM02Fhjsj7AioOp
+	pc32DmkmDHvMDZGYhRY+bl4vpbj04leZ9gwZv2bhJ3qiiOa1viAlQAaXGfdCbzk8N/VBbSAaUZ8af
+	EDK4yMM8q1q7HwhMeA48Ys/vyKK8O9NW3YlJUG7AB96sUqREGRg4Yr9sSHXDfIC7LyeM57GBkMxbc
+	Kz/J/dU4nmRRiRJWHh0JLuzckLfDB+fq6mbdzHFAWuedEQiIMqJDyuB4GR3PpseZ+4UIZFcO/LJ3Y
+	770/5/vlTdeFM4iBjlC52pP2dlc0b9Bfo+ku5Ey3My8cP5s1ppDztjAmF6b+lzRCuqYYquABZeLvF
+	ZULgbb2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXAi-00000005j84-20fj;
-	Thu, 26 Feb 2026 08:56:37 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vvXTs-00000005lQ4-3G0v;
+	Thu, 26 Feb 2026 09:16:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXAJ-00000005ivj-0e5Y;
-	Thu, 26 Feb 2026 08:56:16 +0000
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1772096165;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vFD6FKSmgk3jLQFpWqZllRzrzjFOnCiWATF9H9ooJ8g=;
-	b=Y5sK6CyDltzCGResbfII+m4kdyN3/pmxSBPf87QKtZx1DfZvXipLFtg/9PMs1x1a4lXFR6
-	wSTpJ6NPLRnDeHn79b+3drDU60sckXxfxePZFOIFqe5vAe9Sr3EB00kUkLJSESjNlOV9V3
-	bNAze6/52NmeWaXU08IMgIPa7zrWK+EIkZ4oK+9BQ4+eyS6qSpPya18k/TsjYF+IJz+4EN
-	DvJgVkWsb1/L+nxJ26W4ifVzwZnhl1A5WcJr0C/Rb1bHDVviPB1plMg7zVLXX8je9nCBWx
-	D+rv3Ai81sQzQznNoBJAZFKaGmxK5ptoS32PlaEi9eKCo2A5y9U9udPUDIPYLg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1772096165;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vFD6FKSmgk3jLQFpWqZllRzrzjFOnCiWATF9H9ooJ8g=;
-	b=/Mz9Lnc0sCftKzGloyOpSG1+oN1m66fgeI2Ich334+pRFU28RpcGZ5YjGBMqGc4/zNFBZ/
-	D9XCMm1cm0baSMAw==
-Date: Thu, 26 Feb 2026 09:55:58 +0100
-Subject: [PATCH 5/6] arm64: dts: broadcom: bcm2712-d-rpi-5-b: add fixes for
- pinctrl/pinctrl_aon
+	id 1vvXTq-00000005lPf-32kM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Feb 2026 09:16:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 21AFC435D5;
+	Thu, 26 Feb 2026 09:16:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91E4EC19422;
+	Thu, 26 Feb 2026 09:16:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772097382;
+	bh=nZMeXtLYBh7TJKq7Ck8aDf4p9y7RsAexWkF99lM2Idw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J3ttUbkVhXpynQScfHKW5DcwLVq8hhpuQDZVL9JDTD5JAz1Urv+iS2KEhPUnQv8Pz
+	 YESrx40sjABhKE8SSCpsscTfqvInuobfKAkUeWL7cMPEpNGBbO5yTQMfoSRzOTH8wg
+	 u56hbSowGe4EFJkk4cPYSN937vCqvf13QkrQRcZBwe1IR8kaWPFjeBh+OuSjCxuYjl
+	 WGPBj8CV/RAyZVuXJJVBQ46BDUqB7l9tq9w+1R6gynH2gsNukyDe6uEH9uQzChnFQY
+	 JAwHgmSvcymcjT+CaXRpf9+XP4InDjJkscw/t4O47C3XfF5isc+pHafadi0qPkaIOH
+	 wk8sGPYZV8CZg==
+Message-ID: <8147500f-7f7b-45ed-9325-36ded95c8e0e@kernel.org>
+Date: Thu, 26 Feb 2026 10:16:17 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: vendor-prefixes: Add Beijing UQ
+ Interactive Co.,Ltd.
+To: Jun Yan <jerrysteve1101@gmail.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+ mripard@kernel.org
+References: <20260226084850.417731-1-jerrysteve1101@gmail.com>
+ <20260226084850.417731-2-jerrysteve1101@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260226084850.417731-2-jerrysteve1101@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-raspi-dts-updates-v1-5-60832d20ff04@linutronix.de>
-References: <20260226-raspi-dts-updates-v1-0-60832d20ff04@linutronix.de>
-In-Reply-To: <20260226-raspi-dts-updates-v1-0-60832d20ff04@linutronix.de>
-To: Andrea della Porta <andrea.porta@suse.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Gregor Herburger <gregor.herburger@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772096163; l=1063;
- i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=w3z827DNeO0A917F14eA+A+AUaCDldw+7e7KliQFsKM=;
- b=qWeapWZ/I1Z4vsMJd65W9yTlQAgBPuvKuGZnHBfFz2MKiggvyIj15aHLlWGYdJ3HPJwaHSUgI
- o0hmhsP2MgMCPXahw3KEHaDtjsnDo/TdOx1WD4xfpvy70S1ZPwEQ0Hc
-X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
- pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_005611_342938_A4C69359 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260226_011622_842337_517A7596 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,38 +120,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the -d revision of the bcm2712 the pinctrl differs from the c0
-revision. The driver already supports both and distinguishes the two
-with the compatible string.
+On 26/02/2026 09:48, Jun Yan wrote:
+> Beijing UQ Interactive is a company focused on mobile game development,
+> global publishing, and blockchain-based cloud terminal services.
 
-Update the compatible string and reg length to reflect the different
-pinctrl.
+And the domain or US stock ticker is?
 
-Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
----
- arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+> 
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> index ee7fd3cfe203..2bc2ed60613f 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -1737,6 +1737,8 @@ patternProperties:
+>      description: United Western Technologies Corp (UniWest)
+>    "^upisemi,.*":
+>      description: uPI Semiconductor Corp.
+> +  "^uqsoft,.*":
+> +    description: Beijing UQ Interactive Co.,Ltd.
+>    "^urt,.*":
+>      description: United Radiant Technology Corporation
+>    "^usi,.*":
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-index 7de24d60bcd1a7273ecc4eb814694183bb41c624..cbfc82d884c8268624682e9a49bda1feae34cbed 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-@@ -35,3 +35,13 @@ &gio_aon {
- 		"PMIC_SCL", // AON_SGPIO_04
- 		"PMIC_SDA"; // AON_SGPIO_05
- };
-+
-+&pinctrl {
-+	compatible = "brcm,bcm2712d0-pinctrl";
-+	reg = <0x7d504100 0x20>;
-+};
-+
-+&pinctrl_aon {
-+	compatible = "brcm,bcm2712d0-aon-pinctrl";
-+	reg = <0x7d510700 0x1c>;
-+};
 
--- 
-2.47.3
-
+Best regards,
+Krzysztof
 
