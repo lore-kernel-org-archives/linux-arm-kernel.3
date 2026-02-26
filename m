@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F485FCE08D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:19:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51918FCE091
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ka3X6v8N3wSCD0Xt04xk75f/nGDT5rc6QHUorCyrvKg=; b=CrFv7TNQm9EXK3p4YpkoVEM/aM
-	lQvuSXTtBFlv/MLwNt0wsTTPR3T+1es6bTPLHFpRUqJuy0VC9ICkKGyd3giws0k3BXepV26OSAR6Z
-	T8Hq6hBi/AVWIXyC+FYOBFDwjP7+fN/i05S9/8LsAP96etfgEFxKnBegN5CKBqAc8sdv/8gj5e3qI
-	azRxhPxJPwnoa3cQJ2tEeTNAX/+vWfv8+uGcbsR5jowaABSrtxM1ufFW5TCM13GjnDJbVB+TIJRf8
-	M44GEfpKFfPReXorsOUCq7dnmtOnUiuF+rHTwt5tLsRcFwRdPfy/BDh5gVdQgHjTDAEqaSCVMV9/d
-	2OooxsAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uA5Zk/FAFPoXM9HYbQGs/07GbIQjoWnoGZNlTmfaEUw=; b=p0luH52g9J22BA
+	jUGufTRSa+Mun8+xJXomQINO2jy73pYZA8wpIt+imdaqMg5mkGQ1F0Oj6/P7xmbBzZxdTlUVV60gD
+	Ik45qG3jQKx5J9dbCVA49Fzoqs5ZM+5xaHwkQU+0dI9nGuSzNsqRWW7dYpKmMPiPb2SOkTis/enZ2
+	xzGA+DtpPlKsNAt0kTeAGiCz5Udw7HPnbKhoItJITSkSbDM/Vn8O2ToTs8T7ab4y7sFYoPHnb1R7a
+	e0V3v1r02JPqWe1Gjr0+bDzi3yCyhAgB71Nc6KqygEH+0E9XvUDnOD+BqWdkbvgtuLCOtpm9MOm10
+	M17GJXDKy+VcIj1gsP9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcCs-00000006J6V-38qL;
-	Thu, 26 Feb 2026 14:19:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcCi-00000006Ivn-1OWO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 14:19:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CA28497;
-	Thu, 26 Feb 2026 06:18:53 -0800 (PST)
-Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 672C43F73B;
-	Thu, 26 Feb 2026 06:18:57 -0800 (PST)
-From: Philip Radford <philip.radford@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org,
-	d-gole@ti.com,
-	souvik.chakravarty@arm.com,
-	Philip Radford <philip.radford@arm.com>
-Subject: [PATCH v3 6/9] firmware: arm_scmi: Extend powercap report to include MAI
-Date: Thu, 26 Feb 2026 14:18:27 +0000
-Message-ID: <20260226141830.3400924-7-philip.radford@arm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260226141830.3400924-1-philip.radford@arm.com>
-References: <20260226141830.3400924-1-philip.radford@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1vvcLK-00000006LWy-0Xbx;
+	Thu, 26 Feb 2026 14:27:54 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvcLI-00000006LWa-04SQ;
+	Thu, 26 Feb 2026 14:27:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
+	:Date:subject:date:message-id:reply-to;
+	bh=uA5Zk/FAFPoXM9HYbQGs/07GbIQjoWnoGZNlTmfaEUw=; b=ezQqxS/GvAZg6tPm+7TafBbDIA
+	pl4J89bFjjbp5ASbnepvf3lTkfXt8GqigtkK4gKRRizwff3F/bLZbBjwST4xBQHZIau3R0rs2GfaB
+	IKg2vTguXgq668x6g3qQPAg3uGb3Ko7/WP9RJSynJu/dTPSkliFirSoj37TiK9sL6EY0=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:33022 helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.92)
+	(envelope-from <hugo@hugovil.com>)
+	id 1vvcKx-00089B-NR; Thu, 26 Feb 2026 09:27:32 -0500
+Date: Thu, 26 Feb 2026 09:27:30 -0500
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: robin@protonic.nl, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com,
+ mkorpershoek@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, lee@kernel.org,
+ alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Message-Id: <20260226092730.3dd39a4e55e8756e2fbbe927@hugovil.com>
+In-Reply-To: <CAMuHMdVd0Ds5vHQa+MG2E+E36qAu5HQE3b+Vzpbv84MM=2DFWw@mail.gmail.com>
+References: <20260225155409.612478-1-hugo@hugovil.com>
+	<CAMuHMdVd0Ds5vHQa+MG2E+E36qAu5HQE3b+Vzpbv84MM=2DFWw@mail.gmail.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 70.80.174.168
+X-SA-Exim-Mail-From: hugo@hugovil.com
+Subject: Re: [PATCH v3 0/4] input: add GPIO-based charlieplex keypad
+X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
+X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_061901_624658_E25681A1 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260226_062752_143386_D4429F5B 
+X-CRM114-Status: GOOD (  27.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,86 +77,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend scmi_powercap_meas_changed_report to include MAI change
-notifications.
+Hi Geert,
 
-Signed-off-by: Philip Radford <philip.radford@arm.com>
----
- drivers/firmware/arm_scmi/powercap.c | 20 ++++++++++++--------
- include/linux/scmi_protocol.h        |  1 +
- 2 files changed, 13 insertions(+), 8 deletions(-)
+On Thu, 26 Feb 2026 10:20:33 +0100
+Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 
-diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
-index 67331d9d4ced..daa7c6d5d485 100644
---- a/drivers/firmware/arm_scmi/powercap.c
-+++ b/drivers/firmware/arm_scmi/powercap.c
-@@ -11,6 +11,7 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/scmi_protocol.h>
-+#include <linux/stddef.h>
- 
- #include <trace/events/scmi.h>
- 
-@@ -164,6 +165,7 @@ struct scmi_powercap_meas_changed_notify_payld {
- 	__le32 agent_id;
- 	__le32 domain_id;
- 	__le32 power;
-+	__le32 mai;
- };
- 
- struct scmi_msg_powercap_cpc {
-@@ -1204,13 +1206,6 @@ static int scmi_powercap_notify(const struct scmi_protocol_handle *ph,
- 		if (ret)
- 			return ret;
- 
--		if (enable && !low && !high) {
--			dev_err(ph->dev,
--				"Invalid Measurements Notify thresholds: %u/%u\n",
--				low, high);
--			return -EINVAL;
--		}
--
- 		ret = ph->xops->xfer_get_init(ph, message_id,
- 					      sizeof(*notify), 0, &t);
- 		if (ret)
-@@ -1325,14 +1320,23 @@ scmi_powercap_fill_custom_report(const struct scmi_protocol_handle *ph,
- 	{
- 		const struct scmi_powercap_meas_changed_notify_payld *p = payld;
- 		struct scmi_powercap_meas_changed_report *r = report;
-+		const size_t sz_v2 = offsetofend(struct scmi_powercap_meas_changed_notify_payld,
-+						 power);
-+		const size_t sz_v3 = sizeof(*p);
- 
--		if (sizeof(*p) != payld_sz)
-+		if (payld_sz != sz_v2 && payld_sz != sz_v3)
- 			break;
- 
- 		r->timestamp = timestamp;
- 		r->agent_id = le32_to_cpu(p->agent_id);
- 		r->domain_id = le32_to_cpu(p->domain_id);
- 		r->power = le32_to_cpu(p->power);
-+
-+		if (payld_sz == sz_v3 && PROTOCOL_REV_MAJOR(ph->version) >= 0x3)
-+			r->mai = le32_to_cpu(p->mai);
-+		else
-+			r->mai = 0;
-+
- 		*src_id = r->domain_id;
- 		rep = r;
- 		break;
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 299fa8499b3f..d0f6c0102559 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -1134,5 +1134,6 @@ struct scmi_powercap_meas_changed_report {
- 	unsigned int	agent_id;
- 	unsigned int	domain_id;
- 	unsigned int	power;
-+	unsigned int	mai;
- };
- #endif /* _LINUX_SCMI_PROTOCOL_H */
+> Hi Hugo,
+> 
+> Thanks for your series!
+> 
+> On Wed, 25 Feb 2026 at 16:54, Hugo Villeneuve <hugo@hugovil.com> wrote:
+> > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> >
+> > Hello,
+> > this patch series add a new GPIO charlieplex keypad driver.
+> >
+> > The first two patches simply commonize two properties that are present in
+> > a few bindings, so that the actual patches for the charlieplex keypad driver
+> > can reuse them instead of also redefining them.
+> >
+> > I have tested the driver on a custom board with a Solidrun RZ/G2LC SOM
+> > with three charlieplex keyboards, all connected thru a single PCA9416 I2C GPIO
+> 
+> PCA9416? The closest I could find is TCA9416, which is something
+> different.
+
+Its a typo, it is PCA6416, thanks for catching that!
+
+Hugo.
+
+
+> 
+> > expander.
+> >
+> > Link: [v1] https://lore.kernel.org/all/20260203155023.536103-1-hugo@hugovil.com/
+> > Link: [v2] https://lore.kernel.org/all/20260213171431.2228814-1-hugo@hugovil.com/
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> -- 
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
+> 
+
+
 -- 
-2.47.3
-
+Hugo Villeneuve
 
