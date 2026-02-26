@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E67FC592C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEB7FC592F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DgV+mvUm8IpJAe3V6psRYsqd1U0j6hMyB1pSTvra9qo=; b=gF3Qff65aeD+HD65ga5hY0ugZr
-	V9Rh8e4x7ZcMdDiRR2jVrrKc1qlRQKQtM3Bn4mCFiyiosIuf6gci3vpglwgmb+ZlvVPEWajJ8zHMa
-	574LPnmOmY3u2QW2vrsvCSRg5tyf/+SY1EjIItqm7zBGJTVkvoRIYDYLCgmp6uIUKolmxuy+io+M6
-	ixCoaOPIzcIJ5ym3z6pnXw/u7G1THi4pbrXpLn13mSSxFbRmRLZF3zTkieiwflhkJAoNtYdM2f0DE
-	GVuvfeGF7+BbYLbNBZaOjCj5dWEZTXXiJG2+Hok+PIZoeh+XzdLeTPoFbw2mRC7BouOtDtfl5bTZO
-	vKphXdcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BZoG2+nssJfvfR/Kr7cZfRfAHIF/UEVtluNJU+Zz8fg=; b=h1hFtaFh5gN7ZBIJgMAzMIGApH
+	wTYWZ0m94QwOVkqo2mKvYtbTjPYYrvwdXUFlWW8bK4lBXGuyyTa5/JYK2VM+b/wP0mNMAstIqWefZ
+	9mPClbnGKGDlhijXrn2TeTGD//3TmkuhgeHSsxmOXoavICveMhe6vYpilHTTg7VB94g+Y/GYpZqPL
+	6arYY/yJf4sESmudoj7968PYYOl6EaVngjUMGwnWbte21wGzn8dPmekJbUcReFfa8j04+wFsVVg40
+	FhxQMi4P0Q5FSiSprcht6lCp5OEBCwos0IWRS19EglEY3uTbTztraPn7Eq5w+5R8p/UXaTTkkrfOB
+	MbVA3jSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYVf-00000005tcb-0U2Y;
-	Thu, 26 Feb 2026 10:22:19 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1vvZUY-000000062fS-0dTf;
+	Thu, 26 Feb 2026 11:25:14 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYVc-00000005tMJ-2Qxh;
-	Thu, 26 Feb 2026 10:22:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1772101267;
-	bh=DgV+mvUm8IpJAe3V6psRYsqd1U0j6hMyB1pSTvra9qo=;
-	h=From:To:Subject:Date:Message-Id;
-	b=p2qigWXHVToOrq5yAWU+jXL34ZD65EnL2BCJW/55cIqspm8WvKStsWBIODNBnPZ68
-	 NGQTbgxTysX0VW3bvGNBN86OWpVku9QMaCi5jUqt8V2ci3MmRGmPqRfuVqNGXNfygG
-	 ub+ftJOlve56kJdQPPBeOHVaqWHPX0jvCduBYvWY=
-X-QQ-mid: zesmtpsz3t1772101259tc37fa72a
-X-QQ-Originating-IP: XUt32+iXhT/CTaIUR8BrzXoFV26VlyMPKSo76kiWS8o=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 26 Feb 2026 18:20:56 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16148220032706749095
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Alexey Charkov <alchark@gmail.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Fix sdmmc pwren pinctrl for rk3576-evb2
-Date: Thu, 26 Feb 2026 18:20:52 +0800
-Message-Id: <20260226102052.63-1-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MxdW4jxL6NvXtbscdy2cNxr11uxIvhz3KVTIttkwLxU6wTFpLvIv6Xyj
-	W6wBSW5kwjjJ01piLqQ9N0MMVyKo3PN+Rz+jwjFfDCyjNg+EABTLRE3AnKLguCeFkwTVtWO
-	O8yxKE5Uu3nEoMdJSPgX5+7X0iy8ZlpKdyA6W8fNb26lLHEtR4NvqZfBqPzeEquRCRjtW6X
-	ga7QjruX1S7/60jTVf4ruJxAtA+v4WSERt79tW11rB54+qji2Q3GpL/oukJt79Rq6CEZL3m
-	UiipNEY87ejrGpnmVyO3qTZRp8r+4RxCHMFs6Q7FmCksmowgZch3pGc4c6XBeKNUZirk6RP
-	h2xqcdlSQjhxxQ4RtrHaCG1Wj+cPeMjtPqyDmgX4HhCGG+Cuja77wrd6RkRuEiRDogX6lpb
-	62YP41CU4QQAR87knathLMnbR1v9SS15RfIZnfSXHSSPyq+vWs0YPhU9u3JcVQLRsPUn76Q
-	siaF8pk89flJoIuZFDURLSHalHt+wC7QMpbDp54USPbR9ZhPtA+8jSAxQHmFVC09K3M0pYQ
-	a4lMoBWdd+zPu082NglpM3HpU5+B2vqeTDSZp7eZGNNyTZQo3T9CEWkzqrx6A7FGs9JoRTe
-	Ynn+zGA9v1HTHkn1mgOIEYTE9WiLNJy8JWsvJEZWMYKvI6b6mozeNO5IpDfy2/Mcag6rYiv
-	ziSxq07WDSfNz0Xaxk3piGBCb/CqKyI8E/tKWlkFOboGf3TCUJrVvIOlW46Ew7QnZLQYJp9
-	BcdJjkPvrnimfwu5v/wgVoT6wPdPUaFUpw6+7lJly7BRj6y8FPDVhnDkxR7HB8px0ackaxO
-	K6qZNa6tVqd0vbACYZOIxxMqzt1O7yZEmSfzRB1LloUKFAjFdualZxsX/uh1zsMROaherTH
-	7AOsDfgnqCjmG7ZvvQiu2hD4Z/rN4bax9SCgUdVxD2TH15cIaCQJ985rRymMwxwQFPLWBGs
-	zguzUujTdVIjxwOwsrlvd6ipnIiGkiy8it8delPd9lwOoZUaDPH2QaEW4xy8v+Lvro4+VGV
-	VyL8H8QQ==
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-X-QQ-RECHKSPAM: 0
+	id 1vvZUU-000000062ep-3snY;
+	Thu, 26 Feb 2026 11:25:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=BZoG2+nssJfvfR/Kr7cZfRfAHIF/UEVtluNJU+Zz8fg=; b=b
+	vSGtS0ASdA9brQSlySE6g7fNuV3OEfXPIt5YanYIejtVdOLLu4AVTAxok7wEGM89
+	yiVlepkf94c4FcSfz621kJn3eVV6txDFd8aFsSh3+UgPf89GBj2ag8azfyU7FWfV
+	tvP2cxwWyp6Gu78zN8Qnuv+pQU9RXmBFcsqfpfzJv4=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-146 (Coremail) ; Thu, 26 Feb 2026 19:24:48 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Thu, 26 Feb 2026 19:24:48 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Chaoyi Chen" <kernel@airkyi.com>
+Cc: "Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Heiko Stuebner" <heiko@sntech.de>,
+	"Alexey Charkov" <alchark@gmail.com>,
+	"Shawn Lin" <shawn.lin@rock-chips.com>,
+	"Chaoyi Chen" <chaoyi.chen@rock-chips.com>,
+	"Andy Yan" <andy.yan@rock-chips.com>,
+	"Sebastian Reichel" <sebastian.reichel@collabora.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re:[PATCH] arm64: dts: rockchip: Fix sdmmc pwren pinctrl for
+ rk3576-evb2
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20251222(83accb85) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <20260226102052.63-1-kernel@airkyi.com>
+References: <20260226102052.63-1-kernel@airkyi.com>
+X-CM-CTRLMSGS: JZu7TnBsdXM9MTc3MjEwNTA4NzEwN18xNjg5ZmU5ZjAwMDRiZWY5NTU2Y2MyM
+ DQ3YmQ2OWE1Yw==
+X-NTES-SC: AL_Qu2cAP2bukgj7iGfZ+kfmUgWjuw/WsG1v/Ul1YBSP556jCzr9zsff3pGG3Dp4sKQJjGPnz6sShppxtxDcKp/T5wNjDi5I4wrNCjoHzy/mNnPfQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
+MIME-Version: 1.0
+Message-ID: <71bf3205.7a33.19c99b1bcb7.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: kigvCgBHn2mALaBp8zFtAA--.12630W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbC7QDtTGmgLYDFEQAA38
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_022217_025455_79FD82DC 
-X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-CacheID: sfid-20260226_032511_320500_AEF06987 
+X-CRM114-Status: UNSURE (   6.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,34 +86,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-
-In rk3576.dtsi, sdmmc0_pwren is configured as part of the sdmmc pinctrl.
-However, on the rk3576 evb2 board, sdmmc0_pwren is used as the regulator
-for vmmc-supply. Therefore, we need to reassign the sdmmc pinctrl and
-remove sdmmc0_pwren to avoid conflicts.
-
-Cc: Shawn Lin <shawn.lin@rock-chips.com>
-Fixes: 86a82f7a7eed ("arm64: dts: rockchip: Add rk3576 evb2 board")
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
----
- arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
-index 6bdc232ab267..98d5d00d63b5 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
-@@ -951,6 +951,8 @@ &sdmmc {
- 	disable-wp;
- 	no-sdio;
- 	no-mmc;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc0_clk &sdmmc0_cmd &sdmmc0_det &sdmmc0_bus4>;
- 	sd-uhs-sdr104;
- 	vmmc-supply = <&vcc3v3_sd>;
- 	vqmmc-supply = <&vccio_sd_s0>;
--- 
-2.51.1
-
+CkhlbGxv77yMCgpBdCAyMDI2LTAyLTI2IDE4OjIwOjUyLCAiQ2hhb3lpIENoZW4iIDxrZXJuZWxA
+YWlya3lpLmNvbT4gd3JvdGU6Cj5Gcm9tOiBDaGFveWkgQ2hlbiA8Y2hhb3lpLmNoZW5Acm9jay1j
+aGlwcy5jb20+Cj4KPkluIHJrMzU3Ni5kdHNpLCBzZG1tYzBfcHdyZW4gaXMgY29uZmlndXJlZCBh
+cyBwYXJ0IG9mIHRoZSBzZG1tYyBwaW5jdHJsLgo+SG93ZXZlciwgb24gdGhlIHJrMzU3NiBldmIy
+IGJvYXJkLCBzZG1tYzBfcHdyZW4gaXMgdXNlZCBhcyB0aGUgcmVndWxhdG9yCj5mb3Igdm1tYy1z
+dXBwbHkuIFRoZXJlZm9yZSwgd2UgbmVlZCB0byByZWFzc2lnbiB0aGUgc2RtbWMgcGluY3RybCBh
+bmQKPnJlbW92ZSBzZG1tYzBfcHdyZW4gdG8gYXZvaWQgY29uZmxpY3RzLgo+Cj5DYzogU2hhd24g
+TGluIDxzaGF3bi5saW5Acm9jay1jaGlwcy5jb20+Cj5GaXhlczogODZhODJmN2E3ZWVkICgiYXJt
+NjQ6IGR0czogcm9ja2NoaXA6IEFkZCByazM1NzYgZXZiMiBib2FyZCIpCj5TaWduZWQtb2ZmLWJ5
+OiBDaGFveWkgQ2hlbiA8Y2hhb3lpLmNoZW5Acm9jay1jaGlwcy5jb20+CiAgIFRlc3RlZC1iee+8
+miBBbmR5IFlhbiA8YW5keS55YW5AMTYzLmNvbT4KCgo+LS0tCj4gYXJjaC9hcm02NC9ib290L2R0
+cy9yb2NrY2hpcC9yazM1NzYtZXZiMi12MTAuZHRzIHwgMiArKwo+IDEgZmlsZSBjaGFuZ2VkLCAy
+IGluc2VydGlvbnMoKykKPgo+ZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvcm9ja2No
+aXAvcmszNTc2LWV2YjItdjEwLmR0cyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvcm9ja2NoaXAvcmsz
+NTc2LWV2YjItdjEwLmR0cwo+aW5kZXggNmJkYzIzMmFiMjY3Li45OGQ1ZDAwZDYzYjUgMTAwNjQ0
+Cj4tLS0gYS9hcmNoL2FybTY0L2Jvb3QvZHRzL3JvY2tjaGlwL3JrMzU3Ni1ldmIyLXYxMC5kdHMK
+PisrKyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvcm9ja2NoaXAvcmszNTc2LWV2YjItdjEwLmR0cwo+
+QEAgLTk1MSw2ICs5NTEsOCBAQCAmc2RtbWMgewo+IAlkaXNhYmxlLXdwOwo+IAluby1zZGlvOwo+
+IAluby1tbWM7Cj4rCXBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7Cj4rCXBpbmN0cmwtMCA9IDwm
+c2RtbWMwX2NsayAmc2RtbWMwX2NtZCAmc2RtbWMwX2RldCAmc2RtbWMwX2J1czQ+Owo+IAlzZC11
+aHMtc2RyMTA0Owo+IAl2bW1jLXN1cHBseSA9IDwmdmNjM3YzX3NkPjsKPiAJdnFtbWMtc3VwcGx5
+ID0gPCZ2Y2Npb19zZF9zMD47Cj4tLSAKPjIuNTEuMQo+Cj4KPl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCj5MaW51eC1yb2NrY2hpcCBtYWlsaW5nIGxpc3QK
+PkxpbnV4LXJvY2tjaGlwQGxpc3RzLmluZnJhZGVhZC5vcmcKPmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcm9ja2NoaXAK
 
