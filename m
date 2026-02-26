@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75157FD8FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 15:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A42F4FD8FC3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 15:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sppcnqILA2tjvw6TKSRMqAQpcumxQwdnuBhqn1AdTqk=; b=mzNLH3lfjjqcyG2dAVdfFpEsA3
-	jQAxC9q9RV3AfAn6mf+WNH5duTTPYT388HE5SuHQpERgpM//eK1O2x1n5PA20pBb/MM61fSeIPFFI
-	BICB8I4mwtySsxG4jlGSxJUPEUhGCfQbmJNFg5G4hjmvHfhaKOE5ScuWWGPCtyWG0ZudLaBFmp2SH
-	bBufYgFfV5zb/opeToe8oNhrcUwoLlUS05U5UTV/pinvow0gNAZdE/HID3YnA4xiHEprd/9MHBEjY
-	XPy9e39QT0flPe9329938gQla6bV3GqND4fgjqgL5C+y1lwPIgawIK9M+JJppYyGS2ux1jXgAt1Hl
-	T9ixggNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NCIRf1ej7xUKzBRlJLjQ8Sjik/6dl4x9fAbbK5aCa0Y=; b=Ucm4PlLdqS3stLoTtE4b2H1Ltk
+	wBzX2zBAmCGapoVJGo2QJZefb9yyTp7GOaKa4uUJZJJZzZogBmh1WlcKWnxEz520F+PZyIqwR+Et1
+	Hzz5kYMpjMxn5lEFdzYehKILYLBkp2/6eRad5IwudYDN+ZKcpmKe0oFzgCgf58vJhpOvBPLS1ZQlx
+	/pkSAMaxLHi6QdpDxiC1Z+b0NzEwA3Z1H/30xnVzm01J+SQAdsh8mxSQVU/fYgC31z5npFERhvdOq
+	JYaHlHPkNYFFSg3DBya65HmM9CPLJmYS4XylL9RAa9U8wehT/Jx/KKJS1CnXBEnY/gOaEIuXETYaH
+	o09mwRNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcwi-00000006PIQ-2G19;
-	Thu, 26 Feb 2026 15:06:32 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vvczm-00000006PXj-0dWJ;
+	Thu, 26 Feb 2026 15:09:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcwf-00000006PH9-37qS
+	id 1vvczl-00000006PXW-2heP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 15:06:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=sppcnqILA2tjvw6TKSRMqAQpcumxQwdnuBhqn1AdTqk=; b=mBBMvm05wtdNdy58rWBB4+xVTp
-	ZvoqQB3Hi3d4Bx2ndMvT3t/UfsnipUVE6GN//goqK3BM+evLJaox/FIoxeIyk/NKtUt+F7sEjPH78
-	1R9vHqc8kMAyWgZvrBhSwic3F6kIqW7neOJNy7XOSsaRyMpDdE35XOc+zcn7pcEYRArg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vvcwN-008tqe-2N; Thu, 26 Feb 2026 16:06:11 +0100
-Date: Thu, 26 Feb 2026 16:06:11 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "P.K. Lee" <pkleequanta@gmail.com>
-Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Jason-Hsu@quantatw.com, p.k.lee@quantatw.com
-Subject: Re: [PATCH v12 2/2] arm: dts: aspeed: ventura: add Meta Ventura BMC
-Message-ID: <258747f4-9da5-44da-8eb9-24f8a8cbff3a@lunn.ch>
-References: <20260226055521.1655243-1-pkleequanta@gmail.com>
- <20260226055521.1655243-3-pkleequanta@gmail.com>
+	Thu, 26 Feb 2026 15:09:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 18A7F600AE;
+	Thu, 26 Feb 2026 15:09:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40214C116C6;
+	Thu, 26 Feb 2026 15:09:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772118580;
+	bh=v1ACgIlRD8KvR06CUuh6zGTqQBP7zb+Wqfw6At6WSBo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AglWGKwcJ0FyHd064/As67R7WsRFpIWJ/hOM/h3i3hudcQarvs+8jM8v4eQyN6bNA
+	 wTwmgC73q8i0l2dTa+/mPKL12W3JdF/YJATT3eFlCB07VUol8p6eWl0jOuPUQPNC9n
+	 C00dAOLqLd8szk+9nUgX3ZpMqhVzh9pu9fntLfhvNM9RfkXeKCrNyRwfWYqYR36hB6
+	 pRuiFWWEUdDuj+rHGAWEN7f9Y1MzlRkzmsL7bifxkFrmZ0le405C39BtFSHaGd/Wd3
+	 tewIaOspx5ATMxEjNkpcMZnTJNbGjQCUfU7UwRO5xteYOK3weei5SwT6Rkc7nnsLSm
+	 2azybZVK/yCbg==
+From: Thierry Reding <thierry.reding@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Jon Hunter <jonathanh@nvidia.com>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/2] soc/tegra: Add Tegra238 Kconfig symbol
+Date: Thu, 26 Feb 2026 16:09:32 +0100
+Message-ID: <20260226150933.4067324-1-thierry.reding@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260226055521.1655243-3-pkleequanta@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_070629_780727_7DF72D9A 
-X-CRM114-Status: UNSURE (   6.77  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,25 +67,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&mac3 {
-> +	status = "okay";
-> +	phy-mode = "rmii";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_rmii4_default>;
-> +	fixed-link {
-> +		speed = <100>;
-> +		full-duplex;
-> +	};
+From: Thierry Reding <treding@nvidia.com>
 
-What is on the other end of this fixed link?
+The NVIDIA Tegra238 SoC is an upcoming new chip. Add a Kconfig symbol to
+allow fine-grained selection of support code for this chip.
 
-> +};
-> +
-> +&mdio0 {
-> +	status = "okay";
-> +};
+Signed-off-by: Thierry Reding <treding@nvidia.com>
+---
+ drivers/soc/tegra/Kconfig | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-If there are no devices on the bus, why enable it?
+diff --git a/drivers/soc/tegra/Kconfig b/drivers/soc/tegra/Kconfig
+index c0fc54c3cd35..0a84bfd5c657 100644
+--- a/drivers/soc/tegra/Kconfig
++++ b/drivers/soc/tegra/Kconfig
+@@ -125,6 +125,15 @@ config ARCH_TEGRA_234_SOC
+ 	help
+ 	  Enable support for the NVIDIA Tegra234 SoC.
+ 
++config ARCH_TEGRA_238_SOC
++	bool "NVIDIA Tegra238 SoC"
++	default ARCH_TEGRA
++	depends on !CPU_BIG_ENDIAN
++	select MAILBOX
++	select SOC_TEGRA_PMC
++	help
++	  Enable support for the NVIDIA Tegra238 SoC.
++
+ config ARCH_TEGRA_241_SOC
+ 	bool "NVIDIA Tegra241 SoC"
+ 	help
+-- 
+2.52.0
 
-   Andrew
 
