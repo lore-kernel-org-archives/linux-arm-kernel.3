@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 260C8FCE083
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 13:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 781E9FCE084
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 13:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgBbIdaTGnXc546EnEq4HV/UegGMBBN52V6Fn0uOb38=; b=CvXmWLPWZiSaRXIVryGCPIyOgU
-	3IZJA/RYWKT+ka8FiL3fLzqhQEj6v5G21n+x6l1exVlSiKrSQZKpkBiGkYTWW3CxkxFsoIqWgMBxb
-	lTdVbkrN4wFLBejaDNh+e3y0ecoxMxWUTAIzpI9QRwICE/Sroz/QJx0T5vj46wrjbzltA/gEjcy9H
-	n3/qldIDqQkA5hzjud/5yMIdTbsQEWdULZ6Q5oV91qd89yKwdBw2uH8Vd8oMU9yMq6pYFmj+g67h8
-	LIRqGyF0w7vtIwv2cy1c+G7gP+PDQYTrhqIngEULaJG+hv/NktcQvcQmuXhKmao3wGywNd9wJKmAU
-	kvoCVHtA==;
+	bh=FI5WltZ83DEgui+4n81yX69QSqNUndvWQUVw7Ryzn6U=; b=TF6Z4GxwpNEnY8uF3SHk/gVchf
+	z8RlGABo1HuJcngszgMyX5tXMWO4R3sw5c01qVhAPuqWP3mrMi5iUWTaMxpZ1l7TSD6q6RibAqYT1
+	D1JJrk7Y/lNqBzYru4nB7AQNIyW/l6fWg/W+INA5MJrlMFuLMBQYaZRN9mR4F7/DBR4/EteocP7dt
+	HXO+Vuq3Ij9zlcfdF/N5EJa2s59QbN2pgz9p5uMXi8GYX4lkMWTHU40Q86jLHF2r5Kd073LTsrt+0
+	4LAykS9yiqXMQBnnWr5355VQji9iqi75RkYHH/nz1ho+ZGiGtuqKHF8/XinJCHffcpJAX0s8TgYCn
+	V/N2T6JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvbcF-00000006F2a-1It3;
-	Thu, 26 Feb 2026 13:41:19 +0000
+	id 1vvbcC-00000006EyE-276l;
+	Thu, 26 Feb 2026 13:41:16 +0000
 Received: from inva020.nxp.com ([92.121.34.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvbc4-00000006EqZ-157q
+	id 1vvbc0-00000006Eo0-481D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 13:41:10 +0000
+	Thu, 26 Feb 2026 13:41:08 +0000
 Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id CF3BA1A254A;
-	Thu, 26 Feb 2026 14:41:06 +0100 (CET)
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 87E2A1A2550;
+	Thu, 26 Feb 2026 14:41:03 +0100 (CET)
 Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id B7E371A253C;
-	Thu, 26 Feb 2026 14:41:06 +0100 (CET)
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 773541A2559;
+	Thu, 26 Feb 2026 14:41:03 +0100 (CET)
 Received: from lsv15149.swis.ro-buh01.nxp.com (lsv15149.swis.ro-buh01.nxp.com [10.162.246.145])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 0E9D92035B;
-	Thu, 26 Feb 2026 14:41:05 +0100 (CET)
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id BFD5D2035B;
+	Thu, 26 Feb 2026 14:41:01 +0100 (CET)
 From: Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
-Date: Thu, 26 Feb 2026 15:40:47 +0200
-Subject: [PATCH 8/9] accel/neutron: Add logging support
+Date: Thu, 26 Feb 2026 15:40:44 +0200
+Subject: [PATCH 5/9] accel/neutron: Add GEM buffer object support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-neutron-v1-8-46eccb3bb50a@nxp.com>
+Message-Id: <20260226-neutron-v1-5-46eccb3bb50a@nxp.com>
 References: <20260226-neutron-v1-0-46eccb3bb50a@nxp.com>
 In-Reply-To: <20260226-neutron-v1-0-46eccb3bb50a@nxp.com>
 To: Oded Gabbay <ogabbay@kernel.org>, 
@@ -60,17 +60,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Forrest Shi <xuelin.shi@nxp.com>, Alexandru Taran <alexandru.taran@nxp.com>, 
  Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772113256; l=7700;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772113256; l=9299;
  i=ruxandra.radulescu@nxp.com; s=20260204; h=from:subject:message-id;
- bh=HFuzMjntYvhOCHE0AaufcFtwUGeRoiICS772u9gKCik=;
- b=JD6RNGZkvSwooK6itGN7AQtmsv1GIa1vMOZgr3/jI62PEolio3hc8V0Q3ylaLw9iGMO19geVk
- kkJRmvebtDwCd1nFbpiR2OGbaJpOMgkziFwnjKlIE468r+z2Lb7D0zF
+ bh=Gm6zpMS/O0KecyGAyBqqHMpvs6vSpEpvKk7wEge/k7Y=;
+ b=rUusO9TFRzN9pG9c1CNh8YOm96d5xwQDBjY3QjlGRPNoyHfgHzGrwd9XEGxDb9qUVcXIHrSlD
+ zLpx9QNarv3BhIyUaIf8saTHCCehxewAtIdbGnuH+2Qoty1DHwdnIA/
 X-Developer-Key: i=ruxandra.radulescu@nxp.com; a=ed25519;
  pk=zoq4b4OYR0c4faAH97xoTxdr6vfR8OvPbS+Cx0XhIBY=
 X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_054108_720647_76E148F0 
-X-CRM114-Status: GOOD (  24.56  )
+X-CRM114-CacheID: sfid-20260226_054105_329329_848E3A93 
+X-CRM114-Status: GOOD (  26.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,251 +85,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose the Neutron firmware log via debugfs interface. The log resides
-in internal device memory.
+Add the following IOCTLs:
+- CREATE_BO - for creating a new buffer object and passing BO info
+back to user
+- SYNC_BO - for explicit DMA sync operations on the BO memory, since
+Neutron isn't guaranteed to be cache coherent. User controls which
+portions of the buffer memory to sync and the direction.
+
+The Neutron device requires contiguous DMA buffers, so use the GEM DMA
+helpers for creating and managing the BOs. Depending on the platform
+it is integrated on, Neutron device may or may not be cache coherent. On
+i.MX95, the first platform for which we add Neutron support, it is not.
 
 Signed-off-by: Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
 ---
- drivers/accel/neutron/Makefile          |  2 +
- drivers/accel/neutron/neutron_debugfs.c | 34 ++++++++++++++++
- drivers/accel/neutron/neutron_debugfs.h | 15 +++++++
- drivers/accel/neutron/neutron_device.c  | 69 +++++++++++++++++++++++++++++++++
- drivers/accel/neutron/neutron_device.h  | 17 ++++++++
- drivers/accel/neutron/neutron_driver.c  |  3 ++
- 6 files changed, 140 insertions(+)
+ drivers/accel/neutron/Makefile         |   3 +-
+ drivers/accel/neutron/neutron_driver.c |  13 +++-
+ drivers/accel/neutron/neutron_gem.c    | 115 +++++++++++++++++++++++++++++++++
+ drivers/accel/neutron/neutron_gem.h    |  14 ++++
+ include/uapi/drm/neutron_accel.h       |  79 ++++++++++++++++++++++
+ 5 files changed, 222 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/accel/neutron/Makefile b/drivers/accel/neutron/Makefile
-index ac6dd576521c..6d5c204460af 100644
+index 7592e318dd83..d4298c7a8535 100644
 --- a/drivers/accel/neutron/Makefile
 +++ b/drivers/accel/neutron/Makefile
-@@ -8,3 +8,5 @@ neutron-y := \
- 	neutron_gem.o \
- 	neutron_job.o \
- 	neutron_mailbox.o
-+
-+neutron-$(CONFIG_DEBUG_FS) += neutron_debugfs.o
-diff --git a/drivers/accel/neutron/neutron_debugfs.c b/drivers/accel/neutron/neutron_debugfs.c
-new file mode 100644
-index 000000000000..a392286e40b7
---- /dev/null
-+++ b/drivers/accel/neutron/neutron_debugfs.c
-@@ -0,0 +1,34 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/* Copyright 2025 NXP */
-+
-+#include <linux/debugfs.h>
-+
-+#include "neutron_device.h"
-+#include "neutron_debugfs.h"
-+
-+static ssize_t fw_log_read(struct file *f, char __user *buf, size_t count, loff_t *pos)
-+{
-+	struct neutron_device *ndev = file_inode(f)->i_private;
-+
-+	if (!ndev->log.size)
-+		return 0;
-+
-+	if (ndev->flags & NEUTRON_BOOTED)
-+		neutron_read_log(ndev, count);
-+
-+	return simple_read_from_buffer(buf, count, pos, ndev->log.buf,
-+				       ndev->log.buf_count);
-+}
-+
-+static const struct file_operations fw_log_fops = {
-+	.owner = THIS_MODULE,
-+	.read = fw_log_read,
-+};
-+
-+void neutron_debugfs_init(struct neutron_device *ndev)
-+{
-+	struct dentry *debugfs_root;
-+
-+	debugfs_root = ndev->base.debugfs_root;
-+	debugfs_create_file("fw_log", 0444, debugfs_root, ndev, &fw_log_fops);
-+}
-diff --git a/drivers/accel/neutron/neutron_debugfs.h b/drivers/accel/neutron/neutron_debugfs.h
-new file mode 100644
-index 000000000000..7cd4b5af55a6
---- /dev/null
-+++ b/drivers/accel/neutron/neutron_debugfs.h
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: GPL-2.0+ */
-+/* Copyright 2025 NXP */
-+
-+#ifndef __NEUTRON_DEBUGFS_H__
-+#define __NEUTRON_DEBUGFS_H__
-+
-+struct neutron_device;
-+
-+#if defined(CONFIG_DEBUG_FS)
-+void neutron_debugfs_init(struct neutron_device *ndev);
-+#else
-+static inline void neutron_debugfs_init(struct neutron_device *ndev) {}
-+#endif
-+
-+#endif /* __NEUTRON_DEBUGFS_H__ */
-diff --git a/drivers/accel/neutron/neutron_device.c b/drivers/accel/neutron/neutron_device.c
-index 571ec906ad72..a5cedc91ad25 100644
---- a/drivers/accel/neutron/neutron_device.c
-+++ b/drivers/accel/neutron/neutron_device.c
-@@ -77,6 +77,70 @@ static void neutron_stop(struct neutron_device *ndev)
- 			   100, 100 * USEC_PER_MSEC);
- }
+@@ -4,4 +4,5 @@ obj-$(CONFIG_DRM_ACCEL_NXP_NEUTRON) := neutron.o
  
-+static void neutron_init_logging(struct neutron_device *ndev)
-+{
-+	size_t old_size = ndev->log.size;
-+	u32 ringctrl;
-+
-+	ringctrl = readl_relaxed(NEUTRON_REG(ndev, RINGCTRL));
-+
-+	ndev->log.base = ndev->mem_regions[NEUTRON_MEM_DTCM].va +
-+			 NEUTRON_DTCM_BANK1_OFFSET +
-+			 FIELD_GET(RINGCTRL_ADDR_MASK, ringctrl);
-+	ndev->log.size = FIELD_GET(RINGCTRL_SIZE_MASK, ringctrl) *
-+			 RINGCTRL_SIZE_MULT;
-+
-+	if (ndev->log.size == 0) {
-+		dev_info(ndev->dev, "Firmware logging is disabled\n");
-+		return;
-+	}
-+
-+	/* If size didn't change, keep using the old buffer */
-+	if (old_size == ndev->log.size)
-+		return;
-+
-+	devm_kfree(ndev->dev, ndev->log.buf);
-+	ndev->log.buf = devm_kmalloc(ndev->dev, ndev->log.size, GFP_KERNEL);
-+	if (!ndev->log.buf) {
-+		ndev->log.size = 0;
-+		dev_warn(ndev->dev, "Failed to allocate log buffer, logging is disabled\n");
-+	}
-+}
-+
-+/* Read up to count bytes from device log into local buffer */
-+void neutron_read_log(struct neutron_device *ndev, size_t count)
-+{
-+	size_t bytes, remaining;
-+	u32 head, tail;
-+
-+	ndev->log.buf_count = 0;
-+
-+	if (!(ndev->flags & NEUTRON_BOOTED) || !ndev->log.size)
-+		return;
-+
-+	tail = readl_relaxed(NEUTRON_REG(ndev, TAIL));
-+	head = readl_relaxed(NEUTRON_REG(ndev, HEAD));
-+
-+	if (tail == head)
-+		return;
-+
-+	/* Read from head to end of buffer or tail */
-+	bytes = (head < tail) ? (tail - head) : (ndev->log.size - head);
-+	bytes = min(count, bytes);
-+	memcpy_fromio(ndev->log.buf, ndev->log.base + head, bytes);
-+	ndev->log.buf_count = bytes;
-+
-+	/* Read from start of buffer, if it wraps around */
-+	if (head > tail && bytes < count) {
-+		remaining = min(count - bytes, tail);
-+		memcpy_fromio(ndev->log.buf + bytes, ndev->log.base, remaining);
-+		ndev->log.buf_count += remaining;
-+	}
-+
-+	head = (head + ndev->log.buf_count) % ndev->log.size;
-+	writel_relaxed(head, NEUTRON_REG(ndev, HEAD));
-+}
-+
- static void __iomem *neutron_tcm_da_to_va(struct neutron_device *ndev, u64 da)
- {
- 	struct neutron_mem_region *mem;
-@@ -158,6 +222,8 @@ int neutron_boot(struct neutron_device *ndev)
- 	/* Prepare device to receive jobs */
- 	neutron_mbox_reset_state(ndev);
- 
-+	neutron_init_logging(ndev);
-+
- 	ndev->flags |= NEUTRON_BOOTED;
- 
- 	return 0;
-@@ -165,6 +231,9 @@ int neutron_boot(struct neutron_device *ndev)
- 
- void neutron_shutdown(struct neutron_device *ndev)
- {
-+	/* Device log becomes unavailable after shutdown, save it */
-+	neutron_read_log(ndev, ndev->log.size);
-+
- 	neutron_stop(ndev);
- 	ndev->flags &= ~NEUTRON_BOOTED;
- }
-diff --git a/drivers/accel/neutron/neutron_device.h b/drivers/accel/neutron/neutron_device.h
-index 0ed72965774d..bf06878ac370 100644
---- a/drivers/accel/neutron/neutron_device.h
-+++ b/drivers/accel/neutron/neutron_device.h
-@@ -85,11 +85,26 @@ enum neutron_mem_id {
- 	NEUTRON_MEM_MAX
- };
- 
-+/**
-+ * struct neutron_log - Neutron log buffer descriptor
-+ * @base: base address of the log buffer in device memory
-+ * @size: Size of the log buffer
-+ * @buf: Kernel buffer for log data
-+ * @buf_count: Number of bytes available in the kernel buffer
-+ */
-+struct neutron_log {
-+	void __iomem *base;
-+	size_t size;
-+	void *buf;
-+	size_t buf_count;
-+};
-+
- /**
-  * struct neutron_device - Neutron device structure
-  * @base: Base DRM device
-  * @dev: Pointer to underlying device
-  * @mem_regions: Array of memory region descriptors
-+ * @log: Log buffer descriptor
-  * @irq: IRQ number
-  * @clks: Neutron clocks
-  * @num_clks: Number of clocks
-@@ -107,6 +122,7 @@ struct neutron_device {
- 	struct device *dev;
- 
- 	struct neutron_mem_region mem_regions[NEUTRON_MEM_MAX];
-+	struct neutron_log log;
- 
- 	int irq;
- 	struct clk_bulk_data *clks;
-@@ -137,5 +153,6 @@ void neutron_shutdown(struct neutron_device *ndev);
- void neutron_enable_irq(struct neutron_device *ndev);
- void neutron_disable_irq(struct neutron_device *ndev);
- void neutron_handle_irq(struct neutron_device *ndev);
-+void neutron_read_log(struct neutron_device *ndev, size_t bytes);
- 
- #endif /* __NEUTRON_DEVICE_H__ */
+ neutron-y := \
+ 	neutron_driver.o \
+-	neutron_device.o
++	neutron_device.o \
++	neutron_gem.o
 diff --git a/drivers/accel/neutron/neutron_driver.c b/drivers/accel/neutron/neutron_driver.c
-index ceae1f7e8359..14b4bc3a79d1 100644
+index 7f34785216cf..c9a18bf52037 100644
 --- a/drivers/accel/neutron/neutron_driver.c
 +++ b/drivers/accel/neutron/neutron_driver.c
-@@ -18,6 +18,7 @@
+@@ -14,12 +14,19 @@
+ #include <drm/drm_drv.h>
+ #include <drm/drm_ioctl.h>
+ #include <drm/drm_gem.h>
++#include <drm/neutron_accel.h>
  
  #include "neutron_device.h"
  #include "neutron_driver.h"
-+#include "neutron_debugfs.h"
- #include "neutron_gem.h"
- #include "neutron_job.h"
++#include "neutron_gem.h"
  
-@@ -168,6 +169,8 @@ static int neutron_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto free_reserved;
+ #define NEUTRON_SUSPEND_DELAY_MS 1000
  
-+	neutron_debugfs_init(ndev);
++static const struct drm_ioctl_desc neutron_drm_ioctls[] = {
++	DRM_IOCTL_DEF_DRV(NEUTRON_CREATE_BO, neutron_ioctl_create_bo, 0),
++	DRM_IOCTL_DEF_DRV(NEUTRON_SYNC_BO, neutron_ioctl_sync_bo, 0),
++};
 +
- 	ret = devm_pm_runtime_enable(dev);
- 	if (ret)
- 		goto free_job;
+ static int neutron_open(struct drm_device *drm, struct drm_file *file)
+ {
+ 	struct neutron_device *ndev = to_neutron_device(drm);
+@@ -45,7 +52,7 @@ static void neutron_postclose(struct drm_device *drm, struct drm_file *file)
+ DEFINE_DRM_ACCEL_FOPS(neutron_drm_driver_fops);
+ 
+ static const struct drm_driver neutron_drm_driver = {
+-	.driver_features	= DRIVER_COMPUTE_ACCEL,
++	.driver_features	= DRIVER_COMPUTE_ACCEL | DRIVER_GEM,
+ 	.name			= "neutron",
+ 	.desc			= "NXP Neutron driver",
+ 	.major			= 1,
+@@ -54,6 +61,10 @@ static const struct drm_driver neutron_drm_driver = {
+ 	.fops			= &neutron_drm_driver_fops,
+ 	.open			= neutron_open,
+ 	.postclose		= neutron_postclose,
++	.ioctls			= neutron_drm_ioctls,
++	.num_ioctls		= ARRAY_SIZE(neutron_drm_ioctls),
++
++	.gem_create_object      = neutron_gem_create_object,
+ };
+ 
+ static irqreturn_t neutron_irq_handler_thread(int irq, void *data)
+diff --git a/drivers/accel/neutron/neutron_gem.c b/drivers/accel/neutron/neutron_gem.c
+new file mode 100644
+index 000000000000..9b5460d9bcc6
+--- /dev/null
++++ b/drivers/accel/neutron/neutron_gem.c
+@@ -0,0 +1,115 @@
++// SPDX-License-Identifier: GPL-2.0+
++/* Copyright 2025-2026 NXP */
++
++#include <linux/sizes.h>
++#include <linux/align.h>
++#include <linux/dma-map-ops.h>
++#include <drm/drm_device.h>
++#include <drm/drm_gem_dma_helper.h>
++#include <drm/drm_print.h>
++#include <drm/neutron_accel.h>
++
++#include "neutron_device.h"
++#include "neutron_gem.h"
++
++#define NEUTRON_BO_ALIGN SZ_1M
++
++struct drm_gem_object *neutron_gem_create_object(struct drm_device *drm, size_t size)
++{
++	struct neutron_device *ndev = to_neutron_device(drm);
++	struct drm_gem_dma_object *dma_obj;
++	struct drm_gem_object *gem_obj;
++
++	dma_obj = kzalloc_obj(*dma_obj);
++	if (!dma_obj)
++		return ERR_PTR(-ENOMEM);
++
++	dma_obj->map_noncoherent = !dev_is_dma_coherent(ndev->dev);
++	dma_obj->map_bidirectional = true;
++	gem_obj = &dma_obj->base;
++
++	return gem_obj;
++}
++
++int neutron_ioctl_create_bo(struct drm_device *drm, void *data, struct drm_file *filp)
++{
++	struct drm_neutron_create_bo *args = data;
++	struct drm_gem_dma_object *dma_obj;
++	struct drm_gem_object *gem_obj;
++	size_t size;
++	int ret;
++
++	if (!args->size || args->pad)
++		return -EINVAL;
++
++	size = ALIGN(args->size, NEUTRON_BO_ALIGN);
++
++	dma_obj = drm_gem_dma_create(drm, size);
++	if (IS_ERR(dma_obj))
++		return PTR_ERR(dma_obj);
++
++	/* We expect correctly aligned buffers, but double-check */
++	if (drm_WARN_ON(drm, !IS_ALIGNED(dma_obj->dma_addr, NEUTRON_BO_ALIGN))) {
++		ret = -EFAULT;
++		goto out_put;
++	}
++
++	gem_obj = &dma_obj->base;
++	ret = drm_gem_handle_create(filp, gem_obj, &args->handle);
++	if (ret)
++		goto out_put;
++
++	args->map_offset = drm_vma_node_offset_addr(&gem_obj->vma_node);
++	args->size = gem_obj->size;
++
++out_put:
++	/* No need to keep a reference of the GEM object. Freeing is handled by user */
++	drm_gem_object_put(gem_obj);
++
++	return ret;
++}
++
++int neutron_ioctl_sync_bo(struct drm_device *drm, void *data, struct drm_file *filp)
++{
++	struct drm_neutron_sync_bo *args = data;
++	struct drm_gem_dma_object *dma_obj;
++	struct drm_gem_object *gem_obj;
++	dma_addr_t start_addr;
++	int ret = 0;
++
++	gem_obj = drm_gem_object_lookup(filp, args->handle);
++	if (!gem_obj) {
++		dev_dbg(drm->dev, "Invalid BO handle %u\n", args->handle);
++		return -ENOENT;
++	}
++
++	dma_obj = to_drm_gem_dma_obj(gem_obj);
++
++	if (!args->size || args->offset >= gem_obj->size ||
++	    args->size > gem_obj->size - args->offset) {
++		dev_dbg(drm->dev, "Invalid offset/size for BO sync\n");
++		ret = -EINVAL;
++		goto out_put;
++	}
++
++	start_addr = dma_obj->dma_addr + args->offset;
++
++	switch (args->direction) {
++	case DRM_NEUTRON_SYNC_TO_DEVICE:
++		dma_sync_single_for_device(drm->dev, start_addr, args->size,
++					   DMA_BIDIRECTIONAL);
++		break;
++	case DRM_NEUTRON_SYNC_FROM_DEVICE:
++		dma_sync_single_for_cpu(drm->dev, start_addr, args->size,
++					DMA_BIDIRECTIONAL);
++		break;
++	default:
++		dev_dbg(drm->dev, "Invalid direction for BO sync\n");
++		ret = -EINVAL;
++	}
++
++out_put:
++	drm_gem_object_put(gem_obj);
++
++	return ret;
++}
+diff --git a/drivers/accel/neutron/neutron_gem.h b/drivers/accel/neutron/neutron_gem.h
+new file mode 100644
+index 000000000000..95ba2fe96617
+--- /dev/null
++++ b/drivers/accel/neutron/neutron_gem.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++/* Copyright 2025-2026 NXP */
++
++#ifndef __NEUTRON_GEM_H__
++#define __NEUTRON_GEM_H__
++
++#include <drm/drm_gem.h>
++
++struct drm_gem_object *neutron_gem_create_object(struct drm_device *drm, size_t size);
++
++int neutron_ioctl_create_bo(struct drm_device *drm, void *data, struct drm_file *filp);
++int neutron_ioctl_sync_bo(struct drm_device *drm, void *data, struct drm_file *filp);
++
++#endif /* __NEUTRON_GEM_H__ */
+diff --git a/include/uapi/drm/neutron_accel.h b/include/uapi/drm/neutron_accel.h
+new file mode 100644
+index 000000000000..2f5639f2e0e8
+--- /dev/null
++++ b/include/uapi/drm/neutron_accel.h
+@@ -0,0 +1,79 @@
++/* SPDX-License-Identifier: GPL-2.0+ WITH Linux-syscall-note */
++/* Copyright 2025-2026 NXP */
++
++#ifndef __NEUTRON_ACCEL_H__
++#define __NEUTRON_ACCEL_H__
++
++#include "drm.h"
++
++#if defined(__cplusplus)
++extern "C" {
++#endif
++
++/**
++ * enum drm_neutron_ioctl - Neutron IOCTL IDs
++ *
++ * @DRM_NEUTRON_CREATE_BO: Create a buffer object
++ * @DRM_NEUTRON_SYNC_BO: Sync (parts of) the buffer object memory
++ */
++enum drm_neutron_ioctl {
++	DRM_NEUTRON_CREATE_BO = 0,
++	DRM_NEUTRON_SYNC_BO,
++};
++
++/**
++ * struct drm_neutron_create_bo - Create a buffer object and return buffer
++ *                                info to user
++ *
++ * @size: Size in bytes of requested buffer. May be updated by driver
++ *        if allocated size different than requested
++ * @handle: Returned handle for the new buffer object
++ * @pad: MBZ
++ * @map_offset: Returned offset for mmap() calls
++ */
++struct drm_neutron_create_bo {
++	__u64 size;
++	__u32 handle;
++	__u32 pad;
++	__u64 map_offset;
++};
++
++/**
++ * enum drm_neutron_sync_dir - Direction of buffer object synchronization
++ *
++ * @DRM_NEUTRON_SYNC_TO_DEVICE: Sync from CPU to device
++ * @DRM_NEUTRON_SYNC_FROM_DEVICE: Sync from device to CPU
++ */
++enum drm_neutron_sync_dir {
++	DRM_NEUTRON_SYNC_TO_DEVICE = 0,
++	DRM_NEUTRON_SYNC_FROM_DEVICE,
++};
++
++/**
++ * struct drm_neutron_sync_bo - Sync buffer object memory
++ *
++ * @handle: Handle of buffer object to sync
++ * @direction: Direction of sync, can be one of enum drm_neutron_sync_dir
++ * @size: Size of the memory to sync, in bytes
++ * @offset: Offset inside the buffer, in bytes
++ */
++struct drm_neutron_sync_bo {
++	__u32 handle;
++	__u32 direction;
++	__u64 size;
++	__u64 offset;
++};
++
++#define DRM_IOCTL_NEUTRON_CREATE_BO \
++	DRM_IOWR(DRM_COMMAND_BASE + DRM_NEUTRON_CREATE_BO, \
++		 struct drm_neutron_create_bo)
++
++#define DRM_IOCTL_NEUTRON_SYNC_BO \
++	DRM_IOWR(DRM_COMMAND_BASE + DRM_NEUTRON_SYNC_BO, \
++		 struct drm_neutron_sync_bo)
++
++#if defined(__cplusplus)
++}
++#endif
++
++#endif /* __NEUTRON_ACCEL_H__ */
 
 -- 
 2.34.1
