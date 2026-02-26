@@ -4,62 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B337F55450
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 05:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F7AEF55450
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 05:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A9qs2zE0FueYonacX/ztnskZqTvxRHERhL76d+GCneQ=; b=OTA9jKesQv2xcAGjwD3pcInJE3
-	qRBJiwgG3Efo0BpdaOy3fN6UY6+FX3qJP0kSYOHKs54CDg96GYzD0rJdUUq0G0wT3g3VrgDDHIL4v
-	O94stUbwiJhigpbUoFIbwketzCrGOOB6iBEHTHPMA8A5aBjiHkyKBoI7tkUmNfDdkQSoxN0/xzJwk
-	n0/iF4XDQX1P9Ssm9JxrbMhhuY4B2n8DIOh5cGgwl5gDW9tdT4OeMLuPwrp8u0GIHLWLj0FNNSGPw
-	gr8kZvCQWBFDbPK1msCRHss7djvVDhgqVJnVE0dKJB5Ib+VwU/0wd0bIO5yhECZYaDIYU5q1zG6TO
-	aBHMmYeA==;
+	bh=06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=; b=lbhpk27MJkklrGRUHDkpnNwADE
+	VzelSK9ORrE/P3oXpVr39FwoYcG7CHysc0n8Kkz0QXcHytlh18VuyL7YEovG4SYLCpvl0sriXaFTX
+	QOIefYyazFLoh1kG8ZiwEYUYJ9I4Am0MkcB1oM11mjdqA/SguUF47eUMHWHOU5DbVQI2/XCDFicnP
+	wWsD4IGPr2EiAB964rcmJ0XX06iOp6nnitxvsuTremUn5fjfkhiWYdVsMfoKoplFBkWpZwn1r8c3C
+	8WlaHZNixmOXF5+gSGtYIMpWziAtr6I69uvSnUgLs5cK5FdEB9G/R9VpfI0pl2YTOK/UyWjTSO6Vf
+	rsJMs8Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvUMm-00000005SKc-14pg;
-	Thu, 26 Feb 2026 05:56:52 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1vvUOE-00000005Sco-3AiX;
+	Thu, 26 Feb 2026 05:58:22 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvUMb-00000005SG6-0wxN
+	id 1vvUOC-00000005ScI-0xLr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 05:56:43 +0000
+	Thu, 26 Feb 2026 05:58:21 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61Q4Vkls1280842
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 05:58:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=; b=o3WKY9oHfg4/cMhI
+	gs1+YiPTIqvHlAMO37lS2mfF30HjGxgXsuO77MhchZOFQa+Hxb/d+5ktqn6st+3K
+	eGg9/5xd1vo2BkgQCFxeGg7skSZ0x+cZ4iRWu6YjvXJWfhdGS583npPHtVVKdE2g
+	neSXgiCS2O08/S35T1587vNbUSMIf1bfsY/pahSfFhmKEBs3CKkEthXJbj3EToTJ
+	GTSiUQIURZc4yWAo8ii4059uLYw8ecN7Jaxy9Ubg4Z4jnXOeNp9/loMo73rLRoEy
+	bfH9jwDWu3YN3TcaB/NPqXnaiEGisrUXY1bYc+WjuRdZMCuwdFmTGy74lTkMGhxN
+	PeOw9Q==
+Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com [209.85.161.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4chx39kea9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 05:58:19 +0000 (GMT)
+Received: by mail-oo1-f71.google.com with SMTP id 006d021491bc7-679862e4413so5409476eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 21:58:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772085498; cv=none;
+        d=google.com; s=arc-20240605;
+        b=EcZpSr/f2tzIq3F4XW63YwrUZhriQrz48uqZT3ZKYEhaXF3qNok8GbvTLCcPfqpByK
+         TmmMy69r/vH6pF1m/prtvpY85476J4rjKeTA/miw+k+xfYZ2kDD9qnPEVWSgHDoyZM4m
+         c8hL4R1b+oCXohRr6i0u5MaonxN8zbl6w7E8nZcP+j9p4oc0pgGfW5yW/YNZZCWRtqDV
+         4MFhMrFDMV9VxqgFLMxsZgiO+U7e9lULpJ2koGbNgohBctCOA7pAOFlROkDETioyqZYb
+         2LFN79ag4+rQnfL5VrEaFGCKkT/Ud+HBIn+PZrjB09WEfYZhwwb8IBE2tTpwWV47wfjJ
+         gqBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=;
+        fh=fFUWkiayjilMTgKZkEeOy8PfKiXXdjB/D0WIgnv9pQk=;
+        b=jXn/OHQlNxOrdZHfQjO7Mr8lZ+xd0JMDO/0RV4Wk1UO3txQWN7mzPzxvRVcik5I0+l
+         MiJivxGknSwqS+1Go8S00yjN0gpZuEJzQSZQymrh0EW/jt//g6yCFe1yXYVL77DP2E30
+         m97yInm8nbYMTtl081DoQJ9rXe6h5RHG3RsbuhE8n5fdXkA+wBEMj0SBZHiseFJc1j9q
+         uFW97Td1RzxDHEUS7b3bgEq5EHrmgpWZOdr0dh/84HO+xwfMJC2qeK86G9jxC97kADgm
+         A5WXKIUSWOta831Vx5GlBHn95znCWb/DJuccuh87R9gJ6GdhtGgNpaJqFFC/EA4hLRdL
+         o/SA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1772085395; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=A9qs2zE0FueYonacX/ztnskZqTvxRHERhL76d+GCneQ=;
-	b=ynFE88XbQ2RUsHDIpN5jmAQdQMfxRV9vNA34YQE/KK8tFgfoLr9oU0ZTJYQlwRWCQT1ca1I4kSOVaJO7rRus6RivwrMcWvIEh1l3H/+5N3sNTA/kHSZalQZ54e6javYbcRB/HR+0M6ZEYiIF+EtqMhZe/RR3YsP1JSyBebAtdLA=
-Received: from 30.74.144.118(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WzqFsiZ_1772085389 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 26 Feb 2026 13:56:30 +0800
-Message-ID: <0871edb9-08a2-46a0-ade6-af842a12e0d3@linux.alibaba.com>
-Date: Thu, 26 Feb 2026 13:56:28 +0800
+        d=oss.qualcomm.com; s=google; t=1772085498; x=1772690298; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=;
+        b=cEthPA9q5IFJTdIsCSNeDvhlDegcIuyatA36Iy0Gm8QJfHKcU37yms14NwR2yOwJ9F
+         4cd5Il9aCBz6idDHI8jDPV6aOMgAaXcUeftb5LXyJmCUuWZQ2JPbSyknLIWT+lg5HIOW
+         r2KoiUBq9QFjufUFh/xZNroPONYpEsEhVe11JgLeQqJt/ZnCc9Sxb8saSbKZKuG1zjKf
+         YbdO5e554KJRppF7xMve6LhDeFLZwfJDQPOS4yxJ1zjnrDxlduJQBdkkzFIuFGgLV383
+         MpttX3EeRkMhYrEU8nXERDu5BmNg5MVw9zr1fAXMyYJ3P9nUX43YudJRVFzN9i+g94TT
+         32fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772085498; x=1772690298;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=06WGVto43FxvVGdmnMyUzlNLnDWIe1ZIbLMXTt3zPbw=;
+        b=dvuQMlSqAWGX99fPEdHMKp93j2GXFW5+T4WdomfbzW7n3Am9Hn/LPAeFG4eoa56fun
+         vgT2t0LII/vhVIHCMmse9D7TTNPq9Zv8MqlTLYoh0Eg94yfb0PqnNwJQLz+c3J2/Va3W
+         EAXb5v85+/2rtjg3Fh9vNzTcausfTD7jEs0/jWITohGDNaoJVBARoImx+0BzASCYgyRb
+         ZxFXkXQBl6S7PQxsFZQgm4BUO2dM7s3Vgr8Kx3o8tG/bVBvaJkZftCxKU4jvAUMRjRE9
+         P1K/+ahczYp/UgEzKi5masS6aXqnt33sLUqwmFF9jcglALwVyxE8xs+Q3q8Me0kerj6B
+         ZjNg==
+X-Forwarded-Encrypted: i=1; AJvYcCU6BSBcJOpQG4lgw/s4RQ8ABPsNwtualeKmBhHNgX6ROPWSAsmSegR0m+PzpR+yW1cXnww/qcwxYFH7poprpbCL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8jVFQmmZq0CWpH3yVUTRKjJb2hHMGur0iC8PW7v94F690Umx0
+	XgMxivkHJtZSKT2SrhqPnCIfOREQGEtAIomKbQRny8qXHzkoEE/38CFo6P0N6lag5FDeLv445w+
+	dW1Rt7K+TQYY80qR7tkPZRqSXYNRdgaFfYfpqg8XeqbPMUpLdLEBRikU6PRUdbWAMJAc5d1w0XZ
+	HbKOQsq6y8/6SgWPTbeiiHSa2ShCqQI8Mp1Iebk7QiF1LXkcVWlaP9
+X-Gm-Gg: ATEYQzxuik3rBiQZcBdkJ99CPuYL/9p+ClkVurgm5SBInmQNgerYejE0SqVvTX3HBkx
+	joILNLjouDGDFgyHWvkm+PvZ1LJLVdhAJ0G5JodQE0cB7Hq87zYubf7hoNgC8326XyrnYVe9NWp
+	L2IqdSmpufnj4StuVnW/T4JOnPDrdemZ/1Q/XvUcbhX6AVjS2OIevkE827soZGWA4v25Rgrb7K1
+	JiHm9o=
+X-Received: by 2002:a05:6820:1990:b0:676:6c3c:a1e9 with SMTP id 006d021491bc7-679f3da6aecmr436090eaf.57.1772085498453;
+        Wed, 25 Feb 2026 21:58:18 -0800 (PST)
+X-Received: by 2002:a05:6820:1990:b0:676:6c3c:a1e9 with SMTP id
+ 006d021491bc7-679f3da6aecmr436077eaf.57.1772085497991; Wed, 25 Feb 2026
+ 21:58:17 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] mm: support batched checking of the young flag for
- MGLRU
-To: "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org
-Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
- ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
- yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
- zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
- <84d2426c63c1eafeaa0cfbad7c5cc11e9c11b980.1771897150.git.baolin.wang@linux.alibaba.com>
- <2e7a1e24-3616-4b79-b943-b5f7efde2d31@kernel.org>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <2e7a1e24-3616-4b79-b943-b5f7efde2d31@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
+ <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-3-347fa2d7351b@arm.com>
+In-Reply-To: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-3-347fa2d7351b@arm.com>
+From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+Date: Thu, 26 Feb 2026 11:28:06 +0530
+X-Gm-Features: AaiRm50j2ioKzT8O5WkXwOBzaz_quUV9p2zoAkjwudfimibESDbgnebOCS_fs4k
+Message-ID: <CA+Ht8=aL8wp0nwH3vnnm8FnRmfp1nUasfXh3HjeWwi8UadBLOg@mail.gmail.com>
+Subject: Re: [PATCH v2 03/11] ACPI: APEI: GHES: move CPER read helpers
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
+        Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
+        robh@kernel.org, rafael@kernel.org, will@kernel.org, conor@kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+        krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDA1MCBTYWx0ZWRfX4OchC3YtPh09
+ 1ujlSzr3z0WVEMvXsKOz7M4eSx8qL+hMPf3YyPAC2r6OaimenPpISQ2B98uvt8GsGd8G8fFPmyG
+ /+JTH7HTjwlhXS5DRd/CvL3Hp9T6AWlqq5eJdqRml/yQoTz3IOym3SyD9nexfCd732g0JHSsyUt
+ cDZOamCBUFT033uYytwrtv67uSEapdEnGtASfwz3oBD5d6Lw9m/KgsGkgSHoRNGFaFKT0zf2LoN
+ niREzVGAb3qLKw1SHaMWy/1GjIobyG9ptX2Ox6sbLnL04dbR9X/6ynHL2tIAWgFWfr+XgwYEfRh
+ S01iRwudF54uI7eSJwEaYojVCD3CYBhuphrfMZW8cftyP9adNXy9ApBSV2zk27xljo349antzS6
+ +LydhRSQQsi+ptP6VTfWb4VYalUHz+j0K8FZk6Qp5Jg4BQVbomM0eFxuIUdYXoyDx+eRoD2QTFl
+ XceJbO8elVFg4mR+mYA==
+X-Authority-Analysis: v=2.4 cv=FvoIPmrq c=1 sm=1 tr=0 ts=699fe0fb cx=c_pps
+ a=V4L7fE8DliODT/OoDI2WOg==:117 a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=_K5XuSEh1TEqbUxoQ0s3:22 a=7CQSdrXTAAAA:8 a=MJR9BmDR2wurswiG5j0A:9
+ a=QEXdDO2ut3YA:10 a=WZGXeFmKUf7gPmL3hEjn:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: vyOMyl3ijahM3ghJURHEhYVJ1tNFc1UY
+X-Proofpoint-ORIG-GUID: vyOMyl3ijahM3ghJURHEhYVJ1tNFc1UY
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-25_04,2026-02-25_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0
+ impostorscore=0 priorityscore=1501 clxscore=1011 adultscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602260050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_215642_354943_AE3959EF 
-X-CRM114-Status: GOOD (  31.16  )
+X-CRM114-CacheID: sfid-20260225_215820_276621_016E7E6C 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,219 +162,494 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 20, 2026 at 7:13=E2=80=AFPM Ahmed Tiba <ahmed.tiba@arm.com> wro=
+te:
+>
+> Relocate the CPER buffer mapping, peek, and clear helpers from ghes.c int=
+o
+> ghes_cper.c so they can be shared with other firmware-first providers.
+> This commit only shuffles code; behavior stays the same.
+>
+> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+> ---
+>  drivers/acpi/apei/ghes.c      | 170 +-----------------------------------=
+------
+>  drivers/acpi/apei/ghes_cper.c | 170 ++++++++++++++++++++++++++++++++++++=
++++++-
+>  include/acpi/ghes_cper.h      |  14 ++--
+>  3 files changed, 177 insertions(+), 177 deletions(-)
+>
+> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+> index 07b70bcb8342..b159dbee90ac 100644
+> --- a/drivers/acpi/apei/ghes.c
+> +++ b/drivers/acpi/apei/ghes.c
+> @@ -118,26 +118,6 @@ static struct gen_pool *ghes_estatus_pool;
+>  static struct ghes_estatus_cache __rcu *ghes_estatus_caches[GHES_ESTATUS=
+_CACHES_SIZE];
+>  static atomic_t ghes_estatus_cache_alloced;
+>
+> -static void __iomem *ghes_map(u64 pfn, enum fixed_addresses fixmap_idx)
+> -{
+> -       phys_addr_t paddr;
+> -       pgprot_t prot;
+> -
+> -       paddr =3D PFN_PHYS(pfn);
+> -       prot =3D arch_apei_get_mem_attribute(paddr);
+> -       __set_fixmap(fixmap_idx, paddr, prot);
+> -
+> -       return (void __iomem *) __fix_to_virt(fixmap_idx);
+> -}
+> -
+> -static void ghes_unmap(void __iomem *vaddr, enum fixed_addresses fixmap_=
+idx)
+> -{
+> -       int _idx =3D virt_to_fix((unsigned long)vaddr);
+> -
+> -       WARN_ON_ONCE(fixmap_idx !=3D _idx);
+> -       clear_fixmap(fixmap_idx);
+> -}
+> -
+>  int ghes_estatus_pool_init(unsigned int num_ghes)
+>  {
+>         unsigned long addr, len;
+> @@ -193,22 +173,7 @@ static void unmap_gen_v2(struct ghes *ghes)
+>         apei_unmap_generic_address(&ghes->generic_v2->read_ack_register);
+>  }
+>
+> -static void ghes_ack_error(struct acpi_hest_generic_v2 *gv2)
+> -{
+> -       int rc;
+> -       u64 val =3D 0;
+> -
+> -       rc =3D apei_read(&val, &gv2->read_ack_register);
+> -       if (rc)
+> -               return;
+> -
+> -       val &=3D gv2->read_ack_preserve << gv2->read_ack_register.bit_off=
+set;
+> -       val |=3D gv2->read_ack_write    << gv2->read_ack_register.bit_off=
+set;
+> -
+> -       apei_write(val, &gv2->read_ack_register);
+> -}
+> -
+> -static struct ghes *ghes_new(struct acpi_hest_generic *generic)
+> +struct ghes *ghes_new(struct acpi_hest_generic *generic)
+>  {
+>         struct ghes *ghes;
+>         unsigned int error_block_length;
+> @@ -255,7 +220,7 @@ static struct ghes *ghes_new(struct acpi_hest_generic=
+ *generic)
+>         return ERR_PTR(rc);
+>  }
+>
+> -static void ghes_fini(struct ghes *ghes)
+> +void ghes_fini(struct ghes *ghes)
+>  {
+>         kfree(ghes->estatus);
+>         apei_unmap_generic_address(&ghes->generic->error_status_address);
+> @@ -280,137 +245,6 @@ static inline int ghes_severity(int severity)
+>         }
+>  }
 
+Can it be "ghes_finish"? We already have "creat" without 'e'.
 
-On 2/25/26 10:25 PM, David Hildenbrand (Arm) wrote:
-> On 2/24/26 02:56, Baolin Wang wrote:
->> Use the batched helper clear_young_ptes_notify() to check and clear the
->> young flag to improve the performance during large folio reclamation when
->> MGLRU is enabled.
->>
->> Meanwhile, we can also support batched checking the young and dirty flag
->> when MGLRU walks the mm's pagetable to update the folios' generation
->> counter. Since MGLRU also checks the PTE dirty bit, use folio_pte_batch_flags()
->> with FPB_MERGE_YOUNG_DIRTY set to detect batches of PTEs for a large folio.
->>
->> Then we can remove the ptep_clear_young_notify() since it has no users now.
->>
->> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->> ---
-> 
-> [...]
-> 
->>   
->> -static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
->> -					  unsigned long addr, pte_t *ptep)
->> -{
->> -	return clear_young_ptes_notify(vma, addr, ptep, 1);
->> -}
->> -
->>   static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
->>   					  unsigned long addr, pmd_t *pmdp)
->>   {
->> @@ -1847,12 +1841,6 @@ static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
->>   #define clear_young_ptes_notify	test_and_clear_young_ptes
->>   #define pmdp_clear_young_notify	pmdp_test_and_clear_young
->>   
->> -static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
->> -					  unsigned long addr, pte_t *ptep)
->> -{
->> -	return test_and_clear_young_ptes(vma, addr, ptep, 1);
->> -}
->> -
-> 
-> Oh, we remove the last user, nice.
-> 
-> 
->>   #endif /* CONFIG_MMU_NOTIFIER */
->>   
->>   #endif	/* __MM_INTERNAL_H */
->> diff --git a/mm/rmap.c b/mm/rmap.c
->> index be785dfc9336..1c147251ae28 100644
->> --- a/mm/rmap.c
->> +++ b/mm/rmap.c
->> @@ -958,25 +958,21 @@ static bool folio_referenced_one(struct folio *folio,
->>   			return false;
->>   		}
->>   
->> +		if (pvmw.pte && folio_test_large(folio)) {
->> +			unsigned long end_addr = pmd_addr_end(address, vma->vm_end);
->> +			unsigned int max_nr = (end_addr - address) >> PAGE_SHIFT;
-> 
-> Both could be const.
+>
+> -static void ghes_copy_tofrom_phys(void *buffer, u64 paddr, u32 len,
+> -                                 int from_phys,
+> -                                 enum fixed_addresses fixmap_idx)
+> -{
+> -       void __iomem *vaddr;
+> -       u64 offset;
+> -       u32 trunk;
+> -
+> -       while (len > 0) {
+> -               offset =3D paddr - (paddr & PAGE_MASK);
+> -               vaddr =3D ghes_map(PHYS_PFN(paddr), fixmap_idx);
+> -               trunk =3D PAGE_SIZE - offset;
+> -               trunk =3D min(trunk, len);
+> -               if (from_phys)
+> -                       memcpy_fromio(buffer, vaddr + offset, trunk);
+> -               else
+> -                       memcpy_toio(vaddr + offset, buffer, trunk);
+> -               len -=3D trunk;
+> -               paddr +=3D trunk;
+> -               buffer +=3D trunk;
+> -               ghes_unmap(vaddr, fixmap_idx);
+> -       }
+> -}
+> -
+> -/* Check the top-level record header has an appropriate size. */
+> -static int __ghes_check_estatus(struct ghes *ghes,
+> -                               struct acpi_hest_generic_status *estatus)
+> -{
+> -       u32 len =3D cper_estatus_len(estatus);
+> -       u32 max_len =3D min(ghes->generic->error_block_length,
+> -                         ghes->estatus_length);
+> -
+> -       if (len < sizeof(*estatus)) {
+> -               pr_warn_ratelimited(FW_WARN GHES_PFX "Truncated error sta=
+tus block!\n");
+> -               return -EIO;
+> -       }
+> -
+> -       if (!len || len > max_len) {
+> -               pr_warn_ratelimited(FW_WARN GHES_PFX "Invalid error statu=
+s block length!\n");
+> -               return -EIO;
+> -       }
+> -
+> -       if (cper_estatus_check_header(estatus)) {
+> -               pr_warn_ratelimited(FW_WARN GHES_PFX "Invalid CPER header=
+!\n");
+> -               return -EIO;
+> -       }
+> -
+> -       return 0;
+> -}
+> -
+> -/* Read the CPER block, returning its address, and header in estatus. */
+> -static int __ghes_peek_estatus(struct ghes *ghes,
+> -                              struct acpi_hest_generic_status *estatus,
+> -                              u64 *buf_paddr, enum fixed_addresses fixma=
+p_idx)
+> -{
+> -       struct acpi_hest_generic *g =3D ghes->generic;
+> -       int rc;
+> -
+> -       rc =3D apei_read(buf_paddr, &g->error_status_address);
+> -       if (rc) {
+> -               *buf_paddr =3D 0;
+> -               pr_warn_ratelimited(FW_WARN GHES_PFX
+> -"Failed to read error status block address for hardware error source: %d=
+.\n",
+> -                                  g->header.source_id);
+> -               return -EIO;
+> -       }
+> -       if (!*buf_paddr)
+> -               return -ENOENT;
+> -
+> -       ghes_copy_tofrom_phys(estatus, *buf_paddr, sizeof(*estatus), 1,
+> -                             fixmap_idx);
+> -       if (!estatus->block_status) {
+> -               *buf_paddr =3D 0;
+> -               return -ENOENT;
+> -       }
+> -
+> -       return 0;
+> -}
+> -
+> -static int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
+> -                              u64 buf_paddr, enum fixed_addresses fixmap=
+_idx,
+> -                              size_t buf_len)
+> -{
+> -       ghes_copy_tofrom_phys(estatus, buf_paddr, buf_len, 1, fixmap_idx)=
+;
+> -       if (cper_estatus_check(estatus)) {
+> -               pr_warn_ratelimited(FW_WARN GHES_PFX
+> -                                   "Failed to read error status block!\n=
+");
+> -               return -EIO;
+> -       }
+> -
+> -       return 0;
+> -}
+> -
+> -static int ghes_read_estatus(struct ghes *ghes,
+> -                            struct acpi_hest_generic_status *estatus,
+> -                            u64 *buf_paddr, enum fixed_addresses fixmap_=
+idx)
+> -{
+> -       int rc;
+> -
+> -       rc =3D __ghes_peek_estatus(ghes, estatus, buf_paddr, fixmap_idx);
+> -       if (rc)
+> -               return rc;
+> -
+> -       rc =3D __ghes_check_estatus(ghes, estatus);
+> -       if (rc)
+> -               return rc;
+> -
+> -       return __ghes_read_estatus(estatus, *buf_paddr, fixmap_idx,
+> -                                  cper_estatus_len(estatus));
+> -}
+> -
+> -static void ghes_clear_estatus(struct ghes *ghes,
+> -                              struct acpi_hest_generic_status *estatus,
+> -                              u64 buf_paddr, enum fixed_addresses fixmap=
+_idx)
+> -{
+> -       estatus->block_status =3D 0;
+> -
+> -       if (!buf_paddr)
+> -               return;
+> -
+> -       ghes_copy_tofrom_phys(estatus, buf_paddr,
+> -                             sizeof(estatus->block_status), 0,
+> -                             fixmap_idx);
+> -
+> -       /*
+> -        * GHESv2 type HEST entries introduce support for error acknowled=
+gment,
+> -        * so only acknowledge the error if this support is present.
+> -        */
+> -       if (is_hest_type_generic_v2(ghes))
+> -               ghes_ack_error(ghes->generic_v2);
+> -}
+>
+>  /**
+>   * struct ghes_task_work - for synchronous RAS event
+> diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.=
+c
+> index 63047322a3d9..7e0015e960c1 100644
+> --- a/drivers/acpi/apei/ghes_cper.c
+> +++ b/drivers/acpi/apei/ghes_cper.c
 
-Ack.
+IMO, just "cper.c" would be fine.
 
-> 
->> +			pte_t pteval = ptep_get(pvmw.pte);
-> 
-> I wonder if there could be a way to avoid this ptep_get() by letting
-> page_vma_mapped_walk() just provide the last value it used (in
-> check_pte() I guess). Something for another patch.
+> @@ -1,7 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  /*
+>   *
+> - * APEI GHES CPER helper translation unit - staging file for helper move=
+s
+> + * APEI GHES CPER helper translation unit - code mechanically moved from=
+ ghes.c
+>   *
+>   * Copyright (C) 2026 ARM Ltd.
+>   * Author: Ahmed Tiba <ahmed.tiba@arm.com>
+> @@ -17,10 +17,176 @@
+>  #include <linux/slab.h>
+>
+>  #include <acpi/apei.h>
+> +#include <acpi/ghes_cper.h>
+>
+>  #include <asm/fixmap.h>
+>  #include <asm/tlbflush.h>
+>
+>  #include "apei-internal.h"
+>
+> -/* Helper bodies will be moved here in follow-up commits. */
+> +static void __iomem *ghes_map(u64 pfn, enum fixed_addresses fixmap_idx)
+> +{
+> +       phys_addr_t paddr;
+> +       pgprot_t prot;
+> +
+> +       paddr =3D PFN_PHYS(pfn);
+> +       prot =3D arch_apei_get_mem_attribute(paddr);
+> +       __set_fixmap(fixmap_idx, paddr, prot);
+> +
+> +       return (void __iomem *) __fix_to_virt(fixmap_idx);
+> +}
+> +
+> +static void ghes_unmap(void __iomem *vaddr, enum fixed_addresses fixmap_=
+idx)
+> +{
+> +       int _idx =3D virt_to_fix((unsigned long)vaddr);
+> +
+> +       WARN_ON_ONCE(fixmap_idx !=3D _idx);
+> +       clear_fixmap(fixmap_idx);
+> +}
+> +
+> +static void ghes_ack_error(struct acpi_hest_generic_v2 *gv2)
+> +{
+> +       int rc;
+> +       u64 val =3D 0;
+> +
+> +       rc =3D apei_read(&val, &gv2->read_ack_register);
+> +       if (rc)
+> +               return;
+> +
+> +       val &=3D gv2->read_ack_preserve << gv2->read_ack_register.bit_off=
+set;
+> +       val |=3D gv2->read_ack_write    << gv2->read_ack_register.bit_off=
+set;
+> +
+> +       apei_write(val, &gv2->read_ack_register);
+> +}
+> +
+> +static void ghes_copy_tofrom_phys(void *buffer, u64 paddr, u32 len,
+> +                                 int from_phys,
+> +                                 enum fixed_addresses fixmap_idx)
+> +{
+> +       void __iomem *vaddr;
+> +       u64 offset;
+> +       u32 trunk;
+> +
+> +       while (len > 0) {
+> +               offset =3D paddr - (paddr & PAGE_MASK);
+> +               vaddr =3D ghes_map(PHYS_PFN(paddr), fixmap_idx);
+> +               trunk =3D PAGE_SIZE - offset;
+> +               trunk =3D min(trunk, len);
+> +               if (from_phys)
+> +                       memcpy_fromio(buffer, vaddr + offset, trunk);
+> +               else
+> +                       memcpy_toio(vaddr + offset, buffer, trunk);
+> +               len -=3D trunk;
+> +               paddr +=3D trunk;
+> +               buffer +=3D trunk;
+> +               ghes_unmap(vaddr, fixmap_idx);
+> +       }
+> +}
+> +
+> +/* Check the top-level record header has an appropriate size. */
+> +int __ghes_check_estatus(struct ghes *ghes,
+> +                               struct acpi_hest_generic_status *estatus)
+> +{
+> +       u32 len =3D cper_estatus_len(estatus);
+> +       u32 max_len =3D min(ghes->generic->error_block_length,
+> +                         ghes->estatus_length);
+> +
+> +       if (len < sizeof(*estatus)) {
+> +               pr_warn_ratelimited(FW_WARN GHES_PFX "Truncated error sta=
+tus block!\n");
+> +               return -EIO;
+> +       }
+> +
+> +       if (!len || len > max_len) {
+> +               pr_warn_ratelimited(FW_WARN GHES_PFX "Invalid error statu=
+s block length!\n");
+> +               return -EIO;
+> +       }
+> +
+> +       if (cper_estatus_check_header(estatus)) {
+> +               pr_warn_ratelimited(FW_WARN GHES_PFX "Invalid CPER header=
+!\n");
+> +               return -EIO;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +/* Read the CPER block, returning its address, and header in estatus. */
+> +int __ghes_peek_estatus(struct ghes *ghes,
+> +                              struct acpi_hest_generic_status *estatus,
+> +                              u64 *buf_paddr, enum fixed_addresses fixma=
+p_idx)
+> +{
+> +       struct acpi_hest_generic *g =3D ghes->generic;
+> +       int rc;
+> +
+> +       rc =3D apei_read(buf_paddr, &g->error_status_address);
+> +       if (rc) {
+> +               *buf_paddr =3D 0;
+> +               pr_warn_ratelimited(FW_WARN GHES_PFX
+> +"Failed to read error status block address for hardware error source: %d=
+.\n",
+> +                                  g->header.source_id);
+> +               return -EIO;
+> +       }
+> +       if (!*buf_paddr)
+> +               return -ENOENT;
+> +
+> +       ghes_copy_tofrom_phys(estatus, *buf_paddr, sizeof(*estatus), 1,
+> +                             fixmap_idx);
+> +       if (!estatus->block_status) {
+> +               *buf_paddr =3D 0;
+> +               return -ENOENT;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
+> +                              u64 buf_paddr, enum fixed_addresses fixmap=
+_idx,
+> +                              size_t buf_len)
+> +{
+> +       ghes_copy_tofrom_phys(estatus, buf_paddr, buf_len, 1, fixmap_idx)=
+;
+> +       if (cper_estatus_check(estatus)) {
+> +               pr_warn_ratelimited(FW_WARN GHES_PFX
+> +                                   "Failed to read error status block!\n=
+");
+> +               return -EIO;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +int ghes_read_estatus(struct ghes *ghes,
+> +                            struct acpi_hest_generic_status *estatus,
+> +                            u64 *buf_paddr, enum fixed_addresses fixmap_=
+idx)
+> +{
+> +       int rc;
+> +
+> +       rc =3D __ghes_peek_estatus(ghes, estatus, buf_paddr, fixmap_idx);
+> +       if (rc)
+> +               return rc;
+> +
+> +       rc =3D __ghes_check_estatus(ghes, estatus);
+> +       if (rc)
+> +               return rc;
+> +
+> +       return __ghes_read_estatus(estatus, *buf_paddr, fixmap_idx,
+> +                                  cper_estatus_len(estatus));
+> +}
+> +
+> +void ghes_clear_estatus(struct ghes *ghes,
+> +                              struct acpi_hest_generic_status *estatus,
+> +                              u64 buf_paddr, enum fixed_addresses fixmap=
+_idx)
+> +{
+> +       estatus->block_status =3D 0;
+> +
+> +       if (!buf_paddr)
+> +               return;
+> +
+> +       ghes_copy_tofrom_phys(estatus, buf_paddr,
+> +                             sizeof(estatus->block_status), 0,
+> +                             fixmap_idx);
+> +
+> +       /*
+> +        * GHESv2 type HEST entries introduce support for error acknowled=
+gment,
+> +        * so only acknowledge the error if this support is present.
+> +        */
+> +       if (is_hest_type_generic_v2(ghes))
+> +               ghes_ack_error(ghes->generic_v2);
+> +}
+> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
+> index 2597fbadc4f3..2e3919f0c3e7 100644
+> --- a/include/acpi/ghes_cper.h
+> +++ b/include/acpi/ghes_cper.h
+> @@ -74,21 +74,21 @@ struct ghes_vendor_record_entry {
+>         char vendor_record[];
+>  };
+>
 
-Well, we’d need to add a new field to ‘struct page_vma_mapped_walk’ to 
-store the last value (e.g., pvmw.pteval), but this makes me wonder if it 
-is worth adding a new field just to avoid a lightweight read (which 
-should have no obvious performance impact).
+ditto. "include/acpi/cper.h"
 
->> +
->> +			nr = folio_pte_batch(folio, pvmw.pte, pteval, max_nr);
->> +			ptes += nr;
->> +		}
->> +
->>   		if (lru_gen_enabled() && pvmw.pte) {
->> -			if (lru_gen_look_around(&pvmw))
->> +			if (lru_gen_look_around(&pvmw, nr))
->>   				referenced++;
->>   		} else if (pvmw.pte) {
->> -			if (folio_test_large(folio)) {
->> -				unsigned long end_addr = pmd_addr_end(address, vma->vm_end);
->> -				unsigned int max_nr = (end_addr - address) >> PAGE_SHIFT;
->> -				pte_t pteval = ptep_get(pvmw.pte);
->> -
->> -				nr = folio_pte_batch(folio, pvmw.pte,
->> -						     pteval, max_nr);
->> -			}
->> -
->> -			ptes += nr;
->>   			if (clear_flush_young_ptes_notify(vma, address, pvmw.pte, nr))
->>   				referenced++;
->> -			/* Skip the batched PTEs */
->> -			pvmw.pte += nr - 1;
->> -			pvmw.address += (nr - 1) * PAGE_SIZE;
->>   		} else if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE)) {
->>   			if (pmdp_clear_flush_young_notify(vma, address,
->>   						pvmw.pmd))
->> @@ -995,6 +991,12 @@ static bool folio_referenced_one(struct folio *folio,
->>   			page_vma_mapped_walk_done(&pvmw);
->>   			break;
->>   		}
->> +
->> +		/* Skip the batched PTEs */
->> +		if (nr > 1) {
->> +			pvmw.pte += nr - 1;
->> +			pvmw.address += (nr - 1) * PAGE_SIZE;
->> +		}
-> 
-> As nr >= 1, you can just unconditionaly do
-> 
-> pvmw.pte += nr - 1;
-> pvmw.address += (nr - 1) * PAGE_SIZE;
-
-Actually, I want to filter out the THP case where the 'pvmw.pte' is 
-NULL. But it shouldn’t be a problem, because 'nr' is always 1 for the 
-THP case. I can remove the check.
-
->>   	}
->>   
->>   	if (referenced)
->> diff --git a/mm/vmscan.c b/mm/vmscan.c
->> index 728868c61750..d83962468b2e 100644
->> --- a/mm/vmscan.c
->> +++ b/mm/vmscan.c
->> @@ -3494,6 +3494,7 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
->>   	struct pglist_data *pgdat = lruvec_pgdat(walk->lruvec);
->>   	DEFINE_MAX_SEQ(walk->lruvec);
->>   	int gen = lru_gen_from_seq(max_seq);
->> +	unsigned int nr;
->>   	pmd_t pmdval;
->>   
->>   	pte = pte_offset_map_rw_nolock(args->mm, pmd, start & PMD_MASK, &pmdval, &ptl);
->> @@ -3512,11 +3513,13 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
->>   
->>   	lazy_mmu_mode_enable();
->>   restart:
->> -	for (i = pte_index(start), addr = start; addr != end; i++, addr += PAGE_SIZE) {
->> +	for (i = pte_index(start), addr = start; addr != end; i += nr, addr += nr * PAGE_SIZE) {
->>   		unsigned long pfn;
->>   		struct folio *folio;
->> -		pte_t ptent = ptep_get(pte + i);
->> +		pte_t *ptep = pte + i;
->> +		pte_t ptent = ptep_get(ptep);
-> 
-> 
-> Existing "pte vs ptent" vs. "ptep vs. pte" is already confusing.
-> Combining them into "pte vs. ptep vs. ptent" is no good.
-> 
-> If you need another variable, call it "cur_pte". Or rename "pte" to
-> "start_pte".
-
-OK. "cur_pte" sounds good to me.
-
->> +		nr = 1;
->>   		total++;
->>   		walk->mm_stats[MM_LEAF_TOTAL]++;
->>   
->> @@ -3528,7 +3531,14 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
->>   		if (!folio)
->>   			continue;
->>   
->> -		if (!ptep_clear_young_notify(args->vma, addr, pte + i))
->> +		if (folio_test_large(folio)) {
->> +			unsigned int max_nr = (end - addr) >> PAGE_SHIFT;
->> +
->> +			nr = folio_pte_batch_flags(folio, NULL, ptep, &ptent,
->> +						   max_nr, FPB_MERGE_YOUNG_DIRTY);
->> +		}
->> +
->> +		if (!clear_young_ptes_notify(args->vma, addr, ptep, nr))
->>   			continue;
->>   
->>   		if (last != folio) {
->> @@ -4186,7 +4196,7 @@ static void lru_gen_age_node(struct pglist_data *pgdat, struct scan_control *sc)
->>    * the PTE table to the Bloom filter. This forms a feedback loop between the
->>    * eviction and the aging.
->>    */
->> -bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw)
->> +bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw, unsigned int batched)
-> 
-> What is "batched"? Did you mean "nr_ptes" ? Or just the initial value
-> for "nr" ?
-
-There is already an 'nr' variable in this function. "nr_ptes" sounds 
-good to me, and will use it.
-
->> -		if (!ptep_clear_young_notify(vma, addr, pte + i))
->> +		if (folio_test_large(folio)) {
->> +			unsigned int max_nr = (end - addr) >> PAGE_SHIFT;
-> 
-> Can be const.
-
-Ack.
-
-> 
->> +
->> +			nr = folio_pte_batch_flags(folio, NULL, ptep, &ptent,
->> +						   max_nr, FPB_MERGE_YOUNG_DIRTY);
->> +		}
-> 
-> I guess we might benefit from a FPB_MERGE_YOUNG only here. But this
-> should work.
-
-I’ve thought about it. Instead of adding another flag and some new 'if' 
-branches for folio_pte_batch_flags(), and given that it brings no 
-performance improvement for MGLRU, I still prefer the current 
-FPB_MERGE_YOUNG_DIRTY method. :)
-
-Thanks for reviewing.
+> -static struct ghes *ghes_new(struct acpi_hest_generic *generic);
+> -static void ghes_fini(struct ghes *ghes);
+> +struct ghes *ghes_new(struct acpi_hest_generic *generic);
+> +void ghes_fini(struct ghes *ghes);
+>
+> -static int ghes_read_estatus(struct ghes *ghes,
+> +int ghes_read_estatus(struct ghes *ghes,
+>                       struct acpi_hest_generic_status *estatus,
+>                       u64 *buf_paddr, enum fixed_addresses fixmap_idx);
+> -static void ghes_clear_estatus(struct ghes *ghes,
+> +void ghes_clear_estatus(struct ghes *ghes,
+>                         struct acpi_hest_generic_status *estatus,
+>                         u64 buf_paddr, enum fixed_addresses fixmap_idx);
+> -static int __ghes_peek_estatus(struct ghes *ghes,
+> +int __ghes_peek_estatus(struct ghes *ghes,
+>                         struct acpi_hest_generic_status *estatus,
+>                         u64 *buf_paddr, enum fixed_addresses fixmap_idx);
+> -static int __ghes_check_estatus(struct ghes *ghes,
+> +int __ghes_check_estatus(struct ghes *ghes,
+>                          struct acpi_hest_generic_status *estatus);
+> -static int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
+> +int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
+>                         u64 buf_paddr, enum fixed_addresses fixmap_idx,
+>                         size_t buf_len);
+>
+>
+> --
+> 2.43.0
+>
+>
 
