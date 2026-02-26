@@ -4,70 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A1FFC5928
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBD6FC5926
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OWYwVky7PhOdh1TUQ3DYgeeCuP4zQUy8AXe8YExvGe0=; b=0pvc+2/FOsAF3n6W3zQi5gde0v
-	qHNdEQ2jcoIlz8mk+mGfzUdyA9qydKRzMu7S8vkPZsOI6dES5zU0h/i06t6MIvWumlofrMOOaDLBH
-	4ZNuJcW9ns1C7GFpHpwpZ3QsHFWhjsSxVAHFMjd6o3BjptjtOvpWGz60QRd1JCQpdBRM1+8eukIGl
-	lBtE4xUCRn9ZiQxoBkiCZ7ufYb/ndnELDsk0l44bJcxSAHV85I3PtCD8x64Ln5+cricT85T08Lsz0
-	DdAkrIN8A1WCA5Z34AaCbXALBnHNHGXtmGWl0pxo5kMPoQcT35KUlaq6i/bjRpKGyJKj670JgBP76
-	/f6Zy/gw==;
+	bh=mAcuux1PEFyS4LD3foHKFq7slEzopqc1IlMEs9IftLs=; b=dWlgKZ2qsyz455caqXxnR18eIa
+	7H/Uf/iVU0F0+6lbf44b63ZWR6GySSflIqIyRIQWCBaymViM+34IYNoUCh7FAqu5J/jf04Z46jN58
+	/jAxcFSCym7/j+a9y2q7+8RcA9f5u9W0bQcH/HSdArya7KHgJN6n7/fmHwe8OBz1l1sxS1Hc0a+/0
+	vuoWqs4aMMfRRuYhAvc2MO2fxYs8d530p02ItVQ6dfz51wYjPo1Y1EAMJwQHDjwJS5NZ6fQv+c8pY
+	26ajw53oEmjMp9+wbUTDgX8uN+RJxW/hpIZi3a+4ppNP6C3P6mcxsrPmgTkLMjzWkso9hjWp8kuWG
+	YGKDsHdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYtl-00000005xBU-0PdU;
-	Thu, 26 Feb 2026 10:47:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vvYwN-00000005xdV-2bYv;
+	Thu, 26 Feb 2026 10:49:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYtd-00000005x34-0We4;
-	Thu, 26 Feb 2026 10:47:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772102822;
-	bh=fWQKaJ3KVVTMepHRQE9cVCUJU/NMZyu4U07A0PswQIs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FaVEoMU5JblM+IP7PbzUZJIk4S6+eTzoE5mbvJODDyg0EXbiefhFxjlcdfoxmUjI2
-	 haCFSP3+r2Yw+31niF2Ab++VdI5anXEn2B81+TsJXgzekGzg2FsD/bcsOkLbY+AXp7
-	 ltH9fVpZnHO44grqEts+YdDvkSlzjYjD3kLkD0ekS7cyNCuyXNBstEDIWQ0K3ihPoP
-	 Dfp/FqKWgTA/QMKOw9x2KjjZ8JUcK6OUBz1z5V/4oeBXIHaeZ2v0QpM0uK5cDOL+b3
-	 XM+R8/hPYkcztEmbD/5b0YxoWpsG0ZcCBQDnAcv/R94oh9g6oVO151ILDYNjQ9R+oX
-	 cfIHjS+8cdBiw==
-Received: from localhost (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A4E4217E0E91;
-	Thu, 26 Feb 2026 11:47:02 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 26 Feb 2026 12:46:55 +0200
-Subject: [PATCH v4 3/3] arm64: dts: rockchip: Update vdec register blocks
- order on RK3588
+	id 1vvYwM-00000005xdP-0rUN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Feb 2026 10:49:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4300D60097;
+	Thu, 26 Feb 2026 10:49:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D885C19422;
+	Thu, 26 Feb 2026 10:49:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772102992;
+	bh=awYP+OrP6jTVr0TXLwCj7tRYD6IceTKpq5xLhhhUHKc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=q60t59R2Sj9ULRlYrJ2IIHdnm6lLyMeLPbr3c7Z6+iOb3qbjGc9UKyN/nSUgefBJN
+	 L/nXVQmfzZ98wKBAe05dY59bBAmGJZToVK0Um4Op1EuSKzawvt0TTH/+FvhXCzC05W
+	 SsWoxK98EseWliZMobDup3lDWe7RKDqxsFLHm1BhY9JXuJi6mmvjURBglDTArTvKsd
+	 fyZhw/+0aaH6HPRph/Mqr7g1OIYOGK7MimU2vIZuEwUR3WQxbR+/mltLsCHfxAxqtq
+	 5zstVVOhFRN9tfuvf1QkXdmSTUrKAUYWJ1olUS628nefSAAmEf5tOzoRGEPMMmxpaT
+	 xwzMD3hBIOdwg==
+Message-ID: <f42ab36c-2588-4163-8e0e-2d868ed5db80@kernel.org>
+Date: Thu, 26 Feb 2026 11:49:47 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/8] Revert "dt-bindings: mfd: sl28cpld: Add sa67mcu
+ compatible"
+To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Guenter Roeck <linux@roeck-us.net>,
+ Srinivas Kandagatla <srini@kernel.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, linux-doc@vger.kernel.org
+References: <20260223100459.844967-1-mwalle@kernel.org>
+ <20260223100459.844967-5-mwalle@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260223100459.844967-5-mwalle@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-vdec-reg-order-rk3576-v4-3-b8d72dc75250@collabora.com>
-References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
-In-Reply-To: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Detlev Casanova <detlev.casanova@collabora.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
- linux-media@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_024705_329440_08BC218D 
-X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,53 +122,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide the register blocks for RK3588 vdec0 & vdec1 nodes using the
-'link,function,cache' listing, which follows the address-based ordering
-and, implicitly, ensures the unit address points to the first register
-range.
+On 23/02/2026 11:04, Michael Walle wrote:
+> This reverts commit a598ae45f48d7d5a17f8290f2f5bd46046fd0b9b.
 
-This aligns with a similar fix for RK3576 where DTC complained about the
-bus address format.
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+dt-bindings: mfd: foo-bar: Revert or drop or something, here goes text.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 7fe9593d8c19..b95129f85aba 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1355,10 +1355,10 @@ vepu121_3_mmu: iommu@fdbac800 {
- 
- 	vdec0: video-codec@fdc38000 {
- 		compatible = "rockchip,rk3588-vdec";
--		reg = <0x0 0xfdc38100 0x0 0x500>,
--		      <0x0 0xfdc38000 0x0 0x100>,
-+		reg = <0x0 0xfdc38000 0x0 0x100>,
-+		      <0x0 0xfdc38100 0x0 0x500>,
- 		      <0x0 0xfdc38600 0x0 0x100>;
--		reg-names = "function", "link", "cache";
-+		reg-names = "link", "function", "cache";
- 		interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH 0>;
- 		clocks = <&cru ACLK_RKVDEC0>, <&cru HCLK_RKVDEC0>, <&cru CLK_RKVDEC0_CA>,
- 			 <&cru CLK_RKVDEC0_CORE>, <&cru CLK_RKVDEC0_HEVC_CA>;
-@@ -1387,10 +1387,10 @@ vdec0_mmu: iommu@fdc38700 {
- 
- 	vdec1: video-codec@fdc40000 {
- 		compatible = "rockchip,rk3588-vdec";
--		reg = <0x0 0xfdc40100 0x0 0x500>,
--		      <0x0 0xfdc40000 0x0 0x100>,
-+		reg = <0x0 0xfdc40000 0x0 0x100>,
-+		      <0x0 0xfdc40100 0x0 0x500>,
- 		      <0x0 0xfdc40600 0x0 0x100>;
--		reg-names = "function", "link", "cache";
-+		reg-names = "link", "function", "cache";
- 		interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH 0>;
- 		clocks = <&cru ACLK_RKVDEC1>, <&cru HCLK_RKVDEC1>, <&cru CLK_RKVDEC1_CA>,
- 			 <&cru CLK_RKVDEC1_CORE>, <&cru CLK_RKVDEC1_HEVC_CA>;
+Also:
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
 
--- 
-2.52.0
+And also, please use kernel style commit hashes, see checkpatch and
+submitting patches (12 char + subject).
 
+> 
+> I was just informed that this product is discontinued (without being
+> ever released to the market). Pull the plug and let's not waste any more
+> maintainers time.
+> 
+> Signed-off-by: Michael Walle <mwalle@kernel.org>
+> ---
+Best regards,
+Krzysztof
 
