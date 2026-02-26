@@ -4,134 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECFB4FD8FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 411C2FD8FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ClhX9GrjnxuWiV+Fxfs/S9pSXaS6aEAPt8VK4rEVOhc=; b=NN+f4eUoEpNjqewUjQpTELKb5o
-	8WEHBRLZXsgkalZMPt5UfnHTKuzD0TAfDfAzbbEqelreoGHNzYF+xUVt+wIW5yNfkUFDNRZT+Clc+
-	dyPI8FUbOhu/L1Qo/MATQzrMNlV58c+Va0uRZdBDBicZktr6sG3G4Kp2j25plAWBgB7RmIOCS1epF
-	auQ0p84KRwWxx02kEtrG0LO2B6kG8u8lGFQbS7DjB6C6i+pyh0DMcrNonsqK7ufFlP5OrJEQXGZxC
-	D+Wp8jnYBQamcBzFNOr7fKKBPFBGtELKJUx0noN6YzBJS6zAbq8QDpJNPLv2gtgUcKf1ygE+ZFSkV
-	MI/Td38Q==;
+	bh=txv6vQDrf8TvuXaw8FFr2/au2yNyfaaMtDMt+HBRQ0U=; b=tT82F2tXUIhfje2+Mo7FrlHs03
+	HiQn6kJXB1PcMLTPO1mU96A8R1zVPsq8fppPLx1G/+3R7srSBEnxa0vdfwl03ZjGzamXutcRm1UEC
+	e6Lh3lvCu4qFh+zGRZjI3NTwpSdbj92PEgVayxQyVsiDv9TBev4LTV9Jwrjtqn8gTjc1v3J3oelH7
+	MUGoiVNhlMsQSOvd5AvP2k/0xetGf1qpAcXC5QXkDS3TRfJ4VPtxw93ORkyH8QCQGypy1H6a1HuE5
+	gRQvIDDB41m6NRzmrARucqUZw53U4ltlQ41RQP6++9nsS0NSxCrmtSq5xhETPHEVgqGz82ta7fb5Z
+	9eknt89w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vve5e-00000006iYv-2Uh7;
-	Thu, 26 Feb 2026 16:19:50 +0000
-Received: from mail-norwayeastazon11013055.outbound.protection.outlook.com ([40.107.159.55] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vveAu-00000006jCG-3QEu;
+	Thu, 26 Feb 2026 16:25:16 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vve5b-00000006iYO-2zJL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 16:19:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VWm+CvcFGGccL9OlW9nE1k9KHufhSTHc6goZXxVAC8p6MJVVdPxabfE78jGdS0OcuV7BoKSyeGV6qRfx2AjZAvkQwjZjSZ9MXsilBU8dueLRiQV3HSh+TVUJNWXJP3rpBreci5597MDjr/tGIBwir/EuRbV7pko890RG4UN4dWkUC2J8gnKmkI5I03tRdEJKjzL4LbWhx9hM64/tlsuy1t24awY9LHtSE3BuPnfekAjAN1n9qtXiLRHtb98Kmo2FMddLMdCsuYHBkbx5XYg0HgmMTC6G/gTlLIOvZhlc393quPsxVEav6IJWM6uBrJjdYdplMJvU9elI1yQNtHkr8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ClhX9GrjnxuWiV+Fxfs/S9pSXaS6aEAPt8VK4rEVOhc=;
- b=OG5zCEsnie7VN7zO1p4U9qde3J8mjC2ZPeyTE4hrdtUDuXA8H9yVpbTZhDWvPthcTfx4zpzTYY5mZ+wFe4xz0sGXZ39uewhIahE9ik4BiMHHPazZe0r6X/DuIfsbPGVHa7fxwpx+D/GeexZ8WKmTJ5IXf9KTP9tOLqsQu4P+YIjigzB76sPb8QGdji6GBs9ztw6e/wRIUV/WG00+xG6YLNt95Ch5cqaKp/ZPv9gRdccQSxjn1MCMuFWsTOXpVOuVZ+JYAqS5m4+QvG+3dGrvEDHd0Dxq+BampiCiXiNo2AG5E9Oki6DQ+u28Y9EBPGeCyWaHb1uBo9yz22lVQTuC8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ClhX9GrjnxuWiV+Fxfs/S9pSXaS6aEAPt8VK4rEVOhc=;
- b=Y6m+S96lHUKg7zn3B4bGv7YfFqs8Z+LL24B89L9YoGYVTdU32DYA/qf0uzdm3vRq2oCYSLgel6RRbaaoYhExM/dGO2qn8E970GGzmDnJJs/OtCCxGASqUbq+3TNkFW4NE85Ehj8GOCZ8wB9w+qgTNNdPO7IlhKhyGhzm+2c6D0ElqqNRFawWTWtkqiVcO+LiEgshTN00KSoTFk5eg9dySv87EB0Gq2subqJPsX1xYgdf+aGL9rxXGeCGVDc8spPOfoqrSQeOjYm39Y+CIazb/z/QwN+lz0XjoHQ0JI9Ee3VGIqbQHIPXlpcW7ijCmRs/DtTVQrbdJeag4TS96hb4/Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by DU2PR04MB8551.eurprd04.prod.outlook.com (2603:10a6:10:2d6::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.21; Thu, 26 Feb
- 2026 16:19:43 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9632.017; Thu, 26 Feb 2026
- 16:19:43 +0000
-Date: Thu, 26 Feb 2026 18:19:38 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: haokexin@gmail.com, vadim.fedorenko@linux.dev, jacob.e.keller@intel.com,
-	horms@kernel.org, basharath@couthit.com, parvathi@couthit.com,
-	afd@ti.com, rogerq@kernel.org, danishanwar@ti.com,
-	pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
-	davem@davemloft.net, andrew+netdev@lunn.ch,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net-next v4 1/2] net: ti: icssg-prueth: Add Frame
- Preemption MAC Merge support
-Message-ID: <20260226161938.254et3fcosflufub@skbuf>
-References: <20260224124803.3634808-1-m-malladi@ti.com>
- <20260224124803.3634808-1-m-malladi@ti.com>
- <20260224124803.3634808-2-m-malladi@ti.com>
- <20260224124803.3634808-2-m-malladi@ti.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260224124803.3634808-2-m-malladi@ti.com>
- <20260224124803.3634808-2-m-malladi@ti.com>
-X-ClientProxiedBy: WA2P291CA0046.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1f::15) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	id 1vveAs-00000006jBf-2Uib;
+	Thu, 26 Feb 2026 16:25:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772123057; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=N3OLfKBmkYO933URbrFu8+uXKn2ij+6WUXq71kEBTO4Nu4LcTpRcQZjphpUAwyqNRHGQAP2cDjEaDUq70au60Jh8aFdxv+OKp5d6P4QL+GJp6jNsd7xL1veJ3YFZQO7pHANe9yQFb6fIoYHki3Vv16IWve2sbM8I/MyTbBaWS0A=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772123057; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=txv6vQDrf8TvuXaw8FFr2/au2yNyfaaMtDMt+HBRQ0U=; 
+	b=j8gKxdMDGurJreehgySCvuU/3qEdLoYmbBq2Ahq8cRm2sLFBW7OAExJNJb34Oycb2zYaxG0/8idwbu5Qe85W6l8PzVVm6lYKE+Jgba1uyWKm58OoY77QAZvdSEsox2hv5yEfJgByhZ0f6R20rl1Rrv8ORwBaeVUnb0L5sRbHkzw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772123057;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=txv6vQDrf8TvuXaw8FFr2/au2yNyfaaMtDMt+HBRQ0U=;
+	b=WIldgH/0a6NjbWUpy/KVeZjrvqxYggRojCnNIaaDT6piQoyNjIDfQdgQS9G78G3v
+	1m7YlCA/zRt0Oc22zrGr3RJZVs8P6yRXB04+Zoya4VZhWuPao2Y4SJeAx0PQXsaZiIa
+	6JMWI/E18LL044fdeDRbnMfcUoXpZ0MeeyiIDx98=
+Received: by mx.zohomail.com with SMTPS id 1772123055193953.572434392059;
+	Thu, 26 Feb 2026 08:24:15 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Andy Yan <andy.yan@rock-chips.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Maxime Ripard <mripard@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 14/14] drm/display: hdmi: Use drm_output_color_format instead of
+ hdmi_colorspace
+Date: Thu, 26 Feb 2026 17:24:05 +0100
+Message-ID: <5558942.31r3eYUQgx@workhorse>
+In-Reply-To: <20260224-drm-rework-color-formats-v1-14-bebc76604ada@kernel.org>
+References: <20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org>
+ <20260224-drm-rework-color-formats-v1-14-bebc76604ada@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DU2PR04MB8551:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5ff0b8fd-2a4b-4827-982e-08de7552d962
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|10070799003|7416014|366016;
-X-Microsoft-Antispam-Message-Info: bgRmnJHsXmRcTNMVzrDZnjTZ0cSyMueXp9QZzqz3TEx5TTBmX9G15HDUgP8HuVj1C6F0N1W+wvupjTqJiIlvFODV3rqXbaeHW+nJQ87GuPtVGZQ7krjT+VUgEfRDiFyILX+FDRwCF/TUGWpreimnfvKJ5szoLXDqAi2uInNdiw8y61LOpqduVHiAhKfnOvyuh719NBz2qMUWnXhpOg0Itv+rjnHGXX+vDSqs7mFArZF62ulAIGWupvjwx1kNBcC+cMMc1JroqvRPNvymgUlAaYFMeiYOF08PZLeBXXzVkvSTUEhVp3VNJN5OMjjKUok4+5Y/UoYe2xgEaHpp+rbW7PcUKiIfxyGCNB8HY+cNhJy2rseYyzXJX+0f7Y5zMF9JbjYF2gyvu2qTDNYpKIRP7nD2w+MY7tMzqUkv6g/FjZ8kokXJ1k/aD4vzkB6i0fEVlYxuP33Vlg5DaapH8JuQIuGfsNK9T99msB+7CPxgpXhdEilq3yKCd8+bRbEvb94k84gLV5PXS5myak3ktFzT2KaglFuJ/on8JVz2mzJu7EVy915qIkMLcKFbt/WYb/qS5R950rdTJ0AuIddUYwlTSkuXwdWPvx76/hhTb1i0QJX7+QaSVsFuYbtAz5PhE7L0Mr+LK829BncFu5dJORjOy+spuXBIqAjvBeQw8HQywpeiXa2THpTJnLCzKc07A0pg
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(10070799003)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ASP2CoLSsU4cRcC9lIaDRGDijjElkGDtOAZfGXQyRZ+u+Icrp3ex8+zem8Sg?=
- =?us-ascii?Q?qOlT/VrOhBOOMTC8IVwr0AX8rEPM5g/yZhuGHH2EgxV44pb2lty3y3KXI1vq?=
- =?us-ascii?Q?nCSU+LHjbSbGKEQCGIw1MGyudAyxYaRLaYJA9TeWZM+7Eb6tFD9xgvARbQUc?=
- =?us-ascii?Q?yrUHKL3zGco04PpCUwXL+7UpYFsj180HAZ07eCqRBAyumDRfeYBQdFTGLxnO?=
- =?us-ascii?Q?w4qTpmOux3yvCUx8eT3YQc3fQmYLBrA6fVWqo6MetX3sdg+R7G0Dpad9v3+4?=
- =?us-ascii?Q?3AskTSfjZ0kpnCFKEU2V1MrLs2OK5hwqGYqQgfQ0KiVG+DudFjNN2e45cASQ?=
- =?us-ascii?Q?76PgRKLv4Lv6OX9Iw0px9Eb6lJCNqOsDjjKtgaJF8D6V24tcxPNMDd6A3gJe?=
- =?us-ascii?Q?s+pO80eb7ypLCMwyyBGtTemqJmgPp4EUM7lQc138NLenNROs10HyCR6er8bc?=
- =?us-ascii?Q?fhp6B2zaUPx+PvCIEzfSWV4jTm2P52PYZyaU286b+/tjRQb/SfVU+lBkdmkt?=
- =?us-ascii?Q?xH+EJEvqdJmfEuJPiObbuUh+dBczuTIsABo2uHjL5dz9OgtEbyzL1tOlZEcS?=
- =?us-ascii?Q?l2NIvtPlOIJVl1lQkHZFnf5B7lrtNuBr1jNJFvUIgajBUrxhFwYWOvCdwfsU?=
- =?us-ascii?Q?LxHI9XrA8famq8NnsDQQMNfTw3v4kAdLBQPuufRdzPNtDyIBS8ZZuq64kxUj?=
- =?us-ascii?Q?hCKHQdMZQJ3SqIFMYvPc6gzOj/cOc6Y+FlJVKKxrLyRrLCteGGEDm/JGi/kq?=
- =?us-ascii?Q?hl/CQGhYNgbwHSwRm05LIbkC5IIJE5w4cpIBol8/rJweh1ffg57WY9mpryW9?=
- =?us-ascii?Q?6Mfx98U3Cu+MwH64+eigjWTomqqRiy7MIj+KsSGP3BuEGXBpXCoUkkY5yUOP?=
- =?us-ascii?Q?4irv23PMDC1QWbKHp1ZRYn1hJXmicYeBUeYvFpOqglLQ/5ZhKWijU86pb2Zm?=
- =?us-ascii?Q?j+XmFGocCZ4bjafqRwK72Ac1LaJbQarkea0guaW5CuS57FzRVrAyeEPaZz6+?=
- =?us-ascii?Q?2GMqgnpfy0bjKR0EQGL+aAsvUCwbFaGdj4bj8+V3LcOZ3o6xQzyBN/9ZYKzY?=
- =?us-ascii?Q?/W2Xoun8KvfC2d5vcq9mED1gPjIjlfUJOawcTTryxub/Zf/om1Gvse22AdFk?=
- =?us-ascii?Q?FofJ+bVKPQ3xSr3VWZ6e83RQ/AEc1t9A9YxKF2uXPPae7EWycsIZNP/lUQuO?=
- =?us-ascii?Q?xP1xpwrKRAJX0dGTQuy6w/NoTLZF206ZjPMut2qPnSjkRZleIVBhCZQaUvM5?=
- =?us-ascii?Q?DjPhVx92SzoKZkoC/lu2yUEfLI6FH8gbRXEqMNxlNzXIcR6af1JTur5GAUyM?=
- =?us-ascii?Q?9gnmBxjpiw9ZG583dtGSd1W5iWzUk2Oc8csDLdtUb/IPSGFc6TTA0Lz9YeQ9?=
- =?us-ascii?Q?sHXw7+oEyu6D3FFopBnYusr7x4RtkVifa+3ITrii7rUsoiSLuvpP/BUuUjk2?=
- =?us-ascii?Q?b1Mp7mpJlHPxefW+8R7GQCkCkaJ0YyRS5f6w17CMQ24EzfEBZjAQMvDftNOa?=
- =?us-ascii?Q?Tn7HGTUOABqGpWePeGEnufXkkeek0+vILdEIKMxicm/yzh6xj/k3vD52M42U?=
- =?us-ascii?Q?c95Jybvyriqu5u9BrFPqz+EhksnKvW4aP4hGeWWO0Z8AwuEnWeDJJwLqoMHa?=
- =?us-ascii?Q?9PmnW21smKy4hTihwK724kdi+cviG/YfrLjo/Gl7cHyFV51mncAY2RG6vNc5?=
- =?us-ascii?Q?8Ta3vrSnWFrrPjtFnyuHevsEfqTHEmq2z8Kb4qiXYtkRlGP1bvES4gncsOvm?=
- =?us-ascii?Q?EDflf/bQXhwDSH9vmNJ0r7mbk65FQkI/yZBureeohi/b0vwxpxpOpdQFrfVu?=
-X-MS-Exchange-AntiSpam-MessageData-1: wzu3n6rdka3s+j5mNo8JCihFyfRgkNKAF9U=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ff0b8fd-2a4b-4827-982e-08de7552d962
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 16:19:43.0288
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CZGmfbIS46JxvdVu4yNNL4ZT9ffM0HiDHK3eq3IWYuHMfvJYGqvQ5e0lABuDLmPyBYaiFXDOW7eRNBnKCBfGWQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8551
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_081947_756540_06815F81 
-X-CRM114-Status: GOOD (  29.13  )
+X-CRM114-CacheID: sfid-20260226_082514_669451_06E31DAF 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,154 +103,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Meghana,
+On Tuesday, 24 February 2026 11:58:53 Central European Standard Time Maxime Ripard wrote:
+> The hdmi_colorspace enum was defined to represent the colorspace value
+> of the HDMI infoframes. It was later used by some HDMI drivers to
+> express the output format they should be setting up.
+> 
+> During the introduction of the HDMI helpers, it then was used to
+> represent it in the drm_connector_hdmi_state structure.
+> 
+> However, it's always been somewhat redundant with the DRM_COLOR_FORMAT_*
+> defines, and now with the drm_output_color_format enum. Let's
+> consolidate around drm_output_color_format in drm_connector_hdmi_state
+> to facilitate the current effort to provide a global output format
+> selection mechanism.
+> 
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+>  drivers/gpu/drm/bridge/inno-hdmi.c                 |   6 +-
+>  drivers/gpu/drm/bridge/ite-it6263.c                |   2 +-
+>  drivers/gpu/drm/display/drm_hdmi_helper.c          |   7 +-
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  52 ++++--
+>  drivers/gpu/drm/drm_bridge.c                       |   2 +-
+>  drivers/gpu/drm/drm_connector.c                    |  14 +-
+>  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c             |   8 +-
+>  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
+>  drivers/gpu/drm/tests/drm_connector_test.c         |  80 ++++-----
+>  drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 182 ++++++++++-----------
+>  drivers/gpu/drm/vc4/vc4_hdmi.c                     |  18 +-
+>  drivers/gpu/drm/vc4/vc4_hdmi.h                     |   2 +-
+>  include/drm/display/drm_hdmi_helper.h              |   3 +-
+>  include/drm/drm_connector.h                        |   7 +-
+>  14 files changed, 205 insertions(+), 180 deletions(-)
+> 
+> [... snip ...]
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> index 4f5b27fab475c7c733622eb8727927571f3fb8fe..171cd495976a3e16f201fd339d3d42a09dc3b63f 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> @@ -589,14 +589,14 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+>  
+>  	if (!(connector_type == DRM_MODE_CONNECTOR_HDMIA ||
+>  	      connector_type == DRM_MODE_CONNECTOR_HDMIB))
+>  		return -EINVAL;
+>  
+> -	if (!supported_formats || !(supported_formats & BIT(HDMI_COLORSPACE_RGB)))
+> +	if (!supported_formats || !(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444)))
+>  		return -EINVAL;
+>  
+> -	if (connector->ycbcr_420_allowed != !!(supported_formats & BIT(HDMI_COLORSPACE_YUV420)))
+> +	if (connector->ycbcr_420_allowed != !!(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420)))
+>  		return -EINVAL;
 
-On Tue, Feb 24, 2026 at 06:18:02PM +0530, Meghana Malladi wrote:
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.c b/drivers/net/ethernet/ti/icssg/icssg_qos.c
-> new file mode 100644
-> index 000000000000..388dfcea426b
-> --- /dev/null
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.c
-> @@ -0,0 +1,223 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/* Texas Instruments ICSSG PRUETH QoS submodule
-> + * Copyright (C) 2023 Texas Instruments Incorporated - http://www.ti.com/
-> + */
-> +
-> +#include "icssg_prueth.h"
-> +#include "icssg_switch_map.h"
-> +
-> +static void icssg_iet_set_preempt_mask(struct prueth_emac *emac, u8 preemptible_tcs)
-> +{
-> +	void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
-> +	struct prueth_qos_mqprio *p_mqprio = &emac->qos.mqprio;
-> +	struct tc_mqprio_qopt *qopt = &p_mqprio->mqprio.qopt;
-> +	int prempt_mask = 0, i;
-> +	u8 tc;
-> +
-> +	/* Configure the queues based on the preemptible tc map set by the user */
-> +	for (tc = 0; tc < p_mqprio->mqprio.qopt.num_tc; tc++) {
-> +		/* check if the tc is preemptive or not */
-> +		if (preemptible_tcs & BIT(tc)) {
-> +			for (i = qopt->offset[tc]; i < qopt->offset[tc] + qopt->count[tc]; i++) {
-> +				/* Set all the queues in this tc as preemptive queues */
-> +				writeb(BIT(4), config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
-> +				prempt_mask &= ~BIT(i);
-> +			}
-> +		} else {
-> +			/* Set all the queues in this tc as express queues */
-> +			for (i = qopt->offset[tc]; i < qopt->offset[tc] + qopt->count[tc]; i++) {
-> +				writeb(0, config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
-> +				prempt_mask |= BIT(i);
-> +			}
-> +		}
-> +		netdev_set_tc_queue(emac->ndev, tc, qopt->count[tc], qopt->offset[tc]);
-> +	}
-> +	writeb(prempt_mask, config + EXPRESS_PRE_EMPTIVE_Q_MASK);
-> +}
+I don't think this will work as-is. drm_bridge_connector_init calls this
+function assuming hdmi_colorspace bitmasks in supported_formats.
 
-Shouldn't the preemptible TCs be committed to hardware only if FPE is
-active? The callers pay absolutely no regard to that.
+This may have slipped through the conversion; the synopsys dw-hdmi-qp core
+(separate from synopsys dw-hdmi) also assumes hdmi_colorspace, see e.g.
+dw_hdmi_qp_plat_data::supported_formats in include/drm/bridge/dw_hdmi_qp.h
 
-> +
-> +static void icssg_config_ietfpe(struct work_struct *work)
-> +{
-> +	struct prueth_qos_iet *iet =
-> +		container_of(work, struct prueth_qos_iet, fpe_config_task);
-> +	void __iomem *config = iet->emac->dram.va + ICSSG_CONFIG_OFFSET;
-> +	struct prueth_qos_mqprio *p_mqprio =  &iet->emac->qos.mqprio;
-> +	bool enable = !!atomic_read(&iet->enable_fpe_config);
-> +	int ret;
-> +	u8 val;
-> +
-> +	if (!netif_running(iet->emac->ndev))
-> +		return;
-> +
-> +	mutex_lock(&iet->fpe_lock);
-> +
-> +	/* Update FPE Tx enable bit (PRE_EMPTION_ENABLE_TX) if
-> +	 * fpe_enabled is set to enable MM in Tx direction
-> +	 */
-> +	writeb(enable ? 1 : 0, config + PRE_EMPTION_ENABLE_TX);
-> +
-> +	/* If FPE is to be enabled, first configure MAC Verify state
-> +	 * machine in firmware as firmware kicks the Verify process
-> +	 * as soon as ICSSG_EMAC_PORT_PREMPT_TX_ENABLE command is
-> +	 * received.
-> +	 */
-> +	if (enable && iet->mac_verify_configure) {
-> +		writeb(1, config + PRE_EMPTION_ENABLE_VERIFY);
-> +		writew(iet->tx_min_frag_size, config + PRE_EMPTION_ADD_FRAG_SIZE_LOCAL);
-> +		writel(iet->verify_time_ms, config + PRE_EMPTION_VERIFY_TIME);
-> +	}
-> +
-> +	/* Send command to enable FPE Tx side. Rx is always enabled */
-> +	ret = icssg_set_port_state(iet->emac,
-> +				   enable ? ICSSG_EMAC_PORT_PREMPT_TX_ENABLE :
-> +					    ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
-> +	if (ret) {
-> +		netdev_err(iet->emac->ndev, "TX preempt %s command failed\n",
-> +			   str_enable_disable(enable));
-> +		writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
-> +		iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
-> +		goto unlock;
-> +	}
-> +
-> +	if (enable && iet->mac_verify_configure) {
-> +		ret = readb_poll_timeout(config + PRE_EMPTION_VERIFY_STATUS, iet->verify_status,
-> +					 (iet->verify_status == ICSSG_IETFPE_STATE_SUCCEEDED),
-> +					 USEC_PER_MSEC, 5 * USEC_PER_SEC);
+So should be a simple fix I hope.
 
-You are sleeping up to 5 seconds in the system_percpu_wq kernel-wide
-workqueue, blocking the kernel from making any sort of progress with
-other items in this workqueue. As include/linux/workqueue.h puts it:
-"Don't queue works which can run for too long.".
+>  
+>  	if (!(max_bpc == 8 || max_bpc == 10 || max_bpc == 12))
+>  		return -EINVAL;
+>  
+> [... snip ...]
 
-I guess you should allocate a driver-private workqueue on which you can
-sleep as much as you want. Or make the icssg_config_ietfpe task smarter,
-to be stateful and reschedule itself until the PRE_EMPTION_VERIFY_STATUS
-changes, or a timeout expires. But that's more complicated.
+Kind regards,
+Nicolas Frattaroli
 
-Side note: I had this question on my mind - all contexts from which you
-call schedule_work(&iet->fpe_config_task) are sleepable, so why not just
-invoke icssg_config_ietfpe() via a direct function call instead?
-I guess that's why - it takes too long to reasonably wait for it from
-call sites like ethtool, phylink etc. I would make sure this design
-decision is part of the commit message.
 
-But let's not lie to ourselves. Having a deferred fpe_config_task
-creates its own problems which you are not handling well.
 
-Consider:
-- iet->tx_min_frag_size
-- iet->verify_time_ms
 
-Writer is emac_set_mm(), reader is icssg_config_ietfpe(). But the reader
-can run concurrently with the writer. This means the reader can pick up
-and send to firmware settings in an inconsistent state (old tx_min_frag_size
-with new verify_time_ms). Configuration which was never requested by the user.
-
-You have a mutex &iet->fpe_lock. Does it help? No.
-You have an atomic &iet->enable_fpe_config. Does it help? Also no.
-
-Please try to think of a synchronization pattern where the config
-writer, emac_set_mm(), stops or otherwise blocks out the deferred reader
-while it's making changes.
-
-In addition, schedule_work() while the work is already scheduled will do
-nothing. So if the fpe_config_task takes close to 5 seconds and the user
-sends multiple ethtool --set-mm requests in that time, they will be
-ignored or incorrectly processed.
-
-Also, iet->fpe_active is problematic too. It has emac_get_mm(),
-icssg_qos_link_up() and icssg_qos_link_down() as readers, and
-icssg_config_ietfpe() as writer. But it's not obvious what the correct
-access pattern is. These things rarely work correctly by chance :(
-
-I'm sorry that I don't have more time to untangle everything and see
-what would work best. As a result, the comments above are just "some"
-observations. Please try to be more deliberate with the synchronization
-procedures, explain them and I am more than happy to double-check their
-sanity. It's just that not much effort seems to have been put into the
-current proposal.
 
