@@ -4,118 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C1FFC592F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 12:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E9B2FC5915
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 12:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OZnPJfupjXRWk1E1fCiQQKTWD66ynz04UKrS8Ell2eM=; b=Ge4n/blEgzbjgLXCTdXgleKlXu
-	s4J08Y6VpYbaywqLngHU3/Qj0wSL9iEEKnQcWFCSFln4c5rPtaxsVa18NCjsDwPA1+Pf5GDhIkJ3I
-	SIyIWk/SzYres8XcLCQIdNNE+5kZl7Wr1wmSAym7agLKjcxAP97KNEq8Lv29px8bPBH8IrHW5nmoa
-	hlEwxD5yP3eI8KVO6gBDzD/2nvDXXobW9wV2J6dGJoFUWiv7zxA2O4IYRHVHKNz/ATlRDroswC0kI
-	NprqBOrcWBmVmhbh0omJMcCCy9U0Yf9vabAEhrQyHRcAI2liDcJMkijwQMn068oeHEhiYV59no6BK
-	wVowxEqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lPLxSsBg+7EZWWoQPVp7w8Bm5mqUnQs4zYWK90IVnFY=; b=Y0WkJ1QYdjJlIgitkM1QpJl9oX
+	k9EOpx1+jobC1BqOAuxQIPImMS+ekgyetVxJPfgNo1g+hoLFYoI8EcTrszKCMqJCT1ekEdjOQFosB
+	kvlybeUkC2qIogs1JGj3bBnC5Tun7GaZU/pgjKgoj2b22178s+nAMUqqB1ja+Ot0bZcyMqxGWxlsN
+	IAHa05F99E3nRjh+KieNhtdSG21c35ZISETC6Wc9QUFvEaKHQr59XFy6vwg6/x1I/VuaMYVsc/su1
+	TX628tBWE8/Ws88fND9bh3dGG1+8f5V5CX3eLfYy4+MOR9obQjUTNgZ1d/0/wptEnFYm1H8tcFbu7
+	5qBHNWwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vva2Q-000000064oW-2NjA;
-	Thu, 26 Feb 2026 12:00:14 +0000
-Received: from mail-eastusazon11011064.outbound.protection.outlook.com ([52.101.52.64] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vva4J-000000065E5-2Tio;
+	Thu, 26 Feb 2026 12:02:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vva2O-000000064nL-1ikg
+	id 1vva4G-000000065Ce-2HWX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 12:00:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ocaag5YO8K2zY45cRyBK+2IXUaj0JUkQFHfqK0KO31bGF+ZQH+nBPqfmokur/+doSxL1AlH6FRh6NTx53gRzikQPlyCLXJtp0pmEo8L51McD6IVXgnsLN05EO5swqfOqsT9DHOe/heHGahft3/aUIG4VfXRc3jkqiqzMzBrRVOtck1hk6VEQOrvVLjwdo7DODVTc+794S9Xj3/Trljr7bUeJrvZpf8N0Xl+uDWOX6O5k+7AyBZ03VnHCJQ9hkTXLRvCqfcRqjgA6BhL/tBt+Bd2bCt0WryUJvVvc0sRF8D5HUfBUgOIUjUWahwc1CbOZGBmNcQhqXK3bikebS1Wirg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OZnPJfupjXRWk1E1fCiQQKTWD66ynz04UKrS8Ell2eM=;
- b=XP5ydtDngyXIAcV8FQOMN50UydOebECH4x4i93Gw4CCUlvVIcq/Qfm75E/z4Aqr2sqK9ymtCV29q73JpN7j+gKeMvPF7iFyzpVMNkB6WXCajZBV/E77Jr8wkVrs7kaP2pegdRrwbthMPYCfhWozQ+52ppjd0lbB0P6T8+t1CjPAzIljUjqjjcMs670AR7YMsqio9Y3bCu5gi0Fscw7XRG2Ooz28ebF8HDCvWpJ4vdxSGESx0SRQBCwYntOc3CnvE2POhFvpQorLG/UbOncjb4x5LnhiqX1odNBww6zUQOTEtRdvrbVD6kWYHEy1IHz+U0hUeYJNUiHf8Pjr5JzziBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OZnPJfupjXRWk1E1fCiQQKTWD66ynz04UKrS8Ell2eM=;
- b=NIfWAT3vnak6nKbA3kdGZShbgiRxfhZ+2t/4qQAOv7tfI+xf7rklrymzxDlgphuH1iXCUOmiVoogQ1Yb2bc1/92W1BL68a6TZC1hXZMPO5/fESh/Mj+3AARlHBM0QHvnOjjRa5P3YX1pQmM5azuA+hQ/c+1fqXQwWFfEIIaSxChGvx/x1mRqV1bpWYuq9tdlDSNTMT0hq5sKzv+MNqwtICi4I/Hd2igbIraD5sez/eiZgZrxV/ExVEaOw+PD+0KE/hHi7cTAvLmgOdasrnuGF9AI8hX5L069KieSFpHIDr96ksGkkiyLBHeJVL6GB9IoGd/AQGRzufpytXbLM5lwcQ==
-Received: from DS7PR05CA0046.namprd05.prod.outlook.com (2603:10b6:8:2f::14) by
- SJ1PR12MB6218.namprd12.prod.outlook.com (2603:10b6:a03:457::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.11; Thu, 26 Feb
- 2026 12:00:01 +0000
-Received: from DS3PEPF0000C37E.namprd04.prod.outlook.com
- (2603:10b6:8:2f:cafe::e1) by DS7PR05CA0046.outlook.office365.com
- (2603:10b6:8:2f::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.23 via Frontend Transport; Thu,
- 26 Feb 2026 12:00:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- DS3PEPF0000C37E.mail.protection.outlook.com (10.167.23.8) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9632.12 via Frontend Transport; Thu, 26 Feb 2026 12:00:00 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 26 Feb
- 2026 03:59:19 -0800
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 26 Feb
- 2026 03:59:19 -0800
-Received: from sumitg-l4t.nvidia.com (10.127.8.14) by mail.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Thu, 26 Feb 2026 03:59:14 -0800
-From: Sumit Gupta <sumitg@nvidia.com>
-To: <maz@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<zhanjie9@hisilicon.com>, <zhenglifeng1@huawei.com>,
-	<viresh.kumar@linaro.org>, <rafael@kernel.org>, <beata.michalska@arm.com>,
-	<pierre.gondois@arm.com>, <ionela.voinescu@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>
-CC: <treding@nvidia.com>, <jonathanh@nvidia.com>, <bbasu@nvidia.com>,
-	<sumitg@nvidia.com>
-Subject: [PATCH v3] arm64: topology: Fix false warning in counters_read_on_cpu() for same-CPU reads
-Date: Thu, 26 Feb 2026 17:29:11 +0530
-Message-ID: <20260226115911.1664285-1-sumitg@nvidia.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 26 Feb 2026 12:02:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 38A8D402F9;
+	Thu, 26 Feb 2026 12:02:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 683BDC116C6;
+	Thu, 26 Feb 2026 12:02:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772107327;
+	bh=sGT3zB4PMQOjRhDKzNF3kekJSTQmbRUhYHGyuKAUGNA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TLfZrHWENmWZlBh81ogh6V/eGtLXm0ERJty8FFF8pp7dCJw3dmsqN/quGAJLid+l1
+	 MdQb07FXpoVMclP/sCh1opQYGsbNOkjzGHNfFJmF3fMMHoUlmPMKMDhql1WLd92w0S
+	 fqdxDfkyCb6k8QsI+Gti5qGykVvLMCtQA95nGUrVQ5pr+lFYHOW3GQeR/r5ty151re
+	 2NlRX1iv7osBll+mfheLd3oX+Dk1WhbkmMyW4WmYvMjTCTWWUW/2WkpbkAk17lAVut
+	 LtvidLytHdtiwt8Eo/gb0HanXjO3czrTjkAqhDKVmHh8z1lvNSpsJmKZ/Y+RmlqP2t
+	 LbPveDPjVPaAA==
+Date: Thu, 26 Feb 2026 12:02:00 +0000
+From: Simon Horman <horms@kernel.org>
+To: Jan Petrous <jan.petrous@oss.nxp.com>
+Cc: alexandre.torgue@foss.st.com, devicetree@vger.kernel.org,
+	festevam@gmail.com, chester62515@gmail.com, s.hauer@pengutronix.de,
+	linux-arm-kernel@lists.infradead.org, davem@davemloft.net,
+	mbrugger@suse.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+	s32@nxp.com, pabeni@redhat.com, linux-kernel@vger.kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
+	robh@kernel.org, kuba@kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	ghennadi.procopciuc@oss.nxp.com, kernel@pengutronix.de,
+	shawnguo@kernel.org, edumazet@google.com, mcoquelin.stm32@gmail.com,
+	imx@lists.linux.dev
+Subject: Re: [v5,4/4] stmmac: s32: enable support for Multi-IRQ mode
+Message-ID: <aaA2ODfcRcFDkPPt@horms.kernel.org>
+References: <20260223-dwmac_multi_irq-v5-4-8fc699a5fac4@oss.nxp.com>
+ <20260225092513.174261-1-horms@kernel.org>
+ <aZ7IwgwP5iy2kej8@lsv051416.swis.nl-cdc01.nxp.com>
 MIME-Version: 1.0
-X-NVConfidentiality: public
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37E:EE_|SJ1PR12MB6218:EE_
-X-MS-Office365-Filtering-Correlation-Id: 35278274-09dd-4052-fc6d-08de752e920a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024|921020|13003099007;
-X-Microsoft-Antispam-Message-Info: /H8lzh5HWVgQnqw+JPG41oYvG6MHJ2ha6xhLH1Ijl/kHjocTS3m6JDWgTe/oITNPZCYkeIeEX925wVrYyN+lkGVolWS2Xm/Ol6NRyFbFcETKa5MGGhaDPXerMnITSM+K90b7g4oI2bPQCj2eqTKP4HFZ9eKli6QCFzNMelXAtwHTK4lQ+wJOvc9wOvdcAhRSi3dYQ05XFlkNej16qfZcBjUUAENvqCTzdf0ZIHWjj9+ytyyeEG+5A4zIgDevdjAu6IMS/mT0bjLu/tuRZ/SZD3qrhKtnQrXJK7iWDUWHgQOjsHdf6Jxp+t1n4quizmqVMUHADJ89FPSyzreXC8qSR2OfJCfPsZTImxZnw+6FHPWzDyCb+WYqTVSUrU+QUOdXH8+vuo1w2NRlMXb1Ns1lZ7ffHEqo+4jcypnC3n2w8uBHHacA/Yx4xwl7fteJ9E1lQfRyV0rIFu+H1OBr04Ar975oPOjZkhQUIowN/LiVXLD3rNingpfkm8j4SoP9OW0mlDNa179b1NBt7+ubMXGLiO1QplQUy+eL5Na4m1cnDqf48FhnRchCNTsw1C17YWwNUcuau4iOJfi07fGJBArzHr1ka52CCvN9tZpEU18lvHtRWwdyLe86ipAljX5uaqWyb0t/iA0nVuJDNJ+iBWvMdZR/6BtzLqDdryW3503YAcyYBrVqQjwkN5DX/LutRUN/oKO0gR9G3FTkDdO6J1XDE5bpue+51H3CtunU8HgmTry2WZ8vKWPb6Fx/pIaLhCsVm9UpV22byIEBi8XN+i6XKSfdgGUMInF0QkaeP+O0VGFHiBtIpanuvm0SBKtiAOuvoUdyDUHNZoWsGIv93hjcwEjHcv1jUnox/uahiYLhZHk=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024)(921020)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: t7cg/fg9/c6Qxn0hHjIgywvNKdPIGrf8bRI9B+5L9cWBOBkWHGSVsnbsIiHT4p1G79mFI4KnpLyDxUcDNImqLTE5ttR5TR8pilxDTAdcPc1L4iOLqlUN003qJu3RGXwZrktYGg/+KSavKDHVyizOMUaSa4HDfr4Z+FYU9evwMvBI0YtJ9qVk8mBmoX+n50wUnM6NO8K+uE22HiBdlbmuDDDXunjshnipO9oAuhs2lUZCMyceYpJ5zL4PrYtUv3XqBXyskkIr2Z2/st5GX2MlEDpiNjNXsp01Qyl2fTjFRe8hLdi9wP5PwPYKC2PDmsHU8ysPEIGsX9R9FmK4X0MsbxJZMVzIVU/dLNvu+njB/YPjAxNzLxP1cQ43AaVpuov0hpdUP1JXtUHZMj6XsarQyGkYysNKYvZ/EFuEywecACfy7SRAhkPJTFsLRze7U5SB
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 12:00:00.9268
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 35278274-09dd-4052-fc6d-08de752e920a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37E.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6218
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZ7IwgwP5iy2kej8@lsv051416.swis.nl-cdc01.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_040012_454029_948DC311 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20260226_040208_824698_0ECDC9DE 
+X-CRM114-Status: GOOD (  30.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,78 +82,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The counters_read_on_cpu() function warns when called with IRQs
-disabled to prevent deadlock in smp_call_function_single(). However,
-this warning is spurious when reading counters on the current CPU,
-since no IPI is needed for same CPU reads.
+On Wed, Feb 25, 2026 at 11:02:42AM +0100, Jan Petrous wrote:
+> On Wed, Feb 25, 2026 at 09:25:13AM +0000, Simon Horman wrote:
+> > This is an AI-generated review of your patch. The human sending this
+> > email has considered the AI review valid, or at least plausible.
+> > 
+> > For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+> > ---
+> > stmmac: s32: enable support for Multi-IRQ mode
+> > 
+> > This commit enables Multi-IRQ mode for the S32 DWMAC driver, allowing
+> > per-queue IRQs for improved performance. The driver checks for multiple
+> > queues and per-queue IRQs, enabling multi-IRQ mode when both are present.
+> > 
+> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> > > index af594a096676..4aad7077c9d6 100644
+> > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> > 
+> > [ ... ]
+> > 
+> > > @@ -165,6 +165,16 @@ static int s32_dwmac_probe(struct platform_device *pdev)
+> > >  	plat->core_type = DWMAC_CORE_GMAC4;
+> > >  	plat->pmt = 1;
+> > >  	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
+> > > +
+> > > +	/* Check for multi-IRQ config. Assumption: symmetrical rx/tx queues */
+> > > +	if (plat->rx_queues_to_use > 1 &&
+> > > +	    (res.rx_irq[0] > 0 && res.tx_irq[0] > 0)) {
+> > > +		plat->flags |= STMMAC_FLAG_MULTI_MSI_EN;
+> > > +		dev_info(dev, "Multi-IRQ mode (per queue IRQs) selected\n");
+> > > +	} else {
+> > > +		dev_info(dev, "MAC IRQ mode selected\n");
+> > > +	}
+> > 
+> > Does this validation check all queues have IRQs? The condition verifies
+> > only res.rx_irq[0] and res.tx_irq[0] but doesn't confirm that higher
+> > queues have IRQs when rx_queues_to_use > 1.
+> > 
+> > If a device tree specifies multiple queues but only provides IRQs for
+> > queue 0:
+> > 
+> >     snps,rx-queues-to-use = <2>;
+> >     interrupt-names = "macirq", "rx-queue-0", "tx-queue-0";
+> >                       /* queue 1 IRQs missing */
+> > 
+> > The driver would enable STMMAC_FLAG_MULTI_MSI_EN, but later in
+> > stmmac_request_irq_multi_msi() (drivers/net/ethernet/stmicro/stmmac/
+> > stmmac_main.c), queues with rx_irq[i] == 0 are silently skipped:
+> > 
+> >     for (i = 0; i < priv->plat->rx_queues_to_use; i++) {
+> >         if (priv->rx_irq[i] <= 0)
+> >             continue;  /* queue 1+ skipped, no handler registered */
+> >         ...
+> >     }
+> > 
+> > This would leave higher-numbered queues with no interrupt handler,
+> > causing packet loss when traffic arrives on those queues.
+> > 
+> > Would it be safer to validate all queue IRQs before enabling multi-IRQ
+> > mode, or fall back to MAC IRQ mode if any queue IRQ is missing?
+> > 
+> > > +
+> > >  	plat->rx_fifo_size = 20480;
+> > >  	plat->tx_fifo_size = 20480;
+> 
+> Hi Simon,
+> 
+> I already addressed this in v6 I sent today.
 
-Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in
-ticks for non-PCC regs") changed the CPPC Frequency Invariance Engine
-to read AMU counters directly from the scheduler tick for non-PCC
-register spaces (like FFH), instead of deferring to a kthread. This
-means counters_read_on_cpu() is now called with IRQs disabled from the
-tick handler, triggering the warning.
-
-Fix this by restructuring the logic: when IRQs are disabled (tick
-context), call the function directly for same-CPU reads. Otherwise
-use smp_call_function_single().
-
-Fixes: 997c021abc6e ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
-Suggested-by: Will Deacon <will@kernel.org>
-Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
----
-v2 -> v3:
-- If irqs_disabled(), then call directly for same-CPU counter reads.
-  Otherwise use smp_call_function_single(). (Will)
-- Remove get_cpu()/put_cpu(). (Will)
-
-v1 -> v2:
- - Rebased on v7.0-rc1
- - Updated Fixes tag to match upstream commit SHA
-
-[1] https://lore.kernel.org/lkml/20260127080700.3565546-1-sumitg@nvidia.com/
-[2] https://lore.kernel.org/lkml/20260224092714.1242141-1-sumitg@nvidia.com/
----
- arch/arm64/kernel/topology.c | 21 +++++++++++++++------
- 1 file changed, 15 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index 3fe1faab0362..b32f13358fbb 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -400,16 +400,25 @@ static inline
- int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
- {
- 	/*
--	 * Abort call on counterless CPU or when interrupts are
--	 * disabled - can lead to deadlock in smp sync call.
-+	 * Abort call on counterless CPU.
- 	 */
- 	if (!cpu_has_amu_feat(cpu))
- 		return -EOPNOTSUPP;
- 
--	if (WARN_ON_ONCE(irqs_disabled()))
--		return -EPERM;
--
--	smp_call_function_single(cpu, func, val, 1);
-+	if (irqs_disabled()) {
-+		/*
-+		 * When IRQs are disabled (tick path: sched_tick ->
-+		 * topology_scale_freq_tick or cppc_scale_freq_tick), only local
-+		 * CPU counter reads are allowed. Remote CPU counter read would
-+		 * require smp_call_function_single() which is unsafe with IRQs
-+		 * disabled.
-+		 */
-+		if (WARN_ON_ONCE(cpu != smp_processor_id()))
-+			return -EPERM;
-+		func(val);
-+	} else {
-+		smp_call_function_single(cpu, func, val, 1);
-+	}
- 
- 	return 0;
- }
--- 
-2.34.1
-
+Thanks!
 
