@@ -4,93 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A3FFC5902
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22037FCE09A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5YO7JbDBqxD4DBw7ty3YGZqtipo2bF2AYeLLxY9iiX8=; b=mwcgTkzMtvSPfE63M9H38AhBZQ
-	8UeJy8qrgPdPci0TQBNpLDGOMrMMN/h6bjxKz6vsjEZU532qgBhS9S0qUHn+N2K15xGtwfQS7/g+V
-	Yeb3UIe1Lff3US7zLmbYTgYiMTcBaHubaQC70ubRiWwYCiWQk78YkEnPm9lCI2r+EIF08y9r6TK+2
-	BvY8asL/FS386oQdOFaiI3lUCxxQXieLVaWqpO3honohwZxpPeaotNKpqUvQBZPIIpgCZqDEW3hRr
-	pGlpde0FDD+OYlq1g/1uMpbtKWcyLsk3kbHhf3IJ31iWZ2rKjuR9wq4KtGYz7kqKvE2soozO6uOO2
-	fRhUgmBg==;
+	bh=wUtXTJ4PWiU19yd68YUkaw/+5ZXYxUnZ369Vp2YXLpE=; b=S2wpDAvmOD064mURb5sDquBKls
+	IyOTIMYzPHUUUUOxK3npYap9zS+7/eWQrImuhmIH/hcwi8jq+rNaiHpwYATQ0Vbzjf+z6WN3oFvbv
+	YIUhx5zePDOQKF8syr9zgrd3DPVN5fj/V3z2DGr4foXVt1rIyaBZ+FavkHE2SwDlLPdUYqL1LB9+0
+	+hLU3QtkT9IYp6+zeooEs1OIhK0bboxph+K8NEyd2Rkv+TP1zQKPlf0XhPVf/G2ykrvWdxwIV5Out
+	lXAt7piWtOO+8Ir3RUy8UsKKl7IwCf/Vry+TAyHJdiadNrNH/nQZvjKJK/gOhOusAM6e2h8ELd5Mw
+	i9eupZ2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcfj-00000006NAP-41D9;
-	Thu, 26 Feb 2026 14:48:59 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vvcfy-00000006NIr-09Yx;
+	Thu, 26 Feb 2026 14:49:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcfg-00000006N73-3BQ8
+	id 1vvcfv-00000006NHE-2EnM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 14:48:57 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4834826e5a0so10692255e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 06:48:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772117335; x=1772722135; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5YO7JbDBqxD4DBw7ty3YGZqtipo2bF2AYeLLxY9iiX8=;
-        b=eJs6ZA8tdPdwlzfIaE8+qs6UNyPMNyNrDeSmCZTDCAPN78LUZduS+ctV+l883IqS9A
-         eVR9plZRUpd/MAPTv/pxfzcATjtCraEQ8Od0Oo8bDTdCYui0KCWmYRCFloL9jBRUKcTD
-         7v7c3epvEcWdGmDSk6oMdyuHyGSmJT4tJzabslMHkcV0WfYjBYJklJy+v8T/MsT9XEMJ
-         7snlQjyAwpwsVcFaF9bSqBD02XENz0aM3WHpCQZ22rt1fXC60u2WtFWMp5lIZOdsc6+X
-         gmY4ul4MvS1E0l4Rcf4J6HmnJyoEA3ZGfjMN13FLsbmXIINbBuCyp4JjdgEqXahE87To
-         DEiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772117335; x=1772722135;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=5YO7JbDBqxD4DBw7ty3YGZqtipo2bF2AYeLLxY9iiX8=;
-        b=rpgxsOIA8dlPBqklv8IVQy9BYUubJ6S1Zb/Q44gF6dyWHp75qmK5MpWd/ipMNdWdQk
-         kK9m4iWj63VC34PkLQMvKN0//CEvnrGKQED3ONC7fzWxP2wYQgfGXmMdAh4wP/A81V+E
-         ElBaqm2X5No/9+MIgodj6LxZG5NS39+FCAtSTPRp64P7kIrMLTw49we+9nJijxDD1oq5
-         oduP5RTP4RrURbYRwcvDRmJfAsDi2mTCMX7s65ne/4S3y44Q5hkyNDi6s7u7pyXmGRS7
-         NWWVegDLZ1gFvAc/3FfV4qkqrtORXB6ctWpSar4P4EEtjP01aQttoNKo6hPF9BDWF4cc
-         kM5A==
-X-Forwarded-Encrypted: i=1; AJvYcCUOozVPd5812C5KhuxZp9tOUELYlnmVsGQFqNrwNZx/bxH1Yp1FYG3ZqNCrTaCwXBUcny03zL3FK9qkN6+YD+T2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz15LlzIMaItb4hUtK7b7UyGO/ulIcLz1gHnMAabVmRP3YkTZp6
-	fgm4nRIC7jm0mNa3641Vnlm08lr3aoKM0qoIUHZiZXh5ZE2faNMmzGsY
-X-Gm-Gg: ATEYQzzhkSVbXfF73+iFoOzlfOhn/9SZpl0tw2dB0bB07/DF5q+fVmrpBoeQVYX8asd
-	QXyDrV3uVPb3wZHTnPRL0i60mImtfp3Qv2JRVJJ2nt8PtSY5UVtgvGpaN/YYO1sGAXL3T2VOapA
-	6AUOco5QlyynOXvQjo3JrEk6RbQL/YgNZQ//2Z/dNb9fGl2OZ5Rlbq0x8uvSd/1hNyyCrGl/sn0
-	j7u6RDi9wqF1KM6EMRhao/YWFoqKNB80+/QVWNTheBanisCGDos7tknSk6qMj2GqME/hu3/Ammu
-	hhA1f7HxerzdsJ2NquyRfpTVj02cOzcPaT8b92/n+28+ZHGVqP19vArm/pIT/3l7uqels/B4fJf
-	2k4Ygozi5DmWqdxUe+exAoDBWl/H10c8Cv/736SRbwpFYzKAfQBcZr8BBW0Wx4PQfsyUqb0RtA4
-	Nne4F1q81cD8rzgyulAGx1xGBbs4RhBIQqcibrx9SUtjG6G/x+Z1mIR0GJga1HH7hSYsLaHjyFQ
-	HvIaPo=
-X-Received: by 2002:a05:600c:a16:b0:483:7783:5363 with SMTP id 5b1f17b1804b1-483c3deb544mr34230505e9.26.1772117334537;
-        Thu, 26 Feb 2026 06:48:54 -0800 (PST)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4766:6506:d16b:e2d5:7fdc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bfbb465bsm91497075e9.3.2026.02.26.06.48.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 06:48:54 -0800 (PST)
-From: Fabio Estevam <festevam@gmail.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH 2/2] ARM: dts: rockchip: rk3288-veyron: Fix the Bluetooth node name
-Date: Thu, 26 Feb 2026 11:48:42 -0300
-Message-Id: <20260226144842.2727107-2-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260226144842.2727107-1-festevam@gmail.com>
-References: <20260226144842.2727107-1-festevam@gmail.com>
+	Thu, 26 Feb 2026 14:49:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 535D2437A5;
+	Thu, 26 Feb 2026 14:49:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00BB5C116C6;
+	Thu, 26 Feb 2026 14:49:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772117350;
+	bh=Dooo9K+p2c3aHERyHQJN4bKi+HgA6x+sa+fyWxT0PQg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gLRHk2lC4nVETI0dinp0caziJhEYzvk1TKb0bEifwJWGXqQQ1YfMYmMeERGMR2ifZ
+	 ze1w+QdWwYXZZ8rNvqmnca8NCsNEv+ERnlAht3SdL8HzXAyvbRU+jqjmmTsvKikn2r
+	 tWsm4Tup//noiUnScNkPEIkjVa0xGGe+7I4GsQsNJMEl3yAB1pQ6vhFjSRo5GC71R+
+	 uxhVQ23Iv8kTmXVeZLOwmRMRhqRThzQeNGybGUiu8rdNAIkzUHAwtQk/z+kg1FyuGU
+	 1Sv7/PxKZDiD9VL/tDt8ovoPe8dCuOYPeJG4ZbcEEMmFsI0eegzngdjDYx7uz9tLa5
+	 hriw0s2XjoXTw==
+Message-ID: <84da053d-97d5-4d07-8e76-b162a5b23d2a@kernel.org>
+Date: Thu, 26 Feb 2026 15:49:06 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: Kconfig: provide a top-level switch for Microchip
+ platforms
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ brgl@kernel.org
+References: <20260226143615.65788-1-bartosz.golaszewski@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260226143615.65788-1-bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_064856_815313_84DD777C 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260226_064911_612260_9CCBEA1B 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,45 +121,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Node names should be generic, so use 'bluetooth' as the node name.
+On 26/02/2026 15:36, Bartosz Golaszewski wrote:
+> Microchip is the only platform that doesn't have a top-level switch for
+> disabling all SoC families. Align it with other platforms and update the
+> arm64 defconfig to keep the default config the same.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>  arch/arm64/Kconfig.platforms | 10 ++++------
+>  arch/arm64/configs/defconfig |  1 +
+>  2 files changed, 5 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index 54eb1d7fd419b..72c812e76b0b1 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -188,16 +188,15 @@ config ARCH_MESON
+>  	  This enables support for the arm64 based Amlogic SoCs
+>  	  such as the s905, S905X/D, S912, A113X/D or S905X/D2
+>  
+> -menu "Microchip SoC support"
+> +menuconfig ARCH_MICROCHIP
+> +	bool "Microchip SoC support"
+>  
+> -config ARCH_MICROCHIP
+> -	bool
+> +if ARCH_MICROCHIP
 
-This fixes the following dt-schema warning:
+This will surprise all out-of-tree non-defconfig users, because their
+boards will stop working (drivers depend on ARCH_LAN969X|ARCH_SPARX5
+which will be now disabled), but I like the consistency.
 
-'btmrvl@2' does not match '^bluetooth(@.*)?$'
+I guess this will go via Microchip arm64 soc tree.
 
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
----
- arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts | 2 +-
- arch/arm/boot/dts/rockchip/rk3288-veyron-jaq.dts    | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-diff --git a/arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts b/arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts
-index 6a0844e16279..26817848c154 100644
---- a/arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts
-+++ b/arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts
-@@ -177,7 +177,7 @@ &sdio0 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
- 
--	btmrvl: btmrvl@2 {
-+	btmrvl: bluetooth@2 {
- 		compatible = "marvell,sd8897-bt";
- 		reg = <2>;
- 		interrupt-parent = <&gpio4>;
-diff --git a/arch/arm/boot/dts/rockchip/rk3288-veyron-jaq.dts b/arch/arm/boot/dts/rockchip/rk3288-veyron-jaq.dts
-index 0d4c50e05558..cba2898f8b7d 100644
---- a/arch/arm/boot/dts/rockchip/rk3288-veyron-jaq.dts
-+++ b/arch/arm/boot/dts/rockchip/rk3288-veyron-jaq.dts
-@@ -48,7 +48,7 @@ &sdio0 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
- 
--	btmrvl: btmrvl@2 {
-+	btmrvl: bluetooth@2 {
- 		compatible = "marvell,sd8897-bt";
- 		reg = <2>;
- 		interrupt-parent = <&gpio4>;
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
