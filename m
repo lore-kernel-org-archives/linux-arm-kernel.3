@@ -4,62 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94219FD460E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 03:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DC4FD460F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 03:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/4WtA3QVEwzHgjUpBzvEPaT6QgOS9tebXTKZPMA8IU=; b=DjS1ygflx+EXCcg1CrLuoG5AoF
-	zc8WYDnHtNhSHqn5cG6bCPDFFW7H/bsg926Xs3g1JUPbLjjHDHcH+3LwvvjMSom/Mz2kc1ncWW/9C
-	wcDYvKcuZ5ow3xxWBVFl+MUsBzSFnaceut5k5ljs9viiala2Tr1rQBan7VYhXDMFQWoUJ2SHtmw07
-	G8FNMRoleNvaYbzsRifRUsIbIhqGrl5TvRBoaCQRsbI/XP+9M7Wtbwpo9BUrkHnkUQITlgJyMVmfF
-	UKQxOq3wx2OgmLxlRFCjgh88ZBN9BG1iXHK3kmpvUXl6qfRH7uA9WXACjTvDQsOn+vBU3dxErTs/g
-	KlYiVGUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i2dmjM523oIbG2+iICf5JP6Idn4mIM10ViR7LywFkuY=; b=04T9Ja6iYdPGaNH/UDYukTTca1
+	BvvaB+c41KxpnrBaEGIhcj+DJccohjJ+7bGXsGRKWHiItbmMumfT7+PoLin4GolUmMF5cTdNUPGcM
+	GPb9A8sPZJB2TckXTOKlurlI20TqFt+HJVN+VOZUSPf/kadOw1RQ5JDZFaBNZY32a16etbTmR6epo
+	tN9iZkpJQwxYbvx3Oxt5cyHzhSLBtDIF2dm/hk6qm67j7sAogEhBFmg9y4tI8+D+QNEIaOdc2KGA0
+	2pivJLXkm31tCYwjZ+v9rN4vNoUuSySp9z7qE22awgudmr9k4xR3yq9YRL3GFruVH5S2hnnoIfxyL
+	rS11EqSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvSGd-00000005Ked-0se7;
-	Thu, 26 Feb 2026 03:42:23 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1vvSH6-00000005KjW-3Heu;
+	Thu, 26 Feb 2026 03:42:52 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvSGa-00000005KeH-18Vt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 03:42:21 +0000
+	id 1vvSH4-00000005KiU-0nrT;
+	Thu, 26 Feb 2026 03:42:51 +0000
+X-UUID: 36667c1c12c511f1ad39f32c34db0b1c-20260225
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=i2dmjM523oIbG2+iICf5JP6Idn4mIM10ViR7LywFkuY=;
+	b=AfMPnsAsfLt2h7WU31MgLpaeauGOH3vrNesvj7yUGE9cB7VVCO5IKJoJ+UUCv6I6dFoPAV49po/pR+oFvQIfNr73Yd4uOEEwMpN84ocvdyq0h/HxVR34VZArKnroDB3bnb8hzeTyfwG7Q/oACIP19qC7BgnY1hD6eZ8mFJ6RHG8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:16b703bf-a5ab-4e09-9eb9-e1fb627b7849,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:154a487b-8c8a-4fc4-88c0-3556e7711556,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 36667c1c12c511f1ad39f32c34db0b1c-20260225
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 688715601; Wed, 25 Feb 2026 20:42:45 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 26 Feb 2026 11:42:42 +0800
+Received: from SI4PR04CU001.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 26 Feb 2026 11:42:42 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BqtyQkjcL1yZoQjPtsD6tTmMU/C5BYk4gBbvZ770yDhA06hThoKXNlKahfjEGH2rFQMU6n0ToiYtu6ayUyrLoeov36v0eWPUwK6PFp4mO8e5XIYGBMCd6yrB8f8x8a+yqv5woBO4bGXglxUoqK9fgjMBGay6t2Zxaw2SP79wBlHTu9u6xtG2JVeJcNzohJiHbEBFhbzT0+Rx6kZpdnr+wHQEWACOapug6H7MNnBr2aF1ZiHVyb8EX8uLCgAYLgjNioqtZsN7pbGAMkb6IwAVm/17ySdY0g1CbLGSznSMAR/aihy1QmL52gR3SVhqI48UeQnaD5m7i4Y3SSij6qfqMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i2dmjM523oIbG2+iICf5JP6Idn4mIM10ViR7LywFkuY=;
+ b=JKyoONYwPek58hbhA5i4ewxZFG1NKSGymiN0HhJhV7udqr2ySpqbUHZHwX74VJdALVuBBB2QjGKwbZHWgZqkjTtC32ULG7i45dIlbHUNZMz1KU9bLt9IaslAfZ7lT9ipkCAPbqiik/q3sJG0bQ9iX73Ob/VpuXL9J54YPVvsDkGZ3ur41a8dRxIICkAl65UupDM6d8RzS7x1F2ZkAdrybjoGvdDdXpqqJVh78JBPryQtpmX+jvamjBTh95DTodyMHqzvPwcKEnJVnLCrjWyVYG6RpDoy0liFFxEesFQrYBaRi7CnL1zsdQaMDWMPeNGOYXk+/E8d6G+0G6UCbBYw0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1772077335; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=s/4WtA3QVEwzHgjUpBzvEPaT6QgOS9tebXTKZPMA8IU=;
-	b=BANf9/8O1QaUdIUDXVcCYUkIzjk/afwq0niLBfkXSmXlGNZZBvshdVAOgF/Brex5TpYmQq8ScFTbXKGvDViagnuvZ/1GTlSdYJcqZfWSbMZXjCZ3RgBNlFxzHS7U2tWmnpYJv8Il0FNL5J3sJnQAv1nli6aPzoNDmjFtTa5/YnM=
-Received: from 30.74.144.118(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WzpnIJH_1772077332 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 26 Feb 2026 11:42:13 +0800
-Message-ID: <32c538ce-6af8-48a8-86fc-d26ee253af54@linux.alibaba.com>
-Date: Thu, 26 Feb 2026 11:42:12 +0800
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i2dmjM523oIbG2+iICf5JP6Idn4mIM10ViR7LywFkuY=;
+ b=URiE3tw/yWQLuCJqeQj9fpLBWziHjsIT6mwT3r1r6R9GM1f5umzegP9qUdmiBgwfus95BE71I97WgD5IyBQnRC07nUc8eqRdvlh8oZrQKc0ZfLWZ6p9bHl/akAz9gLKaaeA/+AxPyrhgVpuM3K0t3R2Ntbmk+P1l0ESg8r4/ZJA=
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
+ by TYZPR03MB7060.apcprd03.prod.outlook.com (2603:1096:400:337::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Thu, 26 Feb
+ 2026 03:42:40 +0000
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925%4]) with mapi id 15.20.9654.013; Thu, 26 Feb 2026
+ 03:42:39 +0000
+From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
+To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>, "robh@kernel.org"
+	<robh@kernel.org>, =?utf-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?=
+	<Chunfeng.Yun@mediatek.com>, "kishon@kernel.org" <kishon@kernel.org>,
+	"James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>, "bvanassche@acm.org"
+	<bvanassche@acm.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+	=?utf-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
+	<Chaotian.Jing@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+	"nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
+	"vkoul@kernel.org" <vkoul@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "avri.altman@wdc.com"
+	<avri.altman@wdc.com>, "broonie@kernel.org" <broonie@kernel.org>,
+	"martin.petersen@oracle.com" <martin.petersen@oracle.com>
+CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-phy@lists.infradead.org"
+	<linux-phy@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, Louis-Alexis Eyraud
+	<louisalexis.eyraud@collabora.com>, "kernel@collabora.com"
+	<kernel@collabora.com>
+Subject: Re: [PATCH v7 17/23] scsi: ufs: mediatek: Rework
+ ufs_mtk_wait_idle_state
+Thread-Topic: [PATCH v7 17/23] scsi: ufs: mediatek: Rework
+ ufs_mtk_wait_idle_state
+Thread-Index: AQHcn0nYpvPFSDho/kOoNfzP7/KCjbWTRaEAgAAhwwCAAP3vAA==
+Date: Thu, 26 Feb 2026 03:42:39 +0000
+Message-ID: <0ddec4b93fe9cdf38eeb6f7c37bbb0bcfe1e3d28.camel@mediatek.com>
+References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
+	 <20260216-mt8196-ufs-v7-17-b5f2907c6da7@collabora.com>
+	 <dd895595dbd4cf855ef4ea53aa1b5a0d30169f6c.camel@mediatek.com>
+	 <5e61f0d5-d168-4d28-8a68-eb1369e7cf8b@collabora.com>
+In-Reply-To: <5e61f0d5-d168-4d28-8a68-eb1369e7cf8b@collabora.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|TYZPR03MB7060:EE_
+x-ms-office365-filtering-correlation-id: 9309094b-5969-491d-9599-08de74e91724
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021|921020;
+x-microsoft-antispam-message-info: qDatXdsAf6sVATQtxC5y+eu9WSzTpLv4QVsRQqb3P5Tmw2UD16RUyfgzPx++uTPLgX5BVV/hGMR2M31TPFxeaTi9ci8OiZjtqtoa6qo4QfrjHK6CJd0ILnBKa5zeRqn2LlLdJ38yigZUcIPws2ZdxLY0l31I+Joh0xNi/jPAZ8iFzjSeaHPUtBRs1BA4TGh3QI31B1lrv0lUXC9DFn+ma5N31H83JfE+dZxNw7oFgSQEeZvL6qK/j96MMQ0lDsxOjE7fWtOcAYeHN2BVwiqFjP0li8QaSAOwx7LJygcH68kcJequBGANNRDjQLH4mAaFSlHbvBqRC9YyRclh6P8nb8XtHesLaUXnOr7808EcE2QQM6RudKYrihkYXy5HzrXmWUuxkR0k+DXdtHrx7j8IT18JqyvdLkazrDBossnoc8t6XKz/cU9Ddd48BE95PxGgw7cj7S7FBfJu2e1V/pLGuxW4bOh7XsNFR9Al9ZiYMg3rASTBfnOlQp1M3VKWjIEIv9H/qNvo7k0BiZ88Tl/3GDk03WweHOuDkUvmzK7TlyVjiPt1yruA42pes8hLnunrI+f1WvvmQvB+xYZNaecThLWy81TN1e1Ar+cpTa0nLXDegCU9BJYvx10RxHTlbXC1lRcMDhSOnuKTUMk0E2+a5svSPQHlLdVkAl18V149AEMOEHP4yUqhRQCr4EwmU47z4/dGc37mipqOkjSBXFF1Psd5/JxFvj4TXpEBYAEii44xOC11C5/hBFY7nQHeiR5I7a8u2boAr28CPtFkzu6e1PYrfUz7w26ctV62U6nHdlBQK0HtNwfezPZEDZfUypkD
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?M2FVMUYrUnFRcy9XVVJ0YWdzMXNweHRYTUlyWnVqRDFOQVZFazFJSG1aSXV5?=
+ =?utf-8?B?RVF1TjVDVnRqYk1pTUFDeHRGb1JLVEJQVXFoWi9CQThXUkh3bFlraHVuV21t?=
+ =?utf-8?B?cEd5MnphbmExN2pFQXY2S1Y2UGhlM240MkNHSDZJcmlJSXhjaHltZnlETWxk?=
+ =?utf-8?B?RGVzZ2NiRHoxWk96dy9JVXM2SndCQ093QW5NVHRzYlUzYVMvSG9ycTErcndo?=
+ =?utf-8?B?VDZjTzRQMm4wQ3BtUEpKTStQVU5qSzBFWVJML1pQYTZ1RVY0Zko0UlBPT0sr?=
+ =?utf-8?B?MWIwejlQKzdlMkdidWo1U09YUEh1aGJDOFAzNHVVWSs1VSs3UDVqVFd6VEw1?=
+ =?utf-8?B?bXlqbmdWeCtPWVlFamk4K2NNV3hYNzV6VTJVck1taEQvUXJ6MXF5Mjh2RDhP?=
+ =?utf-8?B?ZlliMUg5RE5CZkNmUTlTYkV6bnhqaXVRUHdSRElqTkdtNkFKQktwNHRkVmpT?=
+ =?utf-8?B?ZFl1UVV3bkprVzgxZWNnR3R3QXlIYnpTKzBaaVAxbm9CUy8vTlNOZ2hpNzM1?=
+ =?utf-8?B?Qis4clBTT3VOMVhIR2E3U2dpYU5GY2E1MDUwL2NRS1ROc2xPaHZFZVFneTBI?=
+ =?utf-8?B?d2xDWFRKd0h4ZEFRa201YlVNZUJzVlBnRUZUQWEyVmM1emlkTFkwNWxaSGZP?=
+ =?utf-8?B?a0NNR0tIYnpJVE1JMDVBQXRiUE1OZjMzaS9TV1JUNytDdXBhL0RackpDWjZZ?=
+ =?utf-8?B?TzBCaTJFNVdKdW1JZ1FtNjBBOENPcWU3M2pMU2Y4dVZLSy9KR1NFT2diakZD?=
+ =?utf-8?B?RmlSaVBueGg0bkdjVzFOcGxSVzBWbytkZm9yeU05OVRMZTlnRE1XWTljWGI4?=
+ =?utf-8?B?dXcyak9haW1kUWZiM05wYzc2RkJPTGlHYmJkbzZ1dzJJK2phcHRkNHhQbzhu?=
+ =?utf-8?B?S1dSaStzSmUreXBkUHduTVh2K2htRTlQdkNRbC8yUnpQNUpPWUozWkFmY3Vr?=
+ =?utf-8?B?NWE1aExMeGtjWUFkQ1ZTRTFqRkFoT0Fady96cVlBdWptV3hQTEhScXJBMWFZ?=
+ =?utf-8?B?ZSttdDFWUDFPcmswdGdhbnRUY3FqTi9IUjFEN0pEOGl1eGZhWWIvbDBjMndw?=
+ =?utf-8?B?K3Q5WmF2bW9XSTNLaHJlTDF4WGhmcUkvNGlUSzd6ZzdJNEgrdDJ4Sm5yd214?=
+ =?utf-8?B?cEdNeUFTdG5CNDNERHBFRmM1ZS9aSU9zYUJsS0VnYzd0OHJuM2dEY1Y1c0dO?=
+ =?utf-8?B?UUx5L1VnYkJmR1FjdlRMdnRUaytoYTlxVmpqbnoxNDUrbWxUNm5oUUdiSEow?=
+ =?utf-8?B?a2tjWWllUjkvdEdHWklqRzlYTkdRMmhnNUtGTGVnd3RKc3FUM3RnZTN4WEN1?=
+ =?utf-8?B?aEN4Y21EU3BxbE92YStkcEIwUVAxdG1TSEUwalYvYUNLZmo4cU5pck13aDBQ?=
+ =?utf-8?B?V3Z3dHU5bHBVekVVbGRqM3JRZjFnRXpoS1dlZUtYM0I2enVTaGtKTEZucExo?=
+ =?utf-8?B?MmRJQXZteXMxdkRneVpWRnpLVHJVNHBhaGhKNXZVTW5ZTDFURVBpbmExQ0dG?=
+ =?utf-8?B?b0d6ZG1GaUZqRy9iOHV2Y1l5ZkdTSlF3V1NqcjliKzROcUwrN04wYXBIazVm?=
+ =?utf-8?B?UGJUVnl3czdXVDNiZExaNG0rcU9RMnhGaWhWcWxxcXNtN2NiVTNTUWRpNkpP?=
+ =?utf-8?B?SEh5aUpMcnNIV1hOK0VhZEtVOWpVZnR2aU4zcXppK0kzMUo1TGRQaEFaVmd2?=
+ =?utf-8?B?Y0VXL3J6UEo2bW5pN3Zhb0doR1lud3IvZG0rVkZjTkQydG8xQzZOUm8yKy9U?=
+ =?utf-8?B?RVVvK3VIblRJblVzczBteFY0ZStIZ1BNL2d6dmdCTk5paVBtcVFYV2wxVWxt?=
+ =?utf-8?B?OXgzMVJ5TkdESGxpbGZVUU4rMitVZThVeXhMdjJLQmhDSVZ0N2ZZelpkblJw?=
+ =?utf-8?B?d3VrMGhlLzFJbVJzN0twK3JJVnZaN2l4azFUNkpJdk9UcWpiYmtXcGhTampJ?=
+ =?utf-8?B?Wm8xeDU0NmM5RUJuMlpUcXdHKzZTUUUrV09tVnpDc2diN1Vzd21VT1RFdDB5?=
+ =?utf-8?B?OFdyNEdlalNFM2MyWnZBeW4wWi9GSXpnY09BK3FVZXpGdkM3NURmQW1MdlZO?=
+ =?utf-8?B?YWRYU2RnNXVYeHN1SmQxc3hiY2U1QkVLNXlMWmlKODU0Z0NpTnA0Yy9kVW9x?=
+ =?utf-8?B?cDgvclJxVkZqcFV3ZDZJbGRRaXZSTzhZUTVqRjlaSUlJQzc2SjdtMGIwdXlU?=
+ =?utf-8?B?WDJJSFJoaUxZWlYvRXA2c0lpQXJUdnN0RUovcXZlbmdyRmFwRDEyUXJud2Rz?=
+ =?utf-8?B?ZzBBSjA0aHlnNHVNdSt6QkRRdWZ4alhNRlh5N0M3bnp1RTFnYzZ1OFVmc25h?=
+ =?utf-8?B?dTdWZnFLdS9GNFp3dHZwWlZVNlVudDRuakFWU1FhaEtIL241WHNFWml5TXA3?=
+ =?utf-8?Q?44mQCFlC/s4ZeFho=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <020C0A134BCA0745A67E05CB39698A20@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] mm: add a batched helper to clear the young flag for
- large folios
-To: "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org
-Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
- ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
- yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
- zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1771897150.git.baolin.wang@linux.alibaba.com>
- <bfbe28e381b02452b455498e7ea82662e83a3865.1771897150.git.baolin.wang@linux.alibaba.com>
- <d172d6bf-c60c-4cf5-9da9-f30de38cdfed@kernel.org>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <d172d6bf-c60c-4cf5-9da9-f30de38cdfed@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Exchange-RoutingPolicyChecked: ggrmYFYO0E5jWoQGZqGucqXRdDbrD5CnBTnp1HUVP6QDYWBE8qra55c6eZZXmnWxHjQgS5eHrhsgMZRFg8bvzQv0tamdEA6GBw0BwZQ5rmxPleRh+t6qmQFVwhvpVO4sTqvjc5YgywTtKX9shw5X3kPPVKVnQ5oshri3A4QnEMtDs1M+e9BcjJzYKPYpR9us+bpeSB73pnDTaE1SgHvsEtimLnHsbSP6ErhEQv+nIsXKjNEDWsgl/fKowFJe24kDPXTqF2+Y5/MORucZUY88FAHsxq2bj7mtUANkzS2tIzwzfTMYHTtDI4nRn4ELd7Aem+3NpXOxN5YiOHokuQcCHg==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9309094b-5969-491d-9599-08de74e91724
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Feb 2026 03:42:39.7079
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wjiqt2kPAvwqO1Nk/Ly5qIRdgKFaKMZI9o2IizCTcOArueTe3K+9RYcUdsx+ipQBJD3yg/fVrsKayweLI0e4fg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7060
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_194220_734943_BF1A82CD 
-X-CRM114-Status: GOOD (  24.60  )
+X-CRM114-CacheID: sfid-20260225_194250_245191_B2B0A2B2 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,159 +207,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/25/26 10:04 PM, David Hildenbrand (Arm) wrote:
-> On 2/24/26 02:56, Baolin Wang wrote:
->> Currently, MGLRU will call ptep_clear_young_notify() to check and clear the
->> young flag for each PTE sequentially, which is inefficient for large folios
->> reclamation.
->>
->> Moreover, on Arm64 architecture, which supports contiguous PTEs, the Arm64-
->> specific ptep_test_and_clear_young() already implements an optimization to
->> clear the young flags for PTEs within a contiguous range. However, this is not
->> sufficient. Similar to the Arm64 specific clear_flush_young_ptes(), we can
->> extend this to perform batched operations for the entire large folio (which
->> might exceed the contiguous range: CONT_PTE_SIZE).
->>
->> Thus, we can introduce a new batched helper: test_and_clear_young_ptes() and
->> its wrapper clear_young_ptes_notify(), to perform batched checking of the young
->> flags for large folios, which can help improve performance during large folio
->> reclamation when MGLRU is enabled. And it will be overridden by the architecture
->> that implements a more efficient batch operation in the following patches.
->>
-> 
-> Maybe mention that the implementation follows the other existing functions.
-
-Ack.
-
->> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->> ---
->>   include/linux/pgtable.h | 36 ++++++++++++++++++++++++++++++++++++
->>   mm/internal.h           | 23 ++++++++++++++++++-----
->>   2 files changed, 54 insertions(+), 5 deletions(-)
->>
->> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->> index 776993d4567b..0bcd3be524d3 100644
->> --- a/include/linux/pgtable.h
->> +++ b/include/linux/pgtable.h
->> @@ -1103,6 +1103,42 @@ static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
->>   }
->>   #endif
->>   
->> +#ifndef test_and_clear_young_ptes
->> +/**
->> + * test_and_clear_young_ptes - Mark PTEs that map consecutive pages of the same
->> + *			       folio as old
->> + * @vma: The virtual memory area the pages are mapped into.
->> + * @addr: Address the first page is mapped at.
->> + * @ptep: Page table pointer for the first entry.
->> + * @nr: Number of entries to clear access bit.
->> + *
->> + * May be overridden by the architecture; otherwise, implemented as a simple
->> + * loop over ptep_test_and_clear_young().
->> + *
->> + * Note that PTE bits in the PTE range besides the PFN can differ. For example,
->> + * some PTEs might be write-protected.
-> 
-> Document the return value?
-> 
-> Returns: whether any PTE was young.
-
-Ack.
-
-> 
-> Or sth like that.
-> 
->> + *
->> + * Context: The caller holds the page table lock.  The PTEs map consecutive
->> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
->> + */
->> +static inline int test_and_clear_young_ptes(struct vm_area_struct *vma,
->> +					    unsigned long addr, pte_t *ptep,
->> +					    unsigned int nr)
-> 
-> Two tabs ...
-
-Ack.
-
-> 
->> +{
->> +	int young = 0;
->> +
->> +	for (;;) {
->> +		young |= ptep_test_and_clear_young(vma, addr, ptep);
->> +		if (--nr == 0)
->> +			break;
->> +		ptep++;
->> +		addr += PAGE_SIZE;
->> +	}
->> +
->> +	return young;
-> 
-> BTW: can this function simply return (and use) a bool instead?
-> 
-> Likely we should do the same for the other functions, but that can be
-> done separately.
-
-Yes, add this to my TODO list to convert all related functions.
-
->>   /*
->>    * On some architectures hardware does not set page access bit when accessing
->>    * memory page, it is responsibility of software setting this bit. It brings
->> diff --git a/mm/internal.h b/mm/internal.h
->> index 1ba175b8d4f1..1b59be99dc3f 100644
->> --- a/mm/internal.h
->> +++ b/mm/internal.h
->> @@ -1813,16 +1813,23 @@ static inline int pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
->>   	return young;
->>   }
->>   
->> -static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
->> -					  unsigned long addr, pte_t *ptep)
->> +static inline int clear_young_ptes_notify(struct vm_area_struct *vma,
->> +					  unsigned long addr, pte_t *ptep,
->> +					  unsigned int nr)
->>   {
->>   	int young;
->>   
->> -	young = ptep_test_and_clear_young(vma, addr, ptep);
->> -	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + PAGE_SIZE);
->> +	young = test_and_clear_young_ptes(vma, addr, ptep, nr);
->> +	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + nr * PAGE_SIZE);
->>   	return young;
->>   }
->>   
->> +static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
->> +					  unsigned long addr, pte_t *ptep)
->> +{
->> +	return clear_young_ptes_notify(vma, addr, ptep, 1);
->> +}
->> +
->>   static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
->>   					  unsigned long addr, pmd_t *pmdp)
->>   {
->> @@ -1837,9 +1844,15 @@ static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
->>   
->>   #define clear_flush_young_ptes_notify	clear_flush_young_ptes
->>   #define pmdp_clear_flush_young_notify	pmdp_clear_flush_young
->> -#define ptep_clear_young_notify	ptep_test_and_clear_young
->> +#define clear_young_ptes_notify	test_and_clear_young_ptes
->>   #define pmdp_clear_young_notify	pmdp_test_and_clear_young
->>   
->> +static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
->> +					  unsigned long addr, pte_t *ptep)
->> +{
->> +	return test_and_clear_young_ptes(vma, addr, ptep, 1);
->> +}
-> 
-> Why not outside of the ifdef a single generic
-> 
-> static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
-> 		 unsigned long addr, pte_t *ptep)
-> {
-> 	return clear_young_ptes_notify(vma, addr, ptep, 1);
-> }
-
-Yes, will do. And this function will be removed in the following patch.
+T24gV2VkLCAyMDI2LTAyLTI1IGF0IDEzOjMzICswMTAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
+ZWdubyB3cm90ZToNCj4gVGhlIGxvZ2ljIGlzIHByYWN0aWNhbGx5IHRoZSBzYW1lLCBleGNlcHQg
+aXQncyBwcm9wZXIgbm93Lg0KPiANCj4gVGhlcmUncyBubyBuZWVkIHRvIHdhaXQgZm9yIGBzbSA9
+IFZTX0hDRV9CQVNFYCBpZiBgc20gPT0NCj4gVlNfSENFX0JBU0VgLg0KPiANCj4gSW4gb3RoZXIg
+d29yZHMsIGp1c3QgcmVhZCB0aGUgY29tbWVudCB0aGF0IE5pY29sYXMgaGFzIHB1dCBpbiB0aGUN
+Cj4gY29kZToNCj4gLyogSWYgdGhlIGRldmljZSBpcyBhbHJlYWR5IGluIHRoZSBiYXNlIHN0YXRl
+IGFmdGVyIDEwdXMsIGRvbid0IHdhaXQuDQo+ICovDQo+IA0KPiAuLi5iZWNhdXNlIHRoZXJlJ3Mg
+bm8gbmVlZCB0byB3YWl0IGZvciB0aGUgZGV2aWNlIHRvIGdldCB0byBCQVNFDQo+IHN0YXRlLA0K
+PiBpZiB0aGUgZGV2aWNlIGlzICphbHJlYWR5KiBpbiBCQVNFIHN0YXRlLiBJdCdzIHByZXR0eSBv
+YnZpb3VzIHN0dWZmDQo+IGhlcmUuDQo+IA0KPiBSZWdhcmRzLA0KPiBBbmdlbG8NCg0KSGkgQW5n
+ZWxvR2lvYWNjaGlubywNCg0KWW91IG1pc3NlZCBteSBwb2ludC4NClllcywgaXQncyB0cnVlIHRo
+YXQgaWYgdGhlIGRldmljZSBpcyBhbHJlYWR5IGluIHRoZSBiYXNlDQpzdGF0ZSBhZnRlciAxMOKA
+r868cywgeW91IGRvbid0IG5lZWQgdG8gd2FpdC4NCkJ1dCBpZiB0aGUgZGV2aWNlIGlzIGluIGFu
+b3RoZXIgc3RhdGUgYWZ0ZXIgMTDigK/OvHMsIHN1Y2ggDQphcyBWU19IQ0VfRE1FX1JFU0VULCB5
+b3UgYWxzbyBkb24ndCBuZWVkIHRvIHdhaXQuDQoNCkJlc2lkZXMsIGlmIGFmdGVyIDEw4oCvzrxz
+IHRoZSByZWFkIHN0YXRlIGlzIGJldHdlZW4gDQpWU19ISUJfRVhJVCBhbmQgVlNfSElCX0VOVEVS
+LCB0aGVuIHlvdSBzaG91bGQgd2FpdCB1bnRpbCANCml0IHJlYWNoZXMgVlNfSENFX0JBU0UsIG5v
+dCBhbm90aGVyIHN0YXRlIGxpa2UgVlNfSENFX0RNRV9SRVNFVC4NCg0KVGhhbmtzLg0KUGV0ZXIN
+Cg0KDQo=
 
