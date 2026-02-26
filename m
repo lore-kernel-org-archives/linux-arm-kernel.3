@@ -4,111 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891C1FC5926
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397AAFC5926
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MMqkhK2ewnGTtXnCmuk4HzxsxlsyvvOGl53IZFeTIow=; b=pItW4slyY8nx2fmLUcX+CxNFsl
-	bG85Xrevc3xS9HJXiPtQMBVp0BDCeZOUNzFvHSxgvo/R+zF3pMeHa963luDCTPVGXjqs8HndHHO9n
-	8tYl+6L4nkr7v9PPawH3R5gRolyhLSR1cnuDZDxtkmecHj52SaRSzFtdJP9755D0CTrRzLLTjab9b
-	41gWkxAOIesNDm4Fa92DO+UXZwY3USIjniSLphikwf2q/ZwBnSGyjGLLMFOM/VTpQZmUKX7bbk0NG
-	SAp51PMZt3BNnTMaN4NQ0ngIveux3g+2/GBiIf7+huFvia6XA9eScvoDJDyCtrvu6G7TT4zj3Vbzu
-	v0LgO4Iw==;
+	bh=3WEZrYfla4xz+1nx4sbFXm09bsKMdAQd/62PrBV4VdQ=; b=eOGAXQGSB1nc8l3M3KnCe6T6HV
+	A8YkhD/3gqBv8aMjwZXJxVILkHris3lRK5h7COzJly0s+Zf+AJmnpelhjnhbw4f/hxn22N2V3S5vg
+	RmShQKSaGyecTJcsV2MljAzmrCdjLnlQWJo18Ob64XJbtrZkOlhyXnkU4NKTXwGGb2bHEEO/PVzhR
+	RGckbqpjDBD64UPYgG9eHNy5/HmAKQp0NTS9+fB/1NGZ8Q39qfjNb19q+eq/XV/iXt3U1G5mFvQjJ
+	UwR3gb9BUUAU1DBhwnog1/mAUHW7azwxLH4T4EVFKgH7N9kevgKif6tZ//pMkcsPIRXR9bHBn/ZXJ
+	K0fkqF9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYpG-00000005wVS-20IM;
-	Thu, 26 Feb 2026 10:42:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvYsH-00000005wre-0hEq;
+	Thu, 26 Feb 2026 10:45:41 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYpE-00000005wVL-20T7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 10:42:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 764E160097;
-	Thu, 26 Feb 2026 10:42:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27F8BC116C6;
-	Thu, 26 Feb 2026 10:42:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772102551;
-	bh=OKy7nclkviSMICidfVtGkZ3pjryDFYtzVtqfIg5iqgQ=;
+	id 1vvYsF-00000005wrD-0iIC;
+	Thu, 26 Feb 2026 10:45:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772102736;
+	bh=6YFT7Dv9/RPthcEUnhhwy5zDoUaHap7U9kpRpUeIPV4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JeAwqzQBcO5rvkp9Unrdrywsh89XEnzLWDg218RzHCPDwvXDeLtcCw8XXhJ8Ynflz
-	 WqjGLq/VXfOsjcqIqulo8GWSM6YlQhQZD2vHrtGjhjbxT5YwzAi8qYWVhU0in1HtFt
-	 /LXE9wbomO2izB//vI3eyeuUSxPAGYFW6RMO/mm+miM5arhBz3l7eag/euezJBV5uC
-	 TYGG2MWRgVGf/5pGbqKawvx8CVBDOVKWYA30GIoNZaudG57OqoMUuALffYEWNl5gZq
-	 D1eCWVTvqHFvR4tIFM//z1FktCvwUfmzIcAkFQD8vYwh7IGHOrnzUaHUTSkt6/cUMD
-	 9iRJy7BdUAcUA==
-Message-ID: <34e4a027-e1fd-4cfd-bcdf-f896d78934aa@kernel.org>
-Date: Thu, 26 Feb 2026 11:42:25 +0100
+	b=aOKhl1gYmC58Q5XnPaaVFV4AX+HRZb/FaZT8kvMrbAX4ocU8UvOwkOrmxuMbZExjm
+	 q/5pxtHOPqwZtl4qTw/eJkvwmwu5Yj9BE8qGvk6kr1AVqhRzDERERpxn0XgjJTSvtj
+	 wPWqCgfmYc2RdUxfhGerzWAUOPfTrzvqV1AHbpTXLngoKvpWhap3qPd5vgpOjw+QmD
+	 jnx5GXl85lesOX+SfuCKuFHcINonNKENolDlEjaEzUzEdf6A2Y+z2QRqnjOM6Ck3Ao
+	 xcyP/cF9XTE1tbDfDSOKNbv0yQ8lZjCVnr0uv25vTWPWTLA0Vw3Efc6/I3SM5fQhuC
+	 zmAai5oTQnjcg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6C83017E0029;
+	Thu, 26 Feb 2026 11:45:35 +0100 (CET)
+Message-ID: <84f22f00-e3eb-4ea5-999e-260c81f29338@collabora.com>
+Date: Thu, 26 Feb 2026 11:45:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: MAINTAINERS: TQ: Orphan TQ Systems boards
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
- linux@ew.tq-group.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: markus.niebel@tq-group.com, matthias.schiffer@tq-group.com
-References: <20260225171135.122955-2-krzysztof.kozlowski@oss.qualcomm.com>
- <2403960.ElGaqSPkdT@steina-w>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v7 16/23] scsi: ufs: mediatek: Clean up logging prints
+To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
+ "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
+ "kishon@kernel.org" <kishon@kernel.org>,
+ "James.Bottomley@hansenpartnership.com"
+ <James.Bottomley@hansenpartnership.com>,
+ "bvanassche@acm.org" <bvanassche@acm.org>,
+ =?UTF-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
+ <Chaotian.Jing@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+ "nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
+ "vkoul@kernel.org" <vkoul@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "avri.altman@wdc.com" <avri.altman@wdc.com>,
+ "broonie@kernel.org" <broonie@kernel.org>,
+ "martin.petersen@oracle.com" <martin.petersen@oracle.com>
+Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ "kernel@collabora.com" <kernel@collabora.com>
+References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
+ <20260216-mt8196-ufs-v7-16-b5f2907c6da7@collabora.com>
+ <c333898413d249c017430d4ae98bc7be3bf33a64.camel@mediatek.com>
+ <2575185.irdbgypaU6@workhorse>
+ <f0e97a38-a11b-4e69-902a-e0ccd0dc4540@collabora.com>
+ <259b24885e5e721ae562d27dd761b02e6a68c971.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <2403960.ElGaqSPkdT@steina-w>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <259b24885e5e721ae562d27dd761b02e6a68c971.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260226_024539_501159_D7FB9098 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,41 +106,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2026 11:24, Alexander Stein wrote:
-> Hi Krzysztof,
+Il 26/02/26 08:00, Peter Wang (王信友) ha scritto:
+> On Wed, 2026-02-25 at 14:18 +0100, AngeloGioacchino Del Regno wrote:
+>>> Depends on your view of what's useful information for the user.
+>>>
+>>> I can change both of these back to _info if I have to send out a
+>>> next
+>>> revision, just to get this through though.
+>>>
+>>
+>> Definitely don't change that back to dev_info() as this is debugging
+>> information
+>> that spams the kernel log for no reason.
+>>
+>> This has to be dev_dbg().
+>>
+>> Regards,
+>> Angelo
+>>
+>>>
 > 
-> Am Mittwoch, 25. Februar 2026, 18:11:36 CET schrieb Krzysztof Kozlowski:
->> Emails to all TQ maintainers bounce for a month or longer, because their
->> systems decided to block smtp.kernel.org.  This is nothing which can be
->> fixed by Linux Foundation IT staff, but aggresive and irresponsible
->> email provider.
->>
->> There were no answers from linux@ew.tq-group.com or anyone else in TQ
->> Systems after my inquiries about this problem, thus assume the mainline
->> efforts are abandoned.
->>
->>   <Markus.Niebel@tq-group.com>: host mx01.hornetsecurity.com[94.100.132.8] said:
->>     554 5.5.4 Your IP address 172.105.4.254 has a bad reputation.
->>
->>   <matthias.schiffer@tq-group.com>: host mx01.hornetsecurity.com[94.100.132.8]
->>     said: 554 5.5.4 Your IP address 172.105.4.254 has a bad reputation.
->>
->>   <alexander.stein@ew.tq-group.com>: host mx01.hornetsecurity.com[94.100.132.8]
->>     said: 554 5.5.4 Your IP address 172.105.4.254 has a bad reputation.
->>
->> Cc: markus.niebel@tq-group.com
->> Cc: matthias.schiffer@tq-group.com
->> Cc: alexander.stein@ew.tq-group.com
->> Cc: linux@ew.tq-group.com
->> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Hi AngeloGioacchino, Nicolas,
 > 
-> Thanks for rising this up and sorry for the delay of my response.
-> We are still in the process of resolving the mail filter issues.
+> At least, "device reset done" is important information that
+> users would care about, and it should not spam the kernel log.
+> You wouldn't expect device resets to occur repeatedly, would you?
+> 
 
-Sure. It was enough to respond to me "we are working on it". Which also
-would confirm that you actually received my email and it was not blocked
-by spam (although I used Google based provider for that).
+Sorry Peter, but I'd argue that the users don't care about how much and when
+their UFS device resets. Users just want to use a device, without caring
+about any implementation detail.
+The spirit is: "radio silence as long as everything works good".
 
-Best regards,
-Krzysztof
+Power users might want to check the kernel log in a problematic scenario to
+seek for a message that says that "something went horribly wrong", but other
+than developers, nobody cares about when UFS resets.
+
+ From a developer standpoint, I do agree with you in that we do *not* want to
+see device resets occurring repeatedly, but we're talking about a user here.
+
+See it like this... imagine if all of the device drivers in the Linux kernel
+would say "device reset done": how many devices are present in one SoC (of
+course, ignoring subdevices on a board)?
+
+Of all those many devices, if all of them would print a message saying that
+their reset is done (and operation is ok), the kernel log would get quite a
+bit clogged, you'd need to have a bigger RAM carveout just for .. well, the
+kernel log itself, and then you'd have to grep the log, hoping to find the
+one single line that helps you finding an issue that you're having.
+
+This is the reason why keeping any message that is not exactly a *single*
+indication of an error (so, an actual issue) as a dev_dbg() is a sensible
+thing to do (and of course, with dynamic debug in the kernel, you can always
+activate that on-the-fly without recompiling to verify functionality should
+you have any immediate doubt).
+
+So while I agree about your reasons, I very strongly disagree about having
+this message as a dev_info(), nor anything else that is not dev_dbg() really.
+
+Regards,
+Angelo
+
+> Thanks
+> Peter
+> 
+
 
