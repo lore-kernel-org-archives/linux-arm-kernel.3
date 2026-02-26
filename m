@@ -4,66 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 821E9FD8FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 15:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B657FD8FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 15:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oZecWF3NiatTSfAKKcQIw612XEUcqHAxd6f6riYEwns=; b=kkv6RVvueFaTGp
-	FpZiZpzxOwVBGHeXHWJE+7DJkxLAEHeIFwTe6PtXuVptyiJVbSl53R4qQIvU+tMY9csE6Mtsdc1kE
-	LAx1iI8n/SGQW0FWJA7UJcNwOTBwK4plajbLfHPpxRvcrCm3ObfQtDzCNUlQPjpXxsKVrpmIHQK/D
-	4EtJdD+eU7rDzYVW5B+GY7OoQ3PCxYOm+CQFsk2wULp9mcRtEvCaiFueOhERupFdm5v8MJyVY/9x9
-	dkU5rAO5qVxoYP77lSUTvCA/AkebjdX7Gw+wFOtRxI+3vApyHBmQnZh4OdJGuv417Busmy6qCD+Y4
-	UtwCSpzykISP7yiYMOiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NjYbXwIQ8PduPQUva1l1y0HvqHmC0aGyA7hHhqtwLEI=; b=kLg/PFO07xnHdmLMMpCjUOfvhr
+	UZ+VgsjQuHTof+1k1lg923tpNYd24yFV+ZKfbaGCvaNwahnxZnq3d3kWua61xLA9wH4S41oWS8tH3
+	9OCyuwJIbErla4dajm5MRkBY1RqkvoKlz0H92rmzYKBwcIzsOrZCUKUY3jHaJzs/2KVO+xpXYi8eG
+	8Ae+I/v4JMX37IiIq7R0Sn1LLESoGJbk1ybLVSK0Aw0l/rYK23kNdriNC85U7PpSTXqb6147dTMqF
+	jLestSK51hghMbLj2uqlbvG6hTBQhJ36r8enbSdR0dWSPLRcjJAAd0iHWASYiEj0+0w+q9w7tCwDr
+	hc0Qj9Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdPQ-00000006Wi1-3Ymx;
-	Thu, 26 Feb 2026 15:36:12 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1vvdTE-00000006X6m-2aLF;
+	Thu, 26 Feb 2026 15:40:08 +0000
+Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdPN-00000006WhD-3657;
-	Thu, 26 Feb 2026 15:36:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
-	:Date:subject:date:message-id:reply-to;
-	bh=oZecWF3NiatTSfAKKcQIw612XEUcqHAxd6f6riYEwns=; b=Obh4goj0wcyaCRe0GmMzTwe3Jx
-	Xana9RHJNMtVRKjoYe2XIXhGbofESdeZf8CpYCFpT5IWpuWgay8mJqDhHeFVGvR9d7XoMVGTyZmxo
-	KeINU57rz5cz1xSV3WvmIxPcKQ9d4cBlVBkOsYQcie97cIPnFP+78nE8eXRfwjcKlpxQ=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:35240 helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.92)
-	(envelope-from <hugo@hugovil.com>)
-	id 1vvdP9-0006eE-AE; Thu, 26 Feb 2026 10:35:56 -0500
-Date: Thu, 26 Feb 2026 10:35:54 -0500
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: robin@protonic.nl, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com,
- mkorpershoek@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, lee@kernel.org,
- alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Message-Id: <20260226103554.cf271dbdfbd20b3702fabc03@hugovil.com>
-In-Reply-To: <CAMuHMdVdYX9p9DfDoyMv8qEm52kY51QULkEnuxRBH2OyWyYf6g@mail.gmail.com>
-References: <20260225155409.612478-1-hugo@hugovil.com>
-	<20260225155409.612478-4-hugo@hugovil.com>
-	<CAMuHMdVdYX9p9DfDoyMv8qEm52kY51QULkEnuxRBH2OyWyYf6g@mail.gmail.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 70.80.174.168
-X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: Re: [PATCH v3 3/4] dt-bindings: input: add GPIO charlieplex keypad
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
+	id 1vvdT9-00000006X5y-1suQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Feb 2026 15:40:06 +0000
+ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=NjYbXwIQ8PduPQUva1l1y0HvqHmC0aGyA7hHhqtwLEI=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1772120361;
+ b=JjJlkXHwFOB/zZ11pEbCofMFicxbFFlRzxi/2Okx+UL6VzNK7JF+PC1LG0T5V/CbnEAU0Njv
+ 4LJm3v31VwkibR3DoR1g3CUgF6E8dCjfAT4o2rh/DH/U4A5IyQ2Yqdlk4KYTD+tcEy8gBNKmb2g
+ AVb9igmJ6bRZ+B3L9jkHOoOKfVoBLONtdxoPQX74Nh4vndkjR3bPq9e2c8tF2DpOHC/I631AfYR
+ 8GIlIyiVRlE1GKdn6+Sipe5fmQ77BbGxrqvsuoaznauuPFlYwISR9humtlIKaLPttrEQ5BTlThU
+ iwGoRMb/J7BCTYBSRyg5pk0c7zx6GnXwfdTYGcrgBBHXA==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1772120361;
+ b=p1VxuoQ1i7VoUHDM/WxgPCd6Iz6UsFwDbyGjYUker8ZZEjbGudMR3XQ4M1FewiRlXgRSc7wk
+ pV7kId8gBCsCrhwWMMMmzKG6h8z8L99WsHqVKBRPRJBAoDlnNqiksOR0qOfzWl90OmJDE/FN1ZG
+ k1IokGe3Ma/mAqDi0aUUuspVIC7nuRGZYJauwCzGIKL6y3S1L03yxCbO4gidnNpBhQU5q/ICHBD
+ eYk92DjFRNbHKG1Bpaza8bOQ/Ju2ETIflbD4ZjfmGWQFT/hL7+OYOxaXksclHOYOjeAbUvWM8b9
+ EM9/N3b/q3oJwwQ1TpslUuiBV7JZT7dTmtLS2ckyn1g7A==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
+ Thu, 26 Feb 2026 16:39:21 +0100
+Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 37772A41123;
+	Thu, 26 Feb 2026 16:39:06 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Peter Chen <peter.chen@kernel.org>,
+	Pawel Laszczak <pawell@cadence.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Marek Vasut <marex@denx.de>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	Markus Niebel <Markus.Niebel@tq-group.com>
+Subject: [PATCH v3 3/5] dt-bindings: arm: fsl: add bindings for TQMa8x
+Date: Thu, 26 Feb 2026 16:38:52 +0100
+Message-ID: <20260226153859.665901-4-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260226153859.665901-1-alexander.stein@ew.tq-group.com>
+References: <20260226153859.665901-1-alexander.stein@ew.tq-group.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4fMFxR36f9z3yXpX
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 568237be82892e00f1be80080e855268
+X-cloud-security: scantime:1.642
+DKIM-Signature: a=rsa-sha256;
+ bh=NjYbXwIQ8PduPQUva1l1y0HvqHmC0aGyA7hHhqtwLEI=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1772120360; v=1;
+ b=rowGE2fhnNQkJJWnClx6DCTGoP241TWoi5c+JlEdu2LxocE25OMSwUIiIFPAtO2dPfq250ff
+ lxS0eLEwdO4gOHX2zEDsZuyOilF3zw5qnqf5OTnha/TxyZPxifYYi/bCOpEoQtxF3m8r4LSdwPo
+ fkKl4ZgXa/zQQX4kgVo7/rkbieb5YDXGg6xTqOJjcqg7WcgmhdE35Fk7pHUsj5lelVQjKeQBn1i
+ DdXZbZGUS/mKAgd0YJZ7O4T8Sit4fo33tLUsmZj+XbP1tOuwDKRjkwTUkxXZI6UanX/zcyV1Dfk
+ 4ZGGcqtsC+BEta6fPgZWaSH9+XXzVuykhrqh+LMgT1mwA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_073609_870017_2CF99EF1 
-X-CRM114-Status: GOOD (  36.73  )
+X-CRM114-CacheID: sfid-20260226_074003_743914_07EC81D5 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,170 +125,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+TQMa8x is a SOM family using NXP i.MX8QM CPU family
+MBa8x is an evaluation mainboard for this SOM.
 
-On Thu, 26 Feb 2026 10:32:30 +0100
-Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+Signed-off-by: Markus Niebel <Markus.Niebel@tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Changes in v3:
+* None
 
-> Hi Hugo,
-> 
-> On Wed, 25 Feb 2026 at 16:54, Hugo Villeneuve <hugo@hugovil.com> wrote:
-> > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> >
-> > Add DT bindings for GPIO charlieplex keypad.
-> >
-> > Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> 
-> Thanks for your patch!
-> 
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml
-> > @@ -0,0 +1,106 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +
-> > +$id: http://devicetree.org/schemas/input/gpio-charlieplex-keypad.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: GPIO charlieplex keypad
-> > +
-> > +maintainers:
-> > +  - Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> > +
-> > +description: |
-> > +  The charlieplex keypad supports N^2)-N different key combinations (where N is
-> > +  the number of lines). Key presses and releases are detected by configuring
-> > +  only one line as output at a time, and reading other line states. This process
-> > +  is repeated for each line. Diodes are required to ensure current flows in only
-> > +  one direction between any pair of pins.
-> > +  This mechanism doesn't allow to detect simultaneous key presses.
-> 
-> Indeed, e.g. pressing S1 and S2 simultaneously will show a ghost
-> S5 keypress.
-> 
-> > +
-> > +  Wiring example for 3 lines keyboard with 6 switches and 3 diodes:
-> > +
-> > +  L0  --+---------------------+----------------------+
-> > +        |                     |                      |
-> > +  L1  -------+-----------+---------------------+     |
-> > +        |    |           |    |                |     |
-> > +  L2  -------------+----------------+-----+    |     |
-> > +        |    |     |     |    |     |     |    |     |
-> > +        |    |     |     |    |     |     |    |     |
-> > +        |  S1 \  S2 \    |  S3 \  S4 \    |  S5 \  S6 \
-> > +        |    |     |     |    |     |     |    |     |
-> > +        |    +--+--+     |    +--+--+     |    +--+--+
-> > +        |       |        |       |        |       |
-> > +        |    D1 v        |    D2 v        |    D3 v
-> > +        |       - (k)    |       - (k)    |       - (k)
-> > +        |       |        |       |        |       |
-> > +        +-------+        +-------+        +-------+
-> 
-> Don't you need pull-down resistors on L[0-2], and/or a way to specify
-> in DT to enable internal poll-down on GPIO controllers that support it?
-> Some controllers may support internal pull-up only, but I guess that
-> can be handled using GPIO_ACTIVE_LOW?
+ Documentation/devicetree/bindings/arm/fsl.yaml | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Yes, using something like this:
-
-  line-gpios = <&gpio2 25 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)
-
-should work I think, although with my hardware unfortunately I cannot
-test it.
-
-Hugo.
-
-
-> 
-> > +
-> > +  L: GPIO line
-> > +  S: switch
-> > +  D: diode (k indicates cathode)
-> > +
-> > +allOf:
-> > +  - $ref: input.yaml#
-> > +  - $ref: /schemas/input/matrix-keymap.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: gpio-charlieplex-keypad
-> > +
-> > +  autorepeat: true
-> > +
-> > +  debounce-delay-ms:
-> > +    default: 5
-> > +
-> > +  line-gpios:
-> > +    description:
-> > +      List of GPIOs used as lines. The gpio specifier for this property
-> > +      depends on the gpio controller to which these lines are connected.
-> > +
-> > +  linux,keymap: true
-> > +
-> > +  poll-interval: true
-> > +
-> > +  settling-time-us: true
-> > +
-> > +  wakeup-source: true
-> > +
-> > +required:
-> > +  - compatible
-> > +  - line-gpios
-> > +  - linux,keymap
-> > +  - poll-interval
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/gpio/gpio.h>
-> > +    #include <dt-bindings/input/input.h>
-> > +
-> > +    charlieplex-keypad {
-> 
-> "keyboard", as per Devicetree Specification Generic Names
-> Recommendation.
-> 
-> > +        compatible = "gpio-charlieplex-keypad";
-> > +        debounce-delay-ms = <20>;
-> > +        poll-interval = <5>;
-> > +        settling-time-us = <2>;
-> > +
-> > +        line-gpios = <&gpio2 25 GPIO_ACTIVE_HIGH
-> > +                      &gpio2 26 GPIO_ACTIVE_HIGH
-> > +                      &gpio2 27 GPIO_ACTIVE_HIGH>;
-> > +
-> > +        /* MATRIX_KEY(output, input, key-code) */
-> > +        linux,keymap = <
-> > +            /*
-> > +             * According to wiring diagram above, if L1 is configured as
-> > +             * output and HIGH, and we detect a HIGH level on input L0,
-> > +             * then it means S1 is pressed: MATRIX_KEY(L1, L0, KEY...)
-> > +             */
-> > +            MATRIX_KEY(1, 0, KEY_F1) /* S1 */
-> > +            MATRIX_KEY(2, 0, KEY_F2) /* S2 */
-> > +            MATRIX_KEY(0, 1, KEY_F3) /* S3 */
-> > +            MATRIX_KEY(2, 1, KEY_F4) /* S4 */
-> > +            MATRIX_KEY(1, 2, KEY_F5) /* S5 */
-> > +            MATRIX_KEY(0, 2, KEY_F6) /* S6 */
-> > +        >;
-> > +    };
-> 
-> Gr{oetje,eeting}s,
-> 
->                         Geert
-> 
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-> 
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
-> 
-
-
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 910c20bf07a4f..2455358c15ca4 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1420,6 +1420,16 @@ properties:
+               - const: tq,imx8dxp-tqma8xdps         # TQ-Systems GmbH TQMa8XDPS SOM
+               - const: fsl,imx8dxp
+ 
++      - description:
++          TQMa8x is a series of SOM featuring NXP i.MX8 system-on-chip
++          variants. It is designed to be clicked on different carrier boards
++          MBa8x is the starterkit
++        items:
++          - enum:
++              - tq,imx8qm-tqma8qm-mba8x   # TQ-Systems GmbH TQMa8QM SOM on MBa8x
++          - const: tq,imx8qm-tqma8qm      # TQ-Systems GmbH TQMa8QM SOM
++          - const: fsl,imx8qm
++
+       - description: i.MX8ULP based Boards
+         items:
+           - enum:
 -- 
-Hugo Villeneuve
+2.43.0
+
 
