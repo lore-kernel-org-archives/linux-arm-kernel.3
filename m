@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA2BFC591A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416E3FC5913
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2231+xC95O7VFOcXgC8Y9IfifnVhQ7USzf4Koap6nsA=; b=dYhAsGuyR27lDEK57UH88MK0C3
-	0eG1+X/0nOIUyL13mhXf6Bp4or57BnO0LmFW6jcm5WuSea0PrjThlk7+usMUj3k5lz9T4S+AluMn/
-	1UMZ4+gLWjEYM8Dq+9o1iizE6OEYznaF6Hn/0SaqiXbHuj0UfuKURHMaKAXSx01FvdznTLonpN73G
-	wSwhJX9DpDhFzGXfy768Ei6oqaZdQL4o31nR0DqYFojC8dmKPGxV/0ZjcLVSeLk8a30eO1qiQZg15
-	1bML4Aagpp0cFnijltXvvEEYoBKuHwlvO0j38c4Y8olj+Jibzc8PC3+US30Qzp9ZDac8H7hCGNG84
-	H5NfjSFw==;
+	bh=WLMGzJnkeatTSpm4GRVispmO8RSWnefXR7FySJtxYVw=; b=kPNyGyJK44jaIrIFXZCsh2zdoM
+	rehArbP0yp421sXUdOyvv6JHm7+GNj45C8xx+8m+etEn4sbGe9dT7JtY1ZETiRHrHVp2zAFwqoZy7
+	NpYdsqYNAAKtUMLLY4IxIazMuxWDx2de5BCRi1lp4W2YSpDwaH6ofKkpHF+rhoEsHYuwl6iXGBIre
+	Vm15MLXzeJhiuTQe5BIDE21Q5mA/HiDAzKZDG9ViyI1RIfAQBFDxPK+BAQ1l9nuvLO+9vde+EGaLv
+	Nm0MKK/ToN3HnybRQZ1wBRyRkWPzWT2qgRlkleBgEdztifbPjHZpFcHAEVZla1FoyUeyZZXQ29BkL
+	9R75peKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXbT-00000005myz-1sG6;
-	Thu, 26 Feb 2026 09:24:15 +0000
+	id 1vvXbd-00000005n5n-1Mpa;
+	Thu, 26 Feb 2026 09:24:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXbQ-00000005mxI-2bSj
+	id 1vvXbS-00000005mxq-1Jpw
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 26 Feb 2026 09:24:12 +0000
+	Thu, 26 Feb 2026 09:24:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=2231+xC95O7VFOcXgC8Y9IfifnVhQ7USzf4Koap6nsA=; b=dzliB1E0XkVyontUBnddNMrE8N
-	Z68zZuA7HjUT1g41q+V26fyHSIyTCLgxaGkIEaZuiIrbSiVgWiCiEVweKe0+XPGFyjqvUXzE+yZB2
-	Xl2GuA5TQeDVb5osbyNQMAFUOvQ+tZLzQ+nYD1dGAjHmOG7GGs2N9SwZyTr47FOBnskLQ91DK0uYF
-	UY72U+38lmenzl04wbqvIKyWIvU8ew9UHZUQ/La02ADk5yD/Rvd99on9O1yC6VGU+Vg8ZMby3JUzW
-	VnWKiLVJL4RIfnluNe5bqxL/DRec8tIlJyzkq1WpG9vuh/uLWVuy/74P2oktQCclPf2I/RC5tPjjN
-	TfWZaF7w==;
+	bh=WLMGzJnkeatTSpm4GRVispmO8RSWnefXR7FySJtxYVw=; b=mOdzFvk5POVeJZocDCVmEaVSnv
+	UhOXpA42JC+2kN2xGJnKxqKCDheL1UOnawYvBS6sSKqh/+ESzTzapmTOUlxTjNsmROKrUKi6Zn4dm
+	dI0XX19ukh/uAQ3VSoFiEOyaqK913IWZxWQ9I3FiaJR1THCLsvYaJtHS9UDVR1r6++1VMkpH/ZNwE
+	1N7Heq5n0xCd82JxkdKi3cHM6UhNjqGCHNcL2jaMXO4oVxiiUx32J1jKEk8gTnu6A069k3CjxywcB
+	7rQqDcuCiP/u9oiiF+bTr6b2sCjkFk/Wdw7QmWgV2xuAz6TsSu6jchcHPXJ8qCdeCd4hlZ68efqOt
+	+gODWzUg==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXbN-0000000AbTs-2NCn
+	id 1vvXbP-0000000AbV7-0raW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 09:24:11 +0000
+	Thu, 26 Feb 2026 09:24:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB6F4153B;
-	Thu, 26 Feb 2026 01:24:01 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A2C91516;
+	Thu, 26 Feb 2026 01:24:04 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 541C03F62B;
-	Thu, 26 Feb 2026 01:24:06 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 76F243F62B;
+	Thu, 26 Feb 2026 01:24:08 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 26 Feb 2026 09:23:52 +0000
-Subject: [PATCH v2 4/8] coresight: cti: Remove CPU power management code
+Date: Thu, 26 Feb 2026 09:23:53 +0000
+Subject: [PATCH v2 5/8] coresight: cti: Rename cti_active() to
+ cti_is_active()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-arm_coresight_cti_refactor_v1-v2-4-b30fada3cfec@arm.com>
+Message-Id: <20260226-arm_coresight_cti_refactor_v1-v2-5-b30fada3cfec@arm.com>
 References: <20260226-arm_coresight_cti_refactor_v1-v2-0-b30fada3cfec@arm.com>
 In-Reply-To: <20260226-arm_coresight_cti_refactor_v1-v2-0-b30fada3cfec@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -68,16 +69,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772097837; l=7475;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772097837; l=4970;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=mdbLwyTm6Utwn6BUDv5t9NwB7q+u7LCs3OuT4P2ZvRA=;
- b=nlM+vxhL9vvs7OOBgAjuPhOHGzP19a0i3NykDPUlOltCrLeqeumj6soRz+56HC/Swqm5Eslz5
- LeZIbWvV/8kB/dIpQSPDf+CYgTgR6rm3RI6d7pFW83l9VMS/BZeFZ3w
+ bh=LKf0+zIOAvFxqwOjIyBxQWi1rV+ios78mbayLWnkfbE=;
+ b=7jHHz9JREV2rs03Tnvu6TEp76RCmoMPIYDGMmji9pat3YQh+teFeOagTiTVewSKoChSoazFcC
+ GH8f/+RulT2AXBwjj/j79QWu41Ld+79a6ma67JwHrAgkQjQlM8YPapv
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_092410_003223_605F32DD 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260226_092411_747994_6FDA2C6B 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,272 +93,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According Arm ARM, the CTI ASICCTL register:
-
-  "It is IMPLEMENTATION DEFINED whether ASICCTL is implemented in the
-   Core power domain or in the Debug power domain."
-
-This is the only CTI register that may reside in the core power domain.
-However, it has been confirmed that Arm designed CTIs place ASICCTL in
-the debug power domain.  Furthermore, ASICCTL is implemented only when
-CTIDEVID.EXTMUXNUM is non-zero, which is a rare case for CPU CTIs.
-
-For these reasons, it is safe to conclude that all CTI registers are not
-located in the CPU power domain. Therefore, the CTI driver does not need
-CPU power management.
-
-This commit removes the CPU power management from CTI driver.
+Rename cti_active() to cti_is_active() to clarify that it checks whether
+the CTI device is active.
 
 Reviewed-by: Mike Leach <mike.leach@arm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-cti-core.c | 186 +----------------------
- 1 file changed, 3 insertions(+), 183 deletions(-)
+ drivers/hwtracing/coresight/coresight-cti-core.c  |  8 ++++----
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c | 14 +++++++-------
+ drivers/hwtracing/coresight/coresight-cti.h       |  2 +-
+ 3 files changed, 12 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-index 726970d852dee3b962e5147311dfadd0b741cfe0..3aa081f28a18dc4987feeb57244aa384e80702ac 100644
+index 3aa081f28a18dc4987feeb57244aa384e80702ac..28f995263433c8727a7fdeff94fbe0a4286767e8 100644
 --- a/drivers/hwtracing/coresight/coresight-cti-core.c
 +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-@@ -42,12 +42,6 @@ static DEFINE_MUTEX(ect_mutex);
- #define csdev_to_cti_drvdata(csdev)	\
- 	dev_get_drvdata(csdev->dev.parent)
+@@ -155,7 +155,7 @@ void cti_write_intack(struct device *dev, u32 ackval)
+ 	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
  
--/* power management handling */
--static int nr_cti_cpu;
--
--/* quick lookup list for CPU bound CTIs when power handling */
--static struct cti_drvdata *cti_cpu_drvdata[NR_CPUS];
--
- /* write set of regs to hardware - call with spinlock claimed */
- void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
- {
-@@ -104,28 +98,6 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
+ 	/* write if enabled */
+-	if (cti_active(config))
++	if (cti_is_active(config))
+ 		cti_write_single_reg(drvdata, CTIINTACK, ackval);
+ }
+ 
+@@ -342,7 +342,7 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
+ 		config->ctiouten[trigger_idx] = reg_value;
+ 
+ 	/* write through if enabled */
+-	if (cti_active(config))
++	if (cti_is_active(config))
+ 		cti_write_single_reg(drvdata, reg_offset, reg_value);
+ 
  	return 0;
- }
- 
--/* re-enable CTI on CPU when using CPU hotplug */
--static void cti_cpuhp_enable_hw(struct cti_drvdata *drvdata)
--{
--	struct cti_config *config = &drvdata->config;
--
--	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
--
--	config->hw_powered = true;
--
--	/* no need to do anything if no enable request */
--	if (!drvdata->config.enable_req_count)
--		return;
--
--	/* try to claim the device */
--	if (coresight_claim_device(drvdata->csdev))
--		return;
--
--	cti_write_all_hw_regs(drvdata);
--	config->hw_enabled = true;
--	return;
--}
--
- /* disable hardware */
- static int cti_disable_hw(struct cti_drvdata *drvdata)
- {
-@@ -643,146 +615,6 @@ static void cti_remove_conn_xrefs(struct cti_drvdata *drvdata)
+@@ -380,7 +380,7 @@ int cti_channel_gate_op(struct device *dev, enum cti_chan_gate_op op,
  	}
- }
- 
--/** cti PM callbacks **/
--static int cti_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
--			     void *v)
--{
--	struct cti_drvdata *drvdata;
--	struct coresight_device *csdev;
--	unsigned int cpu = smp_processor_id();
--	int notify_res = NOTIFY_OK;
--
--	if (!cti_cpu_drvdata[cpu])
--		return NOTIFY_OK;
--
--	drvdata = cti_cpu_drvdata[cpu];
--	csdev = drvdata->csdev;
--
--	if (WARN_ON_ONCE(drvdata->ctidev.cpu != cpu))
--		return NOTIFY_BAD;
--
--	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
--
--	switch (cmd) {
--	case CPU_PM_ENTER:
--		/* CTI regs all static - we have a copy & nothing to save */
--		drvdata->config.hw_powered = false;
--		if (drvdata->config.hw_enabled)
--			coresight_disclaim_device(csdev);
--		break;
--
--	case CPU_PM_ENTER_FAILED:
--		drvdata->config.hw_powered = true;
--		if (drvdata->config.hw_enabled) {
--			if (coresight_claim_device(csdev))
--				drvdata->config.hw_enabled = false;
--		}
--		break;
--
--	case CPU_PM_EXIT:
--		/* write hardware registers to re-enable. */
--		drvdata->config.hw_powered = true;
--		drvdata->config.hw_enabled = false;
--
--		/* check enable reference count to enable HW */
--		if (drvdata->config.enable_req_count) {
--			/* check we can claim the device as we re-power */
--			if (coresight_claim_device(csdev))
--				goto cti_notify_exit;
--
--			drvdata->config.hw_enabled = true;
--			cti_write_all_hw_regs(drvdata);
--		}
--		break;
--
--	default:
--		notify_res = NOTIFY_DONE;
--		break;
--	}
--
--cti_notify_exit:
--	return notify_res;
--}
--
--static struct notifier_block cti_cpu_pm_nb = {
--	.notifier_call = cti_cpu_pm_notify,
--};
--
--/* CPU HP handlers */
--static int cti_starting_cpu(unsigned int cpu)
--{
--	struct cti_drvdata *drvdata = cti_cpu_drvdata[cpu];
--
--	if (!drvdata)
--		return 0;
--
--	cti_cpuhp_enable_hw(drvdata);
--	return 0;
--}
--
--static int cti_dying_cpu(unsigned int cpu)
--{
--	struct cti_drvdata *drvdata = cti_cpu_drvdata[cpu];
--
--	if (!drvdata)
--		return 0;
--
--	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
--
--	drvdata->config.hw_powered = false;
--	if (drvdata->config.hw_enabled)
--		coresight_disclaim_device(drvdata->csdev);
--
--	return 0;
--}
--
--static int cti_pm_setup(struct cti_drvdata *drvdata)
--{
--	int ret;
--
--	if (drvdata->ctidev.cpu == -1)
--		return 0;
--
--	if (nr_cti_cpu)
--		goto done;
--
--	cpus_read_lock();
--	ret = cpuhp_setup_state_nocalls_cpuslocked(
--			CPUHP_AP_ARM_CORESIGHT_CTI_STARTING,
--			"arm/coresight_cti:starting",
--			cti_starting_cpu, cti_dying_cpu);
--	if (ret) {
--		cpus_read_unlock();
--		return ret;
--	}
--
--	ret = cpu_pm_register_notifier(&cti_cpu_pm_nb);
--	cpus_read_unlock();
--	if (ret) {
--		cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_CTI_STARTING);
--		return ret;
--	}
--
--done:
--	nr_cti_cpu++;
--	cti_cpu_drvdata[drvdata->ctidev.cpu] = drvdata;
--
--	return 0;
--}
--
--/* release PM registrations */
--static void cti_pm_release(struct cti_drvdata *drvdata)
--{
--	if (drvdata->ctidev.cpu == -1)
--		return;
--
--	cti_cpu_drvdata[drvdata->ctidev.cpu] = NULL;
--	if (--nr_cti_cpu == 0) {
--		cpu_pm_unregister_notifier(&cti_cpu_pm_nb);
--		cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_CTI_STARTING);
--	}
--}
--
- /** cti ect operations **/
- int cti_enable(struct coresight_device *csdev, enum cs_mode mode,
- 	       struct coresight_path *path)
-@@ -815,7 +647,6 @@ static void cti_remove(struct amba_device *adev)
- 
- 	mutex_lock(&ect_mutex);
- 	cti_remove_conn_xrefs(drvdata);
--	cti_pm_release(drvdata);
- 
- 	/* remove from the list */
- 	list_for_each_entry_safe(ect_item, ect_tmp, &ect_net, node) {
-@@ -889,17 +720,12 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 	if (!cti_desc.name)
- 		return -ENOMEM;
- 
--	/* setup CPU power management handling for CPU bound CTI devices. */
--	ret = cti_pm_setup(drvdata);
--	if (ret)
--		return ret;
--
- 	/* create dynamic attributes for connections */
- 	ret = cti_create_cons_sysfs(dev, drvdata);
- 	if (ret) {
- 		dev_err(dev, "%s: create dynamic sysfs entries failed\n",
- 			cti_desc.name);
--		goto pm_release;
-+		return ret;
+ 	if (err == 0) {
+ 		config->ctigate = reg_value;
+-		if (cti_active(config))
++		if (cti_is_active(config))
+ 			cti_write_single_reg(drvdata, CTIGATE, reg_value);
  	}
  
- 	/* set up coresight component description */
-@@ -912,10 +738,8 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+@@ -429,7 +429,7 @@ int cti_channel_setop(struct device *dev, enum cti_chan_set_op op,
+ 		break;
+ 	}
  
- 	coresight_clear_self_claim_tag(&cti_desc.access);
- 	drvdata->csdev = coresight_register(&cti_desc);
--	if (IS_ERR(drvdata->csdev)) {
--		ret = PTR_ERR(drvdata->csdev);
--		goto pm_release;
--	}
-+	if (IS_ERR(drvdata->csdev))
-+		return PTR_ERR(drvdata->csdev);
+-	if ((err == 0) && cti_active(config))
++	if ((err == 0) && cti_is_active(config))
+ 		cti_write_single_reg(drvdata, reg_offset, reg_value);
  
- 	/* add to list of CTI devices */
- 	mutex_lock(&ect_mutex);
-@@ -928,10 +752,6 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 	pm_runtime_put(&adev->dev);
- 	dev_info(&drvdata->csdev->dev, "CTI initialized\n");
- 	return 0;
--
--pm_release:
--	cti_pm_release(drvdata);
--	return ret;
+ 	return err;
+diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+index c15a580f6e90f57b1376e0b883a27700966feb1a..a22cc9a2bee24eb6115e7adb61880cc86d03e12e 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+@@ -268,7 +268,7 @@ static ssize_t cti_reg32_show(struct device *dev, char *buf,
+ 	struct cti_config *config = &drvdata->config;
+ 
+ 	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
+-		if ((reg_offset >= 0) && cti_active(config)) {
++		if ((reg_offset >= 0) && cti_is_active(config)) {
+ 			val = cti_read_single_reg(drvdata, reg_offset);
+ 			if (pcached_val)
+ 				*pcached_val = val;
+@@ -301,7 +301,7 @@ static ssize_t cti_reg32_store(struct device *dev, const char *buf,
+ 			*pcached_val = (u32)val;
+ 
+ 		/* write through if offset and enabled */
+-		if ((reg_offset >= 0) && cti_active(config))
++		if ((reg_offset >= 0) && cti_is_active(config))
+ 			cti_write_single_reg(drvdata, reg_offset, val);
+ 	}
+ 
+@@ -393,7 +393,7 @@ static ssize_t inen_store(struct device *dev,
+ 	config->ctiinen[index] = val;
+ 
+ 	/* write through if enabled */
+-	if (cti_active(config))
++	if (cti_is_active(config))
+ 		cti_write_single_reg(drvdata, CTIINEN(index), val);
+ 
+ 	return size;
+@@ -434,7 +434,7 @@ static ssize_t outen_store(struct device *dev,
+ 	config->ctiouten[index] = val;
+ 
+ 	/* write through if enabled */
+-	if (cti_active(config))
++	if (cti_is_active(config))
+ 		cti_write_single_reg(drvdata, CTIOUTEN(index), val);
+ 
+ 	return size;
+@@ -476,7 +476,7 @@ static ssize_t appclear_store(struct device *dev,
+ 	config->ctiappset &= ~val;
+ 
+ 	/* write through if enabled */
+-	if (cti_active(config))
++	if (cti_is_active(config))
+ 		cti_write_single_reg(drvdata, CTIAPPCLEAR, val);
+ 
+ 	return size;
+@@ -497,7 +497,7 @@ static ssize_t apppulse_store(struct device *dev,
+ 	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
+ 
+ 	/* write through if enabled */
+-	if (cti_active(config))
++	if (cti_is_active(config))
+ 		cti_write_single_reg(drvdata, CTIAPPPULSE, val);
+ 
+ 	return size;
+@@ -763,7 +763,7 @@ static ssize_t chan_xtrigs_reset_store(struct device *dev,
+ 	config->xtrig_rchan_sel = 0;
+ 
+ 	/* if enabled then write through */
+-	if (cti_active(config))
++	if (cti_is_active(config))
+ 		cti_write_all_hw_regs(drvdata);
+ 
+ 	return size;
+diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
+index a4b3968d8d3d19a20604fb09db14cf41962f5a79..2edc0d01812c93fe5a817da366a2862b8490c0a3 100644
+--- a/drivers/hwtracing/coresight/coresight-cti.h
++++ b/drivers/hwtracing/coresight/coresight-cti.h
+@@ -236,7 +236,7 @@ coresight_cti_get_platform_data(struct device *dev);
+ const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
+ 
+ /* cti powered and enabled */
+-static inline bool cti_active(struct cti_config *cfg)
++static inline bool cti_is_active(struct cti_config *cfg)
+ {
+ 	return cfg->hw_powered && cfg->hw_enabled;
  }
- 
- static struct amba_cs_uci_id uci_id_cti[] = {
 
 -- 
 2.34.1
