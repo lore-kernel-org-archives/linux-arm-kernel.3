@@ -4,130 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E89FEFD9E12
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 21:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76E4FD9E12
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 21:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=722zAuTdHpu77YXNJKNLQCMhznoHEvehEvu3sMun/io=; b=MamZMI4dRE8Ub5m3SXExJw6pxk
-	xibzj0J/Se+Fn/vlO0Auq/PdhR0kIuCPtmTdvG+0cg8Ds6gI2HRRMZjs3YX6XoyXsfUnOljys+DQn
-	eOm7Luc9zbzHZ84sCUryQJPoZLfobMBAkKd7CXO7Faf2TQ/l9j8/QrSnRDbc++QpsfarGyAX0sSDT
-	Tv14GO3B2HZWlue+RcUaH1Wjhyw0n8Zs57Ns099vXI9JhrEcjIMsnMZQ8qh5SYlGnXZBXZ2jlP6lc
-	fE7riJJ/b6mirHgQTw3+VYfPscxTCtiD6c8wJS7im7rfzys4f+Bp7fSJOwY29eol0R9BTbCAa4fyD
-	EFhmSbfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fqRKtiNCh+XHHlBIYDrgwzSJmgT5bespg03s/gki404=; b=hpcpdsMDBsZDnxPMl40qvmrqlu
+	U9zDDKXBzAfPcqqWD04JhDhvf/XBlaadAs/N2KLyZVFWfSGw6/qvgc1+GqWFnBfZM+/w+AY/sjC79
+	5A91VLJ0zlHy2x6ZG2cbaydN8l+0c4hi4nkamZPGPipAk4+5x4hx2Yx7KLdv8d6BQOnHP19/LMyZd
+	ebppC+7S7qJ+vWXOYSI3B+C8tKz0ypjATUj+hqOh9bJV1/wW9XZ44bpZL1anidfzlRkmtQ1c768gi
+	VD0LnK58e+xPYU+4gL52ceyh08X53OhF23lZt1Wdr8/abpHX9GEcMGOqQW2qTxKtWxLWPkYOm9ngK
+	Hx3OiahQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvhqh-00000007A8C-0lAV;
-	Thu, 26 Feb 2026 20:20:39 +0000
-Received: from mail-westeuropeazon11013012.outbound.protection.outlook.com ([52.101.72.12] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vvhjj-000000078k0-1JxF;
+	Thu, 26 Feb 2026 20:13:27 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvhqc-00000007A7P-0Mll
+	id 1vvhjc-000000078jR-45je
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 20:20:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GqP445Yso+eBLea95WhuH8iEIz9Chwr1kERHmkXBJZHwK7G3x/zWufhCdhHXCiowSsUL/OZKp1OdTbFDmO2DHhz+NuV3WSrEzFOZvDUSqSDmpa7yvl4UjRMuPrAzknIA5QP40W1WmaXK2bJlCV0YyWOJRB3u01yAZEYn/2/TXsOce1c7kGWrfmWK5WBBeeP0YsIJF6TjHHHk+W8mnqkDqizF0g7vd0QGwCIfItsG7i2FRx06L8G00zsDNd10oTZ08lMrZYrk3R/Th4O/UPz0ksRIj6O9yiERd0CFzAZZBCTvmO/WZOkHYO0Lfjp8hcGw/LY8zEtcjAl48OFGnof7iA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=722zAuTdHpu77YXNJKNLQCMhznoHEvehEvu3sMun/io=;
- b=TrROKApotX8Rm0F3+YzQ4iFuycYra/ZVdJdWqtCP4TCDB/DRNfn2Nvx22KWfv/rijIZ7cvIrDG+RzdKNf0+dTmRsorXUcQnbe0pZfdfIKeEUgAl9a0sScOZ3OEGLNWAfzjylC/ev4rA4xHPAWlhfBy61b3o6n9FtPLswPnf9rBTUzQ205Ma8STjl4NZlydXvZOXlWfc1REFOanyqGe3FqanyXykGiWsDlX2+5fvK0x7E5kZIIn4WMxIim6KVqkTTWoRWQCweN+4qiuXUex0GlHuM+6EqJLfV0kAXPYyczsidpzIqwD3faHkzLEIL5kXf6nr7uN9kyxj2xZLrANgmKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=722zAuTdHpu77YXNJKNLQCMhznoHEvehEvu3sMun/io=;
- b=KaRvTKgvgBxllf8OdrX6h33NfTPr7dJWEavMvSYx5ufWXGHIyyRSvBXveOJiHNdd5aO3VuOxMDasU3EyHewSMNyqSfhhCXRRrur17HkbA56KlToSbez9EIAadfIDwxUkgc9xnlRXPNNV2ney6UI0xqKtbM1/d+oK2zB4Orz7z0Uetq7MkA/0UeE6Bc/hMwF/VD3fpmEZ96IiXb28aCYuEZfhZwcIxLv9vZJrADDaaUt3f/IBkeQq19bveqvsdWg/Q95r9gLBWejPt/OdL6VDtJs4Fo2d2tY0o1C0QwBQ1R1lrzeDmtLp7rJCebyW+aJs5fo3GJICGo9U90d5P5a3sg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA1PR04MB11383.eurprd04.prod.outlook.com (2603:10a6:102:4f7::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Thu, 26 Feb
- 2026 20:20:30 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9632.017; Thu, 26 Feb 2026
- 20:20:29 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 1/1] arm64: dts: imx8mp-beacon: remove fallback ethernet-phy-ieee802.3-c22
-Date: Thu, 26 Feb 2026 15:19:47 -0500
-Message-ID: <20260226201949.690681-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BY3PR05CA0007.namprd05.prod.outlook.com
- (2603:10b6:a03:254::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Thu, 26 Feb 2026 20:13:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1772136801; x=1803672801;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=f+FH5u6NePnJWpkXpdMf0rFuk3vM+W+gFD63G5LmYC0=;
+  b=c52KFlevDgDqnL/TGLtnctlcd0eFo7QW49CGC1vM/E4fVfqNMb7mk6/k
+   1vblpUPhdJ+AB0FLj8M7U0Xl8RGw3zYrkZz63VW4i8siq7SmMml9Gj9TV
+   KXoWVyiE2xqyI/5mZDX4aan+hKkc05nGIYqTnWRUsN3l+8wjedyn2U6ES
+   C55ur6K9Gs1HVIyfYl61B1q6mRmCJA5REmDfaOupPt4wpnD2vRL+Iy8/B
+   JNe86AIkkxTI78VlYR9BBM4PbfsxuRoKDwrx0iOIMilaT5f2ic4frCUcB
+   p8we94SeDfLAHCd6MYvZKVqG2HsjfiyNUne9gtmnl+52qxY1GzLHeKZ0C
+   g==;
+X-CSE-ConnectionGUID: /3wlzlSWTeqatQ0/5yW24Q==
+X-CSE-MsgGUID: u1+A7DOrQWul7wPPEnGxgA==
+X-IronPort-AV: E=Sophos;i="6.21,312,1763449200"; 
+   d="scan'208";a="54359471"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Feb 2026 13:13:18 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 26 Feb 2026 13:12:37 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 26 Feb 2026 13:12:35 -0700
+Date: Thu, 26 Feb 2026 21:12:35 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Richard
+ Cochran" <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net-next 0/7] net: sparx5: clean up probe/remove init and
+ deinit paths
+Message-ID: <20260226201235.vbnnp3skx3tv3obb@DEN-DL-M70577.microsemi.net>
+References: <20260225-sparx5-init-deinit-v1-0-97036580b9f0@microchip.com>
+ <aZ69uEQHdhASe5dj@shell.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA1PR04MB11383:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed3a582a-a059-4b08-18b0-08de75747c4f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|7416014|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: WkUcaXlc0Bagi8sjrGzqRjKQAggXeuG4EQZWMd3HmNKnx9CpFRg9a6qPqenSkb66Hjin0lrAm8PIqCqmaMBFGEQS/xOrMZ3+nSgGbTCzFKHLqelfYs5jabELAgwN4e7j+KxaN88B5+aPIrK72qRGvXjzRi1KxnMeLMV4meDbj/VAAEfXjcuSQjjrEG4XVDl/aowaO8q6gJd6kFcQ46e++DXzrix2LSZPFvjfzsjjbcS4nuqtkXh5D/NeKAINz4m8FNvmztqocQUIj4PAkQqHlFYGWdR09bl00nylZt9r+Ub1bk2RPhKIbXiBl2tfEEOLroNsOTQfsFlYXxbwNvRSUoyPgPeWbH34Fxv8FSryTAlaEvNx5/WzA394CLqsY9yJshzHhJ3rZymq4ZQ0d6uxGXs/I2SrA2b4IV1Jhc4/3Ki8Msj4kQWC63j0EKyRnQ9FrjPFHHslvh014Tcjz/644bzZ3LWdawQS1vdokBQSa20qgRM0wf/+UaULf6dz4GyW3YW1Sr4MnX7+QeEZU/zHFxC6a6aWSPpbyembz4UtIjZfgV42BVN8Zrzp0V5SLq+Z/5s4MkkGw8BOMw5hJ8wOgvthbwZxIIXDytPMP+pVnOZ9AeVU5MdRUjlx1mWIJBD8uv+PSxjNfk3NUCQ0ud/TKlD5AaLqOUM1GX7oKM/7QWzjixQyErHIGZUfPYTdYoRsQMrMIQVNQ9lKCgFeDxkWbaDjsqekYBbPlBKEWV9bNT3Gug0ba963OBq+ApWTd4Z3
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(7416014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8VgqIBJXffGPjJaDkJsEOdpi/e1vz5uiC2iy6LA63sWP7d44zUFrmxMInwYr?=
- =?us-ascii?Q?1IUk3Yuv/qOGcmd71o9b0V/6QOq3FpskP2h2YzBeOqBrF4/oHP07wc4aVnGY?=
- =?us-ascii?Q?548NrB3TvPlKcptEER6+R7CQbjbakgB2Wdw5spfj1LY3f8s6FV/JSc1r8qEV?=
- =?us-ascii?Q?cZu8brUPhFxAEtW28g3sE+9F4155yuU5Ilg6q768n8K7U7wu9a1pRC3oz8s8?=
- =?us-ascii?Q?6v47eWMGdJLZGSx+UiPEPtcglUDjW6ipE/MhctaUdBM2LYaCzThYUOTEg0oB?=
- =?us-ascii?Q?aBxuDiI9TeTbYke6vNZo3m2yjZEVYMe+sL4a6CyK2NCMJiSnTpCcjmPqONlw?=
- =?us-ascii?Q?tvI7EqGGifRx3n0WDee/4Omqlr4Ig1Z9BAD398bzK6JvaSIdhMBI3e5YAzLx?=
- =?us-ascii?Q?WiKy6ignoaBuhCit1ezBfy0D1CiDUg8AUVrA3EpKBzaKOa+Hu3YFAnx23C2o?=
- =?us-ascii?Q?DIsU/gEkv/KZaQlIa/LNB166VtQHwozGXRmX8kRLKRdukuvi0/E54fsmFtSm?=
- =?us-ascii?Q?Kwu8PPsisLryj6HasXizKZHqKuU2/ANnly3yYDAChQneNO/mEiwPMajHR7h9?=
- =?us-ascii?Q?D+2+ozqAnmBtBHj/gKm4TCEPJ5Mv+L/0xYp169XA5lKKHC5QkbE4ScCxwtQa?=
- =?us-ascii?Q?5QZDjDg798QXxrb1yc1QjWceRf9rRuFErCBPSF0Ru5BlalBTscAIOBLNvn88?=
- =?us-ascii?Q?22bn6pFqVjjebrNZVvPacCP3p2BudcTacIjt+wytnJpEnZZYYEs+6icLMqDZ?=
- =?us-ascii?Q?vklQeyn4B4TQ79fQSbUP9Ert+FOExqNXMOR6fssnrsRuk4quKsyepldNpBux?=
- =?us-ascii?Q?BK1/he0kbZhliHiRMqltEbwjzNmeccC9YVRu5r8mrZ2uXJeNZjPMkdPQ3lsf?=
- =?us-ascii?Q?3fUDjmwAzESEeA82lvITYIkOhEGiOnabxQzH7cR+90WZ5xjc115ELuVDfqGK?=
- =?us-ascii?Q?eXZr3YIxTJ/VRXiAikKD9xBSNTj5VvHTxZnCzaSYECAcEhMs7TxxuoSAQELf?=
- =?us-ascii?Q?VAe4VIhUfyXz+wCzW8ENGMuYHhQ9aabWcBbmRpSV9fTONsNUsh7VyPkBZLJR?=
- =?us-ascii?Q?AWk41KKZCkPiwPIr/b/7cYQGH4EVCvtf8jhgOO9HdvD5TtqZQlg69n4ahAKz?=
- =?us-ascii?Q?yhZGSNF9TnYUdowjGmoiFTAfyeL8YQawjpXTFBKdTKipMtcdGIBe44twLF0p?=
- =?us-ascii?Q?r6RnmqXKMniEXfKAsmFwXJS4qfYMS1tw7DUoQrbFaLUUQWE4EGxPDv+4jBsT?=
- =?us-ascii?Q?bBsCLIDRgLmezKmVWw1eL5FdD+dfqldEsrpnZPae4zFbKjAHCPb62pcUmxKr?=
- =?us-ascii?Q?pitPnvzXyhlkmi3mMDAr+SQppldts/e31SQA3hNtGy9Jp4sgSIOWbu1kctUf?=
- =?us-ascii?Q?Te974tk9PvicVhA/lPZp606S4HUM/ZgKG6L0DSCfFMmYcHNBmzi4Tzr6pekD?=
- =?us-ascii?Q?T18aB1iv5SVnYyDx6AMUe7QCS6A8kLzI3/ItaLFuXt7GXMdrcrRxXh9r0SBn?=
- =?us-ascii?Q?huHgdjqtuifgOYO35H6aKWXg4PYotOGVbtJCPgtHOoITodsKTy5UvLmvyoRw?=
- =?us-ascii?Q?twVkfm0TrLmuQKZWnZAta+PKSAgD9deZjueZO7hcdo4plPkz7Qi08R+H+XSj?=
- =?us-ascii?Q?owtu3ssYMKHNHiIil1rM6YArXyqApxiiGutecTLR5v0i/TjoHyzTy8vccDAc?=
- =?us-ascii?Q?OqjS9lkiVUdXqI3VSpR3+Szgp4s2mR52ThQJGZYwQCdunsCcS3wUbt7pLv8c?=
- =?us-ascii?Q?rdCPbtZaKg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed3a582a-a059-4b08-18b0-08de75747c4f
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 20:20:29.7894
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: z9XkarINX7COigllF8xLCw7+aT9agXIPOLPvyFYQGRzXhgJ+6JTYIw6avC//t4ry9bpEJr8bVSvPF0vx2sBOmg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11383
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aZ69uEQHdhASe5dj@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_122034_152295_8D27C7BB 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260226_121321_364140_AC6CED52 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,47 +90,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the fallback compatible string "ethernet-phy-ieee802.3-c22" from the
-Ethernet PHY node to fix below CHECK_DTB warning:
+Hi Russell,
 
-arch/arm64/boot/dts/freescale/imx8mp-beacon-kit.dtb: ethernet-phy@3 (ethernet-phy-id0022.1640): compatible: ['ethernet-phy-id0022.1640', 'ethernet-phy-ieee802.3-c22'] is too long
-        from schema $id: http://devicetree.org/schemas/net/micrel,gigabit.yaml
+> > This series refactors the sparx5 init and deinit code out of
+> > sparx5_start() and into probe(), adding proper per-subsystem cleanup
+> > labels and deinit functions.
+> >
+> > Currently, the sparx5 driver initializes most subsystems inside
+> > sparx5_start(), which is called from probe(). This includes registering
+> > netdevs, starting worker threads for stats and MAC table polling,
+> > requesting PTP IRQs, and initializing VCAP. The function has grown to
+> > handle many unrelated subsystems, and has no granular error handling —
+> > it either succeeds entirely or returns an error, leaving cleanup to a
+> > single catch-all label in probe().
+> >
+> > The remove() path has a similar problem: teardown is not structured as
+> > the reverse of initialization, and several subsystems lack proper deinit
+> > functions. For example, the stats workqueue has no corresponding
+> > cleanup, and the mact workqueue is destroyed without first cancelling
+> > its delayed work.
+> >
+> > Refactor this by moving each init function out of sparx5_start() and
+> > into probe(), with a corresponding goto-based cleanup label. Add deinit
+> > functions for subsystems that allocate resources, to properly cancel
+> > work and destroy workqueues. Ensure that cleanup order in both error
+> > paths and remove() follows the reverse of initialization order. What
+> > remains in sparx5_start() is only hardware register setup and FDMA/XTR
+> > initialization that does not require cleanup.
+> >
+> > Before this series, most init functions live inside sparx5_start() with
+> > no individual cleanup:
+> >
+> >   probe():
+> >     sparx5_start():              <- no granular error handling
+> >       sparx5_mact_init()
+> >       sparx_stats_init()           <- starts worker, no cleanup
+> >       mact_queue setup             <- no cancel on teardown
+> >       sparx5_register_netdevs()
+> >       sparx5_register_notifier_blocks()
+> >       sparx5_vcap_init()
+> >     sparx5_ptp_init()
+> >
+> >     probe() error path:
+> >       cleanup_ports:
+> >         sparx5_cleanup_ports()
+> >         destroy_workqueue(mact_queue)
+> >
+> > After this series, probe() initializes subsystems in order with
+> > matching cleanup labels, and remove() tears down in reverse:
+> >
+> > probe():
+> >     sparx5_ptp_init()
+> >     sparx5_vcap_init()
+> >     sparx5_mact_init()
+> >     sparx5_stats_init()
+> >     sparx5_register_netdevs()
+> >     sparx5_register_notifier_blocks()
+> >     sparx5_start()
+> >
+> >   remove():
+> >     sparx5_unregister_notifier_blocks()
+> >     sparx5_unregister_netdevs()
+> >     sparx5_stats_deinit()
+> >     sparx5_mact_deinit()
+> >     sparx5_vcap_deinit()
+> >     sparx5_ptp_deinit()
+> >     sparx5_destroy_netdevs()
+> >
+> > Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+> 
+> Note that there is the general principle that drivers should not
+> "publish" themselves (aka register their netdevs and/or ptp) until
+> they have initialised enough so the facility that has been published
+> is functional.
+> 
+> That, in general, means that there should be very little initialisation
+> after the calls to register the netdevs and ptp.
+> 
+> It's fine if something gets published and then a later publication of
+> another interface fails, causing the first publication to be withdrawn,
+> that is pretty much unavoidable, but in such scenarios, one would want
+> to do as much of the initialisation that may fail before any
+> publication of any user interfaces.
+> 
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8mp-beacon-kit.dts  | 3 +--
- arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi | 3 +--
- 2 files changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-beacon-kit.dts b/arch/arm64/boot/dts/freescale/imx8mp-beacon-kit.dts
-index 31c33acb560c6..385aa6bae5202 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-beacon-kit.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-beacon-kit.dts
-@@ -266,8 +266,7 @@ mdio {
- 		#size-cells = <0>;
- 
- 		ethphy1: ethernet-phy@3 {
--			compatible = "ethernet-phy-id0022.1640",
--				     "ethernet-phy-ieee802.3-c22";
-+			compatible = "ethernet-phy-id0022.1640";
- 			reg = <3>;
- 			reset-gpios = <&gpio4 18 GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <10000>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi
-index 6a62cb32e22ec..1007f7db85e93 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi
-@@ -60,8 +60,7 @@ mdio {
- 		#size-cells = <0>;
- 
- 		ethphy0: ethernet-phy@3 {
--			compatible = "ethernet-phy-id0022.1640",
--				     "ethernet-phy-ieee802.3-c22";
-+			compatible = "ethernet-phy-id0022.1640";
- 			reg = <3>;
- 			reset-gpios = <&gpio4 10 GPIO_ACTIVE_LOW>;
- 			interrupt-parent = <&gpio1>;
--- 
-2.43.0
+Thanks for pointing this out.
 
+Before this series, quite a bit of initialization was already done after
+publication. But as a consequence of moving netdev registration out of
+sparx5_start() (patch #2), some initialization that previously happened before
+publication now happens after — which is the wrong direction.
+
+I will do some reordering to fix this in v2.
+
+Thanks!
 
