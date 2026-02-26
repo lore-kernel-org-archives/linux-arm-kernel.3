@@ -4,110 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBD6FC5926
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1334FFC5926
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mAcuux1PEFyS4LD3foHKFq7slEzopqc1IlMEs9IftLs=; b=dWlgKZ2qsyz455caqXxnR18eIa
-	7H/Uf/iVU0F0+6lbf44b63ZWR6GySSflIqIyRIQWCBaymViM+34IYNoUCh7FAqu5J/jf04Z46jN58
-	/jAxcFSCym7/j+a9y2q7+8RcA9f5u9W0bQcH/HSdArya7KHgJN6n7/fmHwe8OBz1l1sxS1Hc0a+/0
-	vuoWqs4aMMfRRuYhAvc2MO2fxYs8d530p02ItVQ6dfz51wYjPo1Y1EAMJwQHDjwJS5NZ6fQv+c8pY
-	26ajw53oEmjMp9+wbUTDgX8uN+RJxW/hpIZi3a+4ppNP6C3P6mcxsrPmgTkLMjzWkso9hjWp8kuWG
-	YGKDsHdg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5RZxa5HXOWbybOeMG67CMxQ3rKSc75rOXpOFnHKy+B8=; b=kHgA21pwbq6NwUziddly0/tQrU
+	rRJjL0ay8K3MfDpaZlJT1Z2x1bGrkqO+IZkSvV8H76GMt+KwosgizSo1xWVaZHgukmElDalHucv5V
+	jkPn/f9TIxObhJkPFgTX9FoD3PfNpwL4LIcqEmT+1ASvaRNNWdQRvRrhm2uoHlQ17eLtS8drYs554
+	AwxcN1h4BUtuPY4Prfw60thcg8OL0gyahKSx3GHulrniPlCQ4z1aKbAqNFOBZEhRn7kWhiEbgf5AL
+	qGGEYZbkojFNqTU7c/yEPjIVIWbVww4LTGnvTM2bfHmWv6r4AkK0vhDcNyJOt5jAt5u2uE8UWj7d8
+	JG8EYtOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYwN-00000005xdV-2bYv;
-	Thu, 26 Feb 2026 10:49:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvYxb-00000005xkt-48AY;
+	Thu, 26 Feb 2026 10:51:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYwM-00000005xdP-0rUN
+	id 1vvYxb-00000005xkl-0lPi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 10:49:54 +0000
+	Thu, 26 Feb 2026 10:51:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4300D60097;
-	Thu, 26 Feb 2026 10:49:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D885C19422;
-	Thu, 26 Feb 2026 10:49:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 293E1600AA;
+	Thu, 26 Feb 2026 10:51:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C381FC2BC9E;
+	Thu, 26 Feb 2026 10:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772102992;
-	bh=awYP+OrP6jTVr0TXLwCj7tRYD6IceTKpq5xLhhhUHKc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q60t59R2Sj9ULRlYrJ2IIHdnm6lLyMeLPbr3c7Z6+iOb3qbjGc9UKyN/nSUgefBJN
-	 L/nXVQmfzZ98wKBAe05dY59bBAmGJZToVK0Um4Op1EuSKzawvt0TTH/+FvhXCzC05W
-	 SsWoxK98EseWliZMobDup3lDWe7RKDqxsFLHm1BhY9JXuJi6mmvjURBglDTArTvKsd
-	 fyZhw/+0aaH6HPRph/Mqr7g1OIYOGK7MimU2vIZuEwUR3WQxbR+/mltLsCHfxAxqtq
-	 5zstVVOhFRN9tfuvf1QkXdmSTUrKAUYWJ1olUS628nefSAAmEf5tOzoRGEPMMmxpaT
-	 xwzMD3hBIOdwg==
-Message-ID: <f42ab36c-2588-4163-8e0e-2d868ed5db80@kernel.org>
-Date: Thu, 26 Feb 2026 11:49:47 +0100
+	s=k20201202; t=1772103069;
+	bh=c2H9Qi49m5+C4KxTW0j8/WB4GcymfvOF1Dx3C8KYFFs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Eq0N/CcVRqyeonDZJrXv9xf3VwFC3Mrxsw0GwBo1up49FgA9c+Wv+Vdo0yenwTCM/
+	 c7lUFm8KvlVKebR1w3mheBfxkQ+C9gadmCPvyhJg1KzY+CsACuJjyd7xR90llaFNnW
+	 o/YRAfhqXTXF44ytY4W/xynrOigplzqcDObe8xIgASJc02kex8sdfkwLnrungkIk2A
+	 tuVUBLKBur7cE+h9zRtE+6vzLKx+SHiEr3KtUyfiw2pKnDxyZIWXBNlqdjaQ0Si8aZ
+	 3WTxHdG3WZH9tK/MeC7b1jMxRBLovlNNY1XF+8XHWq7eJByIZ/D3EU5SZUUHppwGEN
+	 T6rX32Xvv4jIQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vvYxX-0000000E12u-3VQk;
+	Thu, 26 Feb 2026 10:51:07 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Kees Cook <kees@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] KVM/arm64 fixes for 7.0, take #1
+Date: Thu, 26 Feb 2026 10:50:47 +0000
+Message-ID: <20260226105048.28066-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/8] Revert "dt-bindings: mfd: sl28cpld: Add sa67mcu
- compatible"
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Guenter Roeck <linux@roeck-us.net>,
- Srinivas Kandagatla <srini@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-doc@vger.kernel.org
-References: <20260223100459.844967-1-mwalle@kernel.org>
- <20260223100459.844967-5-mwalle@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260223100459.844967-5-mwalle@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, tabba@google.com, joey.gouly@arm.com, jonathan.cameron@huawei.com, kees@kernel.org, broonie@kernel.org, sascha.bischoff@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,32 +86,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/02/2026 11:04, Michael Walle wrote:
-> This reverts commit a598ae45f48d7d5a17f8290f2f5bd46046fd0b9b.
+Paolo,
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+Here's the first set of KVM/arm64 fixes for 7.0. Most of it affects
+pKVM (feature set, MMU), but we also have a GICv5 fix and a couple of
+small cleanups. Details in the tag below.
 
-dt-bindings: mfd: foo-bar: Revert or drop or something, here goes text.
+Note that there is a very minor conflict with Linus' tree due to Kees'
+patch having been applied to both trees. Whatever is in Linus' tree is
+the right thing.
 
-Also:
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
+Please pull,
 
-And also, please use kernel style commit hashes, see checkpatch and
-submitting patches (12 char + subject).
+	M.
 
-> 
-> I was just informed that this product is discontinued (without being
-> ever released to the market). Pull the plug and let's not waste any more
-> maintainers time.
-> 
-> Signed-off-by: Michael Walle <mwalle@kernel.org>
-> ---
-Best regards,
-Krzysztof
+The following changes since commit 6316366129d2885fae07c2774f4b7ae0a45fb55d:
+
+  Merge branch kvm-arm64/misc-6.20 into kvmarm-master/next (2026-02-05 09:17:58 +0000)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-7.0-1
+
+for you to fetch changes up to 54e367cb94d6bef941bbc1132d9959dc73bd4b6f:
+
+  KVM: arm64: Deduplicate ASID retrieval code (2026-02-25 12:19:33 +0000)
+
+----------------------------------------------------------------
+KVM/arm64 fixes for 7.0, take #1
+
+- Make sure we don't leak any S1POE state from guest to guest when
+  the feature is supported on the HW, but not enabled on the host
+
+- Propagate the ID registers from the host into non-protected VMs
+  managed by pKVM, ensuring that the guest sees the intended feature set
+
+- Drop double kern_hyp_va() from unpin_host_sve_state(), which could
+  bite us if we were to change kern_hyp_va() to not being idempotent
+
+- Don't leak stage-2 mappings in protected mode
+
+- Correctly align the faulting address when dealing with single page
+  stage-2 mappings for PAGE_SIZE > 4kB
+
+- Fix detection of virtualisation-capable GICv5 IRS, due to the
+  maintainer being obviously fat fingered...
+
+- Remove duplication of code retrieving the ASID for the purpose of
+  S1 PT handling
+
+- Fix slightly abusive const-ification in vgic_set_kvm_info()
+
+----------------------------------------------------------------
+Fuad Tabba (5):
+      KVM: arm64: Hide S1POE from guests when not supported by the host
+      KVM: arm64: Optimise away S1POE handling when not supported by host
+      KVM: arm64: Fix ID register initialization for non-protected pKVM guests
+      KVM: arm64: Remove redundant kern_hyp_va() in unpin_host_sve_state()
+      KVM: arm64: Revert accidental drop of kvm_uninit_stage2_mmu() for non-NV VMs
+
+Kees Cook (1):
+      KVM: arm64: vgic: Handle const qualifier from gic_kvm_info allocation type
+
+Marc Zyngier (2):
+      KVM: arm64: Fix protected mode handling of pages larger than 4kB
+      KVM: arm64: Deduplicate ASID retrieval code
+
+Sascha Bischoff (1):
+      irqchip/gic-v5: Fix inversion of IRS_IDR0.virt flag
+
+ arch/arm64/include/asm/kvm_host.h   |  3 +-
+ arch/arm64/include/asm/kvm_nested.h |  2 ++
+ arch/arm64/kvm/at.c                 | 27 ++--------------
+ arch/arm64/kvm/hyp/nvhe/pkvm.c      | 37 ++++++++++++++++++++--
+ arch/arm64/kvm/mmu.c                | 12 +++----
+ arch/arm64/kvm/nested.c             | 63 ++++++++++++++++++-------------------
+ arch/arm64/kvm/sys_regs.c           |  3 ++
+ arch/arm64/kvm/vgic/vgic-init.c     |  2 +-
+ drivers/irqchip/irq-gic-v5-irs.c    |  2 +-
+ 9 files changed, 81 insertions(+), 70 deletions(-)
 
