@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BCA8FCE086
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 13:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F9EFCE086
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WUsE/ay4HCwYnv/iGAzXX9BodcGCyR/uM8ydwv7aDgo=; b=QihWXDeiwoZXZrc/KyjGZCK1PK
-	+D4ho/aRz2SZrQFHMJ7HicgfeAsCUgGh8WGOq9ajT4obZ7Sa2S4PUfSehkHBhOSI+VeAe0Q7N/9SA
-	kj6165C0tHZyeqFVjXN7ek7oIbkiy/dpvt0fjsBw7EhAA9yx2Lna5X64sI1/rAWLfzwPB08bJqaxx
-	x4zskVGIkQhkka8PWyNQl8ZwtrbJY00+Dl9yOQnnCdqBa6UlLqbZ+CqKNqdRBSYRFvLOPGEMxCg8A
-	dpb7hSkBmw8rNbwupVMdQ3IoZ75Jvkp2Sq1gf7IucwQdE0uLLDU19EJmJ3FJr2/5JaYJycSXHi1Rl
-	6buaXSog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NIXJZ762sQFrwalkKRB1cp3LN0uZ8Jw8cNXFzWunR8w=; b=Liq1ChejV2x/m+EQmwD0JFSvbC
+	Ge+s394UKTj8gwznFJK2E1lZMoX+QrTJxS3Z7CG3J9p7Y3fugZ9UwaDkG9hokNrDfwIptEpfy06NW
+	o26x26G95vlx2q3BasNG4kfV2R7d34p/CNrPR/jIpMYoTaYEwKgxfodk1IYu3f1AbK5gpGKzF0AqL
+	qbTz294WTJa2jo1eiMRkgLg/YCeldKoysLNIGL0TaIwT913iNAT6GCHGsTF2FWyjBBzauPibT86kk
+	6m+clddgvno8O3+Kim8sb+8PR5gD/QiS75R12kKC8TvjcBh/4hCYr0bihACZg+4bEHwRpsZlbuo0C
+	tA0qKivw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvbpz-00000006GsD-0xDX;
-	Thu, 26 Feb 2026 13:55:31 +0000
+	id 1vvbxz-00000006HG4-0kAQ;
+	Thu, 26 Feb 2026 14:03:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvbxy-00000006HFn-03Gf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 26 Feb 2026 14:03:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=NIXJZ762sQFrwalkKRB1cp3LN0uZ8Jw8cNXFzWunR8w=; b=H2C9Psnt1zxdjIkOP/mf/knXjR
+	NiCbdOH7g+DCmPUnkUhzXwEwi9PJEuILoCmXcdDO33Yil62R/43RQiluI+BSSzWRTg1YAaaY2qib2
+	ode0uiwwCgfrRlviAIcUHElp3rS3WbhPrExC1A7dt8INOFYi62cPLJA1QryqtA/poAK9ixddCRQmi
+	nKUCev9czGVGS9bErWKooeiLp5WNiVuCjfBGsVYqRoeZ5TpvWb9ywXLVT+qeLD23qtX7LmyD4pdUH
+	n3ksgdEQpAqM4/5pPcfAuAziuSFMwOuyPljbq3mfd4ko7WKDSrKcVsJG2jODpY3p0CJkH0JYxo25H
+	B/5Ou1/w==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvbpv-00000006GqT-13oU
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvbxu-0000000B71P-0Hbm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 13:55:29 +0000
+	Thu, 26 Feb 2026 14:03:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8740497;
-	Thu, 26 Feb 2026 05:55:17 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA7673F62B;
-	Thu, 26 Feb 2026 05:55:21 -0800 (PST)
-Date: Thu, 26 Feb 2026 13:55:13 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 0/4] firmware: arm_scmi: Drop fake 'const' on scmi_handle
-Message-ID: <aaBQwXHA1pAQ4XHF@pluto>
-References: <20260224-handle-not-const-v1-0-90bf93b53e27@oss.qualcomm.com>
- <aZ2aBD_u_RVhgsei@pluto>
- <b4c42f88-80fb-488b-9ca5-95f5795fd2f8@oss.qualcomm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B6A6497;
+	Thu, 26 Feb 2026 06:03:32 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 119BB3F73B;
+	Thu, 26 Feb 2026 06:03:37 -0800 (PST)
+Message-ID: <4ab7b471-a67f-454e-aaf4-9e0b1f0d96e8@arm.com>
+Date: Thu, 26 Feb 2026 14:03:36 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b4c42f88-80fb-488b-9ca5-95f5795fd2f8@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] clocksource/drivers/arm_arch_timer: Expose a direct
+ accessor for the virtual counter
+From: Ben Horgan <ben.horgan@arm.com>
+To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>
+References: <20260226082234.26707-1-maz@kernel.org>
+ <20260226082234.26707-3-maz@kernel.org>
+ <aa607343-9dd8-4e96-a7e3-5937fa084891@arm.com>
+Content-Language: en-US
+In-Reply-To: <aa607343-9dd8-4e96-a7e3-5937fa084891@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_055527_420792_056E3BE0 
-X-CRM114-Status: GOOD (  33.74  )
+X-CRM114-CacheID: sfid-20260226_140342_439084_0718CDC0 
+X-CRM114-Status: GOOD (  22.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,106 +83,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 12:42:08PM +0100, Krzysztof Kozlowski wrote:
-> On 24/02/2026 13:31, Cristian Marussi wrote:
-> > On Tue, Feb 24, 2026 at 11:43:38AM +0100, Krzysztof Kozlowski wrote:
-> >> Severale functions operating on the 'handle' pointer, like
-> > 
-> > Hi Krzysztof,
 
-Hi,
 
-> > 
-> >> scmi_handle_put() or scmi_xfer_raw_get(), are claiming it is a pointer
-> >> to const thus they should not modify the handle.  In fact that's a false
-> >> statement, because first thing these functions do is drop the cast to
-> >> const with container_of:
-> > 
-> > Thanks for this first of all...
-> > 
-> > ...but :D
-> > 
-> > ... the SCMI stack attempts to follow a sort of layered design, so roughly
-> > we have transport, core, protocols and finally SCMI Drivers.
-> > 
-> > Each of these layers has its own responsabilities and the aim was to
-> > enforce some sort of isolation between these layers, OR even between
-> > different disjoint features within the same layer, if it made sense,
-> > like with the notification subsystem within the core...
-> > 
-> > Now, given that all of the above must be attained using our beloved C
-> > language, such attempt to enforce isolation between such 'islands' with
-> > different responsibilities is based on:
-> > 
-> >  - fully opaque pointers/handles...like the ph protocol handels within
-> >    SCMI drivers...best way to do it..if you cannot even peek into an
-> >    object you certainly cannot mess with it...
-> > 
-> >  - some 'constification' when passing around some nonm-opaque references
-> >    across such boundaries
-> > 
-> > So, when you say that some of these functions sports a fake const
-> > reference, is certainly true to some extent, BUT you miss the fact that
-> > usually the const is meant to stop the CALLER from messing freely with
-> > the handle and instead enforce the usage of a dedicated helper that sits
-> > in another layer...
+On 2/26/26 13:48, Ben Horgan wrote:
+> Hi Marc,
 > 
-> The caller can mess with the handle, because of container_of() cast, so
-> there is nothing stopping it. I understand you want to express that
-> handle is somehow unchangeable but then as you mentioned - it should be
-> opaque pointer.
+> On 2/26/26 08:22, Marc Zyngier wrote:
+>> We allow access to the architected counter via arch_timer_read_counter().
+>> However, this accessor can either be the virtual or the physical
+>> view of the counter, depending on how the kernel has been booted.
+>>
+>> At the same time, we have some architectural features (such as WFIT,
+>> WFET) that rely on the virtual counter, and nothing else.
+>>
+>> If implementations were perfect, we'd rely on reading CNTVCT_EL0,
+>> and be done with it. However, we have a bunch of broken implementations
+>> in the wild, which rely on preemption being disabled and other
+>> costly workarounds.
+>>
+>> In order to provide decent performance on non-broken HW while still
+>> supporting the legacy horrors, expose arch_timer_read_vcounter() as
+>> a new helper that hides this complexity.
+>>
+>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> ---
+>>  drivers/clocksource/arm_arch_timer.c | 5 +++++
+>>  include/clocksource/arm_arch_timer.h | 1 +
+>>  2 files changed, 6 insertions(+)
+>>
+>> diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+>> index 90aeff44a2764..4e4a62e1c9439 100644
+>> --- a/drivers/clocksource/arm_arch_timer.c
+>> +++ b/drivers/clocksource/arm_arch_timer.c
+>> @@ -137,6 +137,8 @@ static noinstr u64 arch_counter_get_cntvct(void)
+>>  u64 (*arch_timer_read_counter)(void) __ro_after_init = arch_counter_get_cntvct;
+>>  EXPORT_SYMBOL_GPL(arch_timer_read_counter);
+>>  
+>> +u64 (*arch_timer_read_vcounter)(void) __ro_after_init = arch_counter_get_cntvct;
+>> +
+>>  static u64 arch_counter_read(struct clocksource *cs)
+>>  {
+>>  	return arch_timer_read_counter();
+>> @@ -931,6 +933,9 @@ static void __init arch_counter_register(void)
+>>  	}
+>>  
+>>  	arch_timer_read_counter = rd;
+>> +	arch_timer_read_vcounter = (arch_timer_counter_has_wa() ?
 > 
+> This matches what is done for arch_timer_read_counter but it seems a bit
+> surprising to me that arch_timer_counter_has_wa() is checking that the
+> workaround is in use and not whether the workaround should be in use. Do
+> we need to worry about what happens if the workaround fails to be enabled?
 
-Well no, the caller who calls from within the _protocol_init code can only
-do what the available function (set_priv) allows him to do when called....
-...like setting the priv field....and scmi_set_protocol_priv, which live in
-another 'logical island', embeds that logic....from within protocol_init
-you cannot get to the protocol instance directly simply because you dont
-have the definition of struct nor the ph_to_pi() macros...
+Or is the point that if you haven't enabled a relevant workaround then
+all cores are treated the same and so there is no need to disable
+preemption?
 
-Also scmi_set_protocol_priv() uses the const ph to access the container
-pi and change that...NOT the ph object...even though clearly it could once
-it has pi (as you pointed out)....but that would be a bug...no ?
-
-... on the other side dropping the const from the protocol_init funcs as
-you suggest would mean that immediately you could do from within the protocol
-layer stuff like:
-
-	ph->version = 0x12345;
-
-...while now you can only read ph->version, since it is discovered
-negoatiated and set by the core SCMI stack and so it is NOT meant to be
-touched by the protocol layer, while it has to be freely modificable by
-the core...(sp it cannot be real const in the core)
-
-Yes, ideally ph would be better as an opaque object of course, like it
-appears to the SCMI drivers when it is used to call proto_ops, BUT the
-attempt here was to maximize isolation while also keeping the thing
-practically usable AND without having to export zillion symbols...
-
-...that is the reason also for ph-embeeded xops/hops...if you make ph fully
-opaque also to the protocol layer you will have to expose and EXPORT
-xops/hops since vendor protocols can be loadable modules, and in general
-all across the SCMI stack we generally always chose to export the minimum
-possible number of symbols and a few handles with attached ops to let the
-stack work, since if not, given the nature of the SCMI protocol that is
-highly extensible, we would have ended up with a constantly increasing
-number of exported symbols to maintain...
-(imagine to export all of scmi_protocol.h)
-
-I agree that the current const usage patterns in the stack are semantically
-slightly off at time, but what is the real benefit of dropping such fake
-const ?
-
-...because on one side they do stop any attempt to mess with the internals
-of the handles IF such attempts comes from a context in which the objects
-are NOT supposed to be touched, and so, in some way enforce and constraint
-the developer writing these protocols (standard or vendor) to 'behave'
-
-...BUT, on the other side,  what would be the gain in having such consts
-insteaD more pedantically applied (dropepd) ? What are the compilation time
-benefits that you mention ?
+> 
+>> +				    arch_counter_get_cntvct_stable :
+>> +				    arch_counter_get_cntvct);
+>>  	clocksource_counter.vdso_clock_mode = vdso_default;
+>>  
+>>  	width = arch_counter_get_width();
+>> diff --git a/include/clocksource/arm_arch_timer.h b/include/clocksource/arm_arch_timer.h
+>> index 2eda895f19f54..5bfd6a5db75aa 100644
+>> --- a/include/clocksource/arm_arch_timer.h
+>> +++ b/include/clocksource/arm_arch_timer.h
+>> @@ -88,6 +88,7 @@ struct arch_timer_mem {
+>>  
+>>  extern u32 arch_timer_get_rate(void);
+>>  extern u64 (*arch_timer_read_counter)(void);
+>> +extern u64 (*arch_timer_read_vcounter)(void);
+>>  extern struct arch_timer_kvm_info *arch_timer_get_kvm_info(void);
+>>  extern bool arch_timer_evtstrm_available(void);
+>>  
+> 
+> Thanks,
+> 
+> Ben
+> 
+> 
 
 Thanks,
-Cristian
+
+Ben
+
 
