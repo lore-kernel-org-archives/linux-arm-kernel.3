@@ -4,99 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0B19FC5903
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 07:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D6BFC5903
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 07:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GjwWk+G+/TUPJF2k6R6TFJ4vHNubRr+a3SM993Y7NM0=; b=3Uh+jDVi4NjLtLtkJcnChkKMzq
-	A4eOILj4xbv+lxD0T8vWP3lGpQjPz9rhQFiZY7g6Od2iZPYsohyLZmaPXmqpmZlODYkif2i7kjobt
-	/UyRlAF+WmxIDRMpukQy7hKKOZKL2Rd4TnGS7X3sIiPC1omU5Z0ywZ80qy5sArAg1XsN43xq86M7k
-	s0Qqx4AA8j90tkhbokgcgq3LGWJNTZa6c2ZsvojXTBaPjmfK/ah2KxqHASuCtf5v91C1Q/ScB8RB4
-	i4um6ZmBSB6foNkrQZ1q8kYUw/UK2FqoJEXoZG4q4c8OHfqRwpF60J5kXuInWXDe5t6EOHTddNGj5
-	BE4It5aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b3oU91SteUGDG1RwnBFzJRPau585EoLlyXZ6sKVEo1g=; b=Rxa4zHJP+zAeFKhDBQYG/GoF3j
+	M2nbI3nQgAuntz42NtgTI+t/wKuuKSxlHsSU78YnkCClOkQ3otFiOG9MAl9kdll/bzETWr0/2ICAi
+	mvw2cSEJURkavulQvWA6XkQHEmupD/7a9QPo1bOIbSdoHklxdLmKbfLvixM66s5qi5slGfnUzc7I1
+	MlfTpC90vVk70V8LBULPN2wi5bBYpJ3ZkKrMWmZjfIlyLTWC9KadWLPWau05q0azqxwKvHV8dxrbP
+	NU0iWPgtFbmTaN42tBEfWGl7d3rZZwvCV8sRubKrJQTnNWad9jZwjqxh/paDXIsZ8w1uCJH7OvBuj
+	zVc0ZB9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVuB-00000005aDS-2XPn;
-	Thu, 26 Feb 2026 07:35:27 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1vvVxM-00000005aQK-27Fo;
+	Thu, 26 Feb 2026 07:38:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVu8-00000005aCg-2pLx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 07:35:26 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-827336c0994so570747b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 23:35:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772091323; x=1772696123; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GjwWk+G+/TUPJF2k6R6TFJ4vHNubRr+a3SM993Y7NM0=;
-        b=MIwBYcHo6aAK/9sweiVnMVNg1kqiTXOE/UF3pBx7BMF3mOEnBhVDN5NZRLjtSB2zoi
-         lqnD367iKOFriBbTsHMKp0h8cISlYMHM19ZZVQjJsZwiQ4CGZDZRhHB4Mm7WF3mljlCQ
-         srjNqsexyaSxsBK7l08jLymVSOAWYjk7/E+g8VgLDyq0pXEPRz2TUh5HVl5U964dXXDu
-         EIgXUWpclBH3nrykZJjZrHMrJcBy+1CrRz7PhSm8cJVCVmnkqLE8oD6qgaOKhGS8eYXF
-         +Xy0BcsvkGyggsAXVzRhTBQacgAOKY6qutT28BJTzf7lOkeoyBxJ48NplrTIc3UEq8Gd
-         0BMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772091323; x=1772696123;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=GjwWk+G+/TUPJF2k6R6TFJ4vHNubRr+a3SM993Y7NM0=;
-        b=L/GGriG/QsGP07xck5nhz2RTNOG2vDG9jvpk15ZKFxWGJy/bDv/8t7mPfF8kbzTiWN
-         rGQRtdzD5p/BYy4uH5WDer6R6+m2qy03uW4UdxibjnzZKQ6f4oVj8P6i1AsKaCSkTtan
-         phVBnsYOq4+wNV8g/dIX11QRouuuqtOI7mMO/GO4gwEQzM0Hjnz/z9m3OgQwzJRv/Kw7
-         9/gc9EQT0f/aCC5lMQjqePNqmni47dtpmZ4zBlYLtFp9/Lakmxh4I7oon2ON+pDW0Zm0
-         tBtIdKXcDD4XwXaf7/9BU0xf/u4ylD8nDp80/Ctv2byZU2sq+zO0N+yG4y4GgCWfaeKp
-         VLLw==
-X-Forwarded-Encrypted: i=1; AJvYcCUMX2PgTB5CFlokRCt1tD5SCEbt9f1MCoZgjs4+PTJbzeu9rLVt2XyoQ25XOoOhzxszPl1H47JV6PMEnwBLEgRN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyG4gHBzL9P8LnOIv7WJ9C3X2mR+EYTvs3ONByZEnFk2jAB8FEM
-	PTEv9vWaoQkwGYqHVvyd72N15LjJ4IL4VAzP4OH+M90wexRF4jVwSxzB
-X-Gm-Gg: ATEYQzyYAXG5Vl8e7LcEWTRsFuMDMTx9WpBzoJPigDhdCcGNPrPbOvkuRPE8TxNbgwv
-	WZ0+o6yYfOd+AyGFhuCaFOWY7J+SWiSF3lxo6/cbNxVqXRncKW5UwY+XwSMkIdIVP+Kj6R8ipbC
-	OQLobj/C2O4VvXl9s/7T8veOcpS6c9MH+tPtD9dt6cbkgLmFyyc5K82Ccmuhg/pp2glaBLZxL9t
-	gE0wnXIUSWhtrxXkz+JH0OHmFUB3NAiaYBNmX79ls1/+UjpaEEuqSBUEnd0xDIhFudQvpDWQqWu
-	2pY2BY9VYvllHWaI3K1cBALVjEz7+G0GDNC+A5yMyShYU9l/aRcGNncdg3geaIuKZzpmHJl/6Sy
-	2l5mFnqNU6bdMpO6NYVvgVqyee6bbwTOMRUzdWZbi07XID/5+LeC7QDjqFflJCYyDIjQxLiZnhc
-	j/xL7qnUU74wrppHQ/GwesxnU2
-X-Received: by 2002:a17:90b:1f8d:b0:352:d933:5574 with SMTP id 98e67ed59e1d1-359388660e4mr1649107a91.9.1772091323293;
-        Wed, 25 Feb 2026 23:35:23 -0800 (PST)
-Received: from bsp.. ([2401:4900:52be:501d:b08a:5e82:d282:1ddb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359130712bcsm2030763a91.7.2026.02.25.23.35.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Feb 2026 23:35:22 -0800 (PST)
-From: Rahul Navale <rahulnavale04@gmail.com>
-To: Folker Schwesinger <dev@folker-schwesinger.de>
-Cc: Rahul Navale <rahul.navale@ifm.com>,
-	dmaengine@vger.kernel.org,
+	id 1vvVxL-00000005aQB-2tUB;
+	Thu, 26 Feb 2026 07:38:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE25160054;
+	Thu, 26 Feb 2026 07:38:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0698DC19424;
+	Thu, 26 Feb 2026 07:38:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772091522;
+	bh=Wrc4xAun5CwndqcKF0a9rvejO9WBiD5pCK7g3zIJna4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MuUKU8HaopIuxCmBB3FBoI5xYavpPuRdntHOycIA4tf/iyw0mu44c+PlbVfX5HlI8
+	 tKNN3qDS+T2o39hlVjIkJFbLFbbidazicsEVmV0EE7rPRF9nWpLNeuL083/z5vLWCi
+	 GhEUWa679c8MByObex9yLlneYIZWL/GMfxJj8bJaKIzKsq6b87YEw6K/LMMzPwXnm8
+	 wzXB/6gsTdbZMMi23oQpbE0hEQRuqkYro/rWrJR0htwTugrgCVOa7YbtnZEFjpDWzD
+	 wN7YBYghNls8CUdgkBfzjmiZoMDitC1Hc6ZEYLzi2E6T+LK3GjgVYkUseG430trA95
+	 6O4pY3UPxw2lA==
+Date: Thu, 26 Feb 2026 08:38:39 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Zhengping Zhang <aquapinn@qq.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	michal.simek@amd.com,
-	suraj.gupta2@amd.com,
-	thomas.gessler@brueckmann-gmbh.de,
-	radhey.shyam.pandey@amd.com,
-	tomi.valkeinen@ideasonboard.com,
-	rahulnavale04@gmail.com,
-	marex@nabladev.com,
-	marex@denx.de
-Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction reporting via device_caps
-Date: Thu, 26 Feb 2026 13:05:10 +0530
-Message-ID: <20260226073512.4595-1-rahulnavale04@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
-References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, zhengping.zhang@airoha.com,
+	upstream@airoha.com, Simon Horman <horms@kernel.org>
+Subject: Re: [RESEND PATCH net-next] net: airoha: fix typo in function name
+Message-ID: <aZ_4f5LrAlKpG6cZ@lore-desk>
+References: <tencent_E4FD5D6BC0131E617D848896F5F9FCED6E0A@qq.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_233524_714452_73647804 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ywZFAiZulEAzxkCv"
+Content-Disposition: inline
+In-Reply-To: <tencent_E4FD5D6BC0131E617D848896F5F9FCED6E0A@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,51 +73,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rahul Navale <rahul.navale@ifm.com>
 
->in the RFC patch, rebuild and exercise your use case. Then please do
->dmesg|grep xilinx_dma_device_caps
+--ywZFAiZulEAzxkCv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hi Folker,
+> Corrected the typo in the function name from
+>  `airhoa_is_lan_gdm_port` to `airoha_is_lan_gdm_port`. This change ensures
+>  consistency in the API naming convention.
 
-Thanks for the suggestion.
-I applied your RFC patch and added printk() in xilinx_dma_device_caps()
-around the assignment of caps->directions.
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-After rebuilding and booting, I exercised the audio playback use case
-and collected the requested logs. The callback is reached and prints
-appear both during early boot and during playback. Issue still persists.
-cyclic playback fails after the first buffer period.
+>=20
+> Signed-off-by: Zhengping Zhang <aquapinn@qq.com>
+> Reviewed-by: Simon Horman <horms@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
+>  drivers/net/ethernet/airoha/airoha_eth.h | 2 +-
+>  drivers/net/ethernet/airoha/airoha_ppe.c | 2 +-
+>  3 files changed, 3 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 62bcbbbe2a95..3779f93b47bc 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -76,7 +76,7 @@ static void airoha_set_macaddr(struct airoha_gdm_port *=
+port, const u8 *addr)
+>  	struct airoha_eth *eth =3D port->qdma->eth;
+>  	u32 val, reg;
+> =20
+> -	reg =3D airhoa_is_lan_gdm_port(port) ? REG_FE_LAN_MAC_H
+> +	reg =3D airoha_is_lan_gdm_port(port) ? REG_FE_LAN_MAC_H
+>  					   : REG_FE_WAN_MAC_H;
+>  	val =3D (addr[0] << 16) | (addr[1] << 8) | addr[2];
+>  	airoha_fe_wr(eth, reg, val);
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index 20e602d61e61..59ed7569f7c3 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -626,7 +626,7 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 ma=
+sk, u32 val);
+>  #define airoha_qdma_clear(qdma, offset, val)			\
+>  	airoha_rmw((qdma)->regs, (offset), (val), 0)
+> =20
+> -static inline bool airhoa_is_lan_gdm_port(struct airoha_gdm_port *port)
+> +static inline bool airoha_is_lan_gdm_port(struct airoha_gdm_port *port)
+>  {
+>  	/* GDM1 port on EN7581 SoC is connected to the lan dsa switch.
+>  	 * GDM{2,3,4} can be used as wan port connected to an external
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
+net/airoha/airoha_ppe.c
+> index 2221bafaf7c9..9e07b4653af1 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -321,7 +321,7 @@ static int airoha_ppe_foe_entry_prepare(struct airoha=
+_eth *eth,
+>  			/* For downlink traffic consume SRAM memory for hw
+>  			 * forwarding descriptors queue.
+>  			 */
+> -			if (airhoa_is_lan_gdm_port(port))
+> +			if (airoha_is_lan_gdm_port(port))
+>  				val |=3D AIROHA_FOE_IB2_FAST_PATH;
+>  			if (dsa_port >=3D 0)
+>  				val |=3D FIELD_PREP(AIROHA_FOE_IB2_NBQ,
+> --=20
+> 2.43.0
+>=20
 
-Output of `dmesg | grep xilinx_dma_device_caps`:
-root@pdm3:~# aplay closetoyou.wav
-Playing WAVE 'closetoyou.wav' : Signed 16 bit Little Endian, Rate 48000 Hz, Stereo
-^CAborted by signal Interrupt...
-aplay: pcm_write:2178: write error: Interrupted system call
-root@pdm3:~# aplay closetoyou.wav root@pdm3:~# dmesg | grep xilinx_dma_device_caps
-[    0.318827] xilinx_dma_device_caps: caps->directions = 0x00000001
-[    0.318832] xilinx_dma_device_caps: caps->directions = 0x00000001
-[    0.319170] xilinx_dma_device_caps: caps->directions = 0x00000002
-[    0.319175] xilinx_dma_device_caps: caps->directions = 0x00000002
-[    6.375745] xilinx_dma_device_caps: caps->directions = 0x00000001
-[    6.375762] xilinx_dma_device_caps: caps->directions = 0x00000001
-[  133.401497] xilinx_dma_device_caps: caps->directions = 0x00000001
-[  133.401513] xilinx_dma_device_caps: caps->directions = 0x00000001
-root@pdm3:~#
-root@pdm3:~# aplay closetoyou.wav
-Playing WAVE 'closetoyou.wav' : Signed 16 bit Little Endian, Rate 48000 Hz, Stereo
+--ywZFAiZulEAzxkCv
+Content-Type: application/pgp-signature; name=signature.asc
 
-aplay: pcm_write:2178: write error: Interrupted system call
-root@pdm3:~# aplay closetoyou.wav root@pdm3:~# dmesg | grep xilinx_dma_device_caps
-[    0.318827] xilinx_dma_device_caps: caps->directions = 0x00000001
-[    0.318832] xilinx_dma_device_caps: caps->directions = 0x00000001
-[    0.319170] xilinx_dma_device_caps: caps->directions = 0x00000002
-[    0.319175] xilinx_dma_device_caps: caps->directions = 0x00000002
-[    6.375745] xilinx_dma_device_caps: caps->directions = 0x00000001
-[    6.375762] xilinx_dma_device_caps: caps->directions = 0x00000001
-[  133.401497] xilinx_dma_device_caps: caps->directions = 0x00000001
-[  133.401513] xilinx_dma_device_caps: caps->directions = 0x00000001
-[  167.802636] xilinx_dma_device_caps: caps->directions = 0x00000001
-[  167.802651] xilinx_dma_device_caps: caps->directions = 0x00000001
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaZ/4fwAKCRA6cBh0uS2t
+rFNxAQC51ZWEWtupLqf0J9rgQp3GNeH/exHXOYErWxwPix1qdAEAh4brjMkl6Kj7
+jXa2inBVSXHqhZ8HLhfMmH1E28YqxQ8=
+=YVf+
+-----END PGP SIGNATURE-----
+
+--ywZFAiZulEAzxkCv--
 
