@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA92AFC590E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 08:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B9EFC5911
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 08:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rrsbMfvVp2mlT8uZFPdqeEkocHGWkOVoRTFC4HeZudA=; b=tNHyBfZ9xs0laO4wQIpIfRhSPF
-	quNaSyP3eN6OnX8NaRW9+WYSFv8+SnILswOxaARJXysvp7DEH4SZWZiM5VJJZDDADgO35CywS4Dus
-	FjCqDNnN/nLEIorCs2DAjum5ncpRSaPIO9fOUTJnDwm3OFfeNjnw7j9eFJjPilE4kHIV/1IFxk80a
-	//vVOxQT96kkDOYKPBULp9qUTtvkgaL3iqNjXLdz5S5Z80YQGlIVb2GVGekVDK+5F0dPEgEuvnQSU
-	aANhavTHKNLeR83eid3Ii8l8IkmRzlQIPk3ydI7rne1gSbwcI4xwYwovpEOBL15pK8ud4HaG0gAz3
-	mAv9mwXA==;
+	bh=Me6/gMTEz3PAlgU521S5bAkTbmNg6yXoSMbtj++gb3k=; b=GUaJMdgYlgGhP8TPGN1iDEl3EX
+	C6xyLGT5XaLvH49QD0A2VVl3D/p6shKDRKaW98j13ZZRc6+PbHlhmmpvYqhReiHKa0moi1sRBituH
+	a/k5ubM+jaElM14CJ/Aa6jS3MoY6DHeJBa72jogqEHV5xEDjGHAI/XBJri7izNBmKEkaCJzTB6srf
+	zFsLpW+7JZ5VA0jdd5gwT/gPhYVli2/rtyJ+5msdcbGjfykBVjR6qG4gMQK20mFTsMNLEQgSKkeg/
+	b9kvm5hFbgdyD5drfb3HeJabysNrWdZ2vByPQUFAfcn9xgqbnPq5hqynGAvDKDyzJV0tToja+BAy5
+	zSFDr5Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX3R-00000005hCY-49iI;
-	Thu, 26 Feb 2026 08:49:05 +0000
+	id 1vvX3W-00000005hEl-1CUY;
+	Thu, 26 Feb 2026 08:49:10 +0000
 Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX3O-00000005hBG-2Bu9
+	id 1vvX3S-00000005hCa-0pk8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 08:49:03 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-827336c0994so611928b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 00:49:02 -0800 (PST)
+	Thu, 26 Feb 2026 08:49:07 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-824a829f9bbso352497b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 00:49:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772095741; x=1772700541; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772095745; x=1772700545; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rrsbMfvVp2mlT8uZFPdqeEkocHGWkOVoRTFC4HeZudA=;
-        b=XIRhLvytw4hWVZrnob8slN42nU31bVkqCnvqD8sCUT8g4IYuNtTaR0cetuKwnPLacL
-         S53EtgGvVDjVE/fxaShwb0TLDAZhPampmLReRR0PvmhepohbmKO4U92JJqT1vYOfGvfm
-         kVItD/Ja64KGfgLNSH/bQ2GIv8sLOO+4Z1GahFFoZrIpyAOS2VTfmTbMNENaKlEGVDVj
-         Y4aaAy19SzgtSp5O/yhJLViI+kIpKrUc6NfdC29FbLQ+hMdqPeDJJtT/Vhznfr2Agn5U
-         w0cuMpi5GW9NcFLZnpJWNpCdIFyy6N9a9CM40ZPyTT8oWaslN+EYl7gOXkLkZ2sQR0r1
-         BENQ==
+        bh=Me6/gMTEz3PAlgU521S5bAkTbmNg6yXoSMbtj++gb3k=;
+        b=PXLHd5zQW0uPXSr8lElH+mu/KsGMUlYlRhxCc6Sx5N9qIonSEVVRzNUCcvHkWhS6yN
+         pEPXSmJ/xHHPEmpvKwc+8s7nAkq8iGSKPUKr/30xHnH+I67zLVGoa9Xl6aTOK1BAmQuo
+         BbbKbUzwKDtmLdKlJ8q2eL//ipvHw+mJpBhO2Tm4thsKV9TQQc3QlWHLWuOOW4oDp3TY
+         rIazGkR/lr4w6vCz69SUFgpzBvHAu1IUwlPsKh0kPlyAsYK0URoz8thlg7ZijEWE/dcp
+         TD2l+KbaGocXBwHjaxxhOaHastHRKeyPid6jGtn5Mwo1pBiJ3KddzXeiCLjjet1CS4qb
+         BWGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772095741; x=1772700541;
+        d=1e100.net; s=20230601; t=1772095745; x=1772700545;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=rrsbMfvVp2mlT8uZFPdqeEkocHGWkOVoRTFC4HeZudA=;
-        b=vr4PnFqr1FETHALsrKt6/yyksEaytLWZH7ah84Eln6ROPDHC/2nO20Qw3jaDCoQvjd
-         Umt4dXs7PzxQSfcZoPFx20k+v3ltQNLTzjHnSTYTpcFMe+fw9Qvoo1zbFcTRyt1cGw1w
-         fn04JwFPLa+fnc96l/fldnNf+qdY9paIiQfCpqq9n8vqgnHJ7B46WRdEZQWzzeRH3dYH
-         8UwVENKgfXwMUFN57XL/dpS1gRraIrRP5XMmsPm1apcVwJH6Omh4LgIMjG02MRPtAQkg
-         Q3CPWV8qm9eYs3r+95uBV1VXpjPgjJ57M5Mszt7BNqp+Yj+n4fkd2ZHFAEnm1FWsWDVE
-         KYKw==
-X-Forwarded-Encrypted: i=1; AJvYcCUKfE+FKNHNgJSD6kytyMhhg5jJjsKKXl4B4UYS3SmLC18mq+qccZD/Gi8I7600U97q1DayQyGy5ddhRzSqQ8zY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGdrkZSSzQIQRhI4pVDWFTcAM59fZyA3pfoWg1XoUhIC67OtlL
-	21bv/xxIam61xVMLZvbfAtmukFtGx2sx1/oA+Q3zzlmls0OKWh5AU9TK
-X-Gm-Gg: ATEYQzz10hq6ERJIq0XbpNWG1Aa2BTgT4wW2G9u61bB2F3DB0VGnR5Iorfwp33+l6Yf
-	+Vm3hHjfyLbEolro1VcfrrjHjyipYLtFkXtBfulUXuYxFlcW1xdzEIElDAGYvh8m5fCgMtWrqki
-	wM+mlFQAbMi0NGYZY2rqisBiESJjTjf/BHvB/OMxhnob1WBJoBH2XlGU5T/nx2QSCiKrZ4oLUao
-	s2CNCYbnrh5y3orO3sbLsUNakg8704e28cSfgyD7Ezcqu6wFH6GwcMWGrWUqZWIh2N8ga6G3t0r
-	GfoAMI46OLPO1W5ceFiYF16wyo/GEiAL0Tk6z+g4oFQcSS3U3NUPSBD/fhq1w92SHVYVgoOoyT8
-	P6mx+NxmAW0Y9unQ0O9+6K9zSLPKqmN6BEKJo41qxrxwBwnz4G1BCtoi9JAkbov1TTm8atUqSK9
-	2RVzuOLMkReQvd8Mv58iTLklsQXy95NAIFXwMg
-X-Received: by 2002:a17:90b:1e48:b0:34c:2aac:21a7 with SMTP id 98e67ed59e1d1-3593862e00bmr2064283a91.7.1772095741512;
-        Thu, 26 Feb 2026 00:49:01 -0800 (PST)
+        bh=Me6/gMTEz3PAlgU521S5bAkTbmNg6yXoSMbtj++gb3k=;
+        b=xUInUzyYF/Ww8GOplz2s0FYyyX3/NUA8jg4BYiGNlRDm+w8Zf0I8hCY8qYX1EkXWpz
+         hmdABLC181TQkyNbK2ZZ63tmbhLKfoUPIE57arTyCg6ZLSL173HDXJ50Woi5FYMgXjIB
+         rYMRze3JOxq9p6RiTrCvNj5PBL0WoQMOd7xtNmKcqYD5DCNseM0tPIvpzMk5e4Pc0mgv
+         7IlFNC8t9gybycVL6ERzxFqDrQwOt4mBeB0QRZepq1RNmDRB6BvsaSIVF5GIa0ia4e0W
+         37B+QL4iKNbRnuSjuFCjmpWV82Hx6oqRms6HL7IJmvDpOEOeMEmZHrkK9KgmgLEHOyQY
+         mIUA==
+X-Forwarded-Encrypted: i=1; AJvYcCV4+Bx+s6yYwrrWOlzZQI0oVzACtQBAHeW2OZ2ja4okwaaJ78mn0X8vrycAi3zZEpteuxVnSkxJ949qfxYoL/Ul@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyCzEOc6xI10sAMqV1VgIVQYtPSyPEP2Vayg7zaIRYpHwtI0H1
+	ZA1oKJXcpIftLFMWV6/16++zWykaLqLNMfUlCbYvnCqBBIzPxqn/iuE+
+X-Gm-Gg: ATEYQzxvNqB13iVJxGmJRCSMoMY3KQoXB+Ljwlubz6Xlg/Sur3ruJhICkSFAfkH6ZIS
+	8P2/bE9tTsG93J1Nr+y3zjPMcH5JCbVZOeXNdHiz3vukxKqxoscomHq89G4BLJAPonEh5IagvZf
+	cbw8HSMk/EVW5hOCXQYcEcQ5/ms5Mo3XLLlrydqw5bFqzLvkbqzaV0EcHm8T4+qLi1ERuVYohkU
+	KlrSP7yxF1uthf8Q8/HlmQxIICvRF14TRY855Df29NaLXisA24OMiDMmTDb+s4acf0SqbQLjAqe
+	eEx+AByTJ9XI+jZt/cseR3ojc/kWAw7n+KXEL4xLS9OR/z00A1iFgDnMdqj2ayMQgzk5JWVIAWE
+	Ra0Yeohyj7Cj4me/1ZQM+1m40VKozB+l3QhALYFxkazGpb4IqmaNOzSa/THwEAyLdSakk1RiKge
+	GBHuzZCC0bjkNlYundmKcqy6b//c7xz+XBvVKN
+X-Received: by 2002:a05:6a21:998c:b0:38d:ebdc:3558 with SMTP id adf61e73a8af0-39545e2f265mr18580124637.6.1772095745577;
+        Thu, 26 Feb 2026 00:49:05 -0800 (PST)
 Received: from arch.localdomain ([117.147.91.218])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c70fa848471sm1342441a12.30.2026.02.26.00.48.58
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c70fa848471sm1342441a12.30.2026.02.26.00.49.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 00:49:01 -0800 (PST)
+        Thu, 26 Feb 2026 00:49:05 -0800 (PST)
 From: Jun Yan <jerrysteve1101@gmail.com>
 To: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -81,17 +81,17 @@ Cc: robh@kernel.org,
 	samuel@sholland.org,
 	mripard@kernel.org,
 	Jun Yan <jerrysteve1101@gmail.com>
-Subject: [PATCH 1/3] dt-bindings: vendor-prefixes: Add Beijing UQ Interactive Co.,Ltd.
-Date: Thu, 26 Feb 2026 16:48:45 +0800
-Message-ID: <20260226084850.417731-2-jerrysteve1101@gmail.com>
+Subject: [PATCH 2/3] dt-bindings: arm: sunxi: Add TaiqiCat (TQC) A01
+Date: Thu, 26 Feb 2026 16:48:46 +0800
+Message-ID: <20260226084850.417731-3-jerrysteve1101@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260226084850.417731-1-jerrysteve1101@gmail.com>
 References: <20260226084850.417731-1-jerrysteve1101@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_004902_562042_543272B7 
-X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-CacheID: sfid-20260226_004906_244629_5F9E40C5 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,27 +107,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Beijing UQ Interactive is a company focused on mobile game development,
-global publishing, and blockchain-based cloud terminal services.
+TaiqiCat (TQC) A01 is a set-top box powered by an Allwinner H6 SoC,
+equipped with an AXP305 PMIC, 1GB LPDDR3 RAM, 8GB eMMC, an AP6212
+WiFi/BT combo module, one 100M Ethernet port, one USB 3.0 Type-A port,
+one USB 2.0 Type-A port, one Micro USB port, HDMI, SPDIF, Micro-SD, and
+infrared input.
+
+It was released by UQsoft as a blockchain-based terminal and is
+now discontinued and no longer supported.
+
+  https://web.archive.org/web/20190409213228/https://tq.ultrapower.com.cn/product.html
 
 Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index ee7fd3cfe203..2bc2ed60613f 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1737,6 +1737,8 @@ patternProperties:
-     description: United Western Technologies Corp (UniWest)
-   "^upisemi,.*":
-     description: uPI Semiconductor Corp.
-+  "^uqsoft,.*":
-+    description: Beijing UQ Interactive Co.,Ltd.
-   "^urt,.*":
-     description: United Radiant Technology Corporation
-   "^usi,.*":
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index 9e4627f97d7e..8f6f30f683df 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -901,6 +901,11 @@ properties:
+           - const: allwinner,sl631
+           - const: allwinner,sun8i-v3
+ 
++      - description: TaiqiCat A01
++        items:
++          - const: uqsoft,taiqicat-a01
++          - const: allwinner,sun50i-h6
++
+       - description: Tanix TX1
+         items:
+           - const: oranth,tanix-tx1
 -- 
 2.53.0
 
