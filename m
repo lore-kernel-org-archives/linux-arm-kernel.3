@@ -4,75 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98310FD8FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2810DFD8FF4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnava28Yj6wJi+fhE7PhDqjcSu1D8X0n/K3bAX/XMSQ=; b=eFoZ4l0frxyzR4j0Z25Blt/xsc
-	9FN/c5hy06diw2o9o6Nh1LsR7rElAd4T0zTQvUIY5/o2Uw7r3ZpWdpbWUm6YuchPqTiUo8/WRv2lm
-	bo0z5+siSFWoNNDw7JKRDmBYO24YdS/kJu5ay+d+h9EMMtut+h4peqeNj2sw5aSXESKZr3yy7CTIH
-	aBgcTsI9HHid0CCysbEq8CfvxhkOn2Bmmf1vM2/zfOC+l5gMMZ039yoIv1jtwpg1ddk6JEkwS4WYG
-	ba1PwvDzbyaEqQ4cZUCjoYqoKWGuXt+RXd8ISUmyerqupnC0W4y86Jenzp23swUz0llW8Ipn2858I
-	dJMFiDGA==;
+	bh=qwEftJ0NcmMJLtU/aiqGwUqPRTnTId50gEy3oxHoSu0=; b=K4Np80X3RgHTmUc36JE63JA5x6
+	oyZ0dTP3JJ6n5dz6a57csBehTkY5eiYFC0U94YeXLhuQcMzalVfRxdjnAFvpsXZuxRoaCj/iPKf/Z
+	fUtxEb3cl6V83kquxPP6OfNhZZ3pKG/ZUdhA05sX4ZWiKixWOp+ugT/qSuuvKtjwE9c+cd86AEWVU
+	DAHuiixarVoHbebmWFoc/VEdAe9afnlLuLGYeqBN3VgvReP2xPZx7PLcMEmucyxxLwUtnEOFQ6ZkU
+	pfs1RC3YVbE8YdFv1Cm9o6PqjjlzKf0zMK8W3r4kxQtSAxjmz8lg0ii/4FSYk1ooWd+/oI0noG+29
+	NbTsg96w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfyo-00000006x2v-3BCg;
-	Thu, 26 Feb 2026 18:20:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvg37-00000006xW2-2W5C;
+	Thu, 26 Feb 2026 18:25:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfym-00000006x2J-08wK
+	id 1vvg36-00000006xVm-23q3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 18:20:53 +0000
+	Thu, 26 Feb 2026 18:25:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DACE40A57;
-	Thu, 26 Feb 2026 18:20:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB925C116C6;
-	Thu, 26 Feb 2026 18:20:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C4716013A;
+	Thu, 26 Feb 2026 18:25:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFC77C116C6;
+	Thu, 26 Feb 2026 18:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772130051;
-	bh=ykhRp35CpXtvgun0tnxM65Z2vkAxdIk7nxGE/Pgqc4Y=;
+	s=k20201202; t=1772130319;
+	bh=jfMff4Gl6e4MBoQvWfFtpIMIZ+n9o8V8+kADuSP57iw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mOOL1DeAx63/HB+MC86W4fw96P/QRAb9wayFDU4UcXOCM6Bp+XJg/H+N3INcDpbLx
-	 53Eqx4X9GcbanjYXCYLWW5dmYv4neupTqYrZyLb5KGY734Nh+WzTqEl6/iuXIE9fT8
-	 PGAwW0RaM7mTKmaCGnAxDN0iC756h7G5yDAPt+y7CE4fiFku0VlykepQ7C9RCBvBKC
-	 OQstgCrIElOsdLOZPsXab2EFNGSNFzskrwu8uIQf8Zhqi/Lm/wDNup43GWg/BPOcqB
-	 xRtpS7liIZstIIjVJDPHXQRY/XEC1RNtD9bAcXwkvM5fBOkhH2DlSMm4X8dIWq8ZWI
-	 +oW9HF63p1TbA==
-Date: Thu, 26 Feb 2026 18:20:44 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
-Cc: Oded Gabbay <ogabbay@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
-	Jiwei Fu <jiwei.fu@nxp.com>, Forrest Shi <xuelin.shi@nxp.com>,
-	Alexandru Taran <alexandru.taran@nxp.com>
-Subject: Re: [PATCH 3/9] dt-bindings: npu: Add bindings for NXP Neutron
-Message-ID: <20260226-unthread-reformat-92b855c4acf9@spud>
-References: <20260226-neutron-v1-0-46eccb3bb50a@nxp.com>
- <20260226-neutron-v1-3-46eccb3bb50a@nxp.com>
+	b=NOwhH9egiNcn+t7MqkfmuYBcFV91Tw8sbA3d7EinxbrxVe3N7i6KNwIblL2NP7Azm
+	 5bdy0mgPas/gv4JdSL1aSqAyNsw/7fmHEDRYem6myikiwWFyp47uSHhJb8Mik/FUld
+	 1KzshbwFSi7WCZSSVH6OoBGFxVYJck305FoIw7eqbbRbkjYVas73i2gZoe6okP2TPT
+	 uTH1Z0H1dzgDogMAadc447coWUa9UItt8Ar16QaYfAZH/MSR7yAG0EowuRr0WMWVXw
+	 rXaAXEy6TCH1RfY1AhJs9S3hPNUXGB81GYkeD4IYD4lL6QWSSNtKxmDcSr9eAqFKK0
+	 KtFEx+n/2GQIQ==
+Date: Thu, 26 Feb 2026 18:25:14 +0000
+From: Will Deacon <will@kernel.org>
+To: syzbot <syzbot+b29d18a34746f34c94cc@syzkaller.appspotmail.com>
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com,
+	maz@kernel.org
+Subject: Re: [syzbot] [arm?] BUG: using __this_cpu_read() in preemptible code
+ in __delay
+Message-ID: <aaCQCnM9eaBK_ON0@willie-the-truck>
+References: <69a06135.050a0220.305b49.0024.GAE@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7ibRsXdeFBfJ4JJq"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260226-neutron-v1-3-46eccb3bb50a@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_102052_309779_F14DFF31 
-X-CRM114-Status: GOOD (  20.76  )
+In-Reply-To: <69a06135.050a0220.305b49.0024.GAE@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,162 +70,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Feb 26, 2026 at 07:05:25AM -0800, syzbot wrote:
+> syzbot found the following issue on:
+> 
+> HEAD commit:    32a92f8c8932 Convert more 'alloc_obj' cases to default GFP..
+> git tree:       upstream
+> console output: https://syzkaller.appspot.com/x/log.txt?x=1019fc02580000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=b77d736d2f4fe1b1
+> dashboard link: https://syzkaller.appspot.com/bug?extid=b29d18a34746f34c94cc
+> compiler:       aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
+> userspace arch: arm64
+> 
+> Unfortunately, I don't have any reproducer for this issue yet.
+> 
+> Downloadable assets:
+> disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-32a92f8c.raw.xz
+> vmlinux: https://storage.googleapis.com/syzbot-assets/aabf4d7d9d6a/vmlinux-32a92f8c.xz
+> kernel image: https://storage.googleapis.com/syzbot-assets/0367e274b699/Image-32a92f8c.gz.xz
+> 
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+b29d18a34746f34c94cc@syzkaller.appspotmail.com
+> 
+> BUG: using __this_cpu_read() in preemptible [00000000] code: syz.0.1012/5537
+> caller is __this_cpu_preempt_check+0x20/0x40 lib/smp_processor_id.c:64
+> CPU: 0 UID: 0 PID: 5537 Comm: syz.0.1012 Tainted: G             L      syzkaller #0 PREEMPT 
+> Tainted: [L]=SOFTLOCKUP
+> Hardware name: linux,dummy-virt (DT)
+> Call trace:
+>  show_stack+0x18/0x24 arch/arm64/kernel/stacktrace.c:499 (C)
+>  __dump_stack lib/dump_stack.c:94 [inline]
+>  dump_stack_lvl+0x7c/0xb0 lib/dump_stack.c:120
+>  dump_stack+0x1c/0x28 lib/dump_stack.c:129
+>  check_preemption_disabled+0xe0/0xe8 lib/smp_processor_id.c:47
+>  __this_cpu_preempt_check+0x20/0x40 lib/smp_processor_id.c:64
+>  __arch_counter_get_cntvct_stable arch/arm64/include/asm/arch_timer.h:195 [inline]
+>  __delay+0x40/0x374 arch/arm64/lib/delay.c:39
+>  __const_udelay+0x48/0x64 arch/arm64/lib/delay.c:66
+>  udelay include/asm-generic/delay.h:62 [inline]
 
---7ibRsXdeFBfJ4JJq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This should be fixed by the first patch in this series:
 
-On Thu, Feb 26, 2026 at 03:40:42PM +0200, Ioana Ciocoi-Radulescu wrote:
-> Add the bindings for Neutron, a Neural Processing Unit from NXP.
->=20
-> Signed-off-by: Jiwei Fu <jiwei.fu@nxp.com>
+https://lore.kernel.org/r/20260226082234.26707-1-maz@kernel.org
 
-You are the author and submitter. What did Jiwei do?
+I'll queue that today.
 
-> Signed-off-by: Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
-> ---
->  .../devicetree/bindings/npu/nxp,imx95-neutron.yaml | 95 ++++++++++++++++=
-++++++
->  1 file changed, 95 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/npu/nxp,imx95-neutron.yaml=
- b/Documentation/devicetree/bindings/npu/nxp,imx95-neutron.yaml
-> new file mode 100644
-> index 000000000000..ba1f6851866b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/npu/nxp,imx95-neutron.yaml
-> @@ -0,0 +1,95 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/npu/nxp,imx95-neutron.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP Neutron NPU
-> +
-> +maintainers:
-> +  - Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
-> +  - Jiwei Fu <jiwei.fu@nxp.com>
-> +
-> +description:
-> +  Neutron is an NPU from NXP targeting edge AI inference applications.
-> +  Initially supported on i.MX95 SoCs.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - nxp,imx95-neutron
-> +
-> +  reg:
-> +    items:
-> +      - description: Register space
-> +      - description: Instruction area of the TCM space
-> +      - description: Data area of the TCM space
-> +
-> +  reg-names:
-> +    items:
-> +      - const: regs
-> +      - const: itcm
-> +      - const: dtcm
-> +
-> +  memory-region:
-> +    description:
-> +      Phandle referencing a "shared-dma-pool" to be used for Neutron
-> +      inference buffers, which need to be 1MB aligned.
-> +
-> +      The memory region must be defined with alignment of 1MB and size
-> +      should be large enough to accommodate the targeted ML models. It
-> +      should be marked as reusable.
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 2
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    minItems: 2
-> +    items:
-> +      - const: npu
-> +      - const: npu_apb
-> +      - const: npu_cgc
+Will
 
-clocks should be done as reg is, with the descriptions in the !-names
-property. Not really keen on the names either, these are all npu clocks
-so the npu prefix is odd.
-
-Additionally, why is the number of clocks variable when you only have
-one platform?
-
-> +
-> +  iommus:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - memory-region
-> +  - interrupts
-
-Odd that clocks are not mandatory!
-
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    bus {
-> +      #address-cells =3D <2>;
-> +      #size-cells =3D <2>;
-> +
-> +      neutron@4ab00000 {
-
-"neutron" is not a generic node name. This should be something like
-"accelerator" or similar.
-
-pw-bot: changes-requested
-
-Cheers,
-Conor.
-
-> +              compatible =3D "nxp,imx95-neutron";
-> +              reg =3D <0x0 0x4ab00000 0x0 0x00000400>,
-> +                    <0x0 0x4AB10000 0x0 0x00010000>,
-> +                    <0x0 0x4AB08000 0x0 0x00008000>;
-> +              reg-names =3D "regs", "itcm", "dtcm";
-> +              memory-region =3D <&neutron_pool>;
-> +              interrupts =3D <GIC_SPI 318 IRQ_TYPE_LEVEL_HIGH>;
-> +              clocks =3D <&scmi_clk 68>, <&scmi_clk 67>;
-> +              clock-names =3D "npu", "npu_apb";
-> +              power-domains =3D <&scmi_devpd 20>;
-> +      };
-> +    };
-> +...
->=20
-> --=20
-> 2.34.1
->=20
-
---7ibRsXdeFBfJ4JJq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaCO/AAKCRB4tDGHoIJi
-0hpqAQCmVF7gHL1AHHYNmwRPLmwdR6aB4QNQWo7Hjh4liYM6HwEA6bQx3XTkSL/D
-n8+I7p0CSNFlPE3uOoh5v65E8bfM3QA=
-=rsXb
------END PGP SIGNATURE-----
-
---7ibRsXdeFBfJ4JJq--
+#syz fix: arm64: Fix sampling the "stable" virtual counter in preemptible section
 
