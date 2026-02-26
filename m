@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07AF7FC5913
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A41FC5914
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZA7AsIzdwCY7ab6l8jLMqVVu0K3dmUt9FW8oclhVyw=; b=essu6nb/Tvmw41BjOIBvUkKrD5
-	BpIrWRv6a3OjLZX/n/bRX9am0I/OMAlvtus0w1bAZeOi8XP/xn6XKbJJse5wuvQoaF/S2BotXPBvX
-	14xhDiFtThGc5aM3KqmOtdsBMi0nxjdv3Bq4RCJmtYUG1l4yz0WomLt8n8/ueTtMAF+QIHijF1vzP
-	Pet1YA5ifSrUGY5gdhnYsWkoHAs+1Dd5/5nt4sHV/NArXtNvu8VsnnlT4eKKjWtoH0R1TrNOG0r7w
-	JybVWzYtzjrJJMeNOutm+7D9q8GDfQnx8+GyUizIFguCGAy6hBjjXn0qTi8wfwMuAqBCf/t34JTUa
-	CzxlazpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HOFEfvQO1CVhgH88u777VDiEl1QZLrAdUtZSDefJt8M=; b=aKa152U0MOvvSe
+	XsIKaZ+6RUdBZKmkllxF9hhkxu3iwpE3uGBoZcCl8tLY3Taz3CdBNwYkWcWcAhkgoFWkl2lu38gee
+	ny26d1i/6E9vSZsWL+bt43eaUiGcNM0JIXXinvN9wllSHU6H1ObquPqAGZf2rYmrdQY0YFle3lHO3
+	vpGuQcmAPxDZ08oJnVt948L3a6q/nKiS/X3pQe0P4tEnFWrWjjK6s4advWeqrW4WBVkxl6ZfrgAE4
+	kaCRMJguHBOyJWC0lueXxsY3pNZxhhfI4g0c2JPs7vwgTq79aJFQTtOg2IWQO6Rytd8XgI54vm8kb
+	FSk9ZXgqvYMMoVch4Yaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX73-00000005i7W-1HFO;
-	Thu, 26 Feb 2026 08:52:49 +0000
-Received: from mx-relay60-hz1.antispameurope.com ([94.100.133.230])
+	id 1vvXbL-00000005muZ-2YjE;
+	Thu, 26 Feb 2026 09:24:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX6w-00000005i6Z-1SOi
+	id 1vvXbJ-00000005mts-3zci
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 26 Feb 2026 09:24:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=HOFEfvQO1CVhgH88u777VDiEl1QZLrAdUtZSDefJt8M=; b=f3GorjsrwY10+R92NBJEkXcAKU
+	KAdSzuP2JLU/Z46Rzz3eIxKtgX2bLN89T7hToyE0lglIZiKeupzqGA/S6xPx+bkpbBmU8AgEe1IiU
+	bWPSX5+BIwHbGAysxUG8c3K3VsrVh5jp99KDTPLqQ7pLblaDBXlWcu+dfZ/CkCEWLyo/knRxvlx3s
+	45sdtGko4nkgzdtMjw59RQ/044fQE2r+nxznpsH7EQBl9AG2LMRnNORMiVKwT2APVhf/zMYsiCt2X
+	rJuXQHzXIrNvIysh0VvOYIrKBTlHnzKQgd+/KcCvqb6guZhDr6xYHsF7tjm0n9FiEZ8WhOupu5M96
+	HC25yQnw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvXbG-0000000AbRu-2PMi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 08:52:48 +0000
-ARC-Authentication-Results: i=1; mx-gate60-hz1.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=pZA7AsIzdwCY7ab6l8jLMqVVu0K3dmUt9FW8oclhVyw=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1772095954;
- b=B6npiQJQz6VdCVGu+yfPSUYCSvyJSg4A0noHsSDO4GLoQAsaVwk/xViNi7m+N7C7XQm72+/J
- nPQzE7Vvt0t71RFoeBKqUMHqJOll1ELN2/ex3RtvvxuHGrWixTVHo3oXV9cxdUzbeaDMBVKJ5jw
- N1pmu6BxbEe52PUXbUmIXIq8wzXaJPZy2zZ1hDUUQBOxOxBXCLJvBJdjmCnO5Wx8LJ6ObOgSbDx
- 8EZlqxCwHBOTLOoU8VuUCH8+Zk/FjefL+pDmCPOR/15OncvOT8QNX5a6coejR2y8VCJbevK4r29
- 2Uh+Xtfna2fcCFjtEUxpLCSJJoxfa2AnlFjciIoeyEe5Q==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1772095954;
- b=CitlVqTHgqIoIQh5XeEGRu48uxnCHMiFERymqB8u4pNtIz97tEqsgKun1RnZyE9Oy4Oc9ysU
- gYKa1Itrz0Nmp1lIZZ5knrXaER8P1wH0OqJOnWBkYOLJLyvMse/f2ju3QEzojLelfDVniet4cJY
- fpm1nY2nT9suaIhYIH9XD7x0VUigb21tgkDymhjQKfu7+HBijLd8lE8AJ617/N4bmDxGVUCV3fb
- V5uBrv3SW1LSBqRf1WAXqoSaGOgmXHKGT0LCRdWbTwIFkW2cUvSqPke8hkNzEFqWRQvQQ8QAMJA
- 9mWjRCyqGuTgftpxCLroBX2ZevK2r3vtGU0zbt9zkf1tg==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay60-hz1.antispameurope.com;
- Thu, 26 Feb 2026 09:52:34 +0100
-Received: from [192.168.153.128] (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: nora.schiffer@ew.tq-group.com)
-	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 419F65A0F0A;
-	Thu, 26 Feb 2026 09:52:23 +0100 (CET)
-Message-ID: <ccc6e9665ec8d432a5729fb18a757bb76cd95d9e.camel@ew.tq-group.com>
-Subject: Re: [PATCH] arm64: dts: freescale: imx8mp-tqma8mpql-mba8mp-ras314:
- fix UART1 RTS/CTS muxing
-From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,  linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux@ew.tq-group.com,  devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Thu, 26 Feb 2026 09:52:22 +0100
-In-Reply-To: <aZ8YFYbRIHlcmWk3@lizhi-Precision-Tower-5810>
-References: <20260225083419.5639-1-nora.schiffer@ew.tq-group.com>
-	 <aZ8YFYbRIHlcmWk3@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	Thu, 26 Feb 2026 09:24:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FFA21516;
+	Thu, 26 Feb 2026 01:23:53 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BB6D3F62B;
+	Thu, 26 Feb 2026 01:23:57 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v2 0/8] coresight: cti: Miscellaneous fixes and CPU PM
+ cleanup
+Date: Thu, 26 Feb 2026 09:23:48 +0000
+Message-Id: <20260226-arm_coresight_cti_refactor_v1-v2-0-b30fada3cfec@arm.com>
 MIME-Version: 1.0
-X-cloud-security-sender: nora.schiffer@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: nora.schiffer@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay60-hz1.antispameurope.com with 4fM4w80B2Yz28yMP
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: daeffe5ef58851175bcfb2fcf892fa20
-X-cloud-security: scantime:1.389
-DKIM-Signature: a=rsa-sha256;
- bh=pZA7AsIzdwCY7ab6l8jLMqVVu0K3dmUt9FW8oclhVyw=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1772095953; v=1;
- b=DurOm/+Er4jU2ko1MCfUiv17l+yDjaa2BvcerwlCzQRcywk+eNxpXUOAve8VTzBF5LNqUTXv
- Io8O/azKNVzY/86vm9Ob7O2M8pVa4S06SChkXyXKb7J0ps9KI/8sH1KOUMEKSL66Pbvstv5xwwS
- TIuJJpV2OLOmaQ3k8bTw6TNArFE/Lzo1Vg+re3eSyDTkmczbLRRISfFEzJJ1nAMWa3BcC6sQd+h
- WlITKxCg405cBx3IWABZH0WSe+6a5+AZYTclV2FbuDkFhX6zigVmPOlKoxRw+ds1C9Bd+rfiiEB
- IytgMV6Sq8EMZmT022hgGWi+F/8eDwQ97e+2pMa9jp8+A==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACQRoGkC/43PzQrCMAwH8FeRnp2k6daqJ99DxuhHdD3opB1Dk
+ b272Q5+nCaUQtLwy79PkSlFymK/eopEQ8yxu3KB65Xwrb2eqYiBa4GAlURUhU2XxneJcjy3feP
+ 72CQ6Wd93qRlkYTRJF+zWGakFGzd+jPfZP9ZctzHz5GNeN8ipO8kapNQLMh8oXAm6cuglBXXg+
+ Y3vLtOa2UDY/WMEzmZdGRDAvY0p24BfeRQsWciW1tVWnyCgMfBrqY/F15Kl2DKWPFbOlUifv9X
+ jOL4AGlSlXaQBAAA=
+X-Change-ID: 20251223-arm_coresight_cti_refactor_v1-76e1bda8b716
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Tingwei Zhang <quic_tingwei@quicinc.com>, 
+ Yingchao Deng <yingchao.deng@oss.qualcomm.com>, 
+ Jie Gan <jie.gan@oss.qualcomm.com>, Yabin Cui <yabinc@google.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772097837; l=2084;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=3yPNEwH0oDNWnKD4zq6mHWM9/6rk3+UZJdKDGMqOG1o=;
+ b=3XsemVMYorku/KJX9O1AuBV6+ZleCzArS3r1tVSx71+PmRHmq3Dme/M1TYhVHxVxnawNlHDWG
+ 9l7rXl7S2dtC1c5N+YAwUHz3hhB6YbYZog+UaUGCE2GXRXZyNIsMFFD
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_005242_647412_1187896B 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20260226_092402_980810_760AA71F 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,72 +98,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-02-25 at 10:41 -0500, Frank Li wrote:
-> On Wed, Feb 25, 2026 at 09:34:18AM +0100, Nora Schiffer wrote:
-> > The pinmuxing for UART1 was mixing DCE and DTE modes, which cannot work=
-.
-> > Consistently use DCE mode.
-> >=20
-> > This switches the RTS and CTS pins, which is fine for this board, as
-> > UART1 is routed to a pin header.
->=20
-> Is below commit better?
->=20
-> UART1 operates in DCE mode, but the RTS/CTS pins were incorrectly
-> configured using the DTE pinmux setting.
->=20
-> Correct the pinmux to match DCE mode, which does not affect existing
-> functionality because UART1 signals are routed to a pin header.
+The CPU power management issue in the CTI driver was first observed in
+series [1]; this series resolves that issue.  It fixes bugs and removes
+CPU PM operations from the CoreSight CTI driver, the goal is to use the
+CoreSight core layer as the central place for CPU power management.
+Removing CPU PM from CTI driver can avoid conflicts with the core layer.
 
-Hi Frank,
+This series can be divided into:
 
-your commit message sounds better, do you want me to send a v2?
+  Patches 01 ~ 02: Fix spinlock with irqsave and register read with CS
+                   lock.
+  Patches 03 ~ 08: Access ASICCTL condintioanlly, remove CPU PM code,
+                   and refactor register access in sysfs knob.
 
-Best,
-Nora
+This series is based on coresight-next branch and has been validated on
+Juno r2 platforms, pass normal sysfs and perf test, as well as CPU PM
+stress testing.
 
+[1] https://lore.kernel.org/all/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com/
 
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+Changes in v2:
+- Rebased on coresight-next branch (v7.1).
+- Kept read/write cache value in sysfs knob (Mike).
+- Link to v1: https://lore.kernel.org/r/20260209-arm_coresight_cti_refactor_v1-v1-0-db71ab4d200b@arm.com
 
->=20
-> Frank
-> >=20
-> > Fixes: ddabb3ce3f90 ("arm64: dts: freescale: add TQMa8MPQL on MBa8MP-RA=
-S314")
-> > Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-> > ---
-> >  .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts     | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras3=
-14.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-> > index b7f69c92b7748..1665a5030b993 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-> > @@ -848,8 +848,8 @@ pinctrl_tlv320aic3x04: tlv320aic3x04grp {
-> >  	pinctrl_uart1: uart1grp {
-> >  		fsl,pins =3D <MX8MP_IOMUXC_SAI2_RXFS__UART1_DCE_TX	0x14>,
-> >  			   <MX8MP_IOMUXC_SAI2_RXC__UART1_DCE_RX		0x14>,
-> > -			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DTE_CTS	0x14>,
-> > -			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DTE_RTS	0x14>;
-> > +			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DCE_RTS	0x14>,
-> > +			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DCE_CTS	0x14>;
-> >  	};
-> >=20
-> >  	pinctrl_uart1_gpio: uart1gpiogrp {
-> > --
-> > TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, =
-Germany
-> > Amtsgericht M=C3=BCnchen, HRB 105018
-> > Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan=
- Schneider
-> > https://www.tq-group.com/
-> >=20
+---
+Leo Yan (8):
+      coresight: cti: Make spinlock usage consistent
+      coresight: cti: Fix register reads
+      coresight: cti: Access ASICCTL only when implemented
+      coresight: cti: Remove CPU power management code
+      coresight: cti: Rename cti_active() to cti_is_active()
+      coresight: cti: Remove hw_powered flag
+      coresight: cti: Remove hw_enabled flag
+      coresight: cti: Properly handle negative offsets in cti_reg32_{show|store}()
 
---=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-https://www.tq-group.com/
+ drivers/hwtracing/coresight/coresight-cti-core.c  | 278 ++++------------------
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c | 171 ++++++-------
+ drivers/hwtracing/coresight/coresight-cti.h       |  13 +-
+ 3 files changed, 137 insertions(+), 325 deletions(-)
+---
+base-commit: eef33a7cce239783d0422526a4d786289a936f1b
+change-id: 20251223-arm_coresight_cti_refactor_v1-76e1bda8b716
+
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
+
 
