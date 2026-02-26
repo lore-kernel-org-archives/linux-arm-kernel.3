@@ -4,151 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E599BFC5904
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 07:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3949BFC5904
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 07:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JLrxoSzHXhl2Gv/xx7gH4l/8foTy6gK4EWkBQXv8dA4=; b=nsNTCEawJvQPqeuiDcB8Hb1p8e
-	8zwlEV4bMuqtD6qDVIQ1fRxmQrPOMM7WUCX6naszbZo5g8mdlTQSMbe6mWjTJ8trMeQJgN2TuyMEC
-	pbao7MoHDfiUsVuZPxfz2p8pPT4c6x031utE/VC9iULyfvmpmDEZ5h9ojbQ5oFaX+FS0q3RCA2UvZ
-	kh22nMtM5iddnFUS+GFplQyUh602amnqvstq2np+cN8xcm9/Y3nRsIXu/68IlcmcLMtJ5GN2QM52k
-	0A8mcMTgjni+8p8Ks1szr2YA4t5NIOqQEME3L18GHRuMI7/89820OgwJxSzjI8r7zX+J20xkRI/gI
-	k9FlMSWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sdWImv1csvmaDEM7m1nRPCrqXz8PzRexGsPly/cQtsU=; b=JF45CLvH6+n7eMtAAHBxOTbs4M
+	uQ6+bqB9T8M9XsTrsCVQiXET8O1muHMBhIxo7cLcCznArLMG/djm9PlXcKc8KM8WA9C1XzGUqswOJ
+	VXsVe1HcEiqFvW/43iTCFG8cO1ujNJSrcJJa3+5Z1olVWOAB4FqoU6OwwvxsYYQTxhglk3oCYjpD5
+	3vgejnvHEj46Ft+RrWCIbbWBLcba56jWcOQ2C4kZicVgw49E+Itf9gT71pbdjkEp9GL52Msy2GZLT
+	+MnMHKGNlNsncDtA0HkA8nx9VC9RHaNO8UBcYJEEW9KAkdWuyJJmRHUJbMm+XFCUrwnTgZcmIuf/q
+	xdwGmEEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVPg-00000005X8F-1jIh;
-	Thu, 26 Feb 2026 07:03:58 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vvVR2-00000005XKI-3AZk;
+	Thu, 26 Feb 2026 07:05:20 +0000
+Received: from mail-northeuropeazon11012007.outbound.protection.outlook.com ([52.101.66.7] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVPd-00000005X7u-38Vs
+	id 1vvVQy-00000005XJB-2Tcf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 07:03:55 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61Q4V7bn350081
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 07:03:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	JLrxoSzHXhl2Gv/xx7gH4l/8foTy6gK4EWkBQXv8dA4=; b=TrZTwkZXN766VfzU
-	hYO0BPsx6HaB+y4L7w1N10XXNN5xC8M5OOpnnrqH92Yx/hRuCyH57kfpar8/EEkO
-	cWr5Ykehbq1TWs6G3mRRzo1MWfo4HGZrCJw4TpARl3Kxw/fsN/VaME5USFGpflaJ
-	zjWknEgJlJaukFg4uyard+HSjUusbeR1D/tWyMX0N+gbt3hPyI+AGx8OpC1m9OWM
-	gGrs0vqALkamusCakiWoWBqOufdD5zGmMuKZeXVht+6Ka8Q4BuunojTCIkg+/tEG
-	JuQDNlsiBeBBrbZy6iQ+4Dya6yvi4qebfsnFyvlk0p6oEz9wei3XASTqpRYvMYBe
-	+xp/FA==
-Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cj54pa641-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 07:03:52 +0000 (GMT)
-Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-679c6ef1538so12699489eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 23:03:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772089432; cv=none;
-        d=google.com; s=arc-20240605;
-        b=UImB/3uOMJLxH1z5IRCl5tCPbBfxFEgUQ8s1S6ydo6YUyuBSKFaNjOV+4M5e/AyKF/
-         Vf1ak+7tojMz7i4BcQ/jk3x5QPbPkQAjJSVWZ+6irEUzV0NtaPZ8/E1HsItxGS0ep01I
-         BZg2nu8+MeqgnRPPUBJpUzuI4iEb9NEsXeiqvr/5fSErDGV9Kkyc/gsSOu0h1PDkIHXX
-         4nD5yETfOw2FRrdNZLwzzWcGYYffxRMjTcc4UaYelcvVS8HV1efdDx7nCp3CGLk+O4pn
-         jDXdRZUL78NfFUUka5zv4Cbx3c2tEwseAmQSvbhdpamVU8JqktPdXAtyIHDqNDQ/4goS
-         IZgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=JLrxoSzHXhl2Gv/xx7gH4l/8foTy6gK4EWkBQXv8dA4=;
-        fh=4VHOrail+BzHyUkQ9pbxjYc8KNwQHpEI9mtv9DwxZws=;
-        b=iTUG0vNrSxtILya5T8ITBlrCljFX7sF2SGEhu2UEHgmJfvZKC8gwGRq8FZoJYNnI1X
-         gGcibYSSGeDqD4kjd3TRttZGMqZth+HJWdlSsO8GyqqFr+xijW20hBZLduEgEpsiI/bT
-         cmqTKIbtw4yF1MQwUbOFv5fLEoGtW/IYm6M0+jMWBZ7DNWrE9SjKwuS74Rt7dQdKpGW6
-         CwSykLdYb/rsXbr5PBzrCesOqRUvJvJwU8UQyX1Vw9oce5bL0w0RHKd+NjeL2OywfhIb
-         5mqTrs/4O0QoudV3q29QkzZ/RT3/ZEsD/5/XbqwmsCKfHapUrL+ABYzeFfm35NrKG2rI
-         CP5g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772089432; x=1772694232; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JLrxoSzHXhl2Gv/xx7gH4l/8foTy6gK4EWkBQXv8dA4=;
-        b=X1yUS81iV6JbeVlXGJjxLCH4mcYeMsAEcOucJxTgiLMjnmo4osrxy549uQtyTZ2x7e
-         /Qjsh4JpKAtU98fDIdyc1QPUsrqkEhq7QHOcgYHN0imkteO82WH400J/ndzC0kJ+PMUG
-         zwDxb8qFWahh0CIQ9oIsFTN6xmLugURnqmqlXSvoRYzNRAcBWZizGbKXaeoXEqbznb/g
-         npzl/ORJ4qZQgRAoHy5x8DqOWmvQIUpGiRDWqyZBfM8dEjnHjthticOISYp2rhB8lCiO
-         0Rvfncfj9ReSpVsiU21gLpir1u/wPF8NkqDd1T9hZY3QECtvzGLsZboXCxIqQIzRRmdW
-         G5Lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772089432; x=1772694232;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=JLrxoSzHXhl2Gv/xx7gH4l/8foTy6gK4EWkBQXv8dA4=;
-        b=w5cDx7MvQRle8o9E++WGcHNcK75rPy4E1m2CBe1YNr/Oz8sVpS7T8JnfDjRmSPIG94
-         B+dFySXTPV1M/9xJt16QbCsxl6vpc+BkEMFOD1AUvb2rNfWrS7JbtOkPkI2lmQCdE35o
-         P8tHsLGDZ2DZoKCZ0pL1jhYZDlXeFQIeTisiOy2BTAG9hfXkSJxKGDK/LMh+pZLdwzk3
-         88lDrYBa2pcUOZNs3M5kx9mTVqGJccxVEjlcsCd3nB/DgWZ7u135sw21O/cI2g89C/V/
-         u9pTHrDddUV4N7JNjPZc0mPshuipg6thYvxyBIU7aH43dt1oMoo/kIK717nHJ+f/lGX7
-         RH3g==
-X-Forwarded-Encrypted: i=1; AJvYcCXCVT8EM9Lc5NAoyoOl+6ZF7mOn3GOk2R3F7V82F4KMKaOWIH78WgQZDzSSxkY52SnKHETNo5Tl5aBLU6X7kb/t@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCMvcC7vGboOxVdMH9CODKpAu0n63rtnP1nC3tnLTd7xVXdwzT
-	UgbzXQ6uPrpQJnOilDOOp95SlUV7eC2i0UIeDSFkl2FSrJ02P70bjXjBSGEEHNgu5aqcJs5lq2/
-	1ErCf07PIKa4A1OMYxhcZHnu9yiOX+NbPQX/PNPzmE1Gx6tsNARaBgHbDDNDxS4aOKU82ACA6xU
-	T26yoPaNIQJBFupUVfHZkDtpranB9weLktY2wQ1wpPKbSoJuEYyao5
-X-Gm-Gg: ATEYQzy+CLH3jQR2xKZKi3WgIuVgFV8Ka0l+F8wxG9wumsEzyrAjs8ROoUJP2j989bq
-	tNbGCtue/oJ0I8XWLCTyji/do2/tbjFUMxiZSCfkRFL0FYHJ4O3EAdzcJ0LMdCHrH8zJHDVc3O7
-	G9aPGbp+wyIaj0yTcQu79//BsXNbmLG504AvuU3hvQoEnCUKlEzyxV2OBVwU8L8s9Oid0XLpAlf
-	SQOyAk=
-X-Received: by 2002:a05:6820:3092:b0:679:e7b2:9fc7 with SMTP id 006d021491bc7-679e7b2a0cdmr3151070eaf.7.1772089432077;
-        Wed, 25 Feb 2026 23:03:52 -0800 (PST)
-X-Received: by 2002:a05:6820:3092:b0:679:e7b2:9fc7 with SMTP id
- 006d021491bc7-679e7b2a0cdmr3151054eaf.7.1772089431697; Wed, 25 Feb 2026
- 23:03:51 -0800 (PST)
+	Thu, 26 Feb 2026 07:05:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FfZvWj+iFiQgsjOD8a+mT5g0vFJWnZlXZvSpNYIlAZtDddYnd7UPLGcL3G6U1WrTavJwd3g8bv4PyYZIEKTKm+vaKgHCHLX9u9AerPBHpxuVRB3m3ux187HVLfq1Svx7KbD1PVfOUSE4yxhzWYoBljrmMI4quxNjgeazK2Ln6Gmd1RxDrGo74gpTq7NAwXWPn2EKO2Iirz/KF6/aPmiQ5yFNQ8qO4hhpb56TerswftihYYDvfHj5CO7ieQa5u6e3McMADN38Vau9JJJMeuQKX0VFFfFQSgGu54YrnYEkjzVUpxx07D1jdqlG69cRZc5QvYDipEq6lg3PhhjuaDjs5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sdWImv1csvmaDEM7m1nRPCrqXz8PzRexGsPly/cQtsU=;
+ b=PbIJwIQRLXOqm9wD254CyRvL/2ZIS5y9IWh23cDycDlQz59eQgpNMciQdAS01jMrCzTuxYmd+G+RTrMao5beH1gWVtU/25GPjFTK7Em3UQRTX+Ypwaksl/5DNVwUMzCw5tHhNrHe66QlC417VLkpCADUqlgzZT6/yRyyYBGDVkkGg5nk0SBAUMdWqi5Kasp3ohfhgdEhef6X78nFQoQJO01xhnM60mby7uSZ+Jmgz0N2xod6Dlra765PrfAGBUOhbjUanwlIFvQTCGGxbe3NcAJm1ElH1Od0t4W/5m3D8B19tlNYSjzxpq2TBvIshv7eLejlQNNHMrwreRwlkjAJ6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sdWImv1csvmaDEM7m1nRPCrqXz8PzRexGsPly/cQtsU=;
+ b=RIT7pBeddCxY4LWI2EtmGzfGnka9ExSHnJRFHGwyEMYB3RYZsY6Di3rBEGrWQ78hGQJp2zFJNdT+hKfS31bO1IP2bgGfArDJ+GrsICgT3ZlxRUrklcSw7F0M4iXWs6+sriJR8WbRxDev3o0t60LcJEEtWN7qmNYf3+XfmL+liFU6PEaJINSBTDpG33QtTlS5yh+QKSmwMCRqAw8mDCuPCO30aaaO4zkg0KJKS2ERkpkpLwU9MWxgfD3bVyn8SFjjeWF6e/UUwYSPgo0Zn8Yy/+mUy6XGZLSogJJoUwoEEboJetXPr0Aljz1ckQvf5+BAyJlMqG+SoVfN2HEsm2gbrA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by AS5PR04MB11345.eurprd04.prod.outlook.com (2603:10a6:20b:6c3::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Thu, 26 Feb
+ 2026 07:05:09 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9654.014; Thu, 26 Feb 2026
+ 07:05:09 +0000
+Message-ID: <8bffb7b7-463a-4815-a471-725b9ef8d5fb@nxp.com>
+Date: Thu, 26 Feb 2026 15:06:11 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 2/3] drm/bridge: imx: Add i.MX93 parallel display
+ format configuration support
+To: Marco Felsch <m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ luca.ceresoli@bootlin.com
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org
+References: <20260115-v6-18-topic-imx93-parallel-display-v9-0-2c5051e4b144@pengutronix.de>
+ <20260115-v6-18-topic-imx93-parallel-display-v9-2-2c5051e4b144@pengutronix.de>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <20260115-v6-18-topic-imx93-parallel-display-v9-2-2c5051e4b144@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2P153CA0006.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::22) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
- <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-10-347fa2d7351b@arm.com>
-In-Reply-To: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-10-347fa2d7351b@arm.com>
-From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Date: Thu, 26 Feb 2026 12:33:40 +0530
-X-Gm-Features: AaiRm51FKm_5e4UXBRvPixo-zTWKoFuxZQdWEORZL7vufbjHjGKj8isrvlHHmUg
-Message-ID: <CA+Ht8=ZSUGF9KQqy=yZ56kEDwsv3TvS6rLcMD85iwDxwOr3rpQ@mail.gmail.com>
-Subject: Re: [PATCH v2 10/11] dt-bindings: firmware: add arm,ras-ffh
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
-        Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
-        robh@kernel.org, rafael@kernel.org, will@kernel.org, conor@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-        krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDA2MiBTYWx0ZWRfX3Zro4mNJ4EMG
- OdIcK4TpuUSXHQ+uNOA7Mix6L4E5Z0LfwejDGxux4hf2qFJkSM44c2MfAAR/ZrdBAP6vxT2jH3T
- gGTcKa0netqvVbVdHwnR4FBhi7Frm3emhl6Fy0Vn1aQcSz5AKGePXdOf+/GGztwu9NUM7drSomb
- X1fXSMPEBoOui5hQWcBvme3Shs9lhf077Uens3g2RWI3WbKNdbcotwvlxrf2nnsQWcnXEsF/F2c
- CFasrobINgOtvlz1ISvYYQ1nDKaVqlbex11Y/WNHBJOa6ZFngL8f6ePm1Ayybri+bO0UC5RPseA
- aaagfcKV7UoeDcHlMsxM49a3T2I7l1ieqPqgXpPGHOXLXsSIwidL8KlLGFS9g0jmqbrskI5B2zZ
- 7uZII5tdQ1i15mPH9jvvEXLVHtUIbMNWoDVpveZVdJzkwuta1DgWguq43TVh5xS7Kcj0/0Ns1oH
- /GhutDLprCUI/XAzDkg==
-X-Proofpoint-GUID: MZ7XtTvFL90txR_Nolr2tZFV8kj9JKrx
-X-Authority-Analysis: v=2.4 cv=I5Bohdgg c=1 sm=1 tr=0 ts=699ff058 cx=c_pps
- a=wURt19dY5n+H4uQbQt9s7g==:117 a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=gowsoOTTUOVcmtlkKump:22 a=gEfo2CItAAAA:8 a=7CQSdrXTAAAA:8 a=pGLkceISAAAA:8
- a=QyXUC8HyAAAA:8 a=is6-GLeS1cJyDfTUaQYA:9 a=QEXdDO2ut3YA:10
- a=-UhsvdU3ccFDOXFxFb4l:22 a=sptkURWiP4Gy88Gu7hUp:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: MZ7XtTvFL90txR_Nolr2tZFV8kj9JKrx
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-25_04,2026-02-25_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 malwarescore=0 impostorscore=0 phishscore=0
- spamscore=0 priorityscore=1501 bulkscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602260062
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS5PR04MB11345:EE_
+X-MS-Office365-Filtering-Correlation-Id: 643ae963-2517-481a-921a-08de75056078
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: aazMnGovv53cxLlWYB62SLbCLyvF02UiiLK8Rn39YzcjNha8wnoHXXeT+YOyRjH9ZPPMdtO09YT1Pr1HRHO4ZFYGyA0GImEirGjXhIpninwwzB8/xbFhP7m2yi7oAnpGiTFGPERAUjTfQiPe1YmltRVtlgj5Q7dxaa7LeUY1uPH/DPnipXX9EDDrnYBvRBZAUAnOBjjanDNgxVprNZS6FL+PihC1AZsq3yVIMqZt/dja9w8YfPVZH25WV1hzSG2TDQIWwZelZMocu8l2kFbsQ2hs7OZvBVXgz3NkCqOGEW/fL98GHRZsGkk66PeZZeJl+F5MD5KhLEvgNWLuhtRN6xYabjVoGvplX6UQw72gQ8J/CZzv3cRDUz7a8cOjkltIt+7qRgMGUBSVI09wsy83Y8x6xYt9L0Blu4cKy083sf6PNRaS2ieWxdBRyVPniCAURoaOk3vG7rn1lKGbFFgjN3wppqSWZNDWPDMM98V3KKMcEPbNLIeMfLg3/qkGoM4CkelvP3mtb/n4LKjRNfA2K6cWzLKseThNUhQj2q1oTzN9wmaAA2d/GSFr0sBYMVjy/dxOPU78/o2Z6Yw/PFOpreGyvr425C3I7dpKPwJ7GcO4l8IPO2/zXtuxT48GAILAh00HjYtLj04jn9jDdpGEbcD+YEme9ICzbortlpQXvPEKBOXO7SzO9T/nhctWC8ef8gZQVOjnoecAA3V/4XbBH8mVA6lyiUWA6C0RivRp35k5UfHW4ON/vPbHGt0OJv94PRGePDK6gxFaQKFApVYZZw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OW41MUtZcHBMTjEzeEVpcnRZQXdZRzBMT1VJcG5LV3ZTRVk4VHFjbng0N1BU?=
+ =?utf-8?B?Z01waUVJZithWDJZY01TcDV1cHI1S0hENE9XL0NCYkJIUGY1SjRNOER4dlRP?=
+ =?utf-8?B?dTEwcVkxMXErcGpGdWg3aDNmbXZLUDhzTS9lTUduQythYkYrd1FXZUZFa3Er?=
+ =?utf-8?B?T0NKZUNrcWFYVktwaUYwcUptNEoybXd0UG9tM1ZkckZremRUOFY1NURtWlUv?=
+ =?utf-8?B?Mk1JWDdqZDBKb2FoNFNPSWw2eWV5OWtPM0RwYnFUeFB2Y21oMFFzTHVDdldY?=
+ =?utf-8?B?UmIzcVZxT2MvbXdaejF3VW0xZHpjbHhqcFY3TkFPOHdqSzVKVTljSERFRTZK?=
+ =?utf-8?B?MHBNVVJ0V1RCU3IvRS9XcWFlWS9XRjRDODFxeE9HMWM5TG5uUmNFT3plTmI5?=
+ =?utf-8?B?bmUxTFpSRU9aV2dnTmpkVUNWRW1iR2srZ2NHUWdncjhXVW5tUUQ2Wm1EZ0xY?=
+ =?utf-8?B?VDNKZ3ZJL2NXWW1URWdlQlJKbVRuWFFpdlRvdTdKRlh5UG4zdktsOW5nL291?=
+ =?utf-8?B?R2FPMUVrekRxOUxCL3VnOUFMSHBpZWdkRkIrWERSNUhLL2xzck9BTUNFdEIx?=
+ =?utf-8?B?amE0dnlibHZWS2RtZGptaXBYOGRDVUthMWkzVlNoZi8relJOQUlLQjVZS2pW?=
+ =?utf-8?B?SnhKWG5lQlBlVDVmSGl5RW40YmhlM1JoSmpReERZdmRvNUdGZmloL1pCNU85?=
+ =?utf-8?B?WFpaZnNUaXZ4OVZLMHNNNVJ4OEoyVGQ3c3RiK1Zva1M3SVdLVDloY0xORmxT?=
+ =?utf-8?B?YU1CRVVpV1Y5ZGM2THJRM2dBa1RMTC9IVUNqUmpNMEcyODJBZmdzRHBGZjdE?=
+ =?utf-8?B?bThidlBrOTZiWWszTWFYYmdGMmJWak1obUJkVElYcjBHWE5uQWZBQWhsa3FG?=
+ =?utf-8?B?SXovbllJNEtnTDlXSUJialNUOUp4bDcyd1Z1ZUtCVkV5aXIwOTlGR21uVGFk?=
+ =?utf-8?B?YzdXbFBQMER2N1ZzdW5OR2dVQlNGMnhVc1I0elRuendSaUxRZThrNm5xRzdm?=
+ =?utf-8?B?Q2ZweFcwSjE5OHlkY2xsV3BjVmpnK000U3ZicUFDVEZNUDdjejZIaXNLWDVi?=
+ =?utf-8?B?UXRNb0hQUkxhTWRwQmZDWDBGVTYwS1hUTlRUMVdvbHpTNDlvOUVYREhjeGZH?=
+ =?utf-8?B?cTArRWlTS2gzWkpmNjdyVG93SmFTcElOZ21Sa2lNd1hnS0pUenhsOTlhTnBv?=
+ =?utf-8?B?dC8veWdSbFNwWHZQSExwZEJNeW04eWVybHpnTzJjU2Q0UzEwUjBUemtpRzcw?=
+ =?utf-8?B?M1IrMUJES2JRRTRnZytaVWNnQlBpVTFLVEpQLzgwUXhCM2lBYVhQWG5jSVE4?=
+ =?utf-8?B?MUFPTUpsRnpWZGhmUDJhL3pLekcxSDZQa3Iza0JDNWtWT25GV1A0UVB2cnh2?=
+ =?utf-8?B?YzNuVkZ0UWpybGVjMEFzcjR2TGJnL0c2M1pHS0RaaUtPMzl4MDdDVHNXVXgw?=
+ =?utf-8?B?K3RBajNvRmRBN3VvMjRERkZJUEpsWjZEZUk0eExYcUFWUGtienBJOThUdTUr?=
+ =?utf-8?B?cUQxUFc4K0hrQ1hyS3Q4OXZvbGhGN3R4ZjNHZ0EzV1JqNFEvSVdiRXdhSVhP?=
+ =?utf-8?B?RkE0UmN3QkQramFCWXV2U2ppYm00U21ScVJGaGEvSHlPZU8wUFRRYjdabEF6?=
+ =?utf-8?B?OXNJUUJGTEZ0dnhaOHpzdjFUbGVYcVB3MnRuV3lKS0x1a1lORytKZm9oMjFW?=
+ =?utf-8?B?Rk9oVUZIWHNicDA2MTY1RWVNNVByUHh4aGJhdkVJMDBobkNjV2xtTGVQSUd3?=
+ =?utf-8?B?TkU5ZE1rTEZwSmhlaXVib0pHNkR4YlRYaFJsWHgyRS9UYWRTRllGejlZMlBJ?=
+ =?utf-8?B?SDZFR2d5ditpNHRBc3pTdzArT0VTUkJVNythZFdHTlE4RmZsbitIKzlZSXB6?=
+ =?utf-8?B?NFkzZXNtRWVhTkFrWjF2R1hjUXJva0FPVUhwd0pZNzEvbzljS1FPaDlraFRE?=
+ =?utf-8?B?N0k2REFsNkRVcEQ0a0lML1RJWUFDUHR1bmtKM3BzM0JZV3FHVGcrZGFrWjJp?=
+ =?utf-8?B?Nkl3bjRoZXVTelVFeWU1eGd0bld0dVBENzRkc0JjYnNrYXlPREsvbjR3SFlt?=
+ =?utf-8?B?NnlNK3M0bG50UTIwcTZEV0NKSTdOZmlmai9qOUhKbCtqL2RGREw3L2NFeDlL?=
+ =?utf-8?B?d21sY3pTMlNHdUwvaHB0ci9GZzVhSmRNMUFTRmFpU2Ntd3g4ME5JcHZ0YThM?=
+ =?utf-8?B?RzhYZ1EramNzTGFWUGR2eFZkNHQvelVyZjR1UERwc1FhK0NieE9Lbi9wRVZN?=
+ =?utf-8?B?Zzk2WGEzSXNINmNsenZNSjlPM3pFaXl5K25Gc3JtMDZ1alUwbjRLQnFWbzcw?=
+ =?utf-8?B?Z0plRlRSd2doSFhQRldqL1cxYUlVZStCdEpwdENVU3ZFTFZmZ0FHUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 643ae963-2517-481a-921a-08de75056078
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 07:05:09.3847
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NPWUOR+ZpUhWpTgtyheMeCibn4b7CvPQXnkIoOOvyB3NSMpBl9Bc/2B+J8pfrg0jNxhvnsyqOS0wt6QPVNJcSw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11345
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_230353_924634_B6DE613C 
-X-CRM114-Status: GOOD (  23.98  )
+X-CRM114-CacheID: sfid-20260225_230516_843654_96D8ED17 
+X-CRM114-Status: GOOD (  30.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,125 +162,341 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 7:15=E2=80=AFPM Ahmed Tiba <ahmed.tiba@arm.com> wro=
-te:
->
-> Describe the DeviceTree node that exposes the Arm firmware-first handler
-> CPER provider and hook the file into MAINTAINERS so the binding has an
-> owner.
->
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-> ---
->  .../devicetree/bindings/firmware/arm,ras-ffh.yaml  | 71 ++++++++++++++++=
-++++++
->  MAINTAINERS                                        |  5 ++
->  2 files changed, 76 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/firmware/arm,ras-ffh.yaml =
-b/Documentation/devicetree/bindings/firmware/arm,ras-ffh.yaml
-> new file mode 100644
-> index 000000000000..eccbaaf45885
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/firmware/arm,ras-ffh.yaml
-> @@ -0,0 +1,71 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/firmware/arm,ras-ffh.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Arm Firmware-First Handler (FFH) CPER provider
+Hi Marco,
 
-Please don't called it FFH. FFH stands for Fixed Feature Hardware and
-ACPI uses it at multiple places. It is causing confusion.
+Sorry for the late reply.
+
+On Thu, Jan 15, 2026 at 04:24:52PM +0100, Marco Felsch wrote:
+> From: Liu Ying <victor.liu@nxp.com>
+> 
+> NXP i.MX93 mediamix blk-ctrl contains one DISPLAY_MUX register which
+> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+> field. Add a DRM bridge driver to support the display format configuration.
+> 
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> [m.felsch@pengutronix.de: port to v6.19-rc1]
+> [m.felsch@pengutronix.de: add review feedback (Alexander)]
+> [m.felsch@pengutronix.de: fix to short Kconfig description (checkpath)]
+> [m.felsch@pengutronix.de: use "GPL" instead of "GPL v2" (checkpatch)]
+> [m.felsch@pengutronix.de: add bus-width support]
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> ---
+>  drivers/gpu/drm/bridge/imx/Kconfig      |  11 ++
+>  drivers/gpu/drm/bridge/imx/Makefile     |   1 +
+>  drivers/gpu/drm/bridge/imx/imx93-pdfc.c | 226 ++++++++++++++++++++++++++++++++
+>  3 files changed, 238 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
+> index b9028a5e5a065c3237b404111d8df57e8e017f9d..47829300a4486a090514ebe914b7667a703039a9 100644
+> --- a/drivers/gpu/drm/bridge/imx/Kconfig
+> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
+> @@ -99,4 +99,15 @@ config DRM_IMX93_MIPI_DSI
+>  	  Choose this to enable MIPI DSI controller found in Freescale i.MX93
+>  	  processor.
+>  
+> +config DRM_IMX93_PARALLEL_DISP_FMT_CONVERTER
+> +	tristate "NXP i.MX91/i.MX93 parallel display format converter"
+> +	depends on OF
+> +	select DRM_KMS_HELPER
+> +	help
+> +	  On i.MX93 and i.MX91 SoCs the parallel display format output is
+> +	  controlled via the MEDIAMIX BLK-CTRL DISPLAY_MUX.
 > +
-> +maintainers:
-> +  - Ahmed Tiba <ahmed.tiba@arm.com>
+> +	  Say 'Y' or 'M' if you use the parallel display output path on a
+> +	  i.MX93 or i.MX91 SoC.
 > +
-> +description: |
-> +  Arm Reliability, Availability and Serviceability (RAS) firmware can ex=
-pose
-> +  a firmware-first handler (FFH) that provides UEFI CPER Generic Error S=
-tatus
-> +  blocks directly via DeviceTree. The firmware owns the CPER buffer
-> +  and notifies the OS through an interrupt.
+>  endif # ARCH_MXC || COMPILE_TEST
+> diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/bridge/imx/Makefile
+> index 8d01fda25451aaa1bf51a068da18948094327116..da57fde2d813b88cdde89115ca801b4cfc69afbd 100644
+> --- a/drivers/gpu/drm/bridge/imx/Makefile
+> +++ b/drivers/gpu/drm/bridge/imx/Makefile
+> @@ -9,3 +9,4 @@ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_COMBINER) += imx8qxp-pixel-combiner.o
+>  obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK) += imx8qxp-pixel-link.o
+>  obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK_TO_DPI) += imx8qxp-pxl2dpi.o
+>  obj-$(CONFIG_DRM_IMX93_MIPI_DSI) += imx93-mipi-dsi.o
+> +obj-$(CONFIG_DRM_IMX93_PARALLEL_DISP_FMT_CONVERTER) += imx93-pdfc.o
+> diff --git a/drivers/gpu/drm/bridge/imx/imx93-pdfc.c b/drivers/gpu/drm/bridge/imx/imx93-pdfc.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..95a892abacadaedee86711ade225537ed65bd09c
+> --- /dev/null
+> +++ b/drivers/gpu/drm/bridge/imx/imx93-pdfc.c
+> @@ -0,0 +1,226 @@
+> +// SPDX-License-Identifier: GPL-2.0+
 > +
-> +properties:
-> +  compatible:
-> +    const: arm,ras-ffh
+> +/*
+> + * Copyright 2022-2025 NXP
+> + */
 > +
-> +  reg:
-> +    minItems: 1
-> +    items:
-> +      - description:
-> +          CPER Generic Error Status block exposed by firmware
-> +      - description:
-> +          Optional 32- or 64-bit doorbell register used on platforms
-> +          where firmware needs an explicit "ack" handshake before overwr=
-iting
-> +          the CPER buffer. Firmware watches bit 0 and expects the OS to =
-set it
-> +          once the current status block has been consumed.
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/media-bus-format.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+
+Can you drop this header file include?
+
+> +#include <linux/of_graph.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
 > +
-> +  interrupts:
-> +    maxItems: 1
-> +    description:
-> +      Interrupt used to signal that a new status record is ready.
+> +#include <drm/drm_atomic_state_helper.h>
+> +#include <drm/drm_bridge.h>
 > +
-> +  memory-region:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Optional phandle to the reserved-memory entry that backs the statu=
-s
-> +      buffer so firmware and the OS use the same carved-out region.
+> +#define IMX93_DISPLAY_MUX_REG		0x60
+> +#define PARALLEL_DISP_FORMAT		GENMASK(10, 8)
+> +#define FORMAT_RGB888_TO_RGB888		FIELD_PREP(PARALLEL_DISP_FORMAT, 0)
+> +#define FORMAT_RGB888_TO_RGB666		FIELD_PREP(PARALLEL_DISP_FORMAT, 1)
+> +#define FORMAT_RGB565_TO_RGB565		FIELD_PREP(PARALLEL_DISP_FORMAT, 2)
 > +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
+> +struct imx93_pdfc {
+> +	struct drm_bridge bridge;
+> +	struct drm_bridge *next_bridge;
+
+Drop next_bridge.  You should use bridge.next_bridge.
+
+> +	struct device *dev;
+> +	struct regmap *regmap;
+> +	u32 phy_bus_width;
+> +};
 > +
-> +additionalProperties: false
+> +static struct imx93_pdfc *bridge_to_imx93_pdfc(struct drm_bridge *bridge)
+> +{
+> +	return container_of(bridge, struct imx93_pdfc, bridge);
+> +}
 > +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +static int
+> +imx93_pdfc_bridge_attach(struct drm_bridge *bridge, struct drm_encoder *encoder,
+> +			 enum drm_bridge_attach_flags flags)
+> +{
+> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
 > +
-> +    reserved-memory {
-> +      #address-cells =3D <2>;
-> +      #size-cells =3D <2>;
-> +      ras_cper_buffer: cper@fe800000 {
-> +        reg =3D <0x0 0xfe800000 0x0 0x1000>;
-> +        no-map;
-> +      };
-> +    };
+> +	return drm_bridge_attach(bridge->encoder, pdfc->next_bridge, bridge, flags);
+
+s/pdfc->next_bridge/pdfc->bridge.next_bridge/
+
+> +}
 > +
-> +    error-handler@fe800000 {
-> +      compatible =3D "arm,ras-ffh";
-> +      reg =3D <0xfe800000 0x1000>,
-> +            <0xfe810000 0x4>;
-> +      memory-region =3D <&ras_cper_buffer>;
-> +      interrupts =3D <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
-> +    };
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index b8d8a5c41597..47db7877b485 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22027,6 +22027,11 @@ M:     Alexandre Bounine <alex.bou9@gmail.com>
->  S:     Maintained
->  F:     drivers/rapidio/
->
-> +RAS ERROR STATUS
-> +M:     Ahmed Tiba <ahmed.tiba@arm.com>
-> +S:     Maintained
-> +F:     Documentation/devicetree/bindings/firmware/arm,ras-ffh.yaml
+> +static void imx93_pdfc_bridge_atomic_enable(struct drm_bridge *bridge,
+> +					    struct drm_atomic_state *state)
+> +{
+> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> +	const struct drm_bridge_state *bridge_state;
+> +	unsigned int mask = PARALLEL_DISP_FORMAT;
+> +	unsigned int val;
 > +
->  RAS INFRASTRUCTURE
->  M:     Tony Luck <tony.luck@intel.com>
->  M:     Borislav Petkov <bp@alien8.de>
->
-> --
-> 2.43.0
->
->
+> +	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
+> +
+> +	switch (bridge_state->output_bus_cfg.format) {
+> +	case MEDIA_BUS_FMT_RGB888_1X24:
+
+Add "case MEDIA_BUS_FMT_FIXED:" here because 1) I still think it is a valid
+output format since the next bridge could be not only a DPI panel but also
+a bridge, e.g., a DPI to HDMI bridge, 2) RGB888 sounds like a reasonable
+default output format.
+
+> +		val = FORMAT_RGB888_TO_RGB888;
+> +		if (pdfc->phy_bus_width == 18) {
+> +			/*
+> +			 * Can be valid if physical bus limitation exists,
+> +			 * therefore use dev_dbg().
+> +			 */
+> +			dev_dbg(pdfc->dev, "Truncate two LSBs from each color\n");
+> +			val = FORMAT_RGB888_TO_RGB666;
+> +		}
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB666_1X18:
+> +		val = FORMAT_RGB888_TO_RGB666;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB565_1X16:
+> +		val = FORMAT_RGB565_TO_RGB565;
+> +		break;
+> +	}
+> +
+> +	regmap_update_bits(pdfc->regmap, IMX93_DISPLAY_MUX_REG, mask, val);
+> +}
+> +
+> +/* TODO: Add YUV formats */
+> +static const u32 imx93_pdfc_bus_output_fmts[] = {
+> +	MEDIA_BUS_FMT_RGB888_1X24,
+> +	MEDIA_BUS_FMT_RGB666_1X18,
+> +	MEDIA_BUS_FMT_RGB565_1X16,
+
+Add MEDIA_BUS_FMT_FIXED.
+
+> +};
+> +
+> +static bool imx93_pdfc_bus_output_fmt_supported(const  u32 fmt)
+
+Can you drop const?
+If no, at least drop a redundant space between const and u32.
+
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(imx93_pdfc_bus_output_fmts); i++) {
+> +		if (imx93_pdfc_bus_output_fmts[i] == fmt)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
+> +static u32 *
+> +imx93_pdfc_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
+> +					    struct drm_bridge_state *bridge_state,
+> +					    struct drm_crtc_state *crtc_state,
+> +					    struct drm_connector_state *conn_state,
+> +					    u32 output_fmt,
+> +					    unsigned int *num_input_fmts)
+> +{
+> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> +	u32 *input_fmts;
+> +
+> +	*num_input_fmts = 0;
+> +
+> +	input_fmts = kmalloc(sizeof(*input_fmts), GFP_KERNEL);
+
+checkpatch.pl complains:
+WARNING: Prefer kmalloc_obj over kmalloc with sizeof
+#173: FILE: drivers/gpu/drm/bridge/imx/imx93-pdfc.c:114:
++	input_fmts = kmalloc(sizeof(*input_fmts), GFP_KERNEL);
+
+> +	if (!input_fmts)
+> +		return NULL;
+> +
+> +	*num_input_fmts = 1;
+> +
+> +	if (!imx93_pdfc_bus_output_fmt_supported(output_fmt)) {
+> +		dev_dbg(pdfc->dev, "No valid output bus-fmt detected, fallback to MEDIA_BUS_FMT_RGB888_1X24\n");
+> +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
+> +		return input_fmts;
+> +	}
+> +
+> +	switch (output_fmt) {
+> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> +	case MEDIA_BUS_FMT_RGB565_1X16:
+> +		input_fmts[0] = output_fmt;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB666_1X18:
+
+Add "case MEDIA_BUS_FMT_FIXED:".
+
+> +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
+> +		break;
+> +	}
+> +
+> +	return input_fmts;
+> +}
+> +
+> +static int imx93_pdfc_bridge_atomic_check(struct drm_bridge *bridge,
+> +					  struct drm_bridge_state *bridge_state,
+> +					  struct drm_crtc_state *crtc_state,
+> +					  struct drm_connector_state *conn_state)
+> +{
+> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> +	const u32 format = bridge_state->output_bus_cfg.format;
+
+Can you drop const?
+
+> +
+> +	if (imx93_pdfc_bus_output_fmt_supported(format))
+> +		return 0;
+> +
+> +	dev_warn(pdfc->dev, "Unsupported output bus format: 0x%x\n", format);
+> +
+> +	return -EINVAL;
+> +}
+> +
+> +static const struct drm_bridge_funcs funcs = {
+> +	.attach			= imx93_pdfc_bridge_attach,
+> +	.atomic_enable		= imx93_pdfc_bridge_atomic_enable,
+> +	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
+> +	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
+> +	.atomic_get_input_bus_fmts	= imx93_pdfc_bridge_atomic_get_input_bus_fmts,
+> +	.atomic_check		= imx93_pdfc_bridge_atomic_check,
+> +	.atomic_reset		= drm_atomic_helper_bridge_reset,
+> +};
+> +
+> +static int imx93_pdfc_bridge_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct imx93_pdfc *pdfc;
+> +	struct device_node *ep;
+> +	int err;
+> +
+> +	pdfc = devm_drm_bridge_alloc(dev, struct imx93_pdfc, bridge, &funcs);
+> +	if (IS_ERR(pdfc))
+> +		return PTR_ERR(pdfc);
+> +
+> +	pdfc->regmap = syscon_node_to_regmap(dev->of_node->parent);
+> +	if (IS_ERR(pdfc->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(pdfc->regmap),
+> +				     "failed to get regmap\n");
+> +
+> +	/* No limits per default */
+> +	pdfc->phy_bus_width = 24;
+> +
+> +	/* Get output ep (port1/endpoint) */
+> +	ep = of_graph_get_endpoint_by_regs(dev->of_node, 1, -1);
+> +	if (ep) {
+> +		err = of_property_read_u32(ep, "bus-width", &pdfc->phy_bus_width);
+> +		of_node_put(ep);
+> +
+> +		/* bus-width is optional but it must have valid data if present */
+> +		if (err && err != -EINVAL)
+> +			return dev_err_probe(dev, err,
+> +					     "failed to query bus-width\n");
+> +	}
+> +
+> +	pdfc->next_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
+
+s/pdfc->next_bridge/pdfc->bridge.next_bridge/
+
+> +	if (IS_ERR(pdfc->next_bridge))
+
+Ditto.
+
+> +		return dev_err_probe(dev, PTR_ERR(pdfc->next_bridge),
+
+Ditto.
+
+> +				     "failed to get next bridge\n");
+> +
+> +	pdfc->dev = dev;
+> +	pdfc->bridge.driver_private = pdfc;
+
+Oops, you missed dropping this as the changelog says
+"drop bridge.driver_private usage (Luca)".
+
+> +	pdfc->bridge.of_node = dev->of_node;
+> +	pdfc->bridge.type = DRM_MODE_CONNECTOR_DPI;
+> +
+> +	return devm_drm_bridge_add(dev, &pdfc->bridge);
+> +}
+> +
+> +static const struct of_device_id imx93_pdfc_dt_ids[] = {
+> +	{ .compatible = "nxp,imx93-pdfc", },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, imx93_pdfc_dt_ids);
+> +
+> +static struct platform_driver imx93_pdfc_bridge_driver = {
+> +	.probe	= imx93_pdfc_bridge_probe,
+> +	.driver	= {
+> +		.of_match_table = imx93_pdfc_dt_ids,
+> +		.name = "imx93_pdfc",
+> +	},
+> +};
+> +module_platform_driver(imx93_pdfc_bridge_driver);
+> +
+> +MODULE_DESCRIPTION("NXP i.MX93 parallel display format configuration driver");
+> +MODULE_AUTHOR("Liu Ying <victor.liu@nxp.com>");
+> +MODULE_LICENSE("GPL");
+> 
+
+-- 
+Regards,
+Liu Ying
 
