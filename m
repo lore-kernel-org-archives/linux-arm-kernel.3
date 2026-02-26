@@ -4,91 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 411C2FD8FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEDA5FD8FD7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=txv6vQDrf8TvuXaw8FFr2/au2yNyfaaMtDMt+HBRQ0U=; b=tT82F2tXUIhfje2+Mo7FrlHs03
-	HiQn6kJXB1PcMLTPO1mU96A8R1zVPsq8fppPLx1G/+3R7srSBEnxa0vdfwl03ZjGzamXutcRm1UEC
-	e6Lh3lvCu4qFh+zGRZjI3NTwpSdbj92PEgVayxQyVsiDv9TBev4LTV9Jwrjtqn8gTjc1v3J3oelH7
-	MUGoiVNhlMsQSOvd5AvP2k/0xetGf1qpAcXC5QXkDS3TRfJ4VPtxw93ORkyH8QCQGypy1H6a1HuE5
-	gRQvIDDB41m6NRzmrARucqUZw53U4ltlQ41RQP6++9nsS0NSxCrmtSq5xhETPHEVgqGz82ta7fb5Z
-	9eknt89w==;
+	bh=A3eFax5NfVWRTgjLta0/Kay+rKhrAEPGo4bG8FAQJ84=; b=ncV/shaZW+/yrqg/uPhi9ExLjo
+	WhrOKj8iqgWK5e92cnl2KlusCtUavVZOU0TJNU3mQMARh5ZSZhqBqKgbLou1e1NA7dyE/ErpAnGH0
+	sc3ip6ZbQeGdgrDp5gnKwUpqpAca86Rk+HHSz2w3YjQ5ePVsBEqgErpR+xZrB6g+iflSGiLk2oQrG
+	vsrkdPs8Qkn7mHIW2mJ6jcP5xgFbjQDWKZ5+sAJuXh3+FgE5GjI+KeD5l1utbDfET/+z5GC0emnCp
+	ewiIaw9BRMZCKy0D4oCKimdof6AvJIJeGjoFXFqwIbXoG5NiAgptwNrurpt+9TMGKNnK5dyT8hdFp
+	jAHclr6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vveAu-00000006jCG-3QEu;
-	Thu, 26 Feb 2026 16:25:16 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vveMC-00000006k8F-0HvU;
+	Thu, 26 Feb 2026 16:36:56 +0000
+Received: from mail-norwayeastazon11023136.outbound.protection.outlook.com ([40.107.159.136] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vveAs-00000006jBf-2Uib;
-	Thu, 26 Feb 2026 16:25:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772123057; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=N3OLfKBmkYO933URbrFu8+uXKn2ij+6WUXq71kEBTO4Nu4LcTpRcQZjphpUAwyqNRHGQAP2cDjEaDUq70au60Jh8aFdxv+OKp5d6P4QL+GJp6jNsd7xL1veJ3YFZQO7pHANe9yQFb6fIoYHki3Vv16IWve2sbM8I/MyTbBaWS0A=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772123057; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=txv6vQDrf8TvuXaw8FFr2/au2yNyfaaMtDMt+HBRQ0U=; 
-	b=j8gKxdMDGurJreehgySCvuU/3qEdLoYmbBq2Ahq8cRm2sLFBW7OAExJNJb34Oycb2zYaxG0/8idwbu5Qe85W6l8PzVVm6lYKE+Jgba1uyWKm58OoY77QAZvdSEsox2hv5yEfJgByhZ0f6R20rl1Rrv8ORwBaeVUnb0L5sRbHkzw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772123057;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=txv6vQDrf8TvuXaw8FFr2/au2yNyfaaMtDMt+HBRQ0U=;
-	b=WIldgH/0a6NjbWUpy/KVeZjrvqxYggRojCnNIaaDT6piQoyNjIDfQdgQS9G78G3v
-	1m7YlCA/zRt0Oc22zrGr3RJZVs8P6yRXB04+Zoya4VZhWuPao2Y4SJeAx0PQXsaZiIa
-	6JMWI/E18LL044fdeDRbnMfcUoXpZ0MeeyiIDx98=
-Received: by mx.zohomail.com with SMTPS id 1772123055193953.572434392059;
-	Thu, 26 Feb 2026 08:24:15 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Jani Nikula <jani.nikula@linux.intel.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Andy Yan <andy.yan@rock-chips.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Maxime Ripard <mripard@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 14/14] drm/display: hdmi: Use drm_output_color_format instead of
- hdmi_colorspace
-Date: Thu, 26 Feb 2026 17:24:05 +0100
-Message-ID: <5558942.31r3eYUQgx@workhorse>
-In-Reply-To: <20260224-drm-rework-color-formats-v1-14-bebc76604ada@kernel.org>
-References: <20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org>
- <20260224-drm-rework-color-formats-v1-14-bebc76604ada@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
+	id 1vveMA-00000006k7O-2oiS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Feb 2026 16:36:55 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=U4PgLaGWou1l1mJI1eHSmH8ecq7QUBYFUMlDG7fy7IjXpPVSiDCguSeQa52rwzzkMLbGFZLyxiOqLv9WS94u8Gkaa8U9ccmEyxhB+8N9p7vINJvkJ8/mzr9GT2s9LUFcyThvn7HqxU6SOOmrb1zI/uDgWY8v6kUpJ3FdfQAmeGHxcBQ5XMfjKhFjw+V28ikjWtaaEgW5A1gG297evvp8ci3BzBzY5Uss82Cl05fu5acQbXbjfoopGGVZREM/ZTj0FqI9TJ5Vot/tyRLu3b8NgrnDatlaHHsdqR0KVh88tbapgKSl2b1vvhzlyBl59Z8Zg4zijxaTNa9rJIl2KpJYpw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=A3eFax5NfVWRTgjLta0/Kay+rKhrAEPGo4bG8FAQJ84=;
+ b=WUjW1fPAakgyeHryBQGhTIoStmJsmuxH/3eltrdDxVKgDdxXG4YhJjXSfLj1XycGjWL26geqxDZUINJdMRLSjf40WSUEUTfKmGmh/9lRIcIgvBJP9JncqLf0vFeuRmtRptSIAl7J1REeT5YmZnOO43bsBjkiyF0fZuxQb4FLWuSgLHTsOIt3XiltL7yjfuk88g4YctDdamGvJNOzAR1RlrS27ldi3afjye6jS7Xz05wHCqXnPl8Qkxezr5uwo/0PaXwxa1SOh+VYNUDpvQdkhRTDSl8DsBGzfk7+PXqdFAAjFHh+1faqIt1/Mzqo+IQSDdNSR8F6DIuk3lu6CLTdIQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.17.62.50) smtp.rcpttodomain=gmail.com smtp.mailfrom=solid-run.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
+ dkim=pass (signature was verified) header.d=solidrn.onmicrosoft.com; arc=pass
+ (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=solid-run.com]
+ dkim=[1,1,header.d=solid-run.com] dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=A3eFax5NfVWRTgjLta0/Kay+rKhrAEPGo4bG8FAQJ84=;
+ b=fGrzZDx4eZ+ArWKO9dcRkldJoWogcb2lszKzA0ys3iEkJ/LO54YkgJbZepvbLgLWLd+2w5U+0LfiO78nmvtBWUPpsF55xD88YsPqDPHyYxMYv8I2pQpaiGEmT561iClpts7Q4Q+lXQI65gzT56O8uHEEpil7mowwZ48YES+vccg=
+Received: from DU2PR04CA0046.eurprd04.prod.outlook.com (2603:10a6:10:234::21)
+ by PA4PR04MB9662.eurprd04.prod.outlook.com (2603:10a6:102:260::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Thu, 26 Feb
+ 2026 16:36:46 +0000
+Received: from DU6PEPF0000A7E1.eurprd02.prod.outlook.com
+ (2603:10a6:10:234:cafe::dd) by DU2PR04CA0046.outlook.office365.com
+ (2603:10a6:10:234::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.26 via Frontend Transport; Thu,
+ 26 Feb 2026 16:36:46 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 52.17.62.50)
+ smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
+ header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
+ header.from=solid-run.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ solid-run.com discourages use of 52.17.62.50 as permitted sender)
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ DU6PEPF0000A7E1.mail.protection.outlook.com (10.167.8.40) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12 via
+ Frontend Transport; Thu, 26 Feb 2026 16:36:46 +0000
+Received: from emails-6509700-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-5-107.eu-west-1.compute.internal [10.20.5.107])
+	by mta-outgoing-dlp-431-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id E03B2807A3;
+	Thu, 26 Feb 2026 16:36:45 +0000 (UTC)
+X-Mailbox-Line: From b'josua@solid-run.com' Thu Feb 26 16:36:41 2026
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CaqnqfZRpeCz3WukOPoIc00RggEwH6mwytpvEpBk6KRg71m78C1u2wk6riyDoQCD3gKCY4DpYWNnoyNUnNpuykrJDQQQtqCcOOfp/vWNVZHhEsHDy3p6lBVgDY1MJ6wm5MFDiiAN6XSDzuvdeApBnH3NwwMmsWMmlcfxD+3s0s2E5FMv96W5QVh3Xs/ZWW7xVUcagTFc7wBEyJuxaZ/2MkNZQ6F5Jcu52SzT8/TaZNtBpbT4h/sYcNOUVJfU1PecLdZc3vmFl+oWUWC/2art4MPAtiGTJdIDekG1SUUwrsLd4ZnXjMwFZjP1RHYZazJwZPUyMLwRDE+XWFdwTu3C3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=A3eFax5NfVWRTgjLta0/Kay+rKhrAEPGo4bG8FAQJ84=;
+ b=gAWNZuA1p4fMjTrE35sVy/6EGBvLI+mUZpj1k6NVtjPz/vGp4FjKyqzRKr+T3RAZH2RspbGZ5ZbzSxC5sLSWuCzxpTM61+6hbbrsyqvrmhLF6/BgTrTGaNLx73+jBaiTa/5pVoI6U2hHgyjzVW4ol6K/m7tnpf0qZ89gNfhhcCz9nY5pw9mHlw985rcJM2wXWEhnSgvzpWMK0y4akrrgPjN8oM7KKjofRNpH//XhrW9IyPOhtVy5QisUkGDrn+P5WqjOU0+E7tSp+vmPEWLEdq8sFvAZCl/Y4ayRN8b4/XYZ4K4fveT6p/FAlhG56Zw3mfoDABsUnzjektSTgDfJhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=A3eFax5NfVWRTgjLta0/Kay+rKhrAEPGo4bG8FAQJ84=;
+ b=fGrzZDx4eZ+ArWKO9dcRkldJoWogcb2lszKzA0ys3iEkJ/LO54YkgJbZepvbLgLWLd+2w5U+0LfiO78nmvtBWUPpsF55xD88YsPqDPHyYxMYv8I2pQpaiGEmT561iClpts7Q4Q+lXQI65gzT56O8uHEEpil7mowwZ48YES+vccg=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+Received: from AM9PR04MB8747.eurprd04.prod.outlook.com (2603:10a6:20b:408::11)
+ by AM9PR04MB8081.eurprd04.prod.outlook.com (2603:10a6:20b:3e2::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
+ 2026 16:36:38 +0000
+Received: from AM9PR04MB8747.eurprd04.prod.outlook.com
+ ([fe80::a0c7:9bd0:56e1:576a]) by AM9PR04MB8747.eurprd04.prod.outlook.com
+ ([fe80::a0c7:9bd0:56e1:576a%4]) with mapi id 15.20.9654.014; Thu, 26 Feb 2026
+ 16:36:38 +0000
+From: Josua Mayer <josua@solid-run.com>
+Date: Thu, 26 Feb 2026 18:36:30 +0200
+Subject: [PATCH v9 1/8] dt-bindings: arm: fsl: Add various solidrun i.mx8m
+ boards
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260226-imx8mp-hb-iiot-v9-1-4533235eeb34@solid-run.com>
+References: <20260226-imx8mp-hb-iiot-v9-0-4533235eeb34@solid-run.com>
+In-Reply-To: <20260226-imx8mp-hb-iiot-v9-0-4533235eeb34@solid-run.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>
+Cc: Mikhail Anikin <mikhail.anikin@solid-run.com>, 
+ Yazan Shhady <yazan.shhady@solid-run.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Josua Mayer <josua@solid-run.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.3
+X-ClientProxiedBy: TLZP290CA0014.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:9::13) To AM9PR04MB8747.eurprd04.prod.outlook.com
+ (2603:10a6:20b:408::11)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8747:EE_|AM9PR04MB8081:EE_|DU6PEPF0000A7E1:EE_|PA4PR04MB9662:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b613450-b028-42aa-d7fb-08de75553b4a
+X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: G3VBqoXRNfBBLlZi9hStjLWhLU4q9ls+PPpl1ybwzHfp6iBCFrzrOK/9wmk/hdAtetLjg9xpkmDofwmEXuKySAygIJcWHByshFU6OsHO4jWzRQwn1r+vkIXbA9Hn6Cy1kIAGzmRwsed3zzsR6VqlqSMri3lTXSxfJG49Eo1qHPtv8p2RWE6ZG/4zRFCtgYmO5c/rr6GJwBOnF61PSWxnd0wzjzC8Z5PYFgj8qo+NgPJrOz42npz7sp4GzGJ7ioMKPvV3VeXTtkJibFoq+j1wUWOINEWQ2M1HAG4pHTxB1lAN82E6R6DW3a1nUjM5TkJskTAKQSwJEDDe4HY34LheN5DjEIPZDIG6BZ8sVVv2J8kLGLuyNtEDlaMvxijfrME3r8zoauLEMDQRBz0Dtq8mZziljb5gwzQDLjZiEKND+cVUeKqT2yqRdXR8e/dLsee7hBW5ZEz+Hvd8kygDiiFN/e3mxg8IXunKIV/1nScx76vD+QxqzJRiBbDXauZP0TAeUr56ulKrp5zVS3fyr6PMgyns6g0VJjNi7j6BcwH2bt7Bmls/kvb7b2ZDDSCgzTuBcXizW/dgEcca5oqE/fNt+4MzSaon69LkoNhpSMARMIiXqmYEVB24ITTn+H3x6RDld5DXDnVZo+GRV0ykkEFglhxNnN+WNj+yAYLKKNXLDv1T+GhLU+xUxKBImPjaZn41O36h8eOzFLXcRBnfqolXJNFiPJvAnXgPt9nbOcX0f4korispfkz8C9rsom4zsGdFxT48uO77TsIHjgr1pswj/kKBOjm8bezzkJD+eIPz6Tc=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8747.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8081
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: 3bb7377997bd41c29bebf566d7204d47:solidrun,office365_emails,sent,inline:10942ff6038381d3ca8c2fa350b4a692
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7E1.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 327013b4-513f-439f-6079-08de755535c9
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|35042699022|1800799024|14060799003|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: WXkFQPFgtVSMMjzuGml0obcgclzEu1Yedj8DAdvzeJxNKd99qDvyC8Mc34eFC+nT7WXCQVk3/rHZUVB+KqL1ySPdnqFuM0T8Is0gReg5/cwJijorL3DiNCu5f+iDKcMf/mCwGMoLBCTW+2i1fD6JSrnURbOc6Qi/veqMn0yEJn2oNk7aLLtFT7NHgDaa+Y3FDj5vo7F868VtbhDElZCNPOOyRkrxuFpXMrn5xXl9UkSg9UykMJ7pcq3PK41b9WAmJnYI3LTd3C/eOP0P0IHsjFU+2Mb2zs0k1Q2f5Xspwt8nhluUeNNnIG1cM7KXmozAMKYJFnw7qabjiOKjxbpJEQLdNIHgC/TF9wmG9YS7ZErNqUDkDu1yxrobibWWy3PaMdrkzP4q0FMrwFwTmKx1FMb7ppxBS7dRX0lxt0tEZoWQovtDF1YpIqpQs+sG3jdHmD2TUEyDVsrxaLfm3OV2pKweIA0XMYmKEzAUE0o0qfb/CVWY0v7gm+yqEaJiGUzLT21SGKPfcosM2pSoflLgPtQzNk0TMfMvqNxFdYcG1DUSJBT1aFS4M08+ljN7MNj7dXqMyVf400736LzW40uJZK5U5/YG1JQ6mxJ4la4MLSvy6BUiS/TMNdCEIS0xNRa+o9qZrAvvEvmOa6uor6GbkPC2pTT66DIq9k54c35odUMTwe/8jJ9jiVgjkjeuigwEbqh7dQim/hkV1Y2cPTxUffFKH/J96a5but+9r5DOLYmkoM0jLSNFxNvjYAB33kDz7JzQBXJzvVkygsEaPd2WcNxTgKbQpLXQls/ulCyy6/mBBbs05dvHwNZC/3e2JMws
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(36860700013)(35042699022)(1800799024)(14060799003)(82310400026)(7416014)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: U6K6dIofV8VlXdYTtwrKWS+SwC6b19XEyZbyKTz5cownVLxGsWEBtSZXh5KZi6OAgxB7CMfbvcEVRe7+LjA8b+sn0DFIbM2IcrtjtqPTaHqCf2UT5wGd5WYhXFtTSUxAPGbSQYYK45awuPoub2rRrKjmH79SUtmo49JW4jc5lDo86s2YZewgyFWafHH57lLrcsrSX465VURCsoLgPlaLIVALPW4JDzEmK3GCBadpesg0xHQ5vfg4+tekWFqRMMChxxGpHTCACod/zz80IkEUXFdxvi4vtvOKjxcPHRb58pnY4ExCe2pDB2gKJEERkXI1sDLMmFA+u65995YXeDsqnWiyw54z7ImmC/f7VAjeuhY4KwGC16g+oq3w/sOOVa7FNBdkhNGEchXWlIC+9ccP0PpY2Am4UAOV3auPonQfqEPF8WiorUzKBmn2vmQ573oQ
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 16:36:46.0180
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b613450-b028-42aa-d7fb-08de75553b4a
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E1.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9662
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_082514_669451_06E31DAF 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20260226_083654_716250_9006775F 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,76 +167,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 24 February 2026 11:58:53 Central European Standard Time Maxime Ripard wrote:
-> The hdmi_colorspace enum was defined to represent the colorspace value
-> of the HDMI infoframes. It was later used by some HDMI drivers to
-> express the output format they should be setting up.
-> 
-> During the introduction of the HDMI helpers, it then was used to
-> represent it in the drm_connector_hdmi_state structure.
-> 
-> However, it's always been somewhat redundant with the DRM_COLOR_FORMAT_*
-> defines, and now with the drm_output_color_format enum. Let's
-> consolidate around drm_output_color_format in drm_connector_hdmi_state
-> to facilitate the current effort to provide a global output format
-> selection mechanism.
-> 
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> ---
->  drivers/gpu/drm/bridge/inno-hdmi.c                 |   6 +-
->  drivers/gpu/drm/bridge/ite-it6263.c                |   2 +-
->  drivers/gpu/drm/display/drm_hdmi_helper.c          |   7 +-
->  drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  52 ++++--
->  drivers/gpu/drm/drm_bridge.c                       |   2 +-
->  drivers/gpu/drm/drm_connector.c                    |  14 +-
->  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c             |   8 +-
->  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
->  drivers/gpu/drm/tests/drm_connector_test.c         |  80 ++++-----
->  drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 182 ++++++++++-----------
->  drivers/gpu/drm/vc4/vc4_hdmi.c                     |  18 +-
->  drivers/gpu/drm/vc4/vc4_hdmi.h                     |   2 +-
->  include/drm/display/drm_hdmi_helper.h              |   3 +-
->  include/drm/drm_connector.h                        |   7 +-
->  14 files changed, 205 insertions(+), 180 deletions(-)
-> 
-> [... snip ...]
-> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-> index 4f5b27fab475c7c733622eb8727927571f3fb8fe..171cd495976a3e16f201fd339d3d42a09dc3b63f 100644
-> --- a/drivers/gpu/drm/drm_connector.c
-> +++ b/drivers/gpu/drm/drm_connector.c
-> @@ -589,14 +589,14 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
->  
->  	if (!(connector_type == DRM_MODE_CONNECTOR_HDMIA ||
->  	      connector_type == DRM_MODE_CONNECTOR_HDMIB))
->  		return -EINVAL;
->  
-> -	if (!supported_formats || !(supported_formats & BIT(HDMI_COLORSPACE_RGB)))
-> +	if (!supported_formats || !(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444)))
->  		return -EINVAL;
->  
-> -	if (connector->ycbcr_420_allowed != !!(supported_formats & BIT(HDMI_COLORSPACE_YUV420)))
-> +	if (connector->ycbcr_420_allowed != !!(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420)))
->  		return -EINVAL;
+Add bindings for various SolidRun boards:
 
-I don't think this will work as-is. drm_bridge_connector_init calls this
-function assuming hdmi_colorspace bitmasks in supported_formats.
+- i.MX8MP HummingBoard IIoT - based on the SolidRun i.MX8M Plus SoM
+- SolidSense N8 - single-board design with i.MX8M Nano
+- i.MX8M Mini System on Module
+- i.MX8M Mini HummingBoard Ripple
 
-This may have slipped through the conversion; the synopsys dw-hdmi-qp core
-(separate from synopsys dw-hdmi) also assumes hdmi_colorspace, see e.g.
-dw_hdmi_qp_plat_data::supported_formats in include/drm/bridge/dw_hdmi_qp.h
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Josua Mayer <josua@solid-run.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-So should be a simple fix I hope.
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 5716d701292c..8789dacd3f1a 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1041,6 +1041,13 @@ properties:
+           - const: phytec,imx8mm-phycore-som        # phyCORE-i.MX8MM SoM
+           - const: fsl,imx8mm
+ 
++      - description: SolidRun i.MX8MM SoM based boards
++        items:
++          - enum:
++              - solidrun,imx8mm-hummingboard-ripple # SolidRun i.MX8MM SoM on HummingBoard Ripple
++          - const: solidrun,imx8mm-sr-som
++          - const: fsl,imx8mm
++
+       - description: Variscite VAR-SOM-MX8MM based boards
+         items:
+           - const: variscite,var-som-mx8mm-symphony
+@@ -1069,6 +1076,7 @@ properties:
+               - fsl,imx8mn-ddr4-evk       # i.MX8MN DDR4 EVK Board
+               - fsl,imx8mn-evk            # i.MX8MN LPDDR4 EVK Board
+               - gw,imx8mn-gw7902          # i.MX8MM Gateworks Board
++              - solidrun,solidsense-n8-compact # SolidRun SolidSense N8 Compact
+           - const: fsl,imx8mn
+ 
+       - description: ifm i.MX8MN VHIP4 based boards
+@@ -1225,6 +1233,7 @@ properties:
+         items:
+           - enum:
+               - solidrun,imx8mp-cubox-m             # SolidRun i.MX8MP SoM on CuBox-M
++              - solidrun,imx8mp-hummingboard-iiot   # SolidRun i.MX8MP SoM on HummingBoard IIoT
+               - solidrun,imx8mp-hummingboard-mate   # SolidRun i.MX8MP SoM on HummingBoard Mate
+               - solidrun,imx8mp-hummingboard-pro    # SolidRun i.MX8MP SoM on HummingBoard Pro
+               - solidrun,imx8mp-hummingboard-pulse  # SolidRun i.MX8MP SoM on HummingBoard Pulse
 
->  
->  	if (!(max_bpc == 8 || max_bpc == 10 || max_bpc == 12))
->  		return -EINVAL;
->  
-> [... snip ...]
-
-Kind regards,
-Nicolas Frattaroli
-
-
-
+-- 
+2.43.0
 
 
