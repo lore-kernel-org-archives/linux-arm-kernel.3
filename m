@@ -4,89 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7244FFC5913
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07AF7FC5913
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 09:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5vzJT29Oz+BPVcG8jRcdyLA+I6k3k4AJW+BjQ7tJ504=; b=xv8QlJf75udN5fFb7OSEMEK1Nz
-	8eu+kdOJKyQhTUv9b4XCnR6MpoVAmCzT5OOhq9XsX7dKz8xO71eHnlrMTOS/SBu+7s6vcf+iLtTzg
-	kBo7Iuq9p9bdTEzU83VQIvSQPaBAlyTgqcB2jmvep8ygHDLX8q/tyCmCtbwv9EPkZSMYbV5IfuQkF
-	mirsM01tfyZ7X0CVAhu/ZicfLFehm/AuL8+fgf+yFlc0BF9qE5rwKF6fHGrOJPtDnN+YH3+Pg7ZRq
-	8J3jIJbBayb79yuctbwChb21SUh2ZZKh17QAadUFDrL8woH4nXAGZd1SMx1adP+dlG6T5DgDPAmny
-	TnyRfUyw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pZA7AsIzdwCY7ab6l8jLMqVVu0K3dmUt9FW8oclhVyw=; b=essu6nb/Tvmw41BjOIBvUkKrD5
+	BpIrWRv6a3OjLZX/n/bRX9am0I/OMAlvtus0w1bAZeOi8XP/xn6XKbJJse5wuvQoaF/S2BotXPBvX
+	14xhDiFtThGc5aM3KqmOtdsBMi0nxjdv3Bq4RCJmtYUG1l4yz0WomLt8n8/ueTtMAF+QIHijF1vzP
+	Pet1YA5ifSrUGY5gdhnYsWkoHAs+1Dd5/5nt4sHV/NArXtNvu8VsnnlT4eKKjWtoH0R1TrNOG0r7w
+	JybVWzYtzjrJJMeNOutm+7D9q8GDfQnx8+GyUizIFguCGAy6hBjjXn0qTi8wfwMuAqBCf/t34JTUa
+	CzxlazpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX8h-00000005iQS-3zj4;
-	Thu, 26 Feb 2026 08:54:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvX73-00000005i7W-1HFO;
+	Thu, 26 Feb 2026 08:52:49 +0000
+Received: from mx-relay60-hz1.antispameurope.com ([94.100.133.230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX8R-00000005iKc-3wWW
+	id 1vvX6w-00000005i6Z-1SOi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 08:54:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3EA5D440DD;
-	Thu, 26 Feb 2026 08:54:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0DE03C19424;
-	Thu, 26 Feb 2026 08:54:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772096055;
-	bh=Q9V6sTMaJ2pd7d5NGrdgzvEcNvyFxJE7OuvaMwzwrfQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=OEnTesdLTXh3CRG5FMziIXiU5v7UC1fFPXvISlCawSgWNkNG00f6jobgbp4NEqCTG
-	 w4d80TikFRuNdyWYoIaWZCjXtiG+vMVxxdu0HNFaQKTwrniV7JU9JxNOuJnvV3hCfT
-	 2HqVLHXm6AsXZYWY7uYtNTWSJPKRIEi/W89Jf8uVVX7zanc/nQ+OX7WK3pJ2lUozjN
-	 /1l5Nso20pqtJixJo070o2aImKJLEKti3AQZRW2XYaFWDm/9zAOpmtDWIPqdrodQ7Z
-	 IDYAGRyGfXZENuxjdkz9gMGuAHBQRi966HOd0ZNnFPvBOVzK4Mo9VIyYQAjPwpKPVt
-	 MThc4+jlmWUjQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EE62AFC5913;
-	Thu, 26 Feb 2026 08:54:14 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Thu, 26 Feb 2026 09:54:06 +0100
-Subject: [PATCH v7 1/5] net: stmmac: Use helper macro for loop over
- queue-based arrays
+	Thu, 26 Feb 2026 08:52:48 +0000
+ARC-Authentication-Results: i=1; mx-gate60-hz1.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=pZA7AsIzdwCY7ab6l8jLMqVVu0K3dmUt9FW8oclhVyw=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1772095954;
+ b=B6npiQJQz6VdCVGu+yfPSUYCSvyJSg4A0noHsSDO4GLoQAsaVwk/xViNi7m+N7C7XQm72+/J
+ nPQzE7Vvt0t71RFoeBKqUMHqJOll1ELN2/ex3RtvvxuHGrWixTVHo3oXV9cxdUzbeaDMBVKJ5jw
+ N1pmu6BxbEe52PUXbUmIXIq8wzXaJPZy2zZ1hDUUQBOxOxBXCLJvBJdjmCnO5Wx8LJ6ObOgSbDx
+ 8EZlqxCwHBOTLOoU8VuUCH8+Zk/FjefL+pDmCPOR/15OncvOT8QNX5a6coejR2y8VCJbevK4r29
+ 2Uh+Xtfna2fcCFjtEUxpLCSJJoxfa2AnlFjciIoeyEe5Q==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1772095954;
+ b=CitlVqTHgqIoIQh5XeEGRu48uxnCHMiFERymqB8u4pNtIz97tEqsgKun1RnZyE9Oy4Oc9ysU
+ gYKa1Itrz0Nmp1lIZZ5knrXaER8P1wH0OqJOnWBkYOLJLyvMse/f2ju3QEzojLelfDVniet4cJY
+ fpm1nY2nT9suaIhYIH9XD7x0VUigb21tgkDymhjQKfu7+HBijLd8lE8AJ617/N4bmDxGVUCV3fb
+ V5uBrv3SW1LSBqRf1WAXqoSaGOgmXHKGT0LCRdWbTwIFkW2cUvSqPke8hkNzEFqWRQvQQ8QAMJA
+ 9mWjRCyqGuTgftpxCLroBX2ZevK2r3vtGU0zbt9zkf1tg==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay60-hz1.antispameurope.com;
+ Thu, 26 Feb 2026 09:52:34 +0100
+Received: from [192.168.153.128] (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: nora.schiffer@ew.tq-group.com)
+	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 419F65A0F0A;
+	Thu, 26 Feb 2026 09:52:23 +0100 (CET)
+Message-ID: <ccc6e9665ec8d432a5729fb18a757bb76cd95d9e.camel@ew.tq-group.com>
+Subject: Re: [PATCH] arm64: dts: freescale: imx8mp-tqma8mpql-mba8mp-ras314:
+ fix UART1 RTS/CTS muxing
+From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,  linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, linux@ew.tq-group.com,  devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Thu, 26 Feb 2026 09:52:22 +0100
+In-Reply-To: <aZ8YFYbRIHlcmWk3@lizhi-Precision-Tower-5810>
+References: <20260225083419.5639-1-nora.schiffer@ew.tq-group.com>
+	 <aZ8YFYbRIHlcmWk3@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-dwmac_multi_irq-v7-1-f8fe3b945bb4@oss.nxp.com>
-References: <20260226-dwmac_multi_irq-v7-0-f8fe3b945bb4@oss.nxp.com>
-In-Reply-To: <20260226-dwmac_multi_irq-v7-0-f8fe3b945bb4@oss.nxp.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, devicetree@vger.kernel.org, rmk+kernel@armlinux.org.uk, 
- vladimir.oltean@nxp.com, boon.khai.ng@altera.com, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772096053; l=4143;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=AN9BxArjvT+LtwWtaoyDzsO4XeDTxufZg6uDwPtH3+8=;
- b=qx4zViXLhquemljUdcK9/hePoUKUSGDPdEFSLQaAUKxdNbrTHqfA5yznxNKgqzJbgLNjeQe5h
- HwPpAWooWzzCnl0hEP7EkpABcn72M2PYEy57NzXZsGL5wKXTtsMpsUG
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-cloud-security-sender: nora.schiffer@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: nora.schiffer@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay60-hz1.antispameurope.com with 4fM4w80B2Yz28yMP
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: daeffe5ef58851175bcfb2fcf892fa20
+X-cloud-security: scantime:1.389
+DKIM-Signature: a=rsa-sha256;
+ bh=pZA7AsIzdwCY7ab6l8jLMqVVu0K3dmUt9FW8oclhVyw=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1772095953; v=1;
+ b=DurOm/+Er4jU2ko1MCfUiv17l+yDjaa2BvcerwlCzQRcywk+eNxpXUOAve8VTzBF5LNqUTXv
+ Io8O/azKNVzY/86vm9Ob7O2M8pVa4S06SChkXyXKb7J0ps9KI/8sH1KOUMEKSL66Pbvstv5xwwS
+ TIuJJpV2OLOmaQ3k8bTw6TNArFE/Lzo1Vg+re3eSyDTkmczbLRRISfFEzJJ1nAMWa3BcC6sQd+h
+ WlITKxCg405cBx3IWABZH0WSe+6a5+AZYTclV2FbuDkFhX6zigVmPOlKoxRw+ds1C9Bd+rfiiEB
+ IytgMV6Sq8EMZmT022hgGWi+F/8eDwQ97e+2pMa9jp8+A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_005416_032590_2E8AE031 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20260226_005242_647412_1187896B 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,112 +106,75 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+On Wed, 2026-02-25 at 10:41 -0500, Frank Li wrote:
+> On Wed, Feb 25, 2026 at 09:34:18AM +0100, Nora Schiffer wrote:
+> > The pinmuxing for UART1 was mixing DCE and DTE modes, which cannot work=
+.
+> > Consistently use DCE mode.
+> >=20
+> > This switches the RTS and CTS pins, which is fine for this board, as
+> > UART1 is routed to a pin header.
+>=20
+> Is below commit better?
+>=20
+> UART1 operates in DCE mode, but the RTS/CTS pins were incorrectly
+> configured using the DTE pinmux setting.
+>=20
+> Correct the pinmux to match DCE mode, which does not affect existing
+> functionality because UART1 signals are routed to a pin header.
 
-The stmmac driver contains similar pattern for processing queue-based
-arrays, ie. interrupt lines, etc. Factor out the for loop and provide
-a macro STMMAC_FOREACH_MTL_QUEUE(var, limit).
+Hi Frank,
 
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c |  2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h        |  3 +++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c   | 16 ++++++++--------
- 3 files changed, 12 insertions(+), 9 deletions(-)
+your commit message sounds better, do you want me to send a v2?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-index 49893b9fb88c..3890e82c69f6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-@@ -233,7 +233,7 @@ static void dwxgmac2_prog_mtl_tx_algorithms(struct mac_device_info *hw,
- 	writel(value, ioaddr + XGMAC_MTL_OPMODE);
- 
- 	/* Set ETS if desired */
--	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
-+	STMMAC_FOREACH_MTL_QUEUE(i, MTL_MAX_TX_QUEUES) {
- 		value = readl(ioaddr + XGMAC_MTL_TCx_ETS_CONTROL(i));
- 		value &= ~XGMAC_TSA;
- 		if (ets)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 51c96a738151..c972ad8e79f8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -382,6 +382,9 @@ enum stmmac_state {
- 
- extern const struct dev_pm_ops stmmac_simple_pm_ops;
- 
-+#define STMMAC_FOREACH_MTL_QUEUE(var, limit) \
-+	for (var = 0; var < (limit); var++)
-+
- int stmmac_mdio_unregister(struct net_device *ndev);
- int stmmac_mdio_register(struct net_device *ndev);
- int stmmac_mdio_reset(struct mii_bus *mii);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index edf0799b7236..b920ca17b2be 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3875,7 +3875,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 	}
- 
- 	/* Request Rx MSI irq */
--	for (i = 0; i < priv->plat->rx_queues_to_use; i++) {
-+	STMMAC_FOREACH_MTL_QUEUE(i, priv->plat->rx_queues_to_use) {
- 		if (i >= MTL_MAX_RX_QUEUES)
- 			break;
- 		if (priv->rx_irq[i] == 0)
-@@ -3899,7 +3899,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 	}
- 
- 	/* Request Tx MSI irq */
--	for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
-+	STMMAC_FOREACH_MTL_QUEUE(i, priv->plat->tx_queues_to_use) {
- 		if (i >= MTL_MAX_TX_QUEUES)
- 			break;
- 		if (priv->tx_irq[i] == 0)
-@@ -4084,10 +4084,10 @@ static int __stmmac_open(struct net_device *dev,
- 			 struct stmmac_dma_conf *dma_conf)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
-+	int ret, i;
- 	u32 chan;
--	int ret;
- 
--	for (int i = 0; i < MTL_MAX_TX_QUEUES; i++)
-+	STMMAC_FOREACH_MTL_QUEUE(i, MTL_MAX_TX_QUEUES)
- 		if (priv->dma_conf.tx_queue[i].tbs & STMMAC_TBS_EN)
- 			dma_conf->tx_queue[i].tbs = priv->dma_conf.tx_queue[i].tbs;
- 	memcpy(&priv->dma_conf, dma_conf, sizeof(*dma_conf));
-@@ -7734,9 +7734,9 @@ static int __stmmac_dvr_probe(struct device *device,
- 	priv->device = device;
- 	priv->dev = ndev;
- 
--	for (i = 0; i < MTL_MAX_RX_QUEUES; i++)
-+	STMMAC_FOREACH_MTL_QUEUE(i, MTL_MAX_RX_QUEUES)
- 		u64_stats_init(&priv->xstats.rxq_stats[i].napi_syncp);
--	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
-+	STMMAC_FOREACH_MTL_QUEUE(i, MTL_MAX_TX_QUEUES) {
- 		u64_stats_init(&priv->xstats.txq_stats[i].q_syncp);
- 		u64_stats_init(&priv->xstats.txq_stats[i].napi_syncp);
- 	}
-@@ -7759,9 +7759,9 @@ static int __stmmac_dvr_probe(struct device *device,
- 	priv->sfty_irq = res->sfty_irq;
- 	priv->sfty_ce_irq = res->sfty_ce_irq;
- 	priv->sfty_ue_irq = res->sfty_ue_irq;
--	for (i = 0; i < MTL_MAX_RX_QUEUES; i++)
-+	STMMAC_FOREACH_MTL_QUEUE(i, MTL_MAX_RX_QUEUES)
- 		priv->rx_irq[i] = res->rx_irq[i];
--	for (i = 0; i < MTL_MAX_TX_QUEUES; i++)
-+	STMMAC_FOREACH_MTL_QUEUE(i, MTL_MAX_TX_QUEUES)
- 		priv->tx_irq[i] = res->tx_irq[i];
- 
- 	if (!is_zero_ether_addr(res->mac))
-
--- 
-2.47.0
+Best,
+Nora
 
 
+
+>=20
+> Frank
+> >=20
+> > Fixes: ddabb3ce3f90 ("arm64: dts: freescale: add TQMa8MPQL on MBa8MP-RA=
+S314")
+> > Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+> > ---
+> >  .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts     | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >=20
+> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras3=
+14.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
+> > index b7f69c92b7748..1665a5030b993 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
+> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
+> > @@ -848,8 +848,8 @@ pinctrl_tlv320aic3x04: tlv320aic3x04grp {
+> >  	pinctrl_uart1: uart1grp {
+> >  		fsl,pins =3D <MX8MP_IOMUXC_SAI2_RXFS__UART1_DCE_TX	0x14>,
+> >  			   <MX8MP_IOMUXC_SAI2_RXC__UART1_DCE_RX		0x14>,
+> > -			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DTE_CTS	0x14>,
+> > -			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DTE_RTS	0x14>;
+> > +			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DCE_RTS	0x14>,
+> > +			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DCE_CTS	0x14>;
+> >  	};
+> >=20
+> >  	pinctrl_uart1_gpio: uart1gpiogrp {
+> > --
+> > TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, =
+Germany
+> > Amtsgericht M=C3=BCnchen, HRB 105018
+> > Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan=
+ Schneider
+> > https://www.tq-group.com/
+> >=20
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
