@@ -4,139 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F7D0FCEEBD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 06:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C17D4FCEEBD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 06:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fZcwUUMvwO5DLnt3IW7AtczvrFR+OR7deyThJ22IBGI=; b=jZg0IA5qanp8cSvQ5RJl8rPz5q
-	MgmlYEEuC21dAFAMuA98Js1gOo0xZUhpr4pschpIWUPvODAF63JeYrfqCjy88hq+f1T4BppH63M43
-	SJIGi4wSUk8Qu772l16ozSJ0jCGd8Ea8wBHdukJTTMl9IMoNgiX4jvdnh3I+1GKwOGqcUPdVqHG0W
-	3swBA2XKE5GtBms/3g5AUrLRr9Gar3qM4lk1Xd/LrDbv8K4JUtkwbzw53LfYIolP/q60j3RNodRP/
-	XA39gapqpYAt9cx59xON2xVm0jv6IBmOjP8ExJbwZmWymlHkrnA2arQa26Bcwj3o3C/YE+wGFykY2
-	ZlSq8aew==;
+	bh=SZr1Ou6tY3TudV/DCBYFuPdgoLpFgmS9h0sv4mAVKrk=; b=LqItwvAnKLBNQVCq4w3f/zQ7DR
+	EvTjsDzibwk74FzKQheH+UB2CiAjVVnYmNXSfmFvq5HZUZj18pDiysGePNEESMU+clmOfhyfV92gZ
+	aHIph/c74zeKusS5UdP76Kih1Hq5osbrJNbyetZsBkDgL/tloKec+F38D4rhNSp3VtsgkdNXJtSbN
+	eiThJbwFZ6p2n9fGfNcG4bkc9otlQAoJZPmHzzwOv51TPbdqXZetW1VNg55UHuGSX7tKxntnEOtvm
+	EOINMEvWi+qMFlMkPgpMrhBiWO6cspTSVaxKEXNt1ALcCYo2OABMc9YcpAJAYnsRznOdT86TfweAa
+	iZ38ZITQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvUag-00000005TIz-0Uoe;
-	Thu, 26 Feb 2026 06:11:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vvUc0-00000005TVL-14co;
+	Thu, 26 Feb 2026 06:12:36 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvUaa-00000005TIE-1BAw
+	id 1vvUbw-00000005TU8-2pNV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 06:11:09 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61Q4V4sO2996569
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 06:11:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fZcwUUMvwO5DLnt3IW7AtczvrFR+OR7deyThJ22IBGI=; b=LupWk2SLKG2a8t4I
-	IQbs7u0sx18LrA49yA9nT+w1nBwVUknPzex3aYC8Fe57tn6w5Cx5lLwt60+eU/VB
-	+EtEE77COE0SJBcv4rzWZYYG3XcSMrdoZEOFqNLPtkTBoFDbqZBb1v/a4pv0eDoe
-	okqsE65rqYFZ8GjrxT02mQs7n9csnMJE47iDJidNS4ePKEz6KlyI1Lzpu8FPBVOA
-	PCWwNJCI/8BW2PTHS0Om2aQXeebAEvp+3atdlvXWgQ5WyG9a7oIX/wD77dBb8o++
-	YHLfNxpUKYdiL82Tyz/vmg3ollysQN7LGzhMr5aafLfzuXyevkguhZu/ZU2/yN/1
-	L0CcyQ==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4chyv9k35k-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 06:11:06 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-82739e0f53fso1656028b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 22:11:06 -0800 (PST)
+	Thu, 26 Feb 2026 06:12:34 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-59e5eaa491cso598235e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 22:12:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772086351; cv=none;
+        d=google.com; s=arc-20240605;
+        b=a4bW9ViSrwMp3ymVsNscGJBvPLVtTrVWdspTx2QC/sDEKLV/hIO+hNff+9Cp0lvKsz
+         kAnbSugWBSc/AqQ0dm4ZsnQMEpE0HESJvJnlYW1lTUxzcIfoNWgM2wwQTQcnDE+pTghU
+         +oVB1dyh+BWpFE5cJyhEcf2e9PstRS+MAHZlOylEtaw8v6WhcIbQS2yH6fHSKiijn4GS
+         sgZyr8ttd12X9FndYltXmNds/Zg2czubT4KFlD2lmjlZq7kHt6u4hHrFi+UCEMU4v43k
+         1lKvZM7syjqFUHmbkiWhKqW91NkQVJ87pEaGS2MuvyLJjAHqv3LRgMCkf6+1fYJkgSgX
+         QSXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SZr1Ou6tY3TudV/DCBYFuPdgoLpFgmS9h0sv4mAVKrk=;
+        fh=djrjQMCAhS5+T4wCFf/k/Z3jJJj+lnEfAfv2vW2x5dg=;
+        b=X4NMJXFbHlKK3ROspcl7lOkv8YruqRy7WKohgLRpFoucTlBtm+XkAQmvgrg30ba7Vr
+         OEGQsmlGayKjRhzc6Lal/edmBbl/WHaLQuuJb+m/bsPG1Msb+pSmDB7KxjHoql7dy89n
+         TzUzRr86dCbLdBlmeiOYQeyLBqW7zgsHgwKLmN3XD24xy6s0lbbf40/iEHWTSmFqsTMM
+         BTkVOkjL/rdiMcjrVoI1G4BVFXbvCcFUQ6uAHAfaUAR9IeayQUNWyf14hRdHu5WH6H1v
+         SMab2Akl5hUx9fiQ8o2CqKxZywODn295LQMvBkw7qn32iyU+Pus5fGnY+VnDuv9zzpnS
+         u0Pw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772086266; x=1772691066; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=fZcwUUMvwO5DLnt3IW7AtczvrFR+OR7deyThJ22IBGI=;
-        b=eFEj6qCzDbcki7UUmhRklrEBpNt5L4vJvLuYxFvuzWmM3sVOCMavz6/EHBlmuszRuQ
-         USc2rPy3e3LDh7jcaiy+FThhLJPG3HlLScGP9i8DP0znC85ReTotA6S3eCQ5Zplvz3xk
-         vBNQpZG/abMLbcj7QEzKXSwdVcRirnvWM28a2aiE3LA+FOJEwYz1nA5BSboAyTCAmGhj
-         s2euCklSwPgBPvkHfDBlk38B89tglThgBr3fOp9EeJd7zU25EAC958xtV1l15r3Cv5SW
-         3+nah4/J+v4HV8n6ut5Aq7gtej+uyvXpOmPg8SRt5EyOs7hJJf4+jJ5c4aSk8rGOfkoe
-         PoyA==
+        d=chromium.org; s=google; t=1772086351; x=1772691151; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SZr1Ou6tY3TudV/DCBYFuPdgoLpFgmS9h0sv4mAVKrk=;
+        b=Nyv5LIkvG/63neqAsxNULN80Be262RYNQKad3sJQi3dt+fV4JNUJAe30P9LOUMRZw/
+         jpE8g4Sf7Xf3UUwJxuTCMazUAUBCQ2oqeLn3Be/VNbQBZAES2tp7bp4Eic2xAwsewS+v
+         M+dmxgQ561TtnXbZeuL3W/IGnd55bQQhBs4KE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772086266; x=1772691066;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fZcwUUMvwO5DLnt3IW7AtczvrFR+OR7deyThJ22IBGI=;
-        b=sUGBz01t0twJ0AhutH1hXG5sNob1mNDfViAwij1ZAesYhaU3m/4ud9xoI3Dy2KZM+z
-         r8TGzsFY7Ko5imgoVkApEvlXFdsE1p3llQS80b5kjM8M4Gu9V8CxXvSletIxPshMUEMq
-         YrL28CeXuUCGvj7cCuA9D/KRzhLpJ9XahNsbWXda3rrrD2XrUaKIhTbCVnpizpxWgXUz
-         z3nnCecXcCfbfTaXNgjjFpxc9x4kUqdaX9/DQM+eqx2Rw84NmRZG9KboVgAD3DJ1O249
-         CHHiB9e+P6384Cd+sxZq90Y2DTSo0sa9onaiMcpBzne7caGZU9r/4EcOeYV0io1nHaVr
-         FFUw==
-X-Forwarded-Encrypted: i=1; AJvYcCUhvfEi+6jHY1jc6q7WJbRj6qA6BR/ORokQzoQgizc6LG9k/Kn4iJF/3fRFHDtz14VU+T0mHbyNoNm5tBOREQSm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQx4SRKP3keu0/5Ct1pcGUHax0mHkX5DBB49VOFwEWSHVBp/fu
-	wV7bkYD0i2rtYWX61/xe8j3N4+5ATOjnZvmMbjdHZqz0+BPJBUke8sLVbzsIWR7dHxMXKZrrt/C
-	7VAaAEUNv/2EKnBbsifjM4ed0lJV/ZUfrvB4f2UALxmxQN4GOLzBmHES/QrpKlvUjJM9uJ2laHs
-	X8dA==
-X-Gm-Gg: ATEYQzyQiIeqJZv+APRuDHy3XTI6g+yNQ6vOiAyiPNOqOT8ZIlYqTIxLLySNvyMN0CW
-	DuEQJYUbsqihnZcEdxwsDLy97PIGb3F5SebxTIgtsnDAsBU/vmK6wakZd+ryyeAWhAzI9w+xujq
-	acK/8O0V5hJVJ6x6ngFWXKvQ1QNX15JpUXe1SxjbKeugfmtQYoLtdv095QPgMFI7qziQWaNiyl/
-	qfiWRWQMIU8wj3SEpxBPeEdHHaFN5bvIoo0Sc8Uz3kr2OGEfdeR8RMm5S4tP4pSF0QlfxLaY2Xf
-	CWskYbfSez5oqTM6WmUnarogHT9FDSuzRs+5j9tw5gs0ofPqd47hEvuoyD1XR3LFmdHm9q5scoN
-	E4zheolVhzqiCbpKhLCBIIV88PVSFv5d76c67A5qKXS1y7JQNE1lTyDt6J4FKt94KpccxdbjTyw
-	AldK+I4gIBLA==
-X-Received: by 2002:a05:6a00:2989:b0:81f:61d2:84a7 with SMTP id d2e1a72fcca58-827338f4497mr2725874b3a.59.1772086265993;
-        Wed, 25 Feb 2026 22:11:05 -0800 (PST)
-X-Received: by 2002:a05:6a00:2989:b0:81f:61d2:84a7 with SMTP id d2e1a72fcca58-827338f4497mr2725856b3a.59.1772086265511;
-        Wed, 25 Feb 2026 22:11:05 -0800 (PST)
-Received: from [10.133.33.67] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739ff3722sm1132144b3a.30.2026.02.25.22.11.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Feb 2026 22:11:05 -0800 (PST)
-Message-ID: <c4e8d60d-8342-4556-a65e-5d97040c78bb@oss.qualcomm.com>
-Date: Thu, 26 Feb 2026 14:11:00 +0800
+        d=1e100.net; s=20230601; t=1772086351; x=1772691151;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=SZr1Ou6tY3TudV/DCBYFuPdgoLpFgmS9h0sv4mAVKrk=;
+        b=XGNbwlpmqDH7bZyU3UDCV2EadP5LWmpknBnRvtjrjExbEF90l0C+xtwh0bgG1X+HRU
+         FfLhBdA6lFC1Mgup71HqTNPcHQDnQuYKgoqKqCnXnrNuI0d4gZBYG5h0R64toTJN7M5L
+         pYzblFEC0AWgXXpRRpDdbSjH2KbA/BXUlOy9GWA1vVzy/PtupMcn6brgY2vjLGJP7Bt5
+         lh6HI+yPuJW+CNoP+bUB+PpjFjDLNCTQLQ2CHI43eg8zkX2EXMo2+jd3yn+Nx0wK1RlF
+         +rUNE+3MuZt7AkEmu0zbqeZXoqwkIqqH34WUsRSJQmHgAUc2N1geG/sZGnzwRXY+Hgk/
+         TwsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVR091Ik6wZsQEFywGuFHSLIvR+nmODRXmznT5jDXZ2z/PnVHIFBZAqLp5j3u0ECvtoYcyY4QiY+Itns3qQ89aM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUzfdSWD+vukPkw9rEX6usvj00UOcZRVyOuDB3Vw8Me40nZW1y
+	Gq8MUsezbnFXb+lHElpO8/C6UeCgfj7ivDbZT79Fqw1D8bXsvCptIgfzPnf6E1QGc4lNV/K7AWQ
+	mD9rYQJhKmKK54OBYS0fSJ+EFbNAqQcq6Omx3Xzrv
+X-Gm-Gg: ATEYQzzGKWw+hkOu+L5TE8BDfD3mM/R9JD/Uk/AGXX8Zv5lCmyOBpMnEGMViV0R6Cuh
+	2bqmdWVDPLjpA4HxGbScikgV5Y60UHNcabTjuounNXjAPUJyMx9TvwiotlFiafj4W+tp3qSiTHt
+	i0WbaKLVEsLH9q+OG1DhsUpMtjsk6sBkoUgFMFx5kzqELH/MNALOU8cDvbd4y1MN21jV3ldZoAW
+	GFRAo23fBPMkRZMAZEveRQGToG7CLDC1ROfL/azakCZFb0dJsCzM0rxFhOxFe5xO2K3lvn2hJQq
+	nyCfpf/MAmGFszI5mGY9MK/xnwuGpxVyMzM7fw==
+X-Received: by 2002:a05:6512:3c9f:b0:59e:1a32:376f with SMTP id
+ 2adb3069b0e04-5a0ed88c5a1mr6027586e87.22.1772086350568; Wed, 25 Feb 2026
+ 22:12:30 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 2/7] qcom-tgu: Add TGU driver
-To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
-        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
-        konrad.dybcio@oss.qualcomm.com, suzuki.poulose@arm.com,
-        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
-References: <20260226020454.3210149-1-songwei.chai@oss.qualcomm.com>
- <20260226020454.3210149-3-songwei.chai@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260226020454.3210149-3-songwei.chai@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: z0ArwMdHHo_FHAumS6RayI67SgdEM6x3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDA1MiBTYWx0ZWRfX9Fl7C2JuXQI2
- 2EJbk7SEy6KOsYfsybZMYhMUOueOfOXBzwsXiI5j3BdCMRBI+UXVHkE0fnb5ebj7OKTw2+24VnC
- 9U/lABO9pXENIvu1l7tfhF7DYi3ftvC8o4MQb0pYfPTyLWWcWpNr9zgXTM6rABxvlkurRLbN+j/
- e7WOpfcigunw+ooNTGK2Bn1eAFOtr+IaBNxKzRLOUm6YUzZeirJYYb7fgJc+CTPzS8+oBKBUkQv
- ArwpZpFS4FgrAA4Q+CdPwHqdBxOOtglyEoQKqa7BPQ9zbODcBemmbbQlzL8cBAMQ1af3eCjBtDw
- 02+KxJziL/l/ob7U8TYmEKzv6u9LSdk8WJrw1Um93r03VBpwKaoDgjAERdH4uFTerXb5ysyeusB
- EeONjWM3jk6MCGRSKX4LrNyBSAzxwQvmgpgaVOAE5ZNS3J30hyiEYISUfJIz8VVvEWpoBCLwUHR
- yLx2B140j0UpHsKXNlg==
-X-Authority-Analysis: v=2.4 cv=GZwaXAXL c=1 sm=1 tr=0 ts=699fe3fb cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=EUspDBNiAAAA:8 a=d5xPaorGRswOp7j5N5AA:9 a=QEXdDO2ut3YA:10
- a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-GUID: z0ArwMdHHo_FHAumS6RayI67SgdEM6x3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-25_04,2026-02-25_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 bulkscore=0 impostorscore=0 lowpriorityscore=0
- malwarescore=0 phishscore=0 suspectscore=0 adultscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602260052
+References: <20260225072225.3345307-1-wenst@chromium.org> <knddbvl6qti4pyaphudrmhbx7jm245tsmpa37snk4frtphcuz2@am6aatvc6hbr>
+In-Reply-To: <knddbvl6qti4pyaphudrmhbx7jm245tsmpa37snk4frtphcuz2@am6aatvc6hbr>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 26 Feb 2026 14:12:19 +0800
+X-Gm-Features: AaiRm51hju21fa_yFDX4K_BlO1UHUo4C27fJmxo88iheU3vUI_evoR4nfNhfQUA
+Message-ID: <CAGXv+5FXZPviNSVmrM7-CEkwCQOsYy9PkguBgnzzTrk4wwCqnw@mail.gmail.com>
+Subject: Re: [PATCH 0/7] PCI: mediatek-gen3: add power control support
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Ryder Lee <ryder.lee@mediatek.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_221108_842693_FD4970C1 
-X-CRM114-Status: GOOD (  32.95  )
+X-CRM114-CacheID: sfid-20260225_221232_903853_15E906D2 
+X-CRM114-Status: GOOD (  30.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,352 +119,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Feb 25, 2026 at 9:25=E2=80=AFPM Manivannan Sadhasivam <mani@kernel.=
+org> wrote:
+>
+> On Wed, Feb 25, 2026 at 03:22:17PM +0800, Chen-Yu Tsai wrote:
+> > Hi folks,
+> >
+> > This series adds power control support to the MediaTek PCIe gen3
+> > controller driver. This allows proper modeling of WiFi and NVMe
+> > adapters in the device tree and control over their power supplies.
+> >
+> > Patch 1 through 4 are cleanups and minor improvements to the driver.
+> >
+> > Patch 5 adds power control support using the new pwrctrl API to the
+> > PCIe controller driver.
+> >
+> > Patch 6 adds the WiFi and BT power supplies for the MT8195 Cherry desig=
+n.
+> > This is actually a M.2 E-key slot, but support for that is still WIP [1=
+].
+> > And even with it merged, support for the USB side still needs to be
+> > figured out.
+> >
+> > We can either merge this as is for now, and do another conversion later=
+,
+> > or just keep this one out. However this is still an improvement over
+> > the current device tree, in which the power for the slot is always on
+> > using a pinctrl setting.
+> >
+> > Patch 7 adds the M.2 M-key NVMe slot found on MT8195 Dojo Chromebooks.
+> > This change actually makes use of the M.2 pwrseq driver.
+> >
+>
+> Thanks a lot for doing this! I'll also try to get the Key E support for v=
+7.1.
 
+Ack. I'll try to look into how to hook up USB for Key E.
 
-On 2/26/2026 10:04 AM, Songwei Chai wrote:
-> Add driver to support device TGU (Trigger Generation Unit).
-> TGU is a Data Engine which can be utilized to sense a plurality of
-> signals and create a trigger into the CTI or generate interrupts to
-> processors. Add probe/enable/disable functions for tgu.
-> 
-> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
-> ---
->   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   9 +
->   drivers/Makefile                              |   1 +
->   drivers/hwtracing/Kconfig                     |   2 +
->   drivers/hwtracing/qcom/Kconfig                |  18 ++
->   drivers/hwtracing/qcom/Makefile               |   3 +
->   drivers/hwtracing/qcom/tgu.c                  | 183 ++++++++++++++++++
->   drivers/hwtracing/qcom/tgu.h                  |  51 +++++
->   7 files changed, 267 insertions(+)
->   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
->   create mode 100644 drivers/hwtracing/qcom/Kconfig
->   create mode 100644 drivers/hwtracing/qcom/Makefile
->   create mode 100644 drivers/hwtracing/qcom/tgu.c
->   create mode 100644 drivers/hwtracing/qcom/tgu.h
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> new file mode 100644
-> index 000000000000..184430d88f1c
-> --- /dev/null
-> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> @@ -0,0 +1,9 @@
-> +What:		/sys/bus/amba/devices/<tgu-name>/enable_tgu
-> +Date:		February 2026
-> +KernelVersion	6.20
-
-This patch series should target version 7.1
-
-Thanks,
-Jie
-
-> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-> +Description:
-> +		(RW) Set/Get the enable/disable status of TGU
-> +		Accepts only one of the 2 values -  0 or 1.
-> +		0 : disable TGU.
-> +		1 : enable TGU.
-> diff --git a/drivers/Makefile b/drivers/Makefile
-> index ccc05f1eae3e..9608a3debb1f 100644
-> --- a/drivers/Makefile
-> +++ b/drivers/Makefile
-> @@ -177,6 +177,7 @@ obj-$(CONFIG_RAS)		+= ras/
->   obj-$(CONFIG_USB4)		+= thunderbolt/
->   obj-$(CONFIG_CORESIGHT)		+= hwtracing/coresight/
->   obj-y				+= hwtracing/intel_th/
-> +obj-y				+= hwtracing/qcom/
->   obj-$(CONFIG_STM)		+= hwtracing/stm/
->   obj-$(CONFIG_HISI_PTT)		+= hwtracing/ptt/
->   obj-y				+= android/
-> diff --git a/drivers/hwtracing/Kconfig b/drivers/hwtracing/Kconfig
-> index 911ee977103c..8a640218eed8 100644
-> --- a/drivers/hwtracing/Kconfig
-> +++ b/drivers/hwtracing/Kconfig
-> @@ -7,4 +7,6 @@ source "drivers/hwtracing/intel_th/Kconfig"
->   
->   source "drivers/hwtracing/ptt/Kconfig"
->   
-> +source "drivers/hwtracing/qcom/Kconfig"
-> +
->   endmenu
-> diff --git a/drivers/hwtracing/qcom/Kconfig b/drivers/hwtracing/qcom/Kconfig
-> new file mode 100644
-> index 000000000000..d6f6d4b0f28e
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/Kconfig
-> @@ -0,0 +1,18 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# QCOM specific hwtracing drivers
-> +#
-> +menu "Qualcomm specific hwtracing drivers"
-> +
-> +config QCOM_TGU
-> +	tristate "QCOM Trigger Generation Unit driver"
-> +	help
-> +	  This driver provides support for Trigger Generation Unit that is
-> +	  used to detect patterns or sequences on a given set of signals.
-> +	  TGU is used to monitor a particular bus within a given region to
-> +	  detect illegal transaction sequences or slave responses. It is also
-> +	  used to monitor a data stream to detect protocol violations and to
-> +	  provide a trigger point for centering data around a specific event
-> +	  within the trace data buffer.
-> +
-> +endmenu
-> diff --git a/drivers/hwtracing/qcom/Makefile b/drivers/hwtracing/qcom/Makefile
-> new file mode 100644
-> index 000000000000..5a0a868c1ea0
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/Makefile
-> @@ -0,0 +1,3 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +obj-$(CONFIG_QCOM_TGU) += tgu.o
-> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
-> new file mode 100644
-> index 000000000000..58c19f12f3d7
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/tgu.c
-> @@ -0,0 +1,183 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +#include <linux/amba/bus.h>
-> +#include <linux/device.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/pm_runtime.h>
-> +
-> +#include "tgu.h"
-> +
-> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
-> +{
-> +	TGU_UNLOCK(drvdata->base);
-> +	/* Enable TGU to program the triggers */
-> +	writel(1, drvdata->base + TGU_CONTROL);
-> +	TGU_LOCK(drvdata->base);
-> +}
-> +
-> +static int tgu_enable(struct device *dev)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	if (drvdata->enabled)
-> +		return -EBUSY;
-> +
-> +	tgu_write_all_hw_regs(drvdata);
-> +	drvdata->enabled = true;
-> +
-> +	return 0;
-> +}
-> +
-> +static void tgu_do_disable(struct tgu_drvdata *drvdata)
-> +{
-> +	TGU_UNLOCK(drvdata->base);
-> +	writel(0, drvdata->base + TGU_CONTROL);
-> +	TGU_LOCK(drvdata->base);
-> +
-> +	drvdata->enabled = false;
-> +}
-> +
-> +static void tgu_disable(struct device *dev)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	if (!drvdata->enabled)
-> +		return;
-> +
-> +	tgu_do_disable(drvdata);
-> +}
-> +
-> +static ssize_t enable_tgu_show(struct device *dev,
-> +			       struct device_attribute *attr, char *buf)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +	bool enabled;
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	enabled = drvdata->enabled;
-> +
-> +	return sysfs_emit(buf, "%d\n", !!enabled);
-> +}
-> +
-> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
-> +static ssize_t enable_tgu_store(struct device *dev,
-> +				struct device_attribute *attr,
-> +				const char *buf,
-> +				size_t size)
-> +{
-> +	unsigned long val;
-> +	int ret;
-> +
-> +	ret = kstrtoul(buf, 0, &val);
-> +	if (ret || val > 1)
-> +		return -EINVAL;
-> +
-> +	if (val) {
-> +		ret = pm_runtime_resume_and_get(dev);
-> +		if (ret)
-> +			return ret;
-> +		ret = tgu_enable(dev);
-> +		if (ret) {
-> +			pm_runtime_put(dev);
-> +			return ret;
-> +		}
-> +	} else {
-> +		tgu_disable(dev);
-> +		pm_runtime_put(dev);
-> +	}
-> +
-> +	return size;
-> +}
-> +static DEVICE_ATTR_RW(enable_tgu);
-> +
-> +static struct attribute *tgu_common_attrs[] = {
-> +	&dev_attr_enable_tgu.attr,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group tgu_common_grp = {
-> +	.attrs = tgu_common_attrs,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group *tgu_attr_groups[] = {
-> +	&tgu_common_grp,
-> +	NULL,
-> +};
-> +
-> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
-> +{
-> +	struct device *dev = &adev->dev;
-> +	struct tgu_drvdata *drvdata;
-> +	int ret;
-> +
-> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +	if (!drvdata)
-> +		return -ENOMEM;
-> +
-> +	drvdata->dev = &adev->dev;
-> +	dev_set_drvdata(dev, drvdata);
-> +
-> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
-> +	if (IS_ERR(drvdata->base))
-> +		return PTR_ERR(drvdata->base);
-> +
-> +	spin_lock_init(&drvdata->lock);
-> +
-> +	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
-> +	if (ret) {
-> +		dev_err(dev, "failed to create sysfs groups: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	drvdata->enabled = false;
-> +
-> +	pm_runtime_put(&adev->dev);
-> +
-> +	return 0;
-> +}
-> +
-> +static void tgu_remove(struct amba_device *adev)
-> +{
-> +	struct device *dev = &adev->dev;
-> +
-> +	sysfs_remove_groups(&dev->kobj, tgu_attr_groups);
-> +
-> +	tgu_disable(dev);
-> +}
-> +
-> +static const struct amba_id tgu_ids[] = {
-> +	{
-> +		.id = 0x000f0e00,
-> +		.mask = 0x000fffff,
-> +	},
-> +	{ 0, 0, NULL },
-> +};
-> +
-> +MODULE_DEVICE_TABLE(amba, tgu_ids);
-> +
-> +static struct amba_driver tgu_driver = {
-> +	.drv = {
-> +		.name = "qcom-tgu",
-> +		.suppress_bind_attrs = true,
-> +	},
-> +	.probe = tgu_probe,
-> +	.remove = tgu_remove,
-> +	.id_table = tgu_ids,
-> +};
-> +
-> +module_amba_driver(tgu_driver);
-> +
-> +MODULE_AUTHOR("Songwei Chai <songwei.chai@oss.qualcomm.com>");
-> +MODULE_AUTHOR("Jinlong Mao <jinlong.mao@oss.qualcomm.com>");
-> +MODULE_DESCRIPTION("Qualcomm Trigger Generation Unit driver");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
-> new file mode 100644
-> index 000000000000..dd7533b9d735
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/tgu.h
-> @@ -0,0 +1,51 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +#ifndef _QCOM_TGU_H
-> +#define _QCOM_TGU_H
-> +
-> +/* Register addresses */
-> +#define TGU_CONTROL		0x0000
-> +#define TGU_LAR		0xfb0
-> +#define TGU_UNLOCK_OFFSET	0xc5acce55
-> +
-> +static inline void TGU_LOCK(void __iomem *addr)
-> +{
-> +	do {
-> +		/* Wait for things to settle */
-> +		mb();
-> +		writel_relaxed(0x0, addr + TGU_LAR);
-> +	} while (0);
-> +}
-> +
-> +static inline void TGU_UNLOCK(void __iomem *addr)
-> +{
-> +	do {
-> +		writel_relaxed(TGU_UNLOCK_OFFSET, addr + TGU_LAR);
-> +		/* Make sure everyone has seen this */
-> +		mb();
-> +	} while (0);
-> +}
-> +
-> +/**
-> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit)
-> + * @base: Memory-mapped base address of the TGU device
-> + * @dev: Pointer to the associated device structure
-> + * @lock: Spinlock for handling concurrent access to private data
-> + * @enabled: Flag indicating whether the TGU device is enabled
-> + *
-> + * This structure defines the data associated with a TGU device,
-> + * including its base address, device pointers, clock, spinlock for
-> + * synchronization, trigger data pointers, maximum limits for various
-> + * trigger-related parameters, and enable status.
-> + */
-> +struct tgu_drvdata {
-> +	void __iomem *base;
-> +	struct device *dev;
-> +	spinlock_t lock;
-> +	bool enabled;
-> +};
-> +
-> +#endif
-
+> For the whole series,
+>
+> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+>
+> - Mani
+>
+> >
+> > Please have a look.
+> >
+> >
+> > Thanks
+> > ChenYu
+> >
+> > [1] https://lore.kernel.org/linux-pci/20260224-pci-m2-e-v5-0-dd9b9501d3=
+3c@oss.qualcomm.com/
+> >
+> > Chen-Yu Tsai (7):
+> >   PCI: mediatek-gen3: Clean up mtk_pcie_parse_port() with
+> >     dev_err_probe()
+> >   PCI: mediatek-gen3: Add error path for probe and resume driver
+> >     callbacks
+> >   PCI: mediatek-gen3: Split out device power helpers
+> >   PCI: mediatek-gen3: Disable device if further setup fails
+> >   PCI: mediatek-gen3: Integrate new pwrctrl API
+> >   arm64: dts: mediatek: mt8195-cherry: add WiFi PCIe and BT USB power
+> >     supplies
+> >   arm64: dts: mediatek: mt8195-cherry-dojo: Describe M.2 M-key NVMe slo=
+t
+> >
+> >  .../dts/mediatek/mt8195-cherry-dojo-r1.dts    |  38 ++++
+> >  .../boot/dts/mediatek/mt8195-cherry.dtsi      |  47 +++--
+> >  drivers/pci/controller/pcie-mediatek-gen3.c   | 185 +++++++++++-------
+> >  3 files changed, 183 insertions(+), 87 deletions(-)
+> >
+> > --
+> > 2.53.0.414.gf7e9f6c205-goog
+> >
+>
+> --
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
 
