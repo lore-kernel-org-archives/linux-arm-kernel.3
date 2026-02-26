@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35693FD9E0A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 21:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA1AEFD9E13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 21:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=btF8qW91mxsME8KrhWvG0+GhaJc7/V11Fp+VvD6+sOQ=; b=t4TITnPMlkCnRN5kAmubgAYZb4
-	tDHia/EIWNmyqf7mKqMw1dWrwzsslAdyq+bw5KvkHd7mZ65GzjW6Ki2zNfm+2O7bFFzs7fCzO8LKT
-	3x/Jc8QgKJhYwFTricgaXwRiooQ5KmYz0vndJxXpgg2Du1k/Tl1C9MWL6ENfWuhzqdIVdhm8INWeG
-	9GTke0UHrroG24KFEe1+7r/sU69H6bT6yNOlrFCjDGXwBS8QxogtBjcKC8FGdHjdnH+S06Lkz3IlJ
-	HnMa222wHnZeWG029zfaD5iYrX5gZlAGAbDAXMIaf4XFymjFS7+duAUCA7ffgTJgVKfvulye63kT5
-	9LiV4REQ==;
+	bh=lYcfFZkednrYiZw48JQ5YW4yz9I8kADvaQm8u3bDPig=; b=GfpxH9Y78Lxa+yK9TW4aYKXGnx
+	o3/+gs6dLIsR8tCGrfRT9j3HNJ+4xxVQzjbAWDCNhSrybRW3y/WfXCr1zAgTafWrZYsrUmjAs4apF
+	Z6Tah90kbyenOjv98HZSQ3LO8yI3hoQ1BsWevx8Ivvy1CGu7T6Tkyq/RWzRHKWGgQo87ljIEOpof9
+	EZBgEQF5DUIVUh9CILmnBXxtZv2uDRuiWipg6DKAh5xQik6yArZBuNNhtEUrVwmGdEVdzL2GdwrId
+	nA3oH697+HGkxl7lAr03sh5zJ7mlParG/3wYKtp5V1UdPJPxv3uRjEC1NwFBT1pY5ElN1ZYvtBfdW
+	KnLhE3nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvifX-00000007CzR-1KO6;
-	Thu, 26 Feb 2026 21:13:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvigT-00000007D6I-2mjk;
+	Thu, 26 Feb 2026 21:14:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvifW-00000007CzD-1fhB
+	id 1vvigR-00000007D5r-44DW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 21:13:10 +0000
+	Thu, 26 Feb 2026 21:14:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 79FF6600AE;
-	Thu, 26 Feb 2026 21:13:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFD08C19423;
-	Thu, 26 Feb 2026 21:13:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A49E41B1C;
+	Thu, 26 Feb 2026 21:14:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD30DC116C6;
+	Thu, 26 Feb 2026 21:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772140389;
-	bh=/rAVJCFfsQkvrRdgutCJT5HOojDDScsTy8KhEKFIjJ4=;
+	s=k20201202; t=1772140447;
+	bh=p+nQrqubGpHurZZtPn/aeXXk5EP9EA2Ye/VBiS7O1B4=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=vGXn5u/J304XW4PR0Lx/1Hf7o0M0kmHoP1R6/LShOXfbdH83FaLtbhauldgOIa8hP
-	 hzdfGGLUw3KCXgi++LTqXcioxDKgLIu+vxwggoLItz/slZYUWPUdLjcdfkSiJo54Sa
-	 6Rmgu3RK8OqpB/cm49jxQmUeatTKvm98TKnmGfpgsNNOspwWAWLobwSNFnJT2IjUW1
-	 Tx9tK0s6NQdUCg1MLGvAiDuhzWESVh4VVL/A09NUSKyLFoP1wKlPr2vc34X5p+mebQ
-	 6noDRAtYK3BG0hY+aklFAUGapUt0CHPHBlFg4siet0sXpLUYfpzAYpci+Rk+hTeOt/
-	 4pSlcmsE7lnow==
+	b=IiBoyLAJL/7A6Efk4sZ/y12JwNyLCShAKaVtiZgkMf5gBJ9vWuKVuTXsS1ZF5xvi3
+	 saumJkI6E4CstJQiu+gEeOw6DA3YiXHUfXui3fKuX9qi6iG7yt3Z/S1poo0bJXrnXs
+	 /LaBC2rWj+xdMrHKVBLbfV6ZNU5UzjSOAAWSPX+OHPhlB7Z1glEkEMDEaaaRJNA2Gc
+	 2b4J8Q1FdICKtea8990pQk4OwfojD0OKO+ol0uWLUNKR9z3ImwrsX3ZCFwc8Wv0klx
+	 xWd8BaTPqd4p/JqwtQN/WfvMw7wbcqlYsDGSQYOZNIwy3pdGD1tMFWXK56TmKAt+5l
+	 ln+Ch/diVv5eg==
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
@@ -50,16 +50,21 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  phone-devel@vger.kernel.org, Alexandre Marquet <tb@a-marquet.fr>, 
  Henrik Grimler <henrik@grimler.se>
-In-Reply-To: <20260127-lat3st-staging-v4-0-797469aaaf9d@timmermann.space>
+In-Reply-To: <20260127-lat3st-staging-v4-3-797469aaaf9d@timmermann.space>
 References: <20260127-lat3st-staging-v4-0-797469aaaf9d@timmermann.space>
-Subject: Re: (subset) [PATCH v4 0/3] Add support for exynos5250-manta
- (Google Nexus 10)
-Message-Id: <177214038655.341086.4114348823043257597.b4-ty@kernel.org>
-Date: Thu, 26 Feb 2026 22:13:06 +0100
+ <20260127-lat3st-staging-v4-3-797469aaaf9d@timmermann.space>
+Subject: Re: (subset) [PATCH v4 3/3] ARM: samsung: exynos5250: Allow CPU1
+ to boot
+Message-Id: <177214044450.341643.10542668846868518849.b4-ty@kernel.org>
+Date: Thu, 26 Feb 2026 22:14:04 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260226_131408_029815_DCB86C1F 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,25 +80,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 27 Jan 2026 21:40:55 +0100, Lukas Timmermann wrote:
-> This patch series adds initial support for the google-manta board, known
-> as Google Nexus 10 to users. The device is powered by
-> the Exynos 5250 SoC. The bindings for the notification led are already
-> in the linux-next tree and can be found here:
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/leds/ams,as3668.yaml
+On Tue, 27 Jan 2026 21:40:58 +0100, Lukas Timmermann wrote:
+> The firmware trustzone needs a special call to bring up the secondary
+> cpu core on the Manta board. This seems to be not needed on other
+> exynos5 boards and comes down to the available firmware on
+> a particular board.
 > 
-> The first two patches add the necessary device tree files and
-> bindings, while the last patch makes a small modification to
-> allow CPU1 to boot, as it requires a call to it's underlying firmware.
 > 
-> [...]
 
 Applied, thanks!
 
-[1/3] dt-bindings: ARM: samsung: Add Google Manta (Nexus 10)
-      https://git.kernel.org/krzk/linux/c/1e7e6c6301d529fac07554fbdb215c70c8510f7b
-[2/3] ARM: dts: exynos: Add Google Manta (Nexus 10)
-      https://git.kernel.org/krzk/linux/c/16319efc63cb41abd29337dc0dcfbef723ec1dea
+[3/3] ARM: samsung: exynos5250: Allow CPU1 to boot
+      https://git.kernel.org/krzk/linux/c/32d4b991f25eeffac7568ef51367f924394fbdc5
 
 Best regards,
 -- 
