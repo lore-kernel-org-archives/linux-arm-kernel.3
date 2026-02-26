@@ -4,53 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8ADFCE07F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 13:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA2BFCE081
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 13:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fOC6G5oitZY2VH1tsmRRiibKlfVA1cBXkfWhwNNi5c=; b=OPeQERaiK9jOusbTQ6UgH/LFBk
-	KxnfHpPx+czmABGYIIqGIv56x83FRhzKedwPRwvmHMfYACoBlhVMpBs1EVP2AY07k//kFmUnV/q26
-	HAV2zeZURvtNxA7r8FRqC5AAwGNKqSsbK2kbQ+LFKJp5A9QSJJuouOUggJgFcxt6ik/pUiZeMWBKB
-	mssfBGDObTK2x4zG4mLiQi4GMPWlXn9qGhZkFz48Li5EGdDFahQ1w76+yPbyXwRjWDXZr+14Ne5Mp
-	8ks32TbSmotIwEb9nQjdOkvgSRDPrO/Kk5SREeKyg99qSy1zLGQ98yy5XEI9lZpuWJc9hCuxCaxX2
-	DW+tt+Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LNb+mQSbdCB9yCV0LImWtzw+8jLHryoS04bXgRss/Jg=; b=MGKbTMiq80YONB
+	hQ7yMDGaQqoS3Y8KWWZFKzKo9r+Vunb5BWbaxxDD4fzTV/EOFX+E6mJ9wFps0iFFVcDi2z/tu9opI
+	LZcMbs5Y9b6ybWYgOe4zOfICv6NArFs5RejTvW6FivbjFTlXP4XfoIjjraXDbUyDT82OSIFr/nrSJ
+	LNG8KRdg3wZsWxxtpnEgmj6ZCoXqQZlS69uATKbocfrVUCal4A2IujhEPfAPa+kb6PXunFF8E/LaK
+	J13wVOKHB96ZG4487VktssXxTM9DUn/xu5r0H6J35wLAQf2IP+pRiVC23Gtgxt4hTE+sVw3IaeAgQ
+	z6rpICT+H/T7Z7vHh68A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvbXl-00000006EMB-1MU0;
-	Thu, 26 Feb 2026 13:36:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvbXi-00000006ELn-3Y8g
+	id 1vvbc0-00000006EoH-0y1z;
+	Thu, 26 Feb 2026 13:41:04 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvbbx-00000006EkX-255x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 13:36:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0BD141516;
-	Thu, 26 Feb 2026 05:36:31 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78E083F62B;
-	Thu, 26 Feb 2026 05:36:36 -0800 (PST)
-Message-ID: <282125fe-99b8-4c85-9e6a-808b00ae21de@arm.com>
-Date: Thu, 26 Feb 2026 13:36:35 +0000
+	Thu, 26 Feb 2026 13:41:03 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 05E7A1A14A6;
+	Thu, 26 Feb 2026 14:40:58 +0100 (CET)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id EBD211A2549;
+	Thu, 26 Feb 2026 14:40:57 +0100 (CET)
+Received: from lsv15149.swis.ro-buh01.nxp.com (lsv15149.swis.ro-buh01.nxp.com [10.162.246.145])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 3F2952035B;
+	Thu, 26 Feb 2026 14:40:56 +0100 (CET)
+From: Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
+Subject: [PATCH 0/9] accel: New driver for NXP's Neutron NPU
+Date: Thu, 26 Feb 2026 15:40:39 +0200
+Message-Id: <20260226-neutron-v1-0-46eccb3bb50a@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64: WFxT fixes, take #2
-To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>
-References: <20260226082234.26707-1-maz@kernel.org>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260226082234.26707-1-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFhNoGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDIyMz3bzU0pKi/DzdZBNj01RjyxRDM/M0JaDqgqLUtMwKsEnRsbW1AOD
+ Yn/tZAAAA
+X-Change-ID: 20260226-neutron-c435e39d167f
+To: Oded Gabbay <ogabbay@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+ linaro-mm-sig@lists.linaro.org, Jiwei Fu <jiwei.fu@nxp.com>, 
+ Forrest Shi <xuelin.shi@nxp.com>, Alexandru Taran <alexandru.taran@nxp.com>, 
+ Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772113256; l=3577;
+ i=ruxandra.radulescu@nxp.com; s=20260204; h=from:subject:message-id;
+ bh=/7MY8hy5jQlEhxj9eGiR1iRl0W6znJ9KfDclM2QxDN8=;
+ b=XoBoTREGvNXkcj74Qdwpy1rPE9Srk5uacOSO9MTQQEa59XXxIe2u/tWgmnYx+T7BKj7G+iZtI
+ ZjQy748HLl7D6BMVVeD4pa/vQ8RKwzMN3ApPcTl7A9vLaek1BrNL4df
+X-Developer-Key: i=ruxandra.radulescu@nxp.com; a=ed25519;
+ pk=zoq4b4OYR0c4faAH97xoTxdr6vfR8OvPbS+Cx0XhIBY=
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_053638_955956_66A4A32A 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20260226_054101_821321_552FCFE1 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,47 +87,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Introduce a new accel driver for the Neutron Neural Processing Unit
+(NPU), along with associated dt-bindings and DTS node.
 
-On 2/26/26 08:22, Marc Zyngier wrote:
-> After my previous WFxT fix went in 7.0-rc1 as 29cc0f3aa7c64 ("arm64:
-> Force the use of CNTVCT_EL0 in __delay()"), Ben reported that it isn't
-> playing nice with preemption, due to the use of the timer workaround
-> percpu variable. This series tries to address this, and propose a
-> hopefully better alternative.
-> 
-> That alternative is in the form of a new "virtual counter" accessor,
-> available in the same way arch_timer_read_counter() is, except that it
-> is guaranteed to be the virtual counter. This helper (a function
-> pointer, really) is updated on each CPU boot in the same manner the
-> counter accessor is.
-> 
-> This is then plugged into the __delay() helper, providing the expected
-> guarantees (and resulting in a much nicer code gen).
-> 
-> Patches on top of -rc1.
-> 
-> Marc Zyngier (3):
->   arm64: Fix sampling the "stable" virtual counter in preemptible
->     section
->   clocksource/drivers/arm_arch_timer: Expose a direct accessor for the
->     virtual counter
->   arm64: Convert __delay_cycles() to arch_timer_read_vcounter()
-> 
->  arch/arm64/lib/delay.c               | 5 ++++-
->  drivers/clocksource/arm_arch_timer.c | 5 +++++
->  include/clocksource/arm_arch_timer.h | 1 +
->  3 files changed, 10 insertions(+), 1 deletion(-)
-> 
+The first patch extends the GEM DMA helper APIs to allow bidirectional
+mapping of non-coherent DMA buffers. While not part of the Neutron
+driver, it's a prerequisite allowing us to use the GEM DMA helper.
 
-I checked with just the first patch applied and with all the patchs
-applied. In both case I no longer see the preemption warnings on the s/w
-model FVP Base C with CONFIG_DEBUG_PREEMPT.
+Neutron is a Neural Processing Unit from NXP, providing machine
+learning (ML) acceleration for edge AI applications. Neutron is
+integrated on NXP SoCs such as the i.MX95.
 
-Tested-by: Ben Horgan <ben.horgan@arm.com>
+The NPU consists of the following:
+- RISC-V core running a proprietary firmware
+- One or more Neutron cores, representing the main computation
+  engine performing ML operations
+- Dedicated fast memory (TCM)
+- DMA engine that handles data transfers between DDR and TCM
 
-Thanks,
+The firmware is closed source and distributed as a binary here [1].
 
-Ben
+The Neutron software stack also contains a userspace library [1] and
+a LiteRT custom delegate [2] that allow integration with standard
+LiteRT tools.
+
+[1] https://github.com/nxp-upstream/neutron/tree/upstream
+[2] https://github.com/nxp-imx/tflite-neutron-delegate
+
+Signed-off-by: Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
+---
+Ioana Ciocoi-Radulescu (9):
+      drm/gem-dma: Add flag for bidirectional mapping of non-coherent GEM DMA buffers
+      accel/neutron: Add documentation for NXP Neutron accelerator driver
+      dt-bindings: npu: Add bindings for NXP Neutron
+      accel/neutron: Add driver for NXP Neutron NPU
+      accel/neutron: Add GEM buffer object support
+      accel/neutron: Add mailbox support
+      accel/neutron: Add job submission IOCTL
+      accel/neutron: Add logging support
+      arm64: dts: imx95: Add Neutron node
+
+ Documentation/accel/index.rst                      |   1 +
+ Documentation/accel/neutron/index.rst              |  12 +
+ Documentation/accel/neutron/neutron.rst            | 131 ++++++++
+ .../devicetree/bindings/npu/nxp,imx95-neutron.yaml |  95 ++++++
+ MAINTAINERS                                        |  10 +
+ arch/arm64/boot/dts/freescale/imx95.dtsi           |  28 ++
+ drivers/accel/Kconfig                              |   1 +
+ drivers/accel/Makefile                             |   3 +-
+ drivers/accel/neutron/Kconfig                      |  16 +
+ drivers/accel/neutron/Makefile                     |  12 +
+ drivers/accel/neutron/neutron_debugfs.c            |  34 ++
+ drivers/accel/neutron/neutron_debugfs.h            |  15 +
+ drivers/accel/neutron/neutron_device.c             | 239 ++++++++++++++
+ drivers/accel/neutron/neutron_device.h             | 158 +++++++++
+ drivers/accel/neutron/neutron_driver.c             | 262 +++++++++++++++
+ drivers/accel/neutron/neutron_driver.h             |  16 +
+ drivers/accel/neutron/neutron_gem.c                | 115 +++++++
+ drivers/accel/neutron/neutron_gem.h                |  14 +
+ drivers/accel/neutron/neutron_job.c                | 367 +++++++++++++++++++++
+ drivers/accel/neutron/neutron_job.h                |  45 +++
+ drivers/accel/neutron/neutron_mailbox.c            |  47 +++
+ drivers/accel/neutron/neutron_mailbox.h            |  42 +++
+ drivers/gpu/drm/drm_gem_dma_helper.c               |   6 +-
+ include/drm/drm_gem_dma_helper.h                   |   3 +
+ include/uapi/drm/neutron_accel.h                   | 130 ++++++++
+ 25 files changed, 1799 insertions(+), 3 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260226-neutron-c435e39d167f
+
+Best regards,
+-- 
+Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>
 
 
