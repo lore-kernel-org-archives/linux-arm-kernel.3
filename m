@@ -4,108 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A447F55451
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 06:51:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE32FD461F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 06:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jHCCC02ZmBH5KQgKjITiloZKQo+zCbNByVBk5Q3ZVxU=; b=sES7vDtC507EawkTuOBmKbzkYL
-	szrw5GG/V2eQQvw67IlYyS1eVXPTrsCvPJFSiem/iC0lyjwNOc6q5UvuI6iD0WZ/qTqVaPek6O+mF
-	e8UCBsgO2aHP+DseHEIq/YFqavVLoZJaVcuMW9lOVpYwqpXBzq52sLbCT4cRkdRqoQEhOmhmNw1em
-	u9oZ7Riw/wfY7lpmPvK9nTUxc1hmto7xubT12ulXMzmWHC3nxfTNrIzMaz0FkZsR1jFo2BOjanrQo
-	YuhLrbZ/k7AQgmQl1URA92TwkUhouxWFvUWcLURb9qiOCTIpJmiA/Y2f71P7DByXsed8KgF5Ehtm+
-	BZbkaHaQ==;
+	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zqkIHaA7pn62FNksNMToTkxsGlzJhhwIoAGGjLcJ8gA=; b=FBOojos1Rs2IiqX+hyrSr2xTJx
+	8p20k4yYRuCzbt8Qq9nVokY2+9Q9866oKDbvNHb4dEth1CCuR9ycDRrQwNGut+bd/dz4fRQ5anE/z
+	xUDbEcyVy2HhhU29MSstncZmuK6qEzrP6JW7fyY1P9dtTg2fgepXFioO2yaAGYX90Z3hBAz3ZeOC9
+	H2MxzACzBINsfE/c24XaIKT4n1KFC09wdfmSg4p7sMC0IB60hitMYNMNFXH+eT9lsuGGaMHjncbPA
+	0vrVc7uuM9nbKW6+f+9BgydG1doz42JfSJiB3XWb/8IWYtzQBBEzj9vNjrZtl9BO6yGRBzlUqiWNm
+	qxls3dUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVDu-00000005W4p-0WiF;
-	Thu, 26 Feb 2026 06:51:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvVFH-00000005WFk-2A5P;
+	Thu, 26 Feb 2026 06:53:11 +0000
+Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVDs-00000005W4B-1mv0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 06:51:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 68CB560054;
-	Thu, 26 Feb 2026 06:51:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BE47C19422;
-	Thu, 26 Feb 2026 06:51:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772088703;
-	bh=EPcis5E6dgO1qz3kh+q3w1MutFbztm2Ji2wUIM2JyrY=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=gMO0ncZdCQmwx+IziHQEbmLEfYXdQPx6lgKgAZcoaUNht8UCQztjAFPvO1CS/19qq
-	 FyBYdl3//fxtgBUomEXCdtcY8FEuo640vrNh26GjerbGverHE7JGYesBLa0QQbFNSb
-	 8lmFNoqY0tUOw+/b/+q1vNBTwvc/pB3BULkTabOY18BQ6UqS1jIpqYxbEt1CcAeQmv
-	 P6o9Y99EFRirSUBST4BqPp9DUQsn7rB8Emd5YT6noRstY+bj1z/T0KE2Ipcfzw3AMW
-	 RoV5bRR/6KIHWKEXdcZI5OgHcSEXEu0VJXsks9g6WsmUJscRG0lPHNwFfH5Ok6ZUM7
-	 4lfx+6GeZZ9ww==
-Message-ID: <0c91fa84-dd0e-45bf-9c08-3b374daed7ba@kernel.org>
-Date: Thu, 26 Feb 2026 07:51:38 +0100
+	id 1vvVFD-00000005WFM-1tqq;
+	Thu, 26 Feb 2026 06:53:10 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 5F27740979;
+	Thu, 26 Feb 2026 07:53:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
+	t=1772088784; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=zqkIHaA7pn62FNksNMToTkxsGlzJhhwIoAGGjLcJ8gA=;
+	b=Zk9OF+IHov2lNMm1LlJpQ+E421rW6PaBKSB4aAECaZBi1QwJ6T0okGxcKplJeiAP8NGNQJ
+	VoXNOevH4PJdmmtR/WYU56W7ZLTMwAWY2KdBuzXiMfZqxU/dMKmW2jQ6hR+ewn/i/djT3z
+	rlTHafafFd2oZd9YJ/0HFuO/pPytIkgRqBnSYLV374ekzAEMcsL7fb5TclqA7dVu8eY77N
+	ANfrBDofCZ+TKjC8+TuGu5hHEg/ITN0hOfx51y8m82+8tFmSLWsaUGesJIjzV9YeOMD5rh
+	wbO4O3WNtTYKMl2KO8DAK+ZDPfo1IV3St04+ykiqCfInjJaWFPuUPPqASeu0Zg==
+From: "Dragan Simic" <dsimic@manjaro.org>
+In-Reply-To: <aZ_U0ASjuK2fZi5h@geday>
+Content-Type: text/plain; charset="utf-8"
+References: <8db835ffe384db63ee598a203751b298ad1cc267.1772057799.git.geraldogabriel@gmail.com>
+ <20260226001229.GA3794668@bhelgaas>
+ <aZ-RaBLVfEZA_FxU@geday>
+ <e0aa10e5-ec0a-4d0d-6f71-6797286221cc@manjaro.org> <aZ_U0ASjuK2fZi5h@geday>
+Date: Thu, 26 Feb 2026 07:52:59 +0100
+Cc: "Bjorn Helgaas" <helgaas@kernel.org>, "Shawn Lin" <shawn.lin@rock-chips.com>, "Lorenzo Pieralisi" <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: "Geraldo Nascimento" <geraldogabriel@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64: dts: exynos: gs101: Enable AVS APDO
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Badhri Jagan Sridharan <badhri@google.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Amit Sunil Dhamne <amitsd@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260226061053.2596167-1-badhri@google.com>
- <8eeadb7a-5075-4444-8714-45e589dda47f@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <8eeadb7a-5075-4444-8714-45e589dda47f@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Message-ID: <b760ec8f-b57e-a505-62ef-a8bbc9dd8aac@manjaro.org>
+Subject: =?utf-8?q?Re=3A?= [PATCH v3 2/2] =?utf-8?q?PCI=3A?=
+ =?utf-8?q?_rockchip-host=3A?= comment danger of =?utf-8?q?5=2E0?= GT/s 
+ speed
+User-Agent: SOGoMail 5.12.3
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: None
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_225308_948736_287965C6 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,47 +72,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2026 07:51, Krzysztof Kozlowski wrote:
-> On 26/02/2026 07:10, Badhri Jagan Sridharan wrote:
->> Enable USB PD SPR AVS for gs101 by adding SPR AVS APDO to the sink caps
->> pusblished by gs101.
->>
->> Signed-off-by: Badhri Jagan Sridharan <badhri@google.com>
->> ---
->> Depends-on:https://lore.kernel.org/lkml/20260226055311.2591357-1-badhri@google.com/
-> 
-> Really, how? If it depends on that, it is wrong and cannot be applied.
-> DTS cannot depend on the hardware. NAK.
+On Thursday, February 26, 2026 06:06 CET, Geraldo Nascimento <geraldoga=
+briel@gmail.com> wrote:
+> On Thu, Feb 26, 2026 at 05:52:58AM +0100, Dragan Simic wrote:
+> > I agree about removing the effectively unused code block that handl=
+es
+> > the "link=5Fgen =3D=3D 2" case from pcie-rockchip-host.c, but then =
+please
+> > remove the PCIE=5FCLIENT=5FGEN=5FSEL=5F2 define from pcie-rockchip.=
+h and its
+> > single "link=5Fgen =3D=3D 2" use from pcie-rockchip.c as well.
+>=20
+> Good.
+>=20
+> There's also some code that needs to be dropped from the endpoint
+> driver.
 
-s/hardware/drivers/ obviously...
+Oh indeed, there's a redundant code block that handles a "link=5Fgen =3D=
+=3D 2"
+case in function rockchip=5Fpcie=5Fep=5Flink=5Ftraining().  As a note, =
+a similar
+early check against "link=5Fgen =3D=3D 2" should be added there as well=
+.
 
-> 
->>
->>  arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 1 +
->>  1 file changed, 1 insertion(+)
->>
->> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
->> index 93892adaa679..5a689be61432 100644
->> --- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
->> +++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
->> @@ -174,6 +174,7 @@ connector {
->>  						| PDO_FIXED_HIGHER_CAP
->>  						| PDO_FIXED_DUAL_ROLE))
->>  				     PDO_FIXED(9000, 2200, 0)
->> +				     PDO_SPR_AVS_SNK_APDO(3000, 3000)
->>  				     PDO_PPS_APDO(5000, 11000, 3000)>;
->>  			sink-vdos = <VDO_IDH(1, 1, IDH_PTYPE_PERIPH, 0,
->>  					     IDH_PTYPE_DFP_HOST, 2, 0x18d1)
->>
->> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
->> prerequisite-patch-id: 4dacd8bc550e317d67134d030814765fb9f4c6e1
->> prerequisite-patch-id: e863378fc602b6bee2e9fdd8c568003c00b2a38e
->> prerequisite-patch-id: 202a9e1e9cf27a0b9ff7ebea76eb45cdac2cb581
->> prerequisite-patch-id: f3817c560d0e701d7499fa1fb9ee40d22816c09e
->> prerequisite-patch-id: c071913307a6eaa417d1345485d7a9c165d40834
-> 
-> 5 patches here. This is confusing.
+> > As part of that additional removal, an early check for "link=5Fgen =
+=3D=3D 1"
+> > should be added to function rockchip=5Fpcie=5Finit=5Fport() in pcie=
+-rockchip.c,
+> > because that will become the only "link=5Fgen" value it supports.
+>=20
+> What do you think, should the driver bail out completely if
+> link=5Fgen !=3D 1 or just let it force 2.5 GT/s speed with a warning?
+>=20
+> I tend to go with the latter.
 
-Best regards,
-Krzysztof
+Actually, I'd go with the first option, i.e. bailing out early in funct=
+ion
+rockchip=5Fpcie=5Fhost=5Finit=5Fport() with an error message emitted, b=
+ecause that
+function isn't supposed to define the link parameters.  Thus, if it end=
+s up
+receiving wrong link parameters, the issue lies somewhere else and shou=
+ld
+be fixed at its origin.
+
 
