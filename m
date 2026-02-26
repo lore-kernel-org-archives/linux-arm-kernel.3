@@ -4,111 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41984FD8FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 16:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920A3FD8FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 17:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4rtJDN0QD5O7aAyBkCBa5nhSWzf8i+UFfCGfyhfbtmg=; b=TVgtNSJG1viswm9HQR5UF01XGA
-	YVgrKpGpuDwyk3QWKYYibq2lfslJS5w8Smn5o1otK6s8DTaF72WFa87W3pdtMUrReT6Up1Tz9EgSP
-	BjWQlIthh1ZKA7ubrmtSPDm/NzIVGkjGAidw8GEKAOLlkPVzq/VN1FC3MZWxVADL3UPIH3xDjwZDt
-	dVRsulny1r8cq8MVnB/zsr/HsDnekdguEurU8xs3yishAGwJfXrDawnLbiB1+zCICyclm8LvdsPV8
-	/Q+KWGlLb9eV8WuadmMcu58KuBYglfKThxoIdGxtdrgXK6iKkXl1A7t/KDpJGzcbmBUSGNb3qGD1y
-	Zi3A1SFA==;
+	bh=CVa5IkkLuCLOP6SaUIIu2GgKcNdSp3PWnp6RBiYJrGo=; b=GB7/3tn624Q1Bvxnjh1nYolK59
+	WgAj3ij+9QDuZbvNzrvKV0sVqrxkvwBcnjchMKOQ5lUJkSwMFUY2upux+cyA90TydOSnokPcgCXti
+	TL1lbd+Z0kmYG2/C+MwVWxzL+JgjL5vFfmgaMuLhuurLKEVYO/Qqre57QIxA1g81pdoEzgUfjQAH0
+	UD8RsLbubt6yu7uHV2bJfsiUc72eaULvAiHRvTspShAKG0pAHucrrbdcc/69PvjfO/tGsaQAXfhb5
+	OrdTxGiucVxU/mKpmh+9otCgmP5Hhxk4YbgPLTs/LWW4zBJ/O07CtmKclVOza1jcq7ZrFfZZrs9PQ
+	Gsql8Nog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvedS-00000006mnP-48Fd;
-	Thu, 26 Feb 2026 16:54:47 +0000
-Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
+	id 1vveiz-00000006nV2-2ei5;
+	Thu, 26 Feb 2026 17:00:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvedP-00000006mmz-3rOl
+	id 1vveiw-00000006nUs-49Fs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 16:54:45 +0000
-Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-126ea4e9697so9553c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 08:54:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772124883; cv=none;
-        d=google.com; s=arc-20240605;
-        b=TbqorYzijZ9L0Qj8GILlTFpGyrOSJcVF99ehYqMGwAyNdoQbV6mfDcH+YkEMOlMtHK
-         JnMP/rqLiQ5VmgTXutUiFUs8WM3tI5qMxRGzkBeKT8nbQ+bUDInNnZ6odAukSUzapsRm
-         mVaAIe7bInIShK9PFVXBvf8Gqfuwxw3XU3V6Bq0lT8SqCtGqpgIptDT3QWMoAv7WYTQt
-         iehDzgv0wjQqiZq7CeGFbu8Ki/lfLF/dN5jVHSK4yMayGbS/Chsta6+eDyp9Pq1It01v
-         JBQy4Nj60DAii4rkVX+bktupCVM5KRolqfoT7ja/FQUBrfaKydM+aNz4OhNHrMij312y
-         KuYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=4rtJDN0QD5O7aAyBkCBa5nhSWzf8i+UFfCGfyhfbtmg=;
-        fh=Lk53iMy3lw1I3/beAX78Lj7hY8afDrptKSsxzYFbjlQ=;
-        b=goODMllgJzi4nayv8MI6T/gykmqQHI+v9EU1Q4RKXgf/qAuxutcQuEWmY/q8SNS4Mf
-         0aTgPjx0a7giwchT33sc2I3Oo1Galhf3T5ykrW3V8oNku5Jk/Vtsu6eZC2m5Ghtcvo81
-         bEYNW5EXNu1ooubHOWy9jdQsNZ1xQJR6wXe1JdzbPIYMvVMCQ0KqvJtDZWLT8UqBl2HI
-         fJIg892TdOhT09i+MphW7P8LAmdbjl/VGmjRfYSWxzWOs6G8tXPMvtiB1EoSywkABftQ
-         8SMTplK/lf16WVKYfexYUG+nJgn3LIUS+bDJawZyKVwMrelrJl6Hbml8FYnFZXQgZjfd
-         UViQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772124883; x=1772729683; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4rtJDN0QD5O7aAyBkCBa5nhSWzf8i+UFfCGfyhfbtmg=;
-        b=wSauR34zCwV5TgXTEoxpgK1HKBa5v4hcX4BLCJIJKf5BI39tyYlFSux0EQQO4qDwU4
-         iDmhFkKBcgo3wNrGGXdWiHKXG8YuxsaxMQTFA3Dynnij1cyoAkgS65Z6LOjqSPV2KN+8
-         Cntus9DwUNp+4XWXC4b3w2b9H1nkTol5Wd9SXGoHH+YU+dKeTrihsGSP4qlJbyA2u88t
-         p4aSZwMSC15QtCs7skHmxBFsST6zB6jxmbF6uiTo3S/iKejqSnlwbfOBOfYPnvpR0luG
-         cYHq83ltVjXvwCaRsYTuVw9rz7xK+4oqpP3Mbgrs/JsAFU4Us+OqXFfRulnfabJWe97F
-         ZDwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772124883; x=1772729683;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=4rtJDN0QD5O7aAyBkCBa5nhSWzf8i+UFfCGfyhfbtmg=;
-        b=hl1wyDrP2G9mcXgs1gu6XcjbBuQVNViiV7cff8FZVxi/2J+1k1lhx57UglS2I4ktGd
-         fmNTnqgANbod8M82KxA9gvakzLezHBeZsxg5gUzidke6pRA4wC3xt79/CwjO+7Nz+0SN
-         rc3aD9pXmQiz3Tg7wkkoDUJB9UObK8jJCIoz5hiwbvu1P64DQNG4K7sQwArfpQpJAcx5
-         PoEYGenoqlZxIw3YdgKEaj9Ac9Iqdw2jAZj8ID+S0ys9G7fUNJjYcQG0pN3v+MEIdBHU
-         FjCwmaxB3ozlUPFISm2OOO/wE40LDaMWHvXxHxnJ2ytlOHNPCtam9Pl4UHhj0Yp+M2t5
-         lL6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWp1hDbLNX3UJvwoiPuRVxPG4+g1zQooWj5h9AyccWdaqFUZZcQka9ZYIOfzDxB6jsOAUh8iWt8ae+m0XqrEWW+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxneCxW1HAC4dMLboYMifjWl7iCKNIaxlthIksVA0GHR+OdwjnP
-	aZNBs5YEvkWkP2uVvgcoizgbdEfI0PE9cPKbCCgv7GuMJ8I4SjGRIz6udG19C8xISU4OuCX9x8M
-	j5X2dBKiWTYmab1wyIobu7RXGgywnZAGpaUChLLCV
-X-Gm-Gg: ATEYQzwd7IalbimqnPVzNNVYZ1Obw68/Z4nzZQg19g1LK32Q8G1vUSir9CKcS2W0yGU
-	N6PZjIfD0Em7lyojkrAwQ6pgOjiMUFXBjMG2f1i6HAZkz+DRJiBCdCINZlsy+X681m0eOzF+wAw
-	ozxXxk5nIAemM9NsAXr1FZAa2vOJWo/2zvZpYqtK7ghRCYsB88Y9EUO9p77JS0fwZPEXmzfImZ2
-	EDYITGId/6Qw5oqnbeo8i3uhHwbZ1XKyz26CvuW2XG+hUZ59eKgY5wzxY0eJjonDxu9l76bY57L
-	GkxE3j3F1etyH9huDskfCDw7JkV//YTPyH69
-X-Received: by 2002:a05:7022:a93:b0:11a:b4dc:7773 with SMTP id
- a92af1059eb24-12788f9e86dmr202866c88.12.1772124882303; Thu, 26 Feb 2026
- 08:54:42 -0800 (PST)
+	Thu, 26 Feb 2026 17:00:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 08BCB60142;
+	Thu, 26 Feb 2026 17:00:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C99CBC19424;
+	Thu, 26 Feb 2026 17:00:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772125225;
+	bh=aPzCGCIQjmTLUrBBCKH0eIvQTeL3nHfo/GISdPh85lE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=l7tS8qQ/oHAsfWpWmljJLdHYN5HrFVUuY3vW64SBVbJhNkwdkr5BYdSE/Oq9NSAxq
+	 6QCOiWWJ+sKf33QkvJuPDDB0Ab9wEsc0EljxGFyNnljfndsJVDUXbDHPSdZfdAtg5N
+	 wpdHKtMQvKuNnsvPk2KGPKg0jr468yjo5Y4Cbifk2cBjlYRcu3xIFfiCvV6TuDKGfo
+	 U+vEfL5V3m94mW2yWSeU2NOjXNXnw0uKFWxKonWXaqZnu5K4oxFCK1F5DqIRmO3dOs
+	 j71TsbWtoIISVzFSKPryTLwwJO96qRxwJewDIIPF3eqek4Rytemhz2ygtCiwlCJhHJ
+	 rJNgyOdINA6jw==
+Message-ID: <ec7a65d6-32e2-4b14-9e48-3cd0920b4f2f@kernel.org>
+Date: Thu, 26 Feb 2026 18:00:18 +0100
 MIME-Version: 1.0
-References: <20260226045301.459948-1-irogers@google.com> <20260226045301.459948-7-irogers@google.com>
- <fd7649cf-d436-47ab-a7b9-eb5e915fce05@linux.intel.com>
-In-Reply-To: <fd7649cf-d436-47ab-a7b9-eb5e915fce05@linux.intel.com>
-From: Ian Rogers <irogers@google.com>
-Date: Thu, 26 Feb 2026 08:54:30 -0800
-X-Gm-Features: AaiRm53pNUx05GWj0EESJ8Q5p1ojVkmfoDxCXb6YAlNkCCXM_Kl_64KH1H56iQs
-Message-ID: <CAP-5=fUMXAd5m95qUEe9NoTr8Q655U5050SdG70Gw+P_vvwfig@mail.gmail.com>
-Subject: Re: [PATCH v1 07/10] perf vendor events intel: Update lunarlake
- events from 1.18 to 1.20
-To: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
-	Manivannan Sadhasivam <mani@kernel.org>, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_085444_017755_74ADFFF8 
-X-CRM114-Status: GOOD (  20.61  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/7] dt-bindings: arm: fsl: Add NXP S32N79 SoC and RDB
+ board
+To: Frank Li <Frank.li@nxp.com>
+Cc: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Shawn Guo <shawnguo@kernel.org>,
+ Lucas Stach <l.stach@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, s32@nxp.com,
+ Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
+ Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>
+References: <20260225133858.8026-1-ciprianmarian.costea@oss.nxp.com>
+ <20260225133858.8026-4-ciprianmarian.costea@oss.nxp.com>
+ <20260226-sly-fuzzy-parakeet-ea9fb2@quoll>
+ <aaBkBAvW6mvwoLqX@lizhi-Precision-Tower-5810>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <aaBkBAvW6mvwoLqX@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,423 +128,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 11:20=E2=80=AFPM Mi, Dapeng <dapeng1.mi@linux.intel=
-.com> wrote:
->
-> It seems a typo in the shortlog, it should be meteorlake instead of
-> lunarlake. :)
+On 26/02/2026 16:17, Frank Li wrote:
+> On Thu, Feb 26, 2026 at 08:32:16AM +0100, Krzysztof Kozlowski wrote:
+>> On Wed, Feb 25, 2026 at 02:38:54PM +0100, Ciprian Costea wrote:
+>>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>>
+>>> Add device tree binding documentation for the NXP S32N79 automotive SoC
+>>> and the S32N79 Reference Design Board (S32N79-RDB).
+>>>
+>>> The S32N79 is an automotive-grade SoC featuring eight ARM Cortex-A78AE
+>>> cores organized for high-performance networking and gateway applications
+>>> in vehicles.
+>>>
+>>> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+>>> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+>>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>> ---
+>>>  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+>>>  1 file changed, 6 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+>>> index 5716d701292c..415081423a30 100644
+>>> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+>>> @@ -1827,6 +1827,12 @@ properties:
+>>>                - fsl,s32v234-evb           # S32V234-EVB2 Customer Evaluation Board
+>>>            - const: fsl,s32v234
+>>>
+>>> +      - description: S32N79 based Boards
+>>> +        items:
+>>> +          - enum:
+>>> +              - nxp,s32n79-rdb
+>>> +          - const: nxp,s32n79
+>>
+>> I believe these are ordered by fallback, so s32v > s32n.
+> 
+> Previous use fsl,s32v234, now use nxp,s32n79, I suggest keep consistent
+> with existing one, use fsl,s32n79
+> 
 
-You're right, wil fix in v2.
+Ah, I missed that prefix is different! Well, that I don't mind, it's
+your call which prefix you want.
 
-Thanks,
-Ian
-
->
-> On 2/26/2026 12:52 PM, Ian Rogers wrote:
-> > The updated events were published in:
-> > https://github.com/intel/perfmon/commit/2eebd8e2612a0655e82b88e1d2fab96=
-0315c025b
-> > https://github.com/intel/perfmon/commit/81c4ce2c16f05b839d2c40e8cf183ed=
-110357b73
-> >
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> >  tools/perf/pmu-events/arch/x86/mapfile.csv    |  2 +-
-> >  .../pmu-events/arch/x86/meteorlake/cache.json | 67 ++++++++++++++++---
-> >  .../arch/x86/meteorlake/frontend.json         | 18 +++++
-> >  .../arch/x86/meteorlake/pipeline.json         | 46 +++++++++++--
-> >  4 files changed, 116 insertions(+), 17 deletions(-)
-> >
-> > diff --git a/tools/perf/pmu-events/arch/x86/mapfile.csv b/tools/perf/pm=
-u-events/arch/x86/mapfile.csv
-> > index a2dde3faad5e..8d8fd8b08166 100644
-> > --- a/tools/perf/pmu-events/arch/x86/mapfile.csv
-> > +++ b/tools/perf/pmu-events/arch/x86/mapfile.csv
-> > @@ -23,7 +23,7 @@ GenuineIntel-6-3E,v24,ivytown,core
-> >  GenuineIntel-6-2D,v24,jaketown,core
-> >  GenuineIntel-6-(57|85),v16,knightslanding,core
-> >  GenuineIntel-6-BD,v1.21,lunarlake,core
-> > -GenuineIntel-6-(AA|AC|B5),v1.18,meteorlake,core
-> > +GenuineIntel-6-(AA|AC|B5),v1.20,meteorlake,core
-> >  GenuineIntel-6-1[AEF],v4,nehalemep,core
-> >  GenuineIntel-6-2E,v4,nehalemex,core
-> >  GenuineIntel-6-CC,v1.02,pantherlake,core
-> > diff --git a/tools/perf/pmu-events/arch/x86/meteorlake/cache.json b/too=
-ls/perf/pmu-events/arch/x86/meteorlake/cache.json
-> > index d3fc04b2ffbd..4c1220c19456 100644
-> > --- a/tools/perf/pmu-events/arch/x86/meteorlake/cache.json
-> > +++ b/tools/perf/pmu-events/arch/x86/meteorlake/cache.json
-> > @@ -513,6 +513,15 @@
-> >          "UMask": "0x6",
-> >          "Unit": "cpu_atom"
-> >      },
-> > +    {
-> > +        "BriefDescription": "Counts the number of unhalted cycles when=
- the core is stalled due to an ICACHE or ITLB miss which hit in the LLC, no=
- snoop was required. LLC provides the data. If the core has access to an L3=
- cache, an LLC hit refers to an L3 cache hit, otherwise it counts zeros.",
-> > +        "Counter": "0,1,2,3,4,5,6,7",
-> > +        "EventCode": "0x35",
-> > +        "EventName": "MEM_BOUND_STALLS_IFETCH.LLC_HIT_NOSNOOP",
-> > +        "SampleAfterValue": "1000003",
-> > +        "UMask": "0x2",
-> > +        "Unit": "cpu_atom"
-> > +    },
-> >      {
-> >          "BriefDescription": "Counts the number of unhalted cycles when=
- the core is stalled due to an ICACHE or ITLB miss which missed all the cac=
-hes. If the core has access to an L3 cache, an LLC miss refers to an L3 cac=
-he miss, otherwise it is an L2 cache miss.",
-> >          "Counter": "0,1,2,3,4,5,6,7",
-> > @@ -522,6 +531,15 @@
-> >          "UMask": "0x78",
-> >          "Unit": "cpu_atom"
-> >      },
-> > +    {
-> > +        "BriefDescription": "Counts the number of unhalted cycles when=
- the core is stalled due to an ICACHE or ITLB miss which missed all the cac=
-hes. DRAM, MMIO or other LOCAL memory type provides the data. If the core h=
-as access to an L3 cache, an LLC miss refers to an L3 cache miss, otherwise=
- it is an L2 cache miss.",
-> > +        "Counter": "0,1,2,3,4,5,6,7",
-> > +        "EventCode": "0x35",
-> > +        "EventName": "MEM_BOUND_STALLS_IFETCH.LLC_MISS_LOCALMEM",
-> > +        "SampleAfterValue": "1000003",
-> > +        "UMask": "0x50",
-> > +        "Unit": "cpu_atom"
-> > +    },
-> >      {
-> >          "BriefDescription": "Counts the number of unhalted cycles when=
- the core is stalled due to an L1 demand load miss.",
-> >          "Counter": "0,1,2,3,4,5,6,7",
-> > @@ -559,6 +577,24 @@
-> >          "UMask": "0x6",
-> >          "Unit": "cpu_atom"
-> >      },
-> > +    {
-> > +        "BriefDescription": "Counts the number of unhalted cycles when=
- the core is stalled due to a demand load miss which hit in the LLC, no sno=
-op was required. LLC provides the data. If the core has access to an L3 cac=
-he, an LLC hit refers to an L3 cache hit, otherwise it counts zeros.",
-> > +        "Counter": "0,1,2,3,4,5,6,7",
-> > +        "EventCode": "0x34",
-> > +        "EventName": "MEM_BOUND_STALLS_LOAD.LLC_HIT_NOSNOOP",
-> > +        "SampleAfterValue": "1000003",
-> > +        "UMask": "0x2",
-> > +        "Unit": "cpu_atom"
-> > +    },
-> > +    {
-> > +        "BriefDescription": "Counts the number of unhalted cycles when=
- the core is stalled due to a demand load miss which hit in the LLC, a snoo=
-p was required, the snoop misses or the snoop hits but NO_FWD. LLC provides=
- the data. If the core has access to an L3 cache, an LLC hit refers to an L=
-3 cache hit, otherwise it counts zeros.",
-> > +        "Counter": "0,1,2,3,4,5,6,7",
-> > +        "EventCode": "0x34",
-> > +        "EventName": "MEM_BOUND_STALLS_LOAD.LLC_HIT_SNOOP",
-> > +        "SampleAfterValue": "1000003",
-> > +        "UMask": "0x4",
-> > +        "Unit": "cpu_atom"
-> > +    },
-> >      {
-> >          "BriefDescription": "Counts the number of unhalted cycles when=
- the core is stalled due to a demand load miss which missed all the local c=
-aches. If the core has access to an L3 cache, an LLC miss refers to an L3 c=
-ache miss, otherwise it is an L2 cache miss.",
-> >          "Counter": "0,1,2,3,4,5,6,7",
-> > @@ -568,6 +604,15 @@
-> >          "UMask": "0x78",
-> >          "Unit": "cpu_atom"
-> >      },
-> > +    {
-> > +        "BriefDescription": "Counts the number of unhalted cycles when=
- the core is stalled to a demand load miss and the data was provided from a=
-n unknown source. If the core has access to an L3 cache, an LLC miss refers=
- to an L3 cache miss, otherwise it is an L2 cache miss.",
-> > +        "Counter": "0,1,2,3,4,5,6,7",
-> > +        "EventCode": "0x34",
-> > +        "EventName": "MEM_BOUND_STALLS_LOAD.LLC_MISS_LOCALMEM",
-> > +        "SampleAfterValue": "1000003",
-> > +        "UMask": "0x50",
-> > +        "Unit": "cpu_atom"
-> > +    },
-> >      {
-> >          "BriefDescription": "Counts the number of unhalted cycles when=
- the core is stalled to a store buffer full condition",
-> >          "Counter": "0,1,2,3,4,5,6,7",
-> > @@ -969,7 +1014,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 1024. Only counts with PEBS enabl=
-ed.",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -981,7 +1026,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 128. Only counts with PEBS enable=
-d.",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -993,7 +1038,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 16. Only counts with PEBS enabled=
-.",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -1005,7 +1050,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 2048. Only counts with PEBS enabl=
-ed.",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -1017,7 +1062,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 256. Only counts with PEBS enable=
-d.",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -1029,7 +1074,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 32. Only counts with PEBS enabled=
-.",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -1041,7 +1086,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 4. Only counts with PEBS enabled.=
-",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -1053,7 +1098,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 512. Only counts with PEBS enable=
-d.",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -1065,7 +1110,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 64. Only counts with PEBS enabled=
-.",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -1077,7 +1122,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESH=
-OLD - Only counts with PEBS enabled.",
-> > +        "BriefDescription": "Counts the number of tagged load uops ret=
-ired that exceed the latency threshold of 8. Only counts with PEBS enabled.=
-",
-> >          "Counter": "0,1",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > @@ -1159,7 +1204,7 @@
-> >          "Unit": "cpu_atom"
-> >      },
-> >      {
-> > -        "BriefDescription": "Counts the number of  stores uops retired=
- same as MEM_UOPS_RETIRED.ALL_STORES",
-> > +        "BriefDescription": "Counts the number of stores uops retired.=
-",
-> >          "Counter": "0,1,2,3,4,5,6,7",
-> >          "Data_LA": "1",
-> >          "EventCode": "0xd0",
-> > diff --git a/tools/perf/pmu-events/arch/x86/meteorlake/frontend.json b/=
-tools/perf/pmu-events/arch/x86/meteorlake/frontend.json
-> > index 6484834b1127..dcf8c8e720f3 100644
-> > --- a/tools/perf/pmu-events/arch/x86/meteorlake/frontend.json
-> > +++ b/tools/perf/pmu-events/arch/x86/meteorlake/frontend.json
-> > @@ -430,6 +430,24 @@
-> >          "UMask": "0x4",
-> >          "Unit": "cpu_core"
-> >      },
-> > +    {
-> > +        "BriefDescription": "ICACHE_TAG.STALLS_INUSE",
-> > +        "Counter": "0,1,2,3",
-> > +        "EventCode": "0x83",
-> > +        "EventName": "ICACHE_TAG.STALLS_INUSE",
-> > +        "SampleAfterValue": "200003",
-> > +        "UMask": "0x10",
-> > +        "Unit": "cpu_core"
-> > +    },
-> > +    {
-> > +        "BriefDescription": "ICACHE_TAG.STALLS_ISB",
-> > +        "Counter": "0,1,2,3",
-> > +        "EventCode": "0x83",
-> > +        "EventName": "ICACHE_TAG.STALLS_ISB",
-> > +        "SampleAfterValue": "200003",
-> > +        "UMask": "0x8",
-> > +        "Unit": "cpu_core"
-> > +    },
-> >      {
-> >          "BriefDescription": "Cycles Decode Stream Buffer (DSB) is deli=
-vering any Uop",
-> >          "Counter": "0,1,2,3",
-> > diff --git a/tools/perf/pmu-events/arch/x86/meteorlake/pipeline.json b/=
-tools/perf/pmu-events/arch/x86/meteorlake/pipeline.json
-> > index bfdaabe9377d..7662846745bd 100644
-> > --- a/tools/perf/pmu-events/arch/x86/meteorlake/pipeline.json
-> > +++ b/tools/perf/pmu-events/arch/x86/meteorlake/pipeline.json
-> > @@ -517,7 +517,7 @@
-> >          "Unit": "cpu_core"
-> >      },
-> >      {
-> > -        "BriefDescription": "Fixed Counter: Counts the number of unhal=
-ted core clock cycles",
-> > +        "BriefDescription": "Fixed Counter: Counts the number of unhal=
-ted core clock cycles. [This event is alias to CPU_CLK_UNHALTED.THREAD]",
-> >          "Counter": "Fixed counter 1",
-> >          "EventName": "CPU_CLK_UNHALTED.CORE",
-> >          "SampleAfterValue": "2000003",
-> > @@ -583,7 +583,7 @@
-> >          "Unit": "cpu_core"
-> >      },
-> >      {
-> > -        "BriefDescription": "Fixed Counter: Counts the number of unhal=
-ted reference clock cycles",
-> > +        "BriefDescription": "Fixed Counter: Counts the number of unhal=
-ted reference clock cycles.",
-> >          "Counter": "Fixed counter 2",
-> >          "EventName": "CPU_CLK_UNHALTED.REF_TSC",
-> >          "SampleAfterValue": "2000003",
-> > @@ -620,7 +620,7 @@
-> >          "Unit": "cpu_core"
-> >      },
-> >      {
-> > -        "BriefDescription": "Fixed Counter: Counts the number of unhal=
-ted core clock cycles",
-> > +        "BriefDescription": "Fixed Counter: Counts the number of unhal=
-ted core clock cycles. [This event is alias to CPU_CLK_UNHALTED.CORE]",
-> >          "Counter": "Fixed counter 1",
-> >          "EventName": "CPU_CLK_UNHALTED.THREAD",
-> >          "SampleAfterValue": "2000003",
-> > @@ -804,10 +804,10 @@
-> >          "Unit": "cpu_core"
-> >      },
-> >      {
-> > -        "BriefDescription": "Fixed Counter: Counts the number of instr=
-uctions retired",
-> > +        "BriefDescription": "Fixed Counter: Counts the number of instr=
-uctions retired.",
-> >          "Counter": "Fixed counter 0",
-> >          "EventName": "INST_RETIRED.ANY",
-> > -        "PublicDescription": "Fixed Counter: Counts the number of inst=
-ructions retired Available PDIST counters: 32",
-> > +        "PublicDescription": "Fixed Counter: Counts the number of inst=
-ructions retired. Available PDIST counters: 32",
-> >          "SampleAfterValue": "2000003",
-> >          "UMask": "0x1",
-> >          "Unit": "cpu_atom"
-> > @@ -1207,6 +1207,42 @@
-> >          "UMask": "0x20",
-> >          "Unit": "cpu_core"
-> >      },
-> > +    {
-> > +        "BriefDescription": "Counts the number of CLFLUSH, CLWB, and C=
-LDEMOTE instructions retired.",
-> > +        "Counter": "0,1,2,3,4,5,6,7",
-> > +        "EventCode": "0xe0",
-> > +        "EventName": "MISC_RETIRED1.CL_INST",
-> > +        "SampleAfterValue": "1000003",
-> > +        "UMask": "0xff",
-> > +        "Unit": "cpu_atom"
-> > +    },
-> > +    {
-> > +        "BriefDescription": "Counts the number of LFENCE instructions =
-retired.",
-> > +        "Counter": "0,1,2,3,4,5,6,7",
-> > +        "EventCode": "0xe0",
-> > +        "EventName": "MISC_RETIRED1.LFENCE",
-> > +        "SampleAfterValue": "1000003",
-> > +        "UMask": "0x2",
-> > +        "Unit": "cpu_atom"
-> > +    },
-> > +    {
-> > +        "BriefDescription": "Counts the number of accesses to KeyLocke=
-r cache.",
-> > +        "Counter": "0,1,2,3,4,5,6,7",
-> > +        "EventCode": "0xe1",
-> > +        "EventName": "MISC_RETIRED2.KEYLOCKER_ACCESS",
-> > +        "SampleAfterValue": "1000003",
-> > +        "UMask": "0x10",
-> > +        "Unit": "cpu_atom"
-> > +    },
-> > +    {
-> > +        "BriefDescription": "Counts the number of misses to KeyLocker =
-cache.",
-> > +        "Counter": "0,1,2,3,4,5,6,7",
-> > +        "EventCode": "0xe1",
-> > +        "EventName": "MISC_RETIRED2.KEYLOCKER_MISS",
-> > +        "SampleAfterValue": "1000003",
-> > +        "UMask": "0x11",
-> > +        "Unit": "cpu_atom"
-> > +    },
-> >      {
-> >          "BriefDescription": "Cycles stalled due to no store buffers av=
-ailable. (not including draining form sync).",
-> >          "Counter": "0,1,2,3,4,5,6,7",
+Best regards,
+Krzysztof
 
