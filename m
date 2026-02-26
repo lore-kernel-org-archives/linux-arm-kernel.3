@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93224FD8FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12D9FD8FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 18:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q64LJa1hptSYLaVrmk2INQeLb45gXE4GwXs1wzqq0wE=; b=2hGhquSyy2Yq5KQ602PQ/ZajoH
-	5z+29abjexSs7z+UOk1lj4RLUyRb/mxikT+PFMBwDOcTKFWqwdOFzucxFciOEjYrxvj1V8GDSot5z
-	KZ8/3PJrL/YMOnYsIMbWJ0dtAvNzNckeBK6gzsMX8S9N7Xyht2CRHqNpyaaGMl8745/BUV/Zp2E6S
-	FY4/UV2+A87OhQxvkB+M4xZEh63f0NEvqaYyd3ixHftooT1iX7GPyb/Dm+6+X9cW0GqGC9nbzriwC
-	GwjE08XNqhRKS7jNJZLoYNUrGzrSdKiQO55ODaX1AQYXy5Dc1+43K2UhDkFLfVIq2LGlgHB8VUUk5
-	NPyAF14w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K8Fwf51Mygx0AWGX8r2o9Nphu/I8BQiLR4Do9iJDy5E=; b=lopk5eoq9gOh7vdaNDV8pU0KSe
+	PkmjpEgLG1enzxBiR8EPimMnlFsE9IXXF5bUn3z4zRPZxUl9eWuvmOoVNWV0En854Dk5+fXTTAKHT
+	LiVoQW7V0v870GHntVd1xsOLMs/2lcJN89vo7HEOvlQb/YT0iNvlIB3/gpTsCIJfqffZZz1up26Nr
+	ssReBc68hDHvYyvI8jZZGTSQifkmdukSBAQc2bH6NFkS5uMCYLwcV6NdNG0rO9WvwBZEZ+KeJZPNB
+	b7Mn2CvyAUu2tOfoK70TbDTdoqY3cBawzoKRSu8k4LG7nHJYp+zVH2FpFgzCj4fvad59leTquMEmc
+	4uyc++8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfpO-00000006vWT-0JvY;
-	Thu, 26 Feb 2026 18:11:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vvfqK-00000006vjX-237h;
+	Thu, 26 Feb 2026 18:12:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfpJ-00000006vUM-1eKK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 26 Feb 2026 18:11:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Q64LJa1hptSYLaVrmk2INQeLb45gXE4GwXs1wzqq0wE=; b=Yl0eWQ6NrhwcKdFArO4EpeU9+U
-	OTCe8siBEhT38VTENp5grQzaDFGImkjGbamkaaPIJbBbCmNVwQprzjl0GsvCNdv27fgz0cpq0OAog
-	1ZhrCsoS80yh28k+cTfJCUy8quLw7XcrLRv93JQ+jresiAjIhQyBbjJqfgnXv0zRE8ty9AMj1NVvN
-	d9U+WgUAADaAird1VDEp+diMfi33gvNMdRcKGlWFOWTUMXARK/mdca6S1B93lhe+XerFB468A2F41
-	ysO9tL/IkcYGHyTMRZbKKZsR/IuOSHhzx46zNPRsPtzslR/klx9CmJGXqm7QdSrL3j8FTD1PTnxjo
-	zpNnx4aQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvfpG-0000000BkwA-0ba0
+	id 1vvfqJ-00000006vir-0ag8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 18:11:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA6841762;
-	Thu, 26 Feb 2026 10:10:24 -0800 (PST)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0DC893F73B;
-	Thu, 26 Feb 2026 10:10:29 -0800 (PST)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	catalin.marinas@arm.com,
-	joro@8bytes.org
-Cc: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	daizhiyuan@phytium.com.cn
-Subject: [PATCH 2/3] iommu/arm-smmu-v3: Update Arm errata
-Date: Thu, 26 Feb 2026 18:10:21 +0000
-Message-Id: <06b86c11a4642ee64a7735eca02406e43ee2105f.1772125743.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
-In-Reply-To: <cover.1772125743.git.robin.murphy@arm.com>
-References: <cover.1772125743.git.robin.murphy@arm.com>
+	Thu, 26 Feb 2026 18:12:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 318BC60138;
+	Thu, 26 Feb 2026 18:12:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89C8BC116C6;
+	Thu, 26 Feb 2026 18:12:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772129525;
+	bh=8Cj4mVY38C6nhdFzrjSAka6RCIWO/rW2rKB3wTy3Mrk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uorws0FBPDWAIpjNgZRvwPN30CfVU62ec1xMNL1dXXIixREopcQ7IA/snjB8enMNX
+	 4M4DirIRgsvtXnogsIHu5KoLlilHDfujrSPV9lYQ49i+aFpDu4iAiOBA5V/dleIRNq
+	 /lmx4vsKqbPgFMrjODdA20VP8LqrR+T2yyNXfhnd/Po3TNEFVkD8Ir+5nxFZ+9yBrE
+	 0xk82X6+fhdbtZyFWRbLwIFXGA0S2SLkz8L1rzDYKSyjedMbbXnKwLd9xBRQ1tl0VS
+	 80dTiyvlzr3/O/UZIB+K6Eldt1WeEFvlMr2dxBhsEFIQrUOTDJ+t9zlZext145mnF6
+	 r+u2fReFBZuhg==
+Date: Thu, 26 Feb 2026 10:11:14 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+	KUnit Development <kunit-dev@googlegroups.com>
+Subject: Re: [PATCH 02/12] lib/crypto: tests: Add KUnit tests for NH
+Message-ID: <20260226181114.GD2251@sol>
+References: <20251211011846.8179-1-ebiggers@kernel.org>
+ <20251211011846.8179-3-ebiggers@kernel.org>
+ <CAMuHMdVFRQZXCKJBOBDJtpENvpVO39AxGMUFWVQdM6xKTpnYYw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_181102_607707_D5933A6A 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdVFRQZXCKJBOBDJtpENvpVO39AxGMUFWVQdM6xKTpnYYw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,77 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MMU-700 r1p1 has subsequently fixed some of the errata for which we've
-been applying the workarounds unconditionally, so we can now make those
-conditional. However, there have also been some more new cases
-identified where we must rely on range invalidation commands, and thus
-still nominally avoid DVM being inadvertently enabled.
+On Thu, Feb 26, 2026 at 02:12:38PM +0100, Geert Uytterhoeven wrote:
+> Hi Eric,
+> 
+> On Thu, 11 Dec 2025 at 02:25, Eric Biggers <ebiggers@kernel.org> wrote:
+> > Add some simple KUnit tests for the nh() function.
+> >
+> > These replace the test coverage which will be lost by removing the
+> > nhpoly1305 crypto_shash.
+> >
+> > Note that the NH code also continues to be tested indirectly as well,
+> > via the tests for the "adiantum(xchacha12,aes)" crypto_skcipher.
+> >
+> > Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+> 
+> Thanks for your patch, which is now commit 7246fe6cd64475d8
+> ("lib/crypto: tests: Add KUnit tests for NH") in v7.0-rc1.
+> 
+> > --- a/lib/crypto/tests/Kconfig
+> > +++ b/lib/crypto/tests/Kconfig
+> > @@ -45,10 +45,18 @@ config CRYPTO_LIB_MLDSA_KUNIT_TEST
+> >         select CRYPTO_LIB_BENCHMARK_VISIBLE
+> >         select CRYPTO_LIB_MLDSA
+> >         help
+> >           KUnit tests for the ML-DSA digital signature algorithm.
+> >
+> > +config CRYPTO_LIB_NH_KUNIT_TEST
+> > +       tristate "KUnit tests for NH" if !KUNIT_ALL_TESTS
+> > +       depends on KUNIT
+> > +       default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
+> > +       select CRYPTO_LIB_NH
+> 
+> This select means that enabling KUNIT_ALL_TESTS also enables
+> extra functionality, which may not be desirable in a production system.
+> Fortunately CRYPTO_LIB_NH is tristate, so in the modular case the
+> extra functionality is a module, too, and not part of the running
+> system by default.  Unfortunately CRYPTO_LIB_NH is invisible, so this
+> cannot just be changed from "select" to "depends on".
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- Documentation/arch/arm64/silicon-errata.rst | 10 ++++++++--
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 18 ++++++++++++++----
- 2 files changed, 22 insertions(+), 6 deletions(-)
+I'll probably be changing this, pending the result of the discussion on
+the similar thread about CRYPTO_LIB_MLDSA_KUNIT_TEST:
+https://lore.kernel.org/linux-crypto/20260226180538.GC2251@sol/
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 2e8f57657de7..745ff25f5854 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -212,8 +212,14 @@ stable kernels.
- | ARM            | MMU-600         | #1076982,       | N/A                         |
- |                |                 | #1209401        |                             |
- +----------------+-----------------+-----------------+-----------------------------+
--| ARM            | MMU-700         | #2268618,       | N/A                         |
--|                |                 | #2812531        |                             |
-+| ARM            | MMU-700         | #2133013,       | N/A                         |
-+|                |                 | #2268618,       |                             |
-+|                |                 | #2812531,       |                             |
-+|                |                 | #3777127        |                             |
-++----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | MMU L1          | #3878312        | N/A                         |
-++----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | MMU S3          | #3995052        | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | GIC-700         | #2941627        | ARM64_ERRATUM_2941627       |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 4d00d796f078..3d816c67508d 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4308,6 +4308,8 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- #define IIDR_IMPLEMENTER_ARM		0x43b
- #define IIDR_PRODUCTID_ARM_MMU_600	0x483
- #define IIDR_PRODUCTID_ARM_MMU_700	0x487
-+#define IIDR_PRODUCTID_ARM_MMU_L1	0x48a
-+#define IIDR_PRODUCTID_ARM_MMU_S3	0x498
- 
- static void arm_smmu_device_iidr_probe(struct arm_smmu_device *smmu)
- {
-@@ -4332,11 +4334,19 @@ static void arm_smmu_device_iidr_probe(struct arm_smmu_device *smmu)
- 				smmu->features &= ~ARM_SMMU_FEAT_NESTING;
- 			break;
- 		case IIDR_PRODUCTID_ARM_MMU_700:
--			/* Arm erratum 2812531 */
-+			/* Many errata... */
-+			smmu->features &= ~ARM_SMMU_FEAT_BTM;
-+			if (variant < 1 || revision < 1) {
-+				/* Arm erratum 2812531 */
-+				smmu->options |= ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
-+				/* Arm errata 2268618, 2812531 */
-+				smmu->features &= ~ARM_SMMU_FEAT_NESTING;
-+			}
-+			break;
-+		case IIDR_PRODUCTID_ARM_MMU_L1:
-+		case IIDR_PRODUCTID_ARM_MMU_S3:
-+			/* Arm errata 3878312/3995052 */
- 			smmu->features &= ~ARM_SMMU_FEAT_BTM;
--			smmu->options |= ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
--			/* Arm errata 2268618, 2812531 */
--			smmu->features &= ~ARM_SMMU_FEAT_NESTING;
- 			break;
- 		}
- 		break;
--- 
-2.39.2.101.g768bb238c484.dirty
-
+- Eric
 
