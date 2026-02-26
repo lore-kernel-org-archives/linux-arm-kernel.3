@@ -4,100 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852B1FC592C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D6DFC592C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kUn9csnyj4e4zd3fT0P+1ubmMOmYC1BISsEuxDwjNs4=; b=vX9c4hsqli8828WC3d45bE8H2e
-	rhgW4qmhs/Z79Ef6CXUIkWt1O3TViQ/m/8JLapNglKag4Rc1CBl0HE7IRAkadq5L+JmP402DcnkZR
-	3oY/9TaPwLoVG7ntyL9SFSKKtT6u4lGXsRWQr9BhOkYdt1Hpu+9O9ZJvGBebLXa6d+QCjusIVqA94
-	I2ascrpK8pfoYZ1WSFYkPMikoD7FnKyl7KYFmuLMcZ6cHhs48wnkODetRwnknjhJwFBZk9DPfLkfb
-	AXOWq/rp4SMWo4goHxn4K1k1nvJUXSClzzRopmRZwX5VWK4Xk/Hlh+TaGjFE6O5xTSr06hTwsHn/I
-	XgC5D21g==;
+	bh=btxr9o98t7DQxHYcx6DS5zP8h9rKlh5QB8sgAJtJJsk=; b=ctGR83DU65hwubeHd/waOrUSxL
+	XmTfdAhsGjTT2ODwUdowEmYFJowCUJOxgyp1wTWdrWRJ5NePMWkhBZeKoRu8RoFxQeM8xQXjqDZWL
+	LE4cWljdzyJKcLBlGbgx8MKqPq0FG/ZiFWeFr0wZXLdvwXt8Z+qihsGx4l0e9F8B8bVg4G5oAqCmL
+	17iwnBmPXAq9lNPlly3TpnQ8YauJPadaJxjUFLFdPhQuj5P9yo4woNtoKwt91B6Fm5AAEo/egZV0P
+	9a+eTDyGHjinEiPrAr7KbM+0x3NLoGGhtxcMktZz4JUuQOaK5WV0HwoyE8QzDVR6G/N+/8BcoewqB
+	X2BRQsBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYYO-00000005uAe-23rE;
-	Thu, 26 Feb 2026 10:25:08 +0000
-Received: from mx-relay97-hz1.antispameurope.com ([94.100.132.94])
+	id 1vvZNR-000000061J4-16rR;
+	Thu, 26 Feb 2026 11:17:53 +0000
+Received: from mail-northcentralusazon11013036.outbound.protection.outlook.com ([40.107.201.36] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYYK-00000005u9T-0jxJ
+	id 1vvZNO-000000061HD-2lYt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 10:25:07 +0000
-ARC-Authentication-Results: i=1; mx-gate97-hz1.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=kUn9csnyj4e4zd3fT0P+1ubmMOmYC1BISsEuxDwjNs4=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1772101483;
- b=ZZ4kY1VCe1wsAqgBXMUyMQbIDBG5T4oyGUg8t4Uw5LE8nWprJuHuYSNHfnXUxVs/4A5XV2hy
- YoSa0/X9u5nITcPncKhv//Hted2OO4xeTWCsK65pVOKOgtg8jOtlBXhZiwkRvUVdD/mg8AKO1fQ
- 2lIkG3DkCcxBKpVnBmD46J8gY0WTQRY63RwgwehX278f53rYrfY2MYZrAmQCIxCJEWylqmNJsJv
- 7xjCgkTH9sar6XVD56IUvrKUENw3GeuZi1b0L09x/XSmY7hKTv/4pPODKZubC2H1CvM1JXZ8XQK
- nOlbuZhjkJPXuBhzQZwxG5KyZMCP0O03X2Ix5RFxaDb9w==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1772101483;
- b=P0fI8gM7KKuwRB83M8u7F41PzMPx99as56C16TO1ZdQtTWDZOO/nzP0FIW5rC8YQOh6UzD5w
- S4O3237lxqUPxWZQubOam0UK7DaI9Ek5X42rG0dUSb0pE1BXlgYZ97W1q48RtbxanvvNU0HtBXR
- pITIchhzfW2I5qLeNYzTz5ErtzUv4kJg35YetNSN0l6nc+iwt/L14gF7VaPB6cWqodOUU/nLW/t
- ETDA43sTKyLdz7q4Hwaw57QAI5P1EtFqXWg6tVo6IWq1mPydjKXHVyzdPW3E5KG9KIR72A60+x6
- GN1lH/PjEMfk6zeoMeqpI3EnSwAm+Nal6whWdGIS782Tg==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay97-hz1.antispameurope.com;
- Thu, 26 Feb 2026 11:24:43 +0100
-Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id E9B992205B2;
-	Thu, 26 Feb 2026 11:24:27 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>,
- Tony Lindgren <tony@atomide.com>, linux@ew.tq-group.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- markus.niebel@tq-group.com, matthias.schiffer@tq-group.com
-Subject: Re: [PATCH] ARM: MAINTAINERS: TQ: Orphan TQ Systems boards
-Date: Thu, 26 Feb 2026 11:24:27 +0100
-Message-ID: <2403960.ElGaqSPkdT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260225171135.122955-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260225171135.122955-2-krzysztof.kozlowski@oss.qualcomm.com>
+	Thu, 26 Feb 2026 11:17:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v9NW2wd+bPVa9P2+EIkRm//gSDhmWeYaNHsPLCKf8nv7MiNiPsJbczajIkRAEeS9ISDS3zBolBKEzAQK5cPZL3CwNuPxkOwy1y+pcsIWQ2U+MWdTrKBLPzBQzwBQLHqtKSiLlSgwehwsa33drvl58hGoXyjjfbXjtu1B7rmoDIIuM8eqSoT4xMTIfiEoiyP6fia1Q2cMA641rlp1Jb1ikzFF2aKv11bVpaWkzgkukxDcEenVZMP8XJtCbu9oZS8XdvdXVBxrN/6fIHbvHJIiO5umahbN9KD4G6yF4q+NljRKtmZU7/B+h0SdvLKsUmYrFfcwAE62VJ3nitRMLIfjrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=btxr9o98t7DQxHYcx6DS5zP8h9rKlh5QB8sgAJtJJsk=;
+ b=V/GMi8VqOvonwP107zNEdimfPZKSucOqwATKd+MEAxauW02rJ09gVnuM54UFr4WaZ6NHdeusKEHV6X806n6hXTcLaMSa6Z/1j8QiJ78C+AssDyhYX3C75K7wr95m/Vr2vh4k7NMWx+CSx1s+ZbQLRiLhC9VKycWKKoJbfgl6eW4n60RAw1UKr+rTw6sw1f5O4f3YsBU20i8AyHIx0gJUWrKF/AmHzAvt80H6fbPjiusS53+OlsX0jHqdh70uNm2kUHITsKYiWOosimc7ep9kccLfunShUyub8CCRAJ6pKVlJ2W4eijXT8i9jy1EFKX8SMVHrin/oVqIUbxWffjjXeg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=btxr9o98t7DQxHYcx6DS5zP8h9rKlh5QB8sgAJtJJsk=;
+ b=JxrpU8BmQ9H5A9a+5la38AvHV+SkBZ/Lu6HL2ZM94jMjbatHE6hV9BfoB5QFPScpipHumJRgpAsWeerkhSBacmyM3KqYHFf9Uc7mvde4XwRz2Iah1XlsFfSYEjzJzAkhA1wu+fDGr2GUj/xHtqpuLpnQkCP4Y7ZzVflNh8BVxiEo9ceqDznVyCMH4Mt+yyiDbtq9Jn1VdQG1VmjY+Rca4SAKimL+ifPEw0UcHoMVeZco4sCpYCMcTkynSsNKujuJUOcylaIpRe3NHrrArccYw1vQeBaosWQsiCtf7scg65Ai3c8ky76vUuSPT9GninX2i2A0ANY34mzJPqEP8i0ilw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BN9PR12MB5179.namprd12.prod.outlook.com (2603:10b6:408:11c::18)
+ by MN2PR12MB4358.namprd12.prod.outlook.com (2603:10b6:208:24f::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.23; Thu, 26 Feb
+ 2026 11:17:44 +0000
+Received: from BN9PR12MB5179.namprd12.prod.outlook.com
+ ([fe80::cf08:f59b:d016:c95f]) by BN9PR12MB5179.namprd12.prod.outlook.com
+ ([fe80::cf08:f59b:d016:c95f%6]) with mapi id 15.20.9654.014; Thu, 26 Feb 2026
+ 11:17:44 +0000
+Message-ID: <f52750d7-cb23-4a10-bc87-67232524dd28@nvidia.com>
+Date: Thu, 26 Feb 2026 16:47:33 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: topology: Fix false warning in
+ counters_read_on_cpu() for same-CPU reads
+To: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, catalin.marinas@arm.com,
+ zhanjie9@hisilicon.com, zhenglifeng1@huawei.com, viresh.kumar@linaro.org,
+ rafael@kernel.org, beata.michalska@arm.com, pierre.gondois@arm.com,
+ ionela.voinescu@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org, treding@nvidia.com, jonathanh@nvidia.com,
+ bbasu@nvidia.com, sumitg@nvidia.com
+References: <20260224092714.1242141-1-sumitg@nvidia.com>
+ <86ecma9gb5.wl-maz@kernel.org>
+ <bdd6a7bc-0b7d-405d-99a7-a11eebaf627a@nvidia.com>
+ <aZ90u4HrDh1N7ylK@willie-the-truck>
+Content-Language: en-US
+From: Sumit Gupta <sumitg@nvidia.com>
+In-Reply-To: <aZ90u4HrDh1N7ylK@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0024.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:179::14) To BN9PR12MB5179.namprd12.prod.outlook.com
+ (2603:10b6:408:11c::18)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay97-hz1.antispameurope.com with 4fM6yN64Qkz27lDm
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 5f8ca20172c337f721ff1e894cd67a83
-X-cloud-security: scantime:1.864
-DKIM-Signature: a=rsa-sha256;
- bh=kUn9csnyj4e4zd3fT0P+1ubmMOmYC1BISsEuxDwjNs4=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1772101483; v=1;
- b=o6kugo0D7aCWHVXqBY8k3VJpiM/+GlzwMZyI5Czs1x3cI+Zab3G8qgOGlyGWDhnPi9cVGHX4
- y20FqvMX2vb+Lrp15Akomj+TIrbYZqh5MoaaQwAJaSBJl/Nu2/rUrE4FP/c81S5vkG5s7ttR8XR
- x5Db8ExWSIhBX7+6OlJnlxKoBnVMHuKf9x/6eMsEkADcGBJZagaBsriA0g2ElxwQ2mlCpLlK6OC
- YfrubfoSG63CQ+HwOBNql3md6kPsP66AxprNcdy06duvg125O5ajXnHlL7voPmnoCCTvgICkuid
- g3X8hjG/S2HdonnlSvHFmkFfsZ3z3PjUb1d0iwENK4WpQ==
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN9PR12MB5179:EE_|MN2PR12MB4358:EE_
+X-MS-Office365-Filtering-Correlation-Id: b125da84-f91c-491d-b470-08de7528a96b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: ZNcPJYl+JwwivDNj4MYyBgJje+aLiW4rUTEv2qd5jNRRjW3d33ppPOv5HVKX0/Ed3KJZ8FTVdg7x91B/DexwaXWnhtFC076ke1APQBHpZJZHe5bayJVNS+jdTOMQSuXCIVn0S0EEeSil2JPzIxxco62R6cNDyWROGXQ3nOyQ9mMpcakGJ/P4HQqZ7peJ9s9mInbjsmOwPoTaBb/BZys+Z/mBzXwTdjgosVIOa0GUUzypEnWhd8EgmWWfbT/glOKQNMTrC40kzFG4xuxA1XvCj4n/e572pM+ivT7Aq2+t6ehOL+JHhlJTBptBGwi8VoAThNH1Ad7Ya5ub6xPWKmksyQuHR8wG6Evt0YydCfxSKCcOiGYnK9s0Eb2tBWkoNhXfq3Zmi0ZBwurjLpCuwBTOI8S9hGjHZSWb0tekqjHmyDLZc3tf3zwd0r74tTmEJ8FhGY1QiN9VXWJwfqxOk+ylPIegaolLFVZioL16MHapMaV2ydOn3eMTMJWFg13sSoXnet5hkwqz9Z5yeYP7JlQalvpBtvl34RPRTl+94NPB3RS12PNKdSqx0iQzHPp5TpP/aUR1KlM9cUBu/ucTLTkX+kk7VvrdVaHQ0LyyPKO/BLYv30FdtONH+QjY/326zkiKiV8pUq0sA7PhB6ZlnVvTHqwPMpICDJMa2VsMwgO2YC6jrqOrd/LFnL+FtGKZCYTZh2xuWuCt4FwXRaMTBksXSVCkzQ6LyJ2d8PuO8AKBZfo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR12MB5179.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bk9mL1lCVmJkN0JkZFRoVy83UEx3WXdYMW1vNUpkV0dZanFxdnEzdjRzWC83?=
+ =?utf-8?B?M2taQ0tiZ0VPSjUySnJmanpyZldqb3J6UW9LdnMrTWZveWxmakVWRGlhZGtG?=
+ =?utf-8?B?cXhGaEh6V0VuV21yWDViVTR0b0Y1em8wVmova3VpbXBSMkZ2aE9NVytGb2FL?=
+ =?utf-8?B?ZWsyWlpyWC9DY2JTVkVadE5WNlFwei8vdWlVRUFxeWszZnlZam1IZS9pNVdQ?=
+ =?utf-8?B?c3l3SnBER0dlNEdFMU5EbkRjVVdzUzdIR1FVM09ZNzErbU5TOERwWm1MZHNX?=
+ =?utf-8?B?YjFjdmdrVVBxMmZML2lyN28rMHlpZWlzT2hJYklwNWxUNm1ZRnVxMEd0TXpp?=
+ =?utf-8?B?SU9NWGZVS2E3UzQySmlWek5FNnltbDVVemZtcEE3enhHeVhEWHNBd3ZZUzJM?=
+ =?utf-8?B?T3hXREVleEpNZGlQc3dqb25NZVR2Q29ZQTlmRHZnQldPTnRFdHJIZlFlSVZj?=
+ =?utf-8?B?MEduaGZjcCtlYjZOYlJpSHNkVkVLZXBObW5BdkZwRmpWVloyYTRPaXNXVzBa?=
+ =?utf-8?B?VC9xWFhNNzBRK2R5Ymt2ZnE2Z1NyUXdsUEFkdFJjN1dUQVhpK0FPd0h4WGMy?=
+ =?utf-8?B?Qys2NzZZVDFSL1hkQ0hkNUdvM0pvYjQrd3lvWlY1eWFLcm5tRTJUS05jVmV1?=
+ =?utf-8?B?d0JwdjlkTjVrQlVqWUhrSHBmRlppVXFXT1RrNlU1UXZjandDRjBsNUR1emdt?=
+ =?utf-8?B?ejlYU0xzU2RCQWk1aENxRGdTYWJhVmYxditRSjJCUC8rZ1RqQjNUcG1kLzFV?=
+ =?utf-8?B?dUhnSzBINkVyRHFUN0thdkVNMGxhd0NFbVp5VUUyMURwazZrenI4QkZ0WXVz?=
+ =?utf-8?B?RFM3SHUzeFgzaHpidEdoS09Sa0dMZzdpT1hPdFpVV3BFQWlYWHppbEdkRjZi?=
+ =?utf-8?B?dWhRVEZPZk9pSWJrSUxGTGU5dWVqemFqakx6dkpJTWdZcXFROFloSzlQeUhR?=
+ =?utf-8?B?cXpHUUprSFRPZGVTTFo0ZFJrbUxYQVNrUndIaW9OT0tRc3NXaDluak9pQUJM?=
+ =?utf-8?B?NEhoeE0yTVkvdWFxMGdNeGpxRnhOdWo0TnVqSWNMT0pXeU04elJNeWFLdEc0?=
+ =?utf-8?B?cEY3SGtYMWVObEY4VS9IWGdJNk9vQit1U3JCUEdjK3VQVWRqUjFWR0pMMksr?=
+ =?utf-8?B?N05nc2Y2RFkxcExTcDc5bXBEektZeFJaTmtrall6Z1ZvWk1QR1JPTlMzSGs4?=
+ =?utf-8?B?UE9vZDFUdzVkRTFKUW9iYjhRb29mZHN5R1lGZGNycm1PV2dTbS9RcjY4eXJS?=
+ =?utf-8?B?NkhBd2l1eGxOY3VDKzNVL2xPcGZYQ0V2MW9rNWhKWUdLTUFCQ2ttd3Vyc3I3?=
+ =?utf-8?B?RmJyM0VnVnE4a0k3aERQM3RPSDdCSmljYzR0cjZ3Z05ROHE1Q1RVc1BwYmp0?=
+ =?utf-8?B?VE5tdTQrbVJHRzZrLzBMdjlRcG9WZEJTdVFlbzBoMHVpRGFrck96NE40UUZq?=
+ =?utf-8?B?TEU5alFRVmJZQXdydjN4N3pVMzIrdDZvOTV5YUxHb1dmKzJtV2s5bGhJZitx?=
+ =?utf-8?B?ZFV5Wkh5ckRNWHR0RGZienFlL21maU03Mytob3dsbm45dUZTajhhQTRaRUxv?=
+ =?utf-8?B?MnlnS1lDb3lnL2RBSUt3bThrZEN3TExlSExYTzlYZ2xSOWZpYTFSV04zalRE?=
+ =?utf-8?B?ckNmdENCc1A2SDQxN0NZUk5qaXBadGduZHhuWkltNEdEQWo1NGVmQmZjZXJa?=
+ =?utf-8?B?dDVsRTN4U2dsWWh6Q2ZXYlZjNDlqemU0dFRKOHhFVW5iSks3UW0xSUc0Qkpy?=
+ =?utf-8?B?eFB5U21WOEhOMmUzZVBnZnZTMGpjMUM3cG1ib3VTU2t4aEoyeXJUM0lWODRw?=
+ =?utf-8?B?UGdYOEsyendtbXpzS0NUSEEvTW5Cc3dCc05EYkM4QTR4RlU1bVdhK29ETnU5?=
+ =?utf-8?B?NFIxdTlzQS83aUdHZyt2djNYb29wZFpwNitZazc1N0E2Z3dYanBhUHIrZUg4?=
+ =?utf-8?B?VnI4Y3kyclcwS3ljWVpmOEpjRTR4QnBzMHNIcEEwcjhHUThIR09IS3NLNGdi?=
+ =?utf-8?B?bFI3Zm9SVTE3QVAwcXJPTm5DTTdnTmd5T2tLQWM4UU9XL0dhYXJuVnlUT05x?=
+ =?utf-8?B?QXd5dTFMcnU1c056Y1hwR2hZL1V4WFVDQTl3aFp3T0xKT2l3b0ZkdmtrRXY2?=
+ =?utf-8?B?WGpmaUFFN0tXc3ZrL1IwaGtGQWJpcE9UcktzWjRWMUFSdnptUER1QU56c0dO?=
+ =?utf-8?B?QVpCM0NOV1Nld0hJNU1uaSt3SGtwQ0RPTkdyQWZGVXFJTmxpZXUvTVE5Ui9I?=
+ =?utf-8?B?YTJQODU2NlNBUjVXVDVKend5Z1RqQ2JiUE1HdzJzaFFLNmRIem96MWZ2QmVm?=
+ =?utf-8?B?aUp4NFNYcTZQT0E0VnNYOGtPODljMHE0KzRXdzFpdzJGcVBKL203dz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b125da84-f91c-491d-b470-08de7528a96b
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR12MB5179.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 11:17:43.8688
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: G7NFL8kERkrtdzlC0tJ8oRZ4ygmlp9ZhljmR8sCR0v+gQ2msUNtkTFs1hJBrEylqqwNoWweGctzuhwwqmarT1Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4358
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_022504_469299_D209C1D5 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20260226_031750_711007_FF4FA5FA 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,70 +155,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-Am Mittwoch, 25. Februar 2026, 18:11:36 CET schrieb Krzysztof Kozlowski:
-> Emails to all TQ maintainers bounce for a month or longer, because their
-> systems decided to block smtp.kernel.org.  This is nothing which can be
-> fixed by Linux Foundation IT staff, but aggresive and irresponsible
-> email provider.
->=20
-> There were no answers from linux@ew.tq-group.com or anyone else in TQ
-> Systems after my inquiries about this problem, thus assume the mainline
-> efforts are abandoned.
->=20
->   <Markus.Niebel@tq-group.com>: host mx01.hornetsecurity.com[94.100.132.8=
-] said:
->     554 5.5.4 Your IP address 172.105.4.254 has a bad reputation.
->=20
->   <matthias.schiffer@tq-group.com>: host mx01.hornetsecurity.com[94.100.1=
-32.8]
->     said: 554 5.5.4 Your IP address 172.105.4.254 has a bad reputation.
->=20
->   <alexander.stein@ew.tq-group.com>: host mx01.hornetsecurity.com[94.100.=
-132.8]
->     said: 554 5.5.4 Your IP address 172.105.4.254 has a bad reputation.
->=20
-> Cc: markus.niebel@tq-group.com
-> Cc: matthias.schiffer@tq-group.com
-> Cc: alexander.stein@ew.tq-group.com
-> Cc: linux@ew.tq-group.com
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Thanks for rising this up and sorry for the delay of my response.
-We are still in the process of resolving the mail filter issues.
-
-NACK for the patch though. Our mainline efforts are not abandoned and
-we still support our hardware.
-
-Best regards,
-Alexander
-
-> ---
->  MAINTAINERS | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index faa914a5f34d..f446fb30cf6c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -26781,7 +26781,7 @@ F:	drivers/hwmon/pmbus/tps546d24.c
-> =20
->  TQ SYSTEMS BOARD & DRIVER SUPPORT
->  L:	linux@ew.tq-group.com
-> -S:	Supported
-> +S:	Orphan
->  W:	https://www.tq-group.com/en/products/tq-embedded/
->  F:	arch/arm/boot/dts/nxp/imx/*mba*.dts*
->  F:	arch/arm/boot/dts/nxp/imx/*tqma*.dts*
->=20
+Hi Will,
 
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+On 26/02/26 03:46, Will Deacon wrote:
+> External email: Use caution opening links or attachments
+>
+>
+> On Wed, Feb 25, 2026 at 05:08:03PM +0530, Sumit Gupta wrote:
+>> On 24/02/26 23:25, Marc Zyngier wrote:
+>>> But I'm more concerned by the overall pattern of doing these things in
+>>> random contexts. Going back to the original patch (997c021abc6e) that
+>>> states:
+>>>
+>>> "However, this deferred update mechanism is unnecessary and introduces extra
+>>>    overhead for non-PCC register spaces (e.g. System Memory or FFH), where
+>>>    accessing the regs won't sleep and can be safely performed from the tick
+>>>    context."
+>>>
+>>> Clearly, the AMU registers cannot be arbitrarily accessed without
+>>> blocking when accessed from one CPU to another, so either this
+>>> function is never called in a cross-cpu context (and the warning
+>>> should be removed), or the premises of this change are wrong.
+>>>
+>>> Which one is it?
+>> The function is also called in cross-CPU contexts, but only from
+>> process context (get_rate, sysfs show) with IRQs enabled and
+>> calling smp_call_function_single() is safe. In the tick path,
+>> cppc_scale_freq_tick() uses per_cpu(cppc_freq_inv, smp_processor_id()).
+>> So we always read the current CPU's counters and no cross-CPU access.
+>>
+>> The premise of 997c021abc6e applies to same-CPU accesses only:
+>> Reading the local CPU's AMU regs does not sleep and is safe from
+>> tick context.
+>> The irqs_disabled() WARN is still needed to guard against unsafe
+>> cross-CPU calls. This also returns '-EPERM' unlike the WARN inside
+>> smp_call_function_single(). So we fail instead of risking deadlock.
+> Hmm, so why isn't this structured such as:
+>
+>          if (irqs_disabled()) {
+>                  /* XXX: Explain the tick case */
+>                  if (WARN_ON_ONCE(cpu != smp_processor_id()))
+>                          return -EPERM;
+>                  func(val);
+>          } else {
+>                  smp_call_function_single(cpu, func, val, 1);
+>          }
+>
+>          return 0;
+>
+> That way, the irqs-enabled case remains the same and doesn't need to
+> mess with preemption.
+>
+> Will
+
+I will do the change in v3 as suggested.
+
+
+Thankyou
+Sumit Gupta
 
 
 
