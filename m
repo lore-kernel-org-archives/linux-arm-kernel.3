@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4583FFD9E02
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 19:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96A6FD9E0C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 19:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ln/7jOAd0mq+qmA6pTYKQmtpks7jHYiU+Gg/M2EOX0w=; b=VNMzmtTiWmBKJ2+9LA7FM1sxqk
-	WsxSqEhMWCTEaHdhGYlkZgFf79GfCSbmsNClplrlnTKmzZnu2OwwgW/oAIu7h+0yzcOE9AoKVTRzT
-	rAisLnnJzawdClY4yKiqzt6Slar5fFMW7vfy7ZaRtsoWO25wkobgCvTtF8ex5v52QMgKC0qhbjL46
-	caXOoeosT1KyP494yzisVcGLMgaOFdN49SL9tCnT+Q0hPIIVkNL228Pime9aJhaMiVFjEUrwjve78
-	7XSd/pCfZkZjSxZECNb1dOrPmaqQ/p4ecSzGq9dyYucKJ1YSH8HDyYqAfmE5GTu6Tw2/ppF+hQVBG
-	oKpR8Uhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Htt6VCrCH3vnq7s4qMqPAlg58/6Hv1w1mILXYmV4QWQ=; b=rT6pxe+TPDUnMAsqz7hwhpaz7y
+	DOb9sWJW84gyvtKy6iDnhS6e0IONwz//Zf+Smyj9E4TDxCWHVCjg+KrzwawZJI1HUuw0cx6/EOWfG
+	o02ZdnWptHx873OfcU0PV7k/pSNsPO/eyyW/8FFQk6twFtwTDd4rK49Tt0l7rM8WD47IIZaxHlHt9
+	JmKypmVoCwtBtJ0CYIIEcrm13BSSGRpQQH1eJFi0fpCITZVIaLGw2zlkkmtRzhWUqdtz6Q6xNOd08
+	vpDVVnZYRFwibmx9dDBxIjc8v4arW2qwbKg74KYGI98jipzTlJHlhCU0XhFRXZKNs5RzHEtCidF+v
+	ggNDn5Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvhBp-000000075rm-07kM;
-	Thu, 26 Feb 2026 19:38:25 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1vvhIY-000000076F3-1zTX;
+	Thu, 26 Feb 2026 19:45:24 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvhBm-000000075qI-0KWX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 19:38:23 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5a1086f63c8so1118632e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 11:38:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772134699; x=1772739499; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ln/7jOAd0mq+qmA6pTYKQmtpks7jHYiU+Gg/M2EOX0w=;
-        b=auILZwS7GVh6gXbzR7D9GFjsosxtwSafJuZGGmGaJQ0rUBDOY+oghJIEAJBfUs2nUp
-         6yLfwaQ4v72QQ2gjGuVWO30C6AFIgy0ON+tt13yrfs1zkanY5SAO6Gzk54O8663/bJfl
-         mA3ZbKKiDLRCrGDduOgIDflTYbz9v0ukZwGbwV84IqytOi92iOf+qFynuJfKsbZeO0GM
-         fXzqlhklfj/wAziemOhZXzZNigDShaCCQJmTJnKK2d83YJTA00ut1BTzO/iyg1U3pNHw
-         NhP+XB3CxKvRewSVtXsVFUwei/+ercWJY9ftZaR9xEP/OiRmN/6dnTa+kEBsMU/QRZkt
-         ENFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772134699; x=1772739499;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ln/7jOAd0mq+qmA6pTYKQmtpks7jHYiU+Gg/M2EOX0w=;
-        b=F4brf6oYWaBHLLyYi0OlJ6xH0exMN3vX43Bhwa/noZxAckJ7Yyg/4RLKBKGIw2P3MA
-         FRNa8N/UhlNusz1yiGWX64PXIYgxRM5ggn0UQ8mDSuz7pKCGqDPCdJvyLFrOWiHivwDs
-         Z7AB8VoDQEEAnNJJHmUJzMdlSHGBvGu2sY4WEBZOw108kDlF/cI+0bd9Do41azag46mY
-         wCKqf7aiANcDTdAJ64Rzbo4VRcT4eR9K5+7h/9fWW0z5+LDARJjyRHJ2RD29NRHRxPDX
-         JJpMYiSLd5PU7Wn465ZECfq/miS348R4P8Ns4rhmgNMbvHEDmqQWObRIz1HPj4Mwyx7U
-         JpPg==
-X-Forwarded-Encrypted: i=1; AJvYcCXKz2vW50YWp5Y1pMHTYvkYEy338N+VN1h6VkyA+THHOc858OZ0OoVUGtJ+3iR1y99CuqvkLiezCvi+eCZZOggh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzx0AzKUH78MtBASuMOF1Qr0e0qjm/0ylL+6jigNoEVaMi+YFMa
-	QsgYw93uSPbaKUvrlvciYVteUYIII9c7kjtGvN7k17SBi1Ly+I0ZBzTH
-X-Gm-Gg: ATEYQzz2Lc3g2/sX5I3vd817VKAFVUHtJksfEzY3vrE7SPIRnjVaFSvuOATonQ17aYl
-	OMKoaHfHZmMsFg6dDMp48N/fQh1EypHK3W61QCKwk5BQ1Jn4BXf45JyOjQehojfOYvED8wOQj2P
-	eENlYSJwhCQBYZUDG0ukSGTbFDW9LUyWpAtoaAn+m8j6EbZR+/1zrUW7muOUXg3a6Xj9yCe+ew1
-	b1FKW9CUcdKsKoo2WZdCz4AcDBjGvdzAzb29Ydb0xTc2nGiK8e2ueya4XwhJLN1YohNS6ap0MYo
-	RtVbRz3TGKMBrMTXwMHz/dp56xQnIdPMwGZjihSyBeEZYoPIsJUinYgXCeIpKH6crUJL4DkrSmG
-	nzziEDy8Y7taGJpqRtwPlRt1XVderz7rpz+AgUbDVIb8HhNqYHBcgN01oYkJDqc+2GqQbfnxtMl
-	jKGKxCMEj2Q3c+95kPFyQsBJZJoryILRrhUtrglTqT1sXX6mwYr/q2aEZvknxmJ4v2va8+Qrw=
-X-Received: by 2002:ac2:4f0d:0:b0:59e:5fc4:26b2 with SMTP id 2adb3069b0e04-5a10ff299f2mr101372e87.0.1772134698984;
-        Thu, 26 Feb 2026 11:38:18 -0800 (PST)
-Received: from [10.0.0.100] (host-185-69-74-59.kaisa-laajakaista.fi. [185.69.74.59])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a10ff4341asm122617e87.39.2026.02.26.11.38.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Feb 2026 11:38:17 -0800 (PST)
-Message-ID: <5c70a8d7-9215-46d3-bcd4-0837597fdda7@gmail.com>
-Date: Thu, 26 Feb 2026 21:39:44 +0200
+	id 1vvhIV-000000076Eg-0nAX;
+	Thu, 26 Feb 2026 19:45:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772135116;
+	bh=Htt6VCrCH3vnq7s4qMqPAlg58/6Hv1w1mILXYmV4QWQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=WgS5S/ZO7TSdqprtgR6bQsf4WDSFyI3gKW842oS+BDmb2aSoxhJ8bHRhe7gYSgD48
+	 P9fRWTgB/6xaMAdt5rahzBB/Q6xzvZxKl9VNzettz97gPfSLwzFR6z4wlJeVhuJlUD
+	 exJiPc/iFvlVB+sHms6+1RIf3D18aDqy330yz6+b2LFpDyvj/3FYjbjM5Q+RYSMySg
+	 pIIj4sxpAD+QgtbpegyP9PUelLixra7m5Xjk+6M69sXi3md49fMZaZXlIu7JXHkRtN
+	 tQUTUbm84a+z+MfeHpVtHkpbn73TY3IK1ygZN5rZpJDDtbMbJ3CDzAD2oCukD8EWt6
+	 AZLkzEIWDFuLg==
+Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AFEED17E0948;
+	Thu, 26 Feb 2026 20:45:13 +0100 (CET)
+Message-ID: <429f3c7aa22eccffedbf8db6aa91bee3dd13814a.camel@collabora.com>
+Subject: Re: [PATCH v4 1/3] media: dt-bindings: rockchip,vdec: Add
+ alternative reg-names order for RK35{76,88}
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Conor Dooley <conor@kernel.org>, Cristian Ciocaltea
+	 <cristian.ciocaltea@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Detlev Casanova	 <detlev.casanova@collabora.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>,  Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>,
+ kernel@collabora.com, 	devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Conor Dooley	 <conor.dooley@microchip.com>,
+ linux-media@vger.kernel.org
+Date: Thu, 26 Feb 2026 14:45:11 -0500
+In-Reply-To: <20260226-salute-threaten-a3eabb232396@spud>
+References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
+	 <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
+	 <20260226-salute-threaten-a3eabb232396@spud>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-6UGd8Ri2+YJO1QGD5T1b"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 15/18] dmaengine: ti: k3-udma-v2: New driver for K3
- BCDMA_V2
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, vkoul@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
- ssantosh@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- vigneshr@ti.com, Frank.li@nxp.com
-Cc: r-sharma3@ti.com, gehariprasath@ti.com
-References: <20260218095243.2832115-1-s-adivi@ti.com>
- <20260218095243.2832115-16-s-adivi@ti.com>
-From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>
-Content-Language: en-US
-In-Reply-To: <20260218095243.2832115-16-s-adivi@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_113822_175899_B1C7AAA6 
-X-CRM114-Status: GOOD (  33.58  )
+X-CRM114-CacheID: sfid-20260226_114519_437602_0E6E09B1 
+X-CRM114-Status: GOOD (  34.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,274 +99,144 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--=-6UGd8Ri2+YJO1QGD5T1b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 18/02/2026 11:52, Sai Sree Kartheek Adivi wrote:
-> Add support for BCDMA_V2.
-> 
-> The BCDMA_V2 is different than the existing BCDMA supported by the
-> k3-udma driver.
-> 
-> The changes in BCDMA_V2 are:
-> - Autopair: There is no longer a need for PSIL pair and AUTOPAIR bit
->   needs to set in the RT_CTL register.
-> - Static channel mapping: Each channel is mapped to a single peripheral.
-> - Direct IRQs: There is no INT-A and interrupt lines from DMA are
->   directly connected to GIC.
-> - Remote side configuration handled by DMA. So no need to write to PEER
->   registers to START / STOP / PAUSE / TEARDOWN.
-> - Unified Channel Space: Tx and Rx channels share a single register
->   space. Each channel index is specifically fixed in hardware as either
->   Tx or Rx in an interleaved manner.
-> 
-> Also, since a version member is introduced in the match_data, Add
-> version v1 in match_data of SoCs using v1 DMA.
-> 
-> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-> ---
->  drivers/dma/ti/Kconfig            |   14 +-
->  drivers/dma/ti/Makefile           |    1 +
->  drivers/dma/ti/k3-udma-common.c   |   86 +-
->  drivers/dma/ti/k3-udma-v2.c       | 1283 +++++++++++++++++++++++++++++
->  drivers/dma/ti/k3-udma.c          |    9 +
->  drivers/dma/ti/k3-udma.h          |  121 +--
->  include/linux/soc/ti/k3-ringacc.h |    3 +
->  7 files changed, 1446 insertions(+), 71 deletions(-)
->  create mode 100644 drivers/dma/ti/k3-udma-v2.c
-> 
-> diff --git a/drivers/dma/ti/Kconfig b/drivers/dma/ti/Kconfig
-> index 712e456015459..40713bd1e8e9b 100644
-> --- a/drivers/dma/ti/Kconfig
-> +++ b/drivers/dma/ti/Kconfig
-> @@ -49,6 +49,18 @@ config TI_K3_UDMA
->  	  Enable support for the TI UDMA (Unified DMA) controller. This
->  	  DMA engine is used in AM65x and j721e.
->  
-> +config TI_K3_UDMA_V2
-> +	tristate "Texas Instruments K3 UDMA v2 support"
-> +	depends on ARCH_K3
-> +	select DMA_ENGINE
-> +	select DMA_VIRTUAL_CHANNELS
-> +	select TI_K3_UDMA_COMMON
-> +	select TI_K3_RINGACC
-> +	select TI_K3_PSIL
-> +        help
-> +	  Enable support for the TI UDMA (Unified DMA) v2 controller. This
-> +	  DMA engine is used in AM62L.
-> +
->  config TI_K3_UDMA_COMMON
->  	tristate
->  	default n
-> @@ -63,7 +75,7 @@ config TI_K3_UDMA_GLUE_LAYER
->  
->  config TI_K3_PSIL
->         tristate
-> -       default TI_K3_UDMA
-> +       default TI_K3_UDMA || TI_K3_UDMA_V2
->  
->  config TI_DMA_CROSSBAR
->  	bool
-> diff --git a/drivers/dma/ti/Makefile b/drivers/dma/ti/Makefile
-> index 41bfba944dc6c..296aa3421e71b 100644
-> --- a/drivers/dma/ti/Makefile
-> +++ b/drivers/dma/ti/Makefile
-> @@ -3,6 +3,7 @@ obj-$(CONFIG_TI_CPPI41) += cppi41.o
->  obj-$(CONFIG_TI_EDMA) += edma.o
->  obj-$(CONFIG_DMA_OMAP) += omap-dma.o
->  obj-$(CONFIG_TI_K3_UDMA) += k3-udma.o
-> +obj-$(CONFIG_TI_K3_UDMA_V2) += k3-udma-v2.o
->  obj-$(CONFIG_TI_K3_UDMA_COMMON) += k3-udma-common.o
->  obj-$(CONFIG_TI_K3_UDMA_GLUE_LAYER) += k3-udma-glue.o
->  k3-psil-lib-objs := k3-psil.o \
-> diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
-> index 0ffc6becc402e..ff2b0353515ee 100644
-> --- a/drivers/dma/ti/k3-udma-common.c
-> +++ b/drivers/dma/ti/k3-udma-common.c
-> @@ -171,8 +171,13 @@ bool udma_is_desc_really_done(struct udma_chan *uc, struct udma_desc *d)
->  	    uc->config.dir != DMA_MEM_TO_DEV || !(uc->config.tx_flags & DMA_PREP_INTERRUPT))
->  		return true;
->  
-> -	peer_bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_PEER_BCNT_REG);
-> -	bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
-> +	if (uc->ud->match_data->version == K3_UDMA_V2) {
+Le jeudi 26 f=C3=A9vrier 2026 =C3=A0 18:43 +0000, Conor Dooley a =C3=A9crit=
+=C2=A0:
+> On Thu, Feb 26, 2026 at 12:46:53PM +0200, Cristian Ciocaltea wrote:
+> > With the introduction of the RK3588 SoC, and RK3576 afterwards, two mor=
+e
+> > register blocks have been provided for the video decoder unit.
+> >=20
+> > However, the binding does not properly describe the new hardware layout=
+,
+> > as it breaks the convention expecting the unit address to indicate the
+> > start of the first register range, i.e. 'function' block is listed
+> > before 'link' instead of the opposite.
+>=20
+> I don't understand this commit message or rationale for an ABI break.
+> Changing the unit address seems like a "free" fix to your problem,
+> especially when reg-names is not a required property that you can rely
+> on. Actually, there may be a bug in the driver - it expects reg-names
+> for rk3576-vdec and rk3588-vdec but the binding doesn't mandate their
+> presence for those devices.
 
-Consider to start with V1? V3 might be similar to V2 and you save on
-churn in the future?
+If the bindings had been held instead of released early, the order would be=
+ what
+is done in this patch for sure, and no one would have complained. These bin=
+ding
+have never been used by anyone so far, and what you are asking is to create=
+ a
+DTS that deviate from the vendor provided documentation for the IP base add=
+ress.
+I know you have all technical fancy reasoning, but I like when things are
+functional and effective to work with.
 
-Same comment for other version checks.
+>=20
+> Deprecating the order also makes little sense to me, given that some of
+> these devices only have one reg entry, which as far as I can tell from
+> looking at the driver *is* the "function" region, so it can never be
+> entirely deprecated.
 
-> +		peer_bcnt = udma_chanrt_read(uc, UDMA_CHAN_RT_PERIPH_BCNT_REG);
-> +		bcnt = udma_chanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
-> +	} else {
-> +		peer_bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_PEER_BCNT_REG);
-> +		bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
-> +	}
->  
->  	/* Transfer is incomplete, store current residue and time stamp */
->  	if (peer_bcnt < bcnt) {
-> @@ -319,6 +324,7 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
->  	size_t tr_size;
->  	int num_tr = 0;
->  	int tr_idx = 0;
-> +	u32 extra_flags = 0;
->  	u64 asel;
->  
->  	/* estimate the number of TRs we will need */
-> @@ -342,6 +348,11 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
->  	else
->  		asel = (u64)uc->config.asel << K3_ADDRESS_ASEL_SHIFT;
->  
-> +	if (uc->ud->match_data->type == DMA_TYPE_BCDMA &&
-> +	    uc->ud->match_data->version == K3_UDMA_V2 &&
-> +	    dir == DMA_MEM_TO_DEV)
-> +		extra_flags = CPPI5_TR_CSF_EOP;
-> +
->  	tr_req = d->hwdesc[0].tr_req_base;
->  	for_each_sg(sgl, sgent, sglen, i) {
->  		dma_addr_t sg_addr = sg_dma_address(sgent);
-> @@ -358,7 +369,7 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
->  
->  		cppi5_tr_init(&tr_req[tr_idx].flags, CPPI5_TR_TYPE1, false,
->  			      false, CPPI5_TR_EVENT_SIZE_COMPLETION, 0);
-> -		cppi5_tr_csf_set(&tr_req[tr_idx].flags, CPPI5_TR_CSF_SUPR_EVT);
-> +		cppi5_tr_csf_set(&tr_req[tr_idx].flags, CPPI5_TR_CSF_SUPR_EVT | extra_flags);
->  
->  		sg_addr |= asel;
->  		tr_req[tr_idx].addr = sg_addr;
-> @@ -372,7 +383,7 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
->  				      false, false,
->  				      CPPI5_TR_EVENT_SIZE_COMPLETION, 0);
->  			cppi5_tr_csf_set(&tr_req[tr_idx].flags,
-> -					 CPPI5_TR_CSF_SUPR_EVT);
-> +					 CPPI5_TR_CSF_SUPR_EVT | extra_flags);
->  
->  			tr_req[tr_idx].addr = sg_addr + tr0_cnt1 * tr0_cnt0;
->  			tr_req[tr_idx].icnt0 = tr1_cnt0;
-> @@ -2052,6 +2063,8 @@ int udma_get_tchan(struct udma_chan *uc)
->  		uc->tchan = NULL;
->  		return ret;
->  	}
-> +	if (ud->match_data->version == K3_UDMA_V2)
-> +		uc->chan = uc->tchan;
->  
->  	if (ud->tflow_cnt) {
->  		int tflow_id;
-> @@ -2102,6 +2115,8 @@ int udma_get_rchan(struct udma_chan *uc)
->  		uc->rchan = NULL;
->  		return ret;
->  	}
-> +	if (ud->match_data->version == K3_UDMA_V2)
-> +		uc->chan = uc->rchan;
->  
->  	return 0;
->  }
-> @@ -2379,16 +2394,26 @@ int bcdma_setup_resources(struct udma_dev *ud)
->  
->  	ud->bchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->bchan_cnt),
->  					   sizeof(unsigned long), GFP_KERNEL);
-> +	bitmap_zero(ud->bchan_map, ud->bchan_cnt);
->  	ud->bchans = devm_kcalloc(dev, ud->bchan_cnt, sizeof(*ud->bchans),
->  				  GFP_KERNEL);
->  	ud->tchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->tchan_cnt),
->  					   sizeof(unsigned long), GFP_KERNEL);
-> +	bitmap_zero(ud->tchan_map, ud->tchan_cnt);
->  	ud->tchans = devm_kcalloc(dev, ud->tchan_cnt, sizeof(*ud->tchans),
->  				  GFP_KERNEL);
-> -	ud->rchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->rchan_cnt),
-> -					   sizeof(unsigned long), GFP_KERNEL);
-> -	ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
-> -				  GFP_KERNEL);
-> +	if (ud->match_data->version == K3_UDMA_V2) {
-> +		ud->rchan_map = ud->tchan_map;
-> +		ud->rchans = ud->tchans;
-> +		ud->chan_map = ud->tchan_map;
-> +		ud->chans = ud->tchans;
-> +	} else {
-> +		ud->rchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->rchan_cnt),
-> +						   sizeof(unsigned long), GFP_KERNEL);
-> +		bitmap_zero(ud->rchan_map, ud->rchan_cnt);
-> +		ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
-> +					  GFP_KERNEL);
-> +	}
->  	/* BCDMA do not really have flows, but the driver expect it */
->  	ud->rflow_in_use = devm_kcalloc(dev, BITS_TO_LONGS(ud->rchan_cnt),
->  					sizeof(unsigned long),
-> @@ -2484,11 +2509,18 @@ int setup_resources(struct udma_dev *ud)
->  	if (ret)
->  		return ret;
->  
-> -	ch_count  = ud->bchan_cnt + ud->tchan_cnt + ud->rchan_cnt;
-> -	if (ud->bchan_cnt)
-> -		ch_count -= bitmap_weight(ud->bchan_map, ud->bchan_cnt);
-> -	ch_count -= bitmap_weight(ud->tchan_map, ud->tchan_cnt);
-> -	ch_count -= bitmap_weight(ud->rchan_map, ud->rchan_cnt);
-> +	if (ud->match_data->version == K3_UDMA_V2) {
+What I'd like to see, is a binding expression that behave like a set, not a
+list, and leave the ordering open. As people keep repeating, there is nothi=
+ng in
+a binding that assist to define the right ordering (its not address or base
+addres aware). That basically means, we can't as reviewer see that ordering=
+ is
+going to imposing using a base address in the unit name (which is a conveni=
+ence,
+not a rule I suppose) that differ from the vendor documented base address.
 
-I would probbaly check for V1 and leave the V2 as simple else - trusting
-that v3 will likely be closer to it than v1?
+By explicitly removing the ordering in the binding, we create a strict rule=
+ that
+driver should retrieve this by name, and never assume the ordering, which I
+personally like.
 
-> +		ch_count = ud->bchan_cnt + ud->tchan_cnt;
-> +		if (ud->bchan_cnt)
-> +			ch_count -= bitmap_weight(ud->bchan_map, ud->bchan_cnt);
-> +		ch_count -= bitmap_weight(ud->tchan_map, ud->tchan_cnt);
-> +	} else {
-> +		ch_count  = ud->bchan_cnt + ud->tchan_cnt + ud->rchan_cnt;
-> +		if (ud->bchan_cnt)
-> +			ch_count -= bitmap_weight(ud->bchan_map, ud->bchan_cnt);
-> +		ch_count -= bitmap_weight(ud->tchan_map, ud->tchan_cnt);
-> +		ch_count -= bitmap_weight(ud->rchan_map, ud->rchan_cnt);
-> +	}
->  	if (!ch_count)
->  		return -ENODEV;
->  
-> @@ -2510,15 +2542,25 @@ int setup_resources(struct udma_dev *ud)
->  						       ud->rflow_cnt));
->  		break;
->  	case DMA_TYPE_BCDMA:
-> -		dev_info(dev,
-> -			 "Channels: %d (bchan: %u, tchan: %u, rchan: %u)\n",
-> -			 ch_count,
-> -			 ud->bchan_cnt - bitmap_weight(ud->bchan_map,
-> -						       ud->bchan_cnt),
-> -			 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
-> -						       ud->tchan_cnt),
-> -			 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
-> -						       ud->rchan_cnt));
-> +		if (ud->match_data->version == K3_UDMA_V1) {
-> +			dev_info(dev,
-> +				 "Channels: %d (bchan: %u, tchan: %u, rchan: %u)\n",
-> +				 ch_count,
-> +				 ud->bchan_cnt - bitmap_weight(ud->bchan_map,
-> +							       ud->bchan_cnt),
-> +				 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
-> +							       ud->tchan_cnt),
-> +				 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
-> +							       ud->rchan_cnt));
-> +		} else if (ud->match_data->version == K3_UDMA_V2) {
-> +			dev_info(dev,
-> +				 "Channels: %d (bchan: %u, chan: %u)\n",
-> +				 ch_count,
-> +				 ud->bchan_cnt - bitmap_weight(ud->bchan_map,
-> +							       ud->bchan_cnt),
-> +				 ud->chan_cnt - bitmap_weight(ud->chan_map,
-> +							      ud->chan_cnt));
-> +		}
+thoughts ?
 
-if you have else if {} you do want to have plain else {} to handle cases
-when neither.
-CHeck for V1 and leave V2 for a plain else branch?
+Nicolas
 
-Optionally if indentation is geting tight, just create a helper function
-to print this info.
+>=20
+> Confused,
+> Conor.
+>=20
+> >=20
+> > Since the binding changes have been already released and a fix would
+> > bring up an ABI break, mark the current 'reg-names' ordering as
+> > deprecated and introduce an alternative 'link,function,cache' listing
+> > which follows the address-based ordering according to the TRM.
+> >=20
+> > Additionally, drop the 'reg' description items as the order is not fixe=
+d
+> > anymore, while the information they offer is not very relevant anyway.
+> >=20
+> > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> > ---
+> > =C2=A0.../devicetree/bindings/media/rockchip,vdec.yaml=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 20 ++++++++++++-----
+> > ---
+> > =C2=A01 file changed, 12 insertions(+), 8 deletions(-)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+> > b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+> > index 809fda45b3bd..c513b68d2c72 100644
+> > --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+> > +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+> > @@ -28,16 +28,20 @@ properties:
+> > =C2=A0
+> > =C2=A0=C2=A0 reg:
+> > =C2=A0=C2=A0=C2=A0=C2=A0 minItems: 1
+> > -=C2=A0=C2=A0=C2=A0 items:
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: The function configurati=
+on registers base
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: The link table configura=
+tion registers base
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: The cache configuration =
+registers base
+> > +=C2=A0=C2=A0=C2=A0 maxItems: 3
+> > =C2=A0
+> > =C2=A0=C2=A0 reg-names:
+> > -=C2=A0=C2=A0=C2=A0 items:
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: function
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: link
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: cache
+> > +=C2=A0=C2=A0=C2=A0 oneOf:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: link
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: functi=
+on
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: cache
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: functi=
+on
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: link
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: cache
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 deprecated: true
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 description: Use link,funct=
+ion,cache block order instead.
+> > =C2=A0
+> > =C2=A0=C2=A0 interrupts:
+> > =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> >=20
+> > --=20
+> > 2.52.0
+> >=20
 
->  		break;
->  	case DMA_TYPE_PKTDMA:
->  		dev_info(dev,
+--=-6UGd8Ri2+YJO1QGD5T1b
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-I think this and the series looks good, the only thing I would consider
-is to revers the V1/2 checks when it makes sense - future incarnations
-of UDMA might be closer to V2 than V1 and you save on maintanance headache.
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Péter
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaaCixwAKCRDZQZRRKWBy
+9JiHAP4os7RdZaABz35jtFTqxJdGRCHiZ2JyeJsCH7Yj8wqZ1gEAs/hIPqsAIIGJ
+I/RUZ0zI4YsAWeThrjFOkFlZA7v8NwE=
+=jF9G
+-----END PGP SIGNATURE-----
 
+--=-6UGd8Ri2+YJO1QGD5T1b--
 
