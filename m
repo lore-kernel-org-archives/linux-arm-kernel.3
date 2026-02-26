@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8676FD9E1E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 23:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D089FD9E1E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 23:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9QkWHfNpDmh8aUUkP4gwOI5iPFDSe3g1q9wyC6PiDdo=; b=NfWNk2TfELC9TS9YIjO1cHRfsV
-	EPyoqTcKSbO4w05dU9NlQCIVw2ULbnzQUUgYDPLGVhAQ8pz6Z+QUq2b5rWNO1JAjFJXJUHYCuNSx6
-	INdiVh0azJYdr3XjD/1tnJ5X8Rm5bZo+02hy8hCPv6HeJM36B+fLkRH1q+2Rog5cQkRsQ9bBItoLZ
-	YpLQHfLRbpw2yntO8GWslxES2GxA3RKbPEzhwOJau3jb/HyvNnI+lO9C7Iu64noBHntYKWGEuSBU+
-	/1GQz0Pk0q5s8xg4fdYzSvWdr1LjyYkcOjR7EaDjdSD3W4R8KwuBmEHdLpL3cG0Uj940NwVcH907k
-	PQ74BlGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D0UK8pO0Y/9nQsoDE0tyGVTLdOq02b88CjLRoni4BOQ=; b=0l5QenZYrSw6LrEiwmRkrn+lRO
+	7FZ8xj7oIYGGbXH2RWIPKfb3WO4/Ac2/EaAYDvctTFQFQzR9uPZwDYptMedgHflW7JXdzcutsbDbt
+	HGRVN5iMKyipDMP3tdXRNO9bze8vi2YYkOlCKVe9hiNuPf9bPmBQq5iNqWa7IApa9kq0dzLclTl1S
+	YF1IjfYMoWCvvq5YnBTy7II1X6SxU0RmBUzwdu/0xNVRpY0o7ZghrHfHZPXztzOlPOCAvcMwlEhF1
+	gqiIpgpMhhWXS7UoFt5OT+cuQDUCBUiwaG99cz+Yh5+YHrxwJFdEKXltb5KKFbfpXUYSaOsWDuxOd
+	/ESBUDYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvkQF-00000007L2s-2MIS;
-	Thu, 26 Feb 2026 23:05:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvkSC-00000007LCw-2Bfh;
+	Thu, 26 Feb 2026 23:07:32 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvkQD-00000007L2R-2Xuq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 23:05:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4EEC641871;
-	Thu, 26 Feb 2026 23:05:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF6D6C116C6;
-	Thu, 26 Feb 2026 23:05:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772147128;
-	bh=sPgCA9ohTSBtInSypJVYHZRcpxI7ECO568juyPVkSGU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YeP18rNY4v9IeLt8Tz/aP65S/WVUS3VEjY1QKawXIf1Nk5G71+7pMmVetSqkS9Q83
-	 0aijxsp+XOMgFv3a18rx+7GGF0VwnER0oGPweSOxg2P5g9LhHWVkoezJwJWuw+a7zS
-	 i14cRm9d/dAZavB2jqY63wD5ajUgGYZkMaxzM9CWoSq+eIMzcF7KTeIDpdECTeA13J
-	 h+ET67UrLkDQ9UjphbVmystA/twgma7lp67O0awlIDs37JG+vaSiMPGcU5YAipSD95
-	 O8tSVKKUbwU0s53DRvnjQYDCDmJ48d2cRmzgtF3PL28twpYDZIXEGgHn1aO6fFi/93
-	 toB83PzGWCIuA==
-Date: Thu, 26 Feb 2026 15:05:26 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
-Message-ID: <aaDRtkdU85kULqwm@kernel.org>
-References: <20260225-hybrid-v3-0-46e8fe220880@rsg.ci.i.u-tokyo.ac.jp>
- <20260225-hybrid-v3-1-46e8fe220880@rsg.ci.i.u-tokyo.ac.jp>
- <aaA0gn9O8QAf9Gpu@kernel.org>
- <fbcadab4-676b-44e4-8afa-b8bd095f8981@rsg.ci.i.u-tokyo.ac.jp>
- <b81cbeb7-6541-4a1f-b08e-2b5c9ee66b69@rsg.ci.i.u-tokyo.ac.jp>
+	id 1vvkS8-00000007LCV-3wkr;
+	Thu, 26 Feb 2026 23:07:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=D0UK8pO0Y/9nQsoDE0tyGVTLdOq02b88CjLRoni4BOQ=; b=MNboOHREJJVAwQGuNTlghY1201
+	FHF0dvFD7a4Al7EYtSTPQiyxAl2nLEaRy3S81mT/Nu6eai2n/B86Jl+r6zvHVefKm29AtOcJrOv8o
+	I7GjG6YvM5G9h+LyfdYN7UzpO9iVGhpMsN5sgpbCcoZIS3kuSPKgocR0gZCDor/wpZequcky0E2Fm
+	IDP2phoCoVFvz5g+jvFV/euVHrIPiP2KF4X2NERWsyReTHvIUB7ipZaGBAZQ5ebZ29IjrgugjCfC8
+	PgaIAkbSB/emei8UyqGsH3ja/fIEPniU9n+5PFZGgLxR5+KitxEwavrZTe6Izz1ugwb+4BhINXhli
+	tvECZaOA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38136)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vvkS1-000000008Uq-0gwu;
+	Thu, 26 Feb 2026 23:07:21 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vvkRx-000000002RJ-0MlJ;
+	Thu, 26 Feb 2026 23:07:17 +0000
+Date: Thu, 26 Feb 2026 23:07:16 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH RESEND2 net-next 0/8] net: stmmac: qcom-ethqos: further
+ serdes reorganisation
+Message-ID: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b81cbeb7-6541-4a1f-b08e-2b5c9ee66b69@rsg.ci.i.u-tokyo.ac.jp>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_150529_685289_F6E75448 
-X-CRM114-Status: GOOD (  50.17  )
+X-CRM114-CacheID: sfid-20260226_150728_996159_63BAB55F 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,142 +85,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 11:47:54PM +0900, Akihiko Odaki wrote:
-> On 2026/02/26 23:43, Akihiko Odaki wrote:
-> > On 2026/02/26 20:54, Oliver Upton wrote:
-> > > Hi Akihiko,
-> > > 
-> > > On Wed, Feb 25, 2026 at 01:31:15PM +0900, Akihiko Odaki wrote:
-> > > > @@ -629,6 +629,8 @@ void kvm_arch_vcpu_load(struct kvm_vcpu
-> > > > *vcpu, int cpu)
-> > > >           kvm_vcpu_load_vhe(vcpu);
-> > > >       kvm_arch_vcpu_load_fp(vcpu);
-> > > >       kvm_vcpu_pmu_restore_guest(vcpu);
-> > > > +    if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
-> > > > &vcpu- >kvm->arch.flags))
-> > > > +        kvm_make_request(KVM_REQ_CREATE_PMU, vcpu);
-> > > 
-> > > We only need to set the request if the vCPU has migrated to a different
-> > > PMU implementation, no?
-> > 
-> > Indeed. I was too lazy to implement such a check since it won't affect
-> > performance unless the new feature is requested, but having one may be
-> > still nice.
+This is part 2 of the qcom-ethqos series, part 1 has now been merged.
 
-I'd definitely like to see this.
+This part of the series focuses on the generic PHY driver, but these
+changes have dependencies on the ethernet driver, hence why
+it will need to go via net-next. Furthermore, subsequent changes
+depend on these patches.
 
-> > > 
-> > > >       if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
-> > > >           kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
-> > > > @@ -1056,6 +1058,9 @@ static int check_vcpu_requests(struct
-> > > > kvm_vcpu *vcpu)
-> > > >           if (kvm_check_request(KVM_REQ_RELOAD_PMU, vcpu))
-> > > >               kvm_vcpu_reload_pmu(vcpu);
-> > > > +        if (kvm_check_request(KVM_REQ_CREATE_PMU, vcpu))
-> > > > +            kvm_vcpu_create_pmu(vcpu);
-> > > > +
-> > > 
-> > > My strong preference would be to squash the migration handling into
-> > > kvm_vcpu_reload_pmu(). It is already reprogramming PMU events in
-> > > response to other things.
-> > 
-> > Can you share a reason for that?
-> > 
-> > In terms of complexity, I don't think it will help reducing complexity
-> > since the only common things between kvm_vcpu_reload_pmu() and
-> > kvm_vcpu_create_pmu() are the enumeration of enabled counters, which is
-> > simple enough.
+The underlying ideas here are:
 
-I prefer it in terms of code organization. We should have a single
-helper that refreshes the backing perf events when something has
-globally changed for the vPMU.
+- get rid of the driver using phy_set_speed() with SPEED_1000 and
+  SPEED_2500 which makes no sense for an ethernet SerDes due to the
+  PCS 8B10B data encoding, which inflates the data rate at the SerDes
+  compared to the MAC. This is replaced with phy_set_mode_ext().
+- allow phy_power_on() / phy_set_mode*() to be called in any order.
 
-Besides this, "create" is confusing since the vPMU has already been
-instantiated.
+Mohd has tested this series, but it would be great to get acks/reviews
+from the generic PHY maintainers.
 
-> > In terms of performance, I guess it is better to keep
-> > kvm_vcpu_create_pmu() small since it is triggered for each migration.
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 31 +++--------
+ drivers/phy/qualcomm/phy-qcom-sgmii-eth.c          | 62 +++++++++++++++++-----
+ 2 files changed, 57 insertions(+), 36 deletions(-)
 
-I think the surrounding KVM code for iterating over the counters is
-inconsequential compared to the overheads of calling into perf to
-recreate the PMU events. Since we expect this to be slow, we should only
-set the request when absolutely necessary.
-
-> > > > +static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc)
-> > > > +{
-> > > > +    struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
-> > > > +
-> > > > +    return kvm_pmu_enabled_counter_mask(vcpu) & BIT(pmc->idx);
-> > > >   }
-> > > 
-> > > You're churning a good bit of code, this needs to happen in a separate
-> > > patch (if at all).
-> > 
-> > It makes sense. The next version will have a separate patch for this.
-
-If I have the full picture right, you may not need it with a common
-request handler.
-
-> > > 
-> > > > @@ -689,6 +710,14 @@ static void
-> > > > kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
-> > > >       int eventsel;
-> > > >       u64 evtreg;
-> > > > +    if (!arm_pmu) {
-> > > > +        arm_pmu = kvm_pmu_probe_armpmu(vcpu->cpu);
-> > > 
-> > > kvm_pmu_probe_armpmu() takes a global mutex, I'm not sure that's what we
-> > > want.
-> > > 
-> > > What prevents us from opening a PERF_TYPE_RAW event and allowing perf to
-> > > work out the right PMU for this CPU?
-> > 
-> > Unfortunately perf does not seem to have a capability to switch to the
-> > right PMU. tools/perf/Documentation/intel-hybrid.txt says the perf tool
-> > creates events for each PMU in a hybird configuration, for example.
-> 
-> I think I misunderstood what you meant. Letting
-> perf_event_create_kernel_counter() to figure out what a PMU to use may be a
-> good idea. I'll give a try with the next version.
-
-Yep, this is what I was alluding to.
-
-> > 
-> > > 
-> > > > +        if (!arm_pmu) {
-> > > > +            vcpu_set_on_unsupported_cpu(vcpu);
-> > > 
-> > > At this point it seems pretty late to flag the CPU as unsupported. Maybe
-> > > instead we can compute the union cpumask for all the PMU implemetations
-> > > the VM may schedule on.
-> > 
-> > This is just a safe guard and it is a responsibility of the userspace to
-> > schedule the VCPU properly. It is conceptually same with what
-> > kvm_arch_vcpu_load() does when migrating to an unsupported CPU.
-
-I agree with you that we need to have some handling for this situation.
-
-What I don't like about this is userspace doesn't discover its mistake
-until the guest actually programs a PMC. I'd much rather preserve the
-existing ABI where KVM proactively rejects running a vCPU on an
-unsupported CPU.
-
-> > > > +    case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
-> > > > +        lockdep_assert_held(&vcpu->kvm->arch.config_lock);
-> > > > +        if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
-> > > > &vcpu->kvm->arch.flags))
-> > > > +            return 0;
-> > > 
-> > > We don't need a getter for this, userspace should remember how it
-> > > provisioned the VM.
-> > 
-> > The getter is useful for debugging and testing. The selftest will use it
-> > to query the current state.
-
-That's fine for debugging this on your own kernel but we don't need it
-upstream. There's several other vPMU attributes that are write-only,
-like KVM_ARM_VCPU_PMU_V3_SET_PMU.
-
-Thanks,
-Oliver
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
