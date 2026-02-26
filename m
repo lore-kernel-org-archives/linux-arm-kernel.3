@@ -4,146 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E5DFCE086
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3B7FCE08C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tjj1GwNmvjc2glJANIeb9zv6834LqMESa/87e2HukZU=; b=jk/QbKfBoZ4VcbJeDZ2xdwR4TX
-	49oUpjuk71nVBeHMHG6RxkiHDgDAiTTZBOsIOt3sjX2L4kX0/4jot36njU7jkADIdkfcVdQk6zS87
-	HVbQfwcCOeVTdXnE7/pCKFEDDdunEySPZMXOEZPOForox8etkiFOV75u3+5FiVyuG139m+y5hJBkJ
-	7lXZqnKrh6Mk9VyZ9tJLEskhRbGZyPvH7Dx8UDQMEePayyIghKuTACHd1AceTarIhS/SiwzzmT8fK
-	b1uBYx1ugO/Bohlw+B9DH+IP5LTP5OLFrBCCO+GvywbZVu7cPwRYcvuAg3+gee+1CceefBMP/YuSb
-	J6ZUX7cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C5lmdRrYKAkps9LQDtVzFXDdak8+cj9tclXWqs/XbLs=; b=anLuLKzhMGfxEaYnMbrPXbps2o
+	Fufh5/4EOQ7oCJ+qM8nIWjPZfpiqGuviIm9qN/gKKXmnz4bz+Jg9+Thjq+OMIj2pp0WnEvH4mCNyo
+	pY43V0EXX4ozpX1FyMUE3uS3L+qbjsLA4/2tBY5hPXphtcz27RRsSBs8KZJ+wV0tgbbFIWKmnYcod
+	ChcUplmuvAQk0Ib0VX0zhoKZmE79j7YmvasA6OGZ0HFPcngwIMW9WjMiupKSbQOXXnD/dG9RHccJ0
+	lxLrtM2jLAecVzDJjr2G9Vh7hAvDeX4e+OjWdb/unzbJOLK1GCnfL6W+4fpMCtrCHDLtOOpYyoR3d
+	/uJ1eSMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvc16-00000006He9-30Yd;
-	Thu, 26 Feb 2026 14:07:00 +0000
-Received: from mail-westeuropeazon11010027.outbound.protection.outlook.com ([52.101.69.27] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vvc2r-00000006Hmg-0qFY;
+	Thu, 26 Feb 2026 14:08:49 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvc13-00000006Hdh-3kd6
+	id 1vvc2o-00000006Hm8-1Y7i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 14:06:59 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=uu83RncXK0f9Ia27Z6PotNHxMwLBjpBGHZlLneuw4erTO4zK59l+sGWyAvuBaEMPMGvqvRZvOkxTTM521dP/GsVC6gfnp74UbaejdRqLLk/4g1NSMX2k0YxrZcL1rBgQQNfoyXDMpbAoa3a85xKtQp1So7MsjbeA0SF8pd6/a2xnsmMazoQertQLmobYP/i7FBeudMcIbUjxBomciwRP09JQE3R6onBT6GfzuShE0UqAz/agmfRw040AEyHLCEAxAedz+t4/e/k/wO2pt5YbkmVH3JlfnRstbjlimvb0RR13y1PuIpQgcrMA33rJpzB65e8Q+dYuFL/n4zoylU6/rg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tjj1GwNmvjc2glJANIeb9zv6834LqMESa/87e2HukZU=;
- b=K32UeXrofq91ssTEUNmZHb/SHWFCB5W1Baliae3B/xmnyIVPons8aKgrQekhr33s0WTmAn68xh7WB9rY8/1V0szputljKGJBOIM51DYoES9nVKnZ3+7sBkuOcCPAQIlFQ7d8V1ozijUMym3KWADyUfwgZnkptUiien9ubcqM5x8l/ZbxJ9v5fQPde8bQhMR90CvW1ObAfVaSJiDdsDKqhpbhd6z8FVVfJUaL5DJyEMNPH+dKgMALrf3+phvHM6R+z+562L9Gxp3qxVUVCxSodd4ZG4fNab+8wIQgw02pGe68JMMfDJfVtMOMTpDYttxcN+Pb2tuI3d6GRQLf3hFaXw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tjj1GwNmvjc2glJANIeb9zv6834LqMESa/87e2HukZU=;
- b=W645n4vmIUYw3sPZqZ8x5Fpo+hHToC8rV/nyE7PEAx+RLs1zqrQ+XMAnlslpDjdKmvibwByNHolUZ/j8TbaCBYTYhjRVB239eCEBXQvdnh5AoXF3dWQWRPFmUJpO8jR4cjyG4yNrIaH/5A58BBkEXp+d9sOS7gSD6xvip7BoYDk=
-Received: from DU7P195CA0010.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:54d::13)
- by AM8PR08MB5554.eurprd08.prod.outlook.com (2603:10a6:20b:1c5::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.23; Thu, 26 Feb
- 2026 14:06:48 +0000
-Received: from DB1PEPF000509EB.eurprd03.prod.outlook.com
- (2603:10a6:10:54d:cafe::c6) by DU7P195CA0010.outlook.office365.com
- (2603:10a6:10:54d::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.25 via Frontend Transport; Thu,
- 26 Feb 2026 14:06:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509EB.mail.protection.outlook.com (10.167.242.69) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
- via Frontend Transport; Thu, 26 Feb 2026 14:06:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N4Nd/dTTqa7FeJgniF22doUtaqqhuzpDnZpcQZ2OCZYFOtnu4pXbRBclPfjFrfer/vpEDT/EFXxHreYL3lXybHaK6x1ETtGiGlr6c7V4+N3Bqwpv2tfpMsFVIaCl0bJhPygLzKI7OECtA6i52v/1Cu8xqZXn59Hoe3yz8vZrY7cTKHxf/t5qEqQQJhSkQFbGLAuMK61iA2177cLpWPDGm5HJA+xWxZYVaOrtwyW5BMNbgSYr3p5XEB4x67TMEGLo6suc4uF5aIk8mTRsSgpKgDp2lbCNNF2WcVWIYVgOtKNU1fYwk8cRHpXg+cAGEzgL9azgDg1e+0HGHlGux6bg5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tjj1GwNmvjc2glJANIeb9zv6834LqMESa/87e2HukZU=;
- b=dKPaFxDDWxayFwCBG8fTirVps7vN8r7ug8fcAqjBm6ECotEXEMBgqJvhNGtetTTxs2arHKHvnQM2qGPq6Hedu4cEPbq8DY/rPKEVHcE9IS2f4SoxQu8dHq0UB4buXkRREtZm8M2dbTefKhJpt4ZVydkWX6zHZMRPvZmg9XIK2Bh7OGnf7AvLpKHUFjNzTB8w2sCujqaJ47yP8XXO1IC5nDljUPCHZ3OgetIo8aiwMy8YgST2DSH8aPfY8M3mHiJkzfUw6aUe7EQy2j1zwZIMCfxYVqzfDyWaOKReYWEMdoKbOjPOS4PO9qBdha9mM/CbL6WiRCZAZzek9cAQLoPh+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tjj1GwNmvjc2glJANIeb9zv6834LqMESa/87e2HukZU=;
- b=W645n4vmIUYw3sPZqZ8x5Fpo+hHToC8rV/nyE7PEAx+RLs1zqrQ+XMAnlslpDjdKmvibwByNHolUZ/j8TbaCBYTYhjRVB239eCEBXQvdnh5AoXF3dWQWRPFmUJpO8jR4cjyG4yNrIaH/5A58BBkEXp+d9sOS7gSD6xvip7BoYDk=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS1PR08MB7537.eurprd08.prod.outlook.com
- (2603:10a6:20b:481::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
- 2026 14:05:42 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98%3]) with mapi id 15.20.9654.014; Thu, 26 Feb 2026
- 14:05:42 +0000
-Date: Thu, 26 Feb 2026 14:05:39 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, catalin.marinas@arm.com,
-	will@kernel.org, oupton@kernel.org, miko.lenczewski@arm.com,
-	kevin.brodsky@arm.com, broonie@kernel.org, ardb@kernel.org,
-	suzuki.poulose@arm.com, lpieralisi@kernel.org, joey.gouly@arm.com,
-	yuzenghui@huawei.com
-Subject: Re: [PATCH v14 7/8] KVM: arm64: use CASLT instruction for swapping
- guest descriptor
-Message-ID: <aaBTM3C2MbIvtUn8@e129823.arm.com>
-References: <20260225182708.3225211-1-yeoreum.yun@arm.com>
- <20260225182708.3225211-8-yeoreum.yun@arm.com>
- <867brzah6g.wl-maz@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <867brzah6g.wl-maz@kernel.org>
-X-ClientProxiedBy: LO2P265CA0102.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:c::18) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Thu, 26 Feb 2026 14:08:48 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2aaf59c4f7cso4131795ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 06:08:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772114925; x=1772719725; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=C5lmdRrYKAkps9LQDtVzFXDdak8+cj9tclXWqs/XbLs=;
+        b=cpBP554LjG39Sg+yKif5/t5p8IIOnau2luZiA4QGJEvtHtzj4/ybaFIaNeuYTCzpPq
+         WB0mC1l81DmqK7kinCAuHLJC9m8eeXvP9JBEXzBJqE8rx+mt02VL+NPkEOaYb5iqXHE4
+         VOUoDI3Hi08g8YpkEc/L3VIayYy6VZa+1TnbAdc2lj69BekL79ejviD0STQHSvlea1Mp
+         9LG+ksBpNzN/9luX79erIxXca2KoU4B7BKqwJnL+Pwn6K4BmA5SQCbcjql8UnZquA5zX
+         lEUKjcSFZs5C6N+6Jg2QWl1ue/Rja26nf+4NPh/nQP7vCVIxSXfBL8GtRiM1+kUDisbc
+         D8/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772114925; x=1772719725;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=C5lmdRrYKAkps9LQDtVzFXDdak8+cj9tclXWqs/XbLs=;
+        b=IpDxLmiCi5R9NsCkTy4+eKopWvVMejR7q9btDaMqUZWSiaMBJWDRGLgrFcmgeogi//
+         YNHIe3tnAwynRzypcBsAjgs/vyG+gxiNwZY2AaY+uHmfvgyjmnizoF7NLgpaYFV3IYkq
+         aGy5YGhNl9geVmwOspz8MlacfLrxSKNTBBLGw91+PWVt1bGwUiaqDfNu983Yq2z03eQ3
+         qLnPlkQK/WI6NzuHf8dOxvXTl9v/KPN8iAAu2CgIc4jtinmRZHLYnHSRBkGT/jQ+OIw/
+         eE6Cirv3jDVizFx2pSpcJzyAM745r+p6//qyBLkKPlQXdoF1s614uog8yGPD/71jSfzl
+         R7LA==
+X-Forwarded-Encrypted: i=1; AJvYcCUebMJsMLiMHhKlHwYkvkz/MfKcuxINhcIM8W1wWYI6e65JFZ6W3amcog8TWCgJdTA/vCqQKnNwT+XJRE1M+YzF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsWMz0AcwM6voampCoIRQvDSR/95a9iLi2haZSjo8y9JKFlVvE
+	pGZmbYAFL0ieiaHy1ubv246sRgy4yLN8IS8VDxVaBwpd24ja8gQHG9O4
+X-Gm-Gg: ATEYQzyt/UHX6g/ZcKBb7reX1BxqNPLgFS5ug+ME7XHigJbwXJunVxMaNXM2bOTG9uQ
+	3RuGXd0xXumGEi1kOvovLqBP7edrkVj/NDukdMXFtKmJxIo6BSrtAMKRj0glSOoUW9pWYDaRBZR
+	JvV0ecmvrcM2OQgnbKjb0R/j8juc6n3CesFiM7OrUqhO8f8UMiGpgjDqhQaV19bKxuXr+Xv4ws2
+	nLTUVhmlo0ATT08KZy6mFP9DizAuzoqJJxMzX2QCiH7eHZz2DZi630OPKdKrzaz/kZ8wW8amiJj
+	1dPDoSZ5czR5A/qBPEhOFSl1UMXEZS/q1sv5OVvJk4KAvXQ33Vzo6HqcJP5pGiJ6FV2ySvmVJZc
+	XHYt7aOl9X5w8do2BOzCOVN9ZHdT/XStXMxQLFmhO3b3msWzchHoPqsM6vcf9GmicKaU5Kg7lGd
+	Mv+FXTYQZZoI+k5y9Or4crYsVPXAui4Q==
+X-Received: by 2002:a17:903:3848:b0:2ad:cede:3a1a with SMTP id d9443c01a7336-2ae03495f6fmr26068205ad.39.1772114924973;
+        Thu, 26 Feb 2026 06:08:44 -0800 (PST)
+Received: from [127.0.1.1] ([218.32.81.133])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb6e190fsm28037205ad.82.2026.02.26.06.08.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Feb 2026 06:08:44 -0800 (PST)
+From: Colin Huang <u8813345@gmail.com>
+Date: Thu, 26 Feb 2026 22:08:16 +0800
+Subject: [PATCH v2] ARM: dts: aspeed: anacapa: update SGPIO and PCA9555
+ settings for DFT
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS1PR08MB7537:EE_|DB1PEPF000509EB:EE_|AM8PR08MB5554:EE_
-X-MS-Office365-Filtering-Correlation-Id: e61ee321-230b-457d-c802-08de75404865
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info-Original: Jv6qdiNMg0MFSuDz846flCcX7UGgbM1avS4YwLaD3uzmctjLWUz1VorqbCEbjjhQy29R012e5AsDPSH3Oxhdb2BIxR5o/zl3s+vCgMWFTCjYHpSxMVYCLZLO3rfmZJT0FiH5apdwq4faMSvHNckX76hzxOZVvn9d2s2qEFH20IVpPNCg6TNEGEXMpRWi/D2ZQ1yX6jgN3e4QYZKXmqK6aE4BYtWspVw4P3SrJz1ypjJxPnE0oK6hbBBm6PEm42GJRwwqvcN3dgJXk3Pu0CeGt5c55ldNjiw9maqPuQt8X8VnasPeXoIFvKuCRtve2nQLBKGe/EhgabesQNWuDXmKmjAnYaW7iGmDzH2g9kvAJsQIKw7XcYufdYkRUiabMJaZgvDBcI72XpbtR7pPK3dN7aCuBfDxcvjbVEVdORZabdqL+rQXrf1zA/6ruKW2Wduyxm3VfPGAHrgGQ6hKUmpOzH3kM2LjNiu/DFAyvf8nlmuZ4HCJ3/X3n8phXRFKg9yfOJjAuOjVbGX/Sy9RdwaKplag0nOliUko/AOUxfuxMKrxeFmUWyOUZjLyrSGW/pKh/LrDyyMk+ku1ZLfUgsgI+Z5dXCeNkmWBAzv9Ve1x+1GfELs9OYz8FoA/gNVK+GvsiCKFXOlrh4dMaUBdZa2cM6mtFXAq/k52O1Rg5nhz40XoR5bpPLwvRWkyQeOWp2P9
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR08MB7537
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509EB.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: b292a5f2-e66e-420f-2abe-08de754020f4
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|82310400026|36860700013|1800799024|376014|7416014|14060799003|13003099007;
-X-Microsoft-Antispam-Message-Info: AjN+2QJblqVsELNa2IvI5hdl9C4Z1FXKp+3U/m2lXrUxK40PbZyrpan5qQ+8cPxXpkbYkGXHtRMRFOvjyGeZHf0fUSf9H8dcYJzT/W9v8uBBULssF8e5a/Tp3ZHjtTkmFvGcXxaYEzkn8XydH80nJkfdgI0sVsymQ0xh9gQR9CBKgORxLYXU7NK4FgeWvlo9QV7RDoeOSgdJCS1/wXB6ptYVdyc+flpqoiVtKNx0uZKAvLQQoMhNJ314NnZ9lQHwkKw5mrQ86Two839bjiUjHpytA0zBiVFVoPCtp4t+xN7bWolmBPMYGHq4Ftq4CVFRKLt1uJoGkhAeHVB4f15dyUXPiIiEt5Wct0jkuea6ReejaavJzAnzPxnfGst3sHVT0x0nOl5LNZ8I/HrV0xEmgdlRzeqou681BtbLQ4qlYwRpKq6KZh50K/svq5JEn47s0E5pqzjIXEpMAB8vOBIVx2vY+KKqrho3WXkXiz4PPpYufMtdH2VaHi/7DitU5gT23ZKtxW1cVipDgYlo4xiE7E/vQT3koyg8hf/72L55WO1/uFiJyhX8Lc+7d1xn91xTOydj2cQql+k2Jzs3z//2FNDEBlBHkTKYXff6LfLjKa9fmjK6bHvA54Hvjf/XL2bTcg3KFOlNFTKmlHs06D6F42CY45XTSgyCgDqSwucA04J4GEuw/zvwY3BfSbpteHCyU1aNnUdwipH1lCxqLu44vJnMaD1X/WmfAeczxTIEDBXaFIoovpm3IXjxswvM6BSMcYJbT7nP7f1FF6CRoYdeQAqYF6rQvaH10UhRYJZ/ZRg=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(82310400026)(36860700013)(1800799024)(376014)(7416014)(14060799003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: BP7YjMq4QVuzqJmyz4BGjoT7Yv4II48uCtqk3B4DItMBhcXd6DKesBd5nk2WUUUjqf1XENtFTJhGRxCNBWVQ0nylFEgnq3l+0eh8TQxIH5p72mx1nfM4WB7D0M8EW5S9KKNM6NjBvNKb5HOowXU3eUxXHkl8K7OhQf2n1rSQ6B9pDizynJsxbdrKaggIpVazjg136U8iDHv40nJr49IYTtb2/ashymE6Q3ScJQy8S41xyetFCHiQaVa1e8oA3hcoz+l4oHQL/tItkqHngCgsLZQqc7w9jWE25ybw5yHj0r1F44rOWLA3x6t7W8xxqRNo90yfFF/7sWvW12do+h4FkEopqBVPcXCdGTPrh0oc7jaoAvD9sKz2bKROT3gWmfjeu8bEv94LEU4/wx8+XoV6hT64c5nIO4WfdbJF/TmCwileK97f/DSbCARdHyKv4Dvr
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 14:06:48.5136
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e61ee321-230b-457d-c802-08de75404865
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EB.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB5554
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260226-anacapa-dts-sgpio-v2-1-fd76828616b8@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAM9ToGkC/32NQQqDMBBFryKz7pSY1lq68h7FxSQZ40A1IRFpE
+ e/e1AN08+F9+O9vkDkJZ3hUGyReJUuYC+hTBXak2TOKKwxa6ZsqgTSTpUjolozZRwnIV1aGGqu
+ ta6DsYuJB3ofz2RceJS8hfY6Ltf61/2xrjTXShVqjjLq3g+r8RPI62zBBv+/7F9hMW2SyAAAA
+X-Change-ID: 20260202-anacapa-dts-sgpio-e4e0ba5c2cd5
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Colin.Huang2@amd.com, Carl.Lee@amd.com, Peter.Shen@amd.com, 
+ Colin Huang <u8813345@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772114922; l=8780;
+ i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
+ bh=zOozJ3zv4ZVEOtjpoT9fTG9xriUnw/ZReMGwbHGkXqE=;
+ b=FPqErmaXHAqA92QS3zYhsA6YIjvUzR/2fJt5KhjFcR9qgDGYtiJvJlo2Zi02Xg35kWutD0MEo
+ cF5byFwicGlD1gJ+XHDQlwjR+iLQFU6GKETWF86db6p6IBdbtgflcHl
+X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
+ pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_060658_081448_14083558 
-X-CRM114-Status: GOOD (  27.36  )
+X-CRM114-CacheID: sfid-20260226_060846_431187_1C170B1E 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,180 +112,287 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+This update adjusts SGPIO mappings and enables interrupt support for the
+PCA9555 GPIO expanders. These changes are required as part of the DFT
+(Design For Tooling) integration and are aligned with the SGPIO signal
+definitions provided in Helios_SGPIO_BIT_MAP.xlsx (rev: 2026-02-16).
 
-> On Wed, 25 Feb 2026 18:27:07 +0000,
-> Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> >
-> > Use the CASLT instruction to swap the guest descriptor when FEAT_LSUI
-> > is enabled, avoiding the need to clear the PAN bit.
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >  arch/arm64/include/asm/cpucaps.h |  2 ++
-> >  arch/arm64/include/asm/futex.h   | 17 +----------------
-> >  arch/arm64/include/asm/lsui.h    | 27 +++++++++++++++++++++++++++
-> >  arch/arm64/kvm/at.c              | 30 +++++++++++++++++++++++++++++-
-> >  4 files changed, 59 insertions(+), 17 deletions(-)
-> >  create mode 100644 arch/arm64/include/asm/lsui.h
-> >
-> > diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-> > index 177c691914f8..6e3da333442e 100644
-> > --- a/arch/arm64/include/asm/cpucaps.h
-> > +++ b/arch/arm64/include/asm/cpucaps.h
-> > @@ -71,6 +71,8 @@ cpucap_is_possible(const unsigned int cap)
-> >  		return true;
-> >  	case ARM64_HAS_PMUV3:
-> >  		return IS_ENABLED(CONFIG_HW_PERF_EVENTS);
-> > +	case ARM64_HAS_LSUI:
-> > +		return IS_ENABLED(CONFIG_ARM64_LSUI);
-> >  	}
-> >
-> >  	return true;
->
-> It would make more sense to move this hunk to the first patch, where
-> you deal with features and capabilities, instead of having this in a
-> random KVM-specific patch.
+Updates include:
+- Add interrupt-parent and interrupts properties to PCA9555 nodes to
+  enable proper interrupt handling required by phosphor-gpio-monitor.
+- Correct placement of LEAK_DETECT_RMC_N.
+- Update SGPIO line-name mappings per the latest Helios SGPIO bit map to
+  reflect leakage channels, presence pins, module power-good, and other
+  DFT-related monitoring signals.
 
-Okay. But as Suzuki mention, I think it seems to be redundant.
-I'll remove it.
+Signed-off-by: Colin Huang <u8813345@gmail.com>
+---
+Update SGPIO line names for the Facebook Anacapa platform and enable
+interrupt support for PCA9555 GPIO expanders. These changes are part of
+DFT (Design For Tooling) integration and align the device tree with the
+latest SGPIO bit mapping used during board validation.
 
->
-> > diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-> > index b579e9d0964d..6779c4ad927f 100644
-> > --- a/arch/arm64/include/asm/futex.h
-> > +++ b/arch/arm64/include/asm/futex.h
-> > @@ -7,11 +7,9 @@
-> >
-> >  #include <linux/futex.h>
-> >  #include <linux/uaccess.h>
-> > -#include <linux/stringify.h>
-> >
-> > -#include <asm/alternative.h>
-> > -#include <asm/alternative-macros.h>
-> >  #include <asm/errno.h>
-> > +#include <asm/lsui.h>
-> >
-> >  #define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
-> >
-> > @@ -91,8 +89,6 @@ __llsc_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-> >
-> >  #ifdef CONFIG_ARM64_LSUI
-> >
-> > -#define __LSUI_PREAMBLE	".arch_extension lsui\n"
-> > -
-> >  #define LSUI_FUTEX_ATOMIC_OP(op, asm_op)				\
-> >  static __always_inline int						\
-> >  __lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-> > @@ -235,17 +231,6 @@ __lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-> >  {
-> >  	return __lsui_cmpxchg32(uaddr, oldval, newval, oval);
-> >  }
-> > -
-> > -#define __lsui_llsc_body(op, ...)					\
-> > -({									\
-> > -	alternative_has_cap_unlikely(ARM64_HAS_LSUI) ?			\
-> > -		__lsui_##op(__VA_ARGS__) : __llsc_##op(__VA_ARGS__);	\
-> > -})
-> > -
-> > -#else	/* CONFIG_ARM64_LSUI */
-> > -
-> > -#define __lsui_llsc_body(op, ...)	__llsc_##op(__VA_ARGS__)
-> > -
-> >  #endif	/* CONFIG_ARM64_LSUI */
-> >
-> >
-> > diff --git a/arch/arm64/include/asm/lsui.h b/arch/arm64/include/asm/lsui.h
-> > new file mode 100644
-> > index 000000000000..8f0d81953eb6
-> > --- /dev/null
-> > +++ b/arch/arm64/include/asm/lsui.h
-> > @@ -0,0 +1,27 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +#ifndef __ASM_LSUI_H
-> > +#define __ASM_LSUI_H
-> > +
-> > +#include <linux/compiler_types.h>
-> > +#include <linux/stringify.h>
-> > +#include <asm/alternative.h>
-> > +#include <asm/alternative-macros.h>
-> > +#include <asm/cpucaps.h>
-> > +
-> > +#define __LSUI_PREAMBLE	".arch_extension lsui\n"
-> > +
-> > +#ifdef CONFIG_ARM64_LSUI
-> > +
-> > +#define __lsui_llsc_body(op, ...)					\
-> > +({									\
-> > +	alternative_has_cap_unlikely(ARM64_HAS_LSUI) ?			\
-> > +		__lsui_##op(__VA_ARGS__) : __llsc_##op(__VA_ARGS__);	\
-> > +})
-> > +
-> > +#else	/* CONFIG_ARM64_LSUI */
-> > +
-> > +#define __lsui_llsc_body(op, ...)	__llsc_##op(__VA_ARGS__)
-> > +
-> > +#endif	/* CONFIG_ARM64_LSUI */
-> > +
-> > +#endif	/* __ASM_LSUI_H */
->
-> Similarly, fold this into the patch that introduces FEAT_LSUI support
-> for futexes (#5) so that the code is in its final position from the
-> beginning. This will avoid churn that makes the patches pointlessly
-> hard to follow, since this change is unrelated to KVM.
+The updates are based on: Helios_SGPIO_BIT_MAP.xlsx (rev: 2026-02-16).
 
-Okay. I'll fold it into #5.
+The following changes are included:
+- Add BMC_AINIC0_WP_R2_L and BMC_AINIC1_WP_R2_L
+- Correct placement of LEAK_DETECT_RMC_N
+- Add PRSNT_NFC_BOARD_R
+- Add IRQ_NFC_BOARD_R and RSMRST_N
+- Add DC_OFF, EAM_MOD_PWR_GD_TIMEOUT, CPLD_AMC_STBY_PWR_EN
+- Add FM_MAIN_PWREN_RMC_EN_ISO
+---
+Changes in v2:
+- Add interrupt-parent and interrupts properties to PCA9555 nodes to
+  enable proper interrupt handling required by phosphor-gpio-monitor.
+- Clarify DFT motivation in the commit message and mention the source
+  mapping (Helios_SGPIO_BIT_MAP.xlsx rev: 2026-02-16).
+- Minor wording cleanups in the commit message (line names vs. mappings).
+- Rebase onto the latest tree to account for intervening commits.
+- Link to v1: https://lore.kernel.org/r/20260202-anacapa-dts-sgpio-v1-1-a3a7b0b087f0@gmail.com
+---
+ .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     | 147 ++++++++++++---------
+ 1 file changed, 88 insertions(+), 59 deletions(-)
 
->
-> > diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-> > index 885bd5bb2f41..fd3c5749e853 100644
-> > --- a/arch/arm64/kvm/at.c
-> > +++ b/arch/arm64/kvm/at.c
-> > @@ -9,6 +9,7 @@
-> >  #include <asm/esr.h>
-> >  #include <asm/kvm_hyp.h>
-> >  #include <asm/kvm_mmu.h>
-> > +#include <asm/lsui.h>
-> >
-> >  static void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
-> >  {
-> > @@ -1704,6 +1705,31 @@ int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u64 va, u64 ipa, int *level)
-> >  	}
-> >  }
-> >
-> > +static int __lsui_swap_desc(u64 __user *ptep, u64 old, u64 new)
-> > +{
-> > +	u64 tmp = old;
-> > +	int ret = 0;
-> > +
-> > +	uaccess_ttbr0_enable();
->
-> Why do we need this? If FEAT_LSUI is present, than FEAT_PAN is also
-> present. And since PAN support not a compilation option anymore, we
-> should be able to rely on PAN being enabled.
->
-> Or am I missing something? If so, please document why we require it.
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+index 2cb7bd128d24..aa53ae8eb61f 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+@@ -500,6 +500,9 @@ gpio@24 {
+ 				gpio-controller;
+ 				#gpio-cells = <2>;
+ 
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++
+ 				gpio-line-names =
+ 					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
+ 					"RPDB_PWRGD_P50V_HSC4_SYS_R",
+@@ -546,6 +549,9 @@ gpio@24 {
+ 				gpio-controller;
+ 				#gpio-cells = <2>;
+ 
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++
+ 				gpio-line-names =
+ 					"LPDB_P50V_FAN1_R2_PG","LPDB_P50V_FAN2_R2_PG",
+ 					"LPDB_P50V_FAN3_R2_PG","LPDB_P50V_FAN4_R2_PG",
+@@ -864,87 +870,104 @@ &sgpiom0 {
+ 	gpio-line-names =
+ 	/*in - out - in - out */
+ 	/* A0-A7 line 0-15 */
+-	"", "FM_CPU0_SYS_RESET_N", "", "CPU0_KBRST_N",
+-	"", "FM_CPU0_PROCHOT_trigger_N", "", "FM_CLR_CMOS_R_P0",
+-	"", "Force_I3C_SEL", "", "SYSTEM_Force_Run_AC_Cycle",
+-	"", "", "", "",
++	"L_FNIC_FLT", "FM_CPU0_SYS_RESET_N",
++	"L_BNIC0_FLT", "CPU0_KBRST_N",
++	"L_BNIC1_FLT", "FM_CPU0_PROCHOT_trigger_N",
++	"L_BNIC2_FLT", "FM_CLR_CMOS_R_P0",
++	"L_BNIC3_FLT", "Force_I3C_SEL",
++	"L_RTM_SW_FLT", "SYSTEM_Force_Run_AC_Cycle",
++	"", "",
++	"", "",
+ 
+ 	/* B0-B7 line 16-31 */
+ 	"Channel0_leakage_EAM3", "FM_CPU_FPGA_JTAG_MUX_SEL",
+ 	"Channel1_leakage_EAM0", "FM_SCM_JTAG_MUX_SEL",
+ 	"Channel2_leakage_Manifold1", "FM_BRIDGE_JTAG_MUX_SEL",
+ 	"Channel3_leakage", "FM_CPU0_NMI_SYNC_FLOOD_N",
+-	"Channel4_leakage_Manifold2", "",
+-	"Channel5_leakage_EAM1", "",
+-	"Channel6_leakage_CPU_DIMM", "",
+-	"Channel7_leakage_EAM2", "",
++	"Channel4_leakage_Manifold2", "BMC_AINIC0_WP_R2_L",
++	"Channel5_leakage_EAM1", "BMC_AINIC1_WP_R2_L",
++	"Channel6_leakage_CPU_DIMM", "CPLD_BUF_R_AGPIO330",
++	"Channel7_leakage_EAM2", "CPLD_BUF_R_AGPIO331",
+ 
+ 	/* C0-C7 line 32-47 */
+-	"RSVD_RMC_GPIO3", "", "", "",
+-	"", "", "", "",
+-	"LEAK_DETECT_RMC_N", "", "", "",
+-	"", "", "", "",
++	"RSVD_RMC_GPIO3", "RTM_MUX_L",
++	"LEAK_DETECT_RMC_N", "RTM_MUX_R",
++	"HDR_P0_NMI_BTN_BUF_R_N", "",
++	"No_Leak_Sensor_flag", "",
++	"", "",
++	"", "",
++	"", "",
++	"", "",
+ 
+ 	/* D0-D7 line 48-63 */
+-	"PWRGD_PDB_EAMHSC0_CPLD_PG_R", "",
+-	"PWRGD_PDB_EAMHSC1_CPLD_PG_R", "",
+-	"PWRGD_PDB_EAMHSC2_CPLD_PG_R", "",
+-	"PWRGD_PDB_EAMHSC3_CPLD_PG_R", "",
+-	"AMC_BRD_PRSNT_CPLD_L", "", "", "",
+-	"", "", "", "",
++	"PWRGD_CHAD_CPU0_FPGA", "",
++	"PWRGD_CHEH_CPU0_FPGA", "",
++	"PWRGD_CHIL_CPU0_FPGA", "",
++	"PWRGD_CHMP_CPU0_FPGA", "",
++	"AMC_BRD_PRSNT_CPLD_L", "",
++	"", "",
++	"", "",
++	"", "",
+ 
+ 	/* E0-E7 line 64-79 */
+-	"AMC_PDB_EAMHSC0_CPLD_EN_R", "",
+-	"AMC_PDB_EAMHSC1_CPLD_EN_R", "",
+-	"AMC_PDB_EAMHSC2_CPLD_EN_R", "",
+-	"AMC_PDB_EAMHSC3_CPLD_EN_R", "",
+-	"", "", "", "",
+-	"", "", "", "",
++	"L_PRSNT_B_FENIC_R2_N", "",
++	"L_PRSNT_B_BENIC0_R2_N", "",
++	"L_PRSNT_B_BENIC1_R2_N", "",
++	"L_PRSNT_B_BENIC2_R2_N", "",
++	"L_PRSNT_B_BENIC3_R2_N", "",
++	"", "",
++	"", "",
++	"", "",
+ 
+ 	/* F0-F7 line 80-95 */
+-	"PWRGD_PVDDCR_CPU1_P0", "SGPIO_READY",
+-	"PWRGD_PVDDCR_CPU0_P0", "",
+-	"", "", "", "",
+-	"", "", "", "",
++	"R_PRSNT_B_FENIC_R2_N", "SGPIO_READY",
++	"R_PRSNT_B_BENIC0_R2_N", "",
++	"R_PRSNT_B_BENIC1_R2_N", "",
++	"R_PRSNT_B_BENIC2_R2_N", "",
++	"R_PRSNT_B_BENIC3_R2_N", "",
++	"", "",
++	"", "",
++	"", "",
+ 
+ 	/* G0-G7 line 96-111 */
+-	"PWRGD_PVDDCR_SOC_P0", "",
+-	"PWRGD_PVDDIO_P0", "",
+-	"PWRGD_PVDDIO_MEM_S3_P0", "",
+-	"PWRGD_CHMP_CPU0_FPGA", "",
+-	"PWRGD_CHIL_CPU0_FPGA", "",
+-	"PWRGD_CHEH_CPU0_FPGA", "",
+-	"PWRGD_CHAD_CPU0_FPGA", "FM_BMC_READY_PLD",
++	"L_PRSNT_EDSFF2_N", "",
++	"L_PRSNT_EDSFF3_N", "",
++	"R_PRSNT_EDSFF2_N", "",
++	"R_PRSNT_EDSFF3_N", "",
++	"", "",
++	"", "",
+ 	"", "",
++	"PRSNT_NFC_BOARD_R", "",
+ 
+ 	/* H0-H7 line 112-127 */
+-	"PWRGD_P3V3", "",
+-	"P12V_DDR_IP_PWRGD_R", "",
+-	"P12V_DDR_AH_PWRGD_R", "",
+-	"PWRGD_P12V_VRM1_CPLD_PG_R", "",
+-	"PWRGD_P12V_VRM0_CPLD_PG_R", "",
+-	"PWRGD_PDB_HSC4_CPLD_PG_R", "",
+-	"PWRGD_PVDD18_S5_P0_PG", "",
+-	"PWRGD_PVDD33_S5_P0_PG", "",
++	"R_FNIC_FLT", "",
++	"R_BNIC0_FLT", "",
++	"R_BNIC1_FLT", "",
++	"R_BNIC2_FLT", "",
++	"R_BNIC3_FLT", "",
++	"R_RTM_SW_FLT", "",
++	"", "",
++	"", "",
+ 
+ 	/* I0-I7 line 128-143 */
+ 	"EAM0_BRD_PRSNT_R_L", "",
+ 	"EAM1_BRD_PRSNT_R_L", "",
+ 	"EAM2_BRD_PRSNT_R_L", "",
+ 	"EAM3_BRD_PRSNT_R_L", "",
+-	"EAM0_CPU_MOD_PWR_GD_R", "",
+-	"EAM1_CPU_MOD_PWR_GD_R", "",
+-	"EAM2_CPU_MOD_PWR_GD_R", "",
+-	"EAM3_CPU_MOD_PWR_GD_R", "",
++	"FM_TPM_PRSNT_R_N", "",
++	"PDB_PRSNT_R_N", "",
++	"PRSNT_EDSFF0_N", "",
++	"PRSNT_CPU0_N", "",
+ 
+ 	/* J0-J7 line 144-159 */
+-	"PRSNT_L_BIRDGE_R", "",
+-	"PRSNT_R_BIRDGE_R", "",
++	"PRSNT_L_BRIDGE_R", "",
++	"PRSNT_R_BRIDGE_R", "",
+ 	"BRIDGE_L_MAIN_PG_R", "",
+ 	"BRIDGE_R_MAIN_PG_R", "",
+ 	"BRIDGE_L_STBY_PG_R", "",
+ 	"BRIDGE_R_STBY_PG_R", "",
+-	"", "", "", "",
++	"IRQ_NFC_BOARD_R", "",
++	"RSMRST_N", "",
+ 
+ 	/* K0-K7 line 160-175 */
+ 	"ADC_I2C_ALERT_N", "",
+@@ -957,10 +980,14 @@ &sgpiom0 {
+ 	"PDB_ALERT_R_N", "",
+ 
+ 	/* L0-L7 line 176-191 */
+-	"CPU0_SP7R1", "", "CPU0_SP7R2", "",
+-	"CPU0_SP7R3", "", "CPU0_SP7R4", "",
+-	"CPU0_CORETYPE0", "", "CPU0_CORETYPE1", "",
+-	"CPU0_CORETYPE2", "", "FM_BIOS_POST_CMPLT_R_N", "",
++	"CPU0_SP7R1", "",
++	"CPU0_SP7R2", "",
++	"CPU0_SP7R3", "",
++	"CPU0_SP7R4", "",
++	"CPU0_CORETYPE0", "",
++	"CPU0_CORETYPE1", "",
++	"CPU0_CORETYPE2", "",
++	"FM_BIOS_POST_CMPLT_R_N", "",
+ 
+ 	/* M0-M7 line 192-207 */
+ 	"EAM0_SMERR_CPLD_R_L", "",
+@@ -978,17 +1005,19 @@ &sgpiom0 {
+ 	"AMC_STBY_PGOOD_R", "",
+ 	"CPU_AMC_SLP_S5_R_L", "",
+ 	"AMC_CPU_EAMPG_R", "",
+-	"", "", "", "",
++	"DIMM_PMIC_PG_TIMEOUT", "",
++	"EAM_MOD_PWR_GD_TIMEOUT", "",
++	"CPLD_AMC_STBY_PWR_EN", "",
+ 
+ 	/* O0-O7 line 224-239 */
+ 	"HPM_PWR_FAIL", "Port80_b0",
+ 	"FM_DIMM_IP_FAIL", "Port80_b1",
+ 	"FM_DIMM_AH_FAIL", "Port80_b2",
+ 	"HPM_AMC_THERMTRIP_R_L", "Port80_b3",
+-	"FM_CPU0_THERMTRIP_N", "Port80_b4",
++	"cpu_thermtrip_detect", "Port80_b4",
+ 	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
+ 	"CPLD_SGPIO_RDY", "Port80_b6",
+-	"", "Port80_b7",
++	"FM_MAIN_PWREN_RMC_EN_ISO", "Port80_b7",
+ 
+ 	/* P0-P7 line 240-255 */
+ 	"CPU0_SLP_S5_N_R", "NFC_VEN",
+@@ -997,8 +1026,8 @@ &sgpiom0 {
+ 	"PWRGD_RMC", "",
+ 	"FM_RST_CPU0_RESET_N", "",
+ 	"FM_PWRGD_CPU0_PWROK", "",
+-	"wS5_PWR_Ready", "",
+-	"wS0_ON_N", "PWRGD_P1V0_AUX";
++	"AMC_FAIL", "",
++	"wS0_ON_N", "";
+ 	status = "okay";
+ };
+ 
 
-That was my origin thought but there was relevant discussion about this:
-  - https://lore.kernel.org/all/aW5dzb0ldp8u8Rdm@willie-the-truck/
-  - https://lore.kernel.org/all/aYtZfpWjRJ1r23nw@arm.com/
+---
+base-commit: 710dbb13377c80a6e39ef049a517665841e3221e
+change-id: 20260202-anacapa-dts-sgpio-e4e0ba5c2cd5
 
-In summary, I couldn't make that assumption --
-PAN always presents when LSUI presents for :
+Best regards,
+-- 
+Colin Huang <u8813345@gmail.com>
 
-   - CPU bugs happen all the time
-   - Virtualisation and idreg overrides mean illegal feature combinations
-    can show up
-
-So, uaccess_ttbr0_enable() is for when SW_PAN is enabled.
-
-I'll make a comment for this.
-
-[...]
-
-Thanks!
-
---
-Sincerely,
-Yeoreum Yun
 
