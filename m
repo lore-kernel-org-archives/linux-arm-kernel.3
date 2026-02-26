@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE910FC5913
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 08:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1B2FC590F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 08:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J0aCnSwYvtBeHJ1OOM9Vc+I/4tW0hnZ2TREQUA4zAXs=; b=VD/4RqbgjNwaK1/2LRjaMaOiL9
-	PWFvghmf8HH+6B6gETEN8J3stU95LNneTNy44SWT+7Xo5KTlR/RrKBn7uQcOzzPloyIQXWOERcZRx
-	4k+owDZOH67tCOap7Vm/BqsPnh98rNXKIhlrSXlPIgKvOMWDPoX8oLc+iObFwv/02XTXN2SRV78RX
-	UmgVVEyr6rxx2QmwtISXsPFfmoZ0D/hvJ46mH4dEs7BGo0c+TfVl+5h8sSNIzJw38nkeyNTO/gTDu
-	NnWyw5cuRf9KG+E4i1wkEuP6mSClVJW2XrlHxYFjmlFVUhshDconzcu6LxMEKyINed1xMM4f2+Hs5
-	7bs3rYQQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OkQSZFFyrrUC2BfgblnLh9wWBJ1YRgIvBo/bG0tqOyE=; b=AbZvggpmZqvjZd
+	YLrtRZw8xJIaH+iQwt1KjhseVdZ23KkvJ0VTxfSmxlUZZb6BaedE5zD7+axdlup5pM6xYTZ6/USoF
+	PBBS8e3F3MQt/T1X3vef0pgPJlLD2NUuAry6tR+NfdrZesaWVnaIolAa7PmKlK3SmylooF6UlVU0r
+	1Nn/gDS7bhhm6wbD87q6Rs6U8+Tbblj8vsDv+O779L+2Jz3hXBbIIPo7Ra6+hq1q6sK34BT9uuqLs
+	WEtZp5dBulsQjSAyTaRQDMOG5UIG4RbN9G5rOOKijaJrHhCgCT5tMAQK7K6HQXREtWV/JWQ0qa71e
+	OH70hqyKkS/iXFe63J4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXAJ-00000005iwO-2OjO;
+	id 1vvXAJ-00000005iwS-3cwV;
 	Thu, 26 Feb 2026 08:56:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXAI-00000005ivl-2GrF;
+	id 1vvXAI-00000005ivm-3IFB;
 	Thu, 26 Feb 2026 08:56:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=J0aCnSwYvtBeHJ1OOM9Vc+I/4tW0hnZ2TREQUA4zAXs=; b=Co3yoE7sQxKNDAet3QfU+NN/aD
-	gUYxmh9W6XuwKxxFY+CStqDaGTPF/WvyRS1vn9xUsqYgICTOg7cmzDgBGuK6q6WCcCLBNKBnq4etK
-	i0eYgE7hKxYA5qmHtyiZbWgZzeEGpjZ1k06qcuUPYzn0fNDF63b+x/8wFusI8xrzd67jD9lrWhcWt
-	P6wvWisZpiY29jzYnT/uUFnJyB+pLpakdmp6O0HwzB03u3xojYd6EZcRmiLafQdzBfpi+epCpPO18
-	9mUJb8Rsg93028iIqM08X+Blxix+e75AO+aZLhrBAnoiTv7v5Rr87/R0IzyMdF7F66/iRMbvLdClE
-	sX4j9A6Q==;
-Received: from galois.linutronix.de ([193.142.43.55])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=OkQSZFFyrrUC2BfgblnLh9wWBJ1YRgIvBo/bG0tqOyE=; b=MHpvMR+HJcVMJsjDNrLkp43Sd5
+	MnprUNgUqBeo4hrUKslHXt72xH4iI6q9wKur79cxS46eCmFqQGplZYAMqDoeIFqLRM9AtLGeXyMke
+	UyUqAUCwmsYwhB8bf1RzGDnewoHEa/PwpQB6AnEU6qajMDvcTKb5j0ewJFLrrNlSVM8db0reXjWdq
+	SiDwU+VVuQKvZ9s+hE19RbqLzIb2JIeAMJNm6VNvghhEs5PUulEzM1vUlCj/gHJmAMeOV8MP5AMyW
+	uHamoLQd3roqUVtWqyefA5tLJ/3QvQETfLjBC6Yy8k/FRiFwoqa9wxf5HiNF/Ha/bMrl5wxM9yvHe
+	8M1QOHug==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXAF-0000000AYYE-2Shp;
+	id 1vvXAF-0000000AYYD-2Rz7;
 	Thu, 26 Feb 2026 08:56:09 +0000
 From: Gregor Herburger <gregor.herburger@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1772096165;
+	s=2020; t=1772096163;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=J0aCnSwYvtBeHJ1OOM9Vc+I/4tW0hnZ2TREQUA4zAXs=;
-	b=pQ7UxviVlypqRjlqEeDNj3m7BlZYSasMdOs43dosLALx5sF6UIqYjywFswE58fKdwxzW2p
-	dUw9zYs5o99nFSxCuSWVl3YadnPR1j6qxOjTnF2+BNWNaaNlOtpj0nDe7g4i4lEAdS6wA4
-	H7dXAlVShcbxoBLMduQPFPJwHGw/NjS7Mvq5VefhOe46x/vLXMbRLtiu8YPO90Lf/M5nKo
-	NYTeNmUe8TLxitKRssqdWl+T0PaKbL19m+ZmSwmhQ4j07HLmzmQe4D53mfdFWzIOdUkO+1
-	AAnsuB/JDwIg6+uyhChpZSTRXmn+cuq7iR/rQYiN1ojZP8ABJEjYWbPPLTrCRQ==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=OkQSZFFyrrUC2BfgblnLh9wWBJ1YRgIvBo/bG0tqOyE=;
+	b=2Ep24RiPqzuOuxyGxEdrdJ9YSafyR1QHD1SGv7b1SlZWRRLAQ8UyV4mbAT2pfTYACIbP7t
+	LMcrp8cis1QxEmknYeMq4fSobZACGhvKzV3No68xGltcUQl5aaAWTZvK4vM3/dpVsbB/TE
+	mNRPX/Z9ROqZyfqCg6A267mUjrhDAL8I1P+xNqIF0PZFrwE3G9vZlsSKZfAPe6TQUo+7dy
+	KTDdQcNXyGcFNg44CiN15QV1/fGywS0Ju//Bba89GL9dMiXFW8bzOoEIAPsplaFeld3aAg
+	lRJM9vVDiDuPe/W3Z8X8ixW/HCvuTC+QSwdy76NkPlG1RHUQRUrseP5cGesN7g==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1772096165;
+	s=2020e; t=1772096163;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=J0aCnSwYvtBeHJ1OOM9Vc+I/4tW0hnZ2TREQUA4zAXs=;
-	b=K3VU5XlM25UnEpiH4P1pkFaDQ5kw4cl9TJEHZOrQoP0eGGNDASuIMPfTo6cLsH/HoBau+K
-	O9wGdm/rk7xrjoAw==
-Date: Thu, 26 Feb 2026 09:55:57 +0100
-Subject: [PATCH 4/6] arm64: dts: broadcom: bcm2712-rpi-5-b: add pinctrl
- properties for csi i2cs
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=OkQSZFFyrrUC2BfgblnLh9wWBJ1YRgIvBo/bG0tqOyE=;
+	b=DO0kT5RxRb5bp2rt4zpn6PXZsmzYU1U8k523a//KGYFu4ouP5GRiEjBqkpo0WWr4wWQbdj
+	mMN88RqXUahLBlDA==
+Subject: [PATCH 0/6] arm64: dts: broadcom: bcm2712: add missing nodes
+Date: Thu, 26 Feb 2026 09:55:53 +0100
+Message-Id: <20260226-raspi-dts-updates-v1-0-60832d20ff04@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-raspi-dts-updates-v1-4-60832d20ff04@linutronix.de>
-References: <20260226-raspi-dts-updates-v1-0-60832d20ff04@linutronix.de>
-In-Reply-To: <20260226-raspi-dts-updates-v1-0-60832d20ff04@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIAJkKoGkC/x3MQQ5AMBBA0avIrE3SDkFcRSxKp8yGpoNIxN01l
+ m/x/wPKSVihLx5IfInKvmXYsoB5ddvCKD4byFBjiAwmp1HQH4pn9O5gxXmydgpV6NqaIHcxcZD
+ 7fw7j+35X039cYwAAAA==
+X-Change-ID: 20260220-raspi-dts-updates-cb11bf3f8742
 To: Andrea della Porta <andrea.porta@suse.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -79,16 +78,16 @@ To: Andrea della Porta <andrea.porta@suse.com>,
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Gregor Herburger <gregor.herburger@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772096163; l=1219;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772096163; l=1353;
  i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=NuciaL2iHKWVF1yvY35a53EcJyafL6FaQLYCV743U74=;
- b=IcWic5/moOTnm8vW7dUP0spg4SX6UDqtJX5NqrGxx6gBy1i3zUzBzkmanQoLNqmXsl/24eox5
- 3XaZe+lDIK8DYmsHqLf2ylDNva70W9UA6ha2oR2MaRbqlvRfMtxlEFp
+ bh=C/9GPnXYkyWxfRHbhEaUnI1yU+VgMkJUEetx8Xp81uw=;
+ b=w/S8oyhplLSwbQTa/S3z3GEKRyq0wHLUfWYDiu+b5PaQmIsKUpo87C2kRfzLeCZjt4vvyiBBe
+ oFw0IBSC8stARtcN+4IF/9Lvfxh43nSrhR5l5UJHBgjgc3BF6MZquvn
 X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
  pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_085607_870002_5A6E7E79 
-X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-CacheID: sfid-20260226_085607_867616_EE1AE6E9 
+X-CRM114-Status: UNSURE (   8.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,50 +103,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configure the i2c pins for the csi interfaces as i2c.
+Hi,
 
-Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+This series addresses some missing nodes for the bcm2712 raspberry pi 5
+and includes some fixes for the -d revision.
+I identified these while working on the camera interfaces on the
+rapsberry pi 5. All the drivers were already there. Only the devicetree
+nodes were missing.
+As I don't have access to any datasheets, these changes were ported from
+the downstream tree (https://github.com/raspberrypi/linux/).
+
 ---
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+Gregor Herburger (6):
+      arm64: dts: broadcom: rp1: add i2c controller
+      arm64: dts: broadcom: rp1: add csi nodes
+      arm64: dts: broadcom: bcm2712: add camera backend node pispbe
+      arm64: dts: broadcom: bcm2712-rpi-5-b: add pinctrl properties for csi i2cs
+      arm64: dts: broadcom: bcm2712-d-rpi-5-b: add fixes for pinctrl/pinctrl_aon
+      arm64: dts: broadcom: bcm2712-d-rpi-5-b: update uart10 interrupt
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index 28560828144622622e610db12fbacbf1a6b7267a..0fc57e72632edca4686a859520a0dce7ff112f06 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -68,6 +68,30 @@ usb_vbus_default_state: usb-vbus-default-state {
- 		function = "vbus1";
- 		groups = "vbus1";
- 	};
-+
-+	rp1_i2c4_default_state: rp1-i2c4-default-state {
-+		function = "i2c4";
-+		groups = "i2c4_2";
-+		drive-strength = <12>;
-+		bias-pull-up;
-+	};
-+
-+	rp1_i2c6_default_state: rp1-i2c6-default-state {
-+		function = "i2c6";
-+		groups = "i2c6_0";
-+		drive-strength = <12>;
-+		bias-pull-up;
-+	};
-+};
-+
-+&rp1_i2c4 {
-+	pinctrl-0 = <&rp1_i2c4_default_state>;
-+	pinctrl-names = "default";
-+};
-+
-+&rp1_i2c6 {
-+	pinctrl-0 = <&rp1_i2c6_default_state>;
-+	pinctrl-names = "default";
- };
- 
- &rp1_usb0 {
+ arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts |  14 +++
+ arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts   |  24 +++++
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |   7 ++
+ arch/arm64/boot/dts/broadcom/rp1-common.dtsi       | 105 +++++++++++++++++++++
+ 4 files changed, 150 insertions(+)
+---
+base-commit: 44982d352c33767cd8d19f8044e7e1161a587ff7
+change-id: 20260220-raspi-dts-updates-cb11bf3f8742
 
+Best regards,
 -- 
-2.47.3
+Gregor Herburger <gregor.herburger@linutronix.de>
 
 
