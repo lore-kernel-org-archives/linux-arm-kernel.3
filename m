@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FC4FD461C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 04:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D94FD4616
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 04:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:From:Subject:Message-ID:References:Mime-Version:In-Reply-To:
-	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMWIeXWUQgyzJ0fPnV+0pSMPvgSBdF0XsAMHNN5+mYc=; b=h/agQzo4YCA+3KdGkYc4bnGl/U
-	9PAMVXNb+WwV1ZU81r6irDA6uS2kpSwO6GBXZolgLm7uZa+nIhrFF8syE4OjKeMEOT0RGNd5bgYfL
-	rDG3/i7533ViYuxs8voux69ZUGcV0G8ECnmfaoaTxPri6JloYcDvn6ChAY7aS+Mhri1BC9qLK3ClY
-	HdrkGSQyP6j4bsIBItK5D0oikQ/Kjt6pfrpe+kPsEL7+5gb1vDOuVAKHkmlpGH/0t38TSZkxdlgEc
-	Sz54K+CERiA2nUU7BWKUWgTAIMCsg9fqKW1lo3KtWILEtBwwzXziyG/5Go3y6RfYC6C7lxIGy/n+Q
-	ownQ4AqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T7UyESOxoY8uyeFaFPDUNsLMmM40wZKIi5sdRUJRLzA=; b=C00XMqZWRryEunwx2BKtpuuyX6
+	pP3A+IcQccZtgxyeSDHp1LVRa1zpEa7UNERqPDeDCZjUZwHBkYyYd0GT2f2M0QRJYwGZdGXflRfvB
+	s1/PpxeVsTMrBpd0DiM/UhcwMgIxl+eZw8qYFwDXNDKFB+FDGOaobtmt425HmpYnfo9KXStTV+k5B
+	lV0ClOdrU6x6pZxNM4NSHzu49xccr7CMfOzMqyf78VSSb/eRmCRT6E76sorK7MbaE4aIJVIQogbdO
+	wTsCnYgxqUEjQGTFZu1z+l9hpsW281p0YDZcRiyNy+D/TkwBIdA1/Sn13I3DRvAQ6X5MHkxv43rR4
+	WLQ7UGoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvTNF-00000005NlW-1Fv5;
-	Thu, 26 Feb 2026 04:53:17 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1vvTNH-00000005Nmu-0hfO;
+	Thu, 26 Feb 2026 04:53:19 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvTNA-00000005NjC-2BOP
+	id 1vvTND-00000005Njt-1dDT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 04:53:13 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-1276e71652fso780101c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 20:53:11 -0800 (PST)
+	Thu, 26 Feb 2026 04:53:16 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2bd3bf5dde4so435258eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 20:53:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772081591; x=1772686391; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lMWIeXWUQgyzJ0fPnV+0pSMPvgSBdF0XsAMHNN5+mYc=;
-        b=2/4T+L1MPw4me63S2r/tvqoGSAaP/n9db490sbw44Tlpw88rCrxv04kqRHDHGQaW/3
-         Rql4BL2ihP34qwCzN3xLZwrSFjzl1Dc1TqkbPXWt0XDh/Vma0V/skZzdYaZ8Q/T0/h6v
-         qdPsVN26e3RcAf5Dgz5NSbUvejfWibh8CBLrKqWdgsHO+y6hrQ/NHlm05HKKFQZnjg73
-         kBFg4EKwv9riLDY9pP3x6AzY0Kz+j4T9nMUyALekyajqguo7Jc3vDWPbIGm0wUuAbOjd
-         1iHX2QyIwP6xBgQ2BIOjg7TTxi7+WRiHI234Uiool/N/qlGSnNjuJWSGuqjXFwGGTA/c
-         +osQ==
+        d=google.com; s=20230601; t=1772081594; x=1772686394; darn=lists.infradead.org;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=T7UyESOxoY8uyeFaFPDUNsLMmM40wZKIi5sdRUJRLzA=;
+        b=Cl/GFOdOaD4eHlyDEr6vgtDXMCvpoASv3WdvWJbOE19Jgth7Kt+wdwunu4tBd3EuJt
+         jEFrlpZ9LVdjPgcqaIMIn6ajpOqHkLQUsN9hlprqnNOoB95AqiHNrIQ1guqn0th7RmPI
+         Sb7dOjklIRPKlmRnavTi6wRprNMMH0Z7bf6KMnFfS1ecHX1FZMBWX6c/0jOYim0WOKCS
+         F5LyH4ov+w/zOtzR02/2LTBAWfohq0AbJbboU/YFvPhJ7i92qYUhlmPg6lOJ0tCk1HrA
+         z7R6iLYKjpLC23vee25lda97JkTVS6NMrL7lGWjSmGjSAbe7rrFZHuvMol+8tPyYqH/V
+         sjeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772081591; x=1772686391;
-        h=content-transfer-encoding:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=lMWIeXWUQgyzJ0fPnV+0pSMPvgSBdF0XsAMHNN5+mYc=;
-        b=ILYUQy33RZXtlttSzL0fq5Yb4jXnr/B9pdfA5AZ2ejwi+Hf8KlYQ+S06QIiQkO3uny
-         4IAMITedT6EuH19t6F9SbaEDz51s4iWCjaIV9nQYjxqSFdBjZ1swGmr8VsjqL0zEUPeS
-         mBzQu24/ArxTPeB5QWjcQsdNmsZO6SJVJKjwsgJY26/qv3w7wskk6rzRuo/RT2Cul/vV
-         P7jFREd7RhnP25Fxfh1/WftGqokNkTSVR2ebX2HSXBeT2G8J++IesN+6vi55bqwtnvO7
-         sgM06Jndyf4Fu463Fvi+OD8W5OxHYjPhDsdadO6nPlNnsMJK5Fimj4nv0GtaMTJLfw6M
-         jJ9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUNKE63JTRd8SCji/vVFwGaXj5KPK1HdL2ryOjwFQrjBOeSs8d751nmM6LdAayBX7KQnLdwSaFTlZmKyQ1UVt3h@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVQKbHP1VCG66rcnBozSPyAY5KTyPaDeWBJMw0sOqkryLO2uu7
-	zcbCrAZrfJLaOGGENPgtCem0KJOWqPsB3SroqFDY6GvCbKWSnxIBRGlKmi4orKmX8jvaW/iYSqN
-	Lq2PWtLVplA==
-X-Received: from dlbov3.prod.google.com ([2002:a05:7022:1183:b0:127:1508:19ae])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:1605:b0:119:e569:f60d
- with SMTP id a92af1059eb24-1278693d9femr1427142c88.6.1772081590796; Wed, 25
- Feb 2026 20:53:10 -0800 (PST)
-Date: Wed, 25 Feb 2026 20:52:54 -0800
+        d=1e100.net; s=20230601; t=1772081594; x=1772686394;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T7UyESOxoY8uyeFaFPDUNsLMmM40wZKIi5sdRUJRLzA=;
+        b=OhN9K64MCyGkVQLKS+grisc/qG6cAAPO3xwFzy81rPWEoRcbiduhlkGgoNkRUoRVRj
+         Gi9i2Sflv6Aa2olVhE6uMbKXPLl6rLWf797Q6rjp3UqWDC1tPBtjkuWY60aqol3ZTzYV
+         k82BWpx/JCYSX2kHXi7QxpGmdyfAqkxQQxeYfB7jguSXfre+2jcEANvKaTkJgOQWVxFv
+         nTXmFB1VF9+Zt7H/6KtUsvNpBb7QMG3h0QEUQQkgNdaDYt6mci1ijLmeJI6jexEjiSE9
+         Ifjw2piHwQiKbiySNfMEYJXRuwn2eBtU6zYQJ7sqVP6jVKUXXBcdQOWSP1fASUQk3wx0
+         0WVA==
+X-Forwarded-Encrypted: i=1; AJvYcCX8ZsvVQ4xqiR6peCO3bdI5dxDiNrVukO1wwIEyJgTZ/2+cImvbJSeKNr+4yMnko6cgiD76aGAqXNZ0thmSYtO4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/PZEVw+3x5yx8QQtff6JZsqTLUtnLZaQwlJme6O2Rjx9K6UkH
+	z6gt8a4GNetcBeCIfFEVfZTLqeTJbSX1bjhvy2VoU1Pg78KGZdOruQK3Fk4WfbPtvoxJhc6eVpW
+	brbDyEczJqA==
+X-Received: from dycaq23.prod.google.com ([2002:a05:7301:7e17:b0:2ba:a2d8:aa3b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:678a:b0:2b7:8b4a:15b7
+ with SMTP id 5a478bee46e88-2bdcbf67d0fmr1025099eec.16.1772081593153; Wed, 25
+ Feb 2026 20:53:13 -0800 (PST)
+Date: Wed, 25 Feb 2026 20:52:55 -0800
 In-Reply-To: <20260226045301.459948-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260226045301.459948-1-irogers@google.com>
 X-Mailer: git-send-email 2.53.0.414.gf7e9f6c205-goog
-Message-ID: <20260226045301.459948-3-irogers@google.com>
-Subject: [PATCH v1 03/10] perf vendor events intel: Update emeraldrapid events
- from 1.20 to 1.21
+Message-ID: <20260226045301.459948-4-irogers@google.com>
+Subject: [PATCH v1 04/10] perf vendor events intel: Update grandridge events
+ from 1.10 to 1.11
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -79,10 +77,9 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>, linux-perf-users@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_205312_563712_D3A6183D 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260225_205315_440737_497F0808 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,219 +95,235 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The updated events were published in:
-https://github.com/intel/perfmon/commit/210676cfa8743cd5b9e7cc984fdef1a4854=
-2eda4
+https://github.com/intel/perfmon/commit/8ada944c087300c4fc79afcd8512aa3b91bd34f2
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- .../arch/x86/emeraldrapids/cache.json           |  4 ++--
- .../arch/x86/emeraldrapids/frontend.json        | 16 ++++++++++++++++
- .../arch/x86/emeraldrapids/uncore-cache.json    |  4 ++--
- .../arch/x86/emeraldrapids/uncore-io.json       | 17 +++++++++--------
- tools/perf/pmu-events/arch/x86/mapfile.csv      |  2 +-
- 5 files changed, 30 insertions(+), 13 deletions(-)
+ .../pmu-events/arch/x86/grandridge/cache.json | 42 +++++++++----------
+ .../arch/x86/grandridge/pipeline.json         | 42 ++++++++++++++++---
+ tools/perf/pmu-events/arch/x86/mapfile.csv    |  2 +-
+ 3 files changed, 59 insertions(+), 27 deletions(-)
 
-diff --git a/tools/perf/pmu-events/arch/x86/emeraldrapids/cache.json b/tool=
-s/perf/pmu-events/arch/x86/emeraldrapids/cache.json
-index 26568e4b77f7..b2f8947f6741 100644
---- a/tools/perf/pmu-events/arch/x86/emeraldrapids/cache.json
-+++ b/tools/perf/pmu-events/arch/x86/emeraldrapids/cache.json
-@@ -514,7 +514,7 @@
-         "EventCode": "0xd3",
-         "EventName": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
-         "PublicDescription": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM Availab=
-le PDIST counters: 0",
--        "SampleAfterValue": "1000003",
-+        "SampleAfterValue": "100007",
-         "UMask": "0x2"
+diff --git a/tools/perf/pmu-events/arch/x86/grandridge/cache.json b/tools/perf/pmu-events/arch/x86/grandridge/cache.json
+index 9abddb06a837..0aa921ba89b4 100644
+--- a/tools/perf/pmu-events/arch/x86/grandridge/cache.json
++++ b/tools/perf/pmu-events/arch/x86/grandridge/cache.json
+@@ -285,8 +285,8 @@
+         "UMask": "0x82"
      },
      {
-@@ -534,7 +534,7 @@
-         "EventCode": "0xd3",
-         "EventName": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
-         "PublicDescription": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM Availab=
-le PDIST counters: 0",
--        "SampleAfterValue": "1000003",
-+        "SampleAfterValue": "100007",
-         "UMask": "0x4"
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 1024. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_1024",
+@@ -296,8 +296,8 @@
+         "UMask": "0x5"
      },
      {
-diff --git a/tools/perf/pmu-events/arch/x86/emeraldrapids/frontend.json b/t=
-ools/perf/pmu-events/arch/x86/emeraldrapids/frontend.json
-index 793c486ffabe..e51f5e85ffd1 100644
---- a/tools/perf/pmu-events/arch/x86/emeraldrapids/frontend.json
-+++ b/tools/perf/pmu-events/arch/x86/emeraldrapids/frontend.json
-@@ -271,6 +271,22 @@
-         "SampleAfterValue": "200003",
-         "UMask": "0x4"
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 128. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_128",
+@@ -307,8 +307,8 @@
+         "UMask": "0x5"
+     },
+     {
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 16. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_16",
+@@ -318,8 +318,8 @@
+         "UMask": "0x5"
+     },
+     {
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 2048. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_2048",
+@@ -329,8 +329,8 @@
+         "UMask": "0x5"
+     },
+     {
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 256. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_256",
+@@ -340,8 +340,8 @@
+         "UMask": "0x5"
+     },
+     {
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 32. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_32",
+@@ -351,8 +351,8 @@
+         "UMask": "0x5"
+     },
+     {
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 4. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_4",
+@@ -362,8 +362,8 @@
+         "UMask": "0x5"
+     },
+     {
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 512. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_512",
+@@ -373,8 +373,8 @@
+         "UMask": "0x5"
+     },
+     {
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 64. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_64",
+@@ -384,8 +384,8 @@
+         "UMask": "0x5"
+     },
+     {
+-        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold defined in MEC_CR_PEBS_LD_LAT_THRESHOLD - Only counts with PEBS enabled.",
+-        "Counter": "0,1,2,3,4,5,6,7",
++        "BriefDescription": "Counts the number of tagged load uops retired that exceed the latency threshold of 8. Only counts with PEBS enabled.",
++        "Counter": "0,1",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+         "EventName": "MEM_UOPS_RETIRED.LOAD_LATENCY_GT_8",
+@@ -458,7 +458,7 @@
+         "UMask": "0x12"
+     },
+     {
+-        "BriefDescription": "Counts the number of  stores uops retired same as MEM_UOPS_RETIRED.ALL_STORES",
++        "BriefDescription": "Counts the number of stores uops retired.",
+         "Counter": "0,1,2,3,4,5,6,7",
+         "Data_LA": "1",
+         "EventCode": "0xd0",
+diff --git a/tools/perf/pmu-events/arch/x86/grandridge/pipeline.json b/tools/perf/pmu-events/arch/x86/grandridge/pipeline.json
+index f56d8d816e53..20986b987e18 100644
+--- a/tools/perf/pmu-events/arch/x86/grandridge/pipeline.json
++++ b/tools/perf/pmu-events/arch/x86/grandridge/pipeline.json
+@@ -178,7 +178,7 @@
+         "UMask": "0xf7"
+     },
+     {
+-        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles",
++        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles. [This event is alias to CPU_CLK_UNHALTED.THREAD]",
+         "Counter": "Fixed counter 1",
+         "EventName": "CPU_CLK_UNHALTED.CORE",
+         "SampleAfterValue": "2000003",
+@@ -192,7 +192,7 @@
+         "SampleAfterValue": "2000003"
+     },
+     {
+-        "BriefDescription": "Fixed Counter: Counts the number of unhalted reference clock cycles",
++        "BriefDescription": "Fixed Counter: Counts the number of unhalted reference clock cycles.",
+         "Counter": "Fixed counter 2",
+         "EventName": "CPU_CLK_UNHALTED.REF_TSC",
+         "SampleAfterValue": "2000003",
+@@ -208,7 +208,7 @@
+         "UMask": "0x1"
+     },
+     {
+-        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles",
++        "BriefDescription": "Fixed Counter: Counts the number of unhalted core clock cycles. [This event is alias to CPU_CLK_UNHALTED.CORE]",
+         "Counter": "Fixed counter 1",
+         "EventName": "CPU_CLK_UNHALTED.THREAD",
+         "SampleAfterValue": "2000003",
+@@ -222,10 +222,10 @@
+         "SampleAfterValue": "2000003"
+     },
+     {
+-        "BriefDescription": "Fixed Counter: Counts the number of instructions retired",
++        "BriefDescription": "Fixed Counter: Counts the number of instructions retired.",
+         "Counter": "Fixed counter 0",
+         "EventName": "INST_RETIRED.ANY",
+-        "PublicDescription": "Fixed Counter: Counts the number of instructions retired Available PDIST counters: 32",
++        "PublicDescription": "Fixed Counter: Counts the number of instructions retired. Available PDIST counters: 32",
+         "SampleAfterValue": "2000003",
+         "UMask": "0x1"
+     },
+@@ -301,6 +301,38 @@
+         "SampleAfterValue": "1000003",
+         "UMask": "0x1"
      },
 +    {
-+        "BriefDescription": "ICACHE_TAG.STALLS_INUSE",
-+        "Counter": "0,1,2,3",
-+        "EventCode": "0x83",
-+        "EventName": "ICACHE_TAG.STALLS_INUSE",
-+        "SampleAfterValue": "200003",
++        "BriefDescription": "Counts the number of CLFLUSH, CLWB, and CLDEMOTE instructions retired.",
++        "Counter": "0,1,2,3,4,5,6,7",
++        "EventCode": "0xe0",
++        "EventName": "MISC_RETIRED1.CL_INST",
++        "SampleAfterValue": "1000003",
++        "UMask": "0xff"
++    },
++    {
++        "BriefDescription": "Counts the number of LFENCE instructions retired.",
++        "Counter": "0,1,2,3,4,5,6,7",
++        "EventCode": "0xe0",
++        "EventName": "MISC_RETIRED1.LFENCE",
++        "SampleAfterValue": "1000003",
++        "UMask": "0x2"
++    },
++    {
++        "BriefDescription": "Counts the number of accesses to KeyLocker cache.",
++        "Counter": "0,1,2,3,4,5,6,7",
++        "EventCode": "0xe1",
++        "EventName": "MISC_RETIRED2.KEYLOCKER_ACCESS",
++        "SampleAfterValue": "1000003",
 +        "UMask": "0x10"
 +    },
 +    {
-+        "BriefDescription": "ICACHE_TAG.STALLS_ISB",
-+        "Counter": "0,1,2,3",
-+        "EventCode": "0x83",
-+        "EventName": "ICACHE_TAG.STALLS_ISB",
-+        "SampleAfterValue": "200003",
-+        "UMask": "0x8"
++        "BriefDescription": "Counts the number of misses to KeyLocker cache.",
++        "Counter": "0,1,2,3,4,5,6,7",
++        "EventCode": "0xe1",
++        "EventName": "MISC_RETIRED2.KEYLOCKER_MISS",
++        "SampleAfterValue": "1000003",
++        "UMask": "0x11"
 +    },
      {
-         "BriefDescription": "Cycles Decode Stream Buffer (DSB) is deliveri=
-ng any Uop",
-         "Counter": "0,1,2,3",
-diff --git a/tools/perf/pmu-events/arch/x86/emeraldrapids/uncore-cache.json=
- b/tools/perf/pmu-events/arch/x86/emeraldrapids/uncore-cache.json
-index 92cf47967f0b..3c8dcd9cff7c 100644
---- a/tools/perf/pmu-events/arch/x86/emeraldrapids/uncore-cache.json
-+++ b/tools/perf/pmu-events/arch/x86/emeraldrapids/uncore-cache.json
-@@ -3501,7 +3501,7 @@
-         "EventName": "UNC_CHA_SNOOP_RESP.RSPIFWD",
-         "Experimental": "1",
-         "PerPkg": "1",
--        "PublicDescription": "Counts when a a transaction with the opcode =
-type RspIFwd Snoop Response was received which indicates a remote caching a=
-gent forwarded the data and the requesting agent is able to acquire the dat=
-a in E (Exclusive) or M (modified) states.  This is commonly returned with =
-RFO (the Read for Ownership issued before a write) transactions.  The snoop=
- could have either been to a cacheline in the M,E,F (Modified, Exclusive or=
- Forward)  states.",
-+        "PublicDescription": "Counts when a transaction with the opcode ty=
-pe RspIFwd Snoop Response was received which indicates a remote caching age=
-nt forwarded the data and the requesting agent is able to acquire the data =
-in E (Exclusive) or M (modified) states.  This is commonly returned with RF=
-O (the Read for Ownership issued before a write) transactions.  The snoop c=
-ould have either been to a cacheline in the M,E,F (Modified, Exclusive or F=
-orward)  states.",
-         "UMask": "0x4",
-         "Unit": "CHA"
-     },
-@@ -3523,7 +3523,7 @@
-         "EventName": "UNC_CHA_SNOOP_RESP.RSPSFWD",
-         "Experimental": "1",
-         "PerPkg": "1",
--        "PublicDescription": "Counts when a a transaction with the opcode =
-type RspSFwd Snoop Response was received which indicates a remote caching a=
-gent forwarded the data but held on to its current copy.  This is common fo=
-r data and code reads that hit in a remote socket in E (Exclusive) or F (Fo=
-rward) state.",
-+        "PublicDescription": "Counts when a transaction with the opcode ty=
-pe RspSFwd Snoop Response was received which indicates a remote caching age=
-nt forwarded the data but held on to its current copy.  This is common for =
-data and code reads that hit in a remote socket in E (Exclusive) or F (Forw=
-ard) state.",
-         "UMask": "0x8",
-         "Unit": "CHA"
-     },
-diff --git a/tools/perf/pmu-events/arch/x86/emeraldrapids/uncore-io.json b/=
-tools/perf/pmu-events/arch/x86/emeraldrapids/uncore-io.json
-index d4cf2199d46b..ddb0f65307f4 100644
---- a/tools/perf/pmu-events/arch/x86/emeraldrapids/uncore-io.json
-+++ b/tools/perf/pmu-events/arch/x86/emeraldrapids/uncore-io.json
-@@ -223,6 +223,7 @@
-         "Experimental": "1",
-         "FCMask": "0x07",
-         "PerPkg": "1",
-+        "PortMask": "0xff",
-         "UMask": "0xff",
-         "Unit": "IIO"
-     },
-@@ -234,7 +235,7 @@
-         "Experimental": "1",
-         "FCMask": "0x07",
-         "PerPkg": "1",
--        "PortMask": "0x0000",
-+        "PortMask": "0x01",
-         "PublicDescription": "x16 card plugged in to stack, Or x8 card plu=
-gged in to Lane 0/1, Or x4 card is plugged in to slot 0",
-         "UMask": "0x1",
-         "Unit": "IIO"
-@@ -247,7 +248,7 @@
-         "Experimental": "1",
-         "FCMask": "0x07",
-         "PerPkg": "1",
--        "PortMask": "0x0000",
-+        "PortMask": "0x02",
-         "PublicDescription": "x4 card is plugged in to slot 1",
-         "UMask": "0x2",
-         "Unit": "IIO"
-@@ -260,7 +261,7 @@
-         "Experimental": "1",
-         "FCMask": "0x07",
-         "PerPkg": "1",
--        "PortMask": "0x0000",
-+        "PortMask": "0x04",
-         "PublicDescription": "x8 card plugged in to Lane 2/3, Or x4 card i=
-s plugged in to slot 1",
-         "UMask": "0x4",
-         "Unit": "IIO"
-@@ -273,7 +274,7 @@
-         "Experimental": "1",
-         "FCMask": "0x07",
-         "PerPkg": "1",
--        "PortMask": "0x0000",
-+        "PortMask": "0x08",
-         "PublicDescription": "x4 card is plugged in to slot 3",
-         "UMask": "0x8",
-         "Unit": "IIO"
-@@ -286,7 +287,7 @@
-         "Experimental": "1",
-         "FCMask": "0x07",
-         "PerPkg": "1",
--        "PortMask": "0x0000",
-+        "PortMask": "0x10",
-         "PublicDescription": "x16 card plugged in to stack, Or x8 card plu=
-gged in to Lane 0/1, Or x4 card is plugged in to slot 0",
-         "UMask": "0x10",
-         "Unit": "IIO"
-@@ -299,7 +300,7 @@
-         "Experimental": "1",
-         "FCMask": "0x07",
-         "PerPkg": "1",
--        "PortMask": "0x0000",
-+        "PortMask": "0x20",
-         "PublicDescription": "x4 card is plugged in to slot 1",
-         "UMask": "0x20",
-         "Unit": "IIO"
-@@ -312,7 +313,7 @@
-         "Experimental": "1",
-         "FCMask": "0x07",
-         "PerPkg": "1",
--        "PortMask": "0x0000",
-+        "PortMask": "0x40",
-         "PublicDescription": "x8 card plugged in to Lane 2/3, Or x4 card i=
-s plugged in to slot 1",
-         "UMask": "0x40",
-         "Unit": "IIO"
-@@ -325,7 +326,7 @@
-         "Experimental": "1",
-         "FCMask": "0x07",
-         "PerPkg": "1",
--        "PortMask": "0x0000",
-+        "PortMask": "0x80",
-         "PublicDescription": "x4 card is plugged in to slot 3",
-         "UMask": "0x80",
-         "Unit": "IIO"
-diff --git a/tools/perf/pmu-events/arch/x86/mapfile.csv b/tools/perf/pmu-ev=
-ents/arch/x86/mapfile.csv
-index 7e9bc4241c61..92799bc6e9d9 100644
+         "BriefDescription": "Counts the number of issue slots in a UMWAIT or TPAUSE instruction where no uop issues due to the instruction putting the CPU into the C0.1 activity state.",
+         "Counter": "0,1,2,3,4,5,6,7",
+diff --git a/tools/perf/pmu-events/arch/x86/mapfile.csv b/tools/perf/pmu-events/arch/x86/mapfile.csv
+index 92799bc6e9d9..b84035dc5b4f 100644
 --- a/tools/perf/pmu-events/arch/x86/mapfile.csv
 +++ b/tools/perf/pmu-events/arch/x86/mapfile.csv
-@@ -9,7 +9,7 @@ GenuineIntel-6-4F,v23,broadwellx,core
- GenuineIntel-6-55-[56789ABCDEF],v1.25,cascadelakex,core
- GenuineIntel-6-DD,v1.00,clearwaterforest,core
- GenuineIntel-6-9[6C],v1.05,elkhartlake,core
--GenuineIntel-6-CF,v1.20,emeraldrapids,core
-+GenuineIntel-6-CF,v1.21,emeraldrapids,core
+@@ -12,7 +12,7 @@ GenuineIntel-6-9[6C],v1.05,elkhartlake,core
+ GenuineIntel-6-CF,v1.21,emeraldrapids,core
  GenuineIntel-6-5[CF],v13,goldmont,core
  GenuineIntel-6-7A,v1.01,goldmontplus,core
- GenuineIntel-6-B6,v1.10,grandridge,core
---=20
+-GenuineIntel-6-B6,v1.10,grandridge,core
++GenuineIntel-6-B6,v1.11,grandridge,core
+ GenuineIntel-6-A[DE],v1.16,graniterapids,core
+ GenuineIntel-6-(3C|45|46),v36,haswell,core
+ GenuineIntel-6-3F,v29,haswellx,core
+-- 
 2.53.0.414.gf7e9f6c205-goog
 
 
