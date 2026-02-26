@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6288FD9E1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 22:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C82FD9E1C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 22:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AifYAQqOTxescW0jL4ukr0tgR1/pP+TxKwflJETQ18Y=; b=glVvlE5jw+fz/lEkccisoas5H7
-	HYzespt7JRDjxgzT/tMcLh2RX6mMVNRajYSfmLPAq/dlTRmDYT1irjDJc2m2/3MZO41evJoV1H2xl
-	GmQ5Il3y0+cxWp65gX4Qucf/bM1e/fGt/OvVa2CUaqWAvtxbtHQfbW6+NZWNg8EppvDP1pqQy0wMh
-	s2kWy/yikMqM9ytwLD1MOo1D70zYIqztOEqTVVLzou2l09u01l96vfBj73H733+FFObWzQB3zNwBL
-	5W72jBLUkkHcbzXbbHRr9fIO9TJIju8ujHeuDwmxR6GlUn2BcJ5HOe8PhJn41rG/7UP/GvzV5yUZK
-	4lmvTJxA==;
+	bh=WjpntcL1WE4UJxmJqd9FnmZe/3nWkWyM9l0vfEOBIZg=; b=ennjW9WH+U//XYT78LaLz7Ed08
+	CqLmeq+o4H8oaom7dzFFGqlym1WwnNIW3kNgFx1wZQJnMoo1TcLi4WuuN2V7QYCmh4x7bAXpKcp+d
+	1OEBmzBhmYytnhueE99YiudDCJ/CItUppA3uYE234JPI56uzeTIKKz6e4qwg9MMPWq8St1zlbirC7
+	P/a0IT54TocRtLMQShczHVcVBrw+fZ+qg/m6TktNUMI0COrCsWfv2siNb5dlD9BsLN3X+USfQLTJR
+	yUomk1soUAh3+hcuUuuzRGqKzt0v2l71qTCJDBFSgVH0yEkGBKI1YOp5zGv2p/AKT4FB6IltUhEEm
+	+cqx1IdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvjeI-00000007HxI-1ZHc;
-	Thu, 26 Feb 2026 22:15:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvk30-00000007Jxy-2fRD;
+	Thu, 26 Feb 2026 22:41:30 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvjeH-00000007Hx7-0DQB;
-	Thu, 26 Feb 2026 22:15:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6CCFD60054;
-	Thu, 26 Feb 2026 22:15:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00733C116C6;
-	Thu, 26 Feb 2026 22:15:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772144155;
-	bh=RwM7wj3X9IEFP39jnJS9/0+Jh+WbGtD7RfWDnrAgGVQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HnePZCv69sjUeRVSamQ23hxl1GM66e3Hlxsr1z8vhYd0ZAd4KfGZ0no71gFW46FSk
-	 W8T09ri+jNX48moO+XyEZgMAcEVM792EXIVSnVxKYE+k5jsE19zLOcbW1qfMDqII6y
-	 3A1jLsGdcMeMNnr3zyrgqbwa/zYcLiU2d/eDDOA+p4hxnaIBDrHSbrA2j+VrFmCNvz
-	 7TLdR6j6L4pykDQ7D37Jq/4/I52hPX2u8EWQCrqP0DF5HeYW6bIEingt42qGs7sq4C
-	 LwWjvrojgPDFYcxv2LpS6+G/kA1PyDtdKPX0PJcxl5lvCmUvnPrx3wQHCAv735RXwp
-	 VJze4FZgtsifg==
-Date: Thu, 26 Feb 2026 22:15:49 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-media@vger.kernel.org
+	id 1vvk2x-00000007JxM-2NjB;
+	Thu, 26 Feb 2026 22:41:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772145684;
+	bh=8qI83zGvdJ8aCzsFj2jHkPE3OSgD7zlBFk/sa+h+2G8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=gjbHlz8+ivSHsLj9rNGB2zF93SkUpQT2E+OpxeCK+Edh8oYUvOAWmWhH+C3w5pEjq
+	 kMaBqfu5xT9pjh86XKrdzgwFfyfEeRiZ1HzKfHxn0lgJvA8Cvs2YrsU4W+wjpkizj2
+	 L+Ir/66LNl7rA0jcO6UbGMv5/RwCG/6QbnsDm+lKfNnO7QMy1B8HY51PSkLbOwgd12
+	 frNZKl5BhbUU66ViCjgUk6W5gkQ/ZcJM408JUb9fLYMlP+KLaUMb2GECbMDitCgI2l
+	 m2Ped3yrRnckUKFtPgZe/M/8wvFBcJeswPhZ46zKOx2X3yl4uGQihAbVpK/ZgX/ciZ
+	 lmSyO8xwAdXXA==
+Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CA5BD17E0029;
+	Thu, 26 Feb 2026 23:41:22 +0100 (CET)
+Message-ID: <328f330b4316f60241eb8a9935a46cc148fb4ae8.camel@collabora.com>
 Subject: Re: [PATCH v4 1/3] media: dt-bindings: rockchip,vdec: Add
  alternative reg-names order for RK35{76,88}
-Message-ID: <20260226-ferocious-saturday-0e1f9bb28ec5@spud>
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Detlev Casanova	
+ <detlev.casanova@collabora.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>,  Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>,
+ kernel@collabora.com, 	devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Conor Dooley	 <conor.dooley@microchip.com>,
+ linux-media@vger.kernel.org
+Date: Thu, 26 Feb 2026 17:41:20 -0500
+In-Reply-To: <20260226-ferocious-saturday-0e1f9bb28ec5@spud>
 References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
- <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
- <20260226-salute-threaten-a3eabb232396@spud>
- <429f3c7aa22eccffedbf8db6aa91bee3dd13814a.camel@collabora.com>
- <20260226-snide-foil-a05e1aa156a8@spud>
- <3d28c699e47f606bad46bb6447785badace37793.camel@collabora.com>
+	 <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
+	 <20260226-salute-threaten-a3eabb232396@spud>
+	 <429f3c7aa22eccffedbf8db6aa91bee3dd13814a.camel@collabora.com>
+	 <20260226-snide-foil-a05e1aa156a8@spud>
+	 <3d28c699e47f606bad46bb6447785badace37793.camel@collabora.com>
+	 <20260226-ferocious-saturday-0e1f9bb28ec5@spud>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-4Y4hasR1gEd+E/ddVt4V"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Mr1yXoVEYhQ07KkC"
-Content-Disposition: inline
-In-Reply-To: <3d28c699e47f606bad46bb6447785badace37793.camel@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260226_144127_929828_2BEDED33 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,66 +103,94 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---Mr1yXoVEYhQ07KkC
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+--=-4Y4hasR1gEd+E/ddVt4V
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Feb 26, 2026 at 04:56:30PM -0500, Nicolas Dufresne wrote:
-> Le jeudi 26 f=E9vrier 2026 =E0 20:59 +0000, Conor Dooley a =E9crit=A0:
-> > On Thu, Feb 26, 2026 at 02:45:11PM -0500, Nicolas Dufresne wrote:
-> > > Le jeudi 26 f=E9vrier 2026 =E0 18:43 +0000, Conor Dooley a =E9crit=A0:
-> > In this case, the driver is currently buggy, because, as I mentioned, it
-> > uses reg-names without reg-names being required on the platforms with
-> > more than 1 reg property. Probably the binding should make reg-names
-> > mandatory for these platforms even without this patch, but it *has* to
-> > IMO for this proposed change to be applicable.
+Le jeudi 26 f=C3=A9vrier 2026 =C3=A0 22:15 +0000, Conor Dooley a =C3=A9crit=
+=C2=A0:
+> On Thu, Feb 26, 2026 at 04:56:30PM -0500, Nicolas Dufresne wrote:
+> > Le jeudi 26 f=C3=A9vrier 2026 =C3=A0 20:59 +0000, Conor Dooley a =C3=A9=
+crit=C2=A0:
+> > > On Thu, Feb 26, 2026 at 02:45:11PM -0500, Nicolas Dufresne wrote:
+> > > > Le jeudi 26 f=C3=A9vrier 2026 =C3=A0 18:43 +0000, Conor Dooley a =
+=C3=A9crit=C2=A0:
+> > > In this case, the driver is currently buggy, because, as I mentioned,=
+ it
+> > > uses reg-names without reg-names being required on the platforms with
+> > > more than 1 reg property. Probably the binding should make reg-names
+> > > mandatory for these platforms even without this patch, but it *has* t=
+o
+> > > IMO for this proposed change to be applicable.
+> >=20
+> > That forced me to check the driver. So for RK33xx and older, there is o=
+nly
+> > one
+> > range, and the driver will just pick the one entry expected:
+> >=20
+> >=20
+> > 	if (rkvdec->variant->has_single_reg_region) {
+> > 		rkvdec->regs =3D devm_platform_ioremap_resource(pdev, 0);
+> > 		if (IS_ERR(rkvdec->regs))
+> > 			return PTR_ERR(rkvdec->regs);
+> > 	} else {
+> > 		rkvdec->regs =3D devm_platform_ioremap_resource_byname(pdev,
+> > "function");
+> > 		if (IS_ERR(rkvdec->regs))
+> > 			return PTR_ERR(rkvdec->regs);
+> >=20
+> > 		rkvdec->link =3D devm_platform_ioremap_resource_byname(pdev,
+> > "link");
+> > 		if (IS_ERR(rkvdec->link))
+> > 			return PTR_ERR(rkvdec->link);
+> > 	}
+> >=20
+> >=20
+> > Where for RK35xx variants, it only pick the resources by name. I don't =
+see
+> > the
+> > bug that you see, but I believe this was just a supposition, that you d=
+idn't
+> > check the code.
 >=20
-> That forced me to check the driver. So for RK33xx and older, there is onl=
-y one
-> range, and the driver will just pick the one entry expected:
+> Busy reading path of exile patch notes, so sniping this comment only...
 >=20
->=20
-> 	if (rkvdec->variant->has_single_reg_region) {
-> 		rkvdec->regs =3D devm_platform_ioremap_resource(pdev, 0);
-> 		if (IS_ERR(rkvdec->regs))
-> 			return PTR_ERR(rkvdec->regs);
-> 	} else {
-> 		rkvdec->regs =3D devm_platform_ioremap_resource_byname(pdev, "function"=
-);
-> 		if (IS_ERR(rkvdec->regs))
-> 			return PTR_ERR(rkvdec->regs);
->=20
-> 		rkvdec->link =3D devm_platform_ioremap_resource_byname(pdev, "link");
-> 		if (IS_ERR(rkvdec->link))
-> 			return PTR_ERR(rkvdec->link);
-> 	}
->=20
->=20
-> Where for RK35xx variants, it only pick the resources by name. I don't se=
-e the
-> bug that you see, but I believe this was just a supposition, that you did=
-n't
-> check the code.
+> This is a bug, not a supposition, and it's that snippet from the
+> driver that prompted my comment.. That code requires that if
+> ->has_single_reg_region is set that the dts provides reg-names, but the
+> binding does not mandate reg-names for rk3576-vdec and rk3588-vdec, so
+> the driver will fail to probe on a dts that the binding says is valid.
 
-Busy reading path of exile patch notes, so sniping this comment only...
+Got it, to me nothing in the binding is intentional, just a big lack of
+understanding what the syntax meant. So if we agree to make the binding enf=
+orce
+having names for rk3576-vdec and rk3588-vdec (and keep RK33 and older the s=
+ame),
+It would make me more happy to maintain it.
 
-This is a bug, not a supposition, and it's that snippet from the
-driver that prompted my comment.. That code requires that if
-->has_single_reg_region is set that the dts provides reg-names, but the
-binding does not mandate reg-names for rk3576-vdec and rk3588-vdec, so
-the driver will fail to probe on a dts that the binding says is valid.
+It also better highlight why adding a second order simply creates an ambigu=
+ity.
 
---Mr1yXoVEYhQ07KkC
+Let me know, if we can go forward with that, I'll help documenting known us=
+ers,
+their introduction into 7.0-rc1 only and why this incident and fix should h=
+ave
+no impact on anyone.
+
+Nicolas
+
+--=-4Y4hasR1gEd+E/ddVt4V
 Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaDGFQAKCRB4tDGHoIJi
-0uKRAP4hMTk5j57Vmq3lgRE2N4Yj1vk27N9x3YrJKFz1HSxaAAEAtUSUKVKVlXrp
-DShB3ZBQLupX2wlwrHW/Gf7VZyiStAA=
-=e9ND
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaaDMEAAKCRDZQZRRKWBy
+9NBKAQClyqb+9nOYzRNJx8qMWWPMGjst8feZTaXkF2MxsSbhrAEA/83RqiaTJO9w
+VGV5b7smraEoxWFECJxsBiy9Uek1WgY=
+=Fr9Z
 -----END PGP SIGNATURE-----
 
---Mr1yXoVEYhQ07KkC--
+--=-4Y4hasR1gEd+E/ddVt4V--
 
