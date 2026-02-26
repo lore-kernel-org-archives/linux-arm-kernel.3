@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3CBFD9E20
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 23:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8676FD9E1E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 23:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7v5avoGOleuykikPyFzz717Uwgm0oyh5TKNI4z15XhE=; b=e6MG/Hws2UPF6H8q0ugyY9sJ21
-	NuRV48AuyaxF19HmA0MmBZeTkTmoY6A6scDbwpJZqwBrny9LXlR+vo/ppyhMAZdTUwQecxzGgIrR5
-	lpxTxzGyG/N2g1XhQw53dPw7ydrAtfUvMEUYZztZi66rtyuUtLzReut96Nmf3KTj3uKAnIKsrgiaZ
-	oMCGqLf2mVufNYEfD5VQYM20dUeEeiZoxSKHSld7tRAlcR1B/VdGZuaLDOwo+GOx+ELsskDFFdsvy
-	pBJGsu8zcCsL7BjDSM44zif89ynl7A5BNoy1L9ib5GEcPakkRXe6G6koH2Q6A7nOIrMhVUvsVzfQg
-	v9s2SpLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9QkWHfNpDmh8aUUkP4gwOI5iPFDSe3g1q9wyC6PiDdo=; b=NfWNk2TfELC9TS9YIjO1cHRfsV
+	EPyoqTcKSbO4w05dU9NlQCIVw2ULbnzQUUgYDPLGVhAQ8pz6Z+QUq2b5rWNO1JAjFJXJUHYCuNSx6
+	INdiVh0azJYdr3XjD/1tnJ5X8Rm5bZo+02hy8hCPv6HeJM36B+fLkRH1q+2Rog5cQkRsQ9bBItoLZ
+	YpLQHfLRbpw2yntO8GWslxES2GxA3RKbPEzhwOJau3jb/HyvNnI+lO9C7Iu64noBHntYKWGEuSBU+
+	/1GQz0Pk0q5s8xg4fdYzSvWdr1LjyYkcOjR7EaDjdSD3W4R8KwuBmEHdLpL3cG0Uj940NwVcH907k
+	PQ74BlGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvkP1-00000007Kuj-0qFg;
-	Thu, 26 Feb 2026 23:04:15 +0000
-Received: from mout-b-107.mailbox.org ([2001:67c:2050:102:465::107])
+	id 1vvkQF-00000007L2s-2MIS;
+	Thu, 26 Feb 2026 23:05:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvkOz-00000007KtV-0W2r
+	id 1vvkQD-00000007L2R-2Xuq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 23:04:14 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-107.mailbox.org (Postfix) with ESMTPS id 4fMRpq6JCKzDryh;
-	Fri, 27 Feb 2026 00:04:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1772147043;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7v5avoGOleuykikPyFzz717Uwgm0oyh5TKNI4z15XhE=;
-	b=o2DpK13tVS01D5w7H1q7+YcyRyDt3lQULFhP/3N/Jqyz6v88rH863uQvftAv/Kyzew+w7i
-	XaiFvQxO1EUB+rAfWo5+PsKp/DY5ctsCOHKu4gQnuvQ4A132k+HY9Q3bNaMUQvzvhz4Tfq
-	MkFq53mX4CkODLV4OxmGnwqlRx946yUyoNlFd8sb11JWHS4+igW60SHg6S9WKw9VSW774i
-	yW5HefTqzlxAJzY9IzUHkGYqDf58drb5T7n1pQSJhIquDilfsSq2tLvdIkhEq8CqowaphZ
-	r+51dVZxMcNE7hfdZpIOBqQ3DjRUL93O1aeWHHfyqPynTFBF5EjHPGnVq/oWRw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
-Message-ID: <eb249987-55b6-45ff-9cca-3ed198ba84cd@mandelbit.com>
-Date: Fri, 27 Feb 2026 00:03:58 +0100
+	Thu, 26 Feb 2026 23:05:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4EEC641871;
+	Thu, 26 Feb 2026 23:05:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF6D6C116C6;
+	Thu, 26 Feb 2026 23:05:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772147128;
+	bh=sPgCA9ohTSBtInSypJVYHZRcpxI7ECO568juyPVkSGU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YeP18rNY4v9IeLt8Tz/aP65S/WVUS3VEjY1QKawXIf1Nk5G71+7pMmVetSqkS9Q83
+	 0aijxsp+XOMgFv3a18rx+7GGF0VwnER0oGPweSOxg2P5g9LhHWVkoezJwJWuw+a7zS
+	 i14cRm9d/dAZavB2jqY63wD5ajUgGYZkMaxzM9CWoSq+eIMzcF7KTeIDpdECTeA13J
+	 h+ET67UrLkDQ9UjphbVmystA/twgma7lp67O0awlIDs37JG+vaSiMPGcU5YAipSD95
+	 O8tSVKKUbwU0s53DRvnjQYDCDmJ48d2cRmzgtF3PL28twpYDZIXEGgHn1aO6fFi/93
+	 toB83PzGWCIuA==
+Date: Thu, 26 Feb 2026 15:05:26 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
+Message-ID: <aaDRtkdU85kULqwm@kernel.org>
+References: <20260225-hybrid-v3-0-46e8fe220880@rsg.ci.i.u-tokyo.ac.jp>
+ <20260225-hybrid-v3-1-46e8fe220880@rsg.ci.i.u-tokyo.ac.jp>
+ <aaA0gn9O8QAf9Gpu@kernel.org>
+ <fbcadab4-676b-44e4-8afa-b8bd095f8981@rsg.ci.i.u-tokyo.ac.jp>
+ <b81cbeb7-6541-4a1f-b08e-2b5c9ee66b69@rsg.ci.i.u-tokyo.ac.jp>
 MIME-Version: 1.0
-Subject: Re: [PATCH] spi: stm32: fix missing pointer assignment in case of dma
- chaining
-To: Alain Volmat <alain.volmat@foss.st.com>
-Cc: Mark Brown <broonie@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Clement LE GOFFIC <clement.legoffic@foss.st.com>, linux-spi@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260224-spi-stm32-chaining-fix-v1-1-5da7a4851b66@foss.st.com>
- <d14f3943-b97a-4940-95dd-39c6fc240130@mandelbit.com>
- <aaB4z_A4aTqirDGb@gnbcxd0016.gnb.st.com>
-Content-Language: en-US
-From: Antonio Quartulli <antonio@mandelbit.com>
-Organization: Mandelbit SRL
-In-Reply-To: <aaB4z_A4aTqirDGb@gnbcxd0016.gnb.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 4fMRpq6JCKzDryh
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <b81cbeb7-6541-4a1f-b08e-2b5c9ee66b69@rsg.ci.i.u-tokyo.ac.jp>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_150413_344541_48BCC541 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20260226_150529_685289_F6E75448 
+X-CRM114-Status: GOOD (  50.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +86,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2026 17:46, Alain Volmat wrote:
-> Hi,
+On Thu, Feb 26, 2026 at 11:47:54PM +0900, Akihiko Odaki wrote:
+> On 2026/02/26 23:43, Akihiko Odaki wrote:
+> > On 2026/02/26 20:54, Oliver Upton wrote:
+> > > Hi Akihiko,
+> > > 
+> > > On Wed, Feb 25, 2026 at 01:31:15PM +0900, Akihiko Odaki wrote:
+> > > > @@ -629,6 +629,8 @@ void kvm_arch_vcpu_load(struct kvm_vcpu
+> > > > *vcpu, int cpu)
+> > > >           kvm_vcpu_load_vhe(vcpu);
+> > > >       kvm_arch_vcpu_load_fp(vcpu);
+> > > >       kvm_vcpu_pmu_restore_guest(vcpu);
+> > > > +    if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
+> > > > &vcpu- >kvm->arch.flags))
+> > > > +        kvm_make_request(KVM_REQ_CREATE_PMU, vcpu);
+> > > 
+> > > We only need to set the request if the vCPU has migrated to a different
+> > > PMU implementation, no?
+> > 
+> > Indeed. I was too lazy to implement such a check since it won't affect
+> > performance unless the new feature is requested, but having one may be
+> > still nice.
+
+I'd definitely like to see this.
+
+> > > 
+> > > >       if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+> > > >           kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+> > > > @@ -1056,6 +1058,9 @@ static int check_vcpu_requests(struct
+> > > > kvm_vcpu *vcpu)
+> > > >           if (kvm_check_request(KVM_REQ_RELOAD_PMU, vcpu))
+> > > >               kvm_vcpu_reload_pmu(vcpu);
+> > > > +        if (kvm_check_request(KVM_REQ_CREATE_PMU, vcpu))
+> > > > +            kvm_vcpu_create_pmu(vcpu);
+> > > > +
+> > > 
+> > > My strong preference would be to squash the migration handling into
+> > > kvm_vcpu_reload_pmu(). It is already reprogramming PMU events in
+> > > response to other things.
+> > 
+> > Can you share a reason for that?
+> > 
+> > In terms of complexity, I don't think it will help reducing complexity
+> > since the only common things between kvm_vcpu_reload_pmu() and
+> > kvm_vcpu_create_pmu() are the enumeration of enabled counters, which is
+> > simple enough.
+
+I prefer it in terms of code organization. We should have a single
+helper that refreshes the backing perf events when something has
+globally changed for the vPMU.
+
+Besides this, "create" is confusing since the vPMU has already been
+instantiated.
+
+> > In terms of performance, I guess it is better to keep
+> > kvm_vcpu_create_pmu() small since it is triggered for each migration.
+
+I think the surrounding KVM code for iterating over the counters is
+inconsequential compared to the overheads of calling into perf to
+recreate the PMU events. Since we expect this to be slow, we should only
+set the request when absolutely necessary.
+
+> > > > +static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc)
+> > > > +{
+> > > > +    struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+> > > > +
+> > > > +    return kvm_pmu_enabled_counter_mask(vcpu) & BIT(pmc->idx);
+> > > >   }
+> > > 
+> > > You're churning a good bit of code, this needs to happen in a separate
+> > > patch (if at all).
+> > 
+> > It makes sense. The next version will have a separate patch for this.
+
+If I have the full picture right, you may not need it with a common
+request handler.
+
+> > > 
+> > > > @@ -689,6 +710,14 @@ static void
+> > > > kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+> > > >       int eventsel;
+> > > >       u64 evtreg;
+> > > > +    if (!arm_pmu) {
+> > > > +        arm_pmu = kvm_pmu_probe_armpmu(vcpu->cpu);
+> > > 
+> > > kvm_pmu_probe_armpmu() takes a global mutex, I'm not sure that's what we
+> > > want.
+> > > 
+> > > What prevents us from opening a PERF_TYPE_RAW event and allowing perf to
+> > > work out the right PMU for this CPU?
+> > 
+> > Unfortunately perf does not seem to have a capability to switch to the
+> > right PMU. tools/perf/Documentation/intel-hybrid.txt says the perf tool
+> > creates events for each PMU in a hybird configuration, for example.
 > 
-> On Tue, Feb 24, 2026 at 04:25:14PM +0100, Antonio Quartulli wrote:
->> Hi,
->>
->> On 24/02/2026 16:09, Alain Volmat wrote:
->>> Commit c4f2c05ab029 ("spi: stm32: fix pointer-to-pointer variables usage")
->>> introduced a regression since dma descriptors generated as part of the
->>> stm32_spi_prepare_rx_dma_mdma_chaining function are not well propagated
->>> to the caller function, leading to mdma-dma chaining being no more
->>> functional.
->>>
->>> Fixes: c4f2c05ab029 ("spi: stm32: fix pointer-to-pointer variables usage")
->>> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
->>> ---
->>>    drivers/spi/spi-stm32.c | 3 +++
->>>    1 file changed, 3 insertions(+)
->>>
->>> diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
->>> index b99de8c4cc99..33f211e159ef 100644
->>> --- a/drivers/spi/spi-stm32.c
->>> +++ b/drivers/spi/spi-stm32.c
->>> @@ -1625,6 +1625,9 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
->>>    		return -EINVAL;
->>>    	}
->>> +	*rx_mdma_desc = _mdma_desc;
->>> +	*rx_dma_desc = _dma_desc;
->>> +
->>
->> Thanks for catching this!
->>
->> Indeed my fix lost the pointer-to-pointer logic, which was needed to pass
->> back the computed values.
->>
->> This patch looks good, but at this point I think you can also remove the
->> lines:
->>
->> 	_dma_desc = NULL;
->>
->> in the error paths above? Setting them to NULL makes no sense as they are
->> not going anywhere.
-> 
-> I agree that those lines can be removed. However my feeling is that this
-> is not part of this fix since this is more about removing useless lines.
-> If this is ok for you I will propose another patch on top of the current
-> one for that purpose and without the Fixes on it.
+> I think I misunderstood what you meant. Letting
+> perf_event_create_kernel_counter() to figure out what a PMU to use may be a
+> good idea. I'll give a try with the next version.
 
-I agree.
+Yep, this is what I was alluding to.
 
-This fix gets my
+> > 
+> > > 
+> > > > +        if (!arm_pmu) {
+> > > > +            vcpu_set_on_unsupported_cpu(vcpu);
+> > > 
+> > > At this point it seems pretty late to flag the CPU as unsupported. Maybe
+> > > instead we can compute the union cpumask for all the PMU implemetations
+> > > the VM may schedule on.
+> > 
+> > This is just a safe guard and it is a responsibility of the userspace to
+> > schedule the VCPU properly. It is conceptually same with what
+> > kvm_arch_vcpu_load() does when migrating to an unsupported CPU.
 
-Acked-by: Antonio Quartulli <antonio@mandelbit.com>
+I agree with you that we need to have some handling for this situation.
 
-However, I'd let Mark (the maintainer) decide.
+What I don't like about this is userspace doesn't discover its mistake
+until the guest actually programs a PMC. I'd much rather preserve the
+existing ABI where KVM proactively rejects running a vCPU on an
+unsupported CPU.
 
-Regards,
+> > > > +    case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
+> > > > +        lockdep_assert_held(&vcpu->kvm->arch.config_lock);
+> > > > +        if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
+> > > > &vcpu->kvm->arch.flags))
+> > > > +            return 0;
+> > > 
+> > > We don't need a getter for this, userspace should remember how it
+> > > provisioned the VM.
+> > 
+> > The getter is useful for debugging and testing. The selftest will use it
+> > to query the current state.
 
+That's fine for debugging this on your own kernel but we don't need it
+upstream. There's several other vPMU attributes that are write-only,
+like KVM_ARM_VCPU_PMU_V3_SET_PMU.
 
--- 
-Antonio Quartulli
-
-CEO and Co-Founder
-Mandelbit Srl
-https://www.mandelbit.com
-
+Thanks,
+Oliver
 
