@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AE1FC593E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 12:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A24FCE068
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 12:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYxjpaoAB1QmW1SPiDNKNuGS5HJC4I/Rs36dvBoE19I=; b=LdJEnmmDPLmwXVFfMbv+IOcHBe
-	9z/R0w2AnVkwF0N4MiTdszyJH9CZ/jDM5FrMQm5uNgWKFQMaNarplJYMxejORD7Q6WKiYnwszIm0x
-	j4TXCZS0EyVFJ5YLwEL+rUVywstzdF3aWjrDkNVCJFCyiz/yTAhnBMZv9nnTgZhLoiaInFNLdIZMx
-	hLBNkpn7fFJMtyknoPNqisNr2GwM1wvrDs/WCwHA7Zi+aC5OEycclh9sT2nmDic4N2ohkIXI1x8HU
-	x6DyPUWe2XdE0e/Ntjb2SWzBy5B9jJccWSOXNGVlBXAo2BhNczZ/0i6+ou5YuLLJIC0USyot2SZl4
-	hpWkzFVQ==;
+	bh=pr+8ExyOhFxW/Uz4btSXrzEhPFdn+MVB6LdMQibRYoc=; b=J2JQCnWPimcyaVgvHacNj3HjsV
+	9DvWBp07PZzvLwO213EqlJmN+btL/3wJdKTMKpAzrXDterthv7NrN4V6VNkLgTaytxIlBFd878xHw
+	ZfRnfUhDpZQiNjpTvI08HlR7HVPHRFkK2Rmy/AIF+Fnimxe63K5rI9peykEOVfUvkoRSnQIrR52N4
+	ODD1FlnBHVz8Ly6HbKQJH06LQWMr+PTdgw4YO8Bzkwh19uKYbUqAGoFNd3eLK/1sEl6yOWow+WtRe
+	V/WQpwhMErTmNFBjcRINWdQKLlpiPe5h05XnEcqFGlVGZ2dV4M7JK+Y48BfnCN53rnSTtG2WWARqP
+	yhWg3AZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vva95-000000065eU-0HPB;
-	Thu, 26 Feb 2026 12:07:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvaVE-000000067Sb-1T1j;
+	Thu, 26 Feb 2026 12:30:00 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vva93-000000065dw-2Rl3;
-	Thu, 26 Feb 2026 12:07:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8FE643B47;
-	Thu, 26 Feb 2026 12:07:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78142C116C6;
-	Thu, 26 Feb 2026 12:07:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772107624;
-	bh=NvaYmWmPw9TAYgQzAiJzQLK+RAHS9O3xu7w8WLHGVRs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a2BzMFvBcZePIpUeBoVmsEcTdQuoGLhg3eMYxEqqbbH/BAV8ScM+j0up4zRBRiK4H
-	 ANmYS9NlwhW4nrY8Ogce7WuOeU1m1rVpYFscAO9XBsnz1QJbcOwNDCzWdQT1E2mk7V
-	 bVhUqw17Y1tLWhT7gC2FMzmrKiV6u5/s5rHgGQHqy87IcmFEABcXwtlgmQKAAozO4U
-	 Z/crJJ+qUSQuJhIdQjIHj3pv6yb7qXzBEvoUcg6gHUAWw/9Je1/7EEV47T/uxaboP0
-	 3D4fTA6zziA2UZKNrwqrsIQ6K3TtxELO+knokt0Pv9rDkCsR16muPRk+8pPYW6UZf/
-	 +y3moALOiaeSg==
-Date: Thu, 26 Feb 2026 13:06:58 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Hans Zhang <18255117159@163.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>,
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Grimmauld <grimmauld@grimmauld.de>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-Message-ID: <aaA3YuIOK_Q0MPi-@ryzen>
-References: <20260226101032.1042-1-linux.amoon@gmail.com>
+	id 1vvaVA-000000067S5-3t0D
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Feb 2026 12:29:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=pr+8ExyOhFxW/Uz4btSXrzEhPFdn+MVB6LdMQibRYoc=; b=HGpZuHzGxjaKNDkGGJJid5glay
+	5hMT/4g7xmwuGLThWi9lbZaCDMCu+rYp3wijiDQtm601uNutXM7BiANvKLcd6IbfN0AQiwftMFfbk
+	9e0B9QAB5WzNX6ZxQEmeql5WIrVaVgMHtChctKYJCS080QG5xg3fNYFPI3SXJCXkbfOwLFaueiggL
+	uriyBEZ3ulpESGQhbJGh9uJDKqfbb8zCIDMwdxr3hA7aHMXFl9AuiyL2BfumcpiC9pNp9ILK4qprS
+	CcFSAL/PU5VJFvy78IgS2dxjpXNY+wja/U983SX+6Fd491N2lLoR00kfj6SSTxHuqZ3JZ1F02FGCm
+	SxkV6OEQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52834)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vvaV3-000000007v5-1PAl;
+	Thu, 26 Feb 2026 12:29:49 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vvaUz-000000001xL-31zo;
+	Thu, 26 Feb 2026 12:29:45 +0000
+Date: Thu, 26 Feb 2026 12:29:45 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
+	Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	"Yadi.hu" <yadi.hu@windriver.com>
+Subject: Re: [PATCH v5 1/2] ARM: mm: fault: Enable interrupts before invoking
+ __do_user_fault()
+Message-ID: <aaA8uR3_o55uuevl@shell.armlinux.org.uk>
+References: <20260226111742.3598421-1-bigeasy@linutronix.de>
+ <20260226111742.3598421-2-bigeasy@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260226101032.1042-1-linux.amoon@gmail.com>
+In-Reply-To: <20260226111742.3598421-2-bigeasy@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_040705_748974_4EC8F276 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260226_042957_255193_BC2A16B0 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,18 +82,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 03:40:23PM +0530, Anand Moon wrote:
-> Rockchip DWC PCIe driver currently performs synchronous link training for
-> combo PHYs (PCIe 3.0/2.0 and SATA 3.0) during boot. This process waits for
-> the link to be fully established, adding several milliseconds to the boot
-> sequence. To optimize boot time, this change enables asynchronous probing,
-> allowing link establishment to proceed in the background while the kernel
-> continues probing other devices.
+On Thu, Feb 26, 2026 at 12:17:41PM +0100, Sebastian Andrzej Siewior wrote:
+> From: "Yadi.hu" <yadi.hu@windriver.com>
 > 
-> Cc: Grimmauld <grimmauld@grimmauld.de>
-> Cc: Niklas Cassel <cassel@kernel.org>
-> Tested-by: Grimmauld <grimmauld@grimmauld.de>
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> A page fault from userland for a kernel address originates from from
+> do_sect_fault() (!LPAE) or do_page_fault() and ends in __do_user_fault()
+> by sending a signal.
+> 
+> Sending a signal requires to acquire sighand_struct::siglock which is a
+> spinlock_t. On PREEMPT_RT spinlock_t becomes a sleeping spin lock which
+> requires interrupts to be enabled. Since the calling context is user
+> land, interrupts must have been enabled so it is fine to enable them in
+> this case.
+> 
+> Enable interrupts in do_kernel_address_page_fault() unconditional in the
+> user_mode case().
+> Enable interrupts in do_sect_fault() if they were previously enabled.
+> 
+> [bigeasy: Initial patch/ report by Yadi. Maintained the patch and redid
+>           the patch description since]
+> 
+> Signed-off-by: Yadi.hu <yadi.hu@windriver.com>
+> Acked-by: Linus Walleij <linus.walleij@linaro.org>
+> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-Reviewed-by: Niklas Cassel <cassel@kernel.org>
+Sorry, I've been swamped with stmmac for ages, which has become a
+millstone.
+
+I need to push out these patches:
+
+ARM: provide individual is_translation_fault() and is_permission_fault()
+ARM: move FSR fault status definitions before fsr_fs()
+ARM: use BIT() and GENMASK() for fault status register fields
+ARM: move is_permission_fault() and is_translation_fault() to fault.h
+ARM: move vmalloc() lazy-page table population
+ARM: ensure interrupts are enabled in __do_user_fault()
+
+which will address some of your issues, and clean up the fault handling
+code. These patches all date from 5th December. :/
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
