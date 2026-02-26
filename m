@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB086FD461F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 06:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A447F55451
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 06:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9xt+Ly5BBoOKe+bWNKZoDZ7RXBXnQdhoSITbUGnMVDc=; b=BMOFRfw35f1dOge5RbfW4/hoHh
-	hXsz9XbsafNRgLT6pGavIGG0GPI3XzhKLKyQ/yLJ0TrV0a5sYSDK11Di7WKZxr4cDvjroeljH+yq1
-	nY4Im0TzyEU61ZGML7k9wmxdGTYDq6E1QhPwx8oMjZJXfz4ni1tPDenCb9k1NgrYgpYhUHlpnJ0W7
-	6bPpKrWwZcCMSlyuIkjAQuzHCcLuTFh00WDuty1s6IljzpRovf0hAexQUlKDa6wX4ROZsS/wopNvW
-	+h08CiDNZANuXgMqdl5QKOpkRTFqYPDHN/NAmfucqi6m3y6ukYsGch942fUOYL2WUeBLZce7Xv7f9
-	wl02/14Q==;
+	bh=jHCCC02ZmBH5KQgKjITiloZKQo+zCbNByVBk5Q3ZVxU=; b=sES7vDtC507EawkTuOBmKbzkYL
+	szrw5GG/V2eQQvw67IlYyS1eVXPTrsCvPJFSiem/iC0lyjwNOc6q5UvuI6iD0WZ/qTqVaPek6O+mF
+	e8UCBsgO2aHP+DseHEIq/YFqavVLoZJaVcuMW9lOVpYwqpXBzq52sLbCT4cRkdRqoQEhOmhmNw1em
+	u9oZ7Riw/wfY7lpmPvK9nTUxc1hmto7xubT12ulXMzmWHC3nxfTNrIzMaz0FkZsR1jFo2BOjanrQo
+	YuhLrbZ/k7AQgmQl1URA92TwkUhouxWFvUWcLURb9qiOCTIpJmiA/Y2f71P7DByXsed8KgF5Ehtm+
+	BZbkaHaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVDP-00000005VzC-0dNY;
-	Thu, 26 Feb 2026 06:51:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvVDu-00000005W4p-0WiF;
+	Thu, 26 Feb 2026 06:51:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVDM-00000005VyU-0jwN
+	id 1vvVDs-00000005W4B-1mv0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 06:51:13 +0000
+	Thu, 26 Feb 2026 06:51:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4621841A30;
-	Thu, 26 Feb 2026 06:51:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6ABC9C19422;
-	Thu, 26 Feb 2026 06:51:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 68CB560054;
+	Thu, 26 Feb 2026 06:51:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BE47C19422;
+	Thu, 26 Feb 2026 06:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772088671;
-	bh=8uP2qnilwrrqwji6DKudxNogTmw5vlBTPGDWRu20gns=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Mu5qUW4OH7XSOyuzbhMCC94zV2vwvu3R6Z+Wm5nmdQL2l0wlnNCbY+puKOuYD+UM2
-	 Yo30+SUR/GBybHtFc7egJsxSmxdJC2G0/cDd1EBbDM+waOf9E1ZFb7sXx3JEvizD0a
-	 CUH/CTZSAVvctN1d4AhgrizaPuTgxpZ1mMrx9X1q3cBOZ4oj6QsPjKK90Ccv4OMki1
-	 tUyePmhI8NtFELsWu0GN4dyYqEymybnTLcxecP0FjbrfGQXc876VApz8ViBXFU7AY2
-	 mxTssMUySBLe9AjxgHHJyU3w06le3zCJbot6CLJP1ILtcmP4bd9/wqmaOsGtXJH0iX
-	 qHwdz0qQ/V/Lw==
-Message-ID: <8eeadb7a-5075-4444-8714-45e589dda47f@kernel.org>
-Date: Thu, 26 Feb 2026 07:51:06 +0100
+	s=k20201202; t=1772088703;
+	bh=EPcis5E6dgO1qz3kh+q3w1MutFbztm2Ji2wUIM2JyrY=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=gMO0ncZdCQmwx+IziHQEbmLEfYXdQPx6lgKgAZcoaUNht8UCQztjAFPvO1CS/19qq
+	 FyBYdl3//fxtgBUomEXCdtcY8FEuo640vrNh26GjerbGverHE7JGYesBLa0QQbFNSb
+	 8lmFNoqY0tUOw+/b/+q1vNBTwvc/pB3BULkTabOY18BQ6UqS1jIpqYxbEt1CcAeQmv
+	 P6o9Y99EFRirSUBST4BqPp9DUQsn7rB8Emd5YT6noRstY+bj1z/T0KE2Ipcfzw3AMW
+	 RoV5bRR/6KIHWKEXdcZI5OgHcSEXEu0VJXsks9g6WsmUJscRG0lPHNwFfH5Ok6ZUM7
+	 4lfx+6GeZZ9ww==
+Message-ID: <0c91fa84-dd0e-45bf-9c08-3b374daed7ba@kernel.org>
+Date: Thu, 26 Feb 2026 07:51:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v1] arm64: dts: exynos: gs101: Enable AVS APDO
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Badhri Jagan Sridharan <badhri@google.com>,
  Peter Griffin <peter.griffin@linaro.org>,
  =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
@@ -57,7 +58,7 @@ To: Badhri Jagan Sridharan <badhri@google.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20260226061053.2596167-1-badhri@google.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <8eeadb7a-5075-4444-8714-45e589dda47f@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -102,12 +103,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260226061053.2596167-1-badhri@google.com>
+In-Reply-To: <8eeadb7a-5075-4444-8714-45e589dda47f@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_225112_259392_6D2CE367 
-X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,44 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2026 07:10, Badhri Jagan Sridharan wrote:
-> Enable USB PD SPR AVS for gs101 by adding SPR AVS APDO to the sink caps
-> pusblished by gs101.
+On 26/02/2026 07:51, Krzysztof Kozlowski wrote:
+> On 26/02/2026 07:10, Badhri Jagan Sridharan wrote:
+>> Enable USB PD SPR AVS for gs101 by adding SPR AVS APDO to the sink caps
+>> pusblished by gs101.
+>>
+>> Signed-off-by: Badhri Jagan Sridharan <badhri@google.com>
+>> ---
+>> Depends-on:https://lore.kernel.org/lkml/20260226055311.2591357-1-badhri@google.com/
 > 
-> Signed-off-by: Badhri Jagan Sridharan <badhri@google.com>
-> ---
-> Depends-on:https://lore.kernel.org/lkml/20260226055311.2591357-1-badhri@google.com/
+> Really, how? If it depends on that, it is wrong and cannot be applied.
+> DTS cannot depend on the hardware. NAK.
 
-Really, how? If it depends on that, it is wrong and cannot be applied.
-DTS cannot depend on the hardware. NAK.
+s/hardware/drivers/ obviously...
 
 > 
->  arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 1 +
->  1 file changed, 1 insertion(+)
+>>
+>>  arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 1 +
+>>  1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+>> index 93892adaa679..5a689be61432 100644
+>> --- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+>> +++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+>> @@ -174,6 +174,7 @@ connector {
+>>  						| PDO_FIXED_HIGHER_CAP
+>>  						| PDO_FIXED_DUAL_ROLE))
+>>  				     PDO_FIXED(9000, 2200, 0)
+>> +				     PDO_SPR_AVS_SNK_APDO(3000, 3000)
+>>  				     PDO_PPS_APDO(5000, 11000, 3000)>;
+>>  			sink-vdos = <VDO_IDH(1, 1, IDH_PTYPE_PERIPH, 0,
+>>  					     IDH_PTYPE_DFP_HOST, 2, 0x18d1)
+>>
+>> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+>> prerequisite-patch-id: 4dacd8bc550e317d67134d030814765fb9f4c6e1
+>> prerequisite-patch-id: e863378fc602b6bee2e9fdd8c568003c00b2a38e
+>> prerequisite-patch-id: 202a9e1e9cf27a0b9ff7ebea76eb45cdac2cb581
+>> prerequisite-patch-id: f3817c560d0e701d7499fa1fb9ee40d22816c09e
+>> prerequisite-patch-id: c071913307a6eaa417d1345485d7a9c165d40834
 > 
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-> index 93892adaa679..5a689be61432 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-> @@ -174,6 +174,7 @@ connector {
->  						| PDO_FIXED_HIGHER_CAP
->  						| PDO_FIXED_DUAL_ROLE))
->  				     PDO_FIXED(9000, 2200, 0)
-> +				     PDO_SPR_AVS_SNK_APDO(3000, 3000)
->  				     PDO_PPS_APDO(5000, 11000, 3000)>;
->  			sink-vdos = <VDO_IDH(1, 1, IDH_PTYPE_PERIPH, 0,
->  					     IDH_PTYPE_DFP_HOST, 2, 0x18d1)
-> 
-> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-> prerequisite-patch-id: 4dacd8bc550e317d67134d030814765fb9f4c6e1
-> prerequisite-patch-id: e863378fc602b6bee2e9fdd8c568003c00b2a38e
-> prerequisite-patch-id: 202a9e1e9cf27a0b9ff7ebea76eb45cdac2cb581
-> prerequisite-patch-id: f3817c560d0e701d7499fa1fb9ee40d22816c09e
-> prerequisite-patch-id: c071913307a6eaa417d1345485d7a9c165d40834
-
-5 patches here. This is confusing.
-
-
+> 5 patches here. This is confusing.
 
 Best regards,
 Krzysztof
