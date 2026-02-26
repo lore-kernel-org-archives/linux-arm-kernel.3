@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D1AFCE08C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50401FCE08C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wmxDJL7qK9NueU1uB+zhPhctO+wgXUQrbU9tvkKi3t8=; b=zBHkkDl61xwnEXx7MEt6jefYBL
-	giYMg9tC0HX1UpvrNxr0zOsLdEPFhdi5/bv8BHRJ8sxJ9+swABRpT2cQSoToscR3zqHcoEz2LRlrt
-	Z+3l3nX7BCUSkMpYnOO1ES4BmhjeK5T+XqeoXo9r+hEu3mgL+Zj8U4VSgSow6J9PjkejiAfTR/Gbj
-	nTkgfhwUOrT6pWJnRmxBYspJ0EEuOPVFbCSeWh3UgQjMq42n4eyqmWOXXk1oGdakawr2t01tM5n3l
-	LFKX5IpgS4fe0lLySXRhmTpLiSI/B6t/i0iuIAQ3RPahfUfu+TpW0Rony6fyasaHMt3e+tNZt9men
-	qHRAZOYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LsK6/huAOPbvPqoPhHVEXz6tX984Z3AcmbyoQA1JEhY=; b=PR3g0GkrofWkCWjDEpIpvSvhBb
+	KVvQQ3hJWC96bH0aDUKHu72mx++t6Re7xC36oiPE6FfBXgtIke5ArM+mNNIYojBXFRl7BSz/urdQg
+	2zy4e8NZ2+aBZZAPQSTPxRRpH+YhSOOGwHIFJPbrufdLWXKpnzO146S16RkRASkGzWsAw1XZp9XME
+	Hf02CypxL2NrJV0B09UeAYohbJcrSoZKYno2J+k0FB+ZCP3bhtHFcEYebPFgIn9vjpL75eiMpGRil
+	GM9CB90sXJaoRgDzYhxQO2DPcchmZ5Gn1U8T4je7vQkT2ThWhR8YOyQwIoGwG6roAzbRIz7fJ8dZa
+	5p36ZVgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvc4d-00000006Hzo-0p07;
-	Thu, 26 Feb 2026 14:10:39 +0000
-Received: from out-188.mta1.migadu.com ([95.215.58.188])
+	id 1vvc6b-00000006I9o-2YQQ;
+	Thu, 26 Feb 2026 14:12:41 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvc4a-00000006HzF-3OyT
+	id 1vvc6Y-00000006I9N-105G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 14:10:38 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1772115031;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wmxDJL7qK9NueU1uB+zhPhctO+wgXUQrbU9tvkKi3t8=;
-	b=R0xJNFhztYNzYvCaGxImWv7FJWbrKhaXA3gG/3dDXiofF/l2Aqsq753GVna3Ij69ih27v9
-	KE2b1zOTW6pKbkk69d8j7WcUH9wvTKOfhGVsgGVRtZPaWLAxmwsWDKBLKVdiLGFtZRbtIj
-	zwbQ1IFq+zo3rNI4cHabyooNLpcvT2Q=
-From: Usama Arif <usama.arif@linux.dev>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Usama Arif <usama.arif@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Linu Cherian <linu.cherian@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [RFC V1 16/16] arm64/mm: Add initial support for FEAT_D128 page tables
-Date: Thu, 26 Feb 2026 06:10:23 -0800
-Message-ID: <20260226141024.1869713-1-usama.arif@linux.dev>
-In-Reply-To: <20260224051153.3150613-17-anshuman.khandual@arm.com>
-References: 
+	Thu, 26 Feb 2026 14:12:39 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vvc6F-00033P-AO; Thu, 26 Feb 2026 15:12:19 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vvc6C-002kDY-1c;
+	Thu, 26 Feb 2026 15:12:17 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vvc6D-00000000DNK-3A7z;
+	Thu, 26 Feb 2026 15:12:17 +0100
+Message-ID: <2938bcbbb46fdec1fd2629e11c28ce9cf09eee27.camel@pengutronix.de>
+Subject: Re: [PATCH v3 2/4] pwm: sun50i: Add H616 PWM support
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Richard Genoud <richard.genoud@bootlin.com>, Uwe
+ =?ISO-8859-1?Q?Kleine-K=F6nig?=	 <u.kleine-koenig@baylibre.com>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,  Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Cc: Paul Kocialkowski <paulk@sys-base.io>, Thomas Petazzoni
+	 <thomas.petazzoni@bootlin.com>, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Date: Thu, 26 Feb 2026 15:12:17 +0100
+In-Reply-To: <20260123093322.1327389-3-richard.genoud@bootlin.com>
+References: <20260123093322.1327389-1-richard.genoud@bootlin.com>
+	 <20260123093322.1327389-3-richard.genoud@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_061037_195457_7BF9A28A 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20260226_061238_454505_6C8A0B67 
+X-CRM114-Status: GOOD (  31.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,305 +83,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Feb 2026 10:41:53 +0530 Anshuman Khandual <anshuman.khandual@arm.com> wrote:
-
-> Add build time support for FEAT_D128 page tables with a new Kconfig option
-> i.e CONFIG_ARM64_D128. When selected, PTE types become 128 bits wide and
-> PTE bits are mapped to their new locations. Besides the basic page table
-> geometry is also updated since each table page now holds half the number
-> of entries (aka PTRS_PER_PXX) as it did previously.
-> 
-> Since FEAT_D128 exclusively supports the permission indirection style for
-> page table entry permission management, given kernel compiled for FEAT_D128
-> requires both FEAT_S1PIE and FEAT_D128. If these architecture features are
-> not present at boot, the kernel panics just like it does when there is a
-> granule size mismatch.
-> 
-> TTBR0/1_EL1 and PAR_EL1 registers become 128 bit wide when D128 is enabled,
-> thus requiring MSRR/MRRS instructions for their updates. Because PA_BITS is
-> still capped at 52 bits, MRS/MSR instructions are currently sufficient for
-> the register accesses that basically operate on the lower 64 bits. Although
-> entire 128 bits for these registers get cleared during boot via MSRR.
-> 
-> Add support for TLBIP instruction for TLB flush macros with level hint and
-> address range operations. Although existing TLBI based TLB flush would have
-> been sufficient given PA_BITS is still capped at 52, but then it would have
-> lacked both level hint and range support.
-> 
-> This enables support for all granule size, VA_BITS and PA_BITS combination.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+On Fr, 2026-01-23 at 10:33 +0100, Richard Genoud wrote:
+> Add driver for Allwinner H616 PWM controller, supporting up to 6
+> channels.
+> Those channels output can be either a PWM signal output or a clock
+> output, thanks to the bypass.
+>=20
+> The channels are paired (0/1, 2/3 and 4/5) and each pair has a
+> prescaler/mux/gate.
+> Moreover, each channel has its own prescaler and bypass.
+>=20
+> The clock provider part of this driver is needed not only because the
+> H616 PWM controller provides also clocks when bypass is enabled, but
+> really because pwm-clock isn't fit to handle all cases here.
+> pwm-clock would work if the 100MHz clock is requested, but if a lower
+> clock is requested (like 24MHz), it will request a 42ns period to the
+> PWM driver which will happily serve, with the 100MHz clock as input a
+> 25MHz frequency and a duty cycle adjustable in the range [0-4]/4,
+> because that is a sane thing to do for a PWM.
+> The information missing is that a real clock is resquested, not a PWM.
+>=20
+> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 > ---
->  arch/arm64/Kconfig                     |  39 ++++++-
->  arch/arm64/Makefile                    |   4 +
->  arch/arm64/include/asm/assembler.h     |   4 +-
->  arch/arm64/include/asm/el2_setup.h     |   9 ++
->  arch/arm64/include/asm/pgtable-hwdef.h | 137 +++++++++++++++++++++++++
->  arch/arm64/include/asm/pgtable-prot.h  |  18 +++-
->  arch/arm64/include/asm/pgtable-types.h |   9 ++
->  arch/arm64/include/asm/pgtable.h       |  56 +++++++++-
->  arch/arm64/include/asm/smp.h           |   1 +
->  arch/arm64/include/asm/tlbflush.h      |  65 ++++++++++++
->  arch/arm64/kernel/head.S               |  12 +++
->  arch/arm64/mm/proc.S                   |  25 ++++-
->  12 files changed, 372 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 38dba5f7e4d2..aaf910295c39 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -309,6 +309,10 @@ config GCC_SUPPORTS_DYNAMIC_FTRACE_WITH_ARGS
->  	def_bool CC_IS_GCC
->  	depends on $(cc-option,-fpatchable-function-entry=2)
->  
-> +config CC_SUPPORTS_LSE128
-> +	def_bool CC_IS_GCC
-> +	depends on $(cc-option, -march=armv8.1-a+lse128)
-> +
->  config 64BIT
->  	def_bool y
->  
-> @@ -395,6 +399,16 @@ config FIX_EARLYCON_MEM
->  
->  config PGTABLE_LEVELS
->  	int
-> +	default 4 if ARM64_D128 && ARM64_4K_PAGES && ARM64_VA_BITS_39
-> +	default 5 if ARM64_D128 && ARM64_4K_PAGES && ARM64_VA_BITS_48
-> +	default 5 if ARM64_D128 && ARM64_4K_PAGES && ARM64_VA_BITS_52
-> +	default 3 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_36
-> +	default 4 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_47
-> +	default 4 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_48
-> +	default 4 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_52
-> +	default 3 if ARM64_D128 && ARM64_64K_PAGES && ARM64_VA_BITS_42
-> +	default 3 if ARM64_D128 && ARM64_64K_PAGES && ARM64_VA_BITS_48
-> +	default 3 if ARM64_D128 && ARM64_64K_PAGES && ARM64_VA_BITS_52
->  	default 2 if ARM64_16K_PAGES && ARM64_VA_BITS_36
->  	default 2 if ARM64_64K_PAGES && ARM64_VA_BITS_42
->  	default 3 if ARM64_64K_PAGES && (ARM64_VA_BITS_48 || ARM64_VA_BITS_52)
-> @@ -1504,7 +1518,7 @@ config ARM64_PA_BITS
->  
->  config ARM64_LPA2
->  	def_bool y
-> -	depends on ARM64_PA_BITS_52 && !ARM64_64K_PAGES
-> +	depends on ARM64_PA_BITS_52 && !ARM64_64K_PAGES && !ARM64_D128
->  
->  choice
->  	prompt "Endianness"
-> @@ -2195,6 +2209,29 @@ config ARM64_HAFT
->  
->  endmenu # "ARMv8.9 architectural features"
->  
-> +menu "ARMv9.3 architectural features"
-> +
-> +config AS_HAS_ARMV9_3
-> +	def_bool $(cc-option,-Wa$(comma)-march=armv9.3-a)
-> +
-> +config ARM64_D128
-> +	bool "Enable support for 128 bit page table (FEAT_D128)"
-> +	depends on ARCH_SUPPORTS_INT128
-> +	depends on CC_SUPPORTS_LSE128
-> +	depends on AS_HAS_ARMV9_3
-> +	depends on EXPERT
-> +	depends on !VIRTUALIZATION
-> +	depends on !KASAN
-> +	depends on !UNMAP_KERNEL_AT_EL0
-> +	default n
-> +	help
-> +	  ARMv9.3 introduces FEAT_D128, which provides a 128 bit page
-> +	  table format, along with related instructions.
-> +
-> +	  If unsure, say Y.
-> +
-
-Should this say, If unsure, say N?
-
-> +endmenu # "ARMv9.3 architectural features"
-> +
-
+>  drivers/pwm/Kconfig           |  12 +
+>  drivers/pwm/Makefile          |   1 +
+>  drivers/pwm/pwm-sun50i-h616.c | 959 ++++++++++++++++++++++++++++++++++
+>  3 files changed, 972 insertions(+)
+>  create mode 100644 drivers/pwm/pwm-sun50i-h616.c
+>=20
 [...]
-
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index 9c93ffbcc1e0..a221a1a9b87e 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -49,6 +49,19 @@
->  
->  #define __tlbi(op, ...)		__TLBI_N(op, ##__VA_ARGS__, 1, 0)
->  
-> +#ifdef CONFIG_ARM64_D128
-> +#define __tlbip(op, arg1, arg2) do {	\
-> +	u128 value = 0;			\
-> +	value |= (u128)arg2 << 64;	\
-> +	value |= (u128)arg1;		\
-> +					\
-> +	asm (ARM64_ASM_PREAMBLE		\
-> +	".arch_extension d128\n\t"	\
-> +	"tlbip " #op ", %0, %H0\n"	\
-> +	: : "r" (value));		\
-> +} while (0)
-> +#endif
+> diff --git a/drivers/pwm/pwm-sun50i-h616.c b/drivers/pwm/pwm-sun50i-h616.=
+c
+> new file mode 100644
+> index 000000000000..02a8e2d39f86
+> --- /dev/null
+> +++ b/drivers/pwm/pwm-sun50i-h616.c
+> @@ -0,0 +1,959 @@
+[...]
+> +static int h616_pwm_init_clocks(struct platform_device *pdev,
+> +				struct h616_pwm_chip *h616chip)
+> +{
+> +	struct clk_pwm_pdata *pdata;
+> +	struct device *dev =3D &pdev->dev;
+> +	int num_clocks =3D 0;
+> +	int ret;
 > +
->  #define __tlbi_user(op, arg) do {						\
->  	if (arm64_kernel_unmapped_at_el0())					\
->  		__tlbi(op, (arg) | USER_ASID_FLAG);				\
-> @@ -128,6 +141,46 @@ static inline unsigned long get_trans_granule(void)
->  		__tlbi_level(op, (arg | USER_ASID_FLAG), level);	\
->  } while (0)
->  
-> +#ifdef CONFIG_ARM64_D128
-> +/*
-> + *
-> + * TLBIP Encoding
-> + *
-> + * +------------+-----------------+-------+-------+------------------+
-> + * |     RES0   |     BADDR       |  ASID |  TTL  |      RES0        |
-> + * +------------------------------+-------+-------+------------------+
-> + * |127      108|107            64|63   48|47   44|43               0|
-> + */
+> +	pdata =3D devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
+> +	if (!pdata)
+> +		return dev_err_probe(dev, -ENOMEM,
+> +				     "Failed to allocate clk_pwm_pdata\n");
 > +
-> +#define __tlbip_user(op, arg, addr) do {					\
-> +	if (arm64_kernel_unmapped_at_el0())					\
-> +		__tlbip(op, (arg) | USER_ASID_FLAG, addr);			\
-> +} while (0)
-> +/*
-> + * FEAT_TTL being mandatory from armv8.4 and FEAT_D128 is available
-> + * only from armv9.4, we dont need the capability check for TTL.
-> + */
-> +#define __TLBIP_ARGS(asid, level)						\
-> +	({									\
-> +		u64 arg = 0;							\
-> +										\
-> +		arg |= FIELD_PREP(TLBI_ASID_MASK, (asid));			\
-> +		if ((level) >= 0 && (level) <= 3) {				\
-> +			arg |= FIELD_PREP(TLBI_TG_MASK, get_trans_granule());	\
-> +			arg |= FIELD_PREP(TLBI_LVL_MASK, (level));		\
-> +		}								\
-> +		arg;								\
-> +	})									\
+> +	while (pwmcc_data[num_clocks].name)
+> +		num_clocks++;
 > +
-> +#define __tlb_asid_level(op, addr, asid, level, tlb_user) do {		\
-> +	u64 arg1 = __TLBIP_ARGS(asid, level);				\
-> +	u64 arg2 = (addr) >> 12;					\
-
-Does 12 over here represent PAGE_SHIFT? If so, would it break 16K and 64K PAGE_SIZE?
-
-> +									\
-> +	__tlbip(op, arg1, arg2);					\
-> +	if (tlb_user)							\
-> +		__tlbip_user(op, arg1, arg2);				\
-> +} while (0)
-> +#else
->  #define __tlb_asid_level(op, addr, asid, level, tlb_user) do {		\
->  	u64 arg1;							\
->  									\
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+> +	pdata->hw_data =3D devm_kzalloc(dev, struct_size(pdata->hw_data, hws, n=
+um_clocks),
+> +				      GFP_KERNEL);
+> +	if (!pdata->hw_data)
+> +		return dev_err_probe(dev, -ENOMEM,
+> +				     "Failed to allocate hw clocks\n");
+> +
+> +	pdata->hw_data->num =3D num_clocks;
+> +	pdata->reg =3D h616chip->base;
+> +
+> +	spin_lock_init(&pdata->lock);
+> +
+> +	for (int i =3D 0; i < num_clocks; i++) {
+> +		struct clk_hw **hw =3D &pdata->hw_data->hws[i];
+> +
+> +		ret =3D h616_add_composite_clk(&pwmcc_data[i], pdata->reg,
+> +					     &pdata->lock, dev, hw);
+> +		if (ret) {
+> +			dev_err_probe(dev, ret,
+> +				      "Failed to register hw clock %s\n",
+> +				      pwmcc_data[i].name);
+> +			for (i--; i >=3D 0; i--)
+> +				clk_hw_unregister_composite(pdata->hw_data->hws[i]);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	h616chip->clk_pdata =3D pdata;
+> +
+> +	return 0;
+> +}
+> +
+> +static int h616_pwm_probe(struct platform_device *pdev)
+> +{
+> +	const struct h616_pwm_data *data;
+> +	struct device *dev =3D &pdev->dev;
+> +	struct h616_pwm_chip *h616chip;
+> +	struct pwm_chip *chip;
+> +	int ret;
+> +
+> +	data =3D of_device_get_match_data(dev);
+> +	if (!data)
+> +		return dev_err_probe(dev, -ENODEV,
+> +				     "Missing specific data structure\n");
+> +
+> +	chip =3D devm_pwmchip_alloc(dev, data->npwm, sizeof(*h616chip));
+> +	if (IS_ERR(chip))
+> +		return dev_err_probe(dev, PTR_ERR(chip),
+> +				     "Failed to allocate pwmchip\n");
+> +
+> +	h616chip =3D h616_pwm_from_chip(chip);
+> +	h616chip->data =3D data;
+> +	h616chip->base =3D devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(h616chip->base))
+> +		return dev_err_probe(dev, PTR_ERR(h616chip->base),
+> +				     "Failed to get PWM base address\n");
+> +
+> +	h616chip->bus_clk =3D devm_clk_get_enabled(dev, "bus");
+> +	if (IS_ERR(h616chip->bus_clk))
+> +		return dev_err_probe(dev, PTR_ERR(h616chip->bus_clk),
+> +				     "Failed to get bus clock\n");
+> +
+> +	h616chip->channels =3D devm_kmalloc_array(dev, data->npwm,
+> +						sizeof(*(h616chip->channels)),
+> +						GFP_KERNEL);
+> +	if (!h616chip->channels)
+> +		return dev_err_probe(dev, -ENOMEM,
+> +				     "Failed to allocate %d channels array\n",
+> +				     data->npwm);
+> +
+> +	h616chip->rst =3D devm_reset_control_get_shared(dev, NULL);
+> +	if (IS_ERR(h616chip->rst))
+> +		return dev_err_probe(dev, PTR_ERR(h616chip->rst),
+> +				     "Failed to get reset control\n");
+> +
+> +	chip->ops =3D &h616_pwm_ops;
+> +
+> +	ret =3D h616_pwm_init_clocks(pdev, h616chip);
+> +	if (ret)
+> +		return ret;
+> +
+> +	for (unsigned int i =3D 0; i < data->npwm; i++) {
+> +		struct h616_pwm_channel *chan =3D &h616chip->channels[i];
+> +		struct clk_hw **hw =3D &h616chip->clk_pdata->hw_data->hws[i];
+> +
+> +		chan->pwm_clk =3D devm_clk_hw_get_clk(dev, *hw, NULL);
+> +		if (IS_ERR(chan->pwm_clk)) {
+> +			ret =3D dev_err_probe(dev, PTR_ERR(chan->pwm_clk),
+> +					    "Failed to register PWM clock %d\n", i);
+> +			goto err_get_clk;
+> +		}
+> +		chan->mode =3D H616_PWM_MODE_NONE;
+> +	}
+> +
+> +	ret =3D devm_of_clk_add_hw_provider(dev, h616_pwm_of_clk_get, h616chip)=
+;
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to add HW clock provider\n");
+> +		goto err_add_clk_provider;
+> +	}
+> +
+> +	/* Deassert reset */
+> +	ret =3D reset_control_deassert(h616chip->rst);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Cannot deassert reset control\n");
+> +		goto err_ctrl_deassert;
+> +	}
+> +
+> +	ret =3D pwmchip_add(chip);
+> +	if (ret < 0) {
+> +		dev_err_probe(dev, ret, "Failed to add PWM chip\n");
+> +		goto err_pwm_add;
+> +	}
+> +
+> +	platform_set_drvdata(pdev, chip);
+> +
+> +	return 0;
+> +
+> +err_pwm_add:
+> +	reset_control_assert(h616chip->rst);
+> +
+> +err_ctrl_deassert:
+> +err_add_clk_provider:
+> +err_get_clk:
+> +	for (unsigned int i =3D 0; i < h616chip->clk_pdata->hw_data->num; i++)
+> +		clk_hw_unregister_composite(h616chip->clk_pdata->hw_data->hws[i]);
+
+Won't this try to unregister the clk_hw before the pwm_clk derived from
+it? You could place this in a devres action to correct the cleanup
+order and get rid of the duplicated cleanup in h616_pwm_remove().
+
+I think you could even use devm_pwmchip_add() and
+devm_reset_control_get_shared_deasserted() and remove h616_pwm_remove
+entirely.
+
+regards
+Philipp
 
