@@ -4,156 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C85FCFC5927
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1284CFC592F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=; b=R4Z1TuJaZ3fMoh7uG8cgEcQkmB
-	nOR0vlKQYoyHgEeHMSbypfe92jBUDiSDykCptZdN884DUlXAyoovw6U3QNJRD9K9NEiDAeojz5ZUw
-	mmhsFRCL+yq6093GGO8Yqz3WT1bqolGtLg6cLamNtuMDr3b8ct/LKkAt5KhQ7IS0BensTpIJP+Fmx
-	2SmstNyfLJ0s/BE6pX7kZtnshCv/TEW0Dp2XbncsJ15Fyzb9YOzVt8lE1YbdtK1tGFQn5vpr5V/fF
-	X4YA/dL12mieaAbN2sYx2VPeljGITD6nZ0YmpbkMhzhh/P50iOjNovl3lWlWbDFTuuojCFAKaXHmi
-	tpKMkISA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lTFreEYIylh0/5vkZDUX91u2n4TL2Vmegs88I+0j47E=; b=0x27D/6SDtFs7zkAIQ2nkYFxNe
+	F+oBTSkFhjAXwhma4iUrrL40pfPN7M3ZCfkoYCBqtwT+i9NbuwMY9ufK0nfFp4AYRZueKi9+Ilcuz
+	bTchfgcTn5vOCHJ65aRjHIoI+OAibqhggXul8q5F1HBg0h+5fnn6rZVeaGqsMNgzaeM3Xn9rc7CQ6
+	EZ2QOH8VK3t6hr7d/82pidkoThDrGCWvXgrQxsiiUPHXqIRILdL/lXJ87SleqFsH1xa6HebGT5ueo
+	rf/HVfnD06dfxMWrOkdIaD38vOAaOWsuVvoUQlAouwTYZr2r88X8opzDqvOQ9d4iX6ofJqNmjRCsV
+	KHX/cT7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZBr-00000005zXi-3X8a;
-	Thu, 26 Feb 2026 11:05:55 +0000
-Received: from mail-francecentralazon11013057.outbound.protection.outlook.com ([40.107.162.57] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vvZJR-000000060Zn-1Nh5;
+	Thu, 26 Feb 2026 11:13:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZBo-00000005zVr-1vfU
+	id 1vvZJP-000000060Yj-0Hbw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 11:05:54 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=O6O3xP6TRi1H47nHVxBGe7qU98ZH85/dR0sBfPQrncRndLaTTgbQnQPNwjE5ZTEO2Qs5+VRynzxQ3+v2RnryE65BaKKEpcOfjfyhl23n4kxlHfYX3iAUz6ACBC5JP//zjsCUPDX+r7y1vSuy0G1YXWUL2FkYzpna7Uc9y/WR4XL/hzd/Cs9dSlsRMiL2VFlkpAnxffOLo+wxbaiim3TS0MI2xODQZATCcT4ePPPozccppFF8n+pWXtbbey6eWB00Jn4UhCaCmd0X+V8JQOx3Z72kePeakGUZTOZ+PBit1n/3/ClH+vCTQ9mswNmLyNiKIuoliGfrUkIHS8dEDiN/aA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=;
- b=ZLOo3soJCSehE7WzFiL4c8CS1uGhFlwKvFOgyG+7UxiozrzmcsudCEoQAjK5/3hIJo8KP/xV08o0uw6nR0HxqKV4kHlNH2MIGcDya0jzTkrZbEwAYih2SW1xvE3Tw3EcyYk1nJsORkKFVUfTaFZzjA355H8zl1bai+h/EUnEoebKH37j2LxG9YtaPdw6HWRQ/MzT+N6oGtpy28FuIw5q+NX9AC+ZnvYXslAZXF/N0EcCZg0PlGLTy1yZdfOtFda1TtxvazwU6s0Pbppdy25xyo+5CMkYlCXJgsS5ORzcBglcO+PLOkQ68itiWvn+/LynC9dTeApcGum5Qeowy1MBUw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=foss.st.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=;
- b=fphy8PUmoOnzcD8PCiY3MZJlmn/4tJZXL9d7mZoQk10IrH2OHNpoql/Ss9ltHoXRtWxQDbGtSt37Aufu3o2fGn8PVFyv4/MaYs9ZLj7e3YBjwHuN+XH+CRyEYaohVurXPzUWNLtVqbPYOq2eR1rtS6bj4xN/hQzu/x4bLdG21Js=
-Received: from DUZPR01CA0179.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b3::10) by DB3PR08MB8940.eurprd08.prod.outlook.com
- (2603:10a6:10:431::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Thu, 26 Feb
- 2026 11:05:43 +0000
-Received: from DB5PEPF00014B9F.eurprd02.prod.outlook.com
- (2603:10a6:10:4b3:cafe::47) by DUZPR01CA0179.outlook.office365.com
- (2603:10a6:10:4b3::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.24 via Frontend Transport; Thu,
- 26 Feb 2026 11:05:35 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB5PEPF00014B9F.mail.protection.outlook.com (10.167.8.169) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
- via Frontend Transport; Thu, 26 Feb 2026 11:05:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kG5CzKKg9a5YCzwImXluMIPGQM3yJyubeeSm7u4WL4/MrXe1St0T4jk9SrAuakhl+14gIC46f4h/MCcky9toKxrsJntlFELbNAMbNsLfvCRCMiFn8ZqKBo4J/7S/QwP9SChhszjErnxsNtV01HegD74T8mVzNYM8Q9mle+MQaurF7d01zXJdH5r/DpsKSRjayZH3FKKguz5WvmNm2HDcIBhTVNpApnBFtmwzkHvsKqyNkRcMzFkQ8Ec6Cr/eCdeInZXP++44r0JHeI7WqruQGiV1fvcZVhMnqoiYcOzDBo9/V8xUZ2RZyqp6Aq1nRtVgI6+sBdiX/ZxNq0QkETiuqg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=;
- b=Ju772H8g0I39yTAJTRm/ZtifGkxs5IBYR1eylE9qbubGEpyYZQHazqYru1+gxnZwUbswgelQy7ZRThol8mi51Fj9C4OK8817OenUT9Y8LbIiByzZByWNkXZ2wxkNL1+iST2EG7T9QKNmByg1nMnfMZOA9apddtatC2sXuU+JJ3dFVJQlnhnuVzw2TuySuPgL3iMZkSIc70D51RsGrNvNuNILUPonxtqzSKeZehwuaWsSurAtqaj92vZ3It+BNcQLm2QHSxCok4wYVp0vlg67mmzFqNb0b2fVkV2azvLm2dLJvAgj166rXYer8vry823b3Fkz8K8eXabNfHmqxsdLYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RDl1y7nnE062V8Ek+TQdKoIj+6AlItpBqDQ7wZ9xzyE=;
- b=fphy8PUmoOnzcD8PCiY3MZJlmn/4tJZXL9d7mZoQk10IrH2OHNpoql/Ss9ltHoXRtWxQDbGtSt37Aufu3o2fGn8PVFyv4/MaYs9ZLj7e3YBjwHuN+XH+CRyEYaohVurXPzUWNLtVqbPYOq2eR1rtS6bj4xN/hQzu/x4bLdG21Js=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by AS8PR08MB6631.eurprd08.prod.outlook.com (2603:10a6:20b:339::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.23; Thu, 26 Feb
- 2026 11:05:15 +0000
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f%6]) with mapi id 15.20.9654.013; Thu, 26 Feb 2026
- 11:05:15 +0000
-Message-ID: <b2e8dbf1-f492-4fab-ac17-8237a759a427@arm.com>
-Date: Thu, 26 Feb 2026 11:05:14 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/12] dt-bindings: document access-controllers
- property for coresight peripherals
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>,
- Linus Walleij <linusw@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, cristian.marussi@arm.com,
- jens.wiklander@linaro.org, etienne.carriere@foss.st.com,
- Sudeep Holla <sudeep.holla@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com>
- <20260226-debug_bus-v6-1-5d794697798d@foss.st.com>
- <fb91b392-2a01-4f01-85a2-335bb39ec60e@arm.com>
- <7c60e928-d99d-4341-966a-eed759069f5e@foss.st.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <7c60e928-d99d-4341-966a-eed759069f5e@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P265CA0137.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c4::15) To DU4PR08MB11769.eurprd08.prod.outlook.com
- (2603:10a6:10:644::21)
+	Thu, 26 Feb 2026 11:13:44 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61QAL8kI3987221;
+	Thu, 26 Feb 2026 11:13:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=lTFreEYIylh
+	0/5vkZDUX91u2n4TL2Vmegs88I+0j47E=; b=eOzu6Pb4KZP5F6KKkpkSXp7J/GD
+	L7OXbimrVdjFYkaxM62pg//DB7DtTtr6/GbxikdPKm+LdORgtuQBT+U9i+0U7MsA
+	AcxELNwo2TlgdTqMqRb/n8AjB/8C6s96LaHeukph1rs8tDeJs+mAkPmLNGMDhKCh
+	+JMxekUjH+OTBdfqRwoN5VJidrWDyhP4ikDyHJmpZST0MUUYkXLNZ7Qj0kPLesn0
+	rIo8XahVxP1xhS1qsKNuM0z107oVbDoak3NYkQR9cACRYzf/iGyJVRlqW5KGPaKX
+	0YzRC8l8O9hKybTQi6j4gDSOlg6qU9+efAuYhEB//5uDQsLIlUgTxri823A==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cjdph1egj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Feb 2026 11:13:33 +0000 (GMT)
+Received: from pps.filterd (APBLRPPMTA01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 61QBDURP017513;
+	Thu, 26 Feb 2026 11:13:30 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 4cf5smjsf6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Feb 2026 11:13:30 +0000
+Received: from APBLRPPMTA01.qualcomm.com (APBLRPPMTA01.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 61QBDT37017496;
+	Thu, 26 Feb 2026 11:13:29 GMT
+Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mkuntuma-hyd.qualcomm.com [10.213.97.145])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 61QBDTOw017494
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Feb 2026 11:13:29 +0000
+Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4582077)
+	id B68E05E7; Thu, 26 Feb 2026 16:43:28 +0530 (+0530)
+From: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+To: dmitry.baryshkov@oss.qualcomm.com, marijn.suijten@somainline.org,
+        swboyd@chromium.org, mripard@kernel.org, abel.vesa@linaro.org,
+        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, robin.clark@oss.qualcomm.com,
+        jessica.zhang@oss.qualcomm.com, abhinav.kumar@linux.dev,
+        sean@poorly.run, airlied@gmail.com, simona@ffwll.ch,
+        alex.vinarskis@gmail.com
+Cc: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        freedreno@lists.freedesktop.org, quic_rajeevny@quicinc.com,
+        quic_vproddut@quicinc.com, dri-devel@lists.freedesktop.org,
+        quic_riteshk@quicinc.com
+Subject: [PATCH v4 2/2] arm64: dts: qcom: lemans-ride: Enable mdss1 display Port
+Date: Thu, 26 Feb 2026 16:43:22 +0530
+Message-Id: <20260226111322.250176-3-quic_mkuntuma@quicinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260226111322.250176-1-quic_mkuntuma@quicinc.com>
+References: <20260226111322.250176-1-quic_mkuntuma@quicinc.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|AS8PR08MB6631:EE_|DB5PEPF00014B9F:EE_|DB3PR08MB8940:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3b682ac3-058b-46ef-0aad-08de7526fbd2
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|921020|7053199007;
-X-Microsoft-Antispam-Message-Info-Original: Ck+xwoKXH0aOrC4IC1U5s1rX06ERh7WIeaqI46P+axK8D+JOtYJd1szaXJY6ZNb/oRC7sDkIL6EV5Ki9euvwxMHeBTClBwkV7UoPzYDvReqyT/k1q819fMgK9e3Lm3woMODfu55ISJPIrjj1LZihYbYBpDoy+Ly04xRaEsa6TRGvqnLDFUOPRNQ7dvlc1K5fmdxTh58ESmFRPF7gdttJeHJrSTPKHq70gc3Ivnc8yypgI3LIWWiJ11gGn3+Zm2fCY7WmA2MXwksg2KoLDDZVAGLqK58QYzIuvunDeJFzXeKSACrov63ppjfX4k8TQI7WShbBzpJK0A73bNkAzWdW6tz9DNqFTTekORhOgfsyzV5ZhSJm6azbpSJ/fMcW3/2uvzych0HF3j4dOTdmL3zo2n/kisTKgdFP1tDFfyU8m9j9+VOn+5KZot7BByLLVQqqj1W0pDBjBdpJ8PLmKfkXMZoJAAH969djgQu/qgpU5keoAYpOB4gae5eqcyBgG4VubDmgszUiua/Q3UHc+Fty7VxbLbPyCLSMQONAtz+MabIoblYmUyxP1icXzAo7oRIJTN4oyAtVvzfiW3Wj6a+ts9YuaZblgolHgjozRLK3CFjsg2ABFVR25ZgTL7+6BkPXCWnWZHbzOWVxjlfcaVpdnB/MYTvF0vddJz3xVZWFvDC3QrZrhoGR4LXY+gNdpbK3qiE5fwY2+RCWlBa7GCFU7zNpAAKdLlQPNRzAyVrV8pDfkIUMFGV7VEC4ncOzuEDRuCdLriQIKbHv7/bsm8yP1A==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6631
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B9F.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 2bc16013-572a-474b-6722-08de7526eb44
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|14060799003|1800799024|35042699022|376014|7416014|82310400026|921020;
-X-Microsoft-Antispam-Message-Info: 4qBxew7zSmdeizISpR43bdtwZv2Z4jb59l8YKukF0F7sn3i5Rbn1w+3qaGhh3PlslO+CE8We2xGf3GAt5dczBP76yu0o9rK3tnwQnyVvCMxN3mldir3DTu62pASwm+cYFiUd2+jbTs0R3aWt71L2njQj7AxDqRmcN2aIzRK6c8cGF67/A1E6Xk2RrQg43gcdwEkSN1pbI6+BVzP/ooANj31JGvHXJ81DORXTFacJCGTqM7Kn4Opg/YAfumT6EKYo9bA4KjA0nU+2VU16GOuxLnjNVUgPZ9K157ef7LtAbEV4qYVLRIlRYtiUvp97SoyLwbpwSBksl/I7Ps6iWw3Q0KjHWaEjSiqqwzdgcAljCvPHyAOzNbHJhG1VoeFVUwAUwBXXa7wY474e6DzJF/CXM0t5AMcPueSr5xw+hLjfH7Quypy45lkJ58ODhZcvYfjryk43QvvhsYyYPN/NUg/QxZ1sdYSKMHwESbMfp2PDIyL5rDu5Shrz70CVaeTeZ8IieQZ+aaAf30Bi29ZULcVrxFYZ05lRLwvO50i2oo47CISOsAzfbj31F/KNtEiP9WPE34XcrOaN1hDRW32y+/eNa1O4oY1Yz+aPIs2Hv2zyhyXg9udOGLBUqWdCLUwCtGCgzPKS8xiteEDDU2MY+sKve+3xPCAKXN1bBMWoYzcv+IEQMnTKuA5g/RKQM453ae6By+6fDNrWbnTACm4kZVJ20498YxZYgGmy5y48L0pLlFB9xyehF96w2PpxWc6go6msavrxCwT7zlE4X34XgsGEAg6z6FXpY6IceBa7XsvXWc3rcw9kEA32IGrzBVK9ANp29WsAQKw8GOPLhPpg39VL7Jh0f/cTmoxMmnl0Xf0pnbg=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(14060799003)(1800799024)(35042699022)(376014)(7416014)(82310400026)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: v5RIaY7bw905NERDMCgKD0tlci8vTeJZr+AZvj+UeR6a6QrrGr5PzIQsTMIoetXF2cDirJkOwioIHWmFG8NO8T9Fbeb+t4894BBCfkQJ/pen97QV9uSuL2z4CFoba+aQHQDxX/Gf8BKVmhPl3mAoeI+JH2/Ab4bMfLHwm/K+JiTy2hXdnvNinpzw6GV+5KF4hnf7YyJkhR7C7+LE6o54QfMXyWBWJYl98CkjSRNaCbc3AMP5W5ChE+z5gqEfZRl3L6ZoQktLU5kWLVQy/G+K6WgwaR/oUxHwvB2m1q81BRiPRkP71KDFZnHJEztlW/HN9ZckeqNn5SPMCTxODEVnPPO6NcbXhyhj5ST5vnNL7F6nx4JswJWibFcI+MDCf+F2REOgYlLDqqg1/Xz8a9OmxQd10lTw7qH28TQkwuAGseq1JhDKNPfmRYLrqihyels5
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 11:05:42.5086
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3b682ac3-058b-46ef-0aad-08de7526fbd2
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9F.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR08MB8940
+Content-Transfer-Encoding: 8bit
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: LaFbp-VtcUHl-orN4rSZIEU3CTYgtjXE
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDEwMSBTYWx0ZWRfXwjNSV/ILHQkS
+ V5Bu9r0YKtHRyQsGFIQhYn+NY0M/gdXu7OE/QfkXBHHzXsBu2EELWm8+Wl+byOpRBCukbKz8wAt
+ M78GZjneQW55/4JjwA6y92EB4Klb1TuCu9wGeknmRbvIL5vYL8933EE4Zn3tsZf7C4HRGUf8Vda
+ dNq/m5VjYz9U0muvTZgoQ4MMP/ZftNYcn8K5KxUk7rs/4MVRuwRtv6tI/6b9aPStbd3bGBl1GIx
+ GutwdtCjy3i6Z80QONJIfBVWqr2Jyw1P2UieElsJa9TF5mGwZbp5d3XlxS0q5W1+9EW3D95tKym
+ InI/Q9rXDFJSck/K3cGPgdY1i3ZmOO053Jawkvvuskczcq3aVAgpCBKDIfmv2MXp58i/k3xhz9h
+ j24jyn0xbIqanWL18DUY8GmfUIyp5lZkBIORJKBPlaqm0aLTfIJex6qyuUCqQZeNCWhpHERIw9z
+ mP21219Mh+s0VKuJPAg==
+X-Authority-Analysis: v=2.4 cv=NJLYOk6g c=1 sm=1 tr=0 ts=69a02add cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=3WHJM1ZQz_JShphwDgj5:22 a=COk6AnOGAAAA:8 a=lcgM4KOETyTTvZj5T8AA:9
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: LaFbp-VtcUHl-orN4rSZIEU3CTYgtjXE
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-25_04,2026-02-25_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 impostorscore=0 bulkscore=0 suspectscore=0
+ malwarescore=0 clxscore=1011 adultscore=0 lowpriorityscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602260101
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_030552_745576_C5453A70 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20260226_031343_222409_073F1C8C 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,146 +125,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2026 10:54, Gatien CHEVALLIER wrote:
-> 
-> 
-> On 2/26/26 11:46, Suzuki K Poulose wrote:
->> Hi
->>
->> On 26/02/2026 10:30, Gatien Chevallier wrote:
->>> Document the access-controllers for coresight peripherals in case some
->>> access checks need to be performed to use them.
->>>
->>> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
->>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
->>> ---
->>>   Documentation/devicetree/bindings/arm/arm,coresight- 
->>> cti.yaml           | 3 +++
->>>   .../devicetree/bindings/arm/arm,coresight-dynamic- 
->>> funnel.yaml          | 3 +++
->>>   Documentation/devicetree/bindings/arm/arm,coresight- 
->>> etm.yaml           | 3 +++
->>>   Documentation/devicetree/bindings/arm/arm,coresight- 
->>> stm.yaml           | 3 +++
->>>   Documentation/devicetree/bindings/arm/arm,coresight- 
->>> tmc.yaml           | 3 +++
->>>   Documentation/devicetree/bindings/arm/arm,coresight- 
->>> tpiu.yaml          | 3 +++
->>
->> Are you sure, you are not missing "replicator" in the list ?
->>
->> Otherwise, looks good to me.
->>
->> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>
-> 
-> The replicator is not present on the Linux side on stm32mp1x platforms
-> (Only present for the Cortex M4 co-processor on stm32mp15x platforms).
-> On stm32mp2x platforms, it will be necessary so it will be added in the
-> related P-R because we'll need the same debug access check mechanism.
+This change enables DP controllers, DPTX0 and DPTX1 alongside
+their corresponding PHYs of mdss1 which corresponds to edp2
+and edp3.
 
-Fair enough. It looked a bit odd to me with TMC and TPIU both in the
-list without a Replicator.
+Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+---
+ .../boot/dts/qcom/lemans-ride-common.dtsi     | 80 +++++++++++++++++++
+ 1 file changed, 80 insertions(+)
 
-Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-
-> 
->>
->>
->>>   6 files changed, 18 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
->>> cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
->>> index 2a91670ccb8c..949444aba1f8 100644
->>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
->>> @@ -128,6 +128,9 @@ properties:
->>>     "#address-cells":
->>>       const: 1
->>> +  access-controllers:
->>> +    maxItems: 1
->>> +
->>>   patternProperties:
->>>     '^trig-conns@([0-9]+)$':
->>>       type: object
->>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
->>> dynamic-funnel.yaml b/Documentation/devicetree/bindings/arm/ 
->>> arm,coresight-dynamic-funnel.yaml
->>> index b74db15e5f8a..b0693cd46d27 100644
->>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic- 
->>> funnel.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic- 
->>> funnel.yaml
->>> @@ -78,6 +78,9 @@ properties:
->>>           description: Output connection to CoreSight Trace bus
->>>           $ref: /schemas/graph.yaml#/properties/port
->>> +  access-controllers:
->>> +    maxItems: 1
->>> +
->>>   required:
->>>     - compatible
->>>     - reg
->>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
->>> etm.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml
->>> index 71f2e1ed27e5..10ebbbeadf93 100644
->>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml
->>> @@ -118,6 +118,9 @@ properties:
->>>           description: Output connection from the ETM to CoreSight 
->>> Trace bus.
->>>           $ref: /schemas/graph.yaml#/properties/port
->>> +  access-controllers:
->>> +    maxItems: 1
->>> +
->>>   required:
->>>     - compatible
->>>     - clocks
->>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
->>> stm.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml
->>> index 378380c3f5aa..f243e76f597f 100644
->>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml
->>> @@ -73,6 +73,9 @@ properties:
->>>           description: Output connection to the CoreSight Trace bus.
->>>           $ref: /schemas/graph.yaml#/properties/port
->>> +  access-controllers:
->>> +    maxItems: 1
->>> +
->>>   required:
->>>     - compatible
->>>     - reg
->>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
->>> tmc.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
->>> index 96dd5b5f771a..9dc096698c65 100644
->>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
->>> @@ -128,6 +128,9 @@ properties:
->>>         - const: tracedata
->>>         - const: metadata
->>> +  access-controllers:
->>> +    maxItems: 1
->>> +
->>>   required:
->>>     - compatible
->>>     - reg
->>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
->>> tpiu.yaml b/Documentation/devicetree/bindings/arm/arm,coresight- 
->>> tpiu.yaml
->>> index a207f6899e67..29bbc3961fdf 100644
->>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml
->>> @@ -70,6 +70,9 @@ properties:
->>>           description: Input connection from the CoreSight Trace bus.
->>>           $ref: /schemas/graph.yaml#/properties/port
->>> +  access-controllers:
->>> +    maxItems: 1
->>> +
->>>   required:
->>>     - compatible
->>>     - reg
->>>
->>
-> 
+diff --git a/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi b/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
+index 8fb7d1fc6d56..abeb4cca0a6e 100644
+--- a/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
++++ b/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
+@@ -180,6 +180,30 @@ dp1_connector_in: endpoint {
+ 		};
+ 	};
+ 
++	dp2-connector {
++		compatible = "dp-connector";
++		label = "eDP2";
++		type = "full-size";
++
++		port {
++			dp2_connector_in: endpoint {
++				remote-endpoint = <&mdss1_dp0_out>;
++			};
++		};
++	};
++
++	dp3-connector {
++		compatible = "dp-connector";
++		label = "eDP3";
++		type = "full-size";
++
++		port {
++			dp3_connector_in: endpoint {
++				remote-endpoint = <&mdss1_dp1_out>;
++			};
++		};
++	};
++
+ 	dp-dsi0-connector {
+ 		compatible = "dp-connector";
+ 		label = "DSI0";
+@@ -639,6 +663,50 @@ &mdss0_dsi1_phy {
+ 	status = "okay";
+ };
+ 
++&mdss1 {
++	status = "okay";
++};
++
++&mdss1_dp0 {
++	pinctrl-0 = <&dp2_hot_plug_det>;
++	pinctrl-names = "default";
++
++	status = "okay";
++};
++
++&mdss1_dp0_out {
++	data-lanes = <0 1 2 3>;
++	link-frequencies = /bits/ 64 <1620000000 2700000000 5400000000 8100000000>;
++	remote-endpoint = <&dp2_connector_in>;
++};
++
++&mdss1_dp0_phy {
++	vdda-phy-supply = <&vreg_l1c>;
++	vdda-pll-supply = <&vreg_l4a>;
++
++	status = "okay";
++};
++
++&mdss1_dp1 {
++	pinctrl-0 = <&dp3_hot_plug_det>;
++	pinctrl-names = "default";
++
++	status = "okay";
++};
++
++&mdss1_dp1_out {
++	data-lanes = <0 1 2 3>;
++	link-frequencies = /bits/ 64 <1620000000 2700000000 5400000000 8100000000>;
++	remote-endpoint = <&dp3_connector_in>;
++};
++
++&mdss1_dp1_phy {
++	vdda-phy-supply = <&vreg_l1c>;
++	vdda-pll-supply = <&vreg_l4a>;
++
++	status = "okay";
++};
++
+ &pmm8654au_0_gpios {
+ 	gpio-line-names = "DS_EN",
+ 			  "POFF_COMPLETE",
+@@ -816,6 +884,18 @@ dp1_hot_plug_det: dp1-hot-plug-det-state {
+ 		bias-disable;
+ 	};
+ 
++	dp2_hot_plug_det: dp2-hot-plug-det-state {
++		pins = "gpio104";
++		function = "edp2_hot";
++		bias-disable;
++	};
++
++	dp3_hot_plug_det: dp3-hot-plug-det-state {
++		pins = "gpio103";
++		function = "edp3_hot";
++		bias-disable;
++	};
++
+ 	io_expander_intr_active: io-expander-intr-active-state {
+ 		pins = "gpio98";
+ 		function = "gpio";
+-- 
+2.34.1
 
 
