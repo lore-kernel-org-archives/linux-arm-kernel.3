@@ -4,105 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42062FC590A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 07:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5366FC5908
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 08:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=45JsBOPCFZIuEnMHMmIEK6FxJ6Vmoi6JWlGzfgTlKd0=; b=C9EioN/01et6dunye5f0esRrYv
-	chZq1KXLe8dxTshE8UWAssxfl2O67aCvFXSDudeoefHZSQiLImCkWeK2hC+s7oxobsIP4EUf2hMp6
-	eboUgFYjRoPYAPncguF/EB43XvrqeDJrYjSur9POrBx3pDbNYM7aFpX09wRirsM4HVagXoeYJ+Fez
-	Nsbx2NqcsA72uE2FoFrqHsLqICMkb9RcDkCkemoFVQbgNSvO1/hGay3bKCLxsuA2vLu7Muj1kkNz+
-	s9lsnniUSlPR6RYotZJTDM/FZMazSZaiFz8oplmNHyObe6LpHTJfz0Q7oxYo08i/4D0ilAYjPTFf/
-	/1jbyurg==;
+	bh=+cPDPg/KJPLPuRyOetVWPiyRbrR9WimgIdtt7N33/Eo=; b=3hyzCCQwWE/wDxYV2O0N7kAZL0
+	mRKPdC+y9izoYrJ04J+JSVahhDSssDCZTbPsaEJJGyMnEYZfYu/Hi5QHB9ZvOD4YwAqRISKO7Vh+h
+	eR+5LUmiN6d1TuHXNyzY1k8nGZxh9t0oia3Nr4D5v29BaAvaWblppVL1vvX2EUXxIa8sOBzi2d1d4
+	KkKC0qjxpSo0nopE274vH9cdb2r+MAi9DnlYq76hf+Oj4mMXy4VWW6Vk/L/3UhLDnfo5eEG1shcPL
+	ruF4rFdCfzEhs/1ejTFpoSL6XrKJ118EpzhLT0S/wpQ/mTHSLExQTKf8MlyGy29BatCiBTQEkDlyl
+	EvGLbp7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWHV-00000005bu0-0krx;
-	Thu, 26 Feb 2026 07:59:33 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1vvWYQ-00000005cm3-3rQv;
+	Thu, 26 Feb 2026 08:17:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWHS-00000005btW-43pG
+	id 1vvWYP-00000005clw-1p8T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 07:59:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772092771; x=1803628771;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rs0qEAZbdxZqApzkbG0FHEalQVhLZ+XgQWmJpEIvOnc=;
-  b=BGCKaC/4Y/7r2QjozsOIM8/GJiwHkczy4z1Pyq74VsATwUzok/6mjejx
-   lg0Rt/7dpletnSQsY3UQs4ZEqOhzIwFSk7zA/EntThZ29XZJQxAtooTTL
-   ozy/d8EdYtfLsc90h1Eq1yV+CzCEj8K8GhzkW+h/8WGXQbjKggmHyjPmN
-   FoRfqH6aIp94d9PcU/fRLfmoJDWYvxRIRyj++aDb/MOQFw9HN0n1JGnIG
-   pcDT1Yagj9oRLqIIuaGiWyJ9NRRyVdZqpO9sgGpGNb6XqAmnP5lPKwvYS
-   QUO9SrIerbfPxinuXGcf+pXvXD9kWq2tqsi39XHZDoaZDGuYBynyCyFsB
-   g==;
-X-CSE-ConnectionGUID: s2MTakUORM6gfMAcZEzVgQ==
-X-CSE-MsgGUID: KDtaeXuVSEW+XJvPqnBAFg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11712"; a="73018076"
-X-IronPort-AV: E=Sophos;i="6.21,311,1763452800"; 
-   d="scan'208";a="73018076"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2026 23:59:30 -0800
-X-CSE-ConnectionGUID: HXHY4jaTS763fk0dqYE34Q==
-X-CSE-MsgGUID: n89NMNHmQ2uMu7evv5CMDQ==
-X-ExtLoop1: 1
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
-  by fmviesa003.fm.intel.com with ESMTP; 25 Feb 2026 23:59:20 -0800
-Date: Thu, 26 Feb 2026 15:39:46 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: Yury Norov <ynorov@nvidia.com>
-Cc: linux-kernel@vger.kernel.org,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Antoine Tenart <atenart@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Geetha sowjanya <gakula@marvell.com>,
-	Ingo Molnar <mingo@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Jerin Jacob <jerinj@marvell.com>,
-	Linu Cherian <lcherian@marvell.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Simon Horman <horms@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Subbaraya Sundeep <sbhatta@marvell.com>,
-	Sunil Goutham <sgoutham@marvell.com>,
+	Thu, 26 Feb 2026 08:17:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 807D460097;
+	Thu, 26 Feb 2026 08:17:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21243C19422;
+	Thu, 26 Feb 2026 08:17:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772093820;
+	bh=+gGBp2tFSvf9ce8ZvXdjbIa0L0e347XIZ5YgOecuN1E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JWKt/VXIwAnGoCw1JoMUNsqfRXjZWNLQOkcf74f8OPA44n2im9gOibpDVlNRLX6LE
+	 uXPzxdOwtjPFwo9k6Y3b4kAIpG4tiK87QuZdI9Y+eoP5hSkWjxUfGZC4C50GZkF0D4
+	 DmIBadyVsRFjM9WPu+KY1j65NlY/RAczskDdlSiFU0pHXVjGDSu7k1i9W83rqELOTI
+	 jmob44SWNaGvdXpx9FH0EmELozbMhEZiCXJdKSqsoFoUBaIX5BgKCBfGywzucl68im
+	 R/3LGzhznoBoq9HkFMYDUqDKygSANei0fyfoaZfN+DGP33urN8dz5QaSvBd7Ptiiky
+	 8xNcIB5ZWazmw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vvWYL-0000000DyCT-2KqH;
+	Thu, 26 Feb 2026 08:16:57 +0000
+Date: Thu, 26 Feb 2026 08:16:57 +0000
+Message-ID: <875x7jex6u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Tom Rix <trix@redhat.com>, Xu Yilun <yilun.xu@intel.com>,
-	Yajun Deng <yajun.deng@linux.dev>,
-	Yury Norov <yury.norov@gmail.com>, Zhang Rui <rui.zhang@intel.com>,
-	hariprasad <hkelam@marvell.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
-	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 09/12] fpga: m10bmc-sec: switch show_canceled_csk() to
- using scnprintf()
-Message-ID: <aZ/4whL40HHi/85Z@yilunxu-OptiPlex-7050>
-References: <20260219181407.290201-1-ynorov@nvidia.com>
- <20260219181407.290201-10-ynorov@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260219181407.290201-10-ynorov@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_235931_092526_B4459165 
-X-CRM114-Status: GOOD (  13.35  )
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Hyesoo Yu <hyesoo.yu@samsung.com>,
+	Quentin Perret <qperret@google.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: Force the use of CNTVCT_EL0 in __delay()
+In-Reply-To: <aZ95V8XIYYysd13m@willie-the-truck>
+References: <20260213141619.1791283-1-maz@kernel.org>
+	<aZw3EGs4rbQvbAzV@e134344.arm.com>
+	<86ldgja5v3.wl-maz@kernel.org>
+	<aZ95V8XIYYysd13m@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, ben.horgan@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, catalin.marinas@arm.com, hyesoo.yu@samsung.com, qperret@google.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,40 +92,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026 at 01:14:01PM -0500, Yury Norov wrote:
-> Switch show_canceled_csk() to use a more common scnprintf("%*pbl").
+On Wed, 25 Feb 2026 22:36:07 +0000,
+Will Deacon <will@kernel.org> wrote:
 > 
-> Signed-off-by: Yury Norov <ynorov@nvidia.com>
-> ---
->  drivers/fpga/intel-m10-bmc-sec-update.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+> On Mon, Feb 23, 2026 at 02:31:44PM +0000, Marc Zyngier wrote:
+> > Crucially, arch_counter_get_cntvct_stable() does disable preemption,
+> > and we should preserve it. Something like this:
+> > 
+> > diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
+> > index d02341303899e..25fb593f95b0c 100644
+> > --- a/arch/arm64/lib/delay.c
+> > +++ b/arch/arm64/lib/delay.c
+> > @@ -32,7 +32,16 @@ static inline unsigned long xloops_to_cycles(unsigned long xloops)
+> >   * Note that userspace cannot change the offset behind our back either,
+> >   * as the vcpu mutex is held as long as KVM_RUN is in progress.
+> >   */
+> > -#define __delay_cycles()	__arch_counter_get_cntvct_stable()
+> > +static cycles_t __delay_cycles(void)
+> > +{
+> > +	cycles_t val;
+> > +
+> > +	preempt_disable();
+> > +	val = __arch_counter_get_cntvct_stable();
+> > +	preenpt_enable();
+> > +
+> > +	return val;
+> > +}
 > 
-> diff --git a/drivers/fpga/intel-m10-bmc-sec-update.c b/drivers/fpga/intel-m10-bmc-sec-update.c
-> index 10f678b9ed36..5ae76b8ece18 100644
-> --- a/drivers/fpga/intel-m10-bmc-sec-update.c
-> +++ b/drivers/fpga/intel-m10-bmc-sec-update.c
-> @@ -10,6 +10,7 @@
->  #include <linux/firmware.h>
->  #include <linux/mfd/intel-m10-bmc.h>
->  #include <linux/mod_devicetable.h>
-> +#include <linux/mm.h>
->  #include <linux/module.h>
->  #include <linux/platform_device.h>
->  #include <linux/slab.h>
-> @@ -183,7 +184,7 @@ show_canceled_csk(struct device *dev, u32 addr, char *buf)
->  
->  	bitmap_from_arr32(csk_map, csk32, CSK_BIT_LEN);
->  	bitmap_complement(csk_map, csk_map, CSK_BIT_LEN);
-> -	return bitmap_print_to_pagebuf(1, buf, csk_map, CSK_BIT_LEN);
-> +	return scnprintf(buf, rest_of_page(buf), "%*pbl\n", CSK_BIT_LEN, csk_map);
+> (nit: arch_counter_get_cntvct_stable() uses the _notrace() variants of
+>  the preempt disable/enable helpers)
 
-As Thomas mentioned, use sysfs_emit()
+That's because arch_counter_get_cntvct_stable() itself is notrace.
+I'm not sure we need this function to be notrace as well, but I'll
+change that and we can revisit it.
 
->  }
->  
->  #define DEVICE_ATTR_SEC_CSK_RO(_name)						\
-> -- 
-> 2.43.0
 > 
+> >  void __delay(unsigned long cycles)
+> >  {
+> > 
+> > The question is whether there is a material benefit in replicating the
+> > arch_timer_read_counter() indirection for the virtual counter in order
+> > to not pay the price of preempt_disable() when we're on a non-broken
+> > system (hopefully the vast majority of implementations).
 > 
+> That sounds nice, especially as we can assume (for now) that CPUs
+> implementing WFIT don't need the cntvct workarounds. However, I can't
+> really figure out how to implement it after reminding myself of all the
+> fun we had trying to use a static key for these workarounds in the past.
+>
+> If a CPU being onlined has a timer erratum, we wouldn't be able to
+> migrate any tasks in the middle of a preempt-enabled delay loop onto
+> it. :/
+
+Why would it be any different than, say, sched_clock(), which
+ultimately uses arch_timer_read_counter()? We already rely on this
+indirection to do the right thing everywhere, and I don't recall we
+have any issue with this.
+
+Anyway, I'll shortly post what I have and we can discuss whether this
+is the correct approach.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
