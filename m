@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3B7FCE08C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D1AFCE08C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 14:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C5lmdRrYKAkps9LQDtVzFXDdak8+cj9tclXWqs/XbLs=; b=anLuLKzhMGfxEaYnMbrPXbps2o
-	Fufh5/4EOQ7oCJ+qM8nIWjPZfpiqGuviIm9qN/gKKXmnz4bz+Jg9+Thjq+OMIj2pp0WnEvH4mCNyo
-	pY43V0EXX4ozpX1FyMUE3uS3L+qbjsLA4/2tBY5hPXphtcz27RRsSBs8KZJ+wV0tgbbFIWKmnYcod
-	ChcUplmuvAQk0Ib0VX0zhoKZmE79j7YmvasA6OGZ0HFPcngwIMW9WjMiupKSbQOXXnD/dG9RHccJ0
-	lxLrtM2jLAecVzDJjr2G9Vh7hAvDeX4e+OjWdb/unzbJOLK1GCnfL6W+4fpMCtrCHDLtOOpYyoR3d
-	/uJ1eSMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wmxDJL7qK9NueU1uB+zhPhctO+wgXUQrbU9tvkKi3t8=; b=zBHkkDl61xwnEXx7MEt6jefYBL
+	giYMg9tC0HX1UpvrNxr0zOsLdEPFhdi5/bv8BHRJ8sxJ9+swABRpT2cQSoToscR3zqHcoEz2LRlrt
+	Z+3l3nX7BCUSkMpYnOO1ES4BmhjeK5T+XqeoXo9r+hEu3mgL+Zj8U4VSgSow6J9PjkejiAfTR/Gbj
+	nTkgfhwUOrT6pWJnRmxBYspJ0EEuOPVFbCSeWh3UgQjMq42n4eyqmWOXXk1oGdakawr2t01tM5n3l
+	LFKX5IpgS4fe0lLySXRhmTpLiSI/B6t/i0iuIAQ3RPahfUfu+TpW0Rony6fyasaHMt3e+tNZt9men
+	qHRAZOYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvc2r-00000006Hmg-0qFY;
-	Thu, 26 Feb 2026 14:08:49 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vvc4d-00000006Hzo-0p07;
+	Thu, 26 Feb 2026 14:10:39 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvc2o-00000006Hm8-1Y7i
+	id 1vvc4a-00000006HzF-3OyT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 14:08:48 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2aaf59c4f7cso4131795ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 06:08:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772114925; x=1772719725; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=C5lmdRrYKAkps9LQDtVzFXDdak8+cj9tclXWqs/XbLs=;
-        b=cpBP554LjG39Sg+yKif5/t5p8IIOnau2luZiA4QGJEvtHtzj4/ybaFIaNeuYTCzpPq
-         WB0mC1l81DmqK7kinCAuHLJC9m8eeXvP9JBEXzBJqE8rx+mt02VL+NPkEOaYb5iqXHE4
-         VOUoDI3Hi08g8YpkEc/L3VIayYy6VZa+1TnbAdc2lj69BekL79ejviD0STQHSvlea1Mp
-         9LG+ksBpNzN/9luX79erIxXca2KoU4B7BKqwJnL+Pwn6K4BmA5SQCbcjql8UnZquA5zX
-         lEUKjcSFZs5C6N+6Jg2QWl1ue/Rja26nf+4NPh/nQP7vCVIxSXfBL8GtRiM1+kUDisbc
-         D8/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772114925; x=1772719725;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C5lmdRrYKAkps9LQDtVzFXDdak8+cj9tclXWqs/XbLs=;
-        b=IpDxLmiCi5R9NsCkTy4+eKopWvVMejR7q9btDaMqUZWSiaMBJWDRGLgrFcmgeogi//
-         YNHIe3tnAwynRzypcBsAjgs/vyG+gxiNwZY2AaY+uHmfvgyjmnizoF7NLgpaYFV3IYkq
-         aGy5YGhNl9geVmwOspz8MlacfLrxSKNTBBLGw91+PWVt1bGwUiaqDfNu983Yq2z03eQ3
-         qLnPlkQK/WI6NzuHf8dOxvXTl9v/KPN8iAAu2CgIc4jtinmRZHLYnHSRBkGT/jQ+OIw/
-         eE6Cirv3jDVizFx2pSpcJzyAM745r+p6//qyBLkKPlQXdoF1s614uog8yGPD/71jSfzl
-         R7LA==
-X-Forwarded-Encrypted: i=1; AJvYcCUebMJsMLiMHhKlHwYkvkz/MfKcuxINhcIM8W1wWYI6e65JFZ6W3amcog8TWCgJdTA/vCqQKnNwT+XJRE1M+YzF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsWMz0AcwM6voampCoIRQvDSR/95a9iLi2haZSjo8y9JKFlVvE
-	pGZmbYAFL0ieiaHy1ubv246sRgy4yLN8IS8VDxVaBwpd24ja8gQHG9O4
-X-Gm-Gg: ATEYQzyt/UHX6g/ZcKBb7reX1BxqNPLgFS5ug+ME7XHigJbwXJunVxMaNXM2bOTG9uQ
-	3RuGXd0xXumGEi1kOvovLqBP7edrkVj/NDukdMXFtKmJxIo6BSrtAMKRj0glSOoUW9pWYDaRBZR
-	JvV0ecmvrcM2OQgnbKjb0R/j8juc6n3CesFiM7OrUqhO8f8UMiGpgjDqhQaV19bKxuXr+Xv4ws2
-	nLTUVhmlo0ATT08KZy6mFP9DizAuzoqJJxMzX2QCiH7eHZz2DZi630OPKdKrzaz/kZ8wW8amiJj
-	1dPDoSZ5czR5A/qBPEhOFSl1UMXEZS/q1sv5OVvJk4KAvXQ33Vzo6HqcJP5pGiJ6FV2ySvmVJZc
-	XHYt7aOl9X5w8do2BOzCOVN9ZHdT/XStXMxQLFmhO3b3msWzchHoPqsM6vcf9GmicKaU5Kg7lGd
-	Mv+FXTYQZZoI+k5y9Or4crYsVPXAui4Q==
-X-Received: by 2002:a17:903:3848:b0:2ad:cede:3a1a with SMTP id d9443c01a7336-2ae03495f6fmr26068205ad.39.1772114924973;
-        Thu, 26 Feb 2026 06:08:44 -0800 (PST)
-Received: from [127.0.1.1] ([218.32.81.133])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb6e190fsm28037205ad.82.2026.02.26.06.08.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 06:08:44 -0800 (PST)
-From: Colin Huang <u8813345@gmail.com>
-Date: Thu, 26 Feb 2026 22:08:16 +0800
-Subject: [PATCH v2] ARM: dts: aspeed: anacapa: update SGPIO and PCA9555
- settings for DFT
+	Thu, 26 Feb 2026 14:10:38 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1772115031;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wmxDJL7qK9NueU1uB+zhPhctO+wgXUQrbU9tvkKi3t8=;
+	b=R0xJNFhztYNzYvCaGxImWv7FJWbrKhaXA3gG/3dDXiofF/l2Aqsq753GVna3Ij69ih27v9
+	KE2b1zOTW6pKbkk69d8j7WcUH9wvTKOfhGVsgGVRtZPaWLAxmwsWDKBLKVdiLGFtZRbtIj
+	zwbQ1IFq+zo3rNI4cHabyooNLpcvT2Q=
+From: Usama Arif <usama.arif@linux.dev>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Usama Arif <usama.arif@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [RFC V1 16/16] arm64/mm: Add initial support for FEAT_D128 page tables
+Date: Thu, 26 Feb 2026 06:10:23 -0800
+Message-ID: <20260226141024.1869713-1-usama.arif@linux.dev>
+In-Reply-To: <20260224051153.3150613-17-anshuman.khandual@arm.com>
+References: 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260226-anacapa-dts-sgpio-v2-1-fd76828616b8@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAM9ToGkC/32NQQqDMBBFryKz7pSY1lq68h7FxSQZ40A1IRFpE
- e/e1AN08+F9+O9vkDkJZ3hUGyReJUuYC+hTBXak2TOKKwxa6ZsqgTSTpUjolozZRwnIV1aGGqu
- ta6DsYuJB3ofz2RceJS8hfY6Ltf61/2xrjTXShVqjjLq3g+r8RPI62zBBv+/7F9hMW2SyAAAA
-X-Change-ID: 20260202-anacapa-dts-sgpio-e4e0ba5c2cd5
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Colin.Huang2@amd.com, Carl.Lee@amd.com, Peter.Shen@amd.com, 
- Colin Huang <u8813345@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772114922; l=8780;
- i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=zOozJ3zv4ZVEOtjpoT9fTG9xriUnw/ZReMGwbHGkXqE=;
- b=FPqErmaXHAqA92QS3zYhsA6YIjvUzR/2fJt5KhjFcR9qgDGYtiJvJlo2Zi02Xg35kWutD0MEo
- cF5byFwicGlD1gJ+XHDQlwjR+iLQFU6GKETWF86db6p6IBdbtgflcHl
-X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
- pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_060846_431187_1C170B1E 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20260226_061037_195457_7BF9A28A 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,287 +78,305 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This update adjusts SGPIO mappings and enables interrupt support for the
-PCA9555 GPIO expanders. These changes are required as part of the DFT
-(Design For Tooling) integration and are aligned with the SGPIO signal
-definitions provided in Helios_SGPIO_BIT_MAP.xlsx (rev: 2026-02-16).
+On Tue, 24 Feb 2026 10:41:53 +0530 Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 
-Updates include:
-- Add interrupt-parent and interrupts properties to PCA9555 nodes to
-  enable proper interrupt handling required by phosphor-gpio-monitor.
-- Correct placement of LEAK_DETECT_RMC_N.
-- Update SGPIO line-name mappings per the latest Helios SGPIO bit map to
-  reflect leakage channels, presence pins, module power-good, and other
-  DFT-related monitoring signals.
+> Add build time support for FEAT_D128 page tables with a new Kconfig option
+> i.e CONFIG_ARM64_D128. When selected, PTE types become 128 bits wide and
+> PTE bits are mapped to their new locations. Besides the basic page table
+> geometry is also updated since each table page now holds half the number
+> of entries (aka PTRS_PER_PXX) as it did previously.
+> 
+> Since FEAT_D128 exclusively supports the permission indirection style for
+> page table entry permission management, given kernel compiled for FEAT_D128
+> requires both FEAT_S1PIE and FEAT_D128. If these architecture features are
+> not present at boot, the kernel panics just like it does when there is a
+> granule size mismatch.
+> 
+> TTBR0/1_EL1 and PAR_EL1 registers become 128 bit wide when D128 is enabled,
+> thus requiring MSRR/MRRS instructions for their updates. Because PA_BITS is
+> still capped at 52 bits, MRS/MSR instructions are currently sufficient for
+> the register accesses that basically operate on the lower 64 bits. Although
+> entire 128 bits for these registers get cleared during boot via MSRR.
+> 
+> Add support for TLBIP instruction for TLB flush macros with level hint and
+> address range operations. Although existing TLBI based TLB flush would have
+> been sufficient given PA_BITS is still capped at 52, but then it would have
+> lacked both level hint and range support.
+> 
+> This enables support for all granule size, VA_BITS and PA_BITS combination.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/arm64/Kconfig                     |  39 ++++++-
+>  arch/arm64/Makefile                    |   4 +
+>  arch/arm64/include/asm/assembler.h     |   4 +-
+>  arch/arm64/include/asm/el2_setup.h     |   9 ++
+>  arch/arm64/include/asm/pgtable-hwdef.h | 137 +++++++++++++++++++++++++
+>  arch/arm64/include/asm/pgtable-prot.h  |  18 +++-
+>  arch/arm64/include/asm/pgtable-types.h |   9 ++
+>  arch/arm64/include/asm/pgtable.h       |  56 +++++++++-
+>  arch/arm64/include/asm/smp.h           |   1 +
+>  arch/arm64/include/asm/tlbflush.h      |  65 ++++++++++++
+>  arch/arm64/kernel/head.S               |  12 +++
+>  arch/arm64/mm/proc.S                   |  25 ++++-
+>  12 files changed, 372 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 38dba5f7e4d2..aaf910295c39 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -309,6 +309,10 @@ config GCC_SUPPORTS_DYNAMIC_FTRACE_WITH_ARGS
+>  	def_bool CC_IS_GCC
+>  	depends on $(cc-option,-fpatchable-function-entry=2)
+>  
+> +config CC_SUPPORTS_LSE128
+> +	def_bool CC_IS_GCC
+> +	depends on $(cc-option, -march=armv8.1-a+lse128)
+> +
+>  config 64BIT
+>  	def_bool y
+>  
+> @@ -395,6 +399,16 @@ config FIX_EARLYCON_MEM
+>  
+>  config PGTABLE_LEVELS
+>  	int
+> +	default 4 if ARM64_D128 && ARM64_4K_PAGES && ARM64_VA_BITS_39
+> +	default 5 if ARM64_D128 && ARM64_4K_PAGES && ARM64_VA_BITS_48
+> +	default 5 if ARM64_D128 && ARM64_4K_PAGES && ARM64_VA_BITS_52
+> +	default 3 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_36
+> +	default 4 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_47
+> +	default 4 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_48
+> +	default 4 if ARM64_D128 && ARM64_16K_PAGES && ARM64_VA_BITS_52
+> +	default 3 if ARM64_D128 && ARM64_64K_PAGES && ARM64_VA_BITS_42
+> +	default 3 if ARM64_D128 && ARM64_64K_PAGES && ARM64_VA_BITS_48
+> +	default 3 if ARM64_D128 && ARM64_64K_PAGES && ARM64_VA_BITS_52
+>  	default 2 if ARM64_16K_PAGES && ARM64_VA_BITS_36
+>  	default 2 if ARM64_64K_PAGES && ARM64_VA_BITS_42
+>  	default 3 if ARM64_64K_PAGES && (ARM64_VA_BITS_48 || ARM64_VA_BITS_52)
+> @@ -1504,7 +1518,7 @@ config ARM64_PA_BITS
+>  
+>  config ARM64_LPA2
+>  	def_bool y
+> -	depends on ARM64_PA_BITS_52 && !ARM64_64K_PAGES
+> +	depends on ARM64_PA_BITS_52 && !ARM64_64K_PAGES && !ARM64_D128
+>  
+>  choice
+>  	prompt "Endianness"
+> @@ -2195,6 +2209,29 @@ config ARM64_HAFT
+>  
+>  endmenu # "ARMv8.9 architectural features"
+>  
+> +menu "ARMv9.3 architectural features"
+> +
+> +config AS_HAS_ARMV9_3
+> +	def_bool $(cc-option,-Wa$(comma)-march=armv9.3-a)
+> +
+> +config ARM64_D128
+> +	bool "Enable support for 128 bit page table (FEAT_D128)"
+> +	depends on ARCH_SUPPORTS_INT128
+> +	depends on CC_SUPPORTS_LSE128
+> +	depends on AS_HAS_ARMV9_3
+> +	depends on EXPERT
+> +	depends on !VIRTUALIZATION
+> +	depends on !KASAN
+> +	depends on !UNMAP_KERNEL_AT_EL0
+> +	default n
+> +	help
+> +	  ARMv9.3 introduces FEAT_D128, which provides a 128 bit page
+> +	  table format, along with related instructions.
+> +
+> +	  If unsure, say Y.
+> +
 
-Signed-off-by: Colin Huang <u8813345@gmail.com>
----
-Update SGPIO line names for the Facebook Anacapa platform and enable
-interrupt support for PCA9555 GPIO expanders. These changes are part of
-DFT (Design For Tooling) integration and align the device tree with the
-latest SGPIO bit mapping used during board validation.
+Should this say, If unsure, say N?
 
-The updates are based on: Helios_SGPIO_BIT_MAP.xlsx (rev: 2026-02-16).
+> +endmenu # "ARMv9.3 architectural features"
+> +
 
-The following changes are included:
-- Add BMC_AINIC0_WP_R2_L and BMC_AINIC1_WP_R2_L
-- Correct placement of LEAK_DETECT_RMC_N
-- Add PRSNT_NFC_BOARD_R
-- Add IRQ_NFC_BOARD_R and RSMRST_N
-- Add DC_OFF, EAM_MOD_PWR_GD_TIMEOUT, CPLD_AMC_STBY_PWR_EN
-- Add FM_MAIN_PWREN_RMC_EN_ISO
----
-Changes in v2:
-- Add interrupt-parent and interrupts properties to PCA9555 nodes to
-  enable proper interrupt handling required by phosphor-gpio-monitor.
-- Clarify DFT motivation in the commit message and mention the source
-  mapping (Helios_SGPIO_BIT_MAP.xlsx rev: 2026-02-16).
-- Minor wording cleanups in the commit message (line names vs. mappings).
-- Rebase onto the latest tree to account for intervening commits.
-- Link to v1: https://lore.kernel.org/r/20260202-anacapa-dts-sgpio-v1-1-a3a7b0b087f0@gmail.com
----
- .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     | 147 ++++++++++++---------
- 1 file changed, 88 insertions(+), 59 deletions(-)
+[...]
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-index 2cb7bd128d24..aa53ae8eb61f 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-@@ -500,6 +500,9 @@ gpio@24 {
- 				gpio-controller;
- 				#gpio-cells = <2>;
- 
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+
- 				gpio-line-names =
- 					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
- 					"RPDB_PWRGD_P50V_HSC4_SYS_R",
-@@ -546,6 +549,9 @@ gpio@24 {
- 				gpio-controller;
- 				#gpio-cells = <2>;
- 
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+
- 				gpio-line-names =
- 					"LPDB_P50V_FAN1_R2_PG","LPDB_P50V_FAN2_R2_PG",
- 					"LPDB_P50V_FAN3_R2_PG","LPDB_P50V_FAN4_R2_PG",
-@@ -864,87 +870,104 @@ &sgpiom0 {
- 	gpio-line-names =
- 	/*in - out - in - out */
- 	/* A0-A7 line 0-15 */
--	"", "FM_CPU0_SYS_RESET_N", "", "CPU0_KBRST_N",
--	"", "FM_CPU0_PROCHOT_trigger_N", "", "FM_CLR_CMOS_R_P0",
--	"", "Force_I3C_SEL", "", "SYSTEM_Force_Run_AC_Cycle",
--	"", "", "", "",
-+	"L_FNIC_FLT", "FM_CPU0_SYS_RESET_N",
-+	"L_BNIC0_FLT", "CPU0_KBRST_N",
-+	"L_BNIC1_FLT", "FM_CPU0_PROCHOT_trigger_N",
-+	"L_BNIC2_FLT", "FM_CLR_CMOS_R_P0",
-+	"L_BNIC3_FLT", "Force_I3C_SEL",
-+	"L_RTM_SW_FLT", "SYSTEM_Force_Run_AC_Cycle",
-+	"", "",
-+	"", "",
- 
- 	/* B0-B7 line 16-31 */
- 	"Channel0_leakage_EAM3", "FM_CPU_FPGA_JTAG_MUX_SEL",
- 	"Channel1_leakage_EAM0", "FM_SCM_JTAG_MUX_SEL",
- 	"Channel2_leakage_Manifold1", "FM_BRIDGE_JTAG_MUX_SEL",
- 	"Channel3_leakage", "FM_CPU0_NMI_SYNC_FLOOD_N",
--	"Channel4_leakage_Manifold2", "",
--	"Channel5_leakage_EAM1", "",
--	"Channel6_leakage_CPU_DIMM", "",
--	"Channel7_leakage_EAM2", "",
-+	"Channel4_leakage_Manifold2", "BMC_AINIC0_WP_R2_L",
-+	"Channel5_leakage_EAM1", "BMC_AINIC1_WP_R2_L",
-+	"Channel6_leakage_CPU_DIMM", "CPLD_BUF_R_AGPIO330",
-+	"Channel7_leakage_EAM2", "CPLD_BUF_R_AGPIO331",
- 
- 	/* C0-C7 line 32-47 */
--	"RSVD_RMC_GPIO3", "", "", "",
--	"", "", "", "",
--	"LEAK_DETECT_RMC_N", "", "", "",
--	"", "", "", "",
-+	"RSVD_RMC_GPIO3", "RTM_MUX_L",
-+	"LEAK_DETECT_RMC_N", "RTM_MUX_R",
-+	"HDR_P0_NMI_BTN_BUF_R_N", "",
-+	"No_Leak_Sensor_flag", "",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "",
- 
- 	/* D0-D7 line 48-63 */
--	"PWRGD_PDB_EAMHSC0_CPLD_PG_R", "",
--	"PWRGD_PDB_EAMHSC1_CPLD_PG_R", "",
--	"PWRGD_PDB_EAMHSC2_CPLD_PG_R", "",
--	"PWRGD_PDB_EAMHSC3_CPLD_PG_R", "",
--	"AMC_BRD_PRSNT_CPLD_L", "", "", "",
--	"", "", "", "",
-+	"PWRGD_CHAD_CPU0_FPGA", "",
-+	"PWRGD_CHEH_CPU0_FPGA", "",
-+	"PWRGD_CHIL_CPU0_FPGA", "",
-+	"PWRGD_CHMP_CPU0_FPGA", "",
-+	"AMC_BRD_PRSNT_CPLD_L", "",
-+	"", "",
-+	"", "",
-+	"", "",
- 
- 	/* E0-E7 line 64-79 */
--	"AMC_PDB_EAMHSC0_CPLD_EN_R", "",
--	"AMC_PDB_EAMHSC1_CPLD_EN_R", "",
--	"AMC_PDB_EAMHSC2_CPLD_EN_R", "",
--	"AMC_PDB_EAMHSC3_CPLD_EN_R", "",
--	"", "", "", "",
--	"", "", "", "",
-+	"L_PRSNT_B_FENIC_R2_N", "",
-+	"L_PRSNT_B_BENIC0_R2_N", "",
-+	"L_PRSNT_B_BENIC1_R2_N", "",
-+	"L_PRSNT_B_BENIC2_R2_N", "",
-+	"L_PRSNT_B_BENIC3_R2_N", "",
-+	"", "",
-+	"", "",
-+	"", "",
- 
- 	/* F0-F7 line 80-95 */
--	"PWRGD_PVDDCR_CPU1_P0", "SGPIO_READY",
--	"PWRGD_PVDDCR_CPU0_P0", "",
--	"", "", "", "",
--	"", "", "", "",
-+	"R_PRSNT_B_FENIC_R2_N", "SGPIO_READY",
-+	"R_PRSNT_B_BENIC0_R2_N", "",
-+	"R_PRSNT_B_BENIC1_R2_N", "",
-+	"R_PRSNT_B_BENIC2_R2_N", "",
-+	"R_PRSNT_B_BENIC3_R2_N", "",
-+	"", "",
-+	"", "",
-+	"", "",
- 
- 	/* G0-G7 line 96-111 */
--	"PWRGD_PVDDCR_SOC_P0", "",
--	"PWRGD_PVDDIO_P0", "",
--	"PWRGD_PVDDIO_MEM_S3_P0", "",
--	"PWRGD_CHMP_CPU0_FPGA", "",
--	"PWRGD_CHIL_CPU0_FPGA", "",
--	"PWRGD_CHEH_CPU0_FPGA", "",
--	"PWRGD_CHAD_CPU0_FPGA", "FM_BMC_READY_PLD",
-+	"L_PRSNT_EDSFF2_N", "",
-+	"L_PRSNT_EDSFF3_N", "",
-+	"R_PRSNT_EDSFF2_N", "",
-+	"R_PRSNT_EDSFF3_N", "",
-+	"", "",
-+	"", "",
- 	"", "",
-+	"PRSNT_NFC_BOARD_R", "",
- 
- 	/* H0-H7 line 112-127 */
--	"PWRGD_P3V3", "",
--	"P12V_DDR_IP_PWRGD_R", "",
--	"P12V_DDR_AH_PWRGD_R", "",
--	"PWRGD_P12V_VRM1_CPLD_PG_R", "",
--	"PWRGD_P12V_VRM0_CPLD_PG_R", "",
--	"PWRGD_PDB_HSC4_CPLD_PG_R", "",
--	"PWRGD_PVDD18_S5_P0_PG", "",
--	"PWRGD_PVDD33_S5_P0_PG", "",
-+	"R_FNIC_FLT", "",
-+	"R_BNIC0_FLT", "",
-+	"R_BNIC1_FLT", "",
-+	"R_BNIC2_FLT", "",
-+	"R_BNIC3_FLT", "",
-+	"R_RTM_SW_FLT", "",
-+	"", "",
-+	"", "",
- 
- 	/* I0-I7 line 128-143 */
- 	"EAM0_BRD_PRSNT_R_L", "",
- 	"EAM1_BRD_PRSNT_R_L", "",
- 	"EAM2_BRD_PRSNT_R_L", "",
- 	"EAM3_BRD_PRSNT_R_L", "",
--	"EAM0_CPU_MOD_PWR_GD_R", "",
--	"EAM1_CPU_MOD_PWR_GD_R", "",
--	"EAM2_CPU_MOD_PWR_GD_R", "",
--	"EAM3_CPU_MOD_PWR_GD_R", "",
-+	"FM_TPM_PRSNT_R_N", "",
-+	"PDB_PRSNT_R_N", "",
-+	"PRSNT_EDSFF0_N", "",
-+	"PRSNT_CPU0_N", "",
- 
- 	/* J0-J7 line 144-159 */
--	"PRSNT_L_BIRDGE_R", "",
--	"PRSNT_R_BIRDGE_R", "",
-+	"PRSNT_L_BRIDGE_R", "",
-+	"PRSNT_R_BRIDGE_R", "",
- 	"BRIDGE_L_MAIN_PG_R", "",
- 	"BRIDGE_R_MAIN_PG_R", "",
- 	"BRIDGE_L_STBY_PG_R", "",
- 	"BRIDGE_R_STBY_PG_R", "",
--	"", "", "", "",
-+	"IRQ_NFC_BOARD_R", "",
-+	"RSMRST_N", "",
- 
- 	/* K0-K7 line 160-175 */
- 	"ADC_I2C_ALERT_N", "",
-@@ -957,10 +980,14 @@ &sgpiom0 {
- 	"PDB_ALERT_R_N", "",
- 
- 	/* L0-L7 line 176-191 */
--	"CPU0_SP7R1", "", "CPU0_SP7R2", "",
--	"CPU0_SP7R3", "", "CPU0_SP7R4", "",
--	"CPU0_CORETYPE0", "", "CPU0_CORETYPE1", "",
--	"CPU0_CORETYPE2", "", "FM_BIOS_POST_CMPLT_R_N", "",
-+	"CPU0_SP7R1", "",
-+	"CPU0_SP7R2", "",
-+	"CPU0_SP7R3", "",
-+	"CPU0_SP7R4", "",
-+	"CPU0_CORETYPE0", "",
-+	"CPU0_CORETYPE1", "",
-+	"CPU0_CORETYPE2", "",
-+	"FM_BIOS_POST_CMPLT_R_N", "",
- 
- 	/* M0-M7 line 192-207 */
- 	"EAM0_SMERR_CPLD_R_L", "",
-@@ -978,17 +1005,19 @@ &sgpiom0 {
- 	"AMC_STBY_PGOOD_R", "",
- 	"CPU_AMC_SLP_S5_R_L", "",
- 	"AMC_CPU_EAMPG_R", "",
--	"", "", "", "",
-+	"DIMM_PMIC_PG_TIMEOUT", "",
-+	"EAM_MOD_PWR_GD_TIMEOUT", "",
-+	"CPLD_AMC_STBY_PWR_EN", "",
- 
- 	/* O0-O7 line 224-239 */
- 	"HPM_PWR_FAIL", "Port80_b0",
- 	"FM_DIMM_IP_FAIL", "Port80_b1",
- 	"FM_DIMM_AH_FAIL", "Port80_b2",
- 	"HPM_AMC_THERMTRIP_R_L", "Port80_b3",
--	"FM_CPU0_THERMTRIP_N", "Port80_b4",
-+	"cpu_thermtrip_detect", "Port80_b4",
- 	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
- 	"CPLD_SGPIO_RDY", "Port80_b6",
--	"", "Port80_b7",
-+	"FM_MAIN_PWREN_RMC_EN_ISO", "Port80_b7",
- 
- 	/* P0-P7 line 240-255 */
- 	"CPU0_SLP_S5_N_R", "NFC_VEN",
-@@ -997,8 +1026,8 @@ &sgpiom0 {
- 	"PWRGD_RMC", "",
- 	"FM_RST_CPU0_RESET_N", "",
- 	"FM_PWRGD_CPU0_PWROK", "",
--	"wS5_PWR_Ready", "",
--	"wS0_ON_N", "PWRGD_P1V0_AUX";
-+	"AMC_FAIL", "",
-+	"wS0_ON_N", "";
- 	status = "okay";
- };
- 
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 9c93ffbcc1e0..a221a1a9b87e 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -49,6 +49,19 @@
+>  
+>  #define __tlbi(op, ...)		__TLBI_N(op, ##__VA_ARGS__, 1, 0)
+>  
+> +#ifdef CONFIG_ARM64_D128
+> +#define __tlbip(op, arg1, arg2) do {	\
+> +	u128 value = 0;			\
+> +	value |= (u128)arg2 << 64;	\
+> +	value |= (u128)arg1;		\
+> +					\
+> +	asm (ARM64_ASM_PREAMBLE		\
+> +	".arch_extension d128\n\t"	\
+> +	"tlbip " #op ", %0, %H0\n"	\
+> +	: : "r" (value));		\
+> +} while (0)
+> +#endif
+> +
+>  #define __tlbi_user(op, arg) do {						\
+>  	if (arm64_kernel_unmapped_at_el0())					\
+>  		__tlbi(op, (arg) | USER_ASID_FLAG);				\
+> @@ -128,6 +141,46 @@ static inline unsigned long get_trans_granule(void)
+>  		__tlbi_level(op, (arg | USER_ASID_FLAG), level);	\
+>  } while (0)
+>  
+> +#ifdef CONFIG_ARM64_D128
+> +/*
+> + *
+> + * TLBIP Encoding
+> + *
+> + * +------------+-----------------+-------+-------+------------------+
+> + * |     RES0   |     BADDR       |  ASID |  TTL  |      RES0        |
+> + * +------------------------------+-------+-------+------------------+
+> + * |127      108|107            64|63   48|47   44|43               0|
+> + */
+> +
+> +#define __tlbip_user(op, arg, addr) do {					\
+> +	if (arm64_kernel_unmapped_at_el0())					\
+> +		__tlbip(op, (arg) | USER_ASID_FLAG, addr);			\
+> +} while (0)
+> +/*
+> + * FEAT_TTL being mandatory from armv8.4 and FEAT_D128 is available
+> + * only from armv9.4, we dont need the capability check for TTL.
+> + */
+> +#define __TLBIP_ARGS(asid, level)						\
+> +	({									\
+> +		u64 arg = 0;							\
+> +										\
+> +		arg |= FIELD_PREP(TLBI_ASID_MASK, (asid));			\
+> +		if ((level) >= 0 && (level) <= 3) {				\
+> +			arg |= FIELD_PREP(TLBI_TG_MASK, get_trans_granule());	\
+> +			arg |= FIELD_PREP(TLBI_LVL_MASK, (level));		\
+> +		}								\
+> +		arg;								\
+> +	})									\
+> +
+> +#define __tlb_asid_level(op, addr, asid, level, tlb_user) do {		\
+> +	u64 arg1 = __TLBIP_ARGS(asid, level);				\
+> +	u64 arg2 = (addr) >> 12;					\
 
----
-base-commit: 710dbb13377c80a6e39ef049a517665841e3221e
-change-id: 20260202-anacapa-dts-sgpio-e4e0ba5c2cd5
+Does 12 over here represent PAGE_SHIFT? If so, would it break 16K and 64K PAGE_SIZE?
 
-Best regards,
--- 
-Colin Huang <u8813345@gmail.com>
+> +									\
+> +	__tlbip(op, arg1, arg2);					\
+> +	if (tlb_user)							\
+> +		__tlbip_user(op, arg1, arg2);				\
+> +} while (0)
+> +#else
+>  #define __tlb_asid_level(op, addr, asid, level, tlb_user) do {		\
+>  	u64 arg1;							\
+>  									\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
