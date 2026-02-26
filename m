@@ -4,83 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03620FC5903
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 07:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42062FC590A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 07:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cMHrV3EDqeB76tWITQKDIWbxOYh777AARVef/M6xYas=; b=AdOuAB8J1pw28UOoqPu1ZQjOSk
-	MtBIO/swfS0lGNEE06v+jR/ABAI9PFQ4mxar5P1CT6g0MGgVWMdqJxJLT8Yaun5H3iAVuM8Y4cXL5
-	g0sJCIyqQMwmaxw/56Wll0+lRjU+dbMRAb6gbUkIMUBCRSviJZ6rD2Px7wMt3eZCql4ii/gBCbJnU
-	RqqA4WbMnuHMDDyei4bFEyMYk7VkfEszZkWYMqXkBbUtL24a6UPVBNZki+HxM0HrMEsFYW3CDa8lu
-	n9CZc4x3zuXVujHReoDnNhJueRVddNl36ZqGcESsDNS7+lQugOStJUe5sFxqlfXe2PbU+aMX8a5nn
-	adwWEXyw==;
+	bh=45JsBOPCFZIuEnMHMmIEK6FxJ6Vmoi6JWlGzfgTlKd0=; b=C9EioN/01et6dunye5f0esRrYv
+	chZq1KXLe8dxTshE8UWAssxfl2O67aCvFXSDudeoefHZSQiLImCkWeK2hC+s7oxobsIP4EUf2hMp6
+	eboUgFYjRoPYAPncguF/EB43XvrqeDJrYjSur9POrBx3pDbNYM7aFpX09wRirsM4HVagXoeYJ+Fez
+	Nsbx2NqcsA72uE2FoFrqHsLqICMkb9RcDkCkemoFVQbgNSvO1/hGay3bKCLxsuA2vLu7Muj1kkNz+
+	s9lsnniUSlPR6RYotZJTDM/FZMazSZaiFz8oplmNHyObe6LpHTJfz0Q7oxYo08i/4D0ilAYjPTFf/
+	/1jbyurg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWDd-00000005bhT-1sZa;
-	Thu, 26 Feb 2026 07:55:33 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1vvWHV-00000005bu0-0krx;
+	Thu, 26 Feb 2026 07:59:33 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWDY-00000005bh7-3qWo
+	id 1vvWHS-00000005btW-43pG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 07:55:31 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-65a43295689so460759a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Feb 2026 23:55:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772092526; x=1772697326; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cMHrV3EDqeB76tWITQKDIWbxOYh777AARVef/M6xYas=;
-        b=wNOBVV8bY7cw2CIZZ892KDjO7h5X00USAPL1W52cNi1RTa0sfRfJUcS2+/UcELNcTT
-         F6X05W8wSBzDnHhvct2lBV6cTOIojGiIyqMwXkzHS8eFAtZ3YOjfm6EmgnyUeV4bSwNy
-         un5jqchE/HclFwHpeQss+vQsbMCZS7JpAAoKMX/LSIzoWWNu0pMcpxZAoBBfKyo0C8II
-         cK+yXdTQivmHXlBgTykNlykR7BX1m37G/7auXx1SJcgGTBNTPXa5ON4AEM///h7tDnC0
-         4ajiJArK8oBv3xaefVPzPC5CGoXDDLyou2hU2slqY0EsSerfhypDyONZJyQavycsRaOO
-         Yjhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772092526; x=1772697326;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cMHrV3EDqeB76tWITQKDIWbxOYh777AARVef/M6xYas=;
-        b=OK4/EhRXpuyIrNLGPig+VJt2Ut1OkG+aM49uwdDnwNOmamn5AUtjSLkl8vh0a/M/5L
-         mqIG9iSHZzMKYB5xEmmQArNw1Evk7RbpT25gRdudm/29kV2hVbGke1P5c6xJZPwCst8W
-         oW7zubxIuvXx7hypqj6JN9XGQyslK+zgb2q0ICiYZJ6NPsL+eepXa6kvJZGKcSlyeG79
-         oVpxx4eUGfhidpXfVtGU0uMBvyT7X0MLXVvGe98/DSiJjklQdkIc5VmYStH2cZ5ac3yi
-         Jg73JeEA28M+wHVLeDmVwZjtn7bqgkejG46jDPPp1PDy1z7moHdSPFEuKtLN9DRHqgBm
-         Vqfg==
-X-Forwarded-Encrypted: i=1; AJvYcCXFGZYKsnv2Rgt/laLJLs7jLwWHUtSboPr0QZ374S+8g/BwddpKh8SidftF4/YHzpG4XZ4fT8htExTLoXpjbwms@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3TOnh71rhodlkAY3XxIRAbyqvfTWo+AIHDkXuT8qwW9fOzLuc
-	5bB91Xh5kGKi6iKbVaxJe8bTNpiIt3a0G4psoR84/z4btp23p/hdyodAUSaBII5fYzHZcMYckBD
-	+xw==
-X-Received: from edty12.prod.google.com ([2002:aa7:cccc:0:b0:64b:8c7a:2c9c])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:1453:b0:659:3ed2:13dd
- with SMTP id 4fb4d7f45d1cf-65fa47703a5mr2009610a12.4.1772092526117; Wed, 25
- Feb 2026 23:55:26 -0800 (PST)
-Date: Thu, 26 Feb 2026 07:55:25 +0000
-In-Reply-To: <8b7050b7-f2ad-4237-890c-76fc13dc0189@huaweicloud.com>
-Mime-Version: 1.0
-References: <8b7050b7-f2ad-4237-890c-76fc13dc0189@huaweicloud.com>
-X-Mailer: git-send-email 2.53.0.414.gf7e9f6c205-goog
-Message-ID: <20260226075525.233321-1-tabba@google.com>
-Subject: [PATCH v3] arm64: bpf: Force 8-byte alignment for JIT buffer to
- prevent atomic tearing
-From: Fuad Tabba <tabba@google.com>
-To: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
-	Jakub Sitnicki <jakub@cloudflare.com>, Jean-Philippe Brucker <jpb@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 26 Feb 2026 07:59:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772092771; x=1803628771;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rs0qEAZbdxZqApzkbG0FHEalQVhLZ+XgQWmJpEIvOnc=;
+  b=BGCKaC/4Y/7r2QjozsOIM8/GJiwHkczy4z1Pyq74VsATwUzok/6mjejx
+   lg0Rt/7dpletnSQsY3UQs4ZEqOhzIwFSk7zA/EntThZ29XZJQxAtooTTL
+   ozy/d8EdYtfLsc90h1Eq1yV+CzCEj8K8GhzkW+h/8WGXQbjKggmHyjPmN
+   FoRfqH6aIp94d9PcU/fRLfmoJDWYvxRIRyj++aDb/MOQFw9HN0n1JGnIG
+   pcDT1Yagj9oRLqIIuaGiWyJ9NRRyVdZqpO9sgGpGNb6XqAmnP5lPKwvYS
+   QUO9SrIerbfPxinuXGcf+pXvXD9kWq2tqsi39XHZDoaZDGuYBynyCyFsB
+   g==;
+X-CSE-ConnectionGUID: s2MTakUORM6gfMAcZEzVgQ==
+X-CSE-MsgGUID: KDtaeXuVSEW+XJvPqnBAFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11712"; a="73018076"
+X-IronPort-AV: E=Sophos;i="6.21,311,1763452800"; 
+   d="scan'208";a="73018076"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2026 23:59:30 -0800
+X-CSE-ConnectionGUID: HXHY4jaTS763fk0dqYE34Q==
+X-CSE-MsgGUID: n89NMNHmQ2uMu7evv5CMDQ==
+X-ExtLoop1: 1
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
+  by fmviesa003.fm.intel.com with ESMTP; 25 Feb 2026 23:59:20 -0800
+Date: Thu, 26 Feb 2026 15:39:46 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: linux-kernel@vger.kernel.org,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Antoine Tenart <atenart@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Geetha sowjanya <gakula@marvell.com>,
+	Ingo Molnar <mingo@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Jerin Jacob <jerinj@marvell.com>,
+	Linu Cherian <lcherian@marvell.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Simon Horman <horms@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Subbaraya Sundeep <sbhatta@marvell.com>,
+	Sunil Goutham <sgoutham@marvell.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Tom Rix <trix@redhat.com>, Xu Yilun <yilun.xu@intel.com>,
+	Yajun Deng <yajun.deng@linux.dev>,
+	Yury Norov <yury.norov@gmail.com>, Zhang Rui <rui.zhang@intel.com>,
+	hariprasad <hkelam@marvell.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
+	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 09/12] fpga: m10bmc-sec: switch show_canceled_csk() to
+ using scnprintf()
+Message-ID: <aZ/4whL40HHi/85Z@yilunxu-OptiPlex-7050>
+References: <20260219181407.290201-1-ynorov@nvidia.com>
+ <20260219181407.290201-10-ynorov@nvidia.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260219181407.290201-10-ynorov@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_235528_995029_F923BEB1 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20260225_235931_092526_B4459165 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,48 +117,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-struct bpf_plt contains a u64 target field. Currently, the BPF JIT
-allocator requests an alignment of 4 bytes (sizeof(u32)) for the JIT
-buffer.
+On Thu, Feb 19, 2026 at 01:14:01PM -0500, Yury Norov wrote:
+> Switch show_canceled_csk() to use a more common scnprintf("%*pbl").
+> 
+> Signed-off-by: Yury Norov <ynorov@nvidia.com>
+> ---
+>  drivers/fpga/intel-m10-bmc-sec-update.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/fpga/intel-m10-bmc-sec-update.c b/drivers/fpga/intel-m10-bmc-sec-update.c
+> index 10f678b9ed36..5ae76b8ece18 100644
+> --- a/drivers/fpga/intel-m10-bmc-sec-update.c
+> +++ b/drivers/fpga/intel-m10-bmc-sec-update.c
+> @@ -10,6 +10,7 @@
+>  #include <linux/firmware.h>
+>  #include <linux/mfd/intel-m10-bmc.h>
+>  #include <linux/mod_devicetable.h>
+> +#include <linux/mm.h>
+>  #include <linux/module.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/slab.h>
+> @@ -183,7 +184,7 @@ show_canceled_csk(struct device *dev, u32 addr, char *buf)
+>  
+>  	bitmap_from_arr32(csk_map, csk32, CSK_BIT_LEN);
+>  	bitmap_complement(csk_map, csk_map, CSK_BIT_LEN);
+> -	return bitmap_print_to_pagebuf(1, buf, csk_map, CSK_BIT_LEN);
+> +	return scnprintf(buf, rest_of_page(buf), "%*pbl\n", CSK_BIT_LEN, csk_map);
 
-Because the base address of the JIT buffer can be 4-byte aligned (e.g.,
-ending in 0x4 or 0xc), the relative padding logic in build_plt() fails
-to ensure that target lands on an 8-byte boundary.
+As Thomas mentioned, use sysfs_emit()
 
-This leads to two issues:
-1. UBSAN reports misaligned-access warnings when dereferencing the
-   structure.
-2. More critically, target is updated concurrently via WRITE_ONCE() in
-   bpf_arch_text_poke() while the JIT'd code executes ldr. On arm64,
-   64-bit loads/stores are only guaranteed to be single-copy atomic if
-   they are 64-bit aligned. A misaligned target risks a torn read,
-   causing the JIT to jump to a corrupted address.
-
-Fix this by increasing the allocation alignment requirement to 8 bytes
-(sizeof(u64)) in bpf_jit_binary_pack_alloc(). This anchors the base of
-the JIT buffer to an 8-byte boundary, allowing the relative padding math
-in build_plt() to correctly align the target field.
-
-Fixes: b2ad54e1533e ("bpf, arm64: Implement bpf_arch_text_poke() for arm64")
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/net/bpf_jit_comp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 356d33c7a4ae..adf84962d579 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -2119,7 +2119,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	extable_offset = round_up(prog_size + PLT_TARGET_SIZE, extable_align);
- 	image_size = extable_offset + extable_size;
- 	ro_header = bpf_jit_binary_pack_alloc(image_size, &ro_image_ptr,
--					      sizeof(u32), &header, &image_ptr,
-+					      sizeof(u64), &header, &image_ptr,
- 					      jit_fill_hole);
- 	if (!ro_header) {
- 		prog = orig_prog;
--- 
-2.53.0.414.gf7e9f6c205-goog
-
+>  }
+>  
+>  #define DEVICE_ATTR_SEC_CSK_RO(_name)						\
+> -- 
+> 2.43.0
+> 
+> 
 
