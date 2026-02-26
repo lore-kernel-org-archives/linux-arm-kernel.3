@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBA1FCE064
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 12:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B901FCE069
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 12:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toSZr/wk0D+ZLB4X3GL8tdvy8Pfuhw55RvV5q/azapM=; b=EPgsGMJxcLtUQKYUmpcebcJ3ha
-	Nh3i42PgwP0TX35qDv5V9OtOqXahZJ0hA/7qvoFD6lMeM0WMkAr5Diua/QGzyprdGbvCQdHSrNMCk
-	NixL67jaeULWEVCGIxO3pbpKc/cNyVN76qh9xUb+Viyg9ol5xDqcyRsnU0kqRg49ZB9IOAsY9hh6/
-	6KyP2mzuusSQKaPv4QLZQOLbc0RkQer7oewRul7z6mQ/Lfae86o5RoA+0NYJ3YEIkQb+tl4fSlFPf
-	R7zpfF27hPPytt8Cl7nkXHhstNySe2E+K2fzM18aLYNa7pCnnjmHsZ5MNY3PHfbETlqxnDFx1vZJa
-	d66xUKYA==;
+	bh=SPNsJJopwXeIQajTPzQOqmwoq99q8dZhkvlRtgNDvjs=; b=odID4HX1phJG7ZrNopbkz7smuS
+	s7ZvHOKeLrCRP4sB5sZL2w7h6gSJAKayrHTM1gwi/1pfDtBTRgvuS2wacSGwxK+MTtxfLJpVZJ9t7
+	Upd/72XE+VpPZJADOuU4V0Pcjxh1wrW1PVWU46baH1jKwweyGZYantSBFtRjkdY1ol9977wtkpKb/
+	EJCGGuSA+Y0/BZzq3an/fXRsoq/KmVQ/vzkJX34M9mFn/jVzbXJpG+GfaVMifALbu1SuCxLpIVvz3
+	zuFdsI5VBENau9lSyPHc9CkeZOcrDlq98dJI062zX9M9JF0X8pURGWZ1cyBPHBDhkJ9qYHI2P3j7G
+	M+Fvq1iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvaaK-0000000685a-2QuO;
-	Thu, 26 Feb 2026 12:35:16 +0000
-Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
+	id 1vvacw-000000068Ue-1rLJ;
+	Thu, 26 Feb 2026 12:37:58 +0000
+Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvaaG-0000000681g-44e9
+	id 1vvacu-000000068UG-0fGa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 12:35:14 +0000
+	Thu, 26 Feb 2026 12:37:57 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1772109296;
+	t=1772109473;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=toSZr/wk0D+ZLB4X3GL8tdvy8Pfuhw55RvV5q/azapM=;
-	b=REmHYhHJH8JbL1SxuExvYSceF4yEaGJbivS6xDSQE9K5ymP6CJpeL9wvMbAGx4KwMpl8dy
-	MWnJSF//2NEorFNH5fXDdJKyHs3HYayyJfEAYar4KO3O74WyeZCZPvZW7JPNOeZezeXh/z
-	XzDcaAvgPUfvzAW3HYyp9mg/OUKgolU=
+	bh=SPNsJJopwXeIQajTPzQOqmwoq99q8dZhkvlRtgNDvjs=;
+	b=DGpr3FmInTfsEa7ak4gaWrS03UTVFfbW9HJv0UQy+RlyTfuJR6/UpOsr9dyf+aH2kO7T66
+	+YmOMY44vxffMh/T02Q+dbb3ocIUW7Avb2n+bBA1V0DkTzFeB5kQot0jlV8roM9f/AtXFx
+	b2MxQG9FNaKVyeDXagSTpEApubu7kf4=
 From: Usama Arif <usama.arif@linux.dev>
 To: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: Usama Arif <usama.arif@linux.dev>,
@@ -53,17 +53,17 @@ Cc: Usama Arif <usama.arif@linux.dev>,
 	Linu Cherian <linu.cherian@arm.com>,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: Re: [RFC V1 01/16] mm: Abstract printing of pxd_val()
-Date: Thu, 26 Feb 2026 04:34:39 -0800
-Message-ID: <20260226123442.759447-1-usama.arif@linux.dev>
-In-Reply-To: <20260224051153.3150613-2-anshuman.khandual@arm.com>
+Subject: Re: [RFC V1 10/16] arm64/mm: Route all pgtable writes via ptdesc_set()
+Date: Thu, 26 Feb 2026 04:37:45 -0800
+Message-ID: <20260226123747.801496-1-usama.arif@linux.dev>
+In-Reply-To: <20260224051153.3150613-11-anshuman.khandual@arm.com>
 References: 
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_043513_154485_17084252 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20260226_043756_501576_CD66DC3A 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,145 +78,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Feb 2026 10:41:38 +0530 Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+On Tue, 24 Feb 2026 10:41:47 +0530 Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 
-> Ahead of adding support for D128 pgtables, refactor places that print
-> PTE values to use the new __PRIpte format specifier and __PRIpte_args()
-> macro to prepare the argument(s). When using D128 pgtables in future,
-> we can simply redefine __PRIpte and __PTIpte_args().
+> Currently ptdesc_set() is defined as WRITE_ONCE() but this will change for
+> D128 pgtable builds, for which WRITE_ONCE() is not sufficient for single
+> copy atomicity.
 > 
-> Besides there is also an assumption about pxd_val() being always capped
-> at 'unsigned long long' size but that will not work for D128 pgtables.
-> Just increase its size to u128 if the compiler supports via a separate
-> data type pxdval_t which also defaults to existing 'unsigned long long'.
+> In future this infrastructure can be used for D128 to maintain single copy
+> atomicity semantics with inline asm blocks.
 > 
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: linux-mm@kvack.org
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
 > Cc: linux-kernel@vger.kernel.org
 > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
->  include/linux/pgtable.h |  5 +++++
->  mm/memory.c             | 29 +++++++++++++++++++----------
->  2 files changed, 24 insertions(+), 10 deletions(-)
+>  arch/arm64/include/asm/pgtable.h | 11 ++++++-----
+>  arch/arm64/mm/mmu.c              |  4 ++--
+>  mm/debug_vm_pgtable.c            |  4 ++--
+>  3 files changed, 10 insertions(+), 9 deletions(-)
 > 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index a50df42a893f..da17139a1279 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -17,6 +17,11 @@
->  #include <asm-generic/pgtable_uffd.h>
->  #include <linux/page_table_check.h>
->  
-> +#ifndef __PRIpte
-> +#define __PRIpte		"016llx"
-> +#define __PRIpte_args(val)	((u64)val)
-> +#endif
-> +
->  #if 5 - defined(__PAGETABLE_P4D_FOLDED) - defined(__PAGETABLE_PUD_FOLDED) - \
->  	defined(__PAGETABLE_PMD_FOLDED) != CONFIG_PGTABLE_LEVELS
->  #error CONFIG_PGTABLE_LEVELS is not consistent with __PAGETABLE_{P4D,PUD,PMD}_FOLDED
-> diff --git a/mm/memory.c b/mm/memory.c
-> index 07778814b4a8..cfc3077fc52f 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -532,9 +532,15 @@ static bool is_bad_page_map_ratelimited(void)
->  	return false;
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 804ef49aea88..42124d2f323d 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -85,6 +85,7 @@ static inline void arch_leave_lazy_mmu_mode(void)
 >  }
 >  
-> +#ifdef __SIZEOF_INT128__
-> +	typedef u128 pxdval_t;
-> +#else
-> +	typedef unsigned long long pxdval_t;
-> +#endif
-> +
->  static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long addr)
+>  #define ptdesc_get(x)		READ_ONCE(x)
+> +#define ptdesc_set(x, val)	WRITE_ONCE(x, val)
+>  
+>  #define pmdp_get pmdp_get
+>  static inline pmd_t pmdp_get(pmd_t *pmdp)
+> @@ -389,7 +390,7 @@ static inline pte_t pte_clear_uffd_wp(pte_t pte)
+>  
+>  static inline void __set_pte_nosync(pte_t *ptep, pte_t pte)
 >  {
-> -	unsigned long long pgdv, p4dv, pudv, pmdv;
-> +	pxdval_t pgdv, p4dv, pudv, pmdv;
->  	p4d_t p4d, *p4dp;
->  	pud_t pud, *pudp;
->  	pmd_t pmd, *pmdp;
-> @@ -548,7 +554,7 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->  	pgdv = pgd_val(*pgdp);
+> -	WRITE_ONCE(*ptep, pte);
+> +	ptdesc_set(*ptep, pte);
+>  }
 >  
->  	if (!pgd_present(*pgdp) || pgd_leaf(*pgdp)) {
-> -		pr_alert("pgd:%08llx\n", pgdv);
-> +		pr_alert("pgd:%" __PRIpte "\n", __PRIpte_args(pgdv));
+>  static inline void __set_pte_complete(pte_t pte)
+> @@ -856,7 +857,7 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>  	}
+>  #endif /* __PAGETABLE_PMD_FOLDED */
+>  
+> -	WRITE_ONCE(*pmdp, pmd);
+> +	ptdesc_set(*pmdp, pmd);
+>  
+>  	if (pmd_valid(pmd))
+>  		queue_pte_barriers();
+> @@ -917,7 +918,7 @@ static inline void set_pud(pud_t *pudp, pud_t pud)
 >  		return;
 >  	}
 >  
-> @@ -557,7 +563,8 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->  	p4dv = p4d_val(p4d);
+> -	WRITE_ONCE(*pudp, pud);
+> +	ptdesc_set(*pudp, pud);
 >  
->  	if (!p4d_present(p4d) || p4d_leaf(p4d)) {
-> -		pr_alert("pgd:%08llx p4d:%08llx\n", pgdv, p4dv);
-> +		pr_alert("pgd:%" __PRIpte "p4d:%" __PRIpte "\n",
-
-Hi Anshuman,
-
-The original format had a space between values ("pgd:%08llx p4d:%08llx").
-The replacement loses the space separator producing output like
-"pgd:123p4d:456" instead of "pgd:123 p4d:456". The same issue exists
-in other places in this commit.
-
-> +			 __PRIpte_args(pgdv), __PRIpte_args(p4dv));
+>  	if (pud_valid(pud))
+>  		queue_pte_barriers();
+> @@ -999,7 +1000,7 @@ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
 >  		return;
 >  	}
 >  
-> @@ -566,7 +573,8 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->  	pudv = pud_val(pud);
+> -	WRITE_ONCE(*p4dp, p4d);
+> +	ptdesc_set(*p4dp, p4d);
+>  	queue_pte_barriers();
+>  }
 >  
->  	if (!pud_present(pud) || pud_leaf(pud)) {
-> -		pr_alert("pgd:%08llx p4d:%08llx pud:%08llx\n", pgdv, p4dv, pudv);
-> +		pr_alert("pgd:%" __PRIpte "p4d:%" __PRIpte "pud:%" __PRIpte "\n",
-> +			 __PRIpte_args(pgdv), __PRIpte_args(p4dv), __PRIpte_args(pudv));
+> @@ -1120,7 +1121,7 @@ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
 >  		return;
 >  	}
 >  
-> @@ -580,8 +588,9 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->  	 * doing another map would be bad. print_bad_page_map() should
->  	 * already take care of printing the PTE.
+> -	WRITE_ONCE(*pgdp, pgd);
+> +	ptdesc_set(*pgdp, pgd);
+>  	queue_pte_barriers();
+>  }
+>  
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index bcf32d1a92de..ffd307c546f5 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -83,7 +83,7 @@ void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
+>  	 * writable in the kernel mapping.
 >  	 */
-> -	pr_alert("pgd:%08llx p4d:%08llx pud:%08llx pmd:%08llx\n", pgdv,
-> -		 p4dv, pudv, pmdv);
-> +	pr_alert("pgd:%" __PRIpte "p4d:%" __PRIpte "pud:%" __PRIpte "pmd:%" __PRIpte "\n",
-> +		 __PRIpte_args(pgdv), __PRIpte_args(p4dv),
-> +		 __PRIpte_args(pudv), __PRIpte_args(pmdv));
->  }
+>  	if (rodata_is_rw) {
+> -		WRITE_ONCE(*pgdp, pgd);
+> +		ptdesc_set(*pgdp, pgd);
+>  		dsb(ishst);
+>  		isb();
+>  		return;
+> @@ -91,7 +91,7 @@ void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
 >  
->  /*
-> @@ -597,7 +606,7 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
->   * page table lock.
->   */
->  static void print_bad_page_map(struct vm_area_struct *vma,
-> -		unsigned long addr, unsigned long long entry, struct page *page,
-> +		unsigned long addr, pxdval_t entry, struct page *page,
->  		enum pgtable_level level)
->  {
->  	struct address_space *mapping;
-> @@ -609,8 +618,8 @@ static void print_bad_page_map(struct vm_area_struct *vma,
->  	mapping = vma->vm_file ? vma->vm_file->f_mapping : NULL;
->  	index = linear_page_index(vma, addr);
->  
-> -	pr_alert("BUG: Bad page map in process %s  %s:%08llx", current->comm,
-> -		 pgtable_level_to_str(level), entry);
-> +	pr_alert("BUG: Bad page map in process %s  %s:%" __PRIpte, current->comm,
-> +		 pgtable_level_to_str(level), __PRIpte_args(entry));
->  	__print_bad_page_map_pgtable(vma->vm_mm, addr);
->  	if (page)
->  		dump_page(page, "bad page map");
-> @@ -695,7 +704,7 @@ static void print_bad_page_map(struct vm_area_struct *vma,
->   */
->  static inline struct page *__vm_normal_page(struct vm_area_struct *vma,
->  		unsigned long addr, unsigned long pfn, bool special,
-> -		unsigned long long entry, enum pgtable_level level)
-> +		pxdval_t entry, enum pgtable_level level)
->  {
->  	if (IS_ENABLED(CONFIG_ARCH_HAS_PTE_SPECIAL)) {
->  		if (unlikely(special)) {
+>  	spin_lock(&swapper_pgdir_lock);
+>  	fixmap_pgdp = pgd_set_fixmap(__pa_symbol(pgdp));
+> -	WRITE_ONCE(*fixmap_pgdp, pgd);
+> +	ptdesc_set(*fixmap_pgdp, pgd);
+>  	/*
+>  	 * We need dsb(ishst) here to ensure the page-table-walker sees
+>  	 * our new entry before set_p?d() returns. The fixmap's
+> diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
+> index 83cf07269f13..faf6a19a89a1 100644
+> --- a/mm/debug_vm_pgtable.c
+> +++ b/mm/debug_vm_pgtable.c
+> @@ -445,7 +445,7 @@ static void __init pmd_huge_tests(struct pgtable_debug_args *args)
+>  	 * X86 defined pmd_set_huge() verifies that the given
+>  	 * PMD is not a populated non-leaf entry.
+>  	 */
+> -	WRITE_ONCE(*args->pmdp, __pmd(0));
+> +	ptdesc_set(*args->pmdp, __pmd(0));
+
+The ptdesc_set() and ptdesc_get() macros are defined in
+arch/arm64/include/asm/pgtable.h and are arm64-specific. This change is
+in mm/debug_vm_pgtable.c which is generic code compiled for all
+architectures. Other architectures do not define ptdesc_set(), so this
+will would cause a build failure on other architectures..
+
+>  	WARN_ON(!pmd_set_huge(args->pmdp, __pfn_to_phys(args->fixed_pmd_pfn), args->page_prot));
+>  	WARN_ON(!pmd_clear_huge(args->pmdp));
+>  	pmd = pmdp_get(args->pmdp);
+> @@ -465,7 +465,7 @@ static void __init pud_huge_tests(struct pgtable_debug_args *args)
+>  	 * X86 defined pud_set_huge() verifies that the given
+>  	 * PUD is not a populated non-leaf entry.
+>  	 */
+> -	WRITE_ONCE(*args->pudp, __pud(0));
+> +	ptdesc_set(*args->pudp, __pud(0));
+>  	WARN_ON(!pud_set_huge(args->pudp, __pfn_to_phys(args->fixed_pud_pfn), args->page_prot));
+>  	WARN_ON(!pud_clear_huge(args->pudp));
+>  	pud = pudp_get(args->pudp);
 > -- 
 > 2.43.0
 > 
