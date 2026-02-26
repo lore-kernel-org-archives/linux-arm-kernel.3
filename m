@@ -4,61 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D0AFD8FC3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 15:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38EFCFD8FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 15:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HHGlvijmr87D+3n+QVqt0FE6kr9MZ8g5DgUROfQP5A4=; b=a+XvPrNdEjM4KawEajEbIqKCyp
-	JSTS9FDfpeDU+RmhDDOP/aBRxo03uzVKXyJ3I6PHR4P10oZ/7DlKQWkXsw8V7eTIOo83gZDZjxyB5
-	khme4z7cOitWUCoBdEvXXpkzY1SmxI4P/VqNcrfczy0fZ6+qUF52x5XL/14cAXy9zXGWwiMnEjQj/
-	5L13OVWxfmO5glef5+Ttj3hUyb5ukisI5FeuN/scK0hDiICVaZumLwiLT2aD3V7/DdF+9sp3MZDW8
-	JTozWy38WumC/19vRJZGP10+UynYqdbEIGeoz2+yVIF9K7tldli6EeyxiBQ0PGlTNJMKyGpKhFR/I
-	HbSFgdsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9p/rG0mijpIkjwU7PtFF8PynamrpR89pcz/lUO56k6c=; b=Tbnzl9aFcFiG5UFeFVkFbHCrbO
+	4rtyTYtgrbDrNzMnBU8yMUhu32sSIhI9kkjXJEIAqLYPk1YB28i11SkEd0dxmWFULo6i+moeBa7EO
+	hUycp5IXloHydi1DvchlV7Q4Vcku5sDvMeXztkAdA24S1ZT3etwKYZhRC1hRoVxXPd1PppKRnzsXr
+	T1tJxXPi5urWOaP/kxybS64Av2sy/X12IXaxDTTF/8h9TzcIPvXoWrX6hjJPGXVuLgS4/TrpfWA3C
+	KfQpDcCkoSVXNyFdC0QQk9niuRMmdTHDuczpvWziSFUb+kO0zxZ0Giu/Le1VwX4C70dzkLAdJ55MC
+	5+emszNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvczr-00000006PZX-1q18;
-	Thu, 26 Feb 2026 15:09:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvd0L-00000006Ph9-3Sec;
+	Thu, 26 Feb 2026 15:10:17 +0000
+Received: from mail-westcentralusazon11013022.outbound.protection.outlook.com ([40.93.201.22] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvczo-00000006PYa-3kq1
+	id 1vvd0J-00000006PgM-1ILu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 15:09:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8FEF642A9C;
-	Thu, 26 Feb 2026 15:09:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 173BBC19424;
-	Thu, 26 Feb 2026 15:09:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772118583;
-	bh=dM7h7sasxVzTsEh5Z4cUfB9ll5Z5dqbcZh4jIBxy4JY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mX2YlMhazqprNl4bPZwVsnmQm/PXQBNEZI1/h1ALSLsQoqpD/UECipILws3TfKHn2
-	 n3X0oio3i0JHlmTLQdNsZhXLUhKMlwCJroW6MfzgiJ2bcDGapYkQeKC1UdLcdj21Cj
-	 vJrEOYjFDWNCx/clkqw+2jqumkquiL6nGOOF9tcUfwlnyprFq1VoPYPYNwkFjA65y/
-	 EImdU6jbDB2oISw53F2it63LRbW+IGux1atEFqjCZPBXNF+GvRTLpaqu2JoN5JAfo6
-	 9QzuBzbasYW9j2FXGPn+FUsKJqLbzCe3gp5EQpSF/yxw9hCT/tL/RbatdOVJ/HXUnd
-	 aYXp1hB9H8V2Q==
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Thierry Reding <thierry.reding@kernel.org>
-Cc: Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/2] firmware: tegra: bpmp: Rename Tegra239 to Tegra238
-Date: Thu, 26 Feb 2026 16:09:33 +0100
-Message-ID: <20260226150933.4067324-2-thierry.reding@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260226150933.4067324-1-thierry.reding@kernel.org>
-References: <20260226150933.4067324-1-thierry.reding@kernel.org>
+	Thu, 26 Feb 2026 15:10:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tutfhDyUVg6RHWRmAZ4hUC+f9ZjBmEGOi0jYWnuNvjSi+t0aBQHfrRludUsu1iG+AUzYvH0mIsD8mUJVX7ghEuNwq9kMexSQ9pDoG6+vkGVkibU8wP6QxYx1mj7awW9rUMB8/IH/a9D57TjzP9EtaIQKBZsG8GC3iVqitRtG/3exX0pXG0KPyn7dCqSPlEShetycAPa2jZutEIDUOqZXtY2nJ1bRcuO8+n4dnimhyBmITrUSWjpta9H7+bwyZekjmNgvJPUEOG53k+hUZrKrNHz+2YqWIHiCHPMqcrCM2N08EqpgyD3QPPBs2OHD+/9lvLd3vEt/8LlRZ5gu/afHWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9p/rG0mijpIkjwU7PtFF8PynamrpR89pcz/lUO56k6c=;
+ b=lTOCh1wvJa2eb2o8p2yVP/hht4QQy2EMaLeMzGEm8y4zb7KALmsi9girxS/L5AlZ762iTU78Jxs0uxPz2LiiicgHjl1dPRlkWJSivBfdP10BS7aFcI11jkJwGeTLvK9st7z8DIAsX7j7TG0y3T9lqPPcMEU8wlHCJzuhacLtaYI2ge/ExPdHMowdRy78FC/Qi93cXiy73rh6S0kghQ5kLZ4XCnq3c30O9VWlvuuxSoqOqdDmuexX3ojSj+aD66MslBvtGmwlh1kQk/klRcPSWlFDW4ZLshU80PDlAnjHv/4q40RYJXCVPfRbBNq0bJxMDvORKEnyQI/hZURpOkR74Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9p/rG0mijpIkjwU7PtFF8PynamrpR89pcz/lUO56k6c=;
+ b=Gs9nJQ6W5I+UDaFWIvM7+2bqHPzJw8O+hDhMn7z57UnygHwBSX5TpIXZxYGPoB83iqf+g2Pl4LQAooIfkDf7JLYufQTM2TGBvsDGOBG6JPmOp2PehPFQJzFknGGTZUt9R2sRXKZ2efGsuYGUf1xPAntRhqJLACDvlWkGSIqL90eu/8FtIDpqbFLDUeh3d3V0goH+HpZwZyEPmIUeO1qe12f0uQw0blaR0C2SIsuGmUvRBQTfB+sIxrvzFn31MatLKV/4FAouYAZ1XghljVFnAbcbKf2USp6tyXOtUFgQoMJP9NPzB6AFfLPdaOGH7Re9jN8tU2zLjdjOKtDppF7m9Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA1PR12MB9062.namprd12.prod.outlook.com (2603:10b6:208:3aa::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
+ 2026 15:10:09 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.014; Thu, 26 Feb 2026
+ 15:10:09 +0000
+Date: Thu, 26 Feb 2026 11:10:08 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, dan.j.williams@intel.com,
+	"Tian, Kevin" <kevin.tian@intel.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <20260226151008.GD5933@nvidia.com>
+References: <20260203175540.GC3931454@nvidia.com>
+ <aZZDo3BeuBKh9q24@nvidia.com>
+ <20260219143737.GG723117@nvidia.com>
+ <aZc//6kvH3Eqfwfe@nvidia.com>
+ <20260219174139.GI723117@nvidia.com>
+ <aZfoqETxb31jp/Pk@nvidia.com>
+ <20260220125044.GK723117@nvidia.com>
+ <6a842339-3f0a-48db-830a-326add917519@arm.com>
+ <20260220135124.GA1894399@nvidia.com>
+ <c7cd42ff-f95a-4aaf-ab79-5af476bca894@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c7cd42ff-f95a-4aaf-ab79-5af476bca894@arm.com>
+X-ClientProxiedBy: BL1P221CA0040.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:208:5b5::15) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB9062:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4f901aba-dfaa-4cd7-765a-08de754921dd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: cRW/MOwQaMBnBmpWrKRklazIQSq6ec/y5VeE2+Ja9lVTizfQmloYArBlBjX+A/6YF/T6AkP/yjkag+UXzYrKsNzF3Qzq+oMe42dPHOjPV+4GdnQDmFnlALtfDGf4jWZQSqAeKdqW0iq6mZ7Vn9k4Z3wcYPdwRQojE2V5Y36+waOlQqHrmlP7h1Azva8W0ZojkprejXKZSmdVVFPmJJojxO73ZOOdlM+aAueVmH3YqNjnKEdMLkd52jBSHxRfeEZRHpcpx4W30TpxFexZMCmYRKVgL6Cf2jMDoQJ+WuxLI9sVLRoj2EB61rbxRMYerwqWanaBIWRUK0t7bnsOJh65ReS730XhOykBnln2hfzDt3hwRqHH72ZfFCUThhS5rwr+tRC5ry9JWnqYV50/1SWIAWU7uFdEX6lBrvtVUMbuMvuvhE4eAUWO3cPC74hDt0QF0dYmjUwOvPkYNS09aQy/vE39I4gmBnwPGuSfcqWn22CmlsWp85lHPsU278cT6UZpmDV3izesdTRtlh7LEI9WXBF2MgOqj3q+RnkzR/C4d+JyGpJZHO1xQSyD0Yj+ozhGkuQJhjxUv3i2oHQ08k4eDPQFbydtniXpdIy2l8qmhM9wCWp+HHWKghpjNSsOpM2T6XHoPLHDyMfX1tRAg/21Rjk8ADU+NJxAtr7wHEaCRuCroK24zQG0hni+LvJaMTeTQwqE8VRTT1fFbUTT/aX88mIWYBh72GjCYMQSNPzEhHc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GRPQJr+zZ1ZrvgAe806JpS6mX7UXlkNZcHNyaeASO1QzOpK1Dr9KBI72OLJ7?=
+ =?us-ascii?Q?6/vnNWrRacmryXYk3/mQd75VS2ztMbz/YZPlbb3pbE8e9hhJlukE/IIMUCKN?=
+ =?us-ascii?Q?EPH6bB6eVcB+FNm1zLzfI5zNpin2P4+yU46ECf7TwFJosrzNtO6ryhY1n3dn?=
+ =?us-ascii?Q?ftW8GV2TJ2TvqDJVZ6szJtC/LeEPiCVmQKK/SsCAYUVbQPb+Z1A/L75Xgxdp?=
+ =?us-ascii?Q?rPhliWb7CF+6GS1BT40zczLgQe19oNkoc0yVpg7zHA4p7qG/yLsmRZoQlwfL?=
+ =?us-ascii?Q?FOYZKgOuxavZ3ZMhCtHawQuToc0OKycVGoYT55RXgiV4gqKj8FirLVC9RiBc?=
+ =?us-ascii?Q?ATI34ntm011BC2bJ8yeuZQCdUZt8IgsChE1UzEB7tQ76yjNq+yBxZhOBFAq3?=
+ =?us-ascii?Q?OPsznR9f15HbddlRuNSlMu7lOSaG3yvwPDv9b6NQZV3B/Kmtp4bxYaenPsf2?=
+ =?us-ascii?Q?+8cTLb4CoLzDmfP8mMrZXkaFH97tDmN7QgRHsqvdbzVpDwFBcOBzAlVoaDC0?=
+ =?us-ascii?Q?70MCb8mbGeym9MlsBWnepOQqlinSBeVM3UE4GeFTtifunnSE5zD6j363xyP/?=
+ =?us-ascii?Q?BKF5N4qlV0sEwhJsvlc5gsxhbSReBkrUcO/3vRXtFqq40hA9JhW/CJkRJkXu?=
+ =?us-ascii?Q?2b8RiKDDGmzQwStW7j69kxFZ7zpFTOHsI2qBs9IekAMSyyU/jaPkDzFgkL2P?=
+ =?us-ascii?Q?iBKU1erG57pFqrEqcjDBAFdICIv09Oq7yjEFasXz3PCVff21FTN5+CJPJvel?=
+ =?us-ascii?Q?wEi/XjKwIE0XEvCCKXmdxYjlQef2vqwgp7f3TN7YX8oDuL7qCd167V99R1+9?=
+ =?us-ascii?Q?pW6lfQzUDV9AkU8J2E8q42TOsp2LlgohcDf4fW+IARLVJ0Oja+oWTc7THrYW?=
+ =?us-ascii?Q?HqIphLzfmvVSMoJFRmzBl0AZIuupfrg/xCIFSCy4mr6O+BeA6cFGny0chKBj?=
+ =?us-ascii?Q?xGqUZfUOVsMXKBnnD2UrIjD70jxG9wFi22cPCe/FHEC90vn6EHWH/7JyfR9S?=
+ =?us-ascii?Q?jtnSa7+vBl/o4S15GcPJrBrQiv5qn85F6BR44G9Z94Mv+lNOhtHsUVyLdDJe?=
+ =?us-ascii?Q?9lPHIqIRIjtKzU/H1UUujm9S1G2HKADhUQM5zQO5otry2Bf438fAdXDH4woD?=
+ =?us-ascii?Q?6iDuiieMsyROdruj41QZV6Ml9m3FswUup0pWW5m6glIXg1Uini5A2W+8DYdO?=
+ =?us-ascii?Q?S1j/2eyBL/1tDIGqFQ8OgPz6V9/wbRTVWxdZx5T66RpWDWzaVH8g4NjXcc6f?=
+ =?us-ascii?Q?hYHfpAviJu0wjswpUfWdKGi2vf651cSJ4ORnBm/mvVx2Is9/p3sXj4fhFPwC?=
+ =?us-ascii?Q?Ey4o7O3fZ8qgJQ4bqxNrya43/eLkdrm0XxFf+3lqiUdaK65cviKmpiK4K5e1?=
+ =?us-ascii?Q?d+IfY+Zx5H7UAV/1hY4Pi1w2FZozIKC4NsBS3FwgCueuzOZ12UocOnS61UYX?=
+ =?us-ascii?Q?m6NCLJwvfd9GclQtArJrhVuQ1jIasjyTPdcgD/n3OTwaoC8IMCAf613tGkPj?=
+ =?us-ascii?Q?pT/EfkJRCDIPBK/vRG2H6KbD9c8U+QshhsvXyY9OqCepYJEaL92N257yKlXf?=
+ =?us-ascii?Q?Vhvk/WEoVXu09u5MgcOM0vGPN3d+ew8VyapdkyfQuYBtXdmqSOty+GFJL1oi?=
+ =?us-ascii?Q?1AQ5EeXQIx0QjqelJnj14zWtoSHs1KszqY1ObMLB3FBHPFpYmjNSI9mrYIEb?=
+ =?us-ascii?Q?fQnWaR+RNLVm4/ARXY90xCf1IGHTiljFsW6k77KXnbHvgiAc9+7ycHGq1AwT?=
+ =?us-ascii?Q?azCvUjFTLA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4f901aba-dfaa-4cd7-765a-08de754921dd
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 15:10:09.6539
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: H9YeU5LdhXEDKYiHP52S4B8ONsQs62HsiYilZgs/w6EbK6C0xx35yEl81ON5M7yR
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_070944_996641_8B40AE36 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260226_071015_349622_29FDFAC2 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,220 +157,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <treding@nvidia.com>
+On Fri, Feb 20, 2026 at 02:45:49PM +0000, Robin Murphy wrote:
+> >   The port driver will start first, install the ITS page in the DMA
+> >   domain, VFIO will start second an switch the domain to BLOCKED, then
+> >   to PAGING, and the ITS mapping used by the port driver will be lost.
+> > 
+> > And nobody will notice this has happened because the interrupts in the
+> > port driver are only used for RAS IIRC so the net effect is your
+> > system doesn't print AERs anymore.
+> 
+> Indeed VFIO's MSI cookie doesn't inherit any existing mappings from the DMA
+> domain, and that wouldn't work anyway since the IOVAs would almost certainly
+> be different. So we'd have to somehow free any existing AER interrupts
+> before the domain switch, then fully re-request and reprogram them
+> afterwards, in both DMA->UNMANAGED and UNMANAGED->DMA directions. Oof...
 
-This chip identifies as Tegra238, so update the BPMP ABI header to refer
-to it by the correct name.
+I'm inclined to say we should disable this VFIO feature if CONFIG_IRQ_MSI_IOMMU
+is enabled... Better to hard fail then silently loose interrutps.
 
-Signed-off-by: Thierry Reding <treding@nvidia.com>
----
- include/soc/tegra/bpmp-abi.h | 48 ++++++++++++++++++------------------
- 1 file changed, 24 insertions(+), 24 deletions(-)
+If that causes problems for people then we should investigate how to
+fix the MSI.
 
-diff --git a/include/soc/tegra/bpmp-abi.h b/include/soc/tegra/bpmp-abi.h
-index dc0789c20333..39bb3f87e28d 100644
---- a/include/soc/tegra/bpmp-abi.h
-+++ b/include/soc/tegra/bpmp-abi.h
-@@ -1020,9 +1020,9 @@ struct cmd_i2c_xfer_request {
- 	/**
- 	 * @brief Tegra PWR_I2C bus identifier
- 	 *
--	 * @cond (bpmp_t234 || bpmp_t239 || bpmp_t194)
-+	 * @cond (bpmp_t234 || bpmp_t238 || bpmp_t194)
- 	 * Must be set to 5.
--	 * @endcond (bpmp_t234 || bpmp_t239 || bpmp_t194)
-+	 * @endcond (bpmp_t234 || bpmp_t238 || bpmp_t194)
- 	 * @cond bpmp_th500
- 	 * Must be set to 1.
- 	 * @endcond bpmp_th500
-@@ -2108,7 +2108,7 @@ struct mrq_emc_dvfs_latency_response {
-  * @brief Query EMC HUB frequencies
-  *
-  * * Platforms: T234 onwards
-- * @cond (bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @cond (bpmp_t234 || bpmp_t238 || bpmp_th500)
-  * * Initiators: CCPLEX
-  * * Targets: BPMP
-  * * Request Payload: N/A
-@@ -2139,7 +2139,7 @@ struct mrq_emc_dvfs_emchub_response {
- } BPMP_ABI_PACKED;
- 
- /** @} EMC */
--/** @endcond (bpmp_t234 || bpmp_t239 || bpmp_th500) */
-+/** @endcond (bpmp_t234 || bpmp_t238 || bpmp_th500) */
- 
- /**
-  * @ingroup MRQ_Codes
-@@ -2147,7 +2147,7 @@ struct mrq_emc_dvfs_emchub_response {
-  * @brief Set EMC display RFL handshake mode of operations
-  *
-  * * Platforms: T234 onwards
-- * @cond (bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @cond (bpmp_t234 || bpmp_t238 || bpmp_th500)
-  * * Initiators: CCPLEX
-  * * Targets: BPMP
-  * * Request Payload: @ref mrq_emc_disp_rfl_request
-@@ -2184,7 +2184,7 @@ struct mrq_emc_disp_rfl_request {
- } BPMP_ABI_PACKED;
- 
- /** @} EMC */
--/** @endcond (bpmp_t234 || bpmp_t239 || bpmp_th500) */
-+/** @endcond (bpmp_t234 || bpmp_t238 || bpmp_th500) */
- 
- /**
-  * @ingroup MRQ_Codes
-@@ -2192,7 +2192,7 @@ struct mrq_emc_disp_rfl_request {
-  * @brief bwmgr requests
-  *
-  * * Platforms: T234 onwards
-- * @cond (bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @cond (bpmp_t234 || bpmp_t238 || bpmp_th500)
-  * * Initiators: CCPLEX
-  * * Targets: BPMP
-  * * Request Payload: @ref mrq_bwmgr_request
-@@ -2299,7 +2299,7 @@ struct mrq_bwmgr_response {
- } BPMP_ABI_PACKED;
- 
- /** @} BWMGR */
--/** @endcond (bpmp_t234 || bpmp_t239 || bpmp_th500) */
-+/** @endcond (bpmp_t234 || bpmp_t238 || bpmp_th500) */
- 
- /**
-  * @ingroup MRQ_Codes
-@@ -2307,7 +2307,7 @@ struct mrq_bwmgr_response {
-  * @brief bpmp-integrated bwmgr requests
-  *
-  * * Platforms: T234 onwards
-- * @cond (bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @cond (bpmp_t234 || bpmp_t238 || bpmp_th500)
-  * * Initiators: CCPLEX
-  * * Targets: BPMP
-  * * Request Payload: @ref mrq_bwmgr_int_request
-@@ -2445,7 +2445,7 @@ struct mrq_bwmgr_int_response {
- } BPMP_ABI_PACKED;
- 
- /** @} BWMGR_INT */
--/** @endcond (bpmp_t234 || bpmp_t239 || bpmp_th500) */
-+/** @endcond (bpmp_t234 || bpmp_t238 || bpmp_th500) */
- 
- /**
-  * @ingroup MRQ_Codes
-@@ -2453,7 +2453,7 @@ struct mrq_bwmgr_int_response {
-  * @brief ISO client requests
-  *
-  * * Platforms: T234 onwards
-- * @cond (bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @cond (bpmp_t234 || bpmp_t238 || bpmp_th500)
-  * * Initiators: CCPLEX
-  * * Targets: BPMP
-  * * Request Payload: @ref mrq_iso_client_request
-@@ -2636,7 +2636,7 @@ struct mrq_iso_client_response {
- } BPMP_ABI_PACKED;
- 
- /** @} ISO_CLIENT */
--/** @endcond (bpmp_t234 || bpmp_t239 || bpmp_th500) */
-+/** @endcond (bpmp_t234 || bpmp_t238 || bpmp_th500) */
- 
- /**
-  * @ingroup MRQ_Codes
-@@ -2644,7 +2644,7 @@ struct mrq_iso_client_response {
-  * @brief CPU freq. limits in ndiv
-  *
-  * * Platforms: T194 onwards
-- * @cond (bpmp_t194 || bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @cond (bpmp_t194 || bpmp_t234 || bpmp_t238 || bpmp_th500)
-  * * Initiators: CCPLEX
-  * * Targets: BPMP
-  * * Request Payload: @ref mrq_cpu_ndiv_limits_request
-@@ -2678,7 +2678,7 @@ struct mrq_cpu_ndiv_limits_response {
- } BPMP_ABI_PACKED;
- 
- /** @} CPU */
--/** @endcond (bpmp_t194 || bpmp_t234 || bpmp_t239 || bpmp_th500) */
-+/** @endcond (bpmp_t194 || bpmp_t234 || bpmp_t238 || bpmp_th500) */
- 
- /**
-  * @ingroup MRQ_Codes
-@@ -2911,7 +2911,7 @@ union mrq_ringbuf_console_bpmp_to_host_response {
-  * @brief Set a strap value controlled by BPMP
-  *
-  * * Platforms: T194 onwards
-- * @cond (bpmp_t194 || bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @cond (bpmp_t194 || bpmp_t234 || bpmp_t238 || bpmp_th500)
-  * * Initiators: CCPLEX
-  * * Targets: BPMP
-  * * Request Payload: @ref mrq_strap_request
-@@ -2949,7 +2949,7 @@ struct mrq_strap_request {
- } BPMP_ABI_PACKED;
- 
- /** @} Strap */
--/** @endcond (bpmp_t194 || bpmp_t234 || bpmp_t239 || bpmp_th500) */
-+/** @endcond (bpmp_t194 || bpmp_t234 || bpmp_t238 || bpmp_th500) */
- 
- /**
-  * @ingroup MRQ_Codes
-@@ -2957,7 +2957,7 @@ struct mrq_strap_request {
-  * @brief Perform a UPHY operation
-  *
-  * * Platforms: T194 onwards
-- * @cond (bpmp_t194 || bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @cond (bpmp_t194 || bpmp_t234 || bpmp_t238 || bpmp_th500)
-  * * Initiators: CCPLEX
-  * * Targets: BPMP
-  * * Request Payload: @ref mrq_uphy_request
-@@ -2997,23 +2997,23 @@ struct cmd_uphy_margin_status_response {
- } BPMP_ABI_PACKED;
- 
- struct cmd_uphy_ep_controller_pll_init_request {
--	/** @brief EP controller number, T194 valid: 0, 4, 5; T234 valid: 5, 6, 7, 10; T239 valid: 0 */
-+	/** @brief EP controller number, T194 valid: 0, 4, 5; T234 valid: 5, 6, 7, 10; T238 valid: 0 */
- 	uint8_t ep_controller;
- } BPMP_ABI_PACKED;
- 
- struct cmd_uphy_pcie_controller_state_request {
--	/** @brief PCIE controller number, T194 valid: 0-4; T234 valid: 0-10; T239 valid: 0-3 */
-+	/** @brief PCIE controller number, T194 valid: 0-4; T234 valid: 0-10; T238 valid: 0-3 */
- 	uint8_t pcie_controller;
- 	uint8_t enable;
- } BPMP_ABI_PACKED;
- 
- struct cmd_uphy_ep_controller_pll_off_request {
--	/** @brief EP controller number, T194 valid: 0, 4, 5; T234 valid: 5, 6, 7, 10; T239 valid: 0 */
-+	/** @brief EP controller number, T194 valid: 0, 4, 5; T234 valid: 5, 6, 7, 10; T238 valid: 0 */
- 	uint8_t ep_controller;
- } BPMP_ABI_PACKED;
- 
- struct cmd_uphy_display_port_init_request {
--	/** @brief DisplayPort link rate, T239 valid: 1620, 2700, 5400, 8100, 2160, 2430, 3240, 4320, 6750 */
-+	/** @brief DisplayPort link rate, T238 valid: 1620, 2700, 5400, 8100, 2160, 2430, 3240, 4320, 6750 */
- 	uint16_t link_rate;
- 	/** @brief 1: lane 0; 2: lane 1; 3: lane 0 and 1 */
- 	uint16_t lanes_bitmap;
-@@ -3084,7 +3084,7 @@ struct mrq_uphy_response {
- } BPMP_ABI_PACKED;
- 
- /** @} UPHY */
--/** @endcond (bpmp_t194 || bpmp_t234 || bpmp_t239 || bpmp_th500) */
-+/** @endcond (bpmp_t194 || bpmp_t234 || bpmp_t238 || bpmp_th500) */
- 
- /**
-  * @ingroup MRQ_Codes
-@@ -3092,12 +3092,12 @@ struct mrq_uphy_response {
-  * @brief Perform a frequency monitor configuration operations
-  *
-  * * Platforms: T194 onwards
-- * @cond (bpmp_t194 || bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @cond (bpmp_t194 || bpmp_t234 || bpmp_t238 || bpmp_th500)
-  * * Initiators: CCPLEX
-  * * Targets: BPMP
-  * * Request Payload: @ref mrq_fmon_request
-  * * Response Payload: @ref mrq_fmon_response
-- * @endcond (bpmp_t194 || bpmp_t234 || bpmp_t239 || bpmp_th500)
-+ * @endcond (bpmp_t194 || bpmp_t234 || bpmp_t238 || bpmp_th500)
-  *
-  * @addtogroup FMON
-  * @{
--- 
-2.52.0
+It is really hard, but perhaps the most elegant solution would be to
+allow the group members to have unique iommu domains by
+dis-ambiguating the 'grouping for aliasing' and 'grouping for ACS'
+cases. Then the portdrv can stay on its DMA domain and everything
+keeps working for it. That sounds like a monster project...
 
+Jason
 
