@@ -4,94 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397AAFC5926
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E832FC591F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 10:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3WEZrYfla4xz+1nx4sbFXm09bsKMdAQd/62PrBV4VdQ=; b=eOGAXQGSB1nc8l3M3KnCe6T6HV
-	A8YkhD/3gqBv8aMjwZXJxVILkHris3lRK5h7COzJly0s+Zf+AJmnpelhjnhbw4f/hxn22N2V3S5vg
-	RmShQKSaGyecTJcsV2MljAzmrCdjLnlQWJo18Ob64XJbtrZkOlhyXnkU4NKTXwGGb2bHEEO/PVzhR
-	RGckbqpjDBD64UPYgG9eHNy5/HmAKQp0NTS9+fB/1NGZ8Q39qfjNb19q+eq/XV/iXt3U1G5mFvQjJ
-	UwR3gb9BUUAU1DBhwnog1/mAUHW7azwxLH4T4EVFKgH7N9kevgKif6tZ//pMkcsPIRXR9bHBn/ZXJ
-	K0fkqF9w==;
+	bh=sm64a9O9rK4Ai47DZclEUW07jSoi+FnNST7teOkGChg=; b=elKiTRZnw7TDuxz3x9uka2kt9h
+	7UUrai0qTbCn4pRta0k+N4DRJGGwthiG0FO+R8YxcQcpPKP55L89UOirFox6T0gqZm+upQBCqgiyi
+	Hx1amqYeFKnRBPv+2Jyzo5oRs/VJjf2wLppCK0QxprR1wgA71NvVNb1UBMqTCp6i5i+C44SzCoSHH
+	zuCr0BOWEtYZTyPu4AkRlY/m7xzyj/GXfSSM7z6HNpeQABovwsLCfPit69CJQ6DZVVSH4TIvAQQBZ
+	ksHitWCcCRd3VYgQMPeqa/H9zjLo/jFflz59Yd708pF+hFhXQ2bEukbxtCGe/GyRv3K5FkshR6D5x
+	UPyU7vjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYsH-00000005wre-0hEq;
-	Thu, 26 Feb 2026 10:45:41 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vvYXX-00000005u06-2mZy;
+	Thu, 26 Feb 2026 10:24:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvYsF-00000005wrD-0iIC;
-	Thu, 26 Feb 2026 10:45:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772102736;
-	bh=6YFT7Dv9/RPthcEUnhhwy5zDoUaHap7U9kpRpUeIPV4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aOKhl1gYmC58Q5XnPaaVFV4AX+HRZb/FaZT8kvMrbAX4ocU8UvOwkOrmxuMbZExjm
-	 q/5pxtHOPqwZtl4qTw/eJkvwmwu5Yj9BE8qGvk6kr1AVqhRzDERERpxn0XgjJTSvtj
-	 wPWqCgfmYc2RdUxfhGerzWAUOPfTrzvqV1AHbpTXLngoKvpWhap3qPd5vgpOjw+QmD
-	 jnx5GXl85lesOX+SfuCKuFHcINonNKENolDlEjaEzUzEdf6A2Y+z2QRqnjOM6Ck3Ao
-	 xcyP/cF9XTE1tbDfDSOKNbv0yQ8lZjCVnr0uv25vTWPWTLA0Vw3Efc6/I3SM5fQhuC
-	 zmAai5oTQnjcg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6C83017E0029;
-	Thu, 26 Feb 2026 11:45:35 +0100 (CET)
-Message-ID: <84f22f00-e3eb-4ea5-999e-260c81f29338@collabora.com>
-Date: Thu, 26 Feb 2026 11:45:34 +0100
+	id 1vvYXT-00000005tyt-3a4f
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Feb 2026 10:24:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 12BED443CB;
+	Thu, 26 Feb 2026 10:24:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E9D6C19424;
+	Thu, 26 Feb 2026 10:24:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772101449;
+	bh=P8zq4XL1vIHvWaTfBf9OJPokXFV2/Uw/qIckm/L5wQg=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=rFFaOw5lZ5fOy3yVkc9gRviWvSQf3yiFW5Ja1Z5f361kd6d748MSq/D2jCcH8W4Pt
+	 56n/U/sPWlvY5nRBNZhV64ltIJMTNVzTwz3p56v+C/rqaOjv+ubQMmHxt2cPYxAvar
+	 xIOsjuLuJWvFVOjwnZ1PuqU8u66EuiIjnQhMPYntSZblcbTS70HtPK/wmKZgdhk0OS
+	 rfza2Gk9kVIM3FKCpnCaoEQCdSnptd5ZAYGm+xsESgw52FFtP1FEf8Hv6Hsan88fnt
+	 uaYS4OjebMizTiqrmNJgwpLFCa24MXX0tFp3Bo61yjBMZ6v2Edsbs7QrW/UpHnEbVp
+	 4nnH80O586DwA==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id DD5D3F4006A;
+	Thu, 26 Feb 2026 05:24:07 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Thu, 26 Feb 2026 05:24:07 -0500
+X-ME-Sender: <xms:Rx-gaXkDrx5pnznR-SNMQS1tYTFTDjDVzc2UVuufzpa3L83PXaWj2A>
+    <xme:Rx-gaVoEvkp6raOOwqQWPDa0cH-Ob-gPQix5xIzkuQVQm6h-NQbdzrS1pMcsoN3Ia
+    -kZBU3FrMUKRHOIg7YnLpvy204Tr5tobrq5gruzze2vMtko18K1InM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeehjeekucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
+    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
+    htthgvrhhnpeekvdffkefhgfegveekfedtieffhfelgeetiedvieffhfekfeeikeetueeg
+    teetteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
+    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghuthhhphgv
+    rhhsohhnrghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrhgusgeppe
+    hkvghrnhgvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghpthhtohep
+    feeipdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegsphesrghlihgvnhekrdguvg
+    dprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghp
+    thhtohepmhhpvgesvghllhgvrhhmrghnrdhiugdrrghupdhrtghpthhtohepughmihhtrh
+    ihrdhkrghsrghtkhhinhesghhmrghilhdrtghomhdprhgtphhtthhopehnphhighhgihhn
+    sehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrhhgvgeshhgrlhhlhihnrdgtohhmpd
+    hrtghpthhtoheprhhosggvrhhtohdrshgrshhsuheshhhurgifvghirdgtohhmpdhrtghp
+    thhtoheprhhosggvrhhtohdrshgrshhsuheshhhurgifvghitghlohhuugdrtghomhdprh
+    gtphhtthhopegurghvvgdrhhgrnhhsvghnsehinhhtvghlrdgtohhm
+X-ME-Proxy: <xmx:Rx-gaceSkD7L3hUQ-QIntX5c8SF2UJvuNnlnCMg5x0km8JqIId1NUw>
+    <xmx:Rx-gaXnaIY1-tJR3H2eKYjQqxgSwsae5h1FvMCQzz1XTnwkXn4A87w>
+    <xmx:Rx-gaWo6YeaJZds-Per8yiexkNYiocIFKlSdVrZEta5R-DmtVqRepA>
+    <xmx:Rx-gaU9JdnIBR33acIHa5vRJ_FAVN8423onO6PDBDHqIfNIXMgTbhw>
+    <xmx:Rx-gaS0UmRYHqy-FoG7gumIna3Ay9Z737XOXqgkPGLVVt4wqDB4deV7_>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id AE587700065; Thu, 26 Feb 2026 05:24:07 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 16/23] scsi: ufs: mediatek: Clean up logging prints
-To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
- "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>,
- =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
- "kishon@kernel.org" <kishon@kernel.org>,
- "James.Bottomley@hansenpartnership.com"
- <James.Bottomley@hansenpartnership.com>,
- "bvanassche@acm.org" <bvanassche@acm.org>,
- =?UTF-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
- <Chaotian.Jing@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
- "nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
- "vkoul@kernel.org" <vkoul@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "avri.altman@wdc.com" <avri.altman@wdc.com>,
- "broonie@kernel.org" <broonie@kernel.org>,
- "martin.petersen@oracle.com" <martin.petersen@oracle.com>
-Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
+X-ThreadId: A6OHCiXwHjx-
+Date: Thu, 26 Feb 2026 11:23:47 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Mimi Zohar" <zohar@linux.ibm.com>
+Cc: "Coiby Xu" <coxu@redhat.com>, "Dave Hansen" <dave.hansen@intel.com>,
+ linux-integrity@vger.kernel.org, "Heiko Carstens" <hca@linux.ibm.com>,
+ "Roberto Sassu" <roberto.sassu@huaweicloud.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Christian Borntraeger" <borntraeger@linux.ibm.com>,
+ "Sven Schnelle" <svens@linux.ibm.com>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+ "H . Peter Anvin" <hpa@zytor.com>,
+ "Roberto Sassu" <roberto.sassu@huawei.com>,
+ "Dmitry Kasatkin" <dmitry.kasatkin@gmail.com>,
+ "Eric Snowberg" <eric.snowberg@oracle.com>,
+ "Paul Moore" <paul@paul-moore.com>, "James Morris" <jmorris@namei.org>,
+ "Serge E. Hallyn" <serge@hallyn.com>,
+ "Jarkko Sakkinen" <jarkko@kernel.org>,
+ "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
  <linux-arm-kernel@lists.infradead.org>,
- "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- "kernel@collabora.com" <kernel@collabora.com>
-References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
- <20260216-mt8196-ufs-v7-16-b5f2907c6da7@collabora.com>
- <c333898413d249c017430d4ae98bc7be3bf33a64.camel@mediatek.com>
- <2575185.irdbgypaU6@workhorse>
- <f0e97a38-a11b-4e69-902a-e0ccd0dc4540@collabora.com>
- <259b24885e5e721ae562d27dd761b02e6a68c971.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <259b24885e5e721ae562d27dd761b02e6a68c971.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+ "open list" <linux-kernel@vger.kernel.org>,
+ "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
+ <linuxppc-dev@lists.ozlabs.org>,
+ "open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>,
+ "open list:EXTENSIBLE FIRMWARE INTERFACE (EFI)"
+ <linux-efi@vger.kernel.org>,
+ "open list:SECURITY SUBSYSTEM" <linux-security-module@vger.kernel.org>,
+ "open list:KEYS/KEYRINGS_INTEGRITY" <keyrings@vger.kernel.org>
+Message-Id: <2115ea47-9a9f-4718-8531-4a9c2067899b@app.fastmail.com>
+In-Reply-To: <ad471c33eeb9e21c49ac81032dc64555a2fb816f.camel@linux.ibm.com>
+References: <20260115004328.194142-1-coxu@redhat.com>
+ <20260115004328.194142-2-coxu@redhat.com>
+ <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
+ <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
+ <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
+ <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
+ <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
+ <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
+ <aW2i3yacr5TvWU-m@Rk>
+ <1a0b6e5601a673a81f8823de0815f92b7afbeb60.camel@linux.ibm.com>
+ <CAMj1kXFBMSEdRL8FotASbQO3dcfNG0bpp9Vnm5JPn-yjyDr=GA@mail.gmail.com>
+ <ad471c33eeb9e21c49ac81032dc64555a2fb816f.camel@linux.ibm.com>
+Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot integrity-wide
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_024539_501159_D7FB9098 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20260226_022413_388580_6BCFE08E 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,69 +150,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 26/02/26 08:00, Peter Wang (王信友) ha scritto:
-> On Wed, 2026-02-25 at 14:18 +0100, AngeloGioacchino Del Regno wrote:
->>> Depends on your view of what's useful information for the user.
->>>
->>> I can change both of these back to _info if I have to send out a
->>> next
->>> revision, just to get this through though.
->>>
->>
->> Definitely don't change that back to dev_info() as this is debugging
->> information
->> that spams the kernel log for no reason.
->>
->> This has to be dev_dbg().
->>
->> Regards,
->> Angelo
->>
->>>
-> 
-> Hi AngeloGioacchino, Nicolas,
-> 
-> At least, "device reset done" is important information that
-> users would care about, and it should not spam the kernel log.
-> You wouldn't expect device resets to occur repeatedly, would you?
-> 
 
-Sorry Peter, but I'd argue that the users don't care about how much and when
-their UFS device resets. Users just want to use a device, without caring
-about any implementation detail.
-The spirit is: "radio silence as long as everything works good".
+On Wed, 25 Feb 2026, at 01:03, Mimi Zohar wrote:
+> On Wed, 2026-01-21 at 17:25 +0100, Ard Biesheuvel wrote:
+>> On Wed, 21 Jan 2026 at 16:41, Mimi Zohar <zohar@linux.ibm.com> wrote:
+>> > 
+>> > On Mon, 2026-01-19 at 12:04 +0800, Coiby Xu wrote:
+>> > 
+>> > > diff --git a/security/integrity/ima/Kconfig b/security/integrity/ima/Kconfig
+>> > > index 976e75f9b9ba..5dce572192d6 100644
+>> > > --- a/security/integrity/ima/Kconfig
+>> > > +++ b/security/integrity/ima/Kconfig
+>> > > @@ -311,6 +311,7 @@ config IMA_QUEUE_EARLY_BOOT_KEYS
+>> > >   config IMA_SECURE_AND_OR_TRUSTED_BOOT
+>> > >          bool
+>> > >          depends on IMA_ARCH_POLICY
+>> > > +       depends on INTEGRITY_SECURE_BOOT
+>> > > 
+>> > > 
+>> > > Another idea is make a tree-wide arch_get_secureboot i.e. to move
+>> > > current arch_ima_get_secureboot code to arch-specific secure boot
+>> > > implementation. By this way, there will no need for a new Kconfig option
+>> > > INTEGRITY_SECURE_BOOT. But I'm not sure if there is any unforeseen
+>> > > concern.
+>> > 
+>> > Originally basing IMA policy on the secure boot mode was an exception.  As long
+>> > as making it public isn't an issue any longer, this sounds to me.  Ard, Dave, do
+>> > you have any issues with replacing arch_ima_get_secureboot() with
+>> > arch_get_secureboot()?
+>> 
+>> I don't see an issue with that. If there is a legitimate need to
+>> determine this even if IMA is not enabled, then this makes sense.
+>
+> Ard, Dave -
+>
+> FYI, Coiby posted v3 of this patch set[1], which is queued in the next-
+> integrity-testing branch[2].
+>
+> [1]
+> https://lore.kernel.org/linux-integrity/20260213012851.2532722-1-coxu@redhat.com/
+>
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/zohar/linux-integrity.git/
+>
 
-Power users might want to check the kernel log in a problematic scenario to
-seek for a message that says that "something went horribly wrong", but other
-than developers, nobody cares about when UFS resets.
-
- From a developer standpoint, I do agree with you in that we do *not* want to
-see device resets occurring repeatedly, but we're talking about a user here.
-
-See it like this... imagine if all of the device drivers in the Linux kernel
-would say "device reset done": how many devices are present in one SoC (of
-course, ignoring subdevices on a board)?
-
-Of all those many devices, if all of them would print a message saying that
-their reset is done (and operation is ok), the kernel log would get quite a
-bit clogged, you'd need to have a bigger RAM carveout just for .. well, the
-kernel log itself, and then you'd have to grep the log, hoping to find the
-one single line that helps you finding an issue that you're having.
-
-This is the reason why keeping any message that is not exactly a *single*
-indication of an error (so, an actual issue) as a dev_dbg() is a sensible
-thing to do (and of course, with dynamic debug in the kernel, you can always
-activate that on-the-fly without recompiling to verify functionality should
-you have any immediate doubt).
-
-So while I agree about your reasons, I very strongly disagree about having
-this message as a dev_info(), nor anything else that is not dev_dbg() really.
-
-Regards,
-Angelo
-
-> Thanks
-> Peter
-> 
+Ack. Looks fine to me.
 
 
