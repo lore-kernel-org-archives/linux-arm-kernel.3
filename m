@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E835FC5931
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A843FC5932
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Feb 2026 11:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xbh1MpTYM6hT6+hxx5B3RT1R6a3HmEw4rZDwEZ7mk8M=; b=mve4qGV+fyMrgYY9VMOiKSxc0a
-	2bwLkm57BYXZJ6xjqEKX2QXhM7vsp+WslT/z1gMnT+vANTFK9PPwkXmmFq1QC2Scg2ksN+Mjgp/IH
-	IOZ7lIc+yt2b84dxwpNSY0mCMV/HIj5B+HQqwEuf8h3ASud+8953lbMb4hwRKfUN5jBG01fq1F78y
-	a6qfJPgpNMhZ5kG9g3LmdHr0GF8V+jbhUmX8mWTXjSJbwKEshaI/yk6ZshktmTfqSlthTlmmhm1Ch
-	lG7tyro6zJoFBnAA5BTeLC8I+UEM0WiagkrU+n/EbwTZL4Bj7NUehW5XLiVNuEkJCeKqbQHr4x4cU
-	OKf+dfaA==;
+	bh=Ly8Mp53XvKsmMAM8cFCNgfVz0arDs7H3GKyuDBQRIk0=; b=a+nsk4RorYTdEt/+BDWuwclhUa
+	mCroPpDuz2DjNaA3RjaTeJPuH7tCub19dnd3e3XnCey9J7tHMsF/N97VpsH7NHqIL/TnZ9ymUtskR
+	PJuqS+pzCRr5XKcepoSjjwy9aeBpjLfWZWrOicOVJ10HqVSwO4rwqi0Svl8WCuZwP2V/9w5JkJBg8
+	2+KDqdO+OrTvnfceTtOOgwHM3OS5fMKYnYYq3km4qLgxR0Pq0uPm9UstdsNCJfrTaAr7INCfJOFWr
+	Sd7P+YTU4kgKdmhUfju3v9N63ogHv3LoJOSmQe08MuI0r0ucumyTErGQS5jhY5BXJJRYxEBJ2yuhp
+	VSIN3CBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZNY-000000061N3-18Tf;
-	Thu, 26 Feb 2026 11:18:00 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZNU-000000061K9-2YQZ
+	id 1vvYZu-00000005uLB-07V7;
+	Thu, 26 Feb 2026 10:26:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvYZr-00000005uKU-35nu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Feb 2026 11:17:58 +0000
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1772104672;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xbh1MpTYM6hT6+hxx5B3RT1R6a3HmEw4rZDwEZ7mk8M=;
-	b=bCjSuYcn/+ZM1ceCTKV3Ga+muYNyIOwmEu9ixE9zpPGMUEP/WdYs84JikiNZYLiUV2xAeq
-	2j+4RE1ANruUZdmFlWtuwmcfiM34D3iDZkYMYTWSuqDA6bUJ8wM4HIi6YzZWH+kOouvziL
-	l0EOavi/LX+Q3peEu9++CpZxarC2PiNhy1Z/D8eWsLHslkxUYFivmz2np9EMMNRFxJU+n7
-	19I29qKlEmXzEyNX/sg09nYWEpAQfyuYaxTfBcOVyqmbXuKipCzRSvIVRwrFZiqZ83XIq6
-	AB4H1hoYPMDIdpaxbJpBPHN4ZVbUYAba132vqKWS+vUBdqIEsjpqQO9XXCz41g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1772104672;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xbh1MpTYM6hT6+hxx5B3RT1R6a3HmEw4rZDwEZ7mk8M=;
-	b=IaaLHdq8eaNC3lOvcLRaB9n0FA9t7MTAJqHT24znFXGfuhuv/vJsfIYoVqjET/stusudro
-	LGInj8gai3OUITBw==
-To: linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev
-Cc: Russell King <linux@armlinux.org.uk>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"Yadi.hu" <yadi.hu@windriver.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH v5 1/2] ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
-Date: Thu, 26 Feb 2026 12:17:41 +0100
-Message-ID: <20260226111742.3598421-2-bigeasy@linutronix.de>
-In-Reply-To: <20260226111742.3598421-1-bigeasy@linutronix.de>
-References: <20260226111742.3598421-1-bigeasy@linutronix.de>
+	Thu, 26 Feb 2026 10:26:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4ABFC1516;
+	Thu, 26 Feb 2026 02:26:32 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2FF5B3F7BD;
+	Thu, 26 Feb 2026 02:26:34 -0800 (PST)
+Message-ID: <fd0d0075-a23d-4e15-9a9f-7a476f3296fb@arm.com>
+Date: Thu, 26 Feb 2026 10:26:25 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 26/41] arm_mpam: resctrl: Add monitor initialisation
+ and domain boilerplate
+To: Zeng Heng <zengheng4@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ linux-doc@vger.kernel.org
+References: <20260224175720.2663924-1-ben.horgan@arm.com>
+ <20260224175720.2663924-27-ben.horgan@arm.com>
+ <d233d198-9c68-b32e-4a0f-73a9314bdedd@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <d233d198-9c68-b32e-4a0f-73a9314bdedd@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_031756_851102_A42B6E2A 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260226_022639_858816_DE544F7C 
+X-CRM114-Status: GOOD (  31.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +78,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Yadi.hu" <yadi.hu@windriver.com>
+Hi Zeng,
 
-A page fault from userland for a kernel address originates from from
-do_sect_fault() (!LPAE) or do_page_fault() and ends in __do_user_fault()
-by sending a signal.
+On 2/26/26 03:47, Zeng Heng wrote:
+> Hi Ben,
+> 
+> On 2026/2/25 1:57, Ben Horgan wrote:
+>> Add the boilerplate that tells resctrl about the mpam monitors that are
+>> available. resctrl expects all (non-telemetry) monitors to be on the
+>> L3 and
+>> so advertise them there and invent an L3 resctrl resource if required.
+>> The
+>> L3 cache itself has to exist as the cache ids are used as the domain
+>> ids.
+>>
+>> Bring the resctrl monitor domains online and offline based on the cpus
+>> they contain.
+>>
+>> Support for specific monitor types is left to later.
+>>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> New patch but mostly moved from the existing patches to
+>> separate the monitors from the controls and the boilerplate
+>> from the specific counters.
+>> Use l3->mon_capable in resctrl_arch_mon_capable() as
+>> resctrl_enable_mon_event() now returns a bool.
+>> ---
+>>   drivers/resctrl/mpam_internal.h |   7 ++
+>>   drivers/resctrl/mpam_resctrl.c  | 142 +++++++++++++++++++++++++++++---
+>>   2 files changed, 139 insertions(+), 10 deletions(-)
+>>
+> 
+> [...]
+> 
+>> @@ -922,6 +1000,20 @@ mpam_resctrl_alloc_domain(unsigned int cpu,
+>> struct mpam_resctrl_res *res)
+>>       } else {
+>>           pr_debug("Skipped control domain online - no controls\n");
+>>       }
+>> +
+>> +    if (resctrl_arch_mon_capable()) {
+>> +        mon_d = &dom->resctrl_mon_dom;
+>> +        mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, r->rid,
+>> &mon_d->hdr);
+>> +        mon_d->hdr.type = RESCTRL_MON_DOMAIN;
+>> +        err = resctrl_online_mon_domain(r, &mon_d->hdr);
+>> +        if (err)
+>> +            goto offline_ctrl_domain;
+>> +
+>> +        mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
+>> +    } else {
+>> +        pr_debug("Skipped monitor domain online - no monitors\n");
+>> +    }
+>> +
+>>       return dom;
+>>   
+> 
+> I noticed that resctrl_arch_mon_capable() only performs checks for L3
+> monitoring functionality. This leads to an issue on platforms that
+> include L2 monitoring capabilities, where the code incorrectly enters
+> this branch and triggers the following warning by
+> mpam_resctrl_domain_insert():
+> 
+> [   22.867070] ------------[ cut here ]------------
+> [   22.867073] WARNING: drivers/resctrl/mpam_resctrl.c:1495 at
+> mpam_resctrl_domain_insert+0x74/0x80, CPU#2: cpuhp/2/25
+> [   29.376035] Modules linked in:
+> [   29.379080] CPU: 2 UID: 0 PID: 25 Comm: cpuhp/2 Not tainted 7.0.0-
+> rc1-g4288ec146462 #30 PREEMPT
+> [   29.387853] Hardware name: To Be Filled By O.E.M. 183.0/To Be Filled
+> By O.E.M., BIOS 183.0 02/12/2026
+> [   29.397058] pstate: 61400009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS
+> BTYPE=--)
+> [   29.404007] pc : mpam_resctrl_domain_insert+0x74/0x80
+> [   29.409048] lr : mpam_resctrl_domain_insert+0x34/0x80
+> [   29.414088] sp : ffff8000876abc60
+>  ...
+> [   29.488625] Call trace:
+> [   29.491060]  mpam_resctrl_domain_insert+0x74/0x80 (P)
+> [   29.496100]  mpam_resctrl_online_cpu+0x2b4/0x428
+> [   29.500706]  mpam_cpu_online+0x274/0x298
+> [   29.504618]  cpuhp_invoke_callback+0x104/0x20c
+> [   29.509052]  cpuhp_thread_fun+0xa4/0x17c
+> [   29.512963]  smpboot_thread_fn+0x220/0x24c
+> [   29.517048]  kthread+0x120/0x12c
+> [   29.520265]  ret_from_fork+0x10/0x20
+> [   29.523830] ---[ end trace 0000000000000000 ]---
 
-Sending a signal requires to acquire sighand_struct::siglock which is a
-spinlock_t. On PREEMPT_RT spinlock_t becomes a sleeping spin lock which
-requires interrupts to be enabled. Since the calling context is user
-land, interrupts must have been enabled so it is fine to enable them in
-this case.
+Thanks for reporting this bug. It looks to be because resctrl_arch_mon_capable() is telling us if
+there is any mon capable resource when really what we want to know is if this resource is mon capable.
+The pattern occurs in a few places. Does this diff help?
 
-Enable interrupts in do_kernel_address_page_fault() unconditional in the
-user_mode case().
-Enable interrupts in do_sect_fault() if they were previously enabled.
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index 694ea8548a05..19b306017845 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -1543,7 +1543,7 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 	if (!dom)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	if (resctrl_arch_alloc_capable()) {
++	if (r->alloc_capable) {
+ 		dom->ctrl_comp = ctrl_comp;
+ 
+ 		ctrl_d = &dom->resctrl_ctrl_dom;
+@@ -1558,7 +1558,7 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 		pr_debug("Skipped control domain online - no controls\n");
+ 	}
+ 
+-	if (resctrl_arch_mon_capable()) {
++	if (r->mon_capable) {
+ 		struct mpam_component *any_mon_comp;
+ 		struct mpam_resctrl_mon *mon;
+ 		enum resctrl_event_id eventid;
+@@ -1603,7 +1603,7 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 	return dom;
+ 
+ offline_ctrl_domain:
+-	if (resctrl_arch_alloc_capable()) {
++	if (r->alloc_capable) {
+ 		mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+ 		resctrl_offline_ctrl_domain(r, ctrl_d);
+ 	}
+@@ -1671,6 +1671,7 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
+ 	guard(mutex)(&domain_list_lock);
+ 	for_each_mpam_resctrl_control(res, rid) {
+ 		struct mpam_resctrl_dom *dom;
++		struct rdt_resource *r = &res->resctrl_res;
+ 
+ 		if (!res->class)
+ 			continue;	// dummy_resource;
+@@ -1679,12 +1680,12 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
+ 		if (!dom) {
+ 			dom = mpam_resctrl_alloc_domain(cpu, res);
+ 		} else {
+-			if (resctrl_arch_alloc_capable()) {
++			if (r->alloc_capable) {
+ 				struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
+ 
+ 				mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
+ 			}
+-			if (resctrl_arch_mon_capable()) {
++			if (r->mon_capable) {
+ 				struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
+ 
+ 				mpam_resctrl_online_domain_hdr(cpu, &mon_d->hdr);
+@@ -1712,6 +1713,7 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+ 		struct rdt_l3_mon_domain *mon_d;
+ 		struct rdt_ctrl_domain *ctrl_d;
+ 		bool ctrl_dom_empty, mon_dom_empty;
++		struct rdt_resource *r = &res->resctrl_res;
+ 
+ 		if (!res->class)
+ 			continue;	// dummy resource
+@@ -1720,7 +1722,7 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+ 		if (WARN_ON_ONCE(!dom))
+ 			continue;
+ 
+-		if (resctrl_arch_alloc_capable()) {
++		if (r->alloc_capable) {
+ 			ctrl_d = &dom->resctrl_ctrl_dom;
+ 			ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+ 			if (ctrl_dom_empty)
+@@ -1729,7 +1731,7 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+ 			ctrl_dom_empty = true;
+ 		}
+ 
+-		if (resctrl_arch_mon_capable()) {
++		if (r->mon_capable) {
+ 			mon_d = &dom->resctrl_mon_dom;
+ 			mon_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
+ 			if (mon_dom_empty)
 
-[bigeasy: Initial patch/ report by Yadi. Maintained the patch and redid
-          the patch description since]
 
-Signed-off-by: Yadi.hu <yadi.hu@windriver.com>
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
- arch/arm/mm/fault.c | 4 ++++
- 1 file changed, 4 insertions(+)
+> 
+> 
+> To preserve the existing public interface of resctrl_arch_mon_capable(),
+> please consider the following approach:
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/
+> mpam_resctrl.c
+> index 694ea8548a05..b06a89494ff0 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -1563,6 +1563,10 @@ mpam_resctrl_alloc_domain(unsigned int cpu,
+> struct mpam_resctrl_res *res)
+>         if (resctrl_arch_mon_capable()) {
+>                 struct mpam_component *any_mon_comp;
+>                 struct mpam_resctrl_mon *mon;
+>                 enum resctrl_event_id eventid;
+> 
+> +               /* TODO: Only supports L3 monitor type currently. */
+> +               if (r->rid != RDT_RESOURCE_L3)
+> +                       return dom;
+> 
+> 
+> 
+> Best regards,
+> Zeng Heng
 
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index ed4330cc3f4e6..3f1c73269c126 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -270,6 +270,7 @@ do_kernel_address_page_fault(struct mm_struct *mm, unsi=
-gned long addr,
- 		 * while interrupts are still disabled, then send a SIGSEGV.
- 		 */
- 		harden_branch_predictor();
-+		local_irq_enable();
- 		__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
- 	} else {
- 		/*
-@@ -592,6 +593,9 @@ do_sect_fault(unsigned long addr, unsigned int fsr, str=
-uct pt_regs *regs)
- 	if (addr >=3D TASK_SIZE && user_mode(regs))
- 		harden_branch_predictor();
-=20
-+	if (interrupts_enabled(regs))
-+		local_irq_enable();
-+
- 	do_bad_area(addr, fsr, regs);
-=20
- 	return 0;
---=20
-2.51.0
+ 
+Thanks,
+
+Ben
 
 
