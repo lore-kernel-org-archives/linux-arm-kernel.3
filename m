@@ -4,54 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEF11039895
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 21:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8B210398B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 21:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q95YUMi1wDJhpqCpvyi7ZIMSbNgKAnCxNEvXSIETXQU=; b=XyFv4EJ6id1c38oGDkjnyuPBKQ
-	YyDg4IBroqN3hW9ZAM/o7gXVoFRsdnyOfdktRWiu7eHWwwqsEn3/Hl8t+eX2o2geTdEw7QGA0+mns
-	wu85fAio6MJqzV8MLZt5EWoquAidk7U93JL9859XClI5TqloePMeoI4qgeZKeBhe67B/Dx9nAdW+B
-	X73Kr2tkZ4Twfr2S5zoPLoGxOukrGD4TWvkiqv18gP5cFcFoqh03lO6JnfvmbduwXEi8tTTGGgBl4
-	7XLRhTa+xXRJwLbeaLRF6OGuhUSjgR/B0NB82b5x8Sx3sOrT9kWWPtaVy/MBLJ0L9JFQaVdfbBLHs
-	pI9ufqMA==;
+	bh=DwcB5eTjFNMeSWQM+K8UuvEpR7Ktkirq9D+Y+JTyV4s=; b=ZjL8LLlO6YpjwIYvxPI5jGeMZs
+	00uglBakOztLkxL2LuoQQdIjmXopmJJ/mqtQkFLufPZABsXKJRPhhCH3TPVfw+K6ZiUlDjO13wiIF
+	2hLteV8WPuCxBwHrFkpkFp/Y2TrtC+qyy+ruIsfysH9cHtZvwfV1GTEzS1yjOpo/dwEYXtZaqv1qJ
+	iAchHa2tcz9WpA3e/ZyUQAGz64O3tW09qbXxxczJTOxXIxErBkr2IRkOJ9sjH2fEDx1h0oGMbGoZM
+	xzgDy0dojF5RPs4QD/bZcdEfwxN6LS58ZUOogF1VgNYNn3rz5KVO2tOCJfK7v9ZxouhDHZQi9c4iH
+	5+mV6uLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw5GE-00000009Abx-3DCo;
-	Fri, 27 Feb 2026 21:20:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vw5Hp-00000009Am4-2s9L;
+	Fri, 27 Feb 2026 21:22:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw5GD-00000009Abr-0ck4
+	id 1vw5Hm-00000009AlN-0bDv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 21:20:33 +0000
+	Fri, 27 Feb 2026 21:22:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 934EB60054;
-	Fri, 27 Feb 2026 21:20:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21842C19423;
-	Fri, 27 Feb 2026 21:20:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6CF2043C4B;
+	Fri, 27 Feb 2026 21:22:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D22E0C116C6;
+	Fri, 27 Feb 2026 21:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772227231;
-	bh=TNqxRiX5fJGv1YfKVaxqgghtCHWX9+he4UxxuNIYStc=;
-	h=Date:From:To:Cc:Subject:From;
-	b=YXyvnwlZBfGI2tITrltKdLFIV8rm8GeA4E/mYjUe9QJcarC7ocC5GD3s4Y6zyidJC
-	 yuxBF2z9htFgX9CQ4FJmHdLKsOwSx+n/XIoY33BXDkqKAs7bGPDUpWo9E/labwIxU7
-	 1aojmbw6PNmReei8zCIvdGW9kB0mpoBXEnvc96rXVFY3XwNjie+O6MFEWVaPYgLF2G
-	 4OBULr7gZDUIFeMfSxFCva32SaGn2cfTyCYqlrWXO6CldpXKXqDmWEmp461hrjr9KW
-	 f3CA9sIWDuPQdpiObHi7RK+b65QejZFUzy/6ODSd5Faq+mSing7ipPIOr2zfFxoW5T
-	 yBpsJthJGPDdw==
-Date: Fri, 27 Feb 2026 21:20:26 +0000
+	s=k20201202; t=1772227329;
+	bh=lbmOvF2j4H2gM9f9E+jo9GT5XZZz8FGdqwqTpXMG4fI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AenEIsFCWc6WXPcDF5B6PhuzvHPP+0WZOmq0yCR8YrYKZtRKcgmiQY8y1aLEo8aFN
+	 CTX3Z5J5eB4kt1QfbDT20nshkL+XgnPnNBX2zymU9dqxSKhzmfvd7WgNbQ5GlQE5mL
+	 p7Nxm9CPlIPuD62DZlzdK8da64canH6RPMvx3DS+aAeS67nzSzsFopuAx8PAriw2CX
+	 JBjj+PBYolRueSnaWjbdRgQk87H4CEOGaptmUoc3QVd9hOl1H9ukWG7IP5OAfv/UI0
+	 i3es00DaYaEUKGlqhbsTNl1R47d14VKVFNjtmfIFG+D8hzQttU46ODDpPzNtQKvZek
+	 szQlCXdVTM+ng==
 From: Will Deacon <will@kernel.org>
-To: torvalds@linux-foundation.org
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@android.com
-Subject: [GIT PULL] arm64 fixes for -rc2
-Message-ID: <aaIKmlW2xm8EgoyV@willie-the-truck>
+To: kvmarm@lists.linux.dev
+Cc: mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Yabin Cui <yabinc@google.com>
+Subject: [PATCH v2 0/3] KVM: arm64: Fix SPE and TRBE nVHE world switch
+Date: Fri, 27 Feb 2026 21:21:32 +0000
+Message-ID: <20260227212136.7660-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_132210_205332_3C2DE496 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,86 +79,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+Hi folks,
 
-Please pull this batch of arm64 fixes for -rc2. The summary is in the
-tag but the diffstat is dominated by changes to our TLB invalidation
-errata handling and the introduction of a new GCS selftest to catch one
-of the issues that is fixed here relating to PROT_NONE mappings.
+This is version two of the patch that I originally sent here:
 
-There are still a few other issues being worked on, so you can expect
-another batch of fixes next week.
+  https://lore.kernel.org/r/20260216130959.19317-1-will@kernel.org
+
+Changes since v1 include:
+
+  * Add missing memory barriers and comments for each step
+  * Work around known CPU errata in TRBE draining / enabling sequences
+  * Fix SPE as well!
+  * Minor clean up to BRBE so that it smells the same as SPE and TRBE
+
+As before, I've not been able to test this as-is.
 
 Cheers,
 
 Will
 
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: James Clark <james.clark@linaro.org>
+Cc: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: Yabin Cui <yabinc@google.com>
+
 --->8
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+Will Deacon (3):
+  KVM: arm64: Disable TRBE Trace Buffer Unit when running in guest
+    context
+  KVM: arm64: Disable SPE Profiling Buffer when running in guest context
+  KVM: arm64: Don't pass host_debug_state to BRBE world-switch routines
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+ arch/arm64/include/asm/kvm_host.h  |   2 +
+ arch/arm64/kvm/hyp/nvhe/debug-sr.c | 118 +++++++++++++++++++++++------
+ arch/arm64/kvm/hyp/nvhe/switch.c   |   2 +-
+ 3 files changed, 96 insertions(+), 26 deletions(-)
 
-are available in the Git repository at:
+-- 
+2.53.0.473.g4a7958ca14-goog
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
-
-for you to fetch changes up to df6e4ab654dc482c1d45776257a62ac10e14086c:
-
-  arm64: topology: Fix false warning in counters_read_on_cpu() for same-CPU reads (2026-02-26 18:27:15 +0000)
-
-----------------------------------------------------------------
-arm64 fixes for -rc2
-
-- Fix cpufreq warning due to attempting a cross-call with interrupts
-  masked when reading local AMU counters.
-
-- Fix DEBUG_PREEMPT warning from the delay loop when it tries to access
-  per-cpu errata workaround state for the virtual counter.
-
-- Re-jig and optimise our TLB invalidation errata workarounds in
-  preparation for more hardware brokenness.
-
-- Fix GCS mappings to interact properly with PROT_NONE and to avoid
-  corrupting the pte on CPUs with FEAT_LPA2.
-
-- Fix ioremap_prot() to extract only the memory attributes from the
-  user pte and ignore all the other 'prot' bits.
-
-----------------------------------------------------------------
-Catalin Marinas (3):
-      arm64: gcs: Do not set PTE_SHARED on GCS mappings if FEAT_LPA2 is enabled
-      arm64: gcs: Honour mprotect(PROT_NONE) on shadow stack mappings
-      kselftest: arm64: Check access to GCS after mprotect(PROT_NONE)
-
-Marc Zyngier (1):
-      arm64: Fix sampling the "stable" virtual counter in preemptible section
-
-Mark Rutland (2):
-      arm64: tlb: Allow XZR argument to TLBI ops
-      arm64: tlb: Optimize ARM64_WORKAROUND_REPEAT_TLBI
-
-Sumit Gupta (1):
-      arm64: topology: Fix false warning in counters_read_on_cpu() for same-CPU reads
-
-Will Deacon (2):
-      arm64: io: Rename ioremap_prot() to __ioremap_prot()
-      arm64: io: Extract user memory type in ioremap_prot()
-
- arch/arm64/include/asm/io.h                        | 26 ++++++--
- arch/arm64/include/asm/pgtable-prot.h              |  3 -
- arch/arm64/include/asm/tlbflush.h                  | 63 ++++++++++--------
- arch/arm64/kernel/acpi.c                           |  2 +-
- arch/arm64/kernel/sys_compat.c                     |  2 +-
- arch/arm64/kernel/topology.c                       | 21 ++++--
- arch/arm64/kvm/hyp/nvhe/mm.c                       |  2 +-
- arch/arm64/kvm/hyp/nvhe/tlb.c                      |  8 +--
- arch/arm64/kvm/hyp/pgtable.c                       |  2 +-
- arch/arm64/kvm/hyp/vhe/tlb.c                       | 10 +--
- arch/arm64/lib/delay.c                             |  6 +-
- arch/arm64/mm/ioremap.c                            |  6 +-
- arch/arm64/mm/mmap.c                               | 12 +++-
- .../arm64/signal/testcases/gcs_prot_none_fault.c   | 76 ++++++++++++++++++++++
- 14 files changed, 179 insertions(+), 60 deletions(-)
- create mode 100644 tools/testing/selftests/arm64/signal/testcases/gcs_prot_none_fault.c
 
