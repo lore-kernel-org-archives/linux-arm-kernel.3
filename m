@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3F5FD531F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FC8FD5319
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/R2J51UoyPCadc/Pm8Qt+TaC7sLpOeizIXgFCmQh8ZQ=; b=DtoBoo8kFdwrH0SgjSpHleLpYu
-	9NDY13fETlRB5ansq+u2rKssWAKF6rLkWI49lgAG2m/9/xAXYwI1zMdGeN7hRkZkdlSQh7zgazEmF
-	KwPZwqBTAop4t0shOP7ZcwQYW7hBSsQ2iWBmHRlnxcyPfW4ZBApKGdBKHEydZ9dGmoG2dtdjrK7Tc
-	CM9g2ZVOxNd2uWkeMSI0tBJZn1OR21qNYrTcwm7Zz1bS7eiVheybqxK0ceGp8MkesI41PEAEPVIP+
-	cIgj8xHApBtCVGv7hdWSxo7RLL5L4KecgxUbmFSvgVEApFdaRQ4ZHev921OicetNC0XhQ8gEzuwAq
-	q5jLajrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=px5XieEPKmbuo9CrIiuS5zCR9teM+ZDzb7WZFA/ue1Q=; b=QgBdDG/Yjt3MdaF5UoLRvdPYrE
+	DUwyo8Nf5PmRPAhiOa2TDLfFotsoK8O4atXQgSZ/I7enF94TWvRkR9w4v/FJPZl62ZtknSsVoO2Rd
+	Ut7cMl6AcDnxoV3XDpw5KLdxXRd20hw86Cx4Z9kCzLu9VAzmJob8R4XPF7mXmiq05szRFU7EGHEox
+	OkOK3/uQjnXvv+xBOiS//IyhGTxvjAq+fq1qaIdyUx7RgWSZhx3vCp69U+/IaDcvyy9vyxKgwwR+2
+	Os7i26uLSBP4mmMHgWt08i/D2bb5oxiSl0Bbol5/TZroYIoW9md65j/TMm5LcjE9KwLqolWdcpJEF
+	p1byHR7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvuF2-000000088vH-048a;
-	Fri, 27 Feb 2026 09:34:36 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vvuGL-000000089Xi-3boR;
+	Fri, 27 Feb 2026 09:35:57 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvuF0-000000088u5-1JeX
+	id 1vvuGI-000000089VF-3P3E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 09:34:35 +0000
-Date: Fri, 27 Feb 2026 10:34:31 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1772184871;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/R2J51UoyPCadc/Pm8Qt+TaC7sLpOeizIXgFCmQh8ZQ=;
-	b=CGeabxmBw+/AZ7oTl4E2tz8AJVILisXZZ+HNXpb2gagxjIcuU2+QlmjVTBAFP3VTpXMqr+
-	W4LZp+Y98Z5CymhdlUDmIV64Kea7ln250JaQXXgOvmXr0ziVAGXOUhHjOQPW37tYikya19
-	ijGc3SnCUR0mMJA6wDzyZy7kzqN1z3+BsFswojH/kuj7OSLMqwIFbK91Wgzv2r0KNkXIpa
-	QVzGpfZ54UM3MZbDS6QpSoIR/3BuCpDmd6uAIGVpBtOFvmw2nxGO5fRDlL8UZCBRpaYRoy
-	sNf035yrsMm4QtLm60j1cvAUFKhO2cM/+nIq1+vGI+k7FW6Uj8XN0kGtxPVlVA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1772184871;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/R2J51UoyPCadc/Pm8Qt+TaC7sLpOeizIXgFCmQh8ZQ=;
-	b=RkiVfxGB7rsEx+NudL1Y/YXS7uzosxv9jyyl7qgxbgo9VIT5IDWFrH11EpmknzII7KIYCe
-	b8t8QbY2jBr8fVBw==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Christophe Leroy <chleroy@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
-Message-ID: <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de>
-References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de>
- <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de>
- <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com>
- <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com>
+	Fri, 27 Feb 2026 09:35:56 +0000
+Received: from [133.11.54.205] (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 61R9YgsP068326
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Fri, 27 Feb 2026 18:35:18 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=px5XieEPKmbuo9CrIiuS5zCR9teM+ZDzb7WZFA/ue1Q=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-ID:To:Subject:Date;
+        s=rs20250326; t=1772184918; v=1;
+        b=s5jjOGFrW9QHij3qAVZnKPHOFsghNeaW8zQT6IuwDs7t2PShZEQeXy33VCPfziRT
+         6+JLSEU28wP8EP+nDfodCUc7u0vjTX8JvWrUn7LjgiiAnrf2awCPPJ4igZ9E9R2u
+         EzJUyQp1USQYoeFg8Br9VmnI+LJ6k7aYUW0ouGDfIFavAUjllPQacOyDX5G7DkoZ
+         lYsPFUHKC4JAv4XTVx+zXs/TdwawYCujbocHIZMdP+UYxMwmL6t4OlqONRmNB6T+
+         LYR9C0XdtF0IdswVYWd/1UoXymFJy4NRNlQukRqsUNDU8239NEk5KQ7SxiYqV/Tk
+         F5cf5t2Hjd8Rd5pxcreQew==
+Message-ID: <c5e5d2b2-ee47-4241-b0c8-3099cd8e73cb@rsg.ci.i.u-tokyo.ac.jp>
+Date: Fri, 27 Feb 2026 18:34:40 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
+To: Oliver Upton <oupton@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu
+ <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+        linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20260225-hybrid-v3-0-46e8fe220880@rsg.ci.i.u-tokyo.ac.jp>
+ <20260225-hybrid-v3-1-46e8fe220880@rsg.ci.i.u-tokyo.ac.jp>
+ <aaA0gn9O8QAf9Gpu@kernel.org>
+ <fbcadab4-676b-44e4-8afa-b8bd095f8981@rsg.ci.i.u-tokyo.ac.jp>
+ <b81cbeb7-6541-4a1f-b08e-2b5c9ee66b69@rsg.ci.i.u-tokyo.ac.jp>
+ <aaDRtkdU85kULqwm@kernel.org>
+Content-Language: en-US
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <aaDRtkdU85kULqwm@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_013434_498031_852E9100 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20260227_013555_299975_FB5508B8 
+X-CRM114-Status: GOOD (  43.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,35 +89,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 09:58:35AM +0100, Arnd Bergmann wrote:
-> On Fri, Feb 27, 2026, at 09:51, Arnd Bergmann wrote:
-> > On Fri, Feb 27, 2026, at 07:57, Thomas Wei�schuh wrote:
-> >> If CONFIG_COMPAT_32BIT_TIME is disabled then the vDSO should not
-> >> provide any 32-bit time related functionality. This is the intended
-> >> effect of the kconfig option and also the fallback system calls would
-> >> also not be implemented.
-> >>
-> >> Currently the kconfig option does not affect the gettimeofday() syscall,
-> >> so also keep that in the vDSO.
-> >>
-> >> Signed-off-by: Thomas Wei�schuh <thomas.weissschuh@linutronix.de>
-> >
-> > Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+
+
+On 2026/02/27 8:05, Oliver Upton wrote:
+> On Thu, Feb 26, 2026 at 11:47:54PM +0900, Akihiko Odaki wrote:
+>> On 2026/02/26 23:43, Akihiko Odaki wrote:
+>>> On 2026/02/26 20:54, Oliver Upton wrote:
+>>>> Hi Akihiko,
+>>>>
+>>>> On Wed, Feb 25, 2026 at 01:31:15PM +0900, Akihiko Odaki wrote:
+>>>>> @@ -629,6 +629,8 @@ void kvm_arch_vcpu_load(struct kvm_vcpu
+>>>>> *vcpu, int cpu)
+>>>>>            kvm_vcpu_load_vhe(vcpu);
+>>>>>        kvm_arch_vcpu_load_fp(vcpu);
+>>>>>        kvm_vcpu_pmu_restore_guest(vcpu);
+>>>>> +    if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
+>>>>> &vcpu- >kvm->arch.flags))
+>>>>> +        kvm_make_request(KVM_REQ_CREATE_PMU, vcpu);
+>>>>
+>>>> We only need to set the request if the vCPU has migrated to a different
+>>>> PMU implementation, no?
+>>>
+>>> Indeed. I was too lazy to implement such a check since it won't affect
+>>> performance unless the new feature is requested, but having one may be
+>>> still nice.
 > 
-> Actually, I need to revise that. I think gettimeofday() should be
-> guarded by CONFIG_COMPAT_32BIT_TIME for both the syscall and the
-> vdso. Looking back at the history, I see that we added the #ifdef
-> for each syscall we modified to have both time32 and time64 version.
+> I'd definitely like to see this.
 > 
-> The thing about gettimeofday() and time() is that they don't have
-> a 64-bit version and libc implementations are expected to call
-> clock_gettime() instead. The result was that there was never a
-> patch to turn the off either.
+>>>>
+>>>>>        if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+>>>>>            kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+>>>>> @@ -1056,6 +1058,9 @@ static int check_vcpu_requests(struct
+>>>>> kvm_vcpu *vcpu)
+>>>>>            if (kvm_check_request(KVM_REQ_RELOAD_PMU, vcpu))
+>>>>>                kvm_vcpu_reload_pmu(vcpu);
+>>>>> +        if (kvm_check_request(KVM_REQ_CREATE_PMU, vcpu))
+>>>>> +            kvm_vcpu_create_pmu(vcpu);
+>>>>> +
+>>>>
+>>>> My strong preference would be to squash the migration handling into
+>>>> kvm_vcpu_reload_pmu(). It is already reprogramming PMU events in
+>>>> response to other things.
+>>>
+>>> Can you share a reason for that?
+>>>
+>>> In terms of complexity, I don't think it will help reducing complexity
+>>> since the only common things between kvm_vcpu_reload_pmu() and
+>>> kvm_vcpu_create_pmu() are the enumeration of enabled counters, which is
+>>> simple enough.
+> 
+> I prefer it in terms of code organization. We should have a single
+> helper that refreshes the backing perf events when something has
+> globally changed for the vPMU.
+> 
+> Besides this, "create" is confusing since the vPMU has already been
+> instantiated.
+> 
+>>> In terms of performance, I guess it is better to keep
+>>> kvm_vcpu_create_pmu() small since it is triggered for each migration.
+> 
+> I think the surrounding KVM code for iterating over the counters is
+> inconsequential compared to the overheads of calling into perf to
+> recreate the PMU events. Since we expect this to be slow, we should only
+> set the request when absolutely necessary.
 
-gettimeofday() is currently the only way to get the timezone of the kernel.
-But I guess this is a legacy thing anyways. If you say we should drop it,
-let's drop it.
+I see. I'll squash it into kvm_vcpu_reload_pmu().
 
+> 
+>>>>> +static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc)
+>>>>> +{
+>>>>> +    struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+>>>>> +
+>>>>> +    return kvm_pmu_enabled_counter_mask(vcpu) & BIT(pmc->idx);
+>>>>>    }
+>>>>
+>>>> You're churning a good bit of code, this needs to happen in a separate
+>>>> patch (if at all).
+>>>
+>>> It makes sense. The next version will have a separate patch for this.
+> 
+> If I have the full picture right, you may not need it with a common
+> request handler.
 
-Thomas
+I think I'm going to use it to check if the vCPU is covered by the perf 
+events currently enabled before requesting KVM_REQ_RELOAD_PMU.
+
+> 
+>>>>
+>>>>> @@ -689,6 +710,14 @@ static void
+>>>>> kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+>>>>>        int eventsel;
+>>>>>        u64 evtreg;
+>>>>> +    if (!arm_pmu) {
+>>>>> +        arm_pmu = kvm_pmu_probe_armpmu(vcpu->cpu);
+>>>>
+>>>> kvm_pmu_probe_armpmu() takes a global mutex, I'm not sure that's what we
+>>>> want.
+>>>>
+>>>> What prevents us from opening a PERF_TYPE_RAW event and allowing perf to
+>>>> work out the right PMU for this CPU?
+>>>
+>>> Unfortunately perf does not seem to have a capability to switch to the
+>>> right PMU. tools/perf/Documentation/intel-hybrid.txt says the perf tool
+>>> creates events for each PMU in a hybird configuration, for example.
+>>
+>> I think I misunderstood what you meant. Letting
+>> perf_event_create_kernel_counter() to figure out what a PMU to use may be a
+>> good idea. I'll give a try with the next version.
+> 
+> Yep, this is what I was alluding to.
+
+I tried this, but unfortunately it didn't work well. Simply using 
+PERF_TYPE_RAW let perf_event_create_kernel_counter() choose an arbitrary 
+PMU, potentially not covering the current PCPU.
+
+We can change the cpu parameter of the function to fix this, but it 
+binds the perf event to that particular PCPU and requires recreating 
+perf event when migrating to another PCPU covered by the same PMU.
+
+I think I'm going to use RCU to avoid locking a global mutex.
+
+> 
+>>>
+>>>>
+>>>>> +        if (!arm_pmu) {
+>>>>> +            vcpu_set_on_unsupported_cpu(vcpu);
+>>>>
+>>>> At this point it seems pretty late to flag the CPU as unsupported. Maybe
+>>>> instead we can compute the union cpumask for all the PMU implemetations
+>>>> the VM may schedule on.
+>>>
+>>> This is just a safe guard and it is a responsibility of the userspace to
+>>> schedule the VCPU properly. It is conceptually same with what
+>>> kvm_arch_vcpu_load() does when migrating to an unsupported CPU.
+> 
+> I agree with you that we need to have some handling for this situation.
+> 
+> What I don't like about this is userspace doesn't discover its mistake
+> until the guest actually programs a PMC. I'd much rather preserve the
+> existing ABI where KVM proactively rejects running a vCPU on an
+> unsupported CPU.
+
+Thanks for explanation. I'll change this with the next version.
+
+> 
+>>>>> +    case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
+>>>>> +        lockdep_assert_held(&vcpu->kvm->arch.config_lock);
+>>>>> +        if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
+>>>>> &vcpu->kvm->arch.flags))
+>>>>> +            return 0;
+>>>>
+>>>> We don't need a getter for this, userspace should remember how it
+>>>> provisioned the VM.
+>>>
+>>> The getter is useful for debugging and testing. The selftest will use it
+>>> to query the current state.
+> 
+> That's fine for debugging this on your own kernel but we don't need it
+> upstream. There's several other vPMU attributes that are write-only,
+> like KVM_ARM_VCPU_PMU_V3_SET_PMU.
+
+Not just for debugging kernel, but it will be useful for userspace 
+debugging.
+
+Indeed there are other readonly attributes, but there is also an 
+attribute with getter: KVM_ARM_VCPU_PMU_V3_IRQ. I think there are more 
+if you look at a scope broader than the KVM_ARM_VCPU_PMU_V3_CTRL group, 
+and such existing getters for read/write attributes are probably only 
+useful for kernel/userspace debugging either. I think having a getter 
+can be justified, given that these preexisting examples.
+
+Regards,
+Akihiko Odaki
 
