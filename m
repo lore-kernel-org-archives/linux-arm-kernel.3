@@ -4,113 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F25FEFB56
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD994FEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eyqwVWUTGrUNr2YSjQrLWGuiGvW9UrMxWVL1Po8p7BM=; b=APm0dwXed82pSIiXeESQhtOxrJ
-	I4c4VYZNm7GkFhN/4K1j5Ex48vYv7FrJIHR2X27AsifZ4XcTHlZQtbhepcLEtvv0L9GScY0vcBzaL
-	y4Rtrc0DN3xuFSx9xqOX4A35LODOGlUqz2U0IP1sNFdcD05TrLH53vNbjnTjtBroOAv24idbZVcAz
-	T7XMkUK0h+omxXK+Q9ifwOXREIW3o+W+f5Umb7sMqv31jgOi6C7T0y93908Tx8oMgJRsxs0UR/27e
-	k8RQOAhmdD7cK4cwu+gv94AmZzkFz8sxYRAkHH1Ux89zxwJUEB1MtwTWN3tvDUj565eHWMKlZxuzE
-	7dE3QCTw==;
+	bh=WTtIa50EX2gBjUIgh/4hqiDtH9jDI9dvjYOsiss415w=; b=V0Qc6QWqxKpRay+838lMmQdmkr
+	5ABlvcCIsYlqnabLpsIqPfN/4IUJT3dDi8sa376hAOB+kODBkzyWoIRp3itiVAxPvA4eVqct2CvWG
+	IljBw5SS9bPoRXcCgv8B7YDI0m8g+z9VNQZ0HbY4958DJntKOCiJXviTZ2AY2zv3MO8Vhc/yD8P1e
+	YU2KCl33ary5SEN2q+na1Z9w09D8NKp3q6692RXMKKLTZ8l1sLTZWFwjGuCODuujLhUDvwvQstT/w
+	4hXq3T4ABRZdcoVxo22ragORqSzu0UyTy43OSVxS2CHwUzTPMHqLI9Ywrl5MBb1O6oM0eDetKyoPH
+	1GPfyJWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzsJ-00000008ew4-0ENU;
-	Fri, 27 Feb 2026 15:35:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvztH-00000008f6b-21Gj;
+	Fri, 27 Feb 2026 15:36:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzsE-00000008evc-31Bi
+	id 1vvztF-00000008f5z-3413
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 27 Feb 2026 15:36:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=WTtIa50EX2gBjUIgh/4hqiDtH9jDI9dvjYOsiss415w=; b=qIvAtdv1H/QVIdhroAQ1JzyV3d
+	SZAJLmgz6T2iE9PxdtOz8xincWx4sAiF5l72odPKPPFU8Cpm15gHm2vfmwtz5v7R/+uQ5+BpfuUSv
+	41vtiFM+TJxbx8CdJQcpalbWoxtAz6In9KcQEYETCxw6TiXHrfPG8lLtm9xkYSh0EO4k8En4Jky0c
+	GjySf98aG9NSx6ycgcpdAjIpZxkdALpHx54V1acOO7kBvuPGp0J9oL/YJyMM3YkiFOXtcAD8KpNiZ
+	A2WXFd3cMZi+wktfD8PntLK1+3FB5moOcmFgM7Xrj1gd+D4GnYRATEwfibHiJv4sQ2qp37NoVZD3P
+	M3lXQYYw==;
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvztC-0000000DOP6-0QYO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 15:35:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C14660054;
-	Fri, 27 Feb 2026 15:35:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5973C116C6;
-	Fri, 27 Feb 2026 15:35:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772206525;
-	bh=2wm97TyyZjI/SrmKi1/wNI1HD8jHbl9Gjn52e3rRCIM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=f6sQZdp+LbTmEM/oHmeJsTS7ZJkowj3EDdtlJlNcMBWMcgSmmDiJCKl8lbQ02Tv4K
-	 drKSDsqNCBvjYRfIaYS9TFDifBIs8qSoYeDmNxxBX9S0gl96ty1dkqPP8QF6Bry5pV
-	 iMF2M9f9Gmoh1FKzovPo/dXy4M8K+PLnw9lpPeA375TA5DPYoxaIkLsh95w8fwaDjz
-	 qqM4wPd7+bWpHJqwuKJghXTA+loymkP2gmeKA27NKrISbC7R0Y3qXYzuJhXLU+hhYt
-	 jE3PSkaPVTB7g6VdpTV6RG1jcD9eQgpt7wFVjIxhRfR6/cMYVGRr2OR+eVqs/eiSju
-	 lKxCz3EEjlbmw==
-Message-ID: <54b36faa-62b3-4561-bfc9-0c507d9e148e@kernel.org>
-Date: Fri, 27 Feb 2026 16:35:20 +0100
+	Fri, 27 Feb 2026 15:36:28 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-824c9da9928so1289893b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 07:36:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772206584; x=1772811384; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WTtIa50EX2gBjUIgh/4hqiDtH9jDI9dvjYOsiss415w=;
+        b=UP28z0i2Shx7ikkG2U2H92ezgKVua85EHGEM4+3ZlKQWwyC5TTaLyoGM8PKa2PM1z7
+         uaOWe1SnZd7mw4ZlVNMqYXyRdHr4PSxWkdTGIFRvuRylr44E94lojOpDZOJwS8jZhQor
+         NKuQkRuiCUXUVVBeXdnSFH1Ksw5VKEl+MBhVgj59qrTk5ixCcuFL89S6BbF+FUNRHO/y
+         dEFVfA2WHLNM0k8c+NlRx653xlgaS0V/jhUt0641i+6uGxUkU9G2TGWvRAXgJXs4dIew
+         Ik3/fFDVwjgldGzdjJdaw0ZzZuXxGlt8Is4I4DfqJYJXxEWZBBLyA0Y3jiYr66nmfkHW
+         AFdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772206584; x=1772811384;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WTtIa50EX2gBjUIgh/4hqiDtH9jDI9dvjYOsiss415w=;
+        b=gJobYJR9QxS50RIMAf+rIA7ym3fjRYmjfPnlb14r9oWX6Lva+oHOpX5SuLklGTpOw2
+         yft0W1lDz4ScmrRZh3D8dIf3p/Gz32mmHNAVcB8JFgu4Rm5IODbZO9B0nAxY9/yxh5DE
+         W+r/UOK7skvfSCzna3HM/btNewJeO8Se7SOPIPGS8bwm3RkvRkCQo1FpxHfyjMnDCNdG
+         3EdnFSuww6ftc/wdYJ5OuPkw3Hx5mk85JwqRihyE6q7Dn0thHzEebaP7wul/1dkhTZHH
+         apWfNDJ18WU2P8YlQeiDXTfd/KM21rwq14OW2+8wJK6B0ug1eK4sVSqB279ZbQLpWEkF
+         QCcA==
+X-Forwarded-Encrypted: i=1; AJvYcCXP06BEd8KsZ5qfB7AqceYJvkpe8xb+w25aLL7AQ7Ctest2PDk1XeLma0H6vMji03+y/dDjthngTmxFAISbomw7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy42W4NnH/XFLtx/Vu4c1ANvQ9PA6mYDSsyGQx8x1JPOTQV5Q4X
+	Qwq2spOGMrxEyoHeEMq13Uqyb5E4ojQkd2zgEneFfEkDjiZVvOVuzjuK
+X-Gm-Gg: ATEYQzzECc3q/7W1OZMEa3CMfYJ2HNMQK7bTqY3MqSEswMnWGYIKDh0RBujiamCp66P
+	hjl4LeX4HauU2C/1WakxQnl8du7RaDb+NtP/dArIfstdRixK4lpzrvg3S7QUSt+eI+2X7LT5TL8
+	q7HmsxwENtYu3qLwmPAta0Y9FKwOx7Gt5+9IdRKdwmXNFzi452FnZjAV6kqC1No5oopZeYd50ov
+	sYRmTXeybqZwsgXSvBTnDKpyNjBVkJug9He7JysKozxYYZb6uM1EvJ11XATJpNw78O+gKkO6A2z
+	qHxHjul3XxssarVpbF1uMlHGp6qXRBoXFma2sUx0UKJ47mKdeHaga3UauwZlORhYIso/3qmJjHA
+	m50liYzQ+JHiag4DdiSRCE48a7mExoIG/Wp/A3gvfnMUoO5h/Jb3k9ZpeE3F5R3ElqfbvdyQMfZ
+	OsS9tiofhGg/mSVRRawwK7zMcRsDiXUqUNSfGOFHcGHcjkPSQwogO9MAJP/rWyLVgMP6Ee4b6rL
+	D5OhvJ5MXY=
+X-Received: by 2002:a05:6a00:ab02:b0:81f:3afe:281e with SMTP id d2e1a72fcca58-8274d92e2a4mr2562694b3a.3.1772206583901;
+        Fri, 27 Feb 2026 07:36:23 -0800 (PST)
+Received: from ?IPV6:2401:4900:8f4d:f11c:79e4:e568:8dbe:778e? ([2401:4900:8f4d:f11c:79e4:e568:8dbe:778e])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739d8bcb2sm5413525b3a.22.2026.02.27.07.36.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Feb 2026 07:36:23 -0800 (PST)
+Message-ID: <f6d4dd37-3817-45b1-a642-8a07405f505d@gmail.com>
+Date: Fri, 27 Feb 2026 21:06:15 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] media: aspeed: Fix driver probe failure
-To: Haiyue Wang <haiyuewa@163.com>, linux-aspeed@lists.ozlabs.org
+Subject: Re: [PATCH v3 5/5] dt-bindings: arm: atmel,at91rm9200-sdramc: convert
+ to DT schema
+To: Conor Dooley <conor@kernel.org>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,
- Jammy Huang <jammy_huang@aspeedtech.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/ASPEED MACHINE SUPPORT"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>
-References: <20260227123837.70079-1-haiyuewa@163.com>
- <8060fe77-18ec-4aa0-90a1-50eee398a55b@kernel.org>
- <0bc7875c-106c-48e1-8d40-72919ca227c4@163.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ Conor Dooley <conor+dt@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260226-arm-microchip-v3-0-0bda15abd922@gmail.com>
+ <20260226-arm-microchip-v3-5-0bda15abd922@gmail.com>
+ <20260226-escapade-staff-4f2842222b3e@spud>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <0bc7875c-106c-48e1-8d40-72919ca227c4@163.com>
+From: Akhila YS <akhilayalmati@gmail.com>
+In-Reply-To: <20260226-escapade-staff-4f2842222b3e@spud>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_153626_407333_B2CD9474 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,48 +125,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/02/2026 16:18, Haiyue Wang wrote:
-> 
-> 
-> On 2/27/2026 8:59 PM, Krzysztof Kozlowski wrote:
->> On 27/02/2026 13:38, Haiyue Wang wrote:
->>> The aspeed video (be compatible for ast2400, ast2500, ast2600) now needs
->>> the reset DTS handle specified, otherwise it will fail to load:
->>>
->>> [    0.000000] OF: reserved mem: initialized node video, compatible id shared-dma-pool
->>> [    0.000000] OF: reserved mem: 0xbb000000..0xbeffffff (65536 KiB) map reusable video
->>> [    0.377039] videodev: Linux video capture interface: v2.00
->>> [    4.809494] aspeed-video 1e700000.video: irq 57
->>> [    4.809977] aspeed-video 1e700000.video: Unable to get reset
->>> [    4.810341] aspeed-video 1e700000.video: probe with driver aspeed-video failed with error -2
->>>
->>> Fixes: e83f8dd668ea ("media: aspeed: Fix dram hang at res-change")
->>> Signed-off-by: Haiyue Wang <haiyuewa@163.com>
->>> ---
->>>   arch/arm/boot/dts/aspeed/aspeed-g4.dtsi   | 1 +
->>>   arch/arm/boot/dts/aspeed/aspeed-g5.dtsi   | 1 +
->>>   arch/arm/boot/dts/aspeed/aspeed-g6.dtsi   | 1 +
->>>   include/dt-bindings/clock/ast2600-clock.h | 1 +
->>
->> Please run scripts/checkpatch.pl on the patches and fix reported
->> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
->> patches and (probably) fix more warnings. Some warnings can be ignored,
->> especially from --strict run, but the code here looks like it needs a
->> fix. Feel free to get in touch if the warning is not clear.
->>
->>
->> Please use subject prefixes matching the subsystem. You can get them for
->> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
->> your patch is touching. For bindings, the preferred subjects are
->> explained here:
->> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
->>
-> 
-> Seperated into two patches in v2, please help to review.
 
-No, please wait. One posting per day. We have enough of other patches to
-review.
+On 26-02-2026 23:42, Conor Dooley wrote:
+> On Thu, Feb 26, 2026 at 04:13:37PM +0000, Akhila YS wrote:
+>> Convert RAMC SDRAM/DDR controller binding to YAML format.
+>>
+>> Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
+>> ---
+>>  .../bindings/arm/atmel,at91rm9200-sdramc.yaml      | 67 ++++++++++++++++++++++
+>>  .../devicetree/bindings/arm/atmel-sysregs.txt      | 20 -------
+>>  2 files changed, 67 insertions(+), 20 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
+>> new file mode 100644
+>> index 000000000000..1516fc8e09e1
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
+>> @@ -0,0 +1,67 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/arm/atmel,at91rm9200-sdramc.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Microchip (Atmel) SDRAM / DDR Controller (RAMC / DDRAMC / UDDRC)
+>> +
+>> +maintainers:
+>> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
+>> +  - Claudiu Beznea <claudiu.beznea@tuxon.dev>
+>> +
+>> +description:
+>> +  The SDRAM/DDR Controller (often called RAMC or DDRAMC) in various
+>> +  Atmel/Microchip ARM9 and Cortex-A5/A7 SoCs  manages external
+>> +  SDRAM / DDR memory. It is typically exposed as a syscon node for
+>> +  register access from other drivers (e.g. for initialization or mode
+>> +  configuration). No interrupts or clocks are usually required in the
+>> +  binding.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    oneOf:
+>> +      - items:
+>> +          - const: atmel,at91rm9200-sdramc
+>> +          - const: syscon
+>> +      - items:
+>> +          - const: microchip,sama7d65-uddrc
+>> +          - const: microchip,sama7g5-uddrc
+>> +      - items:
+>> +          enum:
+> Whoops, sorry for not noticing this earlier, but an items list with one
+> entry can be reduced to that one entry. For you here that means that
+> "- items enum:" becomes "- enum:".
 
-Best regards,
-Krzysztof
+
+Hi, i changed patch as per your suggestion, but i found some errors
+with  dtbs_check, anyway i sent  a v4 patch.
+
+let me know if any  changes required.
+
+-- 
+Best Regards,
+Akhila.
+
 
