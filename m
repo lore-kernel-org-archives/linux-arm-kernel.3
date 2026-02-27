@@ -4,65 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 490F3FEFB5E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F25FEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTHd3oxZMTbh9DGviHKUNQlKPBZ4rx9oMmKSdgv59C4=; b=kUzgObcPnraY9Emlib4QdwEaU9
-	wAtkf+YJtIpX9wJiLt0klr5kwmmwN7ZiHlKiIR7ALoxYlFKvFtoJS/2CdVSe0iGj5qRXglFyGbXi2
-	op2Ru7wx1MAUo2Z4f0Zh7sBrzroj3XRkUIEJtaqhAMXVw9vfY7u8HmSPRCTsp6GxB8rHgLeCdkycW
-	kmuE1TDSySys1K8LIGeRPLixvdGTr0YePfNOWPe2gsNH8PDq+ueG9tFsb7XeuIXENzlyXdKpNMB4A
-	gJ8leSYa8ff8Sla0LIizZDi/bf24RaYZeeHlZ/O/v8usmsY8F5/L4tvHNZb3CWrITPe6L2/sSMz0B
-	hdTkh41w==;
+	bh=eyqwVWUTGrUNr2YSjQrLWGuiGvW9UrMxWVL1Po8p7BM=; b=APm0dwXed82pSIiXeESQhtOxrJ
+	I4c4VYZNm7GkFhN/4K1j5Ex48vYv7FrJIHR2X27AsifZ4XcTHlZQtbhepcLEtvv0L9GScY0vcBzaL
+	y4Rtrc0DN3xuFSx9xqOX4A35LODOGlUqz2U0IP1sNFdcD05TrLH53vNbjnTjtBroOAv24idbZVcAz
+	T7XMkUK0h+omxXK+Q9ifwOXREIW3o+W+f5Umb7sMqv31jgOi6C7T0y93908Tx8oMgJRsxs0UR/27e
+	k8RQOAhmdD7cK4cwu+gv94AmZzkFz8sxYRAkHH1Ux89zxwJUEB1MtwTWN3tvDUj565eHWMKlZxuzE
+	7dE3QCTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzrE-00000008eW1-0epC;
-	Fri, 27 Feb 2026 15:34:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzr9-00000008eSl-0io9
+	id 1vvzsJ-00000008ew4-0ENU;
+	Fri, 27 Feb 2026 15:35:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvzsE-00000008evc-31Bi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 15:34:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C0DC339;
-	Fri, 27 Feb 2026 07:34:12 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BAC343F73B;
-	Fri, 27 Feb 2026 07:34:11 -0800 (PST)
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	philip.radford@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	dan.carpenter@linaro.org,
-	geert+renesas@glider.be,
-	kuninori.morimoto.gx@renesas.com,
-	marek.vasut+renesas@gmail.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH 11/11] firmware: arm_scmi: Introduce all_rates_get clock operation
-Date: Fri, 27 Feb 2026 15:32:25 +0000
-Message-ID: <20260227153225.2778358-12-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260227153225.2778358-1-cristian.marussi@arm.com>
-References: <20260227153225.2778358-1-cristian.marussi@arm.com>
+	Fri, 27 Feb 2026 15:35:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C14660054;
+	Fri, 27 Feb 2026 15:35:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5973C116C6;
+	Fri, 27 Feb 2026 15:35:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772206525;
+	bh=2wm97TyyZjI/SrmKi1/wNI1HD8jHbl9Gjn52e3rRCIM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=f6sQZdp+LbTmEM/oHmeJsTS7ZJkowj3EDdtlJlNcMBWMcgSmmDiJCKl8lbQ02Tv4K
+	 drKSDsqNCBvjYRfIaYS9TFDifBIs8qSoYeDmNxxBX9S0gl96ty1dkqPP8QF6Bry5pV
+	 iMF2M9f9Gmoh1FKzovPo/dXy4M8K+PLnw9lpPeA375TA5DPYoxaIkLsh95w8fwaDjz
+	 qqM4wPd7+bWpHJqwuKJghXTA+loymkP2gmeKA27NKrISbC7R0Y3qXYzuJhXLU+hhYt
+	 jE3PSkaPVTB7g6VdpTV6RG1jcD9eQgpt7wFVjIxhRfR6/cMYVGRr2OR+eVqs/eiSju
+	 lKxCz3EEjlbmw==
+Message-ID: <54b36faa-62b3-4561-bfc9-0c507d9e148e@kernel.org>
+Date: Fri, 27 Feb 2026 16:35:20 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_073419_310764_62057AE2 
-X-CRM114-Status: GOOD (  22.96  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] media: aspeed: Fix driver probe failure
+To: Haiyue Wang <haiyuewa@163.com>, linux-aspeed@lists.ozlabs.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,
+ Jammy Huang <jammy_huang@aspeedtech.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:ARM/ASPEED MACHINE SUPPORT"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>
+References: <20260227123837.70079-1-haiyuewa@163.com>
+ <8060fe77-18ec-4aa0-90a1-50eee398a55b@kernel.org>
+ <0bc7875c-106c-48e1-8d40-72919ca227c4@163.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <0bc7875c-106c-48e1-8d40-72919ca227c4@163.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,233 +125,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a clock operation to get the whole set of rates available to a specific
-clock: when needed this request could transparently trigger a full rate
-discovery enumeration if this specific clock-rates were previously only
-lazily enumerated.
+On 27/02/2026 16:18, Haiyue Wang wrote:
+> 
+> 
+> On 2/27/2026 8:59 PM, Krzysztof Kozlowski wrote:
+>> On 27/02/2026 13:38, Haiyue Wang wrote:
+>>> The aspeed video (be compatible for ast2400, ast2500, ast2600) now needs
+>>> the reset DTS handle specified, otherwise it will fail to load:
+>>>
+>>> [    0.000000] OF: reserved mem: initialized node video, compatible id shared-dma-pool
+>>> [    0.000000] OF: reserved mem: 0xbb000000..0xbeffffff (65536 KiB) map reusable video
+>>> [    0.377039] videodev: Linux video capture interface: v2.00
+>>> [    4.809494] aspeed-video 1e700000.video: irq 57
+>>> [    4.809977] aspeed-video 1e700000.video: Unable to get reset
+>>> [    4.810341] aspeed-video 1e700000.video: probe with driver aspeed-video failed with error -2
+>>>
+>>> Fixes: e83f8dd668ea ("media: aspeed: Fix dram hang at res-change")
+>>> Signed-off-by: Haiyue Wang <haiyuewa@163.com>
+>>> ---
+>>>   arch/arm/boot/dts/aspeed/aspeed-g4.dtsi   | 1 +
+>>>   arch/arm/boot/dts/aspeed/aspeed-g5.dtsi   | 1 +
+>>>   arch/arm/boot/dts/aspeed/aspeed-g6.dtsi   | 1 +
+>>>   include/dt-bindings/clock/ast2600-clock.h | 1 +
+>>
+>> Please run scripts/checkpatch.pl on the patches and fix reported
+>> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+>> patches and (probably) fix more warnings. Some warnings can be ignored,
+>> especially from --strict run, but the code here looks like it needs a
+>> fix. Feel free to get in touch if the warning is not clear.
+>>
+>>
+>> Please use subject prefixes matching the subsystem. You can get them for
+>> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+>> your patch is touching. For bindings, the preferred subjects are
+>> explained here:
+>> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+>>
+> 
+> Seperated into two patches in v2, please help to review.
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
- drivers/firmware/arm_scmi/clock.c | 85 +++++++++++++++++++++----------
- include/linux/scmi_protocol.h     |  9 ++++
- 2 files changed, 67 insertions(+), 27 deletions(-)
+No, please wait. One posting per day. We have enough of other patches to
+review.
 
-diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-index a0de10652abe..c2fd9a1c3316 100644
---- a/drivers/firmware/arm_scmi/clock.c
-+++ b/drivers/firmware/arm_scmi/clock.c
-@@ -159,10 +159,8 @@ struct scmi_clock_rate_notify_payld {
- 
- struct scmi_clock_desc {
- 	u32 id;
--	bool rate_discrete;
- 	unsigned int tot_rates;
--	unsigned int num_rates;
--	u64 *rates;
-+	struct scmi_clock_rates r;
- #define	RATE_MIN	0
- #define	RATE_MAX	1
- #define	RATE_STEP	2
-@@ -469,10 +467,10 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
- 	flags = le32_to_cpu(r->num_rates_flags);
- 	st->num_remaining = NUM_REMAINING(flags);
- 	st->num_returned = NUM_RETURNED(flags);
--	p->clkd->rate_discrete = RATE_DISCRETE(flags);
-+	p->clkd->r.rate_discrete = RATE_DISCRETE(flags);
- 
- 	/* Warn about out of spec replies ... */
--	if (!p->clkd->rate_discrete &&
-+	if (!p->clkd->r.rate_discrete &&
- 	    (st->num_returned != 3 || st->num_remaining != 0)) {
- 		dev_warn(p->dev,
- 			 "Out-of-spec CLOCK_DESCRIBE_RATES reply for %s - returned:%d remaining:%d rx_len:%zd\n",
-@@ -486,9 +484,9 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
- 	if (!st->max_resources) {
- 		unsigned int tot_rates = st->num_returned + st->num_remaining;
- 
--		p->clkd->rates = devm_kcalloc(p->dev, tot_rates,
--					      sizeof(*p->clkd->rates), GFP_KERNEL);
--		if (!p->clkd->rates)
-+		p->clkd->r.rates = devm_kcalloc(p->dev, tot_rates,
-+						sizeof(*p->clkd->r.rates), GFP_KERNEL);
-+		if (!p->clkd->r.rates)
- 			return -ENOMEM;
- 
- 		/* max_resources is used by the iterators to control bounds */
-@@ -507,10 +505,10 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
- 	struct scmi_clk_ipriv *p = priv;
- 	const struct scmi_msg_resp_clock_describe_rates *r = response;
- 
--	p->clkd->rates[p->clkd->num_rates] = RATE_TO_U64(r->rate[st->loop_idx]);
-+	p->clkd->r.rates[p->clkd->r.num_rates] = RATE_TO_U64(r->rate[st->loop_idx]);
- 
- 	/* Count only effectively discovered rates */
--	p->clkd->num_rates++;
-+	p->clkd->r.num_rates++;
- 
- 	return 0;
- }
-@@ -531,7 +529,13 @@ scmi_clock_describe_rates_get_full(const struct scmi_protocol_handle *ph,
- 		.dev = ph->dev,
- 	};
- 
--	iter = ph->hops->iter_response_init(ph, &ops, 0, CLOCK_DESCRIBE_RATES,
-+	/*
-+	 * Using tot_rates as max_resources parameter here so as to trigger
-+	 * the dynamic allocation only when strictly needed: when trying a
-+	 * full enumeration after a lazy one tot_rates will be non-zero.
-+	 */
-+	iter = ph->hops->iter_response_init(ph, &ops, clkd->tot_rates,
-+					    CLOCK_DESCRIBE_RATES,
- 					    sizeof(struct scmi_msg_clock_describe_rates),
- 					    &cpriv);
- 	if (IS_ERR(iter))
-@@ -542,12 +546,12 @@ scmi_clock_describe_rates_get_full(const struct scmi_protocol_handle *ph,
- 		return ret;
- 
- 	/* empty set ? */
--	if (!clkd->num_rates)
-+	if (!clkd->r.num_rates)
- 		return 0;
- 
--	if (clkd->rate_discrete)
--		sort(clkd->rates, clkd->num_rates,
--		     sizeof(clkd->rates[0]), rate_cmp_func, NULL);
-+	if (clkd->r.rate_discrete && PROTOCOL_REV_MAJOR(ph->version) == 0x1)
-+		sort(clkd->r.rates, clkd->r.num_rates,
-+		     sizeof(clkd->r.rates[0]), rate_cmp_func, NULL);
- 
- 	return 0;
- }
-@@ -583,7 +587,7 @@ scmi_clock_describe_rates_get_lazy(const struct scmi_protocol_handle *ph,
- 		goto out;
- 
- 	/* If discrete grab the last value, which should be the max */
--	if (clkd->rate_discrete && clkd->tot_rates > 3) {
-+	if (clkd->r.rate_discrete && clkd->tot_rates > 3) {
- 		first = clkd->tot_rates - 1;
- 		last = clkd->tot_rates - 1;
- 		ret = ph->hops->iter_response_run_bound(iter, &first, &last);
-@@ -615,16 +619,16 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph,
- 	if (ret)
- 		return ret;
- 
--	clkd->info.min_rate = clkd->rates[RATE_MIN];
--	if (!clkd->rate_discrete) {
--		clkd->info.max_rate = clkd->rates[RATE_MAX];
-+	clkd->info.min_rate = clkd->r.rates[RATE_MIN];
-+	if (!clkd->r.rate_discrete) {
-+		clkd->info.max_rate = clkd->r.rates[RATE_MAX];
- 		dev_dbg(ph->dev, "Min %llu Max %llu Step %llu Hz\n",
--			clkd->rates[RATE_MIN], clkd->rates[RATE_MAX],
--			clkd->rates[RATE_STEP]);
-+			clkd->r.rates[RATE_MIN], clkd->r.rates[RATE_MAX],
-+			clkd->r.rates[RATE_STEP]);
- 	} else {
--		clkd->info.max_rate = clkd->rates[clkd->num_rates - 1];
-+		clkd->info.max_rate = clkd->r.rates[clkd->r.num_rates - 1];
- 		dev_dbg(ph->dev, "Clock:%s DISCRETE:%d -> Min %llu Max %llu\n",
--			clkd->info.name, clkd->rate_discrete,
-+			clkd->info.name, clkd->r.rate_discrete,
- 			clkd->info.min_rate, clkd->info.max_rate);
- 	}
- 
-@@ -729,7 +733,7 @@ static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
- 	 * If we can't figure out what rate it will be, so just return the
- 	 * rate back to the caller.
- 	 */
--	if (clkd->rate_discrete)
-+	if (clkd->r.rate_discrete)
- 		return 0;
- 
- 	fmin = clk->min_rate;
-@@ -743,14 +747,40 @@ static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
- 	}
- 
- 	ftmp = *rate - fmin;
--	ftmp += clkd->rates[RATE_STEP] - 1; /* to round up */
--	do_div(ftmp, clkd->rates[RATE_STEP]);
-+	ftmp += clkd->r.rates[RATE_STEP] - 1; /* to round up */
-+	do_div(ftmp, clkd->r.rates[RATE_STEP]);
- 
--	*rate = ftmp * clkd->rates[RATE_STEP] + fmin;
-+	*rate = ftmp * clkd->r.rates[RATE_STEP] + fmin;
- 
- 	return 0;
- }
- 
-+static const struct scmi_clock_rates *
-+scmi_clock_all_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id)
-+{
-+	struct clock_info *ci = ph->get_priv(ph);
-+	struct scmi_clock_desc *clkd;
-+	struct scmi_clock_info *clk;
-+
-+	clk = scmi_clock_domain_lookup(ci, clk_id);
-+	if (IS_ERR(clk) || !clk->name[0])
-+		return NULL;
-+
-+	clkd = to_desc(clk);
-+	/* Needs full enumeration ? */
-+	if (clkd->r.rate_discrete && clkd->tot_rates != clkd->r.num_rates) {
-+		int ret;
-+
-+		/* rates[] is already allocated BUT we need to re-enumerate */
-+		clkd->r.num_rates = 0;
-+		ret = scmi_clock_describe_rates_get_full(ph, clkd);
-+		if (ret)
-+			return NULL;
-+	}
-+
-+	return &clkd->r;
-+}
-+
- static int
- scmi_clock_config_set(const struct scmi_protocol_handle *ph, u32 clk_id,
- 		      enum clk_state state,
-@@ -1064,6 +1094,7 @@ static const struct scmi_clk_proto_ops clk_proto_ops = {
- 	.rate_get = scmi_clock_rate_get,
- 	.rate_set = scmi_clock_rate_set,
- 	.determine_rate = scmi_clock_determine_rate,
-+	.all_rates_get = scmi_clock_all_rates_get,
- 	.enable = scmi_clock_enable,
- 	.disable = scmi_clock_disable,
- 	.state_get = scmi_clock_state_get,
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 5552ac04c820..c710107c2120 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -40,6 +40,12 @@ struct scmi_revision_info {
- 	char sub_vendor_id[SCMI_SHORT_NAME_MAX_SIZE];
- };
- 
-+struct scmi_clock_rates {
-+	bool rate_discrete;
-+	unsigned int num_rates;
-+	u64 *rates;
-+};
-+
- struct scmi_clock_info {
- 	char name[SCMI_MAX_STR_SIZE];
- 	unsigned int enable_latency;
-@@ -85,6 +91,7 @@ enum scmi_clock_oem_config {
-  *		    clock calculating the closest allowed rate.
-  *		    Note that @rate is an input/output parameter used both to
-  *		    describe the requested rate and report the closest match
-+ * @all_rates_get: get the list of all available rates for the specified clock.
-  * @enable: enables the specified clock
-  * @disable: disables the specified clock
-  * @state_get: get the status of the specified clock
-@@ -104,6 +111,8 @@ struct scmi_clk_proto_ops {
- 			u64 rate);
- 	int (*determine_rate)(const struct scmi_protocol_handle *ph, u32 clk_id,
- 			      unsigned long *rate);
-+	const struct scmi_clock_rates __must_check *(*all_rates_get)
-+		(const struct scmi_protocol_handle *ph, u32 clk_id);
- 	int (*enable)(const struct scmi_protocol_handle *ph, u32 clk_id,
- 		      bool atomic);
- 	int (*disable)(const struct scmi_protocol_handle *ph, u32 clk_id,
--- 
-2.53.0
-
+Best regards,
+Krzysztof
 
