@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57631FEFB52
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC92FEFB4F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/711kfM/ye4d925yG7rcPlLTLgzvd0d0RqWqVInf00M=; b=w23zwHFgPzJPFADf/vco8bObxb
-	6TOl5TY1gEs1GcXXsImwyzGt5iLkGVkcCW1NOEGpY7JkB8JTofkjHqDl+pEuJtwcfIieLCdFwGk15
-	TkwaX/Ngt5afKQUd7DHMMF0KqrtqzDSAEy9nqekqEJ3zL671bjtwldAqdB8fii3UkcqhHlZpKJ9zZ
-	KJm+CRrvpXllzo9dc/RVMmqn6HvQMtKeGuGJTO9W19qVsCu/QMIkG9vD0lZt6IDPa0MGWgrPlG3nM
-	2LfjAJv41RQ2a/vyfiSz9gqwr0AkZ0yeCUxwM+v6sE96g3tXgeIwgTWeNJOURB4vvRbrMNvhHoNWs
-	YRuhjU0g==;
+	bh=O3m+ZBfQr6KmPEhxpy7eMNYP1AMMqlCKAQGv3MS7448=; b=MBSfMj76i6FcrBHNb8Z1dwdjyj
+	egAosS4bNs1MyAILVRZyqRfFW6/S3fii1D40bclJE6r+gkGPZMosIpHu5eE/pIul5Mq/hw1ZhJnY2
+	CeoEzRIFgtwoVc2qMYg8t/HZ4Iy2lfnkCBUXrUdMAQyHFvvv2k8Vnb+9CA7MwvVmVAPUqJkVI/ffV
+	h4WuPsiW2JfxRdBN2CcKrtfcHwM29xQNJ5AA4C1QOTZrhu4QooeiKIynwjzWXbXBLk87SdaIko9Q3
+	pjTUvF9FG1eKzSF1BkfhKMk9ql5Tf7WGyICOY9Sr6qlgzjurRPIQSosCxechQ6pOj3QP7x2b3tE/7
+	9knSmiAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyOF-00000008Qqt-3EcW;
-	Fri, 27 Feb 2026 14:00:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvyOH-00000008Qsa-0dLK;
+	Fri, 27 Feb 2026 14:00:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyO3-00000008Qc8-3yZx;
-	Fri, 27 Feb 2026 14:00:12 +0000
+	id 1vvyO7-00000008QhN-3YMP;
+	Fri, 27 Feb 2026 14:00:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F3F660131;
-	Fri, 27 Feb 2026 14:00:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23747C2BCB9;
-	Fri, 27 Feb 2026 14:00:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C1B43600AA;
+	Fri, 27 Feb 2026 14:00:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D499C19423;
+	Fri, 27 Feb 2026 14:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772200810;
-	bh=mcyTpts1idXA1vu80zdOnmLrCaVShS7ucVh8Fhvdnfw=;
+	s=k20201202; t=1772200813;
+	bh=sIOpPbGND5afLcivkJfIxu5waFc041nLNjD3trLHArs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=c0ZbGZ9m99SIaXsBhhpP75b7OIKQ5akIbEhjYGH/ociDImdSOjZs7mjWJRvyxUMEX
-	 R+1MgYCVnhR0mhqxo04Sr8+BMqNcqvxhmFFbkVxh0LLMTVcP+aXm527UHxv64iq30/
-	 L4To7B5Gt3nsFdwkhwf8ZV+xFEcmzHD0Nkk3iqjBDi06iCdh+S9eaXk8EwJPfs+7jk
-	 ywKWySZkgx3thXh+x62WaJ2DC9+/O++WnaguUTndWmvJRAOtkcAEXuyoxT4U8reKUD
-	 v8WiH766yhGb6CmJKojxUgzGokM5CgZ//9M0k6J+UrOdKvZ6+l469p35joKCcuP/40
-	 D1cxQ6yqF/98A==
+	b=ZaB0syc3xQ5/A6LmXj7XJiGhCoiS+mpgxvMUOcUceDVOCrZSiALXSNoLBViC7wXfj
+	 WpEWrQBkbh6dBHZAAkVJ27/ZGjYCyplOBC7t+XwuzkmZvF5XkEBvMKXFx+YgjjnKHk
+	 7rSgBNvLi0l8Q1Y7GkbWhl2JvRPtpmiQPzSzL61VTPqZF7x2TpoGgO4c4ngp/M6j/p
+	 TOonihCjIftpmNj5KKtlZmX4mSZLa9OXPAWJaCPVrqpNGCPCy2dlC5JQwppEy72+uU
+	 cWkQpyNGUsICWiqNiGfG0kUDg5c0fmJXhm8RHbBWl6Z/PhFsv8NYjXCWUL1sG7fmZ6
+	 4LJ7w4zBnga3w==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 27 Feb 2026 14:59:49 +0100
-Subject: [PATCH v2 05/14] drm/bridge: adv7511: Convert to
+Date: Fri, 27 Feb 2026 14:59:50 +0100
+Subject: [PATCH v2 06/14] drm/bridge: analogix: Convert to
  drm_output_color_format
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260227-drm-rework-color-formats-v2-5-8bd278e2af9d@kernel.org>
+Message-Id: <20260227-drm-rework-color-formats-v2-6-8bd278e2af9d@kernel.org>
 References: <20260227-drm-rework-color-formats-v2-0-8bd278e2af9d@kernel.org>
 In-Reply-To: <20260227-drm-rework-color-formats-v2-0-8bd278e2af9d@kernel.org>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
@@ -81,12 +81,12 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1622; i=mripard@kernel.org;
- h=from:subject:message-id; bh=mcyTpts1idXA1vu80zdOnmLrCaVShS7ucVh8Fhvdnfw=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkLF4eWOi48nB5rr1u0oFLc4LbNvRXzYtgqQtruNFvcL
- NnBVH61YyoLgzAng6yYIssTmbDTy9sXVznYr/wBM4eVCWQIAxenAExE3ZGx4WbILfMrJ/+FzXZm
- D3ZSuCJyr5Sr1FrmPWfC10ZnZ4YnNyovtjg/0Dd4s/zgz7ylUw5tYGzo7vto2CitbXWjxo1r4rm
- 8Nw8jiiMXzwp4pLeqY+OVN2+2bPuxdWnoDUF3Sf8JUR9CZ3MAAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1747; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=sIOpPbGND5afLcivkJfIxu5waFc041nLNjD3trLHArs=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkLF4deE1qudF+YZ2HK64yjMbenfI744mvYuidyvb051
+ 6ll7+fs75jKwiDMySArpsjyRCbs9PL2xVUO9it/wMxhZQIZwsDFKQAT4ZrAWF998MdjzYqkOOVj
+ ObaHuyLDcpr++baGZicpVTrb3+4vjimcb8979bBZ65TdS7e+jZVOZmyYtIvvvovKrY/nDq62EJq
+ zudSYiaPWxVL7bLmr5sn6p5/exEpyvNsZ/nXTrmne0n+vT0sCAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,26 +119,29 @@ or as a discriminant in which case we don't.
 Acked-by: Jani Nikula <jani.nikula@intel.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
-index 1050bb62280bb4794f0b0ae01597269652c063d0..6bd76c1fb0071c8c9cd9c293b3a48a2b4487768e 100644
---- a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
-+++ b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
-@@ -226,11 +226,11 @@ static void adv7511_set_config_csc(struct adv7511 *adv7511,
- 	} else {
- 		config.csc_scaling_factor = ADV7511_CSC_SCALING_4;
- 		config.csc_coefficents = adv7511_csc_ycbcr_to_rgb;
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index b1687a4aa04739fa53f1039376da649ddcea7f41..1dd194bf49cd8f94a2b48f1f32baa262e5e5dbf9 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -1221,13 +1221,13 @@ static void analogix_dp_bridge_mode_set(struct drm_bridge *bridge,
+ 		break;
+ 	default:
+ 		video->color_depth = COLOR_8;
+ 		break;
+ 	}
+-	if (display_info->color_formats & DRM_COLOR_FORMAT_YCBCR444)
++	if (display_info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444))
+ 		video->color_space = COLOR_YCBCR444;
+-	else if (display_info->color_formats & DRM_COLOR_FORMAT_YCBCR422)
++	else if (display_info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))
+ 		video->color_space = COLOR_YCBCR422;
+ 	else
+ 		video->color_space = COLOR_RGB;
  
- 		if ((connector->display_info.color_formats &
--		     DRM_COLOR_FORMAT_YCBCR422) &&
-+		     BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422)) &&
- 		    connector->display_info.is_hdmi) {
- 			config.csc_enable = false;
- 			output_format_422 = true;
- 			output_format_ycbcr = true;
- 		} else {
+ 	/*
 
 -- 
 2.53.0
