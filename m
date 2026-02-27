@@ -4,115 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD855FD5310
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 08:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45A2FD5310
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 08:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xwefPv2uVlZj1+2rN1oX1U6/y4L5neteDEWAT3K3DU0=; b=rq/o9mFvDm9Vt24/bYYKC+vogp
-	cU/p3+0XZ5qYM+jlmwHKs2Qbpf2q/swRDm6PunNM1iBmYk2DnpMJp2Zvvhfnt/1c9UvkBu8Ru1PZk
-	yaAjI90aIqQhRWcuBRYCyjAmXvtqhXuGV1FHegQN/br8SAR+pafTI74jQqKgEfBJg4uvYqTSfVUcI
-	gwItQG2C9qk273y7+Kpvj32ETlM6VDkxIgbBVonW3KmB5GQYFy//fiWMqrO3wsV9TNfKzcWHxZF7D
-	kauqn3W/qXwKy6oCpoByCRTJO4ESUFXJqhSfc4ilSPfSN6Yz4gI8hG7PIrYBCx1jY60457wGuYMXW
-	Cuq48akQ==;
+	bh=WNGybdHuG/qwA5MuHMN/2SQnSrMaG/RW0SpGA0+CTRQ=; b=3U5nHryfZjKiksJn3wD4CQ384Y
+	wuKNm5znwnIGsEISK+Fut4kfcwBLv8oCCp2b6VMoxsiGhXXvfsQAisG44BFO1yD/bNe2i3wqvEKPi
+	owLx6Yci1StdUTvw4OuVSgmHTm+ruzqnvuZ4xGYf8bPuG/CNVXLL1mv8woNsJnVlh6blbGEnt5p5Z
+	hyixjbTxmOWOqrTfDVuHxBfCGPXEe+vVWfDuO7qO9edMEMRl6t346EsphS6BzvrKIqgsDysLIMyV7
+	OtoXHxbNwiDzkD3oxWIWizQx7e29OTRxPbN+fJ2kpdqiHti8X9Wx8PPL8Ia/0IzYwBjR5FRKBBVVk
+	B0J3W0zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvtY4-000000081pV-3gad;
-	Fri, 27 Feb 2026 08:50:12 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1vvtZq-000000081zY-2un7;
+	Fri, 27 Feb 2026 08:52:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvtY3-000000081p1-1gdH
+	id 1vvtZp-000000081zF-0GmY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 08:50:12 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id DDEA77A006C;
-	Fri, 27 Feb 2026 03:50:09 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Fri, 27 Feb 2026 03:50:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1772182209;
-	 x=1772268609; bh=xwefPv2uVlZj1+2rN1oX1U6/y4L5neteDEWAT3K3DU0=; b=
-	CpQkqgYfKds40olKRxYLSKAiGe5Rmy/9BCh5Z7MPXPxZ5F9LkngTRdlArkVNRjl8
-	7ZqGnCIKRmMyrZJeCBiLf4/HN2UwaqtGzYvz33ugvRadhG1Ukrmp9gQIHnpcxj2z
-	4tWE0307vhEYdklvnh8Hp2KUVlCY1Kc6fUscg6oVc4PMeNbnjdT+Jw4IKQ5SIwGf
-	A0XFJqGIxJV+b9Pw1NfRhTq32a56fOkq43bvOQgPrBhd+4BNZGnpTo63/4pVj+X3
-	ziLnwuOGm/2TpCZHvvuD3JP8kb36KC7Oxq5r8aLFdoVFMaA29W4RRCcbbb9lHQNC
-	z9UDShjAp+mcTUCLvFglqg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1772182209; x=
-	1772268609; bh=xwefPv2uVlZj1+2rN1oX1U6/y4L5neteDEWAT3K3DU0=; b=Y
-	a59htWC7mo5ur5Ru4AgAGJLqF9zIgIxnBpDFt5UgHdLUD8RPtbpyt3V3Nt80/SK1
-	k1hirZHj7G2q9sY4pZHUbqslH90QY8FE6DUnSY2L43FKyo0yHdaX1R+i9qRbdueL
-	oL5yGYKXrCmJmqN9TiNymHUKYlqr4aejj6YWngHGjFwY1NTAMsVN2i5jFim4J+HC
-	jCNbCrQQqButTpG/aSIHiFGyg7L7CdSE0663rkLBd0WsuSZ5mk9mfHw6i39ZWAyk
-	Il+1PcbDoIlUFKKriY3O+5tFM3Eh7mCjfOS6/3ejj2OtGerRvi9WC0OxavVSe0pz
-	8M9CQwwTcyQnTocXUICqA==
-X-ME-Sender: <xms:wVqhacI1rkOi6xw-07DwQDbocsXu_hDWjrP2hK5KGSJsQn4jHH6Gog>
-    <xme:wVqhaW8D4Pu5jKC7Qcu7NwRD1ra8Pw5CMbd0Q6E6L46abVMVGzPr63Yj3dB8PfSR5
-    QMVPd3tdG80nQ3287dbrTxU2-um9ej7tIYsHfo_fg3gtluKACfkysiP>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeekheehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvddupdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopehtshgsohhgvg
-    hnugesrghlphhhrgdrfhhrrghnkhgvnhdruggvpdhrtghpthhtoheptggrthgrlhhinhdr
-    mhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehvihhntggvnhiiohdrfhhrrg
-    hstghinhhosegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhig
-    rdhorhhgrdhukhdprhgtphhtthhopehmphgvsegvlhhlvghrmhgrnhdrihgurdgruhdprh
-    gtphhtthhopehnphhighhgihhnsehgmhgrihhlrdgtohhmpdhrtghpthhtoheptghhlhgv
-    rhhohieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhuthhosehkvghrnhgvlhdroh
-    hrgh
-X-ME-Proxy: <xmx:wVqhaaHGvD1Eiphu0UQvGUsq8vY3JJvW3HPTel60R0guHhN6xnR5Rw>
-    <xmx:wVqhaW7fUmT6ZYnp_qtntaBRP9PPVqGSyZrlJMiGqJqhTltRN6xefA>
-    <xmx:wVqhaUKSaFcKmvsheEHP93T2yCFnay2qeiSgMOXt0_B0uhzNXAAM5w>
-    <xmx:wVqhaZCFFj7dMt-LHLYVuTBmp18q048sjfw7koAKvPBMhqTeSHu69A>
-    <xmx:wVqhaVIB3264bON7NJGum-trK_DULEFvHVCsrGVbwK02X2Xrf1p4BHQc>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 6ED33700065; Fri, 27 Feb 2026 03:50:09 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 27 Feb 2026 08:52:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 00E84600CB
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 08:52:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA24DC2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 08:51:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772182319;
+	bh=zTSwemO+H6Nr+uY/D8bAgA0jDnb+sx/OUa7FaiaxO28=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=J/+V58Ck448JEtPw58idR/4zMu5EY0acWGrTWdYSViUuO4hlg1mYx+ylSBZPed2uU
+	 sL0OtrY7k2rbpLMOEvpEfKxp4kckOGEkYDJIO8W9ibZ72C2FoEbi3cquvzTEFi0Did
+	 Rb2jlLHJC+nmPuw7VupDTNQKcvCZIvxU8tFvw3styFXlAPPbvQ9WUQC3fI+og8DhJq
+	 TTXsFiG+VABYzV1noWE9vhsAvTTi6dx+GUa90yS5heJ4/TCg4S1aUuKS47AzoYJuY6
+	 irqL+paNADe4CxvuTp0rcEs3PLRFjg9aLjiQgn1ryqoMHWQfYk8xdpVVnMK8s1LGNk
+	 rpkvLob77lhuA==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3870778358aso19829561fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 00:51:59 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX7ckvXzyYh4lc3/xjz8NAGtD9CgvejyrD9F7CVc21JcUwx+lRxbxuwid+3U16Rp7GgfEVrOwSKYU8AaiG2TBXE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyA/e/JWM3v1RHiMsdzZv/6DWCFuRV1yTBE+AEcK/WKUEeGy0pn
+	V5slchxkB0HR6FXk6HBFlDkxASUJTCC2udHdDxQ8eKjrA6JgLdKvVZWD0UfRBuOS1TJDKv9PR4D
+	ZnljVZyXavxmFrJlBi9CuceKiD27y9OS5BH7IuUKgmg==
+X-Received: by 2002:a05:651c:3044:b0:385:c21f:37e1 with SMTP id
+ 38308e7fff4ca-389ff140698mr9116261fa.15.1772182318289; Fri, 27 Feb 2026
+ 00:51:58 -0800 (PST)
 MIME-Version: 1.0
-X-ThreadId: AULtxbNmleaw
-Date: Fri, 27 Feb 2026 09:49:49 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- "Andy Lutomirski" <luto@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
- "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Russell King" <linux@armlinux.org.uk>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Madhavan Srinivasan" <maddy@linux.ibm.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy" <chleroy@kernel.org>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Vincenzo Frascino" <vincenzo.frascino@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
-Message-Id: <0b12efc9-0c3f-4a4a-b6fc-0e5c9a6d2cde@app.fastmail.com>
-In-Reply-To: <20260227-vdso-compat_32bit_time-v1-7-3f0286a7bac3@linutronix.de>
-References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de>
- <20260227-vdso-compat_32bit_time-v1-7-3f0286a7bac3@linutronix.de>
-Subject: Re: [PATCH 7/7] vdso/gettimeofday: Verify COMPAT_32BIT_TIME interactions
-Content-Type: text/plain; charset=utf-8
+References: <20260226143615.65788-1-bartosz.golaszewski@oss.qualcomm.com>
+ <84da053d-97d5-4d07-8e76-b162a5b23d2a@kernel.org> <CAMRc=MehMLoBL573cWjQNN2eCiTCyqCv1xwVKqfkZ5isBhBUaA@mail.gmail.com>
+ <10bb25d3-2f46-4b62-affb-31257d51e24f@app.fastmail.com>
+In-Reply-To: <10bb25d3-2f46-4b62-affb-31257d51e24f@app.fastmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Fri, 27 Feb 2026 09:51:45 +0100
+X-Gmail-Original-Message-ID: <CAMRc=MfupCCr8J+qnJACVeri4nZZCnULWaRgSvi4LWs4J3-5vw@mail.gmail.com>
+X-Gm-Features: AaiRm50ByR64ghzpuSyZjUSHgfNc4yR169bV0swOH-eTRwdz8Y8xhwDJget1iyQ
+Message-ID: <CAMRc=MfupCCr8J+qnJACVeri4nZZCnULWaRgSvi4LWs4J3-5vw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: Kconfig: provide a top-level switch for Microchip platforms
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Conor Dooley <conor@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_005011_484179_A046FF24 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,16 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026, at 07:57, Thomas Wei=C3=9Fschuh wrote:
-> If CONFIG_COMPAT_32BIT_TIME is disabled then the vDSO should not
-> provide any 32-bit time related functionality.
+On Fri, Feb 27, 2026 at 9:49=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrote=
+:
 >
-> Add some build-time validations to make sure the architecture-specific
-> glue satisfies this requirement.
+> On Fri, Feb 27, 2026, at 09:42, Bartosz Golaszewski wrote:
+> > On Thu, Feb 26, 2026 at 3:49=E2=80=AFPM Krzysztof Kozlowski <krzk@kerne=
+l.org> wrote:
+> >>
+> >> This will surprise all out-of-tree non-defconfig users, because their
+> >> boards will stop working (drivers depend on ARCH_LAN969X|ARCH_SPARX5
+> >> which will be now disabled), but I like the consistency.
+> >>
+> >
+> > I'm not following, ARCH_SPARX5 remains enabled in defconfig and
+> > ARCH_LAN969X was already disabled by default.
 >
-> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
+> Your patch to the in-kernel defconfig is fine, but most users don't
+> use that but instead have their own defconfig files which they now
+> need to update.
+>
 
-Good idea
+Ah ok, I see. Do you want me to do:
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+config ARCH_SPARX5
+    def_bool y if ARCH_MICROCHIP
+
+?
+
+That should fix it, right?
+
+Bart
 
