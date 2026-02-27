@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F2CFEFB5E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D8CFEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wAkEyJJOJ/JdV7CNjPcqTwZJK7pvth1XKt8oYwJ3QEI=; b=AyrCMoG3fNPYHobjwZ242lBAc0
-	OJtKhGQdDJQTXVqQTCHAviYPPTzDfT9fFuwFV/vp2OhZ8Vxki1XWhe/6GMH6aRRoWYOa7TKO1DzqN
-	a+Zd+aaVyzNOzrS+ciSP+SREfAFx9tPfVPEsnNSA7rHFY+AsBRwhWTRS8pKx5ZVfBlocMuHyTy/1g
-	8d9nIbk2cGqItrL8CafsX0TZDxtPPAhQNp++9JK0WTTdQaLo+2iHL1cwIxBMgGLJNeVzxBAztJSfg
-	NcfNTASBRsn4iz2z0is/yNetMZQJqwIMA5PKlCPjbU1F32ZvVIbq29UP2eJ+jp1i2iUj2V6mRCzjj
-	pDTHhc5A==;
+	bh=6eW6Ffiaz+a/K4TbWo3MIPEdUxUEHjHOWmvCKtzuvO0=; b=O1qrffl1vrSlr/3L7L9YX9fDwy
+	XFzST4Lf6VxJoW4V8BBiLkbTb2zTP8m6BVb9dmDKb0NkiwJjUPNe75+UUx8V7/j2TGMmRXp2S+cnP
+	BxwxbtiBC9uWx+ow+YKSJ17Iug+eTlDIHB8TUkB+rw0et/Q7WxekNtuuylwOI11I6Q1chZBJfjVr0
+	rN6wNYB6Ho7aO9lkXpULhIbMqZF7buBCLZI1vkHFcaJ/SwO+LZ1mK5oizIJZ3xv1xtnp9SHBIESum
+	Mvjr3m4szcpYjmv4u0N5r0aaTp6jVwdKE1K/lMD7pLviE1wWEwS9s83MEr09wlH1nD3txD1Ff1Sf/
+	XptYo8dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzvo-00000008fVK-1zfT;
-	Fri, 27 Feb 2026 15:39:08 +0000
+	id 1vvzxC-00000008feW-0rd6;
+	Fri, 27 Feb 2026 15:40:34 +0000
 Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzvm-00000008fUM-1xpf
+	id 1vvzxA-00000008fdo-0MfY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 15:39:07 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4806b8fca44so2953755e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 07:39:06 -0800 (PST)
+	Fri, 27 Feb 2026 15:40:33 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4836d541968so2341415e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 07:40:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772206745; x=1772811545; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772206830; x=1772811630; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wAkEyJJOJ/JdV7CNjPcqTwZJK7pvth1XKt8oYwJ3QEI=;
-        b=MGAe7sUWh2JVbiS6EypKnGqqg3DkciwTjcPJlUfsJKgrmVnpLiOCHyK+MIJPJjSqiB
-         1g3LlwNG/n81/SlbshuJxngST13mnuV2q4Fbqr7D3u/NnBJOz32pFJQ6n8diJoGs1G8y
-         Xgrgx+Vl4eugvk+whJ/F1X0QJMBOzW3VWstDc43zMQt72Xa5bglPeHis7Oy+Xewb2d9G
-         T4E2aaeHCpql74+STXXtxE/UfYyZtKbuiezXuAbLLUz4Lym7TP38IDn6Tiho46R988YM
-         ysEPUT/k99GTM2Pum7UiP1SAsybP+a5kQvjI3q+dPSe7TBRxsfxKaUQfq536dOkH/oLp
-         04jg==
+        bh=6eW6Ffiaz+a/K4TbWo3MIPEdUxUEHjHOWmvCKtzuvO0=;
+        b=APmbKFmoDxB5ZwBaKO2tQWBfKCOXrCd2Wo73Y/dJerEsJxHjjETRILtmIZjxYFWeoS
+         /SAt1tSwGe1vBJMHbd70BIpuwPtv7wwzxiuEz+joaP4d6Pt7iYj82xMWUmjXOSLCc3ye
+         +sYPCBg4H/6mC2M4eWuoYFisPXXa6RIm5ygUwlpK+Nv2KJbkagvgHZIQYyA+7sJckwCQ
+         I23WD8Nxht0lBb1/xZhtfYkRFH9NJxQUgknyqVtBWjLyrKhAOYqXXc30qcfP7c2o/3VI
+         4S/+LeAAlAX0V41niOW67i3IyWLNmlfU9jqzxJCHPgzn1iaOiLMBtRxob2j6b5Sxe2QZ
+         WTTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772206745; x=1772811545;
+        d=1e100.net; s=20230601; t=1772206830; x=1772811630;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wAkEyJJOJ/JdV7CNjPcqTwZJK7pvth1XKt8oYwJ3QEI=;
-        b=E999V+eB/jEEk1xte8jRKpLz0GvNpVW7OcqNo3EllVR9c9nDzmQcm6gycMNdZw2erj
-         ll+XO6G9k42/IFzL6zgiCkdNyFl1kygGwbaMVdTbUnoFjpCWXMUhVfTaHaOqihwxlxcr
-         eFq2IPxGSxpOTi+ygwU0qMQqRMZ3eIwYxBe/vc6+tVl16Pz+4NV6GYL0cdvz+nazLpf+
-         wOio8ZajoXaqWFozeI11okQJNj0Uy63uR2cLXcuAE2f0rXfU6ZK73bpkC/34JDmbpFvy
-         POfkwqwU/HG/vdzPSq42Uk9DEcSghw+GI6S3XhiMgxC+kmHGwtY9o54IBf+SE3eWFjs5
-         G8vg==
-X-Forwarded-Encrypted: i=1; AJvYcCXLLq8HbubeeFhxtUz5dCDaWgx3Ixp1AX9wtu1OxhenVZnB89c7FxPHvntfiChNshv1hgnHVrXOR9c8xTWfL3zN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxbJe/RP0rx9kWsjmtVGQTgJ7gs2OoiOybk9WcjNBacDDHsofH
-	7SUb9VNkT5lL+aknW6q19yL2O5I7Q5eATi+X6bVO9U6Sd1ulXN7jR9i4
-X-Gm-Gg: ATEYQzwAxCloz19EBuyscjpj0ZwPFMyQ8zLK9Ej3A3aUk5qU84VhWbs2QsrTPuZ4sPT
-	+shvNTs8Ho/ksH5Jh/83nl3JJsn9ogBQW+lwEa1qTqkxcCznc5Vvke+fC8PWSN4wqAPSOXp9TbY
-	5g7qQrs8OCTLs8ZtIF+fV0PXZQOJ7cGxK515BYO/c+HugYAbHQqPPveofNCdNfmptTxWw1rtM4P
-	kaQj4gX1oWEnqFgRwemwr5F+YyhvGyHzh0P85uvzv7bW9385RJRRllPw49MhjzlpETsl9vQOjrd
-	pDsN+yU2dFvhTgVFLp7Oyv1MtE7hV0GzsI1JM5kdg/cWwu8Lnb0EmQoEzjRIEAeju0ylNTt5QLD
-	23IHUeLsjmOpnLglhpIDW/V5bXicvk9MQuxVAvoxxg4Dt+sdjkWjm3ojD8kpPYQSI9FUrS7WvW8
-	BJpmbgJvg576W1xA==
-X-Received: by 2002:a05:600c:46c4:b0:480:6612:253 with SMTP id 5b1f17b1804b1-483c9c27367mr29499615e9.3.1772206744631;
-        Fri, 27 Feb 2026 07:39:04 -0800 (PST)
+        bh=6eW6Ffiaz+a/K4TbWo3MIPEdUxUEHjHOWmvCKtzuvO0=;
+        b=wJN2vL2cgLhKs2ex7glaGhGXEttHtwhLTP61xk/oO0mYMJPx1vKGv+/HhrJUwP+aYL
+         xrpMVdgLzh1rGanibfMQSA28eyXvIiTbn06ZekiJCW+W9FvLAuALcbZh7zc/PWqkdM2w
+         yOIOjHC76rLfPBT1zN8+VURJClk3gDqBebXsZB1+bkKcZKingg26pjXGxX1awkqMkIh+
+         dXXI5YdG+d+yhY+E1+Q8TxPMVWDhHQIJWI1mn7BMGAogPruGFAEgY0gogat+/USWjRwQ
+         sNjf28fbqxpuMTyP3pzpqaX03Wrl+YKWH1zC+8cr3SOYHwxj8ZDZ+mkvWmUkvQvcX/pF
+         /nnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU3n8NvZj6aiY9roi9aRmr9F9YfZvWHyR1VP7v6LXaWrSVuLWVAUQQhtlvfO4dEaEPoJU1DIQJSUHbskr0IntAr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx34zISDADS+Be8ciESw2BjKRK+Ixtef/utmwzY7xZ9Hz4REKN
+	4WaBLQF41oRBKs5yRLhh7kNbNr5rQV+U+XhJW+cF0+w9ZW4uLw741+IB6MXQ2g==
+X-Gm-Gg: ATEYQzxJSlRDLbRtPAYjpm+1+jZNMiZ3OcgFdDeTjMIold3VFlMDKNx2KnQkfBSgspR
+	ZIP5SeoyCbjmQqva2V9CVpyw/QvZVXyHfO7U/HQd14q4kIsullAxjxFVnkrDobbJA0+/gMyDnFY
+	OuhIHOmg+R/CltfUDNuxoblsxQACg4A5hQYsSpkdbm0uRMwO4wgon7P46+TJWD4SDqhRwe3OGl1
+	ZoIgvXHYP0Qg6qxjpNrf3LEd2yn8Rtc+sq7Mv67Z/kiEF6zO1FN6rOS+vn3oenS9uLzz9XB1Qc4
+	VPLNhyhg2iNIiOWHkkRZocu5bDa/wD1mKuPTUjKALu9VomA64KU5XZcVkSGA08SGeDSBQhUe0UI
+	9I2SeCBzK5IrWFggX2/SGS52TsrDS+N35+7E1G3Btj6tq1LVpQ96+9jQ6wxFElN77w73i3jtuIH
+	S2I0HDqtWzzCADMA==
+X-Received: by 2002:a05:600c:350e:b0:483:79af:ca1e with SMTP id 5b1f17b1804b1-483c9be0523mr30417725e9.5.1772206830140;
+        Fri, 27 Feb 2026 07:40:30 -0800 (PST)
 Received: from skbuf ([2a02:2f04:d608:3a00:ac95:d4c:390e:fb0a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bfba9566sm97450615e9.3.2026.02.27.07.39.03
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bfcbf016sm101582255e9.5.2026.02.27.07.40.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Feb 2026 07:39:03 -0800 (PST)
-Date: Fri, 27 Feb 2026 17:39:01 +0200
+        Fri, 27 Feb 2026 07:40:29 -0800 (PST)
+Date: Fri, 27 Feb 2026 17:40:26 +0200
 From: Vladimir Oltean <olteanv@gmail.com>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Andrew Lunn <andrew@lunn.ch>,
@@ -83,18 +83,21 @@ Cc: Andrew Lunn <andrew@lunn.ch>,
 	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH RESEND2 net-next 4/8] phy: qcom-sgmii-eth: remove
- .set_speed() implementation
-Message-ID: <20260227153901.qor4rtvtxur2zywh@skbuf>
+Subject: Re: [PATCH RESEND2 net-next 5/8] phy: qcom-sgmii-eth: use PHY
+ interface mode for SerDes settings
+Message-ID: <20260227154026.dx364j5scae4epqw@skbuf>
 References: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
- <E1vvkUD-0000000AuPE-1l06@rmk-PC.armlinux.org.uk>
+ <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
+ <E1vvkUI-0000000AuPK-2IBa@rmk-PC.armlinux.org.uk>
+ <E1vvkUI-0000000AuPK-2IBa@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1vvkUD-0000000AuPE-1l06@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vvkUI-0000000AuPK-2IBa@rmk-PC.armlinux.org.uk>
+ <E1vvkUI-0000000AuPK-2IBa@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_073906_813532_D0581BDA 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260227_074032_132710_EFB3CC49 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,18 +112,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 11:09:37PM +0000, Russell King (Oracle) wrote:
-> Now that the qcom-ethqos driver has migrated to use phy_set_mode_ext()
-> rather than phy_set_speed() to configure the SerDes, the support for
-> phy_set_speed() is now obsolete. Remove support for this method.
+On Thu, Feb 26, 2026 at 11:09:42PM +0000, Russell King (Oracle) wrote:
+> As established in the previous commit, using SPEED_1000 and SPEED_2500
+> does not make sense for a SerDes due to the PCS encoding that is used
+> over the SerDes link, which inflates the data rate at the SerDes. Thus,
+> the use of these constants in a SerDes driver is incorrect.
 > 
-> Using the MAC speed for the SerDes is never correct due to the PCS
-> encoding. For SGMII and 2500BASE-X, the PCS uses 8B10B encoding, and
-> so:
-> 
->   MAC rate * PCS output bits / PCS input bits = SerDes rate
->    1000M   *       10        /       8        = 1250M
->    2500M   *       10        /       8        = 3125M
+> Since qcom-sgmii-eth no longer implements phy_set_speed(), but instead
+> uses the PHY interface mode passed via the .set_mode() method, convert
+> the driver to use the PHY interface mode internally to decide whether
+> to configure the SerDes for 1.25Gbps or 3.125Gbps mode.
 > 
 > Tested-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
