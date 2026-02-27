@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CF3FEFB72
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2C8FEFB70
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G/YpL6nohn85Bq182A4cVkKIZITsZYZrFrUtUs1eFaY=; b=nNYR2I/PznENZ7L6hnU9edVs1v
-	ZTLsBBVwtzldSHSKIYMiCjKsMYAfhMhPeBPuehHShox9S8/fbW2GwoPHVTgocO2kVcKswwL7Go2o+
-	VC4QQx/EtlP1LWADzPp+jBE0ZBNgZyPEuRGzwDeIhElS0OHQLeSDPjrafymIcoWldw3skAliWlOmX
-	f4/Dkz5ondGF3sqr9qhvcZk+T6DkXsF2U19JRAzqeWc+mJMMhAbeiHd8nIaEwILdQc6mcO/hCnYVF
-	ft9Oc/JQlkP9aza59fgdN86ZKEd0s0gwUvj0Dh7ei9Y4Rd+0MWrDDf1GyJkxgtkMOyzj+ZIqD/i5i
-	Hzl6MWHg==;
+	bh=hh7UQCTikODzVqp9l9EedwaKfGKmYZUbC4uOp2F0oWE=; b=F/AaEF22X3PQZIgmi9ziIbWwG+
+	08ynyXbhV7rhpbT+W4wQryjJgiBSqinsYX085lbRPMPyk+oYrRBJEREzvaxIUQuIGDlQMnLztFHVy
+	iBht/BGLU1/VRBUFlFUxi0vtYIMJxJliR9IBmaWyTxIaVkIEZg2xvZ2C+pJCvZs/7F5j7G2q6kIZA
+	aIoAFL3UFrGflTjygpBIdq3KboRZgYnr8N/mwrn43OvM6OyIseWBdkbLmD8KhM4CfM4b4WfELE0wy
+	bJXCzOo78UgrVOslQyJv71AQ1Rtq/oWvW/NOu4VKbIrKhv5eE80QYaj6jU0e3MBqhMzmpOPN6xOAu
+	dDN2pTNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw1yA-00000008pWk-35IZ;
-	Fri, 27 Feb 2026 17:49:42 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vw20W-00000008pj8-00GL;
+	Fri, 27 Feb 2026 17:52:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw1y5-00000008pWA-38UF;
-	Fri, 27 Feb 2026 17:49:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772214574;
-	bh=SpE+cfNaP1TFrPzaUFYC0O9H8FoRYo0yR/OZFLjxALo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DVaKcqErMmK37/uJXaKthCMiluQqJM7uAJYCmJcrnFscZ4q+4KopoQJ+kelS7x7jw
-	 3YaldOMsay/sDkvHIHQw6Iuqmw9XDH7+TMWuetAm5rW9kgUOntjSJE2nBUc85SDs81
-	 0M88Z1csETPWYBba9DmoDjZReGL9fo7PGZRYiz6dJDQ4byM9jWuMTSyqdg6e/dBMYP
-	 RpbzOwsS3E4AqG9TY+jcdS+m9Ha9taIcgFm8H084/xiGRq7zaKvANQEfCzgOOlvQlS
-	 v62oXqNpUmHncmwHovx9ANNPB7XIxEo4rdRaFNSvqLqX/8KXty5Ccb72vCQAoXoRfb
-	 yOGMqWMxIf7TQ==
-Received: from [192.168.1.90] (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C587C17E03E5;
-	Fri, 27 Feb 2026 18:49:33 +0100 (CET)
-Message-ID: <86f4e4ee-cf49-4ebe-8cc6-0a9763ade36a@collabora.com>
-Date: Fri, 27 Feb 2026 19:49:33 +0200
+	id 1vw20T-00000008piI-42Bs
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Feb 2026 17:52:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 09D26600AA;
+	Fri, 27 Feb 2026 17:52:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CAF7C116C6;
+	Fri, 27 Feb 2026 17:52:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772214724;
+	bh=tKKtBVOvZWHv6aIPkC7sIoW5DK8EutIUgmSN3eswTBA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=G81d3nsoIkSP4l8EnshSuzG53FbA2uBKo7cHmYqM4QAN9wBs6KEUmqrXchmKOEmeA
+	 GtIfbAnXwStm69ApGhzxRvzH/Ah+R/2n9A/UQM/0aBGnqQXEuwhJYe1SAXIx6pIEQJ
+	 araXge3dpXQ7YTPJ6aGk2YEA2t2AKgwgVGTYGdsNGufsh8aKTmV4OB2zf/ukUfSK3h
+	 AJBCxCUPnEHqgENsX/+mtyE6pykB+LDjg7cIg6l3RqB0QQQgkuNUImoHyU0Zyo7hvJ
+	 MMElxskvLzf5mAHWn8SxZIh/sztYhv69LIqUtgTtgsRxodmdaE0n6Fg8NlHACTZ9pa
+	 O+vhlqHBX1oSw==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 2E4965FEC0; Sat, 28 Feb 2026 01:52:02 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mark Brown <broonie@kernel.org>
+Cc: linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 3/3] arm64: dts: allwinner: sun55i-t527: avaota-a1: Add SPI NAND
+Date: Sat, 28 Feb 2026 01:51:55 +0800
+Message-ID: <20260227175157.2339758-4-wens@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260227175157.2339758-1-wens@kernel.org>
+References: <20260227175157.2339758-1-wens@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] media: dt-bindings: rockchip,vdec: Add alternative
- reg-names order for RK35{76,88}
-To: Conor Dooley <conor@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
-References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
- <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
- <20260226-salute-threaten-a3eabb232396@spud>
- <429f3c7aa22eccffedbf8db6aa91bee3dd13814a.camel@collabora.com>
- <20260226-snide-foil-a05e1aa156a8@spud>
- <3d28c699e47f606bad46bb6447785badace37793.camel@collabora.com>
- <20260227-atonable-glamorous-920cfd832bc1@spud>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260227-atonable-glamorous-920cfd832bc1@spud>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_094937_936524_8FE9F395 
-X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,53 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/27/26 7:18 PM, Conor Dooley wrote:
-> On Thu, Feb 26, 2026 at 04:56:30PM -0500, Nicolas Dufresne wrote:
->> Le jeudi 26 février 2026 à 20:59 +0000, Conor Dooley a écrit :
->>> On Thu, Feb 26, 2026 at 02:45:11PM -0500, Nicolas Dufresne wrote:
->>>> Le jeudi 26 février 2026 à 18:43 +0000, Conor Dooley a écrit :
-> 
->>>>> Deprecating the order also makes little sense to me, given that some of
->>>>> these devices only have one reg entry, which as far as I can tell from
->>>>> looking at the driver *is* the "function" region, so it can never be
->>>>> entirely deprecated.
->>>>
->>>> What I'd like to see, is a binding expression that behave like a set, not a
->>>> list, and leave the ordering open. As people keep repeating, there is nothing in
->>>> a binding that assist to define the right ordering (its not address or base
->>>> addres aware). That basically means, we can't as reviewer see that ordering is
->>>> going to imposing using a base address in the unit name (which is a convenience,
->>>> not a rule I suppose) that differ from the vendor documented base address.
->>>>
->>>> By explicitly removing the ordering in the binding, we create a strict rule that
->>>> driver should retrieve this by name, and never assume the ordering, which I
->>>> personally like.
->>>>
->>>> thoughts ?
->>>
->>> Yeah, you can do this, but to avoid potential breaks you have to do it
->>> from the start, not after the fact. Probably there's bindings that get
->>> acked every day that do do this. Even the retcon is okay to do when
->>> reg-names is mandated by the binding and the users use reg-names in my
->>> opinion.
->>
->> I think from the above analyses, since the usage only starts in rc1, we have
->> room for improving it knowing we aren't creating problem for anyone. Note that I
->> have no idea what the syntax is to "do this", and I doubt either Detlev or
->> Cristian have a clue.
-> 
-> I think this is the only bit that really still needs a reply, this can
-> be solved by adding reg-names as "required" to the existing conditional
-> portion of the binding. There's probably hundreds of examples if one
-> does a search for "then:\n.*required:" to use a basis for the change
-> here. Probably should be an independent change, since it is needed even
-> without the re-order given the bug I brought up.
+The Avaota A1 board has a SPI NAND chip connected to spi0 on the PJ
+pins with support for QSPI.
 
-As mentioned in my previous reply, the actual problem is that the binding has
-been already released, and I'm not sure we can change this without breaking the
-ABI.
+Enable spi0 and add a device node for the SPI NAND chip.
 
-Regards,
-Cristian
+Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+---
+ .../boot/dts/allwinner/sun55i-t527-avaota-a1.dts  | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index 7c24121de88f..474354fbfcec 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -403,6 +403,21 @@ &rtc {
+ 	assigned-clock-rates = <32768>;
+ };
+ 
++&spi0  {
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi0_pj_pins>, <&spi0_cs0_pj_pin>,
++		    <&spi0_hold_pj_pin>, <&spi0_wp_pj_pin>;
++	status = "okay";
++
++	nand@0 {
++		compatible = "spi-nand";
++		reg = <0>;
++		spi-max-frequency = <100000000>;
++		spi-rx-bus-width = <4>;
++		spi-tx-bus-width = <4>;
++	};
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pb_pins>;
+-- 
+2.47.3
 
 
