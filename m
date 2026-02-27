@@ -4,95 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B196FEFB72
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB1EFEFB6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YZAY8PrMrhuZaUeuchgM/SkRiM1r6YDBw5eo9d2XljY=; b=p7aaAVWml3o8yx+rduGmO9gGcf
-	myp3d2/TCLzzdc7901elTN+p238UDeyZfiXBiVTSwuBGidd0MnaPgyyKbyxPZoH278trtypFWVbSr
-	x4tMBz3aGaRthP3rJftAS5zmWKHKtY3ZNyEKNlVT9AqrIa44mTXbLeXOTfmFjrbWQkguhq4uoxdzZ
-	+2mgcOv2IhXMvr2qJ5Ltm8jlaopVe/yrK8MLGrwULS80yFc+PFqwSxV9JT6nK9AgX8snZUOA5wvY6
-	wF7IoTEVfzX+HroEM3jkrrUFbE90VB0GizAoiHZZF4OlJR4EHraJ2Sa0D5Y65Mwog7XDr1qtKLC6T
-	iEeOW4Jw==;
+	bh=+cD8P2tgu0apAWqjJEf8nXuFb43/7yGEaH3yQ4zcVZs=; b=pl49aAIKwyeG08jQPTR/tlgxzZ
+	3bXZiSSlC5c5CyQ6peO5TBpXBJfAlxpUtzLprfBQf/0Lqf/pd0o26FLTQ8g5yMILzZ/Lf4/nHUpi4
+	ViGcbQ4na5//zLrJBAtRD+tYBBlsOTkbKcYdkBYhZeC1a+mojX5904Ki3eRJdKSAub21lWa10QMsE
+	inyb7P2cUS4RLD9e9yN8dsY8AQOKAp1nnM3WBQUHcgknwb2t4LuK3h1C43dpJGHCxYlghZEEBNFaP
+	HNm91hnzWSAH4d0pi5LOLDhD4iCU5rbtADNLEDdVKt8iE8CTWeq+wumc8AR3RLssglmYzYEqsOlKQ
+	7j1mgbMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw26G-00000008sFe-0Tqx;
-	Fri, 27 Feb 2026 17:58:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw26E-00000008sCY-27dT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Feb 2026 17:58:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=YZAY8PrMrhuZaUeuchgM/SkRiM1r6YDBw5eo9d2XljY=; b=KAVWvNvuYNILOlnDEJBUWva3hK
-	dE0p2XJCj3vMMLKKWLkWse7JPyHnE0Q0yZUHp+VA1O++/QKpBnTW1y9xtDlbYE8kEN41zDEMkbL8B
-	HSKtpdIX2upP1Pj/uGW1brTaXQrc+QigWTeStUbgklprFh0wszWa3wNmHbcaipS85LTojEjpCu8fC
-	k6CV/+7XZi/FSDNiRBavCEc1P0XLpRkHxGZUsSWehU3Jna8turFs8IIfSphaIKVe0g4ed9GXmnKZk
-	fRg3kWEZP3a4EjON39yZ7sJSXhWyPhhcWbuf0wmvIP0gM3ubWZ/XJOfr3UMqWIN/uuIalmPwcs5dk
-	aoDilzWg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw25u-0000000DdSd-1m0q
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 17:57:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F69A176B;
-	Fri, 27 Feb 2026 09:57:34 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6C9833F73B;
-	Fri, 27 Feb 2026 09:57:36 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	Jann Horn <jannh@google.com>,
-	Jeff Xu <jeffxu@chromium.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Maxwell Bland <mbland@motorola.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pierre Langlois <pierre.langlois@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Will Deacon <will@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	x86@kernel.org
-Subject: [PATCH v6 25/30] arm64: kpkeys: Protect early page tables
-Date: Fri, 27 Feb 2026 17:55:13 +0000
-Message-ID: <20260227175518.3728055-26-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20260227175518.3728055-1-kevin.brodsky@arm.com>
-References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
+	id 1vw26H-00000008sH8-19mn;
+	Fri, 27 Feb 2026 17:58:05 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vw26F-00000008sDD-0tzI;
+	Fri, 27 Feb 2026 17:58:03 +0000
+Message-ID: <4186c887-fec4-4677-a7b0-e48c52ac5dea@infradead.org>
+Date: Fri, 27 Feb 2026 09:58:02 -0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] usb: dwc3: add needs_full_reinit flag
+To: Xu Yang <xu.yang_2@nxp.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+ Li Jun <jun.li@nxp.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260212-add-flatten-dts-based-dwc3-imx-driver-v4-0-08c10b08ebb6@nxp.com>
+ <20260212-add-flatten-dts-based-dwc3-imx-driver-v4-2-08c10b08ebb6@nxp.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260212-add-flatten-dts-based-dwc3-imx-driver-v4-2-08c10b08ebb6@nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_175755_702157_A2272C6F 
-X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,38 +63,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the dedicated kpkeys allocator for early page tables (used to create
-the linear map) when the kpkeys_hardened_pgtables feature is enabled.
+Hi--
 
-CPU features have not been detected at this stage so we use the
-early helper arm64_supports_kpkeys_hardened_pgtables(). This is not
-a concern as kpkeys_physmem_pgtable_alloc() does not itself use POE
-or set_memory_pkey().
+On 2/12/26 12:35 AM, Xu Yang wrote:
+> The current design assumes that the controller remains powered when wakeup
+> is enabled. However, some SoCs provide wakeup capability even when the
+> controller itself is powered down, using separate dedicated wakeup logic.
+> This allows additional power savings, but requires the controller to be
+> fully re‑initialized after system resume.
+> 
+> To support these SoCs, introduce a flag needs_full_reinit for the purpose.
+> And the glue layer needs to indicate if the controller needs this behavior
+> by setting a same flag needs_full_reinit in dwc3_properties.
+> 
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> ---
+> Changes in v4:
+>  - also rename core_may_lose_power to needs_full_reinit
+>  - add R-b tag
+> Changes in v3:
+>  - no changes
+> Changes in v2:
+>  - put core_may_lose_power into dwc3_properties and check it in
+>    dwc3_get_software_properties()
+>  - rename may_lose_power to needs_full_reinit
+> ---
+>  drivers/usb/dwc3/core.c | 9 +++++++--
+>  drivers/usb/dwc3/core.h | 3 +++
+>  drivers/usb/dwc3/glue.h | 3 +++
+>  3 files changed, 13 insertions(+), 2 deletions(-)
+> 
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/arm64/mm/mmu.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+> diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
+> index a35b3db1f9f3..67bcc8dccc89 100644
+> --- a/drivers/usb/dwc3/core.h
+> +++ b/drivers/usb/dwc3/core.h
+> @@ -1119,6 +1119,8 @@ struct dwc3_glue_ops {
+>   * @usb3_lpm_capable: set if hadrware supports Link Power Management
+>   * @usb2_lpm_disable: set to disable usb2 lpm for host
+>   * @usb2_gadget_lpm_disable: set to disable usb2 lpm for gadget
+> + * @needs_full_reinit: set to indicate the core may lose power and need full
+> +			initialization during system pm
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 2cee0b7f8a56..7072d5ac0579 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -116,8 +116,11 @@ static phys_addr_t __init early_pgtable_alloc(enum pgtable_type pgtable_type)
- {
- 	phys_addr_t phys;
- 
--	phys = memblock_phys_alloc_range(PAGE_SIZE, PAGE_SIZE, 0,
--					 MEMBLOCK_ALLOC_NOLEAKTRACE);
-+	if (arm64_supports_kpkeys_hardened_pgtables())
-+		phys = kpkeys_physmem_pgtable_alloc();
-+	else
-+		phys = memblock_phys_alloc_range(PAGE_SIZE, PAGE_SIZE, 0,
-+						 MEMBLOCK_ALLOC_NOLEAKTRACE);
- 	if (!phys)
- 		panic("Failed to allocate page table page\n");
- 
--- 
-2.51.2
+The line above should begin with
+ *
+
+Please correct it so that kernel-doc doesn't complain:
+
+WARNING: drivers/usb/dwc3/core.h:1122 bad line:                         initialization during system pm
+
+Thanks.
+
+>   * @disable_scramble_quirk: set if we enable the disable scramble quirk
+>   * @u2exit_lfps_quirk: set if we enable u2exit lfps quirk
+>   * @u2ss_inp3_quirk: set if we enable P3 OK for U2/SS Inactive quirk
+
 
 
