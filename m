@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35109FD530B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 07:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B2DFD530B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 07:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLydjPhRFcy1XY3eCD02sOAHoMa1ojbTassrr6OVRpw=; b=Yd7LpRsjjOG0Roqca+HouC5QcV
-	Lxerr5+zoPXlaL18HKusG3o8hAzr8nFqvQ/DsaZYr5Au/THmpoCrzw06eHq/AplJr4ykQItaGKCP6
-	QY50zrLPrYsaKc6bctyF7ldiEoxkZ1Odxl+qwxvxesGNpuA2aA2LczI8DjwF5D17eD03gRvX9kwpF
-	8rhQeljPYSJhj8Yjt03vhEsNUNTj03L1ZmunSenLASAltklK9qr5v8Cf5utL14PqqHVfGYYJdU/zb
-	jwY4OOevzK7oR8S4jhs1OGTVXj4Qg8UKJeB6mnPCwtRC7iOo+fZkk3xOKGOcz7TiCnJPKBYEFGOgm
-	KrKvxXcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PcwlumpKyxYaS+zrHdmf9aShxeDyX/f7m+y8TlStwkU=; b=CLdcBn7a12RJmWf861oEAVp+7G
+	DlvtxNngQvshNF+bxPjlYy7faN1R4CRbIk9AI7JrnJR57emMGap/kdX2O+X+Bb+GdlUaXuBCuwIev
+	gj14gm9DhwyFxc6wLYrhtAMtQsVZUIhs1ojd5jdlnduh/OHSkq3x6Wygq2+8wAJEdLUBQLTiT3AwT
+	X3WVHN6EbD9fT9pqxZrAF4Eikbb077RRPeoUo/SMIVZWG0Y4qIujjf/xdsAeCoaO+3T0b23GBYUKl
+	hpqf8CHt8XCIq5hb84P6MgeqRNtFnuknCgc45QoAQoy4aj/4zmKSloxM6+klO0t6t/TXBYZUBPXPu
+	UQ3s6nvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvsS9-00000007u5M-3dP8;
-	Fri, 27 Feb 2026 07:40:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvsVL-00000007uR5-2JVq;
+	Fri, 27 Feb 2026 07:43:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvsS8-00000007u4v-1ixT;
-	Fri, 27 Feb 2026 07:40:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8782C60008;
-	Fri, 27 Feb 2026 07:39:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1085C116C6;
-	Fri, 27 Feb 2026 07:39:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772177998;
-	bh=sOiYomvFhDq7ZX6J8GSoe63dznpvQRU6nVHqlNksY7w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LpG7zHTpjfu9gK+YkZ5ZMc+iPrUQxQRM+TRD/8fEXAvIU2oEzEfJ8EZYp09RZrNle
-	 z3507pfPNT1krjeo+CoR+VRzyHlO2kh1EzkCVJHJ5a8JJYvj6KIlVGcFIh/93SuwQA
-	 M2zDS1dYhBz6jucMZEAGInEAH7bPHzcg0ntnfCYBsCvJiYo5aE8cg7ymB+v2eTJxFB
-	 LIgoibaoj5BtvYbyZHQNhI/XvgaR+E/eKKehM6LSqh/06DCZAXxWtxkia01p/iGxrw
-	 GBqIAQCdiGCxgmRw7bxMVr3uAtK5h6TdsSQcgqQDLQIHGH4EBUBW0bxORzur7FjXUS
-	 pJfTz/yU345Hg==
-Date: Fri, 27 Feb 2026 08:39:55 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Detlev Casanova <detlev.casanova@collabora.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
-	Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
-Subject: Re: [PATCH v4 1/3] media: dt-bindings: rockchip,vdec: Add
- alternative reg-names order for RK35{76,88}
-Message-ID: <20260227-aromatic-aboriginal-ibis-d14e7f@quoll>
-References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
- <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
- <20260226-salute-threaten-a3eabb232396@spud>
+	id 1vvsVI-00000007uQm-0lbU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Feb 2026 07:43:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1772178194;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=PcwlumpKyxYaS+zrHdmf9aShxeDyX/f7m+y8TlStwkU=;
+	b=CXxW8232jlK3QbQhiZCJEL80ig9wdAuRCtfDo5IdPDlzeGq7DamLHvEAaZt3welaZCppxm
+	efKovyO+3l36smU4qAxnJ/RTP1dzF6VH5ZH6V26RHbrXuuOHLj+xBc8SxOT7sbHGGcV9QU
+	YxxSAJjwRYPXCmEezXQ3gkVYcqaOYL8=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-445-zi5JVMu6OZSYSSlq9zOHtQ-1; Fri,
+ 27 Feb 2026 02:43:08 -0500
+X-MC-Unique: zi5JVMu6OZSYSSlq9zOHtQ-1
+X-Mimecast-MFC-AGG-ID: zi5JVMu6OZSYSSlq9zOHtQ_1772178187
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6CDA619560B5;
+	Fri, 27 Feb 2026 07:43:07 +0000 (UTC)
+Received: from [172.20.201.171] (unknown [10.30.44.137])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id ED7AA1955D87;
+	Fri, 27 Feb 2026 07:43:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.0.0-rc1,
+ upstream-arm-next, e243a5a9)
+Date: Fri, 27 Feb 2026 07:43:05 -0000
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260226-salute-threaten-a3eabb232396@spud>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Message-Id: <88404.126022702430800296@us-mta-445.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: AnPwrItVT4rZOxQbMnwHIenVG1ZP_QUU5n1e5UrQsZI_1772178187
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260226_234316_320615_57D44708 
+X-CRM114-Status: UNSURE (   6.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 06:43:31PM +0000, Conor Dooley wrote:
-> On Thu, Feb 26, 2026 at 12:46:53PM +0200, Cristian Ciocaltea wrote:
-> > With the introduction of the RK3588 SoC, and RK3576 afterwards, two more
-> > register blocks have been provided for the video decoder unit.
-> > 
-> > However, the binding does not properly describe the new hardware layout,
-> > as it breaks the convention expecting the unit address to indicate the
-> > start of the first register range, i.e. 'function' block is listed
-> > before 'link' instead of the opposite.
-> 
-> I don't understand this commit message or rationale for an ABI break.
+Hi, we tested your kernel and here are the results:
+
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
+
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge branches 'for-next/core' and 'for-next/fixes' int=
+o for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2353119116
 
 
-The description is indeed wrong. The binding properly describes new
-hardware layout. They just don't like it.
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
 
-Hardware has three separate address spaces and EXACT three correct
-separate address spaces are described the binding.
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
 
-> Changing the unit address seems like a "free" fix to your problem,
-> especially when reg-names is not a required property that you can rely
-> on. Actually, there may be a bug in the driver - it expects reg-names
-> for rk3576-vdec and rk3588-vdec but the binding doesn't mandate their
-> presence for those devices.
-> 
-> Deprecating the order also makes little sense to me, given that some of
-> these devices only have one reg entry, which as far as I can tell from
-> looking at the driver *is* the "function" region, so it can never be
-> entirely deprecated.
-
-There is "if" at the bottom of the binding, so the one entry does not
-use reg-names.
-
-Best regards,
-Krzysztof
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
