@@ -4,94 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E958FD530D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 08:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83937FD530E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 08:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRbyV6rB0ACPTuZRlxL65vpkYib9H0d5lAlAjAED1c4=; b=RTJ6kgUILqG9Li2bkMFqdpEYfs
-	dWdPq37UNEcwpyLjUwYqFB0BW+Ebr3m3J99zA6Ciep3kKoN6Bew1QPOG9S6caYEpsPVa7qCX4BIEl
-	cqFAfsi1FbClyR/jmar6Dhd0UM4fHL1I3+WOZGP9RV+ddeHLxhXt85ncoUi1h38YANE5BstQQkV/w
-	nWSKqurQULwzqALc/czD43GdwiR7XaaKUnBpj+DBjhfTca/YfK+Nu/swam8f0nk28OEtOfJe3D1eE
-	evKbhlAKaOsiDZIinfBvUteAQdoIJF90yzu3cyUCoZL2t1Mhm4s1tX36aRZpV9eiWNYO5I/rNPg1K
-	JoTaERdA==;
+	bh=rk4WPF5PpjLK6SljcO6BaUJqFLdiU1iwRrL0bQv77zQ=; b=0ShTUvmHSHOFAZD+QHQc2KvCh9
+	ADXP2PSLR7GM1Gg+JmxNBP9uHRkSUc9k9b+R/7ejDs2XI4pmDAcHW4UEuG1QDVgVbjoEQbqF8c+Mz
+	wQ2ckNy3t/T52L47I2DlFT6pRk7WN/W0eKojIi8tihN+77J9dXt+Ym3r2qDCti6ys1RCLVvajTjJX
+	X8K49Owy6QjG/6jqdSX7tVwWQzTovFjOEbDaNfYmtYRywm3WzWAOkxsTPM9sn7K322SpPX9Mlp4yD
+	ytzn5ji9SWtwMYp1lpW2Eleiud09DMfhxQpsD/+43taXYNEk+Lw5tgx7gwqfMetjsUHtAVPWHks3I
+	cGemamjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvt82-00000007yiu-1bCs;
-	Fri, 27 Feb 2026 08:23:18 +0000
-Received: from mail-qv1-f43.google.com ([209.85.219.43])
+	id 1vvtDj-00000007z0j-44dy;
+	Fri, 27 Feb 2026 08:29:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvt7z-00000007yiV-2z5Y
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 08:23:17 +0000
-Received: by mail-qv1-f43.google.com with SMTP id 6a1803df08f44-896fb37d1f0so29247096d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 00:23:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772180594; x=1772785394;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BRbyV6rB0ACPTuZRlxL65vpkYib9H0d5lAlAjAED1c4=;
-        b=lDkVxfS+i6UvgMgvl/J4+I/tACD0TodA/eo4qIIWZlRovyyRtSBPkAtEcL8HluDf6b
-         4RY1vrm8y8ktHc/pg4rpLeJGsv0GGT+vMcFQuGAP//Ae/HUxZtNB/yClo8sqsOpajgLm
-         wAaMyjK8H0+gVI+Cx/doKLOaBfVJf2G8g8ARd010uEizKdQ+6ze8yYR7TcgedbYEjZJn
-         7jrWMaTttj5k1OGEdiAezhfXLT9ehE9sKE3pvBocsDCq890Ed4qhc+DbFURvDwO/6br9
-         X47ZampQGaXFeHePywtlwDbI451Fco6i75WuLPFJga7jIr2ZScT/OvbH91/VvXQ4LL31
-         QCOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV2r610ir4eIpNlVGXptt0xy9pJqHSJKRfLUhr7qWy9OZDjYAIOkAriSVnQsb0djXMisDDuhXKvlX1YB6dMrZ1O@lists.infradead.org
-X-Gm-Message-State: AOJu0Yweu6E/dwaf+i7E1gWTnu7kIz5DNJFZRtqHfjl4eLJSl3LY1yUJ
-	EnsI1ON8NOnkQOVByPL5s/g+lZ4jPP0ftLfrpdOf8MWorDD1fzzYDC0DbscE+zxDitw=
-X-Gm-Gg: ATEYQzxSUY4H80mXL7nSbus3tZqkq3CbB2ePBXSQ2ZWdN7ADMoPA95MluyjFYXkedgz
-	Ud4YfFtnXE7xQ7sDdsf4qKimgDILMNviyM4YzcmAhrqbzubtfybB1zkU94P7ZUAVLllAA+iE/CH
-	aQ/IsNI1z05jNMNZ/XOs4qiyIhYRXPC3fpnaaUl6rnm5Hd0wQ1GTWKKUNcfejcsWEYIcbh6EZ2I
-	7TkGcZMBxJIWPW1Np0LVZgixSCkDy0+8XDE4nVrmMbyRe1qQx+mzu/L8SNISq9KimuAuE4eTC26
-	xg9XUj0MlZZUcaC5QtbMQNq4AStPYTwpgmV9b+DBb3myvInO7wEojkLH7L8NrbLJlT2ot+1as+f
-	QXIkTSbZ2XPfTgkTYMutAdSrAXNXuIKG5Q85K8aabLnYTJzQiaeDlrwu0aIHBPyhh+8cLp93/BZ
-	tFdkDRvTKq3Ge7YhepWItOKY7IEVM/kTJGhCQjiN9XlTKWJz53pBpewSCri+CkPTHx
-X-Received: by 2002:a05:6214:2021:b0:894:7852:9bd3 with SMTP id 6a1803df08f44-899d1e3dbe5mr26838456d6.42.1772180593947;
-        Fri, 27 Feb 2026 00:23:13 -0800 (PST)
-Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com. [209.85.222.171])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-899c7374dd7sm39689776d6.32.2026.02.27.00.23.13
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Feb 2026 00:23:13 -0800 (PST)
-Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-8c70ab3b5fcso246408785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 00:23:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUPwEQ0RShOnO4XI4fPlHvdbEfqxZI2qQ78I2TlkJ2GXG95E9niV+5fIYJq5U54H5vVuDLa2sIPIV+8gqbU4IQI@lists.infradead.org
-X-Received: by 2002:a05:6102:3747:b0:5f5:3619:8bd1 with SMTP id
- ada2fe7eead31-5ff32494193mr1107329137.25.1772180228608; Fri, 27 Feb 2026
- 00:17:08 -0800 (PST)
+	id 1vvtDi-00000007z09-10Ri;
+	Fri, 27 Feb 2026 08:29:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DFA3944097;
+	Fri, 27 Feb 2026 08:29:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A915C116C6;
+	Fri, 27 Feb 2026 08:29:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772180948;
+	bh=c8kyPUTfjiKvPIqR7TvbHjiIxKrmJz6TvW1tdw40CNo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ofDzrsEvFziU5bJCQJenBgUdKWnvapcui45AO8WukPJ3C9nQEaqTbw1jSWXTaUZ46
+	 HG/tGLR9AcxzdFzsTNVv3ajsQdEXgN5kMvPtSDE9fcCxQtEf10Z008H+x/yBqdTCw2
+	 sgPxqSuOA8RtD4gziJbnHpaldmrJ4JrqN7xLYEMiBvmWuWQwX4KgG1bsPHOtkfmhjt
+	 jxPVdBGCheLMsHu/ZUUPH95AEu1xJZltS3OzdsWkbRURN9sL3TqfJT2Rqu/yIT6+Cp
+	 c1Oppfx9pWVq1P4PXrEi9mbiZqrFicJCaTFtBKbKOdz7d9eFl6D49xnZcJAJrWfEHq
+	 8/JLcJhgDMYIQ==
+Date: Fri, 27 Feb 2026 09:29:05 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Jani Nikula <jani.nikula@linux.intel.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Andy Yan <andy.yan@rock-chips.com>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 14/14] drm/display: hdmi: Use drm_output_color_format
+ instead of hdmi_colorspace
+Message-ID: <20260227-dramatic-agouti-of-brotherhood-416e19@houat>
+References: <20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org>
+ <20260224-drm-rework-color-formats-v1-14-bebc76604ada@kernel.org>
+ <5558942.31r3eYUQgx@workhorse>
 MIME-Version: 1.0
-References: <20260226-clk-det-rate-fw-managed-v1-0-4421dd2f6dc6@redhat.com> <20260226-clk-det-rate-fw-managed-v1-1-4421dd2f6dc6@redhat.com>
-In-Reply-To: <20260226-clk-det-rate-fw-managed-v1-1-4421dd2f6dc6@redhat.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 27 Feb 2026 09:16:57 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXfPPs26ZUnWd+_+xUU0DJ44ewTMrtbzco3J2Bs165+Xw@mail.gmail.com>
-X-Gm-Features: AaiRm52todzA8Sr5byokA4vkDZ2E-x17wtaWy3OW25tgrEahH799QvmVZU00ayM
-Message-ID: <CAMuHMdXfPPs26ZUnWd+_+xUU0DJ44ewTMrtbzco3J2Bs165+Xw@mail.gmail.com>
-Subject: Re: [PATCH 01/13] clk: add new flag CLK_ROUNDING_FW_MANAGED
-To: Brian Masney <bmasney@redhat.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Abel Vesa <abelvesa@kernel.org>, 
-	Andrea della Porta <andrea.porta@suse.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Frank Li <Frank.Li@nxp.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Orson Zhai <orsonzhai@gmail.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Sylwester Nawrocki <s.nawrocki@samsung.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, arm-scmi@vger.kernel.org, 
-	Chunyan Zhang <zhang.lyra@gmail.com>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="loc25nvmfl5t2czh"
+Content-Disposition: inline
+In-Reply-To: <5558942.31r3eYUQgx@workhorse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_002315_762357_6F315ECB 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20260227_002910_320184_6E96FCF5 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,31 +90,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brian,
 
-Thanks for your patch!
+--loc25nvmfl5t2czh
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 14/14] drm/display: hdmi: Use drm_output_color_format
+ instead of hdmi_colorspace
+MIME-Version: 1.0
 
-On Thu, 26 Feb 2026 at 19:17, Brian Masney <bmasney@redhat.com> wrote:
-> There are some clocks where the rounding is managed by the hardware, and
+Hi
 
-s/hardware/firmware/
+On Thu, Feb 26, 2026 at 05:24:05PM +0100, Nicolas Frattaroli wrote:
+> On Tuesday, 24 February 2026 11:58:53 Central European Standard Time Maxi=
+me Ripard wrote:
+> > The hdmi_colorspace enum was defined to represent the colorspace value
+> > of the HDMI infoframes. It was later used by some HDMI drivers to
+> > express the output format they should be setting up.
+> >=20
+> > During the introduction of the HDMI helpers, it then was used to
+> > represent it in the drm_connector_hdmi_state structure.
+> >=20
+> > However, it's always been somewhat redundant with the DRM_COLOR_FORMAT_*
+> > defines, and now with the drm_output_color_format enum. Let's
+> > consolidate around drm_output_color_format in drm_connector_hdmi_state
+> > to facilitate the current effort to provide a global output format
+> > selection mechanism.
+> >=20
+> > Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> > ---
+> >  drivers/gpu/drm/bridge/inno-hdmi.c                 |   6 +-
+> >  drivers/gpu/drm/bridge/ite-it6263.c                |   2 +-
+> >  drivers/gpu/drm/display/drm_hdmi_helper.c          |   7 +-
+> >  drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  52 ++++--
+> >  drivers/gpu/drm/drm_bridge.c                       |   2 +-
+> >  drivers/gpu/drm/drm_connector.c                    |  14 +-
+> >  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c             |   8 +-
+> >  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
+> >  drivers/gpu/drm/tests/drm_connector_test.c         |  80 ++++-----
+> >  drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 182 ++++++++++---=
+--------
+> >  drivers/gpu/drm/vc4/vc4_hdmi.c                     |  18 +-
+> >  drivers/gpu/drm/vc4/vc4_hdmi.h                     |   2 +-
+> >  include/drm/display/drm_hdmi_helper.h              |   3 +-
+> >  include/drm/drm_connector.h                        |   7 +-
+> >  14 files changed, 205 insertions(+), 180 deletions(-)
+> >=20
+> > [... snip ...]
+> > diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_conn=
+ector.c
+> > index 4f5b27fab475c7c733622eb8727927571f3fb8fe..171cd495976a3e16f201fd3=
+39d3d42a09dc3b63f 100644
+> > --- a/drivers/gpu/drm/drm_connector.c
+> > +++ b/drivers/gpu/drm/drm_connector.c
+> > @@ -589,14 +589,14 @@ int drmm_connector_hdmi_init(struct drm_device *d=
+ev,
+> > =20
+> >  	if (!(connector_type =3D=3D DRM_MODE_CONNECTOR_HDMIA ||
+> >  	      connector_type =3D=3D DRM_MODE_CONNECTOR_HDMIB))
+> >  		return -EINVAL;
+> > =20
+> > -	if (!supported_formats || !(supported_formats & BIT(HDMI_COLORSPACE_R=
+GB)))
+> > +	if (!supported_formats || !(supported_formats & BIT(DRM_OUTPUT_COLOR_=
+FORMAT_RGB444)))
+> >  		return -EINVAL;
+> > =20
+> > -	if (connector->ycbcr_420_allowed !=3D !!(supported_formats & BIT(HDMI=
+_COLORSPACE_YUV420)))
+> > +	if (connector->ycbcr_420_allowed !=3D !!(supported_formats & BIT(DRM_=
+OUTPUT_COLOR_FORMAT_YCBCR420)))
+> >  		return -EINVAL;
+>=20
+> I don't think this will work as-is. drm_bridge_connector_init calls this
+> function assuming hdmi_colorspace bitmasks in supported_formats.
 
-You got me totally confused, also/especially in the cover letter! ;-)
+Yeah, you're right I missed the conversion in drm_bridge_connector_init.
+It should be fixed now.
 
-> the determine_rate() clk ops is just a noop that simply returns 0. Add a
-> new flag for these type of clocks, and update the clk core so that the
-> determine_rate() clk op is not required when this flag is set.
->
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
+> This may have slipped through the conversion; the synopsys dw-hdmi-qp core
+> (separate from synopsys dw-hdmi) also assumes hdmi_colorspace, see e.g.
+> dw_hdmi_qp_plat_data::supported_formats in include/drm/bridge/dw_hdmi_qp.h
+>=20
+> So should be a simple fix I hope.
 
-Gr{oetje,eeting}s,
+For this one, did you identify anything more than the comment in
+dw_hdmi_qp_plat_data? I couldn't find any user of HDMI_COLORSPACE_* left
+for the dw_hdmi_qp_plat_data.supported_formats users.
 
-                        Geert
+Maxime
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+--loc25nvmfl5t2czh
+Content-Type: application/pgp-signature; name="signature.asc"
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaaFV0QAKCRAnX84Zoj2+
+dvCEAYDaGC/59F9atETzuzgChsYLcJVNJgdGWjU1NRJZAQyUqV3NtgL5f6q6GBTD
+pJd6kloBfiNvk4tOHoJdLuYHcXKOHPexZHHDkJhCCZcQq5xaZ4nI/2u9TG4/zvD0
+jRPv06q3tQ==
+=uKAU
+-----END PGP SIGNATURE-----
+
+--loc25nvmfl5t2czh--
 
