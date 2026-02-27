@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB4DFD531B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FDFFD5323
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R6rQd2yO4irct4N0jZYa9mNmuzkvtEs3OqydAbpR8Hw=; b=BK1TE/5Vxv3alJO/VpuaJM6GpT
-	V1aXL5nXZerddtlA20W3i7UiGkdjl27vOnfFkNoNZRVsOEELfBs47hiVoPfK39+3OaI/meib8V0bK
-	igFHOItOcKMfeyQjPaO75/5WSvvh5/SgaceGlovXkEPiCQSLdzr4mV3FJ2c6BpfFvk4jC5XuUEV1Y
-	usH2y8YnMkBmYqdaxWzQKDA3wuqwvIfe9Jn0c8G5kzVy5FPkoiurspcKZCpOlGUdGZFDwi13PLK/P
-	p1e+LWqDet+95xlxxJJMLf0wCifbybU0ZAVCrdtcrNEBf2RFt64hjP/cZ9mDEVOL+KktCc51mqh2C
-	+iibe+QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X8e+sid83UVQcVbpwgH4NtgpV2iaHgcz/z9sPbv8Yyw=; b=eUx0l2WiAOdGvLw9tJJ5/4pePS
+	dkiGxUSDHdU+YNuwg68mUtB42DpTOgg5JHjJD3qjeaMcSdEfnm8DDjpYML4CH4UwrDjj5Fp+lV4sz
+	VMiieUe/TqrRwyTvOcbWDPutbNKpYTp16SMbf3tKoxfM5uFTnsr0HqDXVcsE07LWMgH9QN1wAvPe3
+	BKFlbINX9bKUC8q2L9/UYzMGXx7qGChfGdilBpeu9vRuOzG467bWE8GR/SJySb8RxvAWMngbQdWUT
+	uejh6BEJhmdNdZs28zRfWIw+PwAmBSVycM3yQ5wZJDVQuoCDl2bijq+KTVgA2OnJx1br1viK4ybxk
+	hMWJ1Mnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvuQv-00000008ATO-3FpU;
-	Fri, 27 Feb 2026 09:46:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvuQz-00000008AUl-2ggK;
+	Fri, 27 Feb 2026 09:46:57 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvuQu-00000008AT5-0Pcv
+	id 1vvuQu-00000008A0B-1KIo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 09:46:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8704461868;
-	Fri, 27 Feb 2026 09:46:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB6DFC116C6;
-	Fri, 27 Feb 2026 09:46:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772185611;
-	bh=MXPjEpEh5UIbHP8Pg4xiJO2M6gANbtTNoBWbrqKGywY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uh2J4es+wFxTo0g/cKTZ8V31uJv2RgkdA4NPxBatp/A3MsitaWlWDS+B6W0FcEhDq
-	 ugm1iBzrlPSfcNmLHo8e0tYig3ijePY+Qfw5NN8oyS6Kr57NOik8wuaBGdNNFIhW3g
-	 tX8wxkkaUN26KnBI8ZZGSwobG8z/As1nfoUrWbmkf+waj792hrbYuS4gYoQRzt0MNy
-	 4u0LT2+eopOeP8lHvOJTmvCPZSld0o3hGkGyDV8X2oVix6v36ozbyFceMFSFh3Jlgi
-	 0QQ1cgSXMiCnry0sqmIP3ytOXATCFevjAIMQA7nctMLTabMG1RmJ0hU+MoI8nMxNz3
-	 yEsJAa5mJI6hA==
-Date: Fri, 27 Feb 2026 10:46:48 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, "A.s. Dong" <aisheng.dong@nxp.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: fsl: imx7ulp-smc1: Add #clock-cells
- property
-Message-ID: <20260227-incredible-eggplant-lionfish-b3a5bf@quoll>
-References: <20260227-imx7ulp-v2-0-1c7fa8862ebc@nxp.com>
- <20260227-imx7ulp-v2-1-1c7fa8862ebc@nxp.com>
+	Fri, 27 Feb 2026 09:46:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1772185493; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=X8e+sid83UVQcVbpwgH4NtgpV2iaHgcz/z9sPbv8Yyw=;
+	b=yjJq43Ajb3W/Bp7UYOEdNgh8s3UkeWSEYEDWKDUH8kV1sEHwSR4UAe7KP0yD4MZFBBpIAIbBzRPGFS13CL3q1m8PVe4gBqakDHuBbeyt1mb+jBvLyFYRUndpCgBbl4N/+h+LXpBDmaFiARzeS/jlHgO/7BPcdQXb2BhXwyPdRWQ=
+Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wzu.cBW_1772185489 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 27 Feb 2026 17:44:50 +0800
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+To: akpm@linux-foundation.org,
+	david@kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	lorenzo.stoakes@oracle.com,
+	ryan.roberts@arm.com,
+	Liam.Howlett@oracle.com,
+	vbabka@suse.cz,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	riel@surriel.com,
+	harry.yoo@oracle.com,
+	jannh@google.com,
+	willy@infradead.org,
+	baohua@kernel.org,
+	dev.jain@arm.com,
+	axelrasmussen@google.com,
+	yuanchu@google.com,
+	weixugc@google.com,
+	hannes@cmpxchg.org,
+	zhengqi.arch@bytedance.com,
+	shakeel.butt@linux.dev,
+	baolin.wang@linux.alibaba.com,
+	linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/6] support batched checking of the young flag for MGLRU
+Date: Fri, 27 Feb 2026 17:44:34 +0800
+Message-ID: <cover.1772185080.git.baolin.wang@linux.alibaba.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260227-imx7ulp-v2-1-1c7fa8862ebc@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_014653_502937_482D61D8 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,32 +88,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 02:30:43PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> The SMC1 block on i.MX7ULP is already used as a clock provider in
-> imx7ulp.dtsi, but the corresponding dt-binding schema does not define
-> the required '#clock-cells' property. This results in CHECK_DTBS schema
-> validation errors.
-> 
-> Functionally, SMC1 controls the CPU run mode configuration:
->   - 00b: Normal Run (RUN)
->   - 10b: Very-Low-Power Run (VLPR)
->   - 11b: High-Speed Run (HSRUN)
-> 
-> These run modes determine the effective CPU operating point, and their
-> programming is tied to the OPP table.
-> 
-> Add the missing `#clock-cells` definition so the dt-binding schema is
-> consistent with the DTS and validates correctly.
-> 
+This is a follow-up to the previous work [1], to support batched checking
+of the young flag for MGLRU.
 
-This looks like a fix, especially that you make the cells required, so
-missing Fixes tag.
+Similarly, batched checking of young flag for large folios can improve
+performance during large-folio reclamation when MGLRU is enabled. I
+observed noticeable performance improvements (see patch 5) on an Arm64
+machine that supports contiguous PTEs. All mm-selftests are passed.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Patch 1 - 3: cleanup patches.
+Patch 4: add a new generic batched PTE helper: test_and_clear_young_ptes().
+Patch 5: support batched young flag checking for MGLRU.
+Patch 6: implement the Arm64 arch-specific test_and_clear_young_ptes().
 
-Best regards,
-Krzysztof
+[1] https://lore.kernel.org/all/cover.1770645603.git.baolin.wang@linux.alibaba.com/
+
+Changes from v1:
+v1: https://lore.kernel.org/all/cover.1771897150.git.baolin.wang@linux.alibaba.com/
+ - Update some commit message (per David).
+ - Fix some coding style issues (per David).
+ - Use VM_WARN_ON_ONCE_FOLIO() instead of VM_WARN_ON_FOLIO() (per Rik).
+ - Define a generic ptep_test_and_clear_young_notify() (per David).
+ - Remove redundant 'nr > 1' check in folio_referenced_one() (per David).
+ - Rename some variables' to make code more clear (per David).
+ - Add a new patch to rename some functions (per David).
+ - Update the young counters with the batched count for MGLRU.
+ - Collect reviewed tags from Rik, Barry, Alistair and David. Thanks.
+
+Baolin Wang (6):
+  mm: use inline helper functions instead of ugly macros
+  mm: rename ptep/pmdp_clear_young_notify() to
+    ptep/pmdp_test_and_clear_young_notify()
+  mm: rmap: add a ZONE_DEVICE folio warning in folio_referenced()
+  mm: add a batched helper to clear the young flag for large folios
+  mm: support batched checking of the young flag for MGLRU
+  arm64: mm: implement the architecture-specific
+    test_and_clear_young_ptes()
+
+ arch/arm64/include/asm/pgtable.h | 18 +++++++----
+ include/linux/mmu_notifier.h     | 54 --------------------------------
+ include/linux/mmzone.h           |  5 +--
+ include/linux/pgtable.h          | 38 ++++++++++++++++++++++
+ mm/internal.h                    | 52 ++++++++++++++++++++++++++++++
+ mm/rmap.c                        | 29 ++++++++---------
+ mm/vmscan.c                      | 46 ++++++++++++++++++++-------
+ 7 files changed, 154 insertions(+), 88 deletions(-)
+
+-- 
+2.47.3
 
 
