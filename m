@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC87B10398AD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 20:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AEB1039894
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 20:49:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B7ynTq+w1/GaaU5SIenYl8hoXAbV9ubXFsJkmvefWzs=; b=GG44/M1Fg4iuNmdl8suy7gbZOJ
-	fT68vmVFUFphqQtE+0Q5UWx7/N7XrYBK7t+039nO4N2AN0R875z+59YMpQhJ3teto5j69NCjZHz6d
-	oIbpi1PZACwHnA5Q2hHrjP3PSWPfszIHBt+aiQO0OiDmbFh9nxm7YDcoTDRP02UcwR9A7FvbslbPz
-	Wm/bzBxVCfLWKwU7qfwlf7lbB0Sm6+GCdkZ6ILV1/ubFhZfPhCz0/NBUJjbMCoiFvyXl6/Riun4k1
-	3fa4Vn3j5SUHbK79J5hzEhKSFf6iVH8DTocRlMMy3Y5D7R92i9s1Vo+UXBrjarE4gLfBOnwIftvxV
-	domn7+yQ==;
+	bh=IkTtWM5ix8uYU5ynvbgHeaVYVwiqzplgetfO8gvboUg=; b=BG1t2dF4M5Pipp6lOjMCNLw7BD
+	jnIoaC8k1vwDl8ughhV66iIezprrw9aBpxp2YmBonZTJf1HjbetXvPYRgruxKNZycwhBBR2XdjqQD
+	5WSMjM9kcv5S4+jw1R9Fzrq8wbHlvIAm+2utNcqHEedCLoE70Bxcs1Ev3xVYlnjgU/l8gWV/XcLis
+	MWTWSWBwDxa8OcAVdelo3S5XfpWN4jNR4dlGcEkXcCGFjcSHTXjY0/E1L1molNa+ubwTT/gZuQ063
+	B3567d/ZMyofECpR7SXyET62as9gBYUQxC27qDeZpN4ngicHdbhMy/rukIbKflZXIh9vz31XG2FxV
+	hSuDIwEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw4le-000000098ao-2Slc;
-	Fri, 27 Feb 2026 20:48:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vw4lm-000000098fa-1E4B;
+	Fri, 27 Feb 2026 20:49:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw4lc-000000098ZT-2PtY;
-	Fri, 27 Feb 2026 20:48:57 +0000
+	id 1vw4lc-000000098ZU-2BtN;
+	Fri, 27 Feb 2026 20:48:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772225332;
-	bh=433OBg1+YhSGQUkUR4/HWbY+HhNN+rC6S+NSviwRYKA=;
+	s=mail; t=1772225333;
+	bh=Y2Geq+AGRbgf8SUPSZ0VVd9oVwBJPeFTxHsLrwSzLao=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fnkPYyXmoPbrn1PvNVWYLCew2XoscpGzvLQB2U+kVJISmi+ygn6ZSbNlnWW+grB9h
-	 BNA05bXkglNq8muXn/K37Cq/VpyLPmDrj/xIvWExp/3kGlA3YKGLlKyQ/LNyz5OXYm
-	 q7Qj84JE7JmeV/sokp70rB6KrgQD3Rge85/H5kMk3GtOVBIsqtKNSuzlClKJLIEJBJ
-	 OuyD2ofdPsBFKQsfngaIa76f3Y8DgiOeZqhM5EMcY/9O7pjOgTF2n8lNZDuhmhdKAi
-	 1+jvZtMDhDvyCCpei0j7HnTF8seZbidaR7LYK18XX9NL6B4wiPR4EzyVsFpniIaA2q
-	 9r1AsDAbQd8Xg==
+	b=kRptXLG9UUJkqt3NNGuAq1Z7TPIAg2UMb6/3gR9PupHNZ2satj6/+fNyRc3ilCSTB
+	 Wa/8exhDuGNrtr/by1XRDecoUl8mkJ3RalsAdpjXY+lqUwhGKQyjksf5pfODLG2cX5
+	 9Qb6UtALA4N8WiU1dZU8qlwYIIgKRs81/VPQtfvlEOzRa4DkBv13ashkJFVBrnj/vw
+	 LJrmhOI3THf7G3wDArZLPZnIozh1J2LMr18hSWbB9Jmtz3zQFyA4ABLMeIXDZkIuBb
+	 widhuOHqSYOSfA1q4R1HECWADK/cWpAm2YxMbcNQ9rSscHuWhLtYS2Aflh9HDrOhU4
+	 VwjXn81JbK+sA==
 Received: from localhost (unknown [86.123.23.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 954A617E0E91;
-	Fri, 27 Feb 2026 21:48:52 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 67DB517E0EAF;
+	Fri, 27 Feb 2026 21:48:53 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 27 Feb 2026 22:48:45 +0200
-Subject: [PATCH 1/6] phy: rockchip: samsung-hdptx: Fix rate recalculation
- for high bpc
+Date: Fri, 27 Feb 2026 22:48:46 +0200
+Subject: [PATCH 2/6] phy: rockchip: samsung-hdptx: Handle uncommitted PHY
+ config changes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260227-hdptx-clk-fixes-v1-1-f998f2762d0f@collabora.com>
+Message-Id: <20260227-hdptx-clk-fixes-v1-2-f998f2762d0f@collabora.com>
 References: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
 In-Reply-To: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -62,8 +62,8 @@ Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_124856_768313_AABD3578 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260227_124856_770593_AFC77302 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,77 +78,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PHY PLL can been programmed by an external component, e.g. the
-bootloader, just before the recalc_rate() callback is invoked during
-devm_clk_hw_register() in the probe path.
+Any changes to the PHY link rate and/or color depth done via the HDMI
+PHY configuration API are not immediately programmed into the hardware,
+but are delayed until the PHY usage count gets incremented from 0 to 1,
+that is when it is powered on or when the PLL clock exposed through
+the CCF API is prepared, whichever comes first.
 
-Therefore rk_hdptx_phy_clk_recalc_rate() finds the PLL enabled and
-attempts to compute the clock rate, while making use of the bpc value
-from the HDMI PHY configuration, which always defaults to 8 because
-phy_configure() was not run at that point.  As a consequence, the
-(re)calculated rate is incorrect when the actual bpc was higher than 8.
+Since the clock might remain in prepared state after subsequent PHY
+config changes, the programming can also be triggered via
+clk_ops.set_rate().  However, from the clock consumer perspective (i.e.
+VOP2 display controller), the (pixel) clock rate doesn't vary with bpc,
+as that is handled internally by the PHY and reflected in the TDMS
+character rate only.
 
-Do not rely on any of the hdmi_cfg members when computing the clock rate
-and, instead, read the required input data (i.e. bpc), directly from the
-hardware registers.
+As a consequence, changing the bpc while preserving the modeline may
+lead to out-of-sync issues between CCF and HDMI PHY config state,
+because the .set_rate() callback is not invoked when clock rate remains
+constant.  This may also happen when the PHY PLL has been pre-programmed
+by an external entity, e.g. the bootloader, which is actually a
+regression introduced by the recent FRL patches.
 
-Fixes: 3481fc04d969 ("phy: rockchip: samsung-hdptx: Compute clk rate from PLL config")
+Introduce a pll_config_dirty flag to keep track of uncommitted PHY
+config changes and use it in clk_ops.determine_rate() to invalidate the
+current clock rate (as known by CCF) and, consequently, ensure those
+changes are programmed into hardware via clk_ops.set_rate().
+
+Moreover, proceed with a similar fix in phy_ops.power_on() callback, to
+handle the scenario where the CCF API is not used due to operating in
+FRL mode, while the clock is still in a prepared state and thus
+preventing rk_hdptx_phy_consumer_get() to apply the updated PHY
+configuration.
+
+Fixes: de5dba833118 ("phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support")
+Fixes: 9d0ec51d7c22 ("phy: rockchip: samsung-hdptx: Add high color depth management")
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 86 ++++++++++++-----------
+ 1 file changed, 46 insertions(+), 40 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 2d973bc37f07..7fb1c22318bb 100644
+index 7fb1c22318bb..14d266c8df5c 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -2168,7 +2168,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
- 	struct lcpll_config lcpll_hw;
- 	struct ropll_config ropll_hw;
- 	u64 fout, sdm;
--	u32 mode, val;
-+	u32 mode, bpc, val;
- 	int ret, i;
+@@ -413,6 +413,7 @@ struct rk_hdptx_phy {
  
- 	ret = regmap_read(hdptx->regmap, CMN_REG(0008), &mode);
-@@ -2266,6 +2266,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
- 	if (ret)
+ 	/* clk provider */
+ 	struct clk_hw hw;
++	bool pll_config_dirty;
+ 	bool restrict_rate_change;
+ 
+ 	atomic_t usage_count;
+@@ -1260,13 +1261,19 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+ 
+ static int rk_hdptx_pll_cmn_config(struct rk_hdptx_phy *hdptx)
+ {
++	int ret;
++
+ 	if (hdptx->hdmi_cfg.rate <= HDMI20_MAX_RATE)
+-		return rk_hdptx_tmds_ropll_cmn_config(hdptx);
++		ret = rk_hdptx_tmds_ropll_cmn_config(hdptx);
++	else if (hdptx->hdmi_cfg.rate == FRL_8G4L_RATE)
++		ret = rk_hdptx_frl_lcpll_ropll_cmn_config(hdptx);
++	else
++		ret = rk_hdptx_frl_lcpll_cmn_config(hdptx);
+ 
+-	if (hdptx->hdmi_cfg.rate == FRL_8G4L_RATE)
+-		return rk_hdptx_frl_lcpll_ropll_cmn_config(hdptx);
++	if (!ret)
++		hdptx->pll_config_dirty = false;
+ 
+-	return rk_hdptx_frl_lcpll_cmn_config(hdptx);
++	return ret;
+ }
+ 
+ static int rk_hdptx_frl_lcpll_mode_config(struct rk_hdptx_phy *hdptx)
+@@ -1347,25 +1354,17 @@ static int rk_hdptx_phy_consumer_get(struct rk_hdptx_phy *hdptx)
  		return 0;
- 	ropll_hw.pms_sdiv = ((val & PLL_PCG_POSTDIV_SEL_MASK) >> 4) + 1;
-+	bpc = (FIELD_GET(PLL_PCG_CLK_SEL_MASK, val) << 1) + 8;
  
- 	fout = PLL_REF_CLK * ropll_hw.pms_mdiv;
- 	if (ropll_hw.sdm_en) {
-@@ -2280,7 +2281,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
- 			fout = fout + sdm;
+ 	ret = regmap_read(hdptx->grf, GRF_HDPTX_STATUS, &status);
+-	if (ret)
+-		goto dec_usage;
+-
+-	if (status & HDPTX_O_PLL_LOCK_DONE)
+-		dev_warn(hdptx->dev, "PLL locked by unknown consumer!\n");
++	if (ret) {
++		atomic_dec(&hdptx->usage_count);
++		return ret;
++	}
+ 
+-	if (mode == PHY_MODE_DP) {
++	if (mode == PHY_MODE_DP)
+ 		rk_hdptx_dp_reset(hdptx);
+-	} else {
+-		ret = rk_hdptx_pll_cmn_config(hdptx);
+-		if (ret)
+-			goto dec_usage;
+-	}
++	else
++		rk_hdptx_pll_cmn_config(hdptx);
+ 
+ 	return 0;
+-
+-dec_usage:
+-	atomic_dec(&hdptx->usage_count);
+-	return ret;
+ }
+ 
+ static int rk_hdptx_phy_consumer_put(struct rk_hdptx_phy *hdptx, bool force)
+@@ -1700,16 +1699,20 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+ 		if (ret)
+ 			rk_hdptx_phy_consumer_put(hdptx, true);
+ 	} else {
+-		regmap_write(hdptx->grf, GRF_HDPTX_CON0,
+-			     HDPTX_MODE_SEL << 16 | FIELD_PREP(HDPTX_MODE_SEL, 0x0));
++		if (hdptx->pll_config_dirty)
++			ret = rk_hdptx_pll_cmn_config(hdptx);
+ 
+-		if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL)
+-			ret = rk_hdptx_frl_lcpll_mode_config(hdptx);
+-		else
+-			ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
++		if (!ret) {
++			regmap_write(hdptx->grf, GRF_HDPTX_CON0,
++				     HDPTX_MODE_SEL << 16 | FIELD_PREP(HDPTX_MODE_SEL, 0x0));
+ 
+-		if (ret)
++			if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL)
++				ret = rk_hdptx_frl_lcpll_mode_config(hdptx);
++			else
++				ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
++		} else {
+ 			rk_hdptx_phy_consumer_put(hdptx, true);
++		}
  	}
  
--	return div_u64(fout * 2, ropll_hw.pms_sdiv * 10);
-+	return div_u64(fout * 2 * 8, ropll_hw.pms_sdiv * 10 * bpc);
- }
+ 	return ret;
+@@ -2081,7 +2084,10 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
+ 			dev_err(hdptx->dev, "invalid hdmi params for phy configure\n");
+ 		} else {
+ 			hdptx->restrict_rate_change = true;
+-			dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
++			hdptx->pll_config_dirty = true;
++
++			dev_dbg(hdptx->dev, "%s %s rate=%llu bpc=%u\n", __func__,
++				hdptx->hdmi_cfg.mode ? "FRL" : "TMDS",
+ 				hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
+ 		}
  
- static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
-@@ -2288,19 +2289,13 @@ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
+@@ -2303,8 +2309,19 @@ static int rk_hdptx_phy_clk_determine_rate(struct clk_hw *hw,
  {
  	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
- 	u32 status;
--	u64 rate;
- 	int ret;
  
- 	ret = regmap_read(hdptx->grf, GRF_HDPTX_CON0, &status);
- 	if (ret || !(status & HDPTX_I_PLL_EN))
- 		return 0;
- 
--	rate = rk_hdptx_phy_clk_calc_rate_from_pll_cfg(hdptx);
--
 -	if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL)
--		return rate;
--
--	return DIV_ROUND_CLOSEST_ULL(rate * 8, hdptx->hdmi_cfg.bpc);
-+	return rk_hdptx_phy_clk_calc_rate_from_pll_cfg(hdptx);
- }
+-		return hdptx->hdmi_cfg.rate;
++	/*
++	 * Invalidate current clock rate to ensure rk_hdptx_phy_clk_set_rate()
++	 * will be invoked to commit PLL configuration.
++	 */
++	if (hdptx->pll_config_dirty) {
++		req->rate = 0;
++		return 0;
++	}
++
++	if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL) {
++		req->rate = hdptx->hdmi_cfg.rate;
++		return 0;
++	}
  
- static int rk_hdptx_phy_clk_determine_rate(struct clk_hw *hw,
+ 	/*
+ 	 * FIXME: Temporarily allow altering TMDS char rate via CCF.
+@@ -2336,17 +2353,6 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+ 				     unsigned long parent_rate)
+ {
+ 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
+-	unsigned long long link_rate = rate;
+-
+-	if (hdptx->hdmi_cfg.mode != PHY_HDMI_MODE_FRL)
+-		link_rate = DIV_ROUND_CLOSEST_ULL(rate * hdptx->hdmi_cfg.bpc, 8);
+-
+-	/* Revert any unlikely link rate change since determine_rate() */
+-	if (hdptx->hdmi_cfg.rate != link_rate) {
+-		dev_warn(hdptx->dev, "Reverting unexpected rate change from %llu to %llu\n",
+-			 link_rate, hdptx->hdmi_cfg.rate);
+-		hdptx->hdmi_cfg.rate = link_rate;
+-	}
+ 
+ 	/*
+ 	 * The link rate would be normally programmed in HW during
 
 -- 
 2.52.0
