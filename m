@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8228EFEFB56
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69FEFEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fMwaBvqdwYCjJQBl60E8qyyHxhDXj5rHW+g0XPefEf8=; b=NWZmDrEu83elvJdT7sjt8UCz4H
-	+HS3Ti0gZOr3hmQz42q0RsQvksRRgcm15SEyAuRKfcqJQ/HC+3yDBs/4xOejOk1PeVCAemRgzy5AI
-	gt2bSGUNh50RqJOfTKvHfyPaANzkVvlUsoYLIq5Gt3hYUQxskiVt1D5CsLEpzVp2xFR4GV4zdbOrY
-	bi3Pn7RAejqJyxg6VuZjG+LNlWL4qB2fMbGb+vFcyga37esfKzm59o3zOTA18zhRMe3Q3gEAsntl0
-	PD+TizcbUwndPlh6KOmKTF34i5EKDH0eFoqt/JPE1LZFhaPksIvknjeENVwYj6kV9GtPh+z885hOx
-	jKrWaWRg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uwOf+IiRzPzE/zQtxitpORrGv+fP43Dt6OHZCWmrW5s=; b=K76eELOqVSB0u9T109aJF0z3Cz
+	x6719OpDRQKCfnNVU3QkRLaS2W8kAO479nQbV+Z5KnH6ouS4JGwNHKixzv6REXmyG17Ja7U2+ycHd
+	2OAOAZSwbrjDRSTaUWLbm5M/dGWxDdscXfOEF7Xtk2UpMhdbxZV2cNa3gM0UYthIVHCYX/GpzdULZ
+	zWSxsLQwiRbc+8zMpp0+esx9YqgI1cfFhksxF4aJ8fPTUwYM0chUbv692a0GZSohN+HQBiamuOmwh
+	5jSOZGiamgxBxARXxlv2I5D21eUW20+7xfAfTdI0dprvmnbifNdvP/TYpobtsjRfkrgzrswKnu7Wy
+	bvlirEkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzaR-00000008Zgn-0kwG;
-	Fri, 27 Feb 2026 15:17:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzaP-00000008ZgV-3oaB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Feb 2026 15:17:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=fMwaBvqdwYCjJQBl60E8qyyHxhDXj5rHW+g0XPefEf8=; b=N8qWrqgw07bQPGGJ8OosKDS3+G
-	Lk/sh0G0ClSLLcrUdRAhVt1hoiZXyBu7uTLTu4h9RExE8vqcMNFFrCn1g0CY2LyfSq3vMJTikwTBx
-	LZ38NR6UKLyk6ZO6faugHrTgxW3zNqxZerDHljFa0PjbulGMpR8QJn3VUmg/O/Phz6ss3/0JP4ftn
-	GY3DPCDp+g25jMutMFgtdmoyi+ZrFuIq5RPss/mNtctYBCW20V3KxHolXxAUxKVxxO2heOYDkvARH
-	IGeGj4vbmxPrccwJmLn7GAl17YbZi7d4iDmaQVvOQWyKRg8LKcuRaMGzkIiTEQdNoz03q8166Kcfy
-	+Hi8NuHA==;
-Received: from m16.mail.163.com ([220.197.31.5])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzaL-0000000DKdc-0XFR
+	id 1vvzb3-00000008ZqP-0LoD;
+	Fri, 27 Feb 2026 15:17:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvzb0-00000008Zom-2jqm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 15:17:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=fM
-	waBvqdwYCjJQBl60E8qyyHxhDXj5rHW+g0XPefEf8=; b=qAXf2gXwUS0T+EnfhC
-	VcvyDdrPGgBImptrFp3R7KQnXjvc5jpX3RxfhiCkh/OqmKeTDiG5w0v/eIF9zE9Q
-	toqioLz5HUX3WtYyTeqzoLZ1qjqDKk/oCpATIEynglsqrUNLYxHKU0UpcbcyS2iG
-	cvuf6/x3N5zivP82NQUkgz8eU=
-Received: from haiyue-pc.localdomain (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id PCgvCgD39_A2taFpCwnpPg--.7205S3;
-	Fri, 27 Feb 2026 23:16:11 +0800 (CST)
-From: Haiyue Wang <haiyuewa@163.com>
-To: linux-aspeed@lists.ozlabs.org
-Cc: Haiyue Wang <haiyuewa@163.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Jammy Huang <jammy_huang@aspeedtech.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v2 2/2] ARM: dts: aspeed: add 'resets' to video node
-Date: Fri, 27 Feb 2026 23:13:15 +0800
-Message-ID: <20260227151602.829-2-haiyuewa@163.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260227151602.829-1-haiyuewa@163.com>
-References: <20260227151602.829-1-haiyuewa@163.com>
+	Fri, 27 Feb 2026 15:17:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56095339;
+	Fri, 27 Feb 2026 07:17:29 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B18213F73B;
+	Fri, 27 Feb 2026 07:17:32 -0800 (PST)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	maz@kernel.org,
+	oupton@kernel.org,
+	miko.lenczewski@arm.com,
+	kevin.brodsky@arm.com,
+	broonie@kernel.org,
+	ardb@kernel.org,
+	suzuki.poulose@arm.com,
+	lpieralisi@kernel.org,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	yeoreum.yun@arm.com
+Subject: [PATCH v15 0/8] support FEAT_LSUI
+Date: Fri, 27 Feb 2026 15:16:57 +0000
+Message-Id: <20260227151705.1275328-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PCgvCgD39_A2taFpCwnpPg--.7205S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr48Kr18WFy5Kw1UtF43Wrg_yoW8ury5pa
-	y7Cr4kX3ySgF45t34UGFyDKr1DAay5JF4rKrsIk34UXry3X3sYqr1ftrsag34UXrs5uw1S
-	gF1xXr9Fqw1DXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_ApeUUUUUU=
-X-Originating-IP: [101.228.113.192]
-X-CM-SenderInfo: 5kdl53xhzdqiywtou0bp/xtbCzhs+qWmhtTszdgAA3B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_151657_837317_E2C59FA8 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260227_071738_765589_D2413166 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +75,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The aspeed video (be compatible for ast2400, ast2500, ast2600) now needs
-the reset DTS handle specified, otherwise it will fail to load:
+Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
+previleged level to access to access user memory without clearing
+PSTATE.PAN bit.
 
-[    4.809494] aspeed-video 1e700000.video: irq 57
-[    4.809977] aspeed-video 1e700000.video: Unable to get reset
-[    4.810341] aspeed-video 1e700000.video: probe with driver aspeed-video failed with error -2
+This patchset support FEAT_LSUI and applies it mainly in
+futex atomic operation and others.
 
-Fixes: e83f8dd668ea ("media: aspeed: Fix dram hang at res-change")
-Signed-off-by: Haiyue Wang <haiyuewa@163.com>
----
- arch/arm/boot/dts/aspeed/aspeed-g4.dtsi | 1 +
- arch/arm/boot/dts/aspeed/aspeed-g5.dtsi | 1 +
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 1 +
- 3 files changed, 3 insertions(+)
+This patch based on v7.0-rc1
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi
-index c3d4d916c69b..1547e28d77e2 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi
-@@ -242,6 +242,7 @@ video: video@1e700000 {
- 					 <&syscon ASPEED_CLK_GATE_ECLK>;
- 				clock-names = "vclk", "eclk";
- 				interrupts = <7>;
-+				resets = <&syscon ASPEED_RESET_VIDEO>;
- 				status = "disabled";
- 			};
- 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi
-index 39500bdb4747..793570ca2518 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi
-@@ -296,6 +296,7 @@ video: video@1e700000 {
- 					 <&syscon ASPEED_CLK_GATE_ECLK>;
- 				clock-names = "vclk", "eclk";
- 				interrupts = <7>;
-+				resets = <&syscon ASPEED_RESET_VIDEO>;
- 				status = "disabled";
- 			};
- 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index 189bc3bbb47c..3adf48987a17 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -428,6 +428,7 @@ video: video@1e700000 {
- 					 <&syscon ASPEED_CLK_GATE_ECLK>;
- 				clock-names = "vclk", "eclk";
- 				interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+				resets = <&syscon ASPEED_RESET_VIDEO>;
- 				status = "disabled";
- 			};
- 
--- 
-2.53.0
+
+Patch History
+==============
+from v14 to v15:
+  - replace caslt to cast
+  - cleanup the patch
+  - https://lore.kernel.org/all/20260225182708.3225211-1-yeoreum.yun@arm.com/
+
+from v13 to v14:
+  - add LSUI config check in cpucap_is_possible()
+  - fix build failure with clang-19
+  - https://lore.kernel.org/all/20260223174802.458411-1-yeoreum.yun@arm.com/
+
+from v12 to v13:
+  - rebase to v7.0-rc1
+  - apply CASLT for swapping guest descriptor
+  - remove has_lsui() for checking cpu feature.
+  - simplify __lsui_cmpxchg32() according to @Catalin's suggestion.
+  - use uaccess_ttbr0_enable()/disable() for LSUI instructions.
+  - https://lore.kernel.org/all/aYWuqTqM5MvudI5V@e129823.arm.com/
+
+from v11 to v12:
+  - rebase to v6.19-rc6
+  - add CONFIG_ARM64_LSUI
+  - enable LSUI when !CPU_BIG_ENDIAN and PAN presents.
+  - drop the swp emulation with LSUI insns instead, disable it
+    when LSUI presents.
+  - some of small fixes (useless prefix and suffix and etc).
+  - https://lore.kernel.org/all/20251214112248.901769-1-yeoreum.yun@arm.com/
+
+from v10 to v11:
+  - rebase to v6.19-rc1
+  - use cast instruction to emulate deprecated swpb instruction
+  - https://lore.kernel.org/all/20251103163224.818353-1-yeoreum.yun@arm.com/
+
+from v9 to v10:
+  - apply FEAT_LSUI to user_swpX emulation.
+  - add test coverage for LSUI bit in ID_AA64ISAR3_EL1
+  - rebase to v6.18-rc4
+  - https://lore.kernel.org/all/20250922102244.2068414-1-yeoreum.yun@arm.com/
+
+from v8 to v9:
+  - refotoring __lsui_cmpxchg64()
+  - rebase to v6.17-rc7
+  - https://lore.kernel.org/all/20250917110838.917281-1-yeoreum.yun@arm.com/
+
+from v7 to v8:
+  - implements futex_atomic_eor() and futex_atomic_cmpxchg() with casalt
+    with C helper.
+  - Drop the small optimisation on ll/sc futex_atomic_set operation.
+  - modify some commit message.
+  - https://lore.kernel.org/all/20250816151929.197589-1-yeoreum.yun@arm.com/
+
+from v6 to v7:
+  - wrap FEAT_LSUI with CONFIG_AS_HAS_LSUI in cpufeature
+  - remove unnecessary addition of indentation.
+  - remove unnecessary mte_tco_enable()/disable() on LSUI operation.
+  - https://lore.kernel.org/all/20250811163635.1562145-1-yeoreum.yun@arm.com/
+
+from v5 to v6:
+  - rebase to v6.17-rc1
+  - https://lore.kernel.org/all/20250722121956.1509403-1-yeoreum.yun@arm.com/
+
+from v4 to v5:
+  - remove futex_ll_sc.h futext_lsui and lsui.h and move them to futex.h
+  - reorganize the patches.
+  - https://lore.kernel.org/all/20250721083618.2743569-1-yeoreum.yun@arm.com/
+
+from v3 to v4:
+  - rebase to v6.16-rc7
+  - modify some patch's title.
+  - https://lore.kernel.org/all/20250617183635.1266015-1-yeoreum.yun@arm.com/
+
+from v2 to v3:
+  - expose FEAT_LSUI to guest
+  - add help section for LSUI Kconfig
+  - https://lore.kernel.org/all/20250611151154.46362-1-yeoreum.yun@arm.com/
+
+from v1 to v2:
+  - remove empty v9.6 menu entry
+  - locate HAS_LSUI in cpucaps in order
+  - https://lore.kernel.org/all/20250611104916.10636-1-yeoreum.yun@arm.com/
+
+
+Yeoreum Yun (8):
+  arm64: cpufeature: add FEAT_LSUI
+  KVM: arm64: expose FEAT_LSUI to guest
+  KVM: arm64: kselftest: set_id_regs: add test for FEAT_LSUI
+  arm64: futex: refactor futex atomic operation
+  arm64: futex: support futex with FEAT_LSUI
+  arm64: armv8_deprecated: disable swp emulation when FEAT_LSUI present
+  KVM: arm64: use CAST instruction for swapping guest descriptor
+  arm64: Kconfig: add support for LSUI
+
+ arch/arm64/Kconfig                            |  20 ++
+ arch/arm64/include/asm/cpucaps.h              |   2 +
+ arch/arm64/include/asm/futex.h                | 297 +++++++++++++++---
+ arch/arm64/include/asm/lsui.h                 |  27 ++
+ arch/arm64/kernel/armv8_deprecated.c          |  16 +
+ arch/arm64/kernel/cpufeature.c                |  10 +
+ arch/arm64/kvm/at.c                           |  42 ++-
+ arch/arm64/kvm/sys_regs.c                     |   3 +-
+ arch/arm64/tools/cpucaps                      |   1 +
+ .../testing/selftests/kvm/arm64/set_id_regs.c |   1 +
+ 10 files changed, 367 insertions(+), 52 deletions(-)
+ create mode 100644 arch/arm64/include/asm/lsui.h
+
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
