@@ -4,57 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C9FFEFB70
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 18:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C229AFEFB77
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 18:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KT8q0oWYh7AAT+B1rR0Z03IGDGzEfiFTCLxE4tZSwFs=; b=Ill/9kMencvybSGrlfkR+qhA8N
-	S7kzVoauRa0d+pGhZ16TQqn9vHEiC8mDC3SUaqizWHadNi57hrsKMMqhF79SyBn4SjOBa9AzNkEo9
-	RZzHiU53rIL+wXUm6U08pZgGFLrt1Y6dDrnywESI5G8aY8ZeomnWgnexKxGSz6yya1nsUurywZFmp
-	PkHB8SYshBpAqtfljDJiVv418oZkb1w/30JnAN+rL+9p5pWlbEG9xnGhn4AERROasikbLD1vSCcsM
-	NyxPNWER9HHHeCkhJc8QOOWVOih7xAP5Ks+qRMNNwW2q0cJndjxMPJ+XupVIECAHMxIiWhSMaDsh+
-	DDDMCvEQ==;
+	bh=3aruVbAaYvFcNbsyejeNigt2xHhLZnkjS0gZ6HiRHzU=; b=4PDsDskZ6q77fwx8+Va7GPEXBg
+	i5gpzr22Aq1RqbRO3DJI1dNZVrY4I/4hVVQrp/DPzP72ljHmVBCAyrHZn8it8B16f7i4tWgNQgD9n
+	XkhFpPdYqGFvyCBIT8A7JVgcq2vGO2WZpUkFZ9ICI3AlAt0/18bfJFm8OTxBPLXRPa+bzH6rGlvmQ
+	uw8eLpOaN/E92JZnSTjJJatMNqOmSrmoWo2FUrRlBfPatD+K9kZX3YlsB3M9k8/bNSOZNjE2XUdyj
+	RYvTlwsmFHNFpFTzT0x8FUzYyPzgsir5WaOcboGt8JpkndKK39BZ+eKV7aippZcrrN0j9PZ+KcIDP
+	NZmPb4xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw2Nl-00000008uGN-0Vkj;
-	Fri, 27 Feb 2026 18:16:09 +0000
-Received: from mail-24417.protonmail.ch ([109.224.244.17])
+	id 1vw2yF-00000008vg4-3J7e;
+	Fri, 27 Feb 2026 18:53:51 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw2Nj-00000008uFb-0ARo
+	id 1vw2yD-00000008vfK-2B3V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 18:16:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1772216162; x=1772475362;
-	bh=KT8q0oWYh7AAT+B1rR0Z03IGDGzEfiFTCLxE4tZSwFs=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=CinSFcglL52lw5XXwWNnIE2Lq18A2m0RH+j8Frc7vwgqlDFbczDBQWJDw0IuRpzjs
-	 5W3i3FM6gD3lZPAGhGRq9D3DPenbLhc7xLGSzYlh6Cj/x8OpgrcyuBNMQQookg76x4
-	 JclqGeSTF4Zn/8QlLOdEnqgitwcjHwzkKyAEHQ89baSVCHFC3sMH5F1pp43NtVKQQ1
-	 M9kCzhb+PeSHodH9zQcgUKAPAdnTDWdy1DITVHcu8/46YYvXBbo+gzX7us4z59/nQO
-	 DvKjebFWRSBiK7w51HuUEggJNwIIQQCO1bU+KU9sXZwCPq8vjMI5f8wrKJSLYj+ggB
-	 JcmGDbORZngdg==
-Date: Fri, 27 Feb 2026 18:15:57 +0000
-To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>
-From: Harry Austen <hpausten@protonmail.com>
-Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Harry Austen <hpausten@protonmail.com>
-Subject: [PATCH v5 2/2] clk: clocking-wizard: add user clock monitor support
-Message-ID: <20260227181507.19890-3-hpausten@protonmail.com>
-In-Reply-To: <20260227181507.19890-1-hpausten@protonmail.com>
-References: <20260227181507.19890-1-hpausten@protonmail.com>
-Feedback-ID: 53116287:user:proton
-X-Pm-Message-ID: d86f7603c42fa73ab5332658cb0b44be36c54010
+	Fri, 27 Feb 2026 18:53:50 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c70bfef17a4so1379075a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 10:53:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772218428; x=1772823228; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3aruVbAaYvFcNbsyejeNigt2xHhLZnkjS0gZ6HiRHzU=;
+        b=La9eoW4gnLS81IcLFI+6kIQa4tal2uSgHTJklrAC968bT+qTqCdwNVCXKWQuwj8Lxt
+         Ysk4YGE83FSdaoqFF4EDeeo2rwgixliZqUkv+A8lWmMsi+v4qODMgWPqjE1LraPnOetu
+         oR5PJjUccVo+idNH1xQG9E1ii3WuREsZFiwAimKbetuZkJQYYN/+u8EUyK7TFmyAgK9w
+         VOlp307yWJ2B5aT8TFq2KiQs5R5lVBxUeyNF9WDOmYr5QLLjpucD0DLIEbRbN8d8psHX
+         GVRjYZs/Rr0lxKKP/xNKL7MT//iGnXKQ8vQGB8cZpNtcgZMPA0esXI/C4ITOmFF8mkmp
+         pSMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772218428; x=1772823228;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=3aruVbAaYvFcNbsyejeNigt2xHhLZnkjS0gZ6HiRHzU=;
+        b=gNcVoNtAD5lGlC4SgC+QtPX3Rw+vuAX2EkcpG3JvfRLcXtvyXRVyIv6m/66iQ25bM2
+         nEteNTG5BN8GI2a7ybLRmPc2WYryz2W00xlNDyMk6h5IzpFHKG2X0jmDcC23uvon2U0w
+         koAaX5mIj6gyHsok8ET2UdPVmkr2e2ZRn41KXC/wc50JqFvjv+ktwJd/Mg5JOMj6QzQA
+         qIgUD8rYWq1Su/WjaZtShYQrKMxlSws5+Mpb/UNQct/7F6yEg9iOXC3Ovqam12clBTAM
+         ssXna2hGjPxzKu33KpVziBtuglgV3gIRxP6uhIeZ1sKyV04Kz3wbiLjU/1pSPq8/oISp
+         yrYA==
+X-Forwarded-Encrypted: i=1; AJvYcCXmHtVpfqB3kX8f+hsBrau2L+tLAvF0OSazhH3F7DGsmIgGmo9t/Mu2FSFCphRuVQSTOcakqL07vl8pR3DEDRAJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoMVEeJJ7iDt3IpxQM2UzmdL50iexYyx8OYt15hIj72h/dniub
+	2yeo594vggFhw7bVvbh9n2va3X08g8BByzWJI9pN4uNVVMeY8MngX6PU
+X-Gm-Gg: ATEYQzxKrde6OQ50hiWElifSodXh8GkWSaCyZK3jWVwFDB48TnkuWwbhp/jcSiBIRMz
+	cdwxtFp8hDs99x18oD5rT4bjnc3CHxlj6PvtkiScfuba69IFK01+RyvJ1jJUqURmixypf7ktSps
+	pnFBqZOY8k1WiqAWUJVCPtaY0JRnzjPv4CnlbOnT56dN8DOKxuKrI2P3ePMK6D/16oQ460UTSwz
+	b07kZHqZ/eVQKS71GSec3UWQK6GCmOZHWZ4AaFJr3Z0uyZ9g7Wlkui3XOhUe7UWmgqwHSgLv7z6
+	14TXFjZ0CQAl4vkeNNCtaAyYqGqHe/2abZeTbedyPBPelnxGWlWTj4z7MUo9WuJzwKJ/MjneIj8
+	Qh3b4khG96avBNHUxgWlLhvsJkweM4PZDdu6QjPg3EAM059VwKD5l/SvM3okYNWA4ujqSq8BXoC
+	Z9zH3t9zis3K8CLjZ+//vZARXjG/8/OdFa9a8hO2SdPRwWaIFPGWOSQjNmFUDeoxUSrCJASXsXN
+	M4A97CRRX+mRnIj78VFQdNh4/jmqfVc
+X-Received: by 2002:a17:903:2ad0:b0:2ad:b97b:be88 with SMTP id d9443c01a7336-2ae2e46bd32mr43854225ad.32.1772218427810;
+        Fri, 27 Feb 2026 10:53:47 -0800 (PST)
+Received: from nickhuang.. (2001-b400-e2da-fec3-c79c-b051-bf9d-6fb0.emome-ip6.hinet.net. [2001:b400:e2da:fec3:c79c:b051:bf9d:6fb0])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb5dc944sm70010155ad.39.2026.02.27.10.53.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Feb 2026 10:53:47 -0800 (PST)
+From: Nick Huang <sef1548@gmail.com>
+To: macro@orcam.me.uk
+Cc: davidgow@google.com,
+	dongsheng.yang@linux.dev,
+	dory85109@gmail.com,
+	ebiggers@kernel.org,
+	idryomov@gmail.com,
+	jlayton@kernel.org,
+	john.g.garry@oracle.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux@armlinux.org.uk,
+	namhyung@kernel.org,
+	robh@kernel.org,
+	sef1548@gmail.com,
+	wdhh6@aliyun.com,
+	wqu@suse.com,
+	yot4106@gmail.com,
+	likerockman102@hotmail.com,
+	squid@squidspirit.com
+Subject: Re: [PATCH] arm: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
+Date: Fri, 27 Feb 2026 18:53:35 +0000
+Message-ID: <20260227185339.4187-1-sef1548@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <alpine.DEB.2.21.2602190008470.57399@angie.orcam.me.uk>
+References: <alpine.DEB.2.21.2602190008470.57399@angie.orcam.me.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=yes
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_101607_233124_122AAF46 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20260227_105349_578539_58BCFB1A 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,228 +116,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Xilinx clocking wizard IP core supports monitoring of up to four
-optional user clock inputs, with a corresponding interrupt for
-notification in change of clock state (stop, underrun, overrun or
-glitch). Give userspace access to this monitor logic through use of the
-devcoredump framework.
+>    While not a regression, as this used not to work anyway with ASSEMBLY,
+>   the use of ASSEMBLER requires sufficiently new a compiler and in principle
+>   the userland may have old tools installed for whatever reason.  So perhaps
+>   #error is in order if the compiler is not recent enough, for a complete
+>   fix?
 
-Use presence of the user monitor interrupt description in devicetree to
-indicate whether or not this functionality should be enabled. Also, this
-functionality is only supported from v6.0 onwards, so add indication of
-support to the device match data, in order to be tied to the utilised
-compatible string.
+>    FWIW GCC 2.95.x didn't yet have it, it landed ultimately with GCC 3.0.
+>    Do we care?  For instance the GNU C library still does for its installed
+>   headers.
+>
+>     Maciej
 
-All 16 user clock monitor trigger sources are enabled in the IER. When
-triggered, the values of the first 5 registers are recorded through
-devcoredump.
+Thanks, Maciej — good point about older toolchains. I'll send v2 of the patch that adds a compile-time check and an #error when the
+  compiler is too old to provide ASSEMBLER, making the failure explicit.
 
-Signed-off-by: Harry Austen <hpausten@protonmail.com>
----
-v4 -> v5: Fix bug by moving dev_coredumpv() after iowrite32()
-v3 -> v4: Rework from auxiliary bus and UIO to devcoredump
-v2 -> v3: No change
-v1 -> v2:
-- Remove direct UIO dependency by utilising auxiliary device
-- Move some logic from probe into clk_wzrd_setup_monitor for tidiness
- drivers/clk/xilinx/Kconfig                 |  1 +
- drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 69 ++++++++++++++++++++--
- 2 files changed, 66 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/clk/xilinx/Kconfig b/drivers/clk/xilinx/Kconfig
-index 051756953558b..37758ac9ab552 100644
---- a/drivers/clk/xilinx/Kconfig
-+++ b/drivers/clk/xilinx/Kconfig
-@@ -21,6 +21,7 @@ config COMMON_CLK_XLNX_CLKWZRD
- =09tristate "Xilinx Clocking Wizard"
- =09depends on OF
- =09depends on HAS_IOMEM
-+=09select WANT_DEV_COREDUMP
- =09help
- =09  Support for the Xilinx Clocking Wizard IP core clock generator.
- =09  Adds support for clocking wizard and compatible.
-diff --git a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c b/drivers/clk/xilin=
-x/clk-xlnx-clock-wizard.c
-index 4a0136349f71a..4bbe4d93e208d 100644
---- a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-+++ b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-@@ -12,6 +12,7 @@
- #include <linux/platform_device.h>
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
-+#include <linux/devcoredump.h>
- #include <linux/slab.h>
- #include <linux/io.h>
- #include <linux/of.h>
-@@ -19,11 +20,15 @@
- #include <linux/module.h>
- #include <linux/overflow.h>
- #include <linux/err.h>
-+#include <linux/interrupt.h>
- #include <linux/iopoll.h>
-=20
- #define WZRD_NUM_OUTPUTS=097
- #define WZRD_ACLK_MAX_FREQ=09250000000UL
-+#define WZRD_NUM_DUMP_REGS=095
-=20
-+#define WZRD_INTR_STATUS=090x0C
-+#define WZRD_INTR_ENABLE=090x10
- #define WZRD_CLK_CFG_REG(v, n)=09(0x200 + 0x130 * (v) + 4 * (n))
-=20
- #define WZRD_CLKOUT0_FRAC_EN=09BIT(18)
-@@ -124,6 +129,7 @@ enum clk_wzrd_int_clks {
- /**
-  * struct clk_wzrd - Clock wizard private data structure
-  *
-+ * @pdev:=09=09Platform device
-  * @nb:=09=09=09Notifier block
-  * @base:=09=09Memory base
-  * @clk_in1:=09=09Handle to input clock 'clk_in1'
-@@ -131,9 +137,11 @@ enum clk_wzrd_int_clks {
-  * @clks_internal:=09Internal clocks
-  * @speed_grade:=09Speed grade of the device
-  * @suspended:=09=09Flag indicating power state of the device
-+ * @work:=09=09Delayed work for devcoredump
-  * @clk_data:=09=09Output clock data
-  */
- struct clk_wzrd {
-+=09struct platform_device *pdev;
- =09struct notifier_block nb;
- =09void __iomem *base;
- =09struct clk *clk_in1;
-@@ -141,6 +149,7 @@ struct clk_wzrd {
- =09struct clk_hw *clks_internal[wzrd_clk_int_max];
- =09unsigned int speed_grade;
- =09bool suspended;
-+=09struct delayed_work work;
- =09struct clk_hw_onecell_data clk_data;
- };
-=20
-@@ -177,8 +186,9 @@ struct clk_wzrd_divider {
- =09spinlock_t *lock;  /* divider lock */
- };
-=20
--struct versal_clk_data {
-+struct clk_wzrd_data {
- =09bool is_versal;
-+=09bool has_monitor;
- };
-=20
- #define to_clk_wzrd(_nb) container_of(_nb, struct clk_wzrd, nb)
-@@ -984,8 +994,13 @@ static int __maybe_unused clk_wzrd_resume(struct devic=
-e *dev)
- static SIMPLE_DEV_PM_OPS(clk_wzrd_dev_pm_ops, clk_wzrd_suspend,
- =09=09=09 clk_wzrd_resume);
-=20
--static const struct versal_clk_data versal_data =3D {
-+static const struct clk_wzrd_data version_6_0_data =3D {
-+=09.is_versal=09=3D false,
-+=09.has_monitor=09=3D true,
-+};
-+static const struct clk_wzrd_data versal_data =3D {
- =09.is_versal=09=3D true,
-+=09.has_monitor=09=3D true,
- };
-=20
- static int clk_wzrd_register_output_clocks(struct device *dev, int nr_outp=
-uts)
-@@ -993,7 +1008,7 @@ static int clk_wzrd_register_output_clocks(struct devi=
-ce *dev, int nr_outputs)
- =09const char *clkout_name, *clk_name, *clk_mul_name;
- =09struct clk_wzrd *clk_wzrd =3D dev_get_drvdata(dev);
- =09u32 regl, regh, edge, regld, reghd, edged, div;
--=09const struct versal_clk_data *data;
-+=09const struct clk_wzrd_data *data;
- =09unsigned long flags =3D 0;
- =09bool is_versal =3D false;
- =09void __iomem *ctrl_reg;
-@@ -1150,14 +1165,45 @@ static int clk_wzrd_register_output_clocks(struct d=
-evice *dev, int nr_outputs)
- =09return 0;
- }
-=20
-+static irqreturn_t clk_wzrd_user_mon_intr_handler(int irq, void *data)
-+{
-+=09struct clk_wzrd *clk_wzrd =3D platform_get_drvdata(data);
-+
-+=09schedule_delayed_work(&clk_wzrd->work, msecs_to_jiffies(10));
-+=09return IRQ_HANDLED;
-+}
-+
-+static void clk_wzrd_user_mon_work(struct work_struct *work)
-+{
-+=09struct clk_wzrd *clk_wzrd =3D container_of(work, struct clk_wzrd, work.=
-work);
-+=09u32 *dump =3D vmalloc(WZRD_NUM_DUMP_REGS * sizeof(*dump));
-+
-+=09ioread32_rep(clk_wzrd->base, dump, WZRD_NUM_DUMP_REGS);
-+=09iowrite32(dump[WZRD_INTR_STATUS / sizeof(*dump)], clk_wzrd->base + WZRD=
-_INTR_STATUS);
-+=09dev_coredumpv(&clk_wzrd->pdev->dev, dump, WZRD_NUM_DUMP_REGS * sizeof(*=
-dump), GFP_KERNEL);
-+}
-+
-+static void clk_wzrd_cancel_delayed_work(void *data)
-+{
-+=09struct delayed_work *work =3D data;
-+
-+=09cancel_delayed_work_sync(work);
-+}
-+
- static int clk_wzrd_probe(struct platform_device *pdev)
- {
-+=09const struct clk_wzrd_data *data =3D device_get_match_data(&pdev->dev);
- =09struct device_node *np =3D pdev->dev.of_node;
- =09struct clk_wzrd *clk_wzrd;
- =09unsigned long rate;
- =09int nr_outputs;
-+=09int irq;
- =09int ret;
-=20
-+=09irq =3D platform_get_irq_optional(pdev, 0);
-+=09if (irq < 0 && irq !=3D -ENXIO)
-+=09=09return dev_err_probe(&pdev->dev, irq, "failed to get irq\n");
-+
- =09ret =3D of_property_read_u32(np, "xlnx,nr-outputs", &nr_outputs);
- =09if (ret || nr_outputs > WZRD_NUM_OUTPUTS)
- =09=09return -EINVAL;
-@@ -1226,6 +1272,21 @@ static int clk_wzrd_probe(struct platform_device *pd=
-ev)
- =09=09}
- =09}
-=20
-+=09if (data && data->has_monitor && irq > 0) {
-+=09=09ret =3D devm_request_irq(&pdev->dev, irq, clk_wzrd_user_mon_intr_han=
-dler, IRQF_SHARED,
-+=09=09=09=09       "user_mon", clk_wzrd);
-+=09=09if (ret)
-+=09=09=09return dev_err_probe(&pdev->dev, ret, "failed to request irq\n");
-+
-+=09=09INIT_DELAYED_WORK(&clk_wzrd->work, clk_wzrd_user_mon_work);
-+=09=09ret =3D devm_add_action_or_reset(&pdev->dev, clk_wzrd_cancel_delayed=
-_work,
-+=09=09=09=09=09       &clk_wzrd->work);
-+=09=09if (ret)
-+=09=09=09return ret;
-+
-+=09=09writel(GENMASK(15, 0), clk_wzrd->base + WZRD_INTR_ENABLE);
-+=09}
-+
- =09return 0;
- }
-=20
-@@ -1233,7 +1294,7 @@ static const struct of_device_id clk_wzrd_ids[] =3D {
- =09{ .compatible =3D "xlnx,versal-clk-wizard", .data =3D &versal_data },
- =09{ .compatible =3D "xlnx,clocking-wizard"   },
- =09{ .compatible =3D "xlnx,clocking-wizard-v5.2"   },
--=09{ .compatible =3D "xlnx,clocking-wizard-v6.0"  },
-+=09{ .compatible =3D "xlnx,clocking-wizard-v6.0", .data =3D &version_6_0_d=
-ata },
- =09{ },
- };
- MODULE_DEVICE_TABLE(of, clk_wzrd_ids);
---=20
-2.53.0
-
-
+--
+Regards,
+Nick Huang
 
