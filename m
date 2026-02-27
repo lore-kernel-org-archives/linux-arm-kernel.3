@@ -4,103 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C316FD530C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 08:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59089FD530C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 08:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ie2+UrGam8yuOMRgs4ibqBLJsyZZMJwKunkcFXbejKY=; b=RGDtWrU99qzsn/MO65VNdFKex6
-	myEFHMKEdHiqRr36a09JCAEGBIzVYL6pAsE07eQ6yuMv04wP/2zgMWGYqEUYSSpOxc6PwR2i45DZn
-	XID5PM2GvIPgtNvtnxl0C0kI2WpbkDuVLmyttcXZFVAHF4zRoR8A4hIWMUgn9hZE4kou5fNSjJrGR
-	IThGnFc47wIzCM1Lv/H22xHKcJgxopprX4Ctg0oECEoPcJfUgleh6J/4ZWTB5ppG8Tj5UHz8FjXGH
-	XDJy3lP+6HKYReJtZJKoA5A0FYOoXdXChOcUS45U8yt9XCb0zQWDyefLOrxRLWqG4hcySf0ZutVnz
-	GV90cGsQ==;
+	bh=mZ2lmpe/2UEZpwu4p6qAL5ErXEbZanTZJPC9VCwCH+E=; b=OhMX5ZrQXQgCG4p4Qu8L/Z7ngJ
+	9LZx5mbtN7fV36AV0Dq+W2JK8lvIr41ogugtm2/dEwTlZKueDzRToGcF19jcwPgWo+1BaT8NnT5G8
+	aFRTvxZjxj7uallbZ5t1BDgHmsSHAGoWuwNsA2ZzgdLuA1duy3SEkR8R1UMdFU/2DRrcf5nF4A3a8
+	l37w6q4WMgJuIz8rlv6z3A5jUEW/d2EtK+848ND6qPB4Vw13je3JVfmDD8hQfxVn6obpNMP4UfeM7
+	shVdAPuoBAdeZ4sgQ85xjF8tEizcKPqTbcdxjFvORNeuPCx/96NLcy0++0dV+MdbU1bxMWiStQ6Jo
+	1u8hlFWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvsn7-00000007wI4-04Zd;
-	Fri, 27 Feb 2026 08:01:41 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1vvsr9-00000007waf-2mOm;
+	Fri, 27 Feb 2026 08:05:51 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvsn4-00000007wHG-0b2y
+	id 1vvsr7-00000007waK-0lkZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 08:01:40 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-82742aa5a3eso737192b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 00:01:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772179297; x=1772784097; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ie2+UrGam8yuOMRgs4ibqBLJsyZZMJwKunkcFXbejKY=;
-        b=C+RMa+567s52t0BeCu0UKoGmosYAnDWOHsNcW7pYrAGr9gOL3+VbG7ziaaZL1iDSbD
-         ERubvI/AwHAu7U+yE2x+k9mkPjz+vry4tw851FL/6ISW9IOP4vXr2KU/7oOHdbw/rTwS
-         gPy8nK6t7YbLsd/mO9RAFl5xd2uSGWJTrbxV530KUhxB8GomSuHghYC73mS5LyVwF9fx
-         wpolayMSIqYR0r+qFeDwllXpDNxBnlge1lKj6IqRHG9pn0DQut5PQpZla6eMml7Nqbq9
-         jA0d2VxYi7S/4tbJr6msPDNst9iMMqh1ZZbvD2VisjhcUgBNcMfsCpFjnG6R8Db+1+v4
-         glTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772179297; x=1772784097;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ie2+UrGam8yuOMRgs4ibqBLJsyZZMJwKunkcFXbejKY=;
-        b=ZwT2fcsqtH5i0QNXDCPOm5qxXinPevgHDjJh5tOxOraJoX7013nxYhAy1AgBo4n/MW
-         93Ztx8L9tVH+CVPNiciekebMvHpBOg+n2/t2wYR+cF3M+PLa+Cv0skdZhFcc0WBBlZ7l
-         3i4Z6XjoLfaCfQ/sWovumLX530DxbJI4wvkl1/wj/gFVNX+rONid0fphIqXLk+eQKU06
-         3mX5Quw1rNiVDuxK2BG9qgzWR2l0r1cZ5rWPBH5ECT6VSVCBUxfZvctiPZvNpsBKFQD9
-         o2bZTI0tJoIkbakFX7BDtGmMbWd0H3HSVHY9KRplALrQVBV3iPRuqG9i3E/nOKpPg0FA
-         vAkw==
-X-Forwarded-Encrypted: i=1; AJvYcCWnykSKhVYjSCqCTP4stJiTrrOKSJgR78YpB9ZA4HY9hB1iPdTndMPUsficYuTasTa4QxVJWcUUUyva7vtWzZtE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzhEaZw+3xfXQVD8ZJt76TCjkpftzCezpBf3FtbfNXOumh2CuK
-	BWY48dnHpynTR9fEJdCIOtQnpWAmcvGKk9RQFH9/BCYHe/26vrjjwHHi
-X-Gm-Gg: ATEYQzyo6UwC9tJtkeQqiO751LUQt+PWd1b0gCBnjtogXsIi9vAEbSgiMFIG3a9pW4q
-	JpMu5/927uxRJDHGOM9ED6sv4TY46wN7rlyQjDTGBPetoR2GtbkNagSQzvIEWYxXmHnxnAouZo7
-	Ac1pQZx/h/GgRX9+ppdPleWe2hEd2k/gn4zTnzCSKE7EO2JMlZJCAgzG0YidIEDWLUZfXdFWZQh
-	S0otWjLfEl+UX3Tbmy/mSK8k70rkbBoNTdmpfmBbVx1c3XcGVlHQwZQJf8l1J7ymg3aJKV/LtqB
-	gYgPZ+yl1kPkIYLEh2XL8WOQCodcy0dXRdEhBa4fOBX8IL1r/+dz1HqwnQHioIarQXWJLRe/75L
-	knksEK7F0KQchVSFela33ETUwoly0PAI/3x9o0+UBuFnIiEKjvd/OPCeKefUY/8aDX3ZA449wLt
-	bbNJPSGVLsrXicFH1PR/210Q==
-X-Received: by 2002:a05:6a20:94cf:b0:393:dc6b:a10b with SMTP id adf61e73a8af0-395c3b0f6e6mr2039870637.44.1772179297185;
-        Fri, 27 Feb 2026 00:01:37 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359037af175sm7729375a91.13.2026.02.27.00.01.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Feb 2026 00:01:36 -0800 (PST)
-Date: Fri, 27 Feb 2026 16:01:07 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Emil Renner Berthing <emil.renner.berthing@gmail.com>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, Boon Khai Ng <boon.khai.ng@altera.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paolo Abeni <pabeni@redhat.com>, Paul Walmsley <pjw@kernel.org>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Richard Cochran <richardcochran@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Shangjuan Wei <weishangjuan@eswincomputing.com>, 
-	Yanteng Si <siyanteng@cqsoftware.com.cn>, Yao Zi <ziyao@disroot.org>, Yixun Lan <dlan@gentoo.org>, 
-	Zhi Li <lizhi2@eswincomputing.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v4 0/3] riscv: spacemit: Add ethernet support
- for K3
-Message-ID: <aaFOeQ0deTKVW0_N@inochi.infowork>
-References: <20260130022705.1059214-1-inochiama@gmail.com>
- <CANBLGczi6o4NwDF0fge0_RZ+TVX2dQ=vYD2PYMSupb5xSnabZQ@mail.gmail.com>
+	Fri, 27 Feb 2026 08:05:51 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4528B4E412D9;
+	Fri, 27 Feb 2026 08:05:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F2B495FE46;
+	Fri, 27 Feb 2026 08:05:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 53F571036921D;
+	Fri, 27 Feb 2026 09:05:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1772179544; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=mZ2lmpe/2UEZpwu4p6qAL5ErXEbZanTZJPC9VCwCH+E=;
+	b=fuwcPkNINtXJwwowcYRKZTLE9TgHnHLq5ZD3195jGCTSoF/P3CwfO/fdwcS0/+d8MRJiNY
+	0CHlmA+pRtKiIZZ1dmYTWk1dc8n7ct4pJ48/Ndz2+j4z9wmlgRfriqh6iqt+e7xGrIVNHe
+	J9CrK2XFsctUq0UvFJTNedxDMYp7X0wt7sZReX8lUfuDBVgwlwoSf6abNaofXqrbjNxQJy
+	LWYK/qKfQUqKf2D4pwDNJXqi5ImW9Df0Bn6KZhNKKj7SK9uBoMpEjQtSdSZWZygNGjRrXB
+	AwzL+jt9FVMwGFz31wkaMwQG3ifnu+Nfu40PifRH2USU4lp+SnqhRAox36sIxw==
+Date: Fri, 27 Feb 2026 09:05:42 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+Cc: wim@linux-watchdog.org, linux@roeck-us.net, nicolas.ferre@microchip.com,
+	claudiu.beznea@tuxon.dev, linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andrei Simion <andrei.simion@microchip.com>
+Subject: Re: [PATCH 2/3] watchdog: sama5d4_wdt: Refactor the driver
+Message-ID: <2026022708054233bc5648@mail.local>
+References: <20260227073116.30447-1-balakrishnan.s@microchip.com>
+ <20260227073116.30447-3-balakrishnan.s@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <CANBLGczi6o4NwDF0fge0_RZ+TVX2dQ=vYD2PYMSupb5xSnabZQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260227073116.30447-3-balakrishnan.s@microchip.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_000138_189563_DF94F6E5 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20260227_000549_513506_1E7B3226 
+X-CRM114-Status: GOOD (  39.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,24 +78,488 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 17, 2026 at 10:00:29AM -0600, Emil Renner Berthing wrote:
-> Quoting Inochi Amaoto (2026-01-30 03:27:01)
-> > Add initial support for ethernet controller of the Spacemit K3 SoC.
-> > This ethernet controller is almost a standard Synopsys DesignWare
-> > MAC (version 5.40a). This controller require a syscon device to
-> > configure some basic features, like interface type and internal delay.
+On 27/02/2026 13:01:15+0530, Balakrishnan Sambath wrote:
+> From: Andrei Simion <andrei.simion@microchip.com>
 > 
-> Hi Inochi,
+> This patch cleans up and refactors the Atmel SAMA5D4 Watchdog Driver
+> to be more readable and to fixup Reset issue introduced
+> by commit 266da53c35fc ("watchdog: sama5d4: readout initial state").
 > 
-> Do you have a tree that includes the dt entries?
-> Otherwise how are we going to test this?
+> Signed-off-by: Andrei Simion <andrei.simion@microchip.com>
+> [Use per-device WDDIS mask and sync MR shadow WDDIS state]
+> Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+> ---
+>  drivers/watchdog/sama5d4_wdt.c | 156 ++++++++++++++++-----------------
+>  1 file changed, 77 insertions(+), 79 deletions(-)
+> 
+> diff --git a/drivers/watchdog/sama5d4_wdt.c b/drivers/watchdog/sama5d4_wdt.c
+> index 13e72918338a..b422d0bd75f9 100644
+> --- a/drivers/watchdog/sama5d4_wdt.c
+> +++ b/drivers/watchdog/sama5d4_wdt.c
+> @@ -24,44 +24,58 @@
+>  #define WDT_DEFAULT_TIMEOUT	MAX_WDT_TIMEOUT
+>  
+>  #define WDT_SEC2TICKS(s)	((s) ? (((s) << 8) - 1) : 0)
+>  
+>  struct sama5d4_wdt {
+>  	struct watchdog_device	wdd;
+>  	void __iomem		*reg_base;
+>  	u32			mr;
+>  	u32			ir;
+> +	u32			wddis_mask;
+
+Introducing this should simply remove the need for 3/3, use this instead
+of AT91_WDT_WDDIS everywhere.
+
+>  	unsigned long		last_ping;
+>  	bool			need_irq;
+> -	bool			sam9x60_support;
+> +	bool			is_modern_chip;
+
+The previous name was better.
+
+>  };
+>  
+> +static inline bool wdt_enabled(struct sama5d4_wdt *wdt, u32 mr)
+> +{
+> +	return !(mr & wdt->wddis_mask);
+> +}
+> +
+
+This is unrelated to the actual fix. This patch does to much and is
+difficult to review and to backport, please separate the actual fix
+about wddis and the rest.
+
+
+>  static int wdt_timeout;
+>  static bool nowayout = WATCHDOG_NOWAYOUT;
+>  
+>  module_param(wdt_timeout, int, 0);
+>  MODULE_PARM_DESC(wdt_timeout,
+>  	"Watchdog timeout in seconds. (default = "
+>  	__MODULE_STRING(WDT_DEFAULT_TIMEOUT) ")");
+>  
+>  module_param(nowayout, bool, 0);
+>  MODULE_PARM_DESC(nowayout,
+>  	"Watchdog cannot be stopped once started (default="
+>  	__MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
+>  
+> -#define wdt_enabled (!(wdt->mr & AT91_WDT_WDDIS))
+>  
+>  #define wdt_read(wdt, field) \
+>  	readl_relaxed((wdt)->reg_base + (field))
+>  
+>  /* 4 slow clock periods is 4/32768 = 122.07µs*/
+>  #define WDT_DELAY	usecs_to_jiffies(123)
+>  
+> +static bool check_is_modern_chip_by_compatible(struct device *dev)
+> +{
+> +	if (of_device_is_compatible(dev->of_node, "microchip,sam9x60-wdt") ||
+> +	    of_device_is_compatible(dev->of_node, "microchip,sama7g5-wdt"))
+> +		return true;
+> +
+> +	return false;
+> +}
+> +
+>  static void wdt_write(struct sama5d4_wdt *wdt, u32 field, u32 val)
+>  {
+>  	/*
+>  	 * WDT_CR and WDT_MR must not be modified within three slow clock
+>  	 * periods following a restart of the watchdog performed by a write
+>  	 * access in WDT_CR.
+>  	 */
+>  	while (time_before(jiffies, wdt->last_ping + WDT_DELAY))
+>  		usleep_range(30, 125);
+> @@ -71,322 +85,306 @@ static void wdt_write(struct sama5d4_wdt *wdt, u32 field, u32 val)
+>  
+>  static void wdt_write_nosleep(struct sama5d4_wdt *wdt, u32 field, u32 val)
+>  {
+>  	if (time_before(jiffies, wdt->last_ping + WDT_DELAY))
+>  		udelay(123);
+>  	writel_relaxed(val, wdt->reg_base + field);
+>  	wdt->last_ping = jiffies;
+>  }
+>  
+> -static int sama5d4_wdt_start(struct watchdog_device *wdd)
+> +static int wdt_start(struct watchdog_device *wdd)
+>  {
+>  	struct sama5d4_wdt *wdt = watchdog_get_drvdata(wdd);
+>  
+> -	if (wdt->sam9x60_support) {
+> -		writel_relaxed(wdt->ir, wdt->reg_base + AT91_SAM9X60_IER);
+> -		wdt->mr &= ~AT91_SAM9X60_WDDIS;
+> -	} else {
+> -		wdt->mr &= ~AT91_WDT_WDDIS;
+> -	}
+> +	if (wdt->is_modern_chip)
+> +		writel_relaxed(wdt->ir, wdt->reg_base + AT91_WDT_IER);
+> +	wdt->mr &= ~wdt->wddis_mask;
+>  	wdt_write(wdt, AT91_WDT_MR, wdt->mr);
+>  
+>  	return 0;
+>  }
+>  
+> -static int sama5d4_wdt_stop(struct watchdog_device *wdd)
+> +static int wdt_stop(struct watchdog_device *wdd)
+>  {
+>  	struct sama5d4_wdt *wdt = watchdog_get_drvdata(wdd);
+>  
+> -	if (wdt->sam9x60_support) {
+> -		writel_relaxed(wdt->ir, wdt->reg_base + AT91_SAM9X60_IDR);
+> -		wdt->mr |= AT91_SAM9X60_WDDIS;
+> -	} else {
+> -		wdt->mr |= AT91_WDT_WDDIS;
+> -	}
+> +	if (wdt->is_modern_chip)
+> +		writel_relaxed(wdt->ir, wdt->reg_base + AT91_WDT_IDR);
+> +	wdt->mr |= wdt->wddis_mask;
+>  	wdt_write(wdt, AT91_WDT_MR, wdt->mr);
+>  
+>  	return 0;
+>  }
+>  
+> -static int sama5d4_wdt_ping(struct watchdog_device *wdd)
+> +static int wdt_ping(struct watchdog_device *wdd)
+>  {
+>  	struct sama5d4_wdt *wdt = watchdog_get_drvdata(wdd);
+>  
+>  	wdt_write(wdt, AT91_WDT_CR, AT91_WDT_KEY | AT91_WDT_WDRSTT);
+>  
+>  	return 0;
+>  }
+>  
+> -static int sama5d4_wdt_set_timeout(struct watchdog_device *wdd,
+> -				 unsigned int timeout)
+> +static int wdt_set_timeout(struct watchdog_device *wdd,
+> +			   unsigned int timeout)
+>  {
+>  	struct sama5d4_wdt *wdt = watchdog_get_drvdata(wdd);
+>  	u32 value = WDT_SEC2TICKS(timeout);
+>  
+> -	if (wdt->sam9x60_support) {
+> -		wdt_write(wdt, AT91_SAM9X60_WLR,
+> -			  AT91_SAM9X60_SET_COUNTER(value));
+> +	if (wdt->is_modern_chip) {
+> +		wdt_write(wdt, AT91_WDT_WLR,
+> +			  AT91_WDT_SET_COUNTER(value));
+>  
+>  		wdd->timeout = timeout;
+>  		return 0;
+>  	}
+>  
+>  	wdt->mr &= ~AT91_WDT_WDV;
+>  	wdt->mr |= AT91_WDT_SET_WDV(value);
+>  
+>  	/*
+>  	 * WDDIS has to be 0 when updating WDD/WDV. The datasheet states: When
+>  	 * setting the WDDIS bit, and while it is set, the fields WDV and WDD
+>  	 * must not be modified.
+>  	 * If the watchdog is enabled, then the timeout can be updated. Else,
+>  	 * wait that the user enables it.
+>  	 */
+> -	if (wdt_enabled)
+> -		wdt_write(wdt, AT91_WDT_MR, wdt->mr & ~AT91_WDT_WDDIS);
+> +	if (wdt_enabled(wdt, wdt->mr))
+> +		wdt_write(wdt, AT91_WDT_MR, wdt->mr & ~wdt->wddis_mask);
+>  
+>  	wdd->timeout = timeout;
+>  
+>  	return 0;
+>  }
+>  
+>  static const struct watchdog_info sama5d4_wdt_info = {
+>  	.options = WDIOF_SETTIMEOUT | WDIOF_MAGICCLOSE | WDIOF_KEEPALIVEPING,
+>  	.identity = "Atmel SAMA5D4 Watchdog",
+>  };
+>  
+>  static const struct watchdog_ops sama5d4_wdt_ops = {
+>  	.owner = THIS_MODULE,
+> -	.start = sama5d4_wdt_start,
+> -	.stop = sama5d4_wdt_stop,
+> -	.ping = sama5d4_wdt_ping,
+> -	.set_timeout = sama5d4_wdt_set_timeout,
+> +	.start = wdt_start,
+> +	.stop = wdt_stop,
+> +	.ping = wdt_ping,
+> +	.set_timeout = wdt_set_timeout,
+>  };
+>  
+> -static irqreturn_t sama5d4_wdt_irq_handler(int irq, void *dev_id)
+> +static irqreturn_t wdt_irq_handler(int irq, void *dev_id)
+>  {
+>  	struct sama5d4_wdt *wdt = platform_get_drvdata(dev_id);
+>  	u32 reg;
+>  
+> -	if (wdt->sam9x60_support)
+> -		reg = wdt_read(wdt, AT91_SAM9X60_ISR);
+> +	if (wdt->is_modern_chip)
+> +		reg = wdt_read(wdt, AT91_WDT_ISR);
+>  	else
+>  		reg = wdt_read(wdt, AT91_WDT_SR);
+>  
+>  	if (reg) {
+>  		pr_crit("Atmel Watchdog Software Reset\n");
+>  		emergency_restart();
+>  		pr_crit("Reboot didn't succeed\n");
+>  	}
+>  
+>  	return IRQ_HANDLED;
+>  }
+>  
+> -static int of_sama5d4_wdt_init(struct device_node *np, struct sama5d4_wdt *wdt)
+> +static int of_wdt_init(struct device_node *np, struct sama5d4_wdt *wdt)
+>  {
+>  	const char *tmp;
+>  
+> -	if (wdt->sam9x60_support)
+> -		wdt->mr = AT91_SAM9X60_WDDIS;
+> -	else
+> -		wdt->mr = AT91_WDT_WDDIS;
+> +	wdt->mr = wdt->wddis_mask;
+>  
+>  	if (!of_property_read_string(np, "atmel,watchdog-type", &tmp) &&
+>  	    !strcmp(tmp, "software"))
+>  		wdt->need_irq = true;
+>  
+>  	if (of_property_read_bool(np, "atmel,idle-halt"))
+>  		wdt->mr |= AT91_WDT_WDIDLEHLT;
+>  
+>  	if (of_property_read_bool(np, "atmel,dbg-halt"))
+>  		wdt->mr |= AT91_WDT_WDDBGHLT;
+>  
+>  	return 0;
+>  }
+>  
+> -static int sama5d4_wdt_init(struct sama5d4_wdt *wdt)
+> +static int wdt_init(struct sama5d4_wdt *wdt)
+>  {
+> +	struct watchdog_device *wdd = &wdt->wdd;
+>  	u32 reg, val;
+>  
+>  	val = WDT_SEC2TICKS(WDT_DEFAULT_TIMEOUT);
+> +
+>  	/*
+>  	 * When booting and resuming, the bootloader may have changed the
+>  	 * watchdog configuration.
+> -	 * If the watchdog is already running, we can safely update it.
+> -	 * Else, we have to disable it properly.
+> +	 * If the watchdog is not running, we need to disable it properly.
+> +	 * Otherwise, we can safely update it.
+>  	 */
+> -	if (!wdt_enabled) {
+> -		reg = wdt_read(wdt, AT91_WDT_MR);
+> -		if (wdt->sam9x60_support && (!(reg & AT91_SAM9X60_WDDIS)))
+> -			wdt_write_nosleep(wdt, AT91_WDT_MR,
+> -					  reg | AT91_SAM9X60_WDDIS);
+> -		else if (!wdt->sam9x60_support &&
+> -			 (!(reg & AT91_WDT_WDDIS)))
+> -			wdt_write_nosleep(wdt, AT91_WDT_MR,
+> -					  reg | AT91_WDT_WDDIS);
+> +	reg = wdt_read(wdt, AT91_WDT_MR);
+> +	if (wdt_enabled(wdt, reg)) {
+> +		wdt->mr &= ~wdt->wddis_mask;
+> +		set_bit(WDOG_HW_RUNNING, &wdd->status);
+> +	} else {
+> +		wdt->mr |= wdt->wddis_mask;
+>  	}
+>  
+> -	if (wdt->sam9x60_support) {
+> +	if (wdt->is_modern_chip) {
+>  		if (wdt->need_irq)
+> -			wdt->ir = AT91_SAM9X60_PERINT;
+> +			wdt->ir = AT91_WDT_PERINT;
+>  		else
+> -			wdt->mr |= AT91_SAM9X60_PERIODRST;
+> +			wdt->mr |= AT91_WDT_PERIODRST;
+>  
+> -		wdt_write(wdt, AT91_SAM9X60_IER, wdt->ir);
+> -		wdt_write(wdt, AT91_SAM9X60_WLR, AT91_SAM9X60_SET_COUNTER(val));
+> +		wdt_write(wdt, AT91_WDT_IER, wdt->ir);
+> +		wdt_write(wdt, AT91_WDT_WLR, AT91_WDT_SET_COUNTER(val));
+>  	} else {
+>  		wdt->mr |= AT91_WDT_SET_WDD(WDT_SEC2TICKS(MAX_WDT_TIMEOUT));
+>  		wdt->mr |= AT91_WDT_SET_WDV(val);
+>  
+>  		if (wdt->need_irq)
+>  			wdt->mr |= AT91_WDT_WDFIEN;
+>  		else
+>  			wdt->mr |= AT91_WDT_WDRSTEN;
+>  	}
+>  
+>  	wdt_write_nosleep(wdt, AT91_WDT_MR, wdt->mr);
+>  
+>  	return 0;
+>  }
+>  
+> -static int sama5d4_wdt_probe(struct platform_device *pdev)
+> +static int wdt_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+>  	struct watchdog_device *wdd;
+>  	struct sama5d4_wdt *wdt;
+>  	void __iomem *regs;
+>  	u32 irq = 0;
+> -	u32 reg;
+>  	int ret;
+>  
+>  	wdt = devm_kzalloc(dev, sizeof(*wdt), GFP_KERNEL);
+>  	if (!wdt)
+>  		return -ENOMEM;
+>  
+>  	wdd = &wdt->wdd;
+>  	wdd->timeout = WDT_DEFAULT_TIMEOUT;
+>  	wdd->info = &sama5d4_wdt_info;
+>  	wdd->ops = &sama5d4_wdt_ops;
+>  	wdd->min_timeout = MIN_WDT_TIMEOUT;
+>  	wdd->max_timeout = MAX_WDT_TIMEOUT;
+>  	wdt->last_ping = jiffies;
+> -
+> -	if (of_device_is_compatible(dev->of_node, "microchip,sam9x60-wdt") ||
+> -	    of_device_is_compatible(dev->of_node, "microchip,sama7g5-wdt"))
+> -		wdt->sam9x60_support = true;
+> +	wdt->is_modern_chip = check_is_modern_chip_by_compatible(dev);
+> +	if (wdt->is_modern_chip)
+> +		wdt->wddis_mask = AT91_WDT_WDDIS_MODERN;
+> +	else
+> +		wdt->wddis_mask = AT91_WDT_WDDIS_LEGACY;
+>  
+>  	watchdog_set_drvdata(wdd, wdt);
+>  
+>  	regs = devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(regs))
+>  		return PTR_ERR(regs);
+>  
+>  	wdt->reg_base = regs;
+>  
+> -	ret = of_sama5d4_wdt_init(dev->of_node, wdt);
+> +	ret = of_wdt_init(dev->of_node, wdt);
+>  	if (ret)
+>  		return ret;
+>  
+>  	if (wdt->need_irq) {
+>  		irq = irq_of_parse_and_map(dev->of_node, 0);
+>  		if (!irq) {
+>  			dev_warn(dev, "failed to get IRQ from DT\n");
+>  			wdt->need_irq = false;
+>  		}
+>  	}
+>  
+>  	if (wdt->need_irq) {
+> -		ret = devm_request_irq(dev, irq, sama5d4_wdt_irq_handler,
+> +		ret = devm_request_irq(dev, irq, wdt_irq_handler,
+>  				       IRQF_SHARED | IRQF_IRQPOLL |
+>  				       IRQF_NO_SUSPEND, pdev->name, pdev);
+>  		if (ret) {
+>  			dev_err(dev, "cannot register interrupt handler\n");
+>  			return ret;
+>  		}
+>  	}
+>  
+>  	watchdog_init_timeout(wdd, wdt_timeout, dev);
+>  
+> -	reg = wdt_read(wdt, AT91_WDT_MR);
+> -	if (!(reg & AT91_WDT_WDDIS)) {
+> -		wdt->mr &= ~AT91_WDT_WDDIS;
+> -		set_bit(WDOG_HW_RUNNING, &wdd->status);
+> -	}
+> -
+> -	ret = sama5d4_wdt_init(wdt);
+> +	ret = wdt_init(wdt);
+>  	if (ret)
+>  		return ret;
+>  
+>  	watchdog_set_nowayout(wdd, nowayout);
+>  
+>  	watchdog_stop_on_unregister(wdd);
+>  	ret = devm_watchdog_register_device(dev, wdd);
+>  	if (ret)
+>  		return ret;
+>  
+>  	platform_set_drvdata(pdev, wdt);
+>  
+>  	dev_info(dev, "initialized (timeout = %d sec, nowayout = %d)\n",
+>  		 wdd->timeout, nowayout);
+>  
+>  	return 0;
+>  }
+>  
+> -static const struct of_device_id sama5d4_wdt_of_match[] = {
+> +static const struct of_device_id wdt_of_match[] = {
+>  	{
+>  		.compatible = "atmel,sama5d4-wdt",
+>  	},
+>  	{
+>  		.compatible = "microchip,sam9x60-wdt",
+>  	},
+>  	{
+>  		.compatible = "microchip,sama7g5-wdt",
+>  	},
+>  
+>  	{ }
+>  };
+> -MODULE_DEVICE_TABLE(of, sama5d4_wdt_of_match);
+> +MODULE_DEVICE_TABLE(of, wdt_of_match);
+>  
+> -static int sama5d4_wdt_suspend_late(struct device *dev)
+> +static int wdt_suspend_late(struct device *dev)
+>  {
+>  	struct sama5d4_wdt *wdt = dev_get_drvdata(dev);
+>  
+>  	if (watchdog_active(&wdt->wdd))
+> -		sama5d4_wdt_stop(&wdt->wdd);
+> +		wdt_stop(&wdt->wdd);
+>  
+>  	return 0;
+>  }
+>  
+> -static int sama5d4_wdt_resume_early(struct device *dev)
+> +static int wdt_resume_early(struct device *dev)
+>  {
+>  	struct sama5d4_wdt *wdt = dev_get_drvdata(dev);
+>  
+>  	/*
+>  	 * FIXME: writing MR also pings the watchdog which may not be desired.
+>  	 * This should only be done when the registers are lost on suspend but
+>  	 * there is no way to get this information right now.
+>  	 */
+> -	sama5d4_wdt_init(wdt);
+> +	wdt_init(wdt);
+>  
+>  	if (watchdog_active(&wdt->wdd))
+> -		sama5d4_wdt_start(&wdt->wdd);
+> +		wdt_start(&wdt->wdd);
+>  
+>  	return 0;
+>  }
+>  
+>  static const struct dev_pm_ops sama5d4_wdt_pm_ops = {
+> -	LATE_SYSTEM_SLEEP_PM_OPS(sama5d4_wdt_suspend_late,
+> -				 sama5d4_wdt_resume_early)
+> +	LATE_SYSTEM_SLEEP_PM_OPS(wdt_suspend_late,
+> +				 wdt_resume_early)
+>  };
+>  
+>  static struct platform_driver sama5d4_wdt_driver = {
+> -	.probe		= sama5d4_wdt_probe,
+> +	.probe		= wdt_probe,
+>  	.driver		= {
+>  		.name	= "sama5d4_wdt",
+>  		.pm	= pm_sleep_ptr(&sama5d4_wdt_pm_ops),
+> -		.of_match_table = sama5d4_wdt_of_match,
+> +		.of_match_table = wdt_of_match,
+>  	}
+>  };
+>  module_platform_driver(sama5d4_wdt_driver);
+>  
+>  MODULE_AUTHOR("Atmel Corporation");
+>  MODULE_DESCRIPTION("Atmel SAMA5D4 Watchdog Timer driver");
+>  MODULE_LICENSE("GPL v2");
+> -- 
+> 2.34.1
 > 
 
-Yes, I have one, but it is not opened as I was requested.
-I will send the DTS patch, once the clock, gpio, and pinctrl
-device is available. At least for now, I had no way to post
-my DTS patch.
-
-Regards,
-Inochi
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
