@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8992FEFB5A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8228EFEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pCOf+ZmqqtgPwlWCtohRjVDrXj8iEckMKHZrGnl9m9E=; b=t5WB1cHDN3cEcLW6O+3z4aT8F+
-	seST1yv3B9YpsSgHNCegnk0X+eEzGBiji6AhEbtzTCaCf7BhG9mMF4epxhFParTIfJY1MFKif5RsL
-	y6ztPXLlyOXkfoXQY7JtNGSpynaPtvAyEnlytkfhFNiuGk/Ei6CtwoJJQ6kIBHztMWFqFAralU2zX
-	B35oY7sDUgG+H0jup51Zrhqrdz2cNOrIkscGPd+0Mv7B8mUkx8MyRuv5gucWpkhBIR9eYyBEImMa7
-	fK2x4fun3sB+wIhGj9yBy7srmYBYxORIcZYpapvTleJ1Z1Mxa5hYyqcb2NgnBi3HXtmMPwWWElYoj
-	/p6sTyzw==;
+	bh=fMwaBvqdwYCjJQBl60E8qyyHxhDXj5rHW+g0XPefEf8=; b=NWZmDrEu83elvJdT7sjt8UCz4H
+	+HS3Ti0gZOr3hmQz42q0RsQvksRRgcm15SEyAuRKfcqJQ/HC+3yDBs/4xOejOk1PeVCAemRgzy5AI
+	gt2bSGUNh50RqJOfTKvHfyPaANzkVvlUsoYLIq5Gt3hYUQxskiVt1D5CsLEpzVp2xFR4GV4zdbOrY
+	bi3Pn7RAejqJyxg6VuZjG+LNlWL4qB2fMbGb+vFcyga37esfKzm59o3zOTA18zhRMe3Q3gEAsntl0
+	PD+TizcbUwndPlh6KOmKTF34i5EKDH0eFoqt/JPE1LZFhaPksIvknjeENVwYj6kV9GtPh+z885hOx
+	jKrWaWRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzYc-00000008ZDk-2wYn;
-	Fri, 27 Feb 2026 15:15:10 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1vvzaR-00000008Zgn-0kwG;
+	Fri, 27 Feb 2026 15:17:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzYY-00000008ZB5-3hC4
+	id 1vvzaP-00000008ZgV-3oaB
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 27 Feb 2026 15:17:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=fMwaBvqdwYCjJQBl60E8qyyHxhDXj5rHW+g0XPefEf8=; b=N8qWrqgw07bQPGGJ8OosKDS3+G
+	Lk/sh0G0ClSLLcrUdRAhVt1hoiZXyBu7uTLTu4h9RExE8vqcMNFFrCn1g0CY2LyfSq3vMJTikwTBx
+	LZ38NR6UKLyk6ZO6faugHrTgxW3zNqxZerDHljFa0PjbulGMpR8QJn3VUmg/O/Phz6ss3/0JP4ftn
+	GY3DPCDp+g25jMutMFgtdmoyi+ZrFuIq5RPss/mNtctYBCW20V3KxHolXxAUxKVxxO2heOYDkvARH
+	IGeGj4vbmxPrccwJmLn7GAl17YbZi7d4iDmaQVvOQWyKRg8LKcuRaMGzkIiTEQdNoz03q8166Kcfy
+	+Hi8NuHA==;
+Received: from m16.mail.163.com ([220.197.31.5])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvzaL-0000000DKdc-0XFR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 15:15:08 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2aaf5d53eaaso15358035ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 07:15:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772205306; x=1772810106; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pCOf+ZmqqtgPwlWCtohRjVDrXj8iEckMKHZrGnl9m9E=;
-        b=mS3OlmEbFw8BJUCEMit8a1FCeu/1o0GZ7Dc4k20B2GMYHgcFwNRKL+yJ26S4+DPdne
-         44oPHwAHQkC7e4zsGO1hbZIsDWaS7EADnKuZjMW0PdXVID80un2p5x/zwkkXglXErV59
-         UEV44RmnqHpbtvivYCf/uycvFFI4ogzWfOYREl2pJov9kfFIZ3j9f+BtiJJZM1l4nvRJ
-         huSGW9NTinmw9+vU64yl1SGVL6kh4ovx8+jw2KSktUJMT1x52CGPRIleauf5oEUbb+jx
-         fJSeDd5/uNC6CXU8YTfex4l98dMzNS1d5vmNsGnXKt/a+fbJZZ+37LXOLZaJJwIsAyWC
-         Kvvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772205306; x=1772810106;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=pCOf+ZmqqtgPwlWCtohRjVDrXj8iEckMKHZrGnl9m9E=;
-        b=rb44p0P0Uva76FZyNZzb4fcfB0igBPp8ABew/JYbYWjsSS94OdYvAiBgHWKJ6Rh0DN
-         wt4mhxBKNaTvj5WkkPeaDbL/fxx5a4y4m0E891Eb9S6N/JqiCQIgkFxhm3kDa3x91yZE
-         odkGyeCSrGRxc86ru5Mwi4Qy2PoAhec3QIr56yeC8zGbvekODzrUBAaMxvD/Wo+4/dhz
-         U5wWyE/8qLLBi07QlxtKWaKPfGqjOjCJaKjqZ5N5qJOO+N8K6DYCdJylWu5uW3Uugny2
-         k4BUNJoEIfEj+CGxXw89yOaNQKEnFaJJBMQpFf9hn/OTCh+QEhXnZcYuP/CFmeKcDHQd
-         rX+w==
-X-Forwarded-Encrypted: i=1; AJvYcCVVGsLUWmsiLwIxmIaPVwvEkmJ8cGgWQSCNxEgAH9K5AiQAPsxAZ515KTHgxmmEkNNyRByWgl2gs0Kqkk1RjPZ9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzI+YP7vQkerXj6Hf6f5g+2ujQIAXb1AfyDGQkmUYVTo57zoFWN
-	3hSlBShu4AcaxPah32EMGx7eMDfe7wa9N979TiFOQnpUQ07me2lWgrxp
-X-Gm-Gg: ATEYQzwsUuy8KC5c6s5YMG23cG0+9Hqlp2yBFlRHErL0+uwDgrcbD4OO74ZJN6LTfyF
-	rPrwMGHPVAyP8uOjsBRdxhMil/5PGYXeG7AAyEJTwbLkHluUhDyCxeAPKtaXVFCEViQ/OOFy1hp
-	HXpTh2TlQZZMfOD9hl0P7BLMzLQD9ouL9CQ9k/o+avR3lbx/6/Y372uZLdnmyziui/DaHB3QY9o
-	SvD08V/BKxM5GS0i4w4aREzKwuv8WTD4D/MRs9BnsgGeU05KW3Ffdf3gTM5khLUhLKAU0W+U6SD
-	Pcw4QIgYJVfobAZMbQ3OKKe+DhJufed7VREwnYanDmkpRD9OSqxUh1bcuksHFnP71fbUT2REVoS
-	Wnbhhxn4xry8pOcXZegOG/FAh4bcPCKY7kecShb/jFo8eas8DdFYb2JYAAhrTGpGdixBnQ2L+TB
-	xGdtaxvM8dlaK4y1nQiBL6UmXIkp09douLuhxqlmv+WhcGgt+g
-X-Received: by 2002:a17:90b:6c5:b0:356:1dad:1b07 with SMTP id 98e67ed59e1d1-35965cc9b4dmr3070943a91.23.1772205305387;
-        Fri, 27 Feb 2026 07:15:05 -0800 (PST)
-Received: from LAPTOP-872M7T80.localdomain ([122.168.69.160])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3593dcc9c37sm5485848a91.8.2026.02.27.07.15.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Feb 2026 07:15:04 -0800 (PST)
-From: Akhila YS <akhilayalmati@gmail.com>
-Date: Fri, 27 Feb 2026 15:14:35 +0000
-Subject: [PATCH v4 5/5] dt-bindings: arm: atmel,at91rm9200-sdramc: convert
- to DT schema
+	Fri, 27 Feb 2026 15:17:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=fM
+	waBvqdwYCjJQBl60E8qyyHxhDXj5rHW+g0XPefEf8=; b=qAXf2gXwUS0T+EnfhC
+	VcvyDdrPGgBImptrFp3R7KQnXjvc5jpX3RxfhiCkh/OqmKeTDiG5w0v/eIF9zE9Q
+	toqioLz5HUX3WtYyTeqzoLZ1qjqDKk/oCpATIEynglsqrUNLYxHKU0UpcbcyS2iG
+	cvuf6/x3N5zivP82NQUkgz8eU=
+Received: from haiyue-pc.localdomain (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id PCgvCgD39_A2taFpCwnpPg--.7205S3;
+	Fri, 27 Feb 2026 23:16:11 +0800 (CST)
+From: Haiyue Wang <haiyuewa@163.com>
+To: linux-aspeed@lists.ozlabs.org
+Cc: Haiyue Wang <haiyuewa@163.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Jammy Huang <jammy_huang@aspeedtech.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v2 2/2] ARM: dts: aspeed: add 'resets' to video node
+Date: Fri, 27 Feb 2026 23:13:15 +0800
+Message-ID: <20260227151602.829-2-haiyuewa@163.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260227151602.829-1-haiyuewa@163.com>
+References: <20260227151602.829-1-haiyuewa@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260227-arm-microchip-v4-5-7e2ae1c5b5d6@gmail.com>
-References: <20260227-arm-microchip-v4-0-7e2ae1c5b5d6@gmail.com>
-In-Reply-To: <20260227-arm-microchip-v4-0-7e2ae1c5b5d6@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Akhila YS <akhilayalmati@gmail.com>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PCgvCgD39_A2taFpCwnpPg--.7205S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr48Kr18WFy5Kw1UtF43Wrg_yoW8ury5pa
+	y7Cr4kX3ySgF45t34UGFyDKr1DAay5JF4rKrsIk34UXry3X3sYqr1ftrsag34UXrs5uw1S
+	gF1xXr9Fqw1DXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_ApeUUUUUU=
+X-Originating-IP: [101.228.113.192]
+X-CM-SenderInfo: 5kdl53xhzdqiywtou0bp/xtbCzhs+qWmhtTszdgAA3B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_071506_929142_00C67805 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260227_151657_837317_E2C59FA8 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,114 +97,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert RAMC SDRAM/DDR controller binding to YAML format.
+The aspeed video (be compatible for ast2400, ast2500, ast2600) now needs
+the reset DTS handle specified, otherwise it will fail to load:
 
-Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
+[    4.809494] aspeed-video 1e700000.video: irq 57
+[    4.809977] aspeed-video 1e700000.video: Unable to get reset
+[    4.810341] aspeed-video 1e700000.video: probe with driver aspeed-video failed with error -2
+
+Fixes: e83f8dd668ea ("media: aspeed: Fix dram hang at res-change")
+Signed-off-by: Haiyue Wang <haiyuewa@163.com>
 ---
- .../bindings/arm/atmel,at91rm9200-sdramc.yaml      | 66 ++++++++++++++++++++++
- .../devicetree/bindings/arm/atmel-sysregs.txt      | 20 -------
- 2 files changed, 66 insertions(+), 20 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-g4.dtsi | 1 +
+ arch/arm/boot/dts/aspeed/aspeed-g5.dtsi | 1 +
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 1 +
+ 3 files changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
-new file mode 100644
-index 000000000000..ac7e0f454a34
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/atmel,at91rm9200-sdramc.yaml
-@@ -0,0 +1,66 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/atmel,at91rm9200-sdramc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Microchip (Atmel) SDRAM / DDR Controller (RAMC / DDRAMC / UDDRC)
-+
-+maintainers:
-+  - Nicolas Ferre <nicolas.ferre@microchip.com>
-+  - Claudiu Beznea <claudiu.beznea@tuxon.dev>
-+
-+description:
-+  The SDRAM/DDR Controller (often called RAMC or DDRAMC) in various
-+  Atmel/Microchip ARM9 and Cortex-A5/A7 SoCs  manages external
-+  SDRAM / DDR memory. It is typically exposed as a syscon node for
-+  register access from other drivers (e.g. for initialization or mode
-+  configuration). No interrupts or clocks are usually required in the
-+  binding.
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - const: atmel,at91rm9200-sdramc
-+          - const: syscon
-+      - items:
-+          - const: microchip,sama7d65-uddrc
-+          - const: microchip,sama7g5-uddrc
-+      - enum:
-+          - atmel,at91sam9260-sdramc
-+          - atmel,at91sam9g45-ddramc
-+          - atmel,sama5d3-ddramc
-+          - microchip,sam9x60-ddramc
-+          - microchip,sam9x7-ddramc
-+          - microchip,sama7g5-uddrc
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    minItems: 1
-+    maxItems: 2
-+
-+  clock-names:
-+    minItems: 1
-+    items:
-+      - const: ddrck
-+      - const: mpddr
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/at91.h>
-+    ramc@ffffe400 {
-+        compatible = "atmel,at91sam9g45-ddramc";
-+        reg = <0xffffe400 0x200>;
-+        clocks = <&pmc PMC_TYPE_SYSTEM 2>;
-+        clock-names = "ddrck";
-+    };
-+...
-diff --git a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-deleted file mode 100644
-index 14642384bc87..000000000000
---- a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-+++ /dev/null
-@@ -1,20 +0,0 @@
--Atmel system registers
--
--RAMC SDRAM/DDR Controller required properties:
--- compatible: Should be "atmel,at91rm9200-sdramc", "syscon" or
--			"atmel,at91sam9260-sdramc" or
--			"atmel,at91sam9g45-ddramc" or
--			"atmel,sama5d3-ddramc" or
--			"microchip,sam9x60-ddramc" or
--			"microchip,sama7g5-uddrc" or
--			"microchip,sama7d65-uddrc", "microchip,sama7g5-uddrc" or
--			"microchip,sam9x7-ddramc", "atmel,sama5d3-ddramc".
--- reg: Should contain registers location and length
--
--Examples:
--
--	ramc0: ramc@ffffe800 {
--		compatible = "atmel,at91sam9g45-ddramc";
--		reg = <0xffffe800 0x200>;
--	};
--
-
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi
+index c3d4d916c69b..1547e28d77e2 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi
+@@ -242,6 +242,7 @@ video: video@1e700000 {
+ 					 <&syscon ASPEED_CLK_GATE_ECLK>;
+ 				clock-names = "vclk", "eclk";
+ 				interrupts = <7>;
++				resets = <&syscon ASPEED_RESET_VIDEO>;
+ 				status = "disabled";
+ 			};
+ 
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi
+index 39500bdb4747..793570ca2518 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi
+@@ -296,6 +296,7 @@ video: video@1e700000 {
+ 					 <&syscon ASPEED_CLK_GATE_ECLK>;
+ 				clock-names = "vclk", "eclk";
+ 				interrupts = <7>;
++				resets = <&syscon ASPEED_RESET_VIDEO>;
+ 				status = "disabled";
+ 			};
+ 
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index 189bc3bbb47c..3adf48987a17 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -428,6 +428,7 @@ video: video@1e700000 {
+ 					 <&syscon ASPEED_CLK_GATE_ECLK>;
+ 				clock-names = "vclk", "eclk";
+ 				interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
++				resets = <&syscon ASPEED_RESET_VIDEO>;
+ 				status = "disabled";
+ 			};
+ 
 -- 
-2.43.0
+2.53.0
 
 
