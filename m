@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FBE6FD5314
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A433FD5314
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iJlIp2Jd8MRpaEmt3ERKwjfAuXpf+arP7sigceDz708=; b=DGWYmxthsmoW9ayVoSrOQ5VQkX
-	leLbTxBmAkuReBGJUuqWtBCBT+SfyU4gtwIW97tZ0jPrsrlGFgTB5ZaZiTiZQLS3x9fJE6K60sFhV
-	e1LzFbHz6aBgUaQgRg7pNzp2NmIH0rKn8beV0nq4U+p8cV0sgDxa4Gjgp+KECpPWA5dvU+r47DWVT
-	am+Q24jhncIMPA8JwFCWwNMy9k/+JRI3TbIV1gUXq0qomBaYlkVZVwkNNZTXviBfVSHN7UYJEjTBx
-	w7FzXWzyoMaPfFunzCU5SgeFrvs+OdzZVzsc4qBr0f3NVgKtLylZWEk1TiRlS74kGcbUZ1peHhvyq
-	xjbhRUSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PMFAO4csiSN1neHee9OeKdJZyaErSWGhMT/VU9fURKM=; b=YpoOEnG/PBQbThiAqq8Wxgnlsh
+	0wv6BRuzF3uDORprCE4AMoVKGKRHUsPWc01QmCZKAX56OEh6vJNrTKIqwFnHxXWrqeLZCZVyOjCN8
+	Z7IinfhVNYFxALBOpErdiHsUlO7GLEz9W6I9QuTiUF0V5rQIP9jLAkoXiEczVk9zxfyPpZ5PaPtIL
+	YtpXuj69wk2wdxjvDVMG6qw0sUF2hpkfiAqUF6O5LYyB+lvD4KjiGPCcsLJebiqiX3vbHv9hT1qBv
+	tv5JXo1lQUX9zzX7Xx5zpblvTPVisHi/kLWV6ev3BpjviV7E7MZfcw9LGGbIjv0cIBYS5ON3mzQNO
+	holrq3QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvtod-000000083K4-1XVh;
-	Fri, 27 Feb 2026 09:07:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvtpw-000000083U5-3QzT;
+	Fri, 27 Feb 2026 09:08:40 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvtoc-000000083JZ-0Loy
+	id 1vvtpu-000000083TO-2H6O
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 09:07:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B14860008
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 09:07:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3CBCC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 09:07:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772183236;
-	bh=iJlIp2Jd8MRpaEmt3ERKwjfAuXpf+arP7sigceDz708=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=B6XZEm5Loj7nbC7IPRaIIZ98noBpTcUwaljgWR76ZI4Lp195f71wBP8ha8VgoHuLT
-	 HAwpahZ7hAH8qRCnN1l19bo9DLSgOp4Z+tUuU+7dtE2AoMu5vYXOtFvb1wj8hmrgBr
-	 CvaN83gJx4+E3f2TVF1LNN04SE760xottyjb2+vqXJXRZ1J69xQKCOAhRrpXM2x+pt
-	 4L6Cmixs6LeEEDOKHMdQM+1qYsUEHqhDp2Qgkdveq5/aQShsgeumo13LZBw0e0z1va
-	 PopjfFmxYAJawsZgyjD9mNw2o51sN8iAE/PRYXpDIAzLP3uVag5JMbY7NQIv5/BqjD
-	 Z+n/fiiWBIgVA==
-Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-79801df3e42so24237087b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 01:07:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUPqCiE2FRjWA1L+L7SN5G7xxrLGhzPoP+h0nPeZuxigZq0da28/EfshkF2WI/0ooZG66UZdAVz9z4GwZiHHAUH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSX3yhYEzzzVlVoOc3yBkRyPthNw3SXbbRsDHNTlky750hzsdC
-	vCgARPo/yq082s/zvGA7wBrPFnxr/QtdvxUm3s3I51i3j7fKPGzuUBZyYE9B/NdhltXm20NQ3n4
-	Cc0ScwUaz3YrP/z36ai/euMQLzIzMLwM=
-X-Received: by 2002:a05:690c:c4f1:b0:796:3a4f:68fc with SMTP id
- 00721157ae682-7988599b8ddmr16545447b3.8.1772183236207; Fri, 27 Feb 2026
- 01:07:16 -0800 (PST)
+	Fri, 27 Feb 2026 09:08:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=PMFA
+	O4csiSN1neHee9OeKdJZyaErSWGhMT/VU9fURKM=; b=NNt/+kgdJvUJ6dErCiQZ
+	FsjmBZOYgAIctuPF+FsJTFm1XfUfq0bbV2r75EIzm32GJZONBIpZQb18pjKoEYfz
+	v1BkfHcvRUuWFPaUKI52cD5vUZlgEh0U0jC6YnGQF4FAUS/ANpi708r2HeFeps5d
+	760lZ8tMAOh2/LW5EnJwMWBybA8EisVDcz8Nt+j1enOM4kBmiEXnL2+BV8/6VZwn
+	Ii6YPZvpBS1ZzqSqUimwGhUmg4M9rNqVVZs0zgGX0Fd7v92aJIi7IbX/S4NhfDB2
+	rr+uysI8ngNiXM9fOjw2UQiaonzEht4kHSYcngE0oAEswp32ODspy3yP4k3v7KZn
+	fg==
+Received: (qmail 1412929 invoked from network); 27 Feb 2026 10:08:35 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 27 Feb 2026 10:08:35 +0100
+X-UD-Smtp-Session: l3s3148p1@JPv0lMpLHKAgAwDPXzF+ANZpdrMKUeLI
+Date: Fri, 27 Feb 2026 10:08:34 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Johan Hovold <johan@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Khalil Blaiech <kblaiech@nvidia.com>,
+	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-media@vger.kernel.org
+Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
+ printk helpers
+Message-ID: <aaFfEsfh0xTh0b1y@shikoro>
+References: <20260223-i2c-printk-helpers-v2-0-13b2a97762af@oss.qualcomm.com>
+ <aaFcs1miP88QWmtH@hovoldconsulting.com>
 MIME-Version: 1.0
-References: <20260225-pinctrl-mux-v2-0-1436a25fa454@nxp.com> <20260225-pinctrl-mux-v2-3-1436a25fa454@nxp.com>
-In-Reply-To: <20260225-pinctrl-mux-v2-3-1436a25fa454@nxp.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 27 Feb 2026 10:07:05 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkhH566rqkkQfWnOiAokxB8mLXw=eqrVN_pgs+dd8TkxQ@mail.gmail.com>
-X-Gm-Features: AaiRm53Lbwco9BrUIdxm4d59KoLZW9tFK5jbswawEBmolXkm0y6cwkUJ5XgitnE
-Message-ID: <CAD++jLkhH566rqkkQfWnOiAokxB8mLXw=eqrVN_pgs+dd8TkxQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/6] pinctrl: add optional .release_mux() callback
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aaFcs1miP88QWmtH@hovoldconsulting.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_010838_859216_24177A69 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +86,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 12:55=E2=80=AFAM Frank Li <Frank.Li@nxp.com> wrote:
+Johan,
 
-> Add an optional .release_mux() callback to the pinmux_ops.
->
-> Some devices require releasing resources that were previously acquired in
-> .set_mux(). Providing a dedicated .release_mux() callback allows drivers =
-to
-> properly clean up hardware state or associated resources when a mux
-> function is no longer active.
->
-> The callback is optional and does not affect existing drivers.
->
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Wolfram, I noticed you merged these last night. Please think again and
+> let's discuss the end result here. There's no question that there are
+> lifetime issues in i2c, but this is not the way to solve it.
 
-Can you explain why you need this custom code for this?
+I did think again and do not see a way how the life cycle problems can
+be solved while drivers happily access the device struct of the adapter.
+Whatever the solution to the core problem is (revocable, custom SRCU,
+something else), I still think this step is needed in any case. If I am
+wrong with this opinion, please enlighten me. Pointer to some existing
+thread is OK, too. I didn't have the bandwidth to read the revocable
+mail threads.
 
-Nominally pin control defines and puts the hardware into a
-number of states such as:
-"default"
-"idle"
-"sleep"
-"init"
+Happy hacking,
 
-Usually (at least for silicon) what .release_mux() would to
-is semantically equivalent to a transition into the "init" or
-"sleep" state. And if these are not descriptive enough you can
-even define a "released" state.
+   Wolfram
 
-Is it not possible to reach the set-up of the hardware that you
-are desiring by just defining such a relaxed state?
-
-Yours,
-Linus Walleij
 
