@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 511F5FEFB56
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00863FEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fEivCrRLEaWubps/mZfSJBqMglR1LXHtXAurk5Wm9Cc=; b=tu4lVAos1DtuyQjDJhwjShEOWO
-	2pwkmO1sUFgm9x+0GM+ggtWrh5NnkGG4BHgN5/AkNCbCN9nXatCRfUBJ35SlNhXonFB8X/E/hVy8J
-	ueqOvnTAWewpBb9A9QCy1WIJ0UQGF15nsmZ1fkMLIix1fQwCFbw/770K03RkyJAnMsY4V5VD/V62I
-	pcJc0ajX0eSTYv1vqtYWsFsUmrGCVgNRtzXQ8v0HkxVWoTktAg8qenapqJ2T3Ak8Dj26W/ZbFZ3X6
-	izpe1Dd07jV7vm4w6lXnNzmvLXf6dWWfg19yvio0uiYUx5QebOyCwTKPd3irlKAlKpT9cHF+KQ/0I
-	bNIjhkvg==;
+	bh=yCfQxddkyDwE/ZVIAKmmYVcFHnwdOp0PPR0xfQ+Nrn4=; b=gAPwJkt9eZWEDf15RjQIU2XU+5
+	3jZKaWAWUXp77bJX0w6Sl097c/1BJzIZSfvpmAohlZO0KWTpWIbDKg/Znf5nSCVuWuwQp1vviHdEk
+	rYP0DMsJ9iCu/7CgtPENVuKfjZ25NJ9Cc6pL3fATv0AQ/pe8UQP0ExYZPLSwJu1Iz5gT3jEmNa6DT
+	7LtrzhDHUgN0BAcnQjWewlRirepbl3GpY1qY0THjHE+vwugcW57MLqzd3dNZNdFnQxCnvTZkSmmwN
+	pDd+VojdjTOjZWfOZxwfgoz+aVpnh6SUYXWao3R2jF0mxHapgc66w+J0+EJ1Scsol5M0gJMZbRZSZ
+	TRee4Fwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzcS-00000008an1-1TrZ;
-	Fri, 27 Feb 2026 15:19:08 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1vvzcc-00000008aqi-2mKS;
+	Fri, 27 Feb 2026 15:19:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzcO-00000008ak3-2QyF
+	id 1vvzcc-00000008aq8-0IeS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 27 Feb 2026 15:19:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=yCfQxddkyDwE/ZVIAKmmYVcFHnwdOp0PPR0xfQ+Nrn4=; b=ZNtHa95LBgHzpB9G8ZAF0cah6u
+	UkReIgbeROYI7NCKuLN0Eco0MjEep9KFQCIf6wsQqq3t68G8nyE4Qj0h4LsxSDodQjSiu5bgfKZK8
+	N7MivoPX0p2FgrMZYxmijP35RHKAD+8PKHNmGTJI4W9t2fmLKkV81pJU82ypKT5aX+rlvK1yZopaC
+	74rTULkicz2R2SnKQbEEXjamqE9fL1/r2Gwi1TgGcZ9uN+B4LtaoG+UTHet9T4+//5bI/5/Rl3AFe
+	BFYc56wRXvHqU0wiIlynGfWdpXgqnTOrcD+Ae/hk0kVQCQ/lMUWtK6nkOtIcYSjVZe5zuQ038O8Ga
+	qpwXXGVQ==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvzcY-0000000DL60-3ZhD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 15:19:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=fEivCrRLEaWubps/mZfSJBqMglR1LXHtXAurk5Wm9Cc=;
-	b=fjZ2GVkVN90vPOj+6lHylLNlax6CPw93DXU+VKgMTKFI5RXke/RMWERoTb4b0u
-	VtvhAM4iPjcmS/xFZOg9Bqc6zJI9aB/LBKjZvnBGZM+5Fg/kwxSmUofoLdtbT/MT
-	bNOTmqyG/Y2PrOYx6WRiKvXDxrFGgkTZChoXgFwUB1L8g=
-Received: from [192.168.1.104] (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3H2C3taFpheHENA--.55136S2;
-	Fri, 27 Feb 2026 23:18:15 +0800 (CST)
-Message-ID: <0bc7875c-106c-48e1-8d40-72919ca227c4@163.com>
-Date: Fri, 27 Feb 2026 23:18:13 +0800
+	Fri, 27 Feb 2026 15:19:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=yCfQxddkyDwE/ZVIAKmmYVcFHnwdOp0PPR0xfQ+Nrn4=; b=WQCDPmEvC8TF/7AdOjv8/t2Nzf
+	CiIsqCkRC6N7ia/xF4vLs0eEKQGTZ1QUL9645Ec9A9uYj+isHuk+wGVbN9JqMgtOv/YDeAAHsEauc
+	dDtzzzZbOcDkOddAnnFSAutU3k5/EAAAAzg4bz+IJacG/1dvgbb21Wka3oo23yjOO047HuGZ5TbE5
+	FqULwabtYk1hyPAMKo+BFexIiaOr+LxA32MzaEToOfAnBZIjPmps0RYM6ds/VCGYt9Tftss6OzuKW
+	7CFp8o8Fbb0qmVNy4ubhgcEEjkv/lAzzw7dRovqoGK0oVFUjLv/2kp+O6LDubdyshnXtVdtT9FUCF
+	U5PUfkiA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:52946 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vvzcT-000000000xs-0X4G;
+	Fri, 27 Feb 2026 15:19:09 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vvzcS-0000000Awnu-1u0H;
+	Fri, 27 Feb 2026 15:19:08 +0000
+In-Reply-To: <aaG1wrNUaq_L0I5g@shell.armlinux.org.uk>
+References: <aaG1wrNUaq_L0I5g@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Clark Williams <clrkwllms@kernel.org>,
+	linux-rt-devel@lists.linux.dev,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: [PATCH 1/6] ARM: ensure interrupts are enabled in __do_user_fault()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] media: aspeed: Fix driver probe failure
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>, linux-aspeed@lists.ozlabs.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,
- Jammy Huang <jammy_huang@aspeedtech.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/ASPEED MACHINE SUPPORT"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>
-References: <20260227123837.70079-1-haiyuewa@163.com>
- <8060fe77-18ec-4aa0-90a1-50eee398a55b@kernel.org>
-From: Haiyue Wang <haiyuewa@163.com>
-In-Reply-To: <8060fe77-18ec-4aa0-90a1-50eee398a55b@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wD3H2C3taFpheHENA--.55136S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7KFW8Ww47Cw4xuFWDGF1UGFg_yoW8CFyfpa
-	y8ua1DKrZ3KF1YkayxJa4xtFyUZws0yFs8trW5J347X3s8Xw1FqrWSyrWv9rWDJrs5u347
-	tFW8K34vgr4YqaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U59N3UUUUU=
-X-Originating-IP: [101.228.113.192]
-X-CM-SenderInfo: 5kdl53xhzdqiywtou0bp/xtbC7xheyWmhtbi8bgAA33
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vvzcS-0000000Awnu-1u0H@rmk-PC.armlinux.org.uk>
+Date: Fri, 27 Feb 2026 15:19:08 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_071905_070151_4B1E2D76 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20260227_151915_099973_D0EC187C 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,48 +96,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+__do_user_fault() may be called from fault handling paths where the
+interrupts are enabled or disabled. E.g. do_page_fault() calls this
+with interrupts enabled, whereas do_sect_fault()->do_bad_area()
+will call this with interrupts disabled. Since this is a userspace
+fault, we know that interrupts were enabled in the parent context,
+so call local_irq_enable() here to give a consistent interrupt state.
 
+This is necessary for force_sig_info() when PREEMPT_RT is enabled.
 
-On 2/27/2026 8:59 PM, Krzysztof Kozlowski wrote:
-> On 27/02/2026 13:38, Haiyue Wang wrote:
->> The aspeed video (be compatible for ast2400, ast2500, ast2600) now needs
->> the reset DTS handle specified, otherwise it will fail to load:
->>
->> [    0.000000] OF: reserved mem: initialized node video, compatible id shared-dma-pool
->> [    0.000000] OF: reserved mem: 0xbb000000..0xbeffffff (65536 KiB) map reusable video
->> [    0.377039] videodev: Linux video capture interface: v2.00
->> [    4.809494] aspeed-video 1e700000.video: irq 57
->> [    4.809977] aspeed-video 1e700000.video: Unable to get reset
->> [    4.810341] aspeed-video 1e700000.video: probe with driver aspeed-video failed with error -2
->>
->> Fixes: e83f8dd668ea ("media: aspeed: Fix dram hang at res-change")
->> Signed-off-by: Haiyue Wang <haiyuewa@163.com>
->> ---
->>   arch/arm/boot/dts/aspeed/aspeed-g4.dtsi   | 1 +
->>   arch/arm/boot/dts/aspeed/aspeed-g5.dtsi   | 1 +
->>   arch/arm/boot/dts/aspeed/aspeed-g6.dtsi   | 1 +
->>   include/dt-bindings/clock/ast2600-clock.h | 1 +
-> 
-> Please run scripts/checkpatch.pl on the patches and fix reported
-> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-> patches and (probably) fix more warnings. Some warnings can be ignored,
-> especially from --strict run, but the code here looks like it needs a
-> fix. Feel free to get in touch if the warning is not clear.
-> 
-> 
-> Please use subject prefixes matching the subsystem. You can get them for
-> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-> your patch is touching. For bindings, the preferred subjects are
-> explained here:
-> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-> 
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ arch/arm/mm/fault.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-Seperated into two patches in v2, please help to review.
-
->>   4 files changed, 4 insertions(+)
-> 
-> 
-> Best regards,
-> Krzysztof
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index ed4330cc3f4e..6c27ebd49093 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -190,7 +190,8 @@ __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
+ 
+ /*
+  * Something tried to access memory that isn't in our memory map..
+- * User mode accesses just cause a SIGSEGV
++ * User mode accesses just cause a SIGSEGV. Ensure interrupts are enabled
++ * for preempt RT.
+  */
+ static void
+ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+@@ -198,6 +199,8 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+ {
+ 	struct task_struct *tsk = current;
+ 
++	local_irq_enable();
++
+ #ifdef CONFIG_DEBUG_USER
+ 	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
+ 	    ((user_debug & UDBG_BUS)  && (sig == SIGBUS))) {
+@@ -268,6 +271,7 @@ do_kernel_address_page_fault(struct mm_struct *mm, unsigned long addr,
+ 		 * should not be faulting in kernel space, which includes the
+ 		 * vector/khelper page. Handle the branch predictor hardening
+ 		 * while interrupts are still disabled, then send a SIGSEGV.
++		 * Note that __do_user_fault() will enable interrupts.
+ 		 */
+ 		harden_branch_predictor();
+ 		__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
+-- 
+2.47.3
 
 
