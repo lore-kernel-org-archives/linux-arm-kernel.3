@@ -4,89 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1BBDFEFB5E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0AEFFEFB5E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W3zF+qQONPOQKUi1XnVsQnrCFcFTywFDxoHqVbunmq0=; b=GNeQYfrfYYf91pm8kp1wrSn0IY
-	NlKdFRCzrgxiINlW9hXcbzP0lUf89qOMLdKFgdMbiQRUneJdo/m/s0cGL/nolIu32HJ4VzwgkfKVr
-	nGdZWYmxy61hGCYiJ+s1mM3EOQdM/n1CsgS3FH+eXvgKMCW2BBXO4NwCyC8Z0gjOrB42N650FOsa4
-	yCI0UM9PWw3OIaTHfbrOKPucKGPdEoHtrg9S3l5tY2G29xadta16Yme/WWDE7lpDXJG1ZemTVUJa8
-	JTOYqZjyTGsLkZRA3YGoS5qrfqpPfK97Cr60hTqEWkmfNDsoqOUXU+DGMKNwEgzi2AeuVrkxpj96w
-	0ss3GsAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=466ZNlGBRiWCngVU9gts5XHrclzbPJSe7d3Wzr8dFzU=; b=cTuJ9Xlhy7jNjk
+	PX7ga3EPwPTbCRdjRphM1RWooCHDs/YyHviNXWcVDVT8uQUe462jayAACWkmke6zNLcFhUIysJ4G4
+	ar7U7t2Nx2OJ+2Z1g7acKJv1nPNmzLYKOiiRHKD/WQou0eAnuIwklk6cPIpXz/533mifpg9Ru+24Z
+	r4kRoETYcALh16IYXtOPxJIkiyTGGtJ5CacU+Dd8XYnKsV/WhPdPjByLutm0G4P+aFMTDrne+v9es
+	cqqCv+SkY9KiMzyACRGav7n0SiOi8blxL2spPdXOAjAtl3FUiwuZmAowi5obyaTjvEkkNzJEim4Ea
+	DciMenvd0hvo/eASWK1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzVI-00000008Yef-3Pj0;
-	Fri, 27 Feb 2026 15:11:44 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vvzYD-00000008YyF-0iU1;
+	Fri, 27 Feb 2026 15:14:45 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzVG-00000008Ydy-0RlB
+	id 1vvzYA-00000008Yxp-2xCg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 15:11:43 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vvzUN-0006Py-1Q; Fri, 27 Feb 2026 16:10:47 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vvzUE-002ujh-08;
-	Fri, 27 Feb 2026 16:10:39 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vvzUF-00000000Fpg-136n;
-	Fri, 27 Feb 2026 16:10:39 +0100
-Message-ID: <28096f2a0ff3fb3163dd19f2ff483f3f2415180f.camel@pengutronix.de>
-Subject: Re: [PATCH 01/14] drm/connector: Introduce drm_output_color_format
- enum
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Jani Nikula	
- <jani.nikula@linux.intel.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Harry Wentland <harry.wentland@amd.com>,  Leo Li
- <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher	
- <alexander.deucher@amd.com>, Christian =?ISO-8859-1?Q?K=F6nig?=	
- <christian.koenig@amd.com>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil
- Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart	 <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Andy Yan
- <andy.yan@rock-chips.com>, Liviu Dudau	 <liviu.dudau@arm.com>, Chun-Kuang
- Hu <chunkuang.hu@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>,
- Sandy Huang <hjc@rock-chips.com>,  Heiko =?ISO-8859-1?Q?St=FCbner?=	
- <heiko@sntech.de>, Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai
- <wens@kernel.org>,  Samuel Holland <samuel@sholland.org>, Dave Stevenson
- <dave.stevenson@raspberrypi.com>,  =?ISO-8859-1?Q?Ma=EDra?= Canal	
- <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance	
- <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev
-Date: Fri, 27 Feb 2026 16:10:39 +0100
-In-Reply-To: <20260227-overjoyed-glaring-dogfish-89effa@houat>
-References: <20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org>
-	 <20260224-drm-rework-color-formats-v1-1-bebc76604ada@kernel.org>
-	 <4ea869750681f5eee3bbb2978f4ff0ace70310a9.camel@pengutronix.de>
-	 <20260227-overjoyed-glaring-dogfish-89effa@houat>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Fri, 27 Feb 2026 15:14:44 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3591cc98871so930773a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 07:14:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772205282; x=1772810082; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=466ZNlGBRiWCngVU9gts5XHrclzbPJSe7d3Wzr8dFzU=;
+        b=XaSi2GTjWK76v6wv3joIeuHUBgKyU+FA1egGrVcV5BAt6soL/kUfNd1vZHXwBY/3eA
+         NBU2daBFYlvuwsVhMksj9SmJlGT3pRBcHdT+I+zUPRZWRmX7T6ChnBPOY4VhI5FqHUG7
+         gLNJkln4jvTPt3r6lTHQlRMHUM0mwwteqG2h0Hlvxt1qODryaAmiNDIbyYTmVVTgqNlx
+         yvtX3iAJmZVXetARe+MYI2Nx3ITLDJHJ/VkA5qESBXfpn7pLeV3PCIYKJwOQ7gh4ouk9
+         O3rmAkvFizANE3MLdjnDwp3iGOz6FPJouNhcqhhFWsK+FA0osrJNM1xBp7GteNi1TVCu
+         KZ3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772205282; x=1772810082;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=466ZNlGBRiWCngVU9gts5XHrclzbPJSe7d3Wzr8dFzU=;
+        b=Z/dL/OqaR0dlVOiLkqS1P71PW2sIeOL2XSuKambLwCqun7Kce4pQ5jJkrDqLJTsCm3
+         hrvK6RdaKnLbYsaZZ09Gqp3VBaMTjEah4oBYQa20x/ejj40XsqMtfPqeRSGbtrq77PKp
+         /7ggsVRnA+k2nDcU4rVufKvbxQYG4ycwlcmstlis3eVzwTEFAFwR6oQdiYdyFxVu9/kg
+         dcNafdAPyuxcrYhmDoxjS2DbY7U4SKYz6kPtZ2QAmNUQo5qnXwXXutv5oc7Hy6qBBQvG
+         F0wghDp9RBrluVLEzmZI0mIyoRFKEx9RKhps6CID6D6eFZHzNr5baYjfyV8zThDIKruO
+         lsTg==
+X-Forwarded-Encrypted: i=1; AJvYcCXQADIMmAgiyySGbCEe5cjLgZukkYGxmkq3vrLP6tPRJpXKK42hbR+CUH6DIHV27lKIdHeXwOYYoGP7nEmjhxt1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRmOFyj6Qb3EVQw7ZD7hqyxokt6nbdZpOMMpSkQX1iVy2Mh6O7
+	nDD8TEdQVRm5HOnLwRGRivDoMpailxxmFVs4OsxipGc1MO+hy/uLYgAa
+X-Gm-Gg: ATEYQzz2JnpoOCecTNHZ1YGTMuMu4VarAA8wRhSERRb1DHc5SXTTeNSLApux60UNn5o
+	ub5irEqRMTaH9Qn2vmb0nuih1V7LqJKzNhANfNBv7Da4+377iZOjzjysnrnaWYggil5zCYkwIk7
+	0cQEPWkoMc73N9yV7CUs5PiQXVmkv8gjtfTSPmbE4B2z88eIwrOhqwYiMcquwhkGIgYQK0EETgp
+	xJk7T9gjJjCEnF7OQp2idQy0KIfi5OOLhP7RpfFSU1jRRAgCg7qkBnyhTM3IN30cg4apgtB9i+H
+	HPhNp6JM9YSQUpiGKxDDrdngwjT/wecfjPzVd+8x/kIgTOot5riHbSM/I5YNMrAlC7/lAuhqFr+
+	ga1IhqiSxfp4ijTjj/j4VndtFQZ4B38a9PmDc0MghyFbuNnqZNttrfkY94D+xru9s+rrL6/sLDV
+	eErdgqNCJdu94GRJxHmlIXScE9HItqEHgxPK6dXGiV2ZSfJiOu
+X-Received: by 2002:a17:90b:4e8d:b0:359:1063:6af2 with SMTP id 98e67ed59e1d1-35965cad8c3mr2626322a91.20.1772205281414;
+        Fri, 27 Feb 2026 07:14:41 -0800 (PST)
+Received: from LAPTOP-872M7T80.localdomain ([122.168.69.160])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3593dcc9c37sm5485848a91.8.2026.02.27.07.14.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Feb 2026 07:14:40 -0800 (PST)
+From: Akhila YS <akhilayalmati@gmail.com>
+Subject: [PATCH v4 0/5] dt-bindings: Microchip/Atmel AT91/SAMA system
+ peripherals: convert to YAML
+Date: Fri, 27 Feb 2026 15:14:30 +0000
+Message-Id: <20260227-arm-microchip-v4-0-7e2ae1c5b5d6@gmail.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANa0oWkC/13Myw6CMBCF4VcxXVszHe6ufA/jokxHmEQoKYZoC
+ O9uwQ1heU7y/bMaOQiP6nqaVeBJRvF9HOn5pKi1fcNaXNwKAXMwWGobOt0JBU+tDJqAIDMZYMq
+ 5imYI/JTP1rs/4m5lfPvw3fKTWd9/CU1xKE1Gg7acuQoKNsDJremsvC7kO7WWJtxpTI8aoy5rd
+ pYckqP6qJO9zo86iRpqZ01ma1ch7vWyLD8ZoIJcJgEAAA==
+X-Change-ID: 20260128-arm-microchip-c0c0515024e6
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Akhila YS <akhilayalmati@gmail.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_071142_135740_6B55376E 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20260227_071442_764128_BCB88CDE 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,18 +108,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+Convert various legacy .txt bindings for Microchip (formerly Atmel) AT91/SAMA
+family system peripherals to proper YAML schemas. This includes:
 
-On Fr, 2026-02-27 at 09:38 +0100, Maxime Ripard wrote:
-[...]
-> > Can we move this?
-[...]
->=20
-> I'm not sure it's worth it, the last patch in this series will remove
-> these so it's not going to stick around either.
+- CHIPID (SoC ID register block)
+- PIT (Period Interval Timer, old style)
+- PIT64B (64-bit Period Interval Timer, newer parts)
+- ST (System Timer, including watchdog subnode)
+- RAMC/SDRAMC/DDRAMC/UDDRC (SDRAM/DDR memory controller
 
-I agree it's not, I just didn't look as far as patch 13.
+Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
+---
+Changes in v4:
+- atmel,at91rm9200-sdramc: remove "- items enum:" and replace it with "- enum:" for compatible property.
+- Link to v3: https://lore.kernel.org/r/20260226-arm-microchip-v3-0-0bda15abd922@gmail.com
 
-regards
-Philipp
+Changes in v3:
+- Change email for maintainers.
+- atmel,at91rm9200-st: redefine watchdog node as a pattern property.
+- Remove corresponding binding node from txt document for every yaml patch. 
+- Link to v2: https://lore.kernel.org/r/20260224-arm-microchip-v2-0-8bedacd2cdcb@gmail.com
+
+Changes in v2:
+- Change email for maintainers.
+- microchip,sam9x60-pit64b: modify compatible and clock-names in properties.  
+- Link to v1: https://lore.kernel.org/r/20260217-arm-microchip-v1-0-ae5d907e10e3@gmail.com
+
+---
+Akhila YS (5):
+      dt-bindings: arm: microchip,sama7g5-chipid : convert to DT schema
+      dt-bindings: arm: atmel,at91sam9260-pit: convert to DT schema
+      dt-bindings: arm: microchip,sam9x60-pit64b : convert to DT schema
+      dt-bindings: arm: atmel,at91rm9200-st: convert to DT schema
+      dt-bindings: arm: atmel,at91rm9200-sdramc: convert to DT schema
+
+ .../bindings/arm/atmel,at91rm9200-sdramc.yaml      | 66 +++++++++++++++++++++
+ .../bindings/arm/atmel,at91rm9200-st.yaml          | 69 ++++++++++++++++++++++
+ .../bindings/arm/atmel,at91sam9260-pit.yaml        | 49 +++++++++++++++
+ .../devicetree/bindings/arm/atmel-sysregs.txt      | 48 ---------------
+ .../bindings/arm/microchip,sam9x60-pit64b.yaml     | 68 +++++++++++++++++++++
+ .../bindings/arm/microchip,sama7g5-chipid.yaml     | 41 +++++++++++++
+ 6 files changed, 293 insertions(+), 48 deletions(-)
+---
+base-commit: ca3a02fda4da8e2c1cb6baee5d72352e9e2cfaea
+change-id: 20260128-arm-microchip-c0c0515024e6
+
+Best regards,
+-- 
+Akhila YS <akhilayalmati@gmail.com>
+
 
