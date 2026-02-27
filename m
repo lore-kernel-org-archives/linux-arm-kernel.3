@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EEDFEFB6E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35868FEFB6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dYNJlbGwE4Wr13FZSkk2z/ucESOXdlXZCqV8vtx8oiA=; b=E1iebIvpOKLJ+5ZaADHroPmmqG
-	eVbcFnWRCf5h9mpZyKGXySSVbEPfHO5fIu4Y4sTwGJHrscH/Ydmla5gArIuIDt82epibezk/0T382
-	DcTqAgPko122zXQitE22EzAgPfNkHN5/YHIj08sCxzee0RjjNWAfyvkf1jkKbRoKYQwwMH4zAcWDy
-	OPJHqP4V/Yi+ER2fseebh7YwWVlz/BoMKNxhUN2K80msFygq2pT467a6AEge8YbHvvngh0jeDFlwP
-	wDC+FqVmINx3Y9/BK4DAG+It9o5/ZUr0CqZmG1zLM6Sh4IKTeCSYOdfCWr3Jb01T9eKV97ydjOxhs
-	i4BKadtQ==;
+	bh=xZk4uFbR1NTKSt90CcjBXyNBU2NiCZmzMIIkXYZlYNg=; b=dmEmVu+n5CgbzQ4oriQEvV7bFc
+	DtkcfvG2jLgSuTej8D7+oUPyxOyftkNptjgYnbmYWlvqE5GK8Ms6lqQ7EXKXNiTrW7bWGl5hZShUS
+	hgNrIlEvI3jQ70et+t/0W9gWhrU3Z/HtuRPirO336RJhj4v8lpsnQwm3pdKNvmZTIt5fUA6cFRSFJ
+	WOpQ2Ly8iMJtlZp7RV3OyOB07s+Xv0QzrvOUsvp0M6J5Ymlzh+xCmbwn3ZKBx5W30dQYlO8W3B5ec
+	/KhZ0iiZi8ydS4xhrxQl++H+yFEvqvVdFn87KMFHhzX/DZfwqrM75YAPAKFPcdXJ3xfvA9KlviJf/
+	BPSyq3Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw24g-00000008qcI-19E8;
-	Fri, 27 Feb 2026 17:56:26 +0000
+	id 1vw24m-00000008qi9-0Oz0;
+	Fri, 27 Feb 2026 17:56:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw24c-00000008qYo-07mg
+	id 1vw24g-00000008qcq-3UB5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 17:56:23 +0000
+	Fri, 27 Feb 2026 17:56:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE29819F0;
-	Fri, 27 Feb 2026 09:56:14 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 783D814BF;
+	Fri, 27 Feb 2026 09:56:19 -0800 (PST)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA6363F73B;
-	Fri, 27 Feb 2026 09:56:16 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F0893F73B;
+	Fri, 27 Feb 2026 09:56:21 -0800 (PST)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -67,17 +67,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [PATCH v6 08/30] arm64: Context-switch POR_EL1
-Date: Fri, 27 Feb 2026 17:54:56 +0000
-Message-ID: <20260227175518.3728055-9-kevin.brodsky@arm.com>
+Subject: [PATCH v6 09/30] arm64: Initialize POR_EL1 register on cpu_resume()
+Date: Fri, 27 Feb 2026 17:54:57 +0000
+Message-ID: <20260227175518.3728055-10-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260227175518.3728055-1-kevin.brodsky@arm.com>
 References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_095622_111568_DDA0C6CC 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20260227_095626_926112_F9C152E2 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,59 +92,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-POR_EL1 is about to be used by the kpkeys framework, modifying it
-for (typically small) sections of code. If an exception occurs
-during that window and scheduling occurs, we must ensure that
-POR_EL1 is context-switched as needed (saving the old value and
-restoring the new one). An ISB is needed to ensure the write takes
-effect, so we skip it if the new value is the same as the old, like
-for POR_EL0.
+From: Yeoreum Yun <yeoreum.yun@arm.com>
 
+The POR_EL1 register is reset to an unknown value after cpu_suspend().
+Since POR_EL1 always holds POR_EL1_INIT when entering cpu_suspend(),
+initialize POR_EL1 with POR_EL1_INIT before cpu_do_resume().
+
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/include/asm/processor.h | 1 +
- arch/arm64/kernel/process.c        | 9 +++++++++
- 2 files changed, 10 insertions(+)
+ arch/arm64/kernel/sleep.S | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index e30c4c8e3a7a..6095322343fc 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -192,6 +192,7 @@ struct thread_struct {
- 	u64			svcr;
- 	u64			tpidr2_el0;
- 	u64			por_el0;
-+	u64			por_el1;
- #ifdef CONFIG_ARM64_GCS
- 	unsigned int		gcs_el0_mode;
- 	unsigned int		gcs_el0_locked;
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 489554931231..618fb5ce1c1d 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -429,6 +429,9 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
+index f093cdf71be1..e0a6ad85cd24 100644
+--- a/arch/arm64/kernel/sleep.S
++++ b/arch/arm64/kernel/sleep.S
+@@ -3,6 +3,7 @@
+ #include <linux/linkage.h>
+ #include <asm/asm-offsets.h>
+ #include <asm/assembler.h>
++#include <asm/kpkeys.h>
+ #include <asm/smp.h>
  
- 	ptrauth_thread_init_kernel(p);
- 
-+	if (system_supports_poe())
-+		p->thread.por_el1 = read_sysreg_s(SYS_POR_EL1);
+ 	.text
+@@ -134,6 +135,17 @@ SYM_FUNC_START(_cpu_resume)
+ 	/* load sp from context */
+ 	ldr	x2, [x0, #CPU_CTX_SP]
+ 	mov	sp, x2
 +
- 	if (likely(!args->fn)) {
- 		*childregs = *current_pt_regs();
- 		childregs->regs[0] = 0;
-@@ -679,6 +682,12 @@ static void permission_overlay_switch(struct task_struct *next)
- 		 * of POR_EL0.
- 		 */
- 	}
++#ifdef CONFIG_ARM64_POE
++alternative_if_not ARM64_HAS_S1POE
++	b	.Lskip_por_set
++alternative_else_nop_endif
++	mov_q	x2, POR_EL1_INIT
++	msr_s	SYS_POR_EL1, x2
++	/* isb can be skipped since cpu_do_resume() will do it. */
++.Lskip_por_set:
++#endif /* CONFIG_ARM64_POE */
 +
-+	current->thread.por_el1 = read_sysreg_s(SYS_POR_EL1);
-+	if (current->thread.por_el1 != next->thread.por_el1) {
-+		write_sysreg_s(next->thread.por_el1, SYS_POR_EL1);
-+		isb();
-+	}
- }
- 
- /*
+ 	/*
+ 	 * cpu_do_resume expects x0 to contain context address pointer
+ 	 */
 -- 
 2.51.2
 
