@@ -4,109 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B681AFD531A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AD0AFD531E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s+hHHLuR9G8XG6+Pzy+l1N+kRIMMh7egegF3MfFomSw=; b=Kpk0jh4w0UH1gnzI+i677MMw6N
-	gQyTvHvAujHubRo663SYZ0BJ2H8Ikj75IHryzQ7HV2Nw7vQXzM/sKyJ2EKqLQacJ/U7/yYZ6wgV8o
-	5YNsfs00ICCSEAXedzl21z+eR2p/IAE18lAXUt+kAhi8NFxNfoGdOwinXQX0CX6FH9ns38hrowdL0
-	0frUamtPIXX6rK8b+MPbaDV1pSsxvxLcIrexCAZfaIIGyhJ58p7PA8Bvh+pi/XjkD0OwkJ8g88Uhe
-	HbOk7xePtzFkzefq1v8UwEt6JNNlUSx487zpm4Z7k9qSpO3IetR7L2dQg4d9bCMakERBHdkrDsHMN
-	Mbp97+CQ==;
+	bh=QJcN9mJUhTg9JnRFFAenfSiTLRwJZ36vwMgQ8p3zjEg=; b=3QO9V+ey6gZaW/vO7C+tXwPpqK
+	48P1KOJGPRINEZ50b23sRACWr1QIymKif+0lffArw6PjkMreNJEZJYn0XRim8BJgclcuFmOHGTP+J
+	8HpsdUvKuQiPRs2eo7WOIkD7dSqljrmXqhCWOHPZYJH21K9tsNk6rOg4vFaRv79bC/tzlXdu3LekS
+	bD/F5JzJpF7dPbzF0F5uxZ/Kn4/9fe8QJf8qUyBFfPmuG687yaCvNNX37M8wWhbspSlvQ1VnuyK9Z
+	iq5b1rZlXR9sz0SKDfCf6+UvolJ9rAvriwHsmBeZSP7k2g8jTAMXC+bMv9HUMracHCKsLnmsXLkrW
+	CwGHSS7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvu2O-0000000851b-1jzC;
-	Fri, 27 Feb 2026 09:21:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvu9u-0000000879h-32uo;
+	Fri, 27 Feb 2026 09:29:18 +0000
+Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvu2M-0000000850b-2A4E
+	id 1vvu9s-0000000876m-18Q4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 09:21:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED35061335;
-	Fri, 27 Feb 2026 09:21:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DBFFC116C6;
-	Fri, 27 Feb 2026 09:21:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772184089;
-	bh=o75QSUd+etULqHPOOf7f1ormpV5SoJZ651ZVhGA5VQI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mhrpXJhEA1bbmr4Fiaik204uGa86banO/TyUuPmSZSb32D5QzGyDfIguGbrCX/hGh
-	 ip6JlEn/LWzH9Pv75MwcpJ8wfAjW2+fmIS0VJPWmUjN8mj1hHwczXVCjFDEbEs6+hj
-	 293q8k2CdtAcW06oLSx8HVLo65N8UTvRoA/5/8pKo1n3sPR0HlKWDrBAFj4fBZ5/bT
-	 pRO4VZlZ+vyVI+qHI+9tiGmA2KolyspBXarHRVLTL5RIeGB0LGsaJZfhqSoBk3mJLf
-	 w2DFDINiaV6R+7uRAEVCp98FbMTx6oz8DZ7rkg3us4fIXu2cWb/IOB7UNJjd0UJQm3
-	 4dpMLF7oKKgBw==
-Message-ID: <9132501f-76e9-46c0-839d-bde7246c3883@kernel.org>
-Date: Fri, 27 Feb 2026 10:21:25 +0100
+	Fri, 27 Feb 2026 09:29:17 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 268E01D00119;
+	Fri, 27 Feb 2026 04:29:15 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Fri, 27 Feb 2026 04:29:15 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1772184554;
+	 x=1772270954; bh=QJcN9mJUhTg9JnRFFAenfSiTLRwJZ36vwMgQ8p3zjEg=; b=
+	Xy65DSxhpWzoXXJtzZvlJJ7mhXP63MX79epS2V4TyIDvma0lGCQ3h+Xl1mivCJ4h
+	5CTJSDjKRCbImz8xyywpnXdhujbw6UdxJ0ScHasBzW3fsf9jzdjezlYxzGuANVDh
+	BAU3BmqGYGhtZrvBXtmLVcrFFQsEHe87SFBCXYLMmH08L8RySf3QZNLP+8MREWZF
+	66uffsx3jKrQATd4F8EjhuwyqywTq28KdJJ3y9Ze3IQOxZR7BdbP3UsMBEvJVPkU
+	U+YliFN8UpqdW4K9tBf0/kVzGiG2xq7jDddBg00m3WME0/ATxPm/6QLH8DRXY+Q6
+	L2XMtu/clApJecu/1czuhQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1772184554; x=
+	1772270954; bh=QJcN9mJUhTg9JnRFFAenfSiTLRwJZ36vwMgQ8p3zjEg=; b=E
+	lN+KAHDdHRCUgnyyvJCduTzwqUaNB5rVU3x+KLIpm+kSyr3FjyMFc+UcmKx2exjx
+	hN7hqyYuHv/FnOyX7EcPSbG0pKSDEVlA5dLMWCAwAxDgAL2CTZQgUSMTIuFdjO2Z
+	64JHSPDHvODsLv2kS/Fbu6iq59WXnc9tzYVped7v3sqkRr1TlyUcxch8jEJQxS5O
+	YnDpY2daEs9bXYJZc9++vy5ZbSqNM5JDPr6euOOTjcJaRDY4zsbWRM+Kvq1doXFl
+	FIVG0xWCEteJxUjczEVkayHyTJppKSpLbC6bWFtql5X1ZQONs0DFfrvgSkBhpg4A
+	ca8p/atgdlaIUSFRXi+Sg==
+X-ME-Sender: <xms:6mOhaa9OOEiu5LOf9WuvuD39Zej-Ueq33IILkTDrCuHisXffly2BmA>
+    <xme:6mOhaViOjX088T7tZgHEpyXRdLPnbf50uu36P3FXglmovafhbSQfi4hT_VTB1Z49W
+    aQriWUa6PRhSG4p6a7mwytGo9lQwZsMO3MdFbuIU-RSdvn98GI_MXJc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeekieegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtg
+    hpthhtohepsghrghhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrsehk
+    vghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgr
+    rhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtth
+    hopehnihgtohhlrghsrdhfvghrrhgvsehmihgtrhhotghhihhprdgtohhmpdhrtghpthht
+    ohepsggrrhhtohhsiidrghholhgrshiivgifshhkihesohhsshdrqhhurghltghomhhmrd
+    gtohhmpdhrtghpthhtoheptghlrghuughiuhdrsggviihnvggrsehtuhigohhnrdguvghv
+X-ME-Proxy: <xmx:6mOhadghJrlmO67itgkGSu6_JrgV4elcTKICv1okbYQBkMEWDYzZxg>
+    <xmx:6mOhaaOJNl3dUnHyIw3skW2B4XTKXI5Cf-XILVnhuN8fHhn7K6KIdA>
+    <xmx:6mOhaYrOn3WgOYoY2KxgDxqIZZqf0RtomuZunliKSqKsH0-_TXukuQ>
+    <xmx:6mOhac5ySx67WsSlXtcB6lV0nD9Bc6D4axpsvLGFgeHcEtpdEOPYnw>
+    <xmx:6mOhacW7zicIDR-6QLOrJk_ZcCMuOjHsGSsO9d7F2_Rot_VDJBEuq3kq>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 63F17700065; Fri, 27 Feb 2026 04:29:14 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Kconfig: provide a top-level switch for Microchip
- platforms
-To: Bartosz Golaszewski <brgl@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Conor Dooley <conor@kernel.org>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+X-ThreadId: AS5Jn35VdNwF
+Date: Fri, 27 Feb 2026 10:28:53 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Bartosz Golaszewski" <brgl@kernel.org>
+Cc: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Conor Dooley" <conor@kernel.org>,
+ "Nicolas Ferre" <nicolas.ferre@microchip.com>,
+ "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <244fdbad-0d9f-42bc-a005-5f5ef34d067d@app.fastmail.com>
+In-Reply-To: <9132501f-76e9-46c0-839d-bde7246c3883@kernel.org>
 References: <20260226143615.65788-1-bartosz.golaszewski@oss.qualcomm.com>
  <84da053d-97d5-4d07-8e76-b162a5b23d2a@kernel.org>
  <CAMRc=MehMLoBL573cWjQNN2eCiTCyqCv1xwVKqfkZ5isBhBUaA@mail.gmail.com>
  <10bb25d3-2f46-4b62-affb-31257d51e24f@app.fastmail.com>
  <CAMRc=MfupCCr8J+qnJACVeri4nZZCnULWaRgSvi4LWs4J3-5vw@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAMRc=MfupCCr8J+qnJACVeri4nZZCnULWaRgSvi4LWs4J3-5vw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+ <9132501f-76e9-46c0-839d-bde7246c3883@kernel.org>
+Subject: Re: [PATCH] arm64: Kconfig: provide a top-level switch for Microchip platforms
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_012916_352662_83AAC70B 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,45 +124,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/02/2026 09:51, Bartosz Golaszewski wrote:
-> On Fri, Feb 27, 2026 at 9:49 AM Arnd Bergmann <arnd@arndb.de> wrote:
->>
->> On Fri, Feb 27, 2026, at 09:42, Bartosz Golaszewski wrote:
->>> On Thu, Feb 26, 2026 at 3:49 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>
->>>> This will surprise all out-of-tree non-defconfig users, because their
->>>> boards will stop working (drivers depend on ARCH_LAN969X|ARCH_SPARX5
->>>> which will be now disabled), but I like the consistency.
->>>>
->>>
->>> I'm not following, ARCH_SPARX5 remains enabled in defconfig and
->>> ARCH_LAN969X was already disabled by default.
->>
->> Your patch to the in-kernel defconfig is fine, but most users don't
->> use that but instead have their own defconfig files which they now
->> need to update.
->>
-> 
-> Ah ok, I see. Do you want me to do:
-> 
-> config ARCH_SPARX5
->     def_bool y if ARCH_MICROCHIP
-> 
-> ?
-> 
-> That should fix it, right?
+On Fri, Feb 27, 2026, at 10:21, Krzysztof Kozlowski wrote:
+> On 27/02/2026 09:51, Bartosz Golaszewski wrote:
+>> On Fri, Feb 27, 2026 at 9:49=E2=80=AFAM Arnd Bergmann <arnd@arndb.de>=
+ wrote:
 
-No, because they still won't have ARCH_MICROCHIP. The out-of-tree
-person's config is for example only:
+> I don't think this is fixable, that's why I wrote that I accept the
+> negative impact because I like the cleanup more.
 
-CONFIG_ARCH_SPARX5=y
+Agreed. I remember when we split up the ethernet drivers into per-vendor
+subdirectories and had to add 'default y' to each one in 88f07484ccdf
+("drivers/net/ethernet/*: Enabled vendor Kconfig options"). Changing the
+default to 'n' would be a regression now as much as it was then, so it's
+not something we can expect to do more easily in the future.
 
-now, this will be silently discarded with all the drivers depending on
-it, because the ARCH_MICROCHIP is missing.
+If the Microchip maintainers think the change will cause too much
+extra work, we can leave the current version forever, otherwise lets
+apply it for 7.1.
 
-I don't think this is fixable, that's why I wrote that I accept the
-negative impact because I like the cleanup more.
-
-Best regards,
-Krzysztof
+   Arnd
 
