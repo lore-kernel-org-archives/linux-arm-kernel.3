@@ -4,47 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2B2FEFB7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 18:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E93FD7F9C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 19:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n6rlrry81JIlRz/zw2nqighk428jPz/tiLfdCGbIMwE=; b=O4XdD6WoXVcXpI950UgjrzJXzd
-	NcG8Qyi7Rp5xCsjfHuhgDj7gazynCsNxpDi1Bd3QWUPuOK8kOxK8/38hmmQDRkAt3jYB2Iad0suFW
-	nzjj92ucLw8eFjVrlGV63CaXX7E5kDpoOxXBQGX3ul5yEmdiN0eyfLetxfivrB+mb3LGZeUyxb+qH
-	jGkzHtkjtC1NnOL774LHEhVlaVlH8GQ74Jc3oQmIiWHZMn5ey2Nbw2mIBZCaUcYmI+rIZFo7oaT/v
-	C+sNTGe1uKUmYwOqzwC6jBKaaAIv8ad71KgFjbgnkM+HyOpuzMTwLeLQ0TlCL0ccqmjJp/trV55Pp
-	rOIRF98w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JGfV0R4Z96tYL3Bf2XqpwWlEz7+KZEZ8gusjeuqSK2Q=; b=36cODQf7CYDjDFv7NezE+HzTxs
+	zoWM9/fA+TjgLLuP7BEcaLXiztbKh0qHxmtw85CkLNxlSWK5j0DTMnf86RSkD5YCvDyBOcoQqm7KV
+	oQ5D46C4Ugbpng8N3V8VSxGnXl+RQgoav8jab+aro7HpkmU3FV8l6b2y8SPCR6ajuQFje4CL8Qc5M
+	81jlj+XBRMBK3z4wZyWOX2TtWkEG1/j/EKyFI4WzVynO85u8vWV/iJgFtw6yRPhmjPNNgsHctfJyu
+	GmKJ135zvc26qsJtZvqEzBQ5FYahDKCuikpPlLi6APhYoUReuEdzhC+fcAV79KhboCosbJmOR9y3i
+	Yl3/zZRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw30D-00000008vnW-0rHx;
-	Fri, 27 Feb 2026 18:55:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vw3P0-00000008xAM-0489;
+	Fri, 27 Feb 2026 19:21:30 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw309-00000008vnQ-3EaY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 18:55:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8FB976012A;
-	Fri, 27 Feb 2026 18:55:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2ECCC116C6;
-	Fri, 27 Feb 2026 18:55:46 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Jianpeng Chang <jianpeng.chang.cn@windriver.com>,
-	Will Deacon <will@kernel.org>,
-	"Huang, Ying" <ying.huang@linux.alibaba.com>,
-	Guenter Roeck <linux@roeck-us.net>
-Subject: [PATCH] arm64: mm: Add PTE_DIRTY back to PAGE_KERNEL* to fix kexec/hibernation
-Date: Fri, 27 Feb 2026 18:53:06 +0000
-Message-ID: <20260227185544.1482632-1-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.47.3
+	id 1vw3Ox-00000008x9z-1NlG;
+	Fri, 27 Feb 2026 19:21:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772220043; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=JGMRsMIfxoMGP7fGDGO2Q7Rrvv/gpLTotDfrBB329bKfFs25d+EweSKGqRNx9hsT1do2/M3GbcuY2gsYAe95osj8r9iQVV7DfqwKbRXxYcE8b/9GltpsouKK7/9o2oeQC3eCMy5RTjGVvGEH2wwEwhH6wWm2c9WgsQD5d4zYKa8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772220043; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=JGfV0R4Z96tYL3Bf2XqpwWlEz7+KZEZ8gusjeuqSK2Q=; 
+	b=nfczNW1oUkfsGqeRzAuLYebcpBi8Cwb4VHh29XovLBYFptoS6j/u9pAJpUGGpi5EVM8dua5EXN4+c71iXBUFWrM7gEomwe4jWoTxX6U7W2BiF1w99I0QA2P1/5OScbBry0mIKiDbAlvvJPUqiI9GyX+VoiF5uBeMJgajyofNS64=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772220043;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=JGfV0R4Z96tYL3Bf2XqpwWlEz7+KZEZ8gusjeuqSK2Q=;
+	b=ALaO+RUuvYXGccCfTACukQlAU1epUJzVVUVcLx7JaYhVdSGzH5eqWpF+hXbcvWDi
+	oeG9mu4TYQH/wQuBcsrxDqDEnCmdj66BS6JNnhpa36EHEG6zgTZeJtpGnUwC4QxIEz0
+	JMBq1I/4Tf6gi5e/bQO8pIbdyI3P1drCH/uW1dls=
+Received: by mx.zohomail.com with SMTPS id 1772220041335611.1012695620195;
+	Fri, 27 Feb 2026 11:20:41 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Fri, 27 Feb 2026 20:20:06 +0100
+Subject: [PATCH v9 01/19] drm/amd/display: Remove unnecessary
+ SIGNAL_TYPE_HDMI_TYPE_A check
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260227-color-format-v9-1-658c3b9db7ef@collabora.com>
+References: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
+In-Reply-To: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Werner Sembach <wse@tuxedocomputers.com>, 
+ Andri Yngvason <andri@yngvason.is>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_112127_445892_6493440D 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,64 +102,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
-pte_mkwrite()") changed pte_mkwrite_novma() to only clear PTE_RDONLY
-when PTE_DIRTY is set. This was to allow writable-clean PTEs for swap
-pages that haven't actually been written.
+From: Werner Sembach <wse@tuxedocomputers.com>
 
-However, this broke kexec and hibernation for some platforms. Both go
-through trans_pgd_create_copy() -> _copy_pte(), which calls
-pte_mkwrite_novma() to make the temporary linear-map copy fully
-writable. With the updated pte_mkwrite_novma(), read-only kernel pages
-(without PTE_DIRTY) remain read-only in the temporary mapping.
-While such behaviour is fine for user pages where hardware DBM or
-trapping will make them writeable, subsequent in-kernel writes by the
-kexec relocation code will fault.
+Remove unnecessary SIGNAL_TYPE_HDMI_TYPE_A check that was performed in the
+drm_mode_is_420_only() case, but not in the drm_mode_is_420_also() &&
+force_yuv420_output case.
 
-Add PTE_DIRTY back to all _PAGE_KERNEL* protection definitions. This was
-the case prior to 5.4, commit aa57157be69f ("arm64: Ensure
-VM_WRITE|VM_SHARED ptes are clean by default"). With the kernel
-linear-map PTEs always having PTE_DIRTY set, pte_mkwrite_novma()
-correctly clears PTE_RDONLY.
+Without further knowledge if YCbCr 4:2:0 is supported outside of HDMI,
+there is no reason to use RGB when the display
+reports drm_mode_is_420_only() even on a non HDMI connection.
 
-Fixes: 143937ca51cc ("arm64, mm: avoid always making PTE dirty in pte_mkwrite()")
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: <stable@vger.kernel.org>
-Reported-by: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
-Link: https://lore.kernel.org/r/20251204062722.3367201-1-jianpeng.chang.cn@windriver.com
-Cc: Will Deacon <will@kernel.org>
-Cc: "Huang, Ying" <ying.huang@linux.alibaba.com>
-Cc: Guenter Roeck <linux@roeck-us.net>
+This patch also moves both checks in the same if-case. This  eliminates an
+extra else-if-case.
+
+Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
+Signed-off-by: Andri Yngvason <andri@yngvason.is>
+Tested-by: Andri Yngvason <andri@yngvason.is>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-Since no-one posted this as a proper patch, here it is. However, I could
-not reproduce the initial kexec failure, so for me kexec is working with
-our without this patch.
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+index 2fe9044e1e91..6eac9a273f87 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+@@ -6718,12 +6718,9 @@ static void fill_stream_properties_from_drm_display_mode(
+ 	timing_out->v_border_top = 0;
+ 	timing_out->v_border_bottom = 0;
+ 	/* TODO: un-hardcode */
+-	if (drm_mode_is_420_only(info, mode_in)
+-			&& stream->signal == SIGNAL_TYPE_HDMI_TYPE_A)
+-		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+-	else if (drm_mode_is_420_also(info, mode_in)
+-			&& aconnector
+-			&& aconnector->force_yuv420_output)
++	if (drm_mode_is_420_only(info, mode_in) ||
++	    (aconnector && aconnector->force_yuv420_output &&
++	     drm_mode_is_420_also(info, mode_in)))
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+ 	else if ((connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))
+ 			&& aconnector
 
-Testing appreciated before we decide to merge it. Thanks.
+-- 
+2.53.0
 
- arch/arm64/include/asm/pgtable-prot.h | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index 2b32639160de..f560e6420267 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -50,11 +50,11 @@
- 
- #define _PAGE_DEFAULT		(_PROT_DEFAULT | PTE_ATTRINDX(MT_NORMAL))
- 
--#define _PAGE_KERNEL		(PROT_NORMAL)
--#define _PAGE_KERNEL_RO		((PROT_NORMAL & ~PTE_WRITE) | PTE_RDONLY)
--#define _PAGE_KERNEL_ROX	((PROT_NORMAL & ~(PTE_WRITE | PTE_PXN)) | PTE_RDONLY)
--#define _PAGE_KERNEL_EXEC	(PROT_NORMAL & ~PTE_PXN)
--#define _PAGE_KERNEL_EXEC_CONT	((PROT_NORMAL & ~PTE_PXN) | PTE_CONT)
-+#define _PAGE_KERNEL		(PROT_NORMAL | PTE_DIRTY)
-+#define _PAGE_KERNEL_RO		((PROT_NORMAL & ~PTE_WRITE) | PTE_RDONLY | PTE_DIRTY)
-+#define _PAGE_KERNEL_ROX	((PROT_NORMAL & ~(PTE_WRITE | PTE_PXN)) | PTE_RDONLY | PTE_DIRTY)
-+#define _PAGE_KERNEL_EXEC	((PROT_NORMAL & ~PTE_PXN) | PTE_DIRTY)
-+#define _PAGE_KERNEL_EXEC_CONT	((PROT_NORMAL & ~PTE_PXN) | PTE_CONT | PTE_DIRTY)
- 
- #define _PAGE_SHARED		(_PAGE_DEFAULT | PTE_USER | PTE_RDONLY | PTE_NG | PTE_PXN | PTE_UXN | PTE_WRITE)
- #define _PAGE_SHARED_EXEC	(_PAGE_DEFAULT | PTE_USER | PTE_RDONLY | PTE_NG | PTE_PXN | PTE_WRITE)
 
