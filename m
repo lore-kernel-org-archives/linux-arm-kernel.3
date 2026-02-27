@@ -4,115 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C32EFEFB47
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 13:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B962FEFB47
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 13:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lLiDRnSaV35IrLpPDDvLBp9e+zJyP+knHmDbnV5+ZcA=; b=bG7Fj0p5fpPH3coh5Eg/xf1Fv/
-	WzrxCnqXvrssZfi7XcTzHsTdL2yP3ei+fTczmylHBH/DIdFfwUoPrMbFlSUKiVJj5CP2ZyYR3fyJb
-	ZWkKE2Qj/PyfJ6clQl9ZlwSUE8P4qi/GNxne8+coucEvV66XsW5k70TpaRteSDbgZ6FXLh5H2lj3r
-	nhwFGeIdU2U+rUPepe9hsu5SYu8xj3eUma+J83vJh4mBvQkGPJntLQnBdLkp2q5YIU7IbIDCv+2I0
-	OPHKQi+E80g3YYu6TZVI/rCgZk8gWvJn+9npn49XBlt8pTNdZGfkIALN8MJhVZ1PURB8uwrEdGDGE
-	YD9FYioA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bd0XOmklJLOxVYlUPkJ/wGSjsxgSJBm5DGy2rP9zxw4=; b=JVGKCI1RSXtNIzTtuUUFPAwPJa
+	G2B1vHGoyCkiXBMuMH7Pj00pCkSBKLfuy8zx3+xNbQDigH8ldp7PpaiFEr+QuGEgKqzSS+QaHJomz
+	yPvI0+IWXNGeMcltF450Vb/aSXdW5Db8Wn2FVAjS5M8Qp+FdjbfXqrX3LXlJWx8B4bsRYrKlxj1Bt
+	Wh84x9eQowNQm0j0TGMJ6lpzFD0Yw67DGctZZSgtRgsY/60rvxzpRsdOcmunpkQ5XGo4gy6OpPuvv
+	2/hcMoGZDVr5c1CnQ2p4xUdT02hQRE+iK3t3zt/zWjc5l5huJuiNHotCTQOd2WG7QfjVTsn597Nus
+	444Gqvog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvxVM-00000008MDb-1yaf;
-	Fri, 27 Feb 2026 13:03:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvxxG-00000008NT0-08Ya;
+	Fri, 27 Feb 2026 13:32:30 +0000
+Received: from mail-francesouthazon11021089.outbound.protection.outlook.com ([40.107.130.89] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvxVI-00000008MD2-1ubH;
-	Fri, 27 Feb 2026 13:03:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ADAA1438C4;
-	Fri, 27 Feb 2026 13:03:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11C71C116C6;
-	Fri, 27 Feb 2026 13:03:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772197415;
-	bh=bERn3UGgISbC0PbmUnSEW/5x9liqJFQrKwBEdBhysS8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T7AihO16oQoaRbGruNs+3F1qNdA1xBl134oPZnqO+JybZGbiDiOXqaOrNO6J/nIPs
-	 WwCIiAqY1sOYDs1qeN7jfy82R9I1rU+9V/FmrGDDMVO4HiP2X0M3G5yCP6s/AsHufn
-	 EoYXkND1bCNkl1+wHlvoF0gpMM5BVQIvvc3jB2XrrM7uXH6Ds7Qp5PIJIjnzRF3kZi
-	 qemM2LAB9KVdXMn0AwgyI8gnLbyLB+Fg57oyYs1DBtpF6FRYmOy5c3JYmsCgpUc589
-	 MQVmaaFtT2R25LyecUJ9s0KebZ+ff1WKAJ2vvgWkpcsloBBFtGMeqKloHcmHZnxwd9
-	 uYeI+Enc6HPBQ==
-Message-ID: <dc2e9e13-165f-4ca1-be29-aabdbf133856@kernel.org>
-Date: Fri, 27 Feb 2026 14:03:30 +0100
-MIME-Version: 1.0
+	id 1vvxxE-00000008NSd-0HVN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Feb 2026 13:32:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZlVB9fuYLQCULspYv7pGVooDOdw8GhHppBGmsAGmejhPt5GM3fRvArCY7SJTtfatQpPBVZUPWG5Hzo6dlnm6RCxw2P01d2nyuF2r/O/uvElVdwzo4KVlj2USbZv/aj122Oq9cph7Hs0aE+V5RDtjSn6ZkyzhP5qVyjd8fnCrVht+IcHRKbcWXABpBpOOotfp88lRrvslA/IDQKttCY94cDV8blrJfmAGvxeCnfiAFK0vAYnMcRlrcAUSBSJkU9al+yo2INMPQeqWFUBR8oPav4jc+XnqDvCvceBLk18ilhSzrLeb7YcJlGAPWejp3sE77qNGQWoNqASEs962FhXosQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Bd0XOmklJLOxVYlUPkJ/wGSjsxgSJBm5DGy2rP9zxw4=;
+ b=B9Ec5svLhC8xzG9tH03xV//FxP6AtjTEmmvUXDmzXAt8NMbZ2ZtAX+GMnCB0VKMV4CZ4Djqo17WtDrg4d/ylqaQ5pdbS+ZRZBEI0GNu3hd3BkEWvEyEWi/o9n0pYznZD1j8B6ERUlrNT7VQHJWQYHS+FQ6eGm/dvI8sXYZgRR9i6yspJluoF6jx8hxhA77aufIL7pwE8O9F8XI77x2u4v6RQFQ19Jw8u4jPGsDsjf2aWvYID8IEiI+GcGiAGIyss+d9fO/vtxa2Z7CdaY+wH4flOsJj4yM2YJnT3uIFhGARGtpcwmz7e4wzN+8oAtjINhR3W79bkUOsgGmhQKKQvzQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gocontroll.com; dmarc=pass action=none
+ header.from=gocontroll.com; dkim=pass header.d=gocontroll.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gocontrollcom.onmicrosoft.com; s=selector1-gocontrollcom-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Bd0XOmklJLOxVYlUPkJ/wGSjsxgSJBm5DGy2rP9zxw4=;
+ b=U3PS6DxIU8aSLJipCObx7izkw/L8znAkrvcvLvPLcq8A4yXGbRqYJ3RwI11goyGdHYIk8QfC9AYlHnjT6U/SfncT2DWOSby8/pPoo1xVsCWYLhcaZhmraWRw4JXIF7oHLEhot3OykEoDSQ+0wANJlxnT07FjYnm9niqdaDQ7cjBmpvT5bi38QbCmpqkVzEzT93AwNjf1U3Mfq4Gj7LOxfCeSPVCtFESXtK9hKrf7rNQGCIn5oCvl1ceT6ZIaDRlSb1WYfF9529LRvvCYUxcTvDMbjT/QWNl6iVQNIYrPPhUtbXJrTrgIQe8Zckx7OUfu5I24NDrLlgX0PlTq9wWOxg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=gocontroll.com;
+Received: from AMBPR04MB11741.eurprd04.prod.outlook.com (2603:10a6:20b:6f3::7)
+ by AM7PR04MB6807.eurprd04.prod.outlook.com (2603:10a6:20b:104::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Fri, 27 Feb
+ 2026 13:31:54 +0000
+Received: from AMBPR04MB11741.eurprd04.prod.outlook.com
+ ([fe80::ee70:7a62:e9f:12b7]) by AMBPR04MB11741.eurprd04.prod.outlook.com
+ ([fe80::ee70:7a62:e9f:12b7%7]) with mapi id 15.20.9632.017; Fri, 27 Feb 2026
+ 13:31:54 +0000
+Message-ID: <fd765ddd-9124-4add-a6e1-d11d8b5f3d06@gocontroll.com>
+Date: Fri, 27 Feb 2026 14:31:48 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] media: dt-bindings: rockchip,vdec: Add alternative
- reg-names order for RK35{76,88}
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
-References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
- <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
- <20260227-observant-roaring-ara-ef7eb0@quoll>
- <adbbdbb1-b126-4807-821c-c9850befd695@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [RFC PATCH 1/2] arm64: dts: imx8mp: Make MX8MP_I2C_DEFAULT
+ independent on drive strength
+To: Daniel Baluta <daniel.baluta@nxp.com>, Frank.Li@nxp.com
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260227130242.1702329-1-daniel.baluta@nxp.com>
+ <20260227130242.1702329-2-daniel.baluta@nxp.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <adbbdbb1-b126-4807-821c-c9850befd695@collabora.com>
-Content-Type: text/plain; charset=UTF-8
+From: Maud Spierings <maudspierings@gocontroll.com>
+In-Reply-To: <20260227130242.1702329-2-daniel.baluta@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AM0PR10CA0058.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:150::38) To AMBPR04MB11741.eurprd04.prod.outlook.com
+ (2603:10a6:20b:6f3::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMBPR04MB11741:EE_|AM7PR04MB6807:EE_
+X-MS-Office365-Filtering-Correlation-Id: 47074eeb-8529-4137-a62e-08de76049240
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|10070799003|7416014|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: VwZ/gvaALRPfpvZt+CWe336cCaWRa0t1owAkrxc+RdFwS4XY5ROjWDUOXI1cnYy+OeULOXAUFdrvio4AN1pTky01La3ivXOKo9x6D07A9bBD7sYLI0DvKkuvT2afAM/6uxZkDmiIIHad04jsEiYD65G8dWH9UhvEbRC11N4piGw7tB7+mXsDH+Hk8KzMVGyZcgQBHNOa2AMgiMP1hAnbsdAyPb9CglE368dq/b+nkMEzspmDeeTenyGXlCTNDAr7+za4+9qYM7QtFBj6sBr/kZgm5E77g9J3qDuAM8OtRKd8UC8TLWA56jWrTQYNy1tV7aXh/xSEEi8TyEHoTsHfIlmzPCghKquyZRINiPArfb9cCL6klwCdA90xwhONFt/VpAF2/ygqQLbtZfhwQYW//T/sU+9JaxUbNVd/JaZ7jHNuS5Pyi7+jLjxL5yl5l7q5X2ejPK+vJ4RRyo/6htjHFDvPdCmRW+gqxiiNR1gsf67NXFRh0HzGWT8wFetfNZ0TY7GAsAOhnCXXrVI4IJCA/G3ZfaZ5fnd1baKn/jYG6TseQpzenZKwfq3r8MUaxxdbJE7q7UxGn34bgz+UWv+QUs7sZbJO72d+DVyYSjChOcULEEmbD93iHwzYLttYdpZZgujv+tJbTIGtcT990gzaQ610XG7XmqHM5PDhSXTBVyqGA4+EXscd8eOf0hOEWjDd9bM7TxipGblNFS6tcZv4NHZ3JUgkblJCdGlkfAzFUuw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB11741.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(10070799003)(7416014)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eFhXRjJaSklxemdEaGJnaWtxejcyN3o1THI4eVd6VTJhNTZ1eEQrMklKam00?=
+ =?utf-8?B?YmlhZEFmZXBUYkFqQVhqSzZiSXBnSGt5aU5kVzJ5cjRFR0s4QmhaVkIvY0xn?=
+ =?utf-8?B?cmdpN3N5VmFTWXpjaEppK1FXcUZjdW11THloMUF0akxqQ3FEUUZwdnpoL1E5?=
+ =?utf-8?B?RS9YNkZMT0lHWmNiUXBucm1PS1Y0RENSZkVmMmNTa3RmR2dyU1dyLy8rTHVX?=
+ =?utf-8?B?blVONUk4aXU5cGJzL3F5NmZQVGpJcE1oaWV4a1Uya1JEaklWTDMxU2RYUzk0?=
+ =?utf-8?B?THgxZGppT2g1ZXV5WkNEL2NjMUFUWHQyZVJpRlJlSXBjVVNreXY4U1lCQmlE?=
+ =?utf-8?B?bXh3Wit5d2tpbXhNdC95NG5mRlNwbmlhY0owbThBTUUweGVHWEIwcWxyUmpL?=
+ =?utf-8?B?R2RPZUlKQzJ3K1N3OWJPOTJCcGFnalhIVFl5MzdwVCtZSU8wenNUTEdlTHEr?=
+ =?utf-8?B?ZW41RjNWOXhRUnVwVUZ1Q1JPajM5QWZVbUVEcXc0UHpBUi94cFlsejFqWGli?=
+ =?utf-8?B?ai9uYTFQQzRTbXllYjEzZXh5S0NiQjRVQUdJY0hJaTErTFNwRkk4dFRuWGdZ?=
+ =?utf-8?B?NFA5SCsyVXFmNDVlT3pKaE43NTg3VHFZZHQ5cUVnVTV0MkVJL3FCcjFxcXRM?=
+ =?utf-8?B?emF0em9SM1Q1QkVmdG9NMVFET3FYZWh4QklMV0UwdFl5YndVc1dFMjNKZ1RD?=
+ =?utf-8?B?dGpzZjF2RVY4ZTdxOGZSZmQrTnVNVUNBdTgzMUcxMVZuSDNwdER4UVcvSWFX?=
+ =?utf-8?B?Nzh1Uzc2UG8wUzhpZFR2bEp1eExPN2t2ejlFRFQzakU4S012TkNuY0xDR2R4?=
+ =?utf-8?B?WW1WTHZqR0NUQkY2OHlidG02Ui9HUWxXN2xFK3Y3ejBhTTYzbjlNTm0xbzV3?=
+ =?utf-8?B?Y2hHK29xbzNrS1VVS0FUVTk1b1dSUjVWbWNLNUdSak5jV1ZWOG5EcVQ4U2Z0?=
+ =?utf-8?B?WVFNVFptRUFaaGNGNktIc0FQc1BWZGRBWjA2eEQzN2JFb0NtTDQrVjZmM3N2?=
+ =?utf-8?B?eHJrbThwNldKck9yNFpib20ySFI4aXpqNld1Q3prTFkrRUFnd1NxSkQ2U3NZ?=
+ =?utf-8?B?dkdTajhTNS92aUJQT2Z5ZDltQWFiNVVVL2Q3M0Rnc1J4ZHdVQS9HSXFnLysx?=
+ =?utf-8?B?NXk4QkhUeTByTW1TakNrWFZtZzNlMzMwUFlVQlcxRmVsajNleGUxM1ZXM3l1?=
+ =?utf-8?B?aXl1NWg1T0pONVYxb1ZKUThncUNNbGt5THRlSzZVUGthMGkybnBQWTlzOFg1?=
+ =?utf-8?B?OWJmYnpPOW44YzNpSW41WXladjZUbnZHdGl1WUFzLzFWTTRnSnF3TS9hallq?=
+ =?utf-8?B?M3N4NC9GTUlXZmVoL2RFNnNQTWMrakQ1RzFmSlNFcE5rb29DYlF2TGkrdGo1?=
+ =?utf-8?B?S2lyL1dzTnovN1ljKzNpL0pjVlNJQlRDZjNiNVNHY0N1cDZvOFFNeHV6NG9G?=
+ =?utf-8?B?d0dPbHdOcGNraXl4MHJSRGNiL01KaXFlbFVPeHI4Vm9Pcng3L1NkcFZWZGxt?=
+ =?utf-8?B?SllqbUJOaEl0M1lnekxvM3dFVkxvNjdNNlVYam8wWi9nZkhCS1F6aFhMbUc2?=
+ =?utf-8?B?UklSMVYxQ2FjYXljQ08zY1VTVXBxT0FJY0lQRStad1dwVzJqQlg2UGFMQllJ?=
+ =?utf-8?B?bkZOTmk3MWo2ai9wRUw3cnFwVkJUcTU4K3NyeElyOEppeEtsek10WnROWUp4?=
+ =?utf-8?B?WU9OcGw1Q1ExNUxMalNBWVNxbllOM2lveXl2NnU0MFZWYm9ieEh5UG9xR0hU?=
+ =?utf-8?B?SXQxaDV0YTBMWXc5bzdreFFSa1NjYlpjbXJOUFJXdjI5SEVQQ2hqZUFwWGJ5?=
+ =?utf-8?B?S2Mzd091UTgrM2pOc0JBaGdxdmhjNk5GR3VycCtHWXJ6R1ptOURaZ0cyK2xF?=
+ =?utf-8?B?NVAxNndoTm5nSU50WDMvaUpLVk1HMi9lV25aQ3d3eXpLQTVDTW9pb0xtTmJM?=
+ =?utf-8?B?d0FEYUJra0QyQm9qL25XcWkxRkhBU1ZpekZhTzA3cDBUWk11a3pWS2lHY29j?=
+ =?utf-8?B?UVg5alZ3T3FDOTYydGxuMUliMkFjSUdpemJQTWdDcXJ1bUg1U2hZUUlUS21u?=
+ =?utf-8?B?WVVuNjBuaU9yOHc3R1UzTXFxRTRreXF0Ui9mOCtObHp0eWwwRTJGRkg5c0hv?=
+ =?utf-8?B?NDNOSkYvQnNrdUhEb1d1eXBXRnFaaWoyc01NRnA5M3B1ZjVOb1VmL2ZjLy9o?=
+ =?utf-8?B?YzFPOXJLcng0U3oxQUROcVlQMUVqallJWHROcGNTZHZzUjUycU93MmdIK2E1?=
+ =?utf-8?B?cjc4Yk1SV05tVjhsOUM3bUx1N2ZkN1JjM3BiY0pyTnpkMC9vaVM3aEZleHpQ?=
+ =?utf-8?B?RTFEL3RoTVZjeERITjg3VFZCRFlhM2RZYVJJcGphalZRc0toVkQ4ZjJjZldP?=
+ =?utf-8?Q?iI1yjnskSUqogaom/2z8BjLMLI30WuNnzeo0Ekjm86rf0?=
+X-MS-Exchange-AntiSpam-MessageData-1: Ipgd0hjCWni0loo+E2UOBQM9h38VVn0JAyw=
+X-OriginatorOrg: gocontroll.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 47074eeb-8529-4137-a62e-08de76049240
+X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB11741.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2026 13:31:53.9804
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4c8512ff-bac0-4d26-919a-ee6a4cecfc9d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: I3o84suiWXBbX3EcFBBBuFVLtAtO2P9gsBdcW0XUV7aVYbQCcvj8R/mF1qQ7HxWyMZTMLyzQOTPE2UNWzyMAzS73qdpUWPsS1rA4M1+BL9s=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6807
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_050336_560350_7F722B71 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20260227_053228_120919_EE87B1D6 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,73 +152,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/02/2026 12:37, Cristian Ciocaltea wrote:
-> Hi Krzysztof, Conor,
-> 
-> On 2/27/26 9:46 AM, Krzysztof Kozlowski wrote:
->> On Thu, Feb 26, 2026 at 12:46:53PM +0200, Cristian Ciocaltea wrote:
->>> With the introduction of the RK3588 SoC, and RK3576 afterwards, two more
->>> register blocks have been provided for the video decoder unit.
->>>
->>> However, the binding does not properly describe the new hardware layout,
->>
->> As you shown me last time with excerpt of address spaces from
->> datasheet/manual, the binding correctly describes the hardware and above
->> sentence is not true.
->>
->>> as it breaks the convention expecting the unit address to indicate the
->>> start of the first register range, i.e. 'function' block is listed
->>
->> Imprecise wording. "start of the main or primary register range"
->>
->> (if you have 0x1000 with one reg and 0x20000000 with everything, the
->> unit address will be 0x20000000).
->>
->>> before 'link' instead of the opposite.
->>>
->>> Since the binding changes have been already released and a fix would
->>> bring up an ABI break, mark the current 'reg-names' ordering as
->>> deprecated and introduce an alternative 'link,function,cache' listing
->>> which follows the address-based ordering according to the TRM.
->>>
->>> Additionally, drop the 'reg' description items as the order is not fixed
->>> anymore, while the information they offer is not very relevant anyway.
->>
->> This is fine for me.
-> 
-> Thanks for the additional feedback!
-> 
-> If I'm not mistaken (please correct me), the only remaining (hard)
-> blocker for the series would be to improve this commit message.
-> 
-> How about the following:
-> 
->     With the introduction of the RK3588 SoC, and RK3576 afterwards, three
->     register blocks have been provided for the video decoder unit instead of
->     just one, which are further referenced in the datasheet by 'link table',
->     'function' and 'cache'.  The former is present at the top of the
->     listing, starting at video decoder unit base address.
-> 
->     However, while documenting RK3588, the binding broke the convention
->     expecting the unit address to indicate the start of the primary register
->     range, i.e. the 'function' block got listed before the 'link' one.
-> 
->     Since the binding changes have been already released and a fix would
->     bring up an ABI break, mark the current 'reg-names' ordering as
->     deprecated and introduce an alternative 'link,function,cache' listing
->     which follows the address-based ordering according to the TRM.
-> 
->     Additionally, drop the 'reg' description items as the order is not fixed
->     anymore, while the information they offer is not very relevant anyway.
+Hi Daniel,
 
-Yes, it's fine. My comments were actually not blocking, I just wanted to
-wait if discussion with Conor resolves somehow.
+Glad to see others using them :)
 
-But for me anyway:
+Reviewed-by: Maud Spierings <maudspierings@gocontroll.com>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On 2/27/26 14:02, Daniel Baluta wrote:
+> Currently MX8MP_I2C_DEFAULT macro includes a fixed drive
+> strength (MX8MP_DSE_X6) thus limiting its use to only I2C
+> pins that require X6 drive.
+> 
+> There are many pinctrl configurations for I2C that use different
+> drive strength while still using the common I2C default configurations
+> (pull-up, Schmitt input, pull enable, SION).
+> 
+> So make the MX8MP_I2C_DEFAULT macro more flexible and reusable by removing
+> DSE_X6 drive strength from it's definition but add it in all places
+> it is necessary.
+> 
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> ---
+>   arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h   |  2 +-
+>   .../imx8mp-tx8p-ml81-moduline-display-106.dts    | 16 ++++++++--------
+>   .../boot/dts/freescale/imx8mp-tx8p-ml81.dtsi     |  8 ++++----
+>   3 files changed, 13 insertions(+), 13 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h b/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
+> index 16f5899de4152..26e7a9428c4c7 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
+> @@ -36,7 +36,7 @@
+>   /* long defaults */
+>   #define MX8MP_USDHC_DATA_DEFAULT (MX8MP_FSEL_FAST | MX8MP_PULL_UP | \
+>   				  MX8MP_HYS_SCHMITT | MX8MP_PULL_ENABLE)
+> -#define MX8MP_I2C_DEFAULT (MX8MP_DSE_X6 | MX8MP_PULL_UP | MX8MP_HYS_SCHMITT | \
+> +#define MX8MP_I2C_DEFAULT (MX8MP_PULL_UP | MX8MP_HYS_SCHMITT | \
+>   			   MX8MP_PULL_ENABLE | MX8MP_SION)
+>   
+>   /*
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
+> index 399230144ce39..87b20b8564583 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
+> @@ -302,36 +302,36 @@ MX8MP_IOMUXC_ECSPI1_SS0__GPIO5_IO09
+>   	pinctrl_i2c2: i2c2grp {
+>   		fsl,pins = <
+>   			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   		>;
+>   	};
+>   
+>   	pinctrl_i2c2_gpio: i2c2-gpiogrp {
+>   		fsl,pins = <
+>   			MX8MP_IOMUXC_I2C2_SCL__GPIO5_IO16
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   			MX8MP_IOMUXC_I2C2_SDA__GPIO5_IO17
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   		>;
+>   	};
+>   
+>   	pinctrl_i2c4: i2c4grp {
+>   		fsl,pins = <
+>   			MX8MP_IOMUXC_ECSPI2_MISO__I2C4_SCL
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   			MX8MP_IOMUXC_ECSPI2_SS0__I2C4_SDA
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   		>;
+>   	};
+>   
+>   	pinctrl_i2c4_gpio: i2c4-gpiogrp {
+>   		fsl,pins = <
+>   			MX8MP_IOMUXC_ECSPI2_MISO__GPIO5_IO12
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   			MX8MP_IOMUXC_ECSPI2_SS0__GPIO5_IO13
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   		>;
+>   	};
+>   
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi
+> index 761ee046eb72e..bf49ae942d411 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi
+> @@ -425,18 +425,18 @@ MX8MP_IOMUXC_SAI2_RXC__GPIO4_IO22
+>   	pinctrl_i2c1: i2c1grp {
+>   		fsl,pins = <
+>   			MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   			MX8MP_IOMUXC_I2C1_SDA__I2C1_SDA
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   		>;
+>   	};
+>   
+>   	pinctrl_i2c1_gpio: i2c1-gpiogrp {
+>   		fsl,pins = <
+>   			MX8MP_IOMUXC_I2C1_SCL__GPIO5_IO14
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   			MX8MP_IOMUXC_I2C1_SDA__GPIO5_IO15
+> -				MX8MP_I2C_DEFAULT
+> +				(MX8MP_DSE_X6 | MX8MP_I2C_DEFAULT)
+>   		>;
+>   	};
+>   
 
-
-Best regards,
-Krzysztof
 
