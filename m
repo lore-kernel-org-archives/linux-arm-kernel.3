@@ -4,51 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C364FD7F94
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 11:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523B5FD7F91
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 11:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N4r+dj7tn5qefRKL6c4CmBMlupGDuByjIVNqzu4lD7A=; b=Chy3JgSlerMdj6Ei7wtQtet/z+
-	31t6xii9mIUvABF6/Qgv58M+GWHZtl8C0xaFPB+RwEhtT2uFpb8cCYTXbmsIAwO7e53kx5RXh/0XG
-	yLeu6KFhcF9ut1lkUZhwMMjK16Nhip84jDERJKbOvMTltHMRDl38eXAZxHfeKt7KIripXAM1QCCRM
-	Bw30D7H0ToshkFR4QLiSKhCS83+w1girQiLHaqszcuWsUaZJ72cYKfv6oVetEynQFjJErpDmDiJG+
-	PYBZ7Zkwc4j/1FPLzyXYSQxMD2gxBR+HCKiUh7W8kDP/ipoJVS4q5qYIjpwsb+egK0bNm0TAPnTrc
-	QTxveS4g==;
+	bh=0g4LFeOMQNabDbEN1SEpgHn4gL32KVE/yFttvbA2u7Q=; b=m1Zs2Uz9bWUd1Lq3fmr59AghST
+	g2VL9zlMijWSAOsp6lqK5aOadA/EQcsLOlLudEJr5TxzBTkEPFGxug9KPsWtTqZ4S+8h9uAEtefmx
+	mHSQW7Howp3w5XBqSS7yJNl6L8BTsNpIRP8UhUINi30x8hIMK6aPh9hRqK1Hd6CJg+GZerHHSU7BT
+	Sns9fO3ATiAPX7y6MYW93aLJ+ShExy0bY9g+I1Jq6X1w1bUqi2HQwxk91iMncl3wV8RCSQltoTPC6
+	PeC8Hh0LiA+NBkUr8lJQVoJ6wIf5XATu3m2knjFv+Q9EgzmC4ZIxojfJMY+A82NiDXkFn5M2G8Pig
+	5FDt+8WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvvg6-00000008GlK-04iM;
-	Fri, 27 Feb 2026 11:06:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvvg4-00000008GkO-1h01
+	id 1vvvri-00000008HKb-415x;
+	Fri, 27 Feb 2026 11:18:38 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvvrg-00000008HKF-0veV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 11:06:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9932914BF;
-	Fri, 27 Feb 2026 03:06:26 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 148753F7BD;
-	Fri, 27 Feb 2026 03:06:31 -0800 (PST)
-Date: Fri, 27 Feb 2026 11:06:26 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
-	maz@kernel.org
-Subject: Re: [BOOTWRAPPER PATCH 2/2] Add support for GICv5
-Message-ID: <20260227110626.GA1980869@e124191.cambridge.arm.com>
-References: <20260227102049.8015-1-vladimir.murzin@arm.com>
- <20260227102049.8015-3-vladimir.murzin@arm.com>
+	Fri, 27 Feb 2026 11:18:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1772191115; x=1803727115;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=Q9ZXUDFipE8x52hW22LWJAvtNBHxdCp6GqAciobODLs=;
+  b=X0K/SavOVH5VW3KC/u6Sgv2xUstDKKk07eBIvoudiZH7X3k0RolCc+IV
+   PsG2oGC31zCB5899gQjfKdUHAd2L61yT8XrJJuDYZTwjX+verPWqKgAqv
+   pld3y9dJ83IMKx31eVEguP7BLDk7CzeYnWBe7y/qFPj6alNT7D6Ps0DGF
+   B1iSTe+wF6zJgL1/49jYMdiL67xZcYtmApfy16K9zqKJyhFgL9wuukYEk
+   c01TQfUwFEGdUfBYBcLowJ36W+ZwtGr1rwDFk8skoIL2Kr2XRvBFt6aZ6
+   FbwWOfZLXXrIyiI7ohXo4wmxwhuwpadmxuRadcOpHjejF+e1UdAqyXoiJ
+   A==;
+X-CSE-ConnectionGUID: FI/nyN4FSjm9Av5WSGCRkg==
+X-CSE-MsgGUID: Yr/hDMIqSn2wugENkqifRA==
+X-IronPort-AV: E=Sophos;i="6.21,314,1763449200"; 
+   d="scan'208";a="221247481"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2026 04:18:31 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.35; Fri, 27 Feb 2026 04:17:51 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Fri, 27 Feb 2026 04:17:49 -0700
+Date: Fri, 27 Feb 2026 12:17:48 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, Arnd Bergmann <arnd@arndb.de>, "Bartosz
+ Golaszewski" <brgl@kernel.org>, Bartosz Golaszewski
+	<bartosz.golaszewski@oss.qualcomm.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Nicolas Ferre
+	<nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<robert.marko@sartura.hr>, <Steen.Hegelund@microchip.com>
+Subject: Re: [PATCH] arm64: Kconfig: provide a top-level switch for Microchip
+ platforms
+Message-ID: <20260227111748.ddqdf4avpvfzu4cm@DEN-DL-M70577>
+References: <20260226143615.65788-1-bartosz.golaszewski@oss.qualcomm.com>
+ <84da053d-97d5-4d07-8e76-b162a5b23d2a@kernel.org>
+ <CAMRc=MehMLoBL573cWjQNN2eCiTCyqCv1xwVKqfkZ5isBhBUaA@mail.gmail.com>
+ <10bb25d3-2f46-4b62-affb-31257d51e24f@app.fastmail.com>
+ <CAMRc=MfupCCr8J+qnJACVeri4nZZCnULWaRgSvi4LWs4J3-5vw@mail.gmail.com>
+ <9132501f-76e9-46c0-839d-bde7246c3883@kernel.org>
+ <244fdbad-0d9f-42bc-a005-5f5ef34d067d@app.fastmail.com>
+ <20260227-wolverine-slogan-7af0661f6e44@spud>
+ <c9df99ef-9bd6-43a0-9f22-721bd6bfc90c@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <20260227102049.8015-3-vladimir.murzin@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <c9df99ef-9bd6-43a0-9f22-721bd6bfc90c@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_030636_553249_E8D1382D 
-X-CRM114-Status: GOOD (  36.84  )
+X-CRM114-CacheID: sfid-20260227_031836_530469_0D350C3B 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,329 +98,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
-
-On Fri, Feb 27, 2026 at 10:20:49AM +0000, Vladimir Murzin wrote:
-> Perform the minimal initialization required for GICv5 support. GICv5
-> support can be requested with --with-gic=v5.
+> On 27/02/2026 11:15, Conor Dooley wrote:
+> > On Fri, Feb 27, 2026 at 10:28:53AM +0100, Arnd Bergmann wrote:
+> >> On Fri, Feb 27, 2026, at 10:21, Krzysztof Kozlowski wrote:
+> >>> On 27/02/2026 09:51, Bartosz Golaszewski wrote:
+> >>>> On Fri, Feb 27, 2026 at 9:49 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> >>
+> >>> I don't think this is fixable, that's why I wrote that I accept the
+> >>> negative impact because I like the cleanup more.
+> >>
+> >> Agreed. I remember when we split up the ethernet drivers into per-vendor
+> >> subdirectories and had to add 'default y' to each one in 88f07484ccdf
+> >> ("drivers/net/ethernet/*: Enabled vendor Kconfig options"). Changing the
+> >> default to 'n' would be a regression now as much as it was then, so it's
+> >> not something we can expect to do more easily in the future.
+> >>
+> >> If the Microchip maintainers think the change will cause too much
+> >> extra work, we can leave the current version forever, otherwise lets
+> >> apply it for 7.1.
+> >
+> > Here's the previous discussion when this was added not too long ago:
+> > https://lore.kernel.org/all/20250811122053.4bfyoefln7wpz2a4@DEN-DL-M70577/
+> >
+> > Daniel is probably the one that "needs" to answer this, I think the
+> > lan969x is added recently enough for this to not be particularly
+> > disruptive.
 > 
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  Makefile.am                    |   7 ++
->  arch/aarch64/include/asm/cpu.h |  11 +++
->  common/gic-v5.c                | 133 +++++++++++++++++++++++++++++++++
->  configure.ac                   |   7 +-
->  scripts/FDT.pm                 |  16 ++++
->  scripts/findbase-by-regname.pl |  44 +++++++++++
->  6 files changed, 215 insertions(+), 3 deletions(-)
->  create mode 100644 common/gic-v5.c
->  create mode 100755 scripts/findbase-by-regname.pl
-> 
-> diff --git a/Makefile.am b/Makefile.am
-> index 2710494..aacd639 100644
-> --- a/Makefile.am
-> +++ b/Makefile.am
-> @@ -82,6 +82,13 @@ PSCI_NODE	:=
->  CPU_NODES	:=
->  endif
->  
-> +if GICV5
-> +GIC_IRS_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase-by-regname.pl $(KERNEL_DTB) "el3-config" 'arm,gic-v5-irs')
-> +GIC_IWB_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 0 'arm,gic-v5-iwb')
-> +DEFINES		+= -DGIC_IRS_BASE=$(GIC_IRS_BASE)
-> +DEFINES		+= -DGIC_IWB_BASE=$(GIC_IWB_BASE)
-> +endif
-> +
->  if GICV3
->  GIC_DIST_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 0 'arm,gic-v3')
->  GIC_RDIST_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 1 'arm,gic-v3')
-> diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
-> index ac50474..af4191c 100644
-> --- a/arch/aarch64/include/asm/cpu.h
-> +++ b/arch/aarch64/include/asm/cpu.h
-> @@ -128,6 +128,7 @@
->  #define ID_AA64PFR1_EL1_THE		BITS(51, 48)
->  
->  #define ID_AA64PFR2_EL1			s3_0_c0_c4_2
-> +#define ID_AA64PFR2_EL1_GCIE		BITS(15, 12)
->  #define ID_AA64PFR2_EL1_FPMR		BITS(35, 32)
->  
->  #define ID_AA64SMFR0_EL1		s3_0_c0_c4_5
-> @@ -169,6 +170,11 @@
->  #define ICC_CTLR_EL3		S3_6_C12_C12_4
->  #define ICC_PMR_EL1		S3_0_C4_C6_0
->  
-> +#define ICC_PPI_DOMAINR0_EL3	S3_6_C12_C8_4
-> +#define ICC_PPI_DOMAINR1_EL3	S3_6_C12_C8_5
-> +#define ICC_PPI_DOMAINR2_EL3	S3_6_C12_C8_6
-> +#define ICC_PPI_DOMAINR3_EL3	S3_6_C12_C8_7
-> +
->  #define VSTCR_EL2		s3_4_c2_c6_2
->  #define VSCTLR_EL2		s3_4_c2_c0_0
->  
-> @@ -245,6 +251,11 @@ static inline int has_gicv3_sysreg(void)
->  	return !!mrs_field(ID_AA64PFR0_EL1, GIC);
->  }
->  
-> +static inline int has_gicv5_sysreg(void)
-> +{
-> +	return !!mrs_field(ID_AA64PFR2_EL1, GCIE);
-> +}
-> +
->  #endif /* !__ASSEMBLY__ */
->  
->  #endif
-> diff --git a/common/gic-v5.c b/common/gic-v5.c
-> new file mode 100644
-> index 0000000..f4a3a7a
-> --- /dev/null
-> +++ b/common/gic-v5.c
-> @@ -0,0 +1,133 @@
-> +/*
-> + * gic-v5.c
-> + *
-> + * Copyright (C) 2025 ARM Limited. All rights reserved.
-> + *
-> + * Use of this source code is governed by a BSD-style license that can be
-> + * found in the LICENSE.txt file.
-> + */
-> +
-> +#include <stdint.h>
-> +
-> +#include <cpu.h>
-> +#include <gic.h>
-> +#include <asm/io.h>
-> +
-> +#define IWB_IDR0			0x0
-> +#define IWB_IDR0_IW_RANGE_SHIFT		0x0
-> +#define IWB_IDR0_IW_RANGE_MASK		0x7ff
-> +
-> +#define IWB_CR0				0x80
-> +#define IWB_CR0_IWBEN			(1 << 0)
-> +#define IWB_CR0_IDLE			(1 << 1)
-> +
-> +#define IWB_WENABLE_STATUSR		0xc0
-> +#define IWB_WENABLE_STATUSR_IDLE	(1 << 0)
-> +
-> +#define IWB_WDOMAIN_STATUSR		0xc4
-> +#define IWB_WDOMAIN_STATUSR_IDLE	(1 << 0)
-> +
-> +#define IWB_WENABLER			0x2000
-> +#define IWB_WDOMAINR			0x8000
-> +
-> +#define IRS_IDR6			0x0018
-> +#define IRS_IDR6_SPI_IRS_RANGE_MASK	0x1ffffff
-> +
-> +#define IRS_IDR7			0x001c
-> +#define IRS_IDR7_SPI_BASE_MASK		0xffffff
-> +
-> +#define IRS_SPI_SELR			0x108
-> +#define IRS_SPI_DOMAINR			0x10c
-> +
-> +#define IRS_SPI_STATUSR			0x0118
-> +#define IRS_SPI_STATUSR_IDLE		(1 << 0)
-> +
-> +
-> +static void gic_iwb_init(void) {
-> +	void *iwb_ptr = (void *)GIC_IWB_BASE;
-> +	unsigned int num;
-> +	unsigned int i;
-> +
-> +	/* Get number of implemented wires */
-> +	num = ((raw_readl(iwb_ptr + IWB_IDR0) >> IWB_IDR0_IW_RANGE_SHIFT) & IWB_IDR0_IW_RANGE_MASK) + 1;
-> +
-> +	/* Disable all wires */
-> +	for (i = 0; i < num; i++)
-> +		raw_writel(0, iwb_ptr + IWB_WENABLER + i * 4);
-> +
-> +
-> +	while (!(raw_readl(iwb_ptr + IWB_WENABLE_STATUSR) & IWB_WENABLE_STATUSR_IDLE));
-> +
-> +	/* Asign all wires to Non-Secure domain */
-> +	for (i = 0; i < num * 2; i++)
-> +		raw_writel(0x55555555, iwb_ptr + IWB_WDOMAINR + i * 4);
-> +
-> +	while (!(raw_readl(iwb_ptr + IWB_WDOMAIN_STATUSR) & IWB_WDOMAIN_STATUSR_IDLE));
-> +
-> +	/* Enable IWB */
-> +	raw_writel(IWB_CR0_IWBEN, iwb_ptr + IWB_CR0);
-> +
-> +	while (!(raw_readl(iwb_ptr + IWB_CR0) & IWB_CR0_IDLE));
-> +}
-> +
-> +static void gic_irs_init(void) {
-> +	void *irs_ptr = (void *)GIC_IRS_BASE;
-> +	unsigned int range;
-> +	unsigned int base;
-> +	unsigned int i;
-> +
-> +	/* Get the range of implemented SPI's ids */
-> +	base = raw_readl(irs_ptr + IRS_IDR7) & IRS_IDR7_SPI_BASE_MASK;
-> +	range = raw_readl(irs_ptr + IRS_IDR6) & IRS_IDR6_SPI_IRS_RANGE_MASK;
-> +
-> +	for (i = base; i < base + range; i++) {
-> +		/* Select SPI */
-> +		raw_writel(i, irs_ptr + IRS_SPI_SELR);
-> +		while (!(raw_readl(irs_ptr + IRS_SPI_STATUSR) & IRS_SPI_STATUSR_IDLE));
-> +
-> +		/* Asign SPI to Non-Secure domain */
-> +		raw_writel(1, irs_ptr + IRS_SPI_DOMAINR);
-> +		while (!(raw_readl(irs_ptr + IRS_SPI_STATUSR) & IRS_SPI_STATUSR_IDLE));
-> +	}
-> +}
-> +
-> +static void gic_ppi_init(void) {
-> +	uint64_t val = 0;
-> +
-> +	val |= 1UL << (2 * 31); // Trace Buffer Unit
-> +	val |= 1UL << (2 * 30); // EL1 Physical Timer
-> +	val |= 1UL << (2 * 28); // Non-secure EL2 Virtual Timer
-> +	val |= 1UL << (2 * 27); // EL1 Virtual Timer
-> +	val |= 1UL << (2 * 26); // Non-secure EL2 Physical Timer
-> +	val |= 1UL << (2 * 25); // GIC maintenance interrupt
-> +	val |= 1UL << (2 * 24); // Generic CTI interrupt trigger event
-> +	val |= 1UL << (2 * 23); // PMU overflow interrupt request
-> +	val |= 1UL << (2 * 22); // Debug communication channel
-> +	val |= 1UL << (2 * 21); // Profiling Buffer management interrupt request
-> +	val |= 1UL << (2 * 15); // Hardware accelerator for cleaning Dirty state interrupt
-
-What about SW_PPI (3) and NS_DB_PPI (2)? Are the left out for a reason?
-
-Thanks,
-Joey
-
-> +
-> +	/* Asign PPI to Non-Secure domain */
-> +	msr(ICC_PPI_DOMAINR0_EL3, val);
-> +	isb();
-> +}
-> +
-> +void gic_secure_init(void)
-> +{
-> +	/*
-> +	 * If GICv5 is not available, skip initialisation. The OS will probably
-> +	 * fail with a warning, but this should be easier to debug than a
-> +	 * failure within the boot wrapper.
-> +	 */
-> +	if (!has_gicv5_sysreg())
-> +		return;
-> +
-> +	if (this_cpu_logical_id() == 0) {
-> +		gic_iwb_init();
-> +		gic_irs_init();
-> +	}
-> +
-> +	gic_ppi_init();
-> +
-> +	return;
-> +}
-> +
-> diff --git a/configure.ac b/configure.ac
-> index 6f486c4..f4faff7 100644
-> --- a/configure.ac
-> +++ b/configure.ac
-> @@ -141,18 +141,19 @@ AC_SUBST([XEN_CMDLINE], [$X_CMDLINE])
->  
->  
->  AC_ARG_WITH([gic],
-> -  AS_HELP_STRING([--with-gic={v2|v3}], [select GIC version]),
-> +  AS_HELP_STRING([--with-gic={v2|v3|v5}], [select GIC version]),
->    [GIC_VERSION=$withval],
->    [GIC_VERSION=v2])
->  
->  AS_CASE([$GIC_VERSION],
-> -  [v2|v3], [],
-> -  [AC_MSG_ERROR([Invalid GIC version: $GIC_VERSION (use v2 or v3)])])
-> +  [v2|v3|v5], [],
-> +  [AC_MSG_ERROR([Invalid GIC version: $GIC_VERSION (use v2, v3, or v5)])])
->  
->  AC_SUBST([GIC_VERSION], [$GIC_VERSION])
->  
->  AM_CONDITIONAL([GICV2], [test "x$GIC_VERSION" = "xv2"])
->  AM_CONDITIONAL([GICV3], [test "x$GIC_VERSION" = "xv3"])
-> +AM_CONDITIONAL([GICV5], [test "x$GIC_VERSION" = "xv5"])
->  
->  
->  # Ensure that we have all the needed programs
-> diff --git a/scripts/FDT.pm b/scripts/FDT.pm
-> index 9adf70b..3f49ba6 100755
-> --- a/scripts/FDT.pm
-> +++ b/scripts/FDT.pm
-> @@ -322,6 +322,22 @@ sub get_num_reg_cells
->  	return ($ac, $sc);
->  }
->  
-> +sub get_regname_idx
-> +{
-> +    my $self = shift;
-> +    my $regname = shift;
-> +
-> +    my $prop = $self->get_property("reg-names");
-> +
-> +    return undef if (not defined($prop));
-> +
-> +    my @names = $prop->read_strings();
-> +
-> +    my ($idx) = grep { $names[$_] eq $regname } 0 .. $#names;
-> +
-> +    return $idx;
-> +}
-> +
->  sub translate_address
->  {
->  	my $self = shift;
-> diff --git a/scripts/findbase-by-regname.pl b/scripts/findbase-by-regname.pl
-> new file mode 100755
-> index 0000000..49cd0ce
-> --- /dev/null
-> +++ b/scripts/findbase-by-regname.pl
-> @@ -0,0 +1,44 @@
-> +#!/usr/bin/perl -w
-> +# Find device register base addresses.
-> +#
-> +# Usage: ./$0 <DTB> <regname> <compatible ...>
-> +#
-> +# Copyright (C) 2026 ARM Limited. All rights reserved.
-> +#
-> +# Use of this source code is governed by a BSD-style license that can be
-> +# found in the LICENSE.txt file.
-> +
-> +use warnings;
-> +use strict;
-> +
-> +use FDT;
-> +
-> +my $filename = shift;
-> +die("No filename provided") unless defined($filename);
-> +
-> +my $regname = shift;
-> +die("no reg regname provided") unless defined($regname);
-> +
-> +my @compats = shift;
-> +
-> +open (my $fh, "<:raw", $filename) or die("Unable to open file '$filename'");
-> +
-> +my $fdt = FDT->parse($fh) or die("Unable to parse DTB");
-> +
-> +my $root = $fdt->get_root();
-> +
-> +my @devs = ();
-> +for my $compat (@compats) {
-> +	push @devs, $root->find_compatible($compat);
-> +}
-> +
-> +# We only care about finding the first matching device
-> +my $dev = shift @devs;
-> +die("No matching devices found") if (not defined($dev));
-> +
-> +my $idx = $dev->get_regname_idx($regname);
-> +die("Cannot find reg name $regname") if (not defined($idx));
-> +my ($addr, $size) = $dev->get_translated_reg($idx);
-> +die("Cannot find reg entry $idx") if (not defined($addr) or not defined($size));
-> +
-> +printf("0x%016x\n", $addr);
-> -- 
-> 2.34.1
+> I don't get arguments there. The policy is one ARCH per vendor, so why
+> exactly upstream would like to "having more granular control with
+> separate"? That's downstream or vendor wishlist, not upstream.
 > 
 > 
+> Best regards,
+> Krzysztof
+
+The out-of-tree defconfig impact is minimal for us. As Conor mentioned, lan969x
+was added fairly recently, so the number of affected users should be small.
+
+/Daniel
 
