@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5818FEFB71
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E56BFEFB71
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9nRzxnmWYgMPVFtQx2XVpeJqUmdpkXYN9Eewjzp8aMA=; b=uq8cyOV7E0BIAByF17ikSq77tS
-	wEGmyxJFlSEyEl+qT/K/AUnkRVpKjlACqCWaUPoPZ5RHUfeQh3EeYZS+CZJPHzCasbrExtUDJESQM
-	waQRbNCGHPhoIUExHiaCFvsr6P6/NKocStepEkKDs5bFk4uWPNNYJtZqLKZNkdGZmJYRjesYEQjra
-	qvYlRAs6TanX6SythgGKg9nDL9JvX6P4YPE0nXUMTqC+Rqe8FJpcccSHH3Jx84QGVghRpVkKTLaRZ
-	z41Sa0sJJGs0DHk06sPvQv9IBVoj+uj2TRHpvzzvBtr87DB4aQITXPNMBDcvJbOAeLK8Y8kPqr1u7
-	i0qQkeBw==;
+	bh=wLLZ0paeq/fuklwkgre95bDIsXxSXmcW8nRTjbuWQeo=; b=AVRwF/V6FRLdWeROPUAVbAYnV5
+	onMNsTJZg3nypJNrRe+ojYhlVbWgTjLIdnXnDabwXD93dEJF6hDaQ0rpeziwyQKsr2WtJ24K402ty
+	P080cYPf+j2y+qjAX9q4B8zXwGSVjLkL3Smaq1YlE1KHGGFibAQXRxNGSmlD1JTYlzFS3HFOeCIMe
+	HR5tGvsWBXyPClI4+4b7ZoOWyFVtGZqLxOndO9oa4ro8LpO8wYI2mzXkBam+7Ib7hiLfHICTBHLiW
+	7R2O9PdJ3Bonl9qknCXkW1V46tnHGqI1lWJpw81X4AcL+FHbR28SI/U3gTCoQpR2epbp5HUG5a0UT
+	9dyajbsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw1il-00000008oRU-34ky;
-	Fri, 27 Feb 2026 17:33:47 +0000
-Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
+	id 1vw1jY-00000008oXu-1PEK;
+	Fri, 27 Feb 2026 17:34:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw1ii-00000008oR3-2ezv;
-	Fri, 27 Feb 2026 17:33:46 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 34804409ED;
-	Fri, 27 Feb 2026 18:33:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1772213617; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=9nRzxnmWYgMPVFtQx2XVpeJqUmdpkXYN9Eewjzp8aMA=;
-	b=mguHE65Tbr2E+4X++ibyA1XSdCnDsqHtrd5cTbbJsgZVLIo6PbmvbiX6kvzMG1PHI19QLe
-	ut4QGvB32ssqbGy0vqGQy/aZb6VpUPvLLuFu3j0jwzi+/hexiu9ICieQTuRZPj9OtfkeHg
-	Q8uioD5PTYM1H/W3xD+JH4g3094udc3vs5f3R/ou11t5osMgo1tr70w0gh1xLJYzyERyJW
-	KIxPgGPQ/OpSnaZgRs49FzNFV/0T9AOJo3fmolIptKXyi5Hyg5iVV5SKP//4NC+mFKIZTU
-	uJ4ITsYZYixWCAKha3ySetXHIYVvpHiLqQDWGQqRe7UJgPt4440ZBRnmopPMDg==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <9e3754ee0d1f5bc8051e28e1a5b8c046440456f5.1772169998.git.geraldogabriel@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-References: <cover.1772169998.git.geraldogabriel@gmail.com> <9e3754ee0d1f5bc8051e28e1a5b8c046440456f5.1772169998.git.geraldogabriel@gmail.com>
-Date: Fri, 27 Feb 2026 18:33:34 +0100
-Cc: "Shawn Lin" <shawn.lin@rock-chips.com>, "Lorenzo Pieralisi" <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-To: "Geraldo Nascimento" <geraldogabriel@gmail.com>
+	id 1vw1jW-00000008oXi-3Rbv
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Feb 2026 17:34:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DE15060008;
+	Fri, 27 Feb 2026 17:34:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 914E7C116C6;
+	Fri, 27 Feb 2026 17:34:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772213673;
+	bh=wLLZ0paeq/fuklwkgre95bDIsXxSXmcW8nRTjbuWQeo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NmKonAu16sV2qROCRaEfTBOM8soKfnF3oHOGYJbtHesaQWKHc4PqAyJv6LS7FoYT+
+	 2b/QxaK2poGNykK4Y2euG1nfibvmqWKodofpNWnPvg52G8cVPQB2qHg/QUSM2F/OWl
+	 k4m9wPpep7+3jbcDOcygTAYF1fc+ANO0AF7GSFz4ozOTsosn797/++6Zp35vSKzpyL
+	 TlyYIzor4GYXinpNn/UnYdCHuG5kGydJWrLUwlRDk+tgLi+f/rWegVm3q2Y0He1kOe
+	 NvZMp3zH+k8OvhxGA/KvhC9Vc95G++TgbxHwaabOf4dI0crG83x5zeMxJdhR3c3Pwj
+	 E1bqfGxURVg2w==
+Date: Fri, 27 Feb 2026 17:34:29 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Akhila YS <akhilayalmati@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 5/5] dt-bindings: arm: atmel,at91rm9200-sdramc:
+ convert to DT schema
+Message-ID: <20260227-consonant-marbled-f6b1d09afb40@spud>
+References: <20260227-arm-microchip-v4-0-7e2ae1c5b5d6@gmail.com>
+ <20260227-arm-microchip-v4-5-7e2ae1c5b5d6@gmail.com>
 MIME-Version: 1.0
-Message-ID: <b44e454e-f98b-4505-5603-bfc4455d11b9@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH v4 2/4] =?utf-8?q?PCI=3A?==?utf-8?q?_rockchip=3A?= 
- drive at =?utf-8?q?2=2E5?= GT/s only and error out other speeds
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_093345_102015_0ADF800F 
-X-CRM114-Status: GOOD (  20.87  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fmUJDYSH5bgLM2lG"
+Content-Disposition: inline
+In-Reply-To: <20260227-arm-microchip-v4-5-7e2ae1c5b5d6@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,94 +76,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Geraldo,
 
-On Friday, February 27, 2026 06:36 CET, Geraldo Nascimento <geraldogabr=
-iel@gmail.com> wrote:
-> Configure the core to be driven at 2.5 GT/s Link Speed and error
-> out on any other speed. The reason is that Shawn Lin from Rockchip
-> has reiterated that there may be danger of "catastrophic failure"
-> in using their PCIe with 5.0 GT/s speeds.
->=20
-> While Rockchip has done so informally without issuing a proper
-> errata, and the particulars are thus unknown, this may cause
-> data loss or worse.
->=20
-> This change is corroborated by RK3399 official datasheet [1], which
-> states maximum link speed for this platform is 2.5 GT/s.
->=20
-> [1] https://opensource.rock-chips.com/images/d/d7/Rockchip=5FRK3399=5F=
-Datasheet=5FV2.1-20200323.pdf
->=20
-> Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC dri=
-ver")
-> Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21=
-b@rock-chips.com/
-> Cc: stable@vger.kernel.org
-> Reported-by: Dragan Simic <dsimic@manjaro.org>
-> Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
-> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> ---
->  drivers/pci/controller/pcie-rockchip.c | 13 +++++--------
->  1 file changed, 5 insertions(+), 8 deletions(-)
->=20
-> diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/con=
-troller/pcie-rockchip.c
-> index 0f88da378805..26fc350a66c1 100644
-> --- a/drivers/pci/controller/pcie-rockchip.c
-> +++ b/drivers/pci/controller/pcie-rockchip.c
-> @@ -66,8 +66,9 @@ int rockchip=5Fpcie=5Fparse=5Fdt(struct rockchip=5F=
-pcie *rockchip)
->  	}
-> =20
->  	rockchip->link=5Fgen =3D of=5Fpci=5Fget=5Fmax=5Flink=5Fspeed(node);
-> -	if (rockchip->link=5Fgen < 0 || rockchip->link=5Fgen > 2)
-> -		rockchip->link=5Fgen =3D 2;
-> +	if (rockchip->link=5Fgen < 0 || rockchip->link=5Fgen >=3D 2)
-> +		return dev=5Ferr=5Fprobe(dev, rockchip->link=5Fgen,
-> +				     "Invalid Link Speed\n");
+--fmUJDYSH5bgLM2lG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I'm quite surprised to see what happened here in the v4?  The changes
-introduced in this diff block in the v3 were perfectly fine, i.e. we ne=
-ed
-to correct any runtime occurrences of Gen2 speed setting in the rockchi=
-p=5F
-pcie=5Fparse=5Fdt() function, together with emitting a warning that urg=
-es
-the users and the board dtb maintainer to fix the board dtb.  I'll get
-back to this below.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
->  	for (i =3D 0; i < ROCKCHIP=5FNUM=5FPM=5FRSTS; i++)
->  		rockchip->pm=5Frsts[i].id =3D rockchip=5Fpci=5Fpm=5Frsts[i];
-> @@ -147,12 +148,8 @@ int rockchip=5Fpcie=5Finit=5Fport(struct rockchi=
-p=5Fpcie *rockchip)
->  		goto err=5Fexit=5Fphy;
->  	}
-> =20
-> -	if (rockchip->link=5Fgen =3D=3D 2)
-> -		rockchip=5Fpcie=5Fwrite(rockchip, PCIE=5FCLIENT=5FGEN=5FSEL=5F2,
-> -				    PCIE=5FCLIENT=5FCONFIG);
-> -	else
-> -		rockchip=5Fpcie=5Fwrite(rockchip, PCIE=5FCLIENT=5FGEN=5FSEL=5F1,
-> -				    PCIE=5FCLIENT=5FCONFIG);
-> +	rockchip=5Fpcie=5Fwrite(rockchip, PCIE=5FCLIENT=5FGEN=5FSEL=5F1,
-> +			    PCIE=5FCLIENT=5FCONFIG);
-> =20
->  	regs =3D PCIE=5FCLIENT=5FARI=5FENABLE |
->  	       PCIE=5FCLIENT=5FCONF=5FLANE=5FNUM(rockchip->lanes);
+--fmUJDYSH5bgLM2lG
+Content-Type: application/pgp-signature; name="signature.asc"
 
-At this point we need to check and bail out if no longer supported Gen2
-speed setting is received, which also applies to the appropriate spot i=
-n
-the PCIe endpoint driver.
+-----BEGIN PGP SIGNATURE-----
 
-To clarify, it's the responsibility of the rockchip=5Fpcie=5Fparse=5Fdt=
-()
-function to validate and possibly correct the speed setting, because it
-is what receives that setting as a value from the board dtb, while the
-consumers of that validated speed setting should check it, to make sure
-the speed is right because they no longer can handle requests for Gen2
-speed, and simply bail out if the received speed isn't right, i.e. if
-it differs from Gen1.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaHVpQAKCRB4tDGHoIJi
+0jk3AP9tCw061KSaSLckgp/Nwi4l4L4Rz0Oq2E71WmBk5v5SVQEAps3quoV60bby
+9R41LAb5a1fUS/C/24CRTHMJ8yNQAQc=
+=/S6e
+-----END PGP SIGNATURE-----
 
+--fmUJDYSH5bgLM2lG--
 
