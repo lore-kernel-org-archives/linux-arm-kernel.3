@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DC1FEFB6C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC3F8FEFB6C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 15:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=raohb+OnpA+Nei7LomVrzYabDf87CTd9ehaOWBdgJGk=; b=a2Txz1+ZA8brJyceHcKccGuXFv
-	6/jYQm4dN7iEVpZ45XW3pvCAx972Ov9P+y0ifTRWWHcQlauNxWvfHiygY4RoQsTpykBDxu8iiHFB8
-	/veGbjeYfz4doKUO+IwtVFTJZAh+buTbSVjeS2I0esf3n1UtL5OtPPCQCoTcnvt4Oi1cQ+b0B00LI
-	TzoY5vIkBsCPd20IBSv1Ptshm/q/j6AoArvDxi9QjtXfPlwXLKhpPZ6Eo09Uf6mxojrE5TApydmpe
-	kknsSAm+8dMENvxwTE1I0QpK7m+5y0OZk72RROrqa5C0x13CbJx/iYN5ve36nu9BJ9Q7xaUBoE9lq
-	St/w1h+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1kwbnfNOHC2589geLnERLCn6Au69Eq2BR8V45ix5tXE=; b=OC+KnZSbnoVomq1/ZqYGURGnt/
+	p7UChAMPoKRvFsLfw+3XF0XSyXo7kwTChXsyI90/3u0dwcsOdULgSg54ymlqssJyQdM/CLwjaibp2
+	szG0SEtDJbi8oxrDYqnZT4DyWiKNwoybTplQWZUofE71Ipkr7+ihjTEjSva3AP+DGyrj7rixunnrL
+	02kLRGV2cA+eXoGLE1sfcwwlC4jzE2X6J8ZXzKeXXl68xGVd7DcjHTHMeSHP4COkWu7tqZTnwAATJ
+	tNtOapR7EHETFm98ZTG0EuzyaWqpI8GH2FQQMIcgak3c3Idxw6TJtZ0H4/6T6x/r4R+3XdqM1vuvY
+	sFplgLAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw091-00000008ggN-2OBh;
-	Fri, 27 Feb 2026 15:52:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vw0EF-00000008h32-38rn;
+	Fri, 27 Feb 2026 15:58:11 +0000
+Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw090-00000008gfk-0oBC;
-	Fri, 27 Feb 2026 15:52:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=raohb+OnpA+Nei7LomVrzYabDf87CTd9ehaOWBdgJGk=; b=KWbdtUACEoJhhrzLJoDNJ0Oo2v
-	HB5JAi9y1HLdg/8b7J4y3fLGQHM1scsnQxcekx7mp9jTLzwSxIW5aq9nRhzOZnagMJAbJPdxYnfNM
-	CBiTC7XMKiX/jl+fmh/9/FmbdL2AVxwTYwXmroqJB6jqaPR6vo0bfs/bheuxSmlKp2s0TkE/lJhZ9
-	6Aatt9a+mHZAT2biNZXh8BFr8qCoGv4ZEBOEPGjiMZHBSVVNlKqrWwc5DpB4tejW6hMy1MkD3IS+t
-	JEuiGwjOgg27YtnzYzAUtVc2Un8H9mmqZ0hKdvPvu0dG3Q6Rum3fXQbRI5A8Xzk69Tn2R+PraE4xz
-	bGgpvBCg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw08v-0000000DQnG-3Iou;
-	Fri, 27 Feb 2026 15:52:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 452A743810;
-	Fri, 27 Feb 2026 15:52:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99433C116C6;
-	Fri, 27 Feb 2026 15:52:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772207557;
-	bh=f45vMFSM+cbg6BIT4gb2mHHhAB+82XYmdtpsZXu6y8o=;
-	h=From:Date:Subject:To:Cc:From;
-	b=dSX/yAbKDT8GYcoF0V1ZeVPeKXrr0so50mXacVtvjae0z/HUWE9Y4I+ZhJ15axeCP
-	 CVy54CH2evuDnlgWVBovzdakTvHnRJxAU8Evddu2bEDsiVl5TMEiPhH9AxL8JXrlm8
-	 AmzODyD4VePSTvldhpvxhQm+b0lU+hPoSeaxEOzyoLbBMHz6eRQLUuzrvu5DheJzLk
-	 2SLngo8gA/P1BGNCsEf6H54wDk/8yP+qL/3MMJRBo0dbGl0vss3LNiQhEJAsOHhp9H
-	 Q2zCZmCIBFptge0BnKYDyZRIq3bWOE42PyROuuRzyFcSM6NRRb/SRY8plxzJwp97Q3
-	 hNp4rXoowxN0g==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 27 Feb 2026 16:52:11 +0100
-Subject: [PATCH net] net: ethernet: mtk_eth_soc: Reset prog ptr to NULL in
- case of error in mtk_xdp_setup()
+	id 1vw0ED-00000008h2h-1ISL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Feb 2026 15:58:10 +0000
+Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-2ba895adfeaso2114268eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 07:58:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772207888; x=1772812688; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1kwbnfNOHC2589geLnERLCn6Au69Eq2BR8V45ix5tXE=;
+        b=fTRDsEejjmyLIcAQt/uHeUmi9pHk5eBsIz6L3Mrdn4vecYx3kgpUY0+aJbFlgkGJup
+         OyVg43VMPNcWvHqjwczZGCNCVK52l5u6yjAeQ4C4+rwQ5aWnNV+UrImmIa5xAj7bg+lc
+         ieD65W2u8FRk60FLv1hGx7ja+z0e0pcjEV0/zv+t1M/uLmzizeQ5k8Oq3fm22nRW8tXg
+         5xX/WEx91hwfdIJYv7Pt+YHR//sdsP3yrdmvKAKBuddnMTc6JE07Z5CqFa7utZ2YEv0u
+         K+nUop63+gqFxU/0RSmF25xf1L+fF1+NqPXSDnYzpBIXll3XeSCBUjPUalxDSVePmtIX
+         2vfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772207888; x=1772812688;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1kwbnfNOHC2589geLnERLCn6Au69Eq2BR8V45ix5tXE=;
+        b=geTv9+SV0oER/pEz0RwpdMg/pz/gAwNufaYJ1JFSarlHptx/Kd6QnNSllcqmi7d9Mo
+         7PTN0UUHbJjkIxssazA1rw2EnYO6tUW6+KT0sLc79kdFieHNH+Pv0LZPVwvh17TQoOko
+         iOgPKXJKc3Jg1Y5e29Zk+6IXAE8JPTiX03phZOQgwV2ywPAIIGgC2mZqo/DmaPLTSxam
+         bItKPzvZl0TMCxp6TEZJVqehl1estGFj8tHYejWWI+39JHDkzxCbwG3N1pSK9uavV8DM
+         XrHTwi74B544Gsrju601KgLe4fZw1Jm0xI6tul+vLuyP4eq+5E3ZfpQxb5OuI0vReGDS
+         UN7w==
+X-Forwarded-Encrypted: i=1; AJvYcCU4VxX/VaxFRDliDjmzuyr9OViOkzTyPhzFbiWxmmpJbrCWnPpdqgkLLuT+TcG0rxaZMBsHxKWuqJuPUr4MvJoA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzG3ZrFEuTAd2CNNxK/+EMH7UzwrGtGRtfy1E6EzHXn91lvEgVa
+	MkESiMgW40ukcbgFnpEFF2i0Mr6hsS7Q8waepPmJNFqSvczJTYSl6dx0
+X-Gm-Gg: ATEYQzzUqhdEuiZY2Nooatwmlve8RbwzehxI+61nvqWiDmqt6PqHiMR/4bep/IKQUZ2
+	kN1oGyfRU4zFUe4HUJdIuke/4PUrF0T8y4fplA2IyzXBrA+7281M2lMhk6D7x1bdRf7hl2NS78j
+	VAangPjuLYaukbhJjwYdq9Xs15H+lkM51GKhkz7TiNuq3Q7NhPnW4g5LGNU6lPM0itlxwqdTIzW
+	7UCwd3i4sOcI9qYuXrkdnLBlQChua0KDQLHUq5cyd6zPHkfha/WOfCrbj28TiQolkfeGqtr6k23
+	AKvnILjxtLJ9IONE3oGDrZgUzKNNEZmDaY12zsmuHWCsAvOPIqk946hAxBh07CkMMF15B0orcJW
+	eODJ585IleC3AmjfvuqSBR6t1r+7a9nvykZZmvzEiQZT8BnDT7rfuVy40/s/KbOQz2rEwKD4MSW
+	5ZafBAR1VfeYxvL95qcDx2rN71vjD9d9K+dzVc0ZwHBixkdeCiCTsEvhVy2laj4aYAJ6q9lcoe
+X-Received: by 2002:a05:693c:290d:b0:2bd:d04c:a433 with SMTP id 5a478bee46e88-2bde1c94f64mr1123968eec.15.1772207888214;
+        Fri, 27 Feb 2026 07:58:08 -0800 (PST)
+Received: from arch.localdomain ([149.34.251.245])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bdd1cf0115sm3833508eec.8.2026.02.27.07.58.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Feb 2026 07:58:07 -0800 (PST)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	mripard@kernel.org,
+	Jun Yan <jerrysteve1101@gmail.com>
+Subject: [PATCH v2 0/3] board: sunxi: Add TaiqiCat (TQC) A01
+Date: Fri, 27 Feb 2026 23:57:57 +0800
+Message-ID: <20260227155801.211376-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260227-mtk-xdp-prog-ptr-fix-v1-1-b73d7588b645@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBAAvxJ7bqGEivpKdDBbbYlMVolA+nvSc
- QZmMkQSpghTlUHo5siXL9DWFZhde0fIW2FQjeobpQY804HPFjDI5TAkQcsPatuN62gMDauGkga
- hov/tDJ4SLO/7ATjD46ZrAAAA
-X-Change-ID: 20260227-mtk-xdp-prog-ptr-fix-af59b9cce7ba
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Stanislav Fomichev <sdf@fomichev.me>
-Cc: Paolo Valerio <pvalerio@redhat.com>, netdev@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- bpf@vger.kernel.org, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_155242_639866_C431DFB5 
-X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-CacheID: sfid-20260227_075809_348013_8806E5D6 
+X-CRM114-Status: UNSURE (   9.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,46 +105,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reset eBPF prog pointer to NULL if mtk_open routine in mtk_xdp_setup()
-fails.
+This series adds support for the TaiqiCat (TQC) A01 — 
+a set-top box based on the Allwinner H6 SoC. 
+Originally released by Ultrapower(UQSoft) as a blockchain terminal, 
+the device has been discontinued and is no longer officially
+supported.
+  
+  https://web.archive.org/web/20190409213228/https://tq.ultrapower.com.cn/product.html
 
-Fixes: 7c26c20da5d42 ("net: ethernet: mtk_eth_soc: add basic XDP support")
-Suggested-by: Paolo Valerio <pvalerio@redhat.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+Jun Yan (3):
+  dt-bindings: vendor-prefixes: Add Beijing Ultrapower Software Co.,
+    Ltd.
+  dt-bindings: arm: sunxi: Add TaiqiCat (TQC) A01
+  arm64: dts: allwinner: h6: Add TaiqiCat (TQC) A01 support
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index e5e2ffa9c542bfc88dc0d7553d0a6b2a169ec74b..e199f2e243d21f3545e8282ab821135e0962f5c3 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -3751,8 +3751,16 @@ static int mtk_xdp_setup(struct net_device *dev, struct bpf_prog *prog,
- 	if (old_prog)
- 		bpf_prog_put(old_prog);
- 
--	if (netif_running(dev) && need_update)
--		return mtk_open(dev);
-+	if (netif_running(dev) && need_update) {
-+		int err;
-+
-+		err = mtk_open(dev);
-+		if (err) {
-+			rcu_assign_pointer(eth->prog, NULL);
-+
-+			return err;
-+		}
-+	}
- 
- 	return 0;
- }
+ .../devicetree/bindings/arm/sunxi.yaml        |   5 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+ .../dts/allwinner/sun50i-h6-taiqicat-a01.dts  | 361 ++++++++++++++++++
+ 4 files changed, 369 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.dts
 
----
-base-commit: fd6dad4e1ae296b67b87291256878a58dad36c93
-change-id: 20260227-mtk-xdp-prog-ptr-fix-af59b9cce7ba
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.53.0
 
 
