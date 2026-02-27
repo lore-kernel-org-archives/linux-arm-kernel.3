@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EC8FD5312
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 08:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46274FD530E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3USc2QfZCgPyXVGMQZO0u6aGgfjPZSd55Ii4xffhPPo=; b=1kOXM9ow6Va9LXGNwKcnd38j/R
-	k/sy2McGPZrfKaMM4qZUtcmLAhW0Kv60HBklYAM5khcAHND/XazrjIKUUgFsIkxXwDtGFFPQmhjNj
-	j2K6k7HR10JHvztd1tf62L94eE+led8hS5G6GPnzViAOeKgXlGKA5JWeR6ULc9LnUJTpzeOBS+BE7
-	+0aXsv5Epa08wF2RU7RybcqOaOip/2mFNhJ++pFnwerqoSDH53VffzFSFU9DxC/jjR0JUvOOMfEi5
-	WdY+EvBtXJuf7spPot0AA/JxtqJOvLSNlrsFBUO5gixKC7wdM9EBle5GpN7unA75n8syAVNAZq5i5
-	DsNtkoeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iCg2Zxvo6acA2Yw2ZIYWtwivAjVjBS6a9BEhToze71Q=; b=Wp2tYsx3h32O0RZSemZ9nMYoxH
+	ORCVCxp24rAqhvdNQoVUVQgUCiEodEdJkmK1JJnOU1Rei3GoRW6822n7WFT4rL/8xgqFT5/6/yM2h
+	+eEt8BiW4Uz7jQI4ov0wbezn5TQvz3dSzrS7Fl83OmPTiNMRckZe33KnTVq2Of75TrpD6zSqGTCmP
+	OCuNhMNvlOvsYylobWihgOUxdNm64YPWlzrIPZ0wv2pNf9hEMLgqaqj+z6voTQWkSaxL+NSs+RdKi
+	210qvOw5iKr5t+JXYx6pqJz6+rtzQXuyxywU3x7XLNrlJ3LxHLKjnn3dnR8qzqBbyxOFz59v2wPAo
+	ZoB2Udug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvtgj-000000082bI-0ISe;
-	Fri, 27 Feb 2026 08:59:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvtkH-000000082wi-2yfJ;
+	Fri, 27 Feb 2026 09:02:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvtgh-000000082au-41ZZ;
-	Fri, 27 Feb 2026 08:59:08 +0000
+	id 1vvtkE-000000082vf-2upu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Feb 2026 09:02:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 177D16013F;
-	Fri, 27 Feb 2026 08:59:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3918C2BCB0;
-	Fri, 27 Feb 2026 08:59:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 857BE43D96
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 09:02:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E8FAC2BC87
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 09:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772182746;
-	bh=VzY/ze97VjQJB6pusfmZwjsA+pOGa2Ehm/PhEEoeuXo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JAEhKUUK1BXG9J99lnYRvccU7OFWmcACPC8G9rjuzLEiFAB2pFKgNDr54l7D9w7aY
-	 xSx557fMzTqXOTN8Kd/9smGEiItjVaMfSsC/FVg+l0Ja7O5Y5AFFDboPmD3blrTLBc
-	 qCpF0Whlvi8V/CSgBZSgfiu2Wu+JrwNu+N6eY65JcwI3csJVwuRyHs/glM0nZ0lbRv
-	 1WyAUrwiutxoCbarTjTNR2oXy2mPIL5AwjVCagk1Hpn5C+PSAovHSd+tXGxkLdH9ju
-	 ePuzH2Ur7TfopAXlAuB1pO5xVPa1dQecHrZr/EP44S+wpOCuPcj249WAdenNAENoJ+
-	 vi95mzuN0VLqg==
-Received: from johan by xi.lan with local (Exim 4.98.2)
-	(envelope-from <johan@kernel.org>)
-	id 1vvtg3-000000001ZV-3EUL;
-	Fri, 27 Feb 2026 09:58:27 +0100
-Date: Fri, 27 Feb 2026 09:58:27 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-media@vger.kernel.org
-Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
- printk helpers
-Message-ID: <aaFcs1miP88QWmtH@hovoldconsulting.com>
-References: <20260223-i2c-printk-helpers-v2-0-13b2a97762af@oss.qualcomm.com>
+	s=k20201202; t=1772182965;
+	bh=iCg2Zxvo6acA2Yw2ZIYWtwivAjVjBS6a9BEhToze71Q=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=k4qi1EZfRw2heqQivANaFL/LcTxGSYUAL8eWKO4G9HW4qJSVHMEryLEU1uC3nbHNP
+	 dr70uzD3S/CL9agrWWYWZ/8NFND6InWIm/yglWWLPfSKcxVM7zZr2z57vs11kFQE0T
+	 WdunP7/XZrWvda/guiWKsYE+tXtScAY0ZfoP2Yu+N/6Up+3QuoBC1Lzaow0B7bn3Sa
+	 BkS6o+Esa0DruWvzvXa4sdzl2Z7yrTQbvk+BZV1baXrNFlCIIuHvHQlYYNay6M5b6C
+	 1e9/ymLJXDQN8F+AduEpqIsKmOfNBjJPtfwabkA5asOseA5AIJraB2+QTIW6vF2b+R
+	 +ik24v2kk5M9Q==
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-7982c3b7dfcso17991597b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 01:02:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUHdALhHljBc7oCYiDl/ul0ehCPBSa6XcqyrVW3QVMPJRg/qoWkff9IvRhx1EsNsZzURQA8lRJvEu0B9xdh9q9H@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRf8KLi5b1qL7NO9Y4joIDXyab46v8cRNn+Qh4L5cfmawzCi4u
+	HdyJj+pN8YqSJO6miUAz1mFfR2szI32WkPrh17KZ1Q7c/DQfYA4lMDfVbnr3oSFs2o09waUK6hy
+	WJsPAPFOFoDxjK2eAauAWeNxXJNa2Jx4=
+X-Received: by 2002:a05:690c:60c5:b0:796:3c39:eb96 with SMTP id
+ 00721157ae682-79885467a49mr18074887b3.13.1772182964670; Fri, 27 Feb 2026
+ 01:02:44 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260223-i2c-printk-helpers-v2-0-13b2a97762af@oss.qualcomm.com>
+References: <20260225-pinctrl-mux-v2-0-1436a25fa454@nxp.com> <20260225-pinctrl-mux-v2-2-1436a25fa454@nxp.com>
+In-Reply-To: <20260225-pinctrl-mux-v2-2-1436a25fa454@nxp.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 27 Feb 2026 10:02:33 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=DXqRaqaiQ6d9U5pZMy5E16quma3_C_yQUw2jStmSO6Q@mail.gmail.com>
+X-Gm-Features: AaiRm51E612-p9CExYKxT8Z14vh3Cki1CVedgmDy7Sz7aZn6k_WzumQSUtTh2J4
+Message-ID: <CAD++jL=DXqRaqaiQ6d9U5pZMy5E16quma3_C_yQUw2jStmSO6Q@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] dt-bindings: pinctrl: Add generic pinctrl for
+ board-level mux chips
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_010246_804173_39839EBD 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +88,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 09:59:29AM +0100, Bartosz Golaszewski wrote:
-> It's been another year of discussing the object life-time problems at
-> conferences. I2C is one of the offenders and its problems are more
-> complex than those of some other subsystems. It seems the revocable[1]
-> API may make its way into the kernel this year but even with it in
-> place, I2C won't be able to use it as there's currently nothing to
-> *revoke*. The struct device is embedded within the i2c_adapter struct
-> whose lifetime is tied to the provider device being bound to its driver.
-> 
-> Fixing this won't be fast and easy but nothing's going to happen if we
-> don't start chipping away at it. The ultimate goal in order to be able
-> to use an SRCU-based solution (revocable or otherwise) is to convert the
-> embedded struct device in struct i2c_adapter into an __rcu pointer that
-> can be *revoked*. To that end we need to hide all dereferences of
-> adap->dev in drivers.
-
-Again, this is not the way to do this. You don't need to wrap every
-access to struct device in random subsystem specific helpers to address
-the lifetime issues. You're just creating a big mess here for no good
-reason.
-
-I asked you to show where you think you're going with this because none
-of this looks right. Same comment applies to your other series.
-
-Wolfram, I noticed you merged these last night. Please think again and
-let's discuss the end result here. There's no question that there are
-lifetime issues in i2c, but this is not the way to solve it.
-
-Johan
+T24gVGh1LCBGZWIgMjYsIDIwMjYgYXQgMTI6NTXigK9BTSBGcmFuayBMaSA8RnJhbmsuTGlAbnhw
+LmNvbT4gd3JvdGU6DQoNCj4gQWRkIGEgZ2VuZXJpYyBwaW5jdHJsIGJpbmRpbmcgZm9yIGJvYXJk
+LWxldmVsIHBpbm11eCBjaGlwcyB0aGF0IGFyZQ0KPiBjb250cm9sbGVkIHRocm91Z2ggdGhlIG11
+bHRpcGxleGVyIHN1YnN5c3RlbS4NCj4NCj4gT24gc29tZSBib2FyZHMsIGVzcGVjaWFsbHkgZGV2
+ZWxvcG1lbnQgYm9hcmRzLCBleHRlcm5hbCBtdXggY2hpcHMgYXJlIHVzZWQNCj4gdG8gc3dpdGNo
+IFNvQyBzaWduYWxzIGJldHdlZW4gZGlmZmVyZW50IHBlcmlwaGVyYWxzIChlLmcuIE1NQyBhbmQg
+VUFSVCkuDQo+IFRoZSBtdXggc2VsZWN0IGxpbmVzIGFyZSBvZnRlbiBkcml2ZW4gYnkgYSBHUElP
+IGV4cGFuZGVyIG92ZXIgSTJDLA0KPiBhcyBpbGx1c3RyYXRlZCBiZWxvdzoNCj4NCj4gICAgICAg
+ICDilIzilIDilIDilIDilIDilIDilIDilJAgICAgICDilIzilIDilIDilIDilIDilIDilJANCj4g
+ICAgICAgICDilIIgU09DICDilIIgICAgICDilIIgICAgIOKUgiAgICDilIzilIDilIDilIDilIDi
+lIDilIDilIDilJANCj4gICAgICAgICDilIIgICAgICDilIIgICAgICDilIIgICAgIOKUguKUgOKU
+gOKUgOKWuuKUgiBNTUMgICDilIINCj4gICAgICAgICDilIIgICAgICDilIIgICAgICDilIIgTVVY
+IOKUgiAgICDilJTilIDilIDilIDilIDilIDilIDilIDilJgNCj4gICAgICAgICDilIIgICAgICDi
+lJzilIDilIDilIDilIDilIDilrrilIIgICAgIOKUgiAgICDilIzilIDilIDilIDilIDilIDilIDi
+lIDilJANCj4gICAgICAgICDilIIgICAgICDilIIgICAgICDilIIgICAgIOKUguKUgOKUgOKUgOKW
+uuKUgiBVQVJUICDilIINCj4gICAgICAgICDilIIgICAgICDilIIgICAgICDilJTilIDilIDilIDi
+lIDilIDilJggICAg4pSU4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSYDQo+ICAgICAgICAg4pSCICAg
+ICAg4pSCICAgICAgICAg4payDQo+ICAgICAgICAg4pSCICAgICAg4pSCICAgIOKUjOKUgOKUgOKU
+gOKUgOKUtOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUkA0KPiAg
+ICAgICAgIOKUgiBJMkMgIOKUnOKUgOKUgOKUgOKWuuKUgiBHUElPIEV4cGFuZGVyICAgICDilIIN
+Cj4gICAgICAgICDilJTilIDilIDilIDilIDilIDilIDilJggICAg4pSU4pSA4pSA4pSA4pSA4pSA
+4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSYDQo+DQo+IFRyYWRp
+dGlvbmFsbHksIGdwaW8taG9nIGlzIHVzZWQgdG8gY29uZmlndXJlIHRoZSBvbmJvYXJkIG11eCBh
+dCBib290Lg0KPiBIb3dldmVyLCB0aGUgR1BJTyBleHBhbmRlciBtYXkgcHJvYmUgbGF0ZXIgdGhh
+biBjb25zdW1lciBkZXZpY2VzIHN1Y2ggYXMNCj4gTU1DLiBBcyBhIHJlc3VsdCwgdGhlIE1VWCBt
+aWdodCBub3QgYmUgY29uZmlndXJlZCB3aGVuIHRoZSBwZXJpcGhlcmFsDQo+IGRyaXZlciBwcm9i
+ZXMsIGxlYWRpbmcgdG8gaW5pdGlhbGl6YXRpb24gZmFpbHVyZXMgb3IgZGF0YSB0cmFuc2ZlciBl
+cnJvcnMuDQo+DQo+IEludHJvZHVjZSBhIGdlbmVyaWMgcGluY3RybCBiaW5kaW5nIHRoYXQgbW9k
+ZWxzIHRoZSBib2FyZC1sZXZlbCBNVVggYXMgYQ0KPiBwaW4gY29udHJvbCBwcm92aWRlciBhbmQg
+YnVpbGRzIHByb3BlciBkZXZpY2UgbGlua3MgYmV0d2VlbiB0aGUgTVVYLCBpdHMNCj4gR1BJTyBj
+b250cm9sbGVyLCBhbmQgcGVyaXBoZXJhbCBkZXZpY2VzLiBUaGlzIGVuc3VyZXMgY29ycmVjdCBw
+cm9iZQ0KPiBvcmRlcmluZyBhbmQgcmVsaWFibGUgbXV4IGNvbmZpZ3VyYXRpb24uDQo+DQo+IFRo
+ZSBpbXBsZW1lbnRhdGlvbiBsZXZlcmFnZXMgdGhlIHN0YW5kYXJkIG11bHRpcGxleGVyIHN1YnN5
+c3RlbSwgd2hpY2gNCj4gcHJvdmlkZXMgYnJvYWQgc3VwcG9ydCBmb3Igb25ib2FyZCBtdXggY29u
+dHJvbGxlcnMgYW5kIGF2b2lkcyB0aGUgbmVlZCBmb3INCj4gcGVyLWRyaXZlciBjdXN0b20gTVVY
+IGhhbmRsaW5nLg0KPg0KPiBBbGxvdyBwaW5jdHJsLSogcGF0dGVybiBhcyBub2RlIG5hbWUgYmVj
+YXVzZSB0aGlzIHBpbmN0cmwgZGV2aWNlIGhhdmUgbm90DQo+IHJlZyBwcm9wZXJ0eS4NCj4NCj4g
+U2lnbmVkLW9mZi1ieTogRnJhbmsgTGkgPEZyYW5rLkxpQG54cC5jb20+DQoNCkkgdGhpbmsgdGhp
+cyBpcyBzbWFydCBhbmQgZWxlZ2FudC4NClJldmlld2VkLWJ5OiBMaW51cyBXYWxsZWlqIDxsaW51
+c3dAa2VybmVsLm9yZz4NCg0KWW91cnMsDQpMaW51cyBXYWxsZWlqDQo=
 
