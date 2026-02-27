@@ -4,74 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC346FEFB6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 16:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12DB8FEFB6A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 16:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7EMUj9J2lzttg45PIgu6IItFeqZqS9pqZ7OM/QVePFo=; b=UwzqawFT/jGSf/OhRz6ejfOlUY
-	1NBO4DtCJQu49NnU+tQqQaH5UKw7MePAbaxqUG253lNtP7WWBsfe998qPdfl+qy2cfHgZQN2bB+Qz
-	ExfaIVP9X2TuUaf8wIjhclUdLj5R5XqGZHANMs8kLBdl6uZM3IfSePBIApuC+B1GSoh3VGPSHUoIJ
-	yvzgTqtXsFOLt2CVI/62Jz/SRrJ+Qfk1KgH2vXI3nyx02IvVA84IoMfdSAExYHtQiQiqUS5RU0Oeh
-	1w6RUqT8qBher8beinmm8aQALyJTA8mji+EodU2B1OcgHgnwRTPdZgE4zz+sLy5aIX+bgN7G/qNFL
-	JEwDiAKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p5rzViaQXwEbukXEcCy+omVQ9a9j49vurXkvPIX/tbc=; b=vO07SRPF3uMnzPJbtvSMamNzHs
+	5T/oIrTZe87Zyw5OZUz+zKSD5gzNNDtCDrLYQD1m/ECJWL8r7dNQkGM5vFoyp8umlv9pkGWeR8hP0
+	t/tVxmrCpZsDnek5gr15paiHOZmZRS8vcvmmY6kuYkWvWUNBlHyNDKMWdFUG2C/SGO3KUzdWQp1Q2
+	DJ1iiKTMYNBOFkJ/8nQXY37AbifcYpUIFjnEsqjyU59ORnr96EjOHfSk68x//i6ePsv8qO1lbR9UW
+	Q7FoGvtUhVfb9PkjWUlsCtc85h4sqcDcAXuxIvnNQxupuFEM734aCEkrEvOmjZzpEJeFXrkqvrtoc
+	ERqtzsWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw0bm-00000008j9R-0mZh;
-	Fri, 27 Feb 2026 16:22:30 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw0bj-00000008j92-2dLl
+	id 1vw0n8-00000008jrR-22lc;
+	Fri, 27 Feb 2026 16:34:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vw0n4-00000008jr5-2wwy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 16:22:29 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C8E6B1A1B7E;
-	Fri, 27 Feb 2026 16:22:22 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 960485FE46;
-	Fri, 27 Feb 2026 16:22:22 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 300941036949A;
-	Fri, 27 Feb 2026 17:22:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772209341; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=7EMUj9J2lzttg45PIgu6IItFeqZqS9pqZ7OM/QVePFo=;
-	b=rswczSH1SlJ3ib4UceTBt2QrNTLqbu4jgZYIpkBLsPk28uhMaBBr0lmoF630EXDn/cVVad
-	Rj2a59zPf4cPE1o332uykUPvr1hND4ki0kPYpG8gMA3ZQO3F3A7kXF4/eQOuEKXZilBpdl
-	S3WocPtJBzBp3nB7Mimj0wSrQUCSctSFx+J4pwHmabJxlKopj52QuZ+w8saELtVeCmwofs
-	yfSnU+1p+9eB5NAJxsoc8SGems/k7hkq1xmWhDHo+A/hR2ZbEeDwkN52yRShCiOZUOPTfI
-	lWtYs/QmnzjrL293Im+XZRxo05cW2I+QXfB9Kr27Ihq4lx7BatRM+DxCcbexpQ==
-Message-ID: <b64c6beb-afac-4df0-b687-5ab1e2b4baaf@bootlin.com>
-Date: Fri, 27 Feb 2026 17:22:14 +0100
+	Fri, 27 Feb 2026 16:34:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4EA614BF;
+	Fri, 27 Feb 2026 08:34:01 -0800 (PST)
+Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 305C43F73B;
+	Fri, 27 Feb 2026 08:34:07 -0800 (PST)
+Date: Fri, 27 Feb 2026 16:34:04 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: runtime-const: save one instruction when
+ ARM64_VA_BITS <= 48
+Message-ID: <aaHHfCL4hdV4z9Uo@arm.com>
+References: <20260225144613.30846-1-jszhang@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] pwm: sun50i: Add H616 PWM support
-To: Philipp Zabel <p.zabel@pengutronix.de>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: Paul Kocialkowski <paulk@sys-base.io>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-pwm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260123093322.1327389-1-richard.genoud@bootlin.com>
- <20260123093322.1327389-3-richard.genoud@bootlin.com>
- <2938bcbbb46fdec1fd2629e11c28ce9cf09eee27.camel@pengutronix.de>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <2938bcbbb46fdec1fd2629e11c28ce9cf09eee27.camel@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260225144613.30846-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_082227_822022_1FB8A310 
-X-CRM114-Status: GOOD (  27.61  )
+X-CRM114-CacheID: sfid-20260227_083410_779539_0EEA1910 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,203 +63,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 26/02/2026 à 15:12, Philipp Zabel a écrit :
-> On Fr, 2026-01-23 at 10:33 +0100, Richard Genoud wrote:
->> Add driver for Allwinner H616 PWM controller, supporting up to 6
->> channels.
->> Those channels output can be either a PWM signal output or a clock
->> output, thanks to the bypass.
->>
->> The channels are paired (0/1, 2/3 and 4/5) and each pair has a
->> prescaler/mux/gate.
->> Moreover, each channel has its own prescaler and bypass.
->>
->> The clock provider part of this driver is needed not only because the
->> H616 PWM controller provides also clocks when bypass is enabled, but
->> really because pwm-clock isn't fit to handle all cases here.
->> pwm-clock would work if the 100MHz clock is requested, but if a lower
->> clock is requested (like 24MHz), it will request a 42ns period to the
->> PWM driver which will happily serve, with the 100MHz clock as input a
->> 25MHz frequency and a duty cycle adjustable in the range [0-4]/4,
->> because that is a sane thing to do for a PWM.
->> The information missing is that a real clock is resquested, not a PWM.
->>
->> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
->> ---
->>   drivers/pwm/Kconfig           |  12 +
->>   drivers/pwm/Makefile          |   1 +
->>   drivers/pwm/pwm-sun50i-h616.c | 959 ++++++++++++++++++++++++++++++++++
->>   3 files changed, 972 insertions(+)
->>   create mode 100644 drivers/pwm/pwm-sun50i-h616.c
->>
-> [...]
->> diff --git a/drivers/pwm/pwm-sun50i-h616.c b/drivers/pwm/pwm-sun50i-h616.c
->> new file mode 100644
->> index 000000000000..02a8e2d39f86
->> --- /dev/null
->> +++ b/drivers/pwm/pwm-sun50i-h616.c
->> @@ -0,0 +1,959 @@
-> [...]
->> +static int h616_pwm_init_clocks(struct platform_device *pdev,
->> +				struct h616_pwm_chip *h616chip)
->> +{
->> +	struct clk_pwm_pdata *pdata;
->> +	struct device *dev = &pdev->dev;
->> +	int num_clocks = 0;
->> +	int ret;
->> +
->> +	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
->> +	if (!pdata)
->> +		return dev_err_probe(dev, -ENOMEM,
->> +				     "Failed to allocate clk_pwm_pdata\n");
->> +
->> +	while (pwmcc_data[num_clocks].name)
->> +		num_clocks++;
->> +
->> +	pdata->hw_data = devm_kzalloc(dev, struct_size(pdata->hw_data, hws, num_clocks),
->> +				      GFP_KERNEL);
->> +	if (!pdata->hw_data)
->> +		return dev_err_probe(dev, -ENOMEM,
->> +				     "Failed to allocate hw clocks\n");
->> +
->> +	pdata->hw_data->num = num_clocks;
->> +	pdata->reg = h616chip->base;
->> +
->> +	spin_lock_init(&pdata->lock);
->> +
->> +	for (int i = 0; i < num_clocks; i++) {
->> +		struct clk_hw **hw = &pdata->hw_data->hws[i];
->> +
->> +		ret = h616_add_composite_clk(&pwmcc_data[i], pdata->reg,
->> +					     &pdata->lock, dev, hw);
->> +		if (ret) {
->> +			dev_err_probe(dev, ret,
->> +				      "Failed to register hw clock %s\n",
->> +				      pwmcc_data[i].name);
->> +			for (i--; i >= 0; i--)
->> +				clk_hw_unregister_composite(pdata->hw_data->hws[i]);
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	h616chip->clk_pdata = pdata;
->> +
->> +	return 0;
->> +}
->> +
->> +static int h616_pwm_probe(struct platform_device *pdev)
->> +{
->> +	const struct h616_pwm_data *data;
->> +	struct device *dev = &pdev->dev;
->> +	struct h616_pwm_chip *h616chip;
->> +	struct pwm_chip *chip;
->> +	int ret;
->> +
->> +	data = of_device_get_match_data(dev);
->> +	if (!data)
->> +		return dev_err_probe(dev, -ENODEV,
->> +				     "Missing specific data structure\n");
->> +
->> +	chip = devm_pwmchip_alloc(dev, data->npwm, sizeof(*h616chip));
->> +	if (IS_ERR(chip))
->> +		return dev_err_probe(dev, PTR_ERR(chip),
->> +				     "Failed to allocate pwmchip\n");
->> +
->> +	h616chip = h616_pwm_from_chip(chip);
->> +	h616chip->data = data;
->> +	h616chip->base = devm_platform_ioremap_resource(pdev, 0);
->> +	if (IS_ERR(h616chip->base))
->> +		return dev_err_probe(dev, PTR_ERR(h616chip->base),
->> +				     "Failed to get PWM base address\n");
->> +
->> +	h616chip->bus_clk = devm_clk_get_enabled(dev, "bus");
->> +	if (IS_ERR(h616chip->bus_clk))
->> +		return dev_err_probe(dev, PTR_ERR(h616chip->bus_clk),
->> +				     "Failed to get bus clock\n");
->> +
->> +	h616chip->channels = devm_kmalloc_array(dev, data->npwm,
->> +						sizeof(*(h616chip->channels)),
->> +						GFP_KERNEL);
->> +	if (!h616chip->channels)
->> +		return dev_err_probe(dev, -ENOMEM,
->> +				     "Failed to allocate %d channels array\n",
->> +				     data->npwm);
->> +
->> +	h616chip->rst = devm_reset_control_get_shared(dev, NULL);
->> +	if (IS_ERR(h616chip->rst))
->> +		return dev_err_probe(dev, PTR_ERR(h616chip->rst),
->> +				     "Failed to get reset control\n");
->> +
->> +	chip->ops = &h616_pwm_ops;
->> +
->> +	ret = h616_pwm_init_clocks(pdev, h616chip);
->> +	if (ret)
->> +		return ret;
->> +
->> +	for (unsigned int i = 0; i < data->npwm; i++) {
->> +		struct h616_pwm_channel *chan = &h616chip->channels[i];
->> +		struct clk_hw **hw = &h616chip->clk_pdata->hw_data->hws[i];
->> +
->> +		chan->pwm_clk = devm_clk_hw_get_clk(dev, *hw, NULL);
->> +		if (IS_ERR(chan->pwm_clk)) {
->> +			ret = dev_err_probe(dev, PTR_ERR(chan->pwm_clk),
->> +					    "Failed to register PWM clock %d\n", i);
->> +			goto err_get_clk;
->> +		}
->> +		chan->mode = H616_PWM_MODE_NONE;
->> +	}
->> +
->> +	ret = devm_of_clk_add_hw_provider(dev, h616_pwm_of_clk_get, h616chip);
->> +	if (ret) {
->> +		dev_err_probe(dev, ret, "Failed to add HW clock provider\n");
->> +		goto err_add_clk_provider;
->> +	}
->> +
->> +	/* Deassert reset */
->> +	ret = reset_control_deassert(h616chip->rst);
->> +	if (ret) {
->> +		dev_err_probe(dev, ret, "Cannot deassert reset control\n");
->> +		goto err_ctrl_deassert;
->> +	}
->> +
->> +	ret = pwmchip_add(chip);
->> +	if (ret < 0) {
->> +		dev_err_probe(dev, ret, "Failed to add PWM chip\n");
->> +		goto err_pwm_add;
->> +	}
->> +
->> +	platform_set_drvdata(pdev, chip);
->> +
->> +	return 0;
->> +
->> +err_pwm_add:
->> +	reset_control_assert(h616chip->rst);
->> +
->> +err_ctrl_deassert:
->> +err_add_clk_provider:
->> +err_get_clk:
->> +	for (unsigned int i = 0; i < h616chip->clk_pdata->hw_data->num; i++)
->> +		clk_hw_unregister_composite(h616chip->clk_pdata->hw_data->hws[i]);
-> 
-> Won't this try to unregister the clk_hw before the pwm_clk derived from
-> it? You could place this in a devres action to correct the cleanup
-> order and get rid of the duplicated cleanup in h616_pwm_remove().
-Ah! You're right!
+On Wed, Feb 25, 2026 at 10:46:13PM +0800, Jisheng Zhang wrote:
+> Currently, the runtime_const_ptr() uses 4 instructions to move a long
+> imm to GP, but when ARM64_VA_BITS <= 48(which is true for android and
+> armbian), the top 8bits of runtime cont ptr is all '1', so we can make
+                    ^^^^^
+                    8 or 16?
 
-> 
-> I think you could even use devm_pwmchip_add() and
-> devm_reset_control_get_shared_deasserted() and remove h616_pwm_remove
-> entirely.
-Nice!
-I'll do that.
+> use of the movn instruction to construct the imm's top 8bits and lower
+> 16bits at the same time, thus save one instruction.
 
-Thanks!
+This works as long as KASAN_{SW,HW}_TAGS is disabled, otherwise the top
+byte of a pointer is not guaranteed to be 0xff. I think both
+filename_init() and dcache_init() can pass tagged pointers.
 
-Regards,
-Richard
+> diff --git a/arch/arm64/include/asm/runtime-const.h b/arch/arm64/include/asm/runtime-const.h
+> index be5915669d23..6797dd37d690 100644
+> --- a/arch/arm64/include/asm/runtime-const.h
+> +++ b/arch/arm64/include/asm/runtime-const.h
+> @@ -7,6 +7,8 @@
+>  /* Sigh. You can still run arm64 in BE mode */
+>  #include <asm/byteorder.h>
+>  
+> +#if CONFIG_ARM64_VA_BITS > 48
 
-> 
-> regards
-> Philipp
+You could use VA_BITS, it's shorter, though if you add the KASAN checks
+it's a pretty long #if to copy all over the place. We could untag the
+pointer but it kind of defeats the purpose of enabling KASAN in the
+first place.
 
+Given that Android enables KASAN_HW_TAGS by default, not sure we should
+bother with this change. Do you have any perf data to show that it's
+worth it?
+
+-- 
+Catalin
 
