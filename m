@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F9EFD5323
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA592FD5327
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bf1QswQcmBvRnk87FFzbebb6xULLTXkeOFLe8YFoLoI=; b=E1rw8kreg4s6A/Y8jWxMjt2w/F
-	JowpgrY7brQ7+bTlAfw5Tkiqu5VC6uzFXOVBT1kMJHDAsZczutYIq9DUwjBJOE+dH7ZO53hmA8af1
-	dKMU/OfwwNmqL7ORyf2C3JqFn6gYbpoPO3/Ou3LJV/c7fa2tRDijtBDrOkn1XJ8TDpecDxtGZ9hvl
-	d3Zl8l95gPhhSPbZ/l3E1uTedl3aT36bnlf/IfOz8IS53bvjzBvQxk08IuXYRTcbb44EktHtAiGUL
-	RytP/iTCl4XnJ1XcIEgaYwoji4khpJTjHP1O2HrT4uHYF2scenWuI/gDn2coQ4jX6CF3kA1Lli3p0
-	kBfjqjCw==;
+	bh=eS9rupgpIxcOxJ6kq6XUeoOt3FlGtJ7fyDMVdsz4J5Y=; b=SZCRh0lWQtXbmrmnWKQf4PiEFF
+	dF3RFov8/rSdZK6oBrSb63lP0LPAD2j6PruRt4skMs9aXaFKGLdMnYjEoskmIBzoN5/PkuXX3xzdI
+	83R3ZZtlW9Y5rP6FC7lsGCOBXLyDdrxgGPHFNP4zfIDyRLiTh26AErB0qgbZMN66JPBZj5mlkdosK
+	yRJGT/4UTqr7BiA3c/9HbtKORc2XrYH5y7VV1axWWkVHZpLiCjYtbyZSa6sf/fcoSmshdy4NGLVQm
+	veHEyXFuDg9ghjspg+9H7hJgTRr4qxJ5N1Q0ouke9wF65H3E/TgsUhO9adP3p9rjhcFjAzigAD4A3
+	WN/k8WoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvuXj-00000008BNf-2jVG;
-	Fri, 27 Feb 2026 09:53:55 +0000
+	id 1vvuXu-00000008BW3-3Qce;
+	Fri, 27 Feb 2026 09:54:06 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvuXg-00000008BIZ-2JEn
+	id 1vvuXs-00000008BQv-0v7Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 09:53:53 +0000
+	Fri, 27 Feb 2026 09:54:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Bf1QswQcmBvRnk87FFzbebb6xULLTXkeOFLe8YFoLoI=; b=XqXR5twb4rZe3u9oLt6RA55jd9
-	jXevEjJ0eoiN9U4uU1Y3YEP4k7rMz11sWq/UU3JIOUWaMl0uNHu2LUsv2otP8HbZsoCqF5YrzrKDh
-	HVlfh+005MnqpRN2buhaq9DYbwBStJ2Qyw4G77cO3ecI7syU9nJBoBeDxNQJ2hQHq6UVbn7Pr0zHI
-	QS12+yT2gU+2rj+FbnxvEfUkANxx9s95Uwn8FfqUT881JQVqrQz6LNIY3vc2GH/QBZaZKNjfMA7Pl
-	ii7pFzOEqxJZ6u95pTSNlDyzS8L/ExLOzhdNCr1tFOOBshdevl51XSC21ENj8OCpLwCK7+tFO1dQO
-	KH46cFKw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42698 helo=rmk-PC.armlinux.org.uk)
+	bh=eS9rupgpIxcOxJ6kq6XUeoOt3FlGtJ7fyDMVdsz4J5Y=; b=KE8f+Eon/Ske70O71uDarOGWSQ
+	ss6RTWJ/Y/i2my+egHuGkpv+eJ33D7WWphnwN1qfUVGqZJzGGdtofXP4lT2aG763Iq5XyMlwkc9AY
+	Ru2I1B6s2E99xQoAbY7pBRtZT+PdA3u9KOQbAd7DS01gLFwHgmLnRKNyg4iyJi2ol1eB0XKyVvBBu
+	ow8iCs78bb3pQQRsuUjO3FgGqMlRt83Nhyc08+cCKI2/ixsDQnNM6j9N3Fbzfe59l/pPXPMtgBu4g
+	fVdKibFAWnVBlLGYbTFRIAEbm6wRUjz7mvJWq7FiDy0InHicaBdgqiYaa9OftFzZ0uBL35EDBraDO
+	VEfeJQ6A==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42706 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vvuXV-000000000dR-1zvu;
-	Fri, 27 Feb 2026 09:53:41 +0000
+	id 1vvuXc-000000000dk-24Am;
+	Fri, 27 Feb 2026 09:53:48 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vvuXT-0000000Avn9-29US;
-	Fri, 27 Feb 2026 09:53:39 +0000
+	id 1vvuXY-0000000AvnF-2ccv;
+	Fri, 27 Feb 2026 09:53:44 +0000
 In-Reply-To: <aaFpZvuIzOLaNM0m@shell.armlinux.org.uk>
 References: <aaFpZvuIzOLaNM0m@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -62,17 +62,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 07/14] net: stmmac: remove
- dwmac410_(enable|disable)_dma_irq
+Subject: [PATCH net-next 08/14] net: stmmac: remove mac->xlgmac
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vvuXT-0000000Avn9-29US@rmk-PC.armlinux.org.uk>
-Date: Fri, 27 Feb 2026 09:53:39 +0000
+Message-Id: <E1vvuXY-0000000AvnF-2ccv@rmk-PC.armlinux.org.uk>
+Date: Fri, 27 Feb 2026 09:53:44 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_015352_595689_248BF0E5 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20260227_015404_414476_B7A9E81F 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,100 +87,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As a result of the previous cleanup, it is now obvious that there are
-no differences between the dwmac4 and dwmac410 versions of the DMA
-interrupt enable/disable functions.
-
-Moreover, dwmac410_disable_dma_irq() is completely unused; instead,
-dwmac4_disable_dma_irq() is used to disable the interrupts for v4.10a
-cores while dwmac410_enable_dma_irq() was being used to enable these
-same same interrupts.
-
-Remove the unnecessary v4.10a functions.
+mac->xlgmac is only ever written to by the dwxlgmac2_quirk() function.
+Remove mac->xlgmac, and the quirk function that then becomes redundant.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac4_dma.c  |  2 +-
- .../net/ethernet/stmicro/stmmac/dwmac4_dma.h  |  4 ---
- .../net/ethernet/stmicro/stmmac/dwmac4_lib.c  | 28 -------------------
- 3 files changed, 1 insertion(+), 33 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/common.h | 1 -
+ drivers/net/ethernet/stmicro/stmmac/hwif.c   | 7 -------
+ 2 files changed, 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-index 60b880cdd9da..28728271fbc9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-@@ -582,7 +582,7 @@ const struct stmmac_dma_ops dwmac410_dma_ops = {
- 	.dump_regs = dwmac4_dump_dma_regs,
- 	.dma_rx_mode = dwmac4_dma_rx_chan_op_mode,
- 	.dma_tx_mode = dwmac4_dma_tx_chan_op_mode,
--	.enable_dma_irq = dwmac410_enable_dma_irq,
-+	.enable_dma_irq = dwmac4_enable_dma_irq,
- 	.disable_dma_irq = dwmac4_disable_dma_irq,
- 	.start_tx = dwmac4_dma_start_tx,
- 	.stop_tx = dwmac4_dma_stop_tx,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-index 7fbd02a8119f..af6580332d49 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-@@ -170,12 +170,8 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- int dwmac4_dma_reset(void __iomem *ioaddr);
- void dwmac4_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			   u32 chan, bool rx, bool tx);
--void dwmac410_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
--			     u32 chan, bool rx, bool tx);
- void dwmac4_disable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			    u32 chan, bool rx, bool tx);
--void dwmac410_disable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
--			      u32 chan, bool rx, bool tx);
- void dwmac4_dma_start_tx(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			 u32 chan);
- void dwmac4_dma_stop_tx(struct stmmac_priv *priv, void __iomem *ioaddr,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-index 9217308bfd38..8c87a20880c4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-@@ -123,20 +123,6 @@ void dwmac4_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
- 	writel(value, ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index d26e8a063022..42a48f655849 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -635,7 +635,6 @@ struct mac_device_info {
+ 	unsigned int mcast_bits_log2;
+ 	unsigned int rx_csum;
+ 	unsigned int pcs;
+-	unsigned int xlgmac;
+ 	unsigned int num_vlan;
+ 	u32 vlan_filter[32];
+ 	bool vlan_fail_q_en;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+index 7e69ff4b9a98..1fcc91be7589 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+@@ -97,12 +97,6 @@ static int stmmac_dwmac4_quirks(struct stmmac_priv *priv)
+ 	return 0;
  }
  
--void dwmac410_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
--			     u32 chan, bool rx, bool tx)
+-static int stmmac_dwxlgmac_quirks(struct stmmac_priv *priv)
 -{
--	const struct dwmac4_addrs *dwmac4_addrs = priv->plat->dwmac4_addrs;
--	u32 value = readl(ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
--
--	if (rx)
--		value |= DMA_CHAN_INTR_ENA_RIE;
--	if (tx)
--		value |= DMA_CHAN_INTR_ENA_TIE;
--
--	writel(value, ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
+-	priv->hw->xlgmac = true;
+-	return 0;
 -}
 -
- void dwmac4_disable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			    u32 chan, bool rx, bool tx)
+ int stmmac_reset(struct stmmac_priv *priv)
  {
-@@ -151,20 +137,6 @@ void dwmac4_disable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
- 	writel(value, ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
- }
+ 	struct plat_stmmacenet_data *plat = priv->plat;
+@@ -293,7 +287,6 @@ static const struct stmmac_hwif_entry {
+ 		.mmc = &dwxgmac_mmc_ops,
+ 		.est = &dwmac510_est_ops,
+ 		.setup = dwxlgmac2_setup,
+-		.quirks = stmmac_dwxlgmac_quirks,
+ 	},
+ };
  
--void dwmac410_disable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
--			      u32 chan, bool rx, bool tx)
--{
--	const struct dwmac4_addrs *dwmac4_addrs = priv->plat->dwmac4_addrs;
--	u32 value = readl(ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
--
--	if (rx)
--		value &= ~DMA_CHAN_INTR_ENA_RIE;
--	if (tx)
--		value &= ~DMA_CHAN_INTR_ENA_TIE;
--
--	writel(value, ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
--}
--
- int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			 struct stmmac_extra_stats *x, u32 chan, u32 dir)
- {
 -- 
 2.47.3
 
