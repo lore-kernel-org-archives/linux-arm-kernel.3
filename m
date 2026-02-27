@@ -4,50 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5146DFEFB70
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA856FEFB6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFbemy0PcyEmSBNxC/D9/wuhnN4nV+G16h8jmD3VSkI=; b=fmgd/6xlyaTU/gPDNIE72l+dKG
-	TAPmkFKDcXuhYj8yMfFN4aaAwGXzFIg84yVRSONTPcVHUsT53ziEVTynKgjuR92s42LN48lmGxZ/V
-	6adrEqVGKdHGqt1B4YT1zA4n+2ksiT7JQwhrU23NXhFcGQG0uwOsdpTZlfbX2cnaKoCUEzQTywNmq
-	N6BY8hLs0Rkc0GLEl78+j+pJKQcbTvn9Is+Jiz5HWdenx+wKSv3qkcJ9AgvPd1l4zjkFFTvq6eVLx
-	Z+z5SfFOr/n4Hkkr6q/HPRmuRDBioBskDoMeps/OijqkoGi1WkRWXEmDlOqIUim4rDmUeWQJOenG8
-	rl9UwQ7Q==;
+	bh=zKM07wpCFZuWX9df85Y87z5KfAMgvecnaARgkSGdnI0=; b=Vq8nxbYUd8Nw1UE3RhQOdjjmNr
+	10HqTJ/yNtzi+akEbPRBD4D2344zazJ2AQTl8wTnilBu/5a5CMRuDolu/0ooftUBAwDw96p3dU0pi
+	TCJJqZPtaIZjwgcawjGT5/6EsUlNqJd6MSqwGYPwBdNMr0xJ9CqJm4Ir9JHd6c4ZYcrEeNlVxnTAr
+	sy/shKAmbgzq/oDQfmUaCreyX3xuhmej/va/erX+OkTEI7lR+YGe92UJkWKlrvlzB3RxH1tNsQOt9
+	I8xpb9zsxrid6c4NNKVUFWlnSZUmGepCzydkZhhqdgoNdpXjwoHZLAMJYmCb1azeYOZO2SSuJCZ1w
+	TjHBYMig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw26G-00000008sGK-2Hqm;
-	Fri, 27 Feb 2026 17:58:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw26F-00000008sDJ-1aTi
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Feb 2026 17:58:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=eFbemy0PcyEmSBNxC/D9/wuhnN4nV+G16h8jmD3VSkI=; b=H2df3ZAUFrfZhAcelkggOmmz/Q
-	hb3RKbXFSmRNybmuG+5XVaHvqOTZRnoDdZfr4fEeqHUL5F+zBENYRUxQgNhza+0+l7wT+JMuc40S3
-	xB4/Xz+4EtweVZ9HQSvq2Y4f8g+xe87pS5anZNXmQiBB9C+ibmUfMNHeHRbZ73OJqY5pnhkCeKE+1
-	nI9cBl9mexU2xv8LblvVacqY3BljITtv1gqZ1Hjd2S+TlWhwur8l80nWdJXURk8rUPL35k86YKKh/
-	RSwEElbsf5UI/8OeDhA2byssIt6oi58fQ/hsz3InqIlMwpTXcLu/Q5YYvdeb0pSyg0ZM9hKmNpnAx
-	UMPYImig==;
+	id 1vw26b-00000008sYo-0Lbf;
+	Fri, 27 Feb 2026 17:58:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw25z-0000000DdTd-0SWH
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vw262-00000008s2B-3BB2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 17:57:59 +0000
+	Fri, 27 Feb 2026 17:58:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33E3014BF;
-	Fri, 27 Feb 2026 09:57:39 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D969F1516;
+	Fri, 27 Feb 2026 09:57:43 -0800 (PST)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FF1E3F73B;
-	Fri, 27 Feb 2026 09:57:41 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C7D9C3F73B;
+	Fri, 27 Feb 2026 09:57:45 -0800 (PST)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -82,17 +67,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [PATCH v6 26/30] arm64: kpkeys: Protect init_pg_dir
-Date: Fri, 27 Feb 2026 17:55:14 +0000
-Message-ID: <20260227175518.3728055-27-kevin.brodsky@arm.com>
+Subject: [PATCH v6 27/30] arm64: kpkeys: Guard page table writes
+Date: Fri, 27 Feb 2026 17:55:15 +0000
+Message-ID: <20260227175518.3728055-28-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260227175518.3728055-1-kevin.brodsky@arm.com>
 References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_175755_776507_EE45C998 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20260227_095753_288882_0BE65C17 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,63 +92,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When kpkeys_hardened_pgtables is enabled, protect the page tables
-that map the kernel image by setting the appropriate pkey for the
-linear mapping of those pages.
+When CONFIG_KPKEYS_HARDENED_PGTABLES is enabled, page tables (both
+user and kernel) are mapped with a privileged pkey in the linear
+mapping. As a result, they can only be written at an elevated kpkeys
+level.
 
-Most other static page tables (e.g. swapper_pg_dir) should be
-read-only both in the kernel image mapping and the linear mapping,
-so there is no need to change their pkey.
+Introduce a kpkeys guard that sets POR_EL1 appropriately to allow
+writing to page tables, and use this guard wherever necessary. The
+scope is kept as small as possible, so that POR_EL1 is quickly reset
+to its default value. Where atomics are involved, the guard's scope
+encompasses the whole loop to avoid switching POR_EL1 unnecessarily.
+
+This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
+(default).
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
+ arch/arm64/include/asm/pgtable.h | 22 +++++++++++++++++++++-
+ arch/arm64/mm/fault.c            |  2 ++
+ 2 files changed, 23 insertions(+), 1 deletion(-)
 
-This patch may not be comprehensive - there are multiple static pools
-used for various page directories.
-
----
- arch/arm64/include/asm/kpkeys.h |  3 +++
- arch/arm64/mm/mmu.c             | 13 +++++++++++++
- 2 files changed, 16 insertions(+)
-
-diff --git a/arch/arm64/include/asm/kpkeys.h b/arch/arm64/include/asm/kpkeys.h
-index eeebbdfe239a..2d8bb1e25e3b 100644
---- a/arch/arm64/include/asm/kpkeys.h
-+++ b/arch/arm64/include/asm/kpkeys.h
-@@ -66,6 +66,9 @@ static inline bool arm64_supports_kpkeys_hardened_pgtables(void)
- 		system_supports_poe() : cpu_has_poe();
- }
- 
-+#define arch_kpkeys_protect_static_pgtables arch_kpkeys_protect_static_pgtables
-+void arch_kpkeys_protect_static_pgtables(void);
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index b3e58735c49b..8c85e23223da 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -39,6 +39,14 @@
+ #include <linux/mm_types.h>
+ #include <linux/sched.h>
+ #include <linux/page_table_check.h>
++#include <linux/kpkeys.h>
 +
- #else /* CONFIG_KPKEYS_HARDENED_PGTABLES */
- 
- static inline bool arm64_supports_kpkeys_hardened_pgtables(void)
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 7072d5ac0579..1e2cf0166c1d 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1048,6 +1048,19 @@ void __init mark_linear_text_alias_ro(void)
- 			    PAGE_KERNEL_RO);
- }
- 
 +#ifdef CONFIG_KPKEYS_HARDENED_PGTABLES
-+void __init arch_kpkeys_protect_static_pgtables(void)
-+{
-+	extern char __pi_init_pg_dir[], __pi_init_pg_end[];
-+	unsigned long addr = (unsigned long)lm_alias(__pi_init_pg_dir);
-+	unsigned long size = __pi_init_pg_end - __pi_init_pg_dir;
-+	int ret;
-+
-+	ret = set_memory_pkey(addr, size / PAGE_SIZE, KPKEYS_PKEY_PGTABLES);
-+	WARN_ON(ret);
-+}
-+#endif /* CONFIG_KPKEYS_HARDENED_PGTABLES */
-+
- #ifdef CONFIG_KFENCE
++KPKEYS_GUARD_COND(kpkeys_hardened_pgtables, KPKEYS_LVL_PGTABLES,
++		  kpkeys_hardened_pgtables_enabled())
++#else
++KPKEYS_GUARD_NOOP(kpkeys_hardened_pgtables)
++#endif
  
- bool __ro_after_init kfence_early_init = !!CONFIG_KFENCE_SAMPLE_INTERVAL;
+ static inline void emit_pte_barriers(void)
+ {
+@@ -363,6 +371,7 @@ static inline pte_t pte_clear_uffd_wp(pte_t pte)
+ 
+ static inline void __set_pte_nosync(pte_t *ptep, pte_t pte)
+ {
++	guard(kpkeys_hardened_pgtables)();
+ 	WRITE_ONCE(*ptep, pte);
+ }
+ 
+@@ -830,6 +839,7 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+ 	}
+ #endif /* __PAGETABLE_PMD_FOLDED */
+ 
++	guard(kpkeys_hardened_pgtables)();
+ 	WRITE_ONCE(*pmdp, pmd);
+ 
+ 	if (pmd_valid(pmd))
+@@ -890,6 +900,7 @@ static inline void set_pud(pud_t *pudp, pud_t pud)
+ 		return;
+ 	}
+ 
++	guard(kpkeys_hardened_pgtables)();
+ 	WRITE_ONCE(*pudp, pud);
+ 
+ 	if (pud_valid(pud))
+@@ -971,6 +982,7 @@ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
+ 		return;
+ 	}
+ 
++	guard(kpkeys_hardened_pgtables)();
+ 	WRITE_ONCE(*p4dp, p4d);
+ 	queue_pte_barriers();
+ }
+@@ -1099,6 +1111,7 @@ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
+ 		return;
+ 	}
+ 
++	guard(kpkeys_hardened_pgtables)();
+ 	WRITE_ONCE(*pgdp, pgd);
+ 	queue_pte_barriers();
+ }
+@@ -1295,6 +1308,7 @@ static inline int __ptep_test_and_clear_young(struct vm_area_struct *vma,
+ {
+ 	pte_t old_pte, pte;
+ 
++	guard(kpkeys_hardened_pgtables)();
+ 	pte = __ptep_get(ptep);
+ 	do {
+ 		old_pte = pte;
+@@ -1343,7 +1357,10 @@ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
+ 					       pte_t *ptep,
+ 					       unsigned long pgsize)
+ {
+-	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
++	pte_t pte;
++
++	scoped_guard(kpkeys_hardened_pgtables)
++		pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
+ 
+ 	switch (pgsize) {
+ 	case PAGE_SIZE:
+@@ -1416,6 +1433,7 @@ static inline void ___ptep_set_wrprotect(struct mm_struct *mm,
+ {
+ 	pte_t old_pte;
+ 
++	guard(kpkeys_hardened_pgtables)();
+ 	do {
+ 		old_pte = pte;
+ 		pte = pte_wrprotect(pte);
+@@ -1449,6 +1467,7 @@ static inline void __clear_young_dirty_pte(struct vm_area_struct *vma,
+ {
+ 	pte_t old_pte;
+ 
++	guard(kpkeys_hardened_pgtables)();
+ 	do {
+ 		old_pte = pte;
+ 
+@@ -1496,6 +1515,7 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ 		unsigned long address, pmd_t *pmdp, pmd_t pmd)
+ {
+ 	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
++	guard(kpkeys_hardened_pgtables)();
+ 	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
+ }
+ #endif
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index be9dab2c7d6a..7e230499f7fe 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -214,6 +214,8 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
+ 	if (pte_same(pte, entry))
+ 		return 0;
+ 
++	guard(kpkeys_hardened_pgtables)();
++
+ 	/* only preserve the access flags and write permission */
+ 	pte_val(entry) &= PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
+ 
 -- 
 2.51.2
 
