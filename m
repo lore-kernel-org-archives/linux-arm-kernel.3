@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8817FD9E3D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 05:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE56FD9E3E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 05:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=feZZgyhgnxd2MB3vtB7LaA+CWft2WYSV7ZFSVYTIeiU=; b=h+CQW5KIcWC+rJeJZDVAY5UAJh
-	7pfA/Uo4K25gqSEjd330vBmSzKntbXYcuU6Wn+KJiYU54oKeHOYwObnZu3nmoWq3QsTbCjZOHHn0M
-	Z+eyiinn6tXU0XiA3GlToA6+abaN2KdV+H7dnGlFHJ4up9T9tKtHD5FeyFYxoWYPf7zXlZQJGZq4/
-	CS0UDrammGjpEcw/UYDaDhTqfG1+e5ItcnVc4wcsMgxgFjO9OeDte2y0SrZ8zJaYATl1gorqC+mR5
-	sY+pi0lVVZjtAx5ln24+4qhOd7EwTTD+swojyfnxDTqbwVl1mSCZsKBU5o//z0X+UhcW4IwiglZrM
-	WYyBr/SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cPTGvYA/GKdj9wqcQAjT8fmJEQ+pcQdfunMA1ORun7I=; b=UyA44R5zFaebUzZFmILFE8mJgx
+	87mqM5oX93keUgo0fARze+3GI4vISbbd/OVUJDKV9mGIuVCgUcbzbnLamhYIPhuedKvlXqSDq/aga
+	1+6ouK0CPPnE3hK3Kc6NLpBvtm7rK67RY9kRo5fC2DLcthTjNe1Z3FAzgDEKaseUs6P9+guDfY6Ct
+	ZXgzljAWzmjIfa0R+0AnfEmB06cXFRd6wngdKj+SimX4YRHWYzGkbc4smWSBmdD8ODMdLjFTHpR/Y
+	QW66oc/01oTrj2SlaRWKNNgSWX+kIFjg3gNqvgFprUwqSyvCwIywrhjYcRNIC5YNFLuwp0aUZnP04
+	sAh1ObgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvqTl-00000007ig4-3OC0;
-	Fri, 27 Feb 2026 05:33:33 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1vvqVz-00000007j1E-0SfE;
+	Fri, 27 Feb 2026 05:35:51 +0000
+Received: from mail-vk1-xa2a.google.com ([2607:f8b0:4864:20::a2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvqTi-00000007ieu-3uMm
+	id 1vvqVw-00000007j0V-1RVt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 05:33:32 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-82748095963so492014b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 21:33:30 -0800 (PST)
+	Fri, 27 Feb 2026 05:35:49 +0000
+Received: by mail-vk1-xa2a.google.com with SMTP id 71dfb90a1353d-56a8e0ea02aso1886800e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 21:35:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772170410; x=1772775210; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=feZZgyhgnxd2MB3vtB7LaA+CWft2WYSV7ZFSVYTIeiU=;
-        b=VpSNP08suJ0cSo/sCu/PkjGYWckw9v6mNOjV0YhZ2L4GsBgpMkbG4mNl0cspbcac8+
-         gOIr1XnY2QoVruBojzyUuGGCn+pqx9uSaHZx+0IZbGPwurYLBaFoLnY5pF6bkuMeKHg6
-         /krBGi1nYGnyib7//8ml/3gMrh0AjmOOTTHjz4N9y35qrp0N9ErEWunh5J8MpeYQvWVN
-         uMEXR93GxQqHBn9h2cDgCcaIUMsTiEveF8MM7ZIytGNHiWHLtCgx6PcIl1Ns+P2t9z1K
-         dH8plmXRQwwjFtkAuSXg2G0CMcJQQ3hfdQJMwlTE48cbkpfX2m9jI8RVDbe/ztE3BJ14
-         WZHg==
+        d=gmail.com; s=20230601; t=1772170546; x=1772775346; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=cPTGvYA/GKdj9wqcQAjT8fmJEQ+pcQdfunMA1ORun7I=;
+        b=RGlJufTQvdjhlNKEhunc+8uI470eIad73/62dyrbP2/FTSeoa8esJKImTse0geMHtO
+         uBLW+U9LyIzZV8Fh1UV2vgednwYREh2Zebc7PX+/q0HpnFmKWU3XOZrnqd0hYa62UAnM
+         k20xC+K0/YfNUXe0u4THsdgiMbl0Abmip6NAkIEjcnCxY51dR7Uwd+GkluvKdXWAEql6
+         gSnZhOuLc9lmyiIGE+juniaL+sHgApglaVd3u1grEnNrgEVwW4obYuga5BZznUxHLJRh
+         5OQrHCMF01icXAc47GvlHB54QsN0VTmI0rje8Z6RJLA1zp0a9ctSWQLV7N/Uty/nc2We
+         sfkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772170410; x=1772775210;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=feZZgyhgnxd2MB3vtB7LaA+CWft2WYSV7ZFSVYTIeiU=;
-        b=PqCZKTm18yMcdv9o8kscu5jTex6JuweMuCcEqkMf0vYM0SLuoOupvvxPDUpl613hG9
-         hLDRSy3UjeO8J243Hs1CeVUXMbD/TDF84qeR2szPt6U3XF2RITIbadB+ef/I2PSVk2f5
-         /+e2O6C8GvZm4k0EsFL7qId0d9ZsESuK1yh83moACxbA1cgy6OZXdFo7ju2hUpdiz5g6
-         3VjtwZ1LRSUcHruhqSwbe6rIBzBX9YBQfTVrtZi/gxrKcDnFtiMbBq9LZR5QK2/iI5yY
-         pBIw7qMb9vLzSJCO5UdU57d3tU60QK67JczxMDjcZYyIcM8fu63bOkzIdnLygCcQyBzH
-         gtyg==
-X-Forwarded-Encrypted: i=1; AJvYcCU+eGdR1RJozdgL77c/GJ283pLl62BhkdDmgWAYGmQKypjumM8CxJtD3PeJgrwhkP9ApoZbV6SIxhLr7gG4Vl3F@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhXzmmcPRA2pClergYSzYJXvispW5cfX0MBuPMZKiNZfclysVr
-	/UGUHU/L3MeER/DHsfNhJivp9boMadZuhMoTA6VyR0iYgs+QI87fz4vZ
-X-Gm-Gg: ATEYQzxagcMJwOgOaDxQf2Zv8GIgpjtjVTGqHrTgtKvk+aAp39RnUSQgYgembOD9F+k
-	UKyMOIjm9uqkm3LLIZjgf2m7oFmBv94QBSiZJrz0Qycxas1ovhxrB9MOnf1AGT8bt6scRD5hUKf
-	6RdVsicYdJOhv77kw2lZCXd/jThSHt3agkuJtB8aBjCAIe2dvkVJCen0N90r5hamiDSmh8gqgct
-	/lSXczQqCEaGhWVZBascOSRZXJ6eaWmk1u+sGcJQ+UGyKAdaX6my9XfArqGoh6yznIEycjaOKE1
-	xuCWjyFjBTYWeM4AgBYtvawodlbBytauYK2udLhDc7yHzAZmQotWWeQcY6Fs5eA4tkmBiGQI/aT
-	HWOo9UPDhxHK7unvTrNuUwW/m9V9BlZNopuboPOOsv/Mr8nL5ohwSBsSX2BF/fUVj381a/KTqUe
-	AjN3vyBW1Mym02W+M6AjvdOiVZUVSedGVygUHvtJVkatadYDWAhg==
-X-Received: by 2002:a05:6a00:4c84:b0:824:9451:c1e2 with SMTP id d2e1a72fcca58-8274da275b4mr1328637b3a.59.1772170409864;
-        Thu, 26 Feb 2026 21:33:29 -0800 (PST)
-Received: from name2965-Precision-7820-Tower.. ([175.201.112.127])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8273a048615sm3815828b3a.52.2026.02.26.21.33.27
+        d=1e100.net; s=20230601; t=1772170546; x=1772775346;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cPTGvYA/GKdj9wqcQAjT8fmJEQ+pcQdfunMA1ORun7I=;
+        b=HbJKgBcEv/fmaPRBm71eEhY3XJRGHjufCnj2ykA+aCoCUHxSocejPrKSGayeQ8xg2+
+         189jENbyu1WFCcADVQz8ggGjXw3cnx9LNC5lJrfi/2rAoMFPYXVlxTPdFkyoD1TdRpQk
+         A7M99x1w26j/rUgkPfXGPgmm3y4SNxFtTr3l1p8S8HP8SdKpo2HEZ033UPMvpeFtpuZy
+         5X/X+fmiiHPKns02xegMvKqoz+TrOEvGmmRYcPdQaYDq7SPTVwRX01ollUTpAGT9yq7w
+         N9k/ay3W18aVPcOBX0gufDeINebeP0Hy9CfFv4bkrgxgVlIDHjI+ZqMSvCb4WzlHnVLf
+         In3A==
+X-Forwarded-Encrypted: i=1; AJvYcCWc79xXLPmvLSk1VbemzyeejbDkb3rvcIXJCZ4Y8Ua1pLvZaJirqmT0iwuPPn/3irzNi9C0ngwFLBdEsee41oVm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxliBUUj9xATbVc3SgJzgpat+kw9KCDxCSWCsclvsQI9eo2zRgc
+	t1NZ7YoBgMSR2JWszvEERfmTCwaTsB/uaLxUzQyP9lIPhJ3rb/De+0Rp
+X-Gm-Gg: ATEYQzzxixvoFoVVaUSJQDLwY72aGIDQz13tn9KWFKFGNAbESMJwS6sBpobcuMVEFfD
+	KiHgt4bCzmH/loUcVGFdVX5KBWftPTNqdp/7FHeQO+fU/sN0RetW9M/11gL7skXKDgAt2esO+VI
+	PM1VVbg1q4mI0hGu+OklnBJDs62Ydenv0SP6ubY0VHkykcoVOC8IJSdlxdbpskZJEt4I6W04bIE
+	lOG8T35LL35d/36n1imk1rre8H37Fu6f5kijvKgyclSlyl4KGRXitrADNCOf1+31Myn/t2W2yKs
+	sncWC7uLT9o5VMbHJeVrPpM8tv2qA248athzlvGOApI5x3UWBvXnS6YckeA/WDABHxDODY4H5GX
+	lGl8mRlhge3NskVjgFOXK9L31VM2rx1H1o/Wm5kuO069xUYpRpIqJWMQ41PvXZguiXoYCEkQa72
+	NaIEM4IsgkQQ==
+X-Received: by 2002:a05:6122:4219:b0:566:2fc9:6c89 with SMTP id 71dfb90a1353d-56aa0a890a1mr1063240e0c.10.1772170546147;
+        Thu, 26 Feb 2026 21:35:46 -0800 (PST)
+Received: from geday ([2804:7f2:800b:feb1::dead:c001])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56a9204b91esm5028673e0c.11.2026.02.26.21.35.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 21:33:29 -0800 (PST)
-From: Jeongjun Park <aha310510@gmail.com>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jeongjun Park <aha310510@gmail.com>
-Subject: [PATCH 6.1.y 5.15.y 5.10.y 3/3] drm/exynos: vidi: use ctx->lock to protect struct vidi_context member variables related to memory alloc/free
-Date: Fri, 27 Feb 2026 14:33:17 +0900
-Message-Id: <20260227053317.426000-4-aha310510@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260227053317.426000-1-aha310510@gmail.com>
-References: <20260227053317.426000-1-aha310510@gmail.com>
+        Thu, 26 Feb 2026 21:35:44 -0800 (PST)
+Date: Fri, 27 Feb 2026 02:35:31 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Geraldo Nascimento <geraldogabriel@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>
+Cc: linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/4] PCI: rockchip: 5.0 GT/s speed discouraged by Rockchip
+Message-ID: <cover.1772169998.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_213330_970548_EEE10669 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20260226_213548_382469_83C63617 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,198 +102,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[ Upstream commit 52b330799e2d6f825ae2bb74662ec1b10eb954bb ]
+Dragan Simic already had warned me of potential issues with 5.0 GT/s
+speed operation in Rockchip PCIe. However, in recent interactions
+with Shawn Lin from Rockchip it came to my attention there's grave
+danger in the unknown errata regarding 5.0 GT/s operational speed
+of their PCIe core.
 
-Exynos Virtual Display driver performs memory alloc/free operations
-without lock protection, which easily causes concurrency problem.
+Drop all code related to 5.0 GT/s operational speed from this driver.
 
-For example, use-after-free can occur in race scenario like this:
-```
-	CPU0				CPU1				CPU2
-	----				----				----
-  vidi_connection_ioctl()
-    if (vidi->connection) // true
-      drm_edid = drm_edid_alloc(); // alloc drm_edid
-      ...
-      ctx->raw_edid = drm_edid;
-      ...
-								drm_mode_getconnector()
-								  drm_helper_probe_single_connector_modes()
-								    vidi_get_modes()
-								      if (ctx->raw_edid) // true
-								        drm_edid_dup(ctx->raw_edid);
-								          if (!drm_edid) // false
-								          ...
-				vidi_connection_ioctl()
-				  if (vidi->connection) // false
-				    drm_edid_free(ctx->raw_edid); // free drm_edid
-				    ...
-								          drm_edid_alloc(drm_edid->edid)
-								            kmemdup(edid); // UAF!!
-								            ...
-```
+Endpoint Mode driver was not tested. There's a bit of redundancy in the
+commit messages but it's the best I could do to ensure people will
+actually understand why perfectly working code is being dropped.
 
-To prevent these vulns, at least in vidi_context, member variables related
-to memory alloc/free should be protected with ctx->lock.
-
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Jeongjun Park <aha310510@gmail.com>
 ---
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 43 +++++++++++++++++++-----
- 1 file changed, 35 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-index 576d79ebe9a8..b7eae2469b31 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -186,15 +186,17 @@ static ssize_t vidi_store_connection(struct device *dev,
- 				const char *buf, size_t len)
- {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
--	int ret;
-+	int ret, new_connected;
- 
--	ret = kstrtoint(buf, 0, &ctx->connected);
-+	ret = kstrtoint(buf, 0, &new_connected);
- 	if (ret)
- 		return ret;
- 
--	if (ctx->connected > 1)
-+	if (new_connected > 1)
- 		return -EINVAL;
- 
-+	mutex_lock(&ctx->lock);
-+
- 	/* use fake edid data for test. */
- 	if (!ctx->raw_edid)
- 		ctx->raw_edid = (struct edid *)fake_edid_info;
-@@ -202,14 +204,21 @@ static ssize_t vidi_store_connection(struct device *dev,
- 	/* if raw_edid isn't same as fake data then it can't be tested. */
- 	if (ctx->raw_edid != (struct edid *)fake_edid_info) {
- 		DRM_DEV_DEBUG_KMS(dev, "edid data is not fake data.\n");
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto fail;
- 	}
- 
-+	ctx->connected = new_connected;
-+	mutex_unlock(&ctx->lock);
-+
- 	DRM_DEV_DEBUG_KMS(dev, "requested connection.\n");
- 
- 	drm_helper_hpd_irq_event(ctx->drm_dev);
- 
- 	return len;
-+fail:
-+	mutex_unlock(&ctx->lock);
-+	return ret;
- }
- 
- static DEVICE_ATTR(connection, 0644, vidi_show_connection,
-@@ -244,11 +253,14 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
- 		return -EINVAL;
- 	}
- 
-+	mutex_lock(&ctx->lock);
- 	if (ctx->connected == vidi->connection) {
-+		mutex_unlock(&ctx->lock);
- 		DRM_DEV_DEBUG_KMS(ctx->dev,
- 				  "same connection request.\n");
- 		return -EINVAL;
- 	}
-+	mutex_unlock(&ctx->lock);
- 
- 	if (vidi->connection) {
- 		struct edid *raw_edid;
-@@ -271,20 +283,27 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
- 					  "failed to allocate raw_edid.\n");
- 			return -ENOMEM;
- 		}
-+		mutex_lock(&ctx->lock);
- 		ctx->raw_edid = raw_edid;
-+		mutex_unlock(&ctx->lock);
- 	} else {
- 		/*
- 		 * with connection = 0, free raw_edid
- 		 * only if raw edid data isn't same as fake data.
- 		 */
-+		mutex_lock(&ctx->lock);
- 		if (ctx->raw_edid && ctx->raw_edid !=
- 				(struct edid *)fake_edid_info) {
- 			kfree(ctx->raw_edid);
- 			ctx->raw_edid = NULL;
- 		}
-+		mutex_unlock(&ctx->lock);
- 	}
- 
-+	mutex_lock(&ctx->lock);
- 	ctx->connected = vidi->connection;
-+	mutex_unlock(&ctx->lock);
-+
- 	drm_helper_hpd_irq_event(ctx->drm_dev);
- 
- 	return 0;
-@@ -299,7 +318,7 @@ static enum drm_connector_status vidi_detect(struct drm_connector *connector,
- 	 * connection request would come from user side
- 	 * to do hotplug through specific ioctl.
- 	 */
--	return ctx->connected ? connector_status_connected :
-+	return READ_ONCE(ctx->connected) ? connector_status_connected :
- 			connector_status_disconnected;
- }
- 
-@@ -321,22 +340,24 @@ static int vidi_get_modes(struct drm_connector *connector)
- 	struct vidi_context *ctx = ctx_from_connector(connector);
- 	struct edid *edid;
- 	int edid_len;
--	int count;
-+	int count = 0;
- 
- 	/*
- 	 * the edid data comes from user side and it would be set
- 	 * to ctx->raw_edid through specific ioctl.
- 	 */
-+
-+	mutex_lock(&ctx->lock);
- 	if (!ctx->raw_edid) {
- 		DRM_DEV_DEBUG_KMS(ctx->dev, "raw_edid is null.\n");
--		return 0;
-+		goto fail;
- 	}
- 
- 	edid_len = (1 + ctx->raw_edid->extensions) * EDID_LENGTH;
- 	edid = kmemdup(ctx->raw_edid, edid_len, GFP_KERNEL);
- 	if (!edid) {
- 		DRM_DEV_DEBUG_KMS(ctx->dev, "failed to allocate edid\n");
--		return 0;
-+		goto fail;
- 	}
- 
- 	drm_connector_update_edid_property(connector, edid);
-@@ -345,6 +366,8 @@ static int vidi_get_modes(struct drm_connector *connector)
- 
- 	kfree(edid);
- 
-+fail:
-+	mutex_unlock(&ctx->lock);
- 	return count;
- }
- 
-@@ -490,11 +513,15 @@ static int vidi_remove(struct platform_device *pdev)
- {
- 	struct vidi_context *ctx = platform_get_drvdata(pdev);
- 
-+	mutex_lock(&ctx->lock);
-+
- 	if (ctx->raw_edid != (struct edid *)fake_edid_info) {
- 		kfree(ctx->raw_edid);
- 		ctx->raw_edid = NULL;
- 	}
- 
-+	mutex_unlock(&ctx->lock);
-+
- 	component_del(&pdev->dev, &vidi_component_ops);
- 
- 	return 0;
---
+Changes in v4:
+- Incorporate suggestion by Bjorn and refined by Dragan to drop the
+  "catastrophic" code
+- Link to v3: https://lore.kernel.org/linux-rockchip/cover.1772057799.git.geraldogabriel@gmail.com/T/
+
+Changes in v3:
+- Clarify warning message even though Rockchip won't disclose details
+- Drop DT changes as they were applied as subset by Heiko
+- Link to v2: https://lore.kernel.org/all/cover.1763415705.git.geraldogabriel@gmail.com/T/
+
+Changes in v2:
+- hard limit to 2.5 GT/s, not just warn
+- add Reported-by: and Reviewed-by: Dragan Simic
+- remove redundant declaration of max-link-speed from helios64 dts
+- fix Link: of helios64 patch
+- simplify RC mode comment
+- Link to v1: https://lore.kernel.org/all/aRhR79u5BPtRRFw3@geday/T/
+
+
+---
+
+Geraldo Nascimento (4):
+  PCI: rockchip: drop 2.5 GT/s defines
+  PCI: rockchip: drive at 2.5 GT/s only and error out other speeds
+  PCI: rockchip-host: do not attempt 5.0 GT/s retraining
+  PCI: rockchip-ep: do not attempt 5.0 GT/s retraining
+
+ drivers/pci/controller/pcie-rockchip-ep.c   | 13 -------------
+ drivers/pci/controller/pcie-rockchip-host.c | 20 --------------------
+ drivers/pci/controller/pcie-rockchip.c      | 13 +++++--------
+ drivers/pci/controller/pcie-rockchip.h      |  3 ---
+ 4 files changed, 5 insertions(+), 44 deletions(-)
+
+-- 
+2.52.0
+
 
