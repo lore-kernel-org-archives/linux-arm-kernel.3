@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3612FFEFB72
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 18:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCEAFEFB6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 18:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Ul0Dd4P/vtKDgVC2VSwGduPgnL+oOjNMm7CLdGIWwA=; b=epnMvD8QoPvPLpqck5u5LQRrv0
-	kn5we5OEP6Fi1Tua0Lmzk/oE36Cs2wztbp1JXZj2u8y2N5QwDh3UNWHnUucpzT/Z9AoDwAwMu2JVS
-	mp8A5eT+BmqXg0/6TzoHof+t+bsSx296cbXoZWEaa62aUQ3pFDvy1mEDckxOYjksQIrxHYlFEb9Jn
-	sPyC2EdHOFv5o4CcGl0gFM+fP1111+5YMZDPJWPnDoh0n+J/ZlTWHaq+cKk8oeeQ9Z0cVecFtdY9U
-	95cD8c2m79ykhKovE+G4Cdm16oSH6wcbTTxDhqW8hDfTIzPpZ/Dr6vni6pDPYxu8aVwAl7kedg/CK
-	448UbAUg==;
+	bh=jhNkkAkwhMCH2ojVKzEb17U8rjl6Ex5AfW5DMIGvnfY=; b=fVoazlcFGtirG2nmdAnz01At5/
+	pQvOQ6s/N//aE51Tl5Cax/XMGcB1RQleEzVYxbDa+HZuWkPrHCHC1Jt72yj6/tS4ABilex7VXjR7z
+	RAGv7KbOEhTtqwOOsAeV5z3DzSdnuy1T+Bm1WdrwPgCEcNr/BWYZaO/1bl7oK8rr7UqVDCn4EXpqS
+	pB/NsvP/JXtkwYXpQegWiwgnqqfIAsdB3x6Meo1JI6+qUfknL2XRyBQ1OL78K3MuowZnrDn/+6ArH
+	62UHvZCbbPNMjv0OE38XbvLXGI4hwECPX1euGzDPzHJyIioKCQDbAPeuEpOPTMNlIMPH09IS55GTO
+	SUh14HPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw29Q-00000008tI1-1PGq;
-	Fri, 27 Feb 2026 18:01:20 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vw2Fm-00000008tYN-0bX6;
+	Fri, 27 Feb 2026 18:07:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw29N-00000008tH7-49Vo
+	id 1vw2Fj-00000008tXs-0r3V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 18:01:19 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48371119eacso26795925e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 10:01:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772215275; x=1772820075; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1Ul0Dd4P/vtKDgVC2VSwGduPgnL+oOjNMm7CLdGIWwA=;
-        b=iZUXxSl9DvKJtEVsEkyKoHp1Zbu/ON4bsqDAxH4HqBsc7I9Sbt0kEcLqcIfYm7H33t
-         ECERfLOKPhoFH9W3/Wf8x52hKAKqUw6mom6+bsFeOdt59G8X5of+9gmNeAC7T9m3ALp8
-         /JDZdH+aT08815oOmctMPvqcNUytoBj8I5PH0N6wzeDIdJyPIs4gekSrzx42K1tTrpAp
-         b7ZO04GzFsyje5Y2neui9X3JiDyIGvChqxJEZ4+G5E6i9omHdafkcpRzaDXyEN/bYkw2
-         HuKMxEKsDOM6BTKVVGceW+2mfjknQRrWmcUXP0AlcsD2IhYEXXcXhOa+aW4TYKxSpJtW
-         4EdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772215275; x=1772820075;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1Ul0Dd4P/vtKDgVC2VSwGduPgnL+oOjNMm7CLdGIWwA=;
-        b=vsPZU9gF6EZBV/kUagVQ5a8mAbI8Im9ILD+iG0N73OnpC47jDfTS4QNqODFxOm78pO
-         HrtuwydIthWcPPrZ6bY+XMXzeAcW/neDWM36T+4Eb8XaQrPv2gkieMh4M5fLoT4noP3n
-         VL7iCHYo2KXIOvhXQkkvqU4PP818Cm1JooFdVOxISclqVR5B1WOwhpIei0nVwWW0KE24
-         FGec/fCSF7hZpOBs0ZsezZPnH4gvZ4VWWhUoMHCBO7JhQ2/SreaOjCMvAEICPSxb0HUm
-         h+QaNsCDihC82aa+QLzNaSwd2Cub3u0M/oqfNyWVd8kDBptVDpPLx5Xi/t+egkTp3hPp
-         6eyA==
-X-Forwarded-Encrypted: i=1; AJvYcCWjwJTGbzcvehKxSm65bgiYmvCRxM2PTFeBr043ZWVdidFTA6rdDAPskTCVOIGm4d/fzjARCvwbQwuy1r1HOHsr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ69KHiP11bUtz9JZOS2MKPVW3etjLC4j6qWfJ/yuOEwYSBBuk
-	Mcoi3AsA/EAQug2nLY1jUHPLlgQHM0XblmKssXZljPDGQxB+T6fpbiuJYYeOKCl6
-X-Gm-Gg: ATEYQzzaBQc0a9dJWlOil5tmbBnvZjQj3GblAYuCQGkQm/V7ckjJzdx8BDMyV3rV1QY
-	1gFf2htQtHxnY0XEioz/cw7fP3K/FkUcuPwbhcKWfU/mlInpxB6T87gQtO9Hi85mrnDpz2kDjyA
-	ZYvRy+O/Ap0uxqfd2JTCPvhCiLCyK20rmKkDqeK5Um0KvWStZGULonKnByls6NR+IOMUVTqQxg0
-	2YgjuYe2MH5RxL4Y32WpXuejUG+uEpCBGbiAPy12rC2/f9LKgEWUvTNiN9VOL/0/C2d+4UxcOAc
-	NU/M5fk3Udoza79HUs4Hh/o5KjKh0OOAF727hPUbMwrIU9gKlgU1+oJTH6BHgXIpSs5NvPrBkEF
-	ux7UWOlwbGsqTljUP0RY9v0aHtnd4XtZx+hAIJ43ouFGxt5TDPOk8sboEMSSKcWGoruVwO0GYTA
-	CQ9RiQkzW33OVKFwVTSGT+reBAMIk5KANt32FZ6H1Ysp5w
-X-Received: by 2002:a05:6000:40c9:b0:439:8c1c:6b4 with SMTP id ffacd0b85a97d-4399de2cbafmr6732890f8f.53.1772215275081;
-        Fri, 27 Feb 2026 10:01:15 -0800 (PST)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4399c70ff6esm13018886f8f.12.2026.02.27.10.01.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Feb 2026 10:01:14 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: wens@kernel.org, mripard@kernel.org, samuel@sholland.org,
- Ethan Tidmore <ethantidmore06@gmail.com>
-Cc: maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Ethan Tidmore <ethantidmore06@gmail.com>
-Subject: Re: [PATCH] drm/sun4i: Fix resource leaks
-Date: Fri, 27 Feb 2026 19:01:12 +0100
-Message-ID: <2819144.mvXUDI8C0e@jernej-laptop>
-In-Reply-To: <20260226163836.10335-1-ethantidmore06@gmail.com>
-References: <20260226163836.10335-1-ethantidmore06@gmail.com>
+	Fri, 27 Feb 2026 18:07:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 86537419BE;
+	Fri, 27 Feb 2026 18:07:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FE74C116C6;
+	Fri, 27 Feb 2026 18:07:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772215670;
+	bh=1JaPmS/NjlHcJLGjdFc4aDc/hp52cYihGMOI5f7LB8I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WzsHFuy7pm+FNqHNSbLlMp8LoQC8o4Qo4GqEJGKmeQRt3Awa4nmDwygz2u4p20Gyp
+	 mvsxs4hfjGHx7ga/TckwTLTS+qtG/ohlpTTOyX6PgulVPdcR8PvO3JkQosmO1UjxU0
+	 LRlh5yDe9eZqjWqE0VZebK254zyuVbHyBYY7clnE2pp7nsF0YsMn8KTOt+yyQuBaao
+	 dvQwauZSsB/EFOr6C2ctGC3XEq/Nlssj1smP8lSmH7KWPmUBFTfw1NmigKk6RP7o1w
+	 s6Pc3r54DOJyubKNym8vYmC3/LhuyoT9VcKdchWoBeTXK0pAMzgwE1sYj/8qy9ahuK
+	 9WNamjsEhcJog==
+Date: Fri, 27 Feb 2026 18:07:44 +0000
+From: Will Deacon <will@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: yabinc@google.com, James Clark <james.clark@linaro.org>,
+	Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH] KVM: arm64: Disable TRBE Trace Buffer Unit when running
+ in guest context
+Message-ID: <aaHdcKGE94ze2fq9@willie-the-truck>
+References: <20260216130959.19317-1-will@kernel.org>
+ <86a4x8bw38.wl-maz@kernel.org>
+ <d2f6877a-534d-4862-a61c-fb3cb5b96618@linaro.org>
+ <aZNec3B0Iou9PYGw@willie-the-truck>
+ <20260217141917.GA136967@e132581.arm.com>
+ <aZSAsC1YI5_lK3e0@willie-the-truck>
+ <20260217190121.GB136967@e132581.arm.com>
+ <aZcWC25GE2iUKsNt@willie-the-truck>
+ <20260219185800.GD136967@e132581.arm.com>
+ <20260225120956.GD4184494@e132581.arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260225120956.GD4184494@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_100118_039928_6FC830B6 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260227_100751_264407_A94B7F5E 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,21 +85,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne =C4=8Detrtek, 26. februar 2026 ob 17:38:36 Srednjeevropski standardni =
-=C4=8Das je Ethan Tidmore napisal(a):
-> Three clocks are not being released in devm_regmap_init_mmio() error
-> path.
->=20
-> Add proper goto and set ret to the error code.
->=20
-> Fixes: 8270249fbeaf0 ("drm/sun4i: backend: Create regmap after access is =
-possible")
-> Signed-off-by: Ethan Tidmore <ethantidmore06@gmail.com>
+On Wed, Feb 25, 2026 at 12:09:56PM +0000, Leo Yan wrote:
+> [ + Yabin ]
+> 
+> Thanks for Suzuki's reminding, I should mention that Yabin reported
+> another lockup issue caused by missing CPU PM support in TRBE driver.
+> 
+> We have a patch series to fix the issue:
+> https://lore.kernel.org/linux-arm-kernel/20251119-arm_coresight_path_power_management_improvement-v5-16-f615a301ad0b@arm.com/
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Two nits on that series:
 
-Best regards,
-Jernej
+1. It seems a bit weird to me for the ETE driver to manage TRFCR but for
+   the TRBE driver to manage the other registers
 
+2. Are you sure you don't need to save/restore the TRBE state when
+   LIMITR.E is clear? Maybe the driver is fine with that, but I'm worried
+   that we could suspend in a half-programmed state and lose some of that
+   configuration.
 
+> Besides your fix the translation regime issue, I'd also suggest applying
+> the CoreSight PM patch series to fix lockup caused by CPU idle.
+
+Yes, we definitely need something like that in the android kernel trees.
+I've previously bodged a hack into the ETE PM notifiers, but if you have
+backports of your series to 6.12, 6.6 and 6.1 then we should merge them
+into Android. As it stands, I don't have a TRBE-capable device running
+mainline.
+
+Will
 
