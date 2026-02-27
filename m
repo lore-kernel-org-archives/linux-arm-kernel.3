@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42528FD9E34
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 03:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B6FFFD9E35
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 03:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Lm2AcOtnsuA4yjZovdWg5px8aIMhZ3rKhw+QF/SygYI=; b=3VCa5vJ0vUrDPQkVix+dFCF1kv
-	wdYkg8hghu6MNeU3VQ4V/4WSXjJIyWGR85zrmX96lhczZkhWR//wpiU8z3xogOdy/WVClJgUWOEWm
-	RDMVwTqBVGZycren7zHFZyTH+Pf8YwHvEmVmjj15q39IAGqnlcM5UNQ6mYJCBncKnlToG7daO8W4s
-	1QCEavelBIfw+oTyvumEwLg7ecl5JmVV0bUqrPTJbql7L2bhHxieP45PWlQ5QqjU+GqypQx91lJcU
-	5DSfhvbRyGiE89LesxpXEKOgr/YxAnkoO17WhgSHdWk6MLVVb5P8TWmG+D2Uyc9hFIMrOEjkOnpLq
-	jEn1gbEQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kWzBer8K/lUNOlKz33ehPBmEnMKwxXodb/hUWZrwOGc=; b=zBsH5J2J8nKfaA4XY95BE4iBhV
+	bZ6BsLmiky8fk6AjgRb52tWEpoM2D85TEVMSItuSYlsTjiarb4kkiuR0kZfiW0envudOoVbe/vfOb
+	hHp8KFcMeS8jKYt76GpnpcTIn9YPR3LMeKKuhYd3Av+nZE+o/BN2KNz0uvYv9w4v0DJjehIND90xw
+	EJCMZE5TwIJKCqPMJKY3RXLqmIza3zCvlJL9CceE+NKdt6XRKf7g8Q1GHRt6IcfVJA/Whr9/AQP0E
+	5woDM7tXyxNNNpFWCfrOemgHZGw+oRc99A2MxdHyhria0MQUJMz+bVME0Gb+y/gUHPv2xe8vfUmQC
+	zw+hwcww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvoUh-00000007bBo-46Hy;
-	Fri, 27 Feb 2026 03:26:23 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1vvoUm-00000007bDK-18uH;
+	Fri, 27 Feb 2026 03:26:28 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvoUe-00000007bBC-47BZ
+	id 1vvoUh-00000007bBa-3Lpe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 03:26:22 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-358e16d7da4so963943a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 19:26:20 -0800 (PST)
+	Fri, 27 Feb 2026 03:26:25 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3591016f289so1271236a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Feb 2026 19:26:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772162779; x=1772767579; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lm2AcOtnsuA4yjZovdWg5px8aIMhZ3rKhw+QF/SygYI=;
-        b=NzPyoSr62bRF2LyIQiyeMYtGEkM3s5UsOHYVmUMrxtavSyzX0Vpz8iNzlym8tOuWM+
-         eA4BI7uZM/FXYBL1QqbIY6jvCdqj6+S9zEOZtY+t2t9xKjE0YsZCp50pf+V+Df6e2FD3
-         XhRvTUYwAtlJmeQhvF0174rwrHotwz8h5p+oW/RyQ8hF09DammEv0uDebcQCbp5a2IBx
-         /IPsIoSvjARE2jUR3LBcRM3JG/tqNyRW2bShiXFYPQkI57E5T55RCtPO2TGutVpMLi6K
-         oab3+6m6bi9VenDSbOD815fx58f6DQ5CYZAH0vgKizp8iZMZ8oq8YE+MiFNTn4NDKAdj
-         uhtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772162779; x=1772767579;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1772162783; x=1772767583; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Lm2AcOtnsuA4yjZovdWg5px8aIMhZ3rKhw+QF/SygYI=;
-        b=BwmNkVd4X28b1MTDFCWwzbz+MfcAgxGl0GmR0HkYzYwsyrI+I1B/oZp1n2UBMBYHXN
-         M8RWk6UI48HHVxsiqqBNBc8pob7UMw6EnCiSaY2FpV0ptsCP87snO9tega1Bk6eQ7JMU
-         2Gl2hA6b7v29+sVFGgsv1cQmoRi+fJg+vkiqz/1jgJIdeHUPoErIRQ2Ug5pmJHhiB/JR
-         6IOpOsCRd5VkgxYD5kePd0+NO7BwSnTSIKugHHwXAi70Bj8kSC+aTuVVZrA2ALMejTN5
-         S8qpn1qqtTw2Exfm2zHkSDEpj3O76R5xKkPzPGfb/U1zKTJyORM4QeHHdV92ICeazNSw
-         zS1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWt868bEq1wafcqDiIod6QkWnHuJQKb5uimLE7gSZBuLCvZQNQPV81bdt4fZKpf9YjrMmD05x5Ma0QjdxBT1uJr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7G2ajdzBVb62Hq8mO2HKLhQ6RSXnVX+79f8+RFTUV+1NgvgJM
-	u8S300BdIuS4RZPpimc8de39kpq+SBKv+3Rydsy6kN8VeU0EO10g7oBV
-X-Gm-Gg: ATEYQzx4B6YOiaAtCm4CUi6hRuu95AtC9K84CYXtoSDgCnHyQuXRL5WYgfGVkPx/9/n
-	YVQWPMtEpV/ZX2+7WRMWSSyFEjWTxmzuQL/wBCbERjTPlOklEu9m9DreosyZtOPVsG03YlJ/Geo
-	q9E2pYWfWT7fdJJ/fD+TmyQ2kc+xmKVDhgut8NyGphEAwJi3WmP/8MX+nnCOd1leYwv1J2prACH
-	TzEz14p8s28O33yNAOAYctRSzXWzsUkKCxf0z6RLIS3PYgrQNMLP77tGEDaFL1VFDxq81opbajC
-	VqZ+yP5XAeL0s7E9mI/ki8i3IlmrxQ6DE/QqMEACJyI0eYDXmseagr9tr7+Rusa8ywxBNyEqtno
-	P0CqAP5/sJ0Sz4eVDK2DvAdB5updE9ekHECmn1gR7vWxacPVoXbnPfj5DsmSX8d8hUIgVzi/mPC
-	DyueWw69vMMYB5feV4336kUM9GGsKhv5Fy2fqleQlho9K5wtXBtg==
-X-Received: by 2002:a17:90b:1d4e:b0:354:999f:1b27 with SMTP id 98e67ed59e1d1-35965ce1427mr1089567a91.31.1772162779536;
-        Thu, 26 Feb 2026 19:26:19 -0800 (PST)
+        bh=kWzBer8K/lUNOlKz33ehPBmEnMKwxXodb/hUWZrwOGc=;
+        b=XiLwkZCCY4ECkdsyXsX7AAbLSnIC2rQNdFkENmGIhyxGkkpAz/IfCgRNDnLQlORIFF
+         eYHI24KVyeRzxUa8yH1LH18ORYC1FWyHkxdb8zpUBRTV7GQVf8C7IV8QVjxRQD9mls9+
+         Eo/dT51wf7y8sLbZqaOmzY0J/TfrJTzuYrp15eAfd2x4P7FQCC42Bwo5lFLxvlgpVoom
+         YPdzwhDQj0lqefEm5rT6yQpRGjN+agbIspGxDwE8uqF43igO+qaq9b9X1mPYmEawPzAW
+         luJqmH37xOTsasMxXf/16NIUBXzmcsO5q5+rPRe3tyPzW4oeif6anzWB91c9kRvJkD4x
+         Z0SQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772162783; x=1772767583;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=kWzBer8K/lUNOlKz33ehPBmEnMKwxXodb/hUWZrwOGc=;
+        b=A4DwaAsWWrMn5+QlPSKGwZWFXCLDY46HWAL6AVo3SnE6ZcUEP40V6fwbggtbKuePlF
+         StkUwmqcQ2EokedCY2nKoMFmb5DmLm4zcSHx3OZ8mbg68klsrsD3OzDbeJRmdnRKPHhF
+         jt75r/5MGN3d4Hs7t+piye/VOVAtgksGdkS/mpKfTPUwrfk0IT50WvVZyHI3tcrPvz/A
+         DqpdNWUgl4KFDYPSoTyfySUIoeevX0XIm4cfprSjFTc25jcN4/O3dKDVzrw+yjP5Jtxx
+         4U/yMZlazjZsjCeKgJ3VyJ2pntGLBU+9TSG1NCDa6+sF96amn1fqIPrNBf4wd83CXiBP
+         j/lA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5FC3PcE/B7AyCGnXpZpbj6cywnVwdgeBt/1IHM8iUQTgtX2O3amDgxTFc3+3dKWNKL2uTb2v3BtrY8sbCJ3Kh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxz2BG9qKed4VaGKe2CInj2EeworBXWtfU1Vp2GESzTeZLwMsa2
+	6NXdT9aAtQRL0FRzjaI5EdFggGb6uflDAXd3hSa0gF2fjOeJeS4K80SUw0orUA==
+X-Gm-Gg: ATEYQzxoF+D+L4ucLphsbkklksMhGBczTPJiGbQ3mPkwFOJkp0pcs5vEzuPZE2OhRzC
+	lCZPIdhUNXthYf0xqU9QSXKo6P/ehcDdhoWLaWk5imFbFCohQJB/rsx91BrnS5oE3UAK8LzTZ2k
+	AT0w069llGBJnZwcdkaHtGdJ7kZw4pjeks5pK/b1hZdehHcBW0FQuZQvU4pf/aiQRMnOhyxuX7C
+	+lKp3WNY0OUwI3+t/+LZ8SNNNt9+4gg83PRvia0GXnGvTr/vqiCyeTaXf8haJEltVh2X2N4R09X
+	nviRpbDa70ehM5CzYyNBOHBrYQhbgk69sP9QWKa7E1uPta4GAUZp4NaPFpFL59KN36B/BaDXf79
+	wT4ZDiq9JFo9bQAy+DIrhTwi6fZANvDo5v3Us2C/Rozf4qYTxbDNW8NPDeJfoSsIAN9V5byB4Db
+	TuqwaDiUQ4V60TBw6PtT00N9yx3GyvBTu1dpwMAY3VQ+EMb5yxFQ==
+X-Received: by 2002:a17:90a:e7cf:b0:34f:6312:f225 with SMTP id 98e67ed59e1d1-359388c4ea3mr4132576a91.14.1772162782843;
+        Thu, 26 Feb 2026 19:26:22 -0800 (PST)
 Received: from name2965-Precision-7820-Tower.. ([175.201.112.127])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35912fbc363sm4501887a91.2.2026.02.26.19.26.16
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35912fbc363sm4501887a91.2.2026.02.26.19.26.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 19:26:19 -0800 (PST)
+        Thu, 26 Feb 2026 19:26:22 -0800 (PST)
 From: Jeongjun Park <aha310510@gmail.com>
 To: stable@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -83,16 +84,17 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Jeongjun Park <aha310510@gmail.com>
-Subject: [PATCH 6.12.y 0/3] drm/exynos: vidi: fix various memory corruption bugs
-Date: Fri, 27 Feb 2026 12:26:12 +0900
-Message-Id: <20260227032615.108139-1-aha310510@gmail.com>
+Subject: [PATCH 6.12.y 1/3] drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()
+Date: Fri, 27 Feb 2026 12:26:13 +0900
+Message-Id: <20260227032615.108139-2-aha310510@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260227032615.108139-1-aha310510@gmail.com>
+References: <20260227032615.108139-1-aha310510@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_192621_021642_426570E2 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260226_192623_839702_EC5EB99C 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,17 +109,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This backport patch is for 6.12.y only and fixes a bug in the
-Exynos VIDI driver.
+[ Upstream commit d3968a0d85b211e197f2f4f06268a7031079e0d0 ]
 
-https://lore.kernel.org/all/20260119082553.195181-1-aha310510@gmail.com/
+vidi_connection_ioctl() retrieves the driver_data from drm_dev->dev to
+obtain a struct vidi_context pointer. However, drm_dev->dev is the
+exynos-drm master device, and the driver_data contained therein is not
+the vidi component device, but a completely different device.
 
-Jeongjun Park (3):
-  drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()
-  drm/exynos: vidi: fix to avoid directly dereferencing user pointer
-  drm/exynos: vidi: use ctx->lock to protect struct vidi_context member variables related to memory alloc/free
+This can lead to various bugs, ranging from null pointer dereferences and
+garbage value accesses to, in unlucky cases, out-of-bounds errors,
+use-after-free errors, and more.
 
+To resolve this issue, we need to store/delete the vidi device pointer in
+exynos_drm_private->vidi_dev during bind/unbind, and then read this
+exynos_drm_private->vidi_dev within ioctl() to obtain the correct
+struct vidi_context pointer.
+
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Jeongjun Park <aha310510@gmail.com>
+Signed-off-by: Inki Dae <inki.dae@samsung.com>
+---
  drivers/gpu/drm/exynos/exynos_drm_drv.h  |  1 +
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 74 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------
- 2 files changed, 64 insertions(+), 11 deletions(-)
+ drivers/gpu/drm/exynos/exynos_drm_vidi.c | 14 +++++++++++++-
+ 2 files changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/exynos/exynos_drm_drv.h
+index 23646e55f142..06c29ff2aac0 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
++++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
+@@ -199,6 +199,7 @@ struct drm_exynos_file_private {
+ struct exynos_drm_private {
+ 	struct device *g2d_dev;
+ 	struct device *dma_dev;
++	struct device *vidi_dev;
+ 	void *mapping;
+ 
+ 	/* for atomic commit */
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+index 6de0cced6c9d..b31eefb3a8b1 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+@@ -223,9 +223,14 @@ ATTRIBUTE_GROUPS(vidi);
+ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
+ 				struct drm_file *file_priv)
+ {
+-	struct vidi_context *ctx = dev_get_drvdata(drm_dev->dev);
++	struct exynos_drm_private *priv = drm_dev->dev_private;
++	struct device *dev = priv ? priv->vidi_dev : NULL;
++	struct vidi_context *ctx = dev ? dev_get_drvdata(dev) : NULL;
+ 	struct drm_exynos_vidi_connection *vidi = data;
+ 
++	if (!ctx)
++		return -ENODEV;
++
+ 	if (!vidi) {
+ 		DRM_DEV_DEBUG_KMS(ctx->dev,
+ 				  "user data for vidi is null.\n");
+@@ -374,6 +379,7 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
+ {
+ 	struct vidi_context *ctx = dev_get_drvdata(dev);
+ 	struct drm_device *drm_dev = data;
++	struct exynos_drm_private *priv = drm_dev->dev_private;
+ 	struct drm_encoder *encoder = &ctx->encoder;
+ 	struct exynos_drm_plane *exynos_plane;
+ 	struct exynos_drm_plane_config plane_config = { 0 };
+@@ -381,6 +387,8 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
+ 	int ret;
+ 
+ 	ctx->drm_dev = drm_dev;
++	if (priv)
++		priv->vidi_dev = dev;
+ 
+ 	plane_config.pixel_formats = formats;
+ 	plane_config.num_pixel_formats = ARRAY_SIZE(formats);
+@@ -426,8 +434,12 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
+ static void vidi_unbind(struct device *dev, struct device *master, void *data)
+ {
+ 	struct vidi_context *ctx = dev_get_drvdata(dev);
++	struct drm_device *drm_dev = data;
++	struct exynos_drm_private *priv = drm_dev->dev_private;
+ 
+ 	del_timer_sync(&ctx->timer);
++	if (priv)
++		priv->vidi_dev = NULL;
+ }
+ 
+ static const struct component_ops vidi_component_ops = {
+--
 
