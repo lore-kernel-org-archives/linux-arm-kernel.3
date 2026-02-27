@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B9BFEFB4F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 13:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3087CFEFB58
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQVLj5BKT/s8veEU0LhogoM5lwTr4YS3EGxktQ5PEXA=; b=K2VTeC7v/xbQ976TOnwKMGDsOx
-	gNvBFDSdT2M/LDm6waEzCTHJKj+yx+xtsY0+fYPNf8XrEKLyskk871PGWzJRcpkGxG/RcasRIPKcX
-	zrJg7Fbb2RNP5Iu54DS5+Vxe4kdBLpLQj8ZEHL6N+I3w/jRVZaMHI3H0JYwwVj9pROdGdCZpWJ8fQ
-	BvTSJED3RrMpNLtCfAEG9UWAHTHqYpdeULJbc0dkVEdpZvaWRmPjSqkj1S2a2JF8Ua8pcqVsD5dAr
-	CccEt9Wvc/SU/mQDzRcn+RXiJm1FwM11Gp+Wr/taWUD/V6hhel4uhHleogW1l2nEpq3g7wN9T9sDH
-	0nZZpnPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mu8hgPa5O/wabuqDGx1wG6OlUnie49FPuMQ9JXO9cMw=; b=FNvdW9Vu4cdc7C
+	X74EsiaMspdlUR1FzeuwzHh+mo9l6XS68sjzF8Oh6tvGWCCtEelsc8OU/LXM8jmem57qketVDpwjg
+	uu57q/J8stacQHQNdN2K08f8T0QYPScsixJbaV32kA9Vc4XPia8h0Qja+lEU/OYb63hVARKEfBQ4q
+	Q1osgsEbEcXXgTY/V4Mu7JtXqx6H3S6ih3c5j/nsxxO44D9HzzSgJogfR6vdi+iU3eCkJH8eVrb9G
+	dtxyOx/XHEUIqEY5CLwj3YRVh3iLmbVafzvfAs1Ayd2w8FS+h8b2cG2z1zWNLlOdtpEKeRQLrY4a4
+	XM1AY44knw66no7UXAEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyBT-00000008Onv-3IH3;
-	Fri, 27 Feb 2026 13:47:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvyNq-00000008QPN-2TiI;
+	Fri, 27 Feb 2026 13:59:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyBR-00000008OnX-3Tg0;
-	Fri, 27 Feb 2026 13:47:10 +0000
+	id 1vvyNp-00000008QOm-2K9T;
+	Fri, 27 Feb 2026 13:59:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7BFDA403B0;
-	Fri, 27 Feb 2026 13:47:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9428C116C6;
-	Fri, 27 Feb 2026 13:47:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B8E7600AA;
+	Fri, 27 Feb 2026 13:59:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A2BC19423;
+	Fri, 27 Feb 2026 13:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772200029;
-	bh=qvJg2b+muPo/7mul4VkBUyfNKIzDq1yjTRVGO539OrM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QXX7N77xOZthaKb8Gix4TD16r8C4jY4cHgaD9obUSckKNbhx0GgUtfYfrcO0m/JLn
-	 MVyCCwL41/4WvXKefmz/KXLNEMZyBPIk5QBqo/Qg2hvhUWcIAb9WmVHqgFU0+i0Gav
-	 /5uF9OQi06SEHlNBQIdjow7ZyfWnZiVCw3m41Qssd5AxgF3bu/cQ0IaIXSW5+M6583
-	 cSHuZ7l6M2EZJBHQlV3ePocvMcSWVl+w27he89xAKKPTroHtX+CLCAEZRDTIoK2yq2
-	 0J4iCQJeuHmxgSnz7BGmhHA6yva7BL2i+Ft7TYN+5m7klx2A3UTLFereCE8l+2UcJB
-	 GauonCbjkudkw==
-Date: Fri, 27 Feb 2026 19:17:05 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 0/9] net: stmmac: qcom-ethqos: further serdes
- reorganisation
-Message-ID: <aaGgWUpM2A5y11Wh@vaman>
-References: <aZ66OT9scKipRRu2@shell.armlinux.org.uk>
- <aZ66uXCwGgH7B_A-@shell.armlinux.org.uk>
+	s=k20201202; t=1772200796;
+	bh=bX9QJj7nm/3ODg83RWxpi2YWivQFXsF3bfJaIfIyKF8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=dApXazeXUsyUfX1rjtTU7uOQLzGmbIVTH4Uay0lRtlpLseAUbxRwbXDgzrAYfM7rI
+	 rytvjxm+0apTIzp6fVWLY9e+VO9YSironaw9iqw5Q+UJQFRAI7xyP4LKGGo4SwdHl0
+	 xKdARIUhjXmaJVZilNnpz1aw8NfFWQ6bc5rKtTZunhuESbI6F1hUOc/bX9b7RTNWxa
+	 H1Nn/KFfYw7mtl827RuVE8RdoI8hxDjsdopHgmTnnQsUIizEfJxiGGs42NiKCfAks9
+	 GwuTjB8t3UYpk/50VV+TSVqeS99/U2tQGfDreCoHYHZGVvZslXnncPuvzGB/2lCJYv
+	 F4iueILuH7PUg==
+From: Maxime Ripard <mripard@kernel.org>
+Subject: [PATCH v2 00/14] drm: Create drm_output_color_format enum
+Date: Fri, 27 Feb 2026 14:59:44 +0100
+Message-Id: <20260227-drm-rework-color-formats-v2-0-8bd278e2af9d@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aZ66uXCwGgH7B_A-@shell.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_054709_887192_FC20F3DC 
-X-CRM114-Status: GOOD (  12.79  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NTQ6CMBCFr0Jm7Zi2EjSuvIdhUdoBGn6GTAlqS
+ O9u5QS+3feS970dIkmgCPdiB6EtxMBzBnMqwPV27giDzwxGmUoZU6KXCYVeLAM6HlmwZZnsGvF
+ mvMvRF6c15Pki1Ib3oX7WmfsQV5bP8bTpX/uHdNOosKHGXatKldbbx0Ay03hm6aBOKX0BR4NOS
+ MEAAAA=
+X-Change-ID: 20260224-drm-rework-color-formats-82dcccc13c11
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Andy Yan <andy.yan@rock-chips.com>, Liviu Dudau <liviu.dudau@arm.com>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ amd-gfx@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3689; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=bX9QJj7nm/3ODg83RWxpi2YWivQFXsF3bfJaIfIyKF8=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkLFwevmjp5q9SF0KnlD/f+0L+bFLkutFDr+brdc6Pmy
+ DE9FGoI6ZjKwiDMySArpsjyRCbs9PL2xVUO9it/wMxhZQIZwsDFKQATWWbFWKcRVR7LlrviSdnp
+ 6Ir/QZ9vBb+Znzljapjk/F3Mstvknui07r/wYl9jtECkwJ4DhsLb0xkbdkk8DEubvWh/m4augYb
+ e5gsvji3U1T/l7hd24jBbf9iF1i7BAwoRS5mPBP6M/PLGX/4LAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +105,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-02-26, 09:02, Russell King (Oracle) wrote:
-> Note: only 8 patches in this series, not 9 as the subject line says,
-> as the set_clk_tx_rate() patch became part of the first series.
-> 
-> On Wed, Feb 25, 2026 at 09:00:41AM +0000, Russell King (Oracle) wrote:
-> > This is part 2 of the qcom-ethqos series, part 1 has now been merged.
-> > 
-> > This part of the series focuses on the generic PHY driver, but these
-> > changes have dependencies on the ethernet driver, hence why
-> > it will need to go via net-next. Furthermore, subsequent changes
-> > depend on these patches.
+Hi,
 
-This lgtm, can we get signed tag so that we can pull this into phy tree
-as well
+This series creates an enum to represent the output color format as an
+enum instead of a bitmask, and consolidate the HDMI helpers to use the
+new enum.
 
-Thanks
+This should make Nicolas' work easier.
 
+It has been build tested, and passes kunit tests.
+
+Let me know what you think,
+Maxime
+
+---
+Changes in v2:
+- Add missing conversion from HDMI_COLORSPACE to DRM_OUTPUT_COLOR
+- Do an enum forward declaration instead of including a header
+- Fix typos in doc
+- Collect tags
+- Rebase on drm-misc-next-2026-02-26
+- Link to v1: https://lore.kernel.org/r/20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org
+
+---
+Maxime Ripard (14):
+      drm/connector: Introduce drm_output_color_format enum
+      drm/edid: Convert to drm_output_color_format enum
+      drm/display: hdmi: Convert to drm_output_color_format
+      drm/amdgpu: display: Convert to drm_output_color_format
+      drm/bridge: adv7511: Convert to drm_output_color_format
+      drm/bridge: analogix: Convert to drm_output_color_format
+      drm/bridge: cadence: Convert to drm_output_color_format
+      drm/bridge: synopsys: dw-dp: Convert to drm_output_color_format
+      drm/bridge: synopsys: dw-hdmi: Convert to drm_output_color_format
+      drm/arm: komeda: Convert to drm_output_color_format
+      drm/mediatek: dp: Convert to drm_output_color_format
+      drm/rockchip: analogix: Convert to drm_output_color_format
+      drm/connector: Remove DRM_COLOR_FORMAT defines
+      drm/display: hdmi: Use drm_output_color_format instead of hdmi_colorspace
+
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c  |   4 +-
+ .../gpu/drm/arm/display/komeda/d71/d71_component.c |  14 +-
+ drivers/gpu/drm/arm/display/komeda/komeda_crtc.c   |   2 +-
+ .../gpu/drm/arm/display/komeda/komeda_pipeline.h   |   5 +-
+ .../drm/arm/display/komeda/komeda_pipeline_state.c |   2 +-
+ drivers/gpu/drm/bridge/adv7511/adv7511_drv.c       |   2 +-
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c |   4 +-
+ .../gpu/drm/bridge/cadence/cdns-mhdp8546-core.c    |  24 +--
+ .../gpu/drm/bridge/cadence/cdns-mhdp8546-core.h    |   2 +-
+ drivers/gpu/drm/bridge/inno-hdmi.c                 |   6 +-
+ drivers/gpu/drm/bridge/ite-it6263.c                |   2 +-
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c            |  71 ++++----
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c          |  16 +-
+ drivers/gpu/drm/display/drm_bridge_connector.c     |   4 +-
+ drivers/gpu/drm/display/drm_hdmi_helper.c          |   7 +-
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  60 ++++---
+ drivers/gpu/drm/drm_bridge.c                       |   2 +-
+ drivers/gpu/drm/drm_connector.c                    |  14 +-
+ drivers/gpu/drm/drm_edid.c                         |  18 +-
+ drivers/gpu/drm/mediatek/mtk_dp.c                  |   4 +-
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c             |   8 +-
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c    |   4 +-
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
+ drivers/gpu/drm/tests/drm_connector_test.c         |  80 ++++-----
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 182 ++++++++++-----------
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     |  18 +-
+ drivers/gpu/drm/vc4/vc4_hdmi.h                     |   2 +-
+ include/drm/bridge/dw_hdmi_qp.h                    |   2 +-
+ include/drm/display/drm_hdmi_helper.h              |   3 +-
+ include/drm/drm_connector.h                        |  46 ++++--
+ 30 files changed, 329 insertions(+), 281 deletions(-)
+---
+base-commit: 2622649ad6cdbb3e77bfafc8c0fe686090b77f70
+change-id: 20260224-drm-rework-color-formats-82dcccc13c11
+
+Best regards,
 -- 
-~Vinod
+Maxime Ripard <mripard@kernel.org>
+
 
