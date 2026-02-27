@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89611FEFB70
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB16FEFB72
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:58:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CnqmLN2SPl0YrUwNH/gaIMlfxd//iJ8TwYu8xAweKwI=; b=Vjshv9TuyTA9T4OzMSNd5NwOxC
-	ZxBHsFpBg7xBpx7ahyIxX7YIkIqOeITDU3rfDQ6Pz4QVrEeCphT4rBVpNGChKV4GgT502PwVmXQXE
-	/fST+dYrEKNszd09FmMati0KpZJPqn1aTgInqdDPkFHyhOA4BN7+04RyFG4O/tsihyvj+BMYGUeJW
-	waDRfKWXQEcSdr2TfzcGsLMnuaBFRlMqvI4QKdD9OZTCqykn554rTxy6Y9EIYExumbVr+KDHG2K6C
-	Sqr69V/WypSqmYG0b9/7K1ChYnWcKleIUgtSEGvz/BiaGlE4lnincBkKKpLfz5uwkgKOtzN15COVG
-	wiop+B2g==;
+	bh=uFDuZrBEYUf6hXbfFPQiqP12kFEqpv3OcuBBYDHYqYg=; b=Tn1OX/tTUpLTmwKsdmAnIVdHIQ
+	yN3usWU/7fVAh3qh7O7hcYtoZ3TGVwFtoGScZPU0yILJT7PLa7df4nE52bhfsfT1yTe4OotbOB1YT
+	+hUwx3EDNIxyTe34VZswr7l24S69I69Xe+ScsVbo6gWOWjGwLHSqkdcYu6vrown2rpE7uo+Ew4RGv
+	zH89uKpUxIm6bkhqraKI0lqcBpmrwtRrjPr3HRORmWlg6ELBXj0gHhibM+vJFzyNVh0OUYOQ9ol0S
+	mxC+LTECc7wTtXBmL3wRmYS+XdjpVYgkhtJ4oWLOAoaNjwdPNNQMAuf4/skqOK9Wu+aVzIst360Ep
+	/F7/fbkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw26c-00000008sa8-0EIa;
-	Fri, 27 Feb 2026 17:58:26 +0000
+	id 1vw26b-00000008sZF-1yn9;
+	Fri, 27 Feb 2026 17:58:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw26C-00000008sAl-1ZuW
+	id 1vw267-00000008s6b-2wo3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 17:58:10 +0000
+	Fri, 27 Feb 2026 17:58:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4313619F6;
-	Fri, 27 Feb 2026 09:57:53 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9017019F0;
+	Fri, 27 Feb 2026 09:57:48 -0800 (PST)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2DF7D3F73B;
-	Fri, 27 Feb 2026 09:57:55 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AB023F73B;
+	Fri, 27 Feb 2026 09:57:50 -0800 (PST)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -67,17 +67,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [PATCH v6 29/30] arm64: kpkeys: Enable kpkeys_hardened_pgtables support
-Date: Fri, 27 Feb 2026 17:55:17 +0000
-Message-ID: <20260227175518.3728055-30-kevin.brodsky@arm.com>
+Subject: [PATCH v6 28/30] arm64: kpkeys: Batch KPKEYS_LVL_PGTABLES switches
+Date: Fri, 27 Feb 2026 17:55:16 +0000
+Message-ID: <20260227175518.3728055-29-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260227175518.3728055-1-kevin.brodsky@arm.com>
 References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_095800_604879_C2141D03 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260227_095755_856668_3680D714 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,73 +92,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kpkeys_hardened_pgtables feature needs to be initialised in two
-stages:
+The kpkeys_hardened_pgtables feature currently switches kpkeys level
+in every helper that writes to page tables, such as set_pte(). With
+kpkeys implemented using POE, this entails a pair of ISBs whenever
+such helper is called.
 
-1. As soon as the buddy allocator becomes available. The canonical
-   place to handle this is mem_init().
+A simple way to reduce this overhead is to make use of the lazy MMU
+mode. We amend the kpkeys_hardened_pgtables guard so that no level
+switch (i.e. POR_EL1 update) is issued while the lazy MMU mode is
+active. Instead, we switch to KPKEYS_LVL_PGTABLES when entering the
+lazy MMU mode, and restore the previous level when exiting it.
 
-2. As soon as the linear map can be split. With BBML2-noabort, this
-   requires CPU detection to be completed on all CPUs.
-   The earliest point is therefore after setup_system_features() has
-   been called.
+Restoring the previous kpkeys level requires storing the original
+value of POR_EL1 somewhere. This is a full 64-bit value so we cannot
+simply use a TIF flag. There is no straightforward way to reuse
+current->thread.por_el1 for that purpose - this is where the current
+value of POR_EL1 is stored on a context switch, i.e. the value
+corresponding to KPKEYS_LVL_PGTABLES inside a lazy_mmu section.
+Instead, we add a new member to thread_struct to hold that value
+temporarily. This isn't optimal as that member is unused outside of
+lazy MMU sections, but it is the simplest option. Nesting of
+sections is not a concern as arch_{enter,leave}_lazy_mmu_mode() are
+not called in inner sections (nor do we need to do anything there).
 
-With that done, all the bits are in place and we can advertise
-support for kpkeys_hardened_pgtables by selecting
-ARCH_HAS_KPKEYS_HARDENED_PGTABLES if ARM64_POE is enabled.
+A further optimisation this patch makes is to merge the ISBs when
+exiting lazy_mmu mode. That is, if an ISB is going to be issued by
+emit_pte_barriers() because kernel pgtables were modified in the
+lazy MMU section, we skip the ISB after restoring POR_EL1. This is
+done by checking TIF_LAZY_MMU_PENDING and ensuring that POR_EL1 is
+restored before emit_pte_barriers() is called.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/Kconfig      | 1 +
- arch/arm64/kernel/smp.c | 2 ++
- arch/arm64/mm/mmu.c     | 5 +++++
- 3 files changed, 8 insertions(+)
+ arch/arm64/include/asm/pgtable.h   | 50 +++++++++++++++++++++++++++---
+ arch/arm64/include/asm/processor.h |  1 +
+ 2 files changed, 47 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 732d4dbbab20..2faf082cc1d0 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2165,6 +2165,7 @@ config ARM64_POE
- 	select ARCH_USES_HIGH_VMA_FLAGS
- 	select ARCH_HAS_PKEYS
- 	select ARCH_HAS_KPKEYS
-+	select ARCH_HAS_KPKEYS_HARDENED_PGTABLES
- 	help
- 	  The Permission Overlay Extension is used to implement Memory
- 	  Protection Keys. Memory Protection Keys provides a mechanism for
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 1aa324104afb..b2efff7a82ef 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -35,6 +35,7 @@
- #include <linux/kgdb.h>
- #include <linux/kvm_host.h>
- #include <linux/nmi.h>
-+#include <linux/kpkeys.h>
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 8c85e23223da..556de0a4537e 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -43,10 +43,44 @@
  
- #include <asm/alternative.h>
- #include <asm/atomic.h>
-@@ -441,6 +442,7 @@ void __init smp_cpus_done(unsigned int max_cpus)
- 	hyp_mode_check();
- 	setup_system_features();
- 	setup_user_features();
-+	kpkeys_hardened_pgtables_init_late();
- 	mark_linear_text_alias_ro();
- }
- 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 1e2cf0166c1d..1a96c186c4a3 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2273,3 +2273,8 @@ int arch_set_user_pkey_access(struct task_struct *tsk, int pkey, unsigned long i
- 	return 0;
- }
- #endif
+ #ifdef CONFIG_KPKEYS_HARDENED_PGTABLES
+ KPKEYS_GUARD_COND(kpkeys_hardened_pgtables, KPKEYS_LVL_PGTABLES,
+-		  kpkeys_hardened_pgtables_enabled())
+-#else
++		  kpkeys_hardened_pgtables_enabled() &&
++		  !is_lazy_mmu_mode_active())
 +
-+void __init mem_init(void)
++static void kpkeys_lazy_mmu_enter(void)
 +{
-+	kpkeys_hardened_pgtables_init();
++	if (!kpkeys_hardened_pgtables_enabled())
++		return;
++
++	current->thread.por_el1_lazy_mmu = kpkeys_set_level(KPKEYS_LVL_PGTABLES);
 +}
++
++static void kpkeys_lazy_mmu_exit(void)
++{
++	u64 saved_por_el1;
++
++	if (!kpkeys_hardened_pgtables_enabled())
++		return;
++
++	saved_por_el1 = current->thread.por_el1_lazy_mmu;
++
++	/*
++	 * We skip any barrier if TIF_LAZY_MMU_PENDING is set:
++	 * emit_pte_barriers() will issue an ISB just after this function
++	 * returns.
++	 */
++	if (test_thread_flag(TIF_LAZY_MMU_PENDING))
++		__kpkeys_set_pkey_reg_nosync(saved_por_el1);
++	else
++		arch_kpkeys_restore_pkey_reg(saved_por_el1);
++}
++#else /* CONFIG_KPKEYS_HARDENED_PGTABLES */
+ KPKEYS_GUARD_NOOP(kpkeys_hardened_pgtables)
+-#endif
++
++static void kpkeys_lazy_mmu_enter(void) {}
++static void kpkeys_lazy_mmu_exit(void) {}
++#endif /* CONFIG_KPKEYS_HARDENED_PGTABLES */
++
++
+ 
+ static inline void emit_pte_barriers(void)
+ {
+@@ -79,7 +113,10 @@ static inline void queue_pte_barriers(void)
+ 	}
+ }
+ 
+-static inline void arch_enter_lazy_mmu_mode(void) {}
++static inline void arch_enter_lazy_mmu_mode(void)
++{
++	kpkeys_lazy_mmu_enter();
++}
+ 
+ static inline void arch_flush_lazy_mmu_mode(void)
+ {
+@@ -89,6 +126,11 @@ static inline void arch_flush_lazy_mmu_mode(void)
+ 
+ static inline void arch_leave_lazy_mmu_mode(void)
+ {
++	/*
++	 * The ordering should be preserved to allow kpkeys_lazy_mmu_exit()
++	 * to skip any barrier when TIF_LAZY_MMU_PENDING is set.
++	 */
++	kpkeys_lazy_mmu_exit();
+ 	arch_flush_lazy_mmu_mode();
+ }
+ 
+diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+index 6095322343fc..c3a86ddce637 100644
+--- a/arch/arm64/include/asm/processor.h
++++ b/arch/arm64/include/asm/processor.h
+@@ -193,6 +193,7 @@ struct thread_struct {
+ 	u64			tpidr2_el0;
+ 	u64			por_el0;
+ 	u64			por_el1;
++	u64			por_el1_lazy_mmu;
+ #ifdef CONFIG_ARM64_GCS
+ 	unsigned int		gcs_el0_mode;
+ 	unsigned int		gcs_el0_locked;
 -- 
 2.51.2
 
