@@ -4,103 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 035C6FD5326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D613FFD5327
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 09:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=osg/KBiSHPE8q8+l4cSGrjz/3ljFNSwcPbponOZHnUQ=; b=FRvZQ/k8dEa9yLlAlEkNl+7C6S
-	lTPRN2hWblyvvJXJO9FFDagjKqvMtXdtBfvR8f65c3EuQzuXEyQ+TzfPr+X+KUe7Sgwrli279Hp2p
-	soufCnm5MW8y4UHiQX2Hu522Ba4iDc4Pk1skubpw0vlYkLahYtH29IONX6F4pLFfhWs27mtpDa3Bn
-	EKdu/gyxGdVb0TWsNk0LOcllLQlYT5lfP/iLGqP75g5Qok6DRU5V6snZf03Ft+OzZ0dCWMg+kxzpD
-	gznyeWqF+EN3qAZBcR1c4dec6Wsr/v/sr9340C5+qZi26Kpgbu1l44le5/iSuGhecyglSyfnVKkJD
-	7Ub1V2Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HpbjwxiELUOxPGAuBvAylWWMUmFWvkZ3ZUdWMaGoq20=; b=EHip94/BOO4Q2N6OWAAKdDEWTW
+	nerjDbRrLtx0AWwaGoZnSFvIv2Q4YImEnXbgMqYOhiNDjSkxHOm0Xx5He9QJJ5rNRjHh3thwo+FS2
+	4RPg2/qz1yA3VaCJ5XnV6BwZnhqiRFQnlMLYmw3LF2Q3VKX8rIrvRzfXbjV3Z4BO5OLrqo0N7EAD4
+	yrFVn133XpvPFFzV9XZKIjIJhQiQo4gIvJOiBVTzyQJwkcEO5c19fwQmDp34x6IUTdin4dwSrlhAT
+	FGnAdRTnpnYGEXJA0RsYP9IHiWWV4y/2Nl6D+G54ZXK8VugdO3XvzwVaGOpN0nqur3BX0r/WEt2nE
+	Boy+2DUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvuXK-00000008B6a-1KDO;
-	Fri, 27 Feb 2026 09:53:30 +0000
-Received: from mout.perfora.net ([74.208.4.197])
+	id 1vvuXX-00000008BDz-0oFn;
+	Fri, 27 Feb 2026 09:53:43 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvuXH-00000008B3k-40Et
+	id 1vvuXP-00000008B8A-3tC4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 09:53:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ziswiler.com;
-	s=s1-ionos; t=1772185987; x=1772790787; i=marcel@ziswiler.com;
-	bh=osg/KBiSHPE8q8+l4cSGrjz/3ljFNSwcPbponOZHnUQ=;
-	h=X-UI-Sender-Class:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:MIME-Version:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=MMiK2rh7VsX/zoQ4o0NwOJ6xEki7pxvTLDTlGiu+E2vFCNObT8kp7VJPwAZEaz/8
-	 Ogu3VZbkBObF8SnoiRN843KRe3xbCQwr3/fQmjlK+rq4H0utQhBJI25I8LOmtL+fo
-	 KurhjelHnxlNVM78cxaGejN9Nfh3PiiaVBsol942Dk255FsGuSiza0Ge40+MzOsGt
-	 tMhxDG6S5pOMZiIhWXjZ/YFizFS44HtyN2jkFV75kDeQeACNCqoP75HdY7F1EF+5W
-	 XGOQcaYmZ+aOAIZD/W8P5ZK0AWmF0fGKaEwTlYMh6w7L58a3AMOD+W3gkrZYoDhXQ
-	 rqotraS1FQPRnAyVQA==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from client.hidden.invalid by mrelay.perfora.net (mreueus004
- [74.208.5.2]) with ESMTPSA (Nemesis) id 1N4965-1vVGqJ3eDp-00rOlj; Fri, 27 Feb
- 2026 10:53:07 +0100
-Message-ID: <e2130fa8e18cdffb9be9426a8576e67675e87d55.camel@ziswiler.com>
-Subject: Re: Re: [PATCH v2 0/2] net: stmmac: eic7700: fix EIC7700 eth1 RX
- sampling timing
-From: Marcel Ziswiler <marcel@ziswiler.com>
-To: =?UTF-8?Q?=E6=9D=8E=E5=BF=97?= <lizhi2@eswincomputing.com>
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
-	rmk+kernel@armlinux.org.uk, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	ningyu@eswincomputing.com, linmin@eswincomputing.com, 
-	pinkesh.vaghela@einfochips.com, weishangjuan@eswincomputing.com, 
-	dongxuyang@eswincomputing.com, ganboing@gmail.com,
- pritesh.patel@einfochips.com
-Date: Fri, 27 Feb 2026 10:52:55 +0100
-In-Reply-To: <6137cd6a.4859.19c97f5eb67.Coremail.lizhi2@eswincomputing.com>
-References: <20260209094628.886-1-lizhi2@eswincomputing.com>
-	 <5f99968ec561631852bfa72aea95a100dcad5324.camel@ziswiler.com>
-	 <6137cd6a.4859.19c97f5eb67.Coremail.lizhi2@eswincomputing.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (by Flathub.org) 
+	Fri, 27 Feb 2026 09:53:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=HpbjwxiELUOxPGAuBvAylWWMUmFWvkZ3ZUdWMaGoq20=; b=eldennK8xmhR/G1rhdaVlU1iJp
+	E1RgEodT8Zl8VOw8xFedxN7SSIvTvbDRvElc0u/+edz/wVN2Q1S0h/EE5JLSUSTh14zmBSg0WXuFR
+	v/d6bhZuOrSB8ZtuQG+MHM2dfgFIiWQdfYwt386Sxr6FrDbWj7dXkXVr+P/DqNTL6x4jwth+ewhqC
+	yxPMRbUSLu31zeJ6JIXNAjbt4LgPGEmEPZS7cO6dPVxIytcNZhu2MTkDqOtZqxUYh1vdHwCQKUU7u
+	OuqEuCO7nO32wRjy5TtHJ7LN8SKEQf+00NHzVoGUWMyKwfY0rL7QsfkP7Z4CX6LtpX5nMYTz4f3/k
+	un0sENcQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43848 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vvuXG-000000000cf-09tT;
+	Fri, 27 Feb 2026 09:53:26 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vvuXE-0000000Avmr-0eB0;
+	Fri, 27 Feb 2026 09:53:24 +0000
+In-Reply-To: <aaFpZvuIzOLaNM0m@shell.armlinux.org.uk>
+References: <aaFpZvuIzOLaNM0m@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 04/14] net: stmmac: remove .get_tx_ls()
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:P7rtaATGEKMWJFkzUg8ddjiTxi9RHPpZ3eAD8g5GykxXsfTcBTX
- 8RXzCrhmAc5Vm8vo5y1jI0txTBr30Z6MJfl46iwascAdegNwXLF6TXOAfQRWSJB2uYY9XWl
- dt0tvp3HLYBjkGuG+00bNoMDBoNn6gZOOikO9YDx/ihQDYDOvNeLt1z5PGKPi6KVwwkcFPm
- LWc7lQqLeeV8Xby4TQxWQ==
-UI-OutboundReport: notjunk:1;M01:P0:2aAsh0z8eO8=;1a+V6iI+Ks1SBDduFZaoA6b5djK
- 3pmbvM9EWtriNKuicZvUI5AmVvd43284UVoaevjgNUSBPV36nB/7mxc4eDlCNUQph6dxQBuL4
- Ycr7eQJ3QSN/K1dZWCLtJS7fpXwBqChlRTXKqxA4t98XyQm8q7Jx6JC6GIqNhEdJqLCoSmQZi
- Cz+LKAK/hiCEw64OQ3l5Va8JXMmJX26a1U/WFux48O7/DghTcf+FifcEZm9OMWSwDPJ0WRCDh
- qvNsQUaVuFKusDrGC4ltb74acVwQNNhNhB8AX9J+aXXqOXvqqMEG3Uo91o2TO1pmniqju+K7Q
- RF6MqFY6yjVm1lqRpCa2TVySqtHmNjuQl7HyQR8M9XZvBwyKclpp65eIOD82kSxNwsKZAPAkx
- 0/GfQhgkZ3nsRHyT4ASlDcsjUMG55SHMRwHb52IK63UlJ0eVpsE2G26wz3k+om0Ulr/5YsRJB
- ZZmRCXUzEHScAJ04gd0yctOGhg6+AsDAip0DYXuJDoB64TvmEyWO0XkowXdomVbatX6yo82aw
- nFAagbtvHoO97AIxgo9VfhMP6Rg6fe/UI5wMZHTKgiPVfHoxF7MMy4U0NfZu1+VpZ5jYjTJbx
- 0Mm8j01Qofo8rWpK1uhfgmd0M/6LWN7EFbXMCdBXLprG+YmSsx8boRWLSC1vJ3GsxsKgn06kp
- ZzqmMZybqoXexY+y+lyGbJxB+iuLsd2EdFcqg+dP25wC8i+LlhSWizYouAdZ7lbVTxaA98zKp
- RBzcvMXZGNT6j+Ix/2fxK48YwJz1dIWlrX/UY+Un32ifhY8YWFkpbX5u+e+6zz3yJD6D3cTMu
- uve9lbYVnFJ7swcfR7wEeryrSsf3BGfuukHBtk8IBVD7fq9Bg+3uOfkRERtwFqjjGOm64Kmk+
- E+AHKM5pF2K6tRCIOCTQRHSIaCLTXPyvYlpBXgZaZRjyx08Tm4J1jk97kedDU1Zt9LKOpFUJz
- r+Nctqrgtyju+cZRQgZlYP3drW8xusEQJ3d06xXIGT3ahI28N1Ynwvt7XCPYQWFk6bLTs7Stj
- EnyklIa4U53kIYpwZPS7btQtE+N9WKZMcqqq9vL2FFnv0yZPIlm9W+55A6dVkRKFIr8HsCeIu
- vu5gw5PFZepe3GluE+HAm2pOmk5zo9NCan+CxkELxxOGNkkqthGnmY5+/eW5q/qpX12WWSmKX
- hPHw15Q0jC/de4zYcu8jpPdaJVk9OLkhRDejDs7RjQg9x0YOq8k6k83UJ/STzVlIrIuzYQnvo
- luAkUvfUV/H8bfJoZFAj22atQ0zm/CqPn2TiTLA99oNO3sTszglfC+HzFTw5nITzPO3He/ezm
- 8v/bnaKh6/yckOWDcdqZkabQIPqgMAlGTkkzDc6jtZMsvgbv6WjpKjLsmq2/9n/+gjYG+SL9a
- kJFNkTNKrDGAuoLadQBVy5tWXjX/VqeLdxMqe0HZ++uxRekNsWx+5voj923XXmqjtWf2iAk0X
- 7BQNPIli40Q496UTNbaveeD72ZwwF928ZWCDL/pvluaB+th+j5Q46HKdwlDTHUoXlcGPMK5JW
- illTnRP1btSRPCvmqBYME/DqAKzf7p8nuo+V4cbusgIuNXDcVE93w9GU0Wz17PjDfCV0VKA9T
- /AexslfP3O1GIlgRatK8Gy2hMa/XC/JV7IVwH3jF6DNaSiDWfqoF/1BfmugAyGspAsVs2us+5
- GjBoFUeyerviIjGb0QUzO3momKUvOReMVhff5aUXonxsyHZ+zYRcVr/XUAjZmjwz+ZX5V0VFT
- b17rImpNxujZUwSAlRyh5jfQANiMCGFcgYFwOMe9MEebeIaiURsnatGQ=
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vvuXE-0000000Avmr-0eB0@rmk-PC.armlinux.org.uk>
+Date: Fri, 27 Feb 2026 09:53:24 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_015328_211400_468833A3 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20260227_015335_973402_DFE98F63 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,112 +86,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zhi Li
+No code calls stmmac_get_tx_ls(). Remove this macro, its associated
+function pointer, and all implementations.
 
-On Thu, 2026-02-26 at 11:20 +0800, =E6=9D=8E=E5=BF=97 wrote:
-> Hi Marcel,
->=20
-> Thanks for sharing the details.
->=20
-> 1. I checked your log and noticed that the kernel cmdline already include=
-s
-> =C2=A0=C2=A0 "clk_ignore_unused". Therefore, your issue does not appear t=
-o be the
-> =C2=A0=C2=A0 same as the one previously reported by Bo Gan.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c   | 7 -------
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c | 6 ------
+ drivers/net/ethernet/stmicro/stmmac/enh_desc.c       | 6 ------
+ drivers/net/ethernet/stmicro/stmmac/hwif.h           | 4 ----
+ drivers/net/ethernet/stmicro/stmmac/norm_desc.c      | 6 ------
+ 5 files changed, 29 deletions(-)
 
-Yes, that actually came from ESWIN's hifive-premier-p550_defconfig which I =
-disabled now.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+index b8fe4ad883e5..56a88b71def9 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+@@ -191,12 +191,6 @@ static void dwmac4_set_rx_owner(struct dma_desc *p, int disable_rx_ic)
+ 	p->des3 |= cpu_to_le32(flags);
+ }
+ 
+-static int dwmac4_get_tx_ls(struct dma_desc *p)
+-{
+-	return (le32_to_cpu(p->des3) & TDES3_LAST_DESCRIPTOR)
+-		>> TDES3_LAST_DESCRIPTOR_SHIFT;
+-}
+-
+ static u16 dwmac4_wrback_get_rx_vlan_tci(struct dma_desc *p)
+ {
+ 	return (le32_to_cpu(p->des0) & RDES0_VLAN_TAG_MASK);
+@@ -549,7 +543,6 @@ const struct stmmac_desc_ops dwmac4_desc_ops = {
+ 	.get_tx_len = dwmac4_rd_get_tx_len,
+ 	.set_tx_owner = dwmac4_set_tx_owner,
+ 	.set_rx_owner = dwmac4_set_rx_owner,
+-	.get_tx_ls = dwmac4_get_tx_ls,
+ 	.get_rx_vlan_tci = dwmac4_wrback_get_rx_vlan_tci,
+ 	.get_rx_vlan_valid = dwmac4_wrback_get_rx_vlan_valid,
+ 	.get_rx_frame_len = dwmac4_wrback_get_rx_frame_len,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+index 8bf373513930..f5deceb052d7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+@@ -60,11 +60,6 @@ static void dwxgmac2_set_rx_owner(struct dma_desc *p, int disable_rx_ic)
+ 	p->des3 |= cpu_to_le32(flags);
+ }
+ 
+-static int dwxgmac2_get_tx_ls(struct dma_desc *p)
+-{
+-	return (le32_to_cpu(p->des3) & XGMAC_RDES3_LD) > 0;
+-}
+-
+ static u16 dwxgmac2_wrback_get_rx_vlan_tci(struct dma_desc *p)
+ {
+ 	return le32_to_cpu(p->des0) & XGMAC_RDES0_VLAN_TAG_MASK;
+@@ -353,7 +348,6 @@ const struct stmmac_desc_ops dwxgmac210_desc_ops = {
+ 	.get_tx_len = dwxgmac2_get_tx_len,
+ 	.set_tx_owner = dwxgmac2_set_tx_owner,
+ 	.set_rx_owner = dwxgmac2_set_rx_owner,
+-	.get_tx_ls = dwxgmac2_get_tx_ls,
+ 	.get_rx_vlan_tci = dwxgmac2_wrback_get_rx_vlan_tci,
+ 	.get_rx_vlan_valid = dwxgmac2_wrback_get_rx_vlan_valid,
+ 	.get_rx_frame_len = dwxgmac2_get_rx_frame_len,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+index 77b2cb34aa0e..3c241c5699ed 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+@@ -287,11 +287,6 @@ static void enh_desc_set_rx_owner(struct dma_desc *p, int disable_rx_ic)
+ 	p->des0 |= cpu_to_le32(RDES0_OWN);
+ }
+ 
+-static int enh_desc_get_tx_ls(struct dma_desc *p)
+-{
+-	return (le32_to_cpu(p->des0) & ETDES0_LAST_SEGMENT) >> 29;
+-}
+-
+ static void enh_desc_release_tx_desc(struct dma_desc *p, int mode)
+ {
+ 	int ter = (le32_to_cpu(p->des0) & ETDES0_END_RING) >> 21;
+@@ -446,7 +441,6 @@ const struct stmmac_desc_ops enh_desc_ops = {
+ 	.release_tx_desc = enh_desc_release_tx_desc,
+ 	.prepare_tx_desc = enh_desc_prepare_tx_desc,
+ 	.set_tx_ic = enh_desc_set_tx_ic,
+-	.get_tx_ls = enh_desc_get_tx_ls,
+ 	.set_tx_owner = enh_desc_set_tx_owner,
+ 	.set_rx_owner = enh_desc_set_rx_owner,
+ 	.get_rx_frame_len = enh_desc_get_rx_frame_len,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 50ca8dcea2fd..e317f64a0fcc 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -56,8 +56,6 @@ struct stmmac_desc_ops {
+ 	/* Clear interrupt on tx frame completion. When this bit is
+ 	 * set an interrupt happens as soon as the frame is transmitted */
+ 	void (*set_tx_ic)(struct dma_desc *p);
+-	/* Last tx segment reports the transmit status */
+-	int (*get_tx_ls)(struct dma_desc *p);
+ 	/* Get the tag of the descriptor */
+ 	u16 (*get_rx_vlan_tci)(struct dma_desc *p);
+ 	/* Get the valid status of descriptor */
+@@ -119,8 +117,6 @@ struct stmmac_desc_ops {
+ 	stmmac_do_void_callback(__priv, desc, release_tx_desc, __args)
+ #define stmmac_set_tx_ic(__priv, __args...) \
+ 	stmmac_do_void_callback(__priv, desc, set_tx_ic, __args)
+-#define stmmac_get_tx_ls(__priv, __args...) \
+-	stmmac_do_callback(__priv, desc, get_tx_ls, __args)
+ #define stmmac_get_rx_vlan_tci(__priv, __args...) \
+ 	stmmac_do_callback(__priv, desc, get_rx_vlan_tci, __args)
+ #define stmmac_get_rx_vlan_valid(__priv, __args...) \
+diff --git a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
+index e9face06b950..621bc1deb4e5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
+@@ -151,11 +151,6 @@ static void ndesc_set_rx_owner(struct dma_desc *p, int disable_rx_ic)
+ 	p->des0 |= cpu_to_le32(RDES0_OWN);
+ }
+ 
+-static int ndesc_get_tx_ls(struct dma_desc *p)
+-{
+-	return (le32_to_cpu(p->des1) & TDES1_LAST_SEGMENT) >> 30;
+-}
+-
+ static void ndesc_release_tx_desc(struct dma_desc *p, int mode)
+ {
+ 	int ter = (le32_to_cpu(p->des1) & TDES1_END_RING) >> 25;
+@@ -292,7 +287,6 @@ const struct stmmac_desc_ops ndesc_ops = {
+ 	.release_tx_desc = ndesc_release_tx_desc,
+ 	.prepare_tx_desc = ndesc_prepare_tx_desc,
+ 	.set_tx_ic = ndesc_set_tx_ic,
+-	.get_tx_ls = ndesc_get_tx_ls,
+ 	.set_tx_owner = ndesc_set_tx_owner,
+ 	.set_rx_owner = ndesc_set_rx_owner,
+ 	.get_rx_frame_len = ndesc_get_rx_frame_len,
+-- 
+2.47.3
 
-> 2. I also verified that v6.19.2 already contains the two eMMC fix patches=
-:
-> =C2=A0=C2=A0 https://lore.kernel.org/all/CAPDyKFqcMyM-=3Dx+2FWNLhHY=3Dgu5=
-ApHNPQhp0xBKDJGr7BhEx4Q@mail.gmail.com/
-> =C2=A0=C2=A0 https://lore.kernel.org/all/CAPDyKFrkEZDuMbGpfxismcx=3DvJkSS=
-K_XbtB762+sUFocupT63w@mail.gmail.com/
-
-Yes.
-
-> =C2=A0=C2=A0 A likely cause is that the eMMC DTS node is missing the AXI =
-clock definition.
-> =C2=A0=C2=A0 Please refer to the DTS updates in the following pull reques=
-t for reference:
-> =C2=A0=C2=A0 https://github.com/eswincomputing/linux-next/pull/20
-
-Ah, that one helped (;-p).
-
-BTW: For CPU frequency scaling to actually work one may additionally need C=
-ONFIG_RISCV_SBI_CPUIDLE=3Dy.
-
-> 3. In addition, please check whether CONFIG_GPIO_DWAPB=3Dy is enabled in =
-your
-> =C2=A0=C2=A0 kernel configuration. Since GMAC is built-in by default, it =
-depends on
-> =C2=A0=C2=A0 GPIO being available during early initialization.
-
-Yes, I also changed that from =3Dm to =3Dy (;-p).
-
-> Hope this helps narrow things down. Please let me know what you find.
-
-Yes, it all works now perfectly incl. CPU frequency scaling. See [1].
-
-Next one would be working PCIe and USB. Unfortunately, for PCIe on EBC77 on=
-e would likely need some sort of an
-adapter cable/PCB. Maybe I can solder something together. Let's see...
-
-Thank you very much!
-
-[1] https://github.com/riscv/meta-riscv/pull/602
-
-> Best regards,
-> Zhi Li
-
-Cheers
-
-Marcel
-
-> > -----=E5=8E=9F=E5=A7=8B=E9=82=AE=E4=BB=B6-----
-> > =E5=8F=91=E4=BB=B6=E4=BA=BA: "Marcel Ziswiler" <marcel@ziswiler.com>
-> > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4:2026-02-21 02:37:57 (=E6=98=9F=E6=
-=9C=9F=E5=85=AD)
-> > =E6=94=B6=E4=BB=B6=E4=BA=BA: lizhi2@eswincomputing.com, devicetree@vger=
-.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-> > edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.o=
-rg, conor+dt@kernel.org,
-> > netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, a=
-lexandre.torgue@foss.st.com,
-> > rmk+kernel@armlinux.org.uk, linux-stm32@st-md-mailman.stormreply.com, l=
-inux-arm-kernel@lists.infradead.org,
-> > linux-kernel@vger.kernel.org
-> > =E6=8A=84=E9=80=81: ningyu@eswincomputing.com, linmin@eswincomputing.co=
-m, pinkesh.vaghela@einfochips.com,
-> > weishangjuan@eswincomputing.com, dongxuyang@eswincomputing.com
-> > =E4=B8=BB=E9=A2=98: Re: [PATCH v2 0/2] net: stmmac: eic7700: fix EIC770=
-0 eth1 RX sampling timing
-> >=20
-> > Hi Zhi Li
-> >=20
-> > Sorry, to steal this thread, but I do have a quick question concerning =
-Ethernet on the EIC7700. Every time
-> > I
-> > enable gmac0 in the device tree my EBC7700 stops booting (e.g. SD card =
-is no longer detected) while
-> > Ethernet
-> > does seem to at least get detected. This has been seen using next-20260=
-219, stable v6.19.2 [1] as well as
-> > 6.18.0-rc6 [2]. Any idea what could be going wrong?
-> >=20
-> > I admit so far I only do have one single EBC7700 at hand while waiting =
-for further hardware to arrive.
-> >=20
-> > Thanks!
-> >=20
-> > [1] https://github.com/riscv/meta-riscv/pull/601
-> > [2] https://github.com/eswincomputing/linux-next/tree/dev/test-upstream=
--v6.18-rc6
-> >=20
-> > Cheers
-> >=20
-> > Marcel
-> >=20
-> > [snip]
 
