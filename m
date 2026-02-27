@@ -4,70 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BC8FEFB56
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D887AFEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XV4PtLxrWMiTLFdzByjL4mJrPwEWAOuuxxZFb0ycI+k=; b=MbU3rhNkoOyCsMrChIomSEOWLn
-	S6t8PkRIB5s5g2QC2i2q2D751SUvOH91K0x3fURVRDYZz8TkFpaztMwu4b75I6QeyHKmpWq5BAJoC
-	+Icl2rdEEuz9sLJuNFT65Ez3Q/M/7PPN+z7qvl+NpFa9Z/j7XD34p7nTm/LHTmmIeL3/WEn8wDrFA
-	srPjaZtXb/6t+wahUNNl2hll4R3Agi8bX+X3bmFUQBQKDzS9aj5+DQjZ0gvZmZDOcakFqBJTM6JSn
-	Jh51DBozVTfMgec6iW8DpIo1iD2eKFnCJgnLg/QriHlZHovOY6E85ZZ7nmiT/1c96RXFJKuH+ihzY
-	FNruGlYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ag0b3LP+0vk7euuSiFXtUPSJV7a6sEIoSr1314qkX/0=; b=VN/JrPNOJh5KB/wKCKYjaac1ji
+	Xv1DtbARn5M52sVhFPdzbEjWS/4NCAobj+bPpgngfZdmzWlNG5hj6wgZNDz3BgYTL4XrzJCgeFNvH
+	fpYH7urXZmuIADMzRCuxdCTYUX+/OmR0A0IP7Mj+/2UsPbmDB2lj/yV5OaJvo7rUaehk1EsKeCfL9
+	sBQbSVXzry4/nHc5G0PkiyfgWGvAUn4wUI4aFOh8kaQ6FHehurL0jpRVyX1PzRryBpomJmP01DE1U
+	DFRSE/mHPj6mx9VhzWhDX8MabSCyDpwOYtn93Ggjfw33xIoVh8CJEmfPEUHQtxcw7h/Tykzznxh45
+	F9YFe01Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyXq-00000008TFr-3B1g;
-	Fri, 27 Feb 2026 14:10:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyXo-00000008TFB-12AF
+	id 1vvyn9-00000008Ulv-0Msb;
+	Fri, 27 Feb 2026 14:26:07 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvyn6-00000008Ul3-0UDq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 14:10:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4B8514BF;
-	Fri, 27 Feb 2026 06:10:06 -0800 (PST)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09BBE3F62B;
-	Fri, 27 Feb 2026 06:10:09 -0800 (PST)
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	corbet@lwn.net,
-	pbonzini@redhat.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	liuyonglong@huawei.com,
-	Jonathan.Cameron@huawei.com,
-	yezhenyu2@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	skhan@linuxfoundation.org,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v3 4/5] KVM: arm64: Enable HDBSS support and handle HDBSSF events
-Date: Fri, 27 Feb 2026 14:10:00 +0000
-Message-ID: <aaGluBz5P_eYbFSW@devkitleo>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <5a575132-7102-46c8-8d68-9e5828670a69@huawei.com>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com> <20260225040421.2683931-5-zhengtian10@huawei.com> <aZ81kn2PLuf5Ifm5@devkitleo> <5a575132-7102-46c8-8d68-9e5828670a69@huawei.com>
+	Fri, 27 Feb 2026 14:26:06 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=i+FhnkL+V7lXSWmeIom3XjaZJupwev8/xTcVgpwBuvnH0+ekk0R3Ww5RLyX+pFcxJNRtIpKEl3XKyJThQifUtB2u3KOnRwS1NDNjy/0oRl5+GQskwHpTaa0uhNl/oQZbNYx5kIbHAJs0I0j8mcF30V9N73agC+lspWqzBxDzD+COtFal1fvO4Hqlz3gPOn1COh3U6Jzlvydg+FQARegtXM0mxcVYVw0XBoH0T0AKQlWV1eTsmc7lT0jU3VRbrAlDn2Mot0yDzsVzjfWtpEc7h1AM2GRR5ix+pz+F2hspaOaMX9i34zmDv/IbtI3A8BWgW4krF7yZ4zBeCKHInMH6SA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ag0b3LP+0vk7euuSiFXtUPSJV7a6sEIoSr1314qkX/0=;
+ b=HtKFd9jQIN0v/rm+QsDpu2FHdwnzL4iUDFa//cB+oAnomaXzWhMqWF1oa5hlcTxlElulv/mBVmnDVNMiTfOuSJzqq58f6mTYddUSU1XwlrWcizHazTzYKQZLWJV96D49CVSfS7gbemBlh2T7dffLHjifsT0pw4CyJZTJv0eHSyJDsshm+9w6EcGL4PsApLAvogaojVFoeTepvx9XzS/6iSDYVPgcKOaIyrFYiqm+nIYmssR+t76sWPBl93/dF3c0+moRSARcSKwl5XPzdyC4XrOFgl+gEyN0NMzyRDH4d4wBWikv1I/zGHoPMo6JrmwOQHub90dcvw8v2HxqjiMR1g==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ag0b3LP+0vk7euuSiFXtUPSJV7a6sEIoSr1314qkX/0=;
+ b=c8jx9yt910HTHJJmNMvf3YTqCiyw1KuXSSJLsGZQo2F2MCooWlOe2wz1fs/lWIVvZlT8gsg73Ikqn03SldDV8wp5QyfSMBVQuYyIeMvYyV4SE81ltAKMAAb8kJ7g8kxOkvRXFISHRhJ1AME3f2ZkOBMz3uKHpqI6KJL8BnOFPOs=
+Received: from AM8P191CA0019.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:21a::24)
+ by AS8PR08MB10245.eurprd08.prod.outlook.com (2603:10a6:20b:639::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Fri, 27 Feb
+ 2026 14:25:55 +0000
+Received: from AMS1EPF00000092.eurprd05.prod.outlook.com
+ (2603:10a6:20b:21a:cafe::da) by AM8P191CA0019.outlook.office365.com
+ (2603:10a6:20b:21a::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.27 via Frontend Transport; Fri,
+ 27 Feb 2026 14:25:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS1EPF00000092.mail.protection.outlook.com (10.167.242.89) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.16
+ via Frontend Transport; Fri, 27 Feb 2026 14:25:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YpKsGOa7J27GuWxQF9aDCoG3JWFU7bXGkb7h8LsswmBNz3Rs4LxNcL4/sbvogJh7ofajchPczxKwy8dvbVLHiY/2d6T4ftWhohY1xPCb9XZlAaSw3eHUgkypzuo/zyKiS7dPbaJsI4LZAFAI07QwWq9/ukO6Z0/wGUB8ni5t7W7+Uf3e9tP6yfDdcwFYt295fHpR46C7RiA9cO2E4XZXbJE8tS8D4xopYYMu//Bm7ea3mNutz65nVzijUcimEr8HqdjkuhOSTz8oNXYkn+aqymeHjWdAZAtv8rfrAZbndtH71DVAbGgRcJXZLaRk/9gFvvhFKeOWj3FpXxuP/NRqvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ag0b3LP+0vk7euuSiFXtUPSJV7a6sEIoSr1314qkX/0=;
+ b=pWMflbJWpnWVzzpUYBN98JKacsjJ7zpMjvqDqfr3tVz3/S13XfFyPwJjUkqA+DnukIfmOdzZA8Chm9Q8kwfN7LkHzHDJB8XRP2LRIRwxjq1ohuAKx0tSm4bYIqJA4JfOS2e1/9ingitR8/uF7DoIDe7yDqGDCetKtA4/H0cDu4Tj0YxdPNtz9lBpejgtRB6ssQPtgW4zVv4KVLeSRkvruUZR8aBk3X40J4c432Vb0w6bGqfGBhS75BoYgTYE45ySAteixauHbmR85NfgCWBty6t0Twpc39zEC5UFBSp2ojBTIRp61i8cHpA351AUKNlXOF73vT5XaGhquWDRV7IHZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ag0b3LP+0vk7euuSiFXtUPSJV7a6sEIoSr1314qkX/0=;
+ b=c8jx9yt910HTHJJmNMvf3YTqCiyw1KuXSSJLsGZQo2F2MCooWlOe2wz1fs/lWIVvZlT8gsg73Ikqn03SldDV8wp5QyfSMBVQuYyIeMvYyV4SE81ltAKMAAb8kJ7g8kxOkvRXFISHRhJ1AME3f2ZkOBMz3uKHpqI6KJL8BnOFPOs=
+Received: from DBAPR08MB5687.eurprd08.prod.outlook.com (2603:10a6:10:1b1::17)
+ by PAXPR08MB6462.eurprd08.prod.outlook.com (2603:10a6:102:155::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.15; Fri, 27 Feb
+ 2026 14:24:52 +0000
+Received: from DBAPR08MB5687.eurprd08.prod.outlook.com
+ ([fe80::7d4a:f17a:4cb0:9793]) by DBAPR08MB5687.eurprd08.prod.outlook.com
+ ([fe80::7d4a:f17a:4cb0:9793%4]) with mapi id 15.20.9654.013; Fri, 27 Feb 2026
+ 14:24:52 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: Joey Gouly <Joey.Gouly@arm.com>, Vladimir Murzin <Vladimir.Murzin@arm.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "maz@kernel.org" <maz@kernel.org>,
+	Mark Rutland <Mark.Rutland@arm.com>, nd <nd@arm.com>
+Subject: Re: [BOOTWRAPPER PATCH 2/2] Add support for GICv5
+Thread-Topic: [BOOTWRAPPER PATCH 2/2] Add support for GICv5
+Thread-Index: AQHcp/Fud0nyjHe2TkeXDTGfKIHzybWWYlgAgAADnwCAADPRgA==
+Date: Fri, 27 Feb 2026 14:24:51 +0000
+Message-ID: <d1f1eea815dad4fcb9eeedbef8e50af68e415284.camel@arm.com>
+References: <20260227102049.8015-1-vladimir.murzin@arm.com>
+	 <20260227102049.8015-3-vladimir.murzin@arm.com>
+	 <20260227110626.GA1980869@e124191.cambridge.arm.com>
+	 <3048e8c5-c14c-45fa-ba5f-1346df084486@arm.com>
+In-Reply-To: <3048e8c5-c14c-45fa-ba5f-1346df084486@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1.1 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: DBAPR08MB5687:EE_|PAXPR08MB6462:EE_|AMS1EPF00000092:EE_|AS8PR08MB10245:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f1a193c-7dac-4639-1706-08de760c1e22
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
+X-Microsoft-Antispam-Message-Info-Original: c1Ft0mkYGtrwidfOKNhgzs1NlgLFElBlnXLyMLGq4AXeoqpWa2VHgfG7LESvYrN/4t/c1+0uqlbXHIClbJ9D9XXtxYxP8RtEtskEG9890oFDwksiCnUjuz/NWsHUqJX5Cm4q95yKEJVxqi/iW4vAx4UxfpTADleMc7XTpfIYsdK6G0B4X/dDQASrx7MthusqMVPTATp35p4X0fQDpkVV2yY6CtHCucpqgcHQAFd48FknCu7r/KqqLIlYm9wdfOAHZ6iiwc5HNI/fBORSXfFeCz991l3TFe4I58pb8mUgrsuB4in9ikBgD/jZ8DCNeGOhiIIBcJE8Q8++PJbkxJsVZk1OAZFqi3NOivCm44c91foMKAMyr4G/LEQeUwyYlNXHrEzosZfgO1HC4WoAn5kVrDCNOeGMjjzNx5ITjR5YphvwxYGBJ1XA0f9FLxxR5p/0ZMq+u/WNxjS9r8gt+PSnSWgpg3cL76TSEqyyjNxG1aGAy86uHyww22e+t9wUXDsOOsmba4jXINmJYffD/U2vpiyo3riNGJTWSsHLd+gqEWgpJc980oK4KX4ONSuX5OT+4lngBTpcfW54rEZDjrrkqyiAY8vfSYcNpXjRiKNuo/EM5iZKhz3I/S7s9SpYZ5MwasT2k2/kFXTvJuVy4w+KiLwJ3oay0dZtZjreYJDL9isl3erDA/XyXF+TviSLqz0djX/jQTecgOu0msw7GegtaPogE3g1s7epzDq2ob00NBjHindlhFlRRt6SwFCDhLcjN4dLsMnzf0mE+JI09nEizC2WoFG1wslCJgnfG2JEVpY=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBAPR08MB5687.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <AEDDD4B0C1658D4F8D09A516B61985BC@eurprd08.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR08MB6462
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000092.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 1e5058c6-a2e0-4a4c-5b44-08de760bf8ab
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|35042699022|82310400026|1800799024|14060799003;
+X-Microsoft-Antispam-Message-Info: zfc6HUxlgZp/FMGqQ5KP/vi6xX+21TR1VHDs4TVxNbvOlWvv7FPL7kLtXa51ra5FUB+UVlcKkR86VC4FyP2HqTVJWx2VNqq6N7Nj99ZU48Shc8bj2CWgHHMWpSBm1hPQRwYbfXVFzABSJSVhibtI/mWaolPBwCnW9O2C1LvFsXXgvxHE1vcgBoN0f7kGbowTYVuNi+NmiuGs+jq9xjmTMk0RatqgK4N5AFgygvfyXWdcctXQx/qgR9f/zsawDwS7jceUG50Rp3cH/M0wCbOOcQdYBQlJxCWmwEStEra0IR80m5GjONvzPmV2/zqn2csOhrVhaT7j5E3gx8Rsl/PfvZ67dV8hkZGglhZymOQyaC2vqpHVVnEIKFT8EOhX0ffVF21Tfo45r0EGpYrXwziyrZofSCNgNT5oMlvEPoRq+lLV3lIfebWbiCKGvQAGilBn9XtbEUo6bAltU8EAE/N3PCyY6QHM1L9bUtONC+1CN4UURdpW0y/KLqmFQURVMiZt/Vpsph9PZFYsx849drRSL6SIvxifptDXXIHoVSTupC9L6YYJ0OLahoDcNfX5t0t/uSGU4aMqtt+ASjpQv8FSGas7Lz5dnqlFDm1m+TShKuKFr3Bw3XY7/z5zMpoaC3d9gEYfRbZBexNZHnI+zOPc0MIAc19jOwxJVkBa3KBCKwoxiAWyKxXotj4kgBTscco8zMgCPJw0HBeYLJUB4N1mMLqtAtA/R7nK1TZVd3EtXAqcsxQKx8RM5qPvbGZIRfpGtg5npCeqr2pYvGGe9El17FnVGIlGh+Q9KTIH7yasEj0x6suW5kDTgpMkCfuOIy5J8ZMb2LR5Mq1qI3Fp6uah/w==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(35042699022)(82310400026)(1800799024)(14060799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: AiGnu1fGOV+OObY3CDqKSMMjRiUZSYG0j7XL5Qu1MJZXTuuSJHWTN6IOUeCN+iaH4Ab4FeJDQrrT5EN6Kol0qPYTrk/wlCruXb/+vpuWeKyCAQqWflhdDJyozb8h1qQhn4eaSs1dSSTf/11tfm/HkyL4B6VXlsjXko30mOo8vEMM50lT4cPGuCFxaD0ajN1NvXPUzaxkYo/RmsnEDsV+Wwvc0U3y/+/92v6SrmwhkJ+5Yi7yZU9qzC+Jpw7QPBqICihWFsSObkd3VwehvEEHCapEBQk+3T7wPVxIoke3kEWwqWTjsMJzd4mjekg2TJOyXDsJOeyszT+bl8og3fl23DiGTKftIyR8FOwq6QQO58lQqesGlzOKv6IDxh4toJnizM06kLd61IbCUIhJWdf2xyC8B1A5wwKIPyTAXKUErz7H8OxQ28DrrvO56keqVV+e
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2026 14:25:54.9978
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f1a193c-7dac-4639-1706-08de760c1e22
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000092.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB10245
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_061016_376176_017E3809 
-X-CRM114-Status: GOOD (  73.68  )
+X-CRM114-CacheID: sfid-20260227_062604_606567_7A89818B 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,586 +159,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 06:47:25PM +0800, Tian Zheng wrote:
-> 
-> 
-> On 2/26/2026 1:46 AM, Leonardo Bras wrote:
-> > Hi Tian, eillon,
-> > 
-> > On Wed, Feb 25, 2026 at 12:04:20PM +0800, Tian Zheng wrote:
-> > > From: eillon <yezhenyu2@huawei.com>
-> > > 
-> > > HDBSS is enabled via an ioctl from userspace (e.g. QEMU) at the start of
-> > > migration. This feature is only supported in VHE mode.
-> > 
-> > I wonder if it would not be better just to use the feature if available,
-> > instead of needing to have userspace enabling it.
-> > 
-> 
-> I agree. If we decide to make HDBSS automatically enabled, then userspace
-> would no longer need an explicit ioctl to turn it on. In that case, the only
-> userspace‑visible control we may still need is a parameter to specify the
-> HDBSS buffer size, with the kernel providing a reasonable default (for
-> example, 4 KB).
-> 
-> Under such a model, the workflow could be simplified to:
-> 1. HDBSS is automatically enabled during KVM_SET_USER_MEMORY_REGION if the
-> feature is available.
-> 2. HDBSS is automatically disabled when the source VM stops.
-> 
-
-I suggest we allocate the buffers and enable HDBSS during the first step of 
-live migration, this way we don't need o have this memory usage during the 
-lifetime of the VM, and we turn on HDBSS only when needed.
-
-> > > Initially, S2 PTEs doesn't contain the DBM attribute. During migration,
-> > > write faults are handled by user_mem_abort, which relaxes permissions
-> > > and adds the DBM bit when HDBSS is active. Once DBM is set, subsequent
-> > > writes no longer trap, as the hardware automatically transitions the page
-> > > from writable-clean to writable-dirty.
-> > 
-> > That way we have to actually take a fault for every write you do after
-> > migration starts.
-> > 
-> > What if, instead, we put the DBM bit in every memory faulted as writable
-> > (or better, due to a write fault), so from the beginning of the VM we
-> > know if memory is RO, WC (writable-clean) or WD (writable-dirty).
-> > 
-> > On top of that, we don't actually have to take faults when migration
-> > starts, as HDBSS is tracking it all.
-> > 
-> 
-> That makes sense. Pre‑setting DBM on writable mappings would avoid
-> taking write faults after migration starts, I will optimize this in the
-> next version.
-> 
-> > > 
-> > > KVM does not scan S2 page tables to consume DBM.
-> > 
-> > You mean dirty pages?
-> > If so, it will actually use dirty-log or dirty-rings to track the dirty
-> > pages, and not scan S2 on every iteration.
-> > 
-> 
-> Sorry for the confusion — what I meant is that if I only added the DBM
-> bit, then relying on DBM for dirty‑page tracking would require scanning
-> the S2 page tables to find which PTEs have DBM set, and then updating
-> the dirty bitmap. That would obviously be expensive.
-> 
-> However, in the current patch series, DBM is used together with HDBSS.
-> With HDBSS enabled, the hardware directly tracks the writable‑clean ->
-> writable‑dirty transitions and push it to HDBSS buffer, so we no longer
-> need to walk the S2 page tables at all. This is the main reason why
-> combining HDBSS with DBM provides a meaningful optimization.
-> 
-> I will clarify this more clearly in the next version.
-
-Got it! Thanks for making it clear!
-I would just mention that you are transfering the recorded data to the 
-dirty log, then.
-
-> 
-> > > Instead, when HDBSS is
-> > > enabled, the hardware observes the clean->dirty transition and records
-> > > the corresponding page into the HDBSS buffer.
-> > > 
-> > > During sync_dirty_log, KVM kicks all vCPUs to force VM-Exit, ensuring
-> > > that check_vcpu_requests flushes the HDBSS buffer and propagates the
-> > > accumulated dirty information into the userspace-visible dirty bitmap.
-> > > 
-> > > Add fault handling for HDBSS including buffer full, external abort, and
-> > > general protection fault (GPF).
-> > > 
-> > > Signed-off-by: eillon <yezhenyu2@huawei.com>
-> > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> > > ---
-> > >   arch/arm64/include/asm/esr.h      |   5 ++
-> > >   arch/arm64/include/asm/kvm_host.h |  17 +++++
-> > >   arch/arm64/include/asm/kvm_mmu.h  |   1 +
-> > >   arch/arm64/include/asm/sysreg.h   |  11 ++++
-> > >   arch/arm64/kvm/arm.c              | 102 ++++++++++++++++++++++++++++++
-> > >   arch/arm64/kvm/hyp/vhe/switch.c   |  19 ++++++
-> > >   arch/arm64/kvm/mmu.c              |  70 ++++++++++++++++++++
-> > >   arch/arm64/kvm/reset.c            |   3 +
-> > >   8 files changed, 228 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-> > > index 81c17320a588..2e6b679b5908 100644
-> > > --- a/arch/arm64/include/asm/esr.h
-> > > +++ b/arch/arm64/include/asm/esr.h
-> > > @@ -437,6 +437,11 @@
-> > >   #ifndef __ASSEMBLER__
-> > >   #include <asm/types.h>
-> > > 
-> > > +static inline bool esr_iss2_is_hdbssf(unsigned long esr)
-> > > +{
-> > > +	return ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF;
-> > > +}
-> > > +
-> > >   static inline unsigned long esr_brk_comment(unsigned long esr)
-> > >   {
-> > >   	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
-> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > > index 5d5a3bbdb95e..57ee6b53e061 100644
-> > > --- a/arch/arm64/include/asm/kvm_host.h
-> > > +++ b/arch/arm64/include/asm/kvm_host.h
-> > > @@ -55,12 +55,17 @@
-> > >   #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
-> > >   #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
-> > >   #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
-> > > +#define KVM_REQ_FLUSH_HDBSS			KVM_ARCH_REQ(12)
-> > > 
-> > >   #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
-> > >   				     KVM_DIRTY_LOG_INITIALLY_SET)
-> > > 
-> > >   #define KVM_HAVE_MMU_RWLOCK
-> > > 
-> > > +/* HDBSS entry field definitions */
-> > > +#define HDBSS_ENTRY_VALID BIT(0)
-> > > +#define HDBSS_ENTRY_IPA GENMASK_ULL(55, 12)
-> > > +
-> > >   /*
-> > >    * Mode of operation configurable with kvm-arm.mode early param.
-> > >    * See Documentation/admin-guide/kernel-parameters.txt for more information.
-> > > @@ -84,6 +89,7 @@ int __init kvm_arm_init_sve(void);
-> > >   u32 __attribute_const__ kvm_target_cpu(void);
-> > >   void kvm_reset_vcpu(struct kvm_vcpu *vcpu);
-> > >   void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu);
-> > > +void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
-> > > 
-> > >   struct kvm_hyp_memcache {
-> > >   	phys_addr_t head;
-> > > @@ -405,6 +411,8 @@ struct kvm_arch {
-> > >   	 * the associated pKVM instance in the hypervisor.
-> > >   	 */
-> > >   	struct kvm_protected_vm pkvm;
-> > > +
-> > > +	bool enable_hdbss;
-> > >   };
-> > > 
-> > >   struct kvm_vcpu_fault_info {
-> > > @@ -816,6 +824,12 @@ struct vcpu_reset_state {
-> > >   	bool		reset;
-> > >   };
-> > > 
-> > > +struct vcpu_hdbss_state {
-> > > +	phys_addr_t base_phys;
-> > > +	u32 size;
-> > > +	u32 next_index;
-> > > +};
-> > > +
-> > >   struct vncr_tlb;
-> > > 
-> > >   struct kvm_vcpu_arch {
-> > > @@ -920,6 +934,9 @@ struct kvm_vcpu_arch {
-> > > 
-> > >   	/* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
-> > >   	struct vncr_tlb	*vncr_tlb;
-> > > +
-> > > +	/* HDBSS registers info */
-> > > +	struct vcpu_hdbss_state hdbss;
-> > >   };
-> > > 
-> > >   /*
-> > > diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-> > > index d968aca0461a..3fea8cfe8869 100644
-> > > --- a/arch/arm64/include/asm/kvm_mmu.h
-> > > +++ b/arch/arm64/include/asm/kvm_mmu.h
-> > > @@ -183,6 +183,7 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
-> > > 
-> > >   int kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
-> > >   int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
-> > > +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
-> > > 
-> > >   phys_addr_t kvm_mmu_get_httbr(void);
-> > >   phys_addr_t kvm_get_idmap_vector(void);
-> > > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> > > index f4436ecc630c..d11f4d0dd4e7 100644
-> > > --- a/arch/arm64/include/asm/sysreg.h
-> > > +++ b/arch/arm64/include/asm/sysreg.h
-> > > @@ -1039,6 +1039,17 @@
-> > > 
-> > >   #define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
-> > >   					       GCS_CAP_VALID_TOKEN)
-> > > +
-> > > +/*
-> > > + * Definitions for the HDBSS feature
-> > > + */
-> > > +#define HDBSS_MAX_SIZE		HDBSSBR_EL2_SZ_2MB
-> > > +
-> > > +#define HDBSSBR_EL2(baddr, sz)	(((baddr) & GENMASK(55, 12 + sz)) | \
-> > > +				 FIELD_PREP(HDBSSBR_EL2_SZ_MASK, sz))
-> > > +
-> > > +#define HDBSSPROD_IDX(prod)	FIELD_GET(HDBSSPROD_EL2_INDEX_MASK, prod)
-> > > +
-> > 
-> > Do we actually need the GENMASK above? Could not we use just the
-> > HDBSSBR_EL2_BADDR_MASK?
-> > 
-> > If the base address received in alloc_pages is not properly aligned, we
-> > might end up writing in some different memory region that we allocated on.
-> > 
-> > If you want to actually make sure the mem region is aligned, check just
-> > after it's allocated, instead of silently masking it at this moment.
-> > 
-> > In any case, I wonder if we actually need above defines, as it looks they
-> > could easily be replaced by what they do.
-> > 
-> > 
-> 
-> You're right, I will replace it with HDBSSBR_EL2_BADDR_MASK, and I will
-> add an explicit check to ensure that the physical address returned by
-> alloc_pages() is properly aligned.
-
-I recommend checking if the used function have any garantees in respect to 
-alignment, so that maybe we may not actually need to check.
-
-> 
-> I agree that some of them may not be necessary once the alignment is
-> validated. I will review them and simplify the definitions where
-> appropriate.
-
-Thanks!
-
-> 
-> > >   /*
-> > >    * Definitions for GICv5 instructions
-> > >    */
-> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > > index 29f0326f7e00..d64da05e25c4 100644
-> > > --- a/arch/arm64/kvm/arm.c
-> > > +++ b/arch/arm64/kvm/arm.c
-> > > @@ -125,6 +125,87 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
-> > >   	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
-> > >   }
-> > > 
-> > > +void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +	struct page *hdbss_pg;
-> > > +
-> > > +	hdbss_pg = phys_to_page(vcpu->arch.hdbss.base_phys);
-> > > +	if (hdbss_pg)
-> > > +		__free_pages(hdbss_pg, vcpu->arch.hdbss.size);
-> > > +
-> > > +	vcpu->arch.hdbss.size = 0;
-> > > +}
-> > > +
-> > > +static int kvm_cap_arm_enable_hdbss(struct kvm *kvm,
-> > > +				    struct kvm_enable_cap *cap)
-> > > +{
-> > > +	unsigned long i;
-> > > +	struct kvm_vcpu *vcpu;
-> > > +	struct page *hdbss_pg = NULL;
-> > > +	__u64 size = cap->args[0];
-> > > +	bool enable = cap->args[1] ? true : false;
-> > > +
-> > > +	if (!system_supports_hdbss())
-> > > +		return -EINVAL;
-> > > +
-> > > +	if (size > HDBSS_MAX_SIZE)
-> > > +		return -EINVAL;
-> > > +
-> > > +	if (!enable && !kvm->arch.enable_hdbss) /* Already Off */
-> > > +		return 0;
-> > > +
-> > > +	if (enable && kvm->arch.enable_hdbss) /* Already On, can't set size */
-> > > +		return -EINVAL;
-> > > +
-> > > +	if (!enable) { /* Turn it off */
-> > > +		kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA);
-> > > +
-> > > +		kvm_for_each_vcpu(i, vcpu, kvm) {
-> > > +			/* Kick vcpus to flush hdbss buffer. */
-> > > +			kvm_vcpu_kick(vcpu);
-> > > +
-> > > +			kvm_arm_vcpu_free_hdbss(vcpu);
-> > > +		}
-> > > +
-> > > +		kvm->arch.enable_hdbss = false;
-> > > +
-> > > +		return 0;
-> > > +	}
-> > > +
-> > > +	/* Turn it on */
-> > > +	kvm_for_each_vcpu(i, vcpu, kvm) {
-> > > +		hdbss_pg = alloc_pages(GFP_KERNEL_ACCOUNT, size);
-> > > +		if (!hdbss_pg)
-> > > +			goto error_alloc;
-> > > +
-> > > +		vcpu->arch.hdbss = (struct vcpu_hdbss_state) {
-> > > +			.base_phys = page_to_phys(hdbss_pg),
-> > > +			.size = size,
-> > > +			.next_index = 0,
-> > > +		};
-> > > +	}
-> > > +
-> > > +	kvm->arch.enable_hdbss = true;
-> > > +	kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA;
-> > > +
-> > > +	/*
-> > > +	 * We should kick vcpus out of guest mode here to load new
-> > > +	 * vtcr value to vtcr_el2 register when re-enter guest mode.
-> > > +	 */
-> > > +	kvm_for_each_vcpu(i, vcpu, kvm)
-> > > +		kvm_vcpu_kick(vcpu);
-> > > +
-> > > +	return 0;
-> > > +
-> > > +error_alloc:
-> > > +	kvm_for_each_vcpu(i, vcpu, kvm) {
-> > > +		if (vcpu->arch.hdbss.base_phys)
-> > > +			kvm_arm_vcpu_free_hdbss(vcpu);
-> > > +	}
-> > > +
-> > > +	return -ENOMEM;
-> > > +}
-> > > +
-> > >   int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
-> > >   			    struct kvm_enable_cap *cap)
-> > >   {
-> > > @@ -182,6 +263,11 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
-> > >   		r = 0;
-> > >   		set_bit(KVM_ARCH_FLAG_EXIT_SEA, &kvm->arch.flags);
-> > >   		break;
-> > > +	case KVM_CAP_ARM_HW_DIRTY_STATE_TRACK:
-> > > +		mutex_lock(&kvm->lock);
-> > > +		r = kvm_cap_arm_enable_hdbss(kvm, cap);
-> > > +		mutex_unlock(&kvm->lock);
-> > > +		break;
-> > 
-> > If we prefer using a ioctl, I wonder if it would not be better to have a
-> > arch-generic option that enables hw dirty-bit tracking, and all archs could
-> > use it to implement their versions when available.
-> > 
-> > I guess any VMM would have a much easier time doing it once, than for every
-> > arch they support.
-> > 
-> 
-> I think that even if we eventually decide to enable HDBSS by default,
-> userspace will still need an ioctl to configure the HDBSS buffer size.
-> So an interface is required anyway.
-
-That's a valid argument. But we could as well have those configured based 
-on VM memory size, or other parameter from the VM. 
-Since it could be allocated just during the migration, we may have some 
-flexibility on size.
-
-But sure, we could have a default value and let user (optionally) configure 
-the hdbss percpu bufsize.
-
-> 
-> Also, it makes sense to expose this as an arch‑generic capability rather
-> than an ARM‑specific one. I will rename the ioctl to something like
-> KVM_CAP_HW_DIRTY_STATE_TRACK, and each architecture can implement its
-> own hardware‑assisted dirty tracking when available.
-
-I wonder if we need a new capability for this, at all. 
-Couldn't we only use the feature when available? 
- 
-> 
-> I will update the interface in the next version.
-> 
-
-Thanks!
-Leo
-
-> > >   	default:
-> > >   		break;
-> > >   	}
-> > > @@ -471,6 +557,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
-> > >   			r = kvm_supports_cacheable_pfnmap();
-> > >   		break;
-> > > 
-> > > +	case KVM_CAP_ARM_HW_DIRTY_STATE_TRACK:
-> > > +		r = system_supports_hdbss();
-> > > +		break;
-> > >   	default:
-> > >   		r = 0;
-> > >   	}
-> > > @@ -1120,6 +1209,9 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
-> > >   		if (kvm_dirty_ring_check_request(vcpu))
-> > >   			return 0;
-> > > 
-> > > +		if (kvm_check_request(KVM_REQ_FLUSH_HDBSS, vcpu))
-> > > +			kvm_flush_hdbss_buffer(vcpu);
-> > > +
-> > >   		check_nested_vcpu_requests(vcpu);
-> > >   	}
-> > > 
-> > > @@ -1898,7 +1990,17 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
-> > > 
-> > >   void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
-> > >   {
-> > > +	/*
-> > > +	 * Flush all CPUs' dirty log buffers to the dirty_bitmap.  Called
-> > > +	 * before reporting dirty_bitmap to userspace. Send a request with
-> > > +	 * KVM_REQUEST_WAIT to flush buffer synchronously.
-> > > +	 */
-> > > +	struct kvm_vcpu *vcpu;
-> > > +
-> > > +	if (!kvm->arch.enable_hdbss)
-> > > +		return;
-> > > 
-> > > +	kvm_make_all_cpus_request(kvm, KVM_REQ_FLUSH_HDBSS);
-> > >   }
-> > > 
-> > >   static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
-> > > diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> > > index 9db3f11a4754..600cbc4f8ae9 100644
-> > > --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> > > +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> > > @@ -213,6 +213,23 @@ static void __vcpu_put_deactivate_traps(struct kvm_vcpu *vcpu)
-> > >   	local_irq_restore(flags);
-> > >   }
-> > > 
-> > > +static void __load_hdbss(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +	struct kvm *kvm = vcpu->kvm;
-> > > +	u64 br_el2, prod_el2;
-> > > +
-> > > +	if (!kvm->arch.enable_hdbss)
-> > > +		return;
-> > > +
-> > > +	br_el2 = HDBSSBR_EL2(vcpu->arch.hdbss.base_phys, vcpu->arch.hdbss.size);
-> > > +	prod_el2 = vcpu->arch.hdbss.next_index;
-> > > +
-> > > +	write_sysreg_s(br_el2, SYS_HDBSSBR_EL2);
-> > > +	write_sysreg_s(prod_el2, SYS_HDBSSPROD_EL2);
-> > > +
-> > > +	isb();
-> > > +}
-> > > +
-> > >   void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
-> > >   {
-> > >   	host_data_ptr(host_ctxt)->__hyp_running_vcpu = vcpu;
-> > > @@ -220,10 +237,12 @@ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
-> > >   	__vcpu_load_switch_sysregs(vcpu);
-> > >   	__vcpu_load_activate_traps(vcpu);
-> > >   	__load_stage2(vcpu->arch.hw_mmu, vcpu->arch.hw_mmu->arch);
-> > > +	__load_hdbss(vcpu);
-> > >   }
-> > > 
-> > >   void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu)
-> > >   {
-> > > +	kvm_flush_hdbss_buffer(vcpu);
-> > >   	__vcpu_put_deactivate_traps(vcpu);
-> > >   	__vcpu_put_switch_sysregs(vcpu);
-> > > 
-> > > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > > index 070a01e53fcb..42b0710a16ce 100644
-> > > --- a/arch/arm64/kvm/mmu.c
-> > > +++ b/arch/arm64/kvm/mmu.c
-> > > @@ -1896,6 +1896,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> > >   	if (writable)
-> > >   		prot |= KVM_PGTABLE_PROT_W;
-> > > 
-> > > +	if (writable && kvm->arch.enable_hdbss && logging_active)
-> > > +		prot |= KVM_PGTABLE_PROT_DBM;
-> > > +
-> > >   	if (exec_fault)
-> > >   		prot |= KVM_PGTABLE_PROT_X;
-> > > 
-> > > @@ -2033,6 +2036,70 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
-> > >   	return 0;
-> > >   }
-> > > 
-> > > +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +	int idx, curr_idx;
-> > > +	u64 br_el2;
-> > > +	u64 *hdbss_buf;
-> > > +	struct kvm *kvm = vcpu->kvm;
-> > > +
-> > > +	if (!kvm->arch.enable_hdbss)
-> > > +		return;
-> > > +
-> > > +	curr_idx = HDBSSPROD_IDX(read_sysreg_s(SYS_HDBSSPROD_EL2));
-> > > +	br_el2 = HDBSSBR_EL2(vcpu->arch.hdbss.base_phys, vcpu->arch.hdbss.size);
-> > > +
-> > > +	/* Do nothing if HDBSS buffer is empty or br_el2 is NULL */
-> > > +	if (curr_idx == 0 || br_el2 == 0)
-> > > +		return;
-> > > +
-> > > +	hdbss_buf = page_address(phys_to_page(vcpu->arch.hdbss.base_phys));
-> > > +	if (!hdbss_buf)
-> > > +		return;
-> > > +
-> > > +	guard(write_lock_irqsave)(&vcpu->kvm->mmu_lock);
-> > > +	for (idx = 0; idx < curr_idx; idx++) {
-> > > +		u64 gpa;
-> > > +
-> > > +		gpa = hdbss_buf[idx];
-> > > +		if (!(gpa & HDBSS_ENTRY_VALID))
-> > > +			continue;
-> > > +
-> > > +		gpa &= HDBSS_ENTRY_IPA;
-> > > +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
-> > > +	}
-> > > +
-> > > +	/* reset HDBSS index */
-> > > +	write_sysreg_s(0, SYS_HDBSSPROD_EL2);
-> > > +	vcpu->arch.hdbss.next_index = 0;
-> > > +	isb();
-> > > +}
-> > > +
-> > > +static int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +	u64 prod;
-> > > +	u64 fsc;
-> > > +
-> > > +	prod = read_sysreg_s(SYS_HDBSSPROD_EL2);
-> > > +	fsc = FIELD_GET(HDBSSPROD_EL2_FSC_MASK, prod);
-> > > +
-> > > +	switch (fsc) {
-> > > +	case HDBSSPROD_EL2_FSC_OK:
-> > > +		/* Buffer full, which is reported as permission fault. */
-> > > +		kvm_flush_hdbss_buffer(vcpu);
-> > > +		return 1;
-> > > +	case HDBSSPROD_EL2_FSC_ExternalAbort:
-> > > +	case HDBSSPROD_EL2_FSC_GPF:
-> > > +		return -EFAULT;
-> > > +	default:
-> > > +		/* Unknown fault. */
-> > > +		WARN_ONCE(1,
-> > > +				"Unexpected HDBSS fault type, FSC: 0x%llx (prod=0x%llx, vcpu=%d)\n",
-> > > +				fsc, prod, vcpu->vcpu_id);
-> > > +		return -EFAULT;
-> > > +	}
-> > > +}
-> > > +
-> > >   /**
-> > >    * kvm_handle_guest_abort - handles all 2nd stage aborts
-> > >    * @vcpu:	the VCPU pointer
-> > > @@ -2071,6 +2138,9 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
-> > > 
-> > >   	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
-> > > 
-> > > +	if (esr_iss2_is_hdbssf(esr))
-> > > +		return kvm_handle_hdbss_fault(vcpu);
-> > > +
-> > >   	if (esr_fsc_is_translation_fault(esr)) {
-> > >   		/* Beyond sanitised PARange (which is the IPA limit) */
-> > >   		if (fault_ipa >= BIT_ULL(get_kvm_ipa_limit())) {
-> > > diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-> > > index 959532422d3a..c03a4b310b53 100644
-> > > --- a/arch/arm64/kvm/reset.c
-> > > +++ b/arch/arm64/kvm/reset.c
-> > > @@ -161,6 +161,9 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
-> > >   	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
-> > >   	kfree(vcpu->arch.vncr_tlb);
-> > >   	kfree(vcpu->arch.ccsidr);
-> > > +
-> > > +	if (vcpu->kvm->arch.enable_hdbss)
-> > > +		kvm_arm_vcpu_free_hdbss(vcpu);
-> > >   }
-> > > 
-> > >   static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
-> > > --
-> > > 2.33.0
-> > > 
-> > 
-> > Thx,
-> > Leo
-> > 
-> 
+T24gRnJpLCAyMDI2LTAyLTI3IGF0IDExOjE5ICswMDAwLCBWbGFkaW1pciBNdXJ6aW4gd3JvdGU6
+DQo+IEhpIEpvZXkhDQo+IA0KPiBPbiAyLzI3LzI2IDExOjA2LCBKb2V5IEdvdWx5IHdyb3RlOg0K
+PiA+IEhpIQ0KPiA+IA0KPiANCj4gW3NuaXBdDQo+IA0KPiA+ID4gKw0KPiA+ID4gK3N0YXRpYyB2
+b2lkIGdpY19wcGlfaW5pdCh2b2lkKSB7DQo+ID4gPiArCXVpbnQ2NF90IHZhbCA9IDA7DQo+ID4g
+PiArDQo+ID4gPiArCXZhbCB8PSAxVUwgPDwgKDIgKiAzMSk7IC8vIFRyYWNlIEJ1ZmZlciBVbml0
+DQo+ID4gPiArCXZhbCB8PSAxVUwgPDwgKDIgKiAzMCk7IC8vIEVMMSBQaHlzaWNhbCBUaW1lcg0K
+PiA+ID4gKwl2YWwgfD0gMVVMIDw8ICgyICogMjgpOyAvLyBOb24tc2VjdXJlIEVMMiBWaXJ0dWFs
+IFRpbWVyDQo+ID4gPiArCXZhbCB8PSAxVUwgPDwgKDIgKiAyNyk7IC8vIEVMMSBWaXJ0dWFsIFRp
+bWVyDQo+ID4gPiArCXZhbCB8PSAxVUwgPDwgKDIgKiAyNik7IC8vIE5vbi1zZWN1cmUgRUwyIFBo
+eXNpY2FsIFRpbWVyDQo+ID4gPiArCXZhbCB8PSAxVUwgPDwgKDIgKiAyNSk7IC8vIEdJQyBtYWlu
+dGVuYW5jZSBpbnRlcnJ1cHQNCj4gPiA+ICsJdmFsIHw9IDFVTCA8PCAoMiAqIDI0KTsgLy8gR2Vu
+ZXJpYyBDVEkgaW50ZXJydXB0IHRyaWdnZXINCj4gPiA+IGV2ZW50DQo+ID4gPiArCXZhbCB8PSAx
+VUwgPDwgKDIgKiAyMyk7IC8vIFBNVSBvdmVyZmxvdyBpbnRlcnJ1cHQNCj4gPiA+IHJlcXVlc3QN
+Cj4gPiA+ICsJdmFsIHw9IDFVTCA8PCAoMiAqIDIyKTsgLy8gRGVidWcgY29tbXVuaWNhdGlvbiBj
+aGFubmVsDQo+ID4gPiArCXZhbCB8PSAxVUwgPDwgKDIgKiAyMSk7IC8vIFByb2ZpbGluZyBCdWZm
+ZXIgbWFuYWdlbWVudA0KPiA+ID4gaW50ZXJydXB0IHJlcXVlc3QNCj4gPiA+ICsJdmFsIHw9IDFV
+TCA8PCAoMiAqIDE1KTsgLy8gSGFyZHdhcmUgYWNjZWxlcmF0b3IgZm9yDQo+ID4gPiBjbGVhbmlu
+ZyBEaXJ0eSBzdGF0ZSBpbnRlcnJ1cHQNCj4gPiBXaGF0IGFib3V0IFNXX1BQSSAoMykgYW5kIE5T
+X0RCX1BQSSAoMik/IEFyZSB0aGUgbGVmdCBvdXQgZm9yIGENCj4gPiByZWFzb24/DQo+ID4gDQo+
+IA0KPiBObyByZWFzb24sIEkganVzdCBtaXNzZWQgdGhlbS4gVGhhbmtzIGZvciBjYXRjaGluZyB0
+aGF0IQ0KDQpIaSBib3RoLA0KDQpJIGRvbid0IGZ1bGx5IGFncmVlIGhlcmUuDQoNCkkgdGhpbmsg
+dGhhdCB0aGUgU1dfUFBJIHNob3VsZCBiZSBhc3NpZ25lZCB0byBOUyAtIGl0IGlzIGEgc2FuZSBk
+ZWZhdWx0DQpzbyB0aGF0IG5vcm1hbCBzb2Z0d2FyZSBjYW4gdXNlIGl0LiBUaGVyZSdzIG5vIHBy
+ZS1kZWZpbmVkIHVzZSBjYXNlIGZvcg0KdGhpcyBQUEksIHNvIGl0IGlzIGp1c3QgdXNlZCBob3dl
+dmVyIHNvZnR3YXJlIGNob29zZXMgdG8gdXNlIGl0LiBBDQpwb3RlbnRpYWwgdXNlIGNhc2Ugd291
+bGQgYmUgZm9yIHNvZnR3YXJlIGluIHRoZSBTZWN1cmUgd29ybGQgdG8gcG9rZSBOUw0KdG8gc2F5
+IHRoYXQgaXQgaGFzIGNvbXBsZXRlZCBzb21lIHRhc2sgKEZGLUEgZG9lcyB0aGlzIHNvcnQgb2Yg
+dGhpbmcNCnVzaW5nIGEgZG9uYXRlZCBTR0kgb24gR0lDdjMsIGJ1dCBjb3VsZCB1c2UgdGhlIEdJ
+Q3Y1IFNXX1BQSSBmb3IgdGhpcw0KaW4gdGhlIGZ1dHVyZSkuIEluIHRoaXMgZmxvdywgaXQgaXMg
+YXNzaWduZWQgdG8gTlMsIGFuZCBFTDMgbWFrZXMgaXQNCnBlbmRpbmcgYXMgcGFydCBvZiB0aGUg
+cmV0dXJuIHRvIE5TIGZyb20gUyBzbyB0aGF0IE5TIHNvZnR3YXJlIHJlY2VpdmVzDQp0aGUgZG9v
+cmJlbGwuDQoNClRoZSBOU19EQl9QUEkgc2hvdWxkbid0IGV2ZXIgYmUgYXNzaWduZWQgdG8gTlMg
+LSBpdCBpcyB0aGVyZSB0byBhbGVydCBhDQpub24tTlMgZG9tYWluIHRvIHRoZSBmYWN0IHRoYXQg
+TlMgaGFzIHBlbmRpbmcgaW50ZXJydXB0cy4gSXQgc2hvdWxkDQpuZXZlciBnZXQgc2lnbmFsbGVk
+IHdoZW4gcnVubmluZyBpbiBOUyAoTlMgZG9lc24ndCBuZWVkIGFuIGludGVycnVwdCB0bw0KdGVs
+bCBpdCB0aGF0IGl0IGhhcyBpbnRlcnJ1cHRzIDspICkuIEl0IGlzIGEgIlBsZWFzZSBzd2l0Y2gg
+dG8gdGhlIE5TDQpkb21haW4gd2hlbiB5b3UgZ2V0IHRoZSBvcHBvcnR1bml0eSIgc2lnbmFsLiBI
+ZW5jZSwgdGhlIFNfREJfUFBJLA0KUkxfREJfUFBJIGhvd2V2ZXIgc2hvdWxkIGxpa2VseSBiZSBh
+c3NpZ25lZCB0byBOUywgYnkgZGVmYXVsdC4NCg0KVGhlIGV4cGVjdGF0aW9uIHdpdGggdGhlIERC
+X1BQSXMgaXMgdGhhdCBFTDMgbWlnaHQgY2hhbmdlIHRoZWlyIGRvbWFpbnMNCmFzIHBhcnQgb2Yg
+YSB3b3JsZC1zd2l0Y2guIFRoYXQgaXMsIGFsbCBEQiBQUElzICJiZWxvbmdpbmciIHRvIHRoZSBu
+b24tDQp0YXJnZXQgZG9tYWluIHdvdWxkIGJlIGFzc2lnbmVkIHRvIHRoZSB0YXJnZXQgZG9tYWlu
+IGFzIHBhcnQgb2YNCnRyYW5zaXRpb25pbmcgdmlhIEVMMy4NCg0KQSBzYW5lIGRlZmF1bHQgd291
+bGQgYmUgdG8gYXNzaWduIHRoZSBOU19EQl9QUEkgdG8gU2VjdXJlLg0KDQpJIGhvcGUgdGhhdCBt
+YWtlcyBzZW5zZS4NCg0KU2FzY2hhDQoNCj4gDQo+IENoZWVycw0KPiBWbGFkaW1pciANCj4gDQoN
+Cg==
 
