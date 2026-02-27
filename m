@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 346BAFEFB7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 19:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF203FEFB7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 19:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bhp04bWBa4pMtPdC/otMJTL+LJacM9lgkcNMvxs4WIU=; b=rnrahd0ok1HoKtw1gKMjq+mb5f
-	FpxTN2UERVKKeqEmSa8R2yyK4MpG1G8lUJpMZevR45FYZKB9mnmjCh4k5km54lnVWmSvDBOECUSR2
-	MILovZn6SsCpS29ySYOrD+SJiJIrtHxUDRzbnHMev4ERfDPw3jIgNWT8m/3InSFLTAgK6UhKbYpGn
-	JA0KHbzO6ZdTWD24r4w96GjWu0kXhqAG1EUNQTWj6/ljQAt1EWXeUyCdpuGfF/b3jEV+1iwMdOEgD
-	mN6FD2bTvWSmLcf4JGI0YidR1OZXqzXaqrNkQ6HemVkhP9LVBLZzg7BNSUscya7NaCldLCo8k9ZFi
-	dRbmv+oA==;
+	bh=2cUtFea6Xahy8xUmQNtz3A7vjD+5c56XmJo8KM/uRi4=; b=5Cstivi8/EYr9oB+fAiClFI2hR
+	dkq3wWZy9HOc1VD7vwBFIQfdCOh06Dei35sGtroOIe8q2Kydpf9pwSrj6OWNZCvnEJZNfpdEOM9fY
+	NmlsgtJRpLosX5ZHdoFFX/EqcR9JXI69B/Fg3S7xyJAZyc1tfbJXgtuj0RUPEAODW7dHNVda+xCB1
+	ZjZa5xb6JCiEPr6aJXwwf9VQzMAsYi9H15irTdRHjJRJDIggCjX7f4exFkfOmX4+ZXhr7dJ+e2AIf
+	ZEW72J1ovscY/rj9gRCSEKRLrgGTnrpWAJWJ5J3/aMf1+kxhkZ4A9vjn5eM4FFkSBtY6/x2cQUwWq
+	kCyMR5AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3RZ-00000008zG0-1au8;
-	Fri, 27 Feb 2026 19:24:09 +0000
+	id 1vw3SM-00000008zZp-1XU1;
+	Fri, 27 Feb 2026 19:24:58 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3RU-00000008zD8-2Uv7;
-	Fri, 27 Feb 2026 19:24:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772220089; cv=none; 
+	id 1vw3SK-00000008zZJ-1U1p;
+	Fri, 27 Feb 2026 19:24:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772220180; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ktWvDy576iOuxf+FWtecj3INmBM0XfuoUnDHmuTxVXQyAq5u1UCwB6s92+2Wqu8iHCKfwYva7dProPYV48NTyq7arhNNyI00pmqLHuaeyXK6O9TIr8mGrVCE5So9DdAov/lnfo+pVCP4do9liM1xoTggzd5Ls71W4RuhMich8sA=
+	b=P2pzPoFvy0wU/x1Gyo/7UXFShSqFzHf1Ufiy/IiOeWMVi7abFUPvnPtM0iUX54ktqMVkuAPQadaBgoBPlj2GGJxdXdaZOijunRp9YwnRkQKd7oU1apCtIa2/NR1DG0CRKznvGXpFPsL0/ZoHMMqDUhcNcMJhL1RbfIJAwVlkD0I=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772220089; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=bhp04bWBa4pMtPdC/otMJTL+LJacM9lgkcNMvxs4WIU=; 
-	b=bZawtLWI9OCmbjrTISH07f2CfzYkYlfd63D2zsx923cprkO+QMz2lFjGsiY6f1ztp8AEu6eNBUE1rOV6vWNhDo/3rw1aJlWTrnFHkrzSUun57VSv5KZZrnKPUNJpM1QXepJ2ZYrnohjNO5+EQ4SDwgQqkNukjLEZITCkCk3m74w=
+	t=1772220180; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=2cUtFea6Xahy8xUmQNtz3A7vjD+5c56XmJo8KM/uRi4=; 
+	b=BXUOrITizjsYDzIshH/s7p8CFp+5WomRz8L6td11kdrpw4WX7gQrPafonGJ5tmEwh/oenDe/rOXzKj9/qq8MuB4rundIfgRlX8eaJojn9RqAH2yHzk/MFkgcECqHyr5Bgqv7ntC805HL52MHPlxHMFpKhI5vIAcjRU8+WX+z6Hg=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772220089;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772220180;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=bhp04bWBa4pMtPdC/otMJTL+LJacM9lgkcNMvxs4WIU=;
-	b=L9LP4uD0yptRbCVnRnbrCapVpYql7M5xDNatASv8QgoWdxcuDVGyotfids2Q67xC
-	0BbOfq+WImYJ33ZBYeeds6Jx8uYcVJS7krVrXBgdjTlZ6Eae+X9EQaOeGoqm86I+PdV
-	n/ZORowJCbyZQE/61cafErnxVthrtCk4dm/WLIh4=
-Received: by mx.zohomail.com with SMTPS id 1772220087963228.84882629978767;
-	Fri, 27 Feb 2026 11:21:27 -0800 (PST)
+	bh=2cUtFea6Xahy8xUmQNtz3A7vjD+5c56XmJo8KM/uRi4=;
+	b=CH4N7j+X6O/PSdWKZjDZoUc7rSQfogTTA1B0ModHEUrCekEKaDgfNt/Uk9jDWIuN
+	4YXwiHa1BC68w2/zeY7Prb2f2hw0YNVSpRv3Y4oxZ0ezVmgozZfTwdPFXkyzm7VfqFQ
+	P9Ap1VdGLZajvX9DuwjQGo6Kaa2GexM73Th5E4i0=
+Received: by mx.zohomail.com with SMTPS id 1772220177756116.00125529261277;
+	Fri, 27 Feb 2026 11:22:57 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 27 Feb 2026 20:20:12 +0100
-Subject: [PATCH v9 07/19] drm/amdgpu: Implement "color format" DRM property
+Date: Fri, 27 Feb 2026 20:20:24 +0100
+Subject: [PATCH v9 19/19] drm/bridge: Document bridge chain format
+ selection
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260227-color-format-v9-7-658c3b9db7ef@collabora.com>
+Message-Id: <20260227-color-format-v9-19-658c3b9db7ef@collabora.com>
 References: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
 In-Reply-To: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -80,13 +81,11 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
  linux-doc@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Werner Sembach <wse@tuxedocomputers.com>, 
- Andri Yngvason <andri@yngvason.is>, Marius Vlad <marius.vlad@collabora.com>
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_112404_711098_E57826A1 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20260227_112456_419289_5365A2CF 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,201 +100,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "color format" DRM property allows userspace to explicitly pick a
-color format to use. If an unsupported color format is requested,
-userspace will be given an error instead of silently having its request
-disobeyed.
+The bridge chain format selection behaviour was, until now,
+undocumented. With the addition of the "color format" DRM property, it's
+not sufficiently complex enough that documentation is warranted,
+especially for driver authors trying to do the right thing.
 
-The default case, which is AUTO, picks YCbCr 4:2:0 if it's a 4:2:0-only
-mode, and RGB in all other cases.
+Add a high-level overview of how the process is supposed to work, and
+mention what the display driver is supposed to do if it wants to make
+use of this functionality.
 
-Co-developed-by: Werner Sembach <wse@tuxedocomputers.com>
-Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
-Co-developed-by: Andri Yngvason <andri@yngvason.is>
-Signed-off-by: Andri Yngvason <andri@yngvason.is>
-Co-developed-by: Marius Vlad <marius.vlad@collabora.com>
-Signed-off-by: Marius Vlad <marius.vlad@collabora.com>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c  | 89 +++++++++++++++++++---
- .../amd/display/amdgpu_dm/amdgpu_dm_mst_types.c    | 13 ++++
- 2 files changed, 92 insertions(+), 10 deletions(-)
+ Documentation/gpu/drm-kms-helpers.rst |  6 ++++++
+ drivers/gpu/drm/drm_bridge.c          | 40 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 46 insertions(+)
 
-diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-index 6eac9a273f87..f67577775f9b 100644
---- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-+++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-@@ -6700,11 +6700,14 @@ static void fill_stream_properties_from_drm_display_mode(
- 	const struct dc_stream_state *old_stream,
- 	int requested_bpc)
- {
-+	bool is_dp_or_hdmi = dc_is_hdmi_signal(stream->signal) || dc_is_dp_signal(stream->signal);
- 	struct dc_crtc_timing *timing_out = &stream->timing;
- 	const struct drm_display_info *info = &connector->display_info;
- 	struct amdgpu_dm_connector *aconnector = NULL;
- 	struct hdmi_vendor_infoframe hv_frame;
- 	struct hdmi_avi_infoframe avi_frame;
-+	bool want_420;
-+	bool want_422;
- 	ssize_t err;
+diff --git a/Documentation/gpu/drm-kms-helpers.rst b/Documentation/gpu/drm-kms-helpers.rst
+index 781129f78b06..47c4f593cf9d 100644
+--- a/Documentation/gpu/drm-kms-helpers.rst
++++ b/Documentation/gpu/drm-kms-helpers.rst
+@@ -181,6 +181,12 @@ Bridge Operations
+ .. kernel-doc:: drivers/gpu/drm/drm_bridge.c
+    :doc: bridge operations
  
- 	if (connector->connector_type != DRM_MODE_CONNECTOR_WRITEBACK)
-@@ -6717,20 +6720,41 @@ static void fill_stream_properties_from_drm_display_mode(
- 	timing_out->h_border_right = 0;
- 	timing_out->v_border_top = 0;
- 	timing_out->v_border_bottom = 0;
--	/* TODO: un-hardcode */
--	if (drm_mode_is_420_only(info, mode_in) ||
--	    (aconnector && aconnector->force_yuv420_output &&
--	     drm_mode_is_420_also(info, mode_in)))
++Bridge Chain Format Selection
++-----------------------------
 +
-+	want_420 = (aconnector && aconnector->force_yuv420_output) ||
-+		   (connector_state->color_format == DRM_CONNECTOR_COLOR_FORMAT_YCBCR420);
-+	want_422 = (aconnector && aconnector->force_yuv422_output) ||
-+		   (connector_state->color_format == DRM_CONNECTOR_COLOR_FORMAT_YCBCR422);
++.. kernel-doc:: drivers/gpu/drm/drm_bridge.c
++   :doc: bridge chain format selection
 +
-+	if (drm_mode_is_420_only(info, mode_in) &&
-+	    (want_420 || connector_state->color_format == DRM_CONNECTOR_COLOR_FORMAT_AUTO)) {
- 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
--	else if ((connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))
--			&& aconnector
--			&& aconnector->force_yuv422_output)
-+	} else if (drm_mode_is_420_also(info, mode_in) && want_420) {
-+		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
-+	} else if ((info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422)) &&
-+		   want_422 && is_dp_or_hdmi) {
- 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR422;
--	else if ((connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444))
--			&& stream->signal == SIGNAL_TYPE_HDMI_TYPE_A)
-+	} else if (connector_state->color_format == DRM_CONNECTOR_COLOR_FORMAT_YCBCR444 &&
-+		   (info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444)) &&
-+		   is_dp_or_hdmi) {
- 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR444;
--	else
-+	} else if (connector_state->color_format == DRM_CONNECTOR_COLOR_FORMAT_RGB444 ||
-+		   connector_state->color_format == DRM_CONNECTOR_COLOR_FORMAT_AUTO) {
- 		timing_out->pixel_encoding = PIXEL_ENCODING_RGB;
-+	} else {
-+		/*
-+		 * If a format was explicitly requested but the requested format
-+		 * can't be satisfied, set it to an invalid value so that an
-+		 * error bubbles up to userspace. This way, userspace knows it
-+		 * needs to make a better choice.
-+		 */
-+		if (connector_state->color_format != DRM_CONNECTOR_COLOR_FORMAT_AUTO)
-+			timing_out->pixel_encoding = PIXEL_ENCODING_UNDEFINED;
-+		else if (drm_mode_is_420_only(info, mode_in))
-+			timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
-+		else
-+			timing_out->pixel_encoding = PIXEL_ENCODING_RGB;
-+	}
+ Bridge Connector Helper
+ -----------------------
  
- 	timing_out->timing_3d_format = TIMING_3D_FORMAT_NONE;
- 	timing_out->display_color_depth = convert_color_depth_from_display_info(
-@@ -8080,6 +8104,38 @@ static enum dc_status dm_validate_stream_and_context(struct dc *dc,
- 	return dc_result;
- }
- 
-+static enum dc_status
-+dm_validate_stream_color_format(const struct drm_connector_state *drm_state,
-+				const struct dc_stream_state *stream)
-+{
-+	enum dc_pixel_encoding encoding;
-+
-+	if (!drm_state->color_format)
-+		return DC_OK;
-+
-+	switch (drm_state->color_format) {
-+	case DRM_CONNECTOR_COLOR_FORMAT_AUTO:
-+	case DRM_CONNECTOR_COLOR_FORMAT_RGB444:
-+		encoding = PIXEL_ENCODING_RGB;
-+		break;
-+	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR444:
-+		encoding = PIXEL_ENCODING_YCBCR444;
-+		break;
-+	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR422:
-+		encoding = PIXEL_ENCODING_YCBCR422;
-+		break;
-+	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR420:
-+		encoding = PIXEL_ENCODING_YCBCR420;
-+		break;
-+	default:
-+		encoding = PIXEL_ENCODING_UNDEFINED;
-+		break;
-+	}
-+
-+	return encoding == stream->timing.pixel_encoding ?
-+		DC_OK : DC_UNSUPPORTED_VALUE;
-+}
-+
- struct dc_stream_state *
- create_validate_stream_for_sink(struct drm_connector *connector,
- 				const struct drm_display_mode *drm_mode,
-@@ -8126,6 +8182,9 @@ create_validate_stream_for_sink(struct drm_connector *connector,
- 		if (dc_result == DC_OK)
- 			dc_result = dm_validate_stream_and_context(adev->dm.dc, stream);
- 
-+		if (dc_result == DC_OK)
-+			dc_result = dm_validate_stream_color_format(drm_state, stream);
-+
- 		if (dc_result != DC_OK) {
- 			drm_dbg_kms(connector->dev, "Pruned mode %d x %d (clk %d) %s %s -- %s\n",
- 				      drm_mode->hdisplay,
-@@ -8949,6 +9008,12 @@ static const u32 supported_colorspaces =
- 	BIT(DRM_MODE_COLORIMETRY_BT2020_RGB) |
- 	BIT(DRM_MODE_COLORIMETRY_BT2020_YCC);
- 
-+static const u32 supported_colorformats =
-+	BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444) |
-+	BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) |
-+	BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422) |
-+	BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420);
-+
- void amdgpu_dm_connector_init_helper(struct amdgpu_display_manager *dm,
- 				     struct amdgpu_dm_connector *aconnector,
- 				     int connector_type,
-@@ -9070,6 +9135,10 @@ void amdgpu_dm_connector_init_helper(struct amdgpu_display_manager *dm,
- 
- 		if (adev->dm.hdcp_workqueue)
- 			drm_connector_attach_content_protection_property(&aconnector->base, true);
-+
-+		if (!drm_mode_create_color_format_property(&aconnector->base,
-+							   supported_colorformats))
-+			drm_connector_attach_color_format_property(&aconnector->base);
- 	}
- 
- 	if (connector_type == DRM_MODE_CONNECTOR_eDP) {
-diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_mst_types.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_mst_types.c
-index 7be50e8c0636..11638a6df9de 100644
---- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_mst_types.c
-+++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_mst_types.c
-@@ -52,6 +52,12 @@
- 
- #define PEAK_FACTOR_X1000 1006
- 
-+static const u32 supported_colorformats =
-+	BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444) |
-+	BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) |
-+	BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422) |
-+	BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420);
-+
- /*
-  * This function handles both native AUX and I2C-Over-AUX transactions.
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index 5938fba0a983..74f9af3f301e 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -198,6 +198,46 @@
+  * driver.
   */
-@@ -679,6 +685,13 @@ dm_dp_add_mst_connector(struct drm_dp_mst_topology_mgr *mgr,
- 	if (connector->max_bpc_property)
- 		drm_connector_attach_max_bpc_property(connector, 8, 16);
  
-+	connector->color_format_property = master->base.color_format_property;
-+	if (connector->color_format_property) {
-+		if (!drm_mode_create_color_format_property(&aconnector->base,
-+							   supported_colorformats))
-+			drm_connector_attach_color_format_property(&aconnector->base);
-+	}
++/**
++ * DOC: bridge chain format selection
++ *
++ * A bridge chain, from display output processor to connector, may contain
++ * bridges capable of converting between bus formats on their inputs, and
++ * output formats on their outputs. For example, a bridge may be able to convert
++ * from RGB to YCbCr 4:4:4, and pass through YCbCr 4:2:0 as-is, but not convert
++ * from RGB to YCbCr 4:2:0. This means not all input formats map to all output
++ * formats.
++ *
++ * Further adding to this, a desired output color format, as specified with the
++ * "color format" DRM property, might not correspond 1:1 to what the display
++ * driver should set at its output. The bridge chain it feeds into may only be
++ * able to reach the desired output format, if a conversion from a different
++ * starting format is performed.
++ *
++ * To deal with this complexity, the recursive bridge chain bus format selection
++ * logic starts with the last bridge in the chain, usually the connector, and
++ * then recursively walks the chain of bridges backwards to the first bridge,
++ * trying to find a path.
++ *
++ * For a display driver to work in such a scenario, it should read the first
++ * bridge's bridge state to figure out which bus format the chain resolved to.
++ * If the first bridge's input format resolved to %MEDIA_BUS_FMT_FIXED, then its
++ * output format should be used.
++ *
++ * Special handling is done for HDMI as it relates to format selection. Instead
++ * of directly using the "color format" DRM property for bridge chains that end
++ * in HDMI bridges, the bridge chain format selection logic will trust the logic
++ * that set the HDMI output format. For the common HDMI state helper
++ * functionality, this means that %DRM_CONNECTOR_COLOR_FORMAT_AUTO will allow
++ * fallbacks to YCBCr 4:2:0 if the bandwidth requirements would otherwise be too
++ * high but the mode and connector allow it.
++ *
++ * For bridge chains that do not end in an HDMI bridge,
++ * %DRM_CONNECTOR_COLOR_FORMAT_AUTO will be satisfied with the first output
++ * format on the last bridge for which it can find a path back to the first
++ * bridge.
++ */
 +
- 	connector->vrr_capable_property = master->base.vrr_capable_property;
- 	if (connector->vrr_capable_property)
- 		drm_connector_attach_vrr_capable_property(connector);
+ /* Protect bridge_list and bridge_lingering_list */
+ static DEFINE_MUTEX(bridge_lock);
+ static LIST_HEAD(bridge_list);
 
 -- 
 2.53.0
