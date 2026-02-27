@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2CAFEFB4F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77FDDFEFB4F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pG2CXnHLpJt9IvVrRPC4lU81Gv8pS/PyDirwSt9j080=; b=oWdzrh0LDn18QOUHmmBqK0FKCI
-	58/EizBNuZpdrzN0Cj3GpAgjtYwhdlNCv4sN5nb79V4RVGw5VuKNV2vxDqplUA7qo5j2z9sD7WHpP
-	zVLp5zFXXiGNs6w0z0l54UPac4U4UjE6H9JxDAdDzndhBzC3l+nMD0PJUDZIBNyJ7xK8S6vS91J0S
-	MHlY4QLyGObnhjsJrmYiDpqfd7A8g1c1GlU5QDAbEoj7JDX+o0+v/al7LcaXCXjoFKWgRvPi6pDDo
-	aLqk3r1LSrr4icbJ5OPVJk1e0mGZrx+rR4mkMk/1Mp4WY12leE/Wie5wG3N+PWGdFAClwW/UdwhoT
-	3WNZnSEw==;
+	bh=/JGyPvqoP3qkZvkcy6WzrnSwSWOAT/ACG21DLRSo9N8=; b=HGLAE/l092DzNlqSjXsIUty7AG
+	YnzIoy7/SlYgv1FbjpC9buicIDFlNSX52zJ+IQ37tRw27a72MHTy0Bhn/aC0pxshZ+3Gn/DYHQ+8C
+	IxUNG2Er0zqsRBNooWBZ/0tqMicDRleL9kFsHzHeC8izZ/TGLTpU9xRjnZzygRC53SW0+XfJDAkGY
+	GBHDJMSz+E0J65LcORT1sVqeXwj00iFcbrjh2JuhOXwZBcUujTJRyMfyJMXHxm2TiCcznM289CcTb
+	Ky8YbBZ7Vr5v8G8F9HoIWsv3RQknAzObwmYpHY5+DBlxLClaue8U4NxG+0dqRELX3yMTvgbmZjvjV
+	/Ke1/OfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyOf-00000008RSY-1Slo;
-	Fri, 27 Feb 2026 14:00:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvyOk-00000008RYu-2FwL;
+	Fri, 27 Feb 2026 14:00:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyOK-00000008QyI-23FJ;
-	Fri, 27 Feb 2026 14:00:28 +0000
+	id 1vvyOM-00000008R1s-43xa;
+	Fri, 27 Feb 2026 14:00:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B744600AA;
-	Fri, 27 Feb 2026 14:00:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3B42C19423;
-	Fri, 27 Feb 2026 14:00:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 22F6B40B1F;
+	Fri, 27 Feb 2026 14:00:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7634AC2BC9E;
+	Fri, 27 Feb 2026 14:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772200827;
-	bh=skFI5P2haIGjdD0+W8BO9ttWB17k7eh3BIV8frGuT1I=;
+	s=k20201202; t=1772200830;
+	bh=uP3ezNFnJxO2oGz8kzraRalxMbsjayeIpXlAa0HLzJU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OVuqYxxVosJaZvlaSAxD1wNFUzIXwFaoC+zjwuLuLSiTayScMcGIugaIUoAx378xq
-	 mMmFNqMqPku7/0ZC1B+yFnsPk+dN2gn7B4bpnKrQQP+5B/950G1td+im81uogsnPpU
-	 szfYwIPFrRc1qv5VoZN6abJfcavvpfbSP5tldfRNivSW0kvk8coO7YzxY9zOYWNFR9
-	 wRZ38urlkNpz3CpogWe1N4fdQMNvNLamG2kWUxrGbOO2A86pM3MhGjpg92A0VUGdFI
-	 jpNGJ7Y/TfCtHzOAVidRrPTf6ebh6z7T4GQiGlTXX6IfJRQSO+BzVydngr+TzWsBVA
-	 tWM9sqkNp6Bcw==
+	b=HnWlPy7EGaKTTf3MiCh/VqrNCgIgxj1pd9cXQUpN51SmxXXFMWx18GHzNScsvjDQw
+	 Qu1fM+pKBx7XFZrjrJTrGQhlQLzE33xZI2I0YE8NkWNSYXvbWdlMnKMpoXSz4T9aLi
+	 0SanUs8PtGfj6ZJJ/412de5Z1cT8YDarJJyxRGLXbyWvzTFMy91gy9/85vYspAriyP
+	 cM1z4nkU6WHXvO7qASOu9BtZUvbxbh1nOGuFXqtvhYCXO1BcCjus+JHDk6JZAHvW9m
+	 xfO/k2gb10lLKwKwdPrTda9fjurjC0q+6hYMpkLfPqOW3rHuvk6Fb5ns4AKRZ2ekql
+	 ss9XOd9G0Slyg==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 27 Feb 2026 14:59:55 +0100
-Subject: [PATCH v2 11/14] drm/mediatek: dp: Convert to
+Date: Fri, 27 Feb 2026 14:59:56 +0100
+Subject: [PATCH v2 12/14] drm/rockchip: analogix: Convert to
  drm_output_color_format
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260227-drm-rework-color-formats-v2-11-8bd278e2af9d@kernel.org>
+Message-Id: <20260227-drm-rework-color-formats-v2-12-8bd278e2af9d@kernel.org>
 References: <20260227-drm-rework-color-formats-v2-0-8bd278e2af9d@kernel.org>
 In-Reply-To: <20260227-drm-rework-color-formats-v2-0-8bd278e2af9d@kernel.org>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
@@ -81,14 +81,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2376; i=mripard@kernel.org;
- h=from:subject:message-id; bh=skFI5P2haIGjdD0+W8BO9ttWB17k7eh3BIV8frGuT1I=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkLF4dP1JdPOR58uuXK0+8z9EQCp0bbRKdO/nI0u2nq4
- g9S6Q5hHVNZGIQ5GWTFFFmeyISdXt6+uMrBfuUPmDmsTCBDGLg4BWAim54zNryae/D8ioC61UzG
- bb5Rd/4q/XaxVPr8aEL85+Z7ordNlxz0dGdaGMAqpNLFmmnM7jw/nLGGs5v1ztISrc0SvjtahTM
- frGlwSlRa877r+jP9ltdntDgjGFiY8k8wPNCbffBz2E0tzWoA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1938; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=uP3ezNFnJxO2oGz8kzraRalxMbsjayeIpXlAa0HLzJU=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkLF0c4vmvb4fSKbeHusn+rnH5qTIlf6bz81Jq2dfV+B
+ 5acPjZ/ecdUFgZhTgZZMUWWJzJhp5e3L65ysF/5A2YOKxPIEAYuTgGYyOIVjA03rK7lz539xEnR
+ 0PRQxeY7bBuV6ve1lNfvVovj0s2/anW79Ybu+vW8jc03hHTYj6TpnGWs0zV967mr3nr5LIN67cx
+ ja95f9s9I6GVc4PH58sPIHUGV36dteOxi/vjinWUzDxxfuy9uFwA=
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_060031_087338_948E93C5 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,43 +119,35 @@ The only thing we need to consider is if the original code meant to use
 that value as a bitmask, in which case we do need to keep the bit shift,
 or as a discriminant in which case we don't.
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 Acked-by: Jani Nikula <jani.nikula@intel.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/mediatek/mtk_dp.c | 4 ++--
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 08c4d64b87b944dbcf57294dc48c740a37374469..c52cc7c2e20063b9dcc99be46bc7de50d67b0d6b 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -2452,11 +2452,11 @@ static enum drm_mode_status
- mtk_dp_bridge_mode_valid(struct drm_bridge *bridge,
- 			 const struct drm_display_info *info,
- 			 const struct drm_display_mode *mode)
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index fdab71d51e2a71d644f128b1bf1c39429b4ad52a..96bd3dd239d251af3d5a7d0fbd4dd74942d44f2d 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -169,16 +169,16 @@ static int rockchip_dp_powerdown(struct analogix_dp_plat_data *plat_data)
+ static int rockchip_dp_get_modes(struct analogix_dp_plat_data *plat_data,
+ 				 struct drm_connector *connector)
  {
- 	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
--	u32 bpp = info->color_formats & DRM_COLOR_FORMAT_YCBCR422 ? 16 : 24;
-+	u32 bpp = info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422) ? 16 : 24;
- 	u32 lane_count_min = mtk_dp->train_info.lane_count;
- 	u32 rate = drm_dp_bw_code_to_link_rate(mtk_dp->train_info.link_rate) *
- 		   lane_count_min;
+ 	struct drm_display_info *di = &connector->display_info;
+ 	/* VOP couldn't output YUV video format for eDP rightly */
+-	u32 mask = DRM_COLOR_FORMAT_YCBCR444 | DRM_COLOR_FORMAT_YCBCR422;
++	u32 mask = BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) | BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
  
- 	/*
-@@ -2519,11 +2519,11 @@ static u32 *mtk_dp_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
- 	 * datarate of YUV422 and sink device supports YUV422, we output YUV422
- 	 * format. Use this condition, we can support more resolution.
- 	 */
- 	if (((rate * 97 / 100) < (mode->clock * 24 / 8)) &&
- 	    ((rate * 97 / 100) > (mode->clock * 16 / 8)) &&
--	    (display_info->color_formats & DRM_COLOR_FORMAT_YCBCR422)) {
-+	    (display_info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))) {
- 		input_fmts = kcalloc(1, sizeof(*input_fmts), GFP_KERNEL);
- 		if (!input_fmts)
- 			return NULL;
- 		*num_input_fmts = 1;
- 		input_fmts[0] = MEDIA_BUS_FMT_YUYV8_1X16;
+ 	if ((di->color_formats & mask)) {
+ 		DRM_DEBUG_KMS("Swapping display color format from YUV to RGB\n");
+ 		di->color_formats &= ~mask;
+-		di->color_formats |= DRM_COLOR_FORMAT_RGB444;
++		di->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444);
+ 		di->bpc = 8;
+ 	}
+ 
+ 	return 0;
+ }
 
 -- 
 2.53.0
