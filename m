@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E06FEFB6E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 16:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EE0FEFB6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 16:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ra4gGeTukVvl+IUi3kpBx/h8Xrcr5tcq4BLIbbsXf6c=; b=l3yUVgSHFyqgE2X0P4Nj3apKUW
-	JE+98k4D3vboeNfVakmCC0qi8ux6JkBh4Jur2AgNj2aoU+nLgeCRrPV4LyJgk7Ua5TZVYHDTZdT5b
-	lH0G0wx+MXVf3cCpyFdjTS8CEkmOL7nu/U33NgZ8j6HWT2P/mvFIa+FCrjrn4W+KM1PbU19d90C5D
-	Tf7rvc0dmssLClS7GKcgsJ1V7btNavmSuzd/x0lZBlXMuPKvpssdciCSQckqsmfZyhXjFXFrfNSO4
-	A3mAjI/BOGFsGGHUDII8f7MR0iAGr45FA1v+nLAUE8NeLwhP53ws/R1HeubEhAr0L2ySP44XW04+L
-	Ma9ZZBDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aSLNPkpgMwoAx82HJQcOdj8oKFgWRh/Oj/rxFeK0Yl8=; b=Lzy4Dk3nMWz+arVytuepvP+/dQ
+	/oFy6epqZGiSauF/TIfzWdzegAbJk11d0rIs5aH66I2jPOgKdOainujZPVSRgiXItvxNqcxUeFOGl
+	N8GMKk6oqQG58e0Vk6KEnOu+UNjz3c+0Pk5n5InbwGQS2sUmOXBR5cLxRmzmbbnho3XJx8IbE2fm8
+	8IlUfoDfM47zST45icq9lKdgtYeh2mn4mdHSxgM2QXNAD5OZeL/R7t2YJ0K30cQQmYEmuBSF7wvjr
+	w8Ld8DJhChWVFGspp6vmBdksjOupE7zms0rCb8I+cLu8nuHbL4GZw10Nsmu8jDmukzMxFLOccI91R
+	qHEmIJfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw0tr-00000008kN5-1uYh;
-	Fri, 27 Feb 2026 16:41:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vw12l-00000008ky5-20Pb;
+	Fri, 27 Feb 2026 16:50:23 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw0tp-00000008kMr-2hrq;
-	Fri, 27 Feb 2026 16:41:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0784E60054;
-	Fri, 27 Feb 2026 16:41:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A9DC116C6;
-	Fri, 27 Feb 2026 16:41:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772210468;
-	bh=Ra4gGeTukVvl+IUi3kpBx/h8Xrcr5tcq4BLIbbsXf6c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kaYFALf4xSZVQAbA312F7K02ns0zy5kcaOvWHFJNWY9AvATt7pUW+bvMJKbdtChtm
-	 tH2uUwehXsL2Hj8fdwwpVCcWuHdDsb63uUFJP2cMF43xNCJTDSxZcHpwvTLSu1U7Sl
-	 M2FUvnb6mDY3PWKJMno+e3SWOYvxG8KKG8vxw4MEn6hOq41EUPBH23+RINiw2vhX+e
-	 FbHp3qUfZvbZuE+CnrnSZvs5NqaaWkofdWxMYqTtE/Z0RbEfnkD+zmDgc1t+2WJ5x1
-	 9nBJrTX+Zzefz1LyUgn8uO+y6uQ40gkpU5G5jKsZVOMPxB3x2051Wg3WzGAPsaffSQ
-	 nrMMZp0t1q53A==
-Received: from johan by xi.lan with local (Exim 4.98.2)
-	(envelope-from <johan@kernel.org>)
-	id 1vw0tB-000000002TD-2FBk;
-	Fri, 27 Feb 2026 17:40:29 +0100
-Date: Fri, 27 Feb 2026 17:40:29 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
- printk helpers
-Message-ID: <aaHI_VavZugXjVoL@hovoldconsulting.com>
-References: <20260223-i2c-printk-helpers-v2-0-13b2a97762af@oss.qualcomm.com>
- <aaFcs1miP88QWmtH@hovoldconsulting.com>
- <aaFfEsfh0xTh0b1y@shikoro>
- <aaFsZbiLYSz_YEjw@hovoldconsulting.com>
- <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
+	id 1vw12i-00000008kxS-2jAp
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Feb 2026 16:50:22 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.107])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fMvST2qHSzJ46C8;
+	Sat, 28 Feb 2026 00:49:45 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2D48B40584;
+	Sat, 28 Feb 2026 00:50:12 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 27 Feb
+ 2026 16:50:11 +0000
+Date: Fri, 27 Feb 2026 16:50:09 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<arm-scmi@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-renesas-soc@vger.kernel.org>, <sudeep.holla@arm.com>,
+	<philip.radford@arm.com>, <james.quinlan@broadcom.com>,
+	<f.fainelli@gmail.com>, <vincent.guittot@linaro.org>,
+	<etienne.carriere@foss.st.com>, <peng.fan@oss.nxp.com>,
+	<michal.simek@amd.com>, <dan.carpenter@linaro.org>,
+	<geert+renesas@glider.be>, <kuninori.morimoto.gx@renesas.com>,
+	<marek.vasut+renesas@gmail.com>
+Subject: Re: [PATCH 01/11] firmware: arm_scmi: Add clock determine_rate
+ operation
+Message-ID: <20260227165009.000040d6@huawei.com>
+In-Reply-To: <20260227153225.2778358-2-cristian.marussi@arm.com>
+References: <20260227153225.2778358-1-cristian.marussi@arm.com>
+	<20260227153225.2778358-2-cristian.marussi@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_085020_999472_7745ECBB 
+X-CRM114-Status: GOOD (  23.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,47 +79,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 04:42:09PM +0100, Bartosz Golaszewski wrote:
-> On Fri, Feb 27, 2026 at 11:06 AM Johan Hovold <johan@kernel.org> wrote:
+On Fri, 27 Feb 2026 15:32:15 +0000
+Cristian Marussi <cristian.marussi@arm.com> wrote:
 
-> > It seems all that is needed is to decouple the struct i2c_adapter from
-> > the driver data and have core manage the lifetime of the former using
-> > the reference count of the embedded struct device.
+> Add a clock operation to help determining the effective rate, closest to
+> the required one, that a specific clock can support.
+> 
+> Calculation is currently performed kernel side and the logic is taken
+> directly from the SCMI Clock driver: embedding the determinate rate logic
+> in the protocol layer enables semplifications in the SCMI Clock protocol
 
-> This is a weird pattern you sometimes see where a driver allocates
-> something and passes the ownership to the subsystem.
+simplifications
 
-It's not weird at all, this is the standard way to handle this. We have
-these things called reference counts for a reason.
+> interface and  will more easily accommodate further evolutions where such
+> determine_rate logic into is optionally delegated to the platform SCMI
+> server.
+> 
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+Hi Cristian,
 
-> This often
-> causes confusion among driver authors, who logically assume that if
-> you allocate something, you are responsible for freeing it.Since this
-> is C and not Rust (where such things are tracked by the compiler), I
-> strongly believe we should strive to keep ownership consistent: the
-> driver should free resources it allocated within the bounds of the
-> lifetime of the device it controls. The subsystem should manage the
-> data it allocated - in this case the i2c adapter struct device.
+Drive by review follows.  It's Friday afternoon an only a few mins to beer
+o'clock :)
 
-Drivers are responsible for dropping *their* reference, it doesn't mean
-that the resource is necessarily freed immediately as someone else may
-be holding a reference. Anyone surprised by this should not be doing
-kernel development.
+> ---
+> Spoiler alert next SCMI spec will most probably include a new
+> CLOCK_DETERMINE_RATE command to delegate to the platform such calculations,
+> so this clock proto_ops will be needed anyway sooner or later
+> ---
+>  drivers/firmware/arm_scmi/clock.c | 42 +++++++++++++++++++++++++++++++
+>  include/linux/scmi_protocol.h     |  6 +++++
+>  2 files changed, 48 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+> index ab36871650a1..54e8b59c3941 100644
+> --- a/drivers/firmware/arm_scmi/clock.c
+> +++ b/drivers/firmware/arm_scmi/clock.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/module.h>
+>  #include <linux/limits.h>
+>  #include <linux/sort.h>
+> +#include <asm/div64.h>
+>  
+>  #include "protocols.h"
+>  #include "notify.h"
+> @@ -624,6 +625,46 @@ static int scmi_clock_rate_set(const struct scmi_protocol_handle *ph,
+>  	return ret;
+>  }
+>  
+> +static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
+> +				     u32 clk_id, unsigned long *rate)
+> +{
+> +	u64 fmin, fmax, ftmp;
+> +	struct scmi_clock_info *clk;
+> +	struct clock_info *ci = ph->get_priv(ph);
+> +
+> +	if (!rate)
+> +		return -EINVAL;
+> +
+> +	clk = scmi_clock_domain_lookup(ci, clk_id);
+> +	if (IS_ERR(clk))
+> +		return PTR_ERR(clk);
+> +
+> +	/*
+> +	 * If we can't figure out what rate it will be, so just return the
+> +	 * rate back to the caller.
+> +	 */
+> +	if (clk->rate_discrete)
+> +		return 0;
+> +
+> +	fmin = clk->range.min_rate;
+> +	fmax = clk->range.max_rate;
+> +	if (*rate <= fmin) {
 
-> I know there are a lot of places where this is done in the kernel but
-> let's not introduce new ones. This is a bad pattern.
+Does the rate ever end up different by doing this than it would if you
+just dropped these short cuts? If not I wonder if this code complexity
+is worthwhile vs
 
-No, it's not. It's literally the standard way of doing this.
+	*rate = clamp(*rate, clk->range.min_rate, clk->range.max_rate);
 
-> But even if you decided this is the way to go, I fail to see how it
-> would be easier than what I'm trying to do. You would have to modify
-> *all* I2C bus drivers as opposed to only modifying those that access
-> the underlying struct device. Or am I missing something?
+then carry on with the clamping to a step.
 
-Yes, you have to update the allocation and replace container_of() with
-dev_get_drvdata() but it's a straight-forward transformation that brings
-the i2c subsystem more in line with the driver model (unlike whatever it
-is you're trying to do).
+The only case I can immediately spot where it would be different would
+be if (range.max_rate - range.min_rate) % range.step_size != 0
+which smells like an invalid clock and could result in an out of
+range rounding up anyway.
 
-Johan
+> +		*rate = fmin;
+> +		return 0;
+> +	} else if (*rate >= fmax) {
+> +		*rate = fmax;
+> +		return 0;
+> +	}
+> +
+> +	ftmp = *rate - fmin;
+> +	ftmp += clk->range.step_size - 1; /* to round up */
+> +	do_div(ftmp, clk->range.step_size);
+> +
+> +	*rate = ftmp * clk->range.step_size + fmin;
+> +
+> +	return 0;
+> +}
+
+
 
