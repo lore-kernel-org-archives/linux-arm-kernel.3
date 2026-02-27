@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D14BFEFB54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1278FEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pWctyQ8HitypP4wV6H4UjvVRFiEatC9GvSj3NdgiLXc=; b=Hxb8UMoHzcNvdo
-	nFRUXpsOmB04ubpekRxjmST9ntpyxnRwsUARkLPuSw1aDMQ92MC7DUrbJI7PFD0KODfnDf50Y6kpi
-	pWtsLsGpmDD8bJxHn7l1rPRBO7hQ12Vu3xsduv1irxrrkHyTWWrLp4K8GX/aCx+7VObphOGL8THxG
-	JU4Igc5t7bCPuprr0etNqn5wraTyC3j/5kipMC7cPrIYY9Cr8O5XtmwHqKvWKciI5s7ypATEIPVIP
-	fo4xo424n3eQ3vwiM3GLxDbDQ2ZPGHJCbXtxl7WbuK2Yxs8juNfriOzC6+99tNsk26HsChhNY/DxH
-	t5Bb2lTSTztQvjkWu70g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qu3VwVqFUErqqhT6kqOGF4xtzFD/7VOFEEX2oN69G7U=; b=d+BHhqD8Hx+QZx7Qkd6CGbs4rF
+	EsW/uS3VH84qNqq+PSBIzEy6K7RLS2liz2N7jBpYmaiSrQ9YZZ4fphcxAn6WqXz7IwsEouYd9vrDc
+	9Z06QcoUhPDyaG4bspTB0qse8lpBo6rt8M8UDsRTSGfjG5MXVWq/nyHSyPdIXW7yZvj8sH1fpsR7A
+	qzGX2Pep0jFzowWyKV4/HiV5Vd9WqQeMr7CU7sJBPpO9A6jQEjcypq8Uq+JePMypjyCK/NtxIvcjQ
+	fVFhNJpUtDTCTufcTngx5Hjb/C5IYnnlPwbM8HkSuuBghcYC9YD6bvno0daSjFGoEBa4IFIDsEPXW
+	XP90qEnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzHc-00000008X9q-06hy;
-	Fri, 27 Feb 2026 14:57:36 +0000
+	id 1vvzHk-00000008XCn-2ls3;
+	Fri, 27 Feb 2026 14:57:44 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzHX-00000008X8W-06F9
+	id 1vvzHZ-00000008X8X-3rZB
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 27 Feb 2026 14:57:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1772204249; x=1803740249;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=Ow4BaL7t8+ptDhmm93kvq3SCgaiHZrjMuwhCUtx9vBY=;
-  b=eqIi0pCoIdpkPF1KsDfiR1pkmNSNpK0MH4czvUjfXd7nUCPskKukJpBI
-   OBIk7zht4BLMwe1CCCLVxhXmqtx+wa1srtDBtBy3+GydFGF+lwFEB7ArA
-   2ZJ6V4FCaiAqled8J1f4HcEYioss/2QWbFwtcfLpo7yjTOp8efPmEGXu5
-   0vnXnhcMG8CTX6QelF1266obfVXqB1h4N+IpygDmbMBlS6mxCqIcItx9o
-   gb4SrXOtOxojujWjbsZa7dV7l7UzSODRokM5UX2V+NBXI9ZtBWVrfapt6
-   5asw7nlfA8cCii5h4N5dKhX9xfrwoyRt5zOkCOqdnDuCuyNKJKUEjrot5
-   w==;
-X-CSE-ConnectionGUID: kLDX0HSLSkif0YfeYYLp1A==
-X-CSE-MsgGUID: sKY45YYqSf+b1MKrmg4FDg==
+  t=1772204252; x=1803740252;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=jDlPP0Dhjhl6jNJafNK8XeaZ3H+YJC5WkqOkIyeSUdo=;
+  b=g/ap9LV5FWO/kIByomHFFE2H4Vm0qHe8WVVkk0G8utF1NajF81k15aug
+   kc7Ysi0fAIxTOht7OkBA7sULcvuX+S54lFQAlBLyv6U4i30QmX6zSbYOt
+   /ZjmTQEoSGZRm1ngMqaST34JgmB3NdHzqB+PwlGCWjEXslxYaXftw1fAi
+   guTsq6oxAqDwYdkOs2MtHxITGDJBSIxvsvCsGtmpwyCh48W7KFLAUf5L/
+   OGd2rayLuH8BWFxmpyYYUEnqpQJ9WzMaR37MXPwN/KAcwhGWjGZt0am4k
+   WdD+5kP2NqMbDSp3rMpfZn6n9NVxiUtrSm3joEKdfMes5CHTmKISN4D4k
+   A==;
+X-CSE-ConnectionGUID: wgI98+BBT5OZU+rH87zgwA==
+X-CSE-MsgGUID: V/pfDvvOTpKSt0UAbksa+Q==
 X-IronPort-AV: E=Sophos;i="6.21,314,1763449200"; 
-   d="scan'208";a="61420721"
+   d="scan'208";a="53970561"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2026 07:57:27 -0700
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2026 07:57:27 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.35; Fri, 27 Feb 2026 07:56:58 -0700
+ 15.1.2507.58; Fri, 27 Feb 2026 07:57:08 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 27 Feb 2026 07:56:56 -0700
+ 15.1.2507.58 via Frontend Transport; Fri, 27 Feb 2026 07:57:06 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Subject: [PATCH net-next v2 0/9] net: sparx5: clean up probe/remove init
- and deinit paths
-Date: Fri, 27 Feb 2026 15:56:38 +0100
-Message-ID: <20260227-sparx5-init-deinit-v2-0-10ba54ccf005@microchip.com>
+Date: Fri, 27 Feb 2026 15:56:42 +0100
+Subject: [PATCH net-next v2 4/9] net: sparx5: move stats initialization and
+ add deinit function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAKawoWkC/22NwQ6DIBBEf8XsudsABqw99T8aDxbXugfBACE2x
- n8vodeeJi+TeXNApMAU4d4cEChzZO8KqEsDdhndm5CnwqCEMkJJg3Ebw66RHSecqIZoOztLo61
- RBGW4BZp5r9InOEroaE8wlGbhmHz41Lcsa/8TK/1PnCUK7DvRGn0Tr34Wj5Vt8Hbh7Wr9CsN5n
- l+bo0/NwgAAAA==
-X-Change-ID: 20260216-sparx5-init-deinit-037cf165c62e
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260227-sparx5-init-deinit-v2-4-10ba54ccf005@microchip.com>
+References: <20260227-sparx5-init-deinit-v2-0-10ba54ccf005@microchip.com>
+In-Reply-To: <20260227-sparx5-init-deinit-v2-0-10ba54ccf005@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
 	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
 	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
@@ -77,8 +74,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_065731_285266_44A5CDDD 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260227_065733_967608_FF220F4C 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,127 +90,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series refactors the sparx5 init and deinit code out of
-sparx5_start() and into probe(), adding proper per-subsystem cleanup
-labels and deinit functions.
+The sparx5_stats_init() function starts a worker thread which needs to
+be cleaned up. Move the initialization code to probe() and add a
+deinit() function for proper teardown.
 
-Currently, the sparx5 driver initializes most subsystems inside
-sparx5_start(), which is called from probe(). This includes registering
-netdevs, starting worker threads for stats and MAC table polling,
-requesting PTP IRQs, and initializing VCAP. The function has grown to
-handle many unrelated subsystems, and has no granular error handling —
-it either succeeds entirely or returns an error, leaving cleanup to a
-single catch-all label in probe().
-
-The remove() path has a similar problem: teardown is not structured as
-the reverse of initialization, and several subsystems lack proper deinit
-functions. For example, the stats workqueue has no corresponding
-cleanup, and the mact workqueue is destroyed without first cancelling
-its delayed work.
-
-Refactor this by moving each init function out of sparx5_start() and
-into probe(), with a corresponding goto-based cleanup label. Add deinit
-functions for subsystems that allocate resources, to properly cancel
-work and destroy workqueues. Ensure that cleanup order in both error
-paths and remove() follows the reverse of initialization order.
-sparx5_start() is eliminated entirely — its hardware register setup
-is renamed to sparx5_forwarding_init() and its FDMA/XTR setup is
-extracted to sparx5_frame_io_init().
-
-Before this series, most init functions live inside sparx5_start() with
-no individual cleanup:
-
-  probe():
-    sparx5_start():              <- no granular error handling
-      sparx5_mact_init()
-      sparx_stats_init()           <- starts worker, no cleanup
-      mact_queue setup             <- no cancel on teardown
-      sparx5_register_netdevs()
-      sparx5_register_notifier_blocks()
-      sparx5_vcap_init()
-    sparx5_ptp_init()
-
-    probe() error path:
-      cleanup_ports:
-        sparx5_cleanup_ports()
-        destroy_workqueue(mact_queue)
-
-After this series, probe() initializes subsystems in order with
-matching cleanup labels, and remove() tears down in reverse:
-
-  probe():
-    sparx5_pgid_init()
-    sparx5_vlan_init()
-    sparx5_board_init()
-    sparx5_forwarding_init()
-    sparx5_calendar_init()         -> cleanup_ports
-    sparx5_qos_init()              -> cleanup_ports
-    sparx5_vcap_init()             -> cleanup_ports
-    sparx5_mact_init()             -> cleanup_vcap
-    sparx5_stats_init()            -> cleanup_mact
-    sparx5_frame_io_init()         -> cleanup_stats
-    sparx5_ptp_init()              -> cleanup_frame_io
-    sparx5_register_netdevs()      -> cleanup_ptp
-    sparx5_register_notifier_blocks() -> cleanup_netdevs
-
-  remove():
-    sparx5_unregister_notifier_blocks()
-    sparx5_unregister_netdevs()
-    sparx5_ptp_deinit()
-    sparx5_frame_io_deinit()
-    sparx5_stats_deinit()
-    sparx5_mact_deinit()
-    sparx5_vcap_deinit()
-    sparx5_destroy_netdevs()
+Also, rename sparx_stats_init() to sparx5_stats_init() to match the
+driver naming convention.
 
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
-Changes in v2:
+ drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c |  9 ++++++++-
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.c    | 16 ++++++++++------
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.h    |  3 ++-
+ 3 files changed, 20 insertions(+), 8 deletions(-)
 
-v2 mainly addresses the comment from Russell on v1, saying that a
-minimal initialization should be done after netdev publication. This is
-now done by moving initialization in sparx5_start out to proper init
-functions. This also means that no initialization is done after netdev
-publication in v2.
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c b/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
+index 049541eeaae0..d42c57bead89 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
+@@ -1244,7 +1244,7 @@ const struct ethtool_ops sparx5_ethtool_ops = {
+ 	.set_pauseparam         = sparx5_set_pauseparam,
+ };
+ 
+-int sparx_stats_init(struct sparx5 *sparx5)
++int sparx5_stats_init(struct sparx5 *sparx5)
+ {
+ 	const struct sparx5_consts *consts = sparx5->data->consts;
+ 	char queue_name[32];
+@@ -1278,3 +1278,10 @@ int sparx_stats_init(struct sparx5 *sparx5)
+ 
+ 	return 0;
+ }
++
++void sparx5_stats_deinit(struct sparx5 *sparx5)
++{
++	cancel_delayed_work_sync(&sparx5->stats_work);
++	destroy_workqueue(sparx5->stats_queue);
++	mutex_destroy(&sparx5->queue_stats_lock);
++}
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+index 4271f4a29cad..bcc7b895fad6 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+@@ -743,11 +743,6 @@ static int sparx5_start(struct sparx5 *sparx5)
+ 	if (err)
+ 		return err;
+ 
+-	/* Init stats */
+-	err = sparx_stats_init(sparx5);
+-	if (err)
+-		return err;
+-
+ 	sparx5_board_init(sparx5);
+ 
+ 	/* Start Frame DMA with fallback to register based INJ/XTR */
+@@ -986,12 +981,18 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 		goto cleanup_vcap;
+ 	}
+ 
++	err = sparx5_stats_init(sparx5);
++	if (err) {
++		dev_err(sparx5->dev, "Failed to initialize stats\n");
++		goto cleanup_mact;
++	}
++
+ 	INIT_LIST_HEAD(&sparx5->mall_entries);
+ 
+ 	err = sparx5_register_netdevs(sparx5);
+ 	if (err) {
+ 		dev_err(sparx5->dev, "Failed to register net devices\n");
+-		goto cleanup_mact;
++		goto cleanup_stats;
+ 	}
+ 
+ 	err = sparx5_register_notifier_blocks(sparx5);
+@@ -1004,6 +1005,8 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 
+ cleanup_netdevs:
+ 	sparx5_unregister_netdevs(sparx5);
++cleanup_stats:
++	sparx5_stats_deinit(sparx5);
+ cleanup_mact:
+ 	sparx5_mact_deinit(sparx5);
+ cleanup_vcap:
+@@ -1035,6 +1038,7 @@ static void mchp_sparx5_remove(struct platform_device *pdev)
+ 	}
+ 	sparx5_unregister_notifier_blocks(sparx5);
+ 	sparx5_unregister_netdevs(sparx5);
++	sparx5_stats_deinit(sparx5);
+ 	sparx5_mact_deinit(sparx5);
+ 	sparx5_vcap_deinit(sparx5);
+ 	sparx5_ptp_deinit(sparx5);
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+index e4c39cca7b26..97d53e229ad6 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+@@ -514,7 +514,8 @@ enum sparx5_cal_bw sparx5_get_port_cal_speed(struct sparx5 *sparx5, u32 portno);
+ 
+ /* sparx5_ethtool.c */
+ void sparx5_get_stats64(struct net_device *ndev, struct rtnl_link_stats64 *stats);
+-int sparx_stats_init(struct sparx5 *sparx5);
++int sparx5_stats_init(struct sparx5 *sparx5);
++void sparx5_stats_deinit(struct sparx5 *sparx5);
+ 
+ /* sparx5_dcb.c */
+ #ifdef CONFIG_SPARX5_DCB
 
-- Drop v1 patch 1 ("call sparx5_start() last in probe()"); PTP IRQ
-  handling is now a separate commit and sparx5_start() is eliminated
-  in the final patch.
-- Add patch to move PTP IRQ handling out of sparx5_start() into its
-  own init/deinit with cleanup label.
-- Add patch to extract FDMA/XTR initialization from sparx5_start()
-  into sparx5_frame_io_init() with cleanup label.
-- Add patch to rename sparx5_start() to sparx5_forwarding_init() and
-  change return type to void, eliminating sparx5_start() entirely.
-
-Link to v1: https://lore.kernel.org/r/20260225-sparx5-init-deinit-v1-0-97036580b9f0@microchip.com
-
----
-Daniel Machon (9):
-      net: sparx5: move netdev and notifier block registration to probe
-      net: sparx5: move VCAP initialization to probe
-      net: sparx5: move MAC table initialization and add deinit function
-      net: sparx5: move stats initialization and add deinit function
-      net: sparx5: move calendar initialization to probe
-      net: sparx5: move remaining init functions from start() to probe()
-      net: sparx5: move PTP IRQ handling out of sparx5_start()
-      net: sparx5: move FDMA/XTR initialization out of sparx5_start()
-      net: sparx5: replace sparx5_start() with sparx5_forwarding_init()
-
- .../ethernet/microchip/sparx5/sparx5_calendar.c    |  15 +-
- .../net/ethernet/microchip/sparx5/sparx5_ethtool.c |   9 +-
- .../ethernet/microchip/sparx5/sparx5_mactable.c    |  34 ++-
- .../net/ethernet/microchip/sparx5/sparx5_main.c    | 253 ++++++++++-----------
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  12 +-
- drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c |  18 ++
- .../ethernet/microchip/sparx5/sparx5_vcap_impl.c   |   2 +-
- 7 files changed, 196 insertions(+), 147 deletions(-)
----
-base-commit: 17d0056f71b13050317a662a505b1a36fb7009e5
-change-id: 20260216-sparx5-init-deinit-037cf165c62e
-
-Best regards,
 -- 
-Daniel Machon <daniel.machon@microchip.com>
+2.34.1
 
 
