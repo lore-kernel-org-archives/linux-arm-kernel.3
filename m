@@ -4,75 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E38FD5307
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 07:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BDDFD5307
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 07:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JJKtOaxRfPEnE8jQi9RwNLNmmpU9pvtNyKUA5WwpyZA=; b=3VxUkHJnwoy7JA2UNYawPZpmnP
-	+3Iv3b1evQ6aUiOkNBEfkGG5WM0ZjG3ihjUB1KLM8EmfIvvurmtab8x+HrfvKKxV/pCvjsY43iuN8
-	np4aob1PO4BfiO59VYnnyqfuI0yp3SDNSrIAEdINyJnBfCoA0ts4cltwwR3HPRVvY9q0E1jX0bfKH
-	9SbdlefgSzdpyc3px94b1U/FG/zBUbBjh5GrBuAUvarojquoxKanqNbDpBlogf+fRqDeQO/v9ZtOu
-	gf3miz2jfsu7dkNhGtgqqKSs+6hYBwEAv8vOtKlUfLTyCwOGhLC6oE0Sg2sUGd3Qe65q/ftrzD3Rw
-	TrKopKKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IoHJ4ImvXmU0plrueOPM+Le42l3mps+PmtM/z9jCD2o=; b=rkyHCwGocHL/7C2ijXLlBny+by
+	IThXX+Q/dk7PfDmYV9WMnObl6TAlvhnQe9gPdJpqDGKjKQyfJ08mhdkaxsgwth7iBTj+Z+LsoW0i5
+	7KLCQXb3aR66NX9nx3XNNjvyO/vtnwVSRQHQskLQn2tktmDP4h2TBUgaO/qyJN8uWU1lr70z/OiGm
+	2Z1hWD0v0Jh2vaMxzOJA4iGNlmoLvX50t1IingDYeLWGQHoxfyRAih0lKjPNyyv9n2GtFb8sLkFNw
+	syKafA0YRgglMmKecANG5M0FSuapAvgoFlN54+b7m/OWVS9zEnUX4cRv6inoX9CJni02+vM8GzEeh
+	iqcCH/RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvsKM-00000007tMl-0d03;
-	Fri, 27 Feb 2026 07:31:58 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1vvsO8-00000007tmF-2pQD;
+	Fri, 27 Feb 2026 07:35:52 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvsKF-00000007tKR-10gO
+	id 1vvsO6-00000007tlt-0ur1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 07:31:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1772177512; x=1803713512;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=TjBeNUvfqkUw08JiM9Ciizk53/Gfq7fJl/tJyuLEWNQ=;
-  b=tblA9n1VUhq+1wp3Nr+mgh2dhM2hd3YiRZF4AYOdpWClY0crKL9oCU28
-   J+1MEpEPfho0yVsn0/l3xguahNkD0hF9DHvxujKtXwDsU/s01XprWANTS
-   uuO9vyRv32lzOE5T9dFOZBoXNHIOUTk3Wh5+G12KG83wZtYVPlEYM66lH
-   zPelBgzvydauDZ/9cLlhLOpdq3wAM6+Cs1pEtssJw7ovW9mcfnIOWSBkN
-   13afTJANiHXa2TZYPbpbPIM6xHtajIYAkgaO7M9B0td6zs6/nltq8kGNS
-   Ba95lZuOAMkUbku5YLE1iT4YX3O4/GH127kCp0QMZuBKbF7yhYY7I+MtL
-   w==;
-X-CSE-ConnectionGUID: pqQRGmnkTLWZUXpRkz7jXw==
-X-CSE-MsgGUID: HkKBkiitTeqDUzP9TXdoog==
-X-IronPort-AV: E=Sophos;i="6.21,313,1763449200"; 
-   d="scan'208";a="285335713"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2026 00:31:48 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 27 Feb 2026 00:31:30 -0700
-Received: from che-ll-i71840.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 27 Feb 2026 00:31:26 -0700
-From: Balakrishnan Sambath <balakrishnan.s@microchip.com>
-To: <wim@linux-watchdog.org>, <linux@roeck-us.net>
-CC: <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <linux-watchdog@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Andrei Simion <andrei.simion@microchip.com>, Balakrishnan Sambath
-	<balakrishnan.s@microchip.com>
-Subject: [PATCH 2/3] watchdog: sama5d4_wdt: Refactor the driver
-Date: Fri, 27 Feb 2026 13:01:15 +0530
-Message-ID: <20260227073116.30447-3-balakrishnan.s@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260227073116.30447-1-balakrishnan.s@microchip.com>
-References: <20260227073116.30447-1-balakrishnan.s@microchip.com>
+	Fri, 27 Feb 2026 07:35:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=usROWmhFrwj59lDxdrzXHEBamPJec5hIRoe5UNp5VOnRib+2hSu+FnCnli+bzNnzn0Aq+dolo6tPhCV+B2kQ2P0Ne5XU5Ic+WN9iw9B8OYEfKeXSJlcPj1H0FjHxL6w7nDYF5603EtMB9hH7uhGtZ8RInBlkag9mR/Hu15NknN9BZRfoZVe/7n6vqE7CeVf13hyGWUVSuAFZkdU43gGE2okhvPomIN1PCSJmXk6kwI/aiAOmO6Smw28pgcnpwUthu/pcmVN/2peQmp5WyfVQxehbaKyzjBTzb3Dl5yQPJfDMby4wOodxqV9a8vS5qbIBXo26Uj5IpmzLNDIhtk/OmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IoHJ4ImvXmU0plrueOPM+Le42l3mps+PmtM/z9jCD2o=;
+ b=XLP+Ip8BAOpdU5RxI0mSc8d/GcHTX1DSp+xyC9qpoBdFjtzBI2S/cfR0e+ru1ILIUXzdS/6Cp/5zZy4XlVtHXQLhlrGIVy7aTo098nAEpoYCnASqKl/3PRl94j9Dp4EH4Q/C9Ck8D/uHGyaUSgEZcT0Wa4Q+xqWsIJLgEGdks8Tsay2hap4CYv7z2u32KoY+t6aYYplWsaL0UkH0HT5LPHA9CHM4KWxw6tUUL6pvbie8Ji8Zkeqwez3UtJGK08BJJBfQGdNtMqDyACbhYB0K7myvGxT0YNM2uCdDRwKUjYtCsEDuvKq4MiGXz4Oz1eZ2uWwpl0aAyUiv7oWEwFWi9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IoHJ4ImvXmU0plrueOPM+Le42l3mps+PmtM/z9jCD2o=;
+ b=h30ZQaMzptQ+uZbWKeuDOKr+Wa4RXFsdRQdHgf7SrYr1HQes7zak5zmScc+p8vjnqC64ZQ6uNCRGi+3D/x0uMdhNq5UQ5pvXZSQBcEUv3GnGaaoF5X1OVUeXlS67ho7Lh18BgSSCUqUWYUpk9d0B/3B8BI3MmXHl9TddpfqlS1q5RJOmVT5Q5z4aet9fjM2wgqbE66gilhdQegzFe6VFXqxP44chjvtPy1NTKI5t16DEVDuqK2MaWWE9FcjvK+APfTP6Jn1QG6T+LPTnnBKwT1QDpR/27/n4F5Bocrhs7I0v4ztx3R3sWQ2dUuG1MuUZU8rOziUIMfbbe2LRlcu6+w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by DU2PR04MB8837.eurprd04.prod.outlook.com (2603:10a6:10:2e0::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.15; Fri, 27 Feb
+ 2026 07:35:43 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9654.014; Fri, 27 Feb 2026
+ 07:35:43 +0000
+From: Liu Ying <victor.liu@nxp.com>
+Date: Fri, 27 Feb 2026 15:36:41 +0800
+Subject: [PATCH] drm/bridge: imx93-mipi-dsi: Fix mode validation
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260227-imx93-mipi-dsi-fix-mode-validation-v1-1-a9cd67991280@nxp.com>
+X-B4-Tracking: v=1; b=H4sIAIhJoWkC/x2NSwqDQBAFryK9ToNpfzFXCVkMTmseZFRmRAbEu
+ 9u4LHj16qCkEZroXRwUdUfCMhs8HwUNPzdPyvDGJKW0pUjHCLmvOGAF+wQekTksXnl3f3i3mc6
+ 1NMOrEyd1X5EdrVFtdkc+3/O8AM7h5g50AAAA
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Liu Ying <victor.liu@nxp.com>
+X-Mailer: b4 0.13.0
+X-ClientProxiedBy: SG2P153CA0011.APCP153.PROD.OUTLOOK.COM (2603:1096::21) To
+ AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU2PR04MB8837:EE_
+X-MS-Office365-Filtering-Correlation-Id: f6611806-291f-4222-04ed-08de75d2d04b
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|52116014|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: genGjR797er6088o0YRUQouaCkeGc2sYVcNQHNhiV8cUduKuWsqYPwqBrjRl81aEH0/AhiSu4bV82e5zWV5kWf+3ROAxENmSV7++gxxnO1LoypB4S3eNs7+x/YvOcl12g7UWFtkIO2HDaX3Ty7RzIXhRboOX5R936mHvv8oiO4m6o/iNzRdi2XbL6EyxIvVYxaEfrU+PdoogcHlnkIcDVPODRQ3xauz7/oBCQi+ZaQQzRoWWPHC5aKuPbo5Ho0kqKow91sAhplxWgGPnL/nuMMDpVhZpPWDF96QbC4LUSNhUMz4ffxQo+u0l679QBhfzIC7su8i9pysEPpxWb4RPxPYtOGxqo8cLtzhpQqfvUIqceSw8Nmi09l932OnZDuaVReknfykJsxDO2vQWRRDK9QgTl+h/QrG8522zJqZRh6VA6UY3Ao9RyfsZ4FUkqCB75tL7sBSEb8ZEwDPIbag9uMoftduxufUxe5pgSE1PEzy7m8b9OMqr8MYD91fhJ1HQXv4xrZNBjJGs/NIKaaOyqkHHm6rU9flbgIXiCcX8JZHDZMVbNbitvyJFdh8ulPPVpMTJgkiEAOG+1EtaGERZb58Fc75CTwWusyuECfogU/FXu0IiGZwiXDbpj1/3a3/PJOQDHFOEkmujehaA5EaYOzkuhtYog9rXQbGb+HCADdvOUb9k+4y8jJusOEgK6MpAEsfKxdyXc7iVQzVK1eNfIsqsyr0qb4usFg3lvoy9hErPGtF8TgjUq4P1lpNyIX1bELEenA/8yQc4pMLZClXy4cTzW5a7C69JvC6VHn6IbC+pRitFnkPKcBPR3krz34UH
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(52116014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TmdiSjlRT3R4cnVGNFlNenVvQlFJQngzQ09qZlJxSE1vbUF3SlNaSUJQeVJ0?=
+ =?utf-8?B?ZEZucy9kRVNWTlhrVndsUzVSZjNETktiRzkyRHNCSmgxMzhoazdOOVVlaXYz?=
+ =?utf-8?B?U3FzbGpaR0tkaUcrRmJPemZCLzhTZXBTR2NCS1M1MXBNcTY3ZE9Xa1dxVW52?=
+ =?utf-8?B?VDF3Zy9wMEgyTnlFTFl2RjkzRXVRY2xiV1ZaamdCNHA3Sk9KeTZlV1RNWXRM?=
+ =?utf-8?B?VUtKUVRkZEtyNnRIK3NBazhtTXd2WWgzV3gvUTJCZCs2VU9kRTF6c2tJbnhn?=
+ =?utf-8?B?dGFhRlgzckFwSzdoZDJid1k3UlNNRUw5T1dtN1dHWjZPWG41bzZhb1Zic1VO?=
+ =?utf-8?B?cmZrZjhtWUpBMzZFeHYzM013RThxdjF5SDZmbEVoeTZTcThyRFgrMnJhWW9u?=
+ =?utf-8?B?SGVyRGtZQ3J4ckxLSFJlejFnb0I1Wk0yanlCV280TXl1QkhqRGd1c1ZvVWFL?=
+ =?utf-8?B?K2RaMlRpM3Nsek9oY0RLcDhsQVQrRHFFbzZTR3VsRlJUZlllVTRDMEowNFlK?=
+ =?utf-8?B?K292TFJOdEZUZVlQeUYzOGNTem1zYm50SGE4QWN0SVg4QmRoRG1RalVHUmwv?=
+ =?utf-8?B?VjZ1b09TdHd1ZlpvNUM5d2wrY0lScTFVS01HZVQ4S2t3d21wcWFoa2Y5M0pr?=
+ =?utf-8?B?eHoxNlhaay94bHZ5Y21JbzlzUW04U2RWRjlDUGxRZW92YnVHZ2t1anJoYnkv?=
+ =?utf-8?B?cFEzSHc4S05zeGdkNUNRYWllUUNvNHVDSmNLTXVQSDlDTXRUWTZuK3AwS09k?=
+ =?utf-8?B?QjZjbTh6QmlSbHNzVG1oRTY5TVg3WGN0MVdyZ0dTTlNyTFdOOFZnbWFidE5a?=
+ =?utf-8?B?RzMrTHRqUlRBQng4MjVNVWJMa2ZMUFBkYlRSdkF1L0wycGRaTGhTUnVOVkxL?=
+ =?utf-8?B?S2lxMythQjRoM2dXWE5oSnNnQzFPWDBTWTlaQXBhSjJqVlF0KzdKdnBSSGJs?=
+ =?utf-8?B?QlZIVnZPc0E0QWFkbVdvOHJ1MXp1bzJ4RjA5eDVoRTZ3OU56a1RZYjlWME5s?=
+ =?utf-8?B?dm9IMkFXMEc5ZzE2UmZMRkVTS1JkRlFaRVhtWVUzV1h5RGRmUWtlNC9EL0wx?=
+ =?utf-8?B?amZ1dVYyZk1QUGw2dEVIUGVSKzNkbERYQ3pzdHMvK3hZbVltTGNrSTNQbitq?=
+ =?utf-8?B?SFlXNFRncWhYenY5VytrMW1vUVN2OW4vaDFrektXTFNNMk1mZzh2YmxtcXFu?=
+ =?utf-8?B?ZFFvbVl0OVdMbWN2R3pGSzF1OXREQlFtQ2V1OG5LTk1vQmZVOUVWeEw0OHBs?=
+ =?utf-8?B?RmIwYXk2V3FwbmQ2NVBDemt6cnhva1VMNVRPL0RIeExMdE1xUEV6SDFQajA1?=
+ =?utf-8?B?c3dHUDk2WjVoQ3YydGRpbVd3bit0YXlQa2ZCYVpnRHFsVEpaQnVqZ2hTNDh4?=
+ =?utf-8?B?QXNnZmJLeW1HcWNWeW1INFYxUjc3RTg3RnNXWGdDSmpTaVhwTFVDTlE4ZFE4?=
+ =?utf-8?B?aHFjNHZ4NDEvNFNmYmRGUm5DV1YwYjhWdlR3dG5DelpDWmx6NFVFeElqR0FJ?=
+ =?utf-8?B?Z3ZpSE1USlpJNVJRb3VMRjMxM1hGTi9pSjN0WWFXOFNXdklGRU80d0NKd1p5?=
+ =?utf-8?B?K05sZFpxYllQVkhTSHlKeDdMcERnV0RHVWhSUHNsWVdBMUgvbS9ZWjh0Tzhm?=
+ =?utf-8?B?OGRNK3p4SU0xeUlIRUFlcVpxb29KTWR2NERUN215K3hyM0RTN1RLZnlsdGRK?=
+ =?utf-8?B?RC82OWIzRml0dWZ4aERTajgxQXgyTGVoLy8zSFZ3V1B1blo4aWVSU1B5azE4?=
+ =?utf-8?B?R0Y1SElRVFUyTmFTN3dGOTVpcW5CUWtmek9VV2lRUTEzS1hTckNDRzZtTERT?=
+ =?utf-8?B?K3BjOFJWMjNLaHhyRmczd2puVUk3NHNMUGp4aTN6QzA4czF0SUFlcUtCS1U4?=
+ =?utf-8?B?UDI4eWJRUy9uU01jRkF3a0hpM3lTSzJXNnFSemNhY0lUWjc4U2Y3blRFU0Rr?=
+ =?utf-8?B?WUVOR04xK3RCZjVtdW1yL3dGaVBDSmlQelYxQnZtNzhyT0dDRTJEdzdWZUpB?=
+ =?utf-8?B?Q0dlZEp4TGx5UWs1STBQem1LSGoxQlZaM2hyY3NDZm5OTG5lM3huMjBHMjRs?=
+ =?utf-8?B?dVo5aFVCOWF4L0JUbFgrVnpzNkFiL213Nk5hVHVERDQ0NDlvT1pQalcrYUtY?=
+ =?utf-8?B?VzBydHJrVmFMQnlWczAvRUhqNDRiaC8yWDMvSHQ5bUtlSWxiRU5jWjFSRjFF?=
+ =?utf-8?B?YjRHWm05M2djNTNEV0NkUVRqMktycCswZDV1YWY2SVdnZlBnTVRqOU9rU2Y2?=
+ =?utf-8?B?d09RejVvSFVxWmIvQnNkU1dhU3hUaE43UmFPSjhkQ0VuVm1CcFZDdTFIaGU0?=
+ =?utf-8?B?RHBqeHNqWS9CRG9OQnNXWnpZZUYxU1lXMVZtZGpkMjFQbGMrcXZEdz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6611806-291f-4222-04ed-08de75d2d04b
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2026 07:35:43.3453
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2Lh1gwW584msFfvbDnBOkd+8GhV31+UXVqLlOzwgfx15GxGr8k6QPNpSfG5QRu841BOCuVOSHtqs/7cxpBOjjQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8837
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_233151_296664_5769182D 
-X-CRM114-Status: GOOD (  26.82  )
+X-CRM114-CacheID: sfid-20260226_233550_290184_888A3514 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,469 +156,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrei Simion <andrei.simion@microchip.com>
+Instead of checking the last bridge's operation bit masks against
+DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP_EDID to determine if allowing
++/-0.5% pixel clock rate deviation, check any bridge after this bridge,
+because the last bridge is usually a display connector bridge without
+any operation bit mask when the clock rate deviation is allowed.
 
-This patch cleans up and refactors the Atmel SAMA5D4 Watchdog Driver
-to be more readable and to fixup Reset issue introduced
-by commit 266da53c35fc ("watchdog: sama5d4: readout initial state").
-
-Signed-off-by: Andrei Simion <andrei.simion@microchip.com>
-[Use per-device WDDIS mask and sync MR shadow WDDIS state]
-Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+Fixes: ce62f8ea7e3f ("drm/bridge: imx: Add i.MX93 MIPI DSI support")
+Fixes: 5849eff7f067 ("drm/bridge: imx93-mipi-dsi: use drm_bridge_chain_get_last_bridge()")
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
- drivers/watchdog/sama5d4_wdt.c | 156 ++++++++++++++++-----------------
- 1 file changed, 77 insertions(+), 79 deletions(-)
+ drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c | 33 ++++++++++++++++-------------
+ 1 file changed, 18 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/watchdog/sama5d4_wdt.c b/drivers/watchdog/sama5d4_wdt.c
-index 13e72918338a..b422d0bd75f9 100644
---- a/drivers/watchdog/sama5d4_wdt.c
-+++ b/drivers/watchdog/sama5d4_wdt.c
-@@ -24,44 +24,58 @@
- #define WDT_DEFAULT_TIMEOUT	MAX_WDT_TIMEOUT
- 
- #define WDT_SEC2TICKS(s)	((s) ? (((s) << 8) - 1) : 0)
- 
- struct sama5d4_wdt {
- 	struct watchdog_device	wdd;
- 	void __iomem		*reg_base;
- 	u32			mr;
- 	u32			ir;
-+	u32			wddis_mask;
- 	unsigned long		last_ping;
- 	bool			need_irq;
--	bool			sam9x60_support;
-+	bool			is_modern_chip;
- };
- 
-+static inline bool wdt_enabled(struct sama5d4_wdt *wdt, u32 mr)
-+{
-+	return !(mr & wdt->wddis_mask);
-+}
-+
- static int wdt_timeout;
- static bool nowayout = WATCHDOG_NOWAYOUT;
- 
- module_param(wdt_timeout, int, 0);
- MODULE_PARM_DESC(wdt_timeout,
- 	"Watchdog timeout in seconds. (default = "
- 	__MODULE_STRING(WDT_DEFAULT_TIMEOUT) ")");
- 
- module_param(nowayout, bool, 0);
- MODULE_PARM_DESC(nowayout,
- 	"Watchdog cannot be stopped once started (default="
- 	__MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
- 
--#define wdt_enabled (!(wdt->mr & AT91_WDT_WDDIS))
- 
- #define wdt_read(wdt, field) \
- 	readl_relaxed((wdt)->reg_base + (field))
- 
- /* 4 slow clock periods is 4/32768 = 122.07µs*/
- #define WDT_DELAY	usecs_to_jiffies(123)
- 
-+static bool check_is_modern_chip_by_compatible(struct device *dev)
-+{
-+	if (of_device_is_compatible(dev->of_node, "microchip,sam9x60-wdt") ||
-+	    of_device_is_compatible(dev->of_node, "microchip,sama7g5-wdt"))
-+		return true;
-+
-+	return false;
-+}
-+
- static void wdt_write(struct sama5d4_wdt *wdt, u32 field, u32 val)
+diff --git a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
+index 8f312f9edf97..6d65df9ed970 100644
+--- a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
++++ b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
+@@ -493,21 +493,24 @@ static enum drm_mode_status
+ imx93_dsi_validate_mode(struct imx93_dsi *dsi, const struct drm_display_mode *mode)
  {
- 	/*
- 	 * WDT_CR and WDT_MR must not be modified within three slow clock
- 	 * periods following a restart of the watchdog performed by a write
- 	 * access in WDT_CR.
- 	 */
- 	while (time_before(jiffies, wdt->last_ping + WDT_DELAY))
- 		usleep_range(30, 125);
-@@ -71,322 +85,306 @@ static void wdt_write(struct sama5d4_wdt *wdt, u32 field, u32 val)
- 
- static void wdt_write_nosleep(struct sama5d4_wdt *wdt, u32 field, u32 val)
- {
- 	if (time_before(jiffies, wdt->last_ping + WDT_DELAY))
- 		udelay(123);
- 	writel_relaxed(val, wdt->reg_base + field);
- 	wdt->last_ping = jiffies;
- }
- 
--static int sama5d4_wdt_start(struct watchdog_device *wdd)
-+static int wdt_start(struct watchdog_device *wdd)
- {
- 	struct sama5d4_wdt *wdt = watchdog_get_drvdata(wdd);
- 
--	if (wdt->sam9x60_support) {
--		writel_relaxed(wdt->ir, wdt->reg_base + AT91_SAM9X60_IER);
--		wdt->mr &= ~AT91_SAM9X60_WDDIS;
--	} else {
--		wdt->mr &= ~AT91_WDT_WDDIS;
--	}
-+	if (wdt->is_modern_chip)
-+		writel_relaxed(wdt->ir, wdt->reg_base + AT91_WDT_IER);
-+	wdt->mr &= ~wdt->wddis_mask;
- 	wdt_write(wdt, AT91_WDT_MR, wdt->mr);
- 
- 	return 0;
- }
- 
--static int sama5d4_wdt_stop(struct watchdog_device *wdd)
-+static int wdt_stop(struct watchdog_device *wdd)
- {
- 	struct sama5d4_wdt *wdt = watchdog_get_drvdata(wdd);
- 
--	if (wdt->sam9x60_support) {
--		writel_relaxed(wdt->ir, wdt->reg_base + AT91_SAM9X60_IDR);
--		wdt->mr |= AT91_SAM9X60_WDDIS;
--	} else {
--		wdt->mr |= AT91_WDT_WDDIS;
--	}
-+	if (wdt->is_modern_chip)
-+		writel_relaxed(wdt->ir, wdt->reg_base + AT91_WDT_IDR);
-+	wdt->mr |= wdt->wddis_mask;
- 	wdt_write(wdt, AT91_WDT_MR, wdt->mr);
- 
- 	return 0;
- }
- 
--static int sama5d4_wdt_ping(struct watchdog_device *wdd)
-+static int wdt_ping(struct watchdog_device *wdd)
- {
- 	struct sama5d4_wdt *wdt = watchdog_get_drvdata(wdd);
- 
- 	wdt_write(wdt, AT91_WDT_CR, AT91_WDT_KEY | AT91_WDT_WDRSTT);
- 
- 	return 0;
- }
- 
--static int sama5d4_wdt_set_timeout(struct watchdog_device *wdd,
--				 unsigned int timeout)
-+static int wdt_set_timeout(struct watchdog_device *wdd,
-+			   unsigned int timeout)
- {
- 	struct sama5d4_wdt *wdt = watchdog_get_drvdata(wdd);
- 	u32 value = WDT_SEC2TICKS(timeout);
- 
--	if (wdt->sam9x60_support) {
--		wdt_write(wdt, AT91_SAM9X60_WLR,
--			  AT91_SAM9X60_SET_COUNTER(value));
-+	if (wdt->is_modern_chip) {
-+		wdt_write(wdt, AT91_WDT_WLR,
-+			  AT91_WDT_SET_COUNTER(value));
- 
- 		wdd->timeout = timeout;
- 		return 0;
- 	}
- 
- 	wdt->mr &= ~AT91_WDT_WDV;
- 	wdt->mr |= AT91_WDT_SET_WDV(value);
- 
- 	/*
- 	 * WDDIS has to be 0 when updating WDD/WDV. The datasheet states: When
- 	 * setting the WDDIS bit, and while it is set, the fields WDV and WDD
- 	 * must not be modified.
- 	 * If the watchdog is enabled, then the timeout can be updated. Else,
- 	 * wait that the user enables it.
- 	 */
--	if (wdt_enabled)
--		wdt_write(wdt, AT91_WDT_MR, wdt->mr & ~AT91_WDT_WDDIS);
-+	if (wdt_enabled(wdt, wdt->mr))
-+		wdt_write(wdt, AT91_WDT_MR, wdt->mr & ~wdt->wddis_mask);
- 
- 	wdd->timeout = timeout;
- 
- 	return 0;
- }
- 
- static const struct watchdog_info sama5d4_wdt_info = {
- 	.options = WDIOF_SETTIMEOUT | WDIOF_MAGICCLOSE | WDIOF_KEEPALIVEPING,
- 	.identity = "Atmel SAMA5D4 Watchdog",
- };
- 
- static const struct watchdog_ops sama5d4_wdt_ops = {
- 	.owner = THIS_MODULE,
--	.start = sama5d4_wdt_start,
--	.stop = sama5d4_wdt_stop,
--	.ping = sama5d4_wdt_ping,
--	.set_timeout = sama5d4_wdt_set_timeout,
-+	.start = wdt_start,
-+	.stop = wdt_stop,
-+	.ping = wdt_ping,
-+	.set_timeout = wdt_set_timeout,
- };
- 
--static irqreturn_t sama5d4_wdt_irq_handler(int irq, void *dev_id)
-+static irqreturn_t wdt_irq_handler(int irq, void *dev_id)
- {
- 	struct sama5d4_wdt *wdt = platform_get_drvdata(dev_id);
- 	u32 reg;
- 
--	if (wdt->sam9x60_support)
--		reg = wdt_read(wdt, AT91_SAM9X60_ISR);
-+	if (wdt->is_modern_chip)
-+		reg = wdt_read(wdt, AT91_WDT_ISR);
- 	else
- 		reg = wdt_read(wdt, AT91_WDT_SR);
- 
- 	if (reg) {
- 		pr_crit("Atmel Watchdog Software Reset\n");
- 		emergency_restart();
- 		pr_crit("Reboot didn't succeed\n");
- 	}
- 
- 	return IRQ_HANDLED;
- }
- 
--static int of_sama5d4_wdt_init(struct device_node *np, struct sama5d4_wdt *wdt)
-+static int of_wdt_init(struct device_node *np, struct sama5d4_wdt *wdt)
- {
- 	const char *tmp;
- 
--	if (wdt->sam9x60_support)
--		wdt->mr = AT91_SAM9X60_WDDIS;
--	else
--		wdt->mr = AT91_WDT_WDDIS;
-+	wdt->mr = wdt->wddis_mask;
- 
- 	if (!of_property_read_string(np, "atmel,watchdog-type", &tmp) &&
- 	    !strcmp(tmp, "software"))
- 		wdt->need_irq = true;
- 
- 	if (of_property_read_bool(np, "atmel,idle-halt"))
- 		wdt->mr |= AT91_WDT_WDIDLEHLT;
- 
- 	if (of_property_read_bool(np, "atmel,dbg-halt"))
- 		wdt->mr |= AT91_WDT_WDDBGHLT;
- 
- 	return 0;
- }
- 
--static int sama5d4_wdt_init(struct sama5d4_wdt *wdt)
-+static int wdt_init(struct sama5d4_wdt *wdt)
- {
-+	struct watchdog_device *wdd = &wdt->wdd;
- 	u32 reg, val;
- 
- 	val = WDT_SEC2TICKS(WDT_DEFAULT_TIMEOUT);
-+
- 	/*
- 	 * When booting and resuming, the bootloader may have changed the
- 	 * watchdog configuration.
--	 * If the watchdog is already running, we can safely update it.
--	 * Else, we have to disable it properly.
-+	 * If the watchdog is not running, we need to disable it properly.
-+	 * Otherwise, we can safely update it.
- 	 */
--	if (!wdt_enabled) {
--		reg = wdt_read(wdt, AT91_WDT_MR);
--		if (wdt->sam9x60_support && (!(reg & AT91_SAM9X60_WDDIS)))
--			wdt_write_nosleep(wdt, AT91_WDT_MR,
--					  reg | AT91_SAM9X60_WDDIS);
--		else if (!wdt->sam9x60_support &&
--			 (!(reg & AT91_WDT_WDDIS)))
--			wdt_write_nosleep(wdt, AT91_WDT_MR,
--					  reg | AT91_WDT_WDDIS);
-+	reg = wdt_read(wdt, AT91_WDT_MR);
-+	if (wdt_enabled(wdt, reg)) {
-+		wdt->mr &= ~wdt->wddis_mask;
-+		set_bit(WDOG_HW_RUNNING, &wdd->status);
-+	} else {
-+		wdt->mr |= wdt->wddis_mask;
- 	}
- 
--	if (wdt->sam9x60_support) {
-+	if (wdt->is_modern_chip) {
- 		if (wdt->need_irq)
--			wdt->ir = AT91_SAM9X60_PERINT;
-+			wdt->ir = AT91_WDT_PERINT;
- 		else
--			wdt->mr |= AT91_SAM9X60_PERIODRST;
-+			wdt->mr |= AT91_WDT_PERIODRST;
- 
--		wdt_write(wdt, AT91_SAM9X60_IER, wdt->ir);
--		wdt_write(wdt, AT91_SAM9X60_WLR, AT91_SAM9X60_SET_COUNTER(val));
-+		wdt_write(wdt, AT91_WDT_IER, wdt->ir);
-+		wdt_write(wdt, AT91_WDT_WLR, AT91_WDT_SET_COUNTER(val));
- 	} else {
- 		wdt->mr |= AT91_WDT_SET_WDD(WDT_SEC2TICKS(MAX_WDT_TIMEOUT));
- 		wdt->mr |= AT91_WDT_SET_WDV(val);
- 
- 		if (wdt->need_irq)
- 			wdt->mr |= AT91_WDT_WDFIEN;
- 		else
- 			wdt->mr |= AT91_WDT_WDRSTEN;
- 	}
- 
- 	wdt_write_nosleep(wdt, AT91_WDT_MR, wdt->mr);
- 
- 	return 0;
- }
- 
--static int sama5d4_wdt_probe(struct platform_device *pdev)
-+static int wdt_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct watchdog_device *wdd;
- 	struct sama5d4_wdt *wdt;
- 	void __iomem *regs;
- 	u32 irq = 0;
--	u32 reg;
- 	int ret;
- 
- 	wdt = devm_kzalloc(dev, sizeof(*wdt), GFP_KERNEL);
- 	if (!wdt)
- 		return -ENOMEM;
- 
- 	wdd = &wdt->wdd;
- 	wdd->timeout = WDT_DEFAULT_TIMEOUT;
- 	wdd->info = &sama5d4_wdt_info;
- 	wdd->ops = &sama5d4_wdt_ops;
- 	wdd->min_timeout = MIN_WDT_TIMEOUT;
- 	wdd->max_timeout = MAX_WDT_TIMEOUT;
- 	wdt->last_ping = jiffies;
+ 	struct drm_bridge *dmd_bridge = dw_mipi_dsi_get_bridge(dsi->dmd);
+-	struct drm_bridge *last_bridge __free(drm_bridge_put) =
+-		drm_bridge_chain_get_last_bridge(dmd_bridge->encoder);
 -
--	if (of_device_is_compatible(dev->of_node, "microchip,sam9x60-wdt") ||
--	    of_device_is_compatible(dev->of_node, "microchip,sama7g5-wdt"))
--		wdt->sam9x60_support = true;
-+	wdt->is_modern_chip = check_is_modern_chip_by_compatible(dev);
-+	if (wdt->is_modern_chip)
-+		wdt->wddis_mask = AT91_WDT_WDDIS_MODERN;
-+	else
-+		wdt->wddis_mask = AT91_WDT_WDDIS_LEGACY;
- 
- 	watchdog_set_drvdata(wdd, wdt);
- 
- 	regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(regs))
- 		return PTR_ERR(regs);
- 
- 	wdt->reg_base = regs;
- 
--	ret = of_sama5d4_wdt_init(dev->of_node, wdt);
-+	ret = of_wdt_init(dev->of_node, wdt);
- 	if (ret)
- 		return ret;
- 
- 	if (wdt->need_irq) {
- 		irq = irq_of_parse_and_map(dev->of_node, 0);
- 		if (!irq) {
- 			dev_warn(dev, "failed to get IRQ from DT\n");
- 			wdt->need_irq = false;
+-	if ((last_bridge->ops & DRM_BRIDGE_OP_DETECT) &&
+-	    (last_bridge->ops & DRM_BRIDGE_OP_EDID)) {
+-		unsigned long pixel_clock_rate = mode->clock * 1000;
+-		unsigned long rounded_rate;
+-
+-		/* Allow +/-0.5% pixel clock rate deviation */
+-		rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
+-		if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
+-		    rounded_rate > pixel_clock_rate * 1005 / 1000) {
+-			dev_dbg(dsi->dev, "failed to round clock for mode " DRM_MODE_FMT "\n",
+-				DRM_MODE_ARG(mode));
+-			return MODE_NOCLOCK;
++
++	drm_for_each_bridge_in_chain_from(dmd_bridge, bridge) {
++		if ((bridge->ops & DRM_BRIDGE_OP_DETECT) &&
++		    (bridge->ops & DRM_BRIDGE_OP_EDID)) {
++			unsigned long pixel_clock_rate = mode->clock * 1000;
++			unsigned long rounded_rate;
++
++			/* Allow +/-0.5% pixel clock rate deviation */
++			rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
++			if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
++			    rounded_rate > pixel_clock_rate * 1005 / 1000) {
++				dev_dbg(dsi->dev,
++					"failed to round clock for mode " DRM_MODE_FMT "\n",
++					DRM_MODE_ARG(mode));
++				return MODE_NOCLOCK;
++			}
++
++			break;
  		}
  	}
  
- 	if (wdt->need_irq) {
--		ret = devm_request_irq(dev, irq, sama5d4_wdt_irq_handler,
-+		ret = devm_request_irq(dev, irq, wdt_irq_handler,
- 				       IRQF_SHARED | IRQF_IRQPOLL |
- 				       IRQF_NO_SUSPEND, pdev->name, pdev);
- 		if (ret) {
- 			dev_err(dev, "cannot register interrupt handler\n");
- 			return ret;
- 		}
- 	}
- 
- 	watchdog_init_timeout(wdd, wdt_timeout, dev);
- 
--	reg = wdt_read(wdt, AT91_WDT_MR);
--	if (!(reg & AT91_WDT_WDDIS)) {
--		wdt->mr &= ~AT91_WDT_WDDIS;
--		set_bit(WDOG_HW_RUNNING, &wdd->status);
--	}
--
--	ret = sama5d4_wdt_init(wdt);
-+	ret = wdt_init(wdt);
- 	if (ret)
- 		return ret;
- 
- 	watchdog_set_nowayout(wdd, nowayout);
- 
- 	watchdog_stop_on_unregister(wdd);
- 	ret = devm_watchdog_register_device(dev, wdd);
- 	if (ret)
- 		return ret;
- 
- 	platform_set_drvdata(pdev, wdt);
- 
- 	dev_info(dev, "initialized (timeout = %d sec, nowayout = %d)\n",
- 		 wdd->timeout, nowayout);
- 
- 	return 0;
- }
- 
--static const struct of_device_id sama5d4_wdt_of_match[] = {
-+static const struct of_device_id wdt_of_match[] = {
- 	{
- 		.compatible = "atmel,sama5d4-wdt",
- 	},
- 	{
- 		.compatible = "microchip,sam9x60-wdt",
- 	},
- 	{
- 		.compatible = "microchip,sama7g5-wdt",
- 	},
- 
- 	{ }
- };
--MODULE_DEVICE_TABLE(of, sama5d4_wdt_of_match);
-+MODULE_DEVICE_TABLE(of, wdt_of_match);
- 
--static int sama5d4_wdt_suspend_late(struct device *dev)
-+static int wdt_suspend_late(struct device *dev)
- {
- 	struct sama5d4_wdt *wdt = dev_get_drvdata(dev);
- 
- 	if (watchdog_active(&wdt->wdd))
--		sama5d4_wdt_stop(&wdt->wdd);
-+		wdt_stop(&wdt->wdd);
- 
- 	return 0;
- }
- 
--static int sama5d4_wdt_resume_early(struct device *dev)
-+static int wdt_resume_early(struct device *dev)
- {
- 	struct sama5d4_wdt *wdt = dev_get_drvdata(dev);
- 
- 	/*
- 	 * FIXME: writing MR also pings the watchdog which may not be desired.
- 	 * This should only be done when the registers are lost on suspend but
- 	 * there is no way to get this information right now.
- 	 */
--	sama5d4_wdt_init(wdt);
-+	wdt_init(wdt);
- 
- 	if (watchdog_active(&wdt->wdd))
--		sama5d4_wdt_start(&wdt->wdd);
-+		wdt_start(&wdt->wdd);
- 
- 	return 0;
- }
- 
- static const struct dev_pm_ops sama5d4_wdt_pm_ops = {
--	LATE_SYSTEM_SLEEP_PM_OPS(sama5d4_wdt_suspend_late,
--				 sama5d4_wdt_resume_early)
-+	LATE_SYSTEM_SLEEP_PM_OPS(wdt_suspend_late,
-+				 wdt_resume_early)
- };
- 
- static struct platform_driver sama5d4_wdt_driver = {
--	.probe		= sama5d4_wdt_probe,
-+	.probe		= wdt_probe,
- 	.driver		= {
- 		.name	= "sama5d4_wdt",
- 		.pm	= pm_sleep_ptr(&sama5d4_wdt_pm_ops),
--		.of_match_table = sama5d4_wdt_of_match,
-+		.of_match_table = wdt_of_match,
- 	}
- };
- module_platform_driver(sama5d4_wdt_driver);
- 
- MODULE_AUTHOR("Atmel Corporation");
- MODULE_DESCRIPTION("Atmel SAMA5D4 Watchdog Timer driver");
- MODULE_LICENSE("GPL v2");
+
+---
+base-commit: 877552aa875839314afad7154b5a561889e87ea9
+change-id: 20260227-imx93-mipi-dsi-fix-mode-validation-425c872a2493
+
+Best regards,
 -- 
-2.34.1
+Liu Ying <victor.liu@nxp.com>
 
 
