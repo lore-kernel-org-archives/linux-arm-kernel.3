@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76347FEFB56
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D694FFEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:57:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kEGaf9zqcWTV5lUNoFG6YgkinNxqtmaRJ7WKJCFDZQU=; b=z62PZbj8K38yjWVxdQWetiZyX9
-	vtarEdDxWm4qvMSrcCekBATtn6umrD1RFhHmMaZiUUyPVNDHwPrBe2TgOfdomYiyTebBF9X/j0mdZ
-	czqJz4E8nop4xZchVXIJUn9+HfGfg0cSXmZp7G/8qZimETuCPh9X7c4XcfBwj7nlfKMQqvhGsg2ZG
-	Ybw3m79i1wdG4AEgVGtKwIv1inr+TNvu3o2nnaqaUCnYMX9oKFPXCBJb1/E87TYLRXLJ7cXdttYP0
-	iixR8TM/0SE2BafLxDXc3TKGtGQ9IHCF2wJFBeRFOQwLEe/PztzGjmB5+bcGsqeACmnJKorqZCuma
-	V0rDbjhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kSUQ9azScqb3bqW4Ljz3irxXAFM579L61m1zVluKd0M=; b=34/FOrY9KnjQbUZhv1qf/h1Lir
+	tEBm+9SN/S7aeIpXGw+cqktAH9oPhOJYiHjPMeurXFaMVk797NNV6LjDCZ406L8uOz/FNXF2RKMn8
+	omh9457eeTo9cf6vOsme6spHjWC+/iWn03sW55sN93PCd8Gjt2OGUNRKdvmAPHpMDjHvqv31gJxiF
+	vm5IV9iiRKS66eOj51cNR7+tyMqfF72kg9jPnG2vijR7diIN2EpUD7YVdK2N0lXWTxHFFhUxq9pbS
+	Df+sS5jCTpzDxOSsQ23vGI5nMYBhOtGSABdxoTOHG11E5noLUGOUm21+3TUluflVFpsrOpcAv7Ag3
+	VKzIO6FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzDZ-00000008WZt-0lrY;
-	Fri, 27 Feb 2026 14:53:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvzHb-00000008X9m-36rp;
+	Fri, 27 Feb 2026 14:57:35 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzDW-00000008WXw-3WS1;
-	Fri, 27 Feb 2026 14:53:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 75F5B44394;
-	Fri, 27 Feb 2026 14:53:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D099C2BC9E;
-	Fri, 27 Feb 2026 14:53:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772204002;
-	bh=ld7NR675p8M5i366cnAgjhmDv51p+1WaNWwPE8ixVMM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KNHx9uzj6ZyzCtHaKb4X2/uUbngS3GRRKfIFQBMUUUyQcfDdMJjXyhoDET2GwXoU9
-	 tw6lz0GtjSQ5zymFWPwDZrCiU3t3aDLIAExSZmeBf1Zt//0SW2LeNuv1uuVksWcZvZ
-	 Z7ql7nceE/JolyD6oqdDCGwPTx8t0Ao4gkUQFHtI7Z8tcenwS2k4NqrMr+bzi+WfkH
-	 nX57vvuaxkD+zKPdBzgzB3inGqV5kFbtqcTekEqY4HJwlq9dGFD0RMkqlKV9M9cAKR
-	 2mQVuNLRwK0UrmY03QLfHiwNEUw+xpRAgneTVjhPKJKpct/JeCUt4wAiScsFmUUjsh
-	 Oyr65Nsmc0ZSw==
-Date: Fri, 27 Feb 2026 20:23:18 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Tzu-Hao Wei <twei@axiado.com>
-Cc: SriNavmani A <srinavmani@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH v2 2/4] phy: axiado: add Axiado eMMC PHY driver
-Message-ID: <aaGv3q8czkrKyW42@vaman>
-References: <20260206-axiado-ax3000-add-emmc-phy-driver-support-v2-0-a2f59e97a92d@axiado.com>
- <20260206-axiado-ax3000-add-emmc-phy-driver-support-v2-2-a2f59e97a92d@axiado.com>
+	id 1vvzHX-00000008X8X-1Ejr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Feb 2026 14:57:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1772204249; x=1803740249;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=QuZtKrwJ6nTCMVf8hjdLyFF0aUMoEHD05EoYboEqLIU=;
+  b=FY6ftB2yf6NqydWpsULfLLl1ge8Gdzdp8Z0TMPQXqmP2/VCRuPKKngpZ
+   qgCYjKqxvUIPQVGvXfXtdCB6MFiiogrvsjPMHAxiwhXdjNSdfb8XRxSsQ
+   aCDHxf53dH/75YnYGMdetHhtCc2WbZV5QNWCr0WHffbETQnpFq7tXo8NJ
+   4WVRA/p5aqF4V5xWT14RFDO8HLOZppV95Ba7Wd6mxuUK+31SSIERvBn9C
+   z2Bl/9twLmTHocg9xZ5WWuZryHEjgV8qW3yMbGBM2vXfvfJsysU0xs1t/
+   80x61MQ5UwRez3QG47BVQJ6Ep+RxhdrrGLjplPABVRxZWsQb/KzjiexRT
+   A==;
+X-CSE-ConnectionGUID: wgI98+BBT5OZU+rH87zgwA==
+X-CSE-MsgGUID: cYck7q/MSl603WhN33PF+g==
+X-IronPort-AV: E=Sophos;i="6.21,314,1763449200"; 
+   d="scan'208";a="53970560"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2026 07:57:27 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 27 Feb 2026 07:57:01 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 27 Feb 2026 07:56:58 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Date: Fri, 27 Feb 2026 15:56:39 +0100
+Subject: [PATCH net-next v2 1/9] net: sparx5: move netdev and notifier
+ block registration to probe
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260206-axiado-ax3000-add-emmc-phy-driver-support-v2-2-a2f59e97a92d@axiado.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260227-sparx5-init-deinit-v2-1-10ba54ccf005@microchip.com>
+References: <20260227-sparx5-init-deinit-v2-0-10ba54ccf005@microchip.com>
+In-Reply-To: <20260227-sparx5-init-deinit-v2-0-10ba54ccf005@microchip.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Richard
+ Cochran" <richardcochran@gmail.com>, <maxime.chevallier@bootlin.com>,
+	<rmk+kernel@armlinux.org.uk>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_065322_926797_9F51DB20 
-X-CRM114-Status: GOOD (  25.02  )
+X-CRM114-CacheID: sfid-20260227_065731_341740_A6A9DF5B 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,260 +90,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06-02-26, 16:22, Tzu-Hao Wei wrote:
-> From: SriNavmani A <srinavmani@axiado.com>
-> 
-> It provides the required configurations for Axiado eMMC PHY driver for
-> HS200 mode.
-> 
-> Signed-off-by: SriNavmani A <srinavmani@axiado.com>
-> Co-developed-by: Prasad Bolisetty <pbolisetty@axiado.com>
-> Signed-off-by: Prasad Bolisetty <pbolisetty@axiado.com>
-> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
-> ---
->  drivers/phy/Kconfig                  |   1 +
->  drivers/phy/Makefile                 |   1 +
->  drivers/phy/axiado/Kconfig           |  11 ++
->  drivers/phy/axiado/Makefile          |   1 +
->  drivers/phy/axiado/phy-axiado-emmc.c | 221 +++++++++++++++++++++++++++++++++++
->  5 files changed, 235 insertions(+)
-> 
-> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-> index 678dd0452f0aa0597773433f04d2a9ba77474d2a..b802274ea45a84bd36d7c0b7fb90e368a5c018b4 100644
-> --- a/drivers/phy/Kconfig
-> +++ b/drivers/phy/Kconfig
-> @@ -103,6 +103,7 @@ config PHY_NXP_PTN3222
->  
->  source "drivers/phy/allwinner/Kconfig"
->  source "drivers/phy/amlogic/Kconfig"
-> +source "drivers/phy/axiado/Kconfig"
->  source "drivers/phy/broadcom/Kconfig"
->  source "drivers/phy/cadence/Kconfig"
->  source "drivers/phy/freescale/Kconfig"
-> diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-> index bfb27fb5a494283d7fd05dd670ebd1b12df8b1a1..f1b9e4a8673bcde3fdc0fdc06a3deddb5785ced1 100644
-> --- a/drivers/phy/Makefile
-> +++ b/drivers/phy/Makefile
-> @@ -15,6 +15,7 @@ obj-$(CONFIG_PHY_AIROHA_PCIE)		+= phy-airoha-pcie.o
->  obj-$(CONFIG_PHY_NXP_PTN3222)		+= phy-nxp-ptn3222.o
->  obj-y					+= allwinner/	\
->  					   amlogic/	\
-> +					   axiado/	\
->  					   broadcom/	\
->  					   cadence/	\
->  					   freescale/	\
-> diff --git a/drivers/phy/axiado/Kconfig b/drivers/phy/axiado/Kconfig
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..d159e0345345987c7f48dcd12d3237997735d2b5
-> --- /dev/null
-> +++ b/drivers/phy/axiado/Kconfig
-> @@ -0,0 +1,11 @@
-> +#
-> +# PHY drivers for Axiado platforms
-> +#
-> +
-> +config PHY_AX3000_EMMC
-> +	tristate "Axiado eMMC PHY driver"
-> +	depends on OF && (ARCH_AXIADO || COMPILE_TEST)
-> +	select GENERIC_PHY
-> +	help
-> +	  Enables this to support for the AX3000 EMMC PHY driver.
-> +	  If unsure, say N.
-> diff --git a/drivers/phy/axiado/Makefile b/drivers/phy/axiado/Makefile
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..1e2b1ba016092eaffdbd7acbd9cdc8577d79b35c
-> --- /dev/null
-> +++ b/drivers/phy/axiado/Makefile
-> @@ -0,0 +1 @@
-> +obj-$(CONFIG_PHY_AX3000_EMMC)		+= phy-axiado-emmc.o
-> diff --git a/drivers/phy/axiado/phy-axiado-emmc.c b/drivers/phy/axiado/phy-axiado-emmc.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..28d2a30c3b35ee7dba917487959e226941e8ea4b
-> --- /dev/null
-> +++ b/drivers/phy/axiado/phy-axiado-emmc.c
-> @@ -0,0 +1,221 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Axiado eMMC PHY driver
-> + *
-> + * Copyright (C) 2017 Arasan Chip Systems Inc.
-> + * Copyright (C) 2022-2025 Axiado Corporation (or its affiliates).
+Move netdev registration and notifier block registration from
+sparx5_start() to probe(). This allows proper cleanup via goto-based
+error labels in probe().
 
-2026
+Also, remove the sparx5_cleanup_ports() helper as its functionality is now
+split between sparx5_unregister_netdevs() and sparx5_destroy_netdevs()
+called at appropriate points.
 
-> + *
-> + * Based on Arasan Driver (sdhci-pci-arasan.c)
-> + * sdhci-pci-arasan.c - Driver for Arasan PCI Controller with integrated phy.
-> + */
-> +#include <linux/bitfield.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/platform_device.h>
-> +
-> +/* Arasan eMMC 5.1 - PHY configuration registers */
-> +#define CAP_REG_IN_S1_LSB		0x00
-> +#define CAP_REG_IN_S1_MSB		0x04
-> +#define PHY_CTRL_1			0x38
-> +#define PHY_CTRL_2			0x3C
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+ .../net/ethernet/microchip/sparx5/sparx5_main.c    | 41 +++++++++++-----------
+ 1 file changed, 21 insertions(+), 20 deletions(-)
 
-smaller hex case please, here and other places
-
-> +#define PHY_CTRL_3			0x40
-> +#define STATUS				0x50
-> +
-> +#define DLL_ENBL	BIT(26)
-> +#define RTRIM_EN	BIT(21)
-> +#define PDB_ENBL	BIT(23)
-> +#define RETB_ENBL	BIT(1)
-> +
-> +#define REN_STRB	BIT(27)
-> +#define REN_CMD		BIT(12)
-> +#define REN_DAT0	BIT(13)
-> +#define REN_DAT1	BIT(14)
-> +#define REN_DAT2	BIT(15)
-> +#define REN_DAT3	BIT(16)
-> +#define REN_DAT4	BIT(17)
-> +#define REN_DAT5	BIT(18)
-> +#define REN_DAT6	BIT(19)
-> +#define REN_DAT7	BIT(20)
-> +#define REN_CMD_EN	(REN_CMD | REN_DAT0 | REN_DAT1 | REN_DAT2 | \
-> +		REN_DAT3 | REN_DAT4 | REN_DAT5 | REN_DAT6 | REN_DAT7)
-> +
-> +/* Pull-UP Enable on CMD Line */
-> +#define PU_CMD		BIT(3)
-> +#define PU_DAT0		BIT(4)
-> +#define PU_DAT1		BIT(5)
-> +#define PU_DAT2		BIT(6)
-> +#define PU_DAT3		BIT(7)
-> +#define PU_DAT4		BIT(8)
-> +#define PU_DAT5		BIT(9)
-> +#define PU_DAT6		BIT(10)
-> +#define PU_DAT7		BIT(11)
-> +#define PU_CMD_EN (PU_CMD | PU_DAT0 | PU_DAT1 | PU_DAT2 | PU_DAT3 | \
-> +		PU_DAT4 | PU_DAT5 | PU_DAT6 | PU_DAT7)
-
-The bit define are used only once, why not define the cmd with
-respective bits here
-
-> +
-> +/* Selection value for the optimum delay from 1-32 output tap lines */
-> +#define OTAP_DLY	0x02
-> +/* DLL charge pump current trim default [1000] */
-> +#define DLL_TRM_ICP	0x08
-> +/* Select the frequency range of DLL Operation */
-> +#define FRQ_SEL	0x01
-> +
-> +#define OTAP_SEL_MASK		GENMASK(10, 7)
-> +#define DLL_TRM_MASK		GENMASK(25, 22)
-> +#define DLL_FRQSEL_MASK		GENMASK(27, 25)
-> +
-> +#define OTAP_SEL(x)		(FIELD_PREP(OTAP_SEL_MASK, x) | OTAPDLY_EN)
-> +#define DLL_TRM(x)		(FIELD_PREP(DLL_TRM_MASK, x) | DLL_ENBL)
-> +#define DLL_FRQSEL(x)	FIELD_PREP(DLL_FRQSEL_MASK, x)
-> +
-> +#define OTAPDLY_EN	BIT(11)
-> +
-> +#define SEL_DLY_RXCLK	BIT(18)
-> +#define SEL_DLY_TXCLK	BIT(19)
-> +
-> +#define CALDONE_MASK	0x40
-> +#define DLL_RDY_MASK	0x1
-> +#define MAX_CLK_BUF0	BIT(20)
-> +#define MAX_CLK_BUF1	BIT(21)
-> +#define MAX_CLK_BUF2	BIT(22)
-> +
-> +#define CLK_MULTIPLIER	0xC008E
-> +#define POLL_TIMEOUT_MS	3000
-> +#define POLL_DELAY_US	100
-> +
-> +struct axiado_emmc_phy {
-> +	void __iomem *reg_base;
-> +	struct device *dev;
-> +};
-> +
-> +static int axiado_emmc_phy_init(struct phy *phy)
-> +{
-> +	struct axiado_emmc_phy *ax_phy = phy_get_drvdata(phy);
-> +	struct device *dev = ax_phy->dev;
-> +	u32 val;
-> +	int ret;
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_1);
-> +	writel(val | RETB_ENBL | RTRIM_EN, ax_phy->reg_base + PHY_CTRL_1);
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_3);
-> +	writel(val | PDB_ENBL, ax_phy->reg_base + PHY_CTRL_3);
-> +
-> +	ret = readl_poll_timeout(ax_phy->reg_base + STATUS, val,
-> +				 val & CALDONE_MASK, POLL_DELAY_US,
-> +				 POLL_TIMEOUT_MS * 1000);
-> +	if (ret) {
-> +		dev_err(dev, "PHY calibration timeout\n");
-> +		return ret;
-> +	}
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_1);
-> +	writel(val | REN_CMD_EN | PU_CMD_EN, ax_phy->reg_base + PHY_CTRL_1);
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_2);
-> +	writel(val | REN_STRB, ax_phy->reg_base + PHY_CTRL_2);
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_3);
-> +	writel(val | MAX_CLK_BUF0 | MAX_CLK_BUF1 | MAX_CLK_BUF2,
-> +	       ax_phy->reg_base + PHY_CTRL_3);
-> +
-> +	writel(CLK_MULTIPLIER, ax_phy->reg_base + CAP_REG_IN_S1_MSB);
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_3);
-> +	writel(val | SEL_DLY_RXCLK | SEL_DLY_TXCLK,
-> +	       ax_phy->reg_base + PHY_CTRL_3);
-> +
-> +	return 0;
-> +}
-> +
-> +static int axiado_emmc_phy_power_on(struct phy *phy)
-> +{
-> +	struct axiado_emmc_phy *ax_phy = phy_get_drvdata(phy);
-> +	struct device *dev = ax_phy->dev;
-> +	u32 val;
-> +	int ret;
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_1);
-> +	writel(val | RETB_ENBL, ax_phy->reg_base + PHY_CTRL_1);
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_3);
-> +	writel(val | PDB_ENBL, ax_phy->reg_base + PHY_CTRL_3);
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_2);
-> +	writel(val | OTAP_SEL(OTAP_DLY), ax_phy->reg_base + PHY_CTRL_2);
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_1);
-> +	writel(val | DLL_TRM(DLL_TRM_ICP), ax_phy->reg_base + PHY_CTRL_1);
-> +
-> +	val = readl(ax_phy->reg_base + PHY_CTRL_3);
-> +	writel(val | DLL_FRQSEL(FRQ_SEL), ax_phy->reg_base + PHY_CTRL_3);
-> +
-> +	ret = read_poll_timeout(readl, val, val & DLL_RDY_MASK, POLL_DELAY_US,
-> +				POLL_TIMEOUT_MS * 1000, false,
-> +				ax_phy->reg_base + STATUS);
-> +	if (ret) {
-> +		dev_err(dev, "DLL ready timeout\n");
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct phy_ops axiado_emmc_phy_ops = {
-> +	.init = axiado_emmc_phy_init,
-> +	.power_on = axiado_emmc_phy_power_on,
-
-no power_off?
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+index 582145713cfd..0ca4001a3667 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+@@ -773,20 +773,11 @@ static int sparx5_start(struct sparx5 *sparx5)
+ 	mutex_init(&sparx5->mdb_lock);
+ 	INIT_LIST_HEAD(&sparx5->mdb_entries);
+ 
+-	err = sparx5_register_netdevs(sparx5);
+-	if (err)
+-		return err;
+-
+ 	sparx5_board_init(sparx5);
+-	err = sparx5_register_notifier_blocks(sparx5);
+-	if (err)
+-		return err;
+ 
+ 	err = sparx5_vcap_init(sparx5);
+-	if (err) {
+-		sparx5_unregister_notifier_blocks(sparx5);
++	if (err)
+ 		return err;
+-	}
+ 
+ 	/* Start Frame DMA with fallback to register based INJ/XTR */
+ 	err = -ENXIO;
+@@ -835,12 +826,6 @@ static int sparx5_start(struct sparx5 *sparx5)
+ 	return err;
+ }
+ 
+-static void sparx5_cleanup_ports(struct sparx5 *sparx5)
+-{
+-	sparx5_unregister_netdevs(sparx5);
+-	sparx5_destroy_netdevs(sparx5);
+-}
+-
+ static int mchp_sparx5_probe(struct platform_device *pdev)
+ {
+ 	struct initial_port_config *configs, *config;
+@@ -1020,10 +1005,26 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 
+ 	INIT_LIST_HEAD(&sparx5->mall_entries);
+ 
++	err = sparx5_register_netdevs(sparx5);
++	if (err) {
++		dev_err(sparx5->dev, "Failed to register net devices\n");
++		goto cleanup_ptp;
++	}
++
++	err = sparx5_register_notifier_blocks(sparx5);
++	if (err) {
++		dev_err(sparx5->dev, "Failed to register notifier blocks\n");
++		goto cleanup_netdevs;
++	}
++
+ 	goto cleanup_config;
+ 
++cleanup_netdevs:
++	sparx5_unregister_netdevs(sparx5);
++cleanup_ptp:
++	sparx5_ptp_deinit(sparx5);
+ cleanup_ports:
+-	sparx5_cleanup_ports(sparx5);
++	sparx5_destroy_netdevs(sparx5);
+ 	if (sparx5->mact_queue)
+ 		destroy_workqueue(sparx5->mact_queue);
+ cleanup_config:
+@@ -1047,12 +1048,12 @@ static void mchp_sparx5_remove(struct platform_device *pdev)
+ 		disable_irq(sparx5->fdma_irq);
+ 		sparx5->fdma_irq = -ENXIO;
+ 	}
++	sparx5_unregister_notifier_blocks(sparx5);
++	sparx5_unregister_netdevs(sparx5);
+ 	sparx5_ptp_deinit(sparx5);
+ 	ops->fdma_deinit(sparx5);
+-	sparx5_cleanup_ports(sparx5);
+ 	sparx5_vcap_destroy(sparx5);
+-	/* Unregister netdevs */
+-	sparx5_unregister_notifier_blocks(sparx5);
++	sparx5_destroy_netdevs(sparx5);
+ 	destroy_workqueue(sparx5->mact_queue);
+ }
+ 
 
 -- 
-~Vinod
+2.34.1
+
 
