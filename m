@@ -4,123 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC6FFEFB6E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CF3FEFB72
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 17:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PrCCQaBYgKQGcTp3C0fxlRQhhqPKhxAZfjgNw6tNvNY=; b=q9BOgIrOv/D7uayh6thigOuSTO
-	ytZvW+Qox2Op0pwGxX/Vo0fiH7TfZ+jRUk3AqVkJN4m51oeF8DFOz7hnUWEeiAw2vI2pURtglWlS2
-	8Qj0O6CoQaT2D9xgSax/ZUjAjY5Dai9pGeKh6NzDSct+rXvBM1VqPXFkTu1rAQ56VZcRWFiSxGRLI
-	T3Ofk1PWGdBwg4FSAT1bwMp/5coyl6tSB6V0tpHuLKhnGcy9LABPLJ5A4yK3P0o2AQKCsSEF551KT
-	9+aO+5vq0FtHvgDr7HYFzWFCT79xLf1aqdzLGAycSYJW+0EC+r4MFaa6aoySNVFO47wxQhyDWoxNl
-	qyoBNK7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G/YpL6nohn85Bq182A4cVkKIZITsZYZrFrUtUs1eFaY=; b=nNYR2I/PznENZ7L6hnU9edVs1v
+	ZTLsBBVwtzldSHSKIYMiCjKsMYAfhMhPeBPuehHShox9S8/fbW2GwoPHVTgocO2kVcKswwL7Go2o+
+	VC4QQx/EtlP1LWADzPp+jBE0ZBNgZyPEuRGzwDeIhElS0OHQLeSDPjrafymIcoWldw3skAliWlOmX
+	f4/Dkz5ondGF3sqr9qhvcZk+T6DkXsF2U19JRAzqeWc+mJMMhAbeiHd8nIaEwILdQc6mcO/hCnYVF
+	ft9Oc/JQlkP9aza59fgdN86ZKEd0s0gwUvj0Dh7ei9Y4Rd+0MWrDDf1GyJkxgtkMOyzj+ZIqD/i5i
+	Hzl6MWHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw1rx-00000008pCn-0goH;
-	Fri, 27 Feb 2026 17:43:17 +0000
-Received: from mail-northcentralusazhn15012041.outbound.protection.outlook.com ([52.102.146.41] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1vw1yA-00000008pWk-35IZ;
+	Fri, 27 Feb 2026 17:49:42 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw1rt-00000008pBh-39WU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 17:43:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fnREBcAIGdDKXbO1SoftSTXwOaOLv+jqUhgANyGkGQAY7QWE+hhAwiidEpV42Jjqc3aXEr8EhzKKothjdbGRm+5edhJbGumvpVBDnh8wX0E9G7WoLRUjXFgDLT3mWVmfPprRp2HRQ/NfQwwLxJka4djrnrA3vmUT1BToE/Q/r7dDB4oMTD9/gCiS6qcOYonz9ijRy7QJ0M6f+yrgBFw5d78E5B/iB6xLHUdWWGQyi+2wa6Jzl+n45srbzp5oRx9XAX2RtTmDuyE1hWDJqOhxkK2EGzU+Aouxmq0fkqXADoGudtC9n+e1LatdCRrO+v8+SUXvktA2i62L4KkOshDF9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PrCCQaBYgKQGcTp3C0fxlRQhhqPKhxAZfjgNw6tNvNY=;
- b=e8i4YKd8eA97mZetfhxQatm77JQx7CDU/x/30K9dGx4J7MlAq4Nvh0o6zXD9csO42Agce5360Vviq5/jNTQRFxEZFjPW3rSgXGhPz2SGAOdzrOufSsdmQDXHCpmcfUb4hVKHBXXdY5vWpOSt5WaIQCL2w2LIyr4P5lX93klMwmX4Ddh5HgEukPeeX4eUPEfCDWcXbLd9tTzT/nKTu0Av4KAOYrGfpcXB7Wxvomij/tiK9sAElX0xq9PwOybRN/7ZMHQXINa88WrdvOnMhq03zmNct2/KqRPq5tH1h7+OqctXOYsq8PN/VrPzWJTSY2EpeHJxh1s/c1eNAclJJ5cUsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lunn.ch smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PrCCQaBYgKQGcTp3C0fxlRQhhqPKhxAZfjgNw6tNvNY=;
- b=HC69O4DuUDBYq6ADEcZlt8x1IwQRJ9tMSvZW13O4vTMPx35QkKJUPHYL0N/70nsXka5QDu38Gf+nPbQaH8yHoGWaN55PAFgUhtgvW4a3un/DefpWYilZdlcK2o0cFrue0/syXVil+C8u2ZJ1tQ8I0ISqJ651RnfKihK8zdpQVyY=
-Received: from SA0PR11CA0058.namprd11.prod.outlook.com (2603:10b6:806:d0::33)
- by DS0PR10MB8030.namprd10.prod.outlook.com (2603:10b6:8:1f7::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Fri, 27 Feb
- 2026 17:43:08 +0000
-Received: from SN1PEPF0002636D.namprd02.prod.outlook.com
- (2603:10b6:806:d0:cafe::4f) by SA0PR11CA0058.outlook.office365.com
- (2603:10b6:806:d0::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.27 via Frontend Transport; Fri,
- 27 Feb 2026 17:42:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SN1PEPF0002636D.mail.protection.outlook.com (10.167.241.138) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.16 via Frontend Transport; Fri, 27 Feb 2026 17:43:07 +0000
-Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 27 Feb
- 2026 11:42:59 -0600
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 27 Feb
- 2026 11:42:59 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 27 Feb 2026 11:42:59 -0600
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61RHgxn54139956;
-	Fri, 27 Feb 2026 11:42:59 -0600
-Received: from localhost (dhcp-172-24-231-152.dhcp.ti.com [172.24.231.152])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 61RHgvst008410;
-	Fri, 27 Feb 2026 11:42:58 -0600
-From: MD Danish Anwar <danishanwar@ti.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Meghana Malladi
-	<m-malladi@ti.com>, Jacob Keller <jacob.e.keller@intel.com>, Kevin Hao
-	<haokexin@gmail.com>, Vadim Fedorenko <vadim.fedorenko@linux.dev>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, "Roger
- Quadros" <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net-next] net: ti: icssg: Add HSR/PRP protocol frame filtering
-Date: Fri, 27 Feb 2026 23:12:54 +0530
-Message-ID: <20260227174254.3821443-1-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
+	id 1vw1y5-00000008pWA-38UF;
+	Fri, 27 Feb 2026 17:49:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772214574;
+	bh=SpE+cfNaP1TFrPzaUFYC0O9H8FoRYo0yR/OZFLjxALo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DVaKcqErMmK37/uJXaKthCMiluQqJM7uAJYCmJcrnFscZ4q+4KopoQJ+kelS7x7jw
+	 3YaldOMsay/sDkvHIHQw6Iuqmw9XDH7+TMWuetAm5rW9kgUOntjSJE2nBUc85SDs81
+	 0M88Z1csETPWYBba9DmoDjZReGL9fo7PGZRYiz6dJDQ4byM9jWuMTSyqdg6e/dBMYP
+	 RpbzOwsS3E4AqG9TY+jcdS+m9Ha9taIcgFm8H084/xiGRq7zaKvANQEfCzgOOlvQlS
+	 v62oXqNpUmHncmwHovx9ANNPB7XIxEo4rdRaFNSvqLqX/8KXty5Ccb72vCQAoXoRfb
+	 yOGMqWMxIf7TQ==
+Received: from [192.168.1.90] (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C587C17E03E5;
+	Fri, 27 Feb 2026 18:49:33 +0100 (CET)
+Message-ID: <86f4e4ee-cf49-4ebe-8cc6-0a9763ade36a@collabora.com>
+Date: Fri, 27 Feb 2026 19:49:33 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] media: dt-bindings: rockchip,vdec: Add alternative
+ reg-names order for RK35{76,88}
+To: Conor Dooley <conor@kernel.org>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
+References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
+ <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
+ <20260226-salute-threaten-a3eabb232396@spud>
+ <429f3c7aa22eccffedbf8db6aa91bee3dd13814a.camel@collabora.com>
+ <20260226-snide-foil-a05e1aa156a8@spud>
+ <3d28c699e47f606bad46bb6447785badace37793.camel@collabora.com>
+ <20260227-atonable-glamorous-920cfd832bc1@spud>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20260227-atonable-glamorous-920cfd832bc1@spud>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002636D:EE_|DS0PR10MB8030:EE_
-X-MS-Office365-Filtering-Correlation-Id: a473df0b-0ac2-4de9-0838-08de7627aae7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|34020700016|82310400026|36860700013|1800799024|12100799066;
-X-Microsoft-Antispam-Message-Info: 8VhGA8GfEctnHy2yjDr/a2BuQXFDV6prXZbikTbFbypYQifFT1yqrHw/Q7xS3Z+QCV2UG2r0OZkV67dVkm0vlvMXEjMtrCfU4rLYRq36iXw6zeHBOAGLcmu1/fBPq4sP28QNZ5XH9zp2ND4lv0JpBN85XFvpCxCqxSl2Ke6tshNn1yJNIe1soZZkYjGH6Y4tD4vaJODvZDP4subISIOMs2HU32BgxRryKXcnNaeTsDlg2CwnvKfrU2VVg6XapWTBBuhyeyF1qyQfvjCm8dfG1WTmNxRRjjrcJbAFiw9xYtKyx0CbM5npyo/3G12OcNVQh9MV/O3y5efb6GD087+amfcket7bLJm0obMeKENanlcuA/eum2V0wiU4XpsbUxaJ0ZKvGAdRt/1bWAru7WIpjhFJCSibguG+q/hhes6IZnzp8ZlOVV/ENpbZr4OiayzaIPNh0Uh6Qrz5MwOIwZFdJ/F1d7hoMR+y1+aInDSiEq4QZ58o/7ZusWCOMKBsVg4u9nZEUpvtKgMzBpKyz+iSVXHr+xlVU9UxUVuD0Dgw9oY6jutR8/7aTWdP1J9RgI2+YVQFhUIVf9l2RabthTjMCG53YzBNAHLu75otPloIbVPpXKk9PsPyHMLyihQnrLs5Q/PHiloDVOD2CGfMxw6RQLfXMmD0ZC6W6k1IJpxhD34Q/MzxhHzhwWwVpih1OQPSf8BOJKoYE/2E7wPdHyP8g1mdqKagzgnW8GRc+g/PpMRs9LLsJhw/z6IUd/qCvuqI7FPnzGAQcRtZvPg9sJOu6pacgE6z9OapyghCx+asBRxo3tdYrTSH3Mo9DRXbJliJoSiAmmATPZqWBFPp3MpMPg==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(34020700016)(82310400026)(36860700013)(1800799024)(12100799066);DIR:OUT;SFP:1501;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Id8n87TveFksCTIM4l04n6FHCuD+Q1Ec79BxoriydL1FMEMrzKpbCI9BwwDpL/fdkzwf8zdpNentyBxrWS3Ml1yLSRy8tRLunafiTr947vCw2WCMrEOhKNDTUUY4bW1bSaeYvXtUF05/1LQugXpnZy3qXo+EfqBrIbAXT9HfeSbbaSkumNGdBY+HRV7GfSETnGPkAcNg0WP1D6yrKEFHHi5zqD/ZZb5ydmORnv2dRTrs1CqTti8bt+Aynxox5jQorPe+8n6M+vmYNnXSKHlNqM/RfsZ7gazm7569Xo+Jm9e3kV7pCy4pHHFUyKmFwPvLJGGCulAS0Ysw1pbDVhDLJ5u2Ao0y7r6q7+MCXRnfJ0y3y1Woy63//1EvMHVUZr6JrFqaJopBIPxwM9jDx6HYPeyjYcvZumGhVxNK0sleE6n6GTEclQ9EAH7S2Usv9Dmf
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2026 17:43:07.5876
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a473df0b-0ac2-4de9-0838-08de7627aae7
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002636D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB8030
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_094314_136688_7369FD15 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20260227_094937_936524_8FE9F395 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,180 +89,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for HSR and PRP protocol frame filtering in the ICSSG
-classifier by configuring filter table 3 (FT3) to detect PTP frames
-(EtherType 0x88F7) in HSR/PRP tagged packets.
+On 2/27/26 7:18 PM, Conor Dooley wrote:
+> On Thu, Feb 26, 2026 at 04:56:30PM -0500, Nicolas Dufresne wrote:
+>> Le jeudi 26 février 2026 à 20:59 +0000, Conor Dooley a écrit :
+>>> On Thu, Feb 26, 2026 at 02:45:11PM -0500, Nicolas Dufresne wrote:
+>>>> Le jeudi 26 février 2026 à 18:43 +0000, Conor Dooley a écrit :
+> 
+>>>>> Deprecating the order also makes little sense to me, given that some of
+>>>>> these devices only have one reg entry, which as far as I can tell from
+>>>>> looking at the driver *is* the "function" region, so it can never be
+>>>>> entirely deprecated.
+>>>>
+>>>> What I'd like to see, is a binding expression that behave like a set, not a
+>>>> list, and leave the ordering open. As people keep repeating, there is nothing in
+>>>> a binding that assist to define the right ordering (its not address or base
+>>>> addres aware). That basically means, we can't as reviewer see that ordering is
+>>>> going to imposing using a base address in the unit name (which is a convenience,
+>>>> not a rule I suppose) that differ from the vendor documented base address.
+>>>>
+>>>> By explicitly removing the ordering in the binding, we create a strict rule that
+>>>> driver should retrieve this by name, and never assume the ordering, which I
+>>>> personally like.
+>>>>
+>>>> thoughts ?
+>>>
+>>> Yeah, you can do this, but to avoid potential breaks you have to do it
+>>> from the start, not after the fact. Probably there's bindings that get
+>>> acked every day that do do this. Even the retcon is okay to do when
+>>> reg-names is mandated by the binding and the users use reg-names in my
+>>> opinion.
+>>
+>> I think from the above analyses, since the usage only starts in rc1, we have
+>> room for improving it knowing we aren't creating problem for anyone. Note that I
+>> have no idea what the syntax is to "do this", and I doubt either Detlev or
+>> Cristian have a clue.
+> 
+> I think this is the only bit that really still needs a reply, this can
+> be solved by adding reg-names as "required" to the existing conditional
+> portion of the binding. There's probably hundreds of examples if one
+> does a search for "then:\n.*required:" to use a basis for the change
+> here. Probably should be an independent change, since it is needed even
+> without the re-order given the bug I brought up.
 
-Also add rx_class_or_base to miig_rt_offsets structure to support
-RX_CLASS_OR register access, and fix typos in FT1_N_REG and FT3_N_REG
-macros (slize -> slice).
+As mentioned in my previous reply, the actual problem is that the binding has
+been already released, and I'm not sure we can change this without breaking the
+ABI.
 
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
----
- .../net/ethernet/ti/icssg/icssg_classifier.c  | 69 ++++++++++++++++++-
- drivers/net/ethernet/ti/icssg/icssg_prueth.c  |  6 ++
- drivers/net/ethernet/ti/icssg/icssg_prueth.h  |  2 +
- 3 files changed, 75 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_classifier.c b/drivers/net/ethernet/ti/icssg/icssg_classifier.c
-index 833ca86d0b71..cde53d9aaa7b 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_classifier.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_classifier.c
-@@ -27,7 +27,7 @@
- #define FT1_DA0_MASK	0x8
- #define FT1_DA1_MASK	0xc
- 
--#define FT1_N_REG(slize, n, reg)	\
-+#define FT1_N_REG(slice, n, reg)	\
- 	(offs[slice].ft1_slot_base + FT1_SLOT_SIZE * (n) + (reg))
- 
- #define FT1_LEN_MASK		GENMASK(19, 16)
-@@ -62,7 +62,7 @@ enum ft1_cfg_type {
- #define FT3_T			0x18
- #define FT3_T_MASK		0x1c
- 
--#define FT3_N_REG(slize, n, reg)	\
-+#define FT3_N_REG(slice, n, reg)	\
- 	(offs[slice].ft3_slot_base + FT3_SLOT_SIZE * (n) + (reg))
- 
- /* offsets from rx_class n's base */
-@@ -74,6 +74,9 @@ enum ft1_cfg_type {
- #define RX_CLASS_N_REG(slice, n, reg)	\
- 	(offs[slice].rx_class_base + RX_CLASS_EN_SIZE * (n) + (reg))
- 
-+#define RX_CLASS_OR_REG(slice, n, reg)	\
-+	(offs[slice].rx_class_or_base + RX_CLASS_EN_SIZE * (n) + (reg))
-+
- /* RX Class Gates */
- #define RX_CLASS_GATES_SIZE	0x4	/* bytes */
- 
-@@ -102,6 +105,22 @@ enum ft1_cfg_type {
- 	((BIT(slot) << RX_CLASS_FT_FT1_MATCH_SHIFT) & \
- 	RX_CLASS_FT_FT1_MATCH_MASK)
- 
-+/* HSR/PRP protocol frame filtering */
-+#define HSR_PTP_ETHERTYPE_OFFSET	0x12
-+#define PRP_PTP_ETHERTYPE_OFFSET	0x0C
-+#define FT3_PTP_PATTERN			0xF788
-+#define FT3_ETHERTYPE_MASK		0xFFFF0000U
-+#define FT3_VLAN_MODE_BOTH		0x1
-+#define RX_CLASS_OR_DUP_PTP		0x4200
-+#define RX_CLASS_OR_HSR_TAG		0x4000
-+#define RX_CLASS_GATE_PTP		0x50
-+#define RX_CLASS_DISABLE		0x0
-+
-+/* HSR/PRP classifier indices */
-+#define CLASSIFIER_PTP_DUP		10
-+#define CLASSIFIER_HSR_TAG		11
-+#define FT3_PTP_SLOT			14
-+
- /* RX class type */
- enum rx_class_sel_type {
- 	RX_CLASS_SEL_TYPE_OR = 0,
-@@ -133,6 +152,7 @@ struct miig_rt_offsets {
- 	u32 ft3_p_base;
- 	u32 ft_rx_ptr;
- 	u32 rx_class_base;
-+	u32 rx_class_or_base;
- 	u32 rx_class_cfg1;
- 	u32 rx_class_cfg2;
- 	u32 rx_class_gates_base;
-@@ -161,6 +181,7 @@ static const struct miig_rt_offsets offs[] = {
- 		0x308,
- 		0x408,
- 		0x40c,
-+		0x410,
- 		0x48c,
- 		0x490,
- 		0x494,
-@@ -186,6 +207,7 @@ static const struct miig_rt_offsets offs[] = {
- 		0x8d4,
- 		0x9d4,
- 		0x9d8,
-+		0x9dc,
- 		0xa58,
- 		0xa5c,
- 		0xa60,
-@@ -467,3 +489,46 @@ void icssg_ft1_set_mac_addr(struct regmap *miig_rt, int slice, u8 *mac_addr)
- 	rx_class_ft1_cfg_set_type(miig_rt, slice, 0, FT1_CFG_TYPE_EQ);
- }
- EXPORT_SYMBOL_GPL(icssg_ft1_set_mac_addr);
-+
-+/**
-+ * icssg_ft3_hsr_configurations - Configure filter table for HSR/PRP protocol frames
-+ * @miig_rt: Pointer to the MII-G register map
-+ * @slice: ICSSG slice number (0 or 1)
-+ * @prueth: Pointer to prueth structure to determine HSR/PRP mode
-+ *
-+ * Configures FT3 to detect PTP frames (EtherType 0x88F7) in HSR/PRP tagged packets.
-+ * HSR frames have a 6-byte tag, while PRP has no tag offset for EtherType detection.
-+ */
-+void icssg_ft3_hsr_configurations(struct regmap *miig_rt, int slice,
-+				  struct prueth *prueth)
-+{
-+	u8 offset = (prueth->hsr_prp_version == PRP_V1) ?
-+		    PRP_PTP_ETHERTYPE_OFFSET : HSR_PTP_ETHERTYPE_OFFSET;
-+
-+	regmap_write(miig_rt, FT3_N_REG(slice, FT3_PTP_SLOT, FT3_START), offset);
-+	regmap_write(miig_rt, FT3_N_REG(slice, FT3_PTP_SLOT, FT3_START_AUTO), 0);
-+	regmap_write(miig_rt, FT3_N_REG(slice, FT3_PTP_SLOT, FT3_START_OFFSET), 0);
-+	regmap_write(miig_rt, FT3_N_REG(slice, FT3_PTP_SLOT, FT3_JUMP_OFFSET), 0);
-+	regmap_write(miig_rt, FT3_N_REG(slice, FT3_PTP_SLOT, FT3_LEN), 0);
-+	regmap_write(miig_rt, FT3_N_REG(slice, FT3_PTP_SLOT, FT3_CFG), FT3_VLAN_MODE_BOTH);
-+	regmap_write(miig_rt, FT3_N_REG(slice, FT3_PTP_SLOT, FT3_T), FT3_PTP_PATTERN);
-+	regmap_write(miig_rt, FT3_N_REG(slice, FT3_PTP_SLOT, FT3_T_MASK),
-+		     FT3_ETHERTYPE_MASK);
-+
-+	regmap_write(miig_rt, RX_CLASS_N_REG(slice, CLASSIFIER_PTP_DUP, RX_CLASS_AND_EN),
-+		     RX_CLASS_DISABLE);
-+	regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_PTP_DUP, RX_CLASS_OR_EN),
-+		     RX_CLASS_OR_DUP_PTP);
-+	regmap_write(miig_rt, RX_CLASS_GATES_N_REG(slice, CLASSIFIER_PTP_DUP),
-+		     RX_CLASS_GATE_PTP);
-+
-+	if (prueth->hsr_prp_version != PRP_V1) {
-+		regmap_write(miig_rt, RX_CLASS_N_REG(slice, CLASSIFIER_HSR_TAG, RX_CLASS_AND_EN),
-+			     RX_CLASS_DISABLE);
-+		regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_HSR_TAG, RX_CLASS_OR_EN),
-+			     RX_CLASS_OR_HSR_TAG);
-+		regmap_write(miig_rt, RX_CLASS_GATES_N_REG(slice, CLASSIFIER_HSR_TAG),
-+			     RX_CLASS_GATE_PTP);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(icssg_ft3_hsr_configurations);
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 0939994c932f..9efa39069c8c 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -260,6 +260,12 @@ static int prueth_emac_common_start(struct prueth *prueth)
- 	icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
- 	icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
- 
-+	/* Configure HSR/PRP protocol filtering if in HSR offload mode */
-+	if (prueth->is_hsr_offload_mode) {
-+		icssg_ft3_hsr_configurations(prueth->miig_rt, ICSS_SLICE0, prueth);
-+		icssg_ft3_hsr_configurations(prueth->miig_rt, ICSS_SLICE1, prueth);
-+	}
-+
- 	if (prueth->is_switch_mode || prueth->is_hsr_offload_mode)
- 		icssg_init_fw_offload_mode(prueth);
- 	else
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index 3d94fa5a7ac1..df93d15c5b78 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -423,6 +423,8 @@ void icssg_class_promiscuous_sr1(struct regmap *miig_rt, int slice);
- void icssg_class_add_mcast_sr1(struct regmap *miig_rt, int slice,
- 			       struct net_device *ndev);
- void icssg_ft1_set_mac_addr(struct regmap *miig_rt, int slice, u8 *mac_addr);
-+void icssg_ft3_hsr_configurations(struct regmap *miig_rt, int slice,
-+				  struct prueth *prueth);
- 
- /* config helpers */
- void icssg_config_ipg(struct prueth_emac *emac);
-
-base-commit: fd6dad4e1ae296b67b87291256878a58dad36c93
--- 
-2.34.1
+Regards,
+Cristian
 
 
