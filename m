@@ -4,60 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7366BFD5301
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 07:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A38FFD5309
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 07:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+OyIG8L5lUnSzqui3PDiKfJWcI2MdpJ6ykHpARa30cU=; b=SQJeXki+YI0RMKJqtKNmpafoEY
-	pFV2gtKWknuFVYvEKuyxNNbhTQbKweGcvNQoXVkIg/YcuzY/G3W2QIFvWRA4cD0Z12tTcaalfpXx9
-	5FfauoUhTQ7fQ574irCMcVbrMg71cBNQvmLea7dSSAAG4bLT0GGdi2WDDWqkp2y7tjYtrUZ7WTYfI
-	BAm1Ydc2mf38ykfN5FdOCnuiKVWphdQX4D4/pnxtYLbvXpoohYOxfOhPFMjL+kLreZuGxcAvP1o6d
-	52ht8WTDrCBT3wnkeh3dvJN1BgOjVnea/Oi9cdHzw+XM3b2NmNiBYJiIKPlSci0FCJG621Ztg70U0
-	ue1u+fyw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Jg1FBEsQYbyWNXT2QFPN7RLoxMNWwuMr/ieuETCYCA=; b=0FDqA+2uIOicxjgDqY+EPR2TX8
+	v8MBOuQ68PW4uQSEJaCj6uW5PYhIQTzkhtGHbpk9KtHBFycdWv1tgD0BWlR6ayoL1Z7lPMDYQC49h
+	4jkKSLtAYZCaXmDFXgNaGvoWBBxrQX+Q2/DiJHa6ol9AZotgjhc+eM/mSuSZ3ojP4T3uHuAYZ8t6e
+	bOrrft3t/7VMqaWTQAG3gudS4QAEZRvXvzfjLlmk2e61xLaU9lPFJllZYcZyG0oitikRLym+19GWJ
+	PefbDeCyvNS6Q+f3eMB2nBjYwi2QHPw3+2QU8v9qAvcVT+Dwwzufylq6GEkbO+QaR7fIxTw/lBOjg
+	EZmgIC0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvsB2-00000007sDY-1aK6;
-	Fri, 27 Feb 2026 07:22:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvsDJ-00000007sMv-3SyK;
+	Fri, 27 Feb 2026 07:24:41 +0000
+Received: from mail-westcentralusazhn15013063.outbound.protection.outlook.com ([52.102.133.63] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvsB0-00000007sD0-20jO
+	id 1vvsDH-00000007sMc-37nN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 07:22:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 245E5442E3;
-	Fri, 27 Feb 2026 07:22:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85D81C19421;
-	Fri, 27 Feb 2026 07:22:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772176938;
-	bh=z+dkaNvhlWyuSR+41jisptO92s8T16Uh6hMmGKmav1s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=bSzmV6TpnkDmJfT6r9mzcs6qtvqJPsnKKJDn9LxJasfEBXGAys6x3ddF1dWJClGs+
-	 M8T1TtID6NI2glSAzjEgh3kIfXsnE05IUlXy2qevGQ6nvE7Ave9NBIRxPR91vvlWJK
-	 dOZsO5KXwkjQb+QWsKyPIuZQa/wYe88sfAHWqwchEn2MrClmIBbS+MYmU8KNaIOgKQ
-	 uN5kInDTt8FX61J6WN78MjE5/C4gTz8CAe0bAihoYo3wmh06Zec6jRoKvqRJUTADzS
-	 NySHkJpEVsVjmrEAezvdtVgi1QDjHLZZPwijJLRxHEg+YfXNTTWSpjr+RnpMgilv1V
-	 vCCWzP0zSJalg==
-From: Shawn Guo <shawnguo@kernel.org>
-To: Wei Xu <xuwei5@hisilicon.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm64: dts: hisilicon: hi3798cv200: Add missing dma-ranges
-Date: Fri, 27 Feb 2026 15:22:10 +0800
-Message-ID: <20260227072210.1350159-1-shawnguo@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Fri, 27 Feb 2026 07:24:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BU8nJGu8CXPhM7mbsxpEDh2/KF9MLJyRZZ3685z6piHzw6mURT7DVyxPo01myMPFJbfDg+GzQHRIG8JJTsEHJ+uSI2E8mMqsxtsvXQ31Vaf5TijXx0Hw0SIBWmbV7YZ6wF7CmxmnBbs3aW0SbH04m0FbDZHaCgNqkEsXvB29HRQfdE2F/zbE1skadOXm5T0rKCey/KIaOyaLSgV07CJF+LZlJPXwqBIadDdmYv5WTzzYU4fiWv7CV5TQCTjFWWLNqqcGkFIKTfwMMHqGP9hNL7nnr4MVhJtWJ9fOKOEpR3QLGcfL7K/0PCnfuIFa89OY8WQjMUSoBWfL3wx48n1Seg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7Jg1FBEsQYbyWNXT2QFPN7RLoxMNWwuMr/ieuETCYCA=;
+ b=vrED2X1wA/GwTD0sgc9Dw0LjiBP6M8yMK18+BDN7BDo8RTMkTI3MhdB7INojBY0E7vCckf1K+U8GwaDYibCCnyxllU5XgkTi+9KHpoU0DRX3/uiypNRmfs+/P8Jn7zfwE2OxiUmBrJs8Zf4JEHLh7R+XxHNoW7k+irgj+ggw2UPnrP4Kq1P5fSd30yOqVQrub065d3M9vFau4bE/uwNlYyb1FbLMVgrEuOseR5X7PUycNly3n6Hbj3sDNuowgq4GhLq499FhD3tG7HGpvcDYfF2ZTaPSeIe/lDpT9xKIX8KxRHS7ZvG+GnRXA2aoSlCDLo/IN/4ia9qw2+UfuC4smg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=gmail.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7Jg1FBEsQYbyWNXT2QFPN7RLoxMNWwuMr/ieuETCYCA=;
+ b=PKSPTjrGU1VRopoFB7uvVbEmCKFaIGhAYEb7TG6L67K6x8En9Sqw+KiTZSCJP6HdqEA6jg1ObDomAYRqqZKdE7zgosd2Pji6N6jRAzhw9ejFmYITebAQ1MDKjehQ1/76EEsLuG8EWvrSUysiNlLspaRTfkLOjsUEDie/4fQ7UtA=
+Received: from CH5PR04CA0022.namprd04.prod.outlook.com (2603:10b6:610:1f4::19)
+ by SN7PR10MB6451.namprd10.prod.outlook.com (2603:10b6:806:2a2::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Fri, 27 Feb
+ 2026 07:24:35 +0000
+Received: from CH1PEPF0000AD78.namprd04.prod.outlook.com
+ (2603:10b6:610:1f4:cafe::72) by CH5PR04CA0022.outlook.office365.com
+ (2603:10b6:610:1f4::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.26 via Frontend Transport; Fri,
+ 27 Feb 2026 07:24:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CH1PEPF0000AD78.mail.protection.outlook.com (10.167.244.56) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.16 via Frontend Transport; Fri, 27 Feb 2026 07:24:34 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 27 Feb
+ 2026 01:24:34 -0600
+Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 27 Feb
+ 2026 01:24:34 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 27 Feb 2026 01:24:34 -0600
+Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61R7OTaF3324743;
+	Fri, 27 Feb 2026 01:24:31 -0600
+Message-ID: <1cc7fb44-c08c-4f62-ba88-20434b4954aa@ti.com>
+Date: Fri, 27 Feb 2026 12:54:28 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH] arm64: defconfig: Enable DP83TG720 PHY driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, <nm@ti.com>
+CC: <kristo@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <andrew@lunn.ch>,
+	<hkallweit1@gmail.com>, "Raghavendra, Vignesh" <vigneshr@ti.com>
+References: <20260226185448.2167189-1-m-malladi@ti.com>
+ <79e54fc3-9e61-44ff-9919-b1163bda81e5@kernel.org>
+ <ef2d207a-dd51-4db0-a909-955d5a38e1f7@ti.com>
+ <76067a68-62b2-4e45-9bf4-6765be61b7f7@kernel.org>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <76067a68-62b2-4e45-9bf4-6765be61b7f7@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD78:EE_|SN7PR10MB6451:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4867c0b-a109-40b4-3028-08de75d141ee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013|34020700016|12100799066;
+X-Microsoft-Antispam-Message-Info: Uiw+WSdJKEETyfe+VNRZuHeROnZAN4xVUDZRLQd68hrbp78JBkGMkOb3nLMLGhsC5/HjPxYMy24d8SJIGtbdFQtE4544AORFamGugyVMc8UjSLzctcKHDZhNpvDhwZDioEx5D5qV5tYpm0oFxoUzCgTvWtvFZrLZZuURzwGyMQmJT0W4KlX4ui1EykANxUKFGMGv5Sya2FkgnAxablKvgdWQ+IIRB7zPz8wyRYnrwytUT+1qOgVCBv9r5p4a6F2aaaO31Bl7Uq1mdEEPQDm9Ms6gpTXTBPFJCtEGjc42y4XGsu7jr9Kr3LxXFRbZWn34AoILeTiNfVLIYuRz9cjOTwmH8Sn+FpvnZMSGgTZL63XUgPqKXT9rJKuZ5HzL7T/IWwQTEYInHcpaOFhXQjvks89e5JJcEwctNfNfeg9ONXBXnaRUz85oRmy37PIQXFfqvPDqKPTFXmbgm15kZm3e4FUhG8OoZgLqLG1EpbMw0CyZ6YSx0Tf9OBAIvwHXThRkS70YPRptZVimtuUVXzoc4ynCRr98NPVEzOOBEVcTQgReSxytTRZuF7Vsoem+s8A9P5ilsqXBu1t+r2hTUfnjauWMZnwY2HQ7WhIhW4LJSkOi5nCRSHVaBrGO73Z5rYTk06VuygM47QIMRBi6W9kIkdPHIx8QnIVF848Fo38kxuJhxWmGC8ubMRQTqyb5LNDrLJZYSZ5B/wSM9Yvu287irOb6wa+ZaROpSHFhceg4Tg0ljUoYKBg8KPJNz6vaW/IlfzFVza3mFPhHht1jw2zuQPAQnko8WsXe28ISvBvNSLw=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013)(34020700016)(12100799066);DIR:OUT;SFP:1501;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: XKuyQou2q7qHiVaDkHCSjpt02Ak3kmViGiC+M+qlHLDNKkwAEyshx8UpacdpAgxTkSejZi48ltKnNGSc65Js6+y89rkwE+FXUtbHQO/twpjhGShrpD+VIodRQFDLpukcemf9DSE1mQBNz1GKXaE144gKjGNz+cJ+ia/XqtoJYExOrS6OpPQMILnB7cU9NmTWXuRs2ODGXECxdhTdf2EYG65O/VpyY7XKhi9EA/7N9r3iQ2EDzKET5AzMoL7EgoeqnvEaKMadASm+KKDwCDLQCDm9uzRTwwzVCDDYu5WFs6b8jCCXHVanXOTNp9wWq3fu6ddRiyk7WAoVFerbYXWOmgYPSCn0SZR+/uYPy6qvjmfwFwCi2hClnY1LJ8VLg/27SKRldmqJs6gcW+HaUwtEM+nPEwo03pZWrcBipHfym2+2DWDzkdhy18IsmC+DBCee
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2026 07:24:34.6963
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4867c0b-a109-40b4-3028-08de75d141ee
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD78.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB6451
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_232218_539678_5C539507 
-X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-CacheID: sfid-20260226_232439_815024_2A0BB99E 
+X-CRM114-Status: UNSURE (   8.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,33 +135,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reboot starts failing on Poplar since commit 8424ecdde7df ("arm64: mm:
-Set ZONE_DMA size based on devicetree's dma-ranges"), which effectively
-changes zone_dma_bits from 30 to 32 for arm64 platforms that do not
-properly define dma-ranges in device tree.  It's unclear how Poplar reboot
-gets broken by this change exactly, but a dma-ranges limiting zone_dma to
-the first 1 GB fixes the regression.
 
-Fixes: 2f20182ed670 ("arm64: dts: hisilicon: add dts files for hi3798cv200-poplar board")
-Cc: stable@vger.kernel.org
-Signed-off-by: Shawn Guo <shawnguo@kernel.org>
----
- arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-index f6bc001c3832..2f4ad5da5e33 100644
---- a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-+++ b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-@@ -122,6 +122,7 @@ soc: soc@f0000000 {
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 		ranges = <0x0 0x0 0xf0000000 0x10000000>;
-+		dma-ranges = <0x0 0x0 0x0 0x40000000>;
- 
- 		crg: clock-reset-controller@8a22000 {
- 			compatible = "hisilicon,hi3798cv200-crg", "syscon", "simple-mfd";
--- 
-2.47.3
+On 2/27/26 12:51, Krzysztof Kozlowski wrote:
+> On 27/02/2026 08:15, Meghana Malladi wrote:
+>>
+>>
+>> On 2/27/26 12:12, Krzysztof Kozlowski wrote:
+>>> On 26/02/2026 19:54, Meghana Malladi wrote:
+>>>> Enable DP83TG720 PHY driver as a module to support TI's DP83TG720
+>>>> 1000BASE-T1 Automotive Ethernet PHY. This is required for the
+>>>> DP83TG720-IND-SPE-EVM daughter card used with AM642 EVM ICSSG0
+>>>> interface.
+>>>
+>>> Grepping for DP83TG720 or IND-SPE-EVM gives me no results. Are you sure
+>>> this is the board supported upstream?
+>>>
+>>
+>> Yes, this series adds support adds support for the board:
+>> https://lore.kernel.org/all/20231212054144.87527-1-o.rempel@pengutronix.de/
+> 
+> I still wonder why there is no DTS for this.
+> 
+
+I posted DTS patch separately for this: 
+https://lore.kernel.org/all/20260226115454.1730618-1-m-malladi@ti.com/
+
+Does it make more sense to post them together as a series ?
+
+> Best regards,
+> Krzysztof
 
 
