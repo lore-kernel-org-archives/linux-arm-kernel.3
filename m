@@ -4,60 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A74DFD5301
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 07:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A8CAFD5307
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 07:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3+TcBD9Ao2J1nDt8GBIFgePf0A/Kr9NhjYVtZK09AUE=; b=WsF8oU2iiiPK76OcXLvihSugh7
-	MUAHK3pS9l9MMM078Q1pCmZH6fx9vPT4OH4bOcIH0Rv1yd5Ro7PajrI1/9kP+zoirojb1wooLQeNO
-	VnRuPwc4LSUb26aPjqAAhajCsXnoQZwY03G2ysv8uP1u6BQbwqmgsDzMEoNPY5xH0eoLoctIKcl/f
-	ByP2MbD6MHoQ1CexgQH2NPn0UyR9b8xfZc4RinJ3jUymhoyLfG55V342uFqBEGAkR8XPD+4tAG+YL
-	eSHTj5o+sU5GyzSdDPe3abZmO5Hf+nzialpT3GvVC0RsRSEoCD3C9Igb4B4TUs6L0sSjQAQWZbmzb
-	57rOiqBQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4LvcbjxOBYrLAtoieypM2Tn/F1MIMxFrMmPMx5NmJyM=; b=vqdTQQHoyxTG2qseX0EbngQtMl
+	m+vVETqzYPFNf4NWJva44R/tQ9ByWcHm9ryzZYy7hSEam+5v1HzTDIv2SMHxURdQCYNhpNRA1ZtMQ
+	1NLJr79lR0a81Pj7uorCkJrteEIvYtVdZCC0aaaAQ99R2BS3r6O7RnjhwbSn/65/Grqmb0IvyECiI
+	VsqKv3Wb6f6XaUdTJpnpP5wGNc0NOC3XnwFNOWCHP/G9AhFZPI+Oj9mHael0t55WxEx/Pu+8tTqcC
+	s2o2Ouq76j1VpcCc6B3zBBFASJcVRwC6DGfKVx7TNbmXOoA/mjVWUYbBCdWEiPuQB/qkUCIF6KaP4
+	MsTGk6Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvs9L-00000007rmx-3g1Y;
-	Fri, 27 Feb 2026 07:20:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvsA1-00000007s4Q-4C54;
+	Fri, 27 Feb 2026 07:21:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvs9I-00000007rmO-3Rmp
+	id 1vvs9y-00000007s3Z-3mUa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 07:20:33 +0000
+	Fri, 27 Feb 2026 07:21:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 29ACA40D71;
-	Fri, 27 Feb 2026 07:20:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A373C116C6;
-	Fri, 27 Feb 2026 07:20:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5814B60008;
+	Fri, 27 Feb 2026 07:21:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DDB4C116C6;
+	Fri, 27 Feb 2026 07:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772176830;
-	bh=5LqXlDaWAq/8TXIbV3fX9rXHaDbI2PpJbWwGZMlzwgo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=lvZmSE6tZPcbwCNO9WASZPlQL6JlNsetEr8mr8bhA49BTuArozEnb5Gw3TDsNLIBT
-	 FfF3RNroSlpnPD/Gbso4NEhtFacR0EZx1GvEQCm0T00OUFebCaF7knjKu8P2lC29Ps
-	 wRI18VYb+AvshyaTXJmnWG22nNi7hLcUyWATIKXD3ciYbCSQkkLJh6/TeLOafqBflw
-	 GQp/xVGQkLhmjmvlOybOY2Uwfd4/gn6mZnltDKR/jj3KG/XMSGP13pLb9AtlNsMHTN
-	 MDMDZWffexJSr4HWbEz98ZxioRyW2J5xmo0OoGx5QbriBlKAMvowECSLVA+rnU/SFo
-	 xPRwOJUVWW6Gg==
-From: Shawn Guo <shawnguo@kernel.org>
-To: Wei Xu <xuwei5@hisilicon.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm64: dts: hisilicon: poplar: Correct PCIe reset GPIO polarity
-Date: Fri, 27 Feb 2026 15:19:58 +0800
-Message-ID: <20260227071958.1350024-1-shawnguo@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	s=k20201202; t=1772176874;
+	bh=3ioIOQBhkqL96KnTlaUrukcy2oSJfJUzaa8re1I2OUM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iS4UGspRhzN09ECWLMb2Fw8hs/dtEelak44+fyaxK2UITlL4OhdcmrVvNl4n777au
+	 yna2Ac1JpmoZTN+hD0bNO3HfkXtnJRDJF+Rbe6H5lfqdjQwb1oheJyNme5LyCK1MJa
+	 6tv5+GYiQKQ3e5pjsQfZaMCkDVb3lTL+qWf+wgwBHak3TvDdqsFxXA1nZvP0sQJLr8
+	 y3p86fd+Pt1jQP3py+rjNxpeF9CVqNXz+5zLuklszQDUMAetcvfIlfZHK4kXxLZbnZ
+	 ntWkX2DrHLw2sbDW9pWnov8OAiGR5Ez9O3KzYjFqM4GqhWJnFB+tZe3wpTj1DwoBTf
+	 cRzzxRdoO4DzA==
+Message-ID: <76067a68-62b2-4e45-9bf4-6765be61b7f7@kernel.org>
+Date: Fri, 27 Feb 2026 08:21:10 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_232032_882407_37027280 
-X-CRM114-Status: GOOD (  10.83  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH] arm64: defconfig: Enable DP83TG720 PHY driver
+To: Meghana Malladi <m-malladi@ti.com>, nm@ti.com
+Cc: kristo@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, andrew@lunn.ch,
+ hkallweit1@gmail.com, "Raghavendra, Vignesh" <vigneshr@ti.com>
+References: <20260226185448.2167189-1-m-malladi@ti.com>
+ <79e54fc3-9e61-44ff-9919-b1163bda81e5@kernel.org>
+ <ef2d207a-dd51-4db0-a909-955d5a38e1f7@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <ef2d207a-dd51-4db0-a909-955d5a38e1f7@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,34 +116,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCIe reset GPIO on Poplar is actually active low.  The active high
-worked before because kernel driver didn't respect the setting from DT.
-This is changed since commit 1d26a55fbeb9 ("PCI: histb: Switch to using
-gpiod API"), and thus PCIe on Poplar got brken since then.
+On 27/02/2026 08:15, Meghana Malladi wrote:
+> 
+> 
+> On 2/27/26 12:12, Krzysztof Kozlowski wrote:
+>> On 26/02/2026 19:54, Meghana Malladi wrote:
+>>> Enable DP83TG720 PHY driver as a module to support TI's DP83TG720
+>>> 1000BASE-T1 Automotive Ethernet PHY. This is required for the
+>>> DP83TG720-IND-SPE-EVM daughter card used with AM642 EVM ICSSG0
+>>> interface.
+>>
+>> Grepping for DP83TG720 or IND-SPE-EVM gives me no results. Are you sure
+>> this is the board supported upstream?
+>>
+> 
+> Yes, this series adds support adds support for the board: 
+> https://lore.kernel.org/all/20231212054144.87527-1-o.rempel@pengutronix.de/
 
-Fix the problem by correcting the polarity.
+I still wonder why there is no DTS for this.
 
-Fixes: 32fa01761bd9 ("arm64: dts: hi3798cv200: enable PCIe support for poplar board")
-Cc: stable@vger.kernel.org
-Signed-off-by: Shawn Guo <shawnguo@kernel.org>
----
- arch/arm64/boot/dts/hisilicon/hi3798cv200-poplar.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/hisilicon/hi3798cv200-poplar.dts b/arch/arm64/boot/dts/hisilicon/hi3798cv200-poplar.dts
-index 7d370dac4c85..579d55daa7d0 100644
---- a/arch/arm64/boot/dts/hisilicon/hi3798cv200-poplar.dts
-+++ b/arch/arm64/boot/dts/hisilicon/hi3798cv200-poplar.dts
-@@ -179,7 +179,7 @@ &ohci {
- };
- 
- &pcie {
--	reset-gpios = <&gpio4 4 GPIO_ACTIVE_HIGH>;
-+	reset-gpios = <&gpio4 4 GPIO_ACTIVE_LOW>;
- 	vpcie-supply = <&reg_pcie>;
- 	status = "okay";
- };
--- 
-2.47.3
-
+Best regards,
+Krzysztof
 
