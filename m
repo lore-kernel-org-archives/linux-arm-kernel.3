@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAAB3FEFB5A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 585C9FEFB5B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oTU6JsxU3Hhy8HvY7VYTjnBelFsYSL61oMc3ORiSkhQ=; b=nme6Subo21E7Ewzm93aWnUIl8F
-	7mJK9rS6572inrRHIaRjTXXzOK+C1QVA+kj9FwoNZj95J86JF9AVSFOGkvqF3FnN8j/SB7nYA3OfK
-	9qjm7gaJk1VyWqx3APcAFPJTRKdCiju/h9clkIDPo9IwXJhMxJay+kTohATnsEbiWikhVeN93mMdc
-	6ieHhGI477FGrqbGksfnw2wJ01zUHjbtNcw8OnsQuAZZGRPLfZ6UJKiMuXIL6AGYc3R2LLwDFn/iP
-	ynEn4vCRWRYO4idJNpzxiQrNMlIQqKqTXdk371zDfeGBvbKetJjXN21Ujr4QMqCTMpyQfy/BbU7i2
-	mcq60xGw==;
+	bh=jPrKMb2B8GNaLtE1gwPBwDFyy/oBajww/6pkNNDUz6c=; b=USrjaEvZuNgxPHMiqRd3aUXAKN
+	3Nltp7JNUf0yBBi7W2OFo3QrSM2VbrJQL4m+iLzRrXiERb4ATT3iGeYvn/gvQOwNG67aMwSTg26Yi
+	NsyLXuAsO1kr2ixm/k1byzW5eW1Fj/nRl8gD3LmKsW3LzMVvB2qeS3+Q8Fqf43tiAL9/lGUMV2D7e
+	BMWlEor2k/Ch9JoxoZx5zrlL7K/CAT0/G3dxPuOr2iwwQirjtIwtslvxxwrEOXJL1G2HaOw56vjPY
+	IZLo1hqr1ykHeEch0YkF0w1tiB2D4BuYTqVTf7ATKJ7r73oiuDwACl+QtK1/uh+nu4YvGotIFEcPr
+	AUdsKJ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzHs-00000008XJT-3169;
+	id 1vvzHs-00000008XID-0Ol9;
 	Fri, 27 Feb 2026 14:57:52 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzHp-00000008XDd-19n2
+	id 1vvzHl-00000008XDd-3S1t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 14:57:50 +0000
+	Fri, 27 Feb 2026 14:57:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1772204269; x=1803740269;
+  t=1772204265; x=1803740265;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=iZqObIlnGsrxaMJ/K/m7e8CKplLt7VJNcogmW6z0W/U=;
-  b=E1tAmXtOcXe3wr9GfG+WaYuKnsDxy5QOPs8+/7MNQW7Ret+RFdBf/jxj
-   SWv2tWgDHOMRUUWZNH6wEAoHlUHAc13fOWNnX+0tsPQNt2kLVhCsMdWNU
-   4UuE+qHsu2Ag+Xe+D+nXmzXd800MXj6EtVgpmsf+4VMRp24mCq9ISalwT
-   tQ3nVdRkqjs514MWOKFC0wir1YTg46JcYx83ghi4DfJFzxqLmwW6QTzG5
-   I0KYIpNmRAP+ez2Co+yMA9haWQ9iI4Wx+q/EffHr6zW1iikexlapLqWPb
-   yjXIOggrOUXx9E6CBZOoUAhGX84Rf/uEO0yqHwJG9ALzB/Vytyw7pJlAn
-   Q==;
+  bh=ad/LhZWihMSxoB3f8xRbFoDYpgaS3dn/F656MTIvq44=;
+  b=dhXGDPGl12zlwVqPElvruepr9FDxhWiXzXU9Osh5gMDvfN4qfpsO8wBm
+   7WFEF8FLxPazHn2F4gwYJqn9L3nSao6ejykgM2/8hwFHtLRHERJ80IlA+
+   z07IwdnU9/6AfnhKOHvTdCWyPMhQaJ0KbXbM20+7GD6zwQGvvp5ma4RKH
+   1S97g8Xgw4ohb3udfISYDwKDQDWrtHojT757vCgYriY9TJGmulpqaq+EF
+   qIHsiEVQVjAb+nOb7BeobNgn9XPgtUAE4/A4xKQwBhDHo24gYaO9cTLL3
+   WqJpUE3ztwtSdz4NMOcPVMZqfzyhOsTuJ84MrO9oiK5nUrA0XnXCKqR6h
+   A==;
 X-CSE-ConnectionGUID: wDbLW9d7SnOseX1061A6kw==
-X-CSE-MsgGUID: 5z+WZYXARCGYoexIWYfVfg==
+X-CSE-MsgGUID: QlVELnkhTC+anAGdFG6OVQ==
 X-IronPort-AV: E=Sophos;i="6.21,314,1763449200"; 
-   d="scan'208";a="221253471"
+   d="scan'208";a="221253468"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2026 07:57:44 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
  chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.35; Fri, 27 Feb 2026 07:57:21 -0700
+ 15.2.2562.35; Fri, 27 Feb 2026 07:57:03 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 27 Feb 2026 07:57:19 -0700
+ 15.1.2507.58 via Frontend Transport; Fri, 27 Feb 2026 07:57:01 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Fri, 27 Feb 2026 15:56:47 +0100
-Subject: [PATCH net-next v2 9/9] net: sparx5: replace sparx5_start() with
- sparx5_forwarding_init()
+Date: Fri, 27 Feb 2026 15:56:40 +0100
+Subject: [PATCH net-next v2 2/9] net: sparx5: move VCAP initialization to
+ probe
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260227-sparx5-init-deinit-v2-9-10ba54ccf005@microchip.com>
+Message-ID: <20260227-sparx5-init-deinit-v2-2-10ba54ccf005@microchip.com>
 References: <20260227-sparx5-init-deinit-v2-0-10ba54ccf005@microchip.com>
 In-Reply-To: <20260227-sparx5-init-deinit-v2-0-10ba54ccf005@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -74,8 +74,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_065749_439452_287680AE 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20260227_065745_939378_81FE512B 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,51 +90,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With all subsystem initializations moved out, sparx5_start() only sets
-up forwarding (UPSIDs, CPU ports, masks, PGIDs, FCS, watermarks).
-Rename it to sparx5_forwarding_init() and make it void since it cannot
-fail. This removes sparx5_start() entirely.
+Move the VCAP initialization code from sparx5_start() to probe(). Add
+proper error handling with a cleanup_vcap label and sparx5_vcap_deinit()
+call.
+
+Also, rename sparx5_vcap_destroy() to sparx5_vcap_deinit() to stay
+consistent with the naming.
 
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.c      | 16 ++++++++++------
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.h      |  2 +-
+ drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c |  2 +-
+ 3 files changed, 12 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index e4a448fd2b30..cab5daf265c2 100644
+index 0ca4001a3667..fbd75423f2a7 100644
 --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
 +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -735,7 +735,7 @@ static void sparx5_board_init(struct sparx5 *sparx5)
- 					GCB_HW_SGPIO_TO_SD_MAP_CFG(idx));
- }
+@@ -775,10 +775,6 @@ static int sparx5_start(struct sparx5 *sparx5)
  
--static int sparx5_start(struct sparx5 *sparx5)
-+static void sparx5_forwarding_init(struct sparx5 *sparx5)
- {
- 	const struct sparx5_consts *consts = sparx5->data->consts;
- 	u32 idx;
-@@ -779,7 +779,6 @@ static int sparx5_start(struct sparx5 *sparx5)
- 	/* Enable queue limitation watermarks */
- 	sparx5_qlim_set(sparx5);
- 
--	return 0;
- }
- 
- static int mchp_sparx5_probe(struct platform_device *pdev)
-@@ -944,12 +943,7 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
- 	sparx5_pgid_init(sparx5);
- 	sparx5_vlan_init(sparx5);
  	sparx5_board_init(sparx5);
--
--	err = sparx5_start(sparx5);
--	if (err) {
--		dev_err(sparx5->dev, "Start failed\n");
--		goto cleanup_ports;
--	}
-+	sparx5_forwarding_init(sparx5);
  
- 	err = sparx5_calendar_init(sparx5);
+-	err = sparx5_vcap_init(sparx5);
+-	if (err)
+-		return err;
+-
+ 	/* Start Frame DMA with fallback to register based INJ/XTR */
+ 	err = -ENXIO;
+ 	if (sparx5->fdma_irq >= 0) {
+@@ -1003,12 +999,18 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 		goto cleanup_ports;
+ 	}
+ 
++	err = sparx5_vcap_init(sparx5);
++	if (err) {
++		dev_err(sparx5->dev, "Failed to initialize VCAP\n");
++		goto cleanup_ptp;
++	}
++
+ 	INIT_LIST_HEAD(&sparx5->mall_entries);
+ 
+ 	err = sparx5_register_netdevs(sparx5);
  	if (err) {
+ 		dev_err(sparx5->dev, "Failed to register net devices\n");
+-		goto cleanup_ptp;
++		goto cleanup_vcap;
+ 	}
+ 
+ 	err = sparx5_register_notifier_blocks(sparx5);
+@@ -1021,6 +1023,8 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 
+ cleanup_netdevs:
+ 	sparx5_unregister_netdevs(sparx5);
++cleanup_vcap:
++	sparx5_vcap_deinit(sparx5);
+ cleanup_ptp:
+ 	sparx5_ptp_deinit(sparx5);
+ cleanup_ports:
+@@ -1050,9 +1054,9 @@ static void mchp_sparx5_remove(struct platform_device *pdev)
+ 	}
+ 	sparx5_unregister_notifier_blocks(sparx5);
+ 	sparx5_unregister_netdevs(sparx5);
++	sparx5_vcap_deinit(sparx5);
+ 	sparx5_ptp_deinit(sparx5);
+ 	ops->fdma_deinit(sparx5);
+-	sparx5_vcap_destroy(sparx5);
+ 	sparx5_destroy_netdevs(sparx5);
+ 	destroy_workqueue(sparx5->mact_queue);
+ }
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+index fe7d8bcc0cd9..6a069434fca6 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+@@ -563,7 +563,7 @@ void sparx5_get_hwtimestamp(struct sparx5 *sparx5,
+ 
+ /* sparx5_vcap_impl.c */
+ int sparx5_vcap_init(struct sparx5 *sparx5);
+-void sparx5_vcap_destroy(struct sparx5 *sparx5);
++void sparx5_vcap_deinit(struct sparx5 *sparx5);
+ 
+ /* sparx5_pgid.c */
+ enum sparx5_pgid_type {
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+index 25066ddb8d4d..9b4ea3e22ef8 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+@@ -2083,7 +2083,7 @@ int sparx5_vcap_init(struct sparx5 *sparx5)
+ 	return err;
+ }
+ 
+-void sparx5_vcap_destroy(struct sparx5 *sparx5)
++void sparx5_vcap_deinit(struct sparx5 *sparx5)
+ {
+ 	struct vcap_control *ctrl = sparx5->vcap_ctrl;
+ 	struct vcap_admin *admin, *admin_next;
 
 -- 
 2.34.1
