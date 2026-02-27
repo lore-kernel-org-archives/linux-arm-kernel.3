@@ -4,124 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5217FEFB56
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E128FEFB56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Feb 2026 14:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pjpP6CrvDx4JRD336SFvsZfBjEjd+fqZc06LPodyXOg=; b=v6tYsVhNLwf30jDTLKuhD5Af7Q
-	xAC+9RapVd06rFIbW42kTnu3wTf/TIQAI+gxOhT8ToHsJIQRNwVtY59IFbzWT+XlkIvdUkkNso4qt
-	iAcJ5BOBMmcJ18fIV175R4l7z2Xdgng42BXlMyhHse3utRZRH5MNMU1HidL/OmRSuJfdhrHbr9LUm
-	T6Arlqix1NrhGeuK2O4Iqdl6g0wFW21M2LIbUhkpHtWrwFX3QAUWr0chVpdbQ9tNNLY9FZAnHKk5B
-	Yg8VKeA4/4byKYnVE9ZS02UuP+t8Xd04UWoO7ti2o5+nIKFP1+RFPhtYcs6Mqr/1XV0R+V/XvboPb
-	flMI4OAQ==;
+	bh=MO1or7rWP0MPM3YaX01enhDQVeQX3ICbIeXiOCBEemc=; b=owhKk+bYQyAIxWyX6TG0h+irhG
+	BEQP9ehEEvQ0drs7PDtgCOwRaOSIl8FneJT9mLCcwEgUGAu5tSItpAcngErsmo+KdR8nHXFtxqjyY
+	b6jVOJLk1GPJY/GkEoRQCTVIVLgBFd/DDglUGl0DOOa6IX2h9F5npJ1gX8elMgwSorLDkzG8lhNHy
+	hnDvREx1W8IT7CA86p6ZT/IAYwLH8Can0MdUP1PwpiS/TcGsxrm1BvYD3U2YX37+F1FFbe2YfnFK1
+	0SvXKAJ1VGvVfKrlP98geE+aHkFVKK4ykDPmR4TbcmK8C3gSHBqY1+wQlI19xx/Dev2ThO8t506Jf
+	Yd1LGWXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvz5X-00000008Vic-1Y9b;
-	Fri, 27 Feb 2026 14:45:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vvz93-00000008W0c-43l4;
+	Fri, 27 Feb 2026 14:48:45 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvz5U-00000008Vi3-0SW1
+	id 1vvz90-00000008W0F-3PcN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Feb 2026 14:45:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772203500;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pjpP6CrvDx4JRD336SFvsZfBjEjd+fqZc06LPodyXOg=;
-	b=WX6dpmLjkzmLG9nIcv5mxUuo6vl9SsXARh2gICDf0xyBiPiJx1+6vpS0GHdoTdMOHtwU6h
-	uHQiClfrYJYjKoY9HAWl3nOOkmuCBL9WDUrsYQEH1tYXTUiM0Ff7huRc+fyKwcASUMMugJ
-	WE5+lwQnn5xJ4J08AD6VzpGIVzgHArs=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-88-3ieQceZpMe-4cG7aJF8JCw-1; Fri, 27 Feb 2026 09:44:59 -0500
-X-MC-Unique: 3ieQceZpMe-4cG7aJF8JCw-1
-X-Mimecast-MFC-AGG-ID: 3ieQceZpMe-4cG7aJF8JCw_1772203499
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-899b4ce513cso203042686d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 06:44:59 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772203499; x=1772808299;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=pjpP6CrvDx4JRD336SFvsZfBjEjd+fqZc06LPodyXOg=;
-        b=dG2x4Zf+A/WYRJet7rktrBXS7GyiXOCIZW+wzlKfTBLZf64KwFlCMIYF/FJD3ggf+h
-         aeBZ8GkuK/JW2SN/NvmmWI8GormZP0+cwkMB4oXimKZNV96VvOZnli8sXyuzRZ6fC3Bw
-         GDv38fh0Ap3Ja9Oa+wXNWFxEG8qjfe4LJEsT2JZzWuIzSQBtG9CmoEcQOFpVQCUrMfG1
-         wasLvnSRjzi2UZe8h/5BjyCcAKZKQpC3TndvYii+htsF4bjYLBH4EZdEz7OkTh//2CdN
-         CWrCagibCA6J8bjIc+OMoL1+FzkolPTmbzhhnyvJUrVmZgC5WfVto/ag/pwH+uKcjZ5w
-         jH/g==
-X-Forwarded-Encrypted: i=1; AJvYcCU9qX1KT7xmOfSNFV4v8qCvhpNN6ESIIIQT7+yRUR8ExRBhcTuQ0t/HVwn8lNhHqYxLPGdo2E89fj2v2tCwTSMQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/f5p1dHh9VSNkQ8bz7ggXjL5kdlWeD6M07U7JW2gl3V2/9wU4
-	O2JHU4SDm5aPXxjF8wwUgLUFYE/hjZsVyGxDF9ROl3JxNovvzdbfhXUtcGuEI13JcAYdw6vsK/d
-	VOIntipu8tSzH4ObWMbhGtRCpxwhXNlUvi7JcS3yiLShXtkcsXkHl0bZzXxLUThYWkUPRqP1azb
-	il
-X-Gm-Gg: ATEYQzwaoAD6dcaOVdamJIyc/1AgmRxtWC6+B836BdaUjvmWTdA13D5+c2STWCgD4xg
-	TE1Uq+UKkd1/7ziYSnLnOC4u1m8q7YYjeWfeFUce7BT1AzM3YlxNg2/n4jicVRAGc9j6Vq5QtJP
-	jld4gcWbOzaG4RoHPjRO500afMtpwhrGnUESEvifSTDPlGCpMmjIXqLiAhPm0yyJJwKIVxIHCsk
-	+f/9d2jWaKgmJiPYB59xmeTSlA/5wyWFhpAjRNJC/aSaut0A7pJHL+eeqDmjpw0BA5dvkluqd7y
-	v7KVNqY1+SAblxKg6q2nLuiwKVIgzAoEWQB05BItPGpNWIpoZwVPDRwPBkKm1Wfm8+s/h1Ikg5W
-	dMizPNoHdB+TbZfswRfOTusmbxmJH5nZ11r2+xL5aMUc5i7/HqLsSGCRF
-X-Received: by 2002:a05:6214:2481:b0:88a:2360:7f15 with SMTP id 6a1803df08f44-899d1d86467mr45187756d6.12.1772203498568;
-        Fri, 27 Feb 2026 06:44:58 -0800 (PST)
-X-Received: by 2002:a05:6214:2481:b0:88a:2360:7f15 with SMTP id 6a1803df08f44-899d1d86467mr45187146d6.12.1772203498037;
-        Fri, 27 Feb 2026 06:44:58 -0800 (PST)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-899c73a3130sm45123526d6.49.2026.02.27.06.44.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Feb 2026 06:44:57 -0800 (PST)
-Date: Fri, 27 Feb 2026 09:44:55 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: Biju Das <biju.das.jz@bp.renesas.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Chanwoo Choi <cw00.choi@samsung.com>, Frank Li <Frank.Li@nxp.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	"linux-samsung-soc@vger.kernel.org" <linux-samsung-soc@vger.kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH 01/13] clk: add new flag CLK_ROUNDING_FW_MANAGED
-Message-ID: <aaGt5-ZWoXQ9Hz74@redhat.com>
-References: <20260226-clk-det-rate-fw-managed-v1-0-4421dd2f6dc6@redhat.com>
- <20260226-clk-det-rate-fw-managed-v1-1-4421dd2f6dc6@redhat.com>
- <TY3PR01MB113465A96D1EEBB43C82C12A98673A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+	Fri, 27 Feb 2026 14:48:44 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=XWxCYMmOzQe0AblYUu3yvSKGgeUMzTlqYfKdNSGu73z0TAR90RCSp+Bvl96FiMiM40X1rv2c8kbIzaC6RnfmZ/Zn1dqiHO3K8oJXoii9leAZk4DUx0dqZataIsvZlZSJz+XJQhOTrTjNSJEiV1/w+H5b/N0/0SjBcoB/YxPVIMoZUtOrAThWtFA2SBj8AX7QL8PbcJnME66QlFjJGzx5FcVmef6mI9Kj1nIHXdMh9qso7eCRYkWkqpD0U0EjOxTInj9ZU04pH5QX/6PguBtkxv07G+vLpXVJxyfQ7fLbZeDJuCpMtIQxaZFivQtoZe+DLZ3TQE7lDwlJMi08PtdHjQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MO1or7rWP0MPM3YaX01enhDQVeQX3ICbIeXiOCBEemc=;
+ b=yeQa0/iCTv+D9umKS/0nxMxV/1ovyfzfYbn00d9/Qo8kRMgvISaafNKnOSKtVptGg47s5caAhsS9pwpdZD/85qDVhgu1qAbAWZ/BKMhjtkke00HQOdntgfNjpZVJR/SAHST4if8CK6UR8X+/4c7zWOjOELO+p37VMCqrD5VfWMztaTWQJoQ+d90+dclx+CZrc9BlUHb4UosYmFGISptWtmRNpChP0RN4t9wFAiCT6FYC69fRVL/7eiw0arKlf03agR/xhDkcwumiHALpuWBFjmdjygkuxu7/DOGm+Vum9LV7wDOaYy8ZQhFD01WfzqEIdFlPgSHUjB07D5cQYZdIoQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MO1or7rWP0MPM3YaX01enhDQVeQX3ICbIeXiOCBEemc=;
+ b=gYPGJ6VHMLPCd7D2bS0Rv3SBoGazmOu3/kLy/wT1/UAO7mMCAxWh406PvgaSlkzWI8uAbhByn5UHnJyYmBVnOBSBY3Y7oHLdQVULoEl2jvtKAIava/WgcnoR9c2lvDY/wtJIVPYoPJYe13+dHRLAQw6M12coPV7LWSf/7f0TXvM=
+Received: from DU2PR04CA0027.eurprd04.prod.outlook.com (2603:10a6:10:3b::32)
+ by AS8PR08MB6038.eurprd08.prod.outlook.com (2603:10a6:20b:23f::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.16; Fri, 27 Feb
+ 2026 14:48:34 +0000
+Received: from DU2PEPF0001E9C3.eurprd03.prod.outlook.com
+ (2603:10a6:10:3b:cafe::cf) by DU2PR04CA0027.outlook.office365.com
+ (2603:10a6:10:3b::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.26 via Frontend Transport; Fri,
+ 27 Feb 2026 14:48:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF0001E9C3.mail.protection.outlook.com (10.167.8.72) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12 via
+ Frontend Transport; Fri, 27 Feb 2026 14:48:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ukg6MW5jFCcEUHPqLqdE6Cl1Ler8JHvaS/DwcvDzNnszrq9YtiVZRJ++QAVCTVz5EfEmHZkQD+ABOgdRbrB1oFSE14vNh4xS+MZDYs/FVxPtfFKYHQcUo72y1LiFvcCjj/YFX7e3YGAMqqRQuomqfZ8bP0yqyc3u147w8/edWFun3V19t7mQWwiimOmJxXzWBRiWide4z7f+mzGnp9AV36TMa5so2raOK1KA4pH2rL/60cRzmIKkgE3a7qe/xvPl+p9ek/i06ShBspI+ZEy3ttoou+iSvY6VStzeWVrYQwCkKIwBJj6HSrOtO9F++Zr8RfCAAYF5eCAju8/oFQqNoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MO1or7rWP0MPM3YaX01enhDQVeQX3ICbIeXiOCBEemc=;
+ b=hmQZYnLCPrWU+/slZ7r62kzqIRy651mzP7FAEeFQU2l2JzP6VGdVQYFqyeSqxIUBZsCZzbjvtTgdXI6w/Dts7hSPDw9Vcle+FmnRHjlcOyvehGfjEGF6/nEDLO8xYk+3id0Vuv8I9ncoZx39yorHRLIK5wN616VLC74GokgLNmffuNAnNCqZli2Rw0x8keg0foyAaW8PnekF9wNJ9MqrRyZqRRQgVDACeJ8/CHsD3vyrs1llPxOuSE6dvobf1W0rasFuVdlACaT3Ks0tw0LQGzNu+Hk7+VhBi33h6cAF6WbBZJx2ybe012NB6/syUNbzTeGV2td4j4zeTVIOXLnJrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MO1or7rWP0MPM3YaX01enhDQVeQX3ICbIeXiOCBEemc=;
+ b=gYPGJ6VHMLPCd7D2bS0Rv3SBoGazmOu3/kLy/wT1/UAO7mMCAxWh406PvgaSlkzWI8uAbhByn5UHnJyYmBVnOBSBY3Y7oHLdQVULoEl2jvtKAIava/WgcnoR9c2lvDY/wtJIVPYoPJYe13+dHRLAQw6M12coPV7LWSf/7f0TXvM=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from VI0PR08MB11842.eurprd08.prod.outlook.com
+ (2603:10a6:800:316::11) by GVXPR08MB11700.eurprd08.prod.outlook.com
+ (2603:10a6:150:314::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.16; Fri, 27 Feb
+ 2026 14:47:30 +0000
+Received: from VI0PR08MB11842.eurprd08.prod.outlook.com
+ ([fe80::2c32:d089:1d9f:b0c6]) by VI0PR08MB11842.eurprd08.prod.outlook.com
+ ([fe80::2c32:d089:1d9f:b0c6%3]) with mapi id 15.20.9654.014; Fri, 27 Feb 2026
+ 14:47:29 +0000
+Message-ID: <c91853f5-04f3-498e-9231-eb3876471609@arm.com>
+Date: Fri, 27 Feb 2026 14:47:28 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [BOOTWRAPPER PATCH 2/2] Add support for GICv5
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>, Joey Gouly <Joey.Gouly@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "maz@kernel.org" <maz@kernel.org>,
+ Mark Rutland <Mark.Rutland@arm.com>, nd <nd@arm.com>
+References: <20260227102049.8015-1-vladimir.murzin@arm.com>
+ <20260227102049.8015-3-vladimir.murzin@arm.com>
+ <20260227110626.GA1980869@e124191.cambridge.arm.com>
+ <3048e8c5-c14c-45fa-ba5f-1346df084486@arm.com>
+ <d1f1eea815dad4fcb9eeedbef8e50af68e415284.camel@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+Organization: ARM Ltd.
+In-Reply-To: <d1f1eea815dad4fcb9eeedbef8e50af68e415284.camel@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0504.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1ab::23) To VI0PR08MB11842.eurprd08.prod.outlook.com
+ (2603:10a6:800:316::11)
 MIME-Version: 1.0
-In-Reply-To: <TY3PR01MB113465A96D1EEBB43C82C12A98673A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: c25Edvdhsi5FuBvRx7P_3XRuB_qfEsHb0pS69s53h-c_1772203499
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+X-MS-TrafficTypeDiagnostic: VI0PR08MB11842:EE_|GVXPR08MB11700:EE_|DU2PEPF0001E9C3:EE_|AS8PR08MB6038:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5f32e9f1-e573-45c6-df16-08de760f4857
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info-Original: 3rf+M3vKQrDiOda5qOD+KskThgTpNAFl7W+KCJ/RS/TPJbXsoHk5LJKV658hdmtrldZTdLe0RWG2vFWPSIZj1lOFrNgS9jSNw8NdJKRXfeWrOydjYeXFfuuVLJkCh9sxJnyy1FdoqNA6aLktbkP8o9i1xI6XWDdv7BFLfNrS5iRc7NNo3ubTA7aV7+gNaVCJ21j8dPVRiFQrISNv1JD66tU3nz0oeCvoe9d6e88PWwK5y+lkbxQCTpetwDa07N3Bu4l2JDeGoQjJf4CaQe6l3VwkiJWqz77Carw4/BqedRmupI2jv26GLJmLbxL4pLGPhZKznHHmG3SlmBWkT3JcwoVFgOE8wmOdG8TMP3aB5pm3oHxVYytdLj0adjncAk2c14og8Mwn0S5q91Tl+uUHwJFanwzeHyjUzLTiCWcBcOWOERQlbPBWqXWPtlPTRDJNRiibwahiJKveZqZ7/98x6otqpQx0u194EarRZdHfrbiUeiKTHA82VPRy2dFdME4Rk1RNO7nxxpIL/jBFKfoJZaCFfuBhZi4mjivU47EQzujHPBcJJlAQ/lgxNq2neMUrwuZNwsWFsQRAfW/brr5ldl1PJ/vRwRt+GSdluS9UUnXzB8zvv1iat/dSLTPRCkM7RY18SZ2byb8ztvDTuCNwJOvt4HvhEFlEgnB8YfLQCwDKzjz78cESJeXnPwaoSm6MAhk6xlMnsvwiPY4ZajmyxV7I6OcKnVUtsf8ruN+Tc/s=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR08MB11842.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB11700
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF0001E9C3.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: fd2255a6-bbe6-4f5f-9b99-08de760f21c9
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700013|376014|82310400026|14060799003|1800799024;
+X-Microsoft-Antispam-Message-Info: JyQ42anrGO8zwRbnE1xfsC1kREualn4IBdSR1U4o6jOH3de4dNTZLYF+G8A2myvsMh7p7+87tHP93pjUEc7+poyVr+fBiDTZkz6ZpRL6/wOc0ds/dqYNBqz7vFNjrRt28cyzcaRXmrslioyYvfX/3QM8WgR5qDo6CTPG9hEqAu4YkwsPf4doDCYv+LIaZOEV4/dS1XgcPs/QntlGMEIXtO/5O7+kvoU/Gz4nF6sStsfJwntVYQR68feY/tK5RHyhmXE2ojfDa94NHdoOVZ79U6w6WEg+ao3WKWRUuw0J4yB0g1vC+MgSPddVJhKlFP4DmfsFS32vIolWfSoSuOFM4Ir9YhxmXJeZ2VGtax4hnUQz6kWZgkhJv4ER6NIcZ2dWNn6JSf9GCptTiEhwctaTSLf5jV/N9CU2ZfHEPE4wh0S0l5NBAjQ5+ovo5Y4eM1l/6Ez+497pHfjsAj2KdUzcH1sxXr/IY8uN/4rqSXbRjRHa3MrAmxP7tHcvwwSOLeyyr26FFGZcZYsllH5oUuu23Oil7FnDukoydLQ3PIsJbMKiXt+b+invYJYh1KYomMnmKEGAwPlgHVPfNPFlO1knhNdLLp3jrblUrsIAIg1Vtbbc+nzFqN/dqZIAeRVgs7xyVEQSlS3uigiwJ+EGuHeTyRL8lI0lPobFpVHR+cMXMCjXTU0ouj2BNyNTcFc8Sbfm4phDSF34kjeMzsyEA0lO+l70ygGFajhcdccocrWpm5caIj/N6GekJIpZsBWuhTfrxQsB3GTyTkJmZFoykJYSf2GkgjL0LIX0X/VEnhhqnoUV2sgkceoYpFqkHDO1RIJD+/dIb+ldsF9rO6rajfLaOA==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700013)(376014)(82310400026)(14060799003)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 2VN0j3Ryzmxms1mTdmkcGBb7wKKpv1pknH90gdDX8W6O6QnXBeaZ2O60a+8seCRzgi0ksDdUX1+jYrWJ5yNZsX9pUzI6G95/7JZyWB/nyWi0AxgtReLO/8mtR2f9FITgsO6KkyQL97aSnMV/lpPB4MDNQfx/eOLISlTp5ZZPszHZ1k3HBvtyBgBHtL9So9ZGGfLtiCwxSZiTatdGrO1JDx+wPyE1BiLZ61ToT28YBMK0TxQvycvZmavUOcsoj6eOwUhOO2Hpp72EoBJLuzbBZc7KgoP6IylA26qqiwdIoXW9RcMGGotPjvSDdJ7kpWvx/Uq28ldmOEkCMc8v2bSBVFs7YyNomInALlPl9xlNdY4NE17+nQwlqD4iHUtNksIfh6lQo/BPhYn9EW8b/xhWYGwshiQr8WzwKkxXkKENaU/IwcX7yMJiwxNrRYcIern3
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2026 14:48:34.3034
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f32e9f1-e573-45c6-df16-08de760f4857
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C3.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_064504_226980_0DAE470D 
-X-CRM114-Status: GOOD (  33.07  )
+X-CRM114-CacheID: sfid-20260227_064842_866564_3DDAADC0 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,104 +158,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 12:00:55PM +0000, Biju Das wrote:
-> > -----Original Message-----
-> > From: linux-arm-kernel <linux-arm-kernel-bounces@lists.infradead.org> On Behalf Of Brian Masney
-> > Sent: 26 February 2026 18:17
-> > Subject: [PATCH 01/13] clk: add new flag CLK_ROUNDING_FW_MANAGED
-> > 
-> > There are some clocks where the rounding is managed by the hardware, and the determine_rate() clk ops
-> > is just a noop that simply returns 0. Add a new flag for these type of clocks, and update the clk core
-> > so that the
-> > determine_rate() clk op is not required when this flag is set.
-> > 
-> > Signed-off-by: Brian Masney <bmasney@redhat.com>
-> > 
-[snip]
-> >  drivers/clk/clk.c            | 24 +++++++++++++++++++++---
-> >  include/linux/clk-provider.h |  2 ++
-> >  2 files changed, 23 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c index
-> > fd418dc988b1c60c49e3ac9c0c44aa132dd5da28..0a522a0817411c7f7c6e9cffd6f024e672a331a8 100644
-> > --- a/drivers/clk/clk.c
-> > +++ b/drivers/clk/clk.c
-> > @@ -1557,6 +1557,20 @@ static int __init clk_disable_unused(void)  }
-> > late_initcall_sync(clk_disable_unused);
-> > 
-> > +/**
-> > + * clk_is_rounding_fw_managed - Check to see if clk rounding is handled
-> > +by the
-> > + * firmware.
-> > + * @core: the clk to check
-> > + *
-> > + * Clks that have this flag enabled do not need to have a
-> > +determine_rate() op
-> > + * set, and will always return success for any rounding operation since
-> > +the
-> > + * firmware will deal with the rounding.
-> > + */
-> > +static inline bool clk_is_rounding_fw_managed(struct clk_core *core) {
-> > +	return core->flags & CLK_ROUNDING_FW_MANAGED; }
-> > +
-> >  static int clk_core_determine_round_nolock(struct clk_core *core,
-> >  					   struct clk_rate_request *req)
-> >  {
-> > @@ -1589,6 +1603,8 @@ static int clk_core_determine_round_nolock(struct clk_core *core,
-> >  		req->rate = core->rate;
-> >  	} else if (core->ops->determine_rate) {
-> >  		return core->ops->determine_rate(core->hw, req);
-> > +	} else if (clk_is_rounding_fw_managed(core)) {
-> > +		return 0;
-> >  	} else {
-> >  		return -EINVAL;
-> >  	}
-> > @@ -1673,7 +1689,7 @@ EXPORT_SYMBOL_GPL(clk_hw_forward_rate_request);
-> > 
-> >  static bool clk_core_can_round(struct clk_core * const core)  {
-> > -	return core->ops->determine_rate;
-> > +	return core->ops->determine_rate || clk_is_rounding_fw_managed(core);
-> >  }
-> > 
-> >  static int clk_core_round_rate_nolock(struct clk_core *core, @@ -3528,6 +3544,7 @@ static const
-> > struct {
-> >  	ENTRY(CLK_IS_CRITICAL),
-> >  	ENTRY(CLK_OPS_PARENT_ENABLE),
-> >  	ENTRY(CLK_DUTY_CYCLE_PARENT),
-> > +	ENTRY(CLK_ROUNDING_FW_MANAGED),
-> >  #undef ENTRY
-> >  };
-> > 
-> > @@ -3906,7 +3923,7 @@ static int __clk_core_init(struct clk_core *core)
-> > 
-> >  	/* check that clk_ops are sane.  See Documentation/driver-api/clk.rst */
-> >  	if (core->ops->set_rate && !core->ops->determine_rate &&
-> > -	      core->ops->recalc_rate) {
-> > +	      core->ops->recalc_rate && !clk_is_rounding_fw_managed(core)) {
-> >  		pr_err("%s: %s must implement .determine_rate in addition to .recalc_rate\n",
-> >  		       __func__, core->name);
-> >  		ret = -EINVAL;
-> > @@ -3920,7 +3937,8 @@ static int __clk_core_init(struct clk_core *core)
-> >  		goto out;
-> >  	}
-> > 
-> > -	if (core->ops->set_parent && !core->ops->determine_rate) {
-> > +	if (core->ops->set_parent && !core->ops->determine_rate &&
-> > +	    !clk_is_rounding_fw_managed(core)) {
-> 
-> >  		pr_err("%s: %s must implement .set_parent & .determine_rate\n",
-> >  			__func__, core->name);
-> >  		ret = -EINVAL;
-> 
-> 
-> After applying patch#11, I get a message as you removed .determine_rate, Also it breaks display.
-> 
-> [    0.096414] __clk_core_init: .pll5_foutpostdiv must implement .round_rate or .determine_rate in addition to .recalc_rate
+Hi Sascha,
 
-Thanks for testing. This happens because rzg2l_cpg_pll_clk_register()
-doesn't have the new flag set. I'll fix this, and go through all of the
-others again just to make sure I don't miss any others.
+On 2/27/26 14:24, Sascha Bischoff wrote:
+> On Fri, 2026-02-27 at 11:19 +0000, Vladimir Murzin wrote:
+>> Hi Joey!
+>>
+>> On 2/27/26 11:06, Joey Gouly wrote:
+>>> Hi!
+>>>
+>> [snip]
+>>
+>>>> +
+>>>> +static void gic_ppi_init(void) {
+>>>> +	uint64_t val = 0;
+>>>> +
+>>>> +	val |= 1UL << (2 * 31); // Trace Buffer Unit
+>>>> +	val |= 1UL << (2 * 30); // EL1 Physical Timer
+>>>> +	val |= 1UL << (2 * 28); // Non-secure EL2 Virtual Timer
+>>>> +	val |= 1UL << (2 * 27); // EL1 Virtual Timer
+>>>> +	val |= 1UL << (2 * 26); // Non-secure EL2 Physical Timer
+>>>> +	val |= 1UL << (2 * 25); // GIC maintenance interrupt
+>>>> +	val |= 1UL << (2 * 24); // Generic CTI interrupt trigger
+>>>> event
+>>>> +	val |= 1UL << (2 * 23); // PMU overflow interrupt
+>>>> request
+>>>> +	val |= 1UL << (2 * 22); // Debug communication channel
+>>>> +	val |= 1UL << (2 * 21); // Profiling Buffer management
+>>>> interrupt request
+>>>> +	val |= 1UL << (2 * 15); // Hardware accelerator for
+>>>> cleaning Dirty state interrupt
+>>> What about SW_PPI (3) and NS_DB_PPI (2)? Are the left out for a
+>>> reason?
+>>>
+>> No reason, I just missed them. Thanks for catching that!
+> Hi both,
+> 
+> I don't fully agree here.
+> 
+> I think that the SW_PPI should be assigned to NS - it is a sane default
+> so that normal software can use it. There's no pre-defined use case for
+> this PPI, so it is just used however software chooses to use it. A
+> potential use case would be for software in the Secure world to poke NS
+> to say that it has completed some task (FF-A does this sort of thing
+> using a donated SGI on GICv3, but could use the GICv5 SW_PPI for this
+> in the future). In this flow, it is assigned to NS, and EL3 makes it
+> pending as part of the return to NS from S so that NS software receives
+> the doorbell.
+> 
+> The NS_DB_PPI shouldn't ever be assigned to NS - it is there to alert a
+> non-NS domain to the fact that NS has pending interrupts. It should
+> never get signalled when running in NS (NS doesn't need an interrupt to
+> tell it that it has interrupts ;) ). It is a "Please switch to the NS
+> domain when you get the opportunity" signal. Hence, the S_DB_PPI,
+> RL_DB_PPI however should likely be assigned to NS, by default.
+> 
+> The expectation with the DB_PPIs is that EL3 might change their domains
+> as part of a world-switch. That is, all DB PPIs "belonging" to the non-
+> target domain would be assigned to the target domain as part of
+> transitioning via EL3.
+> 
+> A sane default would be to assign the NS_DB_PPI to Secure.
+> 
+> I hope that makes sense.
+> 
 
-Brian
+Thanks for such detailed explanation, really appreciate that! Bootwrapper
+doesn't run services in Secure world, so perhaps we can leave things as
+they are and add any additional PPIs on as needed basis.
+
+What do you reckon?
+
+Vladimir
+
+> Sascha
 
 
