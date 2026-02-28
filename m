@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769CDFEE4EF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A68DAFEE4ED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RS6B8HKz3lfStaChpHPRyrCXmTOfflogCUXEfzC9Seg=; b=yWZsTRnHiEQYwTDAChNMoaB8Rt
-	MmqlAusqXdcH90hCbGhgiQvlvnrS/YgdsVdtduVrwzdoSezQUGu8qFIzx2uv3z44VQGMN9eDKtHss
-	zwda5wTDEKc6ixkZBuNpkfRewNeduNL5tpXEgkLTzZyD39MguzKvA4bx+VuerVgnCRXxpLvGhunTZ
-	vGIZLfvG0XBbVKGZVeLWdz9gDW0ikSxZ7vq3RbknipkU5fObxxwHWkTtqDGUGILeMEUD8HjL2CbvN
-	/+vXvAyB7IVe45iggNV2PuC/jzy+KKNZ1fxWoMAt4qrsKVBgJWoVUZmjB85wKpBORljwVlk4ZMGq7
-	YBubu9yw==;
+	bh=4DsAsZ47Hy1YLfVUDttBLQyIVj8duDK0V23RicKiO8s=; b=EoCWVrDOfmOE9xR61e8Yiyunuj
+	gktNH8t7Rk4jLLlxeGd1uz1omoGGI12lgHFrrm40BX1FL01geRip6Zc20NuwWsCfDcSNlPIqx+27K
+	4wr5kOytA4dEYjIQjEwEVOlZ+ZUOUUmA0Esaul5xnqw0WvVi0rQSFqGYjuVdVhGOLG05z+5vKqKYl
+	q+JwU7MKuj35k8bk7cozW5FO5HAVEKDUE4DNkN02JfoKS6Pu7P/EuLPmhaDKK8LO1TQ1/lJcBtE81
+	1w52oEBfmOrwAlDldNSKRpYTVGHlGjQBLaBMPdftcxzQLc1lYrQAkZ2mYKS4fNpXhpl2JrIM+L7vM
+	G5dV0n3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwKsi-00000009tb5-3Hm2;
-	Sat, 28 Feb 2026 14:01:20 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1vwKt4-00000009tfY-0PZ1;
+	Sat, 28 Feb 2026 14:01:42 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwKsf-00000009taO-45Zf
+	id 1vwKt1-00000009tes-2zTy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 14:01:19 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4836f363ad2so34466815e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 06:01:17 -0800 (PST)
+	Sat, 28 Feb 2026 14:01:40 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4838c15e3cbso25946275e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 06:01:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1772287276; x=1772892076; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1772287298; x=1772892098; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=RS6B8HKz3lfStaChpHPRyrCXmTOfflogCUXEfzC9Seg=;
-        b=NrvVzIyLEhdePBFTTjyYFIB1wky3/qBHBlPO9gXDWqS7A5qUJ7q9mw9Sb/gascFWLP
-         jks5NMoGUlT6/Df+QH1dyRa/NxzPhoupcS74LkjTi0ZE92iYNbgIilA8YXDgLXFwvmVv
-         nHy8uBnMmSDPJt2vGpvk6hhYSwY3qmlSLtB0HijWfBXDdeKwHMVqQWPZHXk9QRIKWzuJ
-         LhoHPKX12YZN/srWyJw39usePACrTpnPlXA6AfNjA0PU60JfVOpAph+IZCvT2CUHJMjq
-         GP+93yr5ikC73ouSoxmMUwgZL5yhkpRt3SEPPMefomK66kNfaa3smnRYrQB2Ode5H4r/
-         xHnw==
+        bh=4DsAsZ47Hy1YLfVUDttBLQyIVj8duDK0V23RicKiO8s=;
+        b=lzNhpMeUgSYgIiar7w/6ZfsZn+ikoxxvi90eRE0x/knOkChohHOPXrCs/058qXUQbY
+         AWMIeBpzvyyqapH75B6l+yJQQ3qD0vwRnRem3J8lH5YXzVm7w7GejMg/hLHXRvX0FJXn
+         p7gpScZMB+hRygXAI3O7cQRqBJIfvGClA2RzlA6nu2MHVLE3CCrv78h5GHIlaqHt4YoR
+         SvnRFZUsmnInFmMIo9PYj/mjGbIDZMa0XoStNRlwpfJh+mtW433xbJNMMj51P5mzjYyG
+         j3nsiK5S+Ik6c2TLsu5JXB2yXkb0qiNTJO+ca2hE6vA/ZS38jx+Ng9XP96rBihSrla3X
+         RrwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772287276; x=1772892076;
+        d=1e100.net; s=20230601; t=1772287298; x=1772892098;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RS6B8HKz3lfStaChpHPRyrCXmTOfflogCUXEfzC9Seg=;
-        b=UFq1X+94CklnHp2oK+M5vMocW543vqsdFxXInX456/sP/Mnf3XB4Brugtlb/XvgbJp
-         TCagh6CvONDr4JzREH9ajI9EiiYz77aHjKKvPrBG48usMpsPIlJKFFwZlbSwAv3CRsm6
-         +TF5QZHdQW6ZOKBaomjVUp4LRAWFXyjZPJJLDMXs2owp5WCXNq0KSQQcMuab5TBjk9SM
-         CK/U7P+RLLWzhSdDXAzK341t3GC+lCE9Cdy+e+DMYWkOVZHml8NsqWDYE+1BUqyLegIW
-         UEPjncn3jrIiX7R7UIug12nvdq7XfHxLVvds1dtfMxF7f4eKhRTlV/lHobb7WH+KYBP9
-         1ofw==
-X-Forwarded-Encrypted: i=1; AJvYcCXIYS5Ecdq+bWpKLpATE6lK+BzH5NSZzC061TYTHPkTkJ4eLkfZaP1MJeGvk74SO8SWDYKT2pY31sk7XgaNmhjt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJyMS3BLJoukVoXKbgZerS5k8IIuOqYAlGKKydUYGSkJmUt0cW
-	cl7JrOPZNu+tNfPCVcZk4xxMTw6PHrivAOqs39gS6+vfnU49lr/JoEFiTs+FrHdSWDg=
-X-Gm-Gg: ATEYQzw8U4cDCkc65q1ZLRVSMAD7uvSgrVITr2CDc3b9rgT8Qo6J6iIY0pGKhZcptFm
-	zT792reIbMd7wi8qz3joUBgOmHxG5xNaQc99wFFNeiStTTnajJ35riTz2pqJ2cvtoBaWU7SqAHU
-	eIyK017IahuuQgzoru975Gqk2+P4WXsONk4XLe3x3+Jdg5OWsZkzvPNAAUNwjBpYdFFuPqmwPzV
-	ZtbNa16Ay5DZV/xKc2/IT77holtzgWOu+h4ziZCumpHO4IFWfyqFSQ9BDLtrVDD3DlTpFUYUZMx
-	t46nC73Qo6tVHfnEMSoEjzRdx0VIaUAjTFFc0TA1ZIxswSeRz1ndsS24VEiBcHzW+S4Kpgp1C/K
-	PUzAYkcs2Zu2ILshZl/L2VvmuVi7ktKJZ22sd6w/MxZOgUEU4EwdnRb4T9QBIGz36p85kKAa0wj
-	doS2mAhpmmNDAMKu77Iw2n38dstV+WK2bCaw9fCBkO
-X-Received: by 2002:a05:600c:3108:b0:483:709e:f238 with SMTP id 5b1f17b1804b1-483c9c1d177mr99483705e9.29.1772287275961;
-        Sat, 28 Feb 2026 06:01:15 -0800 (PST)
+        bh=4DsAsZ47Hy1YLfVUDttBLQyIVj8duDK0V23RicKiO8s=;
+        b=Sr+nDlTrufdeRiyjaEnANa/9jEgFqucdQbpuCp9cJXlnL0vPR0OXFGqS/TK0qnfMlU
+         AExPZmGIkLL7PwxHwYIZm/NCIdERylDU5v32xvg2j+MdPvOp/bb7DB4UO5hazPFXBEUj
+         kEIoxE8ZwRFctvdUpd9NG/AmKMoOREiqg/TfVRer/yb2d/be2hU6oBU48wPO/7NjnWy+
+         lE36l8cxkMMOlJCh95oVyFgd3QbUbupyRmsv5GE3GA5uWuYlNEon+NXVxbPVcYjhpjOu
+         ww6/2Up6klWPbpqO/yXo+8yVate9BCDLI7NpUmXa+wHu3VUsqY9UXsxGOWPt5Ww1AZTo
+         YaEw==
+X-Forwarded-Encrypted: i=1; AJvYcCUuNZyTe8Qrrs/pnsZG/qhDXvj+asxzOMQ3Yalt+MHpwMQDPDLFUnMAJpfm9cw8h8EZLo//tsWbZt1rPy08hEGW@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywc3Ooa1JcvEMLxFqotOCyX4uFs1okZ8Y36A9OktuQ07wEje78v
+	ZgatOWxtjE1eAtszZczYrFMhGa1CQAEqYqa2H6BBxmbj0hXx2P1ceKUNLjvc3q8J3Ko=
+X-Gm-Gg: ATEYQzxAA7jmqsazBt25KqgQxRxmot2pU7Ophf9uWLJEdQXuleR9DXJUOs4AcY8Ds5C
+	LiyN6ZWN97C1qMTRVtjBMSH3v1xZjGGOVnW0crj2XBsotl1hdgCffe8HY/KY6t5dqqYRu7GVaJ0
+	+Fjw5I7J/f/5QlQF0RP8iQ1GyyIB3gEhDP9EHeSgHpBlzG36InXqqY7yMUVeG/QwtULYG5LV28B
+	/bGhRcZ4r8MIR5KNXC3T+T70lV1nZEg7vZ8TUiXrTLMb4XqQQMKmG0jUVjYoSaX+Yd7L5LThIq4
+	RCYra+m7KpevEE6W4f4gSwQq8FoGCTJBoOzMFHDBeDvVRrNRmGZ5MFQ+HztITJkke17kdQyhH9v
+	fF94tnpXBe8maTlvML4u/DV6thInDTy+cnvUs8n2T5PWzbvvXeZ6jNAcrwETud9G6M4SLSI+kxZ
+	vIyaGEe2pE+YxaNqXA3oKzJ/M1gjsi6Ppu/oWtjXuk
+X-Received: by 2002:a05:600c:3110:b0:480:2521:4d92 with SMTP id 5b1f17b1804b1-483c9c23ffbmr100960715e9.24.1772287297776;
+        Sat, 28 Feb 2026 06:01:37 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.73])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd765604sm246812765e9.15.2026.02.28.06.01.14
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bfb84e4fsm81020975e9.8.2026.02.28.06.01.35
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Feb 2026 06:01:15 -0800 (PST)
-Message-ID: <0e2b745b-c76d-4b53-b5fc-9991c943e603@tuxon.dev>
-Date: Sat, 28 Feb 2026 16:01:13 +0200
+        Sat, 28 Feb 2026 06:01:36 -0800 (PST)
+Message-ID: <49e7865b-f1e4-4e7f-88a3-31f2b05c9072@tuxon.dev>
+Date: Sat, 28 Feb 2026 16:01:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] ARM: dts: microchip: sama7d65: add LCD controller
+Subject: Re: [PATCH 4/6] ARM: configs: at91: sama7: enable DRM hlcdc support
 To: Manikandan Muralidharan <manikandan.m@microchip.com>,
  andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
  Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
@@ -88,15 +88,16 @@ To: Manikandan Muralidharan <manikandan.m@microchip.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Ryan Wanner <Ryan.Wanner@microchip.com>
 References: <20260225085430.480052-1-manikandan.m@microchip.com>
- <20260225085430.480052-2-manikandan.m@microchip.com>
+ <20260225085430.480052-5-manikandan.m@microchip.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260225085430.480052-2-manikandan.m@microchip.com>
+In-Reply-To: <20260225085430.480052-5-manikandan.m@microchip.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_060118_661254_A2BA06BC 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20260228_060139_770383_5FDAB79A 
+X-CRM114-Status: UNSURE (   5.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,61 +115,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 2/25/26 10:54, Manikandan Muralidharan wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> From: Ryan Wanner<Ryan.Wanner@microchip.com>
 > 
-> Add support for LCD controller node
+> Add configs for DRM Atmel LCD Controller, Backlight and Simple Panel
 > 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-> ---
->   arch/arm/boot/dts/microchip/sama7d65.dtsi | 26 +++++++++++++++++++++++
->   1 file changed, 26 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> index e21556f46384..b2fe76115aec 100644
-> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> @@ -278,6 +278,32 @@ sdmmc1: mmc@e1208000 {
->   			status = "disabled";
->   		};
->   
-> +		xlcdc: lcd-controller@e1400000{
-
-Missing a space here -------------------------^
-
-I can adjust it while applying.
-
-Other than that:
+> Signed-off-by: Ryan Wanner<Ryan.Wanner@microchip.com>
+> Signed-off-by: Manikandan Muralidharan<manikandan.m@microchip.com>
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-
-> +			compatible = "microchip,sama7d65-xlcdc";
-> +			reg = <0xe1400000 0x2000>;
-> +			interrupts = <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 56>, <&pmc PMC_TYPE_GCK 56>, <&clk32k 1>;
-> +			clock-names = "periph_clk", "sys_clk", "slow_clk";
-> +			status = "disabled";
-> +
-> +			display-controller {
-> +				compatible = "atmel,hlcdc-display-controller";
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +				};
-> +			};
-> +
-> +			pwm {
-> +				compatible = "atmel,hlcdc-pwm";
-> +				#pwm-cells = <3>;
-> +			};
-> +		};
-> +
->   		aes: crypto@e1600000 {
->   			compatible = "microchip,sama7d65-aes", "atmel,at91sam9g46-aes";
->   			reg = <0xe1600000 0x100>;
-
 
